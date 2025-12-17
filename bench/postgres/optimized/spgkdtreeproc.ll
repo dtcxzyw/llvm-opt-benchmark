@@ -423,8 +423,8 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr noundef readonly captu
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.spg_kd_inner_consistent) #8
   unreachable
 
-select.unfold:                                    ; preds = %107, %95, %81, %71, %64, %54, %41, %33, %93, %105, %52, %62
-  %.2 = phi i32 [ %53, %52 ], [ %63, %62 ], [ %94, %93 ], [ %106, %105 ], [ %37, %33 ], [ %44, %41 ], [ %56, %54 ], [ %66, %64 ], [ %76, %71 ], [ %85, %81 ], [ %99, %95 ], [ %111, %107 ]
+select.unfold:                                    ; preds = %71, %64, %95, %54, %41, %33, %107, %81, %93, %105, %52, %62
+  %.2 = phi i32 [ %53, %52 ], [ %106, %105 ], [ %63, %62 ], [ %94, %93 ], [ %66, %64 ], [ %85, %81 ], [ %111, %107 ], [ %37, %33 ], [ %44, %41 ], [ %56, %54 ], [ %99, %95 ], [ %76, %71 ]
   %120 = icmp eq i32 %.2, 0
   br i1 %120, label %.thread132, label %.thread
 
@@ -432,8 +432,8 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
   store i32 0, ptr %8, align 8
   br label %208
 
-.thread:                                          ; preds = %107, %95, %81, %71, %64, %54, %41, %33, %77, %67, %38, %30, %select.unfold
-  %.2131 = phi i32 [ %.2, %select.unfold ], [ %.0105143, %30 ], [ %.0105143, %38 ], [ %.0105143, %67 ], [ %.0105143, %77 ], [ %.0105143, %33 ], [ %.0105143, %41 ], [ %.0105143, %54 ], [ %.0105143, %64 ], [ %.0105143, %71 ], [ %.0105143, %81 ], [ %.0105143, %95 ], [ %.0105143, %107 ]
+.thread:                                          ; preds = %71, %67, %64, %95, %54, %41, %38, %77, %33, %30, %107, %81, %select.unfold
+  %.2131 = phi i32 [ %.2, %select.unfold ], [ %.0105143, %81 ], [ %.0105143, %107 ], [ %.0105143, %30 ], [ %.0105143, %33 ], [ %.0105143, %77 ], [ %.0105143, %38 ], [ %.0105143, %41 ], [ %.0105143, %54 ], [ %.0105143, %95 ], [ %.0105143, %64 ], [ %.0105143, %67 ], [ %.0105143, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !9

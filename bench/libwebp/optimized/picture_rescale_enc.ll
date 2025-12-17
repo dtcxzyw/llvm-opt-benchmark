@@ -108,7 +108,7 @@ define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly captures(addres
   br label %77
 
 77:                                               ; preds = %61, %52, %11, %7, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 0, %7 ], [ 1, %11 ], [ 1, %52 ], [ 1, %61 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %2 ], [ 0, %7 ], [ 1, %11 ], [ 1, %52 ], [ 1, %61 ]
   ret i32 %.0
 }
 
@@ -264,8 +264,8 @@ AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %61, %68
   store i32 %.sink, ptr %78, align 8, !tbaa !4
   br label %AdjustAndCheckRectangle.exit.thread
 
-AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %15, %12, %SnapTopLeftPosition.exit.i, %30, %AdjustAndCheckRectangle.exit, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %12 ], [ 0, %15 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
+AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %12, %SnapTopLeftPosition.exit.i, %15, %30, %AdjustAndCheckRectangle.exit, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %15 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %12 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -415,8 +415,8 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false), !tbaa.struct !3
   br label %AdjustAndCheckRectangle.exit.thread
 
-AdjustAndCheckRectangle.exit.thread:              ; preds = %14, %11, %SnapTopLeftPosition.exit.i, %AdjustAndCheckRectangle.exit, %5, %101, %26
-  %.0 = phi i32 [ 1, %101 ], [ %29, %26 ], [ 0, %5 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %11 ], [ 0, %14 ]
+AdjustAndCheckRectangle.exit.thread:              ; preds = %11, %SnapTopLeftPosition.exit.i, %14, %AdjustAndCheckRectangle.exit, %5, %101, %26
+  %.0 = phi i32 [ 0, %5 ], [ 1, %101 ], [ %29, %26 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 0, %14 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -747,7 +747,7 @@ AlphaMultiplyY.exit73:                            ; preds = %139, %136, %.loopex
   br label %187
 
 187:                                              ; preds = %3, %AlphaMultiplyY.exit73, %180, %150, %134, %63, %38, %26, %18
-  %.047 = phi i32 [ %151, %150 ], [ 1, %AlphaMultiplyY.exit73 ], [ %181, %180 ], [ %39, %38 ], [ %135, %134 ], [ %64, %63 ], [ %29, %26 ], [ %19, %18 ], [ 0, %3 ]
+  %.047 = phi i32 [ %19, %18 ], [ %151, %150 ], [ 1, %AlphaMultiplyY.exit73 ], [ %181, %180 ], [ %39, %38 ], [ %135, %134 ], [ %64, %63 ], [ %29, %26 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.047
 }

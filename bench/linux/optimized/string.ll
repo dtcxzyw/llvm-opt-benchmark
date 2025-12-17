@@ -1109,7 +1109,7 @@ define dso_local ptr @strstr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %71, label %.loopexit, label %.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %68, %63, %44, %.loopexit7.us, %48, %17, %8
-  %72 = phi ptr [ %0, %8 ], [ null, %17 ], [ %25, %48 ], [ null, %44 ], [ %25, %.loopexit7.us ], [ %55, %63 ], [ null, %68 ]
+  %72 = phi ptr [ %0, %8 ], [ null, %17 ], [ %55, %63 ], [ %25, %48 ], [ %25, %.loopexit7.us ], [ null, %44 ], [ null, %68 ]
   ret ptr %72
 }
 
@@ -1217,7 +1217,7 @@ define dso_local ptr @strnstr(ptr noundef readonly captures(ret: address, proven
   br i1 %65, label %.loopexit, label %.split, !llvm.loop !41
 
 .loopexit:                                        ; preds = %62, %57, %38, %.loopexit7.us, %42, %14, %9
-  %66 = phi ptr [ %0, %9 ], [ null, %14 ], [ %19, %42 ], [ null, %38 ], [ %19, %.loopexit7.us ], [ %49, %57 ], [ null, %62 ]
+  %66 = phi ptr [ %0, %9 ], [ null, %14 ], [ %49, %57 ], [ %19, %42 ], [ %19, %.loopexit7.us ], [ null, %38 ], [ null, %62 ]
   ret ptr %66
 }
 
@@ -1367,7 +1367,7 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %78, label %.loopexit, label %.preheader11, !llvm.loop !43
 
 .loopexit:                                        ; preds = %59, %.preheader14, %75, %.preheader11, %13, %.preheader, %.loopexit18, %39, %6
-  %79 = phi ptr [ %29, %39 ], [ null, %6 ], [ null, %.loopexit18 ], [ null, %13 ], [ %10, %.preheader ], [ null, %75 ], [ %72, %.preheader11 ], [ null, %59 ], [ %56, %.preheader14 ]
+  %79 = phi ptr [ %29, %39 ], [ null, %6 ], [ null, %.loopexit18 ], [ %72, %.preheader11 ], [ %10, %.preheader ], [ null, %13 ], [ null, %75 ], [ null, %59 ], [ %56, %.preheader14 ]
   ret ptr %79
 }
 

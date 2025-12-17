@@ -410,7 +410,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %11
   br i1 %exitcond61.not, label %.lr.ph.i, label %.lr.ph.split.us.split, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %125, %50, %34, %19
-  %.031.lcssa = phi i32 [ 0, %19 ], [ %.1.us.us, %34 ], [ %.1.us, %50 ], [ %.1, %125 ]
+  %.031.lcssa = phi i32 [ 0, %19 ], [ %.1.us, %50 ], [ %.1.us.us, %34 ], [ %.1, %125 ]
   %52 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !6
   %53 = load ptr, ptr %7, align 8, !tbaa !6
   invoke void %52(ptr noundef %53)

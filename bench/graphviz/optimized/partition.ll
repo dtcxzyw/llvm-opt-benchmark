@@ -841,7 +841,7 @@ inside_polygon.exit:                              ; preds = %103
   %108 = fcmp ogt double %106, %107
   br i1 %108, label %inside_polygon.exit.thread68.loopexit, label %inside_polygon.exit.thread
 
-inside_polygon.exit.thread:                       ; preds = %85, %89, %103, %73, %66, %inside_polygon.exit
+inside_polygon.exit.thread:                       ; preds = %85, %89, %73, %66, %103, %inside_polygon.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %exitcond.not, label %inside_polygon.exit.thread68.loopexit, label %66, !llvm.loop !65

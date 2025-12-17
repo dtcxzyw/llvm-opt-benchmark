@@ -628,7 +628,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i: ; preds = %2
   br label %"_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h265c7c2a39b7fdd6E.exit"
 
 "_ZN58_$LT$toml_edit..repr..Repr$u20$as$u20$core..fmt..Debug$GT$3fmt17h265c7c2a39b7fdd6E.exit": ; preds = %16, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i
-  %.sroa.0.0.in.i.i = phi i1 [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i ], [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i ], [ %21, %16 ]
+  %.sroa.0.0.in.i.i = phi i1 [ %28, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22.i.i ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17.i.i ], [ %21, %16 ]
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -646,23 +646,23 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load i32, ptr %4, align 8, !alias.scope !73, !noalias !78, !noundef !3
   %6 = and i32 %5, 33554432
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i"
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = and i32 %5, 67108864
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %13
+  br i1 %10, label %13, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i"
 
-11:                                               ; preds = %8
-  %12 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9a4f8e29c7e526f3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17hc08374d1f02bcbbeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %12, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79d8c3838669651cE.exit", label %16
 
 13:                                               ; preds = %8
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17hde877d4dd6252471E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9a4f8e29c7e526f3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %14, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79d8c3838669651cE.exit", label %16
 
-"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i": ; preds = %2
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17hc08374d1f02bcbbeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i": ; preds = %8
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17hde877d4dd6252471E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br i1 %15, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79d8c3838669651cE.exit", label %16
 
 16:                                               ; preds = %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i", %13, %11
@@ -699,7 +699,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79d8c3838669651cE.exit"
 
 "_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h79d8c3838669651cE.exit": ; preds = %11, %13, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i", %16, %29, %31, %33
-  %.sroa.0.0.i = phi i1 [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i" ], [ true, %11 ], [ true, %13 ], [ true, %16 ], [ %32, %31 ], [ %34, %33 ], [ %30, %29 ]
+  %.sroa.0.0.i = phi i1 [ %30, %29 ], [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h0cbf09c9eaa03d71E.exit.i" ], [ true, %16 ], [ true, %13 ], [ true, %11 ], [ %32, %31 ], [ %34, %33 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -1176,7 +1176,7 @@ _ZN5salsa4loom4sync7Condvar4wait17h8f9d65ac6a927c06E.exit: ; preds = %28, %22
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$usize$GT$$GT$17h4af1e2eb7c12e70cE.exit4": ; preds = %36, %32, %49, %53
-  %eh.lpad-body6 = phi { ptr, i32 } [ %50, %53 ], [ %50, %49 ], [ %33, %32 ], [ %33, %36 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %50, %49 ], [ %50, %53 ], [ %33, %32 ], [ %33, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 49:                                               ; preds = %40, %26
@@ -1661,7 +1661,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %14, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17
-  %.sroa.0.0.in = phi i1 [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %18, %14 ]
+  %.sroa.0.0.in = phi i1 [ %23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit22 ], [ %20, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit17 ], [ %18, %14 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2275,11 +2275,11 @@ _ZN8smallvec10deallocate17h72a8180d1026d023E.exit.i: ; preds = %45
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #25
   unreachable
 
-50:                                               ; preds = %21, %25, %27, %31
+50:                                               ; preds = %25, %21, %27, %31
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.35fae172b15448b848af16c19885cbac.109, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.35fae172b15448b848af16c19885cbac.110) #25
   unreachable
 
-_ZN8smallvec10infallible17h6de7e16f18661ba3E.exit: ; preds = %19, %37, %_ZN8smallvec10deallocate17h72a8180d1026d023E.exit.i, %20
+_ZN8smallvec10infallible17h6de7e16f18661ba3E.exit: ; preds = %_ZN8smallvec10deallocate17h72a8180d1026d023E.exit.i, %20, %19, %37
   ret void
 
 51:                                               ; preds = %9, %1
@@ -2813,7 +2813,7 @@ _ZN7ty_test9assertion17UnparsedAssertion12from_comment17h899834775f924833E.exit:
   store i32 %24, ptr %.sroa.5.0..sroa_idx, align 4
   br label %112
 
-110:                                              ; preds = %48, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17hdd88a55773f94bb5E.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17hdd88a55773f94bb5E.exit.thread.i", %106
+110:                                              ; preds = %48, %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17hdd88a55773f94bb5E.exit.thread.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17hdd88a55773f94bb5E.exit.i", %106
   %111 = icmp eq ptr %21, %9
   br i1 %111, label %._crit_edge, label %19
 
@@ -3462,10 +3462,10 @@ _ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit117.i
 187:                                              ; preds = %._crit_edge.thread.i.i, %189, %182, %184
   ret void
 
-._crit_edge.thread.i.i:                           ; preds = %40, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i, %30, %128, %16, %._crit_edge.i.i, %175, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i, %41
-  %.sroa.14.0.ph = phi ptr [ inttoptr (i64 6 to ptr), %41 ], [ %39, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ %177, %175 ], [ null, %._crit_edge.i.i ], [ null, %16 ], [ inttoptr (i64 5 to ptr), %40 ], [ inttoptr (i64 4 to ptr), %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ], [ inttoptr (i64 3 to ptr), %30 ], [ inttoptr (i64 2 to ptr), %128 ]
-  %.sroa.32.0.ph = phi i64 [ undef, %41 ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ %168, %175 ], [ undef, %._crit_edge.i.i ], [ undef, %16 ], [ undef, %128 ], [ undef, %30 ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ], [ undef, %40 ]
-  %.sroa.28.0.ph = phi i64 [ undef, %41 ], [ %38, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ %176, %175 ], [ undef, %._crit_edge.i.i ], [ undef, %16 ], [ undef, %128 ], [ undef, %30 ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ], [ undef, %40 ]
+._crit_edge.thread.i.i:                           ; preds = %128, %30, %40, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i, %16, %._crit_edge.i.i, %175, %41, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i
+  %.sroa.14.0.ph = phi ptr [ null, %16 ], [ %177, %175 ], [ %39, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ inttoptr (i64 6 to ptr), %41 ], [ null, %._crit_edge.i.i ], [ inttoptr (i64 2 to ptr), %128 ], [ inttoptr (i64 3 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %40 ], [ inttoptr (i64 4 to ptr), %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ]
+  %.sroa.32.0.ph = phi i64 [ undef, %16 ], [ %168, %175 ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ undef, %41 ], [ undef, %._crit_edge.i.i ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ], [ undef, %40 ], [ undef, %30 ], [ undef, %128 ]
+  %.sroa.28.0.ph = phi i64 [ undef, %16 ], [ %176, %175 ], [ %38, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit.i.i ], [ undef, %41 ], [ undef, %._crit_edge.i.i ], [ undef, %_ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit103.i.i ], [ undef, %40 ], [ undef, %30 ], [ undef, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !279
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.14.0.ph, ptr %188, align 8
@@ -3664,7 +3664,7 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %13
   br i1 %.not12, label %26, label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23
 
 20:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit28, %26, %2
-  %.sroa.0.0 = phi i1 [ true, %2 ], [ false, %26 ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit28 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23 ]
+  %.sroa.0.0 = phi i1 [ true, %2 ], [ false, %26 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %33, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit28 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23 ]
   ret i1 %.sroa.0.0
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit23: ; preds = %18

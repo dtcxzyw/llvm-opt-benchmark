@@ -2612,7 +2612,7 @@ _ZNK9btVector3neERKS_.exit.i364:                  ; preds = %533
   br i1 %541, label %.loopexit, label %513
 
 .loopexit:                                        ; preds = %513, %514, %519, %527, %533, %_ZNK9btVector3neERKS_.exit.i364, %496, %500, %.preheader.i359
-  %.ph = phi i1 [ true, %.preheader.i359 ], [ false, %500 ], [ false, %496 ], [ false, %519 ], [ false, %527 ], [ false, %533 ], [ false, %514 ], [ false, %_ZNK9btVector3neERKS_.exit.i364 ], [ true, %513 ]
+  %.ph = phi i1 [ true, %.preheader.i359 ], [ false, %496 ], [ false, %500 ], [ false, %_ZNK9btVector3neERKS_.exit.i364 ], [ false, %514 ], [ false, %533 ], [ false, %527 ], [ false, %519 ], [ true, %513 ]
   %542 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %543 = load ptr, ptr %542, align 8, !tbaa !22
   %.not.i.i.i.i = icmp ne ptr %543, null
@@ -2664,8 +2664,8 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK9btVector3neERKS_.exit.i, %468, %487, %481, %473, %453, %448, %_ZN15btReducedVectorD2Ev.exit
-  %562 = phi i1 [ %.ph, %_ZN15btReducedVectorD2Ev.exit ], [ false, %448 ], [ false, %453 ], [ false, %473 ], [ false, %481 ], [ false, %487 ], [ false, %468 ], [ false, %_ZNK9btVector3neERKS_.exit.i ]
+.critedge:                                        ; preds = %473, %481, %487, %468, %_ZNK9btVector3neERKS_.exit.i, %448, %453, %_ZN15btReducedVectorD2Ev.exit
+  %562 = phi i1 [ %.ph, %_ZN15btReducedVectorD2Ev.exit ], [ false, %453 ], [ false, %448 ], [ false, %_ZNK9btVector3neERKS_.exit.i ], [ false, %468 ], [ false, %487 ], [ false, %481 ], [ false, %473 ]
   %563 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %564 = load ptr, ptr %563, align 8, !tbaa !22
   %.not.i.i.i.i368 = icmp ne ptr %564, null
@@ -5817,7 +5817,7 @@ _ZNK9btVector3neERKS_.exit.i:                     ; preds = %486
   br i1 %494, label %_ZNK15btReducedVectoreqERKS_.exit, label %466
 
 _ZNK15btReducedVectoreqERKS_.exit:                ; preds = %_ZNK9btVector3neERKS_.exit.i, %486, %480, %472, %467, %466, %.preheader.i, %452, %447
-  %.013.i = phi i1 [ false, %447 ], [ false, %452 ], [ true, %.preheader.i ], [ true, %466 ], [ false, %_ZNK9btVector3neERKS_.exit.i ], [ false, %467 ], [ false, %486 ], [ false, %480 ], [ false, %472 ]
+  %.013.i = phi i1 [ false, %452 ], [ false, %447 ], [ true, %.preheader.i ], [ true, %466 ], [ false, %472 ], [ false, %480 ], [ false, %486 ], [ false, %467 ], [ false, %_ZNK9btVector3neERKS_.exit.i ]
   %495 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %496 = load ptr, ptr %495, align 8, !tbaa !22
   %.not.i.i.i.i = icmp ne ptr %496, null
@@ -7308,7 +7308,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #16
   resume { ptr, i32 } %.pn
 
@@ -9237,7 +9237,7 @@ _ZNK9btVector3neERKS_.exit.i:                     ; preds = %234
   br i1 %242, label %_ZNK15btReducedVectoreqERKS_.exit, label %214
 
 _ZNK15btReducedVectoreqERKS_.exit:                ; preds = %_ZNK9btVector3neERKS_.exit.i, %234, %228, %220, %215, %214, %.preheader.i, %200, %195
-  %.013.i = phi i1 [ false, %195 ], [ false, %200 ], [ true, %.preheader.i ], [ true, %214 ], [ false, %_ZNK9btVector3neERKS_.exit.i ], [ false, %215 ], [ false, %234 ], [ false, %228 ], [ false, %220 ]
+  %.013.i = phi i1 [ false, %200 ], [ false, %195 ], [ true, %.preheader.i ], [ true, %214 ], [ false, %220 ], [ false, %228 ], [ false, %234 ], [ false, %215 ], [ false, %_ZNK9btVector3neERKS_.exit.i ]
   %243 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %244 = load ptr, ptr %243, align 8, !tbaa !22
   %.not.i.i.i.i = icmp ne ptr %244, null

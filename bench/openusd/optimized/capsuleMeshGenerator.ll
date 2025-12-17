@@ -411,7 +411,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit104: ; preds = %191, %_ZNK32pxrInte
   ret void
 
 _ZNSt6vectorISt5arrayIfLm2EESaIS1_EED2Ev.exit:    ; preds = %.thread, %47
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %lpad.phi122, %.thread ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi122, %.thread ], [ %lpad.thr_comm.split-lp, %47 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -786,7 +786,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit104: ; preds = %171, %_ZNK32pxrInte
   ret void
 
 _ZNSt6vectorISt5arrayIdLm2EESaIS1_EED2Ev.exit:    ; preds = %.thread, %147
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %147 ], [ %lpad.phi122, %.thread ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi122, %.thread ], [ %lpad.thr_comm.split-lp, %147 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -229,7 +229,7 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge
 
-.backedge:                                        ; preds = %60, %.tail, %.tail30, %.thread42
+.backedge:                                        ; preds = %.tail30, %60, %.tail, %.thread42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %73 = load ptr, ptr %33, align 8, !tbaa !12

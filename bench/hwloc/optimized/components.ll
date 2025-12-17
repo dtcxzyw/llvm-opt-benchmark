@@ -530,7 +530,7 @@ define internal fastcc i32 @hwloc_phases_from_string(ptr noundef readonly captur
   br label %24
 
 24:                                               ; preds = %19, %17, %15, %13, %11, %9, %7, %5, %1, %21
-  %.0 = phi i32 [ %23, %21 ], [ -1, %1 ], [ 1, %5 ], [ 2, %7 ], [ 4, %9 ], [ 8, %11 ], [ 16, %13 ], [ 32, %15 ], [ 64, %17 ], [ %., %19 ]
+  %.0 = phi i32 [ 64, %17 ], [ %., %19 ], [ 32, %15 ], [ 16, %13 ], [ 8, %11 ], [ 4, %9 ], [ 2, %7 ], [ 1, %5 ], [ -1, %1 ], [ %23, %21 ]
   ret i32 %.0
 }
 
@@ -721,7 +721,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_disc_component_force_enable(ptr nounde
   br label %20
 
 20:                                               ; preds = %18, %14
-  %.016.i = phi i64 [ %17, %14 ], [ %19, %18 ]
+  %.016.i = phi i64 [ %19, %18 ], [ %17, %14 ]
   %.01724.i = load ptr, ptr @hwloc_disc_components, align 8, !tbaa !23
   %.not2225.i = icmp eq ptr %.01724.i, null
   br i1 %.not2225.i, label %.loopexit, label %.lr.ph.i
@@ -822,7 +822,7 @@ hwloc_backends_disable_all.exit:                  ; preds = %hwloc_backend_disab
   br label %61
 
 61:                                               ; preds = %hwloc_disc_component_find.exit, %47, %57, %54, %52, %.loopexit, %10
-  %.0 = phi i32 [ -1, %.loopexit ], [ -1, %10 ], [ %48, %52 ], [ %48, %54 ], [ %48, %57 ], [ %48, %47 ], [ -1, %hwloc_disc_component_find.exit ]
+  %.0 = phi i32 [ -1, %10 ], [ %48, %47 ], [ -1, %.loopexit ], [ %48, %52 ], [ %48, %54 ], [ %48, %57 ], [ -1, %hwloc_disc_component_find.exit ]
   ret i32 %.0
 }
 
@@ -992,7 +992,7 @@ hwloc_backend_disable.exit:                       ; preds = %36, %39
   br label %67
 
 67:                                               ; preds = %6, %9, %54, %hwloc_backend_disable.exit
-  %.027 = phi i32 [ -1, %hwloc_backend_disable.exit ], [ 0, %54 ], [ -1, %9 ], [ -1, %6 ]
+  %.027 = phi i32 [ 0, %54 ], [ -1, %hwloc_backend_disable.exit ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.027
 }
 
@@ -1113,7 +1113,7 @@ define hidden void @hwloc_disc_components_enable_others(ptr noundef %0) local_un
   br label %48
 
 48:                                               ; preds = %46, %42
-  %.016.i = phi i64 [ %45, %42 ], [ %47, %46 ]
+  %.016.i = phi i64 [ %47, %46 ], [ %45, %42 ]
   %.01724.i = load ptr, ptr @hwloc_disc_components, align 8, !tbaa !23
   %.not2225.i = icmp eq ptr %.01724.i, null
   br i1 %.not2225.i, label %.loopexit146, label %.lr.ph.i
@@ -1196,7 +1196,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   br i1 %.not114, label %.critedge135, label %25, !llvm.loop !84
 
 .critedge135:                                     ; preds = %._crit_edge185, %.preheader149, %.preheader147, %1, %3
-  %76 = phi ptr [ null, %3 ], [ null, %1 ], [ %4, %.preheader147 ], [ %4, %.preheader149 ], [ %4, %._crit_edge185 ]
+  %76 = phi ptr [ null, %1 ], [ null, %3 ], [ %4, %.preheader147 ], [ %4, %.preheader149 ], [ %4, %._crit_edge185 ]
   %.093163 = load ptr, ptr @hwloc_disc_components, align 8, !tbaa !23
   %.not123164 = icmp eq ptr %.093163, null
   br i1 %.not123164, label %.critedge.thread, label %.lr.ph166

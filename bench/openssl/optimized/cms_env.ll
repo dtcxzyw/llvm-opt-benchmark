@@ -195,7 +195,7 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %44, %31, %35, %2, %15, %46, %43, %29, %25, %21
-  %.1 = phi i32 [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ 0, %43 ], [ 0, %46 ], [ 0, %15 ], [ 0, %2 ], [ 1, %35 ], [ 1, %31 ], [ 1, %44 ], [ 0, %9 ]
+  %.1 = phi i32 [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ 0, %2 ], [ 0, %43 ], [ 0, %46 ], [ 1, %31 ], [ 0, %15 ], [ 1, %44 ], [ 1, %35 ], [ 0, %9 ]
   ret i32 %.1
 }
 
@@ -255,7 +255,7 @@ default.unreachable10:                            ; preds = %1
   unreachable
 
 17:                                               ; preds = %cms_get_enveloped_type.exit.thread, %14, %10, %7, %3
-  %.0 = phi ptr [ %9, %7 ], [ null, %3 ], [ %16, %14 ], [ null, %10 ], [ null, %cms_get_enveloped_type.exit.thread ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %9, %7 ], [ %16, %14 ], [ null, %cms_get_enveloped_type.exit.thread ]
   ret ptr %.0
 }
 
@@ -297,7 +297,7 @@ default.unreachable4:                             ; preds = %1
   unreachable
 
 13:                                               ; preds = %cms_get_enveloped_type.exit.thread, %8, %3
-  %.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ null, %cms_get_enveloped_type.exit.thread ]
+  %.0 = phi ptr [ %12, %8 ], [ %7, %3 ], [ null, %cms_get_enveloped_type.exit.thread ]
   ret ptr %.0
 }
 
@@ -340,7 +340,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 CMS_get0_RecipientInfos.exit:                     ; preds = %cms_get_enveloped_type.exit.thread.i, %4, %9
-  %.0.i = phi ptr [ %8, %4 ], [ %13, %9 ], [ null, %cms_get_enveloped_type.exit.thread.i ]
+  %.0.i = phi ptr [ %13, %9 ], [ %8, %4 ], [ null, %cms_get_enveloped_type.exit.thread.i ]
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %.0.i) #6
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -833,8 +833,8 @@ cms_RecipientInfo_ktri_init.exit.thread.sink.split: ; preds = %13, %17, %50, %52
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #6
   br label %cms_RecipientInfo_ktri_init.exit.thread
 
-cms_RecipientInfo_ktri_init.exit.thread:          ; preds = %cms_RecipientInfo_ktri_init.exit.thread.sink.split, %46, %43, %36, %24, %20, %48, %CMS_get0_RecipientInfos.exit
-  %.023 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %11, %48 ], [ %11, %20 ], [ %11, %24 ], [ %11, %36 ], [ %11, %43 ], [ %11, %46 ], [ %.023.ph, %cms_RecipientInfo_ktri_init.exit.thread.sink.split ]
+cms_RecipientInfo_ktri_init.exit.thread:          ; preds = %cms_RecipientInfo_ktri_init.exit.thread.sink.split, %46, %20, %43, %36, %24, %48, %CMS_get0_RecipientInfos.exit
+  %.023 = phi ptr [ null, %CMS_get0_RecipientInfos.exit ], [ %11, %24 ], [ %11, %36 ], [ %11, %43 ], [ %11, %20 ], [ %11, %46 ], [ %11, %48 ], [ %.023.ph, %cms_RecipientInfo_ktri_init.exit.thread.sink.split ]
   %53 = tail call ptr @CMS_RecipientInfo_it() #6
   tail call void @ASN1_item_free(ptr noundef %.023, ptr noundef %53) #6
   br label %54
@@ -901,7 +901,7 @@ define i32 @ossl_cms_pkey_get_ri_type(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %18, %10, %8, %6, %4, %1, %22
-  %.011 = phi i32 [ 0, %22 ], [ %21, %18 ], [ 1, %1 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ 0, %10 ]
+  %.011 = phi i32 [ %21, %18 ], [ 1, %1 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ 0, %22 ], [ 0, %10 ]
   ret i32 %.011
 }
 
@@ -1156,7 +1156,7 @@ CMS_get0_RecipientInfos.exit:                     ; preds = %9, %9
   br label %.thread.sink.split
 
 24:                                               ; preds = %21, %14, %15, %16
-  %.039 = phi i32 [ 789, %15 ], [ 790, %16 ], [ 788, %14 ], [ %1, %21 ]
+  %.039 = phi i32 [ 788, %14 ], [ 789, %15 ], [ 790, %16 ], [ %1, %21 ]
   %25 = tail call ptr @CMS_RecipientInfo_it() #6
   %26 = tail call ptr @ASN1_item_new(ptr noundef %25) #6
   %.not47 = icmp eq ptr %26, null
@@ -1451,7 +1451,7 @@ default.unreachable:                              ; preds = %96, %9
   unreachable
 
 ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, %cms_get_enveloped_type.exit.thread.i.i
-  %.0.i.i = phi ptr [ %24, %22 ], [ null, %18 ], [ %31, %29 ], [ null, %25 ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
+  %.0.i.i = phi ptr [ null, %25 ], [ null, %18 ], [ %24, %22 ], [ %31, %29 ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
   %32 = load ptr, ptr %12, align 8, !tbaa !16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -1578,7 +1578,7 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, 
   br label %cms_RecipientInfo_ktri_decrypt.exit
 
 cms_RecipientInfo_ktri_decrypt.exit:              ; preds = %34, %.thread59.i, %85, %93
-  %.0.i = phi i32 [ 0, %34 ], [ 0, %93 ], [ 1, %85 ], [ 0, %.thread59.i ]
+  %.0.i = phi i32 [ 0, %34 ], [ 0, %.thread59.i ], [ 0, %93 ], [ 1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %177
@@ -1688,7 +1688,7 @@ ossl_cms_get0_env_enc_content.exit.i12:           ; preds = %103, %99
   br label %cms_get_key_wrap_cipher.exit.i
 
 cms_get_key_wrap_cipher.exit.i:                   ; preds = %131, %130, %129
-  %.0.i51.i = phi ptr [ @.str.9, %130 ], [ @.str.10, %131 ], [ @.str.8, %129 ]
+  %.0.i51.i = phi ptr [ @.str.10, %131 ], [ @.str.9, %130 ], [ @.str.8, %129 ]
   %132 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %97) #6
   %133 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %97) #6
   %134 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %132, ptr noundef nonnull %.0.i51.i, ptr noundef %133) #6
@@ -1782,7 +1782,7 @@ cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_ci
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
 cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i17, %99, %103, %ossl_cms_get0_env_enc_content.exit.i12, %113, %122, %173
-  %.0.i15 = phi i32 [ 0, %122 ], [ %.03759.i, %173 ], [ 0, %113 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i12 ], [ 0, %99 ], [ 0, %103 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i17 ]
+  %.0.i15 = phi i32 [ 0, %113 ], [ 0, %122 ], [ %.03759.i, %173 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i12 ], [ 0, %103 ], [ 0, %99 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %177
@@ -1877,7 +1877,7 @@ default.unreachable:                              ; preds = %67, %11
   unreachable
 
 ossl_cms_get0_env_enc_content.exit.i:             ; preds = %26, %22, %19, %15, %cms_get_enveloped_type.exit.thread.i.i
-  %.0.i.i = phi ptr [ %21, %19 ], [ null, %15 ], [ %28, %26 ], [ null, %22 ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
+  %.0.i.i = phi ptr [ null, %22 ], [ null, %15 ], [ %21, %19 ], [ %28, %26 ], [ null, %cms_get_enveloped_type.exit.thread.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !72
   %.not33.i = icmp eq ptr %30, null
@@ -2023,7 +2023,7 @@ ossl_cms_get0_env_enc_content.exit.i14:           ; preds = %74, %70
   br label %cms_get_key_wrap_cipher.exit.i
 
 cms_get_key_wrap_cipher.exit.i:                   ; preds = %90, %89, %86
-  %.0.i40.i = phi ptr [ @.str.9, %89 ], [ @.str.10, %90 ], [ @.str.8, %86 ]
+  %.0.i40.i = phi ptr [ @.str.10, %90 ], [ @.str.9, %89 ], [ @.str.8, %86 ]
   %91 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %68) #6
   %92 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %68) #6
   %93 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %91, ptr noundef nonnull %.0.i40.i, ptr noundef %92) #6
@@ -2124,7 +2124,7 @@ cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_ci
   br label %cms_RecipientInfo_kekri_encrypt.exit
 
 cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i18, %70, %74, %ossl_cms_get0_env_enc_content.exit.i14, %85, %133
-  %.0.i17 = phi i32 [ 0, %85 ], [ %.03051.i, %133 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i14 ], [ 0, %70 ], [ 0, %74 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i18 ]
+  %.0.i17 = phi i32 [ %.03051.i, %133 ], [ 0, %85 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i14 ], [ 0, %74 ], [ 0, %70 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %137
@@ -2247,7 +2247,7 @@ cms_EnvelopedData_Decryption_init_bio.exit:       ; preds = %33, %39, %43, %.sin
   br label %cms_EnvelopedData_Encryption_init_bio.exit
 
 cms_EnvelopedData_Encryption_init_bio.exit:       ; preds = %.critedge.i, %cms_env_encrypt_content_key.exit.i, %11, %cms_EnvelopedData_Decryption_init_bio.exit
-  %.0 = phi ptr [ %.0.i5, %cms_EnvelopedData_Decryption_init_bio.exit ], [ null, %cms_env_encrypt_content_key.exit.i ], [ null, %11 ], [ %10, %.critedge.i ]
+  %.0 = phi ptr [ %.0.i5, %cms_EnvelopedData_Decryption_init_bio.exit ], [ null, %11 ], [ null, %cms_env_encrypt_content_key.exit.i ], [ %10, %.critedge.i ]
   ret ptr %.0
 }
 
@@ -2332,7 +2332,7 @@ cms_env_encrypt_content_key.exit:                 ; preds = %.lr.ph.i
   br label %46
 
 46:                                               ; preds = %.critedge, %18, %22, %cms_env_encrypt_content_key.exit
-  %.0 = phi ptr [ null, %cms_env_encrypt_content_key.exit ], [ %20, %22 ], [ null, %18 ], [ %20, %.critedge ]
+  %.0 = phi ptr [ null, %cms_env_encrypt_content_key.exit ], [ null, %18 ], [ %20, %22 ], [ %20, %.critedge ]
   ret ptr %.0
 }
 
@@ -2417,7 +2417,7 @@ ossl_cms_get0_enveloped.exit:                     ; preds = %2
   br label %34
 
 34:                                               ; preds = %ossl_cms_get0_enveloped.exit.thread, %ossl_cms_get0_enveloped.exit, %32, %31, %26, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 0, %31 ], [ 1, %32 ], [ 0, %ossl_cms_get0_enveloped.exit ], [ 0, %ossl_cms_get0_enveloped.exit.thread ]
+  %.0 = phi i32 [ 1, %32 ], [ 0, %12 ], [ 0, %26 ], [ 0, %31 ], [ 0, %ossl_cms_get0_enveloped.exit ], [ 0, %ossl_cms_get0_enveloped.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2558,7 +2558,7 @@ cms_env_set_originfo_version.exit:                ; preds = %27, %4, %.preheader
   br i1 %58, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph, %.lr.ph, %57, %54, %._crit_edge
-  %.sink = phi i32 [ 2, %._crit_edge ], [ 2, %54 ], [ 0, %57 ], [ 3, %.lr.ph ], [ 3, %.lr.ph ], [ 4, %.critedge.i ], [ %17, %.lr.ph.i ]
+  %.sink = phi i32 [ 2, %54 ], [ 2, %._crit_edge ], [ 0, %57 ], [ 4, %.critedge.i ], [ 3, %.lr.ph ], [ 3, %.lr.ph ], [ %17, %.lr.ph.i ]
   store i32 %.sink, ptr %0, align 8, !tbaa !64
   br label %59
 
@@ -2667,7 +2667,7 @@ define i32 @ossl_cms_pkey_is_ri_type_supported(ptr noundef %0, i32 noundef %1) l
   br label %20
 
 20:                                               ; preds = %14, %9, %17
-  %.1 = phi i32 [ %19, %17 ], [ %13, %9 ], [ 0, %14 ]
+  %.1 = phi i32 [ %13, %9 ], [ %19, %17 ], [ 0, %14 ]
   ret i32 %.1
 }
 

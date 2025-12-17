@@ -766,8 +766,8 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.thread:          ; preds = %_ZN4llvm8ExpectedIm
   br label %_ZN4llvm8ExpectedIjED2Ev.exit24
 
 _ZN4llvm8ExpectedIjEC2EOS1_.exit:                 ; preds = %26, %_ZN4llvm5ErrorD2Ev.exit, %._crit_edge
-  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.ext, %26 ], [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sroa.18.0 = phi i8 [ %10, %26 ], [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.032.0.insert.ext, %26 ]
+  %.sroa.18.0 = phi i8 [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ], [ %10, %26 ]
   %80 = trunc i8 %.sroa.18.0 to i1
   %.not.i.i21 = icmp ne i64 %.sroa.032.0, 0
   %or.cond.not = select i1 %80, i1 %.not.i.i21, i1 false
@@ -1710,10 +1710,10 @@ _ZN4llvm5ErrorD2Ev.exit139:                       ; preds = %_ZN4llvm21SimpleBit
   br label %_ZN4llvm5ErrorD2Ev.exit140
 
 _ZN4llvm5ErrorD2Ev.exit140:                       ; preds = %_ZN4llvm8ExpectedImED2Ev.exit133, %.preheader, %251, %223, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm5ErrorD2Ev.exit139, %_ZN4llvm8ExpectedImED2Ev.exit129, %_ZN4llvm5ErrorD2Ev.exit120, %_ZN4llvm5ErrorD2Ev.exit119, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116
-  %270 = phi i8 [ %202, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %242, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %249, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %269, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %221, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %159, %223 ], [ %159, %251 ], [ %159, %.preheader ], [ %159, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
-  %271 = phi ptr [ %201, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %241, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %248, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %268, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %222, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %160, %223 ], [ %160, %251 ], [ %160, %.preheader ], [ %160, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
-  %.253 = phi i32 [ %.051225, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %205, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %205, %223 ], [ %205, %251 ], [ %205, %.preheader ], [ %205, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
-  %.6 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit120 ], [ 1, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit139 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit119 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ 7, %223 ], [ 7, %251 ], [ 7, %.preheader ], [ 7, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
+  %270 = phi i8 [ %202, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %242, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %249, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %269, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %221, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %159, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %159, %223 ], [ %159, %251 ], [ %159, %.preheader ], [ %159, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
+  %271 = phi ptr [ %201, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %241, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %248, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %268, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %222, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %160, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %160, %223 ], [ %160, %251 ], [ %160, %.preheader ], [ %160, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
+  %.253 = phi i32 [ %.051225, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit120 ], [ %205, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit139 ], [ %205, %_ZN4llvm5ErrorD2Ev.exit119 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ %205, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ %205, %223 ], [ %205, %251 ], [ %205, %.preheader ], [ %205, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
+  %.6 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i116 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit120 ], [ 1, %_ZN4llvm8ExpectedImED2Ev.exit129 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit139 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit119 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread201 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138.thread205 ], [ 7, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit138 ], [ 7, %223 ], [ 7, %251 ], [ 7, %.preheader ], [ 7, %_ZN4llvm8ExpectedImED2Ev.exit133 ]
   %272 = load i8, ptr %150, align 8
   %273 = trunc i8 %272 to i1
   br i1 %273, label %274, label %_ZN4llvm8ExpectedIjED2Ev.exit145
@@ -1843,10 +1843,10 @@ _ZN4llvm8ExpectedIjED2Ev.exit161:                 ; preds = %324, %_ZNKSt14defau
   br label %329
 
 329:                                              ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit161, %_ZN4llvm8ExpectedIjED2Ev.exit145, %_ZN4llvm8ExpectedImED2Ev.exit114
-  %330 = phi i8 [ %196, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %270, %_ZN4llvm8ExpectedIjED2Ev.exit145 ], [ %320, %_ZN4llvm8ExpectedIjED2Ev.exit161 ]
-  %331 = phi ptr [ %195, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %271, %_ZN4llvm8ExpectedIjED2Ev.exit145 ], [ %321, %_ZN4llvm8ExpectedIjED2Ev.exit161 ]
-  %.152 = phi i32 [ %.051225, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %.253, %_ZN4llvm8ExpectedIjED2Ev.exit145 ], [ %.051225, %_ZN4llvm8ExpectedIjED2Ev.exit161 ]
-  %.4 = phi i32 [ %.5277, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %.6, %_ZN4llvm8ExpectedIjED2Ev.exit145 ], [ %.11, %_ZN4llvm8ExpectedIjED2Ev.exit161 ]
+  %330 = phi i8 [ %320, %_ZN4llvm8ExpectedIjED2Ev.exit161 ], [ %196, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %270, %_ZN4llvm8ExpectedIjED2Ev.exit145 ]
+  %331 = phi ptr [ %321, %_ZN4llvm8ExpectedIjED2Ev.exit161 ], [ %195, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %271, %_ZN4llvm8ExpectedIjED2Ev.exit145 ]
+  %.152 = phi i32 [ %.051225, %_ZN4llvm8ExpectedIjED2Ev.exit161 ], [ %.051225, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %.253, %_ZN4llvm8ExpectedIjED2Ev.exit145 ]
+  %.4 = phi i32 [ %.11, %_ZN4llvm8ExpectedIjED2Ev.exit161 ], [ %.5277, %_ZN4llvm8ExpectedImED2Ev.exit114 ], [ %.6, %_ZN4llvm8ExpectedIjED2Ev.exit145 ]
   switch i32 %.4, label %.loopexit [
     i32 0, label %.thread210
     i32 7, label %.thread210
@@ -3651,7 +3651,7 @@ _ZN4llvm15SmallVectorImplImE6appendIPKhvEEvT_S5_.exit: ; preds = %.lr.ph.i.i.i.i
   br label %637
 
 637:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit225, %_ZN4llvm5ErrorD2Ev.exit224, %_ZN4llvm15SmallVectorImplImE6appendIPKhvEEvT_S5_.exit, %618, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i220
-  %.12 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i220 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit225 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit224 ], [ 0, %_ZN4llvm15SmallVectorImplImE6appendIPKhvEEvT_S5_.exit ], [ 0, %618 ]
+  %.12 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i220 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit224 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit225 ], [ 0, %_ZN4llvm15SmallVectorImplImE6appendIPKhvEEvT_S5_.exit ], [ 0, %618 ]
   %638 = load i8, ptr %252, align 8
   %639 = trunc i8 %638 to i1
   br i1 %639, label %640, label %_ZN4llvm8ExpectedIjED2Ev.exit231
@@ -3673,8 +3673,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit231:                 ; preds = %640, %_ZNKSt14defau
   br label %645
 
 645:                                              ; preds = %_ZN4llvm8ExpectedImED2Ev.exit161, %_ZN4llvm8ExpectedIjED2Ev.exit231, %_ZN4llvm8ExpectedIjED2Ev.exit218
-  %.186 = phi i32 [ %.085335, %_ZN4llvm8ExpectedImED2Ev.exit161 ], [ %.287, %_ZN4llvm8ExpectedIjED2Ev.exit218 ], [ %.085335, %_ZN4llvm8ExpectedIjED2Ev.exit231 ]
-  %.4 = phi i32 [ %spec.store.select, %_ZN4llvm8ExpectedImED2Ev.exit161 ], [ %.6, %_ZN4llvm8ExpectedIjED2Ev.exit218 ], [ %.12, %_ZN4llvm8ExpectedIjED2Ev.exit231 ]
+  %.186 = phi i32 [ %.085335, %_ZN4llvm8ExpectedIjED2Ev.exit231 ], [ %.085335, %_ZN4llvm8ExpectedImED2Ev.exit161 ], [ %.287, %_ZN4llvm8ExpectedIjED2Ev.exit218 ]
+  %.4 = phi i32 [ %.12, %_ZN4llvm8ExpectedIjED2Ev.exit231 ], [ %spec.store.select, %_ZN4llvm8ExpectedImED2Ev.exit161 ], [ %.6, %_ZN4llvm8ExpectedIjED2Ev.exit218 ]
   switch i32 %.4, label %.loopexit304 [
     i32 0, label %646
     i32 7, label %646
@@ -4112,10 +4112,10 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63: ; preds = %_ZN4llvm1
   br label %167
 
 167:                                              ; preds = %_ZN4llvm8ExpectedImED2Ev.exit56, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34
-  %.sroa.491.2 = phi i64 [ %.sroa.491.0103, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.491.0103, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.491.0103, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ], [ %.sroa.491.3, %_ZN4llvm8ExpectedImED2Ev.exit56 ]
-  %.sroa.4.2 = phi i64 [ %.sroa.4.0104, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.4.0104, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.4.8.insert.insert, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ], [ %.sroa.4.0104, %_ZN4llvm8ExpectedImED2Ev.exit56 ]
-  %.sroa.494.2 = phi i64 [ %.sroa.494.0105, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.494.0105, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.494.0105, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ], [ %.sroa.494.3, %_ZN4llvm8ExpectedImED2Ev.exit56 ]
-  %.4 = phi i32 [ 1, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ 0, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ], [ %cond1, %_ZN4llvm8ExpectedImED2Ev.exit56 ]
+  %.sroa.491.2 = phi i64 [ %.sroa.491.0103, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.491.3, %_ZN4llvm8ExpectedImED2Ev.exit56 ], [ %.sroa.491.0103, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.491.0103, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ]
+  %.sroa.4.2 = phi i64 [ %.sroa.4.0104, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.4.0104, %_ZN4llvm8ExpectedImED2Ev.exit56 ], [ %.sroa.4.0104, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.4.8.insert.insert, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ]
+  %.sroa.494.2 = phi i64 [ %.sroa.494.0105, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %.sroa.494.3, %_ZN4llvm8ExpectedImED2Ev.exit56 ], [ %.sroa.494.0105, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ %.sroa.494.0105, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ]
+  %.4 = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i34 ], [ %cond1, %_ZN4llvm8ExpectedImED2Ev.exit56 ], [ 1, %_ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit ], [ 0, %_ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit63 ]
   %168 = load i8, ptr %32, align 8
   %169 = trunc i8 %168 to i1
   br i1 %169, label %170, label %_ZN4llvm8ExpectedImED2Ev.exit67
@@ -4489,7 +4489,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i: ; preds = %77
   br i1 %85, label %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread167, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread82, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread146
-  %.sroa.061.37377.ph = phi i64 [ %74, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread146 ], [ %79, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread82 ], [ %54, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
+  %.sroa.061.37377.ph = phi i64 [ %79, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i.thread82 ], [ %74, %_ZN4llvm15BitstreamCursor7advanceEj.exit.thread146 ], [ %54, %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i ]
   %86 = inttoptr i64 %.sroa.061.37377.ph to ptr
   %87 = load i8, ptr %33, align 8
   %88 = or i8 %87, 1
@@ -5007,8 +5007,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %_ZN4llvm18BitstreamBlockInfo20getOrCreateBlockInfoEj.exit
 
 _ZN4llvm18BitstreamBlockInfo20getOrCreateBlockInfoEj.exit: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIN4llvm18BitstreamBlockInfo9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i, %162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %147, %182, %233, %230, %179, %152, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25
-  %.315 = phi ptr [ %.012209, %152 ], [ null, %179 ], [ null, %230 ], [ %.012209, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ %.012209, %147 ], [ %.012209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.012209, %182 ], [ %.012209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %.012209, %233 ], [ %177, %_ZNSt6vectorIN4llvm18BitstreamBlockInfo9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ %163, %162 ], [ %.sroa.011.018.i.i, %.lr.ph.i.i ]
-  %cond = phi i1 [ false, %152 ], [ false, %179 ], [ false, %230 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ true, %147 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %182 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ true, %233 ], [ true, %_ZNSt6vectorIN4llvm18BitstreamBlockInfo9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ true, %162 ], [ true, %.lr.ph.i.i ]
+  %.315 = phi ptr [ %.012209, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ %.012209, %152 ], [ null, %179 ], [ null, %230 ], [ %.012209, %147 ], [ %.012209, %233 ], [ %.012209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.012209, %182 ], [ %.012209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %177, %_ZNSt6vectorIN4llvm18BitstreamBlockInfo9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ %163, %162 ], [ %.sroa.011.018.i.i, %.lr.ph.i.i ]
+  %cond = phi i1 [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i25 ], [ false, %152 ], [ false, %179 ], [ false, %230 ], [ true, %147 ], [ true, %233 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %182 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ true, %_ZNSt6vectorIN4llvm18BitstreamBlockInfo9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ true, %162 ], [ true, %.lr.ph.i.i ]
   %279 = load i8, ptr %39, align 8
   %280 = trunc i8 %279 to i1
   br i1 %280, label %281, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit
@@ -5030,7 +5030,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %281, %_ZNKSt14defau
   br i1 %cond, label %.backedge, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.thread
 
 .backedge:                                        ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %124, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit
-  %.113162 = phi ptr [ %.315, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.012209, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit ], [ %.012209, %124 ], [ %.012209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.012209, %139 ]
+  %.113162 = phi ptr [ %.012209, %139 ], [ %.315, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.012209, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit ], [ %.012209, %124 ], [ %.012209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ]
   %286 = load i32, ptr %25, align 8, !tbaa !68, !noalias !433
   %287 = icmp eq i32 %286, 0
   %288 = load i64, ptr %26, align 8, !noalias !433
@@ -5039,7 +5039,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %281, %_ZNKSt14defau
   %291 = select i1 %287, i1 %290, i1 false
   br i1 %291, label %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread167, label %_ZN4llvm15BitstreamCursor8ReadCodeEv.exit.i.lr.ph, !llvm.loop !457
 
-_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.thread: ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit20, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread180, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread167, %_ZN4llvm5ErrorD2Ev.exit21, %94
+_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.thread: ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread180, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread167, %_ZN4llvm5ErrorD2Ev.exit20, %_ZN4llvm5ErrorD2Ev.exit21, %94
   %292 = load ptr, ptr %11, align 8, !tbaa !29
   %293 = icmp eq ptr %292, %22
   br i1 %293, label %_ZN4llvm11SmallVectorImLj64EED2Ev.exit, label %294

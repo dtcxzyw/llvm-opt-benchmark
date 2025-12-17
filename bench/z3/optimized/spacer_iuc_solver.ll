@@ -1201,7 +1201,7 @@ define hidden noundef ptr @_ZN6spacer10iuc_solver11def_manager8mk_proxyEP4expr(p
   %40 = load ptr, ptr %39, align 8, !tbaa !194
   br label %71
 
-.loopexit14:                                      ; preds = %24, %38, %35, %.preheader.i.i.i
+.loopexit14:                                      ; preds = %24, %35, %38, %.preheader.i.i.i
   %41 = load ptr, ptr %0, align 8, !tbaa !43
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !8
@@ -2114,8 +2114,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread:  ; preds = %23, %37, %34, %.preheader.i.i.i, %_ZN11ast_manager7inc_refEP3ast.exit.i, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit
-  %43 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit ], [ false, %.preheader.i.i.i ], [ false, %34 ], [ false, %37 ], [ false, %23 ]
-  %.05 = phi ptr [ %39, %_ZN11ast_manager7inc_refEP3ast.exit.i ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit ], [ null, %.preheader.i.i.i ], [ null, %34 ], [ null, %37 ], [ null, %23 ]
+  %43 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i ], [ false, %.preheader.i.i.i ], [ false, %37 ], [ false, %34 ], [ false, %23 ]
+  %.05 = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit ], [ %39, %_ZN11ast_manager7inc_refEP3ast.exit.i ], [ null, %.preheader.i.i.i ], [ null, %37 ], [ null, %34 ], [ null, %23 ]
   %44 = load ptr, ptr %2, align 8, !tbaa !90
   %.not.i4.i = icmp eq ptr %44, null
   br i1 %.not.i4.i, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit, label %45
@@ -2977,8 +2977,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i84:        ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i78
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i78: ; preds = %135, %149, %146, %_ZN11ast_manager7inc_refEP3ast.exit.i.i84, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i81, %.preheader.i.i.i.i69
-  %155 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i84 ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i81 ], [ false, %.preheader.i.i.i.i69 ], [ false, %146 ], [ false, %149 ], [ false, %135 ]
-  %.05.i79 = phi ptr [ %151, %_ZN11ast_manager7inc_refEP3ast.exit.i.i84 ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i81 ], [ null, %.preheader.i.i.i.i69 ], [ null, %146 ], [ null, %149 ], [ null, %135 ]
+  %155 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i81 ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i84 ], [ false, %.preheader.i.i.i.i69 ], [ false, %149 ], [ false, %146 ], [ false, %135 ]
+  %.05.i79 = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i81 ], [ %151, %_ZN11ast_manager7inc_refEP3ast.exit.i.i84 ], [ null, %.preheader.i.i.i.i69 ], [ null, %149 ], [ null, %146 ], [ null, %135 ]
   %156 = load ptr, ptr %3, align 8, !tbaa !90
   %.not.i4.i.i80 = icmp eq ptr %156, null
   br i1 %.not.i4.i.i80, label %.noexc40, label %157
@@ -3086,8 +3086,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i: ; preds = %180, %194, %191, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i, %.preheader.i.i.i.i
-  %200 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ false, %.preheader.i.i.i.i ], [ false, %191 ], [ false, %194 ], [ false, %180 ]
-  %.05.i = phi ptr [ %196, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ null, %.preheader.i.i.i.i ], [ null, %191 ], [ null, %194 ], [ null, %180 ]
+  %200 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ false, %.preheader.i.i.i.i ], [ false, %194 ], [ false, %191 ], [ false, %180 ]
+  %.05.i = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ %196, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %.preheader.i.i.i.i ], [ null, %194 ], [ null, %191 ], [ null, %180 ]
   %201 = load ptr, ptr %3, align 8, !tbaa !90
   %.not.i4.i.i = icmp eq ptr %201, null
   br i1 %.not.i4.i.i, label %_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE.exit, label %202
@@ -3567,8 +3567,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i40:        ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i34
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i34: ; preds = %79, %93, %90, %_ZN11ast_manager7inc_refEP3ast.exit.i.i40, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i37, %.preheader.i.i.i.i25
-  %99 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i40 ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i37 ], [ false, %.preheader.i.i.i.i25 ], [ false, %90 ], [ false, %93 ], [ false, %79 ]
-  %.05.i35 = phi ptr [ %95, %_ZN11ast_manager7inc_refEP3ast.exit.i.i40 ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i37 ], [ null, %.preheader.i.i.i.i25 ], [ null, %90 ], [ null, %93 ], [ null, %79 ]
+  %99 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i37 ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i40 ], [ false, %.preheader.i.i.i.i25 ], [ false, %93 ], [ false, %90 ], [ false, %79 ]
+  %.05.i35 = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i37 ], [ %95, %_ZN11ast_manager7inc_refEP3ast.exit.i.i40 ], [ null, %.preheader.i.i.i.i25 ], [ null, %93 ], [ null, %90 ], [ null, %79 ]
   %.not.i4.i.i36 = icmp eq ptr %54, null
   br i1 %.not.i4.i.i36, label %.noexc, label %100
 
@@ -3675,8 +3675,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i: ; preds = %123, %137, %134, %_ZN11ast_manager7inc_refEP3ast.exit.i.i, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i, %.preheader.i.i.i.i
-  %143 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ false, %.preheader.i.i.i.i ], [ false, %134 ], [ false, %137 ], [ false, %123 ]
-  %.05.i = phi ptr [ %139, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ null, %.preheader.i.i.i.i ], [ null, %134 ], [ null, %137 ], [ null, %123 ]
+  %143 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ false, %.preheader.i.i.i.i ], [ false, %137 ], [ false, %134 ], [ false, %123 ]
+  %.05.i = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ %139, %_ZN11ast_manager7inc_refEP3ast.exit.i.i ], [ null, %.preheader.i.i.i.i ], [ null, %137 ], [ null, %134 ], [ null, %123 ]
   %.not.i4.i.i = icmp eq ptr %54, null
   br i1 %.not.i4.i.i, label %_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE.exit, label %144
 
@@ -4206,8 +4206,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i167:       ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i161
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i161: ; preds = %108, %122, %119, %_ZN11ast_manager7inc_refEP3ast.exit.i.i167, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i164, %.preheader.i.i.i.i152
-  %128 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i167 ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i164 ], [ false, %.preheader.i.i.i.i152 ], [ false, %119 ], [ false, %122 ], [ false, %108 ]
-  %.05.i162 = phi ptr [ %124, %_ZN11ast_manager7inc_refEP3ast.exit.i.i167 ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i164 ], [ null, %.preheader.i.i.i.i152 ], [ null, %119 ], [ null, %122 ], [ null, %108 ]
+  %128 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i164 ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i167 ], [ false, %.preheader.i.i.i.i152 ], [ false, %122 ], [ false, %119 ], [ false, %108 ]
+  %.05.i162 = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i164 ], [ %124, %_ZN11ast_manager7inc_refEP3ast.exit.i.i167 ], [ null, %.preheader.i.i.i.i152 ], [ null, %122 ], [ null, %119 ], [ null, %108 ]
   %.not.i4.i.i163 = icmp eq ptr %83, null
   br i1 %.not.i4.i.i163, label %.noexc, label %129
 
@@ -4314,8 +4314,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i144:       ; preds = %_ZNK7obj_mapI3appPS
   br label %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i
 
 _ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.thread.i: ; preds = %152, %166, %163, %_ZN11ast_manager7inc_refEP3ast.exit.i.i144, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i, %.preheader.i.i.i.i
-  %172 = phi i1 [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i144 ], [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ false, %.preheader.i.i.i.i ], [ false, %163 ], [ false, %166 ], [ false, %152 ]
-  %.05.i = phi ptr [ %168, %_ZN11ast_manager7inc_refEP3ast.exit.i.i144 ], [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ null, %.preheader.i.i.i.i ], [ null, %163 ], [ null, %166 ], [ null, %152 ]
+  %172 = phi i1 [ true, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ true, %_ZN11ast_manager7inc_refEP3ast.exit.i.i144 ], [ false, %.preheader.i.i.i.i ], [ false, %166 ], [ false, %163 ], [ false, %152 ]
+  %.05.i = phi ptr [ null, %_ZNK7obj_mapI3appPS0_E4findES1_RS1_.exit.i ], [ %168, %_ZN11ast_manager7inc_refEP3ast.exit.i.i144 ], [ null, %.preheader.i.i.i.i ], [ null, %166 ], [ null, %163 ], [ null, %152 ]
   %.not.i4.i.i = icmp eq ptr %83, null
   br i1 %.not.i4.i.i, label %_ZN6spacer10iuc_solver8is_proxyEP4exprR7obj_refI3app11ast_managerE.exit, label %173
 
@@ -5447,7 +5447,7 @@ _ZN12scoped_watchD2Ev.exit129:                    ; preds = %586, %582, %525
   br label %_ZN12scoped_watchD2Ev.exit86
 
 _ZN12scoped_watchD2Ev.exit86:                     ; preds = %491, %488, %321, %318, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %257, %592
-  %.pn62.pn = phi { ptr, i32 } [ %258, %257 ], [ %.pn58.pn.pn, %592 ], [ %252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %.pn55.pn, %318 ], [ %.pn55.pn, %321 ], [ %.pn48.pn.pn.pn, %488 ], [ %.pn48.pn.pn.pn, %491 ]
+  %.pn62.pn = phi { ptr, i32 } [ %258, %257 ], [ %252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %.pn58.pn.pn, %592 ], [ %.pn55.pn, %321 ], [ %.pn55.pn, %318 ], [ %.pn48.pn.pn.pn, %488 ], [ %.pn48.pn.pn.pn, %491 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   br label %593
 
@@ -5553,7 +5553,7 @@ _ZN12scoped_watchD2Ev.exit139:                    ; preds = %_ZN14core_hashtable
   ret void
 
 632:                                              ; preds = %196, %609, %593, %225
-  %.pn68.pn.pn = phi { ptr, i32 } [ %610, %609 ], [ %.pn66, %225 ], [ %.pn62.pn.pn, %593 ], [ %.pn68, %196 ]
+  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn, %593 ], [ %610, %609 ], [ %.pn66, %225 ], [ %.pn68, %196 ]
   call void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #25
   br label %633
 
@@ -5664,7 +5664,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !268
@@ -5711,7 +5711,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !269
@@ -6698,7 +6698,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   br i1 %exitcond26.not, label %._crit_edge23, label %.lr.ph22, !llvm.loop !286
 
 95:                                               ; preds = %15, %51, %88, %86
-  %.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ], [ %52, %51 ], [ %16, %15 ]
+  %.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ], [ %52, %51 ], [ %16, %15 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
@@ -9303,7 +9303,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !298
@@ -9350,7 +9350,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !299
@@ -9553,7 +9553,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appPS1_E13obj_ma
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !304
@@ -9600,7 +9600,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appPS1_E13obj_ma
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !305

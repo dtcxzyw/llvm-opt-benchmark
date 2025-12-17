@@ -46,7 +46,7 @@ define hidden void @BrotliEstimateBitCostsForLiterals(i64 noundef %0, i64 nounde
   br label %UTF8Position.exit.i.i
 
 UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.i
-  %.0.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i, %19 ], [ 1, %17 ]
+  %.0.i.i.i = phi i64 [ %spec.select.i.i.i, %19 ], [ 0, %.lr.ph.i.i ], [ 1, %17 ]
   %21 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = add i64 %22, 1
@@ -110,7 +110,7 @@ UTF8Position.exit.i.i:                            ; preds = %19, %17, %.lr.ph.i.
   br label %UTF8Position.exit.i
 
 UTF8Position.exit.i:                              ; preds = %49, %47, %.lr.ph.i
-  %.0.i120.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i, %49 ], [ %27, %47 ]
+  %.0.i120.i = phi i64 [ %spec.select.i.i, %49 ], [ 0, %.lr.ph.i ], [ %27, %47 ]
   %51 = add nuw nsw i64 %.0108135.i, 1
   %exitcond.not.i = icmp eq i64 %51, %28
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
@@ -152,7 +152,7 @@ UTF8Position.exit.i:                              ; preds = %49, %47, %.lr.ph.i
   br label %UTF8Position.exit123.i
 
 UTF8Position.exit123.i:                           ; preds = %71, %69, %54
-  %.0.i122.i = phi i64 [ 0, %69 ], [ 0, %54 ], [ %.1.i.spec.select.i121.i, %71 ]
+  %.0.i122.i = phi i64 [ 0, %54 ], [ %.1.i.spec.select.i121.i, %71 ], [ 0, %69 ]
   %73 = add i64 %31, %.1109136.i
   %74 = and i64 %73, %2
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %74
@@ -199,7 +199,7 @@ UTF8Position.exit123.i:                           ; preds = %71, %69, %54
   br label %UTF8Position.exit126.i
 
 UTF8Position.exit126.i:                           ; preds = %102, %100, %88
-  %.0.i125.i = phi i64 [ 0, %88 ], [ %spec.select.i124.i, %102 ], [ %27, %100 ]
+  %.0.i125.i = phi i64 [ %spec.select.i124.i, %102 ], [ 0, %88 ], [ %27, %100 ]
   %104 = and i64 %90, %2
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !3
@@ -248,7 +248,7 @@ UTF8Position.exit126.i:                           ; preds = %102, %100, %88
   br label %UTF8Position.exit129.i
 
 UTF8Position.exit129.i:                           ; preds = %132, %130, %115
-  %.0.i128.i = phi i64 [ 0, %130 ], [ 0, %115 ], [ %.1.i.spec.select.i127.i, %132 ]
+  %.0.i128.i = phi i64 [ 0, %115 ], [ %.1.i.spec.select.i127.i, %132 ], [ 0, %130 ]
   %134 = add i64 %.1109136.i, %0
   %135 = and i64 %134, %2
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 %135

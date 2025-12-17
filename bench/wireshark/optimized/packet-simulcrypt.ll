@@ -644,7 +644,7 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   br label %get_interface.exit
 
 get_interface.exit:                               ; preds = %4, %10, %10, %10, %12, %13, %14, %15, %16, %17, %18
-  %.04.i = phi i16 [ 8, %4 ], [ 0, %18 ], [ 2, %12 ], [ 3, %13 ], [ 4, %14 ], [ 5, %15 ], [ 6, %16 ], [ 7, %17 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ]
+  %.04.i = phi i16 [ 8, %4 ], [ 0, %18 ], [ 7, %17 ], [ 2, %12 ], [ 3, %13 ], [ 4, %14 ], [ 5, %15 ], [ 6, %16 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ]
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %21 = load i32, ptr %20, align 4

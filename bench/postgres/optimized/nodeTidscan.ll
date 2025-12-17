@@ -545,9 +545,9 @@ list_length.exit.i:                               ; preds = %37, %33
   br label %149
 
 149:                                              ; preds = %148, %131, %81, %68, %59
-  %.178.i = phi i32 [ %.07798.i43, %59 ], [ %.07798.i43, %68 ], [ %.380.i, %131 ], [ %.683.i, %148 ], [ %82, %81 ]
-  %.170.i = phi i32 [ %.06999.i42, %59 ], [ %.06999.i42, %68 ], [ %.473.i, %131 ], [ %.675.i, %148 ], [ %.271.i, %81 ]
-  %.1.i = phi ptr [ %.068100.i41, %59 ], [ %.068100.i41, %68 ], [ %.4.i, %131 ], [ %.6.i, %148 ], [ %.2.i, %81 ]
+  %.178.i = phi i32 [ %.07798.i43, %68 ], [ %82, %81 ], [ %.07798.i43, %59 ], [ %.380.i, %131 ], [ %.683.i, %148 ]
+  %.170.i = phi i32 [ %.06999.i42, %68 ], [ %.271.i, %81 ], [ %.06999.i42, %59 ], [ %.473.i, %131 ], [ %.675.i, %148 ]
+  %.1.i = phi ptr [ %.068100.i41, %68 ], [ %.2.i, %81 ], [ %.068100.i41, %59 ], [ %.4.i, %131 ], [ %.6.i, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i40, 1
   %150 = load i32, ptr %45, align 4
@@ -650,7 +650,7 @@ TidListEval.exit:                                 ; preds = %.lr.ph101.i, %list_
   br label %199
 
 199:                                              ; preds = %197, %193, %195
-  %.sink = phi i32 [ %194, %193 ], [ %196, %195 ], [ %spec.select, %197 ]
+  %.sink = phi i32 [ %196, %195 ], [ %spec.select, %197 ], [ %194, %193 ]
   store i32 %.sink, ptr %189, align 8
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %201 = icmp sgt i32 %.sink, -1
@@ -846,7 +846,7 @@ define internal range(i32 -1, 2) i32 @itemptr_comparator(ptr noundef readonly ca
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ -1, %18 ], [ %., %20 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ 1, %16 ], [ %., %20 ]
   ret i32 %.0
 }
 

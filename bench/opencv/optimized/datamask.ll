@@ -686,7 +686,7 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   br i1 %56, label %__cxx_global_var_init.exit, label %43
 
 .thread24.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
-  %.04.ph.i = phi ptr [ %4, %0 ], [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %20, %18 ], [ %24, %22 ], [ %28, %26 ]
+  %.04.ph.i = phi ptr [ %16, %14 ], [ %8, %6 ], [ %20, %18 ], [ %4, %0 ], [ %24, %22 ], [ %12, %10 ], [ %28, %26 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.i

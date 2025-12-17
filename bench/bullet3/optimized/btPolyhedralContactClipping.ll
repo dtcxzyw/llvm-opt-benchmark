@@ -903,7 +903,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !18
   br label %.thread
 
-.thread396:                                       ; preds = %251, %257
+.thread396:                                       ; preds = %257, %251
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -1150,7 +1150,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !18
   br label %.thread401
 
-.thread412:                                       ; preds = %412, %418
+.thread412:                                       ; preds = %418, %412
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1516,7 +1516,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %.not162.not = icmp slt i64 %indvars.iv.next725, %611
   br i1 %.not162.not, label %.lr.ph689.split, label %.thread576, !llvm.loop !38
 
-612:                                              ; preds = %594, %588
+612:                                              ; preds = %588, %594
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1574,7 +1574,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br label %639
 
 639:                                              ; preds = %616, %632, %638, %636
-  %.0379 = phi float [ 0x46293E5940000000, %638 ], [ %634, %636 ], [ 0xC6293E5940000000, %632 ], [ 0.000000e+00, %616 ]
+  %.0379 = phi float [ 0xC6293E5940000000, %632 ], [ %634, %636 ], [ 0x46293E5940000000, %638 ], [ 0.000000e+00, %616 ]
   %640 = call float @llvm.fmuladd.f32(float %.0379, float %622, float %.pre98.i)
   %641 = fcmp olt float %640, 0xC6293E5940000000
   br i1 %641, label %642, label %648
@@ -1608,8 +1608,8 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br label %_Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit
 
 _Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit: ; preds = %650, %648, %642, %645, %647, %653, %655
-  %.0378 = phi float [ 0xC6293E5940000000, %647 ], [ 0xC6293E5940000000, %645 ], [ 0x46293E5940000000, %655 ], [ 0x46293E5940000000, %653 ], [ 0xC6293E5940000000, %642 ], [ %640, %648 ], [ 0x46293E5940000000, %650 ]
-  %656 = phi float [ 0x46293E5940000000, %647 ], [ %643, %645 ], [ 0x46293E5940000000, %655 ], [ %651, %653 ], [ 0xC6293E5940000000, %642 ], [ %.0379, %648 ], [ 0xC6293E5940000000, %650 ]
+  %.0378 = phi float [ 0xC6293E5940000000, %642 ], [ 0xC6293E5940000000, %647 ], [ 0xC6293E5940000000, %645 ], [ %640, %648 ], [ 0x46293E5940000000, %655 ], [ 0x46293E5940000000, %653 ], [ 0x46293E5940000000, %650 ]
+  %656 = phi float [ 0xC6293E5940000000, %642 ], [ 0x46293E5940000000, %647 ], [ %643, %645 ], [ %.0379, %648 ], [ 0x46293E5940000000, %655 ], [ %651, %653 ], [ 0xC6293E5940000000, %650 ]
   %657 = fmul float %.sroa.0288.0.vec.extract, %656
   %658 = fmul float %.sroa.0288.4.vec.extract, %656
   %659 = fmul float %.sroa.5289.8.vec.extract, %656
@@ -1741,7 +1741,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %22, %_Z
   br label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %8, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i
-  %23 = phi i32 [ 0, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i ], [ %15, %8 ]
+  %23 = phi i32 [ %15, %8 ], [ 0, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i ]
   store i32 0, ptr %11, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !4

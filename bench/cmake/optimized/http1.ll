@@ -306,10 +306,10 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   br label %start_req.exit
 
 .thread127.i:                                     ; preds = %.thread156.i, %100, %98, %95
-  %.083137.i = phi i64 [ %90, %100 ], [ 0, %98 ], [ 1, %95 ], [ %90, %.thread156.i ]
-  %.084136.i = phi i64 [ 0, %100 ], [ %90, %98 ], [ 0, %95 ], [ 0, %.thread156.i ]
-  %.088135.i = phi ptr [ %76, %100 ], [ null, %98 ], [ %76, %95 ], [ %76, %.thread156.i ]
-  %.089134.i = phi ptr [ null, %100 ], [ %76, %98 ], [ null, %95 ], [ null, %.thread156.i ]
+  %.083137.i = phi i64 [ %90, %.thread156.i ], [ %90, %100 ], [ 0, %98 ], [ 1, %95 ]
+  %.084136.i = phi i64 [ 0, %.thread156.i ], [ 0, %100 ], [ %90, %98 ], [ 0, %95 ]
+  %.088135.i = phi ptr [ %76, %.thread156.i ], [ %76, %100 ], [ null, %98 ], [ %76, %95 ]
+  %.089134.i = phi ptr [ null, %.thread156.i ], [ null, %100 ], [ %76, %98 ], [ null, %95 ]
   br i1 %.not103.i, label %116, label %114
 
 114:                                              ; preds = %.thread127.i
@@ -321,15 +321,15 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   %117 = call i32 @Curl_http_req_make(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef %3, i64 noundef %.085.i, ptr noundef %.089134.i, i64 noundef %.084136.i, ptr noundef %.088135.i, i64 noundef %.083137.i) #6
   br label %start_req.exit
 
-start_req.exit.thread:                            ; preds = %84, %69, %72, %110, %81, %.thread118.i
-  %.078.i.ph = phi ptr [ null, %.thread118.i ], [ null, %81 ], [ null, %84 ], [ null, %69 ], [ null, %72 ], [ %109, %110 ]
-  %.076.i.ph = phi i32 [ %.177.ph.i, %.thread118.i ], [ 3, %81 ], [ 3, %110 ], [ 3, %72 ], [ 3, %69 ], [ 3, %84 ]
+start_req.exit.thread:                            ; preds = %69, %110, %84, %72, %81, %.thread118.i
+  %.078.i.ph = phi ptr [ null, %.thread118.i ], [ null, %81 ], [ null, %69 ], [ %109, %110 ], [ null, %84 ], [ null, %72 ]
+  %.076.i.ph = phi i32 [ %.177.ph.i, %.thread118.i ], [ 3, %81 ], [ 3, %72 ], [ 3, %84 ], [ 3, %110 ], [ 3, %69 ]
   call void @curl_url_cleanup(ptr noundef %.078.i.ph) #6
   br label %.loopexit.sink.split
 
 start_req.exit:                                   ; preds = %.thread138.i, %116
-  %.078.i = phi ptr [ %109, %.thread138.i ], [ null, %116 ]
-  %.076.i = phi i32 [ %113, %.thread138.i ], [ %117, %116 ]
+  %.078.i = phi ptr [ null, %116 ], [ %109, %.thread138.i ]
+  %.076.i = phi i32 [ %117, %116 ], [ %113, %.thread138.i ]
   call void @curl_url_cleanup(ptr noundef %.078.i) #6
   store i32 %.076.i, ptr %5, align 4, !tbaa !16
   %.not42 = icmp eq i32 %.076.i, 0
@@ -363,7 +363,7 @@ start_req.exit:                                   ; preds = %.thread138.i, %116
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %124, %start_req.exit, %121, %.loopexit.sink.split, %6
-  %.2 = phi i64 [ 0, %6 ], [ %.2.ph, %.loopexit.sink.split ], [ %61, %65 ], [ %61, %124 ], [ -1, %start_req.exit ], [ -1, %121 ]
+  %.2 = phi i64 [ 0, %6 ], [ %.2.ph, %.loopexit.sink.split ], [ %61, %65 ], [ -1, %121 ], [ -1, %start_req.exit ], [ %61, %124 ]
   ret i64 %.2
 }
 

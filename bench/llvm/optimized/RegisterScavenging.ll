@@ -1623,10 +1623,10 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i: ; preds = %_ZN4llvm17MCRegU
   br i1 %263, label %.thread179.thread221.loopexit270.i, label %.thread198.i
 
 .thread198.i:                                     ; preds = %.thread176.i, %166
-  %.2210.i = phi i1 [ true, %.thread176.i ], [ false, %166 ]
-  %.161209.i = phi i32 [ %.3.i, %.thread176.i ], [ %.060.i, %166 ]
-  %.1130208.i = phi i16 [ %.2131.i, %.thread176.i ], [ %.0129.i, %166 ]
-  %.sroa.0118.2207.i = phi ptr [ %.sroa.0118.3.i, %.thread176.i ], [ %.sroa.0118.0.i, %166 ]
+  %.2210.i = phi i1 [ false, %166 ], [ true, %.thread176.i ]
+  %.161209.i = phi i32 [ %.060.i, %166 ], [ %.3.i, %.thread176.i ]
+  %.1130208.i = phi i16 [ %.0129.i, %166 ], [ %.2131.i, %.thread176.i ]
+  %.sroa.0118.2207.i = phi ptr [ %.sroa.0118.0.i, %166 ], [ %.sroa.0118.3.i, %.thread176.i ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0115.0.i, align 8
   %264 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %265 = inttoptr i64 %264 to ptr
@@ -1658,8 +1658,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i: ; preds
   br label %84, !llvm.loop !398
 
 .thread179.thread221.loopexit270.i:               ; preds = %.thread176.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit103.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.i, %169
-  %.sroa.055.6.ph.i = phi i16 [ %.2131.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i ], [ %.0129.i, %169 ], [ %.0129.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit103.i ], [ %.2131.i, %.thread176.i ], [ %.0129.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.i ]
-  %.sroa.3.6.ph.i = phi ptr [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i ], [ %.sroa.0118.1152.i, %169 ], [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit103.i ], [ %.sroa.0118.3.i, %.thread176.i ], [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.i ]
+  %.sroa.055.6.ph.i = phi i16 [ %.0129.i, %169 ], [ %.2131.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i ], [ %.0129.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit103.i ], [ %.2131.i, %.thread176.i ], [ %.0129.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.i ]
+  %.sroa.3.6.ph.i = phi ptr [ %.sroa.0118.1152.i, %169 ], [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.thread.i ], [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit103.i ], [ %.sroa.0118.3.i, %.thread176.i ], [ %.sroa.0118.1152.i, %_ZNK4llvm12LiveRegUnits9availableEt.exit94.i ]
   %.pre.i = load ptr, ptr %49, align 8, !tbaa !222
   br label %.thread179.thread221.i
 
@@ -2233,7 +2233,7 @@ _ZL12scavengeVRegRN4llvm19MachineRegisterInfoERNS_12RegScavengerENS_8RegisterEb.
   br label %180
 
 180:                                              ; preds = %141, %137, %_ZL12scavengeVRegRN4llvm19MachineRegisterInfoERNS_12RegScavengerENS_8RegisterEb.exit, %_ZNK4llvm14MachineOperand8readsRegEv.exit68.thread89, %.lr.ph109
-  %.2 = phi i1 [ %.1108, %.lr.ph109 ], [ %.1108, %141 ], [ %.1108, %137 ], [ %147, %_ZL12scavengeVRegRN4llvm19MachineRegisterInfoERNS_12RegScavengerENS_8RegisterEb.exit ], [ %147, %_ZNK4llvm14MachineOperand8readsRegEv.exit68.thread89 ]
+  %.2 = phi i1 [ %.1108, %.lr.ph109 ], [ %.1108, %137 ], [ %.1108, %141 ], [ %147, %_ZL12scavengeVRegRN4llvm19MachineRegisterInfoERNS_12RegScavengerENS_8RegisterEb.exit ], [ %147, %_ZNK4llvm14MachineOperand8readsRegEv.exit68.thread89 ]
   %181 = getelementptr inbounds nuw i8, ptr %.056107, i64 32
   %.not57 = icmp eq ptr %181, %133
   br i1 %.not57, label %.loopexit, label %.lr.ph109

@@ -611,7 +611,7 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver20solveSingleIte
   br i1 %323, label %.lr.ph254.split, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %320, %283, %.lr.ph269, %.lr.ph254, %.preheader237, %.preheader
-  %.7 = phi float [ %.3.lcssa, %.preheader ], [ %.0231.lcssa, %.preheader237 ], [ %.0231.lcssa, %.lr.ph254 ], [ %.3.lcssa, %.lr.ph269 ], [ %.6, %283 ], [ %.9, %320 ]
+  %.7 = phi float [ %.3.lcssa, %.preheader ], [ %.0231.lcssa, %.preheader237 ], [ %.3.lcssa, %.lr.ph269 ], [ %.0231.lcssa, %.lr.ph254 ], [ %.6, %283 ], [ %.9, %320 ]
   ret float %.7
 }
 
@@ -713,9 +713,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleC
   br label %.loopexit140
 
 .loopexit140:                                     ; preds = %27, %13, %31, %35
-  %.096 = phi ptr [ %39, %35 ], [ null, %31 ], [ null, %13 ], [ null, %27 ]
-  %.094 = phi i32 [ 0, %35 ], [ 0, %31 ], [ %16, %13 ], [ %16, %27 ]
-  %.1 = phi float [ %71, %35 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %13 ], [ %30, %27 ]
+  %.096 = phi ptr [ null, %31 ], [ %39, %35 ], [ null, %13 ], [ null, %27 ]
+  %.094 = phi i32 [ 0, %31 ], [ 0, %35 ], [ %16, %13 ], [ %16, %27 ]
+  %.1 = phi float [ 0.000000e+00, %31 ], [ %71, %35 ], [ 0.000000e+00, %13 ], [ %30, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %73 = load ptr, ptr %72, align 8, !tbaa !41
   %.not108 = icmp eq ptr %73, null
@@ -803,9 +803,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleC
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %74, %93, %97
-  %.198 = phi float [ %133, %97 ], [ 0.000000e+00, %93 ], [ 0.000000e+00, %74 ], [ %92, %89 ]
-  %.095 = phi ptr [ %101, %97 ], [ null, %93 ], [ null, %74 ], [ null, %89 ]
-  %.093 = phi i32 [ 0, %97 ], [ 0, %93 ], [ %77, %74 ], [ %77, %89 ]
+  %.198 = phi float [ 0.000000e+00, %93 ], [ %133, %97 ], [ 0.000000e+00, %74 ], [ %92, %89 ]
+  %.095 = phi ptr [ null, %93 ], [ %101, %97 ], [ null, %74 ], [ null, %89 ]
+  %.093 = phi i32 [ 0, %93 ], [ 0, %97 ], [ %77, %74 ], [ %77, %89 ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %135 = load float, ptr %134, align 4, !tbaa !75
   %136 = fneg float %.1
@@ -1228,9 +1228,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFri
   br label %.loopexit322
 
 .loopexit322:                                     ; preds = %28, %14, %32, %36
-  %.1217 = phi float [ %72, %36 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %14 ], [ %31, %28 ]
-  %.0198 = phi ptr [ %40, %36 ], [ null, %32 ], [ null, %14 ], [ null, %28 ]
-  %.0 = phi i32 [ 0, %36 ], [ 0, %32 ], [ %17, %14 ], [ %17, %28 ]
+  %.1217 = phi float [ 0.000000e+00, %32 ], [ %72, %36 ], [ 0.000000e+00, %14 ], [ %31, %28 ]
+  %.0198 = phi ptr [ null, %32 ], [ %40, %36 ], [ null, %14 ], [ null, %28 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %36 ], [ %17, %14 ], [ %17, %28 ]
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %74 = load ptr, ptr %73, align 8, !tbaa !41
   %.not236 = icmp eq ptr %74, null
@@ -1318,9 +1318,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFri
   br label %.loopexit321
 
 .loopexit321:                                     ; preds = %90, %75, %94, %98
-  %.1215 = phi float [ %134, %98 ], [ 0.000000e+00, %94 ], [ 0.000000e+00, %75 ], [ %93, %90 ]
-  %.0200 = phi ptr [ %102, %98 ], [ null, %94 ], [ null, %75 ], [ null, %90 ]
-  %.0196 = phi i32 [ 0, %98 ], [ 0, %94 ], [ %78, %75 ], [ %78, %90 ]
+  %.1215 = phi float [ 0.000000e+00, %94 ], [ %134, %98 ], [ 0.000000e+00, %75 ], [ %93, %90 ]
+  %.0200 = phi ptr [ null, %94 ], [ %102, %98 ], [ null, %75 ], [ null, %90 ]
+  %.0196 = phi i32 [ 0, %94 ], [ 0, %98 ], [ %78, %75 ], [ %78, %90 ]
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %136 = load float, ptr %135, align 4, !tbaa !75
   %137 = fneg float %.1217
@@ -1422,9 +1422,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFri
   br label %.loopexit320
 
 .loopexit320:                                     ; preds = %166, %152, %170, %174
-  %.1207 = phi float [ %210, %174 ], [ 0.000000e+00, %170 ], [ 0.000000e+00, %152 ], [ %169, %166 ]
-  %.1199 = phi ptr [ %178, %174 ], [ %.0198, %170 ], [ %.0198, %152 ], [ %.0198, %166 ]
-  %.1 = phi i32 [ %.0, %174 ], [ %.0, %170 ], [ %155, %152 ], [ %155, %166 ]
+  %.1207 = phi float [ 0.000000e+00, %170 ], [ %210, %174 ], [ 0.000000e+00, %152 ], [ %169, %166 ]
+  %.1199 = phi ptr [ %.0198, %170 ], [ %178, %174 ], [ %.0198, %152 ], [ %.0198, %166 ]
+  %.1 = phi i32 [ %.0, %170 ], [ %.0, %174 ], [ %155, %152 ], [ %155, %166 ]
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %212 = load ptr, ptr %211, align 8, !tbaa !41
   %.not238 = icmp eq ptr %212, null
@@ -1512,9 +1512,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %228, %213, %232, %236
-  %.1205 = phi float [ %272, %236 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %213 ], [ %231, %228 ]
-  %.1201 = phi ptr [ %240, %236 ], [ %.0200, %232 ], [ %.0200, %213 ], [ %.0200, %228 ]
-  %.1197 = phi i32 [ %.0196, %236 ], [ %.0196, %232 ], [ %216, %213 ], [ %216, %228 ]
+  %.1205 = phi float [ 0.000000e+00, %232 ], [ %272, %236 ], [ 0.000000e+00, %213 ], [ %231, %228 ]
+  %.1201 = phi ptr [ %.0200, %232 ], [ %240, %236 ], [ %.0200, %213 ], [ %.0200, %228 ]
+  %.1197 = phi i32 [ %.0196, %232 ], [ %.0196, %236 ], [ %216, %213 ], [ %216, %228 ]
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %274 = load float, ptr %273, align 4, !tbaa !75
   %275 = fneg float %.1207
@@ -1583,9 +1583,9 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver33resolveConeFri
   br label %316
 
 316:                                              ; preds = %310, %307, %312, %315
-  %.sink398 = phi float [ %305, %307 ], [ %295, %312 ], [ %141, %315 ], [ %141, %310 ]
-  %.1211 = phi float [ %.0210, %307 ], [ %.0210, %312 ], [ %278, %315 ], [ %.0210, %310 ]
-  %.1209 = phi float [ %309, %307 ], [ %314, %312 ], [ %140, %315 ], [ %140, %310 ]
+  %.sink398 = phi float [ %305, %307 ], [ %141, %315 ], [ %295, %312 ], [ %141, %310 ]
+  %.1211 = phi float [ %.0210, %307 ], [ %278, %315 ], [ %.0210, %312 ], [ %.0210, %310 ]
+  %.1209 = phi float [ %309, %307 ], [ %140, %315 ], [ %314, %312 ], [ %140, %310 ]
   store float %.sink398, ptr %6, align 4, !tbaa !50
   br i1 %.not237, label %347, label %317
 
@@ -3959,7 +3959,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i612: ; preds = %500, %_ZNK20b
   br label %.loopexit970
 
 .loopexit970:                                     ; preds = %.lr.ph, %629, %649, %650
-  %.1357 = phi float [ %676, %650 ], [ 0.000000e+00, %649 ], [ 0.000000e+00, %629 ], [ %648, %.lr.ph ]
+  %.1357 = phi float [ 0.000000e+00, %649 ], [ %676, %650 ], [ 0.000000e+00, %629 ], [ %648, %.lr.ph ]
   br i1 %.not402, label %677, label %697
 
 677:                                              ; preds = %.loopexit970
@@ -4033,7 +4033,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i612: ; preds = %500, %_ZNK20b
   br label %.loopexit969
 
 .loopexit969:                                     ; preds = %.lr.ph981, %677, %697, %698
-  %.1362 = phi float [ %724, %698 ], [ 0.000000e+00, %697 ], [ 0.000000e+00, %677 ], [ %696, %.lr.ph981 ]
+  %.1362 = phi float [ 0.000000e+00, %697 ], [ %724, %698 ], [ 0.000000e+00, %677 ], [ %696, %.lr.ph981 ]
   %725 = fadd float %.1357, %.1362
   %726 = fadd float %112, %725
   %727 = fcmp ogt float %726, 0x3E80000000000000
@@ -4232,8 +4232,8 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i612: ; preds = %500, %_ZNK20b
   br label %.loopexit968
 
 .loopexit968:                                     ; preds = %779, %764, %785, %786
-  %.1367 = phi float [ %883, %786 ], [ 0.000000e+00, %785 ], [ 0.000000e+00, %764 ], [ %784, %779 ]
-  %.0365 = phi i32 [ 0, %786 ], [ 0, %785 ], [ %767, %764 ], [ %767, %779 ]
+  %.1367 = phi float [ 0.000000e+00, %785 ], [ %883, %786 ], [ 0.000000e+00, %764 ], [ %784, %779 ]
+  %.0365 = phi i32 [ 0, %785 ], [ 0, %786 ], [ %767, %764 ], [ %767, %779 ]
   br i1 %.not402, label %884, label %903
 
 884:                                              ; preds = %.loopexit968
@@ -4376,8 +4376,8 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i612: ; preds = %500, %_ZNK20b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %897, %884, %903, %904
-  %.3369 = phi float [ %1001, %904 ], [ %.1367, %903 ], [ %.1367, %884 ], [ %902, %897 ]
-  %.0364 = phi i32 [ 0, %904 ], [ 0, %903 ], [ %887, %884 ], [ %887, %897 ]
+  %.3369 = phi float [ %.1367, %903 ], [ %1001, %904 ], [ %.1367, %884 ], [ %902, %897 ]
+  %.0364 = phi i32 [ 0, %903 ], [ 0, %904 ], [ %887, %884 ], [ %887, %897 ]
   %1002 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %1003 = load float, ptr %1002, align 4, !tbaa !136
   %1004 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -4835,7 +4835,7 @@ _ZN27btMultiBodyConstraintSolver13applyDeltaVeeEPffii.exit806: ; preds = %1217, 
   ret void
 
 1307:                                             ; preds = %777, %298, %300, %296, %294, %190, %562, %560, %558, %439, %437
-  %.pn440.pn.pn.pn.pn = phi { ptr, i32 } [ %297, %296 ], [ %295, %294 ], [ %191, %190 ], [ %299, %298 ], [ %301, %300 ], [ %438, %437 ], [ %563, %562 ], [ %561, %560 ], [ %559, %558 ], [ %440, %439 ], [ %778, %777 ]
+  %.pn440.pn.pn.pn.pn = phi { ptr, i32 } [ %438, %437 ], [ %563, %562 ], [ %440, %439 ], [ %559, %558 ], [ %301, %300 ], [ %191, %190 ], [ %297, %296 ], [ %561, %560 ], [ %299, %298 ], [ %778, %777 ], [ %295, %294 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   resume { ptr, i32 } %.pn440.pn.pn.pn.pn
@@ -5863,7 +5863,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i437: ; preds = %328, %_ZNK20b
   br label %.loopexit585
 
 .loopexit585:                                     ; preds = %.lr.ph, %430, %450, %451
-  %.1235 = phi float [ %487, %451 ], [ 0.000000e+00, %450 ], [ 0.000000e+00, %430 ], [ %449, %.lr.ph ]
+  %.1235 = phi float [ 0.000000e+00, %450 ], [ %487, %451 ], [ 0.000000e+00, %430 ], [ %449, %.lr.ph ]
   br i1 %.not261.not, label %508, label %488
 
 488:                                              ; preds = %.loopexit585
@@ -5938,7 +5938,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i437: ; preds = %328, %_ZNK20b
   br label %.loopexit584
 
 .loopexit584:                                     ; preds = %.lr.ph596, %488, %508, %509
-  %.1238 = phi float [ %539, %509 ], [ 0.000000e+00, %508 ], [ 0.000000e+00, %488 ], [ %507, %.lr.ph596 ]
+  %.1238 = phi float [ 0.000000e+00, %508 ], [ %539, %509 ], [ 0.000000e+00, %488 ], [ %507, %.lr.ph596 ]
   %540 = fadd float %.1235, %.1238
   %541 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %542 = load float, ptr %541, align 4, !tbaa !113
@@ -6043,7 +6043,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i437: ; preds = %328, %_ZNK20b
   br label %.loopexit583
 
 .loopexit583:                                     ; preds = %564, %548, %570, %571
-  %.1241 = phi float [ %612, %571 ], [ 0.000000e+00, %570 ], [ 0.000000e+00, %548 ], [ %569, %564 ]
+  %.1241 = phi float [ 0.000000e+00, %570 ], [ %612, %571 ], [ 0.000000e+00, %548 ], [ %569, %564 ]
   br i1 %.not261.not, label %633, label %613
 
 613:                                              ; preds = %.loopexit583
@@ -6120,7 +6120,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i437: ; preds = %328, %_ZNK20b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %627, %613, %633, %634
-  %.3243 = phi float [ %662, %634 ], [ %.1241, %633 ], [ %.1241, %613 ], [ %632, %627 ]
+  %.3243 = phi float [ %.1241, %633 ], [ %662, %634 ], [ %.1241, %613 ], [ %632, %627 ]
   %663 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store float %4, ptr %663, align 8, !tbaa !51
   br i1 %7, label %670, label %664
@@ -6166,7 +6166,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i437: ; preds = %328, %_ZNK20b
   ret void
 
 685:                                              ; preds = %562, %265, %267, %371, %373, %375, %83, %173, %175, %179, %177
-  %.pn281.pn = phi { ptr, i32 } [ %176, %175 ], [ %174, %173 ], [ %84, %83 ], [ %180, %179 ], [ %178, %177 ], [ %266, %265 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %268, %267 ], [ %563, %562 ]
+  %.pn281.pn = phi { ptr, i32 } [ %266, %265 ], [ %372, %371 ], [ %178, %177 ], [ %268, %267 ], [ %374, %373 ], [ %376, %375 ], [ %174, %173 ], [ %563, %562 ], [ %176, %175 ], [ %180, %179 ], [ %84, %83 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn281.pn

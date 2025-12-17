@@ -490,7 +490,7 @@ ehcleanup38:                                      ; preds = %ehcleanup36, %if.th
   %42 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i37 = icmp eq ptr %42, %43
-  br i1 %cmp.i.i.i37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, label %ehcleanup42
+  br i1 %cmp.i.i.i37, label %ehcleanup42, label %if.then.i.i38
 
 ehcleanup38.thread:                               ; preds = %invoke.cont25
   %44 = landingpad { ptr, i32 }
@@ -500,20 +500,15 @@ ehcleanup38.thread:                               ; preds = %invoke.cont25
   %45 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i3749 = icmp eq ptr %45, %46
-  br i1 %cmp.i.i.i3749, label %cleanup.action.sink.split, label %ehcleanup42.thread58
+  br i1 %cmp.i.i.i3749, label %cleanup.action.sink.split, label %if.then.i.i38.thread
 
-ehcleanup42.thread58:                             ; preds = %ehcleanup38.thread
+if.then.i.i38.thread:                             ; preds = %ehcleanup38.thread
   %47 = load i64, ptr %46, align 8, !tbaa !26
   %add.i.i.i3961 = add i64 %47, 1
   call void @_ZdlPvm(ptr noundef %45, i64 noundef %add.i.i.i3961) #22
   br label %cleanup.action.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40: ; preds = %ehcleanup38
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup46
-
-ehcleanup42:                                      ; preds = %ehcleanup38
+if.then.i.i38:                                    ; preds = %ehcleanup38
   %48 = load i64, ptr %43, align 8, !tbaa !26
   %add.i.i.i39 = add i64 %48, 1
   call void @_ZdlPvm(ptr noundef %42, i64 noundef %add.i.i.i39) #22
@@ -521,19 +516,24 @@ ehcleanup42:                                      ; preds = %ehcleanup38
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup46
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup38.thread, %ehcleanup42.thread, %ehcleanup42.thread58
-  %.pn2.pn.pn46.ph = phi { ptr, i32 } [ %44, %ehcleanup42.thread58 ], [ %33, %ehcleanup42.thread ], [ %44, %ehcleanup38.thread ]
+ehcleanup42:                                      ; preds = %ehcleanup38
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup46
+
+cleanup.action.sink.split:                        ; preds = %ehcleanup38.thread, %ehcleanup42.thread, %if.then.i.i38.thread
+  %.pn2.pn.pn46.ph = phi { ptr, i32 } [ %44, %if.then.i.i38.thread ], [ %33, %ehcleanup42.thread ], [ %44, %ehcleanup38.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %ehcleanup42
-  %.pn2.pn.pn46 = phi { ptr, i32 } [ %.pn2, %ehcleanup42 ], [ %.pn2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40 ], [ %.pn2.pn.pn46.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i38, %ehcleanup42
+  %.pn2.pn.pn46 = phi { ptr, i32 } [ %.pn2, %if.then.i.i38 ], [ %.pn2, %ehcleanup42 ], [ %.pn2.pn.pn46.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #20
   br label %ehcleanup46
 
-ehcleanup46:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %ehcleanup42, %cleanup.action, %lpad20
-  %.pn2.pn.pn.pn = phi { ptr, i32 } [ %.pn2.pn.pn46, %cleanup.action ], [ %.pn2, %ehcleanup42 ], [ %32, %lpad20 ], [ %.pn2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40 ]
+ehcleanup46:                                      ; preds = %if.then.i.i38, %ehcleanup42, %cleanup.action, %lpad20
+  %.pn2.pn.pn.pn = phi { ptr, i32 } [ %.pn2.pn.pn46, %cleanup.action ], [ %.pn2, %ehcleanup42 ], [ %32, %lpad20 ], [ %.pn2, %if.then.i.i38 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #20
   br label %ehcleanup47
 
@@ -1720,7 +1720,7 @@ lor.lhs.false947:                                 ; preds = %land.lhs.true939, %
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %entry, %lor.lhs.false947, %land.lhs.true263, %land.lhs.true305, %lor.lhs.false, %lor.lhs.false7, %land.lhs.true15, %lor.lhs.false21, %lor.lhs.false27, %lor.lhs.false33, %lor.lhs.false39, %land.lhs.true47, %lor.lhs.false53, %lor.lhs.false59, %lor.lhs.false65, %lor.lhs.false71, %lor.lhs.false77, %lor.lhs.false89, %lor.lhs.false95, %lor.lhs.false101, %lor.lhs.false107, %lor.lhs.false113, %lor.lhs.false119, %lor.lhs.false127, %land.lhs.true137, %lor.lhs.false145, %lor.lhs.false153, %lor.lhs.false161, %lor.lhs.false169, %lor.lhs.false177, %lor.lhs.false185, %lor.lhs.false193, %lor.lhs.false201, %lor.lhs.false207, %lor.lhs.false213, %lor.lhs.false221, %land.lhs.true231, %lor.lhs.false239, %lor.lhs.false247, %lor.lhs.false259, %land.lhs.true267, %land.lhs.true281, %lor.lhs.false289, %lor.lhs.false301, %lor.lhs.false307, %lor.lhs.false313, %lor.lhs.false319, %lor.lhs.false325, %lor.lhs.false333, %lor.lhs.false341, %lor.lhs.false349, %lor.lhs.false355, %lor.lhs.false369, %lor.lhs.false377, %lor.lhs.false403, %lor.lhs.false425, %lor.lhs.false433, %land.lhs.true461, %land.lhs.true471, %lor.lhs.false479, %lor.lhs.false493, %land.lhs.true509, %lor.lhs.false517, %land.lhs.true527, %land.lhs.true537, %lor.lhs.false545, %lor.lhs.false553, %lor.lhs.false561, %lor.lhs.false569, %land.lhs.true577, %lor.lhs.false583, %lor.lhs.false591, %lor.lhs.false599, %lor.lhs.false607, %lor.lhs.false621, %lor.lhs.false627, %lor.lhs.false635, %lor.lhs.false643, %lor.lhs.false655, %lor.lhs.false663, %lor.lhs.false675, %lor.lhs.false683, %lor.lhs.false689, %lor.lhs.false711, %lor.lhs.false717, %lor.lhs.false725, %lor.lhs.false731, %lor.lhs.false737, %lor.lhs.false745, %lor.lhs.false751, %land.lhs.true759, %lor.lhs.false765, %lor.lhs.false771, %lor.lhs.false777, %lor.lhs.false785, %land.lhs.true795, %lor.lhs.false803, %lor.lhs.false835, %lor.lhs.false859, %lor.lhs.false867, %lor.lhs.false875, %lor.lhs.false899, %land.lhs.true909, %lor.lhs.false921, %land.lhs.true939
-  %retval.0 = phi i1 [ false, %land.lhs.true939 ], [ false, %lor.lhs.false921 ], [ false, %land.lhs.true909 ], [ false, %lor.lhs.false899 ], [ false, %lor.lhs.false875 ], [ false, %lor.lhs.false867 ], [ false, %lor.lhs.false859 ], [ false, %lor.lhs.false835 ], [ false, %lor.lhs.false803 ], [ false, %land.lhs.true795 ], [ false, %lor.lhs.false785 ], [ false, %lor.lhs.false777 ], [ false, %lor.lhs.false771 ], [ false, %lor.lhs.false765 ], [ false, %land.lhs.true759 ], [ false, %lor.lhs.false751 ], [ false, %lor.lhs.false745 ], [ false, %lor.lhs.false737 ], [ false, %lor.lhs.false731 ], [ false, %lor.lhs.false725 ], [ false, %lor.lhs.false717 ], [ false, %lor.lhs.false711 ], [ false, %lor.lhs.false689 ], [ false, %lor.lhs.false683 ], [ false, %lor.lhs.false675 ], [ false, %lor.lhs.false663 ], [ false, %lor.lhs.false655 ], [ false, %lor.lhs.false643 ], [ false, %lor.lhs.false635 ], [ false, %lor.lhs.false627 ], [ false, %lor.lhs.false621 ], [ false, %lor.lhs.false607 ], [ false, %lor.lhs.false599 ], [ false, %lor.lhs.false591 ], [ false, %lor.lhs.false583 ], [ false, %land.lhs.true577 ], [ false, %lor.lhs.false569 ], [ false, %lor.lhs.false561 ], [ false, %lor.lhs.false553 ], [ false, %lor.lhs.false545 ], [ false, %land.lhs.true537 ], [ false, %land.lhs.true527 ], [ false, %lor.lhs.false517 ], [ false, %land.lhs.true509 ], [ false, %lor.lhs.false493 ], [ false, %lor.lhs.false479 ], [ false, %land.lhs.true471 ], [ false, %land.lhs.true461 ], [ false, %lor.lhs.false433 ], [ false, %lor.lhs.false425 ], [ false, %lor.lhs.false403 ], [ false, %lor.lhs.false377 ], [ false, %lor.lhs.false369 ], [ false, %lor.lhs.false355 ], [ false, %lor.lhs.false349 ], [ false, %lor.lhs.false341 ], [ false, %lor.lhs.false333 ], [ false, %lor.lhs.false325 ], [ false, %lor.lhs.false319 ], [ false, %lor.lhs.false313 ], [ false, %lor.lhs.false307 ], [ false, %lor.lhs.false301 ], [ false, %lor.lhs.false289 ], [ false, %land.lhs.true281 ], [ false, %land.lhs.true267 ], [ false, %lor.lhs.false259 ], [ false, %lor.lhs.false247 ], [ false, %lor.lhs.false239 ], [ false, %land.lhs.true231 ], [ false, %lor.lhs.false221 ], [ false, %lor.lhs.false213 ], [ false, %lor.lhs.false207 ], [ false, %lor.lhs.false201 ], [ false, %lor.lhs.false193 ], [ false, %lor.lhs.false185 ], [ false, %lor.lhs.false177 ], [ false, %lor.lhs.false169 ], [ false, %lor.lhs.false161 ], [ false, %lor.lhs.false153 ], [ false, %lor.lhs.false145 ], [ false, %land.lhs.true137 ], [ false, %lor.lhs.false127 ], [ false, %lor.lhs.false119 ], [ false, %lor.lhs.false113 ], [ false, %lor.lhs.false107 ], [ false, %lor.lhs.false101 ], [ false, %lor.lhs.false95 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false65 ], [ false, %lor.lhs.false59 ], [ false, %lor.lhs.false53 ], [ false, %land.lhs.true47 ], [ false, %lor.lhs.false39 ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false27 ], [ false, %lor.lhs.false21 ], [ false, %land.lhs.true15 ], [ false, %lor.lhs.false7 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true305 ], [ false, %land.lhs.true263 ], [ false, %entry ], [ %not.or.cond557, %lor.lhs.false947 ], [ false, %entry ]
+  %retval.0 = phi i1 [ false, %entry ], [ %not.or.cond557, %lor.lhs.false947 ], [ false, %land.lhs.true939 ], [ false, %lor.lhs.false33 ], [ false, %lor.lhs.false921 ], [ false, %land.lhs.true909 ], [ false, %lor.lhs.false899 ], [ false, %lor.lhs.false27 ], [ false, %lor.lhs.false875 ], [ false, %lor.lhs.false867 ], [ false, %lor.lhs.false859 ], [ false, %lor.lhs.false21 ], [ false, %lor.lhs.false835 ], [ false, %land.lhs.true15 ], [ false, %lor.lhs.false7 ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false803 ], [ false, %land.lhs.true795 ], [ false, %lor.lhs.false785 ], [ false, %lor.lhs.false777 ], [ false, %lor.lhs.false771 ], [ false, %lor.lhs.false765 ], [ false, %land.lhs.true759 ], [ false, %lor.lhs.false751 ], [ false, %lor.lhs.false745 ], [ false, %lor.lhs.false737 ], [ false, %lor.lhs.false731 ], [ false, %lor.lhs.false725 ], [ false, %lor.lhs.false717 ], [ false, %lor.lhs.false711 ], [ false, %land.lhs.true305 ], [ false, %land.lhs.true263 ], [ false, %lor.lhs.false689 ], [ false, %lor.lhs.false683 ], [ false, %lor.lhs.false675 ], [ false, %lor.lhs.false663 ], [ false, %lor.lhs.false655 ], [ false, %lor.lhs.false643 ], [ false, %lor.lhs.false635 ], [ false, %lor.lhs.false627 ], [ false, %lor.lhs.false621 ], [ false, %lor.lhs.false607 ], [ false, %lor.lhs.false599 ], [ false, %lor.lhs.false591 ], [ false, %lor.lhs.false583 ], [ false, %land.lhs.true577 ], [ false, %lor.lhs.false569 ], [ false, %lor.lhs.false561 ], [ false, %lor.lhs.false553 ], [ false, %lor.lhs.false545 ], [ false, %land.lhs.true537 ], [ false, %land.lhs.true527 ], [ false, %lor.lhs.false517 ], [ false, %land.lhs.true509 ], [ false, %lor.lhs.false493 ], [ false, %lor.lhs.false479 ], [ false, %land.lhs.true471 ], [ false, %land.lhs.true461 ], [ false, %lor.lhs.false433 ], [ false, %lor.lhs.false425 ], [ false, %entry ], [ false, %lor.lhs.false403 ], [ false, %lor.lhs.false377 ], [ false, %lor.lhs.false369 ], [ false, %lor.lhs.false355 ], [ false, %lor.lhs.false349 ], [ false, %lor.lhs.false341 ], [ false, %lor.lhs.false333 ], [ false, %lor.lhs.false325 ], [ false, %lor.lhs.false319 ], [ false, %lor.lhs.false313 ], [ false, %lor.lhs.false307 ], [ false, %lor.lhs.false301 ], [ false, %lor.lhs.false289 ], [ false, %land.lhs.true281 ], [ false, %land.lhs.true267 ], [ false, %lor.lhs.false259 ], [ false, %lor.lhs.false247 ], [ false, %lor.lhs.false239 ], [ false, %land.lhs.true231 ], [ false, %lor.lhs.false221 ], [ false, %lor.lhs.false213 ], [ false, %lor.lhs.false207 ], [ false, %lor.lhs.false201 ], [ false, %lor.lhs.false193 ], [ false, %lor.lhs.false185 ], [ false, %lor.lhs.false177 ], [ false, %lor.lhs.false169 ], [ false, %lor.lhs.false161 ], [ false, %lor.lhs.false153 ], [ false, %lor.lhs.false145 ], [ false, %land.lhs.true137 ], [ false, %lor.lhs.false127 ], [ false, %lor.lhs.false119 ], [ false, %lor.lhs.false113 ], [ false, %lor.lhs.false107 ], [ false, %lor.lhs.false101 ], [ false, %lor.lhs.false95 ], [ false, %lor.lhs.false89 ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false65 ], [ false, %lor.lhs.false59 ], [ false, %lor.lhs.false53 ], [ false, %land.lhs.true47 ], [ false, %lor.lhs.false39 ]
   ret i1 %retval.0
 }
 
@@ -2483,7 +2483,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIN8Q
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.lhs.false.i.i, %_ZNKSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %lor.rhs, %_ZNK5boost10shared_ptrIN8QuantLib8Calendar4ImplEEptEv.exit
-  %10 = phi i1 [ true, %_ZNK5boost10shared_ptrIN8QuantLib8Calendar4ImplEEptEv.exit ], [ false, %_ZNKSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %lor.rhs ], [ %cmp.i.i.i.i, %lor.lhs.false.i.i ]
+  %10 = phi i1 [ true, %_ZNK5boost10shared_ptrIN8QuantLib8Calendar4ImplEEptEv.exit ], [ false, %lor.rhs ], [ false, %_ZNKSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %cmp.i.i.i.i, %lor.lhs.false.i.i ]
   ret i1 %10
 
 lpad:                                             ; preds = %invoke.cont262, %invoke.cont260, %invoke.cont258, %invoke.cont256, %invoke.cont254, %invoke.cont252, %invoke.cont250, %invoke.cont248, %invoke.cont246, %invoke.cont244, %invoke.cont242, %invoke.cont240, %invoke.cont238, %invoke.cont236, %invoke.cont234, %invoke.cont232, %invoke.cont230, %invoke.cont228, %invoke.cont226, %invoke.cont224, %invoke.cont222, %invoke.cont220, %invoke.cont218, %invoke.cont216, %invoke.cont214, %invoke.cont212, %invoke.cont210, %invoke.cont208, %invoke.cont206, %invoke.cont204, %invoke.cont202, %invoke.cont200, %invoke.cont198, %invoke.cont196, %invoke.cont194, %invoke.cont192, %invoke.cont190, %invoke.cont188, %invoke.cont186, %invoke.cont184, %invoke.cont182, %invoke.cont180, %invoke.cont178, %invoke.cont176, %invoke.cont174, %invoke.cont172, %invoke.cont170, %invoke.cont168, %invoke.cont166, %invoke.cont164, %invoke.cont162, %invoke.cont160, %invoke.cont158, %invoke.cont156, %invoke.cont154, %invoke.cont152, %invoke.cont150, %invoke.cont148, %invoke.cont146, %invoke.cont144, %invoke.cont142, %invoke.cont140, %invoke.cont138, %invoke.cont136, %invoke.cont134, %invoke.cont132, %invoke.cont130, %invoke.cont128, %invoke.cont126, %invoke.cont124, %invoke.cont122, %invoke.cont120, %invoke.cont118, %invoke.cont116, %invoke.cont114, %invoke.cont112, %invoke.cont110, %invoke.cont108, %invoke.cont106, %invoke.cont104, %invoke.cont102, %invoke.cont100, %invoke.cont98, %invoke.cont96, %invoke.cont94, %invoke.cont92, %invoke.cont90, %invoke.cont88, %invoke.cont86, %invoke.cont84, %invoke.cont82, %invoke.cont80, %invoke.cont78, %invoke.cont76, %invoke.cont74, %invoke.cont72, %invoke.cont70, %invoke.cont68, %invoke.cont66, %invoke.cont64, %invoke.cont62, %invoke.cont60, %invoke.cont58, %invoke.cont56, %invoke.cont54, %invoke.cont52, %invoke.cont50, %invoke.cont48, %invoke.cont46, %invoke.cont44, %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont36, %invoke.cont34, %invoke.cont32, %invoke.cont30, %invoke.cont28, %invoke.cont26, %invoke.cont24, %invoke.cont22, %invoke.cont20, %invoke.cont18, %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont2, %invoke.cont, %init
@@ -2576,7 +2576,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
   %cmp.i.i4.i.i = icmp slt i64 %5, %.pre.i.i.i.pre.pre.pre
   br i1 %cmp.i.i4.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_.exit.i
 
-if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
+if.then.i.i:                                      ; preds = %if.end12.i.i, %if.then.i.i6, %land.lhs.true.i
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i6 ], [ %1, %land.lhs.true.i ], [ %__y.0.lcssa24.i.i, %if.end12.i.i ]
   %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i.ph, %0
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
@@ -2588,7 +2588,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %7 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i.i, %lor.rhs.i.i.i ]
+  %7 = phi i1 [ %cmp.i.i.i.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad4
 
@@ -3247,7 +3247,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br label %_ZNKSt9type_infoeqERKS_.exit.thread5
 
 _ZNKSt9type_infoeqERKS_.exit.thread5:             ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread
-  %2 = phi ptr [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
+  %2 = phi ptr [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ], [ %del2, %_ZNKSt9type_infoeqERKS_.exit.thread ]
   ret ptr %2
 }
 

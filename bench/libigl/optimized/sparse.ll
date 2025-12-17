@@ -1760,7 +1760,7 @@ _ZN5Eigen12SparseMatrixIiLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !11
   call void @free(ptr noundef %76) #22
   br label %.body
@@ -3052,7 +3052,7 @@ _ZN5Eigen12SparseMatrixISt7complexIdELi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin
   br label %77
 
 75:                                               ; preds = %50, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !11
   call void @free(ptr noundef %76) #22
   br label %.body
@@ -4380,7 +4380,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !11
   call void @free(ptr noundef %76) #22
   br label %.body

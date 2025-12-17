@@ -885,7 +885,7 @@ _Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %191
   br label %215
 
 214:                                              ; preds = %207, %209, %206, %200
-  %.pn213.pn = phi { ptr, i32 } [ %.pn, %206 ], [ %201, %200 ], [ %210, %209 ], [ %208, %207 ]
+  %.pn213.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn, %206 ], [ %210, %209 ], [ %208, %207 ]
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %216

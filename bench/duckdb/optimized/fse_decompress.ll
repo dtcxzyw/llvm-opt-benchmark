@@ -500,9 +500,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i: ; preds = %6
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i: ; preds = %153, %148
-  %.pn458.in.i = phi i32 [ %149, %148 ], [ %.021.i25.i, %153 ]
-  %.lcssa195.promoted.i = phi i32 [ %150, %148 ], [ %163, %153 ]
-  %.022.i24.i = phi i1 [ true, %148 ], [ %158, %153 ]
+  %.pn458.in.i = phi i32 [ %.021.i25.i, %153 ], [ %149, %148 ]
+  %.lcssa195.promoted.i = phi i32 [ %163, %153 ], [ %150, %148 ]
+  %.022.i24.i = phi i1 [ %158, %153 ], [ true, %148 ]
   %.pn458.i = zext i32 %.pn458.in.i to i64
   %.pn.i = sub nsw i64 0, %.pn458.i
   %.promoted230.i = getelementptr inbounds i8, ptr %147, i64 %.pn.i
@@ -767,7 +767,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %294
   br label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i, %266, %314, %.preheader176.i, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i, %117, %67, %60
-  %.1.i9.i = phi i64 [ %317, %314 ], [ %30, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ -72, %60 ], [ -1, %67 ], [ -20, %117 ], [ -70, %.preheader176.i ], [ -70, %266 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ]
+  %.1.i9.i = phi i64 [ %30, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ %317, %314 ], [ -72, %60 ], [ -1, %67 ], [ -20, %117 ], [ -70, %.preheader176.i ], [ -70, %266 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -840,9 +840,9 @@ _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i: ; pr
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50.i: ; preds = %344, %339
-  %.pn460.in.i = phi i32 [ %340, %339 ], [ %.021.i46.i, %344 ]
-  %.lcssa185.promoted.i = phi i32 [ %341, %339 ], [ %354, %344 ]
-  %.022.i45.i = phi i1 [ true, %339 ], [ %349, %344 ]
+  %.pn460.in.i = phi i32 [ %.021.i46.i, %344 ], [ %340, %339 ]
+  %.lcssa185.promoted.i = phi i32 [ %354, %344 ], [ %341, %339 ]
+  %.022.i45.i = phi i1 [ %349, %344 ], [ true, %339 ]
   %.pn460.i = zext i32 %.pn460.in.i to i64
   %.pn459.i = sub nsw i64 0, %.pn460.i
   %.promoted271.i = getelementptr inbounds i8, ptr %338, i64 %.pn459.i
@@ -1113,14 +1113,14 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i: ; preds = %4
   br label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i, %459, %507, %.preheader.i, %318
-  %.1.i7.i = phi i64 [ %510, %507 ], [ %319, %318 ], [ -70, %.preheader.i ], [ -70, %459 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i ]
+  %.1.i7.i = phi i64 [ %319, %318 ], [ %510, %507 ], [ -70, %.preheader.i ], [ -70, %459 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit
 
 _ZN11duckdb_zstdL32FSE_decompress_wksp_body_defaultEPvmPKvmjS0_m.exit: ; preds = %19, %22, %25, %28, %47, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i
-  %.0.i.i = phi i64 [ %53, %47 ], [ -1, %19 ], [ -44, %28 ], [ %.1.i9.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i ], [ %.1.i7.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i ], [ -44, %25 ], [ %23, %22 ]
+  %.0.i.i = phi i64 [ %.1.i7.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit.i ], [ -1, %19 ], [ -44, %28 ], [ %53, %47 ], [ %.1.i9.i, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13.i ], [ -44, %25 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %511
@@ -1378,9 +1378,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit: ; preds = %63
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29: ; preds = %145, %150
-  %.pn458.in = phi i32 [ %146, %145 ], [ %.021.i25, %150 ]
-  %.lcssa195.promoted = phi i32 [ %147, %145 ], [ %160, %150 ]
-  %.022.i24 = phi i1 [ true, %145 ], [ %155, %150 ]
+  %.pn458.in = phi i32 [ %.021.i25, %150 ], [ %146, %145 ]
+  %.lcssa195.promoted = phi i32 [ %160, %150 ], [ %147, %145 ]
+  %.022.i24 = phi i1 [ %155, %150 ], [ true, %145 ]
   %.pn458 = zext i32 %.pn458.in to i64
   %.pn = sub nsw i64 0, %.pn458
   %.promoted230 = getelementptr inbounds i8, ptr %144, i64 %.pn
@@ -1645,7 +1645,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %289, 
   br label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13: ; preds = %263, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit, %.preheader176, %113, %63, %56, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit, %311
-  %.1.i9 = phi i64 [ %314, %311 ], [ %26, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ -72, %56 ], [ -1, %63 ], [ -20, %113 ], [ -70, %.preheader176 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ -70, %263 ]
+  %.1.i9 = phi i64 [ %26, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ %314, %311 ], [ -72, %56 ], [ -1, %63 ], [ -20, %113 ], [ -70, %.preheader176 ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ -70, %263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1718,9 +1718,9 @@ _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13: ; pred
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50: ; preds = %337, %342
-  %.pn460.in = phi i32 [ %338, %337 ], [ %.021.i46, %342 ]
-  %.lcssa185.promoted = phi i32 [ %339, %337 ], [ %352, %342 ]
-  %.022.i45 = phi i1 [ true, %337 ], [ %347, %342 ]
+  %.pn460.in = phi i32 [ %.021.i46, %342 ], [ %338, %337 ]
+  %.lcssa185.promoted = phi i32 [ %352, %342 ], [ %339, %337 ]
+  %.022.i45 = phi i1 [ %347, %342 ], [ true, %337 ]
   %.pn460 = zext i32 %.pn460.in to i64
   %.pn459 = sub nsw i64 0, %.pn460
   %.promoted271 = getelementptr inbounds i8, ptr %336, i64 %.pn459
@@ -1991,14 +1991,14 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36: ; preds = %483
   br label %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit
 
 _ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit: ; preds = %457, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36, %.preheader, %315, %505
-  %.1.i7 = phi i64 [ %508, %505 ], [ %316, %315 ], [ -70, %.preheader ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36 ], [ -70, %457 ]
+  %.1.i7 = phi i64 [ %316, %315 ], [ %508, %505 ], [ -70, %.preheader ], [ -70, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit36 ], [ -70, %457 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN11duckdb_zstdL24FSE_decompress_wksp_bodyEPvmPKvmjS0_mi.exit
 
 _ZN11duckdb_zstdL24FSE_decompress_wksp_bodyEPvmPKvmjS0_mi.exit: ; preds = %21, %18, %7, %24, %43, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit
-  %.0.i = phi i64 [ %49, %43 ], [ -1, %7 ], [ -44, %24 ], [ %.1.i9, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13 ], [ %.1.i7, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit ], [ -44, %21 ], [ %19, %18 ]
+  %.0.i = phi i64 [ %.1.i7, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit ], [ -1, %7 ], [ -44, %24 ], [ %49, %43 ], [ %.1.i9, %_ZN11duckdb_zstdL34FSE_decompress_usingDTable_genericEPvmPKvmPKjj.exit13 ], [ -44, %21 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i64 %.0.i
@@ -2151,7 +2151,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL15BIT_initD
   br label %83
 
 83:                                               ; preds = %75, %.thread, %73, %22, %5
-  %.0 = phi i64 [ -72, %5 ], [ -1, %22 ], [ -20, %73 ], [ %2, %.thread ], [ %2, %75 ]
+  %.0 = phi i64 [ -72, %5 ], [ -20, %73 ], [ -1, %22 ], [ %2, %.thread ], [ %2, %75 ]
   ret i64 %.0
 }
 

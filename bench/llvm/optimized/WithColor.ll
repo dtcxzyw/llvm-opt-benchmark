@@ -306,7 +306,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9WithColor13colorsEnabledEv(ptr nou
   unreachable
 
 10:                                               ; preds = %1, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %8, %5 ], [ true, %1 ]
+  %.0 = phi i1 [ %8, %5 ], [ false, %4 ], [ true, %1 ]
   ret i1 %.0
 }
 

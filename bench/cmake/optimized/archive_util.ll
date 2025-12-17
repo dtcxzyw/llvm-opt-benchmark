@@ -269,7 +269,7 @@ __archive_ensure_cloexec_flag.exit:               ; preds = %36, %40
   br label %45
 
 45:                                               ; preds = %31, %get_tempdir.exit, %__archive_ensure_cloexec_flag.exit
-  %.0 = phi i32 [ %29, %get_tempdir.exit ], [ %34, %31 ], [ %34, %__archive_ensure_cloexec_flag.exit ]
+  %.0 = phi i32 [ %34, %__archive_ensure_cloexec_flag.exit ], [ %29, %get_tempdir.exit ], [ %34, %31 ]
   call void @archive_string_free(ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -467,7 +467,7 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   br label %43
 
 43:                                               ; preds = %2, %._crit_edge88, %22, %16
-  %.0 = phi i32 [ -30, %16 ], [ -30, %22 ], [ %42, %._crit_edge88 ], [ 0, %2 ]
+  %.0 = phi i32 [ %42, %._crit_edge88 ], [ -30, %16 ], [ -30, %22 ], [ 0, %2 ]
   ret i32 %.0
 }
 

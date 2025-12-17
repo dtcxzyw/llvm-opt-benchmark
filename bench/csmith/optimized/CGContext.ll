@@ -856,7 +856,7 @@ _ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit: ; 
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !55
@@ -939,7 +939,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonreadableEPK8Variable(
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0710 = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.0710 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = load ptr, ptr %15, align 8, !tbaa !4
@@ -1021,7 +1021,7 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonwritableEPK8Variable(
   br i1 %.not22, label %.thread, label %.lr.ph28, !llvm.loop !84
 
 .thread:                                          ; preds = %.lr.ph, %.critedge, %31, %.lr.ph28, %.loopexit
-  %.3 = phi i1 [ false, %.loopexit ], [ %30, %.lr.ph28 ], [ %30, %31 ], [ true, %.critedge ], [ true, %.lr.ph ]
+  %.3 = phi i1 [ false, %.loopexit ], [ %30, %31 ], [ %30, %.lr.ph28 ], [ true, %.critedge ], [ true, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -1108,7 +1108,7 @@ define dso_local void @_ZN9CGContext8read_varEPK8Variable(ptr noundef nonnull al
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0710.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
+  %.0710.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = load ptr, ptr %18, align 8, !tbaa !77
   %20 = load ptr, ptr %19, align 8, !tbaa !4
@@ -1249,7 +1249,7 @@ _ZNK8Variable10is_pointerEv.exit.thread:          ; preds = %41, %46, %_ZNK8Vari
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.0710.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %68, %.lr.ph.i.i ]
+  %.0710.i.i = phi i64 [ %68, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %62 = load ptr, ptr %12, align 8, !tbaa !53
   %63 = load ptr, ptr %62, align 8, !tbaa !77
   %64 = load ptr, ptr %63, align 8, !tbaa !4
@@ -1277,7 +1277,7 @@ _ZN9CGContext8read_varEPK8Variable.exit:          ; preds = %_ZNK9CGContext14is_
   br label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit
 
 _ZNK9CGContext14is_nonreadableEPK8Variable.exit:  ; preds = %.lr.ph.i, %46, %36, %.loopexit, %5, %3, %_ZN9CGContext8read_varEPK8Variable.exit
-  %.0 = phi i1 [ true, %_ZN9CGContext8read_varEPK8Variable.exit ], [ false, %3 ], [ false, %5 ], [ false, %.loopexit ], [ false, %36 ], [ false, %46 ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ false, %46 ], [ false, %36 ], [ true, %_ZN9CGContext8read_varEPK8Variable.exit ], [ false, %.loopexit ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -1746,7 +1746,7 @@ _ZN11FactPointTo14is_special_ptrEPK8Variable.exit.thread: ; preds = %._ZN11FactP
   br i1 %127, label %.lr.ph, label %.loopexit, !llvm.loop !150
 
 .critedge:                                        ; preds = %.loopexit, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit, %117, %94
-  %128 = phi i1 [ false, %117 ], [ false, %94 ], [ true, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit ], [ true, %.loopexit ]
+  %128 = phi i1 [ false, %94 ], [ false, %117 ], [ true, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit ], [ true, %.loopexit ]
   %129 = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i.i.i35 = icmp eq ptr %129, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit36, label %130
@@ -1764,7 +1764,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit36:      ; preds = %.critedge, %130
   br label %143
 
 135:                                              ; preds = %.loopexit41, %.loopexit.split-lp, %.loopexit42, %.loopexit.split-lp43, %99, %97
-  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %100, %99 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit, %.loopexit41 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %136 = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i.i.i37 = icmp eq ptr %136, null
   br i1 %.not.i.i.i37, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit38, label %137
@@ -2148,7 +2148,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %63, %_ZNSt6vectorIP
   br i1 %146, label %.lr.ph.split, label %.loopexit, !llvm.loop !154
 
 .loopexit52:                                      ; preds = %.loopexit, %55, %.split.us, %90
-  %147 = phi i1 [ false, %.split.us ], [ false, %90 ], [ true, %55 ], [ true, %.loopexit ]
+  %147 = phi i1 [ false, %90 ], [ false, %.split.us ], [ true, %55 ], [ true, %.loopexit ]
   %148 = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i.i.i45 = icmp eq ptr %148, null
   br i1 %.not.i.i.i45, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit46, label %149
@@ -2166,7 +2166,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit46:      ; preds = %.loopexit52, %149
   br label %161
 
 .loopexit51:                                      ; preds = %.loopexit.split-lp, %.loopexit51.split.us, %.loopexit51.split, %.loopexit53, %.loopexit.split-lp54, %95, %97, %93
-  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit51.split ], [ %lpad.loopexit.us, %.loopexit51.split.us ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit51.split ], [ %lpad.loopexit.us, %.loopexit51.split.us ]
   %154 = load ptr, ptr %5, align 8, !tbaa !4
   %.not.i.i.i47 = icmp eq ptr %154, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit48, label %155
@@ -2322,7 +2322,7 @@ _ZNK8Variable10is_pointerEv.exit.thread:          ; preds = %59, %64, %_ZNK8Vari
   br label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread
 
 _ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread: ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph28.i, %64, %50, %45, %41, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %3, %_ZNK8Variable10is_pointerEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK8Variable10is_pointerEv.exit.thread ], [ false, %3 ], [ false, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %64 ], [ false, %.lr.ph28.i ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %3 ], [ false, %64 ], [ false, %41 ], [ false, %50 ], [ true, %_ZNK8Variable10is_pointerEv.exit.thread ], [ false, %45 ], [ false, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %.lr.ph28.i ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2721,10 +2721,10 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %25, %_ZNKSt6vectorI
   %.not.i.i.i31 = icmp eq ptr %20, null
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit32, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread
 
-_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread:  ; preds = %96, %93, %66, %63, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %94, %96 ], [ %94, %93 ], [ %64, %66 ], [ %64, %63 ]
-  %.sroa.22.151 = phi ptr [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %38, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %38, %96 ], [ %38, %93 ], [ %38, %66 ], [ %38, %63 ]
-  %.sroa.0.150 = phi ptr [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %32, %96 ], [ %32, %93 ], [ %32, %66 ], [ %32, %63 ]
+_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread:  ; preds = %96, %93, %63, %66, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
+  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %94, %96 ], [ %94, %93 ], [ %64, %63 ], [ %64, %66 ]
+  %.sroa.22.151 = phi ptr [ %38, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %19, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %38, %96 ], [ %38, %93 ], [ %38, %63 ], [ %38, %66 ]
+  %.sroa.0.150 = phi ptr [ %32, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17.thread55 ], [ %20, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17 ], [ %32, %96 ], [ %32, %93 ], [ %32, %63 ], [ %32, %66 ]
   %101 = ptrtoint ptr %.sroa.22.151 to i64
   %102 = ptrtoint ptr %.sroa.0.150 to i64
   %103 = sub i64 %101, %102
@@ -2859,7 +2859,7 @@ _ZNK9CGContext17get_current_blockEv.exit:         ; preds = %_ZNK9CGContext17get
   br i1 %.not31, label %.lr.ph40.loopexit, label %61, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK9CGContext17get_current_blockEv.exit, %61, %45, %2
-  %.024 = phi i32 [ -1, %2 ], [ 8888, %45 ], [ 9999, %61 ], [ %.123, %_ZNK9CGContext17get_current_blockEv.exit ], [ 0, %.lr.ph ]
+  %.024 = phi i32 [ -1, %2 ], [ 8888, %45 ], [ %.123, %_ZNK9CGContext17get_current_blockEv.exit ], [ 9999, %61 ], [ 0, %.lr.ph ]
   ret i32 %.024
 }
 
@@ -3193,23 +3193,23 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %16
 
-.preheader:                                       ; preds = %.critedge, %2
+.preheader:                                       ; preds = %47, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !80
   %11 = load ptr, ptr %3, align 8, !tbaa !4
   %.not50 = icmp eq ptr %10, %11
-  br i1 %.not50, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.lr.ph42
+  br i1 %.not50, label %.critedge, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %55
+  br label %56
 
-16:                                               ; preds = %.lr.ph, %.critedge
-  %17 = phi ptr [ %6, %.lr.ph ], [ %49, %.critedge ]
-  %.02640 = phi i64 [ 0, %.lr.ph ], [ %47, %.critedge ]
+16:                                               ; preds = %.lr.ph, %47
+  %17 = phi ptr [ %6, %.lr.ph ], [ %50, %47 ]
+  %.02640 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.02640
   %19 = load ptr, ptr %18, align 8, !tbaa !69
   %20 = load ptr, ptr %7, align 8, !tbaa !53
@@ -3244,135 +3244,135 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0710.i
   %36 = load ptr, ptr %35, align 8, !tbaa !69
   %37 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %36, ptr noundef %19)
-  br i1 %37, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %30
+  br i1 %37, label %.critedge, label %30
 
 .loopexit:                                        ; preds = %30, %16, %21
   %38 = load ptr, ptr %8, align 8, !tbaa !71
   %39 = tail call noundef zeroext i1 @_ZNK6Effect20is_written_partiallyEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %38, ptr noundef %19)
-  br i1 %39, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %.loopexit
   %41 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %19)
-  br i1 %41, label %42, label %.critedge
+  br i1 %41, label %42, label %47
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %8, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 73
   %45 = load i8, ptr %44, align 1, !tbaa !85, !range !86, !noundef !87
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %.critedge, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit
+  br i1 %46, label %47, label %.critedge
 
-.critedge:                                        ; preds = %42, %40
-  %47 = add nuw i64 %.02640, 1
-  %48 = load ptr, ptr %4, align 8, !tbaa !80
-  %49 = load ptr, ptr %1, align 8, !tbaa !4
-  %50 = ptrtoint ptr %48 to i64
+47:                                               ; preds = %42, %40
+  %48 = add nuw i64 %.02640, 1
+  %49 = load ptr, ptr %4, align 8, !tbaa !80
+  %50 = load ptr, ptr %1, align 8, !tbaa !4
   %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = ashr exact i64 %52, 3
-  %54 = icmp ult i64 %47, %53
-  br i1 %54, label %16, label %.preheader, !llvm.loop !189
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 3
+  %55 = icmp ult i64 %48, %54
+  br i1 %55, label %16, label %.preheader, !llvm.loop !189
 
-55:                                               ; preds = %.lr.ph42, %.critedge29
-  %56 = phi ptr [ %11, %.lr.ph42 ], [ %102, %.critedge29 ]
-  %.12741 = phi i64 [ 0, %.lr.ph42 ], [ %100, %.critedge29 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.12741
-  %58 = load ptr, ptr %57, align 8, !tbaa !69
-  %59 = load ptr, ptr %12, align 8, !tbaa !53
-  %.not.i30 = icmp eq ptr %59, null
-  br i1 %.not.i30, label %.loopexit.i, label %60
+56:                                               ; preds = %.lr.ph42, %101
+  %57 = phi ptr [ %11, %.lr.ph42 ], [ %104, %101 ]
+  %.12741 = phi i64 [ 0, %.lr.ph42 ], [ %102, %101 ]
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.12741
+  %59 = load ptr, ptr %58, align 8, !tbaa !69
+  %60 = load ptr, ptr %12, align 8, !tbaa !53
+  %.not.i30 = icmp eq ptr %60, null
+  br i1 %.not.i30, label %.loopexit.i, label %61
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !82
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !80
-  %65 = load ptr, ptr %62, align 8, !tbaa !4
-  %.not1824.not.i = icmp eq ptr %64, %65
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !82
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !80
+  %66 = load ptr, ptr %63, align 8, !tbaa !4
+  %.not1824.not.i = icmp eq ptr %65, %66
   br i1 %.not1824.not.i, label %.loopexit.i, label %.lr.ph.preheader.i31
 
-.lr.ph.preheader.i31:                             ; preds = %60
-  %66 = ptrtoint ptr %64 to i64
+.lr.ph.preheader.i31:                             ; preds = %61
   %67 = ptrtoint ptr %65 to i64
-  %68 = sub i64 %66, %67
-  %69 = ashr exact i64 %68, 3
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  %70 = ashr exact i64 %69, 3
   br label %.lr.ph.i32
 
-70:                                               ; preds = %.critedge.i
-  %71 = add nuw i64 %.01425.i, 1
-  %exitcond.not.i33 = icmp eq i64 %71, %69
+71:                                               ; preds = %.critedge.i
+  %72 = add nuw i64 %.01425.i, 1
+  %exitcond.not.i33 = icmp eq i64 %72, %70
   br i1 %exitcond.not.i33, label %.loopexit.i, label %.lr.ph.i32, !llvm.loop !83
 
-.lr.ph.i32:                                       ; preds = %70, %.lr.ph.preheader.i31
-  %.01425.i = phi i64 [ %71, %70 ], [ 0, %.lr.ph.preheader.i31 ]
-  %72 = load ptr, ptr %12, align 8, !tbaa !53
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !82
-  %75 = load ptr, ptr %74, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.01425.i
-  %77 = load ptr, ptr %76, align 8, !tbaa !69
-  %78 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %77, ptr noundef %58)
-  br i1 %78, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.critedge.i
+.lr.ph.i32:                                       ; preds = %71, %.lr.ph.preheader.i31
+  %.01425.i = phi i64 [ %72, %71 ], [ 0, %.lr.ph.preheader.i31 ]
+  %73 = load ptr, ptr %12, align 8, !tbaa !53
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !82
+  %76 = load ptr, ptr %75, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.01425.i
+  %78 = load ptr, ptr %77, align 8, !tbaa !69
+  %79 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %78, ptr noundef %59)
+  br i1 %79, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i32
-  %79 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef nonnull %77)
-  br i1 %79, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %70
+  %80 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %59, ptr noundef nonnull %78)
+  br i1 %80, label %.critedge, label %71
 
-.loopexit.i:                                      ; preds = %70, %60, %55
-  %80 = load ptr, ptr %13, align 8, !tbaa !42
-  %.not2226.i = icmp eq ptr %80, %14
+.loopexit.i:                                      ; preds = %71, %61, %56
+  %81 = load ptr, ptr %13, align 8, !tbaa !42
+  %.not2226.i = icmp eq ptr %81, %14
   br i1 %.not2226.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %.loopexit.i, %84
-  %.sroa.019.027.i = phi ptr [ %85, %84 ], [ %80, %.loopexit.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !74
-  %83 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef %82)
-  br i1 %83, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %84
+.lr.ph28.i:                                       ; preds = %.loopexit.i, %85
+  %.sroa.019.027.i = phi ptr [ %86, %85 ], [ %81, %.loopexit.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i, i64 32
+  %83 = load ptr, ptr %82, align 8, !tbaa !74
+  %84 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %59, ptr noundef %83)
+  br i1 %84, label %.critedge, label %85
 
-84:                                               ; preds = %.lr.ph28.i
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027.i) #24
-  %.not22.i = icmp eq ptr %85, %14
+85:                                               ; preds = %.lr.ph28.i
+  %86 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027.i) #24
+  %.not22.i = icmp eq ptr %86, %14
   br i1 %.not22.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i, !llvm.loop !84
 
-_ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %84, %.loopexit.i
-  %86 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(200) %58)
-  br i1 %86, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %87
+_ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %85, %.loopexit.i
+  %87 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(200) %59)
+  br i1 %87, label %.critedge, label %88
 
-87:                                               ; preds = %_ZNK9CGContext14is_nonwritableEPK8Variable.exit
-  %88 = load ptr, ptr %15, align 8, !tbaa !71
-  %89 = tail call noundef zeroext i1 @_ZNK6Effect20is_written_partiallyEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %88, ptr noundef nonnull %58)
-  br i1 %89, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %90
+88:                                               ; preds = %_ZNK9CGContext14is_nonwritableEPK8Variable.exit
+  %89 = load ptr, ptr %15, align 8, !tbaa !71
+  %90 = tail call noundef zeroext i1 @_ZNK6Effect20is_written_partiallyEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %89, ptr noundef nonnull %59)
+  br i1 %90, label %.critedge, label %91
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %15, align 8, !tbaa !71
-  %92 = tail call noundef zeroext i1 @_ZNK6Effect17is_read_partiallyEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %91, ptr noundef nonnull %58)
-  br i1 %92, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %93
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %15, align 8, !tbaa !71
+  %93 = tail call noundef zeroext i1 @_ZNK6Effect17is_read_partiallyEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %92, ptr noundef nonnull %59)
+  br i1 %93, label %.critedge, label %94
 
-93:                                               ; preds = %90
-  %94 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %58)
-  br i1 %94, label %95, label %.critedge29
+94:                                               ; preds = %91
+  %95 = tail call noundef zeroext i1 @_ZNK8Variable11is_volatileEv(ptr noundef nonnull align 8 dereferenceable(200) %59)
+  br i1 %95, label %96, label %101
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %15, align 8, !tbaa !71
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 73
-  %98 = load i8, ptr %97, align 1, !tbaa !85, !range !86, !noundef !87
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %.critedge29, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit
+96:                                               ; preds = %94
+  %97 = load ptr, ptr %15, align 8, !tbaa !71
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 73
+  %99 = load i8, ptr %98, align 1, !tbaa !85, !range !86, !noundef !87
+  %100 = trunc nuw i8 %99 to i1
+  br i1 %100, label %101, label %.critedge
 
-.critedge29:                                      ; preds = %95, %93
-  %100 = add nuw i64 %.12741, 1
-  %101 = load ptr, ptr %9, align 8, !tbaa !80
-  %102 = load ptr, ptr %3, align 8, !tbaa !4
-  %103 = ptrtoint ptr %101 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = icmp ult i64 %100, %106
-  br i1 %107, label %55, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, !llvm.loop !190
+101:                                              ; preds = %96, %94
+  %102 = add nuw i64 %.12741, 1
+  %103 = load ptr, ptr %9, align 8, !tbaa !80
+  %104 = load ptr, ptr %3, align 8, !tbaa !4
+  %105 = ptrtoint ptr %103 to i64
+  %106 = ptrtoint ptr %104 to i64
+  %107 = sub i64 %105, %106
+  %108 = ashr exact i64 %107, 3
+  %109 = icmp ult i64 %102, %108
+  br i1 %109, label %56, label %.critedge, !llvm.loop !190
 
-_ZNK9CGContext14is_nonreadableEPK8Variable.exit:  ; preds = %.loopexit, %42, %.lr.ph.i, %95, %90, %87, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %.critedge29, %.lr.ph.i32, %.critedge.i, %.lr.ph28.i, %.preheader
-  %.2 = phi i1 [ false, %.preheader ], [ true, %.lr.ph28.i ], [ true, %.critedge.i ], [ true, %.lr.ph.i32 ], [ true, %95 ], [ true, %90 ], [ true, %87 ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %.critedge29 ], [ true, %.lr.ph.i ], [ true, %42 ], [ true, %.loopexit ]
+.critedge:                                        ; preds = %.loopexit, %42, %.lr.ph.i, %101, %96, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %88, %91, %.lr.ph.i32, %.critedge.i, %.lr.ph28.i, %.preheader
+  %.2 = phi i1 [ false, %.preheader ], [ true, %.lr.ph28.i ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i32 ], [ true, %91 ], [ true, %.critedge.i ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ true, %96 ], [ false, %101 ], [ true, %88 ], [ true, %42 ], [ true, %.loopexit ]
   ret i1 %.2
 }
 
@@ -4481,8 +4481,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPK8VariableSt4pairIKS
   br label %_ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit
 
 _ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

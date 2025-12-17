@@ -920,7 +920,7 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   br label %mi_heap_of_block.exit
 
 mi_heap_of_block.exit:                            ; preds = %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ %31, %18 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ %31, %18 ]
   ret i1 %.0
 }
 
@@ -1264,7 +1264,7 @@ define hidden zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %0, ptr noundef
   br i1 %exitcond147.not, label %.critedge117, label %79, !llvm.loop !80
 
 .critedge117:                                     ; preds = %.critedge115, %90, %.preheader121, %.preheader123
-  %.not112128 = phi i1 [ true, %.preheader123 ], [ false, %.preheader121 ], [ false, %90 ], [ true, %.critedge115 ]
+  %.not112128 = phi i1 [ true, %.preheader123 ], [ false, %90 ], [ false, %.preheader121 ], [ true, %.critedge115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
@@ -1420,7 +1420,7 @@ mi_heap_area_visitor.exit.i:                      ; preds = %.lr.ph.i
   br i1 %exitcond.i.i, label %mi_heap_visit_areas.exit, label %.preheader.i.i.split, !llvm.loop !38
 
 mi_heap_visit_areas.exit:                         ; preds = %.critedge.i.i, %.critedge.i.i.us, %41, %4, %7, %mi_heap_area_visitor.exit.thread.i
-  %.0.i.i = phi i1 [ false, %7 ], [ false, %4 ], [ false, %mi_heap_area_visitor.exit.thread.i ], [ false, %41 ], [ true, %.critedge.i.i.us ], [ true, %.critedge.i.i ]
+  %.0.i.i = phi i1 [ false, %7 ], [ false, %4 ], [ false, %mi_heap_area_visitor.exit.thread.i ], [ true, %.critedge.i.i.us ], [ false, %41 ], [ true, %.critedge.i.i ]
   ret i1 %.0.i.i
 }
 

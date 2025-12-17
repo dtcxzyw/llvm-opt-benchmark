@@ -394,7 +394,7 @@ for.body.i.i.i.i.i.i.i.i.i.i147:                  ; preds = %if.end32, %for.body
   br i1 %exitcond346.not, label %if.end49, label %for.body.i.i.i.i.i.i.i.i.i.i147, !llvm.loop !7
 
 if.end49:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i121, %for.body.i.i.i.i.i.i.i.i.i.i90, %for.body.i.i.i.i.i.i.i.i.i.i147
-  %.sink = phi i32 [ 9, %for.body.i.i.i.i.i.i.i.i.i.i147 ], [ 15, %for.body.i.i.i.i.i.i.i.i.i.i90 ], [ 10, %for.body.i.i.i.i.i.i.i.i.i.i121 ]
+  %.sink = phi i32 [ 15, %for.body.i.i.i.i.i.i.i.i.i.i90 ], [ 9, %for.body.i.i.i.i.i.i.i.i.i.i147 ], [ 10, %for.body.i.i.i.i.i.i.i.i.i.i121 ]
   %.pre13.i.i130 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %conv.i12.i.i131 = add i32 %.pre13.i.i130, %.sink
   store i32 %conv.i12.i.i131, ptr %Size.i.i.i.i.i.i76, align 8
@@ -701,8 +701,8 @@ _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325
   br label %cleanup88
 
 cleanup88:                                        ; preds = %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176, %if.end49, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325
-  %retval.sroa.0.2 = phi i32 [ %78, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325 ], [ 0, %if.end49 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176 ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
-  %retval.sroa.8.2 = phi i64 [ %79, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325 ], [ undef, %if.end49 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176 ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
+  %retval.sroa.0.2 = phi i32 [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176 ], [ %78, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325 ], [ 0, %if.end49 ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
+  %retval.sroa.8.2 = phi i64 [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i176 ], [ %79, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit325 ], [ undef, %if.end49 ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
   %80 = load ptr, ptr %strBuf33, align 8
   %cmp.i.i.i.i327 = icmp eq ptr %80, %add.ptr.i.i.i.i.i.i75
   br i1 %cmp.i.i.i.i327, label %cleanup89, label %if.then.i.i.i328
@@ -712,8 +712,8 @@ if.then.i.i.i328:                                 ; preds = %cleanup88
   br label %cleanup89
 
 cleanup89:                                        ; preds = %if.then.i.i.i328, %cleanup88, %if.then.i.i.i74, %cleanup, %if.else, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.else ], [ %call3, %if.then ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i74 ], [ %retval.sroa.0.2, %cleanup88 ], [ %retval.sroa.0.2, %if.then.i.i.i328 ]
-  %retval.sroa.8.0 = phi i64 [ %or.i.i.i, %if.else ], [ undef, %if.then ], [ %retval.sroa.8.1, %cleanup ], [ %retval.sroa.8.1, %if.then.i.i.i74 ], [ %retval.sroa.8.2, %cleanup88 ], [ %retval.sroa.8.2, %if.then.i.i.i328 ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %if.then.i.i.i74 ], [ %call3, %if.then ], [ 1, %if.else ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.2, %cleanup88 ], [ %retval.sroa.0.2, %if.then.i.i.i328 ]
+  %retval.sroa.8.0 = phi i64 [ %retval.sroa.8.1, %if.then.i.i.i74 ], [ undef, %if.then ], [ %or.i.i.i, %if.else ], [ %retval.sroa.8.1, %cleanup ], [ %retval.sroa.8.2, %cleanup88 ], [ %retval.sroa.8.2, %if.then.i.i.i328 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #12
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1

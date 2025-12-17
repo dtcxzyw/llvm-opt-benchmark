@@ -654,7 +654,7 @@ _ZZN12_GLOBAL__N_112WriteContext13FlushSettingsEvENUlvE_D2Ev.exit20.i: ; preds =
   br label %_ZNSt14_Optional_baseIN9grpc_core18Http2SettingsFrameELb0ELb0EED2Ev.exit.i
 
 common.resume:                                    ; preds = %1084, %1157, %1218, %1243, %822, %856, %557, %563, %641, %774, %459, %284, %_ZNSt14_Optional_baseIN9grpc_core18Http2SettingsFrameELb0ELb0EED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn16.i, %_ZNSt14_Optional_baseIN9grpc_core18Http2SettingsFrameELb0ELb0EED2Ev.exit.i ], [ %285, %284 ], [ %460, %459 ], [ %775, %774 ], [ %.pn15.i, %641 ], [ %.pn.i, %563 ], [ %558, %557 ], [ %857, %856 ], [ %823, %822 ], [ %.pn.pn.pn.pn.pn.i.i.i.i.i.i.i.i, %1084 ], [ %.pn.pn.pn.pn.pn.i.i.i.i8.i.i.i.i, %1157 ], [ %.pn.pn.pn.i.i.i.i18.i.i.i.i, %1218 ], [ %1244, %1243 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn16.i, %_ZNSt14_Optional_baseIN9grpc_core18Http2SettingsFrameELb0ELb0EED2Ev.exit.i ], [ %285, %284 ], [ %460, %459 ], [ %823, %822 ], [ %775, %774 ], [ %558, %557 ], [ %.pn15.i, %641 ], [ %.pn.i, %563 ], [ %857, %856 ], [ %.pn.pn.pn.pn.pn.i.i.i.i.i.i.i.i, %1084 ], [ %.pn.pn.pn.pn.pn.i.i.i.i8.i.i.i.i, %1157 ], [ %.pn.pn.pn.i.i.i.i18.i.i.i.i, %1218 ], [ %1244, %1243 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt14_Optional_baseIN9grpc_core18Http2SettingsFrameELb0ELb0EED2Ev.exit.i: ; preds = %140, %138, %_ZZN12_GLOBAL__N_112WriteContext13FlushSettingsEvENUlvE_D2Ev.exit20.i
@@ -2463,7 +2463,7 @@ _ZN9grpc_core18IsMultipingEnabledEv.exit.thread9.i.i: ; preds = %_ZN9grpc_core18
   br label %_ZL23NextAllowedPingIntervalP21grpc_chttp2_transport.exit.i
 
 _ZL23NextAllowedPingIntervalP21grpc_chttp2_transport.exit.i: ; preds = %982, %981, %_ZN9grpc_core18IsMultipingEnabledEv.exit.thread9.i.i, %_ZN9grpc_core18IsMultipingEnabledEv.exit.i.i, %974, %971, %970, %967
-  %.sroa.07.0.i.i = phi i64 [ 1000, %970 ], [ 7200000, %967 ], [ 1000, %_ZN9grpc_core18IsMultipingEnabledEv.exit.i.i ], [ 20000, %_ZN9grpc_core18IsMultipingEnabledEv.exit.thread9.i.i ], [ -9223372036854775808, %981 ], [ %983, %982 ], [ 0, %971 ], [ 1000, %974 ]
+  %.sroa.07.0.i.i = phi i64 [ 1000, %974 ], [ 1000, %970 ], [ 7200000, %967 ], [ 1000, %_ZN9grpc_core18IsMultipingEnabledEv.exit.i.i ], [ 20000, %_ZN9grpc_core18IsMultipingEnabledEv.exit.thread9.i.i ], [ 0, %971 ], [ -9223372036854775808, %981 ], [ %983, %982 ]
   %984 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %985 = load i64, ptr %984, align 8, !tbaa !510
   %986 = lshr i64 %985, 1
@@ -3472,7 +3472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %119
   br label %151
 
 "_ZZ21grpc_chttp2_end_writeP21grpc_chttp2_transportN4absl12lts_202407226StatusEEN3$_0D2Ev.exit31": ; preds = %147, %63, %126, %77
-  %.pn21.pn = phi { ptr, i32 } [ %.pn18.pn, %126 ], [ %.pn15.pn, %77 ], [ %64, %63 ], [ %148, %147 ]
+  %.pn21.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn18.pn, %126 ], [ %.pn15.pn, %77 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 

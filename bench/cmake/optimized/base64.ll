@@ -175,7 +175,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %15, %3, %.thread95, %74
-  %.064 = phi i32 [ 61, %.thread95 ], [ 0, %74 ], [ 61, %3 ], [ 27, %15 ], [ 61, %13 ]
+  %.064 = phi i32 [ 61, %3 ], [ 27, %15 ], [ 61, %.thread95 ], [ 0, %74 ], [ 61, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.064
 }

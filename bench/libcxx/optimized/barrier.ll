@@ -186,7 +186,7 @@ _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic
   br i1 %65, label %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit, label %13, !llvm.loop !20
 
 _ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit: ; preds = %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread, %.split.us, %48, %33, %2
-  %66 = phi i1 [ true, %2 ], [ false, %33 ], [ false, %48 ], [ false, %.split.us ], [ true, %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread ]
+  %66 = phi i1 [ true, %2 ], [ false, %48 ], [ false, %33 ], [ false, %.split.us ], [ true, %_ZNSt3__136__cxx_atomic_compare_exchange_strongB8ne210000IhEEbPNS_22__cxx_atomic_base_implIT_EEPS2_S2_NS_12memory_orderES6_.exit.thread ]
   ret i1 %66
 }
 

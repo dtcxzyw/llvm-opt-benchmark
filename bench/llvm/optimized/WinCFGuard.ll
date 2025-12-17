@@ -377,7 +377,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvm23SmallVect
   br i1 %.not.i, label %thread-pre-split.loopexit.i, label %.lr.ph.i
 
 .thread74.i:                                      ; preds = %thread-pre-split.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %53, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %44, %39
-  %.not.i80.i = phi i1 [ true, %39 ], [ true, %44 ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ true, %53 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %thread-pre-split.i ]
+  %.not.i80.i = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %39 ], [ true, %44 ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ], [ true, %53 ], [ false, %thread-pre-split.i ]
   %74 = load ptr, ptr %3, align 8, !tbaa !307
   %75 = icmp eq ptr %74, %12
   br i1 %75, label %_ZL28isPossibleIndirectCallTargetPKN4llvm8FunctionE.exit, label %76
@@ -502,9 +502,9 @@ _ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit, %105, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %77
-  %.sroa.13.2 = phi ptr [ %.sroa.13.084, %77 ], [ %.sroa.13.084, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %125, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.13.084, %105 ], [ %.sroa.13.084, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.086, %77 ], [ %.sroa.8.086, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %123, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %106, %105 ], [ %.sroa.8.086, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.047.2 = phi ptr [ %.sroa.047.088, %77 ], [ %.sroa.047.088, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %119, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.047.088, %105 ], [ %.sroa.047.088, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.084, %77 ], [ %.sroa.13.084, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %.sroa.13.084, %105 ], [ %125, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.13.084, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.8.2 = phi ptr [ %.sroa.8.086, %77 ], [ %.sroa.8.086, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %106, %105 ], [ %123, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.8.086, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.047.2 = phi ptr [ %.sroa.047.088, %77 ], [ %.sroa.047.088, %_ZN4llvm10WinCFGuard15lookupImpSymbolEPKNS_8MCSymbolE.exit ], [ %.sroa.047.088, %105 ], [ %119, %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.047.088, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %126 = load ptr, ptr %4, align 8, !tbaa !6
   %127 = call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(777) %126, ptr noundef nonnull %23) #15
   %.not.i.i25 = icmp eq ptr %.sroa.858.091, %.sroa.1361.090

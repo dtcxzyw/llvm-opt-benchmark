@@ -306,7 +306,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %73, %75
   br label %_ZNSt6vectorItSaItEED2Ev.exit26
 
 _ZNSt6vectorItSaItEED2Ev.exit26:                  ; preds = %2, %.critedge, %81
-  %.not.lcssa45 = phi i1 [ %.not.lcssa.ph, %.critedge ], [ %.not.lcssa.ph, %81 ], [ false, %2 ]
+  %.not.lcssa45 = phi i1 [ %.not.lcssa.ph, %81 ], [ %.not.lcssa.ph, %.critedge ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not.lcssa45
@@ -512,7 +512,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZNK5ZXing9BitMatri
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i: ; preds = %80, %77
-  %82 = phi ptr [ %74, %77 ], [ %.pr.pre.i.i.i, %80 ]
+  %82 = phi ptr [ %.pr.pre.i.i.i, %80 ], [ %74, %77 ]
   %.not8.i.i.i = icmp eq ptr %82, null
   br i1 %.not8.i.i.i, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EERKS_IT_EEE5valueERS3_E4typeESE_.exit, label %83
 
@@ -646,7 +646,7 @@ _ZNSt12__shared_ptrIN5ZXing9BitMatrixELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   br label %_ZN5ZXing9BitMatrixD2Ev.exit33
 
 _ZN5ZXing9BitMatrixD2Ev.exit33:                   ; preds = %.loopexit, %.loopexit.split-lp, %125, %127, %131
-  %.pn20 = phi { ptr, i32 } [ %132, %131 ], [ %126, %125 ], [ %126, %127 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn20 = phi { ptr, i32 } [ %132, %131 ], [ %126, %127 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %296
 
@@ -904,7 +904,7 @@ _ZNSt7__cxx1110_List_baseISt5arrayIN5ZXing8NullableINS2_11ResultPointEEELm8EESaI
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i70
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i70: ; preds = %221, %218
-  %223 = phi ptr [ %214, %218 ], [ %.pr.pre.i.i.i76, %221 ]
+  %223 = phi ptr [ %.pr.pre.i.i.i76, %221 ], [ %214, %218 ]
   %.not8.i.i.i71 = icmp eq ptr %223, null
   br i1 %.not8.i.i.i71, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i75, label %224
 
@@ -1057,7 +1057,7 @@ _ZNSt12__shared_ptrIN5ZXing9BitMatrixELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit82:
   br label %_ZN5ZXing9BitMatrixD2Ev.exit84
 
 _ZN5ZXing9BitMatrixD2Ev.exit84:                   ; preds = %.loopexit118, %.loopexit.split-lp119, %269, %271, %279
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %279 ], [ %270, %269 ], [ %270, %271 ], [ %lpad.loopexit120, %.loopexit118 ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp119 ]
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %279 ], [ %270, %271 ], [ %270, %269 ], [ %lpad.loopexit120, %.loopexit118 ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %296
 
@@ -1966,10 +1966,10 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-76:                                               ; preds = %65, %72
-  %.362.ph = phi i32 [ %74, %72 ], [ 0, %65 ]
-  %.358.ph = phi i32 [ %.055126, %72 ], [ %61, %65 ]
-  %.3.ph = phi i32 [ %.054127, %72 ], [ %66, %65 ]
+76:                                               ; preds = %72, %65
+  %.362.ph = phi i32 [ 0, %65 ], [ %74, %72 ]
+  %.358.ph = phi i32 [ %61, %65 ], [ %.055126, %72 ]
+  %.3.ph = phi i32 [ %66, %65 ], [ %.054127, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.164 = add nsw i32 %.164128, 1

@@ -1391,7 +1391,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %56, %21
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn8.i, %56 ], [ %eh.lpad-body.i, %21 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %21 ], [ %.pn8.i, %56 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1600,7 +1600,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %44, %.thread10.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.thread10.i ], [ %40, %44 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %40, %44 ], [ %lpad.phi.i, %.thread10.i ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1817,7 +1817,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %48, %.thread11.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.thread11.i ], [ %44, %48 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %48 ], [ %lpad.phi.i, %.thread11.i ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2008,8 +2008,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   br label %.body.i
 
 .body.i:                                          ; preds = %55, %.body.i.i.i, %.loopexit.split-lp.i, %.loopexit19.i
-  %.sroa.0.3.lpad-body.i = phi i1 [ false, %55 ], [ false, %.body.i.i.i ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit19.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %56, %55 ], [ %49, %.body.i.i.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit19.i ]
+  %.sroa.0.3.lpad-body.i = phi i1 [ false, %.body.i.i.i ], [ false, %55 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit19.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %49, %.body.i.i.i ], [ %56, %55 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit19.i ]
   invoke void @"_ZN4core3ptr959drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$usize$C$usize$RP$$GT$$C$$RF$polars_io..ndjson..core..CoreJsonReader..parse_json..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$..consume_iter..some$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..unwrap$GT$$GT$17h98eb57f71e8baa5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #25
           to label %25 unwind label %63, !noalias !251
 
@@ -2127,7 +2127,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %65, %25
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn14.i, %65 ], [ %eh.lpad-body.i, %25 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %25 ], [ %.pn14.i, %65 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2344,7 +2344,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %48, %.thread11.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.thread11.i ], [ %44, %48 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %48 ], [ %lpad.phi.i, %.thread11.i ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2488,8 +2488,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   br label %.body.i
 
 .body.i:                                          ; preds = %.thread.i.i5.i, %58, %.loopexit.split-lp.i, %.loopexit22.i
-  %.sroa.0.3.lpad-body.i = phi i1 [ false, %.thread.i.i5.i ], [ false, %58 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit22.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %49, %.thread.i.i5.i ], [ %59, %58 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit22.i ]
+  %.sroa.0.3.lpad-body.i = phi i1 [ false, %58 ], [ false, %.thread.i.i5.i ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit22.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %59, %58 ], [ %49, %.thread.i.i5.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit22.i ]
   invoke void @"_ZN4core3ptr959drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$usize$C$usize$RP$$GT$$C$$RF$polars_io..ndjson..core..CoreJsonReader..parse_json..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$..consume_iter..some$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..unwrap$GT$$GT$17h98eb57f71e8baa5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15) #25
           to label %26 unwind label %65, !noalias !358
 
@@ -2621,7 +2621,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %67, %26
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn17.i, %67 ], [ %eh.lpad-body.i, %26 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %26 ], [ %.pn17.i, %67 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -2768,8 +2768,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   br label %.body.i
 
 .body.i:                                          ; preds = %.thread.i.i5.i, %.body4.i.i.i, %.loopexit.split-lp.i, %.loopexit23.i
-  %.sroa.0.3.lpad-body.i = phi i1 [ false, %.thread.i.i5.i ], [ false, %.body4.i.i.i ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit23.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %.thread.i.i5.i ], [ %69, %.body4.i.i.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit23.i ]
+  %.sroa.0.3.lpad-body.i = phi i1 [ false, %.body4.i.i.i ], [ false, %.thread.i.i5.i ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit23.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %69, %.body4.i.i.i ], [ %51, %.thread.i.i5.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit23.i ]
   invoke void @"_ZN4core3ptr959drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$usize$C$usize$RP$$GT$$C$$RF$polars_io..ndjson..core..CoreJsonReader..parse_json..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$..consume_iter..some$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..unwrap$GT$$GT$17h98eb57f71e8baa5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15) #25
           to label %28 unwind label %81, !noalias !430
 
@@ -2934,7 +2934,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %83, %28
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn18.i, %83 ], [ %eh.lpad-body.i, %28 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %28 ], [ %.pn18.i, %83 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -3100,8 +3100,8 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   br label %.body.i
 
 .body.i:                                          ; preds = %43, %39, %.loopexit.split-lp.i, %.loopexit17.i
-  %.sroa.0.3.lpad-body.i = phi i1 [ false, %43 ], [ false, %39 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit17.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %44, %43 ], [ %40, %39 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit17.i ]
+  %.sroa.0.3.lpad-body.i = phi i1 [ false, %39 ], [ false, %43 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit17.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %40, %39 ], [ %44, %43 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit17.i ]
   invoke void @"_ZN4core3ptr959drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$usize$C$usize$RP$$GT$$C$$RF$polars_io..ndjson..core..CoreJsonReader..parse_json..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$..consume_iter..some$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$polars_core..frame..DataFrame$C$u32$RP$$GT$..unwrap$GT$$GT$17h98eb57f71e8baa5dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #25
           to label %24 unwind label %48, !noalias !508
 
@@ -3189,7 +3189,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
   ret void
 
 .body:                                            ; preds = %50, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn12.i, %50 ], [ %eh.lpad-body.i, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %24 ], [ %.pn12.i, %50 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -4109,7 +4109,7 @@ define hidden void @"_ZN14http_body_util9collected18Collected$LT$B$GT$8to_bytes1
   br label %.body
 
 .body:                                            ; preds = %44, %228, %.loopexit.split-lp.i, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %45, %44 ], [ %229, %228 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %229, %228 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$http_body_util..collected..Collected$LT$bytes..bytes..Bytes$GT$$GT$17hd87431e5013b434eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1) #25
           to label %246 unwind label %244
 
@@ -5424,7 +5424,7 @@ define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$core..result..Resu
   br label %common.resume.i.i
 
 common.resume.i.i:                                ; preds = %284, %276, %257, %256, %248, %229, %228, %220, %201, %200, %192, %173, %172, %164, %145, %142, %134, %115, %104, %96, %74, %69, %62, %43, %35
-  %common.resume.op.i.i = phi { ptr, i32 } [ %36, %43 ], [ %36, %35 ], [ %75, %74 ], [ %63, %62 ], [ %70, %69 ], [ %97, %104 ], [ %97, %96 ], [ %135, %142 ], [ %135, %134 ], [ %116, %115 ], [ %146, %145 ], [ %174, %173 ], [ %202, %201 ], [ %230, %229 ], [ %258, %257 ], [ %165, %172 ], [ %165, %164 ], [ %193, %200 ], [ %193, %192 ], [ %221, %228 ], [ %221, %220 ], [ %249, %256 ], [ %249, %248 ], [ %277, %284 ], [ %277, %276 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %249, %248 ], [ %36, %35 ], [ %70, %69 ], [ %97, %96 ], [ %135, %134 ], [ %258, %257 ], [ %165, %164 ], [ %193, %192 ], [ %221, %220 ], [ %36, %43 ], [ %75, %74 ], [ %63, %62 ], [ %97, %104 ], [ %135, %142 ], [ %116, %115 ], [ %146, %145 ], [ %174, %173 ], [ %202, %201 ], [ %230, %229 ], [ %165, %172 ], [ %193, %200 ], [ %221, %228 ], [ %249, %256 ], [ %277, %284 ], [ %277, %276 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 44:                                               ; preds = %13
@@ -6027,7 +6027,7 @@ define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..ta
   br label %"_ZN4core3ptr136drop_in_place$LT$polars_io..file_cache..cache_lock..GLOBAL_FILE_CACHE_LOCK..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4c32762955503d96E.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h32cc742c8f4fe44cE.exit.i": ; preds = %50, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h32cc742c8f4fe44cE.exit11.i", %23, %17
-  %.pn4.i = phi { ptr, i32 } [ %18, %23 ], [ %18, %17 ], [ %.pn2.i, %50 ], [ %.pn2.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h32cc742c8f4fe44cE.exit11.i" ]
+  %.pn4.i = phi { ptr, i32 } [ %18, %17 ], [ %18, %23 ], [ %.pn2.i, %50 ], [ %.pn2.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..notify..Notify$GT$$GT$17h32cc742c8f4fe44cE.exit11.i" ]
   resume { ptr, i32 } %.pn4.i
 
 29:                                               ; preds = %50, %44, %23
@@ -6189,7 +6189,7 @@ default.unreachable:                              ; preds = %5
   br i1 %21, label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i", label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i": ; preds = %19, %17, %12
-  %.sink.i.i.i = phi ptr [ %18, %17 ], [ %13, %12 ], [ %8, %19 ]
+  %.sink.i.i.i = phi ptr [ %13, %12 ], [ %18, %17 ], [ %8, %19 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i)
           to label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i" unwind label %22
 
@@ -6395,7 +6395,7 @@ default.unreachable:                              ; preds = %5
   br i1 %21, label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i", label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i": ; preds = %19, %17, %12
-  %.sink.i.i.i = phi ptr [ %18, %17 ], [ %13, %12 ], [ %8, %19 ]
+  %.sink.i.i.i = phi ptr [ %13, %12 ], [ %18, %17 ], [ %8, %19 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i)
           to label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i" unwind label %22
 
@@ -9138,7 +9138,7 @@ default.unreachable:                              ; preds = %25
   br i1 %39, label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i.i.i"
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i.i.i": ; preds = %37, %35, %30
-  %.sink.i.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ], [ %26, %37 ]
+  %.sink.i.i.i.i.i = phi ptr [ %31, %30 ], [ %36, %35 ], [ %26, %37 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i.i.i)
           to label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i.i.i" unwind label %40
 
@@ -9797,7 +9797,7 @@ default.unreachable:                              ; preds = %25
   br i1 %39, label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i.i.i"
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17he682f4a6c5221715E.exit.sink.split.i.i.i.i.i": ; preds = %37, %35, %30
-  %.sink.i.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ], [ %26, %37 ]
+  %.sink.i.i.i.i.i = phi ptr [ %31, %30 ], [ %36, %35 ], [ %26, %37 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1f8e568c3a52d77aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i.i.i)
           to label %"_ZN4core3ptr82drop_in_place$LT$$LP$tokio..fs..file..Operation$C$tokio..io..blocking..Buf$RP$$GT$17h1bfc40c331c35ea9E.exit.i.i.i" unwind label %40
 
@@ -18283,7 +18283,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -18603,7 +18603,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -18932,7 +18932,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %100, %98, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -19524,7 +19524,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -19844,7 +19844,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -20164,7 +20164,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -20486,7 +20486,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %100, %98, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -20806,7 +20806,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -21429,7 +21429,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -21788,7 +21788,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -22118,7 +22118,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %100, %98, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -22469,7 +22469,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -23069,7 +23069,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -23661,7 +23661,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -23981,7 +23981,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -24301,7 +24301,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -24621,7 +24621,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -24941,7 +24941,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -25261,7 +25261,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -25612,7 +25612,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -25949,7 +25949,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %100, %98, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -26269,7 +26269,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -26589,7 +26589,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -26909,7 +26909,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -27532,7 +27532,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -27860,7 +27860,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -28180,7 +28180,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -28500,7 +28500,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -29092,7 +29092,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -29412,7 +29412,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -29732,7 +29732,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -30324,7 +30324,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -30644,7 +30644,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -31236,7 +31236,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -31587,7 +31587,7 @@ default.unreachable:                              ; preds = %80, %1
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %101, %99, %65, %57
-  %common.resume.op.i = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %58, %65 ], [ %58, %57 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %58, %65 ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op.i
 
 66:                                               ; preds = %1
@@ -31915,7 +31915,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %97, %95, %62, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 63:                                               ; preds = %1
@@ -36362,7 +36362,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -36580,7 +36580,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -36804,7 +36804,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -37021,7 +37021,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -37238,7 +37238,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -37455,7 +37455,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -37672,7 +37672,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -37889,7 +37889,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -38106,7 +38106,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -38323,7 +38323,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -38540,7 +38540,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -38757,7 +38757,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -38974,7 +38974,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -39191,7 +39191,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -39408,7 +39408,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -39625,7 +39625,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -39843,7 +39843,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -40067,7 +40067,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -40285,7 +40285,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -40509,7 +40509,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -40726,7 +40726,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -40943,7 +40943,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -41160,7 +41160,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -41377,7 +41377,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -41595,7 +41595,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -41819,7 +41819,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -42036,7 +42036,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -42254,7 +42254,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -42478,7 +42478,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -42696,7 +42696,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -42920,7 +42920,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -43137,7 +43137,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -43354,7 +43354,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -43571,7 +43571,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -43788,7 +43788,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -44005,7 +44005,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -44222,7 +44222,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -44440,7 +44440,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -44664,7 +44664,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -44881,7 +44881,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -45098,7 +45098,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -45315,7 +45315,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -45532,7 +45532,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %91, %37, %45, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %45 ], [ %38, %37 ], [ %84, %91 ], [ %84, %83 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %38, %37 ], [ %38, %45 ], [ %84, %91 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %8, %.noexc, %14, %21, %29, %36
@@ -45750,7 +45750,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h56257e3934fa36b1E.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -47123,7 +47123,7 @@ define hidden void @_ZN9polars_io4hive27materialize_hive_partitions17h547015d3fd
   unreachable
 
 51:                                               ; preds = %45, %42, %.noexc13
-  %.sroa.0.0.i = phi ptr [ %41, %.noexc13 ], [ %44, %42 ], [ %46, %45 ]
+  %.sroa.0.0.i = phi ptr [ %44, %42 ], [ %41, %.noexc13 ], [ %46, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 23
   %53 = load i8, ptr %52, align 1, !range !103, !alias.scope !3210, !noundef !8
   %54 = icmp ugt i8 %53, -41
@@ -47296,7 +47296,7 @@ define hidden void @_ZN9polars_io4hive27materialize_hive_partitions17h547015d3fd
           to label %_ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i unwind label %.loopexit.split-lp.i, !noalias !3221
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i: ; preds = %116, %113, %.noexc33.i
-  %.sroa.0.0.i.i.i = phi ptr [ %112, %.noexc33.i ], [ %115, %113 ], [ %117, %116 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %115, %113 ], [ %112, %.noexc33.i ], [ %117, %116 ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 23
   %119 = load i8, ptr %118, align 1, !range !103, !alias.scope !3240, !noalias !3237, !noundef !8
   %120 = icmp ugt i8 %119, -41
@@ -47379,7 +47379,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i: ; preds 
           to label %_ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i38.i unwind label %.loopexit.split-lp.i, !noalias !3221
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i38.i: ; preds = %145, %142, %.noexc44.i
-  %.sroa.0.0.i.i39.i = phi ptr [ %141, %.noexc44.i ], [ %144, %142 ], [ %146, %145 ]
+  %.sroa.0.0.i.i39.i = phi ptr [ %144, %142 ], [ %141, %.noexc44.i ], [ %146, %145 ]
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i39.i, i64 23
   %148 = load i8, ptr %147, align 1, !range !103, !alias.scope !3255, !noalias !3252, !noundef !8
   %149 = icmp ugt i8 %148, -41
@@ -47522,7 +47522,7 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i38.i: ; pred
           to label %_ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i50.i unwind label %.loopexit.i
 
 _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i50.i: ; preds = %186, %184, %.noexc56.i
-  %.sroa.0.0.i.i51.i = phi ptr [ %183, %.noexc56.i ], [ %185, %184 ], [ %187, %186 ]
+  %.sroa.0.0.i.i51.i = phi ptr [ %185, %184 ], [ %183, %.noexc56.i ], [ %187, %186 ]
   %188 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i51.i, i64 23
   %189 = load i8, ptr %188, align 1, !range !103, !alias.scope !3279, !noalias !3276, !noundef !8
   %190 = icmp ugt i8 %189, -41

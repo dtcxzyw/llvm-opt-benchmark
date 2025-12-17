@@ -862,7 +862,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %16, %383, %399, %396, %4
-  %.0 = phi ptr [ null, %399 ], [ null, %396 ], [ null, %4 ], [ %14, %383 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %399 ], [ null, %396 ], [ null, %16 ], [ null, %4 ], [ %14, %383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -1783,7 +1783,7 @@ define internal ptr @H5EA__cache_iblock_deserialize(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %16, %.loopexit, %112, %109, %4
-  %.0 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %4 ], [ %14, %.loopexit ], [ null, %16 ]
+  %.0 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %16 ], [ null, %4 ], [ %14, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2346,7 +2346,7 @@ define internal ptr @H5EA__cache_sblock_deserialize(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %21, %._crit_edge62, %112, %109, %4
-  %.046 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %4 ], [ %19, %._crit_edge62 ], [ null, %21 ]
+  %.046 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %21 ], [ null, %4 ], [ %19, %._crit_edge62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.046
@@ -2955,7 +2955,7 @@ define internal ptr @H5EA__cache_dblock_deserialize(ptr noundef %0, i64 %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %21, %102, %126, %123, %4
-  %.046 = phi ptr [ null, %126 ], [ null, %123 ], [ null, %4 ], [ %19, %102 ], [ null, %21 ]
+  %.046 = phi ptr [ null, %126 ], [ null, %123 ], [ null, %21 ], [ null, %4 ], [ %19, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.046
@@ -3454,7 +3454,7 @@ define internal ptr @H5EA__cache_dblk_page_deserialize(ptr noundef %0, i64 nound
   br label %.thread
 
 .thread:                                          ; preds = %17, %38, %46, %40, %4
-  %.0 = phi ptr [ null, %46 ], [ null, %40 ], [ null, %4 ], [ %15, %38 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %46 ], [ null, %40 ], [ null, %17 ], [ null, %4 ], [ %15, %38 ]
   ret ptr %.0
 }
 

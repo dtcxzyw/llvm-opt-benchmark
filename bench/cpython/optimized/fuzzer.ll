@@ -636,7 +636,7 @@ init_sre_compile.exit:                            ; preds = %179
   store i32 %183, ptr @RE_FLAG_DEBUG, align 4, !tbaa !19
   br label %185
 
-184:                                              ; preds = %170, %173, %176, %179
+184:                                              ; preds = %176, %170, %173, %179
   tail call void @PyErr_Print() #9
   tail call void @abort() #10
   unreachable
@@ -1238,7 +1238,7 @@ init_elementtree_parsewhole.exit:                 ; preds = %init_elementtree_pa
   %.not149 = icmp eq ptr %411, null
   br i1 %.not149, label %init_elementtree_parsewhole.exit.thread, label %412
 
-init_elementtree_parsewhole.exit.thread:          ; preds = %401, %Py_DECREF.exit.i, %389, %init_elementtree_parsewhole.exit
+init_elementtree_parsewhole.exit.thread:          ; preds = %401, %389, %Py_DECREF.exit.i, %init_elementtree_parsewhole.exit
   tail call void @PyErr_Print() #9
   tail call void @abort() #10
   unreachable

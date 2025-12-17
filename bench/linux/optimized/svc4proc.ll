@@ -382,20 +382,20 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   %23 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
   %24 = and i32 %23, 4096
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %30, label %26
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
-  %27 = getelementptr i8, ptr %0, i64 68
-  %28 = load i32, ptr %27, align 4
-  %29 = and i32 %28, 255
-  %.not = icmp eq i32 %29, 127
-  br i1 %.not, label %36, label %.critedge
+  %27 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
+  %28 = and i32 %27, 16
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.critedge, label %36
 
 30:                                               ; preds = %21
-  %31 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
-  %32 = and i32 %31, 16
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.critedge, label %36
+  %31 = getelementptr i8, ptr %0, i64 68
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 255
+  %.not = icmp eq i32 %33, 127
+  br i1 %.not, label %36, label %.critedge
 
 .critedge:                                        ; preds = %26, %12, %1, %7, %16, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -789,7 +789,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   br label %.thread4
 
 .thread4:                                         ; preds = %42, %70, %69, %35, %.thread, %17, %9, %4
-  %71 = phi i32 [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ 33554432, %.thread ], [ 0, %35 ], [ 33554432, %70 ], [ %40, %69 ], [ 0, %42 ]
+  %71 = phi i32 [ 33554432, %.thread ], [ 0, %35 ], [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ %40, %69 ], [ 33554432, %70 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %71
 }

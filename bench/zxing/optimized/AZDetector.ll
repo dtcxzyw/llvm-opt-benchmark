@@ -547,7 +547,7 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i48.i: ; preds = %
   br label %189
 
 189:                                              ; preds = %186, %184, %175
-  %190 = phi i32 [ %188, %186 ], [ 2147483647, %175 ], [ %.sroa.434.8.extract.trunc.i.i, %184 ]
+  %190 = phi i32 [ 2147483647, %175 ], [ %188, %186 ], [ %.sroa.434.8.extract.trunc.i.i, %184 ]
   %.not18.i.i.i.i = icmp eq i32 %.sroa.5.0.copyload.i.i, 0
   br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i, label %191
 
@@ -561,7 +561,7 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i48.i: ; preds = %
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i: ; preds = %193, %191, %189
-  %196 = phi i32 [ %195, %193 ], [ 2147483647, %189 ], [ %.sroa.434.12.extract.trunc.i.i, %191 ]
+  %196 = phi i32 [ 2147483647, %189 ], [ %195, %193 ], [ %.sroa.434.12.extract.trunc.i.i, %191 ]
   %.sroa.speculated.i.i.i50.i = call i32 @llvm.smin.i32(i32 %196, i32 %190)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !66
   %197 = sub i32 0, %178
@@ -578,7 +578,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.
   br label %203
 
 203:                                              ; preds = %200, %198, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i
-  %204 = phi i32 [ %202, %200 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i ], [ %.sroa.434.8.extract.trunc.i.i, %198 ]
+  %204 = phi i32 [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.i.i.i ], [ %202, %200 ], [ %.sroa.434.8.extract.trunc.i.i, %198 ]
   br i1 %.not18.i.i.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit75.i.i.i, label %205
 
 205:                                              ; preds = %203
@@ -591,7 +591,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit.
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit75.i.i.i
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit75.i.i.i: ; preds = %207, %205, %203
-  %210 = phi i32 [ %209, %207 ], [ 2147483647, %203 ], [ %.sroa.434.12.extract.trunc.i.i, %205 ]
+  %210 = phi i32 [ 2147483647, %203 ], [ %209, %207 ], [ %.sroa.434.12.extract.trunc.i.i, %205 ]
   %.sroa.speculated.i74.i.i.i = call i32 @llvm.smin.i32(i32 %210, i32 %204)
   %.sroa.speculated.i76.i.i.i = call i32 @llvm.smin.i32(i32 %172, i32 %.sroa.speculated.i.i.i50.i)
   %211 = sext i32 %178 to i64
@@ -1440,7 +1440,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %530, %527
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body78
 
-_ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.exit.i.thread: ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i.i, %434, %.noexc74, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %478, %.noexc75
+_ZN5ZXing5AztecL11ModeMessageERKNS_9BitMatrixERKNS_20PerspectiveTransformEiRb.exit.i.thread: ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.us.us.i.i, %434, %.noexc74, %.noexc75, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i.i, %478
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i
@@ -1575,7 +1575,7 @@ _ZN5ZXing5AztecL12FindRotationEjb.exit.thread.i:  ; preds = %402, %_ZN5ZXing5Azt
   br label %589
 
 _ZN5ZXing5AztecL12FindRotationEjb.exit.thread:    ; preds = %575, %582, %567
-  %.6161 = phi i32 [ %.01014.i, %582 ], [ %.01014.i.i, %567 ], [ %.01014.i.i, %575 ]
+  %.6161 = phi i32 [ %.01014.i.i, %567 ], [ %.01014.i, %582 ], [ %.01014.i.i, %575 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %590
 
@@ -1889,7 +1889,7 @@ _ZN5ZXing14DetectorResultD2Ev.exit95:             ; preds = %695, %681, %644
   br label %.body78
 
 .body78:                                          ; preds = %591, %_ZN5ZXing14DetectorResultD2Ev.exit95, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit, %388
-  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %389, %388 ], [ %.pn54.pn, %_ZN5ZXing14DetectorResultD2Ev.exit95 ], [ %.pn.pn.pn, %591 ], [ %528, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit199, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit207, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %389, %388 ], [ %.pn54.pn, %_ZN5ZXing14DetectorResultD2Ev.exit95 ], [ %528, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn.pn.pn, %591 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit199, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit205, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit207, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %700
@@ -1922,7 +1922,7 @@ _ZNSt6vectorIN5ZXing17ConcentricPatternESaIS1_EED2Ev.exit98: ; preds = %._crit_e
   ret void
 
 .body:                                            ; preds = %701, %700, %374, %340, %_ZNSt6vectorItSaItEED2Ev.exit61.i
-  %.pn54.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %375, %374 ], [ %.pn.pn.pn.pn.i, %340 ], [ %.pn.pn.pn.pn.i, %_ZNSt6vectorItSaItEED2Ev.exit61.i ], [ %.pn54.pn.pn.pn.pn.pn, %700 ], [ %.pn54.pn.pn.pn.pn.pn, %701 ]
+  %.pn54.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZNSt6vectorItSaItEED2Ev.exit61.i ], [ %375, %374 ], [ %.pn.pn.pn.pn.i, %340 ], [ %.pn54.pn.pn.pn.pn.pn, %700 ], [ %.pn54.pn.pn.pn.pn.pn, %701 ]
   call void @_ZNSt6vectorIN5ZXing5Aztec14DetectorResultESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   resume { ptr, i32 } %.pn54.pn.pn.pn.pn.pn.pn
 }
@@ -2283,7 +2283,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb0ENS_12Fixed
   br label %32
 
 32:                                               ; preds = %29, %27, %5
-  %33 = phi i32 [ %31, %29 ], [ 2147483647, %5 ], [ %24, %27 ]
+  %33 = phi i32 [ 2147483647, %5 ], [ %31, %29 ], [ %24, %27 ]
   %.not18.i = icmp eq i32 %10, 0
   br i1 %.not18.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit, label %34
 
@@ -2299,7 +2299,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb0ENS_12Fixed
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit: ; preds = %32, %34, %36
-  %41 = phi i32 [ %40, %36 ], [ 2147483647, %32 ], [ %18, %34 ]
+  %41 = phi i32 [ 2147483647, %32 ], [ %40, %36 ], [ %18, %34 ]
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %41, i32 %33)
   %.sroa.01.0.copyload.i = load i64, ptr %16, align 8
   %42 = sub i32 0, %15
@@ -2324,7 +2324,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
   br label %53
 
 53:                                               ; preds = %50, %48, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit
-  %54 = phi i32 [ %52, %50 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit ], [ %.sroa.455.8.extract.trunc, %48 ]
+  %54 = phi i32 [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit ], [ %52, %50 ], [ %.sroa.455.8.extract.trunc, %48 ]
   br i1 %.not18.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24, label %55
 
 55:                                               ; preds = %53
@@ -2339,7 +2339,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24: ; preds = %53, %55, %57
-  %62 = phi i32 [ %61, %57 ], [ 2147483647, %53 ], [ %.sroa.455.12.extract.trunc, %55 ]
+  %62 = phi i32 [ 2147483647, %53 ], [ %61, %57 ], [ %.sroa.455.12.extract.trunc, %55 ]
   %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %62, i32 %54)
   %.sroa.speculated.i25 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i)
   %63 = sext i32 %15 to i64
@@ -2585,12 +2585,12 @@ _ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   br label %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
 
 _ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread: ; preds = %131, %109, %155, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit
-  %.3 = phi i32 [ %178, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit ], [ 0, %155 ], [ 0, %109 ], [ 0, %131 ]
+  %.3 = phi i32 [ 0, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit ], [ %178, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %155 ], [ 0, %109 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread
 
 _ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread: ; preds = %85, %67, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
-  %.014 = phi i32 [ %.3, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread ], [ 0, %67 ], [ 0, %85 ]
+  %.014 = phi i32 [ 0, %67 ], [ %.3, %_ZN5ZXing9IsPatternILb0ELi7ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread ], [ 0, %85 ]
   ret i32 %.014
 }
 
@@ -2634,7 +2634,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb1ENS_12Fixed
   br label %33
 
 33:                                               ; preds = %30, %28, %5
-  %34 = phi i32 [ %32, %30 ], [ 2147483647, %5 ], [ %25, %28 ]
+  %34 = phi i32 [ 2147483647, %5 ], [ %32, %30 ], [ %25, %28 ]
   %.not18.i = icmp eq i32 %11, 0
   br i1 %.not18.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit, label %35
 
@@ -2650,7 +2650,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb1ENS_12Fixed
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit: ; preds = %33, %35, %37
-  %42 = phi i32 [ %41, %37 ], [ 2147483647, %33 ], [ %19, %35 ]
+  %42 = phi i32 [ 2147483647, %33 ], [ %41, %37 ], [ %19, %35 ]
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %42, i32 %34)
   %.sroa.01.0.copyload.i = load i64, ptr %17, align 8, !noalias !140
   %43 = sub i32 0, %16
@@ -2675,7 +2675,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
   br label %54
 
 54:                                               ; preds = %51, %49, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit
-  %55 = phi i32 [ %53, %51 ], [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit ], [ %.sroa.4.8.extract.trunc, %49 ]
+  %55 = phi i32 [ 2147483647, %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit ], [ %53, %51 ], [ %.sroa.4.8.extract.trunc, %49 ]
   br i1 %.not18.i, label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24, label %56
 
 56:                                               ; preds = %54
@@ -2690,7 +2690,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit:
   br label %_ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24
 
 _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit24: ; preds = %54, %56, %58
-  %63 = phi i32 [ %62, %58 ], [ 2147483647, %54 ], [ %.sroa.4.12.extract.trunc, %56 ]
+  %63 = phi i32 [ 2147483647, %54 ], [ %62, %58 ], [ %.sroa.4.12.extract.trunc, %56 ]
   %.sroa.speculated.i23 = tail call i32 @llvm.smin.i32(i32 %63, i32 %55)
   %.sroa.speculated.i25 = tail call i32 @llvm.smin.i32(i32 %3, i32 %.sroa.speculated.i)
   %64 = sext i32 %16 to i64
@@ -2914,12 +2914,12 @@ _ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   br label %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit.thread
 
 _ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit.thread: ; preds = %132, %110, %.critedge, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit
-  %.3 = phi i32 [ %170, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %.critedge ], [ 0, %110 ], [ 0, %132 ]
+  %.3 = phi i32 [ 0, %.critedge ], [ %170, %_ZN5ZXing6ReduceISt5arrayItLm7EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %110 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread
 
 _ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread: ; preds = %86, %68, %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit.thread
-  %.014 = phi i32 [ %.3, %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit.thread ], [ 0, %68 ], [ 0, %86 ]
+  %.014 = phi i32 [ 0, %68 ], [ %.3, %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit.thread ], [ 0, %86 ]
   ret i32 %.014
 }
 

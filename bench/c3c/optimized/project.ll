@@ -744,7 +744,7 @@ check_json_keys.exit.sink.split:                  ; preds = %._crit_edge.i372, %
   br label %check_json_keys.exit
 
 check_json_keys.exit:                             ; preds = %check_json_keys.exit.sink.split, %._crit_edge.i372, %26, %._crit_edge.i, %7
-  %45 = phi ptr [ @.str.18, %7 ], [ @.str.18, %._crit_edge.i ], [ @.str.111, %26 ], [ @.str.111, %._crit_edge.i372 ], [ %.ph, %check_json_keys.exit.sink.split ]
+  %45 = phi ptr [ @.str.111, %._crit_edge.i372 ], [ @.str.18, %7 ], [ @.str.18, %._crit_edge.i ], [ @.str.111, %26 ], [ %.ph, %check_json_keys.exit.sink.split ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.6) #8

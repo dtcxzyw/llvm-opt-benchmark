@@ -88,7 +88,7 @@ define i32 @PKCS12_PBE_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %42
 
 42:                                               ; preds = %9, %40, %39, %32, %17
-  %.034 = phi i32 [ 0, %17 ], [ %41, %40 ], [ 0, %39 ], [ 0, %32 ], [ 0, %9 ]
+  %.034 = phi i32 [ 0, %32 ], [ 0, %17 ], [ %41, %40 ], [ 0, %39 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.034

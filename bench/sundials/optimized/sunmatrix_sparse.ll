@@ -1290,13 +1290,13 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
   br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph.us101
 
 ._crit_edge99:                                    ; preds = %._crit_edge.us102, %.preheader, %.lr.ph98.split.preheader
-  %.273.lcssa = phi i64 [ 0, %.lr.ph98.split.preheader ], [ 0, %.preheader ], [ %.4.us, %._crit_edge.us102 ]
+  %.273.lcssa = phi i64 [ 0, %.preheader ], [ 0, %.lr.ph98.split.preheader ], [ %.4.us, %._crit_edge.us102 ]
   %79 = getelementptr inbounds i64, ptr %54, i64 %8
   store i64 %.273.lcssa, ptr %79, align 8, !tbaa !43
   br label %81
 
 ._crit_edge89:                                    ; preds = %._crit_edge.us91, %.preheader76, %.lr.ph88.split.preheader
-  %.5.lcssa = phi i64 [ 0, %.lr.ph88.split.preheader ], [ 0, %.preheader76 ], [ %.7.us, %._crit_edge.us91 ]
+  %.5.lcssa = phi i64 [ 0, %.preheader76 ], [ 0, %.lr.ph88.split.preheader ], [ %.7.us, %._crit_edge.us91 ]
   %80 = getelementptr inbounds i64, ptr %29, i64 %6
   store i64 %.5.lcssa, ptr %80, align 8, !tbaa !43
   br label %81

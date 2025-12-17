@@ -847,7 +847,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit73: ; preds
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %._crit_edge.thread, %._crit_edge138, %251
-  %252 = phi i1 [ %249, %._crit_edge138 ], [ %249, %251 ], [ %.1.lcssa172, %._crit_edge.thread ]
+  %252 = phi i1 [ %249, %251 ], [ %249, %._crit_edge138 ], [ %.1.lcssa172, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 

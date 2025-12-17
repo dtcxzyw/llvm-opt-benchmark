@@ -738,7 +738,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getproperty_ioctl(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %86, %80, %103, %99, %13, %3
-  %105 = phi i32 [ -95, %3 ], [ -2, %13 ], [ 0, %103 ], [ 0, %99 ], [ -14, %80 ], [ -14, %86 ], [ -14, %42 ]
+  %105 = phi i32 [ -95, %3 ], [ -2, %13 ], [ 0, %103 ], [ 0, %99 ], [ -14, %86 ], [ -14, %80 ], [ -14, %42 ]
   ret i32 %105
 }
 
@@ -990,7 +990,7 @@ define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr nound
   br label %.thread10
 
 .thread10:                                        ; preds = %25, %.thread9, %39, %38, %17
-  %40 = phi i32 [ %19, %17 ], [ 0, %38 ], [ %30, %39 ], [ %32, %.thread9 ], [ %26, %25 ]
+  %40 = phi i32 [ %19, %17 ], [ 0, %38 ], [ %32, %.thread9 ], [ %30, %39 ], [ %26, %25 ]
   ret i32 %40
 }
 

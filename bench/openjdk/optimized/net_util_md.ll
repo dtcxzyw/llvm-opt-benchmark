@@ -111,7 +111,7 @@ define hidden range(i32 0, 2) i32 @IPv6_supported() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %12, %8, %4, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %4 ], [ 0, %8 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %4 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -344,7 +344,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   br label %69
 
 69:                                               ; preds = %52, %48, %68, %62, %.thread, %18, %6, %56
-  %.0 = phi i32 [ -1, %56 ], [ -1, %6 ], [ -1, %18 ], [ -1, %.thread ], [ 0, %62 ], [ 0, %68 ], [ 0, %48 ], [ 0, %52 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %56 ], [ -1, %18 ], [ -1, %.thread ], [ 0, %62 ], [ 0, %68 ], [ 0, %48 ], [ 0, %52 ]
   ret i32 %.0
 }
 

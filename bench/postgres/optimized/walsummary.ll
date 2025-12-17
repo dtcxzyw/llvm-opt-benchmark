@@ -97,7 +97,7 @@ IsWalSummaryFilename.exit.us:                     ; preds = %.lr.ph.split.us
   br label %IsWalSummaryFilename.exit.thread.us
 
 IsWalSummaryFilename.exit.thread.us:              ; preds = %34, %20, %IsWalSummaryFilename.exit.us, %.lr.ph.split.us
-  %.1.us = phi ptr [ %39, %34 ], [ %.034.us, %IsWalSummaryFilename.exit.us ], [ %.034.us, %20 ], [ %.034.us, %.lr.ph.split.us ]
+  %.1.us = phi ptr [ %.034.us, %IsWalSummaryFilename.exit.us ], [ %39, %34 ], [ %.034.us, %20 ], [ %.034.us, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
   %.not.us = icmp eq ptr %40, null
@@ -156,7 +156,7 @@ IsWalSummaryFilename.exit:                        ; preds = %.lr.ph.split
   br label %IsWalSummaryFilename.exit.thread
 
 IsWalSummaryFilename.exit.thread:                 ; preds = %.lr.ph.split, %63, %48, %IsWalSummaryFilename.exit, %64
-  %.1 = phi ptr [ %68, %64 ], [ %.034, %IsWalSummaryFilename.exit ], [ %.034, %48 ], [ %.034, %63 ], [ %.034, %.lr.ph.split ]
+  %.1 = phi ptr [ %.034, %IsWalSummaryFilename.exit ], [ %68, %64 ], [ %.034, %63 ], [ %.034, %48 ], [ %.034, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
   %.not = icmp eq ptr %69, null
@@ -235,8 +235,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %26
 
 26:                                               ; preds = %24, %.lr.ph75.split.us.split
-  %27 = phi i32 [ %.pre119, %24 ], [ %18, %.lr.ph75.split.us.split ]
-  %.1.us.us77 = phi ptr [ %25, %24 ], [ %.026.us73.us, %.lr.ph75.split.us.split ]
+  %27 = phi i32 [ %18, %.lr.ph75.split.us.split ], [ %.pre119, %24 ]
+  %.1.us.us77 = phi ptr [ %.026.us73.us, %.lr.ph75.split.us.split ], [ %25, %24 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next109, %28
@@ -263,8 +263,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %39
 
 39:                                               ; preds = %37, %.lr.ph75.split.split.us
-  %40 = phi i32 [ %.pre118, %37 ], [ %30, %.lr.ph75.split.split.us ]
-  %.1.us.us81 = phi ptr [ %38, %37 ], [ %.026.us73.us80, %.lr.ph75.split.split.us ]
+  %40 = phi i32 [ %30, %.lr.ph75.split.split.us ], [ %.pre118, %37 ]
+  %.1.us.us81 = phi ptr [ %.026.us73.us80, %.lr.ph75.split.split.us ], [ %38, %37 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next106, %41
@@ -293,8 +293,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %55
 
 55:                                               ; preds = %53, %50, %.lr.ph75.split.split
-  %56 = phi i32 [ %.pre117, %53 ], [ %43, %.lr.ph75.split.split ], [ %43, %50 ]
-  %.1.us = phi ptr [ %54, %53 ], [ %.026.us73, %.lr.ph75.split.split ], [ %.026.us73, %50 ]
+  %56 = phi i32 [ %43, %50 ], [ %.pre117, %53 ], [ %43, %.lr.ph75.split.split ]
+  %.1.us = phi ptr [ %.026.us73, %50 ], [ %54, %53 ], [ %.026.us73, %.lr.ph75.split.split ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next103, %57
@@ -327,8 +327,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %67
 
 67:                                               ; preds = %65, %.lr.ph66.split.us
-  %68 = phi i32 [ %.pre116, %65 ], [ %59, %.lr.ph66.split.us ]
-  %.1.us32.us69 = phi ptr [ %66, %65 ], [ %.026.us3064.us, %.lr.ph66.split.us ]
+  %68 = phi i32 [ %59, %.lr.ph66.split.us ], [ %.pre116, %65 ]
+  %.1.us32.us69 = phi ptr [ %.026.us3064.us, %.lr.ph66.split.us ], [ %66, %65 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next100, %69
@@ -357,8 +357,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %82
 
 82:                                               ; preds = %80, %77, %.lr.ph66.split
-  %83 = phi i32 [ %.pre115, %80 ], [ %71, %.lr.ph66.split ], [ %71, %77 ]
-  %.1.us32 = phi ptr [ %81, %80 ], [ %.026.us3064, %.lr.ph66.split ], [ %.026.us3064, %77 ]
+  %83 = phi i32 [ %71, %.lr.ph66.split ], [ %.pre115, %80 ], [ %71, %77 ]
+  %.1.us32 = phi ptr [ %.026.us3064, %.lr.ph66.split ], [ %81, %80 ], [ %.026.us3064, %77 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next97, %84
@@ -394,8 +394,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %98
 
 98:                                               ; preds = %96, %92, %.lr.ph60
-  %99 = phi i32 [ %.pre114, %96 ], [ %86, %.lr.ph60 ], [ %86, %92 ]
-  %.1.us40 = phi ptr [ %97, %96 ], [ %.026.us3758, %.lr.ph60 ], [ %.026.us3758, %92 ]
+  %99 = phi i32 [ %86, %.lr.ph60 ], [ %.pre114, %96 ], [ %86, %92 ]
+  %.1.us40 = phi ptr [ %.026.us3758, %.lr.ph60 ], [ %97, %96 ], [ %.026.us3758, %92 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next94, %100
@@ -417,7 +417,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %.not24, label %108, label %117
 
 .critedge:                                        ; preds = %117, %98, %82, %67, %55, %39, %26, %.lr.ph75.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.split.split.us.split, %.lr.ph.split.split.split.split, %.lr.ph.split.split.us.split, %4
-  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split.us.split ], [ null, %.lr.ph.split.split.split.us.split ], [ null, %.lr.ph.split.split.split.split ], [ %14, %.lr.ph75.split.us.split.us ], [ %.1.us.us77, %26 ], [ %.1.us.us81, %39 ], [ %.1.us, %55 ], [ %.1.us32.us69, %67 ], [ %.1.us32, %82 ], [ %.1.us40, %98 ], [ %.1, %117 ]
+  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph.split.split.split.split ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split.us.split ], [ null, %.lr.ph.split.split.split.us.split ], [ %.1.us40, %98 ], [ %14, %.lr.ph75.split.us.split.us ], [ %.1.us.us77, %26 ], [ %.1.us.us81, %39 ], [ %.1.us, %55 ], [ %.1.us32.us69, %67 ], [ %.1.us32, %82 ], [ %.1, %117 ]
   ret ptr %.0.lcssa
 
 108:                                              ; preds = %.lr.ph55
@@ -437,8 +437,8 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br label %117
 
 117:                                              ; preds = %112, %108, %.lr.ph55, %115
-  %118 = phi i32 [ %.pre, %115 ], [ %102, %.lr.ph55 ], [ %102, %108 ], [ %102, %112 ]
-  %.1 = phi ptr [ %116, %115 ], [ %.02653, %.lr.ph55 ], [ %.02653, %108 ], [ %.02653, %112 ]
+  %118 = phi i32 [ %102, %.lr.ph55 ], [ %.pre, %115 ], [ %102, %108 ], [ %102, %112 ]
+  %.1 = phi ptr [ %.02653, %.lr.ph55 ], [ %116, %115 ], [ %.02653, %108 ], [ %.02653, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next, %119

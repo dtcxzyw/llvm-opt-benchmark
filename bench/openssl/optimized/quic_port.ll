@@ -193,9 +193,9 @@ ossl_list_port_insert_tail.exit.i:                ; preds = %73, %68
   tail call void @CRYPTO_free(ptr noundef nonnull %96, ptr noundef nonnull @.str, i32 noundef 184) #11
   br i1 %.not46.i, label %port_init.exit, label %.critedge
 
-port_init.exit.critedge:                          ; preds = %87, %98, %94, %90, %82, %ossl_list_port_insert_tail.exit.i, %50, %42, %38, %34, %4
-  %.039.i.ph = phi ptr [ %85, %87 ], [ %85, %98 ], [ %85, %94 ], [ %85, %90 ], [ null, %82 ], [ null, %ossl_list_port_insert_tail.exit.i ], [ null, %50 ], [ null, %42 ], [ null, %38 ], [ null, %34 ], [ null, %4 ]
-  %.038.i.ph = phi ptr [ null, %87 ], [ %96, %98 ], [ null, %94 ], [ null, %90 ], [ null, %82 ], [ null, %ossl_list_port_insert_tail.exit.i ], [ null, %50 ], [ null, %42 ], [ null, %38 ], [ null, %34 ], [ null, %4 ]
+port_init.exit.critedge:                          ; preds = %87, %94, %90, %82, %ossl_list_port_insert_tail.exit.i, %50, %42, %38, %34, %98, %4
+  %.039.i.ph = phi ptr [ %85, %87 ], [ %85, %94 ], [ %85, %90 ], [ null, %82 ], [ null, %ossl_list_port_insert_tail.exit.i ], [ null, %50 ], [ null, %42 ], [ null, %38 ], [ null, %34 ], [ %85, %98 ], [ null, %4 ]
+  %.038.i.ph = phi ptr [ null, %87 ], [ null, %94 ], [ null, %90 ], [ null, %82 ], [ null, %ossl_list_port_insert_tail.exit.i ], [ null, %50 ], [ null, %42 ], [ null, %38 ], [ null, %34 ], [ %96, %98 ], [ null, %4 ]
   tail call void @EVP_CIPHER_free(ptr noundef %.039.i.ph) #11
   tail call void @CRYPTO_free(ptr noundef %.038.i.ph, ptr noundef nonnull @.str, i32 noundef 184) #11
   br label %port_init.exit
@@ -633,7 +633,7 @@ port_update_addressing_mode.exit:                 ; preds = %28, %31
   br label %41
 
 41:                                               ; preds = %port_update_poll_desc.exit.thread, %2, %port_update_addressing_mode.exit
-  %.0 = phi i32 [ 1, %port_update_addressing_mode.exit ], [ 1, %2 ], [ 0, %port_update_poll_desc.exit.thread ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %port_update_addressing_mode.exit ], [ 0, %port_update_poll_desc.exit.thread ]
   ret i32 %.0
 }
 
@@ -738,7 +738,7 @@ port_update_addressing_mode.exit:                 ; preds = %29, %31
   br label %41
 
 41:                                               ; preds = %port_update_poll_desc.exit.thread, %2, %port_update_addressing_mode.exit
-  %.012 = phi i32 [ 1, %port_update_addressing_mode.exit ], [ 1, %2 ], [ 0, %port_update_poll_desc.exit.thread ]
+  %.012 = phi i32 [ 1, %2 ], [ 1, %port_update_addressing_mode.exit ], [ 0, %port_update_poll_desc.exit.thread ]
   ret i32 %.012
 }
 
@@ -919,7 +919,7 @@ port_new_handshake_layer.exit:                    ; preds = %53, %15
   br label %84
 
 84:                                               ; preds = %3, %79, %77, %74
-  %.0 = phi ptr [ null, %74 ], [ %13, %79 ], [ null, %77 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %77 ], [ null, %74 ], [ %13, %79 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1399,7 +1399,7 @@ define internal void @port_default_packet_handler(ptr noundef %0, ptr noundef %1
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %port_try_handle_stateless_reset.exit, label %.lr.ph.i
 
-port_try_handle_stateless_reset.exit.thread:      ; preds = %21, %16, %.preheader.i
+port_try_handle_stateless_reset.exit.thread:      ; preds = %16, %21, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
@@ -1949,7 +1949,7 @@ define internal fastcc range(i32 0, 2) i32 @port_validate_token(ptr noundef nonn
   %.not36.i = icmp eq i32 %61, 0
   br i1 %.not36.i, label %decrypt_validation_token.exit48.thread, label %decrypt_validation_token.exit48
 
-decrypt_validation_token.exit48.thread:           ; preds = %31, %38, %42, %59, %54, %47
+decrypt_validation_token.exit48.thread:           ; preds = %31, %38, %42, %47, %54, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %decrypt_validation_token.exit.thread
 
@@ -2155,9 +2155,9 @@ parse_validation_token.exit:                      ; preds = %118
   br label %decrypt_validation_token.exit.thread
 
 decrypt_validation_token.exit.thread:             ; preds = %24, %20, %6, %parse_validation_token.exit.thread, %decrypt_validation_token.exit48.thread, %150, %155, %152, %146, %138, %142, %127, %130, %133, %135, %120, %124, %parse_validation_token.exit, %decrypt_validation_token.exit48
-  %.val = phi ptr [ %116, %parse_validation_token.exit ], [ %116, %120 ], [ %116, %124 ], [ %116, %130 ], [ %116, %135 ], [ %116, %138 ], [ %116, %142 ], [ %116, %146 ], [ %116, %133 ], [ %116, %127 ], [ null, %decrypt_validation_token.exit48 ], [ %116, %152 ], [ %116, %155 ], [ %116, %150 ], [ null, %decrypt_validation_token.exit48.thread ], [ %.val.i, %parse_validation_token.exit.thread ], [ null, %6 ], [ null, %20 ], [ null, %24 ]
-  %.032 = phi ptr [ null, %parse_validation_token.exit ], [ null, %120 ], [ null, %124 ], [ null, %130 ], [ %131, %135 ], [ %131, %138 ], [ %131, %142 ], [ %131, %146 ], [ %131, %133 ], [ null, %127 ], [ null, %decrypt_validation_token.exit48 ], [ %131, %152 ], [ %131, %155 ], [ %131, %150 ], [ null, %decrypt_validation_token.exit48.thread ], [ null, %parse_validation_token.exit.thread ], [ null, %6 ], [ null, %20 ], [ null, %24 ]
-  %.0 = phi i32 [ 0, %parse_validation_token.exit ], [ 0, %120 ], [ 0, %124 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %142 ], [ 0, %146 ], [ 0, %133 ], [ 0, %127 ], [ 0, %decrypt_validation_token.exit48 ], [ 1, %152 ], [ 1, %155 ], [ 1, %150 ], [ 0, %decrypt_validation_token.exit48.thread ], [ 0, %parse_validation_token.exit.thread ], [ 0, %6 ], [ 0, %20 ], [ 0, %24 ]
+  %.val = phi ptr [ null, %24 ], [ %116, %parse_validation_token.exit ], [ %116, %120 ], [ %116, %124 ], [ null, %20 ], [ %116, %130 ], [ %116, %135 ], [ %116, %138 ], [ %116, %142 ], [ null, %decrypt_validation_token.exit48 ], [ %116, %146 ], [ %116, %133 ], [ %116, %127 ], [ %.val.i, %parse_validation_token.exit.thread ], [ %116, %152 ], [ %116, %155 ], [ %116, %150 ], [ null, %decrypt_validation_token.exit48.thread ], [ null, %6 ]
+  %.032 = phi ptr [ null, %24 ], [ null, %parse_validation_token.exit ], [ null, %120 ], [ null, %124 ], [ null, %20 ], [ null, %130 ], [ %131, %135 ], [ %131, %138 ], [ %131, %142 ], [ null, %decrypt_validation_token.exit48 ], [ %131, %146 ], [ %131, %133 ], [ null, %127 ], [ null, %parse_validation_token.exit.thread ], [ %131, %152 ], [ %131, %155 ], [ %131, %150 ], [ null, %decrypt_validation_token.exit48.thread ], [ null, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %parse_validation_token.exit ], [ 0, %120 ], [ 0, %124 ], [ 0, %20 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %142 ], [ 0, %decrypt_validation_token.exit48 ], [ 0, %146 ], [ 0, %133 ], [ 0, %127 ], [ 0, %parse_validation_token.exit.thread ], [ 1, %152 ], [ 1, %155 ], [ 1, %150 ], [ 0, %decrypt_validation_token.exit48.thread ], [ 0, %6 ]
   call void @CRYPTO_free(ptr noundef %.val, ptr noundef nonnull @.str, i32 noundef 798) #11
   call void @CRYPTO_free(ptr noundef %.032, ptr noundef nonnull @.str, i32 noundef 1373) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2508,7 +2508,7 @@ define internal fastcc range(i32 0, 2) i32 @marshal_validation_token(ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %46
-  %.0.ph = phi i32 [ 1, %46 ], [ 0, %45 ]
+  %.0.ph = phi i32 [ 0, %45 ], [ 1, %46 ]
   call void @BUF_MEM_free(ptr noundef nonnull %5) #11
   br label %50
 
@@ -2580,7 +2580,7 @@ define internal fastcc range(i32 0, 2) i32 @encrypt_validation_token(ptr noundef
   br label %41
 
 41:                                               ; preds = %38, %16, %22, %28, %31, %35, %5, %12
-  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %35 ], [ 0, %31 ], [ 0, %28 ], [ 0, %22 ], [ 1, %16 ], [ %spec.select, %38 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %22 ], [ 1, %16 ], [ %spec.select, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

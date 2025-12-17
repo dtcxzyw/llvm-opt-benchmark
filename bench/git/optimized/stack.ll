@@ -263,8 +263,8 @@ define internal fastcc i32 @reftable_stack_reload_maybe_reuse(ptr noundef captur
   br i1 %exitcond.not.i.i, label %stack_copy_readers.exit.i, label %58, !llvm.loop !41
 
 stack_copy_readers.exit.i:                        ; preds = %58, %52, %.thread.i
-  %63 = phi i64 [ 0, %52 ], [ 0, %.thread.i ], [ %54, %58 ]
-  %.097.i = phi ptr [ null, %52 ], [ null, %.thread.i ], [ %56, %58 ]
+  %63 = phi i64 [ 0, %.thread.i ], [ 0, %52 ], [ %54, %58 ]
+  %.097.i = phi ptr [ null, %.thread.i ], [ null, %52 ], [ %56, %58 ]
   %64 = call i64 @names_length(ptr noundef %50) #16
   %.not134.i = icmp eq i64 %64, 0
   br i1 %.not134.i, label %67, label %65
@@ -385,7 +385,7 @@ stack_filename.exit.i:                            ; preds = %96
   br i1 %104, label %.thread170.i, label %105
 
 .thread170.i:                                     ; preds = %101, %stack_filename.exit.i, %96, %.loopexit.thread.i
-  %.4.ph.i = phi i32 [ %99, %stack_filename.exit.i ], [ %97, %96 ], [ %94, %.loopexit.thread.i ], [ %103, %101 ]
+  %.4.ph.i = phi i32 [ %99, %stack_filename.exit.i ], [ %97, %96 ], [ %103, %101 ], [ %94, %.loopexit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stack_copy_readers.exit.thread.sink.split.i
 
@@ -503,8 +503,8 @@ stack_filename.exit152.i:                         ; preds = %123
   br i1 %exitcond282.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph237.i, !llvm.loop !56
 
 stack_copy_readers.exit.thread.sink.split.i:      ; preds = %105, %88, %.thread170.i, %.thread159.i
-  %.0108.ph.i = phi ptr [ %.2110318.i, %.thread170.i ], [ null, %.thread159.i ], [ %.2110318.i, %105 ], [ null, %88 ]
-  %.090.ph.i = phi i32 [ %.4.ph.i, %.thread170.i ], [ -13, %.thread159.i ], [ %106, %105 ], [ -13, %88 ]
+  %.0108.ph.i = phi ptr [ null, %.thread159.i ], [ %.2110318.i, %.thread170.i ], [ %.2110318.i, %105 ], [ null, %88 ]
+  %.090.ph.i = phi i32 [ -13, %.thread159.i ], [ %.4.ph.i, %.thread170.i ], [ %106, %105 ], [ -13, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %stack_copy_readers.exit.thread.i
 
@@ -525,10 +525,10 @@ stack_copy_readers.exit.thread.i:                 ; preds = %stack_filename.exit
   br i1 %exitcond283.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph239.i, !llvm.loop !57
 
 reftable_stack_reload_once.exit:                  ; preds = %.lr.ph237.i, %.lr.ph239.i, %55, %65, %141, %stack_copy_readers.exit.thread.i
-  %.090345.i = phi i32 [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.5.lcssa.i, %141 ], [ -13, %55 ], [ -13, %65 ], [ %.090.i, %.lr.ph239.i ], [ %.5.lcssa.i, %.lr.ph237.i ]
-  %.198344.i = phi ptr [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %141 ], [ null, %55 ], [ %.097.i, %65 ], [ %.097.i, %.lr.ph239.i ], [ %.097.i, %.lr.ph237.i ]
-  %.0106343.i = phi ptr [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ null, %141 ], [ null, %55 ], [ null, %65 ], [ %.1107.i, %.lr.ph239.i ], [ null, %.lr.ph237.i ]
-  %.0108342.i = phi ptr [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.1109.i.lcssa, %141 ], [ null, %55 ], [ null, %65 ], [ %.0108.i, %.lr.ph239.i ], [ %.1109.i.lcssa, %.lr.ph237.i ]
+  %.090345.i = phi i32 [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.5.lcssa.i, %141 ], [ -13, %65 ], [ -13, %55 ], [ %.090.i, %.lr.ph239.i ], [ %.5.lcssa.i, %.lr.ph237.i ]
+  %.198344.i = phi ptr [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %141 ], [ %.097.i, %65 ], [ null, %55 ], [ %.097.i, %.lr.ph239.i ], [ %.097.i, %.lr.ph237.i ]
+  %.0106343.i = phi ptr [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ null, %141 ], [ null, %65 ], [ null, %55 ], [ %.1107.i, %.lr.ph239.i ], [ null, %.lr.ph237.i ]
+  %.0108342.i = phi ptr [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.1109.i.lcssa, %141 ], [ null, %65 ], [ null, %55 ], [ %.0108.i, %.lr.ph239.i ], [ %.1109.i.lcssa, %.lr.ph237.i ]
   call void @reftable_free(ptr noundef %.0106343.i) #16
   call void @reftable_free(ptr noundef %.0108342.i) #16
   call void @reftable_free(ptr noundef %.198344.i) #16
@@ -573,9 +573,9 @@ read_lines.exit.thread74:                         ; preds = %read_lines.exit.rea
   %.not61 = icmp eq i32 %163, 0
   br i1 %.not61, label %164, label %.thread
 
-.thread:                                          ; preds = %reftable_stack_reload_once.exit, %156, %152, %read_lines.exit.thread74, %read_lines.exit, %46, %44, %41, %32, %164, %13
-  %.139.ph = phi i32 [ %16, %13 ], [ %.090345.i, %reftable_stack_reload_once.exit ], [ -13, %156 ], [ -2, %152 ], [ -4, %read_lines.exit.thread74 ], [ %158, %read_lines.exit ], [ %47, %46 ], [ -13, %44 ], [ -2, %41 ], [ %29, %32 ], [ %173, %164 ]
-  %.2.ph = phi i32 [ -1, %13 ], [ %39, %reftable_stack_reload_once.exit ], [ %39, %156 ], [ %39, %152 ], [ %39, %read_lines.exit.thread74 ], [ %39, %read_lines.exit ], [ %39, %46 ], [ %39, %44 ], [ %39, %41 ], [ -1, %32 ], [ -1, %164 ]
+.thread:                                          ; preds = %reftable_stack_reload_once.exit, %156, %152, %read_lines.exit.thread74, %41, %46, %read_lines.exit, %32, %164, %44, %13
+  %.139.ph = phi i32 [ %16, %13 ], [ -13, %156 ], [ %29, %32 ], [ %158, %read_lines.exit ], [ %47, %46 ], [ -2, %41 ], [ -4, %read_lines.exit.thread74 ], [ -2, %152 ], [ %173, %164 ], [ -13, %44 ], [ %.090345.i, %reftable_stack_reload_once.exit ]
+  %.2.ph = phi i32 [ -1, %13 ], [ %39, %156 ], [ -1, %32 ], [ %39, %read_lines.exit ], [ %39, %46 ], [ %39, %41 ], [ %39, %read_lines.exit.thread74 ], [ %39, %152 ], [ -1, %164 ], [ %39, %44 ], [ %39, %reftable_stack_reload_once.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %175
 
@@ -823,7 +823,7 @@ has_name.exit.us:                                 ; preds = %.lr.ph, %43
   br label %has_name.exit
 
 has_name.exit:                                    ; preds = %.lr.ph.i, %64, %61, %.loopexit
-  %67 = phi i1 [ false, %.loopexit ], [ false, %61 ], [ %66, %64 ], [ true, %.lr.ph.i ]
+  %67 = phi i1 [ false, %61 ], [ %66, %64 ], [ false, %.loopexit ], [ true, %.lr.ph.i ]
   %68 = load ptr, ptr %23, align 8, !tbaa !38
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.03046
   %70 = load ptr, ptr %69, align 8, !tbaa !39
@@ -942,8 +942,8 @@ define internal fastcc range(i32 -13, -2147483648) i32 @fd_read_lines(i32 nounde
   br label %18
 
 18:                                               ; preds = %14, %12, %9, %5, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %9 ], [ %11, %12 ], [ %11, %14 ]
-  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -13, %9 ], [ -2, %12 ], [ %spec.select, %14 ]
+  %.017 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %9 ], [ %11, %14 ], [ %11, %12 ]
+  %.0 = phi i32 [ -2, %5 ], [ -2, %2 ], [ -13, %9 ], [ %spec.select, %14 ], [ -2, %12 ]
   tail call void @reftable_free(ptr noundef %.017) #16
   ret i32 %.0
 }
@@ -1001,7 +1001,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @stack_filename(ptr noundef
   br label %13
 
 13:                                               ; preds = %11, %3, %8
-  %.07 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %spec.select, %11 ]
+  %.07 = phi i32 [ %spec.select, %11 ], [ %6, %3 ], [ %9, %8 ]
   ret i32 %.07
 }
 
@@ -1159,7 +1159,7 @@ read_lines.exit:                                  ; preds = %32
   br label %read_lines.exit.thread
 
 read_lines.exit.thread:                           ; preds = %41, %37, %.thread, %read_lines.exit, %.thread34
-  %.2 = phi i32 [ %.121, %.thread34 ], [ %43, %read_lines.exit ], [ %.123.ph, %.thread ], [ -2, %37 ], [ -13, %41 ]
+  %.2 = phi i32 [ %.123.ph, %.thread ], [ %43, %read_lines.exit ], [ %.121, %.thread34 ], [ -2, %37 ], [ -13, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
@@ -1459,7 +1459,7 @@ stack_fsync.exit:                                 ; preds = %58, %60
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %37, %43, %63, %stack_fsync.exit, %._crit_edge, %84, %79, %._crit_edge55, %1
-  %.035 = phi i32 [ 0, %1 ], [ %78, %._crit_edge55 ], [ 0, %79 ], [ %spec.store.select, %84 ], [ -2, %._crit_edge ], [ -2, %stack_fsync.exit ], [ -2, %63 ], [ %44, %43 ], [ %41, %37 ], [ %31, %30 ], [ %28, %.lr.ph ]
+  %.035 = phi i32 [ 0, %1 ], [ %78, %._crit_edge55 ], [ %41, %37 ], [ 0, %79 ], [ -2, %63 ], [ %spec.store.select, %84 ], [ -2, %._crit_edge ], [ -2, %stack_fsync.exit ], [ %44, %43 ], [ %31, %30 ], [ %28, %.lr.ph ]
   call fastcc void @reftable_addition_close(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.035
@@ -1577,7 +1577,7 @@ suggest_compaction_segment.exit:                  ; preds = %38, %.lr.ph.i12, %.
   br label %stack_table_sizes_for_compaction.exit
 
 stack_table_sizes_for_compaction.exit:            ; preds = %7, %suggest_compaction_segment.exit, %1, %57
-  %.0 = phi i32 [ %59, %57 ], [ 0, %1 ], [ 0, %suggest_compaction_segment.exit ], [ -13, %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ %59, %57 ], [ 0, %suggest_compaction_segment.exit ], [ -13, %7 ]
   ret i32 %.0
 }
 
@@ -1686,8 +1686,8 @@ define internal fastcc i32 @reftable_stack_init_addition(ptr noundef initializes
   store i64 %.0.i, ptr %48, align 8, !tbaa !92
   br label %50
 
-49:                                               ; preds = %23, %29, %12, %19, %27
-  %.0.ph = phi i32 [ -12, %27 ], [ -2, %19 ], [ %., %12 ], [ %31, %29 ], [ %24, %23 ]
+49:                                               ; preds = %12, %19, %23, %29, %27
+  %.0.ph = phi i32 [ -12, %27 ], [ %31, %29 ], [ %24, %23 ], [ -2, %19 ], [ %., %12 ]
   tail call fastcc void @reftable_addition_close(ptr noundef nonnull %0)
   br label %50
 
@@ -1903,7 +1903,7 @@ stack_filename.exit:                              ; preds = %31
   br label %stack_filename.exit.thread
 
 stack_filename.exit.thread:                       ; preds = %.thread, %31, %23, %._crit_edge56, %71, %62, %48, %90, %85, %82, %77, %68, %66, %58, %51, %39, %36, %stack_filename.exit, %3, %112
-  %.0 = phi i32 [ %21, %3 ], [ %34, %stack_filename.exit ], [ %37, %36 ], [ %42, %39 ], [ %56, %51 ], [ %60, %58 ], [ %64, %66 ], [ %69, %68 ], [ %80, %77 ], [ %83, %82 ], [ %88, %85 ], [ %93, %90 ], [ %93, %112 ], [ -2, %48 ], [ 0, %62 ], [ -6, %71 ], [ -13, %._crit_edge56 ], [ %32, %31 ], [ %29, %23 ], [ -13, %.thread ]
+  %.0 = phi i32 [ %21, %3 ], [ %34, %stack_filename.exit ], [ %37, %36 ], [ %42, %39 ], [ -6, %71 ], [ %56, %51 ], [ %60, %58 ], [ -2, %48 ], [ %64, %66 ], [ %69, %68 ], [ 0, %62 ], [ %80, %77 ], [ %83, %82 ], [ %88, %85 ], [ %93, %90 ], [ %93, %112 ], [ -13, %._crit_edge56 ], [ %32, %31 ], [ %29, %23 ], [ -13, %.thread ]
   %119 = call i32 @tmpfile_delete(ptr noundef nonnull %9) #16
   call void @reftable_buf_release(ptr noundef nonnull %5) #16
   call void @reftable_buf_release(ptr noundef nonnull %6) #16
@@ -2554,10 +2554,10 @@ stack_fsync.exit:                                 ; preds = %240, %242
   %exitcond342.not = icmp eq i64 %271, %.1162
   br i1 %exitcond342.not, label %stack_filename.exit.thread, label %.lr.ph311, !llvm.loop !126
 
-stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stack_filename.exit, %142, %129, %132, %140, %.lr.ph305, %.lr.ph308, %204, %218, %221, %270, %.preheader272, %._crit_edge303, %106, %102, %79, %149, %94, %87, %.loopexit, %72, %st_mult.exit, %26, %5, %14, %256, %207, %212, %192, %187, %184, %172, %98, %30, %252, %245, %233
-  %.0161 = phi i64 [ 0, %30 ], [ %.1162, %98 ], [ %.1162, %233 ], [ %.1162, %245 ], [ %.1162, %252 ], [ %.1162, %256 ], [ %.1162, %207 ], [ %.1162, %212 ], [ %.1162, %172 ], [ %.1162, %184 ], [ %.1162, %187 ], [ %.1162, %192 ], [ 0, %14 ], [ 0, %5 ], [ 0, %26 ], [ 0, %st_mult.exit ], [ %.1162, %72 ], [ %.1162, %.loopexit ], [ %.1162, %87 ], [ %.1162, %94 ], [ %.1162, %149 ], [ %.1162, %79 ], [ %.1162, %102 ], [ %.1162, %106 ], [ %.1162, %._crit_edge303 ], [ %.1162, %.preheader272 ], [ %.1162, %270 ], [ %.1162, %221 ], [ %.1162, %218 ], [ %.1162, %204 ], [ %.1162, %.lr.ph308 ], [ %.1162, %.lr.ph305 ], [ %.1162, %140 ], [ %.1162, %132 ], [ %.1162, %129 ], [ %.1162, %142 ], [ %74, %73 ], [ %.1162, %46 ], [ %.1162, %55 ], [ %.1162, %stack_filename.exit ]
-  %.0156 = phi i32 [ %31, %30 ], [ %99, %98 ], [ -2, %233 ], [ -2, %245 ], [ -2, %252 ], [ %259, %256 ], [ %210, %207 ], [ %213, %212 ], [ %182, %172 ], [ %185, %184 ], [ %190, %187 ], [ %195, %192 ], [ 0, %14 ], [ 0, %5 ], [ %., %26 ], [ -13, %st_mult.exit ], [ %.222, %72 ], [ -2, %.loopexit ], [ %.223, %87 ], [ -2, %94 ], [ -13, %149 ], [ %80, %79 ], [ -2, %102 ], [ %107, %106 ], [ -12, %._crit_edge303 ], [ -12, %.preheader272 ], [ %266, %270 ], [ %219, %218 ], [ %222, %221 ], [ %202, %.lr.ph308 ], [ %205, %204 ], [ -13, %.lr.ph305 ], [ -12, %140 ], [ -12, %132 ], [ -12, %129 ], [ -12, %142 ], [ -2, %73 ], [ %53, %46 ], [ %56, %55 ], [ %58, %stack_filename.exit ]
-  %.0150 = phi ptr [ null, %30 ], [ %37, %98 ], [ %37, %233 ], [ %37, %245 ], [ %37, %252 ], [ %37, %256 ], [ %37, %207 ], [ %37, %212 ], [ %37, %172 ], [ %37, %184 ], [ %37, %187 ], [ %37, %192 ], [ null, %14 ], [ null, %5 ], [ null, %26 ], [ null, %st_mult.exit ], [ %37, %72 ], [ %37, %.loopexit ], [ %37, %87 ], [ %37, %94 ], [ %37, %149 ], [ %37, %79 ], [ %37, %102 ], [ %37, %106 ], [ %37, %._crit_edge303 ], [ %37, %.preheader272 ], [ %37, %270 ], [ %37, %221 ], [ %37, %218 ], [ %37, %204 ], [ %37, %.lr.ph308 ], [ %37, %.lr.ph305 ], [ %37, %140 ], [ %37, %132 ], [ %37, %129 ], [ %37, %142 ], [ %37, %stack_filename.exit ], [ %37, %55 ], [ %37, %46 ], [ %37, %73 ]
+stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stack_filename.exit, %142, %129, %132, %140, %.lr.ph305, %.lr.ph308, %204, %218, %221, %270, %.preheader272, %106, %102, %._crit_edge303, %79, %149, %94, %87, %.loopexit, %72, %st_mult.exit, %26, %5, %14, %256, %207, %212, %192, %187, %184, %172, %98, %30, %252, %245, %233
+  %.0161 = phi i64 [ 0, %14 ], [ 0, %26 ], [ 0, %5 ], [ 0, %30 ], [ %.1162, %79 ], [ %.1162, %87 ], [ %.1162, %.loopexit ], [ 0, %st_mult.exit ], [ %.1162, %98 ], [ %.1162, %233 ], [ %.1162, %245 ], [ %.1162, %252 ], [ %.1162, %256 ], [ %.1162, %207 ], [ %.1162, %212 ], [ %.1162, %172 ], [ %.1162, %184 ], [ %.1162, %187 ], [ %.1162, %192 ], [ %.1162, %94 ], [ %.1162, %72 ], [ %.1162, %149 ], [ %.1162, %._crit_edge303 ], [ %.1162, %102 ], [ %.1162, %106 ], [ %.1162, %.preheader272 ], [ %.1162, %218 ], [ %.1162, %.lr.ph308 ], [ %.1162, %.lr.ph305 ], [ %.1162, %129 ], [ %.1162, %142 ], [ %.1162, %270 ], [ %.1162, %221 ], [ %.1162, %204 ], [ %.1162, %140 ], [ %.1162, %132 ], [ %.1162, %55 ], [ %.1162, %46 ], [ %74, %73 ], [ %.1162, %stack_filename.exit ]
+  %.0156 = phi i32 [ 0, %14 ], [ %., %26 ], [ 0, %5 ], [ %31, %30 ], [ %80, %79 ], [ %.223, %87 ], [ -2, %.loopexit ], [ -13, %st_mult.exit ], [ %99, %98 ], [ -2, %233 ], [ -2, %245 ], [ -2, %252 ], [ %259, %256 ], [ %210, %207 ], [ %213, %212 ], [ %182, %172 ], [ %185, %184 ], [ %190, %187 ], [ %195, %192 ], [ -2, %94 ], [ %.222, %72 ], [ -13, %149 ], [ -12, %._crit_edge303 ], [ -2, %102 ], [ %107, %106 ], [ -12, %.preheader272 ], [ %219, %218 ], [ %202, %.lr.ph308 ], [ -13, %.lr.ph305 ], [ -12, %129 ], [ -12, %142 ], [ %266, %270 ], [ %222, %221 ], [ %205, %204 ], [ -12, %140 ], [ -12, %132 ], [ %56, %55 ], [ %53, %46 ], [ -2, %73 ], [ %58, %stack_filename.exit ]
+  %.0150 = phi ptr [ null, %14 ], [ null, %26 ], [ null, %5 ], [ null, %30 ], [ %37, %79 ], [ %37, %87 ], [ %37, %.loopexit ], [ null, %st_mult.exit ], [ %37, %98 ], [ %37, %233 ], [ %37, %245 ], [ %37, %252 ], [ %37, %256 ], [ %37, %207 ], [ %37, %212 ], [ %37, %172 ], [ %37, %184 ], [ %37, %187 ], [ %37, %192 ], [ %37, %94 ], [ %37, %72 ], [ %37, %149 ], [ %37, %._crit_edge303 ], [ %37, %102 ], [ %37, %106 ], [ %37, %.preheader272 ], [ %37, %218 ], [ %37, %.lr.ph308 ], [ %37, %.lr.ph305 ], [ %37, %129 ], [ %37, %142 ], [ %37, %270 ], [ %37, %221 ], [ %37, %204 ], [ %37, %140 ], [ %37, %132 ], [ %37, %stack_filename.exit ], [ %37, %55 ], [ %37, %46 ], [ %37, %73 ]
   %.0150.fr = freeze ptr %.0150
   %272 = call i32 @flock_release(ptr noundef nonnull %10) #16
   %273 = icmp ne ptr %.0150.fr, null
@@ -2763,7 +2763,7 @@ define dso_local i32 @reftable_stack_read_log(ptr noundef readonly captures(none
   br i1 %.not17, label %18, label %17
 
 17:                                               ; preds = %12, %15, %3, %8, %10
-  %.0.ph = phi i32 [ %11, %10 ], [ %9, %8 ], [ %7, %3 ], [ 1, %15 ], [ 1, %12 ]
+  %.0.ph = phi i32 [ %7, %3 ], [ %11, %10 ], [ %9, %8 ], [ 1, %15 ], [ 1, %12 ]
   call void @reftable_log_record_release(ptr noundef %2) #16
   br label %18
 
@@ -2930,7 +2930,7 @@ remove_maybe_stale_table.exit.i:                  ; preds = %58, %54, %51, %47, 
   br label %reftable_stack_clean_locked.exit
 
 reftable_stack_clean_locked.exit:                 ; preds = %._crit_edge.i, %14, %reftable_stack_reload.exit
-  %.0 = phi i32 [ %.0.i7, %reftable_stack_reload.exit ], [ 0, %._crit_edge.i ], [ -2, %14 ]
+  %.0 = phi i32 [ 0, %._crit_edge.i ], [ %.0.i7, %reftable_stack_reload.exit ], [ -2, %14 ]
   %.not.i9 = icmp eq ptr %.01219, null
   br i1 %.not.i9, label %reftable_addition_destroy.exit, label %63
 
@@ -2940,7 +2940,7 @@ reftable_stack_clean_locked.exit:                 ; preds = %._crit_edge.i, %14,
   br label %reftable_addition_destroy.exit
 
 reftable_addition_destroy.exit:                   ; preds = %1, %reftable_stack_new_addition.exit, %reftable_stack_clean_locked.exit, %63
-  %.023 = phi i32 [ %.0, %reftable_stack_clean_locked.exit ], [ %.0, %63 ], [ %7, %reftable_stack_new_addition.exit ], [ -13, %1 ]
+  %.023 = phi i32 [ %.0, %63 ], [ %.0, %reftable_stack_clean_locked.exit ], [ %7, %reftable_stack_new_addition.exit ], [ -13, %1 ]
   ret i32 %.023
 }
 
@@ -3389,8 +3389,8 @@ stack_filename.exit:                              ; preds = %39
   br i1 %188, label %.loopexit.i, label %.lr.ph100.i
 
 .loopexit.i:                                      ; preds = %.split92.i, %.lr.ph99.i, %.split92.us.us.i, %103, %.outer.i, %.critedge.split.split.i, %.backedge.i, %171, %.critedge.split.split.us.us.i, %.outer.us148.i, %.backedge.us113.us.i, %153, %.split125.us132.i, %.outer.us.i, %.lr.ph100.us.i, %.split125.us.us.us.i, %.outer.us.us.i, %.backedge.us.us.us.us.i, %133, %.preheader.i, %121, %.split.us.i, %94, %90, %._crit_edge199.i
-  %.044.i = phi i64 [ 0, %._crit_edge199.i ], [ 0, %90 ], [ 0, %94 ], [ %.us-phi.i, %.split.us.i ], [ %.us-phi.i, %121 ], [ %.us-phi.i, %.preheader.i ], [ %.2.ph128.us.us.i, %133 ], [ %.2.ph128.us.us.i, %.backedge.us.us.us.us.i ], [ %.2.ph128.us.us.i, %.split125.us.us.us.i ], [ %130, %.outer.us.us.i ], [ %.2.ph128.us.i, %.split125.us132.i ], [ %.2.ph128.us.i, %.lr.ph100.us.i ], [ %144, %.outer.us.i ], [ %.2.ph128.us147.i, %153 ], [ %.2.ph128.us147.i, %.backedge.us113.us.i ], [ %.2.ph128.us147.i, %.critedge.split.split.us.us.i ], [ %150, %.outer.us148.i ], [ %.2.ph128.i, %171 ], [ %.2.ph128.i, %.backedge.i ], [ %.2.ph128.i, %.critedge.split.split.i ], [ %186, %.outer.i ], [ %.1.ph.us.i, %103 ], [ %.1.ph.us.i, %.split92.us.us.i ], [ %.1.ph98.i, %.lr.ph99.i ], [ %.1.ph98.i, %.split92.i ]
-  %.043.i = phi i32 [ %80, %._crit_edge199.i ], [ %92, %90 ], [ %95, %94 ], [ %112, %.split.us.i ], [ %122, %121 ], [ 0, %.preheader.i ], [ 0, %.backedge.us.us.us.us.i ], [ %134, %133 ], [ %140, %.split125.us.us.us.i ], [ 0, %.outer.us.us.i ], [ %147, %.split125.us132.i ], [ %142, %.lr.ph100.us.i ], [ 0, %.outer.us.i ], [ 0, %.backedge.us113.us.i ], [ %154, %153 ], [ %168, %.critedge.split.split.us.us.i ], [ 0, %.outer.us148.i ], [ 0, %.backedge.i ], [ %172, %171 ], [ %184, %.critedge.split.split.i ], [ 0, %.outer.i ], [ %101, %103 ], [ %107, %.split92.us.us.i ], [ %116, %.split92.i ], [ %114, %.lr.ph99.i ]
+  %.044.i = phi i64 [ 0, %._crit_edge199.i ], [ 0, %90 ], [ 0, %94 ], [ %.us-phi.i, %.split.us.i ], [ %.us-phi.i, %121 ], [ %.us-phi.i, %.preheader.i ], [ %130, %.outer.us.us.i ], [ %.2.ph128.us147.i, %.backedge.us113.us.i ], [ %150, %.outer.us148.i ], [ %.1.ph.us.i, %.split92.us.us.i ], [ %.2.ph128.us.us.i, %.backedge.us.us.us.us.i ], [ %144, %.outer.us.i ], [ %.2.ph128.i, %.backedge.i ], [ %.2.ph128.i, %.critedge.split.split.i ], [ %.1.ph.us.i, %103 ], [ %.2.ph128.us.us.i, %133 ], [ %.2.ph128.us.us.i, %.split125.us.us.us.i ], [ %.2.ph128.us.i, %.split125.us132.i ], [ %.2.ph128.us.i, %.lr.ph100.us.i ], [ %.2.ph128.us147.i, %153 ], [ %.2.ph128.us147.i, %.critedge.split.split.us.us.i ], [ %.2.ph128.i, %171 ], [ %186, %.outer.i ], [ %.1.ph98.i, %.lr.ph99.i ], [ %.1.ph98.i, %.split92.i ]
+  %.043.i = phi i32 [ %80, %._crit_edge199.i ], [ %92, %90 ], [ %95, %94 ], [ %112, %.split.us.i ], [ %122, %121 ], [ 0, %.preheader.i ], [ 0, %.outer.us.us.i ], [ 0, %.backedge.us113.us.i ], [ 0, %.outer.us148.i ], [ %107, %.split92.us.us.i ], [ 0, %.backedge.us.us.us.us.i ], [ 0, %.outer.us.i ], [ 0, %.backedge.i ], [ %184, %.critedge.split.split.i ], [ %101, %103 ], [ %134, %133 ], [ %140, %.split125.us.us.us.i ], [ %147, %.split125.us132.i ], [ %142, %.lr.ph100.us.i ], [ %154, %153 ], [ %168, %.critedge.split.split.us.us.i ], [ %172, %171 ], [ 0, %.outer.i ], [ %116, %.split92.i ], [ %114, %.lr.ph99.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %7) #16
   %189 = load ptr, ptr %6, align 8, !tbaa !35
   %.not65.i = icmp eq ptr %189, null
@@ -3434,7 +3434,7 @@ stack_write_compact.exit:                         ; preds = %.loopexit.i, %190
   br label %stack_filename.exit.thread
 
 stack_filename.exit.thread:                       ; preds = %39, %32, %55, %199, %195, %stack_write_compact.exit, %59, %47, %44, %stack_filename.exit, %5, %202
-  %.0 = phi i32 [ %30, %5 ], [ %42, %stack_filename.exit ], [ %45, %44 ], [ %50, %47 ], [ %62, %59 ], [ %.043.i, %stack_write_compact.exit ], [ %197, %195 ], [ %200, %199 ], [ %200, %202 ], [ -2, %55 ], [ %40, %39 ], [ %37, %32 ]
+  %.0 = phi i32 [ %30, %5 ], [ %42, %stack_filename.exit ], [ %45, %44 ], [ %50, %47 ], [ %200, %202 ], [ %62, %59 ], [ %.043.i, %stack_write_compact.exit ], [ %197, %195 ], [ %200, %199 ], [ -2, %55 ], [ %40, %39 ], [ %37, %32 ]
   %203 = call i32 @tmpfile_delete(ptr noundef nonnull %15) #16
   %204 = load ptr, ptr %13, align 8, !tbaa !93
   call void @reftable_writer_free(ptr noundef %204) #16

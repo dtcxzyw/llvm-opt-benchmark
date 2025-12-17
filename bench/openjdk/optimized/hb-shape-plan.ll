@@ -426,7 +426,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
   br i1 %.not19, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %17, %12, %11, %.preheader, %2
-  %.016 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %41 ], [ false, %17 ], [ false, %12 ], [ true, %11 ]
+  %.016 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %12 ], [ false, %41 ], [ false, %17 ], [ true, %11 ]
   ret i1 %.016
 }
 
@@ -525,8 +525,8 @@ _ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit: ; preds = %13, %.prehea
   %53 = icmp eq ptr %50, %52
   br label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
-_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %14, %19, %43, %4, %48, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, %2
-  %54 = phi i1 [ false, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit ], [ false, %2 ], [ %53, %48 ], [ false, %4 ], [ false, %43 ], [ false, %19 ], [ false, %14 ]
+_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %19, %43, %14, %4, %48, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, %2
+  %54 = phi i1 [ false, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit ], [ %53, %48 ], [ false, %2 ], [ false, %4 ], [ false, %14 ], [ false, %43 ], [ false, %19 ]
   ret i1 %54
 }
 
@@ -664,7 +664,7 @@ define hidden void @hb_shape_plan_destroy(ptr noundef %0) local_unnamed_addr #0 
   tail call void @free(ptr noundef nonnull %0) #19
   br label %_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread: ; preds = %1, %5, %2, %14
+_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread: ; preds = %1, %2, %5, %14
   ret void
 }
 
@@ -718,7 +718,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_set_user_data(ptr noundef captu
   br label %_ZL23hb_object_set_user_dataI15hb_shape_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI15hb_shape_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -774,7 +774,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -901,8 +901,8 @@ _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tP
   store i32 2, ptr %49, align 4
   br label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
 
-_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread: ; preds = %.thread.i.i28.i, %.lr.ph.i.i24.i, %.thread.i.i.i, %.lr.ph.i.i.i, %31, %9, %.loopexit.i, %52, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
-  %.0.i9 = phi i32 [ 1, %52 ], [ 1, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10 ], [ 0, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit ], [ 0, %.loopexit.i ], [ 0, %9 ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %.lr.ph.i.i24.i ], [ 0, %.thread.i.i28.i ]
+_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread: ; preds = %.thread.i.i28.i, %.lr.ph.i.i24.i, %.lr.ph.i.i.i, %.thread.i.i.i, %31, %9, %.loopexit.i, %52, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+  %.0.i9 = phi i32 [ 0, %.loopexit.i ], [ 1, %52 ], [ 1, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10 ], [ 0, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit ], [ 0, %9 ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %.lr.ph.i.i24.i ], [ 0, %.thread.i.i28.i ]
   ret i32 %.0.i9
 }
 
@@ -997,7 +997,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   br label %hb_shape_plan_reference.exit
 
 hb_shape_plan_reference.exit:                     ; preds = %.lr.ph51, %._crit_edge, %44, %41, %.thread, %25, %22, %20
-  %.0 = phi ptr [ null, %20 ], [ %21, %22 ], [ %21, %25 ], [ %13, %.thread ], [ %30, %41 ], [ %30, %44 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
+  %.0 = phi ptr [ %21, %25 ], [ %13, %.thread ], [ %30, %44 ], [ %30, %41 ], [ null, %20 ], [ %21, %22 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -1416,7 +1416,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0

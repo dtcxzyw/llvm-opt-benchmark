@@ -2832,8 +2832,8 @@ define i32 @Sfm_DecComputeFlipInvGain(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %49
 
 49:                                               ; preds = %30, %10, %35, %27
-  %.129 = phi i32 [ %.02845, %27 ], [ %.02845, %35 ], [ 1, %10 ], [ 1, %30 ]
-  %.1 = phi i32 [ %29, %27 ], [ %48, %35 ], [ %.046, %10 ], [ %.046, %30 ]
+  %.129 = phi i32 [ %.02845, %27 ], [ 1, %10 ], [ %.02845, %35 ], [ 1, %30 ]
+  %.1 = phi i32 [ %29, %27 ], [ %.046, %10 ], [ %48, %35 ], [ %.046, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val39 = load i32, ptr %4, align 4, !tbaa !126
   %50 = sext i32 %.val39 to i64
@@ -4224,7 +4224,7 @@ Abc_Clock.exit433:                                ; preds = %294, %299
   store i32 %340, ptr %338, align 8, !tbaa !155
   br label %.thread494
 
-341:                                              ; preds = %Vec_IntPush.exit, %320, %._crit_edge536, %Abc_TtIntersect.exit427
+341:                                              ; preds = %._crit_edge536, %Vec_IntPush.exit, %320, %Abc_TtIntersect.exit427
   br i1 %200, label %199, label %342, !llvm.loop !177
 
 342:                                              ; preds = %341
@@ -5047,7 +5047,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i475
   br label %697
 
 697:                                              ; preds = %515, %Abc_TtStretch6.exit, %.thread494, %593, %380, %383, %Abc_TtConst.exit, %130, %.loopexit, %422, %96
-  %.0342 = phi i32 [ -2, %96 ], [ %.8, %.loopexit ], [ -2, %422 ], [ 0, %130 ], [ 0, %Abc_TtConst.exit ], [ -2, %383 ], [ -2, %380 ], [ -2, %593 ], [ %.4.ph, %.thread494 ], [ %.1368.lcssa, %Abc_TtStretch6.exit ], [ %.1368.lcssa, %515 ]
+  %.0342 = phi i32 [ -2, %96 ], [ -2, %593 ], [ %.8, %.loopexit ], [ -2, %380 ], [ %.4.ph, %.thread494 ], [ 0, %Abc_TtConst.exit ], [ -2, %422 ], [ 0, %130 ], [ -2, %383 ], [ %.1368.lcssa, %Abc_TtStretch6.exit ], [ %.1368.lcssa, %515 ]
   ret i32 %.0342
 }
 
@@ -6308,13 +6308,13 @@ Abc_Clock.exit:                                   ; preds = %.lr.ph, %202
   br label %.thread291
 
 .thread291:                                       ; preds = %249, %251, %235, %237
-  %.6228 = phi ptr [ %.2224323, %235 ], [ %207, %237 ], [ %.2224323, %249 ], [ %207, %251 ]
-  %.6219 = phi ptr [ %.2215324, %235 ], [ %210, %237 ], [ %.2215324, %249 ], [ %210, %251 ]
-  %.6210 = phi ptr [ %.2206325, %235 ], [ %221, %237 ], [ %.2206325, %249 ], [ %221, %251 ]
-  %.6201 = phi ptr [ %.2197326, %235 ], [ %223, %237 ], [ %.2197326, %249 ], [ %223, %251 ]
-  %.6192 = phi i32 [ %.2188327, %235 ], [ %199, %237 ], [ %.2188327, %249 ], [ %199, %251 ]
-  %.4185 = phi i32 [ %.0181328, %235 ], [ %226, %237 ], [ %.0181328, %249 ], [ %.0181328, %251 ]
-  %.4 = phi i32 [ %.2329, %235 ], [ %.2329, %237 ], [ %.2329, %249 ], [ %240, %251 ]
+  %.6228 = phi ptr [ %207, %237 ], [ %.2224323, %235 ], [ %.2224323, %249 ], [ %207, %251 ]
+  %.6219 = phi ptr [ %210, %237 ], [ %.2215324, %235 ], [ %.2215324, %249 ], [ %210, %251 ]
+  %.6210 = phi ptr [ %221, %237 ], [ %.2206325, %235 ], [ %.2206325, %249 ], [ %221, %251 ]
+  %.6201 = phi ptr [ %223, %237 ], [ %.2197326, %235 ], [ %.2197326, %249 ], [ %223, %251 ]
+  %.6192 = phi i32 [ %199, %237 ], [ %.2188327, %235 ], [ %.2188327, %249 ], [ %199, %251 ]
+  %.4185 = phi i32 [ %226, %237 ], [ %.0181328, %235 ], [ %.0181328, %249 ], [ %.0181328, %251 ]
+  %.4 = phi i32 [ %.2329, %237 ], [ %.2329, %235 ], [ %.2329, %249 ], [ %240, %251 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %252 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #27
   %253 = icmp slt i32 %252, 0
@@ -6734,7 +6734,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %6, %._crit_edge.i.i
   br i1 %.not16, label %.critedge, label %58
 
 .critedge:                                        ; preds = %61, %58, %.preheader, %Abc_NodeSetTravIdCurrent.exit, %Abc_NodeSetTravIdCurrent.exit, %4, %2
-  %.012 = phi i32 [ 0, %2 ], [ 1, %4 ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 1, %.preheader ], [ 0, %61 ], [ 1, %58 ]
+  %.012 = phi i32 [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %2 ], [ 1, %4 ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 1, %.preheader ], [ 0, %61 ], [ 1, %58 ]
   ret i32 %.012
 }
 
@@ -11734,8 +11734,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge.loopexit, !llvm.loop !269
 
 .critedge.loopexit:                               ; preds = %.lr.ph273, %93, %..critedge.loopexit_crit_edge, %.lr.ph
-  %.val171.pre = phi i32 [ %.val171.pre.pre, %..critedge.loopexit_crit_edge ], [ %.val172200, %.lr.ph ], [ %.val171.pre.pre, %93 ], [ %.val171.pre.pre, %.lr.ph273 ]
-  %.0128.lcssa.ph.in = phi i64 [ %indvars.iv.next, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %indvars.iv272, %.lr.ph273 ], [ %indvars.iv.next, %93 ]
+  %.val171.pre = phi i32 [ %.val172200, %.lr.ph ], [ %.val171.pre.pre, %..critedge.loopexit_crit_edge ], [ %.val171.pre.pre, %93 ], [ %.val171.pre.pre, %.lr.ph273 ]
+  %.0128.lcssa.ph.in = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %..critedge.loopexit_crit_edge ], [ %indvars.iv272, %.lr.ph273 ], [ %indvars.iv.next, %93 ]
   %.0128.lcssa.ph = trunc i64 %.0128.lcssa.ph.in to i32
   br label %.critedge
 
@@ -12094,7 +12094,7 @@ Vec_IntPush.exit195:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %278, label %267, label %.critedge8, !llvm.loop !273
 
 .critedge8:                                       ; preds = %276, %261, %._crit_edge, %43, %Vec_IntPush.exit
-  %.0 = phi ptr [ %162, %._crit_edge ], [ %41, %Vec_IntPush.exit ], [ %41, %43 ], [ %.2.lcssa, %261 ], [ %273, %276 ]
+  %.0 = phi ptr [ %162, %._crit_edge ], [ %41, %43 ], [ %41, %Vec_IntPush.exit ], [ %.2.lcssa, %261 ], [ %273, %276 ]
   ret ptr %.0
 }
 
@@ -12937,7 +12937,7 @@ Abc_NtkCountStats.exit:                           ; preds = %181, %194, %202, %2
   br label %243
 
 243:                                              ; preds = %Abc_Clock.exit118, %Abc_Clock.exit114, %66, %24, %20, %Abc_NtkCountStats.exit
-  %.090 = phi ptr [ %242, %Abc_NtkCountStats.exit ], [ null, %20 ], [ null, %24 ], [ null, %66 ], [ null, %Abc_Clock.exit114 ], [ null, %Abc_Clock.exit118 ]
+  %.090 = phi ptr [ null, %66 ], [ null, %20 ], [ null, %24 ], [ null, %Abc_Clock.exit114 ], [ %242, %Abc_NtkCountStats.exit ], [ null, %Abc_Clock.exit118 ]
   ret ptr %.090
 }
 
@@ -13355,9 +13355,9 @@ Vec_PtrPush.exit111:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %158, label %110, label %.critedge6, !llvm.loop !309
 
 .critedge6:                                       ; preds = %153, %106, %82, %85, %.lr.ph126, %Vec_PtrPush.exit104
-  %159 = phi i32 [ %72, %82 ], [ %72, %85 ], [ %72, %.lr.ph126 ], [ %100, %Vec_PtrPush.exit104 ], [ %72, %106 ], [ %154, %153 ]
-  %160 = phi i32 [ %73, %82 ], [ %73, %85 ], [ %73, %.lr.ph126 ], [ %101, %Vec_PtrPush.exit104 ], [ %73, %106 ], [ %155, %153 ]
-  %161 = phi i32 [ %74, %82 ], [ %74, %85 ], [ %74, %.lr.ph126 ], [ %103, %Vec_PtrPush.exit104 ], [ %74, %106 ], [ %156, %153 ]
+  %159 = phi i32 [ %100, %Vec_PtrPush.exit104 ], [ %72, %82 ], [ %72, %85 ], [ %72, %.lr.ph126 ], [ %72, %106 ], [ %154, %153 ]
+  %160 = phi i32 [ %101, %Vec_PtrPush.exit104 ], [ %73, %82 ], [ %73, %85 ], [ %73, %.lr.ph126 ], [ %73, %106 ], [ %155, %153 ]
+  %161 = phi i32 [ %103, %Vec_PtrPush.exit104 ], [ %74, %82 ], [ %74, %85 ], [ %74, %.lr.ph126 ], [ %74, %106 ], [ %156, %153 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %162 = zext nneg i32 %161 to i64
   %163 = icmp samesign ult i64 %indvars.iv.next137, %162
@@ -14109,7 +14109,7 @@ Sfm_ManReadNtkMinSlack.exit:                      ; preds = %Sfm_ManReadNtkDelay
   %.not173 = icmp eq i32 %367, 0
   br i1 %.not173, label %76, label %.thread215
 
-.thread215:                                       ; preds = %76, %94, %101, %.critedge2, %1
+.thread215:                                       ; preds = %76, %.critedge2, %101, %94, %1
   call void @Abc_NtkCleanMarkABC(ptr noundef %11) #27
   ret void
 }
@@ -14761,7 +14761,7 @@ define internal fastcc i64 @Exp_Truth6(i32 noundef %0, ptr noundef readonly capt
   br label %Exp_Truth6Lit.exit
 
 Exp_Truth6Lit.exit:                               ; preds = %11, %14, %19, %25, %31, %38
-  %.0.i = phi i64 [ -1, %14 ], [ 0, %11 ], [ %24, %19 ], [ %29, %25 ], [ %37, %31 ], [ %43, %38 ]
+  %.0.i = phi i64 [ %29, %25 ], [ -1, %14 ], [ 0, %11 ], [ %24, %19 ], [ %37, %31 ], [ %43, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !96
   switch i32 %45, label %47 [
@@ -14817,7 +14817,7 @@ Exp_Truth6Lit.exit:                               ; preds = %11, %14, %19, %25, 
   br label %Exp_Truth6Lit.exit31
 
 Exp_Truth6Lit.exit31:                             ; preds = %Exp_Truth6Lit.exit, %46, %51, %57, %63, %70
-  %.0.i29 = phi i64 [ -1, %46 ], [ 0, %Exp_Truth6Lit.exit ], [ %56, %51 ], [ %61, %57 ], [ %69, %63 ], [ %75, %70 ]
+  %.0.i29 = phi i64 [ %61, %57 ], [ -1, %46 ], [ 0, %Exp_Truth6Lit.exit ], [ %56, %51 ], [ %69, %63 ], [ %75, %70 ]
   %76 = and i64 %.0.i29, %.0.i
   %77 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   store i64 %76, ptr %77, align 8, !tbaa !73
@@ -14884,7 +14884,7 @@ Exp_Truth6Lit.exit31:                             ; preds = %Exp_Truth6Lit.exit,
   br label %Exp_Truth6Lit.exit34.thread
 
 Exp_Truth6Lit.exit34:                             ; preds = %._crit_edge, %82, %88, %94
-  %.0.i32 = phi i64 [ -1, %82 ], [ 0, %._crit_edge ], [ %93, %88 ], [ %98, %94 ]
+  %.0.i32 = phi i64 [ %98, %94 ], [ -1, %82 ], [ 0, %._crit_edge ], [ %93, %88 ]
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %113, label %Exp_Truth6Lit.exit34.thread
 

@@ -293,7 +293,7 @@ _ZN12ScopedSocketD2Ev.exit.i:                     ; preds = %78, %72, %65
   br label %100
 
 100:                                              ; preds = %99, %39, %36, %33
-  %.1.i = phi i1 [ %.2.i, %99 ], [ false, %33 ], [ false, %36 ], [ false, %39 ]
+  %.1.i = phi i1 [ false, %33 ], [ false, %36 ], [ %.2.i, %99 ], [ false, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %101 = invoke noundef i32 @close(i32 noundef %28)
           to label %_ZL17TestSocketConnectv.exit unwind label %102
@@ -313,7 +313,7 @@ _ZN12ScopedSocketD2Ev.exit.i:                     ; preds = %78, %72, %65
   unreachable
 
 common.resume:                                    ; preds = %97, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i, %270, %151
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %151 ], [ %.pn.pn.pn.i, %270 ], [ %301, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i ], [ %.pn33.pn.pn.i, %97 ]
+  %common.resume.op = phi { ptr, i32 } [ %301, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit.i ], [ %.pn.i, %151 ], [ %.pn.pn.pn.i, %270 ], [ %.pn33.pn.pn.i, %97 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL17TestSocketConnectv.exit:                     ; preds = %100
@@ -756,7 +756,7 @@ _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit89.i: 
   br i1 %exitcond168.i, label %.critedge68.i, label %164, !llvm.loop !30
 
 269:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i7, %.loopexit.split-lp95.i, %.loopexit94.i, %192
-  %.pn.pn.i = phi { ptr, i32 } [ %193, %192 ], [ %lpad.loopexit96.i, %.loopexit94.i ], [ %lpad.loopexit.split-lp97.i, %.loopexit.split-lp95.i ], [ %lpad.loopexit.i, %.loopexit.i7 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %193, %192 ], [ %lpad.loopexit.split-lp97.i, %.loopexit.split-lp95.i ], [ %lpad.loopexit96.i, %.loopexit94.i ], [ %lpad.loopexit.i, %.loopexit.i7 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -775,7 +775,7 @@ _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit89.i: 
   br label %common.resume
 
 .critedge72.sink.split.i:                         ; preds = %258, %255, %253
-  %.str.22.sink.i = phi ptr [ @.str.20, %253 ], [ @.str.21, %255 ], [ @.str.22, %258 ]
+  %.str.22.sink.i = phi ptr [ @.str.21, %255 ], [ @.str.20, %253 ], [ @.str.22, %258 ]
   %271 = load ptr, ptr @stderr, align 8, !tbaa !18
   %272 = trunc nuw nsw i64 %.058141.i to i32
   %273 = trunc nuw nsw i64 %.052140.i to i32
@@ -922,8 +922,8 @@ _ZL8TestASN1v.exit.thread16:                      ; preds = %298, %305, %311, %3
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL8TestASN1v.exit.thread
 
-_ZL8TestASN1v.exit.thread:                        ; preds = %292, %284, %286, %288, %290, %_ZL8TestASN1v.exit.thread16, %_ZL20TestZeroCopyBioPairsv.exit, %_ZL10TestPrintfv.exit.thread, %_ZL17TestSocketConnectv.exit.thread, %_ZL17TestSocketConnectv.exit, %_ZL10TestPrintfv.exit, %320
-  %.0 = phi i32 [ 0, %320 ], [ 1, %_ZL20TestZeroCopyBioPairsv.exit ], [ 1, %_ZL10TestPrintfv.exit ], [ 1, %_ZL17TestSocketConnectv.exit ], [ 1, %_ZL17TestSocketConnectv.exit.thread ], [ 1, %_ZL10TestPrintfv.exit.thread ], [ 1, %_ZL8TestASN1v.exit.thread16 ], [ 1, %290 ], [ 1, %288 ], [ 1, %286 ], [ 1, %284 ], [ 1, %292 ]
+_ZL8TestASN1v.exit.thread:                        ; preds = %292, %286, %288, %290, %284, %_ZL8TestASN1v.exit.thread16, %_ZL20TestZeroCopyBioPairsv.exit, %_ZL10TestPrintfv.exit.thread, %_ZL17TestSocketConnectv.exit.thread, %_ZL17TestSocketConnectv.exit, %_ZL10TestPrintfv.exit, %320
+  %.0 = phi i32 [ 0, %320 ], [ 1, %_ZL8TestASN1v.exit.thread16 ], [ 1, %_ZL20TestZeroCopyBioPairsv.exit ], [ 1, %_ZL10TestPrintfv.exit ], [ 1, %_ZL17TestSocketConnectv.exit ], [ 1, %_ZL17TestSocketConnectv.exit.thread ], [ 1, %_ZL10TestPrintfv.exit.thread ], [ 1, %284 ], [ 1, %290 ], [ 1, %288 ], [ 1, %286 ], [ 1, %292 ]
   ret i32 %.0
 }
 
@@ -1094,7 +1094,7 @@ define internal fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroex
   br label %22
 
 22:                                               ; preds = %21, %16, %19
-  %.0 = phi i1 [ %not..not13.not, %16 ], [ false, %19 ], [ %.not15, %21 ]
+  %.0 = phi i1 [ false, %19 ], [ %not..not13.not, %16 ], [ %.not15, %21 ]
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %23
 
@@ -1104,8 +1104,8 @@ define internal fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroex
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %13, %22, %23
-  %24 = phi ptr [ %10, %22 ], [ %.pre, %23 ], [ %10, %13 ]
-  %.020 = phi i1 [ %.0, %22 ], [ %.0, %23 ], [ %not., %13 ]
+  %24 = phi ptr [ %.pre, %23 ], [ %10, %22 ], [ %10, %13 ]
+  %.020 = phi i1 [ %.0, %23 ], [ %.0, %22 ], [ %not., %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i16 = icmp eq ptr %24, null

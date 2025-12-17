@@ -415,7 +415,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit172:          ; preds = %._crit_edge308, %._
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit177
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit177:          ; preds = %102, %.body162.thread290, %.body162
-  %.pn65 = phi { ptr, i32 } [ %126, %.body162 ], [ %126, %.body162.thread290 ], [ %103, %102 ]
+  %.pn65 = phi { ptr, i32 } [ %103, %102 ], [ %126, %.body162.thread290 ], [ %126, %.body162 ]
   %171 = load ptr, ptr %4, align 8, !tbaa !23
   call void @free(ptr noundef %171) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1359,7 +1359,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit172:          ; preds = %._crit_edge, %._cri
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit177
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit177:          ; preds = %.body, %121, %.body162.thread290, %.body162
-  %.pn65 = phi { ptr, i32 } [ %377, %.body162 ], [ %377, %.body162.thread290 ], [ %.pn59.pn, %.body ], [ %122, %121 ]
+  %.pn65 = phi { ptr, i32 } [ %.pn59.pn, %.body ], [ %377, %.body162.thread290 ], [ %377, %.body162 ], [ %122, %121 ]
   %425 = load ptr, ptr %9, align 8, !tbaa !23
   call void @free(ptr noundef %425) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -714,7 +714,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond.i, label %44, label %32
 
 44:                                               ; preds = %41, %37, %33, %28
-  %.2.i = phi i8 [ 10, %28 ], [ 11, %33 ], [ 15, %37 ], [ 18, %41 ]
+  %.2.i = phi i8 [ 15, %37 ], [ 11, %33 ], [ 10, %28 ], [ 18, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !127
   br label %_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread
 
@@ -1018,8 +1018,8 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %32, %2
   %159 = icmp eq ptr %136, %150
   br i1 %159, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %149
 
-_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread: ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i", %93, %63, %45, %53, %19, %92, %91, %90, %58, %44, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
-  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ %..i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i" ], [ 16, %93 ], [ 3, %63 ], [ 2, %45 ], [ 2, %53 ], [ 4, %19 ], [ 8, %92 ], [ 7, %91 ], [ 5, %90 ], [ %.5.i, %58 ], [ %.2.i, %44 ]
+_ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit.thread: ; preds = %93, %53, %45, %63, %91, %90, %92, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i", %58, %44, %19, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
+  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 16, %93 ], [ 2, %53 ], [ 2, %45 ], [ 3, %63 ], [ 7, %91 ], [ 5, %90 ], [ 8, %92 ], [ %..i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i" ], [ %.5.i, %58 ], [ %.2.i, %44 ], [ 4, %19 ]
   %160 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i38)
   br label %174
 
@@ -1146,7 +1146,7 @@ define hidden noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsCo
   br i1 %or.cond.i, label %44, label %32
 
 44:                                               ; preds = %41, %37, %33, %28
-  %.2.i = phi i8 [ 10, %28 ], [ 11, %33 ], [ 15, %37 ], [ 18, %41 ]
+  %.2.i = phi i8 [ 15, %37 ], [ 11, %33 ], [ 10, %28 ], [ 18, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !223
   br label %_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread
 
@@ -1450,8 +1450,8 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %32, %2
   %159 = icmp eq ptr %136, %150
   br i1 %159, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %149
 
-_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread: ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i", %93, %63, %45, %53, %18, %92, %91, %90, %58, %44, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
-  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ %..i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i" ], [ 16, %93 ], [ 3, %63 ], [ 2, %45 ], [ 2, %53 ], [ 4, %18 ], [ 8, %92 ], [ 7, %91 ], [ 5, %90 ], [ %.5.i, %58 ], [ %.2.i, %44 ]
+_ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit.thread: ; preds = %53, %45, %63, %93, %91, %90, %92, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i", %58, %44, %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit"
+  %.4.i38 = phi i8 [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5c671de288c5ad23E.exit" ], [ 2, %53 ], [ 2, %45 ], [ 3, %63 ], [ 16, %93 ], [ 7, %91 ], [ 5, %90 ], [ 8, %92 ], [ %..i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h74f4a12c4c4b8177E.exit.i" ], [ %.5.i, %58 ], [ %.2.i, %44 ], [ 4, %18 ]
   %160 = call noundef align 1 dereferenceable_or_null(21) ptr @_ZN8lscolors8LsColors19style_for_indicator17h929ad8b7972e5e0dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef %.4.i38)
   br label %174
 

@@ -121,9 +121,9 @@ define hidden void @pm_integer_parse(ptr noundef captures(none) %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %19, %17, %14, %27, %33, %45, %43, %41, %39, %38, %36, %25, %12, %4
-  %.146 = phi ptr [ %spec.select, %4 ], [ %13, %12 ], [ %26, %25 ], [ %spec.select, %33 ], [ %37, %36 ], [ %34, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %spec.select, %27 ], [ %18, %17 ], [ %15, %14 ], [ %spec.select57, %19 ], [ %.2, %.preheader ]
-  %47 = phi i1 [ true, %4 ], [ false, %12 ], [ false, %25 ], [ true, %33 ], [ false, %36 ], [ false, %38 ], [ false, %39 ], [ false, %41 ], [ true, %43 ], [ false, %45 ], [ true, %27 ], [ false, %17 ], [ false, %14 ], [ true, %19 ], [ true, %.preheader ]
-  %.044 = phi i32 [ 10, %4 ], [ 2, %12 ], [ 16, %25 ], [ 10, %33 ], [ 8, %36 ], [ 8, %38 ], [ 2, %39 ], [ 8, %41 ], [ 10, %43 ], [ 16, %45 ], [ 10, %27 ], [ 8, %17 ], [ 8, %14 ], [ 10, %19 ], [ 10, %.preheader ]
+  %.146 = phi ptr [ %spec.select, %4 ], [ %13, %12 ], [ %spec.select, %27 ], [ %18, %17 ], [ %15, %14 ], [ %spec.select57, %19 ], [ %26, %25 ], [ %spec.select, %33 ], [ %37, %36 ], [ %34, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %.2, %.preheader ]
+  %47 = phi i1 [ true, %4 ], [ false, %12 ], [ true, %27 ], [ false, %17 ], [ false, %14 ], [ true, %19 ], [ false, %25 ], [ true, %33 ], [ false, %36 ], [ false, %38 ], [ false, %39 ], [ false, %41 ], [ true, %43 ], [ false, %45 ], [ true, %.preheader ]
+  %.044 = phi i32 [ 10, %4 ], [ 2, %12 ], [ 10, %27 ], [ 8, %17 ], [ 8, %14 ], [ 10, %19 ], [ 16, %25 ], [ 10, %33 ], [ 8, %36 ], [ 8, %38 ], [ 2, %39 ], [ 8, %41 ], [ 10, %43 ], [ 16, %45 ], [ 10, %.preheader ]
   %.14664 = ptrtoint ptr %.146 to i64
   %.not = icmp ult ptr %.146, %3
   br i1 %.not, label %48, label %152
@@ -448,7 +448,7 @@ define hidden i32 @pm_integer_compare(ptr noundef readonly captures(none) %0, pt
   br i1 %.not55, label %.thread, label %36
 
 .thread:                                          ; preds = %.lr.ph, %36, %45, %.preheader, %15, %19, %25, %27, %31, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.neg, %19 ], [ %., %25 ], [ %.neg, %27 ], [ %11, %31 ], [ %.neg, %15 ], [ 0, %.preheader ], [ %.neg, %.lr.ph ], [ 0, %36 ], [ %11, %45 ]
+  %.0 = phi i32 [ %9, %8 ], [ %.neg, %15 ], [ %., %25 ], [ %.neg, %19 ], [ %11, %31 ], [ %.neg, %27 ], [ 0, %.preheader ], [ %.neg, %.lr.ph ], [ 0, %36 ], [ %11, %45 ]
   ret i32 %.0
 }
 
@@ -1590,7 +1590,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
   br i1 %246, label %.lr.ph63.i, label %big_sub2.exit, !llvm.loop !53
 
 big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %big_add.exit208, %.preheader.i213
-  %.1.lcssa.i = phi i64 [ 1, %.preheader.i213 ], [ 0, %big_add.exit208 ], [ %.162.i, %.lr.ph63.i ], [ 1, %244 ]
+  %.1.lcssa.i = phi i64 [ 1, %.preheader.i213 ], [ 0, %big_add.exit208 ], [ 1, %244 ], [ %.162.i, %.lr.ph63.i ]
   %247 = add i64 %.0166, %.0
   %248 = call noalias ptr @calloc(i64 noundef %247, i64 noundef 4) #14
   %249 = shl i64 %202, 2

@@ -584,7 +584,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std3sys4sync4once5futex4Once5state1
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.sroa.0.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
   ret i8 %.sroa.0.0
 }
 
@@ -10688,7 +10688,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$actix_web..response..respons
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17h10328485b4b287bdE.llvm.7557364402226394005.exit"
 
 common.resume:                                    ; preds = %2, %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.7557364402226394005.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.7557364402226394005.exit.i.i.i.i" ], [ %14, %13 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.7557364402226394005.exit.i.i.i.i" ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17h10328485b4b287bdE.llvm.7557364402226394005.exit": ; preds = %5, %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.7557364402226394005.exit.i1.i.i.i"

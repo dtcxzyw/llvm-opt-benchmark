@@ -291,7 +291,7 @@ define ptr @ucnvsel_open_77(ptr noundef readonly captures(address) %0, i32 nound
   resume { ptr, i32 } %.pn79.pn
 
 106:                                              ; preds = %5, %104, %14
-  %.0 = phi ptr [ null, %14 ], [ %.1, %104 ], [ null, %5 ]
+  %.0 = phi ptr [ %.1, %104 ], [ null, %14 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -991,7 +991,7 @@ define internal fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UE
   br i1 %24, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %21, %17
-  %25 = phi i8 [ 83, %21 ], [ 83, %17 ], [ %15, %10 ]
+  %25 = phi i8 [ %15, %10 ], [ 83, %21 ], [ 83, %17 ]
   %26 = zext i8 %12 to i32
   %27 = zext i8 %25 to i32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1314,7 +1314,7 @@ _ZL14intersectMasksPjPKji.exit.thread:            ; preds = %107, %32, %_ZL14int
   br label %118
 
 118:                                              ; preds = %22, %_ZL14intersectMasksPjPKji.exit.thread, %4, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %4 ], [ null, %22 ], [ %117, %_ZL14intersectMasksPjPKji.exit.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ null, %22 ], [ %117, %_ZL14intersectMasksPjPKji.exit.thread ]
   ret ptr %.0
 }
 
@@ -1752,7 +1752,7 @@ _ZL14intersectMasksPjPKji.exit.thread:            ; preds = %115, %_ZL14intersec
   br label %126
 
 126:                                              ; preds = %22, %_ZL14intersectMasksPjPKji.exit.thread, %4, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %4 ], [ null, %22 ], [ %125, %_ZL14intersectMasksPjPKji.exit.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ null, %22 ], [ %125, %_ZL14intersectMasksPjPKji.exit.thread ]
   ret ptr %.0
 }
 

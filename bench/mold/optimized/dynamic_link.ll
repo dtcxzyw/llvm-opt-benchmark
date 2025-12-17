@@ -64,7 +64,7 @@ _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit: ; preds = %4
   br label %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread
 
 _ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit.thread: ; preds = %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit, %2, %4, %1
-  %.0 = phi i32 [ 258, %1 ], [ 10, %4 ], [ 10, %2 ], [ %spec.select, %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit ]
+  %.0 = phi i32 [ 258, %1 ], [ 10, %2 ], [ %spec.select, %_ZN3tbb6detail2r1L26GetBoolEnvironmentVariableEPKc.exit ], [ 10, %4 ]
   ret i32 %.0
 }
 
@@ -181,7 +181,7 @@ _ZN3tbb6detail2r1L15resolve_symbolsEPvPKNS1_23dynamic_link_descriptorEm.exit.thr
   br label %_ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit
 
 _ZN3tbb6detail2r1L16weak_symbol_linkEPKNS1_23dynamic_link_descriptorEm.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %27, %42, %.thread, %29
-  %.017 = phi i1 [ true, %29 ], [ true, %.thread ], [ true, %42 ], [ false, %27 ], [ true, %.lr.ph21.i ], [ false, %.lr.ph.i ]
+  %.017 = phi i1 [ true, %42 ], [ true, %.thread ], [ true, %29 ], [ false, %27 ], [ true, %.lr.ph21.i ], [ false, %.lr.ph.i ]
   ret i1 %.017
 }
 

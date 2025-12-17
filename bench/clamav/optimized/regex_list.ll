@@ -317,7 +317,7 @@ validate_subdomain.exit:                          ; preds = %.lr.ph
   %.not101.not = icmp eq i32 %120, 0
   br i1 %.not101.not, label %validate_subdomain.exit.thread108.thread, label %validate_subdomain.exit.thread108
 
-validate_subdomain.exit.thread108.thread:         ; preds = %validate_subdomain.exit, %109, %113, %107
+validate_subdomain.exit.thread108.thread:         ; preds = %validate_subdomain.exit, %107, %109, %113
   %121 = load ptr, ptr %8, align 8, !tbaa !38
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   store ptr %122, ptr %5, align 8, !tbaa !8
@@ -374,7 +374,7 @@ validate_subdomain.exit.thread108:                ; preds = %95, %117, %validate
   br label %138
 
 138:                                              ; preds = %12, %15, %18, %25, %137, %136, %19, %60, %56, %41, %67, %47
-  %.0 = phi i32 [ 0, %67 ], [ 20, %47 ], [ 0, %41 ], [ %59, %56 ], [ 20, %60 ], [ 2, %12 ], [ 2, %15 ], [ 2, %18 ], [ 2, %25 ], [ 1, %137 ], [ 0, %136 ], [ 0, %19 ]
+  %.0 = phi i32 [ 20, %60 ], [ 20, %47 ], [ 0, %41 ], [ 0, %67 ], [ %59, %56 ], [ 2, %12 ], [ 2, %15 ], [ 2, %18 ], [ 0, %136 ], [ 2, %25 ], [ 1, %137 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -686,7 +686,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   store i8 0, ptr %42, align 1, !tbaa !10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %69, %41, %44, %92
+.loopexit:                                        ; preds = %60, %69, %44, %41, %92
   %93 = load ptr, ptr %30, align 8, !tbaa !52
   %.not98 = icmp eq ptr %93, null
   br i1 %.not98, label %98, label %94
@@ -830,7 +830,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   br label %functionality_level_check.exit.thread108
 
 functionality_level_check.exit:                   ; preds = %88, %87, %121, %148, %127, %37, %37, %97
-  %.180 = phi i32 [ %.079133, %97 ], [ %.079133, %37 ], [ %.079133, %37 ], [ %99, %127 ], [ %99, %148 ], [ %99, %121 ], [ %.079133, %87 ], [ %.079133, %88 ]
+  %.180 = phi i32 [ %.079133, %37 ], [ %.079133, %37 ], [ %.079133, %97 ], [ %99, %121 ], [ %99, %127 ], [ %99, %148 ], [ %.079133, %87 ], [ %.079133, %88 ]
   %159 = call ptr @cli_dbgets(ptr noundef nonnull %9, i32 noundef 8192, ptr noundef %2, ptr noundef %6) #14
   %.not94 = icmp eq ptr %159, null
   br i1 %.not94, label %._crit_edge, label %37
@@ -850,8 +850,8 @@ functionality_level_check.exit:                   ; preds = %88, %87, %121, %148
   store i32 %165, ptr %3, align 4, !tbaa !73
   br label %functionality_level_check.exit.thread108
 
-functionality_level_check.exit.thread108:         ; preds = %132, %135, %101, %116, %157, %154, %129, %123, %._crit_edge, %163, %12, %25, %19, %11
-  %.0 = phi i32 [ 2, %11 ], [ %23, %25 ], [ 2, %19 ], [ 4, %12 ], [ 0, %163 ], [ 0, %._crit_edge ], [ 4, %101 ], [ 4, %116 ], [ 4, %157 ], [ %156, %154 ], [ %131, %129 ], [ %125, %123 ], [ 4, %135 ], [ 4, %132 ]
+functionality_level_check.exit.thread108:         ; preds = %135, %132, %101, %116, %157, %154, %129, %123, %._crit_edge, %163, %12, %25, %19, %11
+  %.0 = phi i32 [ 2, %11 ], [ 2, %19 ], [ %125, %123 ], [ 4, %12 ], [ %23, %25 ], [ 0, %163 ], [ 0, %._crit_edge ], [ 4, %101 ], [ 4, %116 ], [ 4, %157 ], [ %156, %154 ], [ %131, %129 ], [ 4, %132 ], [ 4, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -946,7 +946,7 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %new_preg.exit.thread
 
 new_preg.exit.thread:                             ; preds = %31, %35, %36, %42
-  %.023 = phi i32 [ %41, %42 ], [ 0, %36 ], [ 20, %35 ], [ 20, %31 ]
+  %.023 = phi i32 [ 0, %36 ], [ %41, %42 ], [ 20, %35 ], [ 20, %31 ]
   ret i32 %.023
 }
 
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
   br label %.thread64
 
 .thread64:                                        ; preds = %12, %52, %51
-  %.041.ph67 = phi i32 [ %.041.ph.ph, %52 ], [ %.041.ph.ph, %51 ], [ 4, %12 ]
+  %.041.ph67 = phi i32 [ %.041.ph.ph, %51 ], [ %.041.ph.ph, %52 ], [ 4, %12 ]
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !82
   %.not57 = icmp eq ptr %55, null
@@ -1131,7 +1131,7 @@ define internal fastcc i32 @add_hash(ptr noundef nonnull %0, ptr noundef nonnull
   br label %60
 
 60:                                               ; preds = %7, %8, %45, %58
-  %.04162 = phi i32 [ %.041.ph67, %58 ], [ 4, %7 ], [ 20, %8 ], [ 0, %45 ]
+  %.04162 = phi i32 [ %.041.ph67, %58 ], [ 4, %7 ], [ 0, %45 ], [ 20, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04162
 }
@@ -1173,7 +1173,7 @@ define i32 @cli_build_regex_list(ptr noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %7, %1, %10, %6
-  %.0 = phi i32 [ 0, %10 ], [ -1, %6 ], [ 0, %1 ], [ %9, %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ -1, %6 ], [ %9, %7 ]
   ret i32 %.0
 }
 
@@ -1586,8 +1586,8 @@ list_add_tail.exit:                               ; preds = %43, %46
   tail call void @mpool_free(ptr noundef %114, ptr noundef nonnull %72) #14
   br label %115
 
-115:                                              ; preds = %113, %73
-  %.064.i.ph = phi i32 [ 20, %73 ], [ %.0.i, %113 ]
+115:                                              ; preds = %73, %113
+  %.064.i.ph = phi i32 [ %.0.i, %113 ], [ 20, %73 ]
   tail call void @cli_hashtab_delete(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #14
   %116 = load ptr, ptr %52, align 8, !tbaa !36
   %117 = tail call ptr @cli_max_realloc(ptr noundef %116, i64 noundef %54) #14
@@ -1604,9 +1604,9 @@ add_newsuffix.exit:                               ; preds = %105
   store i64 %120, ptr %49, align 8, !tbaa !83
   br label %.critedge
 
-121:                                              ; preds = %6, %9, %12, %16, %36, %24, %118, %115, %.thread
-  %.069.ph = phi i32 [ 20, %.thread ], [ %.064.i.ph, %115 ], [ %.064.i.ph, %118 ], [ 20, %24 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
-  %.068.ph = phi ptr [ %14, %.thread ], [ %14, %115 ], [ %14, %118 ], [ %14, %24 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
+121:                                              ; preds = %6, %9, %12, %16, %36, %24, %115, %.thread, %118
+  %.069.ph = phi i32 [ %.064.i.ph, %118 ], [ 20, %.thread ], [ %.064.i.ph, %115 ], [ 20, %24 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
+  %.068.ph = phi ptr [ %14, %118 ], [ %14, %.thread ], [ %14, %115 ], [ %14, %24 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
   %122 = load ptr, ptr %.068.ph, align 8, !tbaa !42
   %.not89 = icmp eq ptr %122, null
   br i1 %.not89, label %124, label %123
@@ -1620,7 +1620,7 @@ add_newsuffix.exit:                               ; preds = %105
   br label %.critedge
 
 .critedge:                                        ; preds = %list_add_tail.exit, %add_newsuffix.exit, %124
-  %.06999 = phi i32 [ %.069.ph, %124 ], [ 0, %list_add_tail.exit ], [ 0, %add_newsuffix.exit ]
+  %.06999 = phi i32 [ %.069.ph, %124 ], [ 0, %add_newsuffix.exit ], [ 0, %list_add_tail.exit ]
   ret i32 %.06999
 }
 

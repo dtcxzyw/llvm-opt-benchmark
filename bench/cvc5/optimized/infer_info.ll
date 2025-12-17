@@ -591,7 +591,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory7strings9InferInfo6is
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %46, %44, %38, %30, %28, %22
-  %.sroa.0.0 = phi ptr [ %16, %22 ], [ %16, %28 ], [ %16, %30 ], [ %5, %38 ], [ %5, %44 ], [ %5, %46 ]
+  %.sroa.0.0 = phi ptr [ %16, %30 ], [ %16, %22 ], [ %16, %28 ], [ %5, %38 ], [ %5, %44 ], [ %5, %46 ]
   store ptr %.sroa.0.0, ptr %2, align 8, !tbaa !60
   %48 = load i64, ptr %.sroa.0.0, align 8
   %49 = and i64 %48, 1152920405095219200

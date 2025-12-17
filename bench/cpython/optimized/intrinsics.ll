@@ -1281,7 +1281,7 @@ PyUnicode_READ_CHAR.exit.i:                       ; preds = %_PyUnicode_DATA.exi
   br label %124
 
 124:                                              ; preds = %122, %120, %116
-  %.4.i = phi i32 [ %121, %120 ], [ %123, %122 ], [ -1, %116 ]
+  %.4.i = phi i32 [ %123, %122 ], [ %121, %120 ], [ -1, %116 ]
   %125 = load i32, ptr %43, align 8, !tbaa !21
   %.not.i60.i = icmp sgt i32 %125, -1
   br i1 %.not.i60.i, label %126, label %Py_DECREF.exit61.i
@@ -1328,7 +1328,7 @@ Py_DECREF.exit59.i:                               ; preds = %Py_XDECREF.exit.i, 
   br i1 %141, label %._crit_edge.i, label %42
 
 Py_DECREF.exit53.i:                               ; preds = %Py_XDECREF.exit.i, %82, %79, %Py_DECREF.exit55.i, %56, %53, %51, %41, %._crit_edge.i
-  %.1.i = phi i32 [ %.039.lcssa.i, %41 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %53 ], [ -1, %56 ], [ -1, %Py_DECREF.exit55.i ], [ -1, %79 ], [ -1, %82 ], [ %.4.i, %Py_XDECREF.exit.i ]
+  %.1.i = phi i32 [ %.039.lcssa.i, %41 ], [ -1, %._crit_edge.i ], [ -1, %56 ], [ -1, %51 ], [ -1, %53 ], [ -1, %Py_DECREF.exit55.i ], [ -1, %79 ], [ -1, %82 ], [ %.4.i, %Py_XDECREF.exit.i ]
   %142 = load ptr, ptr %3, align 8, !tbaa !4
   %143 = load i32, ptr %142, align 8, !tbaa !21
   %.not.i62.i = icmp sgt i32 %143, -1
@@ -1345,7 +1345,7 @@ Py_DECREF.exit53.i:                               ; preds = %Py_XDECREF.exit.i, 
   br label %import_all_from.exit
 
 import_all_from.exit:                             ; preds = %11, %16, %22, %Py_DECREF.exit.i, %Py_DECREF.exit53.i, %144, %147
-  %.0.i = phi i32 [ -1, %22 ], [ -1, %11 ], [ -1, %16 ], [ -1, %Py_DECREF.exit.i ], [ %.1.i, %Py_DECREF.exit53.i ], [ %.1.i, %144 ], [ %.1.i, %147 ]
+  %.0.i = phi i32 [ -1, %Py_DECREF.exit.i ], [ -1, %11 ], [ -1, %22 ], [ -1, %16 ], [ %.1.i, %Py_DECREF.exit53.i ], [ %.1.i, %144 ], [ %.1.i, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %148 = load i32, ptr %7, align 8, !tbaa !21
@@ -1481,7 +1481,7 @@ _Py_NewRef.exit36:                                ; preds = %_Py_NewRef.exit, %3
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %47, %.critedge, %44, %41, %_Py_NewRef.exit36, %30, %27, %25, %.thread
-  %.2 = phi ptr [ null, %.thread ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ %23, %_Py_NewRef.exit36 ], [ %23, %41 ], [ %23, %44 ], [ %1, %.critedge ], [ %1, %47 ]
+  %.2 = phi ptr [ %23, %44 ], [ null, %.thread ], [ null, %30 ], [ null, %25 ], [ null, %27 ], [ %23, %_Py_NewRef.exit36 ], [ %23, %41 ], [ %1, %.critedge ], [ %1, %47 ]
   ret ptr %.2
 }
 

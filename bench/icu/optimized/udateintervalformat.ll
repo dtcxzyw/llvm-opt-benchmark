@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -760,7 +760,7 @@ define noundef ptr @udtitvfmt_open_77(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %_ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit47
 
 _ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit47: ; preds = %43, %55, %67, %69
-  %.158 = phi ptr [ null, %67 ], [ null, %69 ], [ %31, %55 ], [ %31, %43 ]
+  %.158 = phi ptr [ null, %69 ], [ null, %67 ], [ %31, %55 ], [ %31, %43 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %74
@@ -776,7 +776,7 @@ _ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit: ; preds = %63, %60,
   resume { ptr, i32 } %.pn42.pn.pn
 
 74:                                               ; preds = %6, %_ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit47, %24
-  %.0 = phi ptr [ null, %24 ], [ %.158, %_ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit47 ], [ null, %6 ]
+  %.0 = phi ptr [ %.158, %_ZN6icu_7712LocalPointerINS_18DateIntervalFormatEED2Ev.exit47 ], [ null, %24 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -955,7 +955,7 @@ define noundef i32 @udtitvfmt_format_77(ptr noundef %0, double noundef %1, doubl
   resume { ptr, i32 } %.pn.pn.pn
 
 59:                                               ; preds = %7, %55, %20
-  %.026 = phi i32 [ 0, %20 ], [ %.127, %55 ], [ -1, %7 ]
+  %.026 = phi i32 [ %.127, %55 ], [ 0, %20 ], [ -1, %7 ]
   ret i32 %.026
 }
 

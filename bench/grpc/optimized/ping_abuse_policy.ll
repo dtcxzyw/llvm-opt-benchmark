@@ -246,7 +246,7 @@ define void @_ZNK9grpc_core21Chttp2PingAbusePolicy14GetDebugStringB5cxx11Eb(ptr 
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %43, %40, %37, %32, %24
-  %.0.i.i = phi i64 [ 9223372036854775807, %24 ], [ -9223372036854775808, %32 ], [ %44, %43 ], [ 9223372036854775807, %37 ], [ -9223372036854775808, %40 ]
+  %.0.i.i = phi i64 [ -9223372036854775808, %32 ], [ 9223372036854775807, %24 ], [ -9223372036854775808, %40 ], [ %44, %43 ], [ 9223372036854775807, %37 ]
   store i64 %.0.i.i, ptr %10, align 8
   invoke void @_ZNK9grpc_core9Timestamp8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %45 unwind label %85

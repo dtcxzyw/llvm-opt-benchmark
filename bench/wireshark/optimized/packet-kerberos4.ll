@@ -340,7 +340,7 @@ dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   br label %151
 
 151:                                              ; preds = %22, %dissect_krb4_kdc_request.exit, %83, %112, %18, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 1, %112 ], [ 1, %83 ], [ 1, %dissect_krb4_kdc_request.exit ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 1, %112 ], [ 1, %83 ], [ 1, %dissect_krb4_kdc_request.exit ], [ 1, %22 ]
   ret i32 %.0
 }
 

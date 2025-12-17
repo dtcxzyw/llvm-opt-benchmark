@@ -493,9 +493,9 @@ sync_queue_process.exit95.thread158.i:            ; preds = %215, %197
   br i1 %.not89.i, label %sync_queue_process.exit95.thread158.i.thread36, label %mux_packet_filter.exit.thread44
 
 sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.exit.i, %184, %217, %186, %sync_queue_process.exit95.i, %215, %209, %178, %.thread112.i, %122
-  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ 0, %sync_queue_process.exit95.i ], [ 0, %122 ], [ %.030, %186 ], [ %.3, %217 ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
-  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %sync_queue_process.exit95.i ], [ undef, %122 ], [ @.str.15, %186 ], [ @.str.15, %217 ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
-  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %225, %sync_queue_process.exit95.i ], [ %135, %122 ], [ %192, %186 ], [ %223, %217 ], [ %195, %sync_queue_process.exit.i ], [ %182, %184 ]
+  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ 0, %sync_queue_process.exit95.i ], [ 0, %122 ], [ %.3, %217 ], [ %.030, %186 ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
+  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %sync_queue_process.exit95.i ], [ undef, %122 ], [ @.str.15, %217 ], [ @.str.15, %186 ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
+  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %225, %sync_queue_process.exit95.i ], [ %135, %122 ], [ %223, %217 ], [ %192, %186 ], [ %195, %sync_queue_process.exit.i ], [ %182, %184 ]
   %.not90.i = icmp eq i32 %.063.i, -541478725
   br i1 %.not90.i, label %mux_packet_filter.exit.thread44, label %227
 
@@ -505,8 +505,8 @@ sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %45, i32 noundef 16, ptr noundef nonnull @.str.16, ptr noundef %.065.i, ptr noundef nonnull %3) #11
   br label %mux_packet_filter.exit
 
-mux_packet_filter.exit.thread44:                  ; preds = %.critedge.thread.i, %.backedge.i, %sync_queue_process.exit.thread.i, %178, %209, %sync_queue_process.exit95.thread158.i
-  %.5.ph = phi i32 [ 1, %sync_queue_process.exit95.thread158.i ], [ 1, %209 ], [ 1, %178 ], [ %.2, %sync_queue_process.exit.thread.i ], [ 1, %.backedge.i ], [ 1, %.critedge.thread.i ]
+mux_packet_filter.exit.thread44:                  ; preds = %.critedge.thread.i, %.backedge.i, %sync_queue_process.exit.thread.i, %209, %178, %sync_queue_process.exit95.thread158.i
+  %.5.ph = phi i32 [ 1, %178 ], [ 1, %sync_queue_process.exit95.thread158.i ], [ 1, %209 ], [ %.2, %sync_queue_process.exit.thread.i ], [ 1, %.backedge.i ], [ 1, %.critedge.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %229 = load ptr, ptr %5, align 8, !tbaa !4
@@ -538,7 +538,7 @@ mux_packet_filter.exit:                           ; preds = %159, %227
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.1) #11
   br label %.thread51
 
-sync_queue_process.exit95.thread158.i.thread36:   ; preds = %153, %sync_queue_process.exit95.thread158.i, %sync_queue_process.exit95.i, %73, %87, %85, %92
+sync_queue_process.exit95.thread158.i.thread36:   ; preds = %153, %sync_queue_process.exit95.thread158.i, %sync_queue_process.exit95.i, %92, %85, %73, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %237 = load ptr, ptr %5, align 8, !tbaa !4
@@ -560,8 +560,8 @@ sync_queue_process.exit95.thread158.i.thread36:   ; preds = %153, %sync_queue_pr
   %247 = icmp slt i32 %246, 0
   br i1 %247, label %._crit_edge, label %33
 
-.thread51:                                        ; preds = %238, %236, %._crit_edge, %mux_thread_init.exit.thread
-  %.023 = phi i32 [ -12, %mux_thread_init.exit.thread ], [ %.067.i, %238 ], [ 0, %236 ], [ 0, %._crit_edge ]
+.thread51:                                        ; preds = %236, %238, %._crit_edge, %mux_thread_init.exit.thread
+  %.023 = phi i32 [ -12, %mux_thread_init.exit.thread ], [ 0, %236 ], [ %.067.i, %238 ], [ 0, %._crit_edge ]
   call void @av_packet_free(ptr noundef nonnull %5) #11
   %248 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @av_packet_free(ptr noundef nonnull %248) #11
@@ -891,7 +891,7 @@ bsf_init.exit.thread36:                           ; preds = %62, %bsf_init.exit
   br label %bsf_init.exit.thread
 
 bsf_init.exit.thread:                             ; preds = %62, %54, %35, %50, %88, %bsf_init.exit, %92, %31
-  %.0 = phi i32 [ %29, %31 ], [ %97, %92 ], [ %75, %bsf_init.exit ], [ 0, %88 ], [ %60, %54 ], [ %40, %35 ], [ %48, %50 ], [ -12, %62 ]
+  %.0 = phi i32 [ %29, %31 ], [ %75, %bsf_init.exit ], [ %97, %92 ], [ 0, %88 ], [ %48, %50 ], [ %60, %54 ], [ %40, %35 ], [ -12, %62 ]
   ret i32 %.0
 }
 
@@ -1725,7 +1725,7 @@ filesize.exit:                                    ; preds = %3, %16, %19
   br label %.critedge134.i
 
 .critedge134.i:                                   ; preds = %133, %109, %106, %105, %102, %73
-  %134 = phi i64 [ %118, %133 ], [ %103, %109 ], [ %103, %102 ], [ -9223372036854775808, %105 ], [ %103, %106 ], [ %74, %73 ]
+  %134 = phi i64 [ %103, %106 ], [ %118, %133 ], [ %103, %109 ], [ %103, %102 ], [ -9223372036854775808, %105 ], [ %74, %73 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 544
   store i64 %134, ptr %135, align 8, !tbaa !163
   %136 = load i32, ptr @debug_ts, align 4, !tbaa !49
@@ -1922,7 +1922,7 @@ mux_log_debug_ts.exit.i:                          ; preds = %216, %215
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %226
 
-226:                                              ; preds = %mux_log_debug_ts.exit.i, %.critedge134.i
+226:                                              ; preds = %.critedge134.i, %mux_log_debug_ts.exit.i
   %227 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %228 = load i32, ptr %227, align 8, !tbaa !159
   %229 = sext i32 %228 to i64

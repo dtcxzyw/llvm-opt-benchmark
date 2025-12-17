@@ -91,7 +91,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %14, %BTreeTupleIsPi
   br label %27
 
 27:                                               ; preds = %21, %BTreeTupleIsPivot.exit.thread
-  %.ph = phi i32 [ %26, %BTreeTupleIsPivot.exit.thread ], [ %23, %21 ]
+  %.ph = phi i32 [ %23, %21 ], [ %26, %BTreeTupleIsPivot.exit.thread ]
   %28 = sext i16 %9 to i64
   %29 = mul nsw i64 %28, 72
   %30 = add nsw i64 %29, 24
@@ -166,7 +166,7 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.e
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleGetHeapTID.exit:                        ; preds = %BTreeTupleIsPosting.exit.i, %58, %56, %49, %40
-  %69 = phi ptr [ null, %40 ], [ %62, %58 ], [ %68, %BTreeTupleIsPosting.exit.i ], [ null, %56 ], [ %1, %49 ]
+  %69 = phi ptr [ null, %40 ], [ %62, %58 ], [ null, %56 ], [ %68, %BTreeTupleIsPosting.exit.i ], [ %1, %49 ]
   %70 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -278,7 +278,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %BTreeTupleIsPivot.e
   br label %BTreeTupleIsPosting.exit.thread
 
 BTreeTupleIsPosting.exit.thread:                  ; preds = %1, %8, %BTreeTupleIsPosting.exit, %10
-  %.0 = phi ptr [ %14, %10 ], [ %20, %BTreeTupleIsPosting.exit ], [ null, %8 ], [ %0, %1 ]
+  %.0 = phi ptr [ %14, %10 ], [ null, %8 ], [ %20, %BTreeTupleIsPosting.exit ], [ %0, %1 ]
   ret ptr %.0
 }
 
@@ -468,12 +468,12 @@ define dso_local i32 @_bt_binsrch_array_skey(ptr noundef %0, i1 noundef zeroext 
   br i1 %40, label %_bt_compare_array_skey.exit.thread128, label %_bt_compare_array_skey.exit
 
 _bt_compare_array_skey.exit:                      ; preds = %39, %32
-  %.0.i = phi i32 [ %41, %39 ], [ %36, %32 ]
+  %.0.i = phi i32 [ %36, %32 ], [ %41, %39 ]
   %42 = icmp slt i32 %.0.i, 1
   br i1 %42, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit.thread128
 
-_bt_compare_array_skey.exit.thread128:            ; preds = %27, %39, %30, %_bt_compare_array_skey.exit
-  %.0.i130 = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ 1, %30 ], [ 1, %39 ], [ 1, %27 ]
+_bt_compare_array_skey.exit.thread128:            ; preds = %39, %27, %30, %_bt_compare_array_skey.exit
+  %.0.i130 = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ 1, %30 ], [ 1, %27 ], [ 1, %39 ]
   %43 = add i32 %15, 2
   br label %44
 
@@ -532,7 +532,7 @@ _bt_compare_array_skey.exit.thread128:            ; preds = %27, %39, %30, %_bt_
   br i1 %71, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit106
 
 _bt_compare_array_skey.exit106:                   ; preds = %70, %63
-  %.0.i102 = phi i32 [ %72, %70 ], [ %67, %63 ]
+  %.0.i102 = phi i32 [ %67, %63 ], [ %72, %70 ]
   %73 = icmp sgt i32 %.0.i102, -1
   br i1 %73, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit106.thread137
 
@@ -632,13 +632,13 @@ _bt_compare_array_skey.exit114.thread.us.us:      ; preds = %.lr.ph.split.us.spl
   br i1 %115, label %_bt_compare_array_skey.exit114.thread, label %_bt_compare_array_skey.exit114
 
 _bt_compare_array_skey.exit114:                   ; preds = %114, %104
-  %.0.i110 = phi i32 [ %116, %114 ], [ %111, %104 ]
+  %.0.i110 = phi i32 [ %111, %104 ], [ %116, %114 ]
   %117 = icmp eq i32 %.0.i110, 0
   br i1 %117, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit114.thread
 
 _bt_compare_array_skey.exit114.thread:            ; preds = %114, %102, %_bt_compare_array_skey.exit114
-  %118 = phi i32 [ %112, %_bt_compare_array_skey.exit114 ], [ %97, %102 ], [ %112, %114 ]
-  %.0.i110145 = phi i32 [ %.0.i110, %_bt_compare_array_skey.exit114 ], [ %.16.i109, %102 ], [ 1, %114 ]
+  %118 = phi i32 [ %112, %_bt_compare_array_skey.exit114 ], [ %112, %114 ], [ %97, %102 ]
+  %.0.i110145 = phi i32 [ %.0.i110, %_bt_compare_array_skey.exit114 ], [ 1, %114 ], [ %.16.i109, %102 ]
   %119 = icmp sgt i32 %.0.i110145, 0
   %120 = add i32 %100, 1
   %.484 = select i1 %119, i32 %120, i32 %.282157
@@ -700,9 +700,9 @@ _bt_compare_array_skey.exit114.thread:            ; preds = %114, %102, %_bt_com
   %147 = select i1 %145, i32 1, i32 %146
   br label %_bt_compare_array_skey.exit.thread
 
-_bt_compare_array_skey.exit.thread:               ; preds = %_bt_compare_array_skey.exit114, %._crit_edge, %130, %131, %135, %137, %144, %.lr.ph.split.us.split, %.thread189, %_bt_compare_array_skey.exit106.thread137, %46, %_bt_compare_array_skey.exit106, %57, %61, %70, %58, %44, %_bt_compare_array_skey.exit, %26, %27, %30
-  %.5.sink = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ -1, %27 ], [ 0, %26 ], [ -1, %30 ], [ 1, %44 ], [ %.0.i102, %_bt_compare_array_skey.exit106 ], [ 1, %61 ], [ 0, %57 ], [ 1, %70 ], [ 1, %58 ], [ -1, %46 ], [ -1, %_bt_compare_array_skey.exit106.thread137 ], [ %.3.lcssa, %._crit_edge ], [ 0, %130 ], [ %..i121, %131 ], [ %.16.i117, %135 ], [ %141, %137 ], [ %147, %144 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.thread189 ], [ 0, %_bt_compare_array_skey.exit114 ]
-  %.085 = phi i32 [ %17, %_bt_compare_array_skey.exit ], [ %17, %27 ], [ %17, %26 ], [ %17, %30 ], [ %11, %44 ], [ %47, %_bt_compare_array_skey.exit106 ], [ %47, %61 ], [ %47, %57 ], [ %47, %70 ], [ %47, %58 ], [ 0, %46 ], [ 0, %_bt_compare_array_skey.exit106.thread137 ], [ %.282.lcssa, %._crit_edge ], [ %.282.lcssa, %130 ], [ %.282.lcssa188192194, %131 ], [ %.282.lcssa, %135 ], [ %.282.lcssa, %137 ], [ %.282.lcssa, %144 ], [ %96, %.lr.ph.split.us.split ], [ %86, %.thread189 ], [ %100, %_bt_compare_array_skey.exit114 ]
+_bt_compare_array_skey.exit.thread:               ; preds = %_bt_compare_array_skey.exit114, %._crit_edge, %130, %131, %135, %137, %144, %.lr.ph.split.us.split, %.thread189, %_bt_compare_array_skey.exit106.thread137, %46, %_bt_compare_array_skey.exit106, %57, %61, %58, %70, %44, %_bt_compare_array_skey.exit, %27, %26, %30
+  %.5.sink = phi i32 [ -1, %_bt_compare_array_skey.exit106.thread137 ], [ 1, %70 ], [ 1, %44 ], [ -1, %30 ], [ %.0.i, %_bt_compare_array_skey.exit ], [ -1, %27 ], [ 0, %26 ], [ %.0.i102, %_bt_compare_array_skey.exit106 ], [ 1, %58 ], [ 0, %57 ], [ 1, %61 ], [ -1, %46 ], [ %147, %144 ], [ %.3.lcssa, %._crit_edge ], [ 0, %130 ], [ %..i121, %131 ], [ %.16.i117, %135 ], [ %141, %137 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.thread189 ], [ 0, %_bt_compare_array_skey.exit114 ]
+  %.085 = phi i32 [ 0, %_bt_compare_array_skey.exit106.thread137 ], [ %47, %70 ], [ %11, %44 ], [ %17, %30 ], [ %17, %_bt_compare_array_skey.exit ], [ %17, %27 ], [ %17, %26 ], [ %47, %_bt_compare_array_skey.exit106 ], [ %47, %58 ], [ %47, %57 ], [ %47, %61 ], [ 0, %46 ], [ %.282.lcssa, %144 ], [ %.282.lcssa, %._crit_edge ], [ %.282.lcssa, %130 ], [ %.282.lcssa188192194, %131 ], [ %.282.lcssa, %135 ], [ %.282.lcssa, %137 ], [ %96, %.lr.ph.split.us.split ], [ %86, %.thread189 ], [ %100, %_bt_compare_array_skey.exit114 ]
   store i32 %.5.sink, ptr %7, align 4
   ret i32 %.085
 }
@@ -1015,7 +1015,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %36, %BTreeTupleIsPi
   br label %_bt_checkkeys_look_ahead.exit
 
 _bt_checkkeys_look_ahead.exit:                    ; preds = %118, %116, %114, %78, %73, %62, %55, %57, %5, %23, %121
-  %.0 = phi i1 [ %122, %121 ], [ %22, %23 ], [ %22, %5 ], [ false, %57 ], [ false, %55 ], [ false, %62 ], [ false, %73 ], [ false, %78 ], [ false, %114 ], [ false, %116 ], [ false, %118 ]
+  %.0 = phi i1 [ %122, %121 ], [ %22, %5 ], [ %22, %23 ], [ false, %57 ], [ false, %55 ], [ false, %62 ], [ false, %73 ], [ false, %78 ], [ false, %114 ], [ false, %116 ], [ false, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -1065,8 +1065,8 @@ define internal fastcc noundef zeroext i1 @_bt_check_compare(ptr noundef %0, i32
   br label %34
 
 34:                                               ; preds = %33, %22, %30
-  %.076 = phi i1 [ true, %30 ], [ true, %22 ], [ false, %33 ]
-  %.075 = phi i1 [ false, %30 ], [ false, %22 ], [ %spec.select, %33 ]
+  %.076 = phi i1 [ false, %33 ], [ true, %22 ], [ true, %30 ]
+  %.075 = phi i1 [ %spec.select, %33 ], [ false, %22 ], [ false, %30 ]
   %brmerge = or i1 %.076, %.075
   %or.cond87 = and i1 %6, %brmerge
   %35 = and i32 %27, 4
@@ -1183,16 +1183,16 @@ select.unfold.i:                                  ; preds = %87, %50
   br label %45
 
 89:                                               ; preds = %87, %74, %50
-  %90 = phi i32 [ %82, %87 ], [ %51, %50 ], [ %82, %74 ]
-  %.162.ph.i = phi i32 [ 0, %87 ], [ 0, %50 ], [ %.263.i, %74 ]
+  %90 = phi i32 [ %82, %74 ], [ %51, %50 ], [ %82, %87 ]
+  %.162.ph.i = phi i32 [ %.263.i, %74 ], [ 0, %50 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %91 = getelementptr inbounds nuw i8, ptr %.064.i, i64 6
   %92 = load i16, ptr %91, align 2
   switch i16 %92, label %99 [
     i16 1, label %93
-    i16 2, label %95
-    i16 4, label %97
-    i16 5, label %105
+    i16 2, label %105
+    i16 4, label %95
+    i16 5, label %97
   ]
 
 93:                                               ; preds = %89
@@ -1200,11 +1200,11 @@ select.unfold.i:                                  ; preds = %87, %50
   br i1 %94, label %.thread101, label %107
 
 95:                                               ; preds = %89
-  %96 = icmp slt i32 %.162.ph.i, 1
+  %96 = icmp sgt i32 %.162.ph.i, -1
   br i1 %96, label %.thread101, label %107
 
 97:                                               ; preds = %89
-  %98 = icmp sgt i32 %.162.ph.i, -1
+  %98 = icmp sgt i32 %.162.ph.i, 0
   br i1 %98, label %.thread101, label %107
 
 99:                                               ; preds = %89
@@ -1217,7 +1217,7 @@ select.unfold.i:                                  ; preds = %87, %50
   unreachable
 
 105:                                              ; preds = %89
-  %106 = icmp sgt i32 %.162.ph.i, 0
+  %106 = icmp slt i32 %.162.ph.i, 1
   br i1 %106, label %.thread101, label %107
 
 107:                                              ; preds = %105, %97, %95, %93
@@ -1337,17 +1337,17 @@ select.unfold.i:                                  ; preds = %87, %50
   %157 = tail call fastcc zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %156, i1 noundef zeroext false)
   br label %.thread
 
-.thread:                                          ; preds = %114, %111, %110, %.thread.i, %155, %125, %135, %136, %133, %134, %147, %148, %152, %146
-  %.1.ph = phi i1 [ false, %146 ], [ false, %152 ], [ false, %148 ], [ false, %147 ], [ false, %134 ], [ false, %133 ], [ false, %136 ], [ false, %135 ], [ false, %125 ], [ %157, %155 ], [ false, %.thread.i ], [ false, %110 ], [ false, %111 ], [ false, %114 ]
+.thread:                                          ; preds = %114, %111, %110, %.thread.i, %155, %146, %134, %125, %135, %136, %133, %147, %148, %152
+  %.1.ph = phi i1 [ %157, %155 ], [ false, %152 ], [ false, %148 ], [ false, %147 ], [ false, %133 ], [ false, %136 ], [ false, %135 ], [ false, %125 ], [ false, %134 ], [ false, %146 ], [ false, %.thread.i ], [ false, %110 ], [ false, %111 ], [ false, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
-.thread101:                                       ; preds = %34, %36, %137, %138, %105, %93, %95, %97
+.thread101:                                       ; preds = %34, %137, %36, %138, %105, %93, %97, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %159
 
 158:                                              ; preds = %123, %124
-  %.0 = phi i32 [ %.mux93, %123 ], [ %.mux, %124 ]
+  %.0 = phi i32 [ %.mux, %124 ], [ %.mux93, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %cond = icmp eq i32 %.0, 4
   br i1 %cond, label %159, label %.loopexit
@@ -1471,7 +1471,7 @@ define internal fastcc noundef zeroext i1 @_bt_tuple_before_array_skeys(ptr read
   br label %_bt_compare_array_skey.exit
 
 _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
-  %.0.i = phi i32 [ %62, %59 ], [ %56, %52 ], [ %..i, %47 ], [ %.16.i, %50 ]
+  %.0.i = phi i32 [ %56, %52 ], [ %..i, %47 ], [ %62, %59 ], [ %.16.i, %50 ]
   %63 = icmp slt i32 %.0.i, 0
   %or.cond = select i1 %15, i1 %63, i1 false
   %64 = icmp sgt i32 %.0.i, 0
@@ -1480,7 +1480,7 @@ _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
   br i1 %or.cond18, label %.thread8, label %.thread
 
 .thread:                                          ; preds = %_bt_compare_array_skey.exit, %46
-  %.0.i36 = phi i32 [ 0, %46 ], [ %.0.i, %_bt_compare_array_skey.exit ]
+  %.0.i36 = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ 0, %46 ]
   %65 = icmp ne i32 %.0.i36, 0
   %or.cond5 = select i1 %4, i1 true, i1 %65
   br i1 %or.cond5, label %.thread8, label %.thread._crit_edge
@@ -1489,8 +1489,8 @@ _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
   %.pre = load i32, ptr %11, align 4
   br label %66
 
-.thread8:                                         ; preds = %18, %_bt_compare_array_skey.exit, %35, %.thread, %31, %30
-  %.2.ph = phi i1 [ false, %30 ], [ false, %31 ], [ false, %.thread ], [ false, %35 ], [ false, %18 ], [ true, %_bt_compare_array_skey.exit ]
+.thread8:                                         ; preds = %_bt_compare_array_skey.exit, %18, %35, %.thread, %30, %31
+  %.2.ph = phi i1 [ false, %30 ], [ false, %31 ], [ false, %.thread ], [ false, %18 ], [ false, %35 ], [ true, %_bt_compare_array_skey.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -1788,8 +1788,8 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   br label %_bt_compare_array_skey.exit
 
 _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %138, %137, %120
-  %154 = phi i32 [ %.pr, %120 ], [ %153, %150 ], [ %147, %143 ], [ 0, %137 ], [ %..i, %138 ], [ %.16.i, %141 ]
-  %.0176 = phi i32 [ %127, %120 ], [ 0, %150 ], [ 0, %143 ], [ 0, %137 ], [ 0, %138 ], [ 0, %141 ]
+  %154 = phi i32 [ %.pr, %120 ], [ %147, %143 ], [ %..i, %138 ], [ 0, %137 ], [ %.16.i, %141 ], [ %153, %150 ]
+  %.0176 = phi i32 [ %127, %120 ], [ 0, %143 ], [ 0, %138 ], [ 0, %137 ], [ 0, %141 ], [ 0, %150 ]
   br i1 %.not208, label %.thread238, label %158
 
 .thread238:                                       ; preds = %_bt_compare_array_skey.exit
@@ -1836,11 +1836,11 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_bt_advance_array_keys_increment.exit.thread
 
-170:                                              ; preds = %61, %76, %75, %77, %89, %86, %85, %111, %108, %107, %163, %160, %159
-  %.2198.ph = phi i1 [ %.0196289, %159 ], [ %.0196289, %160 ], [ %.0196289, %163 ], [ %.0196289, %107 ], [ %.0196289, %108 ], [ %.0196289, %111 ], [ %.0196289, %85 ], [ %.0196289, %86 ], [ %.0196289, %89 ], [ %.0196289, %77 ], [ %.0196289, %75 ], [ true, %76 ], [ %.0196289, %61 ]
-  %.2194.ph = phi i8 [ %.0192.mux245.in, %159 ], [ %.0192.mux245.in, %160 ], [ %.0192.mux245.in, %163 ], [ %.0192290, %107 ], [ %.0192290, %108 ], [ %.0192290, %111 ], [ %.0192290, %85 ], [ %.0192290, %86 ], [ %.0192290, %89 ], [ %.0192290, %77 ], [ 0, %75 ], [ 0, %76 ], [ %.0192290, %61 ]
-  %.2190.ph = phi i1 [ %.0188.mux246, %159 ], [ %.0188.mux246, %160 ], [ %.0188.mux246, %163 ], [ %.0188291, %107 ], [ %.0188291, %108 ], [ %.0188291, %111 ], [ %.0188291, %85 ], [ %.0188291, %86 ], [ %.0188291, %89 ], [ %.0188291, %77 ], [ false, %75 ], [ false, %76 ], [ %.0188291, %61 ]
-  %.2.ph = phi i8 [ %.3244, %159 ], [ %.3244, %160 ], [ %.3244, %163 ], [ 0, %107 ], [ 0, %108 ], [ 0, %111 ], [ 1, %85 ], [ 1, %86 ], [ 1, %89 ], [ %.0179295, %77 ], [ 1, %75 ], [ 1, %76 ], [ %.0179295, %61 ]
+170:                                              ; preds = %61, %75, %159, %85, %107, %77, %76, %89, %86, %111, %108, %163, %160
+  %.2198.ph = phi i1 [ %.0196289, %160 ], [ %.0196289, %163 ], [ %.0196289, %108 ], [ %.0196289, %111 ], [ %.0196289, %86 ], [ %.0196289, %89 ], [ true, %76 ], [ %.0196289, %77 ], [ %.0196289, %107 ], [ %.0196289, %85 ], [ %.0196289, %159 ], [ %.0196289, %75 ], [ %.0196289, %61 ]
+  %.2194.ph = phi i8 [ %.0192.mux245.in, %160 ], [ %.0192.mux245.in, %163 ], [ %.0192290, %108 ], [ %.0192290, %111 ], [ %.0192290, %86 ], [ %.0192290, %89 ], [ 0, %76 ], [ %.0192290, %77 ], [ %.0192290, %107 ], [ %.0192290, %85 ], [ %.0192.mux245.in, %159 ], [ 0, %75 ], [ %.0192290, %61 ]
+  %.2190.ph = phi i1 [ %.0188.mux246, %160 ], [ %.0188.mux246, %163 ], [ %.0188291, %108 ], [ %.0188291, %111 ], [ %.0188291, %86 ], [ %.0188291, %89 ], [ false, %76 ], [ %.0188291, %77 ], [ %.0188291, %107 ], [ %.0188291, %85 ], [ %.0188.mux246, %159 ], [ false, %75 ], [ %.0188291, %61 ]
+  %.2.ph = phi i8 [ %.3244, %160 ], [ %.3244, %163 ], [ 0, %108 ], [ 0, %111 ], [ 1, %86 ], [ 1, %89 ], [ 1, %76 ], [ %.0179295, %77 ], [ 0, %107 ], [ 1, %85 ], [ %.3244, %159 ], [ 1, %75 ], [ %.0179295, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2074,8 +2074,8 @@ _bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us58.i
   %304 = tail call fastcc zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %303, i1 noundef zeroext true)
   br label %.thread269
 
-.thread269:                                       ; preds = %302, %297, %296
-  %.0.ph = phi i1 [ true, %296 ], [ true, %297 ], [ false, %302 ]
+.thread269:                                       ; preds = %302, %296, %297
+  %.0.ph = phi i1 [ true, %297 ], [ true, %296 ], [ false, %302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %394
@@ -2265,7 +2265,7 @@ _bt_oppodir_checkkeys.exit.thread:                ; preds = %357, %363
   br label %394
 
 394:                                              ; preds = %.thread269, %305, %382, %387, %372, %377, %306, %.loopexit
-  %.1 = phi i1 [ false, %305 ], [ false, %.loopexit ], [ false, %306 ], [ false, %377 ], [ false, %372 ], [ false, %387 ], [ false, %382 ], [ %.0.ph, %.thread269 ]
+  %.1 = phi i1 [ false, %306 ], [ false, %372 ], [ false, %.loopexit ], [ false, %305 ], [ false, %377 ], [ false, %387 ], [ false, %382 ], [ %.0.ph, %.thread269 ]
   ret i1 %.1
 }
 
@@ -2414,7 +2414,7 @@ BufferGetPage.exit90:                             ; preds = %30, %36
   br label %128
 
 BufferGetPage.exit:                               ; preds = %.thread, %19, %13
-  %.0 = phi ptr [ %18, %13 ], [ %24, %19 ], [ %.0.i.i89, %.thread ]
+  %.0 = phi ptr [ %.0.i.i89, %.thread ], [ %18, %13 ], [ %24, %19 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %49 = load i16, ptr %48, align 4
   %50 = zext i16 %49 to i64
@@ -3273,7 +3273,7 @@ BTreeTupleIsPivot.exit:                           ; preds = %18
   br label %BTreeTupleIsPosting.exit61.thread
 
 BTreeTupleIsPosting.exit61.thread:                ; preds = %.thread, %.thread90, %.thread80
-  %36 = phi i32 [ %35, %.thread ], [ %31, %.thread80 ], [ %32, %.thread90 ]
+  %36 = phi i32 [ %31, %.thread80 ], [ %32, %.thread90 ], [ %35, %.thread ]
   %37 = sext i16 %8 to i32
   %38 = sext i16 %10 to i32
   %39 = and i16 %16, 1
@@ -3361,7 +3361,7 @@ BTreeTupleIsPosting.exit72:                       ; preds = %BTreeTupleIsPivot.e
   br label %BTreeTupleIsPivot.exit69.thread
 
 BTreeTupleIsPivot.exit69.thread:                  ; preds = %56, %.thread90, %BTreeTupleIsPivot.exit65, %64, %BTreeTupleIsPivot.exit65.thread, %BTreeTupleIsPosting.exit72, %BTreeTupleIsPivot.exit69, %58, %4, %68, %62, %52
-  %.0 = phi i1 [ %71, %68 ], [ %53, %52 ], [ %63, %62 ], [ true, %4 ], [ %60, %58 ], [ false, %BTreeTupleIsPivot.exit69 ], [ false, %BTreeTupleIsPosting.exit72 ], [ %47, %BTreeTupleIsPivot.exit65.thread ], [ false, %64 ], [ %spec.select, %BTreeTupleIsPivot.exit65 ], [ false, %.thread90 ], [ %.mux, %56 ]
+  %.0 = phi i1 [ true, %4 ], [ %spec.select, %BTreeTupleIsPivot.exit65 ], [ false, %.thread90 ], [ %63, %62 ], [ false, %BTreeTupleIsPosting.exit72 ], [ false, %BTreeTupleIsPivot.exit69 ], [ %47, %BTreeTupleIsPivot.exit65.thread ], [ %71, %68 ], [ %60, %58 ], [ %53, %52 ], [ false, %64 ], [ %.mux, %56 ]
   ret i1 %.0
 }
 
@@ -3528,7 +3528,7 @@ define dso_local noundef zeroext i1 @_bt_allequalimage(ptr noundef readonly capt
   br label %38
 
 38:                                               ; preds = %32, %.sink.split, %.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ %.lcssa, %.thread ], [ %.lcssa, %.sink.split ], [ %.lcssa, %32 ]
+  %.0 = phi i1 [ false, %2 ], [ %.lcssa, %.sink.split ], [ %.lcssa, %32 ], [ %.lcssa, %.thread ]
   ret i1 %.0
 }
 
@@ -3596,8 +3596,8 @@ define internal fastcc void @_bt_rewind_nonrequired_arrays(ptr readonly captures
   br label %30
 
 30:                                               ; preds = %25, %22, %16, %13, %.lr.ph.split.us
-  %31 = phi i32 [ %8, %13 ], [ %8, %.lr.ph.split.us ], [ %8, %16 ], [ %.pre8, %25 ], [ %8, %22 ]
-  %.1.us = phi i32 [ %.0192.us, %13 ], [ %.0192.us, %.lr.ph.split.us ], [ %18, %16 ], [ %18, %25 ], [ %18, %22 ]
+  %31 = phi i32 [ %8, %16 ], [ %8, %.lr.ph.split.us ], [ %8, %13 ], [ %.pre8, %25 ], [ %8, %22 ]
+  %.1.us = phi i32 [ %18, %16 ], [ %.0192.us, %.lr.ph.split.us ], [ %.0192.us, %13 ], [ %18, %25 ], [ %18, %22 ]
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next6, %32
@@ -3654,8 +3654,8 @@ define internal fastcc void @_bt_rewind_nonrequired_arrays(ptr readonly captures
   br label %61
 
 61:                                               ; preds = %48, %54, %42, %.lr.ph.split, %39
-  %62 = phi i32 [ %34, %39 ], [ %34, %.lr.ph.split ], [ %34, %42 ], [ %.pre, %54 ], [ %34, %48 ]
-  %.1 = phi i32 [ %.0192, %39 ], [ %.0192, %.lr.ph.split ], [ %44, %42 ], [ %44, %54 ], [ %44, %48 ]
+  %62 = phi i32 [ %34, %42 ], [ %34, %.lr.ph.split ], [ %34, %39 ], [ %.pre, %54 ], [ %34, %48 ]
+  %.1 = phi i32 [ %44, %42 ], [ %.0192, %.lr.ph.split ], [ %.0192, %39 ], [ %44, %54 ], [ %44, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63

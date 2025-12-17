@@ -209,8 +209,8 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   br label %_ZL20classifyOffMeshPointPKfS0_S0_.exit
 
 _ZL20classifyOffMeshPointPKfS0_S0_.exit:          ; preds = %74, %92, %93, %94, %95, %96, %97, %98, %99
-  %100 = phi i1 [ true, %99 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ false, %96 ], [ false, %97 ], [ false, %98 ], [ false, %74 ]
-  %.0.i = phi i8 [ -1, %99 ], [ 1, %92 ], [ 2, %93 ], [ 3, %94 ], [ 4, %95 ], [ 5, %96 ], [ 6, %97 ], [ 7, %98 ], [ 0, %74 ]
+  %100 = phi i1 [ true, %99 ], [ false, %98 ], [ false, %92 ], [ false, %93 ], [ false, %94 ], [ false, %95 ], [ false, %96 ], [ false, %97 ], [ false, %74 ]
+  %.0.i = phi i8 [ -1, %99 ], [ 7, %98 ], [ 1, %92 ], [ 2, %93 ], [ 3, %94 ], [ 4, %95 ], [ 5, %96 ], [ 6, %97 ], [ 0, %74 ]
   %101 = getelementptr inbounds nuw i8, ptr %26, i64 %76
   store i8 %.0.i, ptr %101, align 1
   %.val505 = load float, ptr %79, align 4
@@ -802,7 +802,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br label %.sink.split
 
 .sink.split:                                      ; preds = %414, %420, %416, %418, %419, %417
-  %.sink = phi i16 [ -32766, %417 ], [ -32762, %419 ], [ -32768, %418 ], [ -32764, %416 ], [ %421, %420 ], [ 0, %414 ]
+  %.sink = phi i16 [ %421, %420 ], [ -32766, %417 ], [ -32762, %419 ], [ -32768, %418 ], [ -32764, %416 ], [ 0, %414 ]
   %422 = getelementptr inbounds nuw i16, ptr %406, i64 %indvars.iv688
   store i16 %.sink, ptr %422, align 2
   br label %423
@@ -1128,7 +1128,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br label %607
 
 607:                                              ; preds = %23, %13, %16, %11, %7, %3, %._crit_edge629, %231
-  %.0 = phi i1 [ true, %._crit_edge629 ], [ false, %231 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %16 ], [ false, %13 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %3 ], [ true, %._crit_edge629 ], [ false, %231 ], [ false, %13 ], [ false, %23 ], [ false, %11 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -1784,7 +1784,7 @@ define noundef zeroext i1 @_Z25dtNavMeshHeaderSwapEndianPhi(ptr noundef %0, i32 
   br label %.thread
 
 .thread:                                          ; preds = %2, %11, %14, %17
-  %.0 = phi i1 [ true, %17 ], [ false, %14 ], [ false, %11 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %17 ], [ false, %14 ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2076,7 +2076,7 @@ define noundef zeroext i1 @_Z23dtNavMeshDataSwapEndianPhi(ptr noundef %0, i32 no
   br i1 %163, label %.lr.ph107, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %148, %.preheader, %4, %2
-  %.073 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %.preheader ], [ true, %148 ]
+  %.073 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %.preheader ], [ true, %148 ]
   ret i1 %.073
 }
 

@@ -589,7 +589,7 @@ define hidden void @_ZN4gpui4view8any_view6render17h0077462fcac9332cE(ptr dead_o
   unreachable
 
 common.resume:                                    ; preds = %266, %269, %274, %278, %261, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %140, %.body.i ], [ %262, %261 ], [ %270, %278 ], [ %270, %274 ], [ %270, %269 ], [ %267, %266 ]
+  %common.resume.op = phi { ptr, i32 } [ %270, %269 ], [ %140, %.body.i ], [ %262, %261 ], [ %270, %278 ], [ %270, %274 ], [ %267, %266 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN58_$LT$gpui..view..AnyView$u20$as$u20$core..clone..Clone$GT$5clone17h1854e80aeae9666fE.exit": ; preds = %3, %212

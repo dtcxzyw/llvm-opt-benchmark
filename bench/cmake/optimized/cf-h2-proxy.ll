@@ -335,8 +335,8 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   br label %93
 
 93:                                               ; preds = %91, %88, %86, %74, %58, %tunnel_stream_init.exit.thread.i
-  %.not42 = phi i1 [ false, %58 ], [ false, %74 ], [ false, %91 ], [ false, %86 ], [ true, %88 ], [ false, %tunnel_stream_init.exit.thread.i ]
-  %.034.i = phi i32 [ 27, %58 ], [ 27, %74 ], [ 16, %91 ], [ 16, %86 ], [ 0, %88 ], [ 27, %tunnel_stream_init.exit.thread.i ]
+  %.not42 = phi i1 [ false, %tunnel_stream_init.exit.thread.i ], [ false, %58 ], [ false, %74 ], [ false, %91 ], [ false, %86 ], [ true, %88 ]
+  %.034.i = phi i32 [ 27, %tunnel_stream_init.exit.thread.i ], [ 27, %58 ], [ 27, %74 ], [ 16, %91 ], [ 16, %86 ], [ 0, %88 ]
   %94 = load ptr, ptr %14, align 8, !tbaa !35
   %.not45.i = icmp eq ptr %94, null
   br i1 %.not45.i, label %96, label %95
@@ -573,7 +573,7 @@ proxy_h2_submit.exit.i.i:                         ; preds = %182, %178, %176, %1
   br label %202
 
 202:                                              ; preds = %200, %195, %191, %186, %proxy_h2_submit.exit.i.i, %156, %153
-  %.0.i.i = phi i32 [ %155, %153 ], [ %157, %156 ], [ %.0.i.i.i, %200 ], [ %.0.i.i.i, %195 ], [ %.0.i.i.i, %191 ], [ %.0.i.i.i, %186 ], [ %.0.i.i.i, %proxy_h2_submit.exit.i.i ]
+  %.0.i.i = phi i32 [ %155, %153 ], [ %157, %156 ], [ %.0.i.i.i, %200 ], [ %.0.i.i.i, %195 ], [ %.0.i.i.i, %191 ], [ %.0.i.i.i, %proxy_h2_submit.exit.i.i ], [ %.0.i.i.i, %186 ]
   %203 = load ptr, ptr %8, align 8, !tbaa !114
   %.not46.i.i = icmp eq ptr %203, null
   br i1 %.not46.i.i, label %205, label %204
@@ -974,8 +974,8 @@ h2_tunnel_go_state.exit70.i:                      ; preds = %276, %255, %134
   br label %h2_tunnel_go_state.exit67thread-pre-split119.i
 
 h2_tunnel_go_state.exit67thread-pre-split119.i:   ; preds = %.thread.i.i, %250, %245, %241, %236, %235
-  %.sink.i = phi i32 [ %.sink.i.i, %.thread.i.i ], [ 4, %250 ], [ 4, %245 ], [ 4, %241 ], [ 4, %236 ], [ 4, %235 ]
-  %.3.ph.ph.i = phi i32 [ 0, %.thread.i.i ], [ %.2.i, %250 ], [ %.2.i, %245 ], [ %.2.i, %241 ], [ %.2.i, %236 ], [ %.2.i, %235 ]
+  %.sink.i = phi i32 [ %.sink.i.i, %.thread.i.i ], [ 4, %250 ], [ 4, %245 ], [ 4, %235 ], [ 4, %241 ], [ 4, %236 ]
+  %.3.ph.ph.i = phi i32 [ 0, %.thread.i.i ], [ %.2.i, %250 ], [ %.2.i, %245 ], [ %.2.i, %235 ], [ %.2.i, %241 ], [ %.2.i, %236 ]
   store i32 %.sink.i, ptr %120, align 8, !tbaa !37
   %376 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
   %377 = load ptr, ptr %131, align 8, !tbaa !129
@@ -1006,7 +1006,7 @@ inspect_response.exit.thread114.i:                ; preds = %252, %inspect_respo
   br i1 %.not64.i, label %H2_CONNECT.exit, label %inspect_response.exit.thread111.i
 
 inspect_response.exit.thread111.i:                ; preds = %322, %294, %292, %inspect_response.exit.thread114.i, %inspect_response.exit.i
-  %.1113.i = phi i32 [ %.1.i, %inspect_response.exit.i ], [ %.1116.i, %inspect_response.exit.thread114.i ], [ 56, %292 ], [ 56, %294 ], [ 56, %322 ]
+  %.1113.i = phi i32 [ %.1116.i, %inspect_response.exit.thread114.i ], [ %.1.i, %inspect_response.exit.i ], [ 56, %292 ], [ 56, %294 ], [ 56, %322 ]
   %383 = load i32, ptr %120, align 8, !tbaa !37
   switch i32 %383, label %386 [
     i32 4, label %H2_CONNECT.exit
@@ -1060,7 +1060,7 @@ inspect_response.exit.thread111.i:                ; preds = %322, %294, %292, %i
   br label %H2_CONNECT.exit
 
 H2_CONNECT.exit:                                  ; preds = %403, %inspect_response.exit.thread111.i, %inspect_response.exit.thread114.i
-  %.037 = phi i32 [ %.1116.i, %inspect_response.exit.thread114.i ], [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %403 ]
+  %.037 = phi i32 [ %.1113.i, %inspect_response.exit.thread111.i ], [ %.1113.i, %403 ], [ %.1116.i, %inspect_response.exit.thread114.i ]
   %406 = icmp eq i32 %.037, 0
   br i1 %406, label %H2_CONNECT.exit.thread47, label %.critedge
 
@@ -1288,8 +1288,8 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
   br label %57
 
 57:                                               ; preds = %54, %.thread64, %.thread68, %.thread60
-  %.263 = phi i32 [ 55, %.thread60 ], [ %.1, %.thread68 ], [ 0, %.thread64 ], [ %.1, %54 ]
-  %58 = phi i8 [ 2, %.thread60 ], [ 2, %.thread68 ], [ %53, %.thread64 ], [ 2, %54 ]
+  %.263 = phi i32 [ %.1, %54 ], [ %.1, %.thread68 ], [ 55, %.thread60 ], [ 0, %.thread64 ]
+  %58 = phi i8 [ 2, %54 ], [ 2, %.thread68 ], [ 2, %.thread60 ], [ %53, %.thread64 ]
   %59 = load i8, ptr %6, align 4
   %60 = and i8 %59, -3
   %61 = or i8 %60, %58
@@ -1420,7 +1420,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br label %65
 
 65:                                               ; preds = %48, %61, %58, %55
-  %66 = phi i1 [ true, %58 ], [ true, %55 ], [ %64, %61 ], [ true, %48 ]
+  %66 = phi i1 [ true, %58 ], [ true, %55 ], [ true, %48 ], [ %64, %61 ]
   %67 = zext i1 %66 to i8
   store i8 %67, ptr %5, align 1, !tbaa !29
   %68 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
@@ -1539,7 +1539,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %124, %120, %113, %105, %81, %77, %70, %65
-  %.sroa.0.0.copyload18.sink = phi ptr [ %.sroa.0.0.copyload, %65 ], [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %77 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %105 ], [ %.sroa.0.0.copyload18, %113 ], [ %.sroa.0.0.copyload18, %120 ], [ %.sroa.0.0.copyload18, %124 ], [ %.sroa.0.0.copyload18.sink.ph, %.sink.split.sink.split ]
+  %.sroa.0.0.copyload18.sink = phi ptr [ %.sroa.0.0.copyload18, %124 ], [ %.sroa.0.0.copyload, %65 ], [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %77 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %105 ], [ %.sroa.0.0.copyload18, %113 ], [ %.sroa.0.0.copyload18, %120 ], [ %.sroa.0.0.copyload18.sink.ph, %.sink.split.sink.split ]
   %133 = load ptr, ptr %6, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %.sroa.0.0.copyload18.sink, ptr %134, align 8, !tbaa !13
@@ -1588,7 +1588,7 @@ define internal zeroext i1 @cf_h2_proxy_data_pending(ptr noundef readonly captur
   br label %22
 
 22:                                               ; preds = %17, %.critedge, %5, %12
-  %.0 = phi i1 [ true, %12 ], [ true, %5 ], [ %21, %17 ], [ false, %.critedge ]
+  %.0 = phi i1 [ true, %5 ], [ true, %12 ], [ %21, %17 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -1704,7 +1704,7 @@ proxy_h2_should_close_session.exit:               ; preds = %35
   br label %proxy_h2_should_close_session.exit.thread.sink.split
 
 proxy_h2_should_close_session.exit.thread.sink.split: ; preds = %43, %44, %51, %55, %60, %40, %33, %31, %25, %12
-  %.sink = phi i32 [ 55, %12 ], [ 55, %25 ], [ %32, %31 ], [ %34, %33 ], [ 55, %40 ], [ 16, %60 ], [ 16, %55 ], [ 16, %51 ], [ 16, %44 ], [ 16, %43 ]
+  %.sink = phi i32 [ 55, %40 ], [ %34, %33 ], [ %32, %31 ], [ 55, %25 ], [ 55, %12 ], [ 16, %60 ], [ 16, %55 ], [ 16, %51 ], [ 16, %44 ], [ 16, %43 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !40
   br label %proxy_h2_should_close_session.exit.thread
 
@@ -2028,12 +2028,12 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %104, label %h2_handle_tunnel_close.exit.sink.split.i, label %h2_handle_tunnel_close.exit.i
 
 h2_handle_tunnel_close.exit.sink.split.i:         ; preds = %99, %93, %87, %64, %55, %52, %21
-  %.sink.i = phi i32 [ 56, %64 ], [ 92, %55 ], [ 56, %52 ], [ 56, %99 ], [ 56, %93 ], [ 56, %87 ], [ 81, %21 ]
+  %.sink.i = phi i32 [ 56, %64 ], [ 92, %55 ], [ 56, %52 ], [ 56, %87 ], [ 56, %99 ], [ 56, %93 ], [ 81, %21 ]
   store i32 %.sink.i, ptr %4, align 4, !tbaa !40
   br label %h2_handle_tunnel_close.exit.i
 
 h2_handle_tunnel_close.exit.i:                    ; preds = %h2_handle_tunnel_close.exit.sink.split.i, %99, %96, %21
-  %.1.i = phi i64 [ -1, %99 ], [ -1, %96 ], [ %22, %21 ], [ -1, %h2_handle_tunnel_close.exit.sink.split.i ]
+  %.1.i = phi i64 [ %22, %21 ], [ -1, %99 ], [ -1, %96 ], [ -1, %h2_handle_tunnel_close.exit.sink.split.i ]
   %.not42.i = icmp eq ptr %1, null
   br i1 %.not42.i, label %tunnel_recv.exit.thread79, label %h2_handle_tunnel_close.exit.thread.i
 
@@ -2111,7 +2111,7 @@ tunnel_recv.exit.thread79:                        ; preds = %h2_handle_tunnel_cl
   br label %.thread
 
 .thread:                                          ; preds = %tunnel_recv.exit.thread79, %141, %136, %132, %126
-  %.149.i8184 = phi i64 [ %.148.i, %141 ], [ %.148.i, %136 ], [ %.148.i, %132 ], [ %.148.i, %126 ], [ %.1.i, %tunnel_recv.exit.thread79 ]
+  %.149.i8184 = phi i64 [ %.148.i, %126 ], [ %.148.i, %141 ], [ %.148.i, %136 ], [ %.1.i, %tunnel_recv.exit.thread79 ], [ %.148.i, %132 ]
   %144 = load ptr, ptr %7, align 8, !tbaa !15
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %146 = load i32, ptr %145, align 8, !tbaa !133
@@ -2119,7 +2119,7 @@ tunnel_recv.exit.thread79:                        ; preds = %h2_handle_tunnel_cl
   br label %tunnel_recv.exit.thread
 
 tunnel_recv.exit.thread:                          ; preds = %67, %tunnel_recv.exit.thread79, %.thread, %tunnel_recv.exit
-  %.149.i78 = phi i64 [ %.149.i8184, %.thread ], [ %.148.i, %tunnel_recv.exit ], [ %.1.i, %tunnel_recv.exit.thread79 ], [ 0, %67 ]
+  %.149.i78 = phi i64 [ %.1.i, %tunnel_recv.exit.thread79 ], [ %.149.i8184, %.thread ], [ %.148.i, %tunnel_recv.exit ], [ 0, %67 ]
   %148 = tail call fastcc i32 @proxy_h2_progress_egress(ptr noundef nonnull %0, ptr noundef %1)
   switch i32 %148, label %149 [
     i32 81, label %150
@@ -2396,12 +2396,12 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
   br label %proxy_h2_should_close_session.exit.i
 
 proxy_h2_should_close_session.exit.i:             ; preds = %32, %29, %26, %23
-  %.1.i = phi i1 [ false, %23 ], [ %.not19.i, %32 ], [ true, %26 ], [ %.not2.i.i, %29 ]
+  %.1.i = phi i1 [ %.not19.i, %32 ], [ false, %23 ], [ true, %26 ], [ %.not2.i.i, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %proxy_h2_connisalive.exit
 
 proxy_h2_connisalive.exit:                        ; preds = %proxy_h2_should_close_session.exit.i, %17, %12, %9, %3
-  %34 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %9 ], [ %.1.i, %proxy_h2_should_close_session.exit.i ], [ true, %17 ]
+  %34 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %12 ], [ %.1.i, %proxy_h2_should_close_session.exit.i ], [ true, %17 ]
   %35 = zext i1 %34 to i32
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %55, label %36
@@ -2634,7 +2634,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr r
   br label %19
 
 19:                                               ; preds = %18, %14, %17
-  %.0 = phi i64 [ -902, %17 ], [ -504, %14 ], [ %., %18 ]
+  %.0 = phi i64 [ %., %18 ], [ -902, %17 ], [ -504, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
@@ -2974,7 +2974,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr readnone capt
   br label %drain_tunnel.exit
 
 drain_tunnel.exit:                                ; preds = %182, %160, %87, %64, %142, %145, %138, %147, %114, %117, %96, %97, %104, %108, %113, %88, %51, %48
-  %.0 = phi i32 [ 0, %48 ], [ 0, %51 ], [ 0, %88 ], [ -902, %113 ], [ -902, %108 ], [ -902, %104 ], [ -902, %97 ], [ -902, %96 ], [ -902, %117 ], [ 0, %114 ], [ 0, %147 ], [ 0, %138 ], [ 0, %145 ], [ 0, %142 ], [ 0, %64 ], [ 0, %87 ], [ 0, %160 ], [ 0, %182 ]
+  %.0 = phi i32 [ 0, %88 ], [ -902, %117 ], [ -902, %96 ], [ 0, %48 ], [ 0, %51 ], [ 0, %142 ], [ -902, %113 ], [ -902, %108 ], [ 0, %87 ], [ -902, %104 ], [ -902, %97 ], [ 0, %114 ], [ 0, %147 ], [ 0, %64 ], [ 0, %138 ], [ 0, %145 ], [ 0, %160 ], [ 0, %182 ]
   ret i32 %.0
 }
 
@@ -3087,7 +3087,7 @@ define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr readnone captur
   br label %17
 
 17:                                               ; preds = %12, %6
-  %.0 = phi i32 [ -902, %6 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ %spec.select, %12 ], [ -902, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -3283,7 +3283,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr readnone captures
   br label %79
 
 79:                                               ; preds = %57, %61, %68, %72, %77, %54, %52
-  %.1 = phi i32 [ -902, %52 ], [ -902, %54 ], [ 0, %77 ], [ 0, %72 ], [ 0, %68 ], [ 0, %61 ], [ 0, %57 ]
+  %.1 = phi i32 [ -902, %54 ], [ -902, %52 ], [ 0, %77 ], [ 0, %72 ], [ 0, %57 ], [ 0, %68 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %105
@@ -3336,7 +3336,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr readnone captures
   br label %105
 
 105:                                              ; preds = %85, %86, %93, %97, %102, %82, %80, %44, %40, %20, %21, %28, %32, %37, %79
-  %.0 = phi i32 [ %.1, %79 ], [ -902, %37 ], [ -902, %32 ], [ -902, %28 ], [ -902, %21 ], [ -902, %20 ], [ -902, %40 ], [ 0, %44 ], [ -902, %80 ], [ -902, %82 ], [ 0, %102 ], [ 0, %97 ], [ 0, %93 ], [ 0, %86 ], [ 0, %85 ]
+  %.0 = phi i32 [ 0, %44 ], [ -902, %20 ], [ -902, %40 ], [ %.1, %79 ], [ -902, %80 ], [ -902, %82 ], [ -902, %37 ], [ -902, %32 ], [ 0, %85 ], [ -902, %28 ], [ -902, %21 ], [ 0, %102 ], [ 0, %97 ], [ 0, %86 ], [ 0, %93 ]
   ret i32 %.0
 }
 
@@ -3408,7 +3408,7 @@ define internal i64 @proxy_h2_nw_out_writer(ptr noundef %0, ptr noundef %1, i64 
   br label %31
 
 31:                                               ; preds = %4, %5, %13, %20, %24, %29
-  %.0 = phi i64 [ %12, %29 ], [ %12, %24 ], [ %12, %20 ], [ %12, %13 ], [ %12, %5 ], [ 0, %4 ]
+  %.0 = phi i64 [ %12, %5 ], [ %12, %29 ], [ %12, %24 ], [ %12, %20 ], [ %12, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -3793,7 +3793,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br label %100
 
 100:                                              ; preds = %.critedge, %95, %97, %.split64.us, %84, %30
-  %.0 = phi i32 [ %85, %84 ], [ %92, %.split64.us ], [ %31, %30 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ %31, %30 ], [ %85, %84 ], [ %92, %.split64.us ], [ 0, %97 ], [ 0, %95 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -4082,7 +4082,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
   br label %53
 
 53:                                               ; preds = %32, %33, %40, %44, %45, %50, %23, %17, %15
-  %.0 = phi i64 [ -501, %15 ], [ -902, %17 ], [ %., %23 ], [ %21, %50 ], [ %21, %45 ], [ %21, %44 ], [ %21, %40 ], [ %21, %33 ], [ %21, %32 ]
+  %.0 = phi i64 [ %., %23 ], [ -902, %17 ], [ -501, %15 ], [ %21, %50 ], [ %21, %45 ], [ %21, %44 ], [ %21, %40 ], [ %21, %33 ], [ %21, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
@@ -4253,7 +4253,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
   br i1 %75, label %.lr.ph.split, label %.loopexit, !llvm.loop !149
 
 .loopexit:                                        ; preds = %74, %17, %19, %3, %59, %54, %50, %.split59.us, %.split.us
-  %.0 = phi i32 [ -1, %.split.us ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %59 ], [ 0, %3 ], [ 0, %19 ], [ 0, %17 ], [ 0, %74 ]
+  %.0 = phi i32 [ -1, %.split.us ], [ 0, %3 ], [ 0, %.split59.us ], [ 0, %50 ], [ 0, %54 ], [ 0, %59 ], [ 0, %17 ], [ 0, %19 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -4311,7 +4311,7 @@ define internal i64 @proxy_nw_in_reader(ptr noundef %0, ptr noundef %1, i64 noun
   br label %31
 
 31:                                               ; preds = %4, %5, %13, %20, %24, %29
-  %.0 = phi i64 [ %12, %29 ], [ %12, %24 ], [ %12, %20 ], [ %12, %13 ], [ %12, %5 ], [ 0, %4 ]
+  %.0 = phi i64 [ %12, %5 ], [ %12, %29 ], [ %12, %24 ], [ %12, %20 ], [ %12, %13 ], [ 0, %4 ]
   ret i64 %.0
 }
 

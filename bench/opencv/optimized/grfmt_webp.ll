@@ -1750,7 +1750,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
           to label %296 unwind label %244
 
 296:                                              ; preds = %290, %282, %238, %262, %254
-  %.0 = phi ptr [ %259, %254 ], [ %267, %262 ], [ null, %238 ], [ %287, %282 ], [ %295, %290 ]
+  %.0 = phi ptr [ null, %238 ], [ %259, %254 ], [ %267, %262 ], [ %287, %282 ], [ %295, %290 ]
   %.not78 = icmp eq ptr %.0, %153
   br i1 %.not78, label %297, label %338
 
@@ -2162,8 +2162,8 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   br label %37
 
 37:                                               ; preds = %33, %30, %18
-  %.086 = phi float [ 1.000000e+02, %30 ], [ 1.000000e+02, %18 ], [ %.187, %33 ]
-  %.066 = phi i1 [ true, %30 ], [ true, %18 ], [ %36, %33 ]
+  %.086 = phi float [ 1.000000e+02, %18 ], [ %.187, %33 ], [ 1.000000e+02, %30 ]
+  %.066 = phi i1 [ true, %18 ], [ %36, %33 ], [ true, %30 ]
   %38 = lshr exact i32 %14, 3
   %39 = and i32 %38, 511
   %40 = add nuw nsw i32 %39, 1
@@ -2268,7 +2268,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
           to label %78 unwind label %60
 
 78:                                               ; preds = %73, %67, %68, %62, %54, %55
-  %.068 = phi i64 [ %59, %55 ], [ 0, %54 ], [ %66, %62 ], [ %72, %68 ], [ 0, %67 ], [ %77, %73 ]
+  %.068 = phi i64 [ 0, %67 ], [ %59, %55 ], [ 0, %54 ], [ %66, %62 ], [ %72, %68 ], [ %77, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %79 = load ptr, ptr %7, align 8, !tbaa !136
   store ptr %79, ptr %8, align 8, !tbaa !157
@@ -2726,7 +2726,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !181
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -3343,7 +3343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %21
   br label %236
 
 236:                                              ; preds = %.split161, %.split161.us, %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128
-  %.pn115 = phi { ptr, i32 } [ %221, %220 ], [ %.pn110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %235, %.split161 ], [ %192, %.split161.us ]
+  %.pn115 = phi { ptr, i32 } [ %.pn110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %221, %220 ], [ %235, %.split161 ], [ %192, %.split161.us ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %331

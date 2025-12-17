@@ -201,7 +201,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1068,7 +1068,7 @@ define void @_ZN6icu_7716DateIntervalInfo18setIntervalPatternERKNS_13UnicodeStri
   br label %10
 
 10:                                               ; preds = %8, %7
-  %.sink = phi i32 [ 10, %7 ], [ %., %8 ]
+  %.sink = phi i32 [ %., %8 ], [ 10, %7 ]
   tail call void @_ZN6icu_7716DateIntervalInfo28setIntervalPatternInternallyERKNS_13UnicodeStringE19UCalendarDateFieldsS3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.sink, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   ret void
 }
@@ -2967,7 +2967,7 @@ define linkonce_odr hidden noundef i32 @_ZN6icu_7716DateIntervalInfo16DateInterv
   br label %18
 
 18:                                               ; preds = %15, %13, %8, %17, %12, %11, %10, %9
-  %.0 = phi i32 [ 1, %9 ], [ 2, %10 ], [ 5, %11 ], [ 9, %12 ], [ 24, %17 ], [ 0, %8 ], [ 10, %13 ], [ 12, %15 ]
+  %.0 = phi i32 [ 24, %17 ], [ 1, %9 ], [ 2, %10 ], [ 5, %11 ], [ 9, %12 ], [ 12, %15 ], [ 0, %8 ], [ 10, %13 ]
   ret i32 %.0
 }
 

@@ -1496,7 +1496,7 @@ thread-pre-split.thread:                          ; preds = %160, %thread-pre-sp
   br label %decode_new_pred.exit
 
 decode_new_pred.exit:                             ; preds = %231, %203, %.thread102, %164, %1, %74, %42
-  %.0 = phi i32 [ -1094995529, %42 ], [ -1094995529, %74 ], [ -1094995529, %1 ], [ -1094995529, %164 ], [ 0, %.thread102 ], [ 0, %203 ], [ 0, %231 ]
+  %.0 = phi i32 [ -1094995529, %74 ], [ -1094995529, %42 ], [ -1094995529, %1 ], [ -1094995529, %164 ], [ 0, %.thread102 ], [ 0, %203 ], [ 0, %231 ]
   ret i32 %.0
 }
 
@@ -1640,9 +1640,9 @@ define internal fastcc range(i32 -1163346256, 1) i32 @mpeg4_decode_sprite_trajec
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %34, %53
-  %.051.i = phi i32 [ %68, %53 ], [ %48, %34 ]
-  %.050.i = phi i32 [ %54, %53 ], [ %35, %34 ]
-  %.0.i = phi i32 [ %71, %53 ], [ %51, %34 ]
+  %.051.i = phi i32 [ %48, %34 ], [ %68, %53 ]
+  %.050.i = phi i32 [ %35, %34 ], [ %54, %53 ]
+  %.0.i = phi i32 [ %51, %34 ], [ %71, %53 ]
   %72 = add i32 %.0.i, %.050.i
   store i32 %72, ptr %21, align 8, !tbaa !96
   %73 = icmp sgt i32 %.051.i, 0
@@ -1744,9 +1744,9 @@ check_marker.exit:                                ; preds = %107, %96, %93
   br label %get_vlc2.exit557
 
 get_vlc2.exit557:                                 ; preds = %check_marker.exit, %127
-  %.051.i554 = phi i32 [ %142, %127 ], [ %122, %check_marker.exit ]
-  %.050.i555 = phi i32 [ %128, %127 ], [ %110, %check_marker.exit ]
-  %.0.i556 = phi i32 [ %145, %127 ], [ %125, %check_marker.exit ]
+  %.051.i554 = phi i32 [ %122, %check_marker.exit ], [ %142, %127 ]
+  %.050.i555 = phi i32 [ %110, %check_marker.exit ], [ %128, %127 ]
+  %.0.i556 = phi i32 [ %125, %check_marker.exit ], [ %145, %127 ]
   %146 = add i32 %.0.i556, %.050.i555
   store i32 %146, ptr %21, align 8, !tbaa !96
   %147 = icmp sgt i32 %.051.i554, 0
@@ -2404,7 +2404,7 @@ check_marker.exit560:                             ; preds = %163, %175
   br i1 %exitcond.not, label %.loopexit, label %582, !llvm.loop !122
 
 .split584:                                        ; preds = %511, %508, %504, %.split, %572, %567, %562, %550, %545, %533, %486
-  %.str.63.sink = phi ptr [ @.str.63, %486 ], [ @.str.64, %533 ], [ @.str.64, %545 ], [ @.str.64, %550 ], [ @.str.64, %562 ], [ @.str.64, %567 ], [ @.str.64, %572 ], [ @.str.63, %.split ], [ @.str.63, %504 ], [ @.str.63, %508 ], [ @.str.63, %511 ]
+  %.str.63.sink = phi ptr [ @.str.63, %486 ], [ @.str.64, %572 ], [ @.str.64, %533 ], [ @.str.64, %545 ], [ @.str.64, %550 ], [ @.str.64, %562 ], [ @.str.64, %567 ], [ @.str.63, %.split ], [ @.str.63, %504 ], [ @.str.63, %508 ], [ @.str.63, %511 ]
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %601 = load ptr, ptr %600, align 8, !tbaa !61
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %601, ptr noundef nonnull %.str.63.sink) #16
@@ -2592,7 +2592,7 @@ mpeg_get_qscale.exit:                             ; preds = %74, %79
   br label %117
 
 117:                                              ; preds = %1, %6, %28, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1094995529, %28 ], [ -1094995529, %6 ], [ -1094995529, %1 ]
+  %.0 = phi i32 [ -1094995529, %28 ], [ 0, %.loopexit ], [ -1094995529, %6 ], [ -1094995529, %1 ]
   ret i32 %.0
 }
 
@@ -2769,9 +2769,9 @@ define range(i32 -2147483648, 1) i32 @ff_mpeg4_decode_partitions(ptr noundef ini
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %110, %100
-  %.051.i.i = phi i32 [ %125, %110 ], [ %105, %100 ]
-  %.050.i.i = phi i32 [ %111, %110 ], [ %.val224345.i, %100 ]
-  %.0.i.i = phi i32 [ %128, %110 ], [ %108, %100 ]
+  %.051.i.i = phi i32 [ %105, %100 ], [ %125, %110 ]
+  %.050.i.i = phi i32 [ %.val224345.i, %100 ], [ %111, %110 ]
+  %.0.i.i = phi i32 [ %108, %100 ], [ %128, %110 ]
   %129 = add i32 %.0.i.i, %.050.i.i
   store i32 %129, ptr %35, align 8, !tbaa !96
   %130 = icmp slt i32 %.051.i.i, 0
@@ -2998,9 +2998,9 @@ get_vlc2.exit.i:                                  ; preds = %110, %100
   br label %get_vlc2.exit223.i
 
 get_vlc2.exit223.i:                               ; preds = %246, %229
-  %.051.i220.i = phi i32 [ %260, %246 ], [ %241, %229 ]
-  %.050.i221.i = phi i32 [ %247, %246 ], [ %199, %229 ]
-  %.0.i222.i = phi i32 [ %263, %246 ], [ %244, %229 ]
+  %.051.i220.i = phi i32 [ %241, %229 ], [ %260, %246 ]
+  %.050.i221.i = phi i32 [ %199, %229 ], [ %247, %246 ]
+  %.0.i222.i = phi i32 [ %244, %229 ], [ %263, %246 ]
   %264 = add i32 %.0.i222.i, %.050.i221.i
   store i32 %264, ptr %35, align 8, !tbaa !96
   %265 = icmp slt i32 %.051.i220.i, 0
@@ -3732,8 +3732,8 @@ mpeg4_decode_partition_a.exit.thread:             ; preds = %1, %131, %171, %360
   %686 = add nsw i32 %685, 1
   br label %440, !llvm.loop !149
 
-687:                                              ; preds = %525, %679, %589, %559
-  %.9.i.ph = phi i32 [ -1094995529, %559 ], [ %587, %589 ], [ -1094995529, %679 ], [ -1094995529, %525 ]
+687:                                              ; preds = %679, %525, %589, %559
+  %.9.i.ph = phi i32 [ -1094995529, %559 ], [ %587, %589 ], [ -1094995529, %525 ], [ -1094995529, %679 ]
   %688 = load i32, ptr %6, align 8, !tbaa !100
   %689 = icmp eq i32 %688, 2
   br i1 %689, label %690, label %701
@@ -3759,7 +3759,7 @@ mpeg4_decode_partition_b.exit:                    ; preds = %680
   br label %701
 
 701:                                              ; preds = %mpeg4_decode_partition_a.exit.thread, %697, %mpeg4_decode_partition_b.exit, %687, %690, %431, %419, %389
-  %.0 = phi i32 [ -1094995529, %389 ], [ -1094995529, %419 ], [ -1094995529, %431 ], [ %.9.i.ph, %690 ], [ %.9.i.ph, %687 ], [ 0, %mpeg4_decode_partition_b.exit ], [ 0, %697 ], [ %spec.select, %mpeg4_decode_partition_a.exit.thread ]
+  %.0 = phi i32 [ 0, %697 ], [ -1094995529, %389 ], [ -1094995529, %419 ], [ -1094995529, %431 ], [ %.9.i.ph, %687 ], [ %.9.i.ph, %690 ], [ 0, %mpeg4_decode_partition_b.exit ], [ %spec.select, %mpeg4_decode_partition_a.exit.thread ]
   ret i32 %.0
 }
 
@@ -3847,7 +3847,7 @@ define void @ff_mpeg4_workaround_bugs(ptr noundef captures(none) %0) local_unnam
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread149, %7, %18, %34, %30, %26, %22, %38, %36, %.thread
-  %41 = phi i32 [ %5, %38 ], [ %5, %36 ], [ %5, %.thread ], [ -1, %22 ], [ -1, %26 ], [ -1, %30 ], [ -1, %34 ], [ -1, %18 ], [ -1, %7 ], [ 0, %.thread149 ]
+  %41 = phi i32 [ %5, %.thread ], [ %5, %38 ], [ %5, %36 ], [ -1, %22 ], [ -1, %26 ], [ -1, %30 ], [ -1, %34 ], [ -1, %18 ], [ -1, %7 ], [ 0, %.thread149 ]
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 524
   %43 = load i32, ptr %42, align 4, !tbaa !156
   %44 = and i32 %43, 1
@@ -4514,7 +4514,7 @@ switch.lookup:                                    ; preds = %139
   br label %144
 
 144:                                              ; preds = %switch.lookup, %141, %137, %135, %133, %131, %129
-  %.2 = phi ptr [ @.str.23, %129 ], [ @.str.24, %131 ], [ @.str.25, %133 ], [ @.str.26, %135 ], [ @.str.25, %137 ], [ %spec.select444, %141 ], [ %switch.load, %switch.lookup ]
+  %.2 = phi ptr [ %spec.select444, %141 ], [ @.str.23, %129 ], [ @.str.24, %131 ], [ @.str.25, %133 ], [ @.str.26, %135 ], [ @.str.25, %137 ], [ %switch.load, %switch.lookup ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %125, i32 noundef 48, ptr noundef nonnull @.str.48, i32 noundef %122, ptr noundef nonnull %.2, i32 noundef %121) #16
   br label %145
 
@@ -7366,7 +7366,7 @@ decode_studiovisualobject.exit:                   ; preds = %1784
   br label %decode_vol_header.exit
 
 decode_vol_header.exit:                           ; preds = %1811, %.lr.ph.i.i, %align_get_bits.exit.i.i, %1868, %1846, %1836, %1816, %check_marker.exit.i145, %1688, %1595, %1590, %next_start_code_studio.exit.i.i, %1612, %.critedge, %decode_user_data.exit
-  %.1108 = phi i32 [ %.0107.ph, %decode_user_data.exit ], [ %.0107.ph, %.critedge ], [ %.0107.ph, %1612 ], [ 1, %next_start_code_studio.exit.i.i ], [ 1, %1590 ], [ 1, %1595 ], [ %.0107.ph, %1688 ], [ %.0107.ph, %check_marker.exit.i145 ], [ %.0107.ph, %1816 ], [ %.0107.ph, %1836 ], [ %.0107.ph, %1846 ], [ %.0107.ph, %1868 ], [ %.0107.ph, %align_get_bits.exit.i.i ], [ %.0107.ph, %.lr.ph.i.i ], [ %.0107.ph, %1811 ]
+  %.1108 = phi i32 [ %.0107.ph, %1612 ], [ %.0107.ph, %decode_user_data.exit ], [ 1, %1595 ], [ %.0107.ph, %.critedge ], [ %.0107.ph, %1868 ], [ %.0107.ph, %check_marker.exit.i145 ], [ 1, %next_start_code_studio.exit.i.i ], [ 1, %1590 ], [ %.0107.ph, %1688 ], [ %.0107.ph, %1816 ], [ %.0107.ph, %1836 ], [ %.0107.ph, %1846 ], [ %.0107.ph, %align_get_bits.exit.i.i ], [ %.0107.ph, %.lr.ph.i.i ], [ %.0107.ph, %1811 ]
   %.val.i175 = load i32, ptr %12, align 8, !tbaa !96
   %1899 = sub nsw i32 0, %.val.i175
   %1900 = and i32 %1899, 7
@@ -8028,7 +8028,7 @@ check_marker.exit.i198:                           ; preds = %2204, %2193
   br label %._crit_edge.i200
 
 ._crit_edge.i200:                                 ; preds = %2281, %2263
-  %2284 = phi i64 [ %2283, %2281 ], [ %2275, %2263 ]
+  %2284 = phi i64 [ %2275, %2263 ], [ %2283, %2281 ]
   %2285 = sub nsw i64 %2284, %.pre353.i
   %2286 = trunc i64 %2285 to i16
   %2287 = getelementptr inbounds nuw i8, ptr %0, i64 4080
@@ -8833,8 +8833,8 @@ switch.lookup489:                                 ; preds = %2655
   store i32 %2759, ptr %2760, align 8, !tbaa !49
   br label %decode_studio_vop_header.exit
 
-decode_studio_vop_header.exit:                    ; preds = %448, %164, %111, %219, %203, %179, %1109, %1062, %685, %1126, %932, %2754, %2747, %2647, %2632, %2617, %2580, %2524, %2376, %2340, %2288, %next_start_code_studio.exit.i, %1916, %decode_studiovisualobject.exit, %1776, %1915, %109
-  %.1110 = phi i32 [ -1094995529, %1915 ], [ 100, %109 ], [ -1163346256, %1776 ], [ -1163346256, %decode_studiovisualobject.exit ], [ 0, %1916 ], [ 0, %next_start_code_studio.exit.i ], [ 100, %2376 ], [ -1094995529, %2524 ], [ -1094995529, %2617 ], [ -1094995529, %2632 ], [ -1094995529, %2647 ], [ 100, %2288 ], [ 100, %2340 ], [ -1094995529, %2580 ], [ 0, %2754 ], [ 0, %2747 ], [ -1163346256, %219 ], [ -1094995529, %203 ], [ -1163346256, %179 ], [ -1094995529, %1109 ], [ -1094995529, %1062 ], [ -1094995529, %685 ], [ -1094995529, %1126 ], [ -1094995529, %932 ], [ %spec.select237, %111 ], [ -1094995529, %164 ], [ -1163346256, %448 ]
+decode_studio_vop_header.exit:                    ; preds = %448, %164, %111, %219, %203, %179, %1109, %1062, %1126, %932, %685, %2754, %2747, %2647, %2632, %2617, %2580, %2524, %2376, %2340, %2288, %next_start_code_studio.exit.i, %1916, %decode_studiovisualobject.exit, %1776, %1915, %109
+  %.1110 = phi i32 [ -1163346256, %decode_studiovisualobject.exit ], [ -1094995529, %1915 ], [ 0, %next_start_code_studio.exit.i ], [ 100, %109 ], [ 0, %2747 ], [ -1094995529, %685 ], [ %spec.select237, %111 ], [ -1163346256, %1776 ], [ 0, %1916 ], [ 100, %2376 ], [ -1094995529, %2524 ], [ -1094995529, %2580 ], [ 100, %2340 ], [ -1094995529, %2617 ], [ -1094995529, %2632 ], [ -1094995529, %2647 ], [ 100, %2288 ], [ 0, %2754 ], [ -1163346256, %219 ], [ -1094995529, %203 ], [ -1163346256, %179 ], [ -1094995529, %932 ], [ -1094995529, %1109 ], [ -1094995529, %1062 ], [ -1094995529, %1126 ], [ -1094995529, %164 ], [ -1163346256, %448 ]
   ret i32 %.1110
 }
 
@@ -9501,7 +9501,7 @@ define internal i32 @mpeg4_update_thread_context(ptr noundef %0, ptr noundef %1)
   br label %112
 
 112:                                              ; preds = %12, %9, %107
-  %.0 = phi i32 [ %111, %107 ], [ %10, %9 ], [ %13, %12 ]
+  %.0 = phi i32 [ %10, %9 ], [ %111, %107 ], [ %13, %12 ]
   ret i32 %.0
 }
 
@@ -9748,7 +9748,7 @@ define internal fastcc i32 @mpeg4_decode_dc(ptr noundef captures(none) %0, i32 n
   br label %mpeg4_get_level_dc.exit
 
 65:                                               ; preds = %28, %30, %58, %47
-  %.020 = phi i32 [ %45, %58 ], [ %45, %47 ], [ %45, %30 ], [ 0, %28 ]
+  %.020 = phi i32 [ %45, %30 ], [ %45, %58 ], [ %45, %47 ], [ 0, %28 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 3388
   %67 = sext i32 %1 to i64
   %68 = getelementptr inbounds i32, ptr %66, i64 %67
@@ -9798,9 +9798,9 @@ define internal fastcc i32 @mpeg4_decode_dc(ptr noundef captures(none) %0, i32 n
   br label %101
 
 101:                                              ; preds = %95, %94, %65
-  %.038.i = phi i32 [ %spec.select.i, %94 ], [ %89, %65 ], [ %spec.select.i, %95 ]
-  %.037.i = phi i32 [ %spec.select42.i, %94 ], [ %84, %65 ], [ %spec.select43.i, %95 ]
-  %.0.i = phi i32 [ %79, %94 ], [ %79, %65 ], [ %spec.select44.i, %95 ]
+  %.038.i = phi i32 [ %89, %65 ], [ %spec.select.i, %95 ], [ %spec.select.i, %94 ]
+  %.037.i = phi i32 [ %84, %65 ], [ %spec.select43.i, %95 ], [ %spec.select42.i, %94 ]
+  %.0.i = phi i32 [ %79, %65 ], [ %spec.select44.i, %95 ], [ %79, %94 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %103 = load i32, ptr %102, align 4, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 3960
@@ -9899,7 +9899,7 @@ ff_mpeg4_pred_dc.exit:                            ; preds = %101, %107, %114, %1
   br label %157
 
 157:                                              ; preds = %.thread.i, %153, %ff_mpeg4_pred_dc.exit
-  %.029.i = phi i32 [ %133, %ff_mpeg4_pred_dc.exit ], [ 0, %153 ], [ %spec.select.i22, %.thread.i ]
+  %.029.i = phi i32 [ %133, %ff_mpeg4_pred_dc.exit ], [ %spec.select.i22, %.thread.i ], [ 0, %153 ]
   %158 = trunc i32 %.029.i to i16
   %159 = load i32, ptr %73, align 4, !tbaa !39
   %160 = sext i32 %159 to i64
@@ -10239,9 +10239,9 @@ mpeg_get_qscale.exit:                             ; preds = %41, %46
   br label %get_vlc2.exit155.i
 
 get_vlc2.exit155.i:                               ; preds = %94, %77
-  %.051.i152.i = phi i32 [ %109, %94 ], [ %89, %77 ]
-  %.050.i153.i = phi i32 [ %95, %94 ], [ %66, %77 ]
-  %.0.i154.i = phi i32 [ %112, %94 ], [ %92, %77 ]
+  %.051.i152.i = phi i32 [ %89, %77 ], [ %109, %94 ]
+  %.050.i153.i = phi i32 [ %66, %77 ], [ %95, %94 ]
+  %.0.i154.i = phi i32 [ %92, %77 ], [ %112, %94 ]
   %113 = add i32 %.0.i154.i, %.050.i153.i
   br label %184
 
@@ -10294,9 +10294,9 @@ get_vlc2.exit155.i:                               ; preds = %94, %77
   br label %get_vlc2.exit151.i
 
 get_vlc2.exit151.i:                               ; preds = %136, %128
-  %.051.i148.i = phi i32 [ %151, %136 ], [ %131, %128 ]
-  %.050.i149.i = phi i32 [ %137, %136 ], [ %66, %128 ]
-  %.0.i150.i = phi i32 [ %154, %136 ], [ %134, %128 ]
+  %.051.i148.i = phi i32 [ %131, %128 ], [ %151, %136 ]
+  %.050.i149.i = phi i32 [ %66, %128 ], [ %137, %136 ]
+  %.0.i150.i = phi i32 [ %134, %128 ], [ %154, %136 ]
   %155 = add i32 %.0.i150.i, %.050.i149.i
   br label %184
 
@@ -10332,9 +10332,9 @@ get_vlc2.exit151.i:                               ; preds = %136, %128
   br label %get_vlc2.exit147.i
 
 get_vlc2.exit147.i:                               ; preds = %164, %156
-  %.051.i144.i = phi i32 [ %179, %164 ], [ %159, %156 ]
-  %.050.i145.i = phi i32 [ %165, %164 ], [ %66, %156 ]
-  %.0.i146.i = phi i32 [ %182, %164 ], [ %162, %156 ]
+  %.051.i144.i = phi i32 [ %159, %156 ], [ %179, %164 ]
+  %.050.i145.i = phi i32 [ %66, %156 ], [ %165, %164 ]
+  %.0.i146.i = phi i32 [ %162, %156 ], [ %182, %164 ]
   %183 = add i32 %.0.i146.i, %.050.i145.i
   br label %184
 
@@ -10468,9 +10468,9 @@ check_marker.exit.i:                              ; preds = %203, %187, %184
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %248, %230
-  %.051.i.i = phi i32 [ %263, %248 ], [ %243, %230 ]
-  %.050.i.i = phi i32 [ %249, %248 ], [ %231, %230 ]
-  %.0.i143.i = phi i32 [ %266, %248 ], [ %246, %230 ]
+  %.051.i.i = phi i32 [ %243, %230 ], [ %263, %248 ]
+  %.050.i.i = phi i32 [ %231, %230 ], [ %249, %248 ]
+  %.0.i143.i = phi i32 [ %246, %230 ], [ %266, %248 ]
   %267 = add i32 %.0.i143.i, %.050.i.i
   store i32 %267, ptr %6, align 8, !tbaa !96
   %268 = icmp slt i32 %.051.i.i, 0
@@ -10925,12 +10925,12 @@ get_bitsz.exit.us.i:                              ; preds = %505, %504
   br i1 %exitcond131.not.i, label %.loopexit, label %.lr.ph.us.i, !llvm.loop !268
 
 mpeg4_decode_dpcm_macroblock.exit:                ; preds = %.thread.i, %455, %471, %get_unary.exit.us.i, %545
-  %.str.135.sink.i = phi ptr [ @.str.135, %545 ], [ @.str.135, %get_unary.exit.us.i ], [ @.str.134, %471 ], [ @.str.134, %455 ], [ @.str.133, %.thread.i ]
+  %.str.135.sink.i = phi ptr [ @.str.135, %545 ], [ @.str.135, %get_unary.exit.us.i ], [ @.str.133, %.thread.i ], [ @.str.134, %455 ], [ @.str.134, %471 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %413, i32 noundef 16, ptr noundef nonnull %.str.135.sink.i) #16
   br label %next_start_code_studio.exit
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.i, %.lr.ph118.i
-  %548 = phi i32 [ %469, %.preheader.i ], [ %469, %.lr.ph118.i ], [ %520, %._crit_edge.us.i ]
+  %548 = phi i32 [ %469, %.lr.ph118.i ], [ %469, %.preheader.i ], [ %520, %._crit_edge.us.i ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, 3
   br i1 %exitcond.not, label %.loopexit58, label %433, !llvm.loop !269
@@ -11017,7 +11017,7 @@ align_get_bits.exit.i:                            ; preds = %561
   br label %next_start_code_studio.exit
 
 next_start_code_studio.exit:                      ; preds = %349, %327, %302, %574, %.lr.ph.i, %check_marker.exit.thread.i, %269, %align_get_bits.exit.i, %mpeg4_decode_dpcm_macroblock.exit, %582, %578, %.thread56
-  %.032 = phi i32 [ 0, %.thread56 ], [ -1094995529, %mpeg4_decode_dpcm_macroblock.exit ], [ -2, %578 ], [ -2, %582 ], [ -2, %align_get_bits.exit.i ], [ -1094995529, %269 ], [ -1094995529, %check_marker.exit.thread.i ], [ -2, %.lr.ph.i ], [ -2, %574 ], [ -1094995529, %302 ], [ -1094995529, %327 ], [ -1094995529, %349 ]
+  %.032 = phi i32 [ -2, %582 ], [ -1094995529, %mpeg4_decode_dpcm_macroblock.exit ], [ -2, %578 ], [ 0, %.thread56 ], [ -2, %align_get_bits.exit.i ], [ -1094995529, %269 ], [ -1094995529, %check_marker.exit.thread.i ], [ -2, %574 ], [ -2, %.lr.ph.i ], [ -1094995529, %302 ], [ -1094995529, %327 ], [ -1094995529, %349 ]
   ret i32 %.032
 }
 
@@ -11257,7 +11257,7 @@ define internal range(i32 -1094995529, 1) i32 @mpeg4_decode_partitioned_mb(ptr n
   br label %140
 
 140:                                              ; preds = %108, %125, %127, %139
-  %.2 = phi i32 [ 0, %139 ], [ -2, %127 ], [ -1094995529, %108 ], [ %., %125 ]
+  %.2 = phi i32 [ %., %125 ], [ -1094995529, %108 ], [ 0, %139 ], [ -2, %127 ]
   ret i32 %.2
 }
 
@@ -11416,9 +11416,9 @@ define internal range(i32 -1094995529, 1) i32 @mpeg4_decode_mb(ptr noundef %0, p
   br label %get_vlc2.exit468
 
 get_vlc2.exit468:                                 ; preds = %73, %90
-  %.051.i465 = phi i32 [ %104, %90 ], [ %85, %73 ]
-  %.050.i466 = phi i32 [ %91, %90 ], [ %34, %73 ]
-  %.0.i467 = phi i32 [ %107, %90 ], [ %88, %73 ]
+  %.051.i465 = phi i32 [ %85, %73 ], [ %104, %90 ]
+  %.050.i466 = phi i32 [ %34, %73 ], [ %91, %90 ]
+  %.0.i467 = phi i32 [ %88, %73 ], [ %107, %90 ]
   %108 = add i32 %.0.i467, %.050.i466
   store i32 %108, ptr %24, align 8, !tbaa !96
   %109 = icmp slt i32 %.051.i465, 0
@@ -11990,9 +11990,9 @@ get_vlc2.exit468:                                 ; preds = %73, %90
   br label %473
 
 473:                                              ; preds = %._crit_edge, %.thread472, %458
-  %474 = phi ptr [ %.pre564, %._crit_edge ], [ %460, %458 ], [ %367, %.thread472 ]
-  %475 = phi i32 [ %.pre563, %._crit_edge ], [ %469, %458 ], [ %398, %.thread472 ]
-  %.3399471476479480 = phi i32 [ 0, %._crit_edge ], [ %420, %458 ], [ 0, %.thread472 ]
+  %474 = phi ptr [ %367, %.thread472 ], [ %.pre564, %._crit_edge ], [ %460, %458 ]
+  %475 = phi i32 [ %398, %.thread472 ], [ %.pre563, %._crit_edge ], [ %469, %458 ]
+  %.3399471476479480 = phi i32 [ 0, %.thread472 ], [ 0, %._crit_edge ], [ %420, %458 ]
   %476 = lshr i32 %475, 3
   %477 = zext nneg i32 %476 to i64
   %478 = getelementptr inbounds nuw i8, ptr %474, i64 %477
@@ -12294,9 +12294,9 @@ get_vlc2.exit468:                                 ; preds = %73, %90
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %632, %650
-  %.051.i = phi i32 [ %665, %650 ], [ %645, %632 ]
-  %.050.i = phi i32 [ %651, %650 ], [ %633, %632 ]
-  %.0.i = phi i32 [ %668, %650 ], [ %648, %632 ]
+  %.051.i = phi i32 [ %645, %632 ], [ %665, %650 ]
+  %.050.i = phi i32 [ %633, %632 ], [ %651, %650 ]
+  %.0.i = phi i32 [ %648, %632 ], [ %668, %650 ]
   %669 = add i32 %.0.i, %.050.i
   store i32 %669, ptr %20, align 8, !tbaa !96
   %670 = icmp slt i32 %.051.i, 0
@@ -12521,7 +12521,7 @@ get_vlc2.exit:                                    ; preds = %632, %650
   br label %812
 
 812:                                              ; preds = %807, %799
-  %813 = phi i32 [ %784, %799 ], [ %spec.select, %807 ]
+  %813 = phi i32 [ %spec.select, %807 ], [ %784, %799 ]
   call void @ff_thread_progress_await(ptr noundef nonnull %805, i32 noundef %813) #16
   %814 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %815 = load ptr, ptr %814, align 8, !tbaa !282
@@ -12536,7 +12536,7 @@ get_vlc2.exit:                                    ; preds = %632, %650
   br label %.loopexit501
 
 .loopexit501:                                     ; preds = %319, %326, %282, %276, %.loopexit504, %766, %.thread494, %.loopexit, %794, %789, %303, %291, %812, %820, %714, %671, %165, %110
-  %.1 = phi i32 [ -2, %820 ], [ 0, %812 ], [ -1094995529, %110 ], [ -1094995529, %714 ], [ -1094995529, %165 ], [ -1094995529, %671 ], [ -1094995529, %291 ], [ -1094995529, %303 ], [ -1094995529, %789 ], [ -2, %794 ], [ 0, %.loopexit ], [ -1094995529, %.thread494 ], [ -1094995529, %766 ], [ -1094995529, %.loopexit504 ], [ -1094995529, %276 ], [ -1094995529, %282 ], [ -1094995529, %326 ], [ -1094995529, %319 ]
+  %.1 = phi i32 [ -1094995529, %789 ], [ -2, %820 ], [ 0, %812 ], [ -2, %794 ], [ -1094995529, %110 ], [ -1094995529, %714 ], [ -1094995529, %165 ], [ -1094995529, %291 ], [ -1094995529, %671 ], [ -1094995529, %303 ], [ -1094995529, %.thread494 ], [ 0, %.loopexit ], [ -1094995529, %282 ], [ -1094995529, %766 ], [ -1094995529, %.loopexit504 ], [ -1094995529, %276 ], [ -1094995529, %326 ], [ -1094995529, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -12666,9 +12666,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg4_decode_block(ptr nou
   br label %91
 
 91:                                               ; preds = %85, %84, %55
-  %.038.i = phi i32 [ %spec.select.i, %84 ], [ %79, %55 ], [ %spec.select.i, %85 ]
-  %.037.i = phi i32 [ %spec.select42.i, %84 ], [ %74, %55 ], [ %spec.select43.i, %85 ]
-  %.0.i = phi i32 [ %69, %84 ], [ %69, %55 ], [ %spec.select44.i, %85 ]
+  %.038.i = phi i32 [ %79, %55 ], [ %spec.select.i, %85 ], [ %spec.select.i, %84 ]
+  %.037.i = phi i32 [ %74, %55 ], [ %spec.select43.i, %85 ], [ %spec.select42.i, %84 ]
+  %.0.i = phi i32 [ %69, %55 ], [ %spec.select44.i, %85 ], [ %69, %84 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %93 = load i32, ptr %92, align 4, !tbaa !40
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 3960
@@ -13119,9 +13119,9 @@ ff_mpeg4_pred_dc.exit:                            ; preds = %91, %97, %104, %105
   br label %374
 
 374:                                              ; preds = %350, %296, %260, %200
-  %.6291.us = phi i32 [ %210, %200 ], [ %318, %296 ], [ %373, %350 ], [ %246, %260 ]
-  %.7277.us = phi i32 [ %206, %200 ], [ %313, %296 ], [ %356, %350 ], [ %spec.select336.us, %260 ]
-  %.9.us = phi i32 [ %209, %200 ], [ %316, %296 ], [ %371, %350 ], [ %.5.us, %260 ]
+  %.6291.us = phi i32 [ %210, %200 ], [ %373, %350 ], [ %246, %260 ], [ %318, %296 ]
+  %.7277.us = phi i32 [ %206, %200 ], [ %356, %350 ], [ %spec.select336.us, %260 ], [ %313, %296 ]
+  %.9.us = phi i32 [ %209, %200 ], [ %371, %350 ], [ %.5.us, %260 ], [ %316, %296 ]
   %375 = icmp sgt i32 %.7277.us, 62
   br i1 %375, label %.split360.us, label %376
 
@@ -13380,7 +13380,7 @@ ff_mpeg4_pred_dc.exit:                            ; preds = %91, %97, %104, %105
   br label %533
 
 533:                                              ; preds = %.thread.i, %529, %491
-  %.029.i = phi i32 [ %507, %491 ], [ 0, %529 ], [ %spec.select.i342, %.thread.i ]
+  %.029.i = phi i32 [ %507, %491 ], [ %spec.select.i342, %.thread.i ], [ 0, %529 ]
   %534 = trunc i32 %.029.i to i16
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %536 = load ptr, ptr %535, align 8, !tbaa !60
@@ -13420,7 +13420,7 @@ mpeg4_get_level_dc.exit:                          ; preds = %516, %524, %533
   br label %.critedge
 
 .critedge:                                        ; preds = %244, %238, %232, %226, %.split358.us, %418, %432, %436, %471, %50, %549, %125
-  %.0261 = phi i32 [ 0, %549 ], [ 0, %125 ], [ %51, %50 ], [ -1094995529, %471 ], [ -1094995529, %436 ], [ -1094995529, %432 ], [ -1094995529, %418 ], [ -1094995529, %.split358.us ], [ -1094995529, %226 ], [ -1094995529, %232 ], [ -1094995529, %238 ], [ -1094995529, %244 ]
+  %.0261 = phi i32 [ 0, %549 ], [ %51, %50 ], [ 0, %125 ], [ -1094995529, %418 ], [ -1094995529, %471 ], [ -1094995529, %436 ], [ -1094995529, %432 ], [ -1094995529, %.split358.us ], [ -1094995529, %226 ], [ -1094995529, %232 ], [ -1094995529, %238 ], [ -1094995529, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0261
 }

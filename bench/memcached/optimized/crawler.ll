@@ -708,7 +708,7 @@ define dso_local range(i32 -1, 1) i32 @start_item_crawler_thread() local_unnamed
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %10
-  %.0.ph = phi i32 [ 0, %10 ], [ -1, %6 ]
+  %.0.ph = phi i32 [ -1, %6 ], [ 0, %10 ]
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_crawler_lock) #18
   br label %14
 
@@ -1127,7 +1127,7 @@ lru_crawler_class_done.exit.thread61:             ; preds = %81, %86, %104
   br label %lru_crawler_class_done.exit
 
 lru_crawler_class_done.exit:                      ; preds = %155, %142, %124, %109, %88, %103, %171, %177, %211, %212, %205, %.preheader
-  %.4 = phi i32 [ %.368, %.preheader ], [ %.368, %171 ], [ %.368, %177 ], [ %210, %205 ], [ %201, %211 ], [ %201, %212 ], [ %.368, %103 ], [ %.368, %88 ], [ %.368, %109 ], [ %.368, %124 ], [ %.368, %142 ], [ %.368, %155 ]
+  %.4 = phi i32 [ %.368, %.preheader ], [ %.368, %124 ], [ %.368, %88 ], [ %201, %212 ], [ %.368, %171 ], [ %.368, %177 ], [ %210, %205 ], [ %201, %211 ], [ %.368, %103 ], [ %.368, %109 ], [ %.368, %142 ], [ %.368, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %thread-pre-split, label %.preheader.backedge
@@ -1820,8 +1820,8 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   store i32 0, ptr %4, align 8, !tbaa !61
   br label %.thread51
 
-.thread51:                                        ; preds = %21, %63, %60, %35, %41, %18, %11, %1, %70
-  %.0 = phi i32 [ 0, %70 ], [ -1, %1 ], [ 0, %11 ], [ -1, %63 ], [ -1, %60 ], [ -1, %35 ], [ -1, %41 ], [ -1, %18 ], [ 0, %21 ]
+.thread51:                                        ; preds = %21, %63, %60, %41, %35, %18, %11, %1, %70
+  %.0 = phi i32 [ 0, %70 ], [ -1, %1 ], [ 0, %11 ], [ -1, %63 ], [ -1, %60 ], [ -1, %41 ], [ -1, %35 ], [ -1, %18 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

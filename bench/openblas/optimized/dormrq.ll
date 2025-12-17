@@ -199,7 +199,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not234, label %97, label %.thread261
 
 .thread261.sink.split:                            ; preds = %59, %56, %53, %49, %46, %43, %41, %36
-  %.sink = phi i32 [ -1, %36 ], [ -2, %41 ], [ -3, %43 ], [ -4, %46 ], [ -5, %49 ], [ -7, %53 ], [ -10, %56 ], [ -12, %59 ]
+  %.sink = phi i32 [ -1, %36 ], [ -3, %43 ], [ -5, %49 ], [ -10, %56 ], [ -7, %53 ], [ -4, %46 ], [ -2, %41 ], [ -12, %59 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread261
 

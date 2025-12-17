@@ -232,7 +232,7 @@ v4l2_bufref_to_buf.exit80.i:                      ; preds = %103, %100
   br i1 %106, label %83, label %v4l2_buffer_swframe_to_buf.exit, !llvm.loop !76
 
 v4l2_buffer_swframe_to_buf.exit:                  ; preds = %v4l2_bufref_to_buf.exit80.i, %61, %82, %21, %.critedge.i, %.preheader.i
-  %.3.i = phi i32 [ 0, %.preheader.i ], [ 0, %21 ], [ 0, %.critedge.i ], [ -22, %61 ], [ 0, %82 ], [ 0, %v4l2_bufref_to_buf.exit80.i ]
+  %.3.i = phi i32 [ 0, %21 ], [ 0, %.preheader.i ], [ 0, %.critedge.i ], [ -22, %61 ], [ 0, %82 ], [ 0, %v4l2_bufref_to_buf.exit80.i ]
   ret i32 %.3.i
 }
 
@@ -461,7 +461,7 @@ switch.lookup61:                                  ; preds = %118
   br label %v4l2_get_color_primaries.exit
 
 v4l2_get_color_primaries.exit:                    ; preds = %118, %switch.lookup61, %switch.lookup57
-  %.0.i35 = phi i32 [ %switch.load59, %switch.lookup57 ], [ %switch.load63, %switch.lookup61 ], [ 2, %118 ]
+  %.0.i35 = phi i32 [ %switch.load63, %switch.lookup61 ], [ %switch.load59, %switch.lookup57 ], [ 2, %118 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %.0.i35, ptr %123, align 4, !tbaa !88
   br i1 %switch.i, label %124, label %129
@@ -517,7 +517,7 @@ v4l2_get_color_primaries.exit:                    ; preds = %118, %switch.lookup
   br label %v4l2_get_color_space.exit
 
 v4l2_get_color_space.exit:                        ; preds = %133, %136, %137, %138, %139, %140, %141, %143
-  %.0.i39 = phi i32 [ 2, %143 ], [ 1, %136 ], [ 4, %137 ], [ 5, %138 ], [ 6, %139 ], [ 7, %140 ], [ 0, %133 ], [ %..i, %141 ]
+  %.0.i39 = phi i32 [ 2, %143 ], [ 0, %133 ], [ 1, %136 ], [ 4, %137 ], [ 5, %138 ], [ 6, %139 ], [ 7, %140 ], [ %..i, %141 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %.0.i39, ptr %144, align 4, !tbaa !89
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -590,7 +590,7 @@ switch.lookup66:                                  ; preds = %168
   br label %v4l2_get_color_trc.exit
 
 v4l2_get_color_trc.exit:                          ; preds = %switch.lookup66, %164, %167, %171
-  %.0.i43 = phi i32 [ 13, %167 ], [ %166, %164 ], [ %..i46, %171 ], [ %switch.load68, %switch.lookup66 ]
+  %.0.i43 = phi i32 [ %switch.load68, %switch.lookup66 ], [ %..i46, %171 ], [ %166, %164 ], [ 13, %167 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %.0.i43, ptr %173, align 8, !tbaa !91
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -699,7 +699,7 @@ logger.exit:                                      ; preds = %213, %switch.lookup
   br label %v4l2_buffer_buf_to_swframe.exit
 
 v4l2_buffer_buf_to_swframe.exit:                  ; preds = %16, %v4l2_get_interlacing.exit, %logger.exit
-  %.0 = phi i32 [ 0, %logger.exit ], [ 0, %v4l2_get_interlacing.exit ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %v4l2_get_interlacing.exit ], [ 0, %logger.exit ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -976,7 +976,7 @@ v4l2_set_pts.exit:                                ; preds = %25, %switch.lookup
   br label %v4l2_bufref_to_buf.exit
 
 v4l2_bufref_to_buf.exit:                          ; preds = %2, %v4l2_set_pts.exit, %47
-  %.0 = phi i32 [ 0, %47 ], [ 0, %v4l2_set_pts.exit ], [ -22, %2 ]
+  %.0 = phi i32 [ 0, %v4l2_set_pts.exit ], [ 0, %47 ], [ -22, %2 ]
   ret i32 %.0
 }
 

@@ -671,7 +671,7 @@ define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(a
   br label %mi_heap_of_block.exit
 
 mi_heap_of_block.exit:                            ; preds = %14, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ %27, %14 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ %27, %14 ]
   ret i1 %.0
 }
 
@@ -1111,7 +1111,7 @@ mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas
   br label %mi_heap_visit_areas.exit
 
 mi_heap_visit_areas.exit:                         ; preds = %._crit_edge, %76, %mi_heap_visit_areas.exit.sink.split, %4, %13
-  %.0.i.i = phi i1 [ false, %13 ], [ false, %4 ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ false, %76 ], [ true, %._crit_edge ]
+  %.0.i.i = phi i1 [ false, %4 ], [ false, %13 ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ false, %76 ], [ true, %._crit_edge ]
   ret i1 %.0.i.i
 }
 

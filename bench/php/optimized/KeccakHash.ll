@@ -68,7 +68,7 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %28
 
 28:                                               ; preds = %3, %23, %21
-  %.0 = phi i32 [ 0, %21 ], [ %25, %23 ], [ %8, %3 ]
+  %.0 = phi i32 [ %25, %23 ], [ %8, %3 ], [ 0, %21 ]
   ret i32 %.0
 }
 

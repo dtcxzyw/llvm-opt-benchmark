@@ -144,7 +144,7 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef readnone captures(a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %28, %.split.us, %82, %77, %67, %.split14.us, %5
-  %83 = phi i32 [ 12316, %82 ], [ 12316, %5 ], [ %66, %.split14.us ], [ 0, %67 ], [ %80, %77 ], [ %34, %28 ], [ %17, %.split.us ], [ %47, %.split ]
+  %83 = phi i32 [ 12316, %82 ], [ 12316, %5 ], [ %66, %.split14.us ], [ 0, %67 ], [ %80, %77 ], [ %17, %.split.us ], [ %34, %28 ], [ %47, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %83

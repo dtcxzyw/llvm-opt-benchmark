@@ -2556,7 +2556,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br label %144
 
 144:                                              ; preds = %141, %138, %84
-  %145 = phi i32 [ %85, %84 ], [ %135, %141 ], [ %135, %138 ]
+  %145 = phi i32 [ %85, %84 ], [ %135, %138 ], [ %135, %141 ]
   %146 = icmp slt i32 %145, 1
   br i1 %146, label %.thread20, label %.thread
 
@@ -2754,8 +2754,8 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %132, %100, %.thread20
-  %.sink48 = phi ptr [ %253, %.thread20 ], [ %104, %100 ], [ %137, %132 ]
-  %.str.25.sink = phi ptr [ %251, %.thread20 ], [ @.str.23, %100 ], [ @.str.25, %132 ]
+  %.sink48 = phi ptr [ %104, %100 ], [ %253, %.thread20 ], [ %137, %132 ]
+  %.str.25.sink = phi ptr [ @.str.23, %100 ], [ %251, %.thread20 ], [ @.str.25, %132 ]
   %254 = getelementptr inbounds nuw i8, ptr %.sink48, i64 184
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %254, ptr noundef nonnull %.str.25.sink) #12
   br label %.thread

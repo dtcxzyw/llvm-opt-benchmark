@@ -348,7 +348,7 @@ define internal i32 @load_misc_binary(ptr noundef %0) #2 align 16 {
   br i1 %159, label %.thread24, label %.split, !llvm.loop !13
 
 .thread20:                                        ; preds = %100, %156, %137, %148, %83, %65, %85
-  %160 = phi ptr [ %27, %85 ], [ %27, %65 ], [ %27, %83 ], [ %91, %148 ], [ %91, %137 ], [ %91, %156 ], [ %91, %100 ]
+  %160 = phi ptr [ %91, %137 ], [ %27, %85 ], [ %27, %65 ], [ %27, %83 ], [ %91, %148 ], [ %91, %156 ], [ %91, %100 ]
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.thread24, label %162
 
@@ -538,7 +538,7 @@ define internal i32 @load_misc_binary(ptr noundef %0) #2 align 16 {
   br label %.thread27
 
 .thread27:                                        ; preds = %262, %264, %.thread24, %274, %11
-  %275 = phi i32 [ -8, %11 ], [ -8, %.thread24 ], [ %259, %274 ], [ %259, %264 ], [ %259, %262 ]
+  %275 = phi i32 [ -8, %11 ], [ %259, %274 ], [ -8, %.thread24 ], [ %259, %264 ], [ %259, %262 ]
   ret i32 %275
 }
 
@@ -1137,7 +1137,7 @@ sub_130:                                          ; preds = %.tail
   br label %.thread22
 
 .thread22:                                        ; preds = %101, %123
-  %125 = phi ptr [ %124, %123 ], [ %81, %101 ]
+  %125 = phi ptr [ %81, %101 ], [ %124, %123 ]
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %125, ptr %126, align 8
   %127 = tail call ptr @strchr(ptr noundef %125, i32 noundef %25) #15
@@ -1332,7 +1332,7 @@ check_special_flags.exit:                         ; preds = %.preheader
   br label %227
 
 227:                                              ; preds = %.thread26, %225, %216, %.thread24
-  %228 = phi i64 [ %153, %.thread24 ], [ %226, %225 ], [ %2, %216 ], [ %168, %.thread26 ]
+  %228 = phi i64 [ %153, %.thread24 ], [ %226, %225 ], [ %168, %.thread26 ], [ %2, %216 ]
   ret i64 %228
 }
 

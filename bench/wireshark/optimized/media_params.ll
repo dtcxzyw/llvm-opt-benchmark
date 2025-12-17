@@ -155,9 +155,9 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
   br label %ws_get_next_media_type_parameter.exit
 
 ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %27, %37, %.critedge4.i
-  %.4 = phi ptr [ %28, %27 ], [ %.2.i, %37 ], [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ]
-  %.2115 = phi ptr [ null, %27 ], [ %30, %37 ], [ null, %.critedge4.i ], [ %30, %.loopexit.i ]
-  %.2110 = phi i64 [ 0, %27 ], [ %40, %37 ], [ 0, %.critedge4.i ], [ %58, %.loopexit.i ]
+  %.4 = phi ptr [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ], [ %28, %27 ], [ %.2.i, %37 ]
+  %.2115 = phi ptr [ null, %.critedge4.i ], [ %30, %.loopexit.i ], [ null, %27 ], [ %30, %37 ]
+  %.2110 = phi i64 [ 0, %.critedge4.i ], [ %58, %.loopexit.i ], [ 0, %27 ], [ %40, %37 ]
   %59 = icmp eq ptr %.080110.i, null
   br i1 %59, label %ws_get_next_media_type_parameter.exit.thread, label %60
 

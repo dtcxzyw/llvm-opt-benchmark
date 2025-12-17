@@ -387,7 +387,7 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
   store ptr null, ptr %4, align 8, !tbaa !16
   %11 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %7, ptr noundef nonnull %3) #5
   %.not23 = icmp eq i32 %11, 0
-  br i1 %.not23, label %26, label %12
+  br i1 %.not23, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %.not24 = icmp eq ptr %8, null
@@ -396,7 +396,7 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 13:                                               ; preds = %12
   %14 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %8, ptr noundef nonnull %4) #5
   %.not25 = icmp eq i32 %14, 0
-  br i1 %.not25, label %26, label %15
+  br i1 %.not25, label %.critedge, label %15
 
 15:                                               ; preds = %13, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -409,26 +409,21 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %20, ptr %21, align 4, !tbaa !17
   %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.critedge, label %22
+  br i1 %.not26, label %26, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %4, align 8, !tbaa !16
   %24 = call ptr @EVP_CIPHER_fetch(ptr noundef %6, ptr noundef nonnull %18, ptr noundef %23) #5
   store ptr %24, ptr %16, align 8, !tbaa !15
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %.critedge
+  br i1 %25, label %.critedge, label %26
 
-.critedge:                                        ; preds = %22, %15
+26:                                               ; preds = %22, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
-26:                                               ; preds = %22, %13, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %32
-
-27:                                               ; preds = %.critedge, %2
+27:                                               ; preds = %26, %2
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %31, label %28
 
@@ -441,8 +436,13 @@ define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %0, ptr 
 31:                                               ; preds = %28, %27
   br label %32
 
-32:                                               ; preds = %28, %26, %31
-  %.1 = phi i32 [ 1, %31 ], [ 0, %26 ], [ 0, %28 ]
+.critedge:                                        ; preds = %22, %10, %13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %32
+
+32:                                               ; preds = %28, %.critedge, %31
+  %.1 = phi i32 [ 1, %31 ], [ 0, %.critedge ], [ 0, %28 ]
   ret i32 %.1
 }
 
@@ -997,7 +997,7 @@ key_to_type_specific_der_bio.exit:                ; preds = %26, %27
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %62, %56, %50, %39, %33, %14, %64, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %64 ], [ 0, %14 ], [ %.1.i, %33 ], [ 0, %39 ], [ %.1.i22, %50 ], [ 0, %56 ], [ %.1.i26, %62 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %64 ], [ %.1.i, %33 ], [ %.1.i22, %50 ], [ 0, %14 ], [ 0, %39 ], [ 0, %56 ], [ %.1.i26, %62 ]
   ret i32 %.0
 }
 
@@ -1179,7 +1179,7 @@ key_to_type_specific_der_bio.exit19:              ; preds = %47, %48
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %54, %40, %34, %15, %56, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ 0, %15 ], [ %.1.i, %34 ], [ 0, %40 ], [ %.1.i14, %54 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ %.1.i, %34 ], [ 0, %15 ], [ 0, %40 ], [ %.1.i14, %54 ]
   ret i32 %.0
 }
 
@@ -1361,7 +1361,7 @@ key_to_type_specific_der_bio.exit19:              ; preds = %47, %48
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %54, %40, %34, %15, %56, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ 0, %15 ], [ %.1.i, %34 ], [ 0, %40 ], [ %.1.i14, %54 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ %.1.i, %34 ], [ 0, %15 ], [ 0, %40 ], [ %.1.i14, %54 ]
   ret i32 %.0
 }
 
@@ -1535,7 +1535,7 @@ define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_encode(ptr
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %57, %55, %38, %33, %31, %13, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %33 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %33 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -1932,7 +1932,7 @@ define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_encode(ptr noundef
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %66, %56, %50, %35, %29, %13, %68, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %68 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i22, %50 ], [ 0, %56 ], [ %.1.i26, %66 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %68 ], [ %.1.i, %29 ], [ %.1.i22, %50 ], [ 0, %13 ], [ 0, %35 ], [ 0, %56 ], [ %.1.i26, %66 ]
   ret i32 %.0
 }
 
@@ -2075,7 +2075,7 @@ define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_encode(ptr n
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %45, %35, %29, %13, %47, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i14, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ %.1.i, %29 ], [ 0, %13 ], [ 0, %35 ], [ %.1.i14, %45 ]
   ret i32 %.0
 }
 
@@ -2218,7 +2218,7 @@ define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_encode(ptr 
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %45, %35, %29, %13, %47, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i14, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ %.1.i, %29 ], [ 0, %13 ], [ 0, %35 ], [ %.1.i14, %45 ]
   ret i32 %.0
 }
 
@@ -6211,7 +6211,7 @@ define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -6330,7 +6330,7 @@ define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -6881,7 +6881,7 @@ define internal i32 @ed448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %0,
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -7000,7 +7000,7 @@ define internal i32 @ed448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %0,
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -7551,7 +7551,7 @@ define internal i32 @x25519_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %0
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -7670,7 +7670,7 @@ define internal i32 @x25519_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %0
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -8221,7 +8221,7 @@ define internal i32 @x448_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef %0, 
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -8340,7 +8340,7 @@ define internal i32 @x448_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef %0, 
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -8891,7 +8891,7 @@ define internal i32 @ml_kem_512_to_EncryptedPrivateKeyInfo_der_encode(ptr nounde
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -9010,7 +9010,7 @@ define internal i32 @ml_kem_512_to_EncryptedPrivateKeyInfo_pem_encode(ptr nounde
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -9615,7 +9615,7 @@ define internal i32 @ml_kem_768_to_EncryptedPrivateKeyInfo_der_encode(ptr nounde
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -9734,7 +9734,7 @@ define internal i32 @ml_kem_768_to_EncryptedPrivateKeyInfo_pem_encode(ptr nounde
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -10339,7 +10339,7 @@ define internal i32 @ml_kem_1024_to_EncryptedPrivateKeyInfo_der_encode(ptr nound
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -10458,7 +10458,7 @@ define internal i32 @ml_kem_1024_to_EncryptedPrivateKeyInfo_pem_encode(ptr nound
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -11210,7 +11210,7 @@ define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_encode(ptr noundef %0, ptr n
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %57, %55, %38, %33, %31, %13, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %33 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %33 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -11900,7 +11900,7 @@ key_to_type_specific_der_bio.exit:                ; preds = %26, %27
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %62, %56, %50, %39, %33, %14, %64, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %64 ], [ 0, %14 ], [ %.1.i, %33 ], [ 0, %39 ], [ %.1.i22, %50 ], [ 0, %56 ], [ %.1.i26, %62 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %64 ], [ %.1.i, %33 ], [ %.1.i22, %50 ], [ 0, %14 ], [ 0, %39 ], [ 0, %56 ], [ %.1.i26, %62 ]
   ret i32 %.0
 }
 
@@ -12081,7 +12081,7 @@ define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_encode(ptr noundef %0, ptr n
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %66, %56, %50, %35, %29, %13, %68, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %68 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i22, %50 ], [ 0, %56 ], [ %.1.i26, %66 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %68 ], [ %.1.i, %29 ], [ %.1.i22, %50 ], [ 0, %13 ], [ 0, %35 ], [ 0, %56 ], [ %.1.i26, %66 ]
   ret i32 %.0
 }
 
@@ -12263,7 +12263,7 @@ key_to_type_specific_der_bio.exit19:              ; preds = %47, %48
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %54, %40, %34, %15, %56, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ 0, %15 ], [ %.1.i, %34 ], [ 0, %40 ], [ %.1.i14, %54 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ %.1.i, %34 ], [ 0, %15 ], [ 0, %40 ], [ %.1.i14, %54 ]
   ret i32 %.0
 }
 
@@ -12406,7 +12406,7 @@ define internal range(i32 0, 2) i32 @ec_to_EC_pem_encode(ptr noundef %0, ptr nou
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %45, %35, %29, %13, %47, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i14, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ %.1.i, %29 ], [ 0, %13 ], [ 0, %35 ], [ %.1.i14, %45 ]
   ret i32 %.0
 }
 
@@ -12588,7 +12588,7 @@ key_to_type_specific_der_bio.exit19:              ; preds = %47, %48
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %54, %40, %34, %15, %56, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ 0, %15 ], [ %.1.i, %34 ], [ 0, %40 ], [ %.1.i14, %54 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ %.1.i, %34 ], [ 0, %15 ], [ 0, %40 ], [ %.1.i14, %54 ]
   ret i32 %.0
 }
 
@@ -12731,7 +12731,7 @@ define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_encode(ptr noundef %0, ptr n
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %45, %35, %29, %13, %47, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i14, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ %.1.i, %29 ], [ 0, %13 ], [ 0, %35 ], [ %.1.i14, %45 ]
   ret i32 %.0
 }
 
@@ -12986,7 +12986,7 @@ define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_encode(ptr noundef %0, ptr
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %57, %55, %38, %33, %31, %13, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %33 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %33 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -13241,7 +13241,7 @@ define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_encode(ptr noundef %0, 
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %57, %55, %38, %33, %31, %13, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %33 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %33 ], [ 0, %13 ], [ %.1.i, %31 ], [ 0, %38 ], [ %.1.i18, %55 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -13921,7 +13921,7 @@ key_to_type_specific_der_bio.exit19:              ; preds = %47, %48
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %54, %40, %34, %15, %56, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ 0, %15 ], [ %.1.i, %34 ], [ 0, %40 ], [ %.1.i14, %54 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %56 ], [ %.1.i, %34 ], [ 0, %15 ], [ 0, %40 ], [ %.1.i14, %54 ]
   ret i32 %.0
 }
 
@@ -14064,7 +14064,7 @@ define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_encode(ptr noundef %0, ptr 
   br label %key2any_encode.exit
 
 key2any_encode.exit:                              ; preds = %45, %35, %29, %13, %47, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ 0, %13 ], [ %.1.i, %29 ], [ 0, %35 ], [ %.1.i14, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %47 ], [ %.1.i, %29 ], [ 0, %13 ], [ 0, %35 ], [ %.1.i14, %45 ]
   ret i32 %.0
 }
 
@@ -14172,7 +14172,7 @@ define internal i32 @ml_dsa_44_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -14291,7 +14291,7 @@ define internal i32 @ml_dsa_44_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -14896,7 +14896,7 @@ define internal i32 @ml_dsa_65_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -15015,7 +15015,7 @@ define internal i32 @ml_dsa_65_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -15620,7 +15620,7 @@ define internal i32 @ml_dsa_87_to_EncryptedPrivateKeyInfo_der_encode(ptr noundef
   br label %key_to_epki_der_priv_bio.exit
 
 key_to_epki_der_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -15739,7 +15739,7 @@ define internal i32 @ml_dsa_87_to_EncryptedPrivateKeyInfo_pem_encode(ptr noundef
   br label %key_to_epki_pem_priv_bio.exit
 
 key_to_epki_pem_priv_bio.exit:                    ; preds = %29, %22, %19, %14
-  %.1.i = phi i32 [ 0, %19 ], [ 0, %14 ], [ %.015.i, %29 ], [ 0, %22 ]
+  %.1.i = phi i32 [ 0, %14 ], [ 0, %19 ], [ %.015.i, %29 ], [ 0, %22 ]
   %30 = tail call i32 @BIO_free(ptr noundef %16) #5
   br label %key2any_encode.exit
 
@@ -16345,7 +16345,7 @@ define internal range(i32 0, 2) i32 @rsa_check_key_type(ptr noundef %0, i32 noun
   br label %8
 
 8:                                                ; preds = %2, %6, %4
-  %.0.shrunk = phi i1 [ %5, %4 ], [ %7, %6 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %7, %6 ], [ %5, %4 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -16435,7 +16435,7 @@ define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %0, i32 %1, 
   br i1 %.not22, label %.loopexit.sink.split, label %26
 
 26:                                               ; preds = %23, %18
-  %.2 = phi ptr [ %.01730, %18 ], [ %21, %23 ]
+  %.2 = phi ptr [ %21, %23 ], [ %.01730, %18 ]
   %27 = call i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef nonnull %6, i32 noundef -1, ptr noundef %8) #5
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %.loopexit.sink.split, label %28
@@ -16471,7 +16471,7 @@ define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %0, i32 %1, 
   br label %41
 
 .loopexit.sink.split:                             ; preds = %26, %28, %30, %20, %23
-  %.3.ph = phi ptr [ %21, %23 ], [ %21, %20 ], [ %.2, %30 ], [ %.2, %28 ], [ %.2, %26 ]
+  %.3.ph = phi ptr [ %21, %20 ], [ %21, %23 ], [ %.2, %30 ], [ %.2, %28 ], [ %.2, %26 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %6) #5
   br label %.loopexit
 
@@ -16487,7 +16487,7 @@ define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %0, i32 %1, 
   br label %42
 
 42:                                               ; preds = %5, %41, %13, %10
-  %.018 = phi i32 [ 1, %10 ], [ 1, %13 ], [ %.119, %41 ], [ 0, %5 ]
+  %.018 = phi i32 [ %.119, %41 ], [ 1, %10 ], [ 1, %13 ], [ 0, %5 ]
   ret i32 %.018
 }
 
@@ -16730,7 +16730,7 @@ define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %0, i32 %1, i
   br label %prepare_ec_explicit_params.exit
 
 prepare_ec_explicit_params.exit:                  ; preds = %29, %28, %23, %10, %5, %20, %19
-  %.016 = phi i32 [ 0, %19 ], [ 1, %20 ], [ 0, %5 ], [ 0, %10 ], [ 0, %23 ], [ 0, %28 ], [ 1, %29 ]
+  %.016 = phi i32 [ 0, %10 ], [ 0, %5 ], [ 0, %19 ], [ 1, %20 ], [ 0, %23 ], [ 0, %28 ], [ 1, %29 ]
   ret i32 %.016
 }
 
@@ -16873,7 +16873,7 @@ define internal fastcc ptr @key_to_encp8(ptr noundef %0, i32 noundef %1, ptr nou
   br label %p8info_to_encp8.exit
 
 p8info_to_encp8.exit:                             ; preds = %14, %23, %24
-  %.0.i = phi ptr [ %28, %24 ], [ null, %23 ], [ null, %14 ]
+  %.0.i = phi ptr [ null, %23 ], [ %28, %24 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %9) #5

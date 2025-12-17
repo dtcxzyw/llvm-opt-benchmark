@@ -1138,7 +1138,7 @@ build_color_map.exit212:                          ; preds = %365
   br label %.critedge
 
 .critedge:                                        ; preds = %56, %236, %4, %20, %515, %29
-  %.0148 = phi i32 [ -22, %29 ], [ %.0152, %515 ], [ -22, %20 ], [ -22, %4 ], [ -12, %236 ], [ %59, %56 ]
+  %.0148 = phi i32 [ %59, %56 ], [ -22, %29 ], [ %.0152, %515 ], [ -12, %236 ], [ -22, %20 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

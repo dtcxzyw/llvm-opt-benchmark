@@ -33,7 +33,7 @@ define ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %19, label %16, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %16, %4, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %4 ], [ %17, %16 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %6 ], [ %17, %16 ]
   ret ptr %.0
 }
 
@@ -145,8 +145,8 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %72
 
 72:                                               ; preds = %58, %60, %65
-  %.089 = phi ptr [ %71, %65 ], [ %64, %60 ], [ %2, %58 ]
-  %.088 = phi ptr [ %68, %65 ], [ %62, %60 ], [ %2, %58 ]
+  %.089 = phi ptr [ %64, %60 ], [ %71, %65 ], [ %2, %58 ]
+  %.088 = phi ptr [ %62, %60 ], [ %68, %65 ], [ %2, %58 ]
   %73 = tail call ptr @cuddBddComposeRecur(ptr noundef nonnull %0, ptr noundef %.086, ptr noundef %.088, ptr noundef nonnull %3)
   %74 = icmp eq ptr %73, null
   br i1 %74, label %113, label %75
@@ -214,7 +214,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %113
 
 113:                                              ; preds = %72, %32, %20, %109, %99, %84, %25
-  %.0 = phi ptr [ %29, %25 ], [ %112, %109 ], [ null, %84 ], [ null, %99 ], [ %1, %20 ], [ null, %32 ], [ null, %72 ]
+  %.0 = phi ptr [ null, %99 ], [ %29, %25 ], [ %1, %20 ], [ %112, %109 ], [ null, %32 ], [ null, %84 ], [ null, %72 ]
   ret ptr %.0
 }
 
@@ -246,7 +246,7 @@ define ptr @Cudd_addCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %19, label %16, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %16, %4, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %4 ], [ %17, %16 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %6 ], [ %17, %16 ]
   ret ptr %.0
 }
 
@@ -390,7 +390,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %85
 
 85:                                               ; preds = %54, %24, %20, %17, %84, %78, %66
-  %.074 = phi ptr [ %.079, %84 ], [ null, %66 ], [ null, %78 ], [ %1, %17 ], [ %21, %20 ], [ null, %24 ], [ null, %54 ]
+  %.074 = phi ptr [ null, %78 ], [ %1, %17 ], [ %21, %20 ], [ %.079, %84 ], [ null, %24 ], [ null, %66 ], [ null, %54 ]
   ret ptr %.074
 }
 
@@ -560,7 +560,7 @@ define internal fastcc ptr @cuddAddPermuteRecur(ptr noundef %0, ptr noundef nonn
   br label %71
 
 71:                                               ; preds = %68, %29, %12, %10, %4, %.critedge, %55, %28
-  %.0 = phi ptr [ null, %28 ], [ null, %55 ], [ %53, %.critedge ], [ null, %68 ], [ %2, %4 ], [ %11, %10 ], [ null, %12 ], [ null, %29 ]
+  %.0 = phi ptr [ null, %68 ], [ %2, %4 ], [ %11, %10 ], [ null, %28 ], [ null, %12 ], [ null, %55 ], [ %53, %.critedge ], [ null, %29 ]
   ret ptr %.0
 }
 
@@ -806,7 +806,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef nonn
   br label %76
 
 76:                                               ; preds = %69, %21, %4, %.critedge, %56, %37, %15
-  %.0 = phi ptr [ %20, %15 ], [ null, %37 ], [ null, %56 ], [ %75, %.critedge ], [ null, %69 ], [ %2, %4 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %69 ], [ %20, %15 ], [ %2, %4 ], [ null, %37 ], [ null, %56 ], [ %75, %.critedge ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -972,7 +972,7 @@ Abc_Clock.exit:                                   ; preds = %23, %26
   br label %89
 
 89:                                               ; preds = %35, %Abc_Clock.exit, %2, %82, %72, %51, %14
-  %.0 = phi ptr [ %19, %14 ], [ null, %51 ], [ null, %72 ], [ %88, %82 ], [ %1, %2 ], [ null, %Abc_Clock.exit ], [ null, %35 ]
+  %.0 = phi ptr [ %88, %82 ], [ %19, %14 ], [ %1, %2 ], [ null, %Abc_Clock.exit ], [ null, %51 ], [ null, %72 ], [ null, %35 ]
   ret ptr %.0
 }
 
@@ -1271,7 +1271,7 @@ ddIsIthAddVar.exit.thread.split.loop.exit41:      ; preds = %ddIsIthAddVar.exit
   br label %ddIsIthAddVar.exit.thread
 
 ddIsIthAddVar.exit.thread:                        ; preds = %16, %ddIsIthAddVar.exit.thread.split.loop.exit41, %ddIsIthAddVar.exit.thread.split.loop.exit39, %ddIsIthAddVar.exit.thread.split.loop.exit
-  %.024.lcssa = phi i32 [ %indvars.le47, %ddIsIthAddVar.exit.thread.split.loop.exit ], [ %indvars.le45, %ddIsIthAddVar.exit.thread.split.loop.exit39 ], [ %indvars.le, %ddIsIthAddVar.exit.thread.split.loop.exit41 ], [ %15, %16 ]
+  %.024.lcssa = phi i32 [ %indvars.le, %ddIsIthAddVar.exit.thread.split.loop.exit41 ], [ %indvars.le47, %ddIsIthAddVar.exit.thread.split.loop.exit ], [ %indvars.le45, %ddIsIthAddVar.exit.thread.split.loop.exit39 ], [ %15, %16 ]
   %37 = tail call fastcc ptr @cuddAddVectorComposeRecur(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %.024.lcssa)
   %.not27 = icmp eq ptr %37, null
   br i1 %.not27, label %38, label %.thread
@@ -1412,7 +1412,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %61, %5, %17, %15, %8, %.critedge63, %47, %33
-  %.0 = phi ptr [ null, %33 ], [ null, %47 ], [ %45, %.critedge63 ], [ null, %61 ], [ %2, %8 ], [ %16, %15 ], [ null, %17 ], [ %2, %5 ]
+  %.0 = phi ptr [ null, %61 ], [ %2, %8 ], [ %16, %15 ], [ null, %33 ], [ null, %47 ], [ %45, %.critedge63 ], [ null, %17 ], [ %2, %5 ]
   ret ptr %.0
 }
 
@@ -1516,7 +1516,7 @@ ddIsIthAddVarPair.exit.thread.split.loop.exit53:  ; preds = %ddIsIthAddVarPair.e
   br label %ddIsIthAddVarPair.exit.thread
 
 ddIsIthAddVarPair.exit.thread:                    ; preds = %17, %ddIsIthAddVarPair.exit.thread.split.loop.exit53, %ddIsIthAddVarPair.exit.thread.split.loop.exit51, %ddIsIthAddVarPair.exit.thread.split.loop.exit49, %ddIsIthAddVarPair.exit.thread.split.loop.exit47, %ddIsIthAddVarPair.exit.thread.split.loop.exit45, %ddIsIthAddVarPair.exit.thread.split.loop.exit
-  %.027.lcssa = phi i32 [ %indvars.le65, %ddIsIthAddVarPair.exit.thread.split.loop.exit ], [ %indvars.le63, %ddIsIthAddVarPair.exit.thread.split.loop.exit45 ], [ %indvars.le61, %ddIsIthAddVarPair.exit.thread.split.loop.exit47 ], [ %indvars.le59, %ddIsIthAddVarPair.exit.thread.split.loop.exit49 ], [ %indvars.le57, %ddIsIthAddVarPair.exit.thread.split.loop.exit51 ], [ %indvars.le, %ddIsIthAddVarPair.exit.thread.split.loop.exit53 ], [ %16, %17 ]
+  %.027.lcssa = phi i32 [ %indvars.le, %ddIsIthAddVarPair.exit.thread.split.loop.exit53 ], [ %indvars.le65, %ddIsIthAddVarPair.exit.thread.split.loop.exit ], [ %indvars.le63, %ddIsIthAddVarPair.exit.thread.split.loop.exit45 ], [ %indvars.le61, %ddIsIthAddVarPair.exit.thread.split.loop.exit47 ], [ %indvars.le59, %ddIsIthAddVarPair.exit.thread.split.loop.exit49 ], [ %indvars.le57, %ddIsIthAddVarPair.exit.thread.split.loop.exit51 ], [ %16, %17 ]
   %51 = tail call fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.027.lcssa)
   %.not30 = icmp eq ptr %51, null
   br i1 %.not30, label %52, label %.thread
@@ -1700,7 +1700,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %6, %18, %16, %9, %.critedge95, %72, %62, %48, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %48 ], [ null, %62 ], [ null, %72 ], [ %70, %.critedge95 ], [ null, %86 ], [ %2, %9 ], [ %17, %16 ], [ null, %18 ], [ %2, %6 ]
+  %.0 = phi ptr [ null, %86 ], [ %2, %9 ], [ %17, %16 ], [ null, %34 ], [ null, %48 ], [ null, %62 ], [ null, %72 ], [ %70, %.critedge95 ], [ null, %18 ], [ %2, %6 ]
   ret ptr %.0
 }
 
@@ -2216,7 +2216,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   br label %164
 
 164:                                              ; preds = %60, %13, %6, %10, %155, %154, %142, %132, %107, %101, %74
-  %.0 = phi ptr [ null, %74 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %142 ], [ null, %154 ], [ %152, %155 ], [ %1, %10 ], [ %1, %6 ], [ %14, %13 ], [ null, %60 ]
+  %.0 = phi ptr [ %152, %155 ], [ %1, %6 ], [ %14, %13 ], [ null, %74 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %142 ], [ null, %154 ], [ %1, %10 ], [ null, %60 ]
   ret ptr %.0
 }
 
@@ -2424,7 +2424,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %5, %26, %11, %.critedge68, %56, %42, %20
-  %.0 = phi ptr [ %25, %20 ], [ null, %42 ], [ null, %56 ], [ %76, %.critedge68 ], [ null, %70 ], [ %2, %11 ], [ null, %26 ], [ %2, %5 ]
+  %.0 = phi ptr [ null, %70 ], [ %25, %20 ], [ %2, %11 ], [ null, %42 ], [ null, %56 ], [ %76, %.critedge68 ], [ null, %26 ], [ %2, %5 ]
   ret ptr %.0
 }
 

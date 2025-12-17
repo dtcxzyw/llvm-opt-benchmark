@@ -166,7 +166,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread: ; preds = %_Z
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit13
 
 _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit13: ; preds = %45, %47
-  %.0.i.i12 = phi ptr [ %48, %47 ], [ %.010.i, %45 ]
+  %.0.i.i12 = phi ptr [ %.010.i, %45 ], [ %48, %47 ]
   %.not1 = icmp eq ptr %1, %.0.i.i12
   br i1 %.not1, label %53, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit13.thread, !prof !27
 
@@ -298,8 +298,8 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split: ; preds = %83, %81, %85, %86
-  %.sink74 = phi ptr [ %87, %86 ], [ %80, %85 ], [ %80, %81 ], [ %78, %83 ]
-  %.sink = phi ptr [ %90, %86 ], [ %72, %85 ], [ %72, %81 ], [ %72, %83 ]
+  %.sink74 = phi ptr [ %80, %81 ], [ %80, %85 ], [ %87, %86 ], [ %78, %83 ]
+  %.sink = phi ptr [ %72, %81 ], [ %72, %85 ], [ %90, %86 ], [ %72, %83 ]
   %91 = getelementptr inbounds nuw i8, ptr %.sink74, i64 16
   store ptr %.sink, ptr %91, align 8, !tbaa !22
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
@@ -336,7 +336,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit: ; preds = %_ZN12V3
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit23
 
 _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit23: ; preds = %99, %101
-  %.pr53 = phi ptr [ %102, %101 ], [ %98, %99 ]
+  %.pr53 = phi ptr [ %98, %99 ], [ %102, %101 ]
   %.not2 = icmp eq ptr %3, %.pr53
   br i1 %.not2, label %107, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit23.thread, !prof !27
 
@@ -387,7 +387,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit30.thread: ; preds = %
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit34
 
 _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit34: ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit30.thread, %119
-  %.0.i.i33 = phi ptr [ %120, %119 ], [ %117, %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit30.thread ]
+  %.0.i.i33 = phi ptr [ %117, %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit30.thread ], [ %120, %119 ]
   %.not3 = icmp eq ptr %2, %.0.i.i33
   br i1 %.not3, label %125, label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit34.thread, !prof !27
 

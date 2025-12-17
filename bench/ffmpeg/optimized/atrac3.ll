@@ -211,7 +211,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac3_decode_init(ptr noundef %0
   br label %129
 
 78:                                               ; preds = %74, %.thread144, %.thread144.thread
-  %.str.16.sink = phi ptr [ @.str.14, %.thread144.thread ], [ @.str.14, %.thread144 ], [ @.str.16, %74 ]
+  %.str.16.sink = phi ptr [ @.str.14, %.thread144 ], [ @.str.14, %.thread144.thread ], [ @.str.16, %74 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull %.str.16.sink) #9
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %80 = load i32, ptr %79, align 4, !tbaa !40
@@ -313,7 +313,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac3_decode_init(ptr noundef %0
   br label %129
 
 129:                                              ; preds = %121, %115, %82, %78, %127, %99, %77, %76, %72, %70, %66, %49, %48, %10
-  %.0 = phi i32 [ -22, %10 ], [ -1094995529, %66 ], [ -1094995529, %70 ], [ -1094995529, %72 ], [ %93, %99 ], [ 0, %127 ], [ -1094995529, %76 ], [ -1094995529, %77 ], [ -1094995529, %48 ], [ -22, %49 ], [ -22, %78 ], [ -12, %82 ], [ -12, %115 ], [ -12, %121 ]
+  %.0 = phi i32 [ -22, %10 ], [ -1094995529, %66 ], [ -1094995529, %70 ], [ -1094995529, %72 ], [ -22, %49 ], [ %93, %99 ], [ 0, %127 ], [ -12, %115 ], [ -12, %82 ], [ -22, %78 ], [ -1094995529, %76 ], [ -1094995529, %77 ], [ -1094995529, %48 ], [ -12, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -830,8 +830,8 @@ reverse_matrixing.exit.i:                         ; preds = %.loopexit.i.i
   br label %get_channel_weights.exit.i.i
 
 get_channel_weights.exit.i.i:                     ; preds = %267, %258, %255
-  %.sroa.6.0.i.i = phi nsz float [ %266, %258 ], [ %263, %267 ], [ 1.000000e+00, %255 ]
-  %.sroa.0.0.i.i = phi nsz float [ %263, %258 ], [ %266, %267 ], [ 1.000000e+00, %255 ]
+  %.sroa.6.0.i.i = phi nsz float [ %263, %267 ], [ %266, %258 ], [ 1.000000e+00, %255 ]
+  %.sroa.0.0.i.i = phi nsz float [ %266, %267 ], [ %263, %258 ], [ 1.000000e+00, %255 ]
   %268 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %269 = load i32, ptr %268, align 4, !tbaa !43
   %270 = icmp eq i32 %269, 7
@@ -853,8 +853,8 @@ get_channel_weights.exit.i.i:                     ; preds = %267, %258, %255
   br label %get_channel_weights.exit30.i.i
 
 get_channel_weights.exit30.i.i:                   ; preds = %280, %271, %get_channel_weights.exit.i.i
-  %.sroa.15.0.i.i = phi nsz float [ %279, %271 ], [ %276, %280 ], [ 1.000000e+00, %get_channel_weights.exit.i.i ]
-  %.sroa.10.0.i.i = phi nsz float [ %276, %271 ], [ %279, %280 ], [ 1.000000e+00, %get_channel_weights.exit.i.i ]
+  %.sroa.15.0.i.i = phi nsz float [ %276, %280 ], [ %279, %271 ], [ 1.000000e+00, %get_channel_weights.exit.i.i ]
+  %.sroa.10.0.i.i = phi nsz float [ %279, %280 ], [ %276, %271 ], [ 1.000000e+00, %get_channel_weights.exit.i.i ]
   %281 = fpext nsz float %.sroa.0.0.i.i to double
   %282 = fsub nsz float %.sroa.6.0.i.i, %.sroa.0.0.i.i
   %283 = fpext nsz float %282 to double
@@ -989,8 +989,8 @@ channel_weighting.exit.i:                         ; preds = %.loopexit.i184.i, %
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count257.i
   br i1 %exitcond258.not.i, label %decode_frame.exit, label %333, !llvm.loop !83
 
-.loopexit:                                        ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %172, %._crit_edge.i35, %95, %.lr.ph211.i
-  %.1.i.ph = phi i32 [ -1094995529, %.lr.ph211.i ], [ %179, %172 ], [ -1094995529, %._crit_edge.i35 ], [ %107, %95 ], [ %71, %.lr.ph.split.us.i ], [ %329, %.lr.ph.split.i ]
+.loopexit:                                        ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %95, %._crit_edge.i35, %172, %.lr.ph211.i
+  %.1.i.ph = phi i32 [ %71, %.lr.ph.split.us.i ], [ -1094995529, %.lr.ph211.i ], [ %179, %172 ], [ %107, %95 ], [ -1094995529, %._crit_edge.i35 ], [ %329, %.lr.ph.split.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20) #9
   br label %349
 
@@ -1000,7 +1000,7 @@ decode_frame.exit:                                ; preds = %333, %.thread191.i,
   br label %349
 
 349:                                              ; preds = %15, %decode_frame.exit, %.loopexit, %14
-  %.025 = phi i32 [ -1094995529, %14 ], [ %.1.i.ph, %.loopexit ], [ %348, %decode_frame.exit ], [ %17, %15 ]
+  %.025 = phi i32 [ -1094995529, %14 ], [ %348, %decode_frame.exit ], [ %.1.i.ph, %.loopexit ], [ %17, %15 ]
   ret i32 %.025
 }
 
@@ -1151,7 +1151,7 @@ al_decode_frame.exit:                             ; preds = %31
   br label %72
 
 72:                                               ; preds = %4, %.loopexit, %al_decode_frame.exit
-  %.0 = phi i32 [ %38, %al_decode_frame.exit ], [ %71, %.loopexit ], [ %6, %4 ]
+  %.0 = phi i32 [ %71, %.loopexit ], [ %38, %al_decode_frame.exit ], [ %6, %4 ]
   ret i32 %.0
 }
 
@@ -1804,7 +1804,7 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   br i1 %exitcond147.not.i, label %._crit_edge104.i, label %322, !llvm.loop !109
 
 ._crit_edge104.i:                                 ; preds = %322, %read_quant_spectral_coeffs.exit.i, %read_quant_spectral_coeffs.exit.thread167.i
-  %.promoted109131164.i = phi i32 [ %.promoted109131.i, %read_quant_spectral_coeffs.exit.i ], [ %237, %read_quant_spectral_coeffs.exit.thread167.i ], [ %.promoted109131165.i, %322 ]
+  %.promoted109131164.i = phi i32 [ %237, %read_quant_spectral_coeffs.exit.thread167.i ], [ %.promoted109131.i, %read_quant_spectral_coeffs.exit.i ], [ %.promoted109131165.i, %322 ]
   %indvars.iv.next149.i = add nsw i64 %indvars.iv148.i, 1
   %328 = add nuw nsw i32 %.063106.i, 1
   %exitcond153.not.i = icmp eq i32 %328, %210
@@ -2379,7 +2379,7 @@ imlt.exit:                                        ; preds = %.preheader.i95, %60
   br label %decode_gain_control.exit
 
 decode_gain_control.exit:                         ; preds = %101, %decode_tonal_components.exit.thread, %decode_tonal_components.exit, %626, %42, %38
-  %.0 = phi i32 [ -1094995529, %38 ], [ 0, %626 ], [ -1094995529, %42 ], [ %.270.lcssa.i, %decode_tonal_components.exit ], [ -1094995529, %decode_tonal_components.exit.thread ], [ -1094995529, %101 ]
+  %.0 = phi i32 [ -1094995529, %38 ], [ -1094995529, %42 ], [ %.270.lcssa.i, %decode_tonal_components.exit ], [ 0, %626 ], [ -1094995529, %decode_tonal_components.exit.thread ], [ -1094995529, %101 ]
   ret i32 %.0
 }
 

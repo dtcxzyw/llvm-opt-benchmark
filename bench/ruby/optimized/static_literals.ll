@@ -270,7 +270,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   br label %pm_node_hash_insert.exit
 
 pm_node_hash_insert.exit:                         ; preds = %71, %.loopexit, %._crit_edge64.thread.i, %28, %5, %115, %111, %110, %106, %105, %101, %100, %96, %90, %84, %78, %72, %13
-  %.0 = phi ptr [ %17, %13 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %98, %96 ], [ %98, %100 ], [ %103, %101 ], [ %103, %105 ], [ %108, %106 ], [ %108, %110 ], [ %113, %111 ], [ %113, %115 ], [ null, %5 ], [ %.pre70.pre.i, %.loopexit ], [ %.pre70.pre.i, %71 ], [ null, %._crit_edge64.thread.i ], [ null, %28 ]
+  %.0 = phi ptr [ %113, %115 ], [ %17, %13 ], [ null, %5 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %108, %110 ], [ %98, %100 ], [ %103, %105 ], [ %98, %96 ], [ %103, %101 ], [ %108, %106 ], [ %113, %111 ], [ null, %28 ], [ %.pre70.pre.i, %.loopexit ], [ %.pre70.pre.i, %71 ], [ null, %._crit_edge64.thread.i ]
   ret ptr %.0
 }
 
@@ -398,7 +398,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %11, %50, %55, %54
-  %.1 = phi ptr [ %.pre70.pre, %54 ], [ %.pre70.pre, %55 ], [ null, %50 ], [ null, %11 ]
+  %.1 = phi ptr [ null, %11 ], [ %.pre70.pre, %54 ], [ %.pre70.pre, %55 ], [ null, %50 ]
   ret ptr %.1
 }
 
@@ -480,8 +480,8 @@ pm_int64_value.exit:                              ; preds = %3
   %50 = select i1 %48, i64 %49, i64 %45
   br label %pm_int64_value.exit17
 
-pm_int64_value.exit.thread:                       ; preds = %13, %18, %9, %pm_int64_value.exit
-  %.1.i19 = phi i64 [ %33, %pm_int64_value.exit ], [ 0, %9 ], [ %17, %13 ], [ %26, %18 ]
+pm_int64_value.exit.thread:                       ; preds = %18, %13, %9, %pm_int64_value.exit
+  %.1.i19 = phi i64 [ %33, %pm_int64_value.exit ], [ 0, %9 ], [ %26, %18 ], [ %17, %13 ]
   %51 = load ptr, ptr %0, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !47
@@ -493,8 +493,8 @@ pm_int64_value.exit.thread:                       ; preds = %13, %18, %9, %pm_in
   br label %pm_int64_value.exit17
 
 pm_int64_value.exit17:                            ; preds = %pm_int64_value.exit, %37, %42, %pm_int64_value.exit.thread
-  %.1.i20 = phi i64 [ %.1.i19, %pm_int64_value.exit.thread ], [ %33, %37 ], [ %33, %42 ], [ %33, %pm_int64_value.exit ]
-  %.1.i15 = phi i64 [ %57, %pm_int64_value.exit.thread ], [ %41, %37 ], [ %50, %42 ], [ 0, %pm_int64_value.exit ]
+  %.1.i20 = phi i64 [ %33, %42 ], [ %.1.i19, %pm_int64_value.exit.thread ], [ %33, %37 ], [ %33, %pm_int64_value.exit ]
+  %.1.i15 = phi i64 [ %50, %42 ], [ %57, %pm_int64_value.exit.thread ], [ %41, %37 ], [ 0, %pm_int64_value.exit ]
   %58 = tail call i32 @llvm.scmp.i32.i64(i64 %.1.i20, i64 %.1.i15)
   br label %63
 
@@ -572,7 +572,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %14, %24, %22, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %23, %22 ], [ %32, %24 ], [ %21, %18 ], [ %17, %14 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %17, %14 ], [ %32, %24 ], [ %23, %22 ], [ %21, %18 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -598,7 +598,7 @@ define internal i32 @pm_compare_string_nodes(ptr readnone captures(none) %0, ptr
   br label %pm_string_value.exit
 
 pm_string_value.exit:                             ; preds = %3, %5, %7, %9
-  %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ null, %3 ]
+  %.0.i = phi ptr [ %10, %9 ], [ %6, %5 ], [ %8, %7 ], [ null, %3 ]
   %11 = load i16, ptr %2, align 8, !tbaa !7
   switch i16 %11, label %pm_string_value.exit5 [
     i16 141, label %12
@@ -619,7 +619,7 @@ pm_string_value.exit:                             ; preds = %3, %5, %7, %9
   br label %pm_string_value.exit5
 
 pm_string_value.exit5:                            ; preds = %pm_string_value.exit, %12, %14, %16
-  %.0.i4 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %pm_string_value.exit ]
+  %.0.i4 = phi ptr [ %17, %16 ], [ %13, %12 ], [ %15, %14 ], [ null, %pm_string_value.exit ]
   %18 = tail call i32 @pm_string_compare(ptr noundef %.0.i, ptr noundef %.0.i4) #9
   ret i32 %18
 }
@@ -830,8 +830,8 @@ tailrecurse.i:                                    ; preds = %49, %37
   %40 = load i16, ptr %.tr.i, align 8, !tbaa !7
   switch i16 %40, label %pm_static_literal_positive_p.exit.thread [
     i16 54, label %41
-    i16 82, label %45
-    i16 123, label %pm_static_literal_positive_p.exit
+    i16 82, label %pm_static_literal_positive_p.exit
+    i16 123, label %45
     i16 68, label %49
   ]
 
@@ -1296,7 +1296,7 @@ integer_hash.exit69:                              ; preds = %murmur_hash.exit.i6
   br label %common.ret209
 
 common.ret209:                                    ; preds = %2, %murmur_hash.exit127, %murmur_hash.exit110, %murmur_hash.exit93, %murmur_hash.exit76, %integer_hash.exit69, %murmur_hash.exit41, %.lr.ph.i, %integer_hash.exit, %193
-  %common.ret209.op = phi i32 [ %204, %193 ], [ %spec.select.i, %integer_hash.exit ], [ %74, %.lr.ph.i ], [ %97, %murmur_hash.exit41 ], [ %192, %integer_hash.exit69 ], [ %257, %murmur_hash.exit76 ], [ %300, %murmur_hash.exit93 ], [ %352, %murmur_hash.exit110 ], [ %404, %murmur_hash.exit127 ], [ 0, %2 ]
+  %common.ret209.op = phi i32 [ %204, %193 ], [ %352, %murmur_hash.exit110 ], [ %404, %murmur_hash.exit127 ], [ %spec.select.i, %integer_hash.exit ], [ %74, %.lr.ph.i ], [ %97, %murmur_hash.exit41 ], [ %192, %integer_hash.exit69 ], [ 0, %2 ], [ %257, %murmur_hash.exit76 ], [ %300, %murmur_hash.exit93 ]
   ret i32 %common.ret209.op
 
 193:                                              ; preds = %2
@@ -1740,9 +1740,9 @@ attributes #10 = { memory(none) }
 !52 = !{!"", !14, i64 0, !40, i64 8, !12, i64 16}
 !53 = !{!10, !10, i64 0}
 !54 = !{!55, !42, i64 44}
-!55 = !{!"pm_integer_node", !8, i64 0, !39, i64 24}
+!55 = !{!"pm_rational_node", !8, i64 0, !39, i64 24, !39, i64 48}
 !56 = !{!57, !42, i64 44}
-!57 = !{!"pm_rational_node", !8, i64 0, !39, i64 24, !39, i64 48}
+!57 = !{!"pm_integer_node", !8, i64 0, !39, i64 24}
 !58 = !{!8, !9, i64 2}
 !59 = !{!39, !40, i64 0}
 !60 = distinct !{!60, !28}

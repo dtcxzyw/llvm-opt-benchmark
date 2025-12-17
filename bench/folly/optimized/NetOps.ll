@@ -351,7 +351,7 @@ define noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsgh
   br label %_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr.exit
 
 _ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr.exit: ; preds = %17, %6, %3, %23
-  %30 = phi ptr [ %29, %23 ], [ null, %3 ], [ null, %6 ], [ %spec.select.i.i, %17 ]
+  %30 = phi ptr [ %29, %23 ], [ null, %6 ], [ null, %3 ], [ %spec.select.i.i, %17 ]
   ret ptr %30
 }
 
@@ -384,7 +384,7 @@ define noundef ptr @_ZN5folly6netops9Msgheader11cmsgNextHrdEP7cmsghdr(ptr nounde
   br label %__cmsg_nxthdr.exit
 
 __cmsg_nxthdr.exit:                               ; preds = %2, %5, %16
-  %.0.i = phi ptr [ null, %2 ], [ null, %5 ], [ %spec.select.i, %16 ]
+  %.0.i = phi ptr [ null, %5 ], [ null, %2 ], [ %spec.select.i, %16 ]
   ret ptr %.0.i
 }
 

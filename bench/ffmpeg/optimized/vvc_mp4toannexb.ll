@@ -385,7 +385,7 @@ bytestream2_get_be16.exit163.i:                   ; preds = %.lr.ph.i
   br label %196
 
 vvc_extradata_to_annexb.exit:                     ; preds = %.lr.ph.i, %bytestream2_get_be16.exit163.i, %155, %160, %164, %147
-  %.1114.ph.i = phi i32 [ -1094995529, %147 ], [ %168, %164 ], [ -1094995529, %bytestream2_get_be16.exit163.i ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %.lr.ph.i ]
+  %.1114.ph.i = phi i32 [ -1094995529, %147 ], [ -1094995529, %bytestream2_get_be16.exit163.i ], [ %168, %164 ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %.lr.ph.i ]
   call void @av_freep(ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %198
@@ -518,7 +518,7 @@ bytestream2_get_byte.exit.us:                     ; preds = %50, %.preheader142.
   br i1 %56, label %.thread138, label %28
 
 .lr.ph168:                                        ; preds = %bytestream2_peek_be16.exit.us, %bytestream2_peek_be16.exit.thread.us
-  %.not73.lcssa = phi i1 [ false, %bytestream2_peek_be16.exit.thread.us ], [ true, %bytestream2_peek_be16.exit.us ]
+  %.not73.lcssa = phi i1 [ true, %bytestream2_peek_be16.exit.us ], [ false, %bytestream2_peek_be16.exit.thread.us ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -654,8 +654,8 @@ bytestream2_peek_be16.exit83:                     ; preds = %81, %83
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %.thread138, label %.sink.split
 
-.thread138:                                       ; preds = %28, %._crit_edge.us, %.lr.ph153.split.us, %99, %bytestream2_peek_be16.exit83, %._crit_edge, %76, %60, %.lr.ph153, %._crit_edge169
-  %.265141 = phi i32 [ %128, %._crit_edge169 ], [ -1094995529, %.lr.ph153 ], [ -1094995529, %60 ], [ -1094995529, %76 ], [ -1094995529, %._crit_edge ], [ -1094995529, %bytestream2_peek_be16.exit83 ], [ %103, %99 ], [ -1094995529, %.lr.ph153.split.us ], [ -1094995529, %._crit_edge.us ], [ -1094995529, %28 ]
+.thread138:                                       ; preds = %28, %._crit_edge.us, %.lr.ph153.split.us, %99, %76, %bytestream2_peek_be16.exit83, %._crit_edge, %60, %.lr.ph153, %._crit_edge169
+  %.265141 = phi i32 [ %128, %._crit_edge169 ], [ -1094995529, %.lr.ph153 ], [ -1094995529, %bytestream2_peek_be16.exit83 ], [ -1094995529, %76 ], [ %103, %99 ], [ -1094995529, %60 ], [ -1094995529, %._crit_edge ], [ -1094995529, %.lr.ph153.split.us ], [ -1094995529, %._crit_edge.us ], [ -1094995529, %28 ]
   call void @av_packet_unref(ptr noundef %1) #7
   br label %.sink.split
 

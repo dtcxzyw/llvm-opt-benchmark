@@ -240,7 +240,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -542,7 +542,7 @@ x64_type_is_structure.exit:                       ; preds = %48
   br label %x64_indirect_return_result.exit
 
 x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82, %63, %.critedge.i, %37, %18, %._crit_edge, %5
-  %.024 = phi ptr [ %9, %5 ], [ %92, %._crit_edge ], [ %19, %18 ], [ %38, %37 ], [ %39, %.critedge.i ], [ %64, %63 ], [ %83, %82 ], [ %84, %.critedge.i32 ]
+  %.024 = phi ptr [ %9, %5 ], [ %92, %._crit_edge ], [ %39, %.critedge.i ], [ %19, %18 ], [ %38, %37 ], [ %64, %63 ], [ %83, %82 ], [ %84, %.critedge.i32 ]
   ret ptr %.024
 }
 
@@ -919,7 +919,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   unreachable
 
 x64_merge.exit:                                   ; preds = %55, %60, %61, %62
-  %.0.i = phi i32 [ %spec.select.i, %61 ], [ 3, %62 ], [ %57, %55 ], [ %spec.select15.i, %60 ]
+  %.0.i = phi i32 [ 3, %62 ], [ %57, %55 ], [ %spec.select.i, %61 ], [ %spec.select15.i, %60 ]
   store i32 %.0.i, ptr %3, align 4
   %64 = load i32, ptr %4, align 4
   %65 = load i32, ptr %8, align 4
@@ -952,7 +952,7 @@ x64_merge.exit:                                   ; preds = %55, %60, %61, %62
   unreachable
 
 x64_merge.exit63:                                 ; preds = %x64_merge.exit, %67, %68, %69
-  %.0.i62 = phi i32 [ 2, %68 ], [ 3, %69 ], [ %64, %x64_merge.exit ], [ %spec.select15.i61, %67 ]
+  %.0.i62 = phi i32 [ 3, %69 ], [ %64, %x64_merge.exit ], [ %spec.select15.i61, %67 ], [ 2, %68 ]
   store i32 %.0.i62, ptr %4, align 4
   %71 = load i32, ptr %3, align 4
   %72 = icmp eq i32 %71, 1
@@ -1263,7 +1263,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   unreachable
 
 x64_merge.exit:                                   ; preds = %.lr.ph, %43, %44, %45
-  %.0.i = phi i32 [ %spec.select.i, %44 ], [ 3, %45 ], [ %40, %.lr.ph ], [ %spec.select15.i, %43 ]
+  %.0.i = phi i32 [ 3, %45 ], [ %40, %.lr.ph ], [ %spec.select.i, %44 ], [ %spec.select15.i, %43 ]
   store i32 %.0.i, ptr %3, align 4
   %47 = load i32, ptr %4, align 4
   %48 = load i32, ptr %8, align 4
@@ -1296,7 +1296,7 @@ x64_merge.exit:                                   ; preds = %.lr.ph, %43, %44, %
   unreachable
 
 x64_merge.exit42:                                 ; preds = %x64_merge.exit, %50, %51, %52
-  %.0.i41 = phi i32 [ 2, %51 ], [ 3, %52 ], [ %47, %x64_merge.exit ], [ %spec.select15.i40, %50 ]
+  %.0.i41 = phi i32 [ 3, %52 ], [ %47, %x64_merge.exit ], [ %spec.select15.i40, %50 ], [ 2, %51 ]
   store i32 %.0.i41, ptr %4, align 4
   %54 = load i32, ptr %3, align 4
   %55 = icmp eq i32 %54, 1
@@ -1499,7 +1499,7 @@ define dso_local noundef zeroext i1 @x64_bits_contain_no_user_data(ptr noundef %
   br i1 %42, label %31, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.lr.ph, %31, %18, %.lr.ph64, %13, %23, %28, %7, %5, %3
-  %.044 = phi i1 [ true, %3 ], [ false, %5 ], [ true, %7 ], [ true, %28 ], [ true, %23 ], [ false, %18 ], [ true, %.lr.ph64 ], [ true, %13 ], [ false, %37 ], [ true, %.lr.ph ], [ true, %31 ]
+  %.044 = phi i1 [ true, %28 ], [ false, %5 ], [ true, %3 ], [ true, %7 ], [ true, %13 ], [ true, %23 ], [ false, %18 ], [ true, %.lr.ph64 ], [ true, %31 ], [ false, %37 ], [ true, %.lr.ph ]
   ret i1 %.044
 }
 
@@ -1803,7 +1803,7 @@ x64_get_member_at_offset.exit.thread:             ; preds = %.lr.ph.preheader.i,
   br label %abi_type_get_int_bits.exit
 
 abi_type_get_int_bits.exit:                       ; preds = %80, %78, %10, %8, %72, %59, %55, %51, %47
-  %.sroa.0.0 = phi ptr [ %73, %72 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ], [ %5, %8 ], [ %5, %10 ], [ %82, %80 ], [ %79, %78 ]
+  %.sroa.0.0 = phi ptr [ %73, %72 ], [ %5, %10 ], [ %82, %80 ], [ %5, %8 ], [ %79, %78 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1924,8 +1924,8 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   unreachable
 
 .critedge:                                        ; preds = %57, %35, %5
-  %60 = phi i32 [ %37, %35 ], [ %6, %5 ], [ %.pr.pre, %57 ]
-  %.sroa.07.0 = phi ptr [ %36, %35 ], [ null, %5 ], [ %58, %57 ]
+  %60 = phi i32 [ %6, %5 ], [ %37, %35 ], [ %.pr.pre, %57 ]
+  %.sroa.07.0 = phi ptr [ null, %5 ], [ %36, %35 ], [ %58, %57 ]
   switch i32 %60, label %.thread [
     i32 4, label %65
     i32 3, label %63
@@ -2465,7 +2465,7 @@ tailrecurse.i121.backedge:                        ; preds = %222, %x64_get_membe
   br label %tailrecurse.i121
 
 x64_get_fp_type_at_offset.exit142:                ; preds = %194, %191, %181
-  %228 = phi i32 [ 2, %181 ], [ 2, %194 ], [ 4, %191 ]
+  %228 = phi i32 [ 2, %181 ], [ 4, %191 ], [ 2, %194 ]
   %229 = tail call ptr @type_get_vector(ptr noundef nonnull %.tr.i, i32 noundef %228) #8
   br label %x64_get_fp_type_at_offset.exit120.thread
 
@@ -2510,7 +2510,7 @@ x64_get_fp_type_at_offset.exit142:                ; preds = %194, %191, %181
   br label %x64_get_fp_type_at_offset.exit120.thread
 
 x64_get_fp_type_at_offset.exit120.thread:         ; preds = %122, %107, %x64_get_fp_type_at_offset.exit, %x64_get_fp_type_at_offset.exit.thread, %250, %247, %x64_get_fp_type_at_offset.exit142, %160
-  %.063 = phi ptr [ %161, %160 ], [ %229, %x64_get_fp_type_at_offset.exit142 ], [ %249, %247 ], [ %251, %250 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %49, %x64_get_fp_type_at_offset.exit ], [ %.tr.i, %107 ], [ %.tr.i, %122 ]
+  %.063 = phi ptr [ %49, %x64_get_fp_type_at_offset.exit ], [ %161, %160 ], [ %229, %x64_get_fp_type_at_offset.exit142 ], [ %249, %247 ], [ %251, %250 ], [ %15, %x64_get_fp_type_at_offset.exit.thread ], [ %.tr.i, %107 ], [ %.tr.i, %122 ]
   ret ptr %.063
 }
 
@@ -2558,7 +2558,7 @@ define internal fastcc ptr @x64_get_byte_vector_type(ptr noundef %0) unnamed_add
   br label %22
 
 22:                                               ; preds = %.sink.split, %1, %5, %8
-  %.sroa.0.0 = phi ptr [ %3, %8 ], [ %3, %5 ], [ %3, %1 ], [ %21, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ %3, %8 ], [ %3, %1 ], [ %3, %5 ], [ %21, %.sink.split ]
   ret ptr %.sroa.0.0
 }
 

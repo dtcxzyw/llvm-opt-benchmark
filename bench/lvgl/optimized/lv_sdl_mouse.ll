@@ -98,7 +98,7 @@ define void @lv_sdl_mouse_handler(ptr noundef readonly captures(none) %0) local_
   br label %4
 
 4:                                                ; preds = %1, %1, %1, %1, %3
-  %.sink = phi i64 [ 44, %3 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
+  %.sink = phi i64 [ 8, %1 ], [ 44, %3 ], [ 8, %1 ], [ 8, %1 ], [ 8, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load i32, ptr %5, align 4, !tbaa !20
   %6 = tail call ptr @lv_sdl_get_disp_from_win_id(i32 noundef %.0) #2

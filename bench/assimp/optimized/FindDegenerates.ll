@@ -537,7 +537,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit241, %.loopexit.loopexit.split.loop.exit243, %61, %58, %55
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit241 ], [ %64, %.loopexit.loopexit.split.loop.exit243 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %58 ], [ %.029.lcssa.i.i.i.i, %55 ], [ %.2.i.i.i.i, %61 ], [ %64, %.loopexit.loopexit.split.loop.exit243 ], [ %63, %.loopexit.loopexit.split.loop.exit241 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
   %65 = icmp eq ptr %41, %.028.i.i.i.i
   br i1 %65, label %.thread, label %.loopexit..thread148_crit_edge
 
@@ -861,7 +861,7 @@ _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiV
   br label %219
 
 .critedge.thread:                                 ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %199, %.critedge, %204, %207
-  %.1 = phi i1 [ false, %207 ], [ false, %204 ], [ false, %.critedge ], [ true, %199 ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
+  %.1 = phi i1 [ false, %.critedge ], [ false, %207 ], [ false, %204 ], [ true, %199 ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %210 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %210, null
@@ -1342,9 +1342,9 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
   %.pre = load i32, ptr %3, align 8
   br label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread
 
-_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %22, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %22 ], [ %13, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %.preheader ], [ %13, %.lr.ph.i.i.i.i ]
-  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01828, %22 ], [ %.01828, %..loopexit_crit_edge21.i.i.i.i ], [ %.01828, %.preheader ], [ %.01828, %.lr.ph.i.i.i.i ]
+_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %22, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
+  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %22 ], [ %13, %.preheader ], [ %13, %.lr.ph.i.i.i.i ]
+  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01828, %..loopexit_crit_edge21.i.i.i.i ], [ %.01828, %22 ], [ %.01828, %.preheader ], [ %.01828, %.lr.ph.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next, %48

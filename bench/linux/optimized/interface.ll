@@ -1637,7 +1637,7 @@ define dso_local i32 @rtc_set_time(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br label %trace_rtc_set_time.exit
 
 trace_rtc_set_time.exit:                          ; preds = %50, %115, %111, %98, %95, %68, %27, %92, %69, %2
-  %118 = phi i32 [ %3, %2 ], [ -22, %68 ], [ %71, %69 ], [ %93, %92 ], [ -34, %27 ], [ %96, %95 ], [ %96, %98 ], [ %96, %111 ], [ %96, %115 ], [ %52, %50 ]
+  %118 = phi i32 [ %96, %115 ], [ %3, %2 ], [ %93, %92 ], [ -22, %68 ], [ %71, %69 ], [ -34, %27 ], [ %96, %95 ], [ %96, %98 ], [ %96, %111 ], [ %52, %50 ]
   ret i32 %118
 }
 
@@ -2104,7 +2104,7 @@ define dso_local i32 @__rtc_read_alarm(ptr noundef %0, ptr noundef %1) local_unn
   br label %.thread
 
 .thread:                                          ; preds = %66, %95, %24, %7, %156, %196, %.thread17, %.loopexit, %92, %86, %75, %71, %2
-  %197 = phi i32 [ %5, %2 ], [ %193, %196 ], [ %193, %.thread17 ], [ 0, %.loopexit ], [ 0, %71 ], [ 0, %75 ], [ 0, %86 ], [ 0, %92 ], [ 0, %156 ], [ %22, %7 ], [ %44, %66 ], [ %96, %95 ], [ %25, %24 ]
+  %197 = phi i32 [ %5, %2 ], [ %193, %196 ], [ %193, %.thread17 ], [ 0, %.loopexit ], [ 0, %71 ], [ 0, %75 ], [ 0, %86 ], [ 0, %92 ], [ 0, %156 ], [ %22, %7 ], [ %96, %95 ], [ %44, %66 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %197
@@ -2729,7 +2729,7 @@ __rtc_read_time.exit.thread.sink.split:           ; preds = %106, %111, %138
   br label %__rtc_read_time.exit.thread
 
 __rtc_read_time.exit.thread:                      ; preds = %__rtc_read_time.exit.thread.sink.split, %11, %2, %15, %80, %__rtc_read_time.exit
-  %139 = phi i32 [ %44, %__rtc_read_time.exit ], [ 0, %80 ], [ -22, %11 ], [ -19, %2 ], [ %18, %15 ], [ %.ph, %__rtc_read_time.exit.thread.sink.split ]
+  %139 = phi i32 [ %44, %__rtc_read_time.exit ], [ -19, %2 ], [ %18, %15 ], [ 0, %80 ], [ -22, %11 ], [ %.ph, %__rtc_read_time.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %139
 }

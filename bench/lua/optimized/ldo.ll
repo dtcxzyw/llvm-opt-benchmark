@@ -68,7 +68,7 @@ define hidden void @luaD_seterrorobj(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %24
 
 24:                                               ; preds = %3, %17, %12, %4
-  %.sink = phi i8 [ %23, %17 ], [ %16, %12 ], [ %11, %4 ], [ 0, %3 ]
+  %.sink = phi i8 [ %23, %17 ], [ %11, %4 ], [ %16, %12 ], [ 0, %3 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sink, ptr %25, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1821,8 +1821,8 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %prepCallInfo.exit.i52, %prepCallInfo.exit.i
-  %.sink94 = phi ptr [ %14, %prepCallInfo.exit.i ], [ %46, %prepCallInfo.exit.i52 ], [ %.sink94.ph, %.loopexit.sink.split.sink.split ]
-  %.sink = phi ptr [ %39, %prepCallInfo.exit.i ], [ %71, %prepCallInfo.exit.i52 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ]
+  %.sink94 = phi ptr [ %46, %prepCallInfo.exit.i52 ], [ %14, %prepCallInfo.exit.i ], [ %.sink94.ph, %.loopexit.sink.split.sink.split ]
+  %.sink = phi ptr [ %71, %prepCallInfo.exit.i52 ], [ %39, %prepCallInfo.exit.i ], [ %.sink.ph, %.loopexit.sink.split.sink.split ]
   %172 = tail call i32 %.sink94(ptr noundef nonnull %0) #13
   tail call void @luaD_poscall(ptr noundef nonnull %0, ptr noundef nonnull %.sink, i32 noundef %172)
   br label %.loopexit

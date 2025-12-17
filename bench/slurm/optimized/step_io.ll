@@ -494,7 +494,7 @@ _outgoing_buf_free.exit:                          ; preds = %13
   tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.28) #10
   br label %79
 
-28:                                               ; preds = %17, %7
+28:                                               ; preds = %7, %17
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %30 = load i8, ptr %29, align 4, !range !8, !noundef !9
   %31 = trunc nuw i8 %30 to i1
@@ -593,7 +593,7 @@ _outgoing_buf_free.exit:                          ; preds = %13
   br label %79
 
 79:                                               ; preds = %75, %78, %71, %74, %53, %56, %32, %35, %_outgoing_buf_free.exit, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %_outgoing_buf_free.exit ], [ false, %35 ], [ false, %32 ], [ true, %56 ], [ true, %53 ], [ false, %74 ], [ false, %71 ], [ false, %78 ], [ false, %75 ]
+  %.0 = phi i1 [ false, %_outgoing_buf_free.exit ], [ false, %32 ], [ true, %53 ], [ false, %71 ], [ false, %27 ], [ false, %35 ], [ true, %56 ], [ false, %74 ], [ false, %78 ], [ false, %75 ]
   ret i1 %.0
 }
 
@@ -674,7 +674,7 @@ define internal noundef zeroext i1 @_server_writable(ptr noundef readonly captur
   br label %41
 
 41:                                               ; preds = %37, %40, %30, %33, %19, %22, %11, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %11 ], [ false, %22 ], [ false, %19 ], [ true, %33 ], [ true, %30 ], [ false, %40 ], [ false, %37 ]
+  %.0 = phi i1 [ true, %30 ], [ false, %11 ], [ false, %19 ], [ false, %14 ], [ false, %22 ], [ true, %33 ], [ false, %40 ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -725,7 +725,7 @@ define internal range(i32 -1, 1) i32 @_server_read(ptr noundef captures(none) %0
   store i32 %29, ptr %19, align 4
   br label %30
 
-30:                                               ; preds = %22, %12
+30:                                               ; preds = %12, %22
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 256
   %33 = load ptr, ptr %32, align 8
@@ -1061,7 +1061,7 @@ _outgoing_buf_free.exit:                          ; preds = %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %158, %195, %_outgoing_buf_free.exit, %41, %203, %188, %126, %89, %71
-  %.0 = phi i32 [ 0, %71 ], [ 0, %89 ], [ 0, %126 ], [ 0, %188 ], [ 0, %203 ], [ -1, %41 ], [ -1, %_outgoing_buf_free.exit ], [ 0, %195 ], [ 0, %158 ]
+  %.0 = phi i32 [ 0, %71 ], [ 0, %89 ], [ 0, %126 ], [ -1, %_outgoing_buf_free.exit ], [ 0, %188 ], [ 0, %203 ], [ -1, %41 ], [ 0, %195 ], [ 0, %158 ]
   ret i32 %.0
 }
 
@@ -1258,7 +1258,7 @@ define internal range(i32 -1, 1) i32 @_server_write(ptr noundef readonly capture
   br label %109
 
 109:                                              ; preds = %77, %58, %61, %19, %20, %108, %71
-  %.0 = phi i32 [ -1, %71 ], [ 0, %108 ], [ 0, %20 ], [ 0, %19 ], [ 0, %61 ], [ 0, %58 ], [ 0, %77 ]
+  %.0 = phi i32 [ 0, %108 ], [ 0, %19 ], [ -1, %71 ], [ 0, %58 ], [ 0, %20 ], [ 0, %61 ], [ 0, %77 ]
   ret i32 %.0
 }
 
@@ -1310,7 +1310,7 @@ define internal noundef zeroext i1 @_file_writable(ptr noundef readonly captures
   br label %26
 
 26:                                               ; preds = %18, %21, %7, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %7 ], [ false, %21 ], [ false, %18 ]
+  %.0 = phi i1 [ true, %7 ], [ true, %10 ], [ false, %21 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -1462,7 +1462,7 @@ define internal range(i32 -1, 1) i32 @_file_write(ptr noundef readonly captures(
   br label %91
 
 91:                                               ; preds = %87, %90, %72, %17, %20, %63
-  %.0 = phi i32 [ -1, %63 ], [ 0, %20 ], [ 0, %17 ], [ 0, %72 ], [ 0, %90 ], [ 0, %87 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %72 ], [ -1, %63 ], [ 0, %20 ], [ 0, %90 ], [ 0, %87 ]
   ret i32 %.0
 }
 
@@ -1581,7 +1581,7 @@ define internal noundef zeroext i1 @_file_readable(ptr noundef captures(none) %0
   store i32 %62, ptr %52, align 8
   br label %63
 
-63:                                               ; preds = %55, %45
+63:                                               ; preds = %45, %55
   %64 = load ptr, ptr %3, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 160
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %65) #10
@@ -1617,7 +1617,7 @@ _incoming_buf_free.exit:                          ; preds = %51
   br label %78
 
 78:                                               ; preds = %74, %77, %63, %22, %25, %14, %17, %39
-  %.0 = phi i1 [ false, %39 ], [ false, %17 ], [ false, %14 ], [ false, %25 ], [ false, %22 ], [ true, %63 ], [ false, %77 ], [ false, %74 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %14 ], [ false, %39 ], [ false, %22 ], [ false, %17 ], [ false, %25 ], [ false, %77 ], [ false, %74 ]
   ret i1 %.0
 }
 
@@ -1677,7 +1677,7 @@ define internal noundef i32 @_file_read(ptr noundef readonly captures(none) %0, 
   store i32 %32, ptr %22, align 8
   br label %33
 
-33:                                               ; preds = %25, %15
+33:                                               ; preds = %15, %25
   %34 = load ptr, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 248
   %36 = load ptr, ptr %35, align 8
@@ -2984,7 +2984,7 @@ define dso_local range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr n
   store i32 %41, ptr %31, align 8
   br label %42
 
-42:                                               ; preds = %34, %24
+42:                                               ; preds = %24, %34
   %43 = load ptr, ptr %26, align 8
   %44 = tail call ptr @list_dequeue(ptr noundef %43) #10
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -3018,7 +3018,7 @@ define dso_local range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr n
   br label %_incoming_buf_free.exit
 
 _incoming_buf_free.exit:                          ; preds = %30, %42, %11, %18, %56, %58
-  %.0 = phi i32 [ 0, %11 ], [ 0, %18 ], [ 0, %58 ], [ 0, %56 ], [ -1, %42 ], [ -1, %30 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %18 ], [ -1, %42 ], [ 0, %58 ], [ 0, %56 ], [ -1, %30 ]
   %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #10
   %.not37 = icmp eq i32 %59, 0
   br i1 %.not37, label %62, label %60

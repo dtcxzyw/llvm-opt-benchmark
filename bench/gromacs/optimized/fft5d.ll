@@ -838,10 +838,10 @@ _ZL4vmaxPKii.exit430:                             ; preds = %.lr.ph.i424, %_ZL4v
   br label %344
 
 344:                                              ; preds = %337, %329, %341, %334
-  %.0456 = phi ptr [ %332, %334 ], [ %339, %341 ], [ %332, %329 ], [ %339, %337 ]
-  %.0455 = phi ptr [ %335, %334 ], [ %342, %341 ], [ %331, %329 ], [ %338, %337 ]
-  %.0454 = phi ptr [ %336, %334 ], [ %343, %341 ], [ %332, %329 ], [ %339, %337 ]
-  %.0453 = phi ptr [ %331, %334 ], [ %338, %341 ], [ %331, %329 ], [ %338, %337 ]
+  %.0456 = phi ptr [ %332, %334 ], [ %332, %329 ], [ %339, %341 ], [ %339, %337 ]
+  %.0455 = phi ptr [ %335, %334 ], [ %331, %329 ], [ %342, %341 ], [ %338, %337 ]
+  %.0454 = phi ptr [ %336, %334 ], [ %332, %329 ], [ %343, %341 ], [ %339, %337 ]
+  %.0453 = phi ptr [ %331, %334 ], [ %331, %329 ], [ %338, %341 ], [ %338, %337 ]
   %345 = call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 1, i64 noundef 336) #20
   store ptr %345, ptr %31, align 8, !tbaa !23
   %346 = load ptr, ptr @debug, align 8, !tbaa !11
@@ -1024,7 +1024,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   br label %417
 
 416:                                              ; preds = %369, %360
-  %.merged = phi { ptr, i32 } [ %361, %360 ], [ %370, %369 ]
+  %.merged = phi { ptr, i32 } [ %370, %369 ], [ %361, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -2649,7 +2649,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %37
   ret void
 
 71:                                               ; preds = %49, %40
-  %.merged = phi { ptr, i32 } [ %41, %40 ], [ %50, %49 ]
+  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %41, %40 ]
   resume { ptr, i32 } %.merged
 
 72:                                               ; preds = %49

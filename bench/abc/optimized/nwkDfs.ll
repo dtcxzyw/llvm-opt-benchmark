@@ -216,8 +216,8 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %.critedge, %18, %16
-  %.not6280 = phi i1 [ false, %18 ], [ true, %16 ], [ true, %.critedge ]
-  %19 = phi ptr [ %17, %18 ], [ null, %16 ], [ null, %.critedge ]
+  %.not6280 = phi i1 [ true, %16 ], [ false, %18 ], [ true, %.critedge ]
+  %19 = phi ptr [ null, %16 ], [ %17, %18 ], [ null, %.critedge ]
   %20 = load ptr, ptr %2, align 8, !tbaa !3
   %21 = getelementptr i8, ptr %20, i64 4
   %.val91 = load i32, ptr %21, align 4, !tbaa !15
@@ -320,7 +320,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr noundef readonly ca
   br label %59
 
 59:                                               ; preds = %28, %50, %.lr.ph94, %.critedge4, %41
-  %.152 = phi i32 [ %.05193, %.lr.ph94 ], [ %.05193, %41 ], [ %.05193, %.critedge4 ], [ %spec.select, %50 ], [ %.05193, %28 ]
+  %.152 = phi i32 [ %.05193, %.lr.ph94 ], [ %.05193, %41 ], [ %.05193, %28 ], [ %spec.select, %50 ], [ %.05193, %.critedge4 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %60 = load ptr, ptr %2, align 8, !tbaa !3
   %61 = getelementptr i8, ptr %60, i64 4
@@ -456,8 +456,8 @@ define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr 
   br label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader
-  %.3.lcssa.ph = phi i32 [ %spec.select61, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %spec.select61, %.lr.ph ]
-  %.lcssa.ph = phi i32 [ %40, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %40, %.lr.ph ]
+  %.3.lcssa.ph = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select61, %..critedge.loopexit_crit_edge ], [ %spec.select61, %.lr.ph ]
+  %.lcssa.ph = phi i32 [ %31, %.lr.ph.preheader ], [ %40, %..critedge.loopexit_crit_edge ], [ %40, %.lr.ph ]
   %.val.pre = load i32, ptr %8, align 8
   %43 = icmp sgt i32 %.lcssa.ph, 0
   %44 = zext i1 %43 to i32
@@ -476,7 +476,7 @@ define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit, %7, %46, %.critedge, %10, %11
-  %.2 = phi i32 [ 0, %11 ], [ 0, %10 ], [ %.3.lcssa, %.critedge ], [ %spec.select, %46 ], [ 0, %7 ], [ 1, %15 ], [ %27, %._crit_edge.loopexit ]
+  %.2 = phi i32 [ %.3.lcssa, %.critedge ], [ 0, %11 ], [ 0, %10 ], [ 0, %7 ], [ %spec.select, %46 ], [ 1, %15 ], [ %27, %._crit_edge.loopexit ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.2, ptr %47, align 4, !tbaa !38
   br label %48
@@ -570,7 +570,7 @@ Nwk_ObjIsPo.exit.thread45:                        ; preds = %28, %Nwk_ObjIsPo.ex
   br label %Nwk_ObjIsPo.exit.thread
 
 Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.thread45, %.lr.ph52, %Nwk_ObjIsPo.exit
-  %.1 = phi i32 [ %.051, %Nwk_ObjIsPo.exit ], [ %.051, %.lr.ph52 ], [ %spec.select, %Nwk_ObjIsPo.exit.thread45 ]
+  %.1 = phi i32 [ %.051, %.lr.ph52 ], [ %spec.select, %Nwk_ObjIsPo.exit.thread45 ], [ %.051, %Nwk_ObjIsPo.exit ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %36 = load ptr, ptr %14, align 8, !tbaa !35
   %37 = getelementptr i8, ptr %36, i64 4
@@ -647,7 +647,7 @@ Nwk_ObjIsPo.exit.thread14:                        ; preds = %12, %Nwk_ObjIsPo.ex
   br label %Nwk_ObjIsPo.exit.thread
 
 Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.thread14, %.lr.ph, %Nwk_ObjIsPo.exit
-  %.1 = phi i32 [ %.018, %Nwk_ObjIsPo.exit ], [ %.018, %.lr.ph ], [ %spec.select, %Nwk_ObjIsPo.exit.thread14 ]
+  %.1 = phi i32 [ %.018, %.lr.ph ], [ %spec.select, %Nwk_ObjIsPo.exit.thread14 ], [ %.018, %Nwk_ObjIsPo.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %2, align 8, !tbaa !35
   %21 = getelementptr i8, ptr %20, i64 4
@@ -709,7 +709,7 @@ Nwk_ObjIsPo.exit.thread14.i:                      ; preds = %Nwk_ObjIsPo.exit.i,
   br label %Nwk_ObjIsPo.exit.thread.i
 
 Nwk_ObjIsPo.exit.thread.i:                        ; preds = %Nwk_ObjIsPo.exit.thread14.i, %Nwk_ObjIsPo.exit.i, %.lr.ph.i
-  %.1.i = phi i32 [ %.018.i, %Nwk_ObjIsPo.exit.i ], [ %.018.i, %.lr.ph.i ], [ %spec.select.i, %Nwk_ObjIsPo.exit.thread14.i ]
+  %.1.i = phi i32 [ %.018.i, %.lr.ph.i ], [ %spec.select.i, %Nwk_ObjIsPo.exit.thread14.i ], [ %.018.i, %Nwk_ObjIsPo.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load ptr, ptr %2, align 8, !tbaa !35
   %22 = getelementptr i8, ptr %21, i64 4

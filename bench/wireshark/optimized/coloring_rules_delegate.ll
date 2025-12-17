@@ -100,7 +100,7 @@ define noundef ptr @_ZNK21ColoringRulesDelegate12createEditorEP7QWidgetRK20QStyl
   br label %23
 
 22:                                               ; preds = %4, %18, %12
-  %.0 = phi ptr [ %11, %12 ], [ %19, %18 ], [ null, %4 ]
+  %.0 = phi ptr [ %19, %18 ], [ %11, %12 ], [ null, %4 ]
   ret ptr %.0
 
 23:                                               ; preds = %20, %16
@@ -751,7 +751,7 @@ _ZN7QStringD2Ev.exit84:                           ; preds = %116, %_ZN17QArrayDa
   ret void
 
 125:                                              ; preds = %_ZN7QStringD2Ev.exit80, %114, %_ZN7QStringD2Ev.exit84, %113, %_ZN7QStringD2Ev.exit64, %_ZN7QStringD2Ev.exit68
-  %.pn52.pn = phi { ptr, i32 } [ %50, %_ZN7QStringD2Ev.exit68 ], [ %.pn50, %_ZN7QStringD2Ev.exit64 ], [ %117, %_ZN7QStringD2Ev.exit84 ], [ %115, %114 ], [ %.pn46, %113 ], [ %.pn, %_ZN7QStringD2Ev.exit80 ]
+  %.pn52.pn = phi { ptr, i32 } [ %.pn50, %_ZN7QStringD2Ev.exit64 ], [ %50, %_ZN7QStringD2Ev.exit68 ], [ %117, %_ZN7QStringD2Ev.exit84 ], [ %115, %114 ], [ %.pn46, %113 ], [ %.pn, %_ZN7QStringD2Ev.exit80 ]
   resume { ptr, i32 } %.pn52.pn
 }
 

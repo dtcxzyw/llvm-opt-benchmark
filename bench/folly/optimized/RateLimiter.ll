@@ -45,7 +45,7 @@ define noundef zeroext i1 @_ZN5folly7logging19IntervalRateLimiter9checkSlowEv(pt
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; preds = %15, %1, %25, %21
-  %.0 = phi i1 [ %24, %21 ], [ true, %25 ], [ false, %1 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %1 ], [ %24, %21 ], [ true, %25 ], [ false, %15 ]
   ret i1 %.0
 }
 

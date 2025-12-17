@@ -224,7 +224,7 @@ define hidden ptr @SDL_AllocateTemporaryMemory(i64 noundef %0) local_unnamed_add
   br label %SDL_FreeLater.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %8, %4
-  %.06.i.i = phi ptr [ %5, %4 ], [ %7, %8 ]
+  %.06.i.i = phi ptr [ %7, %8 ], [ %5, %4 ]
   %11 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #8
   %.not14.i = icmp eq ptr %11, null
   br i1 %.not14.i, label %SDL_FreeLater.exit, label %12
@@ -288,7 +288,7 @@ define hidden ptr @SDL_CreateTemporaryString(ptr noundef %0) local_unnamed_addr 
   br label %SDL_FreeLater.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %9, %5
-  %.06.i.i = phi ptr [ %6, %5 ], [ %8, %9 ]
+  %.06.i.i = phi ptr [ %8, %9 ], [ %6, %5 ]
   %12 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #8
   %.not14.i = icmp eq ptr %12, null
   br i1 %.not14.i, label %SDL_FreeLater.exit, label %13
@@ -2322,7 +2322,7 @@ define hidden void @SDL_StopEventLoop() local_unnamed_addr #0 {
   br label %SDL_TransferTemporaryMemoryFromEvent.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %17, %13
-  %.06.i.i = phi ptr [ %14, %13 ], [ %16, %17 ]
+  %.06.i.i = phi ptr [ %16, %17 ], [ %14, %13 ]
   %20 = load ptr, ptr %11, align 8
   %.not1115.i = icmp eq ptr %20, null
   br i1 %.not1115.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3341,7 +3341,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   br i1 %.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !13
 
 .critedge:                                        ; preds = %309, %.lr.ph.split.split.split, %298, %.lr.ph.split.split.split.us, %287, %.lr.ph.split.split.us, %.lr.ph.split.us.split.split, %265, %SDL_AddEvent.exit, %249, %.preheader
-  %.143 = phi i32 [ 0, %.preheader ], [ 0, %249 ], [ %248, %SDL_AddEvent.exit ], [ %.345.us.us, %265 ], [ %.345.us, %.lr.ph.split.us.split.split ], [ %.345.us84, %287 ], [ %.24470.us78, %.lr.ph.split.split.us ], [ %.345.us96, %298 ], [ %.24470.us92, %.lr.ph.split.split.split.us ], [ %.345, %309 ], [ %.24470, %.lr.ph.split.split.split ]
+  %.143 = phi i32 [ 0, %.preheader ], [ 0, %249 ], [ %.345.us96, %298 ], [ %248, %SDL_AddEvent.exit ], [ %.345.us.us, %265 ], [ %.345.us, %.lr.ph.split.us.split.split ], [ %.345.us84, %287 ], [ %.24470.us78, %.lr.ph.split.split.us ], [ %.24470.us92, %.lr.ph.split.split.split.us ], [ %.345, %309 ], [ %.24470, %.lr.ph.split.split.split ]
   %310 = load ptr, ptr @SDL_EventQ, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %310) #8
   %311 = icmp sgt i32 %.143, 0
@@ -3371,7 +3371,7 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   br label %SDL_SendWakeupEvent.exit
 
 SDL_SendWakeupEvent.exit:                         ; preds = %321, %318, %315, %312, %.critedge, %21, %15
-  %.0 = phi i32 [ %24, %21 ], [ -1, %15 ], [ %.143, %.critedge ], [ %.143, %312 ], [ %.143, %315 ], [ %.143, %318 ], [ %.143, %321 ]
+  %.0 = phi i32 [ -1, %15 ], [ %24, %21 ], [ %.143, %.critedge ], [ %.143, %312 ], [ %.143, %315 ], [ %.143, %318 ], [ %.143, %321 ]
   ret i32 %.0
 }
 
@@ -3531,7 +3531,7 @@ define internal fastcc void @SDL_CutEvent(ptr noundef nonnull %0) unnamed_addr #
   br label %SDL_TransferTemporaryMemoryFromEvent.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %8, %4
-  %.06.i.i = phi ptr [ %5, %4 ], [ %7, %8 ]
+  %.06.i.i = phi ptr [ %7, %8 ], [ %5, %4 ]
   %11 = load ptr, ptr %2, align 8
   %.not1115.i = icmp eq ptr %11, null
   br i1 %.not1115.i, label %._crit_edge.i, label %.lr.ph.i
@@ -4096,8 +4096,8 @@ define hidden zeroext i1 @SDL_WaitEventTimeoutNS(ptr noundef %0, i64 noundef %1)
   br label %37
 
 37:                                               ; preds = %34, %32, %28
-  %.345.us84.i = phi i32 [ 0, %28 ], [ 1, %32 ], [ %spec.select156, %34 ]
-  %.2.us85.i = phi i32 [ %.04171.us77.i, %28 ], [ %.04171.us77.i, %32 ], [ %spec.select.us82.i, %34 ]
+  %.345.us84.i = phi i32 [ %spec.select156, %34 ], [ 0, %28 ], [ 1, %32 ]
+  %.2.us85.i = phi i32 [ %spec.select.us82.i, %34 ], [ %.04171.us77.i, %28 ], [ %.04171.us77.i, %32 ]
   %.not.us86.i = icmp eq ptr %30, null
   br i1 %.not.us86.i, label %SDL_PeepEventsInternal.exit, label %.lr.ph.split.split.us.i, !llvm.loop !13
 
@@ -4180,7 +4180,7 @@ SDL_find_active_window.exit:                      ; preds = %.lr.ph.i66
   br label %68
 
 68:                                               ; preds = %66, %SDL_find_active_window.exit
-  %.0.i.i = phi i64 [ 9223372036854775807, %SDL_find_active_window.exit ], [ %..i.i, %66 ]
+  %.0.i.i = phi i64 [ %..i.i, %66 ], [ 9223372036854775807, %SDL_find_active_window.exit ]
   %69 = tail call i32 @SDL_WasInit_REAL(i32 noundef 32768) #8
   %70 = icmp ne i32 %69, 0
   %71 = load i8, ptr @SDL_update_sensors, align 1, !range !6
@@ -4298,7 +4298,7 @@ SDL_events_get_polling_interval.exit.split.split.i: ; preds = %SDL_events_get_po
   br i1 %122, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.i
 
 .loopexit:                                        ; preds = %93, %82, %117, %109
-  %.us-phi.i.ph = phi i32 [ %113, %109 ], [ %120, %117 ], [ %87, %82 ], [ %98, %93 ]
+  %.us-phi.i.ph = phi i32 [ %87, %82 ], [ %113, %109 ], [ %120, %117 ], [ %98, %93 ]
   %123 = icmp eq i32 %.us-phi.i.ph, 0
   br i1 %123, label %SDL_WaitEventTimeout_Device.exit.thread78, label %SDL_WaitEventTimeout_Device.exit
 
@@ -4340,8 +4340,8 @@ SDL_WaitEventTimeout_Device.exit.thread78.loopexit187: ; preds = %SDL_events_get
   %135 = icmp sgt i32 %92, -1
   br label %SDL_WaitEventTimeout_Device.exit.thread78
 
-SDL_WaitEventTimeout_Device.exit.thread78:        ; preds = %SDL_events_get_polling_interval.exit.split.us.split.us.i, %79, %78, %SDL_events_get_polling_interval.exit.split.split.us.i, %106, %105, %.lr.ph.split, %127, %.lr.ph.split.us, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit187, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit178, %SDL_WaitEventTimeout_Device.exit, %18, %.loopexit, %45, %42, %13
-  %.0 = phi i1 [ false, %42 ], [ false, %13 ], [ %46, %45 ], [ false, %.loopexit ], [ %spec.select, %18 ], [ true, %SDL_WaitEventTimeout_Device.exit ], [ %134, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit178 ], [ %135, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit187 ], [ %.not64.us, %.lr.ph.split.us ], [ %.not64.us, %127 ], [ true, %.lr.ph.split ], [ false, %SDL_events_get_polling_interval.exit.split.split.us.i ], [ false, %106 ], [ true, %105 ], [ false, %SDL_events_get_polling_interval.exit.split.us.split.us.i ], [ false, %79 ], [ true, %78 ]
+SDL_WaitEventTimeout_Device.exit.thread78:        ; preds = %79, %SDL_events_get_polling_interval.exit.split.us.split.us.i, %78, %SDL_events_get_polling_interval.exit.split.split.us.i, %106, %105, %.lr.ph.split, %127, %.lr.ph.split.us, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit187, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit178, %SDL_WaitEventTimeout_Device.exit, %18, %.loopexit, %45, %42, %13
+  %.0 = phi i1 [ false, %42 ], [ false, %13 ], [ %spec.select, %18 ], [ %46, %45 ], [ %.not64.us, %127 ], [ true, %.lr.ph.split ], [ false, %.loopexit ], [ true, %SDL_WaitEventTimeout_Device.exit ], [ %134, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit178 ], [ %135, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit187 ], [ false, %106 ], [ %.not64.us, %.lr.ph.split.us ], [ true, %105 ], [ false, %SDL_events_get_polling_interval.exit.split.split.us.i ], [ false, %79 ], [ true, %78 ], [ false, %SDL_events_get_polling_interval.exit.split.us.split.us.i ]
   ret i1 %.0
 }
 
@@ -4399,7 +4399,7 @@ SDL_CallEventWatchers.exit.thread:                ; preds = %6, %SDL_CallEventWa
   br label %14
 
 14:                                               ; preds = %SDL_CallEventWatchers.exit.thread, %10
-  %.0 = phi i1 [ false, %10 ], [ %13, %SDL_CallEventWatchers.exit.thread ]
+  %.0 = phi i1 [ %13, %SDL_CallEventWatchers.exit.thread ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -5046,7 +5046,7 @@ define internal void @SDL_EventLoggingChanged(ptr readnone captures(none) %0, pt
   br label %15
 
 15:                                               ; preds = %4, %5, %7, %10, %13
-  %16 = phi i32 [ 0, %7 ], [ %14, %13 ], [ 3, %10 ], [ 0, %5 ], [ 0, %4 ]
+  %16 = phi i32 [ 3, %10 ], [ 0, %7 ], [ %14, %13 ], [ 0, %5 ], [ 0, %4 ]
   store i32 %16, ptr @SDL_EventLoggingVerbosity, align 4
   ret void
 }

@@ -929,7 +929,7 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.end.i.i ], [ null, %entry ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 88
   %10 = load ptr, ptr %isolate_.i, align 8
   %call17 = tail call ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef %10, ptr noundef nonnull @_ZN4node7UDPWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr null, i32 noundef 1, i32 noundef 0, ptr noundef null) #20
@@ -1119,7 +1119,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end4, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %18, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end4 ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %18, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end4 ]
   %call6 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #22
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %19 = load ptr, ptr %values_.i, align 8
@@ -2143,7 +2143,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -4275,7 +4275,7 @@ _ZNK4node11UDPWrapBase8listenerEv.exit:           ; preds = %if.then73
   br label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit, %if.end71, %_ZNK4node11UDPWrapBase8listenerEv.exit
-  %err.046 = phi i32 [ %call70, %if.end71 ], [ 0, %_ZNK4node11UDPWrapBase8listenerEv.exit ], [ %retval.0.i, %_ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit ]
+  %err.046 = phi i32 [ 0, %_ZNK4node11UDPWrapBase8listenerEv.exit ], [ %call70, %if.end71 ], [ %retval.0.i, %_ZN4node19sockaddr_for_familyEiPKctP16sockaddr_storage.exit ]
   %conv.i = sext i32 %err.046 to i64
   %34 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -4955,7 +4955,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -5458,7 +5458,7 @@ if.end.i305:                                      ; preds = %lor.lhs.false.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then.i306, %if.end.i305, %if.then.i322, %if.end.i317
-  %retval.i299.sroa.0.0.sink = phi ptr [ %101, %if.then.i322 ], [ %add.ptr.i320, %if.end.i317 ], [ %106, %if.then.i306 ], [ %add.ptr.i, %if.end.i305 ]
+  %retval.i299.sroa.0.0.sink = phi ptr [ %add.ptr.i320, %if.end.i317 ], [ %101, %if.then.i322 ], [ %106, %if.then.i306 ], [ %add.ptr.i, %if.end.i305 ]
   %call254 = call noundef zeroext i1 @_ZNK2v85Value6IsTrueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i299.sroa.0.0.sink) #20
   %current_send_has_callback_ = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 336
   %frombool255 = zext i1 %call254 to i8
@@ -5783,12 +5783,12 @@ cleanup:                                          ; preds = %_ZNK4node11UDPWrapB
   br label %return
 
 if.end67:                                         ; preds = %if.else, %cleanup.thread, %if.end49
-  %err.1 = phi i32 [ %call7, %if.end49 ], [ %call.i.i, %cleanup.thread ], [ %call7, %if.else ]
+  %err.1 = phi i32 [ %call.i.i, %cleanup.thread ], [ %call7, %if.end49 ], [ %call7, %if.else ]
   %conv68 = sext i32 %err.1 to i64
   br label %return
 
 return:                                           ; preds = %cleanup, %entry, %if.end67, %do.end44
-  %retval.0 = phi i64 [ %conv68, %if.end67 ], [ -38, %cleanup ], [ %add45, %do.end44 ], [ -9, %entry ]
+  %retval.0 = phi i64 [ %add45, %do.end44 ], [ %conv68, %if.end67 ], [ -38, %cleanup ], [ -9, %entry ]
   ret i64 %retval.0
 }
 
@@ -6396,7 +6396,7 @@ if.end80.sink.split:                              ; preds = %_ZNSt10unique_ptrIN
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end80.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit, %if.then62
-  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then62 ], [ %ref.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %agg.tmp77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ], [ %ref.tmp.sink.ph, %if.end80.sink.split ]
+  %ref.tmp.sink = phi ptr [ %agg.tmp77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ], [ %ref.tmp, %if.then62 ], [ %ref.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %ref.tmp.sink.ph, %if.end80.sink.split ]
   store ptr null, ptr %ref.tmp.sink, align 8
   %33 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %33) #20
@@ -6645,7 +6645,7 @@ if.end.i.i126:                                    ; preds = %_ZNK4node10BaseObje
   br i1 %call32.i.i127, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end.i.i126, %if.end.i.i93, %if.end.i.i55, %if.end.i.i
-  %call25.i.i124.sink = phi ptr [ %call25.i.i, %if.end.i.i ], [ %call25.i.i53, %if.end.i.i55 ], [ %call25.i.i91, %if.end.i.i93 ], [ %call25.i.i124, %if.end.i.i126 ]
+  %call25.i.i124.sink = phi ptr [ %call25.i.i91, %if.end.i.i93 ], [ %call25.i.i53, %if.end.i.i55 ], [ %call25.i.i, %if.end.i.i ], [ %call25.i.i124, %if.end.i.i126 ]
   %call53.i.i134 = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %call25.i.i124.sink, i32 noundef 4, ptr noundef nonnull %argv) #20
   br label %cleanup
 

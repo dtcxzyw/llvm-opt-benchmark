@@ -134,7 +134,7 @@ define ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %44
 
 44:                                               ; preds = %32, %11, %37, %10, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %10 ], [ null, %37 ], [ null, %11 ], [ %12, %32 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %10 ], [ null, %11 ], [ null, %37 ], [ %12, %32 ]
   ret ptr %.0
 }
 
@@ -662,7 +662,7 @@ EC_POINT_clear_free.exit:                         ; preds = %61, %69
   br label %116
 
 116:                                              ; preds = %101, %81, %75, %57, %54, %42, %39, %11, %111, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ %115, %111 ], [ 1, %11 ], [ 0, %39 ], [ 0, %42 ], [ 0, %54 ], [ 0, %57 ], [ 0, %75 ], [ 0, %81 ], [ 0, %101 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %54 ], [ 1, %11 ], [ 0, %42 ], [ 0, %81 ], [ %115, %111 ], [ 0, %39 ], [ 0, %75 ], [ 0, %57 ], [ 0, %101 ]
   ret i32 %.0
 }
 
@@ -970,7 +970,7 @@ define range(i32 0, 2) i32 @EC_GROUP_set_generator(ptr noundef captures(address_
   br label %68
 
 68:                                               ; preds = %51, %44, %41, %38, %65, %63, %57, %33, %29, %16, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 0, %29 ], [ 0, %33 ], [ %64, %63 ], [ 1, %65 ], [ 0, %57 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 0, %29 ], [ 0, %33 ], [ 0, %38 ], [ %64, %63 ], [ 1, %65 ], [ 0, %57 ], [ 0, %44 ], [ 0, %41 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -1065,7 +1065,7 @@ define internal fastcc range(i32 0, 2) i32 @ec_guess_cofactor(ptr noundef readon
   br label %51
 
 51:                                               ; preds = %47, %35, %40, %43, %32, %27, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %43 ], [ 0, %40 ], [ 0, %35 ], [ 0, %27 ], [ 0, %32 ], [ %spec.select, %47 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %32 ], [ %spec.select, %47 ], [ 0, %43 ], [ 0, %40 ], [ 0, %35 ], [ 0, %27 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %17) #9
   tail call void @BN_CTX_free(ptr noundef nonnull %17) #9
   br label %52
@@ -1149,7 +1149,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef readonly captures(non
   br label %12
 
 12:                                               ; preds = %7, %3, %9
-  %.0 = phi i32 [ %11, %9 ], [ 0, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ %11, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1189,7 +1189,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef readonly captures(
   br label %13
 
 13:                                               ; preds = %7, %3, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ %12, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1285,7 +1285,7 @@ define noundef i64 @EC_GROUP_set_seed(ptr noundef captures(none) initializes((56
   br label %13
 
 13:                                               ; preds = %9, %3, %12
-  %.0 = phi i64 [ %2, %12 ], [ 1, %3 ], [ 0, %9 ]
+  %.0 = phi i64 [ 1, %3 ], [ %2, %12 ], [ 0, %9 ]
   ret i64 %.0
 }
 
@@ -1616,13 +1616,13 @@ define range(i32 -1, 2) i32 @EC_GROUP_cmp(ptr noundef %0, ptr noundef %1, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %61, %67, %59, %52, %.critedge, %42, %44, %36, %31, %46, %69, %.thread
-  %.0.ph = phi i32 [ -1, %.thread ], [ -1, %52 ], [ 1, %59 ], [ 0, %61 ], [ 0, %67 ], [ %spec.select, %69 ], [ 1, %.critedge ], [ 1, %42 ], [ 1, %44 ], [ 1, %36 ], [ 1, %31 ], [ 1, %46 ]
+  %.0.ph = phi i32 [ -1, %.thread ], [ 1, %46 ], [ 1, %59 ], [ -1, %52 ], [ 0, %61 ], [ 0, %67 ], [ %spec.select, %69 ], [ 1, %.critedge ], [ 1, %42 ], [ 1, %44 ], [ 1, %36 ], [ 1, %31 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.06193) #9
   tail call void @BN_CTX_free(ptr noundef %.06392) #9
   br label %71
 
 71:                                               ; preds = %.sink.split, %13, %21, %16, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %16 ], [ -1, %21 ], [ 1, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %21 ], [ 1, %3 ], [ 1, %13 ], [ 0, %16 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1917,8 +1917,8 @@ ec_point_is_compat.exit.thread:                   ; preds = %13, %17
   br i1 %24, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %22, %10, %17, %5
-  %.sink18 = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
-  %.sink = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
+  %.sink18 = phi i32 [ 873, %10 ], [ 869, %5 ], [ 873, %17 ], [ 880, %22 ]
+  %.sink = phi i32 [ 101, %10 ], [ 786689, %5 ], [ 101, %17 ], [ 107, %22 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
@@ -2015,8 +2015,8 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br i1 %24, label %.sink.split.i, label %EC_POINT_set_affine_coordinates.exit
 
 .sink.split.i:                                    ; preds = %22, %17, %10, %5
-  %.sink18.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
-  %.sink.i = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
+  %.sink18.i = phi i32 [ 873, %10 ], [ 869, %5 ], [ 873, %17 ], [ 880, %22 ]
+  %.sink.i = phi i32 [ 101, %10 ], [ 786689, %5 ], [ 101, %17 ], [ 107, %22 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #9
@@ -2065,8 +2065,8 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br i1 %24, label %.sink.split.i, label %EC_POINT_set_affine_coordinates.exit
 
 .sink.split.i:                                    ; preds = %22, %17, %10, %5
-  %.sink18.i = phi i32 [ 869, %5 ], [ 873, %17 ], [ 873, %10 ], [ 880, %22 ]
-  %.sink.i = phi i32 [ 786689, %5 ], [ 101, %17 ], [ 101, %10 ], [ 107, %22 ]
+  %.sink18.i = phi i32 [ 873, %10 ], [ 869, %5 ], [ 873, %17 ], [ 880, %22 ]
+  %.sink.i = phi i32 [ 101, %10 ], [ 786689, %5 ], [ 101, %17 ], [ 107, %22 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18.i, ptr noundef nonnull @__func__.EC_POINT_set_affine_coordinates) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #9
@@ -2887,7 +2887,7 @@ define i32 @ossl_ec_group_do_inverse_ord(ptr noundef %0, ptr noundef %1, ptr nou
   br label %31
 
 31:                                               ; preds = %27, %23, %21, %.thread.i
-  %.018.i = phi i32 [ 0, %.thread.i ], [ 0, %23 ], [ 0, %21 ], [ %spec.select.i, %27 ]
+  %.018.i = phi i32 [ 0, %.thread.i ], [ 0, %21 ], [ %spec.select.i, %27 ], [ 0, %23 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.01927.i) #9
   tail call void @BN_CTX_free(ptr noundef %.028.i) #9
   br label %ec_field_inverse_mod_ord.exit
@@ -2995,7 +2995,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly ca
   br label %21
 
 21:                                               ; preds = %19, %20, %2, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %2 ], [ 1, %20 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %18 ], [ 1, %20 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -3074,7 +3074,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
   br label %35
 
 35:                                               ; preds = %32, %33, %4, %26
-  %.0 = phi i32 [ 0, %26 ], [ 0, %4 ], [ 1, %33 ], [ 1, %32 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %26 ], [ 1, %33 ], [ 1, %32 ]
   ret i32 %.0
 }
 
@@ -3172,8 +3172,8 @@ EC_GROUP_set_seed.exit:                           ; preds = %35, %22
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 175, ptr noundef null) #9
   br label %EC_GROUP_set_seed.exit.thread
 
-EC_GROUP_set_seed.exit.thread:                    ; preds = %25, %38, %20, %EC_GROUP_set_seed.exit, %16, %8
-  %.0 = phi i32 [ 0, %EC_GROUP_set_seed.exit ], [ 0, %16 ], [ 0, %8 ], [ 1, %20 ], [ 1, %38 ], [ 1, %25 ]
+EC_GROUP_set_seed.exit.thread:                    ; preds = %38, %25, %20, %EC_GROUP_set_seed.exit, %16, %8
+  %.0 = phi i32 [ 0, %EC_GROUP_set_seed.exit ], [ 0, %8 ], [ 0, %16 ], [ 1, %20 ], [ 1, %25 ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -3299,7 +3299,7 @@ group_new_from_name.exit:                         ; preds = %22
   br label %42
 
 42:                                               ; preds = %group_new_from_name.exit.thread, %group_new_from_name.exit, %39, %38, %31
-  %.089 = phi ptr [ %27, %39 ], [ null, %38 ], [ null, %31 ], [ null, %group_new_from_name.exit ], [ null, %group_new_from_name.exit.thread ]
+  %.089 = phi ptr [ null, %31 ], [ %27, %39 ], [ null, %38 ], [ null, %group_new_from_name.exit ], [ null, %group_new_from_name.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %186
 
@@ -3631,8 +3631,8 @@ group_new_from_name.exit:                         ; preds = %22
   br label %EC_POINT_free.exit
 
 179:                                              ; preds = %174, %172, %165, %161, %156, %159, %140, %143, %146, %149, %132
-  %.sink182 = phi i32 [ 1696, %132 ], [ 1705, %149 ], [ 1705, %146 ], [ 1705, %143 ], [ 1705, %140 ], [ 1714, %159 ], [ 1714, %156 ], [ 1721, %161 ], [ 1727, %165 ], [ 1738, %172 ], [ 1742, %174 ]
-  %.sink = phi i32 [ 173, %132 ], [ 122, %149 ], [ 122, %146 ], [ 122, %143 ], [ 122, %140 ], [ 171, %159 ], [ 171, %156 ], [ 173, %161 ], [ 174, %165 ], [ 102, %172 ], [ 102, %174 ]
+  %.sink182 = phi i32 [ 1696, %132 ], [ 1714, %156 ], [ 1727, %165 ], [ 1738, %172 ], [ 1721, %161 ], [ 1705, %140 ], [ 1705, %149 ], [ 1705, %146 ], [ 1705, %143 ], [ 1714, %159 ], [ 1742, %174 ]
+  %.sink = phi i32 [ 173, %132 ], [ 171, %156 ], [ 174, %165 ], [ 102, %172 ], [ 173, %161 ], [ 122, %140 ], [ 122, %149 ], [ 122, %146 ], [ 122, %143 ], [ 171, %159 ], [ 102, %174 ]
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink182, ptr noundef nonnull @__func__.EC_GROUP_new_from_params) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #9
@@ -3656,7 +3656,7 @@ group_new_from_name.exit:                         ; preds = %22
   br label %EC_POINT_free.exit
 
 EC_POINT_free.exit:                               ; preds = %.thread157, %185
-  %.3155 = phi ptr [ %.3154, %185 ], [ null, %.thread157 ]
+  %.3155 = phi ptr [ null, %.thread157 ], [ %.3154, %185 ]
   call void @BN_CTX_end(ptr noundef nonnull %44) #9
   call void @BN_CTX_free(ptr noundef nonnull %44) #9
   br label %186

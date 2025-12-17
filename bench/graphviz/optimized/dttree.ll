@@ -298,7 +298,7 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %133
 
 133:                                              ; preds = %127, %125, %131
-  %134 = phi ptr [ %132, %131 ], [ %1, %125 ], [ %130, %127 ]
+  %134 = phi ptr [ %1, %125 ], [ %132, %131 ], [ %130, %127 ]
   %.not460 = icmp eq ptr %21, null
   br i1 %.not460, label %.loopexit546, label %173
 
@@ -1135,7 +1135,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %495, 
   br label %thread-pre-split
 
 499:                                              ; preds = %426, %354, %357, %71, %74, %22, %457, %.loopexit540
-  %.0 = phi ptr [ %463, %457 ], [ null, %.loopexit540 ], [ null, %22 ], [ %73, %71 ], [ %77, %74 ], [ %356, %354 ], [ %360, %357 ], [ null, %426 ]
+  %.0 = phi ptr [ %77, %74 ], [ %463, %457 ], [ %360, %357 ], [ null, %.loopexit540 ], [ null, %22 ], [ %73, %71 ], [ %356, %354 ], [ null, %426 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

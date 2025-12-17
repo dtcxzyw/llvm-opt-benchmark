@@ -809,7 +809,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hd
   unreachable
 
 common.resume:                                    ; preds = %52, %56, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %53, %56 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %53, %56 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Sync$u2b$core..marker..Send$C$A$GT$8downcast17h8487bb01a7f217e1E.llvm.8312779018675129027.exit": ; preds = %2
@@ -1699,7 +1699,7 @@ common.resume:                                    ; preds = %34, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %17
 
-34:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b07293f88b39ba4E.exit", %28
+34:                                               ; preds = %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5b07293f88b39ba4E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h58c74ef1240f2608E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #41
@@ -2170,7 +2170,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h39730908e21d6664E.exit.i": ; preds = %44
@@ -4707,7 +4707,7 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   br label %"_ZN12clap_builder5error14Error$LT$F$GT$12invalid_utf817h808ea1535efcd289E.exit"
 
 common.resume:                                    ; preds = %88, %159, %.body.thread.i, %.body.i, %64
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %64 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn742.i, %.body.thread.i ], [ %.pn.ph.i, %88 ], [ %eh.lpad-body59.i.i, %159 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %64 ], [ %eh.lpad-body59.i.i, %159 ], [ %.pn742.i, %.body.thread.i ], [ %.pn.ph.i, %88 ]
   resume { ptr, i32 } %common.resume.op
 
 64:                                               ; preds = %.body.i
@@ -5121,7 +5121,7 @@ common.resume:                                    ; preds = %88, %159, %.body.th
           to label %88 unwind label %160, !noalias !878
 
 .body.thread.i:                                   ; preds = %.body.thread45.i, %88, %82
-  %.pn742.i = phi { ptr, i32 } [ %.pn.ph.i, %88 ], [ %lpad.thr_comm.i, %.body.thread45.i ], [ %83, %82 ]
+  %.pn742.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread45.i ], [ %.pn.ph.i, %88 ], [ %83, %82 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$uv_pep508..verbatim_url..VerbatimUrlError$GT$17habb61d5eba3ed89fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #41
           to label %common.resume unwind label %160, !noalias !914
 

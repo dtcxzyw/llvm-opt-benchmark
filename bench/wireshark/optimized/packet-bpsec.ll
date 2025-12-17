@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @bpsec_id_equal(ptr noundef readonly captures(address
   br label %16
 
 16:                                               ; preds = %9, %5, %2
-  %17 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %15, %9 ]
+  %17 = phi i32 [ 0, %5 ], [ %15, %9 ], [ 0, %2 ]
   ret i32 %17
 }
 

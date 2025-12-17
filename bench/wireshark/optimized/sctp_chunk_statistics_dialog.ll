@@ -1082,7 +1082,7 @@ _ZN7QStringD2Ev.exit126:                          ; preds = %187, %_ZN17QArrayDa
   br label %193
 
 193:                                              ; preds = %89, %_ZN7QStringD2Ev.exit86, %97, %_ZN7QStringD2Ev.exit90, %105, %_ZN7QStringD2Ev.exit94, %113, %_ZN7QStringD2Ev.exit98, %121, %175, %_ZN7QStringD2Ev.exit126, %185, %_ZN7QStringD2Ev.exit122, %177, %173, %_ZN7QStringD2Ev.exit58
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %_ZN7QStringD2Ev.exit58 ], [ %122, %121 ], [ %116, %_ZN7QStringD2Ev.exit98 ], [ %114, %113 ], [ %108, %_ZN7QStringD2Ev.exit94 ], [ %106, %105 ], [ %100, %_ZN7QStringD2Ev.exit90 ], [ %98, %97 ], [ %92, %_ZN7QStringD2Ev.exit86 ], [ %90, %89 ], [ %174, %173 ], [ %176, %175 ], [ %188, %_ZN7QStringD2Ev.exit126 ], [ %186, %185 ], [ %180, %_ZN7QStringD2Ev.exit122 ], [ %178, %177 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %_ZN7QStringD2Ev.exit58 ], [ %90, %89 ], [ %122, %121 ], [ %116, %_ZN7QStringD2Ev.exit98 ], [ %114, %113 ], [ %108, %_ZN7QStringD2Ev.exit94 ], [ %106, %105 ], [ %100, %_ZN7QStringD2Ev.exit90 ], [ %98, %97 ], [ %92, %_ZN7QStringD2Ev.exit86 ], [ %174, %173 ], [ %176, %175 ], [ %188, %_ZN7QStringD2Ev.exit126 ], [ %186, %185 ], [ %180, %_ZN7QStringD2Ev.exit122 ], [ %178, %177 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -1399,7 +1399,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit: ; preds = %133, %134, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
-  %.sink.i = phi ptr [ %10, %133 ], [ %10, %134 ], [ %10, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ]
+  %.sink.i = phi ptr [ %spec.select.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %10, %133 ], [ %10, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %10, %134 ]
   %.sroa.31105.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %.sroa.31105.0.copyload = load i32, ptr %.sroa.31105.0..sink.i.sroa_idx, align 4
   %.not217 = icmp eq i32 %.sroa.31105.0.copyload, 0
@@ -1463,7 +1463,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %169
 
 169:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i241, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240, %157, %146
-  %.sink.i243 = phi ptr [ %15, %146 ], [ %15, %157 ], [ %15, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240 ], [ %spec.select.i242, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i241 ]
+  %.sink.i243 = phi ptr [ %spec.select.i242, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i241 ], [ %15, %146 ], [ %15, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240 ], [ %15, %157 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %14, ptr noundef align 4 dereferenceable(36) %.sink.i243, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %170 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #22
@@ -1588,7 +1588,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %207
 
 207:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i266, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265, %195, %_ZN17QArrayDataPointerIDsED2Ev.exit
-  %.sink.i268 = phi ptr [ %18, %_ZN17QArrayDataPointerIDsED2Ev.exit ], [ %18, %195 ], [ %18, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265 ], [ %spec.select.i267, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i266 ]
+  %.sink.i268 = phi ptr [ %spec.select.i267, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i266 ], [ %18, %_ZN17QArrayDataPointerIDsED2Ev.exit ], [ %18, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265 ], [ %18, %195 ]
   %.sroa.41086.0..sink.i268.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i268, i64 4
   %.sroa.41086.0.copyload = load i32, ptr %.sroa.41086.0..sink.i268.sroa_idx, align 4
   %208 = sext i32 %.sroa.41086.0.copyload to i64
@@ -1688,7 +1688,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %239
 
 239:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i293, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292, %227, %_ZN17QArrayDataPointerIDsED2Ev.exit281
-  %.sink.i295 = phi ptr [ %21, %_ZN17QArrayDataPointerIDsED2Ev.exit281 ], [ %21, %227 ], [ %21, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292 ], [ %spec.select.i294, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i293 ]
+  %.sink.i295 = phi ptr [ %spec.select.i294, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i293 ], [ %21, %_ZN17QArrayDataPointerIDsED2Ev.exit281 ], [ %21, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292 ], [ %21, %227 ]
   %.sroa.41074.0..sink.i295.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i295, i64 4
   %.sroa.41074.0.copyload = load i32, ptr %.sroa.41074.0..sink.i295.sroa_idx, align 4
   %240 = sext i32 %.sroa.41074.0.copyload to i64
@@ -1788,7 +1788,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %271
 
 271:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i321, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320, %259, %_ZN17QArrayDataPointerIDsED2Ev.exit309
-  %.sink.i323 = phi ptr [ %24, %_ZN17QArrayDataPointerIDsED2Ev.exit309 ], [ %24, %259 ], [ %24, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320 ], [ %spec.select.i322, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i321 ]
+  %.sink.i323 = phi ptr [ %spec.select.i322, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i321 ], [ %24, %_ZN17QArrayDataPointerIDsED2Ev.exit309 ], [ %24, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320 ], [ %24, %259 ]
   %.sroa.41062.0..sink.i323.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i323, i64 4
   %.sroa.41062.0.copyload = load i32, ptr %.sroa.41062.0..sink.i323.sroa_idx, align 4
   %272 = sext i32 %.sroa.41062.0.copyload to i64
@@ -2130,7 +2130,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406: ; preds = %352, %353, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i403
-  %.sink.i405 = phi ptr [ %25, %352 ], [ %25, %353 ], [ %25, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402 ], [ %spec.select.i404, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i403 ]
+  %.sink.i405 = phi ptr [ %spec.select.i404, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i403 ], [ %25, %352 ], [ %25, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402 ], [ %25, %353 ]
   %.sroa.31057.0..sink.i405.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i405, i64 8
   %.sroa.31057.0.copyload = load i32, ptr %.sroa.31057.0..sink.i405.sroa_idx, align 4
   %.not207 = icmp eq i32 %.sroa.31057.0.copyload, 0
@@ -2194,7 +2194,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %388
 
 388:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i418, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417, %376, %365
-  %.sink.i420 = phi ptr [ %30, %365 ], [ %30, %376 ], [ %30, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417 ], [ %spec.select.i419, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i418 ]
+  %.sink.i420 = phi ptr [ %spec.select.i419, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i418 ], [ %30, %365 ], [ %30, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417 ], [ %30, %376 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, ptr noundef align 4 dereferenceable(36) %.sink.i420, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %389 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #22
@@ -2319,7 +2319,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %426
 
 426:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i451, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450, %414, %_ZN17QArrayDataPointerIDsED2Ev.exit439
-  %.sink.i453 = phi ptr [ %33, %_ZN17QArrayDataPointerIDsED2Ev.exit439 ], [ %33, %414 ], [ %33, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450 ], [ %spec.select.i452, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i451 ]
+  %.sink.i453 = phi ptr [ %spec.select.i452, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i451 ], [ %33, %_ZN17QArrayDataPointerIDsED2Ev.exit439 ], [ %33, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450 ], [ %33, %414 ]
   %.sroa.41038.0..sink.i453.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i453, i64 4
   %.sroa.41038.0.copyload = load i32, ptr %.sroa.41038.0..sink.i453.sroa_idx, align 4
   %427 = sext i32 %.sroa.41038.0.copyload to i64
@@ -2419,7 +2419,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %458
 
 458:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i479, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478, %446, %_ZN17QArrayDataPointerIDsED2Ev.exit467
-  %.sink.i481 = phi ptr [ %36, %_ZN17QArrayDataPointerIDsED2Ev.exit467 ], [ %36, %446 ], [ %36, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478 ], [ %spec.select.i480, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i479 ]
+  %.sink.i481 = phi ptr [ %spec.select.i480, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i479 ], [ %36, %_ZN17QArrayDataPointerIDsED2Ev.exit467 ], [ %36, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478 ], [ %36, %446 ]
   %.sroa.41026.0..sink.i481.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i481, i64 4
   %.sroa.41026.0.copyload = load i32, ptr %.sroa.41026.0..sink.i481.sroa_idx, align 4
   %459 = sext i32 %.sroa.41026.0.copyload to i64
@@ -2519,7 +2519,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %490
 
 490:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i507, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506, %478, %_ZN17QArrayDataPointerIDsED2Ev.exit495
-  %.sink.i509 = phi ptr [ %39, %_ZN17QArrayDataPointerIDsED2Ev.exit495 ], [ %39, %478 ], [ %39, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506 ], [ %spec.select.i508, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i507 ]
+  %.sink.i509 = phi ptr [ %spec.select.i508, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i507 ], [ %39, %_ZN17QArrayDataPointerIDsED2Ev.exit495 ], [ %39, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506 ], [ %39, %478 ]
   %.sroa.41014.0..sink.i509.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i509, i64 4
   %.sroa.41014.0.copyload = load i32, ptr %.sroa.41014.0..sink.i509.sroa_idx, align 4
   %491 = sext i32 %.sroa.41014.0.copyload to i64
@@ -3838,7 +3838,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760: ; preds = %904, %905, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i757
-  %.sink.i759 = phi ptr [ %59, %904 ], [ %59, %905 ], [ %59, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756 ], [ %spec.select.i758, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i757 ]
+  %.sink.i759 = phi ptr [ %spec.select.i758, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i757 ], [ %59, %904 ], [ %59, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756 ], [ %59, %905 ]
   %.sroa.3.0..sink.i759.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i759, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sink.i759.sroa_idx, align 4
   %.not169 = icmp eq i32 %.sroa.3.0.copyload, 0
@@ -3906,7 +3906,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %942
 
 942:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i772, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771, %928, %917
-  %.sink.i774 = phi ptr [ %64, %917 ], [ %64, %928 ], [ %64, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771 ], [ %spec.select.i773, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i772 ]
+  %.sink.i774 = phi ptr [ %spec.select.i773, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i772 ], [ %64, %917 ], [ %64, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771 ], [ %64, %928 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %63, ptr noundef align 4 dereferenceable(36) %.sink.i774, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %943 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %883) #22
@@ -4035,7 +4035,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %982
 
 982:                                              ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i808, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807, %968, %_ZN17QArrayDataPointerIDsED2Ev.exit796
-  %.sink.i810 = phi ptr [ %67, %_ZN17QArrayDataPointerIDsED2Ev.exit796 ], [ %67, %968 ], [ %67, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807 ], [ %spec.select.i809, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i808 ]
+  %.sink.i810 = phi ptr [ %spec.select.i809, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i808 ], [ %67, %_ZN17QArrayDataPointerIDsED2Ev.exit796 ], [ %67, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807 ], [ %67, %968 ]
   %.sroa.4955.0..sink.i810.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i810, i64 4
   %.sroa.4955.0.copyload = load i32, ptr %.sroa.4955.0..sink.i810.sroa_idx, align 4
   %983 = sext i32 %.sroa.4955.0.copyload to i64
@@ -4139,7 +4139,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %1016
 
 1016:                                             ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i836, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835, %1002, %_ZN17QArrayDataPointerIDsED2Ev.exit824
-  %.sink.i838 = phi ptr [ %70, %_ZN17QArrayDataPointerIDsED2Ev.exit824 ], [ %70, %1002 ], [ %70, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835 ], [ %spec.select.i837, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i836 ]
+  %.sink.i838 = phi ptr [ %spec.select.i837, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i836 ], [ %70, %_ZN17QArrayDataPointerIDsED2Ev.exit824 ], [ %70, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835 ], [ %70, %1002 ]
   %.sroa.4943.0..sink.i838.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i838, i64 4
   %.sroa.4943.0.copyload = load i32, ptr %.sroa.4943.0..sink.i838.sroa_idx, align 4
   %1017 = sext i32 %.sroa.4943.0.copyload to i64
@@ -4243,7 +4243,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %1050
 
 1050:                                             ; preds = %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i864, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863, %1036, %_ZN17QArrayDataPointerIDsED2Ev.exit852
-  %.sink.i866 = phi ptr [ %73, %_ZN17QArrayDataPointerIDsED2Ev.exit852 ], [ %73, %1036 ], [ %73, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863 ], [ %spec.select.i865, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i864 ]
+  %.sink.i866 = phi ptr [ %spec.select.i865, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i864 ], [ %73, %_ZN17QArrayDataPointerIDsED2Ev.exit852 ], [ %73, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863 ], [ %73, %1036 ]
   %.sroa.4.0..sink.i866.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i866, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sink.i866.sroa_idx, align 4
   %1051 = sext i32 %.sroa.4.0.copyload to i64
@@ -5062,7 +5062,7 @@ _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_E
   br label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit: ; preds = %40, %41, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
-  %.sink.i = phi ptr [ %5, %40 ], [ %5, %41 ], [ %5, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ]
+  %.sink.i = phi ptr [ %spec.select.i, %_ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %5, %40 ], [ %5, %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %5, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, ptr noundef align 4 dereferenceable(36) %.sink.i, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load i32, ptr %26, align 4
@@ -5824,13 +5824,13 @@ _ZN7QStringD2Ev.exit42:                           ; preds = %_ZN17QArrayDataPoin
   br i1 %.0, label %.sink.split, label %63
 
 .sink.split:                                      ; preds = %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit42.thread, %61, %_ZN7QStringD2Ev.exit38, %_ZN7QStringD2Ev.exit38.thread, %54, %_ZN7QStringD2Ev.exit34, %_ZN7QStringD2Ev.exit34.thread, %47
-  %.sink = phi ptr [ %15, %47 ], [ %15, %_ZN7QStringD2Ev.exit34.thread ], [ %15, %_ZN7QStringD2Ev.exit34 ], [ %25, %54 ], [ %25, %_ZN7QStringD2Ev.exit38.thread ], [ %25, %_ZN7QStringD2Ev.exit38 ], [ %35, %61 ], [ %35, %_ZN7QStringD2Ev.exit42.thread ], [ %35, %_ZN7QStringD2Ev.exit42 ]
-  %.pn18.pn.ph = phi { ptr, i32 } [ %44, %47 ], [ %42, %_ZN7QStringD2Ev.exit34.thread ], [ %44, %_ZN7QStringD2Ev.exit34 ], [ %51, %54 ], [ %49, %_ZN7QStringD2Ev.exit38.thread ], [ %51, %_ZN7QStringD2Ev.exit38 ], [ %58, %61 ], [ %56, %_ZN7QStringD2Ev.exit42.thread ], [ %58, %_ZN7QStringD2Ev.exit42 ]
+  %.sink = phi ptr [ %25, %_ZN7QStringD2Ev.exit38 ], [ %15, %_ZN7QStringD2Ev.exit34 ], [ %15, %47 ], [ %15, %_ZN7QStringD2Ev.exit34.thread ], [ %25, %54 ], [ %25, %_ZN7QStringD2Ev.exit38.thread ], [ %35, %61 ], [ %35, %_ZN7QStringD2Ev.exit42.thread ], [ %35, %_ZN7QStringD2Ev.exit42 ]
+  %.pn18.pn.ph = phi { ptr, i32 } [ %51, %_ZN7QStringD2Ev.exit38 ], [ %44, %_ZN7QStringD2Ev.exit34 ], [ %44, %47 ], [ %42, %_ZN7QStringD2Ev.exit34.thread ], [ %51, %54 ], [ %49, %_ZN7QStringD2Ev.exit38.thread ], [ %58, %61 ], [ %56, %_ZN7QStringD2Ev.exit42.thread ], [ %58, %_ZN7QStringD2Ev.exit42 ]
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef 64) #23
   br label %63
 
 63:                                               ; preds = %.sink.split, %61, %54, %47, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit38, %_ZN7QStringD2Ev.exit34
-  %.pn18.pn = phi { ptr, i32 } [ %58, %_ZN7QStringD2Ev.exit42 ], [ %51, %_ZN7QStringD2Ev.exit38 ], [ %44, %_ZN7QStringD2Ev.exit34 ], [ %44, %47 ], [ %51, %54 ], [ %58, %61 ], [ %.pn18.pn.ph, %.sink.split ]
+  %.pn18.pn = phi { ptr, i32 } [ %44, %47 ], [ %58, %_ZN7QStringD2Ev.exit42 ], [ %51, %54 ], [ %51, %_ZN7QStringD2Ev.exit38 ], [ %58, %61 ], [ %44, %_ZN7QStringD2Ev.exit34 ], [ %.pn18.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn18.pn
 }
 
@@ -6460,7 +6460,7 @@ _ZN7QStringD2Ev.exit105:                          ; preds = %164, %_ZN17QArrayDa
   br label %170
 
 170:                                              ; preds = %_ZN7QStringD2Ev.exit93, %_ZN7QStringD2Ev.exit101, %_ZN7QStringD2Ev.exit105, %_ZN7QStringD2Ev.exit97, %_ZN7QStringD2Ev.exit89, %_ZN7QStringD2Ev.exit85, %_ZN7QStringD2Ev.exit81, %_ZN7QStringD2Ev.exit77, %_ZN7QStringD2Ev.exit73, %_ZN7QStringD2Ev.exit69, %_ZN7QStringD2Ev.exit65
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %141, %_ZN7QStringD2Ev.exit89 ], [ %135, %_ZN7QStringD2Ev.exit85 ], [ %129, %_ZN7QStringD2Ev.exit81 ], [ %123, %_ZN7QStringD2Ev.exit77 ], [ %117, %_ZN7QStringD2Ev.exit73 ], [ %111, %_ZN7QStringD2Ev.exit69 ], [ %105, %_ZN7QStringD2Ev.exit65 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit93 ], [ %eh.lpad-body44, %_ZN7QStringD2Ev.exit97 ], [ %165, %_ZN7QStringD2Ev.exit105 ], [ %eh.lpad-body52, %_ZN7QStringD2Ev.exit101 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %105, %_ZN7QStringD2Ev.exit65 ], [ %141, %_ZN7QStringD2Ev.exit89 ], [ %135, %_ZN7QStringD2Ev.exit85 ], [ %129, %_ZN7QStringD2Ev.exit81 ], [ %123, %_ZN7QStringD2Ev.exit77 ], [ %117, %_ZN7QStringD2Ev.exit73 ], [ %111, %_ZN7QStringD2Ev.exit69 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit93 ], [ %eh.lpad-body44, %_ZN7QStringD2Ev.exit97 ], [ %165, %_ZN7QStringD2Ev.exit105 ], [ %eh.lpad-body52, %_ZN7QStringD2Ev.exit101 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -6904,7 +6904,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog1
   br label %.thread
 
 .thread:                                          ; preds = %18, %21
-  %26 = phi i1 [ true, %18 ], [ %25, %21 ]
+  %26 = phi i1 [ %25, %21 ], [ true, %18 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef %6, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8
@@ -7143,8 +7143,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisti
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

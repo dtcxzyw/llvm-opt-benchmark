@@ -791,7 +791,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %373, %.preheader.i, %.loopexit.loopexit102.i, %395, %392, %390, %365
-  %.164.i = phi i32 [ %.2.i, %392 ], [ %.2.i, %395 ], [ %.2.i, %390 ], [ %397, %.loopexit.loopexit102.i ], [ %.2.i, %365 ], [ %.2.i, %.preheader.i ], [ %.2.i, %373 ]
+  %.164.i = phi i32 [ %.2.i, %390 ], [ %.2.i, %392 ], [ %.2.i, %395 ], [ %397, %.loopexit.loopexit102.i ], [ %.2.i, %365 ], [ %.2.i, %.preheader.i ], [ %.2.i, %373 ]
   %398 = add i32 %.164.i, 1
   br label %.loopexit90.i, !llvm.loop !85
 
@@ -1003,8 +1003,8 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %429
   br i1 %exitcond25.not.i.i, label %psh_hint_table_activate_mask.exit.i, label %.lr.ph10.i.i, !llvm.loop !112
 
 psh_hint_table_activate_mask.exit.i:              ; preds = %._crit_edge11.i.i, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %.val73.i = phi ptr [ %.val73.pre.i, %._crit_edge.thread.i.i ], [ %465, %._crit_edge.i.i ], [ %465, %._crit_edge11.i.i ]
-  %.val72.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.150.i.i, %._crit_edge.i.i ], [ %.150.i.i, %._crit_edge11.i.i ]
+  %.val73.i = phi ptr [ %465, %._crit_edge.i.i ], [ %.val73.pre.i, %._crit_edge.thread.i.i ], [ %465, %._crit_edge11.i.i ]
+  %.val72.i = phi i32 [ %.150.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.thread.i.i ], [ %.150.i.i, %._crit_edge11.i.i ]
   call fastcc void @psh_hint_table_find_strong_points(i32 %.val72.i, ptr %.val73.i, ptr noundef %433, i32 noundef %430, i32 noundef %spec.store.select.i95, i32 noundef %411)
   br label %482
 
@@ -1162,8 +1162,8 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   br i1 %exitcond25.not.i111.i, label %psh_hint_table_activate_mask.exit113.i, label %.lr.ph10.i104.i, !llvm.loop !112
 
 psh_hint_table_activate_mask.exit113.i:           ; preds = %._crit_edge11.i109.i, %._crit_edge.i101.i, %._crit_edge.thread.i112.i
-  %.val75.i = phi ptr [ %.val75.pre.i, %._crit_edge.thread.i112.i ], [ %526, %._crit_edge.i101.i ], [ %526, %._crit_edge11.i109.i ]
-  %.val74.i = phi i32 [ 0, %._crit_edge.thread.i112.i ], [ %.150.i98.i, %._crit_edge.i101.i ], [ %.150.i98.i, %._crit_edge11.i109.i ]
+  %.val75.i = phi ptr [ %526, %._crit_edge.i101.i ], [ %.val75.pre.i, %._crit_edge.thread.i112.i ], [ %526, %._crit_edge11.i109.i ]
+  %.val74.i = phi i32 [ %.150.i98.i, %._crit_edge.i101.i ], [ 0, %._crit_edge.thread.i112.i ], [ %.150.i98.i, %._crit_edge11.i109.i ]
   call fastcc void @psh_hint_table_find_strong_points(i32 %.val74.i, ptr %.val75.i, ptr noundef %488, i32 noundef %487, i32 noundef %spec.store.select.i95, i32 noundef %411)
   br label %.thread115.i
 
@@ -1203,7 +1203,7 @@ psh_hint_table_activate_mask.exit113.i:           ; preds = %._crit_edge11.i109.
   br i1 %.not66.i, label %psh_glyph_find_strong_points.exit, label %.lr.ph125.i, !llvm.loop !114
 
 psh_glyph_find_strong_points.exit:                ; preds = %552, %418, %.thread115.i
-  %.val81 = phi i32 [ 0, %418 ], [ 0, %.thread115.i ], [ %.pr.i, %552 ]
+  %.val81 = phi i32 [ 0, %.thread115.i ], [ 0, %418 ], [ %.pr.i, %552 ]
   br i1 %292, label %.split75, label %.split
 
 .split:                                           ; preds = %psh_glyph_find_strong_points.exit
@@ -1749,7 +1749,7 @@ psh_globals_scale_widths.exit37:                  ; preds = %.lr.ph.i30, %52, %5
   br label %127
 
 127:                                              ; preds = %126, %125, %124, %123
-  %.083.i = phi ptr [ %122, %126 ], [ %121, %124 ], [ %120, %125 ], [ %88, %123 ]
+  %.083.i = phi ptr [ %122, %126 ], [ %120, %125 ], [ %121, %124 ], [ %88, %123 ]
   %128 = load i32, ptr %.083.i, align 8, !tbaa !117
   %.not91103.i = icmp eq i32 %128, 0
   br i1 %.not91103.i, label %._crit_edge.i, label %.lr.ph106.preheader.i
@@ -2881,7 +2881,7 @@ psh_hint_table_record_mask.exit:                  ; preds = %psh_hint_table_reco
   br i1 %.not61, label %.loopexit1, label %.lr.ph13, !llvm.loop !209
 
 .loopexit1:                                       ; preds = %psh_hint_table_record_mask.exit, %43, %._crit_edge
-  %90 = phi i32 [ 0, %43 ], [ 0, %._crit_edge ], [ %87, %psh_hint_table_record_mask.exit ]
+  %90 = phi i32 [ 0, %._crit_edge ], [ 0, %43 ], [ %87, %psh_hint_table_record_mask.exit ]
   %.not62 = icmp ne i32 %90, %6
   %91 = icmp ne i32 %6, 0
   %or.cond = and i1 %.not62, %91
@@ -3030,7 +3030,7 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %37
   %.not128 = icmp ne i8 %46, 0
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %35, ptr %47, align 8, !tbaa !151
-  br label %125
+  br label %129
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 195
@@ -3153,198 +3153,198 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %37
   br i1 %.not47.i, label %psh_blues_snap_stem.exit, label %95, !llvm.loop !212
 
 psh_blues_snap_stem.exit:                         ; preds = %114, %95, %111, %106, %.loopexit50.i
-  %.sroa.14.0 = phi i64 [ 0, %.loopexit50.i ], [ %113, %111 ], [ 0, %106 ], [ 0, %95 ], [ 0, %114 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %.loopexit50.i ], [ %85, %111 ], [ %.sroa.0.1, %106 ], [ %.sroa.0.1, %95 ], [ %.sroa.0.1, %114 ]
-  switch i32 %.sroa.0.0, label %125 [
-    i32 1, label %214
-    i32 2, label %117
-    i32 3, label %122
+  %.sroa.14.0 = phi i64 [ 0, %106 ], [ 0, %.loopexit50.i ], [ %113, %111 ], [ 0, %95 ], [ 0, %114 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %106 ], [ %.sroa.0.1, %.loopexit50.i ], [ %85, %111 ], [ %.sroa.0.1, %95 ], [ %.sroa.0.1, %114 ]
+  switch i32 %.sroa.0.0, label %129 [
+    i32 1, label %117
+    i32 2, label %124
+    i32 3, label %218
   ]
 
 117:                                              ; preds = %psh_blues_snap_stem.exit
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.14.0, ptr %118, align 8, !tbaa !150
-  br i1 %51, label %.thread157, label %.thread162
-
-.thread157:                                       ; preds = %117
-  %119 = icmp slt i64 %35, 64
-  %120 = add nuw nsw i64 %35, 32
-  %121 = and i64 %120, 9223372036854775744
-  %.1116160 = select i1 %119, i64 64, i64 %121
-  store i64 %.1116160, ptr %52, align 8, !tbaa !151
-  br label %.thread162
-
-122:                                              ; preds = %psh_blues_snap_stem.exit
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.14.0, ptr %123, align 8, !tbaa !150
-  %124 = sub nsw i64 %.sroa.9136.1, %.sroa.14.0
-  store i64 %124, ptr %52, align 8, !tbaa !151
-  br label %.thread162
-
-125:                                              ; preds = %psh_blues_snap_stem.exit.thread, %psh_blues_snap_stem.exit
-  %126 = phi i1 [ %.not128, %psh_blues_snap_stem.exit.thread ], [ %51, %psh_blues_snap_stem.exit ]
-  %127 = phi ptr [ %47, %psh_blues_snap_stem.exit.thread ], [ %52, %psh_blues_snap_stem.exit ]
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %129 = load ptr, ptr %128, align 8, !tbaa !206
-  %.not129 = icmp eq ptr %129, null
-  br i1 %.not129, label %162, label %130
-
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %132 = load i32, ptr %131, align 8, !tbaa !102
-  %133 = and i32 %132, 8
-  %.not130 = icmp eq i32 %133, 0
-  br i1 %.not130, label %134, label %135
-
-134:                                              ; preds = %130
-  tail call fastcc void @psh_hint_align(ptr noundef nonnull %129, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %.pre = load i32, ptr %0, align 8, !tbaa !110
-  %.pre180 = load i32, ptr %26, align 4, !tbaa !152
-  br label %135
-
-135:                                              ; preds = %134, %130
-  %136 = phi i32 [ %.pre180, %134 ], [ %27, %130 ]
-  %137 = phi i32 [ %.pre, %134 ], [ %16, %130 ]
-  %138 = load i32, ptr %129, align 8, !tbaa !110
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !152
-  %141 = ashr i32 %140, 1
-  %142 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %143 = load i64, ptr %142, align 8, !tbaa !150
-  %144 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %145 = load i64, ptr %144, align 8, !tbaa !151
-  %146 = ashr i64 %145, 1
-  %147 = ashr i32 %136, 1
-  %148 = add i32 %141, %138
-  %149 = sub i32 %137, %148
-  %150 = add i32 %149, %147
-  %151 = sext i32 %150 to i64
-  %152 = mul nsw i64 %18, %151
-  %153 = ashr i64 %152, 63
-  %154 = add nsw i64 %152, 32768
-  %155 = add nsw i64 %154, %153
-  %156 = shl i64 %155, 16
-  %157 = ashr i64 %156, 32
-  %158 = ashr i64 %sext167, 33
-  %159 = sub i64 %143, %158
-  %160 = add i64 %159, %146
-  %161 = add i64 %160, %157
-  br label %162
-
-162:                                              ; preds = %135, %125
-  %.0114 = phi i64 [ %161, %135 ], [ %25, %125 ]
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  %165 = load i8, ptr %164, align 4, !tbaa !78
-  %.not131 = icmp eq i8 %165, 0
-  br i1 %.not131, label %psh_dimension_quantize_len.exit, label %166
-
-166:                                              ; preds = %162
-  %167 = icmp slt i32 %34, 65
-  br i1 %167, label %168, label %184
-
-168:                                              ; preds = %166
-  %169 = icmp sgt i32 %34, 31
-  br i1 %169, label %170, label %174
-
-170:                                              ; preds = %168
-  %171 = lshr i64 %35, 1
-  %172 = add nsw i64 %.0114, %171
-  %173 = and i64 %172, -64
-  br label %psh_dimension_quantize_len.exit
-
-174:                                              ; preds = %168
-  %175 = icmp sgt i32 %34, 0
-  %176 = add nsw i64 %.0114, 32
-  %177 = and i64 %176, -64
-  br i1 %175, label %178, label %psh_dimension_quantize_len.exit
-
-178:                                              ; preds = %174
-  %179 = add nsw i64 %.0114, %35
-  %180 = add nsw i64 %179, 32
-  %181 = and i64 %180, -64
-  %182 = sub nsw i64 %177, %.0114
-  %183 = sub nsw i64 %181, %179
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %182, i1 true)
-  %.0 = tail call i64 @llvm.abs.i64(i64 %183, i1 true)
-  %.not132 = icmp samesign ugt i64 %spec.select, %.0
-  %.2 = select i1 %.not132, i64 %181, i64 %177
-  br label %psh_dimension_quantize_len.exit
-
-184:                                              ; preds = %166
-  %185 = getelementptr i8, ptr %7, i64 16
-  %.val = load i64, ptr %185, align 8, !tbaa !136
-  %186 = sub nsw i64 %35, %.val
-  %.0.i = tail call i64 @llvm.abs.i64(i64 %186, i1 true)
-  %187 = icmp samesign ult i64 %.0.i, 40
-  %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.val, i64 48)
-  %.1.i = select i1 %187, i64 %spec.store.select.i, i64 %35
-  %188 = icmp samesign ult i64 %.1.i, 192
-  br i1 %188, label %189, label %200
-
-189:                                              ; preds = %184
-  %190 = and i64 %.1.i, 63
-  %191 = and i64 %.1.i, 192
-  %192 = icmp samesign ult i64 %190, 10
-  br i1 %192, label %psh_dimension_quantize_len.exit, label %193
-
-193:                                              ; preds = %189
-  %194 = icmp samesign ult i64 %190, 32
-  br i1 %194, label %195, label %197
-
-195:                                              ; preds = %193
-  %196 = or disjoint i64 %191, 10
-  br label %psh_dimension_quantize_len.exit
-
-197:                                              ; preds = %193
-  %198 = icmp samesign ult i64 %190, 54
-  %199 = or disjoint i64 %191, 54
-  %spec.select.i = select i1 %198, i64 %199, i64 %.1.i
-  br label %psh_dimension_quantize_len.exit
-
-200:                                              ; preds = %184
-  %201 = add nuw nsw i64 %.1.i, 32
-  %202 = and i64 %201, 9223372036854775744
-  br label %psh_dimension_quantize_len.exit
-
-psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %195, %189, %178, %170, %162
-  %203 = phi i64 [ 64, %170 ], [ %35, %178 ], [ %35, %162 ], [ %196, %195 ], [ %202, %200 ], [ %.1.i, %189 ], [ %spec.select.i, %197 ], [ %35, %174 ]
-  %.1 = phi i64 [ %173, %170 ], [ %.2, %178 ], [ %.0114, %162 ], [ %.0114, %195 ], [ %.0114, %200 ], [ %.0114, %189 ], [ %.0114, %197 ], [ %177, %174 ]
-  %204 = add nsw i64 %.1, 32
-  %205 = and i64 %204, -64
-  %206 = sub nsw i64 %205, %.1
-  %207 = add i64 %.1, %203
-  %208 = add nsw i64 %207, 32
-  %209 = and i64 %208, -64
-  %210 = sub i64 %209, %207
-  %211 = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
-  %212 = tail call i64 @llvm.abs.i64(i64 %210, i1 true)
-  %.not.i134 = icmp samesign ugt i64 %211, %212
-  %..i = select i1 %.not.i134, i64 %210, i64 %206
-  %213 = add nsw i64 %..i, %.1
-  store i64 %213, ptr %163, align 8, !tbaa !150
-  store i64 %203, ptr %127, align 8, !tbaa !151
-  br i1 %126, label %221, label %.thread162
-
-214:                                              ; preds = %psh_blues_snap_stem.exit
-  %215 = sub nsw i64 %.sroa.9136.1, %35
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %215, ptr %216, align 8, !tbaa !150
+  %118 = sub nsw i64 %.sroa.9136.1, %35
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %118, ptr %119, align 8, !tbaa !150
   br i1 %51, label %.thread151, label %.thread162
 
-.thread151:                                       ; preds = %214
-  %217 = icmp slt i64 %35, 64
-  %218 = add nuw nsw i64 %35, 32
-  %219 = and i64 %218, 9223372036854775744
-  %.1116154 = select i1 %217, i64 64, i64 %219
-  %220 = sub nsw i64 %.sroa.9136.1, %.1116154
-  store i64 %220, ptr %216, align 8, !tbaa !150
+.thread151:                                       ; preds = %117
+  %120 = icmp slt i64 %35, 64
+  %121 = add nuw nsw i64 %35, 32
+  %122 = and i64 %121, 9223372036854775744
+  %.1116154 = select i1 %120, i64 64, i64 %122
+  %123 = sub nsw i64 %.sroa.9136.1, %.1116154
+  store i64 %123, ptr %119, align 8, !tbaa !150
   store i64 %.1116154, ptr %52, align 8, !tbaa !151
   br label %.thread162
 
+124:                                              ; preds = %psh_blues_snap_stem.exit
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.14.0, ptr %125, align 8, !tbaa !150
+  br i1 %51, label %.thread157, label %.thread162
+
+.thread157:                                       ; preds = %124
+  %126 = icmp slt i64 %35, 64
+  %127 = add nuw nsw i64 %35, 32
+  %128 = and i64 %127, 9223372036854775744
+  %.1116160 = select i1 %126, i64 64, i64 %128
+  store i64 %.1116160, ptr %52, align 8, !tbaa !151
+  br label %.thread162
+
+129:                                              ; preds = %psh_blues_snap_stem.exit.thread, %psh_blues_snap_stem.exit
+  %130 = phi i1 [ %.not128, %psh_blues_snap_stem.exit.thread ], [ %51, %psh_blues_snap_stem.exit ]
+  %131 = phi ptr [ %47, %psh_blues_snap_stem.exit.thread ], [ %52, %psh_blues_snap_stem.exit ]
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %133 = load ptr, ptr %132, align 8, !tbaa !206
+  %.not129 = icmp eq ptr %133, null
+  br i1 %.not129, label %166, label %134
+
+134:                                              ; preds = %129
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %136 = load i32, ptr %135, align 8, !tbaa !102
+  %137 = and i32 %136, 8
+  %.not130 = icmp eq i32 %137, 0
+  br i1 %.not130, label %138, label %139
+
+138:                                              ; preds = %134
+  tail call fastcc void @psh_hint_align(ptr noundef nonnull %133, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %.pre = load i32, ptr %0, align 8, !tbaa !110
+  %.pre180 = load i32, ptr %26, align 4, !tbaa !152
+  br label %139
+
+139:                                              ; preds = %138, %134
+  %140 = phi i32 [ %.pre180, %138 ], [ %27, %134 ]
+  %141 = phi i32 [ %.pre, %138 ], [ %16, %134 ]
+  %142 = load i32, ptr %133, align 8, !tbaa !110
+  %143 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %144 = load i32, ptr %143, align 4, !tbaa !152
+  %145 = ashr i32 %144, 1
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %147 = load i64, ptr %146, align 8, !tbaa !150
+  %148 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %149 = load i64, ptr %148, align 8, !tbaa !151
+  %150 = ashr i64 %149, 1
+  %151 = ashr i32 %140, 1
+  %152 = add i32 %145, %142
+  %153 = sub i32 %141, %152
+  %154 = add i32 %153, %151
+  %155 = sext i32 %154 to i64
+  %156 = mul nsw i64 %18, %155
+  %157 = ashr i64 %156, 63
+  %158 = add nsw i64 %156, 32768
+  %159 = add nsw i64 %158, %157
+  %160 = shl i64 %159, 16
+  %161 = ashr i64 %160, 32
+  %162 = ashr i64 %sext167, 33
+  %163 = sub i64 %147, %162
+  %164 = add i64 %163, %150
+  %165 = add i64 %164, %161
+  br label %166
+
+166:                                              ; preds = %139, %129
+  %.0114 = phi i64 [ %165, %139 ], [ %25, %129 ]
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 196
+  %169 = load i8, ptr %168, align 4, !tbaa !78
+  %.not131 = icmp eq i8 %169, 0
+  br i1 %.not131, label %psh_dimension_quantize_len.exit, label %170
+
+170:                                              ; preds = %166
+  %171 = icmp slt i32 %34, 65
+  br i1 %171, label %172, label %188
+
+172:                                              ; preds = %170
+  %173 = icmp sgt i32 %34, 31
+  br i1 %173, label %174, label %178
+
+174:                                              ; preds = %172
+  %175 = lshr i64 %35, 1
+  %176 = add nsw i64 %.0114, %175
+  %177 = and i64 %176, -64
+  br label %psh_dimension_quantize_len.exit
+
+178:                                              ; preds = %172
+  %179 = icmp sgt i32 %34, 0
+  %180 = add nsw i64 %.0114, 32
+  %181 = and i64 %180, -64
+  br i1 %179, label %182, label %psh_dimension_quantize_len.exit
+
+182:                                              ; preds = %178
+  %183 = add nsw i64 %.0114, %35
+  %184 = add nsw i64 %183, 32
+  %185 = and i64 %184, -64
+  %186 = sub nsw i64 %181, %.0114
+  %187 = sub nsw i64 %185, %183
+  %spec.select = tail call i64 @llvm.abs.i64(i64 %186, i1 true)
+  %.0 = tail call i64 @llvm.abs.i64(i64 %187, i1 true)
+  %.not132 = icmp samesign ugt i64 %spec.select, %.0
+  %.2 = select i1 %.not132, i64 %185, i64 %181
+  br label %psh_dimension_quantize_len.exit
+
+188:                                              ; preds = %170
+  %189 = getelementptr i8, ptr %7, i64 16
+  %.val = load i64, ptr %189, align 8, !tbaa !136
+  %190 = sub nsw i64 %35, %.val
+  %.0.i = tail call i64 @llvm.abs.i64(i64 %190, i1 true)
+  %191 = icmp samesign ult i64 %.0.i, 40
+  %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.val, i64 48)
+  %.1.i = select i1 %191, i64 %spec.store.select.i, i64 %35
+  %192 = icmp samesign ult i64 %.1.i, 192
+  br i1 %192, label %193, label %204
+
+193:                                              ; preds = %188
+  %194 = and i64 %.1.i, 63
+  %195 = and i64 %.1.i, 192
+  %196 = icmp samesign ult i64 %194, 10
+  br i1 %196, label %psh_dimension_quantize_len.exit, label %197
+
+197:                                              ; preds = %193
+  %198 = icmp samesign ult i64 %194, 32
+  br i1 %198, label %199, label %201
+
+199:                                              ; preds = %197
+  %200 = or disjoint i64 %195, 10
+  br label %psh_dimension_quantize_len.exit
+
+201:                                              ; preds = %197
+  %202 = icmp samesign ult i64 %194, 54
+  %203 = or disjoint i64 %195, 54
+  %spec.select.i = select i1 %202, i64 %203, i64 %.1.i
+  br label %psh_dimension_quantize_len.exit
+
+204:                                              ; preds = %188
+  %205 = add nuw nsw i64 %.1.i, 32
+  %206 = and i64 %205, 9223372036854775744
+  br label %psh_dimension_quantize_len.exit
+
+psh_dimension_quantize_len.exit:                  ; preds = %178, %204, %201, %199, %193, %182, %174, %166
+  %207 = phi i64 [ 64, %174 ], [ %35, %182 ], [ %.1.i, %193 ], [ %35, %166 ], [ %206, %204 ], [ %200, %199 ], [ %spec.select.i, %201 ], [ %35, %178 ]
+  %.1 = phi i64 [ %177, %174 ], [ %.2, %182 ], [ %.0114, %193 ], [ %.0114, %166 ], [ %.0114, %204 ], [ %.0114, %199 ], [ %.0114, %201 ], [ %181, %178 ]
+  %208 = add nsw i64 %.1, 32
+  %209 = and i64 %208, -64
+  %210 = sub nsw i64 %209, %.1
+  %211 = add i64 %.1, %207
+  %212 = add nsw i64 %211, 32
+  %213 = and i64 %212, -64
+  %214 = sub i64 %213, %211
+  %215 = tail call i64 @llvm.abs.i64(i64 %210, i1 true)
+  %216 = tail call i64 @llvm.abs.i64(i64 %214, i1 true)
+  %.not.i134 = icmp samesign ugt i64 %215, %216
+  %..i = select i1 %.not.i134, i64 %214, i64 %210
+  %217 = add nsw i64 %..i, %.1
+  store i64 %217, ptr %167, align 8, !tbaa !150
+  store i64 %207, ptr %131, align 8, !tbaa !151
+  br i1 %130, label %221, label %.thread162
+
+218:                                              ; preds = %psh_blues_snap_stem.exit
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.14.0, ptr %219, align 8, !tbaa !150
+  %220 = sub nsw i64 %.sroa.9136.1, %.sroa.14.0
+  store i64 %220, ptr %52, align 8, !tbaa !151
+  br label %.thread162
+
 221:                                              ; preds = %psh_dimension_quantize_len.exit
-  %222 = icmp slt i64 %203, 64
-  %223 = add nuw nsw i64 %203, 32
+  %222 = icmp slt i64 %207, 64
+  %223 = add nuw nsw i64 %207, 32
   %224 = and i64 %223, 9223372036854775744
   %.1116 = select i1 %222, i64 64, i64 %224
   %225 = and i64 %.1116, 64
@@ -3353,13 +3353,13 @@ psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %1
   br i1 %.not133, label %231, label %227
 
 227:                                              ; preds = %221
-  %228 = add nsw i64 %226, %213
+  %228 = add nsw i64 %226, %217
   %229 = and i64 %228, -64
   %230 = or disjoint i64 %229, 32
   br label %235
 
 231:                                              ; preds = %221
-  %232 = add i64 %213, 32
+  %232 = add i64 %217, 32
   %233 = add i64 %232, %226
   %234 = and i64 %233, -64
   br label %235
@@ -3367,11 +3367,11 @@ psh_dimension_quantize_len.exit:                  ; preds = %174, %200, %197, %1
 235:                                              ; preds = %231, %227
   %.3 = phi i64 [ %234, %231 ], [ %230, %227 ]
   %236 = sub nsw i64 %.3, %226
-  store i64 %236, ptr %163, align 8, !tbaa !150
-  store i64 %.1116, ptr %127, align 8, !tbaa !151
+  store i64 %236, ptr %167, align 8, !tbaa !150
+  store i64 %.1116, ptr %131, align 8, !tbaa !151
   br label %.thread162
 
-.thread162:                                       ; preds = %122, %117, %psh_dimension_quantize_len.exit, %214, %235, %.thread157, %.thread151
+.thread162:                                       ; preds = %218, %124, %117, %psh_dimension_quantize_len.exit, %235, %.thread157, %.thread151
   %storemerge.in = load i32, ptr %8, align 8, !tbaa !102
   br label %.sink.split
 
@@ -4059,7 +4059,7 @@ psh_blues_set_zones_0.exit:                       ; preds = %38, %7
   br label %69
 
 69:                                               ; preds = %._crit_edge14.i132, %59, %57, %56, %54
-  %.164.i135 = phi i32 [ %68, %._crit_edge14.i132 ], [ %.06316.i115, %57 ], [ %.06316.i115, %59 ], [ %.06316.i115, %54 ], [ %.06316.i115, %56 ]
+  %.164.i135 = phi i32 [ %.06316.i115, %56 ], [ %68, %._crit_edge14.i132 ], [ %.06316.i115, %57 ], [ %.06316.i115, %59 ], [ %.06316.i115, %54 ]
   %70 = getelementptr inbounds nuw i8, ptr %.05418.i113, i64 4
   %71 = add nsw i32 %.019.i112, -2
   %72 = icmp ugt i32 %71, 1
@@ -5079,7 +5079,7 @@ ps_mask_table_test_intersect.exit.thread.i:       ; preds = %ps_mask_table_test_
   br i1 %105, label %26, label %ps_mask_table_merge.exit.thread.i, !llvm.loop !264
 
 ps_mask_table_merge.exit.thread.i:                ; preds = %ps_mask_table_test_intersect.exit.thread.i, %101, %ps_mask_table_test_intersect.exit.thread27.i, %17
-  %106 = phi i32 [ %18, %17 ], [ %103, %101 ], [ %18, %ps_mask_table_test_intersect.exit.thread27.i ], [ %18, %ps_mask_table_test_intersect.exit.thread.i ]
+  %106 = phi i32 [ %18, %ps_mask_table_test_intersect.exit.thread27.i ], [ %18, %17 ], [ %103, %101 ], [ %18, %ps_mask_table_test_intersect.exit.thread.i ]
   %.017.i = add i32 %.01742.i, -1
   %107 = icmp ult i32 %.017.i, %106
   br i1 %107, label %17, label %ps_mask_table_merge_all.exit, !llvm.loop !265
@@ -5307,7 +5307,7 @@ ps_mask_set_bit.exit:                             ; preds = %81
   br label %105
 
 105:                                              ; preds = %ps_mask_set_bit.exit, %ps_mask_table_last.exit, %ps_hint_table_alloc.exit, %93, %104
-  %.035 = phi i32 [ %34, %ps_hint_table_alloc.exit ], [ %53, %ps_mask_table_last.exit ], [ %89, %ps_mask_set_bit.exit ], [ 0, %104 ], [ 0, %93 ]
+  %.035 = phi i32 [ %89, %ps_mask_set_bit.exit ], [ %34, %ps_hint_table_alloc.exit ], [ %53, %ps_mask_table_last.exit ], [ 0, %104 ], [ 0, %93 ]
   ret i32 %.035
 }
 

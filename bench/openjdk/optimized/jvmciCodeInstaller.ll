@@ -942,7 +942,7 @@ _ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit:  ; preds = %8, %34
   br label %52
 
 52:                                               ; preds = %44, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %38, %44 ]
+  %.0 = phi ptr [ null, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ null, %49 ], [ %38, %44 ]
   ret ptr %.0
 }
 
@@ -1285,7 +1285,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit24: ; preds = %44, %68
   br label %104
 
 104:                                              ; preds = %91, %73, %102, %99, %85, %81
-  %.0 = phi ptr [ %84, %81 ], [ null, %85 ], [ null, %99 ], [ null, %102 ], [ null, %73 ], [ %94, %91 ]
+  %.0 = phi ptr [ null, %102 ], [ %84, %81 ], [ null, %85 ], [ null, %73 ], [ null, %99 ], [ %94, %91 ]
   ret ptr %.0
 }
 
@@ -1868,7 +1868,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64: ; preds = %252, %276
   br i1 %exitcond80.not, label %.loopexit, label %212, !llvm.loop !11
 
 .loopexit:                                        ; preds = %161, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62, %._crit_edge, %171, %165, %49
-  %.0 = phi ptr [ null, %165 ], [ null, %171 ], [ null, %49 ], [ %85, %._crit_edge ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63 ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61 ], [ null, %161 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %165 ], [ null, %171 ], [ %85, %._crit_edge ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62 ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61 ], [ null, %161 ]
   ret ptr %.0
 }
 
@@ -2122,7 +2122,7 @@ _ZN11OopRecorder14metadata_countEv.exit30:        ; preds = %122, %127
   br label %144
 
 144:                                              ; preds = %_ZN11OopRecorder14metadata_countEv.exit30, %_ZN11OopRecorder10find_indexEP8Metadata.exit28, %_ZN11OopRecorder14metadata_countEv.exit, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %141
-  %.0 = phi ptr [ null, %141 ], [ %45, %_ZN11OopRecorder10find_indexEP8Metadata.exit ], [ %45, %_ZN11OopRecorder14metadata_countEv.exit ], [ %107, %_ZN11OopRecorder10find_indexEP8Metadata.exit28 ], [ %107, %_ZN11OopRecorder14metadata_countEv.exit30 ]
+  %.0 = phi ptr [ null, %141 ], [ %45, %_ZN11OopRecorder14metadata_countEv.exit ], [ %45, %_ZN11OopRecorder10find_indexEP8Metadata.exit ], [ %107, %_ZN11OopRecorder10find_indexEP8Metadata.exit28 ], [ %107, %_ZN11OopRecorder14metadata_countEv.exit30 ]
   ret ptr %.0
 }
 
@@ -2847,7 +2847,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit:  ; preds = %18, %44
   br label %438
 
 80:                                               ; preds = %74, %72, %73
-  %.0143 = phi i32 [ 6, %73 ], [ 1, %72 ], [ 7, %74 ]
+  %.0143 = phi i32 [ 1, %72 ], [ 6, %73 ], [ 7, %74 ]
   %81 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
   %82 = ptrtoint ptr %50 to i64
   %83 = trunc i64 %82 to i32
@@ -3022,7 +3022,7 @@ _ZN25HotSpotCompiledCodeStream9read_boolEPKc.exit: ; preds = %132, %156
   br label %438
 
 .thread:                                          ; preds = %_ZN25HotSpotCompiledCodeStream9read_boolEPKc.exit, %173
-  %.0145.ph = phi i32 [ 4, %_ZN25HotSpotCompiledCodeStream9read_boolEPKc.exit ], [ 6, %173 ]
+  %.0145.ph = phi i32 [ 6, %173 ], [ 4, %_ZN25HotSpotCompiledCodeStream9read_boolEPKc.exit ]
   %177 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #11
   %178 = shl i32 %.0144, 3
   %179 = and i32 %178, -32
@@ -3144,7 +3144,7 @@ _ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit:  ; preds = %198, %224
   br label %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit
 
 _ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit: ; preds = %231, %233, %237
-  %.0.i = phi ptr [ %232, %231 ], [ %235, %233 ], [ null, %237 ]
+  %.0.i = phi ptr [ %235, %233 ], [ null, %237 ], [ %232, %231 ]
   %240 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #11
   %.not153 = icmp eq i8 %240, 0
   %. = select i1 %.not153, ptr %.0.i, ptr null
@@ -3497,7 +3497,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %427, %430
   br label %438
 
 438:                                              ; preds = %182, %.thread167, %424, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit, %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit, %188, %80, %90, %61, %71, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit, %435, %_ZNK6HandleclEv.exit, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit, %190, %174, %77, %58, %11, %8
-  %.0 = phi ptr [ null, %435 ], [ null, %8 ], [ %12, %11 ], [ null, %58 ], [ null, %77 ], [ null, %174 ], [ %191, %190 ], [ %193, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit ], [ %428, %_ZNK6HandleclEv.exit ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit ], [ %62, %71 ], [ %62, %61 ], [ %81, %90 ], [ %81, %80 ], [ %183, %182 ], [ %189, %188 ], [ %., %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit ], [ %.156, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %.157, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit ], [ %.158, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit ], [ %.159, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165 ], [ null, %424 ], [ %168, %.thread167 ]
+  %.0 = phi ptr [ null, %435 ], [ null, %8 ], [ %12, %11 ], [ %428, %_ZNK6HandleclEv.exit ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit ], [ null, %58 ], [ %62, %61 ], [ null, %77 ], [ %81, %80 ], [ null, %174 ], [ %191, %190 ], [ %193, %_ZN25HotSpotCompiledCodeStream7read_u8EPKc.exit ], [ %., %_ZN13CodeInstaller18to_primitive_valueEP25HotSpotCompiledCodeStreaml9BasicTypeRP10ScopeValueP8JVMCIEnv.exit ], [ %189, %188 ], [ %.156, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %183, %182 ], [ %.157, %_ZN25HotSpotCompiledCodeStream7read_s8EPKc.exit ], [ %81, %90 ], [ %.158, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit ], [ %62, %71 ], [ %.159, %_ZNK25HotSpotCompiledCodeStream17virtual_object_atEiP8JVMCIEnv.exit165 ], [ null, %424 ], [ %168, %.thread167 ]
   ret ptr %.0
 }
 
@@ -3538,7 +3538,7 @@ define hidden void @_ZN13CodeInstaller19record_object_valueEP11ObjectValueP25Hot
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
 _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %14, %18, %22
-  %.0.i = phi ptr [ %17, %14 ], [ %21, %18 ], [ %23, %22 ]
+  %.0.i = phi ptr [ %23, %22 ], [ %17, %14 ], [ %21, %18 ]
   %24 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %25 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, i32 noundef %24) #11
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 88), align 8
@@ -4343,7 +4343,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   br i1 %273, label %96, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit36, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit42, %_ZN13GrowableArrayIP10ScopeValueEC2Ei.exit.thread, %45, %7, %235, %168
-  %.0 = phi ptr [ null, %168 ], [ null, %235 ], [ null, %7 ], [ null, %45 ], [ %84, %_ZN13GrowableArrayIP10ScopeValueEC2Ei.exit.thread ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit36 ], [ %84, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit42 ]
+  %.0 = phi ptr [ null, %45 ], [ null, %168 ], [ null, %235 ], [ null, %7 ], [ %84, %_ZN13GrowableArrayIP10ScopeValueEC2Ei.exit.thread ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit36 ], [ %84, %_ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.exit42 ]
   ret ptr %.0
 }
 
@@ -4663,7 +4663,7 @@ _ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit24, %_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN13GrowableArrayIP12MonitorValueEC2Ei.exit.thread, %4
-  %.0 = phi ptr [ null, %4 ], [ %48, %_ZN13GrowableArrayIP12MonitorValueEC2Ei.exit.thread ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit24 ], [ %48, %_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.0 = phi ptr [ null, %4 ], [ %48, %_ZN13GrowableArrayIP12MonitorValueEC2Ei.exit.thread ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit24 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit ], [ %48, %_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1_.exit ]
   ret ptr %.0
 }
 
@@ -6228,7 +6228,7 @@ _ZNK25HotSpotCompiledCodeStream9availableEv.exit: ; preds = %.lr.ph.i, %285
   unreachable
 
 392:                                              ; preds = %372, %374, %304, %282, %278, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit, %369, %331, %326, %309, %302
-  %.1 = phi i32 [ 0, %302 ], [ 0, %331 ], [ 0, %369 ], [ 0, %326 ], [ %310, %309 ], [ 0, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit ], [ 0, %278 ], [ 0, %282 ], [ %283, %304 ], [ %352, %374 ], [ %352, %372 ]
+  %.1 = phi i32 [ %310, %309 ], [ 0, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit ], [ 0, %278 ], [ 0, %302 ], [ 0, %282 ], [ 0, %331 ], [ %283, %304 ], [ 0, %369 ], [ 0, %326 ], [ %352, %374 ], [ %352, %372 ]
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %17) #11
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #11
   br label %393
@@ -7429,7 +7429,7 @@ _ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146: ; preds = %336, %360
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %211, %switch.lookup, %206, %202, %294, %292, %290, %288, %286, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146, %369, %.loopexit, %38, %16, %7, %297, %215
-  %.0 = phi i32 [ 0, %215 ], [ 0, %297 ], [ 0, %7 ], [ 4, %16 ], [ 2, %38 ], [ 0, %369 ], [ 0, %.loopexit ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146 ], [ 0, %286 ], [ 0, %288 ], [ 0, %290 ], [ 0, %292 ], [ 0, %294 ], [ 0, %202 ], [ 0, %206 ], [ 0, %switch.lookup ], [ 0, %211 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %7 ], [ 4, %16 ], [ 0, %215 ], [ 2, %38 ], [ 0, %297 ], [ 0, %369 ], [ 0, %294 ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146 ], [ 0, %286 ], [ 0, %288 ], [ 0, %290 ], [ 0, %292 ], [ 0, %202 ], [ 0, %206 ], [ 0, %switch.lookup ], [ 0, %211 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #11
   ret i32 %.0
 }
@@ -9069,7 +9069,7 @@ switch.lookup:                                    ; preds = %4
   br label %10
 
 10:                                               ; preds = %switch.lookup, %2
-  %.0 = phi i32 [ %1, %2 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %1, %2 ]
   ret i32 %.0
 }
 
@@ -9333,7 +9333,7 @@ switch.lookup:                                    ; preds = %143
   br label %_ZN13CodeInstaller13map_jvmci_bciEi.exit
 
 _ZN13CodeInstaller13map_jvmci_bciEi.exit:         ; preds = %switch.lookup, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit
-  %149 = phi i32 [ %140, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ], [ %switch.load, %switch.lookup ]
+  %149 = phi i32 [ %switch.load, %switch.lookup ], [ %140, %_ZN25HotSpotCompiledCodeStream7read_s4EPKc.exit ]
   %150 = load i64, ptr @JVMCITraceLevel, align 8
   %151 = icmp slt i64 %150, 2
   %152 = load i64, ptr @JVMCIEventLogLevel, align 8
@@ -9772,7 +9772,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -9945,7 +9945,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -10135,7 +10135,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 
@@ -10353,7 +10353,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -10499,7 +10499,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -10904,7 +10904,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -11050,7 +11050,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -11128,7 +11128,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -11215,7 +11215,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

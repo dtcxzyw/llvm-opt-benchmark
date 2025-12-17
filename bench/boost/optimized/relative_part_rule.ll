@@ -441,8 +441,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %117, %.thread77
-  %.pre-phi = phi i64 [ %22, %117 ], [ %.pre92, %.thread77 ], [ %22, %.backedge ]
-  %.282 = phi i64 [ %.0, %117 ], [ %.285, %.thread77 ], [ %.2.be, %.backedge ]
+  %.pre-phi = phi i64 [ %.pre92, %.thread77 ], [ %22, %117 ], [ %22, %.backedge ]
+  %.282 = phi i64 [ %.285, %.thread77 ], [ %.0, %117 ], [ %.2.be, %.backedge ]
   %145 = ptrtoint ptr %75 to i64
   %146 = sub i64 %.pre-phi, %145
   store ptr %75, ptr %15, align 8

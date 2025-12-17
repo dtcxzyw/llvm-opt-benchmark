@@ -2420,8 +2420,8 @@ ehcleanup356:                                     ; preds = %ehcleanup355, %lpad
   br label %ehcleanup358
 
 ehcleanup358:                                     ; preds = %ehcleanup356, %lpad.i503, %lpad341, %ehcleanup336, %lpad.i480, %lpad321, %ehcleanup316, %lpad.i458, %lpad306, %ehcleanup301, %lpad.i438, %lpad294, %ehcleanup289, %lpad.i421, %lpad280
-  %ref.tmp340.sink = phi ptr [ %ref.tmp279, %lpad280 ], [ %ref.tmp279, %lpad.i421 ], [ %ref.tmp279, %ehcleanup289 ], [ %ref.tmp293, %lpad294 ], [ %ref.tmp293, %lpad.i438 ], [ %ref.tmp293, %ehcleanup301 ], [ %ref.tmp305, %lpad306 ], [ %ref.tmp305, %lpad.i458 ], [ %ref.tmp305, %ehcleanup316 ], [ %ref.tmp320, %lpad321 ], [ %ref.tmp320, %lpad.i480 ], [ %ref.tmp320, %ehcleanup336 ], [ %ref.tmp340, %lpad341 ], [ %ref.tmp340, %lpad.i503 ], [ %ref.tmp340, %ehcleanup356 ]
-  %.pn88.pn.pn.pn = phi { ptr, i32 } [ %146, %lpad280 ], [ %82, %lpad.i421 ], [ %.pn75, %ehcleanup289 ], [ %148, %lpad294 ], [ %88, %lpad.i438 ], [ %.pn78, %ehcleanup301 ], [ %150, %lpad306 ], [ %93, %lpad.i458 ], [ %.pn81, %ehcleanup316 ], [ %152, %lpad321 ], [ %100, %lpad.i480 ], [ %.pn84.pn, %ehcleanup336 ], [ %155, %lpad341 ], [ %106, %lpad.i503 ], [ %.pn88.pn, %ehcleanup356 ]
+  %ref.tmp340.sink = phi ptr [ %ref.tmp320, %ehcleanup336 ], [ %ref.tmp305, %ehcleanup316 ], [ %ref.tmp293, %ehcleanup301 ], [ %ref.tmp279, %ehcleanup289 ], [ %ref.tmp279, %lpad280 ], [ %ref.tmp279, %lpad.i421 ], [ %ref.tmp293, %lpad294 ], [ %ref.tmp293, %lpad.i438 ], [ %ref.tmp305, %lpad306 ], [ %ref.tmp305, %lpad.i458 ], [ %ref.tmp320, %lpad321 ], [ %ref.tmp320, %lpad.i480 ], [ %ref.tmp340, %lpad341 ], [ %ref.tmp340, %lpad.i503 ], [ %ref.tmp340, %ehcleanup356 ]
+  %.pn88.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn, %ehcleanup336 ], [ %.pn81, %ehcleanup316 ], [ %.pn78, %ehcleanup301 ], [ %.pn75, %ehcleanup289 ], [ %146, %lpad280 ], [ %82, %lpad.i421 ], [ %148, %lpad294 ], [ %88, %lpad.i438 ], [ %150, %lpad306 ], [ %93, %lpad.i458 ], [ %152, %lpad321 ], [ %100, %lpad.i480 ], [ %155, %lpad341 ], [ %106, %lpad.i503 ], [ %.pn88.pn, %ehcleanup356 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp340.sink) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_name) #24
   br label %ehcleanup359
@@ -5097,7 +5097,7 @@ lpad13:                                           ; preds = %while.end.i, %call.
   br label %lpad13.body
 
 lpad13.body:                                      ; preds = %lpad13, %ehcleanup.i32, %ehcleanup15.i, %ehcleanup36.i, %ehcleanup115.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn.pn.i, %ehcleanup115.i ], [ %.pn9.pn.pn.i, %ehcleanup36.i ], [ %.pn.pn.pn.i, %ehcleanup15.i ], [ %145, %lpad13 ], [ %.pn.i33, %ehcleanup.i32 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup15.i ], [ %.pn18.pn.pn.pn.pn.pn.pn.i, %ehcleanup115.i ], [ %.pn9.pn.pn.i, %ehcleanup36.i ], [ %145, %lpad13 ], [ %.pn.i33, %ehcleanup.i32 ]
   call void @_ZNSt6vectorIN6google8protobuf2io7Printer3SubESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %per_generator_vars_) #24
   br label %ehcleanup
 

@@ -286,7 +286,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %26 unwind label %27
 
 26:                                               ; preds = %.body3, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body4, %.body3 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body4, %.body3 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 27:                                               ; preds = %.body3, %.body
@@ -1360,7 +1360,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430
     i8 2, label %73
   ]
 
-60:                                               ; preds = %.thread.i, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14469375430496879520.exit.i1.i.i.i"
+60:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14469375430496879520.exit.i1.i.i.i", %.thread.i, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.7.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1408,7 +1408,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430
   br label %74
 
 74:                                               ; preds = %58, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13, %73, %72
-  %.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13 ], [ 1, %72 ], [ 3, %73 ], [ 2, %58 ]
+  %.2 = phi i8 [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit13 ], [ 3, %73 ], [ 1, %72 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %75
 
@@ -2260,7 +2260,7 @@ define hidden void @_ZN9actix_web6config10AppService16register_service17h65d7f62
           to label %43 unwind label %40
 
 .critedge:                                        ; preds = %43, %46, %29
-  %.pn12 = phi { ptr, i32 } [ %30, %29 ], [ %16, %46 ], [ %16, %43 ]
+  %.pn12 = phi { ptr, i32 } [ %16, %43 ], [ %30, %29 ], [ %16, %46 ]
   resume { ptr, i32 } %.pn12
 
 43:                                               ; preds = %42
@@ -2998,7 +2998,7 @@ define void @"_ZN84_$LT$actix_files..files..Files$u20$as$u20$actix_web..service.
           to label %128 unwind label %121
 
 127:                                              ; preds = %113, %110, %103, %128
-  %.pn.pn33 = phi { ptr, i32 } [ %.pn.pn.ph, %128 ], [ %104, %103 ], [ %90, %113 ], [ %90, %110 ]
+  %.pn.pn33 = phi { ptr, i32 } [ %.pn.pn.ph, %128 ], [ %90, %110 ], [ %104, %103 ], [ %90, %113 ]
   resume { ptr, i32 } %.pn.pn33
 
 128:                                              ; preds = %23, %126, %.thread36
@@ -3371,7 +3371,7 @@ default.unreachable84:                            ; preds = %2
   br label %23
 
 .body:                                            ; preds = %81, %46, %41, %30, %.body32
-  %.pn11 = phi { ptr, i32 } [ %58, %.body32 ], [ %31, %30 ], [ %47, %46 ], [ %42, %41 ], [ %82, %81 ]
+  %.pn11 = phi { ptr, i32 } [ %47, %46 ], [ %58, %.body32 ], [ %42, %41 ], [ %31, %30 ], [ %82, %81 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %19 = load i8, ptr %18, align 1, !range !525, !noundef !4
   %20 = trunc nuw i8 %19 to i1
@@ -3697,7 +3697,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
   br label %"_ZN4core3ptr495drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$GT$$GT$17h53d19a5d2db2c815E.exit42"
 
 .body40:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14469375430496879520.exit.i.i.i37", %136, %190, %121
-  %.pn15 = phi { ptr, i32 } [ %.pn13, %190 ], [ %.pn13, %121 ], [ %137, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14469375430496879520.exit.i.i.i37" ], [ %137, %136 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn13, %121 ], [ %.pn13, %190 ], [ %137, %136 ], [ %137, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14469375430496879520.exit.i.i.i37" ]
   %151 = load i8, ptr %87, align 1, !range !525, !noundef !4
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %193, label %"_ZN4core3ptr277drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$actix_files..directory..Directory$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$std..io..error..Error$GT$$GT$$GT$17h6c16e09f565cde60E.exit48"
@@ -3792,7 +3792,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
           to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17hed0b5934fda6332aE.exit" unwind label %184
 
 "_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$17hed0b5934fda6332aE.exit54": ; preds = %218, %"_ZN4core3ptr277drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$actix_files..directory..Directory$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$std..io..error..Error$GT$$GT$$GT$17h6c16e09f565cde60E.exit56", %"_ZN4core3ptr221drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mime..Name$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..http..header..content_disposition..DispositionType$GT$$GT$$GT$17hb6e5464f19e2267cE.exit58", %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60.thread89", %241, %205, %209, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60", %184, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit52"
-  %.pn23 = phi { ptr, i32 } [ %185, %184 ], [ %.pn21, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit52" ], [ %.pn11, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60" ], [ %.pn21, %209 ], [ %.pn21, %205 ], [ %.pn11, %241 ], [ %.pn11, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60.thread89" ], [ %.pn11, %"_ZN4core3ptr221drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mime..Name$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..http..header..content_disposition..DispositionType$GT$$GT$$GT$17hb6e5464f19e2267cE.exit58" ], [ %.pn11, %"_ZN4core3ptr277drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$actix_files..directory..Directory$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$std..io..error..Error$GT$$GT$$GT$17h6c16e09f565cde60E.exit56" ], [ %.pn11, %218 ]
+  %.pn23 = phi { ptr, i32 } [ %185, %184 ], [ %.pn11, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60" ], [ %.pn21, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit52" ], [ %.pn21, %205 ], [ %.pn21, %209 ], [ %.pn11, %241 ], [ %.pn11, %"_ZN4core3ptr212drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$std..path..Path$C$$RF$actix_http..requests..head..RequestHead$RP$$GT$$u2b$Output$u20$$u3d$$u20$bool$GT$$GT$$GT$17h6dc65e63ccf03ca6E.exit60.thread89" ], [ %.pn11, %"_ZN4core3ptr221drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mime..Name$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$actix_web..http..header..content_disposition..DispositionType$GT$$GT$$GT$17hb6e5464f19e2267cE.exit58" ], [ %.pn11, %"_ZN4core3ptr277drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$actix_files..directory..Directory$C$$RF$actix_web..request..HttpRequest$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$std..io..error..Error$GT$$GT$$GT$17h6c16e09f565cde60E.exit56" ], [ %.pn11, %218 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn23
 

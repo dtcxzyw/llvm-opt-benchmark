@@ -540,7 +540,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %2
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit
 
 _ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %48, %51, %8, %20, %_ZN4llvm9RopePieceD2Ev.exit.i, %46, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
-  %.1 = phi ptr [ null, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit ], [ null, %46 ], [ null, %20 ], [ %34, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ null, %8 ], [ %52, %51 ], [ null, %48 ]
+  %.1 = phi ptr [ null, %46 ], [ null, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit ], [ null, %8 ], [ null, %20 ], [ %34, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ %52, %51 ], [ null, %48 ]
   ret ptr %.1
 }
 
@@ -930,9 +930,9 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread: ; preds = %_ZN12_GLO
   br label %119
 
 119:                                              ; preds = %112, %108, %105
-  %.236.i = phi i32 [ %107, %105 ], [ %.135.i36, %112 ], [ %.135.i36, %108 ]
-  %.pn = phi i32 [ %106, %105 ], [ %.val43.i, %112 ], [ %.val43.i, %108 ]
-  %.133.i = sub i32 %.032.i37, %.pn
+  %.236.i = phi i32 [ %.135.i36, %108 ], [ %107, %105 ], [ %.135.i36, %112 ]
+  %.val43.i.pn = phi i32 [ %.val43.i, %108 ], [ %106, %105 ], [ %.val43.i, %112 ]
+  %.133.i = sub i32 %.032.i37, %.val43.i.pn
   %.not37.i = icmp eq i32 %.133.i, 0
   br i1 %.not37.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit, label %98
 
@@ -1033,9 +1033,9 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35._crit_edge: ; 
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35, %42, %13, %23, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31
-  %.sink59 = phi ptr [ %30, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %22, %23 ], [ %22, %13 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %44, %42 ]
-  %.sink57 = phi i32 [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %20, %23 ], [ %20, %13 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ 0, %42 ]
-  %.sink = phi i32 [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %21, %23 ], [ %21, %13 ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %8, %42 ]
+  %.sink59 = phi ptr [ %22, %13 ], [ %30, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %22, %23 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %44, %42 ]
+  %.sink57 = phi i32 [ %20, %13 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %20, %23 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ 0, %42 ]
+  %.sink = phi i32 [ %21, %13 ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit31 ], [ %21, %23 ], [ %8, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit35 ], [ %8, %42 ]
   store ptr %.sink59, ptr %0, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink57, ptr %45, align 8, !tbaa !43

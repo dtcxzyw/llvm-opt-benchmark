@@ -467,7 +467,7 @@ child_write.exit.thread:                          ; preds = %13, %.critedge46.i,
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %child_write.exit, %4, %child_write.exit.thread
-  %.016 = phi i32 [ -30, %child_write.exit.thread ], [ 0, %4 ], [ 0, %child_write.exit ]
+  %.016 = phi i32 [ 0, %4 ], [ -30, %child_write.exit.thread ], [ 0, %child_write.exit ]
   ret i32 %.016
 }
 

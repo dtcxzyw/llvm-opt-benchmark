@@ -293,7 +293,7 @@ define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgE
           to label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h87828e6339a06dc9E.exit" unwind label %10, !noalias !64
 
 common.resume:                                    ; preds = %61, %44, %29, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %30, %29 ], [ %45, %44 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %45, %44 ], [ %30, %29 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %8

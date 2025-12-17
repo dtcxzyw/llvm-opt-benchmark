@@ -1848,7 +1848,7 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
   br i1 %53, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %43, %51, %.lr.ph.split.us.split.us, %25, %4, %.split35.us, %.split31.us
-  %.0 = phi ptr [ null, %.split31.us ], [ %34, %.split35.us ], [ null, %4 ], [ null, %25 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.split ], [ %37, %43 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %.split31.us ], [ %34, %.split35.us ], [ null, %4 ], [ null, %.lr.ph.split.us.split.us ], [ null, %25 ], [ %37, %43 ], [ null, %.lr.ph.split.split ], [ null, %51 ]
   ret ptr %.0
 }
 
@@ -1934,7 +1934,7 @@ select.unfold:                                    ; preds = %29
   br i1 %or.cond, label %.loopexit24, label %tailrecurse
 
 .loopexit24:                                      ; preds = %46, %.loopexit, %22
-  %.0 = phi ptr [ %28, %22 ], [ null, %46 ], [ %45, %.loopexit ]
+  %.0 = phi ptr [ %28, %22 ], [ %45, %.loopexit ], [ null, %46 ]
   ret ptr %.0
 }
 
@@ -2025,7 +2025,7 @@ switch.lookup:                                    ; preds = %6
   br label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit: ; preds = %switch.lookup, %3
-  %.0.i = phi i32 [ %2, %3 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %2, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = zext nneg i32 %2 to i64
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -2066,7 +2066,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.
   br label %.thread
 
 .thread:                                          ; preds = %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread, %23, %19, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit, %26
-  %.0 = phi i32 [ %31, %26 ], [ 0, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ], [ -1, %19 ], [ %., %23 ], [ %spec.select, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread ]
+  %.0 = phi i32 [ %31, %26 ], [ 0, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ], [ %., %23 ], [ -1, %19 ], [ %spec.select, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread ]
   ret i32 %.0
 }
 

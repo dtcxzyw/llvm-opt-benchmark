@@ -671,8 +671,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %106
 
 88:                                               ; preds = %78, %74
-  %89 = phi i8 [ %.pre, %78 ], [ %76, %74 ]
-  %.sroa.4.0.ph = phi i64 [ %84, %78 ], [ %.sroa.6.1.i.i, %74 ]
+  %89 = phi i8 [ %76, %74 ], [ %.pre, %78 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %74 ], [ %84, %78 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %90 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
   %91 = and i8 %89, 1

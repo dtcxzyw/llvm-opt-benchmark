@@ -1061,7 +1061,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %8
   br label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %8, %16, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit, %12
-  %.016 = phi i32 [ 0, %12 ], [ 1, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ %spec.select, %16 ], [ 1, %8 ]
+  %.016 = phi i32 [ 0, %12 ], [ %spec.select, %16 ], [ 1, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ 1, %8 ]
   %19 = load i8, ptr %5, align 8, !tbaa !322
   %.not = icmp eq i8 %19, 3
   br i1 %.not, label %20, label %25
@@ -1092,7 +1092,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %8, %16,
   br label %31
 
 31:                                               ; preds = %27, %29, %25
-  %.2 = phi i32 [ %30, %29 ], [ %.1, %25 ], [ %.1, %27 ]
+  %.2 = phi i32 [ %30, %29 ], [ %.1, %27 ], [ %.1, %25 ]
   %32 = load i8, ptr %5, align 8, !tbaa !322
   %33 = icmp eq i8 %32, 1
   %34 = or i32 %.2, 32
@@ -1167,7 +1167,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm12GlobalOb
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread58
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread58:       ; preds = %2, %55, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm12GlobalObject10getSectionEv.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55
-  %.0 = phi i32 [ %53, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.7, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ], [ %.7, %_ZNK4llvm12GlobalObject10getSectionEv.exit ], [ %spec.select61, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.7, %55 ], [ %7, %2 ]
+  %.0 = phi i32 [ %.7, %55 ], [ %53, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %.7, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread55 ], [ %.7, %_ZNK4llvm12GlobalObject10getSectionEv.exit ], [ %spec.select61, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %7, %2 ]
   ret i32 %.0
 }
 

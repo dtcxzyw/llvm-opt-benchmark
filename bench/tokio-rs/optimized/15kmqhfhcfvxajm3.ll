@@ -120,7 +120,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   unreachable
 
 common.resume:                                    ; preds = %.noexc40, %180, %35, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn28129, %180 ], [ %.pn, %.noexc40 ], [ %lpad.thr_comm.split-lp.i, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm.split-lp.i, %35 ], [ %.pn28129, %180 ], [ %.pn, %.noexc40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit._crit_edge": ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit.preheader"
@@ -199,9 +199,9 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %43, %
           to label %57 unwind label %.loopexit
 
 .body83:                                          ; preds = %.loopexit, %.loopexit.split-lp, %149, %167, %107, %72, %88, %.body69
-  %.sroa.10.4 = phi i8 [ %.sroa.10.0165, %.body69 ], [ %.sroa.10.0165, %88 ], [ %.sroa.10.0165, %72 ], [ %.sroa.10.0165, %107 ], [ %.sroa.10.5, %167 ], [ %.sroa.10.5, %149 ], [ %.sroa.10.3.ph, %.loopexit ], [ %.sroa.10.5, %.loopexit.split-lp ]
-  %.4 = phi i1 [ false, %.body69 ], [ false, %88 ], [ true, %72 ], [ false, %107 ], [ false, %167 ], [ false, %149 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body70, %.body69 ], [ %89, %88 ], [ %73, %72 ], [ %108, %107 ], [ %151, %167 ], [ %151, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.10.4 = phi i8 [ %.sroa.10.0165, %.body69 ], [ %.sroa.10.0165, %107 ], [ %.sroa.10.5, %149 ], [ %.sroa.10.0165, %88 ], [ %.sroa.10.0165, %72 ], [ %.sroa.10.5, %167 ], [ %.sroa.10.3.ph, %.loopexit ], [ %.sroa.10.5, %.loopexit.split-lp ]
+  %.4 = phi i1 [ false, %.body69 ], [ false, %107 ], [ false, %149 ], [ false, %88 ], [ true, %72 ], [ false, %167 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body70, %.body69 ], [ %108, %107 ], [ %151, %149 ], [ %89, %88 ], [ %73, %72 ], [ %151, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %53 = load ptr, ptr %7, align 8, !alias.scope !19, !nonnull !4, !noundef !4

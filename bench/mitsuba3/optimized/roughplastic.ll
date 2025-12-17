@@ -1365,7 +1365,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %29
 
 29:                                               ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #31
   br label %32
 
@@ -1791,8 +1791,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %158
 
 common.resume:                                    ; preds = %118, %120, %114, %116, %93, %95, %70, %72, %51, %53, %89, %91, %97, %122, %130, %132, %139, %141, %167, %156
-  %.sink = phi ptr [ %9, %51 ], [ %11, %53 ], [ %14, %89 ], [ %15, %91 ], [ %18, %97 ], [ %23, %122 ], [ %24, %130 ], [ %25, %132 ], [ %26, %139 ], [ %27, %141 ], [ %28, %167 ], [ %7, %156 ], [ %10, %72 ], [ %10, %70 ], [ %16, %95 ], [ %16, %93 ], [ %19, %116 ], [ %19, %114 ], [ %21, %120 ], [ %21, %118 ]
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ], [ %90, %89 ], [ %92, %91 ], [ %98, %97 ], [ %123, %122 ], [ %131, %130 ], [ %133, %132 ], [ %140, %139 ], [ %142, %141 ], [ %168, %167 ], [ %157, %156 ], [ %73, %72 ], [ %71, %70 ], [ %96, %95 ], [ %94, %93 ], [ %117, %116 ], [ %115, %114 ], [ %121, %120 ], [ %119, %118 ]
+  %.sink = phi ptr [ %9, %51 ], [ %11, %53 ], [ %7, %156 ], [ %14, %89 ], [ %15, %91 ], [ %10, %70 ], [ %18, %97 ], [ %16, %93 ], [ %19, %114 ], [ %23, %122 ], [ %24, %130 ], [ %25, %132 ], [ %26, %139 ], [ %27, %141 ], [ %28, %167 ], [ %10, %72 ], [ %16, %95 ], [ %19, %116 ], [ %21, %120 ], [ %21, %118 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ], [ %157, %156 ], [ %90, %89 ], [ %92, %91 ], [ %71, %70 ], [ %98, %97 ], [ %94, %93 ], [ %115, %114 ], [ %123, %122 ], [ %131, %130 ], [ %133, %132 ], [ %140, %139 ], [ %142, %141 ], [ %168, %167 ], [ %73, %72 ], [ %96, %95 ], [ %117, %116 ], [ %121, %120 ], [ %119, %118 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #31
   resume { ptr, i32 } %common.resume.op
 
@@ -2157,7 +2157,7 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i:        ; preds = %.lr.ph.i.i
   br i1 %158, label %.lr.ph.i11.i, label %_ZN5drjit12DynamicArrayIfED2Ev.exit100, !llvm.loop !21
 
 159:                                              ; preds = %.lr.ph.preheader.i10.i, %.lr.ph.preheader.i.i
-  %.0.i = phi ptr [ %130, %.lr.ph.preheader.i.i ], [ %141, %.lr.ph.preheader.i10.i ]
+  %.0.i = phi ptr [ %141, %.lr.ph.preheader.i10.i ], [ %130, %.lr.ph.preheader.i.i ]
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %161
@@ -2449,7 +2449,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit114:           ; preds = %_ZN5drjit12DynamicA
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit97
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit97:            ; preds = %290, %287, %_ZN5drjit12DynamicArrayIfED2Ev.exit114, %104, %101, %97, %280
-  %.pn86.pn = phi { ptr, i32 } [ %281, %280 ], [ %98, %97 ], [ %98, %101 ], [ %98, %104 ], [ %.pn86, %_ZN5drjit12DynamicArrayIfED2Ev.exit114 ], [ %.pn86, %287 ], [ %.pn86, %290 ]
+  %.pn86.pn = phi { ptr, i32 } [ %98, %104 ], [ %281, %280 ], [ %98, %97 ], [ %98, %101 ], [ %.pn86, %_ZN5drjit12DynamicArrayIfED2Ev.exit114 ], [ %.pn86, %287 ], [ %.pn86, %290 ]
   %291 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %292 = load i8, ptr %291, align 8
   %293 = trunc i8 %292 to i1
@@ -2534,7 +2534,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119:       ; preds = %328, %325, %319
   br i1 %329, label %_ZN5drjit12DynamicArrayIfED2Ev.exit121, label %319
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit121:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119, %278, %_ZN5drjit12DynamicArrayIfED2Ev.exit97, %294, %297
-  %.pn89.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %.pn86.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit97 ], [ %.pn86.pn, %294 ], [ %.pn86.pn, %297 ], [ %.pn89.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119 ]
+  %.pn89.pn.pn = phi { ptr, i32 } [ %.pn86.pn, %297 ], [ %279, %278 ], [ %.pn86.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit97 ], [ %.pn86.pn, %294 ], [ %.pn89.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119 ]
   call void @_ZdaPv(ptr noundef nonnull %90) #34
   br label %330
 
@@ -2558,7 +2558,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit112:           ; preds = %261, %258, %_ZN5drj
   ret void
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit113:           ; preds = %337, %334, %330, %275, %272, %_ZN5drjit12DynamicArrayIfED2Ev.exit, %266
-  %.pn89.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %266 ], [ %269, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ %269, %272 ], [ %269, %275 ], [ %.pn89.pn.pn.pn, %330 ], [ %.pn89.pn.pn.pn, %334 ], [ %.pn89.pn.pn.pn, %337 ]
+  %.pn89.pn.pn.pn.pn = phi { ptr, i32 } [ %269, %275 ], [ %.pn, %266 ], [ %269, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ %269, %272 ], [ %.pn89.pn.pn.pn, %330 ], [ %.pn89.pn.pn.pn, %334 ], [ %.pn89.pn.pn.pn, %337 ]
   resume { ptr, i32 } %.pn89.pn.pn.pn.pn
 }
 
@@ -3313,7 +3313,7 @@ _ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit329: ; preds = %266, %_ZN5d
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %346, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit329, %264
-  %.pn.pn.pn = phi { ptr, i32 } [ %265, %264 ], [ %.pn.pn, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit329 ], [ %.pn.pn, %346 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %265, %264 ], [ %.pn.pn, %346 ], [ %.pn.pn, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit329 ]
   %347 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %348 = load i8, ptr %347, align 8
   %349 = trunc i8 %348 to i1
@@ -3946,7 +3946,7 @@ _ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit331: ; preds = %254, %_ZN5d
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %334, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit331, %252
-  %.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn.pn, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit331 ], [ %.pn.pn, %334 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn.pn, %334 ], [ %.pn.pn, %_ZNSt3__14pairIN5drjit12DynamicArrayIfEES3_ED2Ev.exit331 ]
   %335 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %336 = load i8, ptr %335, align 8
   %337 = trunc i8 %336 to i1
@@ -7550,7 +7550,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -8681,7 +8681,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -8756,7 +8756,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -9855,7 +9855,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %68
 
 68:                                               ; preds = %66, %64
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ]
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit22
 
@@ -9878,7 +9878,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %41, %45, %_ZN7mitsu
   ret void
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit22:          ; preds = %48, %46, %72, %68, %62, %17
-  %.pn17.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %18, %17 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
+  %.pn17.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -11082,7 +11082,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit135:           ; preds = %188, %185, %181, %2
   br label %_ZN5drjit12DynamicArrayIjED2Ev.exit140
 
 _ZN5drjit12DynamicArrayIjED2Ev.exit140:           ; preds = %238, %235, %_ZN5drjit12DynamicArrayIjED2Ev.exit135, %228, %225, %_ZN5drjit12DynamicArrayIjED2Ev.exit139, %210
-  %.pn104 = phi { ptr, i32 } [ %211, %210 ], [ %.pn, %_ZN5drjit12DynamicArrayIjED2Ev.exit139 ], [ %.pn, %225 ], [ %.pn, %228 ], [ %231, %_ZN5drjit12DynamicArrayIjED2Ev.exit135 ], [ %231, %235 ], [ %231, %238 ]
+  %.pn104 = phi { ptr, i32 } [ %.pn, %228 ], [ %211, %210 ], [ %.pn, %_ZN5drjit12DynamicArrayIjED2Ev.exit139 ], [ %.pn, %225 ], [ %231, %_ZN5drjit12DynamicArrayIjED2Ev.exit135 ], [ %231, %235 ], [ %231, %238 ]
   %239 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %240 = load i8, ptr %239, align 8
   %241 = trunc i8 %240 to i1
@@ -11097,7 +11097,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit140:           ; preds = %238, %235, %_ZN5drj
   call void @_ZdaPv(ptr noundef nonnull %243) #34
   br label %_ZN5drjit12DynamicArrayIjED2Ev.exit
 
-246:                                              ; preds = %118, %121, %124
+246:                                              ; preds = %124, %118, %121
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %9, i8 0, i64 16, i1 false)
   store i8 1, ptr %247, align 8
@@ -11371,7 +11371,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit161:           ; preds = %367, %364, %359, %3
   br label %_ZN5drjit12DynamicArrayIjED2Ev.exit145
 
 _ZN5drjit12DynamicArrayIjED2Ev.exit145:           ; preds = %374, %371, %_ZN5drjit12DynamicArrayIjED2Ev.exit161, %315, %312, %308, %303, %300, %295, %259, %256, %252, %293
-  %.pn108 = phi { ptr, i32 } [ %294, %293 ], [ %253, %252 ], [ %253, %256 ], [ %253, %259 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ], [ %309, %308 ], [ %309, %312 ], [ %309, %315 ], [ %.pn106, %_ZN5drjit12DynamicArrayIjED2Ev.exit161 ], [ %.pn106, %371 ], [ %.pn106, %374 ]
+  %.pn108 = phi { ptr, i32 } [ %253, %259 ], [ %309, %315 ], [ %296, %303 ], [ %294, %293 ], [ %253, %252 ], [ %253, %256 ], [ %296, %295 ], [ %296, %300 ], [ %309, %308 ], [ %309, %312 ], [ %.pn106, %_ZN5drjit12DynamicArrayIjED2Ev.exit161 ], [ %.pn106, %371 ], [ %.pn106, %374 ]
   %375 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %376 = load i8, ptr %375, align 8
   %377 = trunc i8 %376 to i1
@@ -11569,7 +11569,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit.i:            ; preds = %450, %447, %_ZN5drj
   br label %_ZN5drjit12DynamicArrayIjED2Ev.exit
 
 _ZN5drjit12DynamicArrayIjED2Ev.exit:              ; preds = %381, %378, %_ZN5drjit12DynamicArrayIjED2Ev.exit145, %245, %242, %_ZN5drjit12DynamicArrayIjED2Ev.exit140, %136, %133, %129, %117, %114, %110, %460
-  %462 = phi { ptr, i32 } [ %461, %460 ], [ %111, %110 ], [ %111, %114 ], [ %111, %117 ], [ %130, %129 ], [ %130, %133 ], [ %130, %136 ], [ %.pn104, %_ZN5drjit12DynamicArrayIjED2Ev.exit140 ], [ %.pn104, %242 ], [ %.pn104, %245 ], [ %.pn108, %_ZN5drjit12DynamicArrayIjED2Ev.exit145 ], [ %.pn108, %378 ], [ %.pn108, %381 ]
+  %462 = phi { ptr, i32 } [ %.pn104, %245 ], [ %130, %136 ], [ %111, %117 ], [ %461, %460 ], [ %111, %110 ], [ %111, %114 ], [ %130, %129 ], [ %130, %133 ], [ %.pn104, %_ZN5drjit12DynamicArrayIjED2Ev.exit140 ], [ %.pn104, %242 ], [ %.pn108, %_ZN5drjit12DynamicArrayIjED2Ev.exit145 ], [ %.pn108, %378 ], [ %.pn108, %381 ]
   %463 = load i8, ptr %74, align 8
   %464 = trunc i8 %463 to i1
   br i1 %464, label %465, label %_ZN5drjit12DynamicArrayIjED2Ev.exit171
@@ -11621,7 +11621,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit:              ; preds = %381, %378, %_ZN5drj
   br label %_ZN5drjit12DynamicArrayIbED2Ev.exit172
 
 _ZN5drjit12DynamicArrayIbED2Ev.exit172:           ; preds = %486, %483, %479, %478, %475, %471, %469
-  %.pn110 = phi { ptr, i32 } [ %470, %469 ], [ %472, %471 ], [ %472, %475 ], [ %472, %478 ], [ %480, %479 ], [ %480, %483 ], [ %480, %486 ]
+  %.pn110 = phi { ptr, i32 } [ %472, %478 ], [ %470, %469 ], [ %472, %471 ], [ %472, %475 ], [ %480, %479 ], [ %480, %483 ], [ %480, %486 ]
   call void @_ZNSt3__14pairIN5drjit12DynamicArrayIjEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #31
   br label %_ZN5drjit12DynamicArrayIjED2Ev.exit171
 

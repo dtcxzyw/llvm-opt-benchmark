@@ -109,7 +109,7 @@ define internal noundef ptr @php_avif_stream_read(ptr noundef %0, i64 noundef %1
   br label %11
 
 11:                                               ; preds = %7, %2, %4, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %4 ], [ null, %2 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -300,10 +300,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %18
   br i1 %cond.fr68, label %.critedge, label %.thread78, !prof !25
 
 .thread78:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_long_ex.exit, %8
-  %.05487 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05686 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.05785 = phi ptr [ %10, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %21, %zend_parse_arg_bool_ex.exit ]
-  %.05884 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05487 = phi i32 [ 0, %8 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05686 = phi i32 [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.05785 = phi ptr [ null, %8 ], [ %10, %zend_parse_arg_long_ex.exit ], [ %21, %zend_parse_arg_bool_ex.exit ]
+  %.05884 = phi i32 [ 0, %8 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05686, i32 noundef %.05487, ptr noundef null, i32 noundef %.05884, ptr noundef %.05785) #13
   br label %40
 
@@ -523,7 +523,7 @@ define dso_local range(i32 0, 20) i32 @php_getimagetype(ptr noundef %0, ptr noun
   br label %48
 
 48:                                               ; preds = %46, %42, %39, %36, %32, %31, %30, %29, %25, %20, %19, %18, %17, %16, %14, %9, %8, %45, %28, %24, %15, %13, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 0, %45 ], [ 0, %24 ], [ 0, %13 ], [ 0, %15 ], [ 1, %8 ], [ 2, %9 ], [ 3, %14 ], [ 4, %16 ], [ 13, %17 ], [ 5, %18 ], [ 6, %19 ], [ 9, %20 ], [ %., %25 ], [ 7, %29 ], [ 8, %30 ], [ 14, %31 ], [ 17, %32 ], [ 10, %36 ], [ 19, %39 ], [ 15, %42 ], [ %.78, %46 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 19, %39 ], [ %.78, %46 ], [ 15, %42 ], [ 0, %45 ], [ 10, %36 ], [ 17, %32 ], [ 14, %31 ], [ 8, %30 ], [ 7, %29 ], [ 1, %8 ], [ 0, %24 ], [ 9, %20 ], [ %., %25 ], [ 6, %19 ], [ 5, %18 ], [ 13, %17 ], [ 4, %16 ], [ 3, %14 ], [ 0, %13 ], [ 0, %15 ], [ 2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -609,7 +609,7 @@ define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader39, %13, %.preheader37, %22, %.preheader, %32, %33, %29, %5, %3
-  %.026 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %29 ], [ 15, %33 ], [ 15, %32 ], [ 0, %.preheader ], [ 0, %22 ], [ 0, %.preheader37 ], [ 0, %13 ], [ 0, %.preheader39 ]
+  %.026 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %29 ], [ 15, %33 ], [ 15, %32 ], [ 0, %13 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader37 ], [ 0, %.preheader39 ]
   ret i32 %.026
 }
 
@@ -703,7 +703,7 @@ define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr nou
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit, %27, %5
-  %.033 = phi i32 [ 0, %5 ], [ 16, %27 ], [ %.mux, %.loopexit ], [ 0, %.preheader ]
+  %.033 = phi i32 [ %.mux, %.loopexit ], [ 0, %5 ], [ 16, %27 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.033
 }
@@ -816,7 +816,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %24
   br i1 %55, label %zend_try_array_init_size.exit, label %zend_try_array_init_size.exit.thread
 
 57:                                               ; preds = %.thread, %43
-  %.019.i = phi ptr [ %spec.select, %43 ], [ %52, %.thread ]
+  %.019.i = phi ptr [ %52, %.thread ], [ %spec.select, %43 ]
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %.019.i) #13
   store ptr %44, ptr %.019.i, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
@@ -1305,7 +1305,7 @@ php_handle_psd.exit.i:                            ; preds = %251, %249, %247
   br label %php_handle_bmp.exit.i
 
 php_handle_bmp.exit.i:                            ; preds = %.sink.split.i.i, %321, %319, %291, %289
-  %.0.i61.i = phi ptr [ null, %289 ], [ null, %291 ], [ null, %321 ], [ null, %319 ], [ %.sink24.i.i, %.sink.split.i.i ]
+  %.0.i61.i = phi ptr [ null, %291 ], [ null, %289 ], [ null, %319 ], [ null, %321 ], [ %.sink24.i.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %593
 
@@ -1525,7 +1525,7 @@ php_handle_jp2.exit.i:                            ; preds = %365, %.thread26.i.i
   br i1 %.not38.i.i, label %391, label %php_handle_iff.exit.i
 
 php_handle_iff.exit.i:                            ; preds = %457, %454, %426, %424, %391, %446, %382, %381, %377
-  %.0.i65.i = phi ptr [ %450, %446 ], [ null, %377 ], [ null, %381 ], [ null, %382 ], [ null, %391 ], [ null, %424 ], [ null, %426 ], [ null, %454 ], [ null, %457 ]
+  %.0.i65.i = phi ptr [ null, %377 ], [ null, %381 ], [ %450, %446 ], [ null, %382 ], [ null, %391 ], [ null, %424 ], [ null, %426 ], [ null, %454 ], [ null, %457 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %593
 
@@ -1624,7 +1624,7 @@ php_handle_wbmp.exit.i:                           ; preds = %462, %459
   br label %php_handle_ico.exit.i
 
 php_handle_ico.exit.i:                            ; preds = %._crit_edge.i.i, %468, %466
-  %.016.i.i = phi ptr [ null, %466 ], [ null, %468 ], [ %478, %._crit_edge.i.i ]
+  %.016.i.i = phi ptr [ null, %468 ], [ null, %466 ], [ %478, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %593
 
@@ -2197,7 +2197,7 @@ php_next_marker.exit.thread.sink.split:           ; preds = %81, %php_read_APP.e
   br label %php_next_marker.exit.thread
 
 php_next_marker.exit.thread:                      ; preds = %124, %111, %67, %62, %28, %.preheader.i, %.thread.i, %.thread.i, %.thread.i, %php_next_marker.exit.thread.sink.split
-  %.034 = phi ptr [ %.036.ph, %php_next_marker.exit.thread.sink.split ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.preheader.i ], [ %.036.ph, %124 ], [ %.036.ph, %111 ], [ %.036.ph, %67 ], [ %29, %62 ], [ %29, %28 ]
+  %.034 = phi ptr [ %.036.ph, %php_next_marker.exit.thread.sink.split ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.preheader.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %67 ], [ %.036.ph, %124 ], [ %.036.ph, %111 ], [ %29, %62 ], [ %29, %28 ]
   ret ptr %.034
 }
 
@@ -2456,7 +2456,7 @@ php_ifd_get32s.exit:                              ; preds = %130, %148
   br label %php_ifd_get16u.exit104
 
 php_ifd_get16u.exit104:                           ; preds = %89, %81, %php_ifd_get32s.exit, %php_ifd_get32u.exit109, %php_ifd_get16s.exit, %75
-  %.091 = phi i64 [ %78, %75 ], [ %104, %php_ifd_get16s.exit ], [ %127, %php_ifd_get32u.exit109 ], [ %150, %php_ifd_get32s.exit ], [ %88, %81 ], [ %91, %89 ]
+  %.091 = phi i64 [ %78, %75 ], [ %150, %php_ifd_get32s.exit ], [ %104, %php_ifd_get16s.exit ], [ %127, %php_ifd_get32u.exit109 ], [ %88, %81 ], [ %91, %89 ]
   switch i16 %.0.i972, label %153 [
     i16 256, label %151
     i16 -24574, label %151
@@ -2500,7 +2500,7 @@ php_ifd_get16u.exit104:                           ; preds = %89, %81, %php_ifd_g
   br label %163
 
 163:                                              ; preds = %._crit_edge, %php_ifd_get32u.exit, %2, %156, %52, %32
-  %.0 = phi ptr [ null, %32 ], [ null, %52 ], [ %157, %156 ], [ null, %2 ], [ null, %php_ifd_get32u.exit ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %php_ifd_get32u.exit ], [ null, %2 ], [ null, %32 ], [ null, %52 ], [ %157, %156 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

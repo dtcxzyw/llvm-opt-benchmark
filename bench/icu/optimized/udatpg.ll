@@ -187,7 +187,7 @@ define noundef i32 @udatpg_getBestPatternWithOptions_77(ptr noundef %0, ptr noun
   resume { ptr, i32 } %.pn.pn
 
 36:                                               ; preds = %7, %24, %17
-  %.018 = phi i32 [ 0, %17 ], [ %23, %24 ], [ 0, %7 ]
+  %.018 = phi i32 [ %23, %24 ], [ 0, %17 ], [ 0, %7 ]
   ret i32 %.018
 }
 
@@ -281,7 +281,7 @@ define noundef i32 @udatpg_getSkeleton_77(ptr noundef readnone captures(none) %0
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %6, %23, %16
-  %.016 = phi i32 [ 0, %16 ], [ %22, %23 ], [ 0, %6 ]
+  %.016 = phi i32 [ %22, %23 ], [ 0, %16 ], [ 0, %6 ]
   ret i32 %.016
 }
 
@@ -368,7 +368,7 @@ define noundef i32 @udatpg_getBaseSkeleton_77(ptr noundef readnone captures(none
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %6, %23, %16
-  %.016 = phi i32 [ 0, %16 ], [ %22, %23 ], [ 0, %6 ]
+  %.016 = phi i32 [ %22, %23 ], [ 0, %16 ], [ 0, %6 ]
   ret i32 %.016
 }
 
@@ -466,7 +466,7 @@ define noundef i32 @udatpg_addPattern_77(ptr noundef %0, ptr noundef %1, i32 nou
   resume { ptr, i32 } %.pn.pn.pn
 
 41:                                               ; preds = %8, %38, %18
-  %.0 = phi i32 [ 0, %18 ], [ %24, %38 ], [ 0, %8 ]
+  %.0 = phi i32 [ %24, %38 ], [ 0, %18 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -555,7 +555,7 @@ define ptr @udatpg_getAppendItemFormat_77(ptr noundef nonnull %0, i32 noundef %1
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %14, %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %14 ]
+  %.0.i = phi ptr [ %24, %22 ], [ %21, %20 ], [ null, %14 ]
   ret ptr %.0.i
 }
 
@@ -644,7 +644,7 @@ define ptr @udatpg_getAppendItemName_77(ptr noundef nonnull %0, i32 noundef %1, 
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %14, %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %14 ]
+  %.0.i = phi ptr [ %24, %22 ], [ %21, %20 ], [ null, %14 ]
   ret ptr %.0.i
 }
 
@@ -715,7 +715,7 @@ define i32 @udatpg_getFieldDisplayName_77(ptr noundef %0, i32 noundef %1, i32 no
   br label %34
 
 34:                                               ; preds = %6, %33, %16
-  %.015 = phi i32 [ -1, %16 ], [ %.1, %33 ], [ -1, %6 ]
+  %.015 = phi i32 [ %.1, %33 ], [ -1, %16 ], [ -1, %6 ]
   ret i32 %.015
 }
 
@@ -807,7 +807,7 @@ define ptr @udatpg_getDateTimeFormat_77(ptr noundef nonnull %0, ptr noundef writ
   br label %udatpg_getDateTimeFormatForStyle_77.exit
 
 udatpg_getDateTimeFormatForStyle_77.exit:         ; preds = %14, %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %14 ]
+  %.0.i = phi ptr [ null, %14 ], [ %21, %20 ], [ %24, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
@@ -865,7 +865,7 @@ define ptr @udatpg_getDateTimeFormatForStyle_77(ptr noundef %0, i32 noundef %1, 
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %28, %26, %20, %7, %8
-  %.0 = phi ptr [ @_ZZ35udatpg_getDateTimeFormatForStyle_77E11emptyString, %8 ], [ @_ZZ35udatpg_getDateTimeFormatForStyle_77E11emptyString, %7 ], [ %27, %26 ], [ %30, %28 ], [ null, %20 ]
+  %.0 = phi ptr [ @_ZZ35udatpg_getDateTimeFormatForStyle_77E11emptyString, %7 ], [ @_ZZ35udatpg_getDateTimeFormatForStyle_77E11emptyString, %8 ], [ %30, %28 ], [ %27, %26 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -1013,7 +1013,7 @@ define ptr @udatpg_getDecimal_77(ptr noundef nonnull %0, ptr noundef writeonly c
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %13 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %13 ]
   ret ptr %.0.i
 }
 
@@ -1139,7 +1139,7 @@ define noundef i32 @udatpg_replaceFieldTypesWithOptions_77(ptr noundef %0, ptr n
   resume { ptr, i32 } %.pn.pn.pn
 
 50:                                               ; preds = %9, %34, %24
-  %.026 = phi i32 [ 0, %24 ], [ %33, %34 ], [ 0, %9 ]
+  %.026 = phi i32 [ %33, %34 ], [ 0, %24 ], [ 0, %9 ]
   ret i32 %.026
 }
 
@@ -1233,7 +1233,7 @@ define ptr @udatpg_getPatternForSkeleton_77(ptr noundef %0, ptr noundef %1, i32 
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %26, %32, %34
-  %.0.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %26 ]
+  %.0.i = phi ptr [ %36, %34 ], [ %33, %32 ], [ null, %26 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0.i

@@ -137,7 +137,7 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br i1 %49, label %23, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %46, %10, %1, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %46 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %14, %10 ], [ %14, %46 ]
   ret ptr %.0
 }
 
@@ -227,7 +227,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   br i1 %39, label %11, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %28, %1, %6
-  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %28 ]
+  %.0 = phi i64 [ 4, %1 ], [ 4, %6 ], [ %36, %28 ]
   ret i64 %.0
 }
 
@@ -660,7 +660,7 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
   br label %36
 
 36:                                               ; preds = %21, %2, %9, %24
-  %.0 = phi ptr [ %25, %24 ], [ null, %9 ], [ null, %2 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %2 ], [ %25, %24 ], [ null, %9 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

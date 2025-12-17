@@ -119,7 +119,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr noundef 
   br label %21
 
 21:                                               ; preds = %13, %18, %17, %7
-  %.028 = phi i64 [ %20, %18 ], [ %8, %17 ], [ %8, %7 ], [ %15, %13 ]
+  %.028 = phi i64 [ %8, %7 ], [ %20, %18 ], [ %8, %17 ], [ %15, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %.028, ptr %22, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -208,7 +208,7 @@ define internal range(i32 -20, 1) i32 @archive_compressor_zstd_options(ptr nound
   %28 = icmp eq i32 %27, 75
   br i1 %28, label %string_to_number.exit.thread, label %29
 
-string_to_number.exit.thread:                     ; preds = %16, %14, %25, %23, %19
+string_to_number.exit.thread:                     ; preds = %14, %16, %25, %23, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %224
 
@@ -275,7 +275,7 @@ string_to_number.exit.thread:                     ; preds = %16, %14, %25, %23, 
   %62 = icmp eq i32 %61, 75
   br i1 %62, label %string_to_number.exit55.thread, label %63
 
-string_to_number.exit55.thread:                   ; preds = %50, %48, %59, %57, %53
+string_to_number.exit55.thread:                   ; preds = %48, %50, %59, %57, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %224
 
@@ -372,8 +372,8 @@ thread-pre-split.i:                               ; preds = %91, %90, %88, %88
   br label %98
 
 98:                                               ; preds = %96, %93, %84
-  %99 = phi ptr [ %97, %96 ], [ %86, %84 ], [ %95, %93 ]
-  %.0.i56 = phi i32 [ %.1.i, %96 ], [ 0, %84 ], [ %.1.i, %93 ]
+  %99 = phi ptr [ %97, %96 ], [ %95, %93 ], [ %86, %84 ]
+  %.0.i56 = phi i32 [ %.1.i, %96 ], [ %.1.i, %93 ], [ 0, %84 ]
   %100 = icmp eq ptr %99, %2
   br i1 %100, label %string_to_size.exit.thread, label %101
 
@@ -394,7 +394,7 @@ thread-pre-split.i:                               ; preds = %91, %90, %88, %88
   %110 = icmp ugt i64 %85, %109
   br i1 %110, label %string_to_size.exit.thread, label %111
 
-string_to_size.exit.thread:                       ; preds = %82, %82, %79, %103, %101, %98, %107
+string_to_size.exit.thread:                       ; preds = %79, %98, %82, %82, %103, %101, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %224
 
@@ -472,8 +472,8 @@ thread-pre-split.i61:                             ; preds = %131, %130, %128, %1
   br label %138
 
 138:                                              ; preds = %136, %133, %124
-  %139 = phi ptr [ %137, %136 ], [ %126, %124 ], [ %135, %133 ]
-  %.0.i59 = phi i32 [ %.1.i64, %136 ], [ 0, %124 ], [ %.1.i64, %133 ]
+  %139 = phi ptr [ %137, %136 ], [ %135, %133 ], [ %126, %124 ]
+  %.0.i59 = phi i32 [ %.1.i64, %136 ], [ %.1.i64, %133 ], [ 0, %124 ]
   %140 = icmp eq ptr %139, %2
   br i1 %140, label %string_to_size.exit65.thread, label %141
 
@@ -494,7 +494,7 @@ thread-pre-split.i61:                             ; preds = %131, %130, %128, %1
   %150 = icmp ugt i64 %125, %149
   br i1 %150, label %string_to_size.exit65.thread, label %151
 
-string_to_size.exit65.thread:                     ; preds = %122, %122, %119, %143, %141, %138, %147
+string_to_size.exit65.thread:                     ; preds = %119, %138, %122, %122, %143, %141, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %224
 
@@ -572,8 +572,8 @@ thread-pre-split.i69:                             ; preds = %171, %170, %168, %1
   br label %178
 
 178:                                              ; preds = %176, %173, %164
-  %179 = phi ptr [ %177, %176 ], [ %166, %164 ], [ %175, %173 ]
-  %.0.i67 = phi i32 [ %.1.i72, %176 ], [ 0, %164 ], [ %.1.i72, %173 ]
+  %179 = phi ptr [ %177, %176 ], [ %175, %173 ], [ %166, %164 ]
+  %.0.i67 = phi i32 [ %.1.i72, %176 ], [ %.1.i72, %173 ], [ 0, %164 ]
   %180 = icmp eq ptr %179, %2
   br i1 %180, label %string_to_size.exit73.thread, label %181
 
@@ -594,7 +594,7 @@ thread-pre-split.i69:                             ; preds = %171, %170, %168, %1
   %190 = icmp ugt i64 %165, %189
   br i1 %190, label %string_to_size.exit73.thread, label %191
 
-string_to_size.exit73.thread:                     ; preds = %162, %162, %159, %183, %181, %178, %187
+string_to_size.exit73.thread:                     ; preds = %159, %178, %162, %162, %183, %181, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %224
 
@@ -672,7 +672,7 @@ string_to_size.exit73.thread:                     ; preds = %162, %162, %159, %1
   br label %224
 
 224:                                              ; preds = %string_to_size.exit73.thread, %151, %string_to_size.exit65.thread, %111, %string_to_size.exit.thread, %68, %67, %string_to_number.exit55.thread, %39, %43, %string_to_number.exit.thread, %200, %191, %203, %197, %223, %74
-  %.2 = phi i32 [ 0, %74 ], [ %.4, %223 ], [ -20, %197 ], [ -20, %203 ], [ %spec.select51, %191 ], [ %spec.select52, %200 ], [ 0, %43 ], [ -20, %39 ], [ -20, %string_to_number.exit.thread ], [ 0, %68 ], [ -20, %67 ], [ -20, %string_to_number.exit55.thread ], [ 0, %111 ], [ -20, %string_to_size.exit.thread ], [ 0, %151 ], [ -20, %string_to_size.exit65.thread ], [ -20, %string_to_size.exit73.thread ]
+  %.2 = phi i32 [ %spec.select51, %191 ], [ -20, %39 ], [ 0, %74 ], [ -20, %67 ], [ -20, %197 ], [ -20, %string_to_size.exit.thread ], [ %.4, %223 ], [ %spec.select52, %200 ], [ -20, %203 ], [ -20, %string_to_size.exit73.thread ], [ -20, %string_to_number.exit.thread ], [ 0, %43 ], [ 0, %68 ], [ -20, %string_to_number.exit55.thread ], [ 0, %111 ], [ 0, %151 ], [ -20, %string_to_size.exit65.thread ]
   ret i32 %.2
 }
 
@@ -794,7 +794,7 @@ define internal fastcc range(i32 -20, 1) i32 @string_to_number(ptr noundef %0, p
   br label %19
 
 19:                                               ; preds = %14, %2, %5, %18
-  %.0 = phi i32 [ -20, %18 ], [ -20, %5 ], [ -20, %2 ], [ 0, %14 ]
+  %.0 = phi i32 [ -20, %2 ], [ -20, %18 ], [ -20, %5 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -867,8 +867,8 @@ thread-pre-split:                                 ; preds = %11, %11, %14, %13
   br label %21
 
 21:                                               ; preds = %16, %19, %7
-  %22 = phi ptr [ %20, %19 ], [ %9, %7 ], [ %18, %16 ]
-  %.0 = phi i32 [ %.1, %19 ], [ 0, %7 ], [ %.1, %16 ]
+  %22 = phi ptr [ %20, %19 ], [ %18, %16 ], [ %9, %7 ]
+  %.0 = phi i32 [ %.1, %19 ], [ %.1, %16 ], [ 0, %7 ]
   %23 = icmp eq ptr %22, %0
   br i1 %23, label %36, label %24
 
@@ -895,7 +895,7 @@ thread-pre-split:                                 ; preds = %11, %11, %14, %13
   br label %36
 
 36:                                               ; preds = %30, %21, %24, %26, %2, %5, %5, %34
-  %.011 = phi i32 [ 0, %34 ], [ -20, %5 ], [ -20, %5 ], [ -20, %2 ], [ -20, %26 ], [ -20, %24 ], [ -20, %21 ], [ -20, %30 ]
+  %.011 = phi i32 [ 0, %34 ], [ -20, %2 ], [ -20, %21 ], [ -20, %5 ], [ -20, %5 ], [ -20, %26 ], [ -20, %24 ], [ -20, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.011
 }

@@ -1690,7 +1690,7 @@ _ZNK4cvc58internal11NodeManager10poolLookupEPNS0_4expr9NodeValueE.exit160: ; pre
   br label %129
 
 129:                                              ; preds = %113, %114, %_ZN4cvc58internal11NodeBuilder13decrRefCountsEv.exit, %101, %33
-  %.0 = phi ptr [ %29, %33 ], [ %54, %_ZN4cvc58internal11NodeBuilder13decrRefCountsEv.exit ], [ %82, %101 ], [ %112, %113 ], [ %115, %114 ]
+  %.0 = phi ptr [ %29, %33 ], [ %82, %101 ], [ %54, %_ZN4cvc58internal11NodeBuilder13decrRefCountsEv.exit ], [ %112, %113 ], [ %115, %114 ]
   ret ptr %.0
 }
 

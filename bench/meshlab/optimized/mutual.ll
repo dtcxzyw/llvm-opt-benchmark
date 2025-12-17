@@ -239,7 +239,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   br label %_ZN10MutualInfo9histogramEiiPhS0_iiii.exit
 
 _ZN10MutualInfo9histogramEiiPhS0_iiii.exit:       ; preds = %.lr.ph.i, %.preheader.i, %60
-  %65 = phi i32 [ 0, %.preheader.i ], [ %.pre, %60 ], [ %57, %.lr.ph.i ]
+  %65 = phi i32 [ %.pre, %60 ], [ 0, %.preheader.i ], [ %57, %.lr.ph.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = zext i32 %65 to i64

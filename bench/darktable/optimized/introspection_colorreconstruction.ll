@@ -687,7 +687,7 @@ dt_iop_colorreconstruct_bilateral_free.exit.i71:  ; preds = %208
   br label %323
 
 323:                                              ; preds = %318, %312, %300
-  %.065.us.i = phi nsz float [ %322, %318 ], [ %317, %312 ], [ 1.000000e+00, %300 ]
+  %.065.us.i = phi nsz float [ %317, %312 ], [ %322, %318 ], [ 1.000000e+00, %300 ]
   %324 = uitofp nneg i32 %.0646.us.i to float
   %325 = fmul reassoc nsz arcp contract afn float %324, %279
   %326 = fcmp reassoc nsz arcp contract afn ogt float %325, 0.000000e+00
@@ -729,7 +729,7 @@ image_to_grid.exit.us.i:                          ; preds = %335, %331
   br label %347
 
 347:                                              ; preds = %344, %image_to_grid.exit.us.i
-  %348 = phi i64 [ 0, %image_to_grid.exit.us.i ], [ %346, %344 ]
+  %348 = phi i64 [ %346, %344 ], [ 0, %image_to_grid.exit.us.i ]
   %349 = add nuw nsw i64 %348, %291
   %350 = mul i64 %349, %224
   %351 = fmul reassoc nsz arcp contract afn float %.065.us.i, %294
@@ -1238,7 +1238,7 @@ dt_iop_colorreconstruct_bilateral_free.exit:      ; preds = %dt_iop_colorreconst
   tail call void @free(ptr noundef nonnull %.0) #25
   br label %704
 
-691:                                              ; preds = %dt_iop_colorreconstruct_bilateral_free.exit.i, %166, %207, %dt_iop_colorreconstruct_bilateral_free.exit.i71
+691:                                              ; preds = %166, %dt_iop_colorreconstruct_bilateral_free.exit.i, %207, %dt_iop_colorreconstruct_bilateral_free.exit.i71
   %692 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #25
   tail call void (ptr, ...) @dt_control_log(ptr noundef %692) #25
   %693 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1727,7 +1727,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %19
 
 19:                                               ; preds = %16, %2, %14, %10, %6
-  %.0 = phi ptr [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %16 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -1762,7 +1762,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

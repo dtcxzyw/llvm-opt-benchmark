@@ -377,8 +377,8 @@ define dso_local ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2
 .lr.ph198.backedge:                               ; preds = %128, %125
   br label %.lr.ph198, !llvm.loop !12
 
-.thread:                                          ; preds = %.split203.us, %.outer118._crit_edge, %.split206.us, %121, %111, %106, %26, %.split135.us, %39, %44, %54, %.split156
-  %.080 = phi ptr [ null, %.outer118._crit_edge ], [ %84, %.split206.us ], [ %84, %121 ], [ %84, %111 ], [ %84, %106 ], [ null, %26 ], [ null, %.split135.us ], [ null, %39 ], [ null, %44 ], [ null, %54 ], [ null, %.split156 ], [ %84, %.split203.us ]
+.thread:                                          ; preds = %.split203.us, %.outer118._crit_edge, %.split206.us, %121, %111, %106, %.split135.us, %26, %39, %44, %.split156, %54
+  %.080 = phi ptr [ %84, %106 ], [ %84, %111 ], [ null, %26 ], [ null, %.outer118._crit_edge ], [ %84, %.split206.us ], [ %84, %121 ], [ null, %.split135.us ], [ null, %39 ], [ null, %44 ], [ null, %.split156 ], [ null, %54 ], [ %84, %.split203.us ]
   %129 = tail call i32 @close(i32 noundef %6) #8
   br label %.thread115
 
@@ -448,7 +448,7 @@ _sack_try_connection.exit:                        ; preds = %11
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._sack_connect, ptr noundef nonnull %3) #8
   br label %27
 
-24:                                               ; preds = %7, %10, %20
+24:                                               ; preds = %10, %20, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %25, label %1, !llvm.loop !13
@@ -720,7 +720,7 @@ define dso_local i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %83, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.outer._crit_edge, %29, %.split96.us, %42, %47, %57, %.split117
+.thread:                                          ; preds = %.outer._crit_edge, %.split96.us, %29, %42, %47, %.split117, %57
   %84 = tail call i32 @close(i32 noundef %4) #8
   br label %.thread85
 

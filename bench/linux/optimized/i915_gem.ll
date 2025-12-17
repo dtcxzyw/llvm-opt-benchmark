@@ -596,7 +596,7 @@ define dso_local i32 @i915_gem_pread_ioctl(ptr noundef readonly captures(none) %
   br label %.thread16
 
 .thread16:                                        ; preds = %97, %99, %.thread13, %100, %16, %12, %7
-  %101 = phi i32 [ -95, %7 ], [ 0, %12 ], [ -14, %16 ], [ %94, %100 ], [ -2, %.thread13 ], [ %94, %99 ], [ %94, %97 ]
+  %101 = phi i32 [ -95, %7 ], [ 0, %12 ], [ -14, %16 ], [ %94, %97 ], [ -2, %.thread13 ], [ %94, %100 ], [ %94, %99 ]
   ret i32 %101
 }
 
@@ -1139,7 +1139,7 @@ define dso_local i32 @i915_gem_pwrite_ioctl(ptr noundef readonly captures(none) 
   br label %.thread17
 
 .thread17:                                        ; preds = %108, %110, %.thread13, %111, %16, %12, %7
-  %112 = phi i32 [ -95, %7 ], [ 0, %12 ], [ -14, %16 ], [ %105, %111 ], [ -2, %.thread13 ], [ %105, %110 ], [ %105, %108 ]
+  %112 = phi i32 [ -95, %7 ], [ 0, %12 ], [ -14, %16 ], [ %105, %108 ], [ -2, %.thread13 ], [ %105, %111 ], [ %105, %110 ]
   ret i32 %112
 }
 
@@ -1623,7 +1623,7 @@ define dso_local noundef range(i32 -2, 1) i32 @i915_gem_sw_finish_ioctl(ptr noun
   br label %.thread7
 
 .thread7:                                         ; preds = %30, %32, %.thread5, %33
-  %34 = phi i32 [ 0, %33 ], [ -2, %.thread5 ], [ 0, %32 ], [ 0, %30 ]
+  %34 = phi i32 [ 0, %30 ], [ -2, %.thread5 ], [ 0, %33 ], [ 0, %32 ]
   ret i32 %34
 }
 
@@ -1932,7 +1932,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br i1 %135, label %.loopexit10, label %.split.split
 
 .split15.us:                                      ; preds = %120, %78, %46
-  %.us-phi16 = phi ptr [ %39, %46 ], [ %63, %78 ], [ %94, %120 ]
+  %.us-phi16 = phi ptr [ %63, %78 ], [ %39, %46 ], [ %94, %120 ]
   %136 = tail call i32 @i915_vma_unbind(ptr noundef %.us-phi16) #9
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %.loopexit, label %138
@@ -1943,7 +1943,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br label %.loopexit10
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us, %.split.us, %.split15.us
-  %141 = phi ptr [ %.us-phi16, %.split15.us ], [ %39, %.split.us ], [ %63, %.split.split.us ], [ %94, %.split.split ]
+  %141 = phi ptr [ %.us-phi16, %.split15.us ], [ %63, %.split.split.us ], [ %39, %.split.us ], [ %94, %.split.split ]
   %142 = or i64 %5, 1024
   %143 = tail call i32 @i915_vma_pin_ww(ptr noundef %141, ptr noundef %1, i64 noundef %3, i64 noundef %4, i64 noundef %142) #9
   %144 = icmp eq i32 %143, 0
@@ -1987,7 +1987,7 @@ define dso_local ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %0, ptr noundef %1
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %133, %112, %105, %101, %96, %65, %70, %91, %60, %162, %159, %145, %138, %32, %26, %20
-  %166 = phi ptr [ %140, %138 ], [ %147, %145 ], [ %165, %162 ], [ %141, %159 ], [ inttoptr (i64 -7 to ptr), %20 ], [ inttoptr (i64 -28 to ptr), %26 ], [ %33, %32 ], [ %61, %60 ], [ %92, %91 ], [ inttoptr (i64 -28 to ptr), %70 ], [ inttoptr (i64 -28 to ptr), %65 ], [ %134, %133 ], [ inttoptr (i64 -28 to ptr), %101 ], [ inttoptr (i64 -28 to ptr), %96 ], [ inttoptr (i64 -28 to ptr), %112 ], [ inttoptr (i64 -28 to ptr), %105 ]
+  %166 = phi ptr [ %140, %138 ], [ %147, %145 ], [ %165, %162 ], [ %141, %159 ], [ inttoptr (i64 -7 to ptr), %20 ], [ inttoptr (i64 -28 to ptr), %26 ], [ %33, %32 ], [ inttoptr (i64 -28 to ptr), %65 ], [ %61, %60 ], [ %92, %91 ], [ inttoptr (i64 -28 to ptr), %70 ], [ %134, %133 ], [ inttoptr (i64 -28 to ptr), %101 ], [ inttoptr (i64 -28 to ptr), %96 ], [ inttoptr (i64 -28 to ptr), %112 ], [ inttoptr (i64 -28 to ptr), %105 ]
   ret ptr %166
 }
 
@@ -2128,8 +2128,8 @@ define dso_local ptr @i915_gem_object_ggtt_pin(ptr noundef %0, ptr noundef %1, i
   br label %.thread9, !llvm.loop !52
 
 .thread8:                                         ; preds = %57, %38, %50, %53
-  %60 = phi i32 [ %55, %53 ], [ 0, %50 ], [ %25, %38 ], [ %59, %57 ]
-  %61 = phi ptr [ %51, %53 ], [ %51, %50 ], [ %14, %38 ], [ %58, %57 ]
+  %60 = phi i32 [ %59, %57 ], [ %55, %53 ], [ 0, %50 ], [ %25, %38 ]
+  %61 = phi ptr [ %58, %57 ], [ %51, %53 ], [ %51, %50 ], [ %14, %38 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %6) #9
   br label %.thread9.backedge
 
@@ -2411,7 +2411,7 @@ define dso_local noundef i32 @i915_gem_madvise_ioctl(ptr noundef %0, ptr noundef
   br label %.thread13
 
 .thread13:                                        ; preds = %147, %149, %.thread11, %150, %3
-  %151 = phi i32 [ -22, %3 ], [ %36, %150 ], [ -2, %.thread11 ], [ %36, %149 ], [ %36, %147 ]
+  %151 = phi i32 [ -22, %3 ], [ %36, %147 ], [ -2, %.thread11 ], [ %36, %150 ], [ %36, %149 ]
   ret i32 %151
 }
 
@@ -3338,11 +3338,11 @@ i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %110, %106, %83, %61
-  %112 = phi i32 [ %62, %61 ], [ %85, %83 ], [ %100, %106 ], [ %100, %110 ], [ %81, %.thread10 ]
+  %112 = phi i32 [ %100, %110 ], [ %62, %61 ], [ %85, %83 ], [ %100, %106 ], [ %81, %.thread10 ]
   %113 = icmp eq i32 %112, -35
   br i1 %113, label %.thread20, label %.thread16.thread24
 
-.thread20:                                        ; preds = %i915_gem_object_lock.exit.thread, %68, %.thread11
+.thread20:                                        ; preds = %68, %i915_gem_object_lock.exit.thread, %.thread11
   %114 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %4) #9
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %27, label %.thread16.thread24
@@ -3365,7 +3365,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %55, %59
   br label %120
 
 120:                                              ; preds = %.thread16, %.thread16.thread, %.thread16.thread24
-  %121 = phi ptr [ %117, %.thread16.thread24 ], [ %88, %.thread16.thread ], [ %119, %.thread16 ]
+  %121 = phi ptr [ %117, %.thread16.thread24 ], [ %119, %.thread16 ], [ %88, %.thread16.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %121
 }

@@ -419,7 +419,7 @@ _ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS
   br label %120
 
 120:                                              ; preds = %109, %119
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %119 ], [ %110, %109 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %119 ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -495,7 +495,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI24b3ParamsG
   br label %_ZNK13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %28, %25, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %25 ], [ %12, %28 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %28 ], [ %12, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %.not.i.i = icmp ne ptr %37, null
@@ -3475,7 +3475,7 @@ _ZN13b3ProfileZoneD2Ev.exit122:                   ; preds = %801
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit120:                   ; preds = %790, %809, %780, %786, %770, %776, %768
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %769, %768 ], [ %771, %770 ], [ %.pn35, %776 ], [ %781, %780 ], [ %.pn38, %786 ], [ %791, %790 ], [ %.pn41.pn, %809 ]
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn38, %786 ], [ %.pn35, %776 ], [ %769, %768 ], [ %771, %770 ], [ %781, %780 ], [ %791, %790 ], [ %.pn41.pn, %809 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN13b3ProfileZoneD2Ev.exit119
 
@@ -3530,7 +3530,7 @@ _ZN13b3ProfileZoneD2Ev.exit127:                   ; preds = %_ZN13b3OpenCLArrayI
   ret void
 
 _ZN13b3ProfileZoneD2Ev.exit125:                   ; preds = %754, %_ZN13b3ProfileZoneD2Ev.exit119, %_ZN13b3ProfileZoneD2Ev.exit65, %313, %311
-  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit65 ], [ %314, %313 ], [ %312, %311 ], [ %755, %754 ], [ %.pn41.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit119 ]
+  %.pn41.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %312, %311 ], [ %.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit65 ], [ %314, %313 ], [ %755, %754 ], [ %.pn41.pn.pn.pn.pn, %_ZN13b3ProfileZoneD2Ev.exit119 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13b3OpenCLArrayIiE, i64 16), ptr %17, align 8, !tbaa !4
   %829 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %830 = load ptr, ptr %829, align 8, !tbaa !81
@@ -3624,7 +3624,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIiE9push_bac
   br label %_ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIiE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %28, %25, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %25 ], [ %12, %28 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %12, %28 ], [ %12, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !81
   %.not.i.i = icmp ne ptr %37, null

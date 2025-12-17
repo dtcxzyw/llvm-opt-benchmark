@@ -179,7 +179,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %48
 
 48:                                               ; preds = %39, %42, %34, %27, %14, %12, %46
-  %.0 = phi i32 [ %47, %46 ], [ -12, %12 ], [ 0, %14 ], [ %38, %34 ], [ -12, %27 ], [ %40, %42 ], [ %40, %39 ]
+  %.0 = phi i32 [ 0, %14 ], [ -12, %27 ], [ %47, %46 ], [ -12, %12 ], [ %38, %34 ], [ %40, %42 ], [ %40, %39 ]
   ret i32 %.0
 }
 
@@ -299,7 +299,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %66, %67, %33, %1, %32
-  %.0 = phi i32 [ -22, %32 ], [ %13, %1 ], [ -12, %33 ], [ 0, %67 ], [ 0, %66 ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ %13, %1 ], [ -22, %32 ], [ -12, %33 ], [ 0, %67 ], [ 0, %66 ], [ -12, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1456,7 +1456,7 @@ define internal range(i32 -2147483648, 1) i32 @request_frame(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %16, %33, %1, %35
-  %.0 = phi i32 [ 0, %35 ], [ -541478725, %1 ], [ %11, %33 ], [ -12, %16 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ %11, %33 ], [ 0, %35 ], [ -12, %16 ], [ -541478725, %1 ], [ -541478725, %13 ]
   ret i32 %.0
 }
 

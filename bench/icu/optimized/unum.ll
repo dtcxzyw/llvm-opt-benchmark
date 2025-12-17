@@ -432,7 +432,7 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread165
 
 .critedge145:                                     ; preds = %.thread151, %123, %118, %114, %.critedge143, %26
-  %.088 = phi ptr [ %25, %26 ], [ %61, %.critedge143 ], [ %.290, %114 ], [ %117, %118 ], [ %122, %123 ], [ %48, %.thread151 ]
+  %.088 = phi ptr [ %25, %26 ], [ %48, %.thread151 ], [ %61, %.critedge143 ], [ %.290, %114 ], [ %117, %118 ], [ %122, %123 ]
   %127 = icmp eq ptr %.088, null
   br i1 %127, label %.critedge145.thread, label %.critedge145.thread162
 
@@ -459,7 +459,7 @@ define noundef ptr @unum_open_77(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread165
 
 137:                                              ; preds = %99, %89, %79, %124, %119, %115, %69, %58, %27
-  %.pn139 = phi { ptr, i32 } [ %28, %27 ], [ %.pn137, %58 ], [ %.pn130, %69 ], [ %.pn127, %79 ], [ %.pn124, %89 ], [ %.pn121, %99 ], [ %.pn, %115 ], [ %120, %119 ], [ %125, %124 ]
+  %.pn139 = phi { ptr, i32 } [ %28, %27 ], [ %.pn137, %58 ], [ %.pn130, %69 ], [ %.pn127, %79 ], [ %125, %124 ], [ %.pn124, %89 ], [ %120, %119 ], [ %.pn121, %99 ], [ %.pn, %115 ]
   resume { ptr, i32 } %.pn139
 
 .thread165:                                       ; preds = %.critedge145.thread, %130, %57, %126, %133, %.critedge145.thread162, %6
@@ -861,7 +861,7 @@ define noundef i32 @unum_formatDoubleForFields_77(ptr noundef %0, double noundef
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %6, %30, %17
-  %.018 = phi i32 [ -1, %17 ], [ %29, %30 ], [ -1, %6 ]
+  %.018 = phi i32 [ %29, %30 ], [ -1, %17 ], [ -1, %6 ]
   ret i32 %.018
 }
 
@@ -998,7 +998,7 @@ define noundef i32 @unum_formatDecimal_77(ptr noundef %0, ptr noundef %1, i32 no
   resume { ptr, i32 } %.pn.pn.pn
 
 59:                                               ; preds = %7, %52, %18
-  %.0 = phi i32 [ -1, %18 ], [ %51, %52 ], [ -1, %7 ]
+  %.0 = phi i32 [ %51, %52 ], [ -1, %18 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -1430,7 +1430,7 @@ define i32 @unum_parseDecimal_77(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   resume { ptr, i32 } %.pn
 
 38:                                               ; preds = %7, %36, %15
-  %.0 = phi i32 [ -1, %15 ], [ %.1, %36 ], [ -1, %7 ]
+  %.0 = phi i32 [ %.1, %36 ], [ -1, %15 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -2211,7 +2211,7 @@ define void @unum_setTextAttribute_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %.invoke
 
 .invoke:                                          ; preds = %13, %16, %17, %18, %19
-  %.sink30 = phi i64 [ 376, %16 ], [ 368, %17 ], [ 384, %18 ], [ 440, %19 ], [ 360, %13 ]
+  %.sink30 = phi i64 [ 440, %19 ], [ 376, %16 ], [ 368, %17 ], [ 384, %18 ], [ 360, %13 ]
   %20 = load ptr, ptr %12, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink30
   %22 = load ptr, ptr %21, align 8
@@ -2432,7 +2432,7 @@ define noundef i32 @unum_getSymbol_77(ptr noundef %0, i32 noundef %1, ptr nounde
   resume { ptr, i32 } %31
 
 33:                                               ; preds = %18, %28, %5, %8, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %8 ], [ 0, %5 ], [ 0, %18 ], [ %27, %28 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %8 ], [ 0, %18 ], [ %27, %28 ]
   ret i32 %.0
 }
 
@@ -2795,7 +2795,7 @@ define noundef ptr @unum_parseToUFormattable_77(ptr noundef %0, ptr noundef %1, 
   br label %24
 
 24:                                               ; preds = %19, %23, %6, %14
-  %.022 = phi ptr [ %1, %14 ], [ %1, %6 ], [ null, %23 ], [ %.023, %19 ]
+  %.022 = phi ptr [ %1, %6 ], [ %1, %14 ], [ null, %23 ], [ %.023, %19 ]
   ret ptr %.022
 }
 
@@ -2907,7 +2907,7 @@ define noundef i32 @unum_formatUFormattable_77(ptr noundef %0, ptr noundef %1, p
   resume { ptr, i32 } %.pn
 
 48:                                               ; preds = %6, %42, %20
-  %.024 = phi i32 [ 0, %20 ], [ %41, %42 ], [ 0, %6 ]
+  %.024 = phi i32 [ %41, %42 ], [ 0, %20 ], [ 0, %6 ]
   ret i32 %.024
 }
 

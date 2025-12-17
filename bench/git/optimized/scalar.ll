@@ -1684,8 +1684,8 @@ _.exit46:                                         ; preds = %80, %82
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %78, %76
-  %.0.i42.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i42.sink, ptr noundef %42) #18
+  %.0.i39.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i39.sink, ptr noundef %42) #18
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %95
@@ -2329,12 +2329,12 @@ start_fsmonitor_daemon.exit:                      ; preds = %27
   br i1 %.not4.i15, label %have_fsmonitor_support.exit.thread.sink.split, label %have_fsmonitor_support.exit.thread.sink.split.sink.split
 
 have_fsmonitor_support.exit.thread.sink.split.sink.split: ; preds = %30, %15, %12
-  %.str.125.sink = phi ptr [ @.str.122, %12 ], [ @.str.123, %15 ], [ @.str.125, %30 ]
+  %.str.125.sink = phi ptr [ @.str.123, %15 ], [ @.str.122, %12 ], [ @.str.125, %30 ]
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.125.sink, i32 noundef 5) #18
   br label %have_fsmonitor_support.exit.thread.sink.split
 
 have_fsmonitor_support.exit.thread.sink.split:    ; preds = %have_fsmonitor_support.exit.thread.sink.split.sink.split, %30, %15, %12
-  %.0.i16.sink = phi ptr [ @.str.122, %12 ], [ @.str.123, %15 ], [ @.str.125, %30 ], [ %32, %have_fsmonitor_support.exit.thread.sink.split.sink.split ]
+  %.0.i16.sink = phi ptr [ @.str.123, %15 ], [ @.str.122, %12 ], [ @.str.125, %30 ], [ %32, %have_fsmonitor_support.exit.thread.sink.split.sink.split ]
   %33 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i16.sink) #18
   br label %have_fsmonitor_support.exit.thread
 

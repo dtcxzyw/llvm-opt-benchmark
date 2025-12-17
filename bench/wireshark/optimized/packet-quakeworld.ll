@@ -283,9 +283,9 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   br i1 %or.cond30.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !6
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.preheader.i.i
-  %.121.lcssa.i.i = phi ptr [ %.02078.i.i, %switch.early.test.i.i ], [ %.02078.i.i, %.preheader.i.i ], [ %.02078.i.i, %switch.early.test.i.i ], [ %57, %.lr.ph.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.079.i.i, %switch.early.test.i.i ], [ %.079.i.i, %.preheader.i.i ], [ %.079.i.i, %switch.early.test.i.i ], [ %58, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i8 [ %.fr.i.i, %switch.early.test.i.i ], [ %.fr.i.i, %.preheader.i.i ], [ %.fr.i.i, %switch.early.test.i.i ], [ %59, %.lr.ph.i.i ]
+  %.121.lcssa.i.i = phi ptr [ %.02078.i.i, %switch.early.test.i.i ], [ %.02078.i.i, %switch.early.test.i.i ], [ %.02078.i.i, %.preheader.i.i ], [ %57, %.lr.ph.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.079.i.i, %switch.early.test.i.i ], [ %.079.i.i, %switch.early.test.i.i ], [ %.079.i.i, %.preheader.i.i ], [ %58, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i8 [ %.fr.i.i, %switch.early.test.i.i ], [ %.fr.i.i, %switch.early.test.i.i ], [ %.fr.i.i, %.preheader.i.i ], [ %59, %.lr.ph.i.i ]
   switch i8 %.lcssa.i.i, label %62 [
     i8 10, label %Cmd_TokenizeString.exit.i
     i8 0, label %Cmd_TokenizeString.exit.i
@@ -837,8 +837,8 @@ Cmd_Argv_length.exit195.i:                        ; preds = %299, %Cmd_Argv.exit
   br label %Cmd_Argv.exit189.thread.thread.i
 
 Cmd_Argv.exit189.thread.thread.i:                 ; preds = %Cmd_Argv_length.exit195.i, %Cmd_Argv.exit189.i, %Cmd_Argv_length.exit177.i
-  %307 = phi i32 [ %.pre.i, %Cmd_Argv_length.exit195.i ], [ %298, %Cmd_Argv.exit189.i ], [ %121, %Cmd_Argv_length.exit177.i ]
-  %.0104243.i = phi ptr [ %297, %Cmd_Argv_length.exit195.i ], [ null, %Cmd_Argv.exit189.i ], [ null, %Cmd_Argv_length.exit177.i ]
+  %307 = phi i32 [ %121, %Cmd_Argv_length.exit177.i ], [ %.pre.i, %Cmd_Argv_length.exit195.i ], [ %298, %Cmd_Argv.exit189.i ]
+  %.0104243.i = phi ptr [ null, %Cmd_Argv_length.exit177.i ], [ %297, %Cmd_Argv_length.exit195.i ], [ null, %Cmd_Argv.exit189.i ]
   store i8 0, ptr %9, align 16
   %308 = icmp sgt i32 %307, 2
   br i1 %308, label %Cmd_Argv.exit198.i, label %._crit_edge.i
@@ -950,8 +950,8 @@ Cmd_Argv_length.exit174.i:                        ; preds = %._crit_edge.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %Cmd_Argv_length.exit174.i, %348, %347, %346, %345, %344, %342, %.thread230.i, %337, %337, %334, %334, %273, %128, %125, %Cmd_TokenizeString.exit.i
-  %.str.77.sink.i = phi ptr [ @.str.77, %Cmd_Argv_length.exit174.i ], [ @.str.81, %342 ], [ @.str.79, %337 ], [ @.str.79, %337 ], [ @.str.67, %334 ], [ @.str.67, %334 ], [ @.str.71, %128 ], [ @.str.69, %125 ], [ @.str.67, %Cmd_TokenizeString.exit.i ], [ @.str.80, %.thread230.i ], [ @.str.80, %348 ], [ @.str.22, %347 ], [ @.str.67, %346 ], [ @.str.83, %345 ], [ @.str.82, %344 ], [ @.str.75, %273 ]
-  %.1235.ph.i = phi i32 [ %spec.select256.i, %Cmd_Argv_length.exit174.i ], [ 1, %342 ], [ 1, %337 ], [ 1, %337 ], [ 1, %334 ], [ 1, %334 ], [ 3, %128 ], [ 6, %125 ], [ 4, %Cmd_TokenizeString.exit.i ], [ %341, %.thread230.i ], [ %350, %348 ], [ 1, %347 ], [ 1, %346 ], [ 1, %345 ], [ 1, %344 ], [ %spec.select255.i, %273 ]
+  %.str.77.sink.i = phi ptr [ @.str.77, %Cmd_Argv_length.exit174.i ], [ @.str.80, %348 ], [ @.str.75, %273 ], [ @.str.79, %337 ], [ @.str.67, %334 ], [ @.str.67, %334 ], [ @.str.71, %128 ], [ @.str.81, %342 ], [ @.str.69, %125 ], [ @.str.67, %Cmd_TokenizeString.exit.i ], [ @.str.80, %.thread230.i ], [ @.str.22, %347 ], [ @.str.67, %346 ], [ @.str.83, %345 ], [ @.str.82, %344 ], [ @.str.79, %337 ]
+  %.1235.ph.i = phi i32 [ %spec.select256.i, %Cmd_Argv_length.exit174.i ], [ %350, %348 ], [ %spec.select255.i, %273 ], [ 1, %337 ], [ 1, %334 ], [ 1, %334 ], [ 3, %128 ], [ 1, %342 ], [ 6, %125 ], [ 4, %Cmd_TokenizeString.exit.i ], [ %341, %.thread230.i ], [ 1, %347 ], [ 1, %346 ], [ 1, %345 ], [ 1, %344 ], [ 1, %337 ]
   %351 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %351, i32 noundef 25, ptr noundef nonnull @.str.84, ptr noundef nonnull %.str.77.sink.i)
   br label %352

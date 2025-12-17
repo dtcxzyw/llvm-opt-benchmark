@@ -1690,7 +1690,7 @@ _ZN7Minisat3vecIjiE4pushERKj.exit:                ; preds = %._ZN7Minisat3vecIji
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %54, %55, %_ZN7Minisat3vecIjiE4pushERKj.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %54 ], [ %77, %55 ], [ true, %_ZN7Minisat3vecIjiE4pushERKj.exit ], [ true, %21 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZN7Minisat3vecIjiE4pushERKj.exit ], [ false, %54 ], [ %77, %55 ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -3202,7 +3202,7 @@ _ZN7Minisat4HeapIiNS_6Solver10VarOrderLtENS_14MkIndexDefaultIiEEE13percolateDown
   br label %.thread
 
 .thread:                                          ; preds = %.critedge2, %175, %163, %147
-  %.sroa.017.0 = phi i32 [ %158, %147 ], [ %174, %163 ], [ %183, %175 ], [ -2, %.critedge2 ]
+  %.sroa.017.0 = phi i32 [ %183, %175 ], [ %158, %147 ], [ %174, %163 ], [ -2, %.critedge2 ]
   ret i32 %.sroa.017.0
 }
 
@@ -3750,9 +3750,9 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit:     ; preds = %215, %_ZN7Minisat3v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit, %.loopexit.loopexit175, %.loopexit.loopexit, %.preheader137, %.preheader135
-  %.pr = phi i32 [ %222, %.preheader135 ], [ %222, %.preheader137 ], [ %248, %.loopexit.loopexit ], [ %280, %.loopexit.loopexit175 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
-  %.2112 = phi i32 [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %.1111, %.loopexit.loopexit ], [ %.4, %.loopexit.loopexit175 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
-  %.1105 = phi i32 [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %283, %.loopexit.loopexit ], [ %284, %.loopexit.loopexit175 ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.pr = phi i32 [ %280, %.loopexit.loopexit175 ], [ %222, %.preheader135 ], [ %222, %.preheader137 ], [ %248, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.2112 = phi i32 [ %.4, %.loopexit.loopexit175 ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %.1111, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
+  %.1105 = phi i32 [ %284, %.loopexit.loopexit175 ], [ 1, %.preheader135 ], [ 1, %.preheader137 ], [ %283, %.loopexit.loopexit ], [ %222, %_ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit ]
   %285 = sext i32 %.pr to i64
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %287 = load i64, ptr %286, align 8, !tbaa !168
@@ -5817,23 +5817,23 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %.noexc
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %142, %169, %217
-  br label %.outer, !llvm.loop !195
-
 169:                                              ; preds = %142
   %170 = load double, ptr %36, align 8, !tbaa !77
-  %171 = load double, ptr %37, align 8, !tbaa !196
+  %171 = load double, ptr %37, align 8, !tbaa !195
   %172 = fmul double %170, %171
-  store double %172, ptr %37, align 8, !tbaa !196
+  store double %172, ptr %37, align 8, !tbaa !195
   %173 = fptosi double %172 to i32
   store i32 %173, ptr %35, align 8, !tbaa !194
   %174 = load double, ptr %38, align 8, !tbaa !75
-  %175 = load double, ptr %17, align 8, !tbaa !197
+  %175 = load double, ptr %17, align 8, !tbaa !196
   %176 = fmul double %174, %175
-  store double %176, ptr %17, align 8, !tbaa !197
-  %177 = load i32, ptr %39, align 8, !tbaa !198
+  store double %176, ptr %17, align 8, !tbaa !196
+  %177 = load i32, ptr %39, align 8, !tbaa !197
   %178 = icmp sgt i32 %177, 0
   br i1 %178, label %179, label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %169, %217, %142
+  br label %.outer, !llvm.loop !198
 
 179:                                              ; preds = %169
   %180 = load i64, ptr %11, align 8, !tbaa !193
@@ -6004,7 +6004,7 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %276 = load i32, ptr %16, align 8, !tbaa !101
   %277 = sub nsw i32 %275, %276
   %278 = sitofp i32 %277 to double
-  %279 = load double, ptr %17, align 8, !tbaa !197
+  %279 = load double, ptr %17, align 8, !tbaa !196
   %280 = fcmp ugt double %279, %278
   br i1 %280, label %282, label %281
 
@@ -6221,10 +6221,10 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread96: ; preds = %235
   %390 = sext i32 %388 to i64
   %391 = getelementptr inbounds %"struct.Minisat::Lit", ptr %387, i64 %390
   store i32 %.sroa.090.3, ptr %391, align 4, !tbaa !65
-  br label %.outer.split, !llvm.loop !195
+  br label %.outer.split, !llvm.loop !198
 
 .loopexit127:                                     ; preds = %.loopexit128, %.loopexit.split-lp129, %.loopexit.split-lp, %.loopexit127.loopexit.split, %.loopexit127.loopexit.split.us, %.loopexit127.loopexit.split-lp, %324, %326
-  %.pn47 = phi { ptr, i32 } [ %325, %324 ], [ %327, %326 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp136, %.loopexit127.loopexit.split-lp ], [ %lpad.loopexit135, %.loopexit127.loopexit.split ], [ %lpad.loopexit135.us, %.loopexit127.loopexit.split.us ], [ %lpad.loopexit130, %.loopexit128 ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ]
+  %.pn47 = phi { ptr, i32 } [ %327, %326 ], [ %lpad.loopexit135.us, %.loopexit127.loopexit.split.us ], [ %325, %324 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp136, %.loopexit127.loopexit.split-lp ], [ %lpad.loopexit135, %.loopexit127.loopexit.split ], [ %lpad.loopexit130, %.loopexit128 ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ]
   %392 = load ptr, ptr %4, align 8, !tbaa !100
   %.not.i.i = icmp eq ptr %392, null
   br i1 %.not.i.i, label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit, label %.preheader.i.i
@@ -6239,7 +6239,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %.loopexit127, %.pre
   resume { ptr, i32 } %.pn47
 
 .thread106:                                       ; preds = %.split.us, %.thread104, %273, %336, %266
-  %.sroa.027.1110.in = phi ptr [ @_ZN7MinisatL7l_UndefE, %266 ], [ @_ZN7MinisatL7l_FalseE, %336 ], [ @_ZN7MinisatL7l_FalseE, %273 ], [ @_ZN7MinisatL6l_TrueE, %.thread104 ], [ @_ZN7MinisatL7l_FalseE, %.split.us ]
+  %.sroa.027.1110.in = phi ptr [ @_ZN7MinisatL7l_UndefE, %266 ], [ @_ZN7MinisatL7l_FalseE, %336 ], [ @_ZN7MinisatL6l_TrueE, %.thread104 ], [ @_ZN7MinisatL7l_FalseE, %273 ], [ @_ZN7MinisatL7l_FalseE, %.split.us ]
   %.sroa.027.1110 = load i8, ptr %.sroa.027.1110.in, align 1, !tbaa !124
   %.not.i.i86 = icmp eq ptr %46, null
   br i1 %.not.i.i86, label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit88, label %.preheader.i.i87
@@ -6392,7 +6392,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %35 = load double, ptr %34, align 8, !tbaa !74
   %36 = fmul double %35, %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store double %36, ptr %37, align 8, !tbaa !197
+  store double %36, ptr %37, align 8, !tbaa !196
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load i32, ptr %38, align 8, !tbaa !71
   %40 = sitofp i32 %39 to double
@@ -6400,7 +6400,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %26
-  store double %40, ptr %37, align 8, !tbaa !197
+  store double %40, ptr %37, align 8, !tbaa !196
   br label %43
 
 43:                                               ; preds = %42, %26
@@ -6408,12 +6408,12 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEE5clearEb.exit: ; preds = %_ZN7Minisa
   %45 = load i32, ptr %44, align 8, !tbaa !76
   %46 = sitofp i32 %45 to double
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  store double %46, ptr %47, align 8, !tbaa !196
+  store double %46, ptr %47, align 8, !tbaa !195
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store i32 %45, ptr %48, align 8, !tbaa !194
   %49 = load i8, ptr @_ZN7MinisatL7l_UndefE, align 1, !tbaa !124
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = load i32, ptr %50, align 8, !tbaa !198
+  %51 = load i32, ptr %50, align 8, !tbaa !197
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -6537,9 +6537,9 @@ _ZNK7Minisat6Solver12withinBudgetEv.exit.thread27: ; preds = %106
   %or.cond32 = select i1 %112, i1 true, i1 %114
   br i1 %or.cond32, label %71, label %.thread
 
-.thread:                                          ; preds = %71, %97, %106, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27, %54
-  %.sroa.0.2 = phi i8 [ %49, %54 ], [ %103, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27 ], [ %103, %106 ], [ %103, %97 ], [ %103, %71 ]
-  %115 = load i32, ptr %50, align 8, !tbaa !198
+.thread:                                          ; preds = %71, %106, %97, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27, %54
+  %.sroa.0.2 = phi i8 [ %49, %54 ], [ %103, %_ZNK7Minisat6Solver12withinBudgetEv.exit.thread27 ], [ %103, %97 ], [ %103, %106 ], [ %103, %71 ]
+  %115 = load i32, ptr %50, align 8, !tbaa !197
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %117, label %118
 
@@ -7427,7 +7427,7 @@ _ZL6mapVariRN7Minisat3vecIiiEERi.exit74:          ; preds = %._ZL6mapVariRN7Mini
 
 ._crit_edge120:                                   ; preds = %200, %.preheader
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %189 = load i32, ptr %188, align 8, !tbaa !198
+  %189 = load i32, ptr %188, align 8, !tbaa !197
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %204, label %207
 
@@ -7479,7 +7479,7 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %207, %.preheader.i.
   ret void
 
 211:                                              ; preds = %88, %191, %162
-  %.pn53 = phi { ptr, i32 } [ %163, %162 ], [ %192, %191 ], [ %89, %88 ]
+  %.pn53 = phi { ptr, i32 } [ %89, %88 ], [ %192, %191 ], [ %163, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %212 = load ptr, ptr %5, align 8, !tbaa !103
   %.not.i.i75 = icmp eq ptr %212, null
@@ -8141,7 +8141,7 @@ define void @_ZN7Minisat6Solver14garbageCollectEv(ptr noundef nonnull align 8 ca
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !198
+  %12 = load i32, ptr %11, align 8, !tbaa !197
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %25
 
@@ -10197,10 +10197,10 @@ attributes #38 = { nounwind willreturn memory(read) }
 !192 = !{!13, !27, i64 184}
 !193 = !{!13, !27, i64 216}
 !194 = !{!13, !17, i64 832}
-!195 = distinct !{!195, !118}
-!196 = !{!13, !10, i64 824}
-!197 = !{!13, !10, i64 816}
-!198 = !{!13, !17, i64 64}
+!195 = !{!13, !10, i64 824}
+!196 = !{!13, !10, i64 816}
+!197 = !{!13, !17, i64 64}
+!198 = distinct !{!198, !118}
 !199 = !{!13, !27, i64 232}
 !200 = !{!13, !27, i64 240}
 !201 = distinct !{!201, !118}

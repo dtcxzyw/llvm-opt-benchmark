@@ -7635,7 +7635,7 @@ _ZN4lean10object_refD2Ev.exit851:                 ; preds = %_ZN4lean10object_re
   br label %.loopexit898
 
 2832:                                             ; preds = %1262, %1252
-  %.0120 = phi ptr [ %1243, %1252 ], [ %1253, %1262 ]
+  %.0120 = phi ptr [ %1253, %1262 ], [ %1243, %1252 ]
   %2833 = landingpad { ptr, i32 }
           cleanup
   br label %2834
@@ -8023,7 +8023,7 @@ _ZN4lean10object_refD2Ev.exit851:                 ; preds = %_ZN4lean10object_re
   br label %.loopexit890
 
 2931:                                             ; preds = %1991, %1981, %1971
-  %.017 = phi ptr [ %1962, %1971 ], [ %1972, %1981 ], [ %1982, %1991 ]
+  %.017 = phi ptr [ %1982, %1991 ], [ %1972, %1981 ], [ %1962, %1971 ]
   %2932 = landingpad { ptr, i32 }
           cleanup
   br label %2933
@@ -8237,7 +8237,7 @@ _ZN4lean10object_refD2Ev.exit851:                 ; preds = %_ZN4lean10object_re
   br label %.loopexit
 
 2991:                                             ; preds = %2350, %2340
-  %.0 = phi ptr [ %2331, %2340 ], [ %2341, %2350 ]
+  %.0 = phi ptr [ %2341, %2350 ], [ %2331, %2340 ]
   %2992 = landingpad { ptr, i32 }
           cleanup
   br label %2993
@@ -8756,7 +8756,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   ret void
 
 54:                                               ; preds = %34, %24
-  %.06 = phi ptr [ %15, %24 ], [ %25, %34 ]
+  %.06 = phi ptr [ %25, %34 ], [ %15, %24 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -8948,7 +8948,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %47, %56, %58, %59
   ret void
 
 65:                                               ; preds = %45, %35, %25
-  %.07 = phi ptr [ %16, %25 ], [ %26, %35 ], [ %36, %45 ]
+  %.07 = phi ptr [ %36, %45 ], [ %26, %35 ], [ %16, %25 ]
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %67

@@ -245,7 +245,7 @@ define noundef double @cJSON_SetNumberHelper(ptr noundef writeonly captures(none
   br label %8
 
 8:                                                ; preds = %4, %2, %6
-  %.sink = phi i32 [ %7, %6 ], [ 2147483647, %2 ], [ -2147483648, %4 ]
+  %.sink = phi i32 [ 2147483647, %2 ], [ %7, %6 ], [ -2147483648, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -315,7 +315,7 @@ define ptr @cJSON_SetValuestring(ptr noundef captures(address_is_null) %0, ptr n
   br label %cJSON_strdup.exit.thread
 
 cJSON_strdup.exit.thread:                         ; preds = %24, %16, %8, %2, %4, %33, %21
-  %.0 = phi ptr [ %23, %21 ], [ %27, %33 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %16 ], [ null, %24 ]
+  %.0 = phi ptr [ %27, %33 ], [ null, %2 ], [ %23, %21 ], [ null, %8 ], [ null, %16 ], [ null, %4 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -529,7 +529,7 @@ buffer_skip_whitespace.exit42:                    ; preds = %buffer_skip_whitesp
   br label %60
 
 60:                                               ; preds = %.thread, %59, %49, %50
-  %.0 = phi ptr [ %10, %50 ], [ %10, %49 ], [ null, %59 ], [ null, %.thread ]
+  %.0 = phi ptr [ %10, %49 ], [ %10, %50 ], [ null, %59 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -707,7 +707,7 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
   br label %78
 
 78:                                               ; preds = %76, %74, %71
-  %.sink39.i = phi i32 [ %77, %76 ], [ 2147483647, %71 ], [ -2147483648, %74 ]
+  %.sink39.i = phi i32 [ 2147483647, %71 ], [ %77, %76 ], [ -2147483648, %74 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink39.i, ptr %79, align 8, !tbaa !27
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -856,7 +856,7 @@ parse_number.exit:                                ; preds = %48, %.critedge.i, %
   br label %parse_array.exit
 
 parse_array.exit:                                 ; preds = %86, %106, %91, %37, %.critedge.i65.thread86, %.critedge.i65, %133, %87, %2, %6, %138, %parse_number.exit, %43, %34, %27, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %27 ], [ 1, %34 ], [ %44, %43 ], [ %.029.i, %parse_number.exit ], [ %139, %138 ], [ 0, %6 ], [ 0, %2 ], [ 1, %133 ], [ 0, %87 ], [ 0, %.critedge.i65.thread86 ], [ 0, %.critedge.i65 ], [ 0, %37 ], [ 0, %91 ], [ 0, %106 ], [ 0, %86 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ 1, %27 ], [ 1, %34 ], [ %44, %43 ], [ %.029.i, %parse_number.exit ], [ 0, %37 ], [ %139, %138 ], [ 0, %6 ], [ 0, %86 ], [ 0, %87 ], [ 1, %133 ], [ 0, %.critedge.i65.thread86 ], [ 0, %.critedge.i65 ], [ 0, %91 ], [ 0, %106 ]
   ret i32 %.0
 }
 
@@ -1017,7 +1017,7 @@ update_offset.exit:                               ; preds = %13, %16
   br label %50
 
 50:                                               ; preds = %36, %23, %48, %46
-  %.017 = phi ptr [ null, %46 ], [ null, %48 ], [ %34, %36 ], [ %27, %23 ]
+  %.017 = phi ptr [ null, %48 ], [ null, %46 ], [ %34, %36 ], [ %27, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.017
 }
@@ -1071,7 +1071,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef readonly captures(address_is_null) %
   br label %23
 
 23:                                               ; preds = %7, %3, %21, %18
-  %.0 = phi ptr [ %22, %21 ], [ null, %18 ], [ null, %3 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ %22, %21 ], [ null, %18 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1462,7 +1462,7 @@ ensure.exit59:                                    ; preds = %160, %124
   br label %191
 
 191:                                              ; preds = %189, %180, %175
-  %.037.i = phi i32 [ %176, %175 ], [ %190, %189 ], [ %178, %180 ]
+  %.037.i = phi i32 [ %178, %180 ], [ %176, %175 ], [ %190, %189 ]
   %or.cond.i = icmp ugt i32 %.037.i, 25
   br i1 %or.cond.i, label %print_number.exit, label %192
 
@@ -1937,8 +1937,8 @@ update_offset.exit80:                             ; preds = %364, %367
 default.unreachable155:                           ; preds = %.split
   unreachable
 
-print_array.exit:                                 ; preds = %update_offset.exit80, %360, %update_offset.exit81, %340, %330, %289, %278, %225, %116, %66, %16, %240, %235, %220, %258, %250, %131, %126, %113, %149, %141, %81, %76, %63, %99, %91, %31, %26, %13, %49, %41, %.loopexit, %396, %309, %305, %._crit_edge102, %6, %215, %206, %210, %2, %217, %print_number.exit, %ensure.exit59, %ensure.exit47, %ensure.exit
-  %.0 = phi i32 [ 1, %ensure.exit ], [ 1, %ensure.exit47 ], [ 1, %ensure.exit59 ], [ %.0.i61, %print_number.exit ], [ %219, %217 ], [ 0, %2 ], [ 1, %215 ], [ 0, %206 ], [ 0, %210 ], [ 0, %6 ], [ 1, %305 ], [ 0, %._crit_edge102 ], [ 1, %.loopexit ], [ 0, %309 ], [ 0, %396 ], [ 0, %41 ], [ 0, %49 ], [ 0, %13 ], [ 0, %26 ], [ 0, %31 ], [ 0, %91 ], [ 0, %99 ], [ 0, %63 ], [ 0, %76 ], [ 0, %81 ], [ 0, %141 ], [ 0, %149 ], [ 0, %113 ], [ 0, %126 ], [ 0, %131 ], [ 0, %250 ], [ 0, %258 ], [ 0, %220 ], [ 0, %235 ], [ 0, %240 ], [ 0, %16 ], [ 0, %66 ], [ 0, %116 ], [ 0, %225 ], [ 0, %278 ], [ 0, %289 ], [ 0, %330 ], [ 0, %340 ], [ 0, %update_offset.exit81 ], [ 0, %360 ], [ 0, %update_offset.exit80 ]
+print_array.exit:                                 ; preds = %update_offset.exit80, %360, %update_offset.exit81, %340, %330, %289, %278, %225, %116, %66, %16, %258, %250, %240, %220, %235, %149, %141, %131, %113, %126, %99, %91, %81, %63, %76, %49, %41, %31, %13, %26, %.loopexit, %396, %309, %305, %._crit_edge102, %6, %215, %206, %210, %2, %217, %print_number.exit, %ensure.exit59, %ensure.exit47, %ensure.exit
+  %.0 = phi i32 [ 0, %149 ], [ 0, %210 ], [ 0, %2 ], [ 1, %ensure.exit ], [ 0, %220 ], [ 1, %ensure.exit47 ], [ 0, %225 ], [ 1, %ensure.exit59 ], [ %.0.i61, %print_number.exit ], [ 0, %240 ], [ %219, %217 ], [ 0, %99 ], [ 1, %215 ], [ 0, %206 ], [ 0, %6 ], [ 0, %49 ], [ 1, %305 ], [ 0, %250 ], [ 0, %._crit_edge102 ], [ 1, %.loopexit ], [ 0, %396 ], [ 0, %258 ], [ 0, %309 ], [ 0, %26 ], [ 0, %13 ], [ 0, %16 ], [ 0, %31 ], [ 0, %41 ], [ 0, %76 ], [ 0, %63 ], [ 0, %66 ], [ 0, %81 ], [ 0, %91 ], [ 0, %126 ], [ 0, %113 ], [ 0, %116 ], [ 0, %131 ], [ 0, %141 ], [ 0, %235 ], [ 0, %289 ], [ 0, %278 ], [ 0, %330 ], [ 0, %340 ], [ 0, %update_offset.exit81 ], [ 0, %360 ], [ 0, %update_offset.exit80 ]
   ret i32 %.0
 }
 
@@ -2124,7 +2124,7 @@ define ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef readonly captures(addre
   br i1 %.not25.i, label %get_object_item.exit, label %.lr.ph.i
 
 get_object_item.exit:                             ; preds = %12, %.lr.ph.i, %10, %2, %5
-  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.lr.ph.i ], [ %.048.i, %10 ]
+  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ %.048.i, %10 ], [ null, %.lr.ph.i ]
   ret ptr %.019.i
 }
 
@@ -2306,7 +2306,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef captures(address) 
   br label %add_item_to_object.exit
 
 add_item_to_object.exit:                          ; preds = %3, %8, %29, %31, %34
-  %.026.i = phi i32 [ 0, %3 ], [ 1, %29 ], [ 1, %31 ], [ 1, %34 ], [ 0, %8 ]
+  %.026.i = phi i32 [ 0, %3 ], [ 1, %34 ], [ 1, %29 ], [ 1, %31 ], [ 0, %8 ]
   ret i32 %.026.i
 }
 
@@ -2370,7 +2370,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef captures(address
   br label %add_item_to_object.exit
 
 add_item_to_object.exit:                          ; preds = %3, %23, %25, %28
-  %.026.i = phi i32 [ 0, %3 ], [ 1, %23 ], [ 1, %25 ], [ 1, %28 ]
+  %.026.i = phi i32 [ 0, %3 ], [ 1, %28 ], [ 1, %23 ], [ 1, %25 ]
   ret i32 %.026.i
 }
 
@@ -2510,7 +2510,7 @@ create_reference.exit:                            ; preds = %7
   br label %add_item_to_object.exit
 
 add_item_to_object.exit:                          ; preds = %7, %37, %34, %32, %14, %create_reference.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %create_reference.exit ], [ 1, %32 ], [ 1, %34 ], [ 1, %37 ], [ 0, %14 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %create_reference.exit ], [ 1, %37 ], [ 1, %32 ], [ 1, %34 ], [ 0, %14 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2943,7 +2943,7 @@ define ptr @cJSON_AddNumberToObject(ptr noundef captures(address) %0, ptr nounde
   br label %cJSON_CreateNumber.exit
 
 cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
-  %.sink.i = phi i32 [ %12, %11 ], [ 2147483647, %5 ], [ -2147483648, %9 ]
+  %.sink.i = phi i32 [ 2147483647, %5 ], [ %12, %11 ], [ -2147483648, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %.sink.i, ptr %13, align 8, !tbaa !27
   %14 = icmp eq ptr %0, null
@@ -3043,7 +3043,7 @@ define ptr @cJSON_CreateNumber(double noundef %0) local_unnamed_addr #8 {
   br label %cJSON_New_Item.exit.thread.sink.split
 
 cJSON_New_Item.exit.thread.sink.split:            ; preds = %7, %3, %9
-  %.sink = phi i32 [ %10, %9 ], [ 2147483647, %3 ], [ -2147483648, %7 ]
+  %.sink = phi i32 [ 2147483647, %3 ], [ %10, %9 ], [ -2147483648, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %.sink, ptr %11, align 8, !tbaa !27
   br label %cJSON_New_Item.exit.thread
@@ -3158,8 +3158,8 @@ add_item_to_object.exit:                          ; preds = %21, %cJSON_CreateSt
   tail call void @cJSON_Delete(ptr noundef %.0.i)
   br label %add_item_to_object.exit.thread
 
-add_item_to_object.exit.thread:                   ; preds = %47, %44, %42, %add_item_to_object.exit
-  %.0 = phi ptr [ null, %add_item_to_object.exit ], [ %.0.i, %42 ], [ %.0.i, %44 ], [ %.0.i, %47 ]
+add_item_to_object.exit.thread:                   ; preds = %44, %42, %47, %add_item_to_object.exit
+  %.0 = phi ptr [ null, %add_item_to_object.exit ], [ %.0.i, %47 ], [ %.0.i, %42 ], [ %.0.i, %44 ]
   ret ptr %.0
 }
 
@@ -3308,8 +3308,8 @@ add_item_to_object.exit:                          ; preds = %21, %cJSON_CreateRa
   tail call void @cJSON_Delete(ptr noundef %.0.i)
   br label %add_item_to_object.exit.thread
 
-add_item_to_object.exit.thread:                   ; preds = %47, %44, %42, %add_item_to_object.exit
-  %.0 = phi ptr [ null, %add_item_to_object.exit ], [ %.0.i, %42 ], [ %.0.i, %44 ], [ %.0.i, %47 ]
+add_item_to_object.exit.thread:                   ; preds = %44, %42, %47, %add_item_to_object.exit
+  %.0 = phi ptr [ null, %add_item_to_object.exit ], [ %.0.i, %47 ], [ %.0.i, %42 ], [ %.0.i, %44 ]
   ret ptr %.0
 }
 
@@ -3880,7 +3880,7 @@ cJSON_GetObjectItem.exit:                         ; preds = %11, %.lr.ph.i.i.i
   br label %cJSON_DetachItemViaPointer.exit
 
 cJSON_DetachItemViaPointer.exit:                  ; preds = %case_insensitive_strcmp.exit.thread30.i.i, %5, %2, %39, %52
-  %.0.i = phi ptr [ %.250.i.i, %52 ], [ null, %39 ], [ null, %2 ], [ null, %5 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i ]
+  %.0.i = phi ptr [ %.250.i.i, %52 ], [ null, %39 ], [ null, %5 ], [ null, %2 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i ]
   ret ptr %.0.i
 }
 
@@ -3961,7 +3961,7 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
   br label %cJSON_DetachItemViaPointer.exit
 
 cJSON_DetachItemViaPointer.exit:                  ; preds = %.lr.ph.i.i, %12, %5, %2, %14, %27
-  %.0.i = phi ptr [ %.048.i.i, %27 ], [ null, %14 ], [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.lr.ph.i.i ]
+  %.0.i = phi ptr [ %.048.i.i, %27 ], [ null, %14 ], [ null, %5 ], [ null, %2 ], [ null, %12 ], [ null, %.lr.ph.i.i ]
   ret ptr %.0.i
 }
 
@@ -4076,7 +4076,7 @@ cJSON_GetObjectItem.exit.i:                       ; preds = %11, %.lr.ph.i.i.i.i
   br label %cJSON_DetachItemFromObject.exit
 
 cJSON_DetachItemFromObject.exit:                  ; preds = %case_insensitive_strcmp.exit.thread30.i.i.i, %2, %5, %39, %52
-  %.0.i.i = phi ptr [ %.250.i.i.i, %52 ], [ null, %39 ], [ null, %2 ], [ null, %5 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i.i ]
+  %.0.i.i = phi ptr [ %.250.i.i.i, %52 ], [ null, %39 ], [ null, %5 ], [ null, %2 ], [ null, %case_insensitive_strcmp.exit.thread30.i.i.i ]
   tail call void @cJSON_Delete(ptr noundef %.0.i.i)
   ret void
 }
@@ -4158,7 +4158,7 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
   br label %cJSON_DetachItemFromObjectCaseSensitive.exit
 
 cJSON_DetachItemFromObjectCaseSensitive.exit:     ; preds = %.lr.ph.i.i.i, %12, %2, %5, %14, %27
-  %.0.i.i = phi ptr [ %.048.i.i.i, %27 ], [ null, %14 ], [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.lr.ph.i.i.i ]
+  %.0.i.i = phi ptr [ %.048.i.i.i, %27 ], [ null, %14 ], [ null, %5 ], [ null, %2 ], [ null, %12 ], [ null, %.lr.ph.i.i.i ]
   tail call void @cJSON_Delete(ptr noundef %.0.i.i)
   ret void
 }
@@ -4251,7 +4251,7 @@ get_array_item.exit:                              ; preds = %10
   br label %add_item_to_array.exit
 
 add_item_to_array.exit:                           ; preds = %26, %23, %21, %16, %34, %38, %30, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %30 ], [ 1, %38 ], [ 1, %34 ], [ 0, %16 ], [ 1, %23 ], [ 1, %26 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %30 ], [ 1, %34 ], [ 0, %3 ], [ 1, %38 ], [ 0, %16 ], [ 1, %23 ], [ 1, %26 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -4333,7 +4333,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef captures(add
   br label %37
 
 37:                                               ; preds = %11, %3, %5, %36
-  %.0 = phi i32 [ 1, %36 ], [ 0, %5 ], [ 0, %3 ], [ 1, %11 ]
+  %.0 = phi i32 [ 1, %36 ], [ 0, %3 ], [ 0, %5 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -4431,7 +4431,7 @@ get_array_item.exit:                              ; preds = %9
   br label %cJSON_ReplaceItemViaPointer.exit
 
 cJSON_ReplaceItemViaPointer.exit:                 ; preds = %43, %18, %get_array_item.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %43 ], [ 0, %get_array_item.exit ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %43 ], [ 1, %18 ], [ 0, %get_array_item.exit ]
   ret i32 %.0
 }
 
@@ -4571,7 +4571,7 @@ case_insensitive_strcmp.exit.thread30.i:          ; preds = %55, %.preheader.i.i
   br i1 %.not23.i, label %cJSON_ReplaceItemViaPointer.exit, label %.lr.ph51.i
 
 get_object_item.exit:                             ; preds = %33, %40, %.lr.ph.i.i
-  %.019.i = phi ptr [ %.250.i, %.lr.ph.i.i ], [ %.250.i, %40 ], [ %.048.i, %33 ]
+  %.019.i = phi ptr [ %.250.i, %40 ], [ %.250.i, %.lr.ph.i.i ], [ %.048.i, %33 ]
   br i1 %.not2349.i, label %cJSON_ReplaceItemViaPointer.exit, label %68
 
 68:                                               ; preds = %get_object_item.exit
@@ -4636,8 +4636,8 @@ get_object_item.exit:                             ; preds = %33, %40, %.lr.ph.i.
   tail call void @cJSON_Delete(ptr noundef nonnull %.019.i)
   br label %cJSON_ReplaceItemViaPointer.exit
 
-cJSON_ReplaceItemViaPointer.exit:                 ; preds = %.lr.ph.i, %35, %case_insensitive_strcmp.exit.thread30.i, %.preheader41.i, %.preheader.i, %23, %93, %68, %get_object_item.exit, %cJSON_strdup.exit.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %cJSON_strdup.exit.thread ], [ 1, %93 ], [ 0, %get_object_item.exit ], [ 1, %68 ], [ 0, %23 ], [ 0, %.preheader.i ], [ 0, %.preheader41.i ], [ 0, %case_insensitive_strcmp.exit.thread30.i ], [ 0, %35 ], [ 0, %.lr.ph.i ]
+cJSON_ReplaceItemViaPointer.exit:                 ; preds = %35, %.lr.ph.i, %case_insensitive_strcmp.exit.thread30.i, %.preheader41.i, %.preheader.i, %23, %93, %68, %get_object_item.exit, %cJSON_strdup.exit.thread, %4
+  %.0 = phi i32 [ 0, %cJSON_strdup.exit.thread ], [ 0, %4 ], [ 1, %93 ], [ 0, %.preheader41.i ], [ 0, %get_object_item.exit ], [ 1, %68 ], [ 0, %23 ], [ 0, %.preheader.i ], [ 0, %case_insensitive_strcmp.exit.thread30.i ], [ 0, %.lr.ph.i ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -4784,7 +4784,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %25, %2, %.split.us
-  %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr42, %25 ], [ %.fr42, %._crit_edge.thread ], [ null, %5 ]
+  %.024 = phi ptr [ null, %2 ], [ null, %.split.us ], [ %.fr42, %25 ], [ %.fr42, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
 
@@ -4847,7 +4847,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 22:                                               ; preds = %20, %18, %13
-  %.sink.i = phi i32 [ %21, %20 ], [ 2147483647, %13 ], [ -2147483648, %18 ]
+  %.sink.i = phi i32 [ 2147483647, %13 ], [ %21, %20 ], [ -2147483648, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %.sink.i, ptr %23, align 8, !tbaa !27
   %.not31 = icmp eq i64 %.02336, 0
@@ -4881,7 +4881,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %31, %2, %.split.us
-  %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr40, %31 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
+  %.024 = phi ptr [ null, %2 ], [ null, %.split.us ], [ %.fr40, %31 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
 
@@ -4943,7 +4943,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 21:                                               ; preds = %19, %17, %13
-  %.sink.i = phi i32 [ %20, %19 ], [ 2147483647, %13 ], [ -2147483648, %17 ]
+  %.sink.i = phi i32 [ 2147483647, %13 ], [ %20, %19 ], [ -2147483648, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %.sink.i, ptr %22, align 8, !tbaa !27
   %.not31 = icmp eq i64 %.02336, 0
@@ -4977,7 +4977,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %30, %2, %.split.us
-  %.024 = phi ptr [ null, %.split.us ], [ null, %2 ], [ %.fr40, %30 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
+  %.024 = phi ptr [ null, %2 ], [ null, %.split.us ], [ %.fr40, %30 ], [ %.fr40, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
 
@@ -5077,7 +5077,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %32, %2, %.loopexit
-  %.024 = phi ptr [ null, %.loopexit ], [ null, %2 ], [ %.fr47, %32 ], [ %.fr47, %._crit_edge.thread ], [ null, %5 ]
+  %.024 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ %.fr47, %32 ], [ %.fr47, %._crit_edge.thread ], [ null, %5 ]
   ret ptr %.024
 }
 
@@ -5227,7 +5227,7 @@ cJSON_strdup.exit67.thread:                       ; preds = %29, %38
   br label %.thread
 
 .thread:                                          ; preds = %4, %3, %.thread74, %._crit_edge, %54, %40
-  %.046 = phi ptr [ %5, %40 ], [ %5, %54 ], [ %5, %._crit_edge ], [ null, %.thread74 ], [ null, %3 ], [ null, %4 ]
+  %.046 = phi ptr [ %5, %._crit_edge ], [ %5, %40 ], [ %5, %54 ], [ null, %.thread74 ], [ null, %4 ], [ null, %3 ]
   ret ptr %.046
 }
 
@@ -5334,8 +5334,8 @@ define void @cJSON_Minify(ptr noundef captures(address_is_null) %0) local_unname
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %42, %19, %11, %33, %29, %6, %25, %13, %44, %4
-  %.022.be = phi ptr [ %45, %44 ], [ %5, %4 ], [ %14, %13 ], [ %26, %25 ], [ %7, %6 ], [ %storemerge1922.i, %29 ], [ %34, %33 ], [ %storemerge.i, %11 ], [ %storemerge.i2, %19 ], [ %storemerge19.i, %42 ]
-  %.0.be = phi ptr [ %46, %44 ], [ %.0, %4 ], [ %.0, %13 ], [ %.0, %25 ], [ %.0, %6 ], [ %storemerge24.i, %29 ], [ %35, %33 ], [ %.0, %11 ], [ %.0, %19 ], [ %storemerge.i3, %42 ]
+  %.022.be = phi ptr [ %45, %44 ], [ %5, %4 ], [ %26, %25 ], [ %7, %6 ], [ %14, %13 ], [ %storemerge1922.i, %29 ], [ %34, %33 ], [ %storemerge.i2, %19 ], [ %storemerge.i, %11 ], [ %storemerge19.i, %42 ]
+  %.0.be = phi ptr [ %46, %44 ], [ %.0, %4 ], [ %.0, %25 ], [ %.0, %6 ], [ %.0, %13 ], [ %storemerge24.i, %29 ], [ %35, %33 ], [ %.0, %19 ], [ %.0, %11 ], [ %storemerge.i3, %42 ]
   br label %.preheader
 
 36:                                               ; preds = %.lr.ph.i
@@ -5846,7 +5846,7 @@ default.unreachable169:                           ; preds = %.split2
   unreachable
 
 get_object_item.exit.thread:                      ; preds = %get_object_item.exit.loopexit111, %90, %.preheader41.i, %.lr.ph.i, %99, %get_object_item.exit.us, %.preheader.i.us, %53, %case_insensitive_strcmp.exit.thread30.i.us, %.split124, %get_object_item.exit93.loopexit106, %139, %.preheader41.i74, %.lr.ph.i75, %148, %get_object_item.exit93.us, %.preheader.i84.us, %102, %.split124.us, %case_insensitive_strcmp.exit.thread30.i88.us, %47, %49, %37, %29, %33, %17, %.split2, %.split2, %.split2, %.split, %3, %6
-  %.052.shrunk = phi i1 [ false, %6 ], [ false, %3 ], [ true, %.split ], [ true, %.split2 ], [ true, %.split2 ], [ true, %.split2 ], [ %28, %17 ], [ false, %33 ], [ false, %29 ], [ %39, %37 ], [ %.not64, %49 ], [ false, %47 ], [ false, %case_insensitive_strcmp.exit.thread30.i88.us ], [ %.not61.us, %.split124.us ], [ %.not61.us, %102 ], [ %.not61.us, %.preheader.i84.us ], [ %.not61.us, %get_object_item.exit93.us ], [ false, %148 ], [ false, %.lr.ph.i75 ], [ %.not61, %.preheader41.i74 ], [ %.not61, %139 ], [ %.not61, %get_object_item.exit93.loopexit106 ], [ %.not61, %.split124 ], [ false, %case_insensitive_strcmp.exit.thread30.i.us ], [ false, %53 ], [ false, %.preheader.i.us ], [ false, %get_object_item.exit.us ], [ false, %99 ], [ false, %.lr.ph.i ], [ false, %.preheader41.i ], [ false, %90 ], [ false, %get_object_item.exit.loopexit111 ]
+  %.052.shrunk = phi i1 [ %.not64, %49 ], [ false, %3 ], [ true, %.split ], [ %28, %17 ], [ true, %.split2 ], [ true, %.split2 ], [ %39, %37 ], [ false, %29 ], [ false, %33 ], [ false, %6 ], [ true, %.split2 ], [ false, %.lr.ph.i ], [ false, %47 ], [ false, %case_insensitive_strcmp.exit.thread30.i88.us ], [ %.not61.us, %get_object_item.exit93.us ], [ false, %.lr.ph.i75 ], [ %.not61, %.split124 ], [ false, %case_insensitive_strcmp.exit.thread30.i.us ], [ false, %get_object_item.exit.us ], [ %.not61.us, %.split124.us ], [ %.not61.us, %102 ], [ %.not61.us, %.preheader.i84.us ], [ false, %148 ], [ %.not61, %.preheader41.i74 ], [ %.not61, %139 ], [ %.not61, %get_object_item.exit93.loopexit106 ], [ false, %53 ], [ false, %.preheader.i.us ], [ false, %99 ], [ false, %.preheader41.i ], [ false, %90 ], [ false, %get_object_item.exit.loopexit111 ]
   %.052 = zext i1 %.052.shrunk to i32
   ret i32 %.052
 }
@@ -6089,10 +6089,10 @@ parse_hex4.exit.i:                                ; preds = %66
   br i1 %97, label %.lr.ph.preheader.i, label %utf16_literal_to_utf8.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %96, %94, %92, %.thread84.i
-  %.04770.ph.i = phi i64 [ 12, %.thread84.i ], [ 6, %96 ], [ 6, %94 ], [ 6, %92 ]
-  %.168.shrunk.ph.i = phi i32 [ %89, %.thread84.i ], [ %spec.select.i.i, %96 ], [ %spec.select.i.i, %94 ], [ %spec.select.i.i, %92 ]
-  %.049.ph.i = phi i32 [ 4, %.thread84.i ], [ 4, %96 ], [ 3, %94 ], [ 2, %92 ]
-  %.046.ph.i = phi i64 [ 240, %.thread84.i ], [ 240, %96 ], [ 224, %94 ], [ 192, %92 ]
+  %.04770.ph.i = phi i64 [ 12, %.thread84.i ], [ 6, %96 ], [ 6, %92 ], [ 6, %94 ]
+  %.168.shrunk.ph.i = phi i32 [ %89, %.thread84.i ], [ %spec.select.i.i, %96 ], [ %spec.select.i.i, %92 ], [ %spec.select.i.i, %94 ]
+  %.049.ph.i = phi i32 [ 4, %.thread84.i ], [ 4, %96 ], [ 2, %92 ], [ 3, %94 ]
+  %.046.ph.i = phi i64 [ 240, %.thread84.i ], [ 240, %96 ], [ 192, %92 ], [ 224, %94 ]
   %.16896.i = zext nneg i32 %.168.shrunk.ph.i to i64
   %narrow.i = add nuw nsw i32 %.049.ph.i, 255
   %98 = and i32 %narrow.i, 255
@@ -6158,14 +6158,14 @@ utf16_literal_to_utf8.exit:                       ; preds = %106, %.loopexit.i
   %121 = sub i64 %120, %119
   br label %128
 
-utf16_literal_to_utf8.exit.thread:                ; preds = %81, %76, %78, %71, %53, %parse_hex4.exit.i, %96, %38, %34
+utf16_literal_to_utf8.exit.thread:                ; preds = %81, %78, %76, %71, %parse_hex4.exit.i, %96, %53, %38, %34
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %123 = load ptr, ptr %122, align 8, !tbaa !60
   tail call void %123(ptr noundef nonnull %27) #33
   br label %.thread105
 
 .thread105:                                       ; preds = %13, %17, %.preheader, %20, %2, %utf16_literal_to_utf8.exit.thread
-  %.065109 = phi ptr [ %.166122, %utf16_literal_to_utf8.exit.thread ], [ %.ptr, %2 ], [ %.ptr, %20 ], [ %.ptr, %.preheader ], [ %.ptr, %17 ], [ %.ptr, %13 ]
+  %.065109 = phi ptr [ %.166122, %utf16_literal_to_utf8.exit.thread ], [ %.ptr, %2 ], [ %.ptr, %.preheader ], [ %.ptr, %20 ], [ %.ptr, %17 ], [ %.ptr, %13 ]
   %124 = load ptr, ptr %1, align 8, !tbaa !28
   %125 = ptrtoint ptr %.065109 to i64
   %126 = ptrtoint ptr %124 to i64
@@ -6349,7 +6349,7 @@ buffer_skip_whitespace.exit98:                    ; preds = %50, %.critedge.i95,
   br label %buffer_skip_whitespace.exit104
 
 buffer_skip_whitespace.exit104:                   ; preds = %62, %.critedge.i101, %.critedge.thread.i102
-  %74 = phi i64 [ %.pre, %62 ], [ %66, %.critedge.i101 ], [ %73, %.critedge.thread.i102 ]
+  %74 = phi i64 [ %.pre, %62 ], [ %73, %.critedge.thread.i102 ], [ %66, %.critedge.i101 ]
   %75 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -6429,7 +6429,7 @@ buffer_skip_whitespace.exit110:                   ; preds = %82, %.critedge.i107
   br label %buffer_skip_whitespace.exit202
 
 buffer_skip_whitespace.exit202:                   ; preds = %94, %.critedge.i199, %.critedge.thread.i200
-  %106 = phi i64 [ %.pre235, %94 ], [ %98, %.critedge.i199 ], [ %105, %.critedge.thread.i200 ]
+  %106 = phi i64 [ %.pre235, %94 ], [ %105, %.critedge.thread.i200 ], [ %98, %.critedge.i199 ]
   %107 = icmp ult i64 %106, %.pre236
   br i1 %107, label %108, label %.critedge.thread124
 
@@ -6464,13 +6464,13 @@ buffer_skip_whitespace.exit202:                   ; preds = %94, %.critedge.i199
   %.not91 = icmp eq ptr %.274, null
   br i1 %.not91, label %.critedge.thread120, label %.critedge.thread124
 
-.critedge.thread124:                              ; preds = %108, %45, %buffer_skip_whitespace.exit98, %79, %buffer_skip_whitespace.exit104, %buffer_skip_whitespace.exit110, %buffer_skip_whitespace.exit202, %.critedge
-  %.072127 = phi ptr [ %.274, %.critedge ], [ %.4, %buffer_skip_whitespace.exit202 ], [ %.4, %buffer_skip_whitespace.exit110 ], [ %.4, %buffer_skip_whitespace.exit104 ], [ %.4, %79 ], [ %.4, %buffer_skip_whitespace.exit98 ], [ %.4, %45 ], [ %.4, %108 ]
+.critedge.thread124:                              ; preds = %108, %buffer_skip_whitespace.exit98, %buffer_skip_whitespace.exit104, %45, %79, %buffer_skip_whitespace.exit110, %buffer_skip_whitespace.exit202, %.critedge
+  %.072127 = phi ptr [ %.274, %.critedge ], [ %.4, %buffer_skip_whitespace.exit202 ], [ %.4, %buffer_skip_whitespace.exit110 ], [ %.4, %79 ], [ %.4, %45 ], [ %.4, %buffer_skip_whitespace.exit104 ], [ %.4, %buffer_skip_whitespace.exit98 ], [ %.4, %108 ]
   tail call void @cJSON_Delete(ptr noundef nonnull %.072127)
   br label %.critedge.thread120
 
 .critedge.thread120:                              ; preds = %6, %34, %13, %.critedge, %.critedge.thread124, %2, %115
-  %.0 = phi i32 [ 1, %115 ], [ 0, %2 ], [ 0, %.critedge.thread124 ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %34 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %115 ], [ 0, %.critedge.thread124 ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %34 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -6634,7 +6634,7 @@ define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 no
   br label %57
 
 57:                                               ; preds = %25, %20, %12, %8, %2, %54, %43, %35, %18
-  %.044 = phi ptr [ %19, %18 ], [ null, %35 ], [ %56, %54 ], [ null, %43 ], [ null, %2 ], [ null, %8 ], [ null, %12 ], [ null, %20 ], [ null, %25 ]
+  %.044 = phi ptr [ null, %20 ], [ null, %2 ], [ null, %8 ], [ %19, %18 ], [ null, %12 ], [ null, %35 ], [ %56, %54 ], [ null, %43 ], [ null, %25 ]
   ret ptr %.044
 }
 
@@ -6891,8 +6891,8 @@ switch.early.test:                                ; preds = %.lr.ph
   store i8 0, ptr %100, align 1, !tbaa !34
   br label %ensure.exit.thread
 
-ensure.exit.thread:                               ; preds = %7, %22, %17, %4, %40, %32, %62, %._crit_edge, %72, %ensure.exit
-  %.058 = phi i32 [ 1, %ensure.exit ], [ 1, %72 ], [ 1, %._crit_edge ], [ 0, %62 ], [ 0, %32 ], [ 0, %40 ], [ 0, %4 ], [ 0, %17 ], [ 0, %22 ], [ 0, %7 ]
+ensure.exit.thread:                               ; preds = %7, %40, %32, %22, %4, %17, %62, %._crit_edge, %72, %ensure.exit
+  %.058 = phi i32 [ 1, %._crit_edge ], [ 1, %72 ], [ 1, %ensure.exit ], [ 0, %40 ], [ 0, %62 ], [ 0, %17 ], [ 0, %4 ], [ 0, %7 ], [ 0, %22 ], [ 0, %32 ]
   ret i32 %.058
 }
 

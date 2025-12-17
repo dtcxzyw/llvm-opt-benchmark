@@ -137,7 +137,7 @@ define internal noundef zeroext i1 @mpeg_seek_read(ptr noundef readonly captures
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -318,12 +318,12 @@ mpeg_resync.exit.i:                               ; preds = %87, %84, %.thread.i
   br label %91
 
 91:                                               ; preds = %mpeg_resync.exit.i, %71, %68, %66, %63, %55, %46, %37
-  %.1.i = phi i32 [ 0, %63 ], [ 0, %66 ], [ 0, %68 ], [ %45, %37 ], [ %45, %55 ], [ %45, %46 ], [ %75, %71 ], [ %..015.i.i, %mpeg_resync.exit.i ]
+  %.1.i = phi i32 [ 0, %68 ], [ 0, %63 ], [ 0, %66 ], [ %45, %37 ], [ %45, %55 ], [ %45, %46 ], [ %75, %71 ], [ %..015.i.i, %mpeg_resync.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %mpeg_read_audio_packet.exit
 
 mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
-  %.0.i = phi i32 [ %.1.i, %91 ], [ 0, %18 ], [ 0, %20 ]
+  %.0.i = phi i32 [ 0, %18 ], [ %.1.i, %91 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %169
 
@@ -476,7 +476,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   br label %168
 
 165:                                              ; preds = %.thread.i, %158, %113
-  %.285.i = phi i32 [ %.184.i, %158 ], [ 4, %113 ], [ %163, %.thread.i ]
+  %.285.i = phi i32 [ %.184.i, %158 ], [ %163, %.thread.i ], [ 4, %113 ]
   %166 = call i64 @file_seek(ptr noundef %0, i64 noundef %109, i32 noundef 0, ptr noundef %3)
   %167 = icmp eq i64 %166, -1
   %..285.i = select i1 %167, i32 0, i32 %.285.i
@@ -489,7 +489,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   br label %168
 
 168:                                              ; preds = %.critedge.i, %165, %164, %111, %.loopexit2.i
-  %.1.i32 = phi i32 [ 0, %164 ], [ 0, %.loopexit2.i ], [ 0, %111 ], [ 0, %.critedge.i ], [ %..285.i, %165 ]
+  %.1.i32 = phi i32 [ %..285.i, %165 ], [ 0, %111 ], [ 0, %.critedge.i ], [ 0, %164 ], [ 0, %.loopexit2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mpeg_read_pes_packet.exit
 
@@ -531,7 +531,7 @@ mpeg_read_pes_packet.exit:                        ; preds = %93, %95, %107, %103
   br label %183
 
 183:                                              ; preds = %171, %169, %180
-  %.029 = phi i1 [ true, %180 ], [ false, %169 ], [ false, %171 ]
+  %.029 = phi i1 [ false, %169 ], [ true, %180 ], [ false, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %.029
 }

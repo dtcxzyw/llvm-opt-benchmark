@@ -656,8 +656,8 @@ regex_parse_value_ranges.exit.i:                  ; preds = %198, %221, %219, %2
   call void @free(ptr noundef %96) #14
   br label %regex_extract_nodes.exit
 
-242:                                              ; preds = %98, %._crit_edge.i, %._crit_edge188.i, %224, %123, %85
-  %.0.i.ph = phi i32 [ -27, %85 ], [ -27, %123 ], [ %.0.i139.i, %224 ], [ -27, %._crit_edge188.i ], [ -27, %._crit_edge.i ], [ -29, %98 ]
+242:                                              ; preds = %123, %98, %._crit_edge.i, %._crit_edge188.i, %224, %85
+  %.0.i.ph = phi i32 [ -27, %85 ], [ %.0.i139.i, %224 ], [ -27, %._crit_edge188.i ], [ -27, %._crit_edge.i ], [ -29, %98 ], [ -27, %123 ]
   %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8, !tbaa !11
   %244 = call ptr @PMIx_Error_string(i32 noundef %.0.i.ph) #14
   %245 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %243, ptr noundef %3, ptr noundef nonnull %.083.ph.lcssa151, ptr noundef %244) #14
@@ -979,7 +979,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   br label %70
 
 70:                                               ; preds = %._crit_edge106, %58, %.critedge, %.critedge86
-  %.068 = phi i32 [ -29, %58 ], [ 0, %._crit_edge106 ], [ -46, %.critedge ], [ -46, %.critedge86 ]
+  %.068 = phi i32 [ -46, %.critedge86 ], [ -29, %58 ], [ 0, %._crit_edge106 ], [ -46, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.068
 }

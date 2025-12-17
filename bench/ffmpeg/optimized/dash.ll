@@ -117,8 +117,8 @@ dash_read_tmpl_id.exit.thread85:                  ; preds = %51
   br label %93
 
 .thread.i:                                        ; preds = %51, %49, %47
-  %.130.i = phi i32 [ 4, %51 ], [ 3, %49 ], [ 2, %47 ]
-  %53 = phi ptr [ @.str.7, %51 ], [ @.str.8, %49 ], [ @.str.8, %47 ]
+  %.130.i = phi i32 [ 4, %51 ], [ 2, %47 ], [ 3, %49 ]
+  %53 = phi ptr [ @.str.7, %51 ], [ @.str.8, %47 ], [ @.str.8, %49 ]
   %54 = load ptr, ptr %8, align 8, !tbaa !7
   %55 = load i8, ptr %54, align 1, !tbaa !4
   %56 = icmp eq i8 %55, 36
@@ -170,8 +170,8 @@ dash_read_tmpl_id.exit.thread85:                  ; preds = %51
   br label %dash_read_tmpl_id.exit
 
 dash_read_tmpl_id.exit:                           ; preds = %57, %80
-  %.2 = phi ptr [ %60, %57 ], [ %.177, %80 ]
-  %.0.i = phi i32 [ %.130.i, %57 ], [ %.3.i, %80 ]
+  %.2 = phi ptr [ %.177, %80 ], [ %60, %57 ]
+  %.0.i = phi i32 [ %.3.i, %80 ], [ %.130.i, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %.0.i, label %default.unreachable [
     i32 -1, label %93

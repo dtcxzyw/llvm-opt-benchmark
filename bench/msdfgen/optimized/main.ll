@@ -316,10 +316,10 @@ entry:
   %y.i602 = getelementptr inbounds nuw i8, ptr %scale, i64 8
   store double 1.000000e+00, ptr %y.i602, align 8
   store i8 0, ptr %skipColoring, align 1
-  %cmp33212 = icmp sgt i32 %argc, 1
-  %ref.tmp1598.sink5167.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1598, i64 8
-  %ref.tmp1598.sink5167.sroa.gep8856 = getelementptr inbounds nuw i8, ptr %ref.tmp1607, i64 8
-  br i1 %cmp33212, label %while.body.outer, label %if.end1012.thread
+  %cmp33211 = icmp sgt i32 %argc, 1
+  %ref.tmp1598.sink5166.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1598, i64 8
+  %ref.tmp1598.sink5166.sroa.gep8855 = getelementptr inbounds nuw i8, ptr %ref.tmp1607, i64 8
+  br i1 %cmp33211, label %while.body.outer, label %if.end1012.thread
 
 if.end1012.thread:                                ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %svgViewBox, i8 0, i64 32, i1 false)
@@ -330,9 +330,9 @@ for.cond.while.cond.loopexit_crit_edge:           ; preds = %for.inc825
   br label %while.cond.backedge, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.outer, %while.cond.backedge.thread
-  %suggestHelp.03222 = phi i1 [ true, %while.cond.backedge.thread ], [ %suggestHelp.03222.ph, %while.body.outer ]
-  %argPos.03221 = phi i32 [ %inc1008, %while.cond.backedge.thread ], [ %argPos.03221.ph, %while.body.outer ]
-  %idxprom = sext i32 %argPos.03221 to i64
+  %suggestHelp.03221 = phi i1 [ true, %while.cond.backedge.thread ], [ %suggestHelp.03221.ph, %while.body.outer ]
+  %argPos.03220 = phi i32 [ %inc1008, %while.cond.backedge.thread ], [ %argPos.03220.ph, %while.body.outer ]
+  %idxprom = sext i32 %argPos.03220 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i8, ptr %2, align 1
@@ -353,104 +353,104 @@ if.end:                                           ; preds = %land.lhs.true, %whi
   br i1 %tobool.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %inc = add nsw i32 %argPos.03221, 1
+  %inc = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.else785, %if.then764, %if.else771, %if.else778, %if.then558, %if.then602, %if.then648, %if.then676, %if.else706, %if.then693, %if.then665, %if.then619, %if.then585, %if.else364, %do.body, %do.body257, %do.body275, %do.body293, %do.body311, %do.body329, %do.body347, %do.body359, %if.then233, %if.else220, %if.then187, %lor.lhs.false199, %if.else, %if.else206, %if.else213, %for.cond.preheader, %for.cond.while.cond.loopexit_crit_edge, %if.then9, %if.then13, %if.then18, %if.then23, %if.then28, %if.then35, %sw.epilog, %if.then72, %if.then83, %if.then91, %if.then102, %if.then113, %if.then121, %if.then129, %if.then137, %if.then145, %if.then153, %if.then162, %if.then171, %if.then179, %if.end400, %if.then408, %if.end466, %if.end493, %if.end515, %if.end532, %if.end735, %if.end755, %if.end847, %if.then856, %if.end887, %if.end918, %if.then929, %if.then937, %if.then945, %if.then953, %if.then961, %if.then969, %_ZL11parseDoubleRdPKc.exit, %_ZL11parseDoubleRdPKc.exit630, %_ZL15parseUnsignedLLRyPKc.exit
-  %coloringSeed.0.be = phi i64 [ %coloringSeed.03213.ph, %if.then9 ], [ %coloringSeed.03213.ph, %if.then13 ], [ %coloringSeed.03213.ph, %if.then18 ], [ %coloringSeed.03213.ph, %if.then23 ], [ %coloringSeed.03213.ph, %if.then28 ], [ %coloringSeed.03213.ph, %if.then35 ], [ %coloringSeed.03213.ph, %sw.epilog ], [ %coloringSeed.03213.ph, %if.then72 ], [ %coloringSeed.03213.ph, %if.then83 ], [ %coloringSeed.03213.ph, %if.then91 ], [ %coloringSeed.03213.ph, %if.then102 ], [ %coloringSeed.03213.ph, %if.then113 ], [ %coloringSeed.03213.ph, %if.then121 ], [ %coloringSeed.03213.ph, %if.then129 ], [ %coloringSeed.03213.ph, %if.then137 ], [ %coloringSeed.03213.ph, %if.then145 ], [ %coloringSeed.03213.ph, %if.then153 ], [ %coloringSeed.03213.ph, %if.then162 ], [ %coloringSeed.03213.ph, %if.then171 ], [ %coloringSeed.03213.ph, %if.then179 ], [ %coloringSeed.03213.ph, %if.then408 ], [ %coloringSeed.03213.ph, %_ZL11parseDoubleRdPKc.exit ], [ %coloringSeed.03213.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %coloringSeed.03213.ph, %if.end466 ], [ %coloringSeed.03213.ph, %if.end532 ], [ %coloringSeed.03213.ph, %if.end735 ], [ %coloringSeed.03213.ph, %if.end755 ], [ %coloringSeed.03213.ph, %if.end847 ], [ %coloringSeed.03213.ph, %if.then856 ], [ %coloringSeed.03213.ph, %if.end887 ], [ %coloringSeed.03213.ph, %if.end918 ], [ %coloringSeed.03213.ph, %if.then929 ], [ %coloringSeed.03213.ph, %if.then937 ], [ %coloringSeed.03213.ph, %if.then945 ], [ %coloringSeed.03213.ph, %if.then953 ], [ %coloringSeed.03213.ph, %if.then961 ], [ %coloringSeed.03213.ph, %if.then969 ], [ %add.i, %_ZL15parseUnsignedLLRyPKc.exit ], [ %coloringSeed.03213.ph, %if.end515 ], [ %coloringSeed.03213.ph, %if.end493 ], [ %coloringSeed.03213.ph, %if.end400 ], [ %coloringSeed.03213.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %coloringSeed.03213.ph, %for.cond.preheader ], [ %coloringSeed.03213.ph, %if.else213 ], [ %coloringSeed.03213.ph, %if.else206 ], [ %coloringSeed.03213.ph, %if.else ], [ %coloringSeed.03213.ph, %lor.lhs.false199 ], [ %coloringSeed.03213.ph, %if.then187 ], [ %coloringSeed.03213.ph, %if.else220 ], [ %coloringSeed.03213.ph, %if.then233 ], [ %coloringSeed.03213.ph, %do.body359 ], [ %coloringSeed.03213.ph, %do.body347 ], [ %coloringSeed.03213.ph, %do.body329 ], [ %coloringSeed.03213.ph, %do.body311 ], [ %coloringSeed.03213.ph, %do.body293 ], [ %coloringSeed.03213.ph, %do.body275 ], [ %coloringSeed.03213.ph, %do.body257 ], [ %coloringSeed.03213.ph, %do.body ], [ %coloringSeed.03213.ph, %if.else364 ], [ %coloringSeed.03213.ph, %if.then585 ], [ %coloringSeed.03213.ph, %if.then619 ], [ %coloringSeed.03213.ph, %if.then665 ], [ %coloringSeed.03213.ph, %if.then693 ], [ %coloringSeed.03213.ph, %if.else706 ], [ %coloringSeed.03213.ph, %if.then676 ], [ %coloringSeed.03213.ph, %if.then648 ], [ %coloringSeed.03213.ph, %if.then602 ], [ %coloringSeed.03213.ph, %if.then558 ], [ %coloringSeed.03213.ph, %if.else778 ], [ %coloringSeed.03213.ph, %if.else771 ], [ %coloringSeed.03213.ph, %if.then764 ], [ %coloringSeed.03213.ph, %if.else785 ]
-  %unicode.0.be = phi i32 [ %unicode.03214.ph, %if.then9 ], [ %unicode.03214.ph, %if.then13 ], [ %unicode.03214.ph, %if.then18 ], [ %unicode.03214.ph, %if.then23 ], [ %unicode.03214.ph, %if.then28 ], [ %unicode.03214.ph, %if.then35 ], [ %unicode.1, %sw.epilog ], [ %unicode.03214.ph, %if.then72 ], [ %unicode.03214.ph, %if.then83 ], [ %unicode.03214.ph, %if.then91 ], [ %unicode.03214.ph, %if.then102 ], [ %unicode.03214.ph, %if.then113 ], [ %unicode.03214.ph, %if.then121 ], [ %unicode.03214.ph, %if.then129 ], [ %unicode.03214.ph, %if.then137 ], [ %unicode.03214.ph, %if.then145 ], [ %unicode.03214.ph, %if.then153 ], [ %unicode.03214.ph, %if.then162 ], [ %unicode.03214.ph, %if.then171 ], [ %unicode.03214.ph, %if.then179 ], [ %unicode.03214.ph, %if.then408 ], [ %unicode.03214.ph, %_ZL11parseDoubleRdPKc.exit ], [ %unicode.03214.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %unicode.03214.ph, %if.end466 ], [ %unicode.03214.ph, %if.end532 ], [ %unicode.03214.ph, %if.end735 ], [ %unicode.03214.ph, %if.end755 ], [ %unicode.03214.ph, %if.end847 ], [ %unicode.03214.ph, %if.then856 ], [ %unicode.03214.ph, %if.end887 ], [ %unicode.03214.ph, %if.end918 ], [ %unicode.03214.ph, %if.then929 ], [ %unicode.03214.ph, %if.then937 ], [ %unicode.03214.ph, %if.then945 ], [ %unicode.03214.ph, %if.then953 ], [ %unicode.03214.ph, %if.then961 ], [ %unicode.03214.ph, %if.then969 ], [ %unicode.03214.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %unicode.03214.ph, %if.end515 ], [ %unicode.03214.ph, %if.end493 ], [ %unicode.03214.ph, %if.end400 ], [ %unicode.03214.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %unicode.03214.ph, %for.cond.preheader ], [ %unicode.03214.ph, %if.else213 ], [ %unicode.03214.ph, %if.else206 ], [ %unicode.03214.ph, %if.else ], [ %unicode.03214.ph, %lor.lhs.false199 ], [ %unicode.03214.ph, %if.then187 ], [ %unicode.03214.ph, %if.else220 ], [ %unicode.03214.ph, %if.then233 ], [ %unicode.03214.ph, %do.body359 ], [ %unicode.03214.ph, %do.body347 ], [ %unicode.03214.ph, %do.body329 ], [ %unicode.03214.ph, %do.body311 ], [ %unicode.03214.ph, %do.body293 ], [ %unicode.03214.ph, %do.body275 ], [ %unicode.03214.ph, %do.body257 ], [ %unicode.03214.ph, %do.body ], [ %unicode.03214.ph, %if.else364 ], [ %unicode.03214.ph, %if.then585 ], [ %unicode.03214.ph, %if.then619 ], [ %unicode.03214.ph, %if.then665 ], [ %unicode.03214.ph, %if.then693 ], [ %unicode.03214.ph, %if.else706 ], [ %unicode.03214.ph, %if.then676 ], [ %unicode.03214.ph, %if.then648 ], [ %unicode.03214.ph, %if.then602 ], [ %unicode.03214.ph, %if.then558 ], [ %unicode.03214.ph, %if.else778 ], [ %unicode.03214.ph, %if.else771 ], [ %unicode.03214.ph, %if.then764 ], [ %unicode.03214.ph, %if.else785 ]
-  %format.0.be = phi i32 [ %format.03215.ph, %if.then9 ], [ %format.03215.ph, %if.then13 ], [ %format.03215.ph, %if.then18 ], [ %format.03215.ph, %if.then23 ], [ %format.03215.ph, %if.then28 ], [ %format.03215.ph, %if.then35 ], [ %format.03215.ph, %sw.epilog ], [ %format.03215.ph, %if.then72 ], [ %format.03215.ph, %if.then83 ], [ %format.03215.ph, %if.then91 ], [ %format.03215.ph, %if.then102 ], [ %format.03215.ph, %if.then113 ], [ %format.03215.ph, %if.then121 ], [ %format.03215.ph, %if.then129 ], [ %format.03215.ph, %if.then137 ], [ %format.03215.ph, %if.then145 ], [ %format.03215.ph, %if.then153 ], [ %format.03215.ph, %if.then162 ], [ %format.03215.ph, %if.then171 ], [ %format.03215.ph, %if.then179 ], [ %format.03215.ph, %if.then408 ], [ %format.03215.ph, %_ZL11parseDoubleRdPKc.exit ], [ %format.03215.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %format.03215.ph, %if.end466 ], [ %format.03215.ph, %if.end532 ], [ %format.03215.ph, %if.end735 ], [ %format.03215.ph, %if.end755 ], [ %format.03215.ph, %if.end847 ], [ %format.03215.ph, %if.then856 ], [ %format.03215.ph, %if.end887 ], [ %format.03215.ph, %if.end918 ], [ %format.03215.ph, %if.then929 ], [ %format.03215.ph, %if.then937 ], [ %format.03215.ph, %if.then945 ], [ %format.03215.ph, %if.then953 ], [ %format.03215.ph, %if.then961 ], [ %format.03215.ph, %if.then969 ], [ %format.03215.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %format.03215.ph, %if.end515 ], [ %format.03215.ph, %if.end493 ], [ %format.03215.ph, %if.end400 ], [ %format.03215.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %format.03215.ph, %for.cond.preheader ], [ %format.03215.ph, %if.else213 ], [ %format.03215.ph, %if.else206 ], [ %format.03215.ph, %if.else ], [ %format.03215.ph, %lor.lhs.false199 ], [ %format.03215.ph, %if.then187 ], [ %format.03215.ph, %if.else220 ], [ 0, %if.then233 ], [ 8, %do.body359 ], [ 7, %do.body347 ], [ 6, %do.body329 ], [ 5, %do.body311 ], [ 4, %do.body293 ], [ 3, %do.body275 ], [ 2, %do.body257 ], [ 1, %do.body ], [ %format.03215.ph, %if.else364 ], [ %format.03215.ph, %if.then585 ], [ %format.03215.ph, %if.then619 ], [ %format.03215.ph, %if.then665 ], [ %format.03215.ph, %if.then693 ], [ %format.03215.ph, %if.else706 ], [ %format.03215.ph, %if.then676 ], [ %format.03215.ph, %if.then648 ], [ %format.03215.ph, %if.then602 ], [ %format.03215.ph, %if.then558 ], [ %format.03215.ph, %if.else778 ], [ %format.03215.ph, %if.else771 ], [ %format.03215.ph, %if.then764 ], [ %format.03215.ph, %if.else785 ]
-  %printMetrics.0.be = phi i1 [ %printMetrics.03216.ph, %if.then9 ], [ %printMetrics.03216.ph, %if.then13 ], [ %printMetrics.03216.ph, %if.then18 ], [ %printMetrics.03216.ph, %if.then23 ], [ %printMetrics.03216.ph, %if.then28 ], [ %printMetrics.03216.ph, %if.then35 ], [ %printMetrics.03216.ph, %sw.epilog ], [ %printMetrics.03216.ph, %if.then72 ], [ %printMetrics.03216.ph, %if.then83 ], [ %printMetrics.03216.ph, %if.then91 ], [ %printMetrics.03216.ph, %if.then102 ], [ %printMetrics.03216.ph, %if.then113 ], [ %printMetrics.03216.ph, %if.then121 ], [ %printMetrics.03216.ph, %if.then129 ], [ %printMetrics.03216.ph, %if.then137 ], [ %printMetrics.03216.ph, %if.then145 ], [ %printMetrics.03216.ph, %if.then153 ], [ %printMetrics.03216.ph, %if.then162 ], [ %printMetrics.03216.ph, %if.then171 ], [ %printMetrics.03216.ph, %if.then179 ], [ %printMetrics.03216.ph, %if.then408 ], [ %printMetrics.03216.ph, %_ZL11parseDoubleRdPKc.exit ], [ %printMetrics.03216.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %printMetrics.03216.ph, %if.end466 ], [ %printMetrics.03216.ph, %if.end532 ], [ %printMetrics.03216.ph, %if.end735 ], [ %printMetrics.03216.ph, %if.end755 ], [ %printMetrics.03216.ph, %if.end847 ], [ %printMetrics.03216.ph, %if.then856 ], [ %printMetrics.03216.ph, %if.end887 ], [ %printMetrics.03216.ph, %if.end918 ], [ %printMetrics.03216.ph, %if.then929 ], [ true, %if.then937 ], [ %printMetrics.03216.ph, %if.then945 ], [ %printMetrics.03216.ph, %if.then953 ], [ %printMetrics.03216.ph, %if.then961 ], [ %printMetrics.03216.ph, %if.then969 ], [ %printMetrics.03216.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %printMetrics.03216.ph, %if.end515 ], [ %printMetrics.03216.ph, %if.end493 ], [ %printMetrics.03216.ph, %if.end400 ], [ %printMetrics.03216.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %printMetrics.03216.ph, %for.cond.preheader ], [ %printMetrics.03216.ph, %if.else213 ], [ %printMetrics.03216.ph, %if.else206 ], [ %printMetrics.03216.ph, %if.else ], [ %printMetrics.03216.ph, %lor.lhs.false199 ], [ %printMetrics.03216.ph, %if.then187 ], [ %printMetrics.03216.ph, %if.else220 ], [ %printMetrics.03216.ph, %if.then233 ], [ %printMetrics.03216.ph, %do.body359 ], [ %printMetrics.03216.ph, %do.body347 ], [ %printMetrics.03216.ph, %do.body329 ], [ %printMetrics.03216.ph, %do.body311 ], [ %printMetrics.03216.ph, %do.body293 ], [ %printMetrics.03216.ph, %do.body275 ], [ %printMetrics.03216.ph, %do.body257 ], [ %printMetrics.03216.ph, %do.body ], [ %printMetrics.03216.ph, %if.else364 ], [ %printMetrics.03216.ph, %if.then585 ], [ %printMetrics.03216.ph, %if.then619 ], [ %printMetrics.03216.ph, %if.then665 ], [ %printMetrics.03216.ph, %if.then693 ], [ %printMetrics.03216.ph, %if.else706 ], [ %printMetrics.03216.ph, %if.then676 ], [ %printMetrics.03216.ph, %if.then648 ], [ %printMetrics.03216.ph, %if.then602 ], [ %printMetrics.03216.ph, %if.then558 ], [ %printMetrics.03216.ph, %if.else778 ], [ %printMetrics.03216.ph, %if.else771 ], [ %printMetrics.03216.ph, %if.then764 ], [ %printMetrics.03216.ph, %if.else785 ]
-  %estimateError.0.be = phi i8 [ %estimateError.03217.ph, %if.then9 ], [ %estimateError.03217.ph, %if.then13 ], [ %estimateError.03217.ph, %if.then18 ], [ %estimateError.03217.ph, %if.then23 ], [ %estimateError.03217.ph, %if.then28 ], [ %estimateError.03217.ph, %if.then35 ], [ %estimateError.03217.ph, %sw.epilog ], [ %estimateError.03217.ph, %if.then72 ], [ %estimateError.03217.ph, %if.then83 ], [ %estimateError.03217.ph, %if.then91 ], [ %estimateError.03217.ph, %if.then102 ], [ %estimateError.03217.ph, %if.then113 ], [ %estimateError.03217.ph, %if.then121 ], [ %estimateError.03217.ph, %if.then129 ], [ %estimateError.03217.ph, %if.then137 ], [ %estimateError.03217.ph, %if.then145 ], [ %estimateError.03217.ph, %if.then153 ], [ %estimateError.03217.ph, %if.then162 ], [ %estimateError.03217.ph, %if.then171 ], [ %estimateError.03217.ph, %if.then179 ], [ %estimateError.03217.ph, %if.then408 ], [ %estimateError.03217.ph, %_ZL11parseDoubleRdPKc.exit ], [ %estimateError.03217.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %estimateError.03217.ph, %if.end466 ], [ %estimateError.03217.ph, %if.end532 ], [ %estimateError.03217.ph, %if.end735 ], [ %estimateError.03217.ph, %if.end755 ], [ %estimateError.03217.ph, %if.end847 ], [ %estimateError.03217.ph, %if.then856 ], [ %estimateError.03217.ph, %if.end887 ], [ %estimateError.03217.ph, %if.end918 ], [ %estimateError.03217.ph, %if.then929 ], [ %estimateError.03217.ph, %if.then937 ], [ 1, %if.then945 ], [ %estimateError.03217.ph, %if.then953 ], [ %estimateError.03217.ph, %if.then961 ], [ %estimateError.03217.ph, %if.then969 ], [ %estimateError.03217.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %estimateError.03217.ph, %if.end515 ], [ %estimateError.03217.ph, %if.end493 ], [ %estimateError.03217.ph, %if.end400 ], [ %estimateError.03217.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %estimateError.03217.ph, %for.cond.preheader ], [ %estimateError.03217.ph, %if.else213 ], [ %estimateError.03217.ph, %if.else206 ], [ %estimateError.03217.ph, %if.else ], [ %estimateError.03217.ph, %lor.lhs.false199 ], [ %estimateError.03217.ph, %if.then187 ], [ %estimateError.03217.ph, %if.else220 ], [ %estimateError.03217.ph, %if.then233 ], [ %estimateError.03217.ph, %do.body359 ], [ %estimateError.03217.ph, %do.body347 ], [ %estimateError.03217.ph, %do.body329 ], [ %estimateError.03217.ph, %do.body311 ], [ %estimateError.03217.ph, %do.body293 ], [ %estimateError.03217.ph, %do.body275 ], [ %estimateError.03217.ph, %do.body257 ], [ %estimateError.03217.ph, %do.body ], [ %estimateError.03217.ph, %if.else364 ], [ %estimateError.03217.ph, %if.then585 ], [ %estimateError.03217.ph, %if.then619 ], [ %estimateError.03217.ph, %if.then665 ], [ %estimateError.03217.ph, %if.then693 ], [ %estimateError.03217.ph, %if.else706 ], [ %estimateError.03217.ph, %if.then676 ], [ %estimateError.03217.ph, %if.then648 ], [ %estimateError.03217.ph, %if.then602 ], [ %estimateError.03217.ph, %if.then558 ], [ %estimateError.03217.ph, %if.else778 ], [ %estimateError.03217.ph, %if.else771 ], [ %estimateError.03217.ph, %if.then764 ], [ %estimateError.03217.ph, %if.else785 ]
-  %orientation.0.be = phi i32 [ %orientation.03218.ph, %if.then9 ], [ %orientation.03218.ph, %if.then13 ], [ %orientation.03218.ph, %if.then18 ], [ %orientation.03218.ph, %if.then23 ], [ %orientation.03218.ph, %if.then28 ], [ %orientation.03218.ph, %if.then35 ], [ %orientation.03218.ph, %sw.epilog ], [ %orientation.03218.ph, %if.then72 ], [ %orientation.03218.ph, %if.then83 ], [ %orientation.03218.ph, %if.then91 ], [ %orientation.03218.ph, %if.then102 ], [ %orientation.03218.ph, %if.then113 ], [ %orientation.03218.ph, %if.then121 ], [ %orientation.03218.ph, %if.then129 ], [ %orientation.03218.ph, %if.then137 ], [ %orientation.03218.ph, %if.then145 ], [ %orientation.03218.ph, %if.then153 ], [ %orientation.03218.ph, %if.then162 ], [ %orientation.03218.ph, %if.then171 ], [ %orientation.03218.ph, %if.then179 ], [ %orientation.03218.ph, %if.then408 ], [ %orientation.03218.ph, %_ZL11parseDoubleRdPKc.exit ], [ %orientation.03218.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %orientation.03218.ph, %if.end466 ], [ %orientation.03218.ph, %if.end532 ], [ %orientation.03218.ph, %if.end735 ], [ %orientation.03218.ph, %if.end755 ], [ %orientation.03218.ph, %if.end847 ], [ %orientation.03218.ph, %if.then856 ], [ %orientation.03218.ph, %if.end887 ], [ %orientation.03218.ph, %if.end918 ], [ %orientation.03218.ph, %if.then929 ], [ %orientation.03218.ph, %if.then937 ], [ %orientation.03218.ph, %if.then945 ], [ 0, %if.then953 ], [ 1, %if.then961 ], [ 2, %if.then969 ], [ %orientation.03218.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %orientation.03218.ph, %if.end515 ], [ %orientation.03218.ph, %if.end493 ], [ %orientation.03218.ph, %if.end400 ], [ %orientation.03218.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %orientation.03218.ph, %for.cond.preheader ], [ %orientation.03218.ph, %if.else213 ], [ %orientation.03218.ph, %if.else206 ], [ %orientation.03218.ph, %if.else ], [ %orientation.03218.ph, %lor.lhs.false199 ], [ %orientation.03218.ph, %if.then187 ], [ %orientation.03218.ph, %if.else220 ], [ %orientation.03218.ph, %if.then233 ], [ %orientation.03218.ph, %do.body359 ], [ %orientation.03218.ph, %do.body347 ], [ %orientation.03218.ph, %do.body329 ], [ %orientation.03218.ph, %do.body311 ], [ %orientation.03218.ph, %do.body293 ], [ %orientation.03218.ph, %do.body275 ], [ %orientation.03218.ph, %do.body257 ], [ %orientation.03218.ph, %do.body ], [ %orientation.03218.ph, %if.else364 ], [ %orientation.03218.ph, %if.then585 ], [ %orientation.03218.ph, %if.then619 ], [ %orientation.03218.ph, %if.then665 ], [ %orientation.03218.ph, %if.then693 ], [ %orientation.03218.ph, %if.else706 ], [ %orientation.03218.ph, %if.then676 ], [ %orientation.03218.ph, %if.then648 ], [ %orientation.03218.ph, %if.then602 ], [ %orientation.03218.ph, %if.then558 ], [ %orientation.03218.ph, %if.else778 ], [ %orientation.03218.ph, %if.else771 ], [ %orientation.03218.ph, %if.then764 ], [ %orientation.03218.ph, %if.else785 ]
-  %edgeColoring.0.be = phi ptr [ %edgeColoring.03219.ph, %if.then9 ], [ %edgeColoring.03219.ph, %if.then13 ], [ %edgeColoring.03219.ph, %if.then18 ], [ %edgeColoring.03219.ph, %if.then23 ], [ %edgeColoring.03219.ph, %if.then28 ], [ %edgeColoring.03219.ph, %if.then35 ], [ %edgeColoring.03219.ph, %sw.epilog ], [ %edgeColoring.03219.ph, %if.then72 ], [ %edgeColoring.03219.ph, %if.then83 ], [ %edgeColoring.03219.ph, %if.then91 ], [ %edgeColoring.03219.ph, %if.then102 ], [ %edgeColoring.03219.ph, %if.then113 ], [ %edgeColoring.03219.ph, %if.then121 ], [ %edgeColoring.03219.ph, %if.then129 ], [ %edgeColoring.03219.ph, %if.then137 ], [ %edgeColoring.03219.ph, %if.then145 ], [ %edgeColoring.03219.ph, %if.then153 ], [ %edgeColoring.03219.ph, %if.then162 ], [ %edgeColoring.03219.ph, %if.then171 ], [ %edgeColoring.03219.ph, %if.then179 ], [ %edgeColoring.03219.ph, %if.then408 ], [ %edgeColoring.03219.ph, %_ZL11parseDoubleRdPKc.exit ], [ %edgeColoring.03219.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %edgeColoring.03219.ph, %if.end466 ], [ %edgeColoring.03219.ph, %if.end532 ], [ %edgeColoring.03219.ph, %if.end735 ], [ %edgeColoring.03219.ph, %if.end755 ], [ %edgeColoring.03219.ph, %if.end847 ], [ %edgeColoring.03219.ph, %if.then856 ], [ %edgeColoring.03219.ph, %if.end887 ], [ %edgeColoring.03219.ph, %if.end918 ], [ %edgeColoring.03219.ph, %if.then929 ], [ %edgeColoring.03219.ph, %if.then937 ], [ %edgeColoring.03219.ph, %if.then945 ], [ %edgeColoring.03219.ph, %if.then953 ], [ %edgeColoring.03219.ph, %if.then961 ], [ %edgeColoring.03219.ph, %if.then969 ], [ %edgeColoring.03219.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %edgeColoring.03219.ph, %if.end515 ], [ %edgeColoring.03219.ph, %if.end493 ], [ %edgeColoring.03219.ph, %if.end400 ], [ %edgeColoring.03219.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %edgeColoring.03219.ph, %for.cond.preheader ], [ %edgeColoring.03219.ph, %if.else213 ], [ %edgeColoring.03219.ph, %if.else206 ], [ %edgeColoring.03219.ph, %if.else ], [ %edgeColoring.03219.ph, %lor.lhs.false199 ], [ %edgeColoring.03219.ph, %if.then187 ], [ %edgeColoring.03219.ph, %if.else220 ], [ %edgeColoring.03219.ph, %if.then233 ], [ %edgeColoring.03219.ph, %do.body359 ], [ %edgeColoring.03219.ph, %do.body347 ], [ %edgeColoring.03219.ph, %do.body329 ], [ %edgeColoring.03219.ph, %do.body311 ], [ %edgeColoring.03219.ph, %do.body293 ], [ %edgeColoring.03219.ph, %do.body275 ], [ %edgeColoring.03219.ph, %do.body257 ], [ %edgeColoring.03219.ph, %do.body ], [ %edgeColoring.03219.ph, %if.else364 ], [ %edgeColoring.03219.ph, %if.then585 ], [ %edgeColoring.03219.ph, %if.then619 ], [ %edgeColoring.03219.ph, %if.then665 ], [ %edgeColoring.03219.ph, %if.then693 ], [ %edgeColoring.03219.ph, %if.else706 ], [ %edgeColoring.03219.ph, %if.then676 ], [ %edgeColoring.03219.ph, %if.then648 ], [ %edgeColoring.03219.ph, %if.then602 ], [ %edgeColoring.03219.ph, %if.then558 ], [ @_ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy, %if.else778 ], [ @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy, %if.else771 ], [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %if.then764 ], [ %edgeColoring.03219.ph, %if.else785 ]
-  %explicitErrorCorrectionMode.0.be = phi i1 [ %explicitErrorCorrectionMode.03220.ph, %if.then9 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then13 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then18 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then23 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then28 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then35 ], [ %explicitErrorCorrectionMode.03220.ph, %sw.epilog ], [ %explicitErrorCorrectionMode.03220.ph, %if.then72 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then83 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then91 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then102 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then113 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then121 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then129 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then137 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then145 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then153 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then162 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then171 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then179 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then408 ], [ %explicitErrorCorrectionMode.03220.ph, %_ZL11parseDoubleRdPKc.exit ], [ %explicitErrorCorrectionMode.03220.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end466 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end532 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end735 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end755 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end847 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then856 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end887 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end918 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then929 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then937 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then945 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then953 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then961 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then969 ], [ %explicitErrorCorrectionMode.03220.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %explicitErrorCorrectionMode.03220.ph, %if.end515 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end493 ], [ %explicitErrorCorrectionMode.03220.ph, %if.end400 ], [ %explicitErrorCorrectionMode.03220.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %explicitErrorCorrectionMode.03220.ph, %for.cond.preheader ], [ %explicitErrorCorrectionMode.03220.ph, %if.else213 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else206 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else ], [ %explicitErrorCorrectionMode.03220.ph, %lor.lhs.false199 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then187 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else220 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then233 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body359 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body347 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body329 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body311 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body293 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body275 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body257 ], [ %explicitErrorCorrectionMode.03220.ph, %do.body ], [ %explicitErrorCorrectionMode.03220.ph, %if.else364 ], [ true, %if.then585 ], [ true, %if.then619 ], [ true, %if.then665 ], [ true, %if.then693 ], [ true, %if.else706 ], [ true, %if.then676 ], [ true, %if.then648 ], [ true, %if.then602 ], [ true, %if.then558 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else778 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else771 ], [ %explicitErrorCorrectionMode.03220.ph, %if.then764 ], [ %explicitErrorCorrectionMode.03220.ph, %if.else785 ]
-  %argPos.0.be = phi i32 [ %inc, %if.then9 ], [ %inc14, %if.then13 ], [ %inc19, %if.then18 ], [ %inc24, %if.then23 ], [ %inc29, %if.then28 ], [ %add39, %if.then35 ], [ %add65, %sw.epilog ], [ %add41, %if.then72 ], [ %add84, %if.then83 ], [ %add41, %if.then91 ], [ %add41, %if.then102 ], [ %add114, %if.then113 ], [ %add122, %if.then121 ], [ %add130, %if.then129 ], [ %add138, %if.then137 ], [ %add146, %if.then145 ], [ %add155, %if.then153 ], [ %add164, %if.then162 ], [ %add172, %if.then171 ], [ %add180, %if.then179 ], [ %add409, %if.then408 ], [ %add41, %_ZL11parseDoubleRdPKc.exit ], [ %add41, %_ZL11parseDoubleRdPKc.exit630 ], [ %add41, %if.end466 ], [ %add41, %if.end532 ], [ %add41, %if.end735 ], [ %add41, %if.end755 ], [ %add41, %if.end847 ], [ %add41, %if.then856 ], [ %add891, %if.end887 ], [ %add922, %if.end918 ], [ %add930, %if.then929 ], [ %add938, %if.then937 ], [ %add946, %if.then945 ], [ %add954, %if.then953 ], [ %add962, %if.then961 ], [ %add970, %if.then969 ], [ %add41, %_ZL15parseUnsignedLLRyPKc.exit ], [ %add516, %if.end515 ], [ %add494, %if.end493 ], [ %add401, %if.end400 ], [ %add41, %for.cond.while.cond.loopexit_crit_edge ], [ %add41, %for.cond.preheader ], [ %add41, %if.else213 ], [ %add41, %if.else206 ], [ %add41, %if.else ], [ %add41, %lor.lhs.false199 ], [ %add41, %if.then187 ], [ %add41, %if.else220 ], [ %add41, %if.then233 ], [ %add41, %do.body359 ], [ %add41, %do.body347 ], [ %add41, %do.body329 ], [ %add41, %do.body311 ], [ %add41, %do.body293 ], [ %add41, %do.body275 ], [ %add41, %do.body257 ], [ %add41, %do.body ], [ %add41, %if.else364 ], [ %add41, %if.then585 ], [ %add41, %if.then619 ], [ %add41, %if.then665 ], [ %add41, %if.then693 ], [ %add41, %if.else706 ], [ %add41, %if.then676 ], [ %add41, %if.then648 ], [ %add41, %if.then602 ], [ %add41, %if.then558 ], [ %add41, %if.else778 ], [ %add41, %if.else771 ], [ %add41, %if.then764 ], [ %add41, %if.else785 ]
-  %yFlip.0.be = phi i1 [ %yFlip.03223.ph, %if.then9 ], [ %yFlip.03223.ph, %if.then13 ], [ %yFlip.03223.ph, %if.then18 ], [ %yFlip.03223.ph, %if.then23 ], [ %yFlip.03223.ph, %if.then28 ], [ %yFlip.03223.ph, %if.then35 ], [ %yFlip.03223.ph, %sw.epilog ], [ %yFlip.03223.ph, %if.then72 ], [ %yFlip.03223.ph, %if.then83 ], [ %yFlip.03223.ph, %if.then91 ], [ %yFlip.03223.ph, %if.then102 ], [ %yFlip.03223.ph, %if.then113 ], [ %yFlip.03223.ph, %if.then121 ], [ %yFlip.03223.ph, %if.then129 ], [ %yFlip.03223.ph, %if.then137 ], [ %yFlip.03223.ph, %if.then145 ], [ %yFlip.03223.ph, %if.then153 ], [ %yFlip.03223.ph, %if.then162 ], [ %yFlip.03223.ph, %if.then171 ], [ %yFlip.03223.ph, %if.then179 ], [ %yFlip.03223.ph, %if.then408 ], [ %yFlip.03223.ph, %_ZL11parseDoubleRdPKc.exit ], [ %yFlip.03223.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %yFlip.03223.ph, %if.end466 ], [ %yFlip.03223.ph, %if.end532 ], [ %yFlip.03223.ph, %if.end735 ], [ %yFlip.03223.ph, %if.end755 ], [ %yFlip.03223.ph, %if.end847 ], [ %yFlip.03223.ph, %if.then856 ], [ %yFlip.03223.ph, %if.end887 ], [ %yFlip.03223.ph, %if.end918 ], [ true, %if.then929 ], [ %yFlip.03223.ph, %if.then937 ], [ %yFlip.03223.ph, %if.then945 ], [ %yFlip.03223.ph, %if.then953 ], [ %yFlip.03223.ph, %if.then961 ], [ %yFlip.03223.ph, %if.then969 ], [ %yFlip.03223.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %yFlip.03223.ph, %if.end515 ], [ %yFlip.03223.ph, %if.end493 ], [ %yFlip.03223.ph, %if.end400 ], [ %yFlip.03223.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %yFlip.03223.ph, %for.cond.preheader ], [ %yFlip.03223.ph, %if.else213 ], [ %yFlip.03223.ph, %if.else206 ], [ %yFlip.03223.ph, %if.else ], [ %yFlip.03223.ph, %lor.lhs.false199 ], [ %yFlip.03223.ph, %if.then187 ], [ %yFlip.03223.ph, %if.else220 ], [ %yFlip.03223.ph, %if.then233 ], [ %yFlip.03223.ph, %do.body359 ], [ %yFlip.03223.ph, %do.body347 ], [ %yFlip.03223.ph, %do.body329 ], [ %yFlip.03223.ph, %do.body311 ], [ %yFlip.03223.ph, %do.body293 ], [ %yFlip.03223.ph, %do.body275 ], [ %yFlip.03223.ph, %do.body257 ], [ %yFlip.03223.ph, %do.body ], [ %yFlip.03223.ph, %if.else364 ], [ %yFlip.03223.ph, %if.then585 ], [ %yFlip.03223.ph, %if.then619 ], [ %yFlip.03223.ph, %if.then665 ], [ %yFlip.03223.ph, %if.then693 ], [ %yFlip.03223.ph, %if.else706 ], [ %yFlip.03223.ph, %if.then676 ], [ %yFlip.03223.ph, %if.then648 ], [ %yFlip.03223.ph, %if.then602 ], [ %yFlip.03223.ph, %if.then558 ], [ %yFlip.03223.ph, %if.else778 ], [ %yFlip.03223.ph, %if.else771 ], [ %yFlip.03223.ph, %if.then764 ], [ %yFlip.03223.ph, %if.else785 ]
-  %edgeAssignment.0.be = phi ptr [ %edgeAssignment.03224.ph, %if.then9 ], [ %edgeAssignment.03224.ph, %if.then13 ], [ %edgeAssignment.03224.ph, %if.then18 ], [ %edgeAssignment.03224.ph, %if.then23 ], [ %edgeAssignment.03224.ph, %if.then28 ], [ %edgeAssignment.03224.ph, %if.then35 ], [ %edgeAssignment.03224.ph, %sw.epilog ], [ %edgeAssignment.03224.ph, %if.then72 ], [ %edgeAssignment.03224.ph, %if.then83 ], [ %edgeAssignment.03224.ph, %if.then91 ], [ %edgeAssignment.03224.ph, %if.then102 ], [ %edgeAssignment.03224.ph, %if.then113 ], [ %edgeAssignment.03224.ph, %if.then121 ], [ %edgeAssignment.03224.ph, %if.then129 ], [ %edgeAssignment.03224.ph, %if.then137 ], [ %edgeAssignment.03224.ph, %if.then145 ], [ %edgeAssignment.03224.ph, %if.then153 ], [ %edgeAssignment.03224.ph, %if.then162 ], [ %edgeAssignment.03224.ph, %if.then171 ], [ %edgeAssignment.03224.ph, %if.then179 ], [ %edgeAssignment.03224.ph, %if.then408 ], [ %edgeAssignment.03224.ph, %_ZL11parseDoubleRdPKc.exit ], [ %edgeAssignment.03224.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %edgeAssignment.03224.ph, %if.end466 ], [ %edgeAssignment.03224.ph, %if.end532 ], [ %edgeAssignment.03224.ph, %if.end735 ], [ %edgeAssignment.03224.ph, %if.end755 ], [ %edgeAssignment.03224.ph, %if.end847 ], [ %edgeAssignment.03224.ph, %if.then856 ], [ %edgeAssignment.03224.ph, %if.end887 ], [ %edgeAssignment.03224.ph, %if.end918 ], [ %edgeAssignment.03224.ph, %if.then929 ], [ %edgeAssignment.03224.ph, %if.then937 ], [ %edgeAssignment.03224.ph, %if.then945 ], [ %edgeAssignment.03224.ph, %if.then953 ], [ %edgeAssignment.03224.ph, %if.then961 ], [ %edgeAssignment.03224.ph, %if.then969 ], [ %edgeAssignment.03224.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %edgeAssignment.03224.ph, %if.end515 ], [ %edgeAssignment.03224.ph, %if.end493 ], [ %edgeAssignment.03224.ph, %if.end400 ], [ %105, %for.cond.while.cond.loopexit_crit_edge ], [ %105, %for.cond.preheader ], [ %edgeAssignment.03224.ph, %if.else213 ], [ %edgeAssignment.03224.ph, %if.else206 ], [ %edgeAssignment.03224.ph, %if.else ], [ %edgeAssignment.03224.ph, %lor.lhs.false199 ], [ %edgeAssignment.03224.ph, %if.then187 ], [ %edgeAssignment.03224.ph, %if.else220 ], [ %edgeAssignment.03224.ph, %if.then233 ], [ %edgeAssignment.03224.ph, %do.body359 ], [ %edgeAssignment.03224.ph, %do.body347 ], [ %edgeAssignment.03224.ph, %do.body329 ], [ %edgeAssignment.03224.ph, %do.body311 ], [ %edgeAssignment.03224.ph, %do.body293 ], [ %edgeAssignment.03224.ph, %do.body275 ], [ %edgeAssignment.03224.ph, %do.body257 ], [ %edgeAssignment.03224.ph, %do.body ], [ %edgeAssignment.03224.ph, %if.else364 ], [ %edgeAssignment.03224.ph, %if.then585 ], [ %edgeAssignment.03224.ph, %if.then619 ], [ %edgeAssignment.03224.ph, %if.then665 ], [ %edgeAssignment.03224.ph, %if.then693 ], [ %edgeAssignment.03224.ph, %if.else706 ], [ %edgeAssignment.03224.ph, %if.then676 ], [ %edgeAssignment.03224.ph, %if.then648 ], [ %edgeAssignment.03224.ph, %if.then602 ], [ %edgeAssignment.03224.ph, %if.then558 ], [ %edgeAssignment.03224.ph, %if.else778 ], [ %edgeAssignment.03224.ph, %if.else771 ], [ %edgeAssignment.03224.ph, %if.then764 ], [ %edgeAssignment.03224.ph, %if.else785 ]
-  %outputDistanceShift.0.be = phi float [ %outputDistanceShift.03225.ph, %if.then9 ], [ %outputDistanceShift.03225.ph, %if.then13 ], [ %outputDistanceShift.03225.ph, %if.then18 ], [ %outputDistanceShift.03225.ph, %if.then23 ], [ %outputDistanceShift.03225.ph, %if.then28 ], [ %outputDistanceShift.03225.ph, %if.then35 ], [ %outputDistanceShift.03225.ph, %sw.epilog ], [ %outputDistanceShift.03225.ph, %if.then72 ], [ %outputDistanceShift.03225.ph, %if.then83 ], [ %outputDistanceShift.03225.ph, %if.then91 ], [ %outputDistanceShift.03225.ph, %if.then102 ], [ %outputDistanceShift.03225.ph, %if.then113 ], [ %outputDistanceShift.03225.ph, %if.then121 ], [ %outputDistanceShift.03225.ph, %if.then129 ], [ %outputDistanceShift.03225.ph, %if.then137 ], [ %outputDistanceShift.03225.ph, %if.then145 ], [ %outputDistanceShift.03225.ph, %if.then153 ], [ %outputDistanceShift.03225.ph, %if.then162 ], [ %outputDistanceShift.03225.ph, %if.then171 ], [ %outputDistanceShift.03225.ph, %if.then179 ], [ %outputDistanceShift.03225.ph, %if.then408 ], [ %outputDistanceShift.03225.ph, %_ZL11parseDoubleRdPKc.exit ], [ %outputDistanceShift.03225.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %outputDistanceShift.03225.ph, %if.end466 ], [ %outputDistanceShift.03225.ph, %if.end532 ], [ %outputDistanceShift.03225.ph, %if.end735 ], [ %outputDistanceShift.03225.ph, %if.end755 ], [ %conv848, %if.end847 ], [ %outputDistanceShift.03225.ph, %if.then856 ], [ %outputDistanceShift.03225.ph, %if.end887 ], [ %outputDistanceShift.03225.ph, %if.end918 ], [ %outputDistanceShift.03225.ph, %if.then929 ], [ %outputDistanceShift.03225.ph, %if.then937 ], [ %outputDistanceShift.03225.ph, %if.then945 ], [ %outputDistanceShift.03225.ph, %if.then953 ], [ %outputDistanceShift.03225.ph, %if.then961 ], [ %outputDistanceShift.03225.ph, %if.then969 ], [ %outputDistanceShift.03225.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %outputDistanceShift.03225.ph, %if.end515 ], [ %outputDistanceShift.03225.ph, %if.end493 ], [ %outputDistanceShift.03225.ph, %if.end400 ], [ %outputDistanceShift.03225.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %outputDistanceShift.03225.ph, %for.cond.preheader ], [ %outputDistanceShift.03225.ph, %if.else213 ], [ %outputDistanceShift.03225.ph, %if.else206 ], [ %outputDistanceShift.03225.ph, %if.else ], [ %outputDistanceShift.03225.ph, %lor.lhs.false199 ], [ %outputDistanceShift.03225.ph, %if.then187 ], [ %outputDistanceShift.03225.ph, %if.else220 ], [ %outputDistanceShift.03225.ph, %if.then233 ], [ %outputDistanceShift.03225.ph, %do.body359 ], [ %outputDistanceShift.03225.ph, %do.body347 ], [ %outputDistanceShift.03225.ph, %do.body329 ], [ %outputDistanceShift.03225.ph, %do.body311 ], [ %outputDistanceShift.03225.ph, %do.body293 ], [ %outputDistanceShift.03225.ph, %do.body275 ], [ %outputDistanceShift.03225.ph, %do.body257 ], [ %outputDistanceShift.03225.ph, %do.body ], [ %outputDistanceShift.03225.ph, %if.else364 ], [ %outputDistanceShift.03225.ph, %if.then585 ], [ %outputDistanceShift.03225.ph, %if.then619 ], [ %outputDistanceShift.03225.ph, %if.then665 ], [ %outputDistanceShift.03225.ph, %if.then693 ], [ %outputDistanceShift.03225.ph, %if.else706 ], [ %outputDistanceShift.03225.ph, %if.then676 ], [ %outputDistanceShift.03225.ph, %if.then648 ], [ %outputDistanceShift.03225.ph, %if.then602 ], [ %outputDistanceShift.03225.ph, %if.then558 ], [ %outputDistanceShift.03225.ph, %if.else778 ], [ %outputDistanceShift.03225.ph, %if.else771 ], [ %outputDistanceShift.03225.ph, %if.then764 ], [ %outputDistanceShift.03225.ph, %if.else785 ]
-  %angleThreshold.0.be = phi double [ %angleThreshold.03226.ph, %if.then9 ], [ %angleThreshold.03226.ph, %if.then13 ], [ %angleThreshold.03226.ph, %if.then18 ], [ %angleThreshold.03226.ph, %if.then23 ], [ %angleThreshold.03226.ph, %if.then28 ], [ %angleThreshold.03226.ph, %if.then35 ], [ %angleThreshold.03226.ph, %sw.epilog ], [ %angleThreshold.03226.ph, %if.then72 ], [ %angleThreshold.03226.ph, %if.then83 ], [ %angleThreshold.03226.ph, %if.then91 ], [ %angleThreshold.03226.ph, %if.then102 ], [ %angleThreshold.03226.ph, %if.then113 ], [ %angleThreshold.03226.ph, %if.then121 ], [ %angleThreshold.03226.ph, %if.then129 ], [ %angleThreshold.03226.ph, %if.then137 ], [ %angleThreshold.03226.ph, %if.then145 ], [ %angleThreshold.03226.ph, %if.then153 ], [ %angleThreshold.03226.ph, %if.then162 ], [ %angleThreshold.03226.ph, %if.then171 ], [ %angleThreshold.03226.ph, %if.then179 ], [ %angleThreshold.03226.ph, %if.then408 ], [ %angleThreshold.03226.ph, %_ZL11parseDoubleRdPKc.exit ], [ %angleThreshold.03226.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %angleThreshold.03226.ph, %if.end466 ], [ %84, %if.end532 ], [ %angleThreshold.03226.ph, %if.end735 ], [ %angleThreshold.03226.ph, %if.end755 ], [ %angleThreshold.03226.ph, %if.end847 ], [ %angleThreshold.03226.ph, %if.then856 ], [ %angleThreshold.03226.ph, %if.end887 ], [ %angleThreshold.03226.ph, %if.end918 ], [ %angleThreshold.03226.ph, %if.then929 ], [ %angleThreshold.03226.ph, %if.then937 ], [ %angleThreshold.03226.ph, %if.then945 ], [ %angleThreshold.03226.ph, %if.then953 ], [ %angleThreshold.03226.ph, %if.then961 ], [ %angleThreshold.03226.ph, %if.then969 ], [ %angleThreshold.03226.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %angleThreshold.03226.ph, %if.end515 ], [ %angleThreshold.03226.ph, %if.end493 ], [ %angleThreshold.03226.ph, %if.end400 ], [ %angleThreshold.03226.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %angleThreshold.03226.ph, %for.cond.preheader ], [ %angleThreshold.03226.ph, %if.else213 ], [ %angleThreshold.03226.ph, %if.else206 ], [ %angleThreshold.03226.ph, %if.else ], [ %angleThreshold.03226.ph, %lor.lhs.false199 ], [ %angleThreshold.03226.ph, %if.then187 ], [ %angleThreshold.03226.ph, %if.else220 ], [ %angleThreshold.03226.ph, %if.then233 ], [ %angleThreshold.03226.ph, %do.body359 ], [ %angleThreshold.03226.ph, %do.body347 ], [ %angleThreshold.03226.ph, %do.body329 ], [ %angleThreshold.03226.ph, %do.body311 ], [ %angleThreshold.03226.ph, %do.body293 ], [ %angleThreshold.03226.ph, %do.body275 ], [ %angleThreshold.03226.ph, %do.body257 ], [ %angleThreshold.03226.ph, %do.body ], [ %angleThreshold.03226.ph, %if.else364 ], [ %angleThreshold.03226.ph, %if.then585 ], [ %angleThreshold.03226.ph, %if.then619 ], [ %angleThreshold.03226.ph, %if.then665 ], [ %angleThreshold.03226.ph, %if.then693 ], [ %angleThreshold.03226.ph, %if.else706 ], [ %angleThreshold.03226.ph, %if.then676 ], [ %angleThreshold.03226.ph, %if.then648 ], [ %angleThreshold.03226.ph, %if.then602 ], [ %angleThreshold.03226.ph, %if.then558 ], [ %angleThreshold.03226.ph, %if.else778 ], [ %angleThreshold.03226.ph, %if.else771 ], [ %angleThreshold.03226.ph, %if.then764 ], [ %angleThreshold.03226.ph, %if.else785 ]
-  %scaleSpecified.0.be = phi i8 [ %scaleSpecified.03227.ph, %if.then9 ], [ %scaleSpecified.03227.ph, %if.then13 ], [ %scaleSpecified.03227.ph, %if.then18 ], [ %scaleSpecified.03227.ph, %if.then23 ], [ %scaleSpecified.03227.ph, %if.then28 ], [ %scaleSpecified.03227.ph, %if.then35 ], [ %scaleSpecified.03227.ph, %sw.epilog ], [ %scaleSpecified.03227.ph, %if.then72 ], [ %scaleSpecified.03227.ph, %if.then83 ], [ %scaleSpecified.03227.ph, %if.then91 ], [ %scaleSpecified.03227.ph, %if.then102 ], [ %scaleSpecified.03227.ph, %if.then113 ], [ %scaleSpecified.03227.ph, %if.then121 ], [ %scaleSpecified.03227.ph, %if.then129 ], [ %scaleSpecified.03227.ph, %if.then137 ], [ %scaleSpecified.03227.ph, %if.then145 ], [ %scaleSpecified.03227.ph, %if.then153 ], [ %scaleSpecified.03227.ph, %if.then162 ], [ %scaleSpecified.03227.ph, %if.then171 ], [ %scaleSpecified.03227.ph, %if.then179 ], [ %scaleSpecified.03227.ph, %if.then408 ], [ %scaleSpecified.03227.ph, %_ZL11parseDoubleRdPKc.exit ], [ %scaleSpecified.03227.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ 1, %if.end466 ], [ %scaleSpecified.03227.ph, %if.end532 ], [ %scaleSpecified.03227.ph, %if.end735 ], [ %scaleSpecified.03227.ph, %if.end755 ], [ %scaleSpecified.03227.ph, %if.end847 ], [ %scaleSpecified.03227.ph, %if.then856 ], [ %scaleSpecified.03227.ph, %if.end887 ], [ %scaleSpecified.03227.ph, %if.end918 ], [ %scaleSpecified.03227.ph, %if.then929 ], [ %scaleSpecified.03227.ph, %if.then937 ], [ %scaleSpecified.03227.ph, %if.then945 ], [ %scaleSpecified.03227.ph, %if.then953 ], [ %scaleSpecified.03227.ph, %if.then961 ], [ %scaleSpecified.03227.ph, %if.then969 ], [ %scaleSpecified.03227.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %scaleSpecified.03227.ph, %if.end515 ], [ 1, %if.end493 ], [ %scaleSpecified.03227.ph, %if.end400 ], [ %scaleSpecified.03227.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %scaleSpecified.03227.ph, %for.cond.preheader ], [ %scaleSpecified.03227.ph, %if.else213 ], [ %scaleSpecified.03227.ph, %if.else206 ], [ %scaleSpecified.03227.ph, %if.else ], [ %scaleSpecified.03227.ph, %lor.lhs.false199 ], [ %scaleSpecified.03227.ph, %if.then187 ], [ %scaleSpecified.03227.ph, %if.else220 ], [ %scaleSpecified.03227.ph, %if.then233 ], [ %scaleSpecified.03227.ph, %do.body359 ], [ %scaleSpecified.03227.ph, %do.body347 ], [ %scaleSpecified.03227.ph, %do.body329 ], [ %scaleSpecified.03227.ph, %do.body311 ], [ %scaleSpecified.03227.ph, %do.body293 ], [ %scaleSpecified.03227.ph, %do.body275 ], [ %scaleSpecified.03227.ph, %do.body257 ], [ %scaleSpecified.03227.ph, %do.body ], [ %scaleSpecified.03227.ph, %if.else364 ], [ %scaleSpecified.03227.ph, %if.then585 ], [ %scaleSpecified.03227.ph, %if.then619 ], [ %scaleSpecified.03227.ph, %if.then665 ], [ %scaleSpecified.03227.ph, %if.then693 ], [ %scaleSpecified.03227.ph, %if.else706 ], [ %scaleSpecified.03227.ph, %if.then676 ], [ %scaleSpecified.03227.ph, %if.then648 ], [ %scaleSpecified.03227.ph, %if.then602 ], [ %scaleSpecified.03227.ph, %if.then558 ], [ %scaleSpecified.03227.ph, %if.else778 ], [ %scaleSpecified.03227.ph, %if.else771 ], [ %scaleSpecified.03227.ph, %if.then764 ], [ %scaleSpecified.03227.ph, %if.else785 ]
-  %pxRange.0.be = phi double [ %pxRange.03228.ph, %if.then9 ], [ %pxRange.03228.ph, %if.then13 ], [ %pxRange.03228.ph, %if.then18 ], [ %pxRange.03228.ph, %if.then23 ], [ %pxRange.03228.ph, %if.then28 ], [ %pxRange.03228.ph, %if.then35 ], [ %pxRange.03228.ph, %sw.epilog ], [ %pxRange.03228.ph, %if.then72 ], [ %pxRange.03228.ph, %if.then83 ], [ %pxRange.03228.ph, %if.then91 ], [ %pxRange.03228.ph, %if.then102 ], [ %pxRange.03228.ph, %if.then113 ], [ %pxRange.03228.ph, %if.then121 ], [ %pxRange.03228.ph, %if.then129 ], [ %pxRange.03228.ph, %if.then137 ], [ %pxRange.03228.ph, %if.then145 ], [ %pxRange.03228.ph, %if.then153 ], [ %pxRange.03228.ph, %if.then162 ], [ %pxRange.03228.ph, %if.then171 ], [ %pxRange.03228.ph, %if.then179 ], [ %pxRange.03228.ph, %if.then408 ], [ %pxRange.03228.ph, %_ZL11parseDoubleRdPKc.exit ], [ %call.i626, %_ZL11parseDoubleRdPKc.exit630 ], [ %pxRange.03228.ph, %if.end466 ], [ %pxRange.03228.ph, %if.end532 ], [ %pxRange.03228.ph, %if.end735 ], [ %pxRange.03228.ph, %if.end755 ], [ %pxRange.03228.ph, %if.end847 ], [ %pxRange.03228.ph, %if.then856 ], [ %pxRange.03228.ph, %if.end887 ], [ %pxRange.03228.ph, %if.end918 ], [ %pxRange.03228.ph, %if.then929 ], [ %pxRange.03228.ph, %if.then937 ], [ %pxRange.03228.ph, %if.then945 ], [ %pxRange.03228.ph, %if.then953 ], [ %pxRange.03228.ph, %if.then961 ], [ %pxRange.03228.ph, %if.then969 ], [ %pxRange.03228.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %pxRange.03228.ph, %if.end515 ], [ %pxRange.03228.ph, %if.end493 ], [ %pxRange.03228.ph, %if.end400 ], [ %pxRange.03228.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %pxRange.03228.ph, %for.cond.preheader ], [ %pxRange.03228.ph, %if.else213 ], [ %pxRange.03228.ph, %if.else206 ], [ %pxRange.03228.ph, %if.else ], [ %pxRange.03228.ph, %lor.lhs.false199 ], [ %pxRange.03228.ph, %if.then187 ], [ %pxRange.03228.ph, %if.else220 ], [ %pxRange.03228.ph, %if.then233 ], [ %pxRange.03228.ph, %do.body359 ], [ %pxRange.03228.ph, %do.body347 ], [ %pxRange.03228.ph, %do.body329 ], [ %pxRange.03228.ph, %do.body311 ], [ %pxRange.03228.ph, %do.body293 ], [ %pxRange.03228.ph, %do.body275 ], [ %pxRange.03228.ph, %do.body257 ], [ %pxRange.03228.ph, %do.body ], [ %pxRange.03228.ph, %if.else364 ], [ %pxRange.03228.ph, %if.then585 ], [ %pxRange.03228.ph, %if.then619 ], [ %pxRange.03228.ph, %if.then665 ], [ %pxRange.03228.ph, %if.then693 ], [ %pxRange.03228.ph, %if.else706 ], [ %pxRange.03228.ph, %if.then676 ], [ %pxRange.03228.ph, %if.then648 ], [ %pxRange.03228.ph, %if.then602 ], [ %pxRange.03228.ph, %if.then558 ], [ %pxRange.03228.ph, %if.else778 ], [ %pxRange.03228.ph, %if.else771 ], [ %pxRange.03228.ph, %if.then764 ], [ %pxRange.03228.ph, %if.else785 ]
-  %range.0.be = phi double [ %range.03229.ph, %if.then9 ], [ %range.03229.ph, %if.then13 ], [ %range.03229.ph, %if.then18 ], [ %range.03229.ph, %if.then23 ], [ %range.03229.ph, %if.then28 ], [ %range.03229.ph, %if.then35 ], [ %range.03229.ph, %sw.epilog ], [ %range.03229.ph, %if.then72 ], [ %range.03229.ph, %if.then83 ], [ %range.03229.ph, %if.then91 ], [ %range.03229.ph, %if.then102 ], [ %range.03229.ph, %if.then113 ], [ %range.03229.ph, %if.then121 ], [ %range.03229.ph, %if.then129 ], [ %range.03229.ph, %if.then137 ], [ %range.03229.ph, %if.then145 ], [ %range.03229.ph, %if.then153 ], [ %range.03229.ph, %if.then162 ], [ %range.03229.ph, %if.then171 ], [ %range.03229.ph, %if.then179 ], [ %range.03229.ph, %if.then408 ], [ %call.i621, %_ZL11parseDoubleRdPKc.exit ], [ %range.03229.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %range.03229.ph, %if.end466 ], [ %range.03229.ph, %if.end532 ], [ %range.03229.ph, %if.end735 ], [ %range.03229.ph, %if.end755 ], [ %range.03229.ph, %if.end847 ], [ %range.03229.ph, %if.then856 ], [ %range.03229.ph, %if.end887 ], [ %range.03229.ph, %if.end918 ], [ %range.03229.ph, %if.then929 ], [ %range.03229.ph, %if.then937 ], [ %range.03229.ph, %if.then945 ], [ %range.03229.ph, %if.then953 ], [ %range.03229.ph, %if.then961 ], [ %range.03229.ph, %if.then969 ], [ %range.03229.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %range.03229.ph, %if.end515 ], [ %range.03229.ph, %if.end493 ], [ %range.03229.ph, %if.end400 ], [ %range.03229.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %range.03229.ph, %for.cond.preheader ], [ %range.03229.ph, %if.else213 ], [ %range.03229.ph, %if.else206 ], [ %range.03229.ph, %if.else ], [ %range.03229.ph, %lor.lhs.false199 ], [ %range.03229.ph, %if.then187 ], [ %range.03229.ph, %if.else220 ], [ %range.03229.ph, %if.then233 ], [ %range.03229.ph, %do.body359 ], [ %range.03229.ph, %do.body347 ], [ %range.03229.ph, %do.body329 ], [ %range.03229.ph, %do.body311 ], [ %range.03229.ph, %do.body293 ], [ %range.03229.ph, %do.body275 ], [ %range.03229.ph, %do.body257 ], [ %range.03229.ph, %do.body ], [ %range.03229.ph, %if.else364 ], [ %range.03229.ph, %if.then585 ], [ %range.03229.ph, %if.then619 ], [ %range.03229.ph, %if.then665 ], [ %range.03229.ph, %if.then693 ], [ %range.03229.ph, %if.else706 ], [ %range.03229.ph, %if.then676 ], [ %range.03229.ph, %if.then648 ], [ %range.03229.ph, %if.then602 ], [ %range.03229.ph, %if.then558 ], [ %range.03229.ph, %if.else778 ], [ %range.03229.ph, %if.else771 ], [ %range.03229.ph, %if.then764 ], [ %range.03229.ph, %if.else785 ]
-  %rangeMode.0.be = phi i32 [ %rangeMode.03230.ph, %if.then9 ], [ %rangeMode.03230.ph, %if.then13 ], [ %rangeMode.03230.ph, %if.then18 ], [ %rangeMode.03230.ph, %if.then23 ], [ %rangeMode.03230.ph, %if.then28 ], [ %rangeMode.03230.ph, %if.then35 ], [ %rangeMode.03230.ph, %sw.epilog ], [ %rangeMode.03230.ph, %if.then72 ], [ %rangeMode.03230.ph, %if.then83 ], [ %rangeMode.03230.ph, %if.then91 ], [ %rangeMode.03230.ph, %if.then102 ], [ %rangeMode.03230.ph, %if.then113 ], [ %rangeMode.03230.ph, %if.then121 ], [ %rangeMode.03230.ph, %if.then129 ], [ %rangeMode.03230.ph, %if.then137 ], [ %rangeMode.03230.ph, %if.then145 ], [ %rangeMode.03230.ph, %if.then153 ], [ %rangeMode.03230.ph, %if.then162 ], [ %rangeMode.03230.ph, %if.then171 ], [ %rangeMode.03230.ph, %if.then179 ], [ %rangeMode.03230.ph, %if.then408 ], [ 0, %_ZL11parseDoubleRdPKc.exit ], [ 1, %_ZL11parseDoubleRdPKc.exit630 ], [ %rangeMode.03230.ph, %if.end466 ], [ %rangeMode.03230.ph, %if.end532 ], [ %rangeMode.03230.ph, %if.end735 ], [ %rangeMode.03230.ph, %if.end755 ], [ %rangeMode.03230.ph, %if.end847 ], [ %rangeMode.03230.ph, %if.then856 ], [ %rangeMode.03230.ph, %if.end887 ], [ %rangeMode.03230.ph, %if.end918 ], [ %rangeMode.03230.ph, %if.then929 ], [ %rangeMode.03230.ph, %if.then937 ], [ %rangeMode.03230.ph, %if.then945 ], [ %rangeMode.03230.ph, %if.then953 ], [ %rangeMode.03230.ph, %if.then961 ], [ %rangeMode.03230.ph, %if.then969 ], [ %rangeMode.03230.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %rangeMode.03230.ph, %if.end515 ], [ %rangeMode.03230.ph, %if.end493 ], [ %rangeMode.03230.ph, %if.end400 ], [ %rangeMode.03230.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %rangeMode.03230.ph, %for.cond.preheader ], [ %rangeMode.03230.ph, %if.else213 ], [ %rangeMode.03230.ph, %if.else206 ], [ %rangeMode.03230.ph, %if.else ], [ %rangeMode.03230.ph, %lor.lhs.false199 ], [ %rangeMode.03230.ph, %if.then187 ], [ %rangeMode.03230.ph, %if.else220 ], [ %rangeMode.03230.ph, %if.then233 ], [ %rangeMode.03230.ph, %do.body359 ], [ %rangeMode.03230.ph, %do.body347 ], [ %rangeMode.03230.ph, %do.body329 ], [ %rangeMode.03230.ph, %do.body311 ], [ %rangeMode.03230.ph, %do.body293 ], [ %rangeMode.03230.ph, %do.body275 ], [ %rangeMode.03230.ph, %do.body257 ], [ %rangeMode.03230.ph, %do.body ], [ %rangeMode.03230.ph, %if.else364 ], [ %rangeMode.03230.ph, %if.then585 ], [ %rangeMode.03230.ph, %if.then619 ], [ %rangeMode.03230.ph, %if.then665 ], [ %rangeMode.03230.ph, %if.then693 ], [ %rangeMode.03230.ph, %if.else706 ], [ %rangeMode.03230.ph, %if.then676 ], [ %rangeMode.03230.ph, %if.then648 ], [ %rangeMode.03230.ph, %if.then602 ], [ %rangeMode.03230.ph, %if.then558 ], [ %rangeMode.03230.ph, %if.else778 ], [ %rangeMode.03230.ph, %if.else771 ], [ %rangeMode.03230.ph, %if.then764 ], [ %rangeMode.03230.ph, %if.else785 ]
-  %autoFrame.0.be = phi i1 [ %autoFrame.03231.ph, %if.then9 ], [ %autoFrame.03231.ph, %if.then13 ], [ %autoFrame.03231.ph, %if.then18 ], [ %autoFrame.03231.ph, %if.then23 ], [ %autoFrame.03231.ph, %if.then28 ], [ %autoFrame.03231.ph, %if.then35 ], [ %autoFrame.03231.ph, %sw.epilog ], [ %autoFrame.03231.ph, %if.then72 ], [ %autoFrame.03231.ph, %if.then83 ], [ %autoFrame.03231.ph, %if.then91 ], [ %autoFrame.03231.ph, %if.then102 ], [ %autoFrame.03231.ph, %if.then113 ], [ %autoFrame.03231.ph, %if.then121 ], [ %autoFrame.03231.ph, %if.then129 ], [ %autoFrame.03231.ph, %if.then137 ], [ %autoFrame.03231.ph, %if.then145 ], [ %autoFrame.03231.ph, %if.then153 ], [ %autoFrame.03231.ph, %if.then162 ], [ %autoFrame.03231.ph, %if.then171 ], [ %autoFrame.03231.ph, %if.then179 ], [ true, %if.then408 ], [ %autoFrame.03231.ph, %_ZL11parseDoubleRdPKc.exit ], [ %autoFrame.03231.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %autoFrame.03231.ph, %if.end466 ], [ %autoFrame.03231.ph, %if.end532 ], [ %autoFrame.03231.ph, %if.end735 ], [ %autoFrame.03231.ph, %if.end755 ], [ %autoFrame.03231.ph, %if.end847 ], [ %autoFrame.03231.ph, %if.then856 ], [ %autoFrame.03231.ph, %if.end887 ], [ %autoFrame.03231.ph, %if.end918 ], [ %autoFrame.03231.ph, %if.then929 ], [ %autoFrame.03231.ph, %if.then937 ], [ %autoFrame.03231.ph, %if.then945 ], [ %autoFrame.03231.ph, %if.then953 ], [ %autoFrame.03231.ph, %if.then961 ], [ %autoFrame.03231.ph, %if.then969 ], [ %autoFrame.03231.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %autoFrame.03231.ph, %if.end515 ], [ %autoFrame.03231.ph, %if.end493 ], [ %autoFrame.03231.ph, %if.end400 ], [ %autoFrame.03231.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %autoFrame.03231.ph, %for.cond.preheader ], [ %autoFrame.03231.ph, %if.else213 ], [ %autoFrame.03231.ph, %if.else206 ], [ %autoFrame.03231.ph, %if.else ], [ %autoFrame.03231.ph, %lor.lhs.false199 ], [ %autoFrame.03231.ph, %if.then187 ], [ %autoFrame.03231.ph, %if.else220 ], [ %autoFrame.03231.ph, %if.then233 ], [ %autoFrame.03231.ph, %do.body359 ], [ %autoFrame.03231.ph, %do.body347 ], [ %autoFrame.03231.ph, %do.body329 ], [ %autoFrame.03231.ph, %do.body311 ], [ %autoFrame.03231.ph, %do.body293 ], [ %autoFrame.03231.ph, %do.body275 ], [ %autoFrame.03231.ph, %do.body257 ], [ %autoFrame.03231.ph, %do.body ], [ %autoFrame.03231.ph, %if.else364 ], [ %autoFrame.03231.ph, %if.then585 ], [ %autoFrame.03231.ph, %if.then619 ], [ %autoFrame.03231.ph, %if.then665 ], [ %autoFrame.03231.ph, %if.then693 ], [ %autoFrame.03231.ph, %if.else706 ], [ %autoFrame.03231.ph, %if.then676 ], [ %autoFrame.03231.ph, %if.then648 ], [ %autoFrame.03231.ph, %if.then602 ], [ %autoFrame.03231.ph, %if.then558 ], [ %autoFrame.03231.ph, %if.else778 ], [ %autoFrame.03231.ph, %if.else771 ], [ %autoFrame.03231.ph, %if.then764 ], [ %autoFrame.03231.ph, %if.else785 ]
-  %testHeightM.0.be = phi i32 [ %testHeightM.03232.ph, %if.then9 ], [ %testHeightM.03232.ph, %if.then13 ], [ %testHeightM.03232.ph, %if.then18 ], [ %testHeightM.03232.ph, %if.then23 ], [ %testHeightM.03232.ph, %if.then28 ], [ %testHeightM.03232.ph, %if.then35 ], [ %testHeightM.03232.ph, %sw.epilog ], [ %testHeightM.03232.ph, %if.then72 ], [ %testHeightM.03232.ph, %if.then83 ], [ %testHeightM.03232.ph, %if.then91 ], [ %testHeightM.03232.ph, %if.then102 ], [ %testHeightM.03232.ph, %if.then113 ], [ %testHeightM.03232.ph, %if.then121 ], [ %testHeightM.03232.ph, %if.then129 ], [ %testHeightM.03232.ph, %if.then137 ], [ %testHeightM.03232.ph, %if.then145 ], [ %testHeightM.03232.ph, %if.then153 ], [ %testHeightM.03232.ph, %if.then162 ], [ %testHeightM.03232.ph, %if.then171 ], [ %testHeightM.03232.ph, %if.then179 ], [ %testHeightM.03232.ph, %if.then408 ], [ %testHeightM.03232.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testHeightM.03232.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testHeightM.03232.ph, %if.end466 ], [ %testHeightM.03232.ph, %if.end532 ], [ %testHeightM.03232.ph, %if.end735 ], [ %testHeightM.03232.ph, %if.end755 ], [ %testHeightM.03232.ph, %if.end847 ], [ %testHeightM.03232.ph, %if.then856 ], [ %testHeightM.03232.ph, %if.end887 ], [ %conv.i705, %if.end918 ], [ %testHeightM.03232.ph, %if.then929 ], [ %testHeightM.03232.ph, %if.then937 ], [ %testHeightM.03232.ph, %if.then945 ], [ %testHeightM.03232.ph, %if.then953 ], [ %testHeightM.03232.ph, %if.then961 ], [ %testHeightM.03232.ph, %if.then969 ], [ %testHeightM.03232.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testHeightM.03232.ph, %if.end515 ], [ %testHeightM.03232.ph, %if.end493 ], [ %testHeightM.03232.ph, %if.end400 ], [ %testHeightM.03232.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testHeightM.03232.ph, %for.cond.preheader ], [ %testHeightM.03232.ph, %if.else213 ], [ %testHeightM.03232.ph, %if.else206 ], [ %testHeightM.03232.ph, %if.else ], [ %testHeightM.03232.ph, %lor.lhs.false199 ], [ %testHeightM.03232.ph, %if.then187 ], [ %testHeightM.03232.ph, %if.else220 ], [ %testHeightM.03232.ph, %if.then233 ], [ %testHeightM.03232.ph, %do.body359 ], [ %testHeightM.03232.ph, %do.body347 ], [ %testHeightM.03232.ph, %do.body329 ], [ %testHeightM.03232.ph, %do.body311 ], [ %testHeightM.03232.ph, %do.body293 ], [ %testHeightM.03232.ph, %do.body275 ], [ %testHeightM.03232.ph, %do.body257 ], [ %testHeightM.03232.ph, %do.body ], [ %testHeightM.03232.ph, %if.else364 ], [ %testHeightM.03232.ph, %if.then585 ], [ %testHeightM.03232.ph, %if.then619 ], [ %testHeightM.03232.ph, %if.then665 ], [ %testHeightM.03232.ph, %if.then693 ], [ %testHeightM.03232.ph, %if.else706 ], [ %testHeightM.03232.ph, %if.then676 ], [ %testHeightM.03232.ph, %if.then648 ], [ %testHeightM.03232.ph, %if.then602 ], [ %testHeightM.03232.ph, %if.then558 ], [ %testHeightM.03232.ph, %if.else778 ], [ %testHeightM.03232.ph, %if.else771 ], [ %testHeightM.03232.ph, %if.then764 ], [ %testHeightM.03232.ph, %if.else785 ]
-  %testWidthM.0.be = phi i32 [ %testWidthM.03233.ph, %if.then9 ], [ %testWidthM.03233.ph, %if.then13 ], [ %testWidthM.03233.ph, %if.then18 ], [ %testWidthM.03233.ph, %if.then23 ], [ %testWidthM.03233.ph, %if.then28 ], [ %testWidthM.03233.ph, %if.then35 ], [ %testWidthM.03233.ph, %sw.epilog ], [ %testWidthM.03233.ph, %if.then72 ], [ %testWidthM.03233.ph, %if.then83 ], [ %testWidthM.03233.ph, %if.then91 ], [ %testWidthM.03233.ph, %if.then102 ], [ %testWidthM.03233.ph, %if.then113 ], [ %testWidthM.03233.ph, %if.then121 ], [ %testWidthM.03233.ph, %if.then129 ], [ %testWidthM.03233.ph, %if.then137 ], [ %testWidthM.03233.ph, %if.then145 ], [ %testWidthM.03233.ph, %if.then153 ], [ %testWidthM.03233.ph, %if.then162 ], [ %testWidthM.03233.ph, %if.then171 ], [ %testWidthM.03233.ph, %if.then179 ], [ %testWidthM.03233.ph, %if.then408 ], [ %testWidthM.03233.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testWidthM.03233.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testWidthM.03233.ph, %if.end466 ], [ %testWidthM.03233.ph, %if.end532 ], [ %testWidthM.03233.ph, %if.end735 ], [ %testWidthM.03233.ph, %if.end755 ], [ %testWidthM.03233.ph, %if.end847 ], [ %testWidthM.03233.ph, %if.then856 ], [ %testWidthM.03233.ph, %if.end887 ], [ %conv.i698, %if.end918 ], [ %testWidthM.03233.ph, %if.then929 ], [ %testWidthM.03233.ph, %if.then937 ], [ %testWidthM.03233.ph, %if.then945 ], [ %testWidthM.03233.ph, %if.then953 ], [ %testWidthM.03233.ph, %if.then961 ], [ %testWidthM.03233.ph, %if.then969 ], [ %testWidthM.03233.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testWidthM.03233.ph, %if.end515 ], [ %testWidthM.03233.ph, %if.end493 ], [ %testWidthM.03233.ph, %if.end400 ], [ %testWidthM.03233.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testWidthM.03233.ph, %for.cond.preheader ], [ %testWidthM.03233.ph, %if.else213 ], [ %testWidthM.03233.ph, %if.else206 ], [ %testWidthM.03233.ph, %if.else ], [ %testWidthM.03233.ph, %lor.lhs.false199 ], [ %testWidthM.03233.ph, %if.then187 ], [ %testWidthM.03233.ph, %if.else220 ], [ %testWidthM.03233.ph, %if.then233 ], [ %testWidthM.03233.ph, %do.body359 ], [ %testWidthM.03233.ph, %do.body347 ], [ %testWidthM.03233.ph, %do.body329 ], [ %testWidthM.03233.ph, %do.body311 ], [ %testWidthM.03233.ph, %do.body293 ], [ %testWidthM.03233.ph, %do.body275 ], [ %testWidthM.03233.ph, %do.body257 ], [ %testWidthM.03233.ph, %do.body ], [ %testWidthM.03233.ph, %if.else364 ], [ %testWidthM.03233.ph, %if.then585 ], [ %testWidthM.03233.ph, %if.then619 ], [ %testWidthM.03233.ph, %if.then665 ], [ %testWidthM.03233.ph, %if.then693 ], [ %testWidthM.03233.ph, %if.else706 ], [ %testWidthM.03233.ph, %if.then676 ], [ %testWidthM.03233.ph, %if.then648 ], [ %testWidthM.03233.ph, %if.then602 ], [ %testWidthM.03233.ph, %if.then558 ], [ %testWidthM.03233.ph, %if.else778 ], [ %testWidthM.03233.ph, %if.else771 ], [ %testWidthM.03233.ph, %if.then764 ], [ %testWidthM.03233.ph, %if.else785 ]
-  %testHeight.0.be = phi i32 [ %testHeight.03234.ph, %if.then9 ], [ %testHeight.03234.ph, %if.then13 ], [ %testHeight.03234.ph, %if.then18 ], [ %testHeight.03234.ph, %if.then23 ], [ %testHeight.03234.ph, %if.then28 ], [ %testHeight.03234.ph, %if.then35 ], [ %testHeight.03234.ph, %sw.epilog ], [ %testHeight.03234.ph, %if.then72 ], [ %testHeight.03234.ph, %if.then83 ], [ %testHeight.03234.ph, %if.then91 ], [ %testHeight.03234.ph, %if.then102 ], [ %testHeight.03234.ph, %if.then113 ], [ %testHeight.03234.ph, %if.then121 ], [ %testHeight.03234.ph, %if.then129 ], [ %testHeight.03234.ph, %if.then137 ], [ %testHeight.03234.ph, %if.then145 ], [ %testHeight.03234.ph, %if.then153 ], [ %testHeight.03234.ph, %if.then162 ], [ %testHeight.03234.ph, %if.then171 ], [ %testHeight.03234.ph, %if.then179 ], [ %testHeight.03234.ph, %if.then408 ], [ %testHeight.03234.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testHeight.03234.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testHeight.03234.ph, %if.end466 ], [ %testHeight.03234.ph, %if.end532 ], [ %testHeight.03234.ph, %if.end735 ], [ %testHeight.03234.ph, %if.end755 ], [ %testHeight.03234.ph, %if.end847 ], [ %testHeight.03234.ph, %if.then856 ], [ %conv.i691, %if.end887 ], [ %testHeight.03234.ph, %if.end918 ], [ %testHeight.03234.ph, %if.then929 ], [ %testHeight.03234.ph, %if.then937 ], [ %testHeight.03234.ph, %if.then945 ], [ %testHeight.03234.ph, %if.then953 ], [ %testHeight.03234.ph, %if.then961 ], [ %testHeight.03234.ph, %if.then969 ], [ %testHeight.03234.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testHeight.03234.ph, %if.end515 ], [ %testHeight.03234.ph, %if.end493 ], [ %testHeight.03234.ph, %if.end400 ], [ %testHeight.03234.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testHeight.03234.ph, %for.cond.preheader ], [ %testHeight.03234.ph, %if.else213 ], [ %testHeight.03234.ph, %if.else206 ], [ %testHeight.03234.ph, %if.else ], [ %testHeight.03234.ph, %lor.lhs.false199 ], [ %testHeight.03234.ph, %if.then187 ], [ %testHeight.03234.ph, %if.else220 ], [ %testHeight.03234.ph, %if.then233 ], [ %testHeight.03234.ph, %do.body359 ], [ %testHeight.03234.ph, %do.body347 ], [ %testHeight.03234.ph, %do.body329 ], [ %testHeight.03234.ph, %do.body311 ], [ %testHeight.03234.ph, %do.body293 ], [ %testHeight.03234.ph, %do.body275 ], [ %testHeight.03234.ph, %do.body257 ], [ %testHeight.03234.ph, %do.body ], [ %testHeight.03234.ph, %if.else364 ], [ %testHeight.03234.ph, %if.then585 ], [ %testHeight.03234.ph, %if.then619 ], [ %testHeight.03234.ph, %if.then665 ], [ %testHeight.03234.ph, %if.then693 ], [ %testHeight.03234.ph, %if.else706 ], [ %testHeight.03234.ph, %if.then676 ], [ %testHeight.03234.ph, %if.then648 ], [ %testHeight.03234.ph, %if.then602 ], [ %testHeight.03234.ph, %if.then558 ], [ %testHeight.03234.ph, %if.else778 ], [ %testHeight.03234.ph, %if.else771 ], [ %testHeight.03234.ph, %if.then764 ], [ %testHeight.03234.ph, %if.else785 ]
-  %testWidth.0.be = phi i32 [ %testWidth.03235.ph, %if.then9 ], [ %testWidth.03235.ph, %if.then13 ], [ %testWidth.03235.ph, %if.then18 ], [ %testWidth.03235.ph, %if.then23 ], [ %testWidth.03235.ph, %if.then28 ], [ %testWidth.03235.ph, %if.then35 ], [ %testWidth.03235.ph, %sw.epilog ], [ %testWidth.03235.ph, %if.then72 ], [ %testWidth.03235.ph, %if.then83 ], [ %testWidth.03235.ph, %if.then91 ], [ %testWidth.03235.ph, %if.then102 ], [ %testWidth.03235.ph, %if.then113 ], [ %testWidth.03235.ph, %if.then121 ], [ %testWidth.03235.ph, %if.then129 ], [ %testWidth.03235.ph, %if.then137 ], [ %testWidth.03235.ph, %if.then145 ], [ %testWidth.03235.ph, %if.then153 ], [ %testWidth.03235.ph, %if.then162 ], [ %testWidth.03235.ph, %if.then171 ], [ %testWidth.03235.ph, %if.then179 ], [ %testWidth.03235.ph, %if.then408 ], [ %testWidth.03235.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testWidth.03235.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testWidth.03235.ph, %if.end466 ], [ %testWidth.03235.ph, %if.end532 ], [ %testWidth.03235.ph, %if.end735 ], [ %testWidth.03235.ph, %if.end755 ], [ %testWidth.03235.ph, %if.end847 ], [ %testWidth.03235.ph, %if.then856 ], [ %conv.i684, %if.end887 ], [ %testWidth.03235.ph, %if.end918 ], [ %testWidth.03235.ph, %if.then929 ], [ %testWidth.03235.ph, %if.then937 ], [ %testWidth.03235.ph, %if.then945 ], [ %testWidth.03235.ph, %if.then953 ], [ %testWidth.03235.ph, %if.then961 ], [ %testWidth.03235.ph, %if.then969 ], [ %testWidth.03235.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testWidth.03235.ph, %if.end515 ], [ %testWidth.03235.ph, %if.end493 ], [ %testWidth.03235.ph, %if.end400 ], [ %testWidth.03235.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testWidth.03235.ph, %for.cond.preheader ], [ %testWidth.03235.ph, %if.else213 ], [ %testWidth.03235.ph, %if.else206 ], [ %testWidth.03235.ph, %if.else ], [ %testWidth.03235.ph, %lor.lhs.false199 ], [ %testWidth.03235.ph, %if.then187 ], [ %testWidth.03235.ph, %if.else220 ], [ %testWidth.03235.ph, %if.then233 ], [ %testWidth.03235.ph, %do.body359 ], [ %testWidth.03235.ph, %do.body347 ], [ %testWidth.03235.ph, %do.body329 ], [ %testWidth.03235.ph, %do.body311 ], [ %testWidth.03235.ph, %do.body293 ], [ %testWidth.03235.ph, %do.body275 ], [ %testWidth.03235.ph, %do.body257 ], [ %testWidth.03235.ph, %do.body ], [ %testWidth.03235.ph, %if.else364 ], [ %testWidth.03235.ph, %if.then585 ], [ %testWidth.03235.ph, %if.then619 ], [ %testWidth.03235.ph, %if.then665 ], [ %testWidth.03235.ph, %if.then693 ], [ %testWidth.03235.ph, %if.else706 ], [ %testWidth.03235.ph, %if.then676 ], [ %testWidth.03235.ph, %if.then648 ], [ %testWidth.03235.ph, %if.then602 ], [ %testWidth.03235.ph, %if.then558 ], [ %testWidth.03235.ph, %if.else778 ], [ %testWidth.03235.ph, %if.else771 ], [ %testWidth.03235.ph, %if.then764 ], [ %testWidth.03235.ph, %if.else785 ]
-  %height.0.be = phi i32 [ %height.03236.ph, %if.then9 ], [ %height.03236.ph, %if.then13 ], [ %height.03236.ph, %if.then18 ], [ %height.03236.ph, %if.then23 ], [ %height.03236.ph, %if.then28 ], [ %height.03236.ph, %if.then35 ], [ %height.03236.ph, %sw.epilog ], [ %height.03236.ph, %if.then72 ], [ %height.03236.ph, %if.then83 ], [ %height.03236.ph, %if.then91 ], [ %height.03236.ph, %if.then102 ], [ %height.03236.ph, %if.then113 ], [ %height.03236.ph, %if.then121 ], [ %height.03236.ph, %if.then129 ], [ %height.03236.ph, %if.then137 ], [ %height.03236.ph, %if.then145 ], [ %height.03236.ph, %if.then153 ], [ %height.03236.ph, %if.then162 ], [ %height.03236.ph, %if.then171 ], [ %height.03236.ph, %if.then179 ], [ %height.03236.ph, %if.then408 ], [ %height.03236.ph, %_ZL11parseDoubleRdPKc.exit ], [ %height.03236.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %height.03236.ph, %if.end466 ], [ %height.03236.ph, %if.end532 ], [ %height.03236.ph, %if.end735 ], [ %height.03236.ph, %if.end755 ], [ %height.03236.ph, %if.end847 ], [ %height.03236.ph, %if.then856 ], [ %height.03236.ph, %if.end887 ], [ %height.03236.ph, %if.end918 ], [ %height.03236.ph, %if.then929 ], [ %height.03236.ph, %if.then937 ], [ %height.03236.ph, %if.then945 ], [ %height.03236.ph, %if.then953 ], [ %height.03236.ph, %if.then961 ], [ %height.03236.ph, %if.then969 ], [ %height.03236.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %height.03236.ph, %if.end515 ], [ %height.03236.ph, %if.end493 ], [ %conv.i615, %if.end400 ], [ %height.03236.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %height.03236.ph, %for.cond.preheader ], [ %height.03236.ph, %if.else213 ], [ %height.03236.ph, %if.else206 ], [ %height.03236.ph, %if.else ], [ %height.03236.ph, %lor.lhs.false199 ], [ %height.03236.ph, %if.then187 ], [ %height.03236.ph, %if.else220 ], [ %height.03236.ph, %if.then233 ], [ %height.03236.ph, %do.body359 ], [ %height.03236.ph, %do.body347 ], [ %height.03236.ph, %do.body329 ], [ %height.03236.ph, %do.body311 ], [ %height.03236.ph, %do.body293 ], [ %height.03236.ph, %do.body275 ], [ %height.03236.ph, %do.body257 ], [ %height.03236.ph, %do.body ], [ %height.03236.ph, %if.else364 ], [ %height.03236.ph, %if.then585 ], [ %height.03236.ph, %if.then619 ], [ %height.03236.ph, %if.then665 ], [ %height.03236.ph, %if.then693 ], [ %height.03236.ph, %if.else706 ], [ %height.03236.ph, %if.then676 ], [ %height.03236.ph, %if.then648 ], [ %height.03236.ph, %if.then602 ], [ %height.03236.ph, %if.then558 ], [ %height.03236.ph, %if.else778 ], [ %height.03236.ph, %if.else771 ], [ %height.03236.ph, %if.then764 ], [ %height.03236.ph, %if.else785 ]
-  %width.0.be = phi i32 [ %width.03237.ph, %if.then9 ], [ %width.03237.ph, %if.then13 ], [ %width.03237.ph, %if.then18 ], [ %width.03237.ph, %if.then23 ], [ %width.03237.ph, %if.then28 ], [ %width.03237.ph, %if.then35 ], [ %width.03237.ph, %sw.epilog ], [ %width.03237.ph, %if.then72 ], [ %width.03237.ph, %if.then83 ], [ %width.03237.ph, %if.then91 ], [ %width.03237.ph, %if.then102 ], [ %width.03237.ph, %if.then113 ], [ %width.03237.ph, %if.then121 ], [ %width.03237.ph, %if.then129 ], [ %width.03237.ph, %if.then137 ], [ %width.03237.ph, %if.then145 ], [ %width.03237.ph, %if.then153 ], [ %width.03237.ph, %if.then162 ], [ %width.03237.ph, %if.then171 ], [ %width.03237.ph, %if.then179 ], [ %width.03237.ph, %if.then408 ], [ %width.03237.ph, %_ZL11parseDoubleRdPKc.exit ], [ %width.03237.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %width.03237.ph, %if.end466 ], [ %width.03237.ph, %if.end532 ], [ %width.03237.ph, %if.end735 ], [ %width.03237.ph, %if.end755 ], [ %width.03237.ph, %if.end847 ], [ %width.03237.ph, %if.then856 ], [ %width.03237.ph, %if.end887 ], [ %width.03237.ph, %if.end918 ], [ %width.03237.ph, %if.then929 ], [ %width.03237.ph, %if.then937 ], [ %width.03237.ph, %if.then945 ], [ %width.03237.ph, %if.then953 ], [ %width.03237.ph, %if.then961 ], [ %width.03237.ph, %if.then969 ], [ %width.03237.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %width.03237.ph, %if.end515 ], [ %width.03237.ph, %if.end493 ], [ %conv.i, %if.end400 ], [ %width.03237.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %width.03237.ph, %for.cond.preheader ], [ %width.03237.ph, %if.else213 ], [ %width.03237.ph, %if.else206 ], [ %width.03237.ph, %if.else ], [ %width.03237.ph, %lor.lhs.false199 ], [ %width.03237.ph, %if.then187 ], [ %width.03237.ph, %if.else220 ], [ %width.03237.ph, %if.then233 ], [ %width.03237.ph, %do.body359 ], [ %width.03237.ph, %do.body347 ], [ %width.03237.ph, %do.body329 ], [ %width.03237.ph, %do.body311 ], [ %width.03237.ph, %do.body293 ], [ %width.03237.ph, %do.body275 ], [ %width.03237.ph, %do.body257 ], [ %width.03237.ph, %do.body ], [ %width.03237.ph, %if.else364 ], [ %width.03237.ph, %if.then585 ], [ %width.03237.ph, %if.then619 ], [ %width.03237.ph, %if.then665 ], [ %width.03237.ph, %if.then693 ], [ %width.03237.ph, %if.else706 ], [ %width.03237.ph, %if.then676 ], [ %width.03237.ph, %if.then648 ], [ %width.03237.ph, %if.then602 ], [ %width.03237.ph, %if.then558 ], [ %width.03237.ph, %if.else778 ], [ %width.03237.ph, %if.else771 ], [ %width.03237.ph, %if.then764 ], [ %width.03237.ph, %if.else785 ]
-  %glyphIndexSpecified.0.be = phi i1 [ %glyphIndexSpecified.03238.ph, %if.then9 ], [ %glyphIndexSpecified.03238.ph, %if.then13 ], [ %glyphIndexSpecified.03238.ph, %if.then18 ], [ %glyphIndexSpecified.03238.ph, %if.then23 ], [ %glyphIndexSpecified.03238.ph, %if.then28 ], [ %glyphIndexSpecified.03238.ph, %if.then35 ], [ %glyphIndexSpecified.1, %sw.epilog ], [ %glyphIndexSpecified.03238.ph, %if.then72 ], [ %glyphIndexSpecified.03238.ph, %if.then83 ], [ %glyphIndexSpecified.03238.ph, %if.then91 ], [ %glyphIndexSpecified.03238.ph, %if.then102 ], [ %glyphIndexSpecified.03238.ph, %if.then113 ], [ %glyphIndexSpecified.03238.ph, %if.then121 ], [ %glyphIndexSpecified.03238.ph, %if.then129 ], [ %glyphIndexSpecified.03238.ph, %if.then137 ], [ %glyphIndexSpecified.03238.ph, %if.then145 ], [ %glyphIndexSpecified.03238.ph, %if.then153 ], [ %glyphIndexSpecified.03238.ph, %if.then162 ], [ %glyphIndexSpecified.03238.ph, %if.then171 ], [ %glyphIndexSpecified.03238.ph, %if.then179 ], [ %glyphIndexSpecified.03238.ph, %if.then408 ], [ %glyphIndexSpecified.03238.ph, %_ZL11parseDoubleRdPKc.exit ], [ %glyphIndexSpecified.03238.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %glyphIndexSpecified.03238.ph, %if.end466 ], [ %glyphIndexSpecified.03238.ph, %if.end532 ], [ %glyphIndexSpecified.03238.ph, %if.end735 ], [ %glyphIndexSpecified.03238.ph, %if.end755 ], [ %glyphIndexSpecified.03238.ph, %if.end847 ], [ %glyphIndexSpecified.03238.ph, %if.then856 ], [ %glyphIndexSpecified.03238.ph, %if.end887 ], [ %glyphIndexSpecified.03238.ph, %if.end918 ], [ %glyphIndexSpecified.03238.ph, %if.then929 ], [ %glyphIndexSpecified.03238.ph, %if.then937 ], [ %glyphIndexSpecified.03238.ph, %if.then945 ], [ %glyphIndexSpecified.03238.ph, %if.then953 ], [ %glyphIndexSpecified.03238.ph, %if.then961 ], [ %glyphIndexSpecified.03238.ph, %if.then969 ], [ %glyphIndexSpecified.03238.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %glyphIndexSpecified.03238.ph, %if.end515 ], [ %glyphIndexSpecified.03238.ph, %if.end493 ], [ %glyphIndexSpecified.03238.ph, %if.end400 ], [ %glyphIndexSpecified.03238.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %glyphIndexSpecified.03238.ph, %for.cond.preheader ], [ %glyphIndexSpecified.03238.ph, %if.else213 ], [ %glyphIndexSpecified.03238.ph, %if.else206 ], [ %glyphIndexSpecified.03238.ph, %if.else ], [ %glyphIndexSpecified.03238.ph, %lor.lhs.false199 ], [ %glyphIndexSpecified.03238.ph, %if.then187 ], [ %glyphIndexSpecified.03238.ph, %if.else220 ], [ %glyphIndexSpecified.03238.ph, %if.then233 ], [ %glyphIndexSpecified.03238.ph, %do.body359 ], [ %glyphIndexSpecified.03238.ph, %do.body347 ], [ %glyphIndexSpecified.03238.ph, %do.body329 ], [ %glyphIndexSpecified.03238.ph, %do.body311 ], [ %glyphIndexSpecified.03238.ph, %do.body293 ], [ %glyphIndexSpecified.03238.ph, %do.body275 ], [ %glyphIndexSpecified.03238.ph, %do.body257 ], [ %glyphIndexSpecified.03238.ph, %do.body ], [ %glyphIndexSpecified.03238.ph, %if.else364 ], [ %glyphIndexSpecified.03238.ph, %if.then585 ], [ %glyphIndexSpecified.03238.ph, %if.then619 ], [ %glyphIndexSpecified.03238.ph, %if.then665 ], [ %glyphIndexSpecified.03238.ph, %if.then693 ], [ %glyphIndexSpecified.03238.ph, %if.else706 ], [ %glyphIndexSpecified.03238.ph, %if.then676 ], [ %glyphIndexSpecified.03238.ph, %if.then648 ], [ %glyphIndexSpecified.03238.ph, %if.then602 ], [ %glyphIndexSpecified.03238.ph, %if.then558 ], [ %glyphIndexSpecified.03238.ph, %if.else778 ], [ %glyphIndexSpecified.03238.ph, %if.else771 ], [ %glyphIndexSpecified.03238.ph, %if.then764 ], [ %glyphIndexSpecified.03238.ph, %if.else785 ]
-  %outputSpecified.0.be = phi i8 [ %outputSpecified.03239.ph, %if.then9 ], [ %outputSpecified.03239.ph, %if.then13 ], [ %outputSpecified.03239.ph, %if.then18 ], [ %outputSpecified.03239.ph, %if.then23 ], [ %outputSpecified.03239.ph, %if.then28 ], [ %outputSpecified.03239.ph, %if.then35 ], [ %outputSpecified.03239.ph, %sw.epilog ], [ %outputSpecified.03239.ph, %if.then72 ], [ %outputSpecified.03239.ph, %if.then83 ], [ %outputSpecified.03239.ph, %if.then91 ], [ 1, %if.then102 ], [ %outputSpecified.03239.ph, %if.then113 ], [ %outputSpecified.03239.ph, %if.then121 ], [ %outputSpecified.03239.ph, %if.then129 ], [ %outputSpecified.03239.ph, %if.then137 ], [ %outputSpecified.03239.ph, %if.then145 ], [ %outputSpecified.03239.ph, %if.then153 ], [ %outputSpecified.03239.ph, %if.then162 ], [ %outputSpecified.03239.ph, %if.then171 ], [ %outputSpecified.03239.ph, %if.then179 ], [ %outputSpecified.03239.ph, %if.then408 ], [ %outputSpecified.03239.ph, %_ZL11parseDoubleRdPKc.exit ], [ %outputSpecified.03239.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %outputSpecified.03239.ph, %if.end466 ], [ %outputSpecified.03239.ph, %if.end532 ], [ %outputSpecified.03239.ph, %if.end735 ], [ %outputSpecified.03239.ph, %if.end755 ], [ %outputSpecified.03239.ph, %if.end847 ], [ %outputSpecified.03239.ph, %if.then856 ], [ %outputSpecified.03239.ph, %if.end887 ], [ %outputSpecified.03239.ph, %if.end918 ], [ %outputSpecified.03239.ph, %if.then929 ], [ %outputSpecified.03239.ph, %if.then937 ], [ %outputSpecified.03239.ph, %if.then945 ], [ %outputSpecified.03239.ph, %if.then953 ], [ %outputSpecified.03239.ph, %if.then961 ], [ %outputSpecified.03239.ph, %if.then969 ], [ %outputSpecified.03239.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %outputSpecified.03239.ph, %if.end515 ], [ %outputSpecified.03239.ph, %if.end493 ], [ %outputSpecified.03239.ph, %if.end400 ], [ %outputSpecified.03239.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %outputSpecified.03239.ph, %for.cond.preheader ], [ %outputSpecified.03239.ph, %if.else213 ], [ %outputSpecified.03239.ph, %if.else206 ], [ %outputSpecified.03239.ph, %if.else ], [ %outputSpecified.03239.ph, %lor.lhs.false199 ], [ %outputSpecified.03239.ph, %if.then187 ], [ %outputSpecified.03239.ph, %if.else220 ], [ %outputSpecified.03239.ph, %if.then233 ], [ %outputSpecified.03239.ph, %do.body359 ], [ %outputSpecified.03239.ph, %do.body347 ], [ %outputSpecified.03239.ph, %do.body329 ], [ %outputSpecified.03239.ph, %do.body311 ], [ %outputSpecified.03239.ph, %do.body293 ], [ %outputSpecified.03239.ph, %do.body275 ], [ %outputSpecified.03239.ph, %do.body257 ], [ %outputSpecified.03239.ph, %do.body ], [ %outputSpecified.03239.ph, %if.else364 ], [ %outputSpecified.03239.ph, %if.then585 ], [ %outputSpecified.03239.ph, %if.then619 ], [ %outputSpecified.03239.ph, %if.then665 ], [ %outputSpecified.03239.ph, %if.then693 ], [ %outputSpecified.03239.ph, %if.else706 ], [ %outputSpecified.03239.ph, %if.then676 ], [ %outputSpecified.03239.ph, %if.then648 ], [ %outputSpecified.03239.ph, %if.then602 ], [ %outputSpecified.03239.ph, %if.then558 ], [ %outputSpecified.03239.ph, %if.else778 ], [ %outputSpecified.03239.ph, %if.else771 ], [ %outputSpecified.03239.ph, %if.then764 ], [ %outputSpecified.03239.ph, %if.else785 ]
-  %testRenderMulti.0.be = phi ptr [ %testRenderMulti.03240.ph, %if.then9 ], [ %testRenderMulti.03240.ph, %if.then13 ], [ %testRenderMulti.03240.ph, %if.then18 ], [ %testRenderMulti.03240.ph, %if.then23 ], [ %testRenderMulti.03240.ph, %if.then28 ], [ %testRenderMulti.03240.ph, %if.then35 ], [ %testRenderMulti.03240.ph, %sw.epilog ], [ %testRenderMulti.03240.ph, %if.then72 ], [ %testRenderMulti.03240.ph, %if.then83 ], [ %testRenderMulti.03240.ph, %if.then91 ], [ %testRenderMulti.03240.ph, %if.then102 ], [ %testRenderMulti.03240.ph, %if.then113 ], [ %testRenderMulti.03240.ph, %if.then121 ], [ %testRenderMulti.03240.ph, %if.then129 ], [ %testRenderMulti.03240.ph, %if.then137 ], [ %testRenderMulti.03240.ph, %if.then145 ], [ %testRenderMulti.03240.ph, %if.then153 ], [ %testRenderMulti.03240.ph, %if.then162 ], [ %testRenderMulti.03240.ph, %if.then171 ], [ %testRenderMulti.03240.ph, %if.then179 ], [ %testRenderMulti.03240.ph, %if.then408 ], [ %testRenderMulti.03240.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testRenderMulti.03240.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testRenderMulti.03240.ph, %if.end466 ], [ %testRenderMulti.03240.ph, %if.end532 ], [ %testRenderMulti.03240.ph, %if.end735 ], [ %testRenderMulti.03240.ph, %if.end755 ], [ %testRenderMulti.03240.ph, %if.end847 ], [ %testRenderMulti.03240.ph, %if.then856 ], [ %testRenderMulti.03240.ph, %if.end887 ], [ %135, %if.end918 ], [ %testRenderMulti.03240.ph, %if.then929 ], [ %testRenderMulti.03240.ph, %if.then937 ], [ %testRenderMulti.03240.ph, %if.then945 ], [ %testRenderMulti.03240.ph, %if.then953 ], [ %testRenderMulti.03240.ph, %if.then961 ], [ %testRenderMulti.03240.ph, %if.then969 ], [ %testRenderMulti.03240.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testRenderMulti.03240.ph, %if.end515 ], [ %testRenderMulti.03240.ph, %if.end493 ], [ %testRenderMulti.03240.ph, %if.end400 ], [ %testRenderMulti.03240.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testRenderMulti.03240.ph, %for.cond.preheader ], [ %testRenderMulti.03240.ph, %if.else213 ], [ %testRenderMulti.03240.ph, %if.else206 ], [ %testRenderMulti.03240.ph, %if.else ], [ %testRenderMulti.03240.ph, %lor.lhs.false199 ], [ %testRenderMulti.03240.ph, %if.then187 ], [ %testRenderMulti.03240.ph, %if.else220 ], [ %testRenderMulti.03240.ph, %if.then233 ], [ %testRenderMulti.03240.ph, %do.body359 ], [ %testRenderMulti.03240.ph, %do.body347 ], [ %testRenderMulti.03240.ph, %do.body329 ], [ %testRenderMulti.03240.ph, %do.body311 ], [ %testRenderMulti.03240.ph, %do.body293 ], [ %testRenderMulti.03240.ph, %do.body275 ], [ %testRenderMulti.03240.ph, %do.body257 ], [ %testRenderMulti.03240.ph, %do.body ], [ %testRenderMulti.03240.ph, %if.else364 ], [ %testRenderMulti.03240.ph, %if.then585 ], [ %testRenderMulti.03240.ph, %if.then619 ], [ %testRenderMulti.03240.ph, %if.then665 ], [ %testRenderMulti.03240.ph, %if.then693 ], [ %testRenderMulti.03240.ph, %if.else706 ], [ %testRenderMulti.03240.ph, %if.then676 ], [ %testRenderMulti.03240.ph, %if.then648 ], [ %testRenderMulti.03240.ph, %if.then602 ], [ %testRenderMulti.03240.ph, %if.then558 ], [ %testRenderMulti.03240.ph, %if.else778 ], [ %testRenderMulti.03240.ph, %if.else771 ], [ %testRenderMulti.03240.ph, %if.then764 ], [ %testRenderMulti.03240.ph, %if.else785 ]
-  %testRender.0.be = phi ptr [ %testRender.03241.ph, %if.then9 ], [ %testRender.03241.ph, %if.then13 ], [ %testRender.03241.ph, %if.then18 ], [ %testRender.03241.ph, %if.then23 ], [ %testRender.03241.ph, %if.then28 ], [ %testRender.03241.ph, %if.then35 ], [ %testRender.03241.ph, %sw.epilog ], [ %testRender.03241.ph, %if.then72 ], [ %testRender.03241.ph, %if.then83 ], [ %testRender.03241.ph, %if.then91 ], [ %testRender.03241.ph, %if.then102 ], [ %testRender.03241.ph, %if.then113 ], [ %testRender.03241.ph, %if.then121 ], [ %testRender.03241.ph, %if.then129 ], [ %testRender.03241.ph, %if.then137 ], [ %testRender.03241.ph, %if.then145 ], [ %testRender.03241.ph, %if.then153 ], [ %testRender.03241.ph, %if.then162 ], [ %testRender.03241.ph, %if.then171 ], [ %testRender.03241.ph, %if.then179 ], [ %testRender.03241.ph, %if.then408 ], [ %testRender.03241.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testRender.03241.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testRender.03241.ph, %if.end466 ], [ %testRender.03241.ph, %if.end532 ], [ %testRender.03241.ph, %if.end735 ], [ %testRender.03241.ph, %if.end755 ], [ %testRender.03241.ph, %if.end847 ], [ %testRender.03241.ph, %if.then856 ], [ %126, %if.end887 ], [ %testRender.03241.ph, %if.end918 ], [ %testRender.03241.ph, %if.then929 ], [ %testRender.03241.ph, %if.then937 ], [ %testRender.03241.ph, %if.then945 ], [ %testRender.03241.ph, %if.then953 ], [ %testRender.03241.ph, %if.then961 ], [ %testRender.03241.ph, %if.then969 ], [ %testRender.03241.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testRender.03241.ph, %if.end515 ], [ %testRender.03241.ph, %if.end493 ], [ %testRender.03241.ph, %if.end400 ], [ %testRender.03241.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testRender.03241.ph, %for.cond.preheader ], [ %testRender.03241.ph, %if.else213 ], [ %testRender.03241.ph, %if.else206 ], [ %testRender.03241.ph, %if.else ], [ %testRender.03241.ph, %lor.lhs.false199 ], [ %testRender.03241.ph, %if.then187 ], [ %testRender.03241.ph, %if.else220 ], [ %testRender.03241.ph, %if.then233 ], [ %testRender.03241.ph, %do.body359 ], [ %testRender.03241.ph, %do.body347 ], [ %testRender.03241.ph, %do.body329 ], [ %testRender.03241.ph, %do.body311 ], [ %testRender.03241.ph, %do.body293 ], [ %testRender.03241.ph, %do.body275 ], [ %testRender.03241.ph, %do.body257 ], [ %testRender.03241.ph, %do.body ], [ %testRender.03241.ph, %if.else364 ], [ %testRender.03241.ph, %if.then585 ], [ %testRender.03241.ph, %if.then619 ], [ %testRender.03241.ph, %if.then665 ], [ %testRender.03241.ph, %if.then693 ], [ %testRender.03241.ph, %if.else706 ], [ %testRender.03241.ph, %if.then676 ], [ %testRender.03241.ph, %if.then648 ], [ %testRender.03241.ph, %if.then602 ], [ %testRender.03241.ph, %if.then558 ], [ %testRender.03241.ph, %if.else778 ], [ %testRender.03241.ph, %if.else771 ], [ %testRender.03241.ph, %if.then764 ], [ %testRender.03241.ph, %if.else785 ]
-  %shapeExport.0.be = phi ptr [ %shapeExport.03242.ph, %if.then9 ], [ %shapeExport.03242.ph, %if.then13 ], [ %shapeExport.03242.ph, %if.then18 ], [ %shapeExport.03242.ph, %if.then23 ], [ %shapeExport.03242.ph, %if.then28 ], [ %shapeExport.03242.ph, %if.then35 ], [ %shapeExport.03242.ph, %sw.epilog ], [ %shapeExport.03242.ph, %if.then72 ], [ %shapeExport.03242.ph, %if.then83 ], [ %shapeExport.03242.ph, %if.then91 ], [ %shapeExport.03242.ph, %if.then102 ], [ %shapeExport.03242.ph, %if.then113 ], [ %shapeExport.03242.ph, %if.then121 ], [ %shapeExport.03242.ph, %if.then129 ], [ %shapeExport.03242.ph, %if.then137 ], [ %shapeExport.03242.ph, %if.then145 ], [ %shapeExport.03242.ph, %if.then153 ], [ %shapeExport.03242.ph, %if.then162 ], [ %shapeExport.03242.ph, %if.then171 ], [ %shapeExport.03242.ph, %if.then179 ], [ %shapeExport.03242.ph, %if.then408 ], [ %shapeExport.03242.ph, %_ZL11parseDoubleRdPKc.exit ], [ %shapeExport.03242.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %shapeExport.03242.ph, %if.end466 ], [ %shapeExport.03242.ph, %if.end532 ], [ %shapeExport.03242.ph, %if.end735 ], [ %shapeExport.03242.ph, %if.end755 ], [ %shapeExport.03242.ph, %if.end847 ], [ %117, %if.then856 ], [ %shapeExport.03242.ph, %if.end887 ], [ %shapeExport.03242.ph, %if.end918 ], [ %shapeExport.03242.ph, %if.then929 ], [ %shapeExport.03242.ph, %if.then937 ], [ %shapeExport.03242.ph, %if.then945 ], [ %shapeExport.03242.ph, %if.then953 ], [ %shapeExport.03242.ph, %if.then961 ], [ %shapeExport.03242.ph, %if.then969 ], [ %shapeExport.03242.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %shapeExport.03242.ph, %if.end515 ], [ %shapeExport.03242.ph, %if.end493 ], [ %shapeExport.03242.ph, %if.end400 ], [ %shapeExport.03242.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %shapeExport.03242.ph, %for.cond.preheader ], [ %shapeExport.03242.ph, %if.else213 ], [ %shapeExport.03242.ph, %if.else206 ], [ %shapeExport.03242.ph, %if.else ], [ %shapeExport.03242.ph, %lor.lhs.false199 ], [ %shapeExport.03242.ph, %if.then187 ], [ %shapeExport.03242.ph, %if.else220 ], [ %shapeExport.03242.ph, %if.then233 ], [ %shapeExport.03242.ph, %do.body359 ], [ %shapeExport.03242.ph, %do.body347 ], [ %shapeExport.03242.ph, %do.body329 ], [ %shapeExport.03242.ph, %do.body311 ], [ %shapeExport.03242.ph, %do.body293 ], [ %shapeExport.03242.ph, %do.body275 ], [ %shapeExport.03242.ph, %do.body257 ], [ %shapeExport.03242.ph, %do.body ], [ %shapeExport.03242.ph, %if.else364 ], [ %shapeExport.03242.ph, %if.then585 ], [ %shapeExport.03242.ph, %if.then619 ], [ %shapeExport.03242.ph, %if.then665 ], [ %shapeExport.03242.ph, %if.then693 ], [ %shapeExport.03242.ph, %if.else706 ], [ %shapeExport.03242.ph, %if.then676 ], [ %shapeExport.03242.ph, %if.then648 ], [ %shapeExport.03242.ph, %if.then602 ], [ %shapeExport.03242.ph, %if.then558 ], [ %shapeExport.03242.ph, %if.else778 ], [ %shapeExport.03242.ph, %if.else771 ], [ %shapeExport.03242.ph, %if.then764 ], [ %shapeExport.03242.ph, %if.else785 ]
-  %output.0.be = phi ptr [ %output.03243.ph, %if.then9 ], [ %output.03243.ph, %if.then13 ], [ %output.03243.ph, %if.then18 ], [ %output.03243.ph, %if.then23 ], [ %output.03243.ph, %if.then28 ], [ %output.03243.ph, %if.then35 ], [ %output.03243.ph, %sw.epilog ], [ %output.03243.ph, %if.then72 ], [ %output.03243.ph, %if.then83 ], [ %output.03243.ph, %if.then91 ], [ %35, %if.then102 ], [ null, %if.then113 ], [ %output.03243.ph, %if.then121 ], [ %output.03243.ph, %if.then129 ], [ %output.03243.ph, %if.then137 ], [ %output.03243.ph, %if.then145 ], [ %output.03243.ph, %if.then153 ], [ %output.03243.ph, %if.then162 ], [ %output.03243.ph, %if.then171 ], [ %output.03243.ph, %if.then179 ], [ %output.03243.ph, %if.then408 ], [ %output.03243.ph, %_ZL11parseDoubleRdPKc.exit ], [ %output.03243.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %output.03243.ph, %if.end466 ], [ %output.03243.ph, %if.end532 ], [ %output.03243.ph, %if.end735 ], [ %output.03243.ph, %if.end755 ], [ %output.03243.ph, %if.end847 ], [ %output.03243.ph, %if.then856 ], [ %output.03243.ph, %if.end887 ], [ %output.03243.ph, %if.end918 ], [ %output.03243.ph, %if.then929 ], [ %output.03243.ph, %if.then937 ], [ %output.03243.ph, %if.then945 ], [ %output.03243.ph, %if.then953 ], [ %output.03243.ph, %if.then961 ], [ %output.03243.ph, %if.then969 ], [ %output.03243.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %output.03243.ph, %if.end515 ], [ %output.03243.ph, %if.end493 ], [ %output.03243.ph, %if.end400 ], [ %output.03243.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %output.03243.ph, %for.cond.preheader ], [ %output.03243.ph, %if.else213 ], [ %output.03243.ph, %if.else206 ], [ %output.03243.ph, %if.else ], [ %output.03243.ph, %lor.lhs.false199 ], [ %output.03243.ph, %if.then187 ], [ %output.03243.ph, %if.else220 ], [ %output.03243.ph, %if.then233 ], [ %spec.select595, %do.body359 ], [ %spec.select594, %do.body347 ], [ %spec.select593, %do.body329 ], [ %spec.select592, %do.body311 ], [ %spec.select591, %do.body293 ], [ %spec.select590, %do.body275 ], [ %spec.select589, %do.body257 ], [ %spec.select588, %do.body ], [ %output.03243.ph, %if.else364 ], [ %output.03243.ph, %if.then585 ], [ %output.03243.ph, %if.then619 ], [ %output.03243.ph, %if.then665 ], [ %output.03243.ph, %if.then693 ], [ %output.03243.ph, %if.else706 ], [ %output.03243.ph, %if.then676 ], [ %output.03243.ph, %if.then648 ], [ %output.03243.ph, %if.then602 ], [ %output.03243.ph, %if.then558 ], [ %output.03243.ph, %if.else778 ], [ %output.03243.ph, %if.else771 ], [ %output.03243.ph, %if.then764 ], [ %output.03243.ph, %if.else785 ]
-  %input.0.be = phi ptr [ %input.03244.ph, %if.then9 ], [ %input.03244.ph, %if.then13 ], [ %input.03244.ph, %if.then18 ], [ %input.03244.ph, %if.then23 ], [ %input.03244.ph, %if.then28 ], [ %11, %if.then35 ], [ %12, %sw.epilog ], [ %28, %if.then72 ], [ @.str.11, %if.then83 ], [ %29, %if.then91 ], [ %input.03244.ph, %if.then102 ], [ %input.03244.ph, %if.then113 ], [ %input.03244.ph, %if.then121 ], [ %input.03244.ph, %if.then129 ], [ %input.03244.ph, %if.then137 ], [ %input.03244.ph, %if.then145 ], [ %input.03244.ph, %if.then153 ], [ %input.03244.ph, %if.then162 ], [ %input.03244.ph, %if.then171 ], [ %input.03244.ph, %if.then179 ], [ %input.03244.ph, %if.then408 ], [ %input.03244.ph, %_ZL11parseDoubleRdPKc.exit ], [ %input.03244.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %input.03244.ph, %if.end466 ], [ %input.03244.ph, %if.end532 ], [ %input.03244.ph, %if.end735 ], [ %input.03244.ph, %if.end755 ], [ %input.03244.ph, %if.end847 ], [ %input.03244.ph, %if.then856 ], [ %input.03244.ph, %if.end887 ], [ %input.03244.ph, %if.end918 ], [ %input.03244.ph, %if.then929 ], [ %input.03244.ph, %if.then937 ], [ %input.03244.ph, %if.then945 ], [ %input.03244.ph, %if.then953 ], [ %input.03244.ph, %if.then961 ], [ %input.03244.ph, %if.then969 ], [ %input.03244.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %input.03244.ph, %if.end515 ], [ %input.03244.ph, %if.end493 ], [ %input.03244.ph, %if.end400 ], [ %input.03244.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %input.03244.ph, %for.cond.preheader ], [ %input.03244.ph, %if.else213 ], [ %input.03244.ph, %if.else206 ], [ %input.03244.ph, %if.else ], [ %input.03244.ph, %lor.lhs.false199 ], [ %input.03244.ph, %if.then187 ], [ %input.03244.ph, %if.else220 ], [ %input.03244.ph, %if.then233 ], [ %input.03244.ph, %do.body359 ], [ %input.03244.ph, %do.body347 ], [ %input.03244.ph, %do.body329 ], [ %input.03244.ph, %do.body311 ], [ %input.03244.ph, %do.body293 ], [ %input.03244.ph, %do.body275 ], [ %input.03244.ph, %do.body257 ], [ %input.03244.ph, %do.body ], [ %input.03244.ph, %if.else364 ], [ %input.03244.ph, %if.then585 ], [ %input.03244.ph, %if.then619 ], [ %input.03244.ph, %if.then665 ], [ %input.03244.ph, %if.then693 ], [ %input.03244.ph, %if.else706 ], [ %input.03244.ph, %if.then676 ], [ %input.03244.ph, %if.then648 ], [ %input.03244.ph, %if.then602 ], [ %input.03244.ph, %if.then558 ], [ %input.03244.ph, %if.else778 ], [ %input.03244.ph, %if.else771 ], [ %input.03244.ph, %if.then764 ], [ %input.03244.ph, %if.else785 ]
-  %fillRule.0.be = phi i32 [ %fillRule.03245.ph, %if.then9 ], [ %fillRule.03245.ph, %if.then13 ], [ %fillRule.03245.ph, %if.then18 ], [ %fillRule.03245.ph, %if.then23 ], [ %fillRule.03245.ph, %if.then28 ], [ %fillRule.03245.ph, %if.then35 ], [ %fillRule.03245.ph, %sw.epilog ], [ %fillRule.03245.ph, %if.then72 ], [ %fillRule.03245.ph, %if.then83 ], [ %fillRule.03245.ph, %if.then91 ], [ %fillRule.03245.ph, %if.then102 ], [ %fillRule.03245.ph, %if.then113 ], [ %fillRule.03245.ph, %if.then121 ], [ %fillRule.03245.ph, %if.then129 ], [ %fillRule.03245.ph, %if.then137 ], [ %fillRule.03245.ph, %if.then145 ], [ %fillRule.03245.ph, %if.then153 ], [ %fillRule.03245.ph, %if.then162 ], [ %fillRule.03245.ph, %if.then171 ], [ %fillRule.03245.ph, %if.then179 ], [ %fillRule.03245.ph, %if.then408 ], [ %fillRule.03245.ph, %_ZL11parseDoubleRdPKc.exit ], [ %fillRule.03245.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %fillRule.03245.ph, %if.end466 ], [ %fillRule.03245.ph, %if.end532 ], [ %fillRule.03245.ph, %if.end735 ], [ %fillRule.03245.ph, %if.end755 ], [ %fillRule.03245.ph, %if.end847 ], [ %fillRule.03245.ph, %if.then856 ], [ %fillRule.03245.ph, %if.end887 ], [ %fillRule.03245.ph, %if.end918 ], [ %fillRule.03245.ph, %if.then929 ], [ %fillRule.03245.ph, %if.then937 ], [ %fillRule.03245.ph, %if.then945 ], [ %fillRule.03245.ph, %if.then953 ], [ %fillRule.03245.ph, %if.then961 ], [ %fillRule.03245.ph, %if.then969 ], [ %fillRule.03245.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %fillRule.03245.ph, %if.end515 ], [ %fillRule.03245.ph, %if.end493 ], [ %fillRule.03245.ph, %if.end400 ], [ %fillRule.03245.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %fillRule.03245.ph, %for.cond.preheader ], [ 3, %if.else213 ], [ 2, %if.else206 ], [ 1, %if.else ], [ 1, %lor.lhs.false199 ], [ 0, %if.then187 ], [ %fillRule.03245.ph, %if.else220 ], [ %fillRule.03245.ph, %if.then233 ], [ %fillRule.03245.ph, %do.body359 ], [ %fillRule.03245.ph, %do.body347 ], [ %fillRule.03245.ph, %do.body329 ], [ %fillRule.03245.ph, %do.body311 ], [ %fillRule.03245.ph, %do.body293 ], [ %fillRule.03245.ph, %do.body275 ], [ %fillRule.03245.ph, %do.body257 ], [ %fillRule.03245.ph, %do.body ], [ %fillRule.03245.ph, %if.else364 ], [ %fillRule.03245.ph, %if.then585 ], [ %fillRule.03245.ph, %if.then619 ], [ %fillRule.03245.ph, %if.then665 ], [ %fillRule.03245.ph, %if.then693 ], [ %fillRule.03245.ph, %if.else706 ], [ %fillRule.03245.ph, %if.then676 ], [ %fillRule.03245.ph, %if.then648 ], [ %fillRule.03245.ph, %if.then602 ], [ %fillRule.03245.ph, %if.then558 ], [ %fillRule.03245.ph, %if.else778 ], [ %fillRule.03245.ph, %if.else771 ], [ %fillRule.03245.ph, %if.then764 ], [ %fillRule.03245.ph, %if.else785 ]
-  %scanlinePass.0.be = phi i1 [ %scanlinePass.03246.ph, %if.then9 ], [ %scanlinePass.03246.ph, %if.then13 ], [ %scanlinePass.03246.ph, %if.then18 ], [ %scanlinePass.03246.ph, %if.then23 ], [ %scanlinePass.03246.ph, %if.then28 ], [ %scanlinePass.03246.ph, %if.then35 ], [ %scanlinePass.03246.ph, %sw.epilog ], [ %scanlinePass.03246.ph, %if.then72 ], [ %scanlinePass.03246.ph, %if.then83 ], [ %scanlinePass.03246.ph, %if.then91 ], [ %scanlinePass.03246.ph, %if.then102 ], [ %scanlinePass.03246.ph, %if.then113 ], [ %scanlinePass.03246.ph, %if.then121 ], [ %scanlinePass.03246.ph, %if.then129 ], [ %scanlinePass.03246.ph, %if.then137 ], [ %scanlinePass.03246.ph, %if.then145 ], [ %scanlinePass.03246.ph, %if.then153 ], [ %scanlinePass.03246.ph, %if.then162 ], [ false, %if.then171 ], [ true, %if.then179 ], [ %scanlinePass.03246.ph, %if.then408 ], [ %scanlinePass.03246.ph, %_ZL11parseDoubleRdPKc.exit ], [ %scanlinePass.03246.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %scanlinePass.03246.ph, %if.end466 ], [ %scanlinePass.03246.ph, %if.end532 ], [ %scanlinePass.03246.ph, %if.end735 ], [ %scanlinePass.03246.ph, %if.end755 ], [ %scanlinePass.03246.ph, %if.end847 ], [ %scanlinePass.03246.ph, %if.then856 ], [ %scanlinePass.03246.ph, %if.end887 ], [ %scanlinePass.03246.ph, %if.end918 ], [ %scanlinePass.03246.ph, %if.then929 ], [ %scanlinePass.03246.ph, %if.then937 ], [ %scanlinePass.03246.ph, %if.then945 ], [ %scanlinePass.03246.ph, %if.then953 ], [ %scanlinePass.03246.ph, %if.then961 ], [ %scanlinePass.03246.ph, %if.then969 ], [ %scanlinePass.03246.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %scanlinePass.03246.ph, %if.end515 ], [ %scanlinePass.03246.ph, %if.end493 ], [ %scanlinePass.03246.ph, %if.end400 ], [ %scanlinePass.03246.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %scanlinePass.03246.ph, %for.cond.preheader ], [ true, %if.else213 ], [ true, %if.else206 ], [ true, %if.else ], [ true, %lor.lhs.false199 ], [ true, %if.then187 ], [ true, %if.else220 ], [ %scanlinePass.03246.ph, %if.then233 ], [ %scanlinePass.03246.ph, %do.body359 ], [ %scanlinePass.03246.ph, %do.body347 ], [ %scanlinePass.03246.ph, %do.body329 ], [ %scanlinePass.03246.ph, %do.body311 ], [ %scanlinePass.03246.ph, %do.body293 ], [ %scanlinePass.03246.ph, %do.body275 ], [ %scanlinePass.03246.ph, %do.body257 ], [ %scanlinePass.03246.ph, %do.body ], [ %scanlinePass.03246.ph, %if.else364 ], [ %scanlinePass.03246.ph, %if.then585 ], [ %scanlinePass.03246.ph, %if.then619 ], [ %scanlinePass.03246.ph, %if.then665 ], [ %scanlinePass.03246.ph, %if.then693 ], [ %scanlinePass.03246.ph, %if.else706 ], [ %scanlinePass.03246.ph, %if.then676 ], [ %scanlinePass.03246.ph, %if.then648 ], [ %scanlinePass.03246.ph, %if.then602 ], [ %scanlinePass.03246.ph, %if.then558 ], [ %scanlinePass.03246.ph, %if.else778 ], [ %scanlinePass.03246.ph, %if.else771 ], [ %scanlinePass.03246.ph, %if.then764 ], [ %scanlinePass.03246.ph, %if.else785 ]
-  %legacyMode.0.be = phi i8 [ %legacyMode.03247.ph, %if.then9 ], [ %legacyMode.03247.ph, %if.then13 ], [ %legacyMode.03247.ph, %if.then18 ], [ %legacyMode.03247.ph, %if.then23 ], [ %legacyMode.03247.ph, %if.then28 ], [ %legacyMode.03247.ph, %if.then35 ], [ %legacyMode.03247.ph, %sw.epilog ], [ %legacyMode.03247.ph, %if.then72 ], [ %legacyMode.03247.ph, %if.then83 ], [ %legacyMode.03247.ph, %if.then91 ], [ %legacyMode.03247.ph, %if.then102 ], [ %legacyMode.03247.ph, %if.then113 ], [ 1, %if.then121 ], [ %legacyMode.03247.ph, %if.then129 ], [ %legacyMode.03247.ph, %if.then137 ], [ %legacyMode.03247.ph, %if.then145 ], [ %legacyMode.03247.ph, %if.then153 ], [ %legacyMode.03247.ph, %if.then162 ], [ %legacyMode.03247.ph, %if.then171 ], [ %legacyMode.03247.ph, %if.then179 ], [ %legacyMode.03247.ph, %if.then408 ], [ %legacyMode.03247.ph, %_ZL11parseDoubleRdPKc.exit ], [ %legacyMode.03247.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %legacyMode.03247.ph, %if.end466 ], [ %legacyMode.03247.ph, %if.end532 ], [ %legacyMode.03247.ph, %if.end735 ], [ %legacyMode.03247.ph, %if.end755 ], [ %legacyMode.03247.ph, %if.end847 ], [ %legacyMode.03247.ph, %if.then856 ], [ %legacyMode.03247.ph, %if.end887 ], [ %legacyMode.03247.ph, %if.end918 ], [ %legacyMode.03247.ph, %if.then929 ], [ %legacyMode.03247.ph, %if.then937 ], [ %legacyMode.03247.ph, %if.then945 ], [ %legacyMode.03247.ph, %if.then953 ], [ %legacyMode.03247.ph, %if.then961 ], [ %legacyMode.03247.ph, %if.then969 ], [ %legacyMode.03247.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %legacyMode.03247.ph, %if.end515 ], [ %legacyMode.03247.ph, %if.end493 ], [ %legacyMode.03247.ph, %if.end400 ], [ %legacyMode.03247.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %legacyMode.03247.ph, %for.cond.preheader ], [ %legacyMode.03247.ph, %if.else213 ], [ %legacyMode.03247.ph, %if.else206 ], [ %legacyMode.03247.ph, %if.else ], [ %legacyMode.03247.ph, %lor.lhs.false199 ], [ %legacyMode.03247.ph, %if.then187 ], [ %legacyMode.03247.ph, %if.else220 ], [ %legacyMode.03247.ph, %if.then233 ], [ %legacyMode.03247.ph, %do.body359 ], [ %legacyMode.03247.ph, %do.body347 ], [ %legacyMode.03247.ph, %do.body329 ], [ %legacyMode.03247.ph, %do.body311 ], [ %legacyMode.03247.ph, %do.body293 ], [ %legacyMode.03247.ph, %do.body275 ], [ %legacyMode.03247.ph, %do.body257 ], [ %legacyMode.03247.ph, %do.body ], [ %legacyMode.03247.ph, %if.else364 ], [ %legacyMode.03247.ph, %if.then585 ], [ %legacyMode.03247.ph, %if.then619 ], [ %legacyMode.03247.ph, %if.then665 ], [ %legacyMode.03247.ph, %if.then693 ], [ %legacyMode.03247.ph, %if.else706 ], [ %legacyMode.03247.ph, %if.then676 ], [ %legacyMode.03247.ph, %if.then648 ], [ %legacyMode.03247.ph, %if.then602 ], [ %legacyMode.03247.ph, %if.then558 ], [ %legacyMode.03247.ph, %if.else778 ], [ %legacyMode.03247.ph, %if.else771 ], [ %legacyMode.03247.ph, %if.then764 ], [ %legacyMode.03247.ph, %if.else785 ]
-  %geometryPreproc.0.be = phi i32 [ %geometryPreproc.03248.ph, %if.then9 ], [ %geometryPreproc.03248.ph, %if.then13 ], [ %geometryPreproc.03248.ph, %if.then18 ], [ %geometryPreproc.03248.ph, %if.then23 ], [ %geometryPreproc.03248.ph, %if.then28 ], [ %geometryPreproc.03248.ph, %if.then35 ], [ %geometryPreproc.03248.ph, %sw.epilog ], [ %geometryPreproc.03248.ph, %if.then72 ], [ %geometryPreproc.03248.ph, %if.then83 ], [ %geometryPreproc.03248.ph, %if.then91 ], [ %geometryPreproc.03248.ph, %if.then102 ], [ %geometryPreproc.03248.ph, %if.then113 ], [ %geometryPreproc.03248.ph, %if.then121 ], [ 0, %if.then129 ], [ 1, %if.then137 ], [ 2, %if.then145 ], [ %geometryPreproc.03248.ph, %if.then153 ], [ %geometryPreproc.03248.ph, %if.then162 ], [ %geometryPreproc.03248.ph, %if.then171 ], [ %geometryPreproc.03248.ph, %if.then179 ], [ %geometryPreproc.03248.ph, %if.then408 ], [ %geometryPreproc.03248.ph, %_ZL11parseDoubleRdPKc.exit ], [ %geometryPreproc.03248.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %geometryPreproc.03248.ph, %if.end466 ], [ %geometryPreproc.03248.ph, %if.end532 ], [ %geometryPreproc.03248.ph, %if.end735 ], [ %geometryPreproc.03248.ph, %if.end755 ], [ %geometryPreproc.03248.ph, %if.end847 ], [ %geometryPreproc.03248.ph, %if.then856 ], [ %geometryPreproc.03248.ph, %if.end887 ], [ %geometryPreproc.03248.ph, %if.end918 ], [ %geometryPreproc.03248.ph, %if.then929 ], [ %geometryPreproc.03248.ph, %if.then937 ], [ %geometryPreproc.03248.ph, %if.then945 ], [ %geometryPreproc.03248.ph, %if.then953 ], [ %geometryPreproc.03248.ph, %if.then961 ], [ %geometryPreproc.03248.ph, %if.then969 ], [ %geometryPreproc.03248.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %geometryPreproc.03248.ph, %if.end515 ], [ %geometryPreproc.03248.ph, %if.end493 ], [ %geometryPreproc.03248.ph, %if.end400 ], [ %geometryPreproc.03248.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %geometryPreproc.03248.ph, %for.cond.preheader ], [ %geometryPreproc.03248.ph, %if.else213 ], [ %geometryPreproc.03248.ph, %if.else206 ], [ %geometryPreproc.03248.ph, %if.else ], [ %geometryPreproc.03248.ph, %lor.lhs.false199 ], [ %geometryPreproc.03248.ph, %if.then187 ], [ %geometryPreproc.03248.ph, %if.else220 ], [ %geometryPreproc.03248.ph, %if.then233 ], [ %geometryPreproc.03248.ph, %do.body359 ], [ %geometryPreproc.03248.ph, %do.body347 ], [ %geometryPreproc.03248.ph, %do.body329 ], [ %geometryPreproc.03248.ph, %do.body311 ], [ %geometryPreproc.03248.ph, %do.body293 ], [ %geometryPreproc.03248.ph, %do.body275 ], [ %geometryPreproc.03248.ph, %do.body257 ], [ %geometryPreproc.03248.ph, %do.body ], [ %geometryPreproc.03248.ph, %if.else364 ], [ %geometryPreproc.03248.ph, %if.then585 ], [ %geometryPreproc.03248.ph, %if.then619 ], [ %geometryPreproc.03248.ph, %if.then665 ], [ %geometryPreproc.03248.ph, %if.then693 ], [ %geometryPreproc.03248.ph, %if.else706 ], [ %geometryPreproc.03248.ph, %if.then676 ], [ %geometryPreproc.03248.ph, %if.then648 ], [ %geometryPreproc.03248.ph, %if.then602 ], [ %geometryPreproc.03248.ph, %if.then558 ], [ %geometryPreproc.03248.ph, %if.else778 ], [ %geometryPreproc.03248.ph, %if.else771 ], [ %geometryPreproc.03248.ph, %if.then764 ], [ %geometryPreproc.03248.ph, %if.else785 ]
-  %mode.0.be = phi i32 [ 0, %if.then9 ], [ 1, %if.then13 ], [ 2, %if.then18 ], [ 3, %if.then23 ], [ 4, %if.then28 ], [ %mode.03249.ph, %if.then35 ], [ %mode.03249.ph, %sw.epilog ], [ %mode.03249.ph, %if.then72 ], [ %mode.03249.ph, %if.then83 ], [ %mode.03249.ph, %if.then91 ], [ %mode.03249.ph, %if.then102 ], [ %mode.03249.ph, %if.then113 ], [ %mode.03249.ph, %if.then121 ], [ %mode.03249.ph, %if.then129 ], [ %mode.03249.ph, %if.then137 ], [ %mode.03249.ph, %if.then145 ], [ %mode.03249.ph, %if.then153 ], [ %mode.03249.ph, %if.then162 ], [ %mode.03249.ph, %if.then171 ], [ %mode.03249.ph, %if.then179 ], [ %mode.03249.ph, %if.then408 ], [ %mode.03249.ph, %_ZL11parseDoubleRdPKc.exit ], [ %mode.03249.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %mode.03249.ph, %if.end466 ], [ %mode.03249.ph, %if.end532 ], [ %mode.03249.ph, %if.end735 ], [ %mode.03249.ph, %if.end755 ], [ %mode.03249.ph, %if.end847 ], [ %mode.03249.ph, %if.then856 ], [ %mode.03249.ph, %if.end887 ], [ %mode.03249.ph, %if.end918 ], [ %mode.03249.ph, %if.then929 ], [ %mode.03249.ph, %if.then937 ], [ %mode.03249.ph, %if.then945 ], [ %mode.03249.ph, %if.then953 ], [ %mode.03249.ph, %if.then961 ], [ %mode.03249.ph, %if.then969 ], [ %mode.03249.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %mode.03249.ph, %if.end515 ], [ %mode.03249.ph, %if.end493 ], [ %mode.03249.ph, %if.end400 ], [ %mode.03249.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %mode.03249.ph, %for.cond.preheader ], [ %mode.03249.ph, %if.else213 ], [ %mode.03249.ph, %if.else206 ], [ %mode.03249.ph, %if.else ], [ %mode.03249.ph, %lor.lhs.false199 ], [ %mode.03249.ph, %if.then187 ], [ %mode.03249.ph, %if.else220 ], [ %mode.03249.ph, %if.then233 ], [ %mode.03249.ph, %do.body359 ], [ %mode.03249.ph, %do.body347 ], [ %mode.03249.ph, %do.body329 ], [ %mode.03249.ph, %do.body311 ], [ %mode.03249.ph, %do.body293 ], [ %mode.03249.ph, %do.body275 ], [ %mode.03249.ph, %do.body257 ], [ %mode.03249.ph, %do.body ], [ %mode.03249.ph, %if.else364 ], [ %mode.03249.ph, %if.then585 ], [ %mode.03249.ph, %if.then619 ], [ %mode.03249.ph, %if.then665 ], [ %mode.03249.ph, %if.then693 ], [ %mode.03249.ph, %if.else706 ], [ %mode.03249.ph, %if.then676 ], [ %mode.03249.ph, %if.then648 ], [ %mode.03249.ph, %if.then602 ], [ %mode.03249.ph, %if.then558 ], [ %mode.03249.ph, %if.else778 ], [ %mode.03249.ph, %if.else771 ], [ %mode.03249.ph, %if.then764 ], [ %mode.03249.ph, %if.else785 ]
-  %inputType.0.be = phi i32 [ %inputType.03250.ph, %if.then9 ], [ %inputType.03250.ph, %if.then13 ], [ %inputType.03250.ph, %if.then18 ], [ %inputType.03250.ph, %if.then23 ], [ %inputType.03250.ph, %if.then28 ], [ 1, %if.then35 ], [ %inputType.1, %sw.epilog ], [ 4, %if.then72 ], [ 5, %if.then83 ], [ 6, %if.then91 ], [ %inputType.03250.ph, %if.then102 ], [ %inputType.03250.ph, %if.then113 ], [ %inputType.03250.ph, %if.then121 ], [ %inputType.03250.ph, %if.then129 ], [ %inputType.03250.ph, %if.then137 ], [ %inputType.03250.ph, %if.then145 ], [ %inputType.03250.ph, %if.then153 ], [ %inputType.03250.ph, %if.then162 ], [ %inputType.03250.ph, %if.then171 ], [ %inputType.03250.ph, %if.then179 ], [ %inputType.03250.ph, %if.then408 ], [ %inputType.03250.ph, %_ZL11parseDoubleRdPKc.exit ], [ %inputType.03250.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %inputType.03250.ph, %if.end466 ], [ %inputType.03250.ph, %if.end532 ], [ %inputType.03250.ph, %if.end735 ], [ %inputType.03250.ph, %if.end755 ], [ %inputType.03250.ph, %if.end847 ], [ %inputType.03250.ph, %if.then856 ], [ %inputType.03250.ph, %if.end887 ], [ %inputType.03250.ph, %if.end918 ], [ %inputType.03250.ph, %if.then929 ], [ %inputType.03250.ph, %if.then937 ], [ %inputType.03250.ph, %if.then945 ], [ %inputType.03250.ph, %if.then953 ], [ %inputType.03250.ph, %if.then961 ], [ %inputType.03250.ph, %if.then969 ], [ %inputType.03250.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %inputType.03250.ph, %if.end515 ], [ %inputType.03250.ph, %if.end493 ], [ %inputType.03250.ph, %if.end400 ], [ %inputType.03250.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %inputType.03250.ph, %for.cond.preheader ], [ %inputType.03250.ph, %if.else213 ], [ %inputType.03250.ph, %if.else206 ], [ %inputType.03250.ph, %if.else ], [ %inputType.03250.ph, %lor.lhs.false199 ], [ %inputType.03250.ph, %if.then187 ], [ %inputType.03250.ph, %if.else220 ], [ %inputType.03250.ph, %if.then233 ], [ %inputType.03250.ph, %do.body359 ], [ %inputType.03250.ph, %do.body347 ], [ %inputType.03250.ph, %do.body329 ], [ %inputType.03250.ph, %do.body311 ], [ %inputType.03250.ph, %do.body293 ], [ %inputType.03250.ph, %do.body275 ], [ %inputType.03250.ph, %do.body257 ], [ %inputType.03250.ph, %do.body ], [ %inputType.03250.ph, %if.else364 ], [ %inputType.03250.ph, %if.then585 ], [ %inputType.03250.ph, %if.then619 ], [ %inputType.03250.ph, %if.then665 ], [ %inputType.03250.ph, %if.then693 ], [ %inputType.03250.ph, %if.else706 ], [ %inputType.03250.ph, %if.then676 ], [ %inputType.03250.ph, %if.then648 ], [ %inputType.03250.ph, %if.then602 ], [ %inputType.03250.ph, %if.then558 ], [ %inputType.03250.ph, %if.else778 ], [ %inputType.03250.ph, %if.else771 ], [ %inputType.03250.ph, %if.then764 ], [ %inputType.03250.ph, %if.else785 ]
+  %coloringSeed.0.be = phi i64 [ %coloringSeed.03212.ph, %if.then9 ], [ %coloringSeed.03212.ph, %if.then13 ], [ %coloringSeed.03212.ph, %if.then18 ], [ %coloringSeed.03212.ph, %if.then23 ], [ %coloringSeed.03212.ph, %if.then28 ], [ %coloringSeed.03212.ph, %if.then35 ], [ %coloringSeed.03212.ph, %sw.epilog ], [ %coloringSeed.03212.ph, %if.then72 ], [ %coloringSeed.03212.ph, %if.then83 ], [ %coloringSeed.03212.ph, %if.then91 ], [ %coloringSeed.03212.ph, %if.then102 ], [ %coloringSeed.03212.ph, %if.then113 ], [ %coloringSeed.03212.ph, %if.then121 ], [ %coloringSeed.03212.ph, %if.then129 ], [ %coloringSeed.03212.ph, %if.then137 ], [ %coloringSeed.03212.ph, %if.then145 ], [ %coloringSeed.03212.ph, %if.then153 ], [ %coloringSeed.03212.ph, %if.then162 ], [ %coloringSeed.03212.ph, %if.then171 ], [ %coloringSeed.03212.ph, %if.then179 ], [ %coloringSeed.03212.ph, %for.cond.preheader ], [ %coloringSeed.03212.ph, %if.else220 ], [ %coloringSeed.03212.ph, %if.then408 ], [ %coloringSeed.03212.ph, %_ZL11parseDoubleRdPKc.exit ], [ %coloringSeed.03212.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %coloringSeed.03212.ph, %if.end466 ], [ %coloringSeed.03212.ph, %if.end532 ], [ %coloringSeed.03212.ph, %if.else364 ], [ %coloringSeed.03212.ph, %if.end735 ], [ %coloringSeed.03212.ph, %if.end755 ], [ %coloringSeed.03212.ph, %if.then558 ], [ %coloringSeed.03212.ph, %if.end847 ], [ %coloringSeed.03212.ph, %if.then856 ], [ %coloringSeed.03212.ph, %if.end887 ], [ %coloringSeed.03212.ph, %if.end918 ], [ %coloringSeed.03212.ph, %if.then929 ], [ %coloringSeed.03212.ph, %if.then937 ], [ %coloringSeed.03212.ph, %if.then945 ], [ %coloringSeed.03212.ph, %if.then953 ], [ %coloringSeed.03212.ph, %if.then961 ], [ %coloringSeed.03212.ph, %if.then969 ], [ %add.i, %_ZL15parseUnsignedLLRyPKc.exit ], [ %coloringSeed.03212.ph, %if.else785 ], [ %coloringSeed.03212.ph, %if.end515 ], [ %coloringSeed.03212.ph, %if.end493 ], [ %coloringSeed.03212.ph, %if.end400 ], [ %coloringSeed.03212.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %coloringSeed.03212.ph, %if.else213 ], [ %coloringSeed.03212.ph, %if.else206 ], [ %coloringSeed.03212.ph, %if.else ], [ %coloringSeed.03212.ph, %lor.lhs.false199 ], [ %coloringSeed.03212.ph, %if.then187 ], [ %coloringSeed.03212.ph, %if.then233 ], [ %coloringSeed.03212.ph, %do.body359 ], [ %coloringSeed.03212.ph, %do.body347 ], [ %coloringSeed.03212.ph, %do.body329 ], [ %coloringSeed.03212.ph, %do.body311 ], [ %coloringSeed.03212.ph, %do.body293 ], [ %coloringSeed.03212.ph, %do.body275 ], [ %coloringSeed.03212.ph, %do.body257 ], [ %coloringSeed.03212.ph, %do.body ], [ %coloringSeed.03212.ph, %if.then585 ], [ %coloringSeed.03212.ph, %if.then619 ], [ %coloringSeed.03212.ph, %if.then665 ], [ %coloringSeed.03212.ph, %if.then693 ], [ %coloringSeed.03212.ph, %if.else706 ], [ %coloringSeed.03212.ph, %if.then676 ], [ %coloringSeed.03212.ph, %if.then648 ], [ %coloringSeed.03212.ph, %if.then602 ], [ %coloringSeed.03212.ph, %if.else778 ], [ %coloringSeed.03212.ph, %if.else771 ], [ %coloringSeed.03212.ph, %if.then764 ]
+  %unicode.0.be = phi i32 [ %unicode.03213.ph, %if.then9 ], [ %unicode.03213.ph, %if.then13 ], [ %unicode.03213.ph, %if.then18 ], [ %unicode.03213.ph, %if.then23 ], [ %unicode.03213.ph, %if.then28 ], [ %unicode.03213.ph, %if.then35 ], [ %unicode.1, %sw.epilog ], [ %unicode.03213.ph, %if.then72 ], [ %unicode.03213.ph, %if.then83 ], [ %unicode.03213.ph, %if.then91 ], [ %unicode.03213.ph, %if.then102 ], [ %unicode.03213.ph, %if.then113 ], [ %unicode.03213.ph, %if.then121 ], [ %unicode.03213.ph, %if.then129 ], [ %unicode.03213.ph, %if.then137 ], [ %unicode.03213.ph, %if.then145 ], [ %unicode.03213.ph, %if.then153 ], [ %unicode.03213.ph, %if.then162 ], [ %unicode.03213.ph, %if.then171 ], [ %unicode.03213.ph, %if.then179 ], [ %unicode.03213.ph, %for.cond.preheader ], [ %unicode.03213.ph, %if.else220 ], [ %unicode.03213.ph, %if.then408 ], [ %unicode.03213.ph, %_ZL11parseDoubleRdPKc.exit ], [ %unicode.03213.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %unicode.03213.ph, %if.end466 ], [ %unicode.03213.ph, %if.end532 ], [ %unicode.03213.ph, %if.else364 ], [ %unicode.03213.ph, %if.end735 ], [ %unicode.03213.ph, %if.end755 ], [ %unicode.03213.ph, %if.then558 ], [ %unicode.03213.ph, %if.end847 ], [ %unicode.03213.ph, %if.then856 ], [ %unicode.03213.ph, %if.end887 ], [ %unicode.03213.ph, %if.end918 ], [ %unicode.03213.ph, %if.then929 ], [ %unicode.03213.ph, %if.then937 ], [ %unicode.03213.ph, %if.then945 ], [ %unicode.03213.ph, %if.then953 ], [ %unicode.03213.ph, %if.then961 ], [ %unicode.03213.ph, %if.then969 ], [ %unicode.03213.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %unicode.03213.ph, %if.else785 ], [ %unicode.03213.ph, %if.end515 ], [ %unicode.03213.ph, %if.end493 ], [ %unicode.03213.ph, %if.end400 ], [ %unicode.03213.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %unicode.03213.ph, %if.else213 ], [ %unicode.03213.ph, %if.else206 ], [ %unicode.03213.ph, %if.else ], [ %unicode.03213.ph, %lor.lhs.false199 ], [ %unicode.03213.ph, %if.then187 ], [ %unicode.03213.ph, %if.then233 ], [ %unicode.03213.ph, %do.body359 ], [ %unicode.03213.ph, %do.body347 ], [ %unicode.03213.ph, %do.body329 ], [ %unicode.03213.ph, %do.body311 ], [ %unicode.03213.ph, %do.body293 ], [ %unicode.03213.ph, %do.body275 ], [ %unicode.03213.ph, %do.body257 ], [ %unicode.03213.ph, %do.body ], [ %unicode.03213.ph, %if.then585 ], [ %unicode.03213.ph, %if.then619 ], [ %unicode.03213.ph, %if.then665 ], [ %unicode.03213.ph, %if.then693 ], [ %unicode.03213.ph, %if.else706 ], [ %unicode.03213.ph, %if.then676 ], [ %unicode.03213.ph, %if.then648 ], [ %unicode.03213.ph, %if.then602 ], [ %unicode.03213.ph, %if.else778 ], [ %unicode.03213.ph, %if.else771 ], [ %unicode.03213.ph, %if.then764 ]
+  %format.0.be = phi i32 [ %format.03214.ph, %if.then9 ], [ %format.03214.ph, %if.then13 ], [ %format.03214.ph, %if.then18 ], [ %format.03214.ph, %if.then23 ], [ %format.03214.ph, %if.then28 ], [ %format.03214.ph, %if.then35 ], [ %format.03214.ph, %sw.epilog ], [ %format.03214.ph, %if.then72 ], [ %format.03214.ph, %if.then83 ], [ %format.03214.ph, %if.then91 ], [ %format.03214.ph, %if.then102 ], [ %format.03214.ph, %if.then113 ], [ %format.03214.ph, %if.then121 ], [ %format.03214.ph, %if.then129 ], [ %format.03214.ph, %if.then137 ], [ %format.03214.ph, %if.then145 ], [ %format.03214.ph, %if.then153 ], [ %format.03214.ph, %if.then162 ], [ %format.03214.ph, %if.then171 ], [ %format.03214.ph, %if.then179 ], [ %format.03214.ph, %for.cond.preheader ], [ %format.03214.ph, %if.else220 ], [ %format.03214.ph, %if.then408 ], [ %format.03214.ph, %_ZL11parseDoubleRdPKc.exit ], [ %format.03214.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %format.03214.ph, %if.end466 ], [ %format.03214.ph, %if.end532 ], [ %format.03214.ph, %if.else364 ], [ %format.03214.ph, %if.end735 ], [ %format.03214.ph, %if.end755 ], [ %format.03214.ph, %if.then558 ], [ %format.03214.ph, %if.end847 ], [ %format.03214.ph, %if.then856 ], [ %format.03214.ph, %if.end887 ], [ %format.03214.ph, %if.end918 ], [ %format.03214.ph, %if.then929 ], [ %format.03214.ph, %if.then937 ], [ %format.03214.ph, %if.then945 ], [ %format.03214.ph, %if.then953 ], [ %format.03214.ph, %if.then961 ], [ %format.03214.ph, %if.then969 ], [ %format.03214.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %format.03214.ph, %if.else785 ], [ %format.03214.ph, %if.end515 ], [ %format.03214.ph, %if.end493 ], [ %format.03214.ph, %if.end400 ], [ %format.03214.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %format.03214.ph, %if.else213 ], [ %format.03214.ph, %if.else206 ], [ %format.03214.ph, %if.else ], [ %format.03214.ph, %lor.lhs.false199 ], [ %format.03214.ph, %if.then187 ], [ 0, %if.then233 ], [ 8, %do.body359 ], [ 7, %do.body347 ], [ 6, %do.body329 ], [ 5, %do.body311 ], [ 4, %do.body293 ], [ 3, %do.body275 ], [ 2, %do.body257 ], [ 1, %do.body ], [ %format.03214.ph, %if.then585 ], [ %format.03214.ph, %if.then619 ], [ %format.03214.ph, %if.then665 ], [ %format.03214.ph, %if.then693 ], [ %format.03214.ph, %if.else706 ], [ %format.03214.ph, %if.then676 ], [ %format.03214.ph, %if.then648 ], [ %format.03214.ph, %if.then602 ], [ %format.03214.ph, %if.else778 ], [ %format.03214.ph, %if.else771 ], [ %format.03214.ph, %if.then764 ]
+  %printMetrics.0.be = phi i1 [ %printMetrics.03215.ph, %if.then9 ], [ %printMetrics.03215.ph, %if.then13 ], [ %printMetrics.03215.ph, %if.then18 ], [ %printMetrics.03215.ph, %if.then23 ], [ %printMetrics.03215.ph, %if.then28 ], [ %printMetrics.03215.ph, %if.then35 ], [ %printMetrics.03215.ph, %sw.epilog ], [ %printMetrics.03215.ph, %if.then72 ], [ %printMetrics.03215.ph, %if.then83 ], [ %printMetrics.03215.ph, %if.then91 ], [ %printMetrics.03215.ph, %if.then102 ], [ %printMetrics.03215.ph, %if.then113 ], [ %printMetrics.03215.ph, %if.then121 ], [ %printMetrics.03215.ph, %if.then129 ], [ %printMetrics.03215.ph, %if.then137 ], [ %printMetrics.03215.ph, %if.then145 ], [ %printMetrics.03215.ph, %if.then153 ], [ %printMetrics.03215.ph, %if.then162 ], [ %printMetrics.03215.ph, %if.then171 ], [ %printMetrics.03215.ph, %if.then179 ], [ %printMetrics.03215.ph, %for.cond.preheader ], [ %printMetrics.03215.ph, %if.else220 ], [ %printMetrics.03215.ph, %if.then408 ], [ %printMetrics.03215.ph, %_ZL11parseDoubleRdPKc.exit ], [ %printMetrics.03215.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %printMetrics.03215.ph, %if.end466 ], [ %printMetrics.03215.ph, %if.end532 ], [ %printMetrics.03215.ph, %if.else364 ], [ %printMetrics.03215.ph, %if.end735 ], [ %printMetrics.03215.ph, %if.end755 ], [ %printMetrics.03215.ph, %if.then558 ], [ %printMetrics.03215.ph, %if.end847 ], [ %printMetrics.03215.ph, %if.then856 ], [ %printMetrics.03215.ph, %if.end887 ], [ %printMetrics.03215.ph, %if.end918 ], [ %printMetrics.03215.ph, %if.then929 ], [ true, %if.then937 ], [ %printMetrics.03215.ph, %if.then945 ], [ %printMetrics.03215.ph, %if.then953 ], [ %printMetrics.03215.ph, %if.then961 ], [ %printMetrics.03215.ph, %if.then969 ], [ %printMetrics.03215.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %printMetrics.03215.ph, %if.else785 ], [ %printMetrics.03215.ph, %if.end515 ], [ %printMetrics.03215.ph, %if.end493 ], [ %printMetrics.03215.ph, %if.end400 ], [ %printMetrics.03215.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %printMetrics.03215.ph, %if.else213 ], [ %printMetrics.03215.ph, %if.else206 ], [ %printMetrics.03215.ph, %if.else ], [ %printMetrics.03215.ph, %lor.lhs.false199 ], [ %printMetrics.03215.ph, %if.then187 ], [ %printMetrics.03215.ph, %if.then233 ], [ %printMetrics.03215.ph, %do.body359 ], [ %printMetrics.03215.ph, %do.body347 ], [ %printMetrics.03215.ph, %do.body329 ], [ %printMetrics.03215.ph, %do.body311 ], [ %printMetrics.03215.ph, %do.body293 ], [ %printMetrics.03215.ph, %do.body275 ], [ %printMetrics.03215.ph, %do.body257 ], [ %printMetrics.03215.ph, %do.body ], [ %printMetrics.03215.ph, %if.then585 ], [ %printMetrics.03215.ph, %if.then619 ], [ %printMetrics.03215.ph, %if.then665 ], [ %printMetrics.03215.ph, %if.then693 ], [ %printMetrics.03215.ph, %if.else706 ], [ %printMetrics.03215.ph, %if.then676 ], [ %printMetrics.03215.ph, %if.then648 ], [ %printMetrics.03215.ph, %if.then602 ], [ %printMetrics.03215.ph, %if.else778 ], [ %printMetrics.03215.ph, %if.else771 ], [ %printMetrics.03215.ph, %if.then764 ]
+  %estimateError.0.be = phi i8 [ %estimateError.03216.ph, %if.then9 ], [ %estimateError.03216.ph, %if.then13 ], [ %estimateError.03216.ph, %if.then18 ], [ %estimateError.03216.ph, %if.then23 ], [ %estimateError.03216.ph, %if.then28 ], [ %estimateError.03216.ph, %if.then35 ], [ %estimateError.03216.ph, %sw.epilog ], [ %estimateError.03216.ph, %if.then72 ], [ %estimateError.03216.ph, %if.then83 ], [ %estimateError.03216.ph, %if.then91 ], [ %estimateError.03216.ph, %if.then102 ], [ %estimateError.03216.ph, %if.then113 ], [ %estimateError.03216.ph, %if.then121 ], [ %estimateError.03216.ph, %if.then129 ], [ %estimateError.03216.ph, %if.then137 ], [ %estimateError.03216.ph, %if.then145 ], [ %estimateError.03216.ph, %if.then153 ], [ %estimateError.03216.ph, %if.then162 ], [ %estimateError.03216.ph, %if.then171 ], [ %estimateError.03216.ph, %if.then179 ], [ %estimateError.03216.ph, %for.cond.preheader ], [ %estimateError.03216.ph, %if.else220 ], [ %estimateError.03216.ph, %if.then408 ], [ %estimateError.03216.ph, %_ZL11parseDoubleRdPKc.exit ], [ %estimateError.03216.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %estimateError.03216.ph, %if.end466 ], [ %estimateError.03216.ph, %if.end532 ], [ %estimateError.03216.ph, %if.else364 ], [ %estimateError.03216.ph, %if.end735 ], [ %estimateError.03216.ph, %if.end755 ], [ %estimateError.03216.ph, %if.then558 ], [ %estimateError.03216.ph, %if.end847 ], [ %estimateError.03216.ph, %if.then856 ], [ %estimateError.03216.ph, %if.end887 ], [ %estimateError.03216.ph, %if.end918 ], [ %estimateError.03216.ph, %if.then929 ], [ %estimateError.03216.ph, %if.then937 ], [ 1, %if.then945 ], [ %estimateError.03216.ph, %if.then953 ], [ %estimateError.03216.ph, %if.then961 ], [ %estimateError.03216.ph, %if.then969 ], [ %estimateError.03216.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %estimateError.03216.ph, %if.else785 ], [ %estimateError.03216.ph, %if.end515 ], [ %estimateError.03216.ph, %if.end493 ], [ %estimateError.03216.ph, %if.end400 ], [ %estimateError.03216.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %estimateError.03216.ph, %if.else213 ], [ %estimateError.03216.ph, %if.else206 ], [ %estimateError.03216.ph, %if.else ], [ %estimateError.03216.ph, %lor.lhs.false199 ], [ %estimateError.03216.ph, %if.then187 ], [ %estimateError.03216.ph, %if.then233 ], [ %estimateError.03216.ph, %do.body359 ], [ %estimateError.03216.ph, %do.body347 ], [ %estimateError.03216.ph, %do.body329 ], [ %estimateError.03216.ph, %do.body311 ], [ %estimateError.03216.ph, %do.body293 ], [ %estimateError.03216.ph, %do.body275 ], [ %estimateError.03216.ph, %do.body257 ], [ %estimateError.03216.ph, %do.body ], [ %estimateError.03216.ph, %if.then585 ], [ %estimateError.03216.ph, %if.then619 ], [ %estimateError.03216.ph, %if.then665 ], [ %estimateError.03216.ph, %if.then693 ], [ %estimateError.03216.ph, %if.else706 ], [ %estimateError.03216.ph, %if.then676 ], [ %estimateError.03216.ph, %if.then648 ], [ %estimateError.03216.ph, %if.then602 ], [ %estimateError.03216.ph, %if.else778 ], [ %estimateError.03216.ph, %if.else771 ], [ %estimateError.03216.ph, %if.then764 ]
+  %orientation.0.be = phi i32 [ %orientation.03217.ph, %if.then9 ], [ %orientation.03217.ph, %if.then13 ], [ %orientation.03217.ph, %if.then18 ], [ %orientation.03217.ph, %if.then23 ], [ %orientation.03217.ph, %if.then28 ], [ %orientation.03217.ph, %if.then35 ], [ %orientation.03217.ph, %sw.epilog ], [ %orientation.03217.ph, %if.then72 ], [ %orientation.03217.ph, %if.then83 ], [ %orientation.03217.ph, %if.then91 ], [ %orientation.03217.ph, %if.then102 ], [ %orientation.03217.ph, %if.then113 ], [ %orientation.03217.ph, %if.then121 ], [ %orientation.03217.ph, %if.then129 ], [ %orientation.03217.ph, %if.then137 ], [ %orientation.03217.ph, %if.then145 ], [ %orientation.03217.ph, %if.then153 ], [ %orientation.03217.ph, %if.then162 ], [ %orientation.03217.ph, %if.then171 ], [ %orientation.03217.ph, %if.then179 ], [ %orientation.03217.ph, %for.cond.preheader ], [ %orientation.03217.ph, %if.else220 ], [ %orientation.03217.ph, %if.then408 ], [ %orientation.03217.ph, %_ZL11parseDoubleRdPKc.exit ], [ %orientation.03217.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %orientation.03217.ph, %if.end466 ], [ %orientation.03217.ph, %if.end532 ], [ %orientation.03217.ph, %if.else364 ], [ %orientation.03217.ph, %if.end735 ], [ %orientation.03217.ph, %if.end755 ], [ %orientation.03217.ph, %if.then558 ], [ %orientation.03217.ph, %if.end847 ], [ %orientation.03217.ph, %if.then856 ], [ %orientation.03217.ph, %if.end887 ], [ %orientation.03217.ph, %if.end918 ], [ %orientation.03217.ph, %if.then929 ], [ %orientation.03217.ph, %if.then937 ], [ %orientation.03217.ph, %if.then945 ], [ 0, %if.then953 ], [ 1, %if.then961 ], [ 2, %if.then969 ], [ %orientation.03217.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %orientation.03217.ph, %if.else785 ], [ %orientation.03217.ph, %if.end515 ], [ %orientation.03217.ph, %if.end493 ], [ %orientation.03217.ph, %if.end400 ], [ %orientation.03217.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %orientation.03217.ph, %if.else213 ], [ %orientation.03217.ph, %if.else206 ], [ %orientation.03217.ph, %if.else ], [ %orientation.03217.ph, %lor.lhs.false199 ], [ %orientation.03217.ph, %if.then187 ], [ %orientation.03217.ph, %if.then233 ], [ %orientation.03217.ph, %do.body359 ], [ %orientation.03217.ph, %do.body347 ], [ %orientation.03217.ph, %do.body329 ], [ %orientation.03217.ph, %do.body311 ], [ %orientation.03217.ph, %do.body293 ], [ %orientation.03217.ph, %do.body275 ], [ %orientation.03217.ph, %do.body257 ], [ %orientation.03217.ph, %do.body ], [ %orientation.03217.ph, %if.then585 ], [ %orientation.03217.ph, %if.then619 ], [ %orientation.03217.ph, %if.then665 ], [ %orientation.03217.ph, %if.then693 ], [ %orientation.03217.ph, %if.else706 ], [ %orientation.03217.ph, %if.then676 ], [ %orientation.03217.ph, %if.then648 ], [ %orientation.03217.ph, %if.then602 ], [ %orientation.03217.ph, %if.else778 ], [ %orientation.03217.ph, %if.else771 ], [ %orientation.03217.ph, %if.then764 ]
+  %edgeColoring.0.be = phi ptr [ %edgeColoring.03218.ph, %if.then9 ], [ %edgeColoring.03218.ph, %if.then13 ], [ %edgeColoring.03218.ph, %if.then18 ], [ %edgeColoring.03218.ph, %if.then23 ], [ %edgeColoring.03218.ph, %if.then28 ], [ %edgeColoring.03218.ph, %if.then35 ], [ %edgeColoring.03218.ph, %sw.epilog ], [ %edgeColoring.03218.ph, %if.then72 ], [ %edgeColoring.03218.ph, %if.then83 ], [ %edgeColoring.03218.ph, %if.then91 ], [ %edgeColoring.03218.ph, %if.then102 ], [ %edgeColoring.03218.ph, %if.then113 ], [ %edgeColoring.03218.ph, %if.then121 ], [ %edgeColoring.03218.ph, %if.then129 ], [ %edgeColoring.03218.ph, %if.then137 ], [ %edgeColoring.03218.ph, %if.then145 ], [ %edgeColoring.03218.ph, %if.then153 ], [ %edgeColoring.03218.ph, %if.then162 ], [ %edgeColoring.03218.ph, %if.then171 ], [ %edgeColoring.03218.ph, %if.then179 ], [ %edgeColoring.03218.ph, %for.cond.preheader ], [ %edgeColoring.03218.ph, %if.else220 ], [ %edgeColoring.03218.ph, %if.then408 ], [ %edgeColoring.03218.ph, %_ZL11parseDoubleRdPKc.exit ], [ %edgeColoring.03218.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %edgeColoring.03218.ph, %if.end466 ], [ %edgeColoring.03218.ph, %if.end532 ], [ %edgeColoring.03218.ph, %if.else364 ], [ %edgeColoring.03218.ph, %if.end735 ], [ %edgeColoring.03218.ph, %if.end755 ], [ %edgeColoring.03218.ph, %if.then558 ], [ %edgeColoring.03218.ph, %if.end847 ], [ %edgeColoring.03218.ph, %if.then856 ], [ %edgeColoring.03218.ph, %if.end887 ], [ %edgeColoring.03218.ph, %if.end918 ], [ %edgeColoring.03218.ph, %if.then929 ], [ %edgeColoring.03218.ph, %if.then937 ], [ %edgeColoring.03218.ph, %if.then945 ], [ %edgeColoring.03218.ph, %if.then953 ], [ %edgeColoring.03218.ph, %if.then961 ], [ %edgeColoring.03218.ph, %if.then969 ], [ %edgeColoring.03218.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %edgeColoring.03218.ph, %if.else785 ], [ %edgeColoring.03218.ph, %if.end515 ], [ %edgeColoring.03218.ph, %if.end493 ], [ %edgeColoring.03218.ph, %if.end400 ], [ %edgeColoring.03218.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %edgeColoring.03218.ph, %if.else213 ], [ %edgeColoring.03218.ph, %if.else206 ], [ %edgeColoring.03218.ph, %if.else ], [ %edgeColoring.03218.ph, %lor.lhs.false199 ], [ %edgeColoring.03218.ph, %if.then187 ], [ %edgeColoring.03218.ph, %if.then233 ], [ %edgeColoring.03218.ph, %do.body359 ], [ %edgeColoring.03218.ph, %do.body347 ], [ %edgeColoring.03218.ph, %do.body329 ], [ %edgeColoring.03218.ph, %do.body311 ], [ %edgeColoring.03218.ph, %do.body293 ], [ %edgeColoring.03218.ph, %do.body275 ], [ %edgeColoring.03218.ph, %do.body257 ], [ %edgeColoring.03218.ph, %do.body ], [ %edgeColoring.03218.ph, %if.then585 ], [ %edgeColoring.03218.ph, %if.then619 ], [ %edgeColoring.03218.ph, %if.then665 ], [ %edgeColoring.03218.ph, %if.then693 ], [ %edgeColoring.03218.ph, %if.else706 ], [ %edgeColoring.03218.ph, %if.then676 ], [ %edgeColoring.03218.ph, %if.then648 ], [ %edgeColoring.03218.ph, %if.then602 ], [ @_ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy, %if.else778 ], [ @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy, %if.else771 ], [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %if.then764 ]
+  %explicitErrorCorrectionMode.0.be = phi i1 [ %explicitErrorCorrectionMode.03219.ph, %if.then9 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then13 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then18 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then23 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then28 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then35 ], [ %explicitErrorCorrectionMode.03219.ph, %sw.epilog ], [ %explicitErrorCorrectionMode.03219.ph, %if.then72 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then83 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then91 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then102 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then113 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then121 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then129 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then137 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then145 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then153 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then162 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then171 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then179 ], [ %explicitErrorCorrectionMode.03219.ph, %for.cond.preheader ], [ %explicitErrorCorrectionMode.03219.ph, %if.else220 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then408 ], [ %explicitErrorCorrectionMode.03219.ph, %_ZL11parseDoubleRdPKc.exit ], [ %explicitErrorCorrectionMode.03219.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end466 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end532 ], [ %explicitErrorCorrectionMode.03219.ph, %if.else364 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end735 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end755 ], [ true, %if.then558 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end847 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then856 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end887 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end918 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then929 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then937 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then945 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then953 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then961 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then969 ], [ %explicitErrorCorrectionMode.03219.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %explicitErrorCorrectionMode.03219.ph, %if.else785 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end515 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end493 ], [ %explicitErrorCorrectionMode.03219.ph, %if.end400 ], [ %explicitErrorCorrectionMode.03219.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %explicitErrorCorrectionMode.03219.ph, %if.else213 ], [ %explicitErrorCorrectionMode.03219.ph, %if.else206 ], [ %explicitErrorCorrectionMode.03219.ph, %if.else ], [ %explicitErrorCorrectionMode.03219.ph, %lor.lhs.false199 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then187 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then233 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body359 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body347 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body329 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body311 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body293 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body275 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body257 ], [ %explicitErrorCorrectionMode.03219.ph, %do.body ], [ true, %if.then585 ], [ true, %if.then619 ], [ true, %if.then665 ], [ true, %if.then693 ], [ true, %if.else706 ], [ true, %if.then676 ], [ true, %if.then648 ], [ true, %if.then602 ], [ %explicitErrorCorrectionMode.03219.ph, %if.else778 ], [ %explicitErrorCorrectionMode.03219.ph, %if.else771 ], [ %explicitErrorCorrectionMode.03219.ph, %if.then764 ]
+  %argPos.0.be = phi i32 [ %inc, %if.then9 ], [ %inc14, %if.then13 ], [ %inc19, %if.then18 ], [ %inc24, %if.then23 ], [ %inc29, %if.then28 ], [ %add39, %if.then35 ], [ %add65, %sw.epilog ], [ %add41, %if.then72 ], [ %add84, %if.then83 ], [ %add41, %if.then91 ], [ %add41, %if.then102 ], [ %add114, %if.then113 ], [ %add122, %if.then121 ], [ %add130, %if.then129 ], [ %add138, %if.then137 ], [ %add146, %if.then145 ], [ %add155, %if.then153 ], [ %add164, %if.then162 ], [ %add172, %if.then171 ], [ %add180, %if.then179 ], [ %add41, %for.cond.preheader ], [ %add41, %if.else220 ], [ %add409, %if.then408 ], [ %add41, %_ZL11parseDoubleRdPKc.exit ], [ %add41, %_ZL11parseDoubleRdPKc.exit630 ], [ %add41, %if.end466 ], [ %add41, %if.end532 ], [ %add41, %if.else364 ], [ %add41, %if.end735 ], [ %add41, %if.end755 ], [ %add41, %if.then558 ], [ %add41, %if.end847 ], [ %add41, %if.then856 ], [ %add891, %if.end887 ], [ %add922, %if.end918 ], [ %add930, %if.then929 ], [ %add938, %if.then937 ], [ %add946, %if.then945 ], [ %add954, %if.then953 ], [ %add962, %if.then961 ], [ %add970, %if.then969 ], [ %add41, %_ZL15parseUnsignedLLRyPKc.exit ], [ %add41, %if.else785 ], [ %add516, %if.end515 ], [ %add494, %if.end493 ], [ %add401, %if.end400 ], [ %add41, %for.cond.while.cond.loopexit_crit_edge ], [ %add41, %if.else213 ], [ %add41, %if.else206 ], [ %add41, %if.else ], [ %add41, %lor.lhs.false199 ], [ %add41, %if.then187 ], [ %add41, %if.then233 ], [ %add41, %do.body359 ], [ %add41, %do.body347 ], [ %add41, %do.body329 ], [ %add41, %do.body311 ], [ %add41, %do.body293 ], [ %add41, %do.body275 ], [ %add41, %do.body257 ], [ %add41, %do.body ], [ %add41, %if.then585 ], [ %add41, %if.then619 ], [ %add41, %if.then665 ], [ %add41, %if.then693 ], [ %add41, %if.else706 ], [ %add41, %if.then676 ], [ %add41, %if.then648 ], [ %add41, %if.then602 ], [ %add41, %if.else778 ], [ %add41, %if.else771 ], [ %add41, %if.then764 ]
+  %yFlip.0.be = phi i1 [ %yFlip.03222.ph, %if.then9 ], [ %yFlip.03222.ph, %if.then13 ], [ %yFlip.03222.ph, %if.then18 ], [ %yFlip.03222.ph, %if.then23 ], [ %yFlip.03222.ph, %if.then28 ], [ %yFlip.03222.ph, %if.then35 ], [ %yFlip.03222.ph, %sw.epilog ], [ %yFlip.03222.ph, %if.then72 ], [ %yFlip.03222.ph, %if.then83 ], [ %yFlip.03222.ph, %if.then91 ], [ %yFlip.03222.ph, %if.then102 ], [ %yFlip.03222.ph, %if.then113 ], [ %yFlip.03222.ph, %if.then121 ], [ %yFlip.03222.ph, %if.then129 ], [ %yFlip.03222.ph, %if.then137 ], [ %yFlip.03222.ph, %if.then145 ], [ %yFlip.03222.ph, %if.then153 ], [ %yFlip.03222.ph, %if.then162 ], [ %yFlip.03222.ph, %if.then171 ], [ %yFlip.03222.ph, %if.then179 ], [ %yFlip.03222.ph, %for.cond.preheader ], [ %yFlip.03222.ph, %if.else220 ], [ %yFlip.03222.ph, %if.then408 ], [ %yFlip.03222.ph, %_ZL11parseDoubleRdPKc.exit ], [ %yFlip.03222.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %yFlip.03222.ph, %if.end466 ], [ %yFlip.03222.ph, %if.end532 ], [ %yFlip.03222.ph, %if.else364 ], [ %yFlip.03222.ph, %if.end735 ], [ %yFlip.03222.ph, %if.end755 ], [ %yFlip.03222.ph, %if.then558 ], [ %yFlip.03222.ph, %if.end847 ], [ %yFlip.03222.ph, %if.then856 ], [ %yFlip.03222.ph, %if.end887 ], [ %yFlip.03222.ph, %if.end918 ], [ true, %if.then929 ], [ %yFlip.03222.ph, %if.then937 ], [ %yFlip.03222.ph, %if.then945 ], [ %yFlip.03222.ph, %if.then953 ], [ %yFlip.03222.ph, %if.then961 ], [ %yFlip.03222.ph, %if.then969 ], [ %yFlip.03222.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %yFlip.03222.ph, %if.else785 ], [ %yFlip.03222.ph, %if.end515 ], [ %yFlip.03222.ph, %if.end493 ], [ %yFlip.03222.ph, %if.end400 ], [ %yFlip.03222.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %yFlip.03222.ph, %if.else213 ], [ %yFlip.03222.ph, %if.else206 ], [ %yFlip.03222.ph, %if.else ], [ %yFlip.03222.ph, %lor.lhs.false199 ], [ %yFlip.03222.ph, %if.then187 ], [ %yFlip.03222.ph, %if.then233 ], [ %yFlip.03222.ph, %do.body359 ], [ %yFlip.03222.ph, %do.body347 ], [ %yFlip.03222.ph, %do.body329 ], [ %yFlip.03222.ph, %do.body311 ], [ %yFlip.03222.ph, %do.body293 ], [ %yFlip.03222.ph, %do.body275 ], [ %yFlip.03222.ph, %do.body257 ], [ %yFlip.03222.ph, %do.body ], [ %yFlip.03222.ph, %if.then585 ], [ %yFlip.03222.ph, %if.then619 ], [ %yFlip.03222.ph, %if.then665 ], [ %yFlip.03222.ph, %if.then693 ], [ %yFlip.03222.ph, %if.else706 ], [ %yFlip.03222.ph, %if.then676 ], [ %yFlip.03222.ph, %if.then648 ], [ %yFlip.03222.ph, %if.then602 ], [ %yFlip.03222.ph, %if.else778 ], [ %yFlip.03222.ph, %if.else771 ], [ %yFlip.03222.ph, %if.then764 ]
+  %edgeAssignment.0.be = phi ptr [ %edgeAssignment.03223.ph, %if.then9 ], [ %edgeAssignment.03223.ph, %if.then13 ], [ %edgeAssignment.03223.ph, %if.then18 ], [ %edgeAssignment.03223.ph, %if.then23 ], [ %edgeAssignment.03223.ph, %if.then28 ], [ %edgeAssignment.03223.ph, %if.then35 ], [ %edgeAssignment.03223.ph, %sw.epilog ], [ %edgeAssignment.03223.ph, %if.then72 ], [ %edgeAssignment.03223.ph, %if.then83 ], [ %edgeAssignment.03223.ph, %if.then91 ], [ %edgeAssignment.03223.ph, %if.then102 ], [ %edgeAssignment.03223.ph, %if.then113 ], [ %edgeAssignment.03223.ph, %if.then121 ], [ %edgeAssignment.03223.ph, %if.then129 ], [ %edgeAssignment.03223.ph, %if.then137 ], [ %edgeAssignment.03223.ph, %if.then145 ], [ %edgeAssignment.03223.ph, %if.then153 ], [ %edgeAssignment.03223.ph, %if.then162 ], [ %edgeAssignment.03223.ph, %if.then171 ], [ %edgeAssignment.03223.ph, %if.then179 ], [ %105, %for.cond.preheader ], [ %edgeAssignment.03223.ph, %if.else220 ], [ %edgeAssignment.03223.ph, %if.then408 ], [ %edgeAssignment.03223.ph, %_ZL11parseDoubleRdPKc.exit ], [ %edgeAssignment.03223.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %edgeAssignment.03223.ph, %if.end466 ], [ %edgeAssignment.03223.ph, %if.end532 ], [ %edgeAssignment.03223.ph, %if.else364 ], [ %edgeAssignment.03223.ph, %if.end735 ], [ %edgeAssignment.03223.ph, %if.end755 ], [ %edgeAssignment.03223.ph, %if.then558 ], [ %edgeAssignment.03223.ph, %if.end847 ], [ %edgeAssignment.03223.ph, %if.then856 ], [ %edgeAssignment.03223.ph, %if.end887 ], [ %edgeAssignment.03223.ph, %if.end918 ], [ %edgeAssignment.03223.ph, %if.then929 ], [ %edgeAssignment.03223.ph, %if.then937 ], [ %edgeAssignment.03223.ph, %if.then945 ], [ %edgeAssignment.03223.ph, %if.then953 ], [ %edgeAssignment.03223.ph, %if.then961 ], [ %edgeAssignment.03223.ph, %if.then969 ], [ %edgeAssignment.03223.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %edgeAssignment.03223.ph, %if.else785 ], [ %edgeAssignment.03223.ph, %if.end515 ], [ %edgeAssignment.03223.ph, %if.end493 ], [ %edgeAssignment.03223.ph, %if.end400 ], [ %105, %for.cond.while.cond.loopexit_crit_edge ], [ %edgeAssignment.03223.ph, %if.else213 ], [ %edgeAssignment.03223.ph, %if.else206 ], [ %edgeAssignment.03223.ph, %if.else ], [ %edgeAssignment.03223.ph, %lor.lhs.false199 ], [ %edgeAssignment.03223.ph, %if.then187 ], [ %edgeAssignment.03223.ph, %if.then233 ], [ %edgeAssignment.03223.ph, %do.body359 ], [ %edgeAssignment.03223.ph, %do.body347 ], [ %edgeAssignment.03223.ph, %do.body329 ], [ %edgeAssignment.03223.ph, %do.body311 ], [ %edgeAssignment.03223.ph, %do.body293 ], [ %edgeAssignment.03223.ph, %do.body275 ], [ %edgeAssignment.03223.ph, %do.body257 ], [ %edgeAssignment.03223.ph, %do.body ], [ %edgeAssignment.03223.ph, %if.then585 ], [ %edgeAssignment.03223.ph, %if.then619 ], [ %edgeAssignment.03223.ph, %if.then665 ], [ %edgeAssignment.03223.ph, %if.then693 ], [ %edgeAssignment.03223.ph, %if.else706 ], [ %edgeAssignment.03223.ph, %if.then676 ], [ %edgeAssignment.03223.ph, %if.then648 ], [ %edgeAssignment.03223.ph, %if.then602 ], [ %edgeAssignment.03223.ph, %if.else778 ], [ %edgeAssignment.03223.ph, %if.else771 ], [ %edgeAssignment.03223.ph, %if.then764 ]
+  %outputDistanceShift.0.be = phi float [ %outputDistanceShift.03224.ph, %if.then9 ], [ %outputDistanceShift.03224.ph, %if.then13 ], [ %outputDistanceShift.03224.ph, %if.then18 ], [ %outputDistanceShift.03224.ph, %if.then23 ], [ %outputDistanceShift.03224.ph, %if.then28 ], [ %outputDistanceShift.03224.ph, %if.then35 ], [ %outputDistanceShift.03224.ph, %sw.epilog ], [ %outputDistanceShift.03224.ph, %if.then72 ], [ %outputDistanceShift.03224.ph, %if.then83 ], [ %outputDistanceShift.03224.ph, %if.then91 ], [ %outputDistanceShift.03224.ph, %if.then102 ], [ %outputDistanceShift.03224.ph, %if.then113 ], [ %outputDistanceShift.03224.ph, %if.then121 ], [ %outputDistanceShift.03224.ph, %if.then129 ], [ %outputDistanceShift.03224.ph, %if.then137 ], [ %outputDistanceShift.03224.ph, %if.then145 ], [ %outputDistanceShift.03224.ph, %if.then153 ], [ %outputDistanceShift.03224.ph, %if.then162 ], [ %outputDistanceShift.03224.ph, %if.then171 ], [ %outputDistanceShift.03224.ph, %if.then179 ], [ %outputDistanceShift.03224.ph, %for.cond.preheader ], [ %outputDistanceShift.03224.ph, %if.else220 ], [ %outputDistanceShift.03224.ph, %if.then408 ], [ %outputDistanceShift.03224.ph, %_ZL11parseDoubleRdPKc.exit ], [ %outputDistanceShift.03224.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %outputDistanceShift.03224.ph, %if.end466 ], [ %outputDistanceShift.03224.ph, %if.end532 ], [ %outputDistanceShift.03224.ph, %if.else364 ], [ %outputDistanceShift.03224.ph, %if.end735 ], [ %outputDistanceShift.03224.ph, %if.end755 ], [ %outputDistanceShift.03224.ph, %if.then558 ], [ %conv848, %if.end847 ], [ %outputDistanceShift.03224.ph, %if.then856 ], [ %outputDistanceShift.03224.ph, %if.end887 ], [ %outputDistanceShift.03224.ph, %if.end918 ], [ %outputDistanceShift.03224.ph, %if.then929 ], [ %outputDistanceShift.03224.ph, %if.then937 ], [ %outputDistanceShift.03224.ph, %if.then945 ], [ %outputDistanceShift.03224.ph, %if.then953 ], [ %outputDistanceShift.03224.ph, %if.then961 ], [ %outputDistanceShift.03224.ph, %if.then969 ], [ %outputDistanceShift.03224.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %outputDistanceShift.03224.ph, %if.else785 ], [ %outputDistanceShift.03224.ph, %if.end515 ], [ %outputDistanceShift.03224.ph, %if.end493 ], [ %outputDistanceShift.03224.ph, %if.end400 ], [ %outputDistanceShift.03224.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %outputDistanceShift.03224.ph, %if.else213 ], [ %outputDistanceShift.03224.ph, %if.else206 ], [ %outputDistanceShift.03224.ph, %if.else ], [ %outputDistanceShift.03224.ph, %lor.lhs.false199 ], [ %outputDistanceShift.03224.ph, %if.then187 ], [ %outputDistanceShift.03224.ph, %if.then233 ], [ %outputDistanceShift.03224.ph, %do.body359 ], [ %outputDistanceShift.03224.ph, %do.body347 ], [ %outputDistanceShift.03224.ph, %do.body329 ], [ %outputDistanceShift.03224.ph, %do.body311 ], [ %outputDistanceShift.03224.ph, %do.body293 ], [ %outputDistanceShift.03224.ph, %do.body275 ], [ %outputDistanceShift.03224.ph, %do.body257 ], [ %outputDistanceShift.03224.ph, %do.body ], [ %outputDistanceShift.03224.ph, %if.then585 ], [ %outputDistanceShift.03224.ph, %if.then619 ], [ %outputDistanceShift.03224.ph, %if.then665 ], [ %outputDistanceShift.03224.ph, %if.then693 ], [ %outputDistanceShift.03224.ph, %if.else706 ], [ %outputDistanceShift.03224.ph, %if.then676 ], [ %outputDistanceShift.03224.ph, %if.then648 ], [ %outputDistanceShift.03224.ph, %if.then602 ], [ %outputDistanceShift.03224.ph, %if.else778 ], [ %outputDistanceShift.03224.ph, %if.else771 ], [ %outputDistanceShift.03224.ph, %if.then764 ]
+  %angleThreshold.0.be = phi double [ %angleThreshold.03225.ph, %if.then9 ], [ %angleThreshold.03225.ph, %if.then13 ], [ %angleThreshold.03225.ph, %if.then18 ], [ %angleThreshold.03225.ph, %if.then23 ], [ %angleThreshold.03225.ph, %if.then28 ], [ %angleThreshold.03225.ph, %if.then35 ], [ %angleThreshold.03225.ph, %sw.epilog ], [ %angleThreshold.03225.ph, %if.then72 ], [ %angleThreshold.03225.ph, %if.then83 ], [ %angleThreshold.03225.ph, %if.then91 ], [ %angleThreshold.03225.ph, %if.then102 ], [ %angleThreshold.03225.ph, %if.then113 ], [ %angleThreshold.03225.ph, %if.then121 ], [ %angleThreshold.03225.ph, %if.then129 ], [ %angleThreshold.03225.ph, %if.then137 ], [ %angleThreshold.03225.ph, %if.then145 ], [ %angleThreshold.03225.ph, %if.then153 ], [ %angleThreshold.03225.ph, %if.then162 ], [ %angleThreshold.03225.ph, %if.then171 ], [ %angleThreshold.03225.ph, %if.then179 ], [ %angleThreshold.03225.ph, %for.cond.preheader ], [ %angleThreshold.03225.ph, %if.else220 ], [ %angleThreshold.03225.ph, %if.then408 ], [ %angleThreshold.03225.ph, %_ZL11parseDoubleRdPKc.exit ], [ %angleThreshold.03225.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %angleThreshold.03225.ph, %if.end466 ], [ %84, %if.end532 ], [ %angleThreshold.03225.ph, %if.else364 ], [ %angleThreshold.03225.ph, %if.end735 ], [ %angleThreshold.03225.ph, %if.end755 ], [ %angleThreshold.03225.ph, %if.then558 ], [ %angleThreshold.03225.ph, %if.end847 ], [ %angleThreshold.03225.ph, %if.then856 ], [ %angleThreshold.03225.ph, %if.end887 ], [ %angleThreshold.03225.ph, %if.end918 ], [ %angleThreshold.03225.ph, %if.then929 ], [ %angleThreshold.03225.ph, %if.then937 ], [ %angleThreshold.03225.ph, %if.then945 ], [ %angleThreshold.03225.ph, %if.then953 ], [ %angleThreshold.03225.ph, %if.then961 ], [ %angleThreshold.03225.ph, %if.then969 ], [ %angleThreshold.03225.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %angleThreshold.03225.ph, %if.else785 ], [ %angleThreshold.03225.ph, %if.end515 ], [ %angleThreshold.03225.ph, %if.end493 ], [ %angleThreshold.03225.ph, %if.end400 ], [ %angleThreshold.03225.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %angleThreshold.03225.ph, %if.else213 ], [ %angleThreshold.03225.ph, %if.else206 ], [ %angleThreshold.03225.ph, %if.else ], [ %angleThreshold.03225.ph, %lor.lhs.false199 ], [ %angleThreshold.03225.ph, %if.then187 ], [ %angleThreshold.03225.ph, %if.then233 ], [ %angleThreshold.03225.ph, %do.body359 ], [ %angleThreshold.03225.ph, %do.body347 ], [ %angleThreshold.03225.ph, %do.body329 ], [ %angleThreshold.03225.ph, %do.body311 ], [ %angleThreshold.03225.ph, %do.body293 ], [ %angleThreshold.03225.ph, %do.body275 ], [ %angleThreshold.03225.ph, %do.body257 ], [ %angleThreshold.03225.ph, %do.body ], [ %angleThreshold.03225.ph, %if.then585 ], [ %angleThreshold.03225.ph, %if.then619 ], [ %angleThreshold.03225.ph, %if.then665 ], [ %angleThreshold.03225.ph, %if.then693 ], [ %angleThreshold.03225.ph, %if.else706 ], [ %angleThreshold.03225.ph, %if.then676 ], [ %angleThreshold.03225.ph, %if.then648 ], [ %angleThreshold.03225.ph, %if.then602 ], [ %angleThreshold.03225.ph, %if.else778 ], [ %angleThreshold.03225.ph, %if.else771 ], [ %angleThreshold.03225.ph, %if.then764 ]
+  %scaleSpecified.0.be = phi i8 [ %scaleSpecified.03226.ph, %if.then9 ], [ %scaleSpecified.03226.ph, %if.then13 ], [ %scaleSpecified.03226.ph, %if.then18 ], [ %scaleSpecified.03226.ph, %if.then23 ], [ %scaleSpecified.03226.ph, %if.then28 ], [ %scaleSpecified.03226.ph, %if.then35 ], [ %scaleSpecified.03226.ph, %sw.epilog ], [ %scaleSpecified.03226.ph, %if.then72 ], [ %scaleSpecified.03226.ph, %if.then83 ], [ %scaleSpecified.03226.ph, %if.then91 ], [ %scaleSpecified.03226.ph, %if.then102 ], [ %scaleSpecified.03226.ph, %if.then113 ], [ %scaleSpecified.03226.ph, %if.then121 ], [ %scaleSpecified.03226.ph, %if.then129 ], [ %scaleSpecified.03226.ph, %if.then137 ], [ %scaleSpecified.03226.ph, %if.then145 ], [ %scaleSpecified.03226.ph, %if.then153 ], [ %scaleSpecified.03226.ph, %if.then162 ], [ %scaleSpecified.03226.ph, %if.then171 ], [ %scaleSpecified.03226.ph, %if.then179 ], [ %scaleSpecified.03226.ph, %for.cond.preheader ], [ %scaleSpecified.03226.ph, %if.else220 ], [ %scaleSpecified.03226.ph, %if.then408 ], [ %scaleSpecified.03226.ph, %_ZL11parseDoubleRdPKc.exit ], [ %scaleSpecified.03226.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ 1, %if.end466 ], [ %scaleSpecified.03226.ph, %if.end532 ], [ %scaleSpecified.03226.ph, %if.else364 ], [ %scaleSpecified.03226.ph, %if.end735 ], [ %scaleSpecified.03226.ph, %if.end755 ], [ %scaleSpecified.03226.ph, %if.then558 ], [ %scaleSpecified.03226.ph, %if.end847 ], [ %scaleSpecified.03226.ph, %if.then856 ], [ %scaleSpecified.03226.ph, %if.end887 ], [ %scaleSpecified.03226.ph, %if.end918 ], [ %scaleSpecified.03226.ph, %if.then929 ], [ %scaleSpecified.03226.ph, %if.then937 ], [ %scaleSpecified.03226.ph, %if.then945 ], [ %scaleSpecified.03226.ph, %if.then953 ], [ %scaleSpecified.03226.ph, %if.then961 ], [ %scaleSpecified.03226.ph, %if.then969 ], [ %scaleSpecified.03226.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %scaleSpecified.03226.ph, %if.else785 ], [ %scaleSpecified.03226.ph, %if.end515 ], [ 1, %if.end493 ], [ %scaleSpecified.03226.ph, %if.end400 ], [ %scaleSpecified.03226.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %scaleSpecified.03226.ph, %if.else213 ], [ %scaleSpecified.03226.ph, %if.else206 ], [ %scaleSpecified.03226.ph, %if.else ], [ %scaleSpecified.03226.ph, %lor.lhs.false199 ], [ %scaleSpecified.03226.ph, %if.then187 ], [ %scaleSpecified.03226.ph, %if.then233 ], [ %scaleSpecified.03226.ph, %do.body359 ], [ %scaleSpecified.03226.ph, %do.body347 ], [ %scaleSpecified.03226.ph, %do.body329 ], [ %scaleSpecified.03226.ph, %do.body311 ], [ %scaleSpecified.03226.ph, %do.body293 ], [ %scaleSpecified.03226.ph, %do.body275 ], [ %scaleSpecified.03226.ph, %do.body257 ], [ %scaleSpecified.03226.ph, %do.body ], [ %scaleSpecified.03226.ph, %if.then585 ], [ %scaleSpecified.03226.ph, %if.then619 ], [ %scaleSpecified.03226.ph, %if.then665 ], [ %scaleSpecified.03226.ph, %if.then693 ], [ %scaleSpecified.03226.ph, %if.else706 ], [ %scaleSpecified.03226.ph, %if.then676 ], [ %scaleSpecified.03226.ph, %if.then648 ], [ %scaleSpecified.03226.ph, %if.then602 ], [ %scaleSpecified.03226.ph, %if.else778 ], [ %scaleSpecified.03226.ph, %if.else771 ], [ %scaleSpecified.03226.ph, %if.then764 ]
+  %pxRange.0.be = phi double [ %pxRange.03227.ph, %if.then9 ], [ %pxRange.03227.ph, %if.then13 ], [ %pxRange.03227.ph, %if.then18 ], [ %pxRange.03227.ph, %if.then23 ], [ %pxRange.03227.ph, %if.then28 ], [ %pxRange.03227.ph, %if.then35 ], [ %pxRange.03227.ph, %sw.epilog ], [ %pxRange.03227.ph, %if.then72 ], [ %pxRange.03227.ph, %if.then83 ], [ %pxRange.03227.ph, %if.then91 ], [ %pxRange.03227.ph, %if.then102 ], [ %pxRange.03227.ph, %if.then113 ], [ %pxRange.03227.ph, %if.then121 ], [ %pxRange.03227.ph, %if.then129 ], [ %pxRange.03227.ph, %if.then137 ], [ %pxRange.03227.ph, %if.then145 ], [ %pxRange.03227.ph, %if.then153 ], [ %pxRange.03227.ph, %if.then162 ], [ %pxRange.03227.ph, %if.then171 ], [ %pxRange.03227.ph, %if.then179 ], [ %pxRange.03227.ph, %for.cond.preheader ], [ %pxRange.03227.ph, %if.else220 ], [ %pxRange.03227.ph, %if.then408 ], [ %pxRange.03227.ph, %_ZL11parseDoubleRdPKc.exit ], [ %call.i626, %_ZL11parseDoubleRdPKc.exit630 ], [ %pxRange.03227.ph, %if.end466 ], [ %pxRange.03227.ph, %if.end532 ], [ %pxRange.03227.ph, %if.else364 ], [ %pxRange.03227.ph, %if.end735 ], [ %pxRange.03227.ph, %if.end755 ], [ %pxRange.03227.ph, %if.then558 ], [ %pxRange.03227.ph, %if.end847 ], [ %pxRange.03227.ph, %if.then856 ], [ %pxRange.03227.ph, %if.end887 ], [ %pxRange.03227.ph, %if.end918 ], [ %pxRange.03227.ph, %if.then929 ], [ %pxRange.03227.ph, %if.then937 ], [ %pxRange.03227.ph, %if.then945 ], [ %pxRange.03227.ph, %if.then953 ], [ %pxRange.03227.ph, %if.then961 ], [ %pxRange.03227.ph, %if.then969 ], [ %pxRange.03227.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %pxRange.03227.ph, %if.else785 ], [ %pxRange.03227.ph, %if.end515 ], [ %pxRange.03227.ph, %if.end493 ], [ %pxRange.03227.ph, %if.end400 ], [ %pxRange.03227.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %pxRange.03227.ph, %if.else213 ], [ %pxRange.03227.ph, %if.else206 ], [ %pxRange.03227.ph, %if.else ], [ %pxRange.03227.ph, %lor.lhs.false199 ], [ %pxRange.03227.ph, %if.then187 ], [ %pxRange.03227.ph, %if.then233 ], [ %pxRange.03227.ph, %do.body359 ], [ %pxRange.03227.ph, %do.body347 ], [ %pxRange.03227.ph, %do.body329 ], [ %pxRange.03227.ph, %do.body311 ], [ %pxRange.03227.ph, %do.body293 ], [ %pxRange.03227.ph, %do.body275 ], [ %pxRange.03227.ph, %do.body257 ], [ %pxRange.03227.ph, %do.body ], [ %pxRange.03227.ph, %if.then585 ], [ %pxRange.03227.ph, %if.then619 ], [ %pxRange.03227.ph, %if.then665 ], [ %pxRange.03227.ph, %if.then693 ], [ %pxRange.03227.ph, %if.else706 ], [ %pxRange.03227.ph, %if.then676 ], [ %pxRange.03227.ph, %if.then648 ], [ %pxRange.03227.ph, %if.then602 ], [ %pxRange.03227.ph, %if.else778 ], [ %pxRange.03227.ph, %if.else771 ], [ %pxRange.03227.ph, %if.then764 ]
+  %range.0.be = phi double [ %range.03228.ph, %if.then9 ], [ %range.03228.ph, %if.then13 ], [ %range.03228.ph, %if.then18 ], [ %range.03228.ph, %if.then23 ], [ %range.03228.ph, %if.then28 ], [ %range.03228.ph, %if.then35 ], [ %range.03228.ph, %sw.epilog ], [ %range.03228.ph, %if.then72 ], [ %range.03228.ph, %if.then83 ], [ %range.03228.ph, %if.then91 ], [ %range.03228.ph, %if.then102 ], [ %range.03228.ph, %if.then113 ], [ %range.03228.ph, %if.then121 ], [ %range.03228.ph, %if.then129 ], [ %range.03228.ph, %if.then137 ], [ %range.03228.ph, %if.then145 ], [ %range.03228.ph, %if.then153 ], [ %range.03228.ph, %if.then162 ], [ %range.03228.ph, %if.then171 ], [ %range.03228.ph, %if.then179 ], [ %range.03228.ph, %for.cond.preheader ], [ %range.03228.ph, %if.else220 ], [ %range.03228.ph, %if.then408 ], [ %call.i621, %_ZL11parseDoubleRdPKc.exit ], [ %range.03228.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %range.03228.ph, %if.end466 ], [ %range.03228.ph, %if.end532 ], [ %range.03228.ph, %if.else364 ], [ %range.03228.ph, %if.end735 ], [ %range.03228.ph, %if.end755 ], [ %range.03228.ph, %if.then558 ], [ %range.03228.ph, %if.end847 ], [ %range.03228.ph, %if.then856 ], [ %range.03228.ph, %if.end887 ], [ %range.03228.ph, %if.end918 ], [ %range.03228.ph, %if.then929 ], [ %range.03228.ph, %if.then937 ], [ %range.03228.ph, %if.then945 ], [ %range.03228.ph, %if.then953 ], [ %range.03228.ph, %if.then961 ], [ %range.03228.ph, %if.then969 ], [ %range.03228.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %range.03228.ph, %if.else785 ], [ %range.03228.ph, %if.end515 ], [ %range.03228.ph, %if.end493 ], [ %range.03228.ph, %if.end400 ], [ %range.03228.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %range.03228.ph, %if.else213 ], [ %range.03228.ph, %if.else206 ], [ %range.03228.ph, %if.else ], [ %range.03228.ph, %lor.lhs.false199 ], [ %range.03228.ph, %if.then187 ], [ %range.03228.ph, %if.then233 ], [ %range.03228.ph, %do.body359 ], [ %range.03228.ph, %do.body347 ], [ %range.03228.ph, %do.body329 ], [ %range.03228.ph, %do.body311 ], [ %range.03228.ph, %do.body293 ], [ %range.03228.ph, %do.body275 ], [ %range.03228.ph, %do.body257 ], [ %range.03228.ph, %do.body ], [ %range.03228.ph, %if.then585 ], [ %range.03228.ph, %if.then619 ], [ %range.03228.ph, %if.then665 ], [ %range.03228.ph, %if.then693 ], [ %range.03228.ph, %if.else706 ], [ %range.03228.ph, %if.then676 ], [ %range.03228.ph, %if.then648 ], [ %range.03228.ph, %if.then602 ], [ %range.03228.ph, %if.else778 ], [ %range.03228.ph, %if.else771 ], [ %range.03228.ph, %if.then764 ]
+  %rangeMode.0.be = phi i32 [ %rangeMode.03229.ph, %if.then9 ], [ %rangeMode.03229.ph, %if.then13 ], [ %rangeMode.03229.ph, %if.then18 ], [ %rangeMode.03229.ph, %if.then23 ], [ %rangeMode.03229.ph, %if.then28 ], [ %rangeMode.03229.ph, %if.then35 ], [ %rangeMode.03229.ph, %sw.epilog ], [ %rangeMode.03229.ph, %if.then72 ], [ %rangeMode.03229.ph, %if.then83 ], [ %rangeMode.03229.ph, %if.then91 ], [ %rangeMode.03229.ph, %if.then102 ], [ %rangeMode.03229.ph, %if.then113 ], [ %rangeMode.03229.ph, %if.then121 ], [ %rangeMode.03229.ph, %if.then129 ], [ %rangeMode.03229.ph, %if.then137 ], [ %rangeMode.03229.ph, %if.then145 ], [ %rangeMode.03229.ph, %if.then153 ], [ %rangeMode.03229.ph, %if.then162 ], [ %rangeMode.03229.ph, %if.then171 ], [ %rangeMode.03229.ph, %if.then179 ], [ %rangeMode.03229.ph, %for.cond.preheader ], [ %rangeMode.03229.ph, %if.else220 ], [ %rangeMode.03229.ph, %if.then408 ], [ 0, %_ZL11parseDoubleRdPKc.exit ], [ 1, %_ZL11parseDoubleRdPKc.exit630 ], [ %rangeMode.03229.ph, %if.end466 ], [ %rangeMode.03229.ph, %if.end532 ], [ %rangeMode.03229.ph, %if.else364 ], [ %rangeMode.03229.ph, %if.end735 ], [ %rangeMode.03229.ph, %if.end755 ], [ %rangeMode.03229.ph, %if.then558 ], [ %rangeMode.03229.ph, %if.end847 ], [ %rangeMode.03229.ph, %if.then856 ], [ %rangeMode.03229.ph, %if.end887 ], [ %rangeMode.03229.ph, %if.end918 ], [ %rangeMode.03229.ph, %if.then929 ], [ %rangeMode.03229.ph, %if.then937 ], [ %rangeMode.03229.ph, %if.then945 ], [ %rangeMode.03229.ph, %if.then953 ], [ %rangeMode.03229.ph, %if.then961 ], [ %rangeMode.03229.ph, %if.then969 ], [ %rangeMode.03229.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %rangeMode.03229.ph, %if.else785 ], [ %rangeMode.03229.ph, %if.end515 ], [ %rangeMode.03229.ph, %if.end493 ], [ %rangeMode.03229.ph, %if.end400 ], [ %rangeMode.03229.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %rangeMode.03229.ph, %if.else213 ], [ %rangeMode.03229.ph, %if.else206 ], [ %rangeMode.03229.ph, %if.else ], [ %rangeMode.03229.ph, %lor.lhs.false199 ], [ %rangeMode.03229.ph, %if.then187 ], [ %rangeMode.03229.ph, %if.then233 ], [ %rangeMode.03229.ph, %do.body359 ], [ %rangeMode.03229.ph, %do.body347 ], [ %rangeMode.03229.ph, %do.body329 ], [ %rangeMode.03229.ph, %do.body311 ], [ %rangeMode.03229.ph, %do.body293 ], [ %rangeMode.03229.ph, %do.body275 ], [ %rangeMode.03229.ph, %do.body257 ], [ %rangeMode.03229.ph, %do.body ], [ %rangeMode.03229.ph, %if.then585 ], [ %rangeMode.03229.ph, %if.then619 ], [ %rangeMode.03229.ph, %if.then665 ], [ %rangeMode.03229.ph, %if.then693 ], [ %rangeMode.03229.ph, %if.else706 ], [ %rangeMode.03229.ph, %if.then676 ], [ %rangeMode.03229.ph, %if.then648 ], [ %rangeMode.03229.ph, %if.then602 ], [ %rangeMode.03229.ph, %if.else778 ], [ %rangeMode.03229.ph, %if.else771 ], [ %rangeMode.03229.ph, %if.then764 ]
+  %autoFrame.0.be = phi i1 [ %autoFrame.03230.ph, %if.then9 ], [ %autoFrame.03230.ph, %if.then13 ], [ %autoFrame.03230.ph, %if.then18 ], [ %autoFrame.03230.ph, %if.then23 ], [ %autoFrame.03230.ph, %if.then28 ], [ %autoFrame.03230.ph, %if.then35 ], [ %autoFrame.03230.ph, %sw.epilog ], [ %autoFrame.03230.ph, %if.then72 ], [ %autoFrame.03230.ph, %if.then83 ], [ %autoFrame.03230.ph, %if.then91 ], [ %autoFrame.03230.ph, %if.then102 ], [ %autoFrame.03230.ph, %if.then113 ], [ %autoFrame.03230.ph, %if.then121 ], [ %autoFrame.03230.ph, %if.then129 ], [ %autoFrame.03230.ph, %if.then137 ], [ %autoFrame.03230.ph, %if.then145 ], [ %autoFrame.03230.ph, %if.then153 ], [ %autoFrame.03230.ph, %if.then162 ], [ %autoFrame.03230.ph, %if.then171 ], [ %autoFrame.03230.ph, %if.then179 ], [ %autoFrame.03230.ph, %for.cond.preheader ], [ %autoFrame.03230.ph, %if.else220 ], [ true, %if.then408 ], [ %autoFrame.03230.ph, %_ZL11parseDoubleRdPKc.exit ], [ %autoFrame.03230.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %autoFrame.03230.ph, %if.end466 ], [ %autoFrame.03230.ph, %if.end532 ], [ %autoFrame.03230.ph, %if.else364 ], [ %autoFrame.03230.ph, %if.end735 ], [ %autoFrame.03230.ph, %if.end755 ], [ %autoFrame.03230.ph, %if.then558 ], [ %autoFrame.03230.ph, %if.end847 ], [ %autoFrame.03230.ph, %if.then856 ], [ %autoFrame.03230.ph, %if.end887 ], [ %autoFrame.03230.ph, %if.end918 ], [ %autoFrame.03230.ph, %if.then929 ], [ %autoFrame.03230.ph, %if.then937 ], [ %autoFrame.03230.ph, %if.then945 ], [ %autoFrame.03230.ph, %if.then953 ], [ %autoFrame.03230.ph, %if.then961 ], [ %autoFrame.03230.ph, %if.then969 ], [ %autoFrame.03230.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %autoFrame.03230.ph, %if.else785 ], [ %autoFrame.03230.ph, %if.end515 ], [ %autoFrame.03230.ph, %if.end493 ], [ %autoFrame.03230.ph, %if.end400 ], [ %autoFrame.03230.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %autoFrame.03230.ph, %if.else213 ], [ %autoFrame.03230.ph, %if.else206 ], [ %autoFrame.03230.ph, %if.else ], [ %autoFrame.03230.ph, %lor.lhs.false199 ], [ %autoFrame.03230.ph, %if.then187 ], [ %autoFrame.03230.ph, %if.then233 ], [ %autoFrame.03230.ph, %do.body359 ], [ %autoFrame.03230.ph, %do.body347 ], [ %autoFrame.03230.ph, %do.body329 ], [ %autoFrame.03230.ph, %do.body311 ], [ %autoFrame.03230.ph, %do.body293 ], [ %autoFrame.03230.ph, %do.body275 ], [ %autoFrame.03230.ph, %do.body257 ], [ %autoFrame.03230.ph, %do.body ], [ %autoFrame.03230.ph, %if.then585 ], [ %autoFrame.03230.ph, %if.then619 ], [ %autoFrame.03230.ph, %if.then665 ], [ %autoFrame.03230.ph, %if.then693 ], [ %autoFrame.03230.ph, %if.else706 ], [ %autoFrame.03230.ph, %if.then676 ], [ %autoFrame.03230.ph, %if.then648 ], [ %autoFrame.03230.ph, %if.then602 ], [ %autoFrame.03230.ph, %if.else778 ], [ %autoFrame.03230.ph, %if.else771 ], [ %autoFrame.03230.ph, %if.then764 ]
+  %testHeightM.0.be = phi i32 [ %testHeightM.03231.ph, %if.then9 ], [ %testHeightM.03231.ph, %if.then13 ], [ %testHeightM.03231.ph, %if.then18 ], [ %testHeightM.03231.ph, %if.then23 ], [ %testHeightM.03231.ph, %if.then28 ], [ %testHeightM.03231.ph, %if.then35 ], [ %testHeightM.03231.ph, %sw.epilog ], [ %testHeightM.03231.ph, %if.then72 ], [ %testHeightM.03231.ph, %if.then83 ], [ %testHeightM.03231.ph, %if.then91 ], [ %testHeightM.03231.ph, %if.then102 ], [ %testHeightM.03231.ph, %if.then113 ], [ %testHeightM.03231.ph, %if.then121 ], [ %testHeightM.03231.ph, %if.then129 ], [ %testHeightM.03231.ph, %if.then137 ], [ %testHeightM.03231.ph, %if.then145 ], [ %testHeightM.03231.ph, %if.then153 ], [ %testHeightM.03231.ph, %if.then162 ], [ %testHeightM.03231.ph, %if.then171 ], [ %testHeightM.03231.ph, %if.then179 ], [ %testHeightM.03231.ph, %for.cond.preheader ], [ %testHeightM.03231.ph, %if.else220 ], [ %testHeightM.03231.ph, %if.then408 ], [ %testHeightM.03231.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testHeightM.03231.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testHeightM.03231.ph, %if.end466 ], [ %testHeightM.03231.ph, %if.end532 ], [ %testHeightM.03231.ph, %if.else364 ], [ %testHeightM.03231.ph, %if.end735 ], [ %testHeightM.03231.ph, %if.end755 ], [ %testHeightM.03231.ph, %if.then558 ], [ %testHeightM.03231.ph, %if.end847 ], [ %testHeightM.03231.ph, %if.then856 ], [ %testHeightM.03231.ph, %if.end887 ], [ %conv.i705, %if.end918 ], [ %testHeightM.03231.ph, %if.then929 ], [ %testHeightM.03231.ph, %if.then937 ], [ %testHeightM.03231.ph, %if.then945 ], [ %testHeightM.03231.ph, %if.then953 ], [ %testHeightM.03231.ph, %if.then961 ], [ %testHeightM.03231.ph, %if.then969 ], [ %testHeightM.03231.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testHeightM.03231.ph, %if.else785 ], [ %testHeightM.03231.ph, %if.end515 ], [ %testHeightM.03231.ph, %if.end493 ], [ %testHeightM.03231.ph, %if.end400 ], [ %testHeightM.03231.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testHeightM.03231.ph, %if.else213 ], [ %testHeightM.03231.ph, %if.else206 ], [ %testHeightM.03231.ph, %if.else ], [ %testHeightM.03231.ph, %lor.lhs.false199 ], [ %testHeightM.03231.ph, %if.then187 ], [ %testHeightM.03231.ph, %if.then233 ], [ %testHeightM.03231.ph, %do.body359 ], [ %testHeightM.03231.ph, %do.body347 ], [ %testHeightM.03231.ph, %do.body329 ], [ %testHeightM.03231.ph, %do.body311 ], [ %testHeightM.03231.ph, %do.body293 ], [ %testHeightM.03231.ph, %do.body275 ], [ %testHeightM.03231.ph, %do.body257 ], [ %testHeightM.03231.ph, %do.body ], [ %testHeightM.03231.ph, %if.then585 ], [ %testHeightM.03231.ph, %if.then619 ], [ %testHeightM.03231.ph, %if.then665 ], [ %testHeightM.03231.ph, %if.then693 ], [ %testHeightM.03231.ph, %if.else706 ], [ %testHeightM.03231.ph, %if.then676 ], [ %testHeightM.03231.ph, %if.then648 ], [ %testHeightM.03231.ph, %if.then602 ], [ %testHeightM.03231.ph, %if.else778 ], [ %testHeightM.03231.ph, %if.else771 ], [ %testHeightM.03231.ph, %if.then764 ]
+  %testWidthM.0.be = phi i32 [ %testWidthM.03232.ph, %if.then9 ], [ %testWidthM.03232.ph, %if.then13 ], [ %testWidthM.03232.ph, %if.then18 ], [ %testWidthM.03232.ph, %if.then23 ], [ %testWidthM.03232.ph, %if.then28 ], [ %testWidthM.03232.ph, %if.then35 ], [ %testWidthM.03232.ph, %sw.epilog ], [ %testWidthM.03232.ph, %if.then72 ], [ %testWidthM.03232.ph, %if.then83 ], [ %testWidthM.03232.ph, %if.then91 ], [ %testWidthM.03232.ph, %if.then102 ], [ %testWidthM.03232.ph, %if.then113 ], [ %testWidthM.03232.ph, %if.then121 ], [ %testWidthM.03232.ph, %if.then129 ], [ %testWidthM.03232.ph, %if.then137 ], [ %testWidthM.03232.ph, %if.then145 ], [ %testWidthM.03232.ph, %if.then153 ], [ %testWidthM.03232.ph, %if.then162 ], [ %testWidthM.03232.ph, %if.then171 ], [ %testWidthM.03232.ph, %if.then179 ], [ %testWidthM.03232.ph, %for.cond.preheader ], [ %testWidthM.03232.ph, %if.else220 ], [ %testWidthM.03232.ph, %if.then408 ], [ %testWidthM.03232.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testWidthM.03232.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testWidthM.03232.ph, %if.end466 ], [ %testWidthM.03232.ph, %if.end532 ], [ %testWidthM.03232.ph, %if.else364 ], [ %testWidthM.03232.ph, %if.end735 ], [ %testWidthM.03232.ph, %if.end755 ], [ %testWidthM.03232.ph, %if.then558 ], [ %testWidthM.03232.ph, %if.end847 ], [ %testWidthM.03232.ph, %if.then856 ], [ %testWidthM.03232.ph, %if.end887 ], [ %conv.i698, %if.end918 ], [ %testWidthM.03232.ph, %if.then929 ], [ %testWidthM.03232.ph, %if.then937 ], [ %testWidthM.03232.ph, %if.then945 ], [ %testWidthM.03232.ph, %if.then953 ], [ %testWidthM.03232.ph, %if.then961 ], [ %testWidthM.03232.ph, %if.then969 ], [ %testWidthM.03232.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testWidthM.03232.ph, %if.else785 ], [ %testWidthM.03232.ph, %if.end515 ], [ %testWidthM.03232.ph, %if.end493 ], [ %testWidthM.03232.ph, %if.end400 ], [ %testWidthM.03232.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testWidthM.03232.ph, %if.else213 ], [ %testWidthM.03232.ph, %if.else206 ], [ %testWidthM.03232.ph, %if.else ], [ %testWidthM.03232.ph, %lor.lhs.false199 ], [ %testWidthM.03232.ph, %if.then187 ], [ %testWidthM.03232.ph, %if.then233 ], [ %testWidthM.03232.ph, %do.body359 ], [ %testWidthM.03232.ph, %do.body347 ], [ %testWidthM.03232.ph, %do.body329 ], [ %testWidthM.03232.ph, %do.body311 ], [ %testWidthM.03232.ph, %do.body293 ], [ %testWidthM.03232.ph, %do.body275 ], [ %testWidthM.03232.ph, %do.body257 ], [ %testWidthM.03232.ph, %do.body ], [ %testWidthM.03232.ph, %if.then585 ], [ %testWidthM.03232.ph, %if.then619 ], [ %testWidthM.03232.ph, %if.then665 ], [ %testWidthM.03232.ph, %if.then693 ], [ %testWidthM.03232.ph, %if.else706 ], [ %testWidthM.03232.ph, %if.then676 ], [ %testWidthM.03232.ph, %if.then648 ], [ %testWidthM.03232.ph, %if.then602 ], [ %testWidthM.03232.ph, %if.else778 ], [ %testWidthM.03232.ph, %if.else771 ], [ %testWidthM.03232.ph, %if.then764 ]
+  %testHeight.0.be = phi i32 [ %testHeight.03233.ph, %if.then9 ], [ %testHeight.03233.ph, %if.then13 ], [ %testHeight.03233.ph, %if.then18 ], [ %testHeight.03233.ph, %if.then23 ], [ %testHeight.03233.ph, %if.then28 ], [ %testHeight.03233.ph, %if.then35 ], [ %testHeight.03233.ph, %sw.epilog ], [ %testHeight.03233.ph, %if.then72 ], [ %testHeight.03233.ph, %if.then83 ], [ %testHeight.03233.ph, %if.then91 ], [ %testHeight.03233.ph, %if.then102 ], [ %testHeight.03233.ph, %if.then113 ], [ %testHeight.03233.ph, %if.then121 ], [ %testHeight.03233.ph, %if.then129 ], [ %testHeight.03233.ph, %if.then137 ], [ %testHeight.03233.ph, %if.then145 ], [ %testHeight.03233.ph, %if.then153 ], [ %testHeight.03233.ph, %if.then162 ], [ %testHeight.03233.ph, %if.then171 ], [ %testHeight.03233.ph, %if.then179 ], [ %testHeight.03233.ph, %for.cond.preheader ], [ %testHeight.03233.ph, %if.else220 ], [ %testHeight.03233.ph, %if.then408 ], [ %testHeight.03233.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testHeight.03233.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testHeight.03233.ph, %if.end466 ], [ %testHeight.03233.ph, %if.end532 ], [ %testHeight.03233.ph, %if.else364 ], [ %testHeight.03233.ph, %if.end735 ], [ %testHeight.03233.ph, %if.end755 ], [ %testHeight.03233.ph, %if.then558 ], [ %testHeight.03233.ph, %if.end847 ], [ %testHeight.03233.ph, %if.then856 ], [ %conv.i691, %if.end887 ], [ %testHeight.03233.ph, %if.end918 ], [ %testHeight.03233.ph, %if.then929 ], [ %testHeight.03233.ph, %if.then937 ], [ %testHeight.03233.ph, %if.then945 ], [ %testHeight.03233.ph, %if.then953 ], [ %testHeight.03233.ph, %if.then961 ], [ %testHeight.03233.ph, %if.then969 ], [ %testHeight.03233.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testHeight.03233.ph, %if.else785 ], [ %testHeight.03233.ph, %if.end515 ], [ %testHeight.03233.ph, %if.end493 ], [ %testHeight.03233.ph, %if.end400 ], [ %testHeight.03233.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testHeight.03233.ph, %if.else213 ], [ %testHeight.03233.ph, %if.else206 ], [ %testHeight.03233.ph, %if.else ], [ %testHeight.03233.ph, %lor.lhs.false199 ], [ %testHeight.03233.ph, %if.then187 ], [ %testHeight.03233.ph, %if.then233 ], [ %testHeight.03233.ph, %do.body359 ], [ %testHeight.03233.ph, %do.body347 ], [ %testHeight.03233.ph, %do.body329 ], [ %testHeight.03233.ph, %do.body311 ], [ %testHeight.03233.ph, %do.body293 ], [ %testHeight.03233.ph, %do.body275 ], [ %testHeight.03233.ph, %do.body257 ], [ %testHeight.03233.ph, %do.body ], [ %testHeight.03233.ph, %if.then585 ], [ %testHeight.03233.ph, %if.then619 ], [ %testHeight.03233.ph, %if.then665 ], [ %testHeight.03233.ph, %if.then693 ], [ %testHeight.03233.ph, %if.else706 ], [ %testHeight.03233.ph, %if.then676 ], [ %testHeight.03233.ph, %if.then648 ], [ %testHeight.03233.ph, %if.then602 ], [ %testHeight.03233.ph, %if.else778 ], [ %testHeight.03233.ph, %if.else771 ], [ %testHeight.03233.ph, %if.then764 ]
+  %testWidth.0.be = phi i32 [ %testWidth.03234.ph, %if.then9 ], [ %testWidth.03234.ph, %if.then13 ], [ %testWidth.03234.ph, %if.then18 ], [ %testWidth.03234.ph, %if.then23 ], [ %testWidth.03234.ph, %if.then28 ], [ %testWidth.03234.ph, %if.then35 ], [ %testWidth.03234.ph, %sw.epilog ], [ %testWidth.03234.ph, %if.then72 ], [ %testWidth.03234.ph, %if.then83 ], [ %testWidth.03234.ph, %if.then91 ], [ %testWidth.03234.ph, %if.then102 ], [ %testWidth.03234.ph, %if.then113 ], [ %testWidth.03234.ph, %if.then121 ], [ %testWidth.03234.ph, %if.then129 ], [ %testWidth.03234.ph, %if.then137 ], [ %testWidth.03234.ph, %if.then145 ], [ %testWidth.03234.ph, %if.then153 ], [ %testWidth.03234.ph, %if.then162 ], [ %testWidth.03234.ph, %if.then171 ], [ %testWidth.03234.ph, %if.then179 ], [ %testWidth.03234.ph, %for.cond.preheader ], [ %testWidth.03234.ph, %if.else220 ], [ %testWidth.03234.ph, %if.then408 ], [ %testWidth.03234.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testWidth.03234.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testWidth.03234.ph, %if.end466 ], [ %testWidth.03234.ph, %if.end532 ], [ %testWidth.03234.ph, %if.else364 ], [ %testWidth.03234.ph, %if.end735 ], [ %testWidth.03234.ph, %if.end755 ], [ %testWidth.03234.ph, %if.then558 ], [ %testWidth.03234.ph, %if.end847 ], [ %testWidth.03234.ph, %if.then856 ], [ %conv.i684, %if.end887 ], [ %testWidth.03234.ph, %if.end918 ], [ %testWidth.03234.ph, %if.then929 ], [ %testWidth.03234.ph, %if.then937 ], [ %testWidth.03234.ph, %if.then945 ], [ %testWidth.03234.ph, %if.then953 ], [ %testWidth.03234.ph, %if.then961 ], [ %testWidth.03234.ph, %if.then969 ], [ %testWidth.03234.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testWidth.03234.ph, %if.else785 ], [ %testWidth.03234.ph, %if.end515 ], [ %testWidth.03234.ph, %if.end493 ], [ %testWidth.03234.ph, %if.end400 ], [ %testWidth.03234.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testWidth.03234.ph, %if.else213 ], [ %testWidth.03234.ph, %if.else206 ], [ %testWidth.03234.ph, %if.else ], [ %testWidth.03234.ph, %lor.lhs.false199 ], [ %testWidth.03234.ph, %if.then187 ], [ %testWidth.03234.ph, %if.then233 ], [ %testWidth.03234.ph, %do.body359 ], [ %testWidth.03234.ph, %do.body347 ], [ %testWidth.03234.ph, %do.body329 ], [ %testWidth.03234.ph, %do.body311 ], [ %testWidth.03234.ph, %do.body293 ], [ %testWidth.03234.ph, %do.body275 ], [ %testWidth.03234.ph, %do.body257 ], [ %testWidth.03234.ph, %do.body ], [ %testWidth.03234.ph, %if.then585 ], [ %testWidth.03234.ph, %if.then619 ], [ %testWidth.03234.ph, %if.then665 ], [ %testWidth.03234.ph, %if.then693 ], [ %testWidth.03234.ph, %if.else706 ], [ %testWidth.03234.ph, %if.then676 ], [ %testWidth.03234.ph, %if.then648 ], [ %testWidth.03234.ph, %if.then602 ], [ %testWidth.03234.ph, %if.else778 ], [ %testWidth.03234.ph, %if.else771 ], [ %testWidth.03234.ph, %if.then764 ]
+  %height.0.be = phi i32 [ %height.03235.ph, %if.then9 ], [ %height.03235.ph, %if.then13 ], [ %height.03235.ph, %if.then18 ], [ %height.03235.ph, %if.then23 ], [ %height.03235.ph, %if.then28 ], [ %height.03235.ph, %if.then35 ], [ %height.03235.ph, %sw.epilog ], [ %height.03235.ph, %if.then72 ], [ %height.03235.ph, %if.then83 ], [ %height.03235.ph, %if.then91 ], [ %height.03235.ph, %if.then102 ], [ %height.03235.ph, %if.then113 ], [ %height.03235.ph, %if.then121 ], [ %height.03235.ph, %if.then129 ], [ %height.03235.ph, %if.then137 ], [ %height.03235.ph, %if.then145 ], [ %height.03235.ph, %if.then153 ], [ %height.03235.ph, %if.then162 ], [ %height.03235.ph, %if.then171 ], [ %height.03235.ph, %if.then179 ], [ %height.03235.ph, %for.cond.preheader ], [ %height.03235.ph, %if.else220 ], [ %height.03235.ph, %if.then408 ], [ %height.03235.ph, %_ZL11parseDoubleRdPKc.exit ], [ %height.03235.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %height.03235.ph, %if.end466 ], [ %height.03235.ph, %if.end532 ], [ %height.03235.ph, %if.else364 ], [ %height.03235.ph, %if.end735 ], [ %height.03235.ph, %if.end755 ], [ %height.03235.ph, %if.then558 ], [ %height.03235.ph, %if.end847 ], [ %height.03235.ph, %if.then856 ], [ %height.03235.ph, %if.end887 ], [ %height.03235.ph, %if.end918 ], [ %height.03235.ph, %if.then929 ], [ %height.03235.ph, %if.then937 ], [ %height.03235.ph, %if.then945 ], [ %height.03235.ph, %if.then953 ], [ %height.03235.ph, %if.then961 ], [ %height.03235.ph, %if.then969 ], [ %height.03235.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %height.03235.ph, %if.else785 ], [ %height.03235.ph, %if.end515 ], [ %height.03235.ph, %if.end493 ], [ %conv.i615, %if.end400 ], [ %height.03235.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %height.03235.ph, %if.else213 ], [ %height.03235.ph, %if.else206 ], [ %height.03235.ph, %if.else ], [ %height.03235.ph, %lor.lhs.false199 ], [ %height.03235.ph, %if.then187 ], [ %height.03235.ph, %if.then233 ], [ %height.03235.ph, %do.body359 ], [ %height.03235.ph, %do.body347 ], [ %height.03235.ph, %do.body329 ], [ %height.03235.ph, %do.body311 ], [ %height.03235.ph, %do.body293 ], [ %height.03235.ph, %do.body275 ], [ %height.03235.ph, %do.body257 ], [ %height.03235.ph, %do.body ], [ %height.03235.ph, %if.then585 ], [ %height.03235.ph, %if.then619 ], [ %height.03235.ph, %if.then665 ], [ %height.03235.ph, %if.then693 ], [ %height.03235.ph, %if.else706 ], [ %height.03235.ph, %if.then676 ], [ %height.03235.ph, %if.then648 ], [ %height.03235.ph, %if.then602 ], [ %height.03235.ph, %if.else778 ], [ %height.03235.ph, %if.else771 ], [ %height.03235.ph, %if.then764 ]
+  %width.0.be = phi i32 [ %width.03236.ph, %if.then9 ], [ %width.03236.ph, %if.then13 ], [ %width.03236.ph, %if.then18 ], [ %width.03236.ph, %if.then23 ], [ %width.03236.ph, %if.then28 ], [ %width.03236.ph, %if.then35 ], [ %width.03236.ph, %sw.epilog ], [ %width.03236.ph, %if.then72 ], [ %width.03236.ph, %if.then83 ], [ %width.03236.ph, %if.then91 ], [ %width.03236.ph, %if.then102 ], [ %width.03236.ph, %if.then113 ], [ %width.03236.ph, %if.then121 ], [ %width.03236.ph, %if.then129 ], [ %width.03236.ph, %if.then137 ], [ %width.03236.ph, %if.then145 ], [ %width.03236.ph, %if.then153 ], [ %width.03236.ph, %if.then162 ], [ %width.03236.ph, %if.then171 ], [ %width.03236.ph, %if.then179 ], [ %width.03236.ph, %for.cond.preheader ], [ %width.03236.ph, %if.else220 ], [ %width.03236.ph, %if.then408 ], [ %width.03236.ph, %_ZL11parseDoubleRdPKc.exit ], [ %width.03236.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %width.03236.ph, %if.end466 ], [ %width.03236.ph, %if.end532 ], [ %width.03236.ph, %if.else364 ], [ %width.03236.ph, %if.end735 ], [ %width.03236.ph, %if.end755 ], [ %width.03236.ph, %if.then558 ], [ %width.03236.ph, %if.end847 ], [ %width.03236.ph, %if.then856 ], [ %width.03236.ph, %if.end887 ], [ %width.03236.ph, %if.end918 ], [ %width.03236.ph, %if.then929 ], [ %width.03236.ph, %if.then937 ], [ %width.03236.ph, %if.then945 ], [ %width.03236.ph, %if.then953 ], [ %width.03236.ph, %if.then961 ], [ %width.03236.ph, %if.then969 ], [ %width.03236.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %width.03236.ph, %if.else785 ], [ %width.03236.ph, %if.end515 ], [ %width.03236.ph, %if.end493 ], [ %conv.i, %if.end400 ], [ %width.03236.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %width.03236.ph, %if.else213 ], [ %width.03236.ph, %if.else206 ], [ %width.03236.ph, %if.else ], [ %width.03236.ph, %lor.lhs.false199 ], [ %width.03236.ph, %if.then187 ], [ %width.03236.ph, %if.then233 ], [ %width.03236.ph, %do.body359 ], [ %width.03236.ph, %do.body347 ], [ %width.03236.ph, %do.body329 ], [ %width.03236.ph, %do.body311 ], [ %width.03236.ph, %do.body293 ], [ %width.03236.ph, %do.body275 ], [ %width.03236.ph, %do.body257 ], [ %width.03236.ph, %do.body ], [ %width.03236.ph, %if.then585 ], [ %width.03236.ph, %if.then619 ], [ %width.03236.ph, %if.then665 ], [ %width.03236.ph, %if.then693 ], [ %width.03236.ph, %if.else706 ], [ %width.03236.ph, %if.then676 ], [ %width.03236.ph, %if.then648 ], [ %width.03236.ph, %if.then602 ], [ %width.03236.ph, %if.else778 ], [ %width.03236.ph, %if.else771 ], [ %width.03236.ph, %if.then764 ]
+  %glyphIndexSpecified.0.be = phi i1 [ %glyphIndexSpecified.03237.ph, %if.then9 ], [ %glyphIndexSpecified.03237.ph, %if.then13 ], [ %glyphIndexSpecified.03237.ph, %if.then18 ], [ %glyphIndexSpecified.03237.ph, %if.then23 ], [ %glyphIndexSpecified.03237.ph, %if.then28 ], [ %glyphIndexSpecified.03237.ph, %if.then35 ], [ %glyphIndexSpecified.1, %sw.epilog ], [ %glyphIndexSpecified.03237.ph, %if.then72 ], [ %glyphIndexSpecified.03237.ph, %if.then83 ], [ %glyphIndexSpecified.03237.ph, %if.then91 ], [ %glyphIndexSpecified.03237.ph, %if.then102 ], [ %glyphIndexSpecified.03237.ph, %if.then113 ], [ %glyphIndexSpecified.03237.ph, %if.then121 ], [ %glyphIndexSpecified.03237.ph, %if.then129 ], [ %glyphIndexSpecified.03237.ph, %if.then137 ], [ %glyphIndexSpecified.03237.ph, %if.then145 ], [ %glyphIndexSpecified.03237.ph, %if.then153 ], [ %glyphIndexSpecified.03237.ph, %if.then162 ], [ %glyphIndexSpecified.03237.ph, %if.then171 ], [ %glyphIndexSpecified.03237.ph, %if.then179 ], [ %glyphIndexSpecified.03237.ph, %for.cond.preheader ], [ %glyphIndexSpecified.03237.ph, %if.else220 ], [ %glyphIndexSpecified.03237.ph, %if.then408 ], [ %glyphIndexSpecified.03237.ph, %_ZL11parseDoubleRdPKc.exit ], [ %glyphIndexSpecified.03237.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %glyphIndexSpecified.03237.ph, %if.end466 ], [ %glyphIndexSpecified.03237.ph, %if.end532 ], [ %glyphIndexSpecified.03237.ph, %if.else364 ], [ %glyphIndexSpecified.03237.ph, %if.end735 ], [ %glyphIndexSpecified.03237.ph, %if.end755 ], [ %glyphIndexSpecified.03237.ph, %if.then558 ], [ %glyphIndexSpecified.03237.ph, %if.end847 ], [ %glyphIndexSpecified.03237.ph, %if.then856 ], [ %glyphIndexSpecified.03237.ph, %if.end887 ], [ %glyphIndexSpecified.03237.ph, %if.end918 ], [ %glyphIndexSpecified.03237.ph, %if.then929 ], [ %glyphIndexSpecified.03237.ph, %if.then937 ], [ %glyphIndexSpecified.03237.ph, %if.then945 ], [ %glyphIndexSpecified.03237.ph, %if.then953 ], [ %glyphIndexSpecified.03237.ph, %if.then961 ], [ %glyphIndexSpecified.03237.ph, %if.then969 ], [ %glyphIndexSpecified.03237.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %glyphIndexSpecified.03237.ph, %if.else785 ], [ %glyphIndexSpecified.03237.ph, %if.end515 ], [ %glyphIndexSpecified.03237.ph, %if.end493 ], [ %glyphIndexSpecified.03237.ph, %if.end400 ], [ %glyphIndexSpecified.03237.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %glyphIndexSpecified.03237.ph, %if.else213 ], [ %glyphIndexSpecified.03237.ph, %if.else206 ], [ %glyphIndexSpecified.03237.ph, %if.else ], [ %glyphIndexSpecified.03237.ph, %lor.lhs.false199 ], [ %glyphIndexSpecified.03237.ph, %if.then187 ], [ %glyphIndexSpecified.03237.ph, %if.then233 ], [ %glyphIndexSpecified.03237.ph, %do.body359 ], [ %glyphIndexSpecified.03237.ph, %do.body347 ], [ %glyphIndexSpecified.03237.ph, %do.body329 ], [ %glyphIndexSpecified.03237.ph, %do.body311 ], [ %glyphIndexSpecified.03237.ph, %do.body293 ], [ %glyphIndexSpecified.03237.ph, %do.body275 ], [ %glyphIndexSpecified.03237.ph, %do.body257 ], [ %glyphIndexSpecified.03237.ph, %do.body ], [ %glyphIndexSpecified.03237.ph, %if.then585 ], [ %glyphIndexSpecified.03237.ph, %if.then619 ], [ %glyphIndexSpecified.03237.ph, %if.then665 ], [ %glyphIndexSpecified.03237.ph, %if.then693 ], [ %glyphIndexSpecified.03237.ph, %if.else706 ], [ %glyphIndexSpecified.03237.ph, %if.then676 ], [ %glyphIndexSpecified.03237.ph, %if.then648 ], [ %glyphIndexSpecified.03237.ph, %if.then602 ], [ %glyphIndexSpecified.03237.ph, %if.else778 ], [ %glyphIndexSpecified.03237.ph, %if.else771 ], [ %glyphIndexSpecified.03237.ph, %if.then764 ]
+  %outputSpecified.0.be = phi i8 [ %outputSpecified.03238.ph, %if.then9 ], [ %outputSpecified.03238.ph, %if.then13 ], [ %outputSpecified.03238.ph, %if.then18 ], [ %outputSpecified.03238.ph, %if.then23 ], [ %outputSpecified.03238.ph, %if.then28 ], [ %outputSpecified.03238.ph, %if.then35 ], [ %outputSpecified.03238.ph, %sw.epilog ], [ %outputSpecified.03238.ph, %if.then72 ], [ %outputSpecified.03238.ph, %if.then83 ], [ %outputSpecified.03238.ph, %if.then91 ], [ 1, %if.then102 ], [ %outputSpecified.03238.ph, %if.then113 ], [ %outputSpecified.03238.ph, %if.then121 ], [ %outputSpecified.03238.ph, %if.then129 ], [ %outputSpecified.03238.ph, %if.then137 ], [ %outputSpecified.03238.ph, %if.then145 ], [ %outputSpecified.03238.ph, %if.then153 ], [ %outputSpecified.03238.ph, %if.then162 ], [ %outputSpecified.03238.ph, %if.then171 ], [ %outputSpecified.03238.ph, %if.then179 ], [ %outputSpecified.03238.ph, %for.cond.preheader ], [ %outputSpecified.03238.ph, %if.else220 ], [ %outputSpecified.03238.ph, %if.then408 ], [ %outputSpecified.03238.ph, %_ZL11parseDoubleRdPKc.exit ], [ %outputSpecified.03238.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %outputSpecified.03238.ph, %if.end466 ], [ %outputSpecified.03238.ph, %if.end532 ], [ %outputSpecified.03238.ph, %if.else364 ], [ %outputSpecified.03238.ph, %if.end735 ], [ %outputSpecified.03238.ph, %if.end755 ], [ %outputSpecified.03238.ph, %if.then558 ], [ %outputSpecified.03238.ph, %if.end847 ], [ %outputSpecified.03238.ph, %if.then856 ], [ %outputSpecified.03238.ph, %if.end887 ], [ %outputSpecified.03238.ph, %if.end918 ], [ %outputSpecified.03238.ph, %if.then929 ], [ %outputSpecified.03238.ph, %if.then937 ], [ %outputSpecified.03238.ph, %if.then945 ], [ %outputSpecified.03238.ph, %if.then953 ], [ %outputSpecified.03238.ph, %if.then961 ], [ %outputSpecified.03238.ph, %if.then969 ], [ %outputSpecified.03238.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %outputSpecified.03238.ph, %if.else785 ], [ %outputSpecified.03238.ph, %if.end515 ], [ %outputSpecified.03238.ph, %if.end493 ], [ %outputSpecified.03238.ph, %if.end400 ], [ %outputSpecified.03238.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %outputSpecified.03238.ph, %if.else213 ], [ %outputSpecified.03238.ph, %if.else206 ], [ %outputSpecified.03238.ph, %if.else ], [ %outputSpecified.03238.ph, %lor.lhs.false199 ], [ %outputSpecified.03238.ph, %if.then187 ], [ %outputSpecified.03238.ph, %if.then233 ], [ %outputSpecified.03238.ph, %do.body359 ], [ %outputSpecified.03238.ph, %do.body347 ], [ %outputSpecified.03238.ph, %do.body329 ], [ %outputSpecified.03238.ph, %do.body311 ], [ %outputSpecified.03238.ph, %do.body293 ], [ %outputSpecified.03238.ph, %do.body275 ], [ %outputSpecified.03238.ph, %do.body257 ], [ %outputSpecified.03238.ph, %do.body ], [ %outputSpecified.03238.ph, %if.then585 ], [ %outputSpecified.03238.ph, %if.then619 ], [ %outputSpecified.03238.ph, %if.then665 ], [ %outputSpecified.03238.ph, %if.then693 ], [ %outputSpecified.03238.ph, %if.else706 ], [ %outputSpecified.03238.ph, %if.then676 ], [ %outputSpecified.03238.ph, %if.then648 ], [ %outputSpecified.03238.ph, %if.then602 ], [ %outputSpecified.03238.ph, %if.else778 ], [ %outputSpecified.03238.ph, %if.else771 ], [ %outputSpecified.03238.ph, %if.then764 ]
+  %testRenderMulti.0.be = phi ptr [ %testRenderMulti.03239.ph, %if.then9 ], [ %testRenderMulti.03239.ph, %if.then13 ], [ %testRenderMulti.03239.ph, %if.then18 ], [ %testRenderMulti.03239.ph, %if.then23 ], [ %testRenderMulti.03239.ph, %if.then28 ], [ %testRenderMulti.03239.ph, %if.then35 ], [ %testRenderMulti.03239.ph, %sw.epilog ], [ %testRenderMulti.03239.ph, %if.then72 ], [ %testRenderMulti.03239.ph, %if.then83 ], [ %testRenderMulti.03239.ph, %if.then91 ], [ %testRenderMulti.03239.ph, %if.then102 ], [ %testRenderMulti.03239.ph, %if.then113 ], [ %testRenderMulti.03239.ph, %if.then121 ], [ %testRenderMulti.03239.ph, %if.then129 ], [ %testRenderMulti.03239.ph, %if.then137 ], [ %testRenderMulti.03239.ph, %if.then145 ], [ %testRenderMulti.03239.ph, %if.then153 ], [ %testRenderMulti.03239.ph, %if.then162 ], [ %testRenderMulti.03239.ph, %if.then171 ], [ %testRenderMulti.03239.ph, %if.then179 ], [ %testRenderMulti.03239.ph, %for.cond.preheader ], [ %testRenderMulti.03239.ph, %if.else220 ], [ %testRenderMulti.03239.ph, %if.then408 ], [ %testRenderMulti.03239.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testRenderMulti.03239.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testRenderMulti.03239.ph, %if.end466 ], [ %testRenderMulti.03239.ph, %if.end532 ], [ %testRenderMulti.03239.ph, %if.else364 ], [ %testRenderMulti.03239.ph, %if.end735 ], [ %testRenderMulti.03239.ph, %if.end755 ], [ %testRenderMulti.03239.ph, %if.then558 ], [ %testRenderMulti.03239.ph, %if.end847 ], [ %testRenderMulti.03239.ph, %if.then856 ], [ %testRenderMulti.03239.ph, %if.end887 ], [ %135, %if.end918 ], [ %testRenderMulti.03239.ph, %if.then929 ], [ %testRenderMulti.03239.ph, %if.then937 ], [ %testRenderMulti.03239.ph, %if.then945 ], [ %testRenderMulti.03239.ph, %if.then953 ], [ %testRenderMulti.03239.ph, %if.then961 ], [ %testRenderMulti.03239.ph, %if.then969 ], [ %testRenderMulti.03239.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testRenderMulti.03239.ph, %if.else785 ], [ %testRenderMulti.03239.ph, %if.end515 ], [ %testRenderMulti.03239.ph, %if.end493 ], [ %testRenderMulti.03239.ph, %if.end400 ], [ %testRenderMulti.03239.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testRenderMulti.03239.ph, %if.else213 ], [ %testRenderMulti.03239.ph, %if.else206 ], [ %testRenderMulti.03239.ph, %if.else ], [ %testRenderMulti.03239.ph, %lor.lhs.false199 ], [ %testRenderMulti.03239.ph, %if.then187 ], [ %testRenderMulti.03239.ph, %if.then233 ], [ %testRenderMulti.03239.ph, %do.body359 ], [ %testRenderMulti.03239.ph, %do.body347 ], [ %testRenderMulti.03239.ph, %do.body329 ], [ %testRenderMulti.03239.ph, %do.body311 ], [ %testRenderMulti.03239.ph, %do.body293 ], [ %testRenderMulti.03239.ph, %do.body275 ], [ %testRenderMulti.03239.ph, %do.body257 ], [ %testRenderMulti.03239.ph, %do.body ], [ %testRenderMulti.03239.ph, %if.then585 ], [ %testRenderMulti.03239.ph, %if.then619 ], [ %testRenderMulti.03239.ph, %if.then665 ], [ %testRenderMulti.03239.ph, %if.then693 ], [ %testRenderMulti.03239.ph, %if.else706 ], [ %testRenderMulti.03239.ph, %if.then676 ], [ %testRenderMulti.03239.ph, %if.then648 ], [ %testRenderMulti.03239.ph, %if.then602 ], [ %testRenderMulti.03239.ph, %if.else778 ], [ %testRenderMulti.03239.ph, %if.else771 ], [ %testRenderMulti.03239.ph, %if.then764 ]
+  %testRender.0.be = phi ptr [ %testRender.03240.ph, %if.then9 ], [ %testRender.03240.ph, %if.then13 ], [ %testRender.03240.ph, %if.then18 ], [ %testRender.03240.ph, %if.then23 ], [ %testRender.03240.ph, %if.then28 ], [ %testRender.03240.ph, %if.then35 ], [ %testRender.03240.ph, %sw.epilog ], [ %testRender.03240.ph, %if.then72 ], [ %testRender.03240.ph, %if.then83 ], [ %testRender.03240.ph, %if.then91 ], [ %testRender.03240.ph, %if.then102 ], [ %testRender.03240.ph, %if.then113 ], [ %testRender.03240.ph, %if.then121 ], [ %testRender.03240.ph, %if.then129 ], [ %testRender.03240.ph, %if.then137 ], [ %testRender.03240.ph, %if.then145 ], [ %testRender.03240.ph, %if.then153 ], [ %testRender.03240.ph, %if.then162 ], [ %testRender.03240.ph, %if.then171 ], [ %testRender.03240.ph, %if.then179 ], [ %testRender.03240.ph, %for.cond.preheader ], [ %testRender.03240.ph, %if.else220 ], [ %testRender.03240.ph, %if.then408 ], [ %testRender.03240.ph, %_ZL11parseDoubleRdPKc.exit ], [ %testRender.03240.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %testRender.03240.ph, %if.end466 ], [ %testRender.03240.ph, %if.end532 ], [ %testRender.03240.ph, %if.else364 ], [ %testRender.03240.ph, %if.end735 ], [ %testRender.03240.ph, %if.end755 ], [ %testRender.03240.ph, %if.then558 ], [ %testRender.03240.ph, %if.end847 ], [ %testRender.03240.ph, %if.then856 ], [ %126, %if.end887 ], [ %testRender.03240.ph, %if.end918 ], [ %testRender.03240.ph, %if.then929 ], [ %testRender.03240.ph, %if.then937 ], [ %testRender.03240.ph, %if.then945 ], [ %testRender.03240.ph, %if.then953 ], [ %testRender.03240.ph, %if.then961 ], [ %testRender.03240.ph, %if.then969 ], [ %testRender.03240.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %testRender.03240.ph, %if.else785 ], [ %testRender.03240.ph, %if.end515 ], [ %testRender.03240.ph, %if.end493 ], [ %testRender.03240.ph, %if.end400 ], [ %testRender.03240.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %testRender.03240.ph, %if.else213 ], [ %testRender.03240.ph, %if.else206 ], [ %testRender.03240.ph, %if.else ], [ %testRender.03240.ph, %lor.lhs.false199 ], [ %testRender.03240.ph, %if.then187 ], [ %testRender.03240.ph, %if.then233 ], [ %testRender.03240.ph, %do.body359 ], [ %testRender.03240.ph, %do.body347 ], [ %testRender.03240.ph, %do.body329 ], [ %testRender.03240.ph, %do.body311 ], [ %testRender.03240.ph, %do.body293 ], [ %testRender.03240.ph, %do.body275 ], [ %testRender.03240.ph, %do.body257 ], [ %testRender.03240.ph, %do.body ], [ %testRender.03240.ph, %if.then585 ], [ %testRender.03240.ph, %if.then619 ], [ %testRender.03240.ph, %if.then665 ], [ %testRender.03240.ph, %if.then693 ], [ %testRender.03240.ph, %if.else706 ], [ %testRender.03240.ph, %if.then676 ], [ %testRender.03240.ph, %if.then648 ], [ %testRender.03240.ph, %if.then602 ], [ %testRender.03240.ph, %if.else778 ], [ %testRender.03240.ph, %if.else771 ], [ %testRender.03240.ph, %if.then764 ]
+  %shapeExport.0.be = phi ptr [ %shapeExport.03241.ph, %if.then9 ], [ %shapeExport.03241.ph, %if.then13 ], [ %shapeExport.03241.ph, %if.then18 ], [ %shapeExport.03241.ph, %if.then23 ], [ %shapeExport.03241.ph, %if.then28 ], [ %shapeExport.03241.ph, %if.then35 ], [ %shapeExport.03241.ph, %sw.epilog ], [ %shapeExport.03241.ph, %if.then72 ], [ %shapeExport.03241.ph, %if.then83 ], [ %shapeExport.03241.ph, %if.then91 ], [ %shapeExport.03241.ph, %if.then102 ], [ %shapeExport.03241.ph, %if.then113 ], [ %shapeExport.03241.ph, %if.then121 ], [ %shapeExport.03241.ph, %if.then129 ], [ %shapeExport.03241.ph, %if.then137 ], [ %shapeExport.03241.ph, %if.then145 ], [ %shapeExport.03241.ph, %if.then153 ], [ %shapeExport.03241.ph, %if.then162 ], [ %shapeExport.03241.ph, %if.then171 ], [ %shapeExport.03241.ph, %if.then179 ], [ %shapeExport.03241.ph, %for.cond.preheader ], [ %shapeExport.03241.ph, %if.else220 ], [ %shapeExport.03241.ph, %if.then408 ], [ %shapeExport.03241.ph, %_ZL11parseDoubleRdPKc.exit ], [ %shapeExport.03241.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %shapeExport.03241.ph, %if.end466 ], [ %shapeExport.03241.ph, %if.end532 ], [ %shapeExport.03241.ph, %if.else364 ], [ %shapeExport.03241.ph, %if.end735 ], [ %shapeExport.03241.ph, %if.end755 ], [ %shapeExport.03241.ph, %if.then558 ], [ %shapeExport.03241.ph, %if.end847 ], [ %117, %if.then856 ], [ %shapeExport.03241.ph, %if.end887 ], [ %shapeExport.03241.ph, %if.end918 ], [ %shapeExport.03241.ph, %if.then929 ], [ %shapeExport.03241.ph, %if.then937 ], [ %shapeExport.03241.ph, %if.then945 ], [ %shapeExport.03241.ph, %if.then953 ], [ %shapeExport.03241.ph, %if.then961 ], [ %shapeExport.03241.ph, %if.then969 ], [ %shapeExport.03241.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %shapeExport.03241.ph, %if.else785 ], [ %shapeExport.03241.ph, %if.end515 ], [ %shapeExport.03241.ph, %if.end493 ], [ %shapeExport.03241.ph, %if.end400 ], [ %shapeExport.03241.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %shapeExport.03241.ph, %if.else213 ], [ %shapeExport.03241.ph, %if.else206 ], [ %shapeExport.03241.ph, %if.else ], [ %shapeExport.03241.ph, %lor.lhs.false199 ], [ %shapeExport.03241.ph, %if.then187 ], [ %shapeExport.03241.ph, %if.then233 ], [ %shapeExport.03241.ph, %do.body359 ], [ %shapeExport.03241.ph, %do.body347 ], [ %shapeExport.03241.ph, %do.body329 ], [ %shapeExport.03241.ph, %do.body311 ], [ %shapeExport.03241.ph, %do.body293 ], [ %shapeExport.03241.ph, %do.body275 ], [ %shapeExport.03241.ph, %do.body257 ], [ %shapeExport.03241.ph, %do.body ], [ %shapeExport.03241.ph, %if.then585 ], [ %shapeExport.03241.ph, %if.then619 ], [ %shapeExport.03241.ph, %if.then665 ], [ %shapeExport.03241.ph, %if.then693 ], [ %shapeExport.03241.ph, %if.else706 ], [ %shapeExport.03241.ph, %if.then676 ], [ %shapeExport.03241.ph, %if.then648 ], [ %shapeExport.03241.ph, %if.then602 ], [ %shapeExport.03241.ph, %if.else778 ], [ %shapeExport.03241.ph, %if.else771 ], [ %shapeExport.03241.ph, %if.then764 ]
+  %output.0.be = phi ptr [ %output.03242.ph, %if.then9 ], [ %output.03242.ph, %if.then13 ], [ %output.03242.ph, %if.then18 ], [ %output.03242.ph, %if.then23 ], [ %output.03242.ph, %if.then28 ], [ %output.03242.ph, %if.then35 ], [ %output.03242.ph, %sw.epilog ], [ %output.03242.ph, %if.then72 ], [ %output.03242.ph, %if.then83 ], [ %output.03242.ph, %if.then91 ], [ %35, %if.then102 ], [ null, %if.then113 ], [ %output.03242.ph, %if.then121 ], [ %output.03242.ph, %if.then129 ], [ %output.03242.ph, %if.then137 ], [ %output.03242.ph, %if.then145 ], [ %output.03242.ph, %if.then153 ], [ %output.03242.ph, %if.then162 ], [ %output.03242.ph, %if.then171 ], [ %output.03242.ph, %if.then179 ], [ %output.03242.ph, %for.cond.preheader ], [ %output.03242.ph, %if.else220 ], [ %output.03242.ph, %if.then408 ], [ %output.03242.ph, %_ZL11parseDoubleRdPKc.exit ], [ %output.03242.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %output.03242.ph, %if.end466 ], [ %output.03242.ph, %if.end532 ], [ %output.03242.ph, %if.else364 ], [ %output.03242.ph, %if.end735 ], [ %output.03242.ph, %if.end755 ], [ %output.03242.ph, %if.then558 ], [ %output.03242.ph, %if.end847 ], [ %output.03242.ph, %if.then856 ], [ %output.03242.ph, %if.end887 ], [ %output.03242.ph, %if.end918 ], [ %output.03242.ph, %if.then929 ], [ %output.03242.ph, %if.then937 ], [ %output.03242.ph, %if.then945 ], [ %output.03242.ph, %if.then953 ], [ %output.03242.ph, %if.then961 ], [ %output.03242.ph, %if.then969 ], [ %output.03242.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %output.03242.ph, %if.else785 ], [ %output.03242.ph, %if.end515 ], [ %output.03242.ph, %if.end493 ], [ %output.03242.ph, %if.end400 ], [ %output.03242.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %output.03242.ph, %if.else213 ], [ %output.03242.ph, %if.else206 ], [ %output.03242.ph, %if.else ], [ %output.03242.ph, %lor.lhs.false199 ], [ %output.03242.ph, %if.then187 ], [ %output.03242.ph, %if.then233 ], [ %spec.select595, %do.body359 ], [ %spec.select594, %do.body347 ], [ %spec.select593, %do.body329 ], [ %spec.select592, %do.body311 ], [ %spec.select591, %do.body293 ], [ %spec.select590, %do.body275 ], [ %spec.select589, %do.body257 ], [ %spec.select588, %do.body ], [ %output.03242.ph, %if.then585 ], [ %output.03242.ph, %if.then619 ], [ %output.03242.ph, %if.then665 ], [ %output.03242.ph, %if.then693 ], [ %output.03242.ph, %if.else706 ], [ %output.03242.ph, %if.then676 ], [ %output.03242.ph, %if.then648 ], [ %output.03242.ph, %if.then602 ], [ %output.03242.ph, %if.else778 ], [ %output.03242.ph, %if.else771 ], [ %output.03242.ph, %if.then764 ]
+  %input.0.be = phi ptr [ %input.03243.ph, %if.then9 ], [ %input.03243.ph, %if.then13 ], [ %input.03243.ph, %if.then18 ], [ %input.03243.ph, %if.then23 ], [ %input.03243.ph, %if.then28 ], [ %11, %if.then35 ], [ %12, %sw.epilog ], [ %28, %if.then72 ], [ @.str.11, %if.then83 ], [ %29, %if.then91 ], [ %input.03243.ph, %if.then102 ], [ %input.03243.ph, %if.then113 ], [ %input.03243.ph, %if.then121 ], [ %input.03243.ph, %if.then129 ], [ %input.03243.ph, %if.then137 ], [ %input.03243.ph, %if.then145 ], [ %input.03243.ph, %if.then153 ], [ %input.03243.ph, %if.then162 ], [ %input.03243.ph, %if.then171 ], [ %input.03243.ph, %if.then179 ], [ %input.03243.ph, %for.cond.preheader ], [ %input.03243.ph, %if.else220 ], [ %input.03243.ph, %if.then408 ], [ %input.03243.ph, %_ZL11parseDoubleRdPKc.exit ], [ %input.03243.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %input.03243.ph, %if.end466 ], [ %input.03243.ph, %if.end532 ], [ %input.03243.ph, %if.else364 ], [ %input.03243.ph, %if.end735 ], [ %input.03243.ph, %if.end755 ], [ %input.03243.ph, %if.then558 ], [ %input.03243.ph, %if.end847 ], [ %input.03243.ph, %if.then856 ], [ %input.03243.ph, %if.end887 ], [ %input.03243.ph, %if.end918 ], [ %input.03243.ph, %if.then929 ], [ %input.03243.ph, %if.then937 ], [ %input.03243.ph, %if.then945 ], [ %input.03243.ph, %if.then953 ], [ %input.03243.ph, %if.then961 ], [ %input.03243.ph, %if.then969 ], [ %input.03243.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %input.03243.ph, %if.else785 ], [ %input.03243.ph, %if.end515 ], [ %input.03243.ph, %if.end493 ], [ %input.03243.ph, %if.end400 ], [ %input.03243.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %input.03243.ph, %if.else213 ], [ %input.03243.ph, %if.else206 ], [ %input.03243.ph, %if.else ], [ %input.03243.ph, %lor.lhs.false199 ], [ %input.03243.ph, %if.then187 ], [ %input.03243.ph, %if.then233 ], [ %input.03243.ph, %do.body359 ], [ %input.03243.ph, %do.body347 ], [ %input.03243.ph, %do.body329 ], [ %input.03243.ph, %do.body311 ], [ %input.03243.ph, %do.body293 ], [ %input.03243.ph, %do.body275 ], [ %input.03243.ph, %do.body257 ], [ %input.03243.ph, %do.body ], [ %input.03243.ph, %if.then585 ], [ %input.03243.ph, %if.then619 ], [ %input.03243.ph, %if.then665 ], [ %input.03243.ph, %if.then693 ], [ %input.03243.ph, %if.else706 ], [ %input.03243.ph, %if.then676 ], [ %input.03243.ph, %if.then648 ], [ %input.03243.ph, %if.then602 ], [ %input.03243.ph, %if.else778 ], [ %input.03243.ph, %if.else771 ], [ %input.03243.ph, %if.then764 ]
+  %fillRule.0.be = phi i32 [ %fillRule.03244.ph, %if.then9 ], [ %fillRule.03244.ph, %if.then13 ], [ %fillRule.03244.ph, %if.then18 ], [ %fillRule.03244.ph, %if.then23 ], [ %fillRule.03244.ph, %if.then28 ], [ %fillRule.03244.ph, %if.then35 ], [ %fillRule.03244.ph, %sw.epilog ], [ %fillRule.03244.ph, %if.then72 ], [ %fillRule.03244.ph, %if.then83 ], [ %fillRule.03244.ph, %if.then91 ], [ %fillRule.03244.ph, %if.then102 ], [ %fillRule.03244.ph, %if.then113 ], [ %fillRule.03244.ph, %if.then121 ], [ %fillRule.03244.ph, %if.then129 ], [ %fillRule.03244.ph, %if.then137 ], [ %fillRule.03244.ph, %if.then145 ], [ %fillRule.03244.ph, %if.then153 ], [ %fillRule.03244.ph, %if.then162 ], [ %fillRule.03244.ph, %if.then171 ], [ %fillRule.03244.ph, %if.then179 ], [ %fillRule.03244.ph, %for.cond.preheader ], [ %fillRule.03244.ph, %if.else220 ], [ %fillRule.03244.ph, %if.then408 ], [ %fillRule.03244.ph, %_ZL11parseDoubleRdPKc.exit ], [ %fillRule.03244.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %fillRule.03244.ph, %if.end466 ], [ %fillRule.03244.ph, %if.end532 ], [ %fillRule.03244.ph, %if.else364 ], [ %fillRule.03244.ph, %if.end735 ], [ %fillRule.03244.ph, %if.end755 ], [ %fillRule.03244.ph, %if.then558 ], [ %fillRule.03244.ph, %if.end847 ], [ %fillRule.03244.ph, %if.then856 ], [ %fillRule.03244.ph, %if.end887 ], [ %fillRule.03244.ph, %if.end918 ], [ %fillRule.03244.ph, %if.then929 ], [ %fillRule.03244.ph, %if.then937 ], [ %fillRule.03244.ph, %if.then945 ], [ %fillRule.03244.ph, %if.then953 ], [ %fillRule.03244.ph, %if.then961 ], [ %fillRule.03244.ph, %if.then969 ], [ %fillRule.03244.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %fillRule.03244.ph, %if.else785 ], [ %fillRule.03244.ph, %if.end515 ], [ %fillRule.03244.ph, %if.end493 ], [ %fillRule.03244.ph, %if.end400 ], [ %fillRule.03244.ph, %for.cond.while.cond.loopexit_crit_edge ], [ 3, %if.else213 ], [ 2, %if.else206 ], [ 1, %if.else ], [ 1, %lor.lhs.false199 ], [ 0, %if.then187 ], [ %fillRule.03244.ph, %if.then233 ], [ %fillRule.03244.ph, %do.body359 ], [ %fillRule.03244.ph, %do.body347 ], [ %fillRule.03244.ph, %do.body329 ], [ %fillRule.03244.ph, %do.body311 ], [ %fillRule.03244.ph, %do.body293 ], [ %fillRule.03244.ph, %do.body275 ], [ %fillRule.03244.ph, %do.body257 ], [ %fillRule.03244.ph, %do.body ], [ %fillRule.03244.ph, %if.then585 ], [ %fillRule.03244.ph, %if.then619 ], [ %fillRule.03244.ph, %if.then665 ], [ %fillRule.03244.ph, %if.then693 ], [ %fillRule.03244.ph, %if.else706 ], [ %fillRule.03244.ph, %if.then676 ], [ %fillRule.03244.ph, %if.then648 ], [ %fillRule.03244.ph, %if.then602 ], [ %fillRule.03244.ph, %if.else778 ], [ %fillRule.03244.ph, %if.else771 ], [ %fillRule.03244.ph, %if.then764 ]
+  %scanlinePass.0.be = phi i1 [ %scanlinePass.03245.ph, %if.then9 ], [ %scanlinePass.03245.ph, %if.then13 ], [ %scanlinePass.03245.ph, %if.then18 ], [ %scanlinePass.03245.ph, %if.then23 ], [ %scanlinePass.03245.ph, %if.then28 ], [ %scanlinePass.03245.ph, %if.then35 ], [ %scanlinePass.03245.ph, %sw.epilog ], [ %scanlinePass.03245.ph, %if.then72 ], [ %scanlinePass.03245.ph, %if.then83 ], [ %scanlinePass.03245.ph, %if.then91 ], [ %scanlinePass.03245.ph, %if.then102 ], [ %scanlinePass.03245.ph, %if.then113 ], [ %scanlinePass.03245.ph, %if.then121 ], [ %scanlinePass.03245.ph, %if.then129 ], [ %scanlinePass.03245.ph, %if.then137 ], [ %scanlinePass.03245.ph, %if.then145 ], [ %scanlinePass.03245.ph, %if.then153 ], [ %scanlinePass.03245.ph, %if.then162 ], [ false, %if.then171 ], [ true, %if.then179 ], [ %scanlinePass.03245.ph, %for.cond.preheader ], [ true, %if.else220 ], [ %scanlinePass.03245.ph, %if.then408 ], [ %scanlinePass.03245.ph, %_ZL11parseDoubleRdPKc.exit ], [ %scanlinePass.03245.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %scanlinePass.03245.ph, %if.end466 ], [ %scanlinePass.03245.ph, %if.end532 ], [ %scanlinePass.03245.ph, %if.else364 ], [ %scanlinePass.03245.ph, %if.end735 ], [ %scanlinePass.03245.ph, %if.end755 ], [ %scanlinePass.03245.ph, %if.then558 ], [ %scanlinePass.03245.ph, %if.end847 ], [ %scanlinePass.03245.ph, %if.then856 ], [ %scanlinePass.03245.ph, %if.end887 ], [ %scanlinePass.03245.ph, %if.end918 ], [ %scanlinePass.03245.ph, %if.then929 ], [ %scanlinePass.03245.ph, %if.then937 ], [ %scanlinePass.03245.ph, %if.then945 ], [ %scanlinePass.03245.ph, %if.then953 ], [ %scanlinePass.03245.ph, %if.then961 ], [ %scanlinePass.03245.ph, %if.then969 ], [ %scanlinePass.03245.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %scanlinePass.03245.ph, %if.else785 ], [ %scanlinePass.03245.ph, %if.end515 ], [ %scanlinePass.03245.ph, %if.end493 ], [ %scanlinePass.03245.ph, %if.end400 ], [ %scanlinePass.03245.ph, %for.cond.while.cond.loopexit_crit_edge ], [ true, %if.else213 ], [ true, %if.else206 ], [ true, %if.else ], [ true, %lor.lhs.false199 ], [ true, %if.then187 ], [ %scanlinePass.03245.ph, %if.then233 ], [ %scanlinePass.03245.ph, %do.body359 ], [ %scanlinePass.03245.ph, %do.body347 ], [ %scanlinePass.03245.ph, %do.body329 ], [ %scanlinePass.03245.ph, %do.body311 ], [ %scanlinePass.03245.ph, %do.body293 ], [ %scanlinePass.03245.ph, %do.body275 ], [ %scanlinePass.03245.ph, %do.body257 ], [ %scanlinePass.03245.ph, %do.body ], [ %scanlinePass.03245.ph, %if.then585 ], [ %scanlinePass.03245.ph, %if.then619 ], [ %scanlinePass.03245.ph, %if.then665 ], [ %scanlinePass.03245.ph, %if.then693 ], [ %scanlinePass.03245.ph, %if.else706 ], [ %scanlinePass.03245.ph, %if.then676 ], [ %scanlinePass.03245.ph, %if.then648 ], [ %scanlinePass.03245.ph, %if.then602 ], [ %scanlinePass.03245.ph, %if.else778 ], [ %scanlinePass.03245.ph, %if.else771 ], [ %scanlinePass.03245.ph, %if.then764 ]
+  %legacyMode.0.be = phi i8 [ %legacyMode.03246.ph, %if.then9 ], [ %legacyMode.03246.ph, %if.then13 ], [ %legacyMode.03246.ph, %if.then18 ], [ %legacyMode.03246.ph, %if.then23 ], [ %legacyMode.03246.ph, %if.then28 ], [ %legacyMode.03246.ph, %if.then35 ], [ %legacyMode.03246.ph, %sw.epilog ], [ %legacyMode.03246.ph, %if.then72 ], [ %legacyMode.03246.ph, %if.then83 ], [ %legacyMode.03246.ph, %if.then91 ], [ %legacyMode.03246.ph, %if.then102 ], [ %legacyMode.03246.ph, %if.then113 ], [ 1, %if.then121 ], [ %legacyMode.03246.ph, %if.then129 ], [ %legacyMode.03246.ph, %if.then137 ], [ %legacyMode.03246.ph, %if.then145 ], [ %legacyMode.03246.ph, %if.then153 ], [ %legacyMode.03246.ph, %if.then162 ], [ %legacyMode.03246.ph, %if.then171 ], [ %legacyMode.03246.ph, %if.then179 ], [ %legacyMode.03246.ph, %for.cond.preheader ], [ %legacyMode.03246.ph, %if.else220 ], [ %legacyMode.03246.ph, %if.then408 ], [ %legacyMode.03246.ph, %_ZL11parseDoubleRdPKc.exit ], [ %legacyMode.03246.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %legacyMode.03246.ph, %if.end466 ], [ %legacyMode.03246.ph, %if.end532 ], [ %legacyMode.03246.ph, %if.else364 ], [ %legacyMode.03246.ph, %if.end735 ], [ %legacyMode.03246.ph, %if.end755 ], [ %legacyMode.03246.ph, %if.then558 ], [ %legacyMode.03246.ph, %if.end847 ], [ %legacyMode.03246.ph, %if.then856 ], [ %legacyMode.03246.ph, %if.end887 ], [ %legacyMode.03246.ph, %if.end918 ], [ %legacyMode.03246.ph, %if.then929 ], [ %legacyMode.03246.ph, %if.then937 ], [ %legacyMode.03246.ph, %if.then945 ], [ %legacyMode.03246.ph, %if.then953 ], [ %legacyMode.03246.ph, %if.then961 ], [ %legacyMode.03246.ph, %if.then969 ], [ %legacyMode.03246.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %legacyMode.03246.ph, %if.else785 ], [ %legacyMode.03246.ph, %if.end515 ], [ %legacyMode.03246.ph, %if.end493 ], [ %legacyMode.03246.ph, %if.end400 ], [ %legacyMode.03246.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %legacyMode.03246.ph, %if.else213 ], [ %legacyMode.03246.ph, %if.else206 ], [ %legacyMode.03246.ph, %if.else ], [ %legacyMode.03246.ph, %lor.lhs.false199 ], [ %legacyMode.03246.ph, %if.then187 ], [ %legacyMode.03246.ph, %if.then233 ], [ %legacyMode.03246.ph, %do.body359 ], [ %legacyMode.03246.ph, %do.body347 ], [ %legacyMode.03246.ph, %do.body329 ], [ %legacyMode.03246.ph, %do.body311 ], [ %legacyMode.03246.ph, %do.body293 ], [ %legacyMode.03246.ph, %do.body275 ], [ %legacyMode.03246.ph, %do.body257 ], [ %legacyMode.03246.ph, %do.body ], [ %legacyMode.03246.ph, %if.then585 ], [ %legacyMode.03246.ph, %if.then619 ], [ %legacyMode.03246.ph, %if.then665 ], [ %legacyMode.03246.ph, %if.then693 ], [ %legacyMode.03246.ph, %if.else706 ], [ %legacyMode.03246.ph, %if.then676 ], [ %legacyMode.03246.ph, %if.then648 ], [ %legacyMode.03246.ph, %if.then602 ], [ %legacyMode.03246.ph, %if.else778 ], [ %legacyMode.03246.ph, %if.else771 ], [ %legacyMode.03246.ph, %if.then764 ]
+  %geometryPreproc.0.be = phi i32 [ %geometryPreproc.03247.ph, %if.then9 ], [ %geometryPreproc.03247.ph, %if.then13 ], [ %geometryPreproc.03247.ph, %if.then18 ], [ %geometryPreproc.03247.ph, %if.then23 ], [ %geometryPreproc.03247.ph, %if.then28 ], [ %geometryPreproc.03247.ph, %if.then35 ], [ %geometryPreproc.03247.ph, %sw.epilog ], [ %geometryPreproc.03247.ph, %if.then72 ], [ %geometryPreproc.03247.ph, %if.then83 ], [ %geometryPreproc.03247.ph, %if.then91 ], [ %geometryPreproc.03247.ph, %if.then102 ], [ %geometryPreproc.03247.ph, %if.then113 ], [ %geometryPreproc.03247.ph, %if.then121 ], [ 0, %if.then129 ], [ 1, %if.then137 ], [ 2, %if.then145 ], [ %geometryPreproc.03247.ph, %if.then153 ], [ %geometryPreproc.03247.ph, %if.then162 ], [ %geometryPreproc.03247.ph, %if.then171 ], [ %geometryPreproc.03247.ph, %if.then179 ], [ %geometryPreproc.03247.ph, %for.cond.preheader ], [ %geometryPreproc.03247.ph, %if.else220 ], [ %geometryPreproc.03247.ph, %if.then408 ], [ %geometryPreproc.03247.ph, %_ZL11parseDoubleRdPKc.exit ], [ %geometryPreproc.03247.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %geometryPreproc.03247.ph, %if.end466 ], [ %geometryPreproc.03247.ph, %if.end532 ], [ %geometryPreproc.03247.ph, %if.else364 ], [ %geometryPreproc.03247.ph, %if.end735 ], [ %geometryPreproc.03247.ph, %if.end755 ], [ %geometryPreproc.03247.ph, %if.then558 ], [ %geometryPreproc.03247.ph, %if.end847 ], [ %geometryPreproc.03247.ph, %if.then856 ], [ %geometryPreproc.03247.ph, %if.end887 ], [ %geometryPreproc.03247.ph, %if.end918 ], [ %geometryPreproc.03247.ph, %if.then929 ], [ %geometryPreproc.03247.ph, %if.then937 ], [ %geometryPreproc.03247.ph, %if.then945 ], [ %geometryPreproc.03247.ph, %if.then953 ], [ %geometryPreproc.03247.ph, %if.then961 ], [ %geometryPreproc.03247.ph, %if.then969 ], [ %geometryPreproc.03247.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %geometryPreproc.03247.ph, %if.else785 ], [ %geometryPreproc.03247.ph, %if.end515 ], [ %geometryPreproc.03247.ph, %if.end493 ], [ %geometryPreproc.03247.ph, %if.end400 ], [ %geometryPreproc.03247.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %geometryPreproc.03247.ph, %if.else213 ], [ %geometryPreproc.03247.ph, %if.else206 ], [ %geometryPreproc.03247.ph, %if.else ], [ %geometryPreproc.03247.ph, %lor.lhs.false199 ], [ %geometryPreproc.03247.ph, %if.then187 ], [ %geometryPreproc.03247.ph, %if.then233 ], [ %geometryPreproc.03247.ph, %do.body359 ], [ %geometryPreproc.03247.ph, %do.body347 ], [ %geometryPreproc.03247.ph, %do.body329 ], [ %geometryPreproc.03247.ph, %do.body311 ], [ %geometryPreproc.03247.ph, %do.body293 ], [ %geometryPreproc.03247.ph, %do.body275 ], [ %geometryPreproc.03247.ph, %do.body257 ], [ %geometryPreproc.03247.ph, %do.body ], [ %geometryPreproc.03247.ph, %if.then585 ], [ %geometryPreproc.03247.ph, %if.then619 ], [ %geometryPreproc.03247.ph, %if.then665 ], [ %geometryPreproc.03247.ph, %if.then693 ], [ %geometryPreproc.03247.ph, %if.else706 ], [ %geometryPreproc.03247.ph, %if.then676 ], [ %geometryPreproc.03247.ph, %if.then648 ], [ %geometryPreproc.03247.ph, %if.then602 ], [ %geometryPreproc.03247.ph, %if.else778 ], [ %geometryPreproc.03247.ph, %if.else771 ], [ %geometryPreproc.03247.ph, %if.then764 ]
+  %mode.0.be = phi i32 [ 0, %if.then9 ], [ 1, %if.then13 ], [ 2, %if.then18 ], [ 3, %if.then23 ], [ 4, %if.then28 ], [ %mode.03248.ph, %if.then35 ], [ %mode.03248.ph, %sw.epilog ], [ %mode.03248.ph, %if.then72 ], [ %mode.03248.ph, %if.then83 ], [ %mode.03248.ph, %if.then91 ], [ %mode.03248.ph, %if.then102 ], [ %mode.03248.ph, %if.then113 ], [ %mode.03248.ph, %if.then121 ], [ %mode.03248.ph, %if.then129 ], [ %mode.03248.ph, %if.then137 ], [ %mode.03248.ph, %if.then145 ], [ %mode.03248.ph, %if.then153 ], [ %mode.03248.ph, %if.then162 ], [ %mode.03248.ph, %if.then171 ], [ %mode.03248.ph, %if.then179 ], [ %mode.03248.ph, %for.cond.preheader ], [ %mode.03248.ph, %if.else220 ], [ %mode.03248.ph, %if.then408 ], [ %mode.03248.ph, %_ZL11parseDoubleRdPKc.exit ], [ %mode.03248.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %mode.03248.ph, %if.end466 ], [ %mode.03248.ph, %if.end532 ], [ %mode.03248.ph, %if.else364 ], [ %mode.03248.ph, %if.end735 ], [ %mode.03248.ph, %if.end755 ], [ %mode.03248.ph, %if.then558 ], [ %mode.03248.ph, %if.end847 ], [ %mode.03248.ph, %if.then856 ], [ %mode.03248.ph, %if.end887 ], [ %mode.03248.ph, %if.end918 ], [ %mode.03248.ph, %if.then929 ], [ %mode.03248.ph, %if.then937 ], [ %mode.03248.ph, %if.then945 ], [ %mode.03248.ph, %if.then953 ], [ %mode.03248.ph, %if.then961 ], [ %mode.03248.ph, %if.then969 ], [ %mode.03248.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %mode.03248.ph, %if.else785 ], [ %mode.03248.ph, %if.end515 ], [ %mode.03248.ph, %if.end493 ], [ %mode.03248.ph, %if.end400 ], [ %mode.03248.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %mode.03248.ph, %if.else213 ], [ %mode.03248.ph, %if.else206 ], [ %mode.03248.ph, %if.else ], [ %mode.03248.ph, %lor.lhs.false199 ], [ %mode.03248.ph, %if.then187 ], [ %mode.03248.ph, %if.then233 ], [ %mode.03248.ph, %do.body359 ], [ %mode.03248.ph, %do.body347 ], [ %mode.03248.ph, %do.body329 ], [ %mode.03248.ph, %do.body311 ], [ %mode.03248.ph, %do.body293 ], [ %mode.03248.ph, %do.body275 ], [ %mode.03248.ph, %do.body257 ], [ %mode.03248.ph, %do.body ], [ %mode.03248.ph, %if.then585 ], [ %mode.03248.ph, %if.then619 ], [ %mode.03248.ph, %if.then665 ], [ %mode.03248.ph, %if.then693 ], [ %mode.03248.ph, %if.else706 ], [ %mode.03248.ph, %if.then676 ], [ %mode.03248.ph, %if.then648 ], [ %mode.03248.ph, %if.then602 ], [ %mode.03248.ph, %if.else778 ], [ %mode.03248.ph, %if.else771 ], [ %mode.03248.ph, %if.then764 ]
+  %inputType.0.be = phi i32 [ %inputType.03249.ph, %if.then9 ], [ %inputType.03249.ph, %if.then13 ], [ %inputType.03249.ph, %if.then18 ], [ %inputType.03249.ph, %if.then23 ], [ %inputType.03249.ph, %if.then28 ], [ 1, %if.then35 ], [ %inputType.1, %sw.epilog ], [ 4, %if.then72 ], [ 5, %if.then83 ], [ 6, %if.then91 ], [ %inputType.03249.ph, %if.then102 ], [ %inputType.03249.ph, %if.then113 ], [ %inputType.03249.ph, %if.then121 ], [ %inputType.03249.ph, %if.then129 ], [ %inputType.03249.ph, %if.then137 ], [ %inputType.03249.ph, %if.then145 ], [ %inputType.03249.ph, %if.then153 ], [ %inputType.03249.ph, %if.then162 ], [ %inputType.03249.ph, %if.then171 ], [ %inputType.03249.ph, %if.then179 ], [ %inputType.03249.ph, %for.cond.preheader ], [ %inputType.03249.ph, %if.else220 ], [ %inputType.03249.ph, %if.then408 ], [ %inputType.03249.ph, %_ZL11parseDoubleRdPKc.exit ], [ %inputType.03249.ph, %_ZL11parseDoubleRdPKc.exit630 ], [ %inputType.03249.ph, %if.end466 ], [ %inputType.03249.ph, %if.end532 ], [ %inputType.03249.ph, %if.else364 ], [ %inputType.03249.ph, %if.end735 ], [ %inputType.03249.ph, %if.end755 ], [ %inputType.03249.ph, %if.then558 ], [ %inputType.03249.ph, %if.end847 ], [ %inputType.03249.ph, %if.then856 ], [ %inputType.03249.ph, %if.end887 ], [ %inputType.03249.ph, %if.end918 ], [ %inputType.03249.ph, %if.then929 ], [ %inputType.03249.ph, %if.then937 ], [ %inputType.03249.ph, %if.then945 ], [ %inputType.03249.ph, %if.then953 ], [ %inputType.03249.ph, %if.then961 ], [ %inputType.03249.ph, %if.then969 ], [ %inputType.03249.ph, %_ZL15parseUnsignedLLRyPKc.exit ], [ %inputType.03249.ph, %if.else785 ], [ %inputType.03249.ph, %if.end515 ], [ %inputType.03249.ph, %if.end493 ], [ %inputType.03249.ph, %if.end400 ], [ %inputType.03249.ph, %for.cond.while.cond.loopexit_crit_edge ], [ %inputType.03249.ph, %if.else213 ], [ %inputType.03249.ph, %if.else206 ], [ %inputType.03249.ph, %if.else ], [ %inputType.03249.ph, %lor.lhs.false199 ], [ %inputType.03249.ph, %if.then187 ], [ %inputType.03249.ph, %if.then233 ], [ %inputType.03249.ph, %do.body359 ], [ %inputType.03249.ph, %do.body347 ], [ %inputType.03249.ph, %do.body329 ], [ %inputType.03249.ph, %do.body311 ], [ %inputType.03249.ph, %do.body293 ], [ %inputType.03249.ph, %do.body275 ], [ %inputType.03249.ph, %do.body257 ], [ %inputType.03249.ph, %do.body ], [ %inputType.03249.ph, %if.then585 ], [ %inputType.03249.ph, %if.then619 ], [ %inputType.03249.ph, %if.then665 ], [ %inputType.03249.ph, %if.then693 ], [ %inputType.03249.ph, %if.else706 ], [ %inputType.03249.ph, %if.then676 ], [ %inputType.03249.ph, %if.then648 ], [ %inputType.03249.ph, %if.then602 ], [ %inputType.03249.ph, %if.else778 ], [ %inputType.03249.ph, %if.else771 ], [ %inputType.03249.ph, %if.then764 ]
   %cmp3 = icmp slt i32 %argPos.0.be, %argc
   br i1 %cmp3, label %while.body.outer, label %while.end, !llvm.loop !5
 
 while.body.outer:                                 ; preds = %entry, %while.cond.backedge
-  %inputType.03250.ph = phi i32 [ %inputType.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %mode.03249.ph = phi i32 [ %mode.0.be, %while.cond.backedge ], [ 2, %entry ]
-  %geometryPreproc.03248.ph = phi i32 [ %geometryPreproc.0.be, %while.cond.backedge ], [ 2, %entry ]
-  %legacyMode.03247.ph = phi i8 [ %legacyMode.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %scanlinePass.03246.ph = phi i1 [ %scanlinePass.0.be, %while.cond.backedge ], [ false, %entry ]
-  %fillRule.03245.ph = phi i32 [ %fillRule.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %input.03244.ph = phi ptr [ %input.0.be, %while.cond.backedge ], [ null, %entry ]
-  %output.03243.ph = phi ptr [ %output.0.be, %while.cond.backedge ], [ @.str, %entry ]
-  %shapeExport.03242.ph = phi ptr [ %shapeExport.0.be, %while.cond.backedge ], [ null, %entry ]
-  %testRender.03241.ph = phi ptr [ %testRender.0.be, %while.cond.backedge ], [ null, %entry ]
-  %testRenderMulti.03240.ph = phi ptr [ %testRenderMulti.0.be, %while.cond.backedge ], [ null, %entry ]
-  %outputSpecified.03239.ph = phi i8 [ %outputSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %glyphIndexSpecified.03238.ph = phi i1 [ %glyphIndexSpecified.0.be, %while.cond.backedge ], [ false, %entry ]
-  %width.03237.ph = phi i32 [ %width.0.be, %while.cond.backedge ], [ 64, %entry ]
-  %height.03236.ph = phi i32 [ %height.0.be, %while.cond.backedge ], [ 64, %entry ]
-  %testWidth.03235.ph = phi i32 [ %testWidth.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %testHeight.03234.ph = phi i32 [ %testHeight.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %testWidthM.03233.ph = phi i32 [ %testWidthM.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %testHeightM.03232.ph = phi i32 [ %testHeightM.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %autoFrame.03231.ph = phi i1 [ %autoFrame.0.be, %while.cond.backedge ], [ false, %entry ]
-  %rangeMode.03230.ph = phi i32 [ %rangeMode.0.be, %while.cond.backedge ], [ 1, %entry ]
-  %range.03229.ph = phi double [ %range.0.be, %while.cond.backedge ], [ 1.000000e+00, %entry ]
-  %pxRange.03228.ph = phi double [ %pxRange.0.be, %while.cond.backedge ], [ 2.000000e+00, %entry ]
-  %scaleSpecified.03227.ph = phi i8 [ %scaleSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %angleThreshold.03226.ph = phi double [ %angleThreshold.0.be, %while.cond.backedge ], [ 3.000000e+00, %entry ]
-  %outputDistanceShift.03225.ph = phi float [ %outputDistanceShift.0.be, %while.cond.backedge ], [ 0.000000e+00, %entry ]
-  %edgeAssignment.03224.ph = phi ptr [ %edgeAssignment.0.be, %while.cond.backedge ], [ null, %entry ]
-  %yFlip.03223.ph = phi i1 [ %yFlip.0.be, %while.cond.backedge ], [ false, %entry ]
-  %suggestHelp.03222.ph = phi i1 [ %suggestHelp.03222, %while.cond.backedge ], [ false, %entry ]
-  %argPos.03221.ph = phi i32 [ %argPos.0.be, %while.cond.backedge ], [ 1, %entry ]
-  %explicitErrorCorrectionMode.03220.ph = phi i1 [ %explicitErrorCorrectionMode.0.be, %while.cond.backedge ], [ false, %entry ]
-  %edgeColoring.03219.ph = phi ptr [ %edgeColoring.0.be, %while.cond.backedge ], [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %entry ]
-  %orientation.03218.ph = phi i32 [ %orientation.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %estimateError.03217.ph = phi i8 [ %estimateError.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %printMetrics.03216.ph = phi i1 [ %printMetrics.0.be, %while.cond.backedge ], [ false, %entry ]
-  %format.03215.ph = phi i32 [ %format.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %unicode.03214.ph = phi i32 [ %unicode.0.be, %while.cond.backedge ], [ 0, %entry ]
-  %coloringSeed.03213.ph = phi i64 [ %coloringSeed.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %inputType.03249.ph = phi i32 [ %inputType.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %mode.03248.ph = phi i32 [ %mode.0.be, %while.cond.backedge ], [ 2, %entry ]
+  %geometryPreproc.03247.ph = phi i32 [ %geometryPreproc.0.be, %while.cond.backedge ], [ 2, %entry ]
+  %legacyMode.03246.ph = phi i8 [ %legacyMode.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %scanlinePass.03245.ph = phi i1 [ %scanlinePass.0.be, %while.cond.backedge ], [ false, %entry ]
+  %fillRule.03244.ph = phi i32 [ %fillRule.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %input.03243.ph = phi ptr [ %input.0.be, %while.cond.backedge ], [ null, %entry ]
+  %output.03242.ph = phi ptr [ %output.0.be, %while.cond.backedge ], [ @.str, %entry ]
+  %shapeExport.03241.ph = phi ptr [ %shapeExport.0.be, %while.cond.backedge ], [ null, %entry ]
+  %testRender.03240.ph = phi ptr [ %testRender.0.be, %while.cond.backedge ], [ null, %entry ]
+  %testRenderMulti.03239.ph = phi ptr [ %testRenderMulti.0.be, %while.cond.backedge ], [ null, %entry ]
+  %outputSpecified.03238.ph = phi i8 [ %outputSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %glyphIndexSpecified.03237.ph = phi i1 [ %glyphIndexSpecified.0.be, %while.cond.backedge ], [ false, %entry ]
+  %width.03236.ph = phi i32 [ %width.0.be, %while.cond.backedge ], [ 64, %entry ]
+  %height.03235.ph = phi i32 [ %height.0.be, %while.cond.backedge ], [ 64, %entry ]
+  %testWidth.03234.ph = phi i32 [ %testWidth.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testHeight.03233.ph = phi i32 [ %testHeight.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testWidthM.03232.ph = phi i32 [ %testWidthM.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %testHeightM.03231.ph = phi i32 [ %testHeightM.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %autoFrame.03230.ph = phi i1 [ %autoFrame.0.be, %while.cond.backedge ], [ false, %entry ]
+  %rangeMode.03229.ph = phi i32 [ %rangeMode.0.be, %while.cond.backedge ], [ 1, %entry ]
+  %range.03228.ph = phi double [ %range.0.be, %while.cond.backedge ], [ 1.000000e+00, %entry ]
+  %pxRange.03227.ph = phi double [ %pxRange.0.be, %while.cond.backedge ], [ 2.000000e+00, %entry ]
+  %scaleSpecified.03226.ph = phi i8 [ %scaleSpecified.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %angleThreshold.03225.ph = phi double [ %angleThreshold.0.be, %while.cond.backedge ], [ 3.000000e+00, %entry ]
+  %outputDistanceShift.03224.ph = phi float [ %outputDistanceShift.0.be, %while.cond.backedge ], [ 0.000000e+00, %entry ]
+  %edgeAssignment.03223.ph = phi ptr [ %edgeAssignment.0.be, %while.cond.backedge ], [ null, %entry ]
+  %yFlip.03222.ph = phi i1 [ %yFlip.0.be, %while.cond.backedge ], [ false, %entry ]
+  %suggestHelp.03221.ph = phi i1 [ %suggestHelp.03221, %while.cond.backedge ], [ false, %entry ]
+  %argPos.03220.ph = phi i32 [ %argPos.0.be, %while.cond.backedge ], [ 1, %entry ]
+  %explicitErrorCorrectionMode.03219.ph = phi i1 [ %explicitErrorCorrectionMode.0.be, %while.cond.backedge ], [ false, %entry ]
+  %edgeColoring.03218.ph = phi ptr [ %edgeColoring.0.be, %while.cond.backedge ], [ @_ZN7msdfgen18edgeColoringSimpleERNS_5ShapeEdy, %entry ]
+  %orientation.03217.ph = phi i32 [ %orientation.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %estimateError.03216.ph = phi i8 [ %estimateError.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %printMetrics.03215.ph = phi i1 [ %printMetrics.0.be, %while.cond.backedge ], [ false, %entry ]
+  %format.03214.ph = phi i32 [ %format.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %unicode.03213.ph = phi i32 [ %unicode.0.be, %while.cond.backedge ], [ 0, %entry ]
+  %coloringSeed.03212.ph = phi i64 [ %coloringSeed.0.be, %while.cond.backedge ], [ 0, %entry ]
   br label %while.body
 
 while.cond.backedge.thread:                       ; preds = %if.end996
   %5 = load ptr, ptr @stderr, align 8
   %call1007 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.117, ptr noundef nonnull %2) #19
-  %inc1008 = add nsw i32 %argPos.03221, 1
-  %cmp33499 = icmp slt i32 %inc1008, %argc
-  br i1 %cmp33499, label %while.body, label %while.end.thread3537, !llvm.loop !5
+  %inc1008 = add nsw i32 %argPos.03220, 1
+  %cmp33498 = icmp slt i32 %inc1008, %argc
+  br i1 %cmp33498, label %while.body, label %while.end.thread3536, !llvm.loop !5
 
-while.end.thread3537:                             ; preds = %while.cond.backedge.thread
-  %6 = trunc nuw i8 %scaleSpecified.03227.ph to i1
-  %7 = icmp eq i32 %rangeMode.03230.ph, 0
-  %8 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %9 = trunc nuw i8 %legacyMode.03247.ph to i1
-  %10 = trunc nuw i8 %estimateError.03217.ph to i1
+while.end.thread3536:                             ; preds = %while.cond.backedge.thread
+  %6 = trunc nuw i8 %scaleSpecified.03226.ph to i1
+  %7 = icmp eq i32 %rangeMode.03229.ph, 0
+  %8 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %9 = trunc nuw i8 %legacyMode.03246.ph to i1
+  %10 = trunc nuw i8 %estimateError.03216.ph to i1
   br label %if.then1010
 
 if.end10:                                         ; preds = %if.end
@@ -459,7 +459,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end10
-  %inc14 = add nsw i32 %argPos.03221, 1
+  %inc14 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end15:                                         ; preds = %if.end10
@@ -468,7 +468,7 @@ if.end15:                                         ; preds = %if.end10
   br i1 %tobool17.not, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end15
-  %inc19 = add nsw i32 %argPos.03221, 1
+  %inc19 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end20:                                         ; preds = %if.end15
@@ -477,7 +477,7 @@ if.end20:                                         ; preds = %if.end15
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end20
-  %inc24 = add nsw i32 %argPos.03221, 1
+  %inc24 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end25:                                         ; preds = %if.end20
@@ -486,26 +486,26 @@ if.end25:                                         ; preds = %if.end20
   br i1 %tobool27.not, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %if.end25
-  %inc29 = add nsw i32 %argPos.03221, 1
+  %inc29 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end30:                                         ; preds = %if.end25
   %call31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(5) @.str.6) #18
   %tobool32.not = icmp eq i32 %call31, 0
-  %add = add nsw i32 %argPos.03221, 1
+  %add = add nsw i32 %argPos.03220, 1
   %cmp34 = icmp slt i32 %add, %argc
-  %or.cond5147 = select i1 %tobool32.not, i1 %cmp34, i1 false
-  br i1 %or.cond5147, label %if.then35, label %if.end40
+  %or.cond5146 = select i1 %tobool32.not, i1 %cmp34, i1 false
+  br i1 %or.cond5146, label %if.then35, label %if.end40
 
 if.then35:                                        ; preds = %if.end30
   %idxprom37 = sext i32 %add to i64
   %arrayidx38 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom37
   %11 = load ptr, ptr %arrayidx38, align 8
-  %add39 = add nsw i32 %argPos.03221, 2
+  %add39 = add nsw i32 %argPos.03220, 2
   br label %while.cond.backedge
 
 if.end40:                                         ; preds = %if.end30
-  %add41 = add nsw i32 %argPos.03221, 2
+  %add41 = add nsw i32 %argPos.03220, 2
   %cmp42 = icmp sge i32 %add41, %argc
   br i1 %cmp42, label %if.end66, label %land.lhs.true43
 
@@ -521,8 +521,8 @@ lor.lhs.false:                                    ; preds = %land.lhs.true43
 
 if.then50:                                        ; preds = %lor.lhs.false, %land.lhs.true43
   %inputType.1 = phi i32 [ 2, %land.lhs.true43 ], [ 3, %lor.lhs.false ]
-  %arrayidx.le5145 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
-  %arrayidx53 = getelementptr i8, ptr %arrayidx.le5145, i64 8
+  %arrayidx.le5144 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx53 = getelementptr i8, ptr %arrayidx.le5144, i64 8
   %12 = load ptr, ptr %arrayidx53, align 8
   %idxprom55 = sext i32 %add41 to i64
   %arrayidx56 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom55
@@ -654,22 +654,22 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true2.i
   %27 = load i8, ptr %arrayidx7.i, align 1
   %tobool8.not.i = icmp eq i8 %27, 0
   %conv11.i = zext i8 %25 to i32
-  %spec.select1939 = select i1 %tobool8.not.i, i32 %conv11.i, i32 %unicode.03214.ph
+  %spec.select1939 = select i1 %tobool8.not.i, i32 %conv11.i, i32 %unicode.03213.ph
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.lhs.true6.i, %land.lhs.true2.i, %land.lhs.true.i605, %if.end.i603, %_ZL21parseUnsignedDecOrHexRjPKc.exit.i, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread, %_ZL21parseUnsignedDecOrHexRjPKc.exit, %if.then60
-  %unicode.1 = phi i32 [ %unicode.03214.ph, %if.then60 ], [ %unicode.03214.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit ], [ %unicode.03214.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread ], [ %unicode.03214.ph, %land.lhs.true.i605 ], [ %unicode.03214.ph, %land.lhs.true2.i ], [ %unicode.03214.ph, %if.end.i603 ], [ %storemerge.i.i, %_ZL21parseUnsignedDecOrHexRjPKc.exit.i ], [ %spec.select1939, %land.lhs.true6.i ]
-  %glyphIndexSpecified.1 = phi i1 [ true, %if.then60 ], [ %glyphIndexSpecified.03238.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit ], [ %glyphIndexSpecified.03238.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread ], [ %glyphIndexSpecified.03238.ph, %land.lhs.true.i605 ], [ %glyphIndexSpecified.03238.ph, %land.lhs.true2.i ], [ %glyphIndexSpecified.03238.ph, %if.end.i603 ], [ %glyphIndexSpecified.03238.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.i ], [ %glyphIndexSpecified.03238.ph, %land.lhs.true6.i ]
-  %add65 = add nsw i32 %argPos.03221, 3
+  %unicode.1 = phi i32 [ %unicode.03213.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread ], [ %unicode.03213.ph, %if.then60 ], [ %unicode.03213.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit ], [ %unicode.03213.ph, %if.end.i603 ], [ %unicode.03213.ph, %land.lhs.true.i605 ], [ %spec.select1939, %land.lhs.true6.i ], [ %unicode.03213.ph, %land.lhs.true2.i ], [ %storemerge.i.i, %_ZL21parseUnsignedDecOrHexRjPKc.exit.i ]
+  %glyphIndexSpecified.1 = phi i1 [ %glyphIndexSpecified.03237.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.thread ], [ true, %if.then60 ], [ %glyphIndexSpecified.03237.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit ], [ %glyphIndexSpecified.03237.ph, %if.end.i603 ], [ %glyphIndexSpecified.03237.ph, %land.lhs.true.i605 ], [ %glyphIndexSpecified.03237.ph, %land.lhs.true6.i ], [ %glyphIndexSpecified.03237.ph, %land.lhs.true2.i ], [ %glyphIndexSpecified.03237.ph, %_ZL21parseUnsignedDecOrHexRjPKc.exit.i ]
+  %add65 = add nsw i32 %argPos.03220, 3
   br label %while.cond.backedge
 
 if.end66:                                         ; preds = %lor.lhs.false, %if.end40
   %call67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(13) @.str.9) #18
   %tobool68.not = icmp eq i32 %call67, 0
-  %add70 = add nsw i32 %argPos.03221, 1
+  %add70 = add nsw i32 %argPos.03220, 1
   %cmp71 = icmp slt i32 %add70, %argc
-  %or.cond5148 = select i1 %tobool68.not, i1 %cmp71, i1 false
-  br i1 %or.cond5148, label %if.then72, label %if.end77
+  %or.cond5147 = select i1 %tobool68.not, i1 %cmp71, i1 false
+  br i1 %or.cond5147, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %if.end66
   %idxprom74 = sext i32 %add70 to i64
@@ -683,16 +683,16 @@ if.end77:                                         ; preds = %if.end66
   br i1 %tobool79.not, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %if.end77
-  %add84 = add nsw i32 %argPos.03221, 1
+  %add84 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end85:                                         ; preds = %if.end77
   %call86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(11) @.str.12) #18
   %tobool87.not = icmp eq i32 %call86, 0
-  %add89 = add nsw i32 %argPos.03221, 1
+  %add89 = add nsw i32 %argPos.03220, 1
   %cmp90 = icmp slt i32 %add89, %argc
-  %or.cond5149 = select i1 %tobool87.not, i1 %cmp90, i1 false
-  br i1 %or.cond5149, label %if.then91, label %sub_0
+  %or.cond5148 = select i1 %tobool87.not, i1 %cmp90, i1 false
+  br i1 %or.cond5148, label %if.then91, label %sub_0
 
 if.then91:                                        ; preds = %if.end85
   %idxprom93 = sext i32 %add89 to i64
@@ -706,17 +706,17 @@ sub_0:                                            ; preds = %if.end85
 sub_1:                                            ; preds = %sub_0
   %30 = getelementptr inbounds nuw i8, ptr %arg.0, i64 1
   %31 = load i8, ptr %30, align 1
-  %.not3289 = icmp eq i8 %31, 111
-  br i1 %.not3289, label %if.end96.tail, label %if.end107
+  %.not3288 = icmp eq i8 %31, 111
+  br i1 %.not3288, label %if.end96.tail, label %if.end107
 
 if.end96.tail:                                    ; preds = %sub_1
   %32 = getelementptr inbounds nuw i8, ptr %arg.0, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  %add100 = add nsw i32 %argPos.03221, 1
+  %add100 = add nsw i32 %argPos.03220, 1
   %cmp101 = icmp slt i32 %add100, %argc
-  %or.cond5150 = select i1 %34, i1 %cmp101, i1 false
-  br i1 %or.cond5150, label %if.then102, label %if.end107
+  %or.cond5149 = select i1 %34, i1 %cmp101, i1 false
+  br i1 %or.cond5149, label %if.then102, label %if.end107
 
 if.then102:                                       ; preds = %if.end96.tail
   %idxprom104 = sext i32 %add100 to i64
@@ -730,7 +730,7 @@ if.end107:                                        ; preds = %sub_1, %sub_0, %if.
   br i1 %tobool109.not, label %if.then113, label %if.end115
 
 if.then113:                                       ; preds = %if.end107
-  %add114 = add nsw i32 %argPos.03221, 1
+  %add114 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end115:                                        ; preds = %if.end107
@@ -739,7 +739,7 @@ if.end115:                                        ; preds = %if.end107
   br i1 %tobool117.not, label %if.then121, label %if.end123
 
 if.then121:                                       ; preds = %if.end115
-  %add122 = add nsw i32 %argPos.03221, 1
+  %add122 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end123:                                        ; preds = %if.end115
@@ -748,7 +748,7 @@ if.end123:                                        ; preds = %if.end115
   br i1 %tobool125.not, label %if.then129, label %if.end131
 
 if.then129:                                       ; preds = %if.end123
-  %add130 = add nsw i32 %argPos.03221, 1
+  %add130 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end131:                                        ; preds = %if.end123
@@ -757,7 +757,7 @@ if.end131:                                        ; preds = %if.end123
   br i1 %tobool133.not, label %if.then137, label %if.end139
 
 if.then137:                                       ; preds = %if.end131
-  %add138 = add nsw i32 %argPos.03221, 1
+  %add138 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end139:                                        ; preds = %if.end131
@@ -766,7 +766,7 @@ if.end139:                                        ; preds = %if.end131
   br i1 %tobool141.not, label %if.then145, label %if.end147
 
 if.then145:                                       ; preds = %if.end139
-  %add146 = add nsw i32 %argPos.03221, 1
+  %add146 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end147:                                        ; preds = %if.end139
@@ -776,7 +776,7 @@ if.end147:                                        ; preds = %if.end139
 
 if.then153:                                       ; preds = %if.end147
   store i8 0, ptr %generatorConfig, align 8
-  %add155 = add nsw i32 %argPos.03221, 1
+  %add155 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end156:                                        ; preds = %if.end147
@@ -786,7 +786,7 @@ if.end156:                                        ; preds = %if.end147
 
 if.then162:                                       ; preds = %if.end156
   store i8 1, ptr %generatorConfig, align 8
-  %add164 = add nsw i32 %argPos.03221, 1
+  %add164 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end165:                                        ; preds = %if.end156
@@ -795,7 +795,7 @@ if.end165:                                        ; preds = %if.end156
   br i1 %tobool167.not, label %if.then171, label %if.end173
 
 if.then171:                                       ; preds = %if.end165
-  %add172 = add nsw i32 %argPos.03221, 1
+  %add172 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end173:                                        ; preds = %if.end165
@@ -804,16 +804,16 @@ if.end173:                                        ; preds = %if.end165
   br i1 %tobool175.not, label %if.then179, label %if.end181
 
 if.then179:                                       ; preds = %if.end173
-  %add180 = add nsw i32 %argPos.03221, 1
+  %add180 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end181:                                        ; preds = %if.end173
   %call182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(10) @.str.23) #18
   %tobool183.not = icmp eq i32 %call182, 0
-  %add185 = add nsw i32 %argPos.03221, 1
+  %add185 = add nsw i32 %argPos.03220, 1
   %cmp186 = icmp slt i32 %add185, %argc
-  %or.cond5151 = select i1 %tobool183.not, i1 %cmp186, i1 false
-  br i1 %or.cond5151, label %if.then187, label %if.end227
+  %or.cond5150 = select i1 %tobool183.not, i1 %cmp186, i1 false
+  br i1 %or.cond5150, label %if.then187, label %if.end227
 
 if.then187:                                       ; preds = %if.end181
   %idxprom189 = sext i32 %add185 to i64
@@ -851,10 +851,10 @@ if.else220:                                       ; preds = %if.else213
 if.end227:                                        ; preds = %if.end181
   %call228 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(8) @.str.30) #18
   %tobool229.not = icmp eq i32 %call228, 0
-  %add231 = add nsw i32 %argPos.03221, 1
+  %add231 = add nsw i32 %argPos.03220, 1
   %cmp232 = icmp slt i32 %add231, %argc
-  %or.cond5152 = select i1 %tobool229.not, i1 %cmp232, i1 false
-  br i1 %or.cond5152, label %if.then233, label %if.end376
+  %or.cond5151 = select i1 %tobool229.not, i1 %cmp232, i1 false
+  br i1 %or.cond5151, label %if.then233, label %if.end376
 
 if.then233:                                       ; preds = %if.end227
   %idxprom235 = sext i32 %add231 to i64
@@ -870,8 +870,8 @@ if.else240:                                       ; preds = %if.then233
   br i1 %tobool245.not, label %do.body, label %if.else250
 
 do.body:                                          ; preds = %if.else240
-  %tobool247 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select588 = select i1 %tobool247, ptr %output.03243.ph, ptr @.str
+  %tobool247 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select588 = select i1 %tobool247, ptr %output.03242.ph, ptr @.str
   br label %while.cond.backedge
 
 if.else250:                                       ; preds = %if.else240
@@ -880,8 +880,8 @@ if.else250:                                       ; preds = %if.else240
   br i1 %tobool255.not, label %do.body257, label %if.else262
 
 do.body257:                                       ; preds = %if.else250
-  %tobool258 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select589 = select i1 %tobool258, ptr %output.03243.ph, ptr @.str.34
+  %tobool258 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select589 = select i1 %tobool258, ptr %output.03242.ph, ptr @.str.34
   br label %while.cond.backedge
 
 if.else262:                                       ; preds = %if.else250
@@ -895,8 +895,8 @@ lor.lhs.false268:                                 ; preds = %if.else262
   br i1 %tobool273.not, label %do.body275, label %if.else280
 
 do.body275:                                       ; preds = %if.else262, %lor.lhs.false268
-  %tobool276 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select590 = select i1 %tobool276, ptr %output.03243.ph, ptr @.str.37
+  %tobool276 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select590 = select i1 %tobool276, ptr %output.03242.ph, ptr @.str.37
   br label %while.cond.backedge
 
 if.else280:                                       ; preds = %lor.lhs.false268
@@ -910,8 +910,8 @@ lor.lhs.false286:                                 ; preds = %if.else280
   br i1 %tobool291.not, label %do.body293, label %if.else298
 
 do.body293:                                       ; preds = %if.else280, %lor.lhs.false286
-  %tobool294 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select591 = select i1 %tobool294, ptr %output.03243.ph, ptr @.str.40
+  %tobool294 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select591 = select i1 %tobool294, ptr %output.03242.ph, ptr @.str.40
   br label %while.cond.backedge
 
 if.else298:                                       ; preds = %lor.lhs.false286
@@ -925,8 +925,8 @@ lor.lhs.false304:                                 ; preds = %if.else298
   br i1 %tobool309.not, label %do.body311, label %if.else316
 
 do.body311:                                       ; preds = %if.else298, %lor.lhs.false304
-  %tobool312 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select592 = select i1 %tobool312, ptr %output.03243.ph, ptr @.str.40
+  %tobool312 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select592 = select i1 %tobool312, ptr %output.03242.ph, ptr @.str.40
   br label %while.cond.backedge
 
 if.else316:                                       ; preds = %lor.lhs.false304
@@ -940,8 +940,8 @@ lor.lhs.false322:                                 ; preds = %if.else316
   br i1 %tobool327.not, label %do.body329, label %if.else334
 
 do.body329:                                       ; preds = %if.else316, %lor.lhs.false322
-  %tobool330 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select593 = select i1 %tobool330, ptr %output.03243.ph, ptr @.str.45
+  %tobool330 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select593 = select i1 %tobool330, ptr %output.03242.ph, ptr @.str.45
   br label %while.cond.backedge
 
 if.else334:                                       ; preds = %lor.lhs.false322
@@ -955,8 +955,8 @@ lor.lhs.false340:                                 ; preds = %if.else334
   br i1 %tobool345.not, label %do.body347, label %if.else352
 
 do.body347:                                       ; preds = %if.else334, %lor.lhs.false340
-  %tobool348 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select594 = select i1 %tobool348, ptr %output.03243.ph, ptr @.str.45
+  %tobool348 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select594 = select i1 %tobool348, ptr %output.03242.ph, ptr @.str.45
   br label %while.cond.backedge
 
 if.else352:                                       ; preds = %lor.lhs.false340
@@ -965,8 +965,8 @@ if.else352:                                       ; preds = %lor.lhs.false340
   br i1 %tobool357.not, label %do.body359, label %if.else364
 
 do.body359:                                       ; preds = %if.else352
-  %tobool360 = trunc nuw i8 %outputSpecified.03239.ph to i1
-  %spec.select595 = select i1 %tobool360, ptr %output.03243.ph, ptr @.str.45
+  %tobool360 = trunc nuw i8 %outputSpecified.03238.ph to i1
+  %spec.select595 = select i1 %tobool360, ptr %output.03242.ph, ptr @.str.45
   br label %while.cond.backedge
 
 if.else364:                                       ; preds = %if.else352
@@ -981,8 +981,8 @@ if.end376:                                        ; preds = %if.end227
   br i1 %brmerge, label %if.end402, label %if.then382
 
 if.then382:                                       ; preds = %if.end376
-  %arrayidx.le5143 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
-  %arrayidx385 = getelementptr i8, ptr %arrayidx.le5143, i64 8
+  %arrayidx.le5142 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx385 = getelementptr i8, ptr %arrayidx.le5142, i64 8
   %42 = load ptr, ptr %arrayidx385, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i608)
   store ptr null, ptr %end.i608, align 8
@@ -1034,7 +1034,7 @@ do.body397:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end400:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit619
-  %add401 = add nsw i32 %argPos.03221, 3
+  %add401 = add nsw i32 %argPos.03220, 3
   br label %while.cond.backedge
 
 if.end402:                                        ; preds = %if.end376
@@ -1043,16 +1043,16 @@ if.end402:                                        ; preds = %if.end376
   br i1 %tobool404.not, label %if.then408, label %if.end410
 
 if.then408:                                       ; preds = %if.end402
-  %add409 = add nsw i32 %argPos.03221, 1
+  %add409 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end410:                                        ; preds = %if.end402
   %call411 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(7) @.str.53) #18
   %tobool412.not = icmp eq i32 %call411, 0
-  %add414 = add nsw i32 %argPos.03221, 1
+  %add414 = add nsw i32 %argPos.03220, 1
   %cmp415 = icmp slt i32 %add414, %argc
-  %or.cond5153 = select i1 %tobool412.not, i1 %cmp415, i1 false
-  br i1 %or.cond5153, label %if.then416, label %if.end429
+  %or.cond5152 = select i1 %tobool412.not, i1 %cmp415, i1 false
+  br i1 %or.cond5152, label %if.then416, label %if.end429
 
 if.then416:                                       ; preds = %if.end410
   %idxprom418 = sext i32 %add414 to i64
@@ -1085,10 +1085,10 @@ do.body424:                                       ; preds = %_ZL11parseDoubleRdP
 if.end429:                                        ; preds = %if.end410
   %call430 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(9) @.str.55) #18
   %tobool431.not = icmp eq i32 %call430, 0
-  %add433 = add nsw i32 %argPos.03221, 1
+  %add433 = add nsw i32 %argPos.03220, 1
   %cmp434 = icmp slt i32 %add433, %argc
-  %or.cond5154 = select i1 %tobool431.not, i1 %cmp434, i1 false
-  br i1 %or.cond5154, label %if.then435, label %if.end449
+  %or.cond5153 = select i1 %tobool431.not, i1 %cmp434, i1 false
+  br i1 %or.cond5153, label %if.then435, label %if.end449
 
 if.then435:                                       ; preds = %if.end429
   %idxprom438 = sext i32 %add433 to i64
@@ -1121,10 +1121,10 @@ do.body444:                                       ; preds = %_ZL11parseDoubleRdP
 if.end449:                                        ; preds = %if.end429
   %call450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(7) @.str.57) #18
   %tobool451.not = icmp eq i32 %call450, 0
-  %add453 = add nsw i32 %argPos.03221, 1
+  %add453 = add nsw i32 %argPos.03220, 1
   %cmp454 = icmp slt i32 %add453, %argc
-  %or.cond5155 = select i1 %tobool451.not, i1 %cmp454, i1 false
-  br i1 %or.cond5155, label %if.then455, label %if.end469
+  %or.cond5154 = select i1 %tobool451.not, i1 %cmp454, i1 false
+  br i1 %or.cond5154, label %if.then455, label %if.end469
 
 if.then455:                                       ; preds = %if.end449
   %idxprom457 = sext i32 %add453 to i64
@@ -1166,8 +1166,8 @@ if.end469:                                        ; preds = %if.end449
   br i1 %brmerge597, label %if.end495, label %if.then475
 
 if.then475:                                       ; preds = %if.end469
-  %arrayidx.le5141 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
-  %arrayidx478 = getelementptr i8, ptr %arrayidx.le5141, i64 8
+  %arrayidx.le5140 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx478 = getelementptr i8, ptr %arrayidx.le5140, i64 8
   %65 = load ptr, ptr %arrayidx478, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i638)
   store ptr null, ptr %end.i638, align 8
@@ -1219,7 +1219,7 @@ do.body490:                                       ; preds = %_ZL11parseDoubleRdP
 if.end493:                                        ; preds = %_ZL11parseDoubleRdPKc.exit649
   store double %call.i639, ptr %scale, align 8
   store double %call.i645, ptr %y.i602, align 8
-  %add494 = add nsw i32 %argPos.03221, 3
+  %add494 = add nsw i32 %argPos.03220, 3
   br label %while.cond.backedge
 
 if.end495:                                        ; preds = %if.end469
@@ -1229,8 +1229,8 @@ if.end495:                                        ; preds = %if.end469
   br i1 %brmerge599, label %if.end517, label %if.then501
 
 if.then501:                                       ; preds = %if.end495
-  %arrayidx.le5139 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
-  %arrayidx504 = getelementptr i8, ptr %arrayidx.le5139, i64 8
+  %arrayidx.le5138 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx504 = getelementptr i8, ptr %arrayidx.le5138, i64 8
   %73 = load ptr, ptr %arrayidx504, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i651)
   store ptr null, ptr %end.i651, align 8
@@ -1278,16 +1278,16 @@ do.body512:                                       ; preds = %_ZL11parseDoubleRdP
 if.end515:                                        ; preds = %_ZL11parseDoubleRdPKc.exit662
   store double %call.i652, ptr %translate, align 8
   store double %call.i658, ptr %y.i, align 8
-  %add516 = add nsw i32 %argPos.03221, 3
+  %add516 = add nsw i32 %argPos.03220, 3
   br label %while.cond.backedge
 
 if.end517:                                        ; preds = %if.end495
   %call518 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(7) @.str.63) #18
   %tobool519.not = icmp eq i32 %call518, 0
-  %add521 = add nsw i32 %argPos.03221, 1
+  %add521 = add nsw i32 %argPos.03220, 1
   %cmp522 = icmp slt i32 %add521, %argc
-  %or.cond5156 = select i1 %tobool519.not, i1 %cmp522, i1 false
-  br i1 %or.cond5156, label %if.then523, label %if.end534
+  %or.cond5155 = select i1 %tobool519.not, i1 %cmp522, i1 false
+  br i1 %or.cond5155, label %if.then523, label %if.end534
 
 if.then523:                                       ; preds = %if.end517
   %idxprom525 = sext i32 %add521 to i64
@@ -1308,10 +1308,10 @@ if.end532:                                        ; preds = %if.then523
 if.end534:                                        ; preds = %if.end517
   %call535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(17) @.str.65) #18
   %tobool536.not = icmp eq i32 %call535, 0
-  %add538 = add nsw i32 %argPos.03221, 1
+  %add538 = add nsw i32 %argPos.03220, 1
   %cmp539 = icmp slt i32 %add538, %argc
-  %or.cond5157 = select i1 %tobool536.not, i1 %cmp539, i1 false
-  br i1 %or.cond5157, label %if.then540, label %if.end718
+  %or.cond5156 = select i1 %tobool536.not, i1 %cmp539, i1 false
+  br i1 %or.cond5156, label %if.then540, label %if.end718
 
 if.then540:                                       ; preds = %if.end534
   %idxprom542 = sext i32 %add538 to i64
@@ -1319,20 +1319,20 @@ if.then540:                                       ; preds = %if.end534
   %85 = load ptr, ptr %arrayidx543, align 8
   %call544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(9) @.str.66) #18
   %tobool545.not = icmp eq i32 %call544, 0
-  br i1 %tobool545.not, label %if.then558, label %sub_01942
+  br i1 %tobool545.not, label %if.then558, label %sub_01941
 
-sub_01942:                                        ; preds = %if.then540
+sub_01941:                                        ; preds = %if.then540
   %86 = load i8, ptr %85, align 1
-  %.not3290 = icmp eq i8 %86, 48
-  br i1 %.not3290, label %lor.lhs.false546.tail, label %lor.lhs.false552
+  %.not3289 = icmp eq i8 %86, 48
+  br i1 %.not3289, label %lor.lhs.false546.tail, label %lor.lhs.false552
 
-lor.lhs.false546.tail:                            ; preds = %sub_01942
+lor.lhs.false546.tail:                            ; preds = %sub_01941
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %if.then558, label %lor.lhs.false552
 
-lor.lhs.false552:                                 ; preds = %sub_01942, %lor.lhs.false546.tail
+lor.lhs.false552:                                 ; preds = %sub_01941, %lor.lhs.false546.tail
   %call556 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(5) @.str.68) #18
   %tobool557.not = icmp eq i32 %call556, 0
   br i1 %tobool557.not, label %if.then558, label %if.else561
@@ -1479,10 +1479,10 @@ if.else706:                                       ; preds = %if.else698
 if.end718:                                        ; preds = %if.end534
   %call719 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(21) @.str.87) #18
   %tobool720.not = icmp eq i32 %call719, 0
-  %add722 = add nsw i32 %argPos.03221, 1
+  %add722 = add nsw i32 %argPos.03220, 1
   %cmp723 = icmp slt i32 %add722, %argc
-  %or.cond5158 = select i1 %tobool720.not, i1 %cmp723, i1 false
-  br i1 %or.cond5158, label %if.then724, label %if.end738
+  %or.cond5157 = select i1 %tobool720.not, i1 %cmp723, i1 false
+  br i1 %or.cond5157, label %if.then724, label %if.end738
 
 if.then724:                                       ; preds = %if.end718
   %idxprom726 = sext i32 %add722 to i64
@@ -1519,10 +1519,10 @@ if.end735:                                        ; preds = %_ZL11parseDoubleRdP
 if.end738:                                        ; preds = %if.end718
   %call739 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(19) @.str.89) #18
   %tobool740.not = icmp eq i32 %call739, 0
-  %add742 = add nsw i32 %argPos.03221, 1
+  %add742 = add nsw i32 %argPos.03220, 1
   %cmp743 = icmp slt i32 %add742, %argc
-  %or.cond5159 = select i1 %tobool740.not, i1 %cmp743, i1 false
-  br i1 %or.cond5159, label %if.then744, label %if.end758
+  %or.cond5158 = select i1 %tobool740.not, i1 %cmp743, i1 false
+  br i1 %or.cond5158, label %if.then744, label %if.end758
 
 if.then744:                                       ; preds = %if.end738
   %idxprom746 = sext i32 %add742 to i64
@@ -1559,10 +1559,10 @@ if.end755:                                        ; preds = %_ZL11parseDoubleRdP
 if.end758:                                        ; preds = %if.end738
   %call759 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(18) @.str.91) #18
   %tobool760.not = icmp eq i32 %call759, 0
-  %add762 = add nsw i32 %argPos.03221, 1
+  %add762 = add nsw i32 %argPos.03220, 1
   %cmp763 = icmp slt i32 %add762, %argc
-  %or.cond5160 = select i1 %tobool760.not, i1 %cmp763, i1 false
-  br i1 %or.cond5160, label %if.then764, label %if.end791
+  %or.cond5159 = select i1 %tobool760.not, i1 %cmp763, i1 false
+  br i1 %or.cond5159, label %if.then764, label %if.end791
 
 if.then764:                                       ; preds = %if.end758
   %idxprom766 = sext i32 %add762 to i64
@@ -1590,24 +1590,24 @@ if.else785:                                       ; preds = %if.else778
 if.end791:                                        ; preds = %if.end758
   %call792 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(12) @.str.95) #18
   %tobool793.not = icmp eq i32 %call792, 0
-  %add795 = add nsw i32 %argPos.03221, 1
+  %add795 = add nsw i32 %argPos.03220, 1
   %cmp796 = icmp slt i32 %add795, %argc
-  %or.cond5161 = select i1 %tobool793.not, i1 %cmp796, i1 false
-  br i1 %or.cond5161, label %for.cond.preheader, label %if.end832
+  %or.cond5160 = select i1 %tobool793.not, i1 %cmp796, i1 false
+  br i1 %or.cond5160, label %for.cond.preheader, label %if.end832
 
 for.cond.preheader:                               ; preds = %if.end791
   %idxprom799 = sext i32 %add795 to i64
   %arrayidx800 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom799
   %105 = load ptr, ptr %arrayidx800, align 8
   %106 = load i8, ptr %105, align 1
-  %tobool803.not3210 = icmp eq i8 %106, 0
-  br i1 %tobool803.not3210, label %while.cond.backedge, label %for.cond804.preheader.lr.ph, !llvm.loop !5
+  %tobool803.not3209 = icmp eq i8 %106, 0
+  br i1 %tobool803.not3209, label %while.cond.backedge, label %for.cond804.preheader.lr.ph, !llvm.loop !5
 
 for.cond804.preheader.lr.ph:                      ; preds = %for.cond.preheader
   br label %for.cond804.preheader, !llvm.loop !5
 
 for.cond804.preheader:                            ; preds = %for.cond804.preheader.lr.ph, %for.inc825
-  %indvars.iv3329 = phi i64 [ 0, %for.cond804.preheader.lr.ph ], [ %indvars.iv.next3330, %for.inc825 ]
+  %indvars.iv3328 = phi i64 [ 0, %for.cond804.preheader.lr.ph ], [ %indvars.iv.next3329, %for.inc825 ]
   %107 = phi i8 [ %106, %for.cond804.preheader.lr.ph ], [ %111, %for.inc825 ]
   br label %for.body808
 
@@ -1629,8 +1629,8 @@ do.body822:                                       ; preds = %for.cond804
   br label %return
 
 for.inc825:                                       ; preds = %for.body808
-  %indvars.iv.next3330 = add nuw nsw i64 %indvars.iv3329, 1
-  %arrayidx802 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv.next3330
+  %indvars.iv.next3329 = add nuw nsw i64 %indvars.iv3328, 1
+  %arrayidx802 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv.next3329
   %111 = load i8, ptr %arrayidx802, align 1
   %tobool803.not = icmp eq i8 %111, 0
   br i1 %tobool803.not, label %for.cond.while.cond.loopexit_crit_edge, label %for.cond804.preheader, !llvm.loop !8
@@ -1638,10 +1638,10 @@ for.inc825:                                       ; preds = %for.body808
 if.end832:                                        ; preds = %if.end791
   %call833 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(15) @.str.98) #18
   %tobool834.not = icmp eq i32 %call833, 0
-  %add836 = add nsw i32 %argPos.03221, 1
+  %add836 = add nsw i32 %argPos.03220, 1
   %cmp837 = icmp slt i32 %add836, %argc
-  %or.cond5162 = select i1 %tobool834.not, i1 %cmp837, i1 false
-  br i1 %or.cond5162, label %if.then838, label %if.end850
+  %or.cond5161 = select i1 %tobool834.not, i1 %cmp837, i1 false
+  br i1 %or.cond5161, label %if.then838, label %if.end850
 
 if.then838:                                       ; preds = %if.end832
   %idxprom840 = sext i32 %add836 to i64
@@ -1676,10 +1676,10 @@ if.end847:                                        ; preds = %_ZL11parseDoubleRdP
 if.end850:                                        ; preds = %if.end832
   %call851 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(13) @.str.100) #18
   %tobool852.not = icmp eq i32 %call851, 0
-  %add854 = add nsw i32 %argPos.03221, 1
+  %add854 = add nsw i32 %argPos.03220, 1
   %cmp855 = icmp slt i32 %add854, %argc
-  %or.cond5163 = select i1 %tobool852.not, i1 %cmp855, i1 false
-  br i1 %or.cond5163, label %if.then856, label %if.end861
+  %or.cond5162 = select i1 %tobool852.not, i1 %cmp855, i1 false
+  br i1 %or.cond5162, label %if.then856, label %if.end861
 
 if.then856:                                       ; preds = %if.end850
   %idxprom858 = sext i32 %add854 to i64
@@ -1690,13 +1690,13 @@ if.then856:                                       ; preds = %if.end850
 if.end861:                                        ; preds = %if.end850
   %call862 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(12) @.str.101) #18
   %tobool863.not = icmp eq i32 %call862, 0
-  %add865 = add nsw i32 %argPos.03221, 3
+  %add865 = add nsw i32 %argPos.03220, 3
   %cmp866 = icmp slt i32 %add865, %argc
-  %or.cond5164 = select i1 %tobool863.not, i1 %cmp866, i1 false
-  br i1 %or.cond5164, label %if.then867, label %if.end892
+  %or.cond5163 = select i1 %tobool863.not, i1 %cmp866, i1 false
+  br i1 %or.cond5163, label %if.then867, label %if.end892
 
 if.then867:                                       ; preds = %if.end861
-  %arrayidx.le5137 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx.le5136 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %idxprom871 = sext i32 %add41 to i64
   %arrayidx872 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom871
   %118 = load ptr, ptr %arrayidx872, align 8
@@ -1750,18 +1750,18 @@ do.body884:                                       ; preds = %_ZL13parseUnsignedR
   br label %return
 
 if.end887:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit695
-  %arrayidx890 = getelementptr i8, ptr %arrayidx.le5137, i64 8
+  %arrayidx890 = getelementptr i8, ptr %arrayidx.le5136, i64 8
   %126 = load ptr, ptr %arrayidx890, align 8
-  %add891 = add nsw i32 %argPos.03221, 4
+  %add891 = add nsw i32 %argPos.03220, 4
   br label %while.cond.backedge
 
 if.end892:                                        ; preds = %if.end861
   %call893 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(17) @.str.103) #18
   %tobool894.not = icmp eq i32 %call893, 0
-  %add896 = add nsw i32 %argPos.03221, 3
+  %add896 = add nsw i32 %argPos.03220, 3
   %cmp897 = icmp slt i32 %add896, %argc
-  %or.cond5165 = select i1 %tobool894.not, i1 %cmp897, i1 false
-  br i1 %or.cond5165, label %if.then898, label %if.end923
+  %or.cond5164 = select i1 %tobool894.not, i1 %cmp897, i1 false
+  br i1 %or.cond5164, label %if.then898, label %if.end923
 
 if.then898:                                       ; preds = %if.end892
   %arrayidx.le = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
@@ -1820,7 +1820,7 @@ do.body915:                                       ; preds = %_ZL13parseUnsignedR
 if.end918:                                        ; preds = %_ZL13parseUnsignedRjPKc.exit709
   %arrayidx921 = getelementptr i8, ptr %arrayidx.le, i64 8
   %135 = load ptr, ptr %arrayidx921, align 8
-  %add922 = add nsw i32 %argPos.03221, 4
+  %add922 = add nsw i32 %argPos.03220, 4
   br label %while.cond.backedge
 
 if.end923:                                        ; preds = %if.end892
@@ -1829,7 +1829,7 @@ if.end923:                                        ; preds = %if.end892
   br i1 %tobool925.not, label %if.then929, label %if.end931
 
 if.then929:                                       ; preds = %if.end923
-  %add930 = add nsw i32 %argPos.03221, 1
+  %add930 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end931:                                        ; preds = %if.end923
@@ -1838,7 +1838,7 @@ if.end931:                                        ; preds = %if.end923
   br i1 %tobool933.not, label %if.then937, label %if.end939
 
 if.then937:                                       ; preds = %if.end931
-  %add938 = add nsw i32 %argPos.03221, 1
+  %add938 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end939:                                        ; preds = %if.end931
@@ -1847,7 +1847,7 @@ if.end939:                                        ; preds = %if.end931
   br i1 %tobool941.not, label %if.then945, label %if.end947
 
 if.then945:                                       ; preds = %if.end939
-  %add946 = add nsw i32 %argPos.03221, 1
+  %add946 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end947:                                        ; preds = %if.end939
@@ -1856,7 +1856,7 @@ if.end947:                                        ; preds = %if.end939
   br i1 %tobool949.not, label %if.then953, label %if.end955
 
 if.then953:                                       ; preds = %if.end947
-  %add954 = add nsw i32 %argPos.03221, 1
+  %add954 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end955:                                        ; preds = %if.end947
@@ -1865,7 +1865,7 @@ if.end955:                                        ; preds = %if.end947
   br i1 %tobool957.not, label %if.then961, label %if.end963
 
 if.then961:                                       ; preds = %if.end955
-  %add962 = add nsw i32 %argPos.03221, 1
+  %add962 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end963:                                        ; preds = %if.end955
@@ -1874,16 +1874,16 @@ if.end963:                                        ; preds = %if.end955
   br i1 %tobool965.not, label %if.then969, label %if.end971
 
 if.then969:                                       ; preds = %if.end963
-  %add970 = add nsw i32 %argPos.03221, 1
+  %add970 = add nsw i32 %argPos.03220, 1
   br label %while.cond.backedge
 
 if.end971:                                        ; preds = %if.end963
   %call972 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg.0, ptr noundef nonnull dereferenceable(6) @.str.111) #18
   %tobool973.not = icmp eq i32 %call972, 0
-  %add975 = add nsw i32 %argPos.03221, 1
+  %add975 = add nsw i32 %argPos.03220, 1
   %cmp976 = icmp slt i32 %add975, %argc
-  %or.cond5166 = select i1 %tobool973.not, i1 %cmp976, i1 false
-  br i1 %or.cond5166, label %if.then977, label %if.end988
+  %or.cond5165 = select i1 %tobool973.not, i1 %cmp976, i1 false
+  br i1 %or.cond5165, label %if.then977, label %if.end988
 
 if.then977:                                       ; preds = %if.end971
   %idxprom979 = sext i32 %add975 to i64
@@ -1941,90 +1941,90 @@ while.end:                                        ; preds = %while.cond.backedge
   %147 = trunc nuw i8 %outputSpecified.0.be to i1
   %148 = trunc nuw i8 %legacyMode.0.be to i1
   %149 = trunc nuw i8 %estimateError.0.be to i1
-  br i1 %suggestHelp.03222, label %if.then1010, label %if.end1012
+  br i1 %suggestHelp.03221, label %if.then1010, label %if.end1012
 
-if.then1010:                                      ; preds = %while.end.thread3537, %while.end
-  %150 = phi i1 [ %10, %while.end.thread3537 ], [ %149, %while.end ]
-  %151 = phi i1 [ %9, %while.end.thread3537 ], [ %148, %while.end ]
-  %152 = phi i1 [ %8, %while.end.thread3537 ], [ %147, %while.end ]
-  %153 = phi i1 [ %7, %while.end.thread3537 ], [ %146, %while.end ]
-  %154 = phi i1 [ %6, %while.end.thread3537 ], [ %145, %while.end ]
-  %coloringSeed.0.be35003605 = phi i64 [ %coloringSeed.03213.ph, %while.end.thread3537 ], [ %coloringSeed.0.be, %while.end ]
-  %unicode.0.be35013604 = phi i32 [ %unicode.03214.ph, %while.end.thread3537 ], [ %unicode.0.be, %while.end ]
-  %format.0.be35023603 = phi i32 [ %format.03215.ph, %while.end.thread3537 ], [ %format.0.be, %while.end ]
-  %printMetrics.0.be35033602 = phi i1 [ %printMetrics.03216.ph, %while.end.thread3537 ], [ %printMetrics.0.be, %while.end ]
-  %orientation.0.be35053601 = phi i32 [ %orientation.03218.ph, %while.end.thread3537 ], [ %orientation.0.be, %while.end ]
-  %edgeColoring.0.be35063600 = phi ptr [ %edgeColoring.03219.ph, %while.end.thread3537 ], [ %edgeColoring.0.be, %while.end ]
-  %explicitErrorCorrectionMode.0.be35073599 = phi i1 [ %explicitErrorCorrectionMode.03220.ph, %while.end.thread3537 ], [ %explicitErrorCorrectionMode.0.be, %while.end ]
-  %yFlip.0.be35093598 = phi i1 [ %yFlip.03223.ph, %while.end.thread3537 ], [ %yFlip.0.be, %while.end ]
-  %edgeAssignment.0.be35103597 = phi ptr [ %edgeAssignment.03224.ph, %while.end.thread3537 ], [ %edgeAssignment.0.be, %while.end ]
-  %outputDistanceShift.0.be35113596 = phi float [ %outputDistanceShift.03225.ph, %while.end.thread3537 ], [ %outputDistanceShift.0.be, %while.end ]
-  %angleThreshold.0.be35123595 = phi double [ %angleThreshold.03226.ph, %while.end.thread3537 ], [ %angleThreshold.0.be, %while.end ]
-  %pxRange.0.be35143594 = phi double [ %pxRange.03228.ph, %while.end.thread3537 ], [ %pxRange.0.be, %while.end ]
-  %range.0.be35153593 = phi double [ %range.03229.ph, %while.end.thread3537 ], [ %range.0.be, %while.end ]
-  %autoFrame.0.be35173592 = phi i1 [ %autoFrame.03231.ph, %while.end.thread3537 ], [ %autoFrame.0.be, %while.end ]
-  %testHeightM.0.be35183591 = phi i32 [ %testHeightM.03232.ph, %while.end.thread3537 ], [ %testHeightM.0.be, %while.end ]
-  %testWidthM.0.be35193590 = phi i32 [ %testWidthM.03233.ph, %while.end.thread3537 ], [ %testWidthM.0.be, %while.end ]
-  %testHeight.0.be35203589 = phi i32 [ %testHeight.03234.ph, %while.end.thread3537 ], [ %testHeight.0.be, %while.end ]
-  %testWidth.0.be35213588 = phi i32 [ %testWidth.03235.ph, %while.end.thread3537 ], [ %testWidth.0.be, %while.end ]
-  %height.0.be35223587 = phi i32 [ %height.03236.ph, %while.end.thread3537 ], [ %height.0.be, %while.end ]
-  %width.0.be35233586 = phi i32 [ %width.03237.ph, %while.end.thread3537 ], [ %width.0.be, %while.end ]
-  %glyphIndexSpecified.0.be35243585 = phi i1 [ %glyphIndexSpecified.03238.ph, %while.end.thread3537 ], [ %glyphIndexSpecified.0.be, %while.end ]
-  %testRenderMulti.0.be35263584 = phi ptr [ %testRenderMulti.03240.ph, %while.end.thread3537 ], [ %testRenderMulti.0.be, %while.end ]
-  %testRender.0.be35273583 = phi ptr [ %testRender.03241.ph, %while.end.thread3537 ], [ %testRender.0.be, %while.end ]
-  %shapeExport.0.be35283582 = phi ptr [ %shapeExport.03242.ph, %while.end.thread3537 ], [ %shapeExport.0.be, %while.end ]
-  %output.0.be35293581 = phi ptr [ %output.03243.ph, %while.end.thread3537 ], [ %output.0.be, %while.end ]
-  %input.0.be35303580 = phi ptr [ %input.03244.ph, %while.end.thread3537 ], [ %input.0.be, %while.end ]
-  %fillRule.0.be35313579 = phi i32 [ %fillRule.03245.ph, %while.end.thread3537 ], [ %fillRule.0.be, %while.end ]
-  %scanlinePass.0.be35323578 = phi i1 [ %scanlinePass.03246.ph, %while.end.thread3537 ], [ %scanlinePass.0.be, %while.end ]
-  %geometryPreproc.0.be35343577 = phi i32 [ %geometryPreproc.03248.ph, %while.end.thread3537 ], [ %geometryPreproc.0.be, %while.end ]
-  %mode.0.be35353576 = phi i32 [ %mode.03249.ph, %while.end.thread3537 ], [ %mode.0.be, %while.end ]
-  %inputType.0.be35363575 = phi i32 [ %inputType.03250.ph, %while.end.thread3537 ], [ %inputType.0.be, %while.end ]
+if.then1010:                                      ; preds = %while.end.thread3536, %while.end
+  %150 = phi i1 [ %10, %while.end.thread3536 ], [ %149, %while.end ]
+  %151 = phi i1 [ %9, %while.end.thread3536 ], [ %148, %while.end ]
+  %152 = phi i1 [ %8, %while.end.thread3536 ], [ %147, %while.end ]
+  %153 = phi i1 [ %7, %while.end.thread3536 ], [ %146, %while.end ]
+  %154 = phi i1 [ %6, %while.end.thread3536 ], [ %145, %while.end ]
+  %coloringSeed.0.be34993604 = phi i64 [ %coloringSeed.03212.ph, %while.end.thread3536 ], [ %coloringSeed.0.be, %while.end ]
+  %unicode.0.be35003603 = phi i32 [ %unicode.03213.ph, %while.end.thread3536 ], [ %unicode.0.be, %while.end ]
+  %format.0.be35013602 = phi i32 [ %format.03214.ph, %while.end.thread3536 ], [ %format.0.be, %while.end ]
+  %printMetrics.0.be35023601 = phi i1 [ %printMetrics.03215.ph, %while.end.thread3536 ], [ %printMetrics.0.be, %while.end ]
+  %orientation.0.be35043600 = phi i32 [ %orientation.03217.ph, %while.end.thread3536 ], [ %orientation.0.be, %while.end ]
+  %edgeColoring.0.be35053599 = phi ptr [ %edgeColoring.03218.ph, %while.end.thread3536 ], [ %edgeColoring.0.be, %while.end ]
+  %explicitErrorCorrectionMode.0.be35063598 = phi i1 [ %explicitErrorCorrectionMode.03219.ph, %while.end.thread3536 ], [ %explicitErrorCorrectionMode.0.be, %while.end ]
+  %yFlip.0.be35083597 = phi i1 [ %yFlip.03222.ph, %while.end.thread3536 ], [ %yFlip.0.be, %while.end ]
+  %edgeAssignment.0.be35093596 = phi ptr [ %edgeAssignment.03223.ph, %while.end.thread3536 ], [ %edgeAssignment.0.be, %while.end ]
+  %outputDistanceShift.0.be35103595 = phi float [ %outputDistanceShift.03224.ph, %while.end.thread3536 ], [ %outputDistanceShift.0.be, %while.end ]
+  %angleThreshold.0.be35113594 = phi double [ %angleThreshold.03225.ph, %while.end.thread3536 ], [ %angleThreshold.0.be, %while.end ]
+  %pxRange.0.be35133593 = phi double [ %pxRange.03227.ph, %while.end.thread3536 ], [ %pxRange.0.be, %while.end ]
+  %range.0.be35143592 = phi double [ %range.03228.ph, %while.end.thread3536 ], [ %range.0.be, %while.end ]
+  %autoFrame.0.be35163591 = phi i1 [ %autoFrame.03230.ph, %while.end.thread3536 ], [ %autoFrame.0.be, %while.end ]
+  %testHeightM.0.be35173590 = phi i32 [ %testHeightM.03231.ph, %while.end.thread3536 ], [ %testHeightM.0.be, %while.end ]
+  %testWidthM.0.be35183589 = phi i32 [ %testWidthM.03232.ph, %while.end.thread3536 ], [ %testWidthM.0.be, %while.end ]
+  %testHeight.0.be35193588 = phi i32 [ %testHeight.03233.ph, %while.end.thread3536 ], [ %testHeight.0.be, %while.end ]
+  %testWidth.0.be35203587 = phi i32 [ %testWidth.03234.ph, %while.end.thread3536 ], [ %testWidth.0.be, %while.end ]
+  %height.0.be35213586 = phi i32 [ %height.03235.ph, %while.end.thread3536 ], [ %height.0.be, %while.end ]
+  %width.0.be35223585 = phi i32 [ %width.03236.ph, %while.end.thread3536 ], [ %width.0.be, %while.end ]
+  %glyphIndexSpecified.0.be35233584 = phi i1 [ %glyphIndexSpecified.03237.ph, %while.end.thread3536 ], [ %glyphIndexSpecified.0.be, %while.end ]
+  %testRenderMulti.0.be35253583 = phi ptr [ %testRenderMulti.03239.ph, %while.end.thread3536 ], [ %testRenderMulti.0.be, %while.end ]
+  %testRender.0.be35263582 = phi ptr [ %testRender.03240.ph, %while.end.thread3536 ], [ %testRender.0.be, %while.end ]
+  %shapeExport.0.be35273581 = phi ptr [ %shapeExport.03241.ph, %while.end.thread3536 ], [ %shapeExport.0.be, %while.end ]
+  %output.0.be35283580 = phi ptr [ %output.03242.ph, %while.end.thread3536 ], [ %output.0.be, %while.end ]
+  %input.0.be35293579 = phi ptr [ %input.03243.ph, %while.end.thread3536 ], [ %input.0.be, %while.end ]
+  %fillRule.0.be35303578 = phi i32 [ %fillRule.03244.ph, %while.end.thread3536 ], [ %fillRule.0.be, %while.end ]
+  %scanlinePass.0.be35313577 = phi i1 [ %scanlinePass.03245.ph, %while.end.thread3536 ], [ %scanlinePass.0.be, %while.end ]
+  %geometryPreproc.0.be35333576 = phi i32 [ %geometryPreproc.03247.ph, %while.end.thread3536 ], [ %geometryPreproc.0.be, %while.end ]
+  %mode.0.be35343575 = phi i32 [ %mode.03248.ph, %while.end.thread3536 ], [ %mode.0.be, %while.end ]
+  %inputType.0.be35353574 = phi i32 [ %inputType.03249.ph, %while.end.thread3536 ], [ %inputType.0.be, %while.end ]
   %155 = load ptr, ptr @stderr, align 8
   %156 = call i64 @fwrite(ptr nonnull @.str.118, i64 32, i64 1, ptr %155) #19
   br label %if.end1012
 
 if.end1012:                                       ; preds = %if.then1010, %while.end
-  %inputType.0.lcssa3460 = phi i32 [ %inputType.0.be35363575, %if.then1010 ], [ %inputType.0.be, %while.end ]
-  %mode.0.lcssa3459 = phi i32 [ %mode.0.be35353576, %if.then1010 ], [ %mode.0.be, %while.end ]
-  %geometryPreproc.0.lcssa3458 = phi i32 [ %geometryPreproc.0.be35343577, %if.then1010 ], [ %geometryPreproc.0.be, %while.end ]
-  %legacyMode.0.lcssa3457 = phi i1 [ %151, %if.then1010 ], [ %148, %while.end ]
-  %scanlinePass.0.lcssa3456 = phi i1 [ %scanlinePass.0.be35323578, %if.then1010 ], [ %scanlinePass.0.be, %while.end ]
-  %fillRule.0.lcssa3455 = phi i32 [ %fillRule.0.be35313579, %if.then1010 ], [ %fillRule.0.be, %while.end ]
-  %input.0.lcssa3454 = phi ptr [ %input.0.be35303580, %if.then1010 ], [ %input.0.be, %while.end ]
-  %output.0.lcssa3453 = phi ptr [ %output.0.be35293581, %if.then1010 ], [ %output.0.be, %while.end ]
-  %shapeExport.0.lcssa3452 = phi ptr [ %shapeExport.0.be35283582, %if.then1010 ], [ %shapeExport.0.be, %while.end ]
-  %testRender.0.lcssa3451 = phi ptr [ %testRender.0.be35273583, %if.then1010 ], [ %testRender.0.be, %while.end ]
-  %testRenderMulti.0.lcssa3450 = phi ptr [ %testRenderMulti.0.be35263584, %if.then1010 ], [ %testRenderMulti.0.be, %while.end ]
-  %outputSpecified.0.lcssa3449 = phi i1 [ %152, %if.then1010 ], [ %147, %while.end ]
-  %glyphIndexSpecified.0.lcssa3448 = phi i1 [ %glyphIndexSpecified.0.be35243585, %if.then1010 ], [ %glyphIndexSpecified.0.be, %while.end ]
-  %width.0.lcssa3447 = phi i32 [ %width.0.be35233586, %if.then1010 ], [ %width.0.be, %while.end ]
-  %height.0.lcssa3446 = phi i32 [ %height.0.be35223587, %if.then1010 ], [ %height.0.be, %while.end ]
-  %testWidth.0.lcssa3445 = phi i32 [ %testWidth.0.be35213588, %if.then1010 ], [ %testWidth.0.be, %while.end ]
-  %testHeight.0.lcssa3444 = phi i32 [ %testHeight.0.be35203589, %if.then1010 ], [ %testHeight.0.be, %while.end ]
-  %testWidthM.0.lcssa3443 = phi i32 [ %testWidthM.0.be35193590, %if.then1010 ], [ %testWidthM.0.be, %while.end ]
-  %testHeightM.0.lcssa3442 = phi i32 [ %testHeightM.0.be35183591, %if.then1010 ], [ %testHeightM.0.be, %while.end ]
-  %autoFrame.0.lcssa3441 = phi i1 [ %autoFrame.0.be35173592, %if.then1010 ], [ %autoFrame.0.be, %while.end ]
-  %rangeMode.0.lcssa3440 = phi i1 [ %153, %if.then1010 ], [ %146, %while.end ]
-  %range.0.lcssa3438 = phi double [ %range.0.be35153593, %if.then1010 ], [ %range.0.be, %while.end ]
-  %pxRange.0.lcssa3436 = phi double [ %pxRange.0.be35143594, %if.then1010 ], [ %pxRange.0.be, %while.end ]
-  %scaleSpecified.0.lcssa3435 = phi i1 [ %154, %if.then1010 ], [ %145, %while.end ]
-  %angleThreshold.0.lcssa3434 = phi double [ %angleThreshold.0.be35123595, %if.then1010 ], [ %angleThreshold.0.be, %while.end ]
-  %outputDistanceShift.0.lcssa3433 = phi float [ %outputDistanceShift.0.be35113596, %if.then1010 ], [ %outputDistanceShift.0.be, %while.end ]
-  %edgeAssignment.0.lcssa3432 = phi ptr [ %edgeAssignment.0.be35103597, %if.then1010 ], [ %edgeAssignment.0.be, %while.end ]
-  %yFlip.0.lcssa3431 = phi i1 [ %yFlip.0.be35093598, %if.then1010 ], [ %yFlip.0.be, %while.end ]
-  %explicitErrorCorrectionMode.0.lcssa3430 = phi i1 [ %explicitErrorCorrectionMode.0.be35073599, %if.then1010 ], [ %explicitErrorCorrectionMode.0.be, %while.end ]
-  %edgeColoring.0.lcssa3429 = phi ptr [ %edgeColoring.0.be35063600, %if.then1010 ], [ %edgeColoring.0.be, %while.end ]
-  %orientation.0.lcssa3428 = phi i32 [ %orientation.0.be35053601, %if.then1010 ], [ %orientation.0.be, %while.end ]
-  %estimateError.0.lcssa3425 = phi i1 [ %150, %if.then1010 ], [ %149, %while.end ]
-  %printMetrics.0.lcssa3424 = phi i1 [ %printMetrics.0.be35033602, %if.then1010 ], [ %printMetrics.0.be, %while.end ]
-  %format.0.lcssa3423 = phi i32 [ %format.0.be35023603, %if.then1010 ], [ %format.0.be, %while.end ]
-  %unicode.0.lcssa3422 = phi i32 [ %unicode.0.be35013604, %if.then1010 ], [ %unicode.0.be, %while.end ]
-  %coloringSeed.0.lcssa3421 = phi i64 [ %coloringSeed.0.be35003605, %if.then1010 ], [ %coloringSeed.0.be, %while.end ]
+  %inputType.0.lcssa3459 = phi i32 [ %inputType.0.be, %while.end ], [ %inputType.0.be35353574, %if.then1010 ]
+  %mode.0.lcssa3458 = phi i32 [ %mode.0.be, %while.end ], [ %mode.0.be35343575, %if.then1010 ]
+  %geometryPreproc.0.lcssa3457 = phi i32 [ %geometryPreproc.0.be, %while.end ], [ %geometryPreproc.0.be35333576, %if.then1010 ]
+  %legacyMode.0.lcssa3456 = phi i1 [ %148, %while.end ], [ %151, %if.then1010 ]
+  %scanlinePass.0.lcssa3455 = phi i1 [ %scanlinePass.0.be, %while.end ], [ %scanlinePass.0.be35313577, %if.then1010 ]
+  %fillRule.0.lcssa3454 = phi i32 [ %fillRule.0.be, %while.end ], [ %fillRule.0.be35303578, %if.then1010 ]
+  %input.0.lcssa3453 = phi ptr [ %input.0.be, %while.end ], [ %input.0.be35293579, %if.then1010 ]
+  %output.0.lcssa3452 = phi ptr [ %output.0.be, %while.end ], [ %output.0.be35283580, %if.then1010 ]
+  %shapeExport.0.lcssa3451 = phi ptr [ %shapeExport.0.be, %while.end ], [ %shapeExport.0.be35273581, %if.then1010 ]
+  %testRender.0.lcssa3450 = phi ptr [ %testRender.0.be, %while.end ], [ %testRender.0.be35263582, %if.then1010 ]
+  %testRenderMulti.0.lcssa3449 = phi ptr [ %testRenderMulti.0.be, %while.end ], [ %testRenderMulti.0.be35253583, %if.then1010 ]
+  %outputSpecified.0.lcssa3448 = phi i1 [ %147, %while.end ], [ %152, %if.then1010 ]
+  %glyphIndexSpecified.0.lcssa3447 = phi i1 [ %glyphIndexSpecified.0.be, %while.end ], [ %glyphIndexSpecified.0.be35233584, %if.then1010 ]
+  %width.0.lcssa3446 = phi i32 [ %width.0.be, %while.end ], [ %width.0.be35223585, %if.then1010 ]
+  %height.0.lcssa3445 = phi i32 [ %height.0.be, %while.end ], [ %height.0.be35213586, %if.then1010 ]
+  %testWidth.0.lcssa3444 = phi i32 [ %testWidth.0.be, %while.end ], [ %testWidth.0.be35203587, %if.then1010 ]
+  %testHeight.0.lcssa3443 = phi i32 [ %testHeight.0.be, %while.end ], [ %testHeight.0.be35193588, %if.then1010 ]
+  %testWidthM.0.lcssa3442 = phi i32 [ %testWidthM.0.be, %while.end ], [ %testWidthM.0.be35183589, %if.then1010 ]
+  %testHeightM.0.lcssa3441 = phi i32 [ %testHeightM.0.be, %while.end ], [ %testHeightM.0.be35173590, %if.then1010 ]
+  %autoFrame.0.lcssa3440 = phi i1 [ %autoFrame.0.be, %while.end ], [ %autoFrame.0.be35163591, %if.then1010 ]
+  %rangeMode.0.lcssa3439 = phi i1 [ %146, %while.end ], [ %153, %if.then1010 ]
+  %range.0.lcssa3437 = phi double [ %range.0.be, %while.end ], [ %range.0.be35143592, %if.then1010 ]
+  %pxRange.0.lcssa3435 = phi double [ %pxRange.0.be, %while.end ], [ %pxRange.0.be35133593, %if.then1010 ]
+  %scaleSpecified.0.lcssa3434 = phi i1 [ %145, %while.end ], [ %154, %if.then1010 ]
+  %angleThreshold.0.lcssa3433 = phi double [ %angleThreshold.0.be, %while.end ], [ %angleThreshold.0.be35113594, %if.then1010 ]
+  %outputDistanceShift.0.lcssa3432 = phi float [ %outputDistanceShift.0.be, %while.end ], [ %outputDistanceShift.0.be35103595, %if.then1010 ]
+  %edgeAssignment.0.lcssa3431 = phi ptr [ %edgeAssignment.0.be, %while.end ], [ %edgeAssignment.0.be35093596, %if.then1010 ]
+  %yFlip.0.lcssa3430 = phi i1 [ %yFlip.0.be, %while.end ], [ %yFlip.0.be35083597, %if.then1010 ]
+  %explicitErrorCorrectionMode.0.lcssa3429 = phi i1 [ %explicitErrorCorrectionMode.0.be, %while.end ], [ %explicitErrorCorrectionMode.0.be35063598, %if.then1010 ]
+  %edgeColoring.0.lcssa3428 = phi ptr [ %edgeColoring.0.be, %while.end ], [ %edgeColoring.0.be35053599, %if.then1010 ]
+  %orientation.0.lcssa3427 = phi i32 [ %orientation.0.be, %while.end ], [ %orientation.0.be35043600, %if.then1010 ]
+  %estimateError.0.lcssa3424 = phi i1 [ %149, %while.end ], [ %150, %if.then1010 ]
+  %printMetrics.0.lcssa3423 = phi i1 [ %printMetrics.0.be, %while.end ], [ %printMetrics.0.be35023601, %if.then1010 ]
+  %format.0.lcssa3422 = phi i32 [ %format.0.be, %while.end ], [ %format.0.be35013602, %if.then1010 ]
+  %unicode.0.lcssa3421 = phi i32 [ %unicode.0.be, %while.end ], [ %unicode.0.be35003603, %if.then1010 ]
+  %coloringSeed.0.lcssa3420 = phi i64 [ %coloringSeed.0.be, %while.end ], [ %coloringSeed.0.be34993604, %if.then1010 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %svgViewBox, i8 0, i64 32, i1 false)
   store double 0.000000e+00, ptr %glyphAdvance, align 8
-  %tobool1013 = icmp ne i32 %inputType.0.lcssa3460, 0
-  %tobool1015 = icmp ne ptr %input.0.lcssa3454, null
+  %tobool1013 = icmp ne i32 %inputType.0.lcssa3459, 0
+  %tobool1015 = icmp ne ptr %input.0.lcssa3453, null
   %or.cond13 = select i1 %tobool1013, i1 %tobool1015, i1 false
   br i1 %or.cond13, label %if.end1020, label %do.body1017
 
@@ -2034,22 +2034,22 @@ do.body1017:                                      ; preds = %if.end1012.thread, 
   br label %return
 
 if.end1020:                                       ; preds = %if.end1012
-  %cmp1021 = icmp eq i32 %mode.0.lcssa3459, 3
+  %cmp1021 = icmp eq i32 %mode.0.lcssa3458, 3
   br i1 %cmp1021, label %land.lhs.true1022, label %if.end1034
 
 land.lhs.true1022:                                ; preds = %if.end1020
-  %cmp1023 = icmp eq i32 %format.0.lcssa3423, 2
+  %cmp1023 = icmp eq i32 %format.0.lcssa3422, 2
   br i1 %cmp1023, label %do.body1031, label %lor.lhs.false1024
 
 lor.lhs.false1024:                                ; preds = %land.lhs.true1022
-  %cmp1025 = icmp eq i32 %format.0.lcssa3423, 0
-  %tobool1027 = icmp ne ptr %output.0.lcssa3453, null
+  %cmp1025 = icmp eq i32 %format.0.lcssa3422, 0
+  %tobool1027 = icmp ne ptr %output.0.lcssa3452, null
   %or.cond14 = select i1 %cmp1025, i1 %tobool1027, i1 false
   br i1 %or.cond14, label %land.lhs.true1028, label %if.end1034
 
 land.lhs.true1028:                                ; preds = %lor.lhs.false1024
-  %call.i714 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3453) #18
-  %add.ptr.i715 = getelementptr inbounds i8, ptr %output.0.lcssa3453, i64 %call.i714
+  %call.i714 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3452) #18
+  %add.ptr.i715 = getelementptr inbounds i8, ptr %output.0.lcssa3452, i64 %call.i714
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i, %land.lhs.true1028
@@ -2058,7 +2058,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %l
   %b.0.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i, i64 -1
   %a.0.i = getelementptr inbounds i8, ptr %add.ptr.pn.i, i64 -1
   %cmp.not.i = icmp ult ptr %b.0.i, @.str.120
-  %cmp5.i716 = icmp ult ptr %a.0.i, %output.0.lcssa3453
+  %cmp5.i716 = icmp ult ptr %a.0.i, %output.0.lcssa3452
   %or.cond.i717 = select i1 %cmp.not.i, i1 true, i1 %cmp5.i716
   br i1 %or.cond.i717, label %_ZL12cmpExtensionPKcS0_.exit, label %lor.lhs.false.i
 
@@ -2086,7 +2086,7 @@ do.body1031:                                      ; preds = %land.lhs.true1022, 
 
 if.end1034:                                       ; preds = %lor.lhs.false.i, %_ZL12cmpExtensionPKcS0_.exit, %lor.lhs.false1024, %if.end1020
   call void @_ZN7msdfgen5ShapeC1Ev(ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  switch i32 %inputType.0.lcssa3460, label %default.unreachable [
+  switch i32 %inputType.0.lcssa3459, label %default.unreachable [
     i32 1, label %sw.bb1035
     i32 2, label %sw.bb1069
     i32 3, label %sw.bb1069
@@ -2096,7 +2096,7 @@ if.end1034:                                       ; preds = %lor.lhs.false.i, %_
   ]
 
 sw.bb1035:                                        ; preds = %if.end1034
-  %call1036 = invoke noundef i32 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeERNS0_6BoundsEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %svgViewBox, ptr noundef nonnull %input.0.lcssa3454)
+  %call1036 = invoke noundef i32 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeERNS0_6BoundsEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %svgViewBox, ptr noundef nonnull %input.0.lcssa3453)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb1035
@@ -2160,8 +2160,8 @@ if.then1065:                                      ; preds = %if.end1062
   br label %sw.epilog1160
 
 sw.bb1069:                                        ; preds = %if.end1034, %if.end1034
-  %tobool1072 = icmp ne i32 %unicode.0.lcssa3422, 0
-  %or.cond15 = select i1 %glyphIndexSpecified.0.lcssa3448, i1 true, i1 %tobool1072
+  %tobool1072 = icmp ne i32 %unicode.0.lcssa3421, 0
+  %or.cond15 = select i1 %glyphIndexSpecified.0.lcssa3447, i1 true, i1 %tobool1072
   br i1 %or.cond15, label %if.end1079, label %do.body1074
 
 do.body1074:                                      ; preds = %sw.bb1069
@@ -2178,7 +2178,7 @@ invoke.cont1080:                                  ; preds = %if.end1079
   br i1 %tobool1082.not, label %cleanup1935, label %if.end1084
 
 if.end1084:                                       ; preds = %invoke.cont1080
-  %cmp1085 = icmp eq i32 %inputType.0.lcssa3460, 3
+  %cmp1085 = icmp eq i32 %inputType.0.lcssa3459, 3
   br i1 %cmp1085, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end1084
@@ -2188,7 +2188,7 @@ cond.true:                                        ; preds = %if.end1084
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %cond.true
-  %filename.addr.0.i = phi ptr [ %input.0.lcssa3454, %cond.true ], [ %incdec.ptr.i723, %while.body.i ]
+  %filename.addr.0.i = phi ptr [ %input.0.lcssa3453, %cond.true ], [ %incdec.ptr.i723, %while.body.i ]
   %183 = load i8, ptr %filename.addr.0.i, align 1
   switch i8 %183, label %while.body.i [
     i8 0, label %while.end.i
@@ -2283,7 +2283,7 @@ _ZL11loadVarFontPN7msdfgen14FreetypeHandleEPKc.exit: ; preds = %do.cond.i, %whil
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end1084
-  %call1089 = invoke noundef ptr @_ZN7msdfgen8loadFontEPNS_14FreetypeHandleEPKc(ptr noundef nonnull %call1081, ptr noundef nonnull %input.0.lcssa3454)
+  %call1089 = invoke noundef ptr @_ZN7msdfgen8loadFontEPNS_14FreetypeHandleEPKc(ptr noundef nonnull %call1081, ptr noundef nonnull %input.0.lcssa3453)
           to label %cond.end unwind label %lpad
 
 cond.end:                                         ; preds = %_ZL11loadVarFontPN7msdfgen14FreetypeHandleEPKc.exit, %cond.false
@@ -2301,11 +2301,11 @@ do.body1093:                                      ; preds = %if.then1091
   br label %cleanup1935
 
 if.end1098:                                       ; preds = %cond.end
-  %tobool1099.not = icmp eq i32 %unicode.0.lcssa3422, 0
+  %tobool1099.not = icmp eq i32 %unicode.0.lcssa3421, 0
   br i1 %tobool1099.not, label %if.end1103, label %if.then1100
 
 if.then1100:                                      ; preds = %if.end1098
-  %call1102 = invoke noundef zeroext i1 @_ZN7msdfgen13getGlyphIndexERNS_10GlyphIndexEPNS_10FontHandleEj(ptr noundef nonnull align 4 dereferenceable(4) %glyphIndex, ptr noundef nonnull %cond, i32 noundef %unicode.0.lcssa3422)
+  %call1102 = invoke noundef zeroext i1 @_ZN7msdfgen13getGlyphIndexERNS_10GlyphIndexEPNS_10FontHandleEj(ptr noundef nonnull align 4 dereferenceable(4) %glyphIndex, ptr noundef nonnull %cond, i32 noundef %unicode.0.lcssa3421)
           to label %if.end1103 unwind label %lpad
 
 if.end1103:                                       ; preds = %if.then1100, %if.end1098
@@ -2338,7 +2338,7 @@ invoke.cont1115:                                  ; preds = %if.end1114
           to label %sw.epilog1160 unwind label %lpad
 
 sw.bb1117:                                        ; preds = %if.end1034
-  %call1119 = invoke noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEPKcRNS_5ShapeEPb(ptr noundef nonnull %input.0.lcssa3454, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull %skipColoring)
+  %call1119 = invoke noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEPKcRNS_5ShapeEPb(ptr noundef nonnull %input.0.lcssa3453, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull %skipColoring)
           to label %invoke.cont1118 unwind label %lpad
 
 invoke.cont1118:                                  ; preds = %sw.bb1117
@@ -2363,7 +2363,7 @@ do.body1131:                                      ; preds = %invoke.cont1128
   br label %cleanup1935
 
 sw.bb1137:                                        ; preds = %if.end1034
-  %call1139 = call noalias ptr @fopen(ptr noundef nonnull %input.0.lcssa3454, ptr noundef nonnull @.str.131)
+  %call1139 = call noalias ptr @fopen(ptr noundef nonnull %input.0.lcssa3453, ptr noundef nonnull @.str.131)
   %tobool1140.not = icmp eq ptr %call1139, null
   br i1 %tobool1140.not, label %do.body1142, label %if.end1147
 
@@ -2404,7 +2404,7 @@ do.body1164:                                      ; preds = %invoke.cont1161
   br label %cleanup1935
 
 if.end1169:                                       ; preds = %invoke.cont1161
-  switch i32 %geometryPreproc.0.lcssa3458, label %sw.epilog1186 [
+  switch i32 %geometryPreproc.0.lcssa3457, label %sw.epilog1186 [
     i32 2, label %sw.bb1173
     i32 1, label %sw.bb1171
   ]
@@ -2441,7 +2441,7 @@ sw.epilog1186:                                    ; preds = %if.then1176, %if.th
           to label %invoke.cont1187 unwind label %lpad
 
 invoke.cont1187:                                  ; preds = %sw.epilog1186
-  br i1 %yFlip.0.lcssa3431, label %if.then1189, label %if.end1193
+  br i1 %yFlip.0.lcssa3430, label %if.then1189, label %if.end1193
 
 if.then1189:                                      ; preds = %invoke.cont1187
   %inverseYAxis = getelementptr inbounds nuw i8, ptr %shape, i64 24
@@ -2456,10 +2456,10 @@ if.end1193:                                       ; preds = %if.then1189, %invok
   %209 = load double, ptr %y.i602, align 8
   %add1194 = fadd double %208, %209
   %mul = fmul double %add1194, 5.000000e-01
-  %cmp1197 = icmp eq i32 %mode.0.lcssa3459, 4
-  %or.cond16 = or i1 %autoFrame.0.lcssa3441, %cmp1197
-  %or.cond17 = select i1 %or.cond16, i1 true, i1 %printMetrics.0.lcssa3424
-  %cmp1201 = icmp eq i32 %orientation.0.lcssa3428, 2
+  %cmp1197 = icmp eq i32 %mode.0.lcssa3458, 4
+  %or.cond16 = or i1 %autoFrame.0.lcssa3440, %cmp1197
+  %or.cond17 = select i1 %or.cond16, i1 true, i1 %printMetrics.0.lcssa3423
+  %cmp1201 = icmp eq i32 %orientation.0.lcssa3427, 2
   %or.cond18 = or i1 %cmp1201, %or.cond17
   br i1 %or.cond18, label %if.then1202, label %if.end1328
 
@@ -2475,29 +2475,29 @@ if.end1205:                                       ; preds = %if.then1202
   %bounds.sroa.12.0.copyload = load double, ptr %bounds.sroa.12.0.ref.tmp1203.sroa_idx, align 8
   %bounds.sroa.16.0.ref.tmp1203.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp1203, i64 24
   %bounds.sroa.16.0.copyload = load double, ptr %bounds.sroa.16.0.ref.tmp1203.sroa_idx, align 8
-  br i1 %autoFrame.0.lcssa3441, label %if.then1207, label %if.end1328
+  br i1 %autoFrame.0.lcssa3440, label %if.then1207, label %if.end1328
 
 if.then1207:                                      ; preds = %if.end1205
-  %conv1213 = sitofp i32 %width.0.lcssa3447 to double
-  %conv1214 = sitofp i32 %height.0.lcssa3446 to double
-  %conv1216 = fpext float %outputDistanceShift.0.lcssa3433 to double
+  %conv1213 = sitofp i32 %width.0.lcssa3446 to double
+  %conv1214 = sitofp i32 %height.0.lcssa3445 to double
+  %conv1216 = fpext float %outputDistanceShift.0.lcssa3432 to double
   %add1217 = fadd double %conv1216, 5.000000e-01
-  br i1 %scaleSpecified.0.lcssa3435, label %if.end1235, label %if.then1219
+  br i1 %scaleSpecified.0.lcssa3434, label %if.end1235, label %if.then1219
 
 if.then1219:                                      ; preds = %if.then1207
-  br i1 %rangeMode.0.lcssa3440, label %if.then1221, label %if.else1227
+  br i1 %rangeMode.0.lcssa3439, label %if.then1221, label %if.else1227
 
 if.then1221:                                      ; preds = %if.then1219
   %neg = fneg double %add1217
-  %210 = call double @llvm.fmuladd.f64(double %neg, double %range.0.lcssa3438, double %bounds.sroa.0.0.copyload)
-  %211 = call double @llvm.fmuladd.f64(double %neg, double %range.0.lcssa3438, double %bounds.sroa.7.0.copyload)
-  %212 = call double @llvm.fmuladd.f64(double %add1217, double %range.0.lcssa3438, double %bounds.sroa.12.0.copyload)
-  %213 = call double @llvm.fmuladd.f64(double %add1217, double %range.0.lcssa3438, double %bounds.sroa.16.0.copyload)
+  %210 = call double @llvm.fmuladd.f64(double %neg, double %range.0.lcssa3437, double %bounds.sroa.0.0.copyload)
+  %211 = call double @llvm.fmuladd.f64(double %neg, double %range.0.lcssa3437, double %bounds.sroa.7.0.copyload)
+  %212 = call double @llvm.fmuladd.f64(double %add1217, double %range.0.lcssa3437, double %bounds.sroa.12.0.copyload)
+  %213 = call double @llvm.fmuladd.f64(double %add1217, double %range.0.lcssa3437, double %bounds.sroa.16.0.copyload)
   br label %if.end1235
 
 if.else1227:                                      ; preds = %if.then1219
   %mul1229 = fmul double %add1217, 2.000000e+00
-  %mul1230 = fmul double %mul1229, %pxRange.0.lcssa3436
+  %mul1230 = fmul double %mul1229, %pxRange.0.lcssa3435
   %sub.i725 = fsub double %conv1213, %mul1230
   %sub4.i = fsub double %conv1214, %mul1230
   br label %if.end1235
@@ -2535,7 +2535,7 @@ do.body1247:                                      ; preds = %if.end1240
 if.end1252:                                       ; preds = %if.end1240
   %sub = fsub double %r1210.1, %l.1
   %sub1253 = fsub double %t.1, %b.1
-  br i1 %scaleSpecified.0.lcssa3435, label %if.end1315.thread, label %if.else1274
+  br i1 %scaleSpecified.0.lcssa3434, label %if.end1315.thread, label %if.else1274
 
 if.end1315.thread:                                ; preds = %if.end1252
   %agg.tmp1262.sroa.0.0.copyload = load double, ptr %scale, align 8
@@ -2586,10 +2586,10 @@ if.end1315:                                       ; preds = %if.then1282, %if.el
   store double %221, ptr %y.i, align 8
   store double %agg.tmp1322.sroa.2.0.copyload, ptr %scale, align 8
   store double %agg.tmp1322.sroa.2.0.copyload, ptr %y.i602, align 8
-  br i1 %rangeMode.0.lcssa3440, label %if.end1336, label %if.end1328.thread
+  br i1 %rangeMode.0.lcssa3439, label %if.end1336, label %if.end1328.thread
 
 if.end1328.thread:                                ; preds = %if.end1315
-  %mul1321 = fmul double %add1217, %pxRange.0.lcssa3436
+  %mul1321 = fmul double %add1217, %pxRange.0.lcssa3435
   %div.i743 = fdiv double %mul1321, %agg.tmp1322.sroa.2.0.copyload
   %add.i746 = fadd double %div.i743, %220
   store double %add.i746, ptr %translate, align 8
@@ -2598,21 +2598,21 @@ if.end1328.thread:                                ; preds = %if.end1315
   br label %if.then1330
 
 if.end1328:                                       ; preds = %if.end1193, %if.end1315.thread, %if.end1205
-  %bounds.sroa.16.01870 = phi double [ %bounds.sroa.16.0.copyload, %if.end1205 ], [ %bounds.sroa.16.0.copyload, %if.end1315.thread ], [ 0.000000e+00, %if.end1193 ]
-  %bounds.sroa.12.01869 = phi double [ %bounds.sroa.12.0.copyload, %if.end1205 ], [ %bounds.sroa.12.0.copyload, %if.end1315.thread ], [ 0.000000e+00, %if.end1193 ]
-  %bounds.sroa.7.01868 = phi double [ %bounds.sroa.7.0.copyload, %if.end1205 ], [ %bounds.sroa.7.0.copyload, %if.end1315.thread ], [ 0.000000e+00, %if.end1193 ]
-  %bounds.sroa.0.01867 = phi double [ %bounds.sroa.0.0.copyload, %if.end1205 ], [ %bounds.sroa.0.0.copyload, %if.end1315.thread ], [ 0.000000e+00, %if.end1193 ]
-  br i1 %rangeMode.0.lcssa3440, label %if.end1336, label %if.end1328.if.then1330_crit_edge
+  %bounds.sroa.16.01870 = phi double [ 0.000000e+00, %if.end1193 ], [ %bounds.sroa.16.0.copyload, %if.end1315.thread ], [ %bounds.sroa.16.0.copyload, %if.end1205 ]
+  %bounds.sroa.12.01869 = phi double [ 0.000000e+00, %if.end1193 ], [ %bounds.sroa.12.0.copyload, %if.end1315.thread ], [ %bounds.sroa.12.0.copyload, %if.end1205 ]
+  %bounds.sroa.7.01868 = phi double [ 0.000000e+00, %if.end1193 ], [ %bounds.sroa.7.0.copyload, %if.end1315.thread ], [ %bounds.sroa.7.0.copyload, %if.end1205 ]
+  %bounds.sroa.0.01867 = phi double [ 0.000000e+00, %if.end1193 ], [ %bounds.sroa.0.0.copyload, %if.end1315.thread ], [ %bounds.sroa.0.0.copyload, %if.end1205 ]
+  br i1 %rangeMode.0.lcssa3439, label %if.end1336, label %if.end1328.if.then1330_crit_edge
 
 if.end1328.if.then1330_crit_edge:                 ; preds = %if.end1328
   %.pre = load double, ptr %scale, align 8
-  %.pre3331 = load double, ptr %y.i602, align 8
+  %.pre3330 = load double, ptr %y.i602, align 8
   br label %if.then1330
 
 if.then1330:                                      ; preds = %if.end1328.if.then1330_crit_edge, %if.end1328.thread
-  %222 = phi double [ %agg.tmp1322.sroa.2.0.copyload, %if.end1328.thread ], [ %.pre3331, %if.end1328.if.then1330_crit_edge ]
+  %222 = phi double [ %agg.tmp1322.sroa.2.0.copyload, %if.end1328.thread ], [ %.pre3330, %if.end1328.if.then1330_crit_edge ]
   %223 = phi double [ %agg.tmp1322.sroa.2.0.copyload, %if.end1328.thread ], [ %.pre, %if.end1328.if.then1330_crit_edge ]
-  %autoFrame.02644 = phi i1 [ true, %if.end1328.thread ], [ %autoFrame.0.lcssa3441, %if.end1328.if.then1330_crit_edge ]
+  %autoFrame.02643 = phi i1 [ true, %if.end1328.thread ], [ %autoFrame.0.lcssa3440, %if.end1328.if.then1330_crit_edge ]
   %avgScale.01888 = phi double [ %agg.tmp1322.sroa.2.0.copyload, %if.end1328.thread ], [ %mul, %if.end1328.if.then1330_crit_edge ]
   %bounds.sroa.0.018671886 = phi double [ %bounds.sroa.0.0.copyload, %if.end1328.thread ], [ %bounds.sroa.0.01867, %if.end1328.if.then1330_crit_edge ]
   %bounds.sroa.7.018681884 = phi double [ %bounds.sroa.7.0.copyload, %if.end1328.thread ], [ %bounds.sroa.7.01868, %if.end1328.if.then1330_crit_edge ]
@@ -2620,28 +2620,28 @@ if.then1330:                                      ; preds = %if.end1328.if.then1
   %bounds.sroa.16.018701880 = phi double [ %bounds.sroa.16.0.copyload, %if.end1328.thread ], [ %bounds.sroa.16.01870, %if.end1328.if.then1330_crit_edge ]
   %cmp.i748 = fcmp olt double %222, %223
   %cond.i = select i1 %cmp.i748, double %222, double %223
-  %div1335 = fdiv double %pxRange.0.lcssa3436, %cond.i
+  %div1335 = fdiv double %pxRange.0.lcssa3435, %cond.i
   br label %if.end1336
 
 if.end1336:                                       ; preds = %if.end1315, %if.then1330, %if.end1328
-  %autoFrame.02645 = phi i1 [ %autoFrame.02644, %if.then1330 ], [ %autoFrame.0.lcssa3441, %if.end1328 ], [ true, %if.end1315 ]
+  %autoFrame.02644 = phi i1 [ %autoFrame.02643, %if.then1330 ], [ %autoFrame.0.lcssa3440, %if.end1328 ], [ true, %if.end1315 ]
   %cmp1329.not1891 = phi i1 [ false, %if.then1330 ], [ true, %if.end1328 ], [ true, %if.end1315 ]
   %avgScale.01889 = phi double [ %avgScale.01888, %if.then1330 ], [ %mul, %if.end1328 ], [ %agg.tmp1322.sroa.2.0.copyload, %if.end1315 ]
   %bounds.sroa.0.018671887 = phi double [ %bounds.sroa.0.018671886, %if.then1330 ], [ %bounds.sroa.0.01867, %if.end1328 ], [ %bounds.sroa.0.0.copyload, %if.end1315 ]
   %bounds.sroa.7.018681885 = phi double [ %bounds.sroa.7.018681884, %if.then1330 ], [ %bounds.sroa.7.01868, %if.end1328 ], [ %bounds.sroa.7.0.copyload, %if.end1315 ]
   %bounds.sroa.12.018691883 = phi double [ %bounds.sroa.12.018691882, %if.then1330 ], [ %bounds.sroa.12.01869, %if.end1328 ], [ %bounds.sroa.12.0.copyload, %if.end1315 ]
   %bounds.sroa.16.018701881 = phi double [ %bounds.sroa.16.018701880, %if.then1330 ], [ %bounds.sroa.16.01870, %if.end1328 ], [ %bounds.sroa.16.0.copyload, %if.end1315 ]
-  %range.1 = phi double [ %div1335, %if.then1330 ], [ %range.0.lcssa3438, %if.end1328 ], [ %range.0.lcssa3438, %if.end1315 ]
-  %or.cond21 = select i1 %cmp1197, i1 true, i1 %printMetrics.0.lcssa3424
+  %range.1 = phi double [ %div1335, %if.then1330 ], [ %range.0.lcssa3437, %if.end1328 ], [ %range.0.lcssa3437, %if.end1315 ]
+  %or.cond21 = select i1 %cmp1197, i1 true, i1 %printMetrics.0.lcssa3423
   br i1 %or.cond21, label %if.then1340, label %if.end1421
 
 if.then1340:                                      ; preds = %if.end1336
   %224 = load ptr, ptr @stdout, align 8
-  %or.cond22 = select i1 %cmp1197, i1 %outputSpecified.0.lcssa3449, i1 false
+  %or.cond22 = select i1 %cmp1197, i1 %outputSpecified.0.lcssa3448, i1 false
   br i1 %or.cond22, label %if.then1344, label %if.end1347
 
 if.then1344:                                      ; preds = %if.then1340
-  %call1346 = call noalias ptr @fopen(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.137)
+  %call1346 = call noalias ptr @fopen(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.137)
   br label %if.end1347
 
 if.end1347:                                       ; preds = %if.then1344, %if.then1340
@@ -2703,10 +2703,10 @@ if.then1393:                                      ; preds = %if.end1391
   br label %if.end1396
 
 if.end1396:                                       ; preds = %if.then1393, %if.end1391
-  br i1 %autoFrame.02645, label %if.then1398, label %if.end1408
+  br i1 %autoFrame.02644, label %if.then1398, label %if.end1408
 
 if.then1398:                                      ; preds = %if.end1396
-  br i1 %scaleSpecified.0.lcssa3435, label %if.end1403, label %if.then1400
+  br i1 %scaleSpecified.0.lcssa3434, label %if.end1403, label %if.then1400
 
 if.then1400:                                      ; preds = %if.then1398
   %call1402 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %out.0, ptr noundef nonnull @.str.143, double noundef %avgScale.01889)
@@ -2738,12 +2738,12 @@ if.end1421:                                       ; preds = %if.end1413, %if.the
 
 invoke.cont1422:                                  ; preds = %if.end1421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig, ptr noundef nonnull align 8 dereferenceable(40) %generatorConfig, i64 40, i1 false)
-  br i1 %scanlinePass.0.lcssa3456, label %if.then1429, label %if.end1451
+  br i1 %scanlinePass.0.lcssa3455, label %if.then1429, label %if.end1451
 
 if.then1429:                                      ; preds = %invoke.cont1422
   %236 = load i32, ptr %distanceCheckMode3.i.i, align 4
   %cmp1434 = icmp ne i32 %236, 0
-  %or.cond24 = select i1 %explicitErrorCorrectionMode.0.lcssa3430, i1 %cmp1434, i1 false
+  %or.cond24 = select i1 %explicitErrorCorrectionMode.0.lcssa3429, i1 %cmp1434, i1 false
   br i1 %or.cond24, label %if.then1435, label %if.end1446
 
 if.then1435:                                      ; preds = %if.then1429
@@ -2764,9 +2764,9 @@ sw.epilog1442:                                    ; preds = %switch.lookup, %if.
   br label %if.end1446
 
 lpad1443:                                         ; preds = %invoke.cont1608.invoke, %if.then1905, %if.then1880, %sw.bb25.i1427, %sw.bb22.i1430, %sw.bb.i1432, %if.then1819, %if.then1794, %sw.bb25.i1093, %sw.bb22.i1096, %sw.bb.i1098, %if.then1733, %if.then1709, %sw.bb25.i, %sw.bb22.i, %sw.bb.i, %if.end1524, %if.end1496, %sw.bb1470, %sw.bb1452, %invoke.cont1872, %invoke.cont1864, %invoke.cont1786, %invoke.cont1778, %invoke.cont1701, %invoke.cont1694, %if.then1663, %invoke.cont1604, %invoke.cont1595, %invoke.cont1590, %if.then1547, %invoke.cont1540, %invoke.cont1533, %if.then1522, %if.then1518, %invoke.cont1512, %invoke.cont1505, %if.then1494, %if.then1490, %invoke.cont1484, %invoke.cont1479, %invoke.cont1466, %invoke.cont1461
-  %mtsdf.sroa.0.0 = phi ptr [ %mtsdf.sroa.0.2, %if.then1733 ], [ %mtsdf.sroa.0.2, %if.then1709 ], [ %mtsdf.sroa.0.2, %invoke.cont1701 ], [ %mtsdf.sroa.0.2, %invoke.cont1694 ], [ %mtsdf.sroa.0.2, %sw.bb.i ], [ %mtsdf.sroa.0.2, %sw.bb22.i ], [ %mtsdf.sroa.0.2, %sw.bb25.i ], [ %mtsdf.sroa.0.2, %if.then1819 ], [ %mtsdf.sroa.0.2, %if.then1794 ], [ %mtsdf.sroa.0.2, %invoke.cont1786 ], [ %mtsdf.sroa.0.2, %invoke.cont1778 ], [ %mtsdf.sroa.0.2, %sw.bb.i1098 ], [ %mtsdf.sroa.0.2, %sw.bb22.i1096 ], [ %mtsdf.sroa.0.2, %sw.bb25.i1093 ], [ %mtsdf.sroa.0.2, %if.then1905 ], [ %mtsdf.sroa.0.2, %if.then1880 ], [ %mtsdf.sroa.0.2, %invoke.cont1872 ], [ %mtsdf.sroa.0.2, %invoke.cont1864 ], [ %mtsdf.sroa.0.2, %sw.bb.i1432 ], [ %mtsdf.sroa.0.2, %sw.bb22.i1430 ], [ %mtsdf.sroa.0.2, %sw.bb25.i1427 ], [ %mtsdf.sroa.0.2, %if.then1663 ], [ %mtsdf.sroa.0.2, %invoke.cont1590 ], [ %mtsdf.sroa.0.2, %invoke.cont1595 ], [ %mtsdf.sroa.0.2, %invoke.cont1604 ], [ %mtsdf.sroa.0.2, %if.then1547 ], [ null, %invoke.cont1461 ], [ null, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ null, %invoke.cont1479 ], [ null, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ null, %invoke.cont1505 ], [ null, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ %call.i820821, %invoke.cont1533 ], [ %call.i820821, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ], [ null, %if.then1518 ], [ %mtsdf.sroa.0.2, %invoke.cont1608.invoke ]
-  %msdf.sroa.0.0 = phi ptr [ %msdf.sroa.0.2, %if.then1733 ], [ %msdf.sroa.0.2, %if.then1709 ], [ %msdf.sroa.0.2, %invoke.cont1701 ], [ %msdf.sroa.0.2, %invoke.cont1694 ], [ %msdf.sroa.0.2, %sw.bb.i ], [ %msdf.sroa.0.2, %sw.bb22.i ], [ %msdf.sroa.0.2, %sw.bb25.i ], [ %msdf.sroa.0.2, %if.then1819 ], [ %msdf.sroa.0.2, %if.then1794 ], [ %msdf.sroa.0.2, %invoke.cont1786 ], [ %msdf.sroa.0.2, %invoke.cont1778 ], [ %msdf.sroa.0.2, %sw.bb.i1098 ], [ %msdf.sroa.0.2, %sw.bb22.i1096 ], [ %msdf.sroa.0.2, %sw.bb25.i1093 ], [ %msdf.sroa.0.2, %if.then1905 ], [ %msdf.sroa.0.2, %if.then1880 ], [ %msdf.sroa.0.2, %invoke.cont1872 ], [ %msdf.sroa.0.2, %invoke.cont1864 ], [ %msdf.sroa.0.2, %sw.bb.i1432 ], [ %msdf.sroa.0.2, %sw.bb22.i1430 ], [ %msdf.sroa.0.2, %sw.bb25.i1427 ], [ %msdf.sroa.0.2, %if.then1663 ], [ %msdf.sroa.0.2, %invoke.cont1590 ], [ %msdf.sroa.0.2, %invoke.cont1595 ], [ %msdf.sroa.0.2, %invoke.cont1604 ], [ %msdf.sroa.0.2, %if.then1547 ], [ null, %invoke.cont1461 ], [ null, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ null, %invoke.cont1479 ], [ null, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ %call.i796797, %invoke.cont1505 ], [ %call.i796797, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ null, %invoke.cont1533 ], [ null, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ], [ null, %if.then1518 ], [ %msdf.sroa.0.2, %invoke.cont1608.invoke ]
-  %sdf.sroa.0.0 = phi ptr [ %sdf.sroa.0.2, %if.then1733 ], [ %sdf.sroa.0.2, %if.then1709 ], [ %sdf.sroa.0.2, %invoke.cont1701 ], [ %sdf.sroa.0.2, %invoke.cont1694 ], [ %sdf.sroa.0.2, %sw.bb.i ], [ %sdf.sroa.0.2, %sw.bb22.i ], [ %sdf.sroa.0.2, %sw.bb25.i ], [ %sdf.sroa.0.2, %if.then1819 ], [ %sdf.sroa.0.2, %if.then1794 ], [ %sdf.sroa.0.2, %invoke.cont1786 ], [ %sdf.sroa.0.2, %invoke.cont1778 ], [ %sdf.sroa.0.2, %sw.bb.i1098 ], [ %sdf.sroa.0.2, %sw.bb22.i1096 ], [ %sdf.sroa.0.2, %sw.bb25.i1093 ], [ %sdf.sroa.0.2, %if.then1905 ], [ %sdf.sroa.0.2, %if.then1880 ], [ %sdf.sroa.0.2, %invoke.cont1872 ], [ %sdf.sroa.0.2, %invoke.cont1864 ], [ %sdf.sroa.0.2, %sw.bb.i1432 ], [ %sdf.sroa.0.2, %sw.bb22.i1430 ], [ %sdf.sroa.0.2, %sw.bb25.i1427 ], [ %sdf.sroa.0.2, %if.then1663 ], [ %sdf.sroa.0.2, %invoke.cont1590 ], [ %sdf.sroa.0.2, %invoke.cont1595 ], [ %sdf.sroa.0.2, %invoke.cont1604 ], [ %sdf.sroa.0.2, %if.then1547 ], [ %call.i750751, %invoke.cont1461 ], [ %call.i750751, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ %call.i769770, %invoke.cont1479 ], [ %call.i769770, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ null, %invoke.cont1505 ], [ null, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ null, %invoke.cont1533 ], [ null, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ], [ null, %if.then1518 ], [ %sdf.sroa.0.2, %invoke.cont1608.invoke ]
+  %mtsdf.sroa.0.0 = phi ptr [ %mtsdf.sroa.0.2, %if.then1733 ], [ %mtsdf.sroa.0.2, %if.then1709 ], [ %mtsdf.sroa.0.2, %invoke.cont1701 ], [ %mtsdf.sroa.0.2, %invoke.cont1694 ], [ %mtsdf.sroa.0.2, %sw.bb.i ], [ %mtsdf.sroa.0.2, %sw.bb22.i ], [ %mtsdf.sroa.0.2, %sw.bb25.i ], [ %mtsdf.sroa.0.2, %if.then1819 ], [ %mtsdf.sroa.0.2, %if.then1794 ], [ %mtsdf.sroa.0.2, %invoke.cont1786 ], [ %mtsdf.sroa.0.2, %invoke.cont1778 ], [ %mtsdf.sroa.0.2, %sw.bb.i1098 ], [ %mtsdf.sroa.0.2, %sw.bb22.i1096 ], [ %mtsdf.sroa.0.2, %sw.bb25.i1093 ], [ %mtsdf.sroa.0.2, %if.then1905 ], [ %mtsdf.sroa.0.2, %if.then1880 ], [ %mtsdf.sroa.0.2, %invoke.cont1872 ], [ %mtsdf.sroa.0.2, %invoke.cont1864 ], [ %mtsdf.sroa.0.2, %sw.bb.i1432 ], [ %mtsdf.sroa.0.2, %sw.bb22.i1430 ], [ %mtsdf.sroa.0.2, %sw.bb25.i1427 ], [ %mtsdf.sroa.0.2, %if.then1663 ], [ %mtsdf.sroa.0.2, %invoke.cont1590 ], [ null, %if.then1518 ], [ %mtsdf.sroa.0.2, %invoke.cont1595 ], [ %mtsdf.sroa.0.2, %invoke.cont1608.invoke ], [ %mtsdf.sroa.0.2, %invoke.cont1604 ], [ %mtsdf.sroa.0.2, %if.then1547 ], [ null, %invoke.cont1461 ], [ null, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ null, %invoke.cont1479 ], [ null, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ null, %invoke.cont1505 ], [ null, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ %call.i820821, %invoke.cont1533 ], [ %call.i820821, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ]
+  %msdf.sroa.0.0 = phi ptr [ %msdf.sroa.0.2, %if.then1733 ], [ %msdf.sroa.0.2, %if.then1709 ], [ %msdf.sroa.0.2, %invoke.cont1701 ], [ %msdf.sroa.0.2, %invoke.cont1694 ], [ %msdf.sroa.0.2, %sw.bb.i ], [ %msdf.sroa.0.2, %sw.bb22.i ], [ %msdf.sroa.0.2, %sw.bb25.i ], [ %msdf.sroa.0.2, %if.then1819 ], [ %msdf.sroa.0.2, %if.then1794 ], [ %msdf.sroa.0.2, %invoke.cont1786 ], [ %msdf.sroa.0.2, %invoke.cont1778 ], [ %msdf.sroa.0.2, %sw.bb.i1098 ], [ %msdf.sroa.0.2, %sw.bb22.i1096 ], [ %msdf.sroa.0.2, %sw.bb25.i1093 ], [ %msdf.sroa.0.2, %if.then1905 ], [ %msdf.sroa.0.2, %if.then1880 ], [ %msdf.sroa.0.2, %invoke.cont1872 ], [ %msdf.sroa.0.2, %invoke.cont1864 ], [ %msdf.sroa.0.2, %sw.bb.i1432 ], [ %msdf.sroa.0.2, %sw.bb22.i1430 ], [ %msdf.sroa.0.2, %sw.bb25.i1427 ], [ %msdf.sroa.0.2, %if.then1663 ], [ %msdf.sroa.0.2, %invoke.cont1590 ], [ null, %if.then1518 ], [ %msdf.sroa.0.2, %invoke.cont1595 ], [ %msdf.sroa.0.2, %invoke.cont1608.invoke ], [ %msdf.sroa.0.2, %invoke.cont1604 ], [ %msdf.sroa.0.2, %if.then1547 ], [ null, %invoke.cont1461 ], [ null, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ null, %invoke.cont1479 ], [ null, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ %call.i796797, %invoke.cont1505 ], [ %call.i796797, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ null, %invoke.cont1533 ], [ null, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ]
+  %sdf.sroa.0.0 = phi ptr [ %sdf.sroa.0.2, %if.then1733 ], [ %sdf.sroa.0.2, %if.then1709 ], [ %sdf.sroa.0.2, %invoke.cont1701 ], [ %sdf.sroa.0.2, %invoke.cont1694 ], [ %sdf.sroa.0.2, %sw.bb.i ], [ %sdf.sroa.0.2, %sw.bb22.i ], [ %sdf.sroa.0.2, %sw.bb25.i ], [ %sdf.sroa.0.2, %if.then1819 ], [ %sdf.sroa.0.2, %if.then1794 ], [ %sdf.sroa.0.2, %invoke.cont1786 ], [ %sdf.sroa.0.2, %invoke.cont1778 ], [ %sdf.sroa.0.2, %sw.bb.i1098 ], [ %sdf.sroa.0.2, %sw.bb22.i1096 ], [ %sdf.sroa.0.2, %sw.bb25.i1093 ], [ %sdf.sroa.0.2, %if.then1905 ], [ %sdf.sroa.0.2, %if.then1880 ], [ %sdf.sroa.0.2, %invoke.cont1872 ], [ %sdf.sroa.0.2, %invoke.cont1864 ], [ %sdf.sroa.0.2, %sw.bb.i1432 ], [ %sdf.sroa.0.2, %sw.bb22.i1430 ], [ %sdf.sroa.0.2, %sw.bb25.i1427 ], [ %sdf.sroa.0.2, %if.then1663 ], [ %sdf.sroa.0.2, %invoke.cont1590 ], [ null, %if.then1518 ], [ %sdf.sroa.0.2, %invoke.cont1595 ], [ %sdf.sroa.0.2, %invoke.cont1608.invoke ], [ %sdf.sroa.0.2, %invoke.cont1604 ], [ %sdf.sroa.0.2, %if.then1547 ], [ %call.i750751, %invoke.cont1461 ], [ %call.i750751, %invoke.cont1466 ], [ null, %sw.bb1452 ], [ %call.i769770, %invoke.cont1479 ], [ %call.i769770, %invoke.cont1484 ], [ null, %sw.bb1470 ], [ null, %invoke.cont1505 ], [ null, %invoke.cont1512 ], [ null, %if.end1496 ], [ null, %if.then1494 ], [ null, %if.then1490 ], [ null, %invoke.cont1533 ], [ null, %invoke.cont1540 ], [ null, %if.end1524 ], [ null, %if.then1522 ]
   %241 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2778,7 +2778,7 @@ if.end1446:                                       ; preds = %sw.epilog1442, %if.
   br label %if.end1451
 
 if.end1451:                                       ; preds = %if.end1446, %invoke.cont1422
-  switch i32 %mode.0.lcssa3459, label %sw.epilog1545 [
+  switch i32 %mode.0.lcssa3458, label %sw.epilog1545 [
     i32 0, label %sw.bb1452
     i32 1, label %sw.bb1470
     i32 2, label %sw.bb1488
@@ -2786,7 +2786,7 @@ if.end1451:                                       ; preds = %if.end1446, %invoke
   ]
 
 sw.bb1452:                                        ; preds = %if.end1451
-  %mul4.i = mul nsw i32 %width.0.lcssa3447, %height.0.lcssa3446
+  %mul4.i = mul nsw i32 %width.0.lcssa3446, %height.0.lcssa3445
   %conv.i749 = zext nneg i32 %mul4.i to i64
   %242 = icmp slt i32 %mul4.i, 0
   %243 = shl nuw nsw i64 %conv.i749, 2
@@ -2795,11 +2795,11 @@ sw.bb1452:                                        ; preds = %if.end1451
           to label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit unwind label %lpad1443
 
 _ZN7msdfgen6BitmapIfLi1EED2Ev.exit:               ; preds = %sw.bb1452
-  %sdf.sroa.19.8.insert.ext = zext i32 %width.0.lcssa3447 to i64
-  %sdf.sroa.19.12.insert.ext = zext i32 %height.0.lcssa3446 to i64
+  %sdf.sroa.19.8.insert.ext = zext i32 %width.0.lcssa3446 to i64
+  %sdf.sroa.19.12.insert.ext = zext i32 %height.0.lcssa3445 to i64
   %sdf.sroa.19.12.insert.shift = shl nuw i64 %sdf.sroa.19.12.insert.ext, 32
   %sdf.sroa.19.12.insert.insert = or disjoint i64 %sdf.sroa.19.12.insert.shift, %sdf.sroa.19.8.insert.ext
-  br i1 %legacyMode.0.lcssa3457, label %invoke.cont1461, label %invoke.cont1466
+  br i1 %legacyMode.0.lcssa3456, label %invoke.cont1461, label %invoke.cont1466
 
 invoke.cont1461:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit
   store ptr %call.i750751, ptr %ref.tmp1460, align 8
@@ -2816,7 +2816,7 @@ invoke.cont1466:                                  ; preds = %_ZN7msdfgen6BitmapI
           to label %sw.epilog1545 unwind label %lpad1443
 
 sw.bb1470:                                        ; preds = %if.end1451
-  %mul4.i767 = mul nsw i32 %width.0.lcssa3447, %height.0.lcssa3446
+  %mul4.i767 = mul nsw i32 %width.0.lcssa3446, %height.0.lcssa3445
   %conv.i768 = zext nneg i32 %mul4.i767 to i64
   %247 = icmp slt i32 %mul4.i767, 0
   %248 = shl nuw nsw i64 %conv.i768, 2
@@ -2825,11 +2825,11 @@ sw.bb1470:                                        ; preds = %if.end1451
           to label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit784 unwind label %lpad1443
 
 _ZN7msdfgen6BitmapIfLi1EED2Ev.exit784:            ; preds = %sw.bb1470
-  %sdf.sroa.19.8.insert.ext1803 = zext i32 %width.0.lcssa3447 to i64
-  %sdf.sroa.19.12.insert.ext1808 = zext i32 %height.0.lcssa3446 to i64
+  %sdf.sroa.19.8.insert.ext1803 = zext i32 %width.0.lcssa3446 to i64
+  %sdf.sroa.19.12.insert.ext1808 = zext i32 %height.0.lcssa3445 to i64
   %sdf.sroa.19.12.insert.shift1809 = shl nuw i64 %sdf.sroa.19.12.insert.ext1808, 32
   %sdf.sroa.19.12.insert.insert1811 = or disjoint i64 %sdf.sroa.19.12.insert.shift1809, %sdf.sroa.19.8.insert.ext1803
-  br i1 %legacyMode.0.lcssa3457, label %invoke.cont1479, label %invoke.cont1484
+  br i1 %legacyMode.0.lcssa3456, label %invoke.cont1479, label %invoke.cont1484
 
 invoke.cont1479:                                  ; preds = %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit784
   store ptr %call.i769770, ptr %ref.tmp1478, align 8
@@ -2851,19 +2851,19 @@ sw.bb1488:                                        ; preds = %if.end1451
   br i1 %tobool1489, label %if.end1492, label %if.then1490
 
 if.then1490:                                      ; preds = %sw.bb1488
-  invoke void %edgeColoring.0.lcssa3429(ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %angleThreshold.0.lcssa3434, i64 noundef %coloringSeed.0.lcssa3421)
+  invoke void %edgeColoring.0.lcssa3428(ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %angleThreshold.0.lcssa3433, i64 noundef %coloringSeed.0.lcssa3420)
           to label %if.end1492 unwind label %lpad1443, !callees !14
 
 if.end1492:                                       ; preds = %if.then1490, %sw.bb1488
-  %tobool1493.not = icmp eq ptr %edgeAssignment.0.lcssa3432, null
+  %tobool1493.not = icmp eq ptr %edgeAssignment.0.lcssa3431, null
   br i1 %tobool1493.not, label %if.end1496, label %if.then1494
 
 if.then1494:                                      ; preds = %if.end1492
-  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3432)
+  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3431)
           to label %if.end1496 unwind label %lpad1443
 
 if.end1496:                                       ; preds = %if.then1494, %if.end1492
-  %mul.i793 = mul i32 %width.0.lcssa3447, %height.0.lcssa3446
+  %mul.i793 = mul i32 %width.0.lcssa3446, %height.0.lcssa3445
   %mul4.i794 = mul i32 %mul.i793, 3
   %conv.i795 = zext nneg i32 %mul4.i794 to i64
   %253 = icmp slt i32 %mul4.i794, 0
@@ -2873,11 +2873,11 @@ if.end1496:                                       ; preds = %if.then1494, %if.en
           to label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit unwind label %lpad1443
 
 _ZN7msdfgen6BitmapIfLi3EED2Ev.exit:               ; preds = %if.end1496
-  %msdf.sroa.17.8.insert.ext = zext i32 %width.0.lcssa3447 to i64
-  %msdf.sroa.17.12.insert.ext = zext i32 %height.0.lcssa3446 to i64
+  %msdf.sroa.17.8.insert.ext = zext i32 %width.0.lcssa3446 to i64
+  %msdf.sroa.17.12.insert.ext = zext i32 %height.0.lcssa3445 to i64
   %msdf.sroa.17.12.insert.shift = shl nuw i64 %msdf.sroa.17.12.insert.ext, 32
   %msdf.sroa.17.12.insert.insert = or disjoint i64 %msdf.sroa.17.12.insert.shift, %msdf.sroa.17.8.insert.ext
-  br i1 %legacyMode.0.lcssa3457, label %invoke.cont1505, label %invoke.cont1512
+  br i1 %legacyMode.0.lcssa3456, label %invoke.cont1505, label %invoke.cont1512
 
 invoke.cont1505:                                  ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit
   store ptr %call.i796797, ptr %ref.tmp1504, align 8
@@ -2899,20 +2899,20 @@ sw.bb1516:                                        ; preds = %if.end1451
   br i1 %tobool1517, label %if.end1520, label %if.then1518
 
 if.then1518:                                      ; preds = %sw.bb1516
-  invoke void %edgeColoring.0.lcssa3429(ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %angleThreshold.0.lcssa3434, i64 noundef %coloringSeed.0.lcssa3421)
+  invoke void %edgeColoring.0.lcssa3428(ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %angleThreshold.0.lcssa3433, i64 noundef %coloringSeed.0.lcssa3420)
           to label %if.end1520 unwind label %lpad1443, !callees !14
 
 if.end1520:                                       ; preds = %if.then1518, %sw.bb1516
-  %tobool1521.not = icmp eq ptr %edgeAssignment.0.lcssa3432, null
+  %tobool1521.not = icmp eq ptr %edgeAssignment.0.lcssa3431, null
   br i1 %tobool1521.not, label %if.end1524, label %if.then1522
 
 if.then1522:                                      ; preds = %if.end1520
-  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3432)
+  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3431)
           to label %if.end1524 unwind label %lpad1443
 
 if.end1524:                                       ; preds = %if.then1522, %if.end1520
-  %mul.i817 = shl nsw i32 %width.0.lcssa3447, 2
-  %mul4.i818 = mul nsw i32 %mul.i817, %height.0.lcssa3446
+  %mul.i817 = shl nsw i32 %width.0.lcssa3446, 2
+  %mul4.i818 = mul nsw i32 %mul.i817, %height.0.lcssa3445
   %conv.i819 = zext nneg i32 %mul4.i818 to i64
   %259 = icmp slt i32 %mul4.i818, 0
   %260 = shl nuw nsw i64 %conv.i819, 2
@@ -2921,11 +2921,11 @@ if.end1524:                                       ; preds = %if.then1522, %if.en
           to label %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit unwind label %lpad1443
 
 _ZN7msdfgen6BitmapIfLi4EED2Ev.exit:               ; preds = %if.end1524
-  %mtsdf.sroa.15.8.insert.ext = zext i32 %width.0.lcssa3447 to i64
-  %mtsdf.sroa.15.12.insert.ext = zext i32 %height.0.lcssa3446 to i64
+  %mtsdf.sroa.15.8.insert.ext = zext i32 %width.0.lcssa3446 to i64
+  %mtsdf.sroa.15.12.insert.ext = zext i32 %height.0.lcssa3445 to i64
   %mtsdf.sroa.15.12.insert.shift = shl nuw i64 %mtsdf.sroa.15.12.insert.ext, 32
   %mtsdf.sroa.15.12.insert.insert = or disjoint i64 %mtsdf.sroa.15.12.insert.shift, %mtsdf.sroa.15.8.insert.ext
-  br i1 %legacyMode.0.lcssa3457, label %invoke.cont1533, label %invoke.cont1540
+  br i1 %legacyMode.0.lcssa3456, label %invoke.cont1533, label %invoke.cont1540
 
 invoke.cont1533:                                  ; preds = %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit
   store ptr %call.i820821, ptr %ref.tmp1532, align 8
@@ -2969,12 +2969,12 @@ invoke.cont1561:                                  ; preds = %if.then1547
   br label %if.end1565
 
 if.end1565:                                       ; preds = %invoke.cont1561, %sw.epilog1545
-  %orientation.1 = phi i32 [ %cond1564, %invoke.cont1561 ], [ %orientation.0.lcssa3428, %sw.epilog1545 ]
+  %orientation.1 = phi i32 [ %cond1564, %invoke.cont1561 ], [ %orientation.0.lcssa3427, %sw.epilog1545 ]
   %cmp1566 = icmp eq i32 %orientation.1, 1
   br i1 %cmp1566, label %if.then1567, label %if.end1585
 
 if.then1567:                                      ; preds = %if.end1565
-  switch i32 %mode.0.lcssa3459, label %if.end1585 [
+  switch i32 %mode.0.lcssa3458, label %if.end1585 [
     i32 0, label %invoke.cont1570
     i32 1, label %invoke.cont1570
     i32 2, label %invoke.cont1575
@@ -3044,10 +3044,10 @@ for.body.i875:                                    ; preds = %invoke.cont1580, %f
   br i1 %cmp.i879, label %for.body.i875, label %if.end1585, !llvm.loop !17
 
 if.end1585:                                       ; preds = %for.body.i875, %for.body.i859, %for.body.i, %invoke.cont1580, %invoke.cont1575, %invoke.cont1570, %if.then1567, %if.end1565
-  br i1 %scanlinePass.0.lcssa3456, label %if.then1587, label %if.end1613
+  br i1 %scanlinePass.0.lcssa3455, label %if.then1587, label %if.end1613
 
 if.then1587:                                      ; preds = %if.end1585
-  switch i32 %mode.0.lcssa3459, label %if.end1613 [
+  switch i32 %mode.0.lcssa3458, label %if.end1613 [
     i32 0, label %invoke.cont1590
     i32 1, label %invoke.cont1590
     i32 2, label %invoke.cont1595
@@ -3058,37 +3058,37 @@ invoke.cont1590:                                  ; preds = %if.then1587, %if.th
   store ptr %sdf.sroa.0.2, ptr %ref.tmp1589, align 8
   %267 = getelementptr inbounds nuw i8, ptr %ref.tmp1589, i64 8
   store i64 %sdf.sroa.19.0, ptr %267, align 8
-  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1589, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3455)
+  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1589, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3454)
           to label %if.end1613 unwind label %lpad1443
 
 invoke.cont1595:                                  ; preds = %if.then1587
   store ptr %msdf.sroa.0.2, ptr %ref.tmp1594, align 8
   %268 = getelementptr inbounds nuw i8, ptr %ref.tmp1594, i64 8
   store i64 %msdf.sroa.17.0, ptr %268, align 8
-  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1594, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3455)
+  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1594, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3454)
           to label %invoke.cont1608.invoke unwind label %lpad1443
 
 invoke.cont1604:                                  ; preds = %if.then1587
   store ptr %mtsdf.sroa.0.2, ptr %ref.tmp1603, align 8
   %269 = getelementptr inbounds nuw i8, ptr %ref.tmp1603, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %269, align 8
-  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1603, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3455)
+  invoke void @_ZN7msdfgen22distanceSignCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1603, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef %fillRule.0.lcssa3454)
           to label %invoke.cont1608.invoke unwind label %lpad1443
 
 invoke.cont1608.invoke:                           ; preds = %invoke.cont1604, %invoke.cont1595
-  %ref.tmp1598.sink5167.sroa.phi = phi ptr [ %ref.tmp1598.sink5167.sroa.gep, %invoke.cont1595 ], [ %ref.tmp1598.sink5167.sroa.gep8856, %invoke.cont1604 ]
-  %ref.tmp1598.sink5167 = phi ptr [ %ref.tmp1598, %invoke.cont1595 ], [ %ref.tmp1607, %invoke.cont1604 ]
-  store ptr %msdf.sroa.0.2, ptr %ref.tmp1598.sink5167, align 8
-  store i64 %msdf.sroa.17.0, ptr %ref.tmp1598.sink5167.sroa.phi, align 8
-  invoke void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1598.sink5167, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig)
+  %ref.tmp1598.sink5166.sroa.phi = phi ptr [ %ref.tmp1598.sink5166.sroa.gep, %invoke.cont1595 ], [ %ref.tmp1598.sink5166.sroa.gep8855, %invoke.cont1604 ]
+  %ref.tmp1598.sink5166 = phi ptr [ %ref.tmp1598, %invoke.cont1595 ], [ %ref.tmp1607, %invoke.cont1604 ]
+  store ptr %msdf.sroa.0.2, ptr %ref.tmp1598.sink5166, align 8
+  store i64 %msdf.sroa.17.0, ptr %ref.tmp1598.sink5166.sroa.phi, align 8
+  invoke void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1598.sink5166, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig)
           to label %if.end1613 unwind label %lpad1443
 
 if.end1613:                                       ; preds = %invoke.cont1608.invoke, %invoke.cont1590, %if.then1587, %if.end1585
-  %tobool1614 = fcmp une float %outputDistanceShift.0.lcssa3433, 0.000000e+00
+  %tobool1614 = fcmp une float %outputDistanceShift.0.lcssa3432, 0.000000e+00
   br i1 %tobool1614, label %if.then1615, label %if.end1656
 
 if.then1615:                                      ; preds = %if.end1613
-  switch i32 %mode.0.lcssa3459, label %if.end1656 [
+  switch i32 %mode.0.lcssa3458, label %if.end1656 [
     i32 0, label %sw.bb1616
     i32 1, label %sw.bb1616
     i32 2, label %sw.bb1626
@@ -3098,8 +3098,8 @@ if.then1615:                                      ; preds = %if.end1613
 sw.bb1616:                                        ; preds = %if.then1615, %if.then1615
   %sdf.sroa.19.12.extract.shift = lshr i64 %sdf.sroa.19.0, 32
   %mul1624 = shl i64 %sdf.sroa.19.0, 32
-  %sext1941 = mul i64 %mul1624, %sdf.sroa.19.12.extract.shift
-  %270 = ashr exact i64 %sext1941, 30
+  %sext1940 = mul i64 %mul1624, %sdf.sroa.19.12.extract.shift
+  %270 = ashr exact i64 %sext1940, 30
   %add.ptr1625 = getelementptr inbounds i8, ptr %sdf.sroa.0.2, i64 %270
   br label %sw.epilog1649
 
@@ -3122,26 +3122,26 @@ sw.bb1637:                                        ; preds = %if.then1615
   br label %sw.epilog1649
 
 sw.epilog1649:                                    ; preds = %sw.bb1637, %sw.bb1626, %sw.bb1616
-  %pixel.0 = phi ptr [ %sdf.sroa.0.2, %sw.bb1616 ], [ %msdf.sroa.0.2, %sw.bb1626 ], [ %mtsdf.sroa.0.2, %sw.bb1637 ]
-  %pixelsEnd.0 = phi ptr [ %add.ptr1625, %sw.bb1616 ], [ %add.ptr1636, %sw.bb1626 ], [ %add.ptr1647, %sw.bb1637 ]
-  %cmp16513287 = icmp ult ptr %pixel.0, %pixelsEnd.0
-  br i1 %cmp16513287, label %while.body1652, label %if.end1656
+  %pixel.0 = phi ptr [ %mtsdf.sroa.0.2, %sw.bb1637 ], [ %sdf.sroa.0.2, %sw.bb1616 ], [ %msdf.sroa.0.2, %sw.bb1626 ]
+  %pixelsEnd.0 = phi ptr [ %add.ptr1647, %sw.bb1637 ], [ %add.ptr1625, %sw.bb1616 ], [ %add.ptr1636, %sw.bb1626 ]
+  %cmp16513286 = icmp ult ptr %pixel.0, %pixelsEnd.0
+  br i1 %cmp16513286, label %while.body1652, label %if.end1656
 
 while.body1652:                                   ; preds = %sw.epilog1649, %while.body1652
-  %pixel.13288 = phi ptr [ %incdec.ptr1653, %while.body1652 ], [ %pixel.0, %sw.epilog1649 ]
-  %incdec.ptr1653 = getelementptr inbounds nuw i8, ptr %pixel.13288, i64 4
-  %272 = load float, ptr %pixel.13288, align 4
-  %add1654 = fadd float %outputDistanceShift.0.lcssa3433, %272
-  store float %add1654, ptr %pixel.13288, align 4
+  %pixel.13287 = phi ptr [ %incdec.ptr1653, %while.body1652 ], [ %pixel.0, %sw.epilog1649 ]
+  %incdec.ptr1653 = getelementptr inbounds nuw i8, ptr %pixel.13287, i64 4
+  %272 = load float, ptr %pixel.13287, align 4
+  %add1654 = fadd float %outputDistanceShift.0.lcssa3432, %272
+  store float %add1654, ptr %pixel.13287, align 4
   %cmp1651 = icmp ult ptr %incdec.ptr1653, %pixelsEnd.0
   br i1 %cmp1651, label %while.body1652, label %if.end1656, !llvm.loop !18
 
 if.end1656:                                       ; preds = %while.body1652, %if.then1615, %sw.epilog1649, %if.end1613
-  %tobool1657.not = icmp eq ptr %shapeExport.0.lcssa3452, null
+  %tobool1657.not = icmp eq ptr %shapeExport.0.lcssa3451, null
   br i1 %tobool1657.not, label %if.end1672, label %if.then1658
 
 if.then1658:                                      ; preds = %if.end1656
-  %call1661 = call noalias ptr @fopen(ptr noundef nonnull %shapeExport.0.lcssa3452, ptr noundef nonnull @.str.137)
+  %call1661 = call noalias ptr @fopen(ptr noundef nonnull %shapeExport.0.lcssa3451, ptr noundef nonnull @.str.137)
   %tobool1662.not = icmp eq ptr %call1661, null
   br i1 %tobool1662.not, label %if.else1668, label %if.then1663
 
@@ -3159,7 +3159,7 @@ if.else1668:                                      ; preds = %if.then1658
   br label %if.end1672
 
 if.end1672:                                       ; preds = %invoke.cont1664, %if.else1668, %if.end1656
-  switch i32 %mode.0.lcssa3459, label %cleanup [
+  switch i32 %mode.0.lcssa3458, label %cleanup [
     i32 0, label %invoke.cont1675
     i32 1, label %invoke.cont1675
     i32 2, label %invoke.cont1759
@@ -3170,14 +3170,14 @@ invoke.cont1675:                                  ; preds = %if.end1672, %if.end
   store ptr %sdf.sroa.0.2, ptr %ref.tmp1674, align 8
   %275 = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 8
   store i64 %sdf.sroa.19.0, ptr %275, align 8
-  %tobool.not.i904 = icmp eq ptr %output.0.lcssa3453, null
+  %tobool.not.i904 = icmp eq ptr %output.0.lcssa3452, null
   %276 = trunc i64 %sdf.sroa.19.0 to i32
   %277 = lshr i64 %sdf.sroa.19.0, 32
   %278 = trunc nuw i64 %277 to i32
   br i1 %tobool.not.i904, label %if.else83.i, label %if.then.i905
 
 if.then.i905:                                     ; preds = %invoke.cont1675
-  switch i32 %format.0.lcssa3423, label %if.end1683 [
+  switch i32 %format.0.lcssa3422, label %if.end1683 [
     i32 0, label %if.then1.i
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb22.i
@@ -3190,8 +3190,8 @@ if.then.i905:                                     ; preds = %invoke.cont1675
   ]
 
 if.then1.i:                                       ; preds = %if.then.i905
-  %call.i.i912 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3453) #18
-  %add.ptr.i.i913 = getelementptr inbounds i8, ptr %output.0.lcssa3453, i64 %call.i.i912
+  %call.i.i912 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3452) #18
+  %add.ptr.i.i913 = getelementptr inbounds i8, ptr %output.0.lcssa3452, i64 %call.i.i912
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.then1.i
@@ -3200,7 +3200,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %b.0.i.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i, i64 -1
   %a.0.i.i = getelementptr inbounds i8, ptr %add.ptr.pn.i.i, i64 -1
   %cmp.not.i.i = icmp ult ptr %b.0.i.i, @.str.153
-  %cmp5.i.i = icmp ult ptr %a.0.i.i, %output.0.lcssa3453
+  %cmp5.i.i = icmp ult ptr %a.0.i.i, %output.0.lcssa3452
   %or.cond.i.i914 = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.i.i
   br i1 %or.cond.i.i914, label %_ZL12cmpExtensionPKcS0_.exit.i, label %lor.lhs.false.i.i
 
@@ -3230,7 +3230,7 @@ for.cond.i62.i:                                   ; preds = %for.cond.i62.i.preh
   %b.0.i65.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i, i64 -1
   %a.0.i66.i = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i, i64 -1
   %cmp.not.i67.i = icmp ult ptr %b.0.i65.i, @.str.120
-  %cmp5.i68.i = icmp ult ptr %a.0.i66.i, %output.0.lcssa3453
+  %cmp5.i68.i = icmp ult ptr %a.0.i66.i, %output.0.lcssa3452
   %or.cond.i69.i = select i1 %cmp.not.i67.i, i1 true, i1 %cmp5.i68.i
   br i1 %or.cond.i69.i, label %_ZL12cmpExtensionPKcS0_.exit79.i, label %lor.lhs.false.i70.i
 
@@ -3260,7 +3260,7 @@ for.cond.i84.i:                                   ; preds = %for.cond.i84.i.preh
   %b.0.i87.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i, i64 -1
   %a.0.i88.i = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i, i64 -1
   %cmp.not.i89.i = icmp ult ptr %b.0.i87.i, @.str.154
-  %cmp5.i90.i = icmp ult ptr %a.0.i88.i, %output.0.lcssa3453
+  %cmp5.i90.i = icmp ult ptr %a.0.i88.i, %output.0.lcssa3452
   %or.cond.i91.i = select i1 %cmp.not.i89.i, i1 true, i1 %cmp5.i90.i
   br i1 %or.cond.i91.i, label %_ZL12cmpExtensionPKcS0_.exit101.i, label %lor.lhs.false.i92.i
 
@@ -3290,7 +3290,7 @@ for.cond.i106.i:                                  ; preds = %for.cond.i106.i.pre
   %b.0.i109.i = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i, i64 -1
   %a.0.i110.i = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i, i64 -1
   %cmp.not.i111.i = icmp ult ptr %b.0.i109.i, @.str.155
-  %cmp5.i112.i = icmp ult ptr %a.0.i110.i, %output.0.lcssa3453
+  %cmp5.i112.i = icmp ult ptr %a.0.i110.i, %output.0.lcssa3452
   %or.cond.i113.i = select i1 %cmp.not.i111.i, i1 true, i1 %cmp5.i112.i
   br i1 %or.cond.i113.i, label %_ZL12cmpExtensionPKcS0_.exit123.i, label %lor.lhs.false.i114.i
 
@@ -3312,50 +3312,50 @@ _ZL12cmpExtensionPKcS0_.exit123.i:                ; preds = %for.cond.i106.i
   br i1 %cmp.not.i111.i, label %sw.bb25.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %lor.lhs.false.i114.i, %_ZL12cmpExtensionPKcS0_.exit123.i
-  %call10.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.156)
+  %call10.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.156)
   br i1 %call10.i, label %sw.bb28.i.thread, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else9.i
-  %call13.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.157)
+  %call13.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.157)
   br i1 %call13.i, label %sw.bb47.i, label %if.then1680
 
 sw.bb.i:                                          ; preds = %_ZL12cmpExtensionPKcS0_.exit.i, %if.then.i905
-  %call21.i910917 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3453)
+  %call21.i910917 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3452)
           to label %call21.i910.noexc unwind label %lpad1443
 
 call21.i910.noexc:                                ; preds = %sw.bb.i
   br i1 %call21.i910917, label %land.lhs.true1686, label %if.then1680
 
 sw.bb22.i:                                        ; preds = %_ZL12cmpExtensionPKcS0_.exit79.i, %if.then.i905
-  %call23.i918 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3453)
+  %call23.i918 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3452)
           to label %call23.i.noexc unwind label %lpad1443
 
 call23.i.noexc:                                   ; preds = %sw.bb22.i
   br i1 %call23.i918, label %land.lhs.true1686, label %if.then1680
 
 sw.bb25.i:                                        ; preds = %_ZL12cmpExtensionPKcS0_.exit101.i, %_ZL12cmpExtensionPKcS0_.exit123.i, %if.then.i905
-  %call26.i909919 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3453)
+  %call26.i909919 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1674, ptr noundef nonnull %output.0.lcssa3452)
           to label %call26.i909.noexc unwind label %lpad1443
 
 call26.i909.noexc:                                ; preds = %sw.bb25.i
   br i1 %call26.i909919, label %if.end1697, label %if.then1680
 
 sw.bb28.i:                                        ; preds = %if.then.i905, %if.then.i905
-  %call29.i = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
+  %call29.i = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
   %tobool30.not.i = icmp eq ptr %call29.i, null
   br i1 %tobool30.not.i, label %if.then1680, label %if.end32.i
 
 sw.bb28.i.thread:                                 ; preds = %if.else9.i
-  %call29.i3656 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
-  %tobool30.not.i3657 = icmp eq ptr %call29.i3656, null
-  br i1 %tobool30.not.i3657, label %if.then1680, label %if.then34.i
+  %call29.i3655 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
+  %tobool30.not.i3656 = icmp eq ptr %call29.i3655, null
+  br i1 %tobool30.not.i3656, label %if.then1680, label %if.then34.i
 
 if.end32.i:                                       ; preds = %sw.bb28.i
-  %295 = icmp eq i32 %format.0.lcssa3423, 4
+  %295 = icmp eq i32 %format.0.lcssa3422, 4
   br i1 %295, label %if.then34.i, label %if.then38.i
 
 if.then34.i:                                      ; preds = %sw.bb28.i.thread, %if.end32.i
-  %call29.i36593663 = phi ptr [ %call29.i, %if.end32.i ], [ %call29.i3656, %sw.bb28.i.thread ]
+  %call29.i36583662 = phi ptr [ %call29.i, %if.end32.i ], [ %call29.i3655, %sw.bb28.i.thread ]
   %296 = load i32, ptr %275, align 8
   %height.i908 = getelementptr inbounds nuw i8, ptr %ref.tmp1674, i64 12
   %297 = load i32, ptr %height.i908, align 4
@@ -3386,20 +3386,20 @@ for.body3.us.i.i:                                 ; preds = %for.body3.us.i.i, %
   %301 = call i32 @llvm.umin.i32(i32 %300, i32 255)
   %tobool.not.us.i.i = icmp eq i32 %col.06.us.i.i, 0
   %cond.us.i.i = select i1 %tobool.not.us.i.i, ptr @.str.167, ptr @.str.166
-  %call4.us.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i36593663, ptr noundef nonnull %cond.us.i.i, i32 noundef %301)
+  %call4.us.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i36583662, ptr noundef nonnull %cond.us.i.i, i32 noundef %301)
   %inc.us.i.i = add nuw nsw i32 %col.06.us.i.i, 1
   %exitcond12.not.i.i = icmp eq i32 %inc.us.i.i, %296
   br i1 %exitcond12.not.i.i, label %for.cond1.for.end_crit_edge.us.i.i, label %for.body3.us.i.i, !llvm.loop !19
 
 for.cond1.for.end_crit_edge.us.i.i:               ; preds = %for.body3.us.i.i
-  %fputc.us.i.i = call i32 @fputc(i32 10, ptr nonnull %call29.i36593663)
+  %fputc.us.i.i = call i32 @fputc(i32 10, ptr nonnull %call29.i36583662)
   %inc7.us.i.i = add nuw nsw i32 %row.09.us.i.i, 1
   %exitcond13.not.i.i = icmp eq i32 %inc7.us.i.i, %297
   br i1 %exitcond13.not.i.i, label %if.end1683.sink.split, label %for.cond1.preheader.us.i.i, !llvm.loop !20
 
 for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader.lr.ph.i.i, %for.cond1.preheader.i.i
   %row.09.i.i = phi i32 [ %inc7.i.i, %for.cond1.preheader.i.i ], [ 0, %for.cond1.preheader.lr.ph.i.i ]
-  %fputc.i.i = call i32 @fputc(i32 10, ptr nonnull %call29.i36593663)
+  %fputc.i.i = call i32 @fputc(i32 10, ptr nonnull %call29.i36583662)
   %inc7.i.i = add nuw nsw i32 %row.09.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc7.i.i, %297
   br i1 %exitcond.not.i.i, label %if.end1683.sink.split, label %for.cond1.preheader.i.i, !llvm.loop !20
@@ -3451,8 +3451,8 @@ for.cond1.preheader.i127.i:                       ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i129.i, label %if.end1683.sink.split, label %for.cond1.preheader.i127.i, !llvm.loop !22
 
 sw.bb47.i:                                        ; preds = %if.else12.i, %if.then.i905, %if.then.i905, %if.then.i905
-  %format.2 = phi i32 [ %format.0.lcssa3423, %if.then.i905 ], [ %format.0.lcssa3423, %if.then.i905 ], [ %format.0.lcssa3423, %if.then.i905 ], [ 6, %if.else12.i ]
-  %call49.i = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.163)
+  %format.2 = phi i32 [ %format.0.lcssa3422, %if.then.i905 ], [ %format.0.lcssa3422, %if.then.i905 ], [ %format.0.lcssa3422, %if.then.i905 ], [ 6, %if.else12.i ]
+  %call49.i = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.163)
   %tobool50.not.i = icmp eq ptr %call49.i, null
   br i1 %tobool50.not.i, label %if.then1680, label %if.end52.i
 
@@ -3538,7 +3538,7 @@ default.unreachable1934:                          ; preds = %if.end52.i
   unreachable
 
 if.else83.i:                                      ; preds = %invoke.cont1675
-  switch i32 %format.0.lcssa3423, label %if.then1680 [
+  switch i32 %format.0.lcssa3422, label %if.then1680 [
     i32 0, label %if.then87.i
     i32 4, label %if.then87.i
     i32 5, label %if.then95.i
@@ -3621,7 +3621,7 @@ for.cond1.for.end_crit_edge.us.i201.i:            ; preds = %for.body3.us.i191.i
   br i1 %exitcond13.not.i204.i, label %if.end1683.thread, label %for.cond1.preheader.us.i188.i, !llvm.loop !22
 
 if.end1683.thread:                                ; preds = %for.cond1.for.end_crit_edge.us.i201.i
-  br i1 %estimateError.0.lcssa3425, label %invoke.cont1701, label %if.end1707
+  br i1 %estimateError.0.lcssa3424, label %invoke.cont1701, label %if.end1707
 
 for.cond1.preheader.i183.i:                       ; preds = %for.cond1.preheader.lr.ph.i181.i, %for.cond1.preheader.i183.i
   %row.010.i184.i = phi i32 [ %inc6.i186.i, %for.cond1.preheader.i183.i ], [ 0, %for.cond1.preheader.lr.ph.i181.i ]
@@ -3631,19 +3631,19 @@ for.cond1.preheader.i183.i:                       ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i187.i, label %if.end1697, label %for.cond1.preheader.i183.i, !llvm.loop !22
 
 if.then1680:                                      ; preds = %sw.bb28.i.thread, %if.else12.i, %sw.bb28.i, %sw.bb47.i, %if.else83.i, %call21.i910.noexc, %call23.i.noexc, %call26.i909.noexc
-  %retval.0.i906 = phi ptr [ @.str.159, %call21.i910.noexc ], [ @.str.160, %call23.i.noexc ], [ @.str.161, %call26.i909.noexc ], [ @.str.158, %if.else12.i ], [ @.str.162, %sw.bb28.i ], [ @.str.164, %sw.bb47.i ], [ @.str.165, %if.else83.i ], [ @.str.162, %sw.bb28.i.thread ]
+  %retval.0.i906 = phi ptr [ @.str.165, %if.else83.i ], [ @.str.159, %call21.i910.noexc ], [ @.str.160, %call23.i.noexc ], [ @.str.161, %call26.i909.noexc ], [ @.str.158, %if.else12.i ], [ @.str.162, %sw.bb28.i ], [ @.str.164, %sw.bb47.i ], [ @.str.162, %sw.bb28.i.thread ]
   %324 = load ptr, ptr @stderr, align 8
   %call1682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %324, ptr noundef nonnull @.str.149, ptr noundef nonnull %retval.0.i906) #19
   br label %cleanup
 
 if.end1683.sink.split:                            ; preds = %for.cond1.preheader.i127.i, %for.cond1.for.end_crit_edge.us.i138.i, %for.inc4.i.i, %for.body.i.i, %for.cond1.preheader.i.i, %for.cond1.for.end_crit_edge.us.i.i, %if.then54.i, %if.then63.i, %if.then72.i, %if.then34.i, %if.then38.i
-  %call29.i36593662.sink = phi ptr [ %call29.i, %if.then38.i ], [ %call29.i36593663, %if.then34.i ], [ %call49.i, %if.then72.i ], [ %call49.i, %if.then63.i ], [ %call49.i, %if.then54.i ], [ %call29.i36593663, %for.cond1.for.end_crit_edge.us.i.i ], [ %call29.i36593663, %for.cond1.preheader.i.i ], [ %call49.i, %for.body.i.i ], [ %call49.i, %for.inc4.i.i ], [ %call29.i, %for.cond1.for.end_crit_edge.us.i138.i ], [ %call29.i, %for.cond1.preheader.i127.i ]
-  %format.7.ph.ph = phi i32 [ 5, %if.then38.i ], [ 4, %if.then34.i ], [ %format.2, %if.then72.i ], [ %format.2, %if.then63.i ], [ %format.2, %if.then54.i ], [ 4, %for.cond1.for.end_crit_edge.us.i.i ], [ 4, %for.cond1.preheader.i.i ], [ %format.2, %for.body.i.i ], [ %format.2, %for.inc4.i.i ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i138.i ], [ 5, %for.cond1.preheader.i127.i ]
-  %call46.i = call i32 @fclose(ptr noundef nonnull %call29.i36593662.sink)
+  %call29.i36583661.sink = phi ptr [ %call29.i36583662, %if.then34.i ], [ %call29.i, %if.then38.i ], [ %call49.i, %if.then72.i ], [ %call49.i, %if.then63.i ], [ %call49.i, %if.then54.i ], [ %call29.i, %for.cond1.for.end_crit_edge.us.i138.i ], [ %call29.i36583662, %for.cond1.for.end_crit_edge.us.i.i ], [ %call29.i36583662, %for.cond1.preheader.i.i ], [ %call49.i, %for.body.i.i ], [ %call49.i, %for.inc4.i.i ], [ %call29.i, %for.cond1.preheader.i127.i ]
+  %format.7.ph.ph = phi i32 [ 4, %if.then34.i ], [ 5, %if.then38.i ], [ %format.2, %if.then72.i ], [ %format.2, %if.then63.i ], [ %format.2, %if.then54.i ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i138.i ], [ 4, %for.cond1.for.end_crit_edge.us.i.i ], [ 4, %for.cond1.preheader.i.i ], [ %format.2, %for.body.i.i ], [ %format.2, %for.inc4.i.i ], [ 5, %for.cond1.preheader.i127.i ]
+  %call46.i = call i32 @fclose(ptr noundef nonnull %call29.i36583661.sink)
   br label %if.end1683
 
-if.end1683:                                       ; preds = %for.cond1.preheader.i156.i, %for.cond1.for.end_crit_edge.us.i175.i, %if.end1683.sink.split, %if.then87.i, %if.then.i905
-  %format.7.ph = phi i32 [ %format.0.lcssa3423, %if.then.i905 ], [ %format.0.lcssa3423, %if.then87.i ], [ %format.7.ph.ph, %if.end1683.sink.split ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i175.i ], [ %format.0.lcssa3423, %for.cond1.preheader.i156.i ]
+if.end1683:                                       ; preds = %for.cond1.preheader.i156.i, %for.cond1.for.end_crit_edge.us.i175.i, %if.end1683.sink.split, %if.then.i905, %if.then87.i
+  %format.7.ph = phi i32 [ %format.0.lcssa3422, %if.then87.i ], [ %format.0.lcssa3422, %if.then.i905 ], [ %format.7.ph.ph, %if.end1683.sink.split ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i175.i ], [ %format.0.lcssa3422, %for.cond1.preheader.i156.i ]
   switch i32 %format.7.ph, label %if.end1697 [
     i32 4, label %land.lhs.true1686
     i32 2, label %land.lhs.true1686
@@ -3652,10 +3652,10 @@ if.end1683:                                       ; preds = %for.cond1.preheader
   ]
 
 land.lhs.true1686:                                ; preds = %call23.i.noexc, %call21.i910.noexc, %if.end1683, %if.end1683, %if.end1683, %if.end1683
-  %tobool1687 = icmp ne ptr %testRenderMulti.0.lcssa3450, null
-  %tobool1689 = icmp ne ptr %testRender.0.lcssa3451, null
+  %tobool1687 = icmp ne ptr %testRenderMulti.0.lcssa3449, null
+  %tobool1689 = icmp ne ptr %testRender.0.lcssa3450, null
   %or.cond25 = select i1 %tobool1687, i1 true, i1 %tobool1689
-  %or.cond26 = select i1 %or.cond25, i1 true, i1 %estimateError.0.lcssa3425
+  %or.cond26 = select i1 %or.cond25, i1 true, i1 %estimateError.0.lcssa3424
   br i1 %or.cond26, label %invoke.cont1694, label %cleanup
 
 invoke.cont1694:                                  ; preds = %land.lhs.true1686
@@ -3666,13 +3666,13 @@ invoke.cont1694:                                  ; preds = %land.lhs.true1686
           to label %if.end1697 unwind label %lpad1443
 
 if.end1697:                                       ; preds = %for.cond1.preheader.i183.i, %call26.i909.noexc, %if.then95.i, %if.end1683, %invoke.cont1694
-  br i1 %estimateError.0.lcssa3425, label %invoke.cont1701, label %if.end1707
+  br i1 %estimateError.0.lcssa3424, label %invoke.cont1701, label %if.end1707
 
 invoke.cont1701:                                  ; preds = %if.end1683.thread, %if.end1697
   store ptr %sdf.sroa.0.2, ptr %ref.tmp1700, align 8
   %326 = getelementptr inbounds nuw i8, ptr %ref.tmp1700, i64 8
   store i64 %sdf.sroa.19.0, ptr %326, align 8
-  %call1704 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1700, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3455)
+  %call1704 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1700, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3454)
           to label %invoke.cont1703 unwind label %lpad1443
 
 invoke.cont1703:                                  ; preds = %invoke.cont1701
@@ -3680,12 +3680,12 @@ invoke.cont1703:                                  ; preds = %invoke.cont1701
   br label %if.end1707
 
 if.end1707:                                       ; preds = %if.end1683.thread, %invoke.cont1703, %if.end1697
-  %tobool1708.not = icmp eq ptr %testRenderMulti.0.lcssa3450, null
+  %tobool1708.not = icmp eq ptr %testRenderMulti.0.lcssa3449, null
   br i1 %tobool1708.not, label %if.end1731, label %if.then1709
 
 if.then1709:                                      ; preds = %if.end1707
-  %mul.i928 = mul i32 %testHeightM.0.lcssa3442, 3
-  %mul4.i929 = mul i32 %mul.i928, %testWidthM.0.lcssa3443
+  %mul.i928 = mul i32 %testHeightM.0.lcssa3441, 3
+  %mul4.i929 = mul i32 %mul.i928, %testWidthM.0.lcssa3442
   %conv.i930 = zext nneg i32 %mul4.i929 to i64
   %327 = icmp slt i32 %mul4.i929, 0
   %328 = shl nuw nsw i64 %conv.i930, 2
@@ -3694,9 +3694,9 @@ if.then1709:                                      ; preds = %if.end1707
           to label %invoke.cont1716 unwind label %lpad1443
 
 invoke.cont1716:                                  ; preds = %if.then1709
-  %render.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3442 to i64
+  %render.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3441 to i64
   %render.sroa.8.8.insert.shift = shl nuw i64 %render.sroa.8.8.insert.ext, 32
-  %render.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3443 to i64
+  %render.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3442 to i64
   %render.sroa.5.8.insert.insert = or disjoint i64 %render.sroa.8.8.insert.shift, %render.sroa.5.8.insert.ext
   store ptr %call.i931932, ptr %ref.tmp1711, align 8
   %330 = getelementptr inbounds nuw i8, ptr %ref.tmp1711, i64 8
@@ -3705,7 +3705,7 @@ invoke.cont1716:                                  ; preds = %if.then1709
   %331 = getelementptr inbounds nuw i8, ptr %ref.tmp1715, i64 8
   store i64 %sdf.sroa.19.0, ptr %331, align 8
   %mul1718 = fmul double %avgScale.01889, %range.1
-  %add1719 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1719 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi3EEERKNS_14BitmapConstRefIfLi1EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1711, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1715, double noundef %mul1718, float noundef %add1719)
           to label %invoke.cont1722 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit945
 
@@ -3713,7 +3713,7 @@ invoke.cont1722:                                  ; preds = %invoke.cont1716
   store ptr %call.i931932, ptr %ref.tmp1721, align 8
   %332 = getelementptr inbounds nuw i8, ptr %ref.tmp1721, i64 8
   store i64 %render.sroa.5.8.insert.insert, ptr %332, align 8
-  %call1725 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1721, ptr noundef nonnull %testRenderMulti.0.lcssa3450)
+  %call1725 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1721, ptr noundef nonnull %testRenderMulti.0.lcssa3449)
           to label %invoke.cont1724 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit945
 
 invoke.cont1724:                                  ; preds = %invoke.cont1722
@@ -3735,11 +3735,11 @@ _ZN7msdfgen6BitmapIfLi3EED2Ev.exit948:            ; preds = %if.then1727, %invok
   br label %if.end1731
 
 if.end1731:                                       ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit948, %if.end1707
-  %tobool1732.not = icmp eq ptr %testRender.0.lcssa3451, null
+  %tobool1732.not = icmp eq ptr %testRender.0.lcssa3450, null
   br i1 %tobool1732.not, label %cleanup, label %if.then1733
 
 if.then1733:                                      ; preds = %if.end1731
-  %mul4.i951 = mul nsw i32 %testWidth.0.lcssa3445, %testHeight.0.lcssa3444
+  %mul4.i951 = mul nsw i32 %testWidth.0.lcssa3444, %testHeight.0.lcssa3443
   %conv.i952 = zext nneg i32 %mul4.i951 to i64
   %336 = icmp slt i32 %mul4.i951, 0
   %337 = shl nuw nsw i64 %conv.i952, 2
@@ -3748,9 +3748,9 @@ if.then1733:                                      ; preds = %if.end1731
           to label %invoke.cont1741 unwind label %lpad1443
 
 invoke.cont1741:                                  ; preds = %if.then1733
-  %render1734.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3444 to i64
+  %render1734.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3443 to i64
   %render1734.sroa.8.8.insert.shift = shl nuw i64 %render1734.sroa.8.8.insert.ext, 32
-  %render1734.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3445 to i64
+  %render1734.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3444 to i64
   %render1734.sroa.5.8.insert.insert = or disjoint i64 %render1734.sroa.8.8.insert.shift, %render1734.sroa.5.8.insert.ext
   store ptr %call.i953954, ptr %ref.tmp1736, align 8
   %339 = getelementptr inbounds nuw i8, ptr %ref.tmp1736, i64 8
@@ -3759,7 +3759,7 @@ invoke.cont1741:                                  ; preds = %if.then1733
   %340 = getelementptr inbounds nuw i8, ptr %ref.tmp1740, i64 8
   store i64 %sdf.sroa.19.0, ptr %340, align 8
   %mul1743 = fmul double %avgScale.01889, %range.1
-  %add1744 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1744 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi1EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1736, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1740, double noundef %mul1743, float noundef %add1744)
           to label %invoke.cont1747 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit967
 
@@ -3767,7 +3767,7 @@ invoke.cont1747:                                  ; preds = %invoke.cont1741
   store ptr %call.i953954, ptr %ref.tmp1746, align 8
   %341 = getelementptr inbounds nuw i8, ptr %ref.tmp1746, i64 8
   store i64 %render1734.sroa.5.8.insert.insert, ptr %341, align 8
-  %call1750 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1746, ptr noundef nonnull %testRender.0.lcssa3451)
+  %call1750 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1746, ptr noundef nonnull %testRender.0.lcssa3450)
           to label %invoke.cont1749 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit967
 
 invoke.cont1749:                                  ; preds = %invoke.cont1747
@@ -3792,14 +3792,14 @@ invoke.cont1759:                                  ; preds = %if.end1672
   store ptr %msdf.sroa.0.2, ptr %ref.tmp1758, align 8
   %345 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 8
   store i64 %msdf.sroa.17.0, ptr %345, align 8
-  %tobool.not.i974 = icmp eq ptr %output.0.lcssa3453, null
+  %tobool.not.i974 = icmp eq ptr %output.0.lcssa3452, null
   %346 = trunc i64 %msdf.sroa.17.0 to i32
   %347 = lshr i64 %msdf.sroa.17.0, 32
   %348 = trunc nuw i64 %347 to i32
   br i1 %tobool.not.i974, label %if.else83.i1184, label %if.then.i975
 
 if.then.i975:                                     ; preds = %invoke.cont1759
-  switch i32 %format.0.lcssa3423, label %if.end1767 [
+  switch i32 %format.0.lcssa3422, label %if.end1767 [
     i32 0, label %if.then1.i1101
     i32 1, label %sw.bb.i1098
     i32 2, label %sw.bb22.i1096
@@ -3812,8 +3812,8 @@ if.then.i975:                                     ; preds = %invoke.cont1759
   ]
 
 if.then1.i1101:                                   ; preds = %if.then.i975
-  %call.i.i1102 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3453) #18
-  %add.ptr.i.i1103 = getelementptr inbounds i8, ptr %output.0.lcssa3453, i64 %call.i.i1102
+  %call.i.i1102 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3452) #18
+  %add.ptr.i.i1103 = getelementptr inbounds i8, ptr %output.0.lcssa3452, i64 %call.i.i1102
   br label %for.cond.i.i1104
 
 for.cond.i.i1104:                                 ; preds = %lor.lhs.false.i.i1112, %if.then1.i1101
@@ -3822,7 +3822,7 @@ for.cond.i.i1104:                                 ; preds = %lor.lhs.false.i.i11
   %b.0.i.i1107 = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i1106, i64 -1
   %a.0.i.i1108 = getelementptr inbounds i8, ptr %add.ptr.pn.i.i1105, i64 -1
   %cmp.not.i.i1109 = icmp ult ptr %b.0.i.i1107, @.str.153
-  %cmp5.i.i1110 = icmp ult ptr %a.0.i.i1108, %output.0.lcssa3453
+  %cmp5.i.i1110 = icmp ult ptr %a.0.i.i1108, %output.0.lcssa3452
   %or.cond.i.i1111 = select i1 %cmp.not.i.i1109, i1 true, i1 %cmp5.i.i1110
   br i1 %or.cond.i.i1111, label %_ZL12cmpExtensionPKcS0_.exit.i1182, label %lor.lhs.false.i.i1112
 
@@ -3852,7 +3852,7 @@ for.cond.i62.i1121:                               ; preds = %for.cond.i62.i1121.
   %b.0.i65.i1124 = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i1123, i64 -1
   %a.0.i66.i1125 = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i1122, i64 -1
   %cmp.not.i67.i1126 = icmp ult ptr %b.0.i65.i1124, @.str.120
-  %cmp5.i68.i1127 = icmp ult ptr %a.0.i66.i1125, %output.0.lcssa3453
+  %cmp5.i68.i1127 = icmp ult ptr %a.0.i66.i1125, %output.0.lcssa3452
   %or.cond.i69.i1128 = select i1 %cmp.not.i67.i1126, i1 true, i1 %cmp5.i68.i1127
   br i1 %or.cond.i69.i1128, label %_ZL12cmpExtensionPKcS0_.exit79.i1180, label %lor.lhs.false.i70.i1129
 
@@ -3882,7 +3882,7 @@ for.cond.i84.i1138:                               ; preds = %for.cond.i84.i1138.
   %b.0.i87.i1141 = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i1140, i64 -1
   %a.0.i88.i1142 = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i1139, i64 -1
   %cmp.not.i89.i1143 = icmp ult ptr %b.0.i87.i1141, @.str.154
-  %cmp5.i90.i1144 = icmp ult ptr %a.0.i88.i1142, %output.0.lcssa3453
+  %cmp5.i90.i1144 = icmp ult ptr %a.0.i88.i1142, %output.0.lcssa3452
   %or.cond.i91.i1145 = select i1 %cmp.not.i89.i1143, i1 true, i1 %cmp5.i90.i1144
   br i1 %or.cond.i91.i1145, label %_ZL12cmpExtensionPKcS0_.exit101.i1179, label %lor.lhs.false.i92.i1146
 
@@ -3912,7 +3912,7 @@ for.cond.i106.i1155:                              ; preds = %for.cond.i106.i1155
   %b.0.i109.i1158 = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i1157, i64 -1
   %a.0.i110.i1159 = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i1156, i64 -1
   %cmp.not.i111.i1160 = icmp ult ptr %b.0.i109.i1158, @.str.155
-  %cmp5.i112.i1161 = icmp ult ptr %a.0.i110.i1159, %output.0.lcssa3453
+  %cmp5.i112.i1161 = icmp ult ptr %a.0.i110.i1159, %output.0.lcssa3452
   %or.cond.i113.i1162 = select i1 %cmp.not.i111.i1160, i1 true, i1 %cmp5.i112.i1161
   br i1 %or.cond.i113.i1162, label %_ZL12cmpExtensionPKcS0_.exit123.i1177, label %lor.lhs.false.i114.i1163
 
@@ -3934,50 +3934,50 @@ _ZL12cmpExtensionPKcS0_.exit123.i1177:            ; preds = %for.cond.i106.i1155
   br i1 %cmp.not.i111.i1160, label %sw.bb25.i1093, label %if.else9.i1171
 
 if.else9.i1171:                                   ; preds = %lor.lhs.false.i114.i1163, %_ZL12cmpExtensionPKcS0_.exit123.i1177
-  %call10.i1172 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.156)
+  %call10.i1172 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.156)
   br i1 %call10.i1172, label %sw.bb28.i1027.thread, label %if.else12.i1173
 
 if.else12.i1173:                                  ; preds = %if.else9.i1171
-  %call13.i1174 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.157)
+  %call13.i1174 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.157)
   br i1 %call13.i1174, label %sw.bb47.i976, label %if.then1764
 
 sw.bb.i1098:                                      ; preds = %_ZL12cmpExtensionPKcS0_.exit.i1182, %if.then.i975
-  %call21.i10991244 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3453)
+  %call21.i10991244 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3452)
           to label %call21.i1099.noexc unwind label %lpad1443
 
 call21.i1099.noexc:                               ; preds = %sw.bb.i1098
   br i1 %call21.i10991244, label %land.lhs.true1770, label %if.then1764
 
 sw.bb22.i1096:                                    ; preds = %_ZL12cmpExtensionPKcS0_.exit79.i1180, %if.then.i975
-  %call23.i1246 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3453)
+  %call23.i1246 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3452)
           to label %call23.i.noexc1245 unwind label %lpad1443
 
 call23.i.noexc1245:                               ; preds = %sw.bb22.i1096
   br i1 %call23.i1246, label %land.lhs.true1770, label %if.then1764
 
 sw.bb25.i1093:                                    ; preds = %_ZL12cmpExtensionPKcS0_.exit101.i1179, %_ZL12cmpExtensionPKcS0_.exit123.i1177, %if.then.i975
-  %call26.i10941247 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3453)
+  %call26.i10941247 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1758, ptr noundef nonnull %output.0.lcssa3452)
           to label %call26.i1094.noexc unwind label %lpad1443
 
 call26.i1094.noexc:                               ; preds = %sw.bb25.i1093
   br i1 %call26.i10941247, label %if.end1781, label %if.then1764
 
 sw.bb28.i1027:                                    ; preds = %if.then.i975, %if.then.i975
-  %call29.i1028 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
+  %call29.i1028 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
   %tobool30.not.i1029 = icmp eq ptr %call29.i1028, null
   br i1 %tobool30.not.i1029, label %if.then1764, label %if.end32.i1030
 
 sw.bb28.i1027.thread:                             ; preds = %if.else9.i1171
-  %call29.i10283668 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
-  %tobool30.not.i10293669 = icmp eq ptr %call29.i10283668, null
-  br i1 %tobool30.not.i10293669, label %if.then1764, label %if.then34.i1062
+  %call29.i10283667 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
+  %tobool30.not.i10293668 = icmp eq ptr %call29.i10283667, null
+  br i1 %tobool30.not.i10293668, label %if.then1764, label %if.then34.i1062
 
 if.end32.i1030:                                   ; preds = %sw.bb28.i1027
-  %365 = icmp eq i32 %format.0.lcssa3423, 4
+  %365 = icmp eq i32 %format.0.lcssa3422, 4
   br i1 %365, label %if.then34.i1062, label %if.then38.i1031
 
 if.then34.i1062:                                  ; preds = %sw.bb28.i1027.thread, %if.end32.i1030
-  %call29.i102836713675 = phi ptr [ %call29.i1028, %if.end32.i1030 ], [ %call29.i10283668, %sw.bb28.i1027.thread ]
+  %call29.i102836703674 = phi ptr [ %call29.i1028, %if.end32.i1030 ], [ %call29.i10283667, %sw.bb28.i1027.thread ]
   %366 = load i32, ptr %345, align 8
   %mul.i1064 = mul nsw i32 %366, 3
   %height.i1065 = getelementptr inbounds nuw i8, ptr %ref.tmp1758, i64 12
@@ -4009,20 +4009,20 @@ for.body3.us.i.i1078:                             ; preds = %for.body3.us.i.i107
   %371 = call i32 @llvm.umin.i32(i32 %370, i32 255)
   %tobool.not.us.i.i1084 = icmp eq i32 %col.06.us.i.i1080, 0
   %cond.us.i.i1085 = select i1 %tobool.not.us.i.i1084, ptr @.str.167, ptr @.str.166
-  %call4.us.i.i1086 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i102836713675, ptr noundef nonnull %cond.us.i.i1085, i32 noundef %371)
+  %call4.us.i.i1086 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i102836703674, ptr noundef nonnull %cond.us.i.i1085, i32 noundef %371)
   %inc.us.i.i1087 = add nuw nsw i32 %col.06.us.i.i1080, 1
   %exitcond12.not.i.i1088 = icmp eq i32 %inc.us.i.i1087, %mul.i1064
   br i1 %exitcond12.not.i.i1088, label %for.cond1.for.end_crit_edge.us.i.i1089, label %for.body3.us.i.i1078, !llvm.loop !19
 
 for.cond1.for.end_crit_edge.us.i.i1089:           ; preds = %for.body3.us.i.i1078
-  %fputc.us.i.i1090 = call i32 @fputc(i32 10, ptr nonnull %call29.i102836713675)
+  %fputc.us.i.i1090 = call i32 @fputc(i32 10, ptr nonnull %call29.i102836703674)
   %inc7.us.i.i1091 = add nuw nsw i32 %row.09.us.i.i1077, 1
   %exitcond13.not.i.i1092 = icmp eq i32 %inc7.us.i.i1091, %367
   br i1 %exitcond13.not.i.i1092, label %if.end1767.sink.split, label %for.cond1.preheader.us.i.i1075, !llvm.loop !20
 
 for.cond1.preheader.i.i1069:                      ; preds = %for.cond1.preheader.lr.ph.i.i1067, %for.cond1.preheader.i.i1069
   %row.09.i.i1070 = phi i32 [ %inc7.i.i1072, %for.cond1.preheader.i.i1069 ], [ 0, %for.cond1.preheader.lr.ph.i.i1067 ]
-  %fputc.i.i1071 = call i32 @fputc(i32 10, ptr nonnull %call29.i102836713675)
+  %fputc.i.i1071 = call i32 @fputc(i32 10, ptr nonnull %call29.i102836703674)
   %inc7.i.i1072 = add nuw nsw i32 %row.09.i.i1070, 1
   %exitcond.not.i.i1073 = icmp eq i32 %inc7.i.i1072, %367
   br i1 %exitcond.not.i.i1073, label %if.end1767.sink.split, label %for.cond1.preheader.i.i1069, !llvm.loop !20
@@ -4075,8 +4075,8 @@ for.cond1.preheader.i127.i1039:                   ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i129.i1043, label %if.end1767.sink.split, label %for.cond1.preheader.i127.i1039, !llvm.loop !22
 
 sw.bb47.i976:                                     ; preds = %if.else12.i1173, %if.then.i975, %if.then.i975, %if.then.i975
-  %format.8 = phi i32 [ %format.0.lcssa3423, %if.then.i975 ], [ %format.0.lcssa3423, %if.then.i975 ], [ %format.0.lcssa3423, %if.then.i975 ], [ 6, %if.else12.i1173 ]
-  %call49.i977 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.163)
+  %format.8 = phi i32 [ %format.0.lcssa3422, %if.then.i975 ], [ %format.0.lcssa3422, %if.then.i975 ], [ %format.0.lcssa3422, %if.then.i975 ], [ 6, %if.else12.i1173 ]
+  %call49.i977 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.163)
   %tobool50.not.i978 = icmp eq ptr %call49.i977, null
   br i1 %tobool50.not.i978, label %if.then1764, label %if.end52.i979
 
@@ -4165,7 +4165,7 @@ default.unreachable1936:                          ; preds = %if.end52.i979
   unreachable
 
 if.else83.i1184:                                  ; preds = %invoke.cont1759
-  switch i32 %format.0.lcssa3423, label %if.then1764 [
+  switch i32 %format.0.lcssa3422, label %if.then1764 [
     i32 0, label %if.then87.i1214
     i32 4, label %if.then87.i1214
     i32 5, label %if.then95.i1185
@@ -4250,7 +4250,7 @@ for.cond1.for.end_crit_edge.us.i201.i1210:        ; preds = %for.body3.us.i191.i
   br i1 %exitcond13.not.i204.i1213, label %if.end1767.thread, label %for.cond1.preheader.us.i188.i1197, !llvm.loop !22
 
 if.end1767.thread:                                ; preds = %for.cond1.for.end_crit_edge.us.i201.i1210
-  br i1 %estimateError.0.lcssa3425, label %invoke.cont1786, label %if.end1792
+  br i1 %estimateError.0.lcssa3424, label %invoke.cont1786, label %if.end1792
 
 for.cond1.preheader.i183.i1191:                   ; preds = %for.cond1.preheader.lr.ph.i181.i1189, %for.cond1.preheader.i183.i1191
   %row.010.i184.i1192 = phi i32 [ %inc6.i186.i1194, %for.cond1.preheader.i183.i1191 ], [ 0, %for.cond1.preheader.lr.ph.i181.i1189 ]
@@ -4260,19 +4260,19 @@ for.cond1.preheader.i183.i1191:                   ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i187.i1195, label %if.end1781, label %for.cond1.preheader.i183.i1191, !llvm.loop !22
 
 if.then1764:                                      ; preds = %sw.bb28.i1027.thread, %if.else12.i1173, %sw.bb28.i1027, %sw.bb47.i976, %if.else83.i1184, %call21.i1099.noexc, %call23.i.noexc1245, %call26.i1094.noexc
-  %retval.0.i987 = phi ptr [ @.str.159, %call21.i1099.noexc ], [ @.str.160, %call23.i.noexc1245 ], [ @.str.161, %call26.i1094.noexc ], [ @.str.158, %if.else12.i1173 ], [ @.str.162, %sw.bb28.i1027 ], [ @.str.164, %sw.bb47.i976 ], [ @.str.165, %if.else83.i1184 ], [ @.str.162, %sw.bb28.i1027.thread ]
+  %retval.0.i987 = phi ptr [ @.str.165, %if.else83.i1184 ], [ @.str.159, %call21.i1099.noexc ], [ @.str.160, %call23.i.noexc1245 ], [ @.str.161, %call26.i1094.noexc ], [ @.str.158, %if.else12.i1173 ], [ @.str.162, %sw.bb28.i1027 ], [ @.str.164, %sw.bb47.i976 ], [ @.str.162, %sw.bb28.i1027.thread ]
   %394 = load ptr, ptr @stderr, align 8
   %call1766 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.149, ptr noundef nonnull %retval.0.i987) #19
   br label %cleanup
 
 if.end1767.sink.split:                            ; preds = %for.cond1.preheader.i127.i1039, %for.cond1.for.end_crit_edge.us.i138.i1058, %for.inc4.i.i1000, %for.body.i.i1016, %for.cond1.preheader.i.i1069, %for.cond1.for.end_crit_edge.us.i.i1089, %if.then54.i1010, %if.then63.i1004, %if.then72.i980, %if.then34.i1062, %if.then38.i1031
-  %call29.i102836713674.sink = phi ptr [ %call29.i1028, %if.then38.i1031 ], [ %call29.i102836713675, %if.then34.i1062 ], [ %call49.i977, %if.then72.i980 ], [ %call49.i977, %if.then63.i1004 ], [ %call49.i977, %if.then54.i1010 ], [ %call29.i102836713675, %for.cond1.for.end_crit_edge.us.i.i1089 ], [ %call29.i102836713675, %for.cond1.preheader.i.i1069 ], [ %call49.i977, %for.body.i.i1016 ], [ %call49.i977, %for.inc4.i.i1000 ], [ %call29.i1028, %for.cond1.for.end_crit_edge.us.i138.i1058 ], [ %call29.i1028, %for.cond1.preheader.i127.i1039 ]
-  %format.13.ph.ph = phi i32 [ 5, %if.then38.i1031 ], [ 4, %if.then34.i1062 ], [ %format.8, %if.then72.i980 ], [ %format.8, %if.then63.i1004 ], [ %format.8, %if.then54.i1010 ], [ 4, %for.cond1.for.end_crit_edge.us.i.i1089 ], [ 4, %for.cond1.preheader.i.i1069 ], [ %format.8, %for.body.i.i1016 ], [ %format.8, %for.inc4.i.i1000 ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i138.i1058 ], [ 5, %for.cond1.preheader.i127.i1039 ]
-  %call46.i1036 = call i32 @fclose(ptr noundef nonnull %call29.i102836713674.sink)
+  %call29.i102836703673.sink = phi ptr [ %call29.i102836703674, %if.then34.i1062 ], [ %call29.i1028, %if.then38.i1031 ], [ %call49.i977, %if.then72.i980 ], [ %call49.i977, %if.then63.i1004 ], [ %call49.i977, %if.then54.i1010 ], [ %call29.i1028, %for.cond1.for.end_crit_edge.us.i138.i1058 ], [ %call29.i102836703674, %for.cond1.for.end_crit_edge.us.i.i1089 ], [ %call29.i102836703674, %for.cond1.preheader.i.i1069 ], [ %call49.i977, %for.body.i.i1016 ], [ %call49.i977, %for.inc4.i.i1000 ], [ %call29.i1028, %for.cond1.preheader.i127.i1039 ]
+  %format.13.ph.ph = phi i32 [ 4, %if.then34.i1062 ], [ 5, %if.then38.i1031 ], [ %format.8, %if.then72.i980 ], [ %format.8, %if.then63.i1004 ], [ %format.8, %if.then54.i1010 ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i138.i1058 ], [ 4, %for.cond1.for.end_crit_edge.us.i.i1089 ], [ 4, %for.cond1.preheader.i.i1069 ], [ %format.8, %for.body.i.i1016 ], [ %format.8, %for.inc4.i.i1000 ], [ 5, %for.cond1.preheader.i127.i1039 ]
+  %call46.i1036 = call i32 @fclose(ptr noundef nonnull %call29.i102836703673.sink)
   br label %if.end1767
 
-if.end1767:                                       ; preds = %for.cond1.preheader.i156.i1220, %for.cond1.for.end_crit_edge.us.i175.i1240, %if.end1767.sink.split, %if.then87.i1214, %if.then.i975
-  %format.13.ph = phi i32 [ %format.0.lcssa3423, %if.then.i975 ], [ %format.0.lcssa3423, %if.then87.i1214 ], [ %format.13.ph.ph, %if.end1767.sink.split ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i175.i1240 ], [ %format.0.lcssa3423, %for.cond1.preheader.i156.i1220 ]
+if.end1767:                                       ; preds = %for.cond1.preheader.i156.i1220, %for.cond1.for.end_crit_edge.us.i175.i1240, %if.end1767.sink.split, %if.then.i975, %if.then87.i1214
+  %format.13.ph = phi i32 [ %format.0.lcssa3422, %if.then87.i1214 ], [ %format.0.lcssa3422, %if.then.i975 ], [ %format.13.ph.ph, %if.end1767.sink.split ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i175.i1240 ], [ %format.0.lcssa3422, %for.cond1.preheader.i156.i1220 ]
   switch i32 %format.13.ph, label %if.end1781 [
     i32 4, label %land.lhs.true1770
     i32 2, label %land.lhs.true1770
@@ -4281,10 +4281,10 @@ if.end1767:                                       ; preds = %for.cond1.preheader
   ]
 
 land.lhs.true1770:                                ; preds = %call23.i.noexc1245, %call21.i1099.noexc, %if.end1767, %if.end1767, %if.end1767, %if.end1767
-  %tobool1771 = icmp ne ptr %testRenderMulti.0.lcssa3450, null
-  %tobool1773 = icmp ne ptr %testRender.0.lcssa3451, null
+  %tobool1771 = icmp ne ptr %testRenderMulti.0.lcssa3449, null
+  %tobool1773 = icmp ne ptr %testRender.0.lcssa3450, null
   %or.cond27 = select i1 %tobool1771, i1 true, i1 %tobool1773
-  %or.cond28 = select i1 %or.cond27, i1 true, i1 %estimateError.0.lcssa3425
+  %or.cond28 = select i1 %or.cond27, i1 true, i1 %estimateError.0.lcssa3424
   br i1 %or.cond28, label %invoke.cont1778, label %cleanup
 
 invoke.cont1778:                                  ; preds = %land.lhs.true1770
@@ -4295,13 +4295,13 @@ invoke.cont1778:                                  ; preds = %land.lhs.true1770
           to label %if.end1781 unwind label %lpad1443
 
 if.end1781:                                       ; preds = %for.cond1.preheader.i183.i1191, %call26.i1094.noexc, %if.then95.i1185, %if.end1767, %invoke.cont1778
-  br i1 %estimateError.0.lcssa3425, label %invoke.cont1786, label %if.end1792
+  br i1 %estimateError.0.lcssa3424, label %invoke.cont1786, label %if.end1792
 
 invoke.cont1786:                                  ; preds = %if.end1767.thread, %if.end1781
   store ptr %msdf.sroa.0.2, ptr %ref.tmp1785, align 8
   %396 = getelementptr inbounds nuw i8, ptr %ref.tmp1785, i64 8
   store i64 %msdf.sroa.17.0, ptr %396, align 8
-  %call1789 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1785, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3455)
+  %call1789 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1785, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3454)
           to label %invoke.cont1788 unwind label %lpad1443
 
 invoke.cont1788:                                  ; preds = %invoke.cont1786
@@ -4309,12 +4309,12 @@ invoke.cont1788:                                  ; preds = %invoke.cont1786
   br label %if.end1792
 
 if.end1792:                                       ; preds = %if.end1767.thread, %invoke.cont1788, %if.end1781
-  %tobool1793.not = icmp eq ptr %testRenderMulti.0.lcssa3450, null
+  %tobool1793.not = icmp eq ptr %testRenderMulti.0.lcssa3449, null
   br i1 %tobool1793.not, label %if.end1817, label %if.then1794
 
 if.then1794:                                      ; preds = %if.end1792
-  %mul.i1258 = mul i32 %testHeightM.0.lcssa3442, 3
-  %mul4.i1259 = mul i32 %mul.i1258, %testWidthM.0.lcssa3443
+  %mul.i1258 = mul i32 %testHeightM.0.lcssa3441, 3
+  %mul4.i1259 = mul i32 %mul.i1258, %testWidthM.0.lcssa3442
   %conv.i1260 = zext nneg i32 %mul4.i1259 to i64
   %397 = icmp slt i32 %mul4.i1259, 0
   %398 = shl nuw nsw i64 %conv.i1260, 2
@@ -4323,9 +4323,9 @@ if.then1794:                                      ; preds = %if.end1792
           to label %invoke.cont1802 unwind label %lpad1443
 
 invoke.cont1802:                                  ; preds = %if.then1794
-  %render1795.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3442 to i64
+  %render1795.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3441 to i64
   %render1795.sroa.8.8.insert.shift = shl nuw i64 %render1795.sroa.8.8.insert.ext, 32
-  %render1795.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3443 to i64
+  %render1795.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3442 to i64
   %render1795.sroa.5.8.insert.insert = or disjoint i64 %render1795.sroa.8.8.insert.shift, %render1795.sroa.5.8.insert.ext
   store ptr %call.i12611262, ptr %ref.tmp1797, align 8
   %400 = getelementptr inbounds nuw i8, ptr %ref.tmp1797, i64 8
@@ -4334,7 +4334,7 @@ invoke.cont1802:                                  ; preds = %if.then1794
   %401 = getelementptr inbounds nuw i8, ptr %ref.tmp1801, i64 8
   store i64 %msdf.sroa.17.0, ptr %401, align 8
   %mul1804 = fmul double %avgScale.01889, %range.1
-  %add1805 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1805 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi3EEERKNS_14BitmapConstRefIfLi3EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1797, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1801, double noundef %mul1804, float noundef %add1805)
           to label %invoke.cont1808 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1275
 
@@ -4342,7 +4342,7 @@ invoke.cont1808:                                  ; preds = %invoke.cont1802
   store ptr %call.i12611262, ptr %ref.tmp1807, align 8
   %402 = getelementptr inbounds nuw i8, ptr %ref.tmp1807, i64 8
   store i64 %render1795.sroa.5.8.insert.insert, ptr %402, align 8
-  %call1811 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1807, ptr noundef nonnull %testRenderMulti.0.lcssa3450)
+  %call1811 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1807, ptr noundef nonnull %testRenderMulti.0.lcssa3449)
           to label %invoke.cont1810 unwind label %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1275
 
 invoke.cont1810:                                  ; preds = %invoke.cont1808
@@ -4364,11 +4364,11 @@ _ZN7msdfgen6BitmapIfLi3EED2Ev.exit1278:           ; preds = %if.then1813, %invok
   br label %if.end1817
 
 if.end1817:                                       ; preds = %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1278, %if.end1792
-  %tobool1818.not = icmp eq ptr %testRender.0.lcssa3451, null
+  %tobool1818.not = icmp eq ptr %testRender.0.lcssa3450, null
   br i1 %tobool1818.not, label %cleanup, label %if.then1819
 
 if.then1819:                                      ; preds = %if.end1817
-  %mul4.i1281 = mul nsw i32 %testWidth.0.lcssa3445, %testHeight.0.lcssa3444
+  %mul4.i1281 = mul nsw i32 %testWidth.0.lcssa3444, %testHeight.0.lcssa3443
   %conv.i1282 = zext nneg i32 %mul4.i1281 to i64
   %406 = icmp slt i32 %mul4.i1281, 0
   %407 = shl nuw nsw i64 %conv.i1282, 2
@@ -4377,9 +4377,9 @@ if.then1819:                                      ; preds = %if.end1817
           to label %invoke.cont1827 unwind label %lpad1443
 
 invoke.cont1827:                                  ; preds = %if.then1819
-  %render1820.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3444 to i64
+  %render1820.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3443 to i64
   %render1820.sroa.8.8.insert.shift = shl nuw i64 %render1820.sroa.8.8.insert.ext, 32
-  %render1820.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3445 to i64
+  %render1820.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3444 to i64
   %render1820.sroa.5.8.insert.insert = or disjoint i64 %render1820.sroa.8.8.insert.shift, %render1820.sroa.5.8.insert.ext
   store ptr %call.i12831284, ptr %ref.tmp1822, align 8
   %409 = getelementptr inbounds nuw i8, ptr %ref.tmp1822, i64 8
@@ -4388,7 +4388,7 @@ invoke.cont1827:                                  ; preds = %if.then1819
   %410 = getelementptr inbounds nuw i8, ptr %ref.tmp1826, i64 8
   store i64 %msdf.sroa.17.0, ptr %410, align 8
   %mul1829 = fmul double %avgScale.01889, %range.1
-  %add1830 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1830 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi3EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1822, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1826, double noundef %mul1829, float noundef %add1830)
           to label %invoke.cont1833 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1297
 
@@ -4396,7 +4396,7 @@ invoke.cont1833:                                  ; preds = %invoke.cont1827
   store ptr %call.i12831284, ptr %ref.tmp1832, align 8
   %411 = getelementptr inbounds nuw i8, ptr %ref.tmp1832, i64 8
   store i64 %render1820.sroa.5.8.insert.insert, ptr %411, align 8
-  %call1836 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1832, ptr noundef nonnull %testRender.0.lcssa3451)
+  %call1836 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1832, ptr noundef nonnull %testRender.0.lcssa3450)
           to label %invoke.cont1835 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1297
 
 invoke.cont1835:                                  ; preds = %invoke.cont1833
@@ -4421,14 +4421,14 @@ invoke.cont1845:                                  ; preds = %if.end1672
   store ptr %mtsdf.sroa.0.2, ptr %ref.tmp1844, align 8
   %415 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %415, align 8
-  %tobool.not.i1304 = icmp eq ptr %output.0.lcssa3453, null
+  %tobool.not.i1304 = icmp eq ptr %output.0.lcssa3452, null
   %416 = trunc i64 %mtsdf.sroa.15.0 to i32
   %417 = lshr i64 %mtsdf.sroa.15.0, 32
   %418 = trunc nuw i64 %417 to i32
   br i1 %tobool.not.i1304, label %if.else83.i1518, label %if.then.i1305
 
 if.then.i1305:                                    ; preds = %invoke.cont1845
-  switch i32 %format.0.lcssa3423, label %if.end1853 [
+  switch i32 %format.0.lcssa3422, label %if.end1853 [
     i32 0, label %if.then1.i1435
     i32 1, label %sw.bb.i1432
     i32 2, label %sw.bb22.i1430
@@ -4441,8 +4441,8 @@ if.then.i1305:                                    ; preds = %invoke.cont1845
   ]
 
 if.then1.i1435:                                   ; preds = %if.then.i1305
-  %call.i.i1436 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3453) #18
-  %add.ptr.i.i1437 = getelementptr inbounds i8, ptr %output.0.lcssa3453, i64 %call.i.i1436
+  %call.i.i1436 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %output.0.lcssa3452) #18
+  %add.ptr.i.i1437 = getelementptr inbounds i8, ptr %output.0.lcssa3452, i64 %call.i.i1436
   br label %for.cond.i.i1438
 
 for.cond.i.i1438:                                 ; preds = %lor.lhs.false.i.i1446, %if.then1.i1435
@@ -4451,7 +4451,7 @@ for.cond.i.i1438:                                 ; preds = %lor.lhs.false.i.i14
   %b.0.i.i1441 = getelementptr inbounds i8, ptr %add.ptr3.pn.i.i1440, i64 -1
   %a.0.i.i1442 = getelementptr inbounds i8, ptr %add.ptr.pn.i.i1439, i64 -1
   %cmp.not.i.i1443 = icmp ult ptr %b.0.i.i1441, @.str.153
-  %cmp5.i.i1444 = icmp ult ptr %a.0.i.i1442, %output.0.lcssa3453
+  %cmp5.i.i1444 = icmp ult ptr %a.0.i.i1442, %output.0.lcssa3452
   %or.cond.i.i1445 = select i1 %cmp.not.i.i1443, i1 true, i1 %cmp5.i.i1444
   br i1 %or.cond.i.i1445, label %_ZL12cmpExtensionPKcS0_.exit.i1516, label %lor.lhs.false.i.i1446
 
@@ -4481,7 +4481,7 @@ for.cond.i62.i1455:                               ; preds = %for.cond.i62.i1455.
   %b.0.i65.i1458 = getelementptr inbounds i8, ptr %add.ptr3.pn.i64.i1457, i64 -1
   %a.0.i66.i1459 = getelementptr inbounds i8, ptr %add.ptr.pn.i63.i1456, i64 -1
   %cmp.not.i67.i1460 = icmp ult ptr %b.0.i65.i1458, @.str.120
-  %cmp5.i68.i1461 = icmp ult ptr %a.0.i66.i1459, %output.0.lcssa3453
+  %cmp5.i68.i1461 = icmp ult ptr %a.0.i66.i1459, %output.0.lcssa3452
   %or.cond.i69.i1462 = select i1 %cmp.not.i67.i1460, i1 true, i1 %cmp5.i68.i1461
   br i1 %or.cond.i69.i1462, label %_ZL12cmpExtensionPKcS0_.exit79.i1514, label %lor.lhs.false.i70.i1463
 
@@ -4511,7 +4511,7 @@ for.cond.i84.i1472:                               ; preds = %for.cond.i84.i1472.
   %b.0.i87.i1475 = getelementptr inbounds i8, ptr %add.ptr3.pn.i86.i1474, i64 -1
   %a.0.i88.i1476 = getelementptr inbounds i8, ptr %add.ptr.pn.i85.i1473, i64 -1
   %cmp.not.i89.i1477 = icmp ult ptr %b.0.i87.i1475, @.str.154
-  %cmp5.i90.i1478 = icmp ult ptr %a.0.i88.i1476, %output.0.lcssa3453
+  %cmp5.i90.i1478 = icmp ult ptr %a.0.i88.i1476, %output.0.lcssa3452
   %or.cond.i91.i1479 = select i1 %cmp.not.i89.i1477, i1 true, i1 %cmp5.i90.i1478
   br i1 %or.cond.i91.i1479, label %_ZL12cmpExtensionPKcS0_.exit101.i1513, label %lor.lhs.false.i92.i1480
 
@@ -4541,7 +4541,7 @@ for.cond.i106.i1489:                              ; preds = %for.cond.i106.i1489
   %b.0.i109.i1492 = getelementptr inbounds i8, ptr %add.ptr3.pn.i108.i1491, i64 -1
   %a.0.i110.i1493 = getelementptr inbounds i8, ptr %add.ptr.pn.i107.i1490, i64 -1
   %cmp.not.i111.i1494 = icmp ult ptr %b.0.i109.i1492, @.str.155
-  %cmp5.i112.i1495 = icmp ult ptr %a.0.i110.i1493, %output.0.lcssa3453
+  %cmp5.i112.i1495 = icmp ult ptr %a.0.i110.i1493, %output.0.lcssa3452
   %or.cond.i113.i1496 = select i1 %cmp.not.i111.i1494, i1 true, i1 %cmp5.i112.i1495
   br i1 %or.cond.i113.i1496, label %_ZL12cmpExtensionPKcS0_.exit123.i1511, label %lor.lhs.false.i114.i1497
 
@@ -4563,50 +4563,50 @@ _ZL12cmpExtensionPKcS0_.exit123.i1511:            ; preds = %for.cond.i106.i1489
   br i1 %cmp.not.i111.i1494, label %sw.bb25.i1427, label %if.else9.i1505
 
 if.else9.i1505:                                   ; preds = %lor.lhs.false.i114.i1497, %_ZL12cmpExtensionPKcS0_.exit123.i1511
-  %call10.i1506 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.156)
+  %call10.i1506 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.156)
   br i1 %call10.i1506, label %sw.bb28.i1360.thread, label %if.else12.i1507
 
 if.else12.i1507:                                  ; preds = %if.else9.i1505
-  %call13.i1508 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3453, ptr noundef nonnull @.str.157)
+  %call13.i1508 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3452, ptr noundef nonnull @.str.157)
   br i1 %call13.i1508, label %sw.bb47.i1306, label %if.then1850
 
 sw.bb.i1432:                                      ; preds = %_ZL12cmpExtensionPKcS0_.exit.i1516, %if.then.i1305
-  %call21.i14331580 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3453)
+  %call21.i14331580 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3452)
           to label %call21.i1433.noexc unwind label %lpad1443
 
 call21.i1433.noexc:                               ; preds = %sw.bb.i1432
   br i1 %call21.i14331580, label %land.lhs.true1856, label %if.then1850
 
 sw.bb22.i1430:                                    ; preds = %_ZL12cmpExtensionPKcS0_.exit79.i1514, %if.then.i1305
-  %call23.i1582 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3453)
+  %call23.i1582 = invoke noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3452)
           to label %call23.i.noexc1581 unwind label %lpad1443
 
 call23.i.noexc1581:                               ; preds = %sw.bb22.i1430
   br i1 %call23.i1582, label %land.lhs.true1856, label %if.then1850
 
 sw.bb25.i1427:                                    ; preds = %_ZL12cmpExtensionPKcS0_.exit101.i1513, %_ZL12cmpExtensionPKcS0_.exit123.i1511, %if.then.i1305
-  %call26.i14281583 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3453)
+  %call26.i14281583 = invoke noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1844, ptr noundef nonnull %output.0.lcssa3452)
           to label %call26.i1428.noexc unwind label %lpad1443
 
 call26.i1428.noexc:                               ; preds = %sw.bb25.i1427
   br i1 %call26.i14281583, label %if.end1867, label %if.then1850
 
 sw.bb28.i1360:                                    ; preds = %if.then.i1305, %if.then.i1305
-  %call29.i1361 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
+  %call29.i1361 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
   %tobool30.not.i1362 = icmp eq ptr %call29.i1361, null
   br i1 %tobool30.not.i1362, label %if.then1850, label %if.end32.i1363
 
 sw.bb28.i1360.thread:                             ; preds = %if.else9.i1505
-  %call29.i13613680 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.137)
-  %tobool30.not.i13623681 = icmp eq ptr %call29.i13613680, null
-  br i1 %tobool30.not.i13623681, label %if.then1850, label %if.then34.i1396
+  %call29.i13613679 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.137)
+  %tobool30.not.i13623680 = icmp eq ptr %call29.i13613679, null
+  br i1 %tobool30.not.i13623680, label %if.then1850, label %if.then34.i1396
 
 if.end32.i1363:                                   ; preds = %sw.bb28.i1360
-  %435 = icmp eq i32 %format.0.lcssa3423, 4
+  %435 = icmp eq i32 %format.0.lcssa3422, 4
   br i1 %435, label %if.then34.i1396, label %if.then38.i1364
 
 if.then34.i1396:                                  ; preds = %sw.bb28.i1360.thread, %if.end32.i1363
-  %call29.i136136833687 = phi ptr [ %call29.i1361, %if.end32.i1363 ], [ %call29.i13613680, %sw.bb28.i1360.thread ]
+  %call29.i136136823686 = phi ptr [ %call29.i1361, %if.end32.i1363 ], [ %call29.i13613679, %sw.bb28.i1360.thread ]
   %436 = load i32, ptr %415, align 8
   %mul.i1398 = shl nsw i32 %436, 2
   %height.i1399 = getelementptr inbounds nuw i8, ptr %ref.tmp1844, i64 12
@@ -4638,20 +4638,20 @@ for.body3.us.i.i1412:                             ; preds = %for.body3.us.i.i141
   %441 = call i32 @llvm.umin.i32(i32 %440, i32 255)
   %tobool.not.us.i.i1418 = icmp eq i32 %col.06.us.i.i1414, 0
   %cond.us.i.i1419 = select i1 %tobool.not.us.i.i1418, ptr @.str.167, ptr @.str.166
-  %call4.us.i.i1420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i136136833687, ptr noundef nonnull %cond.us.i.i1419, i32 noundef %441)
+  %call4.us.i.i1420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call29.i136136823686, ptr noundef nonnull %cond.us.i.i1419, i32 noundef %441)
   %inc.us.i.i1421 = add nuw nsw i32 %col.06.us.i.i1414, 1
   %exitcond12.not.i.i1422 = icmp eq i32 %inc.us.i.i1421, %mul.i1398
   br i1 %exitcond12.not.i.i1422, label %for.cond1.for.end_crit_edge.us.i.i1423, label %for.body3.us.i.i1412, !llvm.loop !19
 
 for.cond1.for.end_crit_edge.us.i.i1423:           ; preds = %for.body3.us.i.i1412
-  %fputc.us.i.i1424 = call i32 @fputc(i32 10, ptr nonnull %call29.i136136833687)
+  %fputc.us.i.i1424 = call i32 @fputc(i32 10, ptr nonnull %call29.i136136823686)
   %inc7.us.i.i1425 = add nuw nsw i32 %row.09.us.i.i1411, 1
   %exitcond13.not.i.i1426 = icmp eq i32 %inc7.us.i.i1425, %437
   br i1 %exitcond13.not.i.i1426, label %if.end1853.sink.split, label %for.cond1.preheader.us.i.i1409, !llvm.loop !20
 
 for.cond1.preheader.i.i1403:                      ; preds = %for.cond1.preheader.lr.ph.i.i1401, %for.cond1.preheader.i.i1403
   %row.09.i.i1404 = phi i32 [ %inc7.i.i1406, %for.cond1.preheader.i.i1403 ], [ 0, %for.cond1.preheader.lr.ph.i.i1401 ]
-  %fputc.i.i1405 = call i32 @fputc(i32 10, ptr nonnull %call29.i136136833687)
+  %fputc.i.i1405 = call i32 @fputc(i32 10, ptr nonnull %call29.i136136823686)
   %inc7.i.i1406 = add nuw nsw i32 %row.09.i.i1404, 1
   %exitcond.not.i.i1407 = icmp eq i32 %inc7.i.i1406, %437
   br i1 %exitcond.not.i.i1407, label %if.end1853.sink.split, label %for.cond1.preheader.i.i1403, !llvm.loop !20
@@ -4704,8 +4704,8 @@ for.cond1.preheader.i127.i1373:                   ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i129.i1377, label %if.end1853.sink.split, label %for.cond1.preheader.i127.i1373, !llvm.loop !22
 
 sw.bb47.i1306:                                    ; preds = %if.else12.i1507, %if.then.i1305, %if.then.i1305, %if.then.i1305
-  %format.14 = phi i32 [ %format.0.lcssa3423, %if.then.i1305 ], [ %format.0.lcssa3423, %if.then.i1305 ], [ %format.0.lcssa3423, %if.then.i1305 ], [ 6, %if.else12.i1507 ]
-  %call49.i1307 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3453, ptr noundef nonnull @.str.163)
+  %format.14 = phi i32 [ %format.0.lcssa3422, %if.then.i1305 ], [ %format.0.lcssa3422, %if.then.i1305 ], [ %format.0.lcssa3422, %if.then.i1305 ], [ 6, %if.else12.i1507 ]
+  %call49.i1307 = call noalias ptr @fopen(ptr noundef nonnull %output.0.lcssa3452, ptr noundef nonnull @.str.163)
   %tobool50.not.i1308 = icmp eq ptr %call49.i1307, null
   br i1 %tobool50.not.i1308, label %if.then1850, label %if.end52.i1309
 
@@ -4794,7 +4794,7 @@ default.unreachable1938:                          ; preds = %if.end52.i1309
   unreachable
 
 if.else83.i1518:                                  ; preds = %invoke.cont1845
-  switch i32 %format.0.lcssa3423, label %if.then1850 [
+  switch i32 %format.0.lcssa3422, label %if.then1850 [
     i32 0, label %if.then87.i1549
     i32 4, label %if.then87.i1549
     i32 5, label %if.then95.i1519
@@ -4886,19 +4886,19 @@ for.cond1.preheader.i183.i1526:                   ; preds = %for.cond1.preheader
   br i1 %exitcond.not.i187.i1530, label %if.end1867, label %for.cond1.preheader.i183.i1526, !llvm.loop !22
 
 if.then1850:                                      ; preds = %sw.bb28.i1360.thread, %if.else12.i1507, %sw.bb28.i1360, %sw.bb47.i1306, %if.else83.i1518, %call21.i1433.noexc, %call23.i.noexc1581, %call26.i1428.noexc
-  %retval.0.i1318 = phi ptr [ @.str.159, %call21.i1433.noexc ], [ @.str.160, %call23.i.noexc1581 ], [ @.str.161, %call26.i1428.noexc ], [ @.str.158, %if.else12.i1507 ], [ @.str.162, %sw.bb28.i1360 ], [ @.str.164, %sw.bb47.i1306 ], [ @.str.165, %if.else83.i1518 ], [ @.str.162, %sw.bb28.i1360.thread ]
+  %retval.0.i1318 = phi ptr [ @.str.165, %if.else83.i1518 ], [ @.str.159, %call21.i1433.noexc ], [ @.str.160, %call23.i.noexc1581 ], [ @.str.161, %call26.i1428.noexc ], [ @.str.158, %if.else12.i1507 ], [ @.str.162, %sw.bb28.i1360 ], [ @.str.164, %sw.bb47.i1306 ], [ @.str.162, %sw.bb28.i1360.thread ]
   %464 = load ptr, ptr @stderr, align 8
   %call1852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %464, ptr noundef nonnull @.str.149, ptr noundef nonnull %retval.0.i1318) #19
   br label %cleanup
 
 if.end1853.sink.split:                            ; preds = %for.cond1.preheader.i127.i1373, %for.cond1.for.end_crit_edge.us.i138.i1392, %for.inc4.i.i1331, %for.body.i.i1349, %for.cond1.preheader.i.i1403, %for.cond1.for.end_crit_edge.us.i.i1423, %if.then54.i1342, %if.then63.i1335, %if.then72.i1310, %if.then34.i1396, %if.then38.i1364
-  %call29.i136136833686.sink = phi ptr [ %call29.i1361, %if.then38.i1364 ], [ %call29.i136136833687, %if.then34.i1396 ], [ %call49.i1307, %if.then72.i1310 ], [ %call49.i1307, %if.then63.i1335 ], [ %call49.i1307, %if.then54.i1342 ], [ %call29.i136136833687, %for.cond1.for.end_crit_edge.us.i.i1423 ], [ %call29.i136136833687, %for.cond1.preheader.i.i1403 ], [ %call49.i1307, %for.body.i.i1349 ], [ %call49.i1307, %for.inc4.i.i1331 ], [ %call29.i1361, %for.cond1.for.end_crit_edge.us.i138.i1392 ], [ %call29.i1361, %for.cond1.preheader.i127.i1373 ]
-  %format.19.ph.ph = phi i32 [ 5, %if.then38.i1364 ], [ 4, %if.then34.i1396 ], [ %format.14, %if.then72.i1310 ], [ %format.14, %if.then63.i1335 ], [ %format.14, %if.then54.i1342 ], [ 4, %for.cond1.for.end_crit_edge.us.i.i1423 ], [ 4, %for.cond1.preheader.i.i1403 ], [ %format.14, %for.body.i.i1349 ], [ %format.14, %for.inc4.i.i1331 ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i138.i1392 ], [ 5, %for.cond1.preheader.i127.i1373 ]
-  %call46.i1370 = call i32 @fclose(ptr noundef nonnull %call29.i136136833686.sink)
+  %call29.i136136823685.sink = phi ptr [ %call29.i136136823686, %if.then34.i1396 ], [ %call29.i1361, %if.then38.i1364 ], [ %call49.i1307, %if.then72.i1310 ], [ %call49.i1307, %if.then63.i1335 ], [ %call49.i1307, %if.then54.i1342 ], [ %call29.i1361, %for.cond1.for.end_crit_edge.us.i138.i1392 ], [ %call29.i136136823686, %for.cond1.for.end_crit_edge.us.i.i1423 ], [ %call29.i136136823686, %for.cond1.preheader.i.i1403 ], [ %call49.i1307, %for.body.i.i1349 ], [ %call49.i1307, %for.inc4.i.i1331 ], [ %call29.i1361, %for.cond1.preheader.i127.i1373 ]
+  %format.19.ph.ph = phi i32 [ 4, %if.then34.i1396 ], [ 5, %if.then38.i1364 ], [ %format.14, %if.then72.i1310 ], [ %format.14, %if.then63.i1335 ], [ %format.14, %if.then54.i1342 ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i138.i1392 ], [ 4, %for.cond1.for.end_crit_edge.us.i.i1423 ], [ 4, %for.cond1.preheader.i.i1403 ], [ %format.14, %for.body.i.i1349 ], [ %format.14, %for.inc4.i.i1331 ], [ 5, %for.cond1.preheader.i127.i1373 ]
+  %call46.i1370 = call i32 @fclose(ptr noundef nonnull %call29.i136136823685.sink)
   br label %if.end1853
 
-if.end1853:                                       ; preds = %for.cond1.preheader.i156.i1556, %for.cond1.for.end_crit_edge.us.i175.i1576, %if.end1853.sink.split, %if.then87.i1549, %if.then.i1305
-  %format.19.ph = phi i32 [ %format.0.lcssa3423, %if.then.i1305 ], [ %format.0.lcssa3423, %if.then87.i1549 ], [ %format.19.ph.ph, %if.end1853.sink.split ], [ %format.0.lcssa3423, %for.cond1.for.end_crit_edge.us.i175.i1576 ], [ %format.0.lcssa3423, %for.cond1.preheader.i156.i1556 ]
+if.end1853:                                       ; preds = %for.cond1.preheader.i156.i1556, %for.cond1.for.end_crit_edge.us.i175.i1576, %if.end1853.sink.split, %if.then.i1305, %if.then87.i1549
+  %format.19.ph = phi i32 [ %format.0.lcssa3422, %if.then87.i1549 ], [ %format.0.lcssa3422, %if.then.i1305 ], [ %format.19.ph.ph, %if.end1853.sink.split ], [ %format.0.lcssa3422, %for.cond1.for.end_crit_edge.us.i175.i1576 ], [ %format.0.lcssa3422, %for.cond1.preheader.i156.i1556 ]
   switch i32 %format.19.ph, label %if.end1867 [
     i32 4, label %land.lhs.true1856
     i32 2, label %land.lhs.true1856
@@ -4907,10 +4907,10 @@ if.end1853:                                       ; preds = %for.cond1.preheader
   ]
 
 land.lhs.true1856:                                ; preds = %call23.i.noexc1581, %call21.i1433.noexc, %if.end1853, %if.end1853, %if.end1853, %if.end1853
-  %tobool1857 = icmp ne ptr %testRenderMulti.0.lcssa3450, null
-  %tobool1859 = icmp ne ptr %testRender.0.lcssa3451, null
+  %tobool1857 = icmp ne ptr %testRenderMulti.0.lcssa3449, null
+  %tobool1859 = icmp ne ptr %testRender.0.lcssa3450, null
   %or.cond29 = select i1 %tobool1857, i1 true, i1 %tobool1859
-  %or.cond30 = select i1 %or.cond29, i1 true, i1 %estimateError.0.lcssa3425
+  %or.cond30 = select i1 %or.cond29, i1 true, i1 %estimateError.0.lcssa3424
   br i1 %or.cond30, label %invoke.cont1864, label %cleanup
 
 invoke.cont1864:                                  ; preds = %land.lhs.true1856
@@ -4921,13 +4921,13 @@ invoke.cont1864:                                  ; preds = %land.lhs.true1856
           to label %if.end1867 unwind label %lpad1443
 
 if.end1867:                                       ; preds = %for.cond1.preheader.i183.i1526, %for.cond1.for.end_crit_edge.us.i201.i1545, %call26.i1428.noexc, %if.then95.i1519, %if.end1853, %invoke.cont1864
-  br i1 %estimateError.0.lcssa3425, label %invoke.cont1872, label %if.end1878
+  br i1 %estimateError.0.lcssa3424, label %invoke.cont1872, label %if.end1878
 
 invoke.cont1872:                                  ; preds = %if.end1867
   store ptr %mtsdf.sroa.0.2, ptr %ref.tmp1871, align 8
   %466 = getelementptr inbounds nuw i8, ptr %ref.tmp1871, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %466, align 8
-  %call1875 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1871, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3455)
+  %call1875 = invoke noundef double @_ZN7msdfgen16estimateSDFErrorERKNS_14BitmapConstRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEiNS_8FillRuleE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1871, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, i32 noundef 19, i32 noundef %fillRule.0.lcssa3454)
           to label %invoke.cont1874 unwind label %lpad1443
 
 invoke.cont1874:                                  ; preds = %invoke.cont1872
@@ -4935,12 +4935,12 @@ invoke.cont1874:                                  ; preds = %invoke.cont1872
   br label %if.end1878
 
 if.end1878:                                       ; preds = %invoke.cont1874, %if.end1867
-  %tobool1879.not = icmp eq ptr %testRenderMulti.0.lcssa3450, null
+  %tobool1879.not = icmp eq ptr %testRenderMulti.0.lcssa3449, null
   br i1 %tobool1879.not, label %if.end1903, label %if.then1880
 
 if.then1880:                                      ; preds = %if.end1878
-  %mul.i1594 = shl nsw i32 %testWidthM.0.lcssa3443, 2
-  %mul4.i1595 = mul nsw i32 %mul.i1594, %testHeightM.0.lcssa3442
+  %mul.i1594 = shl nsw i32 %testWidthM.0.lcssa3442, 2
+  %mul4.i1595 = mul nsw i32 %mul.i1594, %testHeightM.0.lcssa3441
   %conv.i1596 = zext nneg i32 %mul4.i1595 to i64
   %467 = icmp slt i32 %mul4.i1595, 0
   %468 = shl nuw nsw i64 %conv.i1596, 2
@@ -4949,9 +4949,9 @@ if.then1880:                                      ; preds = %if.end1878
           to label %invoke.cont1888 unwind label %lpad1443
 
 invoke.cont1888:                                  ; preds = %if.then1880
-  %render1881.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3442 to i64
+  %render1881.sroa.8.8.insert.ext = zext i32 %testHeightM.0.lcssa3441 to i64
   %render1881.sroa.8.8.insert.shift = shl nuw i64 %render1881.sroa.8.8.insert.ext, 32
-  %render1881.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3443 to i64
+  %render1881.sroa.5.8.insert.ext = zext i32 %testWidthM.0.lcssa3442 to i64
   %render1881.sroa.5.8.insert.insert = or disjoint i64 %render1881.sroa.8.8.insert.shift, %render1881.sroa.5.8.insert.ext
   store ptr %call.i15971598, ptr %ref.tmp1883, align 8
   %470 = getelementptr inbounds nuw i8, ptr %ref.tmp1883, i64 8
@@ -4960,7 +4960,7 @@ invoke.cont1888:                                  ; preds = %if.then1880
   %471 = getelementptr inbounds nuw i8, ptr %ref.tmp1887, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %471, align 8
   %mul1890 = fmul double %avgScale.01889, %range.1
-  %add1891 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1891 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi4EEERKNS_14BitmapConstRefIfLi4EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1883, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1887, double noundef %mul1890, float noundef %add1891)
           to label %invoke.cont1894 unwind label %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit1611
 
@@ -4968,7 +4968,7 @@ invoke.cont1894:                                  ; preds = %invoke.cont1888
   store ptr %call.i15971598, ptr %ref.tmp1893, align 8
   %472 = getelementptr inbounds nuw i8, ptr %ref.tmp1893, i64 8
   store i64 %render1881.sroa.5.8.insert.insert, ptr %472, align 8
-  %call1897 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1893, ptr noundef nonnull %testRenderMulti.0.lcssa3450)
+  %call1897 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1893, ptr noundef nonnull %testRenderMulti.0.lcssa3449)
           to label %invoke.cont1896 unwind label %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit1611
 
 invoke.cont1896:                                  ; preds = %invoke.cont1894
@@ -4990,11 +4990,11 @@ _ZN7msdfgen6BitmapIfLi4EED2Ev.exit1614:           ; preds = %if.then1899, %invok
   br label %if.end1903
 
 if.end1903:                                       ; preds = %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit1614, %if.end1878
-  %tobool1904.not = icmp eq ptr %testRender.0.lcssa3451, null
+  %tobool1904.not = icmp eq ptr %testRender.0.lcssa3450, null
   br i1 %tobool1904.not, label %cleanup, label %if.then1905
 
 if.then1905:                                      ; preds = %if.end1903
-  %mul4.i1617 = mul nsw i32 %testWidth.0.lcssa3445, %testHeight.0.lcssa3444
+  %mul4.i1617 = mul nsw i32 %testWidth.0.lcssa3444, %testHeight.0.lcssa3443
   %conv.i1618 = zext nneg i32 %mul4.i1617 to i64
   %476 = icmp slt i32 %mul4.i1617, 0
   %477 = shl nuw nsw i64 %conv.i1618, 2
@@ -5003,9 +5003,9 @@ if.then1905:                                      ; preds = %if.end1903
           to label %invoke.cont1913 unwind label %lpad1443
 
 invoke.cont1913:                                  ; preds = %if.then1905
-  %render1906.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3444 to i64
+  %render1906.sroa.8.8.insert.ext = zext i32 %testHeight.0.lcssa3443 to i64
   %render1906.sroa.8.8.insert.shift = shl nuw i64 %render1906.sroa.8.8.insert.ext, 32
-  %render1906.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3445 to i64
+  %render1906.sroa.5.8.insert.ext = zext i32 %testWidth.0.lcssa3444 to i64
   %render1906.sroa.5.8.insert.insert = or disjoint i64 %render1906.sroa.8.8.insert.shift, %render1906.sroa.5.8.insert.ext
   store ptr %call.i16191620, ptr %ref.tmp1908, align 8
   %479 = getelementptr inbounds nuw i8, ptr %ref.tmp1908, i64 8
@@ -5014,7 +5014,7 @@ invoke.cont1913:                                  ; preds = %if.then1905
   %480 = getelementptr inbounds nuw i8, ptr %ref.tmp1912, i64 8
   store i64 %mtsdf.sroa.15.0, ptr %480, align 8
   %mul1915 = fmul double %avgScale.01889, %range.1
-  %add1916 = fadd float %outputDistanceShift.0.lcssa3433, 5.000000e-01
+  %add1916 = fadd float %outputDistanceShift.0.lcssa3432, 5.000000e-01
   invoke void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi4EEEdf(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1908, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1912, double noundef %mul1915, float noundef %add1916)
           to label %invoke.cont1919 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1633
 
@@ -5022,7 +5022,7 @@ invoke.cont1919:                                  ; preds = %invoke.cont1913
   store ptr %call.i16191620, ptr %ref.tmp1918, align 8
   %481 = getelementptr inbounds nuw i8, ptr %ref.tmp1918, i64 8
   store i64 %render1906.sroa.5.8.insert.insert, ptr %481, align 8
-  %call1922 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1918, ptr noundef nonnull %testRender.0.lcssa3451)
+  %call1922 = invoke noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1918, ptr noundef nonnull %testRender.0.lcssa3450)
           to label %invoke.cont1921 unwind label %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1633
 
 invoke.cont1921:                                  ; preds = %invoke.cont1919
@@ -5044,7 +5044,7 @@ _ZN7msdfgen6BitmapIfLi1EED2Ev.exit1636:           ; preds = %if.then1924, %invok
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true1856, %land.lhs.true1770, %land.lhs.true1686, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit970, %if.end1731, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1300, %if.end1817, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1636, %if.end1903, %if.end1672, %if.then1850, %if.then1764, %if.then1680
-  %retval.2 = phi i32 [ 1, %if.then1680 ], [ 1, %if.then1764 ], [ 1, %if.then1850 ], [ 0, %if.end1672 ], [ 0, %if.end1903 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1636 ], [ 0, %if.end1817 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1300 ], [ 0, %if.end1731 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit970 ], [ 0, %land.lhs.true1686 ], [ 0, %land.lhs.true1770 ], [ 0, %land.lhs.true1856 ]
+  %retval.2 = phi i32 [ 1, %if.then1850 ], [ 1, %if.then1680 ], [ 1, %if.then1764 ], [ 0, %if.end1672 ], [ 0, %if.end1903 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1636 ], [ 0, %if.end1817 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit1300 ], [ 0, %if.end1731 ], [ 0, %_ZN7msdfgen6BitmapIfLi1EED2Ev.exit970 ], [ 0, %land.lhs.true1770 ], [ 0, %land.lhs.true1686 ], [ 0, %land.lhs.true1856 ]
   %isnull.i1637 = icmp eq ptr %mtsdf.sroa.0.2, null
   br i1 %isnull.i1637, label %_ZN7msdfgen6BitmapIfLi4EED2Ev.exit1639, label %delete.notnull.i1638
 
@@ -5097,7 +5097,7 @@ delete.notnull.i1653:                             ; preds = %_ZN7msdfgen6BitmapI
   br label %ehcleanup1936
 
 cleanup1935:                                      ; preds = %delete.notnull.i1644, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1642, %invoke.cont1080, %do.body1350, %do.body1247, %do.body1164, %do.body1151, %do.body1142, %do.body1131, %do.body1121, %do.body1109, %do.body1093, %do.body1074, %do.body1039
-  %retval.1 = phi i32 [ 1, %do.body1247 ], [ 1, %do.body1350 ], [ 1, %do.body1164 ], [ 1, %do.body1039 ], [ 1, %do.body1109 ], [ 1, %do.body1093 ], [ 1, %do.body1074 ], [ 1, %do.body1121 ], [ 1, %do.body1131 ], [ 1, %do.body1151 ], [ 1, %do.body1142 ], [ -1, %invoke.cont1080 ], [ %retval.2, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1642 ], [ %retval.2, %delete.notnull.i1644 ]
+  %retval.1 = phi i32 [ 1, %do.body1247 ], [ -1, %invoke.cont1080 ], [ 1, %do.body1350 ], [ 1, %do.body1164 ], [ 1, %do.body1039 ], [ 1, %do.body1109 ], [ 1, %do.body1093 ], [ 1, %do.body1142 ], [ 1, %do.body1074 ], [ 1, %do.body1121 ], [ 1, %do.body1131 ], [ 1, %do.body1151 ], [ %retval.2, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1642 ], [ %retval.2, %delete.notnull.i1644 ]
   %485 = load ptr, ptr %shape, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %shape, i64 8
   %486 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5151,7 +5151,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %return
 
 ehcleanup1936:                                    ; preds = %delete.notnull.i1653, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1651, %lpad, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %168, %lpad ], [ %lpad.phi.i, %lpad.i ], [ %.pn, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1651 ], [ %.pn, %delete.notnull.i1653 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi.i, %lpad.i ], [ %168, %lpad ], [ %.pn, %_ZN7msdfgen6BitmapIfLi3EED2Ev.exit1651 ], [ %.pn, %delete.notnull.i1653 ]
   call void @_ZN7msdfgen5ShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %shape) #20
   resume { ptr, i32 } %.pn.pn
 
@@ -5424,11 +5424,11 @@ if.then39:                                        ; preds = %sw.bb30
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %if.end25, %sw.bb29, %if.then39, %sw.bb30
-  %c.1 = phi i32 [ %inc19, %if.end25 ], [ %c.0, %sw.bb29 ], [ %c.0, %if.then39 ], [ %c.0, %sw.bb30 ], [ %c.0, %for.cond ]
-  %e.4 = phi i32 [ 0, %if.end25 ], [ %e.0, %sw.bb29 ], [ %spec.select28, %if.then39 ], [ %spec.select28, %sw.bb30 ], [ %e.0, %for.cond ]
-  %contour.1 = phi ptr [ %add.ptr.i40, %if.end25 ], [ %contour.0, %sw.bb29 ], [ %contour.0, %if.then39 ], [ %contour.0, %sw.bb30 ], [ %contour.0, %for.cond ]
-  %change.2 = phi i8 [ 0, %if.end25 ], [ %change.0, %sw.bb29 ], [ 1, %if.then39 ], [ 0, %sw.bb30 ], [ %change.0, %for.cond ]
-  %clear.1 = phi i1 [ true, %if.end25 ], [ false, %sw.bb29 ], [ %clear.0, %if.then39 ], [ %clear.0, %sw.bb30 ], [ %clear.0, %for.cond ]
+  %c.1 = phi i32 [ %c.0, %for.cond ], [ %inc19, %if.end25 ], [ %c.0, %sw.bb29 ], [ %c.0, %if.then39 ], [ %c.0, %sw.bb30 ]
+  %e.4 = phi i32 [ %e.0, %for.cond ], [ 0, %if.end25 ], [ %e.0, %sw.bb29 ], [ %spec.select28, %if.then39 ], [ %spec.select28, %sw.bb30 ]
+  %contour.1 = phi ptr [ %contour.0, %for.cond ], [ %add.ptr.i40, %if.end25 ], [ %contour.0, %sw.bb29 ], [ %contour.0, %if.then39 ], [ %contour.0, %sw.bb30 ]
+  %change.2 = phi i8 [ %change.0, %for.cond ], [ 0, %if.end25 ], [ %change.0, %sw.bb29 ], [ 1, %if.then39 ], [ 0, %sw.bb30 ]
+  %clear.1 = phi i1 [ %clear.0, %for.cond ], [ true, %if.end25 ], [ false, %sw.bb29 ], [ %clear.0, %if.then39 ], [ %clear.0, %sw.bb30 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %in.0, i64 1
   br label %for.cond, !llvm.loop !29
 

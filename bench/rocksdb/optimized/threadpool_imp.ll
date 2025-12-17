@@ -687,9 +687,9 @@ _ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %_ZNKSt8functionIFvv
   br label %151
 
 151:                                              ; preds = %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit, %84, %59, %64, %_ZNSt14_Function_baseD2Ev.exit28
-  %152 = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit28 ], [ false, %64 ], [ false, %59 ], [ false, %84 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
-  %.116 = phi i32 [ %.217, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.015, %64 ], [ %.015, %59 ], [ %.015, %84 ], [ %.015, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
-  %.1 = phi i8 [ %.2, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.0, %64 ], [ %.0, %59 ], [ %.0, %84 ], [ %.0, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
+  %152 = phi i1 [ false, %59 ], [ true, %_ZNSt14_Function_baseD2Ev.exit28 ], [ false, %64 ], [ false, %84 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
+  %.116 = phi i32 [ %.015, %59 ], [ %.217, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.015, %64 ], [ %.015, %84 ], [ %.015, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
+  %.1 = phi i8 [ %.0, %59 ], [ %.2, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.0, %64 ], [ %.0, %84 ], [ %.0, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
   %153 = load i8, ptr %6, align 8, !tbaa !54, !range !55, !noundef !56
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %155, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -1983,7 +1983,7 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %111
   br label %115
 
 115:                                              ; preds = %.loopexit, %.loopexit.split-lp, %43, %106
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %106 ], [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn, %106 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorISt8functionIFvvEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
@@ -3280,7 +3280,7 @@ _ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit26: ; pred
   br label %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !67
   %58 = load ptr, ptr %.0, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5430,12 +5430,12 @@ define internal void @_GLOBAL__sub_I_threadpool_imp.cc() #20 section ".text.star
   br label %23
 
 23:                                               ; preds = %21, %19
-  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %21 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %20, %19 ], [ %22, %21 ]
+  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %19 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   br label %24
 
 24:                                               ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %23
-  %25 = phi ptr [ %26, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ], [ %.015.i, %23 ]
+  %25 = phi ptr [ %.015.i, %23 ], [ %26, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -40
   %27 = getelementptr inbounds i8, ptr %25, i64 -32
   %28 = load ptr, ptr %27, align 8, !tbaa !4
@@ -5454,7 +5454,7 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %24, %_ZNKSt7__cxx11
   br i1 %33, label %common.resume, label %24
 
 common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %.noexc63.i
@@ -5681,12 +5681,12 @@ __cxx_global_var_init.exit:                       ; preds = %.noexc63.i
   br label %89
 
 89:                                               ; preds = %87, %85, %83, %81, %79, %77, %75, %73, %71
-  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %71 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %83 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %87 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %85 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %88, %87 ], [ %86, %85 ]
+  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %87 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %71 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %83 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %86, %85 ], [ %88, %87 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ]
   br label %90
 
 90:                                               ; preds = %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %89
-  %91 = phi ptr [ %92, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.014.i, %89 ]
+  %91 = phi ptr [ %.014.i, %89 ], [ %92, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -40
   %93 = getelementptr inbounds i8, ptr %91, i64 -32
   %94 = load ptr, ptr %93, align 8, !tbaa !4
@@ -5765,12 +5765,12 @@ __cxx_global_var_init.12.exit:                    ; preds = %.noexc68.i
   br label %114
 
 114:                                              ; preds = %112, %110
-  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %110 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %112 ]
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %111, %110 ], [ %113, %112 ]
+  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %112 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %110 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
   br label %115
 
 115:                                              ; preds = %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %114
-  %116 = phi ptr [ %117, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.09.i, %114 ]
+  %116 = phi ptr [ %.09.i, %114 ], [ %117, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ]
   %117 = getelementptr inbounds i8, ptr %116, i64 -40
   %118 = getelementptr inbounds i8, ptr %116, i64 -32
   %119 = load ptr, ptr %118, align 8, !tbaa !4

@@ -645,7 +645,7 @@ check_p_input.exit:                               ; preds = %155, %select.unfold
   br label %check_n_input.exit
 
 check_n_input.exit:                               ; preds = %175, %165, %179
-  %181 = phi ptr [ %166, %165 ], [ %.pre, %179 ], [ %166, %175 ]
+  %181 = phi ptr [ %.pre, %179 ], [ %166, %165 ], [ %166, %175 ]
   %182 = tail call i64 @strtoull(ptr noundef captures(none) %181, ptr noundef null, i32 noundef 0) #11
   store i64 %182, ptr %32, align 8, !tbaa !44
   br label %.loopexit

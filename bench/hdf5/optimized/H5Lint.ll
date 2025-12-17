@@ -1454,7 +1454,7 @@ define range(i32 -1, 1) i32 @H5L__move(ptr noundef %0, ptr noundef %1, ptr nound
   br label %61
 
 61:                                               ; preds = %.thread, %6, %54, %57, %50
-  %.016 = phi i32 [ -1, %50 ], [ -1, %57 ], [ 0, %54 ], [ 0, %6 ], [ -1, %.thread ]
+  %.016 = phi i32 [ -1, %50 ], [ -1, %57 ], [ 0, %54 ], [ -1, %.thread ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.016
@@ -2328,8 +2328,8 @@ define range(i32 -1, 1) i32 @H5L__link_copy_file(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %20, %22, %79, %26
-  %.042 = phi ptr [ %.143, %79 ], [ %1, %26 ], [ %1, %22 ], [ %1, %20 ]
-  %.037 = phi i1 [ %43, %79 ], [ false, %26 ], [ false, %22 ], [ false, %20 ]
+  %.042 = phi ptr [ %.143, %79 ], [ %1, %26 ], [ %1, %20 ], [ %1, %22 ]
+  %.037 = phi i1 [ %43, %79 ], [ false, %26 ], [ false, %20 ], [ false, %22 ]
   %80 = call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef nonnull %.042, ptr noundef %3) #11
   %81 = icmp ne ptr %80, null
   br i1 %81, label %86, label %82
@@ -2385,7 +2385,7 @@ define range(i32 -1, 1) i32 @H5L__link_copy_file(ptr noundef %0, ptr noundef %1,
   br label %109
 
 109:                                              ; preds = %108, %86, %82
-  %.3 = phi i32 [ -1, %82 ], [ %.4, %108 ], [ 0, %86 ]
+  %.3 = phi i32 [ -1, %82 ], [ 0, %86 ], [ %.4, %108 ]
   %.not47 = icmp eq ptr %.042, %1
   br i1 %.not47, label %112, label %110
 
@@ -2588,7 +2588,7 @@ define internal range(i32 -1, -2147483648) i32 @H5L__link_cb(ptr noundef readonl
   br label %.thread147
 
 62:                                               ; preds = %.thread, %53, %24
-  %.178 = phi i1 [ false, %53 ], [ false, %24 ], [ true, %.thread ]
+  %.178 = phi i1 [ true, %.thread ], [ false, %53 ], [ false, %24 ]
   %63 = load ptr, ptr %25, align 8, !tbaa !44
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %64, align 8, !tbaa !108
@@ -2785,11 +2785,11 @@ define internal range(i32 -1, -2147483648) i32 @H5L__link_cb(ptr noundef readonl
 172:                                              ; preds = %122, %111
   br i1 %.178, label %173, label %.thread147
 
-173:                                              ; preds = %171, %118, %107, %91, %72, %172
-  %.174130 = phi i32 [ -1, %72 ], [ 0, %172 ], [ -1, %91 ], [ -1, %107 ], [ -1, %118 ], [ %.6, %171 ]
-  %.080129 = phi i1 [ false, %72 ], [ false, %172 ], [ false, %91 ], [ false, %107 ], [ false, %118 ], [ %129, %171 ]
-  %.084128 = phi i64 [ -1, %72 ], [ -1, %172 ], [ -1, %91 ], [ -1, %107 ], [ -1, %118 ], [ %.387, %171 ]
-  %.088127 = phi ptr [ null, %72 ], [ null, %172 ], [ null, %91 ], [ null, %107 ], [ null, %118 ], [ %.391, %171 ]
+173:                                              ; preds = %107, %171, %118, %91, %72, %172
+  %.174130 = phi i32 [ -1, %72 ], [ 0, %172 ], [ -1, %91 ], [ -1, %118 ], [ %.6, %171 ], [ -1, %107 ]
+  %.080129 = phi i1 [ false, %72 ], [ false, %172 ], [ false, %91 ], [ false, %118 ], [ %129, %171 ], [ false, %107 ]
+  %.084128 = phi i64 [ -1, %72 ], [ -1, %172 ], [ -1, %91 ], [ -1, %118 ], [ %.387, %171 ], [ -1, %107 ]
+  %.088127 = phi ptr [ null, %72 ], [ null, %172 ], [ null, %91 ], [ null, %118 ], [ %.391, %171 ], [ null, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %174, align 8
@@ -2857,8 +2857,8 @@ define internal range(i32 -1, -2147483648) i32 @H5L__link_cb(ptr noundef readonl
   %207 = call i32 @H5G_loc_free(ptr noundef nonnull %7) #11
   br label %.thread147
 
-.thread147:                                       ; preds = %58, %49, %20, %118, %107, %91, %72, %172, %201, %198, %206, %205, %190, %193
-  %.10 = phi i32 [ -1, %193 ], [ %.8, %190 ], [ -1, %201 ], [ %.8, %198 ], [ %.8, %206 ], [ %.8, %205 ], [ -1, %118 ], [ -1, %107 ], [ -1, %91 ], [ -1, %72 ], [ 0, %172 ], [ -1, %20 ], [ -1, %49 ], [ -1, %58 ]
+.thread147:                                       ; preds = %49, %58, %20, %107, %118, %91, %72, %172, %201, %198, %206, %205, %190, %193
+  %.10 = phi i32 [ -1, %193 ], [ %.8, %190 ], [ -1, %201 ], [ %.8, %198 ], [ %.8, %206 ], [ %.8, %205 ], [ -1, %107 ], [ -1, %118 ], [ -1, %91 ], [ -1, %72 ], [ 0, %172 ], [ -1, %20 ], [ -1, %58 ], [ -1, %49 ]
   store i32 0, ptr %5, align 4, !tbaa !36
   br label %208
 
@@ -3000,7 +3000,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__get_val_real(ptr noundef nonnu
   br label %64
 
 64:                                               ; preds = %.thread, %52, %50, %3, %17, %23, %14, %60, %59, %56
-  %.038 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %14 ], [ -1, %60 ], [ 0, %3 ], [ 0, %59 ], [ 0, %56 ], [ -1, %52 ], [ 0, %50 ], [ -1, %.thread ]
+  %.038 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %14 ], [ 0, %3 ], [ -1, %60 ], [ 0, %56 ], [ 0, %59 ], [ -1, %52 ], [ 0, %50 ], [ -1, %.thread ]
   ret i32 %.038
 }
 
@@ -3231,8 +3231,8 @@ define internal range(i32 -1, -2147483648) i32 @H5L__move_dest_cb(ptr noundef re
   %132 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__move_dest_cb, i32 noundef 1414, i64 noundef %130, i64 noundef %131, ptr noundef nonnull @.str.68) #11
   br label %133
 
-133:                                              ; preds = %104, %102, %129, %127, %.thread86, %.thread91
-  %.4.ph = phi i32 [ -1, %.thread91 ], [ -1, %.thread86 ], [ %121, %127 ], [ -1, %129 ], [ %96, %102 ], [ -1, %104 ]
+133:                                              ; preds = %104, %127, %102, %129, %.thread86, %.thread91
+  %.4.ph = phi i32 [ -1, %.thread91 ], [ -1, %.thread86 ], [ -1, %129 ], [ %96, %102 ], [ %121, %127 ], [ -1, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %134 = call i32 @H5I_dec_app_ref(i64 noundef %78) #11
@@ -3278,8 +3278,8 @@ define internal range(i32 -1, -2147483648) i32 @H5L__move_dest_cb(ptr noundef re
   %158 = call i32 @H5G_loc_free(ptr noundef nonnull %7) #11
   br label %.thread124
 
-.thread124:                                       ; preds = %62, %65, %54, %33, %47, %43, %19, %150, %146, %140, %154, %133, %136
-  %.8 = phi i32 [ -1, %136 ], [ %.4.ph, %133 ], [ -1, %146 ], [ -1, %140 ], [ -1, %154 ], [ -1, %150 ], [ 0, %62 ], [ 0, %65 ], [ -1, %54 ], [ -1, %33 ], [ 0, %47 ], [ -1, %43 ], [ -1, %19 ]
+.thread124:                                       ; preds = %62, %65, %54, %47, %33, %43, %19, %150, %146, %140, %154, %133, %136
+  %.8 = phi i32 [ -1, %136 ], [ %.4.ph, %133 ], [ -1, %146 ], [ -1, %140 ], [ -1, %154 ], [ -1, %150 ], [ 0, %62 ], [ 0, %65 ], [ -1, %54 ], [ 0, %47 ], [ -1, %33 ], [ -1, %43 ], [ -1, %19 ]
   store i32 0, ptr %5, align 4, !tbaa !36
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !68

@@ -2289,7 +2289,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit"
 
 .body25:                                          ; preds = %92, %86, %.body16
-  %.pn13 = phi { ptr, i32 } [ %87, %86 ], [ %.pn, %.body16 ], [ %93, %92 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn, %.body16 ], [ %87, %86 ], [ %93, %92 ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h1c5225b34cfe138aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #17
           to label %common.resume unwind label %106
 
@@ -2606,7 +2606,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17hb4e5c82652836e7fE.exit"
 
 .body25:                                          ; preds = %92, %86, %.body16
-  %.pn13 = phi { ptr, i32 } [ %87, %86 ], [ %.pn, %.body16 ], [ %93, %92 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn, %.body16 ], [ %87, %86 ], [ %93, %92 ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h1c5225b34cfe138aE"(ptr noalias noundef align 8 dereferenceable(24) %5) #17
           to label %common.resume unwind label %106
 

@@ -1439,7 +1439,7 @@ _ZL30tsi_ssl_handshaker_factory_refP26tsi_ssl_handshaker_factory.exit: ; preds =
   br label %105
 
 105:                                              ; preds = %84, %.critedge, %22, %_ZL30tsi_ssl_handshaker_factory_refP26tsi_ssl_handshaker_factory.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 0, %_ZL30tsi_ssl_handshaker_factory_refP26tsi_ssl_handshaker_factory.exit ], [ 7, %84 ], [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ 12, %22 ], [ 7, %.critedge ]
+  %.0 = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ 0, %_ZL30tsi_ssl_handshaker_factory_refP26tsi_ssl_handshaker_factory.exit ], [ 7, %84 ], [ 12, %22 ], [ 7, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -1983,7 +1983,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
   br label %_ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit
 
 _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds = %145, %143, %141, %139, %32, %20, %2, %170, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit ], [ 0, %170 ], [ 2, %2 ], [ 2, %20 ], [ %37, %32 ], [ %.086.ph, %139 ], [ %.086.ph, %141 ], [ %.086.ph, %143 ], [ %.086.ph, %145 ]
+  %.0 = phi i32 [ 2, %2 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit ], [ 2, %20 ], [ %37, %32 ], [ 0, %170 ], [ %.086.ph, %139 ], [ %.086.ph, %141 ], [ %.086.ph, %143 ], [ %.086.ph, %145 ]
   ret i32 %.0
 
 171:                                              ; preds = %165, %136, %128, %107, %30
@@ -2189,11 +2189,11 @@ define internal fastcc noundef range(i32 0, 6) i32 @_ZL32tsi_set_min_and_max_tls
   br label %25
 
 .critedge31:                                      ; preds = %.critedge33, %19, %.critedge, %7, %15, %17
-  %.028 = phi i32 [ 0, %17 ], [ 0, %15 ], [ 5, %7 ], [ 5, %.critedge ], [ 5, %19 ], [ 5, %.critedge33 ]
+  %.028 = phi i32 [ 5, %.critedge ], [ 0, %15 ], [ 0, %17 ], [ 5, %7 ], [ 5, %19 ], [ 5, %.critedge33 ]
   ret i32 %.028
 
 25:                                               ; preds = %23, %11
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %24, %23 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %12, %11 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2504,7 +2504,7 @@ _ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54: ; preds = %50, %53
   br i1 %.not36, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %thread-pre-split
 
 _ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread: ; preds = %42, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, %56
-  %.not3553 = phi i32 [ 2, %56 ], [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 12, %42 ]
+  %.not3553 = phi i32 [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 2, %56 ], [ 12, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.1, i32 noundef 807) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 20, ptr nonnull @.str.78)
@@ -2704,7 +2704,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi31EEERS2_RAT__Kc.exit: ; pr
   br label %41
 
 41:                                               ; preds = %19, %36, %33, %23, %4
-  %.0 = phi i32 [ 2, %19 ], [ 2, %4 ], [ 12, %23 ], [ 7, %33 ], [ %spec.select, %36 ]
+  %.0 = phi i32 [ 7, %33 ], [ 2, %19 ], [ 2, %4 ], [ 12, %23 ], [ %spec.select, %36 ]
   ret i32 %.0
 }
 
@@ -2952,7 +2952,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi75EEERS2_RAT__Kc.exit.i: ; 
   br label %common.resume
 
 common.resume:                                    ; preds = %34, %351, %370, %385, %282, %.body.i.i, %46, %55
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %56, %55 ], [ %.pn39.pn.pn.pn.pn.pn.pn.i.i.i, %282 ], [ %.pn.i.i, %.body.i.i ], [ %371, %370 ], [ %386, %385 ], [ %35, %34 ], [ %352, %351 ]
+  %common.resume.op = phi { ptr, i32 } [ %386, %385 ], [ %56, %55 ], [ %.pn.i.i, %.body.i.i ], [ %47, %46 ], [ %.pn39.pn.pn.pn.pn.pn.pn.i.i.i, %282 ], [ %371, %370 ], [ %35, %34 ], [ %352, %351 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL14GetCrlProviderP17x509_store_ctx_st.exit:     ; preds = %48
@@ -3050,8 +3050,8 @@ _ZL14GetCrlProviderP17x509_store_ctx_st.exit:     ; preds = %48
   br label %102
 
 102:                                              ; preds = %100, %94
-  %.sroa.0.0.i.i.i.i = phi i64 [ %99, %94 ], [ %spec.select.i.i.i.i, %100 ]
-  %.sroa.4.0.i.i.i.i = phi ptr [ %97, %94 ], [ %spec.select2.i.i.i.i, %100 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %100 ], [ %99, %94 ]
+  %.sroa.4.0.i.i.i.i = phi ptr [ %spec.select2.i.i.i.i, %100 ], [ %97, %94 ]
   invoke void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %11, i64 %.sroa.0.0.i.i.i.i, ptr %.sroa.4.0.i.i.i.i)
           to label %103 unwind label %119
 
@@ -3796,7 +3796,7 @@ _ZNR4absl12lts_202407228StatusOrIP11X509_crl_stEdeEv.exit26.i.invoke.i: ; preds 
   br label %337
 
 337:                                              ; preds = %336, %_ZNR4absl12lts_202407228StatusOrIP11X509_crl_stEdeEv.exit22.i.i, %285, %284
-  %.08.i.i = phi i1 [ %.not.i.i, %336 ], [ false, %284 ], [ true, %285 ], [ true, %_ZNR4absl12lts_202407228StatusOrIP11X509_crl_stEdeEv.exit22.i.i ]
+  %.08.i.i = phi i1 [ false, %284 ], [ %.not.i.i, %336 ], [ true, %285 ], [ true, %_ZNR4absl12lts_202407228StatusOrIP11X509_crl_stEdeEv.exit22.i.i ]
   %338 = load i64, ptr %18, align 8, !tbaa !144
   %339 = and i64 %338, 1
   %.not.i.i.i29.i.i = icmp eq i64 %339, 0
@@ -3815,7 +3815,7 @@ _ZNR4absl12lts_202407228StatusOrIP11X509_crl_stEdeEv.exit26.i.invoke.i: ; preds 
   unreachable
 
 .body.i.i:                                        ; preds = %335, %320, %309, %298, %.loopexit.split-lp28.i, %.loopexit27.i
-  %.pn.i.i = phi { ptr, i32 } [ %lpad.phi36.i, %335 ], [ %321, %320 ], [ %310, %309 ], [ %299, %298 ], [ %lpad.loopexit29.i, %.loopexit27.i ], [ %lpad.loopexit.split-lp30.i, %.loopexit.split-lp28.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.phi36.i, %335 ], [ %299, %298 ], [ %321, %320 ], [ %310, %309 ], [ %lpad.loopexit29.i, %.loopexit27.i ], [ %lpad.loopexit.split-lp30.i, %.loopexit.split-lp28.i ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIP11X509_crl_stED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
@@ -3950,7 +3950,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi54EEERS2_RAT__Kc.exit.i: ; 
   br label %.critedge31
 
 .critedge31:                                      ; preds = %_ZL20CheckChainRevocationP17x509_store_ctx_stPN9grpc_core12experimental11CrlProviderE.exit.thread, %27, %387, %.critedge.i42, %381, %372, %369, %358, %355, %_ZL14GetCrlProviderP17x509_store_ctx_st.exit.thread, %.critedge33, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit36, %.critedge, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
-  %.022 = phi i32 [ %25, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ %25, %.critedge ], [ 0, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit36 ], [ 0, %.critedge33 ], [ 1, %_ZL14GetCrlProviderP17x509_store_ctx_st.exit.thread ], [ 1, %355 ], [ 1, %358 ], [ 1, %369 ], [ 1, %372 ], [ 1, %381 ], [ 1, %.critedge.i42 ], [ 1, %387 ], [ %25, %27 ], [ 0, %_ZL20CheckChainRevocationP17x509_store_ctx_stPN9grpc_core12experimental11CrlProviderE.exit.thread ]
+  %.022 = phi i32 [ 0, %.critedge33 ], [ %25, %.critedge ], [ 1, %387 ], [ %25, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit ], [ %25, %27 ], [ 0, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit36 ], [ 1, %_ZL14GetCrlProviderP17x509_store_ctx_st.exit.thread ], [ 1, %355 ], [ 1, %358 ], [ 1, %369 ], [ 1, %372 ], [ 1, %381 ], [ 1, %.critedge.i42 ], [ 0, %_ZL20CheckChainRevocationP17x509_store_ctx_stPN9grpc_core12experimental11CrlProviderE.exit.thread ]
   ret i32 %.022
 }
 
@@ -4019,7 +4019,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   br label %18
 
 .critedge17:                                      ; preds = %.critedge, %7, %15, %2
-  %.014 = phi i32 [ %0, %2 ], [ %0, %15 ], [ 1, %7 ], [ 1, %.critedge ]
+  %.014 = phi i32 [ %0, %15 ], [ %0, %2 ], [ 1, %7 ], [ 1, %.critedge ]
   ret i32 %.014
 
 18:                                               ; preds = %16, %11
@@ -4606,7 +4606,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
   br label %256
 
 .loopexit:                                        ; preds = %217, %106, %158, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit
-  %.0127.ph = phi i32 [ %146, %158 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ], [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit ], [ %113, %106 ], [ %224, %217 ]
+  %.0127.ph = phi i32 [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit ], [ %146, %158 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ], [ %113, %106 ], [ %224, %217 ]
   %250 = call i32 @gpr_unref(ptr noundef nonnull %25)
   %.not.i166 = icmp eq i32 %250, 0
   br i1 %.not.i166, label %_ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit, label %251
@@ -4636,7 +4636,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
   br label %_ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit
 
 _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds = %102, %255, %253, %251, %.loopexit, %61, %59, %57, %55, %43, %41, %39, %37, %11, %15, %2, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 2, %2 ], [ 2, %15 ], [ 2, %11 ], [ 12, %37 ], [ 12, %39 ], [ 12, %41 ], [ 12, %43 ], [ %54, %55 ], [ %54, %57 ], [ %54, %59 ], [ %54, %61 ], [ %.0127.ph, %.loopexit ], [ %.0127.ph, %251 ], [ %.0127.ph, %253 ], [ %.0127.ph, %255 ], [ %105, %102 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 2, %2 ], [ 12, %43 ], [ %54, %61 ], [ 2, %11 ], [ 2, %15 ], [ 12, %37 ], [ 12, %39 ], [ 12, %41 ], [ %54, %55 ], [ %54, %57 ], [ %54, %59 ], [ %.0127.ph, %.loopexit ], [ %.0127.ph, %251 ], [ %.0127.ph, %253 ], [ %.0127.ph, %255 ], [ %105, %102 ]
   ret i32 %.0
 
 260:                                              ; preds = %121, %133, %148, %212, %100
@@ -4779,7 +4779,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %3, %8, %29, %18
-  %.0 = phi i32 [ 0, %18 ], [ 3, %29 ], [ 3, %8 ], [ 3, %3 ]
+  %.0 = phi i32 [ 3, %29 ], [ 0, %18 ], [ 3, %8 ], [ 3, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5084,7 +5084,7 @@ _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
   %44 = load i64, ptr %43, align 8, !tbaa !191
   %45 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %44, ptr %42, i64 %1, ptr %2)
   %.not51.us = icmp eq i32 %45, 0
-  br i1 %.not51.us, label %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge, label %.critedge53
+  br i1 %.not51.us, label %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge, label %.loopexit
 
 ._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge: ; preds = %40
   %46 = add i64 %.03964.us, 1
@@ -5092,9 +5092,9 @@ _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; preds = %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge, %37, %.lr.ph.split.us
-  %47 = phi i64 [ %.pre, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %29, %37 ], [ %29, %.lr.ph.split.us ]
-  %.143.ph.us = phi ptr [ %.04263.us, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %spec.select.us, %37 ], [ %.04263.us, %.lr.ph.split.us ]
-  %.140.ph.us = phi i64 [ %46, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %.03964.us, %37 ], [ %.03964.us, %.lr.ph.split.us ]
+  %47 = phi i64 [ %.pre, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %29, %.lr.ph.split.us ], [ %29, %37 ]
+  %.143.ph.us = phi ptr [ %.04263.us, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %.04263.us, %.lr.ph.split.us ], [ %spec.select.us, %37 ]
+  %.140.ph.us = phi i64 [ %46, %._ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us_crit_edge ], [ %.03964.us, %.lr.ph.split.us ], [ %.03964.us, %37 ]
   %48 = add nuw i64 %.03865.us, 1
   %49 = icmp ult i64 %48, %47
   br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !192
@@ -5120,7 +5120,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; pr
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !191
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %.critedge53, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
+  br i1 %60, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; preds = %55, %.critedge.us, %.lr.ph.split.split.us
   %61 = add nuw i64 %.03865.us68, 1
@@ -5150,7 +5150,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.critedge
   %73 = load ptr, ptr %72, align 8, !tbaa !190
   %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %73, i64 %1)
   %74 = icmp eq i32 %bcmp.i, 0
-  br i1 %74, label %.critedge53, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+  br i1 %74, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %66, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge, %.lr.ph.split.split
   %75 = add nuw i64 %.03865, 1
@@ -5170,13 +5170,13 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds
   %83 = load i64, ptr %82, align 8, !tbaa !191
   %84 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %83, ptr %81, i64 %1, ptr %2)
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %._crit_edge.thread, label %.critedge53
+  br i1 %.not, label %._crit_edge.thread, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %79, %._crit_edge
-  br label %.critedge53
+  br label %.loopexit
 
-.critedge53:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge.us, %40, %79, %._crit_edge.thread
-  %.4 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %79 ], [ 1, %40 ], [ 1, %.critedge.us ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+.loopexit:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge.us, %40, %79, %._crit_edge.thread
+  %.4 = phi i32 [ 1, %79 ], [ 0, %._crit_edge.thread ], [ 1, %.critedge.us ], [ 1, %40 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   ret i32 %.4
 }
 
@@ -5327,7 +5327,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %33, %55, %58, %23, %21, %18, %4, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit ], [ 0, %4 ], [ 0, %18 ], [ 1, %21 ], [ 0, %23 ], [ 0, %55 ], [ %65, %58 ], [ 0, %33 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %4 ], [ 0, %18 ], [ 1, %21 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit ], [ %65, %58 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %33 ], [ 0, %55 ]
   ret i32 %.0
 
 66:                                               ; preds = %56, %31
@@ -5539,7 +5539,7 @@ define internal fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_pee
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %36, %31, %24
-  %.053 = phi i32 [ %23, %24 ], [ %30, %31 ], [ %35, %36 ]
+  %.053 = phi i32 [ %30, %31 ], [ %23, %24 ], [ %35, %36 ]
   %39 = icmp slt i32 %.053, 0
   br i1 %39, label %40, label %47
 
@@ -5755,7 +5755,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %.pn66.pn.pn
 
 .thread82:                                        ; preds = %13, %.thread85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4, %.thread
-  %.155 = phi i32 [ %.5.ph, %.thread ], [ 0, %4 ], [ 0, %13 ], [ %.4, %.thread85 ], [ %.256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.155 = phi i32 [ %.5.ph, %.thread ], [ 0, %4 ], [ %.4, %.thread85 ], [ 0, %13 ], [ %.256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i32 %.155
 }
 
@@ -5997,7 +5997,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %34, %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %33, %32 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ], [ %35, %34 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6219,8 +6219,8 @@ _ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1
   %.not = icmp eq i64 %58, 0
   br i1 %.not, label %60, label %31, !llvm.loop !204
 
-60:                                               ; preds = %._crit_edge, %31
-  %.189.lcssa = phi i32 [ %.290.lcssa, %._crit_edge ], [ %.189196, %31 ]
+60:                                               ; preds = %31, %._crit_edge
+  %.189.lcssa = phi i32 [ %.189196, %31 ], [ %.290.lcssa, %._crit_edge ]
   %.not126 = icmp eq i32 %.189.lcssa, 0
   br i1 %.not126, label %.thread166, label %.critedge
 
@@ -6431,7 +6431,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %136, %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145, %134
-  %.pn.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %135, %134 ], [ %137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145 ], [ %137, %136 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i145 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -6442,8 +6442,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
-.critedge:                                        ; preds = %.lr.ph, %90, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %99, %109, %105, %.thread177, %114, %.critedge141, %75, %.thread166, %60
-  %.5 = phi i32 [ %.189.lcssa, %60 ], [ %61, %.thread166 ], [ 0, %75 ], [ 7, %99 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 7, %90 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i ], [ 0, %109 ], [ 0, %105 ], [ %103, %.thread177 ], [ 0, %114 ], [ 0, %.critedge141 ], [ %55, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %90, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %99, %.thread177, %109, %105, %114, %.critedge141, %75, %.thread166, %60
+  %.5 = phi i32 [ 0, %75 ], [ %.189.lcssa, %60 ], [ %61, %.thread166 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 7, %99 ], [ 7, %90 ], [ %103, %.thread177 ], [ 0, %109 ], [ 0, %105 ], [ 0, %114 ], [ 0, %.critedge141 ], [ %55, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %144
 
@@ -6535,10 +6535,10 @@ _ZN4absl12lts_2024072212log_internal12Check_LEImplImmEEPNSt7__cxx1112basic_strin
   %or.cond = select i1 %47, i1 true, i1 %48
   br i1 %or.cond, label %._crit_edge, label %_ZN4absl12lts_2024072212log_internal12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i, !llvm.loop !215
 
-.critedge:                                        ; preds = %34, %32, %13, %._crit_edge, %24
-  %.027 = phi i64 [ %.032, %24 ], [ %.032, %32 ], [ %.0.lcssa, %13 ], [ %.0.lcssa, %._crit_edge ], [ %.032, %34 ]
-  %.019.ph = phi i64 [ 0, %24 ], [ 0, %32 ], [ %.lcssa, %13 ], [ %.lcssa, %._crit_edge ], [ %35, %34 ]
-  %.0.i.ph = phi i32 [ 0, %24 ], [ 7, %32 ], [ 2, %13 ], [ 2, %._crit_edge ], [ 0, %34 ]
+.critedge:                                        ; preds = %34, %._crit_edge, %32, %13, %24
+  %.027 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.032, %24 ], [ %.032, %32 ], [ %.0.lcssa, %13 ], [ %.032, %34 ]
+  %.019.ph = phi i64 [ %.lcssa, %._crit_edge ], [ 0, %24 ], [ 0, %32 ], [ %.lcssa, %13 ], [ %35, %34 ]
+  %.0.i.ph = phi i32 [ 2, %._crit_edge ], [ 0, %24 ], [ 7, %32 ], [ 2, %13 ], [ 0, %34 ]
   %49 = add i64 %.019.ph, %.027
   store i64 %49, ptr %1, align 8, !tbaa !131
   ret i32 %.0.i.ph
@@ -6855,7 +6855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %108
   resume { ptr, i32 } %.pn39.pn.pn.pn
 
 113:                                              ; preds = %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %28, %23, %_ZL25ssl_handshaker_get_resultP18tsi_ssl_handshaker.exit.thread
-  %.028 = phi i32 [ 0, %_ZL25ssl_handshaker_get_resultP18tsi_ssl_handshaker.exit.thread ], [ 10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ 16, %33 ], [ %., %28 ], [ %27, %23 ]
+  %.028 = phi i32 [ 0, %_ZL25ssl_handshaker_get_resultP18tsi_ssl_handshaker.exit.thread ], [ 10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %., %28 ], [ 16, %33 ], [ %27, %23 ]
   ret i32 %.028
 }
 
@@ -7151,7 +7151,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; pr
   br label %96
 
 96:                                               ; preds = %77, %.critedge81, %51, %61, %67, %10
-  %.0 = phi i32 [ %11, %10 ], [ %57, %51 ], [ %66, %61 ], [ %76, %67 ], [ %.pre, %.critedge81 ], [ 0, %77 ]
+  %.0 = phi i32 [ %11, %10 ], [ %66, %61 ], [ %57, %51 ], [ %76, %67 ], [ %.pre, %.critedge81 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

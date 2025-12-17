@@ -582,8 +582,8 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %55
   br label %.body
 
 .body:                                            ; preds = %61, %39, %36, %63
-  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %37, %39 ], [ %37, %36 ]
-  %.3 = phi i1 [ true, %63 ], [ false, %61 ], [ true, %39 ], [ true, %36 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %37, %36 ], [ %37, %39 ]
+  %.3 = phi i1 [ true, %63 ], [ false, %61 ], [ true, %36 ], [ true, %39 ]
   %65 = load i64, ptr %8, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw ptr, ptr @constinit.17, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !31
@@ -659,7 +659,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60, %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit56, %56
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn, %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit56 ], [ %.pn.pn.pn.pn.ph93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60 ], [ %.pn.pn.pn.pn.ph93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit56 ], [ %57, %56 ], [ %.pn.pn.pn.pn.ph93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60 ], [ %.pn.pn.pn.pn.ph93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %91
 
@@ -1175,8 +1175,8 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4G
   br label %.body
 
 .body:                                            ; preds = %86, %45
-  %.08.lpad-body = phi ptr [ %53, %86 ], [ %30, %45 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %87, %86 ], [ %46, %45 ]
+  %.08.lpad-body = phi ptr [ %30, %45 ], [ %53, %86 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %46, %45 ], [ %87, %86 ]
   br label %88
 
 88:                                               ; preds = %.body, %_ZN2cv4GArgD2Ev.exit25
@@ -1206,7 +1206,7 @@ _ZN2cv4GArgD2Ev.exit25:                           ; preds = %88, %_ZNKSt14defaul
   br label %.body18
 
 .body18:                                          ; preds = %64, %61, %97
-  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %62, %64 ], [ %62, %61 ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %62, %61 ], [ %62, %64 ]
   br label %99
 
 99:                                               ; preds = %_ZN2cv4GArgD2Ev.exit28, %.body18

@@ -1476,7 +1476,7 @@ If_Dec08CofCount2.exit.thread:                    ; preds = %423, %441
   br i1 %exitcond360.not, label %.loopexit, label %450, !llvm.loop !30
 
 .loopexit232:                                     ; preds = %.loopexit.us271, %74, %70, %.loopexit.us, %50, %.loopexit, %459, %466, %3, %.preheader
-  %.085 = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ 1, %466 ], [ 1, %459 ], [ 0, %.loopexit ], [ 1, %50 ], [ 0, %.loopexit.us ], [ 1, %70 ], [ 1, %74 ], [ 0, %.loopexit.us271 ]
+  %.085 = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ 1, %74 ], [ 1, %459 ], [ 0, %.loopexit ], [ 1, %50 ], [ 0, %.loopexit.us ], [ 1, %466 ], [ 1, %70 ], [ 0, %.loopexit.us271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1609,7 +1609,7 @@ If_Dec08HasVar.exit.thread14.us.us.i:             ; preds = %45, %If_Dec08HasVar
   br i1 %exitcond53.not.i.us.us.i, label %If_Dec08HasVar.exit.thread.us.us.i, label %45, !llvm.loop !47
 
 If_Dec08HasVar.exit.thread.us.us.i:               ; preds = %._crit_edge.us.i.us.us.i, %52, %If_Dec08HasVar.exit.thread14.us.us.i, %If_Dec08HasVar.exit.us.us.i
-  %53 = phi i32 [ %38, %If_Dec08HasVar.exit.us.us.i ], [ %51, %If_Dec08HasVar.exit.thread14.us.us.i ], [ %.021.us.us.i, %52 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
+  %53 = phi i32 [ %51, %If_Dec08HasVar.exit.thread14.us.us.i ], [ %38, %If_Dec08HasVar.exit.us.us.i ], [ %.021.us.us.i, %52 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %If_Dec08Support.exit, label %.split.us.split.us.i, !llvm.loop !48
@@ -1629,7 +1629,7 @@ If_Dec08Support.exit:                             ; preds = %If_Dec08HasVar.exit
   br label %If_Dec08Support.exit.thread
 
 If_Dec08Support.exit.thread:                      ; preds = %If_Dec08Copy.exit, %57, %If_Dec08Support.exit, %54, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %54 ], [ 0, %If_Dec08Support.exit ], [ %58, %57 ], [ 0, %If_Dec08Copy.exit ]
+  %.0 = phi i32 [ 1, %5 ], [ %58, %57 ], [ 0, %If_Dec08Support.exit ], [ 0, %54 ], [ 0, %If_Dec08Copy.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -815,7 +815,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br label %222
 
 222:                                              ; preds = %.thread, %14, %219, %221, %218, %.thread136.thread, %207, %.loopexit
-  %.1113 = phi i32 [ 0, %.loopexit ], [ 0, %.thread136.thread ], [ 0, %218 ], [ 0, %221 ], [ 0, %207 ], [ 0, %14 ], [ -1497649742, %219 ], [ %.2.ph, %.thread ]
+  %.1113 = phi i32 [ 0, %.loopexit ], [ 0, %.thread136.thread ], [ 0, %218 ], [ 0, %221 ], [ 0, %14 ], [ 0, %207 ], [ %.2.ph, %.thread ], [ -1497649742, %219 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1113
@@ -979,9 +979,9 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %94
 
 94:                                               ; preds = %85, %.thread519, %.thread518
-  %.369 = phi i32 [ %93, %.thread518 ], [ %82, %.thread519 ], [ %spec.select, %85 ]
-  %95 = phi i32 [ %89, %.thread518 ], [ %82, %.thread519 ], [ %86, %85 ]
-  %96 = phi i32 [ %93, %.thread518 ], [ %84, %.thread519 ], [ %88, %85 ]
+  %.369 = phi i32 [ %93, %.thread518 ], [ %spec.select, %85 ], [ %82, %.thread519 ]
+  %95 = phi i32 [ %89, %.thread518 ], [ %86, %85 ], [ %82, %.thread519 ]
+  %96 = phi i32 [ %93, %.thread518 ], [ %88, %85 ], [ %84, %.thread519 ]
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 68
   store i32 %95, ptr %97, align 4, !tbaa !108
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -1629,7 +1629,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %.thread523
 
 .thread523:                                       ; preds = %.thread523.sink.split, %410, %418, %414
-  %422 = phi i64 [ %415, %418 ], [ %415, %414 ], [ %.sroa.0.0.insert.insert.i402, %410 ], [ %421, %.thread523.sink.split ]
+  %422 = phi i64 [ %.sroa.0.0.insert.insert.i402, %410 ], [ %415, %418 ], [ %415, %414 ], [ %421, %.thread523.sink.split ]
   %423 = getelementptr inbounds nuw i8, ptr %9, i64 292
   %424 = load i32, ptr %423, align 4, !tbaa !100
   %.not362 = icmp eq i32 %424, 0
@@ -1702,8 +1702,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %.373 = select i1 %.not367, i32 -12, i32 0
   br label %.thread388
 
-.thread388:                                       ; preds = %.lr.ph432, %.lr.ph436, %.lr.ph439, %262, %256, %.lr.ph443, %306, %._crit_edge444, %240, %236, %._crit_edge440, %._crit_edge437, %._crit_edge433, %._crit_edge430, %291, %183, %454, %447, %436, %126, %116, %1, %430, %40
-  %.0 = phi i32 [ -22, %40 ], [ %431, %430 ], [ -558323010, %1 ], [ -12, %116 ], [ -12, %126 ], [ -12, %436 ], [ -12, %447 ], [ %.373, %454 ], [ -12, %306 ], [ -12, %._crit_edge444 ], [ -12, %240 ], [ -12, %236 ], [ -12, %._crit_edge440 ], [ -12, %._crit_edge437 ], [ -12, %._crit_edge433 ], [ -12, %._crit_edge430 ], [ -22, %291 ], [ %.3, %183 ], [ -12, %.lr.ph443 ], [ -12, %256 ], [ -12, %262 ], [ -12, %.lr.ph439 ], [ -12, %.lr.ph436 ], [ -12, %.lr.ph432 ]
+.thread388:                                       ; preds = %.lr.ph432, %.lr.ph436, %.lr.ph439, %262, %.lr.ph443, %256, %._crit_edge440, %236, %._crit_edge444, %306, %291, %240, %._crit_edge437, %._crit_edge433, %._crit_edge430, %183, %454, %447, %436, %126, %116, %1, %430, %40
+  %.0 = phi i32 [ -558323010, %1 ], [ -22, %40 ], [ -12, %447 ], [ %.373, %454 ], [ -12, %436 ], [ -12, %126 ], [ %431, %430 ], [ -12, %116 ], [ -12, %._crit_edge440 ], [ -12, %236 ], [ -12, %._crit_edge444 ], [ -12, %306 ], [ -22, %291 ], [ -12, %240 ], [ -12, %._crit_edge437 ], [ -12, %._crit_edge433 ], [ -12, %._crit_edge430 ], [ %.3, %183 ], [ -12, %.lr.ph436 ], [ -12, %262 ], [ -12, %.lr.ph439 ], [ -12, %256 ], [ -12, %.lr.ph443 ], [ -12, %.lr.ph432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1836,9 +1836,9 @@ define internal noundef i32 @plot_channel_lin(ptr noundef readonly captures(none
   br label %pick_color.exit
 
 pick_color.exit:                                  ; preds = %24, %49, %59, %66
-  %.sink11.i = phi float [ %51, %49 ], [ %61, %59 ], [ %76, %66 ], [ %35, %24 ]
-  %.sink10.i = phi float [ %53, %49 ], [ %63, %59 ], [ %82, %66 ], [ %35, %24 ]
-  %.sink8.i = phi float [ %55, %49 ], [ %65, %59 ], [ %88, %66 ], [ %35, %24 ]
+  %.sink11.i = phi float [ %76, %66 ], [ %51, %49 ], [ %61, %59 ], [ %35, %24 ]
+  %.sink10.i = phi float [ %82, %66 ], [ %53, %49 ], [ %63, %59 ], [ %35, %24 ]
+  %.sink8.i = phi float [ %88, %66 ], [ %55, %49 ], [ %65, %59 ], [ %35, %24 ]
   %89 = fmul nsz float %.val24, 2.550000e+02
   %90 = fmul nsz float %19, %.sink11.i
   store float %90, ptr %34, align 4, !tbaa !114
@@ -2048,9 +2048,9 @@ define internal noundef i32 @plot_channel_log(ptr noundef readonly captures(none
   br label %pick_color.exit
 
 pick_color.exit:                                  ; preds = %40, %91, %101, %108
-  %.sink11.i = phi float [ %93, %91 ], [ %103, %101 ], [ %118, %108 ], [ %77, %40 ]
-  %.sink10.i = phi float [ %95, %91 ], [ %105, %101 ], [ %124, %108 ], [ %77, %40 ]
-  %.sink8.i = phi float [ %97, %91 ], [ %107, %101 ], [ %130, %108 ], [ %77, %40 ]
+  %.sink11.i = phi float [ %118, %108 ], [ %93, %91 ], [ %103, %101 ], [ %77, %40 ]
+  %.sink10.i = phi float [ %124, %108 ], [ %95, %91 ], [ %105, %101 ], [ %77, %40 ]
+  %.sink8.i = phi float [ %130, %108 ], [ %97, %91 ], [ %107, %101 ], [ %77, %40 ]
   %131 = fmul nsz float %.val47, 2.550000e+02
   %132 = fmul nsz float %27, %.sink11.i
   store float %132, ptr %74, align 4, !tbaa !114
@@ -2790,7 +2790,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br label %383
 
 383:                                              ; preds = %373, %357, %376, %365, %349
-  %.sink561 = phi float [ %361, %357 ], [ %382, %376 ], [ %372, %365 ], [ %353, %349 ], [ 0.000000e+00, %373 ]
+  %.sink561 = phi float [ %361, %357 ], [ %382, %376 ], [ %353, %349 ], [ %372, %365 ], [ 0.000000e+00, %373 ]
   %384 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv463
   store float %.sink561, ptr %384, align 4, !tbaa !114
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
@@ -2892,7 +2892,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   unreachable
 
 ._crit_edge451:                                   ; preds = %427, %406, %404, %383, %339, %._crit_edge401, %277, %252, %249, %221, %213, %200, %183, %166, %121, %111, %98, %89, %79, %70, %.lr.ph450, %420, %.preheader382, %.preheader381, %.preheader380, %.preheader379, %279, %.preheader378, %.preheader377, %.preheader376, %.preheader375, %.preheader374, %.preheader373, %.preheader372, %.preheader371, %.preheader370, %.preheader369, %.preheader368, %.preheader367, %.preheader366, %.preheader365, %.preheader
-  %.sink565 = phi float [ 0.000000e+00, %.preheader ], [ 5.000000e-01, %.preheader365 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader367 ], [ 0x3FE526E980000000, %.preheader368 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FE526E980000000, %.preheader372 ], [ 5.000000e-01, %.preheader373 ], [ 7.500000e-01, %.preheader374 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader376 ], [ 7.500000e-01, %.preheader377 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 5.000000e-01, %279 ], [ 7.500000e-01, %.preheader379 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %420 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 7.500000e-01, %427 ]
+  %.sink565 = phi float [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader379 ], [ 5.000000e-01, %279 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 7.500000e-01, %.preheader377 ], [ 7.500000e-01, %.preheader376 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader374 ], [ 5.000000e-01, %.preheader373 ], [ 0x3FE526E980000000, %.preheader372 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FE526E980000000, %.preheader368 ], [ 5.000000e-01, %.preheader367 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader365 ], [ 0.000000e+00, %.preheader ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %406 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %427 ]
   store float %.sink565, ptr %3, align 4, !tbaa !114
   ret void
 }
@@ -3719,7 +3719,7 @@ drawtext.exit580:                                 ; preds = %.lr.ph134.split.us.
   br label %get_hz.exit
 
 get_hz.exit:                                      ; preds = %422, %426
-  %.0.i581 = phi nsz float [ %425, %422 ], [ %433, %426 ]
+  %.0.i581 = phi nsz float [ %433, %426 ], [ %425, %422 ]
   %434 = fcmp nsz oeq float %.0.i581, 0.000000e+00
   br i1 %434, label %get_hz.exit.thread, label %436
 
@@ -4470,7 +4470,7 @@ drawtext.exit675:                                 ; preds = %.lr.ph134.split.us.
   br label %get_hz.exit677
 
 get_hz.exit677:                                   ; preds = %809, %813
-  %.0.i676 = phi nsz float [ %812, %809 ], [ %820, %813 ]
+  %.0.i676 = phi nsz float [ %820, %813 ], [ %812, %809 ]
   %821 = fcmp nsz oeq float %.0.i676, 0.000000e+00
   br i1 %821, label %get_hz.exit677.thread, label %823
 
@@ -5233,13 +5233,13 @@ color_range.exit:                                 ; preds = %1114, %1104, %1104,
   br label %pick_color.exit
 
 pick_color.exit:                                  ; preds = %color_range.exit.thread, %color_range.exit, %1169, %1179, %1186
-  %.val5211179 = phi float [ %.val521, %1169 ], [ %.val521, %1179 ], [ %.val521, %1186 ], [ %.val521, %color_range.exit ], [ %.val5211177, %color_range.exit.thread ]
-  %1209 = phi float [ %1155, %1169 ], [ %1155, %1179 ], [ %1155, %1186 ], [ %1155, %color_range.exit ], [ %1142, %color_range.exit.thread ]
-  %1210 = phi float [ %1154, %1169 ], [ %1154, %1179 ], [ %1154, %1186 ], [ %1154, %color_range.exit ], [ %1141, %color_range.exit.thread ]
-  %.21178 = phi float [ %.0824, %1169 ], [ %.0824, %1179 ], [ %.0824, %1186 ], [ %.0824, %color_range.exit ], [ %.1, %color_range.exit.thread ]
-  %.sink11.i = phi float [ %1171, %1169 ], [ %1181, %1179 ], [ %1196, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
-  %.sink10.i = phi float [ %1173, %1169 ], [ %1183, %1179 ], [ %1202, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
-  %.sink8.i = phi float [ %1175, %1169 ], [ %1185, %1179 ], [ %1208, %1186 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
+  %.val5211179 = phi float [ %.val521, %1186 ], [ %.val521, %1169 ], [ %.val521, %1179 ], [ %.val521, %color_range.exit ], [ %.val5211177, %color_range.exit.thread ]
+  %1209 = phi float [ %1155, %1186 ], [ %1155, %1169 ], [ %1155, %1179 ], [ %1155, %color_range.exit ], [ %1142, %color_range.exit.thread ]
+  %1210 = phi float [ %1154, %1186 ], [ %1154, %1169 ], [ %1154, %1179 ], [ %1154, %color_range.exit ], [ %1141, %color_range.exit.thread ]
+  %.21178 = phi float [ %.0824, %1186 ], [ %.0824, %1169 ], [ %.0824, %1179 ], [ %.0824, %color_range.exit ], [ %.1, %color_range.exit.thread ]
+  %.sink11.i = phi float [ %1196, %1186 ], [ %1171, %1169 ], [ %1181, %1179 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
+  %.sink10.i = phi float [ %1202, %1186 ], [ %1173, %1169 ], [ %1183, %1179 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
+  %.sink8.i = phi float [ %1208, %1186 ], [ %1175, %1169 ], [ %1185, %1179 ], [ %1091, %color_range.exit ], [ %1091, %color_range.exit.thread ]
   %1211 = fmul nsz float %.val5211179, 2.550000e+02
   %1212 = fmul nsz float %.21178, %.sink11.i
   %1213 = fmul nsz float %1210, %.sink10.i
@@ -7365,7 +7365,7 @@ clear_combine_buffer.exit:                        ; preds = %23
   br i1 %333, label %320, label %.loopexit, !llvm.loop !245
 
 .loopexit:                                        ; preds = %320, %185, %305, %166, %304, %165
-  %.2273 = phi i32 [ %.0271.lcssa, %165 ], [ %.4275.lcssa, %304 ], [ %.0271.lcssa, %166 ], [ 0, %305 ], [ %.0271.lcssa, %185 ], [ 1, %320 ]
+  %.2273 = phi i32 [ %.4275.lcssa, %304 ], [ %.0271.lcssa, %165 ], [ %.0271.lcssa, %166 ], [ 0, %305 ], [ %.0271.lcssa, %185 ], [ 1, %320 ]
   %334 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %335 = load i32, ptr %334, align 8, !tbaa !62
   %.not289 = icmp eq i32 %335, 2
@@ -7810,7 +7810,7 @@ drawtext.exit:                                    ; preds = %.loopexit109.i, %.l
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread308, %380, %393, %390, %573, %577, %get_time.exit, %._crit_edge326
-  %.0 = phi i32 [ %53, %._crit_edge326 ], [ -12, %573 ], [ %., %577 ], [ -12, %get_time.exit ], [ 1, %390 ], [ 1, %393 ], [ 1, %380 ], [ 1, %.thread308 ]
+  %.0 = phi i32 [ %53, %._crit_edge326 ], [ -12, %get_time.exit ], [ %., %577 ], [ -12, %573 ], [ 1, %.thread308 ], [ 1, %390 ], [ 1, %393 ], [ 1, %380 ]
   ret i32 %.0
 }
 
@@ -8209,7 +8209,7 @@ scale_magnitudes.exit:                            ; preds = %._crit_edge.us.i133
   br label %157
 
 157:                                              ; preds = %.sink.split, %1, %11, %14
-  %.1 = phi i32 [ -541478725, %14 ], [ -541478725, %11 ], [ %9, %1 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ -541478725, %11 ], [ %9, %1 ], [ -541478725, %14 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
 

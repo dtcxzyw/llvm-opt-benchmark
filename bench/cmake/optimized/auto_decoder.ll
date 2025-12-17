@@ -227,7 +227,7 @@ define internal i32 @auto_decode(ptr noundef %0, ptr noundef %1, ptr noalias nou
   br label %.thread
 
 .thread:                                          ; preds = %32, %37, %9, %43, %30, %26, %12, %20, %24, %46
-  %.1 = phi i32 [ %48, %46 ], [ %23, %20 ], [ %25, %24 ], [ 0, %12 ], [ 2, %26 ], [ 4, %30 ], [ 9, %43 ], [ 11, %9 ], [ 1, %37 ], [ %36, %32 ]
+  %.1 = phi i32 [ 9, %43 ], [ %25, %24 ], [ 4, %30 ], [ %48, %46 ], [ 11, %9 ], [ %23, %20 ], [ 0, %12 ], [ 2, %26 ], [ 1, %37 ], [ %36, %32 ]
   ret i32 %.1
 }
 
@@ -294,7 +294,7 @@ define internal i32 @auto_decoder_memconfig(ptr noundef captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %10, %19, %16
-  %.023 = phi i32 [ 0, %19 ], [ %.0, %16 ], [ 0, %10 ]
+  %.023 = phi i32 [ %.0, %16 ], [ 0, %19 ], [ 0, %10 ]
   ret i32 %.023
 }
 

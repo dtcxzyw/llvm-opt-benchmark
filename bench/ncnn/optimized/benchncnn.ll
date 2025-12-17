@@ -998,7 +998,7 @@ _ZN4ncnn3MatD2Ev.exit93:                          ; preds = %382, %379, %388, %3
   ret void
 
 410:                                              ; preds = %272, %406, %407, %40, %260, %42, %38
-  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ], [ %.pn74.pn.pn, %260 ], [ %43, %42 ], [ %.pn.pn.pn, %406 ], [ %408, %407 ], [ %273, %272 ]
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ], [ %273, %272 ], [ %.pn74.pn.pn, %260 ], [ %43, %42 ], [ %.pn.pn.pn, %406 ], [ %408, %407 ]
   call void @_ZN4ncnn10DataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
   br label %411
 
@@ -3061,13 +3061,13 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br label %.thread
 
 ._crit_edge968.thread:                            ; preds = %2, %79, %74, %68, %._crit_edge, %.thread789, %658, %._crit_edge968
-  %.not1011303 = phi i1 [ false, %658 ], [ true, %._crit_edge968 ], [ true, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
-  %.096.lcssa1302 = phi ptr [ %.197, %658 ], [ null, %._crit_edge968 ], [ null, %.thread789 ], [ null, %._crit_edge ], [ null, %68 ], [ null, %74 ], [ null, %79 ], [ null, %2 ]
-  %.09279712851301 = phi i32 [ %83, %658 ], [ %83, %._crit_edge968 ], [ %83, %.thread789 ], [ -1, %._crit_edge ], [ -1, %68 ], [ -1, %74 ], [ %83, %79 ], [ -1, %2 ]
-  %.09077978579612861300 = phi i32 [ %72, %658 ], [ %72, %._crit_edge968 ], [ %72, %.thread789 ], [ %49, %._crit_edge ], [ %72, %68 ], [ %72, %74 ], [ %72, %79 ], [ %49, %2 ]
-  %.08977377878679512871299 = phi i32 [ %67, %658 ], [ %67, %._crit_edge968 ], [ %67, %.thread789 ], [ %67, %._crit_edge ], [ %67, %68 ], [ %67, %74 ], [ %67, %79 ], [ 4, %2 ]
-  %.09178779412881298 = phi i32 [ %78, %658 ], [ %78, %._crit_edge968 ], [ %78, %.thread789 ], [ 2, %._crit_edge ], [ 2, %68 ], [ %78, %74 ], [ %78, %79 ], [ 2, %2 ]
-  %.09912891297.shrunk = phi i1 [ %89, %658 ], [ %89, %._crit_edge968 ], [ %89, %.thread789 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ], [ true, %2 ]
+  %.not1011303 = phi i1 [ true, %._crit_edge968 ], [ false, %658 ], [ true, %.thread789 ], [ true, %2 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ]
+  %.096.lcssa1302 = phi ptr [ null, %._crit_edge968 ], [ %.197, %658 ], [ null, %.thread789 ], [ null, %2 ], [ null, %._crit_edge ], [ null, %68 ], [ null, %74 ], [ null, %79 ]
+  %.09279712851301 = phi i32 [ %83, %._crit_edge968 ], [ %83, %658 ], [ %83, %.thread789 ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %68 ], [ -1, %74 ], [ %83, %79 ]
+  %.09077978579612861300 = phi i32 [ %72, %._crit_edge968 ], [ %72, %658 ], [ %72, %.thread789 ], [ %49, %2 ], [ %49, %._crit_edge ], [ %72, %68 ], [ %72, %74 ], [ %72, %79 ]
+  %.08977377878679512871299 = phi i32 [ %67, %._crit_edge968 ], [ %67, %658 ], [ %67, %.thread789 ], [ 4, %2 ], [ %67, %._crit_edge ], [ %67, %68 ], [ %67, %74 ], [ %67, %79 ]
+  %.09178779412881298 = phi i32 [ %78, %._crit_edge968 ], [ %78, %658 ], [ %78, %.thread789 ], [ 2, %2 ], [ 2, %._crit_edge ], [ 2, %68 ], [ %78, %74 ], [ %78, %79 ]
+  %.09912891297.shrunk = phi i1 [ %89, %._crit_edge968 ], [ %89, %658 ], [ %89, %.thread789 ], [ true, %2 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %74 ], [ true, %79 ]
   %.09912891297 = zext i1 %.09912891297.shrunk to i8
   %666 = icmp ne i32 %.09279712851301, -1
   %667 = zext i1 %666 to i8

@@ -362,7 +362,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555
   unreachable
 
 common.resume:                                    ; preds = %155, %56, %.body.i, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.split-lp, %155 ], [ %lpad.phi, %56 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %lpad.phi, %56 ], [ %lpad.thr_comm.split-lp, %155 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd71ec00f9a8716b9E.llvm.9555640969677938857.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h2f7b5539214ab71cE.exit"
@@ -511,9 +511,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   store atomic i8 1, ptr %81 release, align 1, !noalias !49
   br label %82
 
-82:                                               ; preds = %80, %79
-  %.sroa.028.0.ph = phi i64 [ %.sroa.0.i.i.sroa.0.0.copyload.i, %79 ], [ %.sroa.0.i.i3.sroa.0.0.copyload.i, %80 ]
-  %.sroa.5.0.ph = phi i32 [ %.sroa.0.i.i.sroa.4.0.copyload.i, %79 ], [ %.sroa.0.i.i3.sroa.4.0.copyload.i, %80 ]
+82:                                               ; preds = %79, %80
+  %.sroa.028.0.ph = phi i64 [ %.sroa.0.i.i3.sroa.0.0.copyload.i, %80 ], [ %.sroa.0.i.i.sroa.0.0.copyload.i, %79 ]
+  %.sroa.5.0.ph = phi i32 [ %.sroa.0.i.i3.sroa.4.0.copyload.i, %80 ], [ %.sroa.0.i.i.sroa.4.0.copyload.i, %79 ]
   store i64 %.sroa.028.0.ph, ptr %0, align 16, !alias.scope !60
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.5.0.ph, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !60
@@ -1420,8 +1420,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   br label %157
 
 .thread:                                          ; preds = %170, %109, %194, %133, %.thread109
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.thread109 ], [ %195, %194 ], [ %134, %133 ], [ %110, %109 ], [ %171, %170 ]
-  resume { ptr, i32 } %.pn.pn
+  %.pn134 = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %.thread109 ], [ %171, %170 ], [ %134, %133 ], [ %195, %194 ]
+  resume { ptr, i32 } %.pn134
 
 .thread109:                                       ; preds = %31, %21
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %32, %31 ]
@@ -1504,7 +1504,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555
   unreachable
 
 common.resume:                                    ; preds = %142, %57, %.body.i, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %lpad.thr_comm.split-lp, %142 ], [ %58, %57 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %58, %57 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %142 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd71ec00f9a8716b9E.llvm.9555640969677938857.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h2f7b5539214ab71cE.exit"
@@ -2527,8 +2527,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   br label %.thread139
 
 .thread129:                                       ; preds = %173, %109, %197, %133, %.thread139
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.thread139 ], [ %198, %197 ], [ %134, %133 ], [ %174, %173 ], [ %110, %109 ]
-  resume { ptr, i32 } %.pn.pn
+  %eh.lpad-body.ph.pn = phi { ptr, i32 } [ %134, %133 ], [ %.pn, %.thread139 ], [ %110, %109 ], [ %198, %197 ], [ %174, %173 ]
+  resume { ptr, i32 } %eh.lpad-body.ph.pn
 
 .thread139:                                       ; preds = %31, %224
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %224 ], [ %32, %31 ]

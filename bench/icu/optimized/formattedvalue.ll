@@ -161,7 +161,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -549,7 +549,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724ConstrainedFieldPosition1
   unreachable
 
 18:                                               ; preds = %3, %10, %6
-  %.0.shrunk = phi i1 [ %9, %6 ], [ %narrow, %10 ], [ true, %3 ]
+  %.0.shrunk = phi i1 [ %narrow, %10 ], [ %9, %6 ], [ true, %3 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -916,7 +916,7 @@ _ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPosit
   unreachable
 
 _ZNK6icu_7724ConstrainedFieldPosition12matchesFieldEii.exit: ; preds = %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit, %13, %17
-  %.0.shrunk.i = phi i1 [ %16, %13 ], [ %narrow.i, %17 ], [ true, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit ]
+  %.0.shrunk.i = phi i1 [ %narrow.i, %17 ], [ %16, %13 ], [ true, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit ]
   %.0.i6 = zext i1 %.0.shrunk.i to i8
   br label %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPKS1_R10UErrorCode.exit.thread
 
@@ -1050,7 +1050,7 @@ _ZN6icu_7713IcuCApiHelperI15UFormattedValueNS_19UFormattedValueImplELi1430672896
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %31, %29, %._crit_edge, %_ZN6icu_7713IcuCApiHelperI15UFormattedValueNS_19UFormattedValueImplELi1430672896EE8validateEPKS1_R10UErrorCode.exit
-  %.1 = phi ptr [ null, %_ZN6icu_7713IcuCApiHelperI15UFormattedValueNS_19UFormattedValueImplELi1430672896EE8validateEPKS1_R10UErrorCode.exit ], [ %30, %29 ], [ %33, %31 ], [ null, %._crit_edge ]
+  %.1 = phi ptr [ null, %_ZN6icu_7713IcuCApiHelperI15UFormattedValueNS_19UFormattedValueImplELi1430672896EE8validateEPKS1_R10UErrorCode.exit ], [ %33, %31 ], [ %30, %29 ], [ null, %._crit_edge ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6icu_7713IcuCApiHelperI15UFormattedValueNS_19UFormattedValueImplELi1430672896EE8validateEPKS1_R10UErrorCode.exit.thread
@@ -1107,8 +1107,8 @@ _ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPosit
   %19 = tail call noundef signext i8 %18(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(25) %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit
-  %.0 = phi i8 [ %19, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit ], [ 0, %.sink.split.i.i ], [ 0, %3 ], [ 0, %.sink.split.i ]
+_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %3, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit
+  %.0 = phi i8 [ %19, %_ZN6icu_7713IcuCApiHelperI25UConstrainedFieldPositionNS_29UConstrainedFieldPositionImplELi1430472192EE8validateEPS1_R10UErrorCode.exit ], [ 0, %.sink.split.i ], [ 0, %.sink.split.i.i ], [ 0, %3 ]
   ret i8 %.0
 }
 

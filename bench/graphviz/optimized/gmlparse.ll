@@ -1743,7 +1743,7 @@ attrs_append.exit306:                             ; preds = %._crit_edge.i.i299,
   br label %setDir.exit.thread
 
 setDir.exit.thread:                               ; preds = %257, %.preheader.i, %245, %79, %86, %89, %737, %734, %731, %728, %725, %722, %719, %716, %713, %710, %707, %704, %701, %698, %695, %692, %689, %686, %683, %680, %677, %674, %671, %666, %661, %656, %651, %attrs_append.exit306, %attrs_append.exit298, %popAlist.exit, %545, %attrs_append.exit290, %attrs_append.exit282, %434, %431, %429, %mkEdge.exit, %attrs_append.exit265, %373, %371, %mkNode.exit, %attrs_append.exit256, %attrs_append.exit, %edges_append.exit, %nodes_append.exit, %pushG.exit
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %79 ], [ %.sroa.0.0.copyload, %89 ], [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.0.copyload, %pushG.exit ], [ %.sroa.0.0.copyload, %nodes_append.exit ], [ %.sroa.0.0.copyload, %edges_append.exit ], [ %.sroa.0.0.copyload, %attrs_append.exit ], [ %.sroa.0.0.copyload, %attrs_append.exit256 ], [ %.sroa.0.0.copyload, %mkNode.exit ], [ %372, %371 ], [ %.sroa.0.0.copyload, %373 ], [ %.sroa.0.0.copyload, %attrs_append.exit265 ], [ %.sroa.0.0.copyload, %mkEdge.exit ], [ %430, %429 ], [ %.sroa.0.0.copyload, %431 ], [ %.sroa.0.0.copyload, %434 ], [ %.sroa.0.0.copyload, %attrs_append.exit282 ], [ %.sroa.0.0.copyload, %attrs_append.exit290 ], [ %.sroa.0.0.copyload, %545 ], [ %547, %popAlist.exit ], [ %.sroa.0.0.copyload, %attrs_append.exit298 ], [ %.sroa.0.0.copyload, %attrs_append.exit306 ], [ %655, %651 ], [ %660, %656 ], [ %665, %661 ], [ %670, %666 ], [ %673, %671 ], [ %676, %674 ], [ %679, %677 ], [ %682, %680 ], [ %685, %683 ], [ %688, %686 ], [ %691, %689 ], [ %694, %692 ], [ %697, %695 ], [ %700, %698 ], [ %703, %701 ], [ %706, %704 ], [ %709, %707 ], [ %712, %710 ], [ %715, %713 ], [ %718, %716 ], [ %721, %719 ], [ %724, %722 ], [ %727, %725 ], [ %730, %728 ], [ %733, %731 ], [ %736, %734 ], [ %739, %737 ], [ %.sroa.0.0.copyload, %245 ], [ %.sroa.0.0.copyload, %.preheader.i ], [ %.sroa.0.0.copyload, %257 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %79 ], [ %.sroa.0.0.copyload, %89 ], [ %.sroa.0.0.copyload, %86 ], [ %.sroa.0.0.copyload, %pushG.exit ], [ %.sroa.0.0.copyload, %nodes_append.exit ], [ %.sroa.0.0.copyload, %edges_append.exit ], [ %739, %737 ], [ %.sroa.0.0.copyload, %attrs_append.exit ], [ %.sroa.0.0.copyload, %attrs_append.exit256 ], [ %.sroa.0.0.copyload, %mkNode.exit ], [ %372, %371 ], [ %.sroa.0.0.copyload, %373 ], [ %.sroa.0.0.copyload, %attrs_append.exit265 ], [ %.sroa.0.0.copyload, %mkEdge.exit ], [ %430, %429 ], [ %.sroa.0.0.copyload, %431 ], [ %.sroa.0.0.copyload, %434 ], [ %.sroa.0.0.copyload, %attrs_append.exit282 ], [ %.sroa.0.0.copyload, %attrs_append.exit290 ], [ %.sroa.0.0.copyload, %545 ], [ %547, %popAlist.exit ], [ %.sroa.0.0.copyload, %attrs_append.exit298 ], [ %.sroa.0.0.copyload, %attrs_append.exit306 ], [ %655, %651 ], [ %660, %656 ], [ %665, %661 ], [ %670, %666 ], [ %673, %671 ], [ %676, %674 ], [ %679, %677 ], [ %682, %680 ], [ %685, %683 ], [ %688, %686 ], [ %691, %689 ], [ %694, %692 ], [ %697, %695 ], [ %700, %698 ], [ %703, %701 ], [ %706, %704 ], [ %709, %707 ], [ %712, %710 ], [ %715, %713 ], [ %718, %716 ], [ %721, %719 ], [ %724, %722 ], [ %727, %725 ], [ %730, %728 ], [ %733, %731 ], [ %736, %734 ], [ %.sroa.0.0.copyload, %245 ], [ %.sroa.0.0.copyload, %.preheader.i ], [ %.sroa.0.0.copyload, %257 ]
   %740 = sext i8 %82 to i64
   %741 = sub nsw i64 0, %740
   %742 = getelementptr inbounds %union.GMLSTYPE, ptr %.2194, i64 %741
@@ -1857,8 +1857,8 @@ setDir.exit.thread:                               ; preds = %257, %.preheader.i,
   br label %.loopexit334
 
 .loopexit334:                                     ; preds = %.thread323, %773, %786, %90, %setDir.exit, %797
-  %.0190 = phi i32 [ 2, %797 ], [ 1, %setDir.exit ], [ 1, %90 ], [ 1, %786 ], [ 0, %.thread323 ], [ 1, %773 ]
-  %.5 = phi ptr [ %.0176, %797 ], [ %.1177, %setDir.exit ], [ %.1177, %90 ], [ %.1177, %786 ], [ %.1177, %773 ], [ %.1177, %.thread323 ]
+  %.0190 = phi i32 [ 2, %797 ], [ 1, %90 ], [ 1, %setDir.exit ], [ 1, %786 ], [ 1, %773 ], [ 0, %.thread323 ]
+  %.5 = phi ptr [ %.0176, %797 ], [ %.1177, %90 ], [ %.1177, %setDir.exit ], [ %.1177, %786 ], [ %.1177, %773 ], [ %.1177, %.thread323 ]
   %.not230 = icmp eq ptr %.5, %1
   br i1 %.not230, label %798, label %.loopexit334.thread
 
@@ -2119,7 +2119,7 @@ gv_alloc.exit:                                    ; preds = %5
   br label %sortToStr.exit
 
 sortToStr.exit:                                   ; preds = %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i = phi ptr [ null, %45 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.1, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ], [ @.str.37, %38 ], [ @.str.38, %39 ], [ @.str.39, %40 ], [ @.str.40, %41 ], [ @.str.41, %42 ], [ @.str.42, %43 ], [ @.str.43, %44 ], [ @.str.11, %11 ]
+  %.0.i = phi ptr [ null, %45 ], [ @.str.43, %44 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.1, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ], [ @.str.37, %38 ], [ @.str.38, %39 ], [ @.str.39, %40 ], [ @.str.40, %41 ], [ @.str.41, %42 ], [ @.str.42, %43 ], [ @.str.11, %11 ]
   %46 = tail call noalias ptr @strdup(ptr noundef readonly %.0.i) #22
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %gv_strdup.exit
@@ -4580,7 +4580,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i15, 
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %3, %104, %agxbclear.exit.thread.i
-  %.0 = phi ptr [ %106, %104 ], [ %2, %agxbclear.exit.thread.i ], [ %7, %3 ]
+  %.0 = phi ptr [ %2, %agxbclear.exit.thread.i ], [ %106, %104 ], [ %7, %3 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !19
   %109 = tail call i32 @agsafeset(ptr noundef %0, ptr noundef %108, ptr noundef %.0, ptr noundef nonnull @.str.50) #22

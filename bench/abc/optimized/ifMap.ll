@@ -100,7 +100,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
   br label %Vec_PtrPush.exit
 
 common.ret29:                                     ; preds = %6, %9, %Vec_PtrPush.exit
-  %common.ret29.op = phi i32 [ %54, %Vec_PtrPush.exit ], [ %8, %6 ], [ -1, %9 ]
+  %common.ret29.op = phi i32 [ %54, %Vec_PtrPush.exit ], [ -1, %9 ], [ %8, %6 ]
   ret i32 %common.ret29.op
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %37
@@ -949,10 +949,10 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %368
 
 368:                                              ; preds = %364, %360, %367
-  %.0529.ph = phi i32 [ %357, %364 ], [ %346, %367 ], [ %357, %360 ]
-  %.0528.ph = phi i32 [ %346, %364 ], [ %357, %367 ], [ %346, %360 ]
-  %.0527.ph = phi ptr [ %303, %364 ], [ %288, %367 ], [ %303, %360 ]
-  %.0.ph = phi ptr [ %288, %364 ], [ %303, %367 ], [ %288, %360 ]
+  %.0529.ph = phi i32 [ %346, %367 ], [ %357, %364 ], [ %357, %360 ]
+  %.0528.ph = phi i32 [ %357, %367 ], [ %346, %364 ], [ %346, %360 ]
+  %.0527.ph = phi ptr [ %288, %367 ], [ %303, %364 ], [ %303, %360 ]
+  %.0.ph = phi ptr [ %303, %367 ], [ %288, %364 ], [ %288, %360 ]
   %369 = call i32 @If_CutMerge(ptr noundef nonnull %0, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0527.ph, ptr noundef %309) #23
   %.not594 = icmp eq i32 %369, 0
   br i1 %.not594, label %.thread828, label %372
@@ -1044,7 +1044,7 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %._crit_edge950
 
 ._crit_edge950:                                   ; preds = %404, %415, %408
-  %423 = phi i64 [ 0, %408 ], [ %422, %415 ], [ 0, %404 ]
+  %423 = phi i64 [ 0, %408 ], [ 0, %404 ], [ %422, %415 ]
   %424 = getelementptr inbounds nuw i8, ptr %309, i64 28
   %425 = and i64 %406, -36865
   %426 = or disjoint i64 %425, %423
@@ -2774,7 +2774,7 @@ Abc_TtHasVar.exit.thread99.i:                     ; preds = %1289
   br i1 %1335, label %.preheader.us.i63.i, label %Abc_TtHasVar.exit.i, !llvm.loop !143
 
 Abc_TtHasVar.exit.i:                              ; preds = %._crit_edge.us.i69.i, %1315, %1314, %1330
-  %.0.i.i = phi i32 [ 1, %1330 ], [ 0, %1314 ], [ 1, %1315 ], [ 0, %._crit_edge.us.i69.i ]
+  %.0.i.i = phi i32 [ 1, %1315 ], [ 1, %1330 ], [ 0, %1314 ], [ 0, %._crit_edge.us.i69.i ]
   %1336 = add nsw i32 %.0.i.i, %.032118.i
   br i1 %1307, label %1337, label %Abc_TtHasVar.exit.thread.thread.i
 
@@ -2847,8 +2847,8 @@ Abc_TtHasVar.exit.thread.thread.i:                ; preds = %Abc_TtHasVar.exit.i
   br i1 %1360, label %.preheader.us.i78.i, label %Abc_TtHasVar.exit96.i, !llvm.loop !143
 
 Abc_TtHasVar.exit96.i:                            ; preds = %._crit_edge.us.i87.i, %1344, %1343, %1355, %.preheader.lr.ph.i73.i, %Abc_TtHasVar.exit.thread.thread.i, %1337, %.preheader.lr.ph.i59.i, %1321, %1308, %Abc_TtHasVar.exit.thread99.i
-  %1361 = phi i32 [ %1300, %Abc_TtHasVar.exit.thread99.i ], [ %1336, %1337 ], [ %1336, %Abc_TtHasVar.exit.thread.thread.i ], [ %1336, %.preheader.lr.ph.i73.i ], [ %.032118.i, %1308 ], [ %.032118.i, %1321 ], [ %.032118.i, %.preheader.lr.ph.i59.i ], [ %1336, %1355 ], [ %1336, %1343 ], [ %1336, %1344 ], [ %1336, %._crit_edge.us.i87.i ]
-  %.0.i84.i = phi i32 [ %1305, %Abc_TtHasVar.exit.thread99.i ], [ 0, %1337 ], [ 0, %Abc_TtHasVar.exit.thread.thread.i ], [ 0, %.preheader.lr.ph.i73.i ], [ 0, %1308 ], [ 0, %1321 ], [ 0, %.preheader.lr.ph.i59.i ], [ 1, %1355 ], [ 1, %1344 ], [ 0, %1343 ], [ 0, %._crit_edge.us.i87.i ]
+  %1361 = phi i32 [ %1300, %Abc_TtHasVar.exit.thread99.i ], [ %1336, %Abc_TtHasVar.exit.thread.thread.i ], [ %1336, %1337 ], [ %1336, %.preheader.lr.ph.i73.i ], [ %.032118.i, %1308 ], [ %.032118.i, %1321 ], [ %.032118.i, %.preheader.lr.ph.i59.i ], [ %1336, %1344 ], [ %1336, %1355 ], [ %1336, %1343 ], [ %1336, %._crit_edge.us.i87.i ]
+  %.0.i84.i = phi i32 [ %1305, %Abc_TtHasVar.exit.thread99.i ], [ 0, %Abc_TtHasVar.exit.thread.thread.i ], [ 0, %1337 ], [ 0, %.preheader.lr.ph.i73.i ], [ 0, %1308 ], [ 0, %1321 ], [ 0, %.preheader.lr.ph.i59.i ], [ 1, %1344 ], [ 1, %1355 ], [ 0, %1343 ], [ 0, %._crit_edge.us.i87.i ]
   %1362 = icmp sgt i32 %1361, %1207
   %1363 = add nsw i32 %.0.i84.i, %.0119.i
   %1364 = icmp sgt i32 %1363, %1207
@@ -5555,7 +5555,7 @@ Abc_TtCheckBiDec.exit:                            ; preds = %.lr.ph.i90
   br i1 %exitcond148.not, label %.loopexit110, label %128, !llvm.loop !182
 
 .loopexit110:                                     ; preds = %323, %.thread, %Abc_TtCheckBiDecSimple.exit.thread173, %.loopexit, %Abc_TtCheckBiDecSimple.exit.thread
-  %.040 = phi i32 [ %437, %.loopexit ], [ %106, %Abc_TtCheckBiDecSimple.exit.thread ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread173 ], [ 0, %.thread ], [ 0, %323 ]
+  %.040 = phi i32 [ %106, %Abc_TtCheckBiDecSimple.exit.thread ], [ %437, %.loopexit ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread173 ], [ 0, %.thread ], [ 0, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.040
 }

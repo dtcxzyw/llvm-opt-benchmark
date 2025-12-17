@@ -8602,7 +8602,7 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %33
   br label %70
 
 70:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %62, %67, %mapi_deobfuscate.exit, %30
-  %.0 = phi i32 [ %17, %30 ], [ %17, %mapi_deobfuscate.exit ], [ %34, %62 ], [ %69, %67 ], [ %34, %mapi_dissect_element_handles_cnf.exit ]
+  %.0 = phi i32 [ %17, %mapi_deobfuscate.exit ], [ %17, %30 ], [ %34, %62 ], [ %69, %67 ], [ %34, %mapi_dissect_element_handles_cnf.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -9280,7 +9280,7 @@ mapi_dissect_AuxDataVersion2.exit.i:              ; preds = %197, %mapi_dissect_
   br label %mapi_dissect_AUX_DATA.exit
 
 mapi_dissect_AUX_DATA.exit:                       ; preds = %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit, %mapi_dissect_AuxDataVersion1.exit.i, %mapi_dissect_AuxDataVersion2.exit.i
-  %.0.i37 = phi i32 [ %.0.i.i, %mapi_dissect_AuxDataVersion1.exit.i ], [ %.0.i21.i, %mapi_dissect_AuxDataVersion2.exit.i ], [ %.0.i, %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit ]
+  %.0.i37 = phi i32 [ %.0.i21.i, %mapi_dissect_AuxDataVersion2.exit.i ], [ %.0.i.i, %mapi_dissect_AuxDataVersion1.exit.i ], [ %.0.i, %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit ]
   %202 = load i16, ptr %12, align 2
   %203 = zext i16 %202 to i32
   call void @proto_item_set_len(ptr noundef %.035, i32 noundef %203)
@@ -9375,7 +9375,7 @@ define hidden i32 @mapi_dissect_struct_request(ptr noundef %0, i32 noundef %1, p
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.061 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.061 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %33, label %29
 
@@ -9481,7 +9481,7 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %51
   br label %88
 
 88:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %80, %85, %mapi_deobfuscate.exit, %48
-  %.0 = phi i32 [ %35, %48 ], [ %35, %mapi_deobfuscate.exit ], [ %52, %80 ], [ %87, %85 ], [ %52, %mapi_dissect_element_handles_cnf.exit ]
+  %.0 = phi i32 [ %35, %mapi_deobfuscate.exit ], [ %35, %48 ], [ %52, %80 ], [ %87, %85 ], [ %52, %mapi_dissect_element_handles_cnf.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -9850,7 +9850,7 @@ mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
   br label %75
 
 75:                                               ; preds = %mapi_dissect_element_Logon_repl_StoreState.exit, %mapi_dissect_element_Logon_repl_FolderIds.exit129, %19, %68
-  %.1 = phi i32 [ %74, %68 ], [ %23, %19 ], [ %52, %mapi_dissect_element_Logon_repl_StoreState.exit ], [ %67, %mapi_dissect_element_Logon_repl_FolderIds.exit129 ]
+  %.1 = phi i32 [ %23, %19 ], [ %74, %68 ], [ %52, %mapi_dissect_element_Logon_repl_StoreState.exit ], [ %67, %mapi_dissect_element_Logon_repl_FolderIds.exit129 ]
   %76 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %.0122, i32 noundef %76)
   store i8 %14, ptr %13, align 2
@@ -10181,7 +10181,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %77
   br label %102
 
 102:                                              ; preds = %62, %97, %96
-  %.0 = phi i32 [ %.2, %96 ], [ %100, %97 ], [ %.2, %62 ]
+  %.0 = phi i32 [ %.2, %62 ], [ %.2, %96 ], [ %100, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -10336,7 +10336,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   br label %91
 
 91:                                               ; preds = %83, %81, %88, %86, %30
-  %.059 = phi i32 [ %32, %30 ], [ %32, %81 ], [ %85, %83 ], [ %32, %86 ], [ %90, %88 ]
+  %.059 = phi i32 [ %32, %30 ], [ %32, %81 ], [ %85, %83 ], [ %90, %88 ], [ %32, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.059
 }
@@ -11538,7 +11538,7 @@ define hidden i32 @mapi_dissect_struct_ShortArray_r(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11619,7 +11619,7 @@ define hidden i32 @mapi_dissect_struct_LongArray_r(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11700,7 +11700,7 @@ define hidden i32 @mapi_dissect_struct_BinaryArray_r(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11781,7 +11781,7 @@ define hidden i32 @mapi_dissect_struct_DateTimeArray_r(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11862,7 +11862,7 @@ define hidden i32 @mapi_dissect_struct_Binary_r(ptr noundef %0, i32 noundef %1, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -12861,7 +12861,7 @@ mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread: ; preds = %20
   br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit
 
 mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit: ; preds = %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread, %23
-  %34 = phi ptr [ %.pre.i.i77, %23 ], [ null, %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread ]
+  %34 = phi ptr [ null, %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread ], [ %.pre.i.i77, %23 ]
   call void @proto_item_set_len(ptr noundef %34, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = load i32, ptr @hf_mapi_RecipientRow_prop_count, align 4

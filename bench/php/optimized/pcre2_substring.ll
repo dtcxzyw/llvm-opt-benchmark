@@ -194,13 +194,13 @@ define dso_local i32 @php_pcre2_substring_copy_byname(ptr noundef readonly captu
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_copy_bynumber.exit:           ; preds = %63, %54
-  %.224 = phi i32 [ %.02248, %54 ], [ -55, %63 ]
+  %.224 = phi i32 [ -55, %63 ], [ %.02248, %54 ]
   %102 = getelementptr inbounds nuw i8, ptr %.02149, i64 %53
   %.not = icmp ugt ptr %102, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_copy_bynumber.exit, %.preheader, %97, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ %71, %74 ], [ -49, %78 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ -48, %92 ], [ 0, %97 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ 0, %97 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_copy_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -382,7 +382,7 @@ define dso_local i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr nou
   br i1 %.not61, label %.split63.us, label %.split
 
 .split63.us:                                      ; preds = %88, %.split, %.split.us, %54
-  %.us-phi = phi i32 [ %.2.us, %54 ], [ -49, %.split.us ], [ %.2, %88 ], [ -49, %.split ]
+  %.us-phi = phi i32 [ -49, %.split.us ], [ %.2.us, %54 ], [ %.2, %88 ], [ -49, %.split ]
   ret i32 %.us-phi
 }
 
@@ -485,8 +485,8 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumbe
   store i64 %49, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
-php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %48, %53
-  %.0 = phi i32 [ 0, %53 ], [ -48, %48 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
+php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %32, %25, %38, %36, %21, %14, %9, %8, %48, %53
+  %.0 = phi i32 [ 0, %53 ], [ -48, %48 ], [ -54, %32 ], [ -55, %25 ], [ -67, %38 ], [ -55, %36 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
   ret i32 %.0
 }
 
@@ -578,7 +578,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynum
   br label %50
 
 50:                                               ; preds = %47, %48, %37, %35, %31, %24, %20, %13, %8, %7
-  %.031 = phi i32 [ -2, %7 ], [ %5, %8 ], [ -49, %13 ], [ -54, %20 ], [ -55, %24 ], [ -54, %31 ], [ -55, %35 ], [ -67, %37 ], [ 0, %48 ], [ 0, %47 ]
+  %.031 = phi i32 [ -2, %7 ], [ %5, %8 ], [ -49, %13 ], [ -54, %20 ], [ -55, %35 ], [ -67, %37 ], [ -55, %24 ], [ -54, %31 ], [ 0, %48 ], [ 0, %47 ]
   ret i32 %.031
 }
 
@@ -780,13 +780,13 @@ define dso_local i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_get_bynumber.exit:            ; preds = %63, %54
-  %.224 = phi i32 [ %.02250, %54 ], [ -55, %63 ]
+  %.224 = phi i32 [ -55, %63 ], [ %.02250, %54 ]
   %105 = getelementptr inbounds nuw i8, ptr %.02151, i64 %53
   %.not = icmp ugt ptr %105, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %54
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_get_bynumber.exit, %.preheader, %98, %92, %._crit_edge.i.i, %84, %78, %74, %73, %4
-  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ %71, %74 ], [ -49, %78 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ -48, %92 ], [ 0, %98 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ -41, %4 ], [ -2, %73 ], [ -55, %84 ], [ -67, %._crit_edge.i.i ], [ %71, %74 ], [ -49, %78 ], [ -48, %92 ], [ 0, %98 ], [ -54, %.preheader ], [ %.224, %php_pcre2_substring_get_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 
@@ -892,8 +892,8 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber
   store i64 %49, ptr %3, align 8, !tbaa !22
   br label %php_pcre2_substring_length_bynumber.exit.thread
 
-php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, %21, %14, %9, %8, %48, %54
-  %.0 = phi i32 [ 0, %54 ], [ -48, %48 ], [ -67, %38 ], [ -55, %36 ], [ -54, %32 ], [ -55, %25 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
+php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %32, %25, %38, %36, %21, %14, %9, %8, %48, %54
+  %.0 = phi i32 [ 0, %54 ], [ -48, %48 ], [ -54, %32 ], [ -55, %25 ], [ -67, %38 ], [ -55, %36 ], [ -54, %21 ], [ -49, %14 ], [ %6, %9 ], [ -2, %8 ]
   ret i32 %.0
 }
 
@@ -1100,13 +1100,13 @@ define dso_local i32 @php_pcre2_substring_length_byname(ptr noundef readonly cap
   br label %php_pcre2_substring_nametable_scan.exit.thread
 
 php_pcre2_substring_length_bynumber.exit:         ; preds = %62, %53
-  %.223 = phi i32 [ %.02147, %53 ], [ -55, %62 ]
+  %.223 = phi i32 [ -55, %62 ], [ %.02147, %53 ]
   %94 = getelementptr inbounds nuw i8, ptr %.02048, i64 %52
   %.not = icmp ugt ptr %94, %.131
   br i1 %.not, label %php_pcre2_substring_nametable_scan.exit.thread, label %53
 
 php_pcre2_substring_nametable_scan.exit.thread:   ; preds = %.split.i, %php_pcre2_substring_length_bynumber.exit, %.preheader, %92, %91, %._crit_edge.i, %83, %77, %73, %72, %3
-  %.0 = phi i32 [ -41, %3 ], [ 0, %91 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %83 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
+  %.0 = phi i32 [ -41, %3 ], [ 0, %92 ], [ -67, %._crit_edge.i ], [ -55, %83 ], [ 0, %91 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -54, %.preheader ], [ %.223, %php_pcre2_substring_length_bynumber.exit ], [ -49, %.split.i ]
   ret i32 %.0
 }
 

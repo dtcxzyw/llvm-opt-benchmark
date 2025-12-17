@@ -2256,7 +2256,7 @@ _Z7inRangePKfS0_ff.exit.thread:                   ; preds = %39, %35, %_Z7inRang
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %20, %.loopexit36, %10, %_Z7inRangePKfS0_ff.exit.thread
-  %.030 = phi i1 [ true, %_Z7inRangePKfS0_ff.exit.thread ], [ false, %10 ], [ false, %.loopexit36 ], [ false, %20 ], [ false, %57 ]
+  %.030 = phi i1 [ false, %10 ], [ true, %_Z7inRangePKfS0_ff.exit.thread ], [ false, %.loopexit36 ], [ false, %20 ], [ false, %57 ]
   ret i1 %.030
 }
 
@@ -2383,7 +2383,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   br i1 %exitcond75.not, label %.loopexit, label %.lr.ph65, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph65, %13, %.preheader.lr.ph, %45, %._crit_edge61, %8, %3
-  %.037 = phi i32 [ %1, %3 ], [ %1, %8 ], [ %1, %._crit_edge61 ], [ %47, %45 ], [ %1, %.preheader.lr.ph ], [ %1, %13 ], [ %47, %.lr.ph65 ]
+  %.037 = phi i32 [ %1, %8 ], [ %1, %3 ], [ %1, %._crit_edge61 ], [ %47, %45 ], [ %1, %.preheader.lr.ph ], [ %1, %13 ], [ %47, %.lr.ph65 ]
   ret i32 %.037
 }
 

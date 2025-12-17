@@ -547,7 +547,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %49
   br i1 %53, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.split, %_ZNK10ciMetadata9is_loadedEv.exit15, %_ZNK10ciMetadata9is_loadedEv.exit15.thread, %49, %_ZNK10ciMetadata9is_loadedEv.exit, %.lr.ph.split.us, %_ZNK10ciMetadata9is_loadedEv.exit15.us, %_ZNK10ciMetadata9is_loadedEv.exit15.thread.us, %_ZNK10ciMetadata9is_loadedEv.exit.us, %_ZNK10ciMetadata9is_loadedEv.exit.preheader, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.preheader ], [ true, %.lr.ph.split.us ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.us ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.thread.us ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.us ], [ true, %.lr.ph.split ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.thread ], [ true, %49 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ]
+  %.0 = phi i1 [ true, %6 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.preheader ], [ true, %.lr.ph.split.us ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.us ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.thread.us ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.us ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ true, %49 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15.thread ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit15 ], [ true, %.lr.ph.split ]
   ret i1 %.0
 }
 
@@ -608,8 +608,8 @@ _ZNK8XHandler6equalsEPS_.exit:                    ; preds = %22
   %.not6.i = icmp eq ptr %27, %28
   br i1 %.not6.i, label %12, label %_ZNK8XHandler6equalsEPS_.exit.thread
 
-_ZNK8XHandler6equalsEPS_.exit.thread:             ; preds = %_ZNK8XHandler6equalsEPS_.exit, %12, %13, %22, %.preheader, %4, %2
-  %.08 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %.preheader ], [ false, %_ZNK8XHandler6equalsEPS_.exit ], [ true, %12 ], [ false, %13 ], [ false, %22 ]
+_ZNK8XHandler6equalsEPS_.exit.thread:             ; preds = %_ZNK8XHandler6equalsEPS_.exit, %12, %22, %13, %.preheader, %4, %2
+  %.08 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %.preheader ], [ false, %22 ], [ true, %12 ], [ false, %_ZNK8XHandler6equalsEPS_.exit ], [ false, %13 ]
   ret i1 %.08
 }
 
@@ -637,7 +637,7 @@ define hidden noundef zeroext i1 @_ZNK8XHandler6equalsEPS_(ptr noundef nonnull r
   br label %15
 
 15:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %.not6, %12 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %.not6, %12 ]
   ret i1 %.0
 }
 
@@ -4523,7 +4523,7 @@ _ZN6BitMap5clearEv.exit.i50:                      ; preds = %.lr.ph.preheader.i.
   br i1 %.not9.i61, label %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62, label %114, !llvm.loop !36
 
 _ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit62: ; preds = %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47, %124, %114, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit, %.preheader.i55
-  %.2 = phi ptr [ null, %.preheader.i55 ], [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ %.014.i58, %114 ], [ null, %124 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
+  %.2 = phi ptr [ null, %.preheader.i55 ], [ %.0.lcssa.i, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit ], [ null, %124 ], [ %.014.i58, %114 ], [ %.0.lcssa.i45, %_ZN22ComputeLinearScanOrder16common_dominatorEP10BlockBeginS1_.exit47 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge, label %21, !llvm.loop !39

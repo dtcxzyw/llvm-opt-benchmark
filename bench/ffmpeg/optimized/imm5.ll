@@ -61,7 +61,7 @@ define internal range(i32 -2147483648, 1) i32 @imm5_init(ptr noundef readonly ca
   br label %25
 
 25:                                               ; preds = %18, %15, %5, %1
-  %.0 = phi i32 [ -12, %1 ], [ %13, %5 ], [ -12, %15 ], [ %., %18 ]
+  %.0 = phi i32 [ -12, %1 ], [ %., %18 ], [ -12, %15 ], [ %13, %5 ]
   ret i32 %.0
 }
 
@@ -167,7 +167,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread89
 
 .thread89:                                        ; preds = %59, %58, %57, %17, %11, %4
-  %.075 = phi ptr [ %7, %17 ], [ %7, %11 ], [ %7, %4 ], [ %.176, %59 ], [ %.17688, %58 ], [ %.17688, %57 ]
+  %.075 = phi ptr [ %7, %4 ], [ %7, %17 ], [ %7, %11 ], [ %.176, %59 ], [ %.17688, %58 ], [ %.17688, %57 ]
   %62 = tail call i32 @avcodec_send_packet(ptr noundef %.075, ptr noundef nonnull %3) #5
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %65
@@ -231,7 +231,7 @@ define internal i32 @imm5_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %103
 
 103:                                              ; preds = %.thread, %65, %68, %64
-  %.1 = phi i32 [ %62, %64 ], [ %102, %68 ], [ %66, %65 ], [ %39, %.thread ]
+  %.1 = phi i32 [ %62, %64 ], [ %66, %65 ], [ %102, %68 ], [ %39, %.thread ]
   ret i32 %.1
 }
 

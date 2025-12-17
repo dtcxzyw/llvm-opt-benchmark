@@ -4474,7 +4474,7 @@ define void @"_ZN11ockam_vault8software6legacy13stored_secret191_$LT$impl$u20$co
   br label %19
 
 .thread32:                                        ; preds = %8, %25
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %25 ], [ %9, %8 ]
+  %.pn35 = phi { ptr, i32 } [ %9, %8 ], [ %lpad.thr_comm.split-lp, %25 ]
   resume { ptr, i32 } %.pn35
 
 25:                                               ; preds = %6

@@ -889,7 +889,7 @@ define internal noundef zeroext i1 @dissect_ucp_heur(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %17, %7, %9, %11, %13, %15, %4, %22
-  %.0 = phi i1 [ true, %22 ], [ false, %4 ], [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ false, %7 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %22 ], [ false, %4 ], [ false, %7 ], [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -5325,7 +5325,7 @@ ucp_handle_data.exit:                             ; preds = %27, %30
   br i1 %exitcond.not, label %.loopexit97, label %.lr.ph, !llvm.loop !25
 
 .loopexit97:                                      ; preds = %ucp_handle_data.exit, %20, %17, %11
-  %34 = phi i32 [ 5, %17 ], [ 4, %11 ], [ %.promoted, %20 ], [ %25, %ucp_handle_data.exit ]
+  %34 = phi i32 [ 4, %11 ], [ 5, %17 ], [ %.promoted, %20 ], [ %25, %ucp_handle_data.exit ]
   %35 = add i32 %34, 1
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %34)
   %.not80 = icmp eq i8 %36, 47
@@ -5380,7 +5380,7 @@ ucp_handle_data.exit87:                           ; preds = %52, %55
   br i1 %exitcond129.not, label %.loopexit96, label %.lr.ph108, !llvm.loop !26
 
 .loopexit96:                                      ; preds = %ucp_handle_data.exit87, %45, %41, %.loopexit97
-  %59 = phi i32 [ %44, %41 ], [ %35, %.loopexit97 ], [ %.promoted104, %45 ], [ %50, %ucp_handle_data.exit87 ]
+  %59 = phi i32 [ %35, %.loopexit97 ], [ %44, %41 ], [ %.promoted104, %45 ], [ %50, %ucp_handle_data.exit87 ]
   %60 = add i32 %59, 1
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %59)
   %.not81 = icmp eq i8 %61, 47
@@ -5435,7 +5435,7 @@ ucp_handle_data.exit90:                           ; preds = %77, %80
   br i1 %exitcond130.not, label %.loopexit95, label %.lr.ph114, !llvm.loop !27
 
 .loopexit95:                                      ; preds = %ucp_handle_data.exit90, %70, %66, %.loopexit96
-  %84 = phi i32 [ %69, %66 ], [ %60, %.loopexit96 ], [ %.promoted110, %70 ], [ %75, %ucp_handle_data.exit90 ]
+  %84 = phi i32 [ %60, %.loopexit96 ], [ %69, %66 ], [ %.promoted110, %70 ], [ %75, %ucp_handle_data.exit90 ]
   %85 = add i32 %84, 1
   store i32 %85, ptr %5, align 4
   %86 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %84)

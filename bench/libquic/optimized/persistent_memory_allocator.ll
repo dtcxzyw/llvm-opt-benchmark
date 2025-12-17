@@ -123,7 +123,7 @@ _ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %27
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread, label %33
 
-_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread: ; preds = %27, %23, %19, %15, %10, %7, %3, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
+_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread: ; preds = %27, %23, %19, %15, %7, %3, %10, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
   store atomic i32 40, ptr %4 release, align 8
   br label %33
 
@@ -200,7 +200,7 @@ define noundef ptr @_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %36, %32, %27, %23, %19, %12, %8, %6, %._crit_edge
-  %.0 = phi ptr [ %39, %._crit_edge ], [ null, %6 ], [ null, %8 ], [ null, %12 ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %32 ], [ null, %36 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %6 ], [ null, %8 ], [ %39, %._crit_edge ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %32 ], [ null, %36 ]
   ret ptr %.0
 }
 
@@ -312,7 +312,7 @@ _ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %31, %30
   %.not31.i28 = icmp eq i32 %62, -931556759
   br i1 %.not31.i28, label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit29, label %63
 
-63:                                               ; preds = %37, %40, %43, %48, %52, %56, %60
+63:                                               ; preds = %43, %37, %40, %48, %52, %56, %60
   %64 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %64, label %65, label %.critedge7.i
 
@@ -444,8 +444,8 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i3
   %127 = atomicrmw add ptr %5, i32 1 release, align 4
   br label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit33
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit33: ; preds = %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, %.lr.ph, %13, %18, %22, %26, %31, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i31, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %2, %72, %.critedge7.i, %112, %.critedge7.i30, %126
-  %.2 = phi i32 [ %35, %126 ], [ 0, %.critedge7.i30 ], [ 0, %112 ], [ 0, %.critedge7.i ], [ 0, %72 ], [ 0, %2 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i31 ], [ 0, %31 ], [ 0, %26 ], [ 0, %22 ], [ 0, %18 ], [ 0, %13 ], [ 0, %.lr.ph ], [ 0, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit ], [ 0, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit ]
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit33: ; preds = %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit, %13, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, %.lr.ph, %18, %22, %26, %31, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i31, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %2, %72, %.critedge7.i, %112, %.critedge7.i30, %126
+  %.2 = phi i32 [ %35, %126 ], [ 0, %.critedge7.i30 ], [ 0, %112 ], [ 0, %.critedge7.i ], [ 0, %72 ], [ 0, %2 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i31 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ], [ 0, %31 ], [ 0, %26 ], [ 0, %22 ], [ 0, %18 ], [ 0, %.lr.ph ], [ 0, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit ], [ 0, %13 ], [ 0, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit ]
   ret i32 %.2
 }
 
@@ -554,7 +554,7 @@ define noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptab
   br label %19
 
 19:                                               ; preds = %16, %14, %11, %5, %4
-  %20 = phi i1 [ false, %5 ], [ false, %4 ], [ false, %11 ], [ true, %14 ], [ %spec.select, %16 ]
+  %20 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %5 ], [ %spec.select, %16 ], [ true, %14 ]
   ret i1 %20
 }
 
@@ -610,7 +610,7 @@ _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %
   %spec.select.i = or i1 %6, %34
   br i1 %spec.select.i, label %.critedge71, label %.critedge
 
-.critedge:                                        ; preds = %29, %7, %23, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
+.critedge:                                        ; preds = %23, %7, %29, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %12, ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @.str.1)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %12) #18
@@ -1053,7 +1053,7 @@ _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85: ; preds =
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85.thread
 
-_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85.thread: ; preds = %238, %240, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85
+_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85.thread: ; preds = %240, %238, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85
   %252 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %252, label %253, label %.critedge7.i86
 
@@ -1099,7 +1099,7 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i87, %248, %.thread, %173, %169, %165, %161, %157, %154, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %258, %.critedge7.i86, %45, %.critedge7.i, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit75, %_ZN4base25PersistentMemoryAllocator11GetAsObjectIcEEPT_jj.exit, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit80, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i87, %248, %.thread, %173, %169, %165, %161, %154, %_ZN4base25PersistentMemoryAllocator8AllocateEmj.exit, %157, %258, %.critedge7.i86, %45, %.critedge7.i, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit75, %_ZN4base25PersistentMemoryAllocator11GetAsObjectIcEEPT_jj.exit, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit80, %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit85
   ret void
 }
 
@@ -1273,8 +1273,8 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i:
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %59
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %28, %24, %20, %16, %11, %8, %1, %46, %.critedge7.i, %31
-  %.0 = phi ptr [ %32, %31 ], [ @.str.6, %.critedge7.i ], [ @.str.6, %46 ], [ @.str.6, %1 ], [ @.str.6, %8 ], [ @.str.6, %11 ], [ @.str.6, %16 ], [ @.str.6, %20 ], [ @.str.6, %24 ], [ @.str.6, %28 ], [ @.str.6, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %28, %24, %20, %16, %8, %1, %11, %46, %.critedge7.i, %31
+  %.0 = phi ptr [ %32, %31 ], [ @.str.6, %.critedge7.i ], [ @.str.6, %46 ], [ @.str.6, %11 ], [ @.str.6, %1 ], [ @.str.6, %8 ], [ @.str.6, %16 ], [ @.str.6, %20 ], [ @.str.6, %24 ], [ @.str.6, %28 ], [ @.str.6, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   ret ptr %.0
 }
 
@@ -1385,8 +1385,8 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i:
   %57 = add nsw i64 %56, -16
   br label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %25, %21, %17, %13, %8, %5, %2, %41, %.critedge7.i, %55
-  %.0 = phi i64 [ %57, %55 ], [ 0, %.critedge7.i ], [ 0, %41 ], [ 0, %2 ], [ 0, %5 ], [ 0, %8 ], [ 0, %13 ], [ 0, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %25, %21, %17, %13, %5, %2, %8, %41, %.critedge7.i, %55
+  %.0 = phi i64 [ %57, %55 ], [ 0, %.critedge7.i ], [ 0, %41 ], [ 0, %8 ], [ 0, %2 ], [ 0, %5 ], [ 0, %13 ], [ 0, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ]
   ret i64 %.0
 }
 
@@ -1856,8 +1856,8 @@ _ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %24
   %28 = load atomic volatile i32, ptr %27 monotonic, align 4
   br label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread
 
-_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread: ; preds = %24, %20, %16, %12, %7, %4, %2, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
-  %.0 = phi i32 [ %28, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit ], [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ]
+_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit.thread: ; preds = %24, %20, %16, %12, %4, %2, %7, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
+  %.0 = phi i32 [ %28, %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit ], [ 0, %7 ], [ 0, %2 ], [ 0, %4 ], [ 0, %12 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1912,8 +1912,8 @@ define noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(p
   %32 = extractvalue { i32, i1 } %31, 1
   br label %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
 
-_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %29, %26, %22, %18, %14, %9, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ false, %9 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %26 ], [ %32, %29 ]
+_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; preds = %29, %26, %22, %18, %14, %6, %4, %9
+  %.0 = phi i1 [ false, %26 ], [ %32, %29 ], [ false, %9 ], [ false, %4 ], [ false, %6 ], [ false, %14 ], [ false, %18 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -2267,13 +2267,13 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i6
   br label %_ZN12_GLOBAL__N_17SetFlagEPVSt6atomicIjEi.exit
 
 _ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit50, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %107
-  %.1 = phi i32 [ %.072101, %107 ], [ %106, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %141, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit50 ]
-  %.133 = phi i32 [ %.032102, %107 ], [ %.032102, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %spec.select, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit50 ]
+  %.1 = phi i32 [ %141, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit50 ], [ %.072101, %107 ], [ %106, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
+  %.133 = phi i32 [ %spec.select, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit50 ], [ %.032102, %107 ], [ %.032102, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ]
   %177 = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   br i1 %177, label %_ZN12_GLOBAL__N_17SetFlagEPVSt6atomicIjEi.exit, label %25
 
 _ZN12_GLOBAL__N_17SetFlagEPVSt6atomicIjEi.exit:   ; preds = %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i56, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i52, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i, %18, %162, %.critedge7.i59, %123, %.critedge7.i55, %87, %.critedge7.i51, %57, %.critedge7.i, %176, %29, %14, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %9 ], [ 0, %29 ], [ 0, %162 ], [ 0, %.critedge7.i59 ], [ 0, %123 ], [ 0, %.critedge7.i55 ], [ 0, %87 ], [ 0, %.critedge7.i51 ], [ 0, %57 ], [ 0, %.critedge7.i ], [ %.072101, %176 ], [ 0, %18 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i52 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i56 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60 ], [ 0, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %14 ], [ 0, %29 ], [ 0, %162 ], [ 0, %.critedge7.i59 ], [ 0, %123 ], [ 0, %.critedge7.i55 ], [ 0, %87 ], [ 0, %.critedge7.i51 ], [ 0, %57 ], [ 0, %.critedge7.i ], [ %.072101, %176 ], [ 0, %18 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i60 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i52 ], [ 0, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i56 ], [ 0, %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit ]
   ret i32 %.0
 }
 
@@ -2473,7 +2473,7 @@ _ZN4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %26
   %.not31.i.i21 = icmp eq i32 %57, -931556759
   br i1 %.not31.i.i21, label %_ZN4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit22, label %._crit_edge
 
-._crit_edge:                                      ; preds = %55, %50, %46, %42, %38, %.lr.ph, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit13, %31
+._crit_edge:                                      ; preds = %55, %50, %46, %42, %.lr.ph, %_ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit13, %38, %31
   %58 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %58, label %59, label %.critedge7.i
 
@@ -2543,7 +2543,7 @@ _ZNVSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit13:
   %.not.i.i15 = icmp eq i32 %92, 0
   br i1 %.not.i.i15, label %.lr.ph, label %._crit_edge
 
-_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %83, %26, %22, %18, %14, %9, %6, %.critedge7.i, %66, %_ZN4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit, %2
+_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i, %83, %26, %22, %18, %14, %6, %9, %.critedge7.i, %66, %_ZN4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit, %2
   ret void
 }
 
@@ -2622,7 +2622,7 @@ define noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr n
   br label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
 
 _ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %4, %6, %9, %15, %19, %23, %27, %31, %._crit_edge.i
-  %.0.i = phi ptr [ %20, %._crit_edge.i ], [ null, %4 ], [ null, %6 ], [ null, %9 ], [ null, %15 ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %31 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %4 ], [ null, %6 ], [ %20, %._crit_edge.i ], [ null, %15 ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %31 ]
   %.not = icmp eq ptr %.0.i, null
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.0 = select i1 %.not, ptr null, ptr %34
@@ -2781,7 +2781,7 @@ define noundef zeroext i1 @_ZN4base31SharedPersistentMemoryAllocator24IsSharedMe
   br label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
 
 _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %4, %1
-  %14 = phi i1 [ false, %1 ], [ %or.cond, %4 ]
+  %14 = phi i1 [ %or.cond, %4 ], [ false, %1 ]
   ret i1 %14
 }
 
@@ -2863,7 +2863,7 @@ define noundef zeroext i1 @_ZN4base29FilePersistentMemoryAllocator16IsFileAccept
   br label %_ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit
 
 _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %13, %2, %7
-  %16 = phi i1 [ false, %7 ], [ false, %2 ], [ %or.cond5.i, %13 ]
+  %16 = phi i1 [ %or.cond5.i, %13 ], [ false, %2 ], [ false, %7 ]
   ret i1 %16
 }
 

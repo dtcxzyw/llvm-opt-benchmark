@@ -291,9 +291,9 @@ _ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit: ; preds
   %13 = load i64, ptr %12, align 8, !noundef !3
   br label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread
 
-_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread: ; preds = %2, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit, %11
-  %.sroa.3.0 = phi i64 [ %13, %11 ], [ undef, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit ], [ undef, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %11 ], [ 0, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit ], [ 0, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ], [ 0, %2 ]
+_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread: ; preds = %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i, %2, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit, %11
+  %.sroa.3.0 = phi i64 [ %13, %11 ], [ undef, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit ], [ undef, %2 ], [ undef, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ]
+  %.sroa.0.0 = phi i64 [ 1, %11 ], [ 0, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit ], [ 0, %2 ], [ 0, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0, 1
   ret { i64, i64 } %15

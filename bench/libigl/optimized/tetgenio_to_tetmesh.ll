@@ -622,7 +622,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %284, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %72, %69, %30, %27
-  %.0.i.i.i155.sink = phi i8 [ %29, %27 ], [ %34, %30 ], [ %71, %69 ], [ %76, %72 ]
+  %.0.i.i.i155.sink = phi i8 [ %34, %30 ], [ %29, %27 ], [ %71, %69 ], [ %76, %72 ]
   %285 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i155.sink)
   %286 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %285)
   br label %.loopexit

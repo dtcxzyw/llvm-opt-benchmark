@@ -1128,8 +1128,8 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState17ze
           to label %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$quinn_proto..connection..streams..send..Send$GT$$GT$17h1cbaa1f5bd7dfc18E.exit.i" unwind label %.split20
 
 common.resume:                                    ; preds = %63, %66, %.split20, %.split20.us
-  %.sink = phi ptr [ %50, %.split20 ], [ %29, %.split20.us ], [ %57, %63 ], [ %57, %66 ]
-  %common.resume.op = phi { ptr, i32 } [ %53, %.split20 ], [ %32, %.split20.us ], [ %64, %63 ], [ %67, %66 ]
+  %.sink = phi ptr [ %29, %.split20.us ], [ %50, %.split20 ], [ %57, %63 ], [ %57, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %.split20.us ], [ %53, %.split20 ], [ %64, %63 ], [ %67, %66 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 136, i64 noundef 8) #21
   resume { ptr, i32 } %common.resume.op
 
@@ -1248,7 +1248,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState8rec
           cleanup
   br label %.body.thread
 
-.body.thread192.loopexit.split-lp:                ; preds = %.thread218.invoke, %172, %136, %4, %182, %.thread210, %231, %200, %207, %220, %174, %256, %.thread221, %305, %274, %281, %294
+.body.thread192.loopexit.split-lp:                ; preds = %.thread218.invoke, %231, %172, %200, %207, %220, %174, %136, %4, %256, %.thread221, %305, %182, %.thread210, %274, %281, %294
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1810,7 +1810,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1ba319a6f7b3dc56E.exit.thread: ; preds 
           to label %237 unwind label %.body.thread192.loopexit.split-lp
 
 .thread218.invoke:                                ; preds = %304, %263, %293, %288, %230, %189, %219, %214
-  %236 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %214 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %219 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %189 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %230 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %288 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %293 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %263 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %304 ]
+  %236 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %219 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %230 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %293 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %214 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %189 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %288 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %263 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %304 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.8801f4312e2f8894f33ba1843a3fdad8.33, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %236) #23
           to label %.thread218.cont unwind label %.body.thread192.loopexit.split-lp
 
@@ -3151,7 +3151,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12St
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit.thread"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit.thread": ; preds = %._crit_edge.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit", %2, %40
-  %.sroa.0.0 = phi i1 [ %43, %40 ], [ false, %2 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit" ], [ false, %._crit_edge.i.i ]
+  %.sroa.0.0 = phi i1 [ %43, %40 ], [ false, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit" ], [ false, %2 ], [ false, %._crit_edge.i.i ]
   ret i1 %.sroa.0.0
 }
 
@@ -8012,7 +8012,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState17st
   unreachable
 
 common.resume:                                    ; preds = %30, %19, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %20, %19 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %24, %23 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %13

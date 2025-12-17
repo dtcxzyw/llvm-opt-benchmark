@@ -265,7 +265,7 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   %150 = zext nneg i32 %135 to i64
   br label %151
 
-._crit_edge128:                                   ; preds = %.thread83, %mmbit_get_flat_block.exit71, %._crit_edge123, %238, %mmbit_get_flat_block.exit67, %storeSomValue.exit, %mmbit_iterate.exit24, %.thread103, %mmbit_get_flat_block.exit63, %._crit_edge, %mmbit_get_flat_block.exit, %2, %mmbit_iterate.exit
+._crit_edge128:                                   ; preds = %.thread83, %mmbit_get_flat_block.exit71, %238, %mmbit_get_flat_block.exit67, %._crit_edge123, %storeSomValue.exit, %mmbit_iterate.exit24, %.thread103, %mmbit_get_flat_block.exit63, %mmbit_get_flat_block.exit, %._crit_edge, %2, %mmbit_iterate.exit
   ret void
 
 151:                                              ; preds = %.lr.ph127, %mmbit_iterate.exit24
@@ -598,7 +598,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %261, %264, %267, %2
   br label %.backedge
 
 mmbit_iterate.exit24:                             ; preds = %305, %192, %.thread93, %245, %282
-  %.011.i23 = phi i32 [ %194, %192 ], [ %250, %245 ], [ %285, %282 ], [ %237, %.thread93 ], [ %309, %305 ]
+  %.011.i23 = phi i32 [ %194, %192 ], [ %250, %245 ], [ %237, %.thread93 ], [ %285, %282 ], [ %309, %305 ]
   %.not = icmp eq i32 %.011.i23, -1
   br i1 %.not, label %._crit_edge128, label %151
 }
@@ -889,7 +889,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
   br i1 %161, label %loadSomValue.exit.us129, label %162
 
 162:                                              ; preds = %158, %154, %152, %.lr.ph125.split.split.us
-  %.0.i.us128 = phi i64 [ %160, %158 ], [ %156, %154 ], [ %153, %152 ], [ 0, %.lr.ph125.split.split.us ]
+  %.0.i.us128 = phi i64 [ %153, %152 ], [ %160, %158 ], [ %156, %154 ], [ 0, %.lr.ph125.split.split.us ]
   %163 = sub i64 %1, %.0.i.us128
   br label %loadSomValue.exit.us129
 
@@ -999,7 +999,7 @@ mmbit_iterate.exit.us131:                         ; preds = %186
   br i1 %212, label %loadSomValue.exit.us136, label %213
 
 213:                                              ; preds = %209, %205, %203, %.lr.ph125.split.split.split.us
-  %.0.i.us135 = phi i64 [ %211, %209 ], [ %207, %205 ], [ %204, %203 ], [ 0, %.lr.ph125.split.split.split.us ]
+  %.0.i.us135 = phi i64 [ %204, %203 ], [ %211, %209 ], [ %207, %205 ], [ 0, %.lr.ph125.split.split.split.us ]
   %214 = sub i64 %1, %.0.i.us135
   br label %loadSomValue.exit.us136
 
@@ -1056,7 +1056,7 @@ mmbit_iterate.exit.us138:                         ; preds = %mmbit_get_flat_bloc
   %236 = trunc nuw nsw i64 %235 to i32
   br label %.lr.ph125.split.split.split.us
 
-._crit_edge126:                                   ; preds = %.thread81, %mmbit_get_flat_block.exit61, %._crit_edge121, %295, %loadSomValue.exit, %mmbit_iterate.exit, %mmbit_get_flat_block.exit.us, %loadSomValue.exit.us136, %loadSomValue.exit.us129, %mmbit_iterate.exit.us131, %.thread101.us, %mmbit_get_flat_block.exit73, %._crit_edge, %mmbit_get_flat_block.exit69, %2, %mmbit_iterate.exit25
+._crit_edge126:                                   ; preds = %.thread81, %mmbit_get_flat_block.exit61, %295, %._crit_edge121, %loadSomValue.exit, %mmbit_iterate.exit, %mmbit_get_flat_block.exit.us, %loadSomValue.exit.us136, %loadSomValue.exit.us129, %mmbit_iterate.exit.us131, %.thread101.us, %mmbit_get_flat_block.exit73, %mmbit_get_flat_block.exit69, %._crit_edge, %2, %mmbit_iterate.exit25
   ret void
 
 .lr.ph125.split.split.split:                      ; preds = %.lr.ph125.split.split.split.preheader, %mmbit_iterate.exit
@@ -1087,7 +1087,7 @@ mmbit_iterate.exit.us138:                         ; preds = %mmbit_get_flat_bloc
   br label %250
 
 250:                                              ; preds = %248, %244, %240, %.lr.ph125.split.split.split
-  %.0.i = phi i64 [ %242, %240 ], [ %246, %244 ], [ %249, %248 ], [ 0, %.lr.ph125.split.split.split ]
+  %.0.i = phi i64 [ %249, %248 ], [ %242, %240 ], [ %246, %244 ], [ 0, %.lr.ph125.split.split.split ]
   %251 = sub i64 %1, %.0.i
   br label %loadSomValue.exit
 
@@ -1247,8 +1247,8 @@ mmbit_get_flat_block.exit61:                      ; preds = %315, %318, %321, %3
   br i1 %.not71.i31, label %._crit_edge126, label %mmbit_iterate.exit
 
 mmbit_iterate.exit:                               ; preds = %mmbit_get_flat_block.exit61, %mmbit_get_flat_block.exit65, %302
-  %.sink192 = phi i64 [ %301, %302 ], [ %294, %mmbit_get_flat_block.exit65 ], [ %.0.i59, %mmbit_get_flat_block.exit61 ]
-  %.sink = phi i32 [ %304, %302 ], [ %262, %mmbit_get_flat_block.exit65 ], [ %308, %mmbit_get_flat_block.exit61 ]
+  %.sink192 = phi i64 [ %294, %mmbit_get_flat_block.exit65 ], [ %301, %302 ], [ %.0.i59, %mmbit_get_flat_block.exit61 ]
+  %.sink = phi i32 [ %262, %mmbit_get_flat_block.exit65 ], [ %304, %302 ], [ %308, %mmbit_get_flat_block.exit61 ]
   %336 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sink192, i1 true)
   %337 = trunc nuw nsw i64 %336 to i32
   %338 = or disjoint i32 %.sink, %337

@@ -484,7 +484,7 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %12
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %7, %12, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
-  %17 = phi ptr [ %13, %12 ], [ %13, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i ], [ %11, %7 ]
+  %17 = phi ptr [ %13, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i ], [ %13, %12 ], [ %11, %7 ]
   store ptr null, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !39

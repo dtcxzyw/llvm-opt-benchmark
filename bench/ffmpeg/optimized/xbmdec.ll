@@ -280,7 +280,7 @@ parse_str_int.exit110:                            ; preds = %33, %._crit_edge.i9
   br label %131
 
 131:                                              ; preds = %.critedge96, %54, %47, %parse_str_int.exit110, %._crit_edge131, %45
-  %.073 = phi i32 [ %46, %45 ], [ %130, %._crit_edge131 ], [ %39, %parse_str_int.exit110 ], [ %48, %47 ], [ -1094995529, %54 ], [ -1094995529, %.critedge96 ]
+  %.073 = phi i32 [ %48, %47 ], [ %46, %45 ], [ %39, %parse_str_int.exit110 ], [ -1094995529, %.critedge96 ], [ %130, %._crit_edge131 ], [ -1094995529, %54 ]
   ret i32 %.073
 }
 

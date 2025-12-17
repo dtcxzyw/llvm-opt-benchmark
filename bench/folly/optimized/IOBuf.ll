@@ -667,7 +667,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
@@ -850,7 +850,7 @@ _ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %15, %13, %8
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
 _ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %_ZN5folly10canNallocxEv.exit.i.i, %21
-  %.0.i.i = phi i64 [ %23, %21 ], [ %10, %_ZN5folly10canNallocxEv.exit.i.i ]
+  %.0.i.i = phi i64 [ %10, %_ZN5folly10canNallocxEv.exit.i.i ], [ %23, %21 ]
   %24 = call noalias ptr @malloc(i64 noundef %.0.i.i) #40
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %_ZN5folly13checkedMallocEm.exit
@@ -1103,7 +1103,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %26, %24, %21
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %32
-  %.0.i = phi i64 [ %34, %32 ], [ %1, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %1, %_ZN5folly10canNallocxEv.exit.i ], [ %34, %32 ]
   %35 = add nuw i64 %1, 7
   %36 = and i64 %35, -8
   %37 = add nuw i64 %36, 32
@@ -1210,7 +1210,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %12, %10, %6
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %18
-  %.0.i = phi i64 [ %20, %18 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %7, %_ZN5folly10canNallocxEv.exit.i ], [ %20, %18 ]
   %21 = call noalias ptr @malloc(i64 noundef %.0.i) #40
   %.not.i19 = icmp eq ptr %21, null
   br i1 %.not.i19, label %22, label %_ZN5folly13checkedMallocEm.exit
@@ -1520,7 +1520,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %17, %15, %12
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %2, %_ZN5folly10canNallocxEv.exit.i, %23
-  %.0.i = phi i64 [ %25, %23 ], [ 0, %2 ], [ %10, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ 0, %2 ], [ %25, %23 ], [ %10, %_ZN5folly10canNallocxEv.exit.i ]
   %26 = sub i64 %.0.i, %.08
   ret i64 %26
 }
@@ -2929,7 +2929,7 @@ _ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %50, %48, %43
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
 _ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %_ZN5folly10canNallocxEv.exit.i.i, %56
-  %.0.i.i = phi i64 [ %58, %56 ], [ %45, %_ZN5folly10canNallocxEv.exit.i.i ]
+  %.0.i.i = phi i64 [ %45, %_ZN5folly10canNallocxEv.exit.i.i ], [ %58, %56 ]
   %59 = load ptr, ptr %11, align 8, !tbaa !68
   %60 = load i64, ptr %17, align 8, !tbaa !94
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -3112,7 +3112,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %12, %10, %5
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %18
-  %.0.i = phi i64 [ %20, %18 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %7, %_ZN5folly10canNallocxEv.exit.i ], [ %20, %18 ]
   ret i64 %.0.i
 }
 
@@ -3932,7 +3932,7 @@ _ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %55, %53, %48
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit
 
 _ZN5folly5IOBuf17goodExtBufferSizeEm.exit:        ; preds = %_ZN5folly10canNallocxEv.exit.i.i, %61
-  %.0.i.i = phi i64 [ %63, %61 ], [ %50, %_ZN5folly10canNallocxEv.exit.i.i ]
+  %.0.i.i = phi i64 [ %50, %_ZN5folly10canNallocxEv.exit.i.i ], [ %63, %61 ]
   %64 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %_ZN5folly13usingJEMallocEv.exit, !prof !51
@@ -4018,8 +4018,8 @@ _ZN5folly13usingJEMallocEv.exit:                  ; preds = %_ZN5folly5IOBuf17go
   %104 = icmp eq ptr %78, null
   br i1 %104, label %.thread93, label %.thread97
 
-.thread93:                                        ; preds = %35, %93, %76, %81, %74, %38, %103
-  %105 = phi i8 [ %40, %103 ], [ %40, %93 ], [ %40, %76 ], [ %40, %81 ], [ %40, %74 ], [ %40, %38 ], [ 0, %35 ]
+.thread93:                                        ; preds = %35, %93, %81, %74, %76, %38, %103
+  %105 = phi i8 [ %40, %103 ], [ %40, %93 ], [ %40, %81 ], [ %40, %74 ], [ %40, %76 ], [ %40, %38 ], [ 0, %35 ]
   %106 = add nuw i64 %14, 39
   %107 = and i64 %106, -8
   %108 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -4053,7 +4053,7 @@ _ZN5folly10canNallocxEv.exit.i.i74:               ; preds = %112, %110, %.thread
   br label %_ZN5folly5IOBuf17goodExtBufferSizeEm.exit78
 
 _ZN5folly5IOBuf17goodExtBufferSizeEm.exit78:      ; preds = %_ZN5folly10canNallocxEv.exit.i.i74, %118
-  %.0.i.i75 = phi i64 [ %120, %118 ], [ %107, %_ZN5folly10canNallocxEv.exit.i.i74 ]
+  %.0.i.i75 = phi i64 [ %107, %_ZN5folly10canNallocxEv.exit.i.i74 ], [ %120, %118 ]
   %121 = call noalias ptr @malloc(i64 noundef %.0.i.i75) #40
   %.not.i = icmp eq ptr %121, null
   br i1 %.not.i, label %122, label %_ZN5folly13checkedMallocEm.exit
@@ -4573,7 +4573,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %22, %20, %17
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %14, %_ZN5folly10canNallocxEv.exit.i, %28
-  %.0.i = phi i64 [ %30, %28 ], [ 0, %14 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ 0, %14 ], [ %30, %28 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
   %31 = lshr i64 %.0.i, 4
   %32 = and i64 %.0.i, -16
   %33 = call noalias ptr @malloc(i64 noundef %32) #40
@@ -4743,7 +4743,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %31, %29, %26
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %23, %_ZN5folly10canNallocxEv.exit.i, %37
-  %.0.i = phi i64 [ %39, %37 ], [ 0, %23 ], [ %24, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ 0, %23 ], [ %39, %37 ], [ %24, %_ZN5folly10canNallocxEv.exit.i ]
   %40 = load ptr, ptr %0, align 8, !tbaa !195
   %41 = call i64 @xallocx(ptr noundef %40, i64 noundef %.0.i, i64 noundef 0, i32 noundef 0) #37
   %42 = icmp eq i64 %41, %.0.i
@@ -4799,7 +4799,7 @@ define linkonce_odr void @_ZN5folly8fbvectorI5iovecSaIS1_EE16emplace_back_auxIJS
   br label %_ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit
 
 _ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit: ; preds = %16, %20, %22
-  %.0.i = phi i64 [ %17, %16 ], [ %21, %20 ], [ %25, %22 ]
+  %.0.i = phi i64 [ %25, %22 ], [ %17, %16 ], [ %21, %20 ]
   %26 = shl i64 %.0.i, 4
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZN5folly14goodMallocSizeEm.exit, label %_ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit.thread
@@ -4837,7 +4837,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %33, %31, %_ZNK5foll
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit, %_ZN5folly10canNallocxEv.exit.i, %39
-  %.0.i20 = phi i64 [ %41, %39 ], [ 0, %_ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit ], [ %28, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i20 = phi i64 [ 0, %_ZNK5folly8fbvectorI5iovecSaIS1_EE23computePushBackCapacityEv.exit ], [ %41, %39 ], [ %28, %_ZN5folly10canNallocxEv.exit.i ]
   %42 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %_ZN5folly13usingJEMallocEv.exit, !prof !51
@@ -4912,7 +4912,7 @@ _ZN5folly10canNallocxEv.exit.i21:                 ; preds = %71, %69, %66
   br label %_ZN5folly14goodMallocSizeEm.exit25
 
 _ZN5folly14goodMallocSizeEm.exit25:               ; preds = %59, %_ZN5folly10canNallocxEv.exit.i21, %77
-  %.0.i22 = phi i64 [ %79, %77 ], [ 0, %59 ], [ %64, %_ZN5folly10canNallocxEv.exit.i21 ]
+  %.0.i22 = phi i64 [ 0, %59 ], [ %79, %77 ], [ %64, %_ZN5folly10canNallocxEv.exit.i21 ]
   %80 = sub i64 %.0.i20, %.0.i22
   %81 = load ptr, ptr %0, align 8, !tbaa !195
   %82 = call i64 @xallocx(ptr noundef %81, i64 noundef %.0.i22, i64 noundef %80, i32 noundef 0) #37

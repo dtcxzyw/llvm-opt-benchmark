@@ -34,8 +34,8 @@ define hidden range(i32 0, 2) i32 @opj_event_msg(ptr noundef readonly captures(a
   br label %15
 
 15:                                               ; preds = %12, %9, %7
-  %.015.in = phi ptr [ %8, %7 ], [ %10, %9 ], [ %13, %12 ]
-  %.0.in = phi ptr [ %0, %7 ], [ %11, %9 ], [ %14, %12 ]
+  %.015.in = phi ptr [ %13, %12 ], [ %8, %7 ], [ %10, %9 ]
+  %.0.in = phi ptr [ %14, %12 ], [ %0, %7 ], [ %11, %9 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !3
   %.015 = load ptr, ptr %.015.in, align 8, !tbaa !3
   %16 = icmp eq ptr %.015, null

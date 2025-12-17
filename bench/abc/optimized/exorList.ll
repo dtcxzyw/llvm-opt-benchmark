@@ -992,7 +992,7 @@ CubeExtract.exit:                                 ; preds = %117, %118
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %132, %126, %166
-  %169 = phi ptr [ %91, %126 ], [ %.pre, %166 ], [ %91, %132 ]
+  %169 = phi ptr [ %.pre, %166 ], [ %91, %126 ], [ %91, %132 ]
   tail call void @AddToFreeCubes(ptr noundef %169) #17
   %170 = add nuw nsw i32 %accumulator.tr62, 1
   %171 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 36), align 4, !tbaa !22
@@ -1079,7 +1079,7 @@ tailrecurse._crit_edge:                           ; preds = %NewRangeInsertCubeP
   br label %CubeInsert.exit
 
 CubeInsert.exit:                                  ; preds = %tailrecurse, %198, %200
-  %accumulator.tr.lcssa8083 = phi i32 [ %accumulator.tr.lcssa, %198 ], [ %accumulator.tr.lcssa, %200 ], [ %170, %tailrecurse ]
+  %accumulator.tr.lcssa8083 = phi i32 [ %accumulator.tr.lcssa, %200 ], [ %accumulator.tr.lcssa, %198 ], [ %170, %tailrecurse ]
   store ptr %0, ptr @s_List, align 8, !tbaa !3
   %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %204 = add nsw i32 %203, 1
@@ -1097,8 +1097,8 @@ CubeInsert.exit:                                  ; preds = %tailrecurse, %198, 
   br label %209
 
 209:                                              ; preds = %205, %CubeExtract.exit43
-  %accumulator.tr50 = phi i32 [ %accumulator.tr62, %CubeExtract.exit43 ], [ %accumulator.tr.lcssa81, %205 ]
-  %.028 = phi i32 [ 2, %CubeExtract.exit43 ], [ 0, %205 ]
+  %accumulator.tr50 = phi i32 [ %accumulator.tr.lcssa81, %205 ], [ %accumulator.tr62, %CubeExtract.exit43 ]
+  %.028 = phi i32 [ 0, %205 ], [ 2, %CubeExtract.exit43 ]
   %accumulator.ret.tr = add nsw i32 %.028, %accumulator.tr50
   ret i32 %accumulator.ret.tr
 }

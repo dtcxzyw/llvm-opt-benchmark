@@ -541,7 +541,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN22btRotationalLimitMotor14testL
   br label %36
 
 36:                                               ; preds = %29, %33, %31, %16, %20, %18, %35, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %35 ], [ 1, %18 ], [ 1, %20 ], [ 1, %16 ], [ 2, %31 ], [ 2, %33 ], [ 2, %29 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %35 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ], [ 2, %31 ], [ 2, %33 ], [ 2, %29 ]
   ret i32 %.0
 }
 
@@ -2262,7 +2262,7 @@ _Z16btNormalizeAnglef.exit33:                     ; preds = %47, %49, %51
   br label %57
 
 57:                                               ; preds = %31, %3, %_Z16btNormalizeAnglef.exit33, %_Z16btNormalizeAnglef.exit29
-  %.0 = phi float [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %3 ], [ %0, %31 ]
+  %.0 = phi float [ %0, %3 ], [ %30, %_Z16btNormalizeAnglef.exit29 ], [ %56, %_Z16btNormalizeAnglef.exit33 ], [ %0, %31 ]
   ret float %.0
 }
 
@@ -3237,7 +3237,7 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   br label %116
 
 116:                                              ; preds = %95, %102, %109
-  %.sink = phi i32 [ 1, %102 ], [ %spec.select, %109 ], [ 0, %95 ]
+  %.sink = phi i32 [ %spec.select, %109 ], [ 1, %102 ], [ 0, %95 ]
   %117 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.04661, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
   %.1 = add nsw i32 %117, %.04661
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4001,7 +4001,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   br label %.thread370
 
 .thread370:                                       ; preds = %255, %.thread367, %13, %351, %360, %359, %353, %368, %362, %320, %314
-  %.0 = phi i32 [ 1, %314 ], [ 1, %320 ], [ 1, %362 ], [ 1, %368 ], [ 1, %353 ], [ 1, %359 ], [ 1, %360 ], [ 1, %351 ], [ 0, %13 ], [ 1, %.thread367 ], [ 1, %255 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %314 ], [ 1, %320 ], [ 1, %362 ], [ 1, %368 ], [ 1, %353 ], [ 1, %359 ], [ 1, %360 ], [ 1, %351 ], [ 1, %.thread367 ], [ 1, %255 ]
   ret i32 %.0
 }
 

@@ -250,7 +250,7 @@ define hidden noundef nonnull ptr @SDL_Vulkan_GetResultString(i32 noundef %0) lo
   br label %41
 
 41:                                               ; preds = %39, %1, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ], [ @.str.37, %38 ], [ @.str, %1 ], [ %.str.38..str.39, %39 ]
+  %.0 = phi ptr [ %.str.38..str.39, %39 ], [ @.str, %1 ], [ @.str.37, %38 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str.18, %19 ], [ @.str.19, %20 ], [ @.str.20, %21 ], [ @.str.21, %22 ], [ @.str.22, %23 ], [ @.str.23, %24 ], [ @.str.24, %25 ], [ @.str.25, %26 ], [ @.str.26, %27 ], [ @.str.27, %28 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ @.str.30, %31 ], [ @.str.31, %32 ], [ @.str.32, %33 ], [ @.str.33, %34 ], [ @.str.34, %35 ], [ @.str.35, %36 ], [ @.str.36, %37 ]
   ret ptr %.0
 }
 
@@ -526,8 +526,8 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   br label %111
 
 111:                                              ; preds = %106, %.preheader261, %102
-  %.1198 = phi i32 [ %.0197284, %102 ], [ %.0197284, %.preheader261 ], [ %spec.select, %106 ]
-  %.1196 = phi i32 [ %.0195285, %102 ], [ %.0195285, %.preheader261 ], [ %spec.select241, %106 ]
+  %.1198 = phi i32 [ %.0197284, %.preheader261 ], [ %spec.select, %106 ], [ %.0197284, %102 ]
+  %.1196 = phi i32 [ %.0195285, %.preheader261 ], [ %spec.select241, %106 ], [ %.0195285, %102 ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count
   br i1 %exitcond.not, label %112, label %.preheader261, !llvm.loop !3
@@ -688,7 +688,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %or.cond292 = select i1 %.not237, i1 true, i1 %.not238
   br i1 %or.cond292, label %186, label %190
 
-.thread246:                                       ; preds = %157, %167, %177
+.thread246:                                       ; preds = %157, %177, %167
   call void @SDL_free_REAL(ptr noundef nonnull %135) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread252
@@ -743,7 +743,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   store i32 %204, ptr %199, align 8
   br label %.loopexit
 
-.thread252:                                       ; preds = %71, %84, %96, %114, %129, %145, %.thread249, %62, %86, %131, %.thread246
+.thread252:                                       ; preds = %71, %84, %96, %114, %129, %145, %.thread246, %.thread249, %86, %62, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -763,8 +763,8 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit263
 
-209:                                              ; preds = %60, %.lr.ph
-  %.2202.ph = phi i32 [ %.1201281, %.lr.ph ], [ %61, %60 ]
+209:                                              ; preds = %.lr.ph, %60
+  %.2202.ph = phi i32 [ %61, %60 ], [ %.1201281, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -810,7 +810,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   br label %227
 
 226:                                              ; preds = %.thread252, %41, %222, %216, %48, %39, %34, %26
-  %.0189 = phi ptr [ null, %34 ], [ null, %39 ], [ %44, %48 ], [ null, %216 ], [ null, %222 ], [ null, %41 ], [ null, %26 ], [ %44, %.thread252 ]
+  %.0189 = phi ptr [ null, %34 ], [ null, %39 ], [ %44, %48 ], [ null, %216 ], [ null, %222 ], [ %44, %.thread252 ], [ null, %41 ], [ null, %26 ]
   call void @SDL_free_REAL(ptr noundef %.0189) #7
   br label %227
 

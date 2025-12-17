@@ -450,7 +450,7 @@ BufferGetPage.exit126:                            ; preds = %150, %156
   br label %.sink.split
 
 .sink.split:                                      ; preds = %BufferGetPage.exit124, %106, %.critedge
-  %.1108173.ph = phi i32 [ %148, %.critedge ], [ %117, %BufferGetPage.exit124 ], [ 0, %106 ]
+  %.1108173.ph = phi i32 [ %148, %.critedge ], [ 0, %106 ], [ %117, %BufferGetPage.exit124 ]
   %225 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store i16 80, ptr %225, align 4
   tail call void @MarkBufferDirty(i32 noundef %30) #8
@@ -1052,7 +1052,7 @@ BufferGetPage.exit76.i:                           ; preds = %273, %267
   br i1 %282, label %.lr.ph93.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %BufferGetPage.exit76.i, %246, %243, %._crit_edge86.i
-  %283 = phi i32 [ %235, %246 ], [ %235, %243 ], [ %235, %._crit_edge86.i ], [ %280, %BufferGetPage.exit76.i ]
+  %283 = phi i32 [ %235, %._crit_edge86.i ], [ %235, %246 ], [ %235, %243 ], [ %280, %BufferGetPage.exit76.i ]
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %.lr.ph96.i, label %._crit_edge97.thread.i
 
@@ -1126,7 +1126,7 @@ shiftList.exit:                                   ; preds = %._crit_edge101.i
   br label %308
 
 308:                                              ; preds = %.thread, %307
-  %.181 = phi i32 [ %90, %307 ], [ %127, %.thread ]
+  %.181 = phi i32 [ %127, %.thread ], [ %90, %307 ]
   call void @vacuum_delay_point(i1 noundef zeroext false) #8
   %309 = call i32 @ReadBuffer(ptr noundef %15, i32 noundef %.181) #8
   call void @LockBuffer(i32 noundef %309, i32 noundef 1) #8

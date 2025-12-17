@@ -377,7 +377,7 @@ define internal fastcc noundef i32 @"_ZN4core4iter8adapters7flatten26FlattenComp
   br label %52
 
 52:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h75f9aea2142fbc9eE.exit", %29, %50, %51
-  %.sroa.0.0 = phi i32 [ %25, %29 ], [ %49, %50 ], [ 0, %51 ], [ %28, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h75f9aea2142fbc9eE.exit" ]
+  %.sroa.0.0 = phi i32 [ %25, %29 ], [ 0, %51 ], [ %49, %50 ], [ %28, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h75f9aea2142fbc9eE.exit" ]
   ret i32 %.sroa.0.0
 }
 
@@ -1413,9 +1413,9 @@ _ZN15ruff_python_ast4name13SegmentsStack4push17h2d63f62767ae4f7bE.exit.i.i.i.i: 
   br label %136
 
 .invoke98.i.i.i:                                  ; preds = %142, %140, %82, %80
-  %133 = phi i64 [ 0, %82 ], [ 0, %80 ], [ %137, %142 ], [ %137, %140 ]
-  %134 = phi i64 [ %76, %82 ], [ %76, %80 ], [ %.val4.i, %142 ], [ %.val4.i, %140 ]
-  %135 = phi ptr [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.3, %82 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.3, %80 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.4, %142 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.4, %140 ]
+  %133 = phi i64 [ 0, %80 ], [ 0, %82 ], [ %137, %142 ], [ %137, %140 ]
+  %134 = phi i64 [ %76, %80 ], [ %76, %82 ], [ %.val4.i, %142 ], [ %.val4.i, %140 ]
+  %135 = phi ptr [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.3, %80 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.3, %82 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.4, %142 ], [ @anon.1e7cc48ba27c8b26d245d7cea6a7caab.4, %140 ]
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val4.i, i64 noundef %133, i64 noundef %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %135) #16
           to label %.cont99.i.i.i unwind label %.body.thread78.loopexit.split-lp.i.i.loopexit.split-lp.i, !noalias !87
 
@@ -1778,7 +1778,7 @@ common.resume.i.i:                                ; preds = %245, %.body.thread.
   resume { ptr, i32 } %common.resume.op.i.i
 
 .body.thread.i.i.i:                               ; preds = %239, %216, %131, %111, %.body.thread78.loopexit.split-lp.i.i.loopexit.split-lp.i, %.body.thread78.loopexit.split-lp.i.i.loopexit.i, %.body.thread78.loopexit.i.i.i
-  %eh.lpad-body76.i.i.i = phi { ptr, i32 } [ %132, %131 ], [ %112, %111 ], [ %240, %239 ], [ %lpad.phi12.i, %216 ], [ %lpad.loopexit.i.i.i, %.body.thread78.loopexit.i.i.i ], [ %lpad.loopexit.i, %.body.thread78.loopexit.split-lp.i.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.body.thread78.loopexit.split-lp.i.i.loopexit.split-lp.i ]
+  %eh.lpad-body76.i.i.i = phi { ptr, i32 } [ %lpad.phi12.i, %216 ], [ %112, %111 ], [ %132, %131 ], [ %240, %239 ], [ %lpad.loopexit.i.i.i, %.body.thread78.loopexit.i.i.i ], [ %lpad.loopexit.i, %.body.thread78.loopexit.split-lp.i.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.body.thread78.loopexit.split-lp.i.i.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_ast..name..QualifiedNameBuilder$GT$17h88d9e8e47c385616E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %19) #17
           to label %common.resume.i.i unwind label %242, !noalias !87
 
@@ -2349,7 +2349,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel18match
   unreachable
 
 _ZN20ruff_python_semantic5model13SemanticModel19has_builtin_binding17h174d49fd5fa315f1E.exit: ; preds = %33, %22, %16, %10, %85, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17hd2be83d6e1747d98E.exit"
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %85 ], [ false, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17hd2be83d6e1747d98E.exit" ], [ false, %10 ], [ false, %16 ], [ %39, %33 ], [ false, %22 ]
+  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %85 ], [ false, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17hd2be83d6e1747d98E.exit" ], [ false, %16 ], [ false, %10 ], [ %39, %33 ], [ false, %22 ]
   ret i1 %.sroa.0.0
 
 41:                                               ; preds = %13
@@ -2442,7 +2442,7 @@ _ZN20ruff_python_semantic5model13SemanticModel19has_builtin_binding17h174d49fd5f
   br i1 %74, label %83, label %85
 
 85:                                               ; preds = %84, %82, %57, %75, %83
-  %.sroa.0.1 = phi i1 [ true, %83 ], [ false, %75 ], [ false, %57 ], [ false, %82 ], [ false, %84 ]
+  %.sroa.0.1 = phi i1 [ true, %83 ], [ false, %82 ], [ false, %57 ], [ false, %75 ], [ false, %84 ]
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h051d73151e30b3bcE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN20ruff_python_semantic5model13SemanticModel19has_builtin_binding17h174d49fd5fa315f1E.exit
@@ -2798,8 +2798,8 @@ _ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a
   br label %.critedge
 
 .critedge:                                        ; preds = %367, %362, %166, %352, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73", %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67, %.loopexit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60, %94
-  %.sroa.11.0 = phi i32 [ %12, %94 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ %164, %.loopexit ], [ %.sroa.018.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ %164, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ %260, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ %274, %352 ], [ undef, %166 ], [ undef, %362 ], [ undef, %367 ]
-  %.sroa.0.0 = phi i32 [ 0, %94 ], [ 2, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ 4, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ 0, %.loopexit ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ 0, %352 ], [ 1, %166 ], [ 1, %362 ], [ 1, %367 ]
+  %.sroa.11.0 = phi i32 [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ %12, %94 ], [ undef, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ %274, %352 ], [ %164, %.loopexit ], [ %.sroa.018.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ %164, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ %260, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ undef, %166 ], [ undef, %362 ], [ undef, %367 ]
+  %.sroa.0.0 = phi i32 [ 4, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit ], [ 0, %94 ], [ 2, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit60 ], [ 0, %352 ], [ 0, %.loopexit ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17heafa31cb7b90f02fE.exit73" ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit67 ], [ 3, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit72 ], [ 1, %166 ], [ 1, %362 ], [ 1, %367 ]
   %99 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %100 = insertvalue { i32, i32 } %99, i32 %.sroa.11.0, 1
   ret { i32, i32 } %100
@@ -3317,7 +3317,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel13lookup_symbo
   br label %_ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a97cbbc8E.exit
 
 _ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a97cbbc8E.exit: ; preds = %3, %9, %11
-  %.sroa.0.0.i = phi i1 [ %13, %11 ], [ true, %3 ], [ false, %9 ]
+  %.sroa.0.0.i = phi i1 [ true, %3 ], [ %13, %11 ], [ false, %9 ]
   %14 = tail call noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbol_in_scope17h4493ef3f4c9c7684E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %5, i1 noundef zeroext %.sroa.0.0.i)
   ret i32 %14
 }
@@ -3367,7 +3367,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbo
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %88, %86, %71, %62, %6, %77, %.loopexit26, %80, %24
-  %.sroa.0.0 = phi i32 [ %16, %24 ], [ 0, %.loopexit26 ], [ %79, %77 ], [ %82, %80 ], [ 0, %6 ], [ 0, %.backedge ], [ 0, %88 ], [ 0, %86 ], [ %60, %71 ], [ 0, %62 ]
+  %.sroa.0.0 = phi i32 [ %79, %77 ], [ %16, %24 ], [ %82, %80 ], [ 0, %.loopexit26 ], [ 0, %6 ], [ 0, %.backedge ], [ 0, %88 ], [ 0, %86 ], [ %60, %71 ], [ 0, %62 ]
   ret i32 %.sroa.0.0
 
 29:                                               ; preds = %.lr.ph, %.backedge
@@ -3437,8 +3437,8 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbo
   br i1 %63, label %.loopexit, label %61
 
 .backedge:                                        ; preds = %70, %83, %88, %61, %71
-  %.sroa.03.0.be = phi i8 [ %.sroa.03.062, %61 ], [ %59, %71 ], [ %59, %88 ], [ %59, %83 ], [ %59, %70 ]
-  %.sroa.09.0.be = phi i1 [ false, %61 ], [ %.sroa.09.2, %71 ], [ %.sroa.09.2, %88 ], [ %.sroa.09.2, %83 ], [ %.sroa.09.2, %70 ]
+  %.sroa.03.0.be = phi i8 [ %59, %71 ], [ %.sroa.03.062, %61 ], [ %59, %88 ], [ %59, %83 ], [ %59, %70 ]
+  %.sroa.09.0.be = phi i1 [ %.sroa.09.2, %71 ], [ false, %61 ], [ %.sroa.09.2, %88 ], [ %.sroa.09.2, %83 ], [ %.sroa.09.2, %70 ]
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %.loopexit, label %29
 
@@ -3555,7 +3555,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   br i1 %30, label %31, label %36
 
 .loopexit56:                                      ; preds = %.backedge58, %170, %168, %72, %85, %76, %66, %48, %164, %7
-  %.sroa.0.0 = phi i32 [ 0, %7 ], [ %124, %164 ], [ 0, %.backedge58 ], [ 0, %170 ], [ 0, %168 ], [ %.sroa.018.0, %72 ], [ %.sroa.018.0, %85 ], [ 0, %76 ], [ 0, %66 ], [ 0, %48 ]
+  %.sroa.0.0 = phi i32 [ 0, %7 ], [ %124, %164 ], [ 0, %170 ], [ %.sroa.018.0, %72 ], [ %.sroa.018.0, %85 ], [ 0, %76 ], [ 0, %.backedge58 ], [ 0, %66 ], [ 0, %168 ], [ 0, %48 ]
   ret i32 %.sroa.0.0
 
 31:                                               ; preds = %22
@@ -3592,7 +3592,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   br i1 %.not32, label %130, label %50
 
 .thread50:                                        ; preds = %.thread, %48
-  %.sroa.04.14852 = phi i1 [ %spec.select, %48 ], [ %.sroa.04.0100, %.thread ]
+  %.sroa.04.14852 = phi i1 [ %.sroa.04.0100, %.thread ], [ %spec.select, %48 ]
   br i1 %.sroa.09.099, label %.thread50._crit_edge, label %.backedge58
 
 .thread50._crit_edge:                             ; preds = %.thread50
@@ -3604,9 +3604,9 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   br i1 %49, label %.loopexit56, label %.thread50
 
 .backedge58:                                      ; preds = %130, %165, %170, %.thread50, %85, %66
-  %.sroa.09.0.be = phi i1 [ false, %.thread50 ], [ %.sroa.09.2, %85 ], [ %.sroa.09.2, %66 ], [ %.sroa.09.2, %170 ], [ %.sroa.09.2, %165 ], [ %.sroa.09.2, %130 ]
-  %.sroa.04.0.be = phi i1 [ %.sroa.04.14852, %.thread50 ], [ false, %85 ], [ false, %66 ], [ %.sroa.04.147, %170 ], [ %.sroa.04.147, %165 ], [ %.sroa.04.147, %130 ]
-  %.sroa.01.0.be = phi i1 [ %.sroa.01.0101, %.thread50 ], [ %46, %85 ], [ %46, %66 ], [ %46, %170 ], [ %46, %165 ], [ %46, %130 ]
+  %.sroa.09.0.be = phi i1 [ %.sroa.09.2, %66 ], [ false, %.thread50 ], [ %.sroa.09.2, %85 ], [ %.sroa.09.2, %170 ], [ %.sroa.09.2, %165 ], [ %.sroa.09.2, %130 ]
+  %.sroa.04.0.be = phi i1 [ false, %66 ], [ %.sroa.04.14852, %.thread50 ], [ false, %85 ], [ %.sroa.04.147, %170 ], [ %.sroa.04.147, %165 ], [ %.sroa.04.147, %130 ]
+  %.sroa.01.0.be = phi i1 [ %46, %66 ], [ %.sroa.01.0101, %.thread50 ], [ %46, %85 ], [ %46, %170 ], [ %46, %165 ], [ %46, %130 ]
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %.loopexit56, label %15
 
@@ -3927,7 +3927,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel16lookup_attri
   br label %_ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a97cbbc8E.exit.i
 
 _ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a97cbbc8E.exit.i: ; preds = %27, %25, %14
-  %.sroa.0.0.i.i = phi i1 [ %29, %27 ], [ true, %14 ], [ false, %25 ]
+  %.sroa.0.0.i.i = phi i1 [ true, %14 ], [ %29, %27 ], [ false, %25 ]
   %30 = invoke noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbol_in_scope17h4493ef3f4c9c7684E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19, i32 noundef %21, i1 noundef zeroext %.sroa.0.0.i.i)
           to label %_ZN20ruff_python_semantic5model13SemanticModel13lookup_symbol17h6b6e377c83fb9235E.exit unwind label %.loopexit.split-lp
 
@@ -4163,12 +4163,12 @@ define internal fastcc noundef i32 @_ZN20ruff_python_semantic5model13SemanticMod
   br label %.sink.split
 
 .sink.split:                                      ; preds = %75, %65, %71
-  %.sroa.0.1.ph = phi i32 [ 0, %71 ], [ 0, %65 ], [ %spec.select, %75 ]
+  %.sroa.0.1.ph = phi i32 [ 0, %65 ], [ %spec.select, %75 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %83
 
 83:                                               ; preds = %.sink.split, %14, %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit", %40, %52
-  %.sroa.0.1 = phi i32 [ 0, %52 ], [ 0, %40 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit" ], [ 0, %20 ], [ 0, %14 ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi i32 [ 0, %14 ], [ 0, %52 ], [ 0, %40 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit" ], [ 0, %20 ], [ %.sroa.0.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.sroa.0.1
 }
@@ -4365,7 +4365,7 @@ _ZN20ruff_python_semantic5model13SemanticModel12resolve_name17hba613fffebd7c899E
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h86c2faacb2ff9b5bE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h86c2faacb2ff9b5bE.exit": ; preds = %_ZN20ruff_python_semantic5model13SemanticModel12resolve_name17hba613fffebd7c899E.exit.thread, %"_ZN20ruff_python_semantic5model13SemanticModel12only_binding28_$u7b$$u7b$closure$u7d$$u7d$17h6c4315ea5fb80552E.exit.i"
-  %.sroa.05.0.i = phi i32 [ %spec.select.i, %"_ZN20ruff_python_semantic5model13SemanticModel12only_binding28_$u7b$$u7b$closure$u7d$$u7d$17h6c4315ea5fb80552E.exit.i" ], [ 0, %_ZN20ruff_python_semantic5model13SemanticModel12resolve_name17hba613fffebd7c899E.exit.thread ]
+  %.sroa.05.0.i = phi i32 [ 0, %_ZN20ruff_python_semantic5model13SemanticModel12resolve_name17hba613fffebd7c899E.exit.thread ], [ %spec.select.i, %"_ZN20ruff_python_semantic5model13SemanticModel12only_binding28_$u7b$$u7b$closure$u7d$$u7d$17h6c4315ea5fb80552E.exit.i" ]
   ret i32 %.sroa.05.0.i
 }
 
@@ -4514,7 +4514,7 @@ tailrecurse.i:                                    ; preds = %32, %3
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4196149353818810E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h4196149353818810E.exit": ; preds = %.loopexit, %81, %83
-  %.sroa.0.0.i.i.i.i = phi i1 [ %85, %83 ], [ true, %.loopexit ], [ false, %81 ]
+  %.sroa.0.0.i.i.i.i = phi i1 [ true, %.loopexit ], [ %85, %83 ], [ false, %81 ]
   %86 = extractvalue { ptr, i64 } %75, 1
   %87 = extractvalue { ptr, i64 } %75, 0
   %88 = call noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbol_in_scope17h4493ef3f4c9c7684E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %1, ptr noalias noundef nonnull readonly align 1 %87, i64 noundef %86, i32 noundef %77, i1 noundef zeroext %.sroa.0.0.i.i.i.i)
@@ -4950,7 +4950,7 @@ tailrecurse.i:                                    ; preds = %32, %3
   br i1 %235, label %.invoke, label %237, !prof !48
 
 .invoke:                                          ; preds = %277, %254, %232
-  %236 = phi i64 [ %234, %232 ], [ %256, %254 ], [ %279, %277 ]
+  %236 = phi i64 [ %256, %254 ], [ %234, %232 ], [ %279, %277 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %236, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e7cc48ba27c8b26d245d7cea6a7caab.15) #16
           to label %.cont unwind label %213
 
@@ -5545,7 +5545,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %82, %81
           to label %.body unwind label %96, !noalias !544
 
 "_ZN20ruff_python_semantic5model13SemanticModel29resolve_qualified_import_name28_$u7b$$u7b$closure$u7d$$u7d$17h326f73c98892a1b6E.exit.i.i.i": ; preds = %.loopexit100.i.i.i.i, %.noexc19
-  %.sroa.0.1.i.i.i = phi i64 [ %59, %.loopexit100.i.i.i.i ], [ %.sroa.0.0.i.i5.i, %.noexc19 ]
+  %.sroa.0.1.i.i.i = phi i64 [ %.sroa.0.0.i.i5.i, %.noexc19 ], [ %59, %.loopexit100.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !509
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !509
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !509
@@ -6122,7 +6122,7 @@ _ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e545
   br i1 %37, label %38, label %41
 
 "_ZN115_$LT$core..iter..sources..successors..Successors$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha156fdf3f2100e6aE.exit.thread": ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit, %38
-  %.sroa.0.0 = phi ptr [ %40, %38 ], [ null, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ], [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ]
+  %.sroa.0.0 = phi ptr [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ], [ %40, %38 ], [ null, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ]
   ret ptr %.sroa.0.0
 
 38:                                               ; preds = %36
@@ -6218,7 +6218,7 @@ _ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e545
   br i1 %41, label %42, label %45
 
 "_ZN115_$LT$core..iter..sources..successors..Successors$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha156fdf3f2100e6aE.exit.thread": ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %15, %33, %42
-  %.sroa.0.0 = phi ptr [ %44, %42 ], [ null, %33 ], [ null, %15 ], [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ]
+  %.sroa.0.0 = phi ptr [ null, %33 ], [ %44, %42 ], [ null, %15 ], [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ]
   ret ptr %.sroa.0.0
 
 42:                                               ; preds = %40
@@ -6853,7 +6853,7 @@ define void @_ZN20ruff_python_semantic5model13SemanticModel10add_module17h78b4d7
   br i1 %64, label %.sink.split, label %68
 
 .sink.split:                                      ; preds = %61, %59, %55, %57, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %63
-  %.sink3 = phi i32 [ 536870912, %63 ], [ 65536, %3 ], [ 1048576, %5 ], [ 262144, %7 ], [ 1, %9 ], [ 4194304, %11 ], [ 524288, %13 ], [ 131072, %15 ], [ 2, %17 ], [ 4, %19 ], [ 2097152, %21 ], [ 16777216, %23 ], [ 8, %25 ], [ 8388608, %27 ], [ 16, %29 ], [ 32, %31 ], [ 64, %33 ], [ 128, %35 ], [ 256, %37 ], [ 512, %39 ], [ 67108864, %41 ], [ 1024, %43 ], [ 2048, %45 ], [ 4096, %47 ], [ 8192, %49 ], [ 16384, %51 ], [ 32768, %53 ], [ 33554432, %57 ], [ 33554432, %55 ], [ 134217728, %59 ], [ 268435456, %61 ]
+  %.sink3 = phi i32 [ 536870912, %63 ], [ 134217728, %59 ], [ 33554432, %55 ], [ 32768, %53 ], [ 16384, %51 ], [ 8192, %49 ], [ 4096, %47 ], [ 2048, %45 ], [ 1024, %43 ], [ 67108864, %41 ], [ 512, %39 ], [ 256, %37 ], [ 128, %35 ], [ 64, %33 ], [ 32, %31 ], [ 16, %29 ], [ 8388608, %27 ], [ 8, %25 ], [ 16777216, %23 ], [ 2097152, %21 ], [ 4, %19 ], [ 2, %17 ], [ 131072, %15 ], [ 524288, %13 ], [ 4194304, %11 ], [ 1, %9 ], [ 262144, %7 ], [ 1048576, %5 ], [ 65536, %3 ], [ 33554432, %57 ], [ 268435456, %61 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %66 = load i32, ptr %65, align 4, !noundef !4
   %67 = or i32 %66, %.sink3
@@ -6933,7 +6933,7 @@ define void @_ZN20ruff_python_semantic5model13SemanticModel11set_globals17hff6fd
   %or.cond.i = or i1 %.not1.i, %.not.i4.i.i
   br i1 %or.cond.i, label %_ZN20ruff_python_semantic5model13SemanticModel12at_top_level17hcad54ee2d6df9f87E.exit, label %16
 
-.thread20.loopexit:                               ; preds = %83, %58, %52, %40, %35, %_ZN20ruff_python_semantic5model13SemanticModel12global_scope17hfd8025c584b62390E.exit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit, %_ZN20ruff_python_semantic5model13SemanticModel16global_scope_mut17h7ef20bdd66d5c49dE.exit
+.thread20.loopexit:                               ; preds = %58, %52, %35, %40, %_ZN20ruff_python_semantic5model13SemanticModel12global_scope17hfd8025c584b62390E.exit, %_ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.exit, %83, %_ZN20ruff_python_semantic5model13SemanticModel16global_scope_mut17h7ef20bdd66d5c49dE.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -7284,8 +7284,8 @@ define { i32, i32 } @_ZN20ruff_python_semantic5model13SemanticModel8nonlocal17h7
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h93980bc35c4fe991E.exit": ; preds = %34, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd2bed619e7e59ef8E.exit.i.i", %9, %.loopexit.i.i
-  %.sroa.3.0.i = phi i32 [ undef, %.loopexit.i.i ], [ undef, %9 ], [ undef, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd2bed619e7e59ef8E.exit.i.i" ], [ %35, %34 ]
-  %.sroa.0.0.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %9 ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd2bed619e7e59ef8E.exit.i.i" ], [ %13, %34 ]
+  %.sroa.3.0.i = phi i32 [ undef, %.loopexit.i.i ], [ undef, %9 ], [ %35, %34 ], [ undef, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd2bed619e7e59ef8E.exit.i.i" ]
+  %.sroa.0.0.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %9 ], [ %13, %34 ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd2bed619e7e59ef8E.exit.i.i" ]
   %44 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %45 = insertvalue { i32, i32 } %44, i32 %.sroa.3.0.i, 1
   ret { i32, i32 } %45
@@ -7560,8 +7560,8 @@ common.resume:                                    ; preds = %109, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !817
   br label %_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit
 
-_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit: ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit, %77, %90, %86, %113, %93, %76, %56, %34, %50, %52
-  %.sroa.0.0 = phi i1 [ %55, %52 ], [ false, %50 ], [ false, %34 ], [ %.sroa.0.1.i, %76 ], [ false, %56 ], [ %.sroa.0.1.i48, %113 ], [ false, %93 ], [ false, %86 ], [ false, %90 ], [ false, %77 ], [ false, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ], [ false, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ]
+_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit: ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit, %77, %86, %90, %113, %93, %76, %56, %34, %50, %52
+  %.sroa.0.0 = phi i1 [ false, %34 ], [ %55, %52 ], [ false, %93 ], [ false, %50 ], [ false, %56 ], [ false, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ], [ %.sroa.0.1.i, %76 ], [ %.sroa.0.1.i48, %113 ], [ false, %77 ], [ false, %90 ], [ false, %86 ], [ false, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ]
   ret i1 %.sroa.0.0
 
 77:                                               ; preds = %50
@@ -7800,8 +7800,8 @@ common.resume:                                    ; preds = %105, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !867
   br label %_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit
 
-_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit: ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit, %73, %86, %82, %109, %89, %72, %52, %34, %50
-  %.sroa.0.0 = phi i1 [ false, %50 ], [ false, %34 ], [ %.sroa.0.1.i, %72 ], [ false, %52 ], [ %.sroa.0.1.i47, %109 ], [ false, %89 ], [ false, %82 ], [ false, %86 ], [ false, %73 ], [ false, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ], [ false, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ]
+_ZN20ruff_python_semantic5model13SemanticModel17match_typing_expr17hdc64a6d6ea7791e2E.exit: ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i", %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit, %73, %82, %86, %109, %89, %72, %52, %34, %50
+  %.sroa.0.0 = phi i1 [ false, %34 ], [ false, %89 ], [ false, %50 ], [ false, %52 ], [ false, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb7e27bb4de040e1E.exit.i" ], [ %.sroa.0.1.i, %72 ], [ %.sroa.0.1.i47, %109 ], [ false, %73 ], [ false, %86 ], [ false, %82 ], [ false, %_ZN20ruff_python_semantic5model13SemanticModel19current_expressions17h957f95e5451ad680E.exit ]
   ret i1 %.sroa.0.0
 
 73:                                               ; preds = %50
@@ -8757,7 +8757,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel20in_fo
   br label %10
 
 10:                                               ; preds = %5, %1, %7
-  %.sroa.0.0 = phi i1 [ %9, %7 ], [ true, %1 ], [ false, %5 ]
+  %.sroa.0.0 = phi i1 [ true, %1 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.sroa.0.0
 }
 

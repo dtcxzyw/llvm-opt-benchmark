@@ -325,7 +325,7 @@ define hidden i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef %1, ptr n
   br label %.loopexit619
 
 .loopexit619:                                     ; preds = %47, %.loopexit619.sink.split, %27, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %27 ], [ %49, %.loopexit619.sink.split ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %25 ], [ %49, %.loopexit619.sink.split ], [ 0, %47 ]
   %50 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %24, i32 noundef %.0)
   %.not511 = icmp eq ptr %50, null
   br i1 %.not511, label %.thread, label %51
@@ -414,9 +414,9 @@ define hidden i32 @dissect_PNIO_C_SDU_RTC1(ptr noundef %0, i32 noundef %1, ptr n
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %94, %86, %79, %72, %64, %56, %101
-  %.1466 = phi i1 [ true, %101 ], [ false, %56 ], [ false, %64 ], [ false, %72 ], [ false, %79 ], [ false, %86 ], [ false, %94 ]
-  %.1444 = phi i32 [ %106, %101 ], [ 0, %56 ], [ 0, %64 ], [ 0, %72 ], [ 0, %79 ], [ 0, %86 ], [ 0, %94 ]
-  %.1442 = phi i32 [ %107, %101 ], [ 0, %56 ], [ 0, %64 ], [ 0, %72 ], [ 0, %79 ], [ 0, %86 ], [ 0, %94 ]
+  %.1466 = phi i1 [ true, %101 ], [ false, %72 ], [ false, %56 ], [ false, %64 ], [ false, %79 ], [ false, %86 ], [ false, %94 ]
+  %.1444 = phi i32 [ %106, %101 ], [ 0, %72 ], [ 0, %56 ], [ 0, %64 ], [ 0, %79 ], [ 0, %86 ], [ 0, %94 ]
+  %.1442 = phi i32 [ %107, %101 ], [ 0, %72 ], [ 0, %56 ], [ 0, %64 ], [ 0, %79 ], [ 0, %86 ], [ 0, %94 ]
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %109 = load ptr, ptr %58, align 8
   %110 = tail call ptr @conversation_key_addr1(ptr noundef %109)
@@ -883,10 +883,10 @@ dissect_PNIO_IOxS.exit:                           ; preds = %338, %339
   %371 = trunc nuw i8 %370 to i1
   %372 = getelementptr inbounds nuw i8, ptr %212, i64 18
   %373 = load i16, ptr %372, align 2
-  %374 = icmp ugt i16 %373, 4
-  %.str.18..str.19 = select i1 %374, ptr @.str.18, ptr @.str.19
   %.not538 = icmp eq i16 %373, 0
   %.str.19..str.18 = select i1 %.not538, ptr @.str.19, ptr @.str.18
+  %374 = icmp ugt i16 %373, 4
+  %.str.18..str.19 = select i1 %374, ptr @.str.18, ptr @.str.19
   %.str.18.sink = select i1 %371, ptr %.str.18..str.19, ptr %.str.19..str.18
   call void @wmem_strbuf_append(ptr noundef %369, ptr noundef nonnull %.str.18.sink)
   %375 = call ptr @wmem_file_scope()
@@ -1401,10 +1401,10 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %614, %615
   %647 = trunc nuw i8 %646 to i1
   %648 = getelementptr inbounds nuw i8, ptr %489, i64 18
   %649 = load i16, ptr %648, align 2
-  %650 = icmp ugt i16 %649, 4
-  %.str.19..str.18772 = select i1 %650, ptr @.str.19, ptr @.str.18
   %.not525 = icmp eq i16 %649, 0
   %.str.18..str.19773 = select i1 %.not525, ptr @.str.18, ptr @.str.19
+  %650 = icmp ugt i16 %649, 4
+  %.str.19..str.18772 = select i1 %650, ptr @.str.19, ptr @.str.18
   %.str.19.sink = select i1 %647, ptr %.str.19..str.18772, ptr %.str.18..str.19773
   call void @wmem_strbuf_append(ptr noundef %645, ptr noundef nonnull %.str.19.sink)
   %651 = call ptr @wmem_file_scope()
@@ -1439,9 +1439,9 @@ dissect_PNIO_IOxS.exit584:                        ; preds = %614, %615
   br label %669
 
 669:                                              ; preds = %662, %.lr.ph663, %490
-  %.11478 = phi i8 [ %.8475658, %490 ], [ %.8475658, %.lr.ph663 ], [ %.10477, %662 ]
-  %.8459 = phi i16 [ %.7458659, %490 ], [ %.7458659, %.lr.ph663 ], [ %spec.select547, %662 ]
-  %.15 = phi i32 [ %.11660, %490 ], [ %.11660, %.lr.ph663 ], [ %.14, %662 ]
+  %.11478 = phi i8 [ %.8475658, %.lr.ph663 ], [ %.10477, %662 ], [ %.8475658, %490 ]
+  %.8459 = phi i16 [ %.7458659, %.lr.ph663 ], [ %spec.select547, %662 ], [ %.7458659, %490 ]
+  %.15 = phi i32 [ %.11660, %.lr.ph663 ], [ %.14, %662 ], [ %.11660, %490 ]
   %670 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.2661)
   %.not518 = icmp eq ptr %670, null
   br i1 %.not518, label %._crit_edge664, label %.lr.ph663, !llvm.loop !15
@@ -1506,8 +1506,8 @@ dissect_PNIO_IOCS.exit588:                        ; preds = %677, %678
   %696 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.9.lcssa, ptr noundef %2, ptr noundef %3, i32 noundef %695, ptr noundef nonnull @.str.22)
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit619, %19, %addresses_equal.exit553, %._crit_edge650, %._crit_edge677, %482, %205, %17
-  %.0438 = phi i32 [ %18, %17 ], [ %207, %205 ], [ %484, %482 ], [ %420, %._crit_edge650 ], [ %696, %._crit_edge677 ], [ %1, %addresses_equal.exit553 ], [ %1, %19 ], [ %1, %.loopexit619 ]
+.thread:                                          ; preds = %19, %.loopexit619, %addresses_equal.exit553, %._crit_edge650, %._crit_edge677, %482, %205, %17
+  %.0438 = phi i32 [ %18, %17 ], [ %207, %205 ], [ %484, %482 ], [ %420, %._crit_edge650 ], [ %696, %._crit_edge677 ], [ %1, %addresses_equal.exit553 ], [ %1, %.loopexit619 ], [ %1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0438
 }
@@ -1656,7 +1656,7 @@ define internal fastcc noundef i32 @dissect_pn_io_ps_uint(ptr noundef %0, i32 no
   br label %42
 
 .sink.split:                                      ; preds = %32, %30, %28, %26, %12, %16, %20, %24
-  %.sink = phi i64 [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
+  %.sink = phi i64 [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %13, %12 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %33, %32 ]
   store i64 %.sink, ptr %7, align 8
   br label %35
 

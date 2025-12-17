@@ -133,7 +133,7 @@ av_audio_fifo_free.exit:                          ; preds = %9, %._crit_edge.i
   br label %38
 
 38:                                               ; preds = %7, %3, %av_audio_fifo_free.exit, %._crit_edge
-  %.027 = phi ptr [ null, %av_audio_fifo_free.exit ], [ %8, %._crit_edge ], [ null, %3 ], [ null, %7 ]
+  %.027 = phi ptr [ null, %3 ], [ null, %av_audio_fifo_free.exit ], [ %8, %._crit_edge ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.027
 }
@@ -275,7 +275,7 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %30, %10, %13, %._crit_edge
-  %.1 = phi i32 [ %2, %._crit_edge ], [ %16, %13 ], [ -22, %10 ], [ -558323010, %30 ]
+  %.1 = phi i32 [ %16, %13 ], [ %2, %._crit_edge ], [ -22, %10 ], [ -558323010, %30 ]
   ret i32 %.1
 }
 
@@ -344,7 +344,7 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef re
   br i1 %27, label %av_audio_fifo_peek_at.exit, label %16
 
 av_audio_fifo_peek_at.exit:                       ; preds = %16, %20, %3, %7, %8
-  %.0.i = phi i32 [ -22, %3 ], [ 0, %7 ], [ %..i, %8 ], [ %..i, %16 ], [ -558323010, %20 ]
+  %.0.i = phi i32 [ -22, %3 ], [ %..i, %8 ], [ 0, %7 ], [ -558323010, %20 ], [ %..i, %16 ]
   ret i32 %.0.i
 }
 
@@ -465,7 +465,7 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %5, %3, %._crit_edge
-  %.0 = phi i32 [ %., %._crit_edge ], [ -22, %3 ], [ 0, %5 ], [ -558323010, %20 ]
+  %.0 = phi i32 [ -22, %3 ], [ 0, %5 ], [ %., %._crit_edge ], [ -558323010, %20 ]
   ret i32 %.0
 }
 

@@ -2151,7 +2151,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %136
 
 132:                                              ; preds = %101, %.body, %63
-  %.pn17.pn = phi { ptr, i32 } [ %64, %63 ], [ %92, %.body ], [ %102, %101 ]
+  %.pn17.pn = phi { ptr, i32 } [ %64, %63 ], [ %102, %101 ], [ %92, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7) #20
   br label %133
@@ -2395,7 +2395,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %85
 
 83:                                               ; preds = %53, %51
-  %.pn16 = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
+  %.pn16 = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #20
   br label %84
 

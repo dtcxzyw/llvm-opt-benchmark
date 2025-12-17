@@ -202,7 +202,7 @@ utrie2_set32_77.exit:                             ; preds = %.preheader.split, %
   br i1 %68, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %utrie2_set32_77.exit, %.preheader, %3, %13
-  %.0102 = phi ptr [ null, %13 ], [ null, %3 ], [ %7, %.preheader ], [ %7, %utrie2_set32_77.exit ]
+  %.0102 = phi ptr [ null, %3 ], [ null, %13 ], [ %7, %.preheader ], [ %7, %utrie2_set32_77.exit ]
   ret ptr %.0102
 }
 
@@ -450,7 +450,7 @@ define noundef ptr @utrie2_clone_77(ptr noundef readonly captures(address_is_nul
   br label %114
 
 114:                                              ; preds = %102, %66, %53
-  %.0.i = phi ptr [ null, %66 ], [ %56, %102 ], [ null, %53 ]
+  %.0.i = phi ptr [ %56, %102 ], [ null, %66 ], [ null, %53 ]
   %115 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr %.0.i, ptr %115, align 8, !tbaa !17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -470,7 +470,7 @@ define noundef ptr @utrie2_clone_77(ptr noundef readonly captures(address_is_nul
   br label %.thread
 
 .thread:                                          ; preds = %45, %48, %114, %.thread53, %120, %2, %19, %15
-  %.039 = phi ptr [ null, %15 ], [ null, %19 ], [ null, %2 ], [ null, %120 ], [ %17, %.thread53 ], [ %17, %114 ], [ %17, %48 ], [ %17, %45 ]
+  %.039 = phi ptr [ null, %2 ], [ null, %15 ], [ null, %19 ], [ null, %120 ], [ %17, %.thread53 ], [ %17, %114 ], [ %17, %48 ], [ %17, %45 ]
   ret ptr %.039
 }
 
@@ -639,7 +639,7 @@ utrie2_set32ForLeadSurrogateCodeUnit_77.exit:     ; preds = %77, %76, %72, %64, 
   br label %88
 
 88:                                               ; preds = %84, %87, %22, %2, %20, %16
-  %.034 = phi ptr [ null, %16 ], [ %21, %20 ], [ null, %2 ], [ null, %22 ], [ null, %87 ], [ %.pre46, %84 ]
+  %.034 = phi ptr [ %21, %20 ], [ null, %16 ], [ null, %2 ], [ null, %22 ], [ null, %87 ], [ %.pre46, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.034
 }
@@ -930,7 +930,7 @@ utrie2_set32ForLeadSurrogateCodeUnit_77.exit:     ; preds = %63, %62, %58, %50, 
   br label %77
 
 77:                                               ; preds = %73, %.thread, %10, %3, %9
-  %.031 = phi ptr [ null, %9 ], [ null, %3 ], [ null, %10 ], [ null, %.thread ], [ %.pre42.pre, %73 ]
+  %.031 = phi ptr [ null, %10 ], [ null, %9 ], [ null, %3 ], [ null, %.thread ], [ %.pre42.pre, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.031
 }
@@ -1177,7 +1177,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   br label %101
 
 _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %70, %78, %.preheader.i.i, %.preheader.us.i.i
-  %.0.i.i = phi i32 [ %.486.us.i.i, %.preheader.us.i.i ], [ %.486.i.i, %.preheader.i.i ], [ %indvars.iv150.in.i.i, %78 ], [ %.04578.i.i, %70 ]
+  %.0.i.i = phi i32 [ %indvars.iv150.in.i.i, %78 ], [ %.486.us.i.i, %.preheader.us.i.i ], [ %.486.i.i, %.preheader.i.i ], [ %.04578.i.i, %70 ]
   %90 = add nsw i32 %.0.i.i, 2047
   %91 = and i32 %90, -2048
   %92 = icmp eq i32 %91, 1114112
@@ -2009,7 +2009,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %320, %311
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph255, %449, %458
-  %462 = phi ptr [ %450, %449 ], [ %.pre346, %458 ], [ %450, %.lr.ph255 ]
+  %462 = phi ptr [ %.pre346, %458 ], [ %450, %449 ], [ %450, %.lr.ph255 ]
   tail call void @uprv_free_77(ptr noundef %462)
   tail call void @uprv_free_77(ptr noundef nonnull %12)
   store ptr null, ptr %11, align 8, !tbaa !17
@@ -2370,7 +2370,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   br i1 %179, label %178, label %.critedge128, !llvm.loop !104
 
 .critedge128:                                     ; preds = %.lr.ph.i140, %147, %178, %_ZL14setIndex2EntryP9UNewTrie2ii.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %_ZL13isInNullBlockP9UNewTrie2ia.exit
-  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %172, %178 ], [ %.1103174, %147 ], [ %.1103174, %.lr.ph.i140 ]
+  %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %.1103174, %147 ], [ %172, %178 ], [ %.1103174, %.lr.ph.i140 ]
   %.3 = add nuw nsw i32 %.2175, 32
   %180 = icmp slt i32 %.3, %67
   br i1 %180, label %83, label %._crit_edge
@@ -2419,7 +2419,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   br i1 %199, label %.lr.ph19.i151, label %.critedge, !llvm.loop !102
 
 .critedge.sink.split:                             ; preds = %171, %_ZL14getIndex2BlockP9UNewTrie2ia.exit, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i, %114, %181, %29, %13, %17, %9
-  %.sink = phi i32 [ 1, %9 ], [ 30, %17 ], [ 30, %13 ], [ 7, %29 ], [ 7, %181 ], [ 5, %114 ], [ 5, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ], [ 5, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ 7, %171 ]
+  %.sink = phi i32 [ 30, %17 ], [ 7, %29 ], [ 30, %13 ], [ 7, %181 ], [ 1, %9 ], [ 5, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ 7, %171 ], [ 5, %114 ], [ 5, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ]
   store i32 %.sink, ptr %5, align 4, !tbaa !3
   br label %.critedge
 
@@ -2517,7 +2517,7 @@ _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2Block
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 144148
   %56 = load i32, ptr %55, align 4, !tbaa !20
   %57 = icmp sgt i32 %54, %56
-  br i1 %57, label %58, label %72
+  br i1 %57, label %58, label %73
 
 58:                                               ; preds = %51
   %59 = icmp slt i32 %56, 131072
@@ -2533,72 +2533,72 @@ _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2Block
   %64 = zext nneg i32 %63 to i64
   %65 = tail call noalias ptr @uprv_malloc_77(i64 noundef %64) #7
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread, label %.critedge.i
+  br i1 %66, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread, label %67
 
-.critedge.i:                                      ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144128
-  %68 = load ptr, ptr %67, align 8, !tbaa !18
-  %69 = load i32, ptr %52, align 8, !tbaa !32
-  %70 = sext i32 %69 to i64
-  %71 = shl nsw i64 %70, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr align 4 %68, i64 %71, i1 false)
-  tail call void @uprv_free_77(ptr noundef %68)
-  store ptr %65, ptr %67, align 8, !tbaa !18
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 144128
+  %69 = load ptr, ptr %68, align 8, !tbaa !18
+  %70 = load i32, ptr %52, align 8, !tbaa !32
+  %71 = sext i32 %70 to i64
+  %72 = shl nsw i64 %71, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr align 4 %69, i64 %72, i1 false)
+  tail call void @uprv_free_77(ptr noundef %69)
+  store ptr %65, ptr %68, align 8, !tbaa !18
   store i32 %.032.i, ptr %55, align 4, !tbaa !20
-  br label %72
+  br label %73
 
-72:                                               ; preds = %.critedge.i, %51
+73:                                               ; preds = %67, %51
   store i32 %54, ptr %52, align 8, !tbaa !32
   %.pre.i = ashr i32 %53, 5
   %.pre37.i = sext i32 %.pre.i to i64
   br label %_ZL14allocDataBlockP9UNewTrie2i.exit
 
-_ZL14allocDataBlockP9UNewTrie2i.exit:             ; preds = %44, %72
-  %.pre-phi38.i = phi i64 [ %47, %44 ], [ %.pre37.i, %72 ]
-  %.033.i = phi i32 [ %43, %44 ], [ %53, %72 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 144128
-  %74 = load ptr, ptr %73, align 8, !tbaa !18
-  %75 = sext i32 %.033.i to i64
-  %76 = getelementptr inbounds i32, ptr %74, i64 %75
-  %77 = sext i32 %34 to i64
-  %78 = getelementptr inbounds i32, ptr %74, i64 %77
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %76, ptr noundef nonnull align 4 dereferenceable(128) %78, i64 128, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144176
-  %80 = getelementptr inbounds i32, ptr %79, i64 %.pre-phi38.i
-  store i32 0, ptr %80, align 4, !tbaa !26
-  %81 = icmp slt i32 %.033.i, 0
-  br i1 %81, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread, label %82
+_ZL14allocDataBlockP9UNewTrie2i.exit:             ; preds = %44, %73
+  %.pre-phi38.i = phi i64 [ %47, %44 ], [ %.pre37.i, %73 ]
+  %.033.i = phi i32 [ %43, %44 ], [ %53, %73 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 144128
+  %75 = load ptr, ptr %74, align 8, !tbaa !18
+  %76 = sext i32 %.033.i to i64
+  %77 = getelementptr inbounds i32, ptr %75, i64 %76
+  %78 = sext i32 %34 to i64
+  %79 = getelementptr inbounds i32, ptr %75, i64 %78
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %77, ptr noundef nonnull align 4 dereferenceable(128) %79, i64 128, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 144176
+  %81 = getelementptr inbounds i32, ptr %80, i64 %.pre-phi38.i
+  store i32 0, ptr %81, align 4, !tbaa !26
+  %82 = icmp slt i32 %.033.i, 0
+  br i1 %82, label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread, label %83
 
-82:                                               ; preds = %_ZL14allocDataBlockP9UNewTrie2i.exit
-  %83 = lshr i32 %.033.i, 5
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %79, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !26
-  %87 = add nsw i32 %86, 1
-  store i32 %87, ptr %85, align 4, !tbaa !26
-  %88 = load i32, ptr %33, align 4, !tbaa !26
-  %89 = ashr i32 %88, 5
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %79, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !26
-  %93 = add nsw i32 %92, -1
-  store i32 %93, ptr %91, align 4, !tbaa !26
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %_ZL14setIndex2EntryP9UNewTrie2ii.exit
+83:                                               ; preds = %_ZL14allocDataBlockP9UNewTrie2i.exit
+  %84 = lshr i32 %.033.i, 5
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw i32, ptr %80, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !26
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %86, align 4, !tbaa !26
+  %89 = load i32, ptr %33, align 4, !tbaa !26
+  %90 = ashr i32 %89, 5
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i32, ptr %80, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !26
+  %94 = add nsw i32 %93, -1
+  store i32 %94, ptr %92, align 4, !tbaa !26
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %_ZL14setIndex2EntryP9UNewTrie2ii.exit
 
-95:                                               ; preds = %82
-  %96 = load i32, ptr %42, align 4, !tbaa !24
-  %97 = sub nsw i32 0, %96
-  store i32 %97, ptr %91, align 4, !tbaa !26
-  store i32 %88, ptr %42, align 4, !tbaa !24
+96:                                               ; preds = %83
+  %97 = load i32, ptr %42, align 4, !tbaa !24
+  %98 = sub nsw i32 0, %97
+  store i32 %98, ptr %92, align 4, !tbaa !26
+  store i32 %89, ptr %42, align 4, !tbaa !24
   br label %_ZL14setIndex2EntryP9UNewTrie2ii.exit
 
-_ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %82, %95
+_ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %83, %96
   store i32 %.033.i, ptr %33, align 4, !tbaa !26
   br label %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread
 
 _ZL14getIndex2BlockP9UNewTrie2ia.exit.thread:     ; preds = %60, %62, %15, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i, %_ZL14allocDataBlockP9UNewTrie2i.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit, %_ZL14getIndex2BlockP9UNewTrie2ia.exit, %_ZL14setIndex2EntryP9UNewTrie2ii.exit
-  %.0 = phi i32 [ %.033.i, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ -1, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ %34, %_ZL15isWritableBlockP9UNewTrie2i.exit ], [ -1, %_ZL14allocDataBlockP9UNewTrie2i.exit ], [ -1, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ], [ -1, %15 ], [ -1, %62 ], [ -1, %60 ]
+  %.0 = phi i32 [ %.033.i, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ -1, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ %34, %_ZL15isWritableBlockP9UNewTrie2i.exit ], [ -1, %_ZL14allocDataBlockP9UNewTrie2i.exit ], [ -1, %15 ], [ -1, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ], [ -1, %62 ], [ -1, %60 ]
   ret i32 %.0
 }
 

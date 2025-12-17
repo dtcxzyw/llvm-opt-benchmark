@@ -46,8 +46,8 @@ define range(i32 -2147483648, 1) i32 @ff_mov_generate_squashed_ttml_packet(ptr n
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %29
 
-27:                                               ; preds = %3, %12, %17, %20
-  %.0.i.ph = phi i32 [ %25, %20 ], [ -12, %17 ], [ %15, %12 ], [ %10, %3 ]
+27:                                               ; preds = %12, %3, %17, %20
+  %.0.i.ph = phi i32 [ %25, %20 ], [ -12, %17 ], [ %10, %3 ], [ %15, %12 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %28 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.0.i.ph, ptr noundef nonnull %5, i64 noundef 64) #5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str, ptr noundef nonnull %5) #5

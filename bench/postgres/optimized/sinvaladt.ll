@@ -468,9 +468,9 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %47
 
 47:                                               ; preds = %43, %41, %23, %34, %40
-  %.157 = phi ptr [ %.05663, %40 ], [ %.05663, %34 ], [ %.05663, %23 ], [ %.05663, %41 ], [ %spec.select61, %43 ]
-  %.152 = phi i32 [ %.05165, %40 ], [ %.05165, %34 ], [ %.05165, %23 ], [ %.05165, %41 ], [ %spec.select62, %43 ]
-  %.1 = phi i32 [ %.066, %40 ], [ %.066, %34 ], [ %.066, %23 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
+  %.157 = phi ptr [ %.05663, %23 ], [ %.05663, %40 ], [ %.05663, %34 ], [ %spec.select61, %43 ], [ %.05663, %41 ]
+  %.152 = phi i32 [ %.05165, %23 ], [ %.05165, %40 ], [ %.05165, %34 ], [ %spec.select62, %43 ], [ %.05165, %41 ]
+  %.1 = phi i32 [ %.066, %23 ], [ %.066, %40 ], [ %.066, %34 ], [ %spec.select, %43 ], [ %spec.select, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %48, label %23, label %._crit_edge, !llvm.loop !15
@@ -521,9 +521,9 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %._crit_edge.thread, %.loopexit.loopexit, %._crit_edge
-  %.056.lcssa81 = phi ptr [ %.157, %.loopexit.loopexit ], [ %.157, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
-  %66 = phi i32 [ %53, %.loopexit.loopexit ], [ %.1, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %51, %.thread ]
-  %67 = phi i32 [ %.pre75, %.loopexit.loopexit ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %52, %.thread ]
+  %.056.lcssa81 = phi ptr [ %.157, %.loopexit.loopexit ], [ null, %.thread ], [ %.157, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %66 = phi i32 [ %53, %.loopexit.loopexit ], [ %51, %.thread ], [ %.1, %._crit_edge ], [ %13, %._crit_edge.thread ]
+  %67 = phi i32 [ %.pre75, %.loopexit.loopexit ], [ %52, %.thread ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ]
   %68 = sub i32 %67, %66
   %69 = icmp slt i32 %68, 2048
   %70 = and i32 %68, 2147483392

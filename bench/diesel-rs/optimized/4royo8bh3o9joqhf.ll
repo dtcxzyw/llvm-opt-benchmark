@@ -685,7 +685,7 @@ define hidden void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h1f99
           to label %14 unwind label %12
 
 .body:                                            ; preds = %76, %81, %42, %47, %12, %15
-  %.pn32 = phi { ptr, i32 } [ %.pn, %15 ], [ %13, %12 ], [ %43, %47 ], [ %43, %42 ], [ %77, %81 ], [ %77, %76 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn, %15 ], [ %43, %42 ], [ %13, %12 ], [ %43, %47 ], [ %77, %81 ], [ %77, %76 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #9
           to label %common.resume unwind label %89
 
@@ -886,7 +886,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4682e9e6aed27f53E.exit: ; preds = %14
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body.i.i45, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %67, %.body.i.i ], [ %101, %.body.i.i45 ], [ %.pn32, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %101, %.body.i.i45 ], [ %67, %.body.i.i ], [ %.pn32, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit46": ; preds = %59, %93
@@ -1009,7 +1009,7 @@ define hidden void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h2f7f
           to label %14 unwind label %12
 
 .body:                                            ; preds = %76, %81, %42, %47, %12, %15
-  %.pn32 = phi { ptr, i32 } [ %.pn, %15 ], [ %13, %12 ], [ %43, %47 ], [ %43, %42 ], [ %77, %81 ], [ %77, %76 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn, %15 ], [ %43, %42 ], [ %13, %12 ], [ %43, %47 ], [ %77, %81 ], [ %77, %76 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #9
           to label %common.resume unwind label %89
 
@@ -1210,7 +1210,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd72459ae8e1374a7E.exit: ; preds = %14
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body.i.i45, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %67, %.body.i.i ], [ %101, %.body.i.i45 ], [ %.pn32, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %101, %.body.i.i45 ], [ %67, %.body.i.i ], [ %.pn32, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h7fb2265c46bf69b2E.exit46": ; preds = %59, %93
@@ -1628,7 +1628,7 @@ define internal fastcc void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17
   unreachable
 
 common.resume:                                    ; preds = %56, %45, %34, %25, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %26, %25 ], [ %35, %34 ], [ %46, %45 ], [ %57, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %15, %14 ], [ %26, %25 ], [ %35, %34 ], [ %57, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr39drop_in_place$LT$syn..ty..TypeGroup$GT$17hf377b707e5e1152cE.exit": ; preds = %11

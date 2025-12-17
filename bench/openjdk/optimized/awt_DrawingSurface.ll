@@ -169,7 +169,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly captures(address_is_nul
   br label %87
 
 87:                                               ; preds = %71, %72, %12, %3, %1, %77
-  %.0 = phi i32 [ %82, %77 ], [ 1, %1 ], [ 1, %3 ], [ 1, %12 ], [ 1, %72 ], [ 1, %71 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %1 ], [ 1, %71 ], [ %82, %77 ], [ 1, %12 ], [ 1, %72 ]
   ret i32 %.0
 }
 
@@ -366,7 +366,7 @@ define i32 @awt_GetColor(ptr noundef readonly captures(address_is_null) %0, i32 
   br label %124
 
 124:                                              ; preds = %.sink.split, %119, %74, %15, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %74 ], [ %96, %119 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %96, %119 ], [ 0, %74 ], [ 0, %15 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -599,7 +599,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
   br label %152
 
 152:                                              ; preds = %72, %73, %13, %4, %1, %103
-  %.0 = phi ptr [ %124, %103 ], [ null, %1 ], [ null, %4 ], [ null, %13 ], [ null, %73 ], [ null, %72 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %1 ], [ null, %72 ], [ %124, %103 ], [ null, %13 ], [ null, %73 ]
   ret ptr %.0
 }
 
@@ -722,7 +722,7 @@ define noalias noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %8, %2, %13
-  %.0 = phi ptr [ %14, %13 ], [ null, %2 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ %14, %13 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1045,8 +1045,8 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not79, label %123, label %.sink.split
 
 .sink.split:                                      ; preds = %118, %94, %57
-  %.sink = phi ptr [ %38, %57 ], [ %75, %94 ], [ %99, %118 ]
-  %.0.ph = phi ptr [ null, %57 ], [ null, %94 ], [ %67, %118 ]
+  %.sink = phi ptr [ %75, %94 ], [ %38, %57 ], [ %99, %118 ]
+  %.0.ph = phi ptr [ null, %94 ], [ null, %57 ], [ %67, %118 ]
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 104
   %121 = load ptr, ptr %120, align 8
@@ -1054,7 +1054,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %123
 
 123:                                              ; preds = %.sink.split, %118, %94, %57
-  %.0 = phi ptr [ null, %57 ], [ null, %94 ], [ %67, %118 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %94 ], [ null, %57 ], [ %67, %118 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

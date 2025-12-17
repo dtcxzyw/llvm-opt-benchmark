@@ -189,8 +189,8 @@ mf_skip.exit:                                     ; preds = %.preheader195.split
   br i1 %exitcond251, label %.thread185, label %.preheader195.split.split, !llvm.loop !26
 
 .thread185:                                       ; preds = %mf_skip.exit.us, %mf_skip.exit, %mf_skip.exit.us214
-  %.us-phi205 = phi i32 [ %.2141.us215, %mf_skip.exit.us214 ], [ 0, %mf_skip.exit ], [ %.2141.us, %mf_skip.exit.us ]
-  %.us-phi206 = phi i32 [ %.2135.us216, %mf_skip.exit.us214 ], [ 0, %mf_skip.exit ], [ %.2135.us, %mf_skip.exit.us ]
+  %.us-phi205 = phi i32 [ 0, %mf_skip.exit ], [ %.2141.us215, %mf_skip.exit.us214 ], [ %.2141.us, %mf_skip.exit.us ]
+  %.us-phi206 = phi i32 [ 0, %mf_skip.exit ], [ %.2135.us216, %mf_skip.exit.us214 ], [ %.2135.us, %mf_skip.exit.us ]
   %.not151 = icmp ult i32 %.0127, %.fr
   br i1 %.not151, label %85, label %71
 

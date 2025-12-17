@@ -103,7 +103,7 @@ define hidden noundef ptr @pj_gnom(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z33pj_projection_specific_setup_gnomP8PJconsts.exit
 
 _Z33pj_projection_specific_setup_gnomP8PJconsts.exit: ; preds = %35, %5, %38, %41
-  %.0 = phi ptr [ %39, %41 ], [ null, %38 ], [ %6, %5 ], [ %0, %35 ]
+  %.0 = phi ptr [ null, %38 ], [ %39, %41 ], [ %6, %5 ], [ %0, %35 ]
   ret ptr %.0
 }
 
@@ -337,7 +337,7 @@ define internal { double, double } @_ZL14gnom_s_forward5PJ_LPP8PJconsts(double %
   br label %22
 
 22:                                               ; preds = %3, %20, %13, %11
-  %.sroa.326.0 = phi double [ %12, %11 ], [ %19, %13 ], [ %21, %20 ], [ %6, %3 ]
+  %.sroa.326.0 = phi double [ %21, %20 ], [ %12, %11 ], [ %19, %13 ], [ %6, %3 ]
   %23 = fcmp ugt double %.sroa.326.0, 1.000000e-10
   br i1 %23, label %25, label %.thread
 
@@ -387,8 +387,8 @@ default.unreachable:                              ; preds = %25
   unreachable
 
 46:                                               ; preds = %30, %32, %43, %.thread
-  %.sroa.326.1 = phi double [ %.sroa.326.032, %.thread ], [ %31, %30 ], [ %40, %32 ], [ %45, %43 ]
-  %.sroa.025.0 = phi double [ 0.000000e+00, %.thread ], [ %29, %30 ], [ %29, %32 ], [ %29, %43 ]
+  %.sroa.326.1 = phi double [ %.sroa.326.032, %.thread ], [ %45, %43 ], [ %31, %30 ], [ %40, %32 ]
+  %.sroa.025.0 = phi double [ 0.000000e+00, %.thread ], [ %29, %43 ], [ %29, %30 ], [ %29, %32 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.326.1, 1
   ret { double, double } %.fca.1.insert

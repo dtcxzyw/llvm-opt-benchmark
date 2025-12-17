@@ -1428,7 +1428,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %106, %.loopexit58, %.loopexit.split-lp59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
-  %.pn = phi { ptr, i32 } [ %lpad.phi67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37 ], [ %lpad.loopexit60, %.loopexit58 ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp59 ], [ %lpad.phi67, %106 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37 ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp59 ], [ %lpad.loopexit60, %.loopexit58 ], [ %lpad.phi67, %106 ]
   %109 = load ptr, ptr %4, align 8, !tbaa !100
   %110 = icmp eq ptr %109, %19
   br i1 %110, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
@@ -1438,7 +1438,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %.loopexit53, %.loopexit.split-lp54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %lpad.loopexit55, %.loopexit53 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp54 ], [ %lpad.loopexit55, %.loopexit53 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ]
   %111 = load ptr, ptr %5, align 8, !tbaa !100
   %112 = icmp eq ptr %111, %17
   br i1 %112, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
@@ -1448,7 +1448,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43, %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43 ], [ %lpad.phi, %44 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43 ], [ %105, %104 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi, %44 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3482,10 +3482,10 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit: ; preds = %307, %301
-  %.sroa.0210.0 = phi ptr [ %314, %307 ], [ %302, %301 ]
-  %.sroa.10214.2 = phi ptr [ %310, %307 ], [ %287, %301 ]
-  %.sroa.17217.2 = phi ptr [ %311, %307 ], [ %289, %301 ]
-  %.sroa.24220.2 = phi ptr [ %309, %307 ], [ %291, %301 ]
+  %.sroa.0210.0 = phi ptr [ %302, %301 ], [ %314, %307 ]
+  %.sroa.10214.2 = phi ptr [ %287, %301 ], [ %310, %307 ]
+  %.sroa.17217.2 = phi ptr [ %289, %301 ], [ %311, %307 ]
+  %.sroa.24220.2 = phi ptr [ %291, %301 ], [ %309, %307 ]
   %315 = load ptr, ptr %40, align 8, !tbaa !20
   store ptr %315, ptr %34, align 8, !tbaa !20
   %316 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -3589,7 +3589,7 @@ _ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_tra
   br label %356
 
 356:                                              ; preds = %352, %354, %280, %282
-  %.pn31.pn = phi { ptr, i32 } [ %283, %282 ], [ %281, %280 ], [ %355, %354 ], [ %353, %352 ]
+  %.pn31.pn = phi { ptr, i32 } [ %353, %352 ], [ %283, %282 ], [ %281, %280 ], [ %355, %354 ]
   %.1 = extractvalue { ptr, i32 } %.pn31.pn, 0
   %357 = call ptr @__cxa_begin_catch(ptr %.1) #17
   %358 = load ptr, ptr %43, align 8, !tbaa !90
@@ -4023,10 +4023,10 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit71
 
 _ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit71: ; preds = %564, %558
-  %.sroa.0111.0 = phi ptr [ %571, %564 ], [ %559, %558 ]
-  %.sroa.10.2 = phi ptr [ %567, %564 ], [ %545, %558 ]
-  %.sroa.17.2 = phi ptr [ %568, %564 ], [ %547, %558 ]
-  %.sroa.24.2 = phi ptr [ %566, %564 ], [ %549, %558 ]
+  %.sroa.0111.0 = phi ptr [ %559, %558 ], [ %571, %564 ]
+  %.sroa.10.2 = phi ptr [ %545, %558 ], [ %567, %564 ]
+  %.sroa.17.2 = phi ptr [ %547, %558 ], [ %568, %564 ]
+  %.sroa.24.2 = phi ptr [ %549, %558 ], [ %566, %564 ]
   %572 = load ptr, ptr %3, align 8, !tbaa !39
   %573 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %574 = load ptr, ptr %573, align 8, !tbaa !44
@@ -4241,7 +4241,7 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %665
 
 665:                                              ; preds = %661, %663, %538, %540
-  %.pn29.pn = phi { ptr, i32 } [ %541, %540 ], [ %539, %538 ], [ %664, %663 ], [ %662, %661 ]
+  %.pn29.pn = phi { ptr, i32 } [ %662, %661 ], [ %541, %540 ], [ %539, %538 ], [ %664, %663 ]
   %.5 = extractvalue { ptr, i32 } %.pn29.pn, 0
   %666 = call ptr @__cxa_begin_catch(ptr %.5) #17
   %667 = load ptr, ptr %69, align 8, !tbaa !66
@@ -4502,7 +4502,7 @@ _ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_E
   br label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit
 
 _ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !23
   %57 = load ptr, ptr %.0, align 8, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

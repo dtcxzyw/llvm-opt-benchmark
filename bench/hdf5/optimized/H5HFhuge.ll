@@ -142,7 +142,7 @@ define noundef i32 @H5HF__huge_init(ptr noundef captures(none) %0) local_unnamed
   br label %44
 
 44:                                               ; preds = %27, %43
-  %45 = phi i32 [ %37, %43 ], [ %13, %27 ]
+  %45 = phi i32 [ %13, %27 ], [ %37, %43 ]
   %46 = icmp slt i32 %45, 9
   br i1 %46, label %47, label %55
 
@@ -872,7 +872,7 @@ H5HF__huge_new_id.exit.thread:                    ; preds = %301, %312, %H5HF__h
   br label %375
 
 375:                                              ; preds = %.thread154, %297, %247, %.thread, %4, %362, %371, %124, %114, %83, %70
-  %.0120 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %124 ], [ -1, %371 ], [ 0, %362 ], [ -1, %247 ], [ -1, %297 ], [ -1, %70 ], [ 0, %4 ], [ -1, %.thread ], [ -1, %.thread154 ]
+  %.0120 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %124 ], [ -1, %371 ], [ 0, %362 ], [ -1, %247 ], [ -1, %297 ], [ -1, %.thread154 ], [ -1, %.thread ], [ -1, %70 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1236,7 +1236,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_len(ptr noundef captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %97, %3, %77, %105, %72, %36, %64, %26, %191
-  %.0102 = phi i32 [ 0, %26 ], [ 0, %36 ], [ 0, %64 ], [ 0, %72 ], [ 0, %77 ], [ 0, %105 ], [ %.1103, %191 ], [ 0, %3 ], [ 0, %97 ], [ 0, %56 ]
+  %.0102 = phi i32 [ 0, %26 ], [ 0, %36 ], [ 0, %3 ], [ 0, %64 ], [ 0, %72 ], [ 0, %77 ], [ 0, %105 ], [ %.1103, %191 ], [ 0, %97 ], [ 0, %56 ]
   ret i32 %.0102
 }
 
@@ -1439,7 +1439,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_off(ptr noundef captures(none) %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 
-.thread47:                                        ; preds = %36, %.thread, %.thread42
+.thread47:                                        ; preds = %36, %.thread42, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %105
 
@@ -1454,7 +1454,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_off(ptr noundef captures(none) %
   br label %105
 
 105:                                              ; preds = %.thread47, %3, %103
-  %.033 = phi i32 [ 0, %103 ], [ 0, %3 ], [ -1, %.thread47 ]
+  %.033 = phi i32 [ 0, %103 ], [ -1, %.thread47 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.033
 }
@@ -1685,7 +1685,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_write(ptr noundef captures(none) %0, ptr
   br label %134
 
 134:                                              ; preds = %.thread, %3, %124, %130, %18
-  %.034 = phi i32 [ -1, %18 ], [ -1, %130 ], [ 0, %124 ], [ 0, %3 ], [ -1, %.thread ]
+  %.034 = phi i32 [ -1, %18 ], [ -1, %130 ], [ 0, %124 ], [ -1, %.thread ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.034
 }
@@ -2033,7 +2033,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %185
 
-.thread100:                                       ; preds = %110, %.thread, %.thread94
+.thread100:                                       ; preds = %110, %.thread94, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %237
 
@@ -2045,8 +2045,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %187
 
 187:                                              ; preds = %185, %76
-  %188 = phi i1 [ true, %76 ], [ %186, %185 ]
-  %.2 = phi i64 [ %.1, %76 ], [ %.3, %185 ]
+  %188 = phi i1 [ %186, %185 ], [ true, %76 ]
+  %.2 = phi i64 [ %.3, %185 ], [ %.1, %76 ]
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %or.cond = and i1 %2, %188
   br i1 %or.cond, label %198, label %190
@@ -2116,7 +2116,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %237
 
 222:                                              ; preds = %.thread104, %211
-  %.7 = phi i64 [ %.2130, %211 ], [ %217, %.thread104 ]
+  %.7 = phi i64 [ %217, %.thread104 ], [ %.2130, %211 ]
   br i1 %2, label %223, label %227
 
 223:                                              ; preds = %222
@@ -2157,7 +2157,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %241
 
 241:                                              ; preds = %5, %239, %237
-  %.070 = phi i32 [ %.676, %239 ], [ %.676, %237 ], [ 0, %5 ]
+  %.070 = phi i32 [ %.676, %239 ], [ 0, %5 ], [ %.676, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

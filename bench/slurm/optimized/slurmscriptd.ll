@@ -615,7 +615,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %7, !llvm.loop !14
 
-.thread:                                          ; preds = %.split178.us, %102, %91, %86, %.split127, %33, %22, %17
+.thread:                                          ; preds = %102, %.split178.us, %91, %86, %33, %.split127, %22, %17
   %142 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__._msg_accept) #13
   br label %.loopexit
 
@@ -1215,7 +1215,7 @@ _wait_for_script_resp.exit:                       ; preds = %74
   unreachable
 
 _script_resp_map_remove.exit:                     ; preds = %83, %33, %_incr_script_cnt.exit
-  %.019 = phi i32 [ %51, %_incr_script_cnt.exit ], [ -1, %33 ], [ %65, %83 ]
+  %.019 = phi i32 [ -1, %33 ], [ %51, %_incr_script_cnt.exit ], [ %65, %83 ]
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %91, label %90
 
@@ -3030,7 +3030,7 @@ define dso_local noundef i32 @slurmscriptd_fini() local_unnamed_addr #0 {
   br label %_script_resp_map_remove.exit.i.i
 
 _script_resp_map_remove.exit.i.i:                 ; preds = %16, %11
-  %.019.i.i = phi i1 [ %20, %16 ], [ false, %11 ]
+  %.019.i.i = phi i1 [ false, %11 ], [ %20, %16 ]
   %.not15.i.i = icmp eq ptr %13, null
   br i1 %.not15.i.i, label %_send_to_slurmscriptd.exit.i, label %21
 
@@ -4284,7 +4284,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__._write_msg) #15
   unreachable
 
-.thread:                                          ; preds = %.split192, %78, %.split173.us, %63, %.split155.us, %42, %.split137.us, %21
+.thread:                                          ; preds = %78, %.split192, %63, %.split173.us, %42, %.split155.us, %21, %.split137.us
   %93 = tail call zeroext i1 @running_in_slurmctld() #13
   br i1 %93, label %94, label %96
 
@@ -4307,7 +4307,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   unreachable
 
 101:                                              ; preds = %96, %97, %.loopexit, %89
-  %.0 = phi i32 [ 0, %89 ], [ 0, %.loopexit ], [ -1, %97 ], [ -1, %96 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %89 ], [ -1, %97 ], [ -1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

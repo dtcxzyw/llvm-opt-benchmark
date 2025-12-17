@@ -119,8 +119,8 @@ define noalias ptr @findHintOutputs(ptr noundef readonly captures(none) %0) loca
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink25 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
-  %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
+  %.sink25 = phi ptr [ %23, %22 ], [ %21, %20 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink = phi i32 [ 16, %22 ], [ 16, %20 ], [ %25, %28 ], [ %25, %30 ]
   store ptr %.sink25, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -1242,8 +1242,8 @@ define noalias ptr @findNewMonotone(ptr noundef readonly captures(none) %0, ptr 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %53, %55, %45, %47
-  %.sink49 = phi ptr [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ]
-  %.sink = phi i32 [ 16, %45 ], [ 16, %47 ], [ %50, %53 ], [ %50, %55 ]
+  %.sink49 = phi ptr [ %48, %47 ], [ %46, %45 ], [ %54, %53 ], [ %56, %55 ]
+  %.sink = phi i32 [ 16, %47 ], [ 16, %45 ], [ %50, %53 ], [ %50, %55 ]
   store ptr %.sink49, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -1378,8 +1378,8 @@ Vec_IntFind.exit.thread:                          ; preds = %24, %13
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %39, %41, %31, %33
-  %.sink29 = phi ptr [ %32, %31 ], [ %34, %33 ], [ %40, %39 ], [ %42, %41 ]
-  %.sink = phi i32 [ 16, %31 ], [ 16, %33 ], [ %36, %39 ], [ %36, %41 ]
+  %.sink29 = phi ptr [ %34, %33 ], [ %32, %31 ], [ %40, %39 ], [ %42, %41 ]
+  %.sink = phi i32 [ 16, %33 ], [ 16, %31 ], [ %36, %39 ], [ %36, %41 ]
   store ptr %.sink29, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   store i32 %.sink, ptr %calloc.i, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -1403,7 +1403,7 @@ Vec_IntFind.exit:                                 ; preds = %20, %Vec_IntPush.ex
   br i1 %47, label %13, label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %Vec_IntFind.exit, %7, %2, %4
-  %.013 = phi ptr [ %1, %4 ], [ %1, %2 ], [ %calloc.i, %7 ], [ %calloc.i, %Vec_IntFind.exit ]
+  %.013 = phi ptr [ %1, %2 ], [ %1, %4 ], [ %calloc.i, %7 ], [ %calloc.i, %Vec_IntFind.exit ]
   ret ptr %.013
 }
 

@@ -222,7 +222,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h5f7050365cfdee61E.exit: ;
     i8 117, label %85
   ]
 
-64:                                               ; preds = %61, %53, %49, %57
+64:                                               ; preds = %61, %53, %57, %49
   tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.7.0.ph, i64 noundef %.sroa.7.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f27fb863cb43b4b1f662ec6fbbb7706b.3) #19
   unreachable
 
@@ -310,7 +310,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h5f7050365cfdee61E.exit28:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h672bed6891b276c7E.exit
 
 .thread:                                          ; preds = %63, %84, %83, %82, %81, %80, %79
-  %.sroa.02.0.i = phi ptr [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.20, %79 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.22, %80 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.23, %81 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.24, %82 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.25, %83 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.26, %84 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.19, %63 ]
+  %.sroa.02.0.i = phi ptr [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.26, %84 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.20, %79 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.25, %83 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.22, %80 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.23, %81 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.24, %82 ], [ @anon.f27fb863cb43b4b1f662ec6fbbb7706b.19, %63 ]
   %102 = load i64, ptr %6, align 8, !alias.scope !103, !noalias !112, !noundef !13
   %103 = load i64, ptr %.val22, align 8, !alias.scope !103, !noalias !112, !noundef !13
   %104 = sub i64 %103, %102
@@ -1428,14 +1428,14 @@ define hidden void @"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..itera
   br i1 %62, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb559ab979e767ef6E.exit", label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb559ab979e767ef6E.exit.thread"
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb559ab979e767ef6E.exit.thread": ; preds = %57, %49, %38, %53, %61, %32, %24, %13, %28, %36
-  %.sroa.510.0 = phi i64 [ %17, %36 ], [ %17, %28 ], [ %17, %13 ], [ %17, %24 ], [ %17, %32 ], [ %42, %61 ], [ %42, %53 ], [ %42, %38 ], [ %42, %49 ], [ %42, %57 ]
-  %.sroa.07.0 = phi ptr [ %15, %36 ], [ %15, %28 ], [ %15, %13 ], [ %15, %24 ], [ %15, %32 ], [ %40, %61 ], [ %40, %53 ], [ %40, %38 ], [ %40, %49 ], [ %40, %57 ]
+  %.sroa.510.0 = phi i64 [ %42, %49 ], [ %42, %57 ], [ %17, %32 ], [ %17, %36 ], [ %17, %28 ], [ %17, %13 ], [ %17, %24 ], [ %42, %61 ], [ %42, %53 ], [ %42, %38 ]
+  %.sroa.07.0 = phi ptr [ %40, %49 ], [ %40, %57 ], [ %15, %32 ], [ %15, %36 ], [ %15, %28 ], [ %15, %13 ], [ %15, %24 ], [ %40, %61 ], [ %40, %53 ], [ %40, %38 ]
   tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.07.0, i64 noundef %.sroa.510.0, i64 noundef %4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f27fb863cb43b4b1f662ec6fbbb7706b.42) #19
   unreachable
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb559ab979e767ef6E.exit": ; preds = %61, %57, %47, %36, %32, %22
-  %.sroa.420.0 = phi i64 [ %17, %22 ], [ %17, %32 ], [ %6, %36 ], [ %42, %47 ], [ %42, %57 ], [ %6, %61 ]
-  %.sroa.018.0 = phi ptr [ %15, %22 ], [ %15, %32 ], [ %15, %36 ], [ %40, %47 ], [ %40, %57 ], [ %40, %61 ]
+  %.sroa.420.0 = phi i64 [ %6, %36 ], [ %17, %22 ], [ %17, %32 ], [ %42, %47 ], [ %42, %57 ], [ %6, %61 ]
+  %.sroa.018.0 = phi ptr [ %15, %36 ], [ %15, %22 ], [ %15, %32 ], [ %40, %47 ], [ %40, %57 ], [ %40, %61 ]
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.018.0, i64 %4
   %.pn52 = sub nuw i64 %6, %4
   %.not.i39 = icmp ugt i64 %8, %10

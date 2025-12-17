@@ -377,7 +377,7 @@ _ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit: ; preds = %135, %1
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit: ; preds = %99, %96, %37, %39, %28, %30, %20, %22, %44, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
-  %.0 = phi i64 [ %114, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit ], [ %45, %44 ], [ -42, %22 ], [ -42, %20 ], [ -72, %30 ], [ -72, %28 ], [ -70, %39 ], [ -70, %37 ], [ -64, %96 ], [ -64, %99 ]
+  %.0 = phi i64 [ -42, %20 ], [ -72, %28 ], [ %114, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit ], [ -70, %37 ], [ %45, %44 ], [ -42, %22 ], [ -72, %30 ], [ -70, %39 ], [ -64, %96 ], [ -64, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -810,7 +810,7 @@ _ZN11duckdb_zstdL13COVER_groupByEPKvmmPNS_11COVER_ctx_tEPFiS3_S1_S1_EPFvS3_S1_S1
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit: ; preds = %117, %115, %53, %56, %43, %46, %31, %34, %_ZN11duckdb_zstdL13COVER_groupByEPKvmmPNS_11COVER_ctx_tEPFiS3_S1_S1_EPFvS3_S1_S1_E.exit
-  %.090 = phi i64 [ 0, %_ZN11duckdb_zstdL13COVER_groupByEPKvmmPNS_11COVER_ctx_tEPFiS3_S1_S1_EPFvS3_S1_S1_E.exit ], [ -72, %34 ], [ -72, %31 ], [ -72, %46 ], [ -72, %43 ], [ -72, %56 ], [ -72, %53 ], [ -64, %115 ], [ -64, %117 ]
+  %.090 = phi i64 [ -72, %53 ], [ -72, %31 ], [ -72, %43 ], [ 0, %_ZN11duckdb_zstdL13COVER_groupByEPKvmmPNS_11COVER_ctx_tEPFiS3_S1_S1_EPFvS3_S1_S1_E.exit ], [ -72, %34 ], [ -72, %46 ], [ -72, %56 ], [ -64, %115 ], [ -64, %117 ]
   ret i64 %.090
 }
 
@@ -1229,8 +1229,8 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   br label %select.unfold
 
 select.unfold:                                    ; preds = %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, %204, %197, %190
-  %.147.ph = phi i64 [ 0, %190 ], [ 0, %197 ], [ 0, %204 ], [ %181, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
-  %.2.ph = phi i64 [ %191, %190 ], [ %191, %197 ], [ %191, %204 ], [ %.04589, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
+  %.147.ph = phi i64 [ 0, %204 ], [ 0, %190 ], [ 0, %197 ], [ %181, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
+  %.2.ph = phi i64 [ %191, %204 ], [ %191, %190 ], [ %191, %197 ], [ %.04589, %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread ]
   %214 = add nsw i64 %.04887, 1
   %215 = urem i64 %214, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.2.ph, 0
@@ -2050,7 +2050,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br label %215
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160: ; preds = %159, %161, %117, %120
-  %.3 = phi i64 [ %109, %120 ], [ %109, %117 ], [ -64, %161 ], [ -64, %159 ]
+  %.3 = phi i64 [ %109, %117 ], [ %109, %120 ], [ -64, %161 ], [ -64, %159 ]
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0125)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %235
@@ -2109,7 +2109,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168: ; preds = %231
   br label %235
 
 235:                                              ; preds = %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, %77, %67, %70, %57, %60, %48, %50, %38, %40
-  %.0 = phi i64 [ %.3, %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %225, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164 ], [ %224, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168 ]
+  %.0 = phi i64 [ -70, %67 ], [ -42, %38 ], [ -42, %48 ], [ -72, %57 ], [ %.3, %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160 ], [ -64, %77 ], [ -42, %40 ], [ -42, %50 ], [ -72, %60 ], [ -70, %70 ], [ %225, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164 ], [ %224, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -2246,9 +2246,9 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   br label %68
 
 68:                                               ; preds = %.sink.split, %43, %37, %28
-  %.sroa.863.0 = phi i64 [ -1, %28 ], [ %.sroa.863.0.copyload, %43 ], [ -1, %37 ], [ %.sroa.863.0.ph, %.sink.split ]
-  %.sroa.7.0 = phi i64 [ 0, %28 ], [ %.sroa.7.0.copyload58, %43 ], [ 0, %37 ], [ %.sroa.7.0.ph, %.sink.split ]
-  %.sroa.054.0 = phi ptr [ null, %28 ], [ %.sroa.054.0.copyload, %43 ], [ null, %37 ], [ %.sroa.054.0.ph, %.sink.split ]
+  %.sroa.863.0 = phi i64 [ %.sroa.863.0.copyload, %43 ], [ -1, %28 ], [ -1, %37 ], [ %.sroa.863.0.ph, %.sink.split ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload58, %43 ], [ 0, %28 ], [ 0, %37 ], [ %.sroa.7.0.ph, %.sink.split ]
+  %.sroa.054.0 = phi ptr [ %.sroa.054.0.copyload, %43 ], [ null, %28 ], [ null, %37 ], [ %.sroa.054.0.ph, %.sink.split ]
   tail call void @free(ptr noundef %10) #26
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !123

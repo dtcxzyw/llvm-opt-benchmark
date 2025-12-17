@@ -356,7 +356,7 @@ _ZN7counterC2Ev.exit.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.
           to label %_ZN11var_counterC2Ev.exit unwind label %32
 
 common.resume:                                    ; preds = %120, %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158, %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %106, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %107, %106 ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158 ], [ %173, %172 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %121, %120 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %173, %172 ], [ %107, %106 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i158 ], [ %.pn.pn.pn.pn.pn, %.body ], [ %121, %120 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %_ZN7counterC2Ev.exit.i
@@ -1438,7 +1438,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_ref
   unreachable
 
 _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %223, %447, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i
-  %.1167 = phi i32 [ %.149.lcssa.ph, %447 ], [ %.1.ph275, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %.1.ph275, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ %.048, %223 ]
+  %.1167 = phi i32 [ %.1.ph275, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread7.i ], [ %.149.lcssa.ph, %447 ], [ %.1.ph275, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %.048, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_Z15has_quantifiersPK4expr.exit.thread161
 
@@ -2177,7 +2177,7 @@ _ZN11ast_manager6mk_andEP4exprS1_.exit165:        ; preds = %_ZN11ast_manager5mk
   br label %338
 
 .invoke:                                          ; preds = %254, %259, %182, %166, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit143
-  %299 = phi ptr [ %154, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit143 ], [ %171, %166 ], [ %186, %182 ], [ %1, %259 ], [ %1, %254 ]
+  %299 = phi ptr [ %186, %182 ], [ %171, %166 ], [ %154, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit143 ], [ %1, %259 ], [ %1, %254 ]
   %300 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %299)
           to label %301 unwind label %64
 
@@ -2507,7 +2507,7 @@ _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit.thread
   br label %_ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit
 
 _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit: ; preds = %12, %14
-  %.0.i = phi i32 [ %13, %12 ], [ %15, %14 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %13, %12 ]
   %16 = icmp eq i32 %.0.i, 5
   br i1 %16, label %17, label %33
 
@@ -2831,7 +2831,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN18quantifier_hoister4impl13is_
   br label %10
 
 10:                                               ; preds = %3, %3, %9, %8, %6, %4
-  %.0 = phi i1 [ false, %9 ], [ %5, %4 ], [ %7, %6 ], [ true, %8 ], [ %2, %3 ], [ %2, %3 ]
+  %.0 = phi i1 [ false, %9 ], [ %2, %3 ], [ %5, %4 ], [ %7, %6 ], [ %2, %3 ], [ true, %8 ]
   ret i1 %.0
 }
 

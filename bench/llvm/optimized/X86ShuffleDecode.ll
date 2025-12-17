@@ -1698,8 +1698,8 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskENS_8ArrayRefImEERKNS_5APIntERN
   br i1 %.not.i.i.not.i16, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, !prof !10
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = %33, %30, %25
-  %.sink34 = phi i32 [ %26, %25 ], [ %31, %30 ], [ %38, %33 ]
-  %.sink.ph = phi i32 [ -1, %25 ], [ -2, %30 ], [ %37, %33 ]
+  %.sink34 = phi i32 [ %31, %30 ], [ %26, %25 ], [ %38, %33 ]
+  %.sink.ph = phi i32 [ -2, %30 ], [ -1, %25 ], [ %37, %33 ]
   %40 = zext i32 %.sink34 to i64
   %41 = add nuw nsw i64 %40, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %10, i64 noundef %41, i64 noundef 4) #4
@@ -1707,8 +1707,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, %33, %30, %25
-  %.sink31 = phi i32 [ %26, %25 ], [ %31, %30 ], [ %38, %33 ], [ %.pre.i17, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
-  %.sink = phi i32 [ -1, %25 ], [ -2, %30 ], [ %37, %33 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink31 = phi i32 [ %31, %30 ], [ %38, %33 ], [ %26, %25 ], [ %.pre.i17, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink = phi i32 [ -2, %30 ], [ %37, %33 ], [ -1, %25 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %42 = load ptr, ptr %3, align 8, !tbaa !11
   %43 = zext i32 %.sink31 to i64
   %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
@@ -1835,8 +1835,8 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   br label %.loopexit
 
 .thread.sink.split:                               ; preds = %33, %30, %22
-  %.sink38 = phi i32 [ %23, %22 ], [ %31, %30 ], [ %36, %33 ]
-  %.sink.ph = phi i32 [ -1, %22 ], [ -2, %30 ], [ %35, %33 ]
+  %.sink38 = phi i32 [ %31, %30 ], [ %23, %22 ], [ %36, %33 ]
+  %.sink.ph = phi i32 [ -2, %30 ], [ -1, %22 ], [ %35, %33 ]
   %39 = zext i32 %.sink38 to i64
   %40 = add nuw nsw i64 %39, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %10, i64 noundef %40, i64 noundef 4) #4
@@ -1844,8 +1844,8 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %33, %30, %22
-  %.sink35 = phi i32 [ %23, %22 ], [ %31, %30 ], [ %36, %33 ], [ %.pre.i21, %.thread.sink.split ]
-  %.sink = phi i32 [ -1, %22 ], [ -2, %30 ], [ %35, %33 ], [ %.sink.ph, %.thread.sink.split ]
+  %.sink35 = phi i32 [ %31, %30 ], [ %36, %33 ], [ %23, %22 ], [ %.pre.i21, %.thread.sink.split ]
+  %.sink = phi i32 [ -2, %30 ], [ %35, %33 ], [ -1, %22 ], [ %.sink.ph, %.thread.sink.split ]
   %41 = load ptr, ptr %3, align 8, !tbaa !11
   %42 = zext i32 %.sink35 to i64
   %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
@@ -2670,8 +2670,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, %31, %28
-  %.sink31 = phi i32 [ %29, %28 ], [ %42, %31 ], [ %.pre.i20, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
-  %.sink = phi i32 [ -1, %28 ], [ %41, %31 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink31 = phi i32 [ %42, %31 ], [ %29, %28 ], [ %.pre.i20, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink = phi i32 [ %41, %31 ], [ -1, %28 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %46 = load ptr, ptr %5, align 8, !tbaa !11
   %47 = zext i32 %.sink31 to i64
   %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
@@ -2773,8 +2773,8 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   br i1 %.not.i.i.not.i35, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, !prof !10
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = %44, %42, %31
-  %.sink55 = phi i32 [ %32, %31 ], [ %.pre43, %42 ], [ %45, %44 ]
-  %.sink.ph = phi i32 [ -1, %31 ], [ -2, %42 ], [ %52, %44 ]
+  %.sink55 = phi i32 [ %.pre43, %42 ], [ %32, %31 ], [ %45, %44 ]
+  %.sink.ph = phi i32 [ -2, %42 ], [ -1, %31 ], [ %52, %44 ]
   %54 = zext i32 %.sink55 to i64
   %55 = add nuw nsw i64 %54, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %15, i64 noundef %55, i64 noundef 4) #4
@@ -2782,8 +2782,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, %44, %42, %31
-  %.sink52 = phi i32 [ %32, %31 ], [ %.pre43, %42 ], [ %45, %44 ], [ %.pre.i36, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
-  %.sink = phi i32 [ -1, %31 ], [ -2, %42 ], [ %52, %44 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink52 = phi i32 [ %.pre43, %42 ], [ %45, %44 ], [ %32, %31 ], [ %.pre.i36, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink = phi i32 [ -2, %42 ], [ %52, %44 ], [ -1, %31 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %56 = load ptr, ptr %6, align 8, !tbaa !11
   %57 = zext i32 %.sink52 to i64
   %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
@@ -2856,8 +2856,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, %26, %23
-  %.sink24 = phi i32 [ %24, %23 ], [ %31, %26 ], [ %.pre.i11, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
-  %.sink = phi i32 [ -1, %23 ], [ %30, %26 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink24 = phi i32 [ %31, %26 ], [ %24, %23 ], [ %.pre.i11, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink = phi i32 [ %30, %26 ], [ -1, %23 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %35 = load ptr, ptr %3, align 8, !tbaa !11
   %36 = zext i32 %.sink24 to i64
   %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
@@ -2931,8 +2931,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split: ; preds = 
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, %27, %24
-  %.sink24 = phi i32 [ %25, %24 ], [ %32, %27 ], [ %.pre.i11, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
-  %.sink = phi i32 [ -1, %24 ], [ %31, %27 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink24 = phi i32 [ %32, %27 ], [ %25, %24 ], [ %.pre.i11, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
+  %.sink = phi i32 [ %31, %27 ], [ -1, %24 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %36 = load ptr, ptr %3, align 8, !tbaa !11
   %37 = zext i32 %.sink24 to i64
   %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37

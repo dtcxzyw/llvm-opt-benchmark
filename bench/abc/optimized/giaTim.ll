@@ -320,7 +320,7 @@ define range(i32 0, 2) i32 @Gia_ManIsNormalized(ptr noundef readonly captures(no
   br i1 %narrow.i22.not, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %6, %21, %20, %9
-  %.014 = phi i32 [ 1, %9 ], [ 0, %21 ], [ 1, %20 ], [ 0, %6 ]
+  %.014 = phi i32 [ 1, %9 ], [ 1, %20 ], [ 0, %21 ], [ 0, %6 ]
   ret i32 %.014
 }
 
@@ -1561,7 +1561,7 @@ Gia_ObjSibl.exit.thread:                          ; preds = %Gia_ObjSiblObj.exit
   br label %96
 
 96:                                               ; preds = %84, %Gia_ObjSibl.exit.thread, %Gia_ObjSiblObj.exit, %31, %3, %91, %Vec_IntPush.exit, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %Vec_IntPush.exit ], [ 0, %91 ], [ 0, %3 ], [ 1, %31 ], [ 1, %Gia_ObjSiblObj.exit ], [ 1, %Gia_ObjSibl.exit.thread ], [ 1, %84 ]
+  %.0 = phi i32 [ 0, %91 ], [ 1, %18 ], [ 0, %3 ], [ 0, %Vec_IntPush.exit ], [ 1, %31 ], [ 1, %Gia_ObjSiblObj.exit ], [ 1, %Gia_ObjSibl.exit.thread ], [ 1, %84 ]
   ret i32 %.0
 }
 
@@ -3623,7 +3623,7 @@ Gia_ObjLevel.exit205:                             ; preds = %255, %._crit_edge.i
   br label %321
 
 321:                                              ; preds = %.thread, %._crit_edge233
-  %.2 = phi i32 [ %320, %._crit_edge233 ], [ %121, %.thread ]
+  %.2 = phi i32 [ %121, %.thread ], [ %320, %._crit_edge233 ]
   ret i32 %.2
 }
 
@@ -4837,7 +4837,7 @@ Gia_ObjLevel.exit196:                             ; preds = %250, %._crit_edge.i
   br label %316
 
 316:                                              ; preds = %.thread, %._crit_edge224, %5
-  %.0 = phi i32 [ %6, %5 ], [ %315, %._crit_edge224 ], [ %117, %.thread ]
+  %.0 = phi i32 [ %6, %5 ], [ %117, %.thread ], [ %315, %._crit_edge224 ]
   ret i32 %.0
 }
 
@@ -4931,8 +4931,8 @@ define ptr @Gia_ManUpdateExtraAig(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %31, %33, %23, %25
-  %.sink30 = phi ptr [ %24, %23 ], [ %26, %25 ], [ %32, %31 ], [ %34, %33 ]
-  %.sink = phi i32 [ 16, %23 ], [ 16, %25 ], [ %28, %31 ], [ %28, %33 ]
+  %.sink30 = phi ptr [ %26, %25 ], [ %24, %23 ], [ %32, %31 ], [ %34, %33 ]
+  %.sink = phi i32 [ 16, %25 ], [ 16, %23 ], [ %28, %31 ], [ %28, %33 ]
   store ptr %.sink30, ptr %7, align 8, !tbaa !32
   store i32 %.sink, ptr %4, align 8, !tbaa !55
   br label %Vec_IntPush.exit
@@ -5048,8 +5048,8 @@ define ptr @Gia_ManUpdateExtraAig2(ptr noundef %0, ptr noundef %1, ptr noundef r
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %35, %37, %27, %29
-  %.sink35 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %36, %35 ], [ %38, %37 ]
-  %.sink = phi i32 [ 16, %27 ], [ 16, %29 ], [ %32, %35 ], [ %32, %37 ]
+  %.sink35 = phi ptr [ %30, %29 ], [ %28, %27 ], [ %36, %35 ], [ %38, %37 ]
+  %.sink = phi i32 [ 16, %29 ], [ 16, %27 ], [ %32, %35 ], [ %32, %37 ]
   store ptr %.sink35, ptr %8, align 8, !tbaa !32
   store i32 %.sink, ptr %5, align 8, !tbaa !55
   br label %Vec_IntPush.exit
@@ -6305,7 +6305,7 @@ Vec_IntSum.exit:                                  ; preds = %440
   br label %Vec_IntSum.exit.thread
 
 Vec_IntSum.exit.thread:                           ; preds = %434, %._crit_edge316, %Vec_IntSum.exit, %431, %430
-  %.1 = phi ptr [ %.0170, %Vec_IntSum.exit ], [ %.0170, %431 ], [ %.0170, %430 ], [ %459, %._crit_edge316 ], [ %.0170, %434 ]
+  %.1 = phi ptr [ %.0170, %430 ], [ %.0170, %Vec_IntSum.exit ], [ %.0170, %431 ], [ %459, %._crit_edge316 ], [ %.0170, %434 ]
   ret ptr %.1
 }
 
@@ -6492,7 +6492,7 @@ Gia_ManBoxNum.exit120:                            ; preds = %Gia_ManBoxNum.exit1
   br label %139
 
 Gia_ManBoxNum.exit112.thread:                     ; preds = %52, %Gia_ManBoxNum.exit120, %77, %Gia_ManBoxNum.exit112, %.thread
-  %.0128.ph = phi ptr [ null, %.thread ], [ null, %Gia_ManBoxNum.exit112 ], [ null, %Gia_ManBoxNum.exit120 ], [ %80, %77 ], [ null, %52 ]
+  %.0128.ph = phi ptr [ %80, %77 ], [ null, %.thread ], [ null, %Gia_ManBoxNum.exit112 ], [ null, %Gia_ManBoxNum.exit120 ], [ null, %52 ]
   %.pr133 = load ptr, ptr %33, align 8, !tbaa !3
   %.not.i121 = icmp eq ptr %.pr133, null
   br i1 %.not.i121, label %Gia_ManBoxNum.exit122.thread, label %Gia_ManBoxNum.exit122

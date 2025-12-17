@@ -339,10 +339,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
   br label %_ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit
 
 _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %28, %15, %24, %36, %._crit_edge.i.i, %45
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %45 ], [ %31, %._crit_edge.i.i ], [ 0, %24 ], [ 0, %15 ], [ 0, %36 ], [ 0, %28 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %45 ], [ %39, %._crit_edge.i.i ], [ 0, %24 ], [ 0, %15 ], [ 0, %36 ], [ 0, %28 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %45 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %24 ], [ 0, %15 ], [ 0, %36 ], [ 0, %28 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %45 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %24 ], [ 0, %15 ], [ 0, %36 ], [ 0, %28 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %31, %._crit_edge.i.i ], [ 0, %15 ], [ 0, %45 ], [ 0, %24 ], [ 0, %36 ], [ 0, %28 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ %39, %._crit_edge.i.i ], [ 0, %15 ], [ 0, %45 ], [ 0, %24 ], [ 0, %36 ], [ 0, %28 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i ], [ 0, %15 ], [ 0, %45 ], [ 0, %24 ], [ 0, %36 ], [ 0, %28 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ 0, %15 ], [ 0, %45 ], [ 0, %24 ], [ 0, %36 ], [ 0, %28 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64
@@ -1054,10 +1054,10 @@ _ZN2cv3Mat2atIfEERT_i.exit128.thread:             ; preds = %265, %_ZN2cv3Mat2at
   br label %372
 
 372:                                              ; preds = %354, %371, %._crit_edge.i.i136, %362, %350, %334
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %371 ], [ %357, %._crit_edge.i.i136 ], [ 0, %350 ], [ 0, %334 ], [ 0, %362 ], [ 0, %354 ]
-  %.sroa.0.sroa.9.0.i = phi i32 [ 0, %371 ], [ %365, %._crit_edge.i.i136 ], [ 0, %350 ], [ 0, %334 ], [ 0, %362 ], [ 0, %354 ]
-  %.sroa.14.sroa.0.0.i = phi i32 [ 0, %371 ], [ %.sroa.speculated53.i.i, %._crit_edge.i.i136 ], [ 0, %350 ], [ 0, %334 ], [ 0, %362 ], [ 0, %354 ]
-  %.sroa.14.sroa.12.0.i = phi i32 [ 0, %371 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i136 ], [ 0, %350 ], [ 0, %334 ], [ 0, %362 ], [ 0, %354 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %357, %._crit_edge.i.i136 ], [ 0, %334 ], [ 0, %371 ], [ 0, %350 ], [ 0, %362 ], [ 0, %354 ]
+  %.sroa.0.sroa.9.0.i = phi i32 [ %365, %._crit_edge.i.i136 ], [ 0, %334 ], [ 0, %371 ], [ 0, %350 ], [ 0, %362 ], [ 0, %354 ]
+  %.sroa.14.sroa.0.0.i = phi i32 [ %.sroa.speculated53.i.i, %._crit_edge.i.i136 ], [ 0, %334 ], [ 0, %371 ], [ 0, %350 ], [ 0, %362 ], [ 0, %354 ]
+  %.sroa.14.sroa.12.0.i = phi i32 [ %.sroa.speculated.i.i, %._crit_edge.i.i136 ], [ 0, %334 ], [ 0, %371 ], [ 0, %350 ], [ 0, %362 ], [ 0, %354 ]
   %.sroa.0.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.9.0.i to i64
   %.sroa.0.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.0.sroa.9.0.insert.ext.i, 32
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.sroa.0.0.i to i64

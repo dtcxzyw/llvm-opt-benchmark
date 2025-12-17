@@ -270,7 +270,7 @@ define dso_local noundef i32 @_ZNK20b3ConvexHullInternal10Rational647compareERKS
   br label %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit
 
 _ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit: ; preds = %11, %61, %63, %65
-  %.0.i = phi i32 [ -1, %11 ], [ 1, %61 ], [ -1, %63 ], [ %..i, %65 ]
+  %.0.i = phi i32 [ -1, %63 ], [ -1, %11 ], [ 1, %61 ], [ %..i, %65 ]
   %67 = mul nsw i32 %.0.i, %4
   br label %68
 
@@ -379,8 +379,8 @@ _ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit: ; preds = %35
   %..i19 = zext i1 %52 to i32
   br label %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread
 
-_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread: ; preds = %51, %47, %45, %39, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit, %25, %33, %35
-  %.0.i20.sink = phi i32 [ 1, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit ], [ -1, %35 ], [ 1, %33 ], [ -1, %25 ], [ -1, %39 ], [ 1, %45 ], [ -1, %47 ], [ %..i19, %51 ]
+_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread: ; preds = %51, %47, %45, %39, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit, %35, %25, %33
+  %.0.i20.sink = phi i32 [ -1, %35 ], [ 1, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit ], [ 1, %33 ], [ -1, %25 ], [ -1, %47 ], [ -1, %39 ], [ 1, %45 ], [ %..i19, %51 ]
   %53 = load i32, ptr %7, align 8, !tbaa !15
   %54 = mul nsw i32 %53, %.0.i20.sink
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -390,7 +390,7 @@ _ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread: ; preds = %51, %47, %4
   br label %55
 
 55:                                               ; preds = %13, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread, %19, %11
-  %.0 = phi i32 [ %12, %11 ], [ %24, %19 ], [ %54, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread ], [ 0, %13 ]
+  %.0 = phi i32 [ %12, %11 ], [ %54, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.thread ], [ %24, %19 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -514,12 +514,12 @@ _ZNK20b3ConvexHullInternal6Int128mlEl.exit:       ; preds = %39, %64
   br label %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit
 
 _ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit: ; preds = %_ZNK20b3ConvexHullInternal6Int128mlEl.exit, %73, %75, %78
-  %.0.i = phi i32 [ -1, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit ], [ 1, %73 ], [ -1, %75 ], [ %..i, %78 ]
+  %.0.i = phi i32 [ -1, %75 ], [ -1, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit ], [ 1, %73 ], [ %..i, %78 ]
   %80 = mul nsw i32 %28, %.0.i
   br label %81
 
 81:                                               ; preds = %19, %23, %15, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit, %6
-  %.0 = phi i32 [ %12, %6 ], [ %80, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit ], [ -1, %15 ], [ 1, %23 ], [ %22, %19 ]
+  %.0 = phi i32 [ %12, %6 ], [ 1, %23 ], [ %80, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit ], [ -1, %15 ], [ %22, %19 ]
   ret i32 %.0
 }
 
@@ -1195,8 +1195,8 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal15mergeProjectionE
   br i1 %.not297, label %.critedge9, label %213, !llvm.loop !74
 
 .critedge9:                                       ; preds = %219, %213, %215, %177, %193, %195, %.thread333, %121, %138, %140, %.thread313
-  %.7228 = phi ptr [ %.2223.ph, %.thread313 ], [ %.2223.ph, %140 ], [ %.2223.ph, %138 ], [ %.2223.ph, %121 ], [ %.8229.ph, %.thread333 ], [ %.8229.ph, %195 ], [ %.8229.ph, %193 ], [ %.8229.ph, %177 ], [ %.0, %215 ], [ %.0, %213 ], [ %.0, %219 ]
-  %.5 = phi ptr [ %.1220, %.thread313 ], [ %.1220, %140 ], [ %.1220, %138 ], [ %.1220, %121 ], [ %.6, %.thread333 ], [ %.6, %195 ], [ %.6, %193 ], [ %.6, %177 ], [ %.0216, %215 ], [ %.0216, %213 ], [ %.0216, %219 ]
+  %.7228 = phi ptr [ %.8229.ph, %177 ], [ %.2223.ph, %121 ], [ %.2223.ph, %.thread313 ], [ %.2223.ph, %140 ], [ %.2223.ph, %138 ], [ %.8229.ph, %.thread333 ], [ %.8229.ph, %195 ], [ %.8229.ph, %193 ], [ %.0, %215 ], [ %.0, %213 ], [ %.0, %219 ]
+  %.5 = phi ptr [ %.6, %177 ], [ %.1220, %121 ], [ %.1220, %.thread313 ], [ %.1220, %140 ], [ %.1220, %138 ], [ %.6, %.thread333 ], [ %.6, %195 ], [ %.6, %193 ], [ %.0216, %215 ], [ %.0216, %213 ], [ %.0216, %219 ]
   br i1 %.not292, label %83, label %75, !llvm.loop !75
 
 222:                                              ; preds = %75
@@ -1318,10 +1318,10 @@ _ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread: ; preds = %8
   br label %41
 
 41:                                               ; preds = %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread, %28
-  %.sink143 = phi ptr [ %spec.select113, %28 ], [ %., %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ]
-  %.sink = phi ptr [ %spec.select113, %28 ], [ %.145, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ]
-  %.1112 = phi ptr [ %spec.select, %28 ], [ %14, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ]
-  %.1 = phi ptr [ %spec.select113, %28 ], [ %13, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ]
+  %.sink143 = phi ptr [ %., %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ], [ %spec.select113, %28 ]
+  %.sink = phi ptr [ %.145, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ], [ %spec.select113, %28 ]
+  %.1112 = phi ptr [ %14, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ], [ %spec.select, %28 ]
+  %.1 = phi ptr [ %13, %_ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread ], [ %spec.select113, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sink143, ptr %42, align 8, !tbaa !59
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1418,7 +1418,7 @@ _ZNK20b3ConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %74
   br label %.critedge
 
 .critedge:                                        ; preds = %81, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit132, %.critedge.loopexit.split.loop.exit136, %57
-  %.0.lcssa = phi i32 [ %59, %57 ], [ %83, %.critedge.loopexit.split.loop.exit ], [ %84, %.critedge.loopexit.split.loop.exit132 ], [ %85, %.critedge.loopexit.split.loop.exit136 ], [ %2, %81 ]
+  %.0.lcssa = phi i32 [ %59, %57 ], [ %85, %.critedge.loopexit.split.loop.exit136 ], [ %83, %.critedge.loopexit.split.loop.exit ], [ %84, %.critedge.loopexit.split.loop.exit132 ], [ %2, %81 ]
   tail call void @_ZN20b3ConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 16 dereferenceable(192) %0, i32 noundef %1, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -2404,7 +2404,7 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit267: ; preds = %454, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %230, !llvm.loop !102
 
-474:                                              ; preds = %279, %._crit_edge424, %470, %442
+474:                                              ; preds = %279, %442, %._crit_edge424, %470
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2886,11 +2886,11 @@ define dso_local void @_ZN20b3ConvexHullInternal24findEdgeForCoplanarFacesEPNS_6
   %.not195 = icmp eq ptr %148, %5
   br i1 %.not195, label %.thread.loopexit, label %120
 
-.thread.loopexit:                                 ; preds = %159, %120, %.lr.ph856, %153, %.lr.ph
-  %.sroa.0549.0.ph = phi i32 [ %.sroa.0549.0.copyload, %.lr.ph ], [ %147, %159 ], [ %147, %120 ], [ %.sroa.0549.1763855, %.lr.ph856 ], [ %.sroa.0549.1763855, %153 ]
-  %.sroa.15561.0.ph = phi i32 [ %.sroa.15561.0.copyload, %.lr.ph ], [ %145, %159 ], [ %145, %120 ], [ %.sroa.15561.1764854, %.lr.ph856 ], [ %.sroa.15561.1764854, %153 ]
-  %.sroa.24576.0.ph = phi i32 [ %.sroa.24576.0.copyload, %.lr.ph ], [ %143, %159 ], [ %143, %120 ], [ %.sroa.24576.1765853, %.lr.ph856 ], [ %.sroa.24576.1765853, %153 ]
-  %.0.ph = phi i64 [ %94, %.lr.ph ], [ %158, %159 ], [ %158, %120 ], [ %.1766852, %.lr.ph856 ], [ %.1766852, %153 ]
+.thread.loopexit:                                 ; preds = %159, %.lr.ph856, %120, %153, %.lr.ph
+  %.sroa.0549.0.ph = phi i32 [ %.sroa.0549.0.copyload, %.lr.ph ], [ %147, %159 ], [ %.sroa.0549.1763855, %.lr.ph856 ], [ %147, %120 ], [ %.sroa.0549.1763855, %153 ]
+  %.sroa.15561.0.ph = phi i32 [ %.sroa.15561.0.copyload, %.lr.ph ], [ %145, %159 ], [ %.sroa.15561.1764854, %.lr.ph856 ], [ %145, %120 ], [ %.sroa.15561.1764854, %153 ]
+  %.sroa.24576.0.ph = phi i32 [ %.sroa.24576.0.copyload, %.lr.ph ], [ %143, %159 ], [ %.sroa.24576.1765853, %.lr.ph856 ], [ %143, %120 ], [ %.sroa.24576.1765853, %153 ]
+  %.0.ph = phi i64 [ %94, %.lr.ph ], [ %158, %159 ], [ %.1766852, %.lr.ph856 ], [ %158, %120 ], [ %.1766852, %153 ]
   %.pre = load ptr, ptr %4, align 8, !tbaa !85
   br label %.thread
 
@@ -2998,12 +2998,12 @@ define dso_local void @_ZN20b3ConvexHullInternal24findEdgeForCoplanarFacesEPNS_6
   %.not198 = icmp eq ptr %219, %6
   br i1 %.not198, label %.thread604, label %192
 
-.thread604:                                       ; preds = %225, %.lr.ph879, %192, %231, %.lr.ph791, %.preheader760, %.thread
-  %232 = phi ptr [ null, %.thread ], [ %.promoted785, %.preheader760 ], [ %.promoted785, %.lr.ph791 ], [ %220, %231 ], [ %220, %192 ], [ %221, %.lr.ph879 ], [ %221, %225 ]
-  %.sroa.0502.0 = phi i32 [ %.sroa.0502.0.copyload, %.thread ], [ %.sroa.0502.0.copyload, %.preheader760 ], [ %.sroa.0502.0.copyload, %.lr.ph791 ], [ %218, %231 ], [ %218, %192 ], [ %.sroa.0502.1787878, %.lr.ph879 ], [ %.sroa.0502.1787878, %225 ]
-  %.sroa.15514.0 = phi i32 [ %.sroa.15514.0.copyload, %.thread ], [ %.sroa.15514.0.copyload, %.preheader760 ], [ %.sroa.15514.0.copyload, %.lr.ph791 ], [ %216, %231 ], [ %216, %192 ], [ %.sroa.15514.1788877, %.lr.ph879 ], [ %.sroa.15514.1788877, %225 ]
-  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %.thread ], [ %.sroa.24.0.copyload, %.preheader760 ], [ %.sroa.24.0.copyload, %.lr.ph791 ], [ %214, %231 ], [ %214, %192 ], [ %.sroa.24.1789876, %.lr.ph879 ], [ %.sroa.24.1789876, %225 ]
-  %.0156 = phi i64 [ %167, %.thread ], [ %167, %.preheader760 ], [ %167, %.lr.ph791 ], [ %230, %231 ], [ %230, %192 ], [ %.1157790875, %.lr.ph879 ], [ %.1157790875, %225 ]
+.thread604:                                       ; preds = %225, %192, %.lr.ph879, %231, %.lr.ph791, %.preheader760, %.thread
+  %232 = phi ptr [ null, %.thread ], [ %.promoted785, %.preheader760 ], [ %.promoted785, %.lr.ph791 ], [ %220, %231 ], [ %221, %.lr.ph879 ], [ %220, %192 ], [ %221, %225 ]
+  %.sroa.0502.0 = phi i32 [ %.sroa.0502.0.copyload, %.thread ], [ %.sroa.0502.0.copyload, %.preheader760 ], [ %.sroa.0502.0.copyload, %.lr.ph791 ], [ %218, %231 ], [ %.sroa.0502.1787878, %.lr.ph879 ], [ %218, %192 ], [ %.sroa.0502.1787878, %225 ]
+  %.sroa.15514.0 = phi i32 [ %.sroa.15514.0.copyload, %.thread ], [ %.sroa.15514.0.copyload, %.preheader760 ], [ %.sroa.15514.0.copyload, %.lr.ph791 ], [ %216, %231 ], [ %.sroa.15514.1788877, %.lr.ph879 ], [ %216, %192 ], [ %.sroa.15514.1788877, %225 ]
+  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %.thread ], [ %.sroa.24.0.copyload, %.preheader760 ], [ %.sroa.24.0.copyload, %.lr.ph791 ], [ %214, %231 ], [ %.sroa.24.1789876, %.lr.ph879 ], [ %214, %192 ], [ %.sroa.24.1789876, %225 ]
+  %.0156 = phi i64 [ %167, %.thread ], [ %167, %.preheader760 ], [ %167, %.lr.ph791 ], [ %230, %231 ], [ %.1157790875, %.lr.ph879 ], [ %230, %192 ], [ %.1157790875, %225 ]
   %233 = sub nsw i64 %.0156, %.0
   %234 = icmp sgt i64 %233, 0
   br i1 %234, label %.preheader, label %414
@@ -3671,7 +3671,7 @@ _ZN20b3ConvexHullInternal10Rational64C2Ell.exit345: ; preds = %574
   %.pre812.pre = load ptr, ptr %4, align 8, !tbaa !85
   br label %426
 
-.thread675:                                       ; preds = %572, %593, %525, %517, %.thread701, %514, %389, %410, %342, %335, %.thread627, %332, %.critedge15, %.critedge11, %414
+.thread675:                                       ; preds = %572, %593, %525, %517, %514, %.thread701, %389, %410, %342, %335, %332, %.thread627, %.critedge15, %.critedge11, %414
   ret void
 }
 
@@ -4384,7 +4384,7 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EED2Ev.exit: ; preds = 
   br label %284
 
 284:                                              ; preds = %282, %260, %226, %224, %122
-  %.pn83.pn = phi { ptr, i32 } [ %261, %260 ], [ %283, %282 ], [ %225, %224 ], [ %227, %226 ], [ %123, %122 ]
+  %.pn83.pn = phi { ptr, i32 } [ %123, %122 ], [ %261, %260 ], [ %283, %282 ], [ %225, %224 ], [ %227, %226 ]
   call void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn83.pn
@@ -4879,9 +4879,9 @@ _ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.
           to label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit156 unwind label %68
 
 _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit156: ; preds = %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread, %47, %49
-  %.sroa.21.5 = phi i32 [ %.sroa.3297.2, %49 ], [ %.sroa.21.2, %47 ], [ %.0.i.i140419, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.0.i.i140, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
-  %.sroa.28308.7 = phi ptr [ %.sroa.28308.2, %49 ], [ %.sroa.28308.2, %47 ], [ %.0.i18.i.i139418, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.0.i18.i.i139, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
-  %63 = phi i32 [ %.sroa.3297.2, %49 ], [ %.sroa.3297.2, %47 ], [ %.sroa.3297.5417, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.sroa.3297.5, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
+  %.sroa.21.5 = phi i32 [ %.sroa.21.2, %47 ], [ %.sroa.3297.2, %49 ], [ %.0.i.i140419, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.0.i.i140, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
+  %.sroa.28308.7 = phi ptr [ %.sroa.28308.2, %47 ], [ %.sroa.28308.2, %49 ], [ %.0.i18.i.i139418, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.0.i18.i.i139, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
+  %63 = phi i32 [ %.sroa.3297.2, %47 ], [ %.sroa.3297.2, %49 ], [ %.sroa.3297.5417, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.sroa.3297.5, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %.sroa.28308.7, i64 %64
   %66 = load ptr, ptr %43, align 8, !tbaa !66
@@ -5103,9 +5103,9 @@ _ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.
           to label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE9push_backERKS2_.exit unwind label %248
 
 _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE9push_backERKS2_.exit: ; preds = %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread, %140, %142
-  %.sroa.12283.4 = phi i32 [ %.sroa.3.2, %142 ], [ %.sroa.12283.2, %140 ], [ %.0.i.i166426, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.0.i.i166, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
-  %.sroa.17284.5 = phi ptr [ %.sroa.17284.2, %142 ], [ %.sroa.17284.2, %140 ], [ %.0.i18.i.i165425, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.0.i18.i.i165, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
-  %156 = phi i32 [ %.sroa.3.2, %142 ], [ %.sroa.3.2, %140 ], [ %.sroa.3.4424, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.sroa.3.4, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
+  %.sroa.12283.4 = phi i32 [ %.sroa.12283.2, %140 ], [ %.sroa.3.2, %142 ], [ %.0.i.i166426, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.0.i.i166, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
+  %.sroa.17284.5 = phi ptr [ %.sroa.17284.2, %140 ], [ %.sroa.17284.2, %142 ], [ %.0.i18.i.i165425, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.0.i18.i.i165, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
+  %156 = phi i32 [ %.sroa.3.2, %140 ], [ %.sroa.3.2, %142 ], [ %.sroa.3.4424, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.sroa.3.4, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds ptr, ptr %.sroa.17284.5, i64 %157
   store ptr %.09.i, ptr %158, align 8, !tbaa !162
@@ -5586,7 +5586,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEED2Ev.exit: ; preds = 
   br label %_ZNK20b3ConvexHullInternal6Int1287getSignEv.exit.thread
 
 448:                                              ; preds = %446, %341, %339
-  %.pn109.pn.pn = phi { ptr, i32 } [ %342, %341 ], [ %340, %339 ], [ %447, %446 ]
+  %.pn109.pn.pn = phi { ptr, i32 } [ %340, %339 ], [ %342, %341 ], [ %447, %446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %457
 
@@ -5626,9 +5626,9 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEED2Ev.exit: ; preds = %_
   unreachable
 
 457:                                              ; preds = %248, %68, %448
-  %.sroa.17284.3 = phi ptr [ %.sroa.17284.2, %68 ], [ %.sroa.17284.1, %448 ], [ %.sroa.17284.2, %248 ]
-  %.sroa.28308.5 = phi ptr [ %.sroa.28308.2, %68 ], [ %.sroa.28308.1, %448 ], [ %.sroa.28308.3, %248 ]
-  %.pn119.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn109.pn.pn, %448 ], [ %249, %248 ]
+  %.sroa.17284.3 = phi ptr [ %.sroa.17284.1, %448 ], [ %.sroa.17284.2, %68 ], [ %.sroa.17284.2, %248 ]
+  %.sroa.28308.5 = phi ptr [ %.sroa.28308.1, %448 ], [ %.sroa.28308.2, %68 ], [ %.sroa.28308.3, %248 ]
+  %.pn119.pn.pn.pn = phi { ptr, i32 } [ %.pn109.pn.pn, %448 ], [ %69, %68 ], [ %249, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6304,12 +6304,12 @@ _ZNK20b3ConvexHullInternal6Int128mlEl.exit.i:     ; preds = %300, %275
   br label %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.i
 
 _ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.i: ; preds = %313, %310, %308, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit.i
-  %.0.i.i = phi i32 [ -1, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit.i ], [ 1, %308 ], [ -1, %310 ], [ %..i.i, %313 ]
+  %.0.i.i = phi i32 [ -1, %310 ], [ -1, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit.i ], [ 1, %308 ], [ %..i.i, %313 ]
   %315 = mul nsw i32 %.0.i.i, %253
   br label %_ZNK20b3ConvexHullInternal11Rational1287compareEl.exit
 
 _ZNK20b3ConvexHullInternal11Rational1287compareEl.exit: ; preds = %254, %262, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.i
-  %.0.i = phi i32 [ %258, %254 ], [ %315, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.i ], [ %253, %262 ]
+  %.0.i = phi i32 [ %258, %254 ], [ %253, %262 ], [ %315, %_ZNK20b3ConvexHullInternal6Int1284ucmpERKS0_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %316 = icmp sgt i32 %.0.i, -1
   br i1 %316, label %317, label %.backedge.backedge
@@ -8638,7 +8638,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE6resizeEiRKS2_.exit: 
   br label %.thread816
 
 .thread816:                                       ; preds = %171, %184, %199, %.lr.ph, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE6resizeEiRKS2_.exit, %.loopexit940
-  %.3 = phi i1 [ false, %.loopexit940 ], [ true, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE6resizeEiRKS2_.exit ], [ true, %.lr.ph ], [ true, %199 ], [ true, %184 ], [ false, %171 ]
+  %.3 = phi i1 [ false, %.loopexit940 ], [ true, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE6resizeEiRKS2_.exit ], [ true, %184 ], [ true, %.lr.ph ], [ true, %199 ], [ false, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1506
 

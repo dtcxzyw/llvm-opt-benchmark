@@ -1160,7 +1160,7 @@ _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !110
   %60 = load ptr, ptr %.0, align 8, !tbaa !98
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2128,7 +2128,7 @@ _ZNSt15_Deque_iteratorIjRjPjEpLEl.exit.i.i.i60:   ; preds = %324, %318
   br label %336
 
 336:                                              ; preds = %334, %244, %246
-  %.pn41.pn = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ], [ %335, %334 ]
+  %.pn41.pn = phi { ptr, i32 } [ %245, %244 ], [ %335, %334 ], [ %247, %246 ]
   %.1 = extractvalue { ptr, i32 } %.pn41.pn, 0
   %337 = call ptr @__cxa_begin_catch(ptr %.1) #17
   %338 = load ptr, ptr %33, align 8, !tbaa !96
@@ -2591,7 +2591,7 @@ _ZNSt15_Deque_iteratorIjRjPjEpLEl.exit.i.i.i113:  ; preds = %535, %529
   br label %547
 
 547:                                              ; preds = %545, %492, %494
-  %.pn39.pn = phi { ptr, i32 } [ %495, %494 ], [ %493, %492 ], [ %546, %545 ]
+  %.pn39.pn = phi { ptr, i32 } [ %493, %492 ], [ %546, %545 ], [ %495, %494 ]
   %.5 = extractvalue { ptr, i32 } %.pn39.pn, 0
   %548 = call ptr @__cxa_begin_catch(ptr %.5) #17
   %549 = load ptr, ptr %59, align 8, !tbaa !97

@@ -597,8 +597,8 @@ Abc_GetSecond.exit:                               ; preds = %55
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %82, %84, %74, %76
-  %.sink293 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
-  %.sink = phi i32 [ 16, %74 ], [ 16, %76 ], [ %79, %82 ], [ %79, %84 ]
+  %.sink293 = phi ptr [ %77, %76 ], [ %75, %74 ], [ %83, %82 ], [ %85, %84 ]
+  %.sink = phi i32 [ 16, %76 ], [ 16, %74 ], [ %79, %82 ], [ %79, %84 ]
   store ptr %.sink293, ptr %22, align 8, !tbaa !24
   store i32 %.sink, ptr %19, align 8, !tbaa !32
   br label %Vec_IntPush.exit
@@ -1818,14 +1818,14 @@ Abc_EnumDerefNode.exit:                           ; preds = %Abc_EnumRefNode.exi
   store i32 %337, ptr %4, align 4, !tbaa !43
   br label %Abc_EnumerateFilter.exit.thread
 
-Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %236, %243, %249, %254, %260, %293, %287, %281, %275, %267, %208, %184, %177, %Abc_EnumDerefNode.exit
-  %338 = phi i32 [ %209, %208 ], [ %174, %184 ], [ %174, %177 ], [ %337, %Abc_EnumDerefNode.exit ], [ %209, %267 ], [ %209, %275 ], [ %209, %281 ], [ %209, %287 ], [ %209, %293 ], [ %209, %260 ], [ %209, %254 ], [ %209, %249 ], [ %209, %243 ], [ %209, %236 ], [ %209, %.lr.ph.i155 ]
+Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %243, %249, %254, %260, %236, %287, %281, %275, %267, %293, %208, %184, %177, %Abc_EnumDerefNode.exit
+  %338 = phi i32 [ %337, %Abc_EnumDerefNode.exit ], [ %209, %208 ], [ %174, %184 ], [ %174, %177 ], [ %209, %243 ], [ %209, %287 ], [ %209, %293 ], [ %209, %267 ], [ %209, %275 ], [ %209, %281 ], [ %209, %236 ], [ %209, %260 ], [ %209, %254 ], [ %209, %249 ], [ %209, %.lr.ph.i155 ]
   %339 = add i32 %.0139172, 1
   %exitcond187.not = icmp eq i32 %339, %74
   br i1 %exitcond187.not, label %.loopexit, label %173, !llvm.loop !57
 
 .loopexit:                                        ; preds = %Abc_EnumerateFilter.exit.thread, %163, %160, %141, %146, %129
-  %340 = phi i32 [ %128, %163 ], [ %128, %160 ], [ %128, %141 ], [ %128, %146 ], [ %128, %129 ], [ %338, %Abc_EnumerateFilter.exit.thread ]
+  %340 = phi i32 [ %128, %129 ], [ %128, %163 ], [ %128, %160 ], [ %128, %141 ], [ %128, %146 ], [ %338, %Abc_EnumerateFilter.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv189 = trunc i64 %indvars.iv.next to i32
   %exitcond190.not = icmp eq i32 %lftr.wideiv189, %126
@@ -1844,8 +1844,8 @@ Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %236, 
   br label %345
 
 345:                                              ; preds = %107, %._crit_edge
-  %346 = phi i32 [ %342, %._crit_edge ], [ %108, %107 ]
-  %.1 = phi i32 [ %spec.select154, %._crit_edge ], [ 0, %107 ]
+  %346 = phi i32 [ %108, %107 ], [ %342, %._crit_edge ]
+  %.1 = phi i32 [ 0, %107 ], [ %spec.select154, %._crit_edge ]
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %lftr.wideiv195 = trunc i64 %indvars.iv.next192 to i32
   %exitcond196.not = icmp eq i32 %90, %lftr.wideiv195

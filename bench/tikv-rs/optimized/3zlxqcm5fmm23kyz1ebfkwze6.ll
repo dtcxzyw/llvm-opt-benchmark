@@ -32,9 +32,9 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %3 = alloca [4 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   %4 = icmp samesign ult i32 %1, 128
-  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 3
   br i1 %4, label %44, label %5
 
 5:                                                ; preds = %2
@@ -62,11 +62,11 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %19 = trunc i32 %18 to i8
   %20 = and i8 %19, 63
   %21 = or disjoint i8 %20, -128
-  store i8 %21, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !6, !noalias !3
+  store i8 %21, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !6, !noalias !3
   %22 = trunc i32 %1 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  store i8 %24, ptr %.sroa.0.1.i.sroa.gep1.i, align 1, !alias.scope !6, !noalias !3
+  store i8 %24, ptr %.sroa.0.1.i.sroa.gep2.i, align 1, !alias.scope !6, !noalias !3
   br label %_ZN4core4char7methods15encode_utf8_raw17h4acd49f89baabe4eE.exit.i
 
 25:                                               ; preds = %7
@@ -82,7 +82,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %33 = trunc i32 %1 to i8
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
-  store i8 %35, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !6, !noalias !3
+  store i8 %35, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !6, !noalias !3
   br label %_ZN4core4char7methods15encode_utf8_raw17h4acd49f89baabe4eE.exit.i
 
 36:                                               ; preds = %5
@@ -98,7 +98,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %_ZN4core4char7methods15encode_utf8_raw17h4acd49f89baabe4eE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h4acd49f89baabe4eE.exit.i: ; preds = %36, %25, %10
-  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %36 ], [ %.sroa.0.1.i.sroa.gep1.i, %25 ], [ %.sroa.0.1.i.sroa.gep2.i, %10 ]
+  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %10 ], [ %.sroa.0.1.i.sroa.gep1.i, %36 ], [ %.sroa.0.1.i.sroa.gep2.i, %25 ]
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h5abec2e9a6b8744fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6061f5929ed42ce63391d20b5e0ca064.30)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   br label %_ZN5alloc6string6String4push17h198b40b3e526b572E.exit
@@ -457,8 +457,8 @@ default.unreachable24:                            ; preds = %7, %6, %5, %4
   br label %10
 
 10:                                               ; preds = %5, %6, %7, %17, %19, %23, %21, %15, %8
-  %.sroa.017.0 = phi i64 [ 0, %8 ], [ 0, %19 ], [ 1, %17 ], [ 1, %15 ], [ 2, %21 ], [ 2, %23 ], [ %2, %7 ], [ %2, %6 ], [ %2, %5 ]
-  %.sroa.8.0 = phi i64 [ %9, %8 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %22, %21 ], [ %24, %23 ], [ %3, %7 ], [ %3, %6 ], [ %3, %5 ]
+  %.sroa.017.0 = phi i64 [ 0, %8 ], [ 0, %19 ], [ 1, %17 ], [ 2, %23 ], [ 1, %15 ], [ 2, %21 ], [ %2, %7 ], [ %2, %6 ], [ %2, %5 ]
+  %.sroa.8.0 = phi i64 [ %9, %8 ], [ %20, %19 ], [ %18, %17 ], [ %24, %23 ], [ %16, %15 ], [ %22, %21 ], [ %3, %7 ], [ %3, %6 ], [ %3, %5 ]
   %11 = insertvalue { i64, i64 } poison, i64 %.sroa.017.0, 0
   %12 = insertvalue { i64, i64 } %11, i64 %.sroa.8.0, 1
   ret { i64, i64 } %12

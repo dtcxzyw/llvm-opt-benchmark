@@ -173,7 +173,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1568,7 +1568,7 @@ define noundef zeroext i1 @_ZNK6icu_7716BytesTrieBuilder17BTLinearMatchNodeeqERK
   br label %15
 
 15:                                               ; preds = %4, %2, %6
-  %.0 = phi i1 [ %14, %6 ], [ true, %2 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %2 ], [ %14, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1821,7 +1821,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716BytesTrieBuilder14ensureCa
   br label %28
 
 28:                                               ; preds = %.sink.split, %6, %2
-  %.012 = phi i8 [ 0, %2 ], [ 1, %6 ], [ %.012.ph, %.sink.split ]
+  %.012 = phi i8 [ 1, %6 ], [ 0, %2 ], [ %.012.ph, %.sink.split ]
   ret i8 %.012
 }
 

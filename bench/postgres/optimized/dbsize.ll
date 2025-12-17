@@ -365,7 +365,7 @@ sub_128:                                          ; preds = %.tail
   br label %61
 
 61:                                               ; preds = %43, %.tail, %.tail26, %58
-  %.1 = phi i64 [ %60, %58 ], [ %.01732, %.tail26 ], [ %.01732, %.tail ], [ %.01732, %43 ]
+  %.1 = phi i64 [ %60, %58 ], [ %.01732, %.tail ], [ %.01732, %.tail26 ], [ %.01732, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #8
   %.not24 = icmp eq ptr %62, null
@@ -1115,8 +1115,8 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   br i1 %.not84, label %.thread, label %.preheader99, !llvm.loop !16
 
 44:                                               ; preds = %31, %.loopexit
-  %45 = phi i8 [ %33, %31 ], [ %29, %.loopexit ]
-  %.3 = phi ptr [ %32, %31 ], [ %.167, %.loopexit ]
+  %45 = phi i8 [ %29, %.loopexit ], [ %33, %31 ]
+  %.3 = phi ptr [ %.167, %.loopexit ], [ %32, %31 ]
   br i1 %.not81.not, label %46, label %.thread
 
 46:                                               ; preds = %44
@@ -1520,7 +1520,7 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
   unreachable
 
 50:                                               ; preds = %.thread39, %.thread39, %37, %42
-  %.027 = phi i32 [ %41, %37 ], [ %44, %42 ], [ -1, %.thread39 ], [ -1, %.thread39 ]
+  %.027 = phi i32 [ %44, %42 ], [ %41, %37 ], [ -1, %.thread39 ], [ -1, %.thread39 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
   %51 = tail call ptr @GetRelationPath(i32 noundef %.sroa.7.0, i32 noundef %.sroa.0.0, i32 noundef %.sroa.11.044, i32 noundef %.027, i32 noundef 0) #8
   %52 = tail call ptr @cstring_to_text(ptr noundef %51) #8
@@ -1629,7 +1629,7 @@ sub_117:                                          ; preds = %.tail
   br label %35
 
 35:                                               ; preds = %24, %.tail, %.tail15, %32
-  %.1 = phi i64 [ %34, %32 ], [ %.01121, %.tail15 ], [ %.01121, %.tail ], [ %.01121, %24 ]
+  %.1 = phi i64 [ %34, %32 ], [ %.01121, %.tail ], [ %.01121, %.tail15 ], [ %.01121, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #8
   %.not13 = icmp eq ptr %36, null

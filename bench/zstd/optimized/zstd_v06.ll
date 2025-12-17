@@ -281,7 +281,7 @@ define i64 @FSEv06_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
   br label %.critedge158
 
 .critedge158:                                     ; preds = %21, %._crit_edge, %99, %.critedge, %8, %5
-  %.0105 = phi i64 [ -72, %5 ], [ -44, %8 ], [ -1, %.critedge ], [ %., %99 ], [ -1, %21 ], [ -48, %._crit_edge ]
+  %.0105 = phi i64 [ -1, %.critedge ], [ -72, %5 ], [ %., %99 ], [ -44, %8 ], [ -48, %._crit_edge ], [ -1, %21 ]
   ret i64 %.0105
 }
 
@@ -729,7 +729,7 @@ FSEv06_initDState.exit27:                         ; preds = %FSEv06_initDState.e
   %.038.i543 = phi ptr [ %194, %142 ], [ %0, %FSEv06_initDState.exit27 ]
   %.sroa.0.0542 = phi i64 [ %192, %142 ], [ %108, %FSEv06_initDState.exit27 ]
   %.sroa.0209.0541 = phi i64 [ %178, %142 ], [ %87, %FSEv06_initDState.exit27 ]
-  %.sroa.64220.0.idx540 = phi i64 [ %.sroa.64220.7.idx, %142 ], [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ]
+  %.sroa.64220.0.idx540 = phi i64 [ %.sroa.64220.0.add.pn, %142 ], [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ]
   %.sroa.29.0539 = phi i32 [ %190, %142 ], [ %.sroa.29.6, %FSEv06_initDState.exit27 ]
   %.sroa.0217.0538 = phi i64 [ %.sroa.0217.6, %142 ], [ %.sroa.0217.5, %FSEv06_initDState.exit27 ]
   %.not.i28 = icmp slt i64 %.sroa.64220.0.idx540, 8
@@ -757,11 +757,11 @@ FSEv06_initDState.exit27:                         ; preds = %FSEv06_initDState.e
   br label %BITv06_reloadDStream.exit
 
 BITv06_reloadDStream.exit:                        ; preds = %125, %131
-  %.sroa.29.7 = phi i32 [ %137, %131 ], [ %128, %125 ]
-  %.pn = phi i64 [ %135, %131 ], [ %127, %125 ]
-  %.025.i = phi i1 [ %134, %131 ], [ true, %125 ]
-  %.sroa.64220.7.idx = sub nsw i64 %.sroa.64220.0.idx540, %.pn
-  %.sroa.0217.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.7.idx
+  %.pn = phi i64 [ %127, %125 ], [ %135, %131 ]
+  %.sroa.29.7 = phi i32 [ %128, %125 ], [ %137, %131 ]
+  %.025.i = phi i1 [ true, %125 ], [ %134, %131 ]
+  %.sroa.64220.0.add.pn = sub nsw i64 %.sroa.64220.0.idx540, %.pn
+  %.sroa.0217.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.0.add.pn
   %.sroa.0217.6 = load i64, ptr %.sroa.0217.6.in, align 1
   %138 = icmp ult ptr %.038.i543, %9
   %139 = select i1 %.025.i, i1 %138, i1 false
@@ -771,7 +771,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %.sroa.0209.0.lcssa = phi i64 [ %87, %FSEv06_initDState.exit27 ], [ %.sroa.0209.0541, %BITv06_reloadDStream.exit ], [ %178, %142 ], [ %.sroa.0209.0541, %129 ]
   %.sroa.0.0.lcssa = phi i64 [ %108, %FSEv06_initDState.exit27 ], [ %.sroa.0.0542, %BITv06_reloadDStream.exit ], [ %192, %142 ], [ %.sroa.0.0542, %129 ]
   %.038.i.lcssa = phi ptr [ %0, %FSEv06_initDState.exit27 ], [ %.038.i543, %BITv06_reloadDStream.exit ], [ %194, %142 ], [ %.038.i543, %129 ]
-  %.sroa.64220.7.idx485 = phi i64 [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ], [ %.sroa.64220.7.idx, %BITv06_reloadDStream.exit ], [ %.sroa.64220.7.idx, %142 ], [ 0, %129 ]
+  %.sroa.64220.7.idx485 = phi i64 [ %.sroa.64220.6.idx, %FSEv06_initDState.exit27 ], [ %.sroa.64220.0.add.pn, %BITv06_reloadDStream.exit ], [ %.sroa.64220.0.add.pn, %142 ], [ 0, %129 ]
   %.sroa.29.7484 = phi i32 [ %.sroa.29.6, %FSEv06_initDState.exit27 ], [ %.sroa.29.7, %BITv06_reloadDStream.exit ], [ %190, %142 ], [ %.sroa.29.0539, %129 ]
   %.sroa.0217.6483 = phi i64 [ %.sroa.0217.5, %FSEv06_initDState.exit27 ], [ %.sroa.0217.6, %BITv06_reloadDStream.exit ], [ %.sroa.0217.6, %142 ], [ %.sroa.0217.0538, %129 ]
   %140 = getelementptr inbounds i8, ptr %8, i64 -2
@@ -925,7 +925,7 @@ BITv06_reloadDStream.exit69:                      ; preds = %.lr.ph
   store i8 %.sroa.4.0.copyload.i72, ptr %208, align 1, !tbaa !27
   br label %259
 
-225:                                              ; preds = %215, %211, %217
+225:                                              ; preds = %215, %217, %211
   %.sroa.0217.7.ph = phi i64 [ %.val.i62, %211 ], [ %.val30.i66, %217 ], [ %.sroa.0217.1418, %215 ]
   %.sroa.29.8.ph = phi i32 [ %214, %211 ], [ %222, %217 ], [ %205, %215 ]
   %.sroa.64220.8.ph.idx = phi i64 [ %.sroa.64220.1.add372, %211 ], [ %.sroa.64220.1.add, %217 ], [ 0, %215 ]
@@ -962,10 +962,10 @@ BITv06_reloadDStream.exit69:                      ; preds = %.lr.ph
 243:                                              ; preds = %242
   %244 = lshr i32 %237, 3
   %245 = zext nneg i32 %244 to i64
-  %.sroa.64220.8.ph.add = sub nuw nsw i64 %.sroa.64220.8.ph.idx, %245
-  %.ptr373 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.64220.8.ph.add
+  %.sroa.64220.8.ph.add371 = sub nuw nsw i64 %.sroa.64220.8.ph.idx, %245
+  %.ptr374 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.64220.8.ph.add371
   %246 = and i32 %237, 7
-  %.val.i85 = load i64, ptr %.ptr373, align 1
+  %.val.i85 = load i64, ptr %.ptr374, align 1
   br label %BITv06_reloadDStream.exit92
 
 247:                                              ; preds = %242
@@ -978,17 +978,17 @@ BITv06_reloadDStream.exit69:                      ; preds = %.lr.ph
   %.024.i87378 = tail call i64 @llvm.smin.i64(i64 %.sroa.64220.8.ph.idx, i64 %251)
   %.024.i87 = trunc i64 %.024.i87378 to i32
   %252 = and i64 %.024.i87378, 4294967295
-  %.sroa.64220.8.ph.add371 = sub nsw i64 %.sroa.64220.8.ph.idx, %252
-  %.ptr374 = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.8.ph.add371
+  %.sroa.64220.8.ph.add = sub nsw i64 %.sroa.64220.8.ph.idx, %252
+  %.ptr373 = getelementptr inbounds i8, ptr %2, i64 %.sroa.64220.8.ph.add
   %253 = shl i32 %.024.i87, 3
   %254 = sub i32 %237, %253
-  %.val30.i89 = load i64, ptr %.ptr374, align 1
+  %.val30.i89 = load i64, ptr %.ptr373, align 1
   br label %BITv06_reloadDStream.exit92
 
 BITv06_reloadDStream.exit92:                      ; preds = %247, %243, %249
-  %.sroa.0217.8 = phi i64 [ %.val30.i89, %249 ], [ %.val.i85, %243 ], [ %.sroa.0217.7.ph, %247 ]
-  %.sroa.29.9 = phi i32 [ %254, %249 ], [ %246, %243 ], [ %237, %247 ]
-  %.sroa.64220.9.idx = phi i64 [ %.sroa.64220.8.ph.add371, %249 ], [ %.sroa.64220.8.ph.add, %243 ], [ 0, %247 ]
+  %.sroa.0217.8 = phi i64 [ %.val.i85, %243 ], [ %.val30.i89, %249 ], [ %.sroa.0217.7.ph, %247 ]
+  %.sroa.29.9 = phi i32 [ %246, %243 ], [ %254, %249 ], [ %237, %247 ]
+  %.sroa.64220.9.idx = phi i64 [ %.sroa.64220.8.ph.add371, %243 ], [ %.sroa.64220.8.ph.add, %249 ], [ 0, %247 ]
   %255 = icmp ugt ptr %240, %140
   br i1 %255, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph
 
@@ -1422,7 +1422,7 @@ BITv06_reloadDStream.exit172:                     ; preds = %.lr.ph431
   store i8 %.sroa.4.0.copyload.i175, ptr %465, align 1, !tbaa !27
   br label %517
 
-482:                                              ; preds = %472, %468, %474
+482:                                              ; preds = %472, %474, %468
   %.sroa.64271.8.ph.idx = phi i64 [ %.sroa.64271.1.add391, %468 ], [ %.sroa.64271.1.add, %474 ], [ 0, %472 ]
   %.sroa.29267.8.ph = phi i32 [ %471, %468 ], [ %479, %474 ], [ %462, %472 ]
   %.sroa.0266.7.ph = phi i64 [ %.val.i165, %468 ], [ %.val30.i169, %474 ], [ %.sroa.0266.1429, %472 ]
@@ -1460,10 +1460,10 @@ BITv06_reloadDStream.exit172:                     ; preds = %.lr.ph431
 501:                                              ; preds = %500
   %502 = lshr i32 %495, 3
   %503 = zext nneg i32 %502 to i64
-  %.sroa.64271.8.ph.add = sub nuw nsw i64 %.sroa.64271.8.ph.idx, %503
-  %.ptr392 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.64271.8.ph.add
+  %.sroa.64271.8.ph.add390 = sub nuw nsw i64 %.sroa.64271.8.ph.idx, %503
+  %.ptr393 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.64271.8.ph.add390
   %504 = and i32 %495, 7
-  %.val.i188 = load i64, ptr %.ptr392, align 1
+  %.val.i188 = load i64, ptr %.ptr393, align 1
   br label %BITv06_reloadDStream.exit195
 
 505:                                              ; preds = %500
@@ -1476,17 +1476,17 @@ BITv06_reloadDStream.exit172:                     ; preds = %.lr.ph431
   %.024.i190397 = tail call i64 @llvm.smin.i64(i64 %.sroa.64271.8.ph.idx, i64 %509)
   %.024.i190 = trunc i64 %.024.i190397 to i32
   %510 = and i64 %.024.i190397, 4294967295
-  %.sroa.64271.8.ph.add390 = sub nsw i64 %.sroa.64271.8.ph.idx, %510
-  %.ptr393 = getelementptr inbounds i8, ptr %2, i64 %.sroa.64271.8.ph.add390
+  %.sroa.64271.8.ph.add = sub nsw i64 %.sroa.64271.8.ph.idx, %510
+  %.ptr392 = getelementptr inbounds i8, ptr %2, i64 %.sroa.64271.8.ph.add
   %511 = shl i32 %.024.i190, 3
   %512 = sub i32 %495, %511
-  %.val30.i192 = load i64, ptr %.ptr393, align 1
+  %.val30.i192 = load i64, ptr %.ptr392, align 1
   br label %BITv06_reloadDStream.exit195
 
 BITv06_reloadDStream.exit195:                     ; preds = %505, %501, %507
-  %.sroa.64271.9.idx = phi i64 [ %.sroa.64271.8.ph.add390, %507 ], [ %.sroa.64271.8.ph.add, %501 ], [ 0, %505 ]
-  %.sroa.29267.9 = phi i32 [ %512, %507 ], [ %504, %501 ], [ %495, %505 ]
-  %.sroa.0266.8 = phi i64 [ %.val30.i192, %507 ], [ %.val.i188, %501 ], [ %.sroa.0266.7.ph, %505 ]
+  %.sroa.64271.9.idx = phi i64 [ %.sroa.64271.8.ph.add390, %501 ], [ %.sroa.64271.8.ph.add, %507 ], [ 0, %505 ]
+  %.sroa.29267.9 = phi i32 [ %504, %501 ], [ %512, %507 ], [ %495, %505 ]
+  %.sroa.0266.8 = phi i64 [ %.val.i188, %501 ], [ %.val30.i192, %507 ], [ %.sroa.0266.7.ph, %505 ]
   %513 = icmp ugt ptr %498, %392
   br i1 %513, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph431
 
@@ -1505,8 +1505,8 @@ BITv06_reloadDStream.exit195:                     ; preds = %505, %501, %507
   %520 = sub i64 %518, %519
   br label %FSEv06_decompress_usingDTable_generic.exit
 
-FSEv06_decompress_usingDTable_generic.exit:       ; preds = %BITv06_reloadDStream.exit92, %225, %BITv06_reloadDStream.exit195, %482, %.preheader399, %.preheader, %263, %314, %266, %11, %62, %14, %517, %BITv06_initDStream.exit103, %259, %BITv06_initDStream.exit
-  %.0 = phi i64 [ %262, %259 ], [ %3, %BITv06_initDStream.exit ], [ %520, %517 ], [ %3, %BITv06_initDStream.exit103 ], [ -72, %11 ], [ -1, %62 ], [ -1, %14 ], [ -72, %263 ], [ -1, %314 ], [ -1, %266 ], [ -70, %.preheader ], [ -70, %.preheader399 ], [ -70, %482 ], [ -70, %BITv06_reloadDStream.exit195 ], [ -70, %225 ], [ -70, %BITv06_reloadDStream.exit92 ]
+FSEv06_decompress_usingDTable_generic.exit:       ; preds = %BITv06_reloadDStream.exit92, %225, %BITv06_reloadDStream.exit195, %482, %.preheader399, %.preheader, %263, %266, %314, %11, %14, %62, %517, %BITv06_initDStream.exit103, %259, %BITv06_initDStream.exit
+  %.0 = phi i64 [ -1, %62 ], [ %3, %BITv06_initDStream.exit ], [ %262, %259 ], [ %3, %BITv06_initDStream.exit103 ], [ %520, %517 ], [ -72, %11 ], [ -1, %14 ], [ -72, %263 ], [ -1, %266 ], [ -1, %314 ], [ -70, %.preheader ], [ -70, %.preheader399 ], [ -70, %BITv06_reloadDStream.exit195 ], [ -70, %482 ], [ -70, %225 ], [ -70, %BITv06_reloadDStream.exit92 ]
   ret i64 %.0
 }
 
@@ -1687,7 +1687,7 @@ FSEv06_buildDTable.exit.thread:                   ; preds = %._crit_edge90.i, %1
   br label %.thread
 
 .thread:                                          ; preds = %14, %11, %FSEv06_buildDTable.exit.thread, %4, %77
-  %.0 = phi i64 [ %78, %77 ], [ -72, %4 ], [ %.0.i.ph, %FSEv06_buildDTable.exit.thread ], [ -72, %14 ], [ %12, %11 ]
+  %.0 = phi i64 [ -72, %4 ], [ %78, %77 ], [ %.0.i.ph, %FSEv06_buildDTable.exit.thread ], [ -72, %14 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1793,7 +1793,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX2(ptr nounde
   br i1 %exitcond53.not, label %.loopexit, label %28, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %11, %3
-  %.0 = phi i64 [ %9, %3 ], [ -44, %11 ], [ %9, %.preheader ], [ %9, %._crit_edge ]
+  %.0 = phi i64 [ -44, %11 ], [ %9, %3 ], [ %9, %.preheader ], [ %9, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1952,7 +1952,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUFv06_readSta
   br label %.critedge95
 
 .critedge95:                                      ; preds = %.lr.ph104, %.loopexit, %59, %55, %66, %.critedge, %35, %34, %18, %6, %78
-  %.0 = phi i64 [ %81, %78 ], [ -72, %6 ], [ -72, %18 ], [ -72, %34 ], [ %37, %35 ], [ -20, %.critedge ], [ -20, %66 ], [ -20, %55 ], [ -20, %59 ], [ -20, %.loopexit ], [ -20, %.lr.ph104 ]
+  %.0 = phi i64 [ %37, %35 ], [ -20, %55 ], [ %81, %78 ], [ -20, %59 ], [ -20, %66 ], [ -72, %6 ], [ -72, %34 ], [ -72, %18 ], [ -20, %.critedge ], [ -20, %.loopexit ], [ -20, %.lr.ph104 ]
   ret i64 %.0
 }
 
@@ -2095,8 +2095,8 @@ BITv06_initDStream.exit:                          ; preds = %15
   %spec.select = select i1 %or.cond, i64 %1, i64 -20
   br label %BITv06_initDStream.exit.thread
 
-BITv06_initDStream.exit.thread:                   ; preds = %5, %83, %66, %15, %BITv06_initDStream.exit
-  %.1 = phi i64 [ %3, %BITv06_initDStream.exit ], [ -1, %66 ], [ -1, %15 ], [ %spec.select, %83 ], [ -72, %5 ]
+BITv06_initDStream.exit.thread:                   ; preds = %5, %83, %15, %66, %BITv06_initDStream.exit
+  %.1 = phi i64 [ %3, %BITv06_initDStream.exit ], [ %spec.select, %83 ], [ -1, %66 ], [ -1, %15 ], [ -72, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1
 }
@@ -2230,7 +2230,7 @@ define internal fastcc range(i64 1, 0) i64 @BITv06_initDStream(ptr noundef nonnu
   br label %79
 
 79:                                               ; preds = %71, %.thread, %66, %9, %5
-  %.0 = phi i64 [ -72, %5 ], [ -1, %9 ], [ -1, %66 ], [ %2, %.thread ], [ %2, %71 ]
+  %.0 = phi i64 [ -72, %5 ], [ -1, %66 ], [ -1, %9 ], [ %2, %.thread ], [ %2, %71 ]
   ret i64 %.0
 }
 
@@ -2574,8 +2574,8 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit.thread20, label %29, !llvm.loop !31
 
-HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
-  %.0.i.ph = phi i64 [ -44, %13 ], [ %11, %4 ]
+HUFv06_readDTableX2.exit.thread:                  ; preds = %13, %4
+  %.0.i.ph = phi i64 [ %11, %4 ], [ -44, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2597,7 +2597,7 @@ HUFv06_readDTableX2.exit.thread20:                ; preds = %._crit_edge.i, %.pr
   br label %48
 
 48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit.thread20, %44
-  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit.thread20 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
+  %.0 = phi i64 [ %47, %44 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ], [ -72, %HUFv06_readDTableX2.exit.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
 }
@@ -3304,10 +3304,10 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   br label %BITv06_reloadDStream.exit
 
 BITv06_reloadDStream.exit:                        ; preds = %287, %470, %478, %479
-  %493 = phi ptr [ %474, %470 ], [ %490, %479 ], [ %291, %287 ], [ %291, %478 ]
-  %.val7.i274 = phi i32 [ %475, %470 ], [ %492, %479 ], [ %433, %287 ], [ %433, %478 ]
-  %.val30.i247 = phi i64 [ %.val.i189, %470 ], [ %.val30.i, %479 ], [ %.val30.i248261, %287 ], [ %.val30.i248261, %478 ]
-  %.025.i = phi i32 [ 0, %470 ], [ %.0.i190, %479 ], [ 3, %287 ], [ %..i, %478 ]
+  %493 = phi ptr [ %490, %479 ], [ %474, %470 ], [ %291, %478 ], [ %291, %287 ]
+  %.val7.i274 = phi i32 [ %492, %479 ], [ %475, %470 ], [ %433, %478 ], [ %433, %287 ]
+  %.val30.i247 = phi i64 [ %.val30.i, %479 ], [ %.val.i189, %470 ], [ %.val30.i248261, %478 ], [ %.val30.i248261, %287 ]
+  %.025.i = phi i32 [ %.0.i190, %479 ], [ 0, %470 ], [ %..i, %478 ], [ 3, %287 ]
   %494 = icmp ugt i32 %444, 64
   br i1 %494, label %BITv06_reloadDStream.exit199, label %495
 
@@ -3353,10 +3353,10 @@ BITv06_reloadDStream.exit:                        ; preds = %287, %470, %478, %4
   br label %BITv06_reloadDStream.exit199
 
 BITv06_reloadDStream.exit199:                     ; preds = %BITv06_reloadDStream.exit, %496, %504, %505
-  %519 = phi ptr [ %500, %496 ], [ %516, %505 ], [ %290, %BITv06_reloadDStream.exit ], [ %290, %504 ]
-  %.val7.i160277 = phi i32 [ %501, %496 ], [ %518, %505 ], [ %444, %BITv06_reloadDStream.exit ], [ %444, %504 ]
-  %.val30.i196250 = phi i64 [ %.val.i192, %496 ], [ %.val30.i196, %505 ], [ %.val30.i196251260, %BITv06_reloadDStream.exit ], [ %.val30.i196251260, %504 ]
-  %.025.i193 = phi i32 [ 0, %496 ], [ %.0.i195, %505 ], [ 3, %BITv06_reloadDStream.exit ], [ %..i198, %504 ]
+  %519 = phi ptr [ %516, %505 ], [ %500, %496 ], [ %290, %504 ], [ %290, %BITv06_reloadDStream.exit ]
+  %.val7.i160277 = phi i32 [ %518, %505 ], [ %501, %496 ], [ %444, %504 ], [ %444, %BITv06_reloadDStream.exit ]
+  %.val30.i196250 = phi i64 [ %.val30.i196, %505 ], [ %.val.i192, %496 ], [ %.val30.i196251260, %504 ], [ %.val30.i196251260, %BITv06_reloadDStream.exit ]
+  %.025.i193 = phi i32 [ %.0.i195, %505 ], [ 0, %496 ], [ %..i198, %504 ], [ 3, %BITv06_reloadDStream.exit ]
   %520 = or i32 %.025.i193, %.025.i
   %521 = icmp ugt i32 %455, 64
   br i1 %521, label %BITv06_reloadDStream.exit208, label %522
@@ -3403,10 +3403,10 @@ BITv06_reloadDStream.exit199:                     ; preds = %BITv06_reloadDStrea
   br label %BITv06_reloadDStream.exit208
 
 BITv06_reloadDStream.exit208:                     ; preds = %BITv06_reloadDStream.exit199, %523, %531, %532
-  %546 = phi ptr [ %527, %523 ], [ %543, %532 ], [ %289, %BITv06_reloadDStream.exit199 ], [ %289, %531 ]
-  %.val7.i162280 = phi i32 [ %528, %523 ], [ %545, %532 ], [ %455, %BITv06_reloadDStream.exit199 ], [ %455, %531 ]
-  %.val30.i205253 = phi i64 [ %.val.i201, %523 ], [ %.val30.i205, %532 ], [ %.val30.i205254259, %BITv06_reloadDStream.exit199 ], [ %.val30.i205254259, %531 ]
-  %.025.i202 = phi i32 [ 0, %523 ], [ %.0.i204, %532 ], [ 3, %BITv06_reloadDStream.exit199 ], [ %..i207, %531 ]
+  %546 = phi ptr [ %543, %532 ], [ %527, %523 ], [ %289, %531 ], [ %289, %BITv06_reloadDStream.exit199 ]
+  %.val7.i162280 = phi i32 [ %545, %532 ], [ %528, %523 ], [ %455, %531 ], [ %455, %BITv06_reloadDStream.exit199 ]
+  %.val30.i205253 = phi i64 [ %.val30.i205, %532 ], [ %.val.i201, %523 ], [ %.val30.i205254259, %531 ], [ %.val30.i205254259, %BITv06_reloadDStream.exit199 ]
+  %.025.i202 = phi i32 [ %.0.i204, %532 ], [ 0, %523 ], [ %..i207, %531 ], [ 3, %BITv06_reloadDStream.exit199 ]
   %547 = or i32 %520, %.025.i202
   %548 = icmp ugt i32 %466, 64
   br i1 %548, label %BITv06_reloadDStream.exit217, label %549
@@ -3448,10 +3448,10 @@ BITv06_reloadDStream.exit208:                     ; preds = %BITv06_reloadDStrea
   br label %BITv06_reloadDStream.exit217
 
 BITv06_reloadDStream.exit217:                     ; preds = %556, %BITv06_reloadDStream.exit208, %550, %558
-  %572 = phi ptr [ %554, %550 ], [ %569, %558 ], [ %288, %BITv06_reloadDStream.exit208 ], [ %288, %556 ]
-  %.val7.i164283 = phi i32 [ %555, %550 ], [ %571, %558 ], [ %466, %BITv06_reloadDStream.exit208 ], [ %466, %556 ]
-  %.val30.i214256 = phi i64 [ %.val.i210, %550 ], [ %.val30.i214, %558 ], [ %.val30.i214257258, %BITv06_reloadDStream.exit208 ], [ %.val30.i214257258, %556 ]
-  %.025.i211 = phi i32 [ 0, %550 ], [ %.0.i213, %558 ], [ 3, %BITv06_reloadDStream.exit208 ], [ 3, %556 ]
+  %572 = phi ptr [ %569, %558 ], [ %554, %550 ], [ %288, %BITv06_reloadDStream.exit208 ], [ %288, %556 ]
+  %.val7.i164283 = phi i32 [ %571, %558 ], [ %555, %550 ], [ %466, %BITv06_reloadDStream.exit208 ], [ %466, %556 ]
+  %.val30.i214256 = phi i64 [ %.val30.i214, %558 ], [ %.val.i210, %550 ], [ %.val30.i214257258, %BITv06_reloadDStream.exit208 ], [ %.val30.i214257258, %556 ]
+  %.025.i211 = phi i32 [ %.0.i213, %558 ], [ 0, %550 ], [ 3, %BITv06_reloadDStream.exit208 ], [ 3, %556 ]
   %573 = or i32 %547, %.025.i211
   %574 = icmp eq i32 %573, 0
   %575 = icmp ult ptr %467, %259
@@ -3533,8 +3533,8 @@ BITv06_endOfDStream.exit:                         ; preds = %577
   %. = select i1 %.not230, i64 -20, i64 %1
   br label %BITv06_initDStream.exit.thread
 
-BITv06_initDStream.exit.thread:                   ; preds = %177, %106, %35, %237, %182, %166, %111, %95, %40, %BITv06_endOfDStream.exit, %577, %248, %11
-  %.1137 = phi i64 [ -20, %11 ], [ %249, %248 ], [ -20, %577 ], [ %., %BITv06_endOfDStream.exit ], [ -1, %95 ], [ -1, %40 ], [ -1, %166 ], [ -1, %111 ], [ -1, %237 ], [ -1, %182 ], [ -72, %35 ], [ -72, %106 ], [ -72, %177 ]
+BITv06_initDStream.exit.thread:                   ; preds = %177, %106, %35, %182, %237, %111, %166, %40, %95, %BITv06_endOfDStream.exit, %577, %248, %11
+  %.1137 = phi i64 [ %., %BITv06_endOfDStream.exit ], [ -20, %11 ], [ -20, %577 ], [ -72, %106 ], [ -72, %35 ], [ %249, %248 ], [ -1, %40 ], [ -1, %95 ], [ -1, %111 ], [ -1, %166 ], [ -1, %182 ], [ -1, %237 ], [ -72, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3607,7 +3607,7 @@ define internal fastcc range(i32 0, 4) i32 @BITv06_reloadDStream(ptr noundef non
   br label %35
 
 35:                                               ; preds = %19, %1, %20, %11
-  %.025 = phi i32 [ 0, %11 ], [ %.0, %20 ], [ 3, %1 ], [ %., %19 ]
+  %.025 = phi i32 [ %.0, %20 ], [ 0, %11 ], [ %., %19 ], [ 3, %1 ]
   ret i32 %.025
 }
 
@@ -3709,8 +3709,8 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
   br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit.thread20, label %29, !llvm.loop !31
 
-HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
-  %.0.i.ph = phi i64 [ -44, %13 ], [ %11, %4 ]
+HUFv06_readDTableX2.exit.thread:                  ; preds = %13, %4
+  %.0.i.ph = phi i64 [ %11, %4 ], [ -44, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3732,7 +3732,7 @@ HUFv06_readDTableX2.exit.thread20:                ; preds = %._crit_edge.i, %.pr
   br label %48
 
 48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit.thread20, %44
-  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit.thread20 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
+  %.0 = phi i64 [ %47, %44 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ], [ -72, %HUFv06_readDTableX2.exit.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
 }
@@ -3908,7 +3908,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   br i1 %exitcond125.not, label %._crit_edge96, label %.lr.ph91.us, !llvm.loop !54
 
 ._crit_edge96:                                    ; preds = %._crit_edge92.us, %._crit_edge88, %._crit_edge88.thread
-  %67 = phi i32 [ %55, %._crit_edge88 ], [ %58, %._crit_edge88.thread ], [ %55, %._crit_edge92.us ]
+  %67 = phi i32 [ %58, %._crit_edge88.thread ], [ %55, %._crit_edge88 ], [ %55, %._crit_edge92.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = sub nsw i32 %23, %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, ptr noundef nonnull readonly align 16 dereferenceable(68) %10, i64 68, i1 false)
@@ -4051,7 +4051,7 @@ HUFv06_fillDTableX4Level2.exit.i:                 ; preds = %120, %.loopexit.i.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %125, !llvm.loop !58
 
 .loopexit.i:                                      ; preds = %125, %121, %HUFv06_fillDTableX4Level2.exit.i
-  %.pre-phi.i = phi i32 [ %122, %121 ], [ %.pre.i, %HUFv06_fillDTableX4Level2.exit.i ], [ %122, %125 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %HUFv06_fillDTableX4Level2.exit.i ], [ %122, %121 ], [ %122, %125 ]
   store i32 %.pre-phi.i, ptr %77, align 4, !tbaa !3
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count61.i
@@ -4211,8 +4211,8 @@ BITv06_initDStream.exit:                          ; preds = %14
   %spec.select = select i1 %or.cond, i64 %1, i64 -20
   br label %BITv06_initDStream.exit.thread
 
-BITv06_initDStream.exit.thread:                   ; preds = %5, %82, %65, %14, %BITv06_initDStream.exit
-  %.1 = phi i64 [ %3, %BITv06_initDStream.exit ], [ -1, %65 ], [ -1, %14 ], [ %spec.select, %82 ], [ -72, %5 ]
+BITv06_initDStream.exit.thread:                   ; preds = %5, %82, %14, %65, %BITv06_initDStream.exit
+  %.1 = phi i64 [ %3, %BITv06_initDStream.exit ], [ %spec.select, %82 ], [ -1, %65 ], [ -1, %14 ], [ -72, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1
 }
@@ -5291,10 +5291,10 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   br label %BITv06_reloadDStream.exit
 
 BITv06_reloadDStream.exit:                        ; preds = %286, %517, %525, %526
-  %540 = phi ptr [ %521, %517 ], [ %537, %526 ], [ %290, %286 ], [ %290, %525 ]
-  %.val9.i290 = phi i32 [ %522, %517 ], [ %539, %526 ], [ %468, %286 ], [ %468, %525 ]
-  %.val30.i263 = phi i64 [ %.val.i205, %517 ], [ %.val30.i, %526 ], [ %.val30.i264277, %286 ], [ %.val30.i264277, %525 ]
-  %.025.i = phi i32 [ 0, %517 ], [ %.0.i206, %526 ], [ 3, %286 ], [ %..i, %525 ]
+  %540 = phi ptr [ %537, %526 ], [ %521, %517 ], [ %290, %525 ], [ %290, %286 ]
+  %.val9.i290 = phi i32 [ %539, %526 ], [ %522, %517 ], [ %468, %525 ], [ %468, %286 ]
+  %.val30.i263 = phi i64 [ %.val30.i, %526 ], [ %.val.i205, %517 ], [ %.val30.i264277, %525 ], [ %.val30.i264277, %286 ]
+  %.025.i = phi i32 [ %.0.i206, %526 ], [ 0, %517 ], [ %..i, %525 ], [ 3, %286 ]
   %541 = icmp ugt i32 %482, 64
   br i1 %541, label %BITv06_reloadDStream.exit215, label %542
 
@@ -5340,10 +5340,10 @@ BITv06_reloadDStream.exit:                        ; preds = %286, %517, %525, %5
   br label %BITv06_reloadDStream.exit215
 
 BITv06_reloadDStream.exit215:                     ; preds = %BITv06_reloadDStream.exit, %543, %551, %552
-  %566 = phi ptr [ %547, %543 ], [ %563, %552 ], [ %289, %BITv06_reloadDStream.exit ], [ %289, %551 ]
-  %.val9.i176293 = phi i32 [ %548, %543 ], [ %565, %552 ], [ %482, %BITv06_reloadDStream.exit ], [ %482, %551 ]
-  %.val30.i212266 = phi i64 [ %.val.i208, %543 ], [ %.val30.i212, %552 ], [ %.val30.i212267276, %BITv06_reloadDStream.exit ], [ %.val30.i212267276, %551 ]
-  %.025.i209 = phi i32 [ 0, %543 ], [ %.0.i211, %552 ], [ 3, %BITv06_reloadDStream.exit ], [ %..i214, %551 ]
+  %566 = phi ptr [ %563, %552 ], [ %547, %543 ], [ %289, %551 ], [ %289, %BITv06_reloadDStream.exit ]
+  %.val9.i176293 = phi i32 [ %565, %552 ], [ %548, %543 ], [ %482, %551 ], [ %482, %BITv06_reloadDStream.exit ]
+  %.val30.i212266 = phi i64 [ %.val30.i212, %552 ], [ %.val.i208, %543 ], [ %.val30.i212267276, %551 ], [ %.val30.i212267276, %BITv06_reloadDStream.exit ]
+  %.025.i209 = phi i32 [ %.0.i211, %552 ], [ 0, %543 ], [ %..i214, %551 ], [ 3, %BITv06_reloadDStream.exit ]
   %567 = or i32 %.025.i209, %.025.i
   %568 = icmp ugt i32 %496, 64
   br i1 %568, label %BITv06_reloadDStream.exit224, label %569
@@ -5390,10 +5390,10 @@ BITv06_reloadDStream.exit215:                     ; preds = %BITv06_reloadDStrea
   br label %BITv06_reloadDStream.exit224
 
 BITv06_reloadDStream.exit224:                     ; preds = %BITv06_reloadDStream.exit215, %570, %578, %579
-  %593 = phi ptr [ %574, %570 ], [ %590, %579 ], [ %288, %BITv06_reloadDStream.exit215 ], [ %288, %578 ]
-  %.val9.i178296 = phi i32 [ %575, %570 ], [ %592, %579 ], [ %496, %BITv06_reloadDStream.exit215 ], [ %496, %578 ]
-  %.val30.i221269 = phi i64 [ %.val.i217, %570 ], [ %.val30.i221, %579 ], [ %.val30.i221270275, %BITv06_reloadDStream.exit215 ], [ %.val30.i221270275, %578 ]
-  %.025.i218 = phi i32 [ 0, %570 ], [ %.0.i220, %579 ], [ 3, %BITv06_reloadDStream.exit215 ], [ %..i223, %578 ]
+  %593 = phi ptr [ %590, %579 ], [ %574, %570 ], [ %288, %578 ], [ %288, %BITv06_reloadDStream.exit215 ]
+  %.val9.i178296 = phi i32 [ %592, %579 ], [ %575, %570 ], [ %496, %578 ], [ %496, %BITv06_reloadDStream.exit215 ]
+  %.val30.i221269 = phi i64 [ %.val30.i221, %579 ], [ %.val.i217, %570 ], [ %.val30.i221270275, %578 ], [ %.val30.i221270275, %BITv06_reloadDStream.exit215 ]
+  %.025.i218 = phi i32 [ %.0.i220, %579 ], [ 0, %570 ], [ %..i223, %578 ], [ 3, %BITv06_reloadDStream.exit215 ]
   %594 = or i32 %567, %.025.i218
   %595 = icmp ugt i32 %510, 64
   br i1 %595, label %BITv06_reloadDStream.exit233, label %596
@@ -5435,10 +5435,10 @@ BITv06_reloadDStream.exit224:                     ; preds = %BITv06_reloadDStrea
   br label %BITv06_reloadDStream.exit233
 
 BITv06_reloadDStream.exit233:                     ; preds = %603, %BITv06_reloadDStream.exit224, %597, %605
-  %619 = phi ptr [ %601, %597 ], [ %616, %605 ], [ %287, %BITv06_reloadDStream.exit224 ], [ %287, %603 ]
-  %.val9.i180299 = phi i32 [ %602, %597 ], [ %618, %605 ], [ %510, %BITv06_reloadDStream.exit224 ], [ %510, %603 ]
-  %.val30.i230272 = phi i64 [ %.val.i226, %597 ], [ %.val30.i230, %605 ], [ %.val30.i230273274, %BITv06_reloadDStream.exit224 ], [ %.val30.i230273274, %603 ]
-  %.025.i227 = phi i32 [ 0, %597 ], [ %.0.i229, %605 ], [ 3, %BITv06_reloadDStream.exit224 ], [ 3, %603 ]
+  %619 = phi ptr [ %616, %605 ], [ %601, %597 ], [ %287, %BITv06_reloadDStream.exit224 ], [ %287, %603 ]
+  %.val9.i180299 = phi i32 [ %618, %605 ], [ %602, %597 ], [ %510, %BITv06_reloadDStream.exit224 ], [ %510, %603 ]
+  %.val30.i230272 = phi i64 [ %.val30.i230, %605 ], [ %.val.i226, %597 ], [ %.val30.i230273274, %BITv06_reloadDStream.exit224 ], [ %.val30.i230273274, %603 ]
+  %.025.i227 = phi i32 [ %.0.i229, %605 ], [ 0, %597 ], [ 3, %BITv06_reloadDStream.exit224 ], [ 3, %603 ]
   %620 = or i32 %594, %.025.i227
   %621 = icmp eq i32 %620, 0
   %622 = icmp ult ptr %514, %258
@@ -5520,8 +5520,8 @@ BITv06_endOfDStream.exit:                         ; preds = %624
   %. = select i1 %.not246, i64 -20, i64 %1
   br label %BITv06_initDStream.exit.thread
 
-BITv06_initDStream.exit.thread:                   ; preds = %176, %105, %34, %236, %181, %165, %110, %94, %39, %BITv06_endOfDStream.exit, %624, %247, %11
-  %.1153 = phi i64 [ -20, %11 ], [ %248, %247 ], [ -20, %624 ], [ %., %BITv06_endOfDStream.exit ], [ -1, %94 ], [ -1, %39 ], [ -1, %165 ], [ -1, %110 ], [ -1, %236 ], [ -1, %181 ], [ -72, %34 ], [ -72, %105 ], [ -72, %176 ]
+BITv06_initDStream.exit.thread:                   ; preds = %176, %105, %34, %181, %236, %110, %165, %39, %94, %BITv06_endOfDStream.exit, %624, %247, %11
+  %.1153 = phi i64 [ %., %BITv06_endOfDStream.exit ], [ -20, %11 ], [ -20, %624 ], [ -72, %105 ], [ -72, %34 ], [ %248, %247 ], [ -1, %39 ], [ -1, %94 ], [ -1, %110 ], [ -1, %165 ], [ -1, %181 ], [ -1, %236 ], [ -72, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5624,7 +5624,7 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br label %42
 
 42:                                               ; preds = %7, %4, %31, %14, %11
-  %.0 = phi i64 [ %1, %11 ], [ %1, %14 ], [ %41, %31 ], [ -70, %4 ], [ -20, %7 ]
+  %.0 = phi i64 [ %41, %31 ], [ -70, %4 ], [ %1, %11 ], [ %1, %14 ], [ -20, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -6115,8 +6115,8 @@ define internal fastcc i64 @ZSTDv06_decompressBlock_internal(ptr noundef %0, ptr
   br i1 %or.cond179.i, label %ZSTDv06_decompressSequences.exit, label %.thread173.i
 
 .thread173.i:                                     ; preds = %181, %174, %172
-  %.0177.i = phi i32 [ 2, %174 ], [ 1, %172 ], [ 3, %181 ]
-  %.0123.in176.i = phi i32 [ %180, %174 ], [ %173, %172 ], [ %192, %181 ]
+  %.0177.i = phi i32 [ 3, %181 ], [ 2, %174 ], [ 1, %172 ]
+  %.0123.in176.i = phi i32 [ %192, %181 ], [ %180, %174 ], [ %173, %172 ]
   %.0123.i = zext nneg i32 %.0123.in176.i to i64
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 21616
   %196 = zext nneg i32 %.0177.i to i64
@@ -6136,9 +6136,9 @@ default.unreachable:                              ; preds = %10
   unreachable
 
 204:                                              ; preds = %.thread173.i, %165, %159, %125, %91
-  %205 = phi i64 [ %.0128152160169.i, %91 ], [ %109, %125 ], [ %.0125.i, %159 ], [ %.0125.i, %165 ], [ %.0123.i, %.thread173.i ]
-  %206 = phi ptr [ %92, %91 ], [ %120, %125 ], [ %160, %159 ], [ %166, %165 ], [ %195, %.thread173.i ]
-  %.0126.i = phi i64 [ %88, %91 ], [ %117, %125 ], [ %154, %159 ], [ %154, %165 ], [ %203, %.thread173.i ]
+  %205 = phi i64 [ %.0125.i, %159 ], [ %109, %125 ], [ %.0123.i, %.thread173.i ], [ %.0125.i, %165 ], [ %.0128152160169.i, %91 ]
+  %206 = phi ptr [ %160, %159 ], [ %120, %125 ], [ %195, %.thread173.i ], [ %166, %165 ], [ %92, %91 ]
+  %.0126.i = phi i64 [ %154, %159 ], [ %117, %125 ], [ %203, %.thread173.i ], [ %154, %165 ], [ %88, %91 ]
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 %.0126.i
   %208 = sub nsw i64 %4, %.0126.i
   %209 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -6848,7 +6848,7 @@ BITv06_reloadDStream.exit.sink.split.i114.i:      ; preds = %615, %607
   br label %ZSTDv06_decodeSequence.exit.i
 
 ZSTDv06_decodeSequence.exit.i:                    ; preds = %BITv06_reloadDStream.exit.sink.split.i114.i, %613, %600
-  %.val4.i.i.i.i = phi i32 [ %601, %613 ], [ %601, %600 ], [ %storemerge168.i, %BITv06_reloadDStream.exit.sink.split.i114.i ]
+  %.val4.i.i.i.i = phi i32 [ %601, %600 ], [ %601, %613 ], [ %storemerge168.i, %BITv06_reloadDStream.exit.sink.split.i114.i ]
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %523, align 2, !tbaa !10
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %523, i64 3
   %.sroa.42.0.copyload.i.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i.i, align 1, !tbaa !27
@@ -6984,9 +6984,9 @@ ZSTDv06_wildcopy.exit.i.i:                        ; preds = %.preheader123.i.i
   br i1 %707, label %.lr.ph.i.i, label %ZSTDv06_execSequence.exit.i, !llvm.loop !89
 
 .thread.i118.i:                                   ; preds = %698, %ZSTDv06_wildcopy.exit.i.i
-  %708 = phi i64 [ %585, %ZSTDv06_wildcopy.exit.i.i ], [ %696, %698 ]
-  %.092.i.i = phi ptr [ %671, %ZSTDv06_wildcopy.exit.i.i ], [ %215, %698 ]
-  %.089.i.i = phi ptr [ %666, %ZSTDv06_wildcopy.exit.i.i ], [ %699, %698 ]
+  %708 = phi i64 [ %696, %698 ], [ %585, %ZSTDv06_wildcopy.exit.i.i ]
+  %.092.i.i = phi ptr [ %215, %698 ], [ %671, %ZSTDv06_wildcopy.exit.i.i ]
+  %.089.i.i = phi ptr [ %699, %698 ], [ %666, %ZSTDv06_wildcopy.exit.i.i ]
   %709 = icmp ult i64 %.2.i.i, 8
   br i1 %709, label %710, label %731
 
@@ -7086,7 +7086,7 @@ ZSTDv06_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %752, %
   br i1 %756, label %490, label %.thread155.i, !llvm.loop !91
 
 .thread155.i:                                     ; preds = %ZSTDv06_execSequence.exit.i, %690, %682, %679, %675, %ZSTDv06_decodeSequence.exit.i, %BITv06_initDStream.exit.i, %341, %291, %285
-  %.4.ph.i = phi i64 [ -20, %BITv06_initDStream.exit.i ], [ -20, %291 ], [ -20, %341 ], [ -20, %285 ], [ %667, %ZSTDv06_execSequence.exit.i ], [ -20, %690 ], [ -20, %682 ], [ -70, %679 ], [ -20, %675 ], [ -70, %ZSTDv06_decodeSequence.exit.i ]
+  %.4.ph.i = phi i64 [ -20, %291 ], [ -20, %341 ], [ -20, %BITv06_initDStream.exit.i ], [ -20, %285 ], [ %667, %ZSTDv06_execSequence.exit.i ], [ -20, %690 ], [ -20, %682 ], [ -70, %679 ], [ -20, %675 ], [ -70, %ZSTDv06_decodeSequence.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ZSTDv06_decompressSequences.exit
 
@@ -7103,8 +7103,8 @@ ZSTDv06_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %752, %
   br label %ZSTDv06_decompressSequences.exit
 
 758:                                              ; preds = %.thread250.i, %279, %.thread.i23
-  %.0126.i22 = phi ptr [ %206, %279 ], [ %206, %.thread.i23 ], [ %.2128.i, %.thread250.i ]
-  %.068.i = phi ptr [ %1, %279 ], [ %1, %.thread.i23 ], [ %.270.i, %.thread250.i ]
+  %.0126.i22 = phi ptr [ %206, %279 ], [ %.2128.i, %.thread250.i ], [ %206, %.thread.i23 ]
+  %.068.i = phi ptr [ %1, %279 ], [ %.270.i, %.thread250.i ], [ %1, %.thread.i23 ]
   %759 = ptrtoint ptr %211 to i64
   %760 = ptrtoint ptr %.0126.i22 to i64
   %761 = sub i64 %759, %760
@@ -7131,8 +7131,8 @@ ZSTDv06_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %752, %
   %771 = sub i64 %769, %770
   br label %ZSTDv06_decompressSequences.exit
 
-ZSTDv06_decompressSequences.exit:                 ; preds = %.thread.i, %181, %157, %101, %98, %96, %119, %87, %46, %22, %14, %8, %768, %763, %758, %757, %.thread155.i, %ZSTDv06_decodeSeqHeaders.exit.i, %268, %260, %248, %245, %237, %231, %204, %5
-  %.0 = phi i64 [ -72, %5 ], [ %771, %768 ], [ -20, %757 ], [ %277, %ZSTDv06_decodeSeqHeaders.exit.i ], [ %.4.ph.i, %.thread155.i ], [ -20, %758 ], [ -70, %763 ], [ -20, %260 ], [ -20, %248 ], [ -72, %231 ], [ -72, %237 ], [ -72, %245 ], [ -72, %204 ], [ -20, %268 ], [ -20, %.thread.i ], [ -20, %181 ], [ -20, %157 ], [ -20, %101 ], [ -30, %98 ], [ -20, %96 ], [ -20, %119 ], [ -20, %87 ], [ -20, %46 ], [ -20, %22 ], [ -20, %14 ], [ -20, %8 ]
+ZSTDv06_decompressSequences.exit:                 ; preds = %.thread.i, %181, %119, %98, %96, %46, %22, %14, %101, %87, %8, %157, %768, %763, %758, %757, %.thread155.i, %ZSTDv06_decodeSeqHeaders.exit.i, %268, %260, %248, %245, %237, %231, %204, %5
+  %.0 = phi i64 [ -20, %260 ], [ -72, %5 ], [ %771, %768 ], [ %.4.ph.i, %.thread155.i ], [ -20, %757 ], [ %277, %ZSTDv06_decodeSeqHeaders.exit.i ], [ -20, %758 ], [ -70, %763 ], [ -20, %248 ], [ -72, %231 ], [ -72, %237 ], [ -72, %245 ], [ -20, %268 ], [ -72, %204 ], [ -20, %.thread.i ], [ -20, %181 ], [ -20, %119 ], [ -30, %98 ], [ -20, %96 ], [ -20, %46 ], [ -20, %22 ], [ -20, %14 ], [ -20, %101 ], [ -20, %87 ], [ -20, %8 ], [ -20, %157 ]
   ret i64 %.0
 }
 
@@ -7342,7 +7342,7 @@ ZSTDv06_copyRawBlock.exit.thread:                 ; preds = %71
   br label %.thread
 
 .thread:                                          ; preds = %66, %62, %.thread91, %80, %82, %ZSTDv06_copyRawBlock.exit.thread, %41, %ZSTDv06_frameHeaderSize.exit.i.i, %21, %18, %9, %5, %.loopexit
-  %.0 = phi i64 [ %92, %.loopexit ], [ -72, %5 ], [ -72, %18 ], [ %16, %9 ], [ -20, %21 ], [ -20, %ZSTDv06_frameHeaderSize.exit.i.i ], [ -72, %41 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread ], [ -72, %62 ], [ -72, %.thread91 ], [ %.055, %80 ], [ -1, %66 ], [ -72, %82 ]
+  %.0 = phi i64 [ -72, %5 ], [ -20, %ZSTDv06_frameHeaderSize.exit.i.i ], [ %92, %.loopexit ], [ %16, %9 ], [ -72, %18 ], [ -20, %21 ], [ -72, %41 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread ], [ -1, %66 ], [ -72, %62 ], [ %.055, %80 ], [ -72, %.thread91 ], [ -72, %82 ]
   ret i64 %.0
 }
 
@@ -7678,8 +7678,8 @@ ZSTDv06_decompress_insertDictionary.exit:         ; preds = %22, %125
   store ptr %storemerge, ptr %16, align 8, !tbaa !78
   br label %ZSTDv06_decompress_insertDictionary.exit.thread
 
-ZSTDv06_decompress_insertDictionary.exit.thread:  ; preds = %.critedge69.i.i, %.critedge67.i.i, %.critedge.i.i, %25, %117, %ZSTDv06_loadEntropy.exit.i, %3, %ZSTDv06_decompress_insertDictionary.exit
-  %.1 = phi i64 [ 0, %ZSTDv06_decompress_insertDictionary.exit ], [ 0, %3 ], [ -30, %ZSTDv06_loadEntropy.exit.i ], [ -30, %117 ], [ -30, %25 ], [ -30, %.critedge.i.i ], [ -30, %.critedge67.i.i ], [ -30, %.critedge69.i.i ]
+ZSTDv06_decompress_insertDictionary.exit.thread:  ; preds = %.critedge69.i.i, %25, %.critedge67.i.i, %117, %.critedge.i.i, %ZSTDv06_loadEntropy.exit.i, %3, %ZSTDv06_decompress_insertDictionary.exit
+  %.1 = phi i64 [ 0, %3 ], [ 0, %ZSTDv06_decompress_insertDictionary.exit ], [ -30, %ZSTDv06_loadEntropy.exit.i ], [ -30, %.critedge.i.i ], [ -30, %117 ], [ -30, %.critedge67.i.i ], [ -30, %25 ], [ -30, %.critedge69.i.i ]
   ret i64 %.1
 }
 
@@ -8118,8 +8118,8 @@ ZSTDv06_copyRawBlock.exit:                        ; preds = %95, %90
   store ptr %98, ptr %99, align 8, !tbaa !78
   br label %ZSTDv06_decodeFrameHeader.exit.thread69
 
-ZSTDv06_decodeFrameHeader.exit.thread69:          ; preds = %53, %44, %ZSTDv06_copyRawBlock.exit.thread79, %23, %ZSTDv06_checkContinuity.exit, %97, %87, %ZSTDv06_copyRawBlock.exit, %ZSTDv06_decodeFrameHeader.exit.thread, %ZSTDv06_decodeFrameHeader.exit, %22, %5, %86, %36
-  %.055 = phi i64 [ 0, %36 ], [ 0, %86 ], [ -72, %5 ], [ -72, %22 ], [ 0, %ZSTDv06_decodeFrameHeader.exit.thread ], [ %52, %ZSTDv06_decodeFrameHeader.exit ], [ %.078, %97 ], [ -1, %87 ], [ %.0, %ZSTDv06_copyRawBlock.exit ], [ -1, %ZSTDv06_checkContinuity.exit ], [ %30, %23 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread79 ], [ -14, %53 ], [ -10, %44 ]
+ZSTDv06_decodeFrameHeader.exit.thread69:          ; preds = %44, %53, %ZSTDv06_copyRawBlock.exit.thread79, %23, %ZSTDv06_checkContinuity.exit, %97, %87, %ZSTDv06_copyRawBlock.exit, %ZSTDv06_decodeFrameHeader.exit.thread, %ZSTDv06_decodeFrameHeader.exit, %22, %5, %86, %36
+  %.055 = phi i64 [ %52, %ZSTDv06_decodeFrameHeader.exit ], [ %.0, %ZSTDv06_copyRawBlock.exit ], [ -72, %5 ], [ -1, %ZSTDv06_checkContinuity.exit ], [ 0, %36 ], [ -72, %22 ], [ 0, %86 ], [ 0, %ZSTDv06_decodeFrameHeader.exit.thread ], [ %.078, %97 ], [ -1, %87 ], [ %30, %23 ], [ -70, %ZSTDv06_copyRawBlock.exit.thread79 ], [ -10, %44 ], [ -14, %53 ]
   ret i64 %.055
 }
 
@@ -8155,7 +8155,7 @@ ZBUFFv06_freeDCtx.exit:                           ; preds = %2
   br label %12
 
 12:                                               ; preds = %0, %5, %ZBUFFv06_freeDCtx.exit
-  %.0 = phi ptr [ null, %ZBUFFv06_freeDCtx.exit ], [ %calloc, %5 ], [ null, %0 ]
+  %.0 = phi ptr [ %calloc, %5 ], [ null, %ZBUFFv06_freeDCtx.exit ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -8536,8 +8536,8 @@ ZBUFFv06_limitCopy.exit:                          ; preds = %139, %143
   store i32 2, ptr %10, align 8, !tbaa !98
   br label %.thread273.backedge
 
-.thread273.backedge:                              ; preds = %161, %124, %126, %67
-  %.0184311.be = phi ptr [ %69, %67 ], [ %125, %126 ], [ %125, %124 ], [ %147, %161 ]
+.thread273.backedge:                              ; preds = %161, %126, %124, %67
+  %.0184311.be = phi ptr [ %147, %161 ], [ %69, %67 ], [ %125, %124 ], [ %125, %126 ]
   br label %.thread273, !llvm.loop !109
 
 162:                                              ; preds = %160
@@ -8581,16 +8581,16 @@ ZBUFFv06_limitCopy.exit240:                       ; preds = %165, %172
   %182 = icmp ugt i64 %180, %181
   br i1 %182, label %183, label %.thread273.outer.backedge
 
+.thread273.outer.backedge:                        ; preds = %178, %183
+  br label %.thread273.outer, !llvm.loop !109
+
 183:                                              ; preds = %178
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %.thread273.outer.backedge
 
-.thread273.outer.backedge:                        ; preds = %183, %178
-  br label %.thread273.outer, !llvm.loop !109
-
 .loopexit:                                        ; preds = %129, %ZBUFFv06_limitCopy.exit, %ZBUFFv06_limitCopy.exit240, %112
-  %.1195.ph = phi ptr [ %.0194310.ph, %112 ], [ %.0194310.ph, %129 ], [ %.0194310.ph, %ZBUFFv06_limitCopy.exit ], [ %176, %ZBUFFv06_limitCopy.exit240 ]
-  %.6190.ph = phi ptr [ %.0184311, %112 ], [ %147, %ZBUFFv06_limitCopy.exit ], [ %7, %129 ], [ %.3187, %ZBUFFv06_limitCopy.exit240 ]
+  %.1195.ph = phi ptr [ %.0194310.ph, %112 ], [ %.0194310.ph, %ZBUFFv06_limitCopy.exit ], [ %.0194310.ph, %129 ], [ %176, %ZBUFFv06_limitCopy.exit240 ]
+  %.6190.ph = phi ptr [ %.0184311, %112 ], [ %7, %129 ], [ %147, %ZBUFFv06_limitCopy.exit ], [ %.3187, %ZBUFFv06_limitCopy.exit240 ]
   %184 = ptrtoint ptr %.6190.ph to i64
   %185 = ptrtoint ptr %3 to i64
   %186 = sub i64 %184, %185
@@ -8613,7 +8613,7 @@ ZBUFFv06_limitCopy.exit240:                       ; preds = %165, %172
   br label %.thread251
 
 .thread251:                                       ; preds = %150, %132, %116, %102, %90, %70, %31, %38, %52, %79, %.thread273, %.thread251.loopexit, %61, %.loopexit
-  %.4 = phi i64 [ %196, %.loopexit ], [ %66, %61 ], [ -1, %.thread273 ], [ -20, %132 ], [ %158, %150 ], [ %122, %116 ], [ -64, %102 ], [ -64, %90 ], [ %74, %70 ], [ -14, %38 ], [ -10, %31 ], [ %37, %52 ], [ %84, %79 ], [ -62, %.thread251.loopexit ]
+  %.4 = phi i64 [ -1, %.thread273 ], [ %196, %.loopexit ], [ %66, %61 ], [ -20, %132 ], [ %158, %150 ], [ -64, %90 ], [ -10, %31 ], [ %37, %52 ], [ %84, %79 ], [ %74, %70 ], [ %122, %116 ], [ -64, %102 ], [ -14, %38 ], [ -62, %.thread251.loopexit ]
   ret i64 %.4
 }
 
@@ -8969,7 +8969,7 @@ FSEv06_buildDTable.exit56:                        ; preds = %.preheader.i45, %87
   br label %145
 
 145:                                              ; preds = %80, %16, %15, %144, %FSEv06_buildDTable.exit, %20
-  %.0 = phi i64 [ %.1, %144 ], [ 1, %20 ], [ 0, %FSEv06_buildDTable.exit ], [ -72, %15 ], [ -20, %16 ], [ %., %80 ]
+  %.0 = phi i64 [ %.1, %144 ], [ -72, %15 ], [ 1, %20 ], [ %., %80 ], [ 0, %FSEv06_buildDTable.exit ], [ -20, %16 ]
   ret i64 %.0
 }
 

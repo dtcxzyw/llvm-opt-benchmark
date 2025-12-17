@@ -502,7 +502,7 @@ _ZNSt4pairIN4llvm14WeakTrackingVHEjED2Ev.exit:    ; preds = %_ZNSt4pairIN4llvm14
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit, %46, %77, %5, %_ZNSt4pairIN4llvm14WeakTrackingVHEjED2Ev.exit
-  %.015 = phi ptr [ %79, %_ZNSt4pairIN4llvm14WeakTrackingVHEjED2Ev.exit ], [ null, %5 ], [ null, %77 ], [ null, %46 ], [ %.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ]
+  %.015 = phi ptr [ null, %77 ], [ %79, %_ZNSt4pairIN4llvm14WeakTrackingVHEjED2Ev.exit ], [ null, %5 ], [ %.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ], [ null, %46 ]
   ret ptr %.015
 }
 

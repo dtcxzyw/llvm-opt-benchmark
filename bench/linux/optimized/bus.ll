@@ -202,7 +202,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_get_status(ptr noundef 
   br label %18
 
 18:                                               ; preds = %13, %._crit_edge, %9, %4
-  %19 = phi i32 [ %6, %4 ], [ 0, %9 ], [ %17, %._crit_edge ], [ 15, %13 ]
+  %19 = phi i32 [ 0, %9 ], [ %6, %4 ], [ %17, %._crit_edge ], [ 15, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %19, ptr %20, align 8
   br label %21
@@ -1082,7 +1082,7 @@ define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly cap
   br i1 %35, label %.loopexit, label %.thread.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit1, %23, %.thread, %8, %1
-  %36 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %.thread ], [ true, %23 ], [ false, %.loopexit1 ]
+  %36 = phi i1 [ false, %8 ], [ false, %1 ], [ false, %.thread ], [ true, %23 ], [ false, %.loopexit1 ]
   ret i1 %36
 }
 

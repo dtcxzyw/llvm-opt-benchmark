@@ -1513,7 +1513,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory13Correspon
   br label %25
 
 .critedge17:                                      ; preds = %.critedge16, %11, %3
-  %.014 = phi i1 [ false, %3 ], [ false, %11 ], [ true, %.critedge16 ]
+  %.014 = phi i1 [ false, %3 ], [ true, %.critedge16 ], [ false, %11 ]
   ret i1 %.014
 
 25:                                               ; preds = %23, %18
@@ -1884,7 +1884,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   ret i1 %175
 
 176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %118, %107, %93
-  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %108, %107 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %94, %93 ], [ %108, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %177 = load ptr, ptr %5, align 8
   %.not.i28 = icmp eq ptr %177, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i29
@@ -1991,7 +1991,7 @@ _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3, %15, %18
           to label %45 unwind label %27
 
 45:                                               ; preds = %43, %37, %33
-  %.08 = phi i1 [ true, %33 ], [ false, %37 ], [ %44, %43 ]
+  %.08 = phi i1 [ false, %37 ], [ true, %33 ], [ %44, %43 ]
   %46 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit, label %47
@@ -2267,7 +2267,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
           to label %76 unwind label %28
 
 76:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %73, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %42, %32
-  %.013 = phi i1 [ true, %32 ], [ false, %42 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %75, %73 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
+  %.013 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %32 ], [ false, %42 ], [ %75, %73 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
   %77 = load ptr, ptr %10, align 8
   %.not.i.i.i15 = icmp eq ptr %77, null
   br i1 %.not.i.i.i15, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit, label %78
@@ -2558,7 +2558,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory10IsPrefixO
   br i1 %or.cond35.not, label %.lr.ph.i.i.i.i, label %_ZSteqISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEbRKSt6vectorIT_T0_ESI_.exit, !llvm.loop !28
 
 _ZSteqISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEbRKSt6vectorIT_T0_ESI_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i, %37, %33, %31, %11, %8, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %8 ], [ false, %11 ], [ false, %31 ], [ true, %33 ], [ true, %37 ], [ %34, %.lr.ph.i.i.i.i.i ], [ %38, %.lr.ph.i.i.i.i ]
+  %.0 = phi i1 [ true, %37 ], [ false, %2 ], [ true, %5 ], [ false, %8 ], [ false, %11 ], [ false, %31 ], [ true, %33 ], [ %34, %.lr.ph.i.i.i.i.i ], [ %38, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -3213,7 +3213,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i64 %1, 63
   %21 = trunc nuw nsw i64 %.lobit to i32
   %22 = add i32 %.0.i, %21
@@ -3723,7 +3723,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %186
 
 186:                                              ; preds = %.loopexit, %.loopexit.split-lp, %184, %164
-  %.pn14 = phi { ptr, i32 } [ %165, %164 ], [ %185, %184 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn14 = phi { ptr, i32 } [ %185, %184 ], [ %165, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %187 = load ptr, ptr %5, align 8
   %.not.i32 = icmp eq ptr %187, null
   br i1 %.not.i32, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33
@@ -4259,7 +4259,7 @@ _ZNK10open_spiel24PublicObservationHistory10IsPrefixOfERKNS_5StateE.exit.thread:
   br label %common.resume
 
 .critedge14:                                      ; preds = %.critedge13, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit15, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit
-  %.011 = phi i1 [ false, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit ], [ false, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit15 ], [ true, %.critedge13 ]
+  %.011 = phi i1 [ false, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit ], [ true, %.critedge13 ], [ false, %_ZNK10open_spiel24PublicObservationHistory10MoveNumberEv.exit15 ]
   ret i1 %.011
 }
 
@@ -4604,7 +4604,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   ret i1 %161
 
 162:                                              ; preds = %.loopexit, %.loopexit.split-lp, %117, %106, %92
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %107, %106 ], [ %93, %92 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %93, %92 ], [ %107, %106 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %163 = load ptr, ptr %4, align 8
   %.not.i22 = icmp eq ptr %163, null
   br i1 %.not.i22, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit24, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i23
@@ -4909,7 +4909,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_EbT_SE_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_EbT_SE_T0_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %34, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit15, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit, %40
-  %.0 = phi i1 [ %41, %40 ], [ true, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit ], [ false, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit15 ], [ false, %34 ], [ false, %.lr.ph.i.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ]
+  %.0 = phi i1 [ false, %34 ], [ true, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit ], [ false, %_ZNK10open_spiel24PublicObservationHistory25CorrespondsToInitialStateEv.exit15 ], [ %41, %40 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

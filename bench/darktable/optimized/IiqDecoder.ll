@@ -225,7 +225,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i19: ; preds = %10, %_ZNSt11
   br label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit20
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit20: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, %6
-  %17 = phi i1 [ false, %6 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ], [ %16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i19 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ]
+  %17 = phi i1 [ false, %6 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ], [ %16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i19 ]
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -691,9 +691,9 @@ _ZNSt6vectorIN8rawspeed13PhaseOneStripESaIS1_EE12emplace_backIJRjNS0_10ByteStrea
   ret void
 
 142:                                              ; preds = %.loopexit, %.loopexit.split-lp, %140
-  %143 = phi ptr [ %.promoted, %140 ], [ %93, %.loopexit ], [ %94, %.loopexit.split-lp ]
-  %144 = phi ptr [ %.promoted65, %140 ], [ %95, %.loopexit ], [ %95, %.loopexit.split-lp ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %143 = phi ptr [ %94, %.loopexit.split-lp ], [ %.promoted, %140 ], [ %93, %.loopexit ]
+  %144 = phi ptr [ %95, %.loopexit.split-lp ], [ %.promoted65, %140 ], [ %95, %.loopexit ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i25 = icmp eq ptr %144, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIN8rawspeed13PhaseOneStripESaIS1_EED2Ev.exit, label %145
 
@@ -1012,20 +1012,20 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113: ; preds = %90
   br label %_ZN8rawspeed8OptionalINS_6BufferEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit
 
 _ZN8rawspeed8OptionalINS_6BufferEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit: ; preds = %73, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit, %_ZN8rawspeed10ByteStream6getU32Ev.exit101, %103, %102, %100, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit, %69, %68, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
-  %.sroa.0204.1 = phi ptr [ %.sroa.0204.0504, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0204.0504, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0204.0504, %68 ], [ %.sroa.0204.0504, %69 ], [ %89, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0204.0504, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0204.0504, %100 ], [ %.sroa.0204.0504, %102 ], [ %.sroa.0204.0504, %103 ], [ %.sroa.0204.0504, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0204.0504, %73 ]
-  %.sroa.6205.sroa.0.1 = phi i32 [ %.sroa.6205.sroa.0.0505, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6205.sroa.0.0505, %68 ], [ %.sroa.6205.sroa.0.0505, %69 ], [ %87, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6205.sroa.0.0505, %100 ], [ %.sroa.6205.sroa.0.0505, %102 ], [ %.sroa.6205.sroa.0.0505, %103 ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6205.sroa.0.0505, %73 ]
-  %.sroa.0206.1 = phi ptr [ %.sroa.0206.0507, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %67, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0206.0507, %68 ], [ %.sroa.0206.0507, %69 ], [ %.sroa.0206.0507, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0206.0507, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0206.0507, %100 ], [ %.sroa.0206.0507, %102 ], [ %.sroa.0206.0507, %103 ], [ %.sroa.0206.0507, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0206.0507, %73 ]
-  %.sroa.6207.1 = phi i64 [ %.sroa.6207.0508, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.2.8.insert.insert.i, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6207.0508, %68 ], [ %.sroa.6207.0508, %69 ], [ %.sroa.6207.0508, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6207.0508, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6207.0508, %100 ], [ %.sroa.6207.0508, %102 ], [ %.sroa.6207.0508, %103 ], [ %.sroa.6207.0508, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6207.0508, %73 ]
-  %.sroa.0208.1 = phi ptr [ %.sroa.0208.0509, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0208.0509, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0208.0509, %68 ], [ %.sroa.0208.0509, %69 ], [ %.sroa.0208.0509, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %99, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0208.0509, %100 ], [ %.sroa.0208.0509, %102 ], [ %.sroa.0208.0509, %103 ], [ %.sroa.0208.0509, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0208.0509, %73 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0510, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.8.0510, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.8.0510, %68 ], [ %.sroa.8.0510, %69 ], [ %.sroa.8.0510, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.2.8.insert.insert.i111, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.8.0510, %100 ], [ %.sroa.8.0510, %102 ], [ %.sroa.8.0510, %103 ], [ %.sroa.8.0510, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.8.0510, %73 ]
-  %.sroa.0217.1 = phi ptr [ %.sroa.0217.0511, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0217.0511, %68 ], [ %.sroa.0217.0511, %69 ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0217.0511, %100 ], [ %.sroa.0217.0511, %102 ], [ %.sroa.0217.0511, %103 ], [ %83, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0217.0511, %73 ]
-  %.sroa.6218.1 = phi i32 [ %.sroa.6218.0512, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6218.0512, %68 ], [ %.sroa.6218.0512, %69 ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6218.0512, %100 ], [ %.sroa.6218.0512, %102 ], [ %.sroa.6218.0512, %103 ], [ %.0.copyload.i.i.i.i.i.i95.fr, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6218.0512, %73 ]
-  %.sroa.11221.1 = phi i1 [ %.sroa.11221.0513, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.11221.0513, %68 ], [ %.sroa.11221.0513, %69 ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.11221.0513, %100 ], [ %.sroa.11221.0513, %102 ], [ %.sroa.11221.0513, %103 ], [ true, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.11221.0513, %73 ]
-  %.sroa.5226.1 = phi i8 [ %.sroa.5226.0514, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.5226.0514, %68 ], [ %.sroa.5226.0514, %69 ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.5226.0514, %100 ], [ %.sroa.5226.0514, %102 ], [ %.sroa.5226.0514, %103 ], [ %.sroa.5226.0514, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ 1, %73 ]
-  %.1311 = phi i32 [ %.0310515, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.0310515, %68 ], [ %.0.copyload.i.i.i.i.i.i99, %69 ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.0310515, %100 ], [ %.0310515, %102 ], [ %.0310515, %103 ], [ %.0310515, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.0310515, %73 ]
-  %.159 = phi i32 [ %.058518, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.058518, %68 ], [ %.058518, %69 ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.058518, %100 ], [ %.0.copyload.i.i.i.i.i.i99, %102 ], [ %.058518, %103 ], [ %.058518, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.058518, %73 ]
-  %.157 = phi i32 [ %.056519, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.056519, %68 ], [ %.056519, %69 ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.056519, %100 ], [ %.056519, %102 ], [ %.0.copyload.i.i.i.i.i.i99, %103 ], [ %.056519, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.056519, %73 ]
-  %.1 = phi i32 [ %.055520, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.0.copyload.i.i.i.i.i.i99, %68 ], [ %.055520, %69 ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.055520, %100 ], [ %.055520, %102 ], [ %.055520, %103 ], [ %.055520, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.055520, %73 ]
+  %.sroa.0204.1 = phi ptr [ %.sroa.0204.0504, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0204.0504, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0204.0504, %68 ], [ %.sroa.0204.0504, %69 ], [ %.sroa.0204.0504, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0204.0504, %103 ], [ %89, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0204.0504, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0204.0504, %100 ], [ %.sroa.0204.0504, %102 ], [ %.sroa.0204.0504, %73 ]
+  %.sroa.6205.sroa.0.1 = phi i32 [ %.sroa.6205.sroa.0.0505, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6205.sroa.0.0505, %68 ], [ %.sroa.6205.sroa.0.0505, %69 ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6205.sroa.0.0505, %103 ], [ %87, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6205.sroa.0.0505, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6205.sroa.0.0505, %100 ], [ %.sroa.6205.sroa.0.0505, %102 ], [ %.sroa.6205.sroa.0.0505, %73 ]
+  %.sroa.0206.1 = phi ptr [ %.sroa.0206.0507, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %67, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0206.0507, %68 ], [ %.sroa.0206.0507, %69 ], [ %.sroa.0206.0507, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0206.0507, %103 ], [ %.sroa.0206.0507, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0206.0507, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0206.0507, %100 ], [ %.sroa.0206.0507, %102 ], [ %.sroa.0206.0507, %73 ]
+  %.sroa.6207.1 = phi i64 [ %.sroa.6207.0508, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.2.8.insert.insert.i, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6207.0508, %68 ], [ %.sroa.6207.0508, %69 ], [ %.sroa.6207.0508, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6207.0508, %103 ], [ %.sroa.6207.0508, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6207.0508, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6207.0508, %100 ], [ %.sroa.6207.0508, %102 ], [ %.sroa.6207.0508, %73 ]
+  %.sroa.0208.1 = phi ptr [ %.sroa.0208.0509, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0208.0509, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0208.0509, %68 ], [ %.sroa.0208.0509, %69 ], [ %.sroa.0208.0509, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0208.0509, %103 ], [ %.sroa.0208.0509, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %99, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0208.0509, %100 ], [ %.sroa.0208.0509, %102 ], [ %.sroa.0208.0509, %73 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0510, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.8.0510, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.8.0510, %68 ], [ %.sroa.8.0510, %69 ], [ %.sroa.8.0510, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.8.0510, %103 ], [ %.sroa.8.0510, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.2.8.insert.insert.i111, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.8.0510, %100 ], [ %.sroa.8.0510, %102 ], [ %.sroa.8.0510, %73 ]
+  %.sroa.0217.1 = phi ptr [ %.sroa.0217.0511, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.0217.0511, %68 ], [ %.sroa.0217.0511, %69 ], [ %83, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.0217.0511, %103 ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.0217.0511, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.0217.0511, %100 ], [ %.sroa.0217.0511, %102 ], [ %.sroa.0217.0511, %73 ]
+  %.sroa.6218.1 = phi i32 [ %.sroa.6218.0512, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.6218.0512, %68 ], [ %.sroa.6218.0512, %69 ], [ %.0.copyload.i.i.i.i.i.i95.fr, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.6218.0512, %103 ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.6218.0512, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.6218.0512, %100 ], [ %.sroa.6218.0512, %102 ], [ %.sroa.6218.0512, %73 ]
+  %.sroa.11221.1 = phi i1 [ %.sroa.11221.0513, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.11221.0513, %68 ], [ %.sroa.11221.0513, %69 ], [ true, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.11221.0513, %103 ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.11221.0513, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.11221.0513, %100 ], [ %.sroa.11221.0513, %102 ], [ %.sroa.11221.0513, %73 ]
+  %.sroa.5226.1 = phi i8 [ %.sroa.5226.0514, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.sroa.5226.0514, %68 ], [ %.sroa.5226.0514, %69 ], [ %.sroa.5226.0514, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.sroa.5226.0514, %103 ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.sroa.5226.0514, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.sroa.5226.0514, %100 ], [ %.sroa.5226.0514, %102 ], [ 1, %73 ]
+  %.1311 = phi i32 [ %.0310515, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.0310515, %68 ], [ %.0.copyload.i.i.i.i.i.i99, %69 ], [ %.0310515, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.0310515, %103 ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.0310515, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.0310515, %100 ], [ %.0310515, %102 ], [ %.0310515, %73 ]
+  %.159 = phi i32 [ %.058518, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.058518, %68 ], [ %.058518, %69 ], [ %.058518, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.058518, %103 ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.058518, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.058518, %100 ], [ %.0.copyload.i.i.i.i.i.i99, %102 ], [ %.058518, %73 ]
+  %.157 = phi i32 [ %.056519, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.056519, %68 ], [ %.056519, %69 ], [ %.056519, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.0.copyload.i.i.i.i.i.i99, %103 ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.056519, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.056519, %100 ], [ %.056519, %102 ], [ %.056519, %73 ]
+  %.1 = phi i32 [ %.055520, %_ZN8rawspeed10ByteStream6getU32Ev.exit101 ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit ], [ %.0.copyload.i.i.i.i.i.i99, %68 ], [ %.055520, %69 ], [ %.055520, %_ZNK8rawspeed6Buffer10getSubViewEjj.exit ], [ %.055520, %103 ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit ], [ %.055520, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit113 ], [ %.055520, %100 ], [ %.055520, %102 ], [ %.055520, %73 ]
   %104 = add nuw nsw i32 %.066517, 1
   %exitcond591.not = icmp eq i32 %104, %.0.copyload.i.i.i.i.i.i81
   br i1 %exitcond591.not, label %._crit_edge, label %49, !llvm.loop !94
@@ -1669,7 +1669,7 @@ _ZNSt6vectorIN8rawspeed10IiqDecoder9IiqOffsetESaIS2_EED2Ev.exit153: ; preds = %3
   br label %_ZNSt6vectorIN8rawspeed10IiqDecoder9IiqOffsetESaIS2_EED2Ev.exit145
 
 _ZNSt6vectorIN8rawspeed10IiqDecoder9IiqOffsetESaIS2_EED2Ev.exit145: ; preds = %327, %325, %247
-  %.pn.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn.pn, %325 ], [ %.pn.pn, %327 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn.pn, %327 ], [ %.pn.pn, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt6vectorIN8rawspeed10IiqDecoder9IiqOffsetESaIS2_EED2Ev.exit160
 
@@ -2662,7 +2662,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge
   br label %146
 
 .split510.us:                                     ; preds = %.split474.split, %.split474.split.us.us, %.split474.us.split.us506, %.split474.us.split.us.us.us
-  %.us-phi511 = phi i32 [ %101, %.split474.us.split.us.us.us ], [ %117, %.split474.us.split.us506 ], [ %138, %.split474.split.us.us ], [ %145, %.split474.split ]
+  %.us-phi511 = phi i32 [ %138, %.split474.split.us.us ], [ %101, %.split474.us.split.us.us.us ], [ %117, %.split474.us.split.us506 ], [ %145, %.split474.split ]
   br i1 %86, label %.critedge, label %163
 
 .split474.split:                                  ; preds = %148
@@ -2914,8 +2914,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge
   br i1 %270, label %262, label %261, !llvm.loop !235
 
 .critedge:                                        ; preds = %255, %.lr.ph549, %163, %.split510.us
-  %271 = phi ptr [ %83, %163 ], [ %83, %.split510.us ], [ %178, %255 ], [ %170, %.lr.ph549 ]
-  %272 = phi ptr [ %84, %163 ], [ %84, %.split510.us ], [ %178, %255 ], [ %171, %.lr.ph549 ]
+  %271 = phi ptr [ %83, %.split510.us ], [ %83, %163 ], [ %178, %255 ], [ %170, %.lr.ph549 ]
+  %272 = phi ptr [ %84, %.split510.us ], [ %84, %163 ], [ %178, %255 ], [ %171, %.lr.ph549 ]
   %273 = add nuw nsw i32 %.098558, 1
   %.not450.not = icmp samesign ult i32 %.098558, %.zext449
   br i1 %.not450.not, label %.preheader458, label %_ZNSt6vectorIfSaIfEED2Ev.exit, !llvm.loop !236
@@ -2925,7 +2925,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge
   ret void
 
 .thread426:                                       ; preds = %235, %161
-  %.pn106.pn433 = phi { ptr, i32 } [ %236, %235 ], [ %162, %161 ]
+  %.pn106.pn433 = phi { ptr, i32 } [ %162, %161 ], [ %236, %235 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %64) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn106.pn433
@@ -3850,7 +3850,7 @@ _ZNSt6vectorIN8rawspeed6SplineItE7SegmentESaIS3_EED2Ev.exit.i122: ; preds = %332
   br label %342
 
 342:                                              ; preds = %.loopexit216, %.loopexit.split-lp217, %.loopexit205, %.loopexit.split-lp206, %.loopexit211, %.loopexit.split-lp212, %117, %.body
-  %.pn70.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %118, %117 ], [ %lpad.loopexit213, %.loopexit211 ], [ %lpad.loopexit.split-lp214, %.loopexit.split-lp212 ], [ %lpad.loopexit207, %.loopexit205 ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp206 ], [ %lpad.loopexit218, %.loopexit216 ], [ %lpad.loopexit.split-lp219, %.loopexit.split-lp217 ]
+  %.pn70.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %lpad.loopexit.split-lp214, %.loopexit.split-lp212 ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp206 ], [ %118, %117 ], [ %lpad.loopexit213, %.loopexit211 ], [ %lpad.loopexit207, %.loopexit205 ], [ %lpad.loopexit218, %.loopexit216 ], [ %lpad.loopexit.split-lp219, %.loopexit.split-lp217 ]
   br label %343
 
 343:                                              ; preds = %_ZNSt5arrayISt6vectorIN8rawspeed8iPoint2DESaIS2_EELm2EED2Ev.exit.i132, %342
@@ -4662,7 +4662,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %52, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed10IiqDecoder9IiqOffsetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13computeSripesENS2_6BufferES8_jE3$_0EEEvT_T0_SG_T1_T2_.exit.us.i.i.i", !llvm.loop !317
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed10IiqDecoder9IiqOffsetESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_13computeSripesENS2_6BufferES8_jE3$_0EEEvT_T0_SG_T1_T2_.exit.us.i.i.i": ; preds = %49, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8rawspeed10IiqDecoder13computeSripesENS2_6BufferESt6vectorINS3_9IiqOffsetESaIS6_EEjE3$_0EclINS_17__normal_iteratorIPS6_S8_EES6_EEbT_RT0_.exit.i.i.us.i.i.i", %.split.us.i.i.i
-  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.010.us.i.i.i, %.split.us.i.i.i ], [ %.010.i.i.us.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8rawspeed10IiqDecoder13computeSripesENS2_6BufferESt6vectorINS3_9IiqOffsetESaIS6_EEjE3$_0EclINS_17__normal_iteratorIPS6_S8_EES6_EEbT_RT0_.exit.i.i.us.i.i.i" ], [ %.0911.i.i.us.i.i.i, %49 ]
+  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.010.us.i.i.i, %.split.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %49 ], [ %.010.i.i.us.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8rawspeed10IiqDecoder13computeSripesENS2_6BufferESt6vectorINS3_9IiqOffsetESaIS6_EEjE3$_0EclINS_17__normal_iteratorIPS6_S8_EES6_EEbT_RT0_.exit.i.i.us.i.i.i" ]
   %53 = getelementptr inbounds %"struct.rawspeed::IiqDecoder::IiqOffset", ptr %.fr12.i.i.i, i64 %.0.lcssa.i.i.us.i.i.i
   store i64 %.sroa.03.0.copyload.us.i.i.i, ptr %53, align 4
   %.not.us.i.i.i = icmp eq i64 %.010.us.i.i.i, 0
@@ -5639,10 +5639,10 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65: ; preds = %.noexc70
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit71
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit71:             ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65, %.noexc70, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0133.0154 = phi ptr [ %7, %.noexc70 ], [ %7, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.18.0151 = phi ptr [ %8, %.noexc70 ], [ %8, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0123.0 = phi ptr [ %13, %.noexc70 ], [ %13, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.11127.0 = phi ptr [ %14, %.noexc70 ], [ %14, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0133.0154 = phi ptr [ %7, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ %7, %.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.18.0151 = phi ptr [ %8, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ %8, %.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0123.0 = phi ptr [ %13, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ %13, %.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11127.0 = phi ptr [ %14, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i65 ], [ %14, %.noexc70 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %16 = load i32, ptr %0, align 8, !tbaa !272
   %17 = sext i32 %16 to i64
   %18 = icmp slt i32 %16, 0
@@ -5694,11 +5694,11 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83: ; preds = %.noexc88
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit89
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit89:             ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83, %.noexc88, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72
-  %.sroa.13117.0161 = phi ptr [ %23, %.noexc88 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
-  %.sroa.0111.0159 = phi ptr [ %22, %.noexc88 ], [ %22, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
-  %.sroa.0102.0 = phi ptr [ %28, %.noexc88 ], [ %28, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
-  %.sroa.13.0 = phi ptr [ %29, %.noexc88 ], [ %29, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
-  %.0.i.i.i.i.i85 = phi ptr [ %30, %.noexc88 ], [ %31, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
+  %.sroa.13117.0161 = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ %23, %.noexc88 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
+  %.sroa.0111.0159 = phi ptr [ %22, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ %22, %.noexc88 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
+  %.sroa.0102.0 = phi ptr [ %28, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ %28, %.noexc88 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
+  %.sroa.13.0 = phi ptr [ %29, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ %29, %.noexc88 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
+  %.0.i.i.i.i.i85 = phi ptr [ %31, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83 ], [ %30, %.noexc88 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i72 ]
   br i1 %.not.i.i.i.i, label %._crit_edge176.thread204, label %.lr.ph
 
 ._crit_edge176.thread204:                         ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit89
@@ -5944,7 +5944,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit99:                  ; preds = %147, %146
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit101
 
 _ZNSt6vectorIdSaIdEED2Ev.exit101:                 ; preds = %151, %_ZNSt6vectorIdSaIdEED2Ev.exit99
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit99 ], [ %.pn.pn168, %151 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn168, %151 ], [ %.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit99 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

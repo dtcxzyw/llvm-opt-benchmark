@@ -92,7 +92,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br label %40
 
 40:                                               ; preds = %17, %18, %5, %39, %9
-  %.031 = phi ptr [ %.02837, %9 ], [ %.02837, %39 ], [ null, %5 ], [ null, %18 ], [ null, %17 ]
+  %.031 = phi ptr [ %.02837, %39 ], [ %.02837, %9 ], [ null, %5 ], [ null, %18 ], [ null, %17 ]
   ret ptr %.031
 }
 
@@ -213,7 +213,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   br i1 %.not22, label %.loopexit, label %32, !llvm.loop !22
 
 .loopexit:                                        ; preds = %32, %30, %15, %6, %5
-  %.017 = phi i32 [ 1, %5 ], [ 0, %6 ], [ 0, %15 ], [ 1, %30 ], [ 1, %32 ]
+  %.017 = phi i32 [ 1, %5 ], [ 0, %15 ], [ 0, %6 ], [ 1, %30 ], [ 1, %32 ]
   ret i32 %.017
 }
 
@@ -309,7 +309,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   br i1 %.not22.i, label %BN_bn2bin_padded.exit, label %36, !llvm.loop !22
 
 BN_bn2bin_padded.exit:                            ; preds = %36, %34, %19, %10, %9, %3
-  %56 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %10 ], [ 0, %19 ], [ 1, %34 ], [ 1, %36 ]
+  %56 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %19 ], [ 0, %10 ], [ 1, %34 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
 }
@@ -590,7 +590,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br label %bn_x2bn.exit
 
 bn_x2bn.exit:                                     ; preds = %2, %4, %19, %26, %70, %71, %74
-  %.0.i = phi i32 [ %21, %70 ], [ 0, %4 ], [ 0, %2 ], [ %21, %19 ], [ 0, %26 ], [ 0, %74 ], [ 0, %71 ]
+  %.0.i = phi i32 [ 0, %26 ], [ 0, %2 ], [ %21, %19 ], [ %21, %70 ], [ 0, %4 ], [ 0, %74 ], [ 0, %71 ]
   ret i32 %.0.i
 }
 
@@ -845,7 +845,7 @@ decode_dec.exit:                                  ; preds = %44, %28
   br label %bn_x2bn.exit
 
 bn_x2bn.exit:                                     ; preds = %2, %4, %17, %24, %48, %49, %52
-  %.0.i = phi i32 [ %19, %48 ], [ 0, %4 ], [ 0, %2 ], [ %19, %17 ], [ 0, %24 ], [ 0, %52 ], [ 0, %49 ]
+  %.0.i = phi i32 [ 0, %24 ], [ 0, %2 ], [ %19, %17 ], [ %19, %48 ], [ 0, %4 ], [ 0, %52 ], [ 0, %49 ]
   ret i32 %.0.i
 }
 
@@ -896,7 +896,7 @@ define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_nul
   br label %24
 
 24:                                               ; preds = %15, %18, %21, %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 1, %21 ], [ 1, %18 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 1, %21 ], [ 1, %18 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -1228,7 +1228,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br label %BN_bin2bn.exit.thread
 
 BN_bin2bn.exit.thread:                            ; preds = %34, %25, %31, %33, %65, %61, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %25 ], [ null, %31 ], [ %.02227, %33 ], [ %.02227, %65 ], [ %.02227, %61 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %25 ], [ null, %31 ], [ %.02227, %33 ], [ %.02227, %61 ], [ %.02227, %65 ], [ null, %34 ]
   ret ptr %.0
 }
 

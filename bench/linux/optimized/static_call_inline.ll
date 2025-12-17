@@ -454,7 +454,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   br i1 %101, label %.preheader.split, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %89, %99, %78, %.preheader.split.us, %58
-  %102 = phi i32 [ 0, %58 ], [ 0, %78 ], [ 1, %.preheader.split.us ], [ 0, %99 ], [ 1, %89 ]
+  %102 = phi i32 [ 0, %58 ], [ 1, %.preheader.split.us ], [ 0, %78 ], [ 0, %99 ], [ 1, %89 ]
   tail call void @module_put(ptr noundef nonnull %42) #13
   br label %.loopexit4
 
@@ -847,7 +847,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr r
   br label %62
 
 .thread17:                                        ; preds = %43, %34, %.preheader20.split.us
-  %55 = phi ptr [ %13, %.preheader20.split.us ], [ %25, %34 ], [ %25, %43 ]
+  %55 = phi ptr [ %25, %34 ], [ %13, %.preheader20.split.us ], [ %25, %43 ]
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = ptrtoint ptr %55 to i64

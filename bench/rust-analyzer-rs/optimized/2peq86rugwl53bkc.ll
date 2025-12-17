@@ -1735,7 +1735,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf7
   ret { ptr, ptr } %126
 
 .body:                                            ; preds = %118, %.body.i.i
-  %eh.lpad-body13 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %118 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.ph.i, %118 ]
   resume { ptr, i32 } %eh.lpad-body13
 }
 

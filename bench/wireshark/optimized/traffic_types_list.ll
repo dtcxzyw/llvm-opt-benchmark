@@ -1427,7 +1427,7 @@ _ZN7QStringD2Ev.exit21.sink.split:                ; preds = %39, %46
   br label %_ZN7QStringD2Ev.exit21
 
 _ZN7QStringD2Ev.exit21:                           ; preds = %_ZN7QStringD2Ev.exit21.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23, %41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ], [ %42, %41 ], [ %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit21.sink.split ]
+  %.pn = phi { ptr, i32 } [ %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i23 ], [ %36, %35 ], [ %36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ], [ %42, %41 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit21.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
@@ -1915,7 +1915,7 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %43, %_ZN17QArrayDat
   br label %.invoke
 
 .invoke:                                          ; preds = %31, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %54
-  %57 = phi i32 [ %56, %54 ], [ %20, %_ZN19TrafficTypesRowDataC2ERKS_.exit ], [ %20, %31 ]
+  %57 = phi i32 [ %20, %_ZN19TrafficTypesRowDataC2ERKS_.exit ], [ %56, %54 ], [ %20, %31 ]
   invoke void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32) %0, i32 noundef %57)
           to label %62 unwind label %49
 
@@ -2496,7 +2496,7 @@ _ZN5QListIiED2Ev.exit93:                          ; preds = %168, %_ZN17QArrayDa
   br label %_ZN5QListIiED2Ev.exit89
 
 _ZN5QListIiED2Ev.exit89:                          ; preds = %166, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i87, %162, %112, %116, %114, %_ZN5QListIiED2Ev.exit93, %136, %71
-  %.pn.pn.pn = phi { ptr, i32 } [ %169, %_ZN5QListIiED2Ev.exit93 ], [ %137, %136 ], [ %72, %71 ], [ %113, %112 ], [ %117, %116 ], [ %115, %114 ], [ %163, %162 ], [ %163, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i87 ], [ %163, %166 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %169, %_ZN5QListIiED2Ev.exit93 ], [ %115, %114 ], [ %137, %136 ], [ %113, %112 ], [ %117, %116 ], [ %163, %162 ], [ %163, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i87 ], [ %163, %166 ]
   %174 = load ptr, ptr %7, align 8
   %.not.i.i.i94 = icmp eq ptr %174, null
   br i1 %.not.i.i.i94, label %_ZN5QListIiED2Ev.exit97, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i95
@@ -2516,7 +2516,7 @@ _ZN5QListIiED2Ev.exit97:                          ; preds = %_ZN5QListIiED2Ev.ex
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %_ZN5QListIiED2Ev.exit85, %45, %19, %_ZNK11QModelIndex7isValidEv.exit
-  %.0 = phi i1 [ false, %_ZNK11QModelIndex7isValidEv.exit ], [ false, %19 ], [ true, %_ZN5QListIiED2Ev.exit85 ], [ false, %45 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %_ZNK11QModelIndex7isValidEv.exit ], [ true, %_ZN5QListIiED2Ev.exit85 ], [ false, %45 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -5329,7 +5329,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i43.i.i: ; preds = %170
   br i1 %.not.i.i.i.i.i44.i.i, label %_ZSt9iter_swapIN5QListI19TrafficTypesRowDataE8iteratorES3_EvT_T0_.exit.sink.split.i.i, label %"_ZSt22__move_median_to_firstIN5QListI19TrafficTypesRowDataE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 _ZSt9iter_swapIN5QListI19TrafficTypesRowDataE8iteratorES3_EvT_T0_.exit.sink.split.i.i: ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i43.i.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i39.i.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i27.i.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i
-  %.sink.i.i = phi ptr [ %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i ], [ %130, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i27.i.i ], [ %168, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i39.i.i ], [ %180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i43.i.i ]
+  %.sink.i.i = phi ptr [ %168, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i39.i.i ], [ %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i ], [ %180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i43.i.i ], [ %130, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i27.i.i ]
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sink.i.i, i64 noundef 2, i64 noundef 8) #24
   br label %"_ZSt22__move_median_to_firstIN5QListI19TrafficTypesRowDataE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 

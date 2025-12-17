@@ -49,9 +49,9 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   br label %95
 
 15:                                               ; preds = %12, %10, %8
-  %16 = phi i1 [ %9, %8 ], [ false, %10 ], [ true, %12 ]
-  %.046 = phi i32 [ %.51, %8 ], [ 1, %10 ], [ 2, %12 ]
-  %.045 = phi i32 [ 1, %8 ], [ %.52, %10 ], [ %.53, %12 ]
+  %16 = phi i1 [ %9, %8 ], [ true, %12 ], [ false, %10 ]
+  %.046 = phi i32 [ %.51, %8 ], [ 2, %12 ], [ 1, %10 ]
+  %.045 = phi i32 [ 1, %8 ], [ %.53, %12 ], [ %.52, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4, !tbaa !28
   %.fr49 = freeze i32 %18

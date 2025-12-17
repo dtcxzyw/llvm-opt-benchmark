@@ -361,7 +361,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i: ; preds = %.lr.ph
   br i1 %.not.i, label %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em.exit, label %.lr.ph26.i, !llvm.loop !19
 
 _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt64Em.exit: ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i, %10, %.preheader.i
-  %35 = phi i16 [ %11, %10 ], [ %11, %.preheader.i ], [ %33, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i ]
+  %35 = phi i16 [ %11, %.preheader.i ], [ %11, %10 ], [ %33, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i ]
   %36 = add nsw i32 %.043, -27
   %37 = icmp sgt i32 %.043, 53
   br i1 %37, label %10, label %.preheader, !llvm.loop !20
@@ -420,7 +420,7 @@ _ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17: ; preds = %.lr.
   br i1 %.not.i18, label %_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i, !llvm.loop !22
 
 _ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17, %38, %.preheader.i16
-  %58 = phi i16 [ %39, %38 ], [ %39, %.preheader.i16 ], [ %56, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17 ]
+  %58 = phi i16 [ %39, %.preheader.i16 ], [ %39, %38 ], [ %56, %_ZN6icu_7717double_conversion6Bignum14EnsureCapacityEi.exit.i17 ]
   %59 = add nsw i32 %.146, -13
   %60 = icmp sgt i32 %.146, 25
   br i1 %60, label %38, label %._crit_edge, !llvm.loop !23
@@ -2159,7 +2159,7 @@ _ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32.i.i: ; preds = %115,
   br label %.preheader, !llvm.loop !42
 
 _ZN6icu_7717double_conversion6Bignum5ClampEv.exit: ; preds = %102, %121, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %83, %2
-  %.0 = phi i16 [ 0, %2 ], [ %87, %83 ], [ %70, %.critedge.i ], [ %70, %.critedge.thread3.i ], [ %70, %.lr.ph.i33 ], [ %.132, %121 ], [ %.132, %102 ]
+  %.0 = phi i16 [ 0, %2 ], [ %70, %.critedge.thread3.i ], [ %87, %83 ], [ %70, %.critedge.i ], [ %.132, %121 ], [ %70, %.lr.ph.i33 ], [ %.132, %102 ]
   ret i16 %.0
 }
 
@@ -2443,7 +2443,7 @@ _ZN6icu_7717double_conversionL14SizeInHexCharsIjEEiT_.exit: ; preds = %.lr.ph.i,
   br i1 %.not38, label %.loopexit, label %.lr.ph57, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph57, %._crit_edge, %_ZN6icu_7717double_conversionL14SizeInHexCharsIjEEiT_.exit, %6, %8
-  %.035 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %_ZN6icu_7717double_conversionL14SizeInHexCharsIjEEiT_.exit ], [ true, %._crit_edge ], [ true, %.lr.ph57 ]
+  %.035 = phi i1 [ false, %6 ], [ true, %8 ], [ false, %_ZN6icu_7717double_conversionL14SizeInHexCharsIjEEiT_.exit ], [ true, %._crit_edge ], [ true, %.lr.ph57 ]
   ret i1 %.035
 }
 
@@ -2544,7 +2544,7 @@ _ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK6icu
   br i1 %.not, label %.thread, label %22, !llvm.loop !41
 
 .thread:                                          ; preds = %37, %22, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32, %16, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ -1, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32 ], [ 0, %22 ], [ 1, %37 ]
+  %.0 = phi i32 [ 1, %16 ], [ -1, %2 ], [ -1, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit32 ], [ 0, %22 ], [ 1, %37 ]
   ret i32 %.0
 }
 
@@ -2676,7 +2676,7 @@ _ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit59: ; preds = %_ZNK6icu
   br label %.thread
 
 .thread:                                          ; preds = %60, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit59, %30, %.thread.loopexit, %28, %26, %16
-  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %66, %.thread.loopexit ], [ 1, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit59 ], [ -1, %60 ]
+  %.0 = phi i32 [ -1, %28 ], [ 1, %26 ], [ -1, %16 ], [ 0, %30 ], [ %66, %.thread.loopexit ], [ 1, %_ZNK6icu_7717double_conversion6Bignum11BigitOrZeroEi.exit59 ], [ -1, %60 ]
   ret i32 %.0
 }
 

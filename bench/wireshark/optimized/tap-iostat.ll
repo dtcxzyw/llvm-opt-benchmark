@@ -692,8 +692,8 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   unreachable
 
 .thread:                                          ; preds = %100, %.split.us, %75, %103, %120, %115, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %125
-  %.0112145 = phi ptr [ %80, %103 ], [ %80, %120 ], [ %80, %115 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %125 ], [ %80, %75 ], [ null, %.split.us ], [ null, %100 ]
-  %.1144 = phi ptr [ %84, %103 ], [ %84, %120 ], [ %84, %115 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %125 ], [ %84, %75 ], [ %spec.select.us, %.split.us ], [ %.3, %100 ]
+  %.0112145 = phi ptr [ %80, %125 ], [ %80, %103 ], [ %80, %120 ], [ %80, %115 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %75 ], [ null, %.split.us ], [ null, %100 ]
+  %.1144 = phi ptr [ %84, %125 ], [ %84, %103 ], [ %84, %120 ], [ %84, %115 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %75 ], [ %spec.select.us, %.split.us ], [ %.3, %100 ]
   tail call void @g_free(ptr noundef %.0112145)
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr %struct._io_stat_item_t, ptr %129, i64 %7
@@ -2087,7 +2087,7 @@ magnitude.exit628:                                ; preds = %78, %75, %._crit_ed
   ]
 
 .thread:                                          ; preds = %96, %101
-  %108 = phi i1 [ %107, %101 ], [ false, %96 ]
+  %108 = phi i1 [ false, %96 ], [ %107, %101 ]
   %109 = load ptr, ptr %95, align 8
   %110 = getelementptr i32, ptr %109, i64 %indvars.iv772
   %111 = load i32, ptr %110, align 4
@@ -2337,8 +2337,8 @@ magnitude.exit658:                                ; preds = %204, %207
   br label %224
 
 224:                                              ; preds = %.sink.split, %217, %140
-  %.2568 = phi i32 [ %.1567, %140 ], [ %222, %217 ], [ %.2568.ph, %.sink.split ]
-  %.2564 = phi ptr [ null, %140 ], [ null, %217 ], [ %.3565.sink, %.sink.split ]
+  %.2568 = phi i32 [ %222, %217 ], [ %.1567, %140 ], [ %.2568.ph, %.sink.split ]
+  %.2564 = phi ptr [ null, %217 ], [ null, %140 ], [ %.3565.sink, %.sink.split ]
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
   %exitcond776.not = icmp eq i64 %indvars.iv.next773, %10
   br i1 %exitcond776.not, label %._crit_edge693, label %96, !llvm.loop !27

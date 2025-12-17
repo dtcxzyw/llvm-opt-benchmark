@@ -556,12 +556,12 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_tree_cmd) #7
   br label %166
 
-.thread:                                          ; preds = %.split223.us, %141, %131, %126, %.split171.us, %88, %78, %73, %.split121.us, %43, %33, %28
+.thread:                                          ; preds = %141, %.split223.us, %131, %126, %88, %.split171.us, %78, %73, %43, %.split121.us, %33, %28
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   br label %166
 
 166:                                              ; preds = %162, %165, %.thread, %98
-  %.0 = phi i32 [ -1, %98 ], [ -1, %.thread ], [ %160, %165 ], [ %160, %162 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %98 ], [ %160, %165 ], [ %160, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -905,13 +905,13 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0
   %106 = tail call i32 @close(i32 noundef %7) #7
   br label %108
 
-.thread:                                          ; preds = %.split137.us, %96, %86, %81, %.split87.us, %49, %39, %34
+.thread:                                          ; preds = %96, %.split137.us, %86, %81, %49, %.split87.us, %39, %34
   %107 = tail call i32 @close(i32 noundef %7) #7
   call void @slurm_xfree(ptr noundef nonnull %5) #7
   br label %108
 
 108:                                              ; preds = %3, %.thread, %105
-  %.0 = phi i32 [ %.046, %105 ], [ -1, %.thread ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %3 ], [ %.046, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1266,7 +1266,7 @@ define internal range(i32 -1, 1) i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef
   br label %56
 
 62:                                               ; preds = %._crit_edge, %56, %30, %33, %18, %21
-  %.016 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %33 ], [ 0, %30 ], [ -1, %56 ], [ 0, %._crit_edge ]
+  %.016 = phi i32 [ 0, %30 ], [ 0, %18 ], [ 0, %._crit_edge ], [ -1, %56 ], [ 0, %21 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

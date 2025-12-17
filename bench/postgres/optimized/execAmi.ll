@@ -812,7 +812,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph66, %22, %tailrecurse.backedge, %.lr.ph, %8, %6, %.thread.loopexit91, %1, %15, %.lr.ph57, %42, %11, %34, %30
-  %.0 = phi i1 [ %33, %30 ], [ %37, %34 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph57 ], [ false, %1 ], [ true, %.thread.loopexit91 ], [ false, %6 ], [ false, %8 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ], [ %29, %22 ], [ %29, %.lr.ph66 ]
+  %.0 = phi i1 [ %.not, %42 ], [ false, %11 ], [ true, %.lr.ph57 ], [ %33, %30 ], [ %37, %34 ], [ false, %1 ], [ true, %.thread.loopexit91 ], [ true, %15 ], [ false, %tailrecurse.backedge ], [ false, %6 ], [ false, %8 ], [ false, %.lr.ph ], [ %29, %22 ], [ %29, %.lr.ph66 ]
   ret i1 %.0
 }
 

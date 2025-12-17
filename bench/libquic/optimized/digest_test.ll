@@ -521,7 +521,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit93.i:    ; preds = %._crit_edge.i91.i
   br label %.critedge72.i
 
 .critedge72.i:                                    ; preds = %_ZL13CompareDigestPK10TestVectorPKhm.exit93.i, %_ZL13CompareDigestPK10TestVectorPKhm.exit93.thread.i, %_ZL13CompareDigestPK10TestVectorPKhm.exit86.i, %150, %140, %_ZL13CompareDigestPK10TestVectorPKhm.exit79.i, %113, %102, %97, %85, %76, %_ZL13CompareDigestPK10TestVectorPKhm.exit.i, %39
-  %213 = phi i1 [ true, %113 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit93.i ], [ true, %102 ], [ true, %97 ], [ true, %85 ], [ true, %76 ], [ true, %39 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit79.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit86.i ], [ true, %150 ], [ false, %_ZL13CompareDigestPK10TestVectorPKhm.exit93.thread.i ], [ false, %140 ]
+  %213 = phi i1 [ true, %113 ], [ true, %150 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit93.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit.i ], [ true, %102 ], [ true, %97 ], [ true, %85 ], [ true, %76 ], [ true, %39 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit79.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit86.i ], [ false, %_ZL13CompareDigestPK10TestVectorPKhm.exit93.thread.i ], [ false, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %215
@@ -594,8 +594,8 @@ _ZL11TestGettersv.exit:                           ; preds = %234
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL11TestGettersv.exit.thread
 
-_ZL11TestGettersv.exit.thread:                    ; preds = %231, %234, %227, %_ZL11TestGettersv.exit, %238
-  %.1 = phi i32 [ 0, %238 ], [ 1, %227 ], [ 1, %_ZL11TestGettersv.exit ], [ 1, %234 ], [ 1, %231 ]
+_ZL11TestGettersv.exit.thread:                    ; preds = %234, %231, %227, %_ZL11TestGettersv.exit, %238
+  %.1 = phi i32 [ 0, %238 ], [ 1, %227 ], [ 1, %_ZL11TestGettersv.exit ], [ 1, %231 ], [ 1, %234 ]
   ret i32 %.1
 }
 

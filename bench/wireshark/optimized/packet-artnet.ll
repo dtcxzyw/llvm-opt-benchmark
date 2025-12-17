@@ -6698,7 +6698,7 @@ dissect_artnet_rdm_sub.exit:                      ; preds = %921, %954
   br i1 %.not5.i131.i, label %proto_item_set_generated.exit.i574, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %1107, %1098, %1092
-  %.sink141.i = phi ptr [ %1094, %1092 ], [ %1100, %1098 ], [ %1109, %1107 ]
+  %.sink141.i = phi ptr [ %1100, %1098 ], [ %1094, %1092 ], [ %1109, %1107 ]
   %1110 = getelementptr inbounds nuw i8, ptr %.sink141.i, i64 28
   %1111 = load i32, ptr %1110, align 4
   %1112 = or i32 %1111, 2
@@ -6724,7 +6724,7 @@ proto_item_set_generated.exit.i574:               ; preds = %proto_item_set_gene
   br label %dissect_artnet_nzs.exit
 
 dissect_artnet_nzs.exit:                          ; preds = %1011, %proto_item_set_generated.exit.i574, %1114
-  %.0.i573 = phi i32 [ %1113, %proto_item_set_generated.exit.i574 ], [ %1123, %1114 ], [ %1032, %1011 ]
+  %.0.i573 = phi i32 [ %1123, %1114 ], [ %1113, %proto_item_set_generated.exit.i574 ], [ %1032, %1011 ]
   %1124 = sub nuw nsw i32 %.0.i573, %.0557
   call void @proto_item_set_len(ptr noundef %1015, i32 noundef %1124)
   br label %1425

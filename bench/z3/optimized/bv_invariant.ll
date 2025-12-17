@@ -330,7 +330,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3euf5enode10get
   %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.3, i64 noundef 1)
   br label %.critedge
 
-.critedge:                                        ; preds = %96, %_ZNK3euf5enode10get_th_varEi.exit40, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %24, %17, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %35, %116, %111, %44, %39
+.critedge:                                        ; preds = %96, %_ZNK3euf5enode10get_th_varEi.exit40, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %24, %17, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %35, %111, %116, %44, %39
   %121 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %.not = icmp eq ptr %121, %11
   br i1 %.not, label %._crit_edge, label %17
@@ -487,8 +487,8 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.i87:          ; preds = %56
   br i1 %61, label %_ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i90, label %63
 
 _ZNK6vectorIbLb0EjE8capacityEv.exit.thread.i90:   ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87, %56
-  %.0.i17.i86165 = phi i32 [ %.0.i17.ph.i85, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %.0.i17.ph.i85, %56 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
-  %62 = phi ptr [ %57, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %57, %56 ], [ %45, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
+  %.0.i17.i86165 = phi i32 [ %.0.i17.ph.i85, %56 ], [ %.0.i17.ph.i85, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
+  %62 = phi ptr [ %57, %56 ], [ %57, %_ZNK6vectorIbLb0EjE8capacityEv.exit.i87 ], [ %45, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i92 ]
   invoke void @_ZN6vectorIbLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %62)
           to label %.noexc94 unwind label %.loopexit.split-lp
 
@@ -780,7 +780,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %.critedge, %.crited
   br label %181
 
 179:                                              ; preds = %117, %119, %145, %166
-  %.pn76.pn = phi { ptr, i32 } [ %167, %166 ], [ %146, %145 ], [ %118, %117 ], [ %120, %119 ]
+  %.pn76.pn = phi { ptr, i32 } [ %146, %145 ], [ %120, %119 ], [ %167, %166 ], [ %118, %117 ]
   call void @_ZN6vectorIN3sat7literalELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %180

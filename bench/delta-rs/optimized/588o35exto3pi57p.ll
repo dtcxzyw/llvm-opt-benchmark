@@ -1002,7 +1002,7 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.753064
   br label %11
 
 .noexc22:                                         ; preds = %78, %74, %.thread
-  %.pn40 = phi { ptr, i32 } [ %94, %.thread ], [ %75, %74 ], [ %75, %78 ]
+  %.pn40 = phi { ptr, i32 } [ %94, %.thread ], [ %75, %78 ], [ %75, %74 ]
   resume { ptr, i32 } %.pn40
 }
 

@@ -1059,7 +1059,7 @@ select.unfold:                                    ; preds = %49, %42
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %23, %16, %.loopexit67, %60
-  %.3 = phi ptr [ null, %60 ], [ %58, %.loopexit67 ], [ null, %16 ], [ null, %23 ], [ null, %.loopexit ]
+  %.3 = phi ptr [ %58, %.loopexit67 ], [ null, %60 ], [ null, %16 ], [ null, %23 ], [ null, %.loopexit ]
   ret ptr %.3
 }
 

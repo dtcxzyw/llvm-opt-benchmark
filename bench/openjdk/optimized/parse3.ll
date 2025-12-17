@@ -1527,7 +1527,7 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit:          ; preds = %46, %51
   br label %80
 
 _ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge: ; preds = %_ZN8GraphKit12find_int_conEP4Nodei.exit, %45, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141
-  %.169143 = phi i64 [ 1, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141 ], [ 0, %_ZN8GraphKit12find_int_conEP4Nodei.exit ], [ %60, %45 ]
+  %.169143 = phi i64 [ 1, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141 ], [ %60, %45 ], [ 0, %_ZN8GraphKit12find_int_conEP4Nodei.exit ]
   %73 = phi i32 [ %21, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread141 ], [ %42, %45 ], [ %42, %_ZN8GraphKit12find_int_conEP4Nodei.exit ]
   %74 = icmp slt i64 %.169143, 1
   %75 = sext i32 %73 to i64

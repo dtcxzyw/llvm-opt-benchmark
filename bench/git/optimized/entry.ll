@@ -858,8 +858,8 @@ create_directories.exit:                          ; preds = %.backedge.i, %142, 
   %181 = call fastcc i32 @write_entry(ptr noundef nonnull %0, ptr noundef %180, ptr noundef %.161, ptr noundef %2, i32 noundef 0, ptr noundef %4)
   br label %.thread
 
-.thread:                                          ; preds = %118, %113, %99, %101, %94, %126, %93, %177, %129, %179, %28, %15
-  %.0 = phi i32 [ 0, %15 ], [ %29, %28 ], [ %181, %179 ], [ 0, %129 ], [ 0, %177 ], [ 0, %118 ], [ 0, %113 ], [ -1, %99 ], [ -1, %101 ], [ 0, %94 ], [ -1, %126 ], [ %.1, %93 ]
+.thread:                                          ; preds = %101, %94, %126, %118, %113, %99, %93, %177, %129, %179, %28, %15
+  %.0 = phi i32 [ 0, %15 ], [ %29, %28 ], [ 0, %177 ], [ %181, %179 ], [ 0, %129 ], [ -1, %101 ], [ 0, %94 ], [ -1, %126 ], [ 0, %118 ], [ 0, %113 ], [ -1, %99 ], [ %.1, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1195,9 +1195,9 @@ open_output_fd.exit.thread:                       ; preds = %.critedge120
   br label %fstat_checkout_output.exit
 
 fstat_checkout_output.exit:                       ; preds = %123, %120, %115, %.thread169
-  %126 = phi i64 [ %112, %.thread169 ], [ %116, %115 ], [ %116, %120 ], [ %116, %123 ]
-  %.0.i126168171 = phi i32 [ %110, %.thread169 ], [ %105, %115 ], [ %105, %120 ], [ %105, %123 ]
-  %.4 = phi i32 [ %.0134145, %.thread169 ], [ 0, %115 ], [ 0, %120 ], [ %125, %123 ]
+  %126 = phi i64 [ %112, %.thread169 ], [ %116, %123 ], [ %116, %115 ], [ %116, %120 ]
+  %.0.i126168171 = phi i32 [ %110, %.thread169 ], [ %105, %123 ], [ %105, %115 ], [ %105, %120 ]
+  %.4 = phi i32 [ %.0134145, %.thread169 ], [ %125, %123 ], [ 0, %115 ], [ 0, %120 ]
   %127 = call i32 @close(i32 noundef %.0.i126168171) #16
   call void @free(ptr noundef %.087) #16
   %128 = icmp slt i64 %126, 0
@@ -1285,7 +1285,7 @@ streaming_write_entry.exit:                       ; preds = %fstat_checkout_outp
   br label %171
 
 171:                                              ; preds = %94, %168, %167, %164, %153, %142, %138, %132, %129, %113, %83, %70, %60
-  %.0 = phi i32 [ -1, %153 ], [ -1, %113 ], [ -1, %129 ], [ -1, %164 ], [ -1, %70 ], [ -1, %60 ], [ -1, %83 ], [ -1, %132 ], [ -1, %138 ], [ %152, %142 ], [ 0, %94 ], [ 0, %167 ], [ 0, %168 ]
+  %.0 = phi i32 [ %152, %142 ], [ -1, %153 ], [ -1, %113 ], [ -1, %129 ], [ -1, %132 ], [ -1, %164 ], [ -1, %70 ], [ -1, %60 ], [ -1, %138 ], [ -1, %83 ], [ 0, %94 ], [ 0, %167 ], [ 0, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

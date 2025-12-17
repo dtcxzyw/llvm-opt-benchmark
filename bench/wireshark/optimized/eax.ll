@@ -198,7 +198,7 @@ CTR.exit:                                         ; preds = %63, %.sink.split.i4
   br label %82
 
 82:                                               ; preds = %60, %46, %8, %CTR.exit, %50, %43
-  %.031 = phi i1 [ %.not37, %43 ], [ %.not35, %50 ], [ true, %CTR.exit ], [ false, %8 ], [ false, %46 ], [ false, %60 ]
+  %.031 = phi i1 [ false, %8 ], [ %.not37, %43 ], [ %.not35, %50 ], [ true, %CTR.exit ], [ false, %46 ], [ false, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.031

@@ -1362,7 +1362,7 @@ switch.edge.thread:                               ; preds = %123, %80, %88, %76,
   br label %147
 
 147:                                              ; preds = %switch.edge.thread, %142, %138, %134, %130
-  %148 = phi i32 [ -14, %130 ], [ -14, %134 ], [ -14, %138 ], [ %146, %142 ], [ -42, %switch.edge.thread ]
+  %148 = phi i32 [ -42, %switch.edge.thread ], [ -14, %130 ], [ -14, %134 ], [ -14, %138 ], [ %146, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %161
 
@@ -2051,7 +2051,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   br label %ata_get_xlat_func.exit.thread
 
 ata_get_xlat_func.exit.thread:                    ; preds = %35, %56, %51, %69, %44, %44, %44, %44, %44, %44, %45, %64, %.thread, %65, %66, %67, %68, %74
-  %75 = phi ptr [ @ata_scsi_flush_xlat, %56 ], [ @ata_scsi_flush_xlat, %51 ], [ @ata_scsi_security_inout_xlat, %69 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_write_same_xlat, %45 ], [ @ata_scsi_verify_xlat, %64 ], [ @ata_scsi_pass_thru, %.thread ], [ @ata_scsi_var_len_cdb_xlat, %65 ], [ @ata_scsi_mode_select_xlat, %66 ], [ @ata_scsi_zbc_in_xlat, %67 ], [ @ata_scsi_zbc_out_xlat, %68 ], [ @ata_scsi_start_stop_xlat, %74 ], [ @atapi_xlat, %35 ]
+  %75 = phi ptr [ @ata_scsi_start_stop_xlat, %74 ], [ @ata_scsi_flush_xlat, %56 ], [ @ata_scsi_flush_xlat, %51 ], [ @ata_scsi_security_inout_xlat, %69 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_write_same_xlat, %45 ], [ @ata_scsi_verify_xlat, %64 ], [ @ata_scsi_pass_thru, %.thread ], [ @ata_scsi_var_len_cdb_xlat, %65 ], [ @ata_scsi_mode_select_xlat, %66 ], [ @ata_scsi_zbc_in_xlat, %67 ], [ @ata_scsi_zbc_out_xlat, %68 ], [ @atapi_xlat, %35 ]
   %76 = and i32 %8, 4
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread6, !prof !6
@@ -2638,8 +2638,8 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   br label %127
 
 127:                                              ; preds = %.thread3, %120, %114
-  %128 = phi i64 [ 12, %120 ], [ 12, %114 ], [ 2, %.thread3 ]
-  %129 = phi i8 [ %126, %120 ], [ 32, %114 ], [ 4, %.thread3 ]
+  %128 = phi i64 [ 2, %.thread3 ], [ 12, %120 ], [ 12, %114 ]
+  %129 = phi i8 [ 4, %.thread3 ], [ %126, %120 ], [ 32, %114 ]
   %130 = getelementptr i8, ptr %81, i64 %128
   %131 = load i8, ptr %130, align 1
   %132 = or i8 %131, %129
@@ -2705,8 +2705,8 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   br label %168
 
 168:                                              ; preds = %.thread5, %161, %155
-  %169 = phi i64 [ 24, %161 ], [ 24, %155 ], [ 14, %.thread5 ]
-  %170 = phi i8 [ %167, %161 ], [ 32, %155 ], [ 4, %.thread5 ]
+  %169 = phi i64 [ 14, %.thread5 ], [ 24, %161 ], [ 24, %155 ]
+  %170 = phi i8 [ 4, %.thread5 ], [ %167, %161 ], [ 32, %155 ]
   %171 = getelementptr i8, ptr %81, i64 %169
   %172 = load i8, ptr %171, align 1
   %173 = or i8 %172, %170
@@ -3595,9 +3595,9 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr noundef readonly captures(non
   br label %45
 
 45:                                               ; preds = %.thread, %40
-  %46 = phi i16 [ %31, %40 ], [ %11, %.thread ]
-  %47 = phi i8 [ %44, %40 ], [ 0, %.thread ]
-  %48 = phi i1 [ %42, %40 ], [ true, %.thread ]
+  %46 = phi i16 [ %11, %.thread ], [ %31, %40 ]
+  %47 = phi i8 [ 0, %.thread ], [ %44, %40 ]
+  %48 = phi i1 [ true, %.thread ], [ %42, %40 ]
   %49 = add i16 %46, 1
   %50 = icmp ult i16 %49, 2
   %51 = select i1 %48, i1 true, i1 %50
@@ -3965,7 +3965,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %96, %124, %143, %139, %134, %129, %127, %111, %106, %101, %99, %57
-  %156 = phi ptr [ %.pre, %143 ], [ %113, %139 ], [ %113, %134 ], [ %113, %129 ], [ %113, %127 ], [ %113, %111 ], [ %85, %106 ], [ %85, %101 ], [ %85, %99 ], [ %85, %57 ], [ %113, %124 ], [ %85, %96 ]
+  %156 = phi ptr [ %85, %57 ], [ %.pre, %143 ], [ %113, %139 ], [ %113, %134 ], [ %113, %129 ], [ %113, %127 ], [ %113, %111 ], [ %85, %106 ], [ %85, %101 ], [ %85, %99 ], [ %113, %124 ], [ %85, %96 ]
   %157 = getelementptr i8, ptr %156, i64 138
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 3
@@ -5877,7 +5877,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   br label %273
 
 273:                                              ; preds = %232, %.critedge, %269, %258, %224, %219, %188, %35
-  %274 = phi i16 [ %36, %35 ], [ %261, %258 ], [ %272, %269 ], [ 1, %188 ], [ 1, %219 ], [ 1, %224 ], [ 1, %232 ], [ 1, %.critedge ]
+  %274 = phi i16 [ %36, %35 ], [ %261, %258 ], [ %272, %269 ], [ 1, %.critedge ], [ 1, %232 ], [ 1, %188 ], [ 1, %219 ], [ 1, %224 ]
   %275 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %276 = load i64, ptr %275, align 16
   %277 = trunc i64 %276 to i32
@@ -6158,8 +6158,8 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nound
   br label %172
 
 159:                                              ; preds = %17, %11, %31
-  %160 = phi i16 [ 1, %31 ], [ 4, %11 ], [ 8, %17 ]
-  %161 = phi i8 [ %34, %31 ], [ -1, %11 ], [ -1, %17 ]
+  %160 = phi i16 [ 4, %11 ], [ 1, %31 ], [ 8, %17 ]
+  %161 = phi i8 [ -1, %11 ], [ %34, %31 ], [ -1, %17 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
@@ -7024,7 +7024,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr no
   br label %81
 
 81:                                               ; preds = %8, %27, %35, %37, %73, %72, %59, %44, %5
-  %82 = phi i32 [ -22, %5 ], [ -22, %44 ], [ -22, %72 ], [ -22, %59 ], [ 1, %73 ], [ -22, %8 ], [ -22, %27 ], [ 0, %37 ], [ 0, %35 ]
+  %82 = phi i32 [ 1, %73 ], [ -22, %5 ], [ -22, %44 ], [ -22, %72 ], [ -22, %59 ], [ -22, %8 ], [ -22, %27 ], [ 0, %37 ], [ 0, %35 ]
   ret i32 %82
 }
 

@@ -412,7 +412,7 @@ free_pstring.exit192:                             ; preds = %free_pstring.exit19
   br label %free_pstring.exit194
 
 free_pstring.exit194:                             ; preds = %106, %134, %free_pstring.exit192, %.thread208, %copy_substring.exit181, %111, %20
-  %.0 = phi i32 [ 0, %20 ], [ 1, %111 ], [ 1, %copy_substring.exit181 ], [ 1, %.thread208 ], [ 0, %free_pstring.exit192 ], [ 0, %134 ], [ 1, %106 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %134 ], [ 1, %.thread208 ], [ 1, %111 ], [ 1, %copy_substring.exit181 ], [ 0, %free_pstring.exit192 ], [ 1, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -599,7 +599,7 @@ free_pstring.exit45:                              ; preds = %free_pstring.exit43
   br label %free_pstring.exit47
 
 free_pstring.exit47:                              ; preds = %55, %free_pstring.exit45, %41, %40, %45, %44, %15
-  %.026 = phi i32 [ 0, %15 ], [ 1, %44 ], [ 1, %45 ], [ 1, %40 ], [ 1, %41 ], [ 0, %free_pstring.exit45 ], [ 0, %55 ]
+  %.026 = phi i32 [ 1, %41 ], [ 0, %15 ], [ 1, %44 ], [ 1, %45 ], [ 1, %40 ], [ 0, %free_pstring.exit45 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -730,12 +730,12 @@ define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly captures(address_
   br i1 %.not42.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !15
 
 .sink.split:                                      ; preds = %54, %48, %51, %.critedge3.i, %17, %39, %37
-  %.0.ph = phi ptr [ %.116, %37 ], [ %.116, %39 ], [ null, %17 ], [ %.116, %.critedge3.i ], [ null, %51 ], [ null, %48 ], [ null, %54 ]
+  %.0.ph = phi ptr [ %.116, %39 ], [ null, %17 ], [ %.116, %37 ], [ %.116, %.critedge3.i ], [ null, %51 ], [ null, %48 ], [ null, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %.sink.split, %11, %.thread14
-  %.0 = phi ptr [ null, %.thread14 ], [ null, %11 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ null, %.thread14 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

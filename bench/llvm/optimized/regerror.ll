@@ -109,7 +109,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr noundef readonly capture
   br label %regatoi.exit
 
 regatoi.exit:                                     ; preds = %.lr.ph, %._crit_edge, %27, %31, %33
-  %.0 = phi ptr [ %35, %33 ], [ %5, %31 ], [ %5, %27 ], [ %5, %._crit_edge ], [ @.str.36, %.lr.ph ]
+  %.0 = phi ptr [ %5, %27 ], [ %35, %33 ], [ %5, %31 ], [ %5, %._crit_edge ], [ @.str.36, %.lr.ph ]
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #5
   %.not23 = icmp eq i64 %3, 0
   br i1 %.not23, label %39, label %37

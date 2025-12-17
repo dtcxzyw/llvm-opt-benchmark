@@ -331,9 +331,9 @@ define hidden noundef i32 @_Pypegen_tokenizer_error(ptr noundef %0) local_unname
   br label %54
 
 54:                                               ; preds = %3, %53, %42, %40, %38
-  %.016 = phi ptr [ @.str.8, %53 ], [ @.str.4, %38 ], [ @.str.5, %40 ], [ @.str.6, %42 ], [ @.str.1, %3 ]
-  %.015 = phi ptr [ %4, %53 ], [ %39, %38 ], [ %41, %40 ], [ %4, %42 ], [ %4, %3 ]
-  %.0 = phi i64 [ 0, %53 ], [ 0, %38 ], [ 0, %40 ], [ %50, %42 ], [ 0, %3 ]
+  %.016 = phi ptr [ @.str.8, %53 ], [ @.str.6, %42 ], [ @.str.4, %38 ], [ @.str.5, %40 ], [ @.str.1, %3 ]
+  %.015 = phi ptr [ %4, %53 ], [ %4, %42 ], [ %39, %38 ], [ %41, %40 ], [ %4, %3 ]
+  %.0 = phi i64 [ 0, %53 ], [ %50, %42 ], [ 0, %38 ], [ 0, %40 ], [ 0, %3 ]
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 512
   %56 = load i32, ptr %55, align 8, !tbaa !28
   %57 = sext i32 %56 to i64
@@ -461,7 +461,7 @@ define hidden noalias noundef ptr @_PyPegen_raise_error(ptr noundef %0, ptr noun
   br label %64
 
 64:                                               ; preds = %45, %56, %61
-  %.035 = phi i64 [ %60, %56 ], [ %63, %61 ], [ 0, %45 ]
+  %.035 = phi i64 [ %63, %61 ], [ %60, %56 ], [ 0, %45 ]
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !38
   %narrow = tail call i32 @llvm.uadd.sat.i32(i32 %66, i32 1)
@@ -939,7 +939,7 @@ define internal fastcc ptr @get_error_line_from_tokenizer_buffers(ptr noundef re
   br i1 %.not47, label %.thread, label %23
 
 .thread:                                          ; preds = %29, %23, %.lr.ph, %21
-  %.1 = phi ptr [ %6, %21 ], [ %.03348, %.lr.ph ], [ %30, %23 ], [ %.03348, %29 ]
+  %.1 = phi ptr [ %6, %21 ], [ %30, %23 ], [ %.03348, %.lr.ph ], [ %.03348, %29 ]
   %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 10) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %36

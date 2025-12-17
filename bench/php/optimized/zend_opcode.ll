@@ -1030,8 +1030,8 @@ define dso_local void @zend_cleanup_internal_class_data(ptr noundef captures(add
   br label %78
 
 78:                                               ; preds = %.thread51, %68
-  %79 = phi i32 [ %70, %68 ], [ %.pre, %.thread51 ]
-  %.06.i = phi ptr [ %63, %68 ], [ %77, %.thread51 ]
+  %79 = phi i32 [ %.pre, %.thread51 ], [ %70, %68 ]
+  %.06.i = phi ptr [ %77, %.thread51 ], [ %63, %68 ]
   %80 = and i32 %79, -1008
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %i_zval_ptr_dtor.exit, !prof !98
@@ -1659,8 +1659,8 @@ zend_string_release_ex.exit320:                   ; preds = %zend_string_release
   br label %198
 
 198:                                              ; preds = %.thread, %188
-  %199 = phi i32 [ %190, %188 ], [ %.pre447, %.thread ]
-  %.06.i = phi ptr [ %183, %188 ], [ %197, %.thread ]
+  %199 = phi i32 [ %.pre447, %.thread ], [ %190, %188 ]
+  %.06.i = phi ptr [ %197, %.thread ], [ %183, %188 ]
   %200 = and i32 %199, -1008
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %i_zval_ptr_dtor.exit360, !prof !98
@@ -1740,8 +1740,8 @@ i_zval_ptr_dtor.exit360:                          ; preds = %202, %198, %192, %.
   br label %231
 
 231:                                              ; preds = %.thread375, %221
-  %232 = phi i32 [ %223, %221 ], [ %.pre450, %.thread375 ]
-  %.06.i369 = phi ptr [ %216, %221 ], [ %230, %.thread375 ]
+  %232 = phi i32 [ %.pre450, %.thread375 ], [ %223, %221 ]
+  %.06.i369 = phi ptr [ %230, %.thread375 ], [ %216, %221 ]
   %233 = and i32 %232, -1008
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %i_zval_ptr_dtor.exit, !prof !98
@@ -3833,7 +3833,7 @@ zend_check_finally_breakout.exit:                 ; preds = %178, %zend_get_brk_
   br i1 %exitcond.not.i175, label %zend_check_finally_breakout.exit176, label %199
 
 zend_check_finally_breakout.exit176:              ; preds = %226, %.zend_check_finally_breakout.exit176_crit_edge, %188, %185
-  %227 = phi ptr [ %.pre201, %.zend_check_finally_breakout.exit176_crit_edge ], [ %.pre202, %188 ], [ %.pre202, %185 ], [ %.pre202, %226 ]
+  %227 = phi ptr [ %.pre201, %.zend_check_finally_breakout.exit176_crit_edge ], [ %.pre202, %185 ], [ %.pre202, %188 ], [ %.pre202, %226 ]
   %228 = getelementptr inbounds nuw i8, ptr %.0138188, i64 8
   %229 = load i32, ptr %228, align 8, !tbaa !23
   %230 = zext i32 %229 to i64
@@ -4226,7 +4226,7 @@ define dso_local noundef nonnull ptr @get_binary_op(i32 noundef %0) local_unname
   unreachable
 
 22:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @sub_function, %2 ], [ @mul_function, %3 ], [ @pow_function, %4 ], [ @div_function, %5 ], [ @mod_function, %6 ], [ @shift_left_function, %7 ], [ @shift_right_function, %8 ], [ @concat_function, %9 ], [ @is_identical_function, %10 ], [ @is_not_identical_function, %11 ], [ @is_equal_function, %12 ], [ @is_not_equal_function, %13 ], [ @is_smaller_function, %14 ], [ @is_smaller_or_equal_function, %15 ], [ @compare_function, %16 ], [ @bitwise_or_function, %17 ], [ @bitwise_and_function, %18 ], [ @bitwise_xor_function, %19 ], [ @boolean_xor_function, %20 ], [ @add_function, %1 ]
+  %.0 = phi ptr [ @boolean_xor_function, %20 ], [ @sub_function, %2 ], [ @mul_function, %3 ], [ @pow_function, %4 ], [ @div_function, %5 ], [ @mod_function, %6 ], [ @shift_left_function, %7 ], [ @shift_right_function, %8 ], [ @concat_function, %9 ], [ @is_identical_function, %10 ], [ @is_not_identical_function, %11 ], [ @is_equal_function, %12 ], [ @is_not_equal_function, %13 ], [ @is_smaller_function, %14 ], [ @is_smaller_or_equal_function, %15 ], [ @compare_function, %16 ], [ @bitwise_or_function, %17 ], [ @bitwise_and_function, %18 ], [ @bitwise_xor_function, %19 ], [ @add_function, %1 ]
   ret ptr %.0
 }
 

@@ -717,7 +717,7 @@ lv_font_manager_search_refer_node.exit.i:         ; preds = %.lr.ph.i.i
 lv_font_manager_reset_freetype_font.exit:         ; preds = %lv_font_manager_reset_freetype_font.exit.preheader, %lv_font_manager_reset_freetype_font.exit
   br label %lv_font_manager_reset_freetype_font.exit
 
-27:                                               ; preds = %lv_font_manager_search_refer_node.exit.i, %24
+27:                                               ; preds = %24, %lv_font_manager_search_refer_node.exit.i
   tail call void @lv_ll_remove(ptr noundef nonnull %5, ptr noundef nonnull %.0.lcssa.i) #5
   tail call void @lv_free(ptr noundef nonnull %.0.lcssa.i) #5
   br label %28

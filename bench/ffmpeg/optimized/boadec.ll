@@ -60,7 +60,7 @@ define internal range(i32 0, 51) i32 @probe(ptr noundef readonly captures(none) 
   br label %30
 
 30:                                               ; preds = %26, %5, %9, %13, %17, %20, %23, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %26 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -122,7 +122,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %39
 
 39:                                               ; preds = %21, %3, %1, %33
-  %.0 = phi i32 [ 0, %33 ], [ -12, %1 ], [ -38, %3 ], [ -1094995529, %21 ]
+  %.0 = phi i32 [ -12, %1 ], [ -38, %3 ], [ 0, %33 ], [ -1094995529, %21 ]
   ret i32 %.0
 }
 

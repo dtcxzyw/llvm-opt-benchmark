@@ -374,7 +374,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread90
 
-.thread83:                                        ; preds = %33, %42, %34, %.thread, %.thread81
+.thread83:                                        ; preds = %33, %.thread, %42, %34, %.thread81
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread87

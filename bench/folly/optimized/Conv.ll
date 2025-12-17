@@ -354,8 +354,8 @@ _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEEN
   br label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit
 
 _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56, %37, %33, %29
-  %42 = phi i8 [ %30, %29 ], [ %34, %33 ], [ %38, %37 ], [ %23, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %20, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %17, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %14, %.lr.ph.i.i.i ]
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %29 ], [ %.1.i.i.i, %33 ], [ %.2.i.i.i, %37 ], [ %39, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %40, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %41, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %.02952.i.i.i, %.lr.ph.i.i.i ]
+  %42 = phi i8 [ %34, %33 ], [ %30, %29 ], [ %38, %37 ], [ %17, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %20, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %23, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %14, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %33 ], [ %.029.lcssa.i.i.i, %29 ], [ %.2.i.i.i, %37 ], [ %41, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %40, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %39, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %.02952.i.i.i, %.lr.ph.i.i.i ]
   %43 = icmp eq ptr %.028.i.i.i, %5
   br i1 %43, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread, label %44
 
@@ -431,7 +431,7 @@ _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEEN
   br label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread
 
 _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread: ; preds = %37, %37, %37, %37, %37, %37, %._crit_edge.i.i.i, %46, %49, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit, %1, %77
-  %.sroa.1534.0.insert.ext = phi i64 [ %78, %77 ], [ 258, %1 ], [ 258, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 2306, %49 ], [ 2306, %46 ], [ 258, %._crit_edge.i.i.i ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ]
+  %.sroa.1534.0.insert.ext = phi i64 [ %78, %77 ], [ 258, %1 ], [ 258, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIfEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 2306, %46 ], [ 2306, %49 ], [ 258, %._crit_edge.i.i.i ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ]
   ret i64 %.sroa.1534.0.insert.ext
 
 79:                                               ; preds = %66
@@ -490,7 +490,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIfcE
   br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !24
 
 .critedge:                                        ; preds = %16, %.lr.ph, %5
-  %.0 = phi ptr [ %0, %5 ], [ %scevgep, %16 ], [ %.1115, %.lr.ph ]
+  %.0 = phi ptr [ %0, %5 ], [ %.1115, %.lr.ph ], [ %scevgep, %16 ]
   %18 = icmp eq ptr %.0, %1
   br i1 %18, label %183, label %19
 
@@ -531,8 +531,8 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIfcE
   br i1 %or.cond107, label %.lr.ph122.preheader, label %_ZN10fast_float18report_parse_errorIcEENS_22parsed_number_string_tIT_EEPKS2_NS_11parse_errorE.exit35
 
 .lr.ph122.preheader:                              ; preds = %23, %34, %35
-  %36 = phi i8 [ %31, %35 ], [ %31, %34 ], [ %20, %23 ]
-  %.090 = phi ptr [ %27, %35 ], [ %27, %34 ], [ %.0, %23 ]
+  %36 = phi i8 [ %31, %35 ], [ %20, %23 ], [ %31, %34 ]
+  %.090 = phi ptr [ %27, %35 ], [ %.0, %23 ], [ %27, %34 ]
   %.090180 = ptrtoint ptr %.090 to i64
   %37 = sub i64 %6, %.090180
   %scevgep181 = getelementptr i8, ptr %.090, i64 %37
@@ -802,9 +802,9 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %or.cond110.not.not, label %_ZN10fast_float18report_parse_errorIcEENS_22parsed_number_string_tIT_EEPKS2_NS_11parse_errorE.exit35, label %.thread101
 
 .thread101:                                       ; preds = %127, %.critedge7.i, %140
-  %.6 = phi ptr [ %.2, %140 ], [ %.2, %127 ], [ %.9.lcssa.ph, %.critedge7.i ]
-  %.587.i = phi i64 [ 0, %140 ], [ 0, %127 ], [ %spec.select.i, %.critedge7.i ]
-  %.3.i = phi i64 [ %.078.i, %140 ], [ %.078.i, %127 ], [ %139, %.critedge7.i ]
+  %.6 = phi ptr [ %.2, %140 ], [ %.9.lcssa.ph, %.critedge7.i ], [ %.2, %127 ]
+  %.587.i = phi i64 [ 0, %140 ], [ %spec.select.i, %.critedge7.i ], [ 0, %127 ]
+  %.3.i = phi i64 [ %.078.i, %140 ], [ %139, %.critedge7.i ], [ %.078.i, %127 ]
   %142 = icmp sgt i64 %.077.i, 19
   br i1 %142, label %.lr.ph158, label %178
 
@@ -1081,8 +1081,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 0, %24 ], [ 22, %12 ], [ 0, %37 ], [ 0, %41 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %25, %24 ], [ %0, %12 ], [ %25, %37 ], [ %25, %41 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 22, %12 ], [ 0, %41 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %0, %12 ], [ %25, %41 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1298,8 +1298,8 @@ _ZN10fast_float29compute_product_approximationILi26EEENS_8value128Elm.exit103: ;
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit
 
 _ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit: ; preds = %126, %105, %67, %62, %108
-  %.sroa.18.1 = phi i32 [ %115, %108 ], [ 0, %62 ], [ 255, %67 ], [ 0, %105 ], [ %spec.select170, %126 ]
-  %.sroa.0127.2 = phi i64 [ %113, %108 ], [ 0, %62 ], [ 0, %67 ], [ 0, %105 ], [ %spec.select171, %126 ]
+  %.sroa.18.1 = phi i32 [ 0, %105 ], [ 0, %62 ], [ 255, %67 ], [ %115, %108 ], [ %spec.select170, %126 ]
+  %.sroa.0127.2 = phi i64 [ 0, %105 ], [ 0, %62 ], [ 0, %67 ], [ %113, %108 ], [ %spec.select171, %126 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %134 = load i8, ptr %133, align 2, !tbaa !47, !range !22, !noundef !23
   %135 = trunc nuw i8 %134 to i1
@@ -1411,8 +1411,8 @@ _ZN10fast_float29compute_product_approximationILi26EEENS_8value128Elm.exit98: ; 
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit92
 
 _ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm.exit92: ; preds = %198, %177, %139, %136, %180
-  %.sroa.18139.1 = phi i32 [ %187, %180 ], [ 0, %136 ], [ 255, %139 ], [ 0, %177 ], [ %spec.select172, %198 ]
-  %.sroa.0134.2 = phi i64 [ %185, %180 ], [ 0, %136 ], [ 0, %139 ], [ 0, %177 ], [ %spec.select173, %198 ]
+  %.sroa.18139.1 = phi i32 [ 0, %177 ], [ 0, %136 ], [ 255, %139 ], [ %187, %180 ], [ %spec.select172, %198 ]
+  %.sroa.0134.2 = phi i64 [ 0, %177 ], [ 0, %136 ], [ 0, %139 ], [ %185, %180 ], [ %spec.select173, %198 ]
   %.not.i119 = icmp ne i64 %.sroa.0127.2, %.sroa.0134.2
   %205 = icmp ne i32 %.sroa.18.1, %.sroa.18139.1
   %206 = select i1 %.not.i119, i1 true, i1 %205
@@ -1562,7 +1562,7 @@ _ZN10fast_float10digit_compIfcEENS_17adjusted_mantissaERNS_22parsed_number_strin
   br label %281
 
 281:                                              ; preds = %.thread, %52, %60, %32, %36, %47
-  %.sroa.270.0 = phi i32 [ 0, %36 ], [ 0, %32 ], [ 0, %47 ], [ 0, %60 ], [ 0, %52 ], [ %spec.select174, %.thread ]
+  %.sroa.270.0 = phi i32 [ 0, %52 ], [ 0, %36 ], [ 0, %32 ], [ 0, %47 ], [ 0, %60 ], [ %spec.select174, %.thread ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %6, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.270.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1787,7 +1787,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91: ; preds = %.crited
   br label %_ZN10fast_float6bigint3addEm.exit
 
 _ZN10fast_float6bigint3addEm.exit:                ; preds = %84, %_ZN10fast_float6bigint3mulEm.exit, %.critedge.i.i, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91
-  %.pr = phi i16 [ %81, %_ZN10fast_float6bigint3mulEm.exit ], [ %81, %.critedge.i.i ], [ %93, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91 ], [ %81, %84 ]
+  %.pr = phi i16 [ %93, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i91 ], [ %81, %_ZN10fast_float6bigint3mulEm.exit ], [ %81, %.critedge.i.i ], [ %81, %84 ]
   %94 = ptrtoint ptr %.2.lcssa to i64
   %95 = sub i64 %10, %94
   %96 = icmp sgt i64 %95, 7
@@ -1914,7 +1914,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100: ; preds = %._crit
   br label %_ZN10fast_float6bigint3mulEm.exit101
 
 _ZN10fast_float6bigint3mulEm.exit101:             ; preds = %._crit_edge.i.i97, %_ZN10fast_float12is_truncatedIcEEbNS_4spanIKT_EE.exit.thread, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100
-  %136 = phi i16 [ 0, %_ZN10fast_float12is_truncatedIcEEbNS_4spanIKT_EE.exit.thread ], [ %135, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100 ], [ %.pr, %._crit_edge.i.i97 ]
+  %136 = phi i16 [ %135, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i100 ], [ 0, %_ZN10fast_float12is_truncatedIcEEbNS_4spanIKT_EE.exit.thread ], [ %.pr, %._crit_edge.i.i97 ]
   %137 = zext i16 %136 to i64
   br label %138
 
@@ -2245,7 +2245,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146: ; preds = %.crite
   br label %_ZN10fast_float6bigint3addEm.exit147
 
 _ZN10fast_float6bigint3addEm.exit147:             ; preds = %263, %_ZN10fast_float6bigint3mulEm.exit138, %.critedge.i.i145, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146
-  %.pr261 = phi i16 [ %260, %_ZN10fast_float6bigint3mulEm.exit138 ], [ %260, %.critedge.i.i145 ], [ %272, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146 ], [ %260, %263 ]
+  %.pr261 = phi i16 [ %272, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i146 ], [ %260, %_ZN10fast_float6bigint3mulEm.exit138 ], [ %260, %.critedge.i.i145 ], [ %260, %263 ]
   %273 = ptrtoint ptr %.6.lcssa to i64
   %274 = sub i64 %198, %273
   %275 = icmp sgt i64 %274, 7
@@ -2316,7 +2316,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156: ; preds = %._crit
   br label %_ZN10fast_float6bigint3mulEm.exit157
 
 _ZN10fast_float6bigint3mulEm.exit157:             ; preds = %._crit_edge.i.i153, %.loopexit, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156
-  %298 = phi i16 [ 0, %.loopexit ], [ %297, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156 ], [ %.pr261, %._crit_edge.i.i153 ]
+  %298 = phi i16 [ %297, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i156 ], [ 0, %.loopexit ], [ %.pr261, %._crit_edge.i.i153 ]
   %299 = zext i16 %298 to i64
   br label %300
 
@@ -2632,8 +2632,8 @@ define linkonce_odr { i64, i32 } @_ZN10fast_float19negative_digit_compIfEENS_17a
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.14.1 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.1 = phi i64 [ %storemerge.i.i, %6 ], [ %spec.select97, %13 ]
+  %.sroa.14.1 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.1 = phi i64 [ %spec.select97, %13 ], [ %storemerge.i.i, %6 ]
   %18 = trunc i64 %.sroa.0.1 to i32
   %19 = shl nuw nsw i32 %.sroa.14.1, 23
   %.masked = and i32 %18, 2139095040
@@ -2853,8 +2853,8 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %93, %59, %88, %_ZN1
   br i1 %.not24.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %111, %118, %_ZN10fast_float6bigint4pow2Ej.exit, %108
-  %119 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ false, %.preheader.i ], [ false, %118 ], [ true, %111 ]
-  %.not.i.i53 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %108 ], [ %.not.i50, %118 ], [ %.not.i50, %111 ], [ %.not.i50, %.preheader.i ]
+  %119 = phi i1 [ false, %108 ], [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %118 ], [ true, %111 ]
+  %.not.i.i53 = phi i1 [ false, %108 ], [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ %.not.i50, %118 ], [ %.not.i50, %111 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
 _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit: ; preds = %_ZNK10fast_float6bigint7compareERKS0_.exit
@@ -2893,8 +2893,8 @@ _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_i
   br label %_ZN10fast_float5roundIfZNS_19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit
 
 _ZN10fast_float5roundIfZNS_19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit: ; preds = %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
-  %.sroa.12.1 = phi i32 [ %128, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %134, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ]
-  %.sroa.071.1 = phi i64 [ %126, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %spec.select101, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ]
+  %.sroa.12.1 = phi i32 [ %134, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ], [ %128, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
+  %.sroa.071.1 = phi i64 [ %spec.select101, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ], [ %126, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.071.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1
@@ -3284,7 +3284,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ; preds = %.crite
   br i1 %100, label %91, label %.critedge.us, !llvm.loop !61
 
 .critedge.us:                                     ; preds = %96, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i49.us, %73, %.lr.ph.split.us
-  %103 = phi i16 [ %74, %73 ], [ %95, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %74, %._crit_edge.i49.us ], [ %34, %.lr.ph.split.us ], [ %74, %96 ]
+  %103 = phi i16 [ %34, %.lr.ph.split.us ], [ %74, %73 ], [ %95, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %74, %._crit_edge.i49.us ], [ %74, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = add nuw i64 %.02769.us, 1
   %exitcond75.not = icmp eq i64 %104, %2
@@ -3534,8 +3534,8 @@ _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEEN
   br label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit
 
 _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56, %37, %33, %29
-  %42 = phi i8 [ %30, %29 ], [ %34, %33 ], [ %38, %37 ], [ %23, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %20, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %17, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %14, %.lr.ph.i.i.i ]
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %29 ], [ %.1.i.i.i, %33 ], [ %.2.i.i.i, %37 ], [ %39, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %40, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %41, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %.02952.i.i.i, %.lr.ph.i.i.i ]
+  %42 = phi i8 [ %34, %33 ], [ %30, %29 ], [ %38, %37 ], [ %17, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %20, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %23, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %14, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %33 ], [ %.029.lcssa.i.i.i, %29 ], [ %.2.i.i.i, %37 ], [ %41, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit56 ], [ %40, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit53 ], [ %39, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.loopexit.split.loop.exit ], [ %.02952.i.i.i, %.lr.ph.i.i.i ]
   %43 = icmp eq ptr %.028.i.i.i, %5
   br i1 %43, label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread, label %44
 
@@ -3605,14 +3605,14 @@ _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEEN
   br label %75
 
 75:                                               ; preds = %69, %52, %72, %73
-  %.sroa.8.1 = phi i64 [ 1, %72 ], [ 1, %73 ], [ 2306, %52 ], [ 1, %69 ]
-  %.sroa.1534.1 = phi double [ 0x7FF0000000000000, %72 ], [ %74, %73 ], [ 0.000000e+00, %52 ], [ 0xFFF0000000000000, %69 ]
+  %.sroa.8.1 = phi i64 [ 1, %73 ], [ 2306, %52 ], [ 1, %72 ], [ 1, %69 ]
+  %.sroa.1534.1 = phi double [ %74, %73 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %72 ], [ 0xFFF0000000000000, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread
 
 _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit.thread: ; preds = %37, %37, %37, %37, %37, %37, %._crit_edge.i.i.i, %49, %46, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit, %1, %75
-  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %75 ], [ 258, %1 ], [ 258, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 2306, %46 ], [ 2306, %49 ], [ 258, %._crit_edge.i.i.i ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ]
-  %.sroa.1534.0 = phi double [ %.sroa.1534.1, %75 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 0.000000e+00, %46 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %._crit_edge.i.i.i ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %75 ], [ 258, %1 ], [ 2306, %49 ], [ 258, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 2306, %46 ], [ 258, %._crit_edge.i.i.i ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ], [ 258, %37 ]
+  %.sroa.1534.0 = phi double [ %.sroa.1534.1, %75 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %49 ], [ 0.000000e+00, %_ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEENS2_8ExpectedIT_NS2_14ConversionCodeEEEPNS2_5RangeIS1_EEEUlcE_ES6_S6_S6_T0_.exit ], [ 0.000000e+00, %46 ], [ 0.000000e+00, %._crit_edge.i.i.i ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %37 ]
   %.fca.0.insert = insertvalue { i64, double } poison, i64 %.sroa.8.0, 0
   %.fca.1.insert = insertvalue { i64, double } %.fca.0.insert, double %.sroa.1534.0, 1
   ret { i64, double } %.fca.1.insert
@@ -3656,7 +3656,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
   br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !82
 
 .critedge:                                        ; preds = %16, %.lr.ph, %5
-  %.0 = phi ptr [ %0, %5 ], [ %scevgep, %16 ], [ %.1115, %.lr.ph ]
+  %.0 = phi ptr [ %0, %5 ], [ %.1115, %.lr.ph ], [ %scevgep, %16 ]
   %18 = icmp eq ptr %.0, %1
   br i1 %18, label %183, label %19
 
@@ -3697,8 +3697,8 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
   br i1 %or.cond107, label %.lr.ph122.preheader, label %_ZN10fast_float18report_parse_errorIcEENS_22parsed_number_string_tIT_EEPKS2_NS_11parse_errorE.exit35
 
 .lr.ph122.preheader:                              ; preds = %23, %34, %35
-  %36 = phi i8 [ %31, %35 ], [ %31, %34 ], [ %20, %23 ]
-  %.090 = phi ptr [ %27, %35 ], [ %27, %34 ], [ %.0, %23 ]
+  %36 = phi i8 [ %31, %35 ], [ %20, %23 ], [ %31, %34 ]
+  %.090 = phi ptr [ %27, %35 ], [ %.0, %23 ], [ %27, %34 ]
   %.090180 = ptrtoint ptr %.090 to i64
   %37 = sub i64 %6, %.090180
   %scevgep181 = getelementptr i8, ptr %.090, i64 %37
@@ -3968,9 +3968,9 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %or.cond110.not.not, label %_ZN10fast_float18report_parse_errorIcEENS_22parsed_number_string_tIT_EEPKS2_NS_11parse_errorE.exit35, label %.thread101
 
 .thread101:                                       ; preds = %127, %.critedge7.i, %140
-  %.6 = phi ptr [ %.2, %140 ], [ %.2, %127 ], [ %.9.lcssa.ph, %.critedge7.i ]
-  %.587.i = phi i64 [ 0, %140 ], [ 0, %127 ], [ %spec.select.i, %.critedge7.i ]
-  %.3.i = phi i64 [ %.078.i, %140 ], [ %.078.i, %127 ], [ %139, %.critedge7.i ]
+  %.6 = phi ptr [ %.2, %140 ], [ %.9.lcssa.ph, %.critedge7.i ], [ %.2, %127 ]
+  %.587.i = phi i64 [ 0, %140 ], [ %spec.select.i, %.critedge7.i ], [ 0, %127 ]
+  %.3.i = phi i64 [ %.078.i, %140 ], [ %139, %.critedge7.i ], [ %.078.i, %127 ]
   %142 = icmp sgt i64 %.077.i, 19
   br i1 %142, label %.lr.ph158, label %178
 
@@ -4247,8 +4247,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 0, %24 ], [ 22, %12 ], [ 0, %37 ], [ 0, %41 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %25, %24 ], [ %0, %12 ], [ %25, %37 ], [ %25, %41 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %27 ], [ 22, %12 ], [ 0, %41 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %27 ], [ %0, %12 ], [ %25, %41 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4464,8 +4464,8 @@ _ZN10fast_float29compute_product_approximationILi55EEENS_8value128Elm.exit106: ;
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit
 
 _ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit: ; preds = %128, %107, %67, %62, %110
-  %.sroa.18.1 = phi i32 [ %117, %110 ], [ 0, %62 ], [ 2047, %67 ], [ 0, %107 ], [ %spec.select161, %128 ]
-  %.sroa.0118.2 = phi i64 [ %115, %110 ], [ 0, %62 ], [ 0, %67 ], [ 0, %107 ], [ %spec.select162, %128 ]
+  %.sroa.18.1 = phi i32 [ 0, %107 ], [ 0, %62 ], [ 2047, %67 ], [ %117, %110 ], [ %spec.select161, %128 ]
+  %.sroa.0118.2 = phi i64 [ 0, %107 ], [ 0, %62 ], [ 0, %67 ], [ %115, %110 ], [ %spec.select162, %128 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %136 = load i8, ptr %135, align 2, !tbaa !47, !range !22, !noundef !23
   %137 = trunc nuw i8 %136 to i1
@@ -4577,8 +4577,8 @@ _ZN10fast_float29compute_product_approximationILi55EEENS_8value128Elm.exit99: ; 
   br label %_ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit92
 
 _ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm.exit92: ; preds = %202, %181, %141, %138, %184
-  %.sroa.18130.1 = phi i32 [ %191, %184 ], [ 0, %138 ], [ 2047, %141 ], [ 0, %181 ], [ %spec.select163, %202 ]
-  %.sroa.0125.2 = phi i64 [ %189, %184 ], [ 0, %138 ], [ 0, %141 ], [ 0, %181 ], [ %spec.select164, %202 ]
+  %.sroa.18130.1 = phi i32 [ 0, %181 ], [ 0, %138 ], [ 2047, %141 ], [ %191, %184 ], [ %spec.select163, %202 ]
+  %.sroa.0125.2 = phi i64 [ 0, %181 ], [ 0, %138 ], [ 0, %141 ], [ %189, %184 ], [ %spec.select164, %202 ]
   %.not.i110 = icmp ne i64 %.sroa.0118.2, %.sroa.0125.2
   %209 = icmp ne i32 %.sroa.18.1, %.sroa.18130.1
   %210 = select i1 %.not.i110, i1 true, i1 %209
@@ -4728,7 +4728,7 @@ _ZN10fast_float10digit_compIdcEENS_17adjusted_mantissaERNS_22parsed_number_strin
   br label %287
 
 287:                                              ; preds = %.thread, %52, %60, %32, %36, %47
-  %.sroa.270.0 = phi i32 [ 0, %36 ], [ 0, %32 ], [ 0, %47 ], [ 0, %60 ], [ 0, %52 ], [ %spec.select165, %.thread ]
+  %.sroa.270.0 = phi i32 [ 0, %52 ], [ 0, %36 ], [ 0, %32 ], [ 0, %47 ], [ 0, %60 ], [ %spec.select165, %.thread ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %6, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.270.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4931,8 +4931,8 @@ define linkonce_odr { i64, i32 } @_ZN10fast_float19negative_digit_compIdEENS_17a
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.14.1 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.1 = phi i64 [ %storemerge.i.i, %6 ], [ %spec.select97, %13 ]
+  %.sroa.14.1 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.1 = phi i64 [ %spec.select97, %13 ], [ %storemerge.i.i, %6 ]
   %18 = zext nneg i32 %.sroa.14.1 to i64
   %19 = shl nuw nsw i64 %18, 52
   %.sroa.0.1.masked = and i64 %.sroa.0.1, 9218868437227405312
@@ -5153,8 +5153,8 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %94, %60, %89, %_ZN1
   br i1 %.not24.i, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !71
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %112, %119, %_ZN10fast_float6bigint4pow2Ej.exit, %109
-  %120 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ false, %.preheader.i ], [ false, %119 ], [ true, %112 ]
-  %.not.i.i53 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %109 ], [ %.not.i50, %119 ], [ %.not.i50, %112 ], [ %.not.i50, %.preheader.i ]
+  %120 = phi i1 [ false, %109 ], [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %119 ], [ true, %112 ]
+  %.not.i.i53 = phi i1 [ false, %109 ], [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ %.not.i50, %119 ], [ %.not.i50, %112 ], [ %.not.i50, %.preheader.i ]
   br i1 %.not.i, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
 _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit: ; preds = %_ZNK10fast_float6bigint7compareERKS0_.exit
@@ -5193,8 +5193,8 @@ _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_i
   br label %_ZN10fast_float5roundIdZNS_19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit
 
 _ZN10fast_float5roundIdZNS_19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES2_iEUlRS2_iE0_EEvS5_T0_.exit: ; preds = %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
-  %.sroa.12.1 = phi i32 [ %129, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %135, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ]
-  %.sroa.071.1 = phi i64 [ %127, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %spec.select101, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ]
+  %.sroa.12.1 = phi i32 [ %135, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ], [ %129, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
+  %.sroa.071.1 = phi i64 [ %spec.select101, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit59 ], [ %127, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.071.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1
@@ -5451,9 +5451,9 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %140 ], [ 2, %135 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %140 ], [ 8, %135 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %140 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %121 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %121 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %121 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5705,9 +5705,9 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %140 ], [ 2, %135 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %140 ], [ 8, %135 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %140 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.071.0 = phi i8 [ 2, %5 ], [ 2, %39 ], [ 2, %131 ], [ 2, %121 ], [ 2, %78 ], [ 2, %103 ], [ 2, %135 ], [ 1, %140 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %40, %39 ], [ 2, %131 ], [ 5, %121 ], [ 5, %78 ], [ 5, %103 ], [ 8, %135 ], [ 0, %140 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %5 ], [ 0, %39 ], [ 0, %131 ], [ 0, %121 ], [ 0, %78 ], [ 0, %103 ], [ 0, %135 ], [ %.0.i57, %140 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5915,9 +5915,9 @@ sub_2:                                            ; preds = %sub_1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %112, %94, %69, %122, %.tail, %.thread, %124
-  %.sroa.064.0 = phi i8 [ 1, %124 ], [ 2, %.thread ], [ 2, %.tail ], [ 2, %122 ], [ 2, %69 ], [ 2, %94 ], [ 2, %112 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.6.0 = phi i8 [ 0, %124 ], [ 7, %.thread ], [ 7, %.tail ], [ 2, %122 ], [ 5, %69 ], [ 5, %94 ], [ 5, %112 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.10.0 = phi i8 [ %.343, %124 ], [ 0, %.thread ], [ 0, %.tail ], [ 0, %122 ], [ 0, %69 ], [ 0, %94 ], [ 0, %112 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.064.0 = phi i8 [ 1, %124 ], [ 2, %122 ], [ 2, %.tail ], [ 2, %.thread ], [ 2, %69 ], [ 2, %94 ], [ 2, %112 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.6.0 = phi i8 [ 0, %124 ], [ 2, %122 ], [ 7, %.tail ], [ 7, %.thread ], [ 5, %69 ], [ 5, %94 ], [ 5, %112 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.10.0 = phi i8 [ %.343, %124 ], [ 0, %122 ], [ 0, %.tail ], [ 0, %.thread ], [ 0, %69 ], [ 0, %94 ], [ 0, %112 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.10.0.insert.ext = zext i8 %.sroa.10.0 to i24
   %.sroa.10.0.insert.shift = shl nuw i24 %.sroa.10.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext nneg i8 %.sroa.6.0 to i24
@@ -6151,7 +6151,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit: ; preds = %129, %127, %124
-  %.sroa.4.0.insert.insert.i = phi i32 [ %132, %129 ], [ 2050, %124 ], [ 1794, %127 ]
+  %.sroa.4.0.insert.insert.i = phi i32 [ 2050, %124 ], [ %132, %129 ], [ 1794, %127 ]
   %.sroa.7.0.extract.shift = lshr i32 %.sroa.4.0.insert.insert.i, 8
   %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
   %.sroa.12.0.extract.shift = and i32 %.sroa.4.0.insert.insert.i, -65536
@@ -6159,9 +6159,9 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8Expect
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %111, %93, %68, %120, %5, %29, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit
-  %.sroa.070.0 = phi i32 [ 2, %29 ], [ %133, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 2, %5 ], [ 2, %120 ], [ 2, %68 ], [ 2, %93 ], [ 2, %111 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 6, %5 ], [ 2, %120 ], [ 5, %68 ], [ 5, %93 ], [ 5, %111 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i32 [ 0, %29 ], [ %.sroa.12.0.extract.shift, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 0, %5 ], [ 0, %120 ], [ 0, %68 ], [ 0, %93 ], [ 0, %111 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i32 [ 2, %5 ], [ 2, %29 ], [ 2, %120 ], [ %133, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 2, %68 ], [ 2, %93 ], [ 2, %111 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %120 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 5, %68 ], [ 5, %93 ], [ 5, %111 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i32 [ 0, %5 ], [ 0, %29 ], [ 0, %120 ], [ %.sroa.12.0.extract.shift, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE8finalizeItEENS_8ExpectedIsNS_14ConversionCodeEEET_.exit ], [ 0, %68 ], [ 0, %93 ], [ 0, %111 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i32
   %.sroa.7.0.insert.shift = shl nuw nsw i32 %.sroa.7.0.insert.ext, 8
   %.sroa.7.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.shift, %.sroa.12.0
@@ -6351,7 +6351,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %102, %84, %59, %111, %19, %.thread, %113
-  %.sroa.6.0.insert.insert = phi i32 [ %116, %113 ], [ 1794, %.thread ], [ 1794, %19 ], [ 514, %111 ], [ 1282, %59 ], [ 1282, %84 ], [ 1282, %102 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.6.0.insert.insert = phi i32 [ %116, %113 ], [ 514, %111 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %84 ], [ 1282, %102 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
   ret i32 %.sroa.6.0.insert.insert
 }
 
@@ -6574,7 +6574,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit: ; preds = %125, %123, %120
-  %.sroa.4.0.insert.insert.i = phi i64 [ %128, %125 ], [ 2050, %120 ], [ 1794, %123 ]
+  %.sroa.4.0.insert.insert.i = phi i64 [ 2050, %120 ], [ %128, %125 ], [ 1794, %123 ]
   %.sroa.7.0.extract.shift = lshr i64 %.sroa.4.0.insert.insert.i, 8
   %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
   %129 = and i64 %.sroa.4.0.insert.insert.i, -65536
@@ -6582,9 +6582,9 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8Expect
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %106, %90, %67, %116, %5, %29, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ %130, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 2, %5 ], [ 2, %116 ], [ 2, %67 ], [ 2, %90 ], [ 2, %106 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 6, %5 ], [ 2, %116 ], [ 5, %67 ], [ 5, %90 ], [ 5, %106 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.1271.0 = phi i64 [ 0, %29 ], [ %129, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 0, %5 ], [ 0, %116 ], [ 0, %67 ], [ 0, %90 ], [ 0, %106 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %116 ], [ %130, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 2, %67 ], [ 2, %90 ], [ 2, %106 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %116 ], [ %.sroa.7.0.extract.trunc, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 5, %67 ], [ 5, %90 ], [ 5, %106 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.1271.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %116 ], [ %129, %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE8finalizeIjEENS_8ExpectedIiNS_14ConversionCodeEEET_.exit ], [ 0, %67 ], [ 0, %90 ], [ 0, %106 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.7.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.1271.0
@@ -6770,7 +6770,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %97, %81, %58, %107, %19, %.thread, %109
-  %.sroa.6.0.insert.insert = phi i64 [ %112, %109 ], [ 1794, %.thread ], [ 1794, %19 ], [ 514, %107 ], [ 1282, %58 ], [ 1282, %81 ], [ 1282, %97 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.6.0.insert.insert = phi i64 [ %112, %109 ], [ 514, %107 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %58 ], [ 1282, %81 ], [ 1282, %97 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
   ret i64 %.sroa.6.0.insert.insert
 }
 
@@ -6993,17 +6993,17 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br label %129
 
 129:                                              ; preds = %128, %126, %123
-  %.sroa.4.0.i = phi i64 [ 1, %128 ], [ 2050, %123 ], [ 1794, %126 ]
-  %.sroa.7.sroa.1.0.i = phi i64 [ %.0.i56, %128 ], [ 0, %123 ], [ 0, %126 ]
+  %.sroa.4.0.i = phi i64 [ 2050, %123 ], [ 1, %128 ], [ 1794, %126 ]
+  %.sroa.7.sroa.1.0.i = phi i64 [ 0, %123 ], [ %.0.i56, %128 ], [ 0, %126 ]
   %.sroa.7.0.extract.shift = lshr i64 %.sroa.4.0.i, 8
   %.sroa.7.0.extract.trunc = trunc nuw nsw i64 %.sroa.7.0.extract.shift to i8
   %130 = and i64 %.sroa.4.0.i, 3
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %109, %92, %68, %119, %5, %29, %129
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ %130, %129 ], [ 2, %5 ], [ 2, %119 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 6, %5 ], [ 2, %119 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %5 ], [ 0, %119 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ %130, %129 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.070.0
@@ -7190,8 +7190,8 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
-  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 1794, %.thread ], [ 1794, %19 ], [ 514, %110 ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %110 ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7416,17 +7416,17 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br label %129
 
 129:                                              ; preds = %128, %126, %123
-  %.sroa.4.0.i = phi i64 [ 1, %128 ], [ 2050, %123 ], [ 1794, %126 ]
-  %.sroa.7.sroa.1.0.i = phi i64 [ %.0.i56, %128 ], [ 0, %123 ], [ 0, %126 ]
+  %.sroa.4.0.i = phi i64 [ 2050, %123 ], [ 1, %128 ], [ 1794, %126 ]
+  %.sroa.7.sroa.1.0.i = phi i64 [ 0, %123 ], [ %.0.i56, %128 ], [ 0, %126 ]
   %.sroa.7.0.extract.shift = lshr i64 %.sroa.4.0.i, 8
   %.sroa.7.0.extract.trunc = trunc nuw nsw i64 %.sroa.7.0.extract.shift to i8
   %130 = and i64 %.sroa.4.0.i, 3
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %109, %92, %68, %119, %5, %29, %129
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ %130, %129 ], [ 2, %5 ], [ 2, %119 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 6, %5 ], [ 2, %119 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %5 ], [ 0, %119 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.070.0 = phi i64 [ 2, %5 ], [ 2, %29 ], [ 2, %119 ], [ %130, %129 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ 6, %5 ], [ %30, %29 ], [ 2, %119 ], [ %.sroa.7.0.extract.trunc, %129 ], [ 5, %68 ], [ 5, %92 ], [ 5, %109 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %29 ], [ 0, %119 ], [ %.sroa.7.sroa.1.0.i, %129 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.070.0
@@ -7613,8 +7613,8 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %100, %83, %59, %110, %19, %.thread, %112
-  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 1794, %.thread ], [ 1794, %19 ], [ 514, %110 ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %110 ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.6.0 = phi i64 [ 1, %112 ], [ 514, %110 ], [ 1794, %19 ], [ 1794, %.thread ], [ 1282, %59 ], [ 1282, %83 ], [ 1282, %100 ], [ 1282, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.10.sroa.2.0 = phi i64 [ %.342, %112 ], [ 0, %110 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %59 ], [ 0, %83 ], [ 0, %100 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7767,9 +7767,9 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
+  %.sroa.044.0 = phi i8 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -7979,9 +7979,9 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
+  %.sroa.044.0 = phi i8 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ 2, %15 ], [ 5, %16 ], [ 6, %11 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -8273,8 +8273,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZN5folly6detail12_
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %7, %1, %41, %38, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i32 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.8.0.insert.insert = phi i32 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.044.0 = phi i32 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i32 [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.044.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %.sroa.044.0
   ret i32 %.sroa.044.0.insert.insert
 
@@ -8551,8 +8551,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %_ZN5folly6detail12_
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %7, %1, %41, %38, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.045.0 = phi i64 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
-  %.sroa.8.0.insert.insert = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
+  %.sroa.045.0 = phi i64 [ 2, %15 ], [ 2, %16 ], [ 2, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %38 ], [ 2, %41 ], [ 2, %1 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i64 [ 512, %15 ], [ 1280, %16 ], [ 1536, %11 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %1 ], [ 256, %7 ]
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.045.0
   ret i64 %.sroa.045.0.insert.insert
 
@@ -8828,8 +8828,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %46
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %7, %1, %44, %41, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.8.0 = phi i64 [ 1538, %11 ], [ 514, %15 ], [ 1282, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.13.sroa.2.0 = phi i64 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.8.0 = phi i64 [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.13.sroa.2.0 = phi i64 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.8.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.13.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9109,8 +9109,8 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %46
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %7, %1, %44, %41, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.8.0 = phi i64 [ 1538, %11 ], [ 514, %15 ], [ 1282, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
-  %.sroa.13.sroa.2.0 = phi i64 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.8.0 = phi i64 [ 514, %15 ], [ 1282, %16 ], [ 1538, %11 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 2050, %41 ], [ 1794, %44 ], [ 258, %1 ], [ 258, %7 ]
+  %.sroa.13.sroa.2.0 = phi i64 [ 0, %15 ], [ 0, %16 ], [ 0, %11 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %41 ], [ 0, %44 ], [ 0, %1 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.8.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.13.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9359,7 +9359,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %exitcond211 = icmp eq i64 %.021.i.add, 3
   br i1 %exitcond211, label %.critedge, label %.lr.ph.i, !llvm.loop !129
 
-31:                                               ; preds = %25, %.lr.ph.i
+31:                                               ; preds = %.lr.ph.i, %25
   %32 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
   br label %.critedge
 
@@ -9384,7 +9384,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %exitcond204 = icmp eq i64 %.021.i23.add, 2
   br i1 %exitcond204, label %.critedge, label %.lr.ph.i22, !llvm.loop !129
 
-41:                                               ; preds = %35, %.lr.ph.i22
+41:                                               ; preds = %.lr.ph.i22, %35
   %42 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
   br label %.critedge
 
@@ -9409,7 +9409,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %exitcond197 = icmp eq i64 %.021.i31.add, 4
   br i1 %exitcond197, label %.critedge, label %.lr.ph.i30, !llvm.loop !129
 
-51:                                               ; preds = %45, %.lr.ph.i30
+51:                                               ; preds = %.lr.ph.i30, %45
   %52 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
   br label %.critedge
 
@@ -9434,7 +9434,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %exitcond187 = icmp eq i64 %.021.i39.add, 5
   br i1 %exitcond187, label %.critedge, label %.lr.ph.i38, !llvm.loop !129
 
-61:                                               ; preds = %55, %.lr.ph.i38
+61:                                               ; preds = %.lr.ph.i38, %55
   %62 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
   br label %.critedge
 
@@ -9445,14 +9445,14 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %64 = icmp eq ptr %.01420.i48, %4
   br i1 %64, label %.lr.ph.i54.preheader, label %65
 
-.lr.ph.i54.preheader:                             ; preds = %65, %.lr.ph.i46
-  br label %.lr.ph.i54
-
 65:                                               ; preds = %.lr.ph.i46
   %66 = load i8, ptr %.01420.i48, align 1, !tbaa !14
   %67 = or i8 %66, 32
   %.not15.i49 = icmp eq i8 %67, %63
   br i1 %.not15.i49, label %68, label %.lr.ph.i54.preheader
+
+.lr.ph.i54.preheader:                             ; preds = %.lr.ph.i46, %65
+  br label %.lr.ph.i54
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.01420.i48, i64 1
@@ -9484,15 +9484,15 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
 .critedge:                                        ; preds = %68, %76, %58, %48, %38, %28, %18, %.lr.ph134, %11, %61, %51, %41, %31
-  %.188 = phi i8 [ 1, %31 ], [ 0, %41 ], [ 1, %51 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ 0, %76 ], [ 1, %68 ]
-  %.2 = phi ptr [ %32, %31 ], [ %42, %41 ], [ %52, %51 ], [ %62, %61 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %indvars.iv189, %48 ], [ %indvars.iv179, %58 ], [ %indvars.iv169, %76 ], [ %indvars.iv, %68 ]
+  %.188 = phi i8 [ 1, %31 ], [ 0, %41 ], [ 1, %51 ], [ 0, %61 ], [ 0, %11 ], [ 0, %76 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ %20, %18 ], [ 1, %68 ]
+  %.2 = phi ptr [ %32, %31 ], [ %42, %41 ], [ %52, %51 ], [ %62, %61 ], [ %.0129, %11 ], [ %indvars.iv169, %76 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %indvars.iv189, %48 ], [ %indvars.iv179, %58 ], [ %scevgep, %18 ], [ %indvars.iv, %68 ]
   store ptr %.2, ptr %0, align 8, !tbaa !7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %.lr.ph, %.lr.ph.i54, %73, %15, %1, %.critedge
-  %.sroa.086.0 = phi i8 [ 1, %.critedge ], [ 2, %1 ], [ 2, %15 ], [ 2, %73 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
-  %.sroa.6.0 = phi i8 [ 0, %.critedge ], [ 1, %1 ], [ 3, %15 ], [ 4, %73 ], [ 4, %.lr.ph.i54 ], [ 1, %9 ], [ 4, %.lr.ph ]
-  %.sroa.11.0 = phi i8 [ %.188, %.critedge ], [ 0, %1 ], [ 0, %15 ], [ 0, %73 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
+.loopexit:                                        ; preds = %9, %.lr.ph, %73, %.lr.ph.i54, %15, %1, %.critedge
+  %.sroa.086.0 = phi i8 [ 1, %.critedge ], [ 2, %1 ], [ 2, %73 ], [ 2, %15 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
+  %.sroa.6.0 = phi i8 [ 0, %.critedge ], [ 1, %1 ], [ 4, %73 ], [ 3, %15 ], [ 4, %.lr.ph.i54 ], [ 1, %9 ], [ 4, %.lr.ph ]
+  %.sroa.11.0 = phi i8 [ %.188, %.critedge ], [ 0, %1 ], [ 0, %73 ], [ 0, %15 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
   %.sroa.11.0.insert.ext = zext nneg i8 %.sroa.11.0 to i24
   %.sroa.11.0.insert.shift = shl nuw nsw i24 %.sroa.11.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext nneg i8 %.sroa.6.0 to i24

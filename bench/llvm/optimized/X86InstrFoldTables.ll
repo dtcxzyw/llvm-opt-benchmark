@@ -412,7 +412,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18matchBroadcastSizeERKNS_17X86Fold
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %9
-  %.0 = phi i1 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ false, %2 ]
+  %.0 = phi i1 [ %14, %13 ], [ %10, %9 ], [ %12, %11 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -543,7 +543,7 @@ _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us46: ; pred
   br i1 %.not11.us47, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph.split.split.split.us, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us46, %47, %47, %37, %37, %.lr.ph.split.split.us.split, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us31, %27, %27, %.lr.ph.split.us.split.split, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us, %.lr.ph, %_ZN4llvm11lower_boundIRSt6vectorINS_17X86FoldTableEntryESaIS2_EERjEEDaOT_OT0_.exit
-  %55 = phi ptr [ null, %_ZN4llvm11lower_boundIRSt6vectorINS_17X86FoldTableEntryESaIS2_EERjEEDaOT_OT0_.exit ], [ null, %.lr.ph ], [ %.sroa.03.013.us, %27 ], [ %.sroa.03.013.us, %27 ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us ], [ null, %.lr.ph.split.us.split.split ], [ %.sroa.03.013.us29, %37 ], [ %.sroa.03.013.us29, %37 ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us31 ], [ null, %.lr.ph.split.split.us.split ], [ %.sroa.03.013.us44, %47 ], [ %.sroa.03.013.us44, %47 ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us46 ], [ null, %.lr.ph.split.split.split.us ]
+  %55 = phi ptr [ null, %.lr.ph ], [ %.sroa.03.013.us29, %37 ], [ %.sroa.03.013.us, %27 ], [ null, %_ZN4llvm11lower_boundIRSt6vectorINS_17X86FoldTableEntryESaIS2_EERjEEDaOT_OT0_.exit ], [ %.sroa.03.013.us, %27 ], [ null, %.lr.ph.split.us.split.split ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us ], [ null, %.lr.ph.split.split.us.split ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us31 ], [ %.sroa.03.013.us29, %37 ], [ %.sroa.03.013.us44, %47 ], [ null, %.lr.ph.split.split.split.us ], [ %.sroa.03.013.us44, %47 ], [ null, %_ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us46 ]
   ret ptr %55
 }
 

@@ -238,7 +238,7 @@ define hidden void @"_ZN107_$LT$heed..iterator..iter..RoIter$LT$KC$C$DC$C$IM$GT$
   unreachable
 
 common.resume:                                    ; preds = %116, %124, %.body, %92, %.body46, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %80, %92 ], [ %eh.lpad-body, %.body ], [ %80, %.body46 ], [ %117, %124 ], [ %117, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %80, %.body46 ], [ %45, %44 ], [ %80, %92 ], [ %eh.lpad-body, %.body ], [ %117, %124 ], [ %117, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core3ops8function6FnOnce9call_once17hd16bbad53d7a9ea6E.llvm.1502689326356229583.exit.i: ; preds = %.noexc.i.i.i.i
@@ -1587,7 +1587,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   br label %_ZN4core3ops8function6FnOnce9call_once17h29bd8b56c6ac67f7E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h29bd8b56c6ac67f7E.exit: ; preds = %2, %14, %17, %22
-  %.sroa.0.0.i.i.i.i.i = phi i1 [ false, %14 ], [ false, %2 ], [ %29, %22 ], [ false, %17 ]
+  %.sroa.0.0.i.i.i.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %29, %22 ], [ false, %17 ]
   ret i1 %.sroa.0.0.i.i.i.i.i
 }
 
@@ -2357,7 +2357,7 @@ define hidden void @_ZN4gpui3app10AppContext10set_global17hbd8a85cca7ccb918E.llv
   ret void
 
 "_ZN4core3ptr70drop_in_place$LT$indexed_docs..registry..GlobalIndexedDocsRegistry$GT$17hf6303576388a9962E.exit8": ; preds = %38, %46, %17, %13, %47, %51
-  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %51 ], [ %48, %47 ], [ %14, %13 ], [ %14, %17 ], [ %39, %46 ], [ %39, %38 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %47 ], [ %39, %38 ], [ %48, %51 ], [ %14, %17 ], [ %14, %13 ], [ %39, %46 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 47:                                               ; preds = %2
@@ -3374,7 +3374,7 @@ define hidden void @_ZN4gpui8executor5Scope5spawn17ha9a41ddf368aac51E(ptr noalia
   ret void
 
 .body.thread:                                     ; preds = %30, %19
-  %eh.lpad-body21 = phi { ptr, i32 } [ %20, %19 ], [ %31, %30 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %31, %30 ], [ %20, %19 ]
   resume { ptr, i32 } %eh.lpad-body21
 }
 
@@ -3657,7 +3657,7 @@ define hidden void @_ZN4heed3env14EnvOpenOptions4open17ha0c648764866fdb2E(ptr de
           to label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf991704b1d272c80E.exit" unwind label %43
 
 .body:                                            ; preds = %58, %43, %315, %.body262
-  %.pn236 = phi { ptr, i32 } [ %.pn234, %.body262 ], [ %.pn232, %315 ], [ %44, %43 ], [ %59, %58 ]
+  %.pn236 = phi { ptr, i32 } [ %.pn232, %315 ], [ %.pn234, %.body262 ], [ %44, %43 ], [ %59, %58 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf2e6c34411dc009fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #39
           to label %572 unwind label %333
 
@@ -3969,7 +3969,7 @@ default.unreachable:                              ; preds = %75
   br label %571
 
 _ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.exit: ; preds = %88, %85, %81
-  %.sroa.0.0.i = phi i8 [ %spec.select.i.i.i, %81 ], [ %87, %85 ], [ %90, %88 ]
+  %.sroa.0.0.i = phi i8 [ %90, %88 ], [ %spec.select.i.i.i, %81 ], [ %87, %85 ]
   %164 = icmp eq i8 %.sroa.0.0.i, 0
   br i1 %164, label %_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.exit.thread363, label %_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.exit.thread
 
@@ -4383,7 +4383,7 @@ _ZN3std4path4Path4join17hda021b309ecff34cE.exit:  ; preds = %202
   br label %"_ZN4core3ptr111drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$std..path..PathBuf$C$heed..env..EnvEntry$GT$$GT$17h4704d4ad025bba93E.exit288"
 
 315:                                              ; preds = %.thread392, %350, %316
-  %.pn232 = phi { ptr, i32 } [ %317, %316 ], [ %.pn224.pn395, %.thread392 ], [ %.pn224, %350 ]
+  %.pn232 = phi { ptr, i32 } [ %317, %316 ], [ %.pn224, %350 ], [ %.pn224.pn395, %.thread392 ]
   invoke void @"_ZN4core3ptr148drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$std..path..PathBuf$C$heed..env..EnvEntry$GT$$GT$$GT$17hd7b159ebd45bcf92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %40) #39
           to label %.body unwind label %333
 
@@ -4534,8 +4534,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5005022800651993668.exit.
           to label %373 unwind label %371
 
 .body249:                                         ; preds = %.thread396, %529, %521, %517, %478, %418, %371
-  %.sroa.098.2 = phi i1 [ true, %371 ], [ true, %418 ], [ true, %478 ], [ false, %517 ], [ false, %521 ], [ true, %529 ], [ true, %.thread396 ]
-  %.pn224 = phi { ptr, i32 } [ %372, %371 ], [ %419, %418 ], [ %479, %478 ], [ %518, %517 ], [ %518, %521 ], [ %eh.lpad-body252, %529 ], [ %eh.lpad-body252, %.thread396 ]
+  %.sroa.098.2 = phi i1 [ true, %478 ], [ false, %521 ], [ true, %371 ], [ true, %418 ], [ false, %517 ], [ true, %529 ], [ true, %.thread396 ]
+  %.pn224 = phi { ptr, i32 } [ %479, %478 ], [ %518, %521 ], [ %372, %371 ], [ %419, %418 ], [ %518, %517 ], [ %eh.lpad-body252, %529 ], [ %eh.lpad-body252, %.thread396 ]
   store i8 0, ptr %364, align 1
   %369 = icmp eq i64 %366, 0
   br i1 %369, label %350, label %370
@@ -7932,7 +7932,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %.not41.i = icmp eq i64 %.sroa.01.0.i, 0
   br i1 %.not41.i, label %50, label %57
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h26b5d788646d1c1aE.llvm.4858207109798798013.exit.thread": ; preds = %40, %.lr.ph.i, %37, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h26b5d788646d1c1aE.llvm.4858207109798798013.exit"
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h26b5d788646d1c1aE.llvm.4858207109798798013.exit.thread": ; preds = %40, %37, %.lr.ph.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h26b5d788646d1c1aE.llvm.4858207109798798013.exit"
   %47 = add i16 %.sroa.03.044.i, -1
   %48 = and i16 %47, %.sroa.03.044.i
   %49 = icmp eq i16 %48, 0
@@ -8044,7 +8044,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24fin
   br label %"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h6bafb9ca084684b8E.exit"
 
 "_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h6bafb9ca084684b8E.exit": ; preds = %2, %14, %17, %22
-  %.sroa.0.0.i.i.i = phi i1 [ false, %14 ], [ false, %2 ], [ %29, %22 ], [ false, %17 ]
+  %.sroa.0.0.i.i.i = phi i1 [ false, %2 ], [ false, %14 ], [ %29, %22 ], [ false, %17 ]
   ret i1 %.sroa.0.0.i.i.i
 }
 

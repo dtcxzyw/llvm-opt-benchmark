@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef %0, ptr noundef 
   br label %38
 
 38:                                               ; preds = %32, %6, %8, %12, %16, %37, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %37 ], [ 0, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %26 ], [ 1, %37 ], [ 0, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -200,7 +200,7 @@ define internal ptr @aes_xts_dupctx(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %11, %7, %3, %1, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %1 ], [ null, %3 ], [ null, %7 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %7 ], [ %12, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -257,7 +257,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %.critedge, %ossl_param_is_empty.exit, %10, %14
-  %.07 = phi i32 [ 1, %14 ], [ 0, %10 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %2 ]
+  %.07 = phi i32 [ 0, %10 ], [ 1, %14 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %2 ]
   ret i32 %.07
 }
 
@@ -407,7 +407,7 @@ ossl_param_is_empty.exit.i:                       ; preds = %38
   br label %aes_xts_set_ctx_params.exit
 
 aes_xts_set_ctx_params.exit:                      ; preds = %49, %45, %.critedge.i, %ossl_param_is_empty.exit.i, %38, %aes_xts_check_keys_differ.exit, %33, %17, %7, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %7 ], [ 0, %17 ], [ 0, %aes_xts_check_keys_differ.exit ], [ 0, %33 ], [ 1, %49 ], [ 0, %45 ], [ 1, %ossl_param_is_empty.exit.i ], [ 0, %.critedge.i ], [ 1, %38 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %33 ], [ 0, %aes_xts_check_keys_differ.exit ], [ 0, %17 ], [ 0, %7 ], [ 0, %45 ], [ 1, %49 ], [ 1, %ossl_param_is_empty.exit.i ], [ 0, %.critedge.i ], [ 1, %38 ]
   ret i32 %.0
 }
 

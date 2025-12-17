@@ -373,8 +373,8 @@ default.unreachable:                              ; preds = %98
   unreachable
 
 check_retval.exit121.thread:                      ; preds = %141, %128, %115, %102
-  %147 = phi ptr [ %103, %102 ], [ %116, %115 ], [ %129, %128 ], [ %142, %141 ]
-  %.1 = phi ptr [ %91, %102 ], [ %111, %115 ], [ %124, %128 ], [ %137, %141 ]
+  %147 = phi ptr [ %142, %141 ], [ %129, %128 ], [ %103, %102 ], [ %116, %115 ]
+  %.1 = phi ptr [ %137, %141 ], [ %124, %128 ], [ %91, %102 ], [ %111, %115 ]
   %148 = call i32 @CVodeSetPreconditioner(ptr noundef %147, ptr noundef nonnull @Precond, ptr noundef nonnull @PSolve) #10
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %check_retval.exit135, label %152
@@ -437,7 +437,7 @@ check_retval.exit115:                             ; preds = %166, %check_retval.
   br label %175
 
 175:                                              ; preds = %check_retval.exit137, %check_retval.exit135, %check_retval.exit133, %check_retval.exit131, %check_retval.exit129, %check_retval.exit127, %check_retval.exit125, %check_retval.exit123, %check_retval.exit121, %check_retval.exit119, %check_retval.exit117, %check_retval.exit115.thread, %check_retval.exit112, %check_retval.exit110, %check_retval.exit108, %check_retval.exit106, %check_retval.exit104, %check_retval.exit102, %check_retval.exit100, %check_retval.exit98, %check_retval.exit96, %check_retval.exit, %170
-  %.0 = phi i32 [ 0, %170 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit96 ], [ 1, %check_retval.exit98 ], [ 1, %check_retval.exit100 ], [ 1, %check_retval.exit102 ], [ 1, %check_retval.exit104 ], [ 1, %check_retval.exit106 ], [ 1, %check_retval.exit108 ], [ 1, %check_retval.exit110 ], [ 1, %check_retval.exit112 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit119 ], [ 1, %check_retval.exit121 ], [ 1, %check_retval.exit123 ], [ 1, %check_retval.exit125 ], [ 1, %check_retval.exit127 ], [ 1, %check_retval.exit129 ], [ 1, %check_retval.exit131 ], [ 1, %check_retval.exit133 ], [ 1, %check_retval.exit135 ], [ 1, %check_retval.exit137 ], [ 1, %check_retval.exit115.thread ]
+  %.0 = phi i32 [ 0, %170 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit96 ], [ 1, %check_retval.exit98 ], [ 1, %check_retval.exit100 ], [ 1, %check_retval.exit102 ], [ 1, %check_retval.exit104 ], [ 1, %check_retval.exit106 ], [ 1, %check_retval.exit108 ], [ 1, %check_retval.exit110 ], [ 1, %check_retval.exit112 ], [ 1, %check_retval.exit137 ], [ 1, %check_retval.exit115.thread ], [ 1, %check_retval.exit133 ], [ 1, %check_retval.exit135 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit119 ], [ 1, %check_retval.exit121 ], [ 1, %check_retval.exit123 ], [ 1, %check_retval.exit125 ], [ 1, %check_retval.exit127 ], [ 1, %check_retval.exit129 ], [ 1, %check_retval.exit131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1957,7 +1957,7 @@ _ZN20CommonParticleParamsD2Ev.exit:               ; preds = %_ZNSt7__cxx1112basi
   ret i32 1
 
 ehcleanup237:                                     ; preds = %lpad113, %lpad76, %lpad3, %lpad219, %ehcleanup209, %lpad189, %lpad164, %lpad126, %if.then.i.i373, %lpad111, %lpad103, %lpad89, %if.then.i.i349, %lpad74, %lpad66, %lpad52, %lpad18, %lpad12, %lpad7, %if.then.i.i325, %lpad1, %lpad
-  %.pn313 = phi { ptr, i32 } [ %7, %lpad ], [ %13, %lpad18 ], [ %12, %lpad12 ], [ %11, %lpad7 ], [ %61, %lpad219 ], [ %59, %ehcleanup209 ], [ %41, %lpad189 ], [ %39, %lpad164 ], [ %30, %lpad126 ], [ %26, %lpad103 ], [ %22, %lpad89 ], [ %18, %lpad66 ], [ %14, %lpad52 ], [ %8, %lpad1 ], [ %9, %if.then.i.i325 ], [ %19, %lpad74 ], [ %20, %if.then.i.i349 ], [ %27, %lpad111 ], [ %28, %if.then.i.i373 ], [ %9, %lpad3 ], [ %20, %lpad76 ], [ %28, %lpad113 ]
+  %.pn313 = phi { ptr, i32 } [ %7, %lpad ], [ %13, %lpad18 ], [ %12, %lpad12 ], [ %11, %lpad7 ], [ %61, %lpad219 ], [ %59, %ehcleanup209 ], [ %41, %lpad189 ], [ %39, %lpad164 ], [ %30, %lpad126 ], [ %26, %lpad103 ], [ %22, %lpad89 ], [ %18, %lpad66 ], [ %14, %lpad52 ], [ %8, %lpad1 ], [ %28, %if.then.i.i373 ], [ %9, %if.then.i.i325 ], [ %19, %lpad74 ], [ %9, %lpad3 ], [ %20, %if.then.i.i349 ], [ %27, %lpad111 ], [ %20, %lpad76 ], [ %28, %lpad113 ]
   %64 = load ptr, ptr %playername, align 8, !tbaa !11
   %cmp.i.i.i417 = icmp eq ptr %64, %1
   br i1 %cmp.i.i.i417, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422, label %if.then.i.i418

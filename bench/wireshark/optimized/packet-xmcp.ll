@@ -1420,7 +1420,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
   br label %get_xmcp_attr_min_len.exit.i
 
 get_xmcp_attr_min_len.exit.i:                     ; preds = %510, %.thread387.thread.i, %.thread387.thread395.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i
-  %.0.i.i = phi i16 [ 4, %.thread387.thread395.i ], [ 8, %.thread387.thread.i ], [ 20, %510 ], [ 1, %.thread387.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ]
+  %.0.i.i = phi i16 [ 1, %.thread387.i ], [ 20, %510 ], [ 4, %.thread387.thread395.i ], [ 8, %.thread387.thread.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ]
   %511 = icmp ult i16 %172, %.0.i.i
   br i1 %511, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %get_xmcp_attr_min_len.exit.thread.i
 
@@ -1453,7 +1453,7 @@ get_xmcp_attr_fixed_len.exit.thread.i.i:          ; preds = %get_xmcp_attr_min_l
   br label %get_xmcp_attr_max_len.exit.i
 
 get_xmcp_attr_max_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.thread.i.i, %513, %512, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_min_len.exit.thread.i
-  %.0.i383.i = phi i16 [ 32, %512 ], [ 255, %513 ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 4, %get_xmcp_attr_fixed_len.exit.thread.i.i ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ]
+  %.0.i383.i = phi i16 [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 255, %513 ], [ 32, %512 ], [ 20, %get_xmcp_attr_min_len.exit.thread.i ], [ 4, %get_xmcp_attr_fixed_len.exit.thread.i.i ]
   %514 = icmp ugt i16 %172, %.0.i383.i
   br i1 %514, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %decode_xmcp_attr_value.exit
 
@@ -1547,7 +1547,7 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
   br label %558
 
 558:                                              ; preds = %.sink.split209, %14, %12, %4
-  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split209 ]
+  %.0144 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %12 ], [ %557, %.sink.split209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0144

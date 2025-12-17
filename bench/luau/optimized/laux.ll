@@ -262,7 +262,7 @@ define dso_local noundef i32 @_Z16luaL_checkoptionP9lua_StateiPKcPKS2_(ptr nound
   unreachable
 
 _Z15luaL_optlstringP9lua_StateiPKcPm.exit:        ; preds = %11, %8, %5
-  %14 = phi ptr [ %9, %8 ], [ %2, %5 ], [ %12, %11 ]
+  %14 = phi ptr [ %2, %5 ], [ %9, %8 ], [ %12, %11 ]
   %15 = load ptr, ptr %3, align 8, !tbaa !35
   %.not1921 = icmp eq ptr %15, null
   br i1 %.not1921, label %._crit_edge, label %.lr.ph
@@ -324,7 +324,7 @@ define dso_local noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef %
   unreachable
 
 _Z17luaL_checklstringP9lua_StateiPm.exit:         ; preds = %13, %7, %11
-  %.0 = phi ptr [ %2, %11 ], [ %2, %7 ], [ %14, %13 ]
+  %.0 = phi ptr [ %2, %7 ], [ %2, %11 ], [ %14, %13 ]
   ret ptr %.0
 }
 

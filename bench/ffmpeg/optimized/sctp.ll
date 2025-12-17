@@ -232,7 +232,7 @@ define internal range(i32 -22, 1) i32 @sctp_open(ptr noundef %0, ptr noundef %1,
   br label %96
 
 96:                                               ; preds = %3, %.thread71, %82, %38, %19
-  %.0 = phi i32 [ -22, %19 ], [ -5, %38 ], [ -5, %.thread71 ], [ 0, %82 ], [ -22, %3 ]
+  %.0 = phi i32 [ 0, %82 ], [ -22, %19 ], [ -5, %38 ], [ -5, %.thread71 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -520,7 +520,7 @@ sctp_wait_fd.exit.thread25:                       ; preds = %20, %sctp_wait_fd.e
   br label %sctp_wait_fd.exit.thread
 
 sctp_wait_fd.exit.thread:                         ; preds = %20, %.thread, %54, %52, %sctp_wait_fd.exit
-  %.019 = phi i32 [ %25, %sctp_wait_fd.exit ], [ %57, %54 ], [ %.2, %52 ], [ -558323010, %.thread ], [ -11, %20 ]
+  %.019 = phi i32 [ %25, %sctp_wait_fd.exit ], [ -558323010, %.thread ], [ %57, %54 ], [ %.2, %52 ], [ -11, %20 ]
   ret i32 %.019
 }
 

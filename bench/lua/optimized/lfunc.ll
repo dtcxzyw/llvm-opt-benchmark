@@ -619,7 +619,7 @@ poptbclist.exit:                                  ; preds = %.lr.ph.i15, %132, %
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %poptbclist.exit, %poptbclist.exit.us20, %prepcallclosemth.exit.us, %luaF_closeupval.exit
-  %.0.lcssa = phi ptr [ %1, %luaF_closeupval.exit ], [ %83, %prepcallclosemth.exit.us ], [ %119, %poptbclist.exit.us20 ], [ %154, %poptbclist.exit ]
+  %.0.lcssa = phi ptr [ %1, %luaF_closeupval.exit ], [ %119, %poptbclist.exit.us20 ], [ %83, %prepcallclosemth.exit.us ], [ %154, %poptbclist.exit ]
   ret ptr %.0.lcssa
 }
 
@@ -805,7 +805,7 @@ define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond.not, label %.critedge, label %9
 
 .critedge:                                        ; preds = %28, %9, %20, %3, %26
-  %.017 = phi ptr [ %27, %26 ], [ null, %3 ], [ %25, %20 ], [ null, %9 ], [ null, %28 ]
+  %.017 = phi ptr [ %27, %26 ], [ %25, %20 ], [ null, %3 ], [ null, %9 ], [ null, %28 ]
   ret ptr %.017
 }
 

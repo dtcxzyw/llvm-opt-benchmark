@@ -215,7 +215,7 @@ define internal noundef zeroext i1 @dissect_fcoib_heur(ptr noundef %0, ptr nound
   br label %36
 
 36:                                               ; preds = %32, %30, %25, %28, %24, %4, %34
-  %.027 = phi i1 [ true, %34 ], [ false, %4 ], [ false, %24 ], [ false, %28 ], [ false, %25 ], [ false, %30 ], [ false, %32 ]
+  %.027 = phi i1 [ false, %25 ], [ false, %4 ], [ false, %24 ], [ true, %34 ], [ false, %30 ], [ false, %28 ], [ false, %32 ]
   ret i1 %.027
 }
 

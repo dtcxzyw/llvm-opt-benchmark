@@ -445,7 +445,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !68
   br label %41
 
@@ -1040,7 +1040,7 @@ define void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefI
   br i1 %..not.i, label %36, label %32
 
 31:                                               ; preds = %27, %25
-  %.0.in.in.i = phi i64 [ %16, %25 ], [ %17, %27 ]
+  %.0.in.in.i = phi i64 [ %17, %27 ], [ %16, %25 ]
   %.0.in.not.i = icmp eq i64 %.0.in.in.i, 0
   br i1 %.0.in.not.i, label %36, label %32
 
@@ -1779,7 +1779,7 @@ define noundef zeroext i1 @_ZNK12ListedForces14haveRestraintsERK8t_fcdata(ptr no
   br label %24
 
 24:                                               ; preds = %18, %9, %2
-  %25 = phi i1 [ true, %9 ], [ true, %2 ], [ %23, %18 ]
+  %25 = phi i1 [ %23, %18 ], [ true, %9 ], [ true, %2 ]
   ret i1 %25
 }
 
@@ -1832,7 +1832,7 @@ define noundef zeroext i1 @_ZNK12ListedForces19haveCpuListedForcesERK8t_fcdata(p
   br label %_ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit
 
 _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit: ; preds = %24, %15, %8, %2
-  %30 = phi i1 [ true, %2 ], [ true, %15 ], [ true, %8 ], [ %29, %24 ]
+  %30 = phi i1 [ true, %2 ], [ %29, %24 ], [ true, %15 ], [ true, %8 ]
   ret i1 %30
 }
 
@@ -2195,7 +2195,7 @@ _ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit: ; pre
   br label %260
 
 260:                                              ; preds = %240, %246, %_ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit, %75
-  %.0 = phi i1 [ true, %_ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit ], [ true, %75 ], [ %.1, %246 ], [ %.1, %240 ]
+  %.0 = phi i1 [ true, %75 ], [ true, %_ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit ], [ %.1, %246 ], [ %.1, %240 ]
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %262 = load ptr, ptr %261, align 8, !tbaa !61
   %263 = load ptr, ptr %14, align 8, !tbaa !262

@@ -768,8 +768,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
           to label %26 unwind label %24
 
 .body:                                            ; preds = %42, %.body9.thread20, %31, %24, %52
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %25, %24 ], [ %32, %31 ], [ %lpad.thr_comm, %.body9.thread20 ], [ %43, %42 ]
-  %.sroa.01.1 = phi i1 [ true, %52 ], [ true, %24 ], [ true, %31 ], [ false, %.body9.thread20 ], [ false, %42 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %lpad.thr_comm, %.body9.thread20 ], [ %25, %24 ], [ %32, %31 ], [ %43, %42 ]
+  %.sroa.01.1 = phi i1 [ true, %52 ], [ false, %.body9.thread20 ], [ true, %24 ], [ true, %31 ], [ false, %42 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$gpui..view..View$LT$ui..components..tooltip..Tooltip$GT$$GT$17h746a1af354a84fd7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #18
           to label %18 unwind label %53
 
@@ -830,7 +830,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %38 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %39 unwind label %52
 
-.body9.thread20:                                  ; preds = %48, %"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Model$LT$ui..components..tooltip..Tooltip$GT$$GT$17h9abea65e455872acE.exit", %39, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hde0d2be0744b989bE.exit.i"
+.body9.thread20:                                  ; preds = %48, %"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Model$LT$ui..components..tooltip..Tooltip$GT$$GT$17h9abea65e455872acE.exit", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hde0d2be0744b989bE.exit.i", %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -955,8 +955,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
           to label %26 unwind label %24
 
 .body:                                            ; preds = %42, %.body9.thread20, %31, %24, %52
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %25, %24 ], [ %32, %31 ], [ %lpad.thr_comm, %.body9.thread20 ], [ %43, %42 ]
-  %.sroa.01.1 = phi i1 [ true, %52 ], [ true, %24 ], [ true, %31 ], [ false, %.body9.thread20 ], [ false, %42 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %lpad.thr_comm, %.body9.thread20 ], [ %25, %24 ], [ %32, %31 ], [ %43, %42 ]
+  %.sroa.01.1 = phi i1 [ true, %52 ], [ false, %.body9.thread20 ], [ true, %24 ], [ true, %31 ], [ false, %42 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$gpui..view..View$LT$ui..components..tooltip..Tooltip$GT$$GT$17h746a1af354a84fd7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #18
           to label %18 unwind label %53
 
@@ -1015,7 +1015,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %38 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %39 unwind label %52
 
-.body9.thread20:                                  ; preds = %48, %"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Model$LT$ui..components..tooltip..Tooltip$GT$$GT$17h9abea65e455872acE.exit", %39, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hde0d2be0744b989bE.exit.i"
+.body9.thread20:                                  ; preds = %48, %"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Model$LT$ui..components..tooltip..Tooltip$GT$$GT$17h9abea65e455872acE.exit", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hde0d2be0744b989bE.exit.i", %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -975,7 +975,7 @@ _ZN13sentencepiece24ScopedResourceDestructorD2Ev.exit: ; preds = %.noexc.i
   ret i32 0
 
 353:                                              ; preds = %232, %257, %324, %168, %344, %166, %165
-  %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %345, %344 ], [ %167, %166 ], [ %.pn71.pn.pn, %165 ], [ %169, %168 ], [ %.pn75.pn.pn, %324 ], [ %258, %257 ], [ %.pn80.pn.pn, %232 ]
+  %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %169, %168 ], [ %345, %344 ], [ %.pn71.pn.pn, %165 ], [ %258, %257 ], [ %.pn75.pn.pn, %324 ], [ %.pn80.pn.pn, %232 ]
   %354 = load ptr, ptr %9, align 8, !tbaa !26
   %.not.i208 = icmp eq ptr %354, null
   br i1 %.not.i208, label %_ZNSt10unique_ptrIN13sentencepiece10filesystem12WritableFileESt14default_deleteIS2_EED2Ev.exit210, label %_ZNKSt14default_deleteIN13sentencepiece10filesystem12WritableFileEEclEPS2_.exit.i209

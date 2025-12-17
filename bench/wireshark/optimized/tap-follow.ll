@@ -164,8 +164,8 @@ follow_arg_strncmp.exit17.i:                      ; preds = %follow_arg_strncmp.
   unreachable
 
 follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strncmp.exit.i, %follow_arg_strncmp.exit13.i, %follow_arg_strncmp.exit14.i, %follow_arg_strncmp.exit15.i, %follow_arg_strncmp.exit16.i
-  %.sink2.i = phi i64 [ 4, %2 ], [ 6, %follow_arg_strncmp.exit.i ], [ 7, %follow_arg_strncmp.exit13.i ], [ 4, %follow_arg_strncmp.exit14.i ], [ 6, %follow_arg_strncmp.exit15.i ], [ 5, %follow_arg_strncmp.exit16.i ]
-  %.sink.i = phi i32 [ 3, %2 ], [ 0, %follow_arg_strncmp.exit.i ], [ 2, %follow_arg_strncmp.exit13.i ], [ 4, %follow_arg_strncmp.exit14.i ], [ 5, %follow_arg_strncmp.exit15.i ], [ 6, %follow_arg_strncmp.exit16.i ]
+  %.sink2.i = phi i64 [ 4, %2 ], [ 7, %follow_arg_strncmp.exit13.i ], [ 6, %follow_arg_strncmp.exit15.i ], [ 4, %follow_arg_strncmp.exit14.i ], [ 6, %follow_arg_strncmp.exit.i ], [ 5, %follow_arg_strncmp.exit16.i ]
+  %.sink.i = phi i32 [ 3, %2 ], [ 2, %follow_arg_strncmp.exit13.i ], [ 5, %follow_arg_strncmp.exit15.i ], [ 4, %follow_arg_strncmp.exit14.i ], [ 0, %follow_arg_strncmp.exit.i ], [ 6, %follow_arg_strncmp.exit16.i ]
   %31 = getelementptr i8, ptr %10, i64 %.sink2.i
   store i32 %.sink.i, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -956,8 +956,8 @@ follow_print_hex.exit:                            ; preds = %148, %89
   unreachable
 
 .cont:                                            ; preds = %.lr.ph, %254, %follow_print_hex.exit, %67, %189, %191, %._crit_edge
-  %.1130 = phi i32 [ %.0129147, %189 ], [ %.0129147, %191 ], [ %.0129147, %._crit_edge ], [ %spec.select133, %67 ], [ %spec.select135, %follow_print_hex.exit ], [ %.0129147, %254 ], [ %.0129147, %.lr.ph ]
-  %.1127 = phi i32 [ %.0148, %189 ], [ %.0148, %191 ], [ %.0148, %._crit_edge ], [ %spec.select134, %67 ], [ %spec.select136, %follow_print_hex.exit ], [ %.0148, %254 ], [ %.0148, %.lr.ph ]
+  %.1130 = phi i32 [ %spec.select133, %67 ], [ %.0129147, %189 ], [ %.0129147, %191 ], [ %.0129147, %._crit_edge ], [ %spec.select135, %follow_print_hex.exit ], [ %.0129147, %254 ], [ %.0129147, %.lr.ph ]
+  %.1127 = phi i32 [ %spec.select134, %67 ], [ %.0148, %189 ], [ %.0148, %191 ], [ %.0148, %._crit_edge ], [ %spec.select136, %follow_print_hex.exit ], [ %.0148, %254 ], [ %.0148, %.lr.ph ]
   %286 = getelementptr inbounds nuw i8, ptr %.0112149, i64 16
   %287 = load ptr, ptr %286, align 8
   %288 = add i32 %.0111150, 1

@@ -1660,7 +1660,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_4T
     i32 16, label %_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit
   ]
 
-_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %..loopexit_crit_edge21.i.i.i.i.i, %20, %44, %44, %44, %44
+_ZN4Luau12_GLOBAL__N_18StateDot21canDuplicatePrimitiveEPKNS_4TypeE.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %20, %..loopexit_crit_edge21.i.i.i.i.i, %44, %44, %44, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %47 = load i32, ptr %46, align 8, !tbaa !29
   %48 = add nsw i32 %47, 1
@@ -2383,9 +2383,9 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_18StateDot10visitChildEPKNS_11
   br label %.loopexit.i.i, !llvm.loop !86
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit96.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit96
-  %59 = phi i32 [ %26, %.loopexit96.thread ], [ %44, %..loopexit_crit_edge21.i.i.i.i ], [ %44, %.loopexit96 ], [ %44, %.lr.ph.i.i.i.i ]
-  %.pre-phi210 = phi i64 [ %18, %.loopexit96.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit96 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
-  %.pre-phi124209 = phi i64 [ %21, %.loopexit96.thread ], [ %.pre-phi124, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi124, %.loopexit96 ], [ %.pre-phi124, %.lr.ph.i.i.i.i ]
+  %59 = phi i32 [ %26, %.loopexit96.thread ], [ %44, %.loopexit96 ], [ %44, %..loopexit_crit_edge21.i.i.i.i ], [ %44, %.lr.ph.i.i.i.i ]
+  %.pre-phi210 = phi i64 [ %18, %.loopexit96.thread ], [ %.pre-phi, %.loopexit96 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi124209 = phi i64 [ %21, %.loopexit96.thread ], [ %.pre-phi124, %.loopexit96 ], [ %.pre-phi124, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi124, %.lr.ph.i.i.i.i ]
   %60 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   store ptr null, ptr %60, align 8, !tbaa !46
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -2660,7 +2660,7 @@ _ZNSt13unordered_mapIPKN4Luau11TypePackVarEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pa
 ..loopexit_crit_edge21.i.i.i.i.i55:               ; preds = %166
   br label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i51, %146, %151, %..loopexit_crit_edge21.i.i.i.i.i55
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i51, %146, %..loopexit_crit_edge21.i.i.i.i.i55, %151
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %141, ptr %5, align 8, !tbaa !93
   %171 = call { ptr, i8 } @_ZNSt10_HashtableIPKN4Luau11TypePackVarES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %141, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)

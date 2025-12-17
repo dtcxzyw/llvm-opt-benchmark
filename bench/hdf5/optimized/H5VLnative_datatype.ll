@@ -140,7 +140,7 @@ define ptr @H5VL__native_datatype_commit(ptr noundef %0, ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %48, %41, %34, %30, %21, %14, %53, %56, %61
-  %.036 = phi ptr [ null, %61 ], [ %46, %53 ], [ %46, %56 ], [ null, %48 ], [ null, %41 ], [ null, %34 ], [ null, %30 ], [ null, %21 ], [ null, %14 ]
+  %.036 = phi ptr [ null, %14 ], [ null, %61 ], [ %46, %53 ], [ %46, %56 ], [ null, %48 ], [ null, %41 ], [ null, %34 ], [ null, %30 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.036
 }

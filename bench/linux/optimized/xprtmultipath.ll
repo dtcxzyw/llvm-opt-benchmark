@@ -1006,7 +1006,7 @@ define internal ptr @xprt_iter_current_entry(ptr noundef %0) #8 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %40, %25, %.loopexit.loopexit.split.loop.exit, %28, %13, %1
-  %49 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ null, %25 ], [ null, %45 ], [ %33, %40 ]
+  %49 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ null, %25 ], [ %33, %40 ], [ null, %45 ]
   ret ptr %49
 }
 
@@ -1103,7 +1103,7 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   br i1 %58, label %10, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %48, %.thread9, %45
-  %59 = phi ptr [ null, %45 ], [ null, %.thread ], [ %51, %.thread9 ], [ null, %48 ]
+  %59 = phi ptr [ null, %45 ], [ null, %.thread ], [ null, %48 ], [ %51, %.thread9 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
   store volatile ptr %59, ptr %5, align 8
   br label %60
@@ -1239,7 +1239,7 @@ define internal ptr @xprt_iter_current_entry_offline(ptr noundef %0) #8 align 16
   br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %43, %38, %35, %21, %18, %13, %26, %1
-  %46 = phi ptr [ null, %1 ], [ null, %26 ], [ %16, %18 ], [ null, %13 ], [ %16, %21 ], [ %31, %35 ], [ null, %43 ], [ %31, %38 ]
+  %46 = phi ptr [ null, %1 ], [ null, %26 ], [ %16, %21 ], [ %16, %18 ], [ null, %13 ], [ %31, %35 ], [ null, %43 ], [ %31, %38 ]
   ret ptr %46
 }
 

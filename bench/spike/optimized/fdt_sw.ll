@@ -324,7 +324,7 @@ fdt_sw_probe_memrsv_.exit.thread:                 ; preds = %21
   br label %fdt_sw_probe_memrsv_.exit.thread18
 
 fdt_sw_probe_memrsv_.exit.thread18:               ; preds = %fdt_sw_probe_memrsv_.exit, %21, %fdt_sw_probe_memrsv_.exit.thread, %74
-  %.1 = phi i32 [ 0, %74 ], [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
+  %.1 = phi i32 [ %.0.i.i, %fdt_sw_probe_memrsv_.exit ], [ 0, %74 ], [ -3, %fdt_sw_probe_memrsv_.exit.thread ], [ -7, %21 ]
   ret i32 %.1
 }
 
@@ -913,7 +913,7 @@ fdt_find_add_string_.exit:                        ; preds = %104, %99, %63
   br label %fdt_sw_probe_struct_.exit.thread32
 
 fdt_sw_probe_struct_.exit.thread32:               ; preds = %fdt_sw_probe_struct_.exit, %22, %113, %114, %fdt_find_add_string_.exit, %136
-  %.1 = phi i32 [ 0, %136 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_find_add_string_.exit ], [ -3, %114 ], [ -3, %113 ], [ -7, %22 ]
+  %.1 = phi i32 [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ 0, %136 ], [ -3, %fdt_find_add_string_.exit ], [ -3, %114 ], [ -3, %113 ], [ -7, %22 ]
   ret i32 %.1
 }
 
@@ -1274,7 +1274,7 @@ fdt_sw_probe_struct_.exit.thread:                 ; preds = %20
   br label %fdt_sw_probe_struct_.exit.thread43
 
 fdt_sw_probe_struct_.exit.thread43:               ; preds = %fdt_sw_probe_struct_.exit, %20, %174, %fdt_sw_probe_struct_.exit.thread, %177
-  %.1 = phi i32 [ 0, %177 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ -3, %fdt_sw_probe_struct_.exit.thread ], [ %175, %174 ], [ -7, %20 ]
+  %.1 = phi i32 [ -3, %fdt_sw_probe_struct_.exit.thread ], [ 0, %177 ], [ %.0.i.i, %fdt_sw_probe_struct_.exit ], [ %175, %174 ], [ -7, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

@@ -374,8 +374,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
   br label %.body
 
 .body:                                            ; preds = %75, %38, %73, %71, %32, %69, %67, %26, %65, %63, %20, %61
-  %.sink = phi ptr [ %4, %61 ], [ %4, %20 ], [ %4, %63 ], [ %7, %65 ], [ %7, %26 ], [ %7, %67 ], [ %10, %69 ], [ %10, %32 ], [ %10, %71 ], [ %14, %73 ], [ %14, %38 ], [ %14, %75 ]
-  %.pn18 = phi { ptr, i32 } [ %62, %61 ], [ %21, %20 ], [ %64, %63 ], [ %66, %65 ], [ %27, %26 ], [ %68, %67 ], [ %70, %69 ], [ %33, %32 ], [ %72, %71 ], [ %74, %73 ], [ %39, %38 ], [ %76, %75 ]
+  %.sink = phi ptr [ %10, %71 ], [ %7, %67 ], [ %4, %63 ], [ %4, %61 ], [ %4, %20 ], [ %7, %65 ], [ %7, %26 ], [ %10, %69 ], [ %10, %32 ], [ %14, %73 ], [ %14, %38 ], [ %14, %75 ]
+  %.pn18 = phi { ptr, i32 } [ %72, %71 ], [ %68, %67 ], [ %64, %63 ], [ %62, %61 ], [ %21, %20 ], [ %66, %65 ], [ %27, %26 ], [ %70, %69 ], [ %33, %32 ], [ %74, %73 ], [ %39, %38 ], [ %76, %75 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #15
   resume { ptr, i32 } %.pn18
 }
@@ -1523,7 +1523,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit85: ; preds = %.lr.ph.i89, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %193, %190, %190, %.loopexit222, %.loopexit197
-  %.sink193 = phi i32 [ 2, %.loopexit197 ], [ 64, %.loopexit222 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
+  %.sink193 = phi i32 [ 64, %.loopexit222 ], [ 2, %.loopexit197 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
   %280 = load ptr, ptr %0, align 8
   %281 = getelementptr i8, ptr %280, i64 -24
   %282 = load i64, ptr %281, align 8
@@ -1567,7 +1567,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit85: ; preds = %.lr.ph.i89, %
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %190, %7, %.thread104
-  %.069 = phi ptr [ %310, %.thread104 ], [ %3, %7 ], [ %.4, %190 ]
+  %.069 = phi ptr [ %3, %7 ], [ %310, %.thread104 ], [ %.4, %190 ]
   ret ptr %.069
 }
 

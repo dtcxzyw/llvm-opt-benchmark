@@ -222,7 +222,7 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr noundef re
   br label %addWalshInt.exit
 
 addWalshInt.exit:                                 ; preds = %.split, %29, %40, %52, %63, %79, %91, %103, %._crit_edge.i
-  %.0124.i.ph = phi ptr [ null, %.split ], [ %.0126.lcssa.i, %._crit_edge.i ], [ null, %103 ], [ null, %91 ], [ null, %79 ], [ null, %63 ], [ null, %52 ], [ null, %40 ], [ null, %29 ]
+  %.0124.i.ph = phi ptr [ null, %.split ], [ null, %103 ], [ null, %91 ], [ null, %79 ], [ null, %63 ], [ null, %52 ], [ null, %40 ], [ null, %29 ], [ %.0126.lcssa.i, %._crit_edge.i ]
   %.pr = load i32, ptr %5, align 8, !tbaa !3
   %124 = icmp eq i32 %.pr, 1
   br i1 %124, label %.split, label %addWalshInt.exit.thread, !llvm.loop !29
@@ -539,7 +539,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %132
 
 132:                                              ; preds = %5, %._crit_edge151, %._crit_edge156, %._crit_edge159, %._crit_edge162, %23, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ null, %._crit_edge162 ], [ null, %._crit_edge159 ], [ null, %._crit_edge156 ], [ %125, %._crit_edge151 ], [ null, %5 ]
+  %.0 = phi ptr [ %125, %._crit_edge151 ], [ null, %16 ], [ null, %23 ], [ null, %._crit_edge162 ], [ null, %._crit_edge159 ], [ null, %._crit_edge156 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

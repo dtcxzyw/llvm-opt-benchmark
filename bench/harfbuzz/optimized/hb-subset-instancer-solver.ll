@@ -109,7 +109,7 @@ define hidden noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb
   br label %60
 
 60:                                               ; preds = %16, %57, %39, %33, %20
-  %.024 = phi double [ %30, %20 ], [ %36, %33 ], [ %42, %39 ], [ %59, %57 ], [ 0.000000e+00, %16 ]
+  %.024 = phi double [ %59, %57 ], [ %30, %20 ], [ %36, %33 ], [ %42, %39 ], [ 0.000000e+00, %16 ]
   ret double %.024
 }
 
@@ -208,8 +208,8 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
 .critedge.i:                                      ; preds = %32, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, %35
-  %44 = phi ptr [ %43, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %18, %35 ], [ %18, %32 ]
-  %.sink.i.ph.i3050 = phi i32 [ %38, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %.sink.i.ph.i305153, %35 ], [ %.sink.i.ph.i305153, %32 ]
+  %44 = phi ptr [ %18, %35 ], [ %43, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %18, %32 ]
+  %.sink.i.ph.i3050 = phi i32 [ %.sink.i.ph.i305153, %35 ], [ %38, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %.sink.i.ph.i305153, %32 ]
   %45 = zext i32 %19 to i64
   %46 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %44, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !30
@@ -266,9 +266,9 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31: ; preds = 
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
 .critedge.i19:                                    ; preds = %_ZNK6TripleeqERKS_.exit.thread, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge, %52
-  %61 = phi double [ %.pre, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %20, %52 ], [ %20, %_ZNK6TripleeqERKS_.exit.thread ]
-  %62 = phi ptr [ %60, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %18, %52 ], [ %18, %_ZNK6TripleeqERKS_.exit.thread ]
-  %.sink.i.ph.i3048 = phi i32 [ %55, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %.sink.i.ph.i305153, %52 ], [ %.sink.i.ph.i305153, %_ZNK6TripleeqERKS_.exit.thread ]
+  %61 = phi double [ %20, %52 ], [ %.pre, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %20, %_ZNK6TripleeqERKS_.exit.thread ]
+  %62 = phi ptr [ %18, %52 ], [ %60, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %18, %_ZNK6TripleeqERKS_.exit.thread ]
+  %.sink.i.ph.i3048 = phi i32 [ %.sink.i.ph.i305153, %52 ], [ %55, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %.sink.i.ph.i305153, %_ZNK6TripleeqERKS_.exit.thread ]
   %63 = zext i32 %19 to i64
   %64 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %62, i64 %63
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -422,7 +422,7 @@ define internal fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias non
   br label %_ZL13supportScalardRK6Triple.exit
 
 _ZL13supportScalardRK6Triple.exit:                ; preds = %54, %55, %59, %62, %65
-  %.0.i = phi double [ %68, %65 ], [ 1.000000e+00, %54 ], [ 1.000000e+00, %55 ], [ 1.000000e+00, %59 ], [ 0.000000e+00, %62 ]
+  %.0.i = phi double [ 0.000000e+00, %62 ], [ 1.000000e+00, %54 ], [ 1.000000e+00, %55 ], [ 1.000000e+00, %59 ], [ %68, %65 ]
   store double %11, ptr %13, align 8, !tbaa !25
   store double %11, ptr %15, align 8, !tbaa !25
   tail call fastcc void @_ZL6_solve6TripleS_b(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull byval(%struct.Triple) align 8 %1, ptr noundef nonnull byval(%struct.Triple) align 8 %2, i1 noundef zeroext false)
@@ -485,7 +485,7 @@ _ZL13supportScalardRK6Triple.exit:                ; preds = %54, %55, %59, %62, 
   br label %_ZL13supportScalardRK6Triple.exit109
 
 _ZL13supportScalardRK6Triple.exit109:             ; preds = %78, %79, %83, %86, %91, %95
-  %.0.i108 = phi double [ %94, %91 ], [ %98, %95 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %83 ], [ 0.000000e+00, %86 ]
+  %.0.i108 = phi double [ %98, %95 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %83 ], [ %94, %91 ], [ 0.000000e+00, %86 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %malloc.i = tail call dereferenceable_or_null(32) ptr @malloc(i64 32)
   %.not21.i.i.not = icmp eq ptr %malloc.i, null
@@ -586,8 +586,8 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit
 
 .critedge.i:                                      ; preds = %121, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i, %128
-  %.pre-phi386 = phi i32 [ %127, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ 1, %128 ], [ 1, %121 ]
-  %133 = phi ptr [ %132, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ %malloc.i, %128 ], [ %malloc.i, %121 ]
+  %.pre-phi386 = phi i32 [ 1, %128 ], [ %127, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ 1, %121 ]
+  %133 = phi ptr [ %malloc.i, %128 ], [ %132, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ %malloc.i, %121 ]
   store i32 %.pre-phi386, ptr %102, align 4, !tbaa !22
   %134 = zext nneg i32 %104 to i64
   %135 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %133, i64 %134
@@ -862,8 +862,8 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i192: ; preds =
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit193
 
 .critedge.i180:                                   ; preds = %214, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187, %219
-  %.pre-phi = phi i32 [ %218, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187 ], [ 1, %219 ], [ 1, %214 ]
-  %224 = phi ptr [ %223, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187 ], [ %malloc.i, %219 ], [ %malloc.i, %214 ]
+  %.pre-phi = phi i32 [ 1, %219 ], [ %218, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187 ], [ 1, %214 ]
+  %224 = phi ptr [ %malloc.i, %219 ], [ %223, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187 ], [ %malloc.i, %214 ]
   store i32 %.pre-phi, ptr %102, align 4, !tbaa !22
   %225 = zext nneg i32 %104 to i64
   %226 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %224, i64 %225
@@ -1002,7 +1002,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJS0_IdRS1_EEEEPS2_DpOT_.exit139:
   br label %_ZL13supportScalardRK6Triple.exit217
 
 _ZL13supportScalardRK6Triple.exit217:             ; preds = %255, %262, %266, %269, %274, %278
-  %.0.i216 = phi double [ %277, %274 ], [ %281, %278 ], [ 1.000000e+00, %255 ], [ 1.000000e+00, %262 ], [ 1.000000e+00, %266 ], [ 0.000000e+00, %269 ]
+  %.0.i216 = phi double [ %281, %278 ], [ 1.000000e+00, %255 ], [ 1.000000e+00, %262 ], [ 1.000000e+00, %266 ], [ %277, %274 ], [ 0.000000e+00, %269 ]
   %282 = fsub double %.0.i216, %.0.i108
   %283 = load i32, ptr %102, align 4, !tbaa !22
   %284 = load i32, ptr %0, align 8, !tbaa !34

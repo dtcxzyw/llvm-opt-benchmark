@@ -23,7 +23,7 @@ define internal noundef i32 @decode_init(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, -1094995528) i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -1094995529, -2147483648) i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -427,7 +427,7 @@ parse_timecode.exit136:                           ; preds = %75
   br label %209
 
 209:                                              ; preds = %.loopexit, %114, %111, %108, %96, %87, %._crit_edge190, %86, %25, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %25 ], [ -1, %86 ], [ %8, %._crit_edge190 ], [ -1, %87 ], [ -1094995529, %96 ], [ -12, %108 ], [ -12, %111 ], [ -12, %114 ], [ -1094995529, %.loopexit ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %25 ], [ -1, %86 ], [ -1094995529, %96 ], [ -1, %87 ], [ -12, %114 ], [ %8, %._crit_edge190 ], [ -12, %111 ], [ -12, %108 ], [ -1094995529, %.loopexit ]
   ret i32 %.0
 }
 

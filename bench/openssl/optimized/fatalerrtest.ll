@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @test_fatalerr() #1 {
   br label %72
 
 72:                                               ; preds = %68, %58, %51, %15, %21, %27, %33, %39, %0, %65, %50
-  %.0 = phi i32 [ 0, %65 ], [ 0, %58 ], [ 0, %51 ], [ 0, %50 ], [ 0, %39 ], [ 0, %33 ], [ 0, %27 ], [ 0, %21 ], [ 0, %15 ], [ 0, %0 ], [ %spec.select, %68 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %68 ], [ 0, %65 ], [ 0, %58 ], [ 0, %51 ], [ 0, %50 ], [ 0, %39 ], [ 0, %33 ], [ 0, %27 ], [ 0, %21 ], [ 0, %15 ]
   %73 = load ptr, ptr %3, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %73) #6
   %74 = load ptr, ptr %4, align 8, !tbaa !11

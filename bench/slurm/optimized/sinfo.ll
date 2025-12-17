@@ -617,7 +617,7 @@ _query_fed_servers.exit:                          ; preds = %.thread.i55, %.oute
   br label %160
 
 160:                                              ; preds = %158, %155
-  %.221.i = phi i32 [ %157, %155 ], [ %159, %158 ]
+  %.221.i = phi i32 [ %159, %158 ], [ %157, %155 ]
   %.not30.i = icmp eq i32 %.221.i, 0
   br i1 %.not30.i, label %.thread.i60, label %.thread36.i
 
@@ -733,7 +733,7 @@ _query_server.exit:                               ; preds = %.thread.i60, %_quer
   br label %_reservation_report.exit
 
 _reservation_report.exit:                         ; preds = %.thread36.i, %.critedge32.i, %37, %36, %32, %_load_resv.exit, %_query_server.exit, %198
-  %.0 = phi i32 [ %.1, %198 ], [ -1, %_load_resv.exit ], [ -1, %_query_server.exit ], [ 0, %32 ], [ 0, %36 ], [ 0, %37 ], [ -1, %.critedge32.i ], [ -1, %.thread36.i ]
+  %.0 = phi i32 [ -1, %_load_resv.exit ], [ %.1, %198 ], [ -1, %_query_server.exit ], [ 0, %32 ], [ 0, %36 ], [ 0, %37 ], [ -1, %.critedge32.i ], [ -1, %.thread36.i ]
   ret i32 %.0
 }
 
@@ -2217,7 +2217,7 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
   br label %119
 
 119:                                              ; preds = %115, %111, %.critedge.thread.i, %103, %102, %98, %97, %87
-  %.2.i = phi i8 [ 0, %97 ], [ 0, %102 ], [ %spec.select.i, %87 ], [ %spec.select67.i, %.critedge.thread.i ], [ %spec.select68.i, %111 ], [ %spec.select69.i, %115 ], [ %101, %98 ], [ %106, %103 ]
+  %.2.i = phi i8 [ 0, %102 ], [ %spec.select68.i, %111 ], [ %101, %98 ], [ 0, %97 ], [ %spec.select.i, %87 ], [ %106, %103 ], [ %spec.select67.i, %.critedge.thread.i ], [ %spec.select69.i, %115 ]
   %120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 160), align 8, !range !8, !noundef !9
   %.not.i = icmp eq i8 %120, %.2.i
   br i1 %.not.i, label %81, label %._crit_edge.i, !llvm.loop !21
@@ -2231,7 +2231,7 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %121, label %_filter_out.exit, label %122
 
-122:                                              ; preds = %._crit_edge76.i, %55, %63, %70, %._crit_edge76.thread.i
+122:                                              ; preds = %55, %63, %._crit_edge76.i, %70, %._crit_edge76.thread.i
   call void @slurm_xfree(ptr noundef nonnull %46) #13
   br label %_filter_out.exit
 

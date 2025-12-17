@@ -806,8 +806,8 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   br i1 %237, label %238, label %266
 
 238:                                              ; preds = %.thread32, %232
-  %239 = phi i1 [ %236, %232 ], [ true, %.thread32 ]
-  %240 = phi i32 [ %228, %232 ], [ %.ph.ph, %.thread32 ]
+  %239 = phi i1 [ true, %.thread32 ], [ %236, %232 ]
+  %240 = phi i32 [ %.ph.ph, %.thread32 ], [ %228, %232 ]
   %241 = icmp eq i32 %240, -12
   br i1 %241, label %255, label %.thread34
 
@@ -966,7 +966,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   br label %321
 
 321:                                              ; preds = %.thread39, %.loopexit42
-  %322 = phi i32 [ 0, %.loopexit42 ], [ %320, %.thread39 ]
+  %322 = phi i32 [ %320, %.thread39 ], [ 0, %.loopexit42 ]
   %323 = call ptr @skb_clone(ptr noundef %0, i32 noundef 3264) #9
   %324 = icmp eq ptr %323, null
   br i1 %324, label %._crit_edge, label %.lr.ph104
@@ -1236,14 +1236,14 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit
 
 .thread8:                                         ; preds = %71, %64, %48
-  %.ph = phi i32 [ -12, %48 ], [ %69, %64 ], [ -22, %71 ]
+  %.ph = phi i32 [ %69, %64 ], [ -12, %48 ], [ -22, %71 ]
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 92:                                               ; preds = %77, %.critedge, %89
-  %93 = phi i32 [ -11, %.critedge ], [ %91, %89 ], [ %78, %77 ]
+  %93 = phi i32 [ %78, %77 ], [ -11, %.critedge ], [ %91, %89 ]
   %94 = icmp eq i32 %93, -11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

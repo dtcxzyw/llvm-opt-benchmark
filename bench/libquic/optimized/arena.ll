@@ -485,7 +485,7 @@ define noundef ptr @_ZN6google8protobuf5Arena8NewBlockEPvPNS1_5BlockEmmm(ptr nou
   br label %11
 
 11:                                               ; preds = %7, %6
-  %.0 = phi i64 [ %spec.select, %7 ], [ %4, %6 ]
+  %.0 = phi i64 [ %4, %6 ], [ %spec.select, %7 ]
   %12 = add i64 %.0, -32
   %13 = icmp ugt i64 %3, %12
   %14 = add i64 %3, 32

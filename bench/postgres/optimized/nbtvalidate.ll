@@ -83,10 +83,10 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %39 = load i16, ptr %38, align 4
   switch i16 %39, label %64 [
     i16 1, label %40
-    i16 2, label %48
-    i16 3, label %52
-    i16 4, label %60
-    i16 5, label %66
+    i16 2, label %66
+    i16 3, label %48
+    i16 4, label %56
+    i16 5, label %60
   ]
 
 40:                                               ; preds = %30
@@ -102,23 +102,23 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 48:                                               ; preds = %30
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %50 = load i32, ptr %49, align 4
-  %51 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %50, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #3
-  br i1 %51, label %79, label %70
-
-52:                                               ; preds = %30
-  %53 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %52 = load i32, ptr %51, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %55 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %50, i32 noundef 16, i1 noundef zeroext true, i32 noundef 5, i32 noundef 5, i32 noundef %52, i32 noundef %52, i32 noundef %54, i32 noundef 16, i32 noundef 16) #3
+  br i1 %55, label %79, label %70
+
+56:                                               ; preds = %30
+  %57 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %54, i32 noundef 16, i1 noundef zeroext true, i32 noundef 5, i32 noundef 5, i32 noundef %56, i32 noundef %56, i32 noundef %58, i32 noundef 16, i32 noundef 16) #3
+  %59 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %58, i32 noundef 16, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 26) #3
   br i1 %59, label %79, label %70
 
 60:                                               ; preds = %30
   %61 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %62, i32 noundef 16, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 26) #3
+  %63 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %62) #3
   br i1 %63, label %79, label %70
 
 64:                                               ; preds = %30
@@ -128,10 +128,10 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 66:                                               ; preds = %30
   %67 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %68 = load i32, ptr %67, align 4
-  %69 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %68) #3
+  %69 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %68, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #3
   br i1 %69, label %79, label %70
 
-70:                                               ; preds = %60, %52, %48, %40, %66
+70:                                               ; preds = %48, %56, %60, %40, %66
   %71 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %71, label %.sink.split, label %79
 
@@ -148,8 +148,8 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.btvalidate) #3
   br label %79
 
-79:                                               ; preds = %.sink.split, %60, %52, %48, %40, %66, %70, %64
-  %.1 = phi i1 [ false, %64 ], [ %.0118, %66 ], [ false, %70 ], [ %.0118, %40 ], [ %.0118, %48 ], [ %.0118, %52 ], [ %.0118, %60 ], [ false, %.sink.split ]
+79:                                               ; preds = %.sink.split, %48, %56, %60, %40, %66, %70, %64
+  %.1 = phi i1 [ false, %64 ], [ %.0118, %66 ], [ false, %70 ], [ %.0118, %40 ], [ %.0118, %60 ], [ %.0118, %56 ], [ %.0118, %48 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %22, align 8
   %81 = sext i32 %80 to i64

@@ -2117,7 +2117,7 @@ define hidden { ptr, i64 } @_ZN4ring2io10der_writer9write_all17h3a1f4346c53abf5f
   ret { ptr, i64 } %45
 
 .body.thread:                                     ; preds = %32, %46
-  %eh.lpad-body14 = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ]
+  %eh.lpad-body14 = phi { ptr, i32 } [ %33, %32 ], [ %47, %46 ]
   resume { ptr, i32 } %eh.lpad-body14
 
 46:                                               ; preds = %12

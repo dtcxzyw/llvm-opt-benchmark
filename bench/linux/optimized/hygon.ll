@@ -585,7 +585,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   br label %166
 
 166:                                              ; preds = %.loopexit, %158, %164, %162, %105, %100
-  %167 = phi i32 [ %96, %100 ], [ %112, %105 ], [ %163, %162 ], [ %165, %164 ], [ %161, %158 ], [ 64, %.loopexit ]
+  %167 = phi i32 [ %96, %100 ], [ %112, %105 ], [ %165, %164 ], [ %163, %162 ], [ %161, %158 ], [ 64, %.loopexit ]
   tail call void @numa_set_node(i32 noundef %89, i32 noundef %167) #5
   tail call void @init_hygon_cacheinfo(ptr noundef %0) #5
   %168 = getelementptr i8, ptr %0, i64 64

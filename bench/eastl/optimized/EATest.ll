@@ -1330,7 +1330,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   br label %return
 
 return:                                           ; preds = %for.body, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i, %if.then.i
-  %cmp.not8 = phi i1 [ true, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ true, %if.then.i ], [ false, %for.body ]
+  %cmp.not8 = phi i1 [ true, %if.then.i ], [ true, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ false, %for.body ]
   ret i1 %cmp.not8
 }
 
@@ -1637,7 +1637,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8:  ; preds = %if.then.i.i6
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9: ; preds = %entry, %cleanup, %if.then.i.i6, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8
-  %retval.022 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ false, %entry ]
+  %retval.022 = phi i1 [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ false, %entry ]
   ret i1 %retval.022
 }
 
@@ -2581,7 +2581,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i, %if.then.i.i
+if.end:                                           ; preds = %if.then.i.i, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i
   %mpParentSuite = getelementptr inbounds nuw i8, ptr %pTest, i64 32
   store ptr %this, ptr %mpParentSuite, align 8
   %mResults = getelementptr inbounds nuw i8, ptr %this, i64 120

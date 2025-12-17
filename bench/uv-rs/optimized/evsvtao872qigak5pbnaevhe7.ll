@@ -467,7 +467,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h009134395ec69630E(pt
   br i1 %exitcond27.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h4052a3495c41dc02E.exit.i, label %.lr.ph19.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h4052a3495c41dc02E.exit.i: ; preds = %38, %.lr.ph.i, %45, %.lr.ph19.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.0.i18.i, %.lr.ph19.i ], [ %22, %38 ], [ %.sroa.01.1.i15.i, %.lr.ph.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.0.i18.i, %.lr.ph19.i ], [ %.sroa.01.1.i15.i, %.lr.ph.i ], [ %22, %38 ]
   %47 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %47)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -723,7 +723,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h3d47809ffedcc06fE(ptr noalia
   br i1 %exitcond35.not, label %_ZN4core5slice4sort6shared17find_existing_run17h34e74781192ec66cE.exit.thread, label %.lr.ph28
 
 _ZN4core5slice4sort6shared17find_existing_run17h34e74781192ec66cE.exit: ; preds = %.lr.ph, %.lr.ph28, %.preheader22, %.preheader
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader22 ], [ %.sroa.01.0.i27, %.lr.ph28 ], [ %.sroa.01.1.i24, %.lr.ph ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader22 ], [ 2, %.preheader ], [ %.sroa.01.0.i27, %.lr.ph28 ], [ %.sroa.01.1.i24, %.lr.ph ]
   %35 = icmp ule i64 %.sroa.0.0.i, %1
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq i64 %.sroa.0.0.i, %1
@@ -853,7 +853,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17he17330fedd60ce88E(ptr noalia
   br i1 %exitcond35.not, label %_ZN4core5slice4sort6shared17find_existing_run17hde6e204eb7024faaE.exit.thread, label %.lr.ph28
 
 _ZN4core5slice4sort6shared17find_existing_run17hde6e204eb7024faaE.exit: ; preds = %.lr.ph, %.lr.ph28, %.preheader22, %.preheader
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader22 ], [ %.sroa.01.0.i27, %.lr.ph28 ], [ %.sroa.01.1.i24, %.lr.ph ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader22 ], [ 2, %.preheader ], [ %.sroa.01.0.i27, %.lr.ph28 ], [ %.sroa.01.1.i24, %.lr.ph ]
   %35 = icmp ule i64 %.sroa.0.0.i, %1
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq i64 %.sroa.0.0.i, %1

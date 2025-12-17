@@ -529,7 +529,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !12
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -1507,7 +1507,7 @@ _ZNSt6vectorIPKcSaIS1_EE5clearEv.exit:            ; preds = %343, %335, %_ZNSt8f
   ret i1 %.014
 
 _ZNSt14_Function_baseD2Ev.exit51:                 ; preds = %303, %_ZNSt14_Function_baseD2Ev.exit60, %252, %_ZNSt14_Function_baseD2Ev.exit49
-  %.pn = phi { ptr, i32 } [ %244, %_ZNSt14_Function_baseD2Ev.exit49 ], [ %244, %252 ], [ %295, %_ZNSt14_Function_baseD2Ev.exit60 ], [ %295, %303 ]
+  %.pn = phi { ptr, i32 } [ %244, %252 ], [ %244, %_ZNSt14_Function_baseD2Ev.exit49 ], [ %295, %_ZNSt14_Function_baseD2Ev.exit60 ], [ %295, %303 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3985,7 +3985,7 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %63
-  %.sroa.0.5.ph.ph = phi ptr [ %41, %63 ], [ null, %.invoke ]
+  %.sroa.0.5.ph.ph = phi ptr [ null, %.invoke ], [ %41, %63 ]
   %lpad.loopexit.split-lp43 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4055,7 +4055,7 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
   br i1 %.not.i.i19, label %84, label %.invoke
 
 .invoke:                                          ; preds = %81, %78, %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit
-  %83 = phi i32 [ 1, %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 35, %78 ], [ %82, %81 ]
+  %83 = phi i32 [ 35, %78 ], [ 1, %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %82, %81 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %83) #26
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4130,8 +4130,8 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit: ; pred
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit45, %.loopexit.split-lp46
-  %.sroa.0.4 = phi ptr [ null, %.loopexit45 ], [ %.sroa.0.1, %.loopexit.split-lp46 ], [ %41, %.loopexit ], [ %41, %.loopexit.split-lp.loopexit ], [ %.sroa.0.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit47, %.loopexit45 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit42, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp43, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %.loopexit.split-lp46 ], [ null, %.loopexit45 ], [ %41, %.loopexit ], [ %41, %.loopexit.split-lp.loopexit ], [ %.sroa.0.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp46 ], [ %lpad.loopexit47, %.loopexit45 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit42, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp43, %.loopexit.split-lp.loopexit.split-lp ]
   %109 = load i8, ptr %5, align 8, !tbaa !179, !range !88, !noundef !89
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %_ZNSt11unique_lockISt5mutexED2Ev.exit26
@@ -5027,7 +5027,7 @@ _ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T
   br label %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !225
   %58 = load ptr, ptr %.0, align 8, !tbaa !230
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -876,7 +876,7 @@ define internal fastcc range(i32 -22, 2088978) i32 @fill_topology_info(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %29, %27, %17, %69, %63, %57, %35, %2
-  %77 = phi i32 [ -19, %2 ], [ -14, %35 ], [ -14, %57 ], [ -14, %63 ], [ %76, %69 ], [ -14, %29 ], [ -22, %27 ], [ %23, %17 ]
+  %77 = phi i32 [ -19, %2 ], [ %76, %69 ], [ -14, %35 ], [ -14, %57 ], [ -14, %63 ], [ -14, %29 ], [ -22, %27 ], [ %23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %77
 }
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   br label %135
 
 135:                                              ; preds = %.critedge, %133, %72, %60, %37, %28, %26, %15, %3
-  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ], [ -14, %.critedge ]
+  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -14, %.critedge ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %136

@@ -2755,7 +2755,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit58:      ; preds = %208, %214
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit56
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit56:       ; preds = %206, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit58, %222, %186, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit54, %202, %184
-  %.pn16 = phi { ptr, i32 } [ %185, %184 ], [ %187, %186 ], [ %189, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit54 ], [ %189, %202 ], [ %207, %206 ], [ %209, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit58 ], [ %209, %222 ]
+  %.pn16 = phi { ptr, i32 } [ %185, %184 ], [ %189, %202 ], [ %187, %186 ], [ %189, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit54 ], [ %207, %206 ], [ %209, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit58 ], [ %209, %222 ]
   %226 = load ptr, ptr %5, align 8, !tbaa !96
   %.not.i.i61 = icmp eq ptr %226, null
   br i1 %.not.i.i61, label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit62, label %227
@@ -3530,7 +3530,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit77: ; preds = %_ZN5Ipopt8Smart
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73:       ; preds = %237, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit77, %261, %209, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit71, %233, %207
-  %.pn21 = phi { ptr, i32 } [ %208, %207 ], [ %210, %209 ], [ %212, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit71 ], [ %212, %233 ], [ %238, %237 ], [ %240, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit77 ], [ %240, %261 ]
+  %.pn21 = phi { ptr, i32 } [ %208, %207 ], [ %212, %233 ], [ %210, %209 ], [ %212, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit71 ], [ %238, %237 ], [ %240, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit77 ], [ %240, %261 ]
   %265 = load ptr, ptr %5, align 8, !tbaa !96
   %.not.i.i80 = icmp eq ptr %265, null
   br i1 %.not.i.i80, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67, label %266
@@ -3553,7 +3553,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split: ; preds = %266,
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split, %266, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73, %201
-  %.pn21.pn = phi { ptr, i32 } [ %202, %201 ], [ %.pn21, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73 ], [ %.pn21, %266 ], [ %.pn21.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %266 ], [ %202, %201 ], [ %.pn21, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73 ], [ %.pn21.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn21.pn
 }
@@ -4725,7 +4725,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit159: ; preds = %_ZN5Ipopt8Smar
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143:      ; preds = %439, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit159, %463, %411, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit153, %435, %383, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit147, %407, %355, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit141, %379, %353
-  %.pn39 = phi { ptr, i32 } [ %354, %353 ], [ %356, %355 ], [ %358, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit141 ], [ %358, %379 ], [ %384, %383 ], [ %386, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit147 ], [ %386, %407 ], [ %412, %411 ], [ %414, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit153 ], [ %414, %435 ], [ %440, %439 ], [ %442, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit159 ], [ %442, %463 ]
+  %.pn39 = phi { ptr, i32 } [ %354, %353 ], [ %414, %435 ], [ %386, %407 ], [ %358, %379 ], [ %356, %355 ], [ %358, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit141 ], [ %384, %383 ], [ %386, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit147 ], [ %412, %411 ], [ %414, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit153 ], [ %440, %439 ], [ %442, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit159 ], [ %442, %463 ]
   %467 = load ptr, ptr %7, align 8, !tbaa !96
   %.not.i.i162 = icmp eq ptr %467, null
   br i1 %.not.i.i162, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137, label %468
@@ -4748,7 +4748,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split: ; preds = %468
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split, %468, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143, %347
-  %.pn39.pn = phi { ptr, i32 } [ %348, %347 ], [ %.pn39, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143 ], [ %.pn39, %468 ], [ %.pn39.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split ]
+  %.pn39.pn = phi { ptr, i32 } [ %.pn39, %468 ], [ %348, %347 ], [ %.pn39, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143 ], [ %.pn39.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn39.pn
 }

@@ -617,8 +617,8 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   br label %107
 
 107:                                              ; preds = %66, %62, %56, %61, %91, %12, %7
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload75, %12 ], [ %.sroa.0.4.vec.insert.i.i.i, %91 ], [ %.sroa.039.0.copyload, %61 ], [ %.sroa.041.0.copyload, %56 ], [ zeroinitializer, %62 ], [ zeroinitializer, %66 ]
-  %.sroa.8.0 = phi <2 x float> [ %.sroa.8.0.copyload, %7 ], [ %.sroa.8.0.copyload79, %12 ], [ %.sroa.8.12.vec.insert, %91 ], [ %.sroa.8.0.copyload83, %61 ], [ %.sroa.8.0.copyload81, %56 ], [ <float 1.000000e+00, float -1.000000e+00>, %62 ], [ <float 1.000000e+00, float -1.000000e+00>, %66 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload75, %12 ], [ zeroinitializer, %62 ], [ %.sroa.0.4.vec.insert.i.i.i, %91 ], [ %.sroa.041.0.copyload, %56 ], [ %.sroa.039.0.copyload, %61 ], [ zeroinitializer, %66 ]
+  %.sroa.8.0 = phi <2 x float> [ %.sroa.8.0.copyload, %7 ], [ %.sroa.8.0.copyload79, %12 ], [ <float 1.000000e+00, float -1.000000e+00>, %62 ], [ %.sroa.8.12.vec.insert, %91 ], [ %.sroa.8.0.copyload81, %56 ], [ %.sroa.8.0.copyload83, %61 ], [ <float 1.000000e+00, float -1.000000e+00>, %66 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.8.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -9927,7 +9927,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %.body27
-  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %.body27 ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %34, %33 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %.body27 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %34, %33 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %13) #21
   br label %140
 

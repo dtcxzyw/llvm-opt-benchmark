@@ -480,9 +480,9 @@ define hidden ptr @createThrowableFromJVMTIErrorCode(ptr noundef %0, i32 noundef
 19:                                               ; preds = %2
   br label %34
 
-20:                                               ; preds = %2, %7, %8, %9, %10, %11, %12, %14, %17, %18
-  %.010.ph = phi ptr [ @.str.28, %18 ], [ @.str.27, %17 ], [ @.str.24, %14 ], [ @.str.21, %12 ], [ @.str.20, %11 ], [ @.str.19, %10 ], [ @.str.18, %9 ], [ @.str.17, %8 ], [ @.str.16, %7 ], [ @.str.15, %2 ]
-  %.0.ph = phi ptr [ @.str.14, %18 ], [ @.str.8, %17 ], [ @.str.23, %14 ], [ @.str.14, %12 ], [ @.str.14, %11 ], [ @.str.14, %10 ], [ @.str.14, %9 ], [ @.str.14, %8 ], [ @.str.14, %7 ], [ @.str.14, %2 ]
+20:                                               ; preds = %2, %18, %7, %8, %9, %10, %11, %12, %14, %17
+  %.010.ph = phi ptr [ @.str.27, %17 ], [ @.str.24, %14 ], [ @.str.21, %12 ], [ @.str.20, %11 ], [ @.str.19, %10 ], [ @.str.18, %9 ], [ @.str.17, %8 ], [ @.str.16, %7 ], [ @.str.28, %18 ], [ @.str.15, %2 ]
+  %.0.ph = phi ptr [ @.str.8, %17 ], [ @.str.23, %14 ], [ @.str.14, %12 ], [ @.str.14, %11 ], [ @.str.14, %10 ], [ @.str.14, %9 ], [ @.str.14, %8 ], [ @.str.14, %7 ], [ @.str.14, %18 ], [ @.str.14, %2 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1336
   %23 = load ptr, ptr %22, align 8
@@ -507,8 +507,8 @@ checkForAndClearThrowable.exit:                   ; preds = %20, %29
   br label %34
 
 34:                                               ; preds = %3, %4, %5, %6, %13, %15, %16, %19, %2, %checkForAndClearThrowable.exit
-  %.017 = phi ptr [ %.0.ph, %checkForAndClearThrowable.exit ], [ @.str.8, %19 ], [ @.str.10, %3 ], [ @.str.11, %4 ], [ @.str.12, %5 ], [ @.str.13, %6 ], [ @.str.22, %13 ], [ @.str.25, %15 ], [ @.str.26, %16 ], [ @.str.9, %2 ]
-  %.09 = phi ptr [ %24, %checkForAndClearThrowable.exit ], [ null, %19 ], [ null, %3 ], [ null, %4 ], [ null, %5 ], [ null, %6 ], [ null, %13 ], [ null, %15 ], [ null, %16 ], [ null, %2 ]
+  %.017 = phi ptr [ %.0.ph, %checkForAndClearThrowable.exit ], [ @.str.8, %19 ], [ @.str.22, %13 ], [ @.str.10, %3 ], [ @.str.11, %4 ], [ @.str.12, %5 ], [ @.str.13, %6 ], [ @.str.9, %2 ], [ @.str.25, %15 ], [ @.str.26, %16 ]
+  %.09 = phi ptr [ %24, %checkForAndClearThrowable.exit ], [ null, %19 ], [ null, %13 ], [ null, %3 ], [ null, %4 ], [ null, %5 ], [ null, %6 ], [ null, %2 ], [ null, %15 ], [ null, %16 ]
   %35 = tail call ptr @createThrowable(ptr noundef %0, ptr noundef nonnull %.017, ptr noundef %.09)
   ret ptr %35
 }

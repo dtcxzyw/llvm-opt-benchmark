@@ -898,7 +898,7 @@ define internal i32 @chrdev_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %71
 
 71:                                               ; preds = %.critedge, %.thread15, %65, %61, %40
-  %72 = phi i32 [ %41, %40 ], [ 0, %65 ], [ 0, %61 ], [ %68, %.thread15 ], [ -6, %.critedge ]
+  %72 = phi i32 [ -6, %.critedge ], [ %41, %40 ], [ 0, %65 ], [ 0, %61 ], [ %68, %.thread15 ]
   ret i32 %72
 }
 

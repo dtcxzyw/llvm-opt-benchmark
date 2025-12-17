@@ -100,8 +100,8 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr noundef readonly captures(
   br label %46
 
 46:                                               ; preds = %16, %44, %42, %34, %23
-  %.125 = phi i32 [ %24, %23 ], [ %35, %34 ], [ %43, %42 ], [ %.02445, %44 ], [ %.02445, %16 ]
-  %.1 = phi i32 [ %.046, %23 ], [ %.046, %34 ], [ %.046, %42 ], [ %45, %44 ], [ %.046, %16 ]
+  %.125 = phi i32 [ %.02445, %44 ], [ %24, %23 ], [ %35, %34 ], [ %43, %42 ], [ %.02445, %16 ]
+  %.1 = phi i32 [ %45, %44 ], [ %.046, %23 ], [ %.046, %34 ], [ %.046, %42 ], [ %.046, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !31
@@ -114,7 +114,7 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr noundef readonly captures(
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.preheader, %1
-  %.029 = phi i32 [ 0, %1 ], [ 1, %.preheader ], [ %spec.select, %.critedge ]
+  %.029 = phi i32 [ %spec.select, %.critedge ], [ 0, %1 ], [ 1, %.preheader ]
   ret i32 %.029
 }
 

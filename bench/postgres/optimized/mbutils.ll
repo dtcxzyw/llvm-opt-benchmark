@@ -145,7 +145,7 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
   br i1 %exitcond.not, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %.critedge, %40, %28, %.lr.ph, %16, %12, %14, %3, %2, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %2 ], [ 0, %3 ], [ 0, %16 ], [ -1, %12 ], [ -1, %14 ], [ -1, %28 ], [ -1, %.lr.ph ], [ -1, %.critedge ], [ 0, %40 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ -1, %14 ], [ -1, %12 ], [ -1, %1 ], [ 0, %16 ], [ -1, %28 ], [ -1, %.lr.ph ], [ -1, %.critedge ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -274,7 +274,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %.not, label %.critedge.loopexit, label %18, !llvm.loop !4
 
 47:                                               ; preds = %.critedge, %1, %11, %3
-  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %spec.select, %.critedge ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %1 ], [ %spec.select, %.critedge ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -452,7 +452,7 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %10, %33, %53, %4
-  %.0 = phi ptr [ %0, %4 ], [ %55, %53 ], [ %38, %33 ], [ %0, %10 ]
+  %.0 = phi ptr [ %55, %53 ], [ %0, %4 ], [ %38, %33 ], [ %0, %10 ]
   ret ptr %.0
 }
 
@@ -952,7 +952,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %34, %24, %11, %3, %52, %50
-  %.0 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %0, %3 ], [ %0, %11 ], [ %0, %24 ], [ %0, %34 ]
+  %.0 = phi ptr [ %53, %52 ], [ %0, %11 ], [ %0, %3 ], [ %51, %50 ], [ %0, %24 ], [ %0, %34 ]
   ret ptr %.0
 }
 
@@ -1051,7 +1051,7 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
   br label %pg_server_to_any.exit
 
 pg_server_to_any.exit:                            ; preds = %2, %7, %15, %25
-  %.0.i = phi ptr [ %26, %25 ], [ %0, %2 ], [ %0, %7 ], [ %0, %15 ]
+  %.0.i = phi ptr [ %0, %15 ], [ %0, %2 ], [ %0, %7 ], [ %26, %25 ]
   ret ptr %.0.i
 }
 
@@ -1105,7 +1105,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %13, %5, %3, %30, %28
-  %.0 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %0, %3 ], [ %0, %5 ], [ %0, %13 ]
+  %.0 = phi ptr [ %31, %30 ], [ %0, %3 ], [ %0, %5 ], [ %29, %28 ], [ %0, %13 ]
   ret ptr %.0
 }
 
@@ -1446,7 +1446,7 @@ unicode_to_utf8.exit20:                           ; preds = %58, %64, %72
   br label %97
 
 97:                                               ; preds = %53, %2, %unicode_to_utf8.exit20, %unicode_to_utf8.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %unicode_to_utf8.exit ], [ %96, %unicode_to_utf8.exit20 ], [ false, %2 ], [ false, %53 ]
+  %.0 = phi i1 [ true, %8 ], [ true, %unicode_to_utf8.exit ], [ false, %2 ], [ %96, %unicode_to_utf8.exit20 ], [ false, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -1722,7 +1722,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %33, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !11
 
 pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %23, %27, %29, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
-  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %.02130.i, %23 ], [ %2, %27 ], [ %25, %29 ]
+  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %2, %27 ], [ %25, %29 ], [ %.02130.i, %23 ]
   ret i32 %.0.i
 }
 
@@ -1791,7 +1791,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %27, %25, %21, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
-  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %23, %27 ], [ %3, %25 ], [ %.02130, %21 ], [ %.02130, %.lr.ph ]
+  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %.02130, %21 ], [ %23, %27 ], [ %3, %25 ], [ %.02130, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2143,7 +2143,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %32, %47, %12, %13, %9, %45, %31, %15, %4, %42, %38, %27, %23
-  %.035 = phi i1 [ true, %38 ], [ true, %42 ], [ true, %23 ], [ true, %27 ], [ false, %4 ], [ false, %15 ], [ false, %31 ], [ false, %45 ], [ true, %9 ], [ true, %13 ], [ true, %12 ], [ true, %47 ], [ false, %32 ], [ false, %16 ]
+  %.035 = phi i1 [ true, %38 ], [ true, %42 ], [ false, %31 ], [ false, %45 ], [ false, %15 ], [ false, %4 ], [ true, %23 ], [ true, %27 ], [ true, %9 ], [ true, %13 ], [ true, %12 ], [ true, %47 ], [ false, %32 ], [ false, %16 ]
   ret i1 %.035
 }
 

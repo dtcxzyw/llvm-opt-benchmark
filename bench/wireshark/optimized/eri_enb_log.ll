@@ -61,7 +61,7 @@ define hidden range(i32 -1, 2) i32 @eri_enb_log_open(ptr noundef captures(none) 
   br label %27
 
 27:                                               ; preds = %8, %15, %12, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %12 ], [ -1, %15 ], [ %11, %8 ]
+  %.0 = phi i32 [ 1, %19 ], [ %11, %8 ], [ 0, %12 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

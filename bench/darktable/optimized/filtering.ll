@@ -906,8 +906,8 @@ define hidden void @_misc_tree_update(ptr noundef captures(none) %0) local_unnam
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1, %18, %21, %25, %23, %19, %17
-  %.str.25.sink = phi ptr [ @.str.27, %18 ], [ @.str.31, %21 ], [ @.str.35, %25 ], [ @.str.33, %23 ], [ @.str.29, %19 ], [ @.str.26, %17 ], [ @.str.25, %1 ]
-  %.0.ph = phi ptr [ null, %18 ], [ %22, %21 ], [ %26, %25 ], [ %24, %23 ], [ %20, %19 ], [ null, %17 ], [ null, %1 ]
+  %.str.25.sink = phi ptr [ @.str.26, %17 ], [ @.str.27, %18 ], [ @.str.31, %21 ], [ @.str.35, %25 ], [ @.str.33, %23 ], [ @.str.29, %19 ], [ @.str.25, %1 ]
+  %.0.ph = phi ptr [ null, %17 ], [ null, %18 ], [ %22, %21 ], [ %26, %25 ], [ %24, %23 ], [ %20, %19 ], [ null, %1 ]
   %27 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.25.sink, i32 noundef 5) #21
   %28 = tail call noalias ptr @g_strdup(ptr noundef %27) #21
   %.pr = load i32, ptr %15, align 8, !tbaa !81
@@ -1235,7 +1235,7 @@ define internal float @_action_process_ratings(ptr noundef %0, i32 noundef %1, i
   br label %68
 
 68:                                               ; preds = %59, %62
-  %69 = phi double [ %67, %62 ], [ 0.000000e+00, %59 ]
+  %69 = phi double [ 0.000000e+00, %59 ], [ %67, %62 ]
   %70 = fsub reassoc nsz arcp contract afn double -2.000000e+00, %.070
   %71 = fadd reassoc nsz arcp contract afn double %70, %69
   %72 = fptrunc reassoc nsz arcp contract afn double %71 to float
@@ -4046,7 +4046,7 @@ _get_mask.exit:                                   ; preds = %32, %36
   br label %79
 
 79:                                               ; preds = %73, %66, %64
-  %.2 = phi i32 [ 0, %64 ], [ %46, %66 ], [ %spec.select41, %73 ]
+  %.2 = phi i32 [ %spec.select41, %73 ], [ 0, %64 ], [ %46, %66 ]
   %80 = xor i32 %47, -1
   br label %81
 
@@ -5584,7 +5584,7 @@ define internal range(i32 0, 2) i32 @_event_rule_close(ptr noundef %0, ptr readn
   br label %44
 
 44:                                               ; preds = %43, %9, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %9 ], [ %spec.select, %43 ]
+  %.0 = phi i32 [ %spec.select, %43 ], [ 1, %3 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -5652,8 +5652,8 @@ define internal fastcc void @_widget_header_update(ptr noundef captures(none) %0
   br label %33
 
 33:                                               ; preds = %26, %19
-  %.str.136.sink = phi ptr [ @.str.133, %19 ], [ %.str.137..str.136, %26 ]
-  %.sink.in = phi ptr [ %2, %19 ], [ %7, %26 ]
+  %.str.136.sink = phi ptr [ %.str.137..str.136, %26 ], [ @.str.133, %19 ]
+  %.sink.in = phi ptr [ %7, %26 ], [ %2, %19 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !6
   %34 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.136.sink, i32 noundef 5) #21
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %.sink, ptr noundef %34) #21
@@ -8872,7 +8872,7 @@ define internal range(i32 0, 2) i32 @_local_copy_update(ptr noundef %0) #1 {
   br label %_local_copy_decode.exit
 
 _local_copy_decode.exit:                          ; preds = %10, %12, %7
-  %.022 = phi i32 [ 0, %7 ], [ 1, %10 ], [ %..i, %12 ]
+  %.022 = phi i32 [ 0, %7 ], [ %..i, %12 ], [ 1, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = load i32, ptr %14, align 8, !tbaa !183
   %16 = add nsw i32 %15, 1
@@ -9313,7 +9313,7 @@ define internal range(i32 0, 2) i32 @_module_order_update(ptr noundef %0) #1 {
   br label %_module_order_decode.exit
 
 _module_order_decode.exit:                        ; preds = %10, %12, %14, %16, %7
-  %.022 = phi i32 [ 0, %7 ], [ 1, %10 ], [ 2, %12 ], [ 3, %14 ], [ %..i, %16 ]
+  %.022 = phi i32 [ 0, %7 ], [ 1, %10 ], [ %..i, %16 ], [ 3, %14 ], [ 2, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %19 = load i32, ptr %18, align 8, !tbaa !183
   %20 = add nsw i32 %19, 1
@@ -9585,8 +9585,8 @@ define internal range(i32 0, 2) i32 @_rating_update(ptr noundef %0) #1 {
   br label %25
 
 25:                                               ; preds = %21, %19, %17, %15, %13, %23
-  %.012 = phi i32 [ 2, %23 ], [ 1, %13 ], [ 3, %15 ], [ 5, %17 ], [ 0, %19 ], [ 4, %21 ]
-  %.0.i = phi i64 [ %..i, %23 ], [ 2, %13 ], [ 2, %15 ], [ 2, %17 ], [ 1, %19 ], [ 1, %21 ]
+  %.012 = phi i32 [ 2, %23 ], [ 0, %19 ], [ 5, %17 ], [ 3, %15 ], [ 1, %13 ], [ 4, %21 ]
+  %.0.i = phi i64 [ %..i, %23 ], [ 1, %19 ], [ 2, %17 ], [ 2, %15 ], [ 2, %13 ], [ 1, %21 ]
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
   %.not47.i = icmp ugt i64 %26, %.0.i
   br i1 %.not47.i, label %27, label %_rating_legacy_decode.exit
@@ -9602,8 +9602,8 @@ define internal range(i32 0, 2) i32 @_rating_update(ptr noundef %0) #1 {
   br label %_rating_legacy_decode.exit
 
 _rating_legacy_decode.exit:                       ; preds = %27, %25, %4, %7, %9, %11
-  %.2 = phi i32 [ %.012, %25 ], [ 3, %4 ], [ 3, %7 ], [ 3, %9 ], [ 3, %11 ], [ %.012, %27 ]
-  %.011 = phi i32 [ 0, %25 ], [ 0, %4 ], [ 1, %7 ], [ 7, %9 ], [ 8, %11 ], [ %spec.select, %27 ]
+  %.2 = phi i32 [ %.012, %27 ], [ %.012, %25 ], [ 3, %4 ], [ 3, %7 ], [ 3, %9 ], [ 3, %11 ]
+  %.011 = phi i32 [ %spec.select, %27 ], [ 0, %25 ], [ 0, %4 ], [ 1, %7 ], [ 7, %9 ], [ 8, %11 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %34 = load i32, ptr %33, align 8, !tbaa !183
   %35 = add nsw i32 %34, 1
@@ -10261,7 +10261,7 @@ define internal range(i32 0, 2) i32 @_search_changed_wait(ptr noundef captures(a
   br label %.thread43
 
 .thread43:                                        ; preds = %37, %35, %41
-  %.034 = phi ptr [ %32, %41 ], [ %32, %35 ], [ %38, %37 ]
+  %.034 = phi ptr [ %32, %35 ], [ %32, %41 ], [ %38, %37 ]
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #26
   %43 = getelementptr i8, ptr %32, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -1
@@ -11349,7 +11349,7 @@ define internal void @_local_copy_changed(ptr readnone captures(none) %0, ptr no
   br i1 %.not.i.i9, label %_rule_set_raw_text.exit.sink.split, label %_rule_set_raw_text.exit
 
 _rule_set_raw_text.exit.sink.split:               ; preds = %20, %15, %10
-  %.sink = phi ptr [ %11, %10 ], [ %16, %15 ], [ %21, %20 ]
+  %.sink = phi ptr [ %16, %15 ], [ %11, %10 ], [ %21, %20 ]
   tail call fastcc void @_conf_update_rule(ptr noundef nonnull %.sink)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !178
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !138
@@ -11463,7 +11463,7 @@ define internal void @_history_changed(ptr readnone captures(none) %0, ptr nound
   br i1 %.not.i.i12, label %_rule_set_raw_text.exit.sink.split, label %_rule_set_raw_text.exit
 
 _rule_set_raw_text.exit.sink.split:               ; preds = %25, %20, %15, %10
-  %.sink = phi ptr [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ]
+  %.sink = phi ptr [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %26, %25 ]
   tail call fastcc void @_conf_update_rule(ptr noundef nonnull %.sink)
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !178
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !138
@@ -11590,7 +11590,7 @@ define internal void @_module_order_changed(ptr readnone captures(none) %0, ptr 
   br i1 %.not.i.i15, label %_rule_set_raw_text.exit.sink.split, label %_rule_set_raw_text.exit
 
 _rule_set_raw_text.exit.sink.split:               ; preds = %30, %25, %20, %15, %10
-  %.sink = phi ptr [ %11, %10 ], [ %16, %15 ], [ %21, %20 ], [ %26, %25 ], [ %31, %30 ]
+  %.sink = phi ptr [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %31, %30 ]
   tail call fastcc void @_conf_update_rule(ptr noundef nonnull %.sink)
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !178
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !138

@@ -266,7 +266,7 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
   br label %127
 
 127:                                              ; preds = %123, %125, %113, %109, %70, %4
-  %.040 = phi i32 [ 3, %70 ], [ 3, %109 ], [ 3, %113 ], [ 3, %4 ], [ 0, %125 ], [ 0, %123 ]
+  %.040 = phi i32 [ 3, %70 ], [ 3, %4 ], [ 3, %109 ], [ 3, %113 ], [ 0, %125 ], [ 0, %123 ]
   ret i32 %.040
 }
 
@@ -583,7 +583,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   %160 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.30.sink) #13
   br label %.thread
 
-.thread:                                          ; preds = %154, %140, %.thread.sink.split
+.thread:                                          ; preds = %140, %154, %.thread.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -651,7 +651,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %.backedge
 
 .critedge4:                                       ; preds = %.outer, %.backedge, %63, %.preheader
-  %.173.ph.lcssa = phi i32 [ %.072.ph, %.preheader ], [ %.173.ph170, %63 ], [ %.173.ph170, %.backedge ], [ %155, %.outer ]
+  %.173.ph.lcssa = phi i32 [ %.072.ph, %.preheader ], [ %.173.ph170, %.backedge ], [ %.173.ph170, %63 ], [ %155, %.outer ]
   br label %192
 
 192:                                              ; preds = %199, %.critedge4
@@ -678,7 +678,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %185, %81, %.thread, %177, %202, %204, %70
-  %.2 = phi i32 [ 2, %70 ], [ 2, %177 ], [ 2, %204 ], [ %.071.ph, %202 ], [ 2, %.thread ], [ 2, %81 ], [ 2, %185 ]
+  %.2 = phi i32 [ 2, %70 ], [ 2, %.thread ], [ 2, %177 ], [ 2, %204 ], [ %.071.ph, %202 ], [ 2, %81 ], [ 2, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

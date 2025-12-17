@@ -1044,10 +1044,10 @@ get_literal_global.exit.i79.thread:               ; preds = %158, %.preheader.i,
   br label %182
 
 parse_element_magic.exit:                         ; preds = %14, %get_literal_global.exit.i, %parse_long_magic.exit.i
-  %177 = phi i32 [ %.pre, %parse_long_magic.exit.i ], [ %20, %get_literal_global.exit.i ], [ %.pre243, %14 ]
-  %.4 = phi i32 [ %.297.ph, %parse_long_magic.exit.i ], [ 0, %get_literal_global.exit.i ], [ 0, %14 ]
-  %.3 = phi i32 [ %.1.ph392, %parse_long_magic.exit.i ], [ -1, %get_literal_global.exit.i ], [ -1, %14 ]
-  %.0.i = phi ptr [ %156, %parse_long_magic.exit.i ], [ %4, %get_literal_global.exit.i ], [ %4, %14 ]
+  %177 = phi i32 [ %.pre, %parse_long_magic.exit.i ], [ %.pre243, %14 ], [ %20, %get_literal_global.exit.i ]
+  %.4 = phi i32 [ %.297.ph, %parse_long_magic.exit.i ], [ 0, %14 ], [ 0, %get_literal_global.exit.i ]
+  %.3 = phi i32 [ %.1.ph392, %parse_long_magic.exit.i ], [ -1, %14 ], [ -1, %get_literal_global.exit.i ]
+  %.0.i = phi ptr [ %156, %parse_long_magic.exit.i ], [ %4, %14 ], [ %4, %get_literal_global.exit.i ]
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %179, label %get_literal_global.exit.i79
 
@@ -1064,10 +1064,10 @@ get_literal_global.exit.i79:                      ; preds = %179, %parse_element
   br label %182
 
 182:                                              ; preds = %get_literal_global.exit.i79, %get_literal_global.exit.i79.thread
-  %.4271283 = phi i32 [ %.196, %get_literal_global.exit.i79.thread ], [ %.4, %get_literal_global.exit.i79 ]
-  %.3272281 = phi i32 [ -1, %get_literal_global.exit.i79.thread ], [ %.3, %get_literal_global.exit.i79 ]
-  %.0.i273279 = phi ptr [ %spec.select.i.i, %get_literal_global.exit.i79.thread ], [ %.0.i, %get_literal_global.exit.i79 ]
-  %183 = phi i32 [ 0, %get_literal_global.exit.i79.thread ], [ %spec.select, %get_literal_global.exit.i79 ]
+  %.4271283 = phi i32 [ %.4, %get_literal_global.exit.i79 ], [ %.196, %get_literal_global.exit.i79.thread ]
+  %.3272281 = phi i32 [ %.3, %get_literal_global.exit.i79 ], [ -1, %get_literal_global.exit.i79.thread ]
+  %.0.i273279 = phi ptr [ %.0.i, %get_literal_global.exit.i79 ], [ %spec.select.i.i, %get_literal_global.exit.i79.thread ]
+  %183 = phi i32 [ %spec.select, %get_literal_global.exit.i79 ], [ 0, %get_literal_global.exit.i79.thread ]
   %184 = load i32, ptr @get_glob_global.glob, align 4, !tbaa !34
   %185 = icmp slt i32 %184, 0
   br i1 %185, label %186, label %get_glob_global.exit.i
@@ -1916,37 +1916,37 @@ define dso_local range(i32 0, 2) i32 @match_pathspec_attrs(ptr noundef %0, ptr n
 
 30:                                               ; preds = %21
   %31 = icmp eq ptr %24, @git_attr__false
-  br i1 %31, label %32, label %33
+  br i1 %31, label %40, label %32
 
 32:                                               ; preds = %30
-  %.not36 = icmp eq i32 %27, 1
-  br i1 %.not36, label %41, label %.critedge
+  %33 = icmp eq ptr %24, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %30
-  %34 = icmp eq ptr %24, null
-  br i1 %34, label %35, label %36
-
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   %.not35 = icmp eq i32 %27, 3
   br i1 %.not35, label %41, label %.critedge
 
-36:                                               ; preds = %33
-  %37 = icmp eq i32 %27, 2
-  br i1 %37, label %38, label %.critedge
+35:                                               ; preds = %32
+  %36 = icmp eq i32 %27, 2
+  br i1 %36, label %37, label %.critedge
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %25, align 8, !tbaa !89
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %24) #19
-  %.not33.not = icmp eq i32 %40, 0
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %25, align 8, !tbaa !89
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %24) #19
+  %.not33.not = icmp eq i32 %39, 0
   br i1 %.not33.not, label %41, label %.critedge
 
-41:                                               ; preds = %35, %32, %29, %38
+40:                                               ; preds = %30
+  %.not36 = icmp eq i32 %27, 1
+  br i1 %.not36, label %41, label %.critedge
+
+41:                                               ; preds = %34, %37, %29, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !119
 
-.critedge:                                        ; preds = %38, %41, %36, %29, %32, %35, %10
-  %.2 = phi i32 [ 1, %10 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %36 ], [ 1, %41 ], [ 0, %38 ]
+.critedge:                                        ; preds = %40, %41, %35, %29, %37, %34, %10
+  %.2 = phi i32 [ 1, %10 ], [ 1, %41 ], [ 0, %35 ], [ 0, %29 ], [ 0, %37 ], [ 0, %34 ], [ 0, %40 ]
   ret i32 %.2
 }
 
@@ -2125,20 +2125,20 @@ matches_skip_worktree.exit:                       ; preds = %83, %54, %53
   br i1 %.not46, label %.thread.thread, label %.thread
 
 .thread:                                          ; preds = %47, %25, %51, %matches_skip_worktree.exit, %23
-  %.256.ph = phi ptr [ %.05475, %23 ], [ %.458, %matches_skip_worktree.exit ], [ %.05475, %51 ], [ %.05475, %25 ], [ %.05475, %47 ]
+  %.256.ph = phi ptr [ %.05475, %23 ], [ %.05475, %51 ], [ %.458, %matches_skip_worktree.exit ], [ %.05475, %25 ], [ %.05475, %47 ]
   %90 = add nuw i32 %.03876, 1
   %91 = load i32, ptr %1, align 8, !tbaa !4
   %92 = icmp ult i32 %90, %91
   br i1 %92, label %11, label %.thread.thread, !llvm.loop !122
 
 .thread.thread:                                   ; preds = %.thread, %matches_skip_worktree.exit, %45, %38, %.preheader
-  %.155 = phi ptr [ null, %.preheader ], [ %.05475, %38 ], [ %.05475, %45 ], [ %.256.ph, %.thread ], [ %.458, %matches_skip_worktree.exit ]
-  %.1 = phi i32 [ 0, %.preheader ], [ 1, %38 ], [ 1, %45 ], [ 0, %.thread ], [ 1, %matches_skip_worktree.exit ]
+  %.155 = phi ptr [ null, %.preheader ], [ %.05475, %45 ], [ %.05475, %38 ], [ %.256.ph, %.thread ], [ %.458, %matches_skip_worktree.exit ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 1, %45 ], [ 1, %38 ], [ 0, %.thread ], [ 1, %matches_skip_worktree.exit ]
   tail call void @free(ptr noundef %.155) #17
   br label %93
 
 93:                                               ; preds = %5, %2, %.thread.thread
-  %.0 = phi i32 [ %.1, %.thread.thread ], [ 0, %2 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %.thread.thread ], [ 1, %5 ]
   ret i32 %.0
 }
 

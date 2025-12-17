@@ -524,7 +524,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1523,7 +1523,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   resume { ptr, i32 } %.pn116
 
 182:                                              ; preds = %4, %180, %20
-  %.0 = phi i32 [ 0, %20 ], [ %.1, %180 ], [ 0, %4 ]
+  %.0 = phi i32 [ %.1, %180 ], [ 0, %20 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1595,8 +1595,8 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %16 = alloca %"class.icu_77::StringPiece", align 8
   %17 = load i32, ptr %5, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink.sroa.gep79 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink.sroa.gep79 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %18, label %19, label %106
 
@@ -1707,8 +1707,8 @@ define ptr @ucurr_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
           to label %.invoke unwind label %51
 
 .invoke:                                          ; preds = %54, %53, %50
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %50 ], [ %.sink.sroa.gep79, %53 ], [ %.sink.sroa.gep80, %54 ]
-  %.sink = phi ptr [ %12, %50 ], [ %13, %53 ], [ %14, %54 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %53 ], [ %.sink.sroa.gep79, %50 ], [ %.sink.sroa.gep80, %54 ]
+  %.sink = phi ptr [ %13, %53 ], [ %12, %50 ], [ %14, %54 ]
   %55 = load ptr, ptr %.sink, align 8
   %56 = load i32, ptr %.sink.sroa.phi, align 8
   %57 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef %55, i32 noundef %56, ptr noundef nonnull align 4 dereferenceable(4) %7)
@@ -1826,7 +1826,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit69: ; preds = %
   br label %97
 
 97:                                               ; preds = %93, %96
-  %.4 = phi ptr [ %0, %96 ], [ %.2, %93 ]
+  %.4 = phi ptr [ %.2, %93 ], [ %0, %96 ]
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %98
 
@@ -2008,7 +2008,7 @@ define ptr @ucurr_getPluralName_77(ptr noundef %0, ptr noundef %1, ptr noundef w
   br label %56
 
 56:                                               ; preds = %53, %55, %51, %41
-  %.232 = phi ptr [ %42, %41 ], [ %.0, %51 ], [ %.0, %55 ], [ %.0, %53 ]
+  %.232 = phi ptr [ %.0, %53 ], [ %42, %41 ], [ %.0, %51 ], [ %.0, %55 ]
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %57
 
@@ -3041,7 +3041,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit.i:          ; preds = %.noexc208._ZN6icu_7
   br label %315
 
 315:                                              ; preds = %312, %310, %_ZN6icu_7713EquivIterator4nextEv.exit.i
-  %.0.i210.i = phi ptr [ %311, %310 ], [ %314, %312 ], [ null, %_ZN6icu_7713EquivIterator4nextEv.exit.i ]
+  %.0.i210.i = phi ptr [ %314, %312 ], [ %311, %310 ], [ null, %_ZN6icu_7713EquivIterator4nextEv.exit.i ]
   %316 = icmp slt i16 %306, 0
   %317 = ashr i16 %306, 5
   %318 = sext i16 %317 to i32
@@ -3874,7 +3874,7 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit61: ; preds = %552, %_ZL19del
   br label %560
 
 560:                                              ; preds = %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit.thread, %41, %559, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit, %521
-  %.041 = phi ptr [ null, %521 ], [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit ], [ %.2, %559 ], [ %44, %41 ], [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit.thread ]
+  %.041 = phi ptr [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit ], [ null, %521 ], [ %.2, %559 ], [ %44, %41 ], [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit.thread ]
   ret ptr %.041
 }
 
@@ -4017,8 +4017,8 @@ define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsi
   br i1 %73, label %.lr.ph108.i, label %_ZL12binarySearchPK18CurrencyNameStructiDsPiS2_.exit, !llvm.loop !79
 
 74:                                               ; preds = %32, %28, %20
-  %.284.i = phi i32 [ %.08298.i, %20 ], [ %.08298.i, %28 ], [ %33, %32 ]
-  %.273.i = phi i32 [ %21, %20 ], [ %29, %28 ], [ %.07199.i, %32 ]
+  %.284.i = phi i32 [ %33, %32 ], [ %.08298.i, %20 ], [ %.08298.i, %28 ]
+  %.273.i = phi i32 [ %.07199.i, %32 ], [ %21, %20 ], [ %29, %28 ]
   %.not.i = icmp sgt i32 %.273.i, %.284.i
   br i1 %.not.i, label %_ZL12linearSearchPK18CurrencyNameStructiiPKDsiPiS4_S4_.exit, label %.lr.ph.i, !llvm.loop !80
 
@@ -4316,7 +4316,7 @@ define i32 @ucurr_getDefaultFractionDigits_77(ptr noundef %0, ptr noundef %1) lo
   br label %ucurr_getDefaultFractionDigitsForUsage_77.exit
 
 ucurr_getDefaultFractionDigitsForUsage_77.exit:   ; preds = %2, %5
-  %.0.i = phi i32 [ %7, %5 ], [ 0, %2 ]
+  %.0.i = phi i32 [ 0, %2 ], [ %7, %5 ]
   ret i32 %.0.i
 }
 
@@ -4461,7 +4461,7 @@ define internal fastcc noundef ptr @_ZL13_findMetaDataPKDsR10UErrorCode(ptr noun
   br label %56
 
 49:                                               ; preds = %41, %46
-  %.3 = phi ptr [ @_ZL16LAST_RESORT_DATA, %46 ], [ %.mux, %41 ]
+  %.3 = phi ptr [ %.mux, %41 ], [ @_ZL16LAST_RESORT_DATA, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
@@ -4565,7 +4565,7 @@ define double @ucurr_getRoundingIncrement_77(ptr noundef %0, ptr noundef nonnull
   br label %ucurr_getRoundingIncrementForUsage_77.exit
 
 ucurr_getRoundingIncrementForUsage_77.exit:       ; preds = %2, %8, %9, %11
-  %.1.i = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %8 ], [ %17, %11 ], [ 0.000000e+00, %9 ]
+  %.1.i = phi double [ 0.000000e+00, %9 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %8 ], [ %17, %11 ]
   ret double %.1.i
 }
 
@@ -5150,7 +5150,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %173, %4, %181, %190, %175, %186, %182, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %.0 = phi i8 [ 0, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ 0, %181 ], [ 1, %190 ], [ 0, %175 ], [ 0, %186 ], [ 0, %182 ], [ 0, %4 ], [ 0, %173 ]
+  %.0 = phi i8 [ 0, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ 1, %190 ], [ 0, %181 ], [ 0, %175 ], [ 0, %186 ], [ 0, %182 ], [ 0, %4 ], [ 0, %173 ]
   ret i8 %.0
 }
 
@@ -5776,8 +5776,8 @@ define i32 @ucurr_forLocaleAndDate_77(ptr noundef %0, double noundef %1, i32 nou
   br label %123
 
 118:                                              ; preds = %101, %91, %89
-  %.374 = phi i1 [ false, %91 ], [ false, %89 ], [ %103, %101 ]
-  %.162 = phi i32 [ %.061, %91 ], [ %.061, %89 ], [ %102, %101 ]
+  %.374 = phi i1 [ false, %89 ], [ %103, %101 ], [ false, %91 ]
+  %.162 = phi i32 [ %.061, %89 ], [ %102, %101 ], [ %.061, %91 ]
   %.not.i = icmp eq ptr %86, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %119
 
@@ -5915,8 +5915,8 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %158
 
 158:                                              ; preds = %._crit_edge, %150, %46, %50
-  %159 = phi ptr [ %42, %50 ], [ %42, %46 ], [ %42, %150 ], [ %.pre123, %._crit_edge ]
-  %.1 = phi i32 [ 0, %50 ], [ 0, %46 ], [ 0, %150 ], [ %157, %._crit_edge ]
+  %159 = phi ptr [ %42, %46 ], [ %42, %150 ], [ %42, %50 ], [ %.pre123, %._crit_edge ]
+  %.1 = phi i32 [ 0, %46 ], [ 0, %150 ], [ 0, %50 ], [ %157, %._crit_edge ]
   %.not.i121 = icmp eq ptr %159, null
   br i1 %.not.i121, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit122, label %160
 
@@ -6407,7 +6407,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
   br label %.preheader, !llvm.loop !107
 
 .thread161:                                       ; preds = %163, %147, %157, %143, %140
-  %.0109 = phi ptr [ %17, %140 ], [ %144, %143 ], [ %17, %157 ], [ %17, %147 ], [ %17, %163 ]
+  %.0109 = phi ptr [ %144, %143 ], [ %17, %140 ], [ %17, %157 ], [ %17, %147 ], [ %17, %163 ]
   %166 = getelementptr inbounds nuw i8, ptr %.0109, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !101
   invoke void @ulist_resetList_77(ptr noundef %167)
@@ -6455,7 +6455,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %182
 
 176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit164, %.loopexit.split-lp165, %.loopexit170, %.loopexit.split-lp171, %158, %84, %104, %134
-  %.pn141 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %134 ], [ %105, %104 ], [ %159, %158 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn141 = phi { ptr, i32 } [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ], [ %105, %104 ], [ %85, %84 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ], [ %.pn, %134 ], [ %159, %158 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #20
   br label %177
 
@@ -7430,7 +7430,7 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i, %.noexc46.i.i, %257, %.noexc45.i.i, %.noexc40.i.i, %149, %.noexc39.i.i
-  %.0.i88198.i.i.i = phi ptr [ null, %.noexc39.i.i ], [ null, %.noexc40.i.i ], [ null, %149 ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
+  %.0.i88198.i.i.i = phi ptr [ null, %149 ], [ null, %.noexc39.i.i ], [ null, %.noexc40.i.i ], [ %143, %.noexc45.i.i ], [ %143, %257 ], [ %143, %.noexc46.i.i ], [ %143, %_ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i ]
   %279 = icmp eq ptr %.0.i88198.i.i.i, null
   %280 = icmp eq ptr %.0.i84.i.i.i, null
   %or.cond.i35.i.i = and i1 %280, %279
@@ -7556,13 +7556,13 @@ _ZN6icu_7713EquivIterator4nextEv.exit135.i.i.i:   ; preds = %260
   br label %.body.i.i.i
 
 .thread.i.i.i:                                    ; preds = %322, %310, %298, %285
-  %.066.ph.i.i.i = phi ptr [ %319, %322 ], [ %307, %310 ], [ %295, %298 ], [ %282, %285 ]
+  %.066.ph.i.i.i = phi ptr [ %319, %322 ], [ %295, %298 ], [ %282, %285 ], [ %307, %310 ]
   %330 = icmp eq ptr %.066.ph.i.i.i, null
   br i1 %330, label %.thread161.i.i.i, label %.thread161.sink.split.i.i.i
 
 331:                                              ; preds = %325, %313, %301, %288
-  %.067.i.i.i = phi ptr [ %286, %288 ], [ %299, %301 ], [ %311, %313 ], [ %323, %325 ]
-  %.066.i.i.i = phi ptr [ %282, %288 ], [ %295, %301 ], [ %307, %313 ], [ %319, %325 ]
+  %.067.i.i.i = phi ptr [ %311, %313 ], [ %286, %288 ], [ %299, %301 ], [ %323, %325 ]
+  %.066.i.i.i = phi ptr [ %307, %313 ], [ %282, %288 ], [ %295, %301 ], [ %319, %325 ]
   %332 = icmp eq ptr %.066.i.i.i, null
   br i1 %332, label %.thread161.sink.split.i.i.i, label %336
 
@@ -8025,7 +8025,7 @@ define internal noundef ptr @_ZL22ucurr_nextCurrencyListP12UEnumerationPiP10UErr
   br label %24
 
 24:                                               ; preds = %.thread, %22, %23
-  %.2 = phi ptr [ null, %23 ], [ null, %22 ], [ %21, %.thread ]
+  %.2 = phi ptr [ %21, %.thread ], [ null, %23 ], [ null, %22 ]
   ret ptr %.2
 }
 

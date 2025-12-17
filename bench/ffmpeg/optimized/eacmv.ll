@@ -486,7 +486,7 @@ cmv_motcomp.exit.i:                               ; preds = %.split.us.i.i, %196
   br i1 %exitcond45.not.i86.i, label %cmv_motcomp.exit94.i, label %.preheader.i76.i, !llvm.loop !48
 
 cmv_motcomp.exit94.i:                             ; preds = %.split.us.i83.i, %231, %cmv_motcomp.exit.i, %194, %173
-  %.3.i = phi ptr [ %193, %173 ], [ %230, %cmv_motcomp.exit.i ], [ %.197.i, %194 ], [ %.197.i, %231 ], [ %.197.i, %.split.us.i83.i ]
+  %.3.i = phi ptr [ %.197.i, %194 ], [ %193, %173 ], [ %230, %cmv_motcomp.exit.i ], [ %.197.i, %231 ], [ %.197.i, %.split.us.i83.i ]
   %indvars.iv.next106.i = add nsw i64 %indvars.iv105.i, 1
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i72, 1
   %271 = load ptr, ptr %10, align 8, !tbaa !27
@@ -589,7 +589,7 @@ cmv_decode_intra.exit:                            ; preds = %305, %300, %288, %c
   br label %.thread
 
 .thread:                                          ; preds = %43, %21, %cmv_process_header.exit, %cmv_decode_intra.exit, %120, %105, %93, %4, %324
-  %.0 = phi i32 [ %8, %324 ], [ -1094995529, %4 ], [ %99, %93 ], [ -1094995529, %105 ], [ %121, %120 ], [ %322, %cmv_decode_intra.exit ], [ -1094995529, %cmv_process_header.exit ], [ %47, %43 ], [ -1094995529, %21 ]
+  %.0 = phi i32 [ %322, %cmv_decode_intra.exit ], [ -1094995529, %4 ], [ -1094995529, %105 ], [ %121, %120 ], [ %8, %324 ], [ %99, %93 ], [ -1094995529, %cmv_process_header.exit ], [ %47, %43 ], [ -1094995529, %21 ]
   ret i32 %.0
 }
 

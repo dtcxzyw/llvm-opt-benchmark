@@ -1252,7 +1252,7 @@ pmix_obj_run_destructors.exit317:                 ; preds = %.lr.ph.i314, %._cri
   br label %569
 
 569:                                              ; preds = %.thread, %._crit_edge, %2, %.loopexit
-  %.0 = phi i32 [ %.0161, %.loopexit ], [ -1, %2 ], [ -1, %._crit_edge ], [ -27, %.thread ]
+  %.0 = phi i32 [ -27, %.thread ], [ -1, %2 ], [ %.0161, %.loopexit ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

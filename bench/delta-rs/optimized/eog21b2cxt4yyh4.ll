@@ -404,7 +404,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread59:                                        ; preds = %171, %175, %110
-  %.pn3562 = phi { ptr, i32 } [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ], [ %lpad.thr_comm.split-lp, %171 ]
+  %.pn3562 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %171 ], [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ]
   resume { ptr, i32 } %.pn3562
 
 171:                                              ; preds = %108
@@ -807,7 +807,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread59:                                        ; preds = %171, %175, %110
-  %.pn3562 = phi { ptr, i32 } [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ], [ %lpad.thr_comm.split-lp, %171 ]
+  %.pn3562 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %171 ], [ %.pn, %110 ], [ %lpad.thr_comm.split-lp, %175 ]
   resume { ptr, i32 } %.pn3562
 
 171:                                              ; preds = %108
@@ -1261,7 +1261,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread64:                                        ; preds = %186, %191, %131, %110, %172
-  %.pn3567 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %110 ], [ %132, %131 ], [ %187, %191 ], [ %187, %186 ]
+  %.pn3567 = phi { ptr, i32 } [ %173, %172 ], [ %132, %131 ], [ %.pn, %110 ], [ %187, %191 ], [ %187, %186 ]
   resume { ptr, i32 } %.pn3567
 
 186:                                              ; preds = %108

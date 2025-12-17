@@ -1090,7 +1090,7 @@ zbee_zcl_get_cluster_desc.exit.i.us:              ; preds = %17
   br label %dissect_zcl_attr_id.exit.us
 
 dissect_zcl_attr_id.exit.us:                      ; preds = %21, %23, %zbee_zcl_get_cluster_desc.exit.i.us, %.lr.ph.split.us
-  %.0.i.us = phi i32 [ %12, %zbee_zcl_get_cluster_desc.exit.i.us ], [ %spec.select.i.us, %23 ], [ %12, %.lr.ph.split.us ], [ %12, %21 ]
+  %.0.i.us = phi i32 [ %12, %zbee_zcl_get_cluster_desc.exit.i.us ], [ %12, %.lr.ph.split.us ], [ %spec.select.i.us, %23 ], [ %12, %21 ]
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0.i.us, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648)
   %28 = load i32, ptr %3, align 4
   %29 = add i32 %28, 2
@@ -1201,7 +1201,7 @@ zbee_zcl_get_cluster_desc.exit:                   ; preds = %12
   br label %zbee_zcl_get_cluster_desc.exit.thread
 
 zbee_zcl_get_cluster_desc.exit.thread:            ; preds = %16, %6, %23, %19, %zbee_zcl_get_cluster_desc.exit
-  %.0 = phi i32 [ %7, %zbee_zcl_get_cluster_desc.exit ], [ %spec.select, %19 ], [ %spec.select15, %23 ], [ %7, %6 ], [ %7, %16 ]
+  %.0 = phi i32 [ %7, %zbee_zcl_get_cluster_desc.exit ], [ %spec.select15, %23 ], [ %spec.select, %19 ], [ %7, %6 ], [ %7, %16 ]
   %27 = load i32, ptr %2, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %.0, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648)
   %29 = load i32, ptr %2, align 4
@@ -1274,7 +1274,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %23
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph, %zbee_zcl_get_cluster_desc.exit.i, %30, %34
-  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %30 ], [ %spec.select15.i, %34 ], [ %18, %.lr.ph ], [ %18, %27 ]
+  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %34 ], [ %spec.select.i, %30 ], [ %18, %.lr.ph ], [ %18, %27 ]
   %38 = load i32, ptr %3, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %.0.i, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648)
   %40 = load i32, ptr %3, align 4
@@ -1464,7 +1464,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %22
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %26, %.lr.ph, %zbee_zcl_get_cluster_desc.exit.i, %29, %33
-  %.0.i = phi i32 [ %17, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %29 ], [ %spec.select15.i, %33 ], [ %17, %.lr.ph ], [ %17, %26 ]
+  %.0.i = phi i32 [ %17, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %33 ], [ %spec.select.i, %29 ], [ %17, %.lr.ph ], [ %17, %26 ]
   %37 = load i32, ptr %3, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %.0.i, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef -2147483648)
   %39 = load i32, ptr %3, align 4
@@ -1548,7 +1548,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %23
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph, %zbee_zcl_get_cluster_desc.exit.i, %30, %34
-  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %30 ], [ %spec.select15.i, %34 ], [ %18, %.lr.ph ], [ %18, %27 ]
+  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %34 ], [ %spec.select.i, %30 ], [ %18, %.lr.ph ], [ %18, %27 ]
   %38 = load i32, ptr %3, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %.0.i, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648)
   %40 = load i32, ptr %3, align 4
@@ -2910,7 +2910,7 @@ zcl_dump_data.exit140:                            ; preds = %135, %139
   br label %143
 
 143:                                              ; preds = %4, %zcl_dump_data.exit140, %zcl_dump_data.exit, %101
-  %.0 = phi i32 [ %142, %zcl_dump_data.exit140 ], [ %103, %101 ], [ %115, %zcl_dump_data.exit ], [ 0, %4 ]
+  %.0 = phi i32 [ %115, %zcl_dump_data.exit ], [ %142, %zcl_dump_data.exit140 ], [ %103, %101 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -3115,7 +3115,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %28
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %zbee_zcl_get_cluster_desc.exit.i, %35, %39
-  %.0.i = phi i32 [ %23, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %35 ], [ %spec.select15.i, %39 ], [ %23, %22 ], [ %23, %32 ]
+  %.0.i = phi i32 [ %23, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %39 ], [ %spec.select.i, %35 ], [ %23, %22 ], [ %23, %32 ]
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648)
   %44 = load i32, ptr %2, align 4
   %45 = add i32 %44, 2
@@ -3211,7 +3211,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %30
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %34, %23, %zbee_zcl_get_cluster_desc.exit.i, %37, %41
-  %.0.i = phi i32 [ %25, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %37 ], [ %spec.select15.i, %41 ], [ %25, %23 ], [ %25, %34 ]
+  %.0.i = phi i32 [ %25, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %41 ], [ %spec.select.i, %37 ], [ %25, %23 ], [ %25, %34 ]
   %45 = load i32, ptr %2, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef -2147483648)
   %47 = load i32, ptr %2, align 4
@@ -3337,7 +3337,7 @@ zbee_zcl_get_cluster_desc.exit.i69:               ; preds = %88
   br label %dissect_zcl_attr_id.exit73
 
 dissect_zcl_attr_id.exit73:                       ; preds = %92, %82, %zbee_zcl_get_cluster_desc.exit.i69, %95, %99
-  %.0.i68 = phi i32 [ %83, %zbee_zcl_get_cluster_desc.exit.i69 ], [ %spec.select.i72, %95 ], [ %spec.select15.i71, %99 ], [ %83, %82 ], [ %83, %92 ]
+  %.0.i68 = phi i32 [ %83, %zbee_zcl_get_cluster_desc.exit.i69 ], [ %spec.select15.i71, %99 ], [ %spec.select.i72, %95 ], [ %83, %82 ], [ %83, %92 ]
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i68, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648)
   %104 = load i32, ptr %2, align 4
   %105 = add i32 %104, 2
@@ -3426,7 +3426,7 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %.lr.ph, %47
-  %51 = phi i1 [ %49, %47 ], [ true, %.lr.ph ]
+  %51 = phi i1 [ true, %.lr.ph ], [ %49, %47 ]
   %52 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.01015.i.i = load ptr, ptr @acluster_desc, align 8
   %.not16.i.i = icmp eq ptr %.01015.i.i, null
@@ -3474,7 +3474,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %57
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %61, %50, %zbee_zcl_get_cluster_desc.exit.i, %64, %68
-  %.0.i = phi i32 [ %52, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %64 ], [ %spec.select15.i, %68 ], [ %52, %50 ], [ %52, %61 ]
+  %.0.i = phi i32 [ %52, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %68 ], [ %spec.select.i, %64 ], [ %52, %50 ], [ %52, %61 ]
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %.0.i, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef -2147483648)
   %73 = load i32, ptr %3, align 4
   %74 = add i32 %73, 2
@@ -3521,7 +3521,7 @@ define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr 
   br label %26
 
 26:                                               ; preds = %.lr.ph, %23
-  %27 = phi i1 [ %25, %23 ], [ true, %.lr.ph ]
+  %27 = phi i1 [ true, %.lr.ph ], [ %25, %23 ]
   %28 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.01015.i.i = load ptr, ptr @acluster_desc, align 8
   %.not16.i.i = icmp eq ptr %.01015.i.i, null
@@ -3569,7 +3569,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %33
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %37, %26, %zbee_zcl_get_cluster_desc.exit.i, %40, %44
-  %.0.i = phi i32 [ %28, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %40 ], [ %spec.select15.i, %44 ], [ %28, %26 ], [ %28, %37 ]
+  %.0.i = phi i32 [ %28, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %44 ], [ %spec.select.i, %40 ], [ %28, %26 ], [ %28, %37 ]
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648)
   %49 = load i32, ptr %2, align 4
   %50 = add i32 %49, 2
@@ -3629,7 +3629,7 @@ define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0,
   br label %36
 
 36:                                               ; preds = %11, %33
-  %37 = phi i1 [ %35, %33 ], [ true, %11 ]
+  %37 = phi i1 [ true, %11 ], [ %35, %33 ]
   %38 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.01015.i.i = load ptr, ptr @acluster_desc, align 8
   %.not16.i.i = icmp eq ptr %.01015.i.i, null
@@ -3677,7 +3677,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %43
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %47, %36, %zbee_zcl_get_cluster_desc.exit.i, %50, %54
-  %.0.i = phi i32 [ %38, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %50 ], [ %spec.select15.i, %54 ], [ %38, %36 ], [ %38, %47 ]
+  %.0.i = phi i32 [ %38, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %54 ], [ %spec.select.i, %50 ], [ %38, %36 ], [ %38, %47 ]
   %58 = load i32, ptr %2, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %.0.i, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef -2147483648)
   %60 = load i32, ptr %2, align 4
@@ -3889,7 +3889,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %27
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %zbee_zcl_get_cluster_desc.exit.i, %34, %38
-  %.0.i = phi i32 [ %22, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %34 ], [ %spec.select15.i, %38 ], [ %22, %.lr.ph ], [ %22, %31 ]
+  %.0.i = phi i32 [ %22, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %38 ], [ %spec.select.i, %34 ], [ %22, %.lr.ph ], [ %22, %31 ]
   %42 = load i32, ptr %2, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %.0.i, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
   %44 = load i32, ptr %2, align 4
@@ -3980,7 +3980,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %23
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %zbee_zcl_get_cluster_desc.exit.i, %30, %34
-  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %30 ], [ %spec.select15.i, %34 ], [ %18, %.lr.ph5 ], [ %18, %27 ]
+  %.0.i = phi i32 [ %18, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %34 ], [ %spec.select.i, %30 ], [ %18, %.lr.ph5 ], [ %18, %27 ]
   %38 = load i32, ptr %2, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %.0.i, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648)
   %40 = load i32, ptr %2, align 4
@@ -4079,7 +4079,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %24
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph4, %zbee_zcl_get_cluster_desc.exit.i, %31, %35
-  %.0.i = phi i32 [ %19, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %31 ], [ %spec.select15.i, %35 ], [ %19, %.lr.ph4 ], [ %19, %28 ]
+  %.0.i = phi i32 [ %19, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %35 ], [ %spec.select.i, %31 ], [ %19, %.lr.ph4 ], [ %19, %28 ]
   %39 = load i32, ptr %2, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648)
   %41 = load i32, ptr %2, align 4
@@ -4204,7 +4204,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %31
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %zbee_zcl_get_cluster_desc.exit.i, %38, %42
-  %.0.i = phi i32 [ %26, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %38 ], [ %spec.select15.i, %42 ], [ %26, %25 ], [ %26, %35 ]
+  %.0.i = phi i32 [ %26, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %42 ], [ %spec.select.i, %38 ], [ %26, %25 ], [ %26, %35 ]
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %.0.i, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef -2147483648)
   %47 = load i32, ptr %2, align 4
   %48 = add i32 %47, 2
@@ -4236,7 +4236,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %zbee_zcl_
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %dissect_zcl_attr_id.exit, %.lr.ph4
-  %62 = phi i32 [ %56, %49 ], [ %48, %dissect_zcl_attr_id.exit ], [ %24, %.lr.ph4 ], [ %61, %.lr.ph ]
+  %62 = phi i32 [ %24, %.lr.ph4 ], [ %56, %49 ], [ %48, %dissect_zcl_attr_id.exit ], [ %61, %.lr.ph ]
   %63 = icmp ult i32 %62, %7
   %64 = icmp samesign ult i64 %indvars.iv, 63
   %65 = select i1 %63, i1 %64, i1 false
@@ -4386,7 +4386,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %27
   br label %dissect_zcl_attr_id.exit
 
 dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %zbee_zcl_get_cluster_desc.exit.i, %34, %38
-  %.0.i = phi i32 [ %22, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select.i, %34 ], [ %spec.select15.i, %38 ], [ %22, %.lr.ph ], [ %22, %31 ]
+  %.0.i = phi i32 [ %22, %zbee_zcl_get_cluster_desc.exit.i ], [ %spec.select15.i, %38 ], [ %spec.select.i, %34 ], [ %22, %.lr.ph ], [ %22, %31 ]
   %42 = load i32, ptr %2, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %.0.i, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
   %44 = load i32, ptr %2, align 4

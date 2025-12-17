@@ -28,7 +28,7 @@ define noundef range(i8 0, 4) i8 @_ZN23wasmtime_component_util16DiscriminantSize
   br label %7
 
 7:                                                ; preds = %3, %5, %1
-  %.0 = phi i8 [ 0, %1 ], [ %., %5 ], [ 1, %3 ]
+  %.0 = phi i8 [ 1, %3 ], [ %., %5 ], [ 0, %1 ]
   ret i8 %.0
 }
 

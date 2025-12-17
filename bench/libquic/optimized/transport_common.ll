@@ -913,9 +913,9 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
   br label %.thread
 
 .thread:                                          ; preds = %45, %_Z20SocketSetNonBlockingib.exit65, %40, %.critedge.thread, %67, %74, %52, %63
-  %.149.ph = phi i32 [ 1, %74 ], [ 1, %67 ], [ 1, %.critedge.thread ], [ 8, %40 ], [ 1, %52 ], [ 1, %63 ], [ 1, %_Z20SocketSetNonBlockingib.exit65 ], [ 1, %45 ]
-  %.346.ph = phi i1 [ %.043.ph, %74 ], [ %.043.ph, %67 ], [ %.043.ph, %.critedge.thread ], [ false, %40 ], [ %.043.ph, %52 ], [ %.043.ph, %63 ], [ %.043.ph, %_Z20SocketSetNonBlockingib.exit65 ], [ %.043.ph, %45 ]
-  %.4.ph = phi i1 [ false, %74 ], [ false, %67 ], [ false, %.critedge.thread ], [ %.1.ph, %40 ], [ false, %52 ], [ false, %63 ], [ false, %_Z20SocketSetNonBlockingib.exit65 ], [ false, %45 ]
+  %.149.ph = phi i32 [ 1, %52 ], [ 1, %74 ], [ 1, %67 ], [ 8, %40 ], [ 1, %.critedge.thread ], [ 1, %63 ], [ 1, %_Z20SocketSetNonBlockingib.exit65 ], [ 1, %45 ]
+  %.346.ph = phi i1 [ %.043.ph, %52 ], [ %.043.ph, %74 ], [ %.043.ph, %67 ], [ false, %40 ], [ %.043.ph, %.critedge.thread ], [ %.043.ph, %63 ], [ %.043.ph, %_Z20SocketSetNonBlockingib.exit65 ], [ %.043.ph, %45 ]
+  %.4.ph = phi i1 [ false, %52 ], [ false, %74 ], [ false, %67 ], [ %.1.ph, %40 ], [ false, %.critedge.thread ], [ false, %63 ], [ false, %_Z20SocketSetNonBlockingib.exit65 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %104
 
@@ -976,8 +976,8 @@ _Z20SocketSetNonBlockingib.exit67:                ; preds = %59
   br label %103
 
 103:                                              ; preds = %.critedge3.thread, %.critedge3, %91, %87, %84
-  %.452 = phi i32 [ 1, %87 ], [ 8, %84 ], [ 1, %91 ], [ 1, %.critedge3.thread ], [ 0, %.critedge3 ]
-  %.8 = phi i1 [ false, %87 ], [ %.1.ph, %84 ], [ true, %91 ], [ false, %.critedge3.thread ], [ %.1.ph, %.critedge3 ]
+  %.452 = phi i32 [ 1, %91 ], [ 8, %84 ], [ 1, %87 ], [ 1, %.critedge3.thread ], [ 0, %.critedge3 ]
+  %.8 = phi i1 [ true, %91 ], [ %.1.ph, %84 ], [ false, %87 ], [ false, %.critedge3.thread ], [ %.1.ph, %.critedge3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %104
 

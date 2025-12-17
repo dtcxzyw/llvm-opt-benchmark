@@ -299,7 +299,7 @@ define internal i32 @xfade_activate(ptr noundef %0) #1 {
   br label %forward_frame.exit
 
 forward_frame.exit:                               ; preds = %31, %._crit_edge.i, %54, %58, %60
-  %.0.i = phi i32 [ %45, %._crit_edge.i ], [ 0, %54 ], [ %32, %31 ], [ 0, %60 ], [ 0, %58 ]
+  %.0.i = phi i32 [ %32, %31 ], [ %45, %._crit_edge.i ], [ 0, %54 ], [ 0, %60 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -502,8 +502,8 @@ xfade_frame.exit:                                 ; preds = %121, %138
   call void @ff_inlink_request_frame(ptr noundef %11) #14
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.preheader, %104, %xfade_frame.exit, %91, %86, %82, %165, %160, %170, %172, %168, %forward_frame.exit
-  %.1 = phi i32 [ 0, %168 ], [ 0, %172 ], [ %.0.i, %forward_frame.exit ], [ -1497649742, %170 ], [ %95, %91 ], [ %.0.i95, %xfade_frame.exit ], [ %102, %104 ], [ %84, %82 ], [ %88, %86 ], [ 0, %165 ], [ 0, %160 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.preheader, %xfade_frame.exit, %91, %82, %165, %160, %86, %104, %170, %172, %168, %forward_frame.exit
+  %.1 = phi i32 [ 0, %168 ], [ 0, %172 ], [ %95, %91 ], [ -1497649742, %170 ], [ %.0.i, %forward_frame.exit ], [ %102, %104 ], [ %.0.i95, %xfade_frame.exit ], [ %88, %86 ], [ 0, %165 ], [ 0, %160 ], [ %84, %82 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -1095,7 +1095,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br label %290
 
 290:                                              ; preds = %.thread232, %102, %285, %.thread231, %._crit_edge246, %._crit_edge249, %._crit_edge241, %._crit_edge
-  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %._crit_edge241 ], [ -22, %._crit_edge246 ], [ 0, %.thread231 ], [ %287, %285 ], [ -22, %._crit_edge249 ], [ -558323010, %102 ], [ -22, %.thread232 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %._crit_edge241 ], [ -22, %._crit_edge246 ], [ -22, %._crit_edge249 ], [ 0, %.thread231 ], [ %287, %285 ], [ -558323010, %102 ], [ -22, %.thread232 ]
   ret i32 %.0
 }
 

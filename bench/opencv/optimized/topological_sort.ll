@@ -436,7 +436,7 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Destro
   br label %124
 
 124:                                              ; preds = %120, %.body, %22, %_ZN3ade6HandleINS_4NodeEED2Ev.exit19
-  %.pn11.pn.pn = phi { ptr, i32 } [ %54, %_ZN3ade6HandleINS_4NodeEED2Ev.exit19 ], [ %23, %22 ], [ %eh.lpad-body, %.body ], [ %121, %120 ]
+  %.pn11.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %54, %_ZN3ade6HandleINS_4NodeEED2Ev.exit19 ], [ %eh.lpad-body, %.body ], [ %121, %120 ]
   call void @_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -525,7 +525,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %38, %36
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %15, %3, %26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %41
-  %42 = phi ptr [ %spec.select.i, %26 ], [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %41 ], [ null, %3 ], [ null, %15 ]
+  %42 = phi ptr [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %41 ], [ %spec.select.i, %26 ], [ null, %3 ], [ null, %15 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !75
   %.not.not.i.i = icmp eq i64 %44, 0
@@ -586,7 +586,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %15, %3, %26, %_ZN9_
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %68
   br label %_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit.thread, !llvm.loop !79
 
-_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %47, %..loopexit_crit_edge21.i.i.i.i, %52
+_ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %47, %52, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = load ptr, ptr %10, align 8, !tbaa !45, !noalias !80, !nonnull !83, !noundef !83
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -791,7 +791,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23: ; preds = %154, %
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit25
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit25:          ; preds = %131, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit, %142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %157
-  %158 = phi ptr [ %spec.select.i21, %142 ], [ %spec.select.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23 ], [ %spec.select.i21, %157 ], [ null, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit ], [ null, %131 ]
+  %158 = phi ptr [ %spec.select.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23 ], [ %spec.select.i21, %157 ], [ %spec.select.i21, %142 ], [ null, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit ], [ null, %131 ]
   store ptr %158, ptr %9, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !100

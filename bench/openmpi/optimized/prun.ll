@@ -276,7 +276,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i82, %85
   br label %107
 
 107:                                              ; preds = %pmix_obj_run_destructors.exit, %59, %57, %40, %37, %35, %33, %25, %23, %pmix_obj_run_constructors.exit, %105, %98, %54
-  %.050 = phi i32 [ 1, %54 ], [ %106, %105 ], [ %84, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %33 ], [ %34, %35 ], [ %38, %37 ], [ %38, %40 ], [ 1, %57 ], [ 1, %59 ], [ 0, %pmix_obj_run_destructors.exit ]
+  %.050 = phi i32 [ %84, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %35 ], [ 1, %54 ], [ %38, %40 ], [ %106, %105 ], [ 1, %59 ], [ %34, %33 ], [ %38, %37 ], [ 1, %57 ], [ 0, %pmix_obj_run_destructors.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

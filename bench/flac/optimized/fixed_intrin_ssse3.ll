@@ -247,7 +247,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sss
   br i1 %.not233, label %126, label %.thread
 
 .thread:                                          ; preds = %113, %115, %117, %118
-  %.0220287 = phi i32 [ 0, %118 ], [ %., %117 ], [ 2, %115 ], [ 1, %113 ]
+  %.0220287 = phi i32 [ 0, %118 ], [ %., %117 ], [ 1, %113 ], [ 2, %115 ]
   %119 = uitofp i32 %.0 to double
   %120 = fmul reassoc nsz arcp double %119, 0x3FE62E42FEFA39EF
   %121 = uitofp i32 %1 to double

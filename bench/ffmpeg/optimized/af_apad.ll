@@ -151,8 +151,8 @@ filter_frame.exit:                                ; preds = %23, %32
   %54 = call i32 @ff_filter_frame(ptr noundef %53, ptr noundef %24) #8
   br label %.thread
 
-.thread:                                          ; preds = %filter_frame.exit, %19
-  %.2.ph = phi i32 [ %20, %19 ], [ %54, %filter_frame.exit ]
+.thread:                                          ; preds = %19, %filter_frame.exit
+  %.2.ph = phi i32 [ %54, %filter_frame.exit ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %push_frame.exit.thread
 
@@ -317,7 +317,7 @@ push_frame.exit.thread53:                         ; preds = %.thread49.i, %push_
   br label %push_frame.exit.thread
 
 push_frame.exit.thread:                           ; preds = %93, %.thread50, %.thread, %14, %129, %push_frame.exit.thread53, %push_frame.exit, %131
-  %.1 = phi i32 [ 0, %131 ], [ 0, %14 ], [ 0, %push_frame.exit.thread53 ], [ %125, %push_frame.exit ], [ -1497649742, %129 ], [ %.2.ph, %.thread ], [ -12, %93 ], [ 0, %.thread50 ]
+  %.1 = phi i32 [ 0, %14 ], [ 0, %131 ], [ %125, %push_frame.exit ], [ %.2.ph, %.thread ], [ 0, %push_frame.exit.thread53 ], [ -1497649742, %129 ], [ -12, %93 ], [ 0, %.thread50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

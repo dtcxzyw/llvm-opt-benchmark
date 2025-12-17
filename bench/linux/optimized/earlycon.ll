@@ -364,7 +364,7 @@ switch.edge:                                      ; preds = %0
   br label %8
 
 8:                                                ; preds = %0, %switch.edge, %7, %6
-  %9 = phi ptr [ @.str.7, %6 ], [ @.str.5, %7 ], [ @.str.6, %switch.edge ], [ @.str.4, %0 ]
+  %9 = phi ptr [ @.str.4, %0 ], [ @.str.7, %6 ], [ @.str.5, %7 ], [ @.str.6, %switch.edge ]
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %5, ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
   br label %14
 

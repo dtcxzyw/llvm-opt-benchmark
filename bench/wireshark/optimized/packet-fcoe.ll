@@ -384,7 +384,7 @@ define internal fastcc ptr @fcoe_get_eof(ptr noundef %0, i32 noundef %1) unnamed
   br label %18
 
 18:                                               ; preds = %11, %2, %14
-  %.0 = phi ptr [ %17, %14 ], [ null, %2 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ %17, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 

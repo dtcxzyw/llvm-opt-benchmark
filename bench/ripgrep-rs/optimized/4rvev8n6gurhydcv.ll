@@ -2559,7 +2559,7 @@ common.resume.sink.split:                         ; preds = %74, %58
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %74, %58, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc19975b0b9fb8ecaE.exit.i", %35
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %35 ], [ %eh.lpad-body.i, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc19975b0b9fb8ecaE.exit.i" ], [ %59, %58 ], [ %75, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body.i, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc19975b0b9fb8ecaE.exit.i" ], [ %eh.lpad-body.i, %35 ], [ %75, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %1

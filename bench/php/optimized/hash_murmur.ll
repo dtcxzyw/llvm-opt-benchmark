@@ -54,7 +54,7 @@ define dso_local void @PHP_MURMUR3AInit(ptr noundef writeonly captures(none) ini
   br label %zend_hash_str_find_deref.exit
 
 zend_hash_str_find_deref.exit:                    ; preds = %2, %3, %18, %15
-  %.sink = phi i32 [ 0, %18 ], [ %17, %15 ], [ 0, %3 ], [ 0, %2 ]
+  %.sink = phi i32 [ 0, %3 ], [ 0, %18 ], [ %17, %15 ], [ 0, %2 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %19, align 4, !tbaa !11

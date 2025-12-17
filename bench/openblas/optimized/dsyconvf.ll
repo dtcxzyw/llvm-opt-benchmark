@@ -182,7 +182,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   br label %89
 
 89:                                               ; preds = %61, %63, %88
-  %.3 = phi i32 [ %.2316, %63 ], [ %.2316, %61 ], [ %.pre-phi345, %88 ]
+  %.3 = phi i32 [ %.2316, %63 ], [ %.pre-phi345, %88 ], [ %.2316, %61 ]
   %90 = add nsw i32 %.3, -1
   %91 = icmp sgt i32 %.3, 1
   br i1 %91, label %.lr.ph317, label %.loopexit, !llvm.loop !11
@@ -252,7 +252,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   br label %129
 
 129:                                              ; preds = %98, %100, %127
-  %.5 = phi i32 [ %.4319, %100 ], [ %.4319, %98 ], [ %111, %127 ]
+  %.5 = phi i32 [ %.4319, %100 ], [ %111, %127 ], [ %.4319, %98 ]
   %130 = add nsw i32 %.5, 1
   %131 = load i32, ptr %2, align 4, !tbaa !3
   %.not297.not = icmp slt i32 %.5, %131
@@ -393,7 +393,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr noundef readonly capt
   br label %198
 
 198:                                              ; preds = %174, %176, %197
-  %.11 = phi i32 [ %.10327, %176 ], [ %.10327, %174 ], [ %.pre-phi, %197 ]
+  %.11 = phi i32 [ %.10327, %176 ], [ %.pre-phi, %197 ], [ %.10327, %174 ]
   %199 = add nsw i32 %.11, 1
   %200 = load i32, ptr %2, align 4, !tbaa !3
   %.not293.not = icmp slt i32 %.11, %200

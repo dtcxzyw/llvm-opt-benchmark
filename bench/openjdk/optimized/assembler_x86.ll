@@ -1025,7 +1025,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %20, %10, %13, %16, %22, %18
-  %.028 = phi i32 [ 0, %10 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %.lobit, %18 ], [ %24, %22 ], [ %spec.select35, %20 ]
+  %.028 = phi i32 [ 0, %10 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %.lobit, %18 ], [ %spec.select35, %20 ], [ %24, %22 ]
   %or.cond3 = icmp ult i32 %2, 3
   br i1 %or.cond3, label %25, label %38
 
@@ -1049,7 +1049,7 @@ switch.lookup:                                    ; preds = %20, %10, %13, %16, 
   br label %38
 
 38:                                               ; preds = %36, %switch.lookup, %6
-  %.027 = phi i32 [ %0, %switch.lookup ], [ %0, %6 ], [ %spec.select, %36 ]
+  %.027 = phi i32 [ %0, %6 ], [ %spec.select, %36 ], [ %0, %switch.lookup ]
   %39 = add i32 %.027, 128
   %40 = icmp ult i32 %39, 256
   br label %41
@@ -1129,7 +1129,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(pt
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %26, %12, %19, %22, %30, %24
-  %.020 = phi i32 [ 0, %12 ], [ %21, %19 ], [ %.lobit26, %22 ], [ %.lobit, %24 ], [ %34, %30 ], [ %spec.select, %26 ]
+  %.020 = phi i32 [ 0, %12 ], [ %21, %19 ], [ %.lobit26, %22 ], [ %.lobit, %24 ], [ %spec.select, %26 ], [ %34, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i32, ptr %35, align 8
   %or.cond = icmp ult i32 %36, 3
@@ -1201,7 +1201,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler10needs_rex2E8RegisterS0_S0_(ptr 
   br label %25
 
 25:                                               ; preds = %18, %11, %4
-  %26 = phi i1 [ true, %4 ], [ true, %11 ], [ %spec.select, %18 ]
+  %26 = phi i1 [ true, %11 ], [ true, %4 ], [ %spec.select, %18 ]
   ret i1 %26
 }
 
@@ -1237,7 +1237,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexE8RegisterS0_S0_(ptr
   br label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit
 
 _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %4, %11, %18
-  %25 = phi i1 [ true, %4 ], [ true, %11 ], [ %spec.select.i, %18 ]
+  %25 = phi i1 [ true, %11 ], [ true, %4 ], [ %spec.select.i, %18 ]
   ret i1 %25
 }
 
@@ -1914,8 +1914,8 @@ thread-pre-split.backedge.loopexit:               ; preds = %.loopexit89, %.loop
   br label %thread-pre-split.backedge
 
 thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %thread-pre-split.backedge.loopexit, %5
-  %.070.ph.be = phi i1 [ %spec.select, %5 ], [ %.070, %thread-pre-split.backedge.loopexit ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ]
-  %.068.ph.be = phi ptr [ %6, %5 ], [ %4, %thread-pre-split.backedge.loopexit ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ]
+  %.070.ph.be = phi i1 [ %.070, %thread-pre-split.backedge.loopexit ], [ %spec.select, %5 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ], [ true, %.loopexit89 ]
+  %.068.ph.be = phi ptr [ %4, %thread-pre-split.backedge.loopexit ], [ %6, %5 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ]
   br label %thread-pre-split
 
 9:                                                ; preds = %.loopexit89
@@ -2243,8 +2243,8 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit.loopexit382, %.loopexit.loopexit, %.loopexit.loopexit310, %44, %30, %32, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %84, %76, %69
-  %.075 = phi i64 [ %.176, %30 ], [ 1, %32 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %44 ], [ %.277, %69 ], [ %.378, %76 ], [ 0, %84 ], [ 0, %.loopexit.loopexit310 ], [ 0, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit382 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
-  %.1 = phi ptr [ %31, %30 ], [ %27, %32 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %45, %44 ], [ %71, %69 ], [ %77, %76 ], [ %87, %84 ], [ %4, %.loopexit.loopexit310 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit382 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
+  %.075 = phi i64 [ 4, %.loopexit.loopexit382 ], [ %.176, %30 ], [ 1, %32 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %84 ], [ 0, %.loopexit.loopexit310 ], [ 0, %44 ], [ %.277, %69 ], [ %.378, %76 ], [ 1, %.loopexit89 ], [ 0, %.loopexit.loopexit ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
+  %.1 = phi ptr [ %4, %.loopexit.loopexit382 ], [ %31, %30 ], [ %27, %32 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %87, %84 ], [ %4, %.loopexit.loopexit310 ], [ %45, %44 ], [ %71, %69 ], [ %77, %76 ], [ %4, %.loopexit89 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
   %90 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %91 = load i8, ptr %.1, align 1
   %92 = zext i8 %91 to i32
@@ -2310,7 +2310,7 @@ default.unreachable:                              ; preds = %101
   br label %117
 
 117:                                              ; preds = %115, %78, %33, %9, %111, %105, %21, %53, %49, %40, %23
-  %.0 = phi ptr [ %25, %23 ], [ %43, %40 ], [ %52, %49 ], [ %56, %53 ], [ %4, %21 ], [ %.5, %105 ], [ %.5, %111 ], [ %spec.select84, %9 ], [ %spec.select85, %33 ], [ %spec.select86, %78 ], [ %spec.select88, %115 ]
+  %.0 = phi ptr [ %spec.select88, %115 ], [ %spec.select85, %33 ], [ %52, %49 ], [ %.5, %111 ], [ %56, %53 ], [ %.5, %105 ], [ %25, %23 ], [ %spec.select86, %78 ], [ %spec.select84, %9 ], [ %4, %21 ], [ %43, %40 ]
   ret ptr %.0
 }
 
@@ -10068,7 +10068,7 @@ _ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit:  ; preds = %22
   %spec.select.i.i = icmp eq i32 %34, 16
   br i1 %spec.select.i.i, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit.thread, label %91
 
-_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit.thread: ; preds = %22, %4, %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
+_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit.thread: ; preds = %4, %22, %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
   %35 = icmp eq i8 %3, 8
   %36 = zext i1 %35 to i8
   store i8 %36, ptr %5, align 8
@@ -25612,8 +25612,8 @@ define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr noundef nonnull readon
   br label %67
 
 67:                                               ; preds = %58, %52, %50, %43
-  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select3, %58 ], [ %13, %50 ]
-  %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %66, %58 ], [ %8, %50 ]
+  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %13, %50 ], [ %spec.select3, %58 ]
+  %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %8, %50 ], [ %66, %58 ]
   %68 = shl i32 %.025.i, 3
   %69 = or i32 %.026.i, %68
   %70 = or i32 %69, 3840
@@ -25764,8 +25764,8 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr noundef no
   br label %65
 
 65:                                               ; preds = %44, %37, %47, %63
-  %.026 = phi i32 [ %43, %37 ], [ %3, %47 ], [ %.1, %63 ], [ %3, %44 ]
-  %.025 = phi i32 [ %1, %37 ], [ %1, %47 ], [ %64, %63 ], [ %1, %44 ]
+  %.026 = phi i32 [ %43, %37 ], [ %3, %47 ], [ %3, %44 ], [ %.1, %63 ]
+  %.025 = phi i32 [ %1, %37 ], [ %1, %47 ], [ %1, %44 ], [ %64, %63 ]
   %66 = select i1 %5, i32 3840, i32 0
   %67 = shl i32 %.025, 3
   %68 = or i32 %.026, %66
@@ -27534,8 +27534,8 @@ define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull readon
   br label %67
 
 67:                                               ; preds = %58, %52, %50, %43
-  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %spec.select3, %58 ], [ %13, %50 ]
-  %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %66, %58 ], [ %8, %50 ]
+  %.026.i = phi i32 [ %49, %43 ], [ %13, %52 ], [ %13, %50 ], [ %spec.select3, %58 ]
+  %.025.i = phi i32 [ %8, %43 ], [ %8, %52 ], [ %8, %50 ], [ %66, %58 ]
   %68 = shl i32 %.025.i, 3
   %69 = or i32 %.026.i, %68
   %70 = or i32 %69, 3840
@@ -49004,7 +49004,7 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %108, %66, %60, %22
-  %111 = phi i32 [ %44, %22 ], [ %62, %60 ], [ %87, %66 ], [ %110, %108 ]
+  %111 = phi i32 [ %62, %60 ], [ %44, %22 ], [ %87, %66 ], [ %110, %108 ]
   %112 = icmp sgt i32 %4, 0
   br i1 %112, label %113, label %130
 
@@ -70120,7 +70120,7 @@ define hidden void @_ZN9Assembler5psrlqE11XMMRegisteri(ptr noundef nonnull align
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %81, %83, %62, %63, %40, %66
-  %.in = phi i32 [ %45, %40 ], [ %71, %66 ], [ %28, %62 ], [ %64, %63 ], [ %88, %83 ], [ %28, %81 ]
+  %.in = phi i32 [ %64, %63 ], [ %45, %40 ], [ %71, %66 ], [ %28, %62 ], [ %88, %83 ], [ %28, %81 ]
   %89 = or i32 %.in, 16
   %90 = load ptr, ptr %33, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -102850,7 +102850,7 @@ _ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread.fold.split.i: ; pre
   br label %_ZL12is_reachablePhN9relocInfo9relocTypeE.exit
 
 _ZL12is_reachablePhN9relocInfo9relocTypeE.exit:   ; preds = %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread.fold.split.i, %22, %15, %12, %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.i, %6, %6, %6, %6, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.i ], [ false, %12 ], [ false, %15 ], [ %26, %22 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread.fold.split.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ %26, %22 ], [ true, %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.i ], [ false, %15 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %_ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit.thread.fold.split.i ]
   ret i1 %.0
 }
 

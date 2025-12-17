@@ -465,7 +465,7 @@ Compare.exit62:                                   ; preds = %.loopexit42.i54.loo
   br i1 %.not4277, label %.critedge, label %.critedge3.thread84
 
 .critedge3.thread84:                              ; preds = %39, %53, %29, %25, %95, %116, %109, %83, %75, %79, %.split.us, %.critedge3.thread
-  %.02879 = phi ptr [ %.1.lcssa, %.critedge3.thread ], [ %.us-phi139, %.split.us ], [ %63, %79 ], [ %63, %75 ], [ %63, %83 ], [ %87, %109 ], [ %87, %116 ], [ %87, %95 ], [ %12, %25 ], [ %12, %29 ], [ %32, %53 ], [ %32, %39 ]
+  %.02879 = phi ptr [ %.1.lcssa, %.critedge3.thread ], [ %.us-phi139, %.split.us ], [ %32, %53 ], [ %63, %79 ], [ %63, %83 ], [ %87, %109 ], [ %87, %95 ], [ %12, %25 ], [ %12, %29 ], [ %63, %75 ], [ %87, %116 ], [ %32, %39 ]
   %120 = tail call i32 @set_field_buffer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %.02879) #10
   br label %.critedge
 
@@ -686,7 +686,7 @@ select.unfold:                                    ; preds = %52, %20, %42, %28
   br i1 %94, label %.thread43, label %Compare.exit39
 
 .thread43:                                        ; preds = %60, %83, %69, %93, %select.unfold, %55
-  %.245 = phi ptr [ %56, %55 ], [ %18, %select.unfold ], [ %59, %93 ], [ %59, %69 ], [ %59, %83 ], [ %59, %60 ]
+  %.245 = phi ptr [ %56, %55 ], [ %18, %select.unfold ], [ %59, %93 ], [ %59, %83 ], [ %59, %69 ], [ %59, %60 ]
   %95 = load ptr, ptr %.245, align 8, !tbaa !16
   %96 = tail call i32 @set_field_buffer(ptr noundef %0, i32 noundef 0, ptr noundef %95) #10
   br label %Compare.exit39
@@ -914,7 +914,7 @@ select.unfold:                                    ; preds = %59, %27, %49, %35
   br i1 %105, label %.thread45, label %Compare.exit41
 
 .thread45:                                        ; preds = %71, %94, %80, %104, %select.unfold, %62
-  %.247 = phi ptr [ %67, %62 ], [ %25, %select.unfold ], [ %70, %104 ], [ %70, %80 ], [ %70, %94 ], [ %70, %71 ]
+  %.247 = phi ptr [ %67, %62 ], [ %25, %select.unfold ], [ %70, %104 ], [ %70, %94 ], [ %70, %80 ], [ %70, %71 ]
   %106 = load ptr, ptr %.247, align 8, !tbaa !16
   %107 = tail call i32 @set_field_buffer(ptr noundef %0, i32 noundef 0, ptr noundef %106) #10
   br label %Compare.exit41

@@ -94,7 +94,7 @@ define void @dot_scan_ranks(ptr noundef %0) local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %23, %21
-  %.1 = phi ptr [ %.02125, %21 ], [ %spec.select, %23 ]
+  %.1 = phi ptr [ %spec.select, %23 ], [ %.02125, %21 ]
   %30 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.02125) #15
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
@@ -692,7 +692,7 @@ weak.exit.i.i:                                    ; preds = %201, %makeXnode.exi
   br label %strong.exit.i.i
 
 strong.exit.i.i:                                  ; preds = %282, %269, %weak.exit.i.i, %183, %170, %is_nonconstraint.exit.i.i, %83
-  %.1.i.i = phi ptr [ %.05781.i.i, %is_nonconstraint.exit.i.i ], [ %.05781.i.i, %weak.exit.i.i ], [ %.2.i.i, %170 ], [ %.2.i.i, %183 ], [ %.05781.i.i, %269 ], [ %.05781.i.i, %282 ], [ %.05781.i.i, %83 ]
+  %.1.i.i = phi ptr [ %.05781.i.i, %282 ], [ %.05781.i.i, %is_nonconstraint.exit.i.i ], [ %.2.i.i, %183 ], [ %.05781.i.i, %weak.exit.i.i ], [ %.2.i.i, %170 ], [ %.05781.i.i, %269 ], [ %.05781.i.i, %83 ]
   %285 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.05682.i.i) #15
   %.not62.i.i = icmp eq ptr %285, null
   br i1 %.not62.i.i, label %._crit_edge.i33.i, label %.lr.ph.i32.i, !llvm.loop !87
@@ -805,7 +805,7 @@ break_cycles.exit.i:                              ; preds = %.lr.ph18.i.i, %._cr
   br i1 %.not30.i.i, label %connect_components.exit.i, label %.lr.ph43.i.i, !llvm.loop !96
 
 connect_components.exit.i:                        ; preds = %322, %311, %._crit_edge38.i.i, %._crit_edge.i40.i
-  %.025.lcssa49.i.i = phi i32 [ %.126.i.i, %311 ], [ %.126.i.i, %._crit_edge38.i.i ], [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %322 ]
+  %.025.lcssa49.i.i = phi i32 [ %.126.i.i, %._crit_edge38.i.i ], [ %.126.i.i, %311 ], [ 0, %._crit_edge.i40.i ], [ %.126.i.i, %322 ]
   %324 = call ptr @agfstnode(ptr noundef %12) #15
   %.not58.i.i = icmp eq ptr %324, null
   br i1 %.not58.i.i, label %add_fast_edges.exit.i, label %.lr.ph61.i.i
@@ -1152,7 +1152,7 @@ gv_calloc.exit.i.i:                               ; preds = %443, %gv_calloc.exi
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph94.i.i, %._crit_edge99.i.i, %500, %487
-  %.070.i.i = phi i32 [ 0, %._crit_edge99.i.i ], [ 0, %500 ], [ 1, %487 ], [ 1, %.lr.ph94.i.i ]
+  %.070.i.i = phi i32 [ 0, %500 ], [ 0, %._crit_edge99.i.i ], [ 1, %487 ], [ 1, %.lr.ph94.i.i ]
   call fastcc void @setMinMax(ptr noundef nonnull %0, i32 noundef %.070.i.i)
   %520 = call ptr @agfstnode(ptr noundef %12) #15
   %.not82100.i.i = icmp eq ptr %520, null
@@ -1432,8 +1432,8 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
   br label %96
 
 96:                                               ; preds = %90, %86, %80
-  %97 = phi ptr [ %.pre.i, %90 ], [ %82, %86 ], [ %82, %80 ]
-  %.3.i = phi ptr [ %91, %90 ], [ %.138.i, %86 ], [ %.138.i, %80 ]
+  %97 = phi ptr [ %.pre.i, %90 ], [ %82, %80 ], [ %82, %86 ]
+  %.3.i = phi ptr [ %91, %90 ], [ %.138.i, %80 ], [ %.138.i, %86 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 264
   %99 = load i64, ptr %98, align 8, !tbaa !79
   %100 = icmp eq i64 %99, 0
@@ -1459,7 +1459,7 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
   br label %111
 
 111:                                              ; preds = %105, %101, %96, %.lr.ph.i15
-  %.2.i = phi ptr [ %.138.i, %.lr.ph.i15 ], [ %106, %105 ], [ %.3.i, %101 ], [ %.3.i, %96 ]
+  %.2.i = phi ptr [ %.138.i, %.lr.ph.i15 ], [ %106, %105 ], [ %.3.i, %96 ], [ %.3.i, %101 ]
   %112 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.02537.i) #15
   %.not29.i = icmp eq ptr %112, null
   br i1 %.not29.i, label %minmax_edges2.exit, label %.lr.ph.i15, !llvm.loop !112
@@ -1721,7 +1721,7 @@ minmax_edges2.exit.thread:                        ; preds = %77, %74, %113, %min
   br label %233
 
 233:                                              ; preds = %227, %225
-  %.1.i = phi ptr [ %.02125.i, %225 ], [ %spec.select.i, %227 ]
+  %.1.i = phi ptr [ %spec.select.i, %227 ], [ %.02125.i, %225 ]
   %234 = tail call ptr @agnxtnode(ptr noundef nonnull %.0.i2241, ptr noundef nonnull %.02125.i) #15
   %.not.i26 = icmp eq ptr %234, null
   br i1 %.not.i26, label %dot_scan_ranks.exit, label %.lr.ph.i25, !llvm.loop !40
@@ -2082,7 +2082,7 @@ rank_set_class.exit.thread:                       ; preds = %5, %rank_set_class.
   br label %75
 
 75:                                               ; preds = %69, %67
-  %.1.i = phi ptr [ %.02125.i, %67 ], [ %spec.select.i, %69 ]
+  %.1.i = phi ptr [ %spec.select.i, %69 ], [ %.02125.i, %67 ]
   %76 = tail call ptr @agnxtnode(ptr noundef nonnull %.027, ptr noundef nonnull %.02125.i) #15
   %.not.i17 = icmp eq ptr %76, null
   br i1 %.not.i17, label %dot_scan_ranks.exit, label %.lr.ph.i16, !llvm.loop !40
@@ -2600,7 +2600,7 @@ define internal fastcc void @compile_samerank(ptr noundef %0, ptr noundef %1) un
   %.not14.i = icmp eq i32 %47, 0
   br i1 %.not14.i, label %98, label %rankset_kind.exit
 
-48:                                               ; preds = %38, %40
+48:                                               ; preds = %40, %38
   %49 = tail call ptr @agfstnode(ptr noundef %0) #15
   %.not.i56 = icmp eq ptr %49, null
   br i1 %.not.i56, label %union_all.exit, label %50
@@ -2653,7 +2653,7 @@ union_one.exit:                                   ; preds = %60, %65
   store ptr %.0.i60, ptr %72, align 8, !tbaa !75
   br label %rankset_kind.exit
 
-73:                                               ; preds = %42, %44
+73:                                               ; preds = %44, %42
   %74 = tail call ptr @agfstnode(ptr noundef %0) #15
   %.not.i61 = icmp eq ptr %74, null
   br i1 %.not.i61, label %union_all.exit66, label %75

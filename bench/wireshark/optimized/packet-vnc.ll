@@ -1604,7 +1604,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not502.i, label %208, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %204, %202, %199, %197, %194, %192, %189, %187, %184, %182, %179, %177, %162
-  %ei_vnc_auth_code_mismatch.sink.i = phi ptr [ @ei_vnc_auth_code_mismatch, %179 ], [ @ei_vnc_auth_code_mismatch, %177 ], [ @ei_vnc_auth_code_mismatch, %184 ], [ @ei_vnc_auth_code_mismatch, %182 ], [ @ei_vnc_auth_code_mismatch, %189 ], [ @ei_vnc_auth_code_mismatch, %187 ], [ @ei_vnc_auth_code_mismatch, %194 ], [ @ei_vnc_auth_code_mismatch, %192 ], [ @ei_vnc_auth_code_mismatch, %199 ], [ @ei_vnc_auth_code_mismatch, %197 ], [ @ei_vnc_auth_code_mismatch, %204 ], [ @ei_vnc_auth_code_mismatch, %202 ], [ @ei_vnc_unknown_tight_vnc_auth, %162 ]
+  %ei_vnc_auth_code_mismatch.sink.i = phi ptr [ @ei_vnc_auth_code_mismatch, %197 ], [ @ei_vnc_auth_code_mismatch, %192 ], [ @ei_vnc_auth_code_mismatch, %187 ], [ @ei_vnc_auth_code_mismatch, %182 ], [ @ei_vnc_auth_code_mismatch, %177 ], [ @ei_vnc_auth_code_mismatch, %202 ], [ @ei_vnc_auth_code_mismatch, %179 ], [ @ei_vnc_auth_code_mismatch, %184 ], [ @ei_vnc_auth_code_mismatch, %189 ], [ @ei_vnc_auth_code_mismatch, %194 ], [ @ei_vnc_auth_code_mismatch, %199 ], [ @ei_vnc_auth_code_mismatch, %204 ], [ @ei_vnc_unknown_tight_vnc_auth, %162 ]
   %207 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %169, ptr noundef nonnull %ei_vnc_auth_code_mismatch.sink.i)
   br label %208
 
@@ -2174,7 +2174,7 @@ process_tight_capabilities.exit529.i:             ; preds = %.lr.ph.i525.i, %pro
   store i32 22, ptr %527, align 8
   br label %528
 
-528:                                              ; preds = %42, %47, %63, %89, %.loopexit.i, %101, %107, %109, %111, %113, %115, %131, %132, %133, %135, %138, %140, %159, %._crit_edge537.thread.i, %208, %216, %219, %222, %225, %228, %231, %234, %238, %243, %248, %263, %273, %278, %297, %301, %319, %323, %341, %355, %._crit_edge.i, %377, %388, %390, %392, %393, %399, %473, %474, %process_tight_capabilities.exit529.i, %45, %61, %284, %280
+528:                                              ; preds = %42, %47, %63, %89, %.loopexit.i, %101, %107, %109, %111, %113, %115, %131, %132, %133, %135, %138, %140, %159, %._crit_edge537.thread.i, %208, %216, %219, %222, %225, %228, %231, %234, %238, %243, %248, %263, %273, %278, %297, %301, %319, %323, %341, %355, %._crit_edge.i, %377, %388, %390, %392, %393, %399, %473, %474, %process_tight_capabilities.exit529.i, %61, %45, %280, %284
   %529 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %1564
 
@@ -3257,7 +3257,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %992
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %1178, %1157, %1140, %1128
-  %1185 = phi i32 [ %1134, %1140 ], [ %1134, %1128 ], [ %..i.i, %1178 ], [ %1134, %1157 ]
+  %1185 = phi i32 [ %1134, %1128 ], [ %1134, %1140 ], [ %..i.i, %1178 ], [ %1134, %1157 ]
   %1186 = zext i16 %741 to i32
   %1187 = mul nuw nsw i32 %1185, %1186
   %1188 = add nuw nsw i32 %1187, 7
@@ -3693,7 +3693,7 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1396
   br label %vnc_raw_encoding.exit.i.i
 
 vnc_raw_encoding.exit.i.i:                        ; preds = %1428, %.lr.ph.i173.i.i, %..loopexit153_crit_edge.i.i.i, %.lr.ph.i.i.i, %1460, %vnc_get_depth.exit.i.i.i, %1370, %1360, %._crit_edge.i.i.i, %1335, %1282, %1265, %1255, %1227, %1202, %1196, %1124, %1121, %1110, %1057, %.lr.ph162.i.i.i, %vnc_get_bytes_per_pixel.exit.i156.i.i, %.preheader.i.i.i, %810, %781, %775, %757
-  %.1.i.i = phi i32 [ 0, %781 ], [ 0, %1265 ], [ 0, %757 ], [ 0, %775 ], [ 0, %810 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %1057 ], [ %1112, %1110 ], [ 0, %1121 ], [ %1125, %1124 ], [ 0, %1227 ], [ 0, %1255 ], [ 0, %1282 ], [ 0, %1335 ], [ 0, %._crit_edge.i.i.i ], [ 0, %1360 ], [ 0, %1370 ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1460 ], [ 0, %1202 ], [ 0, %1196 ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph.i173.i.i ], [ 0, %1428 ]
+  %.1.i.i = phi i32 [ 0, %1227 ], [ 0, %781 ], [ 0, %1255 ], [ 0, %1460 ], [ 0, %1121 ], [ 0, %1282 ], [ 0, %1265 ], [ 0, %1335 ], [ 0, %._crit_edge.i.i.i ], [ 0, %757 ], [ 0, %1057 ], [ 0, %1360 ], [ 0, %775 ], [ 0, %1370 ], [ 0, %810 ], [ %1125, %1124 ], [ %1112, %1110 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1202 ], [ 0, %1196 ], [ 0, %.lr.ph.i173.i.i ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %1428 ]
   %.not.i.i50 = icmp eq i32 %.1.i.i, 0
   br i1 %.not.i.i50, label %716, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !21
 
@@ -3837,7 +3837,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1428, %.lr.ph.i173.
   br label %vnc_server_framebuffer_update.exit.i
 
 vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.exit.i.i, %1438, %1434, %1366, %1355, %1336, %1314, %1266, %1241, %1237, %vnc_get_bytes_per_pixel.exit.i170.i.i, %1202, %1193, %1168, %1153, %1136, %1095, %1065, %1044, %1030, %1002, %vnc_get_bytes_per_pixel.exit.i163.i.i, %816, %812, %vnc_get_bytes_per_pixel.exit.i153.i.i, %vnc_get_bytes_per_pixel.exit.i.i.i, %720, %1411, %1407, %951, %948, %936, %924, %912, %871, %1548, %1546, %1542, %1540, %1534, %1531, %1518, %1488, %1466
-  %.1.i = phi i32 [ %.0.i41, %1548 ], [ %.0.i41, %1518 ], [ %1541, %1540 ], [ %.0.i41, %1542 ], [ %1547, %1546 ], [ 3, %1466 ], [ %1490, %1488 ], [ %1539, %1534 ], [ %1522, %1531 ], [ %961, %951 ], [ 3, %948 ], [ %860, %936 ], [ %860, %924 ], [ %913, %912 ], [ 1, %871 ], [ %1415, %1411 ], [ 2, %1407 ], [ %771, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %813, %812 ], [ %823, %816 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %1007, %1002 ], [ %1035, %1030 ], [ %1047, %1044 ], [ 1, %1065 ], [ 3, %1095 ], [ %1223, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ 6, %1237 ], [ %1252, %1241 ], [ %1278, %1266 ], [ %1315, %1314 ], [ %1341, %1336 ], [ %1356, %1355 ], [ 20, %1366 ], [ 16, %1434 ], [ %1440, %1438 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %720 ], [ 1, %1136 ], [ %1203, %1202 ], [ %1191, %1193 ], [ 1, %1153 ], [ %.0.i54.i, %1168 ]
+  %.1.i = phi i32 [ %.0.i41, %1548 ], [ %1547, %1546 ], [ 3, %1466 ], [ %.0.i41, %1518 ], [ %1541, %1540 ], [ %.0.i41, %1542 ], [ %1539, %1534 ], [ %1522, %1531 ], [ 1, %871 ], [ %1415, %1411 ], [ %1490, %1488 ], [ %961, %951 ], [ 3, %948 ], [ %860, %936 ], [ %860, %924 ], [ %913, %912 ], [ 2, %1407 ], [ %823, %816 ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %813, %812 ], [ 20, %1366 ], [ %1356, %1355 ], [ %771, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ %1047, %1044 ], [ %1223, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ %1035, %1030 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %1007, %1002 ], [ 1, %1065 ], [ 3, %1095 ], [ 6, %1237 ], [ %1278, %1266 ], [ 16, %1434 ], [ %1252, %1241 ], [ %1440, %1438 ], [ 12, %720 ], [ %1191, %1193 ], [ 1, %1136 ], [ %.0.i54.i, %1168 ], [ %1203, %1202 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 1, %1153 ], [ %1341, %1336 ], [ %1315, %1314 ]
   %1551 = icmp sgt i32 %.1.i, 0
   %1552 = load i8, ptr @vnc_preference_desegment, align 1, !range !6
   %1553 = trunc nuw i8 %1552 to i1
@@ -3858,7 +3858,7 @@ vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.ex
   br label %vnc_client_to_server.exit
 
 vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i48, %724, %716, %1554, %vnc_server_framebuffer_update.exit.i, %1529, %1494, %1486, %718, %711
-  %.162.i = phi i32 [ %.1.i, %1554 ], [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ 0, %711 ], [ 0, %718 ], [ 0, %1486 ], [ 0, %1494 ], [ 0, %1529 ], [ 0, %716 ], [ 0, %724 ], [ 0, %.lr.ph.i.i48 ]
+  %.162.i = phi i32 [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ %.1.i, %1554 ], [ 0, %711 ], [ 0, %718 ], [ 0, %1486 ], [ 0, %1494 ], [ 0, %1529 ], [ 0, %724 ], [ 0, %716 ], [ 0, %.lr.ph.i.i48 ]
   %1560 = load i32, ptr %6, align 4
   %1561 = call i32 @tvb_reported_length(ptr noundef %0)
   %1562 = icmp ult i32 %1560, %1561
@@ -3958,8 +3958,8 @@ vnc_is_client_or_server_version_message.exit:     ; preds = %12, %10
   %28 = tail call i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %vnc_is_client_or_server_version_message.exit.thread
 
-vnc_is_client_or_server_version_message.exit.thread: ; preds = %12, %8, %6, %4, %vnc_is_client_or_server_version_message.exit
-  %.0.i14 = phi i1 [ true, %vnc_is_client_or_server_version_message.exit ], [ false, %4 ], [ false, %6 ], [ false, %8 ], [ false, %12 ]
+vnc_is_client_or_server_version_message.exit.thread: ; preds = %8, %6, %4, %12, %vnc_is_client_or_server_version_message.exit
+  %.0.i14 = phi i1 [ true, %vnc_is_client_or_server_version_message.exit ], [ false, %12 ], [ false, %4 ], [ false, %6 ], [ false, %8 ]
   ret i1 %.0.i14
 }
 
@@ -4045,7 +4045,7 @@ define internal fastcc noundef zeroext i1 @vnc_is_client_or_server_version_messa
   br label %19
 
 19:                                               ; preds = %9, %11, %14, %17, %7, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ false, %7 ], [ true, %17 ], [ true, %14 ], [ false, %11 ], [ true, %9 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %5 ], [ false, %7 ], [ true, %14 ], [ true, %17 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -4622,7 +4622,7 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph333, %.loopexit.sink.split, %.preheader, %164, %8
-  %332 = phi i32 [ %.pre338, %.preheader ], [ %.pre, %164 ], [ %26, %8 ], [ %331, %.loopexit.sink.split ], [ %173, %.lr.ph333 ], [ %300, %.lr.ph ]
+  %332 = phi i32 [ %26, %8 ], [ %.pre338, %.preheader ], [ %.pre, %164 ], [ %331, %.loopexit.sink.split ], [ %173, %.lr.ph333 ], [ %300, %.lr.ph ]
   %333 = icmp sgt i32 %28, %332
   br i1 %333, label %334, label %343
 
@@ -4641,7 +4641,7 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   br label %343
 
 343:                                              ; preds = %.loopexit, %339, %334, %323, %304, %301, %268, %265, %254, %227, %220, %213, %182, %175, %144, %141, %130, %91, %56, %29, %4
-  %.0 = phi i32 [ 3, %4 ], [ 12, %29 ], [ 14, %56 ], [ 28, %91 ], [ 8, %130 ], [ 4, %141 ], [ %161, %144 ], [ 4, %175 ], [ 16, %182 ], [ 4, %213 ], [ 4, %220 ], [ 14, %227 ], [ 6, %254 ], [ 1, %265 ], [ %277, %268 ], [ 6, %301 ], [ %316, %304 ], [ 2, %323 ], [ %336, %334 ], [ 0, %339 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 6, %301 ], [ 2, %323 ], [ %336, %334 ], [ %316, %304 ], [ 3, %4 ], [ 12, %29 ], [ 14, %56 ], [ 28, %91 ], [ 8, %130 ], [ 4, %141 ], [ %161, %144 ], [ 4, %175 ], [ 16, %182 ], [ 4, %213 ], [ 4, %220 ], [ 14, %227 ], [ 6, %254 ], [ 1, %265 ], [ %277, %268 ], [ 0, %339 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -4699,7 +4699,7 @@ define internal fastcc range(i32 0, 264) i32 @vnc_fence(ptr noundef %0, ptr noun
   br label %39
 
 39:                                               ; preds = %17, %34, %8, %4
-  %.0 = phi i32 [ 8, %4 ], [ %13, %8 ], [ 0, %34 ], [ 0, %17 ]
+  %.0 = phi i32 [ %13, %8 ], [ 8, %4 ], [ 0, %34 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -4804,7 +4804,7 @@ define internal fastcc range(i32 0, 4194304) i32 @process_compact_length_and_ima
   br label %read_compact_len.exit
 
 read_compact_len.exit:                            ; preds = %37, %26, %14, %3, %45
-  %.0 = phi i32 [ 0, %45 ], [ 1, %3 ], [ 1, %14 ], [ 1, %26 ], [ %.025.ph, %37 ]
+  %.0 = phi i32 [ 0, %45 ], [ 1, %14 ], [ 1, %26 ], [ 1, %3 ], [ %.025.ph, %37 ]
   ret i32 %.0
 }
 

@@ -256,7 +256,7 @@ init_patch_id_entry.exit.thread:                  ; preds = %commit_patch_id.exi
   br label %25
 
 25:                                               ; preds = %init_patch_id_entry.exit.thread, %patch_id_defined.exit, %22
-  %.0 = phi ptr [ %24, %22 ], [ null, %patch_id_defined.exit ], [ null, %init_patch_id_entry.exit.thread ]
+  %.0 = phi ptr [ null, %patch_id_defined.exit ], [ %24, %22 ], [ null, %init_patch_id_entry.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

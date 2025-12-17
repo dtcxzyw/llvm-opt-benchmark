@@ -1056,7 +1056,7 @@ define dso_local ptr @__iomap_dio_rw(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %369
 
 366:                                              ; preds = %156, %146, %142, %129, %128, %126, %95, %84, %78
-  %367 = phi i64 [ 0, %78 ], [ %86, %84 ], [ -11, %95 ], [ %158, %156 ], [ -11, %126 ], [ -15, %128 ], [ -15, %129 ], [ -15, %142 ], [ -15, %146 ]
+  %367 = phi i64 [ 0, %78 ], [ %86, %84 ], [ -11, %95 ], [ -15, %146 ], [ %158, %156 ], [ -11, %126 ], [ -15, %128 ], [ -15, %129 ], [ -15, %142 ]
   tail call void @kfree(ptr noundef nonnull %52) #11
   %368 = inttoptr i64 %367 to ptr
   br label %369
@@ -1566,7 +1566,7 @@ define internal fastcc i64 @iomap_dio_bio_iter(ptr noundef %0, ptr noundef nonnu
   br label %.thread13
 
 .thread13:                                        ; preds = %227, %237, %234
-  %242 = phi i32 [ %235, %237 ], [ 0, %234 ], [ 0, %227 ]
+  %242 = phi i32 [ 0, %234 ], [ %235, %237 ], [ 0, %227 ]
   %243 = load ptr, ptr %1, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %176, ptr nonnull elementtype(i32) %176) #11, !srcloc !29
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32

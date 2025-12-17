@@ -1003,7 +1003,7 @@ define dso_local ptr @PyCMethod_New(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.critedge
 
 17:                                               ; preds = %4, %4, %12, %11, %10, %9, %8
-  %.025 = phi ptr [ @cfunction_vectorcall_FASTCALL, %8 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS, %9 ], [ @cfunction_vectorcall_NOARGS, %10 ], [ @cfunction_vectorcall_O, %11 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS_METHOD, %12 ], [ null, %4 ], [ null, %4 ]
+  %.025 = phi ptr [ @cfunction_vectorcall_FASTCALL_KEYWORDS_METHOD, %12 ], [ @cfunction_vectorcall_FASTCALL, %8 ], [ @cfunction_vectorcall_FASTCALL_KEYWORDS, %9 ], [ @cfunction_vectorcall_NOARGS, %10 ], [ @cfunction_vectorcall_O, %11 ], [ null, %4 ], [ null, %4 ]
   %18 = and i32 %6, 512
   %.not = icmp eq i32 %18, 0
   %.not29 = icmp eq ptr %3, null
@@ -1120,7 +1120,7 @@ _Py_XNewRef.exit33:                               ; preds = %_Py_XNewRef.exit, %
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %31, %_Py_XNewRef.exit33, %33, %22, %13
-  %.0 = phi ptr [ null, %13 ], [ %.123, %_Py_XNewRef.exit33 ], [ null, %20 ], [ null, %31 ], [ null, %33 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %13 ], [ %.123, %_Py_XNewRef.exit33 ], [ null, %22 ], [ null, %20 ], [ null, %31 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -1202,7 +1202,7 @@ PyCFunction_GET_SELF.exit:                        ; preds = %27, %31
   br label %cfunction_check_kwargs.exit.thread
 
 cfunction_check_kwargs.exit.thread:               ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %18, %15, %11, %9, %PyCFunction_GET_SELF.exit, %cfunction_enter_call.exit
-  %.0 = phi ptr [ %34, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %18 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
+  %.0 = phi ptr [ null, %18 ], [ %34, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %.0
 }
 
@@ -1360,7 +1360,7 @@ PyCFunction_GET_SELF.exit:                        ; preds = %38, %42
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %18, %15, %11, %9, %29, %26, %22, %20, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
-  %.0 = phi ptr [ null, %20 ], [ %45, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %22 ], [ null, %26 ], [ null, %29 ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %18 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
+  %.0 = phi ptr [ null, %18 ], [ null, %20 ], [ null, %cfunction_enter_call.exit ], [ %45, %PyCFunction_GET_SELF.exit ], [ null, %22 ], [ null, %26 ], [ null, %29 ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %.0
 }
 
@@ -1469,7 +1469,7 @@ PyCFunction_GET_SELF.exit:                        ; preds = %38, %42
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_Py_EnterRecursiveCallTstate.exit.i, %18, %15, %11, %9, %29, %26, %22, %20, %cfunction_enter_call.exit, %PyCFunction_GET_SELF.exit
-  %.0 = phi ptr [ null, %20 ], [ %46, %PyCFunction_GET_SELF.exit ], [ null, %cfunction_enter_call.exit ], [ null, %22 ], [ null, %26 ], [ null, %29 ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %18 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
+  %.0 = phi ptr [ null, %18 ], [ null, %20 ], [ null, %cfunction_enter_call.exit ], [ %46, %PyCFunction_GET_SELF.exit ], [ null, %22 ], [ null, %26 ], [ null, %29 ], [ null, %9 ], [ null, %11 ], [ null, %15 ], [ null, %_Py_EnterRecursiveCallTstate.exit.i ]
   ret ptr %.0
 }
 
@@ -2041,7 +2041,7 @@ PyObject_TypeCheck.exit21.thread:                 ; preds = %PyObject_TypeCheck.
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %30, %25, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit21, %3
-  %.017 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit21 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ %.016, %25 ], [ %.016, %30 ]
+  %.017 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit21 ], [ %.016, %25 ], [ %.016, %30 ]
   ret ptr %.017
 }
 
@@ -2219,7 +2219,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %6, %PyObject_TypeCh
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %40, %37, %31, %30, %27, %24, %13, %PyObject_TypeCheck.exit.thread
-  %.0 = phi ptr [ %12, %PyObject_TypeCheck.exit.thread ], [ null, %13 ], [ null, %24 ], [ null, %27 ], [ null, %30 ], [ %35, %31 ], [ %35, %37 ], [ %35, %40 ]
+  %.0 = phi ptr [ %12, %PyObject_TypeCheck.exit.thread ], [ null, %13 ], [ null, %30 ], [ null, %24 ], [ null, %27 ], [ %35, %31 ], [ %35, %37 ], [ %35, %40 ]
   ret ptr %.0
 }
 

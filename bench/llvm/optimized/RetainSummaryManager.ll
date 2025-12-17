@@ -1161,7 +1161,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit75.thread133:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %.thread117
 
 .thread117:                                       ; preds = %52, %_ZNK4llvm9StringRef11starts_withES0_.exit55.thread116, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, %_ZN5clang4ento20RetainSummaryManager17getDefaultSummaryEv.exit, %_ZN5clang4ento20RetainSummaryManager23getOSSummaryReleaseRuleEPKNS_12FunctionDeclE.exit, %_ZN5clang4ento20RetainSummaryManager22getOSSummaryRetainRuleEPKNS_12FunctionDeclE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread, %107, %54, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread133, %71, %_ZNK5clang13CXXMethodDecl9getParentEv.exit
-  %.2 = phi ptr [ %108, %107 ], [ %104, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread ], [ %95, %_ZN5clang4ento20RetainSummaryManager22getOSSummaryRetainRuleEPKNS_12FunctionDeclE.exit ], [ %81, %_ZN5clang4ento20RetainSummaryManager23getOSSummaryReleaseRuleEPKNS_12FunctionDeclE.exit ], [ null, %54 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread133 ], [ null, %71 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ %53, %52 ], [ %51, %_ZNK4llvm9StringRef11starts_withES0_.exit55.thread116 ], [ %47, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %36, %_ZN5clang4ento20RetainSummaryManager17getDefaultSummaryEv.exit ]
+  %.2 = phi ptr [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ %81, %_ZN5clang4ento20RetainSummaryManager23getOSSummaryReleaseRuleEPKNS_12FunctionDeclE.exit ], [ %108, %107 ], [ %104, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread ], [ %95, %_ZN5clang4ento20RetainSummaryManager22getOSSummaryRetainRuleEPKNS_12FunctionDeclE.exit ], [ null, %54 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit75.thread133 ], [ null, %71 ], [ %53, %52 ], [ %51, %_ZNK4llvm9StringRef11starts_withES0_.exit55.thread116 ], [ %47, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %36, %_ZN5clang4ento20RetainSummaryManager17getDefaultSummaryEv.exit ]
   ret ptr %.2
 }
 
@@ -1861,7 +1861,7 @@ _ZNK5clang4Type12isObjCIdTypeEv.exit:             ; preds = %105
   %121 = call noundef ptr @_ZN5clang4ento20RetainSummaryManager15getUnarySummaryEPKNS_12FunctionTypeENS0_13ArgEffectKindE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %5, i32 noundef 0)
   br label %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit138
 
-_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %105, %84, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type12isObjCIdTypeEv.exit
+_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %105, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %84, %_ZNK5clang4Type12isObjCIdTypeEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2904,8 +2904,8 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ER
   br label %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit138
 
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit138: ; preds = %426, %458, %453, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit330, %380, %375, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit316, %331, %326, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit291, %308, %303, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit271, %285, %280, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit251, %263, %258, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit235, %241, %236, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit219, %219, %214, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit203, %196, %191, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit183, %173, %168, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit164, %156, %151, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit136, %_ZNK4llvm9StringRef11starts_withES0_.exit325, %120, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit121, %438, %424, %420, %416, %414, %406, %404, %399, %395, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit
-  %.sroa.0481.0 = phi ptr [ null, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit ], [ null, %120 ], [ null, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit121 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ null, %395 ], [ null, %399 ], [ null, %404 ], [ null, %406 ], [ null, %414 ], [ null, %416 ], [ null, %420 ], [ null, %424 ], [ null, %438 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit325 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit136 ], [ null, %151 ], [ null, %156 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit164 ], [ null, %168 ], [ null, %173 ], [ %177, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit183 ], [ %177, %191 ], [ %177, %196 ], [ %200, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit203 ], [ %200, %214 ], [ %200, %219 ], [ %222, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit219 ], [ %222, %236 ], [ %222, %241 ], [ %244, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit235 ], [ %244, %258 ], [ %244, %263 ], [ %266, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit251 ], [ %266, %280 ], [ %266, %285 ], [ %289, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit271 ], [ %289, %303 ], [ %289, %308 ], [ %312, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit291 ], [ %312, %326 ], [ %312, %331 ], [ %350, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit316 ], [ %350, %375 ], [ %350, %380 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit330 ], [ null, %453 ], [ null, %458 ], [ null, %426 ]
-  %.0 = phi ptr [ %70, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit ], [ %121, %120 ], [ %126, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit121 ], [ %140, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit ], [ %333, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %396, %395 ], [ %400, %399 ], [ %405, %404 ], [ %407, %406 ], [ %415, %414 ], [ %417, %416 ], [ %421, %420 ], [ %425, %424 ], [ %439, %438 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit325 ], [ %149, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit136 ], [ %149, %151 ], [ %149, %156 ], [ %166, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit164 ], [ %166, %168 ], [ %166, %173 ], [ %189, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit183 ], [ %189, %191 ], [ %189, %196 ], [ %212, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit203 ], [ %212, %214 ], [ %212, %219 ], [ %234, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit219 ], [ %234, %236 ], [ %234, %241 ], [ %256, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit235 ], [ %256, %258 ], [ %256, %263 ], [ %278, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit251 ], [ %278, %280 ], [ %278, %285 ], [ %301, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit271 ], [ %301, %303 ], [ %301, %308 ], [ %324, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit291 ], [ %324, %326 ], [ %324, %331 ], [ %373, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit316 ], [ %373, %375 ], [ %373, %380 ], [ %451, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit330 ], [ %451, %453 ], [ %451, %458 ], [ null, %426 ]
+  %.sroa.0481.0 = phi ptr [ null, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit ], [ null, %120 ], [ null, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit121 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit325 ], [ null, %156 ], [ null, %173 ], [ %177, %196 ], [ %200, %219 ], [ %222, %241 ], [ %244, %263 ], [ %266, %285 ], [ %289, %308 ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %312, %331 ], [ null, %395 ], [ null, %399 ], [ null, %404 ], [ null, %406 ], [ null, %414 ], [ null, %416 ], [ null, %420 ], [ null, %424 ], [ null, %438 ], [ null, %458 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit136 ], [ null, %151 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit164 ], [ null, %168 ], [ %177, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit183 ], [ %177, %191 ], [ %200, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit203 ], [ %200, %214 ], [ %222, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit219 ], [ %222, %236 ], [ %244, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit235 ], [ %244, %258 ], [ %266, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit251 ], [ %266, %280 ], [ %289, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit271 ], [ %289, %303 ], [ %312, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit291 ], [ %312, %326 ], [ %350, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit316 ], [ %350, %375 ], [ %350, %380 ], [ null, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit330 ], [ null, %453 ], [ null, %426 ]
+  %.0 = phi ptr [ %70, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit ], [ %121, %120 ], [ %126, %_ZN5clang4ento20RetainSummaryManager24getPersistentStopSummaryEv.exit121 ], [ %140, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit ], [ null, %_ZNK4llvm9StringRef11starts_withES0_.exit325 ], [ %149, %156 ], [ %166, %173 ], [ %189, %196 ], [ %212, %219 ], [ %234, %241 ], [ %256, %263 ], [ %278, %285 ], [ %301, %308 ], [ %333, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %324, %331 ], [ %396, %395 ], [ %400, %399 ], [ %405, %404 ], [ %407, %406 ], [ %415, %414 ], [ %417, %416 ], [ %421, %420 ], [ %425, %424 ], [ %439, %438 ], [ %451, %458 ], [ %149, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit136 ], [ %149, %151 ], [ %166, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit164 ], [ %166, %168 ], [ %189, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit183 ], [ %189, %191 ], [ %212, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit203 ], [ %212, %214 ], [ %234, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit219 ], [ %234, %236 ], [ %256, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit235 ], [ %256, %258 ], [ %278, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit251 ], [ %278, %280 ], [ %301, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit271 ], [ %301, %303 ], [ %324, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit291 ], [ %324, %326 ], [ %373, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit316 ], [ %373, %375 ], [ %373, %380 ], [ %451, %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEEC2ERKS6_.exit330 ], [ %451, %453 ], [ null, %426 ]
   %459 = load ptr, ptr %14, align 8, !tbaa !62
   %460 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %461 = icmp eq ptr %459, %460
@@ -3463,7 +3463,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_21CFAu
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !131
 
 _ZN5clangneENS_22specific_attr_iteratorINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -4501,8 +4501,8 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffe
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEppEv.exit: ; preds = %110, %124, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i
-  %.pre7990 = phi i32 [ %109, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %123, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pre7992, %124 ], [ %.pre7992, %110 ]
-  %.pr6483 = phi i32 [ %109, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %123, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pr6485, %124 ], [ %.pr6485, %110 ]
+  %.pre7990 = phi i32 [ %123, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %109, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pre7992, %110 ], [ %.pre7992, %124 ]
+  %.pr6483 = phi i32 [ %123, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %109, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pr6485, %110 ], [ %.pr6485, %124 ]
   %.not.i.i.i.i35 = icmp eq i32 %.pr6483, 0
   br i1 %.not.i.i.i.i35, label %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKSt4pairIjS5_ElPSF_RSF_EppEv.exit, label %136
 
@@ -4553,7 +4553,7 @@ _ZNK5clang14IdentifierInfo5isStrILm21EEEbRAT__Kc.exit: ; preds = %144
   br label %_ZNK5clang7AnyCall13getIdentifierEv.exit.thread
 
 _ZNK5clang7AnyCall13getIdentifierEv.exit.thread:  ; preds = %144, %_ZNK5clang14IdentifierInfo5isStrILm30EEEbRAT__Kc.exit, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKSt4pairIjS5_ElPSF_RSF_ED2Ev.exit24, %38, %44, %_ZNK5clang14IdentifierInfo5isStrILm21EEEbRAT__Kc.exit, %153
-  %.sroa.06.0 = phi i64 [ %.sroa.0.0.copyload.i37, %153 ], [ 8589934596, %_ZNK5clang14IdentifierInfo5isStrILm21EEEbRAT__Kc.exit ], [ 8589934596, %44 ], [ 8589934596, %38 ], [ 8589934596, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKSt4pairIjS5_ElPSF_RSF_ED2Ev.exit24 ], [ 8589934596, %_ZNK5clang14IdentifierInfo5isStrILm30EEEbRAT__Kc.exit ], [ 8589934596, %144 ]
+  %.sroa.06.0 = phi i64 [ %.sroa.0.0.copyload.i37, %153 ], [ 8589934596, %_ZNK5clang14IdentifierInfo5isStrILm21EEEbRAT__Kc.exit ], [ 8589934596, %_ZNK5clang14IdentifierInfo5isStrILm30EEEbRAT__Kc.exit ], [ 8589934596, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKSt4pairIjS5_ElPSF_RSF_ED2Ev.exit24 ], [ 8589934596, %44 ], [ 8589934596, %38 ], [ 8589934596, %144 ]
   %.not.i.i.i38 = icmp eq ptr %.sroa.054.0, null
   br i1 %.not.i.i.i38, label %_ZN5clang4ento13RetainSummaryC2EN4llvm12ImmutableMapIjNS0_9ArgEffectENS2_16ImutKeyValueInfoIjS4_EEEENS0_9RetEffectES4_S4_S4_.exit.thread.i, label %159
 
@@ -4823,9 +4823,9 @@ _ZNK5clang7AnyCall11param_beginEv.exit.thread:    ; preds = %_ZNK5clang7AnyCall1
   br label %_ZNK5clang7AnyCall9param_endEv.exit
 
 _ZNK5clang7AnyCall9param_endEv.exit:              ; preds = %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit, %_ZNK5clang7AnyCall11param_beginEv.exit, %39, %43, %45, %50
-  %.sroa.0.0.i.i35 = phi ptr [ %.sroa.0.0.i.i.ph57, %50 ], [ %.sroa.0.0.i.i.ph57, %45 ], [ %.sroa.0.0.i.i.ph57, %39 ], [ %30, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ %.sroa.0.0.i.i.ph57, %43 ], [ null, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
-  %.sroa.0.0.i.i22 = phi ptr [ %52, %50 ], [ %47, %45 ], [ %41, %39 ], [ null, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ null, %43 ], [ null, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
-  %.sroa.8.0.shrunk.i.i = phi i32 [ %54, %50 ], [ %49, %45 ], [ %42, %39 ], [ 0, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ 0, %43 ], [ 0, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
+  %.sroa.0.0.i.i35 = phi ptr [ %.sroa.0.0.i.i.ph57, %39 ], [ %30, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ %.sroa.0.0.i.i.ph57, %50 ], [ %.sroa.0.0.i.i.ph57, %45 ], [ %.sroa.0.0.i.i.ph57, %43 ], [ null, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
+  %.sroa.0.0.i.i22 = phi ptr [ %41, %39 ], [ null, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ %52, %50 ], [ %47, %45 ], [ null, %43 ], [ null, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
+  %.sroa.8.0.shrunk.i.i = phi i32 [ %42, %39 ], [ 0, %_ZNK5clang7AnyCall11param_beginEv.exit ], [ %54, %50 ], [ %49, %45 ], [ 0, %43 ], [ 0, %_ZN5clang4ento21RetainSummaryTemplateC2ERPKNS0_13RetainSummaryERNS0_20RetainSummaryManagerE.exit ]
   %.sroa.8.0.i.i = zext i32 %.sroa.8.0.shrunk.i.i to i64
   %55 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i22, i64 %.sroa.8.0.i.i
   %.not39 = icmp eq ptr %.sroa.0.0.i.i35, %55
@@ -5604,7 +5604,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %18
 
 _ZL15hasRCAnnotationPKN5clang4DeclEN4llvm9StringRefE.exit: ; preds = %26, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %31, %24
-  %51 = phi i1 [ false, %24 ], [ false, %31 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ false, %26 ]
+  %51 = phi i1 [ false, %24 ], [ false, %31 ], [ false, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ false, %26 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   ret i1 %51
 }
 
@@ -5728,7 +5728,7 @@ _ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit: ; preds = %69
   %75 = icmp eq i32 %bcmp.i, 0
   br i1 %75, label %.critedge55, label %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit.thread
 
-_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %54, %33, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type12isObjCIdTypeEv.exit
+_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %54, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %33, %_ZNK5clang4Type12isObjCIdTypeEv.exit
   %76 = load ptr, ptr %29, align 16, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %77, align 8, !tbaa !45
@@ -5949,7 +5949,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit82.thread128:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge55
 
 .critedge55:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit78, %_ZN4llvmeqENS_9StringRefES0_.exit82, %121, %112, %109, %96, %98, %100, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit65, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit, %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128
-  %.sroa.8.1 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128 ], [ 4294967297, %.critedge ], [ 4294967297, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967297, %100 ], [ 4294967297, %98 ], [ 4294967297, %96 ], [ 4294967299, %109 ], [ 4294967297, %112 ], [ 4294967298, %121 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit82 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit78 ]
+  %.sroa.8.1 = phi i64 [ 4294967297, %96 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128 ], [ 4294967298, %121 ], [ 4294967297, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967297, %.critedge ], [ 4294967297, %112 ], [ 4294967299, %109 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit82 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit78 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ 4294967297, %100 ], [ 4294967297, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
@@ -6013,7 +6013,7 @@ _ZNK5clang4Decl7hasAttrINS_21NSReturnsRetainedAttrEEEbv.exit.i: ; preds = %.lr.p
   %28 = load i64, ptr %27, align 8
   br label %.critedge
 
-_ZNK5clang4Decl7hasAttrINS_21NSReturnsRetainedAttrEEEbv.exit.thread3.i: ; preds = %24, %9, %13, %_ZNK5clang4Decl7hasAttrINS_21NSReturnsRetainedAttrEEEbv.exit.i, %3, %7
+_ZNK5clang4Decl7hasAttrINS_21NSReturnsRetainedAttrEEEbv.exit.thread3.i: ; preds = %24, %9, %13, %_ZNK5clang4Decl7hasAttrINS_21NSReturnsRetainedAttrEEEbv.exit.i, %7, %3
   %29 = load i8, ptr %4, align 1, !tbaa !185, !range !127, !noundef !128
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread2.i.i
@@ -6314,8 +6314,8 @@ _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetai
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %143, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i, %138, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, %26
-  %.sroa.067.0 = phi i64 [ %28, %26 ], [ %.sroa.0.0.insert.insert.i57, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ undef, %138 ], [ 12884901889, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 17179869185, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ undef, %143 ], [ %.fca.0.extract.le, %.critedge.loopexit ]
-  %.sroa.568.0 = phi i8 [ 1, %26 ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 0, %138 ], [ 1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ 0, %143 ], [ %.sroa.568.0.ph, %.critedge.loopexit ]
+  %.sroa.067.0 = phi i64 [ %28, %26 ], [ 17179869185, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i ], [ undef, %138 ], [ %.sroa.0.0.insert.insert.i57, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ 12884901889, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i ], [ undef, %143 ], [ %.fca.0.extract.le, %.critedge.loopexit ]
+  %.sroa.568.0 = phi i8 [ 1, %26 ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 0, %138 ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 1, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ 1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i ], [ 0, %143 ], [ %.sroa.568.0.ph, %.critedge.loopexit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.067.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.568.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -6775,7 +6775,7 @@ _ZL21getCallableReturnTypePKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang12Func
   br i1 %.not.i.i.i.i.i100, label %_ZN5clangneENS_22specific_attr_iteratorINS_27OSReturnsRetainedOnZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !276
 
 _ZN5clangneENS_22specific_attr_iteratorINS_27OSReturnsRetainedOnZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %205, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %200, %205 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %200, %205 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %207 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %200
   br label %_ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit
 
@@ -6811,7 +6811,7 @@ _ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit: ; preds = %_
   br i1 %.not.i.i.i.i.i106, label %_ZN5clangneENS_22specific_attr_iteratorINS_30OSReturnsRetainedOnNonZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i104, !llvm.loop !275
 
 _ZN5clangneENS_22specific_attr_iteratorINS_30OSReturnsRetainedOnNonZeroAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %222, %.lr.ph.i.i.i.i.i104
-  %.sroa.07.0.i.i.ph.i.i107 = phi ptr [ %.sroa.07.1.i.i.i.i105, %.lr.ph.i.i.i.i.i104 ], [ %217, %222 ]
+  %.sroa.07.0.i.i.ph.i.i107 = phi ptr [ %217, %222 ], [ %.sroa.07.1.i.i.i.i105, %.lr.ph.i.i.i.i.i104 ]
   %224 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i107, %217
   br label %_ZNK5clang4Decl7hasAttrINS_30OSReturnsRetainedOnNonZeroAttrEEEbv.exit
 
@@ -7083,7 +7083,7 @@ _ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.
   br i1 %or.cond242, label %.critedge73, label %344
 
 .critedge73:                                      ; preds = %344, %339, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i.i.i, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i, %_ZNK5clang4Type10isVoidTypeEv.exit, %.loopexit, %330, %.critedge
-  %.3 = phi i1 [ true, %330 ], [ true, %.critedge ], [ false, %.loopexit ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ true, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ true, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i.i.i ], [ false, %339 ], [ %351, %344 ]
+  %.3 = phi i1 [ true, %.critedge ], [ false, %.loopexit ], [ true, %330 ], [ true, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.i.i ], [ true, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.i.i.i.i.i ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %339 ], [ %351, %344 ]
   ret i1 %.3
 }
 
@@ -7334,9 +7334,9 @@ switch.lookup:                                    ; preds = %19
   br label %37
 
 37:                                               ; preds = %19, %switch.lookup, %30, %17, %15, %27, %35, %34, %33, %32, %22, %13
-  %.sroa.044.0 = phi i32 [ 0, %13 ], [ %.mux, %17 ], [ %.sroa.044.0.extract.trunc46, %22 ], [ %.sroa.044.0.extract.trunc, %27 ], [ 0, %32 ], [ 0, %33 ], [ 0, %34 ], [ 0, %35 ], [ 2, %15 ], [ %spec.select, %30 ], [ %switch.load, %switch.lookup ], [ 2, %19 ]
-  %.sroa.14.0 = phi i32 [ 2, %13 ], [ %.mux66, %17 ], [ %.sroa.14.0.extract.trunc48, %22 ], [ %.sroa.14.0.extract.trunc, %27 ], [ 2, %32 ], [ 2, %33 ], [ 2, %34 ], [ 2, %35 ], [ 1, %15 ], [ %spec.select67, %30 ], [ 0, %switch.lookup ], [ 0, %19 ]
-  %.sroa.049.0 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 3, %22 ], [ 0, %27 ], [ 1, %32 ], [ 5, %33 ], [ 3, %34 ], [ 2, %35 ], [ 0, %15 ], [ 0, %30 ], [ 0, %switch.lookup ], [ 0, %19 ]
+  %.sroa.044.0 = phi i32 [ 0, %13 ], [ 0, %35 ], [ %switch.load, %switch.lookup ], [ 0, %33 ], [ 2, %15 ], [ %.mux, %17 ], [ %.sroa.044.0.extract.trunc46, %22 ], [ %.sroa.044.0.extract.trunc, %27 ], [ 0, %34 ], [ %spec.select, %30 ], [ 0, %32 ], [ 2, %19 ]
+  %.sroa.14.0 = phi i32 [ 2, %13 ], [ 2, %35 ], [ 0, %switch.lookup ], [ 2, %33 ], [ 1, %15 ], [ %.mux66, %17 ], [ %.sroa.14.0.extract.trunc48, %22 ], [ %.sroa.14.0.extract.trunc, %27 ], [ 2, %34 ], [ %spec.select67, %30 ], [ 2, %32 ], [ 0, %19 ]
+  %.sroa.049.0 = phi i32 [ 0, %13 ], [ 2, %35 ], [ 0, %switch.lookup ], [ 5, %33 ], [ 0, %15 ], [ 0, %17 ], [ 3, %22 ], [ 0, %27 ], [ 3, %34 ], [ 0, %30 ], [ 1, %32 ], [ 0, %19 ]
   %38 = and i64 %2, 3
   %.not68 = icmp eq i64 %38, 1
   br i1 %.not68, label %.loopexit, label %39
@@ -7378,9 +7378,9 @@ switch.lookup:                                    ; preds = %19
   br label %56
 
 56:                                               ; preds = %49, %55, %44
-  %.sroa.044.3 = phi i32 [ %.sroa.044.270, %55 ], [ %.sroa.044.270, %44 ], [ 4, %49 ]
-  %.sroa.14.3 = phi i32 [ %.sroa.14.271, %55 ], [ %.sroa.14.271, %44 ], [ 2, %49 ]
-  %.sroa.049.3 = phi i32 [ 12, %55 ], [ %.sroa.049.272, %44 ], [ %.sroa.049.272, %49 ]
+  %.sroa.044.3 = phi i32 [ %.sroa.044.270, %44 ], [ %.sroa.044.270, %55 ], [ 4, %49 ]
+  %.sroa.14.3 = phi i32 [ %.sroa.14.271, %44 ], [ %.sroa.14.271, %55 ], [ 2, %49 ]
+  %.sroa.049.3 = phi i32 [ %.sroa.049.272, %44 ], [ 12, %55 ], [ %.sroa.049.272, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = add nuw i32 %.02373, 1
   %.not25 = icmp eq i32 %57, %40
@@ -11129,7 +11129,7 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE13compute
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm16ImutKeyValueInfoIjN5clang4ento9ArgEffectEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIjS3_E.exit, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE13computeDigestEPS6_S7_RKSt4pairIjS4_E.exit, %41
-  %.1.i13 = phi i32 [ %39, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE13computeDigestEPS6_S7_RKSt4pairIjS4_E.exit ], [ %39, %41 ], [ %37, %_ZN4llvm16ImutKeyValueInfoIjN5clang4ento9ArgEffectEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIjS3_E.exit ]
+  %.1.i13 = phi i32 [ %39, %41 ], [ %39, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE13computeDigestEPS6_S7_RKSt4pairIjS4_E.exit ], [ %37, %_ZN4llvm16ImutKeyValueInfoIjN5clang4ento9ArgEffectEE7ProfileERNS_16FoldingSetNodeIDERKSt4pairIjS3_E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.1.i13, ptr %42, align 8, !tbaa !761
@@ -12781,7 +12781,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
   br i1 %18, label %21, label %26
 
 common.ret25:                                     ; preds = %11, %4, %26, %21
-  %common.ret25.op = phi ptr [ %25, %21 ], [ %30, %26 ], [ %5, %4 ], [ %16, %11 ]
+  %common.ret25.op = phi ptr [ %30, %26 ], [ %25, %21 ], [ %16, %11 ], [ %5, %4 ]
   ret ptr %common.ret25.op
 
 21:                                               ; preds = %17
@@ -13132,7 +13132,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE9getH
   br label %76
 
 76:                                               ; preds = %.critedge58, %64, %.critedge, %34, %74
-  %.1 = phi ptr [ %75, %74 ], [ %33, %.critedge ], [ %43, %34 ], [ %63, %.critedge58 ], [ %73, %64 ]
+  %.1 = phi ptr [ %75, %74 ], [ %43, %34 ], [ %33, %.critedge ], [ %63, %.critedge58 ], [ %73, %64 ]
   ret ptr %.1
 }
 
@@ -13369,7 +13369,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffe
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEppEv.exit: ; preds = %89, %103, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i
-  %.pr48 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %102, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pr47, %103 ], [ %.pr47, %89 ]
+  %.pr48 = phi i32 [ %102, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %88, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pr47, %89 ], [ %.pr47, %103 ]
   %.not.i.i.i7 = icmp eq i32 %.pr48, 0
   br i1 %.not.i.i.i7, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEppEv.exit, label %115
 
@@ -13501,7 +13501,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffe
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEppEv.exit31: ; preds = %143, %157, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22
-  %.pr4254 = phi i32 [ %142, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29 ], [ %156, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22 ], [ %.pr4256, %157 ], [ %.pr4256, %143 ]
+  %.pr4254 = phi i32 [ %156, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22 ], [ %142, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29 ], [ %.pr4256, %143 ], [ %.pr4256, %157 ]
   %.not.i.i.i8 = icmp eq i32 %.pr4254, 0
   br i1 %.not.i.i.i8, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEppEv.exit10, label %169
 
@@ -13522,7 +13522,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffe
   br label %27, !llvm.loop !805
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEneERKS6_.exit.thread35: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit.thread38, %36, %30, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEneERKS6_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE14isElementEqualEPKS6_.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEneERKS6_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit ], [ false, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE14isElementEqualEPKS6_.exit ], [ true, %30 ], [ false, %36 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit.thread38 ]
+  %.0 = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEneERKS6_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit ], [ false, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEE14isElementEqualEPKS6_.exit ], [ false, %36 ], [ true, %30 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEEeqERKS6_.exit.thread38 ]
   %176 = load ptr, ptr %5, align 8, !tbaa !9
   %177 = icmp eq ptr %176, %20
   br i1 %177, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIjN5clang4ento9ArgEffectEEEED2Ev.exit, label %178
@@ -14063,7 +14063,7 @@ _ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i: ; preds = %.l
   %.not.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %19
   br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
 
-_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i: ; preds = %24, %9, %13, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i, %3, %7
+_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i: ; preds = %24, %9, %13, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i, %7, %3
   %26 = load i8, ptr %4, align 1, !tbaa !185, !range !127, !noundef !128
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
@@ -14111,7 +14111,7 @@ _ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.thread3.i: ; pr
   br label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.thread3.i, %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.i, %28, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i
-  %.sroa.3.0 = phi i64 [ 4294967297, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.thread3.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i ], [ 1, %28 ], [ 4294967297, %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.i ]
+  %.sroa.3.0 = phi i64 [ 4294967297, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.i ], [ 1, %28 ], [ 1, %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.thread3.i ], [ 1, %_ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread3.i ], [ 4294967297, %_ZNK5clang4Decl7hasAttrINS_25NSReturnsAutoreleasedAttrEEEbv.exit.i ]
   ret i64 %.sroa.3.0
 }
 

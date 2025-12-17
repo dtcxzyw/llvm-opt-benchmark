@@ -1238,7 +1238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i181, %455, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %293
-  %common.resume.op = phi { ptr, i32 } [ %288, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %294, %293 ], [ %450, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i181 ], [ %456, %455 ]
+  %common.resume.op = phi { ptr, i32 } [ %294, %293 ], [ %288, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %450, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i181 ], [ %456, %455 ]
   resume { ptr, i32 } %common.resume.op
 
 295:                                              ; preds = %267
@@ -2012,7 +2012,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %140, %146
   br i1 %164, label %131, label %._crit_edge84.loopexit, !llvm.loop !96
 
 _ZN3sat10xor_finder19update_combinationsERNS_6clauseEbj.exit: ; preds = %15, %128, %125, %._crit_edge
-  %.3 = phi i1 [ false, %._crit_edge ], [ false, %125 ], [ true, %128 ], [ false, %15 ]
+  %.3 = phi i1 [ false, %._crit_edge ], [ true, %128 ], [ false, %125 ], [ false, %15 ]
   ret i1 %.3
 }
 
@@ -2850,7 +2850,7 @@ _ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %107
   br label %.body
 
 .body:                                            ; preds = %.split35, %.split35.us, %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %117
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %102, %101 ], [ %106, %.split35 ], [ %53, %.split35.us ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %102, %101 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %106, %.split35 ], [ %53, %.split35.us ]
   call void @_ZN6vectorIbLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

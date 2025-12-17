@@ -255,8 +255,8 @@ define ptr @PKCS5_pbe2_set_scrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %103, label %.sink.split.i, label %105
 
 .sink.split.i:                                    ; preds = %99, %96, %93, %89, %83, %78, %73, %60, %56
-  %.sink.i = phi i32 [ 164, %56 ], [ 173, %60 ], [ 181, %73 ], [ 186, %78 ], [ 191, %83 ], [ 200, %89 ], [ 204, %93 ], [ 213, %96 ], [ 223, %99 ]
-  %.027.ph.i = phi ptr [ null, %56 ], [ null, %60 ], [ null, %73 ], [ null, %78 ], [ null, %83 ], [ null, %89 ], [ null, %93 ], [ null, %96 ], [ %97, %99 ]
+  %.sink.i = phi i32 [ 213, %96 ], [ 204, %93 ], [ 200, %89 ], [ 191, %83 ], [ 186, %78 ], [ 181, %73 ], [ 173, %60 ], [ 164, %56 ], [ 223, %99 ]
+  %.027.ph.i = phi ptr [ null, %96 ], [ null, %93 ], [ null, %89 ], [ null, %83 ], [ null, %78 ], [ null, %73 ], [ null, %60 ], [ null, %56 ], [ %97, %99 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.pkcs5_scrypt_set) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524301, ptr noundef null) #5
@@ -495,8 +495,8 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.thread40
 
 .thread40:                                        ; preds = %25, %21, %17, %72, %71
-  %.03046 = phi ptr [ %19, %72 ], [ %19, %71 ], [ %19, %25 ], [ null, %21 ], [ null, %17 ]
-  %.03145 = phi i32 [ %.031, %72 ], [ %.031, %71 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ]
+  %.03046 = phi ptr [ %19, %71 ], [ %19, %72 ], [ %19, %25 ], [ null, %21 ], [ null, %17 ]
+  %.03145 = phi i32 [ %.031, %71 ], [ %.031, %72 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ]
   call void @ASN1_item_free(ptr noundef %.03046, ptr noundef nonnull @SCRYPT_PARAMS_it.local_it) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

@@ -80,7 +80,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit10.thread24.sink.split: ; preds = %_ZN4llvmeqEN
   br label %_ZN4llvmeqENS_9StringRefES0_.exit10.thread24
 
 _ZN4llvmeqENS_9StringRefES0_.exit10.thread24:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit10.thread24.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit10, %5, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sink = phi ptr [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %5 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit10 ], [ %8, %_ZN4llvmeqENS_9StringRefES0_.exit10.thread24.sink.split ]
+  %.sink = phi ptr [ null, %5 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit10 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %8, %_ZN4llvmeqENS_9StringRefES0_.exit10.thread24.sink.split ]
   store ptr %.sink, ptr %0, align 8, !tbaa !16
   ret void
 }
@@ -116,7 +116,7 @@ _ZNSt10unique_ptrIN4llvm9sandboxir19RegionsFromMetadataESt14default_deleteIS2_EE
   br label %_ZN4llvmeqENS_9StringRefES0_.exit9.thread24
 
 _ZN4llvmeqENS_9StringRefES0_.exit9.thread24:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit9, %5, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNSt10unique_ptrIN4llvm9sandboxir19RegionsFromMetadataESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm9sandboxir11BottomUpVecESt14default_deleteIS2_EED2Ev.exit
-  %.sink = phi ptr [ %9, %_ZNSt10unique_ptrIN4llvm9sandboxir19RegionsFromMetadataESt14default_deleteIS2_EED2Ev.exit ], [ %7, %_ZNSt10unique_ptrIN4llvm9sandboxir11BottomUpVecESt14default_deleteIS2_EED2Ev.exit ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %5 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit9 ]
+  %.sink = phi ptr [ %7, %_ZNSt10unique_ptrIN4llvm9sandboxir11BottomUpVecESt14default_deleteIS2_EED2Ev.exit ], [ %9, %_ZNSt10unique_ptrIN4llvm9sandboxir19RegionsFromMetadataESt14default_deleteIS2_EED2Ev.exit ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %5 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit9 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !25
   ret void
 }

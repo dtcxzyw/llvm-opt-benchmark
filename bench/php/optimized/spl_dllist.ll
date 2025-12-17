@@ -488,7 +488,7 @@ define hidden void @zim_SplDoublyLinkedList_top(ptr noundef readonly captures(no
   br label %36
 
 36:                                               ; preds = %.sink.split, %20, %26
-  %.0 = phi ptr [ %28, %26 ], [ %12, %20 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %12, %20 ], [ %28, %26 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.0, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !4
@@ -566,7 +566,7 @@ define hidden void @zim_SplDoublyLinkedList_bottom(ptr noundef readonly captures
   br label %35
 
 35:                                               ; preds = %.sink.split, %19, %25
-  %.0 = phi ptr [ %27, %25 ], [ %11, %19 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %11, %19 ], [ %27, %25 ], [ %.sink.in, %.sink.split ]
   %36 = load ptr, ptr %.0, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !4
@@ -950,7 +950,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %28, %21
   br label %53
 
 53:                                               ; preds = %.sink.split, %35, %43
-  %.0 = phi ptr [ %45, %43 ], [ %36, %35 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %36, %35 ], [ %45, %43 ], [ %.sink.in, %.sink.split ]
   %54 = load ptr, ptr %.0, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !4
@@ -1711,7 +1711,7 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr noundef readonly capture
   br label %34
 
 34:                                               ; preds = %.sink.split, %18, %24
-  %.0 = phi ptr [ %26, %24 ], [ %12, %18 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %12, %18 ], [ %26, %24 ], [ %.sink.in, %.sink.split ]
   %35 = load ptr, ptr %.0, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !4
@@ -1785,8 +1785,8 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr noundef readonly captu
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %22, %27
-  %28 = phi ptr [ %.pre, %27 ], [ %21, %22 ]
-  %.1.i = phi i64 [ %.0.i, %27 ], [ %25, %22 ]
+  %28 = phi ptr [ %21, %22 ], [ %.pre, %27 ]
+  %.1.i = phi i64 [ %25, %22 ], [ %.0.i, %27 ]
   %29 = getelementptr i8, ptr %28, i64 23
   %30 = getelementptr i8, ptr %29, i64 %.1.i
   store i8 58, ptr %30, align 1, !tbaa !4

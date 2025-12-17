@@ -410,7 +410,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   br label %84
 
 .body.i.i.i.i:                                    ; preds = %103, %100, %63
-  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %63 ], [ %.pn.i.i.i.i, %103 ], [ %.pn.i.i.i.i, %100 ]
+  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %63 ], [ %.pn.i.i.i.i, %100 ], [ %.pn.i.i.i.i, %103 ]
   %78 = icmp eq i64 %41, 0
   br i1 %78, label %150, label %79
 
@@ -1367,7 +1367,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   br label %90
 
 .body.i.i.i.i:                                    ; preds = %109, %106, %72
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %72 ], [ %.pn.pn.i.i.i.i, %109 ], [ %.pn.pn.i.i.i.i, %106 ]
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %72 ], [ %.pn.pn.i.i.i.i, %106 ], [ %.pn.pn.i.i.i.i, %109 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1d3384f7051f5cb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #17
           to label %47 unwind label %172, !noalias !86
 

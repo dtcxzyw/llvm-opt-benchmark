@@ -455,8 +455,8 @@ bytestream2_put_le32.exit210:                     ; preds = %154
   br i1 %167, label %bytestream2_put_le32.exit212, label %bytestream2_put_le32.exit212.thread
 
 bytestream2_put_le32.exit212.thread:              ; preds = %154, %bytestream2_put_le32.exit208, %bytestream2_put_le32.exit206.thread, %127, %bytestream2_put_le32.exit206, %bytestream2_put_buffer.exit285, %146, %bytestream2_put_byte.exit271, %bytestream2_put_le32.exit210, %162
-  %168 = phi ptr [ %161, %162 ], [ %161, %bytestream2_put_le32.exit210 ], [ %153, %154 ], [ %153, %bytestream2_put_le32.exit208 ], [ %145, %146 ], [ %145, %bytestream2_put_buffer.exit285 ], [ %135, %bytestream2_put_byte.exit271 ], [ %121, %bytestream2_put_le32.exit206.thread ], [ %124, %127 ], [ %124, %bytestream2_put_le32.exit206 ]
-  %169 = phi ptr [ %125, %162 ], [ %125, %bytestream2_put_le32.exit210 ], [ %125, %154 ], [ %125, %bytestream2_put_le32.exit208 ], [ %125, %146 ], [ %125, %bytestream2_put_buffer.exit285 ], [ %125, %bytestream2_put_byte.exit271 ], [ %122, %bytestream2_put_le32.exit206.thread ], [ %125, %127 ], [ %125, %bytestream2_put_le32.exit206 ]
+  %168 = phi ptr [ %161, %bytestream2_put_le32.exit210 ], [ %161, %162 ], [ %153, %bytestream2_put_le32.exit208 ], [ %153, %154 ], [ %145, %bytestream2_put_buffer.exit285 ], [ %145, %146 ], [ %135, %bytestream2_put_byte.exit271 ], [ %121, %bytestream2_put_le32.exit206.thread ], [ %124, %127 ], [ %124, %bytestream2_put_le32.exit206 ]
+  %169 = phi ptr [ %125, %bytestream2_put_le32.exit210 ], [ %125, %162 ], [ %125, %bytestream2_put_le32.exit208 ], [ %125, %154 ], [ %125, %bytestream2_put_buffer.exit285 ], [ %125, %146 ], [ %125, %bytestream2_put_byte.exit271 ], [ %122, %bytestream2_put_le32.exit206.thread ], [ %125, %127 ], [ %125, %bytestream2_put_le32.exit206 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit218.thread
 
@@ -539,8 +539,8 @@ bytestream2_put_buffer.exit289:                   ; preds = %192, %199
   br i1 %207, label %bytestream2_put_le32.exit218, label %bytestream2_put_le32.exit218.thread
 
 bytestream2_put_le32.exit218.thread:              ; preds = %184, %bytestream2_put_le32.exit214, %bytestream2_put_le32.exit212, %174, %bytestream2_put_le32.exit212.thread, %bytestream2_put_buffer.exit289, %202, %bytestream2_put_le32.exit216
-  %208 = phi ptr [ %201, %202 ], [ %201, %bytestream2_put_buffer.exit289 ], [ %191, %bytestream2_put_le32.exit216 ], [ %181, %184 ], [ %181, %bytestream2_put_le32.exit214 ], [ %168, %bytestream2_put_le32.exit212.thread ], [ %171, %174 ], [ %171, %bytestream2_put_le32.exit212 ]
-  %209 = phi ptr [ %125, %202 ], [ %125, %bytestream2_put_buffer.exit289 ], [ %125, %bytestream2_put_le32.exit216 ], [ %125, %184 ], [ %125, %bytestream2_put_le32.exit214 ], [ %169, %bytestream2_put_le32.exit212.thread ], [ %125, %174 ], [ %125, %bytestream2_put_le32.exit212 ]
+  %208 = phi ptr [ %201, %bytestream2_put_buffer.exit289 ], [ %201, %202 ], [ %191, %bytestream2_put_le32.exit216 ], [ %181, %bytestream2_put_le32.exit214 ], [ %181, %184 ], [ %168, %bytestream2_put_le32.exit212.thread ], [ %171, %174 ], [ %171, %bytestream2_put_le32.exit212 ]
+  %209 = phi ptr [ %125, %bytestream2_put_buffer.exit289 ], [ %125, %202 ], [ %125, %bytestream2_put_le32.exit216 ], [ %125, %bytestream2_put_le32.exit214 ], [ %125, %184 ], [ %169, %bytestream2_put_le32.exit212.thread ], [ %125, %174 ], [ %125, %bytestream2_put_le32.exit212 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit226.thread
 
@@ -617,8 +617,8 @@ bytestream2_put_le32.exit224:                     ; preds = %230
   br i1 %245, label %bytestream2_put_le32.exit226, label %bytestream2_put_le32.exit226.thread
 
 bytestream2_put_le32.exit226.thread:              ; preds = %230, %bytestream2_put_le32.exit222, %bytestream2_put_le32.exit218.thread, %212, %bytestream2_put_le32.exit218, %bytestream2_put_le32.exit220, %220, %bytestream2_put_le32.exit224, %240
-  %246 = phi ptr [ %237, %240 ], [ %237, %bytestream2_put_le32.exit224 ], [ %227, %230 ], [ %227, %bytestream2_put_le32.exit222 ], [ %219, %220 ], [ %219, %bytestream2_put_le32.exit220 ], [ %208, %bytestream2_put_le32.exit218.thread ], [ %211, %212 ], [ %211, %bytestream2_put_le32.exit218 ]
-  %247 = phi ptr [ %125, %240 ], [ %125, %bytestream2_put_le32.exit224 ], [ %125, %230 ], [ %125, %bytestream2_put_le32.exit222 ], [ %125, %220 ], [ %125, %bytestream2_put_le32.exit220 ], [ %209, %bytestream2_put_le32.exit218.thread ], [ %125, %212 ], [ %125, %bytestream2_put_le32.exit218 ]
+  %246 = phi ptr [ %237, %bytestream2_put_le32.exit224 ], [ %237, %240 ], [ %227, %bytestream2_put_le32.exit222 ], [ %227, %230 ], [ %219, %bytestream2_put_le32.exit220 ], [ %219, %220 ], [ %208, %bytestream2_put_le32.exit218.thread ], [ %211, %212 ], [ %211, %bytestream2_put_le32.exit218 ]
+  %247 = phi ptr [ %125, %bytestream2_put_le32.exit224 ], [ %125, %240 ], [ %125, %bytestream2_put_le32.exit222 ], [ %125, %230 ], [ %125, %bytestream2_put_le32.exit220 ], [ %125, %220 ], [ %209, %bytestream2_put_le32.exit218.thread ], [ %125, %212 ], [ %125, %bytestream2_put_le32.exit218 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit230.thread
 
@@ -720,8 +720,8 @@ bytestream2_put_buffer.exit297:                   ; preds = %276, %283
   br i1 %291, label %bytestream2_put_le32.exit230, label %bytestream2_put_le32.exit230.thread
 
 bytestream2_put_le32.exit230.thread:              ; preds = %268, %bytestream2_put_le32.exit228, %bytestream2_put_buffer.exit293, %260, %bytestream2_put_le32.exit226.thread, %bytestream2_put_le32.exit226, %bytestream2_put_buffer.exit297, %286, %bytestream2_put_byte.exit273
-  %292 = phi ptr [ %285, %286 ], [ %285, %bytestream2_put_buffer.exit297 ], [ %275, %bytestream2_put_byte.exit273 ], [ %267, %268 ], [ %267, %bytestream2_put_le32.exit228 ], [ %259, %260 ], [ %259, %bytestream2_put_buffer.exit293 ], [ %249, %bytestream2_put_le32.exit226 ], [ %246, %bytestream2_put_le32.exit226.thread ]
-  %293 = phi ptr [ %125, %286 ], [ %125, %bytestream2_put_buffer.exit297 ], [ %125, %bytestream2_put_byte.exit273 ], [ %125, %268 ], [ %125, %bytestream2_put_le32.exit228 ], [ %125, %260 ], [ %125, %bytestream2_put_buffer.exit293 ], [ %125, %bytestream2_put_le32.exit226 ], [ %247, %bytestream2_put_le32.exit226.thread ]
+  %292 = phi ptr [ %285, %bytestream2_put_buffer.exit297 ], [ %285, %286 ], [ %275, %bytestream2_put_byte.exit273 ], [ %267, %bytestream2_put_le32.exit228 ], [ %267, %268 ], [ %259, %bytestream2_put_buffer.exit293 ], [ %259, %260 ], [ %249, %bytestream2_put_le32.exit226 ], [ %246, %bytestream2_put_le32.exit226.thread ]
+  %293 = phi ptr [ %125, %bytestream2_put_buffer.exit297 ], [ %125, %286 ], [ %125, %bytestream2_put_byte.exit273 ], [ %125, %bytestream2_put_le32.exit228 ], [ %125, %268 ], [ %125, %bytestream2_put_buffer.exit293 ], [ %125, %260 ], [ %125, %bytestream2_put_le32.exit226 ], [ %247, %bytestream2_put_le32.exit226.thread ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit232.thread
 
@@ -807,8 +807,8 @@ bytestream2_put_le32.exit232:                     ; preds = %314
   br label %bytestream2_put_le32.exit234
 
 bytestream2_put_le32.exit232.thread:              ; preds = %bytestream2_put_le64.exit, %314, %bytestream2_put_buffer.exit301, %bytestream2_put_le32.exit230, %296, %bytestream2_put_le32.exit230.thread, %322, %bytestream2_put_le32.exit232
-  %331 = phi ptr [ %321, %322 ], [ %321, %bytestream2_put_le32.exit232 ], [ %313, %314 ], [ %313, %bytestream2_put_buffer.exit301 ], [ %303, %bytestream2_put_le64.exit ], [ %292, %bytestream2_put_le32.exit230.thread ], [ %295, %296 ], [ %295, %bytestream2_put_le32.exit230 ]
-  %332 = phi ptr [ %125, %322 ], [ %125, %bytestream2_put_le32.exit232 ], [ %125, %314 ], [ %125, %bytestream2_put_buffer.exit301 ], [ %125, %bytestream2_put_le64.exit ], [ %293, %bytestream2_put_le32.exit230.thread ], [ %125, %296 ], [ %125, %bytestream2_put_le32.exit230 ]
+  %331 = phi ptr [ %321, %bytestream2_put_le32.exit232 ], [ %321, %322 ], [ %313, %bytestream2_put_buffer.exit301 ], [ %313, %314 ], [ %303, %bytestream2_put_le64.exit ], [ %292, %bytestream2_put_le32.exit230.thread ], [ %295, %296 ], [ %295, %bytestream2_put_le32.exit230 ]
+  %332 = phi ptr [ %125, %bytestream2_put_le32.exit232 ], [ %125, %322 ], [ %125, %bytestream2_put_buffer.exit301 ], [ %125, %314 ], [ %125, %bytestream2_put_le64.exit ], [ %293, %bytestream2_put_le32.exit230.thread ], [ %125, %296 ], [ %125, %bytestream2_put_le32.exit230 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit234
 
@@ -937,7 +937,7 @@ bytestream2_put_le32.exit202:                     ; preds = %377
   br label %bytestream2_put_le32.exit204
 
 bytestream2_put_le32.exit202.thread:              ; preds = %377, %bytestream2_put_le32.exit200, %bytestream2_put_byte.exit267.thread, %361, %bytestream2_put_byte.exit267, %bytestream2_put_le32.exit198, %369, %385, %bytestream2_put_le32.exit202
-  %394 = phi ptr [ %384, %385 ], [ %384, %bytestream2_put_le32.exit202 ], [ %376, %bytestream2_put_le32.exit200 ], [ %376, %377 ], [ %368, %bytestream2_put_le32.exit198 ], [ %368, %369 ], [ %359, %bytestream2_put_byte.exit267 ], [ %359, %361 ], [ %357, %bytestream2_put_byte.exit267.thread ]
+  %394 = phi ptr [ %384, %bytestream2_put_le32.exit202 ], [ %384, %385 ], [ %376, %bytestream2_put_le32.exit200 ], [ %376, %377 ], [ %368, %bytestream2_put_le32.exit198 ], [ %368, %369 ], [ %359, %bytestream2_put_byte.exit267 ], [ %359, %361 ], [ %357, %bytestream2_put_byte.exit267.thread ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit204
 
@@ -1024,7 +1024,7 @@ bytestream2_put_le32.exit236:                     ; preds = %414
   br label %bytestream2_put_le32.exit238
 
 bytestream2_put_le32.exit236.thread:              ; preds = %402, %414, %bytestream2_put_buffer.exit305, %428, %bytestream2_put_le32.exit236
-  %437 = phi ptr [ %421, %428 ], [ %421, %bytestream2_put_le32.exit236 ], [ %333, %402 ], [ %413, %414 ], [ %413, %bytestream2_put_buffer.exit305 ]
+  %437 = phi ptr [ %421, %bytestream2_put_le32.exit236 ], [ %421, %428 ], [ %333, %402 ], [ %413, %414 ], [ %413, %bytestream2_put_buffer.exit305 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit238
 
@@ -1274,7 +1274,7 @@ bytestream2_put_buffer.exit321:                   ; preds = %532, %539
   br label %bytestream2_put_byte.exit275
 
 bytestream2_put_buffer.exit321.thread:            ; preds = %bytestream2_put_le32.exit248, %524, %bytestream2_put_buffer.exit317, %bytestream2_put_le32.exit246, %506, %bytestream2_put_le32.exit246.thread, %bytestream2_put_le32.exit250, %542, %bytestream2_put_buffer.exit321
-  %551 = phi ptr [ %531, %bytestream2_put_le32.exit250 ], [ %541, %542 ], [ %541, %bytestream2_put_buffer.exit321 ], [ %523, %bytestream2_put_buffer.exit317 ], [ %523, %524 ], [ %513, %bytestream2_put_le32.exit248 ], [ %503, %bytestream2_put_le32.exit246 ], [ %503, %506 ], [ %501, %bytestream2_put_le32.exit246.thread ]
+  %551 = phi ptr [ %531, %bytestream2_put_le32.exit250 ], [ %541, %bytestream2_put_buffer.exit321 ], [ %541, %542 ], [ %523, %bytestream2_put_buffer.exit317 ], [ %523, %524 ], [ %513, %bytestream2_put_le32.exit248 ], [ %503, %bytestream2_put_le32.exit246 ], [ %503, %506 ], [ %501, %bytestream2_put_le32.exit246.thread ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_byte.exit275
 
@@ -1525,9 +1525,9 @@ predictor.exit.i:                                 ; preds = %.lr.ph.i98.i
   br i1 %exitcond.not.i101.i, label %.critedge.i.i, label %677, !llvm.loop !76
 
 .critedge.i.i:                                    ; preds = %683, %677
-  %.167.lcssa.i.i = phi i64 [ %676, %683 ], [ %.16781.i.i, %677 ]
-  %.lcssa79.i.i = phi i64 [ %575, %683 ], [ %678, %677 ]
-  %.lcssa.i.i = phi i64 [ 0, %683 ], [ %.16781.i.i, %677 ]
+  %.167.lcssa.i.i = phi i64 [ %.16781.i.i, %677 ], [ %676, %683 ]
+  %.lcssa79.i.i = phi i64 [ %678, %677 ], [ %575, %683 ]
+  %.lcssa.i.i = phi i64 [ %.16781.i.i, %677 ], [ 0, %683 ]
   %686 = icmp samesign ugt i64 %.167.lcssa.i.i, 2
   br i1 %686, label %687, label %.critedge.thread.i.i
 
@@ -1537,7 +1537,7 @@ predictor.exit.i:                                 ; preds = %.lr.ph.i98.i
   br i1 %.not78.i.i, label %689, label %rle_compress.exit.thread.i
 
 689:                                              ; preds = %687
-  %690 = trunc i64 %.167.lcssa.i.i to i8
+  %690 = trunc nuw i64 %.167.lcssa.i.i to i8
   %691 = add i8 %690, -1
   %692 = getelementptr inbounds i8, ptr %670, i64 %.06898.i.i
   store i8 %691, ptr %692, align 1, !tbaa !48
@@ -2088,7 +2088,7 @@ bytestream2_put_le32.exit252:                     ; preds = %939
   br label %bytestream2_put_le32.exit254
 
 bytestream2_put_le32.exit252.thread:              ; preds = %939, %936, %951, %bytestream2_put_le32.exit252
-  %960 = phi ptr [ %946, %951 ], [ %946, %bytestream2_put_le32.exit252 ], [ %937, %936 ], [ %937, %939 ]
+  %960 = phi ptr [ %946, %bytestream2_put_le32.exit252 ], [ %946, %951 ], [ %937, %936 ], [ %937, %939 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit254
 
@@ -2263,8 +2263,8 @@ bytestream2_put_le32.exit256:                     ; preds = %1037
   br label %bytestream2_put_le32.exit258
 
 bytestream2_put_le32.exit256.thread:              ; preds = %1037, %1033, %1049, %bytestream2_put_le32.exit256
-  %1058 = phi ptr [ %1044, %1049 ], [ %1044, %bytestream2_put_le32.exit256 ], [ %1034, %1033 ], [ %1034, %1037 ]
-  %1059 = phi ptr [ %1044, %1049 ], [ %1044, %bytestream2_put_le32.exit256 ], [ %1035, %1033 ], [ %1035, %1037 ]
+  %1058 = phi ptr [ %1044, %bytestream2_put_le32.exit256 ], [ %1044, %1049 ], [ %1034, %1033 ], [ %1034, %1037 ]
+  %1059 = phi ptr [ %1044, %bytestream2_put_le32.exit256 ], [ %1044, %1049 ], [ %1035, %1033 ], [ %1035, %1037 ]
   store i32 1, ptr %37, align 8, !tbaa !47
   br label %bytestream2_put_le32.exit258
 

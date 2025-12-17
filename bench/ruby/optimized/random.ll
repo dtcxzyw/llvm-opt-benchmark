@@ -273,6 +273,9 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %.preheader, label %5
 
+.preheader:                                       ; preds = %.thread.i, %3
+  br label %14
+
 5:                                                ; preds = %3
   %.not16.i = icmp eq i32 %2, 0
   %spec.store.select.i = zext i1 %.not16.i to i32
@@ -291,9 +294,6 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
 .thread.i:                                        ; preds = %6
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
   br label %.preheader
-
-.preheader:                                       ; preds = %3, %.thread.i
-  br label %14
 
 11:                                               ; preds = %6
   %12 = add i64 %10, %.013.i
@@ -315,7 +315,7 @@ define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 n
   br i1 %.not16.i9, label %14, label %fill_random_bytes_syscall.exit, !llvm.loop !28
 
 fill_random_bytes_syscall.exit:                   ; preds = %11, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ -1, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -521,7 +521,7 @@ rand_start.exit.sink.split:                       ; preds = %22, %default_rand.e
   br label %rand_start.exit
 
 rand_start.exit:                                  ; preds = %rand_start.exit.sink.split, %22, %default_rand.exit, %25, %13
-  %.0 = phi ptr [ null, %13 ], [ %21, %25 ], [ %.0.i, %default_rand.exit ], [ %21, %22 ], [ %.sink19, %rand_start.exit.sink.split ]
+  %.0 = phi ptr [ %21, %25 ], [ %21, %22 ], [ null, %13 ], [ %.0.i, %default_rand.exit ], [ %.sink19, %rand_start.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -792,8 +792,8 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   br label %47
 
 31:                                               ; preds = %.thread, %5
-  %.019 = phi i32 [ %7, %5 ], [ %27, %.thread ]
-  %.017 = phi i32 [ %9, %5 ], [ %28, %.thread ]
+  %.019 = phi i32 [ %27, %.thread ], [ %7, %5 ]
+  %.017 = phi i32 [ %28, %.thread ], [ %9, %5 ]
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %38, label %32
 
@@ -1702,7 +1702,7 @@ define hidden void @InitVM_Random() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %23, %26, %27, %28, %29, %31
-  %.0.in.i = phi ptr [ @rb_cNilClass, %27 ], [ @rb_cTrueClass, %28 ], [ %25, %23 ], [ @rb_cFalseClass, %26 ], [ @rb_cInteger, %29 ], [ %spec.select.i, %31 ]
+  %.0.in.i = phi ptr [ %25, %23 ], [ @rb_cNilClass, %27 ], [ @rb_cTrueClass, %28 ], [ @rb_cFalseClass, %26 ], [ @rb_cInteger, %29 ], [ %spec.select.i, %31 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !43
   tail call void @rb_define_private_method(i64 noundef %.0.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @random_s_state, i32 noundef 0) #24
   %34 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
@@ -1742,7 +1742,7 @@ rb_class_of.exit:                                 ; preds = %23, %26, %27, %28, 
   br label %rb_class_of.exit19
 
 rb_class_of.exit19:                               ; preds = %39, %42, %43, %44, %45, %47
-  %.0.in.i15 = phi ptr [ @rb_cNilClass, %43 ], [ @rb_cTrueClass, %44 ], [ %41, %39 ], [ @rb_cFalseClass, %42 ], [ @rb_cInteger, %45 ], [ %spec.select.i18, %47 ]
+  %.0.in.i15 = phi ptr [ %41, %39 ], [ @rb_cNilClass, %43 ], [ @rb_cTrueClass, %44 ], [ @rb_cFalseClass, %42 ], [ @rb_cInteger, %45 ], [ %spec.select.i18, %47 ]
   %.0.i16 = load i64, ptr %.0.in.i15, align 8, !tbaa !43
   tail call void @rb_define_private_method(i64 noundef %.0.i16, ptr noundef nonnull @.str.16, ptr noundef nonnull @random_s_left, i32 noundef 0) #24
   %50 = load i64, ptr @rb_cRandom, align 8, !tbaa !43
@@ -1900,7 +1900,7 @@ rb_check_arity.exit:                              ; preds = %rand_start.exit
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %23, %19, %41, %39, %35
-  %.1 = phi i64 [ %42, %41 ], [ %38, %35 ], [ -9223372036854775806, %39 ], [ %24, %23 ], [ %20, %19 ]
+  %.1 = phi i64 [ -9223372036854775806, %39 ], [ %38, %35 ], [ %42, %41 ], [ %24, %23 ], [ %20, %19 ]
   ret i64 %.1
 }
 
@@ -2819,7 +2819,7 @@ define internal i64 @rand_random_number(i32 noundef %0, ptr noundef readonly cap
   unreachable
 
 rand_random.exit:                                 ; preds = %3, %21, %19, %15
-  %.0 = phi i64 [ %22, %21 ], [ %18, %15 ], [ -9223372036854775806, %19 ], [ %5, %3 ]
+  %.0 = phi i64 [ %5, %3 ], [ %22, %21 ], [ -9223372036854775806, %19 ], [ %18, %15 ]
   ret i64 %.0
 }
 
@@ -3526,12 +3526,12 @@ float_value.exit59:                               ; preds = %rb_float_value_inli
   br i1 %or.cond, label %rb_float_new_inline.exit.thread, label %rb_float_new_inline.exit.thread.sink.split
 
 rb_float_new_inline.exit.thread.sink.split:       ; preds = %162, %160, %158, %154, %45, %42, %58
-  %.0.i62.sink = phi i64 [ %59, %58 ], [ %44, %42 ], [ %46, %45 ], [ %161, %160 ], [ %157, %154 ], [ -9223372036854775806, %158 ], [ -9223372036854775806, %162 ]
-  store i64 %.0.i62.sink, ptr %7, align 8, !tbaa !43
+  %.sink = phi i64 [ -9223372036854775806, %158 ], [ %46, %45 ], [ %59, %58 ], [ %44, %42 ], [ %157, %154 ], [ %161, %160 ], [ -9223372036854775806, %162 ]
+  store i64 %.sink, ptr %7, align 8, !tbaa !43
   br label %rb_float_new_inline.exit.thread
 
 rb_float_new_inline.exit.thread:                  ; preds = %rb_float_new_inline.exit.thread.sink.split, %47, %.lr.ph.preheader, %162, %._crit_edge, %RB_FLOAT_TYPE_P.exit.thread
-  %166 = phi i64 [ 4, %162 ], [ 4, %._crit_edge ], [ 4, %RB_FLOAT_TYPE_P.exit.thread ], [ 4, %.lr.ph.preheader ], [ 4, %47 ], [ %.0.i62.sink, %rb_float_new_inline.exit.thread.sink.split ]
+  %166 = phi i64 [ 4, %RB_FLOAT_TYPE_P.exit.thread ], [ 4, %._crit_edge ], [ 4, %162 ], [ 4, %47 ], [ 4, %.lr.ph.preheader ], [ %.sink, %rb_float_new_inline.exit.thread.sink.split ]
   %167 = load i64, ptr %6, align 8, !tbaa !43
   %168 = and i64 %167, 1
   %.not115 = icmp eq i64 %168, 0
@@ -3689,7 +3689,7 @@ rb_float_new_inline.exit78:                       ; preds = %rb_type.exit.thread
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %range_values.exit, %234, %238, %240, %185, %178, %175, %137, %141, %143, %range_values.exit.thread84, %rb_type.exit, %rb_float_new_inline.exit78, %195
-  %.0 = phi i64 [ %243, %rb_float_new_inline.exit78 ], [ %196, %195 ], [ %16, %range_values.exit ], [ %166, %rb_type.exit ], [ 0, %range_values.exit.thread84 ], [ %144, %143 ], [ %140, %137 ], [ -9223372036854775806, %141 ], [ %177, %175 ], [ %179, %178 ], [ %166, %185 ], [ -9223372036854775806, %238 ], [ %237, %234 ], [ %241, %240 ]
+  %.0 = phi i64 [ 0, %range_values.exit.thread84 ], [ -9223372036854775806, %141 ], [ %243, %rb_float_new_inline.exit78 ], [ %16, %range_values.exit ], [ %196, %195 ], [ %166, %185 ], [ %166, %rb_type.exit ], [ %140, %137 ], [ %144, %143 ], [ %177, %175 ], [ %179, %178 ], [ -9223372036854775806, %238 ], [ %241, %240 ], [ %237, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3796,7 +3796,7 @@ define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef
   br label %rb_ulong2num_inline.exit
 
 rb_ulong2num_inline.exit:                         ; preds = %46, %43, %22, %19, %48, %24, %30, %37, %8, %12
-  %.1 = phi i64 [ 4, %8 ], [ 4, %12 ], [ %49, %48 ], [ 4, %24 ], [ 4, %30 ], [ 4, %37 ], [ %21, %19 ], [ %23, %22 ], [ %45, %43 ], [ %47, %46 ]
+  %.1 = phi i64 [ 4, %12 ], [ 4, %8 ], [ 4, %37 ], [ 4, %24 ], [ 4, %30 ], [ %49, %48 ], [ %23, %22 ], [ %21, %19 ], [ %45, %43 ], [ %47, %46 ]
   ret i64 %.1
 }
 
@@ -3967,7 +3967,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
   br i1 %81, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !30
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %76, %32, %23, %3
-  %.029 = phi i64 [ 0, %3 ], [ %26, %23 ], [ %35, %32 ], [ %.1.i, %76 ], [ %80, %.preheader29.i ]
+  %.029 = phi i64 [ 0, %3 ], [ %.1.i, %76 ], [ %26, %23 ], [ %35, %32 ], [ %80, %.preheader29.i ]
   ret i64 %.029
 }
 
@@ -4202,9 +4202,9 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   br label %46
 
 46:                                               ; preds = %25, %.thread, %44
-  %47 = phi i32 [ %38, %.thread ], [ 0, %25 ], [ %38, %44 ]
-  %.1 = phi i32 [ 0, %.thread ], [ %.03549, %25 ], [ %spec.select, %44 ]
-  %.033 = phi i32 [ %41, %.thread ], [ 0, %25 ], [ %41, %44 ]
+  %47 = phi i32 [ 0, %25 ], [ %38, %44 ], [ %38, %.thread ]
+  %.1 = phi i32 [ %.03549, %25 ], [ %spec.select, %44 ], [ 0, %.thread ]
+  %.033 = phi i32 [ 0, %25 ], [ %41, %44 ], [ %41, %.thread ]
   %48 = getelementptr i32, ptr %19, i64 %.03451
   store i32 %.033, ptr %48, align 4, !tbaa !22
   %.034 = add nsw i64 %.03451, -1
@@ -4481,7 +4481,7 @@ float_value.exit.thread:                          ; preds = %48, %float_value.ex
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %79, %77, %73, %22, %20, %16, %float_value.exit, %24, %81, %41
-  %.024 = phi i64 [ %82, %81 ], [ %42, %41 ], [ 4, %24 ], [ 4, %float_value.exit ], [ %23, %22 ], [ %19, %16 ], [ -9223372036854775806, %20 ], [ %80, %79 ], [ %76, %73 ], [ -9223372036854775806, %77 ]
+  %.024 = phi i64 [ 4, %float_value.exit ], [ %42, %41 ], [ %82, %81 ], [ 4, %24 ], [ -9223372036854775806, %20 ], [ %19, %16 ], [ %23, %22 ], [ %76, %73 ], [ %80, %79 ], [ -9223372036854775806, %77 ]
   ret i64 %.024
 }
 

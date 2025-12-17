@@ -339,7 +339,7 @@ put_meta.exit117:                                 ; preds = %put_meta.exit115, %
   br label %146
 
 146:                                              ; preds = %25, %.critedge, %134, %104, %42, %._crit_edge.thread
-  %.2 = phi i32 [ -22, %._crit_edge.thread ], [ 0, %134 ], [ -22, %104 ], [ -22, %42 ], [ -22, %.critedge ], [ -22, %25 ]
+  %.2 = phi i32 [ -22, %.critedge ], [ -22, %._crit_edge.thread ], [ 0, %134 ], [ -22, %104 ], [ -22, %42 ], [ -22, %25 ]
   ret i32 %.2
 }
 

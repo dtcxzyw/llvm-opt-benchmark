@@ -67,7 +67,7 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %19, %14
   br label %33
 
 33:                                               ; preds = %25, %28, %SDL_CalculateDrawLineFunc.exit, %12
-  %.0 = phi i1 [ true, %28 ], [ %24, %SDL_CalculateDrawLineFunc.exit ], [ %13, %12 ], [ true, %25 ]
+  %.0 = phi i1 [ true, %28 ], [ %13, %12 ], [ %24, %SDL_CalculateDrawLineFunc.exit ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -115,7 +115,7 @@ define hidden zeroext i1 @SDL_DrawLines(ptr noundef %0, ptr noundef readonly cap
   br label %SDL_CalculateDrawLineFunc.exit
 
 SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
-  %.0.i = phi ptr [ @SDL_DrawLine4, %21 ], [ @SDL_DrawLine1, %17 ], [ @SDL_DrawLine2, %12 ]
+  %.0.i = phi ptr [ @SDL_DrawLine2, %12 ], [ @SDL_DrawLine4, %21 ], [ @SDL_DrawLine1, %17 ]
   %22 = icmp sgt i32 %2, 1
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -166,7 +166,7 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
   br label %47
 
 47:                                               ; preds = %36, %42, %44
-  %48 = phi i1 [ true, %42 ], [ %46, %44 ], [ true, %36 ]
+  %48 = phi i1 [ true, %36 ], [ true, %42 ], [ %46, %44 ]
   %49 = load i32, ptr %6, align 4
   call void %.0.i(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %49, i32 noundef %38, i32 noundef %.pre.pre, i32 noundef %3, i1 noundef zeroext %48) #6, !callees !3
   br label %50
@@ -204,7 +204,7 @@ SDL_CalculateDrawLineFunc.exit:                   ; preds = %12, %17, %21
   br label %64
 
 64:                                               ; preds = %56, %61, %24, %10
-  %.0 = phi i1 [ %25, %24 ], [ %11, %10 ], [ true, %61 ], [ true, %56 ]
+  %.0 = phi i1 [ %11, %10 ], [ %25, %24 ], [ true, %61 ], [ true, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

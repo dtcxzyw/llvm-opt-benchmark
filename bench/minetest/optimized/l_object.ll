@@ -2092,7 +2092,7 @@ if.then.i.i7.i:                                   ; preds = %lpad2.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad2.i22, %lpad2.i, %lpad3, %if.then.i.i7.i24, %lpad, %if.then.i.i7.i
-  %common.resume.op = phi { ptr, i32 } [ %6, %if.then.i.i7.i ], [ %11, %if.then.i.i7.i24 ], [ %9, %lpad ], [ %17, %lpad3 ], [ %6, %lpad2.i ], [ %11, %lpad2.i22 ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %if.then.i.i7.i ], [ %17, %lpad3 ], [ %11, %if.then.i.i7.i24 ], [ %6, %lpad2.i ], [ %9, %lpad ], [ %11, %lpad2.i22 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9ItemStackC2Ev.exit:                           ; preds = %if.then
@@ -12316,7 +12316,7 @@ _ZN12SkyboxParamsD2Ev.exit612:                    ; preds = %_ZNSt6vectorINSt7__
   br label %cleanup
 
 ehcleanup317:                                     ; preds = %lpad199, %ehcleanup311, %if.then.i.i495, %lpad197, %cleanup.action, %ehcleanup99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467, %ehcleanup81, %ehcleanup, %lpad.loopexit.split-lp622, %lpad.loopexit621
-  %.pn429 = phi { ptr, i32 } [ %.pn427, %ehcleanup ], [ %.pn423.pn.pn, %ehcleanup311 ], [ %.pn414, %ehcleanup81 ], [ %.pn617, %cleanup.action ], [ %40, %ehcleanup99 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467 ], [ %54, %lpad197 ], [ %55, %if.then.i.i495 ], [ %lpad.loopexit623, %lpad.loopexit621 ], [ %lpad.loopexit.split-lp624, %lpad.loopexit.split-lp622 ], [ %55, %lpad199 ]
+  %.pn429 = phi { ptr, i32 } [ %.pn427, %ehcleanup ], [ %.pn423.pn.pn, %ehcleanup311 ], [ %.pn414, %ehcleanup81 ], [ %.pn617, %cleanup.action ], [ %40, %ehcleanup99 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i467 ], [ %54, %lpad197 ], [ %lpad.loopexit.split-lp624, %lpad.loopexit.split-lp622 ], [ %55, %if.then.i.i495 ], [ %lpad.loopexit623, %lpad.loopexit621 ], [ %55, %lpad199 ]
   call void @_ZN12SkyboxParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %sky_params) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %sky_params)
   resume { ptr, i32 } %.pn429
@@ -17591,7 +17591,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !367
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -18477,7 +18477,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.rhs.i.i.i.i, %land.rhs.i.i.i, %land.rhs.i.i8, %_ZSteqIN3irr5video6SColorES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.i.i, %lor.rhs.i.i.i, %land.rhs.i8.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i.i, %land.lhs.true.i.i.i, %land.rhs.i8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %land.rhs, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %entry
-  %58 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i.i ], [ false, %land.lhs.true.i.i.i ], [ false, %land.rhs.i8 ], [ false, %land.rhs ], [ false, %entry ], [ false, %land.rhs.i8.i ], [ false, %_ZSteqIN3irr5video6SColorES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.i.i ], [ false, %lor.rhs.i.i.i ], [ false, %land.rhs.i.i8 ], [ false, %land.rhs.i.i.i ], [ false, %land.rhs.i.i.i.i ], [ false, %land.rhs.i.i.i.i.i ], [ %call2.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
+  %58 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i.i ], [ false, %entry ], [ false, %land.lhs.true.i.i.i ], [ false, %land.rhs.i8 ], [ false, %land.rhs ], [ false, %land.rhs.i8.i ], [ false, %_ZSteqIN3irr5video6SColorES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.i.i ], [ false, %lor.rhs.i.i.i ], [ false, %land.rhs.i.i8 ], [ false, %land.rhs.i.i.i ], [ false, %land.rhs.i.i.i.i ], [ false, %land.rhs.i.i.i.i.i ], [ %call2.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
   ret i1 %58
 }
 

@@ -299,7 +299,7 @@ pmix_obj_update.exit40:                           ; preds = %86
   br label %102
 
 102:                                              ; preds = %._crit_edge, %pmix_obj_update.exit40, %pmix_obj_update.exit, %77, %75
-  %.0 = phi ptr [ null, %75 ], [ null, %77 ], [ null, %pmix_obj_update.exit ], [ %12, %pmix_obj_update.exit40 ], [ %.035, %._crit_edge ]
+  %.0 = phi ptr [ null, %pmix_obj_update.exit ], [ null, %75 ], [ null, %77 ], [ %12, %pmix_obj_update.exit40 ], [ %.035, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -481,7 +481,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr noundef readonly capture
   br i1 %52, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %25, %.loopexit50, %38, %.lr.ph, %.lr.ph64, %47, %.preheader52, %.preheader, %43, %17, %9, %13, %5
-  %.034 = phi i1 [ true, %5 ], [ false, %13 ], [ false, %9 ], [ true, %17 ], [ false, %43 ], [ false, %.preheader ], [ false, %.preheader52 ], [ %52, %47 ], [ %52, %.lr.ph64 ], [ true, %.lr.ph ], [ true, %38 ], [ %28, %.loopexit50 ], [ %28, %25 ]
+  %.034 = phi i1 [ true, %5 ], [ false, %9 ], [ true, %17 ], [ false, %.preheader52 ], [ false, %13 ], [ false, %43 ], [ false, %.preheader ], [ true, %38 ], [ %52, %.lr.ph64 ], [ %52, %47 ], [ true, %.lr.ph ], [ %28, %.loopexit50 ], [ %28, %25 ]
   ret i1 %.034
 }
 
@@ -886,7 +886,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_obj_new_tma.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph109, %166, %91, %.critedge, %._crit_edge, %167, %pmix_obj_update.exit, %pmix_obj_update.exit74, %pmix_obj_update.exit76, %pmix_obj_update.exit77, %pmix_obj_new_tma.exit
-  %.0 = phi ptr [ %12, %pmix_obj_new_tma.exit ], [ %.165104, %pmix_obj_update.exit77 ], [ %55, %pmix_obj_update.exit76 ], [ %.2101, %pmix_obj_update.exit74 ], [ %135, %pmix_obj_update.exit ], [ null, %167 ], [ null, %._crit_edge ], [ null, %.critedge ], [ %37, %91 ], [ %37, %166 ], [ %.064108, %.lr.ph109 ]
+  %.0 = phi ptr [ %37, %91 ], [ %12, %pmix_obj_new_tma.exit ], [ %.165104, %pmix_obj_update.exit77 ], [ %55, %pmix_obj_update.exit76 ], [ null, %._crit_edge ], [ null, %.critedge ], [ %.2101, %pmix_obj_update.exit74 ], [ %135, %pmix_obj_update.exit ], [ null, %167 ], [ %37, %166 ], [ %.064108, %.lr.ph109 ]
   ret ptr %.0
 }
 
@@ -961,7 +961,7 @@ define ptr @pmix_gds_hash_check_nodename(ptr noundef readonly captures(address) 
   br i1 %.not29, label %.loopexit33, label %.lr.ph51, !llvm.loop !63
 
 .loopexit33:                                      ; preds = %.lr.ph, %.loopexit, %.lr.ph46, %4, %._crit_edge, %2
-  %.025 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ null, %4 ], [ %.12349, %.lr.ph46 ], [ null, %.loopexit ], [ %.02243, %.lr.ph ]
+  %.025 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ null, %4 ], [ null, %.loopexit ], [ %.12349, %.lr.ph46 ], [ %.02243, %.lr.ph ]
   ret ptr %.025
 }
 
@@ -3291,7 +3291,7 @@ pmix_obj_run_destructors.exit691:                 ; preds = %.lr.ph.i687, %1052
   br label %pmix_obj_new_tma.exit510
 
 pmix_obj_new_tma.exit510:                         ; preds = %283, %172, %994, %1063, %1065, %pmix_obj_update.exit, %pmix_obj_update.exit466, %1041, %1039, %pmix_obj_update.exit468, %965, %963, %pmix_obj_update.exit470, %892, %890, %pmix_obj_update.exit482, %321, %320, %pmix_obj_update.exit484, %210, %209, %pmix_obj_update.exit486, %84, %82, %813, %728, %642, %555, %424, %pmix_obj_new_tma.exit552, %18
-  %.0 = phi i32 [ -27, %18 ], [ -32, %pmix_obj_new_tma.exit552 ], [ -32, %424 ], [ %529, %555 ], [ %616, %642 ], [ %702, %728 ], [ %787, %813 ], [ %58, %82 ], [ %58, %84 ], [ %58, %pmix_obj_update.exit486 ], [ -32, %209 ], [ -32, %210 ], [ -32, %pmix_obj_update.exit484 ], [ -32, %320 ], [ -32, %321 ], [ -32, %pmix_obj_update.exit482 ], [ %866, %890 ], [ %866, %892 ], [ %866, %pmix_obj_update.exit470 ], [ %939, %963 ], [ %939, %965 ], [ %939, %pmix_obj_update.exit468 ], [ %1015, %1039 ], [ %1015, %1041 ], [ %1015, %pmix_obj_update.exit466 ], [ 0, %pmix_obj_update.exit ], [ 0, %1065 ], [ 0, %1063 ], [ 0, %994 ], [ -32, %172 ], [ -32, %283 ]
+  %.0 = phi i32 [ -27, %18 ], [ %58, %pmix_obj_update.exit486 ], [ 0, %994 ], [ -32, %pmix_obj_update.exit484 ], [ -32, %pmix_obj_new_tma.exit552 ], [ -32, %424 ], [ %529, %555 ], [ %616, %642 ], [ %702, %728 ], [ %787, %813 ], [ -32, %pmix_obj_update.exit482 ], [ %1015, %pmix_obj_update.exit466 ], [ %939, %pmix_obj_update.exit468 ], [ %866, %pmix_obj_update.exit470 ], [ %58, %82 ], [ %58, %84 ], [ -32, %209 ], [ -32, %210 ], [ -32, %320 ], [ -32, %321 ], [ %866, %890 ], [ %866, %892 ], [ %939, %963 ], [ %939, %965 ], [ %1015, %1039 ], [ %1015, %1041 ], [ 0, %pmix_obj_update.exit ], [ 0, %1065 ], [ 0, %1063 ], [ -32, %172 ], [ -32, %283 ]
   ret i32 %.0
 }
 

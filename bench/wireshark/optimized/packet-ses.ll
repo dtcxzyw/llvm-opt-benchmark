@@ -717,9 +717,9 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
   br label %63
 
 63:                                               ; preds = %17, %19, %29, %27, %62, %46, %45
-  %.1128 = phi ptr [ %31, %29 ], [ null, %27 ], [ %.2129, %45 ], [ %.2129, %46 ], [ %.2129, %62 ], [ %21, %19 ], [ null, %17 ]
-  %.1125 = phi ptr [ %33, %29 ], [ null, %27 ], [ %.2126, %45 ], [ %.2126, %46 ], [ %.2126, %62 ], [ %23, %19 ], [ null, %17 ]
-  %.0122 = phi i1 [ false, %29 ], [ false, %27 ], [ false, %45 ], [ true, %46 ], [ %.not140, %62 ], [ true, %19 ], [ true, %17 ]
+  %.1128 = phi ptr [ %.2129, %62 ], [ %31, %29 ], [ null, %27 ], [ %.2129, %45 ], [ %.2129, %46 ], [ %21, %19 ], [ null, %17 ]
+  %.1125 = phi ptr [ %.2126, %62 ], [ %33, %29 ], [ null, %27 ], [ %.2126, %45 ], [ %.2126, %46 ], [ %23, %19 ], [ null, %17 ]
+  %.0122 = phi i1 [ %.not140, %62 ], [ false, %29 ], [ false, %27 ], [ false, %45 ], [ true, %46 ], [ true, %19 ], [ true, %17 ]
   %64 = add i32 %1, 1
   %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %66 = icmp eq i8 %65, -1
@@ -1108,7 +1108,7 @@ get_item_len.exit.i:                              ; preds = %90, %87
   br label %122
 
 122:                                              ; preds = %120, %117, %109
-  %.1.i = phi i1 [ %.06490.i, %117 ], [ %.06490.i, %109 ], [ %spec.select.i, %120 ]
+  %.1.i = phi i1 [ %spec.select.i, %120 ], [ %.06490.i, %109 ], [ %.06490.i, %117 ]
   %123 = add i32 %115, %92
   %124 = sub i16 %101, %.0.i.i
   %.not.i95 = icmp eq i16 %124, 0
@@ -1118,7 +1118,7 @@ dissect_parameter_group.exit:                     ; preds = %122
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.1.i, label %125, label %call_pres_dissector.exit
 
-125:                                              ; preds = %95, %103, %dissect_parameter_group.exit.thread, %dissect_parameter_group.exit
+125:                                              ; preds = %103, %95, %dissect_parameter_group.exit.thread, %dissect_parameter_group.exit
   br label %call_pres_dissector.exit
 
 126:                                              ; preds = %53
@@ -1126,15 +1126,15 @@ dissect_parameter_group.exit:                     ; preds = %122
   %spec.select91 = select i1 %127, i1 %.082137, i1 false
   br label %call_pres_dissector.exit
 
-call_pres_dissector.exit:                         ; preds = %125, %dissect_parameter_group.exit, %103, %95, %70, %67, %66, %60, %57, %56, %126, %46
-  %.1 = phi i1 [ %.082137, %46 ], [ %spec.select91, %126 ], [ %.082137, %56 ], [ %.082137, %57 ], [ %.082137, %60 ], [ %.082137, %66 ], [ %.082137, %67 ], [ %.082137, %70 ], [ %.082137, %125 ], [ false, %dissect_parameter_group.exit ], [ false, %103 ], [ false, %95 ]
+call_pres_dissector.exit:                         ; preds = %125, %dissect_parameter_group.exit, %95, %103, %70, %67, %66, %60, %57, %56, %126, %46
+  %.1 = phi i1 [ %.082137, %46 ], [ %spec.select91, %126 ], [ %.082137, %70 ], [ %.082137, %60 ], [ %.082137, %56 ], [ %.082137, %57 ], [ %.082137, %66 ], [ %.082137, %67 ], [ %.082137, %125 ], [ false, %dissect_parameter_group.exit ], [ false, %95 ], [ false, %103 ]
   %128 = add i32 %52, %29
   %129 = sub i16 %38, %.0.i
   %.not = icmp eq i16 %129, 0
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %call_pres_dissector.exit, %8, %40, %32
-  %.082125 = phi i1 [ %.082137, %40 ], [ %.082137, %32 ], [ true, %8 ], [ %.1, %call_pres_dissector.exit ]
+  %.082125 = phi i1 [ %.082137, %32 ], [ %.082137, %40 ], [ true, %8 ], [ %.1, %call_pres_dissector.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.082125
 }
@@ -1537,7 +1537,7 @@ define internal fastcc zeroext i1 @dissect_parameter(ptr noundef %0, i32 noundef
   br label %180
 
 180:                                              ; preds = %102, %10, %174, %168, %162, %156, %150, %144, %138, %142, %128, %122, %112, %113, %92, %77, %78, %55, %56, %30, %24, %18, %12, %176, %170, %164, %158, %152, %146, %136, %130, %124, %109, %99, %94, %88, %85, %74, %69, %66, %61, %58, %45, %40, %37, %32, %26, %20, %14
-  %.0 = phi i1 [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %18 ], [ true, %20 ], [ true, %24 ], [ true, %26 ], [ true, %30 ], [ true, %32 ], [ true, %37 ], [ true, %40 ], [ true, %45 ], [ true, %55 ], [ true, %56 ], [ true, %58 ], [ true, %61 ], [ true, %66 ], [ true, %69 ], [ true, %74 ], [ true, %78 ], [ true, %77 ], [ true, %85 ], [ true, %88 ], [ true, %92 ], [ true, %94 ], [ true, %99 ], [ true, %109 ], [ true, %113 ], [ true, %112 ], [ true, %122 ], [ true, %124 ], [ true, %128 ], [ true, %130 ], [ true, %136 ], [ true, %142 ], [ true, %138 ], [ true, %144 ], [ true, %146 ], [ true, %150 ], [ true, %152 ], [ true, %156 ], [ true, %158 ], [ true, %162 ], [ true, %164 ], [ true, %168 ], [ true, %170 ], [ true, %174 ], [ true, %176 ], [ %or.cond, %102 ]
+  %.0 = phi i1 [ true, %10 ], [ true, %12 ], [ true, %14 ], [ true, %18 ], [ true, %20 ], [ true, %24 ], [ true, %26 ], [ true, %30 ], [ true, %32 ], [ true, %37 ], [ true, %40 ], [ true, %45 ], [ true, %55 ], [ true, %56 ], [ true, %58 ], [ true, %61 ], [ true, %66 ], [ true, %69 ], [ true, %74 ], [ true, %78 ], [ true, %77 ], [ true, %85 ], [ true, %88 ], [ true, %92 ], [ true, %94 ], [ true, %99 ], [ true, %176 ], [ true, %174 ], [ %or.cond, %102 ], [ true, %109 ], [ true, %113 ], [ true, %112 ], [ true, %122 ], [ true, %124 ], [ true, %128 ], [ true, %130 ], [ true, %136 ], [ true, %142 ], [ true, %138 ], [ true, %144 ], [ true, %146 ], [ true, %150 ], [ true, %152 ], [ true, %156 ], [ true, %158 ], [ true, %162 ], [ true, %164 ], [ true, %168 ], [ true, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }

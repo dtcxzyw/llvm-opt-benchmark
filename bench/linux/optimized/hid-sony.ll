@@ -1157,7 +1157,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
   br label %guitar_mapping.exit
 
 guitar_mapping.exit:                              ; preds = %201, %199, %.thread, %196, %184, %181, %179, %168, %164, %150, %147, %128, %125, %123, %115, %111, %98, %93, %90, %76, %59, %57, %50, %48, %45, %40, %25, %18, %13
-  %209 = phi i32 [ -1, %13 ], [ -1, %18 ], [ 0, %196 ], [ 1, %25 ], [ -1, %40 ], [ -1, %48 ], [ -1, %50 ], [ -1, %57 ], [ -1, %59 ], [ -1, %45 ], [ 1, %76 ], [ -1, %90 ], [ -1, %93 ], [ -1, %111 ], [ -1, %125 ], [ -1, %123 ], [ 1, %98 ], [ 1, %115 ], [ 1, %128 ], [ -1, %147 ], [ -1, %164 ], [ -1, %181 ], [ -1, %179 ], [ 1, %150 ], [ 1, %168 ], [ 1, %184 ], [ 1, %.thread ], [ 1, %201 ], [ 0, %199 ]
+  %209 = phi i32 [ -1, %181 ], [ -1, %13 ], [ -1, %18 ], [ 0, %196 ], [ 1, %184 ], [ 1, %25 ], [ -1, %40 ], [ -1, %48 ], [ -1, %50 ], [ -1, %57 ], [ -1, %59 ], [ -1, %45 ], [ 1, %.thread ], [ 1, %76 ], [ -1, %90 ], [ -1, %93 ], [ -1, %111 ], [ -1, %125 ], [ -1, %123 ], [ -1, %179 ], [ 1, %98 ], [ 1, %168 ], [ 1, %115 ], [ 1, %150 ], [ 1, %128 ], [ -1, %147 ], [ -1, %164 ], [ 0, %199 ], [ 1, %201 ]
   ret i32 %209
 }
 
@@ -1658,7 +1658,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br i1 %306, label %307, label %313
 
 307:                                              ; preds = %302, %207, %180, %156, %136
-  %308 = phi ptr [ %138, %136 ], [ %158, %156 ], [ %182, %180 ], [ %209, %207 ], [ %304, %302 ]
+  %308 = phi ptr [ %209, %207 ], [ %182, %180 ], [ %158, %156 ], [ %138, %136 ], [ %304, %302 ]
   %309 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 68719476704, ptr %309, align 8
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -2018,7 +2018,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br label %.thread36
 
 .thread36:                                        ; preds = %47, %.thread51, %.thread50, %.thread49, %.thread38, %498, %491, %.split60.us, %.thread46, %203, %.thread43, %176, %171, %.thread42, %134, %121, %104, %19
-  %500 = phi i32 [ %13, %19 ], [ %106, %104 ], [ -12, %121 ], [ %132, %134 ], [ %.us-phi61, %.split60.us ], [ %493, %491 ], [ %496, %498 ], [ %154, %.thread42 ], [ %169, %171 ], [ %174, %176 ], [ %198, %.thread43 ], [ %201, %203 ], [ %296, %.thread46 ], [ %spec.select, %.thread38 ], [ -19, %.thread49 ], [ -12, %.thread50 ], [ -12, %.thread51 ], [ -12, %47 ]
+  %500 = phi i32 [ %13, %19 ], [ %106, %104 ], [ -12, %121 ], [ %132, %134 ], [ %.us-phi61, %.split60.us ], [ %493, %491 ], [ %496, %498 ], [ %154, %.thread42 ], [ %169, %171 ], [ %174, %176 ], [ %198, %.thread43 ], [ %201, %203 ], [ %296, %.thread46 ], [ -12, %.thread51 ], [ %spec.select, %.thread38 ], [ -19, %.thread49 ], [ -12, %.thread50 ], [ -12, %47 ]
   %501 = getelementptr inbounds nuw i8, ptr %7, i64 254
   %502 = load i8, ptr %501, align 2
   %503 = icmp eq i8 %502, 0
@@ -2776,7 +2776,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
   br i1 %48, label %.split5.us, label %53
 
 .split5.us:                                       ; preds = %.split, %29, %34, %38
-  %.us-phi = phi i64 [ %25, %38 ], [ %25, %34 ], [ %25, %29 ], [ %45, %.split ]
+  %.us-phi = phi i64 [ %25, %29 ], [ %25, %38 ], [ %25, %34 ], [ %45, %.split ]
   %49 = trunc i32 %1 to i8
   %50 = getelementptr i8, ptr %21, i64 %.us-phi
   store i8 %49, ptr %50, align 1
@@ -2847,8 +2847,8 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread15, %.thread17, %24, %22, %20
-  %25 = phi i64 [ %.pre6, %24 ], [ %16, %22 ], [ %16, %20 ], [ %18, %.thread17 ], [ 2550, %.thread15 ]
-  %26 = phi i64 [ 500, %24 ], [ 0, %22 ], [ %13, %20 ], [ 2550, %.thread17 ], [ %.pre, %.thread15 ]
+  %25 = phi i64 [ %.pre6, %24 ], [ %16, %22 ], [ %16, %20 ], [ 2550, %.thread15 ], [ %18, %.thread17 ]
+  %26 = phi i64 [ 500, %24 ], [ 0, %22 ], [ %13, %20 ], [ %.pre, %.thread15 ], [ 2550, %.thread17 ]
   %27 = udiv i64 %26, 10
   %28 = trunc i64 %27 to i8
   %29 = udiv i64 %25, 10

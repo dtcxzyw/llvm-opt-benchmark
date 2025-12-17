@@ -336,9 +336,9 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly 
   br i1 %118, label %PBMAC1_PBKDF2_HMAC.exit.sink.split, label %PBMAC1_PBKDF2_HMAC.exit
 
 PBMAC1_PBKDF2_HMAC.exit.sink.split:               ; preds = %109, %104, %81
-  %.sink158 = phi i32 [ 122, %81 ], [ 137, %104 ], [ 143, %109 ]
-  %.sink = phi i32 [ 524556, %81 ], [ 524557, %104 ], [ 786691, %109 ]
-  %.0.i.ph = phi ptr [ null, %81 ], [ null, %104 ], [ %107, %109 ]
+  %.sink158 = phi i32 [ 137, %104 ], [ 122, %81 ], [ 143, %109 ]
+  %.sink = phi i32 [ 524557, %104 ], [ 524556, %81 ], [ 786691, %109 ]
+  %.0.i.ph = phi ptr [ null, %104 ], [ null, %81 ], [ %107, %109 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158, ptr noundef nonnull @__func__.PBMAC1_PBKDF2_HMAC) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #5
@@ -444,7 +444,7 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   br label %.thread139
 
 .thread143:                                       ; preds = %138, %.thread135, %124, %PBMAC1_PBKDF2_HMAC.exit
-  %.085 = phi i32 [ %.021.i, %PBMAC1_PBKDF2_HMAC.exit ], [ 32, %124 ], [ %75, %.thread135 ], [ %75, %138 ]
+  %.085 = phi i32 [ %.021.i, %PBMAC1_PBKDF2_HMAC.exit ], [ 32, %124 ], [ %75, %138 ], [ %75, %.thread135 ]
   %149 = call ptr @HMAC_CTX_new() #5
   %150 = icmp eq ptr %149, null
   br i1 %150, label %.thread139, label %151
@@ -472,16 +472,16 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   %spec.select = zext i1 %.not108 to i32
   br label %.thread139
 
-.thread139:                                       ; preds = %132, %.thread117, %148, %140, %162, %.thread143, %151, %153, %PBMAC1_PBKDF2_HMAC.exit, %.thread, %126
-  %.089 = phi ptr [ null, %.thread ], [ null, %PBMAC1_PBKDF2_HMAC.exit ], [ null, %.thread143 ], [ %149, %153 ], [ %149, %151 ], [ null, %126 ], [ %149, %162 ], [ null, %140 ], [ null, %148 ], [ null, %.thread117 ], [ null, %132 ]
-  %.087 = phi i32 [ 0, %.thread ], [ 0, %PBMAC1_PBKDF2_HMAC.exit ], [ 0, %.thread143 ], [ 0, %153 ], [ 0, %151 ], [ 0, %126 ], [ %spec.select, %162 ], [ 0, %140 ], [ 0, %148 ], [ 0, %.thread117 ], [ 0, %132 ]
+.thread139:                                       ; preds = %132, %148, %140, %.thread117, %162, %.thread143, %151, %153, %PBMAC1_PBKDF2_HMAC.exit, %.thread, %126
+  %.089 = phi ptr [ null, %.thread ], [ null, %PBMAC1_PBKDF2_HMAC.exit ], [ null, %.thread143 ], [ null, %148 ], [ %149, %162 ], [ %149, %153 ], [ %149, %151 ], [ null, %126 ], [ null, %.thread117 ], [ null, %140 ], [ null, %132 ]
+  %.087 = phi i32 [ 0, %.thread ], [ 0, %PBMAC1_PBKDF2_HMAC.exit ], [ 0, %.thread143 ], [ 0, %148 ], [ %spec.select, %162 ], [ 0, %153 ], [ 0, %151 ], [ 0, %126 ], [ 0, %.thread117 ], [ 0, %140 ], [ 0, %132 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
   call void @HMAC_CTX_free(ptr noundef %.089) #5
   call void @EVP_MD_free(ptr noundef %64) #5
   br label %164
 
 164:                                              ; preds = %53, %49, %.thread139, %72, %27, %21
-  %.0 = phi i32 [ 0, %27 ], [ 0, %72 ], [ %.087, %.thread139 ], [ 0, %21 ], [ 0, %49 ], [ 0, %53 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %21 ], [ 0, %72 ], [ %.087, %.thread139 ], [ 0, %53 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -598,7 +598,7 @@ define range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captures(none
   br label %52
 
 52:                                               ; preds = %46, %40, %.critedge, %39, %13
-  %.015 = phi i32 [ 0, %13 ], [ 0, %39 ], [ 0, %.critedge ], [ 0, %40 ], [ %spec.select, %46 ]
+  %.015 = phi i32 [ 0, %13 ], [ 0, %39 ], [ 0, %40 ], [ 0, %.critedge ], [ %spec.select, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -674,7 +674,7 @@ define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %0, ptr no
   br label %30
 
 30:                                               ; preds = %22, %29, %21, %18
-  %.011 = phi i32 [ 0, %18 ], [ 0, %29 ], [ 0, %21 ], [ 1, %22 ]
+  %.011 = phi i32 [ 0, %18 ], [ 0, %21 ], [ 0, %29 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -796,7 +796,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_setup_mac(ptr noundef capture
   br label %52
 
 52:                                               ; preds = %45, %37, %27, %25, %5, %51, %22, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %51 ], [ 0, %22 ], [ 0, %5 ], [ 0, %25 ], [ 0, %27 ], [ 0, %37 ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %18 ], [ 0, %25 ], [ 0, %27 ], [ 0, %37 ], [ 0, %51 ], [ 0, %5 ], [ 1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -955,9 +955,9 @@ define range(i32 0, 2) i32 @PKCS12_set_pbmac1_pbkdf2(ptr noundef captures(none) 
   br label %77
 
 77:                                               ; preds = %72, %57, %41, %33, %76, %71, %56, %52, %40, %30
-  %.055 = phi i32 [ 0, %30 ], [ 0, %33 ], [ 0, %40 ], [ 0, %41 ], [ 0, %52 ], [ 0, %76 ], [ 0, %71 ], [ 0, %57 ], [ 0, %56 ], [ 1, %72 ]
-  %.053 = phi ptr [ null, %30 ], [ null, %33 ], [ %35, %40 ], [ %.1, %41 ], [ %.1, %52 ], [ %.1, %76 ], [ %.1, %71 ], [ %.1, %57 ], [ %.1, %56 ], [ %.1, %72 ]
-  %.0 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %40 ], [ %43, %41 ], [ %43, %52 ], [ %43, %76 ], [ %43, %71 ], [ %43, %57 ], [ %43, %56 ], [ %43, %72 ]
+  %.055 = phi i32 [ 0, %30 ], [ 0, %33 ], [ 0, %40 ], [ 0, %41 ], [ 0, %52 ], [ 0, %56 ], [ 0, %76 ], [ 0, %71 ], [ 0, %57 ], [ 1, %72 ]
+  %.053 = phi ptr [ null, %30 ], [ null, %33 ], [ %35, %40 ], [ %.1, %41 ], [ %.1, %52 ], [ %.1, %56 ], [ %.1, %76 ], [ %.1, %71 ], [ %.1, %57 ], [ %.1, %72 ]
+  %.0 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %40 ], [ %43, %41 ], [ %43, %52 ], [ %43, %56 ], [ %43, %76 ], [ %43, %71 ], [ %43, %57 ], [ %43, %72 ]
   call void @PBMAC1PARAM_free(ptr noundef %.0) #5
   call void @CRYPTO_free(ptr noundef %.053, ptr noundef nonnull @.str, i32 noundef 527) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

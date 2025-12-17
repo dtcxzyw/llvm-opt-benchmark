@@ -356,8 +356,8 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
   br label %.loopexit210.i
 
 .loopexit210.i:                                   ; preds = %.preheader211.i.preheader, %.lr.ph.preheader.i, %204, %198
-  %210 = phi i32 [ %206, %.lr.ph.preheader.i ], [ %200, %198 ], [ %206, %204 ], [ %200, %.preheader211.i.preheader ]
-  %211 = phi i32 [ 0, %.lr.ph.preheader.i ], [ 1, %198 ], [ 0, %204 ], [ 1, %.preheader211.i.preheader ]
+  %210 = phi i32 [ %206, %204 ], [ %206, %.lr.ph.preheader.i ], [ %200, %198 ], [ %200, %.preheader211.i.preheader ]
+  %211 = phi i32 [ 0, %204 ], [ 0, %.lr.ph.preheader.i ], [ 1, %198 ], [ 1, %.preheader211.i.preheader ]
   %212 = load i32, ptr %180, align 8
   %.not190231.i = icmp slt i32 %212, 1
   br i1 %.not190231.i, label %._crit_edge238.i, label %.lr.ph237.i

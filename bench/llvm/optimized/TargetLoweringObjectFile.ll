@@ -230,9 +230,9 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile28getSymbolWith
   unreachable
 
 _ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit: ; preds = %5, %14, %15, %16, %17, %18
-  %.not.i.i.i = phi i1 [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %18 ], [ true, %5 ]
-  %.sroa.7.0.i = phi i64 [ 2, %14 ], [ 2, %15 ], [ 1, %16 ], [ 1, %17 ], [ 3, %18 ], [ 0, %5 ]
-  %.sroa.0.0.i = phi ptr [ @.str.7, %14 ], [ @.str.8, %15 ], [ @.str.9, %16 ], [ @.str.10, %17 ], [ @.str.11, %18 ], [ @.str.6, %5 ]
+  %.not.i.i.i = phi i1 [ false, %18 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ true, %5 ]
+  %.sroa.7.0.i = phi i64 [ 3, %18 ], [ 2, %14 ], [ 2, %15 ], [ 1, %16 ], [ 1, %17 ], [ 0, %5 ]
+  %.sroa.0.0.i = phi ptr [ @.str.11, %18 ], [ @.str.7, %14 ], [ @.str.8, %15 ], [ @.str.9, %16 ], [ @.str.10, %17 ], [ @.str.6, %5 ]
   %20 = load i64, ptr %9, align 8, !tbaa !294
   %21 = add i64 %20, %.sroa.7.0.i
   %22 = load i64, ptr %10, align 8, !tbaa !295
@@ -764,7 +764,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %58, %62
   %switch.select76 = select i1 %switch.selectcmp75, i32 5, i32 %switch.select
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
-96:                                               ; preds = %89, %75, %91, %82
+96:                                               ; preds = %89, %75, %82, %91
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %97 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #19
   %98 = load ptr, ptr %76, align 8, !tbaa !331
@@ -806,7 +806,7 @@ switch.lookup:                                    ; preds = %.split
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
 _ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %105, %96, %.split, %switch.lookup, %108, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
-  %.sroa.044.0 = phi i32 [ 2, %2 ], [ 13, %19 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ 18, %26 ], [ 16, %42 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 4, %71 ], [ 19, %.thread ], [ 13, %9 ], [ 13, %13 ], [ 2, %2 ], [ %spec.select, %23 ], [ %spec.select73, %45 ], [ %switch.select76, %93 ], [ %110, %108 ], [ %switch.offset, %switch.lookup ], [ 4, %.split ], [ 4, %96 ], [ 4, %105 ]
+  %.sroa.044.0 = phi i32 [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 2, %2 ], [ 13, %9 ], [ 2, %2 ], [ 13, %13 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ %spec.select, %23 ], [ %switch.offset, %switch.lookup ], [ %spec.select73, %45 ], [ 18, %26 ], [ 16, %42 ], [ %switch.select76, %93 ], [ 13, %19 ], [ 4, %96 ], [ 4, %.split ], [ %110, %108 ], [ 4, %71 ], [ 19, %.thread ], [ 4, %105 ]
   ret i32 %.sroa.044.0
 }
 
@@ -852,7 +852,7 @@ define internal fastcc noundef zeroext i1 @_ZL22IsNullTerminatedStringPKN4llvm8C
   br label %.thread20
 
 .thread20:                                        ; preds = %.lr.ph, %.preheader, %4, %.thread, %11
-  %.3 = phi i1 [ %16, %11 ], [ false, %.thread ], [ false, %4 ], [ true, %.preheader ], [ %.not, %.lr.ph ]
+  %.3 = phi i1 [ %16, %11 ], [ false, %4 ], [ false, %.thread ], [ true, %.preheader ], [ %.not, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -1278,7 +1278,7 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %12, %15
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK4llvm4User14operand_valuesEv.exit, %6, %1, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %1 ], [ false, %6 ], [ true, %_ZNK4llvm4User14operand_valuesEv.exit ], [ %23, %.lr.ph ]
+  %.0 = phi i1 [ true, %1 ], [ false, %6 ], [ true, %3 ], [ true, %_ZNK4llvm4User14operand_valuesEv.exit ], [ %23, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1406,8 +1406,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

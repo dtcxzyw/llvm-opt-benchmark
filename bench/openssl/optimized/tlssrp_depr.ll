@@ -238,7 +238,7 @@ srp_Verify_N_and_g.exit:                          ; preds = %63
   tail call void @BN_CTX_free(ptr noundef nonnull %46) #4
   br i1 %.not21, label %69, label %66
 
-.critedge:                                        ; preds = %45, %49, %51, %55, %57, %61, %63
+.critedge:                                        ; preds = %49, %51, %55, %57, %45, %61, %63
   tail call void @BN_free(ptr noundef %48) #4
   tail call void @BN_free(ptr noundef %47) #4
   tail call void @BN_CTX_free(ptr noundef %46) #4
@@ -250,7 +250,7 @@ srp_Verify_N_and_g.exit:                          ; preds = %63
   br label %69
 
 69:                                               ; preds = %srp_Verify_N_and_g.exit, %31, %2, %5, %66
-  %.0 = phi i32 [ 0, %66 ], [ 0, %5 ], [ 0, %2 ], [ 1, %31 ], [ 1, %srp_Verify_N_and_g.exit ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %2 ], [ 1, %31 ], [ 0, %5 ], [ 1, %srp_Verify_N_and_g.exit ]
   ret i32 %.0
 }
 

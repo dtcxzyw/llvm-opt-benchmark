@@ -2064,13 +2064,13 @@ _ZNKSt8functionIFbN7rocksdb5SliceEEEclES1_.exit:  ; preds = %332
   %.pn142.pn = phi { ptr, i32 } [ %.pn142, %341 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158 ]
   resume { ptr, i32 } %.pn142.pn
 
-_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194.sink.split: ; preds = %144, %133, %329, %332, %_ZNKSt8functionIFbN7rocksdb5SliceEEEclES1_.exit, %286, %287, %291, %.thread, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit, %239, %240, %209, %_ZN7rocksdb6StatusD2Ev.exit165, %198, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit177, %282, %283, %271, %280, %197, %163, %.critedge155, %.critedge153, %.critedge151, %340, %328, %208, %156
-  %.0.ph = phi i1 [ true, %329 ], [ true, %332 ], [ true, %_ZNKSt8functionIFbN7rocksdb5SliceEEEclES1_.exit ], [ false, %286 ], [ false, %287 ], [ false, %291 ], [ false, %.thread ], [ false, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit ], [ false, %239 ], [ false, %240 ], [ false, %209 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit165 ], [ false, %198 ], [ false, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit177 ], [ false, %282 ], [ false, %283 ], [ false, %271 ], [ false, %280 ], [ false, %197 ], [ false, %163 ], [ false, %.critedge155 ], [ false, %.critedge153 ], [ false, %.critedge151 ], [ false, %340 ], [ false, %328 ], [ false, %208 ], [ false, %156 ], [ false, %133 ], [ false, %144 ]
+_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194.sink.split: ; preds = %144, %133, %291, %.thread, %239, %240, %209, %_ZN7rocksdb6StatusD2Ev.exit165, %198, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit177, %282, %283, %271, %280, %197, %163, %.critedge153, %340, %286, %328, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit, %287, %_ZNKSt8functionIFbN7rocksdb5SliceEEEclES1_.exit, %332, %208, %.critedge151, %.critedge155, %156, %329
+  %.0.ph = phi i1 [ true, %329 ], [ false, %291 ], [ false, %.thread ], [ false, %239 ], [ false, %240 ], [ false, %209 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit165 ], [ false, %198 ], [ false, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit177 ], [ false, %282 ], [ false, %283 ], [ false, %271 ], [ false, %280 ], [ false, %197 ], [ false, %163 ], [ false, %.critedge153 ], [ false, %340 ], [ false, %286 ], [ false, %328 ], [ false, %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit ], [ false, %287 ], [ true, %_ZNKSt8functionIFbN7rocksdb5SliceEEEclES1_.exit ], [ true, %332 ], [ false, %208 ], [ false, %.critedge151 ], [ false, %.critedge155 ], [ false, %156 ], [ false, %133 ], [ false, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194
 
 _ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194: ; preds = %_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194.sink.split, %42, %6, %_ZN7rocksdb10GetContext13CheckCallbackEm.exit
-  %.0 = phi i1 [ true, %_ZN7rocksdb10GetContext13CheckCallbackEm.exit ], [ false, %6 ], [ true, %42 ], [ %.0.ph, %_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194.sink.split ]
+  %.0 = phi i1 [ false, %6 ], [ true, %42 ], [ true, %_ZN7rocksdb10GetContext13CheckCallbackEm.exit ], [ %.0.ph, %_ZN7rocksdb10GetContext13CheckCallbackEm.exit.thread194.sink.split ]
   ret i1 %.0
 }
 
@@ -3506,7 +3506,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__
   store ptr %134, ptr %111, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
-135:                                              ; preds = %59, %.noexc.i
+135:                                              ; preds = %.noexc.i, %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef 32) #22
@@ -4000,12 +4000,12 @@ define internal void @_GLOBAL__sub_I_get_context.cc() #17 section ".text.startup
   br label %25
 
 25:                                               ; preds = %23, %21
-  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %23 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
+  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %23 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %21 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
   br label %26
 
 26:                                               ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %25
-  %27 = phi ptr [ %28, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ], [ %.015.i, %25 ]
+  %27 = phi ptr [ %.015.i, %25 ], [ %28, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -40
   %29 = getelementptr inbounds i8, ptr %27, i64 -32
   %30 = load ptr, ptr %29, align 8, !tbaa !11
@@ -4024,7 +4024,7 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %26, %_ZNKSt7__cxx11
   br i1 %35, label %common.resume, label %26
 
 common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
@@ -4251,12 +4251,12 @@ __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
   br label %91
 
 91:                                               ; preds = %89, %87, %85, %83, %81, %79, %77, %75, %73
-  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %83 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %89 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %87 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %90, %89 ], [ %88, %87 ]
+  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %87 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %89 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %83 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %85 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ]
   br label %92
 
 92:                                               ; preds = %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %91
-  %93 = phi ptr [ %94, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.014.i, %91 ]
+  %93 = phi ptr [ %.014.i, %91 ], [ %94, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ]
   %94 = getelementptr inbounds i8, ptr %93, i64 -40
   %95 = getelementptr inbounds i8, ptr %93, i64 -32
   %96 = load ptr, ptr %95, align 8, !tbaa !11
@@ -4335,12 +4335,12 @@ __cxx_global_var_init.14.exit:                    ; preds = %.noexc68.i
   br label %116
 
 116:                                              ; preds = %114, %112
-  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %112 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %114 ]
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %113, %112 ], [ %115, %114 ]
+  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %114 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %112 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
   br label %117
 
 117:                                              ; preds = %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %116
-  %118 = phi ptr [ %119, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.09.i, %116 ]
+  %118 = phi ptr [ %.09.i, %116 ], [ %119, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ]
   %119 = getelementptr inbounds i8, ptr %118, i64 -40
   %120 = getelementptr inbounds i8, ptr %118, i64 -32
   %121 = load ptr, ptr %120, align 8, !tbaa !11

@@ -328,9 +328,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %51, label %common.resume.sink.split.i.i.i.i.i.i.i.i.i, label %137
 
 common.resume.sink.split.i.i.i.i.i.i.i.i.i:       ; preds = %128, %.body.i1.i.i.i.i.i.i.i.i.i, %48
-  %.sink26.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %4, %128 ], [ %8, %48 ]
-  %.sink25.i.i.i.i.i.i.i.i.i = phi i64 [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %130, %128 ], [ %50, %48 ]
-  %common.resume.op.ph.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %49, %48 ]
+  %.sink26.i.i.i.i.i.i.i.i.i = phi ptr [ %4, %128 ], [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %8, %48 ]
+  %.sink25.i.i.i.i.i.i.i.i.i = phi i64 [ %130, %128 ], [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %50, %48 ]
+  %common.resume.op.ph.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %129, %128 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %49, %48 ]
   %52 = load ptr, ptr %.sink26.i.i.i.i.i.i.i.i.i, align 8, !noalias !61, !nonnull !9, !noundef !9
   %53 = shl nuw i64 %.sink25.i.i.i.i.i.i.i.i.i, 3
   call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %53, i64 noundef 8) #31, !noalias !62
@@ -532,7 +532,7 @@ _ZN14num_bigint_dig7biguint7BigUint24assign_from_slice_native17h85597c1d136ffb34
   br label %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i
 
 .body.i1.i.i.i.i.i.i.i.i.i:                       ; preds = %83, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i, %77
-  %eh.lpad-body.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %78, %77 ], [ %lpad.phi.i.i.i.i.i.i, %83 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i ], [ %78, %77 ], [ %lpad.phi.i.i.i.i.i.i, %83 ]
   %123 = load i64, ptr %34, align 8, !noalias !61, !noundef !9
   %124 = icmp ugt i64 %123, 4
   br i1 %124, label %common.resume.sink.split.i.i.i.i.i.i.i.i.i, label %137
@@ -577,7 +577,7 @@ _ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i
   br i1 %136, label %.loopexit, label %39
 
 137:                                              ; preds = %128, %.body.i1.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i, %48
-  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %49, %48 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %49, %48 ]
   store i64 %.val20.i.i.i.i.i.i, ptr %25, align 8, !alias.scope !117, !noalias !118
   br label %.body
 
@@ -1112,8 +1112,8 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit: ; preds = %"_ZN8smallvec17Sma
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6327dfba72438e942d9a31cac30d6e93.44.llvm.17679978746828060749) #30, !noalias !216
   unreachable
 
-63:                                               ; preds = %59, %57
-  %.sroa.3.0.i16.ph = phi i64 [ %58, %57 ], [ %61, %59 ]
+63:                                               ; preds = %57, %59
+  %.sroa.3.0.i16.ph = phi i64 [ %61, %59 ], [ %58, %57 ]
   %64 = load i64, ptr %11, align 8, !alias.scope !217, !noalias !222, !noundef !9
   %65 = icmp ugt i64 %64, 4
   %66 = load ptr, ptr %0, align 8, !alias.scope !217, !noalias !222, !nonnull !9
@@ -1145,8 +1145,8 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit: ; preds = %"_ZN8smallvec17Sma
 .loopexit:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h1b5f60ea0b899b38E.llvm.12878139696234281404.exit", %._crit_edge, %79
   ret void
 
-76:                                               ; preds = %47, %45
-  %.sroa.3.0.i.ph = phi i64 [ %46, %45 ], [ %49, %47 ]
+76:                                               ; preds = %45, %47
+  %.sroa.3.0.i.ph = phi i64 [ %49, %47 ], [ %46, %45 ]
   %77 = getelementptr inbounds i64, ptr %.sink10.i, i64 %storemerge66
   store i64 %.sroa.3.0.i.ph, ptr %77, align 8
   %78 = add i64 %storemerge66, 1
@@ -3742,8 +3742,8 @@ _ZN8smallvec10deallocate17he09a66a3eb46753fE.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17heaea97aa3dfcfef7E.exit78.thread
 
 _ZN8smallvec12layout_array17heaea97aa3dfcfef7E.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17he09a66a3eb46753fE.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17he09a66a3eb46753fE.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 8, %28 ], [ 8, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17he09a66a3eb46753fE.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17he09a66a3eb46753fE.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17he09a66a3eb46753fE.exit ], [ 8, %25 ], [ 8, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41

@@ -108,7 +108,7 @@ define dso_local range(i32 -1, 1114112) i32 @uv__utf8_decode1(ptr noundef captur
   br label %uv__utf8_decode1_slow.exit
 
 uv__utf8_decode1_slow.exit:                       ; preds = %54, %43, %39, %34, %10, %8, %2
-  %.0 = phi i32 [ %6, %2 ], [ -1, %8 ], [ -1, %34 ], [ -1, %10 ], [ -1, %39 ], [ -1, %43 ], [ %..i, %54 ]
+  %.0 = phi i32 [ %6, %2 ], [ -1, %8 ], [ -1, %10 ], [ -1, %39 ], [ -1, %43 ], [ %..i, %54 ], [ -1, %34 ]
   ret i32 %.0
 }
 
@@ -289,8 +289,8 @@ uv__utf8_decode1.exit:                            ; preds = %61, %11
   %87 = sub i64 %85, %86
   br label %uv__utf8_decode1.exit.thread
 
-uv__utf8_decode1.exit.thread:                     ; preds = %61, %50, %46, %18, %41, %16, %81, %4, %83, %79, %67
-  %.0 = phi i64 [ %68, %67 ], [ %80, %79 ], [ %87, %83 ], [ -22, %4 ], [ -22, %81 ], [ -22, %16 ], [ -22, %41 ], [ -22, %18 ], [ -22, %46 ], [ -22, %50 ], [ -22, %61 ]
+uv__utf8_decode1.exit.thread:                     ; preds = %61, %41, %50, %46, %18, %16, %81, %4, %83, %79, %67
+  %.0 = phi i64 [ %87, %83 ], [ -22, %4 ], [ %68, %67 ], [ %80, %79 ], [ -22, %81 ], [ -22, %16 ], [ -22, %18 ], [ -22, %46 ], [ -22, %50 ], [ -22, %41 ], [ -22, %61 ]
   ret i64 %.0
 }
 
@@ -462,9 +462,9 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %79, %82, %._crit_edge
-  %.not298 = phi i1 [ false, %79 ], [ false, %82 ], [ true, %._crit_edge ], [ true, %4 ]
-  %.0103.lcssa297 = phi i32 [ %.1104, %79 ], [ %.1104, %82 ], [ 0, %._crit_edge ], [ 0, %4 ]
-  %.0120.lcssa296 = phi i32 [ %.1121, %79 ], [ %.1121, %82 ], [ %.1121, %._crit_edge ], [ 0, %4 ]
+  %.not298 = phi i1 [ true, %._crit_edge ], [ false, %79 ], [ false, %82 ], [ true, %4 ]
+  %.0103.lcssa297 = phi i32 [ 0, %._crit_edge ], [ %.1104, %79 ], [ %.1104, %82 ], [ 0, %4 ]
+  %.0120.lcssa296 = phi i32 [ %.1121, %._crit_edge ], [ %.1121, %79 ], [ %.1121, %82 ], [ 0, %4 ]
   %84 = ptrtoint ptr %1 to i64
   br label %.outer208
 
@@ -572,8 +572,8 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br label %uv__utf8_decode1.exit158
 
 uv__utf8_decode1.exit158:                         ; preds = %92, %94, %117, %122, %126, %137
-  %.7 = phi ptr [ %88, %92 ], [ %.6, %126 ], [ %.6, %137 ], [ %.6, %122 ], [ %88, %117 ], [ %88, %94 ]
-  %.0.i146 = phi i32 [ -1, %92 ], [ -1, %126 ], [ %..i.i157, %137 ], [ -1, %122 ], [ -1, %117 ], [ -1, %94 ]
+  %.7 = phi ptr [ %88, %94 ], [ %88, %92 ], [ %.6, %126 ], [ %.6, %137 ], [ %.6, %122 ], [ %88, %117 ]
+  %.0.i146 = phi i32 [ -1, %94 ], [ -1, %92 ], [ -1, %126 ], [ %..i.i157, %137 ], [ -1, %122 ], [ -1, %117 ]
   %140 = icmp ugt i32 %.0.i146, 127
   br i1 %140, label %85, label %uv__utf8_decode1.exit158.thread, !llvm.loop !13
 
@@ -863,10 +863,10 @@ uv__utf8_decode1.exit184:                         ; preds = %219, %269
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %uv__utf8_decode1.exit.thread, label %uv__utf8_decode1.exit184.thread
 
-uv__utf8_decode1.exit184.thread:                  ; preds = %258, %254, %226, %249, %224, %273, %uv__utf8_decode1.exit184
-  %.0.i172205 = phi i32 [ %.0.i172, %273 ], [ %.0.i172, %uv__utf8_decode1.exit184 ], [ -1, %224 ], [ -1, %249 ], [ -1, %226 ], [ -1, %254 ], [ -1, %258 ]
-  %.11204 = phi ptr [ %.11, %273 ], [ %.11, %uv__utf8_decode1.exit184 ], [ %220, %224 ], [ %220, %249 ], [ %220, %226 ], [ %.10, %254 ], [ %.10, %258 ]
-  %.2108 = phi i32 [ %274, %273 ], [ %.1107, %uv__utf8_decode1.exit184 ], [ %.1107, %224 ], [ %.1107, %249 ], [ %.1107, %226 ], [ %.1107, %254 ], [ %.1107, %258 ]
+uv__utf8_decode1.exit184.thread:                  ; preds = %249, %258, %254, %226, %224, %273, %uv__utf8_decode1.exit184
+  %.0.i172205 = phi i32 [ %.0.i172, %273 ], [ %.0.i172, %uv__utf8_decode1.exit184 ], [ -1, %224 ], [ -1, %226 ], [ -1, %254 ], [ -1, %258 ], [ -1, %249 ]
+  %.11204 = phi ptr [ %.11, %273 ], [ %.11, %uv__utf8_decode1.exit184 ], [ %220, %224 ], [ %220, %226 ], [ %.10, %254 ], [ %.10, %258 ], [ %220, %249 ]
+  %.2108 = phi i32 [ %274, %273 ], [ %.1107, %uv__utf8_decode1.exit184 ], [ %.1107, %224 ], [ %.1107, %226 ], [ %.1107, %254 ], [ %.1107, %258 ], [ %.1107, %249 ]
   %.not143 = icmp eq i32 %.0.i172205, %.0116.lcssa
   br i1 %.not143, label %.preheader, label %217, !llvm.loop !15
 
@@ -961,8 +961,8 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %258, %254, %226, %2
   %.not142 = icmp eq i32 %.3.ph, 0
   br i1 %.not142, label %uv__utf8_decode1.exit.thread, label %.preheader206, !llvm.loop !17
 
-uv__utf8_decode1.exit.thread:                     ; preds = %57, %46, %42, %14, %37, %12, %319, %._crit_edge226, %273, %.loopexit
-  %.0124 = phi i32 [ %.0120.lcssa296, %.loopexit ], [ -7, %273 ], [ 0, %319 ], [ -7, %._crit_edge226 ], [ -22, %12 ], [ -22, %37 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %57 ]
+uv__utf8_decode1.exit.thread:                     ; preds = %57, %37, %46, %42, %14, %12, %319, %._crit_edge226, %273, %.loopexit
+  %.0124 = phi i32 [ %.0120.lcssa296, %.loopexit ], [ 0, %319 ], [ -7, %273 ], [ -7, %._crit_edge226 ], [ -22, %12 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %37 ], [ -22, %57 ]
   ret i32 %.0124
 }
 

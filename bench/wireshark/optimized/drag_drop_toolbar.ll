@@ -895,7 +895,7 @@ _ZN7QStringD2Ev.exit98:                           ; preds = %151, %_ZN17QArrayDa
   br label %164
 
 _ZN7QStringD2Ev.exit94:                           ; preds = %143, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i92, %140, %153, %162, %_ZN7QStringD2Ev.exit98, %75
-  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn61, %_ZN7QStringD2Ev.exit98 ], [ %.pn65, %162 ], [ %154, %153 ], [ %.pn, %140 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i92 ], [ %.pn, %143 ]
+  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %154, %153 ], [ %.pn61, %_ZN7QStringD2Ev.exit98 ], [ %.pn65, %162 ], [ %.pn, %140 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i92 ], [ %.pn, %143 ]
   resume { ptr, i32 } %.pn65.pn.pn.pn.pn
 
 164:                                              ; preds = %_Z12qobject_castIP7QWidgetET_P7QObject.exit.thread, %.critedge, %135, %.critedge73.thread, %18
@@ -1017,7 +1017,7 @@ define void @_ZN15DragDropToolBar14dragEnterEventEP15QDragEnterEvent(ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %12, %11, %24, %25
-  %.sink = phi i8 [ 1, %25 ], [ 1, %24 ], [ 1, %11 ], [ 1, %12 ], [ 0, %16 ]
+  %.sink = phi i8 [ 1, %12 ], [ 1, %25 ], [ 1, %24 ], [ 1, %11 ], [ 0, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 %.sink, ptr %29, align 4
   br label %30
@@ -2090,7 +2090,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %47, %_ZN17QArrayDat
   ret void
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit19: ; preds = %43, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i17, %46, %38
-  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %44, %43 ], [ %44, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i17 ], [ %44, %46 ]
+  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %44, %46 ], [ %44, %43 ], [ %44, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i17 ]
   %53 = load ptr, ptr %4, align 8
   %.not.i.i.i21 = icmp eq ptr %53, null
   br i1 %.not.i.i.i21, label %_ZN5QListIP7QActionED2Ev.exit24, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i22
@@ -2752,7 +2752,7 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 _ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

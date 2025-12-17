@@ -1546,7 +1546,7 @@ eh.resume.sink.split:                             ; preds = %lpad19, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %12, %lpad ], [ %14, %lpad19 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad19 ], [ %12, %lpad ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1743,8 +1743,8 @@ if.end104.i861:                                   ; preds = %land.rhs.i879
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i953, %if.then.i978, %if.end12.i889, %if.end19.i897, %if.end28.i905, %if.end37.i913, %if.end46.i921, %if.end55.i929, %if.end64.i937, %if.end73.i945, %if.end104.i861
-  %pos.promoted729 = phi i64 [ %inc.i981, %if.then.i978 ], [ %inc13.i890, %if.end12.i889 ], [ %inc20.i898, %if.end19.i897 ], [ %inc29.i906, %if.end28.i905 ], [ %inc38.i914, %if.end37.i913 ], [ %inc47.i922, %if.end46.i921 ], [ %inc56.i930, %if.end55.i929 ], [ %inc65.i938, %if.end64.i937 ], [ %inc74.i946, %if.end73.i945 ], [ %inc96.i871, %if.end104.i861 ], [ %inc83.i954, %if.end82.i953 ]
-  %tag.0 = phi i64 [ %conv.i975, %if.then.i978 ], [ %or.i895, %if.end12.i889 ], [ %or25.i903, %if.end19.i897 ], [ %or34.i911, %if.end28.i905 ], [ %or43.i919, %if.end37.i913 ], [ %or52.i927, %if.end46.i921 ], [ %or61.i935, %if.end55.i929 ], [ %or70.i943, %if.end64.i937 ], [ %or79.i951, %if.end73.i945 ], [ %or110.i867, %if.end104.i861 ], [ %or88.i959, %if.end82.i953 ]
+  %pos.promoted729 = phi i64 [ %inc.i981, %if.then.i978 ], [ %inc83.i954, %if.end82.i953 ], [ %inc13.i890, %if.end12.i889 ], [ %inc20.i898, %if.end19.i897 ], [ %inc29.i906, %if.end28.i905 ], [ %inc38.i914, %if.end37.i913 ], [ %inc47.i922, %if.end46.i921 ], [ %inc56.i930, %if.end55.i929 ], [ %inc65.i938, %if.end64.i937 ], [ %inc74.i946, %if.end73.i945 ], [ %inc96.i871, %if.end104.i861 ]
+  %tag.0 = phi i64 [ %conv.i975, %if.then.i978 ], [ %or88.i959, %if.end82.i953 ], [ %or.i895, %if.end12.i889 ], [ %or25.i903, %if.end19.i897 ], [ %or34.i911, %if.end28.i905 ], [ %or43.i919, %if.end37.i913 ], [ %or52.i927, %if.end46.i921 ], [ %or61.i935, %if.end55.i929 ], [ %or70.i943, %if.end64.i937 ], [ %or79.i951, %if.end73.i945 ], [ %or110.i867, %if.end104.i861 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -2224,7 +2224,7 @@ if.then.i.i.i.i2.i:                               ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i614, %if.then.i.i.i.i2.i616, %lpad.i, %if.then.i.i.i.i2.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %lpad ], [ %58, %if.then.i.i.i.i2.i ], [ %58, %lpad.i ], [ %121, %if.then.i.i.i.i2.i616 ], [ %121, %lpad.i614 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %lpad.i ], [ %lpad.phi, %lpad ], [ %58, %if.then.i.i.i.i2.i ], [ %121, %if.then.i.i.i.i2.i616 ], [ %121, %lpad.i614 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9struct_pb8internal14deserialize_toIN6google8protobuf5FieldEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i560
@@ -2619,7 +2619,7 @@ cleanup.loopexit:                                 ; preds = %while.body.i302
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %while.cond.i288.preheader, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i, %if.else.i.i596, %if.end82.i385, %invoke.cont37
-  %97 = phi i1 [ true, %invoke.cont37 ], [ true, %if.end82.i385 ], [ false, %if.else.i.i596 ], [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %while.cond.i288.preheader ], [ true, %cleanup.loopexit ]
+  %97 = phi i1 [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %invoke.cont37 ], [ true, %if.end82.i385 ], [ false, %if.else.i.i596 ], [ true, %while.cond.i288.preheader ], [ true, %cleanup.loopexit ]
   %98 = load ptr, ptr %tmp_str, align 8
   %cmp.i.i.i = icmp eq ptr %98, %0
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i598
@@ -3302,7 +3302,7 @@ return.loopexit951:                               ; preds = %while.body.i870
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.end75, %sw.epilog, %if.end82.i953, %if.end82.i, %if.end82.i243, %if.end82.i527, %if.end82.i669, %if.end82.i811, %while.cond.i856.preheader, %while.cond.i714.preheader, %while.cond.i572.preheader, %while.cond.i430.preheader, %while.cond.i146.preheader, %while.cond.i.preheader, %return.loopexit951, %return.loopexit950, %return.loopexit949, %return.loopexit948, %return.loopexit947, %return.loopexit, %entry, %sw.default, %if.then60, %if.then26
-  %retval.1 = phi i1 [ %call92, %sw.default ], [ false, %if.then26 ], [ false, %if.then60 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit947 ], [ false, %return.loopexit948 ], [ false, %return.loopexit949 ], [ false, %return.loopexit950 ], [ false, %return.loopexit951 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i714.preheader ], [ false, %while.cond.i856.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %if.end75 ], [ true, %sw.epilog ], [ false, %if.end82.i953 ], [ false, %if.end82.i ], [ false, %if.end82.i243 ], [ false, %if.end82.i527 ], [ false, %if.end82.i669 ], [ false, %if.end82.i811 ]
+  %retval.1 = phi i1 [ %call92, %sw.default ], [ false, %if.then26 ], [ false, %if.then60 ], [ true, %entry ], [ false, %return.loopexit948 ], [ false, %return.loopexit949 ], [ false, %return.loopexit950 ], [ false, %return.loopexit951 ], [ false, %return.loopexit ], [ false, %return.loopexit947 ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i714.preheader ], [ false, %while.cond.i856.preheader ], [ false, %while.cond.i.preheader ], [ false, %if.end82.i669 ], [ false, %if.end82.i527 ], [ false, %if.end82.i243 ], [ false, %if.end82.i ], [ false, %if.end82.i953 ], [ true, %sw.epilog ], [ false, %if.end75 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %if.end82.i811 ]
   ret i1 %retval.1
 }
 
@@ -3543,7 +3543,7 @@ if.end3.sink.split:                               ; preds = %land.rhs.i, %land.l
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %if.end82.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then5.i
-  %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i, %if.end3.sink.split ]
+  %14 = phi i64 [ %inc6.i, %if.then5.i ], [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc105.i, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i175 = sub i64 %14, %sub
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -4011,7 +4011,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EE
   br label %return
 
 return:                                           ; preds = %while.body.i67, %while.body.i, %while.cond.i53.preheader, %while.cond.i.preheader, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273, %if.then.i.i.i249, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239, %if.then.i.i.i215, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205, %if.then.i.i.i181, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.end82.i151, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %sw.bb21, %if.end15, %sw.bb4, %if.end82.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end82.i ], [ false, %sw.bb4 ], [ false, %if.end15 ], [ false, %sw.bb21 ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %if.then.i.i.i215 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %if.then.i.i.i249 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
+  %retval.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb21 ], [ false, %entry ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %sw.bb4 ], [ false, %if.end82.i ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %if.then.i.i.i215 ], [ true, %if.then.i.i.i249 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
   ret i1 %retval.0
 }
 
@@ -4241,8 +4241,8 @@ if.end104.i1470:                                  ; preds = %land.rhs.i1488
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i1562, %if.then.i1587, %if.end12.i1498, %if.end19.i1506, %if.end28.i1514, %if.end37.i1522, %if.end46.i1530, %if.end55.i1538, %if.end64.i1546, %if.end73.i1554, %if.end104.i1470
-  %pos.promoted1068 = phi i64 [ %inc.i1590, %if.then.i1587 ], [ %inc13.i1499, %if.end12.i1498 ], [ %inc20.i1507, %if.end19.i1506 ], [ %inc29.i1515, %if.end28.i1514 ], [ %inc38.i1523, %if.end37.i1522 ], [ %inc47.i1531, %if.end46.i1530 ], [ %inc56.i1539, %if.end55.i1538 ], [ %inc65.i1547, %if.end64.i1546 ], [ %inc74.i1555, %if.end73.i1554 ], [ %inc96.i1480, %if.end104.i1470 ], [ %inc83.i1563, %if.end82.i1562 ]
-  %tag.0 = phi i64 [ %conv.i1584, %if.then.i1587 ], [ %or.i1504, %if.end12.i1498 ], [ %or25.i1512, %if.end19.i1506 ], [ %or34.i1520, %if.end28.i1514 ], [ %or43.i1528, %if.end37.i1522 ], [ %or52.i1536, %if.end46.i1530 ], [ %or61.i1544, %if.end55.i1538 ], [ %or70.i1552, %if.end64.i1546 ], [ %or79.i1560, %if.end73.i1554 ], [ %or110.i1476, %if.end104.i1470 ], [ %or88.i1568, %if.end82.i1562 ]
+  %pos.promoted1068 = phi i64 [ %inc.i1590, %if.then.i1587 ], [ %inc83.i1563, %if.end82.i1562 ], [ %inc13.i1499, %if.end12.i1498 ], [ %inc20.i1507, %if.end19.i1506 ], [ %inc29.i1515, %if.end28.i1514 ], [ %inc38.i1523, %if.end37.i1522 ], [ %inc47.i1531, %if.end46.i1530 ], [ %inc56.i1539, %if.end55.i1538 ], [ %inc65.i1547, %if.end64.i1546 ], [ %inc74.i1555, %if.end73.i1554 ], [ %inc96.i1480, %if.end104.i1470 ]
+  %tag.0 = phi i64 [ %conv.i1584, %if.then.i1587 ], [ %or88.i1568, %if.end82.i1562 ], [ %or.i1504, %if.end12.i1498 ], [ %or25.i1512, %if.end19.i1506 ], [ %or34.i1520, %if.end28.i1514 ], [ %or43.i1528, %if.end37.i1522 ], [ %or52.i1536, %if.end46.i1530 ], [ %or61.i1544, %if.end55.i1538 ], [ %or70.i1552, %if.end64.i1546 ], [ %or79.i1560, %if.end73.i1554 ], [ %or110.i1476, %if.end104.i1470 ]
   switch i64 %tag.0, label %sw.default [
     i64 8, label %sw.bb
     i64 16, label %sw.bb6
@@ -6369,7 +6369,7 @@ return.loopexit1370:                              ; preds = %while.body.i1479
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947, %sw.epilog, %if.end82.i1562, %if.end82.i, %if.end82.i284, %if.end82.i426, %if.end82.i568, %if.end82.i710, %if.end82.i852, %if.end82.i994, %if.end82.i1136, %if.end82.i1278, %if.end82.i1420, %while.cond.i1465.preheader, %while.cond.i1323.preheader, %while.cond.i1181.preheader, %while.cond.i1039.preheader, %while.cond.i897.preheader, %while.cond.i755.preheader, %while.cond.i613.preheader, %while.cond.i471.preheader, %while.cond.i329.preheader, %while.cond.i187.preheader, %while.cond.i.preheader, %return.loopexit1370, %return.loopexit1369, %return.loopexit1368, %return.loopexit1367, %return.loopexit1366, %return.loopexit1365, %return.loopexit1364, %return.loopexit1363, %return.loopexit1362, %return.loopexit1361, %return.loopexit, %entry, %sw.default, %if.then79
-  %retval.0 = phi i1 [ %call114, %sw.default ], [ false, %if.then79 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit1361 ], [ false, %return.loopexit1362 ], [ false, %return.loopexit1363 ], [ false, %return.loopexit1364 ], [ false, %return.loopexit1365 ], [ false, %return.loopexit1366 ], [ false, %return.loopexit1367 ], [ false, %return.loopexit1368 ], [ false, %return.loopexit1369 ], [ false, %return.loopexit1370 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i187.preheader ], [ false, %while.cond.i329.preheader ], [ false, %while.cond.i471.preheader ], [ false, %while.cond.i613.preheader ], [ false, %while.cond.i755.preheader ], [ false, %while.cond.i897.preheader ], [ false, %while.cond.i1039.preheader ], [ false, %while.cond.i1181.preheader ], [ false, %while.cond.i1323.preheader ], [ false, %while.cond.i1465.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947 ], [ true, %sw.epilog ], [ false, %if.end82.i1562 ], [ false, %if.end82.i ], [ false, %if.end82.i284 ], [ false, %if.end82.i426 ], [ false, %if.end82.i568 ], [ false, %if.end82.i710 ], [ false, %if.end82.i852 ], [ false, %if.end82.i994 ], [ false, %if.end82.i1136 ], [ false, %if.end82.i1278 ], [ false, %if.end82.i1420 ]
+  %retval.0 = phi i1 [ %call114, %sw.default ], [ true, %entry ], [ false, %if.then79 ], [ false, %return.loopexit1366 ], [ false, %return.loopexit1367 ], [ false, %return.loopexit1368 ], [ false, %return.loopexit1369 ], [ false, %return.loopexit1370 ], [ false, %return.loopexit ], [ false, %return.loopexit1361 ], [ false, %return.loopexit1362 ], [ false, %return.loopexit1363 ], [ false, %return.loopexit1364 ], [ false, %return.loopexit1365 ], [ false, %while.cond.i755.preheader ], [ false, %while.cond.i897.preheader ], [ false, %while.cond.i1039.preheader ], [ false, %while.cond.i1181.preheader ], [ false, %while.cond.i1323.preheader ], [ false, %while.cond.i1465.preheader ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i187.preheader ], [ false, %while.cond.i329.preheader ], [ false, %while.cond.i471.preheader ], [ false, %while.cond.i613.preheader ], [ false, %if.end82.i1278 ], [ false, %if.end82.i1136 ], [ false, %if.end82.i994 ], [ false, %if.end82.i852 ], [ false, %if.end82.i710 ], [ false, %if.end82.i568 ], [ false, %if.end82.i426 ], [ false, %if.end82.i284 ], [ false, %if.end82.i ], [ false, %if.end82.i1562 ], [ true, %sw.epilog ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit947 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit890 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit921 ], [ false, %if.end82.i1420 ]
   ret i1 %retval.0
 }
 
@@ -6699,7 +6699,7 @@ eh.resume.sink.split:                             ; preds = %lpad61, %lpad.i
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad61, %lpad.i
-  %.pn = phi { ptr, i32 } [ %13, %lpad.i ], [ %19, %lpad61 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad61 ], [ %13, %lpad.i ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -7233,13 +7233,13 @@ _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i147
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad73, %lpad65, %lpad.i
-  %.sink = phi ptr [ %16, %lpad.i ], [ %28, %lpad65 ], [ %30, %lpad73 ]
-  %.pn.ph = phi { ptr, i32 } [ %15, %lpad.i ], [ %27, %lpad65 ], [ %29, %lpad73 ]
+  %.sink = phi ptr [ %28, %lpad65 ], [ %16, %lpad.i ], [ %30, %lpad73 ]
+  %.pn.ph = phi { ptr, i32 } [ %27, %lpad65 ], [ %15, %lpad.i ], [ %29, %lpad73 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad73, %lpad65, %lpad.i
-  %.pn = phi { ptr, i32 } [ %15, %lpad.i ], [ %27, %lpad65 ], [ %29, %lpad73 ], [ %.pn.ph, %eh.resume.sink.split ]
+  %.pn = phi { ptr, i32 } [ %29, %lpad73 ], [ %15, %lpad.i ], [ %27, %lpad65 ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -7582,8 +7582,8 @@ if.end104.i697:                                   ; preds = %land.rhs.i715
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i789, %if.then.i814, %if.end12.i725, %if.end19.i733, %if.end28.i741, %if.end37.i749, %if.end46.i757, %if.end55.i765, %if.end64.i773, %if.end73.i781, %if.end104.i697
-  %pos.promoted582 = phi i64 [ %inc.i817, %if.then.i814 ], [ %inc13.i726, %if.end12.i725 ], [ %inc20.i734, %if.end19.i733 ], [ %inc29.i742, %if.end28.i741 ], [ %inc38.i750, %if.end37.i749 ], [ %inc47.i758, %if.end46.i757 ], [ %inc56.i766, %if.end55.i765 ], [ %inc65.i774, %if.end64.i773 ], [ %inc74.i782, %if.end73.i781 ], [ %inc96.i707, %if.end104.i697 ], [ %inc83.i790, %if.end82.i789 ]
-  %tag.0 = phi i64 [ %conv.i811, %if.then.i814 ], [ %or.i731, %if.end12.i725 ], [ %or25.i739, %if.end19.i733 ], [ %or34.i747, %if.end28.i741 ], [ %or43.i755, %if.end37.i749 ], [ %or52.i763, %if.end46.i757 ], [ %or61.i771, %if.end55.i765 ], [ %or70.i779, %if.end64.i773 ], [ %or79.i787, %if.end73.i781 ], [ %or110.i703, %if.end104.i697 ], [ %or88.i795, %if.end82.i789 ]
+  %pos.promoted582 = phi i64 [ %inc.i817, %if.then.i814 ], [ %inc83.i790, %if.end82.i789 ], [ %inc13.i726, %if.end12.i725 ], [ %inc20.i734, %if.end19.i733 ], [ %inc29.i742, %if.end28.i741 ], [ %inc38.i750, %if.end37.i749 ], [ %inc47.i758, %if.end46.i757 ], [ %inc56.i766, %if.end55.i765 ], [ %inc65.i774, %if.end64.i773 ], [ %inc74.i782, %if.end73.i781 ], [ %inc96.i707, %if.end104.i697 ]
+  %tag.0 = phi i64 [ %conv.i811, %if.then.i814 ], [ %or88.i795, %if.end82.i789 ], [ %or.i731, %if.end12.i725 ], [ %or25.i739, %if.end19.i733 ], [ %or34.i747, %if.end28.i741 ], [ %or43.i755, %if.end37.i749 ], [ %or52.i763, %if.end46.i757 ], [ %or61.i771, %if.end55.i765 ], [ %or70.i779, %if.end64.i773 ], [ %or79.i787, %if.end73.i781 ], [ %or110.i703, %if.end104.i697 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -8782,7 +8782,7 @@ return.loopexit671:                               ; preds = %while.body.i706
   br label %return
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end59, %sw.epilog, %if.end82.i789, %if.end82.i, %if.end82.i221, %if.end82.i363, %if.end82.i505, %if.end82.i647, %while.cond.i692.preheader, %while.cond.i550.preheader, %while.cond.i408.preheader, %while.cond.i266.preheader, %while.cond.i124.preheader, %while.cond.i.preheader, %return.loopexit671, %return.loopexit670, %return.loopexit669, %return.loopexit668, %return.loopexit667, %return.loopexit, %entry, %sw.default, %if.then44, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit
-  %retval.0 = phi i1 [ %call76, %sw.default ], [ false, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit ], [ false, %if.then44 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit667 ], [ false, %return.loopexit668 ], [ false, %return.loopexit669 ], [ false, %return.loopexit670 ], [ false, %return.loopexit671 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i124.preheader ], [ false, %while.cond.i266.preheader ], [ false, %while.cond.i408.preheader ], [ false, %while.cond.i550.preheader ], [ false, %while.cond.i692.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end59 ], [ true, %sw.epilog ], [ false, %if.end82.i789 ], [ false, %if.end82.i ], [ false, %if.end82.i221 ], [ false, %if.end82.i363 ], [ false, %if.end82.i505 ], [ false, %if.end82.i647 ]
+  %retval.0 = phi i1 [ %call76, %sw.default ], [ false, %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit ], [ false, %if.then44 ], [ true, %entry ], [ false, %return.loopexit669 ], [ false, %return.loopexit670 ], [ false, %return.loopexit671 ], [ false, %return.loopexit ], [ false, %return.loopexit667 ], [ false, %return.loopexit668 ], [ false, %while.cond.i266.preheader ], [ false, %while.cond.i408.preheader ], [ false, %while.cond.i550.preheader ], [ false, %while.cond.i692.preheader ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i124.preheader ], [ false, %if.end82.i505 ], [ false, %if.end82.i363 ], [ false, %if.end82.i221 ], [ false, %if.end82.i ], [ false, %if.end82.i789 ], [ true, %sw.epilog ], [ false, %if.end59 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end82.i647 ]
   ret i1 %retval.0
 }
 
@@ -9033,8 +9033,8 @@ if.end104.i364:                                   ; preds = %land.rhs.i382
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i456, %if.then.i481, %if.end12.i392, %if.end19.i400, %if.end28.i408, %if.end37.i416, %if.end46.i424, %if.end55.i432, %if.end64.i440, %if.end73.i448, %if.end104.i364
-  %pos.promoted368 = phi i64 [ %inc.i484, %if.then.i481 ], [ %inc13.i393, %if.end12.i392 ], [ %inc20.i401, %if.end19.i400 ], [ %inc29.i409, %if.end28.i408 ], [ %inc38.i417, %if.end37.i416 ], [ %inc47.i425, %if.end46.i424 ], [ %inc56.i433, %if.end55.i432 ], [ %inc65.i441, %if.end64.i440 ], [ %inc74.i449, %if.end73.i448 ], [ %inc96.i374, %if.end104.i364 ], [ %inc83.i457, %if.end82.i456 ]
-  %tag.0 = phi i64 [ %conv.i478, %if.then.i481 ], [ %or.i398, %if.end12.i392 ], [ %or25.i406, %if.end19.i400 ], [ %or34.i414, %if.end28.i408 ], [ %or43.i422, %if.end37.i416 ], [ %or52.i430, %if.end46.i424 ], [ %or61.i438, %if.end55.i432 ], [ %or70.i446, %if.end64.i440 ], [ %or79.i454, %if.end73.i448 ], [ %or110.i370, %if.end104.i364 ], [ %or88.i462, %if.end82.i456 ]
+  %pos.promoted368 = phi i64 [ %inc.i484, %if.then.i481 ], [ %inc83.i457, %if.end82.i456 ], [ %inc13.i393, %if.end12.i392 ], [ %inc20.i401, %if.end19.i400 ], [ %inc29.i409, %if.end28.i408 ], [ %inc38.i417, %if.end37.i416 ], [ %inc47.i425, %if.end46.i424 ], [ %inc56.i433, %if.end55.i432 ], [ %inc65.i441, %if.end64.i440 ], [ %inc74.i449, %if.end73.i448 ], [ %inc96.i374, %if.end104.i364 ]
+  %tag.0 = phi i64 [ %conv.i478, %if.then.i481 ], [ %or88.i462, %if.end82.i456 ], [ %or.i398, %if.end12.i392 ], [ %or25.i406, %if.end19.i400 ], [ %or34.i414, %if.end28.i408 ], [ %or43.i422, %if.end37.i416 ], [ %or52.i430, %if.end46.i424 ], [ %or61.i438, %if.end55.i432 ], [ %or70.i446, %if.end64.i440 ], [ %or79.i454, %if.end73.i448 ], [ %or110.i370, %if.end104.i364 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 16, label %sw.bb12
@@ -9694,7 +9694,7 @@ sw.epilog:                                        ; preds = %if.end34, %if.end17
   br i1 %cmp, label %land.lhs.true.i476, label %return, !llvm.loop !19
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %sw.epilog, %if.end82.i456, %if.end82.i, %if.end82.i172, %if.end82.i314, %while.cond.i359.preheader, %while.cond.i217.preheader, %while.cond.i75.preheader, %while.cond.i.preheader, %while.body.i373, %while.body.i231, %while.body.i89, %while.body.i, %entry, %sw.default, %if.then32
-  %retval.0 = phi i1 [ %call37, %sw.default ], [ false, %if.then32 ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i89 ], [ false, %while.body.i231 ], [ false, %while.body.i373 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i75.preheader ], [ false, %while.cond.i217.preheader ], [ false, %while.cond.i359.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ true, %sw.epilog ], [ false, %if.end82.i456 ], [ false, %if.end82.i ], [ false, %if.end82.i172 ], [ false, %if.end82.i314 ]
+  %retval.0 = phi i1 [ %call37, %sw.default ], [ false, %if.then32 ], [ true, %entry ], [ false, %while.body.i89 ], [ false, %while.body.i231 ], [ false, %while.body.i373 ], [ false, %while.body.i ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i75.preheader ], [ false, %while.cond.i217.preheader ], [ false, %while.cond.i359.preheader ], [ false, %if.end82.i172 ], [ false, %if.end82.i ], [ false, %if.end82.i456 ], [ true, %sw.epilog ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end82.i314 ]
   ret i1 %retval.0
 }
 
@@ -9876,8 +9876,8 @@ if.end104.i213:                                   ; preds = %land.rhs.i231
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i305, %if.then.i330, %if.end12.i241, %if.end19.i249, %if.end28.i257, %if.end37.i265, %if.end46.i273, %if.end55.i281, %if.end64.i289, %if.end73.i297, %if.end104.i213
-  %pos.promoted277 = phi i64 [ %inc.i333, %if.then.i330 ], [ %inc13.i242, %if.end12.i241 ], [ %inc20.i250, %if.end19.i249 ], [ %inc29.i258, %if.end28.i257 ], [ %inc38.i266, %if.end37.i265 ], [ %inc47.i274, %if.end46.i273 ], [ %inc56.i282, %if.end55.i281 ], [ %inc65.i290, %if.end64.i289 ], [ %inc74.i298, %if.end73.i297 ], [ %inc96.i223, %if.end104.i213 ], [ %inc83.i306, %if.end82.i305 ]
-  %tag.0 = phi i64 [ %conv.i327, %if.then.i330 ], [ %or.i247, %if.end12.i241 ], [ %or25.i255, %if.end19.i249 ], [ %or34.i263, %if.end28.i257 ], [ %or43.i271, %if.end37.i265 ], [ %or52.i279, %if.end46.i273 ], [ %or61.i287, %if.end55.i281 ], [ %or70.i295, %if.end64.i289 ], [ %or79.i303, %if.end73.i297 ], [ %or110.i219, %if.end104.i213 ], [ %or88.i311, %if.end82.i305 ]
+  %pos.promoted277 = phi i64 [ %inc.i333, %if.then.i330 ], [ %inc83.i306, %if.end82.i305 ], [ %inc13.i242, %if.end12.i241 ], [ %inc20.i250, %if.end19.i249 ], [ %inc29.i258, %if.end28.i257 ], [ %inc38.i266, %if.end37.i265 ], [ %inc47.i274, %if.end46.i273 ], [ %inc56.i282, %if.end55.i281 ], [ %inc65.i290, %if.end64.i289 ], [ %inc74.i298, %if.end73.i297 ], [ %inc96.i223, %if.end104.i213 ]
+  %tag.0 = phi i64 [ %conv.i327, %if.then.i330 ], [ %or88.i311, %if.end82.i305 ], [ %or.i247, %if.end12.i241 ], [ %or25.i255, %if.end19.i249 ], [ %or34.i263, %if.end28.i257 ], [ %or43.i271, %if.end37.i265 ], [ %or52.i279, %if.end46.i273 ], [ %or61.i287, %if.end55.i281 ], [ %or70.i295, %if.end64.i289 ], [ %or79.i303, %if.end73.i297 ], [ %or110.i219, %if.end104.i213 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -10364,7 +10364,7 @@ sw.epilog:                                        ; preds = %if.end31, %if.end8
   br i1 %cmp, label %land.lhs.true.i325, label %return, !llvm.loop !23
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %if.end23, %sw.epilog, %if.end82.i305, %if.end82.i, %if.end82.i163, %while.cond.i208.preheader, %while.cond.i66.preheader, %while.cond.i.preheader, %while.body.i222, %while.body.i80, %while.body.i, %entry, %sw.default
-  %retval.0 = phi i1 [ %call33, %sw.default ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i80 ], [ false, %while.body.i222 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i66.preheader ], [ false, %while.cond.i208.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end23 ], [ true, %sw.epilog ], [ false, %if.end82.i305 ], [ false, %if.end82.i ], [ false, %if.end82.i163 ]
+  %retval.0 = phi i1 [ %call33, %sw.default ], [ true, %entry ], [ false, %while.body.i222 ], [ false, %while.body.i ], [ false, %while.body.i80 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i66.preheader ], [ false, %while.cond.i208.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i305 ], [ true, %sw.epilog ], [ false, %if.end23 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %if.end82.i163 ]
   ret i1 %retval.0
 }
 

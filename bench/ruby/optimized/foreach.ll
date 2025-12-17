@@ -340,7 +340,7 @@ rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %30
   unreachable
 
 50:                                               ; preds = %35, %46, %26, %rbimpl_intern_const.exit25, %rbimpl_intern_const.exit
-  %.0 = phi i32 [ 1, %rbimpl_intern_const.exit ], [ 3, %rbimpl_intern_const.exit25 ], [ %., %26 ], [ 3, %46 ], [ 3, %35 ]
+  %.0 = phi i32 [ 3, %rbimpl_intern_const.exit25 ], [ 1, %rbimpl_intern_const.exit ], [ %., %26 ], [ 3, %46 ], [ 3, %35 ]
   ret i32 %.0
 }
 

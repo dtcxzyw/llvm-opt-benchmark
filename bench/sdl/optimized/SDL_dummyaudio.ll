@@ -90,7 +90,7 @@ define internal noundef zeroext i1 @DUMMYAUDIO_OpenDevice(ptr noundef captures(n
   br label %39
 
 39:                                               ; preds = %16, %29, %26, %8, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ true, %26 ], [ true, %29 ], [ true, %16 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %1 ], [ true, %26 ], [ true, %29 ], [ true, %16 ]
   ret i1 %.0
 }
 

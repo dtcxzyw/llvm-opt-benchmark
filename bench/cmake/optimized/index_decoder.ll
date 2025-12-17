@@ -259,7 +259,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %.thread
 
 .sink.split:                                      ; preds = %46, %54, %21, %33
-  %storemerge.sink = phi i32 [ %38, %33 ], [ 1, %21 ], [ %58, %54 ], [ 4, %46 ]
+  %storemerge.sink = phi i32 [ 1, %21 ], [ %38, %33 ], [ %58, %54 ], [ 4, %46 ]
   store i32 %storemerge.sink, ptr %0, align 8, !tbaa !21
   br label %98
 
@@ -270,7 +270,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br i1 %101, label %18, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %25, %98, %28, %39
-  %.281.ph = phi i32 [ %26, %25 ], [ 0, %98 ], [ 6, %28 ], [ %42, %39 ]
+  %.281.ph = phi i32 [ %26, %25 ], [ %42, %39 ], [ 6, %28 ], [ 0, %98 ]
   %.pre121 = load i64, ptr %3, align 8, !tbaa !26
   %.not99 = icmp eq i64 %.pre121, %10
   br i1 %.not99, label %.thread, label %102
@@ -285,7 +285,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %.thread
 
 .thread:                                          ; preds = %46, %49, %18, %65, %21, %82, %79, %9, %._crit_edge, %102, %94
-  %.1 = phi i32 [ 1, %94 ], [ %.281.ph, %102 ], [ %.281.ph, %._crit_edge ], [ 0, %9 ], [ 9, %82 ], [ 0, %79 ], [ %53, %49 ], [ 9, %46 ], [ 11, %18 ], [ 9, %65 ], [ 9, %21 ]
+  %.1 = phi i32 [ 0, %9 ], [ 1, %94 ], [ %.281.ph, %102 ], [ %.281.ph, %._crit_edge ], [ 9, %82 ], [ 0, %79 ], [ %53, %49 ], [ 9, %65 ], [ 9, %21 ], [ 9, %46 ], [ 11, %18 ]
   ret i32 %.1
 }
 
@@ -432,7 +432,7 @@ declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 declare void @lzma_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.lzma_index_coder, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
@@ -498,7 +498,7 @@ define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef captu
   br label %index_decoder_reset.exit
 
 index_decoder_reset.exit:                         ; preds = %15, %32, %21, %.fold.split, %30
-  %.2 = phi i32 [ 6, %32 ], [ 0, %21 ], [ 9, %30 ], [ %28, %.fold.split ], [ 5, %15 ]
+  %.2 = phi i32 [ %28, %.fold.split ], [ 0, %21 ], [ 6, %32 ], [ 9, %30 ], [ 5, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 

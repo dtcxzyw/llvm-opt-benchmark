@@ -1016,7 +1016,7 @@ tuple_alloc.exit.thread16:                        ; preds = %7
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %21, %.thread.i
-  %.09.i = phi ptr [ %22, %21 ], [ %23, %.thread.i ]
+  %.09.i = phi ptr [ %23, %.thread.i ], [ %22, %21 ]
   %24 = icmp eq ptr %.09.i, null
   br i1 %24, label %50, label %._crit_edge
 
@@ -1055,7 +1055,7 @@ tuple_alloc.exit:                                 ; preds = %21, %.thread.i
   br label %50
 
 50:                                               ; preds = %tuple_alloc.exit.thread, %1, %tuple_alloc.exit, %._crit_edge
-  %.010 = phi ptr [ %.09.i18, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ], [ null, %tuple_alloc.exit.thread ]
+  %.010 = phi ptr [ null, %tuple_alloc.exit ], [ %.09.i18, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.010
 }
 
@@ -1364,7 +1364,7 @@ tuple_alloc.exit.thread17:                        ; preds = %8
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %22, %.thread.i
-  %.09.i = phi ptr [ %23, %22 ], [ %24, %.thread.i ]
+  %.09.i = phi ptr [ %24, %.thread.i ], [ %23, %22 ]
   %25 = icmp eq ptr %.09.i, null
   br i1 %25, label %26, label %.lr.ph
 
@@ -1450,7 +1450,7 @@ _Py_NewRef.exit:                                  ; preds = %41, %46
   br label %73
 
 73:                                               ; preds = %1, %26, %._crit_edge
-  %.0 = phi ptr [ null, %26 ], [ %.09.i19, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ]
+  %.0 = phi ptr [ %.09.i19, %._crit_edge ], [ null, %26 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1512,7 +1512,7 @@ tuple_alloc.exit.thread18:                        ; preds = %8
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %22, %.thread.i
-  %.09.i = phi ptr [ %23, %22 ], [ %24, %.thread.i ]
+  %.09.i = phi ptr [ %24, %.thread.i ], [ %23, %22 ]
   %25 = icmp eq ptr %.09.i, null
   br i1 %25, label %58, label %.lr.ph.preheader
 
@@ -1572,7 +1572,7 @@ _Py_NewRef.exit:                                  ; preds = %.lr.ph, %54
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
 
 58:                                               ; preds = %tuple_alloc.exit.thread, %2, %._crit_edge, %tuple_alloc.exit
-  %.0 = phi ptr [ %.09.i20, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ null, %tuple_alloc.exit.thread ]
+  %.0 = phi ptr [ null, %tuple_alloc.exit ], [ %.09.i20, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.0
 }
 
@@ -1627,7 +1627,7 @@ tuple_alloc.exit.thread17:                        ; preds = %8
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %22, %.thread.i
-  %.09.i = phi ptr [ %23, %22 ], [ %24, %.thread.i ]
+  %.09.i = phi ptr [ %24, %.thread.i ], [ %23, %22 ]
   %25 = icmp eq ptr %.09.i, null
   br i1 %25, label %55, label %.lr.ph.preheader
 
@@ -1678,7 +1678,7 @@ tuple_alloc.exit:                                 ; preds = %22, %.thread.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !113
 
 55:                                               ; preds = %tuple_alloc.exit.thread, %2, %._crit_edge, %tuple_alloc.exit
-  %.013 = phi ptr [ %.09.i19, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ null, %tuple_alloc.exit.thread ]
+  %.013 = phi ptr [ null, %tuple_alloc.exit ], [ %.09.i19, %._crit_edge ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %2 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.013
 }
 
@@ -1729,7 +1729,7 @@ tuple_alloc.exit.thread:                          ; preds = %8
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %22, %.thread.i
-  %.09.i = phi ptr [ %23, %22 ], [ %24, %.thread.i ]
+  %.09.i = phi ptr [ %24, %.thread.i ], [ %23, %22 ]
   %25 = icmp eq ptr %.09.i, null
   br i1 %25, label %.lr.ph27, label %.lr.ph.preheader
 
@@ -2085,7 +2085,7 @@ define internal ptr @tuple_repr(ptr noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %8, %10, %.thread, %42, %4
-  %.028 = phi ptr [ %5, %4 ], [ %11, %10 ], [ null, %8 ], [ null, %.thread ], [ %43, %42 ]
+  %.028 = phi ptr [ %5, %4 ], [ null, %8 ], [ %11, %10 ], [ null, %.thread ], [ %43, %42 ]
   ret ptr %.028
 }
 
@@ -2280,7 +2280,7 @@ define internal ptr @tuple_richcompare(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %36, %34, %33, %31, %29, %28, %26, %3, %7, %38, %37
-  %.0 = phi ptr [ @_Py_TrueStruct, %37 ], [ %43, %38 ], [ @_Py_NotImplementedStruct, %7 ], [ @_Py_NotImplementedStruct, %3 ], [ %_Py_TrueStruct._Py_FalseStruct, %26 ], [ %_Py_FalseStruct._Py_TrueStruct, %28 ], [ %_Py_TrueStruct._Py_FalseStruct53, %29 ], [ %_Py_TrueStruct._Py_FalseStruct54, %31 ], [ %_Py_FalseStruct._Py_TrueStruct55, %33 ], [ %_Py_FalseStruct._Py_TrueStruct56, %34 ], [ @_Py_FalseStruct, %36 ], [ null, %17 ]
+  %.0 = phi ptr [ %_Py_TrueStruct._Py_FalseStruct, %26 ], [ @_Py_NotImplementedStruct, %3 ], [ %_Py_FalseStruct._Py_TrueStruct, %28 ], [ @_Py_NotImplementedStruct, %7 ], [ %_Py_TrueStruct._Py_FalseStruct53, %29 ], [ %43, %38 ], [ %_Py_TrueStruct._Py_FalseStruct54, %31 ], [ @_Py_TrueStruct, %37 ], [ %_Py_FalseStruct._Py_TrueStruct55, %33 ], [ %_Py_FalseStruct._Py_TrueStruct56, %34 ], [ @_Py_FalseStruct, %36 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -2690,7 +2690,7 @@ Py_DECREF.exit:                                   ; preds = %64, %61, %59, %56
   br label %105
 
 105:                                              ; preds = %16, %81, %73, %Py_DECREF.exit63, %Py_DECREF.exit65, %Py_XDECREF.exit
-  %.0 = phi i32 [ -1, %Py_XDECREF.exit ], [ 0, %Py_DECREF.exit65 ], [ %35, %Py_DECREF.exit63 ], [ -1, %73 ], [ 0, %81 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1, %Py_XDECREF.exit ], [ 0, %81 ], [ 0, %Py_DECREF.exit65 ], [ %35, %Py_DECREF.exit63 ], [ -1, %73 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2840,7 +2840,7 @@ define internal noundef ptr @tupleiter_next(ptr noundef captures(none) %0) #0 {
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %24, %21, %19, %17, %10, %1
-  %.0 = phi ptr [ null, %1 ], [ %13, %10 ], [ %13, %17 ], [ null, %19 ], [ null, %21 ], [ null, %24 ]
+  %.0 = phi ptr [ %13, %17 ], [ null, %1 ], [ %13, %10 ], [ null, %19 ], [ null, %21 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -3034,7 +3034,7 @@ tuple_alloc.exit.thread59:                        ; preds = %35
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %49, %.thread.i
-  %.09.i = phi ptr [ %50, %49 ], [ %51, %.thread.i ]
+  %.09.i = phi ptr [ %51, %.thread.i ], [ %50, %49 ]
   %52 = icmp eq ptr %.09.i, null
   br i1 %52, label %_Py_NewRef.exit, label %53
 
@@ -3131,7 +3131,7 @@ _Py_NewRef.exit57:                                ; preds = %.lr.ph68, %96
   br i1 %100, label %.lr.ph68, label %._crit_edge69, !llvm.loop !138
 
 _Py_NewRef.exit:                                  ; preds = %tuple_alloc.exit.thread, %28, %26, %23, %9, %6, %._crit_edge69, %tuple_alloc.exit, %13
-  %.0 = phi ptr [ null, %13 ], [ %.09.i61, %._crit_edge69 ], [ null, %tuple_alloc.exit ], [ %1, %6 ], [ %1, %9 ], [ %0, %23 ], [ %0, %26 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %28 ], [ null, %tuple_alloc.exit.thread ]
+  %.0 = phi ptr [ null, %tuple_alloc.exit ], [ null, %13 ], [ %1, %9 ], [ %0, %26 ], [ %.09.i61, %._crit_edge69 ], [ %1, %6 ], [ %0, %23 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %28 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.0
 }
 
@@ -3221,7 +3221,7 @@ tuple_alloc.exit.thread52:                        ; preds = %25
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %39, %.thread.i
-  %.09.i = phi ptr [ %40, %39 ], [ %41, %.thread.i ]
+  %.09.i = phi ptr [ %41, %.thread.i ], [ %40, %39 ]
   %42 = icmp eq ptr %.09.i, null
   br i1 %42, label %_Py_NewRef.exit, label %43
 
@@ -3334,7 +3334,7 @@ _Py_memory_repeat.exit:                           ; preds = %.lr.ph.i, %.lr.ph59
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %tuple_alloc.exit.thread, %13, %11, %8, %_Py_memory_repeat.exit, %tuple_alloc.exit, %18
-  %.0 = phi ptr [ %19, %18 ], [ %.09.i54, %_Py_memory_repeat.exit ], [ null, %tuple_alloc.exit ], [ %0, %8 ], [ %0, %11 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %13 ], [ null, %tuple_alloc.exit.thread ]
+  %.0 = phi ptr [ null, %tuple_alloc.exit ], [ %0, %11 ], [ %19, %18 ], [ %.09.i54, %_Py_memory_repeat.exit ], [ %0, %8 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %13 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.0
 }
 
@@ -3560,7 +3560,7 @@ tuple_alloc.exit.thread:                          ; preds = %55
   br label %tuple_alloc.exit
 
 tuple_alloc.exit:                                 ; preds = %69, %.thread.i
-  %.09.i = phi ptr [ %70, %69 ], [ %71, %.thread.i ]
+  %.09.i = phi ptr [ %71, %.thread.i ], [ %70, %69 ]
   %.not43 = icmp eq ptr %.09.i, null
   br i1 %.not43, label %_Py_NewRef.exit, label %.lr.ph.preheader
 
@@ -3625,7 +3625,7 @@ _Py_NewRef.exit52:                                ; preds = %.lr.ph, %79
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %51, %48, %34, %._crit_edge, %tuple_alloc.exit, %31
-  %.2 = phi ptr [ null, %31 ], [ %.09.i59, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %34 ], [ %0, %48 ], [ %0, %51 ]
+  %.2 = phi ptr [ null, %31 ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %34 ], [ %.09.i59, %._crit_edge ], [ %0, %48 ], [ %0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3639,7 +3639,7 @@ _Py_NewRef.exit:                                  ; preds = %51, %48, %34, %._cr
   br label %tuple_item.exit
 
 tuple_item.exit:                                  ; preds = %29, %23, %21, %14, %108, %_Py_NewRef.exit
-  %.1 = phi ptr [ %.2, %_Py_NewRef.exit ], [ null, %108 ], [ null, %14 ], [ null, %21 ], [ %26, %23 ], [ %26, %29 ]
+  %.1 = phi ptr [ null, %108 ], [ %.2, %_Py_NewRef.exit ], [ null, %14 ], [ null, %21 ], [ %26, %23 ], [ %26, %29 ]
   ret ptr %.1
 }
 
@@ -3781,7 +3781,7 @@ define internal ptr @tuple_index(ptr noundef readonly captures(none) %0, ptr nou
   br label %tuple_index_impl.exit
 
 tuple_index_impl.exit:                            ; preds = %37, %._crit_edge.i, %.thread.i, %18, %12, %7
-  %.0 = phi ptr [ null, %18 ], [ null, %12 ], [ null, %7 ], [ null, %._crit_edge.i ], [ %36, %.thread.i ], [ null, %37 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %12 ], [ null, %._crit_edge.i ], [ %36, %.thread.i ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -3970,7 +3970,7 @@ Py_DECREF.exit.i:                                 ; preds = %34, %31, %._crit_ed
   br label %tuple_subtype_new.exit
 
 tuple_subtype_new.exit:                           ; preds = %59, %36, %Py_DECREF.exit.i, %tuple_new_impl.exit, %20, %17, %15, %60
-  %.0 = phi ptr [ %61, %60 ], [ null, %tuple_new_impl.exit ], [ %10, %36 ], [ %10, %Py_DECREF.exit.i ], [ null, %20 ], [ null, %17 ], [ null, %15 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %59 ]
+  %.0 = phi ptr [ %61, %60 ], [ null, %15 ], [ null, %tuple_new_impl.exit ], [ %10, %Py_DECREF.exit.i ], [ %10, %36 ], [ null, %20 ], [ null, %17 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %59 ]
   ret ptr %.0
 }
 
@@ -4056,7 +4056,7 @@ define internal noundef ptr @tupleiter_setstate(ptr noundef captures(none) %0, p
   br label %.thread16
 
 .thread16:                                        ; preds = %14, %.thread, %12
-  %.0 = phi i64 [ 0, %12 ], [ 0, %.thread ], [ %spec.select, %14 ]
+  %.0 = phi i64 [ %spec.select, %14 ], [ 0, %.thread ], [ 0, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0, ptr %16, align 8, !tbaa !125
   br label %17

@@ -815,9 +815,9 @@ define noalias noundef nonnull ptr @lean_uv_timer_reset(ptr noundef readonly cap
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %26, %22, %17
-  %.sink20 = phi ptr [ %19, %17 ], [ %23, %22 ], [ %27, %26 ]
-  %.sink17 = phi i32 [ 16908312, %17 ], [ 131096, %22 ], [ 131096, %26 ]
-  %.sink = phi ptr [ %18, %17 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %26 ]
+  %.sink20 = phi ptr [ %23, %22 ], [ %19, %17 ], [ %27, %26 ]
+  %.sink17 = phi i32 [ 131096, %22 ], [ 16908312, %17 ], [ 131096, %26 ]
+  %.sink = phi ptr [ inttoptr (i64 1 to ptr), %22 ], [ %18, %17 ], [ inttoptr (i64 1 to ptr), %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
   store i32 1, ptr %.sink20, align 4, !tbaa !12
   store i32 %.sink17, ptr %30, align 4

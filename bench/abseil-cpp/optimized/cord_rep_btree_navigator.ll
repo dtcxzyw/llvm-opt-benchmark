@@ -264,7 +264,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
   br label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm.exit: ; preds = %41, %46, %59
-  %.0.i.i = phi ptr [ %12, %46 ], [ %60, %59 ], [ null, %41 ]
+  %.0.i.i = phi ptr [ %60, %59 ], [ %12, %46 ], [ null, %41 ]
   %68 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 2, ptr %69, align 4, !tbaa !28
@@ -577,8 +577,8 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   br label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit: ; preds = %.split.us.thread, %120, %.split.us, %32, %19, %15, %210
-  %.sroa.0.0 = phi ptr [ %.184.lcssa, %210 ], [ %12, %19 ], [ %33, %32 ], [ null, %15 ], [ null, %.split.us ], [ null, %120 ], [ %.083, %.split.us.thread ]
-  %.sroa.5.0 = phi i64 [ %.1100.lcssa, %210 ], [ %4, %19 ], [ %4, %32 ], [ %4, %15 ], [ %86, %.split.us ], [ %86, %120 ], [ 0, %.split.us.thread ]
+  %.sroa.0.0 = phi ptr [ %.083, %.split.us.thread ], [ %.184.lcssa, %210 ], [ null, %15 ], [ %33, %32 ], [ %12, %19 ], [ null, %.split.us ], [ null, %120 ]
+  %.sroa.5.0 = phi i64 [ 0, %.split.us.thread ], [ %.1100.lcssa, %210 ], [ %4, %15 ], [ %4, %32 ], [ %4, %19 ], [ %86, %.split.us ], [ %86, %120 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -634,7 +634,7 @@ define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19Substr
   br label %30
 
 30:                                               ; preds = %3, %21, %8
-  %.0 = phi ptr [ %0, %8 ], [ %22, %21 ], [ null, %3 ]
+  %.0 = phi ptr [ %22, %21 ], [ %0, %8 ], [ null, %3 ]
   ret ptr %.0
 }
 

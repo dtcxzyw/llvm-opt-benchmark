@@ -199,7 +199,7 @@ default.unreachable72:                            ; preds = %2
   br i1 %.not71, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %16, %15, %14, %13, %12, %11
-  %.sroa.565.sink = phi ptr [ %.sroa.560, %11 ], [ %.sroa.555, %12 ], [ %.sroa.550, %13 ], [ %.sroa.545, %14 ], [ %.sroa.540, %15 ], [ %.sroa.535, %16 ], [ %.sroa.565, %10 ]
+  %.sroa.565.sink = phi ptr [ %.sroa.535, %16 ], [ %.sroa.540, %15 ], [ %.sroa.545, %14 ], [ %.sroa.550, %13 ], [ %.sroa.555, %12 ], [ %.sroa.560, %11 ], [ %.sroa.565, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.061.0.copyload = load i64, ptr %17, align 8
   %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -207,9 +207,9 @@ default.unreachable72:                            ; preds = %2
   br label %18
 
 18:                                               ; preds = %.sink.split, %10, %16, %15, %14, %13, %12, %11
-  %.sroa.031.0.sink = phi i64 [ undef, %11 ], [ undef, %12 ], [ undef, %13 ], [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %10 ], [ %.sroa.061.0.copyload, %.sink.split ]
-  %.sroa.535.sink = phi ptr [ %.sroa.560, %11 ], [ %.sroa.555, %12 ], [ %.sroa.550, %13 ], [ %.sroa.545, %14 ], [ %.sroa.540, %15 ], [ %.sroa.535, %16 ], [ %.sroa.565, %10 ], [ %.sroa.565.sink, %.sink.split ]
-  %.sink = phi i64 [ 1, %11 ], [ 2, %12 ], [ 3, %13 ], [ 4, %14 ], [ 5, %15 ], [ 6, %16 ], [ 0, %10 ], [ %3, %.sink.split ]
+  %.sroa.031.0.sink = phi i64 [ undef, %15 ], [ undef, %14 ], [ undef, %13 ], [ undef, %12 ], [ undef, %11 ], [ undef, %16 ], [ undef, %10 ], [ %.sroa.061.0.copyload, %.sink.split ]
+  %.sroa.535.sink = phi ptr [ %.sroa.540, %15 ], [ %.sroa.545, %14 ], [ %.sroa.550, %13 ], [ %.sroa.555, %12 ], [ %.sroa.560, %11 ], [ %.sroa.535, %16 ], [ %.sroa.565, %10 ], [ %.sroa.565.sink, %.sink.split ]
+  %.sink = phi i64 [ 5, %15 ], [ 4, %14 ], [ 3, %13 ], [ 2, %12 ], [ 1, %11 ], [ 6, %16 ], [ 0, %10 ], [ %3, %.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.528.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
@@ -585,7 +585,7 @@ _ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i.i.i.i: ; preds = %136
   br label %.body.thread.i.i
 
 .body.thread.i.i:                                 ; preds = %154, %.body.thread.i.sink.split.i, %145, %.body.i.i.i
-  %eh.lpad-body27.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %154 ], [ %lpad.phi.i.i.i, %145 ], [ %121, %.body.i.i.i ], [ %eh.lpad-body27.i.ph.i, %.body.thread.i.sink.split.i ]
+  %eh.lpad-body27.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %145 ], [ %lpad.thr_comm.split-lp.i.i, %154 ], [ %121, %.body.i.i.i ], [ %eh.lpad-body27.i.ph.i, %.body.thread.i.sink.split.i ]
   resume { ptr, i32 } %eh.lpad-body27.i.i
 
 154:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h34f37d8827880b59E.exit.i.i"
@@ -1379,7 +1379,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Exp
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit": ; preds = %436, %440, %394, %398, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit60", %376, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit53", %355, %242, %246, %225, %229, %208, %212, %171, %468, %463, %458, %453, %448, %421, %416, %411, %406, %336, %331, %326, %322, %317, %311, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit", %275, %264, %254, %197, %186, %176, %166, %161, %156, %151, %144
-  %.pn32 = phi { ptr, i32 } [ %145, %144 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %.pn30, %186 ], [ %.pn28, %197 ], [ %255, %254 ], [ %.pn20, %264 ], [ %.pn18, %275 ], [ %.pn16, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit" ], [ %.pn12, %311 ], [ %318, %317 ], [ %323, %322 ], [ %327, %326 ], [ %332, %331 ], [ %337, %336 ], [ %407, %406 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ], [ %449, %448 ], [ %454, %453 ], [ %459, %458 ], [ %464, %463 ], [ %469, %468 ], [ %.pn26, %212 ], [ %.pn26, %208 ], [ %.pn24, %229 ], [ %.pn24, %225 ], [ %.pn22, %246 ], [ %.pn22, %242 ], [ %.pn10, %355 ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit53" ], [ %.pn8, %376 ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit60" ], [ %.pn6, %398 ], [ %.pn6, %394 ], [ %.pn2, %440 ], [ %.pn2, %436 ]
+  %.pn32 = phi { ptr, i32 } [ %145, %144 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %.pn30, %186 ], [ %.pn28, %197 ], [ %469, %468 ], [ %.pn26, %208 ], [ %.pn24, %225 ], [ %255, %254 ], [ %.pn20, %264 ], [ %.pn18, %275 ], [ %.pn16, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit" ], [ %.pn12, %311 ], [ %318, %317 ], [ %323, %322 ], [ %327, %326 ], [ %332, %331 ], [ %337, %336 ], [ %.pn22, %242 ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit53" ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit60" ], [ %407, %406 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ], [ %.pn6, %394 ], [ %449, %448 ], [ %454, %453 ], [ %459, %458 ], [ %464, %463 ], [ %.pn26, %212 ], [ %.pn24, %229 ], [ %.pn22, %246 ], [ %.pn10, %355 ], [ %.pn8, %376 ], [ %.pn6, %398 ], [ %.pn2, %440 ], [ %.pn2, %436 ]
   resume { ptr, i32 } %.pn32
 
 151:                                              ; preds = %15
@@ -2670,7 +2670,7 @@ default.unreachable:                              ; preds = %39
   br i1 %139, label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit.sink.split.i", label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17h527ce08155764f61E.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit.sink.split.i": ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit10.i", %136, %132, %128, %119, %115, %111, %107, %103, %99, %95, %91, %87, %83
-  %.sink.i = phi ptr [ %147, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit10.i" ], [ %82, %83 ], [ %82, %87 ], [ %82, %91 ], [ %82, %95 ], [ %82, %99 ], [ %82, %103 ], [ %82, %107 ], [ %82, %111 ], [ %82, %115 ], [ %82, %119 ], [ %82, %128 ], [ %82, %132 ], [ %82, %136 ]
+  %.sink.i = phi ptr [ %147, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit10.i" ], [ %82, %132 ], [ %82, %128 ], [ %82, %119 ], [ %82, %115 ], [ %82, %111 ], [ %82, %107 ], [ %82, %103 ], [ %82, %99 ], [ %82, %95 ], [ %82, %91 ], [ %82, %87 ], [ %82, %83 ], [ %82, %136 ]
   fence acquire
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h63a765b8ac6683b0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i)
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17h527ce08155764f61E.exit"
@@ -2707,7 +2707,7 @@ default.unreachable:                              ; preds = %39
   unreachable
 
 common.resume:                                    ; preds = %208, %226, %246, %276, %355, %377, %383, %220, %214, %236, %230, %268, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit43", %287, %281, %322, %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17hddf9b4bdc8cdabdaE.exit", %347, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit58", %365, %359, %140, %146
-  %common.resume.op = phi { ptr, i32 } [ %141, %146 ], [ %141, %140 ], [ %209, %208 ], [ %227, %226 ], [ %.pn10, %246 ], [ %277, %276 ], [ %356, %355 ], [ %.pn, %377 ], [ %384, %383 ], [ %215, %220 ], [ %215, %214 ], [ %231, %236 ], [ %231, %230 ], [ %.pn8, %268 ], [ %.pn8, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit43" ], [ %282, %287 ], [ %282, %281 ], [ %.pn6, %322 ], [ %.pn6, %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17hddf9b4bdc8cdabdaE.exit" ], [ %.pn2, %347 ], [ %.pn2, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit58" ], [ %360, %365 ], [ %360, %359 ]
+  %common.resume.op = phi { ptr, i32 } [ %141, %140 ], [ %141, %146 ], [ %209, %208 ], [ %384, %383 ], [ %227, %226 ], [ %215, %214 ], [ %.pn10, %246 ], [ %231, %230 ], [ %277, %276 ], [ %.pn8, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit43" ], [ %282, %281 ], [ %.pn6, %"_ZN4core3ptr171drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17hddf9b4bdc8cdabdaE.exit" ], [ %356, %355 ], [ %.pn2, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h1fd27b36d2f5b5d9E.exit58" ], [ %.pn, %377 ], [ %215, %220 ], [ %231, %236 ], [ %.pn8, %268 ], [ %282, %287 ], [ %.pn6, %322 ], [ %.pn2, %347 ], [ %360, %365 ], [ %360, %359 ]
   resume { ptr, i32 } %common.resume.op
 
 153:                                              ; preds = %1
@@ -3633,7 +3633,7 @@ common.resume.sink.split:                         ; preds = %46, %51, %63
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %53, %.body
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %29, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %.body ], [ %54, %53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %43
@@ -3715,7 +3715,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$polars_plan..dsl..s
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h30c8555debe7bf86E.exit" unwind label %6, !noalias !636
 
 common.resume:                                    ; preds = %.body, %.body6, %.body11, %.body16, %45, %40, %35, %27, %6
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %28, %27 ], [ %36, %35 ], [ %41, %40 ], [ %46, %45 ], [ %10, %.body ], [ %14, %.body6 ], [ %18, %.body11 ], [ %22, %.body16 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %28, %27 ], [ %46, %45 ], [ %36, %35 ], [ %41, %40 ], [ %10, %.body ], [ %14, %.body6 ], [ %18, %.body11 ], [ %22, %.body16 ]
   resume { ptr, i32 } %common.resume.op
 
 6:                                                ; preds = %4
@@ -4446,7 +4446,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$polars_plan..dsl..f
   unreachable
 
 common.resume:                                    ; preds = %164, %159, %177, %172, %193, %188, %46, %53
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %54, %53 ], [ %160, %164 ], [ %160, %159 ], [ %173, %177 ], [ %173, %172 ], [ %.pn, %193 ], [ %.pn, %188 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %47, %46 ], [ %173, %172 ], [ %160, %159 ], [ %160, %164 ], [ %173, %177 ], [ %.pn, %193 ], [ %.pn, %188 ]
   resume { ptr, i32 } %common.resume.op
 
 53:                                               ; preds = %44
@@ -5896,7 +5896,7 @@ default.unreachable:                              ; preds = %366, %308, %122, %1
   unreachable
 
 common.resume:                                    ; preds = %.body, %.body63, %1062, %738, %734, %783, %779, %818, %815, %896, %892, %969, %965, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body, %.body ], [ %.pn, %.body63 ], [ %1063, %1062 ], [ %735, %738 ], [ %735, %734 ], [ %780, %783 ], [ %780, %779 ], [ %.pn38, %818 ], [ %.pn38, %815 ], [ %.pn35.pn, %896 ], [ %.pn35.pn, %892 ], [ %966, %969 ], [ %966, %965 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %1063, %1062 ], [ %735, %734 ], [ %780, %779 ], [ %eh.lpad-body, %.body ], [ %.pn38, %815 ], [ %.pn35.pn, %892 ], [ %.pn, %.body63 ], [ %735, %738 ], [ %780, %783 ], [ %.pn38, %818 ], [ %.pn35.pn, %896 ], [ %966, %969 ], [ %966, %965 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$polars_core..scalar..Scalar$u20$as$u20$core..clone..Clone$GT$5clone17h3d33a06fc8addc85E.exit.i": ; preds = %.noexc3.i.i, %246, %240, %233, %226, %221, %217, %.noexc2.i.i, %213, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd83d58c49d3e96d8E.exit.i.i.i", %193, %.noexc.i.i, %185, %167, %159, %158, %157, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125
@@ -6123,14 +6123,14 @@ common.resume:                                    ; preds = %.body, %.body63, %1
   unreachable
 
 "_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split": ; preds = %328, %327, %338, %323, %316, %315
-  %.sroa.24.0.ph = phi ptr [ undef, %315 ], [ undef, %316 ], [ undef, %323 ], [ %340, %338 ], [ undef, %327 ], [ undef, %328 ]
+  %.sroa.24.0.ph = phi ptr [ %340, %338 ], [ undef, %323 ], [ undef, %316 ], [ undef, %327 ], [ undef, %315 ], [ undef, %328 ]
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %350 = load i8, ptr %349, align 1, !alias.scope !879, !noalias !882, !noundef !4
   br label %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit"
 
 "_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit": ; preds = %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split", %326, %325, %322, %321, %320, %319, %318, %317
-  %.sroa.4.0 = phi i8 [ undef, %317 ], [ undef, %318 ], [ undef, %319 ], [ undef, %320 ], [ undef, %321 ], [ undef, %322 ], [ undef, %325 ], [ undef, %326 ], [ %350, %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split" ]
-  %.sroa.24.0 = phi ptr [ undef, %317 ], [ undef, %318 ], [ undef, %319 ], [ undef, %320 ], [ undef, %321 ], [ undef, %322 ], [ undef, %325 ], [ undef, %326 ], [ %.sroa.24.0.ph, %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split" ]
+  %.sroa.4.0 = phi i8 [ undef, %325 ], [ undef, %326 ], [ undef, %322 ], [ undef, %317 ], [ undef, %318 ], [ undef, %319 ], [ undef, %320 ], [ undef, %321 ], [ %350, %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split" ]
+  %.sroa.24.0 = phi ptr [ undef, %325 ], [ undef, %326 ], [ undef, %322 ], [ undef, %317 ], [ undef, %318 ], [ undef, %319 ], [ undef, %320 ], [ undef, %321 ], [ %.sroa.24.0.ph, %"_ZN70_$LT$polars_plan..dsl..expr..AggExpr$u20$as$u20$core..clone..Clone$GT$5clone17ha2147892381472afE.exit.sink.split" ]
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %310, ptr %351, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -6866,7 +6866,7 @@ common.resume:                                    ; preds = %.body, %.body63, %1
   br label %548
 
 548:                                              ; preds = %.noexc53, %543, %542, %366, %366, %366, %366, %366, %366
-  %.sroa.12.0.i = phi i8 [ %.sroa.12.0.copyload.i, %542 ], [ %.sroa.12.0.copyload4.i, %543 ], [ %547, %.noexc53 ], [ undef, %366 ], [ undef, %366 ], [ undef, %366 ], [ undef, %366 ], [ undef, %366 ], [ undef, %366 ]
+  %.sroa.12.0.i = phi i8 [ %547, %.noexc53 ], [ undef, %366 ], [ undef, %366 ], [ %.sroa.12.0.copyload.i, %542 ], [ undef, %366 ], [ %.sroa.12.0.copyload4.i, %543 ], [ undef, %366 ], [ undef, %366 ], [ undef, %366 ]
   %549 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i8 %368, ptr %549, align 16, !alias.scope !885, !noalias !888
   %.sroa.12.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %51, i64 17
@@ -10875,7 +10875,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %29 = load i64, ptr %28, align 8, !noundef !4
   %30 = icmp ugt i64 %29, 1
-  br i1 %30, label %55, label %.invoke
+  br i1 %30, label %53, label %.invoke
 
 31:                                               ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -10896,7 +10896,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
 40:                                               ; preds = %31
   %41 = trunc i128 %33 to i32
   invoke void @"_ZN11polars_plan3dsl46_$LT$impl$u20$polars_plan..dsl..expr..Expr$GT$5round17hb1a31d837c59b7efE"(ptr noalias noundef nonnull sret([192 x i8]) align 16 captures(none) dereferenceable(192) %13, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(192) %12, i32 noundef %41, i1 noundef zeroext false)
-          to label %53 unwind label %48
+          to label %51 unwind label %46
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -10916,57 +10916,48 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1029
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
-          to label %49 unwind label %65
+          to label %47 unwind label %65
 
-.invoke:                                          ; preds = %26, %35
-  %46 = phi i64 [ %38, %35 ], [ %29, %26 ]
-  %47 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.97, %35 ], [ @anon.316f99d23408b8aa994a14532d0e1883.101, %26 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %46, ptr noalias noundef readonly align 8 dereferenceable(24) %47) #18
-          to label %.cont unwind label %65
-
-.cont:                                            ; preds = %.invoke
-  unreachable
-
-48:                                               ; preds = %40
+46:                                               ; preds = %40
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-49:                                               ; preds = %42
+47:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1021
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h48bfaa5ce7ec38dbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %50 unwind label %65
+          to label %48 unwind label %65
 
-50:                                               ; preds = %49
+48:                                               ; preds = %47
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %60, %50
-  %.sink = phi i64 [ 12, %60 ], [ 11, %50 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %52, align 8
+49:                                               ; preds = %60, %48
+  %.sink = phi i64 [ 12, %60 ], [ 11, %48 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %50, align 8
   store i64 -9223372036854775780, ptr %0, align 16
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %12)
           to label %64 unwind label %62
 
-53:                                               ; preds = %40
+51:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 16 dereferenceable(192) %13, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   tail call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2)
-  br label %54
+  br label %52
 
-54:                                               ; preds = %64, %53
+52:                                               ; preds = %64, %51
   ret void
 
-55:                                               ; preds = %26
-  %56 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %57 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %58, ptr %6, align 8
+53:                                               ; preds = %26
+  %54 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %55 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %56, ptr %6, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8ecf97cc92962f16E", ptr %.sroa.410.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1030
@@ -10982,7 +10973,16 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %59 unwind label %65
 
-59:                                               ; preds = %55
+.invoke:                                          ; preds = %26, %35
+  %57 = phi i64 [ %38, %35 ], [ %29, %26 ]
+  %58 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.97, %35 ], [ @anon.316f99d23408b8aa994a14532d0e1883.101, %26 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) %58) #18
+          to label %.cont unwind label %65
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+59:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1030
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h48bfaa5ce7ec38dbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
@@ -10992,25 +10992,25 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.411.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %51
+  br label %49
 
-61:                                               ; preds = %48, %65, %62
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %65 ], [ %lpad.thr_comm.split-lp, %48 ], [ %63, %62 ]
+61:                                               ; preds = %46, %65, %62
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %65 ], [ %lpad.thr_comm.split-lp, %46 ], [ %63, %62 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
           to label %68 unwind label %66
 
-62:                                               ; preds = %51
+62:                                               ; preds = %49
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-64:                                               ; preds = %51
+64:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2)
-  br label %54
+  br label %52
 
-65:                                               ; preds = %.invoke, %49, %59, %42, %55
+65:                                               ; preds = %.invoke, %47, %42, %53, %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %12) #20
@@ -11110,7 +11110,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %20, label %80, label %74
 
 21:                                               ; preds = %62, %61, %59, %57, %52, %18, %71, %15
-  %.sroa.09.0 = phi i8 [ 1, %71 ], [ 1, %15 ], [ 1, %18 ], [ 0, %52 ], [ 0, %57 ], [ 0, %59 ], [ 0, %61 ], [ 0, %62 ]
+  %.sroa.09.0 = phi i8 [ 0, %62 ], [ 0, %61 ], [ 1, %71 ], [ 1, %18 ], [ 1, %15 ], [ 0, %52 ], [ 0, %57 ], [ 0, %59 ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %19
@@ -11286,7 +11286,7 @@ default.unreachable:                              ; preds = %54
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-70:                                               ; preds = %31, %38
+70:                                               ; preds = %38, %31
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %10) #20
@@ -11405,9 +11405,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %148 unwind label %58
 
 51:                                               ; preds = %164, %153, %149, %105, %91, %87, %209, %.thread21, %.thread44, %111, %100, %96, %58
-  %.pn36 = phi { ptr, i32 } [ %59, %58 ], [ %.pn34.ph, %111 ], [ %97, %96 ], [ %92, %91 ], [ %101, %100 ], [ %88, %87 ], [ %.pn3247, %.thread44 ], [ %lpad.thr_comm.split-lp51, %164 ], [ %.pn2724, %.thread21 ], [ %lpad.thr_comm.split-lp, %153 ], [ %210, %209 ], [ %150, %149 ], [ %106, %105 ]
-  %.sroa.05.0 = phi i8 [ 1, %58 ], [ 0, %111 ], [ 1, %96 ], [ 1, %91 ], [ 1, %100 ], [ 1, %87 ], [ 1, %.thread44 ], [ 1, %164 ], [ 1, %.thread21 ], [ 1, %153 ], [ 1, %209 ], [ 1, %149 ], [ 0, %105 ]
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0, %58 ], [ true, %111 ], [ true, %96 ], [ true, %91 ], [ true, %100 ], [ true, %87 ], [ true, %.thread44 ], [ true, %164 ], [ true, %.thread21 ], [ true, %153 ], [ true, %209 ], [ true, %149 ], [ true, %105 ]
+  %.pn36 = phi { ptr, i32 } [ %59, %58 ], [ %.pn34.ph, %111 ], [ %150, %149 ], [ %97, %96 ], [ %92, %91 ], [ %101, %100 ], [ %88, %87 ], [ %106, %105 ], [ %.pn3247, %.thread44 ], [ %lpad.thr_comm.split-lp51, %164 ], [ %.pn2724, %.thread21 ], [ %lpad.thr_comm.split-lp, %153 ], [ %210, %209 ]
+  %.sroa.05.0 = phi i8 [ 1, %58 ], [ 0, %111 ], [ 1, %149 ], [ 1, %96 ], [ 1, %91 ], [ 1, %100 ], [ 1, %87 ], [ 0, %105 ], [ 1, %.thread44 ], [ 1, %164 ], [ 1, %.thread21 ], [ 1, %153 ], [ 1, %209 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0, %58 ], [ true, %111 ], [ true, %149 ], [ true, %96 ], [ true, %91 ], [ true, %100 ], [ true, %87 ], [ true, %105 ], [ true, %.thread44 ], [ true, %164 ], [ true, %.thread21 ], [ true, %153 ], [ true, %209 ]
   %52 = load i64, ptr %2, align 16, !range !224, !noundef !4
   %53 = icmp ne i64 %52, -9223372036854775783
   call void @llvm.assume(i1 %53)
@@ -11422,7 +11422,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %57, label %.thread86.thread, label %212
 
 58:                                               ; preds = %131, %130, %128, %126, %121, %85, %84, %83, %82, %75, %69, %50, %47
-  %.sroa.0.0 = phi i1 [ false, %69 ], [ true, %75 ], [ true, %83 ], [ true, %85 ], [ true, %84 ], [ true, %82 ], [ true, %47 ], [ true, %50 ], [ false, %121 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %131 ]
+  %.sroa.0.0 = phi i1 [ false, %69 ], [ true, %75 ], [ true, %83 ], [ true, %85 ], [ true, %84 ], [ true, %82 ], [ false, %131 ], [ true, %47 ], [ true, %50 ], [ false, %121 ], [ false, %126 ], [ false, %128 ], [ false, %130 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -11711,7 +11711,7 @@ default.unreachable:                              ; preds = %192, %123
   br i1 %138, label %.thread86.thread, label %215
 
 139:                                              ; preds = %200, %199, %197, %195, %190, %147, %137
-  %.sroa.05.3 = phi i8 [ %.sroa.05.2, %147 ], [ 1, %137 ], [ %.sroa.05.1, %190 ], [ %.sroa.05.1, %195 ], [ %.sroa.05.1, %197 ], [ %.sroa.05.1, %199 ], [ %.sroa.05.1, %200 ]
+  %.sroa.05.3 = phi i8 [ %.sroa.05.2, %147 ], [ %.sroa.05.1, %200 ], [ 1, %137 ], [ %.sroa.05.1, %190 ], [ %.sroa.05.1, %195 ], [ %.sroa.05.1, %197 ], [ %.sroa.05.1, %199 ]
   %140 = landingpad { ptr, i32 }
           cleanup
   br label %.thread86
@@ -12156,8 +12156,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %43 = invoke { ptr, i64 } @_ZN11polars_plan5plans3lit12LiteralValue11extract_str17h373d4a41f51c86fdE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %41)
           to label %45 unwind label %.thread42
 
-.thread42:                                        ; preds = %.invoke, %180, %47, %40, %107, %112, %114, %116, %117, %142, %147, %149, %151, %152, %173
-  %.sroa.05.0.ph = phi i8 [ 1, %173 ], [ 0, %152 ], [ 0, %151 ], [ 0, %149 ], [ 0, %147 ], [ 0, %142 ], [ 0, %117 ], [ 0, %116 ], [ 0, %114 ], [ 0, %112 ], [ 0, %107 ], [ 1, %40 ], [ 1, %47 ], [ 1, %180 ], [ 1, %.invoke ]
+.thread42:                                        ; preds = %.invoke, %117, %152, %151, %180, %173, %47, %40, %107, %112, %114, %116, %142, %147, %149
+  %.sroa.05.0.ph = phi i8 [ 0, %149 ], [ 0, %147 ], [ 0, %142 ], [ 0, %116 ], [ 0, %114 ], [ 0, %112 ], [ 0, %107 ], [ 1, %40 ], [ 1, %47 ], [ 0, %117 ], [ 1, %.invoke ], [ 1, %173 ], [ 1, %180 ], [ 0, %151 ], [ 0, %152 ]
   %lpad.thr_comm40 = landingpad { ptr, i32 }
           cleanup
   br label %.thread32
@@ -12580,7 +12580,7 @@ default.unreachable:                              ; preds = %233, %207, %144, %1
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %25)
   br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit96"
 
-"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit96": ; preds = %158, %168, %222, %233, %233, %224, %231, %236, %238, %240, %241
+"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit96": ; preds = %158, %168, %222, %233, %233, %241, %224, %231, %236, %238, %240
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void
@@ -12864,7 +12864,7 @@ default.unreachable:                              ; preds = %233, %207, %144, %1
           to label %263 unwind label %170
 
 .critedge:                                        ; preds = %169, %163, %259, %257, %260, %245, %243, %246, %263
-  %.pn4327 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %263 ], [ %164, %169 ], [ %164, %163 ], [ %.pn41, %259 ], [ %.pn41, %257 ], [ %.pn41, %260 ], [ %218, %245 ], [ %218, %243 ], [ %218, %246 ]
+  %.pn4327 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %263 ], [ %218, %246 ], [ %164, %169 ], [ %164, %163 ], [ %.pn41, %259 ], [ %.pn41, %257 ], [ %.pn41, %260 ], [ %218, %245 ], [ %218, %243 ]
   resume { ptr, i32 } %.pn4327
 
 263:                                              ; preds = %262
@@ -12978,9 +12978,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %149 unwind label %61
 
 .critedge.thread:                                 ; preds = %105, %110, %166, %154, %150, %93, %208, %.thread21, %.thread48, %111, %98, %61
-  %.pn37 = phi { ptr, i32 } [ %62, %61 ], [ %112, %111 ], [ %99, %98 ], [ %94, %93 ], [ %.pn3351, %.thread48 ], [ %lpad.thr_comm.split-lp55, %166 ], [ %.pn2924, %.thread21 ], [ %lpad.thr_comm.split-lp28, %154 ], [ %209, %208 ], [ %151, %150 ], [ %lpad.thr_comm.split-lp, %105 ], [ %lpad.thr_comm, %110 ]
-  %.sroa.07.0 = phi i8 [ 1, %61 ], [ 0, %111 ], [ 1, %98 ], [ 1, %93 ], [ 1, %.thread48 ], [ 1, %166 ], [ 1, %.thread21 ], [ 1, %154 ], [ 1, %208 ], [ 1, %150 ], [ 0, %105 ], [ 0, %110 ]
-  %.sroa.05.1 = phi i1 [ %.sroa.05.0, %61 ], [ true, %111 ], [ true, %98 ], [ true, %93 ], [ true, %.thread48 ], [ true, %166 ], [ true, %.thread21 ], [ true, %154 ], [ true, %208 ], [ true, %150 ], [ true, %105 ], [ true, %110 ]
+  %.pn37 = phi { ptr, i32 } [ %62, %61 ], [ %112, %111 ], [ %209, %208 ], [ %99, %98 ], [ %94, %93 ], [ %151, %150 ], [ %.pn3351, %.thread48 ], [ %lpad.thr_comm.split-lp55, %166 ], [ %.pn2924, %.thread21 ], [ %lpad.thr_comm.split-lp28, %154 ], [ %lpad.thr_comm.split-lp, %105 ], [ %lpad.thr_comm, %110 ]
+  %.sroa.07.0 = phi i8 [ 1, %61 ], [ 0, %111 ], [ 1, %208 ], [ 1, %98 ], [ 1, %93 ], [ 1, %150 ], [ 1, %.thread48 ], [ 1, %166 ], [ 1, %.thread21 ], [ 1, %154 ], [ 0, %105 ], [ 0, %110 ]
+  %.sroa.05.1 = phi i1 [ %.sroa.05.0, %61 ], [ true, %111 ], [ true, %208 ], [ true, %98 ], [ true, %93 ], [ true, %150 ], [ true, %.thread48 ], [ true, %166 ], [ true, %.thread21 ], [ true, %154 ], [ true, %105 ], [ true, %110 ]
   %55 = load i64, ptr %2, align 16, !range !224, !noundef !4
   %56 = icmp ne i64 %55, -9223372036854775783
   call void @llvm.assume(i1 %56)
@@ -12995,7 +12995,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %60, label %.thread84.thread, label %211
 
 61:                                               ; preds = %132, %131, %129, %127, %122, %82, %102, %91, %90, %89, %88, %78, %72, %54, %51
-  %.sroa.05.0 = phi i1 [ false, %72 ], [ true, %78 ], [ true, %102 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %51 ], [ true, %54 ], [ true, %82 ], [ false, %122 ], [ false, %127 ], [ false, %129 ], [ false, %131 ], [ false, %132 ]
+  %.sroa.05.0 = phi i1 [ false, %72 ], [ true, %78 ], [ true, %102 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %82 ], [ false, %132 ], [ true, %51 ], [ true, %54 ], [ false, %122 ], [ false, %127 ], [ false, %129 ], [ false, %131 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread
@@ -13290,7 +13290,7 @@ default.unreachable:                              ; preds = %192, %124
   br i1 %139, label %.thread84.thread, label %214
 
 140:                                              ; preds = %200, %199, %197, %195, %190, %148, %138
-  %.sroa.07.3 = phi i8 [ %.sroa.07.2, %148 ], [ 1, %138 ], [ %.sroa.07.1, %190 ], [ %.sroa.07.1, %195 ], [ %.sroa.07.1, %197 ], [ %.sroa.07.1, %199 ], [ %.sroa.07.1, %200 ]
+  %.sroa.07.3 = phi i8 [ %.sroa.07.2, %148 ], [ %.sroa.07.1, %200 ], [ 1, %138 ], [ %.sroa.07.1, %190 ], [ %.sroa.07.1, %195 ], [ %.sroa.07.1, %197 ], [ %.sroa.07.1, %199 ]
   %141 = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -13852,9 +13852,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %92 unwind label %28
 
 24:                                               ; preds = %93, %59, %115, %70, %28
-  %.pn20 = phi { ptr, i32 } [ %29, %28 ], [ %.pn.ph, %70 ], [ %116, %115 ], [ %94, %93 ], [ %lpad.thr_comm.split-lp, %59 ]
-  %.sroa.06.1 = phi i8 [ %.sroa.06.0, %28 ], [ 0, %70 ], [ 1, %115 ], [ 1, %93 ], [ 0, %59 ]
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0, %28 ], [ true, %70 ], [ true, %115 ], [ true, %93 ], [ true, %59 ]
+  %.pn20 = phi { ptr, i32 } [ %29, %28 ], [ %.pn.ph, %70 ], [ %94, %93 ], [ %116, %115 ], [ %lpad.thr_comm.split-lp, %59 ]
+  %.sroa.06.1 = phi i8 [ %.sroa.06.0, %28 ], [ 0, %70 ], [ 1, %93 ], [ 1, %115 ], [ 0, %59 ]
+  %.sroa.0.1 = phi i1 [ %.sroa.0.0, %28 ], [ true, %70 ], [ true, %93 ], [ true, %115 ], [ true, %59 ]
   %25 = load i64, ptr %2, align 16, !range !224, !noundef !4
   %26 = icmp ne i64 %25, -9223372036854775783
   call void @llvm.assume(i1 %26)
@@ -13862,8 +13862,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %27, label %117, label %118
 
 28:                                               ; preds = %77, %83, %81, %49, %39, %23, %20
-  %.sroa.06.0 = phi i8 [ 1, %39 ], [ 0, %49 ], [ 1, %83 ], [ 1, %81 ], [ 1, %20 ], [ 1, %23 ], [ 1, %77 ]
-  %.sroa.0.0 = phi i1 [ false, %39 ], [ true, %49 ], [ true, %83 ], [ true, %81 ], [ true, %20 ], [ true, %23 ], [ true, %77 ]
+  %.sroa.06.0 = phi i8 [ 1, %39 ], [ 0, %49 ], [ 1, %23 ], [ 1, %83 ], [ 1, %77 ], [ 1, %81 ], [ 1, %20 ]
+  %.sroa.0.0 = phi i1 [ false, %39 ], [ true, %49 ], [ true, %23 ], [ true, %83 ], [ true, %77 ], [ true, %81 ], [ true, %20 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %24
@@ -14001,7 +14001,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %74, label %122, label %121
 
 75:                                               ; preds = %113, %112, %110, %108, %103, %91, %84, %71
-  %.sroa.06.5 = phi i8 [ %.sroa.06.3, %91 ], [ 0, %71 ], [ 1, %84 ], [ %.sroa.06.2, %103 ], [ %.sroa.06.2, %108 ], [ %.sroa.06.2, %110 ], [ %.sroa.06.2, %112 ], [ %.sroa.06.2, %113 ]
+  %.sroa.06.5 = phi i8 [ %.sroa.06.3, %91 ], [ %.sroa.06.2, %110 ], [ 0, %71 ], [ %.sroa.06.2, %113 ], [ 1, %84 ], [ %.sroa.06.2, %112 ], [ %.sroa.06.2, %108 ], [ %.sroa.06.2, %103 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -14235,13 +14235,13 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %58 unwind label %56
 
 .body:                                            ; preds = %122, %56, %350, %349, %348, %326, %325, %323, %59
-  %.pn77 = phi { ptr, i32 } [ %295, %326 ], [ %295, %323 ], [ %295, %325 ], [ %.pn75, %350 ], [ %.pn75, %348 ], [ %.pn75, %349 ], [ %60, %59 ], [ %57, %56 ], [ %123, %122 ]
-  %.sroa.026.1 = phi i8 [ %.sroa.026.7, %326 ], [ %.sroa.026.7, %323 ], [ %.sroa.026.7, %325 ], [ %.sroa.026.4, %350 ], [ %.sroa.026.4, %348 ], [ %.sroa.026.4, %349 ], [ 1, %59 ], [ %.sroa.026.0, %56 ], [ 1, %122 ]
+  %.pn77 = phi { ptr, i32 } [ %60, %59 ], [ %295, %326 ], [ %295, %323 ], [ %295, %325 ], [ %.pn75, %350 ], [ %.pn75, %348 ], [ %.pn75, %349 ], [ %57, %56 ], [ %123, %122 ]
+  %.sroa.026.1 = phi i8 [ 1, %59 ], [ %.sroa.026.7, %326 ], [ %.sroa.026.7, %323 ], [ %.sroa.026.7, %325 ], [ %.sroa.026.4, %350 ], [ %.sroa.026.4, %348 ], [ %.sroa.026.4, %349 ], [ %.sroa.026.0, %56 ], [ 1, %122 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %3) #20
           to label %222 unwind label %175
 
 56:                                               ; preds = %318, %317, %315, %313, %308, %124, %301, %4
-  %.sroa.026.0 = phi i8 [ %.sroa.026.5, %301 ], [ 1, %4 ], [ 1, %124 ], [ %.sroa.026.5, %308 ], [ %.sroa.026.5, %313 ], [ %.sroa.026.5, %315 ], [ %.sroa.026.5, %317 ], [ %.sroa.026.5, %318 ]
+  %.sroa.026.0 = phi i8 [ %.sroa.026.5, %318 ], [ %.sroa.026.5, %301 ], [ 1, %124 ], [ 1, %4 ], [ %.sroa.026.5, %308 ], [ %.sroa.026.5, %313 ], [ %.sroa.026.5, %315 ], [ %.sroa.026.5, %317 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14282,10 +14282,10 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %72, label %89, label %92
 
 73:                                               ; preds = %232, %185, %160, %338, %236, %191, %179, %77
-  %.pn75 = phi { ptr, i32 } [ %78, %77 ], [ %.pn73.ph, %191 ], [ %.pn70.pn.ph, %179 ], [ %.pn67.pn, %236 ], [ %339, %338 ], [ %233, %232 ], [ %161, %160 ], [ %186, %185 ]
-  %.sroa.026.4 = phi i8 [ %.sroa.026.3, %77 ], [ 0, %191 ], [ 0, %179 ], [ 1, %236 ], [ 1, %338 ], [ 1, %232 ], [ 0, %160 ], [ 0, %185 ]
-  %.sroa.024.1 = phi i1 [ %.sroa.024.0, %77 ], [ true, %191 ], [ true, %179 ], [ true, %236 ], [ true, %338 ], [ true, %232 ], [ true, %160 ], [ true, %185 ]
-  %.sroa.021.1 = phi i1 [ %.sroa.021.0, %77 ], [ true, %191 ], [ true, %179 ], [ true, %236 ], [ true, %338 ], [ true, %232 ], [ true, %160 ], [ true, %185 ]
+  %.pn75 = phi { ptr, i32 } [ %78, %77 ], [ %.pn73.ph, %191 ], [ %161, %160 ], [ %.pn70.pn.ph, %179 ], [ %233, %232 ], [ %.pn67.pn, %236 ], [ %339, %338 ], [ %186, %185 ]
+  %.sroa.026.4 = phi i8 [ %.sroa.026.3, %77 ], [ 0, %191 ], [ 0, %160 ], [ 0, %179 ], [ 1, %232 ], [ 1, %236 ], [ 1, %338 ], [ 0, %185 ]
+  %.sroa.024.1 = phi i1 [ %.sroa.024.0, %77 ], [ true, %191 ], [ true, %160 ], [ true, %179 ], [ true, %232 ], [ true, %236 ], [ true, %338 ], [ true, %185 ]
+  %.sroa.021.1 = phi i1 [ %.sroa.021.0, %77 ], [ true, %191 ], [ true, %160 ], [ true, %179 ], [ true, %232 ], [ true, %236 ], [ true, %338 ], [ true, %185 ]
   %74 = load i64, ptr %54, align 16, !range !224, !noundef !4
   %75 = icmp ne i64 %74, -9223372036854775783
   call void @llvm.assume(i1 %75)
@@ -14293,9 +14293,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   br i1 %76, label %340, label %341
 
 77:                                               ; preds = %.invoke, %213, %192, %114, %274, %220, %207, %196, %154, %153, %118, %108, %89, %80, %66
-  %.sroa.026.3 = phi i8 [ 1, %80 ], [ 1, %108 ], [ 1, %118 ], [ 0, %154 ], [ 0, %153 ], [ 1, %196 ], [ 1, %220 ], [ 1, %274 ], [ 1, %207 ], [ 1, %89 ], [ 1, %66 ], [ 1, %114 ], [ 1, %192 ], [ 1, %213 ], [ 1, %.invoke ]
-  %.sroa.024.0 = phi i1 [ false, %80 ], [ true, %108 ], [ true, %118 ], [ true, %154 ], [ true, %153 ], [ true, %196 ], [ true, %220 ], [ true, %274 ], [ true, %207 ], [ true, %89 ], [ true, %66 ], [ true, %114 ], [ true, %192 ], [ true, %213 ], [ true, %.invoke ]
-  %.sroa.021.0 = phi i1 [ true, %80 ], [ false, %108 ], [ true, %118 ], [ true, %154 ], [ true, %153 ], [ true, %196 ], [ true, %220 ], [ true, %274 ], [ true, %207 ], [ true, %89 ], [ true, %66 ], [ true, %114 ], [ true, %192 ], [ true, %213 ], [ true, %.invoke ]
+  %.sroa.026.3 = phi i8 [ 1, %80 ], [ 1, %108 ], [ 1, %66 ], [ 1, %118 ], [ 1, %114 ], [ 1, %.invoke ], [ 0, %154 ], [ 0, %153 ], [ 1, %89 ], [ 1, %196 ], [ 1, %192 ], [ 1, %274 ], [ 1, %207 ], [ 1, %220 ], [ 1, %213 ]
+  %.sroa.024.0 = phi i1 [ false, %80 ], [ true, %108 ], [ true, %66 ], [ true, %118 ], [ true, %114 ], [ true, %.invoke ], [ true, %154 ], [ true, %153 ], [ true, %89 ], [ true, %196 ], [ true, %192 ], [ true, %274 ], [ true, %207 ], [ true, %220 ], [ true, %213 ]
+  %.sroa.021.0 = phi i1 [ true, %80 ], [ false, %108 ], [ true, %66 ], [ true, %118 ], [ true, %114 ], [ true, %.invoke ], [ true, %154 ], [ true, %153 ], [ true, %89 ], [ true, %196 ], [ true, %192 ], [ true, %274 ], [ true, %207 ], [ true, %220 ], [ true, %213 ]
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -14716,9 +14716,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %220 unwind label %77
 
 .invoke:                                          ; preds = %208, %144, %109
-  %217 = phi i64 [ 2, %109 ], [ 1, %144 ], [ 1, %208 ]
-  %218 = phi i64 [ %112, %109 ], [ %147, %144 ], [ %211, %208 ]
-  %219 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.139, %109 ], [ @anon.316f99d23408b8aa994a14532d0e1883.142, %144 ], [ @anon.316f99d23408b8aa994a14532d0e1883.143, %208 ]
+  %217 = phi i64 [ 1, %144 ], [ 2, %109 ], [ 1, %208 ]
+  %218 = phi i64 [ %147, %144 ], [ %112, %109 ], [ %211, %208 ]
+  %219 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.142, %144 ], [ @anon.316f99d23408b8aa994a14532d0e1883.139, %109 ], [ @anon.316f99d23408b8aa994a14532d0e1883.143, %208 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %217, i64 noundef %218, ptr noalias noundef readonly align 8 dereferenceable(24) %219) #18
           to label %.cont unwind label %77
 
@@ -15041,8 +15041,8 @@ default.unreachable:                              ; preds = %310, %284
           to label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit" unwind label %294
 
 294:                                              ; preds = %292, %291, %289, %287, %282, %88
-  %.sroa.026.7 = phi i8 [ %.sroa.026.6, %88 ], [ %.sroa.026.8, %282 ], [ %.sroa.026.8, %287 ], [ %.sroa.026.8, %289 ], [ %.sroa.026.8, %291 ], [ %.sroa.026.8, %292 ]
-  %.sroa.021.4 = phi i8 [ %.sroa.021.3, %88 ], [ %.sroa.021.5, %282 ], [ %.sroa.021.5, %287 ], [ %.sroa.021.5, %289 ], [ %.sroa.021.5, %291 ], [ %.sroa.021.5, %292 ]
+  %.sroa.026.7 = phi i8 [ %.sroa.026.6, %88 ], [ %.sroa.026.8, %292 ], [ %.sroa.026.8, %282 ], [ %.sroa.026.8, %287 ], [ %.sroa.026.8, %289 ], [ %.sroa.026.8, %291 ]
+  %.sroa.021.4 = phi i8 [ %.sroa.021.3, %88 ], [ %.sroa.021.5, %292 ], [ %.sroa.021.5, %282 ], [ %.sroa.021.5, %287 ], [ %.sroa.021.5, %289 ], [ %.sroa.021.5, %291 ]
   %295 = landingpad { ptr, i32 }
           cleanup
   %296 = load i64, ptr %62, align 16, !range !224, !noundef !4
@@ -15283,7 +15283,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   ]
 
 36:                                               ; preds = %.invoke43, %.invoke, %79, %70, %49, %85, %74, %58, %53
-  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke43 ]
+  %.sroa.0.0 = phi i1 [ true, %74 ], [ true, %85 ], [ true, %79 ], [ true, %.invoke ], [ false, %58 ], [ true, %.invoke43 ], [ true, %70 ], [ true, %53 ], [ true, %49 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
@@ -15449,8 +15449,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %85 unwind label %36
 
 .invoke:                                          ; preds = %28, %64, %42
-  %83 = phi i64 [ %45, %42 ], [ %67, %64 ], [ %31, %28 ]
-  %84 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.147, %42 ], [ @anon.316f99d23408b8aa994a14532d0e1883.151, %64 ], [ @anon.316f99d23408b8aa994a14532d0e1883.152, %28 ]
+  %83 = phi i64 [ %67, %64 ], [ %45, %42 ], [ %31, %28 ]
+  %84 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.151, %64 ], [ @anon.316f99d23408b8aa994a14532d0e1883.147, %42 ], [ @anon.316f99d23408b8aa994a14532d0e1883.152, %28 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %83, ptr noalias noundef readonly align 8 dereferenceable(24) %84) #18
           to label %.cont unwind label %36
 
@@ -15480,11 +15480,11 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   unreachable
 
 90:                                               ; preds = %91, %77
-  %.pn36 = phi { ptr, i32 } [ %.pn37, %91 ], [ %37, %77 ]
+  %.pn36 = phi { ptr, i32 } [ %37, %77 ], [ %.pn37, %91 ]
   resume { ptr, i32 } %.pn36
 
 91:                                               ; preds = %.thread, %77
-  %.pn37 = phi { ptr, i32 } [ %37, %77 ], [ %57, %.thread ]
+  %.pn37 = phi { ptr, i32 } [ %57, %.thread ], [ %37, %77 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #20
           to label %90 unwind label %88
 }
@@ -15540,7 +15540,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   ]
 
 36:                                               ; preds = %.invoke43, %.invoke, %79, %70, %49, %85, %74, %58, %53
-  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke43 ]
+  %.sroa.0.0 = phi i1 [ true, %74 ], [ true, %85 ], [ true, %79 ], [ true, %.invoke ], [ false, %58 ], [ true, %.invoke43 ], [ true, %70 ], [ true, %53 ], [ true, %49 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
@@ -15706,8 +15706,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %85 unwind label %36
 
 .invoke:                                          ; preds = %28, %64, %42
-  %83 = phi i64 [ %45, %42 ], [ %67, %64 ], [ %31, %28 ]
-  %84 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.155, %42 ], [ @anon.316f99d23408b8aa994a14532d0e1883.158, %64 ], [ @anon.316f99d23408b8aa994a14532d0e1883.159, %28 ]
+  %83 = phi i64 [ %67, %64 ], [ %45, %42 ], [ %31, %28 ]
+  %84 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.158, %64 ], [ @anon.316f99d23408b8aa994a14532d0e1883.155, %42 ], [ @anon.316f99d23408b8aa994a14532d0e1883.159, %28 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %83, ptr noalias noundef readonly align 8 dereferenceable(24) %84) #18
           to label %.cont unwind label %36
 
@@ -15737,11 +15737,11 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   unreachable
 
 90:                                               ; preds = %91, %77
-  %.pn36 = phi { ptr, i32 } [ %.pn37, %91 ], [ %37, %77 ]
+  %.pn36 = phi { ptr, i32 } [ %37, %77 ], [ %.pn37, %91 ]
   resume { ptr, i32 } %.pn36
 
 91:                                               ; preds = %.thread, %77
-  %.pn37 = phi { ptr, i32 } [ %37, %77 ], [ %57, %.thread ]
+  %.pn37 = phi { ptr, i32 } [ %57, %.thread ], [ %37, %77 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #20
           to label %90 unwind label %88
 }
@@ -15822,7 +15822,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %231 unwind label %46
 
 46:                                               ; preds = %42, %45, %233, %41, %186, %191, %193, %195, %196, %211, %216, %218, %220, %221
-  %.sroa.04.0 = phi i1 [ true, %233 ], [ true, %42 ], [ true, %45 ], [ true, %41 ], [ false, %186 ], [ false, %191 ], [ false, %193 ], [ false, %195 ], [ false, %196 ], [ false, %211 ], [ false, %216 ], [ false, %218 ], [ false, %220 ], [ false, %221 ]
+  %.sroa.04.0 = phi i1 [ false, %220 ], [ true, %233 ], [ true, %41 ], [ false, %221 ], [ false, %196 ], [ true, %42 ], [ true, %45 ], [ false, %186 ], [ false, %191 ], [ false, %193 ], [ false, %195 ], [ false, %211 ], [ false, %216 ], [ false, %218 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   %48 = load i64, ptr %1, align 16, !range !224, !noundef !4
@@ -15851,7 +15851,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %61 unwind label %59
 
 58:                                               ; preds = %.body, %59
-  %.pn37 = phi { ptr, i32 } [ %60, %59 ], [ %.pn35, %.body ]
+  %.pn38 = phi { ptr, i32 } [ %60, %59 ], [ %.pn36, %.body ]
   invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE"(ptr noalias noundef align 16 dereferenceable(96) %37) #20
           to label %.thread57 unwind label %175
 
@@ -15934,9 +15934,9 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %90 = load i64, ptr %65, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1299
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h6b7a9123b08546a0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %90, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc43 unwind label %59
+          to label %.noexc44 unwind label %59
 
-.noexc43:                                         ; preds = %88
+.noexc44:                                         ; preds = %88
   %91 = load i64, ptr %7, align 8, !range !24, !noalias !1299, !noundef !4
   %92 = trunc nuw i64 %91 to i1
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -15944,7 +15944,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %92, label %96, label %119, !prof !36
 
-96:                                               ; preds = %.noexc43
+96:                                               ; preds = %.noexc44
   %97 = load i64, ptr %95, align 8, !noalias !1299
   br label %.invoke
 
@@ -16060,7 +16060,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   br label %114
 
-119:                                              ; preds = %.noexc43
+119:                                              ; preds = %.noexc44
   %120 = load ptr, ptr %95, align 8, !noalias !1299, !nonnull !4, !noundef !4
   %121 = icmp ule i64 %90, %94
   call void @llvm.assume(i1 %121)
@@ -16093,7 +16093,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %180 unwind label %132
 
 .body:                                            ; preds = %142, %139, %132, %153
-  %.pn35 = phi { ptr, i32 } [ %.pn.pn, %153 ], [ %133, %132 ], [ %140, %139 ], [ %140, %142 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn34, %153 ], [ %133, %132 ], [ %140, %139 ], [ %140, %142 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hde3e188a75f146b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #20
           to label %58 unwind label %175
 
@@ -16156,7 +16156,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           to label %156 unwind label %154
 
 153:                                              ; preds = %162, %169, %154
-  %.pn.pn = phi { ptr, i32 } [ %155, %154 ], [ %163, %162 ], [ %170, %169 ]
+  %.pn34 = phi { ptr, i32 } [ %155, %154 ], [ %163, %162 ], [ %170, %169 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17hcb1149502d3bfe6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26) #20
           to label %.body unwind label %175
 
@@ -16329,7 +16329,7 @@ default.unreachable:                              ; preds = %243, %213, %188
   %200 = icmp ne i64 %199, -9223372036854775783
   call void @llvm.assume(i1 %200)
   %201 = icmp eq i64 %199, -9223372036854775803
-  br i1 %201, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71", label %232
+  br i1 %201, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72", label %232
 
 202:                                              ; preds = %.noexc
   %203 = load ptr, ptr %75, align 8, !noalias !1290, !nonnull !4, !noundef !4
@@ -16358,15 +16358,15 @@ default.unreachable:                              ; preds = %243, %213, %188
   %209 = icmp ult i8 %208, 4
   %210 = icmp ne i8 %208, 1
   call void @llvm.assume(i1 %210)
-  %narrow.i59 = select i1 %209, i8 %208, i8 1
-  switch i8 %narrow.i59, label %.unreachabledefault.i61 [
+  %narrow.i60 = select i1 %209, i8 %208, i8 1
+  switch i8 %narrow.i60, label %.unreachabledefault.i62 [
     i8 0, label %213
     i8 1, label %220
     i8 2, label %221
     i8 3, label %211
   ]
 
-.unreachabledefault.i61:                          ; preds = %205
+.unreachabledefault.i62:                          ; preds = %205
   unreachable
 
 211:                                              ; preds = %205
@@ -16422,19 +16422,19 @@ default.unreachable:                              ; preds = %243, %213, %188
   %229 = icmp ne i64 %228, -9223372036854775783
   call void @llvm.assume(i1 %229)
   %230 = icmp eq i64 %228, -9223372036854775803
-  br i1 %230, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71", label %234
+  br i1 %230, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72", label %234
 
 231:                                              ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 16 dereferenceable(192) %18, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %198
 
-"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71": ; preds = %.thread, %251, %250, %248, %246, %243, %243, %241, %234, %232, %198
+"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72": ; preds = %.thread, %251, %250, %248, %246, %243, %243, %241, %234, %232, %198
   ret void
 
 232:                                              ; preds = %198
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 233:                                              ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1272
@@ -16444,7 +16444,7 @@ default.unreachable:                              ; preds = %243, %213, %188
 
 234:                                              ; preds = %.thread, %223
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 235:                                              ; preds = %223
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -16453,62 +16453,62 @@ default.unreachable:                              ; preds = %243, %213, %188
   %239 = icmp ult i8 %238, 4
   %240 = icmp ne i8 %238, 1
   call void @llvm.assume(i1 %240)
-  %narrow.i68 = select i1 %239, i8 %238, i8 1
-  switch i8 %narrow.i68, label %.unreachabledefault.i70 [
+  %narrow.i69 = select i1 %239, i8 %238, i8 1
+  switch i8 %narrow.i69, label %.unreachabledefault.i71 [
     i8 0, label %243
     i8 1, label %250
     i8 2, label %251
     i8 3, label %241
   ]
 
-.unreachabledefault.i70:                          ; preds = %235
+.unreachabledefault.i71:                          ; preds = %235
   unreachable
 
 241:                                              ; preds = %235
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @"_ZN4core3ptr63drop_in_place$LT$polars_plan..plans..lit..RangeLiteralValue$GT$17h81f6a909fc0ad165E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %242)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 243:                                              ; preds = %235
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %245 = load i64, ptr %244, align 16, !range !250, !alias.scope !1381, !noundef !4
   switch i64 %245, label %default.unreachable [
     i64 0, label %248
-    i64 1, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
-    i64 2, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+    i64 1, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
+    i64 2, label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
     i64 3, label %246
   ]
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call fastcc void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..plans..lit..DynListLiteralValue$GT$17h40dfb738344a2189E"(ptr noalias noundef align 8 dereferenceable(24) %247)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 248:                                              ; preds = %243
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h1279974081ec148fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %249)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 250:                                              ; preds = %235
   call void @"_ZN4core3ptr48drop_in_place$LT$polars_core..scalar..Scalar$GT$17h8be5c37ace23a977E"(ptr noalias noundef nonnull align 16 dereferenceable(96) %236)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 251:                                              ; preds = %235
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @"_ZN4core3ptr102drop_in_place$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$polars_core..series..Series$GT$$GT$17h89937e0dc9cee153E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %252)
-  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit71"
+  br label %"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE.exit72"
 
 253:                                              ; preds = %46
   br i1 %.sroa.04.0, label %255, label %.thread64
 
 254:                                              ; preds = %.thread57, %46
-  %.pn3962 = phi { ptr, i32 } [ %.pn37, %.thread57 ], [ %47, %46 ]
+  %.pn4062 = phi { ptr, i32 } [ %.pn38, %.thread57 ], [ %47, %46 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #20
           to label %.thread64 unwind label %175
 
 .thread64:                                        ; preds = %.thread57, %255, %254, %253
-  %.pn3961 = phi { ptr, i32 } [ %47, %255 ], [ %.pn3962, %254 ], [ %47, %253 ], [ %.pn37, %.thread57 ]
-  resume { ptr, i32 } %.pn3961
+  %.pn4061 = phi { ptr, i32 } [ %47, %255 ], [ %.pn4062, %254 ], [ %47, %253 ], [ %.pn38, %.thread57 ]
+  resume { ptr, i32 } %.pn4061
 
 255:                                              ; preds = %253
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -36825,7 +36825,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor12vis
   br i1 %cond.i, label %.thread.i, label %.thread4.i
 
 36:                                               ; preds = %63, %42, %24, %20
-  %.sroa.02.0.i = phi i8 [ 1, %42 ], [ 0, %63 ], [ 1, %20 ], [ 1, %24 ]
+  %.sroa.02.0.i = phi i8 [ 1, %42 ], [ 0, %63 ], [ 1, %24 ], [ 1, %20 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %35
@@ -37309,7 +37309,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor12vis
           to label %.thread.i unwind label %16, !noalias !3425
 
 .thread.i:                                        ; preds = %20, %18, %14
-  %.pn3.i = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %15, %14 ]
+  %.pn3.i = phi { ptr, i32 } [ %15, %14 ], [ %21, %20 ], [ %19, %18 ]
   resume { ptr, i32 } %.pn3.i
 
 20:                                               ; preds = %3
@@ -42157,7 +42157,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor19vis
   br i1 %38, label %136, label %140
 
 39:                                               ; preds = %31, %140, %141, %90, %95, %97, %99, %100, %136
-  %.sroa.09.0 = phi i8 [ 1, %141 ], [ 1, %140 ], [ 1, %31 ], [ 0, %90 ], [ 0, %95 ], [ 0, %97 ], [ 0, %99 ], [ 0, %100 ], [ 1, %136 ]
+  %.sroa.09.0 = phi i8 [ 0, %100 ], [ 0, %99 ], [ 1, %141 ], [ 1, %136 ], [ 1, %140 ], [ 1, %31 ], [ 0, %90 ], [ 0, %95 ], [ 0, %97 ]
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load i64, ptr %3, align 16, !range !224, !noundef !4
@@ -42485,9 +42485,9 @@ default.unreachable:                              ; preds = %92
           to label %129 unwind label %132
 
 .thread41:                                        ; preds = %.thread29, %151, %132
-  %.sroa.08.6 = phi i8 [ %.sroa.09.5, %132 ], [ %.sroa.08.136, %151 ], [ %.sroa.08.3, %.thread29 ]
-  %.sroa.09.6 = phi i8 [ %.sroa.09.5, %132 ], [ %.sroa.09.138, %151 ], [ %.sroa.09.3, %.thread29 ]
-  %.pn22 = phi { ptr, i32 } [ %133, %132 ], [ %.pn2040, %151 ], [ %.pn18, %.thread29 ]
+  %.sroa.08.6 = phi i8 [ %.sroa.09.5, %132 ], [ %.sroa.08.3, %.thread29 ], [ %.sroa.08.136, %151 ]
+  %.sroa.09.6 = phi i8 [ %.sroa.09.5, %132 ], [ %.sroa.09.3, %.thread29 ], [ %.sroa.09.138, %151 ]
+  %.pn22 = phi { ptr, i32 } [ %133, %132 ], [ %.pn18, %.thread29 ], [ %.pn2040, %151 ]
   %131 = trunc nuw i8 %.sroa.08.6 to i1
   br i1 %131, label %.thread41.thread, label %145
 

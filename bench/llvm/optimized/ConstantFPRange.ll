@@ -1150,14 +1150,14 @@ _ZN4llvm15ConstantFPRangeD2Ev.exit:               ; preds = %90, %93, %89
 
 98:                                               ; preds = %94
   %.not5.i.i = icmp eq ptr %96, %18
-  br i1 %.not5.i.i, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i, label %99
+  br i1 %.not5.i.i, label %99, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i
 
 99:                                               ; preds = %98
-  %100 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %95) #12
+  %100 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %95) #12
   br i1 %100, label %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit, label %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit.thread
 
 _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i:   ; preds = %98
-  %101 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %95) #12
+  %101 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %95) #12
   br i1 %101, label %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit, label %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit.thread
 
 _ZNK4llvm15ConstantFPRange16getSingleElementEb.exit: ; preds = %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i, %99
@@ -1197,7 +1197,7 @@ _ZNK4llvm15ConstantFPRange16getSingleElementEb.exit: ; preds = %_ZNK4llvm7APFloa
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit.thread: ; preds = %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit, %94, %99, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i
+_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit.thread: ; preds = %_ZNK4llvm15ConstantFPRange16getSingleElementEb.exit, %99, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i, %94
   %109 = icmp eq i32 %1, 6
   %110 = load ptr, ptr %2, align 8, !tbaa !3
   br i1 %109, label %111, label %112
@@ -2013,14 +2013,14 @@ define dso_local noundef ptr @_ZNK4llvm15ConstantFPRange16getSingleElementEb(ptr
 11:                                               ; preds = %7
   %12 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #11
   %.not5.i = icmp eq ptr %9, %12
-  br i1 %.not5.i, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit, label %13
+  br i1 %.not5.i, label %13, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit
 
 13:                                               ; preds = %11
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   br i1 %14, label %16, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.thread
 
 _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit:     ; preds = %11
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   br i1 %15, label %16, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.thread
 
 16:                                               ; preds = %13, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit
@@ -2498,17 +2498,17 @@ _ZNK4llvm15ConstantFPRange9isNaNOnlyEv.exit.thread: ; preds = %39, %54, %_ZNK4ll
 
 70:                                               ; preds = %66
   %.not5.i.i.i = icmp eq ptr %68, %12
-  br i1 %.not5.i.i.i, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i.i, label %71
+  br i1 %.not5.i.i.i, label %71, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i.i
 
 71:                                               ; preds = %70
-  %72 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %67) #12
+  %72 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %67) #12
   br i1 %72, label %_ZNK4llvm15ConstantFPRange15isSingleElementEb.exit, label %74
 
 _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i.i: ; preds = %70
-  %73 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %67) #12
+  %73 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(24) %67) #12
   br i1 %73, label %_ZNK4llvm15ConstantFPRange15isSingleElementEb.exit, label %74
 
-74:                                               ; preds = %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i.i, %71, %66
+74:                                               ; preds = %66, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit.i.i, %71
   %75 = tail call noundef i32 @_ZNK4llvm15ConstantFPRange8classifyEv(ptr noundef nonnull align 8 dereferenceable(49) %2)
   %76 = and i32 %75, 1020
   %77 = icmp eq i32 %76, 96
@@ -3240,12 +3240,12 @@ _ZL13strictCompareRKN4llvm7APFloatES2_.exit.thread: ; preds = %29, %_ZL13strictC
   br label %_ZL13strictCompareRKN4llvm7APFloatES2_.exit17
 
 _ZL13strictCompareRKN4llvm7APFloatES2_.exit17:    ; preds = %58, %66, %68
-  %.0.i13 = phi i32 [ %67, %66 ], [ %69, %68 ], [ %spec.select.i16, %58 ]
+  %.0.i13 = phi i32 [ %spec.select.i16, %58 ], [ %69, %68 ], [ %67, %66 ]
   %70 = icmp ne i32 %.0.i13, 2
   br label %71
 
 71:                                               ; preds = %9, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit17, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit ], [ %70, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit17 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ false, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit ], [ %70, %_ZL13strictCompareRKN4llvm7APFloatES2_.exit17 ]
   ret i1 %.0
 }
 
@@ -3406,7 +3406,7 @@ _ZL13strictCompareRKN4llvm7APFloatES2_.exit.thread: ; preds = %_ZL13strictCompar
   br label %_ZL13strictCompareRKN4llvm7APFloatES2_.exit12
 
 _ZL13strictCompareRKN4llvm7APFloatES2_.exit12:    ; preds = %55, %63, %65
-  %.0.i8 = phi i32 [ %64, %63 ], [ %66, %65 ], [ %spec.select.i11, %55 ]
+  %.0.i8 = phi i32 [ %spec.select.i11, %55 ], [ %66, %65 ], [ %64, %63 ]
   %67 = icmp ne i32 %.0.i8, 2
   br label %68
 
@@ -3479,14 +3479,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15ConstantFPRangeeqERKS0_(ptr noun
 12:                                               ; preds = %9
   %13 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #11
   %.not5.i = icmp eq ptr %10, %13
-  br i1 %.not5.i, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit, label %14
+  br i1 %.not5.i, label %14, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit
 
 14:                                               ; preds = %12
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   br i1 %15, label %17, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit11
 
 _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit:     ; preds = %12
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   br i1 %16, label %17, label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit11
 
 17:                                               ; preds = %14, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit
@@ -3510,7 +3510,7 @@ _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit:     ; preds = %12
   br label %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit11
 
 _ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit11:   ; preds = %9, %25, %23, %17, %14, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit ], [ false, %14 ], [ %24, %23 ], [ %26, %25 ], [ false, %17 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %_ZNK4llvm7APFloat14bitwiseIsEqualERKS0_.exit ], [ false, %14 ], [ false, %17 ], [ %26, %25 ], [ %24, %23 ]
   ret i1 %.0
 }
 
@@ -3716,7 +3716,7 @@ _ZN4llvm11raw_ostreamlsEc.exit29.thread:          ; preds = %46
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit32
 
 _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit29.thread, %111, %109
-  %114 = phi ptr [ %94, %111 ], [ %94, %109 ], [ %97, %_ZN4llvm11raw_ostreamlsEc.exit29.thread ]
+  %114 = phi ptr [ %94, %109 ], [ %94, %111 ], [ %97, %_ZN4llvm11raw_ostreamlsEc.exit29.thread ]
   %115 = load i8, ptr %114, align 8
   %116 = trunc i8 %115 to i1
   %117 = and i8 %115, 3

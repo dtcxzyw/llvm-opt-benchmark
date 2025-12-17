@@ -1028,7 +1028,7 @@ find_message_type_by_udp_port.exit:               ; preds = %80
   %.not121 = icmp eq ptr %87, null
   br i1 %.not121, label %find_message_type_by_udp_port.exit.thread, label %.thread155
 
-find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, %.thread134, %55, %.thread, %find_message_type_by_udp_port.exit
+find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, %55, %.thread134, %.thread, %find_message_type_by_udp_port.exit
   %88 = tail call ptr @wmem_file_scope()
   %89 = load i32, ptr @proto_http, align 4
   %90 = tail call ptr @p_get_proto_data(ptr noundef %88, ptr noundef %1, i32 noundef %89, i32 noundef 0)
@@ -1076,7 +1076,7 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   %.not125 = icmp eq ptr %106, null
   br i1 %.not125, label %.thread151, label %.thread155
 
-.thread151:                                       ; preds = %96, %.preheader166, %101, %find_message_type_by_udp_port.exit.thread, %91, %104
+.thread151:                                       ; preds = %96, %.preheader166, %101, %91, %find_message_type_by_udp_port.exit.thread, %104
   %107 = load ptr, ptr @default_message_type, align 8
   %char0126 = load i8, ptr %107, align 1
   %.not127 = icmp eq i8 %char0126, 0
@@ -1702,7 +1702,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %32
   br label %.thread52
 
 .thread52:                                        ; preds = %.thread52.loopexit92.split.loop.exit99, %10, %28, %.lr.ph73, %tailrecurse.backedge, %22, %3
-  %.035 = phi i1 [ false, %3 ], [ false, %22 ], [ %.mux.le, %.thread52.loopexit92.split.loop.exit99 ], [ true, %10 ], [ true, %28 ], [ true, %.lr.ph73 ], [ false, %tailrecurse.backedge ]
+  %.035 = phi i1 [ false, %3 ], [ false, %22 ], [ true, %10 ], [ true, %28 ], [ %.mux.le, %.thread52.loopexit92.split.loop.exit99 ], [ true, %.lr.ph73 ], [ false, %tailrecurse.backedge ]
   ret i1 %.035
 }
 
@@ -2949,8 +2949,8 @@ proto_item_set_generated.exit320.i:               ; preds = %517, %514, %proto_i
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %541, %538, %536, %531, %proto_item_set_generated.exit320.i
-  %.0286345.i = phi ptr [ %526, %531 ], [ %526, %536 ], [ %526, %538 ], [ %526, %541 ], [ null, %proto_item_set_generated.exit320.i ]
-  %.0285.i = phi ptr [ %484, %531 ], [ %.1115, %536 ], [ %.1115, %538 ], [ %.1115, %541 ], [ %484, %proto_item_set_generated.exit320.i ]
+  %.0286345.i = phi ptr [ %526, %531 ], [ %526, %541 ], [ %526, %536 ], [ %526, %538 ], [ null, %proto_item_set_generated.exit320.i ]
+  %.0285.i = phi ptr [ %484, %531 ], [ %.1115, %541 ], [ %.1115, %536 ], [ %.1115, %538 ], [ %484, %proto_item_set_generated.exit320.i ]
   store i32 0, ptr %14, align 4
   br i1 %178, label %545, label %546
 
@@ -3624,10 +3624,10 @@ define internal fastcc void @protobuf_dissect_field_value(ptr noundef %0, ptr no
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %17, %21, %42, %39, %38, %33
-  %46 = phi i1 [ true, %33 ], [ true, %38 ], [ true, %39 ], [ true, %42 ], [ false, %21 ], [ false, %17 ]
-  %.0383425 = phi ptr [ %28, %33 ], [ %28, %38 ], [ %28, %39 ], [ %28, %42 ], [ null, %21 ], [ null, %17 ]
-  %47 = phi ptr [ %23, %33 ], [ %23, %38 ], [ %23, %39 ], [ %23, %42 ], [ %23, %21 ], [ null, %17 ]
-  %.0 = phi ptr [ %19, %33 ], [ %20, %38 ], [ %20, %39 ], [ %20, %42 ], [ %19, %21 ], [ %19, %17 ]
+  %46 = phi i1 [ true, %33 ], [ true, %42 ], [ true, %38 ], [ true, %39 ], [ false, %21 ], [ false, %17 ]
+  %.0383425 = phi ptr [ %28, %33 ], [ %28, %42 ], [ %28, %38 ], [ %28, %39 ], [ null, %21 ], [ null, %17 ]
+  %47 = phi ptr [ %23, %33 ], [ %23, %42 ], [ %23, %38 ], [ %23, %39 ], [ %23, %21 ], [ null, %17 ]
+  %.0 = phi ptr [ %19, %33 ], [ %20, %42 ], [ %20, %38 ], [ %20, %39 ], [ %19, %21 ], [ %19, %17 ]
   %48 = icmp eq ptr %8, null
   %spec.store.select = select i1 %48, ptr @.str.166, ptr %8
   switch i32 %6, label %.thread471 [
@@ -3815,7 +3815,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %21, %42, %39, 
   %.not411 = icmp eq ptr %124, null
   br i1 %.not411, label %.thread427, label %127
 
-.thread427:                                       ; preds = %121, %119, %123
+.thread427:                                       ; preds = %119, %121, %123
   %125 = load i32, ptr @hf_protobuf_value_int32, align 4
   %126 = tail call ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %125, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %120)
   br label %135
@@ -4171,7 +4171,7 @@ proto_item_set_hidden.exit418:                    ; preds = %184, %181, %179, %1
   br label %292
 
 292:                                              ; preds = %289, %291, %272, %274, %254, %256, %238, %233, %239, %240, %215, %219, %.thread, %196, %163, %165, %150, %145, %149, %148, %116, %118, %102, %104, %89, %91, %76, %78, %60, %62
-  %.0382 = phi ptr [ null, %62 ], [ null, %60 ], [ null, %78 ], [ null, %76 ], [ null, %91 ], [ null, %89 ], [ null, %104 ], [ null, %102 ], [ null, %118 ], [ null, %116 ], [ %141, %148 ], [ %141, %149 ], [ %141, %145 ], [ null, %150 ], [ null, %165 ], [ null, %163 ], [ %.1, %219 ], [ %.1, %215 ], [ %198, %196 ], [ null, %.thread ], [ null, %238 ], [ null, %233 ], [ null, %240 ], [ null, %239 ], [ null, %256 ], [ null, %254 ], [ null, %274 ], [ null, %272 ], [ null, %291 ], [ null, %289 ]
+  %.0382 = phi ptr [ null, %289 ], [ null, %62 ], [ null, %60 ], [ null, %78 ], [ null, %76 ], [ null, %91 ], [ null, %89 ], [ null, %104 ], [ null, %102 ], [ null, %118 ], [ null, %116 ], [ %141, %148 ], [ %141, %149 ], [ %141, %145 ], [ null, %150 ], [ null, %165 ], [ null, %163 ], [ null, %291 ], [ null, %272 ], [ %.1, %219 ], [ %.1, %215 ], [ %198, %196 ], [ null, %.thread ], [ null, %238 ], [ null, %233 ], [ null, %240 ], [ null, %239 ], [ null, %256 ], [ null, %254 ], [ null, %274 ]
   %.not413 = icmp eq ptr %47, null
   br i1 %.not413, label %304, label %.thread439
 

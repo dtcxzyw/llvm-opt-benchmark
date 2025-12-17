@@ -716,7 +716,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %17
   br label %_ZNK3app13get_decl_kindEv.exit.thread
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %17, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3smt7context14b_internalizedEPK4expr.exit, %25
-  %.0 = phi i1 [ true, %25 ], [ true, %_ZNK3smt7context14b_internalizedEPK4expr.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %17 ]
+  %.0 = phi i1 [ true, %_ZNK3smt7context14b_internalizedEPK4expr.exit ], [ true, %25 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -2099,7 +2099,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit56:        ; preds = %_ZN7obj_refI3app11a
   ret void
 
 159:                                              ; preds = %135, %139, %137, %74, %68
-  %.pn23.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn, %74 ], [ %136, %135 ], [ %140, %139 ], [ %138, %137 ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %.pn, %74 ], [ %69, %68 ], [ %136, %135 ], [ %140, %139 ], [ %138, %137 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
@@ -2274,7 +2274,7 @@ _ZNK7obj_mapI4sortP9func_declE4findEPS0_RS2_.exit31: ; preds = %57, %68
   store ptr %78, ptr %3, align 8, !tbaa !553
   br label %219
 
-_ZNK7obj_mapI4sortP9func_declE4findEPS0_RS2_.exit.thread: ; preds = %28, %39, %42, %62, %73, %76, %.preheader.i.i.i18, %.preheader.i.i.i
+_ZNK7obj_mapI4sortP9func_declE4findEPS0_RS2_.exit.thread: ; preds = %28, %42, %39, %62, %76, %73, %.preheader.i.i.i18, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %80 = tail call noundef ptr @_ZN7bv_util7mk_sortEj(ptr noundef nonnull align 8 dereferenceable(24) %79, i32 noundef 64)
@@ -2698,7 +2698,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP9func_declE
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !644
@@ -2745,7 +2745,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP9func_declE
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !645
@@ -4081,7 +4081,7 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beg
   %53 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !541
   br label %58
 
-_ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit.thread: ; preds = %23, %34, %37, %.preheader.i.i.i, %.loopexit
+_ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit.thread: ; preds = %23, %37, %34, %.preheader.i.i.i, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !514
   %54 = load ptr, ptr %0, align 8, !tbaa !504
@@ -4523,7 +4523,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit54:    ; preds = %178, %180, %187
   store ptr %174, ptr %3, align 8, !tbaa !687
   br label %222
 
-.loopexit70:                                      ; preds = %30, %44, %41, %.preheader.i.i.i
+.loopexit70:                                      ; preds = %30, %41, %44, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !514
   %188 = load ptr, ptr %0, align 8, !tbaa !504
@@ -4623,7 +4623,7 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryIjE15get_fresh_valueE
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.lr.ph, label %.lr.ph.thread
 
-.lr.ph.thread:                                    ; preds = %7, %2
+.lr.ph.thread:                                    ; preds = %2, %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.lr.ph.split.us.preheader
 
@@ -4904,7 +4904,7 @@ _ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit: ; preds 
   %39 = load ptr, ptr %38, align 8, !tbaa !681
   br label %83
 
-.loopexit:                                        ; preds = %23, %37, %34, %.preheader.i.i.i
+.loopexit:                                        ; preds = %23, %34, %37, %.preheader.i.i.i
   %40 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %41 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, i8 0, i64 64, i1 false), !tbaa !684
@@ -5214,7 +5214,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortPN14simple_f
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !713
@@ -5261,7 +5261,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortPN14simple_f
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !714
@@ -5712,7 +5712,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !718
@@ -5759,7 +5759,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !719

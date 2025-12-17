@@ -418,7 +418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %77,
   br i1 %or.cond57, label %.sink.split, label %130
 
 .sink.split:                                      ; preds = %123, %122, %100
-  %.sink = phi i32 [ 22, %100 ], [ 22, %122 ], [ 19, %123 ]
+  %.sink = phi i32 [ 22, %122 ], [ 22, %100 ], [ 19, %123 ]
   %129 = tail call ptr @__errno_location() #14
   store i32 %.sink, ptr %129, align 4, !tbaa !23
   br label %130

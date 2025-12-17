@@ -579,7 +579,7 @@ _ZN15ShenandoahPacer12report_allocEm.exit:        ; preds = %163, %159, %152, %1
   br label %187
 
 187:                                              ; preds = %168, %184, %_ZN15ShenandoahPacer12report_allocEm.exit
-  %.185 = phi double [ %165, %184 ], [ %.084116, %_ZN15ShenandoahPacer12report_allocEm.exit ], [ %.084116, %168 ]
+  %.185 = phi double [ %165, %184 ], [ %.084116, %168 ], [ %.084116, %_ZN15ShenandoahPacer12report_allocEm.exit ]
   %188 = load volatile i8, ptr %37, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %189 = icmp eq i8 %188, 1

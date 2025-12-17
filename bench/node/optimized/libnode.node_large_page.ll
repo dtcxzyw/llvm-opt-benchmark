@@ -628,7 +628,7 @@ if.end9.i69.i:                                    ; preds = %if.end5.i65.i
   br label %return
 
 return:                                           ; preds = %if.end9.i69.i, %if.end5.i65.i, %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit.i, %_ZN4node12_GLOBAL__N_129IsTransparentHugePagesEnabledEv.exit.thread, %_ZN4node12_GLOBAL__N_118FindNodeTextRegionEv.exit, %if.end4.i
-  %retval.0 = phi i32 [ 13, %if.end4.i ], [ 2, %_ZN4node12_GLOBAL__N_118FindNodeTextRegionEv.exit ], [ 13, %_ZN4node12_GLOBAL__N_129IsTransparentHugePagesEnabledEv.exit.thread ], [ %retval.0.i13, %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit.i ], [ %retval.0.i13, %if.end5.i65.i ], [ %retval.0.i13, %if.end9.i69.i ]
+  %retval.0 = phi i32 [ 13, %if.end4.i ], [ 13, %_ZN4node12_GLOBAL__N_129IsTransparentHugePagesEnabledEv.exit.thread ], [ 2, %_ZN4node12_GLOBAL__N_118FindNodeTextRegionEv.exit ], [ %retval.0.i13, %_ZN4node12_GLOBAL__N_116MemoryMapPointerD2Ev.exit.i ], [ %retval.0.i13, %if.end5.i65.i ], [ %retval.0.i13, %if.end9.i69.i ]
   ret i32 %retval.0
 }
 
@@ -659,7 +659,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %sw.default, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ @.str.5, %sw.default ], [ @.str.1, %sw.bb1 ], [ @.str.2, %sw.bb2 ], [ @.str.3, %sw.bb3 ], [ @.str.4, %sw.bb4 ], [ @.str, %entry ]
+  %retval.0 = phi ptr [ @.str.5, %sw.default ], [ @.str.4, %sw.bb4 ], [ @.str.1, %sw.bb1 ], [ @.str.2, %sw.bb2 ], [ @.str.3, %sw.bb3 ], [ @.str, %entry ]
   ret ptr %retval.0
 }
 
@@ -2345,7 +2345,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !260
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16

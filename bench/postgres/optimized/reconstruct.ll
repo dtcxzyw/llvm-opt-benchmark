@@ -347,9 +347,9 @@ make_rfile.exit:                                  ; preds = %.lr.ph223, %76
   br label %169
 
 169:                                              ; preds = %.loopexit.thread, %152, %160, %156, %142, %.loopexit
-  %.1136.ph301 = phi i1 [ %117, %142 ], [ %117, %.loopexit ], [ %117, %152 ], [ %117, %160 ], [ %117, %156 ], [ %.1136.ph.ph, %.loopexit.thread ]
-  %.1148.ph300 = phi ptr [ %.0146, %142 ], [ %.0146, %.loopexit ], [ %.0146, %152 ], [ %.0146, %160 ], [ %.0146, %156 ], [ null, %.loopexit.thread ]
-  %.0 = phi i32 [ %8, %142 ], [ %8, %.loopexit ], [ %8, %152 ], [ 0, %160 ], [ %8, %156 ], [ %8, %.loopexit.thread ]
+  %.1136.ph301 = phi i1 [ %117, %.loopexit ], [ %117, %142 ], [ %117, %152 ], [ %117, %160 ], [ %117, %156 ], [ %.1136.ph.ph, %.loopexit.thread ]
+  %.1148.ph300 = phi ptr [ %.0146, %.loopexit ], [ %.0146, %142 ], [ %.0146, %152 ], [ %.0146, %160 ], [ %.0146, %156 ], [ null, %.loopexit.thread ]
+  %.0 = phi i32 [ %8, %.loopexit ], [ %8, %142 ], [ %8, %152 ], [ 0, %160 ], [ %8, %156 ], [ %8, %.loopexit.thread ]
   %170 = call i32 @pg_checksum_init(ptr noundef nonnull %19, i32 noundef %.0) #10
   %.not = icmp eq ptr %.1148.ph300, null
   br i1 %.not, label %173, label %171
@@ -616,7 +616,7 @@ read_block.exit117.us.i:                          ; preds = %269
   br label %279
 
 279:                                              ; preds = %277, %.critedge.us.i, %276
-  %.1120.us149.i = phi i32 [ %.097140.us146.i, %276 ], [ %.097140.us146.i, %.critedge.us.i ], [ %278, %277 ]
+  %.1120.us149.i = phi i32 [ %278, %277 ], [ %.097140.us146.i, %276 ], [ %.097140.us146.i, %.critedge.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
   %exitcond184.not.i = icmp eq i64 %indvars.iv.next181.i, %39
@@ -705,8 +705,8 @@ read_block.exit.i:                                ; preds = %.thread.i, %283
   br i1 %exitcond179.not.i, label %._crit_edge144.i, label %.lr.ph143.split.split.i, !llvm.loop !11
 
 ._crit_edge144.i:                                 ; preds = %read_block.exit.i, %279, %244
-  %.0203.i = phi i32 [ -1, %244 ], [ %227, %279 ], [ %227, %read_block.exit.i ]
-  %.097.lcssa.i = phi i32 [ %.1120.us.i, %244 ], [ %.1120.us149.i, %279 ], [ %.1120.i, %read_block.exit.i ]
+  %.0203.i = phi i32 [ %227, %279 ], [ -1, %244 ], [ %227, %read_block.exit.i ]
+  %.097.lcssa.i = phi i32 [ %.1120.us149.i, %279 ], [ %.1120.us.i, %244 ], [ %.1120.i, %read_block.exit.i ]
   %.not.i166 = icmp ne i32 %.097.lcssa.i, 0
   %307 = load i32, ptr @__pg_log_level, align 4
   %308 = icmp ult i32 %307, 2

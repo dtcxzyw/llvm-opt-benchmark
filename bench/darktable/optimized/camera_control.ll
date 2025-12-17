@@ -209,7 +209,7 @@ define range(i32 0, 2) i32 @dt_camctl_camera_start_live_view(ptr noundef %0) loc
   br label %dt_camctl_camera_set_property_int.exit
 
 31:                                               ; preds = %23, %19
-  %.0.i = phi ptr [ %25, %23 ], [ %21, %19 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %25, %23 ]
   %32 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #16
   store i32 8, ptr %32, align 8, !tbaa !62
   %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #15
@@ -248,7 +248,7 @@ dt_camctl_camera_set_property_int.exit:           ; preds = %27, %30, %31
   br label %dt_camctl_camera_set_property_int.exit14
 
 52:                                               ; preds = %44, %dt_camctl_camera_set_property_int.exit
-  %.0.i12 = phi ptr [ %46, %44 ], [ %42, %dt_camctl_camera_set_property_int.exit ]
+  %.0.i12 = phi ptr [ %42, %dt_camctl_camera_set_property_int.exit ], [ %46, %44 ]
   %53 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #16
   store i32 8, ptr %53, align 8, !tbaa !62
   %54 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #15
@@ -271,7 +271,7 @@ dt_camctl_camera_set_property_int.exit14:         ; preds = %48, %51, %52
   br label %65
 
 65:                                               ; preds = %15, %18, %7, %8, %dt_camctl_camera_set_property_int.exit14
-  %.0 = phi i32 [ 1, %dt_camctl_camera_set_property_int.exit14 ], [ 0, %8 ], [ 0, %7 ], [ 0, %18 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %dt_camctl_camera_set_property_int.exit14 ], [ 0, %7 ], [ 0, %8 ], [ 0, %18 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -490,7 +490,7 @@ define void @dt_camctl_camera_stop_live_view(ptr noundef readonly captures(none)
   br label %dt_camctl_camera_set_property_int.exit
 
 28:                                               ; preds = %20, %14
-  %.0.i = phi ptr [ %22, %20 ], [ %18, %14 ]
+  %.0.i = phi ptr [ %18, %14 ], [ %22, %20 ]
   %29 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #16
   store i32 8, ptr %29, align 8, !tbaa !62
   %30 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #15
@@ -529,7 +529,7 @@ dt_camctl_camera_set_property_int.exit:           ; preds = %24, %27, %28
   br label %dt_camctl_camera_set_property_int.exit12
 
 49:                                               ; preds = %41, %dt_camctl_camera_set_property_int.exit
-  %.0.i10 = phi ptr [ %43, %41 ], [ %39, %dt_camctl_camera_set_property_int.exit ]
+  %.0.i10 = phi ptr [ %39, %dt_camctl_camera_set_property_int.exit ], [ %43, %41 ]
   %50 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #16
   store i32 8, ptr %50, align 8, !tbaa !62
   %51 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #15
@@ -1237,7 +1237,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   br label %_have_camera_on_port.exit.i
 
 _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.loopexit.i, %93
-  %.1.i = phi i32 [ %.0146220.i, %93 ], [ 1, %135 ], [ 1, %.loopexit.i ], [ %.0146220.i, %117 ], [ %.0146220.i, %103 ]
+  %.1.i = phi i32 [ %.0146220.i, %93 ], [ 1, %.loopexit.i ], [ 1, %135 ], [ %.0146220.i, %117 ], [ %.0146220.i, %103 ]
   call void @g_free(ptr noundef nonnull %82) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = add nuw nsw i32 %.0150219.i, 1
@@ -1694,8 +1694,8 @@ _dispatch_camera_connected.exit.i:                ; preds = %364, %dt_camctl_unu
   br label %dt_camctl_unused_camera_destroy.exit.i
 
 dt_camctl_unused_camera_destroy.exit.i:           ; preds = %_dispatch_camera_connected.exit.i, %328, %309, %182, %178, %174
-  %.3156.i = phi ptr [ %.0153.i, %182 ], [ %.0153.i, %309 ], [ %.0153.i, %328 ], [ %353, %_dispatch_camera_connected.exit.i ], [ %177, %174 ], [ %177, %178 ]
-  %.7.i = phi i32 [ %.4.i, %182 ], [ %.4.i, %309 ], [ %.4.i, %328 ], [ 1, %_dispatch_camera_connected.exit.i ], [ 1, %174 ], [ 1, %178 ]
+  %.3156.i = phi ptr [ %.0153.i, %182 ], [ %353, %_dispatch_camera_connected.exit.i ], [ %.0153.i, %309 ], [ %.0153.i, %328 ], [ %177, %174 ], [ %177, %178 ]
+  %.7.i = phi i32 [ %.4.i, %182 ], [ 1, %_dispatch_camera_connected.exit.i ], [ %.4.i, %309 ], [ %.4.i, %328 ], [ 1, %174 ], [ 1, %178 ]
   %.not179.i = icmp eq ptr %.3156.i, null
   br i1 %.not179.i, label %.critedge.i, label %367
 
@@ -2424,7 +2424,7 @@ define i64 @dt_camctl_get_image_file_timestamp(ptr noundef readonly captures(non
   br label %23
 
 23:                                               ; preds = %16, %19, %20
-  %.0 = phi i64 [ %22, %20 ], [ 0, %19 ], [ 0, %16 ]
+  %.0 = phi i64 [ %22, %20 ], [ 0, %16 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
@@ -2564,7 +2564,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   br label %50
 
 50:                                               ; preds = %34, %37, %46
-  %.2 = phi ptr [ %49, %46 ], [ %.134, %37 ], [ %.134, %34 ]
+  %.2 = phi ptr [ %49, %46 ], [ %.134, %34 ], [ %.134, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = add nuw nsw i32 %.02833, 1
   %52 = load ptr, ptr %3, align 8, !tbaa !101
@@ -2834,7 +2834,7 @@ _camctl_lock.exit:                                ; preds = %24, %14
   br label %_camctl_get_thumbnail.exit
 
 _camctl_get_thumbnail.exit:                       ; preds = %39, %42, %.thread.i, %69, %92
-  %.0.i = phi ptr [ null, %42 ], [ null, %39 ], [ %.043.i, %92 ], [ null, %69 ], [ null, %.thread.i ]
+  %.0.i = phi ptr [ null, %39 ], [ null, %42 ], [ %.043.i, %92 ], [ null, %69 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @_camctl_unlock(ptr noundef nonnull %0)
@@ -4605,7 +4605,7 @@ define range(i32 0, 2) i32 @dt_camctl_camera_property_exists(ptr noundef readonl
   br label %32
 
 32:                                               ; preds = %25, %24, %21, %13, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %13 ], [ %spec.select, %25 ], [ 0, %24 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %16 ], [ %spec.select, %25 ], [ 0, %24 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -4675,7 +4675,7 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   br label %36
 
 36:                                               ; preds = %29, %35, %32, %25, %28
-  %37 = phi i1 [ true, %28 ], [ true, %25 ], [ true, %35 ], [ true, %32 ], [ false, %29 ]
+  %37 = phi i1 [ false, %29 ], [ true, %28 ], [ true, %25 ], [ true, %32 ], [ true, %35 ]
   %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
   %39 = or i1 %24, %37
   %40 = zext i1 %39 to i32

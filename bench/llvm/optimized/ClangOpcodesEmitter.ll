@@ -1948,8 +1948,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i: ;
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %79, %78, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i
-  %.sink35.i.i.i = phi i8 [ 5, %78 ], [ %.014.i.i.i.i.i, %79 ], [ %77, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
-  %.sink.i.i.i = phi i8 [ 1, %78 ], [ 5, %79 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
+  %.sink35.i.i.i = phi i8 [ %.014.i.i.i.i.i, %79 ], [ 5, %78 ], [ %77, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
+  %.sink.i.i.i = phi i8 [ 5, %79 ], [ 1, %78 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
   store i8 %.sink35.i.i.i, ptr %45, align 8, !tbaa !126
   store i8 %.sink.i.i.i, ptr %46, align 1, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2370,7 +2370,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i.i.i:         ; preds = %104, %102
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit41.i.i.i:         ; preds = %138, %136, %131, %129
-  %.0.i.i43.sink.i.i.i = phi ptr [ %130, %129 ], [ %119, %131 ], [ %137, %136 ], [ %119, %138 ]
+  %.0.i.i43.sink.i.i.i = phi ptr [ %119, %131 ], [ %130, %129 ], [ %137, %136 ], [ %119, %138 ]
   %141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i43.sink.i.i.i, i64 noundef %.098.i.i.i) #10
   %142 = load ptr, ptr %12, align 8, !tbaa !136
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -4142,8 +4142,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i: ;
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %334, %333, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i
-  %.sink123.i.i.i = phi i8 [ 5, %333 ], [ %.014.i.i.i.i.i, %334 ], [ %332, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
-  %.sink.i.i.i = phi i8 [ 1, %333 ], [ 5, %334 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
+  %.sink123.i.i.i = phi i8 [ %.014.i.i.i.i.i, %334 ], [ 5, %333 ], [ %332, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
+  %.sink.i.i.i = phi i8 [ 5, %334 ], [ 1, %333 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i ]
   store i8 %.sink123.i.i.i, ptr %254, align 8, !tbaa !126
   store i8 %.sink.i.i.i, ptr %255, align 1, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

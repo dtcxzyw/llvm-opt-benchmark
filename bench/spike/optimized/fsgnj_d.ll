@@ -166,7 +166,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fsgnj_dP11
   br label %49
 
 49:                                               ; preds = %38, %40
-  %.sroa.036.0 = phi i64 [ %48, %40 ], [ 0, %38 ]
+  %.sroa.036.0 = phi i64 [ 0, %38 ], [ %48, %40 ]
   %50 = lshr i64 %1, 20
   %51 = and i64 %50, 31
   %52 = and i64 %1, 1048576
@@ -199,7 +199,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fsgnj_dP11
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %60, %58
-  %.sroa.027.0 = phi i64 [ %66, %60 ], [ %.sroa.036.0, %58 ]
+  %.sroa.027.0 = phi i64 [ %.sroa.036.0, %58 ], [ %66, %60 ]
   %sext = shl i64 %.sroa.036.0, 32
   %67 = ashr exact i64 %sext, 32
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -466,7 +466,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fsgnj_dP
   br label %52
 
 52:                                               ; preds = %41, %43
-  %.sroa.041.0 = phi i64 [ %51, %43 ], [ 0, %41 ]
+  %.sroa.041.0 = phi i64 [ 0, %41 ], [ %51, %43 ]
   %53 = lshr i64 %1, 20
   %54 = and i64 %53, 31
   %55 = and i64 %1, 1048576
@@ -499,7 +499,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_fsgnj_dP
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %63, %61
-  %.sroa.032.0 = phi i64 [ %69, %63 ], [ %.sroa.041.0, %61 ]
+  %.sroa.032.0 = phi i64 [ %.sroa.041.0, %61 ], [ %69, %63 ]
   %sext = shl i64 %.sroa.041.0, 32
   %70 = ashr exact i64 %sext, 32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -638,7 +638,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !38
@@ -893,7 +893,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fsgnj_dP11
   br label %57
 
 57:                                               ; preds = %38, %48
-  %.sroa.056.0 = phi i64 [ %56, %48 ], [ 0, %38 ]
+  %.sroa.056.0 = phi i64 [ 0, %38 ], [ %56, %48 ]
   %58 = lshr i64 %1, 20
   %59 = and i64 %58, 31
   %60 = and i64 %1, 1048576
@@ -943,7 +943,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fsgnj_dP11
   br label %83
 
 83:                                               ; preds = %76, %66
-  %.sroa.043.0 = phi i64 [ %82, %76 ], [ %.sroa.056.0, %66 ]
+  %.sroa.043.0 = phi i64 [ %.sroa.056.0, %66 ], [ %82, %76 ]
   %84 = icmp samesign ugt i64 %21, 15
   br i1 %84, label %85, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
@@ -1240,7 +1240,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fsgnj_dP
   br label %60
 
 60:                                               ; preds = %41, %51
-  %.sroa.061.0 = phi i64 [ %59, %51 ], [ 0, %41 ]
+  %.sroa.061.0 = phi i64 [ 0, %41 ], [ %59, %51 ]
   %61 = lshr i64 %1, 20
   %62 = and i64 %61, 31
   %63 = and i64 %1, 1048576
@@ -1290,7 +1290,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_fsgnj_dP
   br label %86
 
 86:                                               ; preds = %79, %69
-  %.sroa.048.0 = phi i64 [ %85, %79 ], [ %.sroa.061.0, %69 ]
+  %.sroa.048.0 = phi i64 [ %.sroa.061.0, %69 ], [ %85, %79 ]
   %87 = icmp samesign ugt i64 %24, 15
   br i1 %87, label %88, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
@@ -1793,8 +1793,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

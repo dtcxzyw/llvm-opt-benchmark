@@ -330,7 +330,7 @@ land.lhs.true102.i.i:                             ; preds = %lor.lhs.false99.i.i
   br i1 %or.cond7.i.i, label %if.end114.i.i, label %if.then120.i.i
 
 if.end114.i.i:                                    ; preds = %land.lhs.true102.i.i, %lor.lhs.false99.i.i, %land.lhs.true85.i.i, %if.end82.i.i
-  %flagch.3.i.i = phi i32 [ %flagch.290.i.i, %land.lhs.true102.i.i ], [ %flagch.290.i.i, %lor.lhs.false99.i.i ], [ %flagch.290.i.i, %land.lhs.true85.i.i ], [ %flagch.2.i.i, %if.end82.i.i ]
+  %flagch.3.i.i = phi i32 [ %flagch.2.i.i, %if.end82.i.i ], [ %flagch.290.i.i, %land.lhs.true102.i.i ], [ %flagch.290.i.i, %lor.lhs.false99.i.i ], [ %flagch.290.i.i, %land.lhs.true85.i.i ]
   %33 = icmp eq i32 %flagch.3.i.i, 133
   br i1 %33, label %if.then120.i.i, label %if.end123.i.i
 
@@ -573,8 +573,8 @@ if.end215.i:                                      ; preds = %if.then213.i, %if.e
   br i1 %cmp217.not.i, label %smatcher.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end215.i, %if.then128.i, %if.then44.i
-  %.sink.i = phi ptr [ %53, %if.then128.i ], [ %35, %if.then44.i ], [ %61, %if.end215.i ]
-  %retval.0.ph.i = phi i32 [ 12, %if.then128.i ], [ 1, %if.then44.i ], [ 0, %if.end215.i ]
+  %.sink.i = phi ptr [ %35, %if.then44.i ], [ %53, %if.then128.i ], [ %61, %if.end215.i ]
+  %retval.0.ph.i = phi i32 [ 1, %if.then44.i ], [ 12, %if.then128.i ], [ 0, %if.end215.i ]
   call void @free(ptr noundef %.sink.i) #16
   br label %smatcher.exit
 
@@ -909,7 +909,7 @@ land.lhs.true109.i.i:                             ; preds = %lor.lhs.false106.i.
   br i1 %or.cond7.i.i84, label %if.end121.i.i, label %if.then127.i.i
 
 if.end121.i.i:                                    ; preds = %land.lhs.true109.i.i, %lor.lhs.false106.i.i, %land.lhs.true92.i.i, %if.end89.i.i
-  %flagch.3.i.i69 = phi i32 [ %flagch.299.i.i, %land.lhs.true109.i.i ], [ %flagch.299.i.i, %lor.lhs.false106.i.i ], [ %flagch.299.i.i, %land.lhs.true92.i.i ], [ %flagch.2.i.i86, %if.end89.i.i ]
+  %flagch.3.i.i69 = phi i32 [ %flagch.2.i.i86, %if.end89.i.i ], [ %flagch.299.i.i, %land.lhs.true109.i.i ], [ %flagch.299.i.i, %lor.lhs.false106.i.i ], [ %flagch.299.i.i, %land.lhs.true92.i.i ]
   %101 = icmp eq i32 %flagch.3.i.i69, 133
   br i1 %101, label %if.then127.i.i, label %if.end130.i.i
 
@@ -1155,8 +1155,8 @@ if.end256.i:                                      ; preds = %if.then254.i, %if.e
   br i1 %cmp258.not.i, label %return.sink.split.i78, label %return.sink.split.sink.split.i
 
 return.sink.split.sink.split.i:                   ; preds = %if.end256.i, %if.then168.i, %if.then80.i
-  %.sink.i77 = phi ptr [ %111, %if.then80.i ], [ %128, %if.then168.i ], [ %138, %if.end256.i ]
-  %retval.0.ph.ph.i = phi i32 [ 1, %if.then80.i ], [ 12, %if.then168.i ], [ 0, %if.end256.i ]
+  %.sink.i77 = phi ptr [ %128, %if.then168.i ], [ %111, %if.then80.i ], [ %138, %if.end256.i ]
+  %retval.0.ph.ph.i = phi i32 [ 12, %if.then168.i ], [ 1, %if.then80.i ], [ 0, %if.end256.i ]
   call void @free(ptr noundef %.sink.i77) #16
   br label %return.sink.split.i78
 
@@ -1167,12 +1167,12 @@ return.sink.split.i78:                            ; preds = %if.then110.i, %retu
   br label %lmatcher.exit
 
 lmatcher.exit:                                    ; preds = %if.end7.i24, %for.end.i33, %if.end34.i36, %return.sink.split.i78
-  %retval.0.i80 = phi i32 [ 16, %if.end7.i24 ], [ 1, %for.end.i33 ], [ 12, %if.end34.i36 ], [ %retval.0.ph.i79, %return.sink.split.i78 ]
+  %retval.0.i80 = phi i32 [ 12, %if.end34.i36 ], [ 16, %if.end7.i24 ], [ 1, %for.end.i33 ], [ %retval.0.ph.i79, %return.sink.split.i78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mv.i12)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lmatcher.exit, %smatcher.exit
-  %retval.0 = phi i32 [ %retval.0.i80, %lmatcher.exit ], [ %retval.0.i, %smatcher.exit ], [ 2, %lor.lhs.false ], [ 2, %entry ], [ 2, %if.end ]
+  %retval.0 = phi i32 [ %retval.0.i, %smatcher.exit ], [ 2, %entry ], [ %retval.0.i80, %lmatcher.exit ], [ 2, %lor.lhs.false ], [ 2, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1378,7 +1378,7 @@ land.lhs.true98:                                  ; preds = %lor.lhs.false95
   br i1 %or.cond7, label %if.end110, label %if.then116
 
 if.end110:                                        ; preds = %land.lhs.true81, %land.lhs.true98, %lor.lhs.false95, %if.end78
-  %flagch.3 = phi i32 [ %flagch.285, %land.lhs.true98 ], [ %flagch.285, %lor.lhs.false95 ], [ %flagch.285, %land.lhs.true81 ], [ %flagch.2, %if.end78 ]
+  %flagch.3 = phi i32 [ %flagch.2, %if.end78 ], [ %flagch.285, %land.lhs.true98 ], [ %flagch.285, %lor.lhs.false95 ], [ %flagch.285, %land.lhs.true81 ]
   %23 = icmp eq i32 %flagch.3, 133
   br i1 %23, label %if.then116, label %if.end119
 
@@ -1801,7 +1801,7 @@ land.lhs.true96:                                  ; preds = %lor.lhs.false92
   br i1 %or.cond, label %return, label %land.lhs.true110
 
 land.lhs.true110:                                 ; preds = %land.lhs.true74, %land.lhs.true96, %land.lhs.true87
-  %29 = phi ptr [ %22, %land.lhs.true96 ], [ %22, %land.lhs.true87 ], [ %.pre345, %land.lhs.true74 ]
+  %29 = phi ptr [ %22, %land.lhs.true87 ], [ %22, %land.lhs.true96 ], [ %.pre345, %land.lhs.true74 ]
   %cmp112 = icmp ult ptr %sp.0279, %29
   br i1 %cmp112, label %land.lhs.true114, label %return
 
@@ -1900,7 +1900,7 @@ for.inc:                                          ; preds = %do.body, %if.end11,
   br i1 %cmp, label %for.body, label %if.then204, !llvm.loop !14
 
 if.then204:                                       ; preds = %tailrecurse.outer.backedge, %while.end, %if.end269, %for.inc, %entry
-  %sp.0.lcssa.ph = phi ptr [ %start, %entry ], [ %sp.1, %for.inc ], [ %sp.0279, %if.end269 ], [ %add.ptr260, %while.end ], [ %sp.0279, %tailrecurse.outer.backedge ]
+  %sp.0.lcssa.ph = phi ptr [ %start, %entry ], [ %add.ptr260, %while.end ], [ %sp.1, %for.inc ], [ %sp.0279, %if.end269 ], [ %sp.0279, %tailrecurse.outer.backedge ]
   %cmp205.not = icmp eq ptr %sp.0.lcssa.ph, %stop
   %sp.0. = select i1 %cmp205.not, ptr %sp.0.lcssa.ph, ptr null
   br label %return
@@ -2101,7 +2101,7 @@ if.end381:                                        ; preds = %sw.bb361
   br label %return
 
 return:                                           ; preds = %if.end289, %if.end242, %if.end237, %land.lhs.true232, %sw.bb214, %if.end209, %sw.bb263, %lor.lhs.false138, %land.lhs.true155, %land.lhs.true168, %land.lhs.true172, %lor.lhs.false92, %land.lhs.true96, %land.lhs.true110, %land.lhs.true114, %lor.lhs.false54, %land.lhs.true58, %land.lhs.true62, %lor.lhs.false33, %land.lhs.true36, %land.lhs.true40, %sw.bb13, %lor.lhs.false19, %sw.bb7, %sw.bb, %lor.lhs.false, %if.end321, %if.end313, %sw.bb303, %sw.bb361, %sw.bb339, %if.then204, %if.end381, %if.end356
-  %retval.0 = phi ptr [ null, %if.end356 ], [ null, %if.end381 ], [ %sp.0., %if.then204 ], [ %call352, %sw.bb339 ], [ %call377, %sw.bb361 ], [ %call309282, %sw.bb303 ], [ %call309, %if.end321 ], [ null, %if.end313 ], [ null, %lor.lhs.false ], [ null, %sw.bb ], [ null, %sw.bb7 ], [ null, %lor.lhs.false19 ], [ null, %sw.bb13 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true36 ], [ null, %lor.lhs.false33 ], [ null, %land.lhs.true62 ], [ null, %land.lhs.true58 ], [ null, %lor.lhs.false54 ], [ null, %land.lhs.true114 ], [ null, %land.lhs.true110 ], [ null, %land.lhs.true96 ], [ null, %lor.lhs.false92 ], [ null, %land.lhs.true172 ], [ null, %land.lhs.true168 ], [ null, %land.lhs.true155 ], [ null, %lor.lhs.false138 ], [ null, %if.end209 ], [ %call265, %sw.bb263 ], [ null, %sw.bb214 ], [ null, %land.lhs.true232 ], [ null, %if.end237 ], [ null, %if.end242 ], [ %call295, %if.end289 ]
+  %retval.0 = phi ptr [ %call377, %sw.bb361 ], [ null, %if.end356 ], [ %call352, %sw.bb339 ], [ null, %if.end381 ], [ %sp.0., %if.then204 ], [ %call309282, %sw.bb303 ], [ null, %if.end242 ], [ null, %if.end313 ], [ null, %lor.lhs.false138 ], [ null, %if.end209 ], [ %call309, %if.end321 ], [ null, %lor.lhs.false ], [ null, %sw.bb ], [ null, %sw.bb7 ], [ null, %lor.lhs.false19 ], [ null, %sw.bb13 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true36 ], [ null, %lor.lhs.false33 ], [ null, %land.lhs.true62 ], [ null, %land.lhs.true58 ], [ null, %lor.lhs.false54 ], [ null, %land.lhs.true114 ], [ null, %land.lhs.true110 ], [ null, %land.lhs.true96 ], [ null, %lor.lhs.false92 ], [ null, %land.lhs.true172 ], [ null, %land.lhs.true168 ], [ null, %land.lhs.true155 ], [ %call265, %sw.bb263 ], [ null, %sw.bb214 ], [ null, %land.lhs.true232 ], [ null, %if.end237 ], [ %call295, %if.end289 ]
   ret ptr %retval.0
 }
 
@@ -2359,9 +2359,9 @@ sw.bb159:                                         ; preds = %for.body
   br label %for.inc163
 
 for.inc163:                                       ; preds = %sw.bb68, %sw.bb72, %sw.bb99, %sw.bb107, %sw.bb111, %sw.bb115, %sw.bb159, %if.then, %sw.bb1, %sw.bb8, %if.then13, %sw.bb18, %if.then24, %if.then32, %sw.bb29, %if.then40, %sw.bb37, %if.then48, %sw.bb45, %if.then63, %land.lhs.true, %sw.bb53, %if.then95, %sw.bb76, %for.end, %sw.bb123, %if.then153, %sw.bb142, %for.body
-  %pc.1 = phi i64 [ %pc.0110, %for.body ], [ %pc.0110, %sw.bb159 ], [ %pc.0110, %if.then ], [ %pc.0110, %sw.bb1 ], [ %pc.0110, %if.then13 ], [ %pc.0110, %sw.bb8 ], [ %pc.0110, %if.then24 ], [ %pc.0110, %sw.bb18 ], [ %pc.0110, %if.then32 ], [ %pc.0110, %sw.bb29 ], [ %pc.0110, %if.then40 ], [ %pc.0110, %sw.bb37 ], [ %pc.0110, %sw.bb45 ], [ %pc.0110, %if.then48 ], [ %pc.0110, %sw.bb53 ], [ %pc.0110, %if.then63 ], [ %pc.0110, %land.lhs.true ], [ %pc.0110, %sw.bb68 ], [ %pc.0110, %sw.bb72 ], [ %pc.0110, %sw.bb76 ], [ %sub, %if.then95 ], [ %pc.0110, %sw.bb99 ], [ %pc.0110, %sw.bb107 ], [ %pc.0110, %sw.bb111 ], [ %pc.0110, %sw.bb115 ], [ %pc.0110, %for.end ], [ %pc.0110, %sw.bb123 ], [ %pc.0110, %if.then153 ], [ %pc.0110, %sw.bb142 ]
-  %here.1 = phi i64 [ %here.0111, %for.body ], [ %here.0111, %sw.bb159 ], [ %here.0111, %if.then ], [ %here.0111, %sw.bb1 ], [ %here.0111, %if.then13 ], [ %here.0111, %sw.bb8 ], [ %here.0111, %if.then24 ], [ %here.0111, %sw.bb18 ], [ %here.0111, %if.then32 ], [ %here.0111, %sw.bb29 ], [ %here.0111, %if.then40 ], [ %here.0111, %sw.bb37 ], [ %here.0111, %sw.bb45 ], [ %here.0111, %if.then48 ], [ %here.0111, %sw.bb53 ], [ %here.0111, %if.then63 ], [ %here.0111, %land.lhs.true ], [ %here.0111, %sw.bb68 ], [ %here.0111, %sw.bb72 ], [ %here.0111, %sw.bb76 ], [ %shl97, %if.then95 ], [ %here.0111, %sw.bb99 ], [ %here.0111, %sw.bb107 ], [ %here.0111, %sw.bb111 ], [ %here.0111, %sw.bb115 ], [ %here.0111, %for.end ], [ %here.0111, %sw.bb123 ], [ %here.0111, %if.then153 ], [ %here.0111, %sw.bb142 ]
-  %aft.addr.1 = phi i64 [ %aft.addr.0112, %for.body ], [ %or162, %sw.bb159 ], [ %or, %if.then ], [ %aft.addr.0112, %sw.bb1 ], [ %or16, %if.then13 ], [ %aft.addr.0112, %sw.bb8 ], [ %or27, %if.then24 ], [ %aft.addr.0112, %sw.bb18 ], [ %or35, %if.then32 ], [ %aft.addr.0112, %sw.bb29 ], [ %or43, %if.then40 ], [ %aft.addr.0112, %sw.bb37 ], [ %aft.addr.0112, %sw.bb45 ], [ %or51, %if.then48 ], [ %aft.addr.0112, %sw.bb53 ], [ %or66, %if.then63 ], [ %aft.addr.0112, %land.lhs.true ], [ %or71, %sw.bb68 ], [ %or75, %sw.bb72 ], [ %or87, %sw.bb76 ], [ %or87, %if.then95 ], [ %or106, %sw.bb99 ], [ %or110, %sw.bb107 ], [ %or114, %sw.bb111 ], [ %or122, %sw.bb115 ], [ %or140, %for.end ], [ %aft.addr.0112, %sw.bb123 ], [ %or157, %if.then153 ], [ %or145, %sw.bb142 ]
+  %pc.1 = phi i64 [ %pc.0110, %for.body ], [ %pc.0110, %sw.bb159 ], [ %pc.0110, %if.then ], [ %pc.0110, %sw.bb1 ], [ %pc.0110, %if.then13 ], [ %pc.0110, %sw.bb8 ], [ %pc.0110, %if.then24 ], [ %pc.0110, %sw.bb18 ], [ %pc.0110, %if.then32 ], [ %pc.0110, %sw.bb29 ], [ %pc.0110, %if.then40 ], [ %pc.0110, %sw.bb37 ], [ %pc.0110, %sw.bb45 ], [ %pc.0110, %if.then48 ], [ %pc.0110, %sw.bb53 ], [ %pc.0110, %if.then63 ], [ %pc.0110, %land.lhs.true ], [ %pc.0110, %sw.bb68 ], [ %pc.0110, %sw.bb72 ], [ %pc.0110, %sw.bb76 ], [ %sub, %if.then95 ], [ %pc.0110, %sw.bb142 ], [ %pc.0110, %sw.bb99 ], [ %pc.0110, %sw.bb107 ], [ %pc.0110, %sw.bb111 ], [ %pc.0110, %sw.bb115 ], [ %pc.0110, %for.end ], [ %pc.0110, %sw.bb123 ], [ %pc.0110, %if.then153 ]
+  %here.1 = phi i64 [ %here.0111, %for.body ], [ %here.0111, %sw.bb159 ], [ %here.0111, %if.then ], [ %here.0111, %sw.bb1 ], [ %here.0111, %if.then13 ], [ %here.0111, %sw.bb8 ], [ %here.0111, %if.then24 ], [ %here.0111, %sw.bb18 ], [ %here.0111, %if.then32 ], [ %here.0111, %sw.bb29 ], [ %here.0111, %if.then40 ], [ %here.0111, %sw.bb37 ], [ %here.0111, %sw.bb45 ], [ %here.0111, %if.then48 ], [ %here.0111, %sw.bb53 ], [ %here.0111, %if.then63 ], [ %here.0111, %land.lhs.true ], [ %here.0111, %sw.bb68 ], [ %here.0111, %sw.bb72 ], [ %here.0111, %sw.bb76 ], [ %shl97, %if.then95 ], [ %here.0111, %sw.bb142 ], [ %here.0111, %sw.bb99 ], [ %here.0111, %sw.bb107 ], [ %here.0111, %sw.bb111 ], [ %here.0111, %sw.bb115 ], [ %here.0111, %for.end ], [ %here.0111, %sw.bb123 ], [ %here.0111, %if.then153 ]
+  %aft.addr.1 = phi i64 [ %aft.addr.0112, %for.body ], [ %or162, %sw.bb159 ], [ %or, %if.then ], [ %aft.addr.0112, %sw.bb1 ], [ %or16, %if.then13 ], [ %aft.addr.0112, %sw.bb8 ], [ %or27, %if.then24 ], [ %aft.addr.0112, %sw.bb18 ], [ %or35, %if.then32 ], [ %aft.addr.0112, %sw.bb29 ], [ %or43, %if.then40 ], [ %aft.addr.0112, %sw.bb37 ], [ %aft.addr.0112, %sw.bb45 ], [ %or51, %if.then48 ], [ %aft.addr.0112, %sw.bb53 ], [ %or66, %if.then63 ], [ %aft.addr.0112, %land.lhs.true ], [ %or71, %sw.bb68 ], [ %or75, %sw.bb72 ], [ %or87, %sw.bb76 ], [ %or87, %if.then95 ], [ %or145, %sw.bb142 ], [ %or106, %sw.bb99 ], [ %or110, %sw.bb107 ], [ %or114, %sw.bb111 ], [ %or122, %sw.bb115 ], [ %or140, %for.end ], [ %aft.addr.0112, %sw.bb123 ], [ %or157, %if.then153 ]
   %inc = add nsw i64 %pc.1, 1
   %shl164 = shl i64 %here.1, 1
   %cmp.not = icmp eq i64 %inc, %stop
@@ -2594,7 +2594,7 @@ land.lhs.true100:                                 ; preds = %lor.lhs.false97
   br i1 %or.cond7, label %if.end112, label %if.then118
 
 if.end112:                                        ; preds = %land.lhs.true83, %land.lhs.true100, %lor.lhs.false97, %if.end80
-  %flagch.3 = phi i32 [ %flagch.292, %land.lhs.true100 ], [ %flagch.292, %lor.lhs.false97 ], [ %flagch.292, %land.lhs.true83 ], [ %flagch.2, %if.end80 ]
+  %flagch.3 = phi i32 [ %flagch.2, %if.end80 ], [ %flagch.292, %land.lhs.true100 ], [ %flagch.292, %lor.lhs.false97 ], [ %flagch.292, %land.lhs.true83 ]
   %32 = icmp eq i32 %flagch.3, 133
   br i1 %32, label %if.then118, label %if.end121
 
@@ -3032,7 +3032,7 @@ land.lhs.true96:                                  ; preds = %lor.lhs.false92
   br i1 %or.cond, label %return, label %land.lhs.true110
 
 land.lhs.true110:                                 ; preds = %land.lhs.true74, %land.lhs.true96, %land.lhs.true87
-  %29 = phi ptr [ %22, %land.lhs.true96 ], [ %22, %land.lhs.true87 ], [ %.pre345, %land.lhs.true74 ]
+  %29 = phi ptr [ %22, %land.lhs.true87 ], [ %22, %land.lhs.true96 ], [ %.pre345, %land.lhs.true74 ]
   %cmp112 = icmp ult ptr %sp.0279, %29
   br i1 %cmp112, label %land.lhs.true114, label %return
 
@@ -3131,7 +3131,7 @@ for.inc:                                          ; preds = %do.body, %if.end11,
   br i1 %cmp, label %for.body, label %if.then204, !llvm.loop !21
 
 if.then204:                                       ; preds = %tailrecurse.outer.backedge, %while.end, %if.end269, %for.inc, %entry
-  %sp.0.lcssa.ph = phi ptr [ %start, %entry ], [ %sp.1, %for.inc ], [ %sp.0279, %if.end269 ], [ %add.ptr260, %while.end ], [ %sp.0279, %tailrecurse.outer.backedge ]
+  %sp.0.lcssa.ph = phi ptr [ %start, %entry ], [ %add.ptr260, %while.end ], [ %sp.1, %for.inc ], [ %sp.0279, %if.end269 ], [ %sp.0279, %tailrecurse.outer.backedge ]
   %cmp205.not = icmp eq ptr %sp.0.lcssa.ph, %stop
   %sp.0. = select i1 %cmp205.not, ptr %sp.0.lcssa.ph, ptr null
   br label %return
@@ -3332,7 +3332,7 @@ if.end381:                                        ; preds = %sw.bb361
   br label %return
 
 return:                                           ; preds = %if.end289, %if.end242, %if.end237, %land.lhs.true232, %sw.bb214, %if.end209, %sw.bb263, %lor.lhs.false138, %land.lhs.true155, %land.lhs.true168, %land.lhs.true172, %lor.lhs.false92, %land.lhs.true96, %land.lhs.true110, %land.lhs.true114, %lor.lhs.false54, %land.lhs.true58, %land.lhs.true62, %lor.lhs.false33, %land.lhs.true36, %land.lhs.true40, %sw.bb13, %lor.lhs.false19, %sw.bb7, %sw.bb, %lor.lhs.false, %if.end321, %if.end313, %sw.bb303, %sw.bb361, %sw.bb339, %if.then204, %if.end381, %if.end356
-  %retval.0 = phi ptr [ null, %if.end356 ], [ null, %if.end381 ], [ %sp.0., %if.then204 ], [ %call352, %sw.bb339 ], [ %call377, %sw.bb361 ], [ %call309282, %sw.bb303 ], [ %call309, %if.end321 ], [ null, %if.end313 ], [ null, %lor.lhs.false ], [ null, %sw.bb ], [ null, %sw.bb7 ], [ null, %lor.lhs.false19 ], [ null, %sw.bb13 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true36 ], [ null, %lor.lhs.false33 ], [ null, %land.lhs.true62 ], [ null, %land.lhs.true58 ], [ null, %lor.lhs.false54 ], [ null, %land.lhs.true114 ], [ null, %land.lhs.true110 ], [ null, %land.lhs.true96 ], [ null, %lor.lhs.false92 ], [ null, %land.lhs.true172 ], [ null, %land.lhs.true168 ], [ null, %land.lhs.true155 ], [ null, %lor.lhs.false138 ], [ null, %if.end209 ], [ %call265, %sw.bb263 ], [ null, %sw.bb214 ], [ null, %land.lhs.true232 ], [ null, %if.end237 ], [ null, %if.end242 ], [ %call295, %if.end289 ]
+  %retval.0 = phi ptr [ %call377, %sw.bb361 ], [ null, %if.end356 ], [ %call352, %sw.bb339 ], [ null, %if.end381 ], [ %sp.0., %if.then204 ], [ %call309282, %sw.bb303 ], [ null, %if.end242 ], [ null, %if.end313 ], [ null, %lor.lhs.false138 ], [ null, %if.end209 ], [ %call309, %if.end321 ], [ null, %lor.lhs.false ], [ null, %sw.bb ], [ null, %sw.bb7 ], [ null, %lor.lhs.false19 ], [ null, %sw.bb13 ], [ null, %land.lhs.true40 ], [ null, %land.lhs.true36 ], [ null, %lor.lhs.false33 ], [ null, %land.lhs.true62 ], [ null, %land.lhs.true58 ], [ null, %lor.lhs.false54 ], [ null, %land.lhs.true114 ], [ null, %land.lhs.true110 ], [ null, %land.lhs.true96 ], [ null, %lor.lhs.false92 ], [ null, %land.lhs.true172 ], [ null, %land.lhs.true168 ], [ null, %land.lhs.true155 ], [ %call265, %sw.bb263 ], [ null, %sw.bb214 ], [ null, %land.lhs.true232 ], [ null, %if.end237 ], [ %call295, %if.end289 ]
   ret ptr %retval.0
 }
 
@@ -3646,8 +3646,8 @@ sw.bb237:                                         ; preds = %for.body
   br label %for.inc245
 
 for.inc245:                                       ; preds = %sw.bb95, %sw.bb103, %sw.bb142, %sw.bb158, %sw.bb166, %sw.bb174, %sw.bb237, %if.then, %sw.bb1, %sw.bb11, %if.then16, %sw.bb25, %if.then31, %if.then43, %sw.bb40, %if.then55, %sw.bb52, %if.then67, %sw.bb64, %if.then86, %land.lhs.true, %sw.bb76, %if.then137, %sw.bb111, %for.end, %sw.bb190, %if.then227, %sw.bb212, %for.body
-  %pc.1 = phi i64 [ %pc.0152, %for.body ], [ %pc.0152, %sw.bb237 ], [ %pc.0152, %if.then ], [ %pc.0152, %sw.bb1 ], [ %pc.0152, %if.then16 ], [ %pc.0152, %sw.bb11 ], [ %pc.0152, %if.then31 ], [ %pc.0152, %sw.bb25 ], [ %pc.0152, %if.then43 ], [ %pc.0152, %sw.bb40 ], [ %pc.0152, %if.then55 ], [ %pc.0152, %sw.bb52 ], [ %pc.0152, %sw.bb64 ], [ %pc.0152, %if.then67 ], [ %pc.0152, %sw.bb76 ], [ %pc.0152, %if.then86 ], [ %pc.0152, %land.lhs.true ], [ %pc.0152, %sw.bb95 ], [ %pc.0152, %sw.bb103 ], [ %pc.0152, %sw.bb111 ], [ %sub140, %if.then137 ], [ %pc.0152, %sw.bb142 ], [ %pc.0152, %sw.bb158 ], [ %pc.0152, %sw.bb166 ], [ %pc.0152, %sw.bb174 ], [ %pc.0152, %for.end ], [ %pc.0152, %sw.bb190 ], [ %pc.0152, %if.then227 ], [ %pc.0152, %sw.bb212 ]
-  %here.1 = phi i64 [ %here.0153, %for.body ], [ %here.0153, %sw.bb237 ], [ %here.0153, %if.then ], [ %here.0153, %sw.bb1 ], [ %here.0153, %if.then16 ], [ %here.0153, %sw.bb11 ], [ %here.0153, %if.then31 ], [ %here.0153, %sw.bb25 ], [ %here.0153, %if.then43 ], [ %here.0153, %sw.bb40 ], [ %here.0153, %if.then55 ], [ %here.0153, %sw.bb52 ], [ %here.0153, %sw.bb64 ], [ %here.0153, %if.then67 ], [ %here.0153, %sw.bb76 ], [ %here.0153, %if.then86 ], [ %here.0153, %land.lhs.true ], [ %here.0153, %sw.bb95 ], [ %here.0153, %sw.bb103 ], [ %here.0153, %sw.bb111 ], [ %sub140, %if.then137 ], [ %here.0153, %sw.bb142 ], [ %here.0153, %sw.bb158 ], [ %here.0153, %sw.bb166 ], [ %here.0153, %sw.bb174 ], [ %here.0153, %for.end ], [ %here.0153, %sw.bb190 ], [ %here.0153, %if.then227 ], [ %here.0153, %sw.bb212 ]
+  %pc.1 = phi i64 [ %pc.0152, %for.body ], [ %pc.0152, %sw.bb237 ], [ %pc.0152, %if.then ], [ %pc.0152, %sw.bb1 ], [ %pc.0152, %if.then16 ], [ %pc.0152, %sw.bb11 ], [ %pc.0152, %if.then31 ], [ %pc.0152, %sw.bb25 ], [ %pc.0152, %if.then43 ], [ %pc.0152, %sw.bb40 ], [ %pc.0152, %if.then55 ], [ %pc.0152, %sw.bb52 ], [ %pc.0152, %sw.bb64 ], [ %pc.0152, %if.then67 ], [ %pc.0152, %sw.bb76 ], [ %pc.0152, %if.then86 ], [ %pc.0152, %land.lhs.true ], [ %pc.0152, %sw.bb95 ], [ %pc.0152, %sw.bb103 ], [ %pc.0152, %sw.bb111 ], [ %sub140, %if.then137 ], [ %pc.0152, %sw.bb212 ], [ %pc.0152, %sw.bb142 ], [ %pc.0152, %sw.bb158 ], [ %pc.0152, %sw.bb166 ], [ %pc.0152, %sw.bb174 ], [ %pc.0152, %for.end ], [ %pc.0152, %sw.bb190 ], [ %pc.0152, %if.then227 ]
+  %here.1 = phi i64 [ %here.0153, %for.body ], [ %here.0153, %sw.bb237 ], [ %here.0153, %if.then ], [ %here.0153, %sw.bb1 ], [ %here.0153, %if.then16 ], [ %here.0153, %sw.bb11 ], [ %here.0153, %if.then31 ], [ %here.0153, %sw.bb25 ], [ %here.0153, %if.then43 ], [ %here.0153, %sw.bb40 ], [ %here.0153, %if.then55 ], [ %here.0153, %sw.bb52 ], [ %here.0153, %sw.bb64 ], [ %here.0153, %if.then67 ], [ %here.0153, %sw.bb76 ], [ %here.0153, %if.then86 ], [ %here.0153, %land.lhs.true ], [ %here.0153, %sw.bb95 ], [ %here.0153, %sw.bb103 ], [ %here.0153, %sw.bb111 ], [ %sub140, %if.then137 ], [ %here.0153, %sw.bb212 ], [ %here.0153, %sw.bb142 ], [ %here.0153, %sw.bb158 ], [ %here.0153, %sw.bb166 ], [ %here.0153, %sw.bb174 ], [ %here.0153, %for.end ], [ %here.0153, %sw.bb190 ], [ %here.0153, %if.then227 ]
   %inc = add nsw i64 %pc.1, 1
   %inc246 = add nsw i64 %here.1, 1
   %cmp.not = icmp eq i64 %inc, %stop

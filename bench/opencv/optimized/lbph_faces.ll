@@ -4286,7 +4286,7 @@ _ZN2cv4faceL4elbpERKNS_11_InputArrayERKNS_12_OutputArrayEii.exit: ; preds = %_ZN
   br label %.body
 
 .body:                                            ; preds = %1105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %1097, %944, %797, %645, %493, %341, %189
-  %.pn = phi { ptr, i32 } [ %1106, %1105 ], [ %.pn.pn.pn.i.i, %189 ], [ %.pn.pn.pn.i33.i, %341 ], [ %.pn.pn.pn.i53.i, %493 ], [ %.pn.pn.pn.i73.i, %645 ], [ %.pn.pn.pn.i93.i, %797 ], [ %.pn.pn.pn.i113.i, %944 ], [ %.pn.pn.pn.i133.i, %1097 ], [ %1101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %.pn = phi { ptr, i32 } [ %1101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %1106, %1105 ], [ %.pn.pn.pn.i.i, %189 ], [ %.pn.pn.pn.i33.i, %341 ], [ %.pn.pn.pn.i53.i, %493 ], [ %.pn.pn.pn.i73.i, %645 ], [ %.pn.pn.pn.i93.i, %797 ], [ %.pn.pn.pn.i113.i, %944 ], [ %.pn.pn.pn.i133.i, %1097 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
   resume { ptr, i32 } %.pn
@@ -4705,7 +4705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %120
   br label %.body53
 
 .body53:                                          ; preds = %.split76.us, %125
-  %.pn39 = phi { ptr, i32 } [ %99, %.split76.us ], [ %.pn30.pn.i, %125 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn30.pn.i, %125 ], [ %99, %.split76.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %128
 
@@ -6130,7 +6130,7 @@ select.unfold:                                    ; preds = %33, %._crit_edge.th
   br label %.thread18
 
 .thread18:                                        ; preds = %select.unfold, %37
-  %41 = phi i1 [ true, %select.unfold ], [ %40, %37 ]
+  %41 = phi i1 [ %40, %37 ], [ true, %select.unfold ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %24) #24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !40

@@ -253,10 +253,10 @@ _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread109: ; preds = %41, %_ZN4llvmeqIh
   br label %.lr.ph.i5.i59
 
 .lr.ph.i5.i59:                                    ; preds = %69, %.lr.ph.preheader.i4.i58
-  %.03152.i6.i60 = phi i64 [ %59, %.lr.ph.preheader.i4.i58 ], [ 0, %69 ]
-  %.03651.i7.i61 = phi i64 [ %12, %.lr.ph.preheader.i4.i58 ], [ %83, %69 ]
-  %.03750.i8.i62 = phi ptr [ %60, %.lr.ph.preheader.i4.i58 ], [ %84, %69 ]
-  %.03849.i9.i63 = phi i64 [ 0, %.lr.ph.preheader.i4.i58 ], [ %82, %69 ]
+  %.03152.i6.i60 = phi i64 [ 0, %69 ], [ %59, %.lr.ph.preheader.i4.i58 ]
+  %.03651.i7.i61 = phi i64 [ %83, %69 ], [ %12, %.lr.ph.preheader.i4.i58 ]
+  %.03750.i8.i62 = phi ptr [ %84, %69 ], [ %60, %.lr.ph.preheader.i4.i58 ]
+  %.03849.i9.i63 = phi i64 [ %82, %69 ], [ 0, %.lr.ph.preheader.i4.i58 ]
   %61 = load i8, ptr %.03750.i8.i62, align 1, !tbaa !49
   %.not42.i10.i64 = icmp eq i64 %.03152.i6.i60, 0
   br i1 %.not42.i10.i64, label %69, label %62
@@ -593,9 +593,9 @@ _ZN4llvm17LazyAtomicPointerIN12_GLOBAL__N_18TrieNodeEE14loadOrGenerateENS_12func
   br i1 %.not48.i3.i68, label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge, label %.lr.ph.preheader.i4.i69
 
 _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge: ; preds = %155, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179, %141, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126
-  %.sroa.37.1.ph378.be = phi i64 [ %183, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %143, %141 ], [ %.sroa.37.4262, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %143, %155 ]
-  %.130.ph.be = phi i64 [ %.130.ph380, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ 0, %141 ], [ %.040263, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.040263, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %168, %155 ]
-  %.1.ph.be = phi ptr [ %.1.ph381, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %138, %141 ], [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %.09.i, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %138, %155 ]
+  %.sroa.37.1.ph378.be = phi i64 [ %.sroa.37.4262, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %143, %141 ], [ %183, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %292, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %143, %155 ]
+  %.130.ph.be = phi i64 [ %.040263, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ 0, %141 ], [ %.130.ph380, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %.040263, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %168, %155 ]
+  %.1.ph.be = phi ptr [ %.09.i, %_ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFPS0_St10unique_ptrIS0_St14default_deleteIS0_EEEEE.exit ], [ %138, %141 ], [ %.1.ph381, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit126 ], [ %.09.i, %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit179 ], [ %138, %155 ]
   br label %_ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer, !llvm.loop !76
 
 .lr.ph.preheader.i4.i69:                          ; preds = %141
@@ -604,10 +604,10 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit85.thread.outer.backedge: ; preds = 
   br label %.lr.ph.i5.i70
 
 .lr.ph.i5.i70:                                    ; preds = %155, %.lr.ph.preheader.i4.i69
-  %.03152.i6.i71 = phi i64 [ %145, %.lr.ph.preheader.i4.i69 ], [ 0, %155 ]
-  %.03651.i7.i72 = phi i64 [ %46, %.lr.ph.preheader.i4.i69 ], [ %169, %155 ]
-  %.03750.i8.i73 = phi ptr [ %146, %.lr.ph.preheader.i4.i69 ], [ %170, %155 ]
-  %.03849.i9.i74 = phi i64 [ 0, %.lr.ph.preheader.i4.i69 ], [ %168, %155 ]
+  %.03152.i6.i71 = phi i64 [ 0, %155 ], [ %145, %.lr.ph.preheader.i4.i69 ]
+  %.03651.i7.i72 = phi i64 [ %169, %155 ], [ %46, %.lr.ph.preheader.i4.i69 ]
+  %.03750.i8.i73 = phi ptr [ %170, %155 ], [ %146, %.lr.ph.preheader.i4.i69 ]
+  %.03849.i9.i74 = phi i64 [ %168, %155 ], [ 0, %.lr.ph.preheader.i4.i69 ]
   %147 = load i8, ptr %.03750.i8.i73, align 1, !tbaa !49
   %.not42.i10.i75 = icmp eq i64 %.03152.i6.i71, 0
   br i1 %.not42.i10.i75, label %155, label %148
@@ -687,10 +687,10 @@ _ZN4llvmeqIhEEbNS_8ArrayRefIT_EES3_.exit.thread237: ; preds = %_ZN4llvmeqIhEEbNS
   br label %.lr.ph.i5.i111
 
 .lr.ph.i5.i111:                                   ; preds = %195, %.lr.ph.preheader.i4.i110
-  %.03152.i6.i112 = phi i64 [ %185, %.lr.ph.preheader.i4.i110 ], [ 0, %195 ]
-  %.03651.i7.i113 = phi i64 [ %46, %.lr.ph.preheader.i4.i110 ], [ %209, %195 ]
-  %.03750.i8.i114 = phi ptr [ %186, %.lr.ph.preheader.i4.i110 ], [ %210, %195 ]
-  %.03849.i9.i115 = phi i64 [ 0, %.lr.ph.preheader.i4.i110 ], [ %208, %195 ]
+  %.03152.i6.i112 = phi i64 [ 0, %195 ], [ %185, %.lr.ph.preheader.i4.i110 ]
+  %.03651.i7.i113 = phi i64 [ %209, %195 ], [ %46, %.lr.ph.preheader.i4.i110 ]
+  %.03750.i8.i114 = phi ptr [ %210, %195 ], [ %186, %.lr.ph.preheader.i4.i110 ]
+  %.03849.i9.i115 = phi i64 [ %208, %195 ], [ 0, %.lr.ph.preheader.i4.i110 ]
   %187 = load i8, ptr %.03750.i8.i114, align 1, !tbaa !49
   %.not42.i10.i116 = icmp eq i64 %.03152.i6.i112, 0
   br i1 %.not42.i10.i116, label %195, label %188
@@ -760,10 +760,10 @@ _ZN4llvm22TrieHashIndexGenerator4nextEv.exit126:  ; preds = %195
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %228, %.lr.ph.preheader.i.i130
-  %.03152.i.i = phi i64 [ %218, %.lr.ph.preheader.i.i130 ], [ 0, %228 ]
-  %.03651.i.i131 = phi i64 [ %46, %.lr.ph.preheader.i.i130 ], [ %242, %228 ]
-  %.03750.i.i132 = phi ptr [ %219, %.lr.ph.preheader.i.i130 ], [ %243, %228 ]
-  %.03849.i.i133 = phi i64 [ 0, %.lr.ph.preheader.i.i130 ], [ %241, %228 ]
+  %.03152.i.i = phi i64 [ 0, %228 ], [ %218, %.lr.ph.preheader.i.i130 ]
+  %.03651.i.i131 = phi i64 [ %242, %228 ], [ %46, %.lr.ph.preheader.i.i130 ]
+  %.03750.i.i132 = phi ptr [ %243, %228 ], [ %219, %.lr.ph.preheader.i.i130 ]
+  %.03849.i.i133 = phi i64 [ %241, %228 ], [ 0, %.lr.ph.preheader.i.i130 ]
   %220 = load i8, ptr %.03750.i.i132, align 1, !tbaa !49
   %.not42.i.i = icmp eq i64 %.03152.i.i, 0
   br i1 %.not42.i.i, label %228, label %221
@@ -907,10 +907,10 @@ _ZN12_GLOBAL__N_111TrieSubtrie4sinkEmRNS_11TrieContentEmmN4llvm12function_refIFP
   br label %.lr.ph.i5.i164
 
 .lr.ph.i5.i164:                                   ; preds = %304, %.lr.ph.preheader.i4.i163
-  %.03152.i6.i165 = phi i64 [ %294, %.lr.ph.preheader.i4.i163 ], [ 0, %304 ]
-  %.03651.i7.i166 = phi i64 [ %46, %.lr.ph.preheader.i4.i163 ], [ %318, %304 ]
-  %.03750.i8.i167 = phi ptr [ %295, %.lr.ph.preheader.i4.i163 ], [ %319, %304 ]
-  %.03849.i9.i168 = phi i64 [ 0, %.lr.ph.preheader.i4.i163 ], [ %317, %304 ]
+  %.03152.i6.i165 = phi i64 [ 0, %304 ], [ %294, %.lr.ph.preheader.i4.i163 ]
+  %.03651.i7.i166 = phi i64 [ %318, %304 ], [ %46, %.lr.ph.preheader.i4.i163 ]
+  %.03750.i8.i167 = phi ptr [ %319, %304 ], [ %295, %.lr.ph.preheader.i4.i163 ]
+  %.03849.i9.i168 = phi i64 [ %317, %304 ], [ 0, %.lr.ph.preheader.i4.i163 ]
   %296 = load i8, ptr %.03750.i8.i167, align 1, !tbaa !49
   %.not42.i10.i169 = icmp eq i64 %.03152.i6.i165, 0
   br i1 %.not42.i10.i169, label %304, label %297
@@ -1560,8 +1560,8 @@ define dso_local { ptr, i64 } @_ZNK4llvm28ThreadSafeTrieRawHashMapBase11getNextT
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %4, %3
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %4 ], [ %9, %6 ]
-  %.sroa.8.0 = phi i64 [ 4294967295, %3 ], [ 4294967295, %4 ], [ %spec.select32, %6 ]
+  %.sroa.0.0 = phi ptr [ null, %4 ], [ null, %3 ], [ %9, %6 ]
+  %.sroa.8.0 = phi i64 [ 4294967295, %4 ], [ 4294967295, %3 ], [ %spec.select32, %6 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert

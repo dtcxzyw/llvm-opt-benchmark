@@ -143,7 +143,7 @@ define void @ImfFloatToHalf(float noundef %0, ptr noundef writeonly captures(non
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %12, %15, %25, %27, %36, %50, %53
-  %.0.i.i = phi i16 [ %22, %15 ], [ %26, %25 ], [ %35, %27 ], [ %13, %12 ], [ %8, %36 ], [ %54, %53 ], [ %48, %50 ]
+  %.0.i.i = phi i16 [ %8, %36 ], [ %22, %15 ], [ %26, %25 ], [ %35, %27 ], [ %13, %12 ], [ %54, %53 ], [ %48, %50 ]
   store i16 %.0.i.i, ptr %1, align 2, !tbaa !4
   ret void
 }
@@ -241,7 +241,7 @@ define void @ImfFloatToHalfArray(i32 noundef %0, ptr noundef readonly captures(n
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %16, %19, %29, %31, %40, %54, %57
-  %.0.i.i = phi i16 [ %26, %19 ], [ %30, %29 ], [ %39, %31 ], [ %17, %16 ], [ %12, %40 ], [ %58, %57 ], [ %52, %54 ]
+  %.0.i.i = phi i16 [ %12, %40 ], [ %26, %19 ], [ %30, %29 ], [ %39, %31 ], [ %17, %16 ], [ %58, %57 ], [ %52, %54 ]
   %59 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   store i16 %.0.i.i, ptr %59, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -661,7 +661,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %0, ptr
   br label %.body
 
 .body:                                            ; preds = %18, %41, %14, %16, %24
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %17, %16 ], [ %15, %14 ], [ %19, %18 ], [ %42, %41 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %42, %41 ]
   %.1 = extractvalue { ptr, i32 } %.pn17.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %26 = icmp eq i32 %.1, %25
@@ -864,7 +864,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetFloatAttribute(ptr noundef nonnull %0, p
   br label %.body
 
 .body:                                            ; preds = %18, %41, %14, %16, %24
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %17, %16 ], [ %15, %14 ], [ %19, %18 ], [ %42, %41 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %42, %41 ]
   %.1 = extractvalue { ptr, i32 } %.pn17.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %26 = icmp eq i32 %.1, %25
@@ -994,7 +994,7 @@ define range(i32 0, 2) i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %0, 
   br label %.body
 
 .body:                                            ; preds = %18, %41, %14, %16, %24
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %17, %16 ], [ %15, %14 ], [ %19, %18 ], [ %42, %41 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %24 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %42, %41 ]
   %.1 = extractvalue { ptr, i32 } %.pn17.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %26 = icmp eq i32 %.1, %25
@@ -1343,7 +1343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %48,
   br label %.body
 
 .body:                                            ; preds = %40, %69, %36, %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
-  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %39, %38 ], [ %37, %36 ], [ %41, %40 ], [ %70, %69 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %70, %69 ]
   %.1 = extractvalue { ptr, i32 } %.pn20.pn.pn, 1
   %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %54 = icmp eq i32 %.1, %53
@@ -1594,7 +1594,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2
   br label %54
 
 .body:                                            ; preds = %24, %38, %20, %22, %30
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %30 ], [ %23, %22 ], [ %21, %20 ], [ %25, %24 ], [ %39, %38 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %30 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %39, %38 ]
   %.1 = extractvalue { ptr, i32 } %.pn21.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -1820,7 +1820,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_23BoxINS3_4Vec2
   br label %54
 
 .body:                                            ; preds = %24, %38, %20, %22, %30
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %30 ], [ %23, %22 ], [ %21, %20 ], [ %25, %24 ], [ %39, %38 ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %30 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %39, %38 ]
   %.1 = extractvalue { ptr, i32 } %.pn21.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -2038,7 +2038,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IiEEEEEER
   br label %48
 
 .body:                                            ; preds = %20, %34, %16, %18, %26
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %26 ], [ %19, %18 ], [ %17, %16 ], [ %21, %20 ], [ %35, %34 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %26 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %35, %34 ]
   %.1 = extractvalue { ptr, i32 } %.pn19.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -2250,7 +2250,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec2IfEEEEEER
   br label %48
 
 .body:                                            ; preds = %20, %34, %16, %18, %26
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %26 ], [ %19, %18 ], [ %17, %16 ], [ %21, %20 ], [ %35, %34 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %26 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %35, %34 ]
   %.1 = extractvalue { ptr, i32 } %.pn19.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -2466,7 +2466,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IiEEEEEER
   br label %51
 
 .body:                                            ; preds = %22, %36, %18, %20, %28
-  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %28 ], [ %21, %20 ], [ %19, %18 ], [ %23, %22 ], [ %37, %36 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %28 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %37, %36 ]
   %.1 = extractvalue { ptr, i32 } %.pn20.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -2685,7 +2685,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_24Vec3IfEEEEEER
   br label %51
 
 .body:                                            ; preds = %22, %36, %18, %20, %28
-  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %28 ], [ %21, %20 ], [ %19, %18 ], [ %23, %22 ], [ %37, %36 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %28 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %37, %36 ]
   %.1 = extractvalue { ptr, i32 } %.pn20.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -2945,7 +2945,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix33IfEEE
   br label %78
 
 .body:                                            ; preds = %43, %57, %39, %41, %49
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %49 ], [ %42, %41 ], [ %40, %39 ], [ %44, %43 ], [ %58, %57 ]
+  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %49 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %58, %57 ]
   %.1 = extractvalue { ptr, i32 } %.pn18.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
@@ -3273,7 +3273,7 @@ _ZN7Imf_3_46Header14typedAttributeINS_14TypedAttributeIN9Imath_3_28Matrix44IfEEE
   br label %106
 
 .body:                                            ; preds = %64, %78, %60, %62, %70
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %70 ], [ %63, %62 ], [ %61, %60 ], [ %65, %64 ], [ %79, %78 ]
+  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %70 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %79, %78 ]
   %.1 = extractvalue { ptr, i32 } %.pn18.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24

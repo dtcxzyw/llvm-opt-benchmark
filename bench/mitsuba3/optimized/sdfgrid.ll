@@ -1498,7 +1498,7 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit78:          ; preds = %385, %382, %_ZN5drj
   ret void
 
 .body89:                                          ; preds = %73, %269, %.body100, %267, %256, %254, %252, %229, %.body, %119, %117, %75
-  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %229 ], [ %.pn48, %.body ], [ %257, %256 ], [ %268, %267 ], [ %255, %254 ], [ %328, %.body100 ], [ %253, %252 ], [ %120, %119 ], [ %118, %117 ], [ %76, %75 ], [ %74, %73 ], [ %270, %269 ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %229 ], [ %76, %75 ], [ %.pn48, %.body ], [ %257, %256 ], [ %268, %267 ], [ %255, %254 ], [ %328, %.body100 ], [ %253, %252 ], [ %120, %119 ], [ %118, %117 ], [ %74, %73 ], [ %270, %269 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #35
   br label %389
 
@@ -2895,7 +2895,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit:                  ; preds = %36, %.loopexit
   resume { ptr, i32 } %128
 
 _ZN5drjit9dr_vectorImED2Ev.exit80:                ; preds = %._crit_edge310.split.us.us.us, %.preheader290.lr.ph.split.us, %.preheader290.lr.ph, %.preheader291
-  %.0.lcssa = phi i64 [ 0, %.preheader291 ], [ 0, %.preheader290.lr.ph ], [ 0, %.preheader290.lr.ph.split.us ], [ %.3.us.us.us, %._crit_edge310.split.us.us.us ]
+  %.0.lcssa = phi i64 [ 0, %.preheader291 ], [ 0, %.preheader290.lr.ph.split.us ], [ 0, %.preheader290.lr.ph ], [ %.3.us.us.us, %._crit_edge310.split.us.us.us ]
   store ptr %35, ptr %0, align 8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %129, align 8
@@ -18365,7 +18365,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -19391,7 +19391,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -19466,7 +19466,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

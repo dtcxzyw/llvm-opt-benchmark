@@ -583,7 +583,7 @@ _ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit: ; preds
   br label %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread
 
 _ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread: ; preds = %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit, %40, %30, %11, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit, %18, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit
-  %.0 = phi i1 [ false, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit ], [ false, %18 ], [ false, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %11 ], [ false, %30 ], [ true, %40 ], [ %47, %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit ]
+  %.0 = phi i1 [ false, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit ], [ false, %18 ], [ false, %30 ], [ false, %11 ], [ true, %40 ], [ %47, %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit ]
   ret i1 %.0
 }
 
@@ -636,7 +636,7 @@ define hidden noundef zeroext i1 @_ZNK19ZReferenceProcessor17try_make_inactiveE8
   unreachable
 
 27:                                               ; preds = %18, %3, %20, %16, %13
-  %.0 = phi i1 [ %14, %13 ], [ %17, %16 ], [ true, %20 ], [ false, %3 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %3 ], [ %14, %13 ], [ %17, %16 ], [ true, %20 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -1614,8 +1614,8 @@ switch.lookup55:                                  ; preds = %76
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
 _ZL11list_appendR8zaddressS0_S_.exit:             ; preds = %70, %58, %switch.lookup55, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
-  %.126 = phi i64 [ %.02539, %switch.lookup55 ], [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %70 ], [ %.041, %58 ]
-  %.1 = phi i64 [ %.02440, %switch.lookup55 ], [ %.02440, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.041, %70 ], [ %.041, %58 ]
+  %.126 = phi i64 [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %switch.lookup55 ], [ %.02539, %70 ], [ %.041, %58 ]
+  %.1 = phi i64 [ %.02440, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02440, %switch.lookup55 ], [ %.041, %70 ], [ %.041, %58 ]
   %81 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %_ZN20SuspendibleThreadSet5yieldEv.exit
@@ -2327,7 +2327,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -2503,7 +2503,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2693,7 +2693,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 

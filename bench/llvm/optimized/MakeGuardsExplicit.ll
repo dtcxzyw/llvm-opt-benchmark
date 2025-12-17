@@ -197,7 +197,7 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   br i1 %.not23.i, label %.loopexit.i, label %.lr.ph47.i
 
 .loopexit.i:                                      ; preds = %.lr.ph47.i, %70, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit.i, %_ZN4llvm12instructionsERNS_8FunctionE.exit.i
-  %.not.i80.i = phi i1 [ true, %70 ], [ false, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit.i ], [ false, %_ZN4llvm12instructionsERNS_8FunctionE.exit.i ], [ true, %.lr.ph47.i ]
+  %.not.i80.i = phi i1 [ false, %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit.i ], [ true, %70 ], [ false, %_ZN4llvm12instructionsERNS_8FunctionE.exit.i ], [ true, %.lr.ph47.i ]
   %92 = load ptr, ptr %5, align 8, !tbaa !17
   %93 = icmp eq ptr %92, %15
   br i1 %93, label %_ZL15explicifyGuardsRN4llvm8FunctionE.exit, label %94

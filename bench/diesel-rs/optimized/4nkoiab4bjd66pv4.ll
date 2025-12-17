@@ -272,7 +272,7 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
           to label %20 unwind label %18
 
 .body35:                                          ; preds = %.body33, %32, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %33, %32 ], [ %eh.lpad-body34, %.body33 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %19, %18 ], [ %eh.lpad-body34, %.body33 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #14
           to label %105 unwind label %103
 
@@ -792,7 +792,7 @@ _ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit: ; preds = %16
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h6a073b607ac432ceE.exit"
 
 .thread.i:                                        ; preds = %2, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit.thread10, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit
-  %.sroa.7.19 = phi ptr [ %.sroa.7.0.copyload, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit ], [ %17, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit.thread10 ], [ %.sink1.i.i.i, %2 ]
+  %.sroa.7.19 = phi ptr [ %17, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit.thread10 ], [ %.sroa.7.0.copyload, %_ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit ], [ %.sink1.i.i.i, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !188
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0497fda04270600aE.llvm.10063921922768059169(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.sroa.7.19), !noalias !188
   %31 = load i8, ptr %3, align 8, !range !197, !alias.scope !198, !noalias !188, !noundef !4
@@ -878,7 +878,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   %23 = sub i64 %20, %21
   br label %25
 
-24:                                               ; preds = %10, %13
+24:                                               ; preds = %13, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !206
   store i64 -9223372036854775808, ptr %0, align 8
   br label %67

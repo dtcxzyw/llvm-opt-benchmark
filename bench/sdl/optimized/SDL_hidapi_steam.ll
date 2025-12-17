@@ -73,7 +73,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_IsSupportedDevice(ptr nou
   br label %23
 
 23:                                               ; preds = %20, %18, %12, %10, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %10 ], [ true, %12 ], [ true, %18 ], [ true, %20 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %12 ], [ false, %22 ], [ true, %18 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -233,7 +233,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   br label %66
 
 66:                                               ; preds = %36, %.thread70, %.loopexit, %1, %64
-  %.064 = phi i1 [ %65, %64 ], [ false, %1 ], [ true, %.loopexit ], [ %37, %36 ], [ %35, %.thread70 ]
+  %.064 = phi i1 [ %65, %64 ], [ false, %1 ], [ %35, %.thread70 ], [ true, %.loopexit ], [ %37, %36 ]
   ret i1 %.064
 }
 
@@ -791,7 +791,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   store i16 %307, ptr %79, align 2
   br label %308
 
-308:                                              ; preds = %271, %268, %286, %291, %300, %304, %289, %263, %265
+308:                                              ; preds = %289, %268, %286, %271, %291, %300, %304, %263, %265
   %309 = call i64 @SDL_GetTicksNS_REAL() #9
   %310 = load i8, ptr %96, align 8, !range !3, !noundef !4
   %311 = trunc nuw i8 %310 to i1
@@ -1037,7 +1037,7 @@ ControllerDisconnected.exit127:                   ; preds = %442, %445
   store ptr null, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread159, %136, %129, %126, %119, %125, %425, %.thread158, %428, %430, %313, %433, %.thread162, %437, %439, %ControllerDisconnected.exit127, %432, %418
+.thread:                                          ; preds = %.thread159, %136, %129, %126, %125, %119, %425, %.thread158, %428, %430, %313, %433, %.thread162, %437, %439, %ControllerDisconnected.exit127, %432, %418
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %448 = load ptr, ptr %46, align 8
@@ -1424,7 +1424,7 @@ SetFeatureReport.exit86.thread107.i:              ; preds = %.preheader.i75.i, %
   br i1 %exitcond.not.i89.i, label %.loopexit27, label %.preheader.i87.i, !llvm.loop !5
 
 .loopexit27:                                      ; preds = %31, %.thread.i.i, %108, %121, %141, %.lr.ph.i91.i, %.lr.ph.i79.i, %.lr.ph.i67.i, %ReadResponse.exit.i, %.lr.ph.i.i
-  %.str.13.sink.i = phi ptr [ @.str.9, %.lr.ph.i.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.11, %.lr.ph.i67.i ], [ @.str.12, %.lr.ph.i79.i ], [ @.str.13, %.lr.ph.i91.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.10, %.thread.i.i ], [ @.str.9, %31 ]
+  %.str.13.sink.i = phi ptr [ @.str.12, %.lr.ph.i79.i ], [ @.str.11, %.lr.ph.i67.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.9, %.lr.ph.i.i ], [ @.str.13, %.lr.ph.i91.i ], [ @.str.10, %.thread.i.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.9, %31 ]
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull %.str.13.sink.i, ptr noundef %0) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %143 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9

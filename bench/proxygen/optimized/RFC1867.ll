@@ -627,9 +627,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i25.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i: ; preds = %if.end.i.i.i, %if.then.i25.i, %if.end11.i
-  %c.sroa.24.8 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.7384, %if.end11.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
-  %c.sroa.43.9 = phi ptr [ %63, %if.end.i.i.i ], [ %c.sroa.43.8, %if.end11.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
-  %c.sroa.0.4 = phi ptr [ %62, %if.end.i.i.i ], [ %c.sroa.0.3393, %if.end11.i ], [ %c.sroa.0.3393, %if.then.i25.i ]
+  %c.sroa.24.8 = phi ptr [ %c.sroa.24.7384, %if.end11.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
+  %c.sroa.43.9 = phi ptr [ %c.sroa.43.8, %if.end11.i ], [ %63, %if.end.i.i.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
+  %c.sroa.0.4 = phi ptr [ %c.sroa.0.3393, %if.end11.i ], [ %62, %if.end.i.i.i ], [ %c.sroa.0.3393, %if.then.i25.i ]
   %add12.i = add i64 %len.addr.0.lcssa.i395, %copied.0.lcssa.i398
   br label %call.i.i.noexc
 
@@ -725,11 +725,11 @@ if.then.i.i.i70.invoke:                           ; preds = %call.i.i.noexc, %fo
 if.then.i.i.i70.cont:                             ; preds = %if.then.i.i.i70.invoke
   unreachable
 
-invoke.cont62:                                    ; preds = %if.end11.i264, %if.then.i25.i269, %if.end.i.i.i276, %if.then.i65
-  %c.sroa.24.6 = phi ptr [ %c.sroa.24.3, %if.then.i65 ], [ %c.sroa.24.14411, %if.then.i25.i269 ], [ %c.sroa.24.14411, %if.end11.i264 ], [ %add.ptr.i.i.i.i284, %if.end.i.i.i276 ]
-  %c.sroa.43.6 = phi ptr [ %add.ptr.i66, %if.then.i65 ], [ %c.sroa.24.14411, %if.then.i25.i269 ], [ %add.ptr10.i262, %if.end11.i264 ], [ %75, %if.end.i.i.i276 ]
-  %c.sroa.0.2 = phi ptr [ %c.sroa.0.0, %if.then.i65 ], [ %c.sroa.0.7420, %if.then.i25.i269 ], [ %c.sroa.0.7420, %if.end11.i264 ], [ %74, %if.end.i.i.i276 ]
-  %retval.0.i67 = phi i8 [ %69, %if.then.i65 ], [ %73, %if.end.i.i.i276 ], [ %73, %if.then.i25.i269 ], [ %73, %if.end11.i264 ]
+invoke.cont62:                                    ; preds = %if.then.i25.i269, %if.end.i.i.i276, %if.end11.i264, %if.then.i65
+  %c.sroa.24.6 = phi ptr [ %c.sroa.24.3, %if.then.i65 ], [ %add.ptr.i.i.i.i284, %if.end.i.i.i276 ], [ %c.sroa.24.14411, %if.end11.i264 ], [ %c.sroa.24.14411, %if.then.i25.i269 ]
+  %c.sroa.43.6 = phi ptr [ %add.ptr.i66, %if.then.i65 ], [ %75, %if.end.i.i.i276 ], [ %add.ptr10.i262, %if.end11.i264 ], [ %c.sroa.24.14411, %if.then.i25.i269 ]
+  %c.sroa.0.2 = phi ptr [ %c.sroa.0.0, %if.then.i65 ], [ %74, %if.end.i.i.i276 ], [ %c.sroa.0.7420, %if.end11.i264 ], [ %c.sroa.0.7420, %if.then.i25.i269 ]
+  %retval.0.i67 = phi i8 [ %69, %if.then.i65 ], [ %73, %if.end11.i264 ], [ %73, %if.end.i.i.i276 ], [ %73, %if.then.i25.i269 ]
   switch i8 %retval.0.i67, label %sw.epilog.sink.split [
     i8 10, label %if.then65
     i8 13, label %if.then73
@@ -1236,7 +1236,7 @@ if.then.i195:                                     ; preds = %if.else249
           to label %invoke.cont.i198.invoke unwind label %lpad.i197
 
 invoke.cont.i198.invoke:                          ; preds = %if.then.i195, %if.then.i74, %if.then.i21
-  %160 = phi ptr [ %exception.i, %if.then.i21 ], [ %exception.i75, %if.then.i74 ], [ %exception.i196, %if.then.i195 ]
+  %160 = phi ptr [ %exception.i75, %if.then.i74 ], [ %exception.i, %if.then.i21 ], [ %exception.i196, %if.then.i195 ]
   invoke void @__cxa_throw(ptr nonnull %160, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #22
           to label %invoke.cont.i198.cont unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
@@ -1376,7 +1376,7 @@ cleanup:                                          ; preds = %_ZN5folly10IOBufQue
   ret void
 
 ehcleanup310:                                     ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit, %lpad.i, %lpad.i197, %lpad.i76, %cleanup.action302, %cleanup.action186, %lpad228, %lpad220, %lpad204, %lpad198, %lpad142, %lpad21
-  %.pn14 = phi { ptr, i32 } [ %25, %lpad21 ], [ %.pn12, %cleanup.action186 ], [ %123, %lpad142 ], [ %.pn, %cleanup.action302 ], [ %154, %lpad228 ], [ %153, %lpad220 ], [ %152, %lpad204 ], [ %151, %lpad198 ], [ %36, %lpad.i ], [ %77, %lpad.i76 ], [ %161, %lpad.i197 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit433, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %lpad4.loopexit.split-lp.loopexit.split-lp ]
+  %.pn14 = phi { ptr, i32 } [ %154, %lpad228 ], [ %25, %lpad21 ], [ %.pn12, %cleanup.action186 ], [ %152, %lpad204 ], [ %123, %lpad142 ], [ %151, %lpad198 ], [ %.pn, %cleanup.action302 ], [ %153, %lpad220 ], [ %36, %lpad.i ], [ %77, %lpad.i76 ], [ %161, %lpad.i197 ], [ %lpad.loopexit, %lpad4.loopexit ], [ %lpad.loopexit433, %lpad4.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp434, %lpad4.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %result) #20
   br label %eh.resume
 
@@ -1533,7 +1533,7 @@ land.rhs.i:                                       ; preds = %call4.i.noexc
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %land.rhs.i, %call4.i.noexc
-  %5 = phi i1 [ false, %call4.i.noexc ], [ %cmp.i, %land.rhs.i ]
+  %5 = phi i1 [ %cmp.i, %land.rhs.i ], [ false, %call4.i.noexc ]
   %cmp = icmp eq i32 %boundaryResult.0273, 2
   %.not = or i1 %cmp, %5
   br i1 %.not, label %cleanup, label %while.body
@@ -1750,9 +1750,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i16.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i: ; preds = %if.end.i.i.i, %if.then.i16.i, %for.end.i
-  %c.sroa.24.3 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.2, %for.end.i ], [ %c.sroa.24.2, %if.then.i16.i ]
-  %c.sroa.40.2 = phi ptr [ %36, %if.end.i.i.i ], [ %add.ptr.i83, %for.end.i ], [ %c.sroa.24.2, %if.then.i16.i ]
-  %c.sroa.0.2 = phi ptr [ %35, %if.end.i.i.i ], [ %c.sroa.0.1, %for.end.i ], [ %c.sroa.0.1, %if.then.i16.i ]
+  %c.sroa.24.3 = phi ptr [ %c.sroa.24.2, %for.end.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.2, %if.then.i16.i ]
+  %c.sroa.40.2 = phi ptr [ %add.ptr.i83, %for.end.i ], [ %36, %if.end.i.i.i ], [ %c.sroa.24.2, %if.then.i16.i ]
+  %c.sroa.0.2 = phi ptr [ %c.sroa.0.1, %for.end.i ], [ %35, %if.end.i.i.i ], [ %c.sroa.0.1, %if.then.i16.i ]
   %add3.i = add i64 %skipped.0.lcssa.i, %len.addr.0.lcssa.i
   br label %call.i.i.noexc
 
@@ -2025,7 +2025,7 @@ if.end164.sink.split:                             ; preds = %invoke.cont163, %_Z
   br label %if.end164
 
 if.end164:                                        ; preds = %if.end164.sink.split, %invoke.cont163, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit, %invoke.cont155
-  %ref.tmp159.sink = phi ptr [ %ref.tmp153, %invoke.cont155 ], [ %ref.tmp153, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %ref.tmp159, %invoke.cont163 ], [ %ref.tmp159.sink.ph, %if.end164.sink.split ]
+  %ref.tmp159.sink = phi ptr [ %ref.tmp159, %invoke.cont163 ], [ %ref.tmp153, %invoke.cont155 ], [ %ref.tmp153, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %ref.tmp159.sink.ph, %if.end164.sink.split ]
   store ptr null, ptr %ref.tmp159.sink, align 8
   %61 = load i64, ptr %bytesProcessed_165, align 8
   %add166 = add i64 %61, %cond104
@@ -2040,7 +2040,7 @@ cleanup:                                          ; preds = %invoke.cont, %if.en
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad162, %lpad126, %lpad68
-  %.pn = phi { ptr, i32 } [ %45, %lpad68 ], [ %55, %lpad126 ], [ %60, %lpad162 ], [ %lpad.loopexit223, %lpad.loopexit ], [ %lpad.loopexit225, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp226, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %55, %lpad126 ], [ %45, %lpad68 ], [ %60, %lpad162 ], [ %lpad.loopexit223, %lpad.loopexit ], [ %lpad.loopexit225, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp226, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %agg.result) #20
   resume { ptr, i32 } %.pn
 }
@@ -2322,7 +2322,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   ret void
 
 ehcleanup:                                        ; preds = %if.then.i.i.i16, %lpad29, %lpad.i, %if.then.i.i8.i, %if.then.i.i5, %lpad6, %lpad, %lpad46, %lpad12
-  %.pn = phi { ptr, i32 } [ %16, %lpad12 ], [ %28, %lpad46 ], [ %11, %lpad ], [ %12, %lpad6 ], [ %12, %if.then.i.i5 ], [ %19, %if.then.i.i8.i ], [ %19, %lpad.i ], [ %26, %lpad29 ], [ %26, %if.then.i.i.i16 ]
+  %.pn = phi { ptr, i32 } [ %12, %if.then.i.i5 ], [ %16, %lpad12 ], [ %28, %lpad46 ], [ %19, %lpad.i ], [ %11, %lpad ], [ %12, %lpad6 ], [ %19, %if.then.i.i8.i ], [ %26, %lpad29 ], [ %26, %if.then.i.i.i16 ]
   %30 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i.i24 = trunc i8 %30 to i1
   br i1 %tobool.i.i.i24, label %if.then.i.i.i26, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit27

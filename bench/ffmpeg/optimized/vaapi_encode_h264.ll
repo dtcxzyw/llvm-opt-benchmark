@@ -450,7 +450,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h264_configure(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %81, %1, %91
-  %.0 = phi i32 [ 0, %91 ], [ %5, %1 ], [ -12, %81 ]
+  %.0 = phi i32 [ %5, %1 ], [ 0, %91 ], [ -12, %81 ]
   ret i32 %.0
 }
 
@@ -1672,7 +1672,7 @@ define internal noundef i32 @vaapi_encode_h264_init_slice_params(ptr noundef %0,
   br label %._crit_edge156.i
 
 ._crit_edge156.i:                                 ; preds = %._crit_edge156.loopexit.i, %._crit_edge.thread.i
-  %.2.lcssa.i = phi i64 [ %204, %._crit_edge156.loopexit.i ], [ 0, %._crit_edge.thread.i ]
+  %.2.lcssa.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %204, %._crit_edge156.loopexit.i ]
   %205 = getelementptr inbounds ptr, ptr %6, i64 %.2.lcssa.i
   store ptr %138, ptr %205, align 8, !tbaa !209
   br label %206
@@ -1723,7 +1723,7 @@ define internal noundef i32 @vaapi_encode_h264_init_slice_params(ptr noundef %0,
   br label %.thread293
 
 .thread293:                                       ; preds = %._crit_edge173.i, %._crit_edge177.thread233.i, %._crit_edge177.i
-  %.0.lcssa224.i296 = phi i32 [ %.0.lcssa225228232.i, %._crit_edge177.thread233.i ], [ %132, %._crit_edge177.i ], [ %132, %._crit_edge173.i ]
+  %.0.lcssa224.i296 = phi i32 [ %132, %._crit_edge177.i ], [ %.0.lcssa225228232.i, %._crit_edge177.thread233.i ], [ %132, %._crit_edge173.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.125, i32 noundef %38, i32 noundef %51) #10
   %.not190.i = icmp eq i32 %.0.lcssa224.i296, 0
   br i1 %.not190.i, label %.loopexit.i, label %.lr.ph183.preheader.i
@@ -2569,7 +2569,7 @@ vaapi_encode_h264_add_nal.exit:                   ; preds = %15
   br label %93
 
 vaapi_encode_h264_write_access_unit.exit.thread:  ; preds = %86, %76, %vaapi_encode_h264_add_nal.exit.thread, %64, %55, %46, %40, %27
-  %.0 = phi i32 [ %31, %27 ], [ %44, %40 ], [ %50, %46 ], [ %59, %55 ], [ %68, %64 ], [ %20, %vaapi_encode_h264_add_nal.exit.thread ], [ -28, %86 ], [ %74, %76 ]
+  %.0 = phi i32 [ %20, %vaapi_encode_h264_add_nal.exit.thread ], [ %31, %27 ], [ %44, %40 ], [ %50, %46 ], [ %59, %55 ], [ %68, %64 ], [ -28, %86 ], [ %74, %76 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #10
   br label %93
 

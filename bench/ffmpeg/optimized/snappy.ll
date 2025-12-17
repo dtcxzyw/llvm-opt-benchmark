@@ -260,8 +260,8 @@ bytestream2_get_byte.exit:                        ; preds = %41
   br label %bytestream2_get_le32.exit.i
 
 bytestream2_get_le32.exit.i:                      ; preds = %.thread, %85, %84, %76, %75, %62, %61, %54, %53, %48
-  %89 = phi ptr [ %43, %48 ], [ %34, %53 ], [ %55, %54 ], [ %34, %61 ], [ %63, %62 ], [ %34, %75 ], [ %77, %76 ], [ %34, %84 ], [ %86, %85 ], [ %34, %.thread ]
-  %.0.in.i = phi i32 [ %46, %48 ], [ 0, %53 ], [ %56, %54 ], [ 0, %61 ], [ %70, %62 ], [ 0, %75 ], [ %79, %76 ], [ 0, %84 ], [ %88, %85 ], [ 0, %.thread ]
+  %89 = phi ptr [ %77, %76 ], [ %43, %48 ], [ %55, %54 ], [ %63, %62 ], [ %34, %53 ], [ %34, %61 ], [ %34, %75 ], [ %34, %84 ], [ %86, %85 ], [ %34, %.thread ]
+  %.0.in.i = phi i32 [ %79, %76 ], [ %46, %48 ], [ %56, %54 ], [ %70, %62 ], [ 0, %53 ], [ 0, %61 ], [ 0, %75 ], [ 0, %84 ], [ %88, %85 ], [ 0, %.thread ]
   %90 = trunc i64 %.038 to i32
   %.0.i46 = add i32 %.0.in.i, 1
   %91 = icmp ugt i32 %.0.i46, %90
@@ -420,8 +420,8 @@ default.unreachable78:                            ; preds = %bytestream2_get_byt
   unreachable
 
 snappy_literal.exit:                              ; preds = %167, %145, %123, %92
-  %.pre-phi = phi i64 [ %95, %92 ], [ %wide.trip.count.i.i, %123 ], [ %wide.trip.count.i.i51, %145 ], [ %wide.trip.count.i.i59, %167 ]
-  %.043 = phi i32 [ %.0.i46, %92 ], [ %103, %123 ], [ %129, %145 ], [ %151, %167 ]
+  %.pre-phi = phi i64 [ %95, %92 ], [ %wide.trip.count.i.i51, %145 ], [ %wide.trip.count.i.i, %123 ], [ %wide.trip.count.i.i59, %167 ]
+  %.043 = phi i32 [ %.0.i46, %92 ], [ %129, %145 ], [ %103, %123 ], [ %151, %167 ]
   %171 = icmp sgt i32 %.043, -1
   %172 = getelementptr inbounds nuw i8, ptr %.041, i64 %.pre-phi
   %173 = sub nsw i64 %.038, %.pre-phi

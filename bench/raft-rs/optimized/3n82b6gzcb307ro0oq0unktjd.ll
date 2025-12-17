@@ -48,7 +48,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$protobuf..singular
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -105,7 +105,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$protobuf..singular
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -162,7 +162,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$protobuf..singular
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -276,7 +276,7 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$protobuf..singular
   unreachable
 
 32:                                               ; preds = %28, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %29, %28 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %29, %28 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -477,7 +477,7 @@ define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$protobuf..singular
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -819,7 +819,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -1237,7 +1237,7 @@ define hidden void @"_ZN4core3ptr110drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -1619,7 +1619,7 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -1977,7 +1977,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -2335,7 +2335,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -2693,7 +2693,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -3187,7 +3187,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -3545,7 +3545,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -3903,7 +3903,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$protobuf..reflect..acc..v1.
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %172, %164, %148, %140, %124, %116, %100, %92, %76, %68, %52, %44, %27, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %45, %52 ], [ %45, %44 ], [ %69, %76 ], [ %69, %68 ], [ %93, %100 ], [ %93, %92 ], [ %117, %124 ], [ %117, %116 ], [ %141, %148 ], [ %141, %140 ], [ %165, %172 ], [ %165, %164 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %141, %140 ], [ %20, %19 ], [ %93, %92 ], [ %117, %116 ], [ %20, %27 ], [ %69, %68 ], [ %45, %44 ], [ %45, %52 ], [ %69, %76 ], [ %93, %100 ], [ %117, %124 ], [ %141, %148 ], [ %165, %172 ], [ %165, %164 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %1
@@ -6868,7 +6868,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$protobuf..descripto
   unreachable
 
 .body:                                            ; preds = %13, %5
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %14, %13 ], [ %6, %5 ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %6, %5 ], [ %14, %13 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 48, i64 noundef 8) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr53drop_in_place$LT$protobuf..unknown..UnknownFields$GT$17h50fc3265562e9a7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17) #7
@@ -7360,7 +7360,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$protobuf..singular.
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -7577,7 +7577,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$protobuf..singular.
   unreachable
 
 56:                                               ; preds = %52, %43
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %53, %52 ], [ %.pn18.i.i.i, %43 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn18.i.i.i, %43 ], [ %53, %52 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 384, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -7701,7 +7701,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$protobuf..singular.
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -7758,7 +7758,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$protobuf..singular.
   unreachable
 
 15:                                               ; preds = %11, %3
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %12, %11 ], [ %4, %3 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %4, %3 ], [ %12, %11 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #8
   resume { ptr, i32 } %eh.lpad-body.i.i
 

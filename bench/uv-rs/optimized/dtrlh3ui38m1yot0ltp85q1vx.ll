@@ -607,8 +607,8 @@ define { ptr, ptr } @"_ZN93_$LT$uv_publish..trusted_publishing..TrustedPublishin
   br label %16
 
 16:                                               ; preds = %1, %1, %1, %1, %1, %11, %9, %7
-  %.sroa.9.0 = phi ptr [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %7 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %9 ], [ %15, %11 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %14, %11 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.9.0 = phi ptr [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ @anon.6c41dd9bacf45627f441883ad8301670.34.llvm.1865484931753558622, %7 ], [ @anon.6c41dd9bacf45627f441883ad8301670.36.llvm.1865484931753558622, %9 ], [ %15, %11 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %8, %7 ], [ %10, %9 ], [ %14, %11 ], [ null, %1 ], [ null, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.9.0, 1
   ret { ptr, ptr } %18

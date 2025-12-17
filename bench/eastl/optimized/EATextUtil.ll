@@ -198,7 +198,7 @@ land.lhs.true163:                                 ; preds = %land.lhs.true158
   br i1 %or.cond53, label %if.end183, label %while.end
 
 if.end183:                                        ; preds = %land.lhs.true163, %land.lhs.true116, %land.lhs.true74, %land.lhs.true38, %if.then12, %while.body
-  %.sink = phi i64 [ 1, %while.body ], [ 2, %if.then12 ], [ 3, %land.lhs.true38 ], [ 4, %land.lhs.true74 ], [ 5, %land.lhs.true116 ], [ 6, %land.lhs.true163 ]
+  %.sink = phi i64 [ 2, %if.then12 ], [ 4, %land.lhs.true74 ], [ 5, %land.lhs.true116 ], [ 3, %land.lhs.true38 ], [ 1, %while.body ], [ 6, %land.lhs.true163 ]
   %add.ptr47 = getelementptr inbounds nuw i8, ptr %pSource8.055, i64 %.sink
   %cmp = icmp ult ptr %add.ptr47, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
@@ -245,7 +245,7 @@ if.else16:                                        ; preds = %if.else12
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else16, %if.else12, %if.else8, %if.else4, %if.else, %while.body
-  %.sink = phi i64 [ 1, %while.body ], [ 2, %if.else ], [ 3, %if.else4 ], [ 4, %if.else8 ], [ 5, %if.else12 ], [ %., %if.else16 ]
+  %.sink = phi i64 [ 1, %while.body ], [ 3, %if.else4 ], [ %., %if.else16 ], [ 5, %if.else12 ], [ 4, %if.else8 ], [ 2, %if.else ]
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %p.addr.016, i64 %.sink
   %tobool.not = icmp eq i64 %dec17, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
@@ -364,7 +364,7 @@ if.else17:                                        ; preds = %if.else13
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else17, %if.else13, %if.else9, %if.else5, %if.else, %while.body
-  %.sink = phi i64 [ 1, %while.body ], [ 2, %if.else ], [ 3, %if.else5 ], [ 4, %if.else9 ], [ 5, %if.else13 ], [ %., %if.else17 ]
+  %.sink = phi i64 [ 1, %while.body ], [ 3, %if.else5 ], [ %., %if.else17 ], [ 5, %if.else13 ], [ 4, %if.else9 ], [ 2, %if.else ]
   %add4 = add i64 %n.015, %.sink
   %2 = load i32, ptr %incdec.ptr16, align 4
   %cmp.not = icmp eq i32 %2, 0
@@ -404,7 +404,7 @@ if.else12:                                        ; preds = %if.else9
   br label %return
 
 return:                                           ; preds = %if.else12, %if.else9, %if.else6, %if.else3, %if.else, %entry
-  %retval.0 = phi i64 [ 1, %entry ], [ 2, %if.else ], [ 3, %if.else3 ], [ 4, %if.else6 ], [ 5, %if.else9 ], [ %., %if.else12 ]
+  %retval.0 = phi i64 [ 5, %if.else9 ], [ 1, %entry ], [ 2, %if.else ], [ 3, %if.else3 ], [ 4, %if.else6 ], [ %., %if.else12 ]
   ret i64 %retval.0
 }
 
@@ -446,7 +446,7 @@ if.else12:                                        ; preds = %if.else9
   br label %return
 
 return:                                           ; preds = %if.else12, %if.else9, %if.else6, %if.else3, %if.else, %entry
-  %retval.0 = phi i64 [ 1, %entry ], [ 2, %if.else ], [ 3, %if.else3 ], [ 4, %if.else6 ], [ 5, %if.else9 ], [ %., %if.else12 ]
+  %retval.0 = phi i64 [ 5, %if.else9 ], [ 1, %entry ], [ 2, %if.else ], [ 3, %if.else3 ], [ 4, %if.else6 ], [ %., %if.else12 ]
   ret i64 %retval.0
 }
 
@@ -860,7 +860,7 @@ if.else13:                                        ; preds = %if.then11
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 return:                                           ; preds = %if.else8, %if.else.thread, %if.then11, %land.lhs.true, %land.lhs.true2
-  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %land.lhs.true ], [ true, %if.then11 ], [ false, %if.else.thread ], [ false, %if.else8 ]
+  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %if.then11 ], [ false, %if.else.thread ], [ true, %land.lhs.true ], [ false, %if.else8 ]
   ret i1 %retval.0
 }
 
@@ -995,7 +995,7 @@ if.else13:                                        ; preds = %if.then11
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 return:                                           ; preds = %if.else8, %if.else.thread, %if.then11, %land.lhs.true, %land.lhs.true2
-  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %land.lhs.true ], [ true, %if.then11 ], [ false, %if.else.thread ], [ false, %if.else8 ]
+  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %if.then11 ], [ false, %if.else.thread ], [ true, %land.lhs.true ], [ false, %if.else8 ]
   ret i1 %retval.0
 }
 
@@ -1125,7 +1125,7 @@ if.else12:                                        ; preds = %if.then10
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 return:                                           ; preds = %if.else8, %if.else.thread, %if.then10, %land.lhs.true, %land.lhs.true2
-  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %land.lhs.true ], [ true, %if.then10 ], [ false, %if.else.thread ], [ false, %if.else8 ]
+  %retval.0 = phi i1 [ %tobool3.not, %land.lhs.true2 ], [ true, %if.then10 ], [ false, %if.else.thread ], [ true, %land.lhs.true ], [ false, %if.else8 ]
   ret i1 %retval.0
 }
 
@@ -1197,7 +1197,7 @@ if.end21.sink.split:                              ; preds = %if.else, %while.end
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %while.end.thread, %if.else, %while.end, %if.then5, %land.lhs.true10
-  %pText.addr.1 = phi ptr [ %pText.addr.022, %land.lhs.true10 ], [ %pText.addr.022, %if.then5 ], [ %pText.addr.022, %while.end ], [ %pText, %if.else ], [ %scevgep, %while.end.thread ], [ %pText.addr.1.ph, %if.end21.sink.split ]
+  %pText.addr.1 = phi ptr [ %scevgep, %while.end.thread ], [ %pText.addr.022, %land.lhs.true10 ], [ %pText.addr.022, %if.then5 ], [ %pText, %if.else ], [ %pText.addr.022, %while.end ], [ %pText.addr.1.ph, %if.end21.sink.split ]
   ret ptr %pText.addr.1
 }
 
@@ -1256,7 +1256,7 @@ if.end21.sink.split:                              ; preds = %if.else, %while.end
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %while.end.thread, %if.else, %while.end, %if.then5, %land.lhs.true10
-  %pText.addr.1 = phi ptr [ %pText.addr.022, %land.lhs.true10 ], [ %pText.addr.022, %if.then5 ], [ %pText.addr.022, %while.end ], [ %pText, %if.else ], [ %incdec.ptr, %while.end.thread ], [ %pText.addr.1.ph, %if.end21.sink.split ]
+  %pText.addr.1 = phi ptr [ %incdec.ptr, %while.end.thread ], [ %pText.addr.022, %land.lhs.true10 ], [ %pText.addr.022, %if.then5 ], [ %pText, %if.else ], [ %pText.addr.022, %while.end ], [ %pText.addr.1.ph, %if.end21.sink.split ]
   ret ptr %pText.addr.1
 }
 
@@ -1315,7 +1315,7 @@ if.end18.sink.split:                              ; preds = %if.else, %while.end
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18.sink.split, %while.end.thread, %if.else, %while.end, %if.then4, %land.lhs.true9
-  %pText.addr.1 = phi ptr [ %pText.addr.021, %land.lhs.true9 ], [ %pText.addr.021, %if.then4 ], [ %pText.addr.021, %while.end ], [ %pText, %if.else ], [ %incdec.ptr, %while.end.thread ], [ %pText.addr.1.ph, %if.end18.sink.split ]
+  %pText.addr.1 = phi ptr [ %incdec.ptr, %while.end.thread ], [ %pText.addr.021, %land.lhs.true9 ], [ %pText.addr.021, %if.then4 ], [ %pText, %if.else ], [ %pText.addr.021, %while.end ], [ %pText.addr.1.ph, %if.end18.sink.split ]
   ret ptr %pText.addr.1
 }
 
@@ -2040,8 +2040,8 @@ if.else21:                                        ; preds = %if.else14
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then5, %if.else21, %if.else14, %for.body
-  %cTemp.0 = phi i8 [ 48, %for.body ], [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ %spec.select19, %if.then5 ]
-  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
+  %cTemp.0 = phi i8 [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ 48, %for.body ], [ %spec.select19, %if.then5 ]
+  %bReturnValue.2 = phi i1 [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ false, %for.body ], [ %spec.select20, %if.then5 ]
   %conv33 = zext nneg i8 %cTemp.0 to i32
   %sub34 = add nuw nsw i32 %conv33, 208
   %shl = shl i32 %sub34, %j.025
@@ -2111,8 +2111,8 @@ if.else21:                                        ; preds = %if.else14
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then5, %if.else21, %if.else14, %for.body
-  %cTemp.0 = phi i16 [ 48, %for.body ], [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ %spec.select19, %if.then5 ]
-  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ %spec.select20, %if.then5 ]
+  %cTemp.0 = phi i16 [ 48, %if.else14 ], [ %spec.select, %if.else21 ], [ 48, %for.body ], [ %spec.select19, %if.then5 ]
+  %bReturnValue.2 = phi i1 [ false, %if.else14 ], [ %bReturnValue.124, %if.else21 ], [ false, %for.body ], [ %spec.select20, %if.then5 ]
   %conv33 = zext i16 %cTemp.0 to i32
   %sub34 = add nuw nsw i32 %conv33, 208
   %shl = shl i32 %sub34, %j.025
@@ -2182,8 +2182,8 @@ if.else14:                                        ; preds = %if.else9
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then4, %if.else14, %if.else9, %for.body
-  %cTemp.0 = phi i32 [ 48, %for.body ], [ 48, %if.else9 ], [ %spec.select, %if.else14 ], [ %spec.select19, %if.then4 ]
-  %bReturnValue.2 = phi i1 [ false, %for.body ], [ false, %if.else9 ], [ %bReturnValue.124, %if.else14 ], [ %spec.select20, %if.then4 ]
+  %cTemp.0 = phi i32 [ 48, %if.else9 ], [ %spec.select, %if.else14 ], [ 48, %for.body ], [ %spec.select19, %if.then4 ]
+  %bReturnValue.2 = phi i1 [ false, %if.else9 ], [ %bReturnValue.124, %if.else14 ], [ false, %for.body ], [ %spec.select20, %if.then4 ]
   %sub22 = add i32 %cTemp.0, 208
   %shl = shl i32 %sub22, %j.025
   %3 = trunc i32 %shl to i8
@@ -2257,7 +2257,7 @@ if.then18.us:                                     ; preds = %land.lhs.true16.us
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %if.else.us, %if.then18.us, %land.lhs.true16.us
-  %pToken.addr.1.us = phi ptr [ %incdec.ptr19.us, %if.then18.us ], [ %pToken.addr.017.us, %land.lhs.true16.us ], [ null, %if.else.us ]
+  %pToken.addr.1.us = phi ptr [ %pToken.addr.017.us, %land.lhs.true16.us ], [ %incdec.ptr19.us, %if.then18.us ], [ null, %if.else.us ]
   %incdec.ptr21.us = getelementptr inbounds nuw i8, ptr %pSource.addr.018.us, i64 1
   %exitcond22.not = icmp eq i64 %.pre, %nSourceLength
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !35
@@ -2295,12 +2295,12 @@ if.then18:                                        ; preds = %land.lhs.true16
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18, %land.lhs.true16
-  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01729, %land.lhs.true16 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %pToken.addr.01729, %land.lhs.true16 ], [ %incdec.ptr19, %if.then18 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !35
 
 return:                                           ; preds = %if.end20, %for.body, %land.rhsthread-pre-split, %if.end20.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %land.rhs.us ], [ true, %if.end20.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
+  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
   ret i1 %retval.0
 }
 
@@ -2357,7 +2357,7 @@ if.then18.us:                                     ; preds = %land.lhs.true16.us
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %if.else.us, %if.then18.us, %land.lhs.true16.us
-  %pToken.addr.1.us = phi ptr [ %incdec.ptr19.us, %if.then18.us ], [ %pToken.addr.017.us, %land.lhs.true16.us ], [ null, %if.else.us ]
+  %pToken.addr.1.us = phi ptr [ %pToken.addr.017.us, %land.lhs.true16.us ], [ %incdec.ptr19.us, %if.then18.us ], [ null, %if.else.us ]
   %incdec.ptr21.us = getelementptr inbounds nuw i8, ptr %pSource.addr.018.us, i64 2
   %exitcond22.not = icmp eq i64 %.pre, %nSourceLength
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !36
@@ -2395,12 +2395,12 @@ if.then18:                                        ; preds = %land.lhs.true16
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18, %land.lhs.true16
-  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01729, %land.lhs.true16 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %pToken.addr.01729, %land.lhs.true16 ], [ %incdec.ptr19, %if.then18 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !36
 
 return:                                           ; preds = %if.end20, %for.body, %land.rhsthread-pre-split, %if.end20.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %land.rhs.us ], [ true, %if.end20.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
+  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end20.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end20 ]
   ret i1 %retval.0
 }
 
@@ -2457,7 +2457,7 @@ if.then17.us:                                     ; preds = %land.lhs.true15.us
   br label %if.end19.us
 
 if.end19.us:                                      ; preds = %if.else.us, %if.then17.us, %land.lhs.true15.us
-  %pToken.addr.1.us = phi ptr [ %incdec.ptr18.us, %if.then17.us ], [ %pToken.addr.017.us, %land.lhs.true15.us ], [ null, %if.else.us ]
+  %pToken.addr.1.us = phi ptr [ %pToken.addr.017.us, %land.lhs.true15.us ], [ %incdec.ptr18.us, %if.then17.us ], [ null, %if.else.us ]
   %incdec.ptr20.us = getelementptr inbounds nuw i8, ptr %pSource.addr.018.us, i64 4
   %exitcond22.not = icmp eq i64 %.pre, %nSourceLength
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !37
@@ -2495,12 +2495,12 @@ if.then17:                                        ; preds = %land.lhs.true15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then17, %land.lhs.true15
-  %pToken.addr.1 = phi ptr [ %incdec.ptr18, %if.then17 ], [ %pToken.addr.01729, %land.lhs.true15 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %pToken.addr.01729, %land.lhs.true15 ], [ %incdec.ptr18, %if.then17 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !37
 
 return:                                           ; preds = %if.end19, %for.body, %land.rhsthread-pre-split, %if.end19.us, %land.rhs.us, %if.end, %land.lhs.true5
-  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %land.rhs.us ], [ true, %if.end19.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end19 ]
+  %retval.0 = phi i1 [ false, %land.lhs.true5 ], [ false, %if.end ], [ true, %if.end19.us ], [ true, %land.rhs.us ], [ true, %land.rhsthread-pre-split ], [ true, %for.body ], [ true, %if.end19 ]
   ret i1 %retval.0
 }
 
@@ -3223,7 +3223,7 @@ while.body.us.us:                                 ; preds = %land.rhs.us.us
   br i1 %cmp2.us.us, label %land.rhs.us.us, label %return, !llvm.loop !50
 
 return:                                           ; preds = %for.inc.us, %while.body.us84, %while.body.us.us, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit
-  %retval.0 = phi i32 [ %nPatternLength.mux, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit ], [ %j.073.us, %while.body.us.us ], [ %j.073.us, %while.body.us84 ], [ %nPatternLength, %for.inc.us ]
+  %retval.0 = phi i32 [ %nPatternLength.mux, %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit ], [ %j.073.us, %while.body.us84 ], [ %j.073.us, %while.body.us.us ], [ %nPatternLength, %for.inc.us ]
   ret i32 %retval.0
 }
 

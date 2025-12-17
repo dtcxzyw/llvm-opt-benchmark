@@ -56,7 +56,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end ]
   store ptr %__first.addr.0.i.i.i.i.i, ptr %0, align 8
   %cmp116.not = icmp eq i32 %end, %begin
   br i1 %cmp116.not, label %if.else, label %for.body
@@ -147,7 +147,7 @@ cleanup:                                          ; preds = %for.end
   %tobool.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.inc16.i, %if.end10.i, %for.body4.i, %if.else, %cleanup
+if.then.i.i.i:                                    ; preds = %for.inc16.i, %for.body4.i, %if.end10.i, %if.else, %cleanup
   %retval.123 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
   %10 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
   call void @_ZdlPv(ptr noundef nonnull %10) #11
@@ -843,8 +843,8 @@ for.inc16.i303:                                   ; preds = %cond.true.i.i299, %
   %cmp1.not.i305 = icmp eq i32 %i.0.i304, %retval.sroa.6.0.i
   br i1 %cmp1.not.i305, label %return, label %for.cond2.preheader.i287, !llvm.loop !7
 
-return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %for.body4.i249, %if.end10.i266, %for.body.i, %for.body9.i, %for.body4.i, %if.end10.i, %for.inc16.i221, %for.body4.i208, %if.end10.i225, %for.inc16.i303, %for.body4.i290, %if.end10.i307, %do.body.i, %if.end13.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.else102 ], [ 1, %if.else73 ], [ 0, %if.end13.i ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 0, %for.body4.i290 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 0, %for.body4.i208 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body4.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %for.body4.i249 ], [ 0, %if.end22.i ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.end33 ], [ 0, %if.then83 ]
+return:                                           ; preds = %if.then83, %if.end33, %if.end19, %if.end6, %if.then31.i, %if.then41, %if.then27, %if.then13, %if.end, %if.then58, %if.end22.i, %if.end10.i266, %for.body4.i249, %for.body.i, %for.body9.i, %if.end10.i, %for.body4.i, %for.inc16.i221, %if.end10.i225, %for.body4.i208, %for.inc16.i303, %if.end10.i307, %for.body4.i290, %do.body.i, %if.end13.i, %while.body.i, %while.cond.i, %if.else73, %if.else102, %if.then
+  %retval.0 = phi i32 [ 1, %if.else73 ], [ 1, %if.then ], [ 1, %if.else102 ], [ 0, %if.end33 ], [ 0, %if.end13.i ], [ 0, %do.body.i ], [ 0, %if.end10.i307 ], [ 1, %for.inc16.i303 ], [ 0, %if.end10.i225 ], [ 1, %for.inc16.i221 ], [ 0, %if.end10.i ], [ 0, %for.body9.i ], [ 0, %for.body.i ], [ 0, %if.end10.i266 ], [ 0, %if.end22.i ], [ 1, %while.cond.i ], [ 0, %while.body.i ], [ 0, %for.body4.i290 ], [ 0, %for.body4.i208 ], [ 0, %for.body4.i ], [ 0, %for.body4.i249 ], [ 0, %if.then58 ], [ 0, %if.end ], [ 0, %if.then13 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ 0, %if.then31.i ], [ 0, %if.end6 ], [ 0, %if.end19 ], [ 0, %if.then83 ]
   ret i32 %retval.0
 }
 
@@ -963,7 +963,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit: ; p
   br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %if.end17, %if.then9, %if.end22, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit, %if.end25, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end17 ], [ 0, %if.then9 ], [ 1, %if.end22 ], [ 1, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit ], [ 0, %if.end25 ]
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end17 ], [ 0, %if.then9 ], [ 1, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit ], [ 0, %if.end25 ], [ 1, %if.end22 ]
   ret i32 %retval.0
 }
 

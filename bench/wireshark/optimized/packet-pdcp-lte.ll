@@ -638,7 +638,7 @@ check_valid_key_string.exit.preheader:            ; preds = %31, %hex_ascii_to_b
   br label %hex_ascii_to_binary.exit
 
 hex_ascii_to_binary.exit:                         ; preds = %check_valid_key_string.exit.preheader, %39, %41
-  %.0.i10 = phi i8 [ %40, %39 ], [ %spec.select.i, %41 ], [ %36, %check_valid_key_string.exit.preheader ]
+  %.0.i10 = phi i8 [ %spec.select.i, %41 ], [ %40, %39 ], [ %36, %check_valid_key_string.exit.preheader ]
   %44 = shl nuw i8 %.0.i10, 4
   %45 = getelementptr i8, ptr %34, i64 1
   %46 = load i8, ptr %45, align 1
@@ -663,7 +663,7 @@ hex_ascii_to_binary.exit:                         ; preds = %check_valid_key_str
   br label %hex_ascii_to_binary.exit16
 
 hex_ascii_to_binary.exit16:                       ; preds = %hex_ascii_to_binary.exit, %50, %52
-  %.0.i15 = phi i8 [ %51, %50 ], [ %spec.select.i14, %52 ], [ %47, %hex_ascii_to_binary.exit ]
+  %.0.i15 = phi i8 [ %spec.select.i14, %52 ], [ %51, %50 ], [ %47, %hex_ascii_to_binary.exit ]
   %55 = add nuw nsw i8 %.0.i15, %44
   %56 = lshr exact i64 %indvars.iv, 1
   %57 = getelementptr i8, ptr %1, i64 %56
@@ -1955,8 +1955,8 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   br label %.thread553
 
 .thread553:                                       ; preds = %392, %398, %385, %389, %382, %391
-  %hf_pdcp_lte_seq_num_7.sink = phi ptr [ @hf_pdcp_lte_seq_num_15, %391 ], [ @hf_pdcp_lte_seq_num_7, %382 ], [ @hf_pdcp_lte_seq_num_12, %389 ], [ @hf_pdcp_lte_seq_num_12, %385 ], [ @hf_pdcp_lte_seq_num_18, %398 ], [ @hf_pdcp_lte_seq_num_18, %392 ]
-  %.sink712 = phi i32 [ 2, %391 ], [ 1, %382 ], [ 2, %389 ], [ 2, %385 ], [ 3, %398 ], [ 3, %392 ]
+  %hf_pdcp_lte_seq_num_7.sink = phi ptr [ @hf_pdcp_lte_seq_num_12, %385 ], [ @hf_pdcp_lte_seq_num_7, %382 ], [ @hf_pdcp_lte_seq_num_15, %391 ], [ @hf_pdcp_lte_seq_num_12, %389 ], [ @hf_pdcp_lte_seq_num_18, %398 ], [ @hf_pdcp_lte_seq_num_18, %392 ]
+  %.sink712 = phi i32 [ 2, %385 ], [ 1, %382 ], [ 2, %391 ], [ 2, %389 ], [ 3, %398 ], [ 3, %392 ]
   %400 = load i32, ptr %hf_pdcp_lte_seq_num_7.sink, align 4
   %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0346538, i32 noundef %400, ptr noundef %0, i32 noundef 0, i32 noundef %.sink712, i32 noundef 0, ptr noundef nonnull %11)
   %402 = load i32, ptr %11, align 4
@@ -2149,7 +2149,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   br label %.thread540
 
 .thread540:                                       ; preds = %439, %493, %._crit_edge
-  %.0369544 = phi i32 [ %.1370.lcssa, %493 ], [ %.1370.lcssa, %._crit_edge ], [ 0, %439 ]
+  %.0369544 = phi i32 [ %.1370.lcssa, %._crit_edge ], [ %.1370.lcssa, %493 ], [ 0, %439 ]
   %494 = load i32, ptr %14, align 4
   call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0347537, ptr noundef %1, ptr noundef nonnull @.str.280, i32 noundef %494, i32 noundef %.0369544)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2307,7 +2307,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
-.critedge:                                        ; preds = %403, %576, %549, %.thread540
+.critedge:                                        ; preds = %403, %549, %.thread540, %576
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge432
 
@@ -2356,7 +2356,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   tail call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0347537, ptr noundef %1, ptr noundef nonnull @.str.285)
   br label %.critedge432.thread
 
-.critedge432.thread:                              ; preds = %585, %579, %.thread549, %581, %593, %588, %595
+.critedge432.thread:                              ; preds = %585, %.thread549, %581, %593, %588, %579, %595
   %.7 = phi i32 [ 0, %595 ], [ %.1531552, %585 ], [ 1, %579 ], [ %.1531552, %581 ], [ %.1531552, %588 ], [ %.1531552, %593 ], [ %.1531552, %.thread549 ]
   br i1 %.not403, label %600, label %596
 
@@ -2654,8 +2654,8 @@ decipher_payload.exit.thread:                     ; preds = %604, %608, %614, %6
   br label %calculate_digest.exit
 
 calculate_digest.exit:                            ; preds = %765, %693, %688, %680
-  %.0526 = phi i1 [ false, %680 ], [ %.1527, %765 ], [ false, %693 ], [ true, %688 ]
-  %.0348 = phi i32 [ 0, %680 ], [ %.1.i, %765 ], [ 0, %693 ], [ 0, %688 ]
+  %.0526 = phi i1 [ false, %680 ], [ false, %693 ], [ %.1527, %765 ], [ true, %688 ]
+  %.0348 = phi i32 [ 0, %680 ], [ 0, %693 ], [ %.1.i, %765 ], [ 0, %688 ]
   %766 = load i8, ptr @global_pdcp_dissect_signalling_plane_as_rrc, align 1, !range !9, !noundef !10
   %767 = trunc nuw i8 %766 to i1
   br i1 %767, label %768, label %824
@@ -2739,7 +2739,7 @@ calculate_digest.exit:                            ; preds = %765, %693, %688, %6
   br label %lookup_rrc_dissector_handle.exit
 
 lookup_rrc_dissector_handle.exit:                 ; preds = %797, %793, %789, %786, %782, %777, %779, %785, %792, %796
-  %.0.i448.in = phi ptr [ @lte_rrc_bcch_dl_sch, %785 ], [ @lte_rrc_pcch_nb, %792 ], [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ], [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ]
+  %.0.i448.in = phi ptr [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_dl_sch, %785 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ], [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ @lte_rrc_pcch_nb, %792 ]
   %.0.i448 = load ptr, ptr %.0.i448.in, align 8
   %.not428 = icmp eq ptr %.0.i448, null
   br i1 %.not428, label %lookup_rrc_dissector_handle.exit.thread, label %800
@@ -2968,7 +2968,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %793, %782, %777, %l
   br label %.critedge432
 
 .critedge432:                                     ; preds = %578, %374, %.critedge, %382, %4, %915, %897, %889
-  %.0 = phi i32 [ %916, %915 ], [ 1, %897 ], [ %893, %889 ], [ 0, %4 ], [ 1, %374 ], [ 1, %578 ], [ 1, %.critedge ], [ 1, %382 ]
+  %.0 = phi i32 [ 0, %4 ], [ %916, %915 ], [ 1, %897 ], [ %893, %889 ], [ 1, %578 ], [ 1, %374 ], [ 1, %.critedge ], [ 1, %382 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3399,7 +3399,7 @@ define internal noundef zeroext i1 @dissect_pdcp_lte_heur(ptr noundef %0, ptr no
   br label %100
 
 100:                                              ; preds = %7, %4, %97, %78, %.split.us
-  %.0100 = phi i1 [ true, %.split.us ], [ true, %78 ], [ true, %97 ], [ false, %4 ], [ false, %7 ]
+  %.0100 = phi i1 [ true, %97 ], [ false, %4 ], [ true, %.split.us ], [ true, %78 ], [ false, %7 ]
   ret i1 %.0100
 }
 
@@ -3598,7 +3598,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   unreachable
 
 75:                                               ; preds = %64, %73, %72, %71, %70
-  %.090 = phi i32 [ 128, %70 ], [ 4096, %71 ], [ 32768, %72 ], [ 262144, %73 ], [ 32, %64 ]
+  %.090 = phi i32 [ 262144, %73 ], [ 128, %70 ], [ 4096, %71 ], [ 32768, %72 ], [ 32, %64 ]
   br i1 %.not107, label %.thread104, label %84
 
 .thread104:                                       ; preds = %75
@@ -4019,7 +4019,7 @@ proto_item_set_generated.exit154:                 ; preds = %proto_item_set_gene
   unreachable
 
 108:                                              ; preds = %proto_item_set_generated.exit154, %106, %105, %104, %103
-  %.0127 = phi i32 [ 128, %103 ], [ 4096, %104 ], [ 32768, %105 ], [ 262144, %106 ], [ 32, %proto_item_set_generated.exit154 ]
+  %.0127 = phi i32 [ 262144, %106 ], [ 128, %103 ], [ 4096, %104 ], [ 32768, %105 ], [ 32, %proto_item_set_generated.exit154 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load i32, ptr %109, align 4
   %111 = mul i32 %110, %.0127

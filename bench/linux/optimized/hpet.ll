@@ -1053,7 +1053,7 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_set_rtc_irq_bit(i64 noundef %
   br label %hpet_rtc_timer_init.exit
 
 hpet_rtc_timer_init.exit:                         ; preds = %19, %61, %36, %1
-  %62 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 1, %36 ], [ 1, %61 ]
+  %62 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 1, %61 ], [ 1, %36 ]
   ret i32 %62
 }
 

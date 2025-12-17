@@ -1058,7 +1058,7 @@ define hidden noundef i64 @_ZN4text14BufferSnapshot18summary_for_anchor17h7f3162
   br i1 %or.cond109, label %112, label %.invoke108
 
 .invoke108:                                       ; preds = %109, %107, %89, %79
-  %111 = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.6, %79 ], [ @anon.aae369fc39eb21954c62734d11add221.6, %89 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %107 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %109 ]
+  %111 = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.6, %89 ], [ @anon.aae369fc39eb21954c62734d11add221.6, %79 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %109 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %107 ]
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17hc6a6c5674911320dE"(ptr noalias noundef nonnull align 8 dereferenceable(552) %16, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) %111)
   br label %112
 
@@ -1534,7 +1534,7 @@ define hidden { i32, i32 } @_ZN4text14BufferSnapshot18summary_for_anchor17hd775b
   br i1 %or.cond112, label %112, label %.invoke111
 
 .invoke111:                                       ; preds = %109, %107, %89, %79
-  %111 = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.6, %79 ], [ @anon.aae369fc39eb21954c62734d11add221.6, %89 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %107 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %109 ]
+  %111 = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.6, %89 ], [ @anon.aae369fc39eb21954c62734d11add221.6, %79 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %109 ], [ @anon.aae369fc39eb21954c62734d11add221.5, %107 ]
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17hc6a6c5674911320dE"(ptr noalias noundef nonnull align 8 dereferenceable(552) %16, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) %111)
   br label %112
 
@@ -2652,7 +2652,7 @@ define hidden noundef i64 @"_ZN4text14BufferSnapshot34summaries_for_anchors_with
   br i1 %or.cond2, label %.sink.split, label %113
 
 .sink.split:                                      ; preds = %108, %110, %84, %74
-  %anon.aae369fc39eb21954c62734d11add221.20.sink = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.21, %74 ], [ @anon.aae369fc39eb21954c62734d11add221.21, %84 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %110 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %108 ]
+  %anon.aae369fc39eb21954c62734d11add221.20.sink = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.21, %84 ], [ @anon.aae369fc39eb21954c62734d11add221.21, %74 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %110 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %108 ]
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17hc6a6c5674911320dE"(ptr noalias noundef nonnull align 8 dereferenceable(552) %48, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) %anon.aae369fc39eb21954c62734d11add221.20.sink)
   br label %113
 
@@ -3046,7 +3046,7 @@ define hidden { i32, i32 } @"_ZN4text14BufferSnapshot34summaries_for_anchors_wit
   br i1 %or.cond2, label %.sink.split, label %113
 
 .sink.split:                                      ; preds = %108, %110, %84, %74
-  %anon.aae369fc39eb21954c62734d11add221.20.sink = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.21, %74 ], [ @anon.aae369fc39eb21954c62734d11add221.21, %84 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %110 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %108 ]
+  %anon.aae369fc39eb21954c62734d11add221.20.sink = phi ptr [ @anon.aae369fc39eb21954c62734d11add221.21, %84 ], [ @anon.aae369fc39eb21954c62734d11add221.21, %74 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %110 ], [ @anon.aae369fc39eb21954c62734d11add221.20, %108 ]
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17hc6a6c5674911320dE"(ptr noalias noundef nonnull align 8 dereferenceable(552) %48, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) %anon.aae369fc39eb21954c62734d11add221.20.sink)
   br label %113
 
@@ -9306,7 +9306,7 @@ define hidden void @"_ZN65_$LT$schemars..schema..Metadata$u20$as$u20$core..clone
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h1fbc9f4ae9be9885E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit.sink.split": ; preds = %53, %50, %41, %43, %47
-  %.sink = phi i64 [ -9223372036854775806, %47 ], [ -9223372036854775807, %43 ], [ -9223372036854775808, %41 ], [ -9223372036854775805, %50 ], [ -9223372036854775804, %53 ]
+  %.sink = phi i64 [ -9223372036854775805, %50 ], [ -9223372036854775808, %41 ], [ -9223372036854775806, %47 ], [ -9223372036854775807, %43 ], [ -9223372036854775804, %53 ]
   store i64 %.sink, ptr %3, align 8, !alias.scope !1331, !noalias !1334
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit"
 
@@ -9644,7 +9644,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr116dro
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h1fbc9f4ae9be9885E.exit"
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit.sink.split": ; preds = %95, %92, %83, %85, %89
-  %.sink = phi i64 [ -9223372036854775806, %89 ], [ -9223372036854775807, %85 ], [ -9223372036854775808, %83 ], [ -9223372036854775805, %92 ], [ -9223372036854775804, %95 ]
+  %.sink = phi i64 [ -9223372036854775805, %92 ], [ -9223372036854775808, %83 ], [ -9223372036854775806, %89 ], [ -9223372036854775807, %85 ], [ -9223372036854775804, %95 ]
   store i64 %.sink, ptr %11, align 8, !alias.scope !1371, !noalias !1374
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit"
 
@@ -11652,7 +11652,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %30
 
 "_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit.sink.split": ; preds = %59, %57, %49, %52, %55
-  %.sink = phi i64 [ -9223372036854775806, %55 ], [ -9223372036854775807, %52 ], [ -9223372036854775808, %49 ], [ -9223372036854775805, %57 ], [ -9223372036854775804, %59 ]
+  %.sink = phi i64 [ -9223372036854775805, %57 ], [ -9223372036854775808, %49 ], [ -9223372036854775806, %55 ], [ -9223372036854775807, %52 ], [ -9223372036854775804, %59 ]
   store i64 %.sink, ptr %15, align 8, !alias.scope !1600, !noalias !1603
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit"
 
@@ -11672,7 +11672,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.not139 = icmp samesign ult i64 %48, %69
   br i1 %.not139, label %43, label %._crit_edge151
 
-70:                                               ; preds = %57, %59, %64
+70:                                               ; preds = %59, %64, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a86647292a9b4bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #23
@@ -11692,7 +11692,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %33 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %124, %139, %84, %142
-  %.pn94 = phi { ptr, i32 } [ %.pn.pn.ph, %142 ], [ %85, %84 ], [ %lpad.thr_comm.split-lp132, %124 ], [ %lpad.phi144, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn94 = phi { ptr, i32 } [ %85, %84 ], [ %.pn.pn.ph, %142 ], [ %lpad.phi144, %139 ], [ %lpad.thr_comm.split-lp132, %124 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h9f28f3041c4ce44cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #23
           to label %143 unwind label %71
 
@@ -11839,7 +11839,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %142
 
 .sink.split:                                      ; preds = %111, %109, %101, %104, %107
-  %.sink158 = phi i64 [ -9223372036854775806, %107 ], [ -9223372036854775807, %104 ], [ -9223372036854775808, %101 ], [ -9223372036854775805, %109 ], [ -9223372036854775804, %111 ]
+  %.sink158 = phi i64 [ -9223372036854775805, %109 ], [ -9223372036854775808, %101 ], [ -9223372036854775806, %107 ], [ -9223372036854775807, %104 ], [ -9223372036854775804, %111 ]
   store i64 %.sink158, ptr %11, align 8, !alias.scope !1617, !noalias !1620
   br label %119
 
@@ -12104,7 +12104,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
           to label %35 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %110, %.noexc107, %80, %134
-  %.pn94 = phi { ptr, i32 } [ %.pn.pn.ph, %134 ], [ %81, %80 ], [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.phi137, %.noexc107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn94 = phi { ptr, i32 } [ %81, %80 ], [ %.pn.pn.ph, %134 ], [ %lpad.phi137, %.noexc107 ], [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$schemars..schema..Schema$GT$$GT$17h428c9cbd2775e72cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #23
           to label %135 unwind label %66
 
@@ -12465,7 +12465,7 @@ define internal fastcc void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap
           to label %30 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %84, %98, %63, %77
-  %.pn93 = phi { ptr, i32 } [ %78, %77 ], [ %64, %63 ], [ %lpad.phi124, %98 ], [ %lpad.thr_comm.split-lp, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn93 = phi { ptr, i32 } [ %64, %63 ], [ %78, %77 ], [ %lpad.thr_comm.split-lp, %84 ], [ %lpad.phi124, %98 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17h627a8fd27ee9dfa4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #23
           to label %99 unwind label %50
 

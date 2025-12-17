@@ -94,7 +94,7 @@ BN_BLINDING_free.exit:                            ; preds = %22, %18, %14
   br label %40
 
 40:                                               ; preds = %3, %BN_BLINDING_free.exit, %30, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %BN_BLINDING_free.exit ], [ %4, %30 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %30 ], [ null, %10 ], [ null, %BN_BLINDING_free.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -453,7 +453,7 @@ define noundef ptr @BN_BLINDING_create_param(ptr noundef %0, ptr noundef %1, ptr
   br label %BN_BLINDING_free.exit
 
 BN_BLINDING_free.exit:                            ; preds = %9, %82, %77, %81, %71
-  %.058 = phi ptr [ %.05580, %77 ], [ %.05580, %71 ], [ %.05580, %81 ], [ null, %82 ], [ null, %9 ]
+  %.058 = phi ptr [ %.05580, %71 ], [ %.05580, %77 ], [ %.05580, %81 ], [ null, %82 ], [ null, %9 ]
   ret ptr %.058
 }
 

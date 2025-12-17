@@ -665,8 +665,8 @@ garbage_left.exit648.thread:                      ; preds = %array_delimiter.exi
   br i1 %277, label %check_special_value.exit.thread, label %check_special_value.exit
 
 check_special_value.exit.thread:                  ; preds = %269, %272, %275
-  %.sink.i = phi double [ 0x7FF8000000000000, %269 ], [ 0x7FF0000000000000, %272 ], [ 0xFFF0000000000000, %275 ]
-  %.sink13.i = phi i64 [ 3, %269 ], [ 8, %272 ], [ 9, %275 ]
+  %.sink.i = phi double [ 0x7FF0000000000000, %272 ], [ 0x7FF8000000000000, %269 ], [ 0xFFF0000000000000, %275 ]
+  %.sink13.i = phi i64 [ 8, %272 ], [ 3, %269 ], [ 9, %275 ]
   %278 = getelementptr inbounds nuw i8, ptr %.3, i64 %.sink13.i
   store ptr %278, ptr %15, align 8
   br label %280
@@ -677,8 +677,8 @@ check_special_value.exit:                         ; preds = %275
   br label %280
 
 280:                                              ; preds = %check_special_value.exit.thread, %check_special_value.exit
-  %.pre814 = phi ptr [ %.pre814.pre, %check_special_value.exit ], [ %278, %check_special_value.exit.thread ]
-  %.2691 = phi double [ %279, %check_special_value.exit ], [ %.sink.i, %check_special_value.exit.thread ]
+  %.pre814 = phi ptr [ %278, %check_special_value.exit.thread ], [ %.pre814.pre, %check_special_value.exit ]
+  %.2691 = phi double [ %.sink.i, %check_special_value.exit.thread ], [ %279, %check_special_value.exit ]
   br i1 %.not584, label %garbage_left.exit664.thread710, label %281
 
 281:                                              ; preds = %280
@@ -1378,7 +1378,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %.critedge31
 
 garbage_left.exit632.thread700:                   ; preds = %324, %297, %302, %195, %200, %205, %garbage_left.exit616.thread697, %155, %160, %165, %garbage_left.exit.thread694, %547, %522, %497, %474, %449, %.critedge, %374, %320, %312
-  %.2 = phi ptr [ %154, %garbage_left.exit.thread694 ], [ %154, %155 ], [ %154, %160 ], [ %154, %165 ], [ %194, %garbage_left.exit616.thread697 ], [ %194, %195 ], [ %194, %200 ], [ %194, %205 ], [ %296, %297 ], [ %296, %302 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %375, %374 ], [ %425, %.critedge ], [ %450, %449 ], [ %466, %474 ], [ %498, %497 ], [ %523, %522 ], [ %548, %547 ]
+  %.2 = phi ptr [ %154, %garbage_left.exit.thread694 ], [ %154, %155 ], [ %154, %160 ], [ %154, %165 ], [ %194, %garbage_left.exit616.thread697 ], [ %194, %195 ], [ %194, %200 ], [ %194, %205 ], [ %523, %522 ], [ %498, %497 ], [ %548, %547 ], [ %296, %297 ], [ %296, %302 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %375, %374 ], [ %425, %.critedge ], [ %450, %449 ], [ %466, %474 ]
   br i1 %31, label %garbage_left.exit632.thread700.thread, label %array_delimiter.exit684.thread721
 
 garbage_left.exit632.thread700.thread:            ; preds = %array_delimiter.exit.i621, %array_delimiter.exit.i637, %garbage_left.exit632.thread700
@@ -1388,8 +1388,8 @@ garbage_left.exit632.thread700.thread:            ; preds = %array_delimiter.exi
   br i1 %.not585767, label %.critedge31, label %.lr.ph770.preheader
 
 .lr.ph770.preheader:                              ; preds = %256, %228, %garbage_left.exit632.thread700.thread
-  %.2841850 = phi ptr [ %.2841.ph, %garbage_left.exit632.thread700.thread ], [ %.pre.i625, %228 ], [ %.pre.i641, %256 ]
-  %555 = phi i8 [ %.pr846, %garbage_left.exit632.thread700.thread ], [ 44, %228 ], [ 44, %256 ]
+  %.2841850 = phi ptr [ %.2841.ph, %garbage_left.exit632.thread700.thread ], [ %.pre.i641, %256 ], [ %.pre.i625, %228 ]
+  %555 = phi i8 [ %.pr846, %garbage_left.exit632.thread700.thread ], [ 44, %256 ], [ 44, %228 ]
   %556 = add i32 %.0518, 1
   br label %.lr.ph770
 
@@ -1431,8 +1431,8 @@ array_delimiter.exit684:                          ; preds = %array_delimiter.exi
   br label %array_delimiter.exit684.thread721
 
 array_delimiter.exit684.thread721:                ; preds = %561, %227, %garbage_left.exit632, %255, %garbage_left.exit648, %array_delimiter.exit684, %array_delimiter.exit684.thread, %126, %garbage_left.exit632.thread700
-  %.9.ph = phi ptr [ %566, %array_delimiter.exit684.thread ], [ %.2, %garbage_left.exit632.thread700 ], [ %127, %126 ], [ %567, %array_delimiter.exit684 ], [ %263, %garbage_left.exit648 ], [ %.pre.i641, %255 ], [ %235, %garbage_left.exit632 ], [ %.pre.i625, %227 ], [ %.7768, %561 ]
-  %.1519.ph = phi i32 [ %556, %array_delimiter.exit684.thread ], [ %.0518, %garbage_left.exit632.thread700 ], [ %.0518, %126 ], [ %556, %array_delimiter.exit684 ], [ %.0518, %garbage_left.exit648 ], [ %.0518, %255 ], [ %.0518, %garbage_left.exit632 ], [ %.0518, %227 ], [ %556, %561 ]
+  %.9.ph = phi ptr [ %566, %array_delimiter.exit684.thread ], [ %.2, %garbage_left.exit632.thread700 ], [ %567, %array_delimiter.exit684 ], [ %127, %126 ], [ %.pre.i625, %227 ], [ %263, %garbage_left.exit648 ], [ %.pre.i641, %255 ], [ %235, %garbage_left.exit632 ], [ %.7768, %561 ]
+  %.1519.ph = phi i32 [ %556, %array_delimiter.exit684.thread ], [ %.0518, %garbage_left.exit632.thread700 ], [ %556, %array_delimiter.exit684 ], [ %.0518, %126 ], [ %.0518, %227 ], [ %.0518, %garbage_left.exit648 ], [ %.0518, %255 ], [ %.0518, %garbage_left.exit632 ], [ %556, %561 ]
   %.pr = load i8, ptr %.9.ph, align 1
   %.not587 = icmp eq i8 %.pr, 0
   %568 = icmp eq i8 %.pr, 125
@@ -1441,7 +1441,7 @@ array_delimiter.exit684.thread721:                ; preds = %561, %227, %garbage
   br i1 %or.cond733, label %.critedge31, label %array_boundary.exit688, !llvm.loop !15
 
 .critedge31:                                      ; preds = %array_delimiter.exit684.thread721, %487, %garbage_left.exit632.thread700.thread, %.critedge29, %.thread, %63, %553, %540, %515, %490, %464, %463, %.thread713, %garbage_left.exit664.thread, %garbage_left.exit648.thread, %garbage_left.exit632.thread, %garbage_left.exit616.thread, %garbage_left.exit.thread, %66, %61, %60, %33, %23
-  %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %553 ], [ false, %garbage_left.exit.thread ], [ false, %garbage_left.exit616.thread ], [ false, %garbage_left.exit632.thread ], [ false, %garbage_left.exit648.thread ], [ false, %garbage_left.exit664.thread ], [ false, %.thread713 ], [ false, %463 ], [ false, %464 ], [ false, %490 ], [ false, %515 ], [ false, %540 ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit632.thread700.thread ], [ true, %array_delimiter.exit684.thread721 ], [ false, %487 ]
+  %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %33 ], [ false, %66 ], [ false, %60 ], [ false, %553 ], [ false, %garbage_left.exit.thread ], [ false, %garbage_left.exit616.thread ], [ false, %garbage_left.exit632.thread ], [ false, %garbage_left.exit648.thread ], [ false, %garbage_left.exit664.thread ], [ false, %.thread713 ], [ false, %463 ], [ false, %464 ], [ true, %.thread ], [ true, %63 ], [ false, %490 ], [ false, %515 ], [ false, %540 ], [ true, %.critedge29 ], [ true, %garbage_left.exit632.thread700.thread ], [ true, %array_delimiter.exit684.thread721 ], [ false, %487 ]
   ret i1 %.0514
 }
 

@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @intel_encoder_can_psr(ptr noundef readonly 
   br label %20
 
 20:                                               ; preds = %19, %16, %15, %15, %15
-  %21 = phi ptr [ %18, %16 ], [ %0, %15 ], [ %0, %15 ], [ %0, %15 ], [ null, %19 ]
+  %21 = phi ptr [ %18, %16 ], [ null, %19 ], [ %0, %15 ], [ %0, %15 ], [ %0, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3637
   %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
   %24 = icmp eq i8 %23, 0
@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @intel_encoder_can_psr(ptr noundef readonly 
   br label %30
 
 30:                                               ; preds = %29, %26, %25, %25, %25
-  %31 = phi ptr [ %28, %26 ], [ %0, %25 ], [ %0, %25 ], [ %0, %25 ], [ null, %29 ]
+  %31 = phi ptr [ %28, %26 ], [ null, %29 ], [ %0, %25 ], [ %0, %25 ], [ %0, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 3727
   %33 = load i8, ptr %32, align 1, !range !5, !noundef !6
   %34 = icmp eq i8 %33, 0
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @intel_encoder_can_psr(ptr noundef readonly 
   br label %40
 
 40:                                               ; preds = %39, %36, %35, %35, %35
-  %41 = phi ptr [ %38, %36 ], [ %0, %35 ], [ %0, %35 ], [ %0, %35 ], [ null, %39 ]
+  %41 = phi ptr [ %38, %36 ], [ null, %39 ], [ %0, %35 ], [ %0, %35 ], [ %0, %35 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 3726
   %43 = load i8, ptr %42, align 2, !range !5, !noundef !6
   %44 = icmp ne i8 %43, 0
@@ -1735,19 +1735,19 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
 
 206:                                              ; preds = %200
   %207 = icmp samesign ugt i16 %202, 11
-  br i1 %207, label %208, label %210
+  br i1 %207, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp eq i32 %197, 0
-  br i1 %209, label %222, label %214
+  %209 = icmp samesign ugt i16 %202, 8
+  %210 = icmp eq i32 %197, 4
+  %211 = and i1 %210, %209
+  br i1 %211, label %222, label %214
 
-210:                                              ; preds = %206
-  %211 = icmp samesign ugt i16 %202, 8
-  %212 = icmp eq i32 %197, 4
-  %213 = and i1 %212, %211
+212:                                              ; preds = %206
+  %213 = icmp eq i32 %197, 0
   br i1 %213, label %222, label %214
 
-214:                                              ; preds = %208, %204, %210
+214:                                              ; preds = %208, %204, %212
   %215 = icmp eq ptr %131, null
   br i1 %215, label %219, label %216
 
@@ -1762,7 +1762,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %220, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef nonnull %221) #10
   br label %408
 
-222:                                              ; preds = %208, %204, %210
+222:                                              ; preds = %208, %204, %212
   %223 = load i32, ptr %8, align 8
   %224 = and i32 %223, 15
   switch i32 %224, label %225 [
@@ -2762,19 +2762,19 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
 
 20:                                               ; preds = %14
   %21 = icmp samesign ugt i16 %16, 11
-  br i1 %21, label %22, label %24
+  br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp eq i32 %5, 0
-  br i1 %23, label %28, label %58
+  %23 = icmp samesign ugt i16 %16, 8
+  %24 = icmp eq i32 %5, 4
+  %25 = and i1 %24, %23
+  br i1 %25, label %28, label %58
 
-24:                                               ; preds = %20
-  %25 = icmp samesign ugt i16 %16, 8
-  %26 = icmp eq i32 %5, 4
-  %27 = and i1 %26, %25
+26:                                               ; preds = %20
+  %27 = icmp eq i32 %5, 0
   br i1 %27, label %28, label %58
 
-28:                                               ; preds = %22, %18, %24
+28:                                               ; preds = %22, %18, %26
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
@@ -2818,7 +2818,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_end\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #10, !srcloc !44
   br label %58
 
-58:                                               ; preds = %22, %18, %56, %28, %24
+58:                                               ; preds = %22, %18, %56, %28, %26
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %60 = load i16, ptr %59, align 8
   %61 = icmp ugt i16 %60, 7
@@ -3081,19 +3081,19 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
 
 16:                                               ; preds = %10
   %17 = icmp samesign ugt i16 %12, 11
-  br i1 %17, label %18, label %20
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp eq i32 %5, 0
-  br i1 %19, label %24, label %54
+  %19 = icmp samesign ugt i16 %12, 8
+  %20 = icmp eq i32 %5, 4
+  %21 = and i1 %20, %19
+  br i1 %21, label %24, label %54
 
-20:                                               ; preds = %16
-  %21 = icmp samesign ugt i16 %12, 8
-  %22 = icmp eq i32 %5, 4
-  %23 = and i1 %22, %21
+22:                                               ; preds = %16
+  %23 = icmp eq i32 %5, 0
   br i1 %23, label %24, label %54
 
-24:                                               ; preds = %18, %14, %20
+24:                                               ; preds = %18, %14, %22
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
@@ -3137,7 +3137,7 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #10, !srcloc !64
   br label %54
 
-54:                                               ; preds = %18, %14, %52, %24, %20
+54:                                               ; preds = %18, %14, %52, %24, %22
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %56 = load i16, ptr %55, align 8
   %57 = icmp ugt i16 %56, 7
@@ -3508,8 +3508,8 @@ define internal fastcc void @intel_psr_activate(ptr noundef captures(none) %0) u
   br label %317
 
 308:                                              ; preds = %277, %254
-  %.pr = phi i16 [ %275, %277 ], [ %.pr.pre, %254 ]
-  %.pn = phi i32 [ %290, %277 ], [ %273, %254 ]
+  %.pr = phi i16 [ %.pr.pre, %254 ], [ %275, %277 ]
+  %.pn = phi i32 [ %273, %254 ], [ %290, %277 ]
   %.ph = or i32 %.pn, %229
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 3306
   %310 = load i8, ptr %309, align 2, !range !5, !noundef !6
@@ -4473,7 +4473,7 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %433
 
-.thread24:                                        ; preds = %330, %319, %323, %326
+.thread24:                                        ; preds = %326, %319, %323, %330
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread19
 
@@ -4607,7 +4607,7 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   br label %.thread29
 
 .thread29:                                        ; preds = %385, %.critedge.thread, %.thread30, %421, %.thread31, %387
-  %431 = phi i32 [ %388, %387 ], [ %397, %.thread31 ], [ %430, %421 ], [ -2147483648, %.thread30 ], [ %386, %385 ], [ -2147459072, %.critedge.thread ]
+  %431 = phi i32 [ -2147483648, %.thread30 ], [ %388, %387 ], [ %397, %.thread31 ], [ %430, %421 ], [ %386, %385 ], [ -2147459072, %.critedge.thread ]
   %432 = getelementptr inbounds nuw i8, ptr %13, i64 4928
   store i32 %431, ptr %432, align 8
   br label %433
@@ -5378,9 +5378,9 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %311, %248, %306
-  %318 = phi i1 [ true, %306 ], [ true, %248 ], [ false, %311 ]
-  %319 = phi i16 [ %.pr, %306 ], [ %253, %248 ], [ %.pr, %311 ]
-  %320 = phi i32 [ 234881024, %306 ], [ 234881024, %248 ], [ %spec.select, %311 ]
+  %318 = phi i1 [ false, %311 ], [ true, %248 ], [ true, %306 ]
+  %319 = phi i16 [ %.pr, %311 ], [ %253, %248 ], [ %.pr, %306 ]
+  %320 = phi i32 [ %spec.select, %311 ], [ 234881024, %248 ], [ 234881024, %306 ]
   %321 = icmp ult i16 %319, 20
   %322 = or disjoint i32 %320, 268435456
   %323 = select i1 %321, i32 %322, i32 %320
@@ -6976,7 +6976,7 @@ define dso_local void @intel_psr_short_pulse(ptr noundef %0) local_unnamed_addr 
   br label %51
 
 41:                                               ; preds = %32, %23
-  %42 = phi i32 [ %30, %23 ], [ %37, %32 ]
+  %42 = phi i32 [ %37, %32 ], [ %30, %23 ]
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %thread-pre-split, label %44
 
@@ -7690,7 +7690,7 @@ define internal fastcc zeroext i1 @psr2_granularity_check(ptr noundef readonly c
   br i1 %38, label %.thread, label %.thread2
 
 .thread:                                          ; preds = %25, %30, %36, %34
-  %39 = phi i16 [ 4, %34 ], [ %16, %36 ], [ %16, %30 ], [ %16, %25 ]
+  %39 = phi i16 [ %16, %36 ], [ 4, %34 ], [ %16, %30 ], [ %16, %25 ]
   %40 = urem i16 %9, %39
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %42, label %.thread2
@@ -7713,7 +7713,7 @@ define internal fastcc zeroext i1 @psr2_granularity_check(ptr noundef readonly c
   br label %.thread2
 
 .thread2:                                         ; preds = %36, %50, %45, %.thread, %23, %14, %2
-  %52 = phi i1 [ true, %50 ], [ %24, %23 ], [ false, %2 ], [ false, %14 ], [ false, %.thread ], [ false, %45 ], [ false, %36 ]
+  %52 = phi i1 [ true, %50 ], [ %24, %23 ], [ false, %2 ], [ false, %14 ], [ false, %.thread ], [ false, %36 ], [ false, %45 ]
   ret i1 %52
 }
 
@@ -8599,7 +8599,7 @@ define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, p
   br label %58
 
 55:                                               ; preds = %46, %37
-  %56 = phi i32 [ %44, %37 ], [ %51, %46 ]
+  %56 = phi i32 [ %51, %46 ], [ %44, %37 ]
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %133
 

@@ -185,7 +185,7 @@ aa_table.exit.thread.i:                           ; preds = %93, %80, %67, %58
   br i1 %96, label %58, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %30, %14, %42, %aa_table.exit.thread.i, %78, %64, %90, %._crit_edge
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %90 ], [ 0, %78 ], [ 0, %64 ], [ 1, %aa_table.exit.thread.i ], [ 0, %42 ], [ 0, %14 ], [ 0, %30 ]
+  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %42 ], [ 0, %90 ], [ 0, %64 ], [ 0, %78 ], [ 1, %aa_table.exit.thread.i ], [ 0, %14 ], [ 0, %30 ]
   ret i32 %.2
 }
 
@@ -280,7 +280,7 @@ fwd_aload_reassoc.exit:                           ; preds = %51
   %.not8 = icmp eq i32 %57, 0
   br i1 %.not8, label %fwd_aload_reassoc.exit.thread, label %59
 
-fwd_aload_reassoc.exit.thread:                    ; preds = %55, %43, %23, %30, %34, %6, %19, %fwd_aload_reassoc.exit
+fwd_aload_reassoc.exit.thread:                    ; preds = %55, %43, %23, %30, %34, %19, %6, %fwd_aload_reassoc.exit
   %58 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %59
 
@@ -613,9 +613,9 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %.pre212 = zext i8 %.pre to i64
   br label %.thread131
 
-.thread131:                                       ; preds = %.lr.ph, %58, %68, %80, %.lr.ph188, %.lr.ph190, %184, %121, %42, %34
-  %.pre-phi = phi i64 [ %.pre212, %184 ], [ %11, %121 ], [ %11, %42 ], [ %11, %34 ], [ %11, %.lr.ph190 ], [ %11, %.lr.ph188 ], [ %11, %80 ], [ %11, %68 ], [ %11, %58 ], [ %11, %.lr.ph ]
-  %.2103 = phi i32 [ %1, %184 ], [ %1, %121 ], [ %1, %42 ], [ %1, %34 ], [ %1, %.lr.ph190 ], [ %1, %.lr.ph188 ], [ %1, %80 ], [ %1, %68 ], [ %1, %58 ], [ %.0104184, %.lr.ph ]
+.thread131:                                       ; preds = %.lr.ph, %58, %68, %80, %.lr.ph188, %.lr.ph190, %184, %34, %42, %121
+  %.pre-phi = phi i64 [ %11, %121 ], [ %.pre212, %184 ], [ %11, %34 ], [ %11, %42 ], [ %11, %58 ], [ %11, %.lr.ph190 ], [ %11, %.lr.ph188 ], [ %11, %80 ], [ %11, %68 ], [ %11, %.lr.ph ]
+  %.2103 = phi i32 [ %1, %121 ], [ %1, %184 ], [ %1, %34 ], [ %1, %42 ], [ %1, %58 ], [ %1, %.lr.ph190 ], [ %1, %.lr.ph188 ], [ %1, %80 ], [ %1, %68 ], [ %.0104184, %.lr.ph ]
   %185 = getelementptr inbounds nuw i16, ptr %8, i64 %.pre-phi
   %.4108.in192 = load i16, ptr %185, align 2, !tbaa !4
   %.4108193 = zext i16 %.4108.in192 to i32
@@ -648,8 +648,8 @@ fwd_aa_tab_clear.exit:                            ; preds = %aa_table.exit.threa
   %.not125 = icmp eq i32 %1, %200
   br i1 %.not125, label %.thread163, label %.lr.ph242
 
-.thread163:                                       ; preds = %196, %.lr.ph242, %.lr.ph196, %.thread131, %.thread153, %._crit_edge191, %.thread166, %.thread
-  %.2 = phi i32 [ %23, %.thread ], [ %134, %.thread166 ], [ %.8.ph, %.thread153 ], [ 32767, %._crit_edge191 ], [ 0, %.thread131 ], [ %.4108193, %.lr.ph196 ], [ 0, %.lr.ph242 ], [ %.4108, %196 ]
+.thread163:                                       ; preds = %196, %.lr.ph242, %.lr.ph196, %.thread131, %._crit_edge191, %.thread153, %.thread166, %.thread
+  %.2 = phi i32 [ %23, %.thread ], [ %.8.ph, %.thread153 ], [ %134, %.thread166 ], [ 32767, %._crit_edge191 ], [ 0, %.thread131 ], [ %.4108193, %.lr.ph196 ], [ 0, %.lr.ph242 ], [ %.4108, %196 ]
   ret i32 %.2
 }
 
@@ -1002,7 +1002,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_href_nokey(ptr noundef readonly ca
   br i1 %.not, label %28, label %.critedge
 
 .critedge:                                        ; preds = %16, %28, %31, %.loopexit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %28 ], [ 0, %31 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %31 ], [ 1, %28 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -1278,7 +1278,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_ahref(ptr noundef readonly captur
   br i1 %160, label %.lr.ph.i.i97, label %aa_table.exit, !llvm.loop !28
 
 aa_table.exit:                                    ; preds = %159, %156, %81, %78, %145, %143, %129, %67, %65, %51, %.critedge, %120, %96, %111, %118, %83, %49, %3
-  %.075 = phi i32 [ 2, %3 ], [ 2, %49 ], [ 0, %83 ], [ 0, %118 ], [ 0, %111 ], [ 0, %96 ], [ 0, %120 ], [ 1, %.critedge ], [ 0, %51 ], [ 1, %65 ], [ 0, %67 ], [ 0, %129 ], [ 1, %143 ], [ 0, %145 ], [ 1, %78 ], [ 0, %81 ], [ 1, %156 ], [ 0, %159 ]
+  %.075 = phi i32 [ 0, %96 ], [ 2, %3 ], [ 1, %.critedge ], [ 2, %49 ], [ 0, %120 ], [ 0, %145 ], [ 0, %83 ], [ 0, %118 ], [ 0, %111 ], [ 0, %51 ], [ 1, %65 ], [ 0, %67 ], [ 1, %78 ], [ 0, %129 ], [ 1, %143 ], [ 0, %81 ], [ 1, %156 ], [ 0, %159 ]
   ret i32 %.075
 }
 
@@ -1679,7 +1679,7 @@ aa_table.exit:                                    ; preds = %163, %150, %137
   %166 = icmp ugt i16 %.066.in, %.265.in104
   br i1 %166, label %96, label %.loopexit, !llvm.loop !41
 
-.thread85:                                        ; preds = %36, %71, %57, %83, %148, %160, %.thread, %107, %117, %121, %124, %132, %135
+.thread85:                                        ; preds = %36, %71, %57, %83, %148, %160, %.thread, %117, %121, %124, %132, %135, %107
   %167 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %.loopexit
 
@@ -1769,7 +1769,7 @@ aa_uref.exit.thread46:                            ; preds = %26
   %50 = zext i16 %49 to i32
   br label %.thread
 
-aa_uref.exit:                                     ; preds = %39, %46, %41, %28, %26
+aa_uref.exit:                                     ; preds = %46, %41, %28, %39, %26
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.039.in = load i16, ptr %51, align 2, !tbaa !4
   %52 = icmp ugt i16 %.039.in, -32768
@@ -1838,7 +1838,7 @@ aa_uref.exit.thread51:                            ; preds = %aa_uref.exit, %1, %
   br label %.thread
 
 .thread:                                          ; preds = %74, %63, %.lr.ph68, %aa_uref.exit.thread46, %._crit_edge
-  %.2 = phi i32 [ %83, %._crit_edge ], [ %50, %aa_uref.exit.thread46 ], [ %.24165, %.lr.ph68 ], [ %.241, %63 ], [ %.2416784, %74 ]
+  %.2 = phi i32 [ %50, %aa_uref.exit.thread46 ], [ %83, %._crit_edge ], [ %.24165, %.lr.ph68 ], [ %.241, %63 ], [ %.2416784, %74 ]
   ret i32 %.2
 }
 
@@ -2015,7 +2015,7 @@ aa_uref.exit:                                     ; preds = %34
   store i16 0, ptr %91, align 2, !tbaa !4
   br label %.thread69
 
-aa_uref.exit.thread:                              ; preds = %42, %49, %44, %31, %29, %aa_uref.exit
+aa_uref.exit.thread:                              ; preds = %49, %44, %31, %42, %29, %aa_uref.exit
   %96 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %97 = load i16, ptr %96, align 2, !tbaa !33
   %98 = icmp ugt i16 %97, %3
@@ -2185,7 +2185,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   br label %84
 
 84:                                               ; preds = %81, %.thread, %.thread42
-  %.2 = phi i32 [ %83, %.thread42 ], [ %82, %81 ], [ %69, %.thread ]
+  %.2 = phi i32 [ %69, %.thread ], [ %83, %.thread42 ], [ %82, %81 ]
   ret i32 %.2
 }
 
@@ -2472,7 +2472,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
   br i1 %or.cond30, label %.critedge, label %27
 
 .critedge:                                        ; preds = %16, %27, %30, %._crit_edge, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %._crit_edge ], [ 1, %27 ], [ 0, %30 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %._crit_edge ], [ 0, %30 ], [ 1, %27 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2938,7 +2938,7 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
   %247 = getelementptr inbounds nuw %union.IRIns, ptr %239, i64 %246
   br label %19
 
-reassoc_xref.exit.thread:                         ; preds = %199, %184, %217, %236, %95, %220, %reassoc_trycse.exit.i, %.split57.i, %.split.i, %115, %140, %147, %152, %._crit_edge, %88, %91, %13
+reassoc_xref.exit.thread:                         ; preds = %199, %184, %217, %236, %95, %220, %reassoc_trycse.exit.i, %.split57.i, %.split.i, %147, %152, %140, %115, %._crit_edge, %88, %91, %13
   %248 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %.thread
 
@@ -3001,8 +3001,8 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   br label %42
 
 42:                                               ; preds = %36, %39, %23, %19
-  %.061 = phi ptr [ %1, %23 ], [ %1, %19 ], [ %32, %39 ], [ %32, %36 ]
-  %.058 = phi i64 [ 0, %23 ], [ 0, %19 ], [ %41, %39 ], [ %38, %36 ]
+  %.061 = phi ptr [ %1, %19 ], [ %1, %23 ], [ %32, %39 ], [ %32, %36 ]
+  %.058 = phi i64 [ 0, %19 ], [ 0, %23 ], [ %41, %39 ], [ %38, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = icmp eq i8 %44, 41
@@ -3036,8 +3036,8 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   br label %65
 
 65:                                               ; preds = %59, %62, %46, %42
-  %.062 = phi ptr [ %9, %46 ], [ %9, %42 ], [ %55, %62 ], [ %55, %59 ]
-  %.059 = phi i64 [ 0, %46 ], [ 0, %42 ], [ %64, %62 ], [ %61, %59 ]
+  %.062 = phi ptr [ %9, %42 ], [ %9, %46 ], [ %55, %62 ], [ %55, %59 ]
+  %.059 = phi i64 [ 0, %42 ], [ 0, %46 ], [ %64, %62 ], [ %61, %59 ]
   %66 = getelementptr inbounds nuw i8, ptr %.061, i64 5
   %67 = load i8, ptr %66, align 1, !tbaa !4
   %68 = icmp eq i8 %67, 25
@@ -3174,7 +3174,7 @@ define internal fastcc range(i32 0, 3) i32 @aa_xref(ptr noundef readonly capture
   br i1 %148, label %.lr.ph.i.i, label %aa_cnew.exit, !llvm.loop !28
 
 aa_cnew.exit:                                     ; preds = %147, %144, %133, %130, %126, %117, %121, %108, %96, %103, %11
-  %.0 = phi i32 [ 2, %11 ], [ 1, %108 ], [ 2, %96 ], [ 0, %103 ], [ 0, %121 ], [ 0, %117 ], [ 1, %126 ], [ 0, %130 ], [ 0, %133 ], [ 1, %144 ], [ 0, %147 ]
+  %.0 = phi i32 [ 0, %103 ], [ 2, %11 ], [ 0, %117 ], [ 2, %96 ], [ 1, %108 ], [ 0, %121 ], [ 0, %130 ], [ 1, %126 ], [ 0, %133 ], [ 1, %144 ], [ 0, %147 ]
   ret i32 %.0
 }
 
@@ -3442,7 +3442,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   br label %.thread59
 
 .thread59:                                        ; preds = %73, %77, %26, %90, %.thread59.sink.split, %.preheader
-  %.4.shrunk = phi i32 [ 0, %.preheader ], [ %97, %.thread59.sink.split ], [ 0, %90 ], [ 0, %26 ], [ 0, %77 ], [ 0, %73 ]
+  %.4.shrunk = phi i32 [ 0, %.preheader ], [ %97, %.thread59.sink.split ], [ 0, %26 ], [ 0, %90 ], [ 0, %77 ], [ 0, %73 ]
   ret i32 %.4.shrunk
 }
 

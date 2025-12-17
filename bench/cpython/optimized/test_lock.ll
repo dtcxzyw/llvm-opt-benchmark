@@ -1198,7 +1198,7 @@ _PyMutex_Unlock.exit:                             ; preds = %43, %_PyMutex_Lock.
   br i1 %.not, label %.lr.ph45.split.split, label %._crit_edge46, !llvm.loop !70
 
 ._crit_edge46:                                    ; preds = %_PyMutex_Unlock.exit, %_PyMutex_Unlock.exit.us50, %_PyMutex_Unlock.exit.us, %._crit_edge37.us.us, %1
-  %.028.lcssa = phi i64 [ 0, %1 ], [ %19, %._crit_edge37.us.us ], [ %24, %_PyMutex_Unlock.exit.us ], [ %34, %_PyMutex_Unlock.exit.us50 ], [ %44, %_PyMutex_Unlock.exit ]
+  %.028.lcssa = phi i64 [ 0, %1 ], [ %34, %_PyMutex_Unlock.exit.us50 ], [ %19, %._crit_edge37.us.us ], [ %24, %_PyMutex_Unlock.exit.us ], [ %44, %_PyMutex_Unlock.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.028.lcssa, ptr %46, align 8, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 240

@@ -494,8 +494,8 @@ define internal fastcc { i64, i32 } @_ZN4core4time8Duration7mul_f6417hc55e05d673
   br label %select.unfold
 
 select.unfold:                                    ; preds = %41, %24, %60, %11
-  %.sroa.0.0.ph = phi i64 [ 0, %11 ], [ %63, %60 ], [ %spec.select, %24 ], [ %spec.select16.i, %41 ]
-  %.sroa.03.0.sink.i.ph = phi i32 [ 0, %11 ], [ 0, %60 ], [ %spec.select15, %24 ], [ %spec.select16, %41 ]
+  %.sroa.0.0.ph = phi i64 [ %spec.select16.i, %41 ], [ %63, %60 ], [ 0, %11 ], [ %spec.select, %24 ]
+  %.sroa.03.0.sink.i.ph = phi i32 [ %spec.select16, %41 ], [ 0, %60 ], [ 0, %11 ], [ %spec.select15, %24 ]
   %64 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.ph, 0
   %65 = insertvalue { i64, i32 } %64, i32 %.sroa.03.0.sink.i.ph, 1
   ret { i64, i32 } %65
@@ -798,8 +798,8 @@ define internal fastcc noundef i64 @"_ZN6quiche6minmax15Minmax$LT$T$GT$11running
   unreachable
 
 _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i: ; preds = %128, %109, %91, %73
-  %.sroa.0.0.ph.i.i = phi i64 [ 0, %73 ], [ %132, %128 ], [ %113, %109 ], [ 0, %91 ]
-  %.sroa.03.0.sink.i.ph.i.i = phi i32 [ 0, %73 ], [ 0, %128 ], [ %127, %109 ], [ %106, %91 ]
+  %.sroa.0.0.ph.i.i = phi i64 [ 0, %73 ], [ %113, %109 ], [ 0, %91 ], [ %132, %128 ]
+  %.sroa.03.0.sink.i.ph.i.i = phi i32 [ 0, %73 ], [ %127, %109 ], [ %106, %91 ], [ 0, %128 ]
   %135 = icmp eq i64 %49, %.sroa.0.0.ph.i.i
   br i1 %135, label %136, label %139
 
@@ -911,8 +911,8 @@ _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i: ; preds = %128, %109,
   unreachable
 
 _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit55.i: ; preds = %197, %178, %160, %142
-  %.sroa.0.0.ph.i47.i = phi i64 [ 0, %142 ], [ %201, %197 ], [ %182, %178 ], [ 0, %160 ]
-  %.sroa.03.0.sink.i.ph.i48.i = phi i32 [ 0, %142 ], [ 0, %197 ], [ %196, %178 ], [ %175, %160 ]
+  %.sroa.0.0.ph.i47.i = phi i64 [ 0, %142 ], [ %182, %178 ], [ 0, %160 ], [ %201, %197 ]
+  %.sroa.03.0.sink.i.ph.i48.i = phi i32 [ 0, %142 ], [ %196, %178 ], [ %175, %160 ], [ 0, %197 ]
   %204 = icmp eq i64 %49, %.sroa.0.0.ph.i47.i
   br i1 %204, label %205, label %208
 
@@ -1308,7 +1308,7 @@ define void @"_ZN91_$LT$quiche..recovery..CongestionControlAlgorithm$u20$as$u20$
   br i1 %12, label %.sink.split, label %14
 
 .sink.split:                                      ; preds = %11, %9, %7, %5, %3
-  %.sink1 = phi i32 [ 0, %3 ], [ 1, %5 ], [ 2, %7 ], [ 3, %9 ], [ 4, %11 ]
+  %.sink1 = phi i32 [ 3, %9 ], [ 2, %7 ], [ 1, %5 ], [ 0, %3 ], [ 4, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink1, ptr %13, align 8
   br label %14
@@ -2867,7 +2867,7 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_update_mo
   br i1 %111, label %253, label %257
 
 ._crit_edge.i:                                    ; preds = %181, %178, %99
-  %112 = phi i32 [ %92, %181 ], [ %92, %178 ], [ %104, %99 ]
+  %112 = phi i32 [ %104, %99 ], [ %92, %181 ], [ %92, %178 ]
   %113 = icmp eq i64 %85, %101
   %114 = icmp eq i32 %84, %112
   %or.cond.i.i = select i1 %113, i1 %114, i1 false
@@ -2962,8 +2962,8 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack27bbr2_update_mo
   unreachable
 
 _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i.i.i: ; preds = %170, %151, %133, %115
-  %.sroa.0.0.ph.i.i.i.i = phi i64 [ 0, %115 ], [ %174, %170 ], [ %155, %151 ], [ 0, %133 ]
-  %.sroa.03.0.sink.i.ph.i.i.i.i = phi i32 [ 0, %115 ], [ 0, %170 ], [ %169, %151 ], [ %148, %133 ]
+  %.sroa.0.0.ph.i.i.i.i = phi i64 [ 0, %115 ], [ %155, %151 ], [ 0, %133 ], [ %174, %170 ]
+  %.sroa.03.0.sink.i.ph.i.i.i.i = phi i32 [ 0, %115 ], [ %169, %151 ], [ %148, %133 ], [ 0, %170 ]
   %177 = icmp eq i64 %94, %.sroa.0.0.ph.i.i.i.i
   br i1 %177, label %178, label %181
 
@@ -3075,8 +3075,8 @@ _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit.i.i.i: ; preds = %170, %
   unreachable
 
 _ZN4core4time8Duration7div_f3217hc502a597651810a4E.exit55.i.i.i: ; preds = %239, %220, %202, %184
-  %.sroa.0.0.ph.i47.i.i.i = phi i64 [ 0, %184 ], [ %243, %239 ], [ %224, %220 ], [ 0, %202 ]
-  %.sroa.03.0.sink.i.ph.i48.i.i.i = phi i32 [ 0, %184 ], [ 0, %239 ], [ %238, %220 ], [ %217, %202 ]
+  %.sroa.0.0.ph.i47.i.i.i = phi i64 [ 0, %184 ], [ %224, %220 ], [ 0, %202 ], [ %243, %239 ]
+  %.sroa.03.0.sink.i.ph.i48.i.i.i = phi i32 [ 0, %184 ], [ %238, %220 ], [ %217, %202 ], [ 0, %239 ]
   %246 = icmp eq i64 %94, %.sroa.0.0.ph.i47.i.i.i
   br i1 %246, label %247, label %250
 
@@ -4290,8 +4290,8 @@ _ZN6quiche8recovery10congestion4bbr27per_ack31bbr2_modulate_cwnd_for_recovery17h
   br label %74
 
 _ZN6quiche8recovery10congestion4bbr27per_ack13bbr2_set_cwnd17h49c856cb4f3bc497E.exit: ; preds = %74, %74, %95, %98, %102
-  %122 = phi i64 [ %75, %95 ], [ %99, %102 ], [ %99, %98 ], [ %75, %74 ], [ %75, %74 ]
-  %.sroa.0.0.i.i = phi i64 [ %97, %95 ], [ %.sroa.0.0.sroa.speculated.i2.i.i.i, %102 ], [ -1, %98 ], [ -1, %74 ], [ -1, %74 ]
+  %122 = phi i64 [ %75, %95 ], [ %75, %74 ], [ %99, %102 ], [ %99, %98 ], [ %75, %74 ]
+  %.sroa.0.0.i.i = phi i64 [ %97, %95 ], [ -1, %74 ], [ %.sroa.0.0.sroa.speculated.i2.i.i.i, %102 ], [ -1, %98 ], [ -1, %74 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %124 = load i64, ptr %123, align 8, !alias.scope !423, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i5.i = tail call noundef i64 @llvm.umin.i64(i64 %124, i64 %.sroa.0.0.i.i)
@@ -4415,8 +4415,8 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr27per_ack24bbr2_start_pro
   unreachable
 
 _ZN6quiche8recovery10congestion4bbr27per_ack20bbr2_pick_probe_wait17h04b900b09e7b12a6E.exit: ; preds = %3, %26, %43, %62
-  %.sroa.0.0.ph.i = phi i64 [ 0, %3 ], [ %65, %62 ], [ %spec.select.i, %26 ], [ %spec.select16.i.i, %43 ]
-  %.sroa.03.0.sink.i.ph.i = phi i32 [ 0, %3 ], [ 0, %62 ], [ %spec.select7.i, %26 ], [ %spec.select8.i, %43 ]
+  %.sroa.0.0.ph.i = phi i64 [ %spec.select16.i.i, %43 ], [ %65, %62 ], [ 0, %3 ], [ %spec.select.i, %26 ]
+  %.sroa.03.0.sink.i.ph.i = phi i32 [ %spec.select8.i, %43 ], [ 0, %62 ], [ 0, %3 ], [ %spec.select7.i, %26 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 %.sroa.0.0.ph.i, ptr %68, align 8, !alias.scope !426
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -4877,8 +4877,8 @@ define hidden void @_ZN6quiche8recovery10congestion5pacer5Pacer4send17h98d709835
   br label %select.unfold
 
 select.unfold:                                    ; preds = %78, %61, %97, %43
-  %.sroa.0.0.ph = phi i64 [ 0, %43 ], [ %100, %97 ], [ %spec.select, %61 ], [ %spec.select16.i, %78 ]
-  %.sroa.03.0.sink.i.ph = phi i32 [ 0, %43 ], [ 0, %97 ], [ %spec.select55, %61 ], [ %spec.select56, %78 ]
+  %.sroa.0.0.ph = phi i64 [ %spec.select16.i, %78 ], [ %100, %97 ], [ 0, %43 ], [ %spec.select, %61 ]
+  %.sroa.03.0.sink.i.ph = phi i32 [ %spec.select56, %78 ], [ 0, %97 ], [ 0, %43 ], [ %spec.select55, %61 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i64, ptr %101, align 8, !noundef !3
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5029,8 +5029,8 @@ select.unfold:                                    ; preds = %78, %61, %97, %43
   br label %select.unfold49
 
 select.unfold49:                                  ; preds = %167, %150, %186, %135
-  %.sroa.040.0.ph = phi i64 [ 0, %135 ], [ %189, %186 ], [ %spec.select57, %150 ], [ %spec.select16.i31, %167 ]
-  %.sroa.03.0.sink.i22.ph = phi i32 [ 0, %135 ], [ 0, %186 ], [ %spec.select58, %150 ], [ %spec.select59, %167 ]
+  %.sroa.040.0.ph = phi i64 [ %spec.select16.i31, %167 ], [ %189, %186 ], [ 0, %135 ], [ %spec.select57, %150 ]
+  %.sroa.03.0.sink.i22.ph = phi i32 [ %spec.select59, %167 ], [ 0, %186 ], [ 0, %135 ], [ %spec.select58, %150 ]
   store i64 %.sroa.040.0.ph, ptr %25, align 8
   store i32 %.sroa.03.0.sink.i22.ph, ptr %28, align 8
   store i64 0, ptr %115, align 8
@@ -5431,10 +5431,10 @@ define internal fastcc void @_ZN6quiche8recovery10congestion8recovery14LegacyRec
   %134 = icmp eq i64 %130, -1
   br i1 %134, label %.invoke, label %138, !prof !475
 
-.invoke:                                          ; preds = %126, %133, %.loopexit
-  %135 = phi ptr [ @anon.352f663bf95db305e1f66bb6f9924f8d.93, %.loopexit ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.96, %133 ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.96, %126 ]
-  %136 = phi i64 [ 44, %.loopexit ], [ 30, %133 ], [ 30, %126 ]
-  %137 = phi ptr [ @anon.352f663bf95db305e1f66bb6f9924f8d.94, %.loopexit ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.97, %133 ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.97, %126 ]
+.invoke:                                          ; preds = %133, %126, %.loopexit
+  %135 = phi ptr [ @anon.352f663bf95db305e1f66bb6f9924f8d.93, %.loopexit ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.96, %126 ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.96, %133 ]
+  %136 = phi i64 [ 44, %.loopexit ], [ 30, %126 ], [ 30, %133 ]
+  %137 = phi ptr [ @anon.352f663bf95db305e1f66bb6f9924f8d.94, %.loopexit ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.97, %126 ], [ @anon.352f663bf95db305e1f66bb6f9924f8d.97, %133 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 %135, i64 noundef %136, ptr noalias noundef readonly align 8 dereferenceable(24) %137) #17
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -5981,12 +5981,12 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   unreachable
 
 common.resume:                                    ; preds = %249, %299, %231, %.body.i, %62
-  %common.resume.op = phi { ptr, i32 } [ %.pn48.i, %62 ], [ %.pn48.i, %.body.i ], [ %lpad.phi, %299 ], [ %lpad.phi, %249 ], [ %232, %231 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn48.i, %.body.i ], [ %.pn48.i, %62 ], [ %232, %231 ], [ %lpad.phi, %299 ], [ %lpad.phi, %249 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6quiche8recovery10congestion8recovery13RecoveryEpoch19detect_lost_packets17h4567281f401cefe9E.exit: ; preds = %.outer.i, %.noexc50.i, %135, %110
-  %.sroa.019.0.ph202.i = phi i64 [ %.sroa.019.0.ph215.i, %110 ], [ %.sroa.019.0.ph215.i, %135 ], [ %.sroa.019.0.ph215.i, %.noexc50.i ], [ %143, %.outer.i ]
-  %213 = phi i64 [ %.sroa.021.0.ph216.i, %110 ], [ %.sroa.021.0.ph216.i, %135 ], [ %.sroa.021.0.ph216.i, %.noexc50.i ], [ %.sroa.021.1.i, %.outer.i ]
+  %.sroa.019.0.ph202.i = phi i64 [ %.sroa.019.0.ph215.i, %110 ], [ %.sroa.019.0.ph215.i, %.noexc50.i ], [ %.sroa.019.0.ph215.i, %135 ], [ %143, %.outer.i ]
+  %213 = phi i64 [ %.sroa.021.0.ph216.i, %110 ], [ %.sroa.021.0.ph216.i, %.noexc50.i ], [ %.sroa.021.0.ph216.i, %135 ], [ %.sroa.021.1.i, %.outer.i ]
   %214 = phi i64 [ %.sroa.023.0206.i, %110 ], [ %.sroa.023.0206.i, %.noexc50.i ], [ %138, %135 ], [ %.sroa.023.0206.i, %.outer.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !503
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %22, ptr noundef nonnull align 8 dereferenceable(264) %16, i64 264, i1 false), !noalias !538
@@ -6450,7 +6450,7 @@ _ZN6quiche8recovery10congestion8recovery14LegacyRecovery24set_loss_detection_tim
 94:                                               ; preds = %95
   resume { ptr, i32 } %lpad.thr_comm
 
-95:                                               ; preds = %_ZN6quiche8recovery10congestion8recovery14LegacyRecovery24set_loss_detection_timer17h02712f1a66b8c004E.exit, %48, %31, %38, %50, %67
+95:                                               ; preds = %50, %_ZN6quiche8recovery10congestion8recovery14LegacyRecovery24set_loss_detection_timer17h02712f1a66b8c004E.exit, %67, %48, %31, %38
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$quiche..recovery..Sent$GT$17hc83fecb0eccc0edcE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %1) #18
@@ -7768,7 +7768,7 @@ define { i64, i32 } @"_ZN104_$LT$quiche..recovery..congestion..recovery..LegacyR
   %34 = insertvalue { i64, i32 } %33, i32 %.sroa.4.0.i, 1
   ret { i64, i32 } %34
 
-35:                                               ; preds = %9, %26
+35:                                               ; preds = %26, %9
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.352f663bf95db305e1f66bb6f9924f8d.96, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.352f663bf95db305e1f66bb6f9924f8d.97) #17
   unreachable
 }
@@ -8740,7 +8740,7 @@ define hidden void @_ZN6quiche8recovery3rtt8RttStats10update_rtt17h9ca2c75d62d2b
   %spec.select = select i1 %147, i1 %149, i1 %148
   br i1 %spec.select, label %164, label %151
 
-150:                                              ; preds = %124, %133
+150:                                              ; preds = %133, %124
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.352f663bf95db305e1f66bb6f9924f8d.96, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.352f663bf95db305e1f66bb6f9924f8d.97) #17
   unreachable
 

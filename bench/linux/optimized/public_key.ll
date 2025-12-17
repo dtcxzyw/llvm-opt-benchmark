@@ -816,9 +816,9 @@ define internal i32 @software_key_eds_op(ptr noundef readonly captures(none) %0,
   %116 = icmp eq i8 %.pre, 0
   br i1 %116, label %.thread.thread21, label %.thread.thread
 
-.thread.thread:                                   ; preds = %92, %99, %59, %.thread
-  %117 = phi i32 [ %spec.select, %.thread ], [ -22, %92 ], [ -22, %99 ], [ %60, %59 ]
-  %118 = phi ptr [ %89, %.thread ], [ %89, %92 ], [ %89, %99 ], [ %45, %59 ]
+.thread.thread:                                   ; preds = %99, %92, %59, %.thread
+  %117 = phi i32 [ %spec.select, %.thread ], [ -22, %99 ], [ -22, %92 ], [ %60, %59 ]
+  %118 = phi ptr [ %89, %.thread ], [ %89, %99 ], [ %89, %92 ], [ %45, %59 ]
   call void @crypto_destroy_tfm(ptr noundef %118, ptr noundef %118) #8
   br label %122
 

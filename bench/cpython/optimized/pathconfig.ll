@@ -718,8 +718,8 @@ define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr noundef re
   store i32 0, ptr %38, align 4, !tbaa !29
   br label %39
 
-39:                                               ; preds = %30, %33, %22, %19, %27
-  %.135.ph = phi ptr [ %4, %30 ], [ %5, %33 ], [ %4, %22 ], [ %11, %19 ], [ %11, %27 ]
+39:                                               ; preds = %30, %33, %22, %27, %19
+  %.135.ph = phi ptr [ %4, %30 ], [ %5, %33 ], [ %4, %22 ], [ %11, %27 ], [ %11, %19 ]
   %40 = call ptr @_Py_wrealpath(ptr noundef %.135.ph, ptr noundef nonnull %3, i64 noundef 4096) #12
   %.not40 = icmp eq ptr %40, null
   %spec.select = select i1 %.not40, ptr %.135.ph, ptr %3

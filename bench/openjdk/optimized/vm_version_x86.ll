@@ -719,7 +719,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br label %117
 
 117:                                              ; preds = %113, %.thread122, %99
-  %.082 = phi i32 [ 0, %99 ], [ 2, %.thread122 ], [ %spec.select157, %113 ]
+  %.082 = phi i32 [ 0, %99 ], [ %spec.select157, %113 ], [ 2, %.thread122 ]
   %118 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 6) #14
   br i1 %118, label %.sink.split289, label %138
 
@@ -756,8 +756,8 @@ _ZN10VM_Version16is_intel_skylakeEv.exit:         ; preds = %_ZN10VM_Version20is
   br label %.sink.split289
 
 .sink.split289:                                   ; preds = %_ZN10VM_Version16is_intel_skylakeEv.exit, %117, %_ZN10VM_Version20is_intel_family_coreEv.exit.i, %120
-  %.sink = phi i32 [ %.082, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ], [ %spec.select363, %_ZN10VM_Version16is_intel_skylakeEv.exit ]
-  %.082125.ph = phi i32 [ %.082, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ], [ 3, %_ZN10VM_Version16is_intel_skylakeEv.exit ]
+  %.sink = phi i32 [ %spec.select363, %_ZN10VM_Version16is_intel_skylakeEv.exit ], [ %.082, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ]
+  %.082125.ph = phi i32 [ 3, %_ZN10VM_Version16is_intel_skylakeEv.exit ], [ %.082, %117 ], [ 3, %_ZN10VM_Version20is_intel_family_coreEv.exit.i ], [ 3, %120 ]
   store i32 %.sink, ptr @UseAVX, align 4
   br label %138
 
@@ -951,7 +951,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit.i108: ; preds = %190
   br label %_ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit
 
 _ZN10VM_Version29compute_has_intel_jcc_erratumEv.exit: ; preds = %190, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108, %200, %202, %205, %208, %213, %216, %220, %223, %226
-  %.0.i107 = phi i1 [ false, %226 ], [ %spec.select.i109, %202 ], [ %207, %205 ], [ %212, %208 ], [ %215, %213 ], [ %spec.select10.i, %216 ], [ %222, %220 ], [ %225, %223 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108 ], [ true, %200 ], [ false, %190 ]
+  %.0.i107 = phi i1 [ false, %226 ], [ %spec.select.i109, %202 ], [ %207, %205 ], [ %212, %208 ], [ %215, %213 ], [ %spec.select10.i, %216 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit.i108 ], [ %222, %220 ], [ %225, %223 ], [ true, %200 ], [ false, %190 ]
   %227 = zext i1 %.0.i107 to i8
   br label %231
 
@@ -1674,7 +1674,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
   br label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
 
 _ZN10VM_Version23os_supports_avx_vectorsEv.exit:  ; preds = %.preheader23.i, %.preheader.i, %513, %.thread135, %521, %.loopexit, %504, %503
-  %.084 = phi i32 [ 0, %503 ], [ 16, %504 ], [ 32, %.loopexit ], [ %spec.select, %521 ], [ 0, %.thread135 ], [ 16, %513 ], [ 16, %.preheader.i ], [ 16, %.preheader23.i ]
+  %.084 = phi i32 [ %spec.select, %521 ], [ 0, %503 ], [ 16, %504 ], [ 32, %.loopexit ], [ 0, %.thread135 ], [ 16, %513 ], [ 16, %.preheader.i ], [ 16, %.preheader23.i ]
   %523 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 164) #14
   br i1 %523, label %536, label %524
 
@@ -2423,7 +2423,7 @@ switch.early.test:                                ; preds = %809
   br label %821
 
 821:                                              ; preds = %819, %817, %812
-  %.083 = phi i32 [ 64, %812 ], [ 32, %817 ], [ %spec.select101, %819 ]
+  %.083 = phi i32 [ %spec.select101, %819 ], [ 64, %812 ], [ 32, %817 ]
   %822 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 165) #14
   br i1 %822, label %824, label %823
 
@@ -2888,7 +2888,7 @@ _ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %968, %970, %974, %9
   br label %_ZN10VM_Version26allocate_prefetch_distanceEb.exit
 
 _ZN10VM_Version26allocate_prefetch_distanceEb.exit: ; preds = %1000, %1009, %1012, %1013
-  %.0.i115 = phi i32 [ %..i, %1000 ], [ %.mux.i, %1009 ], [ 384, %1012 ], [ %spec.select.i116, %1013 ]
+  %.0.i115 = phi i32 [ %..i, %1000 ], [ %spec.select.i116, %1013 ], [ 384, %1012 ], [ %.mux.i, %1009 ]
   store i32 %.0.i115, ptr @AllocatePrefetchDistance, align 4
   br label %1015
 
@@ -3216,7 +3216,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   br label %119
 
 119:                                              ; preds = %76, %68, %32
-  %.14 = phi i64 [ %spec.select143, %68 ], [ %.13, %32 ], [ %spec.select154, %76 ]
+  %.14 = phi i64 [ %spec.select143, %68 ], [ %spec.select154, %76 ], [ %.13, %32 ]
   %120 = or i64 %.14, 70368744177664
   %.not107163 = icmp slt i32 %35, 0
   %spec.select147 = select i1 %.not107163, i64 %120, i64 %.14
@@ -3335,7 +3335,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZNK10VM_Version9Cp
   br label %210
 
 200:                                              ; preds = %119, %.thread
-  %.50 = phi i64 [ %spec.select152, %.thread ], [ %.46, %119 ]
+  %.50 = phi i64 [ %.46, %119 ], [ %spec.select152, %.thread ]
   switch i32 %173, label %210 [
     i32 1953391939, label %201
     i32 1750278176, label %201
@@ -3549,7 +3549,7 @@ _ZN10VM_Version20is_intel_family_coreEv.exit:     ; preds = %0
   br label %_ZN10VM_Version20is_intel_family_coreEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.thread: ; preds = %0, %10, %_ZN10VM_Version20is_intel_family_coreEv.exit, %36, %33, %30, %26, %23, %18, %15, %12
-  %.0 = phi i1 [ false, %36 ], [ %spec.select, %12 ], [ %17, %15 ], [ %22, %18 ], [ %25, %23 ], [ %spec.select10, %26 ], [ %32, %30 ], [ %35, %33 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ], [ true, %10 ], [ false, %0 ]
+  %.0 = phi i1 [ false, %36 ], [ %spec.select, %12 ], [ %17, %15 ], [ %22, %18 ], [ %25, %23 ], [ %spec.select10, %26 ], [ false, %_ZN10VM_Version20is_intel_family_coreEv.exit ], [ %32, %30 ], [ %35, %33 ], [ true, %10 ], [ false, %0 ]
   ret i1 %.0
 }
 
@@ -3770,7 +3770,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %26, %35, %.thread.i
   br label %59
 
 59:                                               ; preds = %_ZN10VM_Version27supports_processor_topologyEv.exit2, %_ZN10VM_Version27supports_processor_topologyEv.exit, %21, %_ZN10VM_Version13cores_per_cpuEv.exit, %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread
-  %.0 = phi i32 [ %25, %21 ], [ %.zext, %_ZN10VM_Version13cores_per_cpuEv.exit ], [ 1, %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread ], [ %8, %_ZN10VM_Version27supports_processor_topologyEv.exit ], [ %14, %_ZN10VM_Version27supports_processor_topologyEv.exit2 ]
+  %.0 = phi i32 [ 1, %_ZN10VM_Version27supports_processor_topologyEv.exit2.thread ], [ %8, %_ZN10VM_Version27supports_processor_topologyEv.exit ], [ %25, %21 ], [ %.zext, %_ZN10VM_Version13cores_per_cpuEv.exit ], [ %14, %_ZN10VM_Version27supports_processor_topologyEv.exit2 ]
   %60 = tail call i32 @llvm.umax.i32(i32 %.0, i32 1)
   ret i32 %60
 }
@@ -3826,7 +3826,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
   br i1 %or.cond47.not, label %.preheader, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader23, %7, %.preheader, %5
-  %.016 = phi i1 [ false, %5 ], [ %.not17, %.preheader ], [ true, %7 ], [ %.not18, %.preheader23 ]
+  %.016 = phi i1 [ false, %5 ], [ true, %7 ], [ %.not17, %.preheader ], [ %.not18, %.preheader23 ]
   ret i1 %.016
 }
 
@@ -3876,7 +3876,7 @@ define hidden noundef range(i32 128, 513) i32 @_ZN10VM_Version26allocate_prefetc
   br label %19
 
 19:                                               ; preds = %17, %13, %16, %4
-  %.0 = phi i32 [ %., %4 ], [ %.mux, %13 ], [ 384, %16 ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ %., %4 ], [ %spec.select, %17 ], [ 384, %16 ], [ %.mux, %13 ]
   ret i32 %.0
 }
 
@@ -4030,7 +4030,7 @@ _ZN10VM_Version21is_intel_cascade_lakeEv.exit:    ; preds = %6, %_ZN10VM_Version
   br label %27
 
 27:                                               ; preds = %_ZN10VM_Version21is_intel_cascade_lakeEv.exit, %2, %0
-  %28 = phi i1 [ false, %2 ], [ false, %0 ], [ %26, %_ZN10VM_Version21is_intel_cascade_lakeEv.exit ]
+  %28 = phi i1 [ %26, %_ZN10VM_Version21is_intel_cascade_lakeEv.exit ], [ false, %2 ], [ false, %0 ]
   ret i1 %28
 }
 
@@ -8105,7 +8105,7 @@ _ZN10VM_Version16is_amd_BarcelonaEv.exit:         ; preds = %3
   br label %switch.edge
 
 switch.edge:                                      ; preds = %3, %3, %12, %0, %_ZN10VM_Version16is_amd_BarcelonaEv.exit
-  %.0 = phi i1 [ %11, %_ZN10VM_Version16is_amd_BarcelonaEv.exit ], [ false, %0 ], [ true, %3 ], [ false, %12 ], [ true, %3 ]
+  %.0 = phi i1 [ false, %0 ], [ %11, %_ZN10VM_Version16is_amd_BarcelonaEv.exit ], [ false, %12 ], [ true, %3 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -8196,7 +8196,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit.thread:     ; preds = %12, %.thread.i
   br label %40
 
 _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %0, %18, %30, %.thread17.i
-  %.1.i = phi i32 [ %21, %18 ], [ %35, %.thread17.i ], [ %.zext22.i, %30 ], [ 1, %0 ]
+  %.1.i = phi i32 [ %.zext22.i, %30 ], [ 1, %0 ], [ %21, %18 ], [ %35, %.thread17.i ]
   %38 = mul nuw i32 %.1.i, %2
   %39 = sdiv i32 %1, %38
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
@@ -8345,7 +8345,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
 _ZN10VM_Version21cpu_model_descriptionEv.exit:    ; preds = %.loopexit.split.loop.exit10.i, %.preheader.preheader.i, %33, %29, %10
-  %.0 = phi ptr [ %13, %10 ], [ %32, %29 ], [ %.str.127..str.128, %33 ], [ %26, %.loopexit.split.loop.exit10.i ], [ null, %.preheader.preheader.i ]
+  %.0 = phi ptr [ %13, %10 ], [ %.str.127..str.128, %33 ], [ %32, %29 ], [ null, %.preheader.preheader.i ], [ %26, %.loopexit.split.loop.exit10.i ]
   ret ptr %.0
 }
 
@@ -8369,8 +8369,8 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   br label %9
 
 9:                                                ; preds = %6, %2, %8, %7
-  %.str.133.sink = phi ptr [ @.str.135, %8 ], [ @.str.133, %7 ], [ @.str.130, %2 ], [ @.str.133, %6 ]
-  %.03 = phi ptr [ @.str.128, %8 ], [ @.str.134, %7 ], [ @.str.129, %2 ], [ @.str.132, %6 ]
+  %.str.133.sink = phi ptr [ @.str.130, %2 ], [ @.str.135, %8 ], [ @.str.133, %7 ], [ @.str.133, %6 ]
+  %.03 = phi ptr [ @.str.129, %2 ], [ @.str.128, %8 ], [ @.str.134, %7 ], [ @.str.132, %6 ]
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %.fr = freeze i32 %10
   %11 = lshr i32 %.fr, 8
@@ -8427,7 +8427,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
 _ZN10VM_Version22cpu_family_descriptionEv.exit:   ; preds = %18, %.preheader.preheader.i.i, %.loopexit.split.loop.exit10.i.i, %36, %40
-  %.0.i = phi ptr [ %21, %18 ], [ %39, %36 ], [ %.str.127..str.128.i, %40 ], [ %33, %.loopexit.split.loop.exit10.i.i ], [ null, %.preheader.preheader.i.i ]
+  %.0.i = phi ptr [ %21, %18 ], [ %.str.127..str.128.i, %40 ], [ %39, %36 ], [ null, %.preheader.preheader.i.i ], [ %33, %.loopexit.split.loop.exit10.i.i ]
   %42 = and i32 %5, 536870912
   %.not10 = icmp eq i32 %42, 0
   %43 = select i1 %.not10, ptr @.str.131, ptr %.str.133.sink
@@ -8785,13 +8785,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
 _ZN10VM_Version22cpu_family_descriptionEv.exit.thread: ; preds = %.preheader.preheader.i.i, %.loopexit.split.loop.exit10.i.i
-  %.0.i.ph = phi ptr [ null, %.preheader.preheader.i.i ], [ %29, %.loopexit.split.loop.exit10.i.i ]
+  %.0.i.ph = phi ptr [ %29, %.loopexit.split.loop.exit10.i.i ], [ null, %.preheader.preheader.i.i ]
   %38 = icmp eq ptr %.0.i.ph, null
   %spec.select35 = select i1 %38, ptr @.str.152, ptr %.0.i.ph
   br label %.preheader.preheader.i
 
 _ZN10VM_Version22cpu_family_descriptionEv.exit:   ; preds = %13, %32, %36
-  %.0.i = phi ptr [ %16, %13 ], [ %35, %32 ], [ %.str.127..str.128.i, %36 ]
+  %.0.i = phi ptr [ %16, %13 ], [ %.str.127..str.128.i, %36 ], [ %35, %32 ]
   %39 = icmp eq ptr %.0.i, null
   %spec.select = select i1 %39, ptr @.str.152, ptr %.0.i
   %40 = icmp eq i32 %9, 6

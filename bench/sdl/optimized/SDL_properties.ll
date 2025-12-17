@@ -902,7 +902,7 @@ SDL_FreePropertyWithCleanup.exit31:               ; preds = %50, %64
   br label %.sink.split
 
 .sink.split:                                      ; preds = %101, %96, %93, %.split17, %85, %80, %77, %.split
-  %.sink = phi ptr [ null, %.split ], [ null, %77 ], [ null, %80 ], [ null, %85 ], [ %75, %.split17 ], [ %75, %93 ], [ %75, %96 ], [ %75, %101 ]
+  %.sink = phi ptr [ null, %85 ], [ null, %.split ], [ null, %77 ], [ null, %80 ], [ %75, %.split17 ], [ %75, %93 ], [ %75, %96 ], [ %75, %101 ]
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %105 = load ptr, ptr %104, align 8
   call void @SDL_free_REAL(ptr noundef %105) #6
@@ -1180,7 +1180,7 @@ define hidden zeroext i1 @SDL_HasProperty_REAL(i32 noundef %0, ptr noundef %1) l
   br label %SDL_GetPropertyType_REAL.exit
 
 SDL_GetPropertyType_REAL.exit:                    ; preds = %2, %5, %7, %23
-  %.06.i = phi i1 [ %.0.i, %23 ], [ false, %2 ], [ false, %5 ], [ false, %7 ]
+  %.06.i = phi i1 [ %.0.i, %23 ], [ false, %7 ], [ false, %2 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.06.i
 }
@@ -1236,7 +1236,7 @@ define hidden i32 @SDL_GetPropertyType_REAL(i32 noundef %0, ptr noundef %1) loca
   br label %26
 
 26:                                               ; preds = %7, %5, %2, %22
-  %.06 = phi i32 [ %.0, %22 ], [ 0, %2 ], [ 0, %5 ], [ 0, %7 ]
+  %.06 = phi i32 [ %.0, %22 ], [ 0, %7 ], [ 0, %2 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
 }
@@ -1298,7 +1298,7 @@ define hidden ptr @SDL_GetPointerProperty_REAL(i32 noundef %0, ptr noundef %1, p
   br label %31
 
 31:                                               ; preds = %8, %6, %3, %27
-  %.010 = phi ptr [ %.0, %27 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
+  %.010 = phi ptr [ %.0, %27 ], [ %2, %8 ], [ %2, %3 ], [ %2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.010
 }
@@ -1397,7 +1397,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
   br label %52
 
 52:                                               ; preds = %39, %29, %36, %26, %23, %47, %20, %14
-  %.0 = phi ptr [ %2, %20 ], [ %25, %23 ], [ %51, %47 ], [ %2, %14 ], [ %28, %26 ], [ %spec.select, %29 ], [ %38, %36 ], [ %spec.select25, %39 ]
+  %.0 = phi ptr [ %2, %20 ], [ %25, %23 ], [ %2, %14 ], [ %28, %26 ], [ %51, %47 ], [ %spec.select, %29 ], [ %38, %36 ], [ %spec.select25, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load ptr, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1406,7 +1406,7 @@ define hidden ptr @SDL_GetStringProperty_REAL(i32 noundef %0, ptr noundef %1, pt
   br label %56
 
 56:                                               ; preds = %8, %6, %3, %52
-  %.010 = phi ptr [ %.0, %52 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
+  %.010 = phi ptr [ %.0, %52 ], [ %2, %8 ], [ %2, %3 ], [ %2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.010
 }
@@ -1494,7 +1494,7 @@ define hidden i64 @SDL_GetNumberProperty_REAL(i32 noundef %0, ptr noundef %1, i6
   br label %44
 
 44:                                               ; preds = %8, %6, %3, %40
-  %.010 = phi i64 [ %.0, %40 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
+  %.010 = phi i64 [ %.0, %40 ], [ %2, %8 ], [ %2, %3 ], [ %2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.010
 }
@@ -1584,7 +1584,7 @@ define hidden float @SDL_GetFloatProperty_REAL(i32 noundef %0, ptr noundef %1, f
   br label %44
 
 44:                                               ; preds = %8, %6, %3, %40
-  %.010 = phi float [ %.0, %40 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
+  %.010 = phi float [ %.0, %40 ], [ %2, %8 ], [ %2, %3 ], [ %2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %.010
 }
@@ -1671,7 +1671,7 @@ define hidden zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef %0, ptr nounde
   br label %43
 
 43:                                               ; preds = %8, %6, %3, %39
-  %.011 = phi i1 [ %.0, %39 ], [ %2, %3 ], [ %2, %6 ], [ %2, %8 ]
+  %.011 = phi i1 [ %.0, %39 ], [ %2, %8 ], [ %2, %3 ], [ %2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011
 }
@@ -1866,7 +1866,7 @@ SDL_GetPropertyType_REAL.exit:                    ; preds = %16
   br label %SDL_GetPointerProperty_REAL.exit
 
 SDL_GetPointerProperty_REAL.exit:                 ; preds = %30, %32, %49
-  %.010.i = phi ptr [ %.0.i21, %49 ], [ null, %30 ], [ null, %32 ]
+  %.010.i = phi ptr [ %.0.i21, %49 ], [ null, %32 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef %.010.i) #6
   br label %64
@@ -1893,7 +1893,7 @@ SDL_GetPointerProperty_REAL.exit:                 ; preds = %30, %32, %49
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %62) #6
   br label %64
 
-.sink.split:                                      ; preds = %10, %8, %3, %SDL_GetPropertyType_REAL.exit.thread23
+.sink.split:                                      ; preds = %8, %3, %10, %SDL_GetPropertyType_REAL.exit.thread23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %63
 

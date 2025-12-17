@@ -849,7 +849,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.i:                  ; preds = %102, %"_ZSt10genera
   br i1 %.not40, label %172, label %.invoke
 
 .invoke:                                          ; preds = %148, %165, %168
-  %171 = phi ptr [ @.str.14, %168 ], [ @.str.14, %165 ], [ @.str.13, %148 ]
+  %171 = phi ptr [ @.str.14, %165 ], [ @.str.14, %168 ], [ @.str.13, %148 ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %171, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12LJpegDecoder10decodeScanEv) #15
           to label %.cont unwind label %163
 
@@ -1212,7 +1212,7 @@ _ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit
   br label %.body
 
 .body:                                            ; preds = %146, %180, %323, %192, %163, %140, %137, %135, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i, %145
-  %.pn51.pn = phi { ptr, i32 } [ %lpad.phi, %145 ], [ %136, %135 ], [ %55, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i ], [ %138, %137 ], [ %138, %140 ], [ %147, %146 ], [ %164, %163 ], [ %181, %180 ], [ %.pn44, %323 ], [ %193, %192 ]
+  %.pn51.pn = phi { ptr, i32 } [ %138, %140 ], [ %lpad.phi, %145 ], [ %55, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i ], [ %136, %135 ], [ %138, %137 ], [ %147, %146 ], [ %164, %163 ], [ %181, %180 ], [ %.pn44, %323 ], [ %193, %192 ]
   %324 = load ptr, ptr %2, align 8, !tbaa !130
   %.not.i.i.i80 = icmp eq ptr %324, null
   br i1 %.not.i.i.i80, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit81, label %325
@@ -1268,7 +1268,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br label %14
 
 14:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
-  %.0.i.i.i.i.i = phi ptr [ %10, %.noexc10 ], [ %13, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %13, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8, !tbaa !172
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 220

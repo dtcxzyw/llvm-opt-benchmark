@@ -694,7 +694,7 @@ define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr noundef 
   br label %blobdup.exit
 
 blobdup.exit:                                     ; preds = %64, %49, %34, %147, %138, %129, %120, %111, %102, %93, %84, %77, %153
-  %.0 = phi i1 [ true, %153 ], [ false, %77 ], [ false, %84 ], [ false, %93 ], [ false, %102 ], [ false, %111 ], [ false, %120 ], [ false, %129 ], [ false, %138 ], [ false, %147 ], [ false, %34 ], [ false, %49 ], [ false, %64 ]
+  %.0 = phi i1 [ false, %49 ], [ false, %147 ], [ false, %34 ], [ true, %153 ], [ false, %138 ], [ false, %129 ], [ false, %120 ], [ false, %111 ], [ false, %102 ], [ false, %93 ], [ false, %84 ], [ false, %77 ], [ false, %64 ]
   ret i1 %.0
 }
 
@@ -1221,7 +1221,7 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   br label %137
 
 137:                                              ; preds = %111, %.thread99, %119, %123, %128, %17, %21
-  %.069 = phi i1 [ true, %21 ], [ true, %17 ], [ %112, %128 ], [ %112, %123 ], [ %112, %119 ], [ %112, %.thread99 ], [ false, %111 ]
+  %.069 = phi i1 [ true, %17 ], [ false, %111 ], [ true, %21 ], [ %112, %128 ], [ %112, %123 ], [ %112, %.thread99 ], [ %112, %119 ]
   ret i1 %.069
 }
 
@@ -1762,7 +1762,7 @@ Curl_ssl_delsessionid.exit:                       ; preds = %35, %42, %31, %21
   br label %207
 
 207:                                              ; preds = %180, %187, %191, %196, %168, %30, %20
-  %.0119 = phi i32 [ %.0, %168 ], [ 0, %30 ], [ 0, %20 ], [ 0, %196 ], [ 0, %191 ], [ 0, %187 ], [ 0, %180 ]
+  %.0119 = phi i32 [ %.0, %168 ], [ 0, %20 ], [ 0, %30 ], [ 0, %196 ], [ 0, %191 ], [ 0, %180 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0119
@@ -1997,7 +1997,7 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_initsessions(ptr noundef capture
   br label %11
 
 11:                                               ; preds = %5, %2, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 27, %5 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 27, %5 ]
   ret i32 %.0
 }
 
@@ -2322,8 +2322,8 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   %.not144 = icmp eq ptr %66, null
   br i1 %.not144, label %.thread128.loopexit, label %.preheader, !llvm.loop !215
 
-.thread130:                                       ; preds = %49, %16, %20, %29, %.thread
-  %.1.ph = phi i32 [ %27, %.thread ], [ %30, %29 ], [ 27, %20 ], [ 90, %16 ], [ 27, %49 ]
+.thread130:                                       ; preds = %20, %49, %16, %29, %.thread
+  %.1.ph = phi i32 [ %27, %.thread ], [ %30, %29 ], [ 90, %16 ], [ 27, %49 ], [ 27, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
@@ -2389,7 +2389,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   %.not112 = icmp eq i32 %83, 0
   br i1 %.not112, label %84, label %.thread135
 
-.thread135:                                       ; preds = %.preheader145, %82
+.thread135:                                       ; preds = %82, %.preheader145
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread138
 
@@ -2426,7 +2426,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread138
 
 .thread138:                                       ; preds = %72, %74, %77, %90, %89, %94, %.thread135
-  %.4 = phi i32 [ 90, %72 ], [ 90, %74 ], [ 90, %77 ], [ 90, %90 ], [ %spec.select, %89 ], [ %spec.select123, %94 ], [ 90, %.thread135 ]
+  %.4 = phi i32 [ 90, %72 ], [ 90, %74 ], [ 90, %.thread135 ], [ 90, %77 ], [ %spec.select123, %94 ], [ %spec.select, %89 ], [ 90, %90 ]
   call void @Curl_dyn_free(ptr noundef nonnull %8) #20
   %96 = load ptr, ptr @Curl_cfree, align 8, !tbaa !17
   %97 = load ptr, ptr %9, align 8, !tbaa !5
@@ -2445,7 +2445,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br label %100
 
 100:                                              ; preds = %.thread128, %.thread138, %99, %.thread130, %11, %4
-  %.0 = phi i32 [ 90, %99 ], [ 0, %4 ], [ 90, %11 ], [ %.1.ph, %.thread130 ], [ %.173, %.thread128 ], [ %.4, %.thread138 ]
+  %.0 = phi i32 [ 90, %11 ], [ 90, %99 ], [ %.1.ph, %.thread130 ], [ 0, %4 ], [ %.4, %.thread138 ], [ %.173, %.thread128 ]
   ret i32 %.0
 }
 
@@ -2542,7 +2542,7 @@ define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %0, ptr noundef nonnul
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %15, %11, %5, %3, %._crit_edge
-  %.0 = phi i32 [ %30, %._crit_edge ], [ 61, %3 ], [ 61, %5 ], [ 61, %11 ], [ 61, %15 ], [ %26, %25 ]
+  %.0 = phi i32 [ 61, %5 ], [ 61, %15 ], [ %30, %._crit_edge ], [ 61, %11 ], [ 61, %3 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2789,7 +2789,7 @@ thread-pre-split:                                 ; preds = %27
   br i1 %.not19, label %multissl_setup.exit, label %.lr.ph.split, !llvm.loop !225
 
 multissl_setup.exit:                              ; preds = %54, %11, %.preheader, %.critedge.i, %48, %36, %35, %.loopexit, %14, %18, %17
-  %.013 = phi i32 [ 0, %14 ], [ 1, %17 ], [ %23, %18 ], [ 0, %.loopexit ], [ 0, %35 ], [ 0, %36 ], [ 0, %48 ], [ 0, %.critedge.i ], [ 1, %.preheader ], [ 1, %11 ], [ 1, %54 ]
+  %.013 = phi i32 [ %23, %18 ], [ 0, %14 ], [ 1, %17 ], [ 0, %.loopexit ], [ 0, %35 ], [ 0, %36 ], [ 0, %48 ], [ 0, %.critedge.i ], [ 1, %.preheader ], [ 1, %11 ], [ 1, %54 ]
   ret i32 %.013
 }
 
@@ -2954,8 +2954,8 @@ get_peer_type.exit:                               ; preds = %36
   store i8 0, ptr %59, align 1, !tbaa !12
   br label %.thread68
 
-60:                                               ; preds = %26, %19, %17, %3, %.thread
-  %.046.ph = phi i32 [ 27, %.thread ], [ 2, %3 ], [ 2, %17 ], [ 27, %19 ], [ 27, %26 ]
+60:                                               ; preds = %.thread, %3, %26, %19, %17
+  %.046.ph = phi i32 [ 2, %17 ], [ 27, %19 ], [ 27, %26 ], [ 2, %3 ], [ 27, %.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !226
   %63 = load ptr, ptr %0, align 8, !tbaa !161
@@ -3279,7 +3279,7 @@ ssl_connect_nonblocking.exit:                     ; preds = %83, %ssl_connect.ex
   br label %117
 
 117:                                              ; preds = %98, %.thread, %105, %109, %114
-  %.185 = phi i32 [ %50, %98 ], [ %.184, %.thread ], [ %.184, %105 ], [ %.184, %109 ], [ %.184, %114 ]
+  %.185 = phi i32 [ %50, %98 ], [ %.184, %.thread ], [ %.184, %105 ], [ %.184, %114 ], [ %.184, %109 ]
   %118 = load ptr, ptr %5, align 8, !tbaa !198
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
   store ptr %.sroa.011.0.copyload, ptr %119, align 8, !tbaa !229
@@ -3702,7 +3702,7 @@ define internal i32 @ssl_cf_query(ptr noundef readonly captures(none) %0, ptr no
   br label %28
 
 28:                                               ; preds = %23, %20, %8, %12, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %12 ], [ 0, %8 ], [ %27, %23 ], [ 48, %20 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %12 ], [ %27, %23 ], [ 48, %20 ]
   ret i32 %.0
 }
 
@@ -3749,7 +3749,7 @@ define internal fastcc i32 @cf_ssl_create(ptr noundef nonnull writeonly captures
   br label %alpn_get_spec.exit
 
 alpn_get_spec.exit:                               ; preds = %1, %4, %6
-  %.0.i = phi ptr [ null, %1 ], [ @ALPN_SPEC_H2, %4 ], [ %ALPN_SPEC_H2_H11.ALPN_SPEC_H11.i, %6 ]
+  %.0.i = phi ptr [ null, %1 ], [ %ALPN_SPEC_H2_H11.ALPN_SPEC_H11.i, %6 ], [ @ALPN_SPEC_H2, %4 ]
   %8 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !17
   %9 = tail call ptr %8(i64 noundef 1, i64 noundef 192) #20
   %.not.i = icmp eq ptr %9, null
@@ -3798,9 +3798,9 @@ alpn_get_spec.exit:                               ; preds = %1, %4, %6
   %31 = load ptr, ptr %2, align 8
   br label %cf_ctx_free.exit.thread
 
-cf_ctx_free.exit.thread:                          ; preds = %alpn_get_spec.exit, %19, %23, %30
-  %.01224 = phi i32 [ 0, %30 ], [ %22, %23 ], [ 27, %19 ], [ 27, %alpn_get_spec.exit ]
-  %32 = phi ptr [ %31, %30 ], [ null, %23 ], [ null, %19 ], [ null, %alpn_get_spec.exit ]
+cf_ctx_free.exit.thread:                          ; preds = %19, %alpn_get_spec.exit, %23, %30
+  %.01224 = phi i32 [ 0, %30 ], [ %22, %23 ], [ 27, %alpn_get_spec.exit ], [ 27, %19 ]
+  %32 = phi ptr [ %31, %30 ], [ null, %23 ], [ null, %alpn_get_spec.exit ], [ null, %19 ]
   store ptr %32, ptr %0, align 8, !tbaa !257
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.01224
@@ -3894,8 +3894,8 @@ define dso_local i32 @Curl_cf_ssl_proxy_insert_after(ptr noundef %0, ptr noundef
   call void %31(ptr noundef nonnull %9) #20
   br label %cf_ssl_proxy_create.exit.thread
 
-cf_ssl_proxy_create.exit.thread:                  ; preds = %25, %21, %2
-  %.0121224.i.ph = phi i32 [ 27, %2 ], [ 27, %21 ], [ %24, %25 ]
+cf_ssl_proxy_create.exit.thread:                  ; preds = %25, %2, %21
+  %.0121224.i.ph = phi i32 [ 27, %21 ], [ 27, %2 ], [ %24, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
@@ -4111,8 +4111,8 @@ define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge55.i, %53, %48, %.backedge.i, %68, %61
-  %.146.i = phi i32 [ 56, %61 ], [ 28, %68 ], [ 0, %._crit_edge55.i ], [ 0, %53 ], [ 0, %.backedge.i ], [ %52, %48 ]
-  %69 = phi i8 [ 2, %61 ], [ 2, %68 ], [ 2, %._crit_edge55.i ], [ 2, %53 ], [ 0, %.backedge.i ], [ 2, %48 ]
+  %.146.i = phi i32 [ 28, %68 ], [ 56, %61 ], [ 0, %._crit_edge55.i ], [ 0, %.backedge.i ], [ 0, %53 ], [ %52, %48 ]
+  %69 = phi i8 [ 2, %68 ], [ 2, %61 ], [ 2, %._crit_edge55.i ], [ 0, %.backedge.i ], [ 2, %53 ], [ 2, %48 ]
   %70 = load ptr, ptr %31, align 8, !tbaa !198
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store ptr %.sroa.0.0.copyload.i, ptr %71, align 8, !tbaa !229
@@ -4335,7 +4335,7 @@ define dso_local noundef zeroext i1 @Curl_alpn_contains_proto(ptr noundef readon
   br i1 %exitcond.not, label %.critedge, label %.lr.ph32
 
 .critedge:                                        ; preds = %12, %.critedge24.us, %2, %.lr.ph, %3
-  %.2 = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ false, %2 ], [ false, %.critedge24.us ], [ true, %12 ]
+  %.2 = phi i1 [ false, %.lr.ph ], [ false, %3 ], [ false, %2 ], [ true, %12 ], [ false, %.critedge24.us ]
   ret i1 %.2
 }
 
@@ -4625,7 +4625,7 @@ define internal fastcc zeroext i1 @blobcmp(ptr noundef readonly captures(address
   br label %14
 
 14:                                               ; preds = %6, %5, %2, %11
-  %.0 = phi i1 [ %.not16, %11 ], [ true, %2 ], [ false, %5 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %5 ], [ %.not16, %11 ], [ true, %2 ], [ false, %6 ]
   ret i1 %.0
 }
 

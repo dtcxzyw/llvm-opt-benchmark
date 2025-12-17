@@ -165,7 +165,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -605,7 +605,7 @@ define ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, p
           to label %63 unwind label %56
 
 63:                                               ; preds = %61, %54
-  %.0 = phi ptr [ %55, %54 ], [ %62, %61 ]
+  %.0 = phi ptr [ %62, %61 ], [ %55, %54 ]
   %.not60 = icmp eq ptr %.0, null
   %.not61 = icmp eq ptr %4, %.0
   %or.cond = or i1 %.not60, %.not61
@@ -723,8 +723,8 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   br i1 %105, label %106, label %.sink.split
 
 .sink.split:                                      ; preds = %103, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit, %90
-  %.sink = phi i32 [ 5, %90 ], [ 5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit ], [ %104, %103 ]
-  %.ph = phi ptr [ %30, %90 ], [ %30, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit ], [ %100, %103 ]
+  %.sink = phi i32 [ 5, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit ], [ 5, %90 ], [ %104, %103 ]
+  %.ph = phi ptr [ %30, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit ], [ %30, %90 ], [ %100, %103 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !13
   br label %106
 
@@ -752,9 +752,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   br label %114
 
 .thread76.thread97:                               ; preds = %58, %69, %.thread76, %48, %109
-  %113 = phi ptr [ %110, %109 ], [ %30, %69 ], [ %30, %48 ], [ %30, %.thread76 ], [ %30, %58 ]
-  %.450 = phi ptr [ %.14796, %109 ], [ %65, %69 ], [ %47, %48 ], [ %47, %.thread76 ], [ %47, %58 ]
-  %.1 = phi i1 [ %.2, %109 ], [ false, %69 ], [ false, %48 ], [ false, %.thread76 ], [ false, %58 ]
+  %113 = phi ptr [ %110, %109 ], [ %30, %48 ], [ %30, %69 ], [ %30, %.thread76 ], [ %30, %58 ]
+  %.450 = phi ptr [ %.14796, %109 ], [ %47, %48 ], [ %65, %69 ], [ %47, %.thread76 ], [ %47, %58 ]
+  %.1 = phi i1 [ %.2, %109 ], [ false, %48 ], [ false, %69 ], [ false, %.thread76 ], [ false, %58 ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #14

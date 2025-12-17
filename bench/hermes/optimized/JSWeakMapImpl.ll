@@ -2411,7 +2411,7 @@ if.end13.i.i31:                                   ; preds = %if.end9.i.i44, %_ZN
   br i1 %cmp.i.i.i41, label %if.end12, label %if.end.i.i.i21, !llvm.loop !7
 
 if.end12:                                         ; preds = %if.end13.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i, %if.end13.us.i.i, %if.end13.i.i31, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i29, %if.end13.us.i.i57, %if.then12.i.i46, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr47.i.i, %if.end.i.i ], [ %cond.i.i50, %if.then12.i.i46 ], [ null, %if.then10 ], [ %add.ptr47.i.i17, %if.end.i.i11 ], [ %add.ptr.us.i.i66, %if.end13.us.i.i57 ], [ %add.ptr.i.i40, %if.end13.i.i31 ], [ %add.ptr52.i.i22, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i29 ], [ %add.ptr.us.i.i, %if.end13.us.i.i ], [ %add.ptr.i.i, %if.end13.i.i ], [ %add.ptr52.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr47.i.i, %if.end.i.i ], [ %cond.i.i50, %if.then12.i.i46 ], [ null, %if.then10 ], [ %add.ptr47.i.i17, %if.end.i.i11 ], [ %add.ptr.us.i.i66, %if.end13.us.i.i57 ], [ %add.ptr.us.i.i, %if.end13.us.i.i ], [ %add.ptr52.i.i22, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i29 ], [ %add.ptr.i.i40, %if.end13.i.i31 ], [ %add.ptr52.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i ], [ %add.ptr.i.i, %if.end13.i.i ]
   %25 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %25, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8
@@ -2573,7 +2573,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i, %_ZN
   br i1 %cmp.i.i.i23.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E15LookupBucketForIS5_EEbRKT_RPS9_.exit.i, label %if.end.i.i.i.i, !llvm.loop !7
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E15LookupBucketForIS5_EEbRKT_RPS9_.exit.i: ; preds = %if.end13.i.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i.i, %if.then12.i.i.loopexit31.i, %if.then.i
-  %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.loopexit31.i ], [ %add.ptr47.i.i.i, %if.then.i ], [ %add.ptr52.i.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i.i ], [ %add.ptr.i.i22.i, %if.end13.i.i.i ]
+  %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.loopexit31.i ], [ %add.ptr47.i.i.i, %if.then.i ], [ %add.ptr.i.i22.i, %if.end13.i.i.i ], [ %add.ptr52.i.i.i, %_ZN6hermes2vm6detail11WeakRefInfo7isEqualERKNS1_10WeakRefKeyES5_.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %cond.sink.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %B.037.i, i64 12, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.i, i64 16
   %second.i24.i = getelementptr inbounds nuw i8, ptr %B.037.i, i64 16

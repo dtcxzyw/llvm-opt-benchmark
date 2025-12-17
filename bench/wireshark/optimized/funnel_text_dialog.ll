@@ -1453,7 +1453,7 @@ _ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit: ; preds = %2
   br i1 %50, label %_ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.thread, label %.lr.ph.i, !llvm.loop !14
 
 _ZNK12QHashPrivate4DataINS_4NodeIP7QObjectP12_funnel_bt_tEEE4findERKS3_.exit.thread: ; preds = %42, %.lr.ph.i, %7
-  %.018.lcssa.i20 = phi i64 [ %24, %7 ], [ %spec.store.select.i.i, %42 ], [ %.01827.i, %.lr.ph.i ]
+  %.018.lcssa.i20 = phi i64 [ %24, %7 ], [ %.01827.i, %.lr.ph.i ], [ %spec.store.select.i.i, %42 ]
   %51 = load atomic i32, ptr %3 monotonic, align 4
   %52 = icmp ugt i32 %51, 1
   br i1 %52, label %53, label %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit
@@ -1487,7 +1487,7 @@ _ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit: ; preds = %_ZNK12QHashPrivate
   br label %_ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit.thread
 
 _ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit.thread: ; preds = %2, %62, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit, %_ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit
-  %.0 = phi ptr [ null, %_ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit ], [ %68, %62 ], [ null, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit ], [ null, %2 ]
+  %.0 = phi ptr [ null, %_ZN5QHashIP7QObjectP12_funnel_bt_tE6detachEv.exit ], [ null, %_ZNK5QHashIP7QObjectP12_funnel_bt_tE7isEmptyEv.exit ], [ %68, %62 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -4564,7 +4564,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_4NodeIP7QObjectP12_f
   br i1 %71, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %68, %31, %66, %62
-  %.1 = phi i64 [ %spec.store.select.i52, %66 ], [ %spec.store.select.i52, %62 ], [ %.051, %31 ], [ %.051, %68 ]
+  %.1 = phi i64 [ %spec.store.select.i52, %62 ], [ %spec.store.select.i52, %66 ], [ %.051, %31 ], [ %.051, %68 ]
   %72 = add i64 %spec.store.select.i52, 1
   %73 = load i64, ptr %20, align 8
   %74 = icmp eq i64 %72, %73

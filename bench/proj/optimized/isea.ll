@@ -338,7 +338,7 @@ sub_194:                                          ; preds = %.tail, %sub_1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %130, %126, %120
-  %_ZN12_GLOBAL__N_112standardISEAE.sink.i = phi ptr [ null, %130 ], [ @_ZN12_GLOBAL__N_112standardISEAE, %120 ], [ @_ZN12_GLOBAL__N_19polarISEAE, %126 ]
+  %_ZN12_GLOBAL__N_112standardISEAE.sink.i = phi ptr [ @_ZN12_GLOBAL__N_112standardISEAE, %120 ], [ null, %130 ], [ @_ZN12_GLOBAL__N_19polarISEAE, %126 ]
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 496
   store ptr %_ZN12_GLOBAL__N_112standardISEAE.sink.i, ptr %131, align 8, !tbaa !61
   br label %132
@@ -1087,7 +1087,7 @@ select.unfold.i:                                  ; preds = %90
   br label %112
 
 110:                                              ; preds = %107, %105, %103, %101, %99
-  %.2.i = phi i32 [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ]
+  %.2.i = phi i32 [ %108, %107 ], [ %106, %105 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ]
   %.lhs.trunc.i = trunc nuw nsw i32 %.2.i to i8
   %111 = udiv i8 %.lhs.trunc.i, 5
   br label %112
@@ -1289,8 +1289,8 @@ _ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %1
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %239, %_ZL10safeArcSind.exit.i.i
-  %.sink108.i.i = phi double [ %252, %239 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
-  %.sink.i.i = phi double [ %257, %239 ], [ %233, %_ZL10safeArcSind.exit.i.i ]
+  %.sink108.i.i = phi double [ %221, %_ZL10safeArcSind.exit.i.i ], [ %252, %239 ]
+  %.sink.i.i = phi double [ %233, %_ZL10safeArcSind.exit.i.i ], [ %257, %239 ]
   %258 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
   br i1 %258, label %259, label %261
 
@@ -1310,8 +1310,8 @@ default.unreachable:                              ; preds = %83
   unreachable
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %263, %261, %259, %73, %67
-  %.sroa.09.1 = phi double [ %.sink.i.i, %261 ], [ %264, %263 ], [ %260, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink108.i.i, %261 ], [ %.sink108.i.i, %263 ], [ %.sink108.i.i, %259 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.09.1 = phi double [ 0x7FF0000000000000, %67 ], [ %260, %259 ], [ %.sink.i.i, %261 ], [ %264, %263 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ 0x7FF0000000000000, %67 ], [ %.sink108.i.i, %259 ], [ %.sink108.i.i, %261 ], [ %.sink108.i.i, %263 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert
@@ -1469,9 +1469,9 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %48, %43
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i
 
 _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i: ; preds = %74, %72, %68, %64, %61, %57, %53
-  %.038.i.i = phi i64 [ 0, %57 ], [ %71, %68 ], [ %50, %74 ], [ %50, %72 ], [ 0, %53 ], [ %spec.select.i.i, %61 ], [ 0, %64 ]
-  %.037.i.i = phi i64 [ %60, %57 ], [ 0, %68 ], [ 0, %74 ], [ %51, %72 ], [ 0, %53 ], [ %51, %61 ], [ 0, %64 ]
-  %.0.i.i = phi i32 [ %spec.store.select.i.i, %57 ], [ %spec.store.select1.i.i, %68 ], [ %76, %74 ], [ %24, %72 ], [ 0, %53 ], [ %spec.select46.i.i, %61 ], [ 11, %64 ]
+  %.038.i.i = phi i64 [ %50, %72 ], [ 0, %57 ], [ 0, %53 ], [ 0, %64 ], [ %spec.select.i.i, %61 ], [ %71, %68 ], [ %50, %74 ]
+  %.037.i.i = phi i64 [ %51, %72 ], [ %60, %57 ], [ 0, %53 ], [ 0, %64 ], [ %51, %61 ], [ 0, %68 ], [ 0, %74 ]
+  %.0.i.i = phi i32 [ %24, %72 ], [ %spec.store.select.i.i, %57 ], [ 0, %53 ], [ 11, %64 ], [ %spec.select46.i.i, %61 ], [ %spec.store.select1.i.i, %68 ], [ %76, %74 ]
   %77 = sitofp i64 %.038.i.i to double
   store double %77, ptr %3, align 8, !tbaa !88
   %78 = sitofp i64 %.037.i.i to double
@@ -1606,9 +1606,9 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %118, %113
   br label %144
 
 144:                                              ; preds = %140, %136, %132, %129, %126, %123
-  %.neg66.i = phi i64 [ %.neg.i, %126 ], [ %139, %136 ], [ 0, %123 ], [ %121, %129 ], [ 0, %132 ], [ %spec.select, %140 ]
-  %145 = phi i64 [ 0, %126 ], [ %139, %136 ], [ 0, %123 ], [ %spec.select.i, %129 ], [ 0, %132 ], [ %110, %140 ]
-  %.039.i = phi i32 [ %spec.store.select.i, %126 ], [ %spec.store.select1.i, %136 ], [ 0, %123 ], [ %spec.select65.i, %129 ], [ 11, %132 ], [ %spec.select5, %140 ]
+  %.neg66.i = phi i64 [ %spec.select, %140 ], [ %.neg.i, %126 ], [ 0, %123 ], [ 0, %132 ], [ %121, %129 ], [ %139, %136 ]
+  %145 = phi i64 [ %110, %140 ], [ 0, %126 ], [ 0, %123 ], [ 0, %132 ], [ %spec.select.i, %129 ], [ %139, %136 ]
+  %.039.i = phi i32 [ %spec.select5, %140 ], [ %spec.store.select.i, %126 ], [ 0, %123 ], [ 11, %132 ], [ %spec.select65.i, %129 ], [ %spec.store.select1.i, %136 ]
   %146 = sitofp i64 %145 to double
   store double %146, ptr %3, align 8, !tbaa !88
   %147 = sitofp i64 %.neg66.i to double
@@ -1741,8 +1741,8 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
   br label %56
 
 56:                                               ; preds = %52, %38, %50
-  %.050 = phi i64 [ %51, %50 ], [ %19, %38 ], [ %19, %52 ]
-  %.049 = phi i64 [ %22, %50 ], [ %22, %38 ], [ %spec.select, %52 ]
+  %.050 = phi i64 [ %51, %50 ], [ %19, %52 ], [ %19, %38 ]
+  %.049 = phi i64 [ %22, %50 ], [ %spec.select, %52 ], [ %22, %38 ]
   %57 = icmp sgt i64 %.050, -1
   br i1 %57, label %58, label %63
 

@@ -1975,7 +1975,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
   br label %96
 
 96:                                               ; preds = %25, %.critedge, %20
-  %.0 = phi i64 [ %92, %.critedge ], [ %24, %20 ], [ %27, %25 ]
+  %.0 = phi i64 [ %24, %20 ], [ %92, %.critedge ], [ %27, %25 ]
   ret i64 %.0
 }
 

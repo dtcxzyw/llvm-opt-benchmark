@@ -1157,9 +1157,9 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_interval_refine(ptr noundef 
   br label %61
 
 61:                                               ; preds = %58, %51, %47
-  %62 = phi i32 [ %37, %51 ], [ %37, %47 ], [ %59, %58 ]
-  %63 = phi i8 [ %34, %51 ], [ %34, %47 ], [ %60, %58 ]
-  %64 = phi i32 [ %35, %51 ], [ %35, %47 ], [ 1, %58 ]
+  %62 = phi i32 [ %59, %58 ], [ %37, %51 ], [ %37, %47 ]
+  %63 = phi i8 [ %60, %58 ], [ %34, %51 ], [ %34, %47 ]
+  %64 = phi i32 [ 1, %58 ], [ %35, %51 ], [ %35, %47 ]
   %65 = and i8 %63, 4
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %74
@@ -1227,9 +1227,9 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_interval_refine(ptr noundef 
   br label %103
 
 103:                                              ; preds = %99, %93, %85
-  %104 = phi i8 [ %102, %99 ], [ %75, %93 ], [ %87, %85 ]
-  %105 = phi i32 [ %100, %99 ], [ %62, %93 ], [ %62, %85 ]
-  %106 = phi i32 [ %101, %99 ], [ %33, %93 ], [ %86, %85 ]
+  %104 = phi i8 [ %102, %99 ], [ %87, %85 ], [ %75, %93 ]
+  %105 = phi i32 [ %100, %99 ], [ %62, %85 ], [ %62, %93 ]
+  %106 = phi i32 [ %101, %99 ], [ %86, %85 ], [ %33, %93 ]
   %107 = icmp ugt i32 %106, %105
   br i1 %107, label %112, label %108
 
@@ -2041,8 +2041,8 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_interval_list(ptr noundef ca
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge7.us, %37, %32, %28, %19
-  %42 = phi i32 [ %22, %37 ], [ %41, %.critedge7.us ], [ %22, %19 ], [ %22, %28 ], [ %22, %32 ]
-  %43 = phi i32 [ %21, %37 ], [ %40, %.critedge7.us ], [ %21, %19 ], [ %21, %28 ], [ %21, %32 ]
+  %42 = phi i32 [ %22, %37 ], [ %22, %32 ], [ %41, %.critedge7.us ], [ %22, %19 ], [ %22, %28 ]
+  %43 = phi i32 [ %21, %37 ], [ %21, %32 ], [ %40, %.critedge7.us ], [ %21, %19 ], [ %21, %28 ]
   %44 = add nuw nsw i64 %20, 1
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %.split10.us, label %19, !llvm.loop !17
@@ -2615,9 +2615,9 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   br label %37
 
 37:                                               ; preds = %36, %32
-  %38 = phi i32 [ %spec.select, %36 ], [ %24, %32 ]
-  %39 = phi i32 [ %spec.select, %36 ], [ %23, %32 ]
-  %40 = phi i32 [ %27, %36 ], [ %22, %32 ]
+  %38 = phi i32 [ %24, %32 ], [ %spec.select, %36 ]
+  %39 = phi i32 [ %23, %32 ], [ %spec.select, %36 ]
+  %40 = phi i32 [ %22, %32 ], [ %27, %36 ]
   %41 = add nuw nsw i64 %21, 1
   %42 = icmp eq i64 %41, %20
   br i1 %42, label %.split24.us, label %.split.us, !llvm.loop !21
@@ -3131,8 +3131,8 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_noresample_func(p
   br label %.thread9
 
 .thread9:                                         ; preds = %25, %2, %16, %20, %23
-  %28 = phi i32 [ %7, %23 ], [ 0, %2 ], [ 0, %16 ], [ 0, %20 ], [ %spec.select, %25 ]
-  %29 = phi i32 [ %7, %23 ], [ -1, %2 ], [ -1, %16 ], [ -1, %20 ], [ %spec.select12, %25 ]
+  %28 = phi i32 [ %7, %23 ], [ %spec.select, %25 ], [ 0, %20 ], [ 0, %2 ], [ 0, %16 ]
+  %29 = phi i32 [ %7, %23 ], [ %spec.select12, %25 ], [ -1, %20 ], [ -1, %2 ], [ -1, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %29, ptr %3, align 4
   store i32 %28, ptr %30, align 4
@@ -3596,7 +3596,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
   br label %.thread15
 
 .thread15:                                        ; preds = %103, %126, %45, %48, %153, %141, %138, %127, %119, %88
-  %161 = phi i32 [ %89, %88 ], [ %160, %153 ], [ -22, %127 ], [ %125, %119 ], [ -22, %138 ], [ -22, %141 ], [ -22, %48 ], [ -22, %45 ], [ 0, %126 ], [ -22, %103 ]
+  %161 = phi i32 [ %89, %88 ], [ -22, %48 ], [ %160, %153 ], [ -22, %127 ], [ %125, %119 ], [ -22, %138 ], [ -22, %141 ], [ -22, %45 ], [ 0, %126 ], [ -22, %103 ]
   ret i32 %161
 }
 
@@ -3847,7 +3847,7 @@ define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 
   br label %.thread15
 
 .thread15:                                        ; preds = %105, %128, %46, %49, %155, %143, %140, %129, %121, %90
-  %163 = phi i32 [ %91, %90 ], [ %162, %155 ], [ -22, %129 ], [ %127, %121 ], [ -22, %140 ], [ -22, %143 ], [ -22, %49 ], [ -22, %46 ], [ 0, %128 ], [ -22, %105 ]
+  %163 = phi i32 [ %91, %90 ], [ -22, %49 ], [ %162, %155 ], [ -22, %129 ], [ %127, %121 ], [ -22, %140 ], [ -22, %143 ], [ -22, %46 ], [ 0, %128 ], [ -22, %105 ]
   ret i32 %163
 }
 
@@ -3913,7 +3913,7 @@ define dso_local i32 @snd_pcm_hw_params_bits(ptr noundef readonly captures(none)
   br label %39
 
 .thread:                                          ; preds = %25, %35, %26
-  %37 = phi i32 [ %32, %35 ], [ %32, %26 ], [ 0, %25 ]
+  %37 = phi i32 [ %32, %26 ], [ %32, %35 ], [ 0, %25 ]
   %38 = tail call i32 @snd_pcm_format_width(i32 noundef %37) #21
   br label %39
 
@@ -4705,12 +4705,12 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.critedge
 
 .critedge.loopexit189:                            ; preds = %224, %.lr.ph, %220, %229
-  %.ph = phi i32 [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -32, %224 ]
+  %.ph = phi i32 [ -512, %.lr.ph ], [ -5, %229 ], [ 0, %220 ], [ -32, %224 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %224, %224, %224, %.critedge.loopexit189, %.lr.ph.preheader, %..critedge.loopexit_crit_edge178, %.critedge.loopexit, %228, %174
-  %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ %221, %..critedge.loopexit_crit_edge178 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %.critedge.loopexit189 ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
-  %236 = phi i32 [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ %.ph, %.critedge.loopexit189 ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
+  %235 = phi i64 [ %221, %.critedge.loopexit189 ], [ 0, %174 ], [ %spec.select, %228 ], [ %221, %..critedge.loopexit_crit_edge178 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
+  %236 = phi i32 [ %.ph, %.critedge.loopexit189 ], [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 0, ptr nonnull elementtype(i32) %149) #21, !srcloc !37
   call void @remove_wait_queue(ptr noundef nonnull %151, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4852,24 +4852,24 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %324, label %.thread47, label %.thread40.loopexit
 
 .thread47:                                        ; preds = %322, %295, %300, %303, %239
-  %325 = phi i64 [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ], [ %125, %239 ]
-  %326 = phi i64 [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ], [ %.fr57, %239 ]
-  %327 = phi i64 [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ], [ %127, %239 ]
-  %328 = phi i32 [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ], [ 0, %239 ]
-  %329 = phi i64 [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ], [ 0, %239 ]
+  %325 = phi i64 [ %125, %239 ], [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ]
+  %326 = phi i64 [ %.fr57, %239 ], [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ]
+  %327 = phi i64 [ %127, %239 ], [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ]
+  %328 = phi i32 [ 0, %239 ], [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ]
+  %329 = phi i64 [ 0, %239 ], [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ]
   %330 = icmp eq i64 %325, 0
   br i1 %330, label %.thread40.loopexit, label %124, !llvm.loop !38
 
 .thread51:                                        ; preds = %49, %55, %56, %75
-  %.ph49 = phi i32 [ %76, %75 ], [ -86, %55 ], [ -77, %56 ], [ -32, %49 ]
+  %.ph49 = phi i32 [ %76, %75 ], [ -77, %56 ], [ -86, %55 ], [ -32, %49 ]
   %331 = getelementptr inbounds nuw i8, ptr %8, i64 280
   store i64 0, ptr %331, align 8
   tail call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #21
   %332 = sext i32 %.ph49 to i64
   br label %select.unfold
 
-.thread40.thread.loopexit100:                     ; preds = %285, %241, %.critedge, %282, %287, %137
-  %.ph54.ph = phi i32 [ %236, %.critedge ], [ %283, %282 ], [ %293, %287 ], [ -11, %137 ], [ -16, %241 ], [ -86, %285 ]
+.thread40.thread.loopexit100:                     ; preds = %285, %241, %282, %.critedge, %287, %137
+  %.ph54.ph = phi i32 [ %283, %282 ], [ %236, %.critedge ], [ %293, %287 ], [ -11, %137 ], [ -16, %241 ], [ -86, %285 ]
   %333 = sext i32 %.ph54.ph to i64
   br label %.thread40.thread
 
@@ -4877,15 +4877,15 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.thread40.thread
 
 .thread40.thread:                                 ; preds = %258, %285, %.thread40.thread.loopexit190, %.thread40.thread.loopexit100
-  %.ph54 = phi i64 [ %333, %.thread40.thread.loopexit100 ], [ -77, %.thread40.thread.loopexit190 ], [ -32, %285 ], [ -16, %258 ]
+  %.ph54 = phi i64 [ -77, %.thread40.thread.loopexit190 ], [ %333, %.thread40.thread.loopexit100 ], [ -32, %285 ], [ -16, %258 ]
   store i64 0, ptr %63, align 8
   %.not = icmp eq i64 %.fr57, 0
   call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #21
   br i1 %.not, label %select.unfold, label %343
 
 .thread40.loopexit:                               ; preds = %.thread47, %322
-  %.ph101 = phi i32 [ %323, %322 ], [ %328, %.thread47 ]
-  %.ph102 = phi i64 [ %298, %322 ], [ %326, %.thread47 ]
+  %.ph101 = phi i32 [ %328, %.thread47 ], [ %323, %322 ]
+  %.ph102 = phi i64 [ %326, %.thread47 ], [ %298, %322 ]
   %334 = freeze i64 %.ph102
   br label %.thread40
 
@@ -4913,7 +4913,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %select.unfold
 
 select.unfold:                                    ; preds = %5, %18, %22, %.thread40.thread, %343, %341, %.thread51, %46, %42, %37, %33
-  %345 = phi i64 [ -22, %33 ], [ -22, %37 ], [ -22, %42 ], [ 0, %46 ], [ %344, %343 ], [ %342, %341 ], [ %332, %.thread51 ], [ %.ph54, %.thread40.thread ], [ -6, %5 ], [ -22, %18 ], [ -77, %22 ]
+  %345 = phi i64 [ %332, %.thread51 ], [ %.ph54, %.thread40.thread ], [ -22, %33 ], [ -22, %37 ], [ -22, %42 ], [ 0, %46 ], [ %344, %343 ], [ %342, %341 ], [ -22, %18 ], [ -6, %5 ], [ -77, %22 ]
   ret i64 %345
 }
 
@@ -5193,7 +5193,7 @@ define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %
   br label %163
 
 163:                                              ; preds = %160, %153
-  %164 = phi i32 [ %162, %160 ], [ %158, %153 ]
+  %164 = phi i32 [ %158, %153 ], [ %162, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %165
 
@@ -5209,7 +5209,7 @@ define internal range(i32 -2147483648, 1) i32 @noninterleaved_copy(ptr noundef %
   br i1 %170, label %.loopexit, label %.split.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.thread, %165, %91, %.thread.us6, %42, %.thread.us, %.split.us, %7
-  %171 = phi i32 [ 0, %7 ], [ 0, %.split.us ], [ 0, %.thread.us ], [ %44, %42 ], [ 0, %.thread.us6 ], [ %92, %91 ], [ 0, %.thread ], [ %166, %165 ]
+  %171 = phi i32 [ 0, %7 ], [ %92, %91 ], [ %44, %42 ], [ 0, %.split.us ], [ 0, %.thread.us ], [ 0, %.thread.us6 ], [ 0, %.thread ], [ %166, %165 ]
   ret i32 %171
 }
 
@@ -5558,7 +5558,7 @@ define internal noundef range(i32 -22, 1) i32 @pcm_chmap_ctl_get(ptr noundef rea
   br i1 %84, label %.thread, label %55, !llvm.loop !57
 
 .thread:                                          ; preds = %33, %81, %71, %20, %46, %37, %2
-  %85 = phi i32 [ -22, %2 ], [ 0, %37 ], [ -22, %46 ], [ -19, %20 ], [ 0, %71 ], [ -22, %81 ], [ -19, %33 ]
+  %85 = phi i32 [ -22, %2 ], [ 0, %37 ], [ -22, %46 ], [ -19, %20 ], [ -22, %81 ], [ 0, %71 ], [ -19, %33 ]
   ret i32 %85
 }
 

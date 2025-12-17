@@ -23,7 +23,7 @@ define dso_local i32 @str_to_cnt(ptr noundef readonly captures(address) %0) loca
   br label %8
 
 8:                                                ; preds = %7, %1
-  %.027 = phi ptr [ %0, %1 ], [ %spec.select, %7 ]
+  %.027 = phi ptr [ %spec.select, %7 ], [ %0, %1 ]
   %.02537 = getelementptr inbounds i8, ptr %5, i64 -1
   %.not2938 = icmp ult ptr %.02537, %.027
   br i1 %.not2938, label %.critedge, label %.lr.ph

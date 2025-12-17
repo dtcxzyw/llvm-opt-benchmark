@@ -381,7 +381,7 @@ switch.lookup:                                    ; preds = %109
   br label %146
 
 146:                                              ; preds = %136, %85, %142, %135, %108, %84, %71, %45, %38, %35, %.thread, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %.thread ], [ -1094995529, %35 ], [ -1094995529, %38 ], [ -1094995529, %45 ], [ -1094995529, %71 ], [ -1163346256, %84 ], [ -1163346256, %108 ], [ -1094995529, %135 ], [ 0, %142 ], [ -1094995529, %85 ], [ %140, %136 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %.thread ], [ -1094995529, %35 ], [ -1094995529, %38 ], [ -1094995529, %45 ], [ -1094995529, %71 ], [ -1163346256, %84 ], [ 0, %142 ], [ -1163346256, %108 ], [ -1094995529, %135 ], [ -1094995529, %85 ], [ %140, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -994,9 +994,9 @@ qdm2_decode_sub_packet_header.exit159.i.i:        ; preds = %272, %229
   br label %get_vlc2.exit.i.i.i
 
 get_vlc2.exit.i.i.i:                              ; preds = %342, %324
-  %.064.i.i.i.i = phi i32 [ %344, %342 ], [ %.sroa.14223.5296.i.i, %324 ]
-  %.062.i.i.i.i = phi i32 [ %358, %342 ], [ %337, %324 ]
-  %.0.i.i.i.i = phi i32 [ %361, %342 ], [ %340, %324 ]
+  %.064.i.i.i.i = phi i32 [ %.sroa.14223.5296.i.i, %324 ], [ %344, %342 ]
+  %.062.i.i.i.i = phi i32 [ %337, %324 ], [ %358, %342 ]
+  %.0.i.i.i.i = phi i32 [ %340, %324 ], [ %361, %342 ]
   %362 = add i32 %.0.i.i.i.i, %.064.i.i.i.i
   %363 = call i32 @llvm.umin.i32(i32 %183, i32 %362)
   %364 = icmp slt i32 %.062.i.i.i.i, 0
@@ -1203,9 +1203,9 @@ qdm2_search_subpacket_type_in_list.exit.i.i.i:    ; preds = %.lr.ph.i.i.preheade
   br label %get_vlc2.exit.i.i.i.i.i
 
 get_vlc2.exit.i.i.i.i.i:                          ; preds = %456, %438
-  %.064.i.i.i.i.i.i = phi i32 [ %458, %456 ], [ %.sroa.7.118.i.i.i.i, %438 ]
-  %.062.i.i.i.i.i.i = phi i32 [ %472, %456 ], [ %451, %438 ]
-  %.0.i.i.i.i.i.i = phi i32 [ %475, %456 ], [ %454, %438 ]
+  %.064.i.i.i.i.i.i = phi i32 [ %.sroa.7.118.i.i.i.i, %438 ], [ %458, %456 ]
+  %.062.i.i.i.i.i.i = phi i32 [ %451, %438 ], [ %472, %456 ]
+  %.0.i.i.i.i.i.i = phi i32 [ %454, %438 ], [ %475, %456 ]
   %476 = add i32 %.0.i.i.i.i.i.i, %.064.i.i.i.i.i.i
   %477 = call i32 @llvm.umin.i32(i32 %421, i32 %476)
   %478 = icmp slt i32 %.062.i.i.i.i.i.i, 0
@@ -1342,9 +1342,9 @@ qdm2_get_vlc.exit59.i.i.i.i:                      ; preds = %522, %502
   br label %get_vlc2.exit.i.i.i.i.i.i
 
 get_vlc2.exit.i.i.i.i.i.i:                        ; preds = %562, %qdm2_get_vlc.exit59.i.i.i.i
-  %.064.i.i.i.i.i.i.i = phi i32 [ %564, %562 ], [ %.sroa.7.4.i.i.i.i, %qdm2_get_vlc.exit59.i.i.i.i ]
-  %.062.i.i.i.i.i.i.i = phi i32 [ %578, %562 ], [ %557, %qdm2_get_vlc.exit59.i.i.i.i ]
-  %.0.i.i.i.i.i.i.i = phi i32 [ %581, %562 ], [ %560, %qdm2_get_vlc.exit59.i.i.i.i ]
+  %.064.i.i.i.i.i.i.i = phi i32 [ %.sroa.7.4.i.i.i.i, %qdm2_get_vlc.exit59.i.i.i.i ], [ %564, %562 ]
+  %.062.i.i.i.i.i.i.i = phi i32 [ %557, %qdm2_get_vlc.exit59.i.i.i.i ], [ %578, %562 ]
+  %.0.i.i.i.i.i.i.i = phi i32 [ %560, %qdm2_get_vlc.exit59.i.i.i.i ], [ %581, %562 ]
   %582 = add i32 %.0.i.i.i.i.i.i.i, %.064.i.i.i.i.i.i.i
   %583 = call i32 @llvm.umin.i32(i32 %421, i32 %582)
   %584 = icmp slt i32 %.062.i.i.i.i.i.i.i, 0
@@ -1530,9 +1530,9 @@ qdm2_search_subpacket_type_in_list.exit42.i.i.i:  ; preds = %631
   br label %get_vlc2.exit.i.i.i.i170.i.i
 
 get_vlc2.exit.i.i.i.i170.i.i:                     ; preds = %668, %.lr.ph310.i.i
-  %.064.i.i.i.i.i171.i.i = phi i32 [ %670, %668 ], [ %.sroa.10.18.i308.i.i, %.lr.ph310.i.i ]
-  %.062.i.i.i.i.i172.i.i = phi i32 [ %684, %668 ], [ %663, %.lr.ph310.i.i ]
-  %.0.i.i.i.i.i173.i.i = phi i32 [ %687, %668 ], [ %666, %.lr.ph310.i.i ]
+  %.064.i.i.i.i.i171.i.i = phi i32 [ %.sroa.10.18.i308.i.i, %.lr.ph310.i.i ], [ %670, %668 ]
+  %.062.i.i.i.i.i172.i.i = phi i32 [ %663, %.lr.ph310.i.i ], [ %684, %668 ]
+  %.0.i.i.i.i.i173.i.i = phi i32 [ %666, %.lr.ph310.i.i ], [ %687, %668 ]
   %688 = add i32 %.0.i.i.i.i.i173.i.i, %.064.i.i.i.i.i171.i.i
   %689 = call i32 @llvm.umin.i32(i32 %643, i32 %688)
   %690 = icmp slt i32 %.062.i.i.i.i.i172.i.i, 0
@@ -1681,9 +1681,9 @@ qdm2_get_vlc.exit42.i.i.i.i.i:                    ; preds = %737, %717
   br label %get_vlc2.exit.i.i.i.i.i.i.i
 
 get_vlc2.exit.i.i.i.i.i.i.i:                      ; preds = %782, %764
-  %.064.i.i.i.i.i.i.i.i = phi i32 [ %784, %782 ], [ %.sroa.10.21.i.i.i, %764 ]
-  %.062.i.i.i.i.i.i.i.i = phi i32 [ %798, %782 ], [ %777, %764 ]
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %801, %782 ], [ %780, %764 ]
+  %.064.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.10.21.i.i.i, %764 ], [ %784, %782 ]
+  %.062.i.i.i.i.i.i.i.i = phi i32 [ %777, %764 ], [ %798, %782 ]
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %780, %764 ], [ %801, %782 ]
   %802 = add i32 %.0.i.i.i.i.i.i.i.i, %.064.i.i.i.i.i.i.i.i
   %803 = call i32 @llvm.umin.i32(i32 %643, i32 %802)
   %804 = icmp slt i32 %.062.i.i.i.i.i.i.i.i, 0
@@ -1869,9 +1869,9 @@ init_quantized_coeffs_elem0.exit.thread.i.i.i.i:  ; preds = %init_quantized_coef
   br label %get_vlc2.exit.i.us.i.i.i.i
 
 get_vlc2.exit.i.us.i.i.i.i:                       ; preds = %881, %863
-  %.064.i.i.us.i.i.i.i = phi i32 [ %883, %881 ], [ %.sroa.10.15.i.i.i, %863 ]
-  %.062.i.i.us.i.i.i.i = phi i32 [ %897, %881 ], [ %876, %863 ]
-  %.0.i.i.us.i.i.i.i = phi i32 [ %900, %881 ], [ %879, %863 ]
+  %.064.i.i.us.i.i.i.i = phi i32 [ %.sroa.10.15.i.i.i, %863 ], [ %883, %881 ]
+  %.062.i.i.us.i.i.i.i = phi i32 [ %876, %863 ], [ %897, %881 ]
+  %.0.i.i.us.i.i.i.i = phi i32 [ %879, %863 ], [ %900, %881 ]
   %901 = add i32 %.0.i.i.us.i.i.i.i, %.064.i.i.us.i.i.i.i
   %902 = call i32 @llvm.umin.i32(i32 %643, i32 %901)
   %903 = icmp slt i32 %.062.i.i.us.i.i.i.i, 0
@@ -2021,9 +2021,9 @@ qdm2_get_vlc.exit.us.i.i.i.i:                     ; preds = %904, %get_vlc2.exit
   br label %get_vlc2.exit.i97.us.i.i.i.i
 
 get_vlc2.exit.i97.us.i.i.i.i:                     ; preds = %962, %944
-  %.064.i.i98.us.i.i.i.i = phi i32 [ %964, %962 ], [ %.sroa.10.3.i.i.i, %944 ]
-  %.062.i.i99.us.i.i.i.i = phi i32 [ %978, %962 ], [ %957, %944 ]
-  %.0.i.i100.us.i.i.i.i = phi i32 [ %981, %962 ], [ %960, %944 ]
+  %.064.i.i98.us.i.i.i.i = phi i32 [ %.sroa.10.3.i.i.i, %944 ], [ %964, %962 ]
+  %.062.i.i99.us.i.i.i.i = phi i32 [ %957, %944 ], [ %978, %962 ]
+  %.0.i.i100.us.i.i.i.i = phi i32 [ %960, %944 ], [ %981, %962 ]
   %982 = add i32 %.0.i.i100.us.i.i.i.i, %.064.i.i98.us.i.i.i.i
   %983 = call i32 @llvm.umin.i32(i32 %643, i32 %982)
   %984 = icmp slt i32 %.062.i.i99.us.i.i.i.i, 0
@@ -2151,9 +2151,9 @@ qdm2_get_vlc.exit102.us.i.i.i.i:                  ; preds = %985, %get_vlc2.exit
   br label %get_vlc2.exit.i103.us.i.i.i.i
 
 get_vlc2.exit.i103.us.i.i.i.i:                    ; preds = %1034, %1016
-  %.064.i.i104.us.i.i.i.i = phi i32 [ %1036, %1034 ], [ %.sroa.10.8.i.i.i, %1016 ]
-  %.062.i.i105.us.i.i.i.i = phi i32 [ %1050, %1034 ], [ %1029, %1016 ]
-  %.0.i.i106.us.i.i.i.i = phi i32 [ %1053, %1034 ], [ %1032, %1016 ]
+  %.064.i.i104.us.i.i.i.i = phi i32 [ %.sroa.10.8.i.i.i, %1016 ], [ %1036, %1034 ]
+  %.062.i.i105.us.i.i.i.i = phi i32 [ %1029, %1016 ], [ %1050, %1034 ]
+  %.0.i.i106.us.i.i.i.i = phi i32 [ %1032, %1016 ], [ %1053, %1034 ]
   %1054 = add i32 %.0.i.i106.us.i.i.i.i, %.064.i.i104.us.i.i.i.i
   %1055 = call i32 @llvm.umin.i32(i32 %643, i32 %1054)
   %1056 = icmp slt i32 %.062.i.i105.us.i.i.i.i, 0
@@ -2212,8 +2212,8 @@ qdm2_get_vlc.exit108.us.i.i.i.i:                  ; preds = %1057, %get_vlc2.exi
   br i1 %exitcond198.not.i.i.i.i, label %process_subpacket_10.exit.i.i, label %.preheader110.us.i.i.i.i, !llvm.loop !107
 
 process_subpacket_10.exit.i.i:                    ; preds = %634, %.lr.ph.i37.i.i.i, %._crit_edge.us147.i.i.i.i, %.preheader110.lr.ph.i.i.i.i, %.preheader112.lr.ph.i.i.i.i, %.preheader118.lr.ph.i.i.i.i
-  %.sink.i.i = phi i32 [ 1, %.preheader118.lr.ph.i.i.i.i ], [ 1, %.preheader112.lr.ph.i.i.i.i ], [ 1, %.preheader110.lr.ph.i.i.i.i ], [ 1, %._crit_edge.us147.i.i.i.i ], [ 0, %.lr.ph.i37.i.i.i ], [ 0, %634 ]
-  %or.cond99.i.i.i = phi i1 [ %412, %.preheader118.lr.ph.i.i.i.i ], [ %412, %.preheader112.lr.ph.i.i.i.i ], [ %412, %.preheader110.lr.ph.i.i.i.i ], [ %412, %._crit_edge.us147.i.i.i.i ], [ false, %.lr.ph.i37.i.i.i ], [ false, %634 ]
+  %.sink.i.i = phi i32 [ 1, %.preheader110.lr.ph.i.i.i.i ], [ 1, %.preheader118.lr.ph.i.i.i.i ], [ 1, %.preheader112.lr.ph.i.i.i.i ], [ 1, %._crit_edge.us147.i.i.i.i ], [ 0, %.lr.ph.i37.i.i.i ], [ 0, %634 ]
+  %or.cond99.i.i.i = phi i1 [ %412, %.preheader110.lr.ph.i.i.i.i ], [ %412, %.preheader118.lr.ph.i.i.i.i ], [ %412, %.preheader112.lr.ph.i.i.i.i ], [ %412, %._crit_edge.us147.i.i.i.i ], [ false, %.lr.ph.i37.i.i.i ], [ false, %634 ]
   call fastcc void @fill_tone_level_array(ptr noundef %13, i32 noundef %.sink.i.i)
   br label %.lr.ph.i44.i.i.i
 
@@ -3716,7 +3716,7 @@ qdm2_synthesis_filter.exit.i:                     ; preds = %._crit_edge68.us.i.
   br label %1798
 
 1798:                                             ; preds = %1791, %1789, %1787, %1781, %1779
-  %.0.i = phi i32 [ %1777, %1787 ], [ %1786, %1781 ], [ 32767, %1779 ], [ %1797, %1791 ], [ -32767, %1789 ]
+  %.0.i = phi i32 [ %1777, %1787 ], [ 32767, %1779 ], [ %1786, %1781 ], [ %1797, %1791 ], [ -32767, %1789 ]
   %1799 = trunc i32 %.0.i to i16
   %1800 = getelementptr inbounds nuw i16, ptr %.02368, i64 %indvars.iv179.i
   store i16 %1799, ptr %1800, align 2, !tbaa !166
@@ -3739,7 +3739,7 @@ qdm2_decode.exit:                                 ; preds = %1798, %1770
   br label %qdm2_decode.exit.thread
 
 qdm2_decode.exit.thread:                          ; preds = %88, %1709, %20, %14, %4, %1806
-  %.024 = phi i32 [ %1807, %1806 ], [ 0, %4 ], [ -1, %14 ], [ %25, %20 ], [ -1, %1709 ], [ -1, %88 ]
+  %.024 = phi i32 [ 0, %4 ], [ -1, %14 ], [ %25, %20 ], [ %1807, %1806 ], [ -1, %1709 ], [ -1, %88 ]
   ret i32 %.024
 }
 
@@ -4012,9 +4012,9 @@ define internal fastcc i32 @qdm2_get_vlc(ptr noundef nonnull captures(none) %0, 
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %3, %26
-  %.064.i = phi i32 [ %28, %26 ], [ %5, %3 ]
-  %.062.i = phi i32 [ %42, %26 ], [ %21, %3 ]
-  %.0.i = phi i32 [ %45, %26 ], [ %24, %3 ]
+  %.064.i = phi i32 [ %5, %3 ], [ %28, %26 ]
+  %.062.i = phi i32 [ %21, %3 ], [ %42, %26 ]
+  %.0.i = phi i32 [ %24, %3 ], [ %45, %26 ]
   %46 = add i32 %.0.i, %.064.i
   %47 = tail call i32 @llvm.umin.i32(i32 %7, i32 %46)
   store i32 %47, ptr %4, align 8, !tbaa !117
@@ -4855,8 +4855,8 @@ switch.lookup:                                    ; preds = %115
   br label %124
 
 124:                                              ; preds = %115, %switch.lookup, %113
-  %.052.i = phi i32 [ 1, %113 ], [ %switch.load, %switch.lookup ], [ 1, %115 ]
-  %.051.i = phi i8 [ 8, %113 ], [ %switch.masked, %switch.lookup ], [ 8, %115 ]
+  %.052.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %113 ], [ 1, %115 ]
+  %.051.i = phi i8 [ %switch.masked, %switch.lookup ], [ 8, %113 ], [ 8, %115 ]
   %wide.trip.count.i281 = zext nneg i32 %.052.i to i64
   br label %125
 
@@ -5682,17 +5682,17 @@ qdm2_get_vlc.exit310:                             ; preds = %520, %532
   br label %.loopexit337
 
 .loopexit337:                                     ; preds = %419, %367, %386, %.loopexit345, %.loopexit341, %.loopexit335, %.loopexit329, %.thread323, %.thread322, %561, %501, %482, %568, %329
-  %.val270550 = phi i32 [ %.val270, %568 ], [ %.val270545, %329 ], [ %.val270, %482 ], [ %515, %501 ], [ %.val270, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val270, %.loopexit341 ], [ %.val270, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.val268541 = phi i32 [ %.val268, %568 ], [ %.val268539, %329 ], [ %.val268, %482 ], [ %515, %501 ], [ %.val268, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val268, %.loopexit341 ], [ %.val268, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.val266535 = phi i32 [ %.promoted371, %568 ], [ %.val268539, %329 ], [ %.promoted371, %482 ], [ %515, %501 ], [ %.promoted371, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.promoted371, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.val264530 = phi i32 [ %.val264, %568 ], [ %.val268539, %329 ], [ %.val264, %482 ], [ %515, %501 ], [ %.val264, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val264, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.val262525 = phi i32 [ %.val262, %568 ], [ %.val268539, %329 ], [ %.val262, %482 ], [ %515, %501 ], [ %.val262, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val264, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.val512 = phi i32 [ %.val, %568 ], [ %.val268539, %329 ], [ %.val262, %482 ], [ %515, %501 ], [ %.val, %561 ], [ %.val518, %.thread322 ], [ %.val517, %.thread323 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit341 ], [ %.val264, %.loopexit345 ], [ %381, %386 ], [ %spec.select.i308372, %367 ], [ %414, %419 ]
-  %.lcssa381411 = phi i32 [ %569, %568 ], [ %.lcssa381409, %329 ], [ %483, %482 ], [ %.lcssa381410, %501 ], [ %562, %561 ], [ %.lcssa381410, %.thread322 ], [ %.lcssa381410, %.thread323 ], [ %575, %.loopexit329 ], [ %576, %.loopexit335 ], [ %577, %.loopexit341 ], [ %578, %.loopexit345 ], [ %.lcssa381410, %386 ], [ %.lcssa381410, %367 ], [ %.lcssa381410, %419 ]
-  %.0230 = phi i32 [ 1, %568 ], [ 1, %329 ], [ 1, %482 ], [ 1, %501 ], [ 1, %561 ], [ 1, %.thread322 ], [ 1, %.thread323 ], [ 10, %.loopexit329 ], [ 10, %.loopexit335 ], [ 5, %.loopexit341 ], [ 3, %.loopexit345 ], [ 5, %386 ], [ 5, %367 ], [ 3, %419 ]
-  %.1223 = phi i32 [ %.0222394, %568 ], [ %.0222394, %329 ], [ %.0222394, %482 ], [ 0, %501 ], [ %.0222394, %561 ], [ %.0222394, %.thread322 ], [ 0, %.thread323 ], [ %.0222394, %.loopexit329 ], [ %.0222394, %.loopexit335 ], [ %.0222394, %.loopexit341 ], [ %.0222394, %.loopexit345 ], [ %.0222394, %386 ], [ %.0222394, %367 ], [ %.0222394, %419 ]
-  %.4220 = phi nsz float [ %.3219395, %568 ], [ %.3219395, %329 ], [ %.3219395, %482 ], [ %506, %501 ], [ %.3219395, %561 ], [ %.3219395, %.thread322 ], [ %.3219395, %.thread323 ], [ %.3219395, %.loopexit329 ], [ %.3219395, %.loopexit335 ], [ %.3219395, %.loopexit341 ], [ %.3219395, %.loopexit345 ], [ %.3219395, %386 ], [ %.3219395, %367 ], [ %.3219395, %419 ]
-  %.1213 = phi nsz float [ %.0212396, %568 ], [ %.0212396, %329 ], [ %.0212396, %482 ], [ %519, %501 ], [ %.0212396, %561 ], [ %.0212396, %.thread322 ], [ %559, %.thread323 ], [ %.0212396, %.loopexit329 ], [ %.0212396, %.loopexit335 ], [ %.0212396, %.loopexit341 ], [ %.0212396, %.loopexit345 ], [ %.0212396, %386 ], [ %.0212396, %367 ], [ %.0212396, %419 ]
+  %.val270550 = phi i32 [ %.val270, %568 ], [ %.val270, %482 ], [ %.val270545, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val270, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val270, %.loopexit345 ], [ %.val270, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.val268541 = phi i32 [ %.val268, %568 ], [ %.val268, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val268, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val268, %.loopexit345 ], [ %.val268, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.val266535 = phi i32 [ %.promoted371, %568 ], [ %.promoted371, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.promoted371, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.promoted371, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.val264530 = phi i32 [ %.val264, %568 ], [ %.val264, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val264, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.val262525 = phi i32 [ %.val262, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val262, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.val512 = phi i32 [ %.val, %568 ], [ %.val262, %482 ], [ %.val268539, %329 ], [ %.val518, %.thread322 ], [ %515, %501 ], [ %.val517, %.thread323 ], [ %.val, %561 ], [ %.val270546, %.loopexit329 ], [ %.val270, %.loopexit335 ], [ %.val264, %.loopexit345 ], [ %.promoted371, %.loopexit341 ], [ %spec.select.i308372, %367 ], [ %381, %386 ], [ %414, %419 ]
+  %.lcssa381411 = phi i32 [ %569, %568 ], [ %483, %482 ], [ %.lcssa381409, %329 ], [ %.lcssa381410, %.thread322 ], [ %.lcssa381410, %501 ], [ %.lcssa381410, %.thread323 ], [ %562, %561 ], [ %575, %.loopexit329 ], [ %576, %.loopexit335 ], [ %578, %.loopexit345 ], [ %577, %.loopexit341 ], [ %.lcssa381410, %367 ], [ %.lcssa381410, %386 ], [ %.lcssa381410, %419 ]
+  %.0230 = phi i32 [ 1, %568 ], [ 1, %482 ], [ 1, %329 ], [ 1, %.thread322 ], [ 1, %501 ], [ 1, %.thread323 ], [ 1, %561 ], [ 10, %.loopexit329 ], [ 10, %.loopexit335 ], [ 3, %.loopexit345 ], [ 5, %.loopexit341 ], [ 5, %367 ], [ 5, %386 ], [ 3, %419 ]
+  %.1223 = phi i32 [ %.0222394, %568 ], [ %.0222394, %482 ], [ %.0222394, %329 ], [ %.0222394, %.thread322 ], [ 0, %501 ], [ 0, %.thread323 ], [ %.0222394, %561 ], [ %.0222394, %.loopexit329 ], [ %.0222394, %.loopexit335 ], [ %.0222394, %.loopexit345 ], [ %.0222394, %.loopexit341 ], [ %.0222394, %367 ], [ %.0222394, %386 ], [ %.0222394, %419 ]
+  %.4220 = phi nsz float [ %.3219395, %568 ], [ %.3219395, %482 ], [ %.3219395, %329 ], [ %.3219395, %.thread322 ], [ %506, %501 ], [ %.3219395, %.thread323 ], [ %.3219395, %561 ], [ %.3219395, %.loopexit329 ], [ %.3219395, %.loopexit335 ], [ %.3219395, %.loopexit345 ], [ %.3219395, %.loopexit341 ], [ %.3219395, %367 ], [ %.3219395, %386 ], [ %.3219395, %419 ]
+  %.1213 = phi nsz float [ %.0212396, %568 ], [ %.0212396, %482 ], [ %.0212396, %329 ], [ %.0212396, %.thread322 ], [ %519, %501 ], [ %559, %.thread323 ], [ %.0212396, %561 ], [ %.0212396, %.loopexit329 ], [ %.0212396, %.loopexit335 ], [ %.0212396, %.loopexit345 ], [ %.0212396, %.loopexit341 ], [ %.0212396, %367 ], [ %.0212396, %386 ], [ %.0212396, %419 ]
   br i1 %.not314574, label %.preheader325.preheader, label %.preheader327
 
 .preheader325.preheader:                          ; preds = %.loopexit337
@@ -6003,9 +6003,9 @@ define internal fastcc void @qdm2_fft_decode_tones(ptr noundef captures(none) %0
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %102, %83
-  %.064.i.i = phi i32 [ %104, %102 ], [ %84, %83 ]
-  %.062.i.i = phi i32 [ %118, %102 ], [ %97, %83 ]
-  %.0.i.i = phi i32 [ %121, %102 ], [ %100, %83 ]
+  %.064.i.i = phi i32 [ %84, %83 ], [ %104, %102 ]
+  %.062.i.i = phi i32 [ %97, %83 ], [ %118, %102 ]
+  %.0.i.i = phi i32 [ %100, %83 ], [ %121, %102 ]
   %122 = add i32 %.0.i.i, %.064.i.i
   %123 = tail call i32 @llvm.umin.i32(i32 %.pre168, i32 %122)
   store i32 %123, ptr %11, align 8, !tbaa !117

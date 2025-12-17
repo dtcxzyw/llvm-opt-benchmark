@@ -502,7 +502,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   br i1 %.not107, label %.loopexit, label %125
 
 .loopexit:                                        ; preds = %101, %.lr.ph122, %125, %.preheader, %.critedge, %._crit_edge, %29
-  %.099 = phi i32 [ -22, %29 ], [ -12, %._crit_edge ], [ -12, %.critedge ], [ 0, %.preheader ], [ -12, %.lr.ph122 ], [ 0, %125 ], [ -12, %101 ]
+  %.099 = phi i32 [ -22, %29 ], [ -12, %.critedge ], [ -12, %._crit_edge ], [ 0, %.preheader ], [ 0, %125 ], [ -12, %.lr.ph122 ], [ -12, %101 ]
   ret i32 %.099
 }
 
@@ -1232,7 +1232,7 @@ av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.threa
   br label %av_cmp_q.exit44.thread52
 
 av_cmp_q.exit44.thread52:                         ; preds = %58, %56, %av_cmp_q.exit.thread, %11, %1
-  %.0 = phi i32 [ %9, %1 ], [ %27, %11 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %56 ], [ 0, %58 ]
+  %.0 = phi i32 [ %27, %11 ], [ %9, %1 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %58 ], [ 0, %56 ]
   ret i32 %.0
 }
 

@@ -431,7 +431,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %48
   br label %unicodedata_UCD_decimal_impl.exit
 
 unicodedata_UCD_decimal_impl.exit:                ; preds = %.thread31.i, %71, %68, %66, %5, %15, %12
-  %.014 = phi ptr [ null, %15 ], [ null, %12 ], [ null, %5 ], [ null, %66 ], [ %73, %.thread31.i ], [ %.0, %68 ], [ %.0, %71 ]
+  %.014 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %12 ], [ null, %66 ], [ %73, %.thread31.i ], [ %.0, %68 ], [ %.0, %71 ]
   ret ptr %.014
 }
 
@@ -587,7 +587,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   br label %unicodedata_UCD_digit_impl.exit
 
 unicodedata_UCD_digit_impl.exit:                  ; preds = %59, %57, %54, %.thread23, %5, %15, %12
-  %.014 = phi ptr [ null, %15 ], [ null, %12 ], [ null, %5 ], [ null, %.thread23 ], [ %62, %59 ], [ %46, %54 ], [ %46, %57 ]
+  %.014 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %12 ], [ null, %.thread23 ], [ %62, %59 ], [ %46, %54 ], [ %46, %57 ]
   ret ptr %.014
 }
 
@@ -775,7 +775,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %58, %PyObject_TypeC
   br label %unicodedata_UCD_numeric_impl.exit
 
 unicodedata_UCD_numeric_impl.exit:                ; preds = %72, %70, %67, %65, %5, %15, %12
-  %.014 = phi ptr [ null, %15 ], [ null, %12 ], [ null, %5 ], [ null, %65 ], [ %73, %72 ], [ %.0, %67 ], [ %.0, %70 ]
+  %.014 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %12 ], [ null, %65 ], [ %73, %72 ], [ %.0, %67 ], [ %.0, %70 ]
   ret ptr %.014
 }
 
@@ -1091,7 +1091,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %54
   br label %unicodedata_UCD_bidirectional_impl.exit
 
 unicodedata_UCD_bidirectional_impl.exit:          ; preds = %_getrecord_ex.exit.i, %54, %PyObject_TypeCheck.exit.i, %57, %64
-  %.0.i12 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ 0, %57 ], [ %spec.select.i, %64 ], [ %53, %54 ]
+  %.0.i12 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ %spec.select.i, %64 ], [ 0, %57 ], [ %53, %54 ]
   %67 = zext nneg i32 %.0.i12 to i64
   %68 = getelementptr ptr, ptr @_PyUnicode_BidirectionalNames, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !35
@@ -1256,7 +1256,7 @@ unicodedata_UCD_combining_impl.exit:              ; preds = %_getrecord_ex.exit.
   br label %66
 
 66:                                               ; preds = %unicodedata_UCD_combining_impl.exit, %9, %6
-  %.0 = phi ptr [ null, %9 ], [ %65, %unicodedata_UCD_combining_impl.exit ], [ null, %6 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ %65, %unicodedata_UCD_combining_impl.exit ]
   ret ptr %.0
 }
 
@@ -1414,13 +1414,13 @@ PyObject_TypeCheck.exit.i:                        ; preds = %54
   br label %unicodedata_UCD_mirrored_impl.exit
 
 unicodedata_UCD_mirrored_impl.exit:               ; preds = %_getrecord_ex.exit.i, %54, %PyObject_TypeCheck.exit.i, %57, %64
-  %.0.i14 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ 0, %57 ], [ %spec.select.i, %64 ], [ %53, %54 ]
+  %.0.i14 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ %spec.select.i, %64 ], [ 0, %57 ], [ %53, %54 ]
   %68 = zext nneg i32 %.0.i14 to i64
   %69 = tail call ptr @PyLong_FromLong(i64 noundef %68) #9
   br label %70
 
 70:                                               ; preds = %unicodedata_UCD_mirrored_impl.exit, %9, %6
-  %.0 = phi ptr [ null, %9 ], [ %69, %unicodedata_UCD_mirrored_impl.exit ], [ null, %6 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ %69, %unicodedata_UCD_mirrored_impl.exit ]
   ret ptr %.0
 }
 
@@ -1578,7 +1578,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %54
   br label %unicodedata_UCD_east_asian_width_impl.exit
 
 unicodedata_UCD_east_asian_width_impl.exit:       ; preds = %_getrecord_ex.exit.i, %54, %PyObject_TypeCheck.exit.i, %57, %64
-  %.0.i12 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ 0, %57 ], [ %spec.select.i, %64 ], [ %53, %54 ]
+  %.0.i12 = phi i32 [ %53, %PyObject_TypeCheck.exit.i ], [ %53, %_getrecord_ex.exit.i ], [ %spec.select.i, %64 ], [ 0, %57 ], [ %53, %54 ]
   %68 = zext nneg i32 %.0.i12 to i64
   %69 = getelementptr ptr, ptr @_PyUnicode_EastAsianWidthNames, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !35
@@ -2135,8 +2135,8 @@ define internal noundef ptr @unicodedata_UCD_is_normalized(ptr noundef %0, ptr n
   br label %unicodedata_UCD_is_normalized_impl.exit
 
 36:                                               ; preds = %31, %28, %25, %22
-  %.023.i = phi i1 [ false, %28 ], [ true, %22 ], [ true, %25 ], [ false, %31 ]
-  %.022.i = phi i1 [ false, %28 ], [ false, %22 ], [ true, %25 ], [ true, %31 ]
+  %.023.i = phi i1 [ true, %25 ], [ true, %22 ], [ false, %28 ], [ false, %31 ]
+  %.022.i = phi i1 [ true, %25 ], [ false, %22 ], [ false, %28 ], [ true, %31 ]
   %.not.i26.i = icmp eq ptr %0, null
   br i1 %.not.i26.i, label %PyObject_TypeCheck.exit.thread.i.i, label %37
 
@@ -2227,7 +2227,7 @@ PyUnicode_READ.exit.thread.us68.i.i:              ; preds = %.lr.ph.i.i, %78
   br label %78
 
 78:                                               ; preds = %77, %71
-  %.335.us74.i.i = phi i32 [ %.03255.us67.i.i, %71 ], [ 1, %77 ]
+  %.335.us74.i.i = phi i32 [ 1, %77 ], [ %.03255.us67.i.i, %71 ]
   %exitcond103.not.i.i = icmp eq i64 %51, %.val42.i.i
   br i1 %exitcond103.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us68.i.i, !llvm.loop !49
 
@@ -2274,7 +2274,7 @@ PyUnicode_READ.exit.thread.us84.i.i:              ; preds = %.lr.ph.i.i, %106
   br label %106
 
 106:                                              ; preds = %105, %99
-  %.335.us90.i.i = phi i32 [ %.03255.us83.i.i, %99 ], [ 1, %105 ]
+  %.335.us90.i.i = phi i32 [ 1, %105 ], [ %.03255.us83.i.i, %99 ]
   %exitcond.not.i.i = icmp eq i64 %79, %.val42.i.i
   br i1 %exitcond.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us84.i.i, !llvm.loop !49
 
@@ -2328,12 +2328,12 @@ _getrecord_ex.exit.i.i:                           ; preds = %PyUnicode_READ.exit
   br label %134
 
 134:                                              ; preds = %133, %127
-  %.335.i.i = phi i32 [ %.03255.i.i, %127 ], [ 1, %133 ]
+  %.335.i.i = phi i32 [ 1, %133 ], [ %.03255.i.i, %127 ]
   %exitcond104.not.i.i = icmp eq i64 %107, %.val42.i.i
   br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !49
 
 is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
-  %.0.i.i = phi i32 [ %.335.i.i, %134 ], [ %.335.us74.i.i, %78 ], [ %.335.us90.i.i, %106 ]
+  %.0.i.i = phi i32 [ %.335.us74.i.i, %78 ], [ %.335.i.i, %134 ], [ %.335.us90.i.i, %106 ]
   %.0.i.fr.i = freeze i32 %.0.i.i
   switch i32 %.0.i.fr.i, label %is_normalized_quickcheck.exit.thread.thread.i [
     i32 1, label %is_normalized_quickcheck.exit.thread29.i
@@ -2372,7 +2372,7 @@ is_normalized_quickcheck.exit.thread.thread34.i:  ; preds = %is_normalized_quick
   br label %is_normalized_quickcheck.exit.thread.thread.i
 
 is_normalized_quickcheck.exit.thread.thread.i:    ; preds = %99, %PyUnicode_READ.exit.thread.us84.i.i, %71, %PyUnicode_READ.exit.thread.us68.i.i, %127, %_getrecord_ex.exit.i.i, %is_normalized_quickcheck.exit.thread.thread34.i, %Py_DECREF.exit.i, %is_normalized_quickcheck.exit.i
-  %.021.i = phi ptr [ %147, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %is_normalized_quickcheck.exit.thread.thread34.i ], [ @_Py_FalseStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %127 ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us68.i.i ], [ @_Py_FalseStruct, %71 ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us84.i.i ], [ @_Py_FalseStruct, %99 ]
+  %.021.i = phi ptr [ %147, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %is_normalized_quickcheck.exit.thread.thread34.i ], [ @_Py_FalseStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_FalseStruct, %71 ], [ @_Py_FalseStruct, %127 ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us68.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us84.i.i ], [ @_Py_FalseStruct, %99 ]
   %148 = load i32, ptr %.021.i, align 8, !tbaa !24
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %unicodedata_UCD_is_normalized_impl.exit, label %150
@@ -2383,7 +2383,7 @@ is_normalized_quickcheck.exit.thread.thread.i:    ; preds = %99, %PyUnicode_READ
   br label %unicodedata_UCD_is_normalized_impl.exit
 
 unicodedata_UCD_is_normalized_impl.exit:          ; preds = %150, %is_normalized_quickcheck.exit.thread.thread.i, %is_normalized_quickcheck.exit.thread29.i, %34, %19, %4, %18, %11
-  %.0 = phi ptr [ null, %18 ], [ null, %11 ], [ null, %4 ], [ @_Py_TrueStruct, %19 ], [ null, %34 ], [ null, %is_normalized_quickcheck.exit.thread29.i ], [ %.021.i, %is_normalized_quickcheck.exit.thread.thread.i ], [ %.021.i, %150 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %11 ], [ @_Py_TrueStruct, %19 ], [ null, %34 ], [ null, %is_normalized_quickcheck.exit.thread29.i ], [ %.021.i, %is_normalized_quickcheck.exit.thread.thread.i ], [ %.021.i, %150 ]
   ret ptr %.0
 }
 
@@ -2935,7 +2935,7 @@ is_normalized_quickcheck.exit113.i:               ; preds = %228, %_getrecord_ex
   br label %unicodedata_UCD_normalize_impl.exit
 
 unicodedata_UCD_normalize_impl.exit:              ; preds = %238, %is_normalized_quickcheck.exit113.i, %235, %.loopexit121.i, %is_normalized_quickcheck.exit84.i, %182, %.loopexit120.i, %is_normalized_quickcheck.exit55.i, %129, %.loopexit119.i, %is_normalized_quickcheck.exit.i, %77, %.loopexit.i, %25, %22, %4, %18, %11
-  %.0 = phi ptr [ null, %18 ], [ null, %11 ], [ null, %4 ], [ %79, %is_normalized_quickcheck.exit.i ], [ %131, %is_normalized_quickcheck.exit55.i ], [ %184, %is_normalized_quickcheck.exit84.i ], [ %237, %is_normalized_quickcheck.exit113.i ], [ null, %238 ], [ %14, %22 ], [ %14, %25 ], [ %14, %.loopexit.i ], [ %14, %77 ], [ %14, %.loopexit119.i ], [ %14, %129 ], [ %14, %.loopexit120.i ], [ %14, %182 ], [ %14, %.loopexit121.i ], [ %14, %235 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %11 ], [ null, %238 ], [ %14, %25 ], [ %79, %is_normalized_quickcheck.exit.i ], [ %14, %77 ], [ %131, %is_normalized_quickcheck.exit55.i ], [ %14, %129 ], [ %184, %is_normalized_quickcheck.exit84.i ], [ %14, %182 ], [ %237, %is_normalized_quickcheck.exit113.i ], [ %14, %22 ], [ %14, %.loopexit.i ], [ %14, %.loopexit119.i ], [ %14, %.loopexit120.i ], [ %14, %.loopexit121.i ], [ %14, %235 ]
   ret ptr %.0
 }
 
@@ -3277,7 +3277,7 @@ _dawg_decode_edge.exit.i:                         ; preds = %149
   br label %104
 
 .critedge:                                        ; preds = %140, %149, %_dawg_decode_varint_unsigned.exit.i.i, %99, %96, %15, %69, %65, %27, %25, %8, %5, %18, %67
-  %.0 = phi i32 [ 1, %67 ], [ 0, %18 ], [ 0, %5 ], [ 0, %8 ], [ 1, %27 ], [ 0, %25 ], [ 0, %65 ], [ 0, %69 ], [ 0, %15 ], [ 0, %96 ], [ 1, %99 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %149 ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %69 ], [ 0, %25 ], [ 1, %67 ], [ 0, %65 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 1, %27 ], [ 0, %96 ], [ 1, %99 ], [ 0, %149 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -3691,7 +3691,7 @@ _lookup_dawg_packed.exit.thread.sink.split:       ; preds = %._crit_edge, %169, 
   br label %_lookup_dawg_packed.exit.thread
 
 _lookup_dawg_packed.exit.thread:                  ; preds = %_dawg_match_edge.exit.i, %_dawg_match_edge.exit.thread106.i, %_dawg_decode_varint_unsigned.exit.i.i, %74, %_lookup_dawg_packed.exit.thread.sink.split, %_dawg_node_is_final.exit.i, %47, %find_syllable.exit67, %64, %._crit_edge
-  %.1 = phi i32 [ 0, %64 ], [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %find_syllable.exit67 ], [ 0, %_dawg_node_is_final.exit.i ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %74 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
+  %.1 = phi i32 [ 0, %_dawg_node_is_final.exit.i ], [ 0, %._crit_edge ], [ 0, %64 ], [ 0, %47 ], [ 0, %find_syllable.exit67 ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %74 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
   ret i32 %.1
 }
 
@@ -3858,7 +3858,7 @@ PyUnicode_READ.exit:                              ; preds = %39, %43, %47
   br label %PyUnicode_READ.exit155
 
 PyUnicode_READ.exit155:                           ; preds = %55, %59
-  %.0.i154 = phi i32 [ %58, %55 ], [ %61, %59 ]
+  %.0.i154 = phi i32 [ %61, %59 ], [ %58, %55 ]
   %62 = icmp ugt i32 %.0.i154, 4448
   br i1 %62, label %63, label %PyUnicode_READ.exit155.thread
 
@@ -3889,7 +3889,7 @@ PyUnicode_READ.exit157.thread:                    ; preds = %63
   br label %PyUnicode_READ.exit159
 
 PyUnicode_READ.exit159:                           ; preds = %70, %.thread303
-  %.0.i158 = phi i32 [ %73, %70 ], [ %75, %.thread303 ]
+  %.0.i158 = phi i32 [ %75, %.thread303 ], [ %73, %70 ]
   %76 = mul nuw nsw i32 %.0.i153, 21
   %77 = add i32 %.0.i158, %76
   %78 = mul i32 %77, 28
@@ -3913,7 +3913,7 @@ PyUnicode_READ.exit159:                           ; preds = %70, %.thread303
   br label %PyUnicode_READ.exit161
 
 PyUnicode_READ.exit161:                           ; preds = %83, %87
-  %.0.i160 = phi i32 [ %86, %83 ], [ %89, %87 ]
+  %.0.i160 = phi i32 [ %89, %87 ], [ %86, %83 ]
   %90 = icmp ugt i32 %.0.i160, 4519
   br i1 %90, label %91, label %PyUnicode_READ.exit161.thread
 
@@ -3944,7 +3944,7 @@ PyUnicode_READ.exit163.thread:                    ; preds = %91
   br label %PyUnicode_READ.exit165
 
 PyUnicode_READ.exit165:                           ; preds = %98, %.thread305
-  %.0.i164 = phi i32 [ %101, %98 ], [ %103, %.thread305 ]
+  %.0.i164 = phi i32 [ %103, %.thread305 ], [ %101, %98 ]
   %104 = add i32 %78, -2644035
   %105 = add i32 %104, %.0.i164
   %106 = add i64 %.1235, 3
@@ -3958,7 +3958,7 @@ PyUnicode_READ.exit161.thread:                    ; preds = %PyUnicode_READ.exit
   br label %.backedge
 
 .backedge:                                        ; preds = %PyUnicode_READ.exit161.thread, %find_nfc_index.exit.thread
-  %.1.be = phi i64 [ %.2, %PyUnicode_READ.exit161.thread ], [ %128, %find_nfc_index.exit.thread ]
+  %.1.be = phi i64 [ %128, %find_nfc_index.exit.thread ], [ %.2, %PyUnicode_READ.exit161.thread ]
   %.1125.be = add i64 %.1125234, 1
   %108 = icmp slt i64 %.1.be, %.val
   br i1 %108, label %.preheader, label %.outer._crit_edge, !llvm.loop !57
@@ -4195,9 +4195,9 @@ find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   br i1 %231, label %.thread201, label %232
 
 232:                                              ; preds = %find_nfc_index.exit177.thread, %174, %find_nfc_index.exit184
-  %.1128 = phi i32 [ %230, %find_nfc_index.exit184 ], [ %.0127238, %174 ], [ %.0127238, %find_nfc_index.exit177.thread ]
-  %.1123 = phi i32 [ %.0122239, %find_nfc_index.exit184 ], [ %.0122239, %174 ], [ %171, %find_nfc_index.exit177.thread ]
-  %.4 = phi i32 [ %211, %find_nfc_index.exit184 ], [ %.2120240, %174 ], [ %.2120240, %find_nfc_index.exit177.thread ]
+  %.1128 = phi i32 [ %.0127238, %174 ], [ %230, %find_nfc_index.exit184 ], [ %.0127238, %find_nfc_index.exit177.thread ]
+  %.1123 = phi i32 [ %.0122239, %174 ], [ %.0122239, %find_nfc_index.exit184 ], [ %171, %find_nfc_index.exit177.thread ]
+  %.4 = phi i32 [ %.2120240, %174 ], [ %211, %find_nfc_index.exit184 ], [ %.2120240, %find_nfc_index.exit177.thread ]
   %.1116 = add nsw i64 %.0115241, 1
   %exitcond287.not = icmp eq i64 %.1116, %.val
   br i1 %exitcond287.not, label %.thread201, label %.lr.ph242
@@ -4206,7 +4206,7 @@ find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_
   br label %.thread201, !llvm.loop !63
 
 .thread201:                                       ; preds = %232, %172, %210, %find_nfc_index.exit184, %214, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge
-  %.3 = phi i32 [ %.2120240, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %211, %214 ], [ %.4, %232 ], [ %.2120240, %172 ], [ %211, %210 ], [ %211, %find_nfc_index.exit184 ]
+  %.3 = phi i32 [ %.2120240, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %211, %214 ], [ %.2120240, %172 ], [ %.4, %232 ], [ %211, %find_nfc_index.exit184 ], [ %211, %210 ]
   %233 = add i64 %.1125234, 1
   br label %.preheader.lr.ph.backedge
 
@@ -4470,8 +4470,8 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %.thread231, %82, %P
   br label %get_decomp_record.exit
 
 get_decomp_record.exit:                           ; preds = %82, %.thread231, %PyObject_TypeCheck.exit.thread, %PyObject_TypeCheck.exit.thread.i
-  %.0223 = phi i32 [ %99, %PyObject_TypeCheck.exit.thread.i ], [ 0, %PyObject_TypeCheck.exit.thread ], [ 0, %.thread231 ], [ 0, %82 ]
-  %101 = phi i64 [ %100, %PyObject_TypeCheck.exit.thread.i ], [ 0, %PyObject_TypeCheck.exit.thread ], [ 0, %.thread231 ], [ 0, %82 ]
+  %.0223 = phi i32 [ 0, %.thread231 ], [ %99, %PyObject_TypeCheck.exit.thread.i ], [ 0, %PyObject_TypeCheck.exit.thread ], [ 0, %82 ]
+  %101 = phi i64 [ 0, %.thread231 ], [ %100, %PyObject_TypeCheck.exit.thread.i ], [ 0, %PyObject_TypeCheck.exit.thread ], [ 0, %82 ]
   %102 = getelementptr i32, ptr @decomp_data, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !26
   %.not176 = icmp ult i32 %103, 256
@@ -4515,9 +4515,9 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   br i1 %124, label %.loopexit282, label %.preheader, !llvm.loop !67
 
 .loopexit282:                                     ; preds = %.preheader, %77, %54, %66, %112
-  %.2150 = phi i32 [ %42, %112 ], [ %.1149292, %77 ], [ %42, %66 ], [ %42, %54 ], [ %121, %.preheader ]
-  %.4144 = phi i64 [ %115, %112 ], [ %.3143, %77 ], [ %70, %66 ], [ %65, %54 ], [ %.3143, %.preheader ]
-  %.2129 = phi i64 [ %113, %112 ], [ %.1128295, %77 ], [ %68, %66 ], [ %63, %54 ], [ %.1128295, %.preheader ]
+  %.2150 = phi i32 [ %42, %54 ], [ %42, %112 ], [ %.1149292, %77 ], [ %42, %66 ], [ %121, %.preheader ]
+  %.4144 = phi i64 [ %65, %54 ], [ %115, %112 ], [ %.3143, %77 ], [ %70, %66 ], [ %.3143, %.preheader ]
+  %.2129 = phi i64 [ %63, %54 ], [ %113, %112 ], [ %.1128295, %77 ], [ %68, %66 ], [ %.1128295, %.preheader ]
   %.not171 = icmp eq i32 %.2150, 0
   br i1 %.not171, label %.loopexit283, label %41
 
@@ -4749,7 +4749,7 @@ _getrecord_ex.exit212:                            ; preds = %PyUnicode_READ.exit
   %or.cond180 = select i1 %233, i1 %.not170, i1 false
   br i1 %or.cond180, label %190, label %234
 
-234:                                              ; preds = %PyUnicode_WRITE.exit208, %_getrecord_ex.exit212
+234:                                              ; preds = %_getrecord_ex.exit212, %PyUnicode_WRITE.exit208
   switch i16 %129, label %PyUnicode_READ.exit214 [
     i16 1, label %235
     i16 2, label %239
@@ -4920,7 +4920,7 @@ unicodedata_create_capi.exit:                     ; preds = %33, %35, %39
   br label %Py_DECREF.exit12
 
 Py_DECREF.exit12:                                 ; preds = %15, %12, %10, %4, %unicodedata_create_capi.exit, %Py_DECREF.exit, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %Py_DECREF.exit ], [ %.lobit, %unicodedata_create_capi.exit ], [ -1, %10 ], [ -1, %12 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ %.lobit, %unicodedata_create_capi.exit ], [ -1, %Py_DECREF.exit ], [ -1, %10 ], [ -1, %12 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -4982,7 +4982,7 @@ define internal range(i32 0, 136043) i32 @normalization_3_2_0(i32 noundef %0) #7
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %6 ], [ 24371, %2 ], [ 17323, %3 ], [ 31406, %4 ], [ 19799, %5 ], [ 136042, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 19799, %5 ], [ 24371, %2 ], [ 17323, %3 ], [ 31406, %4 ], [ 136042, %1 ]
   ret i32 %.0
 }
 
@@ -5076,7 +5076,7 @@ define internal range(i32 0, 2) i32 @capi_getcode(ptr noundef readonly captures(
   br label %_check_alias_and_seq.exit
 
 _check_alias_and_seq.exit:                        ; preds = %10, %8, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %10 ], [ 1, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %10 ], [ 1, %8 ]
   ret i32 %.0
 }
 

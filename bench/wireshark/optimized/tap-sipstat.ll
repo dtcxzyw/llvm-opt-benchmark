@@ -263,7 +263,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %72
 
 72:                                               ; preds = %71, %69, %67, %65, %63
-  %.sink102 = phi i32 [ 199, %63 ], [ 299, %65 ], [ 399, %67 ], [ 499, %69 ], [ %., %71 ]
+  %.sink102 = phi i32 [ 199, %63 ], [ 299, %65 ], [ %., %71 ], [ 499, %69 ], [ 399, %67 ]
   store i32 %.sink102, ptr %6, align 4
   %73 = load ptr, ptr %56, align 8
   %74 = call ptr @g_hash_table_lookup(ptr noundef %73, ptr noundef nonnull %6)
@@ -315,7 +315,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %96
 
 96:                                               ; preds = %.critedge90, %92, %84, %77, %.critedge
-  %.3 = phi i32 [ 0, %.critedge ], [ 0, %77 ], [ 1, %84 ], [ 1, %92 ], [ 1, %.critedge90 ]
+  %.3 = phi i32 [ 0, %77 ], [ 0, %.critedge ], [ 1, %84 ], [ 1, %92 ], [ 1, %.critedge90 ]
   ret i32 %.3
 }
 

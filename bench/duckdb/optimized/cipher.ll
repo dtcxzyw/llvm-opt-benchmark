@@ -68,7 +68,7 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
   br label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %1
-  %.lcssa = phi ptr [ null, %1 ], [ null, %.._crit_edge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %6, %.lr.ph ]
+  %.lcssa = phi ptr [ null, %1 ], [ %2, %.lr.ph.preheader ], [ null, %.._crit_edge.loopexit_crit_edge ], [ %6, %.lr.ph ]
   ret ptr %.lcssa
 }
 
@@ -249,7 +249,7 @@ define hidden noundef i32 @mbedtls_cipher_setkey(ptr noundef captures(none) %0, 
   br i1 %23, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %22, %15, %19
-  %.sink29 = phi i64 [ 16, %19 ], [ 16, %15 ], [ 24, %22 ]
+  %.sink29 = phi i64 [ 16, %15 ], [ 16, %19 ], [ 24, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink29
@@ -260,7 +260,7 @@ define hidden noundef i32 @mbedtls_cipher_setkey(ptr noundef captures(none) %0, 
   br label %31
 
 31:                                               ; preds = %.sink.split, %22, %12, %4
-  %.0 = phi i32 [ -24832, %4 ], [ -24832, %12 ], [ -24832, %22 ], [ %30, %.sink.split ]
+  %.0 = phi i32 [ -24832, %12 ], [ -24832, %4 ], [ -24832, %22 ], [ %30, %.sink.split ]
   ret i32 %.0
 }
 
@@ -315,7 +315,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr noundef captures(none) %0, ptr noun
   br label %31
 
 31:                                               ; preds = %27, %28, %12, %6, %3, %21
-  %.018 = phi i32 [ %26, %21 ], [ -24832, %3 ], [ -24704, %6 ], [ -24832, %12 ], [ 0, %28 ], [ 0, %27 ]
+  %.018 = phi i32 [ -24704, %6 ], [ -24832, %3 ], [ %26, %21 ], [ -24832, %12 ], [ 0, %28 ], [ 0, %27 ]
   ret i32 %.018
 }
 
@@ -359,7 +359,7 @@ define hidden i32 @mbedtls_cipher_update_ad(ptr noundef readonly captures(none) 
   br label %14
 
 14:                                               ; preds = %6, %3, %10
-  %.0 = phi i32 [ %13, %10 ], [ -24832, %3 ], [ 0, %6 ]
+  %.0 = phi i32 [ -24832, %3 ], [ %13, %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -429,7 +429,7 @@ _ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit: ; preds = %
   br label %38
 
 38:                                               ; preds = %32, %35, %16, %15, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit, %5, %37, %26
-  %.0 = phi i32 [ %29, %26 ], [ -24704, %37 ], [ -24832, %5 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit ], [ -25216, %15 ], [ %25, %16 ], [ -24832, %35 ], [ -24832, %32 ]
+  %.0 = phi i32 [ -24704, %37 ], [ -24832, %5 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit ], [ %25, %16 ], [ -25216, %15 ], [ %29, %26 ], [ -24832, %35 ], [ -24832, %32 ]
   ret i32 %.0
 }
 
@@ -471,7 +471,7 @@ define hidden range(i32 -25216, 1) i32 @mbedtls_cipher_finish(ptr noundef readon
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %6, %10, %13, %15, %3
-  %.0 = phi i32 [ -24832, %3 ], [ 0, %10 ], [ %., %15 ], [ -24704, %13 ], [ 0, %6 ]
+  %.0 = phi i32 [ -24704, %13 ], [ -24832, %3 ], [ 0, %10 ], [ %., %15 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -503,7 +503,7 @@ define hidden i32 @mbedtls_cipher_write_tag(ptr noundef readonly captures(none) 
   br label %18
 
 18:                                               ; preds = %10, %7, %3, %14
-  %.0 = phi i32 [ %17, %14 ], [ -24832, %3 ], [ -24832, %7 ], [ 0, %10 ]
+  %.0 = phi i32 [ -24832, %7 ], [ -24832, %3 ], [ %17, %14 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -549,18 +549,18 @@ select.unfold:                                    ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
-.thread:                                          ; preds = %15, %17
-  %.114.ph = phi i32 [ %20, %17 ], [ -24832, %15 ]
+.thread:                                          ; preds = %17, %15
+  %.114.ph = phi i32 [ -24832, %15 ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 22:                                               ; preds = %select.unfold, %11
-  %.1 = phi i32 [ %., %select.unfold ], [ 0, %11 ]
+  %.1 = phi i32 [ 0, %11 ], [ %., %select.unfold ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %2)
   br label %23
 
 23:                                               ; preds = %.thread, %8, %3, %22
-  %.013 = phi i32 [ %.1, %22 ], [ -24832, %3 ], [ -24832, %8 ], [ %.114.ph, %.thread ]
+  %.013 = phi i32 [ %.1, %22 ], [ -24832, %3 ], [ %.114.ph, %.thread ], [ -24832, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -623,8 +623,8 @@ mbedtls_cipher_set_iv.exit.thread32:              ; preds = %mbedtls_cipher_set_
   %34 = icmp eq ptr %.pre, null
   br i1 %34, label %mbedtls_cipher_reset.exit, label %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i
 
-_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i: ; preds = %26, %25, %mbedtls_cipher_set_iv.exit.thread32
-  %35 = phi ptr [ %.pre, %mbedtls_cipher_set_iv.exit.thread32 ], [ %8, %25 ], [ %8, %26 ]
+_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i: ; preds = %25, %26, %mbedtls_cipher_set_iv.exit.thread32
+  %35 = phi ptr [ %.pre, %mbedtls_cipher_set_iv.exit.thread32 ], [ %8, %26 ], [ %8, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %36, align 8, !tbaa !42
   store i64 0, ptr %6, align 8, !tbaa !43
@@ -719,8 +719,8 @@ mbedtls_cipher_update.exit:                       ; preds = %45, %55
   %spec.select = select i1 %.not.i28, i32 0, i32 -25216
   br label %mbedtls_cipher_reset.exit
 
-mbedtls_cipher_reset.exit:                        ; preds = %69, %78, %61, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %65, %16, %10, %7, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
-  %.0 = phi i32 [ %33, %mbedtls_cipher_set_iv.exit ], [ %.0.i25, %mbedtls_cipher_update.exit ], [ -24832, %mbedtls_cipher_set_iv.exit.thread32 ], [ -24832, %66 ], [ -24704, %76 ], [ 0, %73 ], [ -24832, %16 ], [ -24704, %10 ], [ -24832, %7 ], [ -24832, %61 ], [ -24832, %63 ], [ -25216, %44 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i ], [ -24704, %65 ], [ %spec.select, %78 ], [ 0, %69 ]
+mbedtls_cipher_reset.exit:                        ; preds = %69, %78, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %61, %65, %16, %7, %10, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
+  %.0 = phi i32 [ %spec.select, %78 ], [ %33, %mbedtls_cipher_set_iv.exit ], [ -24704, %65 ], [ %.0.i25, %mbedtls_cipher_update.exit ], [ -24704, %10 ], [ -24832, %mbedtls_cipher_set_iv.exit.thread32 ], [ -24704, %76 ], [ -24832, %66 ], [ 0, %73 ], [ -24832, %61 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i ], [ -25216, %44 ], [ -24832, %63 ], [ -24832, %7 ], [ -24832, %16 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -787,7 +787,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef readonly captures
   br label %_ZL27mbedtls_cipher_aead_decryptP24mbedtls_cipher_context_tPKhmS2_mS2_mPhPmS2_m.exit
 
 _ZL27mbedtls_cipher_aead_decryptP24mbedtls_cipher_context_tPKhmS2_mS2_mPhPmS2_m.exit: ; preds = %21, %16, %11, %13
-  %.0 = phi i32 [ -24832, %13 ], [ -24832, %11 ], [ %spec.store.select.i, %21 ], [ -24704, %16 ]
+  %.0 = phi i32 [ -24832, %11 ], [ -24832, %13 ], [ %spec.store.select.i, %21 ], [ -24704, %16 ]
   ret i32 %.0
 }
 

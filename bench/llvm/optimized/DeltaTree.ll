@@ -296,7 +296,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 
 ._crit_edge:                                      ; preds = %.critedge114.thread, %31
   %.tr360 = phi ptr [ %.tr365, %31 ], [ %.tr.lcssa, %.critedge114.thread ]
-  %ret.known.tr351 = phi i1 [ %ret.known.tr367, %31 ], [ %.not195364, %.critedge114.thread ]
+  %ret.known.tr350 = phi i1 [ %ret.known.tr367, %31 ], [ %.not195364, %.critedge114.thread ]
   %32 = phi ptr [ %11, %31 ], [ %.lcssa337, %.critedge114.thread ]
   %.0105167253259263 = phi i32 [ %.0105167, %31 ], [ 0, %.critedge114.thread ]
   %.pre242 = zext nneg i32 %.0105167253259263 to i64
@@ -316,7 +316,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
 
 42:                                               ; preds = %._crit_edge, %33
   %.tr359 = phi ptr [ %.tr360, %._crit_edge ], [ %.tr365, %33 ]
-  %ret.known.tr350 = phi i1 [ %ret.known.tr351, %._crit_edge ], [ %ret.known.tr367, %33 ]
+  %ret.known.tr349 = phi i1 [ %ret.known.tr350, %._crit_edge ], [ %ret.known.tr367, %33 ]
   %43 = phi ptr [ %32, %._crit_edge ], [ %11, %33 ]
   %.pre-phi243 = phi i64 [ %.pre242, %._crit_edge ], [ %37, %33 ]
   %.sroa.2.0.insert.ext.i = zext i32 %2 to i64
@@ -399,7 +399,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.
 72:                                               ; preds = %.loopexit, %.critedge114.thread
   %.tr361 = phi ptr [ %.tr.lcssa, %.critedge114.thread ], [ %.tr365, %.loopexit ]
   %.tr154355 = phi ptr [ %.tr154.lcssa, %.critedge114.thread ], [ %.tr154366, %.loopexit ]
-  %ret.known.tr349 = phi i1 [ %.not195364, %.critedge114.thread ], [ %ret.known.tr367, %.loopexit ]
+  %ret.known.tr351 = phi i1 [ %.not195364, %.critedge114.thread ], [ %ret.known.tr367, %.loopexit ]
   %73 = phi ptr [ %.lcssa341, %.critedge114.thread ], [ %12, %.loopexit ]
   %74 = phi ptr [ %.lcssa337, %.critedge114.thread ], [ %11, %.loopexit ]
   %75 = phi i32 [ %.lcssa333, %.critedge114.thread ], [ %10, %.loopexit ]
@@ -649,7 +649,7 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151: ; preds =
   br label %188
 
 188:                                              ; preds = %106, %179, %72, %42, %20
-  %ret.known.tr348 = phi i1 [ %ret.known.tr367, %20 ], [ %ret.known.tr350, %42 ], [ true, %179 ], [ %ret.known.tr349, %106 ], [ %ret.known.tr349, %72 ]
+  %ret.known.tr348 = phi i1 [ %ret.known.tr367, %20 ], [ %ret.known.tr351, %72 ], [ %ret.known.tr349, %42 ], [ %ret.known.tr351, %106 ], [ true, %179 ]
   ret i1 %ret.known.tr348
 }
 

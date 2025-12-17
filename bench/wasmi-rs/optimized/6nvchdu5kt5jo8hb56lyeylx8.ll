@@ -560,7 +560,7 @@ _ZN10wasmi_core6memory6buffer10ByteBuffer7get_vec17h308a1bf0221b1947E.exit.threa
   br label %_ZN10wasmi_core6memory6buffer10ByteBuffer8grow_vec17h85470362630455e1E.exit
 
 _ZN10wasmi_core6memory6buffer10ByteBuffer8grow_vec17h85470362630455e1E.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e4ee506d664d287E.exit.i", %_ZN10wasmi_core6memory6buffer10ByteBuffer7get_vec17h308a1bf0221b1947E.exit.thread, %20, %19
-  %.sroa.0.0.i.pn = phi i64 [ 0, %19 ], [ 9, %20 ], [ 9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e4ee506d664d287E.exit.i" ], [ 4, %_ZN10wasmi_core6memory6buffer10ByteBuffer7get_vec17h308a1bf0221b1947E.exit.thread ]
+  %.sroa.0.0.i.pn = phi i64 [ 9, %20 ], [ 0, %19 ], [ 9, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0e4ee506d664d287E.exit.i" ], [ 4, %_ZN10wasmi_core6memory6buffer10ByteBuffer7get_vec17h308a1bf0221b1947E.exit.thread ]
   %.pn7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
   %32 = insertvalue { i64, i64 } %.pn7, i64 undef, 1
   ret { i64, i64 } %32

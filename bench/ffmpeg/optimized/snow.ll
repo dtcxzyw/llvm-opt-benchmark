@@ -703,7 +703,7 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   br label %30
 
 30:                                               ; preds = %27, %8
-  %.0282.shrunk = phi i8 [ %26, %8 ], [ %spec.select, %27 ]
+  %.0282.shrunk = phi i8 [ %spec.select, %27 ], [ %26, %8 ]
   %.0282 = zext i8 %.0282.shrunk to i32
   %31 = and i32 %.0282, 5
   %.not303 = icmp eq i32 %31, 0
@@ -949,8 +949,8 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   br i1 %exitcond460.not, label %._crit_edge347, label %.preheader330.us, !llvm.loop !78
 
 ._crit_edge347:                                   ; preds = %._crit_edge.split.split.us353, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %.preheader330.preheader, %.preheader331
-  %.0277.lcssa = phi i32 [ 0, %.preheader331 ], [ %smax, %.preheader330.preheader ], [ %smax473, %._crit_edge.split.us.us.us ], [ %smax466, %._crit_edge.split.split.us.us.us ], [ %smax459, %._crit_edge.split.split.us353 ]
-  %.1270.lcssa = phi ptr [ %2, %.preheader331 ], [ %scevgep, %.preheader330.preheader ], [ %79, %._crit_edge.split.us.us.us ], [ %136, %._crit_edge.split.split.us.us.us ], [ %174, %._crit_edge.split.split.us353 ]
+  %.0277.lcssa = phi i32 [ 0, %.preheader331 ], [ %smax, %.preheader330.preheader ], [ %smax466, %._crit_edge.split.split.us.us.us ], [ %smax473, %._crit_edge.split.us.us.us ], [ %smax459, %._crit_edge.split.split.us353 ]
+  %.1270.lcssa = phi ptr [ %2, %.preheader331 ], [ %scevgep, %.preheader330.preheader ], [ %136, %._crit_edge.split.split.us.us.us ], [ %79, %._crit_edge.split.us.us.us ], [ %174, %._crit_edge.split.split.us353 ]
   %176 = mul nsw i32 %.0277.lcssa, %3
   %177 = sext i32 %176 to i64
   %178 = sub nsw i64 0, %177
@@ -1734,7 +1734,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init(ptr noundef %0) local_unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %60, %1, %35, %38, %42, %45, %66
-  %.049 = phi i32 [ 0, %66 ], [ -12, %45 ], [ -12, %42 ], [ -12, %38 ], [ -12, %35 ], [ -12, %1 ], [ -12, %60 ], [ -12, %57 ]
+  %.049 = phi i32 [ -12, %1 ], [ 0, %66 ], [ -12, %45 ], [ -12, %42 ], [ -12, %38 ], [ -12, %35 ], [ -12, %60 ], [ -12, %57 ]
   ret i32 %.049
 }
 
@@ -2074,7 +2074,7 @@ define range(i32 -12, 1) i32 @ff_snow_common_init_after_header(ptr noundef reado
   br i1 %126, label %33, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.critedge119, %111, %.critedge, %18, %6
-  %.2 = phi i32 [ -12, %6 ], [ -12, %18 ], [ 0, %.critedge ], [ -12, %111 ], [ 0, %.critedge119 ]
+  %.2 = phi i32 [ -12, %18 ], [ -12, %6 ], [ 0, %.critedge ], [ -12, %111 ], [ 0, %.critedge119 ]
   ret i32 %.2
 }
 

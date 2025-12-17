@@ -540,7 +540,7 @@ define hidden i32 @atsvc_dissect_struct_JobInfo(ptr noundef %0, i32 noundef %1, 
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %34, label %30
 
@@ -698,7 +698,7 @@ define hidden i32 @atsvc_dissect_struct_JobEnumInfo(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %34, label %30
 
@@ -847,7 +847,7 @@ define hidden i32 @atsvc_dissect_struct_enum_ctr(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 

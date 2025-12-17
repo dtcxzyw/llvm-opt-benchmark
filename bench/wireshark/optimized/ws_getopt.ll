@@ -232,7 +232,7 @@ define i32 @ws_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   br label %111
 
 111:                                              ; preds = %80, %100, %106, %108, %103, %72, %77, %24, %19, %11, %13, %30, %22
-  %.0 = phi i32 [ 1, %22 ], [ -1, %30 ], [ -1, %13 ], [ -1, %11 ], [ -1, %19 ], [ -1, %24 ], [ 63, %77 ], [ 63, %72 ], [ 58, %103 ], [ 63, %108 ], [ 63, %106 ], [ %66, %100 ], [ %66, %80 ]
+  %.0 = phi i32 [ -1, %19 ], [ 1, %22 ], [ -1, %11 ], [ -1, %24 ], [ 63, %72 ], [ 58, %103 ], [ 63, %106 ], [ -1, %30 ], [ -1, %13 ], [ 63, %77 ], [ 63, %108 ], [ %66, %100 ], [ %66, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -442,9 +442,9 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   br i1 %.not134.i, label %._crit_edge.i, label %59, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %70, %.loopexit166.i
-  %.1120.i = phi i32 [ %.2121.ph.i, %70 ], [ 1, %.loopexit166.i ]
-  %.1117.i = phi i32 [ %.2118.ph.i, %70 ], [ %.0109176.i, %.loopexit166.i ]
-  %.1114.i = phi ptr [ %.2115.ph.i, %70 ], [ %.1112.i, %.loopexit166.i ]
+  %.1120.i = phi i32 [ 1, %.loopexit166.i ], [ %.2121.ph.i, %70 ]
+  %.1117.i = phi i32 [ %.0109176.i, %.loopexit166.i ], [ %.2118.ph.i, %70 ]
+  %.1114.i = phi ptr [ %.1112.i, %.loopexit166.i ], [ %.2115.ph.i, %70 ]
   %75 = icmp eq i32 %.1120.i, 1
   %or.cond.i = and i1 %39, %75
   br i1 %or.cond.i, label %76, label %.loopexit.i
@@ -655,7 +655,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   br label %__getopt_long_core.exit
 
 __getopt_long_core.exit:                          ; preds = %109, %114, %126, %129, %131, %139, %144, %160, %163
-  %.1.i = phi i32 [ %164, %163 ], [ 63, %129 ], [ 58, %126 ], [ 63, %109 ], [ 63, %160 ], [ 63, %131 ], [ 63, %114 ], [ 0, %144 ], [ %143, %139 ]
+  %.1.i = phi i32 [ %164, %163 ], [ 63, %160 ], [ 58, %126 ], [ 63, %131 ], [ 63, %109 ], [ 63, %129 ], [ 63, %114 ], [ 0, %144 ], [ %143, %139 ]
   %165 = icmp sgt i32 %31, %13
   br i1 %165, label %166, label %.loopexit
 
@@ -704,7 +704,7 @@ permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %__getopt_long_core.exit, %._crit_edge, %12, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %12 ], [ %.1.i, %._crit_edge ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %.lr.ph ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %14 ], [ %.1.i, %._crit_edge ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %.lr.ph ], [ -1, %28 ]
   ret i32 %.0
 }
 

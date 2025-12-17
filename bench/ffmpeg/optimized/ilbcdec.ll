@@ -2763,7 +2763,7 @@ hp_output.exit:                                   ; preds = %1845, %1833
   br label %unpack_frame.exit.thread
 
 unpack_frame.exit.thread:                         ; preds = %4, %unpack_frame.exit, %hp_output.exit
-  %.087 = phi i32 [ %1896, %hp_output.exit ], [ %1354, %unpack_frame.exit ], [ -1094995529, %4 ]
+  %.087 = phi i32 [ %1896, %hp_output.exit ], [ -1094995529, %4 ], [ %1354, %unpack_frame.exit ]
   ret i32 %.087
 }
 

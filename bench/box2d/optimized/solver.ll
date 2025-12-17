@@ -3987,7 +3987,7 @@ b2GetLengthAndNormalize.exit:                     ; preds = %70, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge132
 
-.critedge132:                                     ; preds = %104, %112, %15, %25, %32, %.thread175, %50, %41, %28, %3
+.critedge132:                                     ; preds = %112, %104, %15, %25, %32, %.thread175, %50, %41, %28, %3
   ret i1 true
 }
 

@@ -1268,7 +1268,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %17, %22
   br i1 %51, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %45, %41, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %10, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ false, %.lr.ph ], [ true, %45 ], [ false, %41 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %10 ], [ true, %_ZN14VrmlTranslator6Parser6SynErrEi.exit ], [ true, %45 ], [ false, %.lr.ph ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -7486,7 +7486,7 @@ select.unfold:                                    ; preds = %12, %._crit_edge.th
   br label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit
 
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit: ; preds = %select.unfold, %16
-  %19 = phi i1 [ true, %select.unfold ], [ %18, %16 ]
+  %19 = phi i1 [ %18, %16 ], [ true, %select.unfold ]
   %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %1, align 8
@@ -8877,7 +8877,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %70, %.noexc
   store i32 0, ptr %71, align 8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %43, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i11, %_ZN9QtPrivate8RefCount5derefEv.exit.i12, %34, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %18, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE4findERS4_.exit, %64
+_ZN7QStringD2Ev.exit:                             ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %43, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i11, %_ZN9QtPrivate8RefCount5derefEv.exit.i12, %34, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %18, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE4findERS4_.exit, %64
   %89 = load ptr, ptr %6, align 8
   %90 = load atomic i32, ptr %89 monotonic, align 4
   switch i32 %90, label %_ZN9QtPrivate8RefCount5derefEv.exit.i26 [
@@ -9441,7 +9441,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20:  ; preds = %_ZN9QtPrivate8RefCo
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #14
   br label %.loopexit.split-lp
 
-_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %30, %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
+_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, %30, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load ptr, ptr %65, align 8
   invoke void @_ZN12QDomDocument13createElementERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -9539,7 +9539,7 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
   br i1 %98, label %.critedge.i, label %100
 
 .critedge.i:                                      ; preds = %96, %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i, %_ZN7QStringD2Ev.exit32
-  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i ], [ %.19.i.i.i.i, %96 ], [ %92, %_ZN7QStringD2Ev.exit32 ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %96 ], [ %.19.i.i.i.i, %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i ], [ %92, %_ZN7QStringD2Ev.exit32 ]
   store ptr %3, ptr %15, align 8
   %99 = invoke ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS2_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9919,7 +9919,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit40:       ; preds = %_ZN9QtPrivate8RefCo
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %225, %103, %70, %63, %62
-  %.pn17 = phi { ptr, i32 } [ %104, %103 ], [ %64, %63 ], [ %.pn15, %62 ], [ %71, %70 ], [ %.pn, %225 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn17 = phi { ptr, i32 } [ %.pn, %225 ], [ %104, %103 ], [ %64, %63 ], [ %.pn15, %62 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
   resume { ptr, i32 } %.pn17
 }
@@ -10833,7 +10833,7 @@ _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit: ; preds = %_ZNSt8_Rb_tre
   %116 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %115) #14
   br i1 %116, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
 
-_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %108, %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
+_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, %108, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
   %117 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.169, i32 noundef 4)
           to label %118 unwind label %.loopexit.split-lp
 
@@ -10987,7 +10987,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 150:                                              ; preds = %.loopexit, %.loopexit.split-lp, %140, %138
-  %.pn = phi { ptr, i32 } [ %141, %140 ], [ %139, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #14
   br label %151
 
@@ -11368,7 +11368,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS
   br label %.thread
 
 .thread:                                          ; preds = %22, %26
-  %29 = phi i1 [ true, %22 ], [ %28, %26 ]
+  %29 = phi i1 [ %28, %26 ], [ true, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %7, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %24) #14
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %31 = load i64, ptr %30, align 8
@@ -11624,8 +11624,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
-  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
+  %.sroa.070.0 = phi ptr [ %spec.select, %39 ], [ null, %14 ], [ null, %._crit_edge.thread.i27 ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i ], [ %spec.select72, %64 ], [ null, %56 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %spec.select71, %39 ], [ %15, %14 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select73, %64 ], [ %58, %56 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12030,7 +12030,7 @@ select.unfold:                                    ; preds = %12, %._crit_edge.th
   br label %19
 
 19:                                               ; preds = %16, %select.unfold
-  %20 = phi i1 [ true, %select.unfold ], [ %18, %16 ]
+  %20 = phi i1 [ %18, %16 ], [ true, %select.unfold ]
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %1, align 8
@@ -14874,7 +14874,7 @@ _ZN7QStringD2Ev.exit140:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %67, %119, %137, %102, %247, %235, %224, %193, %185, %82
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %193 ], [ %186, %185 ], [ %83, %82 ], [ %.pn19, %235 ], [ %225, %224 ], [ %.pn, %247 ], [ %68, %67 ], [ %103, %102 ], [ %120, %119 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %193 ], [ %186, %185 ], [ %.pn, %247 ], [ %83, %82 ], [ %.pn19, %235 ], [ %225, %224 ], [ %68, %67 ], [ %103, %102 ], [ %120, %119 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
   br label %271
 
@@ -15472,7 +15472,7 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   br label %207
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %181, %.split110.us, %177, %172
-  %.pn22 = phi { ptr, i32 } [ %159, %.split110.us ], [ %182, %181 ], [ %.pn, %177 ], [ %173, %172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn22 = phi { ptr, i32 } [ %159, %.split110.us ], [ %173, %172 ], [ %182, %181 ], [ %.pn, %177 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #14
   br label %186
 
@@ -15613,7 +15613,7 @@ _ZN7QStringD2Ev.exit86:                           ; preds = %_ZN14VrmlTranslator
   ret void
 
 235:                                              ; preds = %.loopexit98, %.loopexit.split-lp99, %187, %111, %103
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %111 ], [ %104, %103 ], [ %.pn22.pn.pn, %187 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ]
+  %.pn28 = phi { ptr, i32 } [ %.pn22.pn.pn, %187 ], [ %.pn26, %111 ], [ %104, %103 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ]
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
   br label %236
 

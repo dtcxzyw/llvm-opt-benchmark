@@ -292,7 +292,7 @@ define hidden void @opj_t1_decode_cblks(ptr noundef %0, ptr noundef %1, ptr noun
   %.not107 = icmp eq i32 %116, 0
   br i1 %.not107, label %.thread126, label %.thread113
 
-.thread113:                                       ; preds = %90, %87, %100, %81, %84
+.thread113:                                       ; preds = %90, %87, %84, %100, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %46, align 8, !tbaa !45
   %118 = load i32, ptr %47, align 4, !tbaa !46
@@ -4310,8 +4310,8 @@ opj_t1_decode_cblk.exit:                          ; preds = %1811, %1809, %183, 
   %exitcond496.not = icmp eq i32 %2009, %1859
   br i1 %exitcond496.not, label %.loopexit, label %.preheader284.us, !llvm.loop !172
 
-.loopexit.sink.split:                             ; preds = %157, %131, %.critedge.i, %109, %106, %34, %69, %opj_t1_destroy.exit
-  %.sink.in = phi ptr [ %61, %opj_t1_destroy.exit ], [ %61, %69 ], [ %35, %34 ], [ %61, %106 ], [ %61, %109 ], [ %61, %.critedge.i ], [ %61, %131 ], [ %61, %157 ]
+.loopexit.sink.split:                             ; preds = %131, %.critedge.i, %157, %109, %106, %34, %69, %opj_t1_destroy.exit
+  %.sink.in = phi ptr [ %61, %106 ], [ %35, %34 ], [ %61, %opj_t1_destroy.exit ], [ %61, %69 ], [ %61, %109 ], [ %61, %157 ], [ %61, %.critedge.i ], [ %61, %131 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !73
   store volatile i32 0, ptr %.sink, align 4, !tbaa !59
   br label %.loopexit
@@ -9312,11 +9312,11 @@ opj_t1_update_flags.exit645.i.i:                  ; preds = %2477, %2475, %.loop
   br i1 %2506, label %2293, label %opj_t1_enc_clnpass.exit.i, !llvm.loop !290
 
 opj_t1_enc_clnpass.exit.i:                        ; preds = %.loopexit669.i.i, %._crit_edge735.i.i, %.preheader685.lr.ph.i.i
-  %.49.i = phi i32 [ %.44.i, %._crit_edge735.i.i ], [ 0, %.preheader685.lr.ph.i.i ], [ %.48.i, %.loopexit669.i.i ]
-  %.32539.i.i = phi i32 [ %.0507.lcssa.i.i, %._crit_edge735.i.i ], [ %1910, %.preheader685.lr.ph.i.i ], [ %.34541.i.i, %.loopexit669.i.i ]
-  %.32489.i.i = phi i32 [ %.0457.lcssa.i.i, %._crit_edge735.i.i ], [ %1909, %.preheader685.lr.ph.i.i ], [ %.34491.i.i, %.loopexit669.i.i ]
-  %.42.i213.i = phi i32 [ %.0443.lcssa.i.i, %._crit_edge735.i.i ], [ %1908, %.preheader685.lr.ph.i.i ], [ %.44.i218.i, %.loopexit669.i.i ]
-  %.8.i214.i = phi ptr [ %.0441.lcssa.i.i, %._crit_edge735.i.i ], [ %1907, %.preheader685.lr.ph.i.i ], [ %.10.i219.i, %.loopexit669.i.i ]
+  %.49.i = phi i32 [ 0, %.preheader685.lr.ph.i.i ], [ %.44.i, %._crit_edge735.i.i ], [ %.48.i, %.loopexit669.i.i ]
+  %.32539.i.i = phi i32 [ %1910, %.preheader685.lr.ph.i.i ], [ %.0507.lcssa.i.i, %._crit_edge735.i.i ], [ %.34541.i.i, %.loopexit669.i.i ]
+  %.32489.i.i = phi i32 [ %1909, %.preheader685.lr.ph.i.i ], [ %.0457.lcssa.i.i, %._crit_edge735.i.i ], [ %.34491.i.i, %.loopexit669.i.i ]
+  %.42.i213.i = phi i32 [ %1908, %.preheader685.lr.ph.i.i ], [ %.0443.lcssa.i.i, %._crit_edge735.i.i ], [ %.44.i218.i, %.loopexit669.i.i ]
+  %.8.i214.i = phi ptr [ %1907, %.preheader685.lr.ph.i.i ], [ %.0441.lcssa.i.i, %._crit_edge735.i.i ], [ %.10.i219.i, %.loopexit669.i.i ]
   store ptr %.8.i214.i, ptr %273, align 8, !tbaa !117
   store i32 %.42.i213.i, ptr %.0, align 8, !tbaa !107
   store i32 %.32489.i.i, ptr %274, align 4, !tbaa !118
@@ -9530,7 +9530,7 @@ opj_t1_enc_is_term_pass.exit.i:                   ; preds = %2534, %2529
   br label %opj_t1_encode_cblk.exit
 
 opj_t1_encode_cblk.exit:                          ; preds = %2592, %._crit_edge409.i, %2564, %.loopexit.sink.split.i
-  %.0.i = phi double [ %2525, %._crit_edge409.i ], [ %2525, %2564 ], [ 0.000000e+00, %.loopexit.sink.split.i ], [ %2525, %2592 ]
+  %.0.i = phi double [ 0.000000e+00, %.loopexit.sink.split.i ], [ %2525, %._crit_edge409.i ], [ %2525, %2564 ], [ %2525, %2592 ]
   %2597 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2598 = load ptr, ptr %2597, align 8, !tbaa !199
   %.not178 = icmp eq ptr %2598, null
@@ -17232,10 +17232,10 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %.not1813.i, label %567, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit1915.i, %.loopexit1919.i
-  %.215821876.i = phi i32 [ %373, %.loopexit1915.i ], [ 0, %.loopexit1919.i ]
-  %.331419.i = phi i32 [ %.371423.i, %.loopexit1915.i ], [ %.201406.i, %.loopexit1919.i ]
-  %.211318.i = phi i32 [ %.241321.i, %.loopexit1915.i ], [ %.131310.i, %.loopexit1919.i ]
-  %.33.i = phi i32 [ %.37.i, %.loopexit1915.i ], [ %.20.i, %.loopexit1919.i ]
+  %.215821876.i = phi i32 [ 0, %.loopexit1919.i ], [ %373, %.loopexit1915.i ]
+  %.331419.i = phi i32 [ %.201406.i, %.loopexit1919.i ], [ %.371423.i, %.loopexit1915.i ]
+  %.211318.i = phi i32 [ %.131310.i, %.loopexit1919.i ], [ %.241321.i, %.loopexit1915.i ]
+  %.33.i = phi i32 [ %.20.i, %.loopexit1919.i ], [ %.37.i, %.loopexit1915.i ]
   %457 = getelementptr inbounds i8, ptr %.112832052.i, i64 -4
   %458 = load i32, ptr %457, align 4, !tbaa !59
   %459 = getelementptr inbounds nuw i8, ptr %.112832052.i, i64 4
@@ -19654,11 +19654,11 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %1752
 
 1752:                                             ; preds = %.sink.split.i, %.loopexit1927.i, %1545, %.loopexit1907.i, %.loopexit1919.i
-  %.71587.i = phi i32 [ %.101590.i, %1545 ], [ %.101590.i, %.loopexit1927.i ], [ 0, %.loopexit1919.i ], [ %.61586.ph.i, %.loopexit1907.i ], [ %.71587.ph.i, %.sink.split.i ]
-  %.831469.i = phi i32 [ %.1141500.i, %1545 ], [ %.1321518.i, %.loopexit1927.i ], [ %.201406.i, %.loopexit1919.i ], [ %.711457.i, %.loopexit1907.i ], [ %.831469.ph.i, %.sink.split.i ]
-  %.531350.i = phi i32 [ %.721369.i, %1545 ], [ %.831380.i, %.loopexit1927.i ], [ %.131310.i, %.loopexit1919.i ], [ %.461343.i, %.loopexit1907.i ], [ %.531350.ph.i, %.sink.split.i ]
-  %.83.i = phi i32 [ %.114.i, %1545 ], [ %.132.i, %.loopexit1927.i ], [ %.20.i, %.loopexit1919.i ], [ %.71.i, %.loopexit1907.i ], [ %.83.ph.i, %.sink.split.i ]
-  %.5.i = phi ptr [ %.8.i, %1545 ], [ %1554, %.loopexit1927.i ], [ %34, %.loopexit1919.i ], [ %769, %.loopexit1907.i ], [ %.5.ph.i, %.sink.split.i ]
+  %.71587.i = phi i32 [ %.101590.i, %.loopexit1927.i ], [ %.101590.i, %1545 ], [ 0, %.loopexit1919.i ], [ %.61586.ph.i, %.loopexit1907.i ], [ %.71587.ph.i, %.sink.split.i ]
+  %.831469.i = phi i32 [ %.1321518.i, %.loopexit1927.i ], [ %.1141500.i, %1545 ], [ %.201406.i, %.loopexit1919.i ], [ %.711457.i, %.loopexit1907.i ], [ %.831469.ph.i, %.sink.split.i ]
+  %.531350.i = phi i32 [ %.831380.i, %.loopexit1927.i ], [ %.721369.i, %1545 ], [ %.131310.i, %.loopexit1919.i ], [ %.461343.i, %.loopexit1907.i ], [ %.531350.ph.i, %.sink.split.i ]
+  %.83.i = phi i32 [ %.132.i, %.loopexit1927.i ], [ %.114.i, %1545 ], [ %.20.i, %.loopexit1919.i ], [ %.71.i, %.loopexit1907.i ], [ %.83.ph.i, %.sink.split.i ]
+  %.5.i = phi ptr [ %1554, %.loopexit1927.i ], [ %.8.i, %1545 ], [ %34, %.loopexit1919.i ], [ %769, %.loopexit1907.i ], [ %.5.ph.i, %.sink.split.i ]
   %1753 = and i32 %.71587.i, -1226833921
   store i32 %1753, ptr %.112832052.i, align 4, !tbaa !59
   br label %.thread1900.i
@@ -20530,10 +20530,10 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %.not1823.i, label %2305, label %.thread.i132
 
 .thread.i132:                                     ; preds = %.loopexit1925.i158, %.loopexit1929.i102
-  %.215921886.i = phi i32 [ %2100, %.loopexit1925.i158 ], [ 0, %.loopexit1929.i102 ]
-  %.331429.i = phi i32 [ %.371433.i, %.loopexit1925.i158 ], [ %.201416.i, %.loopexit1929.i102 ]
-  %.211328.i = phi i32 [ %.241331.i, %.loopexit1925.i158 ], [ %.131320.i, %.loopexit1929.i102 ]
-  %.33.i133 = phi i32 [ %.37.i159, %.loopexit1925.i158 ], [ %.20.i103, %.loopexit1929.i102 ]
+  %.215921886.i = phi i32 [ 0, %.loopexit1929.i102 ], [ %2100, %.loopexit1925.i158 ]
+  %.331429.i = phi i32 [ %.201416.i, %.loopexit1929.i102 ], [ %.371433.i, %.loopexit1925.i158 ]
+  %.211328.i = phi i32 [ %.131320.i, %.loopexit1929.i102 ], [ %.241331.i, %.loopexit1925.i158 ]
+  %.33.i133 = phi i32 [ %.20.i103, %.loopexit1929.i102 ], [ %.37.i159, %.loopexit1925.i158 ]
   %2195 = getelementptr inbounds i8, ptr %.112932062.i, i64 -4
   %2196 = load i32, ptr %2195, align 4, !tbaa !59
   %2197 = getelementptr inbounds nuw i8, ptr %.112932062.i, i64 4
@@ -22966,11 +22966,11 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %3501
 
 3501:                                             ; preds = %.sink.split.i35, %.loopexit1937.i31, %3294, %.loopexit1917.i117, %.loopexit1929.i102
-  %.71597.i = phi i32 [ %.101600.i, %3294 ], [ %.101600.i, %.loopexit1937.i31 ], [ 0, %.loopexit1929.i102 ], [ %.61596.ph.i, %.loopexit1917.i117 ], [ %.71597.ph.i, %.sink.split.i35 ]
-  %.831479.i = phi i32 [ %.1141510.i, %3294 ], [ %.1321528.i, %.loopexit1937.i31 ], [ %.201416.i, %.loopexit1929.i102 ], [ %.711467.i, %.loopexit1917.i117 ], [ %.831479.ph.i, %.sink.split.i35 ]
-  %.531360.i = phi i32 [ %.721379.i, %3294 ], [ %.831390.i, %.loopexit1937.i31 ], [ %.131320.i, %.loopexit1929.i102 ], [ %.461353.i, %.loopexit1917.i117 ], [ %.531360.ph.i, %.sink.split.i35 ]
-  %.83.i25 = phi i32 [ %.114.i22, %3294 ], [ %.132.i32, %.loopexit1937.i31 ], [ %.20.i103, %.loopexit1929.i102 ], [ %.71.i118, %.loopexit1917.i117 ], [ %.83.ph.i36, %.sink.split.i35 ]
-  %.5.i26 = phi ptr [ %.8.i23, %3294 ], [ %3303, %.loopexit1937.i31 ], [ %34, %.loopexit1929.i102 ], [ %2507, %.loopexit1917.i117 ], [ %.5.ph.i37, %.sink.split.i35 ]
+  %.71597.i = phi i32 [ %.101600.i, %.loopexit1937.i31 ], [ %.101600.i, %3294 ], [ 0, %.loopexit1929.i102 ], [ %.61596.ph.i, %.loopexit1917.i117 ], [ %.71597.ph.i, %.sink.split.i35 ]
+  %.831479.i = phi i32 [ %.1321528.i, %.loopexit1937.i31 ], [ %.1141510.i, %3294 ], [ %.201416.i, %.loopexit1929.i102 ], [ %.711467.i, %.loopexit1917.i117 ], [ %.831479.ph.i, %.sink.split.i35 ]
+  %.531360.i = phi i32 [ %.831390.i, %.loopexit1937.i31 ], [ %.721379.i, %3294 ], [ %.131320.i, %.loopexit1929.i102 ], [ %.461353.i, %.loopexit1917.i117 ], [ %.531360.ph.i, %.sink.split.i35 ]
+  %.83.i25 = phi i32 [ %.132.i32, %.loopexit1937.i31 ], [ %.114.i22, %3294 ], [ %.20.i103, %.loopexit1929.i102 ], [ %.71.i118, %.loopexit1917.i117 ], [ %.83.ph.i36, %.sink.split.i35 ]
+  %.5.i26 = phi ptr [ %3303, %.loopexit1937.i31 ], [ %.8.i23, %3294 ], [ %34, %.loopexit1929.i102 ], [ %2507, %.loopexit1917.i117 ], [ %.5.ph.i37, %.sink.split.i35 ]
   %3502 = and i32 %.71597.i, -1226833921
   store i32 %3502, ptr %.112932062.i, align 4, !tbaa !59
   br label %.thread1910.i
@@ -25336,10 +25336,10 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %.not1835.us.i, label %4862, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %.loopexit1939.us.i, %.loopexit1943.us.i
-  %.216011898.us.i = phi i32 [ %4668, %.loopexit1939.us.i ], [ 0, %.loopexit1943.us.i ]
-  %.331438.us.i = phi i32 [ %.371442.us.i, %.loopexit1939.us.i ], [ %.201425.us.i, %.loopexit1943.us.i ]
-  %.211337.us.i = phi i32 [ %.241340.us.i, %.loopexit1939.us.i ], [ %.131329.us.i, %.loopexit1943.us.i ]
-  %.33.us.i = phi i32 [ %.37.us.i, %.loopexit1939.us.i ], [ %.20.us.i, %.loopexit1943.us.i ]
+  %.216011898.us.i = phi i32 [ 0, %.loopexit1943.us.i ], [ %4668, %.loopexit1939.us.i ]
+  %.331438.us.i = phi i32 [ %.201425.us.i, %.loopexit1943.us.i ], [ %.371442.us.i, %.loopexit1939.us.i ]
+  %.211337.us.i = phi i32 [ %.131329.us.i, %.loopexit1943.us.i ], [ %.241340.us.i, %.loopexit1939.us.i ]
+  %.33.us.i = phi i32 [ %.20.us.i, %.loopexit1943.us.i ], [ %.37.us.i, %.loopexit1939.us.i ]
   %4752 = getelementptr inbounds i8, ptr %.113022079.us.i, i64 -4
   %4753 = load i32, ptr %4752, align 4, !tbaa !59
   %4754 = getelementptr inbounds nuw i8, ptr %.113022079.us.i, i64 4
@@ -26297,11 +26297,11 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %5265
 
 5265:                                             ; preds = %.sink.split.i201, %.loopexit1931.us.i, %.loopexit1943.us.i, %.loopexit1951.us.i, %4137
-  %.71606.us.i = phi i32 [ %.101609.us.i, %4137 ], [ %.101609.us.i, %.loopexit1951.us.i ], [ 0, %.loopexit1943.us.i ], [ %.61605.ph.us.i, %.loopexit1931.us.i ], [ %.71606.us.ph.i, %.sink.split.i201 ]
-  %.831488.us.i = phi i32 [ %.1141519.us.i, %4137 ], [ %.1321537.us.i, %.loopexit1951.us.i ], [ %.201425.us.i, %.loopexit1943.us.i ], [ %.711476.us.i, %.loopexit1931.us.i ], [ %.831488.us.ph.i, %.sink.split.i201 ]
-  %.531369.us.i = phi i32 [ %.721388.us.i, %4137 ], [ %.831399.us.i, %.loopexit1951.us.i ], [ %.131329.us.i, %.loopexit1943.us.i ], [ %.461362.us.i, %.loopexit1931.us.i ], [ %.531369.us.ph.i, %.sink.split.i201 ]
-  %.83.us.i = phi i32 [ %.114.us.i, %4137 ], [ %.132.us.i, %.loopexit1951.us.i ], [ %.20.us.i, %.loopexit1943.us.i ], [ %.71.us.i, %.loopexit1931.us.i ], [ %.83.us.ph.i, %.sink.split.i201 ]
-  %.5.us.i = phi ptr [ %.8.us.i, %4137 ], [ %4146, %.loopexit1951.us.i ], [ %3544, %.loopexit1943.us.i ], [ %5064, %.loopexit1931.us.i ], [ %.5.us.ph.i, %.sink.split.i201 ]
+  %.71606.us.i = phi i32 [ %.101609.us.i, %.loopexit1951.us.i ], [ %.101609.us.i, %4137 ], [ 0, %.loopexit1943.us.i ], [ %.61605.ph.us.i, %.loopexit1931.us.i ], [ %.71606.us.ph.i, %.sink.split.i201 ]
+  %.831488.us.i = phi i32 [ %.1321537.us.i, %.loopexit1951.us.i ], [ %.1141519.us.i, %4137 ], [ %.201425.us.i, %.loopexit1943.us.i ], [ %.711476.us.i, %.loopexit1931.us.i ], [ %.831488.us.ph.i, %.sink.split.i201 ]
+  %.531369.us.i = phi i32 [ %.831399.us.i, %.loopexit1951.us.i ], [ %.721388.us.i, %4137 ], [ %.131329.us.i, %.loopexit1943.us.i ], [ %.461362.us.i, %.loopexit1931.us.i ], [ %.531369.us.ph.i, %.sink.split.i201 ]
+  %.83.us.i = phi i32 [ %.132.us.i, %.loopexit1951.us.i ], [ %.114.us.i, %4137 ], [ %.20.us.i, %.loopexit1943.us.i ], [ %.71.us.i, %.loopexit1931.us.i ], [ %.83.us.ph.i, %.sink.split.i201 ]
+  %.5.us.i = phi ptr [ %4146, %.loopexit1951.us.i ], [ %.8.us.i, %4137 ], [ %3544, %.loopexit1943.us.i ], [ %5064, %.loopexit1931.us.i ], [ %.5.us.ph.i, %.sink.split.i201 ]
   %5266 = and i32 %.71606.us.i, -1226833921
   store i32 %5266, ptr %.113022079.us.i, align 4, !tbaa !59
   br label %.thread1922.us.i
@@ -28746,10 +28746,10 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %.not1847.us.i, label %6663, label %.thread.us.i334
 
 .thread.us.i334:                                  ; preds = %.loopexit1951.us.i356, %.loopexit1955.us.i304
-  %.216131910.us.i = phi i32 [ %6454, %.loopexit1951.us.i356 ], [ 0, %.loopexit1955.us.i304 ]
-  %.331450.us.i = phi i32 [ %.371454.us.i, %.loopexit1951.us.i356 ], [ %.201437.us.i, %.loopexit1955.us.i304 ]
-  %.211349.us.i = phi i32 [ %.241352.us.i, %.loopexit1951.us.i356 ], [ %.131341.us.i, %.loopexit1955.us.i304 ]
-  %.33.us.i335 = phi i32 [ %.37.us.i357, %.loopexit1951.us.i356 ], [ %.20.us.i305, %.loopexit1955.us.i304 ]
+  %.216131910.us.i = phi i32 [ 0, %.loopexit1955.us.i304 ], [ %6454, %.loopexit1951.us.i356 ]
+  %.331450.us.i = phi i32 [ %.201437.us.i, %.loopexit1955.us.i304 ], [ %.371454.us.i, %.loopexit1951.us.i356 ]
+  %.211349.us.i = phi i32 [ %.131341.us.i, %.loopexit1955.us.i304 ], [ %.241352.us.i, %.loopexit1951.us.i356 ]
+  %.33.us.i335 = phi i32 [ %.20.us.i305, %.loopexit1955.us.i304 ], [ %.37.us.i357, %.loopexit1951.us.i356 ]
   %6553 = getelementptr inbounds i8, ptr %.113142091.us.i, i64 -4
   %6554 = load i32, ptr %6553, align 4, !tbaa !59
   %6555 = getelementptr inbounds nuw i8, ptr %.113142091.us.i, i64 4
@@ -29707,11 +29707,11 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %7066
 
 7066:                                             ; preds = %.sink.split.i233, %.loopexit1943.us.i323, %.loopexit1955.us.i304, %.loopexit1963.us.i227, %5923
-  %.71618.us.i = phi i32 [ %.101621.us.i, %5923 ], [ %.101621.us.i, %.loopexit1963.us.i227 ], [ 0, %.loopexit1955.us.i304 ], [ %.61617.ph.us.i, %.loopexit1943.us.i323 ], [ %.71618.us.ph.i, %.sink.split.i233 ]
-  %.831500.us.i = phi i32 [ %.1141531.us.i, %5923 ], [ %.1321549.us.i, %.loopexit1963.us.i227 ], [ %.201437.us.i, %.loopexit1955.us.i304 ], [ %.711488.us.i, %.loopexit1943.us.i323 ], [ %.831500.us.ph.i, %.sink.split.i233 ]
-  %.531381.us.i = phi i32 [ %.721400.us.i, %5923 ], [ %.831411.us.i, %.loopexit1963.us.i227 ], [ %.131341.us.i, %.loopexit1955.us.i304 ], [ %.461374.us.i, %.loopexit1943.us.i323 ], [ %.531381.us.ph.i, %.sink.split.i233 ]
-  %.83.us.i212 = phi i32 [ %.114.us.i209, %5923 ], [ %.132.us.i228, %.loopexit1963.us.i227 ], [ %.20.us.i305, %.loopexit1955.us.i304 ], [ %.71.us.i324, %.loopexit1943.us.i323 ], [ %.83.us.ph.i234, %.sink.split.i233 ]
-  %.5.us.i213 = phi ptr [ %.8.us.i210, %5923 ], [ %5932, %.loopexit1963.us.i227 ], [ %5315, %.loopexit1955.us.i304 ], [ %6865, %.loopexit1943.us.i323 ], [ %.5.us.ph.i235, %.sink.split.i233 ]
+  %.71618.us.i = phi i32 [ %.101621.us.i, %.loopexit1963.us.i227 ], [ %.101621.us.i, %5923 ], [ 0, %.loopexit1955.us.i304 ], [ %.61617.ph.us.i, %.loopexit1943.us.i323 ], [ %.71618.us.ph.i, %.sink.split.i233 ]
+  %.831500.us.i = phi i32 [ %.1321549.us.i, %.loopexit1963.us.i227 ], [ %.1141531.us.i, %5923 ], [ %.201437.us.i, %.loopexit1955.us.i304 ], [ %.711488.us.i, %.loopexit1943.us.i323 ], [ %.831500.us.ph.i, %.sink.split.i233 ]
+  %.531381.us.i = phi i32 [ %.831411.us.i, %.loopexit1963.us.i227 ], [ %.721400.us.i, %5923 ], [ %.131341.us.i, %.loopexit1955.us.i304 ], [ %.461374.us.i, %.loopexit1943.us.i323 ], [ %.531381.us.ph.i, %.sink.split.i233 ]
+  %.83.us.i212 = phi i32 [ %.132.us.i228, %.loopexit1963.us.i227 ], [ %.114.us.i209, %5923 ], [ %.20.us.i305, %.loopexit1955.us.i304 ], [ %.71.us.i324, %.loopexit1943.us.i323 ], [ %.83.us.ph.i234, %.sink.split.i233 ]
+  %.5.us.i213 = phi ptr [ %5932, %.loopexit1963.us.i227 ], [ %.8.us.i210, %5923 ], [ %5315, %.loopexit1955.us.i304 ], [ %6865, %.loopexit1943.us.i323 ], [ %.5.us.ph.i235, %.sink.split.i233 ]
   %7067 = and i32 %.71618.us.i, -1226833921
   store i32 %7067, ptr %.113142091.us.i, align 4, !tbaa !59
   br label %.thread1934.us.i

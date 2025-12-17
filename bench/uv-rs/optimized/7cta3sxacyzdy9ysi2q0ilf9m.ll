@@ -2651,10 +2651,10 @@ _ZN3std4sync6poison4once4Once9call_once17h8fdad5f8d40d9cfcE.exit: ; preds = %.no
   ret i1 %14
 
 .body.thread:                                     ; preds = %57, %62
-  %eh.lpad-body35 = phi { ptr, i32 } [ %lpad.thr_comm, %62 ], [ %58, %57 ]
+  %eh.lpad-body35 = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm, %62 ]
   resume { ptr, i32 } %eh.lpad-body35
 
-62:                                               ; preds = %43, %42, %26, %24, %21
+62:                                               ; preds = %24, %21, %43, %42, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$uv_auth..credentials..Credentials$GT$17he9f2fbe7d0b5fe12E"(ptr noalias noundef align 8 dereferenceable(48) %10) #28
@@ -2801,7 +2801,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8fdad5f8d40d9cfcE.exit: ; preds = %.no
 46:                                               ; preds = %47
   resume { ptr, i32 } %lpad.thr_comm
 
-47:                                               ; preds = %16, %19, %21, %37, %38
+47:                                               ; preds = %19, %21, %37, %38, %16
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE"(ptr nonnull %1) #28

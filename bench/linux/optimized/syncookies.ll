@@ -613,7 +613,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br label %229
 
 229:                                              ; preds = %221, %.thread10
-  %230 = phi i16 [ %220, %.thread10 ], [ %spec.select, %221 ]
+  %230 = phi i16 [ %spec.select, %221 ], [ %220, %.thread10 ]
   %231 = and i16 %216, -2049
   %232 = or disjoint i16 %230, %231
   store i16 %232, ptr %200, align 8

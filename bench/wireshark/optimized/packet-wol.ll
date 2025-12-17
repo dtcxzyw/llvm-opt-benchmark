@@ -207,7 +207,7 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %57, %.loopexit.sink.split, %36, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.060, %36 ], [ %.060, %.loopexit.sink.split ], [ %.060, %57 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.060, %57 ], [ %.060, %36 ], [ %.060, %.loopexit.sink.split ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

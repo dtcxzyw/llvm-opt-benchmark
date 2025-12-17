@@ -942,8 +942,8 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %84, %80, %78, %74, %105, %.split6.us
-  %114 = phi i1 [ false, %.split6.us ], [ true, %105 ], [ false, %80 ], [ true, %74 ], [ false, %84 ], [ true, %78 ]
-  %115 = phi i32 [ %113, %.split6.us ], [ 0, %105 ], [ -512, %80 ], [ 0, %74 ], [ -512, %84 ], [ 0, %78 ]
+  %114 = phi i1 [ false, %.split6.us ], [ true, %105 ], [ true, %78 ], [ false, %80 ], [ true, %74 ], [ false, %84 ]
+  %115 = phi i32 [ %113, %.split6.us ], [ 0, %105 ], [ 0, %78 ], [ -512, %80 ], [ 0, %74 ], [ -512, %84 ]
   call void @finish_wait(ptr noundef nonnull %53, ptr noundef nonnull %4) #6
   %116 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %43) #6
   %117 = call i32 @tty_hung_up_p(ptr noundef nonnull %2) #6

@@ -475,7 +475,7 @@ _ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %_ZNSt14_Function_ba
   br label %198
 
 .body:                                            ; preds = %95, %92, %124, %127
-  %eh.lpad-body = phi { ptr, i32 } [ %93, %95 ], [ %93, %92 ], [ %125, %127 ], [ %125, %124 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %125, %124 ], [ %125, %127 ], [ %93, %92 ], [ %93, %95 ]
   %166 = load ptr, ptr %60, align 8, !tbaa !76
   %.not.i31 = icmp eq ptr %166, null
   br i1 %.not.i31, label %_ZNSt14_Function_baseD2Ev.exit32, label %167

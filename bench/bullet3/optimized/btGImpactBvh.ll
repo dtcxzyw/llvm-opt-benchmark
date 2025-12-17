@@ -1112,7 +1112,7 @@ define dso_local noundef zeroext i1 @_ZNK12btGImpactBvh8rayQueryERK9btVector3S2_
   %73 = fcmp ogt float %69, %72
   br i1 %73, label %_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread, label %_ZNK6btAABB11collide_rayERK9btVector3S2_.exit
 
-_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread: ; preds = %33, %42, %._crit_edge.i, %64, %46
+_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread: ; preds = %33, %42, %46, %64, %._crit_edge.i
   %74 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %75 = load i32, ptr %74, align 4, !tbaa !36
   %76 = icmp sgt i32 %75, -1
@@ -1881,7 +1881,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   br i1 %168, label %.critedge, label %140
 
 .critedge:                                        ; preds = %61, %93, %.loopexit, %141, %117
-  %.0 = phi i1 [ true, %117 ], [ false, %141 ], [ true, %.loopexit ], [ false, %93 ], [ false, %61 ]
+  %.0 = phi i1 [ true, %117 ], [ false, %93 ], [ false, %141 ], [ true, %.loopexit ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -3024,7 +3024,7 @@ define internal range(i32 0, 2) i32 @_event_rating_release(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %8, %12, %.thread, %35, %6, %3
-  %.021 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %35 ], [ 1, %.thread ], [ 1, %12 ], [ 1, %8 ]
+  %.021 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %35 ], [ 1, %.thread ], [ 1, %12 ], [ 1, %8 ]
   ret i32 %.021
 }
 
@@ -7062,9 +7062,9 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br i1 %exitcond261.not, label %._crit_edge227, label %.preheader189.us
 
 ._crit_edge227:                                   ; preds = %._crit_edge224.us, %._crit_edge217, %.preheader189.lr.ph.thread, %._crit_edge217.thread286
-  %164 = phi float [ %127, %._crit_edge217.thread286 ], [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %150, %._crit_edge224.us ]
-  %165 = phi float [ %126, %._crit_edge217.thread286 ], [ %135, %.preheader189.lr.ph.thread ], [ %149, %._crit_edge217 ], [ %149, %._crit_edge224.us ]
-  %.0163.lcssa = phi float [ 0.000000e+00, %._crit_edge217.thread286 ], [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ %161, %._crit_edge224.us ]
+  %164 = phi float [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %127, %._crit_edge217.thread286 ], [ %150, %._crit_edge224.us ]
+  %165 = phi float [ %135, %.preheader189.lr.ph.thread ], [ %149, %._crit_edge217 ], [ %126, %._crit_edge217.thread286 ], [ %149, %._crit_edge224.us ]
+  %.0163.lcssa = phi float [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ 0.000000e+00, %._crit_edge217.thread286 ], [ %161, %._crit_edge224.us ]
   %166 = fdiv reassoc nsz arcp contract afn float %.0163.lcssa, %165
   %167 = fmul reassoc nsz arcp contract afn float %166, 1.000000e+01
   %168 = fadd reassoc nsz arcp contract afn float %167, %164
@@ -7108,7 +7108,7 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br i1 %187, label %.loopexit.us, label %.preheader186.us
 
 .loopexit.us:                                     ; preds = %186, %184, %177, %.preheader186.us
-  %.sink292 = phi i32 [ 0, %.preheader186.us ], [ -256, %177 ], [ -16711936, %184 ], [ -16776961, %186 ]
+  %.sink292 = phi i32 [ 0, %.preheader186.us ], [ -16711936, %184 ], [ -256, %177 ], [ -16776961, %186 ]
   store i32 %.sink292, ptr %scevgep265, align 4
   %188 = add nuw i64 %.0156235.us, 1
   %exitcond266.not = icmp eq i64 %188, %5

@@ -214,7 +214,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds =
   br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
-  %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
+  %51 = phi ptr [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ], [ %50, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %61, label %52
@@ -239,7 +239,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4
   br label %61
 
 61:                                               ; preds = %55, %59, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %.sroa.3.0 = phi i64 [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %60, %59 ], [ %.sroa.0.0.insert.insert.i8, %55 ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ %60, %59 ], [ %.sroa.0.0.insert.insert.i8, %55 ]
   ret i64 %.sroa.3.0
 }
 
@@ -603,8 +603,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_
   %.not59 = icmp eq i32 %141, %140
   br i1 %.not59, label %.thread, label %46, !llvm.loop !281
 
-.thread:                                          ; preds = %.lr.ph, %.thread95, %46, %58, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84, %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %139, %90, %109, %.critedge, %4, %11, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %11 ], [ false, %4 ], [ true, %.critedge ], [ false, %109 ], [ false, %90 ], [ true, %.thread95 ], [ false, %46 ], [ false, %58 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ false, %139 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.thread95, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84, %46, %58, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %139, %90, %109, %.critedge, %4, %11, %16
+  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ false, %16 ], [ true, %.critedge ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ false, %109 ], [ false, %90 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %139 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %58 ], [ false, %46 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ], [ true, %.thread95 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1224,9 +1224,9 @@ define dso_local { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr no
   br label %11
 
 11:                                               ; preds = %8, %6
-  %.sroa.024.129 = phi i32 [ %.sroa.0.0.copyload.i, %6 ], [ %.sroa.024.041, %8 ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.042, %6 ], [ 1, %8 ]
-  %.sroa.020.1 = phi i8 [ %.sroa.020.043, %6 ], [ %spec.select, %8 ]
+  %.sroa.024.129 = phi i32 [ %.sroa.024.041, %8 ], [ %.sroa.0.0.copyload.i, %6 ]
+  %.sroa.5.1 = phi i8 [ 1, %8 ], [ %.sroa.5.042, %6 ]
+  %.sroa.020.1 = phi i8 [ %spec.select, %8 ], [ %.sroa.020.043, %6 ]
   %12 = load ptr, ptr %.044, align 8, !tbaa !293
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %2, !llvm.loop !296
@@ -1290,9 +1290,9 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader: ; preds = %4
   br label %19
 
 19:                                               ; preds = %16, %14
-  %.sroa.024.129.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %.sroa.024.041.i.i, %16 ]
-  %.sroa.5.1.i.i = phi i8 [ %.sroa.5.042.i.i, %14 ], [ 1, %16 ]
-  %.sroa.020.1.i.i = phi i8 [ %.sroa.020.043.i.i, %14 ], [ %spec.select.i.i, %16 ]
+  %.sroa.024.129.i.i = phi i32 [ %.sroa.024.041.i.i, %16 ], [ %.sroa.0.0.copyload.i.i.i, %14 ]
+  %.sroa.5.1.i.i = phi i8 [ 1, %16 ], [ %.sroa.5.042.i.i, %14 ]
+  %.sroa.020.1.i.i = phi i8 [ %spec.select.i.i, %16 ], [ %.sroa.020.043.i.i, %14 ]
   %20 = load ptr, ptr %.044.i.i, align 8, !tbaa !293
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.thread, label %4, !llvm.loop !296
@@ -1362,16 +1362,16 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
   br label %42
 
 42:                                               ; preds = %39, %37
-  %.sroa.024.129.i.i25 = phi i32 [ %.sroa.0.0.copyload.i.i.i24, %37 ], [ %.sroa.024.041.i.i23, %39 ]
-  %.sroa.5.1.i.i26 = phi i8 [ %.sroa.5.042.i.i22, %37 ], [ 1, %39 ]
-  %.sroa.020.1.i.i27 = phi i8 [ %.sroa.020.043.i.i21, %37 ], [ %spec.select.i.i37, %39 ]
+  %.sroa.024.129.i.i25 = phi i32 [ %.sroa.024.041.i.i23, %39 ], [ %.sroa.0.0.copyload.i.i.i24, %37 ]
+  %.sroa.5.1.i.i26 = phi i8 [ 1, %39 ], [ %.sroa.5.042.i.i22, %37 ]
+  %.sroa.020.1.i.i27 = phi i8 [ %spec.select.i.i37, %39 ], [ %.sroa.020.043.i.i21, %37 ]
   %43 = load ptr, ptr %.044.i.i20, align 8, !tbaa !293
   %.not.i1.i = icmp eq ptr %43, null
   br i1 %.not.i1.i, label %.thread, label %.preheader.i, !llvm.loop !296
 
 .thread:                                          ; preds = %19, %31, %42, %28, %30
-  %.sroa.6.1 = phi i64 [ 4294967296, %28 ], [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %42 ], [ 4294967296, %31 ], [ 4294967296, %19 ]
-  %.sroa.045.1 = phi ptr [ null, %28 ], [ %.sroa.038.065.lcssa, %30 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
+  %.sroa.6.1 = phi i64 [ 4294967296, %28 ], [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %31 ], [ 4294967296, %42 ], [ 4294967296, %19 ]
+  %.sroa.045.1 = phi ptr [ null, %28 ], [ %.sroa.038.065.lcssa, %30 ], [ null, %31 ], [ null, %42 ], [ null, %19 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.045.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1870,7 +1870,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
+  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
   ret i1 %.0
 }
 

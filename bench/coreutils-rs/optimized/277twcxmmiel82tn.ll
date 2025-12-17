@@ -577,7 +577,7 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   br label %77
 
 common.resume:                                    ; preds = %49, %76, %23, %32
-  %common.resume.op = phi { ptr, i32 } [ %24, %32 ], [ %24, %23 ], [ %50, %49 ], [ %.pn.ph.i.i, %76 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %32 ], [ %50, %49 ], [ %.pn.ph.i.i, %76 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %23

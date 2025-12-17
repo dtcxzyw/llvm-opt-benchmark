@@ -27,7 +27,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_connect(ptr noundef %0) local
   br label %13
 
 13:                                               ; preds = %8, %1
-  %.0169 = phi ptr [ %7, %1 ], [ %12, %8 ]
+  %.0169 = phi ptr [ %12, %8 ], [ %7, %1 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -600,8 +600,8 @@ dtls1_get_hello_verify.exit._crit_edge:           ; preds = %dtls1_get_hello_ver
   br label %.backedge
 
 .loopexit:                                        ; preds = %202, %166, %39, %33, %36, %205, %196, %192, %188, %172, %163, %155, %147, %143, %135, %131, %127, %123, %114, %100, %dtls1_get_hello_verify.exit, %45, %dtls1_get_hello_verify.exit.thread221, %229, %225, %215
-  %.0170 = phi i32 [ -1, %229 ], [ -1, %215 ], [ 1, %225 ], [ -1, %dtls1_get_hello_verify.exit.thread221 ], [ -1, %202 ], [ -1, %166 ], [ -1, %39 ], [ -1, %33 ], [ -1, %36 ], [ %206, %205 ], [ %200, %196 ], [ %193, %192 ], [ %189, %188 ], [ %173, %172 ], [ %164, %163 ], [ %156, %155 ], [ %148, %147 ], [ %144, %143 ], [ %136, %135 ], [ %132, %131 ], [ %128, %127 ], [ %124, %123 ], [ %115, %114 ], [ %101, %100 ], [ %93, %dtls1_get_hello_verify.exit ], [ %46, %45 ]
-  %.2168 = phi ptr [ null, %229 ], [ null, %215 ], [ null, %225 ], [ null, %dtls1_get_hello_verify.exit.thread221 ], [ null, %202 ], [ null, %166 ], [ null, %39 ], [ null, %33 ], [ %34, %36 ], [ null, %205 ], [ null, %196 ], [ null, %192 ], [ null, %188 ], [ null, %172 ], [ null, %163 ], [ null, %155 ], [ null, %147 ], [ null, %143 ], [ null, %135 ], [ null, %131 ], [ null, %127 ], [ null, %123 ], [ null, %114 ], [ null, %100 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %45 ]
+  %.0170 = phi i32 [ -1, %229 ], [ 1, %225 ], [ -1, %215 ], [ -1, %dtls1_get_hello_verify.exit.thread221 ], [ -1, %202 ], [ -1, %36 ], [ %206, %205 ], [ -1, %166 ], [ %200, %196 ], [ %193, %192 ], [ %189, %188 ], [ %173, %172 ], [ -1, %39 ], [ %164, %163 ], [ %156, %155 ], [ %148, %147 ], [ %144, %143 ], [ %136, %135 ], [ %132, %131 ], [ %128, %127 ], [ %124, %123 ], [ %115, %114 ], [ %101, %100 ], [ %93, %dtls1_get_hello_verify.exit ], [ %46, %45 ], [ -1, %33 ]
+  %.2168 = phi ptr [ null, %229 ], [ null, %225 ], [ null, %215 ], [ null, %dtls1_get_hello_verify.exit.thread221 ], [ null, %202 ], [ %34, %36 ], [ null, %205 ], [ null, %166 ], [ null, %196 ], [ null, %192 ], [ null, %188 ], [ null, %172 ], [ null, %39 ], [ null, %163 ], [ null, %155 ], [ null, %147 ], [ null, %143 ], [ null, %135 ], [ null, %131 ], [ null, %127 ], [ null, %123 ], [ null, %114 ], [ null, %100 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %45 ], [ null, %33 ]
   call void @BUF_MEM_free(ptr noundef %.2168) #4
   br i1 %.not213, label %239, label %238
 

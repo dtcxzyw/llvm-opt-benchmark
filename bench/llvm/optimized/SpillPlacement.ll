@@ -2021,7 +2021,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %17
   br label %38
 
 ._crit_edge:                                      ; preds = %22, %58, %55, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %76, %1, %_ZNK4llvm9BitVector8set_bitsEv.exit
-  %.0.lcssa = phi i1 [ true, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ true, %1 ], [ %.1, %76 ], [ %.1, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %.1, %55 ], [ %.1, %58 ], [ true, %22 ]
+  %.0.lcssa = phi i1 [ true, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ true, %1 ], [ %.1, %58 ], [ %.1, %76 ], [ %.1, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ %.1, %55 ], [ true, %22 ]
   store ptr null, ptr %2, align 8, !tbaa !154
   ret i1 %.0.lcssa
 
@@ -2980,7 +2980,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8E
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 128
   br i1 %.not31, label %25, label %27, !llvm.loop !236

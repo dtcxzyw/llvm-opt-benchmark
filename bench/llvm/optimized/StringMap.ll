@@ -370,7 +370,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32:       ; preds = %.split, %36, %32, %
   br label %.split, !llvm.loop !24
 
 .thread36:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split, %.split.us, %25, %4
-  %.0 = phi i32 [ -1, %4 ], [ %.022.us, %25 ], [ -1, %.split.us ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ -1, %.split ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %.split.us ], [ %.022.us, %25 ], [ %.022, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ -1, %.split ]
   ret i32 %.0
 }
 

@@ -347,7 +347,7 @@ count_paired_channels.exit.thread127.i.i:         ; preds = %._crit_edge.i.i.i
   br label %count_paired_channels.exit.thread.sink.split.i.i
 
 count_paired_channels.exit.thread.sink.split.i.i: ; preds = %._crit_edge177.loopexit.i.i, %count_paired_channels.exit.thread127.i.i, %60
-  %.3.lcssa221.sink.i.i = phi i32 [ %61, %count_paired_channels.exit.thread127.i.i ], [ %88, %._crit_edge177.loopexit.i.i ], [ %61, %60 ]
+  %.3.lcssa221.sink.i.i = phi i32 [ %61, %60 ], [ %61, %count_paired_channels.exit.thread127.i.i ], [ %88, %._crit_edge177.loopexit.i.i ]
   store i32 %.3.lcssa221.sink.i.i, ptr %6, align 4, !tbaa !17
   br label %89
 
@@ -496,7 +496,7 @@ count_paired_channels.exit.thread.sink.split.i.i: ; preds = %._crit_edge177.loop
   br i1 %exitcond74.not.i, label %sniff_channel_order.exit, label %.lr.ph56.i, !llvm.loop !43
 
 sniff_channel_order.exit:                         ; preds = %.lr.ph.i, %54, %57, %72, %.lr.ph56.i, %48, %.loopexit.i
-  %.029.i = phi i64 [ 0, %48 ], [ %117, %.loopexit.i ], [ %117, %.lr.ph56.i ], [ 0, %72 ], [ 0, %57 ], [ 0, %54 ], [ 0, %.lr.ph.i ]
+  %.029.i = phi i64 [ 0, %48 ], [ %117, %.loopexit.i ], [ 0, %72 ], [ %117, %.lr.ph56.i ], [ 0, %57 ], [ 0, %54 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -804,7 +804,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @che_configure(ptr noundef 
   br label %65
 
 65:                                               ; preds = %16, %63, %39, %47, %51, %21, %5, %36
-  %.044 = phi i32 [ -1094995529, %36 ], [ %19, %16 ], [ -1094995529, %5 ], [ 0, %21 ], [ 0, %51 ], [ 0, %47 ], [ 0, %39 ], [ 0, %63 ]
+  %.044 = phi i32 [ %19, %16 ], [ -1094995529, %36 ], [ -1094995529, %5 ], [ 0, %21 ], [ 0, %51 ], [ 0, %47 ], [ 0, %39 ], [ 0, %63 ]
   ret i32 %.044
 }
 
@@ -1015,7 +1015,7 @@ push_output_configuration.exit182:                ; preds = %53, %57
   br label %242
 
 thread-pre-split:                                 ; preds = %.thread184, %43
-  %73 = phi i32 [ %7, %43 ], [ %.pr.pre, %.thread184 ]
+  %73 = phi i32 [ %.pr.pre, %.thread184 ], [ %7, %43 ]
   switch i32 %73, label %242 [
     i32 14, label %74
     i32 13, label %._crit_edge
@@ -1345,7 +1345,7 @@ thread-pre-split.thread:                          ; preds = %.thread209, %200, %
   br label %242
 
 242:                                              ; preds = %72, %42, %thread-pre-split, %233, %236, %227, %216, %204, %190, %163, %150, %123, %114, %101, %82, %8
-  %.0 = phi ptr [ %89, %82 ], [ %108, %101 ], [ %116, %114 ], [ %125, %123 ], [ %154, %150 ], [ %165, %163 ], [ %194, %190 ], [ %206, %204 ], [ %219, %216 ], [ %229, %227 ], [ %238, %236 ], [ null, %72 ], [ null, %42 ], [ %14, %8 ], [ null, %233 ], [ null, %thread-pre-split ]
+  %.0 = phi ptr [ %14, %8 ], [ %89, %82 ], [ %108, %101 ], [ %116, %114 ], [ %125, %123 ], [ %154, %150 ], [ %165, %163 ], [ %194, %190 ], [ %206, %204 ], [ %219, %216 ], [ %229, %227 ], [ %238, %236 ], [ null, %72 ], [ null, %42 ], [ null, %233 ], [ null, %thread-pre-split ]
   ret ptr %.0
 }
 
@@ -1430,7 +1430,7 @@ define range(i32 -2147483648, 1) i32 @ff_aac_decode_init(ptr noundef %0) local_u
   br label %ff_aac_sample_rate_idx.exit
 
 ff_aac_sample_rate_idx.exit:                      ; preds = %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44
-  %.0.i = phi i32 [ 0, %24 ], [ 1, %26 ], [ 2, %28 ], [ 3, %30 ], [ 4, %32 ], [ 5, %34 ], [ 6, %36 ], [ 7, %38 ], [ 8, %40 ], [ 9, %42 ], [ %..i, %44 ]
+  %.0.i = phi i32 [ 9, %42 ], [ 0, %24 ], [ 1, %26 ], [ 2, %28 ], [ 3, %30 ], [ 4, %32 ], [ 5, %34 ], [ 6, %36 ], [ 7, %38 ], [ 8, %40 ], [ %..i, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 22476
   store i32 %.0.i, ptr %46, align 4, !tbaa !95
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -1517,7 +1517,7 @@ ff_aac_sample_rate_idx.exit:                      ; preds = %24, %26, %28, %30, 
   br label %81
 
 81:                                               ; preds = %.critedge50, %16, %1, %78, %77
-  %.0 = phi i32 [ -1094995529, %77 ], [ %80, %78 ], [ -1094995529, %1 ], [ %22, %16 ], [ -1094995529, %.critedge50 ]
+  %.0 = phi i32 [ -1094995529, %.critedge50 ], [ -1094995529, %1 ], [ -1094995529, %77 ], [ %80, %78 ], [ %22, %16 ]
   ret i32 %.0
 }
 
@@ -1659,7 +1659,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_dsp(ptr %.32.val) unn
   br label %49
 
 49:                                               ; preds = %45, %40, %35, %30, %25, %20, %15, %10, %0
-  %.0 = phi i32 [ %8, %0 ], [ %13, %10 ], [ %18, %15 ], [ %23, %20 ], [ %28, %25 ], [ %33, %30 ], [ %38, %35 ], [ %43, %40 ], [ %.67, %45 ]
+  %.0 = phi i32 [ %43, %40 ], [ %8, %0 ], [ %13, %10 ], [ %18, %15 ], [ %23, %20 ], [ %28, %25 ], [ %33, %30 ], [ %38, %35 ], [ %.67, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -1933,7 +1933,7 @@ define range(i32 -2147483648, 1) i32 @ff_aac_decode_ics(ptr noundef %0, ptr noun
   br label %12
 
 12:                                               ; preds = %5, %5, %5, %11
-  %13 = phi i1 [ true, %5 ], [ %10, %11 ], [ true, %5 ], [ true, %5 ]
+  %13 = phi i1 [ true, %5 ], [ true, %5 ], [ true, %5 ], [ %10, %11 ]
   store i32 0, ptr %6, align 4, !tbaa !117
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !105
@@ -2427,13 +2427,13 @@ get_vlc2.exit82.i:                                ; preds = %309, %288, %268
   br label %336
 
 336:                                              ; preds = %334, %261, %177, %.lr.ph.i
-  %.sink114.i = phi i64 [ %184, %177 ], [ %267, %261 ], [ %106, %334 ], [ %106, %.lr.ph.i ]
-  %.sink.i = phi i32 [ %180, %177 ], [ %.0.i73.i, %261 ], [ %335, %334 ], [ %108, %.lr.ph.i ]
-  %337 = phi i8 [ %178, %177 ], [ %262, %261 ], [ %101, %334 ], [ %101, %.lr.ph.i ]
-  %.sroa.16.2.i = phi i32 [ %173, %177 ], [ %.sroa.16.189.i, %261 ], [ %.sroa.16.189.i, %334 ], [ %.sroa.16.189.i, %.lr.ph.i ]
-  %.sroa.8.3.i = phi i32 [ %.sroa.8.190.i, %177 ], [ %.sroa.8.2.i, %261 ], [ %.sroa.8.190.i, %334 ], [ %.sroa.8.190.i, %.lr.ph.i ]
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.191.i, %177 ], [ %.sroa.0.191.i, %261 ], [ %332, %334 ], [ %.sroa.0.191.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %.15992.i, %177 ], [ %186, %261 ], [ %.15992.i, %334 ], [ %.15992.i, %.lr.ph.i ]
+  %.sink114.i = phi i64 [ %106, %334 ], [ %184, %177 ], [ %267, %261 ], [ %106, %.lr.ph.i ]
+  %.sink.i = phi i32 [ %335, %334 ], [ %180, %177 ], [ %.0.i73.i, %261 ], [ %108, %.lr.ph.i ]
+  %337 = phi i8 [ %101, %334 ], [ %178, %177 ], [ %262, %261 ], [ %101, %.lr.ph.i ]
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.189.i, %334 ], [ %173, %177 ], [ %.sroa.16.189.i, %261 ], [ %.sroa.16.189.i, %.lr.ph.i ]
+  %.sroa.8.3.i = phi i32 [ %.sroa.8.190.i, %334 ], [ %.sroa.8.190.i, %177 ], [ %.sroa.8.2.i, %261 ], [ %.sroa.8.190.i, %.lr.ph.i ]
+  %.sroa.0.3.i = phi i32 [ %332, %334 ], [ %.sroa.0.191.i, %177 ], [ %.sroa.0.191.i, %261 ], [ %.sroa.0.191.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %.15992.i, %334 ], [ %.15992.i, %177 ], [ %186, %261 ], [ %.15992.i, %.lr.ph.i ]
   %338 = getelementptr inbounds nuw i32, ptr %95, i64 %.sink114.i
   store i32 %.sink.i, ptr %338, align 4, !tbaa !17
   %339 = add nuw nsw i32 %.093.i, 1
@@ -2763,7 +2763,7 @@ decode_gain_control.exit:                         ; preds = %._crit_edge4.split.
   br label %491
 
 decode_band_types.exit.thread:                    ; preds = %.split.us.i, %.split67.us.i, %.split69.us.i, %decode_scalefactors.exit, %.thread, %477, %392, %31, %373, %364
-  %.0 = phi i32 [ -1094995529, %decode_scalefactors.exit ], [ %482, %.thread ], [ %478, %477 ], [ %393, %392 ], [ -1094995529, %364 ], [ -1094995529, %373 ], [ %32, %31 ], [ -1094995529, %.split69.us.i ], [ -1094995529, %.split67.us.i ], [ -1094995529, %.split.us.i ]
+  %.0 = phi i32 [ %32, %31 ], [ -1094995529, %decode_scalefactors.exit ], [ %482, %.thread ], [ %478, %477 ], [ %393, %392 ], [ -1094995529, %364 ], [ -1094995529, %373 ], [ -1094995529, %.split69.us.i ], [ -1094995529, %.split67.us.i ], [ -1094995529, %.split.us.i ]
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 4484
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %490, i8 0, i64 512, i1 false)
   store i32 0, ptr %7, align 4, !tbaa !130
@@ -3041,7 +3041,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @decode_ics_info(ptr nounde
   br label %164
 
 164:                                              ; preds = %145, %155
-  %165 = phi i32 [ %.sink138, %155 ], [ %152, %145 ]
+  %165 = phi i32 [ %152, %145 ], [ %.sink138, %155 ]
   br i1 %.not, label %._crit_edge139, label %166
 
 ._crit_edge139:                                   ; preds = %164
@@ -3205,7 +3205,7 @@ decode_prediction.exit:                           ; preds = %195
   br label %decode_prediction.exit.thread
 
 decode_prediction.exit.thread:                    ; preds = %213, %207, %180, %256, %243, %122
-  %258 = phi i32 [ %165, %207 ], [ %165, %180 ], [ %.pre142, %256 ], [ %165, %243 ], [ %.sink, %122 ], [ %165, %213 ]
+  %258 = phi i32 [ %.sink, %122 ], [ %165, %207 ], [ %165, %180 ], [ %.pre142, %256 ], [ %165, %243 ], [ %165, %213 ]
   %259 = load i8, ptr %1, align 8, !tbaa !120
   %260 = zext i8 %259 to i32
   %261 = icmp slt i32 %258, %260
@@ -3223,7 +3223,7 @@ decode_prediction.exit.thread:                    ; preds = %213, %207, %180, %2
   br label %266
 
 266:                                              ; preds = %decode_prediction.exit.thread, %24, %265, %49
-  %.0111 = phi i32 [ -1094995529, %49 ], [ %.0110, %265 ], [ -1094995529, %24 ], [ 0, %decode_prediction.exit.thread ]
+  %.0111 = phi i32 [ -1094995529, %24 ], [ -1094995529, %49 ], [ %.0110, %265 ], [ 0, %decode_prediction.exit.thread ]
   ret i32 %.0111
 }
 
@@ -3358,7 +3358,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_pulses(ptr noundef nonnull c
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph, %85, %55, %31, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %31 ], [ 0, %55 ], [ -1, %.lr.ph ], [ 0, %85 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %4 ], [ 0, %55 ], [ -1, %.lr.ph ], [ 0, %85 ]
   ret i32 %.0
 }
 
@@ -3734,9 +3734,9 @@ default.unreachable:                              ; preds = %171
   br i1 %.not50.i.i, label %.thread58.i.i, label %220, !llvm.loop !159
 
 .thread58.i.i:                                    ; preds = %224, %219, %207
-  %236 = phi ptr [ %.pre61.i.i, %219 ], [ %174, %207 ], [ %174, %224 ]
-  %237 = phi i32 [ %.pre60.i.i, %219 ], [ %173, %207 ], [ %173, %224 ]
-  %238 = phi i32 [ %.pre.i.i, %219 ], [ %217, %207 ], [ %235, %224 ]
+  %236 = phi ptr [ %174, %207 ], [ %.pre61.i.i, %219 ], [ %174, %224 ]
+  %237 = phi i32 [ %173, %207 ], [ %.pre60.i.i, %219 ], [ %173, %224 ]
+  %238 = phi i32 [ %217, %207 ], [ %.pre.i.i, %219 ], [ %235, %224 ]
   %239 = lshr i32 %238, 3
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw i8, ptr %236, i64 %240
@@ -3954,8 +3954,8 @@ push_output_configuration.exit:                   ; preds = %316, %320
   %.0. = select i1 %350, i32 %.0, i32 %34
   br label %.thread
 
-.thread:                                          ; preds = %220, %298, %read_payload_length_info.exit.thread34.i, %122, %latm_get_value.exit55.i.i, %118, %103, %349, %301, %26, %23, %4, %339, %328, %308
-  %.035 = phi i32 [ -1094995529, %339 ], [ %326, %328 ], [ %309, %308 ], [ -1094995529, %4 ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ %302, %301 ], [ %.0., %349 ], [ -1094995529, %298 ], [ -1094995529, %read_payload_length_info.exit.thread34.i ], [ %123, %122 ], [ %169, %latm_get_value.exit55.i.i ], [ -1163346256, %118 ], [ -1163346256, %103 ], [ -1094995529, %220 ]
+.thread:                                          ; preds = %220, %read_payload_length_info.exit.thread34.i, %298, %latm_get_value.exit55.i.i, %118, %103, %122, %349, %301, %26, %23, %4, %339, %328, %308
+  %.035 = phi i32 [ %309, %308 ], [ -1094995529, %4 ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ -1094995529, %339 ], [ %.0., %349 ], [ %302, %301 ], [ %326, %328 ], [ -1094995529, %read_payload_length_info.exit.thread34.i ], [ -1094995529, %298 ], [ %169, %latm_get_value.exit55.i.i ], [ -1163346256, %118 ], [ -1163346256, %103 ], [ %123, %122 ], [ -1094995529, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.035
 }
@@ -4261,7 +4261,7 @@ decode_audio_specific_config.exit:                ; preds = %.preheader.i
   br i1 %.not53, label %78, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %78, %73, %decode_audio_specific_config.exit.thread, %71, %52, %50, %decode_audio_specific_config.exit
-  %.0 = phi i32 [ %34, %decode_audio_specific_config.exit ], [ -1094995529, %50 ], [ -1094995529, %52 ], [ %.046, %71 ], [ -1094995529, %decode_audio_specific_config.exit.thread ], [ %14, %73 ], [ %75, %.lr.ph ], [ %14, %78 ]
+  %.0 = phi i32 [ %.046, %71 ], [ %34, %decode_audio_specific_config.exit ], [ -1094995529, %50 ], [ -1094995529, %52 ], [ -1094995529, %decode_audio_specific_config.exit.thread ], [ %14, %73 ], [ %75, %.lr.ph ], [ %14, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4363,9 +4363,9 @@ define internal fastcc range(i32 -1, 1) i32 @assign_channels(ptr noundef nonnull
   br i1 %exitcond62.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %26, %.lr.ph.split.us.i, %40, %.lr.ph.split.i
-  %.028.lcssa.i = phi i32 [ %.129.i, %40 ], [ %.02836.i, %.lr.ph.split.i ], [ %.129.us.i, %26 ], [ %.02836.us.i, %.lr.ph.split.us.i ]
-  %.026.lcssa.i = phi i32 [ %.127.i, %40 ], [ %.02637.i, %.lr.ph.split.i ], [ %.127.us.i, %26 ], [ %.02637.us.i, %.lr.ph.split.us.i ]
-  %.025.lcssa.i = phi i32 [ %.2.i, %40 ], [ %.02538.i, %.lr.ph.split.i ], [ %.2.us.i, %26 ], [ %.02538.us.i, %.lr.ph.split.us.i ]
+  %.028.lcssa.i = phi i32 [ %.02836.i, %.lr.ph.split.i ], [ %.129.i, %40 ], [ %.129.us.i, %26 ], [ %.02836.us.i, %.lr.ph.split.us.i ]
+  %.026.lcssa.i = phi i32 [ %.02637.i, %.lr.ph.split.i ], [ %.127.i, %40 ], [ %.127.us.i, %26 ], [ %.02637.us.i, %.lr.ph.split.us.i ]
+  %.025.lcssa.i = phi i32 [ %.02538.i, %.lr.ph.split.i ], [ %.2.i, %40 ], [ %.2.us.i, %26 ], [ %.02538.us.i, %.lr.ph.split.us.i ]
   %41 = icmp ne i32 %.025.lcssa.i, 0
   %or.cond3.i = and i1 %.not51.i, %41
   %42 = icmp ne i32 %.026.lcssa.i, 0
@@ -4631,12 +4631,12 @@ assign_pair.exit:                                 ; preds = %135, %.sink.split.i
   br i1 %154, label %115, label %.preheader132, !llvm.loop !171
 
 count_paired_channels.exit.thread.sink.split:     ; preds = %7, %._crit_edge169.thread, %.preheader132, %.preheader, %._crit_edge177.loopexit
-  %.3.lcssa221.sink = phi i32 [ %8, %.preheader ], [ %84, %._crit_edge177.loopexit ], [ %indvars.iv.next197, %._crit_edge169.thread ], [ %.2.lcssa, %.preheader132 ], [ %8, %7 ]
+  %.3.lcssa221.sink = phi i32 [ %.2.lcssa, %.preheader132 ], [ %8, %.preheader ], [ %84, %._crit_edge177.loopexit ], [ %indvars.iv.next197, %._crit_edge169.thread ], [ %8, %7 ]
   store i32 %.3.lcssa221.sink, ptr %6, align 4, !tbaa !17
   br label %count_paired_channels.exit.thread
 
 count_paired_channels.exit.thread:                ; preds = %23, %33, %115, %120, %68, %count_paired_channels.exit.thread.sink.split, %.lr.ph, %.lr.ph168, %._crit_edge.i
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ -1, %.lr.ph168 ], [ -1, %.lr.ph ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ -1, %68 ], [ -1, %120 ], [ -1, %115 ], [ 0, %33 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %._crit_edge.i ], [ -1, %.lr.ph168 ], [ -1, %.lr.ph ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ 0, %33 ], [ -1, %68 ], [ -1, %115 ], [ -1, %120 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -4994,7 +4994,7 @@ count_channels.exit.thread.i:                     ; preds = %count_channels.exit
   br label %decode_ga_specific_config.exit.thread
 
 ._crit_edge.i:                                    ; preds = %168, %163, %162
-  %181 = phi i32 [ %179, %168 ], [ %167, %163 ], [ %.pre72.i, %162 ]
+  %181 = phi i32 [ %167, %163 ], [ %179, %168 ], [ %.pre72.i, %162 ]
   %182 = add i32 %181, 1
   %183 = call i32 @llvm.umin.i32(i32 %.pre73.i, i32 %182)
   store i32 %183, ptr %46, align 8, !tbaa !105
@@ -5030,8 +5030,8 @@ count_channels.exit.thread.i:                     ; preds = %count_channels.exit
   call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %196) #13
   br label %decode_ga_specific_config.exit.thread
 
-decode_ga_specific_config.exit.thread:            ; preds = %199, %180, %102, %ff_aac_set_default_channel_config.exit.i, %157
-  %.0.i.ph = phi i32 [ %158, %157 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ], [ %105, %102 ], [ -1163346256, %180 ], [ -1163346256, %199 ]
+decode_ga_specific_config.exit.thread:            ; preds = %102, %ff_aac_set_default_channel_config.exit.i, %157, %199, %180
+  %.0.i.ph = phi i32 [ -1163346256, %180 ], [ -1163346256, %199 ], [ %158, %157 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ], [ %105, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %361
 
@@ -5284,8 +5284,8 @@ ff_aac_set_default_channel_config.exit.i55:       ; preds = %308, %._crit_edge.i
   call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %345) #13
   br label %decode_eld_specific_config.exit.thread
 
-decode_eld_specific_config.exit.thread:           ; preds = %228, %250, %348, %ff_aac_set_default_channel_config.exit.i55, %.thread61.i, %.thread56.i
-  %.036.i.ph = phi i32 [ -1094995529, %.thread56.i ], [ %333, %.thread61.i ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i55 ], [ -1163346256, %348 ], [ -1163346256, %250 ], [ -1163346256, %228 ]
+decode_eld_specific_config.exit.thread:           ; preds = %228, %250, %.thread56.i, %.thread61.i, %ff_aac_set_default_channel_config.exit.i55, %348
+  %.036.i.ph = phi i32 [ -1163346256, %348 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i55 ], [ %333, %.thread61.i ], [ -1094995529, %.thread56.i ], [ -1163346256, %250 ], [ -1163346256, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %361
 
@@ -5314,7 +5314,7 @@ decode_eld_specific_config.exit:                  ; preds = %334
   br label %361
 
 361:                                              ; preds = %decode_eld_specific_config.exit.thread, %decode_ga_specific_config.exit.thread, %349, %359, %354, %32, %18, %13
-  %.0 = phi i32 [ -1094995529, %13 ], [ -1094995529, %18 ], [ -1094995529, %32 ], [ -38, %354 ], [ %.val, %359 ], [ %352, %349 ], [ %.0.i.ph, %decode_ga_specific_config.exit.thread ], [ %.036.i.ph, %decode_eld_specific_config.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %13 ], [ -1094995529, %18 ], [ -1094995529, %32 ], [ -38, %354 ], [ %.036.i.ph, %decode_eld_specific_config.exit.thread ], [ %.val, %359 ], [ %.0.i.ph, %decode_ga_specific_config.exit.thread ], [ %352, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -6102,7 +6102,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %90
 
 90:                                               ; preds = %87, %85, %82
-  %.272.us = phi i32 [ %89, %87 ], [ %86, %85 ], [ %84, %82 ]
+  %.272.us = phi i32 [ %84, %82 ], [ %89, %87 ], [ %86, %85 ]
   %91 = icmp sgt i32 %.272.us, -1
   br i1 %91, label %.thread125, label %frame_configure_elements.exit
 
@@ -6162,7 +6162,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %114
 
 114:                                              ; preds = %106, %109, %111
-  %.272 = phi i32 [ %108, %106 ], [ %110, %109 ], [ %113, %111 ]
+  %.272 = phi i32 [ %113, %111 ], [ %108, %106 ], [ %110, %109 ]
   %115 = icmp sgt i32 %.272, -1
   br i1 %115, label %.thread130, label %frame_configure_elements.exit
 
@@ -6206,7 +6206,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   br label %frame_configure_elements.exit
 
 frame_configure_elements.exit:                    ; preds = %114, %90, %.thread, %34, %120, %119, %92
-  %.0 = phi i32 [ -1094995529, %92 ], [ -1094995529, %119 ], [ 0, %120 ], [ %37, %34 ], [ -1094995529, %.thread ], [ %.272.us, %90 ], [ %.272, %114 ]
+  %.0 = phi i32 [ 0, %120 ], [ -1094995529, %92 ], [ -1094995529, %119 ], [ %37, %34 ], [ -1094995529, %.thread ], [ %.272.us, %90 ], [ %.272, %114 ]
   ret i32 %.0
 }
 
@@ -6435,8 +6435,8 @@ ff_aac_set_default_channel_config.exit.i:         ; preds = %53
   store i32 %131, ptr %16, align 8, !tbaa !105
   br label %parse_adts_frame_header.exit.thread4
 
-parse_adts_frame_header.exit.thread:              ; preds = %ff_aac_set_default_channel_config.exit.i, %81, %92
-  %.0.i.ph = phi i32 [ -7, %92 ], [ %82, %81 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ]
+parse_adts_frame_header.exit.thread:              ; preds = %81, %ff_aac_set_default_channel_config.exit.i, %92
+  %.0.i.ph = phi i32 [ -7, %92 ], [ -1094995529, %ff_aac_set_default_channel_config.exit.i ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %133
@@ -7511,7 +7511,7 @@ decode_fill.exit.i.i:                             ; preds = %697, %694, %660
   br label %decode_extension_payload.exit.i
 
 decode_extension_payload.exit.i:                  ; preds = %708, %decode_fill.exit.i.i, %decode_dynamic_range.exit.i.i, %480, %478, %473, %446, %433, %422, %414
-  %.0.i196.i = phi i32 [ %.1144.i, %422 ], [ %.1144.i, %446 ], [ %.1144.i, %433 ], [ %.1144.i, %414 ], [ %.1144.i, %708 ], [ %.1144.i, %478 ], [ %.1144.i, %480 ], [ %.1144.i, %473 ], [ %659, %decode_dynamic_range.exit.i.i ], [ %.1144.i, %decode_fill.exit.i.i ]
+  %.0.i196.i = phi i32 [ %.1144.i, %414 ], [ %.1144.i, %422 ], [ %.1144.i, %446 ], [ %.1144.i, %433 ], [ %.1144.i, %708 ], [ %.1144.i, %478 ], [ %.1144.i, %480 ], [ %.1144.i, %473 ], [ %659, %decode_dynamic_range.exit.i.i ], [ %.1144.i, %decode_fill.exit.i.i ]
   %717 = icmp slt i32 %.0.i196.i, 0
   %718 = sub nsw i32 %.1144.i, %.0.i196.i
   br i1 %717, label %decode_frame_ga.exit.thread, label %390
@@ -7669,13 +7669,13 @@ skip_data_stream_element.exit._crit_edge.i:       ; preds = %390, %skip_data_str
 default.unreachable:                              ; preds = %276
   unreachable
 
-decode_frame_ga.exit.thread:                      ; preds = %253, %265, %decode_extension_payload.exit.i, %722, %389, %271, %752, %.critedge.critedge.i, %336
-  %.1.i.ph = phi i32 [ -1094995529, %336 ], [ -1094995529, %.critedge.critedge.i ], [ -1094995529, %752 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %722 ], [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %265 ], [ -1094995529, %253 ]
+decode_frame_ga.exit.thread:                      ; preds = %265, %253, %decode_extension_payload.exit.i, %722, %.critedge.critedge.i, %389, %271, %336, %752
+  %.1.i.ph = phi i32 [ -1094995529, %752 ], [ -1094995529, %336 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %.critedge.critedge.i ], [ -1094995529, %722 ], [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %253 ], [ -1094995529, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %frame_configure_elements.exit
 
-decode_frame_ga.exit.thread9:                     ; preds = %723, %763, %774, %776, %779, %768
+decode_frame_ga.exit.thread9:                     ; preds = %779, %768, %723, %763, %774, %776
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %pop_output_configuration.exit
@@ -7687,7 +7687,7 @@ decode_frame_ga.exit:                             ; preds = %skip_data_stream_el
   br i1 %782, label %frame_configure_elements.exit, label %pop_output_configuration.exit
 
 frame_configure_elements.exit:                    ; preds = %decode_frame_ga.exit.thread, %159, %decode_frame_ga.exit, %194, %137, %133
-  %.032 = phi i32 [ %.0.i2, %133 ], [ -1094995529, %137 ], [ %195, %194 ], [ %.1138.i, %decode_frame_ga.exit ], [ %162, %159 ], [ %.1.i.ph, %decode_frame_ga.exit.thread ]
+  %.032 = phi i32 [ %.0.i2, %133 ], [ -1094995529, %137 ], [ %.1138.i, %decode_frame_ga.exit ], [ %195, %194 ], [ %162, %159 ], [ %.1.i.ph, %decode_frame_ga.exit.thread ]
   %783 = getelementptr inbounds nuw i8, ptr %14, i64 10080
   %784 = getelementptr inbounds nuw i8, ptr %14, i64 22472
   %785 = getelementptr inbounds nuw i8, ptr %14, i64 23320
@@ -7716,7 +7716,7 @@ frame_configure_elements.exit:                    ; preds = %decode_frame_ga.exi
   br label %pop_output_configuration.exit
 
 pop_output_configuration.exit:                    ; preds = %790, %787, %frame_configure_elements.exit, %decode_frame_ga.exit.thread9, %194, %decode_frame_ga.exit, %193
-  %.0 = phi i32 [ -1163346256, %193 ], [ %195, %194 ], [ %.1138.i, %decode_frame_ga.exit ], [ 0, %decode_frame_ga.exit.thread9 ], [ %.032, %frame_configure_elements.exit ], [ %.032, %787 ], [ %.032, %790 ]
+  %.0 = phi i32 [ 0, %decode_frame_ga.exit.thread9 ], [ -1163346256, %193 ], [ %195, %194 ], [ %.1138.i, %decode_frame_ga.exit ], [ %.032, %frame_configure_elements.exit ], [ %.032, %787 ], [ %.032, %790 ]
   ret i32 %.0
 }
 
@@ -7948,7 +7948,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @latm_decode_audio_specific
   br label %97
 
 97:                                               ; preds = %57, %30, %29, %26, %89
-  %.054 = phi i32 [ 0, %89 ], [ -1094995529, %26 ], [ -1094995529, %29 ], [ -1094995529, %30 ], [ -12, %57 ]
+  %.054 = phi i32 [ -1094995529, %26 ], [ -1094995529, %29 ], [ 0, %89 ], [ -1094995529, %30 ], [ -12, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.054
@@ -8242,7 +8242,7 @@ decode_mid_side_stereo.exit:                      ; preds = %133, %149, %.prehea
   br label %174
 
 174:                                              ; preds = %156, %decode_mid_side_stereo.exit, %.thread, %171, %121
-  %.0 = phi i32 [ -1094995529, %121 ], [ 0, %171 ], [ -1094995529, %.thread ], [ %155, %decode_mid_side_stereo.exit ], [ %158, %156 ]
+  %.0 = phi i32 [ 0, %171 ], [ -1094995529, %121 ], [ -1094995529, %.thread ], [ %155, %decode_mid_side_stereo.exit ], [ %158, %156 ]
   ret i32 %.0
 }
 
@@ -8266,7 +8266,7 @@ define internal fastcc void @spectral_to_sample(ptr noundef %0, i32 noundef rang
   br label %9
 
 9:                                                ; preds = %6, %2, %5
-  %.sink = phi i64 [ 120, %5 ], [ 112, %2 ], [ %., %6 ]
+  %.sink = phi i64 [ %., %6 ], [ 112, %2 ], [ 120, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.088 = load ptr, ptr %10, align 8, !tbaa !88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 672

@@ -49,7 +49,7 @@ define hidden range(i32 0, 2) i32 @CBS_asn1_ber_to_der(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %15, %3, %17, %9
-  %.0 = phi i32 [ 0, %17 ], [ 1, %9 ], [ 0, %3 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %17 ], [ 1, %9 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -322,15 +322,15 @@ is_eoc.exit.thread:                               ; preds = %15, %18, %is_eoc.ex
   %.not48 = icmp eq i32 %65, 0
   br i1 %.not48, label %.thread, label %66
 
-.thread:                                          ; preds = %33, %13, %25, %48, %52, %58, %60, %64, %50, %22
-  %.233.ph = phi i32 [ %23, %22 ], [ 0, %50 ], [ 0, %64 ], [ 0, %60 ], [ 0, %58 ], [ 0, %52 ], [ 0, %48 ], [ 0, %25 ], [ 0, %13 ], [ 0, %33 ]
+.thread:                                          ; preds = %13, %25, %60, %52, %58, %48, %33, %50, %64, %22
+  %.233.ph = phi i32 [ %23, %22 ], [ 0, %64 ], [ 0, %50 ], [ 0, %33 ], [ 0, %48 ], [ 0, %58 ], [ 0, %52 ], [ 0, %60 ], [ 0, %25 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
 
-66:                                               ; preds = %50, %64
+66:                                               ; preds = %64, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -345,7 +345,7 @@ is_eoc.exit.thread:                               ; preds = %15, %18, %is_eoc.ex
   br label %70
 
 70:                                               ; preds = %.thread, %5, %._crit_edge
-  %.031 = phi i32 [ %69, %._crit_edge ], [ 0, %5 ], [ %.233.ph, %.thread ]
+  %.031 = phi i32 [ %69, %._crit_edge ], [ %.233.ph, %.thread ], [ 0, %5 ]
   ret i32 %.031
 }
 
@@ -429,7 +429,7 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
   br label %34
 
 34:                                               ; preds = %33, %29
-  %.1 = phi i32 [ 0, %33 ], [ 1, %29 ]
+  %.1 = phi i32 [ 1, %29 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35

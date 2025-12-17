@@ -80,7 +80,7 @@ define void @ossl_sa_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %30, %23, %19, %15, %13
-  %.132.us.i = phi i32 [ %31, %30 ], [ %24, %23 ], [ %.03141.us.i, %15 ], [ %.03141.us.i, %13 ], [ %.03141.us.i, %19 ]
+  %.132.us.i = phi i32 [ %31, %30 ], [ %24, %23 ], [ %.03141.us.i, %13 ], [ %.03141.us.i, %15 ], [ %.03141.us.i, %19 ]
   %33 = icmp sgt i32 %.132.us.i, -1
   br i1 %33, label %.split.us.split.i, label %sa_doall.exit, !llvm.loop !13
 
@@ -163,7 +163,7 @@ define void @ossl_sa_free_leaves(ptr noundef %0) local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %31, %26, %18, %16, %14
-  %.132.i = phi i32 [ %15, %14 ], [ %27, %26 ], [ %.03141.i, %31 ], [ %.03141.i, %18 ], [ %.03141.i, %16 ]
+  %.132.i = phi i32 [ %15, %14 ], [ %27, %26 ], [ %.03141.i, %31 ], [ %.03141.i, %16 ], [ %.03141.i, %18 ]
   %33 = icmp sgt i32 %.132.i, -1
   br i1 %33, label %.split.split.i, label %sa_doall.exit, !llvm.loop !13
 
@@ -242,8 +242,8 @@ define void @ossl_sa_doall(ptr noundef readonly captures(address_is_null) %0, pt
   br label %36
 
 36:                                               ; preds = %33, %27, %26, %16, %14
-  %.132.us50.i = phi i32 [ %34, %33 ], [ %28, %27 ], [ %.03141.us46.i, %26 ], [ %.03141.us46.i, %16 ], [ %.03141.us46.i, %14 ]
-  %.1.us51.i = phi i64 [ %35, %33 ], [ %32, %27 ], [ %22, %26 ], [ %.042.us45.i, %16 ], [ %.042.us45.i, %14 ]
+  %.132.us50.i = phi i32 [ %34, %33 ], [ %28, %27 ], [ %.03141.us46.i, %26 ], [ %.03141.us46.i, %14 ], [ %.03141.us46.i, %16 ]
+  %.1.us51.i = phi i64 [ %35, %33 ], [ %32, %27 ], [ %22, %26 ], [ %.042.us45.i, %14 ], [ %.042.us45.i, %16 ]
   %37 = icmp sgt i32 %.132.us50.i, -1
   br i1 %37, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !13
 
@@ -316,7 +316,7 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   br label %32
 
 32:                                               ; preds = %30, %25, %21, %17, %15
-  %.132.us.us.i = phi i32 [ %31, %30 ], [ %26, %25 ], [ %.03141.us.us.i, %17 ], [ %.03141.us.us.i, %15 ], [ %.03141.us.us.i, %21 ]
+  %.132.us.us.i = phi i32 [ %31, %30 ], [ %26, %25 ], [ %.03141.us.us.i, %15 ], [ %.03141.us.us.i, %17 ], [ %.03141.us.us.i, %21 ]
   %33 = icmp sgt i32 %.132.us.us.i, -1
   br i1 %33, label %.split.us.split.us.i, label %sa_doall.exit, !llvm.loop !13
 
@@ -372,8 +372,8 @@ define void @ossl_sa_doall_arg(ptr noundef readonly captures(address_is_null) %0
   br label %62
 
 62:                                               ; preds = %59, %53, %52, %42, %40
-  %.132.us50.i = phi i32 [ %60, %59 ], [ %54, %53 ], [ %.03141.us46.i, %52 ], [ %.03141.us46.i, %42 ], [ %.03141.us46.i, %40 ]
-  %.1.us51.i = phi i64 [ %61, %59 ], [ %58, %53 ], [ %48, %52 ], [ %.042.us45.i, %42 ], [ %.042.us45.i, %40 ]
+  %.132.us50.i = phi i32 [ %60, %59 ], [ %54, %53 ], [ %.03141.us46.i, %52 ], [ %.03141.us46.i, %40 ], [ %.03141.us46.i, %42 ]
+  %.1.us51.i = phi i64 [ %61, %59 ], [ %58, %53 ], [ %48, %52 ], [ %.042.us45.i, %40 ], [ %.042.us45.i, %42 ]
   %63 = icmp sgt i32 %.132.us50.i, -1
   br i1 %63, label %.split.split.us.i, label %sa_doall.exit, !llvm.loop !13
 
@@ -457,7 +457,7 @@ define ptr @ossl_sa_get(ptr noundef readonly captures(address_is_null) %0, i64 n
   br label %30
 
 30:                                               ; preds = %8, %._crit_edge, %26, %2, %4
-  %.018 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %8 ], [ %29, %26 ], [ null, %._crit_edge ]
+  %.018 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %8 ], [ %29, %26 ], [ null, %._crit_edge ]
   ret ptr %.018
 }
 

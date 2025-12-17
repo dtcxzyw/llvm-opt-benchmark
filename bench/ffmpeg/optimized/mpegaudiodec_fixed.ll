@@ -267,7 +267,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %4, %64, %.critedge, %68, %47, %29, %26, %21
-  %.0 = phi i32 [ %22, %21 ], [ -1094995529, %26 ], [ -1094995529, %29 ], [ -1094995529, %47 ], [ %69, %68 ], [ -1094995529, %.critedge ], [ %54, %64 ], [ -1094995529, %4 ], [ -1094995529, %12 ]
+  %.0 = phi i32 [ -1094995529, %.critedge ], [ %22, %21 ], [ -1094995529, %26 ], [ -1094995529, %29 ], [ -1094995529, %47 ], [ %69, %68 ], [ %54, %64 ], [ -1094995529, %4 ], [ -1094995529, %12 ]
   ret i32 %.0
 }
 
@@ -654,7 +654,7 @@ define internal range(i32 4, 0) i32 @decode_frame_mp3on4(ptr noundef %0, ptr nou
   br label %108
 
 108:                                              ; preds = %15, %4, %98, %97, %61, %47, %38
-  %.077 = phi i32 [ -1094995529, %38 ], [ -1094995529, %47 ], [ -1094995529, %61 ], [ -1094995529, %97 ], [ %9, %98 ], [ %13, %4 ], [ -1094995529, %15 ]
+  %.077 = phi i32 [ %9, %98 ], [ %13, %4 ], [ -1094995529, %38 ], [ -1094995529, %47 ], [ -1094995529, %61 ], [ -1094995529, %97 ], [ -1094995529, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.077
 }
@@ -5133,7 +5133,7 @@ compute_antialias.exit.i:                         ; preds = %2245, %2241
   br label %mp_decode_layer3.exit
 
 mp_decode_layer3.exit:                            ; preds = %.loopexit437.i, %909, %965, %2427
-  %.0.i133 = phi i32 [ -1094995529, %909 ], [ -1094995529, %965 ], [ %2428, %2427 ], [ %.0326.i, %.loopexit437.i ]
+  %.0.i133 = phi i32 [ %2428, %2427 ], [ -1094995529, %909 ], [ -1094995529, %965 ], [ %.0326.i, %.loopexit437.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %2429 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 0, ptr %2429, align 16, !tbaa !60
@@ -5368,7 +5368,7 @@ align_get_bits.exit148:                           ; preds = %2455, %2458
   br label %2546
 
 2546:                                             ; preds = %2496, %2489, %._crit_edge195
-  %.095 = phi i32 [ %2545, %._crit_edge195 ], [ %.097, %2489 ], [ %2502, %2496 ]
+  %.095 = phi i32 [ %.097, %2489 ], [ %2545, %._crit_edge195 ], [ %2502, %2496 ]
   ret i32 %.095
 }
 
@@ -5438,7 +5438,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @handle_crc(ptr noundef rea
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %10
-  %.1.ph = phi i32 [ 0, %10 ], [ %spec.select, %35 ]
+  %.1.ph = phi i32 [ %spec.select, %35 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 

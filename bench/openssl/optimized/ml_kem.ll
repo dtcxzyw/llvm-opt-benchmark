@@ -127,7 +127,7 @@ switch.lookup:                                    ; preds = %3
   br label %ossl_ml_kem_get_vinfo.exit
 
 ossl_ml_kem_get_vinfo.exit:                       ; preds = %3, %22, %switch.lookup, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %switch.lookup ], [ null, %3 ], [ %6, %22 ]
+  %.0 = phi ptr [ null, %23 ], [ %6, %22 ], [ null, %switch.lookup ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -348,7 +348,7 @@ default.unreachable58:                            ; preds = %25
   unreachable
 
 67:                                               ; preds = %add_storage.exit46, %64, %add_storage.exit
-  %.036 = phi i32 [ %.0.i, %add_storage.exit ], [ %.0.i45, %64 ], [ %.0.i45, %add_storage.exit46 ]
+  %.036 = phi i32 [ %.0.i45, %add_storage.exit46 ], [ %.0.i, %add_storage.exit ], [ %.0.i45, %64 ]
   %.not44 = icmp eq i32 %.036, 0
   br i1 %.not44, label %.thread48, label %.thread51
 
@@ -372,7 +372,7 @@ default.unreachable58:                            ; preds = %25
   br label %80
 
 80:                                               ; preds = %12, %2, %9, %.thread51, %.thread48
-  %.0 = phi ptr [ %13, %.thread51 ], [ null, %.thread48 ], [ null, %9 ], [ null, %2 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %.thread48 ], [ null, %2 ], [ %13, %.thread51 ], [ null, %9 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -783,7 +783,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_parse_public_key(ptr noundef %0, i64 nou
   br label %37
 
 37:                                               ; preds = %11, %15, %3, %5, %8, %36
-  %.015 = phi i32 [ %.026, %36 ], [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ 0, %15 ], [ 0, %11 ]
+  %.015 = phi i32 [ %.026, %36 ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %15 ], [ 0, %11 ]
   ret i32 %.015
 }
 
@@ -872,7 +872,7 @@ scalar_decode_12.exit.i:                          ; preds = %31
   br label %vector_decode_12.exit
 
 vector_decode_12.exit:                            ; preds = %11, %.loopexit, %49
-  %.0 = phi i32 [ 0, %.loopexit ], [ %50, %49 ], [ 0, %11 ]
+  %.0 = phi i32 [ %50, %49 ], [ 0, %.loopexit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -954,7 +954,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_parse_private_key(ptr noundef %0, i64 no
   br label %43
 
 43:                                               ; preds = %11, %15, %3, %5, %8, %42
-  %.015 = phi i32 [ %.026, %42 ], [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ 0, %15 ], [ 0, %11 ]
+  %.015 = phi i32 [ %.026, %42 ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %15 ], [ 0, %11 ]
   ret i32 %.015
 }
 
@@ -1119,7 +1119,7 @@ parse_pubkey.exit:                                ; preds = %.loopexit.i
   br label %vector_decode_12.exit
 
 vector_decode_12.exit:                            ; preds = %14, %47, %.loopexit.i, %86, %parse_pubkey.exit, %90
-  %.0 = phi i32 [ 1, %90 ], [ 0, %parse_pubkey.exit ], [ 0, %86 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %parse_pubkey.exit ], [ 1, %90 ], [ 0, %86 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1231,7 +1231,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_genkey(ptr noundef %0, i64 noundef %1, p
   br label %60
 
 60:                                               ; preds = %39, %31, %24, %14, %3, %6, %9, %59
-  %.021 = phi i32 [ 0, %59 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %14 ], [ 0, %24 ], [ 0, %31 ], [ 1, %39 ]
+  %.021 = phi i32 [ 1, %39 ], [ 0, %3 ], [ 0, %24 ], [ 0, %31 ], [ 0, %59 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021
 }
@@ -1860,7 +1860,7 @@ encode_pubkey.exit:                               ; preds = %scalar_encode.exit.
   br label %355
 
 355:                                              ; preds = %hash_h_pubkey.exit.thread, %gencbd_vector_ntt.exit76.thread, %gencbd_vector_ntt.exit.thread, %353, %354, %encode_pubkey.exit, %hash_h_pubkey.exit, %23, %4
-  %.0 = phi i32 [ 0, %hash_h_pubkey.exit ], [ 0, %encode_pubkey.exit ], [ 0, %23 ], [ 0, %4 ], [ 1, %354 ], [ 1, %353 ], [ 0, %gencbd_vector_ntt.exit.thread ], [ 0, %gencbd_vector_ntt.exit76.thread ], [ 0, %hash_h_pubkey.exit.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %hash_h_pubkey.exit ], [ 0, %encode_pubkey.exit ], [ 0, %gencbd_vector_ntt.exit76.thread ], [ 0, %gencbd_vector_ntt.exit.thread ], [ 0, %23 ], [ 1, %354 ], [ 1, %353 ], [ 0, %hash_h_pubkey.exit.thread ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 32) #13
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 32) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1942,7 +1942,7 @@ define range(i32 0, 2) i32 @ossl_ml_kem_encap_seed(ptr noundef writeonly capture
   br label %39
 
 39:                                               ; preds = %15, %18, %26, %7, %12, %38
-  %.035 = phi i32 [ %.0, %38 ], [ 0, %12 ], [ 0, %7 ], [ 0, %26 ], [ 0, %18 ], [ 0, %15 ]
+  %.035 = phi i32 [ %.0, %38 ], [ 0, %7 ], [ 0, %12 ], [ 0, %26 ], [ 0, %18 ], [ 0, %15 ]
   ret i32 %.035
 }
 
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 0, 2) i32 @encap(ptr noundef nonnull writeonly 
   br label %.thread
 
 .thread:                                          ; preds = %6, %17, %14
-  %18 = phi i32 [ 1, %17 ], [ 0, %14 ], [ 0, %6 ]
+  %18 = phi i32 [ 0, %14 ], [ 1, %17 ], [ 0, %6 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2851,7 +2851,7 @@ define internal fastcc range(i32 0, 2) i32 @matrix_expand(ptr noundef nonnull %0
   br i1 %50, label %.preheader.i.us, label %51, !llvm.loop !73
 
 51:                                               ; preds = %49, %40
-  %.4.idx.i.us = phi i64 [ %.2.idx.i.us, %40 ], [ %.3.idx.i.us, %49 ]
+  %.4.idx.i.us = phi i64 [ %.3.idx.i.us, %49 ], [ %.2.idx.i.us, %40 ]
   %52 = icmp samesign ult i64 %.4.idx.i.us, 512
   br i1 %52, label %24, label %.loopexit.us, !llvm.loop !74
 
@@ -2872,7 +2872,7 @@ sample_scalar.exit:                               ; preds = %24
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %._crit_edge.us, %21, %17, %2, %sample_scalar.exit
-  %.017 = phi i32 [ 0, %sample_scalar.exit ], [ 1, %2 ], [ 0, %17 ], [ 0, %21 ], [ 1, %._crit_edge.us ]
+  %.017 = phi i32 [ 0, %sample_scalar.exit ], [ 1, %2 ], [ 0, %21 ], [ 0, %17 ], [ 1, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
@@ -4134,7 +4134,7 @@ scalar_compress.exit:                             ; preds = %536
   br i1 %577, label %557, label %scalar_encode.exit, !llvm.loop !38
 
 scalar_encode.exit:                               ; preds = %576, %cbd_2.exit.thread, %gencbd_vector.exit.thread, %gencbd_vector_ntt.exit.thread
-  %.0 = phi i32 [ 0, %gencbd_vector_ntt.exit.thread ], [ 0, %gencbd_vector.exit.thread ], [ 0, %cbd_2.exit.thread ], [ 1, %576 ]
+  %.0 = phi i32 [ 0, %cbd_2.exit.thread ], [ 0, %gencbd_vector.exit.thread ], [ 0, %gencbd_vector_ntt.exit.thread ], [ 1, %576 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

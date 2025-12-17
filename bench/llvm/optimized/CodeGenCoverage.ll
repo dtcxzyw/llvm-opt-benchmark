@@ -395,7 +395,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !36
 
 .critedge:                                        ; preds = %.split.us, %.preheader, %34, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us49, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us51, %4
-  %.not38 = phi i1 [ true, %4 ], [ %.not33.us46, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us51 ], [ false, %23 ], [ %.not102.not, %.preheader.us ], [ %.not102.not, %.split.us49 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not99.not, %.preheader ], [ %.not99.not, %.split.us ]
+  %.not38 = phi i1 [ true, %4 ], [ false, %34 ], [ %.not33.us46, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us51 ], [ %.not102.not, %.split.us49 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %23 ], [ %.not102.not, %.preheader.us ], [ %.not99.not, %.preheader ], [ %.not99.not, %.split.us ]
   ret i1 %.not38
 }
 

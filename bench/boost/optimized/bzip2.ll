@@ -408,7 +408,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_base3endEb(ptr noundef nonnull al
   br label %_ZN5boost9iostreams6detail10bzip2_base3endEbSt9nothrow_t.exit
 
 _ZN5boost9iostreams6detail10bzip2_base3endEbSt9nothrow_t.exit: ; preds = %11, %13
-  %.0.i = phi i32 [ %12, %11 ], [ %14, %13 ]
+  %.0.i = phi i32 [ %14, %13 ], [ %12, %11 ]
   switch i32 %.0.i, label %19 [
     i32 0, label %_ZN5boost9iostreams11bzip2_error5checkEi.exit
     i32 1, label %_ZN5boost9iostreams11bzip2_error5checkEi.exit

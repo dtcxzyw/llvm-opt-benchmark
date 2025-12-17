@@ -165,8 +165,8 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.then.i.i, %if.then4.i
-  %tag.0 = phi i32 [ %add.i, %if.then4.i ], [ %add.i.i, %if.then.i.i ]
-  %retval.0.i.idx = phi i64 [ %ptr.0.add51, %if.then4.i ], [ %arrayidx.i.i.add, %if.then.i.i ]
+  %tag.0 = phi i32 [ %add.i.i, %if.then.i.i ], [ %add.i, %if.then4.i ]
+  %retval.0.i.idx = phi i64 [ %arrayidx.i.i.add, %if.then.i.i ], [ %ptr.0.add51, %if.then4.i ]
   %cmp11 = icmp sgt i64 %retval.0.i.idx, 16
   br i1 %cmp11, label %return, label %if.end
 
@@ -215,7 +215,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end14
-  %retval.0.i.add47 = add nsw i64 %retval.0.i.idx84, 8
+  %retval.0.i.add46 = add nsw i64 %retval.0.i.idx84, 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end14
@@ -289,17 +289,17 @@ sw.bb31:                                          ; preds = %if.end14
   br i1 %cmp32, label %return, label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end14
-  %retval.0.i.add46 = add nsw i64 %retval.0.i.idx84, 4
+  %retval.0.i.add47 = add nsw i64 %retval.0.i.idx84, 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i.i.i, %if.then.i10, %sw.bb31, %sw.bb35, %sw.bb30, %if.end27, %sw.bb19
-  %ptr.1.idx = phi i64 [ %retval.0.i.add47, %sw.bb19 ], [ %storemerge.i.ph.add, %if.end27 ], [ %retval.0.i.idx84, %sw.bb30 ], [ %retval.0.i.idx84, %sw.bb31 ], [ %retval.0.i.add46, %sw.bb35 ], [ %arrayidx.i.i.i.add, %if.then.i.i.i ], [ %retval.0.i.add, %if.then.i10 ]
-  %depth.addr.1 = phi i32 [ %depth.addr.063, %sw.bb19 ], [ %depth.addr.063, %if.end27 ], [ %inc, %sw.bb30 ], [ %dec, %sw.bb31 ], [ %depth.addr.063, %sw.bb35 ], [ %depth.addr.063, %if.then.i.i.i ], [ %depth.addr.063, %if.then.i10 ]
+  %ptr.1.idx = phi i64 [ %retval.0.i.add47, %sw.bb35 ], [ %retval.0.i.add46, %sw.bb19 ], [ %storemerge.i.ph.add, %if.end27 ], [ %retval.0.i.idx84, %sw.bb30 ], [ %retval.0.i.idx84, %sw.bb31 ], [ %arrayidx.i.i.i.add, %if.then.i.i.i ], [ %retval.0.i.add, %if.then.i10 ]
+  %depth.addr.1 = phi i32 [ %depth.addr.063, %sw.bb35 ], [ %depth.addr.063, %sw.bb19 ], [ %depth.addr.063, %if.end27 ], [ %inc, %sw.bb30 ], [ %dec, %sw.bb31 ], [ %depth.addr.063, %if.then.i.i.i ], [ %depth.addr.063, %if.then.i10 ]
   %cmp = icmp slt i64 %ptr.1.idx, 16
   br i1 %cmp, label %while.body8, label %return, !llvm.loop !8
 
 return:                                           ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %if.end, %lor.lhs.false24, %sw.bb31, %if.end14, %sw.epilog, %for.end.i.i, %if.end12.i.i, %for.cond.i.i, %for.cond.i.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.i.i.i ], [ false, %for.cond.i.i ], [ false, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ true, %if.end ], [ false, %lor.lhs.false24 ], [ true, %sw.bb31 ], [ false, %if.end14 ], [ false, %sw.epilog ], [ false, %for.end.i.i ], [ false, %if.end12.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %for.cond.i.i ], [ false, %for.cond.i.i.i ], [ false, %for.end.i.i ], [ false, %sw.epilog ], [ false, %if.end14 ], [ true, %if.end ], [ false, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ false, %lor.lhs.false24 ], [ true, %sw.bb31 ], [ false, %if.end12.i.i ]
   ret i1 %retval.0
 }
 
@@ -470,7 +470,7 @@ if.end77:                                         ; preds = %if.then72, %if.end6
   br label %return
 
 return:                                           ; preds = %if.then45, %if.then61, %if.then27, %if.then38, %if.then4, %if.then12, %entry, %if.end77
-  %retval.0 = phi ptr [ %patch_buffer_, %if.end77 ], [ null, %entry ], [ %0, %if.then12 ], [ %0, %if.then4 ], [ %patch_buffer_, %if.then38 ], [ %patch_buffer_, %if.then27 ], [ %patch_buffer_, %if.then61 ], [ %patch_buffer_, %if.then45 ]
+  %retval.0 = phi ptr [ %patch_buffer_, %if.end77 ], [ null, %entry ], [ %0, %if.then4 ], [ %patch_buffer_, %if.then27 ], [ %0, %if.then12 ], [ %patch_buffer_, %if.then38 ], [ %patch_buffer_, %if.then61 ], [ %patch_buffer_, %if.then45 ]
   ret ptr %retval.0
 }
 
@@ -528,8 +528,8 @@ do.end:                                           ; preds = %if.end24
   br label %return
 
 return:                                           ; preds = %if.then11, %entry, %do.end, %while.end21
-  %retval.sroa.0.0 = phi ptr [ %1, %while.end21 ], [ %add.ptr, %do.end ], [ null, %entry ], [ null, %if.then11 ]
-  %retval.sroa.5.0 = phi i8 [ 1, %while.end21 ], [ 0, %do.end ], [ 1, %entry ], [ 1, %if.then11 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr, %do.end ], [ %1, %while.end21 ], [ null, %entry ], [ null, %if.then11 ]
+  %retval.sroa.5.0 = phi i8 [ 0, %do.end ], [ 1, %while.end21 ], [ 1, %entry ], [ 1, %if.then11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1068,8 +1068,8 @@ if.end24.i:                                       ; preds = %if.end67
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit
 
 _ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit: ; preds = %if.then2.i, %if.then8.i, %if.else.i, %if.end24.i
-  %34 = phi ptr [ %.pre61, %if.else.i ], [ %patch_buffer_, %if.end24.i ], [ %add.ptr6.i, %if.then8.i ], [ %add.ptr6.i, %if.then2.i ]
-  %retval.0.i48 = phi ptr [ %add.ptr23.i, %if.else.i ], [ %patch_buffer_, %if.end24.i ], [ %31, %if.then8.i ], [ %31, %if.then2.i ]
+  %34 = phi ptr [ %patch_buffer_, %if.end24.i ], [ %.pre61, %if.else.i ], [ %add.ptr6.i, %if.then8.i ], [ %add.ptr6.i, %if.then2.i ]
+  %retval.0.i48 = phi ptr [ %patch_buffer_, %if.end24.i ], [ %add.ptr23.i, %if.else.i ], [ %31, %if.then8.i ], [ %31, %if.then2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
   %sub.ptr.lhs.cast71 = ptrtoint ptr %34 to i64
@@ -1085,7 +1085,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInpu
   br label %return
 
 return:                                           ; preds = %if.end.i, %do.body.i, %do.end.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, %if.end61, %if.end58, %if.end6, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit, %if.then51, %if.then3
-  %retval.0 = phi ptr [ %add.ptr, %if.then3 ], [ %retval.0.i48, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit ], [ null, %if.then51 ], [ null, %if.end6 ], [ null, %if.end58 ], [ null, %if.end61 ], [ %add.ptr18.i, %do.end.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i ], [ null, %do.body.i ], [ null, %if.end.i ]
+  %retval.0 = phi ptr [ %add.ptr, %if.then3 ], [ null, %if.end61 ], [ null, %if.then51 ], [ null, %if.end6 ], [ %retval.0.i48, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE.exit ], [ null, %if.end58 ], [ %add.ptr18.i, %do.end.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i ], [ null, %do.body.i ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -1171,7 +1171,7 @@ if.end24:                                         ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.then2, %if.then8, %if.end24, %if.else
-  %retval.0 = phi ptr [ %add.ptr23, %if.else ], [ %patch_buffer_27, %if.end24 ], [ %3, %if.then8 ], [ %3, %if.then2 ]
+  %retval.0 = phi ptr [ %patch_buffer_27, %if.end24 ], [ %add.ptr23, %if.else ], [ %3, %if.then8 ], [ %3, %if.then2 ]
   ret ptr %retval.0
 }
 
@@ -1365,7 +1365,7 @@ if.end.i:                                         ; preds = %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.end.i, %if.end12.i.i.i, %for.end.i.i.i, %lor.lhs.false.i.i
-  %retval.0 = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %for.end.i.i.i ], [ null, %if.end12.i.i.i ], [ %call3, %if.end.i ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %if.end12.i.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.end.i.i.i ], [ %call3, %if.end.i ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -1630,8 +1630,8 @@ if.end12:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end12, %for.end, %if.then
-  %retval.sroa.0.0 = phi ptr [ %add.ptr3, %if.then ], [ null, %for.end ], [ %spec.select, %if.end12 ]
-  %retval.sroa.5.0 = phi i32 [ %add, %if.then ], [ 0, %for.end ], [ %spec.select16, %if.end12 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr3, %if.then ], [ %spec.select, %if.end12 ], [ null, %for.end ]
+  %retval.sroa.5.0 = phi i32 [ %add, %if.then ], [ %spec.select16, %if.end12 ], [ 0, %for.end ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.5.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1742,7 +1742,7 @@ if.end.i:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end12.i.i, %if.end.i, %if.then.i3, %for.end.i.i
-  %retval.0 = phi ptr [ null, %for.end.i.i ], [ %add.ptr4.i, %if.then.i3 ], [ %call5.i, %if.end.i ], [ null, %if.end12.i.i ]
+  %retval.0 = phi ptr [ %call5.i, %if.end.i ], [ null, %for.end.i.i ], [ %add.ptr4.i, %if.then.i3 ], [ null, %if.end12.i.i ]
   ret ptr %retval.0
 }
 
@@ -1856,8 +1856,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIjEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -1916,8 +1916,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIiEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -1976,8 +1976,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedImEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -2036,8 +2036,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIlEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -2096,8 +2096,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIfEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -2156,8 +2156,8 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i
   br label %_ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %for.end.i.i.i, %if.end12.i.i.i
-  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ null, %for.end.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ]
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ 0, %for.end.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ]
+  %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %spec.select.i.i.i, %if.end12.i.i.i ], [ null, %for.end.i.i.i ]
+  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %spec.select16.i.i.i, %if.end12.i.i.i ], [ 0, %for.end.i.i.i ]
   %call1.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIdEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %storemerge.i.i, i32 noundef %retval.0.i.i, ptr noundef %object)
   ret ptr %call1.i
 }
@@ -2317,7 +2317,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7.not, label %return, label %while.cond, !llvm.loop !24
 
 return:                                           ; preds = %if.end8.i.i, %if.end5, %for.cond.i.i, %if.then3.i.i, %if.then11.i.i.i, %while.end21.i.i.i, %if.then4
-  %retval.0 = phi ptr [ %retval.0.i.ph, %if.then4 ], [ null, %if.then11.i.i.i ], [ %5, %while.end21.i.i.i ], [ %spec.select, %if.then3.i.i ], [ null, %for.cond.i.i ], [ null, %if.end5 ], [ null, %if.end8.i.i ]
+  %retval.0 = phi ptr [ %retval.0.i.ph, %if.then4 ], [ %spec.select, %if.then3.i.i ], [ null, %if.then11.i.i.i ], [ %5, %while.end21.i.i.i ], [ null, %for.cond.i.i ], [ null, %if.end5 ], [ null, %if.end8.i.i ]
   ret ptr %retval.0
 }
 
@@ -2527,11 +2527,11 @@ _ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit: 
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i, %if.end2, %sw.bb11, %sw.bb6, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit
-  %ptr.addr.0 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit ], [ %call7, %sw.bb6 ], [ %call12, %sw.bb11 ], [ %add.ptr23, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit ], [ %retval.0.i.ph, %if.end2 ], [ %retval.0.i.ph, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i ]
+  %ptr.addr.0 = phi ptr [ %add.ptr23, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed32Ejj.exit ], [ %add.ptr, %_ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit ], [ %call7, %sw.bb6 ], [ %call12, %sw.bb11 ], [ %retval.0.i.ph, %if.end2 ], [ %retval.0.i.ph, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit9.i ]
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i, %if.end, %sw.bb11, %sw.bb6, %entry, %sw.epilog
-  %retval.0 = phi ptr [ %ptr.addr.0, %sw.epilog ], [ null, %entry ], [ null, %sw.bb6 ], [ null, %sw.bb11 ], [ null, %if.end ], [ null, %for.cond.i.i.i ]
+  %retval.0 = phi ptr [ null, %sw.bb11 ], [ %ptr.addr.0, %sw.epilog ], [ null, %entry ], [ null, %if.end ], [ null, %sw.bb6 ], [ null, %for.cond.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -2909,7 +2909,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -3446,7 +3446,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit113 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -3952,7 +3952,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -4457,7 +4457,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit63 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit110 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -4977,7 +4977,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i41, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit69 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit121 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i41 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -5350,7 +5350,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit67 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit118 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -5717,7 +5717,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br label %return
 
 return:                                           ; preds = %if.end46, %for.cond.i.i.i.i, %for.cond.i.i.i.i40, %if.end12.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %for.end.i.i, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114, %if.end39
-  %retval.0 = phi ptr [ %add.ptr45, %if.end39 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ null, %for.end.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %for.cond.i.i.i.i ], [ null, %if.end46 ]
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %add.ptr45, %if.end39 ], [ null, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65 ], [ %cond, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit114 ], [ null, %for.end.i.i ], [ null, %if.end12.i.i ], [ null, %for.cond.i.i.i.i ], [ null, %for.cond.i.i.i.i40 ], [ null, %if.end46 ]
   ret ptr %retval.0
 }
 
@@ -6035,7 +6035,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6248,7 +6248,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6450,7 +6450,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6652,7 +6652,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -6854,7 +6854,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -7201,7 +7201,7 @@ cleanup.done:                                     ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, %cleanup.done, %entry, %if.then33
-  %retval.0 = phi ptr [ %cond, %if.then33 ], [ null, %entry ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ null, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit ]
+  %retval.0 = phi ptr [ null, %entry ], [ %cond, %if.then33 ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread ], [ %spec.select, %cleanup.done ], [ null, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit ]
   ret ptr %retval.0
 }
 
@@ -7563,7 +7563,7 @@ if.end.i29:                                       ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i, %do.body.i.i.i, %if.end12.i.i, %if.end.i29, %if.then.i27, %do.end.i.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i, %if.then.i7, %for.end.i.i
-  %retval.0 = phi ptr [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ %add.ptr3.i, %if.then.i27 ], [ %call4.i, %if.end.i29 ], [ null, %if.end12.i.i ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
+  %retval.0 = phi ptr [ %call4.i, %if.end.i29 ], [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ %add.ptr3.i, %if.then.i27 ], [ null, %if.end12.i.i ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -7652,7 +7652,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %if.end7, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19
-  %retval.0 = phi ptr [ %call.i9, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19 ], [ %call.i9, %if.end7 ], [ null, %if.end ], [ null, %if.end.i ]
+  %retval.0 = phi ptr [ null, %if.end.i ], [ %call.i9, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19 ], [ %call.i9, %if.end7 ], [ null, %if.end ]
   ret ptr %retval.0
 }
 

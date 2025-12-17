@@ -267,9 +267,9 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   br label %20
 
 20:                                               ; preds = %19, %16, %13, %10, %7, %3
-  %.032 = phi ptr [ @.str.54, %3 ], [ @.str.117, %7 ], [ @.str.125, %10 ], [ @.str.117, %13 ], [ @.str.142, %16 ], [ @.str.150, %19 ]
-  %.031 = phi ptr [ @.str.1, %3 ], [ @.str.3, %7 ], [ @.str.5, %10 ], [ @.str.7, %13 ], [ @.str.9, %16 ], [ @.str.11, %19 ]
-  %.030 = phi ptr [ @prteoptions, %3 ], [ @prterunoptions, %7 ], [ @prtedoptions, %10 ], [ @prunoptions, %13 ], [ @ptermoptions, %16 ], [ @pinfooptions, %19 ]
+  %.032 = phi ptr [ @.str.150, %19 ], [ @.str.54, %3 ], [ @.str.117, %7 ], [ @.str.125, %10 ], [ @.str.117, %13 ], [ @.str.142, %16 ]
+  %.031 = phi ptr [ @.str.11, %19 ], [ @.str.1, %3 ], [ @.str.3, %7 ], [ @.str.5, %10 ], [ @.str.7, %13 ], [ @.str.9, %16 ]
+  %.030 = phi ptr [ @pinfooptions, %19 ], [ @prteoptions, %3 ], [ @prterunoptions, %7 ], [ @prtedoptions, %10 ], [ @prunoptions, %13 ], [ @ptermoptions, %16 ]
   store ptr @.str.12, ptr @pmix_tool_msg, align 8, !tbaa !3
   store ptr @.str.13, ptr @pmix_tool_org, align 8, !tbaa !3
   %21 = tail call ptr @prte_util_make_version_string(ptr noundef nonnull @.str.14, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef null) #14
@@ -352,7 +352,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   br i1 %.not39, label %.loopexit44, label %.lr.ph53, !llvm.loop !22
 
 .loopexit44:                                      ; preds = %.loopexit, %27, %25, %20, %23
-  %.033 = phi i32 [ %24, %23 ], [ -72, %20 ], [ %26, %25 ], [ 0, %27 ], [ 0, %.loopexit ]
+  %.033 = phi i32 [ %26, %25 ], [ %24, %23 ], [ -72, %20 ], [ 0, %27 ], [ 0, %.loopexit ]
   ret i32 %.033
 }
 
@@ -594,8 +594,8 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %.lr.ph.i.tail.threa
   br i1 %.not62, label %.sink.split, label %.lr.ph114, !llvm.loop !35
 
 .sink.split:                                      ; preds = %.lr.ph114, %.preheader, %.split, %.lr.ph92.split.us
-  %.lcssa.sink = phi ptr [ %79, %.lr.ph92.split.us ], [ %68, %.split ], [ %85, %.preheader ], [ %92, %.lr.ph114 ]
-  %.0.ph = phi i32 [ -5, %.lr.ph92.split.us ], [ -5, %.split ], [ 0, %.preheader ], [ 0, %.lr.ph114 ]
+  %.lcssa.sink = phi ptr [ %68, %.split ], [ %79, %.lr.ph92.split.us ], [ %85, %.preheader ], [ %92, %.lr.ph114 ]
+  %.0.ph = phi i32 [ -5, %.split ], [ -5, %.lr.ph92.split.us ], [ 0, %.preheader ], [ 0, %.lr.ph114 ]
   call void @PMIx_Argv_free(ptr noundef %.lcssa.sink) #14
   %95 = load ptr, ptr %5, align 8, !tbaa !23
   call void @PMIx_Argv_free(ptr noundef %95) #14
@@ -657,7 +657,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
   br label %25
 
 25:                                               ; preds = %15, %20, %23
-  %.0 = phi i32 [ %24, %23 ], [ %., %20 ], [ %spec.select, %15 ]
+  %.0 = phi i32 [ %spec.select, %15 ], [ %24, %23 ], [ %., %20 ]
   ret i32 %.0
 }
 
@@ -3455,7 +3455,7 @@ pmix_obj_run_destructors.exit761:                 ; preds = %.lr.ph.i758, %1212
   br label %1385
 
 1385:                                             ; preds = %pmix_obj_update.exit575, %1225, %1223, %pmix_obj_update.exit574, %1190, %1188, %pmix_obj_update.exit573, %1153, %1151, %pmix_obj_update.exit572, %1118, %1116, %pmix_obj_update.exit571, %1083, %1081, %pmix_obj_update.exit570, %1048, %1046, %pmix_obj_update.exit569, %1013, %1011, %pmix_obj_update.exit568, %967, %965, %pmix_obj_update.exit567, %932, %930, %pmix_obj_update.exit566, %897, %895, %pmix_obj_update.exit565, %856, %854, %pmix_obj_update.exit564, %815, %813, %pmix_obj_update.exit563, %780, %778, %pmix_obj_update.exit562, %745, %743, %pmix_obj_update.exit561, %705, %703, %pmix_obj_update.exit560, %662, %660, %pmix_obj_update.exit559, %616, %614, %pmix_obj_update.exit558, %575, %573, %pmix_obj_update.exit557, %540, %538, %pmix_obj_update.exit556, %500, %498, %pmix_obj_update.exit555, %459, %457, %pmix_obj_update.exit554, %415, %413, %pmix_obj_update.exit553, %380, %378, %pmix_obj_update.exit552, %345, %343, %pmix_obj_update.exit551, %310, %308, %pmix_obj_update.exit550, %275, %273, %pmix_obj_update.exit549, %240, %238, %pmix_obj_update.exit547, %156, %154, %pmix_obj_update.exit546, %121, %119, %pmix_obj_update.exit545, %86, %84, %pmix_obj_update.exit, %52, %50, %195, %1262, %1294, %1257, %1349, %1380, %1352, %1319, %1344
-  %.1 = phi i32 [ %161, %195 ], [ %.0500809, %1257 ], [ %.0500809, %1294 ], [ %.0500809, %1262 ], [ %.0500809, %1344 ], [ %.0500809, %1319 ], [ %.0500809, %1380 ], [ %.0500809, %1352 ], [ %.0500809, %1349 ], [ %22, %50 ], [ %22, %52 ], [ %22, %pmix_obj_update.exit ], [ %56, %84 ], [ %56, %86 ], [ %56, %pmix_obj_update.exit545 ], [ %91, %119 ], [ %91, %121 ], [ %91, %pmix_obj_update.exit546 ], [ %126, %154 ], [ %126, %156 ], [ %126, %pmix_obj_update.exit547 ], [ %209, %238 ], [ %209, %240 ], [ %209, %pmix_obj_update.exit549 ], [ %245, %273 ], [ %245, %275 ], [ %245, %pmix_obj_update.exit550 ], [ %280, %308 ], [ %280, %310 ], [ %280, %pmix_obj_update.exit551 ], [ %315, %343 ], [ %315, %345 ], [ %315, %pmix_obj_update.exit552 ], [ %350, %378 ], [ %350, %380 ], [ %350, %pmix_obj_update.exit553 ], [ %385, %413 ], [ %385, %415 ], [ %385, %pmix_obj_update.exit554 ], [ %428, %457 ], [ %428, %459 ], [ %428, %pmix_obj_update.exit555 ], [ %469, %498 ], [ %469, %500 ], [ %469, %pmix_obj_update.exit556 ], [ %509, %538 ], [ %509, %540 ], [ %509, %pmix_obj_update.exit557 ], [ %545, %573 ], [ %545, %575 ], [ %545, %pmix_obj_update.exit558 ], [ %585, %614 ], [ %585, %616 ], [ %585, %pmix_obj_update.exit559 ], [ %631, %660 ], [ %631, %662 ], [ %631, %pmix_obj_update.exit560 ], [ %675, %703 ], [ %675, %705 ], [ %675, %pmix_obj_update.exit561 ], [ %714, %743 ], [ %714, %745 ], [ %714, %pmix_obj_update.exit562 ], [ %750, %778 ], [ %750, %780 ], [ %750, %pmix_obj_update.exit563 ], [ %785, %813 ], [ %785, %815 ], [ %785, %pmix_obj_update.exit564 ], [ %825, %854 ], [ %825, %856 ], [ %825, %pmix_obj_update.exit565 ], [ %866, %895 ], [ %866, %897 ], [ %866, %pmix_obj_update.exit566 ], [ %902, %930 ], [ %902, %932 ], [ %902, %pmix_obj_update.exit567 ], [ %937, %965 ], [ %937, %967 ], [ %937, %pmix_obj_update.exit568 ], [ %982, %1011 ], [ %982, %1013 ], [ %982, %pmix_obj_update.exit569 ], [ %1018, %1046 ], [ %1018, %1048 ], [ %1018, %pmix_obj_update.exit570 ], [ %1053, %1081 ], [ %1053, %1083 ], [ %1053, %pmix_obj_update.exit571 ], [ %1088, %1116 ], [ %1088, %1118 ], [ %1088, %pmix_obj_update.exit572 ], [ %1123, %1151 ], [ %1123, %1153 ], [ %1123, %pmix_obj_update.exit573 ], [ %.0500809, %1188 ], [ %.0500809, %1190 ], [ %.0500809, %pmix_obj_update.exit574 ], [ %1195, %1223 ], [ %1195, %1225 ], [ %1195, %pmix_obj_update.exit575 ]
+  %.1 = phi i32 [ %.0500809, %1349 ], [ %22, %pmix_obj_update.exit ], [ %56, %pmix_obj_update.exit545 ], [ %91, %pmix_obj_update.exit546 ], [ %161, %195 ], [ %126, %pmix_obj_update.exit547 ], [ %209, %pmix_obj_update.exit549 ], [ %245, %pmix_obj_update.exit550 ], [ %280, %pmix_obj_update.exit551 ], [ %315, %pmix_obj_update.exit552 ], [ %350, %pmix_obj_update.exit553 ], [ %385, %pmix_obj_update.exit554 ], [ %428, %pmix_obj_update.exit555 ], [ %469, %pmix_obj_update.exit556 ], [ %509, %pmix_obj_update.exit557 ], [ %545, %pmix_obj_update.exit558 ], [ %585, %pmix_obj_update.exit559 ], [ %631, %pmix_obj_update.exit560 ], [ %675, %pmix_obj_update.exit561 ], [ %714, %pmix_obj_update.exit562 ], [ %750, %pmix_obj_update.exit563 ], [ %785, %pmix_obj_update.exit564 ], [ %825, %pmix_obj_update.exit565 ], [ %866, %pmix_obj_update.exit566 ], [ %902, %pmix_obj_update.exit567 ], [ %937, %pmix_obj_update.exit568 ], [ %982, %pmix_obj_update.exit569 ], [ %1018, %pmix_obj_update.exit570 ], [ %1053, %pmix_obj_update.exit571 ], [ %1088, %pmix_obj_update.exit572 ], [ %1123, %pmix_obj_update.exit573 ], [ %.0500809, %pmix_obj_update.exit574 ], [ %.0500809, %1257 ], [ %.0500809, %1294 ], [ %.0500809, %1262 ], [ %.0500809, %1344 ], [ %.0500809, %1319 ], [ %.0500809, %1380 ], [ %.0500809, %1352 ], [ %22, %50 ], [ %22, %52 ], [ %56, %84 ], [ %56, %86 ], [ %91, %119 ], [ %91, %121 ], [ %126, %154 ], [ %126, %156 ], [ %209, %238 ], [ %209, %240 ], [ %245, %273 ], [ %245, %275 ], [ %280, %308 ], [ %280, %310 ], [ %315, %343 ], [ %315, %345 ], [ %350, %378 ], [ %350, %380 ], [ %385, %413 ], [ %385, %415 ], [ %428, %457 ], [ %428, %459 ], [ %469, %498 ], [ %469, %500 ], [ %509, %538 ], [ %509, %540 ], [ %545, %573 ], [ %545, %575 ], [ %585, %614 ], [ %585, %616 ], [ %631, %660 ], [ %631, %662 ], [ %675, %703 ], [ %675, %705 ], [ %714, %743 ], [ %714, %745 ], [ %750, %778 ], [ %750, %780 ], [ %785, %813 ], [ %785, %815 ], [ %825, %854 ], [ %825, %856 ], [ %866, %895 ], [ %866, %897 ], [ %902, %930 ], [ %902, %932 ], [ %937, %965 ], [ %937, %967 ], [ %982, %1011 ], [ %982, %1013 ], [ %1018, %1046 ], [ %1018, %1048 ], [ %1053, %1081 ], [ %1053, %1083 ], [ %1088, %1116 ], [ %1088, %1118 ], [ %1123, %1151 ], [ %1123, %1153 ], [ %.0500809, %1188 ], [ %.0500809, %1190 ], [ %1195, %1223 ], [ %1195, %1225 ], [ %1195, %pmix_obj_update.exit575 ]
   %.not = icmp eq ptr %.0502811, %8
   br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !55
 

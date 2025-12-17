@@ -195,7 +195,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !25
 
 opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %._crit_edge, %35, %30, %7
-  %.0 = phi ptr [ null, %30 ], [ null, %35 ], [ null, %7 ], [ %6, %._crit_edge ], [ %6, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %30 ], [ null, %7 ], [ null, %35 ], [ %6, %._crit_edge ], [ %6, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -615,7 +615,7 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !33
 
 .loopexit:                                        ; preds = %27, %18, %23, %26
-  %.231 = phi i32 [ %.236, %23 ], [ %.236, %26 ], [ %.1, %18 ], [ %3, %27 ]
+  %.231 = phi i32 [ %.236, %26 ], [ %.236, %23 ], [ %.1, %18 ], [ %3, %27 ]
   store i32 %.231, ptr %14, align 4, !tbaa !23
   %29 = icmp eq ptr %.126, %5
   br i1 %29, label %33, label %30

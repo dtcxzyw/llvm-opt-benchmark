@@ -143,7 +143,7 @@ define hidden void @_ZN8fs_extra4file23move_file_with_progress17hf3d7a87ea747a66
   br i1 %65, label %300, label %66
 
 66:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit", %5
-  %.0 = phi i1 [ true, %5 ], [ %or.cond, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ]
+  %.0 = phi i1 [ %or.cond, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ], [ true, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.20)
   %.sroa.077.0.copyload = load ptr, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -643,7 +643,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit122.i: ; preds = %106
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h28911ebd0a43a703E.exit134.i" unwind label %187, !noalias !36
 
 .body.thread.i:                                   ; preds = %265, %.body.i, %.loopexit173.i, %223
-  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.body.i ], [ %224, %223 ], [ %lpad.loopexit.i, %.loopexit173.i ], [ %266, %265 ]
+  %.pn.i = phi { ptr, i32 } [ %224, %223 ], [ %lpad.loopexit.split-lp.i, %.body.i ], [ %lpad.loopexit.i, %.loopexit173.i ], [ %266, %265 ]
   %221 = load i32, ptr %38, align 4, !alias.scope !177, !noalias !36, !noundef !4
   %222 = invoke noundef i32 @close(i32 noundef %221)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h28911ebd0a43a703E.exit135.i" unwind label %104, !noalias !36
@@ -842,7 +842,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread171.i: ; preds = %"_Z
   br label %271
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.i: ; preds = %241, %238, %234
-  %.0.i.i = phi i8 [ %spec.select.i.i.i.i, %234 ], [ %240, %238 ], [ %243, %241 ]
+  %.0.i.i = phi i8 [ %243, %241 ], [ %spec.select.i.i.i.i, %234 ], [ %240, %238 ]
   %275 = icmp eq i8 %.0.i.i, 35
   br i1 %275, label %279, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.i
 
@@ -952,12 +952,12 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.i: ; preds = %_ZN3st
   br label %_ZN8fs_extra4file18copy_with_progress17h1f015f7afaf815d5E.exit
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h28911ebd0a43a703E.exit.i": ; preds = %177, %170, %123, %93
-  %.pn101.i = phi { ptr, i32 } [ %171, %170 ], [ %124, %123 ], [ %94, %93 ], [ %.pn99.i, %177 ]
+  %.pn101.i = phi { ptr, i32 } [ %94, %93 ], [ %124, %123 ], [ %171, %170 ], [ %.pn99.i, %177 ]
   resume { ptr, i32 } %.pn101.i
 
 _ZN8fs_extra4file18copy_with_progress17h1f015f7afaf815d5E.exit: ; preds = %92, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i", %122, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit124.i", %172, %298
-  %.sroa.16.4 = phi i64 [ %.sroa.16.0.copyload66, %92 ], [ %.sroa.16.0.copyload64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.16.3, %298 ], [ %.sroa.16.0.copyload50, %172 ], [ %.sroa.16.0.copyload48, %122 ], [ %.sroa.16.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit124.i" ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.0.copyload46, %92 ], [ %.sroa.0.0.copyload45, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.0.3, %298 ], [ %.sroa.0.0.copyload38, %172 ], [ %.sroa.0.0.copyload37, %122 ], [ %.sroa.0.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit124.i" ]
+  %.sroa.16.4 = phi i64 [ %.sroa.16.0.copyload66, %92 ], [ %.sroa.16.0.copyload64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.16.3, %298 ], [ %.sroa.16.0.copyload48, %122 ], [ %.sroa.16.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit124.i" ], [ %.sroa.16.0.copyload50, %172 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.0.copyload46, %92 ], [ %.sroa.0.0.copyload45, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.0.3, %298 ], [ %.sroa.0.0.copyload37, %122 ], [ %.sroa.0.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit124.i" ], [ %.sroa.0.0.copyload38, %172 ]
   %299 = icmp eq i64 %.sroa.0.4, -9223372036854775808
   br i1 %299, label %_ZN8fs_extra4file18copy_with_progress17h1f015f7afaf815d5E.exit.thread, label %315
 
@@ -1137,8 +1137,8 @@ define hidden void @_ZN8fs_extra4file9move_file17h663d04e3bd6ddc77E(ptr noalias 
   br label %46
 
 46:                                               ; preds = %._crit_edge, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit"
-  %.val33 = phi i8 [ %.val33.pre, %._crit_edge ], [ %163, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ]
-  %.0 = phi i1 [ true, %._crit_edge ], [ %or.cond, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ]
+  %.val33 = phi i8 [ %163, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ], [ %.val33.pre, %._crit_edge ]
+  %.0 = phi i1 [ %or.cond, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h5b197386e1a630afE.exit" ], [ true, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1497,12 +1497,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit50.i: ; preds = %86
   br label %_ZN8fs_extra4file4copy17hfc71dd7286e28c7cE.exit
 
 148:                                              ; preds = %143, %101, %73
-  %.pn.i = phi { ptr, i32 } [ %144, %143 ], [ %102, %101 ], [ %74, %73 ]
+  %.pn.i = phi { ptr, i32 } [ %74, %73 ], [ %144, %143 ], [ %102, %101 ]
   resume { ptr, i32 } %.pn.i
 
 _ZN8fs_extra4file4copy17hfc71dd7286e28c7cE.exit:  ; preds = %72, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i", %100, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit52.i", %145, %146
-  %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload51, %72 ], [ %.sroa.11.0.copyload49, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.11.0.copyload47, %146 ], [ %.sroa.11.0.copyload45, %145 ], [ %.sroa.11.0.copyload43, %100 ], [ %.sroa.11.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit52.i" ]
-  %.sroa.0.060 = phi i64 [ %.sroa.0.0.copyload41, %72 ], [ %.sroa.0.0.copyload40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.0.0.copyload39, %146 ], [ %.sroa.0.0.copyload38, %145 ], [ %.sroa.0.0.copyload37, %100 ], [ %.sroa.0.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit52.i" ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload51, %72 ], [ %.sroa.11.0.copyload49, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.11.0.copyload47, %146 ], [ %.sroa.11.0.copyload43, %100 ], [ %.sroa.11.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit52.i" ], [ %.sroa.11.0.copyload45, %145 ]
+  %.sroa.0.060 = phi i64 [ %.sroa.0.0.copyload41, %72 ], [ %.sroa.0.0.copyload40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit.i" ], [ %.sroa.0.0.copyload39, %146 ], [ %.sroa.0.0.copyload37, %100 ], [ %.sroa.0.0.copyload, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h433ec0e01d04fcdcE.exit52.i" ], [ %.sroa.0.0.copyload38, %145 ]
   %149 = icmp eq i64 %.sroa.0.060, -9223372036854775808
   br i1 %149, label %_ZN8fs_extra4file4copy17hfc71dd7286e28c7cE.exit.thread, label %165
 

@@ -74,8 +74,8 @@ node_set_get_capacity.exit.i:                     ; preds = %16
   %exitcond.not.i = icmp eq i64 %33, %21
   br i1 %exitcond.not.i, label %node_set_find.exit.thread, label %23, !llvm.loop !36
 
-node_set_find.exit.thread:                        ; preds = %32, %23, %28, %16, %12, %8
-  %34 = phi ptr [ null, %8 ], [ null, %12 ], [ null, %16 ], [ null, %32 ], [ null, %23 ], [ %.val.i, %28 ]
+node_set_find.exit.thread:                        ; preds = %32, %23, %28, %16, %8, %12
+  %34 = phi ptr [ null, %16 ], [ null, %12 ], [ null, %8 ], [ null, %32 ], [ null, %23 ], [ %.val.i, %28 ]
   ret ptr %34
 }
 
@@ -136,7 +136,7 @@ node_set_get_capacity.exit:                       ; preds = %14
   br i1 %exitcond.not, label %.thread, label %21, !llvm.loop !36
 
 .thread:                                          ; preds = %26, %21, %30, %14, %10, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %10 ], [ null, %14 ], [ %25, %26 ], [ null, %21 ], [ null, %30 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %6 ], [ null, %14 ], [ null, %21 ], [ null, %30 ], [ %25, %26 ]
   ret ptr %.0
 }
 
@@ -356,8 +356,8 @@ agfindnode_by_id.exit22:                          ; preds = %63
   %69 = tail call ptr @agsubnode(ptr noundef %0, ptr noundef nonnull %.val.i.i20, i32 noundef 1)
   br label %agfindnode_by_id.exit.thread
 
-agfindnode_by_id.exit.thread:                     ; preds = %29, %58, %67, %51, %47, %43, %35, %agfindnode_by_id.exit22, %agfindnode_by_id.exit
-  %.0 = phi ptr [ %.val.i.i20, %agfindnode_by_id.exit22 ], [ null, %agfindnode_by_id.exit ], [ null, %35 ], [ null, %43 ], [ null, %47 ], [ null, %51 ], [ null, %67 ], [ null, %58 ], [ %.val.i.i, %29 ]
+agfindnode_by_id.exit.thread:                     ; preds = %29, %58, %67, %43, %47, %51, %35, %agfindnode_by_id.exit22, %agfindnode_by_id.exit
+  %.0 = phi ptr [ %.val.i.i20, %agfindnode_by_id.exit22 ], [ null, %agfindnode_by_id.exit ], [ null, %35 ], [ null, %51 ], [ null, %47 ], [ null, %43 ], [ null, %58 ], [ null, %67 ], [ %.val.i.i, %29 ]
   ret ptr %.0
 }
 
@@ -545,7 +545,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %22
   %exitcond.not.i.i = icmp eq i64 %39, %27
   br i1 %exitcond.not.i.i, label %.loopexit, label %29, !llvm.loop !36
 
-.loopexit:                                        ; preds = %38, %29, %14, %18, %22
+.loopexit:                                        ; preds = %38, %29, %22, %18, %14
   %.not28 = icmp eq i32 %2, 0
   %.not29 = icmp eq ptr %0, %5
   %or.cond = select i1 %.not28, i1 true, i1 %.not29
@@ -616,7 +616,7 @@ agfindnode_by_id.exit39.thread:                   ; preds = %61, %70, %.loopexit
   %.not31 = icmp eq i32 %2, 0
   br i1 %.not31, label %agfindnode_by_id.exit, label %agfindnode_by_id.exit39.thread.thread
 
-agfindnode_by_id.exit39.thread.thread:            ; preds = %46, %50, %54, %agfindnode_by_id.exit39.thread
+agfindnode_by_id.exit39.thread.thread:            ; preds = %54, %50, %46, %agfindnode_by_id.exit39.thread
   %73 = call i32 @agmapnametoid(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true) #19
   %.not32 = icmp eq i32 %73, 0
   br i1 %.not32, label %agfindnode_by_id.exit, label %74
@@ -710,7 +710,7 @@ initnode.exit:                                    ; preds = %installnodetoroot.e
   br label %agfindnode_by_id.exit
 
 agfindnode_by_id.exit:                            ; preds = %34, %agfindnode_by_id.exit39.thread, %agfindnode_by_id.exit39.thread.thread, %initnode.exit, %agfindnode_by_id.exit39
-  %.0 = phi ptr [ %72, %agfindnode_by_id.exit39 ], [ %77, %initnode.exit ], [ null, %agfindnode_by_id.exit39.thread.thread ], [ null, %agfindnode_by_id.exit39.thread ], [ %.val.i.i, %34 ]
+  %.0 = phi ptr [ null, %agfindnode_by_id.exit39.thread ], [ %72, %agfindnode_by_id.exit39 ], [ %77, %initnode.exit ], [ null, %agfindnode_by_id.exit39.thread.thread ], [ %.val.i.i, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -967,8 +967,8 @@ agfindnode_by_id.exit:                            ; preds = %30
   tail call void @free(ptr noundef %1) #19
   br label %agfindnode_by_id.exit.thread
 
-agfindnode_by_id.exit.thread:                     ; preds = %25, %34, %18, %14, %10, %48, %51, %54
-  %.0 = phi i32 [ 0, %54 ], [ 0, %51 ], [ -1, %48 ], [ -1, %10 ], [ -1, %14 ], [ -1, %18 ], [ -1, %34 ], [ -1, %25 ]
+agfindnode_by_id.exit.thread:                     ; preds = %25, %34, %10, %14, %18, %48, %51, %54
+  %.0 = phi i32 [ -1, %48 ], [ 0, %51 ], [ 0, %54 ], [ -1, %18 ], [ -1, %14 ], [ -1, %10 ], [ -1, %34 ], [ -1, %25 ]
   ret i32 %.0
 }
 
@@ -1061,7 +1061,7 @@ agfindnode_by_name.exit:                          ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
-.loopexit14:                                      ; preds = %30, %39, %2, %15, %19, %23
+.loopexit14:                                      ; preds = %30, %39, %2, %23, %19, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = call i32 @agmapnametoid(ptr noundef %6, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true) #19
   %.not11 = icmp eq i32 %41, 0
@@ -1126,7 +1126,7 @@ node_set_get_capacity.exit.i.i:                   ; preds = %58
   %exitcond.not.i.i = icmp eq i64 %75, %63
   br i1 %exitcond.not.i.i, label %.loopexit, label %65, !llvm.loop !36
 
-.loopexit:                                        ; preds = %74, %65, %50, %54, %58
+.loopexit:                                        ; preds = %74, %65, %58, %54, %50
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !35
   call void @agfreeid(ptr noundef %6, i32 noundef 1, i64 noundef %77) #19
@@ -1138,7 +1138,7 @@ agfindnode_by_id.exit:                            ; preds = %70
   br label %79
 
 79:                                               ; preds = %agfindnode_by_name.exit, %.loopexit14, %agfindnode_by_id.exit, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %agfindnode_by_name.exit ], [ -1, %agfindnode_by_id.exit ], [ -1, %.loopexit14 ]
+  %.0 = phi i32 [ -1, %agfindnode_by_name.exit ], [ 0, %.loopexit ], [ -1, %agfindnode_by_id.exit ], [ -1, %.loopexit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1360,7 +1360,7 @@ agprvnode.exit51:                                 ; preds = %35, %37, %41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %agprvnode.exit51, %46, %57, %55, %11, %9, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %9 ], [ -1, %11 ], [ -1, %55 ], [ %.48, %57 ], [ -1, %46 ], [ -1, %agprvnode.exit51 ]
+  %.0 = phi i32 [ -1, %55 ], [ 0, %2 ], [ -1, %9 ], [ -1, %11 ], [ %.48, %57 ], [ -1, %46 ], [ -1, %agprvnode.exit51 ]
   ret i32 %.0
 }
 
@@ -1408,7 +1408,7 @@ define internal void @agnoderenew(ptr noundef readonly captures(none) %0, ptr re
   br label %21
 
 21:                                               ; preds = %3, %14, %17
-  %22 = phi ptr [ %16, %14 ], [ %20, %17 ], [ null, %3 ]
+  %22 = phi ptr [ %20, %17 ], [ %16, %14 ], [ null, %3 ]
   %23 = tail call ptr @dtrenew(ptr noundef nonnull %5, ptr noundef %22) #19
   ret void
 }
@@ -1522,7 +1522,7 @@ gv_calloc.exit:                                   ; preds = %20
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !67
 
 41:                                               ; preds = %._crit_edge, %node_set_get_capacity.exit
-  %42 = phi ptr [ %23, %._crit_edge ], [ %8, %node_set_get_capacity.exit ]
+  %42 = phi ptr [ %8, %node_set_get_capacity.exit ], [ %23, %._crit_edge ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i8, ptr %43, align 8, !tbaa !20, !range !24, !noundef !25
   %45 = trunc nuw i8 %44 to i1

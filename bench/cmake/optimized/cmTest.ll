@@ -574,7 +574,7 @@ define dso_local ptr @_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11
   br label %13
 
 13:                                               ; preds = %2, %12, %9
-  %.sroa.05.0 = phi ptr [ %11, %9 ], [ null, %12 ], [ %3, %2 ]
+  %.sroa.05.0 = phi ptr [ null, %12 ], [ %11, %9 ], [ %3, %2 ]
   ret ptr %.sroa.05.0
 }
 

@@ -488,9 +488,9 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %.lr.ph
   br label %BIT_reloadDStream.exit29.i
 
 BIT_reloadDStream.exit29.i:                       ; preds = %150, %BIT_reloadDStreamFast.exit.i
-  %.pn468.in.i = phi i32 [ %146, %BIT_reloadDStreamFast.exit.i ], [ %.020.i25.i, %150 ]
-  %.lcssa205.promoted.i = phi i32 [ %147, %BIT_reloadDStreamFast.exit.i ], [ %160, %150 ]
-  %.021.i24.i = phi i1 [ true, %BIT_reloadDStreamFast.exit.i ], [ %155, %150 ]
+  %.pn468.in.i = phi i32 [ %.020.i25.i, %150 ], [ %146, %BIT_reloadDStreamFast.exit.i ]
+  %.lcssa205.promoted.i = phi i32 [ %160, %150 ], [ %147, %BIT_reloadDStreamFast.exit.i ]
+  %.021.i24.i = phi i1 [ %155, %150 ], [ true, %BIT_reloadDStreamFast.exit.i ]
   %.pn468.i = zext i32 %.pn468.in.i to i64
   %.pn.i = sub nsw i64 0, %.pn468.i
   %.promoted240.i = getelementptr inbounds i8, ptr %145, i64 %.pn.i
@@ -668,9 +668,9 @@ BIT_reloadDStream.exit22.i:                       ; preds = %.lr.ph.i
   br label %308
 
 261:                                              ; preds = %245, %243, %BIT_reloadDStreamFast.exit90.i
-  %262 = phi ptr [ %219, %243 ], [ %241, %BIT_reloadDStreamFast.exit90.i ], [ %256, %245 ]
-  %263 = phi i32 [ %232, %243 ], [ %242, %BIT_reloadDStreamFast.exit90.i ], [ %258, %245 ]
-  %.val.i105222.i = phi i64 [ %.val.i105220228.i, %243 ], [ %.val.i88.i, %BIT_reloadDStreamFast.exit90.i ], [ %.val54.i, %245 ]
+  %262 = phi ptr [ %219, %243 ], [ %256, %245 ], [ %241, %BIT_reloadDStreamFast.exit90.i ]
+  %263 = phi i32 [ %232, %243 ], [ %258, %245 ], [ %242, %BIT_reloadDStreamFast.exit90.i ]
+  %.val.i105222.i = phi i64 [ %.val.i105220228.i, %243 ], [ %.val54.i, %245 ], [ %.val.i88.i, %BIT_reloadDStreamFast.exit90.i ]
   %264 = icmp ugt ptr %235, %163
   br i1 %264, label %FSE_decompress_usingDTable_generic.exit13.i, label %265
 
@@ -755,7 +755,7 @@ BIT_reloadDStream.exit.i:                         ; preds = %288, %286, %BIT_rel
   br label %FSE_decompress_usingDTable_generic.exit13.i
 
 FSE_decompress_usingDTable_generic.exit13.i:      ; preds = %BIT_reloadDStream.exit.i, %261, %308, %.preheader186.i, %BIT_initDStream.exit.i, %115, %65, %58
-  %.1.i9.i = phi i64 [ %311, %308 ], [ %26, %BIT_initDStream.exit.i ], [ -72, %58 ], [ -1, %65 ], [ -20, %115 ], [ -70, %.preheader186.i ], [ -70, %261 ], [ -70, %BIT_reloadDStream.exit.i ]
+  %.1.i9.i = phi i64 [ %26, %BIT_initDStream.exit.i ], [ %311, %308 ], [ -72, %58 ], [ -1, %65 ], [ -20, %115 ], [ -70, %.preheader186.i ], [ -70, %261 ], [ -70, %BIT_reloadDStream.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -825,9 +825,9 @@ BIT_reloadDStreamFast.exit117.i:                  ; preds = %.lr.ph55
   br label %BIT_reloadDStream.exit50.i
 
 BIT_reloadDStream.exit50.i:                       ; preds = %337, %BIT_reloadDStreamFast.exit117.i
-  %.pn470.in.i = phi i32 [ %333, %BIT_reloadDStreamFast.exit117.i ], [ %.020.i46.i, %337 ]
-  %.lcssa195.promoted.i = phi i32 [ %334, %BIT_reloadDStreamFast.exit117.i ], [ %347, %337 ]
-  %.021.i45.i = phi i1 [ true, %BIT_reloadDStreamFast.exit117.i ], [ %342, %337 ]
+  %.pn470.in.i = phi i32 [ %.020.i46.i, %337 ], [ %333, %BIT_reloadDStreamFast.exit117.i ]
+  %.lcssa195.promoted.i = phi i32 [ %347, %337 ], [ %334, %BIT_reloadDStreamFast.exit117.i ]
+  %.021.i45.i = phi i1 [ %342, %337 ], [ true, %BIT_reloadDStreamFast.exit117.i ]
   %.pn470.i = zext i32 %.pn470.in.i to i64
   %.pn469.i = sub nsw i64 0, %.pn470.i
   %.promoted281.i = getelementptr inbounds i8, ptr %332, i64 %.pn469.i
@@ -1010,9 +1010,9 @@ BIT_reloadDStream.exit43.i:                       ; preds = %.lr.ph269.i
   br label %497
 
 450:                                              ; preds = %434, %432, %BIT_reloadDStreamFast.exit149.i
-  %451 = phi ptr [ %408, %432 ], [ %430, %BIT_reloadDStreamFast.exit149.i ], [ %445, %434 ]
-  %452 = phi i32 [ %414, %432 ], [ %431, %BIT_reloadDStreamFast.exit149.i ], [ %447, %434 ]
-  %.val.i162261.i = phi i64 [ %.val.i162259267.i, %432 ], [ %.val.i147.i, %BIT_reloadDStreamFast.exit149.i ], [ %.val51.i, %434 ]
+  %451 = phi ptr [ %408, %432 ], [ %445, %434 ], [ %430, %BIT_reloadDStreamFast.exit149.i ]
+  %452 = phi i32 [ %414, %432 ], [ %447, %434 ], [ %431, %BIT_reloadDStreamFast.exit149.i ]
+  %.val.i162261.i = phi i64 [ %.val.i162259267.i, %432 ], [ %.val51.i, %434 ], [ %.val.i147.i, %BIT_reloadDStreamFast.exit149.i ]
   %453 = icmp ugt ptr %424, %352
   br i1 %453, label %FSE_decompress_usingDTable_generic.exit.i, label %454
 
@@ -1098,14 +1098,14 @@ BIT_reloadDStream.exit36.i:                       ; preds = %477, %475, %BIT_rel
   br label %FSE_decompress_usingDTable_generic.exit.i
 
 FSE_decompress_usingDTable_generic.exit.i:        ; preds = %BIT_reloadDStream.exit36.i, %450, %497, %.preheader.i, %312
-  %.1.i7.i = phi i64 [ %500, %497 ], [ %313, %312 ], [ -70, %.preheader.i ], [ -70, %450 ], [ -70, %BIT_reloadDStream.exit36.i ]
+  %.1.i7.i = phi i64 [ %313, %312 ], [ %500, %497 ], [ -70, %.preheader.i ], [ -70, %450 ], [ -70, %BIT_reloadDStream.exit36.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %FSE_decompress_wksp_body_default.exit
 
 FSE_decompress_wksp_body_default.exit:            ; preds = %8, %18, %21, %24, %43, %FSE_decompress_usingDTable_generic.exit13.i, %FSE_decompress_usingDTable_generic.exit.i
-  %.0.i.i = phi i64 [ %51, %43 ], [ -1, %8 ], [ -44, %24 ], [ %.1.i9.i, %FSE_decompress_usingDTable_generic.exit13.i ], [ %.1.i7.i, %FSE_decompress_usingDTable_generic.exit.i ], [ -44, %21 ], [ %19, %18 ]
+  %.0.i.i = phi i64 [ %.1.i7.i, %FSE_decompress_usingDTable_generic.exit.i ], [ -1, %8 ], [ -44, %24 ], [ %51, %43 ], [ %.1.i9.i, %FSE_decompress_usingDTable_generic.exit13.i ], [ -44, %21 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i64 %.0.i.i
@@ -1258,7 +1258,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   br label %83
 
 83:                                               ; preds = %75, %.thread, %73, %22, %5
-  %.0 = phi i64 [ -72, %5 ], [ -1, %22 ], [ -20, %73 ], [ %2, %.thread ], [ %2, %75 ]
+  %.0 = phi i64 [ -72, %5 ], [ -20, %73 ], [ -1, %22 ], [ %2, %.thread ], [ %2, %75 ]
   ret i64 %.0
 }
 

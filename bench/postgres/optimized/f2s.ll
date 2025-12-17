@@ -277,11 +277,11 @@ multipleOfPowerOf5.exit173.i:                     ; preds = %.lr.ph.i.i169.i, %1
   br i1 %174, label %.thread176.i, label %.thread176.thread.i
 
 .thread176.thread.i:                              ; preds = %173, %multipleOfPowerOf5.exit173.i, %100
-  %.1148.ph.i = phi i8 [ %.2149.i, %173 ], [ %.0147.i, %100 ], [ %.0147175.i, %multipleOfPowerOf5.exit173.i ]
-  %.0139.ph.i = phi i32 [ %117, %173 ], [ %44, %100 ], [ %44, %multipleOfPowerOf5.exit173.i ]
-  %.0134.ph.i = phi i32 [ %148, %173 ], [ %75, %100 ], [ %75, %multipleOfPowerOf5.exit173.i ]
-  %.1130.ph.i = phi i32 [ %141, %173 ], [ %68, %100 ], [ %113, %multipleOfPowerOf5.exit173.i ]
-  %.0124.in.ph.i = phi i64 [ %134, %173 ], [ %61, %100 ], [ %61, %multipleOfPowerOf5.exit173.i ]
+  %.1148.ph.i = phi i8 [ %.2149.i, %173 ], [ %.0147175.i, %multipleOfPowerOf5.exit173.i ], [ %.0147.i, %100 ]
+  %.0139.ph.i = phi i32 [ %117, %173 ], [ %44, %multipleOfPowerOf5.exit173.i ], [ %44, %100 ]
+  %.0134.ph.i = phi i32 [ %148, %173 ], [ %75, %multipleOfPowerOf5.exit173.i ], [ %75, %100 ]
+  %.1130.ph.i = phi i32 [ %141, %173 ], [ %113, %multipleOfPowerOf5.exit173.i ], [ %68, %100 ]
+  %.0124.in.ph.i = phi i64 [ %134, %173 ], [ %61, %multipleOfPowerOf5.exit173.i ], [ %61, %100 ]
   %.0124221.i = trunc i64 %.0124.in.ph.i to i32
   br label %.preheader182.i
 
@@ -433,10 +433,10 @@ multipleOfPowerOf5.exit173.i:                     ; preds = %.lr.ph.i.i169.i, %1
   br label %decimalLength.exit.i
 
 decimalLength.exit.i:                             ; preds = %236, %234, %232, %230, %228, %226, %224, %217
-  %.sroa.3.0.extract.trunc.i80 = phi i32 [ %220, %217 ], [ %.sroa.3.0.extract.trunc.i79, %224 ], [ %.sroa.3.0.extract.trunc.i79, %226 ], [ %.sroa.3.0.extract.trunc.i79, %228 ], [ %.sroa.3.0.extract.trunc.i79, %230 ], [ %.sroa.3.0.extract.trunc.i79, %232 ], [ %.sroa.3.0.extract.trunc.i79, %234 ], [ %.sroa.3.0.extract.trunc.i79, %236 ]
-  %.sroa.0.078 = phi i32 [ %219, %217 ], [ %.sroa.0.077, %224 ], [ %.sroa.0.077, %226 ], [ %.sroa.0.077, %228 ], [ %.sroa.0.077, %230 ], [ %.sroa.0.077, %232 ], [ %.sroa.0.077, %234 ], [ %.sroa.0.077, %236 ]
-  %.sroa.5.076 = phi i64 [ %222, %217 ], [ %.sroa.5.075, %224 ], [ %.sroa.5.075, %226 ], [ %.sroa.5.075, %228 ], [ %.sroa.5.075, %230 ], [ %.sroa.5.075, %232 ], [ %.sroa.5.075, %234 ], [ %.sroa.5.075, %236 ]
-  %.0.i.i = phi i32 [ 9, %217 ], [ 8, %224 ], [ 7, %226 ], [ 6, %228 ], [ 5, %230 ], [ 4, %232 ], [ 3, %234 ], [ %..i.i, %236 ]
+  %.sroa.3.0.extract.trunc.i80 = phi i32 [ %.sroa.3.0.extract.trunc.i79, %234 ], [ %220, %217 ], [ %.sroa.3.0.extract.trunc.i79, %224 ], [ %.sroa.3.0.extract.trunc.i79, %226 ], [ %.sroa.3.0.extract.trunc.i79, %228 ], [ %.sroa.3.0.extract.trunc.i79, %230 ], [ %.sroa.3.0.extract.trunc.i79, %232 ], [ %.sroa.3.0.extract.trunc.i79, %236 ]
+  %.sroa.0.078 = phi i32 [ %.sroa.0.077, %234 ], [ %219, %217 ], [ %.sroa.0.077, %224 ], [ %.sroa.0.077, %226 ], [ %.sroa.0.077, %228 ], [ %.sroa.0.077, %230 ], [ %.sroa.0.077, %232 ], [ %.sroa.0.077, %236 ]
+  %.sroa.5.076 = phi i64 [ %.sroa.5.075, %234 ], [ %222, %217 ], [ %.sroa.5.075, %224 ], [ %.sroa.5.075, %226 ], [ %.sroa.5.075, %228 ], [ %.sroa.5.075, %230 ], [ %.sroa.5.075, %232 ], [ %.sroa.5.075, %236 ]
+  %.0.i.i = phi i32 [ 3, %234 ], [ 9, %217 ], [ 8, %224 ], [ 7, %226 ], [ 6, %228 ], [ 5, %230 ], [ 4, %232 ], [ %..i.i, %236 ]
   %238 = add i32 %.0.i.i, %.sroa.3.0.extract.trunc.i80
   %239 = add i32 %238, -1
   br i1 %4, label %240, label %241
@@ -781,7 +781,7 @@ to_chars_f.exit.i:                                ; preds = %340, %336
   br label %copy_special_str.exit
 
 copy_special_str.exit:                            ; preds = %417, %to_chars_f.exit.i, %19, %17, %11
-  %.0 = phi i32 [ 3, %11 ], [ %18, %17 ], [ %20, %19 ], [ %343, %to_chars_f.exit.i ], [ %431, %417 ]
+  %.0 = phi i32 [ %20, %19 ], [ 3, %11 ], [ %18, %17 ], [ %343, %to_chars_f.exit.i ], [ %431, %417 ]
   ret i32 %.0
 }
 

@@ -1537,7 +1537,7 @@ fill_rect.exit649:                                ; preds = %._crit_edge.us.i646
   br i1 %exitcond730.not, label %av1_cdef_compute_sb_list.exit.thread, label %189, !llvm.loop !20
 
 av1_cdef_compute_sb_list.exit.thread:             ; preds = %471, %150, %av1_cdef_compute_sb_list.exit, %117, %99, %110
-  %.1 = phi i32 [ 0, %110 ], [ 0, %99 ], [ 0, %117 ], [ 0, %av1_cdef_compute_sb_list.exit ], [ 0, %150 ], [ 1, %471 ]
+  %.1 = phi i32 [ 0, %av1_cdef_compute_sb_list.exit ], [ 0, %99 ], [ 0, %110 ], [ 0, %117 ], [ 0, %150 ], [ 1, %471 ]
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 1
   %exitcond735.not = icmp eq i64 %indvars.iv.next732, %wide.trip.count734
   br i1 %exitcond735.not, label %._crit_edge, label %99, !llvm.loop !21

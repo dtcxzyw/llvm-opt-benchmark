@@ -831,7 +831,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %246, %_ZNK4llvm6MD
   br i1 %277, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !168
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %274, %272, %268, %264, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
-  %.0.i.i = phi i32 [ %265, %264 ], [ %269, %268 ], [ %273, %272 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ], [ %276, %274 ]
+  %.0.i.i = phi i32 [ %273, %272 ], [ %265, %264 ], [ %269, %268 ], [ 1, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ], [ %276, %274 ]
   %278 = zext i32 %.0.i.i to i64
   %279 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %279, ptr %7, align 8, !tbaa !170, !alias.scope !165
@@ -1196,7 +1196,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %436, %438
   br label %.thread
 
 .thread:                                          ; preds = %383, %388, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit127, %21, %23, %27, %31, %35, %39, %43, %47, %51, %55, %59, %63, %67, %71, %75, %79, %83, %87, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit, %447, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit98, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit121, %448, %372, %150
-  %.1 = phi ptr [ %151, %150 ], [ %374, %372 ], [ %449, %448 ], [ %443, %447 ], [ %.0.i97, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit98 ], [ %.5, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit121 ], [ %.0.i97, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %21 ], [ %.0.i, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit ], [ %385, %383 ], [ %389, %388 ], [ %412, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit127 ]
+  %.1 = phi ptr [ %151, %150 ], [ %.0.i97, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ %374, %372 ], [ %449, %448 ], [ %443, %447 ], [ %.0.i, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit ], [ %.0.i97, %_ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNodeEm.exit98 ], [ %.5, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit121 ], [ %90, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %46, %43 ], [ %42, %39 ], [ %38, %35 ], [ %34, %31 ], [ %30, %27 ], [ %26, %23 ], [ %22, %21 ], [ %385, %383 ], [ %389, %388 ], [ %412, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit127 ]
   ret ptr %.1
 }
 
@@ -1278,7 +1278,7 @@ _ZL15isValidBaseTypeN5clang8QualTypeE.exit:       ; preds = %37
   %45 = tail call noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %1)
   br label %59
 
-_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread: ; preds = %34, %37, %23, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
+_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread: ; preds = %23, %37, %34, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !139
@@ -2349,8 +2349,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread105
 
-.thread105:                                       ; preds = %229, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.critedge, %_ZNK5clang13CXXRecordDecl9bases_endEv.exit, %59, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit91
-  %.9 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit91 ], [ false, %_ZNK5clang13CXXRecordDecl9bases_endEv.exit ], [ false, %59 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit ], [ true, %.critedge ], [ false, %229 ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+.thread105:                                       ; preds = %229, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.critedge, %59, %_ZNK5clang13CXXRecordDecl9bases_endEv.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit91
+  %.9 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit91 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit ], [ false, %59 ], [ false, %_ZNK5clang13CXXRecordDecl9bases_endEv.exit ], [ true, %.critedge ], [ false, %229 ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   ret i1 %.9
 }
 
@@ -2706,7 +2706,7 @@ _ZL15isValidBaseTypeN5clang8QualTypeE.exit:       ; preds = %89
   %97 = call noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %.sroa.03.0.i.i)
   br label %99
 
-_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread: ; preds = %86, %89, %77, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
+_ZL15isValidBaseTypeN5clang8QualTypeE.exit.thread: ; preds = %77, %89, %86, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
   %98 = call noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA11getTypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %.sroa.03.0.i.i)
   br label %99
 
@@ -3030,7 +3030,7 @@ _ZL15isValidBaseTypeN5clang8QualTypeE.exit125:    ; preds = %200
   %208 = call noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %.sroa.0.0.copyload.i117)
   br label %210
 
-_ZL15isValidBaseTypeN5clang8QualTypeE.exit125.thread: ; preds = %197, %200, %185, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit125
+_ZL15isValidBaseTypeN5clang8QualTypeE.exit125.thread: ; preds = %185, %200, %197, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit125
   %209 = call noundef ptr @_ZN5clang7CodeGen11CodeGenTBAA11getTypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, i64 %.sroa.0.0.copyload.i117)
   br label %210
 
@@ -3119,7 +3119,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %252
 
-252:                                              ; preds = %178, %175, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit133
+252:                                              ; preds = %175, %178, %_ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_backERKS2_.exit133
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.0151.0199, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %253, align 8
   %254 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -3544,8 +3544,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_6MDNodeENS_12DenseMapInfo
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE.exit
 
-_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE.exit: ; preds = %15, %18, %2, %63, %60, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
-  %66 = phi ptr [ null, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit ], [ %62, %60 ], [ %64, %63 ], [ null, %2 ], [ null, %18 ], [ null, %15 ]
+_ZN5clang7CodeGen11CodeGenTBAA20getValidBaseTypeInfoENS_8QualTypeE.exit: ; preds = %2, %18, %15, %63, %60, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit
+  %66 = phi ptr [ %64, %63 ], [ null, %_ZL15isValidBaseTypeN5clang8QualTypeE.exit ], [ %62, %60 ], [ null, %15 ], [ null, %18 ], [ null, %2 ]
   ret ptr %66
 }
 
@@ -5291,7 +5291,7 @@ _ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit3
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit.thread, %62, %66, %70, %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit35, %91, %87, %83, %79
-  %95 = phi i1 [ false, %87 ], [ false, %83 ], [ false, %79 ], [ %94, %91 ], [ false, %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit35 ], [ false, %70 ], [ false, %66 ], [ false, %62 ], [ false, %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit.thread ]
+  %95 = phi i1 [ false, %87 ], [ false, %83 ], [ false, %79 ], [ false, %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit.thread ], [ %94, %91 ], [ false, %_ZN4llvm12DenseMapInfoIN5clang7CodeGen14TBAAAccessInfoEvE7isEqualERKS3_S6_.exit35 ], [ false, %70 ], [ false, %66 ], [ false, %62 ]
   %96 = icmp eq ptr %.029, null
   %or.cond.not = select i1 %95, i1 %96, i1 false
   %spec.select = select i1 %or.cond.not, ptr %44, ptr %.029

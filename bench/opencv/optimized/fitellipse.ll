@@ -1694,7 +1694,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIS_IN2c
   br label %394
 
 394:                                              ; preds = %.loopexit299, %.loopexit.split-lp300, %.loopexit294, %.loopexit.split-lp295
-  %.pn74 = phi { ptr, i32 } [ %lpad.loopexit296, %.loopexit294 ], [ %lpad.loopexit.split-lp297, %.loopexit.split-lp295 ], [ %lpad.loopexit301, %.loopexit299 ], [ %lpad.loopexit.split-lp302, %.loopexit.split-lp300 ]
+  %.pn74 = phi { ptr, i32 } [ %lpad.loopexit.split-lp297, %.loopexit.split-lp295 ], [ %lpad.loopexit296, %.loopexit294 ], [ %lpad.loopexit301, %.loopexit299 ], [ %lpad.loopexit.split-lp302, %.loopexit.split-lp300 ]
   %395 = load ptr, ptr %20, align 8, !tbaa !119
   %.not.i.i.i163 = icmp eq ptr %395, null
   br i1 %.not.i.i.i163, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit164, label %396
@@ -2043,7 +2043,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit202: ; preds = %_ZNSt6vectorIN2cv6P
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204: ; preds = %.loopexit289, %.loopexit.split-lp290, %494, %491, %462, %450, %438
-  %.pn68 = phi { ptr, i32 } [ %463, %462 ], [ %451, %450 ], [ %439, %438 ], [ %492, %491 ], [ %492, %494 ], [ %lpad.loopexit291, %.loopexit289 ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp290 ]
+  %.pn68 = phi { ptr, i32 } [ %439, %438 ], [ %492, %494 ], [ %463, %462 ], [ %451, %450 ], [ %492, %491 ], [ %lpad.loopexit291, %.loopexit289 ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp290 ]
   %495 = load ptr, ptr %21, align 8, !tbaa !119
   %.not.i.i.i205 = icmp eq ptr %495, null
   br i1 %.not.i.i.i205, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit206, label %496
@@ -2053,7 +2053,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204: ; preds = %.loopexit289, %.loo
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit206
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit206: ; preds = %.loopexit288, %.loopexit.split-lp, %496, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204
-  %.pn68.pn = phi { ptr, i32 } [ %.pn68, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204 ], [ %.pn68, %496 ], [ %lpad.loopexit, %.loopexit288 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn68.pn = phi { ptr, i32 } [ %.pn68, %496 ], [ %.pn68, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit204 ], [ %lpad.loopexit, %.loopexit288 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %528
 
@@ -2214,7 +2214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241: ; preds = %52
   br label %.body142
 
 .body142:                                         ; preds = %190, %193, %109, %528, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93
-  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %528 ], [ %.pn57, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit153 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %110, %109 ], [ %191, %193 ], [ %191, %190 ]
+  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %528 ], [ %.pn57, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit153 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %110, %109 ], [ %191, %193 ], [ %191, %190 ]
   %529 = load ptr, ptr %10, align 8, !tbaa !95
   %.not.i.i.i242 = icmp eq ptr %529, null
   br i1 %.not.i.i.i242, label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit243, label %530

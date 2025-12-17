@@ -210,7 +210,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br i1 %86, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.critedge, %43, %63, %5
-  %.2 = phi i32 [ 1, %5 ], [ 0, %63 ], [ 0, %43 ], [ 1, %.critedge ]
+  %.2 = phi i32 [ 1, %5 ], [ 0, %43 ], [ 0, %63 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
@@ -781,8 +781,8 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink267 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
-  %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
+  %.sink267 = phi ptr [ %80, %79 ], [ %78, %77 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink = phi i32 [ 16, %79 ], [ 16, %77 ], [ %82, %85 ], [ %82, %87 ]
   store ptr %.sink267, ptr %18, align 8, !tbaa !23
   store i32 %.sink, ptr %15, align 8, !tbaa !36
   br label %Vec_IntPush.exit
@@ -924,8 +924,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit165.sink.split
 
 Vec_IntPush.exit165.sink.split:                   ; preds = %149, %151, %141, %143
-  %.sink268 = phi i32 [ 16, %143 ], [ 16, %141 ], [ %146, %151 ], [ %146, %149 ]
-  %.pre.i161205.ph = phi ptr [ %144, %143 ], [ %142, %141 ], [ %152, %151 ], [ %150, %149 ]
+  %.sink268 = phi i32 [ 16, %141 ], [ 16, %143 ], [ %146, %151 ], [ %146, %149 ]
+  %.pre.i161205.ph = phi ptr [ %142, %141 ], [ %144, %143 ], [ %152, %151 ], [ %150, %149 ]
   store i32 %.sink268, ptr %15, align 8, !tbaa !36
   br label %Vec_IntPush.exit165
 
@@ -947,7 +947,7 @@ Vec_IntPush.exit165:                              ; preds = %Vec_IntPush.exit165
   br i1 %exitcond246.not, label %.threadthread-pre-split.sink.split, label %93, !llvm.loop !57
 
 .threadthread-pre-split.sink.split:               ; preds = %125, %.critedge2, %._crit_edge197
-  %.pre.i161202.lcssa260.sink = phi ptr [ %.pre.i161203, %._crit_edge197 ], [ %.pre.i161202, %.critedge2 ], [ %.pre.i161202, %125 ]
+  %.pre.i161202.lcssa260.sink = phi ptr [ %.pre.i161202, %.critedge2 ], [ %.pre.i161203, %._crit_edge197 ], [ %.pre.i161202, %125 ]
   store ptr %.pre.i161202.lcssa260.sink, ptr %18, align 8
   br label %.threadthread-pre-split
 

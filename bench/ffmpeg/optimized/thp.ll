@@ -30,7 +30,7 @@ define internal range(i32 0, 101) i32 @thp_probe(ptr noundef readonly captures(n
   br label %14
 
 14:                                               ; preds = %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -232,7 +232,7 @@ define internal range(i32 -1094995529, 1) i32 @thp_read_header(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %60, %._crit_edge, %21, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ -1094995529, %21 ], [ %., %._crit_edge ], [ -12, %60 ], [ -12, %93 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ %., %._crit_edge ], [ -1094995529, %21 ], [ -12, %60 ], [ -12, %93 ]
   ret i32 %.0
 }
 
@@ -340,7 +340,7 @@ define internal range(i32 -2147483648, 1) i32 @thp_read_packet(ptr noundef reado
   br label %63
 
 63:                                               ; preds = %37, %59, %44, %41, %36, %33, %10
-  %.0 = phi i32 [ -541478725, %10 ], [ %34, %33 ], [ -5, %36 ], [ %42, %41 ], [ -5, %44 ], [ 0, %59 ], [ 0, %37 ]
+  %.0 = phi i32 [ %42, %41 ], [ -541478725, %10 ], [ %34, %33 ], [ -5, %44 ], [ -5, %36 ], [ 0, %59 ], [ 0, %37 ]
   ret i32 %.0
 }
 

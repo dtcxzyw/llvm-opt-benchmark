@@ -156,7 +156,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -544,7 +544,7 @@ define void @_ZN6icu_773LSRC2EcPKcS2_S2_iR10UErrorCode(ptr noundef nonnull write
   br label %_ZN6icu_773LSR14indexForRegionEPKc.exit
 
 _ZN6icu_773LSR14indexForRegionEPKc.exit:          ; preds = %18, %23, %28, %31, %37, %39, %44, %47
-  %.1.i = phi i32 [ %36, %31 ], [ 0, %18 ], [ 0, %28 ], [ 0, %23 ], [ 0, %37 ], [ %50, %47 ], [ 0, %44 ], [ 0, %39 ]
+  %.1.i = phi i32 [ 0, %37 ], [ 0, %23 ], [ %36, %31 ], [ 0, %18 ], [ 0, %28 ], [ %50, %47 ], [ 0, %44 ], [ 0, %39 ]
   store i32 %.1.i, ptr %14, align 8, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %5, ptr %51, align 4, !tbaa !20
@@ -701,7 +701,7 @@ define noundef range(i32 0, 1677) i32 @_ZN6icu_773LSR14indexForRegionEPKc(ptr no
   br label %38
 
 38:                                               ; preds = %34, %31, %26, %24, %18, %5, %15, %10
-  %.1 = phi i32 [ %23, %18 ], [ 0, %5 ], [ 0, %15 ], [ 0, %10 ], [ 0, %24 ], [ %37, %34 ], [ 0, %31 ], [ 0, %26 ]
+  %.1 = phi i32 [ 0, %24 ], [ 0, %10 ], [ %23, %18 ], [ 0, %5 ], [ 0, %15 ], [ %37, %34 ], [ 0, %31 ], [ 0, %26 ]
   ret i32 %.1
 }
 
@@ -782,7 +782,7 @@ define void @_ZN6icu_773LSRC2ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef 
   br label %_ZN6icu_773LSR14indexForRegionEPKc.exit
 
 _ZN6icu_773LSR14indexForRegionEPKc.exit:          ; preds = %18, %23, %28, %31, %37, %39, %44, %47
-  %.1.i = phi i32 [ %36, %31 ], [ 0, %18 ], [ 0, %28 ], [ 0, %23 ], [ 0, %37 ], [ %50, %47 ], [ 0, %44 ], [ 0, %39 ]
+  %.1.i = phi i32 [ 0, %37 ], [ 0, %23 ], [ %36, %31 ], [ 0, %18 ], [ 0, %28 ], [ %50, %47 ], [ 0, %44 ], [ 0, %39 ]
   store i32 %.1.i, ptr %13, align 8, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %6, ptr %51, align 4, !tbaa !20

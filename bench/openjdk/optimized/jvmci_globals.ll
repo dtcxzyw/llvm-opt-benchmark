@@ -585,7 +585,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   br label %289
 
 289:                                              ; preds = %.thread66, %276, %281, %268, %256, %244, %232, %220, %208, %196, %184, %172, %160, %148, %136, %124, %109, %99, %87, %64, %52, %40, %28, %16
-  %.0 = phi i1 [ false, %99 ], [ false, %109 ], [ false, %281 ], [ false, %268 ], [ false, %256 ], [ false, %244 ], [ false, %232 ], [ false, %220 ], [ false, %208 ], [ false, %196 ], [ false, %184 ], [ false, %172 ], [ false, %160 ], [ false, %148 ], [ false, %136 ], [ false, %124 ], [ false, %87 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ false, %16 ], [ true, %276 ], [ true, %.thread66 ]
+  %.0 = phi i1 [ false, %99 ], [ false, %109 ], [ false, %281 ], [ false, %16 ], [ false, %268 ], [ false, %256 ], [ false, %244 ], [ false, %232 ], [ false, %220 ], [ false, %208 ], [ false, %196 ], [ false, %184 ], [ false, %172 ], [ false, %160 ], [ false, %148 ], [ false, %136 ], [ false, %124 ], [ false, %87 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ true, %276 ], [ true, %.thread66 ]
   ret i1 %.0
 }
 
@@ -658,7 +658,7 @@ _ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18: ; preds = %22
   br label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread
 
 _ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread: ; preds = %4, %22, %19, %14, %11, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18 ], [ false, %11 ], [ false, %14 ], [ false, %19 ], [ false, %22 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %26 ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit ], [ false, %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18 ], [ false, %14 ], [ false, %11 ], [ false, %19 ], [ false, %22 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -687,7 +687,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals17gc_supports_jvmciEv() local
   br label %12
 
 12:                                               ; preds = %9, %0
-  %13 = phi i1 [ true, %0 ], [ %11, %9 ]
+  %13 = phi i1 [ %11, %9 ], [ true, %0 ]
   ret i1 %13
 }
 

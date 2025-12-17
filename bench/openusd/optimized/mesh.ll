@@ -948,7 +948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12: ; preds = %60, %66
   br i1 %70, label %.loopexit, label %60
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12, %53, %50, %.thread
-  %.pn = phi { ptr, i32 } [ %10, %.thread ], [ %51, %50 ], [ %51, %53 ], [ %58, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12 ]
+  %.pn = phi { ptr, i32 } [ %10, %.thread ], [ %51, %53 ], [ %51, %50 ], [ %58, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZNK32pxrInternal_v0_24__pxrReserved__6HdMesh22GetBuiltinPrimvarNamesEvE12primvarNames) #20
   resume { ptr, i32 } %.pn
 }

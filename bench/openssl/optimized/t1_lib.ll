@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @ssl_load_groups(ptr noundef %0) local_unnamed_addr #
   br label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %.preheader37, %41, %33, %23, %.split.us, %1, %.thread36
-  %.034 = phi i32 [ 1, %.thread36 ], [ 0, %1 ], [ 1, %.split.us ], [ 0, %23 ], [ 0, %33 ], [ 0, %41 ], [ 1, %.preheader37 ]
+  %.034 = phi i32 [ 0, %1 ], [ 1, %.split.us ], [ 0, %23 ], [ 0, %33 ], [ 1, %.thread36 ], [ 0, %41 ], [ 1, %.preheader37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.034
 }
@@ -569,7 +569,7 @@ define i32 @tls1_group_id2nid(i16 noundef zeroext %0, i32 noundef %1) local_unna
   br label %15
 
 15:                                               ; preds = %13, %2, %11
-  %.09 = phi i32 [ %12, %11 ], [ 0, %2 ], [ %spec.select, %13 ]
+  %.09 = phi i32 [ 0, %2 ], [ %12, %11 ], [ %spec.select, %13 ]
   ret i32 %.09
 }
 
@@ -934,7 +934,7 @@ tls1_group_id_lookup.exit.thread:                 ; preds = %11, %3
   br label %tls1_group_id2nid.exit
 
 tls1_group_id2nid.exit:                           ; preds = %26, %18, %32
-  %.09.i11 = phi i32 [ %33, %32 ], [ 0, %18 ], [ 0, %26 ]
+  %.09.i11 = phi i32 [ 0, %18 ], [ %33, %32 ], [ 0, %26 ]
   %34 = call i32 @ssl_security(ptr noundef %0, i32 noundef %2, i32 noundef %24, i32 noundef %.09.i11, ptr noundef nonnull %4) #14
   br label %35
 
@@ -1135,7 +1135,7 @@ define range(i32 0, 2) i32 @tls1_get0_implemented_groups(i32 noundef %0, i32 nou
   br i1 %exitcond83.not, label %.loopexit, label %.lr.ph65.split, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %16, %27, %30, %39, %42, %59, %56, %.lr.ph65.split, %86, %74, %78, %._crit_edge
-  %.040 = phi i32 [ 1, %._crit_edge ], [ 0, %74 ], [ 1, %78 ], [ 0, %.lr.ph65.split ], [ 1, %86 ], [ 0, %56 ], [ 0, %59 ], [ 0, %42 ], [ 0, %39 ], [ 0, %30 ], [ 0, %27 ], [ 0, %16 ], [ 0, %.lr.ph.split.us.split.us ]
+  %.040 = phi i32 [ 1, %._crit_edge ], [ 0, %27 ], [ 0, %74 ], [ 1, %86 ], [ 0, %59 ], [ 0, %39 ], [ 1, %78 ], [ 0, %.lr.ph65.split ], [ 0, %56 ], [ 0, %42 ], [ 0, %30 ], [ 0, %16 ], [ 0, %.lr.ph.split.us.split.us ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @free_wrapper) #14
   br label %88
 
@@ -1266,8 +1266,8 @@ default.unreachable:                              ; preds = %49, %26
   br label %tls1_get_supported_groups.exit
 
 tls1_get_supported_groups.exit:                   ; preds = %26, %33, %34, %39, %44
-  %.179 = phi ptr [ @suiteb_curves, %33 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %34 ], [ %41, %39 ], [ %37, %44 ], [ @suiteb_curves, %26 ]
-  %.sink.i = phi i64 [ 1, %33 ], [ 1, %34 ], [ %43, %39 ], [ %46, %44 ], [ 2, %26 ]
+  %.179 = phi ptr [ %37, %44 ], [ @suiteb_curves, %33 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %34 ], [ %41, %39 ], [ @suiteb_curves, %26 ]
+  %.sink.i = phi i64 [ %46, %44 ], [ 1, %33 ], [ 1, %34 ], [ %43, %39 ], [ 2, %26 ]
   %47 = getelementptr i8, ptr %0, i64 2712
   %.val = load i64, ptr %47, align 8, !tbaa !156
   %48 = getelementptr i8, ptr %0, i64 2720
@@ -1407,7 +1407,7 @@ tls1_in_list.exit:                                ; preds = %.lr.ph.i
   br label %tls_group_allowed.exit
 
 tls_group_allowed.exit:                           ; preds = %103, %96, %109
-  %.09.i11.i = phi i32 [ %110, %109 ], [ 0, %96 ], [ 0, %103 ]
+  %.09.i11.i = phi i32 [ 0, %96 ], [ %110, %109 ], [ 0, %103 ]
   %111 = call i32 @ssl_security(ptr noundef %0, i32 noundef 131077, i32 noundef %101, i32 noundef %.09.i11.i, ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not55 = icmp eq i32 %111, 0
@@ -1480,8 +1480,8 @@ tls1_group_id_lookup.exit:                        ; preds = %117
   %144 = add nsw i32 %.045100, 1
   br label %tls1_in_list.exit.thread
 
-tls1_in_list.exit.thread:                         ; preds = %79, %89, %tls1_in_list.exit, %143, %tls_group_allowed.exit, %tls1_group_id_lookup.exit, %137, %132
-  %.146.ph = phi i32 [ %.045100, %132 ], [ %.045100, %137 ], [ %.045100, %tls1_group_id_lookup.exit ], [ %.045100, %tls_group_allowed.exit ], [ %144, %143 ], [ %.045100, %tls1_in_list.exit ], [ %.045100, %89 ], [ %.045100, %79 ]
+tls1_in_list.exit.thread:                         ; preds = %79, %89, %tls1_in_list.exit, %tls1_group_id_lookup.exit, %132, %143, %tls_group_allowed.exit, %137
+  %.146.ph = phi i32 [ %.045100, %137 ], [ %.045100, %tls_group_allowed.exit ], [ %.045100, %tls1_group_id_lookup.exit ], [ %144, %143 ], [ %.045100, %132 ], [ %.045100, %tls1_in_list.exit ], [ %.045100, %89 ], [ %.045100, %79 ]
   %145 = add nuw i64 %.044101, 1
   %exitcond.not = icmp eq i64 %145, %.076
   br i1 %exitcond.not, label %._crit_edge.loopexit105, label %.lr.ph.i.preheader, !llvm.loop !159
@@ -1497,7 +1497,7 @@ tls1_in_list.exit.thread:                         ; preds = %79, %89, %tls1_in_l
   br label %tls1_group_id_lookup.exit.thread
 
 tls1_group_id_lookup.exit.thread:                 ; preds = %112, %141, %115, %._crit_edge, %17, %2
-  %.0 = phi i16 [ 0, %2 ], [ %switch.select63, %17 ], [ %spec.select, %._crit_edge ], [ 0, %115 ], [ 0, %112 ], [ %78, %141 ]
+  %.0 = phi i16 [ 0, %2 ], [ %spec.select, %._crit_edge ], [ %switch.select63, %17 ], [ 0, %115 ], [ 0, %112 ], [ %78, %141 ]
   ret i16 %.0
 }
 
@@ -1878,7 +1878,7 @@ define internal i32 @tuple_cb(ptr noundef readonly captures(address_is_null) %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %28, %40, %37, %23, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %23 ], [ %31, %37 ], [ %31, %40 ], [ %31, %28 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %7 ], [ %31, %28 ], [ 0, %23 ], [ 0, %14 ], [ %31, %37 ], [ %31, %40 ]
   ret i32 %.0
 }
 
@@ -1886,7 +1886,7 @@ define internal i32 @tuple_cb(ptr noundef readonly captures(address_is_null) %0,
 define range(i32 0, 2) i32 @tls1_check_group_id(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [2 x i8], align 1
   %5 = icmp eq i16 %1, 0
-  br i1 %5, label %tls1_in_list.exit35, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -1895,183 +1895,183 @@ define range(i32 0, 2) i32 @tls1_check_group_id(ptr noundef %0, i16 noundef zero
   %10 = load i32, ptr %9, align 4, !tbaa !128
   %11 = and i32 %10, 196608
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.critedge, label %12
+  br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %14 = load ptr, ptr %13, align 8, !tbaa !152
   %.not22 = icmp eq ptr %14, null
-  br i1 %.not22, label %.critedge, label %15
+  br i1 %.not22, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !153
-  switch i32 %17, label %tls1_in_list.exit35 [
+  switch i32 %17, label %.critedge [
     i32 50380843, label %18
     i32 50380844, label %19
   ]
 
 18:                                               ; preds = %15
   %.not24 = icmp eq i16 %1, 23
-  br i1 %.not24, label %.critedge, label %tls1_in_list.exit35
+  br i1 %.not24, label %20, label %.critedge
 
 19:                                               ; preds = %15
   %.not23 = icmp eq i16 %1, 24
-  br i1 %.not23, label %.critedge, label %tls1_in_list.exit35
+  br i1 %.not23, label %20, label %.critedge
 
-.critedge:                                        ; preds = %18, %19, %12, %6
+20:                                               ; preds = %18, %19, %12, %6
   %.not25 = icmp eq i32 %2, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !126
-  br i1 %.not25, label %tls1_in_list.exit, label %20
+  br i1 %.not25, label %tls1_in_list.exit, label %21
 
-20:                                               ; preds = %.critedge
-  %21 = lshr i32 %10, 16
-  %22 = and i32 %21, 3
-  switch i32 %22, label %default.unreachable [
+21:                                               ; preds = %20
+  %22 = lshr i32 %10, 16
+  %23 = and i32 %22, 3
+  switch i32 %23, label %default.unreachable [
     i32 3, label %.lr.ph.i.preheader
-    i32 1, label %23
-    i32 2, label %24
-    i32 0, label %25
+    i32 1, label %24
+    i32 2, label %25
+    i32 0, label %26
   ]
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   br label %.lr.ph.i.preheader
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   br label %.lr.ph.i.preheader
 
-default.unreachable:                              ; preds = %20
+default.unreachable:                              ; preds = %21
   unreachable
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2704
-  %27 = load ptr, ptr %26, align 8, !tbaa !132
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %33
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2704
+  %28 = load ptr, ptr %27, align 8, !tbaa !132
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 704
-  %31 = load ptr, ptr %30, align 8, !tbaa !99
-  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 712
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 704
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
+  %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 712
   br label %tls1_get_supported_groups.exit
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2696
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   br label %tls1_get_supported_groups.exit
 
-tls1_get_supported_groups.exit:                   ; preds = %29, %33
-  %.038 = phi ptr [ %31, %29 ], [ %27, %33 ]
-  %.sink.i.in = phi ptr [ %32, %29 ], [ %34, %33 ]
+tls1_get_supported_groups.exit:                   ; preds = %30, %34
+  %.038 = phi ptr [ %28, %34 ], [ %32, %30 ]
+  %.sink.i.in = phi ptr [ %35, %34 ], [ %33, %30 ]
   %.sink.i = load i64, ptr %.sink.i.in, align 8, !tbaa !105
   %.not.i = icmp eq i64 %.sink.i, 0
-  br i1 %.not.i, label %tls1_in_list.exit35, label %.lr.ph.i.preheader
+  br i1 %.not.i, label %.critedge, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %20, %24, %23, %tls1_get_supported_groups.exit
-  %.sink.i65 = phi i64 [ %.sink.i, %tls1_get_supported_groups.exit ], [ 2, %20 ], [ 1, %24 ], [ 1, %23 ]
-  %.03864 = phi ptr [ %.038, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %20 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %24 ], [ @suiteb_curves, %23 ]
+.lr.ph.i.preheader:                               ; preds = %21, %25, %24, %tls1_get_supported_groups.exit
+  %.sink.i65 = phi i64 [ %.sink.i, %tls1_get_supported_groups.exit ], [ 2, %21 ], [ 1, %25 ], [ 1, %24 ]
+  %.03864 = phi ptr [ %.038, %tls1_get_supported_groups.exit ], [ @suiteb_curves, %21 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_curves, i64 2), %25 ], [ @suiteb_curves, %24 ]
   br label %.lr.ph.i
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %36, %.sink.i65
-  br i1 %exitcond.not.i, label %tls1_in_list.exit35, label %.lr.ph.i, !llvm.loop !158
+36:                                               ; preds = %.lr.ph.i
+  %37 = add nuw i64 %.07.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %.sink.i65
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !158
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %35
-  %.07.i = phi i64 [ %36, %35 ], [ 0, %.lr.ph.i.preheader ]
-  %37 = getelementptr inbounds nuw i16, ptr %.03864, i64 %.07.i
-  %38 = load i16, ptr %37, align 2, !tbaa !93
-  %39 = icmp eq i16 %38, %1
-  br i1 %39, label %tls1_in_list.exit, label %35
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %36
+  %.07.i = phi i64 [ %37, %36 ], [ 0, %.lr.ph.i.preheader ]
+  %38 = getelementptr inbounds nuw i16, ptr %.03864, i64 %.07.i
+  %39 = load i16, ptr %38, align 2, !tbaa !93
+  %40 = icmp eq i16 %39, %1
+  br i1 %40, label %tls1_in_list.exit, label %36
 
-tls1_in_list.exit:                                ; preds = %.lr.ph.i, %.critedge
-  %40 = getelementptr inbounds nuw i8, ptr %.pre, i64 1664
-  %41 = load i64, ptr %40, align 8, !tbaa !91
-  %.not.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i, label %tls1_in_list.exit35, label %.lr.ph.i.i
+tls1_in_list.exit:                                ; preds = %.lr.ph.i, %20
+  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 1664
+  %42 = load i64, ptr %41, align 8, !tbaa !91
+  %.not.i.i = icmp eq i64 %42, 0
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %tls1_in_list.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 1656
-  %43 = load ptr, ptr %42, align 8, !tbaa !92
-  br label %46
+  %43 = getelementptr inbounds nuw i8, ptr %.pre, i64 1656
+  %44 = load ptr, ptr %43, align 8, !tbaa !92
+  br label %47
 
-44:                                               ; preds = %46
-  %45 = add nuw i64 %.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %45, %41
-  br i1 %exitcond.not.i.i, label %tls1_in_list.exit35, label %46, !llvm.loop !119
+45:                                               ; preds = %47
+  %46 = add nuw i64 %.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %46, %42
+  br i1 %exitcond.not.i.i, label %.critedge, label %47, !llvm.loop !119
 
-46:                                               ; preds = %44, %.lr.ph.i.i
-  %.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %45, %44 ]
-  %47 = getelementptr inbounds nuw %struct.tls_group_info_st, ptr %43, i64 %.09.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
-  %49 = load i16, ptr %48, align 4, !tbaa !96
-  %50 = icmp eq i16 %49, %1
-  br i1 %50, label %51, label %44
+47:                                               ; preds = %45, %.lr.ph.i.i
+  %.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %46, %45 ]
+  %48 = getelementptr inbounds nuw %struct.tls_group_info_st, ptr %44, i64 %.09.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
+  %50 = load i16, ptr %49, align 4, !tbaa !96
+  %51 = icmp eq i16 %50, %1
+  br i1 %51, label %52, label %45
 
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = lshr i16 %1, 8
-  %53 = trunc nuw i16 %52 to i8
-  store i8 %53, ptr %4, align 1, !tbaa !141
-  %54 = trunc i16 %1 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !141
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %57 = load i32, ptr %56, align 8, !tbaa !142
+  %53 = lshr i16 %1, 8
+  %54 = trunc nuw i16 %53 to i8
+  store i8 %54, ptr %4, align 1, !tbaa !141
+  %55 = trunc i16 %1 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !141
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %58 = load i32, ptr %57, align 8, !tbaa !142
   br label %.preheader.i.i
 
-58:                                               ; preds = %.preheader.i.i
-  %59 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i10.i = icmp eq i64 %59, 45
+59:                                               ; preds = %.preheader.i.i
+  %60 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i10.i = icmp eq i64 %60, 45
   br i1 %exitcond.not.i10.i, label %tls_group_allowed.exit, label %.preheader.i.i, !llvm.loop !121
 
-.preheader.i.i:                                   ; preds = %51, %58
-  %.011.i.i = phi i64 [ %59, %58 ], [ 0, %51 ]
-  %60 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = load i16, ptr %61, align 4, !tbaa !122
-  %63 = icmp eq i16 %62, %1
-  br i1 %63, label %64, label %58
+.preheader.i.i:                                   ; preds = %52, %59
+  %.011.i.i = phi i64 [ %60, %59 ], [ 0, %52 ]
+  %61 = getelementptr inbounds nuw %struct.anon.5, ptr @nid_to_group, i64 %.011.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = load i16, ptr %62, align 4, !tbaa !122
+  %64 = icmp eq i16 %63, %1
+  br i1 %64, label %65, label %59
 
-64:                                               ; preds = %.preheader.i.i
-  %65 = load i32, ptr %60, align 8, !tbaa !124
+65:                                               ; preds = %.preheader.i.i
+  %66 = load i32, ptr %61, align 8, !tbaa !124
   br label %tls_group_allowed.exit
 
-tls_group_allowed.exit:                           ; preds = %58, %64
-  %.09.i11.i = phi i32 [ %65, %64 ], [ 0, %58 ]
-  %66 = call i32 @ssl_security(ptr noundef %0, i32 noundef 131078, i32 noundef %57, i32 noundef %.09.i11.i, ptr noundef nonnull %4) #14
+tls_group_allowed.exit:                           ; preds = %59, %65
+  %.09.i11.i = phi i32 [ %66, %65 ], [ 0, %59 ]
+  %67 = call i32 @ssl_security(ptr noundef %0, i32 noundef 131078, i32 noundef %58, i32 noundef %.09.i11.i, ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not27 = icmp eq i32 %66, 0
-  br i1 %.not27, label %tls1_in_list.exit35, label %67
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %.critedge, label %68
 
-67:                                               ; preds = %tls_group_allowed.exit
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %69 = load i32, ptr %68, align 8, !tbaa !151
-  %.not28 = icmp eq i32 %69, 0
-  br i1 %.not28, label %tls1_in_list.exit35, label %70
+68:                                               ; preds = %tls_group_allowed.exit
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %70 = load i32, ptr %69, align 8, !tbaa !151
+  %.not28 = icmp eq i32 %70, 0
+  br i1 %.not28, label %.critedge, label %71
 
-70:                                               ; preds = %67
-  %71 = getelementptr i8, ptr %0, i64 2712
-  %.val = load i64, ptr %71, align 8, !tbaa !156
-  %72 = getelementptr i8, ptr %0, i64 2720
-  %.val29 = load ptr, ptr %72, align 8, !tbaa !157
-  %73 = icmp eq i64 %.val, 0
-  br i1 %73, label %tls1_in_list.exit35, label %.lr.ph.i31
+71:                                               ; preds = %68
+  %72 = getelementptr i8, ptr %0, i64 2712
+  %.val = load i64, ptr %72, align 8, !tbaa !156
+  %73 = getelementptr i8, ptr %0, i64 2720
+  %.val29 = load ptr, ptr %73, align 8, !tbaa !157
+  %74 = icmp eq i64 %.val, 0
+  br i1 %74, label %.critedge, label %.lr.ph.i31
 
-74:                                               ; preds = %.lr.ph.i31
-  %75 = add nuw i64 %.07.i32, 1
-  %exitcond.not.i33 = icmp eq i64 %75, %.val
-  br i1 %exitcond.not.i33, label %tls1_in_list.exit35, label %.lr.ph.i31, !llvm.loop !158
+75:                                               ; preds = %.lr.ph.i31
+  %76 = add nuw i64 %.07.i32, 1
+  %exitcond.not.i33 = icmp eq i64 %76, %.val
+  br i1 %exitcond.not.i33, label %.critedge, label %.lr.ph.i31, !llvm.loop !158
 
-.lr.ph.i31:                                       ; preds = %70, %74
-  %.07.i32 = phi i64 [ %75, %74 ], [ 0, %70 ]
-  %76 = getelementptr inbounds nuw i16, ptr %.val29, i64 %.07.i32
-  %77 = load i16, ptr %76, align 2, !tbaa !93
-  %78 = icmp eq i16 %77, %1
-  br i1 %78, label %tls1_in_list.exit35, label %74
+.lr.ph.i31:                                       ; preds = %71, %75
+  %.07.i32 = phi i64 [ %76, %75 ], [ 0, %71 ]
+  %77 = getelementptr inbounds nuw i16, ptr %.val29, i64 %.07.i32
+  %78 = load i16, ptr %77, align 2, !tbaa !93
+  %79 = icmp eq i16 %78, %1
+  br i1 %79, label %.critedge, label %75
 
-tls1_in_list.exit35:                              ; preds = %35, %44, %.lr.ph.i31, %74, %tls1_in_list.exit, %tls1_get_supported_groups.exit, %70, %67, %tls_group_allowed.exit, %18, %19, %15, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %19 ], [ 0, %18 ], [ 0, %tls_group_allowed.exit ], [ 1, %67 ], [ 1, %70 ], [ 0, %tls1_get_supported_groups.exit ], [ 0, %tls1_in_list.exit ], [ 1, %.lr.ph.i31 ], [ 0, %74 ], [ 0, %44 ], [ 0, %35 ]
+.critedge:                                        ; preds = %36, %45, %.lr.ph.i31, %75, %tls1_in_list.exit, %tls1_get_supported_groups.exit, %19, %18, %15, %71, %68, %tls_group_allowed.exit, %3
+  %.0 = phi i32 [ 1, %71 ], [ 1, %68 ], [ 0, %tls_group_allowed.exit ], [ 0, %tls1_in_list.exit ], [ 0, %3 ], [ 0, %15 ], [ 0, %18 ], [ 0, %19 ], [ 0, %tls1_get_supported_groups.exit ], [ 0, %45 ], [ 0, %75 ], [ 1, %.lr.ph.i31 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -2100,7 +2100,7 @@ define void @tls1_get_formatlist(ptr noundef readonly captures(none) %0, ptr nou
   br label %15
 
 15:                                               ; preds = %9, %6
-  %.sink = phi i64 [ %8, %6 ], [ %., %9 ]
+  %.sink = phi i64 [ %., %9 ], [ %8, %6 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !105
   ret void
 }
@@ -2425,9 +2425,9 @@ define ptr @SSL_get1_builtin_sigalgs(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @CRYPTO_free(ptr noundef nonnull %.05899, ptr noundef nonnull @.str.2, i32 noundef 2277) #14
   br label %45
 
-41:                                               ; preds = %19, %21, %.thread, %39, %37
-  %.159.ph = phi ptr [ %.361, %37 ], [ %.05899, %39 ], [ %.05899, %.thread ], [ %.05899, %21 ], [ %.05899, %19 ]
-  %.145.ph = phi i64 [ %.347, %37 ], [ %.044101, %39 ], [ %.044101, %.thread ], [ %.044101, %21 ], [ %.044101, %19 ]
+41:                                               ; preds = %.thread, %21, %19, %39, %37
+  %.159.ph = phi ptr [ %.361, %37 ], [ %.05899, %39 ], [ %.05899, %19 ], [ %.05899, %21 ], [ %.05899, %.thread ]
+  %.145.ph = phi i64 [ %.347, %37 ], [ %.044101, %39 ], [ %.044101, %19 ], [ %.044101, %21 ], [ %.044101, %.thread ]
   %42 = getelementptr inbounds nuw i8, ptr %.053100, i64 40
   %43 = add nuw nsw i64 %.043102, 1
   %exitcond.not = icmp eq i64 %43, 31
@@ -2438,7 +2438,7 @@ define ptr @SSL_get1_builtin_sigalgs(ptr noundef %0) local_unnamed_addr #2 {
   br label %45
 
 45:                                               ; preds = %40, %1, %44
-  %.0 = phi ptr [ null, %40 ], [ %.159.ph, %44 ], [ null, %1 ]
+  %.0 = phi ptr [ %.159.ph, %44 ], [ null, %40 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2635,7 +2635,7 @@ select.unfold:                                    ; preds = %15, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %39, %.split.loop.exit80, %55, %2
-  %.046 = phi i32 [ %65, %55 ], [ %1, %2 ], [ %25, %.split.loop.exit80 ], [ %.04484, %39 ], [ %.04383, %47 ]
+  %.046 = phi i32 [ %1, %2 ], [ %65, %55 ], [ %25, %.split.loop.exit80 ], [ %.04484, %39 ], [ %.04383, %47 ]
   %or.cond = icmp ugt i32 %.046, 8
   br i1 %or.cond, label %tls1_lookup_sigalg.exit.thread, label %.thread65
 
@@ -2702,14 +2702,14 @@ tls1_lookup_sigalg.exit:                          ; preds = %86
   br i1 %99, label %tls1_lookup_sigalg.exit.thread, label %tls1_lookup_sigalg.exit.thread.sink.split
 
 tls1_lookup_sigalg.exit.thread.sink.split:        ; preds = %.thread65, %tls1_lookup_sigalg.exit, %95
-  %legacy_rsa_sigalg.sink107 = phi ptr [ %.03.i, %95 ], [ %.03.i, %tls1_lookup_sigalg.exit ], [ @legacy_rsa_sigalg, %.thread65 ]
+  %legacy_rsa_sigalg.sink107 = phi ptr [ %.03.i, %tls1_lookup_sigalg.exit ], [ %.03.i, %95 ], [ @legacy_rsa_sigalg, %.thread65 ]
   %100 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef 327691, ptr noundef nonnull %legacy_rsa_sigalg.sink107)
   %.not57 = icmp eq i32 %100, 0
   %.legacy_rsa_sigalg = select i1 %.not57, ptr null, ptr %legacy_rsa_sigalg.sink107
   br label %tls1_lookup_sigalg.exit.thread
 
 tls1_lookup_sigalg.exit.thread:                   ; preds = %select.unfold, %89, %tls1_lookup_sigalg.exit.thread.sink.split, %.preheader76, %95, %86, %74, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %74 ], [ null, %86 ], [ null, %95 ], [ null, %.preheader76 ], [ %.legacy_rsa_sigalg, %tls1_lookup_sigalg.exit.thread.sink.split ], [ null, %89 ], [ null, %select.unfold ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %86 ], [ null, %74 ], [ null, %95 ], [ null, %.preheader76 ], [ %.legacy_rsa_sigalg, %tls1_lookup_sigalg.exit.thread.sink.split ], [ null, %89 ], [ null, %select.unfold ]
   ret ptr %.0
 }
 
@@ -2875,7 +2875,7 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %29, %tls1_lookup_si
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %tls1_lookup_sigalg.exit.thread, %35, %.lr.ph, %15
-  %.2 = phi i32 [ 0, %15 ], [ 0, %.lr.ph ], [ 1, %35 ], [ 0, %tls1_lookup_sigalg.exit.thread ]
+  %.2 = phi i32 [ 0, %.lr.ph ], [ 0, %15 ], [ 1, %35 ], [ 0, %tls1_lookup_sigalg.exit.thread ]
   ret i32 %.2
 }
 
@@ -3330,7 +3330,7 @@ tls1_lookup_md.exit:                              ; preds = %.thread183
   br label %190
 
 190:                                              ; preds = %.thread, %.critedge, %42, %188, %187, %tls1_lookup_md.exit, %165, %147, %140, %132, %.loopexit, %72, %.thread141, %20
-  %.0 = phi i32 [ 0, %.thread141 ], [ 0, %72 ], [ 0, %140 ], [ 0, %165 ], [ 0, %187 ], [ 1, %188 ], [ 0, %tls1_lookup_md.exit ], [ 0, %132 ], [ 0, %.loopexit ], [ 0, %147 ], [ 0, %20 ], [ -1, %42 ], [ 0, %.critedge ], [ -1, %.thread ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %.thread141 ], [ 0, %72 ], [ 0, %140 ], [ 0, %165 ], [ 0, %187 ], [ 1, %188 ], [ 0, %tls1_lookup_md.exit ], [ 0, %132 ], [ 0, %.critedge ], [ 0, %.loopexit ], [ 0, %147 ], [ -1, %42 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3398,7 +3398,7 @@ ssl_get_EC_curve_nid.exit:                        ; preds = %1
   br i1 %exitcond.not.i, label %tls1_nid2group_id.exit, label %.preheader, !llvm.loop !125
 
 tls1_nid2group_id.exit:                           ; preds = %14, %10, %ssl_get_EC_curve_nid.exit.thread, %ssl_get_EC_curve_nid.exit
-  %.0 = phi i16 [ 0, %ssl_get_EC_curve_nid.exit ], [ 0, %ssl_get_EC_curve_nid.exit.thread ], [ %13, %10 ], [ 0, %14 ]
+  %.0 = phi i16 [ 0, %ssl_get_EC_curve_nid.exit.thread ], [ 0, %ssl_get_EC_curve_nid.exit ], [ %13, %10 ], [ 0, %14 ]
   ret i16 %.0
 }
 
@@ -3474,7 +3474,7 @@ define internal fastcc i32 @sigalg_security_bits(ptr noundef %0, ptr noundef non
   br label %.critedge
 
 .critedge:                                        ; preds = %.fold.split.thread, %19, %15, %18, %17, %6, %11, %.fold.split, %22, %26, %32
-  %.0 = phi i32 [ %38, %32 ], [ 0, %26 ], [ 0, %22 ], [ %switch.select, %.fold.split ], [ 0, %11 ], [ 0, %6 ], [ %12, %15 ], [ 39, %18 ], [ 67, %17 ], [ 128, %19 ], [ %16, %.fold.split.thread ]
+  %.0 = phi i32 [ %switch.select, %.fold.split ], [ 0, %6 ], [ 0, %11 ], [ %38, %32 ], [ 0, %26 ], [ 0, %22 ], [ 67, %17 ], [ %12, %15 ], [ 39, %18 ], [ 128, %19 ], [ %16, %.fold.split.thread ]
   ret i32 %.0
 }
 
@@ -3664,8 +3664,8 @@ default.unreachable:                              ; preds = %3
   br label %tls12_get_psigalgs.exit
 
 tls12_get_psigalgs.exit:                          ; preds = %19, %24, %26
-  %.124 = phi ptr [ %30, %26 ], [ %23, %24 ], [ %18, %19 ]
-  %.0.i.in = phi ptr [ %31, %26 ], [ %25, %24 ], [ %20, %19 ]
+  %.124 = phi ptr [ %18, %19 ], [ %30, %26 ], [ %23, %24 ]
+  %.0.i.in = phi ptr [ %20, %19 ], [ %31, %26 ], [ %25, %24 ]
   %.0.i = load i64, ptr %.0.i.in, align 8, !tbaa !105
   %.not30 = icmp eq i64 %.0.i, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -3743,7 +3743,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %45
   br label %tls1_lookup_sigalg.exit.thread
 
 tls1_lookup_sigalg.exit.thread:                   ; preds = %48, %45, %.lr.ph.split, %56, %60, %62, %tls1_lookup_sigalg.exit
-  %.1 = phi i32 [ %.01728, %tls1_lookup_sigalg.exit ], [ %65, %62 ], [ %.01728, %60 ], [ %.01728, %56 ], [ %.01728, %.lr.ph.split ], [ %.01728, %45 ], [ %.01728, %48 ]
+  %.1 = phi i32 [ %.01728, %tls1_lookup_sigalg.exit ], [ %.01728, %56 ], [ %65, %62 ], [ %.01728, %60 ], [ %.01728, %.lr.ph.split ], [ %.01728, %45 ], [ %.01728, %48 ]
   %66 = add nuw i64 %.029, 1
   %67 = getelementptr inbounds nuw i8, ptr %.02327, i64 2
   %exitcond.not = icmp eq i64 %66, %.0.i42
@@ -3847,7 +3847,7 @@ define range(i32 0, 2) i32 @ssl_cipher_disabled(ptr noundef %0, ptr noundef %1, 
   br label %55
 
 55:                                               ; preds = %41, %45, %33, %26, %4, %20, %50
-  %.0 = phi i32 [ %54, %50 ], [ 1, %20 ], [ 1, %4 ], [ 1, %26 ], [ 1, %33 ], [ 1, %45 ], [ 1, %41 ]
+  %.0 = phi i32 [ %54, %50 ], [ 1, %4 ], [ 1, %26 ], [ 1, %33 ], [ 1, %20 ], [ 1, %45 ], [ 1, %41 ]
   ret i32 %.0
 }
 
@@ -3972,8 +3972,8 @@ default.unreachable:                              ; preds = %23
   br label %tls12_get_psigalgs.exit
 
 tls12_get_psigalgs.exit:                          ; preds = %23, %30, %31, %39, %45, %48
-  %.035 = phi ptr [ @suiteb_sigalgs, %30 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %31 ], [ %52, %48 ], [ %44, %45 ], [ %38, %39 ], [ @suiteb_sigalgs, %23 ]
-  %.0.i = phi i64 [ 1, %30 ], [ 1, %31 ], [ %54, %48 ], [ %47, %45 ], [ %41, %39 ], [ 2, %23 ]
+  %.035 = phi ptr [ %38, %39 ], [ @suiteb_sigalgs, %30 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %31 ], [ %52, %48 ], [ %44, %45 ], [ @suiteb_sigalgs, %23 ]
+  %.0.i = phi i64 [ %41, %39 ], [ 1, %30 ], [ 1, %31 ], [ %54, %48 ], [ %47, %45 ], [ 2, %23 ]
   %.0.i.fr = freeze i64 %.0.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %56 = load i64, ptr %55, align 8, !tbaa !197
@@ -4052,7 +4052,7 @@ tls12_get_psigalgs.exit:                          ; preds = %23, %30, %31, %39, 
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39.split, %tls12_get_psigalgs.exit, %82, %12, %84, %81
-  %.029 = phi i32 [ 0, %84 ], [ 0, %81 ], [ 0, %12 ], [ 1, %82 ], [ 1, %tls12_get_psigalgs.exit ], [ 1, %.lr.ph39.split ], [ 1, %..loopexit_crit_edge.us ]
+  %.029 = phi i32 [ 0, %81 ], [ 1, %82 ], [ 0, %12 ], [ 0, %84 ], [ 1, %tls12_get_psigalgs.exit ], [ 1, %.lr.ph39.split ], [ 1, %..loopexit_crit_edge.us ]
   ret i32 %.029
 }
 
@@ -4159,8 +4159,8 @@ default.unreachable:                              ; preds = %30
   br label %tls12_get_psigalgs.exit.i
 
 tls12_get_psigalgs.exit.i:                        ; preds = %51, %48, %42, %37, %36, %30, %27, %19
-  %.090.i = phi ptr [ %24, %27 ], [ %16, %19 ], [ @suiteb_sigalgs, %36 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %37 ], [ %55, %51 ], [ %47, %48 ], [ %41, %42 ], [ @suiteb_sigalgs, %30 ]
-  %.048.i = phi i64 [ %29, %27 ], [ %21, %19 ], [ 1, %36 ], [ 1, %37 ], [ %57, %51 ], [ %50, %48 ], [ %44, %42 ], [ 2, %30 ]
+  %.090.i = phi ptr [ %16, %19 ], [ %24, %27 ], [ %41, %42 ], [ @suiteb_sigalgs, %36 ], [ getelementptr inbounds nuw (i8, ptr @suiteb_sigalgs, i64 2), %37 ], [ %55, %51 ], [ %47, %48 ], [ @suiteb_sigalgs, %30 ]
+  %.048.i = phi i64 [ %21, %19 ], [ %29, %27 ], [ %44, %42 ], [ 1, %36 ], [ 1, %37 ], [ %57, %51 ], [ %50, %48 ], [ 2, %30 ]
   %.048.fr.i = freeze i64 %.048.i
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %59 = load i64, ptr %58, align 8, !tbaa !155
@@ -4398,8 +4398,8 @@ tls1_lookup_sigalg.exit.thread.i73.i:             ; preds = %133, %144, %141, %t
   br i1 %exitcond46.not.i76.i, label %tls1_set_shared_sigalgs.exit, label %.lr.ph39.split.i61.i, !llvm.loop !236
 
 tls1_set_shared_sigalgs.exit:                     ; preds = %tls1_lookup_sigalg.exit.thread.i73.i, %tls1_lookup_sigalg.exit.thread.i.us.i, %tls12_get_psigalgs.exit.i, %.lr.ph39.i.i, %tls12_shared_sigalgs.exit.i, %.lr.ph39.i59.i
-  %149 = phi i64 [ 0, %tls12_shared_sigalgs.exit.i ], [ 0, %.lr.ph39.i59.i ], [ 0, %tls12_get_psigalgs.exit.i ], [ 0, %.lr.ph39.i.i ], [ 0, %tls1_lookup_sigalg.exit.thread.i.us.i ], [ %.122.i74.i, %tls1_lookup_sigalg.exit.thread.i73.i ]
-  %.046.i = phi ptr [ null, %tls12_shared_sigalgs.exit.i ], [ %116, %.lr.ph39.i59.i ], [ null, %tls12_get_psigalgs.exit.i ], [ null, %.lr.ph39.i.i ], [ null, %tls1_lookup_sigalg.exit.thread.i.us.i ], [ %116, %tls1_lookup_sigalg.exit.thread.i73.i ]
+  %149 = phi i64 [ 0, %.lr.ph39.i59.i ], [ 0, %tls12_shared_sigalgs.exit.i ], [ 0, %tls12_get_psigalgs.exit.i ], [ 0, %.lr.ph39.i.i ], [ 0, %tls1_lookup_sigalg.exit.thread.i.us.i ], [ %.122.i74.i, %tls1_lookup_sigalg.exit.thread.i73.i ]
+  %.046.i = phi ptr [ %116, %.lr.ph39.i59.i ], [ null, %tls12_shared_sigalgs.exit.i ], [ null, %tls12_get_psigalgs.exit.i ], [ null, %.lr.ph39.i.i ], [ null, %tls1_lookup_sigalg.exit.thread.i.us.i ], [ %116, %tls1_lookup_sigalg.exit.thread.i73.i ]
   store ptr %.046.i, ptr %9, align 8, !tbaa !229
   store i64 %149, ptr %11, align 8, !tbaa !239
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -4520,7 +4520,7 @@ tls_use_ticket.exit:                              ; preds = %8
   br label %tls_use_ticket.exit.thread
 
 tls_use_ticket.exit.thread:                       ; preds = %8, %13, %3, %tls_use_ticket.exit, %18
-  %.0 = phi i32 [ %24, %18 ], [ 2, %tls_use_ticket.exit ], [ 2, %3 ], [ 2, %13 ], [ 2, %8 ]
+  %.0 = phi i32 [ 2, %3 ], [ %24, %18 ], [ 2, %tls_use_ticket.exit ], [ 2, %13 ], [ 2, %8 ]
   ret i32 %.0
 }
 
@@ -4676,7 +4676,7 @@ define range(i32 0, 7) i32 @tls_decrypt_ticket(ptr noundef %0, ptr noundef %1, i
   br label %.thread206
 
 .thread206:                                       ; preds = %87, %80, %58, %59
-  %.2142 = phi i32 [ 5, %59 ], [ 6, %58 ], [ %90, %87 ], [ 5, %80 ]
+  %.2142 = phi i32 [ 6, %58 ], [ 5, %59 ], [ %90, %87 ], [ 5, %80 ]
   %91 = load ptr, ptr %33, align 8, !tbaa !257
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %94, label %92
@@ -4809,14 +4809,14 @@ ssl_hmac_size.exit:                               ; preds = %92, %97
   br label %.thread201
 
 159:                                              ; preds = %32, %31, %27, %6
-  %.0143 = phi i32 [ 3, %6 ], [ 4, %27 ], [ 4, %31 ], [ 0, %32 ]
+  %.0143 = phi i32 [ 0, %32 ], [ 3, %6 ], [ 4, %27 ], [ 4, %31 ]
   tail call void @EVP_CIPHER_CTX_free(ptr noundef null) #14
   br label %ssl_hmac_free.exit
 
-.thread201:                                       ; preds = %154, %155, %94, %58, %56, %128, %135, %153, %158, %35, %ssl_hmac_size.exit, %100, %103, %111, %107, %114, %60, %79
-  %.0143.ph = phi i32 [ 4, %60 ], [ 1, %79 ], [ 4, %114 ], [ 1, %107 ], [ 1, %111 ], [ 4, %103 ], [ 1, %100 ], [ 1, %ssl_hmac_size.exit ], [ 0, %35 ], [ 4, %158 ], [ 4, %153 ], [ 4, %135 ], [ 1, %128 ], [ 4, %58 ], [ 1, %56 ], [ 1, %94 ], [ %.2142, %155 ], [ %.2142, %154 ]
-  %.0138.ph = phi ptr [ null, %60 ], [ null, %79 ], [ null, %114 ], [ null, %107 ], [ null, %111 ], [ null, %103 ], [ null, %100 ], [ null, %ssl_hmac_size.exit ], [ null, %35 ], [ null, %158 ], [ null, %153 ], [ null, %135 ], [ null, %128 ], [ null, %58 ], [ null, %56 ], [ null, %94 ], [ %144, %155 ], [ %144, %154 ]
-  %.0135.ph = phi i64 [ %2, %60 ], [ %2, %79 ], [ %108, %114 ], [ %108, %107 ], [ %108, %111 ], [ %2, %103 ], [ %2, %100 ], [ %2, %ssl_hmac_size.exit ], [ %2, %35 ], [ %121, %158 ], [ %121, %153 ], [ %121, %135 ], [ %121, %128 ], [ %2, %58 ], [ %2, %56 ], [ %2, %94 ], [ %121, %155 ], [ %121, %154 ]
+.thread201:                                       ; preds = %154, %155, %94, %56, %58, %111, %35, %ssl_hmac_size.exit, %100, %103, %107, %128, %135, %153, %114, %158, %60, %79
+  %.0143.ph = phi i32 [ %.2142, %154 ], [ 1, %79 ], [ 4, %60 ], [ 1, %111 ], [ 4, %158 ], [ 4, %114 ], [ 1, %94 ], [ 4, %153 ], [ 4, %135 ], [ 1, %128 ], [ 1, %107 ], [ 4, %103 ], [ 1, %100 ], [ 1, %ssl_hmac_size.exit ], [ 0, %35 ], [ 4, %58 ], [ 1, %56 ], [ %.2142, %155 ]
+  %.0138.ph = phi ptr [ %144, %154 ], [ null, %79 ], [ null, %60 ], [ null, %111 ], [ null, %158 ], [ null, %114 ], [ null, %94 ], [ null, %153 ], [ null, %135 ], [ null, %128 ], [ null, %107 ], [ null, %103 ], [ null, %100 ], [ null, %ssl_hmac_size.exit ], [ null, %35 ], [ null, %58 ], [ null, %56 ], [ %144, %155 ]
+  %.0135.ph = phi i64 [ %121, %154 ], [ %2, %79 ], [ %2, %60 ], [ %108, %111 ], [ %121, %158 ], [ %108, %114 ], [ %2, %94 ], [ %121, %153 ], [ %121, %135 ], [ %121, %128 ], [ %108, %107 ], [ %2, %103 ], [ %2, %100 ], [ %2, %ssl_hmac_size.exit ], [ %2, %35 ], [ %2, %58 ], [ %2, %56 ], [ %121, %155 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %36) #14
   %160 = load ptr, ptr %33, align 8, !tbaa !257
   call void @EVP_MAC_CTX_free(ptr noundef %160) #14
@@ -4869,8 +4869,8 @@ ssl_hmac_free.exit:                               ; preds = %159, %.thread201
   br label %175
 
 175:                                              ; preds = %169, %170, %172, %173, %165, %ssl_hmac_free.exit
-  %.3146 = phi i32 [ %.0143221, %ssl_hmac_free.exit ], [ 2, %169 ], [ %spec.store.select10, %170 ], [ 1, %172 ], [ %.192, %173 ], [ 1, %165 ]
-  %.1139 = phi ptr [ %.0138223, %ssl_hmac_free.exit ], [ null, %169 ], [ null, %170 ], [ %.0138223, %172 ], [ %.0138223, %173 ], [ %.0138223, %165 ]
+  %.3146 = phi i32 [ %.0143221, %ssl_hmac_free.exit ], [ %.192, %173 ], [ 1, %172 ], [ 2, %169 ], [ %spec.store.select10, %170 ], [ 1, %165 ]
+  %.1139 = phi ptr [ %.0138223, %ssl_hmac_free.exit ], [ %.0138223, %173 ], [ %.0138223, %172 ], [ null, %169 ], [ null, %170 ], [ %.0138223, %165 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 2784
   %177 = load ptr, ptr %176, align 8, !tbaa !253
   %178 = icmp eq ptr %177, null
@@ -4965,7 +4965,7 @@ define ptr @ssl_hmac_new(ptr noundef readonly captures(none) %0) local_unnamed_a
   br label %25
 
 25:                                               ; preds = %11, %1, %23, %22
-  %.016 = phi ptr [ null, %23 ], [ %2, %22 ], [ null, %1 ], [ %2, %11 ]
+  %.016 = phi ptr [ %2, %22 ], [ null, %1 ], [ null, %23 ], [ %2, %11 ]
   ret ptr %.016
 }
 
@@ -5013,7 +5013,7 @@ define i32 @ssl_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   br label %17
 
 17:                                               ; preds = %12, %8, %15
-  %.0 = phi i32 [ %16, %15 ], [ 1, %8 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %8 ], [ %16, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -5200,7 +5200,7 @@ define internal fastcc i32 @tls12_sigalg_allowed(ptr noundef %0, i32 noundef %1,
   ]
 
 .thread73:                                        ; preds = %24, %.thread, %36, %28
-  %39 = phi ptr [ %25, %36 ], [ %25, %28 ], [ %25, %24 ], [ %27, %.thread ]
+  %39 = phi ptr [ %27, %.thread ], [ %25, %36 ], [ %25, %28 ], [ %25, %24 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !126
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -5363,7 +5363,7 @@ sigalg_security_bits.exit.fold.split:             ; preds = %101
   br label %sigalg_security_bits.exit
 
 sigalg_security_bits.exit:                        ; preds = %101, %sigalg_security_bits.exit.fold.split, %88, %93, %97, %.fold.split.thread.i, %99, %100, %104, %107, %113
-  %.0.i = phi i32 [ %119, %113 ], [ 0, %107 ], [ 0, %104 ], [ 0, %93 ], [ 0, %88 ], [ %94, %97 ], [ 39, %100 ], [ 67, %99 ], [ 128, %101 ], [ %98, %.fold.split.thread.i ], [ 224, %sigalg_security_bits.exit.fold.split ]
+  %.0.i = phi i32 [ 0, %88 ], [ 0, %93 ], [ %119, %113 ], [ 0, %107 ], [ 0, %104 ], [ 67, %99 ], [ %94, %97 ], [ 39, %100 ], [ 128, %101 ], [ %98, %.fold.split.thread.i ], [ 224, %sigalg_security_bits.exit.fold.split ]
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %121 = load i16, ptr %120, align 8, !tbaa !187
   %122 = lshr i16 %121, 8
@@ -5377,7 +5377,7 @@ sigalg_security_bits.exit:                        ; preds = %101, %sigalg_securi
   br label %.critedge
 
 .critedge:                                        ; preds = %select.unfold, %72, %68, %58, %.thread73, %32, %36, %36, %36, %20, %3, %6, %._crit_edge, %sigalg_security_bits.exit
-  %.0 = phi i32 [ %127, %sigalg_security_bits.exit ], [ 0, %._crit_edge ], [ 0, %6 ], [ 0, %3 ], [ 0, %20 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %32 ], [ 0, %.thread73 ], [ 0, %58 ], [ 0, %68 ], [ 0, %72 ], [ 0, %select.unfold ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %32 ], [ %127, %sigalg_security_bits.exit ], [ 0, %._crit_edge ], [ 0, %.thread73 ], [ 0, %20 ], [ 0, %6 ], [ 0, %36 ], [ 0, %36 ], [ 0, %36 ], [ 0, %58 ], [ 0, %68 ], [ 0, %72 ], [ 0, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5481,7 +5481,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %19
   br label %tls1_lookup_sigalg.exit.thread
 
 tls1_lookup_sigalg.exit.thread:                   ; preds = %22, %32, %39, %45, %19, %.lr.ph.split, %tls1_lookup_sigalg.exit, %30
-  %.123.ph = phi i32 [ 1, %30 ], [ %.02244, %tls1_lookup_sigalg.exit ], [ %.02244, %.lr.ph.split ], [ %.02244, %19 ], [ %48, %45 ], [ 1, %39 ], [ 1, %32 ], [ %.02244, %22 ]
+  %.123.ph = phi i32 [ 1, %30 ], [ %48, %45 ], [ %.02244, %tls1_lookup_sigalg.exit ], [ %.02244, %.lr.ph.split ], [ %.02244, %19 ], [ 1, %39 ], [ 1, %32 ], [ %.02244, %22 ]
   %49 = add nuw i64 %.02543, 1
   %exitcond.not = icmp eq i64 %49, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.backedge
@@ -5508,7 +5508,7 @@ tls1_lookup_sigalg.exit.thread.thread:            ; preds = %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %._crit_edge, %._crit_edge.thread55
-  %.2 = phi i32 [ 0, %._crit_edge.thread55 ], [ 1, %._crit_edge ], [ 0, %26 ]
+  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %._crit_edge.thread55 ], [ 0, %26 ]
   ret i32 %.2
 }
 
@@ -5575,7 +5575,7 @@ define range(i32 0, 2) i32 @tls1_save_u16(ptr noundef captures(none) %0, ptr nou
   br label %28
 
 28:                                               ; preds = %7, %3, %.critedge.thread, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %.critedge.thread ], [ 0, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %.critedge.thread ], [ 0, %3 ], [ 0, %26 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5718,7 +5718,7 @@ define range(i32 0, 2) i32 @tls1_save_sigalgs(ptr noundef captures(none) %0, ptr
   br label %tls1_save_u16.exit
 
 tls1_save_u16.exit:                               ; preds = %.critedge.thread.i19, %65, %46, %43, %.critedge.thread.i, %41, %22, %19, %11, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %11 ], [ 0, %41 ], [ 1, %.critedge.thread.i ], [ 0, %19 ], [ 0, %22 ], [ 0, %65 ], [ 1, %.critedge.thread.i19 ], [ 0, %43 ], [ 0, %46 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %11 ], [ 0, %22 ], [ 1, %.critedge.thread.i ], [ 0, %19 ], [ 0, %41 ], [ 1, %.critedge.thread.i19 ], [ 0, %43 ], [ 0, %65 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -5878,7 +5878,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %52, %39, %49
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %68, %73, %12, %7, %27, %.thread60, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %.thread60 ], [ 0, %27 ], [ 0, %7 ], [ 0, %12 ], [ %26, %73 ], [ %26, %68 ], [ %26, %24 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %14 ], [ 0, %12 ], [ 0, %.thread60 ], [ 0, %7 ], [ %26, %68 ], [ %26, %73 ], [ %26, %24 ]
   ret i32 %.0
 }
 
@@ -6214,7 +6214,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   br i1 %exitcond.not, label %.loopexit, label %.preheader82, !llvm.loop !279
 
 85:                                               ; preds = %.thread80, %.thread79, %.loopexit81
-  %86 = phi i64 [ %79, %.thread80 ], [ %46, %.thread79 ], [ %12, %.loopexit81 ]
+  %86 = phi i64 [ %12, %.loopexit81 ], [ %46, %.thread79 ], [ %79, %.thread80 ]
   %.not98 = icmp eq i64 %86, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph96
 
@@ -6241,7 +6241,7 @@ define internal range(i32 0, 2) i32 @sig_cb(ptr noundef readonly captures(addres
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %57, %90, %85, %64, %60, %8, %3, %96
-  %.065.shrunk = phi i1 [ true, %96 ], [ false, %3 ], [ false, %8 ], [ false, %60 ], [ %10, %64 ], [ true, %85 ], [ true, %90 ], [ %10, %57 ], [ %10, %82 ]
+  %.065.shrunk = phi i1 [ %10, %64 ], [ false, %3 ], [ false, %8 ], [ true, %96 ], [ false, %60 ], [ true, %85 ], [ %10, %57 ], [ true, %90 ], [ %10, %82 ]
   %.065 = zext i1 %.065.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6357,7 +6357,7 @@ define range(i32 0, 2) i32 @tls1_set_sigalgs(ptr noundef captures(none) %0, ptr 
   br label %40
 
 40:                                               ; preds = %31, %35, %6, %4, %39
-  %.0 = phi i32 [ 0, %39 ], [ 0, %4 ], [ 0, %6 ], [ 1, %35 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 1, %31 ], [ 0, %39 ], [ 1, %35 ]
   ret i32 %.0
 }
 
@@ -6762,8 +6762,8 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lo
   br label %.thread314
 
 .thread314:                                       ; preds = %179, %175, %185, %187, %._crit_edge.thread394
-  %190 = phi i1 [ true, %._crit_edge.thread394 ], [ %188, %187 ], [ true, %185 ], [ true, %175 ], [ true, %179 ]
-  %.7202 = phi i32 [ %.1196, %._crit_edge.thread394 ], [ %spec.select267, %187 ], [ %186, %185 ], [ %176, %175 ], [ %176, %179 ]
+  %190 = phi i1 [ %188, %187 ], [ true, %._crit_edge.thread394 ], [ true, %185 ], [ true, %175 ], [ true, %179 ]
+  %.7202 = phi i32 [ %spec.select267, %187 ], [ %.1196, %._crit_edge.thread394 ], [ %186, %185 ], [ %176, %175 ], [ %176, %179 ]
   %191 = call fastcc i32 @tls1_check_cert_param(ptr noundef nonnull %0, ptr noundef %.0176, i32 noundef 1)
   %.not241 = icmp eq i32 %191, 0
   br i1 %.not241, label %194, label %192
@@ -6957,7 +6957,7 @@ ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i291
   br label %.thread331
 
 .thread331:                                       ; preds = %.loopexit337, %.thread317
-  %.18 = phi i32 [ %265, %.thread317 ], [ %.15, %.loopexit337 ]
+  %.18 = phi i32 [ %.15, %.loopexit337 ], [ %265, %.thread317 ]
   %.not254 = icmp eq i32 %.4211, 0
   %266 = and i32 %.18, %.4211
   %267 = icmp eq i32 %266, %.4211
@@ -6968,9 +6968,9 @@ ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i291
   br label %.thread309
 
 .thread309:                                       ; preds = %205, %.loopexit338, %.loopexit337, %185, %172, %.thread331, %._crit_edge.thread394, %103, %194, %tls12_rpk_and_privkey.exit.thread
-  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ 0, %194 ], [ 0, %._crit_edge.thread394 ], [ %spec.select, %103 ], [ %spec.select285, %.thread331 ], [ 0, %172 ], [ 0, %185 ], [ 0, %.loopexit337 ], [ %.4211, %.loopexit338 ], [ %.4211, %205 ]
-  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.7202, %194 ], [ %.1196, %._crit_edge.thread394 ], [ %.3198, %103 ], [ %spec.select286, %.thread331 ], [ %.1196, %172 ], [ %176, %185 ], [ %.15, %.loopexit337 ], [ %.12, %.loopexit338 ], [ %.11, %205 ]
-  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %194 ], [ %.1193, %._crit_edge.thread394 ], [ %.1193, %103 ], [ %.1193, %.thread331 ], [ %.1193, %172 ], [ %.1193, %185 ], [ %.1193, %.loopexit337 ], [ %.1193, %.loopexit338 ], [ %.1193, %205 ]
+  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %spec.select, %103 ], [ %spec.select285, %.thread331 ], [ 0, %.loopexit337 ], [ 0, %194 ], [ 0, %._crit_edge.thread394 ], [ 0, %185 ], [ 0, %172 ], [ %.4211, %.loopexit338 ], [ %.4211, %205 ]
+  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.3198, %103 ], [ %spec.select286, %.thread331 ], [ %.15, %.loopexit337 ], [ %.7202, %194 ], [ %.1196, %._crit_edge.thread394 ], [ %176, %185 ], [ %.1196, %172 ], [ %.12, %.loopexit338 ], [ %.11, %205 ]
+  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %103 ], [ %.1193, %.thread331 ], [ %.1193, %.loopexit337 ], [ %.1193, %194 ], [ %.1193, %._crit_edge.thread394 ], [ %.1193, %185 ], [ %.1193, %172 ], [ %.1193, %.loopexit338 ], [ %.1193, %205 ]
   %269 = call i32 @SSL_version(ptr noundef %0) #14
   %.mask255 = and i32 %269, -256
   %270 = icmp eq i32 %.mask255, 768
@@ -7015,7 +7015,7 @@ ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i291
   unreachable
 
 tls1_check_pkey_comp.exit.thread:                 ; preds = %77, %.preheader.i, %68, %55, %.critedge278, %279, %.critedge, %280, %tls1_check_pkey_comp.exit
-  %.0 = phi i32 [ 4096, %tls1_check_pkey_comp.exit ], [ 0, %280 ], [ 0, %.critedge ], [ %.19, %279 ], [ %.19, %.critedge278 ], [ %56, %55 ], [ 0, %68 ], [ 0, %.preheader.i ], [ 0, %77 ]
+  %.0 = phi i32 [ 4096, %tls1_check_pkey_comp.exit ], [ 0, %.critedge ], [ %.19, %.critedge278 ], [ 0, %280 ], [ %.19, %279 ], [ %56, %55 ], [ 0, %68 ], [ 0, %.preheader.i ], [ 0, %77 ]
   ret i32 %.0
 }
 
@@ -7251,8 +7251,8 @@ rsa_pss_check_min_key_size.exit:                  ; preds = %103
   %.not = icmp slt i32 %106, %109
   br i1 %.not, label %tls1_lookup_md.exit.thread, label %._crit_edge.loopexit
 
-tls1_lookup_md.exit.thread:                       ; preds = %95, %98, %103, %93, %ssl_has_cert_type.exit.thread.i.i, %31, %35, %ssl_has_cert.exit.i, %26, %is_cert_usable.exit.thread, %90, %21, %21, %15, %15, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
-  %.139 = phi i32 [ %.03868, %15 ], [ %.03868, %21 ], [ %.03868, %rsa_pss_check_min_key_size.exit ], [ %.03868, %is_cert_usable.exit ], [ %.03868, %has_usable_cert.exit ], [ %.03868, %15 ], [ %.03868, %21 ], [ %.2, %90 ], [ %.03868, %is_cert_usable.exit.thread ], [ %.03868, %26 ], [ %.03868, %ssl_has_cert.exit.i ], [ %.03868, %35 ], [ %.03868, %31 ], [ %.03868, %ssl_has_cert_type.exit.thread.i.i ], [ %.03868, %93 ], [ %.03868, %103 ], [ %.03868, %98 ], [ %.03868, %95 ]
+tls1_lookup_md.exit.thread:                       ; preds = %95, %98, %93, %103, %35, %ssl_has_cert_type.exit.thread.i.i, %31, %ssl_has_cert.exit.i, %26, %is_cert_usable.exit.thread, %90, %21, %21, %15, %15, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
+  %.139 = phi i32 [ %.03868, %15 ], [ %.03868, %15 ], [ %.03868, %21 ], [ %.03868, %21 ], [ %.2, %90 ], [ %.03868, %rsa_pss_check_min_key_size.exit ], [ %.03868, %is_cert_usable.exit ], [ %.03868, %has_usable_cert.exit ], [ %.03868, %35 ], [ %.03868, %26 ], [ %.03868, %is_cert_usable.exit.thread ], [ %.03868, %ssl_has_cert.exit.i ], [ %.03868, %31 ], [ %.03868, %ssl_has_cert_type.exit.thread.i.i ], [ %.03868, %103 ], [ %.03868, %93 ], [ %.03868, %98 ], [ %.03868, %95 ]
   %110 = add nuw i64 %.04066, 1
   %111 = load i64, ptr %8, align 8, !tbaa !239
   %112 = icmp ult i64 %110, %111
@@ -7397,7 +7397,7 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %50, %47, %tls1_look
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.preheader.i, !llvm.loop !297
 
 .loopexit:                                        ; preds = %tls1_lookup_sigalg.exit.thread35, %tls1_lookup_sigalg.exit.thread, %tls1_lookup_sigalg.exit.thread35.us, %tls1_lookup_sigalg.exit.thread.us, %.lr.ph.split, %.thread, %24, %3, %7
-  %.023 = phi i32 [ %9, %7 ], [ 1, %3 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %.lr.ph.split ], [ 1, %tls1_lookup_sigalg.exit.thread35.us ], [ 0, %tls1_lookup_sigalg.exit.thread.us ], [ 1, %tls1_lookup_sigalg.exit.thread35 ], [ 0, %tls1_lookup_sigalg.exit.thread ]
+  %.023 = phi i32 [ 1, %3 ], [ %9, %7 ], [ 0, %.lr.ph.split ], [ 0, %24 ], [ 0, %.thread ], [ 1, %tls1_lookup_sigalg.exit.thread35.us ], [ 0, %tls1_lookup_sigalg.exit.thread.us ], [ 1, %tls1_lookup_sigalg.exit.thread35 ], [ 0, %tls1_lookup_sigalg.exit.thread ]
   ret i32 %.023
 }
 
@@ -7517,7 +7517,7 @@ ssl_get_EC_curve_nid.exit.i:                      ; preds = %tls1_check_pkey_com
   br i1 %exitcond.not.i.i, label %tls1_get_group_id.exit, label %.preheader.i29, !llvm.loop !125
 
 tls1_get_group_id.exit:                           ; preds = %49, %ssl_get_EC_curve_nid.exit.thread.i, %ssl_get_EC_curve_nid.exit.i, %45
-  %.0.i28 = phi i16 [ 0, %ssl_get_EC_curve_nid.exit.i ], [ 0, %ssl_get_EC_curve_nid.exit.thread.i ], [ %48, %45 ], [ 0, %49 ]
+  %.0.i28 = phi i16 [ 0, %ssl_get_EC_curve_nid.exit.thread.i ], [ 0, %ssl_get_EC_curve_nid.exit.i ], [ %48, %45 ], [ 0, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %52 = load i32, ptr %51, align 8, !tbaa !151
   %.not24 = icmp eq i32 %52, 0
@@ -7575,7 +7575,7 @@ tls1_get_group_id.exit:                           ; preds = %49, %ssl_get_EC_cur
   br i1 %76, label %tls1_check_pkey_comp.exit.thread, label %69
 
 tls1_check_pkey_comp.exit.thread:                 ; preds = %33, %69, %71, %64, %.preheader.i, %24, %11, %55, %56, %62, %tls1_get_group_id.exit, %7, %3
-  %.020 = phi i32 [ 0, %3 ], [ 1, %7 ], [ 0, %tls1_get_group_id.exit ], [ 0, %62 ], [ 1, %56 ], [ 1, %55 ], [ %12, %11 ], [ 0, %24 ], [ 0, %.preheader.i ], [ 0, %64 ], [ 0, %69 ], [ 1, %71 ], [ 0, %33 ]
+  %.020 = phi i32 [ 0, %3 ], [ 0, %tls1_get_group_id.exit ], [ 0, %.preheader.i ], [ 1, %55 ], [ 1, %7 ], [ 0, %62 ], [ 1, %56 ], [ %12, %11 ], [ 0, %24 ], [ 0, %64 ], [ 1, %71 ], [ 0, %69 ], [ 0, %33 ]
   ret i32 %.020
 }
 
@@ -7691,7 +7691,7 @@ define ptr @ssl_get_auto_dh(ptr noundef %0) local_unnamed_addr #2 {
   br label %27
 
 27:                                               ; preds = %15, %23, %1
-  %.035 = phi i32 [ %26, %23 ], [ 80, %1 ], [ %., %15 ]
+  %.035 = phi i32 [ %., %15 ], [ 80, %1 ], [ %26, %23 ]
   %28 = tail call i32 @ssl_get_security_level_bits(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #14
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.035, i32 %28)
   %29 = icmp sgt i32 %spec.select, 191
@@ -7936,7 +7936,7 @@ ssl_security_cert_sig.exit.thread:                ; preds = %28
   br label %ssl_security_cert_sig.exit
 
 ssl_security_cert_sig.exit:                       ; preds = %43, %45
-  %.0.i24 = phi i32 [ %44, %43 ], [ %46, %45 ]
+  %.0.i24 = phi i32 [ %46, %45 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7946,7 +7946,7 @@ ssl_security_cert_sig.exit:                       ; preds = %43, %45
   br label %47
 
 47:                                               ; preds = %ssl_security_cert_sig.exit, %ssl_security_cert_sig.exit.thread, %ssl_security_cert_key.exit22, %ssl_security_cert_key.exit
-  %.0 = phi i32 [ 399, %ssl_security_cert_key.exit ], [ 397, %ssl_security_cert_key.exit22 ], [ 1, %ssl_security_cert_sig.exit.thread ], [ %spec.select, %ssl_security_cert_sig.exit ]
+  %.0 = phi i32 [ 397, %ssl_security_cert_key.exit22 ], [ 399, %ssl_security_cert_key.exit ], [ 1, %ssl_security_cert_sig.exit.thread ], [ %spec.select, %ssl_security_cert_sig.exit ]
   ret i32 %.0
 }
 
@@ -7986,7 +7986,7 @@ define range(i32 1, 786692) i32 @ssl_security_cert_chain(ptr noundef %0, ptr nou
   br i1 %.not26, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.preheader, %9, %6
-  %.020 = phi i32 [ 786691, %6 ], [ %10, %9 ], [ 1, %.preheader ], [ %18, %.lr.ph ], [ 1, %13 ]
+  %.020 = phi i32 [ %10, %9 ], [ 786691, %6 ], [ 1, %.preheader ], [ %18, %.lr.ph ], [ 1, %13 ]
   ret i32 %.020
 }
 
@@ -8257,8 +8257,8 @@ tls12_rpk_and_privkey.exit.thread.i:              ; preds = %tls12_rpk_and_privk
   br i1 %149, label %tls12_get_cert_sigalg_idx.exit.thread, label %.thread
 
 .thread:                                          ; preds = %.sink.split.i139, %148
-  %150 = phi i32 [ 0, %148 ], [ %116, %.sink.split.i139 ]
-  %.498173 = phi i32 [ %145, %148 ], [ %.val, %.sink.split.i139 ]
+  %150 = phi i32 [ %116, %.sink.split.i139 ], [ 0, %148 ]
+  %.498173 = phi i32 [ %.val, %.sink.split.i139 ], [ %145, %148 ]
   %151 = icmp slt i32 %.498173, 0
   br i1 %151, label %tls12_get_cert_sigalg_idx.exit.thread, label %152
 
@@ -8377,8 +8377,8 @@ rsa_pss_check_min_key_size.exit:                  ; preds = %200
   %211 = icmp eq i32 %210, %.0106
   br i1 %211, label %._crit_edge, label %tls12_get_cert_sigalg_idx.exit.thread
 
-tls12_get_cert_sigalg_idx.exit.thread:            ; preds = %148, %192, %195, %200, %183, %ssl_has_cert_type.exit.thread.i.i, %.thread, %152, %ssl_has_cert.exit.i, %.sink.split.i139, %94, %100, %111, %rsa_pss_check_min_key_size.exit, %136, %208, %has_usable_cert.exit
-  %.397 = phi i32 [ %.498173, %208 ], [ %.498173, %rsa_pss_check_min_key_size.exit ], [ %.498173, %has_usable_cert.exit ], [ %147, %136 ], [ -1, %111 ], [ -1, %100 ], [ -1, %94 ], [ -1, %.sink.split.i139 ], [ %.498173, %ssl_has_cert.exit.i ], [ %.498173, %152 ], [ %.498173, %.thread ], [ %.498173, %ssl_has_cert_type.exit.thread.i.i ], [ %.498173, %183 ], [ %.498173, %200 ], [ %.498173, %195 ], [ %.498173, %192 ], [ -1, %148 ]
+tls12_get_cert_sigalg_idx.exit.thread:            ; preds = %148, %192, %195, %183, %200, %152, %ssl_has_cert_type.exit.thread.i.i, %.thread, %ssl_has_cert.exit.i, %.sink.split.i139, %111, %94, %100, %rsa_pss_check_min_key_size.exit, %136, %208, %has_usable_cert.exit
+  %.397 = phi i32 [ %.498173, %192 ], [ %.498173, %208 ], [ %.498173, %rsa_pss_check_min_key_size.exit ], [ %.498173, %has_usable_cert.exit ], [ %147, %136 ], [ %.498173, %152 ], [ -1, %.sink.split.i139 ], [ -1, %100 ], [ -1, %94 ], [ -1, %111 ], [ %.498173, %ssl_has_cert.exit.i ], [ %.498173, %.thread ], [ %.498173, %ssl_has_cert_type.exit.thread.i.i ], [ %.498173, %200 ], [ %.498173, %183 ], [ %.498173, %195 ], [ -1, %148 ]
   %212 = add nuw i64 %.0107207, 1
   %213 = load i64, ptr %81, align 8, !tbaa !239
   %214 = icmp ult i64 %212, %213
@@ -8503,8 +8503,8 @@ default.unreachable:                              ; preds = %235
   br label %tls12_get_psigalgs.exit
 
 tls12_get_psigalgs.exit:                          ; preds = %250, %255, %257
-  %.1168 = phi ptr [ %261, %257 ], [ %254, %255 ], [ %249, %250 ]
-  %.0.i145.in = phi ptr [ %262, %257 ], [ %256, %255 ], [ %251, %250 ]
+  %.1168 = phi ptr [ %249, %250 ], [ %261, %257 ], [ %254, %255 ]
+  %.0.i145.in = phi ptr [ %251, %250 ], [ %262, %257 ], [ %256, %255 ]
   %.0.i145 = load i64, ptr %.0.i145.in, align 8, !tbaa !105
   %.not225 = icmp eq i64 %.0.i145, 0
   br i1 %.not225, label %has_usable_cert.exit165._crit_edge.thread, label %.lr.ph220
@@ -8595,7 +8595,7 @@ has_usable_cert.exit165:                          ; preds = %ssl_has_cert.exit.i
   %.not126 = icmp eq i32 %300, 0
   br i1 %.not126, label %has_usable_cert.exit165.thread, label %has_usable_cert.exit165._crit_edge
 
-has_usable_cert.exit165.thread:                   ; preds = %ssl_has_cert_type.exit.thread.i.i163, %271, %274, %ssl_has_cert.exit.i159, %267, %has_usable_cert.exit165
+has_usable_cert.exit165.thread:                   ; preds = %274, %ssl_has_cert_type.exit.thread.i.i163, %271, %ssl_has_cert.exit.i159, %267, %has_usable_cert.exit165
   %301 = add nuw i64 %.2109219, 1
   %302 = getelementptr inbounds nuw i8, ptr %.0167218, i64 2
   %exitcond.not = icmp eq i64 %301, %.0.i145268
@@ -8637,7 +8637,7 @@ has_usable_cert.exit165._crit_edge.thread:        ; preds = %has_usable_cert.exi
   br i1 %310, label %.thread201, label %313
 
 .thread201:                                       ; preds = %16, %305, %has_usable_cert.exit165._crit_edge, %.thread258
-  %.089200 = phi ptr [ %.392263, %.thread258 ], [ %231, %has_usable_cert.exit165._crit_edge ], [ %17, %16 ], [ %306, %305 ]
+  %.089200 = phi ptr [ %231, %has_usable_cert.exit165._crit_edge ], [ %.392263, %.thread258 ], [ %17, %16 ], [ %306, %305 ]
   %311 = getelementptr inbounds nuw i8, ptr %.089200, i64 24
   %312 = load i32, ptr %311, align 8, !tbaa !188
   br label %313
@@ -8656,8 +8656,8 @@ has_usable_cert.exit165._crit_edge.thread:        ; preds = %has_usable_cert.exi
   store ptr %.089199, ptr %5, align 8, !tbaa !217
   br label %ssl_has_cert.exit.thread
 
-ssl_has_cert.exit.thread:                         ; preds = %has_usable_cert.exit165._crit_edge.thread, %233, %304, %234, %.thread254, %223, %229, %224, %ssl_has_cert_type.exit.thread.i, %30, %42, %308, %ssl_has_cert.exit, %21, %19, %313, %309, %20
-  %.0 = phi i32 [ 1, %313 ], [ 0, %309 ], [ 0, %20 ], [ 1, %19 ], [ 1, %21 ], [ 1, %ssl_has_cert.exit ], [ 1, %308 ], [ 1, %42 ], [ 1, %30 ], [ 1, %ssl_has_cert_type.exit.thread.i ], [ 1, %.thread254 ], [ 1, %223 ], [ 0, %229 ], [ 0, %224 ], [ 1, %has_usable_cert.exit165._crit_edge.thread ], [ 1, %233 ], [ 0, %304 ], [ 0, %234 ]
+ssl_has_cert.exit.thread:                         ; preds = %233, %304, %has_usable_cert.exit165._crit_edge.thread, %234, %223, %229, %.thread254, %224, %42, %ssl_has_cert_type.exit.thread.i, %30, %308, %ssl_has_cert.exit, %21, %19, %313, %309, %20
+  %.0 = phi i32 [ 1, %313 ], [ 1, %42 ], [ 0, %309 ], [ 1, %ssl_has_cert.exit ], [ 1, %21 ], [ 1, %19 ], [ 0, %20 ], [ 1, %308 ], [ 0, %224 ], [ 1, %30 ], [ 1, %ssl_has_cert_type.exit.thread.i ], [ 1, %223 ], [ 0, %229 ], [ 1, %.thread254 ], [ 1, %233 ], [ 0, %304 ], [ 1, %has_usable_cert.exit165._crit_edge.thread ], [ 0, %234 ]
   ret i32 %.0
 }
 
@@ -8727,7 +8727,7 @@ define range(i32 0, 2) i32 @SSL_set_tlsext_max_fragment_length(ptr noundef %0, i
   br label %.thread
 
 .thread:                                          ; preds = %7, %2, %9, %.thread26, %18, %17
-  %.0 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 0, %.thread26 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %17 ], [ 1, %18 ], [ 0, %.thread26 ], [ 0, %9 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -9120,7 +9120,7 @@ define internal range(i32 0, 2) i32 @add_provider_groups(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %139, %.thread
-  %.1 = phi i32 [ %.080112, %.thread ], [ %.080, %139 ], [ 0, %21 ]
+  %.1 = phi i32 [ %.080, %139 ], [ 0, %21 ], [ %.080112, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -9661,9 +9661,9 @@ define internal range(i32 0, 2) i32 @add_provider_sigalgs(ptr noundef %0, ptr no
   %.not219 = icmp eq ptr %.0167, null
   br i1 %.not219, label %.critedge, label %.thread227
 
-.thread227:                                       ; preds = %206, %190, %86, %83, %101, %98, %116, %113, %131, %128, %146, %143, %161, %158, %176, %173, %238, %205, %199, %189, %77, %68, %54, %53, %40, %274
-  %.0165232 = phi i32 [ %.0165, %274 ], [ 1, %206 ], [ 1, %190 ], [ 0, %86 ], [ 0, %83 ], [ 0, %101 ], [ 0, %98 ], [ 0, %116 ], [ 0, %113 ], [ 0, %131 ], [ 0, %128 ], [ 0, %146 ], [ 0, %143 ], [ 0, %161 ], [ 0, %158 ], [ 0, %176 ], [ 0, %173 ], [ 1, %238 ], [ 0, %205 ], [ 0, %199 ], [ 0, %189 ], [ 0, %77 ], [ 0, %68 ], [ 0, %54 ], [ 0, %53 ], [ 0, %40 ]
-  %.0167231 = phi ptr [ %.0167, %274 ], [ %33, %206 ], [ %33, %190 ], [ %33, %86 ], [ %33, %83 ], [ %33, %101 ], [ %33, %98 ], [ %33, %116 ], [ %33, %113 ], [ %33, %131 ], [ %33, %128 ], [ %33, %146 ], [ %33, %143 ], [ %33, %161 ], [ %33, %158 ], [ %33, %176 ], [ %33, %173 ], [ %33, %238 ], [ %33, %205 ], [ %33, %199 ], [ %33, %189 ], [ %33, %77 ], [ %33, %68 ], [ %33, %54 ], [ %33, %53 ], [ %33, %40 ]
+.thread227:                                       ; preds = %206, %83, %101, %98, %116, %113, %131, %128, %146, %143, %161, %158, %176, %173, %238, %190, %205, %199, %86, %189, %77, %68, %54, %53, %40, %274
+  %.0165232 = phi i32 [ %.0165, %274 ], [ 1, %206 ], [ 0, %83 ], [ 0, %101 ], [ 0, %98 ], [ 0, %116 ], [ 0, %113 ], [ 0, %131 ], [ 0, %128 ], [ 0, %146 ], [ 0, %143 ], [ 0, %161 ], [ 0, %158 ], [ 0, %176 ], [ 0, %173 ], [ 1, %238 ], [ 1, %190 ], [ 0, %205 ], [ 0, %199 ], [ 0, %86 ], [ 0, %189 ], [ 0, %77 ], [ 0, %68 ], [ 0, %54 ], [ 0, %53 ], [ 0, %40 ]
+  %.0167231 = phi ptr [ %.0167, %274 ], [ %33, %206 ], [ %33, %83 ], [ %33, %101 ], [ %33, %98 ], [ %33, %116 ], [ %33, %113 ], [ %33, %131 ], [ %33, %128 ], [ %33, %146 ], [ %33, %143 ], [ %33, %161 ], [ %33, %158 ], [ %33, %176 ], [ %33, %173 ], [ %33, %238 ], [ %33, %190 ], [ %33, %205 ], [ %33, %199 ], [ %33, %86 ], [ %33, %189 ], [ %33, %77 ], [ %33, %68 ], [ %33, %54 ], [ %33, %53 ], [ %33, %40 ]
   %275 = load ptr, ptr %.0167231, align 8, !tbaa !275
   call void @CRYPTO_free(ptr noundef %275, ptr noundef nonnull @.str.2, i32 noundef 683) #14
   store ptr null, ptr %.0167231, align 8, !tbaa !275
@@ -9702,7 +9702,7 @@ define internal range(i32 0, 2) i32 @add_provider_sigalgs(ptr noundef %0, ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %274, %.thread227
-  %.1 = phi i32 [ %.0165232, %.thread227 ], [ %.0165, %274 ], [ 0, %22 ]
+  %.1 = phi i32 [ %.0165, %274 ], [ 0, %22 ], [ %.0165232, %.thread227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -9847,9 +9847,9 @@ define internal i32 @gid_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
   br i1 %20, label %19, label %.critedge, !llvm.loop !328
 
 .loopexit240:                                     ; preds = %18, %17, %16
-  %.1175 = phi i32 [ %.0174282, %16 ], [ %.0174282, %17 ], [ 1, %18 ]
-  %.1173 = phi i32 [ 1, %16 ], [ %.0172283, %17 ], [ %.0172283, %18 ]
-  %.1171 = phi i32 [ %.0170284, %16 ], [ 1, %17 ], [ %.0170284, %18 ]
+  %.1175 = phi i32 [ %.0174282, %17 ], [ %.0174282, %16 ], [ 1, %18 ]
+  %.1173 = phi i32 [ %.0172283, %17 ], [ 1, %16 ], [ %.0172283, %18 ]
+  %.1171 = phi i32 [ 1, %17 ], [ %.0170284, %16 ], [ %.0170284, %18 ]
   %52 = getelementptr inbounds nuw i8, ptr %.0161286, i64 1
   %53 = add nsw i32 %.0167285, -1
   %.not430 = icmp eq i32 %53, 0
@@ -10172,7 +10172,7 @@ tls1_group_name2id.exit:                          ; preds = %99, %104
   br label %.critedge227
 
 .critedge227:                                     ; preds = %18, %17, %16, %.critedge8, %.critedge8, %112, %123, %140, %170, %.lr.ph311, %120, %.preheader235, %160, %78, %63, %._crit_edge312, %190, %._crit_edge308, %87, %.critedge, %31, %28, %42, %8
-  %.0 = phi i32 [ 0, %8 ], [ %50, %42 ], [ -1, %28 ], [ 0, %31 ], [ -1, %.critedge ], [ -1, %87 ], [ 1, %._crit_edge308 ], [ 1, %190 ], [ 1, %._crit_edge312 ], [ 0, %63 ], [ 0, %78 ], [ 1, %160 ], [ 1, %.preheader235 ], [ %spec.select, %120 ], [ 1, %.lr.ph311 ], [ 1, %170 ], [ 1, %140 ], [ %spec.select, %123 ], [ %spec.select, %112 ], [ -1, %.critedge8 ], [ -1, %.critedge8 ], [ -1, %16 ], [ -1, %17 ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %8 ], [ -1, %28 ], [ %50, %42 ], [ 0, %78 ], [ 0, %31 ], [ 0, %63 ], [ -1, %87 ], [ -1, %.critedge ], [ 1, %._crit_edge312 ], [ 1, %._crit_edge308 ], [ 1, %190 ], [ %spec.select, %120 ], [ 1, %160 ], [ 1, %.preheader235 ], [ %spec.select, %112 ], [ 1, %.lr.ph311 ], [ 1, %170 ], [ 1, %140 ], [ %spec.select, %123 ], [ -1, %.critedge8 ], [ -1, %.critedge8 ], [ -1, %16 ], [ -1, %17 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

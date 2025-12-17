@@ -213,7 +213,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %5, %6, %.thread6, %.thread5
-  %.in = phi ptr [ @ipcomp6_handlers, %.thread6 ], [ @ah6_handlers, %.thread5 ], [ null, %6 ], [ @esp6_handlers, %5 ]
+  %.in = phi ptr [ null, %6 ], [ @ipcomp6_handlers, %.thread6 ], [ @ah6_handlers, %.thread5 ], [ @esp6_handlers, %5 ]
   %7 = load ptr, ptr %.in, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit7, label %9

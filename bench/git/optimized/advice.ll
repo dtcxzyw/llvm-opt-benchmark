@@ -274,7 +274,7 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   br i1 %23, label %24, label %advice_enabled.exit.thread
 
 advice_enabled.exit:                              ; preds = %14, %16
-  %.0.shrunk.i = phi i1 [ %narrow.i, %14 ], [ %18, %16 ]
+  %.0.shrunk.i = phi i1 [ %18, %16 ], [ %narrow.i, %14 ]
   br i1 %.0.shrunk.i, label %24, label %advice_enabled.exit.thread
 
 24:                                               ; preds = %20, %advice_enabled.exit
@@ -387,7 +387,7 @@ skip_prefix.exit28.preheader:                     ; preds = %skip_prefix.exit, %
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %skip_prefix.exit28, %13, %29, %15, %17, %4
-  %.017 = phi i32 [ 0, %4 ], [ %19, %17 ], [ -1, %15 ], [ 0, %29 ], [ 0, %13 ], [ 0, %skip_prefix.exit28 ], [ 0, %20 ]
+  %.017 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %29 ], [ -1, %15 ], [ %19, %17 ], [ 0, %skip_prefix.exit28 ], [ 0, %20 ]
   ret i32 %.017
 }
 
@@ -489,12 +489,12 @@ define dso_local noundef i32 @error_resolve_conflict(ptr noundef %0) local_unnam
   unreachable
 
 _.exit.sink.split:                                ; preds = %23, %19, %15, %11, %7, %3
-  %.str.16.sink = phi ptr [ @.str.6, %3 ], [ @.str.8, %7 ], [ @.str.10, %11 ], [ @.str.12, %15 ], [ @.str.14, %19 ], [ @.str.16, %23 ]
+  %.str.16.sink = phi ptr [ @.str.14, %19 ], [ @.str.12, %15 ], [ @.str.10, %11 ], [ @.str.8, %7 ], [ @.str.6, %3 ], [ @.str.16, %23 ]
   %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.16.sink, i32 noundef 5) #13
   br label %_.exit
 
 _.exit:                                           ; preds = %_.exit.sink.split, %23, %19, %15, %11, %7, %3
-  %.0.i14.sink = phi ptr [ @.str.6, %3 ], [ @.str.8, %7 ], [ @.str.10, %11 ], [ @.str.12, %15 ], [ @.str.14, %19 ], [ @.str.16, %23 ], [ %26, %_.exit.sink.split ]
+  %.0.i14.sink = phi ptr [ @.str.6, %3 ], [ @.str.10, %11 ], [ @.str.14, %19 ], [ @.str.12, %15 ], [ @.str.8, %7 ], [ @.str.16, %23 ], [ %26, %_.exit.sink.split ]
   %27 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i14.sink) #13
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 488), align 8, !tbaa !18
   %.not35 = icmp eq i32 %28, 1

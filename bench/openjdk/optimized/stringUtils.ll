@@ -167,7 +167,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %11, %7, %.preheader26, %2
-  %.021 = phi ptr [ %0, %2 ], [ null, %.preheader26 ], [ null, %11 ], [ %6, %7 ], [ null, %20 ]
+  %.021 = phi ptr [ %0, %2 ], [ null, %.preheader26 ], [ %6, %7 ], [ null, %11 ], [ null, %20 ]
   ret ptr %.021
 }
 

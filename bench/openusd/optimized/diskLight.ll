@@ -2574,7 +2574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %_ZN32px
   br label %127
 
 127:                                              ; preds = %73, %123, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %123 ], [ true, %73 ]
+  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %23 ], [ true, %123 ], [ true, %73 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdLuxDiskLightD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   ret i1 %.0
 

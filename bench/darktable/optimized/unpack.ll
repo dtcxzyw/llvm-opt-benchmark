@@ -454,7 +454,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
   br label %236
 
 236:                                              ; preds = %232, %235, %189, %192, %163, %138, %135
-  %.not100 = phi i1 [ true, %135 ], [ true, %138 ], [ true, %163 ], [ true, %189 ], [ true, %192 ], [ true, %232 ], [ false, %235 ]
+  %.not100 = phi i1 [ true, %135 ], [ true, %138 ], [ true, %163 ], [ false, %235 ], [ true, %232 ], [ true, %189 ], [ true, %192 ]
   %237 = load ptr, ptr %9, align 8, !tbaa !71
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   %239 = load i64, ptr %238, align 8, !tbaa !101
@@ -797,7 +797,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
           to label %376 unwind label %368
 
 376:                                              ; preds = %.invoke156, %356, %375, %374, %373, %372, %371, %370, %367
-  %.1 = phi i32 [ -100013, %367 ], [ -100007, %370 ], [ -100012, %371 ], [ -100009, %372 ], [ -100010, %373 ], [ -100011, %374 ], [ -2, %375 ], [ -1, %356 ], [ -100008, %.invoke156 ]
+  %.1 = phi i32 [ -2, %375 ], [ -100011, %374 ], [ -100013, %367 ], [ -100007, %370 ], [ -100012, %371 ], [ -1, %356 ], [ -100008, %.invoke156 ], [ -100009, %372 ], [ -100010, %373 ]
   call void @__cxa_end_catch() #11
   br label %379
 
@@ -808,11 +808,11 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw6unpackEv(ptr noundef nonnul
           to label %380 unwind label %381
 
 379:                                              ; preds = %29, %23, %8, %1, %376, %364, %352, %345
-  %.0 = phi i32 [ -100007, %352 ], [ %.1, %376 ], [ -100009, %364 ], [ 0, %345 ], [ -4, %1 ], [ -7, %8 ], [ -3, %23 ], [ -1, %29 ]
+  %.0 = phi i32 [ -1, %29 ], [ -4, %1 ], [ -100007, %352 ], [ %.1, %376 ], [ -100009, %364 ], [ -7, %8 ], [ 0, %345 ], [ -3, %23 ]
   ret i32 %.0
 
 380:                                              ; preds = %377, %365, %368, %359
-  %.merged = phi { ptr, i32 } [ %369, %368 ], [ %.pn119, %359 ], [ %366, %365 ], [ %378, %377 ]
+  %.merged = phi { ptr, i32 } [ %366, %365 ], [ %369, %368 ], [ %.pn119, %359 ], [ %378, %377 ]
   resume { ptr, i32 } %.merged
 
 381:                                              ; preds = %377, %365

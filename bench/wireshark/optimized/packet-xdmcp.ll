@@ -584,7 +584,7 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   br label %287
 
 287:                                              ; preds = %184, %xdmcp_add_authentication_names.exit, %76, %103, %185, %221, %247, %260, %263, %274, %279, %24, %4
-  %.0 = phi i32 [ 0, %4 ], [ 6, %24 ], [ %.0.lcssa.i, %xdmcp_add_authentication_names.exit ], [ %102, %76 ], [ %120, %103 ], [ %220, %185 ], [ %246, %221 ], [ %259, %247 ], [ 10, %260 ], [ %273, %263 ], [ 12, %274 ], [ 11, %279 ], [ %spec.select, %184 ]
+  %.0 = phi i32 [ %spec.select, %184 ], [ 0, %4 ], [ 6, %24 ], [ %.0.lcssa.i, %xdmcp_add_authentication_names.exit ], [ %102, %76 ], [ %120, %103 ], [ %220, %185 ], [ %246, %221 ], [ %259, %247 ], [ 10, %260 ], [ %273, %263 ], [ 12, %274 ], [ 11, %279 ]
   ret i32 %.0
 }
 

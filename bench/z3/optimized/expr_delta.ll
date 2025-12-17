@@ -405,7 +405,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !36
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %97, %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
-  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %98, %97 ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
@@ -436,7 +436,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %5, %.critedge, %119, %125
-  %.not5191 = phi i1 [ %15, %.critedge ], [ %15, %119 ], [ %15, %125 ], [ false, %5 ]
+  %.not5191 = phi i1 [ %15, %125 ], [ %15, %.critedge ], [ %15, %119 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.not5191
 }
@@ -586,7 +586,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit36:    ; preds = %43, %45, %52
   br label %73
 
 73:                                               ; preds = %53, %69, %63, %4, %9, %61, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit36, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit36 ], [ %62, %61 ], [ false, %9 ], [ false, %4 ], [ false, %63 ], [ true, %69 ], [ false, %53 ]
+  %.0 = phi i1 [ true, %69 ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit36 ], [ %62, %61 ], [ false, %4 ], [ false, %9 ], [ false, %63 ], [ false, %53 ]
   ret i1 %.0
 }
 

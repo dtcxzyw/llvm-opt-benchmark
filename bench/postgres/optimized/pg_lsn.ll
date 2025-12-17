@@ -113,7 +113,7 @@ define dso_local i64 @pg_lsn_in(ptr noundef readonly captures(none) %0) local_un
   %.not26.i = icmp eq i8 %22, 0
   br i1 %.not26.i, label %30, label %23
 
-23:                                               ; preds = %8, %1, %17, %12
+23:                                               ; preds = %1, %8, %17, %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @errsave_start(ptr noundef %25, ptr noundef null) #12

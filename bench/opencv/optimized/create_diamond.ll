@@ -1480,7 +1480,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit209:                 ; preds = %456, %454, %373
   br label %457
 
 457:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIiSaIiEED2Ev.exit209, %327
-  %.pn77 = phi { ptr, i32 } [ %328, %327 ], [ %.pn71.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit209 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn77 = phi { ptr, i32 } [ %.pn71.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit209 ], [ %328, %327 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %458 = load ptr, ptr %35, align 8, !tbaa !12
   %459 = icmp eq ptr %458, %282
   br i1 %459, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i210

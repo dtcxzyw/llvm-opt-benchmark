@@ -1031,7 +1031,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -1232,8 +1232,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sgetcB8ne190000Ev.exit.i.i.i: 
   br label %_ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEE14__test_for_eofB8ne190000Ev.exit.i.i
 
 _ZNKSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEE14__test_for_eofB8ne190000Ev.exit.i.i: ; preds = %.noexc, %4, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne190000Ev.exit
-  %.sroa.07.1 = phi ptr [ null, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne190000Ev.exit ], [ %.sroa.07.0, %4 ], [ %spec.select, %.noexc ]
-  %15 = phi i1 [ true, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne190000Ev.exit ], [ false, %4 ], [ %14, %.noexc ]
+  %.sroa.07.1 = phi ptr [ null, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne190000Ev.exit ], [ %spec.select, %.noexc ], [ %.sroa.07.0, %4 ]
+  %15 = phi i1 [ true, %_ZNSt3__119istreambuf_iteratorIcNS_11char_traitsIcEEEppB8ne190000Ev.exit ], [ %14, %.noexc ], [ false, %4 ]
   %.not.i2.i.i = icmp eq ptr %.sroa.06.0, null
   br i1 %.not.i2.i.i, label %27, label %16
 
@@ -1424,7 +1424,7 @@ define linkonce_odr hidden ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_
   br label %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i
 
 _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i: ; preds = %42, %38, %35
-  %.034.i = phi ptr [ %37, %35 ], [ %45, %42 ], [ %37, %38 ]
+  %.034.i = phi ptr [ %45, %42 ], [ %37, %35 ], [ %37, %38 ]
   %46 = add i64 %24, %4
   %47 = load i8, ptr %0, align 8
   %48 = and i8 %47, 1
@@ -1591,7 +1591,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000IPKcS
   br label %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22
 
 _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22: ; preds = %.noexc, %104, %100
-  %.0.i = phi ptr [ %103, %100 ], [ %111, %.noexc ], [ %103, %104 ]
+  %.0.i = phi ptr [ %111, %.noexc ], [ %103, %100 ], [ %103, %104 ]
   %112 = add i64 %94, %4
   %113 = load i8, ptr %0, align 8
   %114 = and i8 %113, 1
@@ -1812,8 +1812,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit23.i: ; pred
   br label %common.resume
 
 common.resume:                                    ; preds = %67, %88, %29, %50
-  %.sink = phi ptr [ %13, %50 ], [ %13, %29 ], [ %51, %88 ], [ %51, %67 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %50 ], [ %30, %29 ], [ %.pn.pn.pn.i3, %88 ], [ %68, %67 ]
+  %.sink = phi ptr [ %13, %29 ], [ %13, %50 ], [ %51, %88 ], [ %51, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn.i, %50 ], [ %.pn.pn.pn.i3, %88 ], [ %68, %67 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #18
   resume { ptr, i32 } %common.resume.op
 

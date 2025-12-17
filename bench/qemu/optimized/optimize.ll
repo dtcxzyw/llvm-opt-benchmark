@@ -2782,8 +2782,8 @@ fold_affected_mask.exit.i222:                     ; preds = %.thread.i225, %.thr
   unreachable
 
 fold_tcg_ld.exit:                                 ; preds = %1253, %1253, %1255, %1256, %1257, %1258, %1259
-  %.04.i = phi i64 [ 255, %1255 ], [ -1, %1256 ], [ 65535, %1257 ], [ -1, %1258 ], [ 4294967295, %1259 ], [ -1, %1253 ], [ -1, %1253 ]
-  %.0.i230 = phi i64 [ 0, %1255 ], [ -32768, %1256 ], [ 0, %1257 ], [ -2147483648, %1258 ], [ 0, %1259 ], [ -128, %1253 ], [ -128, %1253 ]
+  %.04.i = phi i64 [ 4294967295, %1259 ], [ 255, %1255 ], [ -1, %1256 ], [ 65535, %1257 ], [ -1, %1258 ], [ -1, %1253 ], [ -1, %1253 ]
+  %.0.i230 = phi i64 [ 0, %1259 ], [ 0, %1255 ], [ -32768, %1256 ], [ 0, %1257 ], [ -2147483648, %1258 ], [ -128, %1253 ], [ -128, %1253 ]
   %1261 = icmp eq i32 %369, 0
   %sext.i.i231 = shl i64 %.04.i, 32
   %1262 = ashr exact i64 %sext.i.i231, 32
@@ -5704,7 +5704,7 @@ fold_xx_to_x.exit:                                ; preds = %.lr.ph.i.i.i, %45
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %57, i64 noundef %18)
   br label %fold_masks_zs.exit
 
-.loopexit:                                        ; preds = %55, %51, %48
+.loopexit:                                        ; preds = %55, %48, %51
   %58 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
@@ -6221,7 +6221,7 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   unreachable
 
 59:                                               ; preds = %45, %45, %50, %49, %48, %47
-  %.0 = phi i64 [ 1, %47 ], [ 3, %48 ], [ 7, %49 ], [ %57, %50 ], [ 0, %45 ], [ 0, %45 ]
+  %.0 = phi i64 [ %57, %50 ], [ 1, %47 ], [ 3, %48 ], [ 7, %49 ], [ 0, %45 ], [ 0, %45 ]
   %60 = add i64 %.0, %4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #10
@@ -6465,7 +6465,7 @@ fold_xx_to_x.exit:                                ; preds = %.lr.ph.i.i.i, %41
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %53, i64 noundef %18)
   br label %fold_masks_zs.exit
 
-.loopexit:                                        ; preds = %51, %47, %44
+.loopexit:                                        ; preds = %51, %44, %47
   %54 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
@@ -7482,7 +7482,7 @@ define internal fastcc i64 @do_constant_folding(i32 noundef range(i32 0, 256) %0
   unreachable
 
 do_constant_folding_2.exit:                       ; preds = %5, %7, %9, %11, %13, %15, %17, %23, %26, %32, %35, %41, %44, %49, %51, %56, %58, %60, %62, %65, %68, %71, %74, %77, %79, %82, %83, %85, %87, %90, %92, %96, %98, %100, %102, %104, %106, %113, %120, %122, %124, %126, %128, %133, %138, %144, %150, %155, %160, %162, %164, %169, %174, %176
-  %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %22, %17 ], [ %25, %23 ], [ %31, %26 ], [ %34, %32 ], [ %40, %35 ], [ %43, %41 ], [ %48, %44 ], [ %50, %49 ], [ %55, %51 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %95, %92 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %112, %106 ], [ %119, %113 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %132, %128 ], [ %137, %133 ], [ %143, %138 ], [ %149, %144 ], [ %154, %150 ], [ %159, %155 ], [ %161, %160 ], [ %163, %162 ], [ %168, %164 ], [ %173, %169 ], [ %175, %174 ], [ %177, %176 ], [ %81, %79 ], [ %3, %77 ], [ %84, %83 ], [ %3, %82 ], [ %89, %87 ], [ %3, %85 ], [ %spec.select.i, %90 ]
+  %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %22, %17 ], [ %25, %23 ], [ %31, %26 ], [ %34, %32 ], [ %40, %35 ], [ %43, %41 ], [ %48, %44 ], [ %50, %49 ], [ %55, %51 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %73, %71 ], [ %76, %74 ], [ %177, %176 ], [ %3, %77 ], [ %3, %82 ], [ %3, %85 ], [ %95, %92 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %112, %106 ], [ %119, %113 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %132, %128 ], [ %137, %133 ], [ %143, %138 ], [ %149, %144 ], [ %154, %150 ], [ %159, %155 ], [ %161, %160 ], [ %163, %162 ], [ %168, %164 ], [ %173, %169 ], [ %175, %174 ], [ %81, %79 ], [ %84, %83 ], [ %89, %87 ], [ %spec.select.i, %90 ]
   %179 = icmp eq i32 %1, 0
   %sext = shl i64 %.0.i, 32
   %180 = ashr exact i64 %sext, 32
@@ -7558,7 +7558,7 @@ ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
   tail call void @tcg_op_remove(ptr noundef %19, ptr noundef %1) #10
   br label %move_mem_copies.exit
 
-.loopexit:                                        ; preds = %17, %12, %8
+.loopexit:                                        ; preds = %17, %8, %12
   tail call fastcc void @reset_ts(ptr noundef %0, ptr noundef %5)
   %.val45 = load ptr, ptr %9, align 8
   %20 = getelementptr i8, ptr %6, i64 48
@@ -8354,7 +8354,7 @@ switch.lookup29:                                  ; preds = %92
   br label %do_constant_folding_cond_eq.exit
 
 do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup29, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
-  %.1 = phi i32 [ %47, %do_constant_folding_cond_32.exit ], [ %76, %do_constant_folding_cond_64.exit ], [ -1, %12 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ %switch.load, %switch.lookup ], [ %switch.load31, %switch.lookup29 ], [ -1, %92 ]
+  %.1 = phi i32 [ %switch.load31, %switch.lookup29 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ -1, %12 ], [ %switch.load, %switch.lookup ], [ %76, %do_constant_folding_cond_64.exit ], [ %47, %do_constant_folding_cond_32.exit ], [ -1, %92 ]
   ret i32 %.1
 }
 
@@ -8680,8 +8680,8 @@ switch.lookup:                                    ; preds = %93
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
-.thread:                                          ; preds = %119, %133, %switch.lookup, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %135, %124, %128, %111, %115, %do_constant_folding_cond_64.exit, %105, %98, %do_constant_folding_cond_eq.exit
-  %.3 = phi i32 [ -1, %do_constant_folding_cond_eq.exit ], [ %91, %do_constant_folding_cond_64.exit ], [ -1, %105 ], [ -1, %98 ], [ -1, %115 ], [ -1, %111 ], [ -1, %128 ], [ -1, %124 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 1, %135 ], [ %switch.load, %switch.lookup ], [ -1, %133 ], [ -1, %119 ]
+.thread:                                          ; preds = %119, %133, %switch.lookup, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %args_are_copies.exit83, %135, %128, %124, %115, %111, %do_constant_folding_cond_64.exit, %105, %98, %do_constant_folding_cond_eq.exit
+  %.3 = phi i32 [ -1, %98 ], [ -1, %do_constant_folding_cond_eq.exit ], [ 1, %135 ], [ %switch.load, %switch.lookup ], [ 0, %args_are_copies.exit83 ], [ %91, %do_constant_folding_cond_64.exit ], [ -1, %105 ], [ -1, %111 ], [ -1, %115 ], [ -1, %124 ], [ -1, %128 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ 0, %args_are_copies.exit83 ], [ -1, %133 ], [ -1, %119 ]
   ret i32 %.3
 }
 
@@ -8854,31 +8854,31 @@ switch.lookup:                                    ; preds = %28
 37:                                               ; preds = %35
   switch i32 %21, label %.thread [
     i32 8, label %38
-    i32 9, label %39
-    i32 10, label %41
-    i32 12, label %41
-    i32 11, label %42
-    i32 13, label %42
+    i32 9, label %42
+    i32 10, label %39
+    i32 12, label %39
+    i32 11, label %40
+    i32 13, label %40
   ]
 
 38:                                               ; preds = %37
-  br label %39
-
-39:                                               ; preds = %38, %37
-  %.046 = phi i1 [ true, %38 ], [ false, %37 ]
-  %40 = icmp eq i64 %.052, 0
-  br i1 %40, label %44, label %.thread
-
-41:                                               ; preds = %37, %37
   br label %42
 
-42:                                               ; preds = %37, %37, %41
-  %.1 = phi i1 [ true, %41 ], [ false, %37 ], [ false, %37 ]
-  %43 = icmp eq i64 %.052, 1
+39:                                               ; preds = %37, %37
+  br label %40
+
+40:                                               ; preds = %39, %37, %37
+  %.1 = phi i1 [ true, %39 ], [ false, %37 ], [ false, %37 ]
+  %41 = icmp eq i64 %.052, 1
+  br i1 %41, label %44, label %.thread
+
+42:                                               ; preds = %37, %38
+  %.046 = phi i1 [ true, %38 ], [ false, %37 ]
+  %43 = icmp eq i64 %.052, 0
   br i1 %43, label %44, label %.thread
 
-44:                                               ; preds = %39, %42
-  %.263 = phi i1 [ %.046, %39 ], [ %.1, %42 ]
+44:                                               ; preds = %40, %42
+  %.263 = phi i1 [ %.1, %40 ], [ %.046, %42 ]
   %or.cond = or i1 %2, %.263
   br i1 %or.cond, label %47, label %45
 
@@ -8930,8 +8930,8 @@ switch.lookup:                                    ; preds = %28
   store i64 %61, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %53, %59, %56, %45, %37, %35, %39, %42, %switch.lookup, %3
-  %.054 = phi i32 [ 0, %3 ], [ 1, %switch.lookup ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %37 ], [ -1, %53 ], [ -1, %59 ], [ -1, %56 ], [ 1, %45 ]
+.thread:                                          ; preds = %59, %56, %45, %53, %37, %35, %40, %42, %switch.lookup, %3
+  %.054 = phi i32 [ 0, %3 ], [ 0, %37 ], [ 1, %switch.lookup ], [ 0, %42 ], [ 0, %35 ], [ 0, %40 ], [ -1, %59 ], [ -1, %56 ], [ 1, %45 ], [ -1, %53 ]
   ret i32 %.054
 }
 
@@ -9183,7 +9183,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %35, %11, %11, %11, %2, %8
-  %.011 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %11 ], [ false, %11 ], [ false, %11 ], [ true, %35 ], [ true, %37 ]
+  %.011 = phi i1 [ false, %2 ], [ false, %11 ], [ false, %8 ], [ false, %11 ], [ false, %11 ], [ true, %35 ], [ true, %37 ]
   ret i1 %.011
 }
 

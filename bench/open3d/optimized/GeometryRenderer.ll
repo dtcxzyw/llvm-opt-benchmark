@@ -443,7 +443,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %14, %_ZNK
   br label %46
 
 46:                                               ; preds = %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread, %40, %31, %3, %7
-  %.021 = phi i1 [ true, %7 ], [ true, %3 ], [ %43, %40 ], [ %36, %31 ], [ %45, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread ]
+  %.021 = phi i1 [ true, %3 ], [ true, %7 ], [ %43, %40 ], [ %36, %31 ], [ %45, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread ]
   ret i1 %.021
 }
 
@@ -2031,7 +2031,7 @@ _ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread: ; preds = %6
   br label %94
 
 94:                                               ; preds = %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit, %63, %50, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread, %65
-  %.sink50 = phi i64 [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 352, %65 ], [ 1152, %50 ], [ 688, %63 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
+  %.sink50 = phi i64 [ 688, %63 ], [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 1152, %50 ], [ 352, %65 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   %96 = tail call noundef zeroext i1 @_ZN6open3d13visualization4glsl13ShaderWrapper6RenderERKNS_8geometry8GeometryERKNS0_12RenderOptionERKNS0_11ViewControlE(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(497) %1, ptr noundef nonnull align 16 dereferenceable(728) %2)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 449
@@ -2046,7 +2046,7 @@ _ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread: ; preds = %6
   br label %104
 
 104:                                              ; preds = %94, %100, %3, %7
-  %.036 = phi i1 [ true, %7 ], [ true, %3 ], [ %103, %100 ], [ %96, %94 ]
+  %.036 = phi i1 [ true, %3 ], [ true, %7 ], [ %103, %100 ], [ %96, %94 ]
   ret i1 %.036
 }
 
@@ -2590,7 +2590,7 @@ define hidden noundef zeroext i1 @_ZN6open3d13visualization4glsl14OctreeRenderer
   br label %29
 
 29:                                               ; preds = %3, %7, %22, %19
-  %.0 = phi i1 [ %21, %19 ], [ %28, %22 ], [ true, %7 ], [ true, %3 ]
+  %.0 = phi i1 [ %28, %22 ], [ %21, %19 ], [ true, %7 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -3284,7 +3284,7 @@ define hidden noundef zeroext i1 @_ZN6open3d13visualization4glsl23CoordinateFram
   br label %21
 
 21:                                               ; preds = %3, %7, %17
-  %.0 = phi i1 [ %20, %17 ], [ true, %7 ], [ true, %3 ]
+  %.0 = phi i1 [ true, %3 ], [ %20, %17 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -3558,7 +3558,7 @@ define hidden noundef zeroext i1 @_ZN6open3d13visualization4glsl24SelectionPolyg
   br label %29
 
 29:                                               ; preds = %26, %14, %20, %23, %3, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %3 ], [ %28, %26 ], [ true, %14 ], [ false, %20 ], [ true, %23 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %7 ], [ true, %14 ], [ false, %20 ], [ %28, %26 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -4047,7 +4047,7 @@ _ZNSt12__shared_ptrIN6open3d8geometry12TriangleMeshELN9__gnu_cxx12_Lock_policyE2
   br i1 %.not.not, label %51, label %.critedge36, !llvm.loop !76
 
 .critedge36:                                      ; preds = %_ZNSt12__shared_ptrIN6open3d8geometry12TriangleMeshELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.critedge, %26, %3, %19
-  %.026 = phi i1 [ true, %19 ], [ true, %3 ], [ true, %26 ], [ false, %_ZNSt12__shared_ptrIN6open3d8geometry12TriangleMeshELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ true, %.critedge ]
+  %.026 = phi i1 [ true, %3 ], [ true, %19 ], [ true, %26 ], [ false, %_ZNSt12__shared_ptrIN6open3d8geometry12TriangleMeshELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ true, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.026
 }

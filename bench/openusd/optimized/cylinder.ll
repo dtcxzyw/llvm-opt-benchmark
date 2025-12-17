@@ -3635,7 +3635,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinder13ComputeExtentEddRKNS_7Tf
   br label %162
 
 162:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinder13ComputeExtentEddRKNS_7TfTokenEPNS_7VtArrayINS_7GfVec3fEEE.exit, %147, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit36
-  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit36 ], [ %148, %147 ], [ %150, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinder13ComputeExtentEddRKNS_7TfTokenEPNS_7VtArrayINS_7GfVec3fEEE.exit ]
+  %.1 = phi i1 [ %148, %147 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit36 ], [ %150, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinder13ComputeExtentEddRKNS_7TfTokenEPNS_7VtArrayINS_7GfVec3fEEE.exit ]
   %163 = load ptr, ptr %12, align 8
   %164 = ptrtoint ptr %163 to i64
   %165 = and i64 %164, 7
@@ -3663,12 +3663,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinder13ComputeExtentEddRKNS_7Tf
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit43
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %166, %162, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit28, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %26
-  %.0 = phi i1 [ false, %26 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit28 ], [ %.1, %162 ], [ %.1, %166 ]
+  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit28 ], [ false, %26 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ %.1, %162 ], [ %.1, %166 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   ret i1 %.0
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit43: ; preds = %174, %170, %102, %64, %27
-  %.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %28, %27 ], [ %65, %64 ], [ %.pn, %170 ], [ %.pn, %174 ]
+  %.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %103, %102 ], [ %28, %27 ], [ %.pn, %170 ], [ %.pn, %174 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomCylinderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   resume { ptr, i32 } %.pn.pn
 }

@@ -547,7 +547,7 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   br label %43
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit154": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126.thread294", %.thread316, %.thread213
-  %.sroa.11.0.i148 = phi ptr [ %13, %.thread316 ], [ %17, %.thread213 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126.thread294" ]
+  %.sroa.11.0.i148 = phi ptr [ %13, %.thread316 ], [ %17, %.thread213 ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126.thread294" ], [ undef, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit126" ]
   %.ph247263279.ph322343364386 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.ph261282.ph320345362388 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %.ph247263279.ph322343364386, align 8, !alias.scope !150, !noalias !153, !nonnull !14, !align !140, !noundef !14
@@ -1174,7 +1174,7 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17h0d0b659a6dfa
   unreachable
 
 common.resume:                                    ; preds = %16, %27, %32
-  %common.resume.op = phi { ptr, i32 } [ %28, %32 ], [ %28, %27 ], [ %17, %16 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %28, %32 ], [ %17, %16 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr209drop_in_place$LT$diesel..query_dsl..load_dsl..private..LoadIter$LT$i32$C$diesel..sqlite..connection..statement_iterator..StatementIterator$C$diesel..sql_types..Integer$C$diesel..sqlite..backend..Sqlite$GT$$GT$17h424b84064a7e26a4E.exit": ; preds = %36, %"_ZN4core3ptr93drop_in_place$LT$diesel..sqlite..connection..statement_iterator..PrivateStatementIterator$GT$17hb674998a29416202E.llvm.10987160594893011292.exit.i.i", %15

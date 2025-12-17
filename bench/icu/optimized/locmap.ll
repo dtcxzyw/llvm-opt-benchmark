@@ -773,7 +773,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1124,7 +1124,7 @@ define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly capture
   br i1 %18, label %19, label %14
 
 19:                                               ; preds = %15, %14
-  %.pn.i = phi ptr [ %16, %15 ], [ %10, %14 ]
+  %.pn.i = phi ptr [ %10, %14 ], [ %16, %15 ]
   %.09.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.09.i = load ptr, ptr %.09.in.i, align 8, !tbaa !24
   %.not = icmp eq ptr %.09.i, null
@@ -1154,8 +1154,8 @@ define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %19, %31, %26
-  %.sink = phi i32 [ 0, %26 ], [ %., %31 ], [ 1, %19 ], [ 1, %6 ]
-  %.0.ph = phi i32 [ %22, %26 ], [ %22, %31 ], [ 0, %19 ], [ 0, %6 ]
+  %.sink = phi i32 [ %., %31 ], [ 0, %26 ], [ 1, %19 ], [ 1, %6 ]
+  %.0.ph = phi i32 [ %22, %31 ], [ %22, %26 ], [ 0, %19 ], [ 0, %6 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !13
   br label %33
 
@@ -1275,8 +1275,8 @@ _ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph
   br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
 50:                                               ; preds = %46, %41, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i
-  %.238.ph.i = phi i32 [ %.0.lcssa.i.i, %46 ], [ %.03651.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ], [ %.03651.i, %41 ]
-  %.235.ph.i = phi i32 [ %48, %46 ], [ %.03352.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ], [ %.03352.i, %41 ]
+  %.238.ph.i = phi i32 [ %.0.lcssa.i.i, %46 ], [ %.03651.i, %41 ], [ %.03651.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ]
+  %.235.ph.i = phi i32 [ %48, %46 ], [ %.03352.i, %41 ], [ %.03352.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !27
@@ -1379,8 +1379,8 @@ _ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread8
   br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
 91:                                               ; preds = %87, %82, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60
-  %.238.ph.i62 = phi i32 [ %.0.lcssa.i.i61, %87 ], [ %.03651.i58, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ], [ %.03651.i58, %82 ]
-  %.235.ph.i63 = phi i32 [ %89, %87 ], [ %.03352.i57, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ], [ %.03352.i57, %82 ]
+  %.238.ph.i62 = phi i32 [ %.0.lcssa.i.i61, %87 ], [ %.03651.i58, %82 ], [ %.03651.i58, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ]
+  %.235.ph.i63 = phi i32 [ %89, %87 ], [ %.03352.i57, %82 ], [ %.03352.i57, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ]
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i54
   br i1 %exitcond.not.i65, label %._crit_edge.loopexit58.i66, label %.lr.ph.split.i55, !llvm.loop !27
@@ -1427,7 +1427,7 @@ _ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread:
   br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
 _ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit: ; preds = %105, %.split99.us.thread, %.split.i, %60, %._crit_edge.i.thread, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82, %3, %8, %11
-  %.035 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ %.1, %105 ], [ 0, %.split99.us.thread ], [ %49, %.split.i ], [ %61, %60 ], [ 0, %._crit_edge.i.thread ], [ %90, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82 ]
+  %.035 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %8 ], [ %90, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82 ], [ %.1, %105 ], [ 0, %.split99.us.thread ], [ 0, %._crit_edge.i.thread ], [ %49, %.split.i ], [ %61, %60 ]
   ret i32 %.035
 }
 

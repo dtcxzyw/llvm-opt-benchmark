@@ -554,7 +554,7 @@ _ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER1
   br label %82
 
 82:                                               ; preds = %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %75, %78, %69, %72, %59, %62, %53, %45, %48, %35, %38, %26, %7, %81, %68, %25
-  %.0 = phi ptr [ null, %81 ], [ null, %25 ], [ null, %68 ], [ null, %7 ], [ null, %26 ], [ %27, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %35 ], [ %36, %38 ], [ null, %45 ], [ %46, %48 ], [ null, %53 ], [ %54, %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %59 ], [ %60, %62 ], [ null, %69 ], [ %70, %72 ], [ null, %75 ], [ %76, %78 ]
+  %.0 = phi ptr [ %70, %72 ], [ null, %81 ], [ null, %25 ], [ null, %7 ], [ %27, %_ZN6icu_7724IntegralPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ %36, %38 ], [ %46, %48 ], [ %54, %_ZN6icu_7725AbsoluteValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %68 ], [ %60, %62 ], [ null, %26 ], [ null, %35 ], [ null, %45 ], [ null, %53 ], [ null, %59 ], [ null, %69 ], [ null, %75 ], [ %76, %78 ]
   ret ptr %.0
 
 83:                                               ; preds = %79, %73, %63, %57, %49, %43, %30
@@ -2354,8 +2354,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7726FractionalPartSubstitutio
           to label %.thread unwind label %.loopexit.split-lp
 
 .thread:                                          ; preds = %52, %53, %70, %66, %42
-  %.034.ph = phi i32 [ %71, %70 ], [ %41, %42 ], [ %41, %66 ], [ %41, %53 ], [ %41, %52 ]
-  %.1.ph = phi ptr [ %.260, %70 ], [ %.079, %42 ], [ null, %66 ], [ null, %53 ], [ null, %52 ]
+  %.034.ph = phi i32 [ %41, %42 ], [ %71, %70 ], [ %41, %66 ], [ %41, %53 ], [ %41, %52 ]
+  %.1.ph = phi ptr [ %.079, %42 ], [ %.260, %70 ], [ null, %66 ], [ null, %53 ], [ null, %52 ]
   %.pr = load i32, ptr %20, align 8, !tbaa !66
   %.not49 = icmp eq i32 %.pr, 0
   br i1 %.not49, label %.critedge2, label %.thread61
@@ -2453,7 +2453,7 @@ _ZN6icu_7713UnicodeString13removeBetweenEii.exit54: ; preds = %92
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %114, %.critedge
-  %.032.lcssa84 = phi i32 [ %.133, %114 ], [ %.133, %.critedge ], [ 0, %.preheader ]
+  %.032.lcssa84 = phi i32 [ %.133, %.critedge ], [ %.133, %114 ], [ 0, %.preheader ]
   %118 = sub nsw i32 0, %.032.lcssa84
   %119 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %12, i32 noundef %118)
           to label %120 unwind label %59
@@ -3062,7 +3062,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit54:       ; preds = %90, %94
   ret i8 1
 
 122:                                              ; preds = %111, %119, %109, %98
-  %.pn44.pn = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %98 ], [ %120, %119 ], [ %112, %111 ]
+  %.pn44.pn = phi { ptr, i32 } [ %.pn, %98 ], [ %110, %109 ], [ %120, %119 ], [ %112, %111 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

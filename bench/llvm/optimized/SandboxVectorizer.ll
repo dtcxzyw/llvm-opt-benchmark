@@ -1237,7 +1237,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %38, %36
   br label %_ZNK4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E13printPipelineERNS_11raw_ostreamE.exit
 
 _ZNK4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E13printPipelineERNS_11raw_ostreamE.exit: ; preds = %.lr.ph.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %57, %53, %59
-  %.0 = phi i1 [ %70, %59 ], [ false, %53 ], [ false, %57 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %57 ], [ false, %53 ], [ %70, %59 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 

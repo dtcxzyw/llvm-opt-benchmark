@@ -204,7 +204,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -979,7 +979,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
   br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread
 
 _ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread: ; preds = %.loopexit.loopexit.i26, %44, %27, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit
-  %.021.i19 = phi i32 [ %45, %44 ], [ %1, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit ], [ %46, %.loopexit.loopexit.i26 ], [ 12, %27 ]
+  %.021.i19 = phi i32 [ %45, %44 ], [ 12, %27 ], [ %1, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit ], [ %46, %.loopexit.loopexit.i26 ]
   %47 = add nsw i32 %.021.i19, %.021.i.ph
   %48 = sitofp i32 %47 to double
   %49 = fmul double %48, 5.000000e-01
@@ -995,8 +995,8 @@ _ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode
   %55 = fadd double %52, -2.400000e+01
   br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
-_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56: ; preds = %6, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %.thread.i22, %51, %54, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %3
-  %.015 = phi double [ -1.000000e+00, %3 ], [ %55, %54 ], [ %52, %51 ], [ %49, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ -1.000000e+00, %.thread.i22 ], [ -1.000000e+00, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ 0.000000e+00, %6 ], [ 1.200000e+01, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47 ]
+_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56: ; preds = %6, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47, %.thread.i22, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %51, %54, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, %3
+  %.015 = phi double [ -1.000000e+00, %3 ], [ -1.000000e+00, %.thread.i22 ], [ %55, %54 ], [ %52, %51 ], [ %49, %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ -1.000000e+00, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread ], [ 0.000000e+00, %6 ], [ 1.200000e+01, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread47 ]
   ret double %.015
 }
 
@@ -1063,7 +1063,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %21, %6, %3, %.thread, %7
-  %.021 = phi i32 [ 12, %7 ], [ -1, %.thread ], [ %22, %21 ], [ -1, %3 ], [ %1, %6 ], [ %27, %.loopexit.loopexit ]
+  %.021 = phi i32 [ %1, %6 ], [ -1, %3 ], [ 12, %7 ], [ -1, %.thread ], [ %22, %21 ], [ %27, %.loopexit.loopexit ]
   ret i32 %.021
 }
 
@@ -1130,7 +1130,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules22getE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %24, %6, %3, %.thread, %7
-  %.021 = phi i32 [ 12, %7 ], [ -1, %.thread ], [ %25, %24 ], [ -1, %3 ], [ %1, %6 ], [ %26, %.loopexit.loopexit ]
+  %.021 = phi i32 [ %25, %24 ], [ -1, %3 ], [ 12, %7 ], [ -1, %.thread ], [ %1, %6 ], [ %26, %.loopexit.loopexit ]
   ret i32 %.021
 }
 
@@ -1213,7 +1213,7 @@ sub_114:                                          ; preds = %sub_0
   br label %.tail12
 
 .tail12:                                          ; preds = %.tail12.sink.split, %sub_0, %sub_1, %sub_114, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 6, %19 ], [ 7, %22 ], [ 8, %25 ], [ 9, %28 ], [ -1, %sub_114 ], [ -1, %sub_1 ], [ -1, %sub_0 ], [ %spec.select, %.tail12.sink.split ]
+  %.0 = phi i32 [ -1, %sub_1 ], [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 6, %19 ], [ 7, %22 ], [ 8, %25 ], [ 9, %28 ], [ -1, %sub_0 ], [ -1, %sub_114 ], [ %spec.select, %.tail12.sink.split ]
   ret i32 %.0
 }
 
@@ -1844,7 +1844,7 @@ sub_2.i:                                          ; preds = %sub_1.i88
   br label %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit
 
 _ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit: ; preds = %79, %80, %83, %sub_0.i85, %sub_1.i88, %sub_2.i
-  %.0.i = phi i32 [ 2, %79 ], [ 0, %80 ], [ 1, %83 ], [ -1, %sub_0.i85 ], [ -1, %sub_1.i88 ], [ %92, %sub_2.i ]
+  %.0.i = phi i32 [ 1, %83 ], [ 2, %79 ], [ 0, %80 ], [ -1, %sub_0.i85 ], [ -1, %sub_1.i88 ], [ %92, %sub_2.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !64
@@ -1957,7 +1957,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.
   br label %_ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_13UnicodeStringER10UErrorCode.exit
 
 142:                                              ; preds = %136, %132
-  %.0.i.ph.i = phi i32 [ %140, %136 ], [ %130, %132 ]
+  %.0.i.ph.i = phi i32 [ %130, %132 ], [ %140, %136 ]
   %143 = shl nuw nsw i32 1, %.0.i
   %144 = sext i32 %.0.i.ph.i to i64
   %145 = getelementptr inbounds i32, ptr %27, i64 %144
@@ -2005,7 +2005,7 @@ sub_2.i95:                                        ; preds = %sub_1.i93
   br label %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96
 
 _ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96: ; preds = %150, %151, %154, %sub_0.i89, %sub_1.i93, %sub_2.i95
-  %.0.i92 = phi i32 [ 2, %150 ], [ 0, %151 ], [ 1, %154 ], [ -1, %sub_0.i89 ], [ -1, %sub_1.i93 ], [ %163, %sub_2.i95 ]
+  %.0.i92 = phi i32 [ 1, %154 ], [ 2, %150 ], [ 0, %151 ], [ -1, %sub_0.i89 ], [ -1, %sub_1.i93 ], [ %163, %sub_2.i95 ]
   store i32 %.0.i92, ptr %21, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %164 = load ptr, ptr %3, align 8, !tbaa !25
@@ -2138,7 +2138,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.
   br label %_ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_13UnicodeStringER10UErrorCode.exit112
 
 224:                                              ; preds = %218, %214
-  %.0.i.ph.i109 = phi i32 [ %222, %218 ], [ %212, %214 ]
+  %.0.i.ph.i109 = phi i32 [ %212, %214 ], [ %222, %218 ]
   %225 = shl nuw i32 1, %174
   %226 = sext i32 %.0.i.ph.i109 to i64
   %227 = getelementptr inbounds i32, ptr %27, i64 %226

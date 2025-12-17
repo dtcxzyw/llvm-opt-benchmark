@@ -1990,7 +1990,7 @@ for.body.i5:                                      ; preds = %for.cond.i2
   br i1 %call2.i11, label %for.cond.i2, label %return, !llvm.loop !18
 
 return:                                           ; preds = %for.body.i, %for.body.i5, %for.cond.i2
-  %retval.0 = phi i1 [ %cmp.i4, %for.cond.i2 ], [ %cmp.i4, %for.body.i5 ], [ false, %for.body.i ]
+  %retval.0 = phi i1 [ %cmp.i4, %for.body.i5 ], [ %cmp.i4, %for.cond.i2 ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 

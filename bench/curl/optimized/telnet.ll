@@ -374,7 +374,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br label %118
 
 118:                                              ; preds = %117, %114, %111, %92, %86, %83, %str_is_nonascii.exit93.i
-  %.172.i = phi i32 [ 0, %str_is_nonascii.exit93.i ], [ 0, %83 ], [ 0, %86 ], [ 0, %92 ], [ %.2.i, %111 ], [ 0, %117 ], [ 0, %114 ]
+  %.172.i = phi i32 [ 0, %str_is_nonascii.exit93.i ], [ 0, %114 ], [ 0, %83 ], [ 0, %117 ], [ 0, %86 ], [ %.2.i, %111 ], [ 0, %92 ]
   %119 = getelementptr inbounds nuw i8, ptr %.070105.i, i64 8
   %.070.i = load ptr, ptr %119, align 8, !tbaa !96
   %120 = icmp ne ptr %.070.i, null
@@ -392,7 +392,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br label %._crit_edge.thread122.i
 
 ._crit_edge.thread122.i:                          ; preds = %112, %93, %89, %87, %84, %81, %._crit_edge.thread122.i.sink.split, %._crit_edge.i
-  %.071.lcssa125.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa125.i.ph, %._crit_edge.thread122.i.sink.split ], [ 48, %112 ], [ 48, %93 ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ]
+  %.071.lcssa125.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa125.i.ph, %._crit_edge.thread122.i.sink.split ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ], [ 48, %112 ], [ 48, %93 ]
   %122 = load ptr, ptr %63, align 8, !tbaa !95
   call void @curl_slist_free_all(ptr noundef %122) #9
   store ptr null, ptr %63, align 8, !tbaa !95
@@ -424,10 +424,10 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br label %136
 
 136:                                              ; preds = %123, %128, %135
-  %.051 = phi i1 [ false, %135 ], [ true, %128 ], [ true, %123 ]
-  %.050 = phi i32 [ 2, %135 ], [ 2, %128 ], [ 1, %123 ]
-  %.049 = phi i64 [ 1000, %135 ], [ 1000, %128 ], [ 100, %123 ]
-  %.048 = phi i32 [ 56, %135 ], [ 0, %128 ], [ 0, %123 ]
+  %.051 = phi i1 [ true, %128 ], [ false, %135 ], [ true, %123 ]
+  %.050 = phi i32 [ 2, %128 ], [ 2, %135 ], [ 1, %123 ]
+  %.049 = phi i64 [ 1000, %128 ], [ 1000, %135 ], [ 100, %123 ]
+  %.048 = phi i32 [ 0, %128 ], [ 56, %135 ], [ 0, %123 ]
   %137 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %138 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 4864
@@ -2074,7 +2074,7 @@ printoption.exit198.i:                            ; preds = %810, %806, %800, %7
   br label %printoption.exit.i
 
 printoption.exit.i:                               ; preds = %823, %814, %773, %770, %769, %rec_dont.exit.i, %rec_do.exit.i, %rec_wont.exit.i, %rec_will.exit.i, %253, %249, %243, %239, %231, %228, %227, %226, %225, %224, %223, %219, %211, %209, %205, %198, %196, %189
-  %.1.i87 = phi i32 [ %.0120203.i, %189 ], [ %.0120203.i, %223 ], [ %.0120203.i, %224 ], [ %.0120203.i, %225 ], [ %.0120203.i, %226 ], [ %.0120203.i, %227 ], [ %.0120203.i, %rec_will.exit.i ], [ %.0120203.i, %rec_wont.exit.i ], [ %.0120203.i, %rec_do.exit.i ], [ %.0120203.i, %rec_dont.exit.i ], [ %.0120203.i, %769 ], [ %.0120203.i, %773 ], [ %.0120203.i, %770 ], [ %.0120203.i, %814 ], [ %.0120203.i, %823 ], [ -1, %198 ], [ -1, %196 ], [ %spec.select.i, %205 ], [ -1, %211 ], [ -1, %209 ], [ %spec.select139.i, %219 ], [ %spec.select140.i, %228 ], [ %.0120203.i, %231 ], [ %.0120203.i, %239 ], [ %.0120203.i, %243 ], [ %.0120203.i, %249 ], [ %.0120203.i, %253 ]
+  %.1.i87 = phi i32 [ %.0120203.i, %189 ], [ %.0120203.i, %823 ], [ -1, %196 ], [ -1, %198 ], [ %spec.select.i, %205 ], [ -1, %209 ], [ -1, %211 ], [ %.0120203.i, %814 ], [ %.0120203.i, %223 ], [ %.0120203.i, %224 ], [ %.0120203.i, %225 ], [ %.0120203.i, %226 ], [ %.0120203.i, %227 ], [ %spec.select139.i, %219 ], [ %spec.select140.i, %228 ], [ %.0120203.i, %rec_will.exit.i ], [ %.0120203.i, %rec_wont.exit.i ], [ %.0120203.i, %rec_do.exit.i ], [ %.0120203.i, %rec_dont.exit.i ], [ %.0120203.i, %769 ], [ %.0120203.i, %773 ], [ %.0120203.i, %770 ], [ %.0120203.i, %231 ], [ %.0120203.i, %239 ], [ %.0120203.i, %243 ], [ %.0120203.i, %249 ], [ %.0120203.i, %253 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i88 = icmp eq i64 %190, 0
   br i1 %.not.i88, label %._crit_edge.i89, label %189, !llvm.loop !117
@@ -2139,7 +2139,7 @@ telrcv.exit:                                      ; preds = %827, %._crit_edge.i
   ]
 
 thread-pre-split:                                 ; preds = %845, %842
-  %850 = phi i64 [ %849, %845 ], [ %844, %842 ]
+  %850 = phi i64 [ %844, %842 ], [ %849, %845 ]
   %851 = icmp sgt i64 %850, 0
   br i1 %851, label %852, label %thread-pre-split.thread
 
@@ -2163,10 +2163,10 @@ thread-pre-split.thread:                          ; preds = %839, %thread-pre-sp
   br label %telrcv.exit.thread
 
 telrcv.exit.thread:                               ; preds = %198, %211, %827, %179, %thread-pre-split.thread, %852, %845, %.fold.split, %176, %173, %854, %175
-  %.159 = phi i64 [ %.058.ph, %173 ], [ %.058.ph, %175 ], [ %856, %854 ], [ %.058.ph, %176 ], [ %.058.ph, %845 ], [ %.058.ph, %.fold.split ], [ %.058.ph, %852 ], [ %.058.ph, %thread-pre-split.thread ], [ %.058.ph, %179 ], [ %.058.ph, %827 ], [ %.058.ph, %211 ], [ %.058.ph, %198 ]
-  %.257 = phi i64 [ %.055.ph, %173 ], [ %.055.ph, %175 ], [ %.156, %854 ], [ %.055.ph, %176 ], [ %.156, %845 ], [ %.156, %.fold.split ], [ %.156, %852 ], [ %.156, %thread-pre-split.thread ], [ %180, %179 ], [ %180, %827 ], [ %180, %211 ], [ %180, %198 ]
-  %.253 = phi i1 [ true, %173 ], [ false, %175 ], [ true, %854 ], [ false, %176 ], [ false, %845 ], [ true, %.fold.split ], [ false, %852 ], [ %.not, %thread-pre-split.thread ], [ false, %179 ], [ false, %827 ], [ false, %211 ], [ false, %198 ]
-  %.4 = phi i32 [ %174, %173 ], [ %174, %175 ], [ 0, %854 ], [ 0, %176 ], [ %.3, %845 ], [ %.3, %.fold.split ], [ %853, %852 ], [ %.3, %thread-pre-split.thread ], [ %181, %179 ], [ %833, %827 ], [ %204, %198 ], [ %217, %211 ]
+  %.159 = phi i64 [ %.058.ph, %173 ], [ %.058.ph, %175 ], [ %.058.ph, %176 ], [ %.058.ph, %.fold.split ], [ %856, %854 ], [ %.058.ph, %852 ], [ %.058.ph, %thread-pre-split.thread ], [ %.058.ph, %845 ], [ %.058.ph, %179 ], [ %.058.ph, %827 ], [ %.058.ph, %211 ], [ %.058.ph, %198 ]
+  %.257 = phi i64 [ %.055.ph, %173 ], [ %.055.ph, %175 ], [ %.055.ph, %176 ], [ %.156, %.fold.split ], [ %.156, %854 ], [ %.156, %852 ], [ %.156, %thread-pre-split.thread ], [ %.156, %845 ], [ %180, %179 ], [ %180, %827 ], [ %180, %211 ], [ %180, %198 ]
+  %.253 = phi i1 [ true, %173 ], [ false, %175 ], [ false, %176 ], [ true, %.fold.split ], [ true, %854 ], [ false, %852 ], [ %.not, %thread-pre-split.thread ], [ false, %845 ], [ false, %179 ], [ false, %827 ], [ false, %211 ], [ false, %198 ]
+  %.4 = phi i32 [ %174, %173 ], [ %174, %175 ], [ 0, %176 ], [ %.3, %.fold.split ], [ 0, %854 ], [ %853, %852 ], [ %.3, %thread-pre-split.thread ], [ %.3, %845 ], [ %181, %179 ], [ %833, %827 ], [ %204, %198 ], [ %217, %211 ]
   %858 = load i32, ptr %166, align 8, !tbaa !120
   %.not82 = icmp eq i32 %858, 0
   br i1 %.not82, label %869, label %859
@@ -2195,12 +2195,12 @@ telrcv.exit.thread:                               ; preds = %198, %211, %827, %1
   br i1 %.not84, label %.outer, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %869, %.outer, %169
-  %.2 = phi i32 [ %.1.ph, %169 ], [ %.1.ph, %.outer ], [ 42, %869 ]
+  %.2 = phi i32 [ %.1.ph, %.outer ], [ %.1.ph, %169 ], [ 42, %869 ]
   call void @Curl_xfer_setup_nop(ptr noundef %0) #9
   br label %init_telnet.exit
 
 init_telnet.exit:                                 ; preds = %._crit_edge.thread122.i, %.thread.i, %2, %.loopexit
-  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.071.lcssa125.i, %._crit_edge.thread122.i ], [ %.0.ph.i, %.thread.i ]
+  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.0.ph.i, %.thread.i ], [ %.071.lcssa125.i, %._crit_edge.thread122.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2483,7 +2483,7 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
   br label %21
 
 21:                                               ; preds = %16, %19
-  %.135 = phi i32 [ %20, %19 ], [ 0, %16 ]
+  %.135 = phi i32 [ 0, %16 ], [ %20, %19 ]
   %22 = add nuw nsw i64 %.03244, 1
   %23 = icmp samesign ult i64 %22, %2
   %.not41 = icmp eq i32 %.135, 0
@@ -2694,14 +2694,14 @@ define internal fastcc void @suboption(ptr noundef %0) unnamed_addr #0 {
   br i1 %74, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %._crit_edge, %30, %19
-  %.054.lcssa.sink.ph = phi i64 [ %23, %19 ], [ %34, %30 ], [ %.054.lcssa, %._crit_edge ]
+  %.054.lcssa.sink.ph = phi i64 [ %34, %30 ], [ %23, %19 ], [ %.054.lcssa, %._crit_edge ]
   %75 = tail call ptr @__errno_location() #11
   %76 = load i32, ptr %75, align 4, !tbaa !75
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef %76) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %._crit_edge, %30, %19
-  %.054.lcssa.sink = phi i64 [ %23, %19 ], [ %34, %30 ], [ %.054.lcssa, %._crit_edge ], [ %.054.lcssa.sink.ph, %.sink.split.sink.split ]
+  %.054.lcssa.sink = phi i64 [ %34, %30 ], [ %23, %19 ], [ %.054.lcssa, %._crit_edge ], [ %.054.lcssa.sink.ph, %.sink.split.sink.split ]
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call fastcc void @printsub(ptr noundef %0, i32 noundef 62, ptr noundef nonnull %77, i64 noundef %.054.lcssa.sink)
   br label %78
@@ -3262,7 +3262,7 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
   br i1 %249, label %thread-pre-split.sink.split, label %thread-pre-split
 
 thread-pre-split.sink.split:                      ; preds = %244, %246, %235, %237, %226, %228, %217, %219
-  %.str.90.sink = phi ptr [ @.str.90, %219 ], [ @.str.90, %217 ], [ @.str.91, %228 ], [ @.str.91, %226 ], [ @.str.92, %237 ], [ @.str.92, %235 ], [ @.str.93, %246 ], [ @.str.93, %244 ]
+  %.str.90.sink = phi ptr [ @.str.92, %235 ], [ @.str.90, %217 ], [ @.str.91, %226 ], [ @.str.90, %219 ], [ @.str.91, %228 ], [ @.str.92, %237 ], [ @.str.93, %246 ], [ @.str.93, %244 ]
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.90.sink) #9
   br label %thread-pre-split
 

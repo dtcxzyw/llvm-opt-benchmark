@@ -283,10 +283,10 @@ sub_1101:                                         ; preds = %.tail.thread, %.thr
   br label %._crit_edge
 
 49:                                               ; preds = %36, %34, %32, %30
-  %.150 = phi i32 [ 1, %30 ], [ %.049123, %32 ], [ %.049123, %34 ], [ %.049123, %36 ]
-  %.148 = phi i32 [ %.047124, %30 ], [ 1, %32 ], [ %.047124, %34 ], [ %.047124, %36 ]
-  %.146 = phi i32 [ %.045125, %30 ], [ %.045125, %32 ], [ 1, %34 ], [ %.045125, %36 ]
-  %.144 = phi i32 [ %.043126, %30 ], [ %.043126, %32 ], [ %.043126, %34 ], [ 1, %36 ]
+  %.150 = phi i32 [ 1, %30 ], [ %.049123, %34 ], [ %.049123, %32 ], [ %.049123, %36 ]
+  %.148 = phi i32 [ %.047124, %30 ], [ %.047124, %34 ], [ 1, %32 ], [ %.047124, %36 ]
+  %.146 = phi i32 [ %.045125, %30 ], [ 1, %34 ], [ %.045125, %32 ], [ %.045125, %36 ]
+  %.144 = phi i32 [ %.043126, %30 ], [ %.043126, %34 ], [ %.043126, %32 ], [ 1, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %sub_0, !llvm.loop !9
@@ -885,7 +885,7 @@ ParseChunk.exit.i:                                ; preds = %172
   br label %ProcessImageChunk.exit.i.i
 
 ProcessImageChunk.exit.i.i:                       ; preds = %336, %334, %294, %292, %281, %279, %262, %260, %253, %251, %246, %244, %235, %233, %211, %209
-  %.0.i.i.i = phi i32 [ 0, %336 ], [ %335, %334 ], [ 4, %211 ], [ 4, %209 ], [ 2, %235 ], [ 2, %233 ], [ 2, %246 ], [ 2, %244 ], [ 2, %253 ], [ 2, %251 ], [ 2, %262 ], [ 2, %260 ], [ 2, %281 ], [ 2, %279 ], [ 2, %294 ], [ 2, %292 ]
+  %.0.i.i.i = phi i32 [ 2, %279 ], [ 4, %209 ], [ 2, %233 ], [ 2, %244 ], [ 0, %336 ], [ %335, %334 ], [ 2, %251 ], [ 2, %260 ], [ 4, %211 ], [ 2, %235 ], [ 2, %246 ], [ 2, %253 ], [ 2, %262 ], [ 2, %281 ], [ 2, %294 ], [ 2, %292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ProcessVP8XChunk.exit.i.i
 
@@ -1495,8 +1495,8 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %511, %509
   br label %ProcessVP8XChunk.exit.i.i
 
 ProcessVP8XChunk.exit.i.i:                        ; preds = %649, %646, %643, %641, %634, %632, %550, %534, %528, %525, %523, %519, %517, %ParseAlphaHeader.exit.i.i.i, %511, %497, %495, %490, %488, %470, %468, %463, %459, %457, %452, %450, %445, %443, %438, %436, %430, %428, %423, %421, %412, %.thread49.i.i.i, %349, %347, %343, %341, %ProcessImageChunk.exit.i.i, %206, %.thread.i33.i
-  %.sroa.0.265.i = phi i64 [ %.sroa.0.266.i, %206 ], [ %.sroa.0.266.i, %ProcessImageChunk.exit.i.i ], [ %.sroa.0.266.i, %649 ], [ %183, %.thread.i33.i ], [ %.sroa.0.266.i, %343 ], [ %.sroa.0.266.i, %341 ], [ %.sroa.0.266.i, %349 ], [ %.sroa.0.266.i, %347 ], [ %.sroa.0.266.i, %412 ], [ %.sroa.0.266.i, %.thread49.i.i.i ], [ %.sroa.0.266.i, %421 ], [ %.sroa.0.266.i, %423 ], [ %.sroa.0.266.i, %428 ], [ %.sroa.0.266.i, %430 ], [ %.sroa.0.266.i, %436 ], [ %.sroa.0.266.i, %438 ], [ %.sroa.0.266.i, %443 ], [ %.sroa.0.266.i, %445 ], [ %.sroa.0.266.i, %450 ], [ %.sroa.0.266.i, %452 ], [ %.sroa.0.266.i, %457 ], [ %.sroa.0.266.i, %459 ], [ %.sroa.0.266.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.266.i, %463 ], [ %.sroa.0.266.i, %495 ], [ %.sroa.0.266.i, %497 ], [ %.sroa.0.266.i, %488 ], [ %.sroa.0.266.i, %490 ], [ %.sroa.0.266.i, %511 ], [ %.sroa.0.266.i, %468 ], [ %.sroa.0.266.i, %470 ], [ %.sroa.0.266.i, %519 ], [ %.sroa.0.266.i, %517 ], [ %.sroa.0.266.i, %525 ], [ %.sroa.0.266.i, %523 ], [ %.sroa.0.266.i, %550 ], [ %.sroa.0.266.i, %534 ], [ %.sroa.0.266.i, %528 ], [ %.sroa.0.266.i, %646 ], [ %.sroa.0.266.i, %632 ], [ %.sroa.0.266.i, %634 ], [ %.sroa.0.266.i, %641 ], [ %.sroa.0.266.i, %643 ]
-  %.039.i.i = phi i32 [ 0, %206 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %649 ], [ 0, %.thread.i33.i ], [ 2, %343 ], [ 2, %341 ], [ 2, %349 ], [ 2, %347 ], [ 0, %412 ], [ 0, %.thread49.i.i.i ], [ 2, %421 ], [ 2, %423 ], [ 2, %428 ], [ 2, %430 ], [ 2, %436 ], [ 2, %438 ], [ 2, %443 ], [ 2, %445 ], [ 2, %450 ], [ 2, %452 ], [ 2, %457 ], [ 2, %459 ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 0, %463 ], [ 4, %495 ], [ 4, %497 ], [ 4, %488 ], [ 4, %490 ], [ %.fr.i.i.i.i, %511 ], [ 1, %468 ], [ 1, %470 ], [ 2, %519 ], [ 2, %517 ], [ 2, %525 ], [ 2, %523 ], [ 0, %550 ], [ 0, %534 ], [ 0, %528 ], [ 0, %646 ], [ 2, %632 ], [ 2, %634 ], [ 2, %641 ], [ 2, %643 ]
+  %.sroa.0.265.i = phi i64 [ %.sroa.0.266.i, %206 ], [ %.sroa.0.266.i, %ProcessImageChunk.exit.i.i ], [ %183, %.thread.i33.i ], [ %.sroa.0.266.i, %.thread49.i.i.i ], [ %.sroa.0.266.i, %470 ], [ %.sroa.0.266.i, %528 ], [ %.sroa.0.266.i, %643 ], [ %.sroa.0.266.i, %649 ], [ %.sroa.0.266.i, %347 ], [ %.sroa.0.266.i, %341 ], [ %.sroa.0.266.i, %343 ], [ %.sroa.0.266.i, %349 ], [ %.sroa.0.266.i, %412 ], [ %.sroa.0.266.i, %438 ], [ %.sroa.0.266.i, %423 ], [ %.sroa.0.266.i, %459 ], [ %.sroa.0.266.i, %463 ], [ %.sroa.0.266.i, %430 ], [ %.sroa.0.266.i, %445 ], [ %.sroa.0.266.i, %452 ], [ %.sroa.0.266.i, %421 ], [ %.sroa.0.266.i, %428 ], [ %.sroa.0.266.i, %436 ], [ %.sroa.0.266.i, %443 ], [ %.sroa.0.266.i, %450 ], [ %.sroa.0.266.i, %457 ], [ %.sroa.0.266.i, %ParseAlphaHeader.exit.i.i.i ], [ %.sroa.0.266.i, %497 ], [ %.sroa.0.266.i, %490 ], [ %.sroa.0.266.i, %495 ], [ %.sroa.0.266.i, %488 ], [ %.sroa.0.266.i, %511 ], [ %.sroa.0.266.i, %468 ], [ %.sroa.0.266.i, %517 ], [ %.sroa.0.266.i, %523 ], [ %.sroa.0.266.i, %519 ], [ %.sroa.0.266.i, %525 ], [ %.sroa.0.266.i, %550 ], [ %.sroa.0.266.i, %534 ], [ %.sroa.0.266.i, %634 ], [ %.sroa.0.266.i, %646 ], [ %.sroa.0.266.i, %632 ], [ %.sroa.0.266.i, %641 ]
+  %.039.i.i = phi i32 [ 0, %206 ], [ %.0.i.i.i, %ProcessImageChunk.exit.i.i ], [ 0, %.thread.i33.i ], [ 0, %.thread49.i.i.i ], [ 1, %470 ], [ 0, %528 ], [ 2, %643 ], [ 0, %649 ], [ 2, %347 ], [ 2, %341 ], [ 2, %343 ], [ 2, %349 ], [ 0, %412 ], [ 2, %438 ], [ 2, %423 ], [ 2, %459 ], [ 0, %463 ], [ 2, %430 ], [ 2, %445 ], [ 2, %452 ], [ 2, %421 ], [ 2, %428 ], [ 2, %436 ], [ 2, %443 ], [ 2, %450 ], [ 2, %457 ], [ 0, %ParseAlphaHeader.exit.i.i.i ], [ 4, %497 ], [ 4, %490 ], [ 4, %495 ], [ 4, %488 ], [ %.fr.i.i.i.i, %511 ], [ 1, %468 ], [ 2, %517 ], [ 2, %523 ], [ 2, %519 ], [ 2, %525 ], [ 0, %550 ], [ 0, %534 ], [ 2, %634 ], [ 0, %646 ], [ 2, %632 ], [ 2, %641 ]
   %654 = load i32, ptr %62, align 8, !tbaa !30
   %.not72.i.i = icmp eq i32 %654, 0
   br i1 %.not72.i.i, label %ProcessChunk.exit.i, label %655
@@ -1727,14 +1727,14 @@ ShowSummary.exit.i:                               ; preds = %684
   br i1 %.not68.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
 Validate.exit.i.sink.split:                       ; preds = %688, %701, %713, %717, %721, %724, %727, %730, %738, %742, %667, %660, %626, %618, %563, %559, %555, %176, %165, %159, %148, %142, %122, %118, %107, %102
-  %.str.152.sink.i.i.sink = phi ptr [ @.str.17, %102 ], [ @.str.20, %107 ], [ @.str.21, %118 ], [ @.str.22, %122 ], [ @.str.27, %142 ], [ @.str.28, %148 ], [ @.str.29, %159 ], [ @.str.30, %165 ], [ @.str.31, %176 ], [ @.str.127, %555 ], [ @.str.128, %559 ], [ @.str.35, %563 ], [ @.str.131, %618 ], [ @.str.132, %626 ], [ @.str.34, %660 ], [ @.str.35, %667 ], [ @.str.142, %688 ], [ @.str.143, %701 ], [ @.str.145, %713 ], [ @.str.146, %717 ], [ @.str.147, %721 ], [ @.str.148, %724 ], [ @.str.149, %727 ], [ @.str.150, %730 ], [ @.str.151, %738 ], [ @.str.152, %742 ]
+  %.str.152.sink.i.i.sink = phi ptr [ @.str.35, %667 ], [ @.str.34, %660 ], [ @.str.132, %626 ], [ @.str.131, %618 ], [ @.str.35, %563 ], [ @.str.128, %559 ], [ @.str.127, %555 ], [ @.str.31, %176 ], [ @.str.30, %165 ], [ @.str.29, %159 ], [ @.str.28, %148 ], [ @.str.27, %142 ], [ @.str.22, %122 ], [ @.str.21, %118 ], [ @.str.20, %107 ], [ @.str.17, %102 ], [ @.str.151, %738 ], [ @.str.150, %730 ], [ @.str.149, %727 ], [ @.str.148, %724 ], [ @.str.147, %721 ], [ @.str.146, %717 ], [ @.str.145, %713 ], [ @.str.143, %701 ], [ @.str.142, %688 ], [ @.str.152, %742 ]
   %744 = load ptr, ptr @stderr, align 8, !tbaa !18
   %745 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %744, ptr noundef nonnull @.str.16, ptr noundef nonnull %.str.152.sink.i.i.sink) #13
   br label %Validate.exit.i
 
 Validate.exit.i:                                  ; preds = %ProcessChunk.exit.i, %Validate.exit.i.sink.split, %.critedge71.i.i, %742, %738, %735, %732, %730, %727, %724, %721, %717, %713, %701, %690, %688, %667, %660, %626, %618, %563, %559, %555, %176, %165, %159, %148, %142, %122, %118, %107, %102
-  %str.2.str.1.i = phi ptr [ @str.1, %688 ], [ @str.2, %735 ], [ @str.2, %690 ], [ @str.1, %742 ], [ @str.1, %738 ], [ @str.1, %732 ], [ @str.1, %730 ], [ @str.1, %727 ], [ @str.1, %724 ], [ @str.1, %721 ], [ @str.1, %717 ], [ @str.1, %713 ], [ @str.1, %701 ], [ @str.1, %142 ], [ @str.1, %122 ], [ @str.1, %118 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %176 ], [ @str.1, %165 ], [ @str.1, %159 ], [ @str.1, %148 ], [ @str.1, %555 ], [ @str.1, %559 ], [ @str.1, %563 ], [ @str.1, %618 ], [ @str.1, %626 ], [ @str.1, %667 ], [ @str.1, %660 ], [ @str.2, %.critedge71.i.i ], [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %ProcessChunk.exit.i ]
-  %746 = phi i32 [ 1, %688 ], [ 0, %735 ], [ 0, %690 ], [ 1, %742 ], [ 1, %738 ], [ 1, %732 ], [ 1, %730 ], [ 1, %727 ], [ 1, %724 ], [ 1, %721 ], [ 1, %717 ], [ 1, %713 ], [ 1, %701 ], [ 1, %142 ], [ 1, %122 ], [ 1, %118 ], [ 1, %107 ], [ 1, %102 ], [ 1, %176 ], [ 1, %165 ], [ 1, %159 ], [ 1, %148 ], [ 1, %555 ], [ 1, %559 ], [ 1, %563 ], [ 1, %618 ], [ 1, %626 ], [ 1, %667 ], [ 1, %660 ], [ 0, %.critedge71.i.i ], [ 1, %Validate.exit.i.sink.split ], [ 1, %ProcessChunk.exit.i ]
+  %str.2.str.1.i = phi ptr [ @str.1, %122 ], [ @str.2, %690 ], [ @str.1, %701 ], [ @str.1, %688 ], [ @str.2, %.critedge71.i.i ], [ @str.2, %735 ], [ @str.1, %713 ], [ @str.1, %717 ], [ @str.1, %721 ], [ @str.1, %724 ], [ @str.1, %727 ], [ @str.1, %732 ], [ @str.1, %738 ], [ @str.1, %742 ], [ @str.1, %730 ], [ @str.1, %142 ], [ @str.1, %118 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %165 ], [ @str.1, %159 ], [ @str.1, %176 ], [ @str.1, %148 ], [ @str.1, %626 ], [ @str.1, %559 ], [ @str.1, %555 ], [ @str.1, %563 ], [ @str.1, %618 ], [ @str.1, %660 ], [ @str.1, %667 ], [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %ProcessChunk.exit.i ]
+  %746 = phi i32 [ 1, %122 ], [ 0, %690 ], [ 1, %701 ], [ 1, %688 ], [ 0, %.critedge71.i.i ], [ 0, %735 ], [ 1, %713 ], [ 1, %717 ], [ 1, %721 ], [ 1, %724 ], [ 1, %727 ], [ 1, %732 ], [ 1, %738 ], [ 1, %742 ], [ 1, %730 ], [ 1, %142 ], [ 1, %118 ], [ 1, %107 ], [ 1, %102 ], [ 1, %165 ], [ 1, %159 ], [ 1, %176 ], [ 1, %148 ], [ 1, %626 ], [ 1, %559 ], [ 1, %555 ], [ 1, %563 ], [ 1, %618 ], [ 1, %660 ], [ 1, %667 ], [ 1, %Validate.exit.i.sink.split ], [ 1, %ProcessChunk.exit.i ]
   %747 = load i32, ptr %52, align 4, !tbaa !11
   %.not23.i = icmp eq i32 %747, 0
   br i1 %.not23.i, label %748, label %AnalyzeWebP.exit
@@ -1761,7 +1761,7 @@ AnalyzeWebP.exit:                                 ; preds = %Validate.exit.i, %7
   br i1 %755, label %85, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %753, %.preheader, %41, %.loopexit.thread, %29, %11
-  %.0 = phi i32 [ 1, %11 ], [ 1, %.loopexit.thread ], [ 0, %41 ], [ 0, %29 ], [ 0, %.preheader ], [ %.1, %753 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %.loopexit.thread ], [ 0, %29 ], [ 0, %41 ], [ 0, %.preheader ], [ %.1, %753 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2338,8 +2338,8 @@ GetBits.exit251:                                  ; preds = %252
   %291 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
   br label %.critedge
 
-.critedge:                                        ; preds = %152, %149, %121, %118, %133, %130, %.critedge195, %286, %289, %285, %97, %GetBits.exit202, %84, %87, %78, %81, %49, %52, %28, %31, %20, %23
-  %.0 = phi i32 [ 1, %285 ], [ 4, %23 ], [ 4, %20 ], [ 4, %31 ], [ 4, %28 ], [ 4, %52 ], [ 4, %49 ], [ 4, %81 ], [ 4, %78 ], [ 4, %87 ], [ 4, %84 ], [ 1, %GetBits.exit202 ], [ 1, %97 ], [ 1, %289 ], [ 1, %286 ], [ 0, %.critedge195 ], [ 1, %130 ], [ 1, %133 ], [ 1, %118 ], [ 1, %121 ], [ 1, %149 ], [ 1, %152 ]
+.critedge:                                        ; preds = %152, %149, %118, %130, %121, %133, %.critedge195, %286, %289, %285, %97, %GetBits.exit202, %84, %87, %78, %81, %49, %52, %28, %31, %20, %23
+  %.0 = phi i32 [ 4, %20 ], [ 4, %78 ], [ 1, %130 ], [ 1, %GetBits.exit202 ], [ 1, %97 ], [ 1, %286 ], [ 1, %285 ], [ 0, %.critedge195 ], [ 1, %152 ], [ 4, %84 ], [ 4, %28 ], [ 4, %49 ], [ 4, %23 ], [ 4, %31 ], [ 4, %52 ], [ 4, %81 ], [ 4, %87 ], [ 1, %149 ], [ 1, %121 ], [ 1, %289 ], [ 1, %118 ], [ 1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2505,7 +2505,7 @@ LLGetBits.exit49:                                 ; preds = %45
   br label %97
 
 97:                                               ; preds = %39, %36, %60, %57, %66, %63, %.critedge, %13, %16, %5, %8
-  %.031 = phi i32 [ 1, %8 ], [ 1, %5 ], [ 4, %16 ], [ 4, %13 ], [ %96, %.critedge ], [ 1, %63 ], [ 1, %66 ], [ 1, %57 ], [ 1, %60 ], [ 1, %36 ], [ 1, %39 ]
+  %.031 = phi i32 [ 4, %16 ], [ 1, %5 ], [ 4, %13 ], [ %96, %.critedge ], [ 1, %8 ], [ 1, %39 ], [ 1, %36 ], [ 1, %63 ], [ 1, %66 ], [ 1, %57 ], [ 1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }
@@ -2594,7 +2594,7 @@ GetBits.exit115:                                  ; preds = %GetBits.exit108.pre
   %53 = icmp ne i32 %52, 0
   %54 = zext i1 %53 to i32
   %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %45, i32 noundef %54)
-  br i1 %53, label %62, label %188
+  br i1 %53, label %62, label %187
 
 56:                                               ; preds = %GetBits.exit108.preheader
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2637,7 +2637,7 @@ GetBits.exit122:                                  ; preds = %62
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %77 = load i32, ptr %76, align 8, !tbaa !15
   %.not77 = icmp eq i32 %77, 0
-  br i1 %.not77, label %.critedge, label %.critedge.sink.split
+  br i1 %.not77, label %.critedge97, label %.critedge97.sink.split
 
 78:                                               ; preds = %GetBits.exit122, %GetSignedBits.exit
   %indvars.iv = phi i64 [ 0, %GetBits.exit122 ], [ %indvars.iv.next, %GetSignedBits.exit ]
@@ -2663,7 +2663,7 @@ GetBits.exit129:                                  ; preds = %78
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %91 = load i32, ptr %90, align 8, !tbaa !15
   %.not84 = icmp eq i32 %91, 0
-  br i1 %.not84, label %.critedge, label %.critedge.sink.split
+  br i1 %.not84, label %.critedge97, label %.critedge97.sink.split
 
 92:                                               ; preds = %GetBits.exit129
   %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
@@ -2724,7 +2724,7 @@ GetBits.exit18.i:                                 ; preds = %GetBits.exit.prehea
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %123 = load i32, ptr %122, align 8, !tbaa !15
   %.not87 = icmp eq i32 %123, 0
-  br i1 %.not87, label %.critedge, label %.critedge.sink.split
+  br i1 %.not87, label %.critedge97, label %.critedge97.sink.split
 
 GetSignedBits.exit:                               ; preds = %120, %GetBits.exit18.i, %GetBits.exit129
   %.promoted238 = phi i64 [ %111, %120 ], [ %111, %GetBits.exit18.i ], [ %80, %GetBits.exit129 ]
@@ -2756,7 +2756,7 @@ GetBits.exit137:                                  ; preds = %.preheader
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %136 = load i32, ptr %135, align 8, !tbaa !15
   %.not79 = icmp eq i32 %136, 0
-  br i1 %.not79, label %.critedge, label %.critedge.sink.split
+  br i1 %.not79, label %.critedge97, label %.critedge97.sink.split
 
 137:                                              ; preds = %GetBits.exit137
   %138 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv271
@@ -2817,145 +2817,145 @@ GetBits.exit18.i146:                              ; preds = %GetBits.exit.prehea
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %168 = load i32, ptr %167, align 8, !tbaa !15
   %.not82 = icmp eq i32 %168, 0
-  br i1 %.not82, label %.critedge, label %.critedge.sink.split
+  br i1 %.not82, label %.critedge97, label %.critedge97.sink.split
 
 GetSignedBits.exit148:                            ; preds = %165, %GetBits.exit18.i146, %GetBits.exit137
   %169 = phi i64 [ %156, %165 ], [ %156, %GetBits.exit18.i146 ], [ %125, %GetBits.exit137 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next272, 4
-  br i1 %exitcond274.not, label %.critedge97, label %.preheader, !llvm.loop !50
+  br i1 %exitcond274.not, label %170, label %.preheader, !llvm.loop !50
 
-.critedge97:                                      ; preds = %GetSignedBits.exit148
-  %170 = load i32, ptr %5, align 16, !tbaa !22
-  %171 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !22
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %174 = load i32, ptr %173, align 8, !tbaa !22
-  %175 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %176 = load i32, ptr %175, align 4, !tbaa !22
-  %177 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %170, i32 noundef %172, i32 noundef %174, i32 noundef %176)
-  %178 = load i32, ptr %6, align 16, !tbaa !22
-  %179 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %180 = load i32, ptr %179, align 4, !tbaa !22
-  %181 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %182 = load i32, ptr %181, align 8, !tbaa !22
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %184 = load i32, ptr %183, align 4, !tbaa !22
-  %185 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i32 noundef %178, i32 noundef %180, i32 noundef %182, i32 noundef %184)
+170:                                              ; preds = %GetSignedBits.exit148
+  %171 = load i32, ptr %5, align 16, !tbaa !22
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %173 = load i32, ptr %172, align 4, !tbaa !22
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %175 = load i32, ptr %174, align 8, !tbaa !22
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %177 = load i32, ptr %176, align 4, !tbaa !22
+  %178 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %177)
+  %179 = load i32, ptr %6, align 16, !tbaa !22
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %181 = load i32, ptr %180, align 4, !tbaa !22
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %183 = load i32, ptr %182, align 8, !tbaa !22
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %185 = load i32, ptr %184, align 4, !tbaa !22
+  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i32 noundef %179, i32 noundef %181, i32 noundef %183, i32 noundef %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %188
+  br label %187
 
-.critedge.sink.split:                             ; preds = %.loopexit, %134, %.loopexit214, %89, %75
-  %186 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
-  br label %.critedge
+187:                                              ; preds = %170, %GetBits.exit115
+  br i1 %36, label %188, label %.critedge101
 
-.critedge:                                        ; preds = %.critedge.sink.split, %134, %.loopexit, %89, %.loopexit214, %75
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge101
-
-188:                                              ; preds = %.critedge97, %GetBits.exit115
-  br i1 %36, label %189, label %.critedge101
-
-189:                                              ; preds = %188
+188:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) @__const.ParseLossySegmentHeader.prob_segment, i64 12, i1 false)
   %.promoted242 = load i64, ptr %3, align 8, !tbaa !20
-  br label %190
+  br label %189
 
-190:                                              ; preds = %189, %GetBits.exit162
-  %indvars.iv275 = phi i64 [ 0, %189 ], [ %indvars.iv.next276, %GetBits.exit162 ]
-  %191 = phi i64 [ %.promoted242, %189 ], [ %226, %GetBits.exit162 ]
-  %192 = add i64 %191, 1
-  store i64 %192, ptr %3, align 8, !tbaa !20
-  %193 = lshr i64 %191, 3
-  %.not15.not.i152 = icmp ult i64 %193, %2
-  br i1 %.not15.not.i152, label %GetBits.exit155, label %201
+189:                                              ; preds = %188, %GetBits.exit162
+  %indvars.iv275 = phi i64 [ 0, %188 ], [ %indvars.iv.next276, %GetBits.exit162 ]
+  %190 = phi i64 [ %.promoted242, %188 ], [ %225, %GetBits.exit162 ]
+  %191 = add i64 %190, 1
+  store i64 %191, ptr %3, align 8, !tbaa !20
+  %192 = lshr i64 %190, 3
+  %.not15.not.i152 = icmp ult i64 %192, %2
+  br i1 %.not15.not.i152, label %GetBits.exit155, label %200
 
-GetBits.exit155:                                  ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 %193
-  %195 = load i8, ptr %194, align 1, !tbaa !38
-  %196 = zext i8 %195 to i32
-  %197 = trunc i64 %191 to i32
-  %198 = and i32 %197, 7
-  %199 = lshr exact i32 128, %198
-  %200 = and i32 %199, %196
-  %.not295 = icmp eq i32 %200, 0
-  br i1 %.not295, label %GetBits.exit162, label %204
+GetBits.exit155:                                  ; preds = %189
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 %192
+  %194 = load i8, ptr %193, align 1, !tbaa !38
+  %195 = zext i8 %194 to i32
+  %196 = trunc i64 %190 to i32
+  %197 = and i32 %196, 7
+  %198 = lshr exact i32 128, %197
+  %199 = and i32 %198, %195
+  %.not295 = icmp eq i32 %199, 0
+  br i1 %.not295, label %GetBits.exit162, label %203
 
-201:                                              ; preds = %190
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %203 = load i32, ptr %202, align 8, !tbaa !15
-  %.not90 = icmp eq i32 %203, 0
+200:                                              ; preds = %189
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %202 = load i32, ptr %201, align 8, !tbaa !15
+  %.not90 = icmp eq i32 %202, 0
   br i1 %.not90, label %.critedge99, label %.critedge99.sink.split
 
-204:                                              ; preds = %GetBits.exit155
-  %205 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv275
-  store i32 0, ptr %205, align 4, !tbaa !22
-  br label %206
+203:                                              ; preds = %GetBits.exit155
+  %204 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv275
+  store i32 0, ptr %204, align 4, !tbaa !22
+  br label %205
 
-206:                                              ; preds = %210, %204
-  %207 = phi i64 [ %192, %204 ], [ %208, %210 ]
-  %.in.i157 = phi i64 [ 8, %204 ], [ %211, %210 ]
-  %storemerge16.i158 = phi i32 [ 0, %204 ], [ %222, %210 ]
-  %208 = add i64 %207, 1
-  store i64 %208, ptr %3, align 8, !tbaa !20
-  %209 = lshr i64 %207, 3
-  %.not15.not.i159 = icmp ult i64 %209, %2
-  br i1 %.not15.not.i159, label %210, label %223
+205:                                              ; preds = %209, %203
+  %206 = phi i64 [ %191, %203 ], [ %207, %209 ]
+  %.in.i157 = phi i64 [ 8, %203 ], [ %210, %209 ]
+  %storemerge16.i158 = phi i32 [ 0, %203 ], [ %221, %209 ]
+  %207 = add i64 %206, 1
+  store i64 %207, ptr %3, align 8, !tbaa !20
+  %208 = lshr i64 %206, 3
+  %.not15.not.i159 = icmp ult i64 %208, %2
+  br i1 %.not15.not.i159, label %209, label %222
 
-210:                                              ; preds = %206
-  %211 = add nsw i64 %.in.i157, -1
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 %209
-  %213 = load i8, ptr %212, align 1, !tbaa !38
-  %214 = zext i8 %213 to i32
-  %215 = trunc i64 %207 to i32
-  %216 = and i32 %215, 7
-  %217 = lshr exact i32 128, %216
-  %218 = and i32 %217, %214
-  %219 = icmp ne i32 %218, 0
-  %220 = zext i1 %219 to i32
-  %221 = shl i32 %storemerge16.i158, 1
-  %222 = or disjoint i32 %221, %220
-  store i32 %222, ptr %205, align 4, !tbaa !22
-  %.not.i161 = icmp eq i64 %211, 0
-  br i1 %.not.i161, label %GetBits.exit162, label %206
+209:                                              ; preds = %205
+  %210 = add nsw i64 %.in.i157, -1
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 %208
+  %212 = load i8, ptr %211, align 1, !tbaa !38
+  %213 = zext i8 %212 to i32
+  %214 = trunc i64 %206 to i32
+  %215 = and i32 %214, 7
+  %216 = lshr exact i32 128, %215
+  %217 = and i32 %216, %213
+  %218 = icmp ne i32 %217, 0
+  %219 = zext i1 %218 to i32
+  %220 = shl i32 %storemerge16.i158, 1
+  %221 = or disjoint i32 %220, %219
+  store i32 %221, ptr %204, align 4, !tbaa !22
+  %.not.i161 = icmp eq i64 %210, 0
+  br i1 %.not.i161, label %GetBits.exit162, label %205
 
-223:                                              ; preds = %206
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %225 = load i32, ptr %224, align 8, !tbaa !15
-  %.not93 = icmp eq i32 %225, 0
+222:                                              ; preds = %205
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %224 = load i32, ptr %223, align 8, !tbaa !15
+  %.not93 = icmp eq i32 %224, 0
   br i1 %.not93, label %.critedge99, label %.critedge99.sink.split
 
-GetBits.exit162:                                  ; preds = %210, %GetBits.exit155
-  %226 = phi i64 [ %192, %GetBits.exit155 ], [ %208, %210 ]
+GetBits.exit162:                                  ; preds = %209, %GetBits.exit155
+  %225 = phi i64 [ %191, %GetBits.exit155 ], [ %207, %209 ]
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond278 = icmp eq i64 %indvars.iv.next276, 3
-  br i1 %exitcond278, label %.critedge99.thread, label %190, !llvm.loop !51
+  br i1 %exitcond278, label %.critedge99.thread, label %189, !llvm.loop !51
 
 .critedge99.thread:                               ; preds = %GetBits.exit162
-  %227 = load i32, ptr %7, align 4, !tbaa !22
-  %228 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %229 = load i32, ptr %228, align 4, !tbaa !22
-  %230 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %231 = load i32, ptr %230, align 4, !tbaa !22
-  %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %227, i32 noundef %229, i32 noundef %231)
+  %226 = load i32, ptr %7, align 4, !tbaa !22
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %228 = load i32, ptr %227, align 4, !tbaa !22
+  %229 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %230 = load i32, ptr %229, align 4, !tbaa !22
+  %231 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %226, i32 noundef %228, i32 noundef %230)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge101
 
-.critedge99.sink.split:                           ; preds = %223, %201
-  %233 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
+.critedge99.sink.split:                           ; preds = %222, %200
+  %232 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
   br label %.critedge99
 
-.critedge99:                                      ; preds = %.critedge99.sink.split, %201, %223
+.critedge99:                                      ; preds = %.critedge99.sink.split, %222, %200
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge101
 
-.critedge101:                                     ; preds = %42, %39, %59, %56, %.critedge, %.critedge99, %188, %.critedge99.thread, %GetBits.exit, %20, %23
-  %.063 = phi i32 [ 1, %23 ], [ 1, %20 ], [ 0, %GetBits.exit ], [ 0, %.critedge99.thread ], [ 0, %188 ], [ 1, %.critedge99 ], [ 1, %.critedge ], [ 1, %56 ], [ 1, %59 ], [ 1, %39 ], [ 1, %42 ]
+.critedge97.sink.split:                           ; preds = %.loopexit, %134, %.loopexit214, %89, %75
+  %234 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
+  br label %.critedge97
+
+.critedge97:                                      ; preds = %.critedge97.sink.split, %.loopexit, %134, %.loopexit214, %89, %75
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %.critedge101
+
+.critedge101:                                     ; preds = %42, %39, %59, %56, %.critedge97, %.critedge99, %187, %.critedge99.thread, %GetBits.exit, %20, %23
+  %.063 = phi i32 [ 1, %20 ], [ 0, %187 ], [ 1, %23 ], [ 0, %GetBits.exit ], [ 0, %.critedge99.thread ], [ 1, %.critedge99 ], [ 1, %.critedge97 ], [ 1, %56 ], [ 1, %59 ], [ 1, %39 ], [ 1, %42 ]
   ret i32 %.063
 }
 
@@ -3171,8 +3171,8 @@ GetBits.exit100:                                  ; preds = %GetBits.exit100.loo
   %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.59) #13
   br label %.critedge58
 
-.critedge58:                                      ; preds = %GetBits.exit100, %.critedge58.sink.split, %88, %110, %102, %GetBits.exit86, %GetBits.exit79, %72, %56, %35, %16
-  %.036 = phi i32 [ 1, %16 ], [ 1, %35 ], [ 1, %56 ], [ 1, %72 ], [ 0, %GetBits.exit79 ], [ 0, %GetBits.exit86 ], [ 1, %102 ], [ 1, %110 ], [ 1, %88 ], [ 1, %.critedge58.sink.split ], [ 0, %GetBits.exit100 ]
+.critedge58:                                      ; preds = %GetBits.exit100, %.critedge58.sink.split, %88, %102, %110, %GetBits.exit86, %GetBits.exit79, %72, %56, %35, %16
+  %.036 = phi i32 [ 1, %72 ], [ 0, %GetBits.exit86 ], [ 1, %56 ], [ 1, %35 ], [ 1, %16 ], [ 0, %GetBits.exit79 ], [ 1, %110 ], [ 1, %102 ], [ 1, %88 ], [ 1, %.critedge58.sink.split ], [ 0, %GetBits.exit100 ]
   ret i32 %.036
 }
 
@@ -3233,7 +3233,7 @@ GetBits.exit18:                                   ; preds = %GetBits.exit.prehea
   br label %GetBits.exit.thread
 
 GetBits.exit.thread:                              ; preds = %6, %GetBits.exit.preheader, %GetBits.exit18, %32
-  %.0 = phi i32 [ 1, %32 ], [ 1, %GetBits.exit18 ], [ 0, %GetBits.exit.preheader ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %GetBits.exit18 ], [ 1, %32 ], [ 0, %GetBits.exit.preheader ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -3407,8 +3407,8 @@ LLGetBits.exit40:                                 ; preds = %81
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, i32 noundef %98)
   br label %.critedge
 
-.critedge:                                        ; preds = %43, %40, %70, %67, %95, %92, %LLGetBits.exit30, %LLGetBits.exit40, %LLGetBits.exit35, %13, %7, %10
-  %.017 = phi i32 [ 1, %10 ], [ 1, %7 ], [ 0, %13 ], [ 0, %LLGetBits.exit35 ], [ 0, %LLGetBits.exit40 ], [ 0, %LLGetBits.exit30 ], [ 1, %92 ], [ 1, %95 ], [ 1, %67 ], [ 1, %70 ], [ 1, %40 ], [ 1, %43 ]
+.critedge:                                        ; preds = %92, %40, %67, %43, %70, %95, %LLGetBits.exit30, %LLGetBits.exit40, %LLGetBits.exit35, %13, %7, %10
+  %.017 = phi i32 [ 1, %7 ], [ 0, %LLGetBits.exit30 ], [ 1, %10 ], [ 0, %13 ], [ 0, %LLGetBits.exit35 ], [ 0, %LLGetBits.exit40 ], [ 1, %95 ], [ 1, %70 ], [ 1, %43 ], [ 1, %67 ], [ 1, %40 ], [ 1, %92 ]
   ret i32 %.017
 }
 

@@ -481,7 +481,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
   br label %.thread.i
 
 .thread.i:                                        ; preds = %210, %.thread93.i, %205, %202, %197, %185, %182
-  %.3.i = phi i32 [ %.277.i, %182 ], [ %.277.i, %185 ], [ %.277.i, %.thread93.i ], [ %211, %210 ], [ %.277.i, %205 ], [ %204, %202 ], [ %.277.i, %197 ]
+  %.3.i = phi i32 [ %.277.i, %185 ], [ %.277.i, %182 ], [ %.277.i, %.thread93.i ], [ %211, %210 ], [ %.277.i, %205 ], [ %204, %202 ], [ %.277.i, %197 ]
   %212 = icmp sgt i32 %.3.i, 0
   br i1 %212, label %180, label %.critedge.i
 
@@ -489,7 +489,7 @@ ogg_reset.exit.i:                                 ; preds = %168, %141
   call fastcc void @ogg_restore(ptr noundef nonnull %0)
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %81, %._crit_edge.i, %78, %75, %._crit_edge, %.critedge.i
+.critedge.sink.split:                             ; preds = %81, %._crit_edge.i, %.critedge.i, %78, %75, %._crit_edge
   %.0.ph = phi i32 [ 0, %.critedge.i ], [ 0, %._crit_edge ], [ 0, %75 ], [ 0, %78 ], [ %82, %81 ], [ %139, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
@@ -778,7 +778,7 @@ ogg_validate_keyframe.exit:                       ; preds = %62, %72, %80, %90, 
   br label %.critedge62
 
 .critedge62:                                      ; preds = %50, %.critedge.backedge, %148, %156, %141, %151, %112
-  %.0 = phi i32 [ %114, %112 ], [ %154, %151 ], [ -12, %141 ], [ %68, %156 ], [ %68, %148 ], [ %60, %.critedge.backedge ], [ %51, %50 ]
+  %.0 = phi i32 [ -12, %141 ], [ %154, %151 ], [ %114, %112 ], [ %68, %156 ], [ %68, %148 ], [ %60, %.critedge.backedge ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1238,7 +1238,7 @@ ogg_validate_keyframe.exit:                       ; preds = %67, %74, %82, %92, 
   br i1 %.not37, label %.outer, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %.thread, %50, %52
-  %.1 = phi i64 [ -9223372036854775808, %52 ], [ -9223372036854775808, %50 ], [ %.2, %.thread ]
+  %.1 = phi i64 [ -9223372036854775808, %50 ], [ -9223372036854775808, %52 ], [ %.2, %.thread ]
   %119 = load ptr, ptr %8, align 8, !tbaa !12
   %120 = load ptr, ptr %10, align 8, !tbaa !58
   %121 = call i64 @avio_seek(ptr noundef %120, i64 noundef 0, i32 noundef 1) #9
@@ -2134,7 +2134,7 @@ data_packets_seen.exit:                           ; preds = %152
   br label %buf_realloc.exit
 
 buf_realloc.exit:                                 ; preds = %54, %109, %62, %214, %167, %160, %143, %137, %127, %83, %.thread, %15
-  %.0 = phi i32 [ %17, %15 ], [ -1094995529, %.thread ], [ %85, %83 ], [ %130, %127 ], [ 0, %137 ], [ 0, %143 ], [ %.1161, %160 ], [ %165, %167 ], [ 0, %214 ], [ %63, %62 ], [ -12, %109 ], [ -541478725, %54 ]
+  %.0 = phi i32 [ %17, %15 ], [ -12, %109 ], [ -1094995529, %.thread ], [ 0, %214 ], [ %85, %83 ], [ %63, %62 ], [ %130, %127 ], [ 0, %137 ], [ 0, %143 ], [ %.1161, %160 ], [ %165, %167 ], [ -541478725, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2266,7 +2266,7 @@ ogg_find_codec.exit.thread:                       ; preds = %15, %ogg_find_codec
   br label %30
 
 30:                                               ; preds = %ogg_find_codec.exit.thread, %25, %21, %10
-  %.0 = phi i32 [ -1163346256, %10 ], [ 0, %25 ], [ -1094995529, %21 ], [ -22, %ogg_find_codec.exit.thread ]
+  %.0 = phi i32 [ -1163346256, %10 ], [ -1094995529, %21 ], [ 0, %25 ], [ -22, %ogg_find_codec.exit.thread ]
   ret i32 %.0
 }
 

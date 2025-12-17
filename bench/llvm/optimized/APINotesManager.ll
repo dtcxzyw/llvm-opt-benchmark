@@ -210,7 +210,7 @@ define dso_local void @_ZN5clang9api_notes15APINotesManagerD2Ev(ptr noundef nonn
   br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS_12PointerUnionIJNS2_17DirectoryEntryRefEPNS2_9api_notes14APINotesReaderEEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !20
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14DirectoryEntryENS_12PointerUnionIJNS2_17DirectoryEntryRefEPNS2_9api_notes14APINotesReaderEEEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %10, %12
-  %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
+  %.pn14.i = phi ptr [ %11, %10 ], [ %6, %12 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %13, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %11, %10 ], [ %13, %12 ], [ %13, %.critedge2.i8.i14.i6.i ], [ %13, %.lr.ph.i6.i12.i3.i ]
   %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
   %.not1113 = icmp eq ptr %.pn14.i, %16
@@ -1719,7 +1719,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit176: ; p
   br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit
 
 _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit174, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit176, %167, %173, %179
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %167 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %173 ], [ %spec.select.i.i.i.i.i.i.i, %179 ], [ %183, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit ], [ %184, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit174 ], [ %185, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit176 ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i.i.i, %173 ], [ %spec.select.i.i.i.i.i.i.i, %179 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %167 ], [ %185, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit176 ], [ %184, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit174 ], [ %183, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.loopexit.split.loop.exit ], [ %.sroa.031.056.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not119 = icmp eq ptr %.val44, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br i1 %.not119, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit.thread, label %186
 
@@ -1958,7 +1958,7 @@ _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit184: ;
   br label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91
 
 _ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91: ; preds = %.lr.ph.i.i.i.i.i.i.i74, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit182, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit184, %260, %266, %272
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i66 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %260 ], [ %.sroa.031.1.i.i.i.i.i.i.i67, %266 ], [ %spec.select.i.i.i.i.i.i.i65, %272 ], [ %276, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit ], [ %277, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit182 ], [ %278, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit184 ], [ %.sroa.031.056.i.i.i.i.i.i.i76, %.lr.ph.i.i.i.i.i.i.i74 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i66 = phi ptr [ %.sroa.031.1.i.i.i.i.i.i.i67, %266 ], [ %spec.select.i.i.i.i.i.i.i65, %272 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i61, %260 ], [ %278, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit184 ], [ %277, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit182 ], [ %276, %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.loopexit.split.loop.exit ], [ %.sroa.031.056.i.i.i.i.i.i.i76, %.lr.ph.i.i.i.i.i.i.i74 ]
   %.not121 = icmp eq ptr %.val46, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i66
   br i1 %.not121, label %_ZL20hasPrivateSubmodulesPKN5clang6ModuleE.exit91.thread, label %279
 
@@ -3095,8 +3095,8 @@ _ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12Fi
   br label %250
 
 250:                                              ; preds = %_ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12FileEntryRefE.exit.thread, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit, %243, %248
-  %cond = phi i1 [ false, %248 ], [ false, %243 ], [ true, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ], [ true, %_ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12FileEntryRefE.exit.thread ]
-  %251 = phi i1 [ true, %248 ], [ true, %243 ], [ false, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ], [ false, %_ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12FileEntryRefE.exit.thread ]
+  %cond = phi i1 [ false, %243 ], [ false, %248 ], [ true, %_ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12FileEntryRefE.exit.thread ], [ true, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
+  %251 = phi i1 [ true, %243 ], [ true, %248 ], [ false, %_ZN5clang9api_notes15APINotesManager12loadAPINotesEPKNS_14DirectoryEntryENS_12FileEntryRefE.exit.thread ], [ false, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
   %252 = load ptr, ptr %17, align 8, !tbaa !135
   %253 = icmp eq ptr %252, %79
   br i1 %253, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %254
@@ -3283,9 +3283,9 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   br label %.thread202.sink.split
 
 .thread202.sink.split:                            ; preds = %.thread202.sink.split.sink.split, %204, %157
-  %.sink324 = phi i32 [ %158, %157 ], [ %205, %204 ], [ %.pre.i94, %.thread202.sink.split.sink.split ]
-  %.sink = phi i64 [ %156, %157 ], [ %203, %204 ], [ %.sink.ph, %.thread202.sink.split.sink.split ]
-  %.sroa.0160.1205.ph = phi ptr [ %.sroa.0160.0, %157 ], [ %.sroa.0160.2, %204 ], [ %.sroa.0160.1205.ph.ph, %.thread202.sink.split.sink.split ]
+  %.sink324 = phi i32 [ %205, %204 ], [ %158, %157 ], [ %.pre.i94, %.thread202.sink.split.sink.split ]
+  %.sink = phi i64 [ %203, %204 ], [ %156, %157 ], [ %.sink.ph, %.thread202.sink.split.sink.split ]
+  %.sroa.0160.1205.ph = phi ptr [ %.sroa.0160.2, %204 ], [ %.sroa.0160.0, %157 ], [ %.sroa.0160.1205.ph.ph, %.thread202.sink.split.sink.split ]
   %318 = load ptr, ptr %0, align 8, !tbaa !212
   %319 = zext i32 %.sink324 to i64
   %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
@@ -3296,7 +3296,7 @@ _ZN5clang11FileManager23getOptionalDirectoryRefEN4llvm9StringRefEb.exit: ; preds
   br label %.thread202
 
 .thread202:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110, %315, %.thread208, %.lr.ph.i.i.i117, %.thread202.sink.split, %198, %155
-  %.sroa.0160.1205 = phi ptr [ %.sroa.0160.0, %155 ], [ %.sroa.0160.2, %198 ], [ %.sroa.0160.1205.ph, %.thread202.sink.split ], [ null, %.lr.ph.i.i.i117 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199 ], [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110 ], [ null, %.thread208 ], [ %.sroa.0160.0, %315 ]
+  %.sroa.0160.1205 = phi ptr [ %.sroa.0160.1205.ph, %.thread202.sink.split ], [ %.sroa.0160.2, %198 ], [ %.sroa.0160.0, %155 ], [ null, %.lr.ph.i.i.i117 ], [ %.sroa.0160.0, %315 ], [ null, %.thread208 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit127.thread199 ], [ null, %_ZN4llvm15SmallPtrSetImplIPKN5clang14DirectoryEntryEE6insertES4_.exit.i110 ]
   %323 = load ptr, ptr %73, align 8, !tbaa !212
   %324 = load i32, ptr %75, align 8, !tbaa !213
   %325 = zext i32 %324 to i64
@@ -3741,7 +3741,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
+  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -3754,7 +3754,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
+  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
   ret ptr %51
 }
 
@@ -5043,7 +5043,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
+  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
   ret i1 %.0
 }
 

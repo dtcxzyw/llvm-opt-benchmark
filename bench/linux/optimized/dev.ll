@@ -240,7 +240,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
     i32 1076129802, label %19
     i32 1075343380, label %19
     i32 1074294796, label %21
-    i32 28677, label %28
+    i32 28677, label %26
     i32 -2145095672, label %36
     i32 1076129799, label %47
     i32 -2145095671, label %86
@@ -264,23 +264,23 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp ugt i64 %2, %24
-  br i1 %25, label %26, label %.thread14
+  br i1 %25, label %34, label %.thread14
 
-26:                                               ; preds = %21
-  %27 = tail call zeroext i1 @capable(i32 noundef 24) #9
-  br i1 %27, label %.thread14, label %.thread18
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 944
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 948
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %28, %30
+  br i1 %31, label %32, label %.thread13
 
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 944
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 948
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp sgt i32 %30, %32
-  br i1 %33, label %34, label %.thread13
+32:                                               ; preds = %26
+  %33 = tail call zeroext i1 @capable(i32 noundef 24) #9
+  br i1 %33, label %.thread13, label %.thread18
 
-34:                                               ; preds = %28
+34:                                               ; preds = %21
   %35 = tail call zeroext i1 @capable(i32 noundef 24) #9
-  br i1 %35, label %.thread13, label %.thread18
+  br i1 %35, label %.thread14, label %.thread18
 
 .thread:                                          ; preds = %19
   switch i32 %1, label %208 [
@@ -404,7 +404,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   %101 = sext i32 %100 to i64
   br label %219
 
-.thread13:                                        ; preds = %28, %34
+.thread13:                                        ; preds = %26, %32
   %102 = tail call i32 @rtc_irq_set_state(ptr noundef %9, i32 noundef 1) #9
   br label %.thread18
 
@@ -436,7 +436,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   %116 = sext i32 %115 to i64
   br label %219
 
-.thread14:                                        ; preds = %21, %26
+.thread14:                                        ; preds = %21, %34
   %117 = trunc i64 %2 to i32
   %118 = tail call i32 @rtc_irq_set_freq(ptr noundef %9, i32 noundef %117) #9
   br label %.thread18
@@ -613,8 +613,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   %216 = select i1 %215, i32 -25, i32 %214
   br label %.thread18
 
-.thread18:                                        ; preds = %169, %151, %26, %19, %211, %208, %204, %199, %188, %.thread19, %178, %119, %.thread14, %103, %.thread13, %34
-  %217 = phi i32 [ -13, %34 ], [ %216, %211 ], [ %207, %204 ], [ %179, %178 ], [ %128, %119 ], [ %118, %.thread14 ], [ %104, %103 ], [ %102, %.thread13 ], [ %183, %.thread19 ], [ -22, %188 ], [ -22, %199 ], [ -25, %208 ], [ -13, %19 ], [ -13, %26 ], [ -22, %151 ], [ -22, %169 ]
+.thread18:                                        ; preds = %169, %151, %32, %19, %211, %208, %204, %199, %188, %.thread19, %178, %119, %.thread14, %103, %.thread13, %34
+  %217 = phi i32 [ -13, %34 ], [ %216, %211 ], [ %207, %204 ], [ %179, %178 ], [ %128, %119 ], [ %118, %.thread14 ], [ %104, %103 ], [ %102, %.thread13 ], [ %183, %.thread19 ], [ -22, %188 ], [ -22, %199 ], [ -25, %208 ], [ -13, %19 ], [ -13, %32 ], [ -22, %151 ], [ -22, %169 ]
   call void @mutex_unlock(ptr noundef nonnull %13) #9
   %218 = sext i32 %217 to i64
   br label %219
@@ -624,7 +624,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nounde
   br label %219
 
 219:                                              ; preds = %58, %73, %.critedge, %.thread18, %194, %190, %187, %148, %140, %138, %132, %129, %114, %111, %108, %105, %99, %96, %91, %89, %83, %47, %41, %39, %16
-  %220 = phi i64 [ %17, %16 ], [ %218, %.thread18 ], [ -14, %187 ], [ %198, %194 ], [ -14, %148 ], [ %139, %138 ], [ %144, %140 ], [ %134, %132 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %101, %99 ], [ %90, %89 ], [ %95, %91 ], [ %85, %83 ], [ %40, %39 ], [ %46, %41 ], [ -14, %47 ], [ -14, %96 ], [ -14, %129 ], [ -22, %190 ], [ -22, %.critedge ], [ %59, %58 ], [ %74, %73 ]
+  %220 = phi i64 [ %17, %16 ], [ %218, %.thread18 ], [ -14, %187 ], [ %198, %194 ], [ -14, %148 ], [ -22, %.critedge ], [ %139, %138 ], [ %144, %140 ], [ %134, %132 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %101, %99 ], [ %90, %89 ], [ %95, %91 ], [ %85, %83 ], [ -22, %190 ], [ %40, %39 ], [ %46, %41 ], [ -14, %47 ], [ -14, %96 ], [ -14, %129 ], [ %59, %58 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

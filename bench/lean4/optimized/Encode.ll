@@ -157,7 +157,7 @@ define noalias nonnull ptr @l_Lake_instToTomlNat(ptr noundef %0) local_unnamed_a
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   tail call void @lean_inc_heartbeat() #4
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %9 = icmp eq ptr %8, null
@@ -974,7 +974,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit53
   br label %113
 
 lean_dec.exit56:                                  ; preds = %71, %75, %77, %78, %30, %34, %36, %37, %82, %lean_alloc_ctor.exit
-  %.448 = phi ptr [ %61, %82 ], [ %101, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %37 ], [ inttoptr (i64 1 to ptr), %36 ], [ inttoptr (i64 1 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %78 ], [ inttoptr (i64 1 to ptr), %77 ], [ inttoptr (i64 1 to ptr), %75 ], [ inttoptr (i64 1 to ptr), %71 ]
+  %.448 = phi ptr [ inttoptr (i64 1 to ptr), %71 ], [ %101, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %30 ], [ %61, %82 ], [ inttoptr (i64 1 to ptr), %37 ], [ inttoptr (i64 1 to ptr), %36 ], [ inttoptr (i64 1 to ptr), %34 ], [ inttoptr (i64 1 to ptr), %78 ], [ inttoptr (i64 1 to ptr), %77 ], [ inttoptr (i64 1 to ptr), %75 ]
   %.not = icmp eq i64 %20, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -1392,7 +1392,7 @@ lean_alloc_ctor.exit33:                           ; preds = %lean_alloc_ctor.exi
   br label %62
 
 62:                                               ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit33
-  %.0 = phi ptr [ %.0.i, %lean_alloc_ctor.exit ], [ %57, %lean_alloc_ctor.exit33 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.0 = phi ptr [ %57, %lean_alloc_ctor.exit33 ], [ %.0.i, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.0
 }
 
@@ -1701,7 +1701,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %lean_dec.exit19
 
 lean_dec.exit19:                                  ; preds = %12, %18, %20, %21, %25, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %1, %25 ], [ %44, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %44, %lean_alloc_ctor.exit ], [ %1, %25 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 

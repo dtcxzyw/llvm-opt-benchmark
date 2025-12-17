@@ -67,8 +67,8 @@ define ptr @OSSL_CRMF_pbmp_new(ptr noundef %0, i64 noundef %1, i32 noundef %2, i
   br label %38
 
 .sink.split:                                      ; preds = %31, %27, %25, %23, %18, %11
-  %.sink29 = phi i32 [ 57, %11 ], [ 69, %18 ], [ 84, %23 ], [ 88, %25 ], [ 93, %27 ], [ 103, %31 ]
-  %.sink = phi i32 [ 107, %11 ], [ 111, %18 ], [ 108, %23 ], [ 100, %25 ], [ 102, %27 ], [ 110, %31 ]
+  %.sink29 = phi i32 [ 93, %27 ], [ 88, %25 ], [ 84, %23 ], [ 69, %18 ], [ 57, %11 ], [ 103, %31 ]
+  %.sink = phi i32 [ 102, %27 ], [ 100, %25 ], [ 108, %23 ], [ 111, %18 ], [ 107, %11 ], [ 110, %31 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.OSSL_CRMF_pbmp_new) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 56, i32 noundef %.sink, ptr noundef null) #3
@@ -277,10 +277,10 @@ thread-pre-split:                                 ; preds = %73
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %69, %.lr.ph, %85, %54, %47, %45, %43, %40, %29, %84, %65, %39, %28
-  %.051 = phi ptr [ null, %28 ], [ null, %29 ], [ null, %39 ], [ %37, %40 ], [ %37, %65 ], [ %37, %84 ], [ %37, %54 ], [ %37, %47 ], [ %37, %45 ], [ %37, %43 ], [ %37, %85 ], [ %37, %.lr.ph ], [ %37, %69 ], [ %37, %73 ]
-  %.050 = phi ptr [ null, %28 ], [ null, %29 ], [ null, %39 ], [ null, %40 ], [ %41, %65 ], [ %41, %84 ], [ %41, %54 ], [ %41, %47 ], [ %41, %45 ], [ %41, %43 ], [ %41, %85 ], [ %41, %.lr.ph ], [ %41, %69 ], [ %41, %73 ]
-  %.049 = phi ptr [ null, %28 ], [ null, %29 ], [ %30, %39 ], [ %30, %40 ], [ %30, %65 ], [ %30, %84 ], [ %30, %54 ], [ %30, %47 ], [ %30, %45 ], [ %30, %43 ], [ %30, %85 ], [ %30, %.lr.ph ], [ %30, %69 ], [ %30, %73 ]
-  %90 = phi i1 [ false, %28 ], [ false, %29 ], [ false, %39 ], [ false, %40 ], [ false, %65 ], [ false, %84 ], [ false, %54 ], [ false, %47 ], [ false, %45 ], [ false, %43 ], [ %89, %85 ], [ false, %.lr.ph ], [ false, %69 ], [ false, %73 ]
+  %.051 = phi ptr [ null, %28 ], [ null, %29 ], [ null, %39 ], [ %37, %40 ], [ %37, %65 ], [ %37, %84 ], [ %37, %85 ], [ %37, %43 ], [ %37, %54 ], [ %37, %47 ], [ %37, %45 ], [ %37, %.lr.ph ], [ %37, %69 ], [ %37, %73 ]
+  %.050 = phi ptr [ null, %28 ], [ null, %29 ], [ null, %39 ], [ null, %40 ], [ %41, %65 ], [ %41, %84 ], [ %41, %85 ], [ %41, %43 ], [ %41, %54 ], [ %41, %47 ], [ %41, %45 ], [ %41, %.lr.ph ], [ %41, %69 ], [ %41, %73 ]
+  %.049 = phi ptr [ null, %28 ], [ null, %29 ], [ %30, %39 ], [ %30, %40 ], [ %30, %65 ], [ %30, %84 ], [ %30, %85 ], [ %30, %43 ], [ %30, %54 ], [ %30, %47 ], [ %30, %45 ], [ %30, %.lr.ph ], [ %30, %69 ], [ %30, %73 ]
+  %90 = phi i1 [ false, %28 ], [ false, %29 ], [ false, %39 ], [ false, %40 ], [ false, %65 ], [ false, %84 ], [ %89, %85 ], [ false, %43 ], [ false, %54 ], [ false, %47 ], [ false, %45 ], [ false, %.lr.ph ], [ false, %69 ], [ false, %73 ]
   %91 = load i32, ptr %14, align 4, !tbaa !13
   %92 = zext i32 %91 to i64
   call void @OPENSSL_cleanse(ptr noundef nonnull %13, i64 noundef %92) #3

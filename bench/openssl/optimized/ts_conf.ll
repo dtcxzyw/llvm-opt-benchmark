@@ -339,8 +339,8 @@ TS_CONF_load_cert.exit.thread:                    ; preds = %10, %13
   br label %20
 
 20:                                               ; preds = %TS_CONF_load_cert.exit.thread, %17, %9
-  %.09 = phi i32 [ 0, %9 ], [ %spec.select, %17 ], [ 0, %TS_CONF_load_cert.exit.thread ]
-  %.0 = phi ptr [ null, %9 ], [ %14, %17 ], [ null, %TS_CONF_load_cert.exit.thread ]
+  %.09 = phi i32 [ 0, %9 ], [ 0, %TS_CONF_load_cert.exit.thread ], [ %spec.select, %17 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %TS_CONF_load_cert.exit.thread ], [ %14, %17 ]
   tail call void @X509_free(ptr noundef %.0) #4
   ret i32 %.09
 }
@@ -372,8 +372,8 @@ define range(i32 0, 2) i32 @TS_CONF_set_certs(ptr noundef %0, ptr noundef %1, pt
   br label %14
 
 14:                                               ; preds = %12, %6, %9
-  %.07 = phi i32 [ 0, %9 ], [ 1, %6 ], [ %spec.select, %12 ]
-  %.1 = phi ptr [ null, %9 ], [ null, %6 ], [ %10, %12 ]
+  %.07 = phi i32 [ %spec.select, %12 ], [ 0, %9 ], [ 1, %6 ]
+  %.1 = phi ptr [ %10, %12 ], [ null, %9 ], [ null, %6 ]
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.1) #4
   ret i32 %.07
 }
@@ -422,8 +422,8 @@ TS_CONF_load_key.exit.thread:                     ; preds = %.thread, %11
   br label %18
 
 18:                                               ; preds = %TS_CONF_load_key.exit.thread, %15, %8
-  %.010 = phi i32 [ 0, %8 ], [ %spec.select, %15 ], [ 0, %TS_CONF_load_key.exit.thread ]
-  %.0 = phi ptr [ null, %8 ], [ %12, %15 ], [ null, %TS_CONF_load_key.exit.thread ]
+  %.010 = phi i32 [ 0, %TS_CONF_load_key.exit.thread ], [ 0, %8 ], [ %spec.select, %15 ]
+  %.0 = phi ptr [ null, %TS_CONF_load_key.exit.thread ], [ null, %8 ], [ %12, %15 ]
   tail call void @EVP_PKEY_free(ptr noundef %.0) #4
   ret i32 %.010
 }

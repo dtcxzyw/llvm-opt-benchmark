@@ -45,7 +45,7 @@ define internal noalias ptr @kdf_scrypt_new(ptr noundef %0) #0 {
   br label %kdf_scrypt_new_inner.exit
 
 kdf_scrypt_new_inner.exit:                        ; preds = %1, %4, %7
-  %.0.i = phi ptr [ %5, %7 ], [ null, %1 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -561,7 +561,7 @@ scryptROMix.exit.loopexit94.i:                    ; preds = %.lr.ph82.i.i
   br label %scrypt_alg.exit
 
 scrypt_alg.exit:                                  ; preds = %152, %81, %79, %78, %74, %67, %62, %57, %53, %set_digest.exit, %set_digest.exit.thread, %4, %6, %17, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %6 ], [ 0, %4 ], [ 0, %set_digest.exit.thread ], [ 0, %53 ], [ 0, %57 ], [ 0, %62 ], [ 0, %67 ], [ 0, %74 ], [ 0, %78 ], [ %.07287.i, %152 ], [ 0, %set_digest.exit ], [ 1, %79 ], [ 0, %81 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %set_digest.exit.thread ], [ 0, %4 ], [ 0, %6 ], [ %.07287.i, %152 ], [ 0, %53 ], [ 0, %57 ], [ 0, %62 ], [ 0, %67 ], [ 0, %74 ], [ 0, %78 ], [ 0, %set_digest.exit ], [ 1, %79 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -752,7 +752,7 @@ scrypt_set_membuf.exit62:                         ; preds = %39, %36, %33, %scry
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %39, %33, %22, %16, %2, %80, %83, %87, %71, %62, %53, %42, %ossl_param_is_empty.exit, %89
-  %.0 = phi i32 [ 1, %89 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %42 ], [ 0, %53 ], [ 0, %62 ], [ 0, %71 ], [ 0, %87 ], [ 0, %83 ], [ 0, %80 ], [ 1, %2 ], [ 0, %16 ], [ 0, %22 ], [ 0, %33 ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %22 ], [ 0, %42 ], [ 0, %53 ], [ 0, %62 ], [ 0, %71 ], [ 1, %89 ], [ 1, %2 ], [ 0, %39 ], [ 0, %87 ], [ 0, %83 ], [ 0, %80 ], [ 0, %16 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

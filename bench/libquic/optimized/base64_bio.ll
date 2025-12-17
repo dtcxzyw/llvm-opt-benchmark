@@ -537,7 +537,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   br label %140
 
 140:                                              ; preds = %136, %130, %125
-  %.0168 = phi i32 [ %128, %130 ], [ %128, %125 ], [ %spec.select218, %136 ]
+  %.0168 = phi i32 [ %128, %125 ], [ %spec.select218, %136 ], [ %128, %130 ]
   %.not216 = icmp eq i32 %126, %.2185
   br i1 %.not216, label %145, label %141
 
@@ -593,8 +593,8 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   br i1 %161, label %.lr.ph261, label %.loopexit223, !llvm.loop !35
 
 .loopexit223:                                     ; preds = %.outer, %.lr.ph261, %57, %60, %.backedge, %39, %151
-  %.1180.ph245 = phi i32 [ %.1180.ph275, %151 ], [ %.0179, %39 ], [ %.1180.ph275, %.backedge ], [ %.1180.ph275, %60 ], [ %.1180.ph275, %57 ], [ %155, %.outer ], [ %.1180.ph275, %.lr.ph261 ]
-  %.1175 = phi i32 [ 0, %151 ], [ 0, %39 ], [ %55, %57 ], [ %55, %60 ], [ %.2, %.backedge ], [ %.2, %.outer ], [ %.0174.ph278, %.lr.ph261 ]
+  %.1180.ph245 = phi i32 [ %.1180.ph275, %151 ], [ %.0179, %39 ], [ %.1180.ph275, %57 ], [ %.1180.ph275, %.backedge ], [ %.1180.ph275, %60 ], [ %155, %.outer ], [ %.1180.ph275, %.lr.ph261 ]
+  %.1175 = phi i32 [ 0, %151 ], [ 0, %39 ], [ %.2, %.backedge ], [ %55, %57 ], [ %55, %60 ], [ %.2, %.outer ], [ %.0174.ph278, %.lr.ph261 ]
   call void @BIO_copy_next_retry(ptr noundef nonnull %0) #11
   %162 = icmp eq i32 %.1180.ph245, 0
   %163 = select i1 %162, i32 %.1175, i32 %.1180.ph245
@@ -837,7 +837,7 @@ b64_write.exit:                                   ; preds = %82, %._crit_edge.i
   br label %115
 
 115:                                              ; preds = %14, %104, %107, %111, %25, %40, %.thread, %54, %47, %21, %37, %89
-  %.0 = phi i64 [ %90, %89 ], [ %114, %111 ], [ %20, %14 ], [ %28, %25 ], [ %46, %.thread ], [ %42, %40 ], [ %57, %54 ], [ %52, %47 ], [ %106, %104 ], [ %110, %107 ], [ 1, %21 ], [ 1, %37 ]
+  %.0 = phi i64 [ %90, %89 ], [ %114, %111 ], [ %20, %14 ], [ %110, %107 ], [ %28, %25 ], [ 1, %21 ], [ %46, %.thread ], [ %42, %40 ], [ %57, %54 ], [ %52, %47 ], [ %106, %104 ], [ 1, %37 ]
   ret i64 %.0
 }
 

@@ -646,8 +646,8 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.loopexit14
 
-.split28.us.split:                                ; preds = %81, %63, %66, %73, %78
-  %.ph62 = phi i32 [ -95, %78 ], [ -1, %73 ], [ -1, %66 ], [ -1, %63 ], [ -95, %81 ]
+.split28.us.split:                                ; preds = %81, %73, %78, %63, %66
+  %.ph62 = phi i32 [ -1, %73 ], [ -1, %66 ], [ -1, %63 ], [ -95, %78 ], [ -95, %81 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   br label %.split28
 
@@ -780,7 +780,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
   br label %.thread13
 
 .thread13:                                        ; preds = %101, %86, %89, %104, %96, %153, %147
-  %155 = phi i32 [ %154, %153 ], [ %149, %147 ], [ -1, %86 ], [ -1, %89 ], [ -95, %104 ], [ -1, %96 ], [ -95, %101 ]
+  %155 = phi i32 [ %154, %153 ], [ %149, %147 ], [ -95, %101 ], [ -1, %86 ], [ -1, %89 ], [ -95, %104 ], [ -1, %96 ]
   call void @blk_finish_plug(ptr noundef nonnull %7) #6
   %156 = icmp ne i32 %155, 0
   %157 = select i1 %156, i1 %85, i1 false

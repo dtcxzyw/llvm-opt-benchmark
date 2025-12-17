@@ -128,7 +128,7 @@ define range(i32 -1094995529, 1) i32 @ff_isom_get_vpcc_features(ptr noundef %0, 
   br label %get_vp9_level.exit
 
 get_vp9_level.exit:                               ; preds = %64, %62, %60, %58, %56, %53, %51, %48, %45, %42, %39, %36, %33, %30, %28, %6
-  %66 = phi i32 [ %12, %6 ], [ 0, %28 ], [ 10, %30 ], [ 11, %33 ], [ 20, %36 ], [ 21, %39 ], [ 30, %42 ], [ 31, %45 ], [ 40, %48 ], [ 41, %51 ], [ 50, %53 ], [ 51, %56 ], [ 52, %58 ], [ 60, %60 ], [ 61, %62 ], [ %..i, %64 ]
+  %66 = phi i32 [ %12, %6 ], [ 61, %62 ], [ 0, %28 ], [ 10, %30 ], [ 11, %33 ], [ 20, %36 ], [ 21, %39 ], [ 30, %42 ], [ 31, %45 ], [ 40, %48 ], [ 41, %51 ], [ 50, %53 ], [ 51, %56 ], [ 52, %58 ], [ 60, %60 ], [ %..i, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %68 = load i32, ptr %67, align 4, !tbaa !20
   %69 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %68) #4
@@ -185,7 +185,7 @@ get_vpx_chroma_subsampling.exit.thread:           ; preds = %get_bit_depth.exit,
   br label %.critedge
 
 get_vpx_chroma_subsampling.exit:                  ; preds = %85, %88, %90
-  %.0.i46 = phi i32 [ %87, %85 ], [ 2, %88 ], [ 3, %90 ]
+  %.0.i46 = phi i32 [ %87, %85 ], [ 3, %90 ], [ 2, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -359,7 +359,7 @@ parse_bitstream.exit:                             ; preds = %106, %97
   br label %.critedge
 
 .critedge:                                        ; preds = %101, %get_vpx_chroma_subsampling.exit.thread, %get_vpx_chroma_subsampling.exit, %179
-  %.0 = phi i32 [ 0, %179 ], [ -1094995529, %get_vpx_chroma_subsampling.exit ], [ -1094995529, %get_vpx_chroma_subsampling.exit.thread ], [ -1094995529, %101 ]
+  %.0 = phi i32 [ -1094995529, %get_vpx_chroma_subsampling.exit.thread ], [ 0, %179 ], [ -1094995529, %get_vpx_chroma_subsampling.exit ], [ -1094995529, %101 ]
   ret i32 %.0
 }
 

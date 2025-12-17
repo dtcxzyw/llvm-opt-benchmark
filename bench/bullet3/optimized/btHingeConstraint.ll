@@ -3150,8 +3150,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   br label %530
 
 530:                                              ; preds = %529, %525
-  %.sink771 = phi float [ 0xC7EFFFFFE0000000, %525 ], [ %., %529 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %525 ], [ %.772, %529 ]
+  %.sink771 = phi float [ %., %529 ], [ 0xC7EFFFFFE0000000, %525 ]
+  %.sink = phi float [ %.772, %529 ], [ 0x47EFFFFFE0000000, %525 ]
   store float %.sink771, ptr %528, align 4, !tbaa !33
   %.sink770.in = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sink770 = load ptr, ptr %.sink770.in, align 8, !tbaa !122
@@ -3740,8 +3740,8 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   br label %381
 
 381:                                              ; preds = %380, %376
-  %.sink334 = phi float [ 0xC7EFFFFFE0000000, %376 ], [ %., %380 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %376 ], [ %.335, %380 ]
+  %.sink334 = phi float [ %., %380 ], [ 0xC7EFFFFFE0000000, %376 ]
+  %.sink = phi float [ %.335, %380 ], [ 0x47EFFFFFE0000000, %376 ]
   store float %.sink334, ptr %379, align 4, !tbaa !33
   %.sink333.in = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sink333 = load ptr, ptr %.sink333.in, align 8, !tbaa !122

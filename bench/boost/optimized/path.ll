@@ -70,9 +70,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v3E
   %21 = icmp eq i8 %20, 47
   br i1 %21, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
-_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %2, %11, %18, %12, %8, %16
-  %.0.ph = phi i64 [ 2, %16 ], [ 0, %8 ], [ 0, %12 ], [ 0, %18 ], [ 0, %11 ], [ 0, %2 ]
-  %.021.i.ph = phi i64 [ 2, %16 ], [ %6, %8 ], [ 0, %12 ], [ 0, %18 ], [ 0, %11 ], [ 0, %2 ]
+_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %2, %11, %8, %18, %12, %16
+  %.0.ph = phi i64 [ 2, %16 ], [ 0, %12 ], [ 0, %18 ], [ 0, %8 ], [ 0, %11 ], [ 0, %2 ]
+  %.021.i.ph = phi i64 [ 2, %16 ], [ 0, %12 ], [ 0, %18 ], [ %6, %8 ], [ 0, %11 ], [ 0, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -355,7 +355,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit unwind label %.loopexit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %.critedge88, %77
-  %.074 = phi i1 [ true, %77 ], [ false, %.critedge88 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ]
+  %.074 = phi i1 [ false, %.critedge88 ], [ true, %77 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ]
   %140 = icmp eq i64 %76, %6
   br i1 %140, label %149, label %.preheader
 
@@ -612,9 +612,9 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v4E
   %21 = icmp eq i8 %20, 47
   br i1 %21, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
-_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %2, %11, %18, %12, %8, %16
-  %.0.ph = phi i64 [ 2, %16 ], [ 0, %8 ], [ 0, %12 ], [ 0, %18 ], [ 0, %11 ], [ 0, %2 ]
-  %.021.i.ph = phi i64 [ 2, %16 ], [ %6, %8 ], [ 0, %12 ], [ 0, %18 ], [ 0, %11 ], [ 0, %2 ]
+_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %2, %11, %8, %18, %12, %16
+  %.0.ph = phi i64 [ 2, %16 ], [ 0, %12 ], [ 0, %18 ], [ 0, %8 ], [ 0, %11 ], [ 0, %2 ]
+  %.021.i.ph = phi i64 [ 2, %16 ], [ 0, %12 ], [ 0, %18 ], [ %6, %8 ], [ 0, %11 ], [ 0, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1231,7 +1231,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br label %91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %14, %20, %13, %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
-  %.021.i62 = phi i64 [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ %.021.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %7 ]
+  %.021.i62 = phi i64 [ %.021.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ], [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ 0, %20 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ]
   %39 = icmp ult i64 %.021.i62, %6
   br i1 %39, label %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.thread
 
@@ -1473,7 +1473,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br label %91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %14, %20, %13, %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
-  %.021.i62 = phi i64 [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ %.021.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %7 ]
+  %.021.i62 = phi i64 [ %.021.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i ], [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ 0, %20 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ]
   %39 = icmp ult i64 %.021.i62, %6
   br i1 %39, label %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.thread
 
@@ -1858,7 +1858,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathE
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %23, %29, %18, %19, %25
-  %.063 = phi i64 [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %35, %29 ], [ 2, %23 ]
+  %.063 = phi i64 [ %35, %29 ], [ 0, %18 ], [ 2, %23 ], [ 0, %25 ], [ 0, %19 ]
   %36 = icmp ult i64 %.063, %15
   br i1 %36, label %37, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread
 
@@ -1906,7 +1906,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %.cri
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55: ; preds = %47, %53, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, %40, %43, %49
-  %.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread ], [ 0, %49 ], [ 0, %43 ], [ 0, %40 ], [ %59, %53 ], [ 2, %47 ]
+  %.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread ], [ 2, %47 ], [ 0, %40 ], [ 0, %49 ], [ 0, %43 ], [ %59, %53 ]
   %.not44 = icmp eq i64 %.06366, 0
   br i1 %.not44, label %62, label %60
 
@@ -2060,7 +2060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %99,
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %124, %120, %118, %114, %111, %106
-  %.0.i.i = phi i64 [ 0, %106 ], [ 0, %120 ], [ 0, %114 ], [ 0, %111 ], [ %130, %124 ], [ 2, %118 ]
+  %.0.i.i = phi i64 [ 0, %106 ], [ 2, %118 ], [ 0, %111 ], [ 0, %120 ], [ 0, %114 ], [ %130, %124 ]
   %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %108, i64 %.0.i.i)
   br label %131
 
@@ -2222,10 +2222,10 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   br label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %27, %..critedge_crit_edge51, %.lr.ph
-  %.lcssa26.ph = phi ptr [ %49, %..critedge_crit_edge51 ], [ %9, %.lr.ph ], [ %49, %27 ]
-  %.lcssa24.ph = phi ptr [ %49, %..critedge_crit_edge51 ], [ %10, %.lr.ph ], [ %50, %27 ]
-  %.lcssa22.ph = phi i64 [ %52, %..critedge_crit_edge51 ], [ %12, %.lr.ph ], [ %52, %27 ]
-  %.lcssa.ph = phi i64 [ %52, %..critedge_crit_edge51 ], [ %13, %.lr.ph ], [ %53, %27 ]
+  %.lcssa26.ph = phi ptr [ %9, %.lr.ph ], [ %49, %..critedge_crit_edge51 ], [ %49, %27 ]
+  %.lcssa24.ph = phi ptr [ %10, %.lr.ph ], [ %49, %..critedge_crit_edge51 ], [ %50, %27 ]
+  %.lcssa22.ph = phi i64 [ %12, %.lr.ph ], [ %52, %..critedge_crit_edge51 ], [ %52, %27 ]
+  %.lcssa.ph = phi i64 [ %13, %.lr.ph ], [ %52, %..critedge_crit_edge51 ], [ %53, %27 ]
   %55 = icmp eq ptr %.lcssa26.ph, %.lcssa24.ph
   %56 = icmp eq i64 %.lcssa22.ph, %.lcssa.ph
   %57 = select i1 %55, i1 %56, i1 false
@@ -2247,7 +2247,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %.critedge.thread, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ %spec.select, %.critedge.thread ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %.0 = phi i32 [ 1, %.critedge ], [ %spec.select, %.critedge.thread ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ]
   ret i32 %.0
 }
 
@@ -2316,8 +2316,8 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v3ERNS0_11
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %26, %32, %18, %21, %22, %28
-  %.0 = phi i64 [ 0, %21 ], [ 0, %28 ], [ 0, %22 ], [ 0, %18 ], [ %38, %32 ], [ 2, %26 ]
-  %.021.i = phi i64 [ 0, %21 ], [ 0, %28 ], [ 0, %22 ], [ %5, %18 ], [ %38, %32 ], [ 2, %26 ]
+  %.0 = phi i64 [ 0, %18 ], [ 0, %21 ], [ 0, %22 ], [ 0, %28 ], [ %38, %32 ], [ 2, %26 ]
+  %.021.i = phi i64 [ %5, %18 ], [ 0, %21 ], [ 0, %22 ], [ 0, %28 ], [ %38, %32 ], [ 2, %26 ]
   %39 = icmp eq i64 %10, %.021.i
   %40 = icmp eq i64 %7, %.0
   %or.cond = and i1 %40, %39
@@ -2377,7 +2377,7 @@ _ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %.critedge44
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, %13
-  %59 = phi i64 [ %5, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit ], [ %10, %13 ], [ %43, %.lr.ph ]
+  %59 = phi i64 [ %10, %13 ], [ %5, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit ], [ %43, %.lr.ph ]
   %60 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @_ZN12_GLOBAL__N_110separatorsE, i64 noundef %59, i64 noundef 1) #24
   %61 = icmp eq i64 %60, -1
   %spec.select = select i1 %61, i64 %5, i64 %60
@@ -2496,10 +2496,10 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   br label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %27, %..critedge_crit_edge51, %.lr.ph
-  %.lcssa26.ph = phi ptr [ %49, %..critedge_crit_edge51 ], [ %9, %.lr.ph ], [ %49, %27 ]
-  %.lcssa24.ph = phi ptr [ %49, %..critedge_crit_edge51 ], [ %10, %.lr.ph ], [ %50, %27 ]
-  %.lcssa22.ph = phi i64 [ %52, %..critedge_crit_edge51 ], [ %12, %.lr.ph ], [ %52, %27 ]
-  %.lcssa.ph = phi i64 [ %52, %..critedge_crit_edge51 ], [ %13, %.lr.ph ], [ %53, %27 ]
+  %.lcssa26.ph = phi ptr [ %9, %.lr.ph ], [ %49, %..critedge_crit_edge51 ], [ %49, %27 ]
+  %.lcssa24.ph = phi ptr [ %10, %.lr.ph ], [ %49, %..critedge_crit_edge51 ], [ %50, %27 ]
+  %.lcssa22.ph = phi i64 [ %12, %.lr.ph ], [ %52, %..critedge_crit_edge51 ], [ %52, %27 ]
+  %.lcssa.ph = phi i64 [ %13, %.lr.ph ], [ %52, %..critedge_crit_edge51 ], [ %53, %27 ]
   %55 = icmp eq ptr %.lcssa26.ph, %.lcssa24.ph
   %56 = icmp eq i64 %.lcssa22.ph, %.lcssa.ph
   %57 = select i1 %55, i1 %56, i1 false
@@ -2521,7 +2521,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %.critedge.thread, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ %spec.select, %.critedge.thread ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %.0 = phi i32 [ 1, %.critedge ], [ %spec.select, %.critedge.thread ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit14 ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ -1, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ]
   ret i32 %.0
 }
 
@@ -2609,8 +2609,8 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %36, %42, %28, %31, %32, %38
-  %.0 = phi i64 [ 0, %31 ], [ 0, %38 ], [ 0, %32 ], [ 0, %28 ], [ %48, %42 ], [ 2, %36 ]
-  %.021.i = phi i64 [ 0, %31 ], [ 0, %38 ], [ 0, %32 ], [ %5, %28 ], [ %48, %42 ], [ 2, %36 ]
+  %.0 = phi i64 [ 0, %28 ], [ 0, %31 ], [ 0, %32 ], [ 0, %38 ], [ %48, %42 ], [ 2, %36 ]
+  %.021.i = phi i64 [ %5, %28 ], [ 0, %31 ], [ 0, %32 ], [ 0, %38 ], [ %48, %42 ], [ 2, %36 ]
   %49 = icmp eq i64 %20, %.021.i
   %50 = icmp eq i64 %7, %.0
   %or.cond = select i1 %49, i1 %50, i1 false
@@ -2672,7 +2672,7 @@ _ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %.critedge51
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, %23
-  %70 = phi i64 [ %5, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit ], [ %20, %23 ], [ %53, %.lr.ph ]
+  %70 = phi i64 [ %20, %23 ], [ %5, %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit ], [ %53, %.lr.ph ]
   %71 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @_ZN12_GLOBAL__N_110separatorsE, i64 noundef %70, i64 noundef 1) #24
   %72 = icmp eq i64 %71, -1
   %spec.select = select i1 %72, i64 %5, i64 %71
@@ -3321,8 +3321,8 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v3ER
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %20, %16, %14, %10, %9, %6, %1
-  %.020.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ 0, %6 ], [ %26, %20 ], [ 2, %14 ]
-  %.021.i.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ %3, %6 ], [ %26, %20 ], [ 2, %14 ]
+  %.020.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
+  %.021.i.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ %3, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
   %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.020.i.i)
   br label %27
 
@@ -3371,7 +3371,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv.exit
 
 _ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv.exit: ; preds = %37, %35, %44
-  %.1.i.i = phi i64 [ %47, %44 ], [ %spec.select.i.i, %35 ], [ %.0.i.i, %37 ]
+  %.1.i.i = phi i64 [ %spec.select.i.i, %35 ], [ %47, %44 ], [ %.0.i.i, %37 ]
   %48 = getelementptr inbounds i8, ptr %4, i64 %.1.i.i
   store i64 %.1.i.i, ptr %2, align 8, !tbaa !10
   store i8 0, ptr %48, align 1, !tbaa !11
@@ -3423,8 +3423,8 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i: ; preds = %20, %16, %14, %10, %9, %6, %1
-  %.020.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ 0, %6 ], [ %26, %20 ], [ 2, %14 ]
-  %.021.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ %3, %6 ], [ %26, %20 ], [ 2, %14 ]
+  %.020.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
+  %.021.i.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ %3, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.020.i)
   br label %27
 
@@ -3473,7 +3473,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_.exit: ; preds = %37, %35, %44
-  %.1.i = phi i64 [ %47, %44 ], [ %spec.select.i, %35 ], [ %.0.i, %37 ]
+  %.1.i = phi i64 [ %spec.select.i, %35 ], [ %47, %44 ], [ %.0.i, %37 ]
   %48 = getelementptr inbounds i8, ptr %4, i64 %.1.i
   store i64 %.1.i, ptr %2, align 8, !tbaa !10
   store i8 0, ptr %48, align 1, !tbaa !11
@@ -3523,7 +3523,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v4ER
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i: ; preds = %19, %15, %13, %9, %6, %1
-  %.0.i = phi i64 [ 0, %1 ], [ 0, %15 ], [ 0, %9 ], [ 0, %6 ], [ %25, %19 ], [ 2, %13 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 2, %13 ], [ 0, %6 ], [ 0, %15 ], [ 0, %9 ], [ %25, %19 ]
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.0.i)
   br label %26
 
@@ -3590,7 +3590,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_filename
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
-  %.0 = phi i64 [ 0, %1 ], [ 0, %15 ], [ 0, %9 ], [ 0, %6 ], [ %25, %19 ], [ 2, %13 ]
+  %.0 = phi i64 [ 0, %1 ], [ 2, %13 ], [ 0, %6 ], [ 0, %15 ], [ 0, %9 ], [ %25, %19 ]
   %umin.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.0)
   br label %26
 
@@ -3974,7 +3974,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms22find_extensio
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
-  %.0 = phi i64 [ 0, %1 ], [ 0, %15 ], [ 0, %9 ], [ 0, %6 ], [ %25, %19 ], [ 2, %13 ]
+  %.0 = phi i64 [ 0, %1 ], [ 2, %13 ], [ 0, %6 ], [ 0, %15 ], [ 0, %9 ], [ %25, %19 ]
   %umin.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.0)
   br label %26
 
@@ -4085,7 +4085,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_nam
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %13, %19, %1, %6, %9, %15
-  %.0 = phi i64 [ 0, %1 ], [ 0, %15 ], [ 0, %9 ], [ 0, %6 ], [ %25, %19 ], [ 2, %13 ]
+  %.0 = phi i64 [ 0, %1 ], [ 2, %13 ], [ 0, %6 ], [ 0, %15 ], [ 0, %9 ], [ %25, %19 ]
   ret i64 %.0
 }
 
@@ -4134,8 +4134,8 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_pat
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
-  %.0 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ 0, %6 ], [ %26, %20 ], [ 2, %14 ]
-  %.021.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ %4, %6 ], [ %26, %20 ], [ 2, %14 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
+  %.021.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ %4, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
   %27 = icmp ult i64 %.021.i, %4
   %28 = add i64 %.021.i, 1
   %spec.select = select i1 %27, i64 %28, i64 %.0
@@ -4187,7 +4187,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms19find_root_di
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
-  %.021.i = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %10 ], [ 0, %9 ], [ %4, %6 ], [ %26, %20 ], [ 2, %14 ]
+  %.021.i = phi i64 [ 0, %1 ], [ 0, %10 ], [ 0, %9 ], [ %4, %6 ], [ 0, %16 ], [ %26, %20 ], [ 2, %14 ]
   %27 = icmp ult i64 %.021.i, %4
   %28 = zext i1 %27 to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.021.i, 0
@@ -4240,7 +4240,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms18find_relativ
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %9, %10, %16
-  %.014 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
+  %.014 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 2, %14 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ]
   %27 = icmp ult i64 %.014, %4
   br i1 %27, label %.preheader.preheader, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread
 
@@ -4313,8 +4313,8 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_parent_p
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %14, %20, %1, %6, %9, %10, %16
-  %.020 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ 0, %6 ], [ %26, %20 ], [ 2, %14 ]
-  %.021.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %16 ], [ 0, %10 ], [ %3, %6 ], [ %26, %20 ], [ 2, %14 ]
+  %.020 = phi i64 [ 0, %1 ], [ 0, %9 ], [ 0, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
+  %.021.i = phi i64 [ 0, %1 ], [ 0, %9 ], [ %3, %6 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ], [ 2, %14 ]
   %umin.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %.020)
   br label %27
 
@@ -4363,7 +4363,7 @@ _ZN12_GLOBAL__N_118find_filename_sizeERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %35, %44
-  %.1 = phi i64 [ %47, %44 ], [ %spec.select, %35 ], [ %.0, %37 ]
+  %.1 = phi i64 [ %spec.select, %35 ], [ %47, %44 ], [ %.0, %37 ]
   ret i64 %.1
 }
 
@@ -4414,7 +4414,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms11filename_v3ERKNS0_4p
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %17, %23, %2, %12, %13, %19
-  %.048 = phi i64 [ 0, %2 ], [ 0, %12 ], [ 0, %19 ], [ 0, %13 ], [ %29, %23 ], [ 2, %17 ]
+  %.048 = phi i64 [ 0, %2 ], [ 0, %12 ], [ 2, %17 ], [ 0, %19 ], [ 0, %13 ], [ %29, %23 ]
   %30 = icmp ult i64 %.048, %6
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread
 
@@ -4438,8 +4438,8 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %17, %23, %2
   br i1 %40, label %.preheader, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, !llvm.loop !29
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %36, %9, %31, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
-  %.021.i52 = phi i64 [ %.048, %31 ], [ %.048, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ %6, %9 ], [ %.048, %36 ]
-  %.04851 = phi i64 [ %.048, %31 ], [ %.048, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ 0, %9 ], [ %.048, %36 ]
+  %.021.i52 = phi i64 [ %.048, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ %6, %9 ], [ %.048, %31 ], [ %.048, %36 ]
+  %.04851 = phi i64 [ %.048, %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit ], [ 0, %9 ], [ %.048, %31 ], [ %.048, %36 ]
   %41 = icmp eq i64 %.04851, %6
   br i1 %41, label %_ZN12_GLOBAL__N_117is_root_separatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %42
 
@@ -4712,7 +4712,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms7stem_v4ERKNS0_4pathE(
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %21, %17, %15, %11, %8, %2
-  %.0.i.i = phi i64 [ 0, %2 ], [ 0, %17 ], [ 0, %11 ], [ 0, %8 ], [ %27, %21 ], [ 2, %15 ]
+  %.0.i.i = phi i64 [ 0, %2 ], [ 2, %15 ], [ 0, %8 ], [ 0, %17 ], [ 0, %11 ], [ %27, %21 ]
   %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %.0.i.i)
   br label %28
 
@@ -4886,7 +4886,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i: ; preds = %20, %16, %14, %10, %7, %2
-  %.0.i.i = phi i64 [ 0, %2 ], [ 0, %16 ], [ 0, %10 ], [ 0, %7 ], [ %26, %20 ], [ 2, %14 ]
+  %.0.i.i = phi i64 [ 0, %2 ], [ 2, %14 ], [ 0, %7 ], [ 0, %16 ], [ 0, %10 ], [ %26, %20 ]
   %umin.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %.0.i.i)
   br label %27
 
@@ -5735,7 +5735,7 @@ _ZN5boost10filesystem11path_detail13path_iteratorD2Ev.exit90: ; preds = %_ZN5boo
   ret void
 
 _ZN5boost10filesystem4pathD2Ev.exit:              ; preds = %298, %.loopexit106, %.loopexit.split-lp107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %245, %194
-  %.pn29 = phi { ptr, i32 } [ %195, %194 ], [ %246, %245 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.loopexit108, %.loopexit106 ], [ %lpad.loopexit.split-lp109, %.loopexit.split-lp107 ], [ %lpad.phi, %298 ]
+  %.pn29 = phi { ptr, i32 } [ %195, %194 ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %246, %245 ], [ %lpad.loopexit.split-lp109, %.loopexit.split-lp107 ], [ %lpad.loopexit108, %.loopexit106 ], [ %lpad.phi, %298 ]
   call void @_ZNSt4pairIN5boost10filesystem11path_detail13path_iteratorES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #24
   br label %_ZN5boost10filesystem11path_detail13path_iteratorD2Ev.exit69
 
@@ -5878,7 +5878,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18, %24, %1, %13, %14, %20
-  %.0 = phi i64 [ 0, %1 ], [ 0, %13 ], [ 0, %20 ], [ 0, %14 ], [ %30, %24 ], [ 2, %18 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %13 ], [ 2, %18 ], [ 0, %20 ], [ 0, %14 ], [ %30, %24 ]
   %31 = icmp ult i64 %.0, %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
@@ -6042,7 +6042,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
 
 _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit: ; preds = %18, %24, %1, %13, %14, %20
-  %.0 = phi i64 [ 0, %1 ], [ 0, %13 ], [ 0, %20 ], [ 0, %14 ], [ %30, %24 ], [ 2, %18 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %13 ], [ 2, %18 ], [ 0, %20 ], [ 0, %14 ], [ %30, %24 ]
   %31 = icmp ult i64 %.0, %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
@@ -6208,7 +6208,7 @@ _ZN12_GLOBAL__N_114default_localeEv.exit.i:       ; preds = %3
   br label %_ZN12_GLOBAL__N_115get_path_localeEv.exit
 
 _ZN12_GLOBAL__N_115get_path_localeEv.exit:        ; preds = %0, %_ZN12_GLOBAL__N_114default_localeEv.exit.i, %10
-  %.0.i = phi ptr [ %12, %10 ], [ %2, %0 ], [ %4, %_ZN12_GLOBAL__N_114default_localeEv.exit.i ]
+  %.0.i = phi ptr [ %2, %0 ], [ %12, %10 ], [ %4, %_ZN12_GLOBAL__N_114default_localeEv.exit.i ]
   %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetISt7codecvtIwc11__mbstate_tEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %.0.i)
   ret ptr %13
 }

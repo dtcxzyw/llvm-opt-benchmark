@@ -4157,7 +4157,7 @@ define hidden i32 @nspi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4238,7 +4238,7 @@ define hidden i32 @nspi_dissect_struct_instance_key(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4319,7 +4319,7 @@ define hidden i32 @nspi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -4429,7 +4429,7 @@ define hidden i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %33, label %29
 
@@ -4515,7 +4515,7 @@ define hidden i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4639,7 +4639,7 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   br label %48
 
 48:                                               ; preds = %45, %43, %40, %38
-  %.0.i.i = phi i32 [ %30, %38 ], [ %42, %40 ], [ %30, %43 ], [ %47, %45 ]
+  %.0.i.i = phi i32 [ %30, %38 ], [ %42, %40 ], [ %47, %45 ], [ %30, %43 ]
   %49 = load i32, ptr %10, align 4
   switch i32 %49, label %nspi_dissect_element_SRestriction_res.exit [
     i32 0, label %50
@@ -4840,7 +4840,7 @@ define hidden i32 @nspi_dissect_struct_NAME_STRING(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4945,7 +4945,7 @@ define hidden i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %1, p
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5081,7 +5081,7 @@ define hidden i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5162,7 +5162,7 @@ define hidden i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5301,7 +5301,7 @@ define hidden i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5382,7 +5382,7 @@ define hidden i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5490,7 +5490,7 @@ define hidden i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5571,7 +5571,7 @@ define hidden i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5656,7 +5656,7 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   br label %31
 
 31:                                               ; preds = %26, %28, %21, %23
-  %.0 = phi i32 [ %1, %21 ], [ %25, %23 ], [ %1, %26 ], [ %30, %28 ]
+  %.0 = phi i32 [ %1, %21 ], [ %25, %23 ], [ %30, %28 ], [ %1, %26 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %36, label %32
 
@@ -5724,7 +5724,7 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   br label %64
 
 64:                                               ; preds = %61, %59, %56, %54
-  %.0.i.i = phi i32 [ %46, %54 ], [ %58, %56 ], [ %46, %59 ], [ %63, %61 ]
+  %.0.i.i = phi i32 [ %46, %54 ], [ %58, %56 ], [ %63, %61 ], [ %46, %59 ]
   %65 = load i32, ptr %11, align 4
   switch i32 %65, label %nspi_dissect_element_SPropValue_value.exit [
     i32 2, label %66
@@ -5910,7 +5910,7 @@ define hidden i32 @nspi_dissect_struct_SRow(ptr noundef %0, i32 noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -5993,7 +5993,7 @@ define hidden i32 @nspi_dissect_struct_SRowSet(ptr noundef %0, i32 noundef %1, p
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 

@@ -177,8 +177,8 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit:    ; preds = %34, %44
-  %.1241 = phi i32 [ 0, %44 ], [ 1, %34 ]
-  %.pn = phi ptr [ %45, %44 ], [ %35, %34 ]
+  %.1241 = phi i32 [ 1, %34 ], [ 0, %44 ]
+  %.pn = phi ptr [ %35, %34 ], [ %45, %44 ]
   %.030.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %.030.i = load double, ptr %.030.i.in, align 8, !tbaa !61
   %.0233.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
@@ -292,8 +292,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit.thread: ; preds = %38, %._crit_edg
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit191
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit191: ; preds = %78, %88
-  %.1239 = phi i32 [ 0, %88 ], [ 1, %78 ]
-  %.pn299 = phi ptr [ %89, %88 ], [ %79, %78 ]
+  %.1239 = phi i32 [ 1, %78 ], [ 0, %88 ]
+  %.pn299 = phi ptr [ %79, %78 ], [ %89, %88 ]
   %.030.i190.in = getelementptr inbounds nuw i8, ptr %.pn299, i64 24
   %.030.i190 = load double, ptr %.030.i190.in, align 8, !tbaa !61
   %.0232.in = getelementptr inbounds nuw i8, ptr %.pn299, i64 16
@@ -420,8 +420,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit191.thread: ; preds = %82, %._crit_
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit205
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit205: ; preds = %128, %138
-  %.1237 = phi i32 [ 0, %138 ], [ 1, %128 ]
-  %.pn301 = phi ptr [ %139, %138 ], [ %129, %128 ]
+  %.1237 = phi i32 [ 1, %128 ], [ 0, %138 ]
+  %.pn301 = phi ptr [ %129, %128 ], [ %139, %138 ]
   %.030.i204.in = getelementptr inbounds nuw i8, ptr %.pn301, i64 24
   %.030.i204 = load double, ptr %.030.i204.in, align 8, !tbaa !61
   %140 = fcmp une double %.030.i204, 0.000000e+00
@@ -514,8 +514,8 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit205.thread: ; preds = %132, %._crit
   br label %_ZL26get_unit_conversion_factorPKcPiPS0_.exit219
 
 _ZL26get_unit_conversion_factorPKcPiPS0_.exit219: ; preds = %164, %174
-  %.1235 = phi i32 [ 0, %174 ], [ 1, %164 ]
-  %.pn303 = phi ptr [ %175, %174 ], [ %165, %164 ]
+  %.1235 = phi i32 [ 1, %164 ], [ 0, %174 ]
+  %.pn303 = phi ptr [ %165, %164 ], [ %175, %174 ]
   %.030.i218.in = getelementptr inbounds nuw i8, ptr %.pn303, i64 24
   %.030.i218 = load double, ptr %.030.i218.in, align 8, !tbaa !61
   %176 = fcmp une double %.030.i218, 0.000000e+00
@@ -630,7 +630,7 @@ _ZL26get_unit_conversion_factorPKcPiPS0_.exit219.thread: ; preds = %168, %._crit
   br label %216
 
 216:                                              ; preds = %185, %149, %110, %64, %204, %.critedge8, %.critedge177, %.critedge176, %191, %114, %4
-  %.0 = phi ptr [ %5, %4 ], [ %115, %114 ], [ %192, %191 ], [ %212, %.critedge177 ], [ %200, %.critedge176 ], [ %186, %185 ], [ %150, %149 ], [ %111, %110 ], [ %65, %64 ], [ %0, %.critedge8 ], [ %0, %204 ]
+  %.0 = phi ptr [ %5, %4 ], [ %115, %114 ], [ %192, %191 ], [ %65, %64 ], [ %212, %.critedge177 ], [ %200, %.critedge176 ], [ %186, %185 ], [ %150, %149 ], [ %111, %110 ], [ %0, %.critedge8 ], [ %0, %204 ]
   ret ptr %.0
 }
 
@@ -1069,8 +1069,8 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !81
 
 _ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.i, %_ZL13days_in_monthmm.exit.thread.i
-  %.01848.i = phi i64 [ %..i, %_ZL13days_in_monthmm.exit.thread.i ], [ %.62.i, %_ZL13days_in_monthmm.exit.i ], [ %.62.i, %_ZL13days_in_monthmm.exit32.us.i ], [ %..i, %_ZL13days_in_monthmm.exit32.i ]
-  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ 0, %_ZL13days_in_monthmm.exit.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
+  %.01848.i = phi i64 [ %.62.i, %_ZL13days_in_monthmm.exit.i ], [ %..i, %_ZL13days_in_monthmm.exit.thread.i ], [ %.62.i, %_ZL13days_in_monthmm.exit32.us.i ], [ %..i, %_ZL13days_in_monthmm.exit32.i ]
+  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
   %45 = trunc nuw i64 %.01848.i to i32
   %46 = add i32 %.017.lcssa.i, %45
   %47 = sitofp i32 %46 to double

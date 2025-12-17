@@ -207,7 +207,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread
 
 .thread:                                          ; preds = %20, %31, %38, %.loopexit, %39
-  %.1101 = phi i32 [ %41, %39 ], [ 1, %.loopexit ], [ %.0104, %38 ], [ 1, %31 ], [ 1, %20 ]
+  %.1101 = phi i32 [ %.0104, %38 ], [ %41, %39 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %20 ]
   ret i32 %.1101
 }
 

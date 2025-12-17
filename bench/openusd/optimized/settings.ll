@@ -2742,7 +2742,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZN32p
   br label %70
 
 57:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit, %10, %51
-  %.08 = phi i1 [ false, %51 ], [ false, %10 ], [ true, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit ]
+  %.08 = phi i1 [ false, %10 ], [ false, %51 ], [ true, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit ]
   %58 = load ptr, ptr %8, align 8
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i16 = icmp eq ptr %58, null

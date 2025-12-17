@@ -483,9 +483,9 @@ lzma_486248.exit654.us.us:                        ; preds = %245, %239
   br label %252
 
 252:                                              ; preds = %lzma_486248.exit654.us.us, %lzma_486248.exit641.us.us
-  %storemerge529.us.us = phi i32 [ %.0426.us.us, %lzma_486248.exit641.us.us ], [ %spec.select722.us.us, %lzma_486248.exit654.us.us ]
-  %.3450.us.us = phi i32 [ %.0447.us.us, %lzma_486248.exit641.us.us ], [ %spec.select723.us.us, %lzma_486248.exit654.us.us ]
-  %.2422.us.us = phi i32 [ %.0420.us.us, %lzma_486248.exit641.us.us ], [ %.0426.us.us, %lzma_486248.exit654.us.us ]
+  %storemerge529.us.us = phi i32 [ %spec.select722.us.us, %lzma_486248.exit654.us.us ], [ %.0426.us.us, %lzma_486248.exit641.us.us ]
+  %.3450.us.us = phi i32 [ %spec.select723.us.us, %lzma_486248.exit654.us.us ], [ %.0447.us.us, %lzma_486248.exit641.us.us ]
+  %.2422.us.us = phi i32 [ %.0426.us.us, %lzma_486248.exit654.us.us ], [ %.0420.us.us, %lzma_486248.exit641.us.us ]
   store i32 %storemerge529.us.us, ptr %7, align 4, !tbaa !13
   br label %297
 
@@ -1467,8 +1467,8 @@ lzma_486248.exit84.i.us.us:                       ; preds = %703, %697
   br i1 %769, label %717, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.i.us.us, %lzma_486248.exit84.i.us.us, %764
-  %.sink = phi ptr [ %768, %764 ], [ %712, %lzma_486248.exit84.i.us.us ], [ %660, %.lr.ph.i.us.us ]
-  %.4445.in.us.us.ph = phi i32 [ %.0.i679.us.us, %764 ], [ %.0.i83.i.us.us, %lzma_486248.exit84.i.us.us ], [ %663, %.lr.ph.i.us.us ]
+  %.sink = phi ptr [ %712, %lzma_486248.exit84.i.us.us ], [ %768, %764 ], [ %660, %.lr.ph.i.us.us ]
+  %.4445.in.us.us.ph = phi i32 [ %.0.i83.i.us.us, %lzma_486248.exit84.i.us.us ], [ %.0.i679.us.us, %764 ], [ %663, %.lr.ph.i.us.us ]
   store ptr %.sink, ptr %9, align 8
   br label %770
 
@@ -1753,7 +1753,7 @@ thread-pre-split:                                 ; preds = %848, %844
   br i1 %875, label %.lr.ph, label %lzma_4862e0.exit.thread
 
 lzma_4862e0.exit.thread:                          ; preds = %782, %783, %788, %789, %794, %802, %809, %297, %304, %314, %324, %490, %493, %500, %507, %509, %516, %550, %558, %573, %770, %.preheader.i600.us.us, %715, %253, %264, %213, %219, %171, %177, %129, %135, %85, %94, %34, %45, %47, %.preheader.split.us.i.us.us, %343, %407, %408, %.preheader.split.us.i603.us.us, %.lr.ph.us.us, %439, %.lr.ph1164.us.us, %625, %.lr.ph96.i.us.us, %676, %730, %.lr.ph1179.us.us, %717, %873, %823, %824, %829, %830, %835, %thread-pre-split.us, %thread-pre-split, %839, %838, %844, %848, %847, %.preheader, %855, %.split1219.us
-  %.1 = phi i32 [ 0, %.split1219.us ], [ 0, %855 ], [ 0, %.preheader ], [ -1, %thread-pre-split.us ], [ -1, %823 ], [ -1, %824 ], [ 0, %835 ], [ -1, %829 ], [ -1, %830 ], [ -1, %thread-pre-split ], [ -1, %847 ], [ -1, %848 ], [ 0, %844 ], [ -1, %838 ], [ -1, %839 ], [ 0, %873 ], [ -1, %717 ], [ -1, %.lr.ph1179.us.us ], [ -1, %730 ], [ -1, %676 ], [ -1, %.lr.ph96.i.us.us ], [ -1, %625 ], [ -1, %.lr.ph1164.us.us ], [ -1, %439 ], [ -1, %.lr.ph.us.us ], [ -1, %.preheader.split.us.i603.us.us ], [ -1, %408 ], [ -1, %407 ], [ -1, %343 ], [ -1, %.preheader.split.us.i.us.us ], [ -1, %47 ], [ -1, %45 ], [ -1, %34 ], [ -1, %94 ], [ -1, %85 ], [ -1, %135 ], [ -1, %129 ], [ -1, %177 ], [ -1, %171 ], [ -1, %219 ], [ -1, %213 ], [ -1, %264 ], [ -1, %253 ], [ -1, %715 ], [ -1, %.preheader.i600.us.us ], [ -1, %770 ], [ -1, %573 ], [ -1, %558 ], [ -1, %550 ], [ -1, %516 ], [ -1, %509 ], [ -1, %507 ], [ -1, %500 ], [ -1, %493 ], [ -1, %490 ], [ -1, %324 ], [ -1, %314 ], [ -1, %304 ], [ -1, %297 ], [ -1, %802 ], [ -1, %809 ], [ -1, %782 ], [ -1, %783 ], [ 0, %794 ], [ -1, %788 ], [ -1, %789 ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.split1219.us ], [ 0, %855 ], [ -1, %823 ], [ -1, %848 ], [ -1, %839 ], [ 0, %844 ], [ -1, %847 ], [ -1, %829 ], [ -1, %thread-pre-split.us ], [ -1, %824 ], [ -1, %830 ], [ 0, %835 ], [ -1, %838 ], [ -1, %thread-pre-split ], [ 0, %873 ], [ -1, %730 ], [ -1, %.lr.ph96.i.us.us ], [ -1, %.lr.ph1164.us.us ], [ -1, %.preheader.split.us.i603.us.us ], [ -1, %407 ], [ -1, %.preheader.split.us.i.us.us ], [ -1, %297 ], [ -1, %717 ], [ -1, %.lr.ph1179.us.us ], [ -1, %676 ], [ -1, %625 ], [ -1, %439 ], [ -1, %.lr.ph.us.us ], [ -1, %408 ], [ -1, %343 ], [ -1, %47 ], [ -1, %45 ], [ -1, %34 ], [ -1, %94 ], [ -1, %85 ], [ -1, %135 ], [ -1, %129 ], [ -1, %177 ], [ -1, %171 ], [ -1, %219 ], [ -1, %213 ], [ -1, %264 ], [ -1, %253 ], [ -1, %715 ], [ -1, %.preheader.i600.us.us ], [ -1, %770 ], [ -1, %573 ], [ -1, %558 ], [ -1, %550 ], [ -1, %516 ], [ -1, %509 ], [ -1, %507 ], [ -1, %500 ], [ -1, %493 ], [ -1, %490 ], [ -1, %324 ], [ -1, %314 ], [ -1, %304 ], [ -1, %802 ], [ -1, %809 ], [ -1, %788 ], [ -1, %783 ], [ -1, %789 ], [ 0, %794 ], [ -1, %782 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1993,8 +1993,8 @@ lzma_486248.exit53:                               ; preds = %91, %97
   store i32 %131, ptr %4, align 4, !tbaa !13
   br label %lzma_486248.exit.thread
 
-lzma_486248.exit.thread:                          ; preds = %62, %68, %70, %7, %12, %14, %20, %22, %123, %113, %106, %130
-  %.0 = phi i32 [ 0, %130 ], [ -1, %106 ], [ -1, %113 ], [ -1, %123 ], [ -1, %22 ], [ -1, %20 ], [ -1, %14 ], [ -1, %12 ], [ -1, %7 ], [ -1, %70 ], [ -1, %68 ], [ -1, %62 ]
+lzma_486248.exit.thread:                          ; preds = %62, %68, %70, %12, %14, %20, %22, %7, %123, %113, %106, %130
+  %.0 = phi i32 [ -1, %113 ], [ -1, %12 ], [ -1, %123 ], [ 0, %130 ], [ -1, %106 ], [ -1, %7 ], [ -1, %22 ], [ -1, %20 ], [ -1, %14 ], [ -1, %70 ], [ -1, %68 ], [ -1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2228,7 +2228,7 @@ define range(i32 -1, 2) i32 @lzma_upack_esi_00(ptr noundef captures(none) %0, pt
   br label %58
 
 58:                                               ; preds = %49, %52, %.critedge, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %.critedge ], [ %.089, %52 ], [ %.089, %49 ]
+  %.0 = phi i32 [ -1, %.critedge ], [ -1, %26 ], [ %.089, %52 ], [ %.089, %49 ]
   ret i32 %.0
 }
 
@@ -2610,7 +2610,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %or.cond301, label %.thread, label %.split347.us
 
 .split347.us:                                     ; preds = %126, %128, %88, %86
-  %.us-phi348 = phi ptr [ %.0233.ph.us, %86 ], [ %.0233.ph.us, %88 ], [ null, %128 ], [ null, %126 ]
+  %.us-phi348 = phi ptr [ %.0233.ph.us, %88 ], [ %.0233.ph.us, %86 ], [ null, %128 ], [ null, %126 ]
   call void @free(ptr noundef %.us-phi348) #7
   br label %.critedge
 
@@ -2736,7 +2736,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %.split.us.thread, %.split393.us, %.split399.us, %.split396.us, %162, %.split.us, %123, %177, %176, %169, %161, %147, %.split347.us, %.split344.us, %33, %24, %17, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %24 ], [ -1, %.split344.us ], [ 1, %177 ], [ -1, %176 ], [ -1, %169 ], [ -1, %161 ], [ -1, %147 ], [ -1, %.split347.us ], [ -1, %33 ], [ -1, %123 ], [ -1, %.split.us ], [ -1, %162 ], [ -1, %.split396.us ], [ -1, %.split399.us ], [ -1, %.split393.us ], [ -1, %.split.us.thread ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %24 ], [ -1, %.split344.us ], [ -1, %.split.us ], [ 1, %177 ], [ -1, %176 ], [ -1, %169 ], [ -1, %161 ], [ -1, %147 ], [ -1, %162 ], [ -1, %.split347.us ], [ -1, %33 ], [ -1, %123 ], [ -1, %.split396.us ], [ -1, %.split399.us ], [ -1, %.split393.us ], [ -1, %.split.us.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0

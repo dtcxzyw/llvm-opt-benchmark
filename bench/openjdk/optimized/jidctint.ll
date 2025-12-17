@@ -83,7 +83,7 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %159
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
-  %52 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
+  %52 = phi i16 [ %18, %13 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
   %53 = sext i16 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.0251263, i64 64
   %55 = load i32, ptr %54, align 4
@@ -280,7 +280,7 @@ define hidden void @jRDislow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %315
 
 ._crit_edge269:                                   ; preds = %163, %189, %185, %181, %177, %173
-  %207 = phi i32 [ 0, %189 ], [ 0, %185 ], [ 0, %181 ], [ 0, %177 ], [ 0, %173 ], [ %171, %163 ]
+  %207 = phi i32 [ %171, %163 ], [ 0, %189 ], [ 0, %185 ], [ 0, %181 ], [ 0, %177 ], [ 0, %173 ]
   %208 = getelementptr inbounds nuw i8, ptr %.2266, i64 24
   %209 = load i32, ptr %208, align 4
   %210 = add nsw i32 %209, %207

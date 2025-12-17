@@ -2984,7 +2984,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef initializes((1600,
   unreachable
 
 .thread56:                                        ; preds = %389, %392, %.thread57, %402
-  %409 = phi i16 [ %405, %402 ], [ 1, %.thread57 ], [ %391, %389 ], [ %391, %392 ]
+  %409 = phi i16 [ 1, %.thread57 ], [ %405, %402 ], [ %391, %389 ], [ %391, %392 ]
   %410 = getelementptr inbounds nuw i8, ptr %345, i64 52
   %411 = load i8, ptr %410, align 4
   %412 = and i8 %411, 1
@@ -3270,7 +3270,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef initializes((1600,
   br label %608
 
 608:                                              ; preds = %454, %460, %469, %471, %474, %478, %605, %584, %579, %566
-  %609 = phi i32 [ %1, %566 ], [ %577, %579 ], [ %577, %584 ], [ %607, %605 ], [ %1, %478 ], [ %1, %474 ], [ %1, %471 ], [ %1, %469 ], [ %1, %460 ], [ %1, %454 ]
+  %609 = phi i32 [ %1, %566 ], [ %607, %605 ], [ %577, %579 ], [ %577, %584 ], [ %1, %478 ], [ %1, %474 ], [ %1, %471 ], [ %1, %469 ], [ %1, %460 ], [ %1, %454 ]
   %610 = load i32, ptr %438, align 8
   %611 = icmp ugt i32 %610, %609
   br i1 %611, label %612, label %735
@@ -3641,9 +3641,9 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   tail call void @refcount_warn_saturate(ptr noundef nonnull %340, i32 noundef %.sink) #19
   br label %.thread68
 
-.thread68:                                        ; preds = %343, %831, %784, %789, %478, %780, %466, %612, %430, %561, %553, %.thread68.sink.split, %378, %385
-  %851 = phi i8 [ 0, %385 ], [ 0, %378 ], [ 0, %.thread68.sink.split ], [ 0, %561 ], [ 1, %553 ], [ 0, %784 ], [ 0, %789 ], [ 0, %478 ], [ 0, %780 ], [ 0, %466 ], [ 0, %612 ], [ 0, %430 ], [ 0, %831 ], [ 0, %343 ]
-  %852 = phi i32 [ %344, %385 ], [ %344, %378 ], [ %344, %.thread68.sink.split ], [ %344, %561 ], [ %344, %553 ], [ %344, %784 ], [ %344, %789 ], [ %344, %478 ], [ %344, %780 ], [ %344, %466 ], [ %344, %612 ], [ %344, %430 ], [ %832, %831 ], [ %344, %343 ]
+.thread68:                                        ; preds = %343, %831, %784, %789, %430, %478, %780, %466, %612, %561, %553, %.thread68.sink.split, %378, %385
+  %851 = phi i8 [ 0, %378 ], [ 0, %385 ], [ 0, %.thread68.sink.split ], [ 0, %561 ], [ 1, %553 ], [ 0, %789 ], [ 0, %430 ], [ 0, %478 ], [ 0, %784 ], [ 0, %780 ], [ 0, %466 ], [ 0, %612 ], [ 0, %831 ], [ 0, %343 ]
+  %852 = phi i32 [ %344, %378 ], [ %344, %385 ], [ %344, %.thread68.sink.split ], [ %344, %561 ], [ %344, %553 ], [ %344, %789 ], [ %344, %430 ], [ %344, %478 ], [ %344, %784 ], [ %344, %780 ], [ %344, %466 ], [ %344, %612 ], [ %832, %831 ], [ %344, %343 ]
   %853 = load volatile ptr, ptr %322, align 8
   %854 = icmp eq ptr %853, null
   br i1 %854, label %855, label %880
@@ -3712,9 +3712,9 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   br label %895
 
 895:                                              ; preds = %.sink.split, %880, %.thread68.thread
-  %896 = phi i8 [ %881, %880 ], [ %833, %.thread68.thread ], [ %.sink174, %.sink.split ]
-  %897 = phi i32 [ %852, %880 ], [ %344, %.thread68.thread ], [ %.ph172, %.sink.split ]
-  %898 = phi i8 [ %851, %880 ], [ 0, %.thread68.thread ], [ %.ph173, %.sink.split ]
+  %896 = phi i8 [ %833, %.thread68.thread ], [ %881, %880 ], [ %.sink174, %.sink.split ]
+  %897 = phi i32 [ %344, %.thread68.thread ], [ %852, %880 ], [ %.ph172, %.sink.split ]
+  %898 = phi i8 [ 0, %.thread68.thread ], [ %851, %880 ], [ %.ph173, %.sink.split ]
   %899 = load i32, ptr %311, align 4
   %900 = load i32, ptr %312, align 8
   %901 = load i32, ptr %313, align 4
@@ -6339,7 +6339,7 @@ tcp_wmem_free_skb.exit:                           ; preds = %66, %67, %84, %88, 
   br label %135
 
 135:                                              ; preds = %tcp_wmem_free_skb.exit, %130, %21, %16
-  %136 = phi ptr [ %3, %21 ], [ %3, %16 ], [ %35, %130 ], [ %35, %tcp_wmem_free_skb.exit ]
+  %136 = phi ptr [ %3, %16 ], [ %3, %21 ], [ %35, %130 ], [ %35, %tcp_wmem_free_skb.exit ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 52
   %138 = load i8, ptr %137, align 4
   %139 = or i8 %138, 16
@@ -6410,7 +6410,7 @@ tcp_wmem_free_skb.exit:                           ; preds = %66, %67, %84, %88, 
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %181, %11
-  %186 = phi i32 [ %185, %181 ], [ -14, %11 ], [ -12, %32 ]
+  %186 = phi i32 [ %185, %181 ], [ -12, %32 ], [ -14, %11 ]
   ret i32 %186
 }
 
@@ -6659,8 +6659,8 @@ define dso_local ptr @tcp_make_synack(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %152
 
 152:                                              ; preds = %.thread6, %.thread, %149, %126
-  %153 = phi i16 [ %122, %126 ], [ %150, %149 ], [ %129, %.thread ], [ %148, %.thread6 ]
-  %154 = phi i32 [ %123, %126 ], [ %151, %149 ], [ %145, %.thread ], [ %145, %.thread6 ]
+  %153 = phi i16 [ %122, %126 ], [ %150, %149 ], [ %148, %.thread6 ], [ %129, %.thread ]
+  %154 = phi i32 [ %123, %126 ], [ %151, %149 ], [ %145, %.thread6 ], [ %145, %.thread ]
   %155 = icmp eq ptr %3, null
   br i1 %155, label %174, label %156
 
@@ -10265,7 +10265,7 @@ define internal fastcc noundef zeroext i1 @tcp_can_coalesce_send_queue_head(ptr 
   br i1 %44, label %7, label %45
 
 45:                                               ; preds = %33, %22, %17, %10, %7
-  %46 = phi i1 [ false, %33 ], [ false, %22 ], [ false, %17 ], [ true, %10 ], [ true, %7 ]
+  %46 = phi i1 [ true, %7 ], [ false, %33 ], [ false, %22 ], [ false, %17 ], [ true, %10 ]
   ret i1 %46
 }
 

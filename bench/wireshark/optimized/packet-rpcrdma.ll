@@ -540,7 +540,7 @@ process_rdma_lists.exit:                          ; preds = %121, %113
   br label %156
 
 156:                                              ; preds = %40, %13, %4, %155, %152, %134, %110, %37
-  %.0 = phi i32 [ %.0145, %155 ], [ %39, %37 ], [ %112, %110 ], [ %142, %134 ], [ %154, %152 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
+  %.0 = phi i32 [ %154, %152 ], [ 0, %4 ], [ %.0145, %155 ], [ %39, %37 ], [ 0, %13 ], [ %112, %110 ], [ %142, %134 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -771,7 +771,7 @@ find_segment_info.exit.i63:                       ; preds = %70
   br label %105
 
 105:                                              ; preds = %.thread, %100
-  %.051 = phi ptr [ %104, %100 ], [ %94, %.thread ]
+  %.051 = phi ptr [ %94, %.thread ], [ %104, %100 ]
   %.not56 = icmp eq ptr %.051, null
   br i1 %.not56, label %add_request_info.exit64, label %.thread80
 
@@ -792,7 +792,7 @@ find_segment_info.exit.i63:                       ; preds = %70
   br label %add_request_info.exit64
 
 add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %109, %5, %105, %4, %111, %.thread80, %add_request_info.exit, %14, %10
-  %.0 = phi i1 [ true, %111 ], [ false, %10 ], [ false, %14 ], [ false, %add_request_info.exit ], [ %108, %.thread80 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
+  %.0 = phi i1 [ false, %105 ], [ true, %111 ], [ false, %5 ], [ false, %10 ], [ false, %14 ], [ false, %add_request_info.exit ], [ false, %109 ], [ %108, %.thread80 ], [ false, %4 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
   ret i1 %.0
 }
 
@@ -880,7 +880,7 @@ define internal zeroext i1 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %41, %5, %35, %17, %23, %26, %9, %4, %43, %37, %15
-  %.0 = phi i1 [ true, %43 ], [ false, %15 ], [ %40, %37 ], [ false, %4 ], [ false, %9 ], [ false, %26 ], [ false, %23 ], [ false, %17 ], [ false, %35 ], [ false, %5 ], [ false, %41 ]
+  %.0 = phi i1 [ false, %35 ], [ true, %43 ], [ false, %5 ], [ false, %4 ], [ false, %15 ], [ false, %9 ], [ %40, %37 ], [ false, %17 ], [ false, %26 ], [ false, %23 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -1352,7 +1352,7 @@ is_reassembly_done.exit:                          ; preds = %15
   br label %set_fragment_head.exit
 
 set_fragment_head.exit:                           ; preds = %.lr.ph.i, %7, %4, %30, %26, %24, %is_reassembly_done.exit
-  %.0 = phi ptr [ null, %is_reassembly_done.exit ], [ null, %24 ], [ %25, %26 ], [ %25, %30 ], [ null, %4 ], [ null, %7 ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ %25, %30 ], [ null, %is_reassembly_done.exit ], [ null, %24 ], [ %25, %26 ], [ null, %4 ], [ null, %7 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -1855,7 +1855,7 @@ find_segment_info.exit:                           ; preds = %47
   br label %154
 
 154:                                              ; preds = %5, %143, %150, %147, %.thread, %134, %._crit_edge192
-  %.0 = phi ptr [ null, %143 ], [ %153, %150 ], [ null, %147 ], [ null, %.thread ], [ %137, %134 ], [ null, %._crit_edge192 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %143 ], [ %153, %150 ], [ null, %147 ], [ null, %.thread ], [ %137, %134 ], [ null, %._crit_edge192 ]
   ret ptr %.0
 }
 
@@ -1933,7 +1933,7 @@ define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 nou
   br label %40
 
 40:                                               ; preds = %37, %33, %29, %26, %23
-  %.044 = phi i32 [ %21, %33 ], [ %21, %29 ], [ %21, %26 ], [ %21, %23 ], [ %spec.select, %37 ]
+  %.044 = phi i32 [ %21, %23 ], [ %spec.select, %37 ], [ %21, %33 ], [ %21, %29 ], [ %21, %26 ]
   %41 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %6, i32 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %.044, i1 noundef zeroext %4)
   %42 = tail call ptr @wmem_file_scope()
   %43 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %42, i64 noundef 4) #13
@@ -2189,7 +2189,7 @@ end_reassembly.exit:                              ; preds = %105, %107, %111
   br label %115
 
 115:                                              ; preds = %.thread87, %26, %33
-  %.061 = phi ptr [ %34, %33 ], [ %1, %26 ], [ %..058, %.thread87 ]
+  %.061 = phi ptr [ %34, %33 ], [ %..058, %.thread87 ], [ %1, %26 ]
   ret ptr %.061
 }
 
@@ -2381,7 +2381,7 @@ define internal fastcc noundef zeroext i1 @packet_is_rpcordma(ptr noundef %0) un
   br label %26
 
 26:                                               ; preds = %6, %22, %18, %16, %13, %9, %7, %1, %25
-  %.0 = phi i1 [ true, %25 ], [ false, %1 ], [ false, %7 ], [ false, %9 ], [ false, %13 ], [ false, %16 ], [ false, %18 ], [ false, %22 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %22 ], [ false, %1 ], [ false, %9 ], [ false, %6 ], [ true, %25 ], [ false, %7 ], [ false, %13 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -2477,7 +2477,7 @@ get_reply_chunk_size.exit:                        ; preds = %36, %37
   br label %get_read_list_size.exit.thread
 
 get_read_list_size.exit.thread:                   ; preds = %9, %4, %16, %23, %get_reply_chunk_size.exit, %37, %32, %12, %get_write_list_size.exit, %get_read_list_size.exit
-  %.0 = phi i32 [ 0, %get_read_list_size.exit ], [ 0, %get_write_list_size.exit ], [ 0, %12 ], [ 0, %32 ], [ 0, %37 ], [ %spec.select, %get_reply_chunk_size.exit ], [ 0, %23 ], [ 0, %16 ], [ 0, %4 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %get_write_list_size.exit ], [ 0, %get_read_list_size.exit ], [ %spec.select, %get_reply_chunk_size.exit ], [ 0, %12 ], [ 0, %32 ], [ 0, %16 ], [ 0, %23 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -2607,8 +2607,8 @@ find_segment_info.exit:                           ; preds = %41
   br label %79
 
 79:                                               ; preds = %.loopexit, %find_segment_info.exit
-  %.071 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond84.not, %.loopexit ]
-  %.068 = phi i1 [ true, %find_segment_info.exit ], [ %78, %.loopexit ]
+  %.071 = phi i1 [ %or.cond84.not, %.loopexit ], [ true, %find_segment_info.exit ]
+  %.068 = phi i1 [ %78, %.loopexit ], [ true, %find_segment_info.exit ]
   %80 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %81, i32 noundef %52, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -2657,7 +2657,7 @@ find_segment_info.exit.thread.sink.split:         ; preds = %4, %102
   br label %find_segment_info.exit.thread
 
 find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %84, %41, %38, %35, %add_iwarp_padding.exit, %14
-  %.065 = phi ptr [ null, %14 ], [ %82, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %82, %84 ], [ %105, %find_segment_info.exit.thread.sink.split ]
+  %.065 = phi ptr [ null, %38 ], [ null, %14 ], [ %82, %add_iwarp_padding.exit ], [ %82, %84 ], [ null, %41 ], [ null, %35 ], [ %105, %find_segment_info.exit.thread.sink.split ]
   ret ptr %.065
 }
 

@@ -439,7 +439,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %41
 
 41:                                               ; preds = %40, %38, %28
-  %42 = phi reassoc nsz arcp contract afn double [ %36, %40 ], [ 0.000000e+00, %38 ], [ %31, %28 ]
+  %42 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %38 ], [ %36, %40 ], [ %31, %28 ]
   %43 = load i32, ptr %26, align 8, !tbaa !97
   %44 = zext i32 %43 to i64
   %.not.i.i = icmp eq i32 %43, 0
@@ -520,7 +520,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %93
 
 93:                                               ; preds = %92, %90, %80
-  %94 = phi reassoc nsz arcp contract afn double [ %88, %92 ], [ 0.000000e+00, %90 ], [ %83, %80 ]
+  %94 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %90 ], [ %88, %92 ], [ %83, %80 ]
   %95 = load i32, ptr %8, align 8, !tbaa !97
   %96 = zext i32 %95 to i64
   %.not.i27.i = icmp eq i32 %95, 0
@@ -2662,7 +2662,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %23
 
 23:                                               ; preds = %20, %2, %18, %14, %10, %6
-  %.0 = phi ptr [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %20 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %20 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -2702,7 +2702,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %13
 
 13:                                               ; preds = %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ %., %11 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ %., %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

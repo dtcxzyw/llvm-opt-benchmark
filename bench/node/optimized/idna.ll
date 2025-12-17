@@ -109,7 +109,7 @@ if.end48.i:                                       ; preds = %if.end32.i
   br label %return
 
 return:                                           ; preds = %if.end48.i, %if.end32.i, %sw.epilog.i, %sw.bb17.i, %if.end.i, %if.end, %entry
-  %retval.0 = phi i32 [ %conv, %entry ], [ -1, %if.end ], [ -1, %sw.bb17.i ], [ -1, %if.end.i ], [ -1, %sw.epilog.i ], [ -1, %if.end32.i ], [ %.or40.i, %if.end48.i ]
+  %retval.0 = phi i32 [ %conv, %entry ], [ -1, %if.end ], [ -1, %if.end.i ], [ -1, %sw.epilog.i ], [ -1, %if.end32.i ], [ %.or40.i, %if.end48.i ], [ -1, %sw.bb17.i ]
   ret i32 %retval.0
 }
 
@@ -293,8 +293,8 @@ if.end36:                                         ; preds = %if.then34, %if.end3
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br label %return
 
-return:                                           ; preds = %if.end48.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %sw.bb17.i.i, %if.end.i, %if.end36, %if.then28, %if.then16
-  %retval.0 = phi i64 [ %conv, %if.then16 ], [ %conv29, %if.then28 ], [ %sub.ptr.sub, %if.end36 ], [ -22, %if.end.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %if.end48.i.i ]
+return:                                           ; preds = %if.end48.i.i, %sw.bb17.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %if.end.i, %if.end36, %if.then28, %if.then16
+  %retval.0 = phi i64 [ %sub.ptr.sub, %if.end36 ], [ %conv, %if.then16 ], [ %conv29, %if.then28 ], [ -22, %if.end.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end48.i.i ]
   ret i64 %retval.0
 }
 
@@ -467,9 +467,9 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %entry, %if.end18, %if.then20, %while.end
-  %cmp6.not364 = phi i1 [ false, %if.end18 ], [ false, %if.then20 ], [ true, %while.end ], [ true, %entry ]
-  %todo.0.lcssa363 = phi i32 [ %todo.1, %if.end18 ], [ %todo.1, %if.then20 ], [ 0, %while.end ], [ 0, %entry ]
-  %h.0.lcssa362 = phi i32 [ %h.1, %if.end18 ], [ %h.1, %if.then20 ], [ %h.1, %while.end ], [ 0, %entry ]
+  %cmp6.not364 = phi i1 [ true, %while.end ], [ false, %if.end18 ], [ false, %if.then20 ], [ true, %entry ]
+  %todo.0.lcssa363 = phi i32 [ 0, %while.end ], [ %todo.1, %if.end18 ], [ %todo.1, %if.then20 ], [ 0, %entry ]
+  %h.0.lcssa362 = phi i32 [ %h.1, %while.end ], [ %h.1, %if.end18 ], [ %h.1, %if.then20 ], [ 0, %entry ]
   %sub.ptr.lhs.cast.i.i101 = ptrtoint ptr %se to i64
   br label %while.cond24.outer
 
@@ -577,8 +577,8 @@ if.end48.i.i133:                                  ; preds = %if.end32.i.i122
   br label %uv__utf8_decode1.exit154
 
 uv__utf8_decode1.exit154:                         ; preds = %if.end.i98, %if.end.i.i100, %sw.bb17.i.i105, %sw.epilog.i.i110, %if.end32.i.i122, %if.end48.i.i133
-  %s.addr.7 = phi ptr [ %incdec.ptr.i95, %if.end.i98 ], [ %s.addr.6, %if.end32.i.i122 ], [ %s.addr.6, %if.end48.i.i133 ], [ %s.addr.6, %sw.epilog.i.i110 ], [ %incdec.ptr.i95, %sw.bb17.i.i105 ], [ %incdec.ptr.i95, %if.end.i.i100 ]
-  %retval.0.i104 = phi i32 [ -1, %if.end.i98 ], [ -1, %if.end32.i.i122 ], [ %.or40.i.i137, %if.end48.i.i133 ], [ -1, %sw.epilog.i.i110 ], [ -1, %sw.bb17.i.i105 ], [ -1, %if.end.i.i100 ]
+  %s.addr.7 = phi ptr [ %incdec.ptr.i95, %if.end.i.i100 ], [ %incdec.ptr.i95, %if.end.i98 ], [ %s.addr.6, %if.end32.i.i122 ], [ %s.addr.6, %if.end48.i.i133 ], [ %s.addr.6, %sw.epilog.i.i110 ], [ %incdec.ptr.i95, %sw.bb17.i.i105 ]
+  %retval.0.i104 = phi i32 [ -1, %if.end.i.i100 ], [ -1, %if.end.i98 ], [ -1, %if.end32.i.i122 ], [ %.or40.i.i137, %if.end48.i.i133 ], [ -1, %sw.epilog.i.i110 ], [ -1, %sw.bb17.i.i105 ]
   %cmp28 = icmp ugt i32 %retval.0.i104, 127
   br i1 %cmp28, label %while.cond24, label %if.end30
 
@@ -868,10 +868,10 @@ if.then84:                                        ; preds = %uv__utf8_decode1.ex
   %cmp86 = icmp eq i32 %inc85, 0
   br i1 %cmp86, label %return, label %if.end90
 
-if.end90:                                         ; preds = %if.end32.i.i242, %sw.epilog.i.i230, %if.end.i.i220, %sw.bb17.i.i225, %if.end.i218, %if.then84, %uv__utf8_decode1.exit274
-  %retval.0.i224294 = phi i32 [ %retval.0.i224, %if.then84 ], [ %retval.0.i224, %uv__utf8_decode1.exit274 ], [ -1, %if.end.i218 ], [ -1, %sw.bb17.i.i225 ], [ -1, %if.end.i.i220 ], [ -1, %sw.epilog.i.i230 ], [ -1, %if.end32.i.i242 ]
-  %s.addr.11293 = phi ptr [ %s.addr.11, %if.then84 ], [ %s.addr.11, %uv__utf8_decode1.exit274 ], [ %incdec.ptr.i215, %if.end.i218 ], [ %incdec.ptr.i215, %sw.bb17.i.i225 ], [ %incdec.ptr.i215, %if.end.i.i220 ], [ %s.addr.10, %sw.epilog.i.i230 ], [ %s.addr.10, %if.end32.i.i242 ]
-  %delta.2 = phi i32 [ %inc85, %if.then84 ], [ %delta.1, %uv__utf8_decode1.exit274 ], [ %delta.1, %if.end.i218 ], [ %delta.1, %sw.bb17.i.i225 ], [ %delta.1, %if.end.i.i220 ], [ %delta.1, %sw.epilog.i.i230 ], [ %delta.1, %if.end32.i.i242 ]
+if.end90:                                         ; preds = %sw.bb17.i.i225, %if.end32.i.i242, %sw.epilog.i.i230, %if.end.i.i220, %if.end.i218, %if.then84, %uv__utf8_decode1.exit274
+  %retval.0.i224294 = phi i32 [ %retval.0.i224, %if.then84 ], [ %retval.0.i224, %uv__utf8_decode1.exit274 ], [ -1, %if.end.i218 ], [ -1, %if.end.i.i220 ], [ -1, %sw.epilog.i.i230 ], [ -1, %if.end32.i.i242 ], [ -1, %sw.bb17.i.i225 ]
+  %s.addr.11293 = phi ptr [ %s.addr.11, %if.then84 ], [ %s.addr.11, %uv__utf8_decode1.exit274 ], [ %incdec.ptr.i215, %if.end.i218 ], [ %incdec.ptr.i215, %if.end.i.i220 ], [ %s.addr.10, %sw.epilog.i.i230 ], [ %s.addr.10, %if.end32.i.i242 ], [ %incdec.ptr.i215, %sw.bb17.i.i225 ]
+  %delta.2 = phi i32 [ %inc85, %if.then84 ], [ %delta.1, %uv__utf8_decode1.exit274 ], [ %delta.1, %if.end.i218 ], [ %delta.1, %if.end.i.i220 ], [ %delta.1, %sw.epilog.i.i230 ], [ %delta.1, %if.end32.i.i242 ], [ %delta.1, %sw.bb17.i.i225 ]
   %cmp91.not = icmp eq i32 %retval.0.i224294, %m.0.lcssa
   br i1 %cmp91.not, label %for.cond.preheader, label %while.cond77
 
@@ -966,8 +966,8 @@ while.end143:                                     ; preds = %while.cond77
   %cmp55.not = icmp eq i32 %todo.3.ph, 0
   br i1 %cmp55.not, label %return, label %while.cond58.preheader
 
-return:                                           ; preds = %if.end48.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %sw.bb17.i.i, %if.end.i, %while.end143, %while.end71, %if.then84, %while.end40
-  %retval.0 = phi i32 [ %h.0.lcssa362, %while.end40 ], [ -7, %if.then84 ], [ 0, %while.end143 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %if.end48.i.i ]
+return:                                           ; preds = %if.end48.i.i, %sw.bb17.i.i, %if.end32.i.i, %sw.epilog.i.i, %if.end.i.i, %if.end.i, %while.end143, %while.end71, %if.then84, %while.end40
+  %retval.0 = phi i32 [ %h.0.lcssa362, %while.end40 ], [ 0, %while.end143 ], [ -7, %if.then84 ], [ -7, %while.end71 ], [ -22, %if.end.i ], [ -22, %if.end.i.i ], [ -22, %sw.epilog.i.i ], [ -22, %if.end32.i.i ], [ -22, %sw.bb17.i.i ], [ -22, %if.end48.i.i ]
   ret i32 %retval.0
 }
 
@@ -1047,8 +1047,8 @@ if.end:                                           ; preds = %if.end28.i, %if.end
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %return, label %do.body
 
-return:                                           ; preds = %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %if.end
-  %retval.0 = phi i64 [ %inc4, %if.end ], [ -1, %if.end.i ], [ -1, %if.end7.i ], [ -1, %if.end21.i ], [ -1, %if.end38.i ], [ -1, %if.then53.i ]
+return:                                           ; preds = %if.then53.i, %if.end21.i, %if.end7.i, %if.end.i, %if.end38.i, %if.end
+  %retval.0 = phi i64 [ %inc4, %if.end ], [ -1, %if.end38.i ], [ -1, %if.end.i ], [ -1, %if.end7.i ], [ -1, %if.end21.i ], [ -1, %if.then53.i ]
   ret i64 %retval.0
 }
 
@@ -1139,9 +1139,9 @@ if.then:                                          ; preds = %uv__wtf8_decode1.ex
   store i16 %conv3, ptr %incdec.ptr, align 2
   br label %do.cond
 
-if.else:                                          ; preds = %if.end28.i, %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %do.body, %if.then19.i, %uv__wtf8_decode1.exit
-  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.then53.i ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and20.i, %if.then19.i ], [ %or32.i, %if.end28.i ]
-  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.then53.i ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr22.i, %if.end28.i ]
+if.else:                                          ; preds = %if.end28.i, %if.then53.i, %if.end21.i, %if.end7.i, %if.then19.i, %if.end.i, %do.body, %if.end38.i, %uv__wtf8_decode1.exit
+  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.then53.i ], [ -1, %if.end21.i ], [ -1, %if.end38.i ], [ -1, %if.end7.i ], [ %and20.i, %if.then19.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %or32.i, %if.end28.i ]
+  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.then53.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr.i, %if.end7.i ], [ %incdec.ptr.i, %if.then19.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr22.i, %if.end28.i ]
   %conv6 = trunc i32 %retval.0.i13 to i16
   %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %w_target.addr.0, i64 2
   store i16 %conv6, ptr %w_target.addr.0, align 2
@@ -1595,13 +1595,13 @@ if.end18.i100:                                    ; preds = %if.then9.i98, %if.e
   br i1 %tobool.not.i108, label %uv_utf16_length_as_wtf8.exit122, label %while.body.i83
 
 uv_utf16_length_as_wtf8.exit122:                  ; preds = %uv__get_surrogate_value.exit.i90, %if.end18.i100
-  %target_len.0.lcssa.i109 = phi i64 [ %target_len.035.i85, %uv__get_surrogate_value.exit.i90 ], [ %target_len.1.i102, %if.end18.i100 ]
+  %target_len.0.lcssa.i109 = phi i64 [ %target_len.1.i102, %if.end18.i100 ], [ %target_len.035.i85, %uv__get_surrogate_value.exit.i90 ]
   %add135 = add i64 %target_len.0.lcssa.i109, %target_len.1.lcssa
   store i64 %add135, ptr %target_len_ptr, align 8
   br label %return
 
 return:                                           ; preds = %if.end127, %uv_utf16_length_as_wtf8.exit122, %if.then9, %if.end4
-  %retval.0 = phi i32 [ 0, %if.end4 ], [ -12, %if.then9 ], [ -105, %uv_utf16_length_as_wtf8.exit122 ], [ %.mux, %if.end127 ]
+  %retval.0 = phi i32 [ %.mux, %if.end127 ], [ 0, %if.end4 ], [ -12, %if.then9 ], [ -105, %uv_utf16_length_as_wtf8.exit122 ]
   ret i32 %retval.0
 }
 

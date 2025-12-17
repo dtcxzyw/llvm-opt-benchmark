@@ -1421,7 +1421,7 @@ _ZN12RtpAudioFile13readFrameDataEPcx.exit:        ; preds = %11
   br i1 %47, label %48, label %11, !llvm.loop !11
 
 48:                                               ; preds = %_ZN12RtpAudioFile13readFrameDataEPcx.exit, %46, %39, %33
-  %.0 = phi i64 [ %29, %33 ], [ -1, %39 ], [ %29, %46 ], [ -1, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
+  %.0 = phi i64 [ -1, %39 ], [ %29, %33 ], [ %29, %46 ], [ -1, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
   ret i64 %.0
 }
 

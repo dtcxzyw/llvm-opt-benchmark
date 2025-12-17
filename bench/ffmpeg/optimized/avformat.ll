@@ -685,7 +685,7 @@ define ptr @av_new_program(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %25
 
 25:                                               ; preds = %._crit_edge, %18, %._crit_edge.thread, %17
-  %.026 = phi ptr [ null, %17 ], [ null, %._crit_edge.thread ], [ %spec.select, %._crit_edge ], [ %12, %18 ]
+  %.026 = phi ptr [ null, %._crit_edge.thread ], [ null, %17 ], [ %spec.select, %._crit_edge ], [ %12, %18 ]
   ret ptr %.026
 }
 
@@ -827,7 +827,7 @@ define ptr @av_find_program_from_stream(ptr noundef readonly captures(none) %0, 
   br i1 %21, label %.loopexit31, label %17
 
 .loopexit:                                        ; preds = %17, %.preheader, %8, %12
-  %.124 = phi ptr [ %.02335, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %17 ]
+  %.124 = phi ptr [ null, %8 ], [ %.02335, %12 ], [ null, %.preheader ], [ null, %17 ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %.loopexit31, label %8, !llvm.loop !104
@@ -896,7 +896,7 @@ define i32 @av_find_default_stream_index(ptr noundef readonly captures(none) %0)
   br label %27
 
 27:                                               ; preds = %7, %.thread, %24
-  %.3 = phi i32 [ %spec.select38, %24 ], [ %23, %.thread ], [ 0, %7 ]
+  %.3 = phi i32 [ 0, %7 ], [ %spec.select38, %24 ], [ %23, %.thread ]
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 824
   %29 = load i32, ptr %28, align 8, !tbaa !111
   %.not35 = icmp eq i32 %29, 0
@@ -1085,8 +1085,8 @@ ff_find_decoder.exit:                             ; preds = %56, %59, %61, %63
   %spec.store.select = select i1 %67, i32 -1128613112, i32 %.075136
   br label %95
 
-ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_find_decoder.exit, %55
-  %.288 = phi ptr [ %65, %ff_find_decoder.exit ], [ %.086131, %55 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ]
+ff_find_decoder.exit.thread:                      ; preds = %63, %59, %61, %ff_find_decoder.exit, %55
+  %.288 = phi ptr [ %65, %ff_find_decoder.exit ], [ %.086131, %55 ], [ %64, %63 ], [ %60, %59 ], [ %62, %61 ]
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !82
   %70 = and i32 %69, 384
@@ -1138,16 +1138,16 @@ ff_find_decoder.exit.thread:                      ; preds = %63, %61, %59, %ff_f
   br label %95
 
 95:                                               ; preds = %88, %89, %93, %ff_find_decoder.exit.thread, %80, %83, %86, %49, %52, %39, %66
-  %.197 = phi i64 [ %.096128, %66 ], [ %.096128, %39 ], [ %.096128, %52 ], [ %.096128, %49 ], [ %.096128, %86 ], [ %.096128, %83 ], [ %.096128, %80 ], [ %.096128, %ff_find_decoder.exit.thread ], [ %77, %93 ], [ %77, %89 ], [ %77, %88 ]
-  %.195 = phi i32 [ %.094129, %66 ], [ %.094129, %39 ], [ %.094129, %52 ], [ %.094129, %49 ], [ %.094129, %86 ], [ %.094129, %83 ], [ %.094129, %80 ], [ %.094129, %ff_find_decoder.exit.thread ], [ %73, %93 ], [ %73, %89 ], [ %73, %88 ]
-  %.392 = phi ptr [ %.291130, %66 ], [ %.291130, %39 ], [ %.291130, %52 ], [ %.291130, %49 ], [ %.291130, %86 ], [ %.291130, %83 ], [ %.291130, %80 ], [ %.291130, %ff_find_decoder.exit.thread ], [ null, %93 ], [ %.291130, %89 ], [ null, %88 ]
-  %.187 = phi ptr [ null, %66 ], [ %.086131, %39 ], [ %.086131, %52 ], [ %.086131, %49 ], [ %.288, %86 ], [ %.288, %83 ], [ %.288, %80 ], [ %.288, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
-  %.185 = phi ptr [ %.084132, %66 ], [ %.084132, %39 ], [ %.084132, %52 ], [ %.084132, %49 ], [ %.084132, %86 ], [ %.084132, %83 ], [ %.084132, %80 ], [ %.084132, %ff_find_decoder.exit.thread ], [ %.288, %93 ], [ %.288, %89 ], [ %.288, %88 ]
-  %.183 = phi i32 [ %.082133, %66 ], [ %.082133, %39 ], [ %.082133, %52 ], [ %.082133, %49 ], [ %.082133, %86 ], [ %.082133, %83 ], [ %.082133, %80 ], [ %.082133, %ff_find_decoder.exit.thread ], [ %78, %93 ], [ %78, %89 ], [ %78, %88 ]
-  %.180 = phi i32 [ %.079134, %66 ], [ %.079134, %39 ], [ %.079134, %52 ], [ %.079134, %49 ], [ %.079134, %86 ], [ %.079134, %83 ], [ %.079134, %80 ], [ %.079134, %ff_find_decoder.exit.thread ], [ 0, %93 ], [ %.079134, %89 ], [ %.079134, %88 ]
-  %.178 = phi i32 [ %.077135, %66 ], [ %.077135, %39 ], [ %.077135, %52 ], [ %.077135, %49 ], [ %.077135, %86 ], [ %.077135, %83 ], [ %.077135, %80 ], [ %.077135, %ff_find_decoder.exit.thread ], [ %75, %93 ], [ %75, %89 ], [ %75, %88 ]
-  %.176 = phi i32 [ %spec.store.select, %66 ], [ %.075136, %39 ], [ %.075136, %52 ], [ %.075136, %49 ], [ %.075136, %86 ], [ %.075136, %83 ], [ %.075136, %80 ], [ %.075136, %ff_find_decoder.exit.thread ], [ %40, %93 ], [ %40, %89 ], [ %40, %88 ]
-  %.3 = phi i32 [ %.2137, %66 ], [ %.2137, %39 ], [ %.2137, %52 ], [ %.2137, %49 ], [ %.2137, %86 ], [ %.2137, %83 ], [ %.2137, %80 ], [ %.2137, %ff_find_decoder.exit.thread ], [ %94, %93 ], [ %.2137, %89 ], [ %.2137, %88 ]
+  %.197 = phi i64 [ %77, %88 ], [ %.096128, %39 ], [ %.096128, %49 ], [ %.096128, %ff_find_decoder.exit.thread ], [ %.096128, %66 ], [ %.096128, %52 ], [ %.096128, %86 ], [ %.096128, %83 ], [ %.096128, %80 ], [ %77, %93 ], [ %77, %89 ]
+  %.195 = phi i32 [ %73, %88 ], [ %.094129, %39 ], [ %.094129, %49 ], [ %.094129, %ff_find_decoder.exit.thread ], [ %.094129, %66 ], [ %.094129, %52 ], [ %.094129, %86 ], [ %.094129, %83 ], [ %.094129, %80 ], [ %73, %93 ], [ %73, %89 ]
+  %.392 = phi ptr [ null, %88 ], [ %.291130, %39 ], [ %.291130, %49 ], [ %.291130, %ff_find_decoder.exit.thread ], [ %.291130, %66 ], [ %.291130, %52 ], [ %.291130, %86 ], [ %.291130, %83 ], [ %.291130, %80 ], [ null, %93 ], [ %.291130, %89 ]
+  %.187 = phi ptr [ %.288, %88 ], [ %.086131, %39 ], [ %.086131, %49 ], [ %.288, %ff_find_decoder.exit.thread ], [ null, %66 ], [ %.086131, %52 ], [ %.288, %86 ], [ %.288, %83 ], [ %.288, %80 ], [ %.288, %93 ], [ %.288, %89 ]
+  %.185 = phi ptr [ %.288, %88 ], [ %.084132, %39 ], [ %.084132, %49 ], [ %.084132, %ff_find_decoder.exit.thread ], [ %.084132, %66 ], [ %.084132, %52 ], [ %.084132, %86 ], [ %.084132, %83 ], [ %.084132, %80 ], [ %.288, %93 ], [ %.288, %89 ]
+  %.183 = phi i32 [ %78, %88 ], [ %.082133, %39 ], [ %.082133, %49 ], [ %.082133, %ff_find_decoder.exit.thread ], [ %.082133, %66 ], [ %.082133, %52 ], [ %.082133, %86 ], [ %.082133, %83 ], [ %.082133, %80 ], [ %78, %93 ], [ %78, %89 ]
+  %.180 = phi i32 [ %.079134, %88 ], [ %.079134, %39 ], [ %.079134, %49 ], [ %.079134, %ff_find_decoder.exit.thread ], [ %.079134, %66 ], [ %.079134, %52 ], [ %.079134, %86 ], [ %.079134, %83 ], [ %.079134, %80 ], [ 0, %93 ], [ %.079134, %89 ]
+  %.178 = phi i32 [ %75, %88 ], [ %.077135, %39 ], [ %.077135, %49 ], [ %.077135, %ff_find_decoder.exit.thread ], [ %.077135, %66 ], [ %.077135, %52 ], [ %.077135, %86 ], [ %.077135, %83 ], [ %.077135, %80 ], [ %75, %93 ], [ %75, %89 ]
+  %.176 = phi i32 [ %40, %88 ], [ %.075136, %39 ], [ %.075136, %49 ], [ %.075136, %ff_find_decoder.exit.thread ], [ %spec.store.select, %66 ], [ %.075136, %52 ], [ %.075136, %86 ], [ %.075136, %83 ], [ %.075136, %80 ], [ %40, %93 ], [ %40, %89 ]
+  %.3 = phi i32 [ %.2137, %88 ], [ %.2137, %39 ], [ %.2137, %49 ], [ %.2137, %ff_find_decoder.exit.thread ], [ %.2137, %66 ], [ %.2137, %52 ], [ %.2137, %86 ], [ %.2137, %83 ], [ %.2137, %80 ], [ %94, %93 ], [ %.2137, %89 ]
   %96 = add nuw i32 %.180, 1
   %97 = icmp ult i32 %96, %.3
   br i1 %97, label %34, label %._crit_edge, !llvm.loop !119
@@ -1194,7 +1194,7 @@ define ptr @ff_find_decoder(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %18
 
 18:                                               ; preds = %13, %10, %7, %16
-  %.0 = phi ptr [ %17, %16 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ]
+  %.0 = phi ptr [ %17, %16 ], [ %12, %10 ], [ %9, %7 ], [ %15, %13 ]
   ret ptr %.0
 }
 
@@ -1247,9 +1247,9 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
 26:                                               ; preds = %24
   %27 = load ptr, ptr %7, align 8, !tbaa !71
   %.not52 = icmp eq ptr %27, null
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %.in = select i1 %.not52, ptr %29, ptr %28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.in = select i1 %.not52, ptr %28, ptr %29
   %30 = load i32, ptr %.in, align 4, !tbaa !102
   %31 = icmp sgt i32 %30, 0
   %32 = icmp sgt i32 %14, -1
@@ -1376,7 +1376,7 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
   br i1 %94, label %.lr.ph.split, label %.thread65, !llvm.loop !123
 
 .thread68:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %3
-  %.032 = phi i32 [ %8, %3 ], [ %49, %.lr.ph.split.us.split.us ], [ %66, %.lr.ph.split.us.split ], [ %85, %.lr.ph.split ]
+  %.032 = phi i32 [ %8, %3 ], [ %66, %.lr.ph.split.us.split ], [ %49, %.lr.ph.split.us.split.us ], [ %85, %.lr.ph.split ]
   %95 = icmp eq i32 %.032, -22
   br i1 %95, label %.thread71, label %.thread65
 
@@ -1385,7 +1385,7 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
   br label %.thread65
 
 .thread65:                                        ; preds = %88, %.thread, %69, %.thread.us, %52, %.thread.us.us, %.thread118, %26, %.thread68, %.thread71, %10, %19
-  %.0 = phi i32 [ %23, %19 ], [ %8, %10 ], [ -22, %.thread71 ], [ %.032, %.thread68 ], [ 0, %26 ], [ 0, %.thread118 ], [ 1, %52 ], [ 0, %.thread.us.us ], [ 1, %69 ], [ 0, %.thread.us ], [ 1, %88 ], [ 0, %.thread ]
+  %.0 = phi i32 [ %8, %10 ], [ %23, %19 ], [ %.032, %.thread68 ], [ -22, %.thread71 ], [ 1, %52 ], [ 0, %26 ], [ 0, %.thread118 ], [ 1, %69 ], [ 0, %.thread.us.us ], [ 0, %.thread.us ], [ 1, %88 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1479,8 +1479,8 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   unreachable
 
 33:                                               ; preds = %25, %31, %30, %29, %28, %27
-  %.not212 = phi i1 [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ false, %31 ], [ true, %25 ]
-  %.0159 = phi i32 [ 1, %27 ], [ 3, %28 ], [ 2, %29 ], [ 4, %30 ], [ 0, %31 ], [ 0, %25 ]
+  %.not212 = phi i1 [ false, %31 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %25 ]
+  %.0159 = phi i32 [ 0, %31 ], [ 1, %27 ], [ 3, %28 ], [ 2, %29 ], [ 4, %30 ], [ 0, %25 ]
   %34 = load i8, ptr %26, align 1, !tbaa !41
   %.not209 = icmp eq i8 %34, 0
   br i1 %.not209, label %37, label %35
@@ -1562,9 +1562,9 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br i1 %.not202, label %73, label %.thread229
 
 73:                                               ; preds = %69, %71, %61, %63
-  %.4136 = phi ptr [ %64, %63 ], [ %59, %61 ], [ %72, %71 ], [ %67, %69 ]
-  %.0165 = phi i64 [ -1, %63 ], [ -1, %61 ], [ %66, %71 ], [ %66, %69 ]
-  %.0164 = phi i64 [ %58, %63 ], [ %58, %61 ], [ -1, %71 ], [ -1, %69 ]
+  %.4136 = phi ptr [ %59, %61 ], [ %64, %63 ], [ %72, %71 ], [ %67, %69 ]
+  %.0165 = phi i64 [ -1, %61 ], [ -1, %63 ], [ %66, %71 ], [ %66, %69 ]
+  %.0164 = phi i64 [ %58, %61 ], [ %58, %63 ], [ -1, %71 ], [ -1, %69 ]
   %.not205 = icmp eq i32 %.0139285, 0
   br i1 %.not205, label %.loopexit250, label %74
 
@@ -1648,12 +1648,12 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   store ptr %88, ptr %4, align 8, !tbaa !35
   br label %.loopexit250
 
-.thread229:                                       ; preds = %63, %54, %71, %65, %.thread222, %.loopexit252
+.thread229:                                       ; preds = %54, %65, %.loopexit252, %63, %71, %.thread222
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread246
 
 .loopexit250:                                     ; preds = %94, %.preheader249, %102, %101, %73
-  %.4143 = phi i32 [ 1, %102 ], [ 1, %101 ], [ 0, %73 ], [ 0, %.preheader249 ], [ 0, %94 ]
+  %.4143 = phi i32 [ 0, %73 ], [ 1, %101 ], [ 1, %102 ], [ 0, %.preheader249 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -1795,7 +1795,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %161
 
 161:                                              ; preds = %155, %156, %.loopexit254, %153
-  %.5 = phi i32 [ -22, %153 ], [ -22, %.loopexit254 ], [ 0, %155 ], [ %160, %156 ]
+  %.5 = phi i32 [ -22, %.loopexit254 ], [ -22, %153 ], [ 0, %155 ], [ %160, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread246
 
@@ -1851,7 +1851,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %189
 
 189:                                              ; preds = %184, %180
-  %190 = phi i1 [ %not..not191, %180 ], [ %.not192, %184 ]
+  %190 = phi i1 [ %.not192, %184 ], [ %not..not191, %180 ]
   call void @av_freep(ptr noundef nonnull %10) #13
   br label %191
 
@@ -1938,15 +1938,15 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   %236 = zext i1 %235 to i32
   br label %.thread246
 
-.thread:                                          ; preds = %37, %40, %.thread238, %.loopexit250
-  %.8147 = phi i32 [ %.4143, %.loopexit250 ], [ %.6145.ph, %.thread238 ], [ %spec.select215, %40 ], [ %spec.select, %37 ]
-  %.6138 = phi ptr [ %.4136, %.loopexit250 ], [ %118, %.thread238 ], [ %.1133, %40 ], [ %.1133, %37 ]
+.thread:                                          ; preds = %40, %37, %.thread238, %.loopexit250
+  %.8147 = phi i32 [ %.6145.ph, %.thread238 ], [ %.4143, %.loopexit250 ], [ %spec.select215, %40 ], [ %spec.select, %37 ]
+  %.6138 = phi ptr [ %118, %.thread238 ], [ %.4136, %.loopexit250 ], [ %.1133, %40 ], [ %.1133, %37 ]
   %237 = load i8, ptr %.6138, align 1, !tbaa !41
   %.not = icmp eq i8 %237, 0
   br i1 %.not, label %.thread246, label %19, !llvm.loop !134
 
 .thread246:                                       ; preds = %.thread, %35, %103, %43, %24, %6, %142, %162, %141, %.thread229, %195, %210, %223, %230, %229, %22, %23, %194, %161
-  %.1 = phi i32 [ -22, %141 ], [ %.5, %161 ], [ %.6, %194 ], [ %.0139285, %23 ], [ %.0139285, %22 ], [ 0, %210 ], [ 0, %223 ], [ 0, %229 ], [ %236, %230 ], [ -22, %195 ], [ -22, %.thread229 ], [ -22, %162 ], [ -22, %142 ], [ 1, %6 ], [ %.8147, %.thread ], [ -22, %35 ], [ -22, %103 ], [ -22, %43 ], [ -22, %24 ]
+  %.1 = phi i32 [ -22, %142 ], [ -22, %162 ], [ -22, %.thread229 ], [ -22, %141 ], [ %.5, %161 ], [ %.6, %194 ], [ %.0139285, %22 ], [ %236, %230 ], [ %.0139285, %23 ], [ 0, %223 ], [ 0, %210 ], [ 0, %229 ], [ -22, %195 ], [ 1, %6 ], [ -22, %103 ], [ -22, %35 ], [ %.8147, %.thread ], [ -22, %43 ], [ -22, %24 ]
   ret i32 %.1
 }
 
@@ -2136,8 +2136,8 @@ define i64 @av_guess_frame_rate(ptr noundef readnone captures(none) %0, ptr noun
   br label %57
 
 57:                                               ; preds = %31, %39, %48, %56, %27, %26
-  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %27 ], [ %.sroa.037.0, %26 ], [ %.sroa.012.0.copyload, %56 ], [ %.sroa.037.0, %48 ], [ %.sroa.037.0, %39 ], [ %.sroa.037.0, %31 ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %27 ], [ %.sroa.9.0, %26 ], [ %.sroa.6.0.copyload, %56 ], [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %39 ], [ %.sroa.9.0, %31 ]
+  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %26 ], [ %.sroa.037.0, %27 ], [ %.sroa.012.0.copyload, %56 ], [ %.sroa.037.0, %48 ], [ %.sroa.037.0, %39 ], [ %.sroa.037.0, %31 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %26 ], [ %.sroa.9.0, %27 ], [ %.sroa.6.0.copyload, %56 ], [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %39 ], [ %.sroa.9.0, %31 ]
   %.sroa.9.0.insert.ext63 = zext i32 %.sroa.9.1 to i64
   %.sroa.9.0.insert.shift64 = shl nuw i64 %.sroa.9.0.insert.ext63, 32
   %.sroa.037.0.insert.ext49 = zext i32 %.sroa.037.1 to i64
@@ -2383,8 +2383,8 @@ define noundef i32 @avformat_transfer_internal_stream_timing_info(ptr noundef re
   br label %.thread162
 
 .thread162:                                       ; preds = %32, %92, %.thread157, %65, %84, %88, %110, %105, %102, %61, %82, %77
-  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %84 ], [ %.sroa.8.0.copyload, %88 ], [ %.sroa.13.0, %110 ], [ %.sroa.8.0.copyload, %105 ], [ %.sroa.8.0.copyload, %102 ], [ %64, %61 ], [ %83, %82 ], [ %.sroa.8.0.copyload, %77 ], [ %.sroa.8.0.copyload, %65 ], [ %.sroa.8.0.copyload, %.thread157 ], [ %.sroa.8.0.copyload, %92 ], [ %.sroa.8.0.copyload, %32 ]
-  %.sroa.015.0 = phi i32 [ %.sroa.015.0.copyload, %84 ], [ %.sroa.015.0.copyload, %88 ], [ %.sroa.027.0, %110 ], [ %.sroa.015.0.copyload, %105 ], [ %.sroa.015.0.copyload, %102 ], [ %63, %61 ], [ %.sroa.027.0, %82 ], [ %.sroa.015.0.copyload, %77 ], [ %.sroa.015.0.copyload, %65 ], [ %.sroa.015.0.copyload, %.thread157 ], [ %.sroa.015.0.copyload, %92 ], [ %.sroa.015.0.copyload, %32 ]
+  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %84 ], [ %.sroa.8.0.copyload, %88 ], [ %.sroa.13.0, %110 ], [ %.sroa.8.0.copyload, %105 ], [ %.sroa.8.0.copyload, %102 ], [ %64, %61 ], [ %83, %82 ], [ %.sroa.8.0.copyload, %77 ], [ %.sroa.8.0.copyload, %32 ], [ %.sroa.8.0.copyload, %.thread157 ], [ %.sroa.8.0.copyload, %92 ], [ %.sroa.8.0.copyload, %65 ]
+  %.sroa.015.0 = phi i32 [ %.sroa.015.0.copyload, %84 ], [ %.sroa.015.0.copyload, %88 ], [ %.sroa.027.0, %110 ], [ %.sroa.015.0.copyload, %105 ], [ %.sroa.015.0.copyload, %102 ], [ %63, %61 ], [ %.sroa.027.0, %82 ], [ %.sroa.015.0.copyload, %77 ], [ %.sroa.015.0.copyload, %32 ], [ %.sroa.015.0.copyload, %.thread157 ], [ %.sroa.015.0.copyload, %92 ], [ %.sroa.015.0.copyload, %65 ]
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !87
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -2408,8 +2408,8 @@ define noundef i32 @avformat_transfer_internal_stream_timing_info(ptr noundef re
   br label %124
 
 124:                                              ; preds = %119, %116, %.thread162
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %116 ], [ %.sroa.8.0, %.thread162 ], [ %spec.select, %119 ]
-  %.sroa.015.1 = phi i32 [ %.sroa.015.0, %116 ], [ %.sroa.015.0, %.thread162 ], [ %spec.select109, %119 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %.thread162 ], [ %spec.select, %119 ], [ %.sroa.8.0, %116 ]
+  %.sroa.015.1 = phi i32 [ %.sroa.015.0, %.thread162 ], [ %spec.select109, %119 ], [ %.sroa.015.0, %116 ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 860
   %127 = sext i32 %.sroa.015.1 to i64

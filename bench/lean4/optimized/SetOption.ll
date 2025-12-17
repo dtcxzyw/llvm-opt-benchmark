@@ -1030,7 +1030,7 @@ lean_dec.exit140:                                 ; preds = %124, %123, %121, %l
   br label %lean_dec.exit139
 
 lean_dec.exit139:                                 ; preds = %lean_inc.exit129.thread, %140, %139, %137
-  %141 = phi ptr [ %99, %137 ], [ %99, %139 ], [ %99, %140 ], [ %101, %lean_inc.exit129.thread ]
+  %141 = phi ptr [ %99, %140 ], [ %101, %lean_inc.exit129.thread ], [ %99, %137 ], [ %99, %139 ]
   %142 = load ptr, ptr @l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__2, align 8, !tbaa !4
   %143 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 7, i32 noundef 2, i32 noundef 0)
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
@@ -1413,7 +1413,7 @@ lean_alloc_ctor.exit200:                          ; preds = %lean_dec.exit
   br label %291
 
 291:                                              ; preds = %262, %lean_alloc_ctor.exit200, %lean_alloc_ctor.exit192, %lean_dec.exit138, %lean_dec.exit139, %lean_dec.exit140, %lean_dec.exit136, %lean_alloc_ctor.exit196, %221
-  %.5 = phi ptr [ %211, %lean_alloc_ctor.exit192 ], [ %176, %lean_dec.exit136 ], [ %160, %lean_dec.exit138 ], [ %134, %lean_dec.exit140 ], [ %150, %lean_dec.exit139 ], [ %226, %221 ], [ %250, %lean_alloc_ctor.exit196 ], [ %266, %262 ], [ %290, %lean_alloc_ctor.exit200 ]
+  %.5 = phi ptr [ %250, %lean_alloc_ctor.exit196 ], [ %150, %lean_dec.exit139 ], [ %211, %lean_alloc_ctor.exit192 ], [ %176, %lean_dec.exit136 ], [ %160, %lean_dec.exit138 ], [ %134, %lean_dec.exit140 ], [ %226, %221 ], [ %266, %262 ], [ %290, %lean_alloc_ctor.exit200 ]
   ret ptr %.5
 }
 

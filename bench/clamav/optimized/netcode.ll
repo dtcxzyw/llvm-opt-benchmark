@@ -149,7 +149,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
-.thread48:                                        ; preds = %30, %20, %.thread
+.thread48:                                        ; preds = %30, %.thread, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
@@ -579,7 +579,7 @@ nc_connect.exit:                                  ; preds = %.lr.ph, %63, %66, %
   br label %81
 
 81:                                               ; preds = %nc_connect.exit.thread10, %nc_connect.exit, %nc_connect.exit.thread13, %nc_connect.exit.thread, %nc_socket.exit.thread
-  %.0 = phi i32 [ -1, %nc_socket.exit.thread ], [ -1, %nc_connect.exit ], [ -1, %nc_connect.exit.thread10 ], [ %9, %nc_connect.exit.thread13 ], [ %9, %nc_connect.exit.thread ]
+  %.0 = phi i32 [ -1, %nc_socket.exit.thread ], [ -1, %nc_connect.exit.thread10 ], [ -1, %nc_connect.exit ], [ %9, %nc_connect.exit.thread13 ], [ %9, %nc_connect.exit.thread ]
   ret i32 %.0
 }
 
@@ -693,7 +693,7 @@ define dso_local range(i32 0, 2) i32 @nc_connect_rand(ptr noundef %0, ptr nounde
   br label %36
 
 36:                                               ; preds = %27, %26, %.critedge, %3, %30
-  %.013 = phi i32 [ 1, %30 ], [ 1, %3 ], [ 1, %.critedge ], [ 0, %26 ], [ 0, %27 ]
+  %.013 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %30 ], [ 0, %26 ], [ 0, %27 ]
   ret i32 %.013
 }
 
@@ -1052,7 +1052,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr noundef readonly captu
   br i1 %.not19.i27, label %islocalnet.exit, label %56
 
 islocalnet.exit:                                  ; preds = %88, %81, %33, %29, %4, %1
-  %.018 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 1, %29 ], [ 0, %33 ], [ 1, %81 ], [ 0, %88 ]
+  %.018 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 0, %33 ], [ 1, %29 ], [ 0, %88 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.018
 }

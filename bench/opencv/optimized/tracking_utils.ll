@@ -317,7 +317,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br label %152
 
 152:                                              ; preds = %144, %146, %102, %104
-  %.0 = phi double [ %103, %102 ], [ %110, %104 ], [ %145, %144 ], [ %151, %146 ]
+  %.0 = phi double [ %110, %104 ], [ %103, %102 ], [ %145, %144 ], [ %151, %146 ]
   ret double %.0
 }
 

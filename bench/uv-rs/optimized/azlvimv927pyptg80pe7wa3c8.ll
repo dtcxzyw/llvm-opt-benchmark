@@ -89,7 +89,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h26a021af10bb
   br i1 %13, label %23, label %61
 
 23:                                               ; preds = %22, %63, %61
-  %.sroa.06.0 = phi i64 [ 1, %22 ], [ %., %63 ], [ 2, %61 ]
+  %.sroa.06.0 = phi i64 [ 2, %61 ], [ %., %63 ], [ 1, %22 ]
   %.not21 = icmp ugt i64 %.sroa.06.0, %5
   %.28 = select i1 %.not21, i64 0, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -178,11 +178,11 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h26a021af10bb
   br label %65
 
 68:                                               ; preds = %56, %48, %36, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit"
-  %.sroa.13.0.i = phi i32 [ 0, %56 ], [ 0, %48 ], [ %47, %36 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
-  %.sroa.11.0.i = phi i32 [ 0, %56 ], [ %55, %48 ], [ %44, %36 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
-  %.sroa.8.0.i = phi i32 [ %60, %56 ], [ %53, %48 ], [ %41, %36 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
-  %.sroa.0.0.i = phi i32 [ %58, %56 ], [ %50, %48 ], [ %38, %36 ], [ %3, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
-  %.sroa.0.1.i.i = phi i8 [ 2, %56 ], [ 3, %48 ], [ 4, %36 ], [ 1, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
+  %.sroa.13.0.i = phi i32 [ %47, %36 ], [ 0, %56 ], [ 0, %48 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
+  %.sroa.11.0.i = phi i32 [ %44, %36 ], [ 0, %56 ], [ %55, %48 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
+  %.sroa.8.0.i = phi i32 [ %41, %36 ], [ %60, %56 ], [ %53, %48 ], [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
+  %.sroa.0.0.i = phi i32 [ %38, %36 ], [ %58, %56 ], [ %50, %48 ], [ %3, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
+  %.sroa.0.1.i.i = phi i8 [ 4, %36 ], [ 2, %56 ], [ 3, %48 ], [ 1, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h9d65e429912ac0edE.exit" ]
   %.sroa.11.0.insert.shift.i = shl nuw nsw i32 %.sroa.11.0.i, 16
   %.sroa.11.0.insert.insert.i = or i32 %.sroa.11.0.insert.shift.i, %.sroa.13.0.i
   %.sroa.8.0.insert.shift.i = shl nuw nsw i32 %.sroa.8.0.i, 8

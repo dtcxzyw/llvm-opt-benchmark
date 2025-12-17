@@ -146,7 +146,7 @@ define dso_local i32 @crypto_aead_xchacha20poly1305_ietf_decrypt_detached(ptr no
   br label %_decrypt_detached.exit
 
 _decrypt_detached.exit:                           ; preds = %9, %36, %37
-  %.0.i = phi i32 [ -1, %36 ], [ 0, %37 ], [ %33, %9 ]
+  %.0.i = phi i32 [ 0, %37 ], [ -1, %36 ], [ %33, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -159,9 +159,9 @@ _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit: ; preds = %._crit_edge.i.
   br label %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread
 
 _ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread: ; preds = %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit, %._crit_edge.i.i9.i, %._crit_edge.i.i.i, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35
-  %.0.i1833 = phi i32 [ 4, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %..i, %._crit_edge.i.i.i ], [ 15, %._crit_edge.i.i9.i ], [ %.0.i1921, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
-  %. = phi i32 [ 3, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ 4, %._crit_edge.i.i.i ], [ 4, %._crit_edge.i.i9.i ], [ %39, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
-  %40 = phi i32 [ 0, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %4, %._crit_edge.i.i.i ], [ %4, %._crit_edge.i.i9.i ], [ %spec.select37, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ]
+  %.0.i1833 = phi i32 [ 4, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %.0.i1921, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ], [ 15, %._crit_edge.i.i9.i ], [ %..i, %._crit_edge.i.i.i ]
+  %. = phi i32 [ 3, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %39, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ], [ 4, %._crit_edge.i.i9.i ], [ 4, %._crit_edge.i.i.i ]
+  %40 = phi i32 [ 0, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit.thread35 ], [ %spec.select37, %_ZN12_GLOBAL__N_118decodeOpenSSLErrorB5cxx11Eimi.exit ], [ %4, %._crit_edge.i.i9.i ], [ %4, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5folly20AsyncSocketException10getMessageENS0_24AsyncSocketExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.0.i1833, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %40)
           to label %.noexc unwind label %63

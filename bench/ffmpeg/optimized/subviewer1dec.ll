@@ -148,7 +148,7 @@ define internal range(i32 -12, 1) i32 @subviewer1_read_header(ptr noundef %0) #1
   br label %60
 
 60:                                               ; preds = %.sink.split, %48, %24
-  %.129 = phi ptr [ %.02855, %24 ], [ null, %48 ], [ %.02855.sink, %.sink.split ]
+  %.129 = phi ptr [ null, %48 ], [ %.02855, %24 ], [ %.02855.sink, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -163,7 +163,7 @@ define internal range(i32 -12, 1) i32 @subviewer1_read_header(ptr noundef %0) #1
   br label %63
 
 63:                                               ; preds = %.thread48, %1, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.thread48 ]
+  %.0 = phi i32 [ -12, %.thread48 ], [ 0, %.loopexit ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

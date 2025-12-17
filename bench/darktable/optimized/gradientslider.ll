@@ -2556,7 +2556,7 @@ _get_active_marker_from_screen.exit:              ; preds = %46, %60
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %28, %DTGTK_GRADIENT_SLIDER.exit, %._crit_edge, %.thread, %66, %83, %94, %98, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
-  %.0 = phi i32 [ 0, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ], [ 1, %98 ], [ 1, %94 ], [ 1, %83 ], [ 1, %66 ], [ 1, %.thread ], [ 1, %._crit_edge ], [ 1, %DTGTK_GRADIENT_SLIDER.exit ], [ 1, %28 ]
+  %.0 = phi i32 [ 0, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ], [ 1, %98 ], [ 1, %94 ], [ 1, %83 ], [ 1, %66 ], [ 1, %DTGTK_GRADIENT_SLIDER.exit ], [ 1, %.thread ], [ 1, %._crit_edge ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -3022,7 +3022,7 @@ _get_active_marker.exit.thread:                   ; preds = %29, %_get_active_ma
   br label %.critedge
 
 .critedge:                                        ; preds = %DTGTK_GRADIENT_SLIDER.exit, %_get_active_marker.exit, %_get_active_marker.exit.thread, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
-  %.0 = phi i32 [ 1, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ], [ 1, %_get_active_marker.exit ], [ 1, %_get_active_marker.exit.thread ], [ 0, %DTGTK_GRADIENT_SLIDER.exit ]
+  %.0 = phi i32 [ 1, %DTGTK_IS_GRADIENT_SLIDER.exit.thread ], [ 1, %_get_active_marker.exit.thread ], [ 1, %_get_active_marker.exit ], [ 0, %DTGTK_GRADIENT_SLIDER.exit ]
   ret i32 %.0
 }
 
@@ -3406,7 +3406,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   br i1 %exitcond137.not, label %.loopexit, label %129
 
 .loopexit:                                        ; preds = %129, %.preheader, %63, %65, %52, %54, %48, %59, %DTGTK_GRADIENT_SLIDER.exit
-  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %48 ], [ %2, %59 ], [ %53, %52 ], [ %58, %54 ], [ %64, %63 ], [ %69, %65 ], [ %103, %.preheader ], [ %103, %129 ]
+  %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %69, %65 ], [ %2, %59 ], [ %2, %48 ], [ %58, %54 ], [ %53, %52 ], [ %64, %63 ], [ %103, %.preheader ], [ %103, %129 ]
   %137 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %138 = sext i32 %1 to i64
   %139 = getelementptr inbounds double, ptr %137, i64 %138
@@ -3549,7 +3549,7 @@ DTGTK_GRADIENT_SLIDER.exit30:                     ; preds = %31, %33, %35
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %57, %45, %43, %41
-  %.sink = phi i32 [ 0, %41 ], [ 0, %43 ], [ %55, %45 ], [ %55, %57 ], [ %.sink.ph, %.critedge.sink.split.sink.split ]
+  %.sink = phi i32 [ %55, %57 ], [ 0, %41 ], [ 0, %43 ], [ %55, %45 ], [ %.sink.ph, %.critedge.sink.split.sink.split ]
   %60 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
   %61 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %60) #14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 336

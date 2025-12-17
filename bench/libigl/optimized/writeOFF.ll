@@ -2311,7 +2311,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6formatERKNS_8IOForm
   br i1 %83, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %80, %78, %74, %70, %._crit_edge.i.i75
-  %.0.i.i = phi i32 [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
+  %.0.i.i = phi i32 [ %79, %78 ], [ %71, %70 ], [ %75, %74 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
   %.lobit.i = lshr i64 %66, 63
   %84 = trunc nuw nsw i64 %.lobit.i to i32
   %85 = add i32 %.0.i.i, %84
@@ -2951,8 +2951,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %22
   br i1 %31, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread13, %.thread, %29
-  %32 = phi i64 [ 0, %.thread ], [ %30, %29 ], [ %21, %.thread13 ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i12 = phi ptr [ null, %.thread ], [ %26, %29 ], [ null, %.thread13 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %32 = phi i64 [ 0, %.thread ], [ %21, %.thread13 ], [ %30, %29 ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i12 = phi ptr [ null, %.thread ], [ null, %.thread13 ], [ %26, %29 ], [ %26, %.lr.ph.i.i.i.i.i.i.i.i ]
   %33 = icmp slt i64 %32, %17
   br i1 %33, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12ArrayWrapperIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEE4evalEv.exit
 
@@ -3177,7 +3177,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6formatERKNS_8IOFormat
   br i1 %83, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %80, %78, %74, %70, %._crit_edge.i.i75
-  %.0.i.i = phi i32 [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
+  %.0.i.i = phi i32 [ %79, %78 ], [ %71, %70 ], [ %75, %74 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
   %.lobit.i = lshr i64 %66, 63
   %84 = trunc nuw nsw i64 %.lobit.i to i32
   %85 = add i32 %.0.i.i, %84
@@ -4013,7 +4013,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEEE6formatERKNS_8IOFormat
   br i1 %83, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %80, %78, %74, %70, %._crit_edge.i.i75
-  %.0.i.i = phi i32 [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
+  %.0.i.i = phi i32 [ %79, %78 ], [ %71, %70 ], [ %75, %74 ], [ 1, %._crit_edge.i.i75 ], [ %82, %80 ]
   %.lobit.i = lshr i64 %66, 63
   %84 = trunc nuw nsw i64 %.lobit.i to i32
   %85 = add i32 %.0.i.i, %84
@@ -7396,7 +7396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206: ; preds = %_Z
   br label %328
 
 328:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138, %218, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %119
-  %.pn65.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ %120, %119 ], [ %219, %218 ], [ %.pn55.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
+  %.pn65.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ %219, %218 ], [ %.pn55.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
   %329 = load ptr, ptr %7, align 8, !tbaa !228
   call void @free(ptr noundef %329) #25
   br label %330
@@ -8252,7 +8252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206: ; preds = %_Z
   br label %328
 
 328:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138, %218, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %119
-  %.pn65.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ %120, %119 ], [ %219, %218 ], [ %.pn55.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
+  %.pn65.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ %219, %218 ], [ %.pn55.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
   %329 = load ptr, ptr %7, align 8, !tbaa !228
   call void @free(ptr noundef %329) #25
   br label %330

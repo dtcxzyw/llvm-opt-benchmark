@@ -854,7 +854,7 @@ vertical_predict.exit100:                         ; preds = %._crit_edge.us.i98,
   br i1 %335, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 decompress.exit:                                  ; preds = %._crit_edge.i, %vertical_predict.exit100, %.loopexit103, %4, %._crit_edge
-  %.084 = phi i32 [ %272, %._crit_edge ], [ -1094995529, %4 ], [ -1094995529, %.loopexit103 ], [ %257, %vertical_predict.exit100 ], [ -1094995529, %._crit_edge.i ]
+  %.084 = phi i32 [ %272, %._crit_edge ], [ -1094995529, %4 ], [ %257, %vertical_predict.exit100 ], [ -1094995529, %.loopexit103 ], [ -1094995529, %._crit_edge.i ]
   ret i32 %.084
 }
 

@@ -1098,7 +1098,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
   br label %39
 
 39:                                               ; preds = %34, %30
-  %40 = phi i32 [ %38, %34 ], [ %28, %30 ]
+  %40 = phi i32 [ %28, %30 ], [ %38, %34 ]
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %.thread, label %42
 
@@ -1719,9 +1719,9 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef n
   br label %.thread
 
 .thread:                                          ; preds = %3, %.split21.us, %.split23.us, %.split26.us
-  %120 = phi i32 [ %87, %.split26.us ], [ %87, %.split23.us ], [ %87, %.split21.us ], [ 10, %3 ]
-  %121 = phi i32 [ %88, %.split26.us ], [ %88, %.split23.us ], [ %88, %.split21.us ], [ 0, %3 ]
-  %122 = phi i32 [ %117, %.split26.us ], [ %118, %.split23.us ], [ %119, %.split21.us ], [ 0, %3 ]
+  %120 = phi i32 [ %87, %.split21.us ], [ %87, %.split26.us ], [ %87, %.split23.us ], [ 10, %3 ]
+  %121 = phi i32 [ %88, %.split21.us ], [ %88, %.split26.us ], [ %88, %.split23.us ], [ 0, %3 ]
+  %122 = phi i32 [ %119, %.split21.us ], [ %117, %.split26.us ], [ %118, %.split23.us ], [ 0, %3 ]
   %123 = icmp eq i32 %122, %2
   br i1 %123, label %.thread10, label %124
 
@@ -2568,7 +2568,7 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
   br i1 %172, label %173, label %.preheader.i, !llvm.loop !56
 
 173:                                              ; preds = %.loopexit.i7, %.preheader.i
-  %174 = phi i8 [ %99, %.preheader.i ], [ %170, %.loopexit.i7 ]
+  %174 = phi i8 [ %170, %.loopexit.i7 ], [ %99, %.preheader.i ]
   %175 = icmp eq i8 %174, 0
   br i1 %175, label %.thread9.i, label %176
 
@@ -3711,7 +3711,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %2, %.loopexit, %81, %76, %8
-  %91 = phi i32 [ -12, %.loopexit ], [ -12, %8 ], [ 0, %81 ], [ 0, %76 ], [ -12, %2 ]
+  %91 = phi i32 [ -12, %.loopexit ], [ 0, %76 ], [ -12, %8 ], [ 0, %81 ], [ -12, %2 ]
   ret i32 %91
 }
 
@@ -4044,7 +4044,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %12, %89, %70, %63, %11
-  %90 = phi i32 [ -22, %11 ], [ 0, %63 ], [ %71, %89 ], [ 0, %70 ], [ -12, %12 ]
+  %90 = phi i32 [ -22, %11 ], [ 0, %70 ], [ 0, %63 ], [ %71, %89 ], [ -12, %12 ]
   ret i32 %90
 }
 
@@ -4928,7 +4928,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_validate_group(ptr noundef 
   br label %.thread12
 
 .thread12:                                        ; preds = %79, %.loopexit15, %91, %112, %.loopexit
-  %114 = phi i32 [ -22, %.loopexit ], [ %113, %112 ], [ -22, %91 ], [ -22, %.loopexit15 ], [ -22, %79 ]
+  %114 = phi i32 [ -22, %.loopexit ], [ -22, %91 ], [ %113, %112 ], [ -22, %.loopexit15 ], [ -22, %79 ]
   tail call void @kfree(ptr noundef nonnull %17) #18
   br label %.thread
 

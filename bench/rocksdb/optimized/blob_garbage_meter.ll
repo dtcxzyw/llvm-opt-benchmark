@@ -479,7 +479,7 @@ _ZN7rocksdb6StatusC2ERKS0_.exit:                  ; preds = %11, %31
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %64
   br label %.loopexit, !llvm.loop !45
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %44, %49, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %44, %..loopexit_crit_edge21.i.i.i.i, %49
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %68, align 8, !tbaa !30, !alias.scope !81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !81

@@ -595,7 +595,7 @@ define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %0
   br label %128
 
 128:                                              ; preds = %._crit_edge201, %3, %18, %._crit_edge213
-  %.0183 = phi i32 [ 1, %._crit_edge213 ], [ 0, %18 ], [ 0, %3 ], [ 1, %._crit_edge201 ]
+  %.0183 = phi i32 [ 1, %._crit_edge213 ], [ 0, %3 ], [ 0, %18 ], [ 1, %._crit_edge201 ]
   ret i32 %.0183
 }
 

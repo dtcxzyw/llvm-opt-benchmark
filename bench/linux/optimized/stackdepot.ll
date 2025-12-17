@@ -495,7 +495,7 @@ default.unreachable112:                           ; preds = %.loopexit54
   br i1 %177, label %.loopexit51, label %.split, !llvm.loop !28
 
 .loopexit51:                                      ; preds = %174, %.loopexit50, %.loopexit50.us, %128, %100
-  %178 = phi ptr [ null, %100 ], [ %111, %128 ], [ null, %.loopexit50.us ], [ %135, %174 ], [ null, %.loopexit50 ]
+  %178 = phi ptr [ null, %100 ], [ null, %.loopexit50.us ], [ %111, %128 ], [ null, %.loopexit50 ], [ %135, %174 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
   %179 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
   %180 = icmp ult i8 %179, 2
@@ -665,7 +665,7 @@ default.unreachable112:                           ; preds = %.loopexit54
   br i1 %277, label %.loopexit46, label %.split61, !llvm.loop !28
 
 .loopexit46:                                      ; preds = %274, %.loopexit, %.loopexit.us, %228, %204
-  %278 = phi ptr [ null, %204 ], [ %211, %228 ], [ null, %.loopexit.us ], [ %235, %274 ], [ null, %.loopexit ]
+  %278 = phi ptr [ null, %204 ], [ null, %.loopexit.us ], [ %211, %228 ], [ null, %.loopexit ], [ %235, %274 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
   %279 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
   %280 = icmp ult i8 %279, 2
@@ -887,8 +887,8 @@ thread-pre-split:                                 ; preds = %.thread35, %335
   br label %.thread42
 
 .thread42:                                        ; preds = %352, %345, %333, %327, %325, %353, %385, %285
-  %389 = phi ptr [ %366, %385 ], [ %205, %285 ], [ %343, %353 ], [ %343, %352 ], [ %343, %345 ], [ %205, %333 ], [ %205, %327 ], [ %205, %325 ]
-  %390 = phi ptr [ %367, %385 ], [ %278, %285 ], [ null, %353 ], [ null, %352 ], [ null, %345 ], [ null, %333 ], [ null, %327 ], [ null, %325 ]
+  %389 = phi ptr [ %205, %285 ], [ %366, %385 ], [ %343, %353 ], [ %343, %352 ], [ %343, %345 ], [ %205, %333 ], [ %205, %327 ], [ %205, %325 ]
+  %390 = phi ptr [ %278, %285 ], [ %367, %385 ], [ null, %353 ], [ null, %352 ], [ null, %345 ], [ null, %333 ], [ null, %327 ], [ null, %325 ]
   %391 = icmp ne ptr %389, null
   %392 = load ptr, ptr @new_pool, align 8
   %393 = icmp eq ptr %392, null

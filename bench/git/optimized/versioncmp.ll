@@ -103,7 +103,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %45, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %44, %.thread
-  %.sink105 = phi ptr [ %3, %.thread ], [ %.mux, %44 ]
+  %.sink105 = phi ptr [ %.mux, %44 ], [ %3, %.thread ]
   %46 = load ptr, ptr %.sink105, align 8, !tbaa !12
   store ptr %46, ptr @prereleases, align 8, !tbaa !12
   br label %47
@@ -292,7 +292,7 @@ swap_prereleases.exit.thread:                     ; preds = %50, %._crit_edge.i,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %117, %swap_prereleases.exit.thread, %2, %132, %125, %95
-  %.0 = phi i32 [ %.sink.i, %95 ], [ %133, %132 ], [ %131, %125 ], [ 0, %2 ], [ %36, %swap_prereleases.exit.thread ], [ 1, %117 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %131, %125 ], [ 0, %2 ], [ %.sink.i, %95 ], [ %133, %132 ], [ %36, %swap_prereleases.exit.thread ], [ 1, %117 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

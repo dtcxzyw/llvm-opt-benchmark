@@ -193,7 +193,7 @@ hls_close.exit:                                   ; preds = %75, %free_segment_l
   br label %84
 
 84:                                               ; preds = %.thread, %55, %3, %hls_close.exit
-  %.048 = phi i32 [ %.047, %hls_close.exit ], [ -38, %3 ], [ 0, %55 ], [ 0, %.thread ]
+  %.048 = phi i32 [ -38, %3 ], [ %.047, %hls_close.exit ], [ 0, %.thread ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }
@@ -354,7 +354,7 @@ define internal range(i32 1, 0) i32 @hls_read(ptr noundef %0, ptr noundef %1, i3
   br label %.backedge.backedge
 
 .loopexit77:                                      ; preds = %18, %41, %81, %58, %.lr.ph
-  %.1 = phi i32 [ -1414092869, %.lr.ph ], [ %42, %41 ], [ -1414092869, %81 ], [ -541478725, %58 ], [ %19, %18 ]
+  %.1 = phi i32 [ -1414092869, %81 ], [ -1414092869, %.lr.ph ], [ %42, %41 ], [ -541478725, %58 ], [ %19, %18 ]
   ret i32 %.1
 }
 
@@ -600,10 +600,10 @@ free_segment_list.exit:                           ; preds = %24, %19
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.thread73, %.thread, %49, %61, %78, %71, %64, %55, %43
-  %.046.ph.be = phi i64 [ %.046.ph, %43 ], [ %.046.ph, %49 ], [ %.046.ph, %55 ], [ %.046.ph, %61 ], [ %68, %64 ], [ %.046.ph, %78 ], [ %.046.ph, %71 ], [ %.046.ph, %.thread ], [ %.046.ph, %.thread73 ]
-  %.044.ph.be = phi i32 [ %46, %43 ], [ %.044.ph, %49 ], [ %.044.ph, %55 ], [ %.044.ph, %61 ], [ %.044.ph, %64 ], [ %.044.ph, %78 ], [ %.044.ph, %71 ], [ %.044.ph, %.thread ], [ %.044.ph, %.thread73 ]
-  %.041.ph.be = phi i32 [ 1, %43 ], [ %.041.ph, %49 ], [ %.041.ph, %55 ], [ %.041.ph, %61 ], [ %.041.ph, %64 ], [ 0, %78 ], [ %.041.ph, %71 ], [ %.041.ph, %.thread ], [ 0, %.thread73 ]
-  %.038.ph.be = phi i32 [ %.038.ph, %43 ], [ %.038.ph, %49 ], [ %.038.ph, %55 ], [ %.038.ph, %61 ], [ 1, %64 ], [ 0, %78 ], [ %.038.ph, %71 ], [ 0, %.thread ], [ 0, %.thread73 ]
+  %.046.ph.be = phi i64 [ %.046.ph, %43 ], [ %.046.ph, %49 ], [ %.046.ph, %55 ], [ %.046.ph, %61 ], [ %68, %64 ], [ %.046.ph, %.thread ], [ %.046.ph, %.thread73 ], [ %.046.ph, %78 ], [ %.046.ph, %71 ]
+  %.044.ph.be = phi i32 [ %46, %43 ], [ %.044.ph, %49 ], [ %.044.ph, %55 ], [ %.044.ph, %61 ], [ %.044.ph, %64 ], [ %.044.ph, %.thread ], [ %.044.ph, %.thread73 ], [ %.044.ph, %78 ], [ %.044.ph, %71 ]
+  %.041.ph.be = phi i32 [ 1, %43 ], [ %.041.ph, %49 ], [ %.041.ph, %55 ], [ %.041.ph, %61 ], [ %.041.ph, %64 ], [ %.041.ph, %.thread ], [ 0, %.thread73 ], [ 0, %78 ], [ %.041.ph, %71 ]
+  %.038.ph.be = phi i32 [ %.038.ph, %43 ], [ %.038.ph, %49 ], [ %.038.ph, %55 ], [ %.038.ph, %61 ], [ 1, %64 ], [ 0, %.thread ], [ 0, %.thread73 ], [ 0, %78 ], [ %.038.ph, %71 ]
   br label %.outer, !llvm.loop !48
 
 83:                                               ; preds = %36
@@ -619,7 +619,7 @@ free_segment_list.exit:                           ; preds = %24, %19
   br label %88
 
 88:                                               ; preds = %2, %.loopexit
-  %.0 = phi i32 [ %.037, %.loopexit ], [ %14, %2 ]
+  %.0 = phi i32 [ %14, %2 ], [ %.037, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

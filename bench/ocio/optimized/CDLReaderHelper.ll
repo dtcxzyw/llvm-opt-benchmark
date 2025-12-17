@@ -847,7 +847,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplELN9__gnu_cxx12_Lock
   br label %113
 
 113:                                              ; preds = %111, %109
-  %.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

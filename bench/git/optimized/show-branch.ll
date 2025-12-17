@@ -648,8 +648,8 @@ copy_array.exit:                                  ; preds = %197
   unreachable
 
 .thread288:                                       ; preds = %..thread288_crit_edge, %241
-  %250 = phi i32 [ %.pre, %..thread288_crit_edge ], [ %212, %241 ]
-  %.1155292 = phi ptr [ @cmd_show_branch.fake_av, %..thread288_crit_edge ], [ %.0154, %241 ]
+  %250 = phi i32 [ %212, %241 ], [ %.pre, %..thread288_crit_edge ]
+  %.1155292 = phi ptr [ %.0154, %241 ], [ @cmd_show_branch.fake_av, %..thread288_crit_edge ]
   %251 = icmp sgt i32 %250, 26
   br i1 %251, label %252, label %254
 
@@ -961,7 +961,7 @@ skip_prefix.exit6.i:                              ; preds = %386, %skip_prefix.e
   br i1 %390, label %skip_prefix.exit6.i, label %rev_is_head.exit, !llvm.loop !39
 
 rev_is_head.exit:                                 ; preds = %380, %skip_prefix.exit6.i, %386
-  %.014.i = phi ptr [ %374, %386 ], [ %scevgep23.i, %skip_prefix.exit6.i ], [ %scevgep21.i, %380 ]
+  %.014.i = phi ptr [ %scevgep23.i, %skip_prefix.exit6.i ], [ %374, %386 ], [ %scevgep21.i, %380 ]
   %391 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.015.i, ptr noundef nonnull dereferenceable(1) %.014.i) #19
   %.not2.i.not = icmp ne i32 %391, 0
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
@@ -1437,7 +1437,7 @@ skip_prefix.exit6.i244:                           ; preds = %571, %skip_prefix.e
   br i1 %575, label %skip_prefix.exit6.i244, label %rev_is_head.exit254, !llvm.loop !39
 
 rev_is_head.exit254:                              ; preds = %565, %skip_prefix.exit6.i244, %571
-  %.014.i251 = phi ptr [ %559, %571 ], [ %scevgep23.i243, %skip_prefix.exit6.i244 ], [ %scevgep21.i236, %565 ]
+  %.014.i251 = phi ptr [ %scevgep23.i243, %skip_prefix.exit6.i244 ], [ %559, %571 ], [ %scevgep21.i236, %565 ]
   %576 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.015.i235, ptr noundef nonnull dereferenceable(1) %.014.i251) #19
   %.not2.i252.not = icmp eq i32 %576, 0
   br i1 %.not2.i252.not, label %577, label %rev_is_head.exit254.thread
@@ -1648,7 +1648,7 @@ commit_to_name.exit.i:                            ; preds = %648, %644
   br label %.loopexit3.i
 
 .loopexit3.i:                                     ; preds = %656, %660, %commit_to_name.exit.i
-  %.pre.i.i.i31.i = phi ptr [ %.pre.i.i.i32.i, %commit_to_name.exit.i ], [ %.pre.i.i.i.pre.i, %660 ], [ %.pre.i.i.i32.i, %656 ]
+  %.pre.i.i.i31.i = phi ptr [ %.pre.i.i.i.pre.i, %660 ], [ %.pre.i.i.i32.i, %commit_to_name.exit.i ], [ %.pre.i.i.i32.i, %656 ]
   %663 = getelementptr inbounds nuw i8, ptr %.06.i260, i64 8
   %664 = load ptr, ptr %663, align 8, !tbaa !49
   %.not.i265 = icmp eq ptr %664, null
@@ -2247,7 +2247,7 @@ get_color_code.exit283:                           ; preds = %869, %873
   br i1 %.not196, label %show_merge_base.exit, label %836, !llvm.loop !85
 
 show_merge_base.exit:                             ; preds = %532, %549, %.thread306, %890, %628, %._crit_edge368.thread, %name_commits.exit, %._crit_edge368, %537, %516, %._crit_edge372, %401
-  %.0170 = phi i32 [ 0, %401 ], [ 0, %._crit_edge372 ], [ 1, %516 ], [ 0, %537 ], [ 0, %._crit_edge368 ], [ 0, %name_commits.exit ], [ 0, %._crit_edge368.thread ], [ 0, %628 ], [ 0, %890 ], [ 0, %.thread306 ], [ 0, %549 ], [ %.1.i, %532 ]
+  %.0170 = phi i32 [ 0, %401 ], [ 0, %._crit_edge372 ], [ 1, %516 ], [ 0, %537 ], [ 0, %._crit_edge368 ], [ 0, %name_commits.exit ], [ 0, %._crit_edge368.thread ], [ 0, %628 ], [ 0, %549 ], [ 0, %.thread306 ], [ 0, %890 ], [ %.1.i, %532 ]
   br label %898
 
 895:                                              ; preds = %898
@@ -2390,7 +2390,7 @@ define internal i32 @git_show_branch_config(ptr noundef %0, ptr noundef %1, ptr 
   br label %24
 
 24:                                               ; preds = %19, %22, %17, %13, %7
-  %.0 = phi i32 [ %23, %22 ], [ 0, %17 ], [ 0, %13 ], [ -1, %7 ], [ -1, %19 ]
+  %.0 = phi i32 [ -1, %7 ], [ %23, %22 ], [ 0, %17 ], [ 0, %13 ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -3547,8 +3547,8 @@ commit_to_name.exit20.i:                          ; preds = %109, %105
   %127 = add nuw nsw i32 %.01131, 1
   br label %.lr.ph
 
-.thread:                                          ; preds = %commit_to_name.exit, %30, %commit_to_name.exit26, %1
-  %.011.lcssa = phi i32 [ 0, %1 ], [ %.01131, %commit_to_name.exit26 ], [ %.01131, %30 ], [ %.01131, %commit_to_name.exit ]
+.thread:                                          ; preds = %30, %commit_to_name.exit, %commit_to_name.exit26, %1
+  %.011.lcssa = phi i32 [ 0, %1 ], [ %.01131, %commit_to_name.exit26 ], [ %.01131, %commit_to_name.exit ], [ %.01131, %30 ]
   ret i32 %.011.lcssa
 }
 

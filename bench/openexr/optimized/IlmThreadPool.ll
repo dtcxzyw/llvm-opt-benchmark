@@ -834,8 +834,8 @@ _ZNK13IlmThread_3_410ThreadPool4Data11getProviderEv.exit: ; preds = %13, %23, %2
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef %1)
           to label %.critedge unwind label %36
 
-.critedge:                                        ; preds = %34, %39, %_ZNK13IlmThread_3_410ThreadPool4Data11getProviderEv.exit, %38
-  %43 = phi i1 [ true, %38 ], [ true, %_ZNK13IlmThread_3_410ThreadPool4Data11getProviderEv.exit ], [ false, %39 ], [ false, %34 ]
+.critedge:                                        ; preds = %39, %34, %_ZNK13IlmThread_3_410ThreadPool4Data11getProviderEv.exit, %38
+  %43 = phi i1 [ true, %_ZNK13IlmThread_3_410ThreadPool4Data11getProviderEv.exit ], [ true, %38 ], [ false, %34 ], [ false, %39 ]
   %44 = load ptr, ptr %17, align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN13IlmThread_3_418ThreadPoolProviderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %45
@@ -1019,7 +1019,7 @@ common.resume:                                    ; preds = %11, %36, %94, %143,
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13IlmThread_3_412_GLOBAL__N_125DefaultThreadPoolProviderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %117, %115, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13IlmThread_3_412_GLOBAL__N_121DefaultThreadPoolDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ], [ %106, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13IlmThread_3_412_GLOBAL__N_121DefaultThreadPoolDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %118, %117 ], [ %106, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN13IlmThread_3_412_GLOBAL__N_121DefaultThreadPoolDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i.i.i.i.i.i.i ], [ %116, %115 ]
   call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 40) #31, !noalias !54
   br label %common.resume
 

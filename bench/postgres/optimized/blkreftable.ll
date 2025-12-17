@@ -170,8 +170,8 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   br label %._crit_edge51.i
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge51.loopexit.i, %._crit_edge.i
-  %.lcssa47.i = phi ptr [ %59, %._crit_edge51.loopexit.i ], [ %36, %._crit_edge.i ]
-  %.0.lcssa.i = phi i16 [ %64, %._crit_edge51.loopexit.i ], [ %38, %._crit_edge.i ]
+  %.lcssa47.i = phi ptr [ %36, %._crit_edge.i ], [ %59, %._crit_edge51.loopexit.i ]
+  %.0.lcssa.i = phi i16 [ %38, %._crit_edge.i ], [ %64, %._crit_edge51.loopexit.i ]
   %65 = getelementptr inbounds nuw i16, ptr %.lcssa47.i, i64 %32
   store i16 %.0.lcssa.i, ptr %65, align 2
   br label %BlockRefTableEntrySetLimitBlock.exit
@@ -475,8 +475,8 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   br label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
-  %.lcssa47 = phi ptr [ %49, %._crit_edge51.loopexit ], [ %26, %._crit_edge ]
-  %.0.lcssa = phi i16 [ %54, %._crit_edge51.loopexit ], [ %28, %._crit_edge ]
+  %.lcssa47 = phi ptr [ %26, %._crit_edge ], [ %49, %._crit_edge51.loopexit ]
+  %.0.lcssa = phi i16 [ %28, %._crit_edge ], [ %54, %._crit_edge51.loopexit ]
   %55 = getelementptr inbounds nuw i16, ptr %.lcssa47, i64 %22
   store i16 %.0.lcssa, ptr %55, align 2
   br label %.loopexit
@@ -973,7 +973,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   br i1 %exitcond166.not, label %.thread113, label %23, !llvm.loop !18
 
 .thread113:                                       ; preds = %.loopexit, %42, %52, %5
-  %.13 = phi i32 [ 0, %5 ], [ %54, %52 ], [ %44, %42 ], [ %.586.ph, %.loopexit ]
+  %.13 = phi i32 [ 0, %5 ], [ %44, %42 ], [ %54, %52 ], [ %.586.ph, %.loopexit ]
   ret i32 %.13
 }
 
@@ -1379,7 +1379,7 @@ define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr noundef readon
   br label %32
 
 32:                                               ; preds = %30, %24, %22, %16, %14, %8, %6, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ 1, %16 ], [ -1, %22 ], [ 1, %24 ], [ %., %30 ]
+  %.0 = phi i32 [ 1, %24 ], [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ 1, %16 ], [ -1, %22 ], [ %., %30 ]
   ret i32 %.0
 }
 
@@ -1574,8 +1574,8 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   br label %56
 
 56:                                               ; preds = %36, %45, %52, %49, %17
-  %.151 = phi i32 [ %31, %17 ], [ %.05055, %52 ], [ %.05055, %49 ], [ %43, %45 ], [ %43, %36 ]
-  %.1 = phi ptr [ %30, %17 ], [ %.056, %52 ], [ %.056, %49 ], [ %42, %45 ], [ %42, %36 ]
+  %.151 = phi i32 [ %31, %17 ], [ %.05055, %49 ], [ %.05055, %52 ], [ %43, %45 ], [ %43, %36 ]
+  %.1 = phi ptr [ %30, %17 ], [ %.056, %49 ], [ %.056, %52 ], [ %42, %45 ], [ %42, %36 ]
   %57 = icmp sgt i32 %.151, 0
   br i1 %57, label %13, label %._crit_edge, !llvm.loop !24
 

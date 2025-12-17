@@ -345,8 +345,8 @@ _ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49:   ; preds = %74, %76
   br label %84
 
 84:                                               ; preds = %59, %83, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49, %82, %79, %73
-  %cond1 = phi i1 [ false, %73 ], [ false, %79 ], [ false, %82 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %83 ], [ true, %59 ]
-  %.2 = phi i32 [ 1, %73 ], [ 1, %79 ], [ 0, %82 ], [ %.065, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ %.065, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %.065, %83 ], [ %.065, %59 ]
+  %cond1 = phi i1 [ false, %82 ], [ false, %73 ], [ false, %79 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ true, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ true, %83 ], [ true, %59 ]
+  %.2 = phi i32 [ 0, %82 ], [ 1, %73 ], [ 1, %79 ], [ %.065, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit49 ], [ %.065, %_ZN6vectorIPN3euf5enodeELb0EjE6shrinkEj.exit ], [ %.065, %83 ], [ %.065, %59 ]
   br i1 %.not.i.i5.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit.i, label %85
 
 85:                                               ; preds = %84
@@ -405,7 +405,7 @@ _ZN1q3litD2Ev.exit:                               ; preds = %_ZN7obj_refI4expr11
   br label %.thread
 
 .thread:                                          ; preds = %_ZN1q3litD2Ev.exit, %._crit_edge, %105
-  %.3 = phi i32 [ 0, %105 ], [ -1, %._crit_edge ], [ %.2, %_ZN1q3litD2Ev.exit ]
+  %.3 = phi i32 [ -1, %._crit_edge ], [ 0, %105 ], [ %.2, %_ZN1q3litD2Ev.exit ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !386
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -756,12 +756,12 @@ _ZN3euf11enode_class8iteratorppEv.exit:           ; preds = %.lr.ph, %131, %132
   br label %147
 
 146:                                              ; preds = %129, %127
-  %.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ]
   store i8 %102, ptr %101, align 8, !tbaa !438
   resume { ptr, i32 } %.pn.pn.pn
 
 147:                                              ; preds = %64, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit82, %95, %97, %.loopexit, %62, %99, %8, %6
-  %.0 = phi i32 [ 1, %6 ], [ -1, %8 ], [ -1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit82 ], [ 0, %95 ], [ %spec.select, %.loopexit ], [ %98, %97 ], [ 1, %62 ], [ 0, %99 ], [ 0, %64 ]
+  %.0 = phi i32 [ -1, %8 ], [ 1, %6 ], [ %98, %97 ], [ 1, %62 ], [ -1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE9push_backEOS4_.exit82 ], [ 0, %95 ], [ 0, %64 ], [ %spec.select, %.loopexit ], [ 0, %99 ]
   ret i32 %.0
 }
 
@@ -1057,7 +1057,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vect
   br label %.loopexit256
 
 .loopexit256:                                     ; preds = %.lr.ph.preheader.i.i, %95, %89, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i
-  %102 = phi ptr [ %90, %95 ], [ %83, %89 ], [ %83, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %90, %.lr.ph.preheader.i.i ]
+  %102 = phi ptr [ %83, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %90, %95 ], [ %83, %89 ], [ %90, %.lr.ph.preheader.i.i ]
   %103 = zext i32 %72 to i64
   %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
   store ptr %82, ptr %104, align 8, !tbaa !443
@@ -1240,7 +1240,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i102: ; preds = %_ZNK6v
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader.i.i98, %160, %154, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i88
-  %167 = phi ptr [ %155, %160 ], [ %148, %154 ], [ %148, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i88 ], [ %155, %.lr.ph.preheader.i.i98 ]
+  %167 = phi ptr [ %148, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i88 ], [ %155, %160 ], [ %148, %154 ], [ %155, %.lr.ph.preheader.i.i98 ]
   %168 = load ptr, ptr %147, align 8, !tbaa !443
   %169 = zext i32 %143 to i64
   %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %169
@@ -1709,7 +1709,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i186: ; preds = %_ZNK6v
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.lr.ph.preheader.i.i182, %339, %333, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i172
-  %346 = phi ptr [ %334, %339 ], [ %327, %333 ], [ %327, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i172 ], [ %334, %.lr.ph.preheader.i.i182 ]
+  %346 = phi ptr [ %327, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i172 ], [ %334, %339 ], [ %327, %333 ], [ %334, %.lr.ph.preheader.i.i182 ]
   %347 = zext i32 %326 to i64
   %348 = getelementptr inbounds nuw ptr, ptr %346, i64 %347
   store ptr %267, ptr %348, align 8, !tbaa !443
@@ -1806,8 +1806,8 @@ _ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i207: ; preds = %_ZN6bufferIP3as
   %382 = load ptr, ptr %381, align 8, !tbaa !443
   br label %.thread246
 
-.thread246:                                       ; preds = %137, %268, %.loopexit, %139, %.loopexit256, %283, %377
-  %.8 = phi ptr [ %382, %377 ], [ null, %283 ], [ null, %.loopexit256 ], [ null, %139 ], [ null, %.loopexit ], [ null, %268 ], [ null, %137 ]
+.thread246:                                       ; preds = %137, %268, %139, %.loopexit256, %.loopexit, %283, %377
+  %.8 = phi ptr [ %382, %377 ], [ null, %283 ], [ null, %.loopexit ], [ null, %.loopexit256 ], [ null, %139 ], [ null, %268 ], [ null, %137 ]
   %383 = load ptr, ptr %7, align 8, !tbaa !447
   %.not.i.i.i213 = icmp eq ptr %383, %39
   %384 = icmp eq ptr %383, null
@@ -1849,7 +1849,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN6bufferIPN3euf5e
   br label %_ZNK3euf6egraph4findEP4expr.exit
 
 395:                                              ; preds = %269, %308, %375, %109, %60, %175, %239
-  %.pn66.pn = phi { ptr, i32 } [ %61, %60 ], [ %176, %175 ], [ %240, %239 ], [ %110, %109 ], [ %270, %269 ], [ %376, %375 ], [ %309, %308 ]
+  %.pn66.pn = phi { ptr, i32 } [ %309, %308 ], [ %61, %60 ], [ %376, %375 ], [ %176, %175 ], [ %240, %239 ], [ %110, %109 ], [ %270, %269 ]
   call void @_ZN6bufferIPN3euf5enodeELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #18
@@ -2075,7 +2075,7 @@ _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split: ; preds =
   br label %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62
 
 _ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62: ; preds = %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit, %.split.us, %.thread.thread, %.thread, %28, %23, %13, %18, %10, %6
-  %.046 = phi i32 [ 1, %6 ], [ -1, %10 ], [ 0, %18 ], [ 0, %13 ], [ 0, %23 ], [ 0, %28 ], [ 1, %.thread ], [ 0, %.thread.thread ], [ 0, %.split.us ], [ 1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit ], [ -1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ], [ %.046.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split ], [ %69, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57 ], [ 1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit ]
+  %.046 = phi i32 [ -1, %10 ], [ 1, %6 ], [ 0, %13 ], [ 0, %23 ], [ 0, %28 ], [ 0, %18 ], [ 1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit ], [ 0, %.split.us ], [ 1, %.thread ], [ 0, %.thread.thread ], [ -1, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit59 ], [ %.046.ph, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit62.sink.split ], [ %69, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit57 ], [ 1, %_ZN6vectorISt4pairIPN3euf5enodeES3_ELb0EjE6shrinkEj.exit ]
   ret i32 %.046
 }
 

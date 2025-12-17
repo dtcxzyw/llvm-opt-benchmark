@@ -234,8 +234,8 @@ mmbit_set_i.exit268:                              ; preds = %.thread, %.lr.ph109
   br i1 %.not.i353, label %mmbit_set_i.exit235.thread559, label %116
 
 mmbit_set_i.exit235.thread:                       ; preds = %.lr.ph1101, %mmbit_set_i.exit268.thread, %134
-  %.pre-phi1441 = phi i64 [ %115, %134 ], [ %.pre1440, %mmbit_set_i.exit268.thread ], [ %115, %.lr.ph1101 ]
-  %157 = phi i64 [ %113, %134 ], [ %49, %mmbit_set_i.exit268.thread ], [ %113, %.lr.ph1101 ]
+  %.pre-phi1441 = phi i64 [ %.pre1440, %mmbit_set_i.exit268.thread ], [ %115, %134 ], [ %115, %.lr.ph1101 ]
+  %157 = phi i64 [ %49, %mmbit_set_i.exit268.thread ], [ %113, %134 ], [ %113, %.lr.ph1101 ]
   %158 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1441
   store i64 %157, ptr %158, align 8
   br label %setSomLoc.exit
@@ -466,8 +466,8 @@ mmbit_set_i.exit238:                              ; preds = %ok_and_mark_if_unse
   br i1 %.not.i179, label %mmbit_set_i.exit238.thread, label %mmbit_set_i.exit238.thread584
 
 mmbit_set_i.exit238.thread:                       ; preds = %.lr.ph1091, %mmbit_set_i.exit238, %272
-  %.pre-phi1445 = phi i64 [ %253, %272 ], [ %.pre1444, %mmbit_set_i.exit238 ], [ %253, %.lr.ph1091 ]
-  %307 = phi i64 [ %251, %272 ], [ %295, %mmbit_set_i.exit238 ], [ %251, %.lr.ph1091 ]
+  %.pre-phi1445 = phi i64 [ %.pre1444, %mmbit_set_i.exit238 ], [ %253, %272 ], [ %253, %.lr.ph1091 ]
+  %307 = phi i64 [ %295, %mmbit_set_i.exit238 ], [ %251, %272 ], [ %251, %.lr.ph1091 ]
   %308 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1445
   store i64 %307, ptr %308, align 8
   br label %setSomLoc.exit
@@ -748,8 +748,8 @@ mmbit_set_i.exit241:                              ; preds = %mmbit_isset.exit443
   br i1 %.not.i182, label %mmbit_set_i.exit241.thread, label %mmbit_set_i.exit241.thread615
 
 mmbit_set_i.exit241.thread:                       ; preds = %.lr.ph1076, %mmbit_set_i.exit241, %453
-  %.pre-phi1449 = phi i64 [ %434, %453 ], [ %.pre1448, %mmbit_set_i.exit241 ], [ %434, %.lr.ph1076 ]
-  %488 = phi i64 [ %432, %453 ], [ %476, %mmbit_set_i.exit241 ], [ %432, %.lr.ph1076 ]
+  %.pre-phi1449 = phi i64 [ %.pre1448, %mmbit_set_i.exit241 ], [ %434, %453 ], [ %434, %.lr.ph1076 ]
+  %488 = phi i64 [ %476, %mmbit_set_i.exit241 ], [ %432, %453 ], [ %432, %.lr.ph1076 ]
   %489 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1449
   store i64 %488, ptr %489, align 8
   br label %setSomLoc.exit184
@@ -919,8 +919,8 @@ setSomLoc.exit184:                                ; preds = %mmbit_set_i.exit241
   br i1 %.not.i361, label %mmbit_set_i.exit232.thread625, label %557
 
 mmbit_set_i.exit232.thread:                       ; preds = %.lr.ph1068, %.thread619, %575
-  %.pre-phi1453 = phi i64 [ %323, %575 ], [ %.pre1452, %.thread619 ], [ %323, %.lr.ph1068 ]
-  %598 = phi i64 [ %556, %575 ], [ %424, %.thread619 ], [ %556, %.lr.ph1068 ]
+  %.pre-phi1453 = phi i64 [ %.pre1452, %.thread619 ], [ %323, %575 ], [ %323, %.lr.ph1068 ]
+  %598 = phi i64 [ %424, %.thread619 ], [ %556, %575 ], [ %556, %.lr.ph1068 ]
   %599 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1453
   store i64 %598, ptr %599, align 8
   br label %setSomLoc.exit
@@ -1159,7 +1159,7 @@ mmbit_set_i.exit214:                              ; preds = %runRevNfa.exit
   br i1 %.not.i200, label %mmbit_set_i.exit214.thread, label %mmbit_set_i.exit214.thread636
 
 mmbit_set_i.exit214.thread:                       ; preds = %.lr.ph1061, %mmbit_set_i.exit214, %722
-  %.pre-phi1457 = phi i64 [ %702, %722 ], [ %.pre1456, %mmbit_set_i.exit214 ], [ %702, %.lr.ph1061 ]
+  %.pre-phi1457 = phi i64 [ %.pre1456, %mmbit_set_i.exit214 ], [ %702, %722 ], [ %702, %.lr.ph1061 ]
   %755 = load i64, ptr %6, align 8
   %756 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1457
   store i64 %755, ptr %756, align 8
@@ -1442,7 +1442,7 @@ mmbit_set_i.exit211:                              ; preds = %runRevNfa.exit532
   br i1 %.not.i202, label %mmbit_set_i.exit211.thread, label %mmbit_set_i.exit211.thread660
 
 mmbit_set_i.exit211.thread:                       ; preds = %.lr.ph1051, %mmbit_set_i.exit211, %903
-  %.pre-phi1461 = phi i64 [ %883, %903 ], [ %.pre1460, %mmbit_set_i.exit211 ], [ %883, %.lr.ph1051 ]
+  %.pre-phi1461 = phi i64 [ %.pre1460, %mmbit_set_i.exit211 ], [ %883, %903 ], [ %883, %.lr.ph1051 ]
   %936 = load i64, ptr %5, align 8
   %937 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1461
   store i64 %936, ptr %937, align 8
@@ -1761,7 +1761,7 @@ mmbit_set_i.exit:                                 ; preds = %runRevNfa.exit539
   br i1 %.not.i205, label %mmbit_set_i.exit.thread, label %mmbit_set_i.exit.thread690
 
 mmbit_set_i.exit.thread:                          ; preds = %.lr.ph1036, %mmbit_set_i.exit, %1107
-  %.pre-phi1465 = phi i64 [ %1087, %1107 ], [ %.pre1464, %mmbit_set_i.exit ], [ %1087, %.lr.ph1036 ]
+  %.pre-phi1465 = phi i64 [ %.pre1464, %mmbit_set_i.exit ], [ %1087, %1107 ], [ %1087, %.lr.ph1036 ]
   %1140 = load i64, ptr %4, align 8
   %1141 = getelementptr inbounds nuw i64, ptr %27, i64 %.pre-phi1465
   store i64 %1140, ptr %1141, align 8
@@ -2001,7 +2001,7 @@ mmbit_set_i.exit229:                              ; preds = %runRevNfa.exit546
   br i1 %.not173, label %mmbit_set_i.exit229.thread, label %mmbit_set_i.exit229.thread699
 
 mmbit_set_i.exit229.thread:                       ; preds = %.lr.ph1028, %mmbit_set_i.exit229, %1260
-  %.pre-phi1469 = phi i64 [ %1240, %1260 ], [ %.pre1468, %mmbit_set_i.exit229 ], [ %1240, %.lr.ph1028 ]
+  %.pre-phi1469 = phi i64 [ %.pre1468, %mmbit_set_i.exit229 ], [ %1240, %1260 ], [ %1240, %.lr.ph1028 ]
   %1293 = load i64, ptr %7, align 8
   %1294 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi1469
   store i64 %1293, ptr %1294, align 8
@@ -2180,7 +2180,7 @@ mmbit_set_i.exit262:                              ; preds = %mmbit_set_i.exit262
   br i1 %.not.i377, label %mmbit_set_i.exit226, label %mmbit_set_i.exit262
 
 mmbit_set_i.exit226:                              ; preds = %.thread705, %.lr.ph1021, %1383, %mmbit_set_i.exit262.thread
-  %.pre-phi = phi i64 [ %1323, %1383 ], [ %.pre, %mmbit_set_i.exit262.thread ], [ %1323, %.lr.ph1021 ], [ %1323, %.thread705 ]
+  %.pre-phi = phi i64 [ %.pre, %mmbit_set_i.exit262.thread ], [ %1323, %1383 ], [ %1323, %.lr.ph1021 ], [ %1323, %.thread705 ]
   %1406 = and i64 %1301, 4294967295
   %1407 = getelementptr inbounds nuw i64, ptr %27, i64 %1406
   %1408 = load i64, ptr %1407, align 8
@@ -2574,7 +2574,7 @@ mmbit_set_i.exit223:                              ; preds = %.thread731, %.lr.ph
   br i1 %.not.i393, label %mmbit_set_i.exit220, label %.preheader1794
 
 mmbit_set_i.exit220:                              ; preds = %.thread736, %.lr.ph998, %1640, %.thread735
-  %.pre-phi1439 = phi i64 [ %1423, %1640 ], [ %.pre1438, %.thread735 ], [ %1423, %.lr.ph998 ], [ %1423, %.thread736 ]
+  %.pre-phi1439 = phi i64 [ %.pre1438, %.thread735 ], [ %1423, %1640 ], [ %1423, %.lr.ph998 ], [ %1423, %.thread736 ]
   %1663 = and i64 %1412, 4294967295
   %1664 = getelementptr inbounds nuw i64, ptr %27, i64 %1663
   %1665 = load i64, ptr %1664, align 8
@@ -2909,7 +2909,7 @@ runRevNfa.exit:                                   ; preds = %21, %43, %48
   br label %52
 
 52:                                               ; preds = %3, %runRevNfa.exit, %13, %10, %6
-  %.0 = phi i64 [ %9, %6 ], [ %12, %10 ], [ %20, %13 ], [ %51, %runRevNfa.exit ], [ 0, %3 ]
+  %.0 = phi i64 [ %51, %runRevNfa.exit ], [ %9, %6 ], [ %12, %10 ], [ %20, %13 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -3128,8 +3128,8 @@ mmbit_set_i.exit74:                               ; preds = %.thread, %.lr.ph251
   br i1 %.not.i87, label %mmbit_set_i.exit68.thread131, label %114
 
 mmbit_set_i.exit68.thread:                        ; preds = %.lr.ph256, %mmbit_set_i.exit74.thread, %132
-  %.pre-phi = phi i64 [ %113, %132 ], [ %.pre, %mmbit_set_i.exit74.thread ], [ %113, %.lr.ph256 ]
-  %155 = phi i64 [ %111, %132 ], [ %47, %mmbit_set_i.exit74.thread ], [ %111, %.lr.ph256 ]
+  %.pre-phi = phi i64 [ %.pre, %mmbit_set_i.exit74.thread ], [ %113, %132 ], [ %113, %.lr.ph256 ]
+  %155 = phi i64 [ %47, %mmbit_set_i.exit74.thread ], [ %111, %132 ], [ %111, %.lr.ph256 ]
   %156 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi
   store i64 %155, ptr %156, align 8
   br label %setSomLoc.exit59
@@ -3410,8 +3410,8 @@ mmbit_set_i.exit65:                               ; preds = %mmbit_isset.exit, %
   br i1 %.not.i, label %mmbit_set_i.exit65.thread, label %mmbit_set_i.exit65.thread162
 
 mmbit_set_i.exit65.thread:                        ; preds = %.lr.ph241, %mmbit_set_i.exit65, %301
-  %.pre-phi337 = phi i64 [ %282, %301 ], [ %.pre336, %mmbit_set_i.exit65 ], [ %282, %.lr.ph241 ]
-  %336 = phi i64 [ %280, %301 ], [ %324, %mmbit_set_i.exit65 ], [ %280, %.lr.ph241 ]
+  %.pre-phi337 = phi i64 [ %.pre336, %mmbit_set_i.exit65 ], [ %282, %301 ], [ %282, %.lr.ph241 ]
+  %336 = phi i64 [ %324, %mmbit_set_i.exit65 ], [ %280, %301 ], [ %280, %.lr.ph241 ]
   %337 = getelementptr inbounds nuw i64, ptr %24, i64 %.pre-phi337
   store i64 %336, ptr %337, align 8
   br label %setSomLoc.exit
@@ -3576,7 +3576,7 @@ setSomLoc.exit:                                   ; preds = %mmbit_set_i.exit65.
   br i1 %.not.i103, label %mmbit_set_i.exit.thread172, label %.preheader
 
 mmbit_set_i.exit.thread:                          ; preds = %.lr.ph, %.thread166, %419
-  %.pre-phi341 = phi i64 [ %168, %419 ], [ %.pre340, %.thread166 ], [ %168, %.lr.ph ]
+  %.pre-phi341 = phi i64 [ %.pre340, %.thread166 ], [ %168, %419 ], [ %168, %.lr.ph ]
   %442 = getelementptr inbounds nuw i64, ptr %26, i64 %.pre-phi341
   store i64 %2, ptr %442, align 8
   br label %setSomLoc.exit59
@@ -4169,11 +4169,11 @@ mmbit_get_flat_block.exit264:                     ; preds = %265, %268, %271, %2
   br label %.backedge
 
 mmbit_iterate.exit56:                             ; preds = %309, %196, %.thread334, %249, %286
-  %.011.i55 = phi i32 [ %198, %196 ], [ %254, %249 ], [ %289, %286 ], [ %241, %.thread334 ], [ %313, %309 ]
+  %.011.i55 = phi i32 [ %198, %196 ], [ %254, %249 ], [ %241, %.thread334 ], [ %289, %286 ], [ %313, %309 ]
   %.not.i = icmp eq i32 %.011.i55, -1
   br i1 %.not.i, label %.critedge32.i, label %163
 
-.critedge32.i:                                    ; preds = %.thread324, %mmbit_get_flat_block.exit264, %._crit_edge491, %242, %mmbit_get_flat_block.exit260, %.critedge.i, %mmbit_iterate.exit56, %.thread344, %mmbit_get_flat_block.exit256, %._crit_edge487, %mmbit_get_flat_block.exit, %15, %mmbit_iterate.exit
+.critedge32.i:                                    ; preds = %.thread324, %mmbit_get_flat_block.exit264, %242, %mmbit_get_flat_block.exit260, %._crit_edge491, %.critedge.i, %mmbit_iterate.exit56, %.thread344, %mmbit_get_flat_block.exit256, %mmbit_get_flat_block.exit, %._crit_edge487, %15, %mmbit_iterate.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   br label %clearSomLog.exit
 
@@ -4736,7 +4736,7 @@ mmbit_get_flat_block.exit284:                     ; preds = %575, %578, %581, %5
   br label %.backedge445
 
 mmbit_iterate.exit66:                             ; preds = %619, %506, %.thread370, %559, %596
-  %.011.i65 = phi i32 [ %508, %506 ], [ %564, %559 ], [ %599, %596 ], [ %551, %.thread370 ], [ %623, %619 ]
+  %.011.i65 = phi i32 [ %508, %506 ], [ %564, %559 ], [ %551, %.thread370 ], [ %599, %596 ], [ %623, %619 ]
   %.not.i39 = icmp eq i32 %.011.i65, -1
   br i1 %.not.i39, label %._crit_edge469, label %477
 
@@ -4747,7 +4747,7 @@ clearSomLog.exit44:                               ; preds = %477
   store i8 %633, ptr %631, align 8
   br label %clearSomLog.exit51
 
-._crit_edge469:                                   ; preds = %.thread360, %mmbit_get_flat_block.exit284, %._crit_edge464, %552, %mmbit_get_flat_block.exit280, %.critedge.i43, %mmbit_iterate.exit66, %.thread380, %mmbit_get_flat_block.exit276, %._crit_edge, %mmbit_get_flat_block.exit272, %324, %mmbit_iterate.exit61
+._crit_edge469:                                   ; preds = %.thread360, %mmbit_get_flat_block.exit284, %552, %mmbit_get_flat_block.exit280, %._crit_edge464, %.critedge.i43, %mmbit_iterate.exit66, %.thread380, %mmbit_get_flat_block.exit276, %mmbit_get_flat_block.exit272, %._crit_edge, %324, %mmbit_iterate.exit61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %329, i8 0, i64 32, i1 false)
   %634 = load ptr, ptr %339, align 8
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 44
@@ -5291,11 +5291,11 @@ mmbit_get_flat_block.exit304:                     ; preds = %873, %876, %879, %8
   br label %.backedge442
 
 mmbit_iterate.exit76:                             ; preds = %917, %804, %.thread408, %857, %894
-  %.011.i75 = phi i32 [ %806, %804 ], [ %862, %857 ], [ %897, %894 ], [ %849, %.thread408 ], [ %921, %917 ]
+  %.011.i75 = phi i32 [ %806, %804 ], [ %862, %857 ], [ %849, %.thread408 ], [ %897, %894 ], [ %921, %917 ]
   %.not.i46.not = icmp eq i32 %.011.i75, -1
   br i1 %.not.i46.not, label %.critedge32.i49, label %771
 
-.critedge32.i49:                                  ; preds = %.thread398, %mmbit_get_flat_block.exit304, %._crit_edge477, %850, %mmbit_get_flat_block.exit300, %.critedge.i50, %mmbit_iterate.exit76, %.thread418, %mmbit_get_flat_block.exit296, %._crit_edge473, %mmbit_get_flat_block.exit292, %._crit_edge469, %mmbit_iterate.exit71
+.critedge32.i49:                                  ; preds = %.thread398, %mmbit_get_flat_block.exit304, %850, %mmbit_get_flat_block.exit300, %._crit_edge477, %.critedge.i50, %mmbit_iterate.exit76, %.thread418, %mmbit_get_flat_block.exit296, %mmbit_get_flat_block.exit292, %._crit_edge473, %._crit_edge469, %mmbit_iterate.exit71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %335, i8 0, i64 32, i1 false)
   br label %clearSomLog.exit51
 

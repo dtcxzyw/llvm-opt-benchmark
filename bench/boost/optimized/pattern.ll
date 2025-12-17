@@ -1208,7 +1208,7 @@ _ZN5boost4urls7grammar5parseINS0_6detail16port_part_rule_tEEENS_6system6resultIN
   br label %368
 
 367:                                              ; preds = %360, %362, %364, %358, %356
-  %.pn180.pn = phi { ptr, i32 } [ %359, %358 ], [ %357, %356 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ]
+  %.pn180.pn = phi { ptr, i32 } [ %357, %356 ], [ %359, %358 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5272)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %519
@@ -1593,7 +1593,7 @@ _ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit247: ;
   ret void
 
 519:                                              ; preds = %514, %516, %484, %488, %486, %399, %450, %401, %263, %367, %267, %265, %280, %278, %229, %235, %237, %233, %231, %187, %191, %189
-  %.pn196.pn = phi { ptr, i32 } [ %188, %187 ], [ %192, %191 ], [ %190, %189 ], [ %230, %229 ], [ %234, %233 ], [ %232, %231 ], [ %238, %237 ], [ %236, %235 ], [ %.pn180.pn, %367 ], [ %264, %263 ], [ %268, %267 ], [ %266, %265 ], [ %281, %280 ], [ %279, %278 ], [ %400, %399 ], [ %.pn187, %450 ], [ %402, %401 ], [ %485, %484 ], [ %489, %488 ], [ %487, %486 ], [ %517, %516 ], [ %515, %514 ]
+  %.pn196.pn = phi { ptr, i32 } [ %487, %486 ], [ %402, %401 ], [ %279, %278 ], [ %236, %235 ], [ %190, %189 ], [ %188, %187 ], [ %192, %191 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %238, %237 ], [ %.pn180.pn, %367 ], [ %264, %263 ], [ %515, %514 ], [ %266, %265 ], [ %268, %267 ], [ %281, %280 ], [ %400, %399 ], [ %.pn187, %450 ], [ %485, %484 ], [ %489, %488 ], [ %517, %516 ]
   call void @_ZN5boost4urls8url_base4op_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1749,10 +1749,10 @@ default.unreachable:                              ; preds = %9
   br label %_ZN5boost4urls7grammar9lut_chars9constructEhb.exit14
 
 _ZN5boost4urls7grammar9lut_chars9constructEhb.exit14: ; preds = %9, %5, %16, %14, %15
-  %.sroa.0.3 = phi i64 [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %5 ], [ %13, %9 ]
-  %.sroa.6.2 = phi i64 [ 0, %16 ], [ 0, %15 ], [ %13, %14 ], [ 0, %5 ], [ 0, %9 ]
-  %.sroa.10.1 = phi i64 [ 0, %16 ], [ %13, %15 ], [ 0, %14 ], [ 0, %5 ], [ 0, %9 ]
-  %.sroa.14.0 = phi i64 [ %13, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %5 ], [ 0, %9 ]
+  %.sroa.0.3 = phi i64 [ 0, %14 ], [ 0, %16 ], [ 0, %15 ], [ 0, %5 ], [ %13, %9 ]
+  %.sroa.6.2 = phi i64 [ %13, %14 ], [ 0, %16 ], [ 0, %15 ], [ 0, %5 ], [ 0, %9 ]
+  %.sroa.10.1 = phi i64 [ 0, %14 ], [ 0, %16 ], [ %13, %15 ], [ 0, %5 ], [ 0, %9 ]
+  %.sroa.14.0 = phi i64 [ 0, %14 ], [ %13, %16 ], [ 0, %15 ], [ 0, %5 ], [ 0, %9 ]
   %17 = add nuw i8 %1, 1
   call void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13alpha_chars_tEEES2_T_h(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %3, i8 noundef zeroext %17) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
@@ -1832,10 +1832,10 @@ default.unreachable:                              ; preds = %8
   br label %_ZN5boost4urls7grammar9lut_chars9constructEhb.exit14
 
 _ZN5boost4urls7grammar9lut_chars9constructEhb.exit14: ; preds = %8, %5, %15, %13, %14
-  %.sroa.0.3 = phi i64 [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %5 ], [ %12, %8 ]
-  %.sroa.6.2 = phi i64 [ 0, %15 ], [ 0, %14 ], [ %12, %13 ], [ 0, %5 ], [ 0, %8 ]
-  %.sroa.10.1 = phi i64 [ 0, %15 ], [ %12, %14 ], [ 0, %13 ], [ 0, %5 ], [ 0, %8 ]
-  %.sroa.14.0 = phi i64 [ %12, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %5 ], [ 0, %8 ]
+  %.sroa.0.3 = phi i64 [ 0, %13 ], [ 0, %15 ], [ 0, %14 ], [ 0, %5 ], [ %12, %8 ]
+  %.sroa.6.2 = phi i64 [ %12, %13 ], [ 0, %15 ], [ 0, %14 ], [ 0, %5 ], [ 0, %8 ]
+  %.sroa.10.1 = phi i64 [ 0, %13 ], [ 0, %15 ], [ %12, %14 ], [ 0, %5 ], [ 0, %8 ]
+  %.sroa.14.0 = phi i64 [ 0, %13 ], [ %12, %15 ], [ 0, %14 ], [ 0, %5 ], [ 0, %8 ]
   %16 = add nuw i8 %1, 1
   call void @_ZN5boost4urls7grammar9lut_chars9constructINS1_22implementation_defined13digit_chars_tEEES2_T_h(ptr dead_on_unwind nonnull writable sret(%"class.boost::urls::grammar::lut_chars") align 8 %3, i8 noundef zeroext %16) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
@@ -2907,8 +2907,8 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined12tuple_rule_tINS0_6det
   br label %102
 
 56:                                               ; preds = %44, %.thread
-  %.sroa.17.0 = phi i64 [ %.sroa.2.0.copyload.i, %.thread ], [ 0, %44 ]
-  %.sroa.14.0 = phi ptr [ %.sroa.0.0.copyload.i, %.thread ], [ null, %44 ]
+  %.sroa.17.0 = phi i64 [ 0, %44 ], [ %.sroa.2.0.copyload.i, %.thread ]
+  %.sroa.14.0 = phi ptr [ null, %44 ], [ %.sroa.0.0.copyload.i, %.thread ]
   store ptr %.sroa.0111.0, ptr %0, align 8, !tbaa !3
   %.sroa.9.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx119, align 8, !tbaa !7
@@ -3485,13 +3485,13 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
   br i1 %.not.i.i.i.i50, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60, label %.lr.ph36.i.i.i.i47, !llvm.loop !206
 
 _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60: ; preds = %138, %.lr.ph36.i.i.i.i47, %.thread.i.i.i.i59, %.preheader.i.i.i.i41
-  %storemerge = phi ptr [ %123, %.thread.i.i.i.i59 ], [ %.021.lcssa.i.i.i.i43, %.preheader.i.i.i.i41 ], [ %scevgep.i.i.i.i46, %138 ], [ %.22335.i.i.i.i48, %.lr.ph36.i.i.i.i47 ]
+  %storemerge = phi ptr [ %.021.lcssa.i.i.i.i43, %.preheader.i.i.i.i41 ], [ %123, %.thread.i.i.i.i59 ], [ %.22335.i.i.i.i48, %.lr.ph36.i.i.i.i47 ], [ %scevgep.i.i.i.i46, %138 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !3
   %.not28 = icmp eq ptr %storemerge, %3
   br i1 %.not28, label %.loopexit, label %96
 
 .loopexit:                                        ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread
-  %.pre-phi = phi i64 [ %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit ], [ %.pre105, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread ], [ %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60 ]
+  %.pre-phi = phi i64 [ %.pre105, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60.thread ], [ %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit ], [ %52, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit60 ]
   %140 = ptrtoint ptr %9 to i64
   %141 = sub i64 %.pre-phi, %140
   store ptr %9, ptr %0, align 8, !tbaa !3
@@ -3923,9 +3923,9 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   br label %_ZN5boost6system6resultINS_8optionalINS_4urls15pct_string_viewEEENS0_10error_codeEED2Ev.exit
 
 _ZN5boost6system6resultINS_8optionalINS_4urls15pct_string_viewEEENS0_10error_codeEED2Ev.exit: ; preds = %35, %.cont.thread, %34
-  %.sroa.7.050 = phi ptr [ %.sroa.8.i.i.i.i.i.i.sroa.3.7.copyload, %35 ], [ null, %34 ], [ null, %.cont.thread ]
-  %.sroa.825.049 = phi i64 [ %.sroa.8.i.i.i.i.i.i.sroa.5.7.copyload, %35 ], [ 0, %34 ], [ 0, %.cont.thread ]
-  %.sroa.1128.048 = phi i8 [ 1, %35 ], [ 0, %34 ], [ 1, %.cont.thread ]
+  %.sroa.7.050 = phi ptr [ null, %.cont.thread ], [ %.sroa.8.i.i.i.i.i.i.sroa.3.7.copyload, %35 ], [ null, %34 ]
+  %.sroa.825.049 = phi i64 [ 0, %.cont.thread ], [ %.sroa.8.i.i.i.i.i.i.sroa.5.7.copyload, %35 ], [ 0, %34 ]
+  %.sroa.1128.048 = phi i8 [ 1, %.cont.thread ], [ 1, %35 ], [ 0, %34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.024, i64 64, i1 false), !tbaa.struct !242
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sroa.7.050, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !3

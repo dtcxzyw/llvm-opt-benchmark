@@ -1052,7 +1052,7 @@ define hidden noundef i64 @_ZNK13ArrayCopyNode22get_length_if_constantEP8PhaseGV
   br label %_ZNK4Node13find_long_conEi.exit
 
 _ZNK4Node13find_long_conEi.exit:                  ; preds = %33, %31, %30, %24, %2
-  %.0 = phi i64 [ -1, %2 ], [ -1, %30 ], [ %26, %24 ], [ -1, %31 ], [ %39, %33 ]
+  %.0 = phi i64 [ -1, %2 ], [ %26, %24 ], [ -1, %30 ], [ -1, %31 ], [ %39, %33 ]
   ret i64 %.0
 }
 
@@ -1190,7 +1190,7 @@ _ZN15ciInstanceKlass19has_injected_fieldsEv.exit: ; preds = %_ZN15ciInstanceKlas
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
 
 _ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %81, %79, %69, %59, %37, %57, %55, %32, %_ZN15ciInstanceKlass12has_subklassEv.exit, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit
-  %.0 = phi i32 [ -1, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit ], [ -1, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ -1, %32 ], [ %56, %55 ], [ %58, %57 ], [ -1, %37 ], [ %spec.select, %59 ], [ -1, %69 ], [ -1, %79 ], [ %spec.select.i7.i, %81 ]
+  %.0 = phi i32 [ %56, %55 ], [ %58, %57 ], [ -1, %37 ], [ -1, %32 ], [ -1, %_ZN15ciInstanceKlass19has_injected_fieldsEv.exit ], [ -1, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ %spec.select, %59 ], [ -1, %69 ], [ %spec.select.i7.i, %81 ], [ -1, %79 ]
   ret i32 %.0
 }
 
@@ -1690,7 +1690,7 @@ _ZN7ciField4typeEv.exit69:                        ; preds = %_ZNK10ciMetadata9is
   br label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %79, %._crit_edge, %_ZN15ciInstanceKlass12has_subklassEv.exit, %13, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ inttoptr (i64 -1 to ptr), %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ %., %._crit_edge ], [ inttoptr (i64 -1 to ptr), %79 ]
+  %.0 = phi ptr [ null, %4 ], [ inttoptr (i64 -1 to ptr), %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ %., %._crit_edge ], [ null, %13 ], [ inttoptr (i64 -1 to ptr), %79 ]
   ret ptr %.0
 }
 
@@ -1950,7 +1950,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   br label %113
 
 113:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit, %35, %105, %12, %16, %24, %27, %109
-  %.0 = phi i1 [ false, %109 ], [ false, %27 ], [ false, %24 ], [ false, %16 ], [ false, %12 ], [ true, %105 ], [ true, %35 ], [ true, %_ZN4Node7set_reqEjPS_.exit ]
+  %.0 = phi i1 [ false, %109 ], [ false, %12 ], [ false, %27 ], [ false, %24 ], [ false, %16 ], [ true, %105 ], [ true, %35 ], [ true, %_ZN4Node7set_reqEjPS_.exit ]
   ret i1 %.0
 }
 
@@ -2514,7 +2514,7 @@ _ZN4NodenwEm.exit155:                             ; preds = %336, %338
   br label %355
 
 355:                                              ; preds = %185, %351, %189, %122, %123, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %79, %65, %38, %51, %59
-  %.0 = phi i1 [ false, %59 ], [ false, %51 ], [ false, %38 ], [ false, %65 ], [ false, %79 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ false, %123 ], [ false, %122 ], [ false, %189 ], [ true, %351 ], [ true, %185 ]
+  %.0 = phi i1 [ false, %122 ], [ false, %38 ], [ false, %65 ], [ false, %79 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ false, %189 ], [ false, %59 ], [ false, %51 ], [ false, %123 ], [ true, %351 ], [ true, %185 ]
   ret i1 %.0
 }
 
@@ -3974,8 +3974,8 @@ _ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit81: ; preds 
   br i1 %203, label %179, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %202, %143, %171, %163
-  %.068 = phi ptr [ %158, %163 ], [ %174, %171 ], [ %162, %143 ], [ %174, %202 ]
-  %.067 = phi ptr [ %156, %163 ], [ %156, %171 ], [ %157, %143 ], [ %156, %202 ]
+  %.068 = phi ptr [ %162, %143 ], [ %158, %163 ], [ %174, %171 ], [ %174, %202 ]
+  %.067 = phi ptr [ %157, %143 ], [ %156, %163 ], [ %156, %171 ], [ %156, %202 ]
   br i1 %2, label %204, label %206
 
 204:                                              ; preds = %.loopexit
@@ -3997,7 +3997,7 @@ _ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit81: ; preds 
   br label %211
 
 211:                                              ; preds = %19, %206, %208, %88, %77, %27, %34, %40, %54, %66, %73, %3, %85
-  %.0 = phi ptr [ %87, %85 ], [ %0, %3 ], [ null, %73 ], [ null, %66 ], [ null, %54 ], [ null, %40 ], [ null, %34 ], [ null, %27 ], [ null, %77 ], [ null, %88 ], [ null, %208 ], [ %.067.mux, %206 ], [ null, %19 ]
+  %.0 = phi ptr [ %0, %3 ], [ null, %19 ], [ null, %27 ], [ %87, %85 ], [ %.067.mux, %206 ], [ null, %88 ], [ null, %77 ], [ null, %73 ], [ null, %66 ], [ null, %54 ], [ null, %40 ], [ null, %34 ], [ null, %208 ]
   ret ptr %.0
 }
 
@@ -4141,7 +4141,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14MergeMemStream15next_non_emp
   br label %_ZN14MergeMemStream14next_non_emptyEb.exit
 
 _ZN14MergeMemStream14next_non_emptyEb.exit:       ; preds = %31, %.thread5.us.i, %1, %.split.us.i, %34
-  %38 = phi i1 [ true, %.split.us.i ], [ true, %34 ], [ false, %1 ], [ %.not.i.not.not, %.thread5.us.i ], [ %.not.i.not.not, %31 ]
+  %38 = phi i1 [ true, %34 ], [ true, %.split.us.i ], [ false, %1 ], [ %.not.i.not.not, %.thread5.us.i ], [ %.not.i.not.not, %31 ]
   ret i1 %38
 }
 
@@ -4275,7 +4275,7 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode10may_modifyEPK10TypeOopPtrP
   br label %38
 
 38:                                               ; preds = %3, %36, %29
-  %.0 = phi i1 [ %35, %29 ], [ %37, %36 ], [ false, %3 ]
+  %.0 = phi i1 [ %37, %36 ], [ %35, %29 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -4614,7 +4614,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %.thread, %_Z
   br label %100
 
 100:                                              ; preds = %89, %79, %99, %48
-  %.0 = phi i1 [ %49, %48 ], [ false, %99 ], [ true, %79 ], [ true, %89 ]
+  %.0 = phi i1 [ %49, %48 ], [ true, %79 ], [ false, %99 ], [ true, %89 ]
   ret i1 %.0
 }
 

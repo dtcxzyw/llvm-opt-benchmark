@@ -489,7 +489,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17ha127484ed462fafdE.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17ha127484ed462fafdE.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #19
@@ -670,7 +670,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he482f29e485d29e1E"
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h272f558178149feeE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h272f558178149feeE.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
+  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }
@@ -1913,8 +1913,8 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   br i1 %67, label %.loopexit, label %.thread36
 
 .loopexit:                                        ; preds = %109, %41, %33, %89, %85, %81, %77, %73, %69, %64, %60, %96, %93
-  %.sroa.02.0505963 = phi i64 [ 1, %93 ], [ 1, %96 ], [ 3, %60 ], [ 3, %64 ], [ 3, %69 ], [ 3, %73 ], [ 3, %77 ], [ 3, %81 ], [ 3, %85 ], [ 3, %89 ], [ 2, %33 ], [ 3, %41 ], [ %.sroa.02.0505962, %109 ]
-  %.sroa.01.0 = phi i32 [ 0, %93 ], [ 0, %96 ], [ -18000, %60 ], [ -14400, %64 ], [ -21600, %69 ], [ -18000, %73 ], [ -25200, %77 ], [ -21600, %81 ], [ -28800, %85 ], [ -25200, %89 ], [ 0, %33 ], [ 0, %41 ], [ 0, %109 ]
+  %.sroa.02.0505963 = phi i64 [ 3, %89 ], [ 3, %85 ], [ 2, %33 ], [ 1, %96 ], [ 3, %60 ], [ 3, %64 ], [ 3, %69 ], [ 3, %73 ], [ 3, %77 ], [ 3, %81 ], [ 1, %93 ], [ 3, %41 ], [ %.sroa.02.0505962, %109 ]
+  %.sroa.01.0 = phi i32 [ -25200, %89 ], [ -28800, %85 ], [ 0, %33 ], [ 0, %96 ], [ -18000, %60 ], [ -14400, %64 ], [ -21600, %69 ], [ -18000, %73 ], [ -25200, %77 ], [ -21600, %81 ], [ 0, %93 ], [ 0, %41 ], [ 0, %109 ]
   %68 = icmp ugt i64 %.sroa.02.0505963, %3
   br i1 %68, label %119, label %116, !prof !10
 
@@ -1968,7 +1968,7 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   br i1 %or.cond46, label %.loopexit, label %.thread37
 
 .thread37:                                        ; preds = %112, %96, %33
-  %.sroa.02.0505961 = phi i64 [ 1, %96 ], [ 2, %33 ], [ %.sroa.02.0505962, %112 ]
+  %.sroa.02.0505961 = phi i64 [ 2, %33 ], [ 1, %96 ], [ %.sroa.02.0505962, %112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2005,7 +2005,7 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   br label %115
 
 .thread36:                                        ; preds = %_ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit, %39, %41, %48, %51, %54, %57, %60, %64, %69, %73, %77, %81, %85, %89, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit33"
-  %.sroa.02.0505962 = phi i64 [ 3, %39 ], [ 3, %41 ], [ 3, %48 ], [ 3, %51 ], [ 3, %54 ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ], [ 3, %69 ], [ 3, %73 ], [ 3, %77 ], [ 3, %81 ], [ 3, %85 ], [ 3, %89 ], [ %.sroa.02.051.lcssa52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit33" ], [ 5, %_ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit ]
+  %.sroa.02.0505962 = phi i64 [ %.sroa.02.051.lcssa52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit33" ], [ 3, %39 ], [ 3, %41 ], [ 3, %48 ], [ 3, %51 ], [ 3, %54 ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ], [ 3, %69 ], [ 3, %73 ], [ 3, %77 ], [ 3, %81 ], [ 3, %85 ], [ 3, %89 ], [ 5, %_ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit ]
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.02.0505962
   br label %109
 
@@ -2161,8 +2161,8 @@ define void @_ZN4jiff3fmt7rfc282214DateTimeParser12skip_comment17h337b9a6f9a117e
   br i1 %.not.i, label %_ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit, label %.lr.ph94
 
 _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: ; preds = %.lr.ph94, %"_ZN4core6option15Option$LT$T$GT$6map_or17h73a04798e508f6ceE.exit", %._crit_edge, %.thread
-  %.sroa.5.0.i.lcssa = phi i64 [ 0, %.thread ], [ 0, %._crit_edge ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h73a04798e508f6ceE.exit" ], [ %.sroa.5.0.i92, %.lr.ph94 ]
-  %.sroa.0.0.i.lcssa = phi ptr [ %24, %.thread ], [ %24, %._crit_edge ], [ %scevgep, %"_ZN4core6option15Option$LT$T$GT$6map_or17h73a04798e508f6ceE.exit" ], [ %.sroa.0.0.i93, %.lr.ph94 ]
+  %.sroa.5.0.i.lcssa = phi i64 [ 0, %.thread ], [ 0, %._crit_edge ], [ %.sroa.5.0.i92, %.lr.ph94 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h73a04798e508f6ceE.exit" ]
+  %.sroa.0.0.i.lcssa = phi ptr [ %24, %.thread ], [ %24, %._crit_edge ], [ %.sroa.0.0.i93, %.lr.ph94 ], [ %scevgep, %"_ZN4core6option15Option$LT$T$GT$6map_or17h73a04798e508f6ceE.exit" ]
   store ptr %.sroa.0.0.i.lcssa, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i.lcssa, ptr %40, align 8
@@ -2214,8 +2214,8 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   br label %46
 
 57:                                               ; preds = %49, %22, %26, %35, %27
-  %.sroa.033.2 = phi i8 [ %.sroa.033.083, %26 ], [ %.sroa.033.083, %27 ], [ %36, %35 ], [ %.sroa.033.083, %22 ], [ %50, %49 ]
-  %.sroa.011.1 = phi i1 [ false, %26 ], [ true, %27 ], [ false, %35 ], [ false, %22 ], [ false, %49 ]
+  %.sroa.033.2 = phi i8 [ %.sroa.033.083, %22 ], [ %.sroa.033.083, %26 ], [ %.sroa.033.083, %27 ], [ %36, %35 ], [ %50, %49 ]
+  %.sroa.011.1 = phi i1 [ false, %22 ], [ false, %26 ], [ true, %27 ], [ false, %35 ], [ false, %49 ]
   %58 = icmp ne ptr %.sroa.012.188, %15
   %.sroa.012.1.idx = zext i1 %58 to i64
   %.sroa.012.1 = getelementptr inbounds nuw i8, ptr %.sroa.012.188, i64 %.sroa.012.1.idx
@@ -2677,7 +2677,7 @@ define hidden void @_ZN4jiff6shared5posix6Parser12parse_prefix17h303ed5baaa3dc67
   unreachable
 
 common.resume.i:                                  ; preds = %220, %194, %149, %104, %70, %51
-  %common.resume.op.i = phi { ptr, i32 } [ %52, %51 ], [ %71, %70 ], [ %105, %104 ], [ %150, %149 ], [ %195, %194 ], [ %221, %220 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %71, %70 ], [ %52, %51 ], [ %150, %149 ], [ %105, %104 ], [ %195, %194 ], [ %221, %220 ]
   resume { ptr, i32 } %common.resume.op.i
 
 55:                                               ; preds = %40
@@ -4025,7 +4025,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i: ; preds = %_ZN4ji
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; preds = %27, %33
-  %.pn = phi { ptr, i64 } [ %32, %27 ], [ %38, %33 ]
+  %.pn = phi { ptr, i64 } [ %38, %33 ], [ %32, %27 ]
   %.sroa.0.1 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.17.sroa.0.1.in.in = extractvalue { ptr, i64 } %.pn, 1
   %.sroa.7.1 = trunc i64 %.sroa.17.sroa.0.1.in.in to i1
@@ -4091,8 +4091,8 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
   br label %130
 
 .thread:                                          ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i, %2, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit, %51
-  %.sroa.7.091 = phi i1 [ %.sroa.7.8.extract.trunc, %51 ], [ %.sroa.7.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ false, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ false, %2 ]
-  %.sroa.15.090 = phi i32 [ %.sroa.15.8.extract.trunc, %51 ], [ %.sroa.15.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ 0, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ 0, %2 ]
+  %.sroa.7.091 = phi i1 [ %.sroa.7.8.extract.trunc, %51 ], [ %.sroa.7.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ false, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ false, %2 ]
+  %.sroa.15.090 = phi i32 [ %.sroa.15.8.extract.trunc, %51 ], [ %.sroa.15.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ 0, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f3094c0d0a542f1E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %15, ptr noundef nonnull align 8 %1)
   %56 = load ptr, ptr %15, align 8, !noundef !8
@@ -4447,7 +4447,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i: ; preds = %
   unreachable
 
 common.resume:                                    ; preds = %348, %372, %105, %259
-  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %260, %259 ], [ %349, %348 ], [ %373, %372 ]
+  %common.resume.op = phi { ptr, i32 } [ %260, %259 ], [ %106, %105 ], [ %349, %348 ], [ %373, %372 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap28_$u7b$$u7b$closure$u7d$$u7d$17h70918f4062de4df7E.exit.i.i": ; preds = %97
@@ -4885,8 +4885,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: 
   br i1 %.not43.i.i, label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread64.i, label %237
 
 236:                                              ; preds = %237, %225, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i, %.sink.split97.i.i, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i
-  %.sroa.12.0.i = phi i64 [ %238, %237 ], [ %232, %225 ], [ %222, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %209, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.855.182.ph.i.i, %.sink.split97.i.i ]
-  %.sroa.051.0.i = phi ptr [ %234, %237 ], [ %231, %225 ], [ %221, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %208, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.054.183.ph.i.i, %.sink.split97.i.i ]
+  %.sroa.12.0.i = phi i64 [ %222, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %238, %237 ], [ %232, %225 ], [ %209, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.855.182.ph.i.i, %.sink.split97.i.i ]
+  %.sroa.051.0.i = phi ptr [ %221, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %234, %237 ], [ %231, %225 ], [ %208, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.054.183.ph.i.i, %.sink.split97.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !259
   br label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i
 
@@ -4918,8 +4918,8 @@ _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.th
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
 _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i: ; preds = %236, %177, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i
-  %.sroa.12.1.i = phi i64 [ %184, %177 ], [ %.sroa.12.0.i, %236 ], [ %175, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ]
-  %.sroa.051.1.i = phi ptr [ %183, %177 ], [ %.sroa.051.0.i, %236 ], [ %174, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ]
+  %.sroa.12.1.i = phi i64 [ %175, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ], [ %184, %177 ], [ %.sroa.12.0.i, %236 ]
+  %.sroa.051.1.i = phi ptr [ %174, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ], [ %183, %177 ], [ %.sroa.051.0.i, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !259
   %.not.i = icmp eq ptr %.sroa.051.1.i, null
   br i1 %.not.i, label %242, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
@@ -5094,15 +5094,15 @@ _ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65
 
 _ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i
-  %.pn = phi { ptr, i64 } [ %247, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i ], [ %93, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i ], [ %137, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i ]
+  %.pn = phi { ptr, i64 } [ %93, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i ], [ %137, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i ], [ %247, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i ]
   %.sroa.0.0 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.13.0 = extractvalue { ptr, i64 } %.pn, 1
   %.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
-_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread: ; preds = %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
-  %.sroa.0.062 = phi ptr [ %.sroa.0.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.048.1.i, %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i ], [ %.sroa.051.1.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i ], [ %.sroa.051.1.ph.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i ], [ %.sroa.0.1.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i ]
-  %.sroa.13.061 = phi i64 [ %.sroa.13.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.849.1.i, %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i ], [ %.sroa.12.1.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i ], [ %.sroa.12.1.ph.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i ], [ %.sroa.8.1.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i ]
+_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread: ; preds = %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
+  %.sroa.0.062 = phi ptr [ %.sroa.0.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.048.1.i, %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i ], [ %.sroa.051.1.ph.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i ], [ %.sroa.0.1.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i ], [ %.sroa.051.1.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i ]
+  %.sroa.13.061 = phi i64 [ %.sroa.13.0, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit ], [ %.sroa.849.1.i, %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i ], [ %.sroa.12.1.ph.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i ], [ %.sroa.8.1.i, %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i ], [ %.sroa.12.1.i, %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i ]
   store ptr %.sroa.0.062, ptr %0, align 8
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.13.061, ptr %286, align 8
@@ -5230,7 +5230,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; preds = %323, %317
-  %.pn.i36 = phi { ptr, i64 } [ %322, %317 ], [ %328, %323 ]
+  %.pn.i36 = phi { ptr, i64 } [ %328, %323 ], [ %322, %317 ]
   %.sroa.0.1.i37 = extractvalue { ptr, i64 } %.pn.i36, 0
   %.sroa.17.sroa.0.1.in.in.i = extractvalue { ptr, i64 } %.pn.i36, 1
   %.not52.i = icmp eq ptr %.sroa.0.1.i37, null
@@ -5306,8 +5306,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   %.not53.i = icmp eq ptr %353, null
   br i1 %.not53.i, label %.thread.thread131.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
-.thread.thread131.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
-  %.ph = phi i32 [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ]
+.thread.thread131.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
+  %.ph = phi i32 [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !274
   br label %360
 
@@ -5598,9 +5598,9 @@ _ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit: ; preds
 447:                                              ; preds = %449, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread, %294, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread, %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
   ret void
 
-_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread: ; preds = %435, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i, %352, %329, %417, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit
-  %.sroa.056.077 = phi ptr [ %.sroa.056.0, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit ], [ %436, %435 ], [ %.sroa.093.1.i, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i ], [ %353, %352 ], [ %308, %329 ], [ %415, %417 ]
-  %.sroa.12.076 = phi i64 [ %.sroa.12.0, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit ], [ %438, %435 ], [ %.sroa.8.1.i29, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i ], [ %354, %352 ], [ %330, %329 ], [ %418, %417 ]
+_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread: ; preds = %435, %329, %352, %417, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit
+  %.sroa.056.077 = phi ptr [ %.sroa.056.0, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit ], [ %436, %435 ], [ %308, %329 ], [ %353, %352 ], [ %415, %417 ], [ %.sroa.093.1.i, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i ]
+  %.sroa.12.076 = phi i64 [ %.sroa.12.0, %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit ], [ %438, %435 ], [ %330, %329 ], [ %354, %352 ], [ %418, %417 ], [ %.sroa.8.1.i29, %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i ]
   store ptr %.sroa.056.077, ptr %0, align 8
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.12.076, ptr %448, align 8

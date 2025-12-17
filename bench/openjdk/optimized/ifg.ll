@@ -577,7 +577,7 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %62, %76
   br label %_ZN16IndexSetIteratorC2EP8IndexSet.exit.split, !llvm.loop !11
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %_ZN16IndexSetIterator4nextEv.exit, %72, %_ZN16IndexSetIterator4nextEv.exit.us, %41, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.016.us, %41 ], [ %.016.us, %_ZN16IndexSetIterator4nextEv.exit.us ], [ %.016, %72 ], [ %.016, %_ZN16IndexSetIterator4nextEv.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ %.016.us, %_ZN16IndexSetIterator4nextEv.exit.us ], [ %.016.us, %41 ], [ %.016, %72 ], [ %.016, %_ZN16IndexSetIterator4nextEv.exit ]
   ret i32 %.0
 }
 
@@ -2534,7 +2534,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %62, %67
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %.preheader, %_ZNK5Block8get_nodeEj.exit, %94
-  %99 = phi i32 [ %63, %.preheader ], [ %63, %_ZNK5Block8get_nodeEj.exit ], [ %.pre, %94 ], [ %63, %84 ]
+  %99 = phi i32 [ %.pre, %94 ], [ %63, %.preheader ], [ %63, %_ZNK5Block8get_nodeEj.exit ], [ %63, %84 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %100 = zext i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next41, %100
@@ -2757,7 +2757,7 @@ _ZN8PhaseCFG21unmap_node_from_blockEPK4Node.exit: ; preds = %58, %67
   br label %75
 
 75:                                               ; preds = %14, %22, %41, %_ZN8PhaseCFG21unmap_node_from_blockEPK4Node.exit
-  %.0 = phi i1 [ true, %_ZN8PhaseCFG21unmap_node_from_blockEPK4Node.exit ], [ false, %41 ], [ false, %22 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %41 ], [ true, %_ZN8PhaseCFG21unmap_node_from_blockEPK4Node.exit ], [ false, %22 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -3225,7 +3225,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %124, %113, %119
   br label %.sink.split
 
 .sink.split:                                      ; preds = %111, %_ZN3LRG8SUBTRACTERK7RegMask.exit44, %88, %_ZN3LRG8SUBTRACTERK7RegMask.exit, %134
-  %.sink = phi i32 [ %141, %134 ], [ %89, %88 ], [ 1048575, %_ZN3LRG8SUBTRACTERK7RegMask.exit ], [ %112, %111 ], [ 1048575, %_ZN3LRG8SUBTRACTERK7RegMask.exit44 ]
+  %.sink = phi i32 [ 1048575, %_ZN3LRG8SUBTRACTERK7RegMask.exit ], [ %141, %134 ], [ %89, %88 ], [ %112, %111 ], [ 1048575, %_ZN3LRG8SUBTRACTERK7RegMask.exit44 ]
   store i32 %.sink, ptr %60, align 8
   br label %142
 

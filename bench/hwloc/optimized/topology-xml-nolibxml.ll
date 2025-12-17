@@ -106,7 +106,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr noundef wr
   br label %23
 
 23:                                               ; preds = %22, %4, %19
-  %.023 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %22 ]
+  %.023 = phi i32 [ 0, %19 ], [ -1, %22 ], [ -1, %4 ]
   ret i32 %.023
 }
 
@@ -192,7 +192,7 @@ hwloc_nolibxml_export_buffer.exit.tail.thread:    ; preds = %sub_0, %hwloc_nolib
   br label %hwloc_nolibxml_export_buffer.exit.thread
 
 hwloc_nolibxml_export_buffer.exit.thread:         ; preds = %.thread.i, %4, %31, %33, %21
-  %.014 = phi i32 [ -1, %21 ], [ %.0, %33 ], [ %.0, %31 ], [ -1, %4 ], [ -1, %.thread.i ]
+  %.014 = phi i32 [ -1, %21 ], [ %.0, %31 ], [ %.0, %33 ], [ -1, %4 ], [ -1, %.thread.i ]
   ret i32 %.014
 }
 
@@ -233,7 +233,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %
   br label %16
 
 16:                                               ; preds = %.thread, %5, %15
-  %.0 = phi i32 [ 0, %15 ], [ -1, %5 ], [ -1, %.thread ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %.thread ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -442,7 +442,7 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %59, %63
   br label %84
 
 hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %44, %59, %48, %28, %.thread61, %hwloc__nolibxml_import_find_child.exit
-  %.042 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ %.166, %.thread61 ], [ null, %28 ], [ null, %48 ], [ null, %59 ], [ null, %44 ], [ null, %.critedge ]
+  %.042 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ %.166, %.thread61 ], [ null, %44 ], [ null, %28 ], [ null, %48 ], [ null, %59 ], [ null, %.critedge ]
   %83 = load ptr, ptr %8, align 8, !tbaa !21
   tail call void @free(ptr noundef %83) #21
   tail call void @free(ptr noundef %.042) #21
@@ -538,7 +538,7 @@ hwloc_nolibxml_export_diff_buffer.exit.tail.thread: ; preds = %sub_0, %hwloc_nol
   br label %hwloc_nolibxml_export_diff_buffer.exit.thread
 
 hwloc_nolibxml_export_diff_buffer.exit.thread:    ; preds = %.thread.i, %3, %30, %32, %20
-  %.013 = phi i32 [ -1, %20 ], [ %.0, %32 ], [ %.0, %30 ], [ -1, %3 ], [ -1, %.thread.i ]
+  %.013 = phi i32 [ -1, %20 ], [ %.0, %30 ], [ %.0, %32 ], [ -1, %3 ], [ -1, %.thread.i ]
   ret i32 %.013
 }
 
@@ -579,7 +579,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noun
   br label %15
 
 15:                                               ; preds = %.thread, %4, %14
-  %.0 = phi i32 [ 0, %14 ], [ -1, %4 ], [ -1, %.thread ]
+  %.0 = phi i32 [ 0, %14 ], [ -1, %.thread ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1040,7 +1040,7 @@ sub_1100:                                         ; preds = %sub_094
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.tail98.thread, %6, %12, %3, %66
-  %.0 = phi i32 [ 0, %66 ], [ -1, %3 ], [ -1, %12 ], [ -1, %6 ], [ -1, %.tail98.thread ], [ -1, %60 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %6 ], [ 0, %66 ], [ -1, %12 ], [ -1, %.tail98.thread ], [ -1, %60 ]
   ret i32 %.0
 }
 
@@ -1120,7 +1120,7 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
   br label %38
 
 38:                                               ; preds = %.sink.split, %31, %20, %16, %12, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %12 ], [ 0, %16 ], [ -1, %20 ], [ -1, %31 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ -1, %12 ], [ -1, %20 ], [ -1, %31 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1164,7 +1164,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nound
   br label %21
 
 21:                                               ; preds = %16, %13, %10, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ -1, %5 ], [ -1, %10 ], [ -1, %13 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ -1, %5 ], [ 0, %1 ], [ -1, %10 ], [ -1, %13 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 
@@ -1589,7 +1589,7 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr noundef captures(none)
   br label %23
 
 23:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %14
-  %.0.i = phi i64 [ 5, %16 ], [ 5, %17 ], [ 4, %18 ], [ 6, %19 ], [ 4, %20 ], [ 4, %21 ], [ 5, %22 ], [ 0, %14 ]
+  %.0.i = phi i64 [ 5, %22 ], [ 5, %16 ], [ 5, %17 ], [ 4, %18 ], [ 6, %19 ], [ 4, %20 ], [ 4, %21 ], [ 0, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.0.i
   %25 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
   %26 = tail call i64 @strcspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.31) #24

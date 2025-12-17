@@ -273,7 +273,7 @@ define void @"_ZN77_$LT$salsa..database_impl..DatabaseImpl$u20$as$u20$core..defa
   br label %16
 
 16:                                               ; preds = %13, %5, %7, %10, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %7 ], [ null, %5 ], [ %spec.select, %13 ]
+  %.sroa.0.0 = phi ptr [ null, %5 ], [ null, %1 ], [ null, %10 ], [ %spec.select, %13 ], [ null, %7 ]
   call void @"_ZN5salsa7storage17Storage$LT$Db$GT$3new17h75a6f4c10636250aE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noundef align 1 %.sroa.0.0, ptr nonnull @anon.96c62b1b5a8d251be735847fdc8bea80.15)
   ret void
 }
@@ -399,7 +399,7 @@ define void @_ZN5salsa13database_impl12DatabaseImpl3new17h381f1172d3b742e3E(ptr 
   br label %"_ZN77_$LT$salsa..database_impl..DatabaseImpl$u20$as$u20$core..default..Default$GT$7default17h386f022a5bb8a0a9E.exit"
 
 "_ZN77_$LT$salsa..database_impl..DatabaseImpl$u20$as$u20$core..default..Default$GT$7default17h386f022a5bb8a0a9E.exit": ; preds = %1, %5, %7, %10, %13
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %7 ], [ null, %5 ], [ %spec.select.i, %13 ]
+  %.sroa.0.0.i = phi ptr [ null, %5 ], [ null, %1 ], [ null, %10 ], [ %spec.select.i, %13 ], [ null, %7 ]
   call void @"_ZN5salsa7storage17Storage$LT$Db$GT$3new17h75a6f4c10636250aE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noundef align 1 %.sroa.0.0.i, ptr nonnull @anon.96c62b1b5a8d251be735847fdc8bea80.15)
   ret void
 }

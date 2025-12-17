@@ -164,7 +164,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1018,7 +1018,7 @@ define void @_ZN6icu_7725FCDUTF16CollationIteratorC2ERKS0_PKDs(ptr noundef nonnu
   br label %81
 
 81:                                               ; preds = %78, %76, %70
-  %.0.i = phi ptr [ %77, %76 ], [ %80, %78 ], [ null, %70 ]
+  %.0.i = phi ptr [ %80, %78 ], [ %77, %76 ], [ null, %70 ]
   store ptr %.0.i, ptr %4, align 8, !tbaa !17
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %83 = load ptr, ptr %82, align 8, !tbaa !28
@@ -1148,7 +1148,7 @@ define noundef zeroext i1 @_ZNK6icu_7725FCDUTF16CollationIteratoreqERKNS_17Colla
   br label %63
 
 63:                                               ; preds = %23, %4, %11, %51, %39, %2
-  %.0 = phi i1 [ false, %2 ], [ %38, %23 ], [ false, %4 ], [ false, %11 ], [ false, %39 ], [ %62, %51 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ false, %4 ], [ %38, %23 ], [ false, %39 ], [ %62, %51 ]
   ret i1 %.0
 }
 
@@ -1378,7 +1378,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split: ; preds = %62, %58
   br label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split, %40, %44, %21, %26, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %39
-  %70 = phi i32 [ %24, %40 ], [ %24, %44 ], [ %24, %21 ], [ %24, %26 ], [ %24, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %24, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %24, %39 ], [ %69, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split ]
+  %70 = phi i32 [ %24, %40 ], [ %24, %44 ], [ %24, %21 ], [ %24, %26 ], [ %24, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %24, %39 ], [ %24, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %69, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !32
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -1615,7 +1615,7 @@ _ZNK6icu_7715Normalizer2Impl9nextFCD16ERPKDsS2_.exit35..critedge_crit_edge: ; pr
   br label %119
 
 119:                                              ; preds = %116, %114, %106
-  %.0.i.i = phi ptr [ %115, %114 ], [ %118, %116 ], [ null, %106 ]
+  %.0.i.i = phi ptr [ %118, %116 ], [ %115, %114 ], [ null, %106 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %.0.i.i, ptr %120, align 8, !tbaa !17
   %121 = icmp slt i16 %110, 0
@@ -1894,8 +1894,8 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split: ; preds = %65, %56
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %25, %39, %43, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %38, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
-  %73 = phi ptr [ %21, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %21, %38 ], [ %21, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ], [ %21, %43 ], [ %21, %39 ], [ %21, %25 ], [ %21, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %.ph, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split ]
-  %.09 = phi i32 [ %23, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %23, %38 ], [ %23, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ], [ %23, %43 ], [ %23, %39 ], [ %23, %25 ], [ %23, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %72, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split ]
+  %73 = phi ptr [ %21, %25 ], [ %21, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %21, %38 ], [ %21, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %21, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ], [ %21, %43 ], [ %21, %39 ], [ %.ph, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split ]
+  %.09 = phi i32 [ %23, %25 ], [ %23, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %23, %38 ], [ %23, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %23, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread ], [ %23, %43 ], [ %23, %39 ], [ %72, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread.sink.split ]
   %74 = and i32 %.09, 64512
   %75 = icmp eq i32 %74, 55296
   br i1 %75, label %76, label %.thread26
@@ -1923,7 +1923,7 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %_ZN6icu_7712Collati
   br label %.thread26
 
 .thread26:                                        ; preds = %60, %85, %80, %76, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread, %54, %._crit_edge, %62
-  %.0 = phi i32 [ -1, %62 ], [ -1, %._crit_edge ], [ -1, %54 ], [ %89, %85 ], [ %.09, %80 ], [ %.09, %76 ], [ %.09, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread ], [ 0, %60 ]
+  %.0 = phi i32 [ -1, %62 ], [ -1, %54 ], [ -1, %._crit_edge ], [ %89, %85 ], [ %.09, %80 ], [ %.09, %76 ], [ %.09, %_ZN6icu_7712CollationFCD7hasLcccEi.exit.thread ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -2073,8 +2073,8 @@ _ZN6icu_7725FCDUTF16CollationIterator16switchToBackwardEv.exit: ; preds = %.lr.p
   br label %59
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %36, %41, %17, %22, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %54, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %35, %60
-  %68 = phi ptr [ %56, %54 ], [ %18, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %18, %35 ], [ %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %61, %60 ], [ %18, %22 ], [ %18, %17 ], [ %18, %41 ], [ %18, %36 ]
-  %.08 = phi i32 [ %58, %54 ], [ %20, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %20, %35 ], [ %20, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %63, %60 ], [ %20, %22 ], [ %20, %17 ], [ %20, %41 ], [ %20, %36 ]
+  %68 = phi ptr [ %56, %54 ], [ %18, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %18, %35 ], [ %18, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %61, %60 ], [ %18, %17 ], [ %18, %22 ], [ %18, %41 ], [ %18, %36 ]
+  %.08 = phi i32 [ %58, %54 ], [ %20, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %20, %35 ], [ %20, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %63, %60 ], [ %20, %17 ], [ %20, %22 ], [ %20, %41 ], [ %20, %36 ]
   %69 = and i32 %.08, 64512
   %70 = icmp eq i32 %69, 56320
   br i1 %70, label %71, label %85
@@ -2326,7 +2326,7 @@ _ZNK6icu_7715Normalizer2Impl13previousFCD16EPKDsRS2_.exit41: ; preds = %76, %89,
   br label %125
 
 125:                                              ; preds = %122, %120, %112
-  %.0.i.i = phi ptr [ %121, %120 ], [ %124, %122 ], [ null, %112 ]
+  %.0.i.i = phi ptr [ %124, %122 ], [ %121, %120 ], [ null, %112 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %.0.i.i, ptr %126, align 8, !tbaa !17
   %127 = icmp slt i16 %116, 0
@@ -2500,7 +2500,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725FCDUTF16CollationIterator9
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %15, %23, %25
-  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %15 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %15 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %.0.i, ptr %28, align 8, !tbaa !17
   %29 = icmp slt i16 %19, 0

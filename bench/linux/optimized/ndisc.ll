@@ -429,7 +429,7 @@ ndisc_mc_map.exit:                                ; preds = %128
   br label %.thread
 
 .thread:                                          ; preds = %158, %160, %162, %161
-  %163 = phi i32 [ -22, %162 ], [ 0, %161 ], [ 0, %160 ], [ 0, %158 ]
+  %163 = phi i32 [ 0, %161 ], [ -22, %162 ], [ 0, %160 ], [ 0, %158 ]
   ret i32 %163
 }
 
@@ -1628,7 +1628,7 @@ define dso_local ptr @ndisc_ns_create(ptr noundef %0, ptr noundef readonly captu
   br label %ndisc_alloc_skb.exit.thread
 
 ndisc_alloc_skb.exit.thread:                      ; preds = %68, %65, %135, %134, %4
-  %140 = phi ptr [ null, %4 ], [ %63, %135 ], [ %63, %134 ], [ null, %65 ], [ null, %68 ]
+  %140 = phi ptr [ null, %4 ], [ %63, %134 ], [ %63, %135 ], [ null, %65 ], [ null, %68 ]
   ret ptr %140
 }
 
@@ -2769,7 +2769,7 @@ ndisc_parse_options.exit:                         ; preds = %53
   call void @__rcu_read_unlock() #14
   br label %ndisc_parse_options.exit.thread
 
-230:                                              ; preds = %213, %207, %219
+230:                                              ; preds = %219, %213, %207
   %231 = icmp slt i32 %208, 0
   br i1 %231, label %232, label %237
 
@@ -2853,7 +2853,7 @@ __neigh_lookup.exit.thread:                       ; preds = %259, %__neigh_looku
   br label %275
 
 275:                                              ; preds = %271, %__neigh_lookup.exit.thread, %264, %241
-  %276 = phi i32 [ 2, %241 ], [ 2, %__neigh_lookup.exit.thread ], [ 1, %264 ], [ 1, %271 ]
+  %276 = phi i32 [ 2, %241 ], [ 2, %__neigh_lookup.exit.thread ], [ 1, %271 ], [ 1, %264 ]
   %277 = icmp eq ptr %239, null
   br i1 %277, label %.thread25, label %.thread24
 
@@ -2900,7 +2900,7 @@ __neigh_lookup.exit.thread:                       ; preds = %259, %__neigh_looku
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %53, %56, %292, %294, %283, %285, %44, %.thread20, %295, %286, %158, %101, %36, %30, %1
-  %296 = phi i32 [ 2, %158 ], [ 4, %1 ], [ 2, %30 ], [ 2, %36 ], [ 2, %101 ], [ %278, %286 ], [ %287, %295 ], [ 2, %.thread20 ], [ 80, %44 ], [ %278, %285 ], [ %278, %283 ], [ %287, %294 ], [ %287, %292 ], [ 80, %56 ], [ 80, %53 ]
+  %296 = phi i32 [ 2, %158 ], [ 2, %.thread20 ], [ 4, %1 ], [ 2, %30 ], [ 2, %36 ], [ %287, %295 ], [ 2, %101 ], [ %278, %286 ], [ %278, %283 ], [ 80, %44 ], [ %278, %285 ], [ %287, %294 ], [ %287, %292 ], [ 80, %56 ], [ 80, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %296
 }
@@ -3272,7 +3272,7 @@ ndisc_parse_options.exit:                         ; preds = %58
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %58, %61, %32, %177, %181, %163, %165, %49, %236, %186, %166, %143, %106, %45, %27, %1
-  %238 = phi i32 [ 2, %143 ], [ 4, %1 ], [ 2, %27 ], [ 2, %45 ], [ 2, %106 ], [ %237, %236 ], [ 2, %186 ], [ 2, %166 ], [ 80, %49 ], [ 2, %165 ], [ 2, %163 ], [ 2, %181 ], [ 2, %177 ], [ 2, %32 ], [ 80, %61 ], [ 80, %58 ]
+  %238 = phi i32 [ 2, %143 ], [ 4, %1 ], [ 2, %27 ], [ 2, %32 ], [ 2, %45 ], [ 2, %163 ], [ 2, %106 ], [ %237, %236 ], [ 2, %186 ], [ 2, %166 ], [ 80, %49 ], [ 2, %165 ], [ 2, %181 ], [ 2, %177 ], [ 80, %61 ], [ 80, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %238
 }
@@ -3480,7 +3480,7 @@ ndisc_parse_options.exit:                         ; preds = %47
   br i1 %or.cond, label %ndisc_parse_options.exit.thread, label %.thread8
 
 .thread8:                                         ; preds = %120, %116
-  %124 = phi ptr [ %118, %116 ], [ %121, %120 ]
+  %124 = phi ptr [ %121, %120 ], [ %118, %116 ]
   %125 = load ptr, ptr %19, align 8
   %126 = call i32 @neigh_update(ptr noundef nonnull %124, ptr noundef %117, i8 noundef zeroext 4, i32 noundef 7, i32 noundef 0) #14
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 768
@@ -3518,7 +3518,7 @@ ndisc_parse_options.exit:                         ; preds = %47
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %47, %50, %139, %141, %120, %39, %142, %95, %33, %29, %27, %24, %1
-  %143 = phi i32 [ 4, %1 ], [ 2, %27 ], [ 2, %24 ], [ 2, %33 ], [ 2, %95 ], [ 2, %29 ], [ 1, %142 ], [ 80, %39 ], [ 2, %120 ], [ 1, %141 ], [ 1, %139 ], [ 80, %50 ], [ 80, %47 ]
+  %143 = phi i32 [ 4, %1 ], [ 2, %27 ], [ 2, %24 ], [ 2, %33 ], [ 1, %139 ], [ 2, %95 ], [ 2, %29 ], [ 2, %120 ], [ 1, %142 ], [ 80, %39 ], [ 1, %141 ], [ 80, %50 ], [ 80, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %143
 }
@@ -4035,9 +4035,9 @@ ndisc_parse_options.exit:                         ; preds = %50
   br i1 %or.cond, label %.thread63, label %.thread62
 
 .thread62:                                        ; preds = %321, %.thread58, %308
-  %325 = phi ptr [ %319, %.thread58 ], [ %267, %308 ], [ %322, %321 ]
-  %326 = phi ptr [ %312, %.thread58 ], [ %266, %308 ], [ %312, %321 ]
-  %327 = phi i8 [ %311, %.thread58 ], [ %309, %308 ], [ %311, %321 ]
+  %325 = phi ptr [ %322, %321 ], [ %319, %.thread58 ], [ %267, %308 ]
+  %326 = phi ptr [ %312, %321 ], [ %312, %.thread58 ], [ %266, %308 ]
+  %327 = phi i8 [ %311, %321 ], [ %311, %.thread58 ], [ %309, %308 ]
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %329 = load ptr, ptr %328, align 8
   %330 = icmp eq ptr %329, null
@@ -4086,11 +4086,11 @@ ndisc_parse_options.exit:                         ; preds = %50
   br label %.thread63
 
 .thread63:                                        ; preds = %362, %358, %352, %321
-  %363 = phi i1 [ true, %321 ], [ false, %352 ], [ false, %358 ], [ false, %362 ]
-  %364 = phi ptr [ null, %321 ], [ %325, %352 ], [ %325, %358 ], [ %325, %362 ]
-  %365 = phi ptr [ %312, %321 ], [ %326, %352 ], [ %326, %358 ], [ %326, %362 ]
-  %366 = phi i8 [ %311, %321 ], [ %327, %352 ], [ %327, %358 ], [ %327, %362 ]
-  %367 = phi i32 [ 2, %321 ], [ 1, %352 ], [ 1, %358 ], [ 1, %362 ]
+  %363 = phi i1 [ true, %321 ], [ false, %362 ], [ false, %352 ], [ false, %358 ]
+  %364 = phi ptr [ null, %321 ], [ %325, %362 ], [ %325, %352 ], [ %325, %358 ]
+  %365 = phi ptr [ %312, %321 ], [ %326, %362 ], [ %326, %352 ], [ %326, %358 ]
+  %366 = phi i8 [ %311, %321 ], [ %327, %362 ], [ %327, %352 ], [ %327, %358 ]
+  %367 = phi i32 [ 2, %321 ], [ 1, %362 ], [ 1, %352 ], [ 1, %358 ]
   %368 = load i32, ptr %95, align 8
   %369 = icmp eq i32 %368, 0
   %370 = load i32, ptr %98, align 4
@@ -4473,7 +4473,7 @@ ndisc_parse_options.exit:                         ; preds = %50
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %50, %53, %589, %591, %44, %592, %.thread74, %226, %208, %205, %182, %40, %37, %26, %24, %1
-  %593 = phi i32 [ 2, %226 ], [ 2, %182 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ 2, %208 ], [ 2, %205 ], [ %570, %.thread74 ], [ %570, %592 ], [ 80, %44 ], [ %570, %591 ], [ %570, %589 ], [ 80, %53 ], [ 80, %50 ]
+  %593 = phi i32 [ %570, %592 ], [ 2, %226 ], [ 2, %182 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ 2, %208 ], [ 2, %205 ], [ %570, %.thread74 ], [ 80, %44 ], [ %570, %591 ], [ %570, %589 ], [ 80, %53 ], [ 80, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %593
 }
@@ -4686,7 +4686,7 @@ ndisc_parse_options.exit:                         ; preds = %40
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %40, %43, %29, %124, %116, %112, %110, %88, %20, %1
-  %126 = phi i32 [ %125, %124 ], [ 2, %88 ], [ 2, %1 ], [ 2, %20 ], [ 4, %116 ], [ 4, %110 ], [ 4, %112 ], [ 80, %29 ], [ 80, %43 ], [ 80, %40 ]
+  %126 = phi i32 [ %125, %124 ], [ 2, %88 ], [ 2, %1 ], [ 2, %20 ], [ 4, %112 ], [ 4, %116 ], [ 4, %110 ], [ 80, %29 ], [ 80, %43 ], [ 80, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %126
 }
@@ -4842,7 +4842,7 @@ define dso_local i32 @ndisc_ifinfo_sysctl_change(ptr noundef %0, i32 noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %91, %93, %46, %95, %94, %51
-  %96 = phi i32 [ 0, %95 ], [ 0, %94 ], [ %52, %51 ], [ -1, %46 ], [ 0, %93 ], [ 0, %91 ]
+  %96 = phi i32 [ %52, %51 ], [ 0, %95 ], [ 0, %94 ], [ -1, %46 ], [ 0, %93 ], [ 0, %91 ]
   ret i32 %96
 }
 
@@ -5545,7 +5545,7 @@ define internal noundef i32 @ndisc_netdev_event(ptr readnone captures(none) %0, 
   br label %.thread7
 
 .thread7:                                         ; preds = %68, %70, %72, %71
-  %73 = phi i1 [ true, %72 ], [ %65, %71 ], [ %65, %70 ], [ %65, %68 ]
+  %73 = phi i1 [ %65, %71 ], [ true, %72 ], [ %65, %70 ], [ %65, %68 ]
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 128

@@ -21630,7 +21630,7 @@ addresses_equal.exit16.sink.split:                ; preds = %55, %33
   br label %addresses_equal.exit16
 
 addresses_equal.exit16:                           ; preds = %addresses_equal.exit16.sink.split, %48, %40, %addresses_equal.exit, %55, %xnap_get_private_data.exit
-  %.0 = phi i32 [ -1, %55 ], [ -1, %xnap_get_private_data.exit ], [ -1, %addresses_equal.exit ], [ -1, %40 ], [ -1, %48 ], [ %60, %addresses_equal.exit16.sink.split ]
+  %.0 = phi i32 [ -1, %40 ], [ -1, %48 ], [ -1, %55 ], [ -1, %xnap_get_private_data.exit ], [ -1, %addresses_equal.exit ], [ %60, %addresses_equal.exit16.sink.split ]
   ret i32 %.0
 }
 

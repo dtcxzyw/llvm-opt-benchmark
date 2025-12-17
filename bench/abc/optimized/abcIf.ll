@@ -1013,7 +1013,7 @@ thread-pre-split:                                 ; preds = %31
   br label %107
 
 107:                                              ; preds = %104, %101, %98, %95, %92, %87
-  %.sink.i = phi i32 [ 2, %95 ], [ 2, %92 ], [ 2, %87 ], [ 1, %101 ], [ 1, %98 ], [ %spec.select.i, %104 ]
+  %.sink.i = phi i32 [ 2, %87 ], [ 1, %98 ], [ 2, %95 ], [ 2, %92 ], [ %spec.select.i, %104 ], [ 1, %101 ]
   %108 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef %.sink.i) #20
   tail call void @If_ManCleanNodeCopy(ptr noundef nonnull %67) #20
   tail call void @If_ManCleanCutData(ptr noundef nonnull %67) #20
@@ -1331,7 +1331,7 @@ Abc_NtkFromIf.exit:                               ; preds = %.thread.i, %218, %2
   br label %255
 
 255:                                              ; preds = %252, %Abc_NtkFromIf.exit, %.loopexit, %254, %86
-  %.0 = phi ptr [ null, %254 ], [ null, %86 ], [ null, %.loopexit ], [ null, %Abc_NtkFromIf.exit ], [ %.066, %252 ]
+  %.0 = phi ptr [ null, %86 ], [ null, %.loopexit ], [ null, %Abc_NtkFromIf.exit ], [ null, %254 ], [ %.066, %252 ]
   ret ptr %.0
 }
 
@@ -1654,11 +1654,11 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
 
 .preheader:                                       ; preds = %3
   %5 = icmp sgt i32 %.val51, 1
-  br i1 %5, label %.lr.ph, label %.critedge
+  br i1 %5, label %.critedge.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader
+.critedge.lr.ph:                                  ; preds = %.preheader
   %6 = getelementptr i8, ptr %1, i64 8
-  br label %23
+  br label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 24
@@ -1670,7 +1670,7 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
   %12 = sext i32 %11 to i64
   %13 = xor i64 %9, %12
   %14 = xor i64 %13, 1
-  br label %73
+  br label %72
 
 15:                                               ; preds = %3
   %16 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef 0) #20
@@ -1681,91 +1681,91 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
   %20 = ptrtoint ptr %16 to i64
   %21 = sext i32 %19 to i64
   %22 = xor i64 %21, %20
-  br label %73
+  br label %72
 
-23:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+.critedge:                                        ; preds = %.critedge.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %52 ]
   %.val56 = load ptr, ptr %6, align 8, !tbaa !33
-  %24 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !35
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !35
-  %28 = ashr i32 %25, 1
-  %29 = ashr i32 %27, 1
-  %30 = icmp slt i32 %28, %2
-  br i1 %30, label %31, label %33
+  %23 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4, !tbaa !35
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !35
+  %27 = ashr i32 %24, 1
+  %28 = ashr i32 %26, 1
+  %29 = icmp slt i32 %27, %2
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %23
-  %32 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %28) #20
-  br label %38
+30:                                               ; preds = %.critedge
+  %31 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %27) #20
+  br label %37
 
-33:                                               ; preds = %23
-  %34 = sub nsw i32 %28, %2
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !54
-  br label %38
+32:                                               ; preds = %.critedge
+  %33 = sub nsw i32 %27, %2
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !54
+  br label %37
 
-38:                                               ; preds = %33, %31
-  %39 = phi ptr [ %32, %31 ], [ %37, %33 ]
-  %40 = and i32 %25, 1
-  %41 = ptrtoint ptr %39 to i64
-  %42 = zext nneg i32 %40 to i64
-  %43 = xor i64 %41, %42
-  %44 = inttoptr i64 %43 to ptr
-  %45 = icmp slt i32 %29, %2
-  br i1 %45, label %46, label %48
+37:                                               ; preds = %32, %30
+  %38 = phi ptr [ %31, %30 ], [ %36, %32 ]
+  %39 = and i32 %24, 1
+  %40 = ptrtoint ptr %38 to i64
+  %41 = zext nneg i32 %39 to i64
+  %42 = xor i64 %40, %41
+  %43 = inttoptr i64 %42 to ptr
+  %44 = icmp slt i32 %28, %2
+  br i1 %44, label %45, label %47
 
-46:                                               ; preds = %38
-  %47 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %29) #20
-  br label %53
+45:                                               ; preds = %37
+  %46 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %28) #20
+  br label %52
 
-48:                                               ; preds = %38
-  %49 = sub nsw i32 %29, %2
+47:                                               ; preds = %37
+  %48 = sub nsw i32 %28, %2
   %.val = load ptr, ptr %6, align 8, !tbaa !53
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %.val, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !54
-  br label %53
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw ptr, ptr %.val, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !54
+  br label %52
 
-53:                                               ; preds = %48, %46
-  %54 = phi ptr [ %47, %46 ], [ %52, %48 ]
-  %55 = and i32 %27, 1
-  %56 = ptrtoint ptr %54 to i64
-  %57 = zext nneg i32 %55 to i64
-  %58 = xor i64 %56, %57
-  %59 = inttoptr i64 %58 to ptr
-  %60 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %44, ptr noundef %59) #20
-  %61 = lshr exact i64 %indvars.iv, 1
+52:                                               ; preds = %47, %45
+  %53 = phi ptr [ %46, %45 ], [ %51, %47 ]
+  %54 = and i32 %26, 1
+  %55 = ptrtoint ptr %53 to i64
+  %56 = zext nneg i32 %54 to i64
+  %57 = xor i64 %55, %56
+  %58 = inttoptr i64 %57 to ptr
+  %59 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %43, ptr noundef %58) #20
+  %60 = lshr exact i64 %indvars.iv, 1
   %.val60 = load ptr, ptr %6, align 8, !tbaa !53
-  %62 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %61
-  store ptr %60, ptr %62, align 8, !tbaa !54
+  %61 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %60
+  store ptr %59, ptr %61, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val53 = load i32, ptr %4, align 4, !tbaa !34
-  %63 = trunc i64 %indvars.iv.next to i32
-  %64 = or disjoint i32 %63, 1
-  %65 = icmp slt i32 %64, %.val53
-  br i1 %65, label %23, label %.critedge.loopexit, !llvm.loop !137
+  %62 = trunc i64 %indvars.iv.next to i32
+  %63 = or disjoint i32 %62, 1
+  %64 = icmp slt i32 %63, %.val53
+  br i1 %64, label %.critedge, label %._crit_edge.loopexit, !llvm.loop !137
 
-.critedge.loopexit:                               ; preds = %53
-  %66 = and i64 %indvars.iv.next, 4294967294
-  %67 = ptrtoint ptr %60 to i64
-  br label %.critedge
+._crit_edge.loopexit:                             ; preds = %52
+  %65 = and i64 %indvars.iv.next, 4294967294
+  %66 = ptrtoint ptr %59 to i64
+  br label %._crit_edge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.043.lcssa = phi i64 [ 0, %.preheader ], [ %66, %.critedge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %67, %.critedge.loopexit ]
-  %68 = getelementptr i8, ptr %1, i64 8
-  %.val54 = load ptr, ptr %68, align 8, !tbaa !33
-  %69 = getelementptr inbounds nuw i32, ptr %.val54, i64 %.043.lcssa
-  %70 = load i32, ptr %69, align 4, !tbaa !35
-  %71 = sext i32 %70 to i64
-  %72 = xor i64 %.0.lcssa, %71
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.043.lcssa = phi i64 [ 0, %.preheader ], [ %65, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %66, %._crit_edge.loopexit ]
+  %67 = getelementptr i8, ptr %1, i64 8
+  %.val54 = load ptr, ptr %67, align 8, !tbaa !33
+  %68 = getelementptr inbounds nuw i32, ptr %.val54, i64 %.043.lcssa
+  %69 = load i32, ptr %68, align 4, !tbaa !35
+  %70 = sext i32 %69 to i64
+  %71 = xor i64 %.0.lcssa, %70
   store i32 0, ptr %4, align 4, !tbaa !34
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.critedge, %15, %7
-  %.042.in = phi i64 [ %14, %7 ], [ %22, %15 ], [ %72, %.critedge ]
+72:                                               ; preds = %._crit_edge, %15, %7
+  %.042.in = phi i64 [ %14, %7 ], [ %22, %15 ], [ %71, %._crit_edge ]
   %.042 = inttoptr i64 %.042.in to ptr
   ret ptr %.042
 }
@@ -2152,8 +2152,8 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %._crit_edge127.thread
 
 ._crit_edge127.thread:                            ; preds = %158, %183, %._crit_edge127
-  %.2.lcssa178 = phi i32 [ %181, %183 ], [ %181, %._crit_edge127 ], [ %.1.lcssa, %158 ]
-  %187 = phi i8 [ %169, %183 ], [ %169, %._crit_edge127 ], [ %165, %158 ]
+  %.2.lcssa178 = phi i32 [ %181, %._crit_edge127 ], [ %181, %183 ], [ %.1.lcssa, %158 ]
+  %187 = phi i8 [ %169, %._crit_edge127 ], [ %169, %183 ], [ %165, %158 ]
   %188 = icmp ult i8 %187, 4
   br i1 %188, label %.lr.ph131, label %197
 
@@ -2360,7 +2360,7 @@ define ptr @Abc_NodeFromIf_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.critedge, !llvm.loop !162
 
 .critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %13
-  %.lcssa = phi i64 [ %16, %13 ], [ %34, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph ], [ %34, %24 ]
+  %.lcssa = phi i64 [ %16, %13 ], [ %16, %.lr.ph ], [ %34, %..critedge.loopexit_crit_edge ], [ %34, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %39 = load ptr, ptr %38, align 8, !tbaa !139
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 1064
@@ -3048,7 +3048,7 @@ If_CutTruth.exit257:                              ; preds = %.lr.ph.i.i.i246, %.
   br i1 %388, label %372, label %.loopexit, !llvm.loop !172
 
 .loopexit:                                        ; preds = %383, %366, %.preheader
-  %.pre-phi303 = phi i32 [ 0, %.preheader ], [ %.pre302, %366 ], [ %387, %383 ]
+  %.pre-phi303 = phi i32 [ %.pre302, %366 ], [ 0, %.preheader ], [ %387, %383 ]
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %390 = load ptr, ptr %389, align 8, !tbaa !154
   %391 = tail call ptr @Kit_TruthToHop(ptr noundef %390, ptr noundef %367, i32 noundef %.pre-phi303, ptr noundef %3) #20
@@ -3057,7 +3057,7 @@ If_CutTruth.exit257:                              ; preds = %.lr.ph.i.i.i246, %.
   br label %393
 
 393:                                              ; preds = %331, %324, %322, %320, %If_CutTruth.exit257, %335, %351, %.loopexit, %365, %343, %If_CutTruth.exit
-  %.0172 = phi ptr [ %80, %If_CutTruth.exit ], [ %80, %If_CutTruth.exit257 ], [ %80, %335 ], [ %80, %343 ], [ %80, %351 ], [ %80, %365 ], [ %80, %.loopexit ], [ %80, %331 ], [ %80, %324 ], [ %321, %320 ], [ %323, %322 ]
+  %.0172 = phi ptr [ %80, %If_CutTruth.exit ], [ %80, %If_CutTruth.exit257 ], [ %80, %.loopexit ], [ %80, %335 ], [ %80, %343 ], [ %80, %351 ], [ %80, %365 ], [ %80, %324 ], [ %80, %331 ], [ %321, %320 ], [ %323, %322 ]
   %394 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %395 = load i64, ptr %394, align 4
   %396 = and i64 %395, 4096
@@ -3201,7 +3201,7 @@ Abc_NodeIfToHop.exit:                             ; preds = %.lr.ph49.i, %436, %
   br label %463
 
 463:                                              ; preds = %4, %462, %If_CutTruthW.exit
-  %.0 = phi ptr [ %78, %If_CutTruthW.exit ], [ %.2, %462 ], [ %.val221, %4 ]
+  %.0 = phi ptr [ %.2, %462 ], [ %78, %If_CutTruthW.exit ], [ %.val221, %4 ]
   ret ptr %.0
 }
 
@@ -3644,7 +3644,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %Vec_PtrPush.exit, %4
-  %.0 = phi ptr [ %.val42, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val.pre, %.loopexit.loopexit ], [ %.034, %48 ]
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val42, %4 ], [ %.val.pre, %.loopexit.loopexit ], [ %.034, %48 ]
   ret ptr %.0
 }
 

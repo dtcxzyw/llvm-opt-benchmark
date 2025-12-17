@@ -480,8 +480,8 @@ Abc_Clock.exit117:                                ; preds = %265, %268
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_Clock.exit103, %Abc_Clock.exit105, %186, %Abc_Clock.exit115, %Abc_Clock.exit117, %Abc_Clock.exit113
-  %.sink128 = phi i64 [ 220, %Abc_Clock.exit113 ], [ 228, %Abc_Clock.exit117 ], [ 212, %Abc_Clock.exit115 ], [ 228, %186 ], [ 212, %Abc_Clock.exit105 ], [ 220, %Abc_Clock.exit103 ]
-  %.0.ph = phi i32 [ 1, %Abc_Clock.exit113 ], [ -1, %Abc_Clock.exit117 ], [ 0, %Abc_Clock.exit115 ], [ -1, %186 ], [ 0, %Abc_Clock.exit105 ], [ 1, %Abc_Clock.exit103 ]
+  %.sink128 = phi i64 [ 220, %Abc_Clock.exit113 ], [ 228, %Abc_Clock.exit117 ], [ 212, %Abc_Clock.exit115 ], [ 212, %Abc_Clock.exit105 ], [ 228, %186 ], [ 220, %Abc_Clock.exit103 ]
+  %.0.ph = phi i32 [ 1, %Abc_Clock.exit113 ], [ -1, %Abc_Clock.exit117 ], [ 0, %Abc_Clock.exit115 ], [ 0, %Abc_Clock.exit105 ], [ -1, %186 ], [ 1, %Abc_Clock.exit103 ]
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink128
   %284 = load i32, ptr %283, align 4, !tbaa !27
   %285 = add nsw i32 %284, 1
@@ -1537,7 +1537,7 @@ veci_push.exit:                                   ; preds = %27, %80
   br label %.critedge
 
 .critedge:                                        ; preds = %veci_push.exit, %.critedge.loopexit, %9, %4
-  %.032 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %veci_push.exit ], [ %104, %.critedge.loopexit ]
+  %.032 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 1, %veci_push.exit ], [ %104, %.critedge.loopexit ]
   ret i32 %.032
 }
 

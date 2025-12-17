@@ -7278,7 +7278,7 @@ define internal fastcc i32 @fix_next_header(ptr noundef %0, i32 noundef %1) unna
   br label %._crit_edge20, !llvm.loop !12
 
 ._crit_edge20:                                    ; preds = %8, %10, %._crit_edge, %2
-  %.1 = phi i32 [ %15, %._crit_edge ], [ %3, %2 ], [ %15, %10 ], [ %15, %8 ]
+  %.1 = phi i32 [ %3, %2 ], [ %15, %._crit_edge ], [ %15, %10 ], [ %15, %8 ]
   ret i32 %.1
 }
 

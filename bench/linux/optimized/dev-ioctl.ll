@@ -289,12 +289,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   br label %.thread16
 
 .thread16:                                        ; preds = %90, %120, %100, %75, %75, %75, %69, %60, %40, %126, %123
-  %130 = phi i32 [ %124, %123 ], [ %129, %126 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -22, %75 ], [ -9, %90 ], [ -13, %120 ], [ -22, %100 ]
+  %130 = phi i32 [ %129, %126 ], [ -22, %75 ], [ %124, %123 ], [ -22, %100 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -9, %90 ], [ -13, %120 ]
   call void @kfree(ptr noundef %26) #10
   br label %131
 
 131:                                              ; preds = %.thread16, %.thread30, %13, %3
-  %132 = phi i32 [ %30, %.thread30 ], [ %130, %.thread16 ], [ -25, %3 ], [ -1, %13 ]
+  %132 = phi i32 [ %30, %.thread30 ], [ %130, %.thread16 ], [ -1, %13 ], [ -25, %3 ]
   %133 = sext i32 %132 to i64
   ret i64 %133
 }
@@ -451,8 +451,8 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr re
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
-55:                                               ; preds = %51, %.thread, %.thread9
-  %.ph = phi i32 [ -2, %.thread9 ], [ %22, %.thread ], [ %53, %51 ]
+55:                                               ; preds = %51, %.thread9, %.thread
+  %.ph = phi i32 [ %22, %.thread ], [ -2, %.thread9 ], [ %53, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @put_unused_fd(i32 noundef %18) #10
   br label %56
@@ -731,7 +731,7 @@ define internal i32 @autofs_dev_ioctl_requester(ptr readnone captures(none) %0, 
   br label %55
 
 55:                                               ; preds = %.thread4, %.thread, %54
-  %56 = phi i32 [ 0, %54 ], [ %13, %.thread ], [ -2, %.thread4 ]
+  %56 = phi i32 [ -2, %.thread4 ], [ 0, %54 ], [ %13, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %56
 }
@@ -965,16 +965,16 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone captures
   br label %.thread10
 
 .thread10:                                        ; preds = %.thread10.sink.split, %99, %55
-  %118 = phi i32 [ %68, %55 ], [ %106, %99 ], [ %.ph, %.thread10.sink.split ]
-  %119 = phi i32 [ 0, %55 ], [ 0, %99 ], [ %117, %.thread10.sink.split ]
-  %120 = phi i32 [ 0, %55 ], [ %107, %99 ], [ %.ph19, %.thread10.sink.split ]
+  %118 = phi i32 [ %106, %99 ], [ %68, %55 ], [ %.ph, %.thread10.sink.split ]
+  %119 = phi i32 [ 0, %99 ], [ 0, %55 ], [ %117, %.thread10.sink.split ]
+  %120 = phi i32 [ %107, %99 ], [ 0, %55 ], [ %.ph19, %.thread10.sink.split ]
   store i32 %118, ptr %8, align 8
   store i32 %119, ptr %10, align 4
   call void @path_put(ptr noundef nonnull %6) #10
   br label %121
 
 121:                                              ; preds = %.thread, %.thread8, %.thread10, %52
-  %122 = phi i32 [ %53, %52 ], [ %120, %.thread10 ], [ %77, %.thread ], [ -2, %.thread8 ]
+  %122 = phi i32 [ %53, %52 ], [ %120, %.thread10 ], [ -2, %.thread8 ], [ %77, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %122
 }

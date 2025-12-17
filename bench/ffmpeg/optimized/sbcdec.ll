@@ -475,8 +475,8 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %exitcond329.not.i, label %._crit_edge267.i, label %.preheader213.us.us.i, !llvm.loop !58
 
 ._crit_edge267.i:                                 ; preds = %._crit_edge262.split.us.us.us.i, %.preheader214.thread.i, %.preheader214.thread354.i
-  %206 = phi i8 [ %156, %.preheader214.thread354.i ], [ %158, %.preheader214.thread.i ], [ %154, %._crit_edge262.split.us.us.us.i ]
-  %.3185.lcssa.i = phi i32 [ %135, %.preheader214.thread354.i ], [ %135, %.preheader214.thread.i ], [ %.6.ph.us.us.us.i, %._crit_edge262.split.us.us.us.i ]
+  %206 = phi i8 [ %158, %.preheader214.thread.i ], [ %156, %.preheader214.thread354.i ], [ %154, %._crit_edge262.split.us.us.us.i ]
+  %.3185.lcssa.i = phi i32 [ %135, %.preheader214.thread.i ], [ %135, %.preheader214.thread354.i ], [ %.6.ph.us.us.us.i, %._crit_edge262.split.us.us.us.i ]
   %207 = load i32, ptr %103, align 4, !tbaa !44
   %208 = icmp eq i32 %207, 3
   br i1 %208, label %.preheader.lr.ph.i, label %sbc_unpack_frame.exit
@@ -530,15 +530,15 @@ define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next336.i, %wide.trip.count338.i
   br i1 %exitcond339.not.i, label %sbc_unpack_frame.exit, label %.preheader.us.i, !llvm.loop !60
 
-sbc_unpack_frame.exit.thread:                     ; preds = %.lr.ph251.us.us.us.i, %4, %19, %22, %60, %63, %17, %78, %102, %._crit_edge237.i
-  %.0.i.ph = phi i32 [ -3, %._crit_edge237.i ], [ -1, %102 ], [ -1, %78 ], [ -2, %17 ], [ -4, %63 ], [ -4, %60 ], [ -2, %22 ], [ -2, %19 ], [ -1, %4 ], [ -1, %.lr.ph251.us.us.us.i ]
+sbc_unpack_frame.exit.thread:                     ; preds = %.lr.ph251.us.us.us.i, %63, %4, %19, %17, %78, %102, %._crit_edge237.i, %22, %60
+  %.0.i.ph = phi i32 [ -4, %60 ], [ -2, %22 ], [ -3, %._crit_edge237.i ], [ -1, %102 ], [ -1, %78 ], [ -2, %17 ], [ -2, %19 ], [ -1, %4 ], [ -4, %63 ], [ -1, %.lr.ph251.us.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %529
 
 sbc_unpack_frame.exit:                            ; preds = %._crit_edge280.us.i, %.preheader214.i, %.preheader214.thread354.i, %.preheader214.thread.i, %._crit_edge267.i, %.preheader.lr.ph.i
-  %.3185.lcssa360.i = phi i32 [ %.3185.lcssa.i, %._crit_edge267.i ], [ %.3185.lcssa.i, %.preheader.lr.ph.i ], [ %135, %.preheader214.i ], [ %135, %.preheader214.thread.i ], [ %135, %.preheader214.thread354.i ], [ %.3185.lcssa.i, %._crit_edge280.us.i ]
+  %.3185.lcssa360.i = phi i32 [ %.3185.lcssa.i, %.preheader.lr.ph.i ], [ %.3185.lcssa.i, %._crit_edge267.i ], [ %135, %.preheader214.i ], [ %135, %.preheader214.thread354.i ], [ %135, %.preheader214.thread.i ], [ %.3185.lcssa.i, %._crit_edge280.us.i ]
   %.3185.biased.i = add i32 %.3185.lcssa360.i, 7
   %228 = lshr i32 %.3185.biased.i, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

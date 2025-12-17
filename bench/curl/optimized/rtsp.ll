@@ -199,7 +199,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   br label %51
 
 47:                                               ; preds = %29, %42, %41
-  %.0186.ph = phi ptr [ @.str.20, %42 ], [ @.str.18, %41 ], [ @.str.19, %29 ]
+  %.0186.ph = phi ptr [ @.str.18, %41 ], [ @.str.20, %42 ], [ @.str.19, %29 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %49 = load ptr, ptr %48, align 8, !tbaa !100
   %.not217 = icmp eq ptr %49, null
@@ -276,9 +276,9 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   br i1 %.not224, label %.thread284, label %.thread278
 
 .thread278:                                       ; preds = %61, %77, %70, %74, %68
-  %.0181280 = phi ptr [ %55, %70 ], [ %55, %74 ], [ %55, %68 ], [ %55, %77 ], [ %66, %61 ]
-  %.0185 = phi ptr [ %72, %70 ], [ %72, %74 ], [ null, %68 ], [ %72, %77 ], [ null, %61 ]
-  %.0184 = phi ptr [ null, %70 ], [ null, %74 ], [ null, %68 ], [ %82, %77 ], [ null, %61 ]
+  %.0181280 = phi ptr [ %55, %70 ], [ %55, %68 ], [ %55, %74 ], [ %55, %77 ], [ %66, %61 ]
+  %.0185 = phi ptr [ %72, %70 ], [ null, %68 ], [ %72, %74 ], [ %72, %77 ], [ null, %61 ]
+  %.0184 = phi ptr [ null, %70 ], [ null, %68 ], [ null, %74 ], [ %82, %77 ], [ null, %61 ]
   %83 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef 10) #7
   %.not225 = icmp eq ptr %83, null
   br i1 %.not225, label %89, label %84
@@ -596,13 +596,13 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %spec.select = select i1 %.not265, i32 0, i32 42
   br label %.thread284
 
-.thread284:                                       ; preds = %200, %195, %189, %184, %165, %218, %77, %213, %.thread282, %207, %157, %155, %142, %140, %136, %97, %212, %135, %132, %67, %50, %44
-  %.0187 = phi i32 [ 0, %44 ], [ %98, %97 ], [ 85, %132 ], [ 43, %135 ], [ %138, %136 ], [ %141, %140 ], [ %151, %142 ], [ %156, %155 ], [ %158, %157 ], [ %209, %.thread282 ], [ %211, %212 ], [ 0, %213 ], [ %208, %207 ], [ 43, %67 ], [ 43, %50 ], [ 27, %77 ], [ %spec.select, %218 ], [ %201, %200 ], [ %196, %195 ], [ %190, %189 ], [ %.3, %184 ], [ %169, %165 ]
+.thread284:                                       ; preds = %200, %184, %189, %195, %165, %218, %77, %213, %.thread282, %207, %157, %155, %142, %140, %136, %97, %212, %135, %132, %67, %50, %44
+  %.0187 = phi i32 [ 0, %44 ], [ %98, %97 ], [ 85, %132 ], [ 43, %135 ], [ %138, %136 ], [ %141, %140 ], [ %151, %142 ], [ %156, %155 ], [ %158, %157 ], [ %209, %.thread282 ], [ %211, %212 ], [ 27, %77 ], [ %spec.select, %218 ], [ 0, %213 ], [ 43, %67 ], [ %208, %207 ], [ 43, %50 ], [ %201, %200 ], [ %.3, %184 ], [ %190, %189 ], [ %196, %195 ], [ %169, %165 ]
   call void @Curl_dyn_free(ptr noundef nonnull %3) #7
   br label %220
 
 220:                                              ; preds = %61, %15, %.thread284, %43, %34
-  %.0 = phi i32 [ 43, %34 ], [ %.0187, %.thread284 ], [ 43, %43 ], [ 27, %15 ], [ 27, %61 ]
+  %.0 = phi i32 [ 43, %34 ], [ %.0187, %.thread284 ], [ 27, %61 ], [ 27, %15 ], [ 43, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -685,7 +685,7 @@ define internal i32 @rtsp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroex
   br label %.thread46
 
 .thread46:                                        ; preds = %19, %37, %.thread, %3, %18, %42
-  %.1 = phi i32 [ 85, %18 ], [ 56, %42 ], [ %9, %3 ], [ 0, %.thread ], [ 0, %37 ], [ 0, %19 ]
+  %.1 = phi i32 [ 56, %42 ], [ 85, %18 ], [ %9, %3 ], [ 0, %.thread ], [ 0, %37 ], [ 0, %19 ]
   ret i32 %.1
 }
 
@@ -863,7 +863,7 @@ define internal i32 @rtsp_rtp_write_resp(ptr noundef %0, ptr noundef %1, i64 nou
   br label %69
 
 69:                                               ; preds = %66, %64, %53, %32, %21, %16
-  %.0 = phi i32 [ %35, %32 ], [ %68, %66 ], [ 0, %64 ], [ %54, %53 ], [ %22, %21 ], [ 0, %16 ]
+  %.0 = phi i32 [ %35, %32 ], [ 0, %16 ], [ %68, %66 ], [ 0, %64 ], [ %54, %53 ], [ %22, %21 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %71 = load i32, ptr %70, align 8, !tbaa !77
   %72 = icmp eq i32 %71, 11
@@ -1175,7 +1175,7 @@ select.unfold.i:                                  ; preds = %.critedge2.i
   br i1 %.not68.i, label %rtsp_parse_transport.exit, label %.lr.ph.i
 
 rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %select.unfold.i, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
-  %.1 = phi i32 [ 85, %18 ], [ 0, %.loopexit.i ], [ 0, %39 ], [ 0, %.thread ], [ 0, %44 ], [ 86, %26 ], [ 86, %41 ], [ %spec.select85, %42 ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
+  %.1 = phi i32 [ 0, %44 ], [ 85, %18 ], [ 0, %.loopexit.i ], [ %spec.select85, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 86, %26 ], [ 86, %41 ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -1389,7 +1389,7 @@ rtp_write_body_junk.exit:                         ; preds = %66
   %.not164 = icmp eq i32 %70, 0
   br i1 %.not164, label %rtp_write_body_junk.exit.thread, label %rtp_write_body_junk.exit183
 
-rtp_write_body_junk.exit.thread:                  ; preds = %63, %58, %55, %66, %rtp_write_body_junk.exit, %.critedge
+rtp_write_body_junk.exit.thread:                  ; preds = %58, %55, %66, %63, %rtp_write_body_junk.exit, %.critedge
   %71 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %7, ptr noundef nonnull %.us-phi243, i64 noundef 1) #7
   %.not165 = icmp eq i32 %71, 0
   br i1 %.not165, label %72, label %rtp_write_body_junk.exit183
@@ -1452,8 +1452,8 @@ rtp_write_body_junk.exit175:                      ; preds = %102
   %.not159 = icmp eq i32 %105, 0
   br i1 %.not159, label %rtp_write_body_junk.exit175.thread, label %rtp_write_body_junk.exit183
 
-rtp_write_body_junk.exit175.thread:               ; preds = %99, %94, %91, %102, %88, %rtp_write_body_junk.exit175
-  %.6140 = phi i64 [ %.0134247, %rtp_write_body_junk.exit175 ], [ 1, %88 ], [ %.0134247, %102 ], [ %.0134247, %91 ], [ %.0134247, %94 ], [ %.0134247, %99 ]
+rtp_write_body_junk.exit175.thread:               ; preds = %94, %91, %102, %99, %88, %rtp_write_body_junk.exit175
+  %.6140 = phi i64 [ %.0134247, %rtp_write_body_junk.exit175 ], [ 1, %88 ], [ %.0134247, %99 ], [ %.0134247, %102 ], [ %.0134247, %91 ], [ %.0134247, %94 ]
   tail call void @Curl_dyn_free(ptr noundef nonnull %7) #7
   br label %.critedge169
 
@@ -1550,7 +1550,7 @@ rtp_write_body_junk.exit175.thread:               ; preds = %99, %94, %91, %102,
   br i1 %.not23.i, label %162, label %rtp_client_write.exit
 
 rtp_client_write.exit:                            ; preds = %139, %151, %155
-  %.str.54.sink.i = phi ptr [ @.str.52, %139 ], [ @.str.53, %151 ], [ @.str.54, %155 ]
+  %.str.54.sink.i = phi ptr [ @.str.53, %151 ], [ @.str.52, %139 ], [ @.str.54, %155 ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.54.sink.i) #7
   tail call void @Curl_dyn_free(ptr noundef nonnull %7) #7
   store i32 0, ptr %12, align 8, !tbaa !121
@@ -1574,9 +1574,9 @@ rtp_client_write.exit:                            ; preds = %139, %151, %155
   br label %.critedge169
 
 .critedge169:                                     ; preds = %122, %116, %rtp_write_body_junk.exit175.thread, %108, %72, %162
-  %.2136 = phi i64 [ 0, %72 ], [ %.0134247, %162 ], [ %.6140, %rtp_write_body_junk.exit175.thread ], [ %.0134247, %108 ], [ %.0134247, %116 ], [ %.0134247, %122 ]
-  %.2115 = phi i64 [ %76, %72 ], [ %143, %162 ], [ %.0113248, %rtp_write_body_junk.exit175.thread ], [ %112, %108 ], [ %120, %116 ], [ %120, %122 ]
-  %.2112 = phi ptr [ %75, %72 ], [ %142, %162 ], [ %.0110249, %rtp_write_body_junk.exit175.thread ], [ %111, %108 ], [ %119, %116 ], [ %119, %122 ]
+  %.2136 = phi i64 [ %.0134247, %162 ], [ 0, %72 ], [ %.0134247, %108 ], [ %.0134247, %122 ], [ %.6140, %rtp_write_body_junk.exit175.thread ], [ %.0134247, %116 ]
+  %.2115 = phi i64 [ %143, %162 ], [ %76, %72 ], [ %112, %108 ], [ %120, %122 ], [ %.0113248, %rtp_write_body_junk.exit175.thread ], [ %120, %116 ]
+  %.2112 = phi ptr [ %142, %162 ], [ %75, %72 ], [ %111, %108 ], [ %119, %122 ], [ %.0110249, %rtp_write_body_junk.exit175.thread ], [ %119, %116 ]
   %.not = icmp eq i64 %.2115, 0
   br i1 %.not, label %.critedge169.thread, label %19
 
@@ -1630,8 +1630,8 @@ rtp_client_write.exit:                            ; preds = %139, %151, %155
   %184 = tail call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %167, i64 noundef %spec.select.i182) #7
   br label %rtp_write_body_junk.exit183
 
-rtp_write_body_junk.exit183:                      ; preds = %137, %rtp_write_body_junk.exit, %rtp_write_body_junk.exit.thread, %rtp_write_body_junk.exit175, %106, %113, %30, %4, %156, %rtp_client_write.exit, %.critedge.i181, %179, %176, %171, %165, %.critedge169.thread
-  %.2 = phi i32 [ 0, %.critedge169.thread ], [ %184, %.critedge.i181 ], [ 0, %179 ], [ 0, %165 ], [ 0, %171 ], [ 0, %176 ], [ 23, %rtp_client_write.exit ], [ 27, %156 ], [ 0, %4 ], [ 27, %113 ], [ 27, %106 ], [ %105, %rtp_write_body_junk.exit175 ], [ 27, %rtp_write_body_junk.exit.thread ], [ %70, %rtp_write_body_junk.exit ], [ 27, %137 ], [ 56, %30 ]
+rtp_write_body_junk.exit183:                      ; preds = %137, %rtp_write_body_junk.exit.thread, %rtp_write_body_junk.exit, %113, %106, %rtp_write_body_junk.exit175, %30, %4, %156, %rtp_client_write.exit, %.critedge.i181, %179, %176, %171, %165, %.critedge169.thread
+  %.2 = phi i32 [ 0, %171 ], [ 0, %.critedge169.thread ], [ %184, %.critedge.i181 ], [ 0, %176 ], [ 0, %179 ], [ 0, %165 ], [ 23, %rtp_client_write.exit ], [ 0, %4 ], [ 27, %156 ], [ 27, %106 ], [ 27, %113 ], [ %70, %rtp_write_body_junk.exit ], [ 27, %rtp_write_body_junk.exit.thread ], [ 27, %137 ], [ 56, %30 ], [ %105, %rtp_write_body_junk.exit175 ]
   ret i32 %.2
 }
 

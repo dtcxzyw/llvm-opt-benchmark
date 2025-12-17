@@ -953,7 +953,7 @@ setup_vt_signal.exit:                             ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
-20:                                               ; preds = %18, %11
+20:                                               ; preds = %11, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %21 = call i32 @__libc_current_sigrtmax() #13
@@ -985,7 +985,7 @@ setup_vt_signal.exit10:                           ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
-31:                                               ; preds = %29, %._crit_edge
+31:                                               ; preds = %._crit_edge, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1006,7 +1006,7 @@ setup_vt_signal.exit10:                           ; preds = %27
   %39 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1824), ptr noundef null) #13
   br label %setup_vt_signal.exit13.thread
 
-setup_vt_signal.exit13.thread:                    ; preds = %38, %31
+setup_vt_signal.exit13.thread:                    ; preds = %31, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
@@ -1015,7 +1015,7 @@ setup_vt_signal.exit13.thread:                    ; preds = %38, %31
   br label %41
 
 41:                                               ; preds = %40, %setup_vt_signal.exit13.thread, %setup_vt_signal.exit10, %setup_vt_signal.exit
-  %.07 = phi i32 [ %13, %setup_vt_signal.exit ], [ 10, %setup_vt_signal.exit10 ], [ 12, %40 ], [ 0, %setup_vt_signal.exit13.thread ]
+  %.07 = phi i32 [ 10, %setup_vt_signal.exit10 ], [ %13, %setup_vt_signal.exit ], [ 12, %40 ], [ 0, %setup_vt_signal.exit13.thread ]
   ret i32 %.07
 }
 

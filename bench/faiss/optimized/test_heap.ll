@@ -181,15 +181,15 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit40:          ; preds = %.lr.ph.i.i.i.i.i.i.
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.idx
-  %.ptr112 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %18 = load i64, ptr %.ptr112, align 8, !tbaa !5
+  %.ptr111 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %18 = load i64, ptr %.ptr111, align 8, !tbaa !5
   %.not37.i.i.i.i = icmp eq i64 %18, 1
   br i1 %.not37.i.i.i.i, label %19, label %.thread121
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.idx
-  %.ptr111 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %21 = load i64, ptr %.ptr111, align 8, !tbaa !5
+  %.ptr112 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %21 = load i64, ptr %.ptr112, align 8, !tbaa !5
   %.not38.i.i.i.i = icmp eq i64 %21, 1
   br i1 %.not38.i.i.i.i, label %22, label %.thread121
 
@@ -210,7 +210,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit40:          ; preds = %.lr.ph.i.i.i.i.i.i.
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit60
 
-.thread121:                                       ; preds = %16, %19, %22
+.thread121:                                       ; preds = %19, %16, %22
   store i8 0, ptr %2, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %29, align 8, !tbaa !32
@@ -376,7 +376,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit60
 
 _ZNSt6vectorIlSaIlEED2Ev.exit60:                  ; preds = %30, %.thread, %78, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  %85 = phi ptr [ %45, %78 ], [ %45, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %33, %30 ], [ %28, %.thread ]
+  %85 = phi ptr [ %45, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %45, %78 ], [ %33, %30 ], [ %28, %.thread ]
   store ptr null, ptr %85, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 4000) #14
@@ -506,15 +506,15 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: 
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.idx
-  %.ptr115 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load i64, ptr %.ptr115, align 8, !tbaa !5
+  %.ptr114 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %19 = load i64, ptr %.ptr114, align 8, !tbaa !5
   %.not37.i.i.i.i = icmp eq i64 %19, 1
   br i1 %.not37.i.i.i.i, label %20, label %.thread124
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.idx
-  %.ptr114 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %22 = load i64, ptr %.ptr114, align 8, !tbaa !5
+  %.ptr115 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %22 = load i64, ptr %.ptr115, align 8, !tbaa !5
   %.not38.i.i.i.i = icmp eq i64 %22, 1
   br i1 %.not38.i.i.i.i, label %23, label %.thread124
 
@@ -535,7 +535,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: 
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit61
 
-.thread124:                                       ; preds = %17, %20, %23
+.thread124:                                       ; preds = %20, %17, %23
   store i8 0, ptr %2, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %30, align 8, !tbaa !32
@@ -706,7 +706,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit61
 
 _ZNSt6vectorIlSaIlEED2Ev.exit61:                  ; preds = %31, %.thread, %81, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  %88 = phi ptr [ %48, %81 ], [ %48, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %34, %31 ], [ %29, %.thread ]
+  %88 = phi ptr [ %48, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %48, %81 ], [ %34, %31 ], [ %29, %.thread ]
   store ptr null, ptr %88, align 8, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 160000000) #14

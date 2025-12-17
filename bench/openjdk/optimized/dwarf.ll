@@ -314,8 +314,8 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef
   br i1 %22, label %.thread21.i.sink.split, label %.thread21.i
 
 .thread21.i.sink.split:                           ; preds = %35, %.thread14.i, %34
-  %.sink = phi i64 [ %.0.ph.i, %34 ], [ %39, %.thread14.i ], [ %37, %35 ]
-  %.19.i.ph = phi i64 [ 4, %34 ], [ 4, %.thread14.i ], [ %spec.select119, %35 ]
+  %.sink = phi i64 [ %37, %35 ], [ %.0.ph.i, %34 ], [ %39, %.thread14.i ]
+  %.19.i.ph = phi i64 [ %spec.select119, %35 ], [ 4, %34 ], [ 4, %.thread14.i ]
   %40 = load i64, ptr %24, align 8
   %41 = load ptr, ptr %25, align 8
   %42 = ptrtoint ptr %29 to i64
@@ -538,12 +538,12 @@ _ZN11DwarfParser8read_lebEb.exit66:               ; preds = %.preheader71
   br label %.critedge
 
 149:                                              ; preds = %_ZN11DwarfParser8read_lebEb.exit54, %123, %126, %115, %118, %107, %109, %101, %102, %84, %87, %_ZN11DwarfParser17get_decoded_valueEv.exit, %50, %146, %141, %_ZN11DwarfParser8read_lebEb.exit66, %_ZN11DwarfParser8read_lebEb.exit60, %_ZN11DwarfParser8read_lebEb.exit48
-  %150 = phi i64 [ %.010.i, %50 ], [ 0, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %28, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %28, %84 ], [ %28, %87 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %106, %102 ], [ 0, %101 ], [ %114, %109 ], [ 0, %107 ], [ %122, %118 ], [ 0, %115 ], [ %129, %126 ], [ 0, %123 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %28, %141 ], [ %28, %146 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %151 = phi ptr [ %49, %50 ], [ %49, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %64, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %75, %84 ], [ %75, %87 ], [ %91, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %29, %102 ], [ %29, %101 ], [ %108, %109 ], [ %108, %107 ], [ %117, %118 ], [ %117, %115 ], [ %125, %126 ], [ %125, %123 ], [ %131, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %29, %141 ], [ %29, %146 ], [ %75, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.127 = phi i32 [ %.02683, %50 ], [ %.02683, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02683, %84 ], [ %.02683, %87 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02683, %102 ], [ %.02683, %101 ], [ %.02683, %109 ], [ %.02683, %107 ], [ %.02683, %118 ], [ %.02683, %115 ], [ %.02683, %126 ], [ %.02683, %123 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %145, %141 ], [ %.02683, %146 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.125 = phi i32 [ %.02484, %50 ], [ %.02484, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02484, %84 ], [ %.02484, %87 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02484, %102 ], [ %.02484, %101 ], [ %.02484, %109 ], [ %.02484, %107 ], [ %.02484, %118 ], [ %.02484, %115 ], [ %.02484, %126 ], [ %.02484, %123 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %144, %141 ], [ %.02484, %146 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.123 = phi i32 [ %.02285, %50 ], [ %.02285, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02285, %84 ], [ %.02285, %87 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02285, %102 ], [ %.02285, %101 ], [ %.02285, %109 ], [ %.02285, %107 ], [ %.02285, %118 ], [ %.02285, %115 ], [ %.02285, %126 ], [ %.02285, %123 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %143, %141 ], [ %.02285, %146 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.1 = phi i32 [ %.086, %50 ], [ %.086, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.086, %84 ], [ %.086, %87 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.086, %102 ], [ %.086, %101 ], [ %.086, %109 ], [ %.086, %107 ], [ %.086, %118 ], [ %.086, %115 ], [ %.086, %126 ], [ %.086, %123 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %142, %141 ], [ %.086, %146 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %150 = phi i64 [ %.010.i, %50 ], [ 0, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %28, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %28, %84 ], [ %28, %87 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %106, %102 ], [ 0, %101 ], [ %114, %109 ], [ 0, %107 ], [ %122, %118 ], [ 0, %115 ], [ %129, %126 ], [ 0, %123 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %28, %141 ], [ %28, %146 ]
+  %151 = phi ptr [ %49, %50 ], [ %49, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %64, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %75, %84 ], [ %75, %87 ], [ %75, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %91, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %29, %102 ], [ %29, %101 ], [ %108, %109 ], [ %108, %107 ], [ %117, %118 ], [ %117, %115 ], [ %125, %126 ], [ %125, %123 ], [ %131, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %29, %141 ], [ %29, %146 ]
+  %.127 = phi i32 [ %.02683, %50 ], [ %.02683, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02683, %84 ], [ %.02683, %87 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02683, %102 ], [ %.02683, %101 ], [ %.02683, %109 ], [ %.02683, %107 ], [ %.02683, %118 ], [ %.02683, %115 ], [ %.02683, %126 ], [ %.02683, %123 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %145, %141 ], [ %.02683, %146 ]
+  %.125 = phi i32 [ %.02484, %50 ], [ %.02484, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02484, %84 ], [ %.02484, %87 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02484, %102 ], [ %.02484, %101 ], [ %.02484, %109 ], [ %.02484, %107 ], [ %.02484, %118 ], [ %.02484, %115 ], [ %.02484, %126 ], [ %.02484, %123 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %144, %141 ], [ %.02484, %146 ]
+  %.123 = phi i32 [ %.02285, %50 ], [ %.02285, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02285, %84 ], [ %.02285, %87 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02285, %102 ], [ %.02285, %101 ], [ %.02285, %109 ], [ %.02285, %107 ], [ %.02285, %118 ], [ %.02285, %115 ], [ %.02285, %126 ], [ %.02285, %123 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %143, %141 ], [ %.02285, %146 ]
+  %.1 = phi i32 [ %.086, %50 ], [ %.086, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.086, %84 ], [ %.086, %87 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit54 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.086, %102 ], [ %.086, %101 ], [ %.086, %109 ], [ %.086, %107 ], [ %.086, %118 ], [ %.086, %115 ], [ %.086, %126 ], [ %.086, %123 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %142, %141 ], [ %.086, %146 ]
   %152 = icmp ult ptr %151, %3
   %153 = icmp ult i64 %150, %2
   %or.cond = select i1 %152, i1 %153, i1 false
@@ -775,8 +775,8 @@ _ZN11DwarfParser16get_entry_lengthEv.exit:        ; preds = %18, %24
   br i1 %15, label %.thread21.i.sink.split, label %.thread21.i
 
 .thread21.i.sink.split:                           ; preds = %35, %.thread14.i, %34
-  %.sink = phi i64 [ %.0.ph.i, %34 ], [ %39, %.thread14.i ], [ %37, %35 ]
-  %.19.i.ph = phi i64 [ 4, %34 ], [ 4, %.thread14.i ], [ %spec.select, %35 ]
+  %.sink = phi i64 [ %37, %35 ], [ %.0.ph.i, %34 ], [ %39, %.thread14.i ]
+  %.19.i.ph = phi i64 [ %spec.select, %35 ], [ 4, %34 ], [ 4, %.thread14.i ]
   %40 = load i64, ptr %16, align 8
   %41 = load ptr, ptr %4, align 8
   %42 = ptrtoint ptr %32 to i64
@@ -875,7 +875,7 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %70
   br i1 %.not, label %.loopexit, label %18, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN11DwarfParser16get_entry_lengthEv.exit, %82, %2, %67, %_ZN11DwarfParser8read_lebEb.exit
-  %.0 = phi i1 [ true, %_ZN11DwarfParser8read_lebEb.exit ], [ false, %67 ], [ false, %2 ], [ false, %82 ], [ false, %_ZN11DwarfParser16get_entry_lengthEv.exit ]
+  %.0 = phi i1 [ false, %67 ], [ true, %_ZN11DwarfParser8read_lebEb.exit ], [ false, %2 ], [ false, %82 ], [ false, %_ZN11DwarfParser16get_entry_lengthEv.exit ]
   ret i1 %.0
 }
 

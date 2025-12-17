@@ -47,7 +47,7 @@ define internal fastcc range(i32 -1, 1) i32 @oneshot_hash(ptr noundef %0, ptr no
   br label %17
 
 17:                                               ; preds = %15, %11, %13, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %spec.select, %15 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %11 ], [ %spec.select, %15 ], [ 0, %13 ]
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %6) #5
   tail call void @EVP_MD_free(ptr noundef %9) #5
   br label %18
@@ -252,7 +252,7 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   br label %54
 
 54:                                               ; preds = %.thread60, %40, %.thread, %52
-  %.039 = phi i32 [ -1, %52 ], [ 0, %40 ], [ 0, %.thread ], [ 0, %.thread60 ]
+  %.039 = phi i32 [ -1, %52 ], [ 0, %.thread60 ], [ 0, %40 ], [ 0, %.thread ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %20) #5
   br label %55
 
@@ -313,12 +313,12 @@ define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %17, %19, %21
-  %.0.ph = phi i32 [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ %spec.select, %23 ]
+  %.0.ph = phi i32 [ 0, %17 ], [ %spec.select, %23 ], [ 0, %21 ], [ 0, %19 ]
   call void @EVP_MD_free(ptr noundef nonnull %15) #5
   br label %25
 
 25:                                               ; preds = %.sink.split, %10, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %6 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -439,7 +439,7 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %15, %17, %.critedge, %29, %27, %45
-  %.0 = phi i32 [ %48, %45 ], [ %28, %27 ], [ %30, %29 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ %30, %29 ], [ %28, %27 ], [ %48, %45 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

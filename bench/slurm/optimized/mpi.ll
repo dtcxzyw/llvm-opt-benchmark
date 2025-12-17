@@ -1588,7 +1588,7 @@ _plugin_idx.exit:                                 ; preds = %32
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.mpi_conf_send_stepd) #12
   unreachable
 
-.thread:                                          ; preds = %.split234.us, %128, %.split216.us, %104, %.split196.us, %78, %.split178.us, %59, %.split253.us, %16, %_plugin_idx.exit.thread
+.thread:                                          ; preds = %128, %.split234.us, %104, %.split216.us, %78, %.split196.us, %59, %.split178.us, %16, %.split253.us, %_plugin_idx.exit.thread
   %139 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @context_lock) #10
   %.not133 = icmp eq i32 %139, 0
   br i1 %.not133, label %.loopexit, label %140
@@ -2191,11 +2191,11 @@ define dso_local range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %203
 
-.thread144:                                       ; preds = %199, %24, %29, %39, %.split178.us, %73, %78, %88, %.split227.us, %99, %104, %114, %.split279
+.thread144:                                       ; preds = %199, %24, %29, %.split178.us, %39, %73, %78, %.split227.us, %88, %99, %104, %.split279, %114
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %203
 
-.thread141:                                       ; preds = %.split331.us, %181, %171, %166, %198
+.thread141:                                       ; preds = %181, %.split331.us, %171, %166, %198
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   %.not119 = icmp eq ptr %142, null
   br i1 %.not119, label %203, label %202
@@ -2266,7 +2266,7 @@ _is_none_plugin.exit:                             ; preds = %.thread
   %.not6.i = icmp eq i32 %19, 0
   br i1 %.not6.i, label %_is_none_plugin.exit.thread, label %21
 
-_is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_none_plugin.exit
+_is_none_plugin.exit.thread:                      ; preds = %.thread, %14, %_is_none_plugin.exit
   tail call void @slurm_xfree(ptr noundef nonnull %0) #10
   store i32 0, ptr @g_context_cnt, align 4
   store i32 -2, ptr @client_plugin_id, align 4
@@ -2624,7 +2624,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   br i1 %187, label %.lr.ph117, label %._crit_edge118, !llvm.loop !31
 
 188:                                              ; preds = %67, %._crit_edge121, %63, %40, %_is_none_plugin.exit.thread
-  %.071 = phi i32 [ 0, %_is_none_plugin.exit.thread ], [ -1, %63 ], [ -1, %40 ], [ 0, %._crit_edge121 ], [ 0, %67 ]
+  %.071 = phi i32 [ 0, %_is_none_plugin.exit.thread ], [ -1, %40 ], [ -1, %63 ], [ 0, %._crit_edge121 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2708,8 +2708,8 @@ _is_none_plugin.exit:                             ; preds = %2
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.mpi_id_from_plugin_type) #12
   unreachable
 
-_is_none_plugin.exit.thread:                      ; preds = %1, %2, %.loopexit, %_is_none_plugin.exit
-  %.0 = phi i32 [ -2, %_is_none_plugin.exit ], [ %.012, %.loopexit ], [ -2, %2 ], [ -2, %1 ]
+_is_none_plugin.exit.thread:                      ; preds = %2, %1, %.loopexit, %_is_none_plugin.exit
+  %.0 = phi i32 [ -2, %_is_none_plugin.exit ], [ %.012, %.loopexit ], [ -2, %1 ], [ -2, %2 ]
   ret i32 %.0
 }
 

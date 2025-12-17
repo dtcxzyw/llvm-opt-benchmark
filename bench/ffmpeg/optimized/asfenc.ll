@@ -659,7 +659,7 @@ asf_write_index.exit.thread:                      ; preds = %.asf_write_index.ex
   br label %90
 
 90:                                               ; preds = %update_index.exit.thread, %asf_write_index.exit.thread, %82
-  %.0 = phi i32 [ 0, %82 ], [ 0, %asf_write_index.exit.thread ], [ %39, %update_index.exit.thread ]
+  %.0 = phi i32 [ %39, %update_index.exit.thread ], [ 0, %82 ], [ 0, %asf_write_index.exit.thread ]
   ret i32 %.0
 }
 
@@ -859,7 +859,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @asf_write_header1(ptr noun
   br label %75
 
 75:                                               ; preds = %70, %66, %54
-  %.1 = phi i32 [ %.0394496, %66 ], [ %.0394496, %54 ], [ %spec.select456, %70 ]
+  %.1 = phi i32 [ %.0394496, %54 ], [ %spec.select456, %70 ], [ %.0394496, %66 ]
   %76 = load ptr, ptr %49, align 8, !tbaa !45
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv552
   %78 = load ptr, ptr %77, align 8, !tbaa !47

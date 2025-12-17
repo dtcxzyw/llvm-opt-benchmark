@@ -9065,7 +9065,7 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr noundef rea
   br label %25
 
 25:                                               ; preds = %.sink.split, %13, %9
-  %.sink43 = phi i32 [ 24, %9 ], [ 25, %13 ], [ %.sink43.ph, %.sink.split ]
+  %.sink43 = phi i32 [ 25, %13 ], [ 24, %9 ], [ %.sink43.ph, %.sink.split ]
   %26 = load i32, ptr @hf_skinny_dialedNumber, align 4
   %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef %.sink43, i32 noundef 0)
   %28 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)

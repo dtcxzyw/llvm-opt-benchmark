@@ -109,7 +109,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %17
   br label %46
 
 46:                                               ; preds = %.sink.split, %8, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %8 ], [ %.016.ph, %.sink.split ]
+  %.016 = phi i32 [ 0, %8 ], [ 0, %2 ], [ %.016.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
@@ -284,7 +284,7 @@ define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef captures(addres
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !22
 
 .loopexit:                                        ; preds = %20, %22, %13, %5, %2
-  %.019 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %13 ], [ 0, %20 ], [ 1, %22 ]
+  %.019 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %13 ], [ 0, %20 ], [ 1, %22 ]
   ret i32 %.019
 }
 
@@ -304,7 +304,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef captures(address_is_
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %.loopexit, label %8
+  br i1 %or.cond, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %1, align 8, !tbaa !18
@@ -341,7 +341,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %23 = add i32 %22, 3
   %24 = and i32 %23, -4
   %25 = icmp eq ptr %19, null
-  br i1 %25, label %.loopexit, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %.thread
   %27 = mul i32 %24, %17
@@ -394,11 +394,11 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %51 = zext nneg i32 %12 to i64
   %52 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef %51, i64 noundef 1, ptr noundef nonnull %0)
   %.not56 = icmp eq i64 %52, 1
-  br i1 %.not56, label %.preheader, label %.loopexit
+  br i1 %.not56, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %50
   %.not66 = icmp eq i32 %17, 0
-  br i1 %.not66, label %.loopexit, label %.lr.ph
+  br i1 %.not66, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %53 = sext i32 %21 to i64
@@ -409,8 +409,8 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %wide.trip.count73 = zext i32 %17 to i64
   br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.critedge.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %64
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %64 ], [ 0, %.lr.ph ]
   %57 = trunc nuw i64 %indvars.iv70 to i32
   %58 = xor i32 %57, -1
   %59 = add i32 %17, %58
@@ -419,40 +419,40 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %62 = getelementptr inbounds nuw i8, ptr %19, i64 %61
   %63 = tail call i64 @fwrite(ptr noundef nonnull %62, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
   %.not57.us = icmp eq i64 %63, 1
-  br i1 %.not57.us, label %.critedge.us, label %.loopexit
+  br i1 %.not57.us, label %64, label %.critedge
 
-.critedge.us:                                     ; preds = %.lr.ph.split.us
+64:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %exitcond74.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !23
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
-  %64 = trunc nuw i64 %indvars.iv to i32
-  %65 = xor i32 %64, -1
-  %66 = add i32 %17, %65
-  %67 = zext i32 %66 to i64
-  %68 = mul nsw i64 %67, %53
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 %68
-  %70 = tail call i64 @fwrite(ptr noundef nonnull %69, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
-  %.not57 = icmp eq i64 %70, 1
-  br i1 %.not57, label %71, label %.loopexit
+.lr.ph.split:                                     ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
+  %65 = trunc nuw i64 %indvars.iv to i32
+  %66 = xor i32 %65, -1
+  %67 = add i32 %17, %66
+  %68 = zext i32 %67 to i64
+  %69 = mul nsw i64 %68, %53
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 %69
+  %71 = tail call i64 @fwrite(ptr noundef nonnull %70, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
+  %.not57 = icmp eq i64 %71, 1
+  br i1 %.not57, label %72, label %.critedge
 
-71:                                               ; preds = %.lr.ph.split
+72:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
-  %72 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef %56, i64 noundef 1, ptr noundef nonnull %0)
-  %.not59 = icmp eq i64 %72, 1
+  %73 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef %56, i64 noundef 1, ptr noundef nonnull %0)
+  %.not59 = icmp eq i64 %73, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not59, label %.critedge, label %.loopexit
+  br i1 %.not59, label %74, label %.critedge
 
-.critedge:                                        ; preds = %71
+74:                                               ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph.split, %71, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %50, %.thread, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %50 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %.lr.ph.split ], [ 0, %71 ], [ 1, %.critedge ]
+.critedge:                                        ; preds = %74, %.lr.ph.split, %72, %64, %.lr.ph.split.us, %.preheader, %50, %.thread, %2
+  %.0 = phi i32 [ 0, %50 ], [ 0, %2 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %64 ], [ 0, %.lr.ph.split.us ], [ 0, %72 ], [ 0, %.lr.ph.split ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -878,7 +878,7 @@ WebPIsAlphaMode.exit:                             ; preds = %174, %177
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !24
 
 .loopexit:                                        ; preds = %202, %204, %.preheader, %197, %WebPIsAlphaMode.exit, %2
-  %.032 = phi i32 [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 0, %197 ], [ 1, %.preheader ], [ 0, %202 ], [ 1, %204 ]
+  %.032 = phi i32 [ 0, %197 ], [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 1, %.preheader ], [ 0, %202 ], [ 1, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.032
 }
@@ -1435,7 +1435,7 @@ sub_0:                                            ; preds = %3
   br i1 %exitcond.not.i109, label %WebPWritePAM.exit, label %102, !llvm.loop !25
 
 WebPWritePAM.exit:                                ; preds = %104, %102, %77, %75, %57, %55, %38, %36, %96, %88, %68, %60, %49, %41, %30, %22, %19, %20, %80, %84, %86, %82
-  %.0 = phi i32 [ %21, %20 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ 1, %19 ], [ 0, %22 ], [ 1, %30 ], [ 0, %41 ], [ 1, %49 ], [ 0, %60 ], [ 1, %68 ], [ 0, %88 ], [ 1, %96 ], [ 1, %38 ], [ 0, %36 ], [ 1, %57 ], [ 0, %55 ], [ 1, %77 ], [ 0, %75 ], [ 0, %102 ], [ 1, %104 ]
+  %.0 = phi i32 [ %21, %20 ], [ 1, %19 ], [ 1, %96 ], [ 0, %88 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ 1, %68 ], [ 1, %77 ], [ 0, %22 ], [ 1, %30 ], [ 0, %55 ], [ 0, %41 ], [ 1, %49 ], [ 0, %60 ], [ 0, %36 ], [ 1, %38 ], [ 1, %57 ], [ 0, %75 ], [ 1, %104 ], [ 0, %102 ]
   %107 = load ptr, ptr @stdout, align 8, !tbaa !43
   %.not93 = icmp eq ptr %14, %107
   br i1 %.not93, label %.thread, label %108
@@ -1445,7 +1445,7 @@ WebPWritePAM.exit:                                ; preds = %104, %102, %77, %75
   br label %.thread
 
 .thread:                                          ; preds = %3, %WebPWritePAM.exit, %108, %16
-  %.086 = phi i32 [ 0, %16 ], [ %.0, %108 ], [ %.0, %WebPWritePAM.exit ], [ 0, %3 ]
+  %.086 = phi i32 [ 0, %3 ], [ 0, %16 ], [ %.0, %108 ], [ %.0, %WebPWritePAM.exit ]
   ret i32 %.086
 }
 

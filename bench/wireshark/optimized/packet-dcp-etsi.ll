@@ -277,7 +277,7 @@ define internal noundef zeroext i1 @dissect_dcp_etsi_heur(ptr noundef %0, ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %7, %14, %12, %9, %4, %24, %26
-  %.021 = phi i1 [ true, %26 ], [ false, %24 ], [ false, %4 ], [ false, %9 ], [ false, %12 ], [ false, %14 ], [ false, %7 ], [ false, %17 ]
+  %.021 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %9 ], [ true, %26 ], [ false, %12 ], [ false, %24 ], [ false, %14 ], [ false, %17 ]
   ret i1 %.021
 }
 
@@ -833,7 +833,7 @@ dissect_pft_fec_detailed.exit.thread.i:           ; preds = %dissect_pft_fec_det
   br label %189
 
 189:                                              ; preds = %188, %dissect_pft_fec_detailed.exit.thread44.i
-  %.042.i = phi ptr [ null, %188 ], [ %.047.i, %dissect_pft_fec_detailed.exit.thread44.i ]
+  %.042.i = phi ptr [ %.047.i, %dissect_pft_fec_detailed.exit.thread44.i ], [ null, %188 ]
   br i1 %71, label %190, label %192
 
 190:                                              ; preds = %189

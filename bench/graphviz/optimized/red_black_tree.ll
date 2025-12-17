@@ -58,7 +58,7 @@ define noalias noundef ptr @RBTreeCreate(ptr noundef %0, ptr noundef %1) local_u
   br label %25
 
 25:                                               ; preds = %2, %20, %19, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %19 ], [ %3, %20 ], [ null, %2 ]
+  %.0 = phi ptr [ %3, %20 ], [ null, %11 ], [ null, %19 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -457,7 +457,7 @@ define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader24, %.preheader, %14
-  %.0 = phi ptr [ %.1, %.preheader ], [ %4, %14 ], [ %.019, %.preheader24 ]
+  %.0 = phi ptr [ %4, %14 ], [ %.1, %.preheader ], [ %.019, %.preheader24 ]
   ret ptr %.0
 }
 
@@ -563,8 +563,8 @@ define void @RBDelete(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   br i1 %.not23.i, label %TreeSuccessor.exit, label %.preheader24.i, !llvm.loop !23
 
 TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2, %10
-  %16 = phi ptr [ %8, %10 ], [ %8, %2 ], [ %15, %.preheader24.i ]
-  %17 = phi ptr [ %1, %10 ], [ %1, %2 ], [ %.019.i, %.preheader24.i ]
+  %16 = phi ptr [ %8, %2 ], [ %8, %10 ], [ %15, %.preheader24.i ]
+  %17 = phi ptr [ %1, %2 ], [ %1, %10 ], [ %.019.i, %.preheader24.i ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = icmp eq ptr %16, %4
   br i1 %19, label %20, label %23
@@ -668,7 +668,7 @@ TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2,
   br label %71
 
 71:                                               ; preds = %64, %70, %61, %62
-  %.sink = phi ptr [ %1, %62 ], [ %1, %61 ], [ %17, %70 ], [ %17, %64 ]
+  %.sink = phi ptr [ %1, %61 ], [ %1, %62 ], [ %17, %70 ], [ %17, %64 ]
   tail call void @free(ptr noundef nonnull %.sink) #7
   ret void
 }

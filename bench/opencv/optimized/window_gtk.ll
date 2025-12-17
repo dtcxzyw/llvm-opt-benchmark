@@ -1425,10 +1425,10 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %18
   br label %106
 
 106:                                              ; preds = %65, %97, %101, %56, %60
-  %.sroa.11.0 = phi i32 [ %59, %56 ], [ %64, %60 ], [ %100, %97 ], [ %105, %101 ], [ -1, %65 ]
-  %.sroa.7.0 = phi i32 [ %48, %56 ], [ %48, %60 ], [ %89, %97 ], [ %89, %101 ], [ -1, %65 ]
-  %.sroa.4.0 = phi i32 [ %29, %56 ], [ %29, %60 ], [ %70, %97 ], [ %70, %101 ], [ -1, %65 ]
-  %.sroa.0.0 = phi i32 [ %28, %56 ], [ %28, %60 ], [ %69, %97 ], [ %69, %101 ], [ -1, %65 ]
+  %.sroa.11.0 = phi i32 [ %105, %101 ], [ %64, %60 ], [ %59, %56 ], [ %100, %97 ], [ -1, %65 ]
+  %.sroa.7.0 = phi i32 [ %89, %101 ], [ %48, %60 ], [ %48, %56 ], [ %89, %97 ], [ -1, %65 ]
+  %.sroa.4.0 = phi i32 [ %70, %101 ], [ %29, %60 ], [ %29, %56 ], [ %70, %97 ], [ -1, %65 ]
+  %.sroa.0.0 = phi i32 [ %69, %101 ], [ %28, %60 ], [ %28, %56 ], [ %69, %97 ], [ -1, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i64
@@ -3069,7 +3069,7 @@ _ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %139
 
 139:                                              ; preds = %130, %132, %135, %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %44
-  %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %45, %44 ], [ %138, %137 ], [ %136, %135 ], [ %133, %132 ], [ %131, %130 ]
+  %.pn48.pn = phi { ptr, i32 } [ %.pn48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %45, %44 ], [ %136, %135 ], [ %138, %137 ], [ %133, %132 ], [ %131, %130 ]
   call void @_ZNSt12__shared_ptrI8CvWindowLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
   br label %common.resume
 
@@ -5384,7 +5384,7 @@ _ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit97: ; pre
   br label %.body
 
 .body:                                            ; preds = %171, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10CvTrackbarSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, %196, %236, %173, %177, %179, %175
-  %.pn69.pn = phi { ptr, i32 } [ %174, %173 ], [ %176, %175 ], [ %180, %179 ], [ %178, %177 ], [ %237, %236 ], [ %197, %196 ], [ %172, %171 ], [ %88, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10CvTrackbarSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ]
+  %.pn69.pn = phi { ptr, i32 } [ %178, %177 ], [ %197, %196 ], [ %174, %173 ], [ %176, %175 ], [ %180, %179 ], [ %237, %236 ], [ %172, %171 ], [ %88, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10CvTrackbarSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ]
   call void @_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #33
   br label %238
 
@@ -7884,7 +7884,7 @@ _ZL13getGTKWindowsv.exit50:                       ; preds = %.lr.ph.split, %128,
   br label %148
 
 148:                                              ; preds = %_ZL13getGTKWindowsv.exit48, %.critedge43, %90, %.critedge.thread
-  %.129 = phi i32 [ %146, %.critedge.thread ], [ -1, %90 ], [ %spec.select, %_ZL13getGTKWindowsv.exit48 ], [ -1, %.critedge43 ]
+  %.129 = phi i32 [ %146, %.critedge.thread ], [ -1, %90 ], [ -1, %.critedge43 ], [ %spec.select, %_ZL13getGTKWindowsv.exit48 ]
   ret i32 %.129
 }
 
@@ -8126,7 +8126,7 @@ _Z22cvImageWidget_get_typev.exit45:               ; preds = %.critedge, %19
   br label %36
 
 36:                                               ; preds = %_Z22cvImageWidget_get_typev.exit45, %30, %33
-  %storemerge = phi i32 [ %32, %30 ], [ %35, %33 ], [ 320, %_Z22cvImageWidget_get_typev.exit45 ]
+  %storemerge = phi i32 [ %35, %33 ], [ %32, %30 ], [ 320, %_Z22cvImageWidget_get_typev.exit45 ]
   store i32 %storemerge, ptr %1, align 4, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !80
@@ -8224,7 +8224,7 @@ _Z22cvImageWidget_get_typev.exit45:               ; preds = %.critedge, %19
   br label %36
 
 36:                                               ; preds = %_Z22cvImageWidget_get_typev.exit45, %30, %33
-  %storemerge = phi i32 [ %32, %30 ], [ %35, %33 ], [ 240, %_Z22cvImageWidget_get_typev.exit45 ]
+  %storemerge = phi i32 [ %35, %33 ], [ %32, %30 ], [ 240, %_Z22cvImageWidget_get_typev.exit45 ]
   store i32 %storemerge, ptr %1, align 4, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !80
@@ -9742,7 +9742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172.i: ; preds = %
   br label %284
 
 284:                                              ; preds = %.loopexit.split-lp.i, %213, %211, %209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.i
-  %.pn64.pn.pn.pn.i = phi { ptr, i32 } [ %210, %209 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.i ], [ %212, %211 ], [ %.pn64.i, %.loopexit.split-lp.i ], [ %214, %213 ]
+  %.pn64.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160.i ], [ %210, %209 ], [ %212, %211 ], [ %.pn64.i, %.loopexit.split-lp.i ], [ %214, %213 ]
   %285 = load ptr, ptr %6, align 8, !tbaa !7
   %286 = icmp eq ptr %285, %48
   br i1 %286, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i173.i
@@ -9787,7 +9787,7 @@ _ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit: ; preds = %_ZNSt7__cxx1112
   br label %296
 
 296:                                              ; preds = %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit, %295, %294, %293
-  %.0 = phi i32 [ %292, %295 ], [ 13, %293 ], [ 9, %294 ], [ 27, %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit ]
+  %.0 = phi i32 [ %292, %295 ], [ 9, %294 ], [ 13, %293 ], [ 27, %_ZL19icvShowSaveAsDialogP10_GtkWidgetP8CvWindow.exit ]
   %297 = load i32, ptr %17, align 8, !tbaa !193
   %298 = shl i32 %297, 16
   %299 = or i32 %298, %.0
@@ -9967,20 +9967,20 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   br label %.thread
 
 .thread134.sink.split:                            ; preds = %54, %50, %46
-  %switch.tableidx159.sink = phi i32 [ %switch.tableidx, %46 ], [ %switch.tableidx155, %50 ], [ %switch.tableidx159, %54 ]
-  %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink = phi ptr [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv, %46 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.3, %50 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4, %54 ]
+  %switch.tableidx159.sink = phi i32 [ %switch.tableidx155, %50 ], [ %switch.tableidx, %46 ], [ %switch.tableidx159, %54 ]
+  %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink = phi ptr [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.3, %50 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv, %46 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4, %54 ]
   %87 = zext nneg i32 %switch.tableidx159.sink to i64
   %switch.gep161 = getelementptr inbounds nuw i32, ptr %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink, i64 %87
   %switch.load162 = load i32, ptr %switch.gep161, align 4
   br label %.thread134
 
 .thread134:                                       ; preds = %.thread134.sink.split, %54, %50, %46
-  %.1.ph = phi i32 [ 0, %46 ], [ 0, %50 ], [ 0, %54 ], [ %switch.load162, %.thread134.sink.split ]
+  %.1.ph = phi i32 [ 0, %46 ], [ 0, %54 ], [ 0, %50 ], [ %switch.load162, %.thread134.sink.split ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %89 = load i32, ptr %88, align 8, !tbaa !232
   br label %.thread
 
-.thread:                                          ; preds = %86, %85, %84, %83, %77, %58, %22, %.thread134
+.thread:                                          ; preds = %86, %85, %83, %84, %77, %58, %22, %.thread134
   %.sroa.055.0127 = phi <2 x float> [ %.sroa.055.4.vec.insert63, %.thread134 ], [ %.sroa.055.4.vec.insert65, %77 ], [ %.sroa.055.4.vec.insert65, %84 ], [ %.sroa.055.4.vec.insert65, %86 ], [ %.sroa.055.4.vec.insert65, %58 ], [ %.sroa.055.4.vec.insert65, %83 ], [ %.sroa.055.4.vec.insert65, %85 ], [ %.sroa.055.4.vec.insert, %22 ]
   %.093126 = phi i32 [ %.1.ph, %.thread134 ], [ %72, %77 ], [ %72, %84 ], [ %72, %86 ], [ %72, %58 ], [ 11, %83 ], [ 11, %85 ], [ 0, %22 ]
   %.094125 = phi i32 [ %89, %.thread134 ], [ %74, %77 ], [ %74, %84 ], [ %74, %86 ], [ %74, %58 ], [ %74, %83 ], [ %74, %85 ], [ %34, %22 ]
@@ -10713,7 +10713,7 @@ _Z22cvImageWidget_get_typev.exit65:               ; preds = %.critedge, %19
   br label %109
 
 109:                                              ; preds = %.thread, %107, %108, %18, %4
-  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 1, %108 ], [ 1, %107 ], [ 1, %.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 1, %108 ], [ 1, %107 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -13627,7 +13627,7 @@ _ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit: ; preds = %.noexc
   br label %73
 
 53:                                               ; preds = %33, %37, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit, %32
-  %.06 = phi double [ %36, %33 ], [ %41, %37 ], [ %50, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit ], [ 0x7FF8000000000000, %32 ]
+  %.06 = phi double [ %50, %_ZL15getRatioWindow_RKSt10shared_ptrI8CvWindowE.exit ], [ %36, %33 ], [ %41, %37 ], [ 0x7FF8000000000000, %32 ]
   %54 = load atomic i64, ptr %19 acquire, align 8
   %55 = icmp eq i64 %54, 4294967297
   %56 = trunc i64 %54 to i32
@@ -15121,7 +15121,7 @@ _ZSt11make_sharedI10CvTrackbarJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrI10CvTrackbarEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrI10CvTrackbarEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %188, %185
-  %190 = phi ptr [ %179, %185 ], [ %.pre.i.i, %188 ]
+  %190 = phi ptr [ %.pre.i.i, %188 ], [ %179, %185 ]
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store ptr %191, ptr %178, align 8, !tbaa !98, !noalias !360
   br label %_ZNSt6vectorISt10shared_ptrI10CvTrackbarESaIS2_EE9push_backERKS2_.exit.i
@@ -15738,7 +15738,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2c
   %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4, !noalias !387
   br label %_ZSt19static_pointer_castIN2cv15highgui_backend10UITrackbarENS0_4impl11GTKTrackbarEESt10shared_ptrIT_ERKS5_IT0_E.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.thread: ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.thread: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN2cv4impl11GTKTrackbarEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv4impl11GTKTrackbarEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZSt19static_pointer_castIN2cv15highgui_backend10UITrackbarENS0_4impl11GTKTrackbarEESt10shared_ptrIT_ERKS5_IT0_E.exit
 
@@ -17314,7 +17314,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %27 = phi i1 [ true, %12 ], [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %27 = phi i1 [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %12 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %13) #33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !310
@@ -17495,8 +17495,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

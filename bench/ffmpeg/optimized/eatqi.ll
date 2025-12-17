@@ -271,7 +271,7 @@ tqi_decode_mb.exit.thread:                        ; preds = %95
   br label %151
 
 151:                                              ; preds = %51, %48, %tqi_calculate_qtable.exit, %4, %.loopexit
-  %.0 = phi i32 [ %6, %.loopexit ], [ -1094995529, %4 ], [ %46, %tqi_calculate_qtable.exit ], [ %49, %48 ], [ -12, %51 ]
+  %.0 = phi i32 [ %49, %48 ], [ -1094995529, %4 ], [ %46, %tqi_calculate_qtable.exit ], [ %6, %.loopexit ], [ -12, %51 ]
   ret i32 %.0
 }
 

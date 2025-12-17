@@ -61,7 +61,7 @@ define internal range(i32 0, 57) i32 @rpm_bidder_bid(ptr readnone captures(none)
   br label %16
 
 16:                                               ; preds = %13, %7, %10, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %10 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ %spec.select, %13 ], [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -359,7 +359,7 @@ define internal i64 @rpm_filter_read(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %29, %135, %138, %68
-  %.0 = phi i64 [ -30, %68 ], [ %.290120, %138 ], [ %.290120, %135 ], [ %spec.select, %29 ]
+  %.0 = phi i64 [ -30, %68 ], [ %spec.select, %29 ], [ %.290120, %138 ], [ %.290120, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }

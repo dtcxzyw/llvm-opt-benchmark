@@ -246,7 +246,7 @@ define i32 @sprkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %26
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
-  %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ %5, %3 ], [ -22, %8 ], [ -22, %11 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -378,7 +378,7 @@ define i32 @sprkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1
   br label %26
 
 26:                                               ; preds = %7, %16, %3, %25
-  %.0 = phi i32 [ -22, %25 ], [ %5, %3 ], [ 0, %16 ], [ 0, %7 ]
+  %.0 = phi i32 [ %5, %3 ], [ -22, %25 ], [ 0, %16 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

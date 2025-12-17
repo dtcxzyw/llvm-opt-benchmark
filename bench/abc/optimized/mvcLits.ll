@@ -98,7 +98,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
   br i1 %34, label %.lr.ph59.split, label %.loopexit50, !llvm.loop !18
 
 .loopexit50:                                      ; preds = %.loopexit, %32, %..loopexit_crit_edge.us, %17, %.lr.ph59.split.us, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph59.split.us ], [ %.13958.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ %.13958, %32 ], [ -1, %.loopexit ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph59.split.us ], [ %.13958, %32 ], [ %.13958.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -205,7 +205,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   br label %._crit_edge49.thread
 
 ._crit_edge49.thread:                             ; preds = %._crit_edge49, %.lr.ph48.split.us, %2
-  %36 = phi i32 [ -1, %2 ], [ -1, %.lr.ph48.split.us ], [ %spec.select64, %._crit_edge49 ]
+  %36 = phi i32 [ -1, %.lr.ph48.split.us ], [ %spec.select64, %._crit_edge49 ], [ -1, %2 ]
   ret i32 %36
 }
 
@@ -301,8 +301,8 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   br label %35
 
 35:                                               ; preds = %._crit_edge, %.lr.ph49.split
-  %.132 = phi i32 [ %.03146, %.lr.ph49.split ], [ %spec.select39, %._crit_edge ]
-  %.130 = phi i32 [ %.02947, %.lr.ph49.split ], [ %spec.select40, %._crit_edge ]
+  %.132 = phi i32 [ %spec.select39, %._crit_edge ], [ %.03146, %.lr.ph49.split ]
+  %.130 = phi i32 [ %spec.select40, %._crit_edge ], [ %.02947, %.lr.ph49.split ]
   %36 = add nuw nsw i32 %.03345, 1
   %exitcond.not = icmp eq i32 %36, %4
   br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !22
@@ -316,7 +316,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   br label %._crit_edge50.thread
 
 ._crit_edge50.thread:                             ; preds = %._crit_edge50, %.lr.ph49.split.us, %2
-  %38 = phi i32 [ -1, %2 ], [ -1, %.lr.ph49.split.us ], [ %spec.select65, %._crit_edge50 ]
+  %38 = phi i32 [ -1, %.lr.ph49.split.us ], [ %spec.select65, %._crit_edge50 ], [ -1, %2 ]
   ret i32 %38
 }
 
@@ -454,7 +454,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   br label %Mvc_CoverBestLiteral.exit
 
 Mvc_CoverBestLiteral.exit:                        ; preds = %.loopexit, %.lr.ph48.split.us.i, %._crit_edge49.i
-  %49 = phi i32 [ -1, %.loopexit ], [ -1, %.lr.ph48.split.us.i ], [ %spec.select64.i, %._crit_edge49.i ]
+  %49 = phi i32 [ -1, %.lr.ph48.split.us.i ], [ %spec.select64.i, %._crit_edge49.i ], [ -1, %.loopexit ]
   %50 = and i32 %49, 31
   %51 = shl nuw i32 1, %50
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16

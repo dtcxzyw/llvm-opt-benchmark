@@ -274,7 +274,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit10.thread33.i:   ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZL20GetSignReturnAddressRKN4llvm8FunctionE.exit
 
 _ZL20GetSignReturnAddressRKN4llvm8FunctionE.exit: ; preds = %62, %64, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit10.i, %_ZN4llvmeqENS_9StringRefES0_.exit10.thread33.i
-  %.sroa.6.0.i = phi i16 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit10.thread33.i ], [ 1, %62 ], [ 0, %64 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit10.i ]
+  %.sroa.6.0.i = phi i16 [ 1, %62 ], [ 0, %64 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit10.thread33.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit10.i ]
   store i16 %.sroa.6.0.i, ptr %28, align 4
   %73 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.10, i64 15) #16
   br i1 %73, label %_ZL18ShouldSignWithBKeyRKN4llvm8FunctionERKNS_16AArch64SubtargetE.exit, label %74
@@ -584,7 +584,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignR
   br label %10
 
 10:                                               ; preds = %6, %2
-  %.0 = phi i1 [ false, %2 ], [ %., %6 ]
+  %.0 = phi i1 [ %., %6 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -694,7 +694,7 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17: ; pr
   br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
 
 _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i.i.i.i, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %.val.val2, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %.val.val2, %._crit_edge.i.i.i.i.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit17 ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit15 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %42 = load i8, ptr %41, align 4, !tbaa !238, !range !10, !noundef !11
   %43 = trunc nuw i8 %42 to i1
@@ -709,7 +709,7 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit
 
 _ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb.exit: ; preds = %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, %44
-  %.0.i = phi i1 [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ], [ %..i, %44 ]
+  %.0.i = phi i1 [ %..i, %44 ], [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ]
   ret i1 %.0.i
 }
 
@@ -819,7 +819,7 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22: ; pr
   br label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit
 
 _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22, %28, %32, %36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22 ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i = phi ptr [ %.sroa.031.1.i.i.i.i.i.i.i, %32 ], [ %spec.select.i.i.i.i.i.i.i, %36 ], [ %.sroa.031.0.lcssa.i.i.i.i.i.i.i, %28 ], [ %40, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit22 ], [ %39, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit20 ], [ %38, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.loopexit.split.loop.exit ], [ %.sroa.031.050.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not = icmp eq ptr %.val.val4, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i
   br i1 %.not, label %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread, label %41
 
@@ -843,7 +843,7 @@ _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit:  ; preds = %.lr.ph.i.i.i.i.i.i.
   unreachable
 
 _ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i, %44, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit, %41
-  %.0 = phi i1 [ false, %41 ], [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ], [ true, %44 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %_ZL11isLRSpilledRKN4llvm15MachineFunctionE.exit ], [ false, %41 ], [ true, %44 ], [ false, %._crit_edge.i.i.i.i.i.i.i ]
   ret i1 %.0
 }
 

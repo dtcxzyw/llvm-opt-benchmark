@@ -391,7 +391,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   resume { ptr, i32 } %.pn
 
 51:                                               ; preds = %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread, %24, %30, %48, %41, %35, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, %4, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %4 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %24 ], [ null, %30 ], [ null, %35 ], [ null, %41 ], [ %49, %48 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
+  %.0 = phi ptr [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %9 ], [ null, %4 ], [ null, %24 ], [ null, %30 ], [ null, %35 ], [ null, %41 ], [ %49, %48 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
   ret ptr %.0
 }
 
@@ -814,7 +814,7 @@ define noundef i32 @uspoof_check2_77(ptr noundef %0, ptr noundef %1, i32 noundef
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %5, %19, %12
-  %.0 = phi i32 [ 0, %12 ], [ %18, %19 ], [ 0, %5 ]
+  %.0 = phi i32 [ %18, %19 ], [ 0, %12 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1074,7 +1074,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusable_77(ptr noundef %0, ptr noundef 
   resume { ptr, i32 } %.pn.pn
 
 39:                                               ; preds = %6, %28, %17
-  %.019 = phi i32 [ 0, %17 ], [ %27, %28 ], [ 0, %6 ]
+  %.019 = phi i32 [ %27, %28 ], [ 0, %17 ], [ 0, %6 ]
   ret i32 %.019
 }
 
@@ -1246,7 +1246,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
   br label %84
 
 84:                                               ; preds = %83, %67, %80
-  %.0 = phi i32 [ 2, %80 ], [ 1, %67 ], [ %spec.select, %83 ]
+  %.0 = phi i32 [ 1, %67 ], [ 2, %80 ], [ %spec.select, %83 ]
   %85 = load i32, ptr %13, align 4, !tbaa !20
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
@@ -1307,7 +1307,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 101:                                              ; preds = %4, %.thread, %17
-  %.041 = phi i32 [ 0, %17 ], [ %.142, %.thread ], [ 0, %4 ]
+  %.041 = phi i32 [ %.142, %.thread ], [ 0, %17 ], [ 0, %4 ]
   ret i32 %.041
 }
 
@@ -1387,7 +1387,7 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_77(ptr noundef %0, ptr noun
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %6, %31, %15
-  %.0 = phi i32 [ 0, %15 ], [ %30, %31 ], [ 0, %6 ]
+  %.0 = phi i32 [ %30, %31 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1768,7 +1768,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
   br label %85
 
 85:                                               ; preds = %84, %68, %81
-  %.0 = phi i32 [ 2, %81 ], [ 1, %68 ], [ %spec.select, %84 ]
+  %.0 = phi i32 [ 1, %68 ], [ 2, %81 ], [ %spec.select, %84 ]
   %86 = load i32, ptr %14, align 4, !tbaa !20
   %87 = and i32 %86, %.0
   call void @_ZN6icu_779ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %9) #6
@@ -1818,7 +1818,7 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 94:                                               ; preds = %5, %.thread, %18
-  %.035 = phi i32 [ 0, %18 ], [ %.136, %.thread ], [ 0, %5 ]
+  %.035 = phi i32 [ %.136, %.thread ], [ 0, %18 ], [ 0, %5 ]
   ret i32 %.035
 }
 
@@ -1936,7 +1936,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z38uspoof_getBidiSkelet
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %23, %21 ], [ null, %12 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %20, %19 ], [ null, %12 ]
   %24 = icmp slt i16 %15, 0
   %25 = ashr i16 %15, 5
   %26 = sext i16 %25 to i32
@@ -2237,8 +2237,8 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19checkImplEPKN6icu_779Spoof
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %84, %.split.us, %97
-  %.059.ph.be = phi i32 [ %94, %97 ], [ %94, %.split.us ], [ %87, %84 ]
-  %.055.ph.be = phi i32 [ 0, %97 ], [ 0, %.split.us ], [ %spec.select116, %84 ]
+  %.059.ph.be = phi i32 [ %87, %84 ], [ %94, %97 ], [ %94, %.split.us ]
+  %.055.ph.be = phi i32 [ %spec.select116, %84 ], [ 0, %97 ], [ 0, %.split.us ]
   br label %.outer, !llvm.loop !50
 
 .loopexit85.split.us:                             ; preds = %82, %80
@@ -2458,7 +2458,7 @@ define i32 @uspoof_getSkeleton_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   resume { ptr, i32 } %.pn.pn.pn
 
 50:                                               ; preds = %7, %31, %21
-  %.025 = phi i32 [ 0, %21 ], [ %39, %31 ], [ 0, %7 ]
+  %.025 = phi i32 [ %39, %31 ], [ 0, %21 ], [ 0, %7 ]
   ret i32 %.025
 }
 
@@ -2647,7 +2647,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %45
 
 45:                                               ; preds = %42, %40, %35
-  %.0.i = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %35 ]
+  %.0.i = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %35 ]
   %46 = icmp slt i16 %36, 0
   %47 = ashr i16 %36, 5
   %48 = sext i16 %47 to i32
@@ -2685,7 +2685,7 @@ define i32 @uspoof_getSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr nounde
   resume { ptr, i32 } %.pn
 
 59:                                               ; preds = %7, %57, %20
-  %.026 = phi i32 [ 0, %20 ], [ %.127, %57 ], [ 0, %7 ]
+  %.026 = phi i32 [ %.127, %57 ], [ 0, %20 ], [ 0, %7 ]
   ret i32 %.026
 }
 
@@ -2756,7 +2756,7 @@ define i32 @uspoof_getBidiSkeletonUTF8_77(ptr noundef %0, i32 noundef %1, ptr no
   br label %37
 
 37:                                               ; preds = %34, %32, %27
-  %.0.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %27 ]
+  %.0.i = phi ptr [ %36, %34 ], [ %33, %32 ], [ null, %27 ]
   %38 = icmp slt i16 %28, 0
   %39 = ashr i16 %28, 5
   %40 = sext i16 %39 to i32

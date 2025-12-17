@@ -1644,8 +1644,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %306
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %582
 
-.body.thread320:                                  ; preds = %125, %149
-  %.023.ph = phi ptr [ %154, %149 ], [ %130, %125 ]
+.body.thread320:                                  ; preds = %149, %125
+  %.023.ph = phi ptr [ %130, %125 ], [ %154, %149 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
@@ -1656,8 +1656,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %306
   br label %.body.thread
 
 .preheader.preheader:                             ; preds = %166, %142, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52, %.body.thread320
-  %eh.lpad-body318 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread320 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %143, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ], [ %143, %142 ], [ %167, %166 ]
-  %.023.lpad-body317 = phi ptr [ %.023.ph, %.body.thread320 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ], [ %130, %142 ], [ %154, %166 ]
+  %eh.lpad-body318 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread320 ], [ %143, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ], [ %143, %142 ], [ %167, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %167, %166 ]
+  %.023.lpad-body317 = phi ptr [ %.023.ph, %.body.thread320 ], [ %130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ], [ %130, %142 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %154, %166 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

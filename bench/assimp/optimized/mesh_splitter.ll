@@ -598,7 +598,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   br i1 %.not.i164.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split, label %196
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.thread.split: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split
-  %188 = phi ptr [ %167, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split ], [ %166, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %167, %_ZNK6aiMesh15HasVertexColorsEj.exit ], [ %167, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
+  %188 = phi ptr [ %166, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %167, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader.split ], [ %167, %_ZNK6aiMesh15HasVertexColorsEj.exit ], [ %167, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
   invoke void @_ZNSt6vectorI6aiFaceSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %67)
           to label %.preheader321 unwind label %.loopexit326
 
@@ -1394,7 +1394,7 @@ _ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6aiF
   br i1 %526, label %554, label %74
 
 540:                                              ; preds = %.loopexit314, %.loopexit.split-lp, %.loopexit326, %.loopexit.split-lp327, %345, %243, %245, %523, %444, %194, %180
-  %.pn154 = phi { ptr, i32 } [ %181, %180 ], [ %195, %194 ], [ %445, %444 ], [ %524, %523 ], [ %244, %243 ], [ %246, %245 ], [ %346, %345 ], [ %lpad.loopexit328, %.loopexit326 ], [ %lpad.loopexit.split-lp329, %.loopexit.split-lp327 ], [ %lpad.loopexit, %.loopexit314 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn154 = phi { ptr, i32 } [ %181, %180 ], [ %195, %194 ], [ %445, %444 ], [ %524, %523 ], [ %346, %345 ], [ %244, %243 ], [ %246, %245 ], [ %lpad.loopexit.split-lp329, %.loopexit.split-lp327 ], [ %lpad.loopexit328, %.loopexit326 ], [ %lpad.loopexit, %.loopexit314 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %541 = load ptr, ptr %6, align 8
   %542 = load ptr, ptr %69, align 8
   %.not4.i.i.i.i208 = icmp eq ptr %541, %542
@@ -1783,9 +1783,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge90, %83
   br label %93
 
 93:                                               ; preds = %.loopexit, %.loopexit.split-lp, %91, %16
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1.lcssa, %91 ], [ %.sroa.0.0, %16 ], [ %.sroa.0.368, %.loopexit ], [ %.sroa.0.368, %.loopexit.split-lp ]
-  %.sroa.19.2 = phi ptr [ %.sroa.19.1.lcssa, %91 ], [ %.sroa.19.0, %16 ], [ %.sroa.19.370, %.loopexit ], [ %.sroa.19.370, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %92, %91 ], [ %17, %16 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %16 ], [ %.sroa.0.1.lcssa, %91 ], [ %.sroa.0.368, %.loopexit ], [ %.sroa.0.368, %.loopexit.split-lp ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %16 ], [ %.sroa.19.1.lcssa, %91 ], [ %.sroa.19.370, %.loopexit ], [ %.sroa.19.370, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %92, %91 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i38 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIjSaIjEED2Ev.exit39, label %94
 
@@ -1956,7 +1956,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRKfEEERS1_DpOT_.exit: ; preds 
   br i1 %71, label %31, label %._crit_edge.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %1 ], [ %12, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %2 ], [ %12, %._crit_edge ]
   ret ptr %.0
 }
 

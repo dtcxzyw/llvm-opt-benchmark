@@ -226,7 +226,7 @@ _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.lo
   br label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25
 
 _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25: ; preds = %.thread.us42, %.thread.us42.us, %.thread.us, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit, %.lr.ph, %3
-  %spec.select = phi i32 [ -1, %3 ], [ -1, %.lr.ph ], [ %62, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %63, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit ], [ %64, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit ], [ -1, %.thread.us ], [ -1, %.thread.us42.us ], [ -1, %.thread.us42 ]
+  %spec.select = phi i32 [ -1, %3 ], [ -1, %.lr.ph ], [ %62, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit ], [ %63, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit63.split.loop.exit ], [ %64, %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit65.split.loop.exit ], [ -1, %.thread.us42.us ], [ -1, %.thread.us ], [ -1, %.thread.us42 ]
   ret i32 %spec.select
 }
 
@@ -281,7 +281,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22RISCVConstantPoolValue6equalsEPK
   br label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %2, %5, %24, %22, %19, %15, %9
-  %.0 = phi i1 [ %14, %9 ], [ false, %15 ], [ %25, %24 ], [ false, %19 ], [ true, %22 ], [ false, %5 ], [ false, %2 ]
+  %.0 = phi i1 [ %14, %9 ], [ true, %22 ], [ false, %15 ], [ false, %2 ], [ %25, %24 ], [ false, %19 ], [ false, %5 ]
   ret i1 %.0
 }
 

@@ -318,7 +318,7 @@ define internal range(i32 -2147483648, 1) i32 @init() #3 {
   br label %51
 
 51:                                               ; preds = %45, %39, %33, %27, %20, %14, %8, %0
-  %.1 = phi i32 [ %43, %39 ], [ %37, %33 ], [ %31, %27 ], [ %25, %20 ], [ %18, %14 ], [ %12, %8 ], [ %6, %0 ], [ %spec.select, %45 ]
+  %.1 = phi i32 [ %6, %0 ], [ %spec.select, %45 ], [ %43, %39 ], [ %37, %33 ], [ %31, %27 ], [ %25, %20 ], [ %18, %14 ], [ %12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.1
@@ -367,8 +367,8 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %. = zext i1 %.not to i32
   br label %.thread
 
-.thread:                                          ; preds = %16, %12, %10, %._crit_edge
-  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %10 ], [ 0, %12 ], [ 0, %16 ]
+.thread:                                          ; preds = %16, %10, %12, %._crit_edge
+  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %12 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.2
 }
 

@@ -515,7 +515,7 @@ remove_from_constant_cache.exit.i:                ; preds = %50, %47, %40, %35
   br i1 %60, label %.lr.ph.i, label %iseq_clear_ic_references.exit, !llvm.loop !73
 
 iseq_clear_ic_references.exit:                    ; preds = %55, %7, %.preheader23.i
-  %61 = phi ptr [ %6, %7 ], [ %6, %.preheader23.i ], [ %56, %55 ]
+  %61 = phi ptr [ %6, %.preheader23.i ], [ %6, %7 ], [ %56, %55 ]
   call void @rb_yjit_iseq_free(ptr noundef nonnull %0) #21
   %62 = load i64, ptr %0, align 8, !tbaa !74
   %63 = and i64 %62, 524288
@@ -1577,7 +1577,7 @@ define hidden i64 @rb_iseq_pathobj_new(i64 noundef %0, i64 noundef %1) local_unn
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %11
-  %.012 = phi i64 [ %12, %11 ], [ 4, %4 ]
+  %.012 = phi i64 [ 4, %4 ], [ %12, %11 ]
   %13 = tail call i64 @rb_fstring(i64 noundef %0) #21
   %14 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %13, i64 noundef %.012) #21
   %15 = tail call i64 @rb_ary_freeze(i64 noundef %14) #21
@@ -1623,7 +1623,7 @@ define hidden void @rb_iseq_pathobj_set(ptr noundef %0, i64 noundef %1, i64 noun
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %16, %9
-  %.012.i = phi i64 [ %17, %16 ], [ 4, %9 ]
+  %.012.i = phi i64 [ 4, %9 ], [ %17, %16 ]
   %18 = tail call i64 @rb_fstring(i64 noundef %1) #21
   %19 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %18, i64 noundef %.012.i) #21
   %20 = tail call i64 @rb_ary_freeze(i64 noundef %19) #21
@@ -2229,7 +2229,7 @@ set_compile_option_from_ast.exit.thread:          ; preds = %18
   br label %58
 
 .thread:                                          ; preds = %set_compile_option_from_ast.exit.thread, %48
-  %.04244 = phi ptr [ %12, %48 ], [ %spec.store.select, %set_compile_option_from_ast.exit.thread ]
+  %.04244 = phi ptr [ %spec.store.select, %set_compile_option_from_ast.exit.thread ], [ %12, %48 ]
   %.not38 = icmp eq ptr %5, null
   br i1 %.not38, label %58, label %53
 
@@ -3131,7 +3131,7 @@ rbimpl_intern_const.exit15:                       ; preds = %.lr.ph.i13, %5
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %15, %18, %19, %20, %21, %23
-  %.0.in.i = phi ptr [ @rb_cNilClass, %19 ], [ @rb_cTrueClass, %20 ], [ %17, %15 ], [ @rb_cFalseClass, %18 ], [ @rb_cInteger, %21 ], [ %spec.select.i, %23 ]
+  %.0.in.i = phi ptr [ %17, %15 ], [ @rb_cNilClass, %19 ], [ @rb_cTrueClass, %20 ], [ @rb_cFalseClass, %18 ], [ @rb_cInteger, %21 ], [ %spec.select.i, %23 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !42
   %26 = load i64, ptr @rb_cISeq, align 8, !tbaa !42
   %27 = icmp eq i64 %.0.i, %26
@@ -3163,7 +3163,7 @@ rb_class_of.exit:                                 ; preds = %15, %18, %19, %20, 
   unreachable
 
 iseqw_check.exit:                                 ; preds = %34, %rbimpl_intern_const.exit15, %rb_class_of.exit, %rbimpl_intern_const.exit
-  %.0 = phi ptr [ %0, %rbimpl_intern_const.exit ], [ %0, %rb_class_of.exit ], [ %0, %rbimpl_intern_const.exit15 ], [ %30, %34 ]
+  %.0 = phi ptr [ %0, %rbimpl_intern_const.exit ], [ %0, %rbimpl_intern_const.exit15 ], [ %0, %rb_class_of.exit ], [ %30, %34 ]
   ret ptr %.0
 }
 
@@ -3260,7 +3260,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   unreachable
 
 iseqw_check.exit:                                 ; preds = %22, %rbimpl_intern_const.exit, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %rbimpl_intern_const.exit ], [ %18, %22 ]
+  %.0 = phi ptr [ null, %rbimpl_intern_const.exit ], [ null, %10 ], [ %18, %22 ]
   ret ptr %.0
 }
 
@@ -4994,7 +4994,7 @@ obj_resurrect.exit:                               ; preds = %69, %74, %78, %82, 
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %107, %110, %111, %112, %113, %114
-  %.0.in.i = phi ptr [ @rb_cNilClass, %111 ], [ @rb_cTrueClass, %112 ], [ %109, %107 ], [ @rb_cFalseClass, %110 ], [ @rb_cInteger, %113 ], [ %spec.select.i, %114 ]
+  %.0.in.i = phi ptr [ %109, %107 ], [ @rb_cNilClass, %111 ], [ @rb_cTrueClass, %112 ], [ @rb_cFalseClass, %110 ], [ @rb_cInteger, %113 ], [ %spec.select.i, %114 ]
   %.0.i166 = load i64, ptr %.0.in.i, align 8, !tbaa !42
   %117 = load i64, ptr @rb_cISeq, align 8, !tbaa !42
   %118 = icmp eq i64 %.0.i166, %117
@@ -5560,8 +5560,8 @@ vm_ci_flag.exit219:                               ; preds = %364, %367
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.39, i32 noundef %405) #24
   unreachable
 
-.thread222:                                       ; preds = %97, %99, %41, %35, %123, %129, %51, %62, %58, %396, %131, %rb_class_of.exit, %120, %397, %383, %379, %154, %._crit_edge, %66, %.thread, %17
-  %.0 = phi i64 [ %21, %17 ], [ %43, %.thread ], [ %.1, %35 ], [ %42, %41 ], [ %68, %66 ], [ %102, %120 ], [ %102, %rb_class_of.exit ], [ %132, %131 ], [ %142, %._crit_edge ], [ %162, %154 ], [ %382, %379 ], [ %384, %383 ], [ %.6, %396 ], [ %403, %397 ], [ %54, %51 ], [ %61, %58 ], [ %65, %62 ], [ %128, %129 ], [ %128, %123 ], [ %100, %99 ], [ %98, %97 ]
+.thread222:                                       ; preds = %99, %97, %41, %35, %123, %129, %51, %62, %58, %396, %131, %rb_class_of.exit, %120, %397, %383, %379, %154, %._crit_edge, %66, %.thread, %17
+  %.0 = phi i64 [ %21, %17 ], [ %43, %.thread ], [ %.1, %35 ], [ %42, %41 ], [ %403, %397 ], [ %68, %66 ], [ %102, %120 ], [ %102, %rb_class_of.exit ], [ %128, %123 ], [ %65, %62 ], [ %132, %131 ], [ %142, %._crit_edge ], [ %162, %154 ], [ %382, %379 ], [ %384, %383 ], [ %.6, %396 ], [ %54, %51 ], [ %61, %58 ], [ %128, %129 ], [ %98, %97 ], [ %100, %99 ]
   ret i64 %.0
 }
 
@@ -6456,8 +6456,8 @@ RSTRING_PTR.exit225:                              ; preds = %146, %._crit_edge
   br label %RSTRING_PTR.exit225.thread
 
 RSTRING_PTR.exit225.thread:                       ; preds = %86, %90, %147, %RSTRING_PTR.exit225
-  %.0169240 = phi ptr [ %.1170.lcssa, %147 ], [ %.1170.lcssa, %RSTRING_PTR.exit225 ], [ null, %90 ], [ null, %86 ]
-  %.0171239 = phi ptr [ %.0171.ph, %147 ], [ %.0171.ph, %RSTRING_PTR.exit225 ], [ %.sroa.2.0.i, %90 ], [ %.sroa.2.0.i, %86 ]
+  %.0169240 = phi ptr [ %.1170.lcssa, %RSTRING_PTR.exit225 ], [ %.1170.lcssa, %147 ], [ null, %90 ], [ null, %86 ]
+  %.0171239 = phi ptr [ %.0171.ph, %RSTRING_PTR.exit225 ], [ %.0171.ph, %147 ], [ %.sroa.2.0.i, %90 ], [ %.sroa.2.0.i, %86 ]
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %151 = load ptr, ptr %150, align 8, !tbaa !89
   %.not189 = icmp eq ptr %151, null
@@ -6603,8 +6603,8 @@ local_var_name.exit:                              ; preds = %212, %216, %218
   br label %234
 
 234:                                              ; preds = %223, %227, %local_var_name.exit
-  %.pre270 = phi i16 [ %221, %223 ], [ %.pre270.pre, %227 ], [ %221, %local_var_name.exit ]
-  %235 = phi i32 [ %.pre269, %223 ], [ %.pre268, %227 ], [ %.pre269, %local_var_name.exit ]
+  %.pre270 = phi i16 [ %221, %local_var_name.exit ], [ %221, %223 ], [ %.pre270.pre, %227 ]
+  %235 = phi i32 [ %.pre269, %local_var_name.exit ], [ %.pre269, %223 ], [ %.pre268, %227 ]
   %236 = icmp sgt i32 %235, %201
   %237 = and i16 %.pre270, 128
   %.not200 = icmp eq i16 %237, 0
@@ -7827,7 +7827,7 @@ encoded_iseq_trace_instrument.exit.i:             ; preds = %80
   br label %iseq_add_local_tracepoint.exit
 
 iseq_add_local_tracepoint.exit:                   ; preds = %2, %._crit_edge.i, %114
-  %.031.lcssa45.i = phi i32 [ %spec.select33.i, %114 ], [ %spec.select33.i, %._crit_edge.i ], [ 0, %2 ]
+  %.031.lcssa45.i = phi i32 [ %spec.select33.i, %._crit_edge.i ], [ %spec.select33.i, %114 ], [ 0, %2 ]
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %118 = load i32, ptr %117, align 4, !tbaa !338
   %119 = add i32 %118, %.031.lcssa45.i
@@ -8311,7 +8311,7 @@ define hidden void @Init_ISeq() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %36, %39, %40, %41, %42, %44
-  %.0.in.i = phi ptr [ @rb_cNilClass, %40 ], [ @rb_cTrueClass, %41 ], [ %38, %36 ], [ @rb_cFalseClass, %39 ], [ @rb_cInteger, %42 ], [ %spec.select.i, %44 ]
+  %.0.in.i = phi ptr [ %38, %36 ], [ @rb_cNilClass, %40 ], [ @rb_cTrueClass, %41 ], [ @rb_cFalseClass, %39 ], [ @rb_cInteger, %42 ], [ %spec.select.i, %44 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !42
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.105) #21
   %47 = load i64, ptr @rb_cISeq, align 8, !tbaa !42
@@ -8351,7 +8351,7 @@ rb_class_of.exit:                                 ; preds = %36, %39, %40, %41, 
   br label %rb_class_of.exit5
 
 rb_class_of.exit5:                                ; preds = %52, %55, %56, %57, %58, %60
-  %.0.in.i1 = phi ptr [ @rb_cNilClass, %56 ], [ @rb_cTrueClass, %57 ], [ %54, %52 ], [ @rb_cFalseClass, %55 ], [ @rb_cInteger, %58 ], [ %spec.select.i4, %60 ]
+  %.0.in.i1 = phi ptr [ %54, %52 ], [ @rb_cNilClass, %56 ], [ @rb_cTrueClass, %57 ], [ @rb_cFalseClass, %55 ], [ @rb_cInteger, %58 ], [ %spec.select.i4, %60 ]
   %.0.i2 = load i64, ptr %.0.in.i1, align 8, !tbaa !42
   tail call void @rb_undef_method(i64 noundef %.0.i2, ptr noundef nonnull @.str.2) #21
   ret void
@@ -11666,7 +11666,7 @@ insn_op_type.exit.thread:                         ; preds = %insn_op_type.exit
   unreachable
 
 obj_resurrect.exit:                               ; preds = %rb_array_len.exit, %.lr.ph731, %419, %416, %283, %278, %276, %274, %272, %268, %264, %258, %280, %rbimpl_intern_const.exit524, %384, %rbimpl_intern_const.exit494, %ISEQ_IS_ENTRY_START.exit, %254, %248
-  %.sink949 = phi i64 [ %282, %280 ], [ %422, %rbimpl_intern_const.exit524 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ %257, %254 ], [ %252, %248 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %277, %276 ], [ 4, %278 ], [ %284, %283 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
+  %.sink949 = phi i64 [ %282, %280 ], [ %277, %276 ], [ %422, %rbimpl_intern_const.exit524 ], [ %284, %283 ], [ %386, %384 ], [ %322, %rbimpl_intern_const.exit494 ], [ %317, %ISEQ_IS_ENTRY_START.exit ], [ 4, %278 ], [ %252, %248 ], [ %257, %254 ], [ %259, %258 ], [ %259, %264 ], [ %259, %268 ], [ %273, %272 ], [ %275, %274 ], [ %418, %416 ], [ %420, %419 ], [ %284, %.lr.ph731 ], [ %389, %rb_array_len.exit ]
   %465 = tail call i64 @rb_ary_push(i64 noundef %228, i64 noundef %.sink949) #21
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %466 = getelementptr i8, ptr %.1345737, i64 8
@@ -11781,7 +11781,7 @@ obj_resurrect.exit:                               ; preds = %rb_array_len.exit, 
   unreachable
 
 exception_type2symbol.exit:                       ; preds = %.lr.ph.i30.i, %.lr.ph.i24.i, %.lr.ph.i18.i, %.lr.ph.i12.i, %.lr.ph.i6.i, %.lr.ph.i.i, %480, %482, %484, %486, %488, %490
-  %.0.i525 = phi i64 [ %.pr.i.i, %480 ], [ %.pr.i3.i, %482 ], [ %.pr.i9.i, %484 ], [ %.pr.i15.i, %486 ], [ %.pr.i21.i, %488 ], [ %.pr.i27.i, %490 ], [ %481, %.lr.ph.i.i ], [ %483, %.lr.ph.i6.i ], [ %485, %.lr.ph.i12.i ], [ %487, %.lr.ph.i18.i ], [ %489, %.lr.ph.i24.i ], [ %491, %.lr.ph.i30.i ]
+  %.0.i525 = phi i64 [ %.pr.i.i, %480 ], [ %.pr.i3.i, %482 ], [ %.pr.i9.i, %484 ], [ %.pr.i15.i, %486 ], [ %.pr.i21.i, %488 ], [ %.pr.i27.i, %490 ], [ %489, %.lr.ph.i24.i ], [ %481, %.lr.ph.i.i ], [ %483, %.lr.ph.i6.i ], [ %485, %.lr.ph.i12.i ], [ %487, %.lr.ph.i18.i ], [ %491, %.lr.ph.i30.i ]
   %493 = tail call i64 @rb_id2sym(i64 noundef %.0.i525) #21
   %494 = tail call i64 @rb_ary_push(i64 noundef %475, i64 noundef %493) #21
   %495 = getelementptr inbounds nuw i8, ptr %478, i64 8
@@ -11964,7 +11964,7 @@ succ_index_lookup.exit.i.i:                       ; preds = %596, %567
   br label %get_insn_info.exit
 
 get_insn_info.exit:                               ; preds = %557, %562, %succ_index_lookup.exit.i.i
-  %.0.i.i530 = phi ptr [ %561, %562 ], [ %613, %succ_index_lookup.exit.i.i ], [ null, %557 ]
+  %.0.i.i530 = phi ptr [ %613, %succ_index_lookup.exit.i.i ], [ %561, %562 ], [ null, %557 ]
   %614 = getelementptr inbounds nuw i8, ptr %.0.i.i530, i64 4
   %615 = load i32, ptr %614, align 4, !tbaa !257
   %616 = sext i32 %615 to i64

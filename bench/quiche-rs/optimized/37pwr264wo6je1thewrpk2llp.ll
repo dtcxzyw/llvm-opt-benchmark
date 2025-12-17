@@ -4240,11 +4240,11 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %.not29, label %169, label %.thread
 
 ._crit_edge:                                      ; preds = %169, %165, %48
-  %.sroa.016.0.lcssa = phi ptr [ %.sroa.016.4, %169 ], [ %.sroa.016.062, %165 ], [ %.sroa.016.062, %48 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.5, %169 ], [ %.sroa.11.4, %165 ], [ %.sroa.11.2, %48 ]
-  %.sroa.06.1 = phi ptr [ %.sroa.06.5, %169 ], [ %.sroa.06.4, %165 ], [ %.sroa.06.2, %48 ]
-  %.sroa.10.1 = phi i64 [ %.sroa.10.5, %169 ], [ %.sroa.10.4, %165 ], [ %.sroa.10.066, %48 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.5, %169 ], [ 0, %165 ], [ 1, %48 ]
+  %.sroa.016.0.lcssa = phi ptr [ %.sroa.016.062, %48 ], [ %.sroa.016.4, %169 ], [ %.sroa.016.062, %165 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.2, %48 ], [ %.sroa.11.5, %169 ], [ %.sroa.11.4, %165 ]
+  %.sroa.06.1 = phi ptr [ %.sroa.06.2, %48 ], [ %.sroa.06.5, %169 ], [ %.sroa.06.4, %165 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.066, %48 ], [ %.sroa.10.5, %169 ], [ %.sroa.10.4, %165 ]
+  %.sroa.0.1 = phi i64 [ 1, %48 ], [ %.sroa.0.5, %169 ], [ 0, %165 ]
   %.not34 = icmp eq ptr %.sroa.06.1, null
   br i1 %.not34, label %.critedge, label %.thread
 
@@ -4269,8 +4269,8 @@ define hidden { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram15extract_flo
   br i1 %or.cond, label %.critedge, label %175
 
 .critedge:                                        ; preds = %3, %175, %.thread, %._crit_edge
-  %.sroa.10.6 = phi i64 [ %.sroa.10.149, %.thread ], [ undef, %._crit_edge ], [ %177, %175 ], [ undef, %3 ]
-  %.sroa.0.6 = phi i64 [ 1, %.thread ], [ 0, %._crit_edge ], [ %spec.select39, %175 ], [ 0, %3 ]
+  %.sroa.10.6 = phi i64 [ %.sroa.10.149, %.thread ], [ %177, %175 ], [ undef, %._crit_edge ], [ undef, %3 ]
+  %.sroa.0.6 = phi i64 [ 1, %.thread ], [ %spec.select39, %175 ], [ 0, %._crit_edge ], [ 0, %3 ]
   %173 = insertvalue { i64, i64 } poison, i64 %.sroa.0.6, 0
   %174 = insertvalue { i64, i64 } %173, i64 %.sroa.10.6, 1
   ret { i64, i64 } %174
@@ -4398,7 +4398,7 @@ define { i64, i64 } @_ZN12tokio_quiche5http36driver8datagram13send_h3_dgram17h9f
   br label %37
 
 .thread:                                          ; preds = %30, %40
-  %.pn1016 = phi { ptr, i32 } [ %lpad.thr_comm, %40 ], [ %lpad.thr_comm24, %30 ]
+  %.pn1016 = phi { ptr, i32 } [ %lpad.thr_comm24, %30 ], [ %lpad.thr_comm, %40 ]
   resume { ptr, i32 } %.pn1016
 
 40:                                               ; preds = %17, %33, %22, %19, %11, %3
@@ -5337,7 +5337,7 @@ define hidden noundef nonnull ptr @_ZN12tokio_quiche7metrics4quic24invalid_cid_p
   unreachable
 
 .thread:                                          ; preds = %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit", %28
-  %.pn411 = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit" ]
+  %.pn411 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..MappedRwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$17had1c7f6b7a55815bE.exit" ], [ %29, %28 ]
   resume { ptr, i32 } %.pn411
 
 28:                                               ; preds = %1
@@ -5841,7 +5841,7 @@ define hidden noundef ptr @"_ZN12tokio_quiche7metrics5tokio1_119_$LT$impl$u20$se
   br label %"_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit"
 
 "_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit": ; preds = %8, %12
-  %.sroa.0.0.i = phi ptr [ null, %8 ], [ %13, %12 ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %14
 
@@ -5879,7 +5879,7 @@ define hidden noundef ptr @"_ZN12tokio_quiche7metrics5tokio1_118_$LT$impl$u20$se
   br label %"_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit"
 
 "_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit": ; preds = %8, %12
-  %.sroa.0.0.i = phi ptr [ null, %8 ], [ %13, %12 ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %14
 
@@ -5917,7 +5917,7 @@ define hidden noundef ptr @"_ZN12tokio_quiche7metrics5tokio1_117_$LT$impl$u20$se
   br label %"_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit"
 
 "_ZN88_$LT$prometools..serde..top..StructSerializer$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h4cebebc190346280E.exit": ; preds = %8, %12
-  %.sroa.0.0.i = phi ptr [ null, %8 ], [ %13, %12 ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %14
 

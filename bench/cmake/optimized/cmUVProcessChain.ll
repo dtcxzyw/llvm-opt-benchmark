@@ -1004,20 +1004,20 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   %.not59.not = icmp ult i64 %160, %169
   br i1 %.not59.not, label %101, label %.critedge67, !llvm.loop !106
 
-.critedge65:                                      ; preds = %149, %144, %139, %131
+.critedge65:                                      ; preds = %144, %139, %131, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge67
 
-.critedge62:                                      ; preds = %71, %68
+.critedge62:                                      ; preds = %68, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge67
 
-.critedge:                                        ; preds = %31, %28
+.critedge:                                        ; preds = %28, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge67
 
 .critedge67:                                      ; preds = %154, %159, %91, %.critedge65, %81, %.critedge62, %.critedge, %41
-  %.2 = phi i1 [ false, %41 ], [ false, %.critedge ], [ false, %81 ], [ false, %.critedge62 ], [ false, %.critedge65 ], [ true, %91 ], [ false, %154 ], [ true, %159 ]
+  %.2 = phi i1 [ false, %.critedge ], [ false, %41 ], [ false, %.critedge62 ], [ false, %81 ], [ false, %.critedge65 ], [ true, %91 ], [ false, %154 ], [ true, %159 ]
   ret i1 %.2
 }
 
@@ -1331,9 +1331,9 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %118, %119
   ret void
 
 123:                                              ; preds = %.loopexit, %.loopexit.split-lp, %85, %75
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0.lcssa92, %75 ], [ %.sroa.21.3, %85 ], [ %.sroa.13.073, %.loopexit ], [ %.sroa.13.073, %.loopexit.split-lp ]
-  %.sroa.043.1 = phi ptr [ %.sroa.043.0.lcssa93, %75 ], [ %.sroa.043.3, %85 ], [ %.sroa.043.074, %.loopexit ], [ %.sroa.043.074, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.3, %85 ], [ %.sroa.21.0.lcssa92, %75 ], [ %.sroa.13.073, %.loopexit ], [ %.sroa.13.073, %.loopexit.split-lp ]
+  %.sroa.043.1 = phi ptr [ %.sroa.043.3, %85 ], [ %.sroa.043.0.lcssa93, %75 ], [ %.sroa.043.074, %.loopexit ], [ %.sroa.043.074, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i34 = icmp eq ptr %.sroa.043.1, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit35, label %124
 

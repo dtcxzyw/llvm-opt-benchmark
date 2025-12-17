@@ -301,29 +301,29 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20GIMatchTableExecutor21isObviousl
   %28 = and i32 %23, 4
   %29 = icmp ne i32 %28, 0
   %or.cond.i.i = or i1 %27, %29
-  br i1 %or.cond.i.i, label %30, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
+  br i1 %or.cond.i.i, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !54
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !55
-  %35 = and i64 %34, 68719476736
-  %.not58 = icmp eq i64 %35, 0
-  br i1 %.not58, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #9
+  br i1 %31, label %._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52
 
-_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit: ; preds = %25
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #9
-  br i1 %36, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52
-
-_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge: ; preds = %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
+._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge: ; preds = %30
   %.pre = load ptr, ptr %4, align 8, !tbaa !53
   %.pre71 = load ptr, ptr %6, align 8, !tbaa !53
   br label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
 
-_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread: ; preds = %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge, %15, %30
-  %37 = phi ptr [ %.pre71, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge ], [ %7, %15 ], [ %7, %30 ]
-  %38 = phi ptr [ %.pre, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge ], [ %5, %15 ], [ %5, %30 ]
+_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit: ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !54
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !55
+  %36 = and i64 %35, 68719476736
+  %.not58 = icmp eq i64 %36, 0
+  br i1 %.not58, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
+
+_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread: ; preds = %._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge, %15, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
+  %37 = phi ptr [ %.pre71, %._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge ], [ %7, %15 ], [ %7, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit ]
+  %38 = phi ptr [ %.pre, %._ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread_crit_edge ], [ %5, %15 ], [ %5, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit ]
   %.not = icmp eq ptr %38, %37
   br i1 %.not, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52, label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
 
@@ -354,20 +354,20 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52: ; preds = %
   %54 = and i32 %51, 4
   %55 = icmp ne i32 %54, 0
   %or.cond.i.i34 = or i1 %53, %55
-  br i1 %or.cond.i.i34, label %56, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
+  br i1 %or.cond.i.i34, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !54
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8, !tbaa !55
-  %61 = and i64 %60, 524288
-  %.not59 = icmp eq i64 %61, 0
-  br i1 %.not59, label %104, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
+  %57 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 524288, i32 noundef 1) #9
+  br i1 %57, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread, label %104
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %49
-  %62 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 524288, i32 noundef 1) #9
-  br i1 %62, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread, label %104
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !54
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i64, ptr %60, align 8, !tbaa !55
+  %62 = and i64 %61, 524288
+  %.not59 = icmp eq i64 %62, 0
+  br i1 %.not59, label %104, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread: ; preds = %43, %56, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
   %63 = load ptr, ptr %4, align 8, !tbaa !53
@@ -539,7 +539,7 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread.loopexit: ; preds = %.l
   br label %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
 
 _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %3, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread.loopexit, %_ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEEDaT_S7_b.exit, %70, %66, %85, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit41
-  %.0 = phi i1 [ %129, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit41 ], [ false, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread ], [ false, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52 ], [ false, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit ], [ false, %85 ], [ false, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ false, %66 ], [ false, %70 ], [ true, %_ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEEDaT_S7_b.exit ], [ %.0.ph, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread.loopexit ], [ true, %3 ]
+  %.0 = phi i1 [ %129, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit41 ], [ true, %3 ], [ false, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread ], [ false, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread52 ], [ false, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit ], [ false, %70 ], [ false, %85 ], [ false, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ false, %66 ], [ true, %_ZN4llvm24instructionsWithoutDebugINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEEDaT_S7_b.exit ], [ %.0.ph, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread.loopexit ]
   ret i1 %.0
 }
 

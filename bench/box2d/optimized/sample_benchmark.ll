@@ -3858,10 +3858,10 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   br i1 %exitcond230.not, label %._crit_edge186, label %.lr.ph185, !llvm.loop !168
 
 149:                                              ; preds = %2, %._crit_edge211, %57, %106, %._crit_edge186
-  %.0140 = phi float [ %69, %106 ], [ %116, %._crit_edge186 ], [ %30, %57 ], [ %30, %._crit_edge211 ], [ 0.000000e+00, %2 ]
-  %.1137 = phi i32 [ %.2138.lcssa, %106 ], [ %.3139.lcssa, %._crit_edge186 ], [ %.0136.lcssa, %57 ], [ %.0136.lcssa, %._crit_edge211 ], [ 0, %2 ]
-  %.1133 = phi i32 [ %.2134.lcssa, %106 ], [ %.3135.lcssa, %._crit_edge186 ], [ %.0132.lcssa, %57 ], [ %.0132.lcssa, %._crit_edge211 ], [ 0, %2 ]
-  %.1 = phi i32 [ %.2.lcssa, %106 ], [ %.3.lcssa, %._crit_edge186 ], [ %.0.lcssa, %57 ], [ %.0.lcssa, %._crit_edge211 ], [ 0, %2 ]
+  %.0140 = phi float [ 0.000000e+00, %2 ], [ %69, %106 ], [ %116, %._crit_edge186 ], [ %30, %57 ], [ %30, %._crit_edge211 ]
+  %.1137 = phi i32 [ 0, %2 ], [ %.2138.lcssa, %106 ], [ %.3139.lcssa, %._crit_edge186 ], [ %.0136.lcssa, %57 ], [ %.0136.lcssa, %._crit_edge211 ]
+  %.1133 = phi i32 [ 0, %2 ], [ %.2134.lcssa, %106 ], [ %.3135.lcssa, %._crit_edge186 ], [ %.0132.lcssa, %57 ], [ %.0132.lcssa, %._crit_edge211 ]
+  %.1 = phi i32 [ 0, %2 ], [ %.2.lcssa, %106 ], [ %.3.lcssa, %._crit_edge186 ], [ %.0.lcssa, %57 ], [ %.0.lcssa, %._crit_edge211 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %151 = load i32, ptr %150, align 8, !tbaa !119
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 308

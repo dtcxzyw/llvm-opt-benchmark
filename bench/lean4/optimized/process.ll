@@ -416,9 +416,9 @@ _ZN4lean14mk_option_someEP11lean_object.exit8:    ; preds = %37
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %_ZN4lean14mk_option_someEP11lean_object.exit8, %_ZN4lean14mk_option_someEP11lean_object.exit, %15, %8
-  %.sink23 = phi ptr [ %12, %8 ], [ %16, %15 ], [ %34, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %45, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
-  %.sink20 = phi i32 [ 16908312, %8 ], [ 131096, %15 ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
-  %.sink = phi ptr [ %11, %8 ], [ inttoptr (i64 1 to ptr), %15 ], [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
+  %.sink23 = phi ptr [ %34, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %16, %15 ], [ %12, %8 ], [ %45, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
+  %.sink20 = phi i32 [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ 131096, %15 ], [ 16908312, %8 ], [ 131096, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
+  %.sink = phi ptr [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ inttoptr (i64 1 to ptr), %15 ], [ %11, %8 ], [ %23, %_ZN4lean14mk_option_someEP11lean_object.exit8 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
   store i32 1, ptr %.sink23, align 4, !tbaa !7
   store i32 %.sink20, ptr %48, align 4
@@ -1541,8 +1541,8 @@ _ZN4lean6bufferIPcLm16EED2Ev.exit.i:              ; preds = %261, %259
   br label %273
 
 264:                                              ; preds = %257, %255, %238
-  %265 = phi ptr [ %.pre.i, %257 ], [ %.pre.i108148.i, %255 ], [ %.pre.i108.i, %238 ]
-  %.pn60.pn.pn.i = phi { ptr, i32 } [ %258, %257 ], [ %256, %255 ], [ %239, %238 ]
+  %265 = phi ptr [ %.pre.i108148.i, %255 ], [ %.pre.i, %257 ], [ %.pre.i108.i, %238 ]
+  %.pn60.pn.pn.i = phi { ptr, i32 } [ %256, %255 ], [ %258, %257 ], [ %239, %238 ]
   %.not.i.i.i118.i = icmp eq ptr %265, %194
   br i1 %.not.i.i.i118.i, label %_ZN4lean6bufferIPcLm16EED2Ev.exit119.i, label %266
 
@@ -1714,7 +1714,7 @@ _ZN4lean6bufferIPcLm16EED2Ev.exit119.i:           ; preds = %266, %264
   br label %335
 
 335:                                              ; preds = %334, %_ZN4lean6bufferIPcLm16EED2Ev.exit119.i, %180
-  %.pn66.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn64.i, %180 ], [ %.pn60.pn.pn.i, %_ZN4lean6bufferIPcLm16EED2Ev.exit119.i ], [ %.pn55.i, %334 ]
+  %.pn66.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn55.i, %334 ], [ %.pn60.pn.pn.i, %_ZN4lean6bufferIPcLm16EED2Ev.exit119.i ], [ %.pn64.i, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1847,7 +1847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %371
   br label %409
 
 382:                                              ; preds = %_ZN4leanL5spawnERKNS_10string_refERKNS_9array_refIS0_EENS_5stdioES7_S7_RKNS_10option_refIS0_EERKNS3_INS_8pair_refIS0_S9_EEEEbb.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %345
-  %.0 = phi ptr [ %344, %345 ], [ %310, %_ZN4leanL5spawnERKNS_10string_refERKNS_9array_refIS0_EENS_5stdioES7_S7_RKNS_10option_refIS0_EERKNS3_INS_8pair_refIS0_S9_EEEEbb.exit ], [ %362, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.0 = phi ptr [ %310, %_ZN4leanL5spawnERKNS_10string_refERKNS_9array_refIS0_EENS_5stdioES7_S7_RKNS_10option_refIS0_EERKNS3_INS_8pair_refIS0_S9_EEEEbb.exit ], [ %344, %345 ], [ %362, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %383 = load ptr, ptr %11, align 8, !tbaa !14
   %384 = ptrtoint ptr %383 to i64
   %385 = and i64 %384, 1
@@ -1917,7 +1917,7 @@ _ZN4lean10object_refD2Ev.exit58:                  ; preds = %_ZN4lean10object_re
   ret ptr %.0
 
 409:                                              ; preds = %378, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %380, %346, %38
-  %.merged24 = phi { ptr, i32 } [ %381, %380 ], [ %eh.lpad-body, %346 ], [ %39, %38 ], [ %379, %378 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ]
+  %.merged24 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %379, %378 ], [ %381, %380 ], [ %39, %38 ], [ %eh.lpad-body, %346 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
   br label %410
 

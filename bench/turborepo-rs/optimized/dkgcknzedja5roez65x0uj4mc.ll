@@ -861,7 +861,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br i1 %61, label %.thread, label %62
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %211, %182, %154, %85, %.body43
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body44, %.body43 ], [ %86, %85 ], [ %155, %154 ], [ %183, %182 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body44, %.body43 ], [ %183, %182 ], [ %86, %85 ], [ %155, %154 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtBL_6string6StringEECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #13
           to label %common.resume unwind label %215
 
@@ -885,7 +885,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   ]
 
 .thread:                                          ; preds = %62, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i", %99
-  %.sroa.07.0.lcssa = phi i64 [ %.sroa.07.0100, %62 ], [ %.sroa.07.0100, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i" ], [ %.sroa.07.1, %99 ]
+  %.sroa.07.0.lcssa = phi i64 [ %.sroa.07.1, %99 ], [ %.sroa.07.0100, %62 ], [ %.sroa.07.0100, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = icmp eq i64 %.sroa.07.0.lcssa, 0
   br i1 %65, label %77, label %66
@@ -905,9 +905,9 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br i1 %73, label %77, label %.invoke
 
 .invoke:                                          ; preds = %140, %132, %124, %136, %144, %118, %110, %103, %114, %122, %68, %72
-  %74 = phi i64 [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0.lcssa, %68 ], [ %.sroa.07.0100, %122 ], [ %.sroa.07.0100, %114 ], [ %.sroa.07.0100, %103 ], [ %.sroa.07.0100, %110 ], [ %.sroa.07.0100, %118 ], [ %.sroa.07.0100, %144 ], [ %.sroa.07.0100, %136 ], [ %.sroa.07.0100, %124 ], [ %.sroa.07.0100, %132 ], [ %.sroa.07.0100, %140 ]
-  %75 = phi i64 [ %2, %72 ], [ %2, %68 ], [ %125, %140 ], [ %125, %132 ], [ %125, %124 ], [ %125, %136 ], [ %125, %144 ], [ %.sroa.10.096, %118 ], [ %.sroa.10.096, %110 ], [ %.sroa.10.096, %103 ], [ %.sroa.10.096, %114 ], [ %.sroa.10.096, %122 ]
-  %76 = phi ptr [ @anon.e4b090d371393d367d84486e7564616a.12, %72 ], [ @anon.e4b090d371393d367d84486e7564616a.12, %68 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %140 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %132 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %124 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %136 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %144 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %118 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %110 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %103 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %114 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %122 ]
+  %74 = phi i64 [ %.sroa.07.0.lcssa, %68 ], [ %.sroa.07.0.lcssa, %72 ], [ %.sroa.07.0100, %122 ], [ %.sroa.07.0100, %114 ], [ %.sroa.07.0100, %103 ], [ %.sroa.07.0100, %110 ], [ %.sroa.07.0100, %118 ], [ %.sroa.07.0100, %144 ], [ %.sroa.07.0100, %136 ], [ %.sroa.07.0100, %124 ], [ %.sroa.07.0100, %132 ], [ %.sroa.07.0100, %140 ]
+  %75 = phi i64 [ %2, %68 ], [ %2, %72 ], [ %125, %140 ], [ %125, %132 ], [ %125, %124 ], [ %125, %136 ], [ %125, %144 ], [ %.sroa.10.096, %118 ], [ %.sroa.10.096, %110 ], [ %.sroa.10.096, %103 ], [ %.sroa.10.096, %114 ], [ %.sroa.10.096, %122 ]
+  %76 = phi ptr [ @anon.e4b090d371393d367d84486e7564616a.12, %68 ], [ @anon.e4b090d371393d367d84486e7564616a.12, %72 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %140 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %132 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %124 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %136 ], [ @anon.e4b090d371393d367d84486e7564616a.16, %144 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %118 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %110 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %103 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %114 ], [ @anon.e4b090d371393d367d84486e7564616a.13, %122 ]
   invoke void @_ZN4core3str16slice_error_fail17hf8347dc47a79cb3dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %74, i64 noundef %75, ptr noalias noundef readonly align 8 dereferenceable(24) %76) #14
           to label %.cont unwind label %.loopexit.split-lp
 

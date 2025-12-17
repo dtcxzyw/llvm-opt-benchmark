@@ -1433,9 +1433,9 @@ _ZL18yy_get_next_bufferPv.exit.thread292:         ; preds = %383, %_ZL18yy_get_n
   br i1 %547, label %.lr.ph32.i277, label %.preheader.outer.backedge
 
 .preheader.outer.backedge:                        ; preds = %._crit_edge.i287, %_ZL18yy_get_next_bufferPv.exit.thread292, %_ZL16yy_try_NUL_transiPv.exit
-  %.1235.ph.be = phi ptr [ %297, %_ZL16yy_try_NUL_transiPv.exit ], [ %543, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %543, %._crit_edge.i287 ]
-  %.2226.ph.be = phi ptr [ %300, %_ZL16yy_try_NUL_transiPv.exit ], [ %545, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %545, %._crit_edge.i287 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %546, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %587, %._crit_edge.i287 ]
+  %.1235.ph.be = phi ptr [ %543, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %297, %_ZL16yy_try_NUL_transiPv.exit ], [ %543, %._crit_edge.i287 ]
+  %.2226.ph.be = phi ptr [ %545, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %300, %_ZL16yy_try_NUL_transiPv.exit ], [ %545, %._crit_edge.i287 ]
+  %.3.ph.be = phi i32 [ %546, %_ZL18yy_get_next_bufferPv.exit.thread292 ], [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %587, %._crit_edge.i287 ]
   br label %.preheader.outer
 
 .lr.ph32.i277:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread292, %._crit_edge.i287
@@ -1536,7 +1536,7 @@ _ZL21yy_get_previous_statePv.exit275:             ; preds = %_ZL18yy_get_next_bu
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %145, %.loopexit.sink.split.loopexit1575, %.loopexit.sink.split.loopexit
-  %.sink = phi i32 [ 3, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1575 ], [ 5, %145 ]
+  %.sink = phi i32 [ 1, %.loopexit.sink.split.loopexit1575 ], [ 3, %.loopexit.sink.split.loopexit ], [ 5, %145 ]
   store i32 %.sink, ptr %74, align 4, !tbaa !17
   br label %.loopexit.backedge
 
@@ -1921,8 +1921,8 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %47 = phi i64 [ %40, %33 ], [ %27, %31 ]
-  %48 = phi ptr [ %39, %33 ], [ %25, %31 ]
+  %47 = phi i64 [ %27, %31 ], [ %40, %33 ]
+  %48 = phi ptr [ %25, %31 ], [ %39, %33 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28

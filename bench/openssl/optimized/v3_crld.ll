@@ -262,9 +262,9 @@ crldp_from_section.exit:                          ; preds = %16, %27, %34, %41
   %exitcond.not = icmp eq i32 %74, %4
   br i1 %exitcond.not, label %.loopexit67, label %.lr.ph, !llvm.loop !23
 
-.split44:                                         ; preds = %51, %12, %60, %69, %64, %57, %crldp_from_section.exit, %.split
-  %.242.ph.sink = phi ptr [ null, %.split ], [ %52, %60 ], [ null, %69 ], [ null, %64 ], [ %52, %57 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
-  %.2.ph.sink = phi ptr [ null, %.split ], [ %55, %60 ], [ %55, %69 ], [ %55, %64 ], [ null, %57 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
+.split44:                                         ; preds = %51, %12, %69, %64, %57, %60, %crldp_from_section.exit, %.split
+  %.242.ph.sink = phi ptr [ null, %.split ], [ null, %69 ], [ null, %64 ], [ %52, %57 ], [ %52, %60 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
+  %.2.ph.sink = phi ptr [ null, %.split ], [ %55, %69 ], [ %55, %64 ], [ null, %57 ], [ %55, %60 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
   tail call void @GENERAL_NAME_free(ptr noundef %.242.ph.sink) #5
   tail call void @GENERAL_NAMES_free(ptr noundef %.2.ph.sink) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @DIST_POINT_free) #5
@@ -835,7 +835,7 @@ define range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(address_i
   br label %27
 
 27:                                               ; preds = %._crit_edge, %6, %2, %4, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 1, %4 ], [ 1, %2 ], [ 0, %6 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %2 ], [ 0, %.loopexit ], [ 1, %4 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1064,7 +1064,7 @@ aaidp_from_section.exit:                          ; preds = %29, %36, %43, %48, 
   br label %86
 
 86:                                               ; preds = %aaidp_from_section.exit.thread, %82, %3, %85
-  %.0 = phi ptr [ null, %85 ], [ null, %3 ], [ %75, %82 ], [ %16, %aaidp_from_section.exit.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %85 ], [ %16, %aaidp_from_section.exit.thread ], [ %75, %82 ]
   ret ptr %.0
 }
 
@@ -1240,7 +1240,7 @@ print_reasons.exit:                               ; preds = %27, %.thread23.i
   br label %86
 
 86:                                               ; preds = %82, %77, %74, %68, %63, %60, %54, %49, %46, %40, %35, %32, %85
-  %.0 = phi i32 [ 1, %85 ], [ 0, %32 ], [ 0, %35 ], [ 0, %40 ], [ 0, %46 ], [ 0, %49 ], [ 0, %54 ], [ 0, %60 ], [ 0, %63 ], [ 0, %68 ], [ 0, %74 ], [ 0, %77 ], [ 0, %82 ]
+  %.0 = phi i32 [ 1, %85 ], [ 0, %77 ], [ 0, %74 ], [ 0, %32 ], [ 0, %35 ], [ 0, %40 ], [ 0, %46 ], [ 0, %49 ], [ 0, %54 ], [ 0, %60 ], [ 0, %63 ], [ 0, %68 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -1371,15 +1371,15 @@ define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr noundef non
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #5
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %24, %27, %38, %12
-  %.038 = phi ptr [ %.139, %38 ], [ null, %12 ], [ %26, %27 ], [ %26, %24 ], [ %.038.ph, %.thread.sink.split ]
-  %.036 = phi ptr [ %.137, %38 ], [ null, %12 ], [ null, %27 ], [ null, %24 ], [ %.036.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %27, %24, %38, %12
+  %.038 = phi ptr [ %26, %27 ], [ %26, %24 ], [ %.139, %38 ], [ null, %12 ], [ %.038.ph, %.thread.sink.split ]
+  %.036 = phi ptr [ null, %27 ], [ null, %24 ], [ %.137, %38 ], [ null, %12 ], [ %.036.ph, %.thread.sink.split ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.036, ptr noundef nonnull @GENERAL_NAME_free) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.038, ptr noundef nonnull @X509_NAME_ENTRY_free) #5
   br label %.thread54
 
 .thread54:                                        ; preds = %17, %23, %43, %44, %14, %.thread
-  %.1 = phi i32 [ -1, %.thread ], [ 0, %14 ], [ 1, %44 ], [ 1, %43 ], [ -1, %23 ], [ -1, %17 ]
+  %.1 = phi i32 [ -1, %.thread ], [ 0, %14 ], [ 1, %43 ], [ 1, %44 ], [ -1, %23 ], [ -1, %17 ]
   ret i32 %.1
 }
 

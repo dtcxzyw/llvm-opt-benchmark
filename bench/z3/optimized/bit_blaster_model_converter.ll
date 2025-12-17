@@ -411,7 +411,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refE
   br label %106
 
 106:                                              ; preds = %80, %104
-  %.pn27.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %81, %80 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %105, %104 ]
   tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
   tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -669,7 +669,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refE
   br label %106
 
 106:                                              ; preds = %80, %104
-  %.pn27.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %81, %80 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %105, %104 ]
   tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
   tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -2243,7 +2243,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit66:       ; preds = %_ZNSt4pairI7obj_ref
   br label %195
 
 195:                                              ; preds = %180, %178, %193
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %193 ], [ %181, %180 ], [ %179, %178 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %193 ], [ %179, %178 ], [ %181, %180 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %198
@@ -2885,7 +2885,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
 
 91:                                               ; preds = %84, %78
-  %.1.i = phi ptr [ %.04464.i, %78 ], [ %.04563.i, %84 ]
+  %.1.i = phi ptr [ %.04563.i, %84 ], [ %.04464.i, %78 ]
   %92 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 8
   %.not.i = icmp eq ptr %92, %75
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !130
@@ -2930,7 +2930,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
 
 108:                                              ; preds = %101, %95
-  %.3.i = phi ptr [ %.267.i, %95 ], [ %.14666.i, %101 ]
+  %.3.i = phi ptr [ %.14666.i, %101 ], [ %.267.i, %95 ]
   %109 = getelementptr inbounds nuw i8, ptr %.14666.i, i64 8
   %.not47.i = icmp eq ptr %109, %74
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph68.i, !llvm.loop !131
@@ -3124,7 +3124,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %4
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %63, %74, %77, %.preheader.i.i.i.i, %.loopexit.i
-  %80 = phi ptr [ %79, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %77 ], [ null, %74 ], [ null, %63 ]
+  %80 = phi ptr [ %79, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %74 ], [ null, %77 ], [ null, %63 ]
   tail call void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %16, ptr noundef %80)
   br label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
@@ -6256,7 +6256,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit64:       ; preds = %_ZNSt4pairI7obj_ref
   br label %195
 
 195:                                              ; preds = %180, %178, %193
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %193 ], [ %181, %180 ], [ %179, %178 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %194, %193 ], [ %179, %178 ], [ %181, %180 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %198
@@ -6512,7 +6512,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
 
 91:                                               ; preds = %84, %78
-  %.1.i = phi ptr [ %.04464.i, %78 ], [ %.04563.i, %84 ]
+  %.1.i = phi ptr [ %.04563.i, %84 ], [ %.04464.i, %78 ]
   %92 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 8
   %.not.i = icmp eq ptr %92, %75
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !130
@@ -6557,7 +6557,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
 
 108:                                              ; preds = %101, %95
-  %.3.i = phi ptr [ %.267.i, %95 ], [ %.14666.i, %101 ]
+  %.3.i = phi ptr [ %.14666.i, %101 ], [ %.267.i, %95 ]
   %109 = getelementptr inbounds nuw i8, ptr %.14666.i, i64 8
   %.not47.i = icmp eq ptr %109, %74
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph68.i, !llvm.loop !131
@@ -6751,7 +6751,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %4
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %63, %74, %77, %.preheader.i.i.i.i, %.loopexit.i
-  %80 = phi ptr [ %79, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %77 ], [ null, %74 ], [ null, %63 ]
+  %80 = phi ptr [ %79, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %74 ], [ null, %77 ], [ null, %63 ]
   tail call void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %16, ptr noundef %80)
   br label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 

@@ -117,7 +117,7 @@ _ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not144186, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse.backedge.i.i, %41, %.lr.ph, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit, %tailrecurse.backedge.i.i60, %70, %23, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0.lcssa = phi i64 [ %24, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %24, %23 ], [ %56, %70 ], [ %56, %tailrecurse.backedge.i.i60 ], [ %56, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit ], [ %56, %.lr.ph ], [ %24, %41 ], [ %24, %tailrecurse.backedge.i.i ]
+  %.0.lcssa = phi i64 [ %24, %_ZN25AnsiColorSequenceIteratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %24, %23 ], [ %24, %41 ], [ %56, %70 ], [ %56, %tailrecurse.backedge.i.i60 ], [ %56, %.lr.ph ], [ %56, %_ZN25AnsiColorSequenceIterator12NextSequenceEv.exit ], [ %24, %tailrecurse.backedge.i.i ]
   %.not51 = icmp ugt i64 %.0.lcssa, %1
   br i1 %.not51, label %84, label %266
 

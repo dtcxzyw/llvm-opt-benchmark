@@ -138,8 +138,8 @@ if.end.i.i:                                       ; preds = %if.then20.i.i.i.i, 
   br label %return
 
 return:                                           ; preds = %if.end21.i.i.i.i, %if.end.i.i, %if.end.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit, %if.end, %if.then
-  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i10.pre, %if.end.i.i ], [ %retval.sroa.0.0.copyload.i.i, %if.end21.i.i.i.i ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ 4294967296, %if.end.i.i.i.i ], [ 4294967296, %if.end.i.i ], [ 4294967296, %if.end21.i.i.i.i ]
+  %retval.sroa.0.0 = phi i64 [ %0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ %retval.sroa.0.0.copyload.i.i10.pre, %if.end.i.i ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i, %if.end21.i.i.i.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_8SymbolIDE.exit ], [ 4294967296, %if.end.i.i ], [ 4294967296, %if.end.i.i.i.i ], [ 4294967296, %if.end21.i.i.i.i ]
   %retval.sroa.0.0.insert.ext = and i64 %retval.sroa.0.0, 4294967295
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert

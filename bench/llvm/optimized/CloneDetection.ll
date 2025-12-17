@@ -808,7 +808,7 @@ define dso_local noundef zeroext i1 @_ZN5clang25FilenamePatternConstraint15isAut
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.02026 = phi ptr [ %14, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %.02026 = phi ptr [ %31, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %.02026, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %18) #20
@@ -830,7 +830,7 @@ define dso_local noundef zeroext i1 @_ZN5clang25FilenamePatternConstraint15isAut
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %6, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %2 ], [ %30, %.lr.ph ]
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ false, %9 ], [ %30, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4524,9 +4524,9 @@ define dso_local noundef i32 @_ZN5clang15VariablePattern23countPatternDifference
   br label %64
 
 64:                                               ; preds = %60, %63, %34, %.lr.ph.split
-  %65 = phi ptr [ %27, %.lr.ph.split ], [ %27, %34 ], [ %.pre44, %63 ], [ %27, %60 ]
-  %66 = phi ptr [ %28, %.lr.ph.split ], [ %28, %34 ], [ %.pre, %63 ], [ %28, %60 ]
-  %.1 = phi i32 [ %.02840, %.lr.ph.split ], [ %35, %34 ], [ 1, %63 ], [ 1, %60 ]
+  %65 = phi ptr [ %27, %60 ], [ %27, %.lr.ph.split ], [ %27, %34 ], [ %.pre44, %63 ]
+  %66 = phi ptr [ %28, %60 ], [ %28, %.lr.ph.split ], [ %28, %34 ], [ %.pre, %63 ]
+  %.1 = phi i32 [ 1, %60 ], [ %.02840, %.lr.ph.split ], [ %35, %34 ], [ 1, %63 ]
   %67 = add i32 %.02939, 1
   %68 = zext i32 %67 to i64
   %69 = ptrtoint ptr %66 to i64
@@ -10144,7 +10144,7 @@ _ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang1
   br i1 %27, label %.lr.ph.i30, label %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_.exit32, !llvm.loop !581
 
 _ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_.exit32: ; preds = %.lr.ph.i30, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_.exit, %13
-  %.pre-phi43 = phi i64 [ %22, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_.exit ], [ %.pre42, %13 ], [ %22, %.lr.ph.i30 ]
+  %.pre-phi43 = phi i64 [ %.pre42, %13 ], [ %22, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_T0_T1_.exit ], [ %22, %.lr.ph.i30 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SG_SG_T0_SH_T1_SH_T2_(ptr %0, ptr %11, ptr %1, i64 noundef %10, i64 noundef %.pre-phi43, ptr noundef %2, i64 noundef %3)
   ret void
 }
@@ -10427,7 +10427,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !587
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5clang12StmtSequenceEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %._crit_edge, %._crit_edge67, %.lr.ph.i, %8, %3
-  %.sroa.015.0 = phi ptr [ %2, %3 ], [ %0, %8 ], [ %1, %.lr.ph.i ], [ %28, %._crit_edge67 ], [ %28, %._crit_edge ]
+  %.sroa.015.0 = phi ptr [ %0, %8 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %28, %._crit_edge67 ], [ %28, %._crit_edge ]
   ret ptr %.sroa.015.0
 }
 
@@ -11583,7 +11583,7 @@ _ZSt13move_backwardIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_itera
   br label %90
 
 90:                                               ; preds = %49, %9, %88, %_ZSt13move_backwardIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit, %_ZSt4moveIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit
-  %.sroa.032.0 = phi ptr [ %47, %_ZSt4moveIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %87, %_ZSt13move_backwardIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %89, %88 ], [ %0, %9 ], [ %2, %49 ]
+  %.sroa.032.0 = phi ptr [ %47, %_ZSt4moveIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %89, %88 ], [ %87, %_ZSt13move_backwardIPSt4pairImN5clang12StmtSequenceEEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit ], [ %0, %9 ], [ %2, %49 ]
   ret ptr %.sroa.032.0
 }
 

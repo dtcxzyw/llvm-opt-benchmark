@@ -95,7 +95,7 @@ define internal range(i32 -2147483648, 1) i32 @wrapped_avframe_decode(ptr nounde
   br label %21
 
 21:                                               ; preds = %17, %12, %8, %4, %20
-  %.0 = phi i32 [ 0, %20 ], [ -1, %4 ], [ -22, %8 ], [ %15, %12 ], [ %18, %17 ]
+  %.0 = phi i32 [ -1, %4 ], [ -22, %8 ], [ %15, %12 ], [ 0, %20 ], [ %18, %17 ]
   ret i32 %.0
 }
 

@@ -261,7 +261,7 @@ sub_1:                                            ; preds = %sub_0
   br label %28
 
 28:                                               ; preds = %27, %.tail, %26
-  %.0 = phi i32 [ 2, %26 ], [ 3, %.tail ], [ %., %27 ]
+  %.0 = phi i32 [ 3, %.tail ], [ 2, %26 ], [ %., %27 ]
   tail call void %1(ptr noundef %15, i32 noundef %.0, i64 noundef %17, ptr noundef nonnull %24) #10
   br label %29
 

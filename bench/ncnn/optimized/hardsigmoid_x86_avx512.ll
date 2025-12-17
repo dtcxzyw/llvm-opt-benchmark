@@ -245,7 +245,7 @@ define internal void @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERNS_3Ma
   br label %100
 
 100:                                              ; preds = %92, %.lr.ph88, %95
-  %.sink = phi float [ %99, %95 ], [ 0.000000e+00, %.lr.ph88 ], [ 1.000000e+00, %92 ]
+  %.sink = phi float [ 0.000000e+00, %.lr.ph88 ], [ %99, %95 ], [ 1.000000e+00, %92 ]
   store float %.sink, ptr %.387, align 4, !tbaa !52
   %101 = getelementptr inbounds nuw i8, ptr %.387, i64 4
   %102 = add nuw nsw i32 %.35986, 1

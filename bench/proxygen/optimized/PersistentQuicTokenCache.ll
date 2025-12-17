@@ -2177,7 +2177,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %ehcleanup
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %if.then.i.i.i.i, %lpad5.i.i, %_ZNSt6threadD2Ev.exit
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6threadD2Ev.exit ], [ %5, %if.then.i.i.i.i ], [ %5, %lpad5.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6threadD2Ev.exit ], [ %5, %lpad5.i.i ], [ %5, %if.then.i.i.i.i ]
   call void @_ZNSt23enable_shared_from_thisIN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St5mutexEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   resume { ptr, i32 } %.pn.pn
 }
@@ -4194,7 +4194,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %invoke.cont31.invoke unwind label %terminate.lpad
 
 invoke.cont31.invoke:                             ; preds = %invoke.cont28, %invoke.cont41, %invoke.cont56
-  %ref.tmp52.sink = phi ptr [ %ref.tmp52, %invoke.cont56 ], [ %ref.tmp37, %invoke.cont41 ], [ %ref.tmp24, %invoke.cont28 ]
+  %ref.tmp52.sink = phi ptr [ %ref.tmp37, %invoke.cont41 ], [ %ref.tmp52, %invoke.cont56 ], [ %ref.tmp24, %invoke.cont28 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp52.sink) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %terminate.lpad
@@ -4260,7 +4260,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i9, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %10, %lpad ], [ %10, %if.then.i.i9 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %10, %lpad ], [ %10, %if.then.i.i9 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS5_EEC2ERKS8_.exit: ; preds = %entry, %invoke.cont.i
@@ -4678,7 +4678,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i11
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad17, %if.then.i.i20, %lpad.i, %if.then.i.i11
-  %common.resume.op = phi { ptr, i32 } [ %16, %if.then.i.i11 ], [ %16, %lpad.i ], [ %23, %lpad ], [ %24, %lpad17 ], [ %24, %if.then.i.i20 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %lpad.i ], [ %16, %if.then.i.i11 ], [ %23, %lpad ], [ %24, %lpad17 ], [ %24, %if.then.i.i20 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS5_EEC2ERKS8_.exit: ; preds = %if.then15, %invoke.cont.i
@@ -5275,8 +5275,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSF_9KeyHasherENSF_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPNS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEEE4NodeEvNSF_9KeyHasherENSF_13KeyValueEqualEvSt17integral_constantIbLb0EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %shr.i.i.i, i64 noundef %shl.i.i.i, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -7185,7 +7185,7 @@ if.end18:                                         ; preds = %invoke.cont14
   br i1 %cmp.i, label %return, label %while.cond9, !llvm.loop !105
 
 return:                                           ; preds = %if.end37.i, %if.end20.i, %while.body, %if.end18, %invoke.cont14, %if.end14.i, %if.end.i, %if.end11.i
-  %retval.0 = phi i1 [ false, %if.end11.i ], [ true, %if.end.i ], [ true, %if.end14.i ], [ %cmp16.not.not, %invoke.cont14 ], [ %cmp16.not.not, %if.end18 ], [ true, %while.body ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %if.end37.i ]
+  %retval.0 = phi i1 [ true, %if.end14.i ], [ false, %if.end11.i ], [ true, %if.end.i ], [ true, %while.body ], [ %cmp16.not.not, %if.end18 ], [ %cmp16.not.not, %invoke.cont14 ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %if.end37.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %if.end.i4, %while.cond9
@@ -7275,7 +7275,7 @@ if.end34:                                         ; preds = %if.end, %_ZN5folly6
   br label %return
 
 return:                                           ; preds = %if.then20, %entry, %if.end34, %if.then31
-  %retval.0 = phi i1 [ true, %if.then31 ], [ false, %if.end34 ], [ false, %entry ], [ false, %if.then20 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then31 ], [ false, %if.end34 ], [ false, %if.then20 ]
   ret i1 %retval.0
 }
 
@@ -7444,7 +7444,7 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
-  %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %10, %lpad2 ], [ %10, %if.then.i.i10 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad.i ], [ %10, %if.then.i.i10 ], [ %3, %if.then.i.i ], [ %10, %lpad2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp) #25
   resume { ptr, i32 } %.pn
 }
@@ -7764,7 +7764,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i9, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %10, %lpad ], [ %10, %if.then.i.i9 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %10, %lpad ], [ %10, %if.then.i.i9 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS5_EEC2ERKS8_.exit: ; preds = %entry, %invoke.cont.i
@@ -7860,7 +7860,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i12, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %10, %lpad ], [ %10, %if.then.i.i12 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %10, %lpad ], [ %10, %if.then.i.i12 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS5_EEC2ERKS8_.exit: ; preds = %if.then, %invoke.cont.i
@@ -8124,7 +8124,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i9, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %if.then.i.i ], [ %4, %lpad.i ], [ %11, %lpad ], [ %11, %if.then.i.i9 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %4, %if.then.i.i ], [ %11, %lpad ], [ %11, %if.then.i.i9 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOS5_EEC2ERKS8_.exit: ; preds = %entry, %invoke.cont.i
@@ -8335,7 +8335,7 @@ invoke.cont18:                                    ; preds = %if.then15
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end9, %invoke.cont12, %if.then14, %invoke.cont18
-  %nSyncFailures.2 = phi i32 [ 0, %invoke.cont18 ], [ %inc, %if.then14 ], [ 0, %invoke.cont12 ], [ 0, %if.end9 ]
+  %nSyncFailures.2 = phi i32 [ %inc, %if.then14 ], [ 0, %invoke.cont18 ], [ 0, %invoke.cont12 ], [ 0, %if.end9 ]
   %13 = load i8, ptr %stopSyncer_, align 8
   %tobool25 = trunc i8 %13 to i1
   br i1 %tobool25, label %cleanup, label %if.then26
@@ -8360,8 +8360,8 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11uniq
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit, %if.end23, %if.then, %invoke.cont6
-  %nSyncFailures.1 = phi i32 [ %nSyncFailures.0, %invoke.cont6 ], [ %nSyncFailures.0, %if.then ], [ %nSyncFailures.2, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ %nSyncFailures.2, %if.end23 ]
-  %15 = phi i1 [ false, %invoke.cont6 ], [ false, %if.then ], [ true, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ true, %if.end23 ]
+  %nSyncFailures.1 = phi i32 [ %nSyncFailures.0, %if.then ], [ %nSyncFailures.0, %invoke.cont6 ], [ %nSyncFailures.2, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ %nSyncFailures.2, %if.end23 ]
+  %15 = phi i1 [ false, %if.then ], [ false, %invoke.cont6 ], [ true, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit ], [ true, %if.end23 ]
   %16 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6wangle16CachePersistenceEED2Ev.exit, label %if.then.i.i.i17

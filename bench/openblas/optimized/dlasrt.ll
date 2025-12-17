@@ -183,7 +183,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %72
 
 72:                                               ; preds = %70, %68, %66, %64
-  %.0190 = phi double [ %54, %64 ], [ %., %66 ], [ %57, %68 ], [ %.216, %70 ]
+  %.0190 = phi double [ %57, %68 ], [ %., %66 ], [ %54, %64 ], [ %.216, %70 ]
   %73 = add nsw i32 %26, -1
   %74 = add nsw i32 %28, 1
   br i1 %.not.not.not, label %.preheader327, label %.preheader328

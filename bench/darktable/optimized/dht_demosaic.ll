@@ -210,7 +210,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %77, %81
   br label %_ZN6LibRaw5COLOREii.exit
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %71, %_ZN6LibRaw3FCFEii.exit.i, %97
-  %.0.i = phi i32 [ %73, %71 ], [ %96, %_ZN6LibRaw3FCFEii.exit.i ], [ %103, %97 ]
+  %.0.i = phi i32 [ %73, %71 ], [ %103, %97 ], [ %96, %_ZN6LibRaw3FCFEii.exit.i ]
   %.0.i.fr = freeze i32 %.0.i
   %104 = icmp eq i32 %.0.i.fr, 3
   %spec.select = select i1 %104, i32 1, i32 %.0.i.fr
@@ -2034,9 +2034,9 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   br label %.thread
 
 .thread:                                          ; preds = %56, %61, %58
-  %.pre-phi81 = phi i64 [ %21, %56 ], [ %.pre80, %61 ], [ %21, %58 ]
-  %71 = phi ptr [ %17, %56 ], [ %.pre, %61 ], [ %17, %58 ]
-  %72 = phi i1 [ %spec.select, %56 ], [ false, %61 ], [ %59, %58 ]
+  %.pre-phi81 = phi i64 [ %21, %56 ], [ %21, %58 ], [ %.pre80, %61 ]
+  %71 = phi ptr [ %17, %56 ], [ %17, %58 ], [ %.pre, %61 ]
+  %72 = phi i1 [ %spec.select, %56 ], [ %59, %58 ], [ false, %61 ]
   %73 = getelementptr inbounds i8, ptr %71, i64 %.pre-phi81
   %74 = load i8, ptr %73, align 1, !tbaa !96
   %75 = and i8 %74, 2
@@ -2643,9 +2643,9 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   br label %.thread
 
 .thread:                                          ; preds = %92, %97, %94
-  %.pre-phi98 = phi i64 [ %21, %92 ], [ %.pre97, %97 ], [ %21, %94 ]
-  %107 = phi ptr [ %17, %92 ], [ %.pre, %97 ], [ %17, %94 ]
-  %108 = phi i1 [ %spec.select, %92 ], [ false, %97 ], [ %95, %94 ]
+  %.pre-phi98 = phi i64 [ %21, %92 ], [ %21, %94 ], [ %.pre97, %97 ]
+  %107 = phi ptr [ %17, %92 ], [ %17, %94 ], [ %.pre, %97 ]
+  %108 = phi i1 [ %spec.select, %92 ], [ %95, %94 ], [ false, %97 ]
   %109 = getelementptr inbounds i8, ptr %107, i64 %.pre-phi98
   %110 = load i8, ptr %109, align 1, !tbaa !96
   %111 = and i8 %110, 32
@@ -3040,7 +3040,7 @@ _ZN6LibRaw5COLOREii.exit141:                      ; preds = %2, %_ZN6LibRaw5COLO
   br label %230
 
 230:                                              ; preds = %224, %226, %229
-  %.1 = phi nsz float [ %227, %229 ], [ %.0, %226 ], [ %91, %224 ]
+  %.1 = phi nsz float [ %.0, %226 ], [ %227, %229 ], [ %91, %224 ]
   %231 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store float %.1, ptr %231, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -3449,7 +3449,7 @@ _ZN6LibRaw5COLOREii.exit135:                      ; preds = %2, %_ZN6LibRaw5COLO
   br label %176
 
 176:                                              ; preds = %170, %172, %175
-  %.1 = phi nsz float [ %173, %175 ], [ %.0, %172 ], [ %85, %170 ]
+  %.1 = phi nsz float [ %.0, %172 ], [ %173, %175 ], [ %85, %170 ]
   %177 = getelementptr inbounds float, ptr %97, i64 %81
   store float %.1, ptr %177, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -3704,7 +3704,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %2, %12, %_ZN6LibRaw
   br label %183
 
 183:                                              ; preds = %177, %179, %182
-  %.1164 = phi nsz float [ %180, %182 ], [ %.0163, %179 ], [ %48, %177 ]
+  %.1164 = phi nsz float [ %.0163, %179 ], [ %180, %182 ], [ %48, %177 ]
   %184 = fcmp reassoc nsz arcp contract afn ogt float %.0, %52
   br i1 %184, label %189, label %185
 
@@ -3717,7 +3717,7 @@ _ZN6LibRaw5COLOREii.exit:                         ; preds = %2, %12, %_ZN6LibRaw
   br label %189
 
 189:                                              ; preds = %183, %185, %188
-  %.1 = phi nsz float [ %186, %188 ], [ %.0, %185 ], [ %52, %183 ]
+  %.1 = phi nsz float [ %.0, %185 ], [ %186, %188 ], [ %52, %183 ]
   store float %.1164, ptr %65, align 4, !tbaa !81
   %190 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store float %.1, ptr %190, align 4, !tbaa !81

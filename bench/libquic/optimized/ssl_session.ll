@@ -426,7 +426,7 @@ SSL_SESSION_new.exit.thread:                      ; preds = %7
   br label %54
 
 54:                                               ; preds = %SSL_SESSION_new.exit.thread, %46, %53, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %53 ], [ 1, %46 ], [ 0, %SSL_SESSION_new.exit.thread ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %46 ], [ 0, %53 ], [ 0, %SSL_SESSION_new.exit.thread ]
   ret i32 %.0
 }
 
@@ -592,9 +592,9 @@ ssl_lookup_session.exit:                          ; preds = %65
   br label %114
 
 ssl_lookup_session.exit.thread:                   ; preds = %.ssl_lookup_session.exit.thread_crit_edge, %ssl_lookup_session.exit.thread44
-  %.pr = phi ptr [ %63, %ssl_lookup_session.exit.thread44 ], [ %.pr.pre, %.ssl_lookup_session.exit.thread_crit_edge ]
-  %.ph = phi i32 [ %29, %ssl_lookup_session.exit.thread44 ], [ %19, %.ssl_lookup_session.exit.thread_crit_edge ]
-  %.027.ph = phi i32 [ 1, %ssl_lookup_session.exit.thread44 ], [ 0, %.ssl_lookup_session.exit.thread_crit_edge ]
+  %.pr = phi ptr [ %.pr.pre, %.ssl_lookup_session.exit.thread_crit_edge ], [ %63, %ssl_lookup_session.exit.thread44 ]
+  %.ph = phi i32 [ %19, %.ssl_lookup_session.exit.thread_crit_edge ], [ %29, %ssl_lookup_session.exit.thread44 ]
+  %.027.ph = phi i32 [ 0, %.ssl_lookup_session.exit.thread_crit_edge ], [ 1, %ssl_lookup_session.exit.thread44 ]
   %77 = icmp eq ptr %.pr, null
   br i1 %77, label %ssl_lookup_session.exit.thread.thread, label %78
 
@@ -661,8 +661,8 @@ ssl_lookup_session.exit.thread:                   ; preds = %.ssl_lookup_session
   br label %114
 
 ssl_lookup_session.exit.thread.thread:            ; preds = %56, %.thread, %105, %106, %ssl_lookup_session.exit.thread, %78, %85
-  %112 = phi ptr [ %100, %105 ], [ %.pre, %106 ], [ null, %ssl_lookup_session.exit.thread ], [ %80, %78 ], [ %80, %85 ], [ null, %.thread ], [ null, %56 ]
-  %113 = phi i32 [ %79, %105 ], [ %79, %106 ], [ %.ph, %ssl_lookup_session.exit.thread ], [ %79, %78 ], [ %79, %85 ], [ %29, %.thread ], [ %29, %56 ]
+  %112 = phi ptr [ %80, %85 ], [ %100, %105 ], [ %.pre, %106 ], [ null, %ssl_lookup_session.exit.thread ], [ %80, %78 ], [ null, %.thread ], [ null, %56 ]
+  %113 = phi i32 [ %79, %85 ], [ %79, %105 ], [ %79, %106 ], [ %.ph, %ssl_lookup_session.exit.thread ], [ %79, %78 ], [ %29, %.thread ], [ %29, %56 ]
   store ptr null, ptr %1, align 8, !tbaa !67
   store i32 %113, ptr %2, align 4, !tbaa !31
   call void @SSL_SESSION_free(ptr noundef %112)
@@ -1015,7 +1015,7 @@ SSL_SESSION_list_remove.exit:                     ; preds = %40, %20, %14, %10
   br label %52
 
 52:                                               ; preds = %43, %51, %4, %3
-  %.021 = phi i32 [ 0, %4 ], [ 0, %3 ], [ %.1, %51 ], [ %.1, %43 ]
+  %.021 = phi i32 [ 0, %3 ], [ 0, %4 ], [ %.1, %51 ], [ %.1, %43 ]
   ret i32 %.021
 }
 

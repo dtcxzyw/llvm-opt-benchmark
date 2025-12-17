@@ -617,7 +617,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
   br label %272
 
 272:                                              ; preds = %156, %.lr.ph559, %270
-  %.val478 = phi i32 [ %.val478624, %.lr.ph559 ], [ %.val478.pre, %270 ], [ %.val478624, %156 ]
+  %.val478 = phi i32 [ %.val478624, %156 ], [ %.val478624, %.lr.ph559 ], [ %.val478.pre, %270 ]
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %273 = sext i32 %.val478 to i64
   %274 = icmp slt i64 %indvars.iv.next599, %273

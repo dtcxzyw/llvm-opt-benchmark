@@ -257,7 +257,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
           to label %73 unwind label %.loopexit.split-lp
 
 .thread:                                          ; preds = %49, %29, %127
-  %68 = phi ptr [ %13, %29 ], [ %.pre57, %127 ], [ %13, %49 ]
+  %68 = phi ptr [ %.pre57, %127 ], [ %13, %29 ], [ %13, %49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %69 = atomicrmw sub ptr %68, i32 1 release, align 4, !noalias !45
@@ -320,7 +320,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   br i1 %88, label %.thread45, label %.thread49
 
 89:                                               ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h8e062c2867e568d2E.exit.i", %80, %.noexc21, %76, %131, %128
-  %.04 = phi i8 [ 0, %128 ], [ 1, %131 ], [ 1, %76 ], [ 1, %.noexc21 ], [ 1, %80 ], [ 1, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h8e062c2867e568d2E.exit.i" ]
+  %.04 = phi i8 [ 0, %128 ], [ 1, %131 ], [ 1, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h8e062c2867e568d2E.exit.i" ], [ 1, %76 ], [ 1, %.noexc21 ], [ 1, %80 ]
   %90 = landingpad { ptr, i32 }
           cleanup
   br label %87
@@ -408,7 +408,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
           to label %"_ZN4core3ptr242drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h8bdd7559e877ce12E.exit" unwind label %122
 
 122:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit27.thread, %103, %112, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i, %119, %121
-  %.0 = phi i8 [ 1, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit27.thread ], [ 1, %103 ], [ 0, %112 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i ], [ 0, %119 ], [ 0, %121 ]
+  %.0 = phi i8 [ 0, %121 ], [ 1, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit27.thread ], [ 1, %103 ], [ 0, %112 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i ], [ 0, %119 ]
   %123 = landingpad { ptr, i32 }
           cleanup
   %.pre = load i64, ptr %7, align 8, !range !64
@@ -706,7 +706,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   br label %83
 
 83:                                               ; preds = %11, %63, %84, %81
-  %.0 = phi i1 [ %82, %81 ], [ true, %84 ], [ true, %63 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %84 ], [ %82, %81 ], [ true, %63 ], [ false, %11 ]
   ret i1 %.0
 
 84:                                               ; preds = %76

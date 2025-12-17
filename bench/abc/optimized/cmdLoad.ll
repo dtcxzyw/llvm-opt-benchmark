@@ -555,13 +555,13 @@ Vec_StrPush.exit85:                               ; preds = %.Vec_StrGrow.exit10
   br i1 %.not.i88, label %Vec_StrFree.exit, label %Vec_StrFree.exit.sink.split
 
 Vec_StrFree.exit.sink.split:                      ; preds = %219, %218, %125
-  %.val25.sink = phi ptr [ %.val, %125 ], [ %.val25, %218 ], [ %.val25, %219 ]
-  %.022.ph = phi i32 [ 1, %125 ], [ 1, %218 ], [ 0, %219 ]
+  %.val25.sink = phi ptr [ %.val25, %218 ], [ %.val, %125 ], [ %.val25, %219 ]
+  %.022.ph = phi i32 [ 1, %218 ], [ 1, %125 ], [ 0, %219 ]
   tail call void @free(ptr noundef nonnull %.val25.sink) #14
   br label %Vec_StrFree.exit
 
 Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.sink.split, %219, %218, %125
-  %.022 = phi i32 [ 1, %125 ], [ 1, %218 ], [ 0, %219 ], [ %.022.ph, %Vec_StrFree.exit.sink.split ]
+  %.022 = phi i32 [ 1, %218 ], [ 0, %219 ], [ 1, %125 ], [ %.022.ph, %Vec_StrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %3) #14
   ret i32 %.022
 }

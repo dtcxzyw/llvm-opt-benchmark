@@ -992,7 +992,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit25: ; preds = %_ZNSt15__exception_
           to label %47 unwind label %48
 
 .sink.split:                                      ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit19, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit25
-  %.0.ph = phi i32 [ -1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit25 ], [ -4, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit19 ], [ -2, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
+  %.0.ph = phi i32 [ -4, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit19 ], [ -2, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ -1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit25 ]
   call void @__cxa_end_catch()
   br label %46
 

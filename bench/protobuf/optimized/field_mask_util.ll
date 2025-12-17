@@ -251,7 +251,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %return
 
 return:                                           ; preds = %if.then5, %for.body, %entry, %for.end.loopexit
-  %retval.0 = phi i1 [ true, %entry ], [ %4, %for.end.loopexit ], [ false, %for.body ], [ false, %if.then5 ]
+  %retval.0 = phi i1 [ %4, %for.end.loopexit ], [ true, %entry ], [ false, %for.body ], [ false, %if.then5 ]
   ret i1 %retval.0
 }
 
@@ -861,7 +861,7 @@ for.inc:                                          ; preds = %if.then23
   br i1 %or.cond, label %cleanup, label %if.end8
 
 cleanup:                                          ; preds = %invoke.cont, %for.inc, %invoke.cont.us, %for.inc.us, %for.inc.thread, %for.inc.us.thread, %if.end
-  %cmp.i.not27.lcssa = phi i1 [ %cmp.i.not2732, %if.end ], [ %cmp.i.not27.us53, %for.inc.us.thread ], [ %cmp.i.not2758, %for.inc.thread ], [ %cmp.i.not27.us, %for.inc.us ], [ false, %invoke.cont.us ], [ %cmp.i.not27, %for.inc ], [ false, %invoke.cont ]
+  %cmp.i.not27.lcssa = phi i1 [ %cmp.i.not2732, %if.end ], [ %cmp.i.not27.us53, %for.inc.us.thread ], [ false, %invoke.cont.us ], [ %cmp.i.not2758, %for.inc.thread ], [ %cmp.i.not27.us, %for.inc.us ], [ false, %invoke.cont ], [ %cmp.i.not27, %for.inc ]
   %26 = load ptr, ptr %parts, align 8
   %tobool.not.i.i.i18 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20, label %if.then.i.i.i19
@@ -1389,7 +1389,7 @@ lpad1.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont8, %for.
   br label %lpad1.body
 
 lpad1.body:                                       ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp.loopexit.split-lp, %lpad1.loopexit.split-lp.loopexit, %lpad.i, %if.then.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %21, %if.then.i.i.i.i ], [ %21, %lpad.i ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit33, %lpad1.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp34, %lpad1.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %lpad.i ], [ %21, %if.then.i.i.i.i ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit33, %lpad1.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp34, %lpad1.loopexit.split-lp.loopexit.split-lp ]
   %this.val.i.i.i.i = load i64, ptr %size_.i.i.i.i.i.i.i7, align 8
   %cmp.i.i.i11 = icmp eq i64 %this.val.i.i.i.i, 0
   br i1 %cmp.i.i.i11, label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit, label %if.then.i.i.i.i12
@@ -2915,7 +2915,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont8, %for.
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %ehcleanup102.i, %if.then.i.i.i146.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %if.then.i.i.i146.i ], [ %.pn.pn.i, %ehcleanup102.i ], [ %lpad.loopexit35, %lpad.loopexit ], [ %lpad.loopexit40, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup102.i ], [ %.pn.pn.i, %if.then.i.i.i146.i ], [ %lpad.loopexit35, %lpad.loopexit ], [ %lpad.loopexit40, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp41, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %this.val.i.i.i.i19 = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i20 = icmp eq i64 %this.val.i.i.i.i19, 0
   br i1 %cmp.i.i.i20, label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit, label %if.then.i.i.i.i21
@@ -3038,7 +3038,7 @@ for.inc:                                          ; preds = %land.lhs.true10, %_
   br i1 %cmp, label %for.body, label %return, !llvm.loop !85
 
 return:                                           ; preds = %for.inc, %land.rhs.i, %land.lhs.true10, %for.inc.us, %for.body.us, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.i.us, %for.body.us ], [ %cmp.i.us, %for.inc.us ], [ true, %land.lhs.true10 ], [ true, %land.rhs.i ], [ false, %for.inc ]
+  %cmp.lcssa = phi i1 [ false, %entry ], [ %cmp.i.us, %for.inc.us ], [ %cmp.i.us, %for.body.us ], [ false, %for.inc ], [ true, %land.lhs.true10 ], [ true, %land.rhs.i ]
   ret i1 %cmp.lcssa
 }
 
@@ -4637,7 +4637,7 @@ if.else11:                                        ; preds = %entry
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %if.else11, %if.then
-  %.sink = phi i8 [ %2, %if.else11 ], [ %sub, %if.then ], [ 0, %entry ]
+  %.sink = phi i8 [ %sub, %if.then ], [ %2, %if.else11 ], [ 0, %entry ]
   %arrayidx.i33 = getelementptr i8, ptr %dest, i64 10
   store i8 %.sink, ptr %arrayidx.i33, align 1
   %3 = getelementptr i8, ptr %this, i64 10
@@ -5591,8 +5591,8 @@ if.then107.i:                                     ; preds = %land.lhs.true96.i
   %add127.i = add nsw i32 %iter.sroa.10.045, %conv125.i
   br label %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE22try_merge_or_rebalanceEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE.exit.thread
 
-_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE22try_merge_or_rebalanceEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE.exit.thread: ; preds = %if.then62.i, %if.end78.i, %if.then107.i, %if.then85.i, %land.lhs.true96.i
-  %iter.sroa.10.1.ph = phi i32 [ %iter.sroa.10.045, %land.lhs.true96.i ], [ %iter.sroa.10.045, %if.then85.i ], [ %add127.i, %if.then107.i ], [ %iter.sroa.10.045, %if.end78.i ], [ %iter.sroa.10.045, %if.then62.i ]
+_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE22try_merge_or_rebalanceEPNS1_14btree_iteratorINS1_10btree_nodeISQ_EERSO_PSO_EE.exit.thread: ; preds = %if.then62.i, %if.end78.i, %if.then107.i, %land.lhs.true96.i, %if.then85.i
+  %iter.sroa.10.1.ph = phi i32 [ %iter.sroa.10.045, %if.then85.i ], [ %iter.sroa.10.045, %land.lhs.true96.i ], [ %add127.i, %if.then107.i ], [ %iter.sroa.10.045, %if.end78.i ], [ %iter.sroa.10.045, %if.then62.i ]
   %spec.select60 = select i1 %first_iteration.048, i32 %iter.sroa.10.1.ph, i32 %res.sroa.10.046
   %spec.select3561 = select i1 %first_iteration.048, ptr %iter.sroa.0.044, ptr %res.sroa.0.047
   br label %for.end

@@ -226,7 +226,7 @@ calc_dequant.exit314:                             ; preds = %48
   br label %91
 
 91:                                               ; preds = %86, %83, %.lr.ph
-  %.1279 = phi i32 [ %.0278492, %83 ], [ %.0278492, %.lr.ph ], [ %spec.select, %86 ]
+  %.1279 = phi i32 [ %.0278492, %.lr.ph ], [ %spec.select, %86 ], [ %.0278492, %83 ]
   %92 = add nsw i32 %.1279, 1
   %93 = icmp slt i32 %92, %.pre
   br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !41
@@ -416,9 +416,9 @@ calc_dequant.exit314:                             ; preds = %48
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %192, %174
-  %.064.i.i = phi i32 [ %194, %192 ], [ %175, %174 ]
-  %.062.i.i = phi i32 [ %208, %192 ], [ %187, %174 ]
-  %.0.i.i316 = phi i32 [ %211, %192 ], [ %190, %174 ]
+  %.064.i.i = phi i32 [ %175, %174 ], [ %194, %192 ]
+  %.062.i.i = phi i32 [ %187, %174 ], [ %208, %192 ]
+  %.0.i.i316 = phi i32 [ %190, %174 ], [ %211, %192 ]
   %212 = add i32 %.0.i.i316, %.064.i.i
   %213 = call i32 @llvm.umin.i32(i32 %75, i32 %212)
   %214 = icmp slt i32 %.062.i.i, 0
@@ -637,9 +637,9 @@ decode_block.exit:                                ; preds = %get_vlc2.exit.i, %2
   br label %get_vlc2.exit.i326
 
 get_vlc2.exit.i326:                               ; preds = %342, %324
-  %.064.i.i327 = phi i32 [ %344, %342 ], [ %325, %324 ]
-  %.062.i.i328 = phi i32 [ %358, %342 ], [ %337, %324 ]
-  %.0.i.i329 = phi i32 [ %361, %342 ], [ %340, %324 ]
+  %.064.i.i327 = phi i32 [ %325, %324 ], [ %344, %342 ]
+  %.062.i.i328 = phi i32 [ %337, %324 ], [ %358, %342 ]
+  %.0.i.i329 = phi i32 [ %340, %324 ], [ %361, %342 ]
   %362 = add i32 %.0.i.i329, %.064.i.i327
   %363 = call i32 @llvm.umin.i32(i32 %75, i32 %362)
   %364 = icmp slt i32 %.062.i.i328, 0
@@ -946,9 +946,9 @@ decode_block.exit335:                             ; preds = %get_vlc2.exit.i326,
   br label %get_vlc2.exit.i345
 
 get_vlc2.exit.i345:                               ; preds = %529, %511
-  %.064.i.i346 = phi i32 [ %531, %529 ], [ %512, %511 ]
-  %.062.i.i347 = phi i32 [ %545, %529 ], [ %524, %511 ]
-  %.0.i.i348 = phi i32 [ %548, %529 ], [ %527, %511 ]
+  %.064.i.i346 = phi i32 [ %512, %511 ], [ %531, %529 ]
+  %.062.i.i347 = phi i32 [ %524, %511 ], [ %545, %529 ]
+  %.0.i.i348 = phi i32 [ %527, %511 ], [ %548, %529 ]
   %549 = add i32 %.0.i.i348, %.064.i.i346
   %550 = call i32 @llvm.umin.i32(i32 %75, i32 %549)
   %551 = icmp slt i32 %.062.i.i347, 0
@@ -1004,7 +1004,7 @@ get_vlc2.exit.i345:                               ; preds = %529, %511
   %.not61.i352 = icmp eq i32 %555, 63
   br i1 %.not61.i352, label %decode_block.exit354, label %511, !llvm.loop !46
 
-copy_block8.exit.thread:                          ; preds = %467, %447, %get_vlc2.exit.i345, %553
+copy_block8.exit.thread:                          ; preds = %447, %467, %get_vlc2.exit.i345, %553
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -1238,9 +1238,9 @@ copy_block8.exit:                                 ; preds = %602, %decode_block.
   br label %get_vlc2.exit.i365
 
 get_vlc2.exit.i365:                               ; preds = %705, %687
-  %.064.i.i366 = phi i32 [ %707, %705 ], [ %688, %687 ]
-  %.062.i.i367 = phi i32 [ %721, %705 ], [ %700, %687 ]
-  %.0.i.i368 = phi i32 [ %724, %705 ], [ %703, %687 ]
+  %.064.i.i366 = phi i32 [ %688, %687 ], [ %707, %705 ]
+  %.062.i.i367 = phi i32 [ %700, %687 ], [ %721, %705 ]
+  %.0.i.i368 = phi i32 [ %703, %687 ], [ %724, %705 ]
   %725 = add i32 %.0.i.i368, %.064.i.i366
   %726 = call i32 @llvm.umin.i32(i32 %75, i32 %725)
   %727 = icmp slt i32 %.062.i.i367, 0
@@ -1306,7 +1306,7 @@ get_vlc2.exit.i365:                               ; preds = %705, %687
   %exitcond = icmp eq i64 %indvars.iv.next541, 3
   br i1 %exitcond, label %.thread437, label %629, !llvm.loop !58
 
-.thread442:                                       ; preds = %629, %642
+.thread442:                                       ; preds = %642, %629
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -1352,7 +1352,7 @@ get_vlc2.exit.i365:                               ; preds = %705, %687
   br label %.loopexit
 
 .loopexit:                                        ; preds = %401, %._crit_edge, %.thread442, %765, %copy_block8.exit.thread, %._crit_edge.thread, %62, %calc_dequant.exit314, %4, %.thread406, %27
-  %.0 = phi i32 [ -1163346256, %27 ], [ %779, %.thread406 ], [ -1094995529, %copy_block8.exit.thread ], [ -1094995529, %4 ], [ %60, %calc_dequant.exit314 ], [ -12, %62 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %765 ], [ -1094995529, %.thread442 ], [ -1094995529, %._crit_edge ], [ %.0252, %401 ]
+  %.0 = phi i32 [ %60, %calc_dequant.exit314 ], [ -1163346256, %27 ], [ -1094995529, %4 ], [ -12, %62 ], [ %779, %.thread406 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %copy_block8.exit.thread ], [ -1094995529, %765 ], [ -1094995529, %.thread442 ], [ -1094995529, %._crit_edge ], [ %.0252, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0

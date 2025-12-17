@@ -172,7 +172,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !20
 
 .loopexit:                                        ; preds = %45, %.lr.ph, %60, %.split.us, %19, %49, %48, %40
-  %.0 = phi i32 [ 0, %40 ], [ 1, %48 ], [ %spec.select, %49 ], [ 0, %19 ], [ 0, %.split.us ], [ %spec.select, %60 ], [ 0, %.lr.ph ], [ 0, %45 ]
+  %.0 = phi i32 [ 1, %48 ], [ 0, %40 ], [ %spec.select, %49 ], [ 0, %19 ], [ 0, %.split.us ], [ 0, %.lr.ph ], [ %spec.select, %60 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -311,8 +311,8 @@ gobble.exit:                                      ; preds = %47, %5
   %.037.i.be = phi i32 [ %.037.i, %.split.split.split.i ], [ %.037.i, %16 ], [ %.037.i, %21 ], [ %.037.i, %24 ], [ %26, %25 ], [ %.037.i, %27 ], [ 0, %28 ], [ %.037.i, %33 ], [ %.037.i, %39 ], [ %.037.i, %35 ], [ %.037.i, %34 ], [ %.037.i, %44 ], [ %.037.i, %43 ], [ %.037.i, %47 ]
   br label %.split.split.split.i
 
-gobble.exit.thread:                               ; preds = %.lr.ph, %44, %16, %.split.split.split.i
-  %.010 = phi i32 [ 0, %.split.split.split.i ], [ 0, %16 ], [ 0, %44 ], [ 1, %.lr.ph ]
+gobble.exit.thread:                               ; preds = %.lr.ph, %44, %.split.split.split.i, %16
+  %.010 = phi i32 [ 0, %44 ], [ 0, %16 ], [ 0, %.split.split.split.i ], [ 1, %.lr.ph ]
   ret i32 %.010
 }
 
@@ -517,11 +517,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull
   br i1 %.not55.us.i, label %gobble.exit.thread, label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %60, %57, %55, %54, %51, %46, %45, %42, %41, %38, %37, %.split.us.i
-  %.3.be = phi i32 [ %.3, %60 ], [ %.3, %57 ], [ %.3, %54 ], [ %.3, %55 ], [ %.3, %45 ], [ %.3, %46 ], [ %.3, %51 ], [ %44, %42 ], [ %.3, %41 ], [ %.3, %38 ], [ %.3, %37 ], [ %.3, %.split.us.i ]
-  %.043.us.i.be = phi ptr [ %61, %60 ], [ %spec.select.us.i, %57 ], [ %35, %54 ], [ %35, %55 ], [ %35, %45 ], [ %35, %46 ], [ %35, %51 ], [ %35, %42 ], [ %35, %41 ], [ %35, %38 ], [ %35, %37 ], [ %35, %.split.us.i ]
-  %.040.us.i.be = phi i32 [ %.040.us.i, %60 ], [ %.040.us.i, %57 ], [ %.040.us.i, %54 ], [ %.040.us.i, %55 ], [ %.040.us.i, %45 ], [ %.040.us.i, %46 ], [ %.040.us.i, %51 ], [ %43, %42 ], [ %.040.us.i, %41 ], [ %39, %38 ], [ %.040.us.i, %37 ], [ %.040.us.i, %.split.us.i ]
-  %.038.us.i.be = phi ptr [ %.038.us.i, %60 ], [ %spec.select.us.i, %57 ], [ %.038.us.i, %54 ], [ %.038.us.i, %55 ], [ null, %45 ], [ %.038.us.i, %46 ], [ %spec.store.select.us.i, %51 ], [ null, %42 ], [ %.038.us.i, %41 ], [ null, %38 ], [ %.038.us.i, %37 ], [ %.038.us.i, %.split.us.i ]
-  %.037.us.i.be = phi i32 [ %.037.us.i, %60 ], [ %.037.us.i, %57 ], [ %.037.us.i, %54 ], [ %56, %55 ], [ %.037.us.i, %45 ], [ 0, %46 ], [ %.037.us.i, %51 ], [ %.037.us.i, %42 ], [ %.037.us.i, %41 ], [ %.037.us.i, %38 ], [ %.037.us.i, %37 ], [ %.037.us.i, %.split.us.i ]
+  %.3.be = phi i32 [ %.3, %.split.us.i ], [ %.3, %60 ], [ %.3, %57 ], [ %.3, %54 ], [ %.3, %55 ], [ %.3, %45 ], [ %.3, %46 ], [ %.3, %51 ], [ %44, %42 ], [ %.3, %41 ], [ %.3, %38 ], [ %.3, %37 ]
+  %.043.us.i.be = phi ptr [ %35, %.split.us.i ], [ %61, %60 ], [ %spec.select.us.i, %57 ], [ %35, %54 ], [ %35, %55 ], [ %35, %45 ], [ %35, %46 ], [ %35, %51 ], [ %35, %42 ], [ %35, %41 ], [ %35, %38 ], [ %35, %37 ]
+  %.040.us.i.be = phi i32 [ %.040.us.i, %.split.us.i ], [ %.040.us.i, %60 ], [ %.040.us.i, %57 ], [ %.040.us.i, %54 ], [ %.040.us.i, %55 ], [ %.040.us.i, %45 ], [ %.040.us.i, %46 ], [ %.040.us.i, %51 ], [ %43, %42 ], [ %.040.us.i, %41 ], [ %39, %38 ], [ %.040.us.i, %37 ]
+  %.038.us.i.be = phi ptr [ %.038.us.i, %.split.us.i ], [ %.038.us.i, %60 ], [ %spec.select.us.i, %57 ], [ %.038.us.i, %54 ], [ %.038.us.i, %55 ], [ null, %45 ], [ %.038.us.i, %46 ], [ %spec.store.select.us.i, %51 ], [ null, %42 ], [ %.038.us.i, %41 ], [ null, %38 ], [ %.038.us.i, %37 ]
+  %.037.us.i.be = phi i32 [ %.037.us.i, %.split.us.i ], [ %.037.us.i, %60 ], [ %.037.us.i, %57 ], [ %.037.us.i, %54 ], [ %56, %55 ], [ %.037.us.i, %45 ], [ 0, %46 ], [ %.037.us.i, %51 ], [ %.037.us.i, %42 ], [ %.037.us.i, %41 ], [ %.037.us.i, %38 ], [ %.037.us.i, %37 ]
   br label %.split.us.i
 
 .split.split.us.i:                                ; preds = %34, %.split.split.us.i.backedge
@@ -1089,11 +1089,11 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   %276 = tail call fastcc zeroext i1 @strview_str_eq(ptr nonnull %237, i64 %.sroa.15.0544.lcssa, ptr noundef nonnull @.str.10)
   br i1 %276, label %gv_isspace.exit.thread448.backedge, label %277
 
-gv_isspace.exit.thread448.backedge:               ; preds = %275, %269, %267, %265, %263, %261, %259, %257, %255, %251, %switch.early.test, %gv_isxdigit.exit.thread, %274, %273, %308, %.lr.ph._crit_edge, %277, %284, %298, %338, %334, %331, %341, %.thread463
-  %.1317.be = phi i32 [ %.1317, %.thread463 ], [ %.4300, %341 ], [ 1, %331 ], [ 1, %334 ], [ 1, %338 ], [ 1, %298 ], [ 1, %284 ], [ 1, %277 ], [ 1, %.lr.ph._crit_edge ], [ 1, %308 ], [ 1, %273 ], [ 1, %274 ], [ 1, %gv_isxdigit.exit.thread ], [ 1, %switch.early.test ], [ 1, %251 ], [ 1, %255 ], [ 1, %257 ], [ 1, %259 ], [ 1, %261 ], [ 1, %263 ], [ 1, %265 ], [ 1, %267 ], [ 1, %269 ], [ 1, %275 ]
-  %.0309.be = phi i32 [ 1, %.thread463 ], [ %spec.select415, %341 ], [ %.4313, %331 ], [ %.4313, %334 ], [ 0, %338 ], [ 1, %298 ], [ 0, %284 ], [ 0, %277 ], [ 1, %.lr.ph._crit_edge ], [ %spec.select416, %308 ], [ 0, %273 ], [ 1, %274 ], [ 1, %gv_isxdigit.exit.thread ], [ 0, %switch.early.test ], [ %spec.select401, %251 ], [ %spec.select402, %255 ], [ %spec.select403, %257 ], [ %spec.select404, %259 ], [ %spec.select405, %261 ], [ %spec.select406, %263 ], [ %spec.select407, %265 ], [ %spec.select408, %267 ], [ %spec.select409, %269 ], [ %spec.select411, %275 ]
-  %.0303.be = phi ptr [ %.0303, %.thread463 ], [ null, %341 ], [ %.3327, %331 ], [ null, %334 ], [ %.4328, %338 ], [ null, %298 ], [ %237, %284 ], [ %.0303, %277 ], [ %.0303, %.lr.ph._crit_edge ], [ null, %308 ], [ %.0303, %273 ], [ %.0303, %274 ], [ %.0303, %gv_isxdigit.exit.thread ], [ %.0303, %switch.early.test ], [ %.0303, %251 ], [ %.0303, %255 ], [ %.0303, %257 ], [ %.0303, %259 ], [ %.0303, %261 ], [ %.0303, %263 ], [ %.0303, %265 ], [ %.0303, %267 ], [ %.0303, %269 ], [ %.0303, %275 ]
-  %.6293.be = phi ptr [ %.11, %.thread463 ], [ %.11, %341 ], [ %332, %331 ], [ %.10, %334 ], [ %339, %338 ], [ %248, %298 ], [ %285, %284 ], [ %248, %277 ], [ %248, %.lr.ph._crit_edge ], [ %248, %308 ], [ %248, %273 ], [ %248, %274 ], [ %248, %gv_isxdigit.exit.thread ], [ %248, %switch.early.test ], [ %248, %251 ], [ %248, %255 ], [ %248, %257 ], [ %248, %259 ], [ %248, %261 ], [ %248, %263 ], [ %248, %265 ], [ %248, %267 ], [ %248, %269 ], [ %248, %275 ]
+gv_isspace.exit.thread448.backedge:               ; preds = %275, %269, %267, %265, %263, %261, %259, %257, %255, %251, %switch.early.test, %gv_isxdigit.exit.thread, %273, %.lr.ph._crit_edge, %308, %274, %277, %284, %298, %338, %334, %331, %341, %.thread463
+  %.1317.be = phi i32 [ 1, %338 ], [ %.4300, %341 ], [ %.1317, %.thread463 ], [ 1, %334 ], [ 1, %331 ], [ 1, %298 ], [ 1, %284 ], [ 1, %261 ], [ 1, %277 ], [ 1, %274 ], [ 1, %269 ], [ 1, %267 ], [ 1, %263 ], [ 1, %259 ], [ 1, %255 ], [ 1, %gv_isxdigit.exit.thread ], [ 1, %265 ], [ 1, %308 ], [ 1, %.lr.ph._crit_edge ], [ 1, %251 ], [ 1, %257 ], [ 1, %273 ], [ 1, %switch.early.test ], [ 1, %275 ]
+  %.0309.be = phi i32 [ 0, %338 ], [ %spec.select415, %341 ], [ 1, %.thread463 ], [ %.4313, %334 ], [ %.4313, %331 ], [ 1, %298 ], [ 0, %284 ], [ %spec.select405, %261 ], [ 0, %277 ], [ 1, %274 ], [ %spec.select409, %269 ], [ %spec.select408, %267 ], [ %spec.select406, %263 ], [ %spec.select404, %259 ], [ %spec.select402, %255 ], [ 1, %gv_isxdigit.exit.thread ], [ %spec.select407, %265 ], [ %spec.select416, %308 ], [ 1, %.lr.ph._crit_edge ], [ %spec.select401, %251 ], [ %spec.select403, %257 ], [ 0, %273 ], [ 0, %switch.early.test ], [ %spec.select411, %275 ]
+  %.0303.be = phi ptr [ %.4328, %338 ], [ null, %341 ], [ %.0303, %.thread463 ], [ null, %334 ], [ %.3327, %331 ], [ null, %298 ], [ %237, %284 ], [ %.0303, %261 ], [ %.0303, %277 ], [ %.0303, %274 ], [ %.0303, %269 ], [ %.0303, %267 ], [ %.0303, %263 ], [ %.0303, %259 ], [ %.0303, %255 ], [ %.0303, %gv_isxdigit.exit.thread ], [ %.0303, %265 ], [ null, %308 ], [ %.0303, %.lr.ph._crit_edge ], [ %.0303, %251 ], [ %.0303, %257 ], [ %.0303, %273 ], [ %.0303, %switch.early.test ], [ %.0303, %275 ]
+  %.6293.be = phi ptr [ %339, %338 ], [ %.11, %341 ], [ %.11, %.thread463 ], [ %.10, %334 ], [ %332, %331 ], [ %248, %298 ], [ %285, %284 ], [ %248, %261 ], [ %248, %277 ], [ %248, %274 ], [ %248, %269 ], [ %248, %267 ], [ %248, %263 ], [ %248, %259 ], [ %248, %255 ], [ %248, %gv_isxdigit.exit.thread ], [ %248, %265 ], [ %248, %308 ], [ %248, %.lr.ph._crit_edge ], [ %248, %251 ], [ %248, %257 ], [ %248, %273 ], [ %248, %switch.early.test ], [ %248, %275 ]
   br label %gv_isspace.exit.thread448
 
 277:                                              ; preds = %275
@@ -1311,8 +1311,8 @@ gv_isspace.exit:                                  ; preds = %280, %319
   %.not397 = icmp eq i32 %.fr, 0
   br i1 %.not397, label %gobble.exit.thread, label %8, !llvm.loop !31
 
-gobble.exit.thread:                               ; preds = %313, %204, %.loopexit, %365, %343, %188, %316, %gv_isspace.exit.thread448, %236, %359, %361, %.lr.ph73, %182, %180, %60, %.split.us.i, %.split.split.us.i, %93, %157, %163, %153, %161, %104, %.critedge, %98, %133, %136, %127, %202
-  %.2 = phi i32 [ %203, %202 ], [ 0, %104 ], [ 0, %.critedge ], [ 1, %98 ], [ 1, %133 ], [ 1, %136 ], [ 1, %127 ], [ 1, %161 ], [ 1, %153 ], [ 0, %163 ], [ 1, %157 ], [ 0, %93 ], [ 0, %.split.split.us.i ], [ 0, %.split.us.i ], [ 0, %60 ], [ 0, %182 ], [ 1, %180 ], [ 0, %.lr.ph73 ], [ 0, %361 ], [ 0, %359 ], [ 0, %236 ], [ 0, %gv_isspace.exit.thread448 ], [ 0, %316 ], [ 0, %188 ], [ 0, %343 ], [ 0, %365 ], [ 0, %.loopexit ], [ 0, %204 ], [ 0, %313 ]
+gobble.exit.thread:                               ; preds = %313, %204, %.loopexit, %365, %343, %188, %gv_isspace.exit.thread448, %316, %236, %359, %361, %.lr.ph73, %182, %180, %.split.us.i, %60, %93, %.split.split.us.i, %157, %163, %153, %161, %104, %.critedge, %98, %133, %136, %127, %202
+  %.2 = phi i32 [ 0, %163 ], [ 1, %127 ], [ 1, %153 ], [ %203, %202 ], [ 0, %104 ], [ 1, %98 ], [ 0, %.critedge ], [ 1, %133 ], [ 1, %136 ], [ 1, %161 ], [ 1, %157 ], [ 0, %gv_isspace.exit.thread448 ], [ 0, %93 ], [ 0, %.split.us.i ], [ 1, %180 ], [ 0, %.lr.ph73 ], [ 0, %359 ], [ 0, %.split.split.us.i ], [ 0, %60 ], [ 0, %182 ], [ 0, %361 ], [ 0, %236 ], [ 0, %316 ], [ 0, %188 ], [ 0, %343 ], [ 0, %365 ], [ 0, %.loopexit ], [ 0, %204 ], [ 0, %313 ]
   ret i32 %.2
 }
 

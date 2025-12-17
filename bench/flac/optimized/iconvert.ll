@@ -109,7 +109,7 @@ define dso_local range(i32 -2, 3) i32 @iconvert(ptr noundef %0, ptr noundef %1, 
   br label %180
 
 46:                                               ; preds = %.thread162, %30
-  %.0109 = phi ptr [ inttoptr (i64 -1 to ptr), %30 ], [ %.1110.ph, %.thread162 ]
+  %.0109 = phi ptr [ %.1110.ph, %.thread162 ], [ inttoptr (i64 -1 to ptr), %30 ]
   %47 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #9
   %.not136 = icmp eq ptr %47, null
   br i1 %.not136, label %.thread174, label %48
@@ -456,7 +456,7 @@ safe_realloc_nofree_add_2op_.exit.thread:         ; preds = %54, %57, %safe_real
   br label %180
 
 180:                                              ; preds = %.thread174.thread, %.thread165, %.thread174, %178, %6, %176, %175, %96, %86
-  %.0 = phi i32 [ %.0103.lcssa, %96 ], [ %.0103.lcssa, %86 ], [ %spec.store.select247, %176 ], [ %spec.store.select247, %175 ], [ -1, %6 ], [ -2, %178 ], [ -2, %.thread174 ], [ -1, %.thread165 ], [ -2, %.thread174.thread ]
+  %.0 = phi i32 [ %spec.store.select247, %175 ], [ -1, %.thread165 ], [ -1, %6 ], [ %.0103.lcssa, %96 ], [ %.0103.lcssa, %86 ], [ %spec.store.select247, %176 ], [ -2, %178 ], [ -2, %.thread174 ], [ -2, %.thread174.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

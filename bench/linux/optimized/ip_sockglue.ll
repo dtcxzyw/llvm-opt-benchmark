@@ -2314,7 +2314,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   br label %.thread30
 
 .thread30:                                        ; preds = %427, %413, %409, %387, %377, %367, %403
-  %.ph29 = phi i32 [ 0, %427 ], [ -22, %413 ], [ -99, %409 ], [ -14, %387 ], [ -14, %377 ], [ -14, %367 ], [ -99, %403 ]
+  %.ph29 = phi i32 [ -14, %367 ], [ 0, %427 ], [ -22, %413 ], [ -99, %409 ], [ -14, %387 ], [ -14, %377 ], [ -99, %403 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread46
 
@@ -2576,12 +2576,12 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   br label %.thread46
 
 .thread43:                                        ; preds = %521, %.thread39, %.thread33, %544, %542, %533, %531, %529, %492, %491, %485, %474, %467
-  %.ph42 = phi i32 [ %.ph38, %.thread39 ], [ %.ph32, %.thread33 ], [ %512, %521 ], [ %532, %531 ], [ %530, %529 ], [ %534, %533 ], [ %545, %544 ], [ %543, %542 ], [ -105, %467 ], [ %493, %492 ], [ -22, %491 ], [ -105, %485 ], [ %476, %474 ]
+  %.ph42 = phi i32 [ %.ph38, %.thread39 ], [ %.ph32, %.thread33 ], [ %543, %542 ], [ %512, %521 ], [ %532, %531 ], [ %530, %529 ], [ %534, %533 ], [ %545, %544 ], [ -105, %467 ], [ %493, %492 ], [ -22, %491 ], [ -105, %485 ], [ %476, %474 ]
   call void @sockopt_release_sock(ptr noundef %0) #14
   br label %554
 
 .thread46:                                        ; preds = %.thread30, %.thread22, %551, %546, %336, %329, %325, %324, %353, %347, %343
-  %.ph45 = phi i32 [ %.ph29, %.thread30 ], [ %264, %.thread22 ], [ 0, %329 ], [ 0, %336 ], [ 0, %324 ], [ 0, %325 ], [ -1, %546 ], [ %552, %551 ], [ 0, %353 ], [ -22, %347 ], [ -99, %343 ]
+  %.ph45 = phi i32 [ %264, %.thread22 ], [ 0, %329 ], [ 0, %336 ], [ 0, %324 ], [ 0, %325 ], [ %552, %551 ], [ %.ph29, %.thread30 ], [ -1, %546 ], [ 0, %353 ], [ -22, %347 ], [ -99, %343 ]
   call void @sockopt_release_sock(ptr noundef %0) #14
   br label %559
 
@@ -2954,8 +2954,8 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
   %72 = call i32 @ip_mc_source(i32 noundef %70, i32 noundef %69, ptr noundef %0, ptr noundef nonnull %8, i32 noundef %71) #14
   br label %.thread3
 
-.thread3:                                         ; preds = %.thread, %37, %32, %68, %65, %42
-  %73 = phi i32 [ %72, %68 ], [ %62, %65 ], [ -99, %42 ], [ %.ph, %.thread ], [ -14, %37 ], [ -22, %32 ]
+.thread3:                                         ; preds = %37, %32, %.thread, %68, %65, %42
+  %73 = phi i32 [ %72, %68 ], [ %62, %65 ], [ -99, %42 ], [ -14, %37 ], [ -22, %32 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %73
@@ -4003,7 +4003,7 @@ copy_to_sockptr.exit.thread:                      ; preds = %360
   br label %.thread12
 
 .thread12:                                        ; preds = %208, %.critedge7, %349, %.thread6, %371, %370, %copy_to_sockptr.exit, %355, %331, %293, %272, %211, %206, %34, %29, %24, %6
-  %373 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %370 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %29 ], [ -22, %34 ], [ -14, %355 ], [ -14, %copy_to_sockptr.exit ], [ %372, %371 ], [ -14, %.thread6 ], [ -14, %349 ], [ -14, %.critedge7 ], [ -107, %208 ]
+  %373 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %370 ], [ -14, %.thread6 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %29 ], [ -22, %34 ], [ -14, %355 ], [ -14, %copy_to_sockptr.exit ], [ %372, %371 ], [ -14, %349 ], [ -14, %.critedge7 ], [ -107, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %373

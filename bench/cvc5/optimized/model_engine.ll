@@ -1024,7 +1024,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit401: ; preds = %_ZN4cvc58internal1
   br i1 %352, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit338, label %._crit_edge719, !llvm.loop !310
 
 .body531:                                         ; preds = %218, %292, %333, %294, %220
-  %.pn105.pn = phi { ptr, i32 } [ %334, %333 ], [ %295, %294 ], [ %221, %220 ], [ %219, %218 ], [ %293, %292 ]
+  %.pn105.pn = phi { ptr, i32 } [ %293, %292 ], [ %221, %220 ], [ %219, %218 ], [ %334, %333 ], [ %295, %294 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %363
@@ -1048,7 +1048,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit401: ; preds = %_ZN4cvc58internal1
   ret i32 %362
 
 363:                                              ; preds = %128, %172, %.body531
-  %.pn125.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn, %.body531 ], [ %.pn125.pn.pn, %128 ], [ %173, %172 ]
+  %.pn125.pn.pn.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %.pn125.pn.pn, %128 ], [ %.pn105.pn, %.body531 ]
   resume { ptr, i32 } %.pn125.pn.pn.pn.pn
 }
 
@@ -1143,7 +1143,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers11ModelEn
   br label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit, !llvm.loop !315
 
 _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %32, %.lr.ph.i.i.i.i, %8, %9, %13, %22, %..loopexit_crit_edge21.i.i.i.i
-  %.sroa.06.1.i.i = phi ptr [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %23, %22 ], [ null, %8 ], [ %.sroa.06.0.i.i, %9 ], [ %38, %32 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %8 ], [ %23, %22 ], [ null, %13 ], [ %.sroa.06.0.i.i, %9 ], [ %38, %32 ], [ null, %.lr.ph.i.i.i.i ]
   %43 = icmp eq ptr %.sroa.06.1.i.i, null
   ret i1 %43
 }
@@ -1393,7 +1393,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit7: ; preds = %63, %69, %71
   br label %90
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit9:  ; preds = %84, %78, %74, %40, %47, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %47 ], [ true, %40 ], [ %73, %74 ], [ %73, %78 ], [ %73, %84 ]
+  %.0 = phi i1 [ true, %40 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %47 ], [ %73, %74 ], [ %73, %78 ], [ %73, %84 ]
   ret i1 %.0
 
 90:                                               ; preds = %88, %38
@@ -1983,7 +1983,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   br i1 %264, label %133, label %.critedge
 
 287:                                              ; preds = %261, %255, %253
-  %.pn100 = phi { ptr, i32 } [ %254, %253 ], [ %.pn96, %261 ], [ %256, %255 ]
+  %.pn100 = phi { ptr, i32 } [ %254, %253 ], [ %256, %255 ], [ %.pn96, %261 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %346
@@ -2148,7 +2148,7 @@ _ZN4cvc58internal6theory11quantifiers12QRepBoundExtD2Ev.exit: ; preds = %_ZN4cvc
   ret void
 
 350:                                              ; preds = %348, %64
-  %.pn107.pn.pn = phi { ptr, i32 } [ %.pn103.pn.pn, %348 ], [ %65, %64 ]
+  %.pn107.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn103.pn.pn, %348 ]
   resume { ptr, i32 } %.pn107.pn.pn
 }
 

@@ -965,7 +965,7 @@ enlarge_list.exit:                                ; preds = %51, %59
   br label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %6, %5, %30, %63
-  %.0 = phi ptr [ %0, %63 ], [ %0, %30 ], [ %21, %6 ], [ null, %5 ]
+  %.0 = phi ptr [ %0, %30 ], [ %0, %63 ], [ %21, %6 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1133,7 +1133,7 @@ list_copy.exit20:                                 ; preds = %30
   br label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %6, %5, %54, %list_copy.exit20
-  %.0 = phi ptr [ %45, %list_copy.exit20 ], [ %72, %54 ], [ %21, %6 ], [ null, %5 ]
+  %.0 = phi ptr [ %72, %54 ], [ %45, %list_copy.exit20 ], [ %21, %6 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1187,7 +1187,7 @@ define dso_local noundef zeroext i1 @list_member(ptr noundef readonly captures(a
   br i1 %14, label %.critedge, label %7
 
 .critedge:                                        ; preds = %.lr.ph23, %7, %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %14, %7 ], [ %14, %.lr.ph23 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %14, %7 ], [ %14, %.lr.ph23 ]
   ret i1 %.1
 }
 
@@ -1221,7 +1221,7 @@ define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly captur
   br i1 %or.cond, label %.critedge, label %8
 
 .critedge:                                        ; preds = %8, %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %11, %8 ]
   ret i1 %.1
 }
 
@@ -1253,7 +1253,7 @@ define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly captur
   br i1 %or.cond, label %.critedge, label %8
 
 .critedge:                                        ; preds = %8, %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %11, %8 ]
   ret i1 %.1
 }
 
@@ -1285,7 +1285,7 @@ define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly captur
   br i1 %or.cond, label %.critedge, label %8
 
 .critedge:                                        ; preds = %8, %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %11, %8 ]
   ret i1 %.1
 }
 
@@ -1317,7 +1317,7 @@ define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly captur
   br i1 %or.cond, label %.critedge, label %8
 
 .critedge:                                        ; preds = %8, %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %11, %8 ]
   ret i1 %.1
 }
 
@@ -1794,7 +1794,7 @@ list_free.exit:                                   ; preds = %6, %10
   br label %list_truncate.exit
 
 list_truncate.exit:                               ; preds = %11, %1, %list_free.exit
-  %.0 = phi ptr [ null, %list_free.exit ], [ null, %1 ], [ %0, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %list_free.exit ], [ %0, %11 ]
   ret ptr %.0
 }
 
@@ -1933,8 +1933,8 @@ list_copy.exit:                                   ; preds = %2, %4
   %.pre = load ptr, ptr %33, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph22, %.lr.ph.i
-  %47 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %34, %.lr.ph22 ], [ %34, %.lr.ph.i ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i, %.lr.ph22
+  %47 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %34, %.lr.ph.i ], [ %34, %.lr.ph22 ]
   %48 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %47)
   br label %list_member.exit
 
@@ -2034,7 +2034,7 @@ list_copy.exit:                                   ; preds = %2, %4
   %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %41, %.lr.ph22, %.lr.ph.i
+.loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
   %46 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_ptr.exit
@@ -2135,7 +2135,7 @@ list_copy.exit:                                   ; preds = %2, %4
   %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_int.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %41, %.lr.ph22, %.lr.ph.i
+.loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
   %46 = tail call ptr @lappend_int(ptr noundef %.01620, i32 noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_int.exit
@@ -2236,7 +2236,7 @@ list_copy.exit:                                   ; preds = %2, %4
   %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %41, %.lr.ph22, %.lr.ph.i
+.loopexit:                                        ; preds = %41, %.lr.ph.i, %.lr.ph22
   %46 = tail call ptr @lappend_oid(ptr noundef %.01620, i32 noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_oid.exit
@@ -2817,7 +2817,7 @@ define dso_local noundef ptr @list_append_unique(ptr noundef %0, ptr noundef %1)
   %14 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %1) #9
   br i1 %14, label %list_member.exit, label %7
 
-.loopexit:                                        ; preds = %7, %2, %.lr.ph.i
+.loopexit:                                        ; preds = %7, %.lr.ph.i, %2
   %15 = tail call ptr @lappend(ptr noundef %0, ptr noundef %1)
   br label %list_member.exit
 
@@ -2855,7 +2855,7 @@ define dso_local noundef ptr @list_append_unique_ptr(ptr noundef %0, ptr noundef
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %list_member_ptr.exit, label %8
 
-.loopexit:                                        ; preds = %8, %2, %.lr.ph.i
+.loopexit:                                        ; preds = %8, %.lr.ph.i, %2
   %13 = tail call ptr @lappend(ptr noundef %0, ptr noundef %1)
   br label %list_member_ptr.exit
 
@@ -2893,7 +2893,7 @@ define dso_local noundef ptr @list_append_unique_int(ptr noundef %0, i32 noundef
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %list_member_int.exit, label %8
 
-.loopexit:                                        ; preds = %8, %2, %.lr.ph.i
+.loopexit:                                        ; preds = %8, %.lr.ph.i, %2
   %13 = tail call ptr @lappend_int(ptr noundef %0, i32 noundef %1)
   br label %list_member_int.exit
 
@@ -2931,7 +2931,7 @@ define dso_local noundef ptr @list_append_unique_oid(ptr noundef %0, i32 noundef
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %list_member_oid.exit, label %8
 
-.loopexit:                                        ; preds = %8, %2, %.lr.ph.i
+.loopexit:                                        ; preds = %8, %.lr.ph.i, %2
   %13 = tail call ptr @lappend_oid(ptr noundef %0, i32 noundef %1)
   br label %list_member_oid.exit
 
@@ -2991,8 +2991,8 @@ define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly ca
   %.pre = load ptr, ptr %8, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph21, %.lr.ph.i
-  %22 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %9, %.lr.ph21 ], [ %9, %.lr.ph.i ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i, %.lr.ph21
+  %22 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %9, %.lr.ph.i ], [ %9, %.lr.ph21 ]
   %23 = tail call ptr @lappend(ptr noundef %.01519, ptr noundef %22)
   br label %list_member.exit
 
@@ -3055,7 +3055,7 @@ define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonl
   %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %16, %.lr.ph21, %.lr.ph.i
+.loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21
   %21 = tail call ptr @lappend(ptr noundef %.01519, ptr noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_ptr.exit
@@ -3119,7 +3119,7 @@ define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonl
   %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_int.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %16, %.lr.ph21, %.lr.ph.i
+.loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21
   %21 = tail call ptr @lappend_int(ptr noundef %.01519, i32 noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_int.exit
@@ -3183,7 +3183,7 @@ define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonl
   %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0.lcssa
 
-.loopexit:                                        ; preds = %16, %.lr.ph21, %.lr.ph.i
+.loopexit:                                        ; preds = %16, %.lr.ph.i, %.lr.ph21
   %21 = tail call ptr @lappend_oid(ptr noundef %.01519, i32 noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_oid.exit

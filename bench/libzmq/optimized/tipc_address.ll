@@ -268,7 +268,7 @@ sub_1:                                            ; preds = %sub_0
   br label %78
 
 78:                                               ; preds = %61, %59, %26, %29, %22, %64, %44, %33, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 0, %44 ], [ 0, %64 ], [ 22, %22 ], [ 22, %29 ], [ 22, %26 ], [ 22, %59 ], [ 22, %61 ]
+  %.0 = phi i32 [ 0, %16 ], [ 22, %26 ], [ 22, %22 ], [ 0, %33 ], [ 0, %44 ], [ 0, %64 ], [ 22, %29 ], [ 22, %59 ], [ 22, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -221,7 +221,7 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %35
   store i16 %73, ptr %71, align 8
   br label %74
 
-.thread:                                          ; preds = %zend_string_starts_with_cstr_ci.exit, %33, %41, %35
+.thread:                                          ; preds = %33, %zend_string_starts_with_cstr_ci.exit, %41, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -590,20 +590,20 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %54, %37, %42
-  %.111.ph = phi ptr [ null, %42 ], [ null, %37 ], [ %53, %49 ], [ %56, %54 ]
+  %.111.ph = phi ptr [ null, %37 ], [ null, %42 ], [ %53, %49 ], [ %56, %54 ]
   %57 = load ptr, ptr %4, align 8, !tbaa !22
   call void @_efree(ptr noundef %57) #12
   br label %58
 
 58:                                               ; preds = %25, %.sink.split, %18
-  %.111 = phi ptr [ null, %18 ], [ %26, %25 ], [ %.111.ph, %.sink.split ]
+  %.111 = phi ptr [ %.111.ph, %.sink.split ], [ %26, %25 ], [ null, %18 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !22
   call void @_efree(ptr noundef %59) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %zend_string_starts_with_cstr_ci.exit.thread
 
 zend_string_starts_with_cstr_ci.exit.thread:      ; preds = %9, %15, %2, %zend_string_starts_with_cstr_ci.exit, %58
-  %.010 = phi ptr [ %.111, %58 ], [ null, %zend_string_starts_with_cstr_ci.exit ], [ null, %2 ], [ null, %15 ], [ null, %9 ]
+  %.010 = phi ptr [ null, %2 ], [ %.111, %58 ], [ null, %zend_string_starts_with_cstr_ci.exit ], [ null, %15 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1966,7 +1966,7 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %71, %60, %43
   call void @_efree(ptr noundef %78) #12
   br label %79
 
-.thread:                                          ; preds = %zend_string_starts_with_cstr_ci.exit, %32, %40, %34
+.thread:                                          ; preds = %32, %zend_string_starts_with_cstr_ci.exit, %40, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2131,7 +2131,7 @@ zend_hash_str_find_ptr.exit25.thread:             ; preds = %70, %60, %43
   call void @_efree(ptr noundef %74) #12
   br label %75
 
-.thread:                                          ; preds = %zend_string_starts_with_cstr_ci.exit, %32, %40, %34
+.thread:                                          ; preds = %32, %zend_string_starts_with_cstr_ci.exit, %40, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

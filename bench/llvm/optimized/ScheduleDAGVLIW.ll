@@ -559,10 +559,10 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %136
-  %.pn.i = phi ptr [ %150, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.9.194.i, %136 ]
-  %.sroa.16.3.i = phi ptr [ %154, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.16.195.i, %136 ]
-  %.sroa.0.3.i = phi ptr [ %149, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.0.196.i, %136 ]
-  %.sroa.9.3.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
+  %.sroa.9.1.pn.i = phi ptr [ %.sroa.9.194.i, %136 ], [ %150, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %.sroa.16.3.i = phi ptr [ %.sroa.16.195.i, %136 ], [ %154, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.196.i, %136 ], [ %149, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %.sroa.9.3.i = getelementptr inbounds nuw i8, ptr %.sroa.9.1.pn.i, i64 8
   %155 = load ptr, ptr %2, align 8, !tbaa !62
   %156 = load ptr, ptr %155, align 8, !tbaa !60
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 64

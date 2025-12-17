@@ -3282,7 +3282,7 @@ define internal fastcc i32 @Io_NtkWriteIntNode(ptr noundef captures(none) %0, pt
   br i1 %89, label %.thread, label %.thread64
 
 .thread:                                          ; preds = %73, %55, %53, %57, %59, %63, %61, %67, %65, %71, %69, %.loopexit
-  %.04162 = phi i32 [ %88, %.loopexit ], [ 5, %69 ], [ 5, %71 ], [ 3, %65 ], [ 3, %67 ], [ 2, %61 ], [ 2, %63 ], [ 2, %59 ], [ 1, %57 ], [ 0, %53 ], [ 0, %55 ], [ %77, %73 ]
+  %.04162 = phi i32 [ %88, %.loopexit ], [ 5, %69 ], [ 5, %71 ], [ 3, %67 ], [ 2, %63 ], [ 0, %55 ], [ %77, %73 ], [ 3, %65 ], [ 2, %61 ], [ 2, %59 ], [ 1, %57 ], [ 0, %53 ]
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.04162, i32 noundef 1) #15
   br label %.thread64
 
@@ -3347,7 +3347,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr noundef nonnull 
   br label %20
 
 20:                                               ; preds = %3, %6, %10, %12, %1, %14
-  %.0.shrunk = phi i1 [ %19, %14 ], [ false, %1 ], [ true, %10 ], [ true, %6 ], [ %.not12, %12 ], [ false, %3 ]
+  %.0.shrunk = phi i1 [ %.not12, %12 ], [ false, %1 ], [ %19, %14 ], [ true, %10 ], [ true, %6 ], [ false, %3 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3375,7 +3375,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr noundef nonnull r
   br label %11
 
 11:                                               ; preds = %3, %1, %6
-  %.0 = phi i32 [ %10, %6 ], [ 0, %1 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %1 ], [ %10, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3411,7 +3411,7 @@ define internal fastcc i32 @Abc_NodeIsAnd2(ptr noundef nonnull readonly captures
   br label %17
 
 17:                                               ; preds = %3, %1, %10, %6
-  %.0 = phi i32 [ %9, %6 ], [ %16, %10 ], [ 0, %1 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %6 ], [ %16, %10 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3454,7 +3454,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr noundef nonnull re
   br label %18
 
 18:                                               ; preds = %3, %6, %10, %13, %15, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %13 ], [ 1, %10 ], [ 1, %6 ], [ %17, %15 ], [ 0, %3 ]
+  %.0 = phi i32 [ %17, %15 ], [ 0, %1 ], [ 1, %13 ], [ 1, %10 ], [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3486,7 +3486,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr noundef nonnull r
   br label %13
 
 13:                                               ; preds = %3, %6, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %6 ], [ %12, %10 ], [ 0, %3 ]
+  %.0 = phi i32 [ %12, %10 ], [ 0, %1 ], [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3518,7 +3518,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXnor2(ptr noundef nonnull 
   br label %13
 
 13:                                               ; preds = %3, %6, %10, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %6 ], [ %12, %10 ], [ 0, %3 ]
+  %.0 = phi i32 [ %12, %10 ], [ 0, %1 ], [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 

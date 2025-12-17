@@ -1397,7 +1397,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
   br label %select.unfold
 
 .thread9:                                         ; preds = %56, %59, %47, %50, %53, %65
-  %.ph512 = phi i32 [ 0, %65 ], [ %64, %59 ], [ 1, %47 ], [ 2, %50 ], [ 3, %53 ], [ 4, %56 ]
+  %.ph512 = phi i32 [ 0, %65 ], [ 3, %53 ], [ %64, %59 ], [ 1, %47 ], [ 2, %50 ], [ 4, %56 ]
   %69 = zext nneg i32 %.ph512 to i64
   %70 = getelementptr ptr, ptr @energy_perf_strings, i64 %69
   %71 = load ptr, ptr %70, align 8
@@ -1627,7 +1627,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   br label %132
 
 132:                                              ; preds = %64, %96, %129
-  %.in = phi i32 [ %131, %129 ], [ %97, %96 ], [ %72, %64 ]
+  %.in = phi i32 [ %131, %129 ], [ %72, %64 ], [ %97, %96 ]
   %.in.fr = freeze i32 %.in
   %133 = sext i32 %.in.fr to i64
   call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
@@ -1642,7 +1642,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   br label %136
 
 136:                                              ; preds = %.thread13, %135, %132, %31, %28, %26, %19, %3
-  %137 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %135 ], [ %133, %132 ], [ -16, %.thread13 ]
+  %137 = phi i64 [ %27, %26 ], [ -11, %31 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ %2, %135 ], [ %133, %132 ], [ -16, %.thread13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %137
@@ -2227,7 +2227,7 @@ intel_pstate_set_pstate.exit:                     ; preds = %48, %57, %70, %74
   br label %212
 
 212:                                              ; preds = %210, %191
-  %213 = phi i16 [ %195, %191 ], [ %211, %210 ]
+  %213 = phi i16 [ %211, %210 ], [ %195, %191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %214 = icmp eq i16 %213, 0
   br i1 %214, label %215, label %241
@@ -5333,7 +5333,7 @@ define internal fastcc noundef zeroext i1 @intel_pstate_has_acpi_ppc() unnamed_a
   br i1 %25, label %.thread, label %1, !prof !56, !llvm.loop !78
 
 .thread:                                          ; preds = %19, %1, %.thread3, %7
-  %26 = phi i1 [ true, %19 ], [ false, %7 ], [ false, %.thread3 ], [ false, %1 ]
+  %26 = phi i1 [ false, %7 ], [ true, %19 ], [ false, %.thread3 ], [ false, %1 ]
   ret i1 %26
 }
 
@@ -5553,7 +5553,7 @@ sub_1:                                            ; preds = %sub_0
   tail call void @mutex_unlock(ptr noundef nonnull @intel_pstate_driver_lock) #26
   br label %90
 
-.thread10:                                        ; preds = %23, %30, %63, %55, %84
+.thread10:                                        ; preds = %23, %55, %30, %63, %84
   tail call void @mutex_unlock(ptr noundef nonnull @intel_pstate_driver_lock) #26
   br label %90
 
@@ -5568,7 +5568,7 @@ sub_1:                                            ; preds = %sub_0
   br label %90
 
 90:                                               ; preds = %86, %.thread, %.thread10
-  %91 = phi i64 [ %3, %.thread10 ], [ %.ph, %.thread ], [ %spec.select, %86 ]
+  %91 = phi i64 [ %3, %.thread10 ], [ %spec.select, %86 ], [ %.ph, %.thread ]
   ret i64 %91
 }
 

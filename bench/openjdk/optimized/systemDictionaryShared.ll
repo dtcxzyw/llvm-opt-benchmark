@@ -515,7 +515,7 @@ _ZNK6HandleclEv.exit21:                           ; preds = %25, %26
   br label %_ZN22SharedClassLoadingMarkD2Ev.exit
 
 _ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %5, %3, %42, %.thread, %38, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit, %30, %_ZNK6HandleclEv.exit21
-  %.1 = phi ptr [ null, %_ZNK6HandleclEv.exit21 ], [ null, %30 ], [ null, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit ], [ %39, %38 ], [ %.029, %.thread ], [ %.029, %42 ], [ null, %3 ], [ null, %5 ]
+  %.1 = phi ptr [ %.029, %42 ], [ null, %_ZNK6HandleclEv.exit21 ], [ null, %30 ], [ null, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit ], [ %39, %38 ], [ %.029, %.thread ], [ null, %3 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -538,7 +538,7 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared18find_builtin_classEP6Sym
   br label %11
 
 11:                                               ; preds = %3, %1
-  %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
+  %.0 = phi ptr [ %spec.select, %3 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -607,7 +607,7 @@ _ZNK16RunTimeClassInfo7matchesEii.exit:           ; preds = %16
   br label %_ZNK16RunTimeClassInfo7matchesEii.exit.thread
 
 _ZNK16RunTimeClassInfo7matchesEii.exit.thread:    ; preds = %16, %_ZNK16RunTimeClassInfo7matchesEii.exit, %13, %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit16, %5, %32
-  %.0 = phi ptr [ %34, %32 ], [ null, %5 ], [ null, %_ZNK6HandleclEv.exit16 ], [ null, %_ZNK6HandleclEv.exit ], [ null, %13 ], [ null, %_ZNK16RunTimeClassInfo7matchesEii.exit ], [ null, %16 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %_ZNK16RunTimeClassInfo7matchesEii.exit ], [ null, %16 ], [ %34, %32 ], [ null, %13 ], [ null, %_ZNK6HandleclEv.exit16 ], [ null, %_ZNK6HandleclEv.exit ]
   ret ptr %.0
 }
 
@@ -892,7 +892,7 @@ _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compa
   br label %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31
 
 _ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31: ; preds = %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit, %49, %.loopexit.i34, %151, %100, %.loopexit.i26, %3, %5
-  %.020 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %.loopexit.i26 ], [ %104, %100 ], [ null, %.loopexit.i34 ], [ %155, %151 ], [ %53, %49 ], [ %183, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit ], [ %184, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56 ], [ %185, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57 ]
+  %.020 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %.loopexit.i26 ], [ %104, %100 ], [ %155, %151 ], [ null, %.loopexit.i34 ], [ %53, %49 ], [ %183, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit ], [ %184, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit56 ], [ %185, %_ZNK16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE6lookupES1_ji.exit31.loopexit57 ]
   ret ptr %.020
 }
 
@@ -1682,7 +1682,7 @@ _ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClas
   br i1 %exitcond.not, label %_ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit, label %236, !llvm.loop !10
 
 _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit: ; preds = %_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit.thread, %230, %147, %145, %111, %109, %85, %83, %59, %57, %31, %29, %317, %229, %196, %168, %164, %158, %120
-  %.0 = phi i1 [ true, %158 ], [ true, %229 ], [ true, %317 ], [ true, %196 ], [ true, %168 ], [ true, %164 ], [ true, %120 ], [ true, %29 ], [ true, %31 ], [ true, %57 ], [ true, %59 ], [ true, %83 ], [ true, %85 ], [ true, %109 ], [ true, %111 ], [ true, %145 ], [ true, %147 ], [ false, %230 ], [ false, %_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit.thread ]
+  %.0 = phi i1 [ true, %31 ], [ true, %85 ], [ true, %111 ], [ true, %158 ], [ true, %229 ], [ true, %317 ], [ true, %59 ], [ true, %196 ], [ true, %168 ], [ true, %164 ], [ true, %120 ], [ true, %29 ], [ true, %57 ], [ true, %83 ], [ true, %109 ], [ true, %145 ], [ true, %147 ], [ false, %230 ], [ false, %_ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit.thread ]
   ret i1 %.0
 }
 
@@ -2085,7 +2085,7 @@ define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared18has_been_redefine
   br i1 %or.cond, label %.loopexit, label %22, !llvm.loop !11
 
 .loopexit:                                        ; preds = %22, %16, %10, %1
-  %.010 = phi i1 [ true, %1 ], [ true, %10 ], [ false, %16 ], [ %25, %22 ]
+  %.010 = phi i1 [ true, %10 ], [ true, %1 ], [ false, %16 ], [ %25, %22 ]
   ret i1 %.010
 }
 
@@ -2358,7 +2358,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
 _ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit: ; preds = %64, %60, %56, %_ZNK6HandleclEv.exit28.thread, %14, %12, %_ZN11MutexLockerD2Ev.exit, %3, %54, %_ZNK6HandleclEv.exit28
-  %.0 = phi ptr [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit28 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %_ZNK6HandleclEv.exit28.thread ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK6HandleclEv.exit28.thread ], [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit28 ], [ null, %12 ], [ null, %14 ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
   ret ptr %.0
 }
 
@@ -2524,7 +2524,7 @@ _ZNK6Symbol6equalsEPKc.exit:                      ; preds = %8
   br label %_ZNK6Symbol6equalsEPKc.exit.thread
 
 _ZNK6Symbol6equalsEPKc.exit.thread:               ; preds = %8, %_ZNK6Symbol6equalsEPKc.exit, %5, %3, %22, %20
-  %.0 = phi ptr [ %21, %20 ], [ %23, %22 ], [ null, %3 ], [ null, %5 ], [ null, %_ZNK6Symbol6equalsEPKc.exit ], [ null, %8 ]
+  %.0 = phi ptr [ null, %3 ], [ %21, %20 ], [ %23, %22 ], [ null, %5 ], [ null, %_ZNK6Symbol6equalsEPKc.exit ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -4386,7 +4386,7 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared27retrieve_lambda_proxy_cl
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %2, %10, %1
-  %.013 = phi ptr [ %.012, %10 ], [ null, %2 ], [ null, %1 ], [ %.012, %35 ], [ %.012, %37 ]
+  %.013 = phi ptr [ null, %1 ], [ %.012, %10 ], [ null, %2 ], [ %.012, %35 ], [ %.012, %37 ]
   ret ptr %.013
 }
 
@@ -4538,8 +4538,8 @@ _ZN14EventClassLoadC2E14EventStartTime.exit:      ; preds = %50, %56
   br label %_ZN8JfrEventI14EventClassLoadE13should_commitEv.exit
 
 _ZN8JfrEventI14EventClassLoadE13should_commitEv.exit: ; preds = %67, %69
-  %72 = phi i64 [ %.pre3.i.i, %69 ], [ %68, %67 ]
-  %73 = phi i64 [ %71, %69 ], [ 0, %67 ]
+  %72 = phi i64 [ %68, %67 ], [ %.pre3.i.i, %69 ]
+  %73 = phi i64 [ 0, %67 ], [ %71, %69 ]
   %74 = sub nsw i64 %73, %72
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 528), align 8
   %76 = icmp sge i64 %74, %75
@@ -4581,7 +4581,7 @@ _ZN8JfrEventI14EventClassLoadE13should_commitEv.exit.thread37: ; preds = %63, %_
   br label %88
 
 88:                                               ; preds = %_ZN8JfrEventI14EventClassLoadE13should_commitEv.exit.thread37, %_ZN14EventClassLoadC2E14EventStartTime.exit, %_ZNK5Klass12class_loaderEv.exit33.thread, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %_ZNK5Klass12class_loaderEv.exit33.thread ], [ null, %_ZN14EventClassLoadC2E14EventStartTime.exit ], [ %., %_ZN8JfrEventI14EventClassLoadE13should_commitEv.exit.thread37 ]
+  %.0 = phi ptr [ null, %_ZN14EventClassLoadC2E14EventStartTime.exit ], [ null, %37 ], [ null, %_ZNK5Klass12class_loaderEv.exit33.thread ], [ %., %_ZN8JfrEventI14EventClassLoadE13should_commitEv.exit.thread37 ]
   ret ptr %.0
 }
 
@@ -4933,7 +4933,7 @@ define hidden noundef zeroext i1 @_ZN22SystemDictionaryShared25check_linking_con
   br label %_ZL19get_class_loader_byc.exit
 
 _ZL19get_class_loader_byc.exit:                   ; preds = %38, %40
-  %.0.i = phi ptr [ %39, %38 ], [ %41, %40 ]
+  %.0.i = phi ptr [ %41, %40 ], [ %39, %38 ]
   %42 = icmp eq ptr %.0.i, null
   br i1 %42, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %43
 
@@ -4981,7 +4981,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %20, %_ZL19get_class
   br label %_ZL19get_class_loader_byc.exit26
 
 _ZL19get_class_loader_byc.exit26:                 ; preds = %58, %60
-  %.0.i25 = phi ptr [ %59, %58 ], [ %61, %60 ]
+  %.0.i25 = phi ptr [ %61, %60 ], [ %59, %58 ]
   %62 = icmp eq ptr %.0.i25, null
   br i1 %62, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit31, label %63
 
@@ -5116,7 +5116,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %107, %105, %_ZN6Han
   br i1 %.not61, label %20, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %114, %15, %110, %111
-  %117 = phi i1 [ false, %110 ], [ false, %111 ], [ true, %15 ], [ true, %114 ]
+  %117 = phi i1 [ false, %111 ], [ false, %110 ], [ true, %15 ], [ true, %114 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #18
   br label %_ZN12ResourceMarkD2Ev.exit38
 
@@ -5159,7 +5159,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %107, %105, %_ZN6Han
   br label %_ZN12ResourceMarkD2Ev.exit38
 
 _ZN12ResourceMarkD2Ev.exit38:                     ; preds = %136, %134, %118, %2, %.loopexit
-  %.0 = phi i1 [ %117, %.loopexit ], [ true, %2 ], [ false, %118 ], [ false, %134 ], [ false, %136 ]
+  %.0 = phi i1 [ true, %2 ], [ %117, %.loopexit ], [ false, %118 ], [ false, %134 ], [ false, %136 ]
   ret i1 %.0
 }
 
@@ -5482,7 +5482,7 @@ _ZNK6Symbol6equalsEPKc.exit.thread:               ; preds = %106, %_ZNK6Handlecl
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %169, %167, %_ZNK6Symbol6equalsEPKc.exit.thread, %121, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit.thread, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit27, %.critedge, %53
-  %.0 = phi i1 [ false, %53 ], [ false, %.critedge ], [ false, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit27 ], [ false, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit.thread ], [ true, %121 ], [ false, %_ZNK6Symbol6equalsEPKc.exit.thread ], [ false, %167 ], [ false, %169 ]
+  %.0 = phi i1 [ true, %121 ], [ false, %.critedge ], [ false, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit.thread ], [ false, %53 ], [ false, %_ZN35java_lang_invoke_DirectMethodHandle11is_instanceEP7oopDesc.exit27 ], [ false, %_ZNK6Symbol6equalsEPKc.exit.thread ], [ false, %167 ], [ false, %169 ]
   ret i1 %.0
 }
 
@@ -6004,7 +6004,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP6SymbolPK16RunTimeClass
   br label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 _ZL28class_loader_name_for_sharedP5Klass.exit.i:  ; preds = %57, %55, %.lr.ph
-  %.0.i.i = phi ptr [ @.str.90, %.lr.ph ], [ @.str.91, %55 ], [ %spec.select.i.i, %57 ]
+  %.0.i.i = phi ptr [ %spec.select.i.i, %57 ], [ @.str.90, %.lr.ph ], [ @.str.91, %55 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull @.str.89, i32 noundef %48, ptr noundef %51, ptr noundef nonnull %.0.i.i) #18
   %59 = load ptr, ptr %35, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 216
@@ -6047,7 +6047,7 @@ _ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit: ; preds = %69, 
   br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit, %23, %18
-  %indvars.iv.next.pre-phi = phi i64 [ %24, %23 ], [ %.pre, %18 ], [ %24, %_ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %18 ], [ %24, %23 ], [ %24, %_ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit ]
   %74 = load i32, ptr %3, align 8
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %75
@@ -6157,7 +6157,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIP19LambdaProxyClassKeyPK
   br label %_ZL28class_loader_name_for_sharedP5Klass.exit.i
 
 _ZL28class_loader_name_for_sharedP5Klass.exit.i:  ; preds = %61, %59, %52
-  %.0.i.i = phi ptr [ @.str.90, %52 ], [ @.str.91, %59 ], [ %spec.select.i.i, %61 ]
+  %.0.i.i = phi ptr [ %spec.select.i.i, %61 ], [ @.str.90, %52 ], [ @.str.91, %59 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef nonnull @.str.89, i32 noundef %54, ptr noundef %56, ptr noundef nonnull %.0.i.i) #18
   %63 = getelementptr inbounds nuw i8, ptr %.012.i, i64 144
   %64 = load ptr, ptr %63, align 8
@@ -6191,7 +6191,7 @@ _ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit
   br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit, %23, %18
-  %indvars.iv.next.pre-phi = phi i64 [ %24, %23 ], [ %.pre, %18 ], [ %24, %_ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %18 ], [ %24, %23 ], [ %24, %_ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit ]
   %72 = load i32, ptr %3, align 8
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %73
@@ -6753,7 +6753,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -6911,7 +6911,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -7089,7 +7089,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -7605,7 +7605,7 @@ _ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit.thread:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit25, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit.thread
-  %.0 = phi ptr [ null, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit.thread ], [ %26, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit ], [ %79, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit25 ]
+  %.0 = phi ptr [ %26, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit ], [ null, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit.thread ], [ %79, %_ZN27RunTimeLambdaProxyClassInfo6EQUALSEPKS_P19LambdaProxyClassKeyi.exit25 ]
   ret ptr %.0
 }
 
@@ -8670,7 +8670,7 @@ define linkonce_odr hidden void @_ZN23SharedDictionaryPrinter8do_valueEPK16RunTi
   br label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 _ZL28class_loader_name_for_sharedP5Klass.exit:    ; preds = %2, %24, %26
-  %.0.i = phi ptr [ @.str.90, %2 ], [ @.str.91, %24 ], [ %spec.select.i, %26 ]
+  %.0.i = phi ptr [ %spec.select.i, %26 ], [ @.str.90, %2 ], [ @.str.91, %24 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull @.str.89, i32 noundef %17, ptr noundef %20, ptr noundef nonnull %.0.i) #18
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 216
@@ -8766,7 +8766,7 @@ define linkonce_odr hidden void @_ZN29SharedLambdaDictionaryPrinter8do_valueEPK2
   br label %_ZL28class_loader_name_for_sharedP5Klass.exit
 
 _ZL28class_loader_name_for_sharedP5Klass.exit:    ; preds = %21, %28, %30
-  %.0.i = phi ptr [ @.str.90, %21 ], [ @.str.91, %28 ], [ %spec.select.i, %30 ]
+  %.0.i = phi ptr [ %spec.select.i, %30 ], [ @.str.90, %21 ], [ @.str.91, %28 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.89, i32 noundef %23, ptr noundef %25, ptr noundef nonnull %.0.i) #18
   %32 = getelementptr inbounds nuw i8, ptr %.012, i64 144
   %33 = load ptr, ptr %32, align 8

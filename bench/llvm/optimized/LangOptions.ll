@@ -482,7 +482,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %.lr.ph.split, %_ZN4
   br i1 %.not.not, label %.thread, label %.lr.ph.split, !llvm.loop !65
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, %18, %.lr.ph.split.us, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not.not, %18 ], [ %.not.us.not.not.not, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
+  %.not.lcssa = phi i1 [ false, %3 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not.not, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us ], [ %.not.us.not.not.not, %18 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   ret i1 %.not.lcssa
 }
 
@@ -892,7 +892,7 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit: ; preds = %129
   br label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.thread
 
 _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.thread: ; preds = %129, %18, %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit
-  %133 = phi i64 [ %spec.select155, %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit ], [ 137438953472, %18 ], [ 0, %129 ]
+  %133 = phi i64 [ 137438953472, %18 ], [ %spec.select155, %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit ], [ 0, %129 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, -137438953473

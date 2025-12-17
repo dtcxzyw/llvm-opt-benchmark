@@ -739,7 +739,7 @@ _is_preemptable.exit.thread.i:                    ; preds = %_is_preemptable.exi
   br label %.thread131.i
 
 .thread131.i:                                     ; preds = %._crit_edge143.i, %187, %168
-  %.2135.i = phi i32 [ %.2.i, %187 ], [ 0, %._crit_edge143.i ], [ %.1.ph.i, %168 ]
+  %.2135.i = phi i32 [ 0, %._crit_edge143.i ], [ %.2.i, %187 ], [ %.1.ph.i, %168 ]
   %.not123.i = icmp eq ptr %116, null
   br i1 %.not123.i, label %207, label %206
 
@@ -757,7 +757,7 @@ _is_preemptable.exit.thread.i:                    ; preds = %_is_preemptable.exi
   br label %_will_run_test.exit
 
 _will_run_test.exit:                              ; preds = %106, %113, %114, %207, %208
-  %.0.i = phi i32 [ 0, %106 ], [ -1, %114 ], [ -1, %113 ], [ %.2135.i, %208 ], [ %.2135.i, %207 ]
+  %.0.i = phi i32 [ 0, %106 ], [ -1, %113 ], [ -1, %114 ], [ %.2135.i, %208 ], [ %.2135.i, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %210 = load i8, ptr %209, align 8, !range !15, !noundef !16
@@ -1156,8 +1156,8 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   br label %386
 
 386:                                              ; preds = %384, %381, %377
-  %.071.i.i = phi i64 [ 0, %381 ], [ 0, %377 ], [ %spec.select.i.i, %384 ]
-  %.070.i.i = phi i64 [ 0, %381 ], [ 0, %377 ], [ %spec.select88.i.i, %384 ]
+  %.071.i.i = phi i64 [ %spec.select.i.i, %384 ], [ 0, %377 ], [ 0, %381 ]
+  %.070.i.i = phi i64 [ %spec.select88.i.i, %384 ], [ 0, %377 ], [ 0, %381 ]
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %388 = load ptr, ptr %387, align 8
   %.not76.i.i = icmp eq ptr %388, null
@@ -1326,7 +1326,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   br label %._crit_edge96.i.i
 
 ._crit_edge96.i.i:                                ; preds = %._crit_edge96.sink.split.i.i, %474, %467, %464
-  %.169.i.i = phi i64 [ %.06890.i.i, %464 ], [ %.pre97.i.i, %467 ], [ %spec.select102.i.i, %474 ], [ %.06890.i.i, %._crit_edge96.sink.split.i.i ]
+  %.169.i.i = phi i64 [ %.06890.i.i, %464 ], [ %.06890.i.i, %._crit_edge96.sink.split.i.i ], [ %.pre97.i.i, %467 ], [ %spec.select102.i.i, %474 ]
   %477 = call i32 @set_job_resources_node(ptr noundef nonnull %392, i32 noundef %437) #11
   %.not87.i.i = icmp eq i32 %477, 0
   br i1 %.not87.i.i, label %480, label %478
@@ -1365,7 +1365,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   br label %_build_select_struct.exit.i
 
 _build_select_struct.exit.i:                      ; preds = %.loopexit.i89, %.lr.ph166.i, %491, %489, %.loopexit139.i
-  %.5138.i = phi i32 [ %.5.i, %.loopexit139.i ], [ 0, %489 ], [ 0, %491 ], [ %.0100.lcssa.i, %.lr.ph166.i ], [ 22, %.loopexit.i89 ]
+  %.5138.i = phi i32 [ 0, %491 ], [ %.5.i, %.loopexit139.i ], [ 0, %489 ], [ %.0100.lcssa.i, %.lr.ph166.i ], [ 22, %.loopexit.i89 ]
   %.not125.i79 = icmp eq ptr %226, null
   br i1 %.not125.i79, label %_run_now.exit, label %493
 
@@ -1399,7 +1399,7 @@ _run_now.exit:                                    ; preds = %_build_select_struc
   unreachable
 
 503:                                              ; preds = %499, %75, %81, %78, %65, %71, %68, %37, %10, %32
-  %.0 = phi i32 [ -1, %32 ], [ 22, %10 ], [ 22, %37 ], [ 2040, %68 ], [ 2040, %71 ], [ 2040, %65 ], [ 2040, %78 ], [ 2040, %81 ], [ 2040, %75 ], [ %.056, %499 ]
+  %.0 = phi i32 [ 2040, %75 ], [ -1, %32 ], [ 22, %10 ], [ 22, %37 ], [ 2040, %65 ], [ 2040, %68 ], [ 2040, %71 ], [ 2040, %78 ], [ 2040, %81 ], [ %.056, %499 ]
   ret i32 %.0
 }
 
@@ -1660,8 +1660,8 @@ _add_tot_job.exit:                                ; preds = %86, %90, %._crit_ed
   br label %109
 
 109:                                              ; preds = %107, %104, %101
-  %.063 = phi i64 [ 0, %104 ], [ 0, %101 ], [ %spec.select, %107 ]
-  %.062 = phi i64 [ 0, %104 ], [ 0, %101 ], [ %spec.select98, %107 ]
+  %.063 = phi i64 [ %spec.select, %107 ], [ 0, %101 ], [ 0, %104 ]
+  %.062 = phi i64 [ %spec.select98, %107 ], [ 0, %101 ], [ 0, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
@@ -2016,8 +2016,8 @@ define internal fastcc range(i32 -1, 1) i32 @_add_job_to_nodes(ptr noundef %0, p
   br label %21
 
 21:                                               ; preds = %19, %16, %13, %10
-  %.072 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ %spec.select, %19 ]
-  %.071 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ %spec.select93, %19 ]
+  %.072 = phi i64 [ %spec.select, %19 ], [ 0, %10 ], [ 0, %16 ], [ 0, %13 ]
+  %.071 = phi i64 [ %spec.select93, %19 ], [ 0, %10 ], [ 0, %16 ], [ 0, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -2097,10 +2097,10 @@ define internal fastcc range(i32 -1, 1) i32 @_add_job_to_nodes(ptr noundef %0, p
   br label %_add_run_job.exit
 
 _add_run_job.exit:                                ; preds = %._crit_edge.i, %48, %44, %.thread110
-  %.in = phi i8 [ %31, %.thread110 ], [ %36, %44 ], [ %36, %48 ], [ %36, %._crit_edge.i ]
-  %.072108114 = phi i64 [ 0, %.thread110 ], [ %.072, %44 ], [ %.072, %48 ], [ %.072, %._crit_edge.i ]
-  %.071109113 = phi i64 [ 0, %.thread110 ], [ %.071, %44 ], [ %.071, %48 ], [ %.071, %._crit_edge.i ]
-  %57 = phi ptr [ %26, %.thread110 ], [ %23, %44 ], [ %23, %48 ], [ %23, %._crit_edge.i ]
+  %.in = phi i8 [ %31, %.thread110 ], [ %36, %._crit_edge.i ], [ %36, %44 ], [ %36, %48 ]
+  %.072108114 = phi i64 [ 0, %.thread110 ], [ %.072, %._crit_edge.i ], [ %.072, %44 ], [ %.072, %48 ]
+  %.071109113 = phi i64 [ 0, %.thread110 ], [ %.071, %._crit_edge.i ], [ %.071, %44 ], [ %.071, %48 ]
+  %57 = phi ptr [ %26, %.thread110 ], [ %23, %._crit_edge.i ], [ %23, %44 ], [ %23, %48 ]
   %58 = icmp eq i8 %.in, 0
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %60 = load i32, ptr %59, align 8
@@ -2416,7 +2416,7 @@ define dso_local range(i32 0, 2) i32 @select_p_job_ready(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %._crit_edge, %1, %6
-  %.07 = phi i32 [ 0, %1 ], [ 1, %6 ], [ %.not10.lcssa, %._crit_edge ]
+  %.07 = phi i32 [ 1, %6 ], [ %.not10.lcssa, %._crit_edge ], [ 0, %1 ]
   ret i32 %.07
 }
 
@@ -2901,7 +2901,7 @@ _test_tot_job.exit187.thread.i:                   ; preds = %_test_tot_job.exit1
   br label %_job_expand.exit
 
 _job_expand.exit:                                 ; preds = %12, %21, %_test_tot_job.exit.thread.i, %36, %_test_tot_job.exit187.thread.i, %41, %54, %68, %249
-  %.0.i = phi i32 [ -1, %12 ], [ -1, %21 ], [ -1, %54 ], [ -1, %68 ], [ 0, %249 ], [ -1, %36 ], [ -1, %_test_tot_job.exit.thread.i ], [ -1, %41 ], [ -1, %_test_tot_job.exit187.thread.i ]
+  %.0.i = phi i32 [ -1, %12 ], [ -1, %21 ], [ 0, %249 ], [ -1, %_test_tot_job.exit.thread.i ], [ -1, %54 ], [ -1, %68 ], [ -1, %36 ], [ -1, %41 ], [ -1, %_test_tot_job.exit187.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %267 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cr_mutex) #11
   %.not7 = icmp eq i32 %267, 0
@@ -3011,8 +3011,8 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   br label %40
 
 40:                                               ; preds = %38, %35, %32, %29
-  %.064.i = phi i64 [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ %spec.select84.i, %38 ]
-  %.063.i = phi i64 [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ %spec.select85.i, %38 ]
+  %.064.i = phi i64 [ %spec.select84.i, %38 ], [ 0, %29 ], [ 0, %35 ], [ 0, %32 ]
+  %.063.i = phi i64 [ %spec.select85.i, %38 ], [ 0, %29 ], [ 0, %35 ], [ 0, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -3127,7 +3127,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   br label %104
 
 104:                                              ; preds = %101, %92, %87
-  %.065.i = phi i64 [ %91, %87 ], [ %103, %101 ], [ %.063.i, %92 ]
+  %.065.i = phi i64 [ %91, %87 ], [ %.063.i, %92 ], [ %103, %101 ]
   %105 = load ptr, ptr @cr_ptr, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds %struct.node_cr_record, ptr %106, i64 %55
@@ -3240,7 +3240,7 @@ _test_tot_job.exit.thread.i:                      ; preds = %_test_tot_job.exit.
   br i1 %exitcond.not.i.i.i.i, label %_test_run_job.exit.i.i, label %165, !llvm.loop !38
 
 _test_run_job.exit.i.i:                           ; preds = %165, %161, %.critedge.i.i
-  %.014.i.i.i.i = phi i1 [ false, %161 ], [ false, %.critedge.i.i ], [ %.0.mux.us.i.i.i.i, %165 ]
+  %.014.i.i.i.i = phi i1 [ false, %.critedge.i.i ], [ false, %161 ], [ %.0.mux.us.i.i.i.i, %165 ]
   %168 = load ptr, ptr %156, align 8
   %169 = getelementptr inbounds %struct.node_cr_record, ptr %168, i64 %55
   %.0362.i.i = load ptr, ptr %169, align 8
@@ -3447,7 +3447,7 @@ define internal fastcc range(i32 -1, 1) i32 @_rm_job_from_nodes(ptr noundef read
 _rem_tot_job.exit:                                ; preds = %23
   br i1 %.017.i.i.ph, label %_rem_tot_job.exit.thread158, label %_rem_tot_job.exit.thread
 
-_rem_tot_job.exit.thread:                         ; preds = %9, %15, %_rem_tot_job.exit
+_rem_tot_job.exit.thread:                         ; preds = %15, %9, %_rem_tot_job.exit
   %28 = tail call i32 @slurm_get_log_level() #11
   %29 = icmp sgt i32 %28, 2
   br i1 %29, label %30, label %214
@@ -3488,8 +3488,8 @@ _rem_tot_job.exit.thread158:                      ; preds = %.thread, %_rem_tot_
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %35, %_rem_tot_job.exit.thread158
-  %.091 = phi i64 [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %_rem_tot_job.exit.thread158 ], [ %spec.select, %44 ]
-  %.090 = phi i64 [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %_rem_tot_job.exit.thread158 ], [ %spec.select120, %44 ]
+  %.091 = phi i64 [ %spec.select, %44 ], [ 0, %_rem_tot_job.exit.thread158 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ]
+  %.090 = phi i64 [ %spec.select120, %44 ], [ 0, %_rem_tot_job.exit.thread158 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -3536,7 +3536,7 @@ _rem_tot_job.exit.thread158:                      ; preds = %.thread, %_rem_tot_
   br i1 %69, label %.lr.ph.split.i.i121, label %_rem_run_job.exit, !llvm.loop !38
 
 _rem_run_job.exit:                                ; preds = %66, %52, %57
-  %.014.i.i127 = phi i1 [ false, %57 ], [ false, %52 ], [ %.1.i.i125, %66 ]
+  %.014.i.i127 = phi i1 [ false, %52 ], [ false, %57 ], [ %.1.i.i125, %66 ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 414
@@ -3609,7 +3609,7 @@ _rem_run_job.exit:                                ; preds = %66, %52, %57
   br label %106
 
 106:                                              ; preds = %99, %103, %100, %94
-  %.2 = phi i64 [ %98, %94 ], [ %105, %103 ], [ %.092135, %100 ], [ %.090, %99 ]
+  %.2 = phi i64 [ %98, %94 ], [ %.092135, %100 ], [ %105, %103 ], [ %.090, %99 ]
   %107 = load ptr, ptr %0, align 8
   %108 = load i32, ptr %5, align 4
   %109 = sext i32 %108 to i64
@@ -3806,8 +3806,8 @@ _rem_run_job.exit:                                ; preds = %66, %52, %57
   br label %209
 
 209:                                              ; preds = %189, %192, %195, %179, %208, %83, %87
-  %.193 = phi i64 [ %.2, %208 ], [ %.092135, %87 ], [ %.092135, %83 ], [ %.2, %179 ], [ %.2, %195 ], [ %.2, %192 ], [ %.2, %189 ]
-  %.1 = phi i32 [ -1, %208 ], [ %.088136, %87 ], [ %.088136, %83 ], [ %.088136, %179 ], [ %.088136, %195 ], [ %.088136, %192 ], [ %.088136, %189 ]
+  %.193 = phi i64 [ %.2, %208 ], [ %.092135, %83 ], [ %.092135, %87 ], [ %.2, %179 ], [ %.2, %195 ], [ %.2, %192 ], [ %.2, %189 ]
+  %.1 = phi i32 [ -1, %208 ], [ %.088136, %83 ], [ %.088136, %87 ], [ %.088136, %179 ], [ %.088136, %195 ], [ %.088136, %192 ], [ %.088136, %189 ]
   %210 = load i32, ptr %5, align 4
   %211 = add nsw i32 %210, 1
   store i32 %211, ptr %5, align 4
@@ -3817,7 +3817,7 @@ _rem_run_job.exit:                                ; preds = %66, %52, %57
   br i1 %.not105, label %._crit_edge139, label %83, !llvm.loop !41
 
 214:                                              ; preds = %_rem_tot_job.exit.thread, %30, %._crit_edge139, %50, %7
-  %.086 = phi i32 [ -1, %7 ], [ -1, %50 ], [ %.088.lcssa, %._crit_edge139 ], [ -1, %30 ], [ -1, %_rem_tot_job.exit.thread ]
+  %.086 = phi i32 [ -1, %7 ], [ %.088.lcssa, %._crit_edge139 ], [ -1, %50 ], [ -1, %30 ], [ -1, %_rem_tot_job.exit.thread ]
   ret i32 %.086
 }
 
@@ -4049,7 +4049,7 @@ select_p_select_nodeinfo_free.exit:               ; preds = %23, %25
   br label %27
 
 27:                                               ; preds = %3, %17, %select_p_select_nodeinfo_free.exit
-  %.014 = phi i32 [ -1, %select_p_select_nodeinfo_free.exit ], [ 0, %17 ], [ 0, %3 ]
+  %.014 = phi i32 [ -1, %select_p_select_nodeinfo_free.exit ], [ 0, %3 ], [ 0, %17 ]
   ret i32 %.014
 }
 
@@ -4220,7 +4220,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %64, %11, %6, %9
-  %.0 = phi i32 [ 1900, %9 ], [ 1900, %6 ], [ 0, %11 ], [ 0, %64 ]
+  %.0 = phi i32 [ 1900, %6 ], [ 1900, %9 ], [ 0, %11 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -4460,8 +4460,8 @@ define internal fastcc i32 @_job_count_bitmap(ptr noundef readonly captures(none
   br label %19
 
 19:                                               ; preds = %17, %9, %14, %7
-  %.081 = phi i64 [ 0, %14 ], [ 0, %9 ], [ 0, %7 ], [ %spec.select, %17 ]
-  %.079 = phi i64 [ 0, %14 ], [ 0, %9 ], [ 0, %7 ], [ %spec.select102, %17 ]
+  %.081 = phi i64 [ %spec.select, %17 ], [ 0, %7 ], [ 0, %14 ], [ 0, %9 ]
+  %.079 = phi i64 [ %spec.select102, %17 ], [ 0, %7 ], [ 0, %14 ], [ 0, %9 ]
   tail call void @slurm_bit_and(ptr noundef %3, ptr noundef %2) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
@@ -5211,11 +5211,11 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   br i1 %.not302, label %.preheader, label %.thread336, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %264, %265, %238, %227
-  %.2223 = phi i32 [ %.0221422, %227 ], [ %.0221422, %238 ], [ %.3224, %265 ], [ %.3224, %264 ], [ %.3224, %.preheader ]
-  %.2219 = phi i32 [ %.0217423, %227 ], [ %.0217423, %238 ], [ %.3220, %265 ], [ %.3220, %264 ], [ %.3220, %.preheader ]
-  %.2215 = phi i32 [ %.0213424, %227 ], [ %.0213424, %238 ], [ %.3216, %265 ], [ %.3216, %264 ], [ %.3216, %.preheader ]
-  %.3211 = phi i32 [ %.1209425, %227 ], [ %.1209425, %238 ], [ %.4212, %265 ], [ %.4212, %264 ], [ %.4212, %.preheader ]
-  %.1206 = phi i32 [ %.0205426, %227 ], [ %.0205426, %238 ], [ %.2207, %265 ], [ %.2207, %264 ], [ %.2207, %.preheader ]
+  %.2223 = phi i32 [ %.0221422, %227 ], [ %.0221422, %238 ], [ %.3224, %264 ], [ %.3224, %265 ], [ %.3224, %.preheader ]
+  %.2219 = phi i32 [ %.0217423, %227 ], [ %.0217423, %238 ], [ %.3220, %264 ], [ %.3220, %265 ], [ %.3220, %.preheader ]
+  %.2215 = phi i32 [ %.0213424, %227 ], [ %.0213424, %238 ], [ %.3216, %264 ], [ %.3216, %265 ], [ %.3216, %.preheader ]
+  %.3211 = phi i32 [ %.1209425, %227 ], [ %.1209425, %238 ], [ %.4212, %264 ], [ %.4212, %265 ], [ %.4212, %.preheader ]
+  %.1206 = phi i32 [ %.0205426, %227 ], [ %.0205426, %238 ], [ %.2207, %264 ], [ %.2207, %265 ], [ %.2207, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %271, ptr %6, align 4
@@ -5446,10 +5446,10 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   br i1 %or.cond21, label %.loopexit358, label %.lr.ph477, !llvm.loop !51
 
 .loopexit358:                                     ; preds = %.lr.ph460, %344, %.lr.ph477, %383, %._crit_edge440, %351
-  %.10273 = phi i32 [ %.5268489, %351 ], [ %.6269.lcssa, %._crit_edge440 ], [ %.11274472, %.lr.ph477 ], [ %.12275, %383 ], [ %.8271454, %.lr.ph460 ], [ %.9272, %344 ]
-  %.11251 = phi i32 [ %.5245490, %351 ], [ %.7247.lcssa, %._crit_edge440 ], [ %.12252473, %.lr.ph477 ], [ %.13253, %383 ], [ %.9249455, %.lr.ph460 ], [ %.10250, %344 ]
-  %.12238 = phi i32 [ %.6232491, %351 ], [ %.8234.lcssa, %._crit_edge440 ], [ %.13239474, %.lr.ph477 ], [ %.14, %383 ], [ %.10236456, %.lr.ph460 ], [ %.11237, %344 ]
-  %.11 = phi i32 [ %.5493, %351 ], [ %.7.lcssa, %._crit_edge440 ], [ %.12475, %.lr.ph477 ], [ %.13, %383 ], [ %.9457, %.lr.ph460 ], [ %.10, %344 ]
+  %.10273 = phi i32 [ %.6269.lcssa, %._crit_edge440 ], [ %.5268489, %351 ], [ %.12275, %383 ], [ %.11274472, %.lr.ph477 ], [ %.8271454, %.lr.ph460 ], [ %.9272, %344 ]
+  %.11251 = phi i32 [ %.7247.lcssa, %._crit_edge440 ], [ %.5245490, %351 ], [ %.13253, %383 ], [ %.12252473, %.lr.ph477 ], [ %.9249455, %.lr.ph460 ], [ %.10250, %344 ]
+  %.12238 = phi i32 [ %.8234.lcssa, %._crit_edge440 ], [ %.6232491, %351 ], [ %.14, %383 ], [ %.13239474, %.lr.ph477 ], [ %.10236456, %.lr.ph460 ], [ %.11237, %344 ]
+  %.11 = phi i32 [ %.7.lcssa, %._crit_edge440 ], [ %.5493, %351 ], [ %.13, %383 ], [ %.12475, %.lr.ph477 ], [ %.9457, %.lr.ph460 ], [ %.10, %344 ]
   %391 = load ptr, ptr %16, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 64
   %393 = load i16, ptr %392, align 8
@@ -5474,9 +5474,9 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   br i1 %403, label %.thread336, label %.preheader361, !llvm.loop !52
 
 .thread336:                                       ; preds = %202, %.preheader361, %397, %._crit_edge428, %277, %268, %.preheader364, %.critedge
-  %.5245377 = phi i32 [ %.4244, %.critedge ], [ %.0240.lcssa, %.preheader364 ], [ %.5245490, %268 ], [ %.5245490, %.preheader361 ], [ %.11251, %397 ], [ %.5245490, %._crit_edge428 ], [ %.5245490, %277 ], [ %208, %202 ]
-  %.6232374 = phi i32 [ %.5231, %.critedge ], [ %.1227.lcssa, %.preheader364 ], [ %.6232491, %268 ], [ %.6232491, %.preheader361 ], [ %.12238, %397 ], [ %.6232491, %._crit_edge428 ], [ %.6232491, %277 ], [ %181, %202 ]
-  %.5371 = phi i32 [ %.4, %.critedge ], [ %.0201.lcssa, %.preheader364 ], [ %.5493, %268 ], [ %.5493, %.preheader361 ], [ %.11, %397 ], [ %.5493, %._crit_edge428 ], [ %.5493, %277 ], [ %217, %202 ]
+  %.5245377 = phi i32 [ %.4244, %.critedge ], [ %.0240.lcssa, %.preheader364 ], [ %.5245490, %277 ], [ %.5245490, %268 ], [ %.5245490, %.preheader361 ], [ %.11251, %397 ], [ %.5245490, %._crit_edge428 ], [ %208, %202 ]
+  %.6232374 = phi i32 [ %.5231, %.critedge ], [ %.1227.lcssa, %.preheader364 ], [ %.6232491, %277 ], [ %.6232491, %268 ], [ %.6232491, %.preheader361 ], [ %.12238, %397 ], [ %.6232491, %._crit_edge428 ], [ %181, %202 ]
+  %.5371 = phi i32 [ %.4, %.critedge ], [ %.0201.lcssa, %.preheader364 ], [ %.5493, %277 ], [ %.5493, %268 ], [ %.5493, %.preheader361 ], [ %.11, %397 ], [ %.5493, %._crit_edge428 ], [ %217, %202 ]
   %404 = icmp slt i32 %.5245377, 1
   br i1 %404, label %405, label %409
 
@@ -5503,7 +5503,7 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   br label %410
 
 410:                                              ; preds = %20, %5, %409
-  %.0260 = phi i32 [ %.1262355, %409 ], [ 22, %5 ], [ 22, %20 ]
+  %.0260 = phi i32 [ 22, %5 ], [ %.1262355, %409 ], [ 22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

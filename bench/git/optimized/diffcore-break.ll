@@ -193,7 +193,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %or.cond.i = and i1 %97, %98
   br i1 %or.cond.i, label %should_break.exit.thread, label %99
 
-should_break.exit.thread:                         ; preds = %48, %57, %55, %59, %65, %84, %95
+should_break.exit.thread:                         ; preds = %57, %59, %48, %55, %95, %65, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -201,7 +201,7 @@ should_break.exit.thread:                         ; preds = %48, %57, %55, %59, 
   br label %125
 
 99:                                               ; preds = %91, %95, %69, %37
-  %.1 = phi i32 [ %82, %69 ], [ 60000, %37 ], [ %82, %95 ], [ %82, %91 ]
+  %.1 = phi i32 [ 60000, %37 ], [ %82, %69 ], [ %82, %95 ], [ %82, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

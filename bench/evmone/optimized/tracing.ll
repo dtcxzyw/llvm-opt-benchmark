@@ -661,7 +661,7 @@ _ZSt4copyIPPN6evmone12_GLOBAL__N_115HistogramTracer7ContextES5_ET0_T_S7_S6_.exit
   br label %_ZNSt5dequeIN6evmone12_GLOBAL__N_115HistogramTracer7ContextESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i
 
 _ZNSt5dequeIN6evmone12_GLOBAL__N_115HistogramTracer7ContextESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i: ; preds = %_ZSt4copyIPPN6evmone12_GLOBAL__N_115HistogramTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i, %66, %65, %62, %61
-  %.0.i.i.i.i.i = phi ptr [ %82, %_ZSt4copyIPPN6evmone12_GLOBAL__N_115HistogramTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i ], [ %58, %61 ], [ %58, %62 ], [ %58, %65 ], [ %58, %66 ]
+  %.0.i.i.i.i.i = phi ptr [ %82, %_ZSt4copyIPPN6evmone12_GLOBAL__N_115HistogramTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i ], [ %58, %62 ], [ %58, %61 ], [ %58, %65 ], [ %58, %66 ]
   store ptr %.0.i.i.i.i.i, ptr %17, align 8, !tbaa !23
   %93 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !22
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1848,7 +1848,7 @@ _ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit2
   br label %_ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %50, %_ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %50, %_ZSt4copyIPPSt17basic_string_viewIhN4evmc11byte_traitsIhEEES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !40
   %61 = load ptr, ptr %.0, align 8, !tbaa !39
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2116,7 +2116,7 @@ _ZSt4copyIPPN6evmone12_GLOBAL__N_117InstructionTracer7ContextES5_ET0_T_S7_S6_.ex
   br label %_ZNSt5dequeIN6evmone12_GLOBAL__N_117InstructionTracer7ContextESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i
 
 _ZNSt5dequeIN6evmone12_GLOBAL__N_117InstructionTracer7ContextESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i: ; preds = %_ZSt4copyIPPN6evmone12_GLOBAL__N_117InstructionTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i, %68, %67, %64, %63
-  %.0.i.i.i.i.i = phi ptr [ %84, %_ZSt4copyIPPN6evmone12_GLOBAL__N_117InstructionTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i ], [ %60, %63 ], [ %60, %64 ], [ %60, %67 ], [ %60, %68 ]
+  %.0.i.i.i.i.i = phi ptr [ %84, %_ZSt4copyIPPN6evmone12_GLOBAL__N_117InstructionTracer7ContextES5_ET0_T_S7_S6_.exit26.i.i.i.i.i ], [ %60, %64 ], [ %60, %63 ], [ %60, %67 ], [ %60, %68 ]
   store ptr %.0.i.i.i.i.i, ptr %18, align 8, !tbaa !58
   %95 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !57
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2888,7 +2888,7 @@ _ZN4intx4uintILj320EEC2ILj256EEERKNS0_IXT_EEEQltTL0__T_.exit: ; preds = %.crited
   br label %_ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit
 
 _ZN4intx8internal9normalizeILj256ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
-  %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
+  %74 = phi i32 [ %73, %72 ], [ %storemerge.i.lcssa32, %66 ]
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -3463,7 +3463,7 @@ _ZN4intx15reciprocal_2by1Em.exit:                 ; preds = %45
   br label %78
 
 78:                                               ; preds = %75, %73, %64
-  %.2 = phi i64 [ %74, %73 ], [ %.016, %64 ], [ %spec.select, %75 ]
+  %.2 = phi i64 [ %.016, %64 ], [ %spec.select, %75 ], [ %74, %73 ]
   ret i64 %.2
 }
 

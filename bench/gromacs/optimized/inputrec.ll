@@ -2143,7 +2143,7 @@ _Z19ir_coulomb_switchedPK10t_inputrec.exit:       ; preds = %5
   br label %_Z19ir_coulomb_switchedPK10t_inputrec.exit.thread
 
 _Z19ir_coulomb_switchedPK10t_inputrec.exit.thread: ; preds = %5, %11, %_Z19ir_coulomb_switchedPK10t_inputrec.exit, %_Z19ir_coulomb_switchedPK10t_inputrec.exit, %1
-  %13 = phi i1 [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit ], [ true, %1 ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit ], [ %spec.select, %11 ], [ true, %5 ]
+  %13 = phi i1 [ %spec.select, %11 ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit ], [ true, %1 ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit ], [ true, %5 ]
   ret i1 %13
 }
 
@@ -2185,7 +2185,7 @@ _Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit: ; preds = %_Z19ir_coulomb_s
   br label %_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit.thread
 
 _Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit.thread: ; preds = %5, %1, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i, %12, %_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit
-  %14 = phi i1 [ true, %_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit ], [ %spec.select, %12 ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i ], [ true, %1 ], [ true, %5 ]
+  %14 = phi i1 [ %spec.select, %12 ], [ true, %_Z28ir_coulomb_is_zero_at_cutoffPK10t_inputrec.exit ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i ], [ true, %_Z19ir_coulomb_switchedPK10t_inputrec.exit.i ], [ true, %1 ], [ true, %5 ]
   ret i1 %14
 }
 
@@ -2231,7 +2231,7 @@ _Z15ir_vdw_switchedPK10t_inputrec.exit:           ; preds = %5
   br label %_Z15ir_vdw_switchedPK10t_inputrec.exit.thread
 
 _Z15ir_vdw_switchedPK10t_inputrec.exit.thread:    ; preds = %_Z15ir_vdw_switchedPK10t_inputrec.exit, %5, %1
-  %10 = phi i1 [ true, %1 ], [ true, %5 ], [ %cond, %_Z15ir_vdw_switchedPK10t_inputrec.exit ]
+  %10 = phi i1 [ %cond, %_Z15ir_vdw_switchedPK10t_inputrec.exit ], [ true, %1 ], [ true, %5 ]
   ret i1 %10
 }
 
@@ -2258,7 +2258,7 @@ _Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit:  ; preds = %5
   br label %_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit.thread
 
 _Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit.thread: ; preds = %_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit, %5, %1
-  %11 = phi i1 [ true, %1 ], [ true, %5 ], [ %spec.select, %_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit ]
+  %11 = phi i1 [ %spec.select, %_Z24ir_vdw_is_zero_at_cutoffPK10t_inputrec.exit ], [ true, %5 ], [ true, %1 ]
   ret i1 %11
 }
 
@@ -2535,7 +2535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452: ; preds = %10
   br label %112
 
 112:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452, %102
-  %.pn438 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452 ], [ %103, %102 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn438 = phi { ptr, i32 } [ %103, %102 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %113 = load ptr, ptr %12, align 8, !tbaa !12
   %114 = icmp eq ptr %113, %51
   br i1 %114, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i453
@@ -7006,7 +7006,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %1, %1, %1, %1, %1
   br label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
 _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %1, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %7
-  %11 = phi i1 [ true, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ %10, %7 ], [ false, %1 ]
+  %11 = phi i1 [ %10, %7 ], [ true, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ false, %1 ]
   ret i1 %11
 }
 
@@ -7036,7 +7036,7 @@ switch.lookup3:                                   ; preds = %6
   br label %_ZL7usingRFRK22CoulombInteractionType.exit
 
 _ZL7usingRFRK22CoulombInteractionType.exit:       ; preds = %1, %6, %switch.lookup3
-  %8 = phi i1 [ %switch.masked, %switch.lookup3 ], [ false, %6 ], [ true, %1 ]
+  %8 = phi i1 [ true, %1 ], [ %switch.masked, %switch.lookup3 ], [ false, %6 ]
   ret i1 %8
 }
 
@@ -7061,7 +7061,7 @@ define noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef read
   br label %13
 
 13:                                               ; preds = %1, %9, %5
-  %14 = phi i1 [ false, %5 ], [ %12, %9 ], [ false, %1 ]
+  %14 = phi i1 [ false, %5 ], [ false, %1 ], [ %12, %9 ]
   ret i1 %14
 }
 
@@ -7086,7 +7086,7 @@ define noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef read
   br label %12
 
 12:                                               ; preds = %1, %8, %5
-  %13 = phi i1 [ false, %5 ], [ %11, %8 ], [ false, %1 ]
+  %13 = phi i1 [ false, %5 ], [ false, %1 ], [ %11, %8 ]
   ret i1 %13
 }
 
@@ -7111,7 +7111,7 @@ define noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr noundef read
   br label %13
 
 13:                                               ; preds = %1, %9, %5
-  %14 = phi i1 [ false, %5 ], [ %12, %9 ], [ false, %1 ]
+  %14 = phi i1 [ false, %5 ], [ false, %1 ], [ %12, %9 ]
   ret i1 %14
 }
 
@@ -7263,14 +7263,14 @@ define noundef zeroext i1 @_Z36integratorHasConservedEnergyQuantityPK10t_inputre
   br label %23
 
 23:                                               ; preds = %._crit_edge, %11, %15, %19
-  %24 = phi i1 [ false, %15 ], [ false, %11 ], [ %22, %19 ], [ true, %._crit_edge ]
+  %24 = phi i1 [ true, %._crit_edge ], [ false, %15 ], [ false, %11 ], [ %22, %19 ]
   %25 = and i32 %6, -2
   %switch = icmp ne i32 %25, 4
   %spec.select = select i1 %switch, i1 %24, i1 false
   br label %26
 
 26:                                               ; preds = %4, %23, %1
-  %.0 = phi i1 [ false, %1 ], [ %spec.select, %23 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ %spec.select, %23 ]
   ret i1 %.0
 }
 
@@ -7294,7 +7294,7 @@ switch.lookup:                                    ; preds = %4
   br label %switch.edge
 
 switch.edge:                                      ; preds = %4, %switch.lookup, %1
-  %8 = phi i1 [ true, %1 ], [ %switch.masked, %switch.lookup ], [ false, %4 ]
+  %8 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %1 ], [ false, %4 ]
   ret i1 %8
 }
 
@@ -7420,7 +7420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   resume { ptr, i32 } %.pn
 
 26:                                               ; preds = %1, %1, %12, %7
-  %.06 = phi i32 [ %11, %7 ], [ 1, %12 ], [ 3, %1 ], [ 3, %1 ]
+  %.06 = phi i32 [ 1, %12 ], [ %11, %7 ], [ 3, %1 ], [ 3, %1 ]
   ret i32 %.06
 }
 
@@ -7481,7 +7481,7 @@ define noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr noundef nonn
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !584
 
 .loopexit:                                        ; preds = %24, %8, %4, %1, %1, %1, %1
-  %.016 = phi float [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ -1.000000e+00, %4 ], [ 0.000000e+00, %8 ], [ %.1, %24 ]
+  %.016 = phi float [ -1.000000e+00, %4 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %8 ], [ %.1, %24 ]
   ret float %.016
 }
 
@@ -7511,7 +7511,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %1, %1, %1
   br label %10
 
 10:                                               ; preds = %1, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %6
-  %11 = phi i1 [ true, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ %9, %6 ], [ false, %1 ]
+  %11 = phi i1 [ false, %1 ], [ true, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ %9, %6 ]
   ret i1 %11
 }
 
@@ -7594,7 +7594,7 @@ define noundef zeroext i1 @_Z26fepLambdasChangeAtSameRateRKN3gmx16EnumerationArr
   br i1 %25, label %.critedge41, label %26
 
 26:                                               ; preds = %22, %20, %11
-  %.237.ph = phi double [ %18, %20 ], [ %.03548, %11 ], [ %18, %22 ]
+  %.237.ph = phi double [ %.03548, %11 ], [ %18, %20 ], [ %18, %22 ]
   %.034.add = add nuw nsw i64 %.034.idx49, 24
   %.not = icmp eq i64 %.034.add, 168
   br i1 %.not, label %.critedge, label %11

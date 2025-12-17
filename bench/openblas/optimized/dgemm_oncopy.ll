@@ -185,8 +185,8 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   br i1 %95, label %.preheader101, label %.loopexit106, !llvm.loop !9
 
 .loopexit106:                                     ; preds = %.loopexit102, %.loopexit102.us, %.loopexit104.us.us, %.preheader105.split.split.us.preheader, %5
-  %.081 = phi ptr [ %2, %5 ], [ %scevgep, %.preheader105.split.split.us.preheader ], [ %39, %.loopexit104.us.us ], [ %78, %.loopexit102.us ], [ %93, %.loopexit102 ]
-  %.0 = phi ptr [ %4, %5 ], [ %4, %.preheader105.split.split.us.preheader ], [ %36, %.loopexit104.us.us ], [ %75, %.loopexit102.us ], [ %90, %.loopexit102 ]
+  %.081 = phi ptr [ %2, %5 ], [ %scevgep, %.preheader105.split.split.us.preheader ], [ %78, %.loopexit102.us ], [ %39, %.loopexit104.us.us ], [ %93, %.loopexit102 ]
+  %.0 = phi ptr [ %4, %5 ], [ %4, %.preheader105.split.split.us.preheader ], [ %75, %.loopexit102.us ], [ %36, %.loopexit104.us.us ], [ %90, %.loopexit102 ]
   %96 = and i64 %1, 1
   %.not97 = icmp eq i64 %96, 0
   br i1 %.not97, label %.loopexit, label %97

@@ -490,7 +490,7 @@ define hidden void @_Z16sexpr2simplifierR11cmd_contextP5sexpr(ptr dead_on_unwind
   unreachable
 
 common.resume:                                    ; preds = %444, %61, %413, %129, %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread, %292, %_ZNSt14_Function_baseD2Ev.exit83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102.thread, %168, %252, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread, %44, %47, %.body.i.i
-  %common.resume.op = phi { ptr, i32 } [ %315, %.body.i.i ], [ %45, %47 ], [ %45, %44 ], [ %169, %168 ], [ %.pn25.pn.i, %252 ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread ], [ %293, %292 ], [ %.pn.pn.pn.pn.pn.pn.i, %_ZNSt14_Function_baseD2Ev.exit83 ], [ %287, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102.thread ], [ %445, %444 ], [ %lpad.thr_comm, %61 ], [ %95, %94 ], [ %414, %413 ], [ %130, %129 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread ], [ %439, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %_ZNSt14_Function_baseD2Ev.exit83 ], [ %45, %44 ], [ %315, %.body.i.i ], [ %.pn25.pn.i, %252 ], [ %45, %47 ], [ %169, %168 ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread ], [ %293, %292 ], [ %287, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102.thread ], [ %439, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68.thread ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread ], [ %445, %444 ], [ %lpad.thr_comm, %61 ], [ %95, %94 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %414, %413 ], [ %130, %129 ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %28
@@ -1770,7 +1770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -2136,7 +2136,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN10scoped_ptrI25d
   unreachable
 
 .body:                                            ; preds = %135, %133, %85, %82
-  %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %85 ], [ %83, %82 ], [ %.pn26.pn.pn.pn, %133 ], [ %.pn26.pn.pn.pn, %135 ]
+  %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn26.pn.pn.pn, %135 ], [ %83, %85 ], [ %.pn26.pn.pn.pn, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %200
 
@@ -2284,7 +2284,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %200
 
 200:                                              ; preds = %.body, %123, %.body61, %40
-  %.pn26.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body61 ], [ %41, %40 ], [ %.pn26.pn.pn.pn.pn, %.body ], [ %124, %123 ]
+  %.pn26.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %.pn, %.body61 ], [ %124, %123 ], [ %.pn26.pn.pn.pn.pn, %.body ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn26.pn.pn.pn.pn.pn.pn.pn

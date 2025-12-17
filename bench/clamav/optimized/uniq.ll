@@ -136,8 +136,8 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   br label %49
 
 49:                                               ; preds = %.thread63, %.thread62
-  %50 = phi ptr [ %19, %.thread62 ], [ %38, %.thread63 ]
-  %storemerge = phi ptr [ null, %.thread62 ], [ %spec.select, %.thread63 ]
+  %50 = phi ptr [ %38, %.thread63 ], [ %19, %.thread62 ]
+  %storemerge = phi ptr [ %spec.select, %.thread63 ], [ null, %.thread62 ]
   store ptr %storemerge, ptr %50, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i8, ptr %6, align 16, !tbaa !15

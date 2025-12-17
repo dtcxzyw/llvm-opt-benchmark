@@ -3122,7 +3122,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
   br i1 %59, label %split, label %.lr.ph
 
 split:                                            ; preds = %53, %.lr.ph, %12, %19, %28, %34, %39, %48, %24, %2
-  %.0.ph.ph = phi i32 [ -1, %2 ], [ -1, %53 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %19 ], [ -1, %28 ], [ -1, %34 ], [ -1, %39 ], [ -1, %48 ], [ 0, %24 ]
+  %.0.ph.ph = phi i32 [ -1, %2 ], [ -1, %53 ], [ -1, %39 ], [ -1, %34 ], [ -1, %28 ], [ 0, %24 ], [ -1, %19 ], [ -1, %12 ], [ -1, %.lr.ph ], [ -1, %48 ]
   ret i32 %.0.ph.ph
 }
 

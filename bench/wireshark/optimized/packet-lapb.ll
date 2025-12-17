@@ -154,7 +154,7 @@ define internal i32 @dissect_lapb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %24, %28, %26
-  %31 = phi i1 [ %27, %26 ], [ %29, %28 ], [ false, %24 ]
+  %31 = phi i1 [ %29, %28 ], [ %27, %26 ], [ false, %24 ]
   %32 = load i32, ptr @proto_lapb, align 4
   %33 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.21)
   %34 = load i32, ptr @ett_lapb, align 4

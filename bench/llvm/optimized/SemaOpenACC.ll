@@ -696,7 +696,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit466, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit468, %183, %178, %171, %164
-  %.028.i.i.i.i.i = phi ptr [ %110, %183 ], [ %.029.lcssa.i.i.i.i.i, %164 ], [ %.1.i.i.i.i.i, %171 ], [ %.2.i.i.i.i.i, %178 ], [ %184, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit ], [ %185, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit466 ], [ %186, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit468 ], [ %.02940.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %171 ], [ %110, %183 ], [ %.2.i.i.i.i.i, %178 ], [ %.029.lcssa.i.i.i.i.i, %164 ], [ %186, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit468 ], [ %185, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit466 ], [ %184, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit ], [ %.02940.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %187 = getelementptr inbounds nuw ptr, ptr %.sroa.040.0.copyload, i64 %.sroa.241.0.copyload
   %188 = icmp eq ptr %187, %.028.i.i.i.i.i
   %.pre404 = load ptr, ptr %0, align 8, !tbaa !61
@@ -849,7 +849,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit476, %234, %241, %248, %253
-  %.028.i.i.i.i = phi ptr [ %110, %253 ], [ %.029.lcssa.i.i.i.i, %234 ], [ %.1.i.i.i.i, %241 ], [ %.2.i.i.i.i, %248 ], [ %254, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %255, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474 ], [ %256, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit476 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %241 ], [ %110, %253 ], [ %.2.i.i.i.i, %248 ], [ %.029.lcssa.i.i.i.i, %234 ], [ %256, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit476 ], [ %254, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %255, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
   %257 = icmp eq ptr %205, %.028.i.i.i.i
   %.pre405 = load i8, ptr %10, align 8, !tbaa !51
   br i1 %257, label %258, label %261
@@ -976,7 +976,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i91, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit484, %293, %300, %307, %312
-  %.028.i.i.i.i99 = phi ptr [ %110, %312 ], [ %.029.lcssa.i.i.i.i97, %293 ], [ %.1.i.i.i.i100, %300 ], [ %.2.i.i.i.i98, %307 ], [ %313, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %314, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482 ], [ %315, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit484 ], [ %.02940.i.i.i.i93, %.lr.ph.i.i.i.i91 ]
+  %.028.i.i.i.i99 = phi ptr [ %.1.i.i.i.i100, %300 ], [ %110, %312 ], [ %.2.i.i.i.i98, %307 ], [ %.029.lcssa.i.i.i.i97, %293 ], [ %315, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit484 ], [ %313, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %314, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482 ], [ %.02940.i.i.i.i93, %.lr.ph.i.i.i.i91 ]
   %.not65 = icmp eq ptr %.028.i.i.i.i99, %205
   br i1 %.not65, label %321, label %316
 
@@ -1101,7 +1101,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i105, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit492, %351, %358, %365, %370
-  %.028.i.i.i.i113 = phi ptr [ %110, %370 ], [ %.029.lcssa.i.i.i.i111, %351 ], [ %.1.i.i.i.i114, %358 ], [ %.2.i.i.i.i112, %365 ], [ %371, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %372, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490 ], [ %373, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit492 ], [ %.02940.i.i.i.i107, %.lr.ph.i.i.i.i105 ]
+  %.028.i.i.i.i113 = phi ptr [ %.1.i.i.i.i114, %358 ], [ %110, %370 ], [ %.2.i.i.i.i112, %365 ], [ %.029.lcssa.i.i.i.i111, %351 ], [ %373, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit492 ], [ %371, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %372, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490 ], [ %.02940.i.i.i.i107, %.lr.ph.i.i.i.i105 ]
   %.not66 = icmp eq ptr %.028.i.i.i.i113, %205
   br i1 %.not66, label %379, label %374
 
@@ -1221,7 +1221,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i120, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit498, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit500, %408, %415, %422, %427
-  %.028.i.i.i.i128 = phi ptr [ %110, %427 ], [ %.029.lcssa.i.i.i.i126, %408 ], [ %.1.i.i.i.i129, %415 ], [ %.2.i.i.i.i127, %422 ], [ %428, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %429, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit498 ], [ %430, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit500 ], [ %.02940.i.i.i.i122, %.lr.ph.i.i.i.i120 ]
+  %.028.i.i.i.i128 = phi ptr [ %.1.i.i.i.i129, %415 ], [ %110, %427 ], [ %.2.i.i.i.i127, %422 ], [ %.029.lcssa.i.i.i.i126, %408 ], [ %430, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit500 ], [ %428, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %429, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit498 ], [ %.02940.i.i.i.i122, %.lr.ph.i.i.i.i120 ]
   %.not67 = icmp eq ptr %.028.i.i.i.i128, %205
   br i1 %.not67, label %.thread, label %431
 
@@ -1413,7 +1413,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158: ; preds = %.lr.ph.i.i.i.i.i150, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit426, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit428, %510, %505, %498, %491
-  %.028.i.i.i.i.i159 = phi ptr [ %437, %510 ], [ %.029.lcssa.i.i.i.i.i156, %491 ], [ %.1.i.i.i.i.i164, %498 ], [ %.2.i.i.i.i.i157, %505 ], [ %511, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit ], [ %512, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit426 ], [ %513, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit428 ], [ %.02940.i.i.i.i.i152, %.lr.ph.i.i.i.i.i150 ]
+  %.028.i.i.i.i.i159 = phi ptr [ %.1.i.i.i.i.i164, %498 ], [ %437, %510 ], [ %.2.i.i.i.i.i157, %505 ], [ %.029.lcssa.i.i.i.i.i156, %491 ], [ %513, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit428 ], [ %512, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit426 ], [ %511, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit ], [ %.02940.i.i.i.i.i152, %.lr.ph.i.i.i.i.i150 ]
   %514 = getelementptr inbounds nuw ptr, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
   %515 = icmp eq ptr %514, %.028.i.i.i.i.i159
   %.pre401 = load ptr, ptr %0, align 8, !tbaa !61
@@ -1558,7 +1558,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186: ; preds = %.lr.ph.i.i.i.i173, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit434, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit436, %558, %565, %572, %577
-  %.028.i.i.i.i181 = phi ptr [ %437, %577 ], [ %.029.lcssa.i.i.i.i179, %558 ], [ %.1.i.i.i.i182, %565 ], [ %.2.i.i.i.i180, %572 ], [ %578, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit ], [ %579, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit434 ], [ %580, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit436 ], [ %.02940.i.i.i.i175, %.lr.ph.i.i.i.i173 ]
+  %.028.i.i.i.i181 = phi ptr [ %.1.i.i.i.i182, %565 ], [ %437, %577 ], [ %.2.i.i.i.i180, %572 ], [ %.029.lcssa.i.i.i.i179, %558 ], [ %580, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit436 ], [ %578, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit ], [ %579, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit186.loopexit.split.loop.exit434 ], [ %.02940.i.i.i.i175, %.lr.ph.i.i.i.i173 ]
   %581 = icmp eq ptr %529, %.028.i.i.i.i181
   %.pre402 = load ptr, ptr %0, align 8, !tbaa !61
   br i1 %581, label %582, label %585
@@ -1687,7 +1687,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204: ; preds = %.lr.ph.i.i.i.i191, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit442, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit444, %619, %626, %633, %638
-  %.028.i.i.i.i199 = phi ptr [ %437, %638 ], [ %.029.lcssa.i.i.i.i197, %619 ], [ %.1.i.i.i.i200, %626 ], [ %.2.i.i.i.i198, %633 ], [ %639, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit ], [ %640, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit442 ], [ %641, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit444 ], [ %.02940.i.i.i.i193, %.lr.ph.i.i.i.i191 ]
+  %.028.i.i.i.i199 = phi ptr [ %.1.i.i.i.i200, %626 ], [ %437, %638 ], [ %.2.i.i.i.i198, %633 ], [ %.029.lcssa.i.i.i.i197, %619 ], [ %641, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit444 ], [ %639, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit ], [ %640, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit204.loopexit.split.loop.exit442 ], [ %.02940.i.i.i.i193, %.lr.ph.i.i.i.i191 ]
   %.not = icmp eq ptr %.028.i.i.i.i199, %529
   br i1 %.not, label %646, label %642
 
@@ -1811,7 +1811,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223: ; preds = %.lr.ph.i.i.i.i210, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit450, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit452, %676, %683, %690, %695
-  %.028.i.i.i.i218 = phi ptr [ %437, %695 ], [ %.029.lcssa.i.i.i.i216, %676 ], [ %.1.i.i.i.i219, %683 ], [ %.2.i.i.i.i217, %690 ], [ %696, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit ], [ %697, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit450 ], [ %698, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit452 ], [ %.02940.i.i.i.i212, %.lr.ph.i.i.i.i210 ]
+  %.028.i.i.i.i218 = phi ptr [ %.1.i.i.i.i219, %683 ], [ %437, %695 ], [ %.2.i.i.i.i217, %690 ], [ %.029.lcssa.i.i.i.i216, %676 ], [ %698, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit452 ], [ %696, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit ], [ %697, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit223.loopexit.split.loop.exit450 ], [ %.02940.i.i.i.i212, %.lr.ph.i.i.i.i210 ]
   %.not63 = icmp eq ptr %.028.i.i.i.i218, %529
   br i1 %.not63, label %703, label %699
 
@@ -1930,7 +1930,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242: ; preds = %.lr.ph.i.i.i.i229, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit458, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit460, %732, %739, %746, %751
-  %.028.i.i.i.i237 = phi ptr [ %437, %751 ], [ %.029.lcssa.i.i.i.i235, %732 ], [ %.1.i.i.i.i238, %739 ], [ %.2.i.i.i.i236, %746 ], [ %752, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit ], [ %753, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit458 ], [ %754, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit460 ], [ %.02940.i.i.i.i231, %.lr.ph.i.i.i.i229 ]
+  %.028.i.i.i.i237 = phi ptr [ %.1.i.i.i.i238, %739 ], [ %437, %751 ], [ %.2.i.i.i.i236, %746 ], [ %.029.lcssa.i.i.i.i235, %732 ], [ %754, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit460 ], [ %752, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit ], [ %753, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit242.loopexit.split.loop.exit458 ], [ %.02940.i.i.i.i231, %.lr.ph.i.i.i.i229 ]
   %.not64 = icmp eq ptr %.028.i.i.i.i237, %529
   br i1 %.not64, label %.thread, label %755
 
@@ -2075,7 +2075,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit68, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit70, %44, %51, %58, %63
-  %.028.i.i.i.i = phi ptr [ %14, %63 ], [ %.029.lcssa.i.i.i.i, %44 ], [ %.1.i.i.i.i, %51 ], [ %.2.i.i.i.i, %58 ], [ %64, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %65, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit68 ], [ %66, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit70 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %51 ], [ %14, %63 ], [ %.2.i.i.i.i, %58 ], [ %.029.lcssa.i.i.i.i, %44 ], [ %66, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit70 ], [ %64, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %65, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit68 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.idx2.i13 = shl nuw nsw i64 %2, 3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx2.i13
   %68 = lshr i64 %2, 2
@@ -2186,7 +2186,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i17, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit76, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit78, %97, %104, %111, %116
-  %.028.i.i.i.i25 = phi ptr [ %67, %116 ], [ %.029.lcssa.i.i.i.i23, %97 ], [ %.1.i.i.i.i26, %104 ], [ %.2.i.i.i.i24, %111 ], [ %117, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %118, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit76 ], [ %119, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit78 ], [ %.02940.i.i.i.i19, %.lr.ph.i.i.i.i17 ]
+  %.028.i.i.i.i25 = phi ptr [ %.1.i.i.i.i26, %104 ], [ %67, %116 ], [ %.2.i.i.i.i24, %111 ], [ %.029.lcssa.i.i.i.i23, %97 ], [ %119, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit78 ], [ %117, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %118, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_21OpenACCCollapseClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit76 ], [ %.02940.i.i.i.i19, %.lr.ph.i.i.i.i17 ]
   %120 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %121 = icmp eq ptr %120, %.028.i.i.i.i
   br i1 %121, label %_ZN5clang21OpenACCCollapseClause12getLoopCountEv.exit.thread, label %122
@@ -2408,7 +2408,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit22, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit24, %37, %44, %51, %56
-  %.028.i.i.i.i = phi ptr [ %7, %56 ], [ %.029.lcssa.i.i.i.i, %37 ], [ %.1.i.i.i.i, %44 ], [ %.2.i.i.i.i, %51 ], [ %57, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit22 ], [ %59, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit24 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %44 ], [ %7, %56 ], [ %.2.i.i.i.i, %51 ], [ %.029.lcssa.i.i.i.i, %37 ], [ %59, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit24 ], [ %57, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %58, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit22 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
   %60 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %61 = icmp eq ptr %60, %.028.i.i.i.i
   br i1 %61, label %75, label %62
@@ -3124,49 +3124,49 @@ define dso_local range(i64 0, -1) i64 @_ZN5clang11SemaOpenACC12ActOnIntExprENS_2
   %33 = icmp ne i8 %32, 13
   %.not.not21.i = icmp eq ptr %30, null
   %.not.not.i = or i1 %.not.not21.i, %33
-  br i1 %.not.not.i, label %34, label %_ZNK5clang4Type13isIntegerTypeEv.exit
+  br i1 %.not.not.i, label %39, label %34
 
 34:                                               ; preds = %22
-  %35 = icmp ne i8 %32, 46
-  %.not13.not.i = or i1 %.not.not21.i, %35
-  br i1 %.not13.not.i, label %49, label %36
+  %35 = load i32, ptr %31, align 16
+  %36 = lshr i32 %35, 19
+  %37 = and i32 %36, 511
+  %38 = add nsw i32 %37, -435
+  %spec.select.i = icmp ult i32 %38, 20
+  br i1 %spec.select.i, label %.critedge, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-36:                                               ; preds = %34
-  %37 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %30) #21
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 74
-  %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, 1
-  %41 = icmp ne i8 %40, 0
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
+39:                                               ; preds = %22
+  %40 = icmp ne i8 %32, 46
+  %.not13.not.i = or i1 %.not.not21.i, %40
+  br i1 %.not13.not.i, label %49, label %41
+
+41:                                               ; preds = %39
+  %42 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %30) #21
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 74
+  %44 = load i8, ptr %43, align 2
+  %45 = and i8 %44, 1
+  %46 = icmp ne i8 %45, 0
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %47, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %43 = select i1 %41, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %43, label %44, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  %48 = select i1 %46, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %48, label %_ZNK5clang4Type13isIntegerTypeEv.exit, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-44:                                               ; preds = %36
-  %45 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %30) #21
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
-  %47 = load i40, ptr %46, align 8
-  %48 = icmp sgt i40 %47, -1
-  br i1 %48, label %.critedge, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
-
-49:                                               ; preds = %34
+49:                                               ; preds = %39
   %50 = icmp eq i8 %32, 10
   br i1 %50, label %.critedge, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %22
-  %51 = load i32, ptr %31, align 16
-  %52 = lshr i32 %51, 19
-  %53 = and i32 %52, 511
-  %54 = add nsw i32 %53, -435
-  %spec.select.i = icmp ult i32 %54, 20
-  br i1 %spec.select.i, label %.critedge, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %41
+  %51 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %30) #21
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
+  %53 = load i40, ptr %52, align 8
+  %54 = icmp sgt i40 %53, -1
+  br i1 %54, label %.critedge, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-.critedge:                                        ; preds = %17, %44, %49, %_ZNK5clang4Type13isIntegerTypeEv.exit
+.critedge:                                        ; preds = %17, %34, %49, %_ZNK5clang4Type13isIntegerTypeEv.exit
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %36, %.critedge, %13, %44, %49, %_ZNK5clang4Type13isIntegerTypeEv.exit, %5
-  %.sroa.011.0 = phi i64 [ 1, %5 ], [ %18, %.critedge ], [ 1, %13 ], [ 1, %44 ], [ 1, %49 ], [ 1, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ 1, %36 ]
+_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %41, %.critedge, %13, %34, %49, %_ZNK5clang4Type13isIntegerTypeEv.exit, %5
+  %.sroa.011.0 = phi i64 [ 1, %5 ], [ 1, %13 ], [ %18, %.critedge ], [ 1, %34 ], [ 1, %49 ], [ 1, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ 1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.sroa.011.0
 }
@@ -3514,7 +3514,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang8QualType
   br label %164
 
 164:                                              ; preds = %3, %10, %163, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
-  %.0 = phi i1 [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ %.1, %163 ], [ false, %10 ], [ false, %3 ]
+  %.0 = phi i1 [ %.1, %163 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit ], [ false, %10 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -3680,50 +3680,50 @@ define dso_local noundef i64 @_ZN5clang11SemaOpenACC8ActOnVarENS_17OpenACCClause
   %30 = icmp ne i8 %29, 13
   %.not.not21.i.i.i = icmp eq ptr %27, null
   %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %30
-  br i1 %.not.not.i.i.i, label %31, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
+  br i1 %.not.not.i.i.i, label %36, label %31
 
 31:                                               ; preds = %19
-  %32 = icmp ne i8 %29, 46
-  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %32
-  br i1 %.not13.not.i.i.i, label %46, label %33
+  %32 = load i32, ptr %28, align 16
+  %33 = lshr i32 %32, 19
+  %34 = and i32 %33, 511
+  %35 = add nsw i32 %34, -435
+  %spec.select.i.i.i = icmp ult i32 %35, 20
+  br i1 %spec.select.i.i.i, label %52, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
 
-33:                                               ; preds = %31
-  %34 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %27) #21
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 74
-  %36 = load i8, ptr %35, align 2
-  %37 = and i8 %36, 1
-  %38 = icmp ne i8 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %39, align 8
+36:                                               ; preds = %19
+  %37 = icmp ne i8 %29, 46
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %37
+  br i1 %.not13.not.i.i.i, label %46, label %38
+
+38:                                               ; preds = %36
+  %39 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %27) #21
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 74
+  %41 = load i8, ptr %40, align 2
+  %42 = and i8 %41, 1
+  %43 = icmp ne i8 %42, 0
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 7
-  %40 = select i1 %38, i1 true, i1 %.not.i.i.i.i.i.i.i
-  br i1 %40, label %41, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
+  %45 = select i1 %43, i1 true, i1 %.not.i.i.i.i.i.i.i
+  br i1 %45, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
 
-41:                                               ; preds = %33
-  %42 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %27) #21
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %44 = load i40, ptr %43, align 8
-  %45 = icmp sgt i40 %44, -1
-  br i1 %45, label %52, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
-
-46:                                               ; preds = %31
+46:                                               ; preds = %36
   %47 = icmp eq i8 %29, 10
   br i1 %47, label %52, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
 
-_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %19
-  %48 = load i32, ptr %28, align 16
-  %49 = lshr i32 %48, 19
-  %50 = and i32 %49, 511
-  %51 = add nsw i32 %50, -435
-  %spec.select.i.i.i = icmp ult i32 %51, 20
-  br i1 %spec.select.i.i.i, label %52, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
+_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %38
+  %48 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %27) #21
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 72
+  %50 = load i40, ptr %49, align 8
+  %51 = icmp sgt i40 %50, -1
+  br i1 %51, label %52, label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
 
-52:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %46, %41
+52:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %46, %31
   %53 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   br label %_ZN5clang18ArraySubscriptExpr7getBaseEv.exit
 
-_ZN5clang18ArraySubscriptExpr7getBaseEv.exit:     ; preds = %33, %41, %46, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %52
-  %.in.i = phi ptr [ %53, %52 ], [ %17, %33 ], [ %17, %41 ], [ %17, %46 ], [ %17, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
+_ZN5clang18ArraySubscriptExpr7getBaseEv.exit:     ; preds = %31, %38, %46, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %52
+  %.in.i = phi ptr [ %53, %52 ], [ %17, %38 ], [ %17, %31 ], [ %17, %46 ], [ %17, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
   %54 = load ptr, ptr %.in.i, align 8, !tbaa !168
   br label %55
 
@@ -3896,7 +3896,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %120, 
   br label %145
 
 145:                                              ; preds = %113, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit, %110, %.critedge33, %.critedge, %108, %101, %13
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %102, %101 ], [ %109, %108 ], [ %95, %.critedge33 ], [ %77, %.critedge ], [ 1, %110 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit ], [ 1, %113 ]
+  %.sroa.0.0 = phi i64 [ 1, %13 ], [ %102, %101 ], [ %109, %108 ], [ %77, %.critedge ], [ 1, %110 ], [ %95, %.critedge33 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit ], [ 1, %113 ]
   ret i64 %.sroa.0.0
 }
 
@@ -4789,7 +4789,7 @@ _ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   br label %499
 
 .thread449:                                       ; preds = %select.unfold, %375, %494, %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
-  %.3104 = phi ptr [ %.2103, %select.unfold ], [ %496, %494 ], [ null, %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit ], [ %.0101, %375 ]
+  %.3104 = phi ptr [ %.2103, %select.unfold ], [ null, %_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit ], [ %496, %494 ], [ %.0101, %375 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %498 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i8 0, ptr %498, align 8, !tbaa !21
@@ -7365,7 +7365,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit321: ; preds = %_ZNSt14_Op
   br label %.critedge125
 
 .critedge125:                                     ; preds = %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit174.thread, %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread, %139, %143, %116, %120, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit321, %325
-  %.sroa.0438.2 = phi i64 [ %1658, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit321 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ 1, %325 ], [ 1, %120 ], [ 1, %116 ], [ 1, %143 ], [ 1, %139 ], [ 1, %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread ], [ 1, %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit174.thread ]
+  %.sroa.0438.2 = phi i64 [ 1, %139 ], [ 1, %116 ], [ 1, %325 ], [ %1658, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit321 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit169 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ 1, %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread ], [ 1, %120 ], [ 1, %143 ], [ 1, %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit174.thread ]
   ret i64 %.sroa.0438.2
 }
 
@@ -7580,7 +7580,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30.thread:     ; preds = %76, %_ZNK4llvm6APSI
   br label %92
 
 92:                                               ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit30, %_ZNK4llvm6APSInt10isNegativeEv.exit, %21, %23, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread, %_ZN4llvm5APIntD2Ev.exit28, %_ZN4llvm5APIntD2Ev.exit
-  %.0 = phi i32 [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ %24, %23 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
+  %.0 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %24, %23 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
   ret i32 %.0
 }
 
@@ -9430,45 +9430,45 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123isValidLoopVariabl
   %15 = icmp ne i8 %14, 13
   %.not.not21.i = icmp eq ptr %12, null
   %.not.not.i = or i1 %.not.not21.i, %15
-  br i1 %.not.not.i, label %16, label %_ZNK5clang4Type13isIntegerTypeEv.exit
+  br i1 %.not.not.i, label %21, label %16
 
 16:                                               ; preds = %8
-  %17 = icmp ne i8 %14, 46
-  %.not13.not.i = or i1 %.not.not21.i, %17
-  br i1 %.not13.not.i, label %31, label %18
+  %17 = load i32, ptr %13, align 16
+  %18 = lshr i32 %17, 19
+  %19 = and i32 %18, 511
+  %20 = add nsw i32 %19, -435
+  %spec.select.i = icmp ult i32 %20, 20
+  br i1 %spec.select.i, label %.thread112, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-18:                                               ; preds = %16
-  %19 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
+21:                                               ; preds = %8
+  %22 = icmp ne i8 %14, 46
+  %.not13.not.i = or i1 %.not.not21.i, %22
+  br i1 %.not13.not.i, label %31, label %23
+
+23:                                               ; preds = %21
+  %24 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 74
+  %26 = load i8, ptr %25, align 2
+  %27 = and i8 %26, 1
+  %28 = icmp ne i8 %27, 0
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %25 = select i1 %23, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %25, label %26, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  %30 = select i1 %28, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %30, label %_ZNK5clang4Type13isIntegerTypeEv.exit, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-26:                                               ; preds = %18
-  %27 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %29 = load i40, ptr %28, align 8
-  %30 = icmp sgt i40 %29, -1
-  br i1 %30, label %.thread112, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
-
-31:                                               ; preds = %16
+31:                                               ; preds = %21
   %32 = icmp eq i8 %14, 10
   br i1 %32, label %.thread112, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %8
-  %33 = load i32, ptr %13, align 16
-  %34 = lshr i32 %33, 19
-  %35 = and i32 %34, 511
-  %36 = add nsw i32 %35, -435
-  %spec.select.i = icmp ult i32 %36, 20
-  br i1 %spec.select.i, label %.thread112, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %23
+  %33 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
+  %35 = load i40, ptr %34, align 8
+  %36 = icmp sgt i40 %35, -1
+  br i1 %36, label %.thread112, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %18, %26, %31, %_ZNK5clang4Type13isIntegerTypeEv.exit
+_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %23, %16, %31, %_ZNK5clang4Type13isIntegerTypeEv.exit
   %37 = load ptr, ptr %3, align 16, !tbaa !133
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.0.0.copyload.i.i.i.i41 = load i64, ptr %38, align 8, !tbaa !66
@@ -9685,8 +9685,8 @@ _ZN4llvm20filter_iterator_baseIN5clang11DeclContext13decl_iteratorENS_6detail17I
   %.not116 = icmp eq ptr %.sroa.080.2, null
   br i1 %.not116, label %.thread112, label %.lr.ph
 
-.thread112:                                       ; preds = %55, %_ZN4llvm20filter_iterator_baseIN5clang11DeclContext13decl_iteratorENS_6detail17IsaCheckPredicateIJNS1_15TypedefNameDeclEEEESt20forward_iterator_tagEppEv.exit, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67", %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67.thread", %47, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit.thread", %45, %_ZN4llvmneENS_9StringRefES0_.exit.thread94, %77, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit", %26, %31, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, %_ZNK5clang4Type13isIntegerTypeEv.exit, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread ], [ true, %31 ], [ true, %26 ], [ true, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit" ], [ false, %77 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread94 ], [ false, %45 ], [ false, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit.thread" ], [ false, %47 ], [ true, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67" ], [ false, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67.thread" ], [ false, %_ZN4llvm20filter_iterator_baseIN5clang11DeclContext13decl_iteratorENS_6detail17IsaCheckPredicateIJNS1_15TypedefNameDeclEEEESt20forward_iterator_tagEppEv.exit ], [ false, %55 ]
+.thread112:                                       ; preds = %55, %_ZN4llvm20filter_iterator_baseIN5clang11DeclContext13decl_iteratorENS_6detail17IsaCheckPredicateIJNS1_15TypedefNameDeclEEEESt20forward_iterator_tagEppEv.exit, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67", %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67.thread", %47, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit.thread", %45, %_ZN4llvmneENS_9StringRefES0_.exit.thread94, %77, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit", %16, %31, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, %_ZNK5clang4Type13isIntegerTypeEv.exit, %1
+  %.0 = phi i1 [ true, %16 ], [ true, %1 ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ true, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread ], [ true, %31 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread94 ], [ true, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit" ], [ false, %77 ], [ false, %45 ], [ false, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit.thread" ], [ false, %47 ], [ false, %_ZN4llvm20filter_iterator_baseIN5clang11DeclContext13decl_iteratorENS_6detail17IsaCheckPredicateIJNS1_15TypedefNameDeclEEEESt20forward_iterator_tagEppEv.exit ], [ false, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67.thread" ], [ true, %"_ZZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeEENK3$_0clEPKNS0_13CXXRecordDeclE.exit67" ], [ false, %55 ]
   ret i1 %.0
 }
 
@@ -9716,7 +9716,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i8, ptr %20, align 8, !tbaa !383, !range !62, !noundef !63
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %.critedge60
+  br i1 %22, label %23, label %.critedge59
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -9739,7 +9739,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %33 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 1 dereferenceable(1) %32)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.critedge60
+  br label %.critedge59
 
 34:                                               ; preds = %1
   %35 = load i16, ptr %18, align 8
@@ -9788,7 +9788,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i8, ptr %57, align 8, !tbaa !383, !range !62, !noundef !63
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %.critedge60
+  br i1 %59, label %60, label %.critedge59
 
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -9810,7 +9810,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %70 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 1 dereferenceable(1) %69)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.critedge60
+  br label %.critedge59
 
 71:                                               ; preds = %50
   %72 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -9819,15 +9819,15 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %75 = load i16, ptr %74, align 8
   %76 = and i16 %75, 511
   %.not115 = icmp eq i16 %76, 73
-  br i1 %.not115, label %77, label %.critedge59.thread
+  br i1 %.not115, label %77, label %.critedge60.thread
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  br label %.critedge59
+  br label %.critedge60
 
 79:                                               ; preds = %46
   %80 = and i16 %47, 511
-  switch i16 %80, label %.critedge59.thread [
+  switch i16 %80, label %.critedge60.thread [
     i16 245, label %81
     i16 93, label %145
   ]
@@ -9844,7 +9844,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %89 = load i8, ptr %88, align 8, !tbaa !383, !range !62, !noundef !63
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %.critedge60
+  br i1 %90, label %91, label %.critedge59
 
 91:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9866,7 +9866,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %101 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 1 dereferenceable(1) %100)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.critedge60
+  br label %.critedge59
 
 102:                                              ; preds = %81
   %103 = getelementptr inbounds nuw i8, ptr %83, i64 28
@@ -9876,7 +9876,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %107 = icmp ult i32 %106, -27
   %.not53118 = icmp eq ptr %83, null
   %.not53 = or i1 %.not53118, %107
-  br i1 %.not53, label %.critedge59.thread, label %108
+  br i1 %.not53, label %.critedge60.thread, label %108
 
 108:                                              ; preds = %102
   %109 = add nsw i32 %105, -38
@@ -9887,7 +9887,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %113 = load i8, ptr %112, align 8, !tbaa !383, !range !62, !noundef !63
   %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %.critedge60
+  br i1 %114, label %115, label %.critedge59
 
 115:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -9909,7 +9909,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %125 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %8, ptr noundef nonnull align 1 dereferenceable(1) %124)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge60
+  br label %.critedge59
 
 126:                                              ; preds = %108
   %127 = getelementptr inbounds nuw i8, ptr %83, i64 48
@@ -9925,22 +9925,22 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i8, ptr %135, align 16
   %137 = icmp eq i8 %136, 47
-  br i1 %137, label %.critedge59.thread106, label %138
+  br i1 %137, label %.critedge60.thread106, label %138
 
 138:                                              ; preds = %126
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 17
   %140 = load i16, ptr %139, align 1
   %141 = and i16 %140, 4
   %.not119 = icmp eq i16 %141, 0
-  br i1 %.not119, label %142, label %.critedge59.thread106
+  br i1 %.not119, label %142, label %.critedge60.thread106
 
 142:                                              ; preds = %138
   %143 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl7hasInitEv(ptr noundef nonnull align 8 dereferenceable(100) %83) #21
-  br i1 %143, label %.critedge59.thread106, label %144
+  br i1 %143, label %.critedge60.thread106, label %144
 
 144:                                              ; preds = %142
   tail call fastcc void @"_ZZN5clang11SemaOpenACC19ForStmtBeginChecker9checkInitEvENK3$_0clEv"(ptr nonnull %0)
-  br label %.critedge60
+  br label %.critedge59
 
 145:                                              ; preds = %79
   %146 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -9953,7 +9953,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %150 = load i8, ptr %149, align 8, !tbaa !383, !range !62, !noundef !63
   %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.critedge60
+  br i1 %151, label %152, label %.critedge59
 
 152:                                              ; preds = %.critedge57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9975,7 +9975,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %162 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef nonnull align 1 dereferenceable(1) %161)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.critedge60
+  br label %.critedge59
 
 163:                                              ; preds = %145
   %164 = load i32, ptr %48, align 8
@@ -9991,14 +9991,14 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %174 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %173) #23
   %175 = load i16, ptr %174, align 8
   %176 = and i16 %175, 511
-  switch i16 %176, label %.critedge59.thread [
+  switch i16 %176, label %.critedge60.thread [
     i16 73, label %177
     i16 48, label %179
   ]
 
 177:                                              ; preds = %163
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  br label %.critedge59
+  br label %.critedge60
 
 179:                                              ; preds = %163
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -10007,25 +10007,25 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %183 = load i16, ptr %182, align 8
   %184 = and i16 %183, 511
   %185 = icmp eq i16 %184, 100
-  br i1 %185, label %186, label %.critedge59.thread
+  br i1 %185, label %186, label %.critedge60.thread
 
 186:                                              ; preds = %179
   %187 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  br label %.critedge59
+  br label %.critedge60
 
-.critedge59:                                      ; preds = %177, %186, %77
-  %.0102.in = phi ptr [ %187, %186 ], [ %178, %177 ], [ %78, %77 ]
+.critedge60:                                      ; preds = %186, %177, %77
+  %.0102.in = phi ptr [ %78, %77 ], [ %187, %186 ], [ %178, %177 ]
   %.0102 = load ptr, ptr %.0102.in, align 8, !tbaa !387
   %.not55 = icmp eq ptr %.0102, null
-  br i1 %.not55, label %.critedge59.thread, label %.critedge59.thread106
+  br i1 %.not55, label %.critedge60.thread, label %.critedge60.thread106
 
-.critedge59.thread:                               ; preds = %163, %79, %71, %102, %179, %.critedge59
+.critedge60.thread:                               ; preds = %163, %79, %71, %102, %179, %.critedge60
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %189 = load i8, ptr %188, align 8, !tbaa !383, !range !62, !noundef !63
   %190 = trunc nuw i8 %189 to i1
-  br i1 %190, label %191, label %.critedge60
+  br i1 %190, label %191, label %.critedge59
 
-191:                                              ; preds = %.critedge59.thread
+191:                                              ; preds = %.critedge60.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %192 = load ptr, ptr %0, align 8, !tbaa !339
   %193 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #23
@@ -10045,10 +10045,10 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %201 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 1 dereferenceable(1) %200)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge60
+  br label %.critedge59
 
-.critedge59.thread106:                            ; preds = %138, %126, %142, %.critedge59
-  %.0102109 = phi ptr [ %.0102, %.critedge59 ], [ %83, %142 ], [ %83, %126 ], [ %83, %138 ]
+.critedge60.thread106:                            ; preds = %126, %138, %142, %.critedge60
+  %.0102109 = phi ptr [ %.0102, %.critedge60 ], [ %83, %142 ], [ %83, %138 ], [ %83, %126 ]
   %202 = load ptr, ptr %.0102109, align 8, !tbaa !117
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8
@@ -10064,7 +10064,7 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC19ForStmtBeginChecker9checkI
   %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %212, 42
   br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i, label %213
 
-213:                                              ; preds = %.critedge59.thread106
+213:                                              ; preds = %.critedge60.thread106
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %214, align 8, !tbaa !66
   %215 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
@@ -10081,8 +10081,8 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i: ; preds = %213
   %.not.i = icmp eq ptr %221, null
   br i1 %.not.i, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i
 
-_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %.critedge59.thread106
-  %.1.i8.i = phi ptr [ %221, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %209, %.critedge59.thread106 ]
+_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %.critedge60.thread106
+  %.1.i8.i = phi ptr [ %221, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ], [ %209, %.critedge60.thread106 ]
   %222 = getelementptr inbounds nuw i8, ptr %.1.i8.i, i64 16
   %223 = load i24, ptr %222, align 16
   %224 = and i24 %223, 1048576
@@ -10123,13 +10123,13 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i: ; preds = %_ZNK5clang4Type6c
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %213, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i
   %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ], [ %.sroa.0.0.copyload.i86, %213 ], [ %.sroa.0.0.copyload.i86, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
   %238 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123isValidLoopVariableTypeEN5clang8QualTypeE(i64 %.sroa.0.0.in.i.sroa.speculated)
-  br i1 %238, label %.critedge60, label %239
+  br i1 %238, label %.critedge59, label %239
 
 239:                                              ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %241 = load i8, ptr %240, align 8, !tbaa !383, !range !62, !noundef !63
   %242 = trunc nuw i8 %241 to i1
-  br i1 %242, label %243, label %.critedge60
+  br i1 %242, label %243, label %.critedge59
 
 243:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -10201,10 +10201,10 @@ _ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ;
   %282 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_20OpenACCDirectiveKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %16, ptr noundef nonnull align 1 dereferenceable(1) %281)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.critedge60
+  br label %.critedge59
 
-.critedge60:                                      ; preds = %144, %56, %60, %87, %91, %111, %115, %.critedge57, %152, %.critedge59.thread, %191, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %239, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %19, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %19 ], [ null, %144 ], [ null, %56 ], [ null, %60 ], [ null, %87 ], [ null, %91 ], [ null, %111 ], [ null, %115 ], [ null, %.critedge57 ], [ null, %152 ], [ null, %.critedge59.thread ], [ null, %191 ], [ null, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ null, %239 ], [ %205, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
+.critedge59:                                      ; preds = %144, %56, %60, %87, %91, %111, %115, %.critedge57, %152, %.critedge60.thread, %191, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %239, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %19, %23
+  %.0 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %191 ], [ null, %152 ], [ null, %115 ], [ null, %144 ], [ null, %91 ], [ null, %60 ], [ null, %56 ], [ null, %87 ], [ null, %111 ], [ null, %.critedge57 ], [ null, %.critedge60.thread ], [ null, %239 ], [ null, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ %205, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
   ret ptr %.0
 }
 
@@ -11481,7 +11481,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %_ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread
 
 _ZN4llvm3isaIN5clang7ForStmtENS1_8NullStmtEJS2_NS1_15CXXForRangeStmtENS1_9WhileStmtENS1_6DoStmtEEPKNS1_4StmtEEEbRKT2_.exit.thread: ; preds = %._crit_edge, %38, %3, %3, %3, %3, %3, %6, %1, %.thread
-  %.sroa.017.0 = phi i32 [ %39, %.thread ], [ 0, %1 ], [ 0, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ %23, %38 ], [ 0, %._crit_edge ]
+  %.sroa.017.0 = phi i32 [ 0, %3 ], [ 0, %1 ], [ %39, %.thread ], [ 0, %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ %23, %38 ], [ 0, %._crit_edge ]
   ret i32 %.sroa.017.0
 }
 
@@ -12357,7 +12357,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit263, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit265, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %380, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %386, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %392, %396
-  %.028.i.i.i.i = phi ptr [ %354, %396 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %397, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %398, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit263 ], [ %399, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit265 ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %386 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %354, %396 ], [ %.2.i.i.i.i, %392 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.2.i.i.i.i, %392 ], [ %.1.i.i.i.i, %386 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.2.i.i.i.i, %392 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.1.i.i.i.i, %386 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.029.lcssa.i.i.i.i, %380 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %.1.i.i.i.i, %386 ], [ %398, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit263 ], [ %399, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit265 ], [ %397, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCCopyClauseENS2_19OpenACCCopyInClauseENS2_20OpenACCCopyOutClauseENS2_19OpenACCCreateClauseENS2_21OpenACCNoCreateClauseENS2_20OpenACCPresentClauseENS2_22OpenACCDevicePtrClauseENS2_19OpenACCAttachClauseENS2_20OpenACCDefaultClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02952.i.i.i.i, %.lr.ph.i.i.i.i ]
   %400 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %401 = icmp eq ptr %.028.i.i.i.i, %400
   br i1 %401, label %402, label %_ZN12_GLOBAL__N_130diagnoseConstructAppertainmentERN5clang11SemaOpenACCENS0_20OpenACCDirectiveKindENS0_14SourceLocationEb.exit
@@ -12706,7 +12706,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i.i59, %.lr.ph.i.i.i.i59, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit279, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit281, %527, %527, %527, %527, %527, %533, %533, %533, %533, %533, %539, %539, %539, %539, %539, %543
-  %.028.i.i.i.i60 = phi ptr [ %501, %543 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.1.i.i.i.i65, %533 ], [ %.2.i.i.i.i64, %539 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %544, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %545, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit279 ], [ %546, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit281 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ]
+  %.028.i.i.i.i60 = phi ptr [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %.1.i.i.i.i65, %533 ], [ %501, %543 ], [ %.1.i.i.i.i65, %533 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.2.i.i.i.i64, %539 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %.029.lcssa.i.i.i.i63, %527 ], [ %545, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit279 ], [ %546, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit281 ], [ %544, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_20OpenACCCopyOutClauseENS2_19OpenACCDeleteClauseENS2_19OpenACCDetachClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ], [ %.02958.i.i.i.i, %.lr.ph.i.i.i.i59 ]
   %547 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %548 = icmp eq ptr %.028.i.i.i.i60, %547
   br i1 %548, label %549, label %_ZN12_GLOBAL__N_130diagnoseConstructAppertainmentERN5clang11SemaOpenACCENS0_20OpenACCDirectiveKindENS0_14SourceLocationEb.exit
@@ -12906,7 +12906,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i76, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit271, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit273, %622, %629, %636, %641
-  %.028.i.i.i.i81 = phi ptr [ %593, %641 ], [ %.029.lcssa.i.i.i.i79, %622 ], [ %.1.i.i.i.i82, %629 ], [ %.2.i.i.i.i80, %636 ], [ %642, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %643, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit271 ], [ %644, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit273 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i76 ]
+  %.028.i.i.i.i81 = phi ptr [ %.1.i.i.i.i82, %629 ], [ %593, %641 ], [ %.2.i.i.i.i80, %636 ], [ %.029.lcssa.i.i.i.i79, %622 ], [ %644, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit273 ], [ %642, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %643, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_22OpenACCUseDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit271 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i76 ]
   %645 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %646 = icmp eq ptr %.028.i.i.i.i81, %645
   br i1 %646, label %647, label %688
@@ -13228,7 +13228,7 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPr
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit
 
 _ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i99, %.lr.ph.i.i.i.i99, %.lr.ph.i.i.i.i99, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit287, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit289, %768, %768, %768, %774, %774, %774, %780, %780, %780, %784
-  %.028.i.i.i.i100 = phi ptr [ %742, %784 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.1.i.i.i.i105, %774 ], [ %.2.i.i.i.i104, %780 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.1.i.i.i.i105, %774 ], [ %.1.i.i.i.i105, %774 ], [ %.2.i.i.i.i104, %780 ], [ %.2.i.i.i.i104, %780 ], [ %785, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %786, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit287 ], [ %787, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit289 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ]
+  %.028.i.i.i.i100 = phi ptr [ %.1.i.i.i.i105, %774 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.1.i.i.i.i105, %774 ], [ %742, %784 ], [ %.1.i.i.i.i105, %774 ], [ %.029.lcssa.i.i.i.i103, %768 ], [ %.2.i.i.i.i104, %780 ], [ %.2.i.i.i.i104, %780 ], [ %.2.i.i.i.i104, %780 ], [ %786, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit287 ], [ %785, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %787, %_ZN4llvm7find_ifIRNS_8ArrayRefIPKN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCSelfClauseENS2_17OpenACCHostClauseENS2_19OpenACCDeviceClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit289 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i99 ]
   %788 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %789 = icmp eq ptr %.028.i.i.i.i100, %788
   br i1 %789, label %790, label %_ZN12_GLOBAL__N_130diagnoseConstructAppertainmentERN5clang11SemaOpenACCENS0_20OpenACCDirectiveKindENS0_14SourceLocationEb.exit
@@ -13744,7 +13744,7 @@ define dso_local noundef i64 @_ZN5clang11SemaOpenACC21ActOnEndStmtDirectiveENS_2
   br label %144
 
 144:                                              ; preds = %12, %136, %129, %122, %115, %108, %93, %82, %75, %68, %57, %43, %31, %19, %18
-  %.sroa.0113.0 = phi i64 [ 1, %18 ], [ %30, %19 ], [ %42, %31 ], [ %56, %43 ], [ %67, %57 ], [ %74, %68 ], [ %81, %75 ], [ %92, %82 ], [ %107, %93 ], [ %114, %108 ], [ %121, %115 ], [ %128, %122 ], [ %135, %129 ], [ %143, %136 ], [ 0, %12 ]
+  %.sroa.0113.0 = phi i64 [ %143, %136 ], [ 1, %18 ], [ %30, %19 ], [ %42, %31 ], [ %56, %43 ], [ %67, %57 ], [ %74, %68 ], [ %81, %75 ], [ %92, %82 ], [ %107, %93 ], [ %114, %108 ], [ %121, %115 ], [ %128, %122 ], [ %135, %129 ], [ 0, %12 ]
   ret i64 %.sroa.0113.0
 }
 
@@ -14086,7 +14086,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   br label %168
 
 168:                                              ; preds = %37, %105, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24, %26, %7, %7, %7, %7, %7, %33, %24
-  %.sroa.030.0 = phi i64 [ 1, %33 ], [ %25, %24 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ 1, %26 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24 ], [ 1, %105 ], [ %29, %37 ]
+  %.sroa.030.0 = phi i64 [ 1, %105 ], [ 1, %26 ], [ 1, %33 ], [ %6, %7 ], [ %25, %24 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ %6, %7 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.exit24 ], [ %29, %37 ]
   ret i64 %.sroa.030.0
 }
 
@@ -14226,7 +14226,7 @@ define internal noundef zeroext i1 @_ZZN5clang11SemaOpenACC12ActOnIntExprENS_20O
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %13, %20, %28, %33
-  %.1.i = phi i1 [ %34, %33 ], [ %32, %28 ], [ false, %20 ], [ %spec.select.i, %13 ]
+  %.1.i = phi i1 [ %34, %33 ], [ %32, %28 ], [ %spec.select.i, %13 ], [ false, %20 ]
   ret i1 %.1.i
 }
 
@@ -17094,7 +17094,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenA
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %.lr.ph, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit98, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit100, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit102, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit104, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit106, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %44, %38, %32, %48
-  %.028 = phi ptr [ %1, %48 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.029.lcssa, %32 ], [ %.1, %38 ], [ %.2, %44 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %50, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit98 ], [ %51, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit100 ], [ %52, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit102 ], [ %53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit104 ], [ %54, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit106 ], [ %.02987, %.lr.ph ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ]
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %1, %48 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %.1, %38 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit59 ], [ %.029.lcssa, %32 ], [ %.2, %44 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit65 ], [ %51, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit100 ], [ %49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit104 ], [ %54, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit106 ], [ %52, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit102 ], [ %50, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit98 ], [ %.02987, %.lr.ph ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02987, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang19OpenACCCopyInClauseENS5_19OpenACCCreateClauseENS5_19OpenACCAttachClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ]
   ret ptr %.028
 }
 
@@ -17281,7 +17281,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenA
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit, %.lr.ph, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit86, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit88, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit90, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit92, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit94, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45, %50, %43, %36, %55
-  %.028 = phi ptr [ %1, %55 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.029.lcssa, %36 ], [ %.1, %43 ], [ %.2, %50 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %57, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit86 ], [ %58, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit88 ], [ %59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit90 ], [ %60, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit92 ], [ %61, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit94 ], [ %.02975, %.lr.ph ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ]
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %.029.lcssa, %36 ], [ %.2, %50 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %1, %55 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit53 ], [ %.1, %43 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit45 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit49 ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %59, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit90 ], [ %61, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit94 ], [ %60, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit92 ], [ %57, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit86 ], [ %58, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit.thread.loopexit.split.loop.exit88 ], [ %.02975, %.lr.ph ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ], [ %.02975, %_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm6detail17IsaCheckPredicateIJN5clang25OpenACCDefaultAsyncClauseENS5_22OpenACCDeviceNumClauseENS5_23OpenACCDeviceTypeClauseENS5_15OpenACCIfClauseEEEEEclIPKPKNS5_13OpenACCClauseEEEbT_.exit ]
   ret ptr %.028
 }
 

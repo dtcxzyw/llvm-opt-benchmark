@@ -113,7 +113,7 @@ isansicode.exit25:                                ; preds = %29, %29, %29, %32
   br i1 %exitcond40.not, label %._crit_edge, label %29, !llvm.loop !16
 
 .critedge.thread:                                 ; preds = %.critedge, %1, %._crit_edge
-  %.021 = phi i32 [ %28, %._crit_edge ], [ 0, %1 ], [ 0, %.critedge ]
+  %.021 = phi i32 [ 0, %1 ], [ %28, %._crit_edge ], [ 0, %.critedge ]
   ret i32 %.021
 }
 
@@ -257,7 +257,7 @@ efi_read.exit:                                    ; preds = %53, %60, %71, %82
   br label %87
 
 87:                                               ; preds = %40, %84, %1, %6
-  %.0 = phi i32 [ 0, %6 ], [ -12, %1 ], [ 0, %84 ], [ 0, %40 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %6 ], [ 0, %84 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -322,7 +322,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %24, %2, %29
-  %.0 = phi i32 [ 0, %29 ], [ -541478725, %2 ], [ %26, %24 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ -541478725, %13 ], [ %26, %24 ], [ 0, %29 ], [ -541478725, %2 ]
   ret i32 %.0
 }
 

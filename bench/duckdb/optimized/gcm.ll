@@ -189,7 +189,7 @@ _ZL13gcm_gen_tableP19mbedtls_gcm_context.exit:    ; preds = %._crit_edge.i, %16
   br label %123
 
 123:                                              ; preds = %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit, %14, %12, %9, %4
-  %.0 = phi i32 [ -20, %4 ], [ -20, %9 ], [ %13, %12 ], [ %15, %14 ], [ %.0.i, %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit ]
+  %.0 = phi i32 [ %15, %14 ], [ -20, %4 ], [ -20, %9 ], [ %13, %12 ], [ %.0.i, %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit ]
   ret i32 %.0
 }
 
@@ -826,7 +826,7 @@ _ZL8gcm_incrPh.exit107:                           ; preds = %.preheader
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit107, %19, %13, %11, %6, %128
-  %.070 = phi i32 [ 0, %128 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %92, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103 ], [ %127, %_ZL8gcm_incrPh.exit107 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
+  %.070 = phi i32 [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ %127, %_ZL8gcm_incrPh.exit107 ], [ %92, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103 ], [ 0, %128 ], [ -20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.070
 }
@@ -1067,7 +1067,7 @@ define hidden i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %0, i32 noundef %1, i64
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %11
-  %.0 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
+  %.0 = phi i32 [ %17, %16 ], [ %13, %11 ], [ %15, %14 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1092,8 +1092,8 @@ define hidden i32 @mbedtls_gcm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr 
   %.not24.i = icmp eq i32 %17, 0
   br i1 %.not24.i, label %mbedtls_gcm_crypt_and_tag.exit, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
-mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %10, %14, %16
-  %.0.i.ph = phi i32 [ %17, %16 ], [ %15, %14 ], [ %13, %10 ]
+mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %16, %10, %14
+  %.0.i.ph = phi i32 [ %15, %14 ], [ %13, %10 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %._crit_edge.thread
 
@@ -1130,7 +1130,7 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %mbedtls_gcm_crypt_and_tag.exit.thread, %._crit_edge, %mbedtls_gcm_crypt_and_tag.exit, %28
-  %.021 = phi i32 [ -18, %28 ], [ %18, %mbedtls_gcm_crypt_and_tag.exit ], [ 0, %._crit_edge ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ 0, %.preheader ]
+  %.021 = phi i32 [ %18, %mbedtls_gcm_crypt_and_tag.exit ], [ -18, %28 ], [ 0, %._crit_edge ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.021
 }

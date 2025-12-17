@@ -1237,7 +1237,7 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   br label %98
 
 95:                                               ; preds = %91, %88
-  %96 = phi ptr [ %90, %88 ], [ %81, %91 ]
+  %96 = phi ptr [ %81, %91 ], [ %90, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %97 = icmp ugt ptr %96, inttoptr (i64 -4096 to ptr)
   br i1 %97, label %98, label %101
@@ -1460,8 +1460,8 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   br label %209
 
 209:                                              ; preds = %.thread21, %207, %.loopexit, %178, %.thread20, %105
-  %210 = phi ptr [ %96, %105 ], [ %96, %.thread20 ], [ %171, %207 ], [ %171, %178 ], [ %181, %.loopexit ], [ %96, %.thread21 ]
-  %211 = phi i64 [ %106, %105 ], [ %131, %.thread20 ], [ %208, %207 ], [ %172, %178 ], [ %182, %.loopexit ], [ -22, %.thread21 ]
+  %210 = phi ptr [ %96, %105 ], [ %96, %.thread20 ], [ %171, %207 ], [ %171, %178 ], [ %96, %.thread21 ], [ %181, %.loopexit ]
+  %211 = phi i64 [ %106, %105 ], [ %131, %.thread20 ], [ %208, %207 ], [ %172, %178 ], [ -22, %.thread21 ], [ %182, %.loopexit ]
   %212 = icmp eq ptr %210, null
   br i1 %212, label %.thread23, label %213
 
@@ -2981,8 +2981,8 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   br label %31
 
 28:                                               ; preds = %39, %64, %57, %41, %40
-  %.ph = phi i32 [ %33, %40 ], [ %42, %41 ], [ %63, %57 ], [ %33, %64 ], [ %33, %39 ]
-  %.ph1 = phi i32 [ %2, %40 ], [ %32, %41 ], [ %32, %57 ], [ %65, %64 ], [ %27, %39 ]
+  %.ph = phi i32 [ %33, %64 ], [ %33, %40 ], [ %42, %41 ], [ %63, %57 ], [ %33, %39 ]
+  %.ph1 = phi i32 [ %65, %64 ], [ %2, %40 ], [ %32, %41 ], [ %32, %57 ], [ %27, %39 ]
   %29 = add i32 %.ph, 1
   %30 = icmp ult i32 %29, %23
   br i1 %30, label %31, label %.loopexit, !llvm.loop !85
@@ -3173,7 +3173,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   br label %51
 
 45:                                               ; preds = %.loopexit, %.preheader38
-  %46 = phi i32 [ %26, %.preheader38 ], [ %39, %.loopexit ]
+  %46 = phi i32 [ %39, %.loopexit ], [ %26, %.preheader38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = and i32 %46, 64
   %48 = icmp eq i32 %47, 0

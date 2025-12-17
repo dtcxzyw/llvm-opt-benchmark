@@ -1144,7 +1144,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   call void @_exit(i32 noundef 0) #16
   unreachable
 
-99:                                               ; preds = %68, %73, %84, %.split57.us
+99:                                               ; preds = %68, %73, %.split57.us, %84
   %100 = load i32, ptr %4, align 8
   %101 = call i32 @close(i32 noundef %100) #15
   %102 = load ptr, ptr %3, align 8

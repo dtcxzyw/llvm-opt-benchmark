@@ -629,7 +629,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ExtraData12setNo
   br label %.thread
 
 .thread:                                          ; preds = %17, %3, %10, %7, %21
-  %.1 = phi i8 [ 1, %21 ], [ 0, %7 ], [ 0, %10 ], [ 0, %3 ], [ 0, %17 ]
+  %.1 = phi i8 [ 1, %21 ], [ 0, %3 ], [ 0, %7 ], [ 0, %10 ], [ 0, %17 ]
   ret i8 %.1
 }
 
@@ -714,9 +714,9 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %14
   br label %52
 
 52:                                               ; preds = %39, %42, %45
-  %.030 = phi i32 [ %43, %42 ], [ %48, %45 ], [ %41, %39 ]
-  %.029 = phi i32 [ %44, %42 ], [ %51, %45 ], [ %spec.select, %39 ]
-  %.0 = phi i32 [ %spec.select, %42 ], [ %spec.select, %45 ], [ -1, %39 ]
+  %.030 = phi i32 [ %48, %45 ], [ %43, %42 ], [ %41, %39 ]
+  %.029 = phi i32 [ %51, %45 ], [ %44, %42 ], [ %spec.select, %39 ]
+  %.0 = phi i32 [ %spec.select, %45 ], [ %spec.select, %42 ], [ -1, %39 ]
   %53 = icmp eq i64 %indvars.iv, %26
   %54 = or i32 %.030, 32768
   %spec.select35 = select i1 %53, i32 %54, i32 %.030
@@ -886,7 +886,7 @@ _ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit: ; preds = %60
   store i32 %62, ptr %64, align 4, !tbaa !49
   br label %143
 
-_ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit.thread: ; preds = %60, %46, %53, %50, %43
+_ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit.thread: ; preds = %60, %53, %50, %46, %43
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %67 = tail call noundef i32 @_ZN6icu_779ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(88) %66)
@@ -934,7 +934,7 @@ _ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit45: ; preds = %86
   store i32 %88, ptr %90, align 4, !tbaa !49
   br label %143
 
-_ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit45.thread: ; preds = %86, %72, %79, %76, %69
+_ZNK6icu_779ExtraData12setNoNoDeltaEiRNS_4NormE.exit45.thread: ; preds = %86, %79, %76, %72, %69
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %93 = tail call noundef i32 @_ZN6icu_779ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(88) %92)

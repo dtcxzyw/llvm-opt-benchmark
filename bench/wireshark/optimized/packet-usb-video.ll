@@ -897,7 +897,7 @@ define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %4, %9, %13, %36
-  %.032 = phi i32 [ %37, %36 ], [ 0, %13 ], [ 0, %9 ], [ 0, %4 ], [ 0, %.lr.ph ]
+  %.032 = phi i32 [ 0, %4 ], [ %37, %36 ], [ 0, %13 ], [ 0, %9 ], [ 0, %.lr.ph ]
   ret i32 %.032
 }
 
@@ -1197,9 +1197,9 @@ dissect_usb_video_extension_unit.exit.i:          ; preds = %174, %159
   br label %dissect_usb_video_camera_terminal.exit.i
 
 dissect_usb_video_camera_terminal.exit.i:         ; preds = %179, %dissect_usb_video_extension_unit.exit.i, %dissect_usb_video_selector_unit.exit.i, %129, %dissect_bmControl.exit.i.i, %106, %101, %86, %81, %63
-  %.0138.i = phi i8 [ 0, %63 ], [ %107, %dissect_usb_video_selector_unit.exit.i ], [ %107, %dissect_usb_video_extension_unit.exit.i ], [ %107, %179 ], [ %107, %106 ], [ %70, %81 ], [ %70, %86 ], [ %70, %101 ], [ %107, %dissect_bmControl.exit.i.i ], [ %107, %129 ]
-  %.0137.i = phi i16 [ 0, %63 ], [ 0, %dissect_usb_video_selector_unit.exit.i ], [ 0, %dissect_usb_video_extension_unit.exit.i ], [ 0, %179 ], [ 0, %106 ], [ %71, %81 ], [ 513, %86 ], [ 513, %101 ], [ 0, %dissect_bmControl.exit.i.i ], [ 0, %129 ]
-  %.0135.i = phi i32 [ %64, %63 ], [ %145, %dissect_usb_video_selector_unit.exit.i ], [ %178, %dissect_usb_video_extension_unit.exit.i ], [ 4, %179 ], [ 4, %106 ], [ %84, %81 ], [ %100, %86 ], [ %105, %101 ], [ %126, %dissect_bmControl.exit.i.i ], [ %133, %129 ]
+  %.0138.i = phi i8 [ 0, %63 ], [ %107, %179 ], [ %107, %106 ], [ %70, %101 ], [ %107, %dissect_usb_video_selector_unit.exit.i ], [ %107, %dissect_usb_video_extension_unit.exit.i ], [ %70, %81 ], [ %70, %86 ], [ %107, %dissect_bmControl.exit.i.i ], [ %107, %129 ]
+  %.0137.i = phi i16 [ 0, %63 ], [ 0, %179 ], [ 0, %106 ], [ 513, %101 ], [ 0, %dissect_usb_video_selector_unit.exit.i ], [ 0, %dissect_usb_video_extension_unit.exit.i ], [ %71, %81 ], [ 513, %86 ], [ 0, %dissect_bmControl.exit.i.i ], [ 0, %129 ]
+  %.0135.i = phi i32 [ %64, %63 ], [ 4, %179 ], [ 4, %106 ], [ %105, %101 ], [ %145, %dissect_usb_video_selector_unit.exit.i ], [ %178, %dissect_usb_video_extension_unit.exit.i ], [ %84, %81 ], [ %100, %86 ], [ %126, %dissect_bmControl.exit.i.i ], [ %133, %129 ]
   %181 = icmp samesign ult i32 %.0135.i, %9
   br i1 %181, label %182, label %186
 
@@ -1515,7 +1515,7 @@ dissect_usb_video_control_interface_descriptor.exit: ; preds = %190, %191, %205,
   br label %dissect_usb_video_streaming_input_header.exit.i
 
 dissect_usb_video_streaming_input_header.exit.i:  ; preds = %358, %.lr.ph.i.i, %363, %338, %296, %279, %247, %217
-  %.0.i36 = phi i32 [ 3, %217 ], [ 6, %363 ], [ 13, %247 ], [ %299, %296 ], [ %295, %279 ], [ %347, %338 ], [ %256, %.lr.ph.i.i ], [ %361, %358 ]
+  %.0.i36 = phi i32 [ 3, %217 ], [ 6, %363 ], [ %295, %279 ], [ 13, %247 ], [ %299, %296 ], [ %347, %338 ], [ %256, %.lr.ph.i.i ], [ %361, %358 ]
   %370 = icmp slt i32 %.0.i36, %9
   br i1 %370, label %371, label %.critedge
 
@@ -1526,7 +1526,7 @@ dissect_usb_video_streaming_input_header.exit.i:  ; preds = %358, %.lr.ph.i.i, %
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %33, %371, %dissect_usb_video_streaming_input_header.exit.i, %28, %26, %32, %4, %dissect_usb_video_control_interface_descriptor.exit
-  %.0 = phi i32 [ %9, %dissect_usb_video_control_interface_descriptor.exit ], [ 0, %4 ], [ 0, %32 ], [ %9, %26 ], [ %9, %28 ], [ %9, %dissect_usb_video_streaming_input_header.exit.i ], [ %9, %371 ], [ 0, %33 ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %32 ], [ %9, %dissect_usb_video_control_interface_descriptor.exit ], [ %9, %26 ], [ 0, %36 ], [ %9, %371 ], [ %9, %28 ], [ 0, %4 ], [ %9, %dissect_usb_video_streaming_input_header.exit.i ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -1616,13 +1616,13 @@ get_control_selector_values.exit.thread10.fold.split.i: ; preds = %37
   br label %get_control_selector_values.exit.thread10.i
 
 get_control_selector_values.exit.thread10.i:      ; preds = %get_control_selector_values.exit.thread10.fold.split.i, %48, %44, %41, %37
-  %.013.i13.i = phi ptr [ @cs_selector_unit_ext, %48 ], [ @cs_processing_unit_ext, %41 ], [ @cs_control_interface_ext, %37 ], [ @cs_camera_terminal_ext, %44 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
+  %.013.i13.i = phi ptr [ @cs_control_interface_ext, %37 ], [ @cs_processing_unit_ext, %41 ], [ @cs_selector_unit_ext, %48 ], [ @cs_camera_terminal_ext, %44 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
   %49 = zext i8 %21 to i32
   %50 = tail call ptr @try_val_to_str_ext(i32 noundef %49, ptr noundef nonnull %.013.i13.i)
   br label %get_control_selector_name.exit
 
 get_control_selector_name.exit:                   ; preds = %18, %25, %.thread.i.i, %37, %40, %41, %44, %get_control_selector_values.exit.thread10.i
-  %.0.i = phi ptr [ %50, %get_control_selector_values.exit.thread10.i ], [ null, %25 ], [ null, %18 ], [ null, %41 ], [ null, %40 ], [ null, %44 ], [ null, %.thread.i.i ], [ null, %37 ]
+  %.0.i = phi ptr [ %50, %get_control_selector_values.exit.thread10.i ], [ null, %37 ], [ null, %18 ], [ null, %25 ], [ null, %40 ], [ null, %41 ], [ null, %44 ], [ null, %.thread.i.i ]
   %.not = icmp eq ptr %.0.i, null
   %spec.store.select = select i1 %.not, ptr @.str.442, ptr %.0.i
   %51 = load i32, ptr @hf_usb_vid_control_selector, align 4
@@ -1664,7 +1664,7 @@ get_control_selector_name.exit:                   ; preds = %18, %25, %.thread.i
   br label %72
 
 72:                                               ; preds = %4, %67, %64, %60, %57, %9
-  %.2 = phi i32 [ %71, %67 ], [ 6, %57 ], [ 6, %60 ], [ %66, %64 ], [ 2, %9 ], [ -2, %4 ]
+  %.2 = phi i32 [ 2, %9 ], [ %66, %64 ], [ %71, %67 ], [ 6, %57 ], [ 6, %60 ], [ -2, %4 ]
   ret i32 %.2
 }
 
@@ -1771,7 +1771,7 @@ get_control_selector_values.exit.thread10.fold.split.i: ; preds = %32
   br label %get_control_selector_name.exit
 
 get_control_selector_name.exit:                   ; preds = %32, %36, %39, %43, %get_control_selector_values.exit.thread10.fold.split.i
-  %.013.i13.i = phi ptr [ @cs_selector_unit_ext, %43 ], [ @cs_processing_unit_ext, %36 ], [ @cs_control_interface_ext, %32 ], [ @cs_camera_terminal_ext, %39 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
+  %.013.i13.i = phi ptr [ @cs_control_interface_ext, %32 ], [ @cs_processing_unit_ext, %36 ], [ @cs_selector_unit_ext, %43 ], [ @cs_camera_terminal_ext, %39 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
   %44 = tail call ptr @try_val_to_str_ext(i32 noundef %14, ptr noundef nonnull %.013.i13.i)
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %get_control_selector_name.exit.thread, label %45
@@ -1781,7 +1781,7 @@ get_control_selector_name.exit:                   ; preds = %32, %36, %39, %43, 
   tail call void @col_append_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull %44)
   br label %55
 
-get_control_selector_name.exit.thread:            ; preds = %7, %20, %get_control_selector_name.exit
+get_control_selector_name.exit.thread:            ; preds = %20, %7, %get_control_selector_name.exit
   %47 = icmp eq i16 %10, 0
   br i1 %47, label %get_control_selector_name.exit.thread.thread140, label %get_control_selector_name.exit.thread.thread
 
@@ -1794,7 +1794,7 @@ get_control_selector_name.exit.thread.thread140:  ; preds = %32, %get_control_se
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.554, i32 noundef %52, i32 noundef %14)
   br label %55
 
-get_control_selector_name.exit.thread.thread:     ; preds = %36, %35, %39, %.thread.i.i, %get_control_selector_name.exit.thread
+get_control_selector_name.exit.thread.thread:     ; preds = %35, %36, %39, %.thread.i.i, %get_control_selector_name.exit.thread
   %53 = zext nneg i16 %10 to i32
   %54 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.555, i32 noundef %53, i32 noundef %14)
@@ -2091,8 +2091,8 @@ define internal fastcc void @dissect_usb_vid_control_value(ptr noundef %0, ptr n
   br label %10
 
 10:                                               ; preds = %4, %9, %8, %7, %6
-  %.035.in = phi ptr [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_default, %4 ]
-  %.0 = phi ptr [ @.str.589, %6 ], [ @.str.590, %7 ], [ @.str.42, %8 ], [ @.str.591, %9 ], [ @.str.588, %4 ]
+  %.035.in = phi ptr [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_default, %4 ]
+  %.0 = phi ptr [ @.str.591, %9 ], [ @.str.42, %8 ], [ @.str.589, %6 ], [ @.str.590, %7 ], [ @.str.588, %4 ]
   %.035 = load i32, ptr %.035.in, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %.035, -1

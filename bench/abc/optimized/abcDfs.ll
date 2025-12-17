@@ -1456,7 +1456,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %42, %._crit_edge.i.
   ]
 
 .sink.split:                                      ; preds = %104, %104, %104, %97, %Abc_NodeSetTravIdCurrent.exit
-  %.sink = phi ptr [ %103, %97 ], [ %95, %Abc_NodeSetTravIdCurrent.exit ], [ %30, %104 ], [ %30, %104 ], [ %30, %104 ]
+  %.sink = phi ptr [ %95, %Abc_NodeSetTravIdCurrent.exit ], [ %103, %97 ], [ %30, %104 ], [ %30, %104 ], [ %30, %104 ]
   tail call void @Abc_NtkDfs_rec(ptr noundef %.sink, ptr noundef nonnull %24)
   br label %105
 
@@ -4712,8 +4712,8 @@ Abc_NodeSetTravIdCurrent.exit89:                  ; preds = %210, %._crit_edge.i
   br label %Vec_PtrPush.exit97thread-pre-split
 
 Vec_PtrPush.exit97thread-pre-split:               ; preds = %285, %287, %276, %278
-  %.sink151 = phi ptr [ %277, %276 ], [ %279, %278 ], [ %286, %285 ], [ %288, %287 ]
-  %.sink150 = phi i32 [ 16, %276 ], [ 16, %278 ], [ %281, %285 ], [ %281, %287 ]
+  %.sink151 = phi ptr [ %279, %278 ], [ %277, %276 ], [ %286, %285 ], [ %288, %287 ]
+  %.sink150 = phi i32 [ 16, %278 ], [ 16, %276 ], [ %281, %285 ], [ %281, %287 ]
   store ptr %.sink151, ptr %103, align 8, !tbaa !36
   store i32 %.sink150, ptr %0, align 8, !tbaa !42
   %.pr = load i32, ptr %64, align 4, !tbaa !41
@@ -5893,7 +5893,7 @@ Abc_NodeSetTravIdCurrent.exit69:                  ; preds = %Abc_AigNodeIsChoice
   br i1 %160, label %.lr.ph84, label %.critedge2, !llvm.loop !95
 
 .critedge2:                                       ; preds = %.critedge, %95, %109, %.critedge.preheader
-  %.033 = phi i32 [ 1, %.critedge.preheader ], [ 0, %109 ], [ 0, %95 ], [ 1, %.critedge ]
+  %.033 = phi i32 [ 1, %.critedge.preheader ], [ 0, %95 ], [ 0, %109 ], [ 1, %.critedge ]
   ret i32 %.033
 }
 
@@ -8086,8 +8086,8 @@ Vec_IntAlloc.exit:                                ; preds = %29, %33
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %68, %70, %60, %62
-  %.sink172 = phi ptr [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
-  %.sink = phi i32 [ 16, %60 ], [ 16, %62 ], [ %65, %68 ], [ %65, %70 ]
+  %.sink172 = phi ptr [ %63, %62 ], [ %61, %60 ], [ %69, %68 ], [ %71, %70 ]
+  %.sink = phi i32 [ 16, %62 ], [ 16, %60 ], [ %65, %68 ], [ %65, %70 ]
   store ptr %.sink172, ptr %38, align 8, !tbaa !30
   store i32 %.sink, ptr %30, align 8, !tbaa !29
   br label %Vec_IntPush.exit.i
@@ -8837,7 +8837,7 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIsoInt(ptr noundef %0, i32 noundef 
   br label %17
 
 17:                                               ; preds = %10, %4, %6, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %6 ], [ 0, %4 ], [ 0, %10 ]
+  %.0 = phi i32 [ %16, %13 ], [ 0, %4 ], [ 0, %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -8907,12 +8907,12 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIso(ptr noundef %0, i32 noundef %1,
   br label %Abc_NtkFunctionalIsoInt.exit19
 
 Abc_NtkFunctionalIsoInt.exit19:                   ; preds = %18, %21, %25, %28
-  %.0.i18 = phi i32 [ %31, %28 ], [ 0, %21 ], [ 0, %18 ], [ 0, %25 ]
+  %.0.i18 = phi i32 [ %31, %28 ], [ 0, %18 ], [ 0, %25 ], [ 0, %21 ]
   tail call void @Abc_NtkDelete(ptr noundef %19) #26
   br label %Abc_NtkFunctionalIsoInt.exit
 
 Abc_NtkFunctionalIsoInt.exit:                     ; preds = %14, %11, %7, %5, %Abc_NtkFunctionalIsoInt.exit19
-  %.0 = phi i32 [ %.0.i18, %Abc_NtkFunctionalIsoInt.exit19 ], [ %17, %14 ], [ 0, %7 ], [ 0, %5 ], [ 0, %11 ]
+  %.0 = phi i32 [ %.0.i18, %Abc_NtkFunctionalIsoInt.exit19 ], [ %17, %14 ], [ 0, %5 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -9067,7 +9067,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %3, %._crit_edge.i.i
   br i1 %66, label %55, label %.critedge, !llvm.loop !136
 
 .critedge:                                        ; preds = %55, %.preheader, %Abc_NodeSetTravIdCurrent.exit, %1
-  %.012 = phi i32 [ 0, %1 ], [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %.preheader ], [ %64, %55 ]
+  %.012 = phi i32 [ 1, %Abc_NodeSetTravIdCurrent.exit ], [ 0, %1 ], [ 0, %.preheader ], [ %64, %55 ]
   ret i32 %.012
 }
 
@@ -10707,8 +10707,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %53, %55, %45, %47
-  %storemerge = phi ptr [ %46, %45 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ]
-  %.sink.i.i.i.i = phi i32 [ %35, %45 ], [ %35, %47 ], [ %40, %53 ], [ %40, %55 ]
+  %storemerge = phi ptr [ %48, %47 ], [ %46, %45 ], [ %54, %53 ], [ %56, %55 ]
+  %.sink.i.i.i.i = phi i32 [ %35, %47 ], [ %35, %45 ], [ %40, %53 ], [ %40, %55 ]
   store ptr %storemerge, ptr %4, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i, ptr %34, align 8, !tbaa !29
   %.pre.i.i.i = load i32, ptr %36, align 4, !tbaa !28
@@ -11688,7 +11688,7 @@ Abc_AigNodeIsChoice.exit.thread.loopexit:         ; preds = %118
   br label %Abc_AigNodeIsChoice.exit.thread
 
 Abc_AigNodeIsChoice.exit.thread:                  ; preds = %Abc_AigNodeIsChoice.exit.thread.loopexit, %103, %Abc_AigNodeIsChoice.exit, %.critedge
-  %.val50 = phi ptr [ %.val50.pre, %Abc_AigNodeIsChoice.exit.thread.loopexit ], [ %102, %103 ], [ %102, %Abc_AigNodeIsChoice.exit ], [ %102, %.critedge ]
+  %.val50 = phi ptr [ %102, %.critedge ], [ %.val50.pre, %Abc_AigNodeIsChoice.exit.thread.loopexit ], [ %102, %103 ], [ %102, %Abc_AigNodeIsChoice.exit ]
   %.val51 = load i32, ptr %26, align 8, !tbaa !13
   %119 = getelementptr inbounds nuw i8, ptr %.val50, i64 216
   %120 = load i32, ptr %119, align 8, !tbaa !14
@@ -11792,7 +11792,7 @@ Abc_NodeSetTravIdPrevious.exit:                   ; preds = %Abc_AigNodeIsChoice
   br label %165
 
 165:                                              ; preds = %1, %1, %5, %9, %Abc_NodeSetTravIdPrevious.exit, %111, %95, %18
-  %.029 = phi i32 [ 0, %18 ], [ 0, %95 ], [ 0, %111 ], [ 1, %Abc_NodeSetTravIdPrevious.exit ], [ 1, %9 ], [ 1, %5 ], [ 1, %1 ], [ 1, %1 ]
+  %.029 = phi i32 [ 1, %Abc_NodeSetTravIdPrevious.exit ], [ 0, %18 ], [ 0, %95 ], [ 0, %111 ], [ 1, %9 ], [ 1, %5 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.029
 }
 
@@ -12088,9 +12088,9 @@ Abc_NtkIncrementTravId.exit.thread40:             ; preds = %Vec_IntGrow.exit.i.
   br i1 %.not.i2041, label %Vec_IntFill.exit.i25, label %Abc_NtkIncrementTravId.exit27
 
 Vec_IntFill.exit.i25:                             ; preds = %Abc_NtkIncrementTravId.exit.thread40, %Abc_NtkIncrementTravId.exit.thread40.thread
-  %32 = phi ptr [ %18, %Abc_NtkIncrementTravId.exit.thread40.thread ], [ %28, %Abc_NtkIncrementTravId.exit.thread40 ]
-  %33 = phi ptr [ %19, %Abc_NtkIncrementTravId.exit.thread40.thread ], [ %29, %Abc_NtkIncrementTravId.exit.thread40 ]
-  %34 = phi i32 [ %21, %Abc_NtkIncrementTravId.exit.thread40.thread ], [ %31, %Abc_NtkIncrementTravId.exit.thread40 ]
+  %32 = phi ptr [ %28, %Abc_NtkIncrementTravId.exit.thread40 ], [ %18, %Abc_NtkIncrementTravId.exit.thread40.thread ]
+  %33 = phi ptr [ %29, %Abc_NtkIncrementTravId.exit.thread40 ], [ %19, %Abc_NtkIncrementTravId.exit.thread40.thread ]
+  %34 = phi i32 [ %31, %Abc_NtkIncrementTravId.exit.thread40 ], [ %21, %Abc_NtkIncrementTravId.exit.thread40.thread ]
   store i32 %11, ptr %32, align 4, !tbaa !28
   br label %Abc_NtkIncrementTravId.exit27
 
@@ -12394,7 +12394,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %50, %52
   br label %94
 
 94:                                               ; preds = %1, %1, %1, %15, %18, %.critedge, %87
-  %.029 = phi i32 [ 0, %87 ], [ 1, %.critedge ], [ 1, %1 ], [ 0, %18 ], [ 0, %15 ], [ 1, %1 ], [ 1, %1 ]
+  %.029 = phi i32 [ 1, %.critedge ], [ 1, %1 ], [ 0, %87 ], [ 1, %1 ], [ 1, %1 ], [ 0, %18 ], [ 0, %15 ]
   ret i32 %.029
 }
 

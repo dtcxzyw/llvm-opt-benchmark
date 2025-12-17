@@ -457,7 +457,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   unreachable
 
 common.resume.i:                                  ; preds = %41, %26, %21
-  %common.resume.op.i = phi { ptr, i32 } [ %22, %26 ], [ %22, %21 ], [ %42, %41 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %22, %21 ], [ %22, %26 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN9typst_svg11SVGRenderer19render_bitmap_glyph28_$u7b$$u7b$closure$u7d$$u7d$17h53021dd622184095E.exit.i": ; preds = %33
@@ -1240,7 +1240,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   br label %"_ZN4core3ptr195drop_in_place$LT$typst_svg..Deduplicator$LT$typst_svg..RenderedGlyph$GT$..insert_with$LT$typst_svg..SVGRenderer..render_svg_glyph..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he841dbcef8513becE.exit"
 
 .body:                                            ; preds = %16, %21, %48
-  %.pn = phi { ptr, i32 } [ %17, %21 ], [ %17, %16 ], [ %49, %48 ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %17, %21 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn
 }
 

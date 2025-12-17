@@ -1305,7 +1305,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17he3fe1beadaa30d71E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit74:                                      ; preds = %.noexc41, %76, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %58, %76 ], [ %.06.i, %.noexc41 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.noexc41 ], [ %58, %76 ]
   %93 = add i64 %.sroa.0.0.i, %.0124
   %94 = icmp ugt i64 %.0124, %93
   br i1 %94, label %.invoke, label %95
@@ -2191,7 +2191,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 28:                                               ; preds = %23, %22, %14
-  %.sroa.01.0.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i, %23 ], [ inttoptr (i64 16 to ptr), %22 ], [ %.sroa.01.0.copyload2.i.i, %14 ]
+  %.sroa.01.0.i.i = phi ptr [ inttoptr (i64 16 to ptr), %22 ], [ %.sroa.01.0.copyload2.i.i, %23 ], [ %.sroa.01.0.copyload2.i.i, %14 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 24
   %30 = load i64, ptr %29, align 8, !alias.scope !357, !noalias !360, !noundef !4
   %31 = getelementptr inbounds nuw { [4 x i64] }, ptr %7, i64 %.sroa.7.031
@@ -2715,8 +2715,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h164e9139c4744
           to label %.backedge.i unwind label %42
 
 .backedge.i:                                      ; preds = %.noexc5, %36, %29
-  %.sroa.7.2 = phi i64 [ %30, %29 ], [ %39, %36 ], [ %30, %.noexc5 ]
-  %.sroa.16.3 = phi i64 [ %31, %29 ], [ %.sroa.16.2, %36 ], [ %31, %.noexc5 ]
+  %.sroa.7.2 = phi i64 [ %39, %36 ], [ %30, %29 ], [ %30, %.noexc5 ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.2, %36 ], [ %31, %29 ], [ %31, %.noexc5 ]
   %.not.i4 = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not.i4, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h3add90aff9741105E.llvm.7091670428431571743.exit", label %.lr.ph.i2
 
@@ -2861,8 +2861,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hcdd1853f8bf5b
           to label %.backedge.i unwind label %42
 
 .backedge.i:                                      ; preds = %.noexc5, %36, %29
-  %.sroa.7.2 = phi i64 [ %30, %29 ], [ %39, %36 ], [ %30, %.noexc5 ]
-  %.sroa.16.3 = phi i64 [ %31, %29 ], [ %.sroa.16.2, %36 ], [ %31, %.noexc5 ]
+  %.sroa.7.2 = phi i64 [ %39, %36 ], [ %30, %29 ], [ %30, %.noexc5 ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.2, %36 ], [ %31, %29 ], [ %31, %.noexc5 ]
   %.not.i4 = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not.i4, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h396e97513f79bb59E.llvm.7091670428431571743.exit", label %.lr.ph.i2
 
@@ -3009,8 +3009,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17heebf004bc039b
           to label %.backedge.i unwind label %42
 
 .backedge.i:                                      ; preds = %.noexc5, %36, %29
-  %.sroa.7.2 = phi i64 [ %30, %29 ], [ %39, %36 ], [ %30, %.noexc5 ]
-  %.sroa.16.3 = phi i64 [ %31, %29 ], [ %.sroa.16.2, %36 ], [ %31, %.noexc5 ]
+  %.sroa.7.2 = phi i64 [ %39, %36 ], [ %30, %29 ], [ %30, %.noexc5 ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.2, %36 ], [ %31, %29 ], [ %31, %.noexc5 ]
   %.not.i4 = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not.i4, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h87524a91dfe0d1b8E.llvm.7091670428431571743.exit", label %.lr.ph.i2
 
@@ -3514,7 +3514,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 31:                                               ; preds = %26, %25, %17
-  %.sroa.01.0.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i, %26 ], [ inttoptr (i64 16 to ptr), %25 ], [ %.sroa.01.0.copyload2.i.i.i, %17 ]
+  %.sroa.01.0.i.i.i = phi ptr [ inttoptr (i64 16 to ptr), %25 ], [ %.sroa.01.0.copyload2.i.i.i, %26 ], [ %.sroa.01.0.copyload2.i.i.i, %17 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 24
   %33 = load i64, ptr %32, align 8, !alias.scope !746, !noalias !749, !noundef !4
   %34 = getelementptr inbounds nuw { [4 x i64] }, ptr %10, i64 %.sroa.7.031.i
@@ -3748,7 +3748,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   br i1 %48, label %49, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit"
 
 "_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit104": ; preds = %197, %139, %66, %255, %225, %49, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit", %._crit_edge.thread, %26
-  %.1 = phi ptr [ %27, %26 ], [ null, %._crit_edge.thread ], [ %50, %49 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit" ], [ %226, %225 ], [ %256, %255 ], [ %198, %197 ], [ %140, %139 ], [ %71, %66 ]
+  %.1 = phi ptr [ %27, %26 ], [ null, %._crit_edge.thread ], [ %256, %255 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit" ], [ %226, %225 ], [ %50, %49 ], [ %140, %139 ], [ %71, %66 ], [ %198, %197 ]
   ret ptr %.1
 
 49:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.llvm.7091670428431571743.exit"
@@ -3911,9 +3911,9 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %spec.select.i103 = select i1 %146, i64 0, i64 %149
   br label %150
 
-150:                                              ; preds = %91, %142
-  %151 = phi i64 [ %136, %91 ], [ %spec.select.i103, %142 ]
-  %152 = phi i8 [ %137, %91 ], [ %144, %142 ]
+150:                                              ; preds = %142, %91
+  %151 = phi i64 [ %spec.select.i103, %142 ], [ %136, %91 ]
+  %152 = phi i8 [ %144, %142 ], [ %137, %91 ]
   %153 = and i64 %22, 255
   %154 = getelementptr inbounds nuw i8, ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.90, i64 %153
   %155 = load i8, ptr %154, align 1, !noundef !4
@@ -4008,7 +4008,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   br i1 %223, label %225, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit112"
 
 .backedge:                                        ; preds = %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit117", %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit112", %63, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfb017d8f8b40f597E.exit", %200, %150
-  %.076.be = phi i32 [ 0, %150 ], [ 0, %200 ], [ %64, %63 ], [ %81, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfb017d8f8b40f597E.exit" ], [ %76, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit112" ], [ %81, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit117" ]
+  %.076.be = phi i32 [ 0, %200 ], [ 0, %150 ], [ %64, %63 ], [ %81, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfb017d8f8b40f597E.exit" ], [ %76, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit112" ], [ %81, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit117" ]
   %224 = icmp eq i64 %17, 0
   br i1 %224, label %._crit_edge, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h35240cc2ac6b3f40E.exit"
 
@@ -4313,7 +4313,7 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$3new17h5b294bcf7d
   br label %100
 
 .noexc15.thread:                                  ; preds = %.noexc13, %.noexc14, %.noexc22, %.noexc19
-  %.0.i.ph = phi ptr [ %81, %.noexc19 ], [ %61, %.noexc22 ], [ %36, %.noexc14 ], [ %19, %.noexc13 ]
+  %.0.i.ph = phi ptr [ %81, %.noexc19 ], [ %36, %.noexc14 ], [ %61, %.noexc22 ], [ %19, %.noexc13 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %91, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -4350,7 +4350,7 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$3new17h5b294bcf7d
   unreachable
 
 .thread:                                          ; preds = %.loopexit.split-lp, %104
-  %.pn34 = phi { ptr, i32 } [ %105, %104 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %.pn34 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %105, %104 ]
   resume { ptr, i32 } %.pn34
 
 104:                                              ; preds = %2
@@ -4414,13 +4414,13 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$6finish17h2914202
   br label %.body
 
 .body:                                            ; preds = %70, %57, %31
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %58, %57 ], [ %71, %70 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %58, %57 ], [ %32, %31 ], [ %71, %70 ]
   invoke void @"_ZN4core3ptr115drop_in_place$LT$fdeflate..compress..Compressor$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h0dab76abf69b0023E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1) #24
           to label %87 unwind label %85
 
-33:                                               ; preds = %2, %23
-  %34 = phi i64 [ %17, %2 ], [ %spec.select.i, %23 ]
-  %35 = phi i8 [ %18, %2 ], [ %25, %23 ]
+33:                                               ; preds = %23, %2
+  %34 = phi i64 [ %spec.select.i, %23 ], [ %17, %2 ]
+  %35 = phi i8 [ %25, %23 ], [ %18, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !810)
   %36 = and i8 %35, 7
   %37 = icmp eq i8 %36, 0
@@ -4453,8 +4453,8 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$6finish17h2914202
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.thread.i"
 
 "_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.thread.i": ; preds = %44, %38, %33
-  %47 = phi i64 [ %34, %33 ], [ %34, %38 ], [ 0, %44 ]
-  %48 = phi i8 [ %35, %33 ], [ %39, %38 ], [ %46, %44 ]
+  %47 = phi i64 [ %34, %33 ], [ 0, %44 ], [ %34, %38 ]
+  %48 = phi i8 [ %35, %33 ], [ %46, %44 ], [ %39, %38 ]
   %.not.i = icmp eq i8 %48, 0
   br i1 %.not.i, label %62, label %49
 
@@ -4508,7 +4508,7 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$6finish17h2914202
   store i8 0, ptr %10, align 8, !alias.scope !810
   br label %62
 
-62:                                               ; preds = %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.thread.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha2d38d029bbeae98E.llvm.7091670428431571743.exit.i"
+62:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha2d38d029bbeae98E.llvm.7091670428431571743.exit.i", %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.thread.i"
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i32, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4618,9 +4618,9 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   store i64 0, ptr %10, align 8, !alias.scope !834
   br label %20
 
-20:                                               ; preds = %2, %17
-  %21 = phi i64 [ %11, %2 ], [ 0, %17 ]
-  %22 = phi i8 [ %12, %2 ], [ %19, %17 ]
+20:                                               ; preds = %17, %2
+  %21 = phi i64 [ 0, %17 ], [ %11, %2 ]
+  %22 = phi i8 [ %19, %17 ], [ %12, %2 ]
   %23 = add i32 %1, -1
   %24 = icmp ugt i32 %23, 257
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -4732,9 +4732,9 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %spec.select.i58 = select i1 %82, i64 0, i64 %85
   br label %86
 
-86:                                               ; preds = %58, %78
-  %87 = phi i64 [ %72, %58 ], [ %spec.select.i58, %78 ]
-  %88 = phi i8 [ %73, %58 ], [ %80, %78 ]
+86:                                               ; preds = %78, %58
+  %87 = phi i64 [ %spec.select.i58, %78 ], [ %72, %58 ]
+  %88 = phi i8 [ %80, %78 ], [ %73, %58 ]
   %89 = getelementptr inbounds nuw i8, ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.139, i64 %60
   %90 = load i8, ptr %89, align 1, !noundef !4
   %91 = zext i8 %90 to i64
@@ -4781,12 +4781,12 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit"
 
 "_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit": ; preds = %36, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split", %86, %47, %104, %75, %52, %14
-  %.038 = phi ptr [ %15, %14 ], [ %53, %52 ], [ %76, %75 ], [ %105, %104 ], [ null, %47 ], [ null, %86 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split" ], [ %37, %36 ]
+  %.038 = phi ptr [ %76, %75 ], [ %105, %104 ], [ %53, %52 ], [ %15, %14 ], [ null, %47 ], [ null, %86 ], [ null, %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split" ], [ %37, %36 ]
   ret ptr %.038
 
-115:                                              ; preds = %.lr.ph, %39
-  %116 = phi i64 [ %33, %.lr.ph ], [ %spec.select.i, %39 ]
-  %117 = phi i8 [ %34, %.lr.ph ], [ %41, %39 ]
+115:                                              ; preds = %39, %.lr.ph
+  %116 = phi i64 [ %spec.select.i, %39 ], [ %33, %.lr.ph ]
+  %117 = phi i8 [ %41, %39 ], [ %34, %.lr.ph ]
   %118 = add i32 %.069, -258
   %119 = icmp ugt i32 %118, 257
   br i1 %119, label %.lr.ph, label %._crit_edge
@@ -4815,8 +4815,8 @@ define hidden noundef ptr @"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$
   %13 = icmp eq i16 %12, -1
   br i1 %13, label %14, label %24
 
-"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$16set_block_header17h21ded31b2beb37cfE.llvm.7091670428431571743.exit.thread": ; preds = %35, %30, %24, %14, %21, %17, %3
-  %.0 = phi ptr [ null, %3 ], [ %19, %17 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %21 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %14 ], [ %28, %24 ], [ %32, %30 ], [ null, %35 ]
+"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$16set_block_header17h21ded31b2beb37cfE.llvm.7091670428431571743.exit.thread": ; preds = %35, %30, %24, %21, %14, %17, %3
+  %.0 = phi ptr [ null, %3 ], [ %32, %30 ], [ %28, %24 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %21 ], [ %19, %17 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %14 ], [ null, %35 ]
   ret ptr %.0
 
 14:                                               ; preds = %11
@@ -4914,7 +4914,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Seek$GT$4seek17hba82ae220e3286f0E.exit"
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Seek$GT$4seek17hba82ae220e3286f0E.exit": ; preds = %10, %21, %18, %3
-  %.0 = phi ptr [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %3 ], [ null, %21 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %18 ], [ %16, %10 ]
+  %.0 = phi ptr [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %18 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %3 ], [ null, %21 ], [ %16, %10 ]
   ret ptr %.0
 }
 
@@ -5074,8 +5074,8 @@ define hidden void @"_ZN8fdeflate8compress29StoredOnlyCompressor$LT$W$GT$6finish
   %31 = invoke noundef ptr @_ZN3std2io5Write9write_all17h7d41d69a916edaeeE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 4)
           to label %42 unwind label %24
 
-32:                                               ; preds = %2, %21, %.noexc
-  %.0.i.ph = phi ptr [ %19, %.noexc ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %21 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %2 ]
+32:                                               ; preds = %21, %2, %.noexc
+  %.0.i.ph = phi ptr [ %19, %.noexc ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %2 ], [ @anon.34ad03ac7dbb51fd0fc21b39122f0032.92.llvm.1563996087720595280, %21 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %33, align 8
   store i64 -9223372036854775808, ptr %0, align 8

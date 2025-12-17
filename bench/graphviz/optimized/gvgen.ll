@@ -99,7 +99,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %17, %322, %setOne.exit115.i, %readOne.exit.i, %setTwoTwoOpt.exit.i, %setTwoTwoOpt.exit.thread20.i, %211, %setOne.exit101.i, %189, %setOne.exit97.i, %openFile.exit.i, %159, %157, %setOne.exit93.i, %137, %setOne.exit89.i, %117, %113, %setOne.exit85.i, %setOne.exit81.i, %setTwo.exit.i, %43, %39, %35, %setOne.exit.i
-  %.0.i.be = phi i32 [ 2, %setOne.exit.i ], [ 8, %35 ], [ 9, %39 ], [ %.0.i, %43 ], [ 1, %setTwo.exit.i ], [ 14, %setOne.exit81.i ], [ 3, %setOne.exit85.i ], [ 4, %113 ], [ 12, %117 ], [ 17, %setOne.exit89.i ], [ 10, %137 ], [ 11, %setOne.exit93.i ], [ %.0.i, %157 ], [ %.0.i, %159 ], [ %.0.i, %openFile.exit.i ], [ 5, %setOne.exit97.i ], [ 13, %189 ], [ 15, %setOne.exit101.i ], [ 6, %211 ], [ 7, %setTwoTwoOpt.exit.i ], [ %.0.i, %readOne.exit.i ], [ 16, %setOne.exit115.i ], [ %.0.i, %322 ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %17 ]
+  %.0.i.be = phi i32 [ %.0.i, %159 ], [ %.0.i, %readOne.exit.i ], [ 2, %setOne.exit.i ], [ 5, %setOne.exit97.i ], [ 8, %35 ], [ %.0.i, %157 ], [ 9, %39 ], [ %.0.i, %43 ], [ 13, %189 ], [ 1, %setTwo.exit.i ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ 14, %setOne.exit81.i ], [ 15, %setOne.exit101.i ], [ 3, %setOne.exit85.i ], [ 16, %setOne.exit115.i ], [ 4, %113 ], [ 6, %211 ], [ 12, %117 ], [ %.0.i, %openFile.exit.i ], [ 17, %setOne.exit89.i ], [ 7, %setTwoTwoOpt.exit.i ], [ 10, %137 ], [ %.0.i, %322 ], [ 11, %setOne.exit93.i ], [ %.0.i, %17 ]
   br label %17, !llvm.loop !16
 
 19:                                               ; preds = %17
@@ -1205,7 +1205,7 @@ readPos.exit:                                     ; preds = %11
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %30, %31, %27, %13, %8, %34, %18
-  %.0 = phi i32 [ -1, %18 ], [ 0, %34 ], [ -1, %8 ], [ -1, %13 ], [ -1, %27 ], [ -1, %31 ], [ -1, %30 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %18 ], [ 0, %34 ], [ -1, %30 ], [ -1, %13 ], [ -1, %8 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1279,7 +1279,7 @@ readPos.exit:                                     ; preds = %11
   br label %readPos.exit.thread
 
 readPos.exit.thread:                              ; preds = %28, %29, %25, %13, %8, %32, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %32 ], [ -1, %8 ], [ -1, %13 ], [ -1, %25 ], [ -1, %29 ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %29 ], [ 0, %18 ], [ 0, %32 ], [ -1, %28 ], [ -1, %13 ], [ -1, %8 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -2652,7 +2652,7 @@ _ZNSt6vectorIN12colvarmodule4atomESaIS1_EED2Ev.exit36: ; preds = %_ZSt8_DestroyI
   br label %82
 
 82:                                               ; preds = %81, %76, %71, %65
-  %.pn17 = phi { ptr, i32 } [ %66, %65 ], [ %.pn15, %81 ], [ %.pn13, %76 ], [ %.pn, %71 ]
+  %.pn17 = phi { ptr, i32 } [ %66, %65 ], [ %.pn15, %81 ], [ %.pn, %71 ], [ %.pn13, %76 ]
   call void @_ZN6colvar3cvcD2Ev(ptr noundef nonnull align 8 dereferenceable(1745) %0) #24
   resume { ptr, i32 } %.pn17
 }
@@ -3186,7 +3186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 105:                                              ; preds = %.thread69, %2, %10, %13, %17, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
-  %.020 = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %10 ], [ %9, %2 ], [ 0, %.thread69 ]
+  %.020 = phi i32 [ 0, %.thread69 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ 0, %10 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ %9, %2 ]
   ret i32 %.020
 }
 
@@ -4165,7 +4165,7 @@ _ZNSt6vectorIN12colvarmodule4atomESaIS1_EED2Ev.exit50: ; preds = %_ZSt8_DestroyI
   br label %109
 
 109:                                              ; preds = %108, %103, %98, %93, %87
-  %.pn22 = phi { ptr, i32 } [ %88, %87 ], [ %.pn20, %108 ], [ %.pn18, %103 ], [ %.pn16, %98 ], [ %.pn, %93 ]
+  %.pn22 = phi { ptr, i32 } [ %88, %87 ], [ %.pn20, %108 ], [ %.pn16, %98 ], [ %.pn18, %103 ], [ %.pn, %93 ]
   call void @_ZN6colvar3cvcD2Ev(ptr noundef nonnull align 8 dereferenceable(1713) %0) #24
   resume { ptr, i32 } %.pn22
 }

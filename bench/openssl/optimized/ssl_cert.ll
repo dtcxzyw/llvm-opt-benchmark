@@ -99,7 +99,7 @@ define ptr @ssl_cert_new(i64 noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %3, %1, %13, %12
-  %.0 = phi ptr [ null, %12 ], [ %4, %13 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %12 ], [ %4, %13 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -135,7 +135,7 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
   %19 = icmp sgt i32 %3, 79
   %or.cond.not = or i1 %18, %19
   %. = zext i1 %or.cond.not to i32
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %ssl_get_security_level_bits.exit
   switch i32 %2, label %70 [
@@ -149,49 +149,49 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
 
 21:                                               ; preds = %20, %20, %20
   %22 = icmp slt i32 %3, %15
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !25
   %26 = and i32 %25, 4
   %.not39 = icmp eq i32 %26, 0
-  br i1 %.not39, label %27, label %.thread
+  br i1 %.not39, label %27, label %.critedge
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %29 = load i32, ptr %28, align 8, !tbaa !27
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
-  br i1 %.not40, label %31, label %.thread
+  br i1 %.not40, label %31, label %.critedge
 
 31:                                               ; preds = %27
   %32 = icmp samesign ult i32 %.0.i, 4
   %33 = and i32 %29, 2
   %.not41 = icmp eq i32 %33, 0
   %or.cond44 = or i1 %32, %.not41
-  br i1 %or.cond44, label %34, label %.thread
+  br i1 %or.cond44, label %34, label %.critedge
 
 34:                                               ; preds = %31
   %35 = icmp samesign ugt i32 %.0.i, 2
-  br i1 %35, label %36, label %.critedge
+  br i1 %35, label %36, label %72
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %.not42 = icmp eq i32 %38, 772
-  br i1 %.not42, label %.critedge, label %39
+  br i1 %.not42, label %72, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %41 = load i32, ptr %40, align 4, !tbaa !29
   %42 = and i32 %41, 390
   %.not43 = icmp eq i32 %42, 0
-  br i1 %.not43, label %.thread, label %.critedge
+  br i1 %.not43, label %.critedge, label %72
 
 43:                                               ; preds = %20
   %44 = icmp eq ptr %0, null
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %0, align 8, !tbaa !30
@@ -201,12 +201,12 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
 48:                                               ; preds = %45
   %49 = and i32 %46, 128
   %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %.thread, label %50
+  br i1 %.not, label %.critedge, label %50
 
 50:                                               ; preds = %48
   %51 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #14
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread, label %.thread48
+  br i1 %52, label %.critedge, label %.thread48
 
 .thread48:                                        ; preds = %45, %50
   %53 = phi ptr [ %51, %50 ], [ %0, %45 ]
@@ -222,31 +222,31 @@ ssl_get_security_level_bits.exit:                 ; preds = %8, %10
 
 61:                                               ; preds = %.thread48
   %62 = icmp slt i32 %4, 771
-  br i1 %62, label %.thread, label %.critedge
+  br i1 %62, label %.critedge, label %72
 
 63:                                               ; preds = %.thread48
   %64 = icmp eq i32 %4, 256
   %65 = icmp sgt i32 %4, 65277
   %66 = or i1 %64, %65
-  br i1 %66, label %.thread, label %.critedge
+  br i1 %66, label %.critedge, label %72
 
 67:                                               ; preds = %20
   %.not49 = icmp eq i32 %.0.i, 1
-  br i1 %.not49, label %.critedge, label %.thread
+  br i1 %.not49, label %72, label %.critedge
 
 68:                                               ; preds = %20
   %69 = icmp samesign ugt i32 %.0.i, 2
-  br i1 %69, label %.thread, label %.critedge
+  br i1 %69, label %.critedge, label %72
 
 70:                                               ; preds = %20
   %71 = icmp slt i32 %3, %15
-  br i1 %71, label %.thread, label %.critedge
+  br i1 %71, label %.critedge, label %72
 
-.critedge:                                        ; preds = %34, %36, %39, %70, %68, %67, %61, %63
-  br label %.thread
+72:                                               ; preds = %34, %36, %39, %70, %68, %67, %61, %63
+  br label %.critedge
 
-.thread:                                          ; preds = %48, %43, %70, %68, %67, %63, %61, %50, %21, %23, %27, %31, %39, %17, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ %., %17 ], [ 0, %39 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %21 ], [ 0, %50 ], [ 0, %61 ], [ 0, %63 ], [ 0, %67 ], [ 0, %68 ], [ 0, %70 ], [ 0, %43 ], [ 0, %48 ]
+.critedge:                                        ; preds = %48, %43, %31, %21, %23, %27, %39, %70, %68, %67, %63, %61, %50, %17, %72
+  %.0 = phi i32 [ %., %17 ], [ 0, %67 ], [ 0, %68 ], [ 1, %72 ], [ 0, %70 ], [ 0, %63 ], [ 0, %61 ], [ 0, %50 ], [ 0, %39 ], [ 0, %27 ], [ 0, %23 ], [ 0, %21 ], [ 0, %31 ], [ 0, %43 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -537,7 +537,7 @@ define ptr @ssl_cert_dup(ptr noundef %0) local_unnamed_addr #0 {
   br label %160
 
 160:                                              ; preds = %153, %156, %1, %.loopexit, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %.loopexit ], [ null, %1 ], [ %2, %156 ], [ %2, %153 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %12 ], [ null, %1 ], [ %2, %156 ], [ %2, %153 ]
   ret ptr %.0
 }
 
@@ -783,7 +783,7 @@ define range(i32 0, 2) i32 @ssl_cert_set1_chain(ptr noundef %0, ptr noundef %1, 
   br label %11
 
 11:                                               ; preds = %8, %6, %10, %4
-  %.0 = phi i32 [ 0, %10 ], [ %5, %4 ], [ 0, %6 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %5, %4 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -829,7 +829,7 @@ define range(i32 0, 2) i32 @ssl_cert_add0_chain_cert(ptr noundef %0, ptr noundef
   br label %17
 
 17:                                               ; preds = %.thread, %13, %3, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %3 ], [ 0, %13 ], [ %spec.select, %.thread ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %3 ], [ %spec.select, %.thread ]
   ret i32 %.0
 }
 
@@ -996,7 +996,7 @@ define range(i32 0, 2) i32 @ssl_cert_set_current(ptr noundef captures(address_is
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !120
 
 .loopexit:                                        ; preds = %26, %15, %.critedge, %3, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %3 ], [ 1, %.critedge ], [ 0, %15 ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ 0, %3 ], [ 0, %2 ], [ 0, %4 ], [ 0, %15 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -1202,7 +1202,7 @@ SSL_get_ex_data_X509_STORE_CTX_idx.exit:          ; preds = %33, %45
   br label %90
 
 90:                                               ; preds = %8, %4, %89, %24
-  %.0 = phi i32 [ 0, %24 ], [ %.062, %89 ], [ 0, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ %.062, %89 ], [ 0, %8 ], [ 0, %24 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1534,7 +1534,7 @@ define range(i32 0, 2) i32 @SSL_add1_to_CA_list(ptr noundef %0, ptr noundef %1) 
   br label %add_ca_name.exit
 
 add_ca_name.exit:                                 ; preds = %7, %2, %28, %25, %21, %18, %.thread11, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %28 ], [ 0, %.thread11 ], [ 0, %18 ], [ 0, %21 ], [ 1, %25 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %9 ], [ 0, %28 ], [ 0, %.thread11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1630,7 +1630,7 @@ define range(i32 0, 2) i32 @SSL_add_client_CA(ptr noundef %0, ptr noundef %1) lo
   br label %add_ca_name.exit
 
 add_ca_name.exit:                                 ; preds = %7, %2, %28, %25, %21, %18, %.thread11, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %28 ], [ 0, %.thread11 ], [ 0, %18 ], [ 0, %21 ], [ 1, %25 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %9 ], [ 0, %28 ], [ 0, %.thread11 ], [ 0, %18 ], [ 0, %21 ], [ 0, %2 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1853,7 +1853,7 @@ define internal i32 @xname_cmp(ptr noundef %0, ptr noundef %1) #0 {
   br label %17
 
 17:                                               ; preds = %2, %10, %12
-  %.0 = phi i32 [ %11, %10 ], [ %16, %12 ], [ -2, %2 ]
+  %.0 = phi i32 [ %16, %12 ], [ %11, %10 ], [ -2, %2 ]
   %18 = load ptr, ptr %3, align 8, !tbaa !156
   call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 724) #14
   %19 = load ptr, ptr %4, align 8, !tbaa !156
@@ -2115,7 +2115,7 @@ define range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr noundef %0, p
   br label %43
 
 43:                                               ; preds = %.thread, %._crit_edge, %41, %9
-  %.024 = phi i32 [ 0, %9 ], [ 0, %41 ], [ 1, %._crit_edge ], [ 0, %.thread ]
+  %.024 = phi i32 [ 0, %9 ], [ 0, %.thread ], [ 0, %41 ], [ 1, %._crit_edge ]
   %44 = load ptr, ptr %3, align 8, !tbaa !158
   %.not31 = icmp eq ptr %44, null
   br i1 %.not31, label %47, label %45
@@ -2289,7 +2289,7 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
   br label %.critedge39.thread
 
 54:                                               ; preds = %34, %52, %51, %36
-  %.2 = phi i32 [ %38, %36 ], [ %.02746, %51 ], [ %.02746, %52 ], [ %.02746, %34 ]
+  %.2 = phi i32 [ %38, %36 ], [ %.02746, %34 ], [ %.02746, %51 ], [ %.02746, %52 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %32) #14
   br label %.critedge39
 
@@ -2300,12 +2300,12 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %.lr.ph.split, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %.critedge39, %.lr.ph.split.us, %.critedge39.us, %.preheader
-  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.critedge39.us ], [ 1, %.lr.ph.split.us ], [ %.1, %.critedge39 ], [ %.02746, %.lr.ph.split ]
+  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph.split.us ], [ 1, %.critedge39.us ], [ %.1, %.critedge39 ], [ %.02746, %.lr.ph.split ]
   tail call void @ERR_clear_error() #14
   br label %.critedge39.thread
 
-.critedge39.thread:                               ; preds = %45, %42, %39, %19, %16, %13, %.split.us, %3, %.critedge
-  %.3 = phi i32 [ %.027.lcssa, %.critedge ], [ 0, %3 ], [ 0, %.split.us ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ]
+.critedge39.thread:                               ; preds = %39, %42, %45, %19, %16, %13, %.split.us, %3, %.critedge
+  %.3 = phi i32 [ %.027.lcssa, %.critedge ], [ 0, %3 ], [ 0, %.split.us ], [ 0, %19 ], [ 0, %13 ], [ 0, %16 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ]
   %56 = tail call i32 @OSSL_STORE_close(ptr noundef %4) #14
   ret i32 %.3
 }
@@ -2522,10 +2522,10 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge117, %96, %69, %56, %52, %15
-  %.pre-phi = phi i32 [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ], [ %17, %56 ], [ %17, %52 ], [ %.pre, %15 ]
-  %.077 = phi ptr [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ], [ %50, %56 ], [ null, %52 ], [ null, %15 ]
-  %.072 = phi ptr [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ], [ %.173, %56 ], [ %.173, %52 ], [ null, %15 ]
-  %.0 = phi i32 [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ], [ 0, %15 ]
+  %.pre-phi = phi i32 [ %.pre, %15 ], [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ], [ %17, %56 ], [ %17, %52 ]
+  %.077 = phi ptr [ null, %15 ], [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ], [ %50, %56 ], [ null, %52 ]
+  %.072 = phi ptr [ null, %15 ], [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ], [ %.173, %56 ], [ %.173, %52 ]
+  %.0 = phi i32 [ 0, %15 ], [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ], [ 0, %56 ], [ 0, %52 ]
   %.not100 = icmp eq i32 %.pre-phi, 0
   br i1 %.not100, label %99, label %.loopexit.thread
 
@@ -2794,8 +2794,8 @@ define ptr @ssl_cert_lookup_by_pkey(ptr noundef %0, ptr noundef writeonly captur
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %20, label %.thread, !llvm.loop !181
 
-.thread:                                          ; preds = %36, %.preheader, %15, %17, %33
-  %.2 = phi ptr [ %35, %33 ], [ %16, %17 ], [ %16, %15 ], [ null, %.preheader ], [ null, %36 ]
+.thread:                                          ; preds = %36, %.preheader, %17, %15, %33
+  %.2 = phi ptr [ %35, %33 ], [ %16, %15 ], [ %16, %17 ], [ null, %.preheader ], [ null, %36 ]
   ret ptr %.2
 }
 
@@ -2829,7 +2829,7 @@ define ptr @ssl_cert_lookup_by_idx(i64 noundef %0, ptr noundef readonly captures
   br label %15
 
 15:                                               ; preds = %2, %13, %8
-  %.0 = phi ptr [ %12, %8 ], [ %14, %13 ], [ null, %2 ]
+  %.0 = phi ptr [ %14, %13 ], [ %12, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -5764,7 +5764,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %93, %77, %95, %100, %78, %82, %68, %73, %56, %60, %42, %49, %29, %34, %85, %64, %52, %38, %26
-  %.0 = phi i32 [ %103, %100 ], [ %98, %95 ], [ %15, %26 ], [ %37, %34 ], [ %32, %29 ], [ %41, %38 ], [ %15, %49 ], [ %47, %42 ], [ %55, %52 ], [ %63, %60 ], [ %15, %56 ], [ %67, %64 ], [ %76, %73 ], [ %71, %68 ], [ %81, %78 ], [ %15, %82 ], [ %15, %85 ], [ %14, %77 ], [ %14, %93 ]
+  %.0 = phi i32 [ %103, %100 ], [ %15, %85 ], [ %98, %95 ], [ %15, %26 ], [ %37, %34 ], [ %32, %29 ], [ %41, %38 ], [ %15, %49 ], [ %47, %42 ], [ %55, %52 ], [ %63, %60 ], [ %15, %56 ], [ %67, %64 ], [ %76, %73 ], [ %71, %68 ], [ %81, %78 ], [ %15, %82 ], [ %14, %77 ], [ %14, %93 ]
   %104 = and i32 %17, 65535
   %105 = icmp sgt i32 %104, %.0
   br i1 %105, label %106, label %128
@@ -7241,7 +7241,7 @@ dissect_openflow_oxm_header_v6.exit:              ; preds = %124, %128, %131
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph115.i, %dissect_openflow_oxm_header_v6.exit, %dissect_openflow_action_header_v6.exit.i, %.lr.ph124.i, %dissect_openflow_instruction_header_v6.exit.i, %163, %154, %116, %96, %91, %71, %.preheader.i, %.preheader111.i
-  %.1.i = phi i32 [ %.pre-phi.i, %163 ], [ %.pre-phi.i, %154 ], [ %62, %71 ], [ %62, %91 ], [ %62, %96 ], [ %62, %116 ], [ %62, %.preheader.i ], [ %62, %.preheader111.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v6.exit.i ], [ %.pre-phi.i, %.lr.ph124.i ], [ %.0.i106.i, %dissect_openflow_action_header_v6.exit.i ], [ %139, %dissect_openflow_oxm_header_v6.exit ], [ %.pre-phi.i, %.lr.ph115.i ], [ %149, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.pre-phi.i, %163 ], [ %.pre-phi.i, %154 ], [ %62, %71 ], [ %62, %91 ], [ %62, %96 ], [ %62, %116 ], [ %62, %.preheader.i ], [ %62, %.preheader111.i ], [ %.pre-phi.i, %.lr.ph115.i ], [ %.0.i.i, %dissect_openflow_instruction_header_v6.exit.i ], [ %.pre-phi.i, %.lr.ph124.i ], [ %.0.i106.i, %dissect_openflow_action_header_v6.exit.i ], [ %139, %dissect_openflow_oxm_header_v6.exit ], [ %149, %.lr.ph.i ]
   %166 = load i32, ptr %14, align 4
   %167 = add i32 %166, 7
   %168 = and i32 %167, 65528

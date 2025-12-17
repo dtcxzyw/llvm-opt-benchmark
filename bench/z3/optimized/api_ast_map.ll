@@ -1103,7 +1103,7 @@ _ZN11ast_manager7inc_refEP3ast.exit32:            ; preds = %43, %_ZN11ast_manag
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 45:                                               ; preds = %30, %32
-  %.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %33, %32 ]
+  %.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   %.026 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %8, label %46, label %_ZN10z3_log_ctxD2Ev.exit36, !prof !185
 
@@ -1391,7 +1391,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %51, %48, %56
           catch ptr @_ZTI12z3_exception
   br label %68
 
-_ZN11ast_manager7dec_refEP3ast.exit24:            ; preds = %30, %41, %44, %.preheader.i.i.i, %57, %_ZN11ast_manager7dec_refEP3ast.exit, %62
+_ZN11ast_manager7dec_refEP3ast.exit24:            ; preds = %30, %44, %41, %.preheader.i.i.i, %57, %_ZN11ast_manager7dec_refEP3ast.exit, %62
   br i1 %6, label %67, label %_ZN10z3_log_ctxD2Ev.exit, !prof !184
 
 67:                                               ; preds = %_ZN11ast_manager7dec_refEP3ast.exit24
@@ -1399,7 +1399,7 @@ _ZN11ast_manager7dec_refEP3ast.exit24:            ; preds = %30, %41, %44, %.pre
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 68:                                               ; preds = %63, %65
-  %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ]
   %.017 = extractvalue { ptr, i32 } %.pn.pn, 1
   br i1 %6, label %69, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !185
 
@@ -1684,7 +1684,7 @@ _ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE
   br label %65
 
 64:                                               ; preds = %58, %56
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
   %.021 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   br i1 %4, label %65, label %_ZN10z3_log_ctxD2Ev.exit33, !prof !185
 
@@ -2093,7 +2093,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %134
 
 134:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %65, %53
-  %.pn27.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn27.pn.pn, %65 ], [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn27.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %.body ], [ %.pn27.pn.pn, %65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #21
   br label %135
 
@@ -2646,7 +2646,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3as
   br label %65
 
 44:                                               ; preds = %35, %29
-  %.1 = phi ptr [ %.04970, %29 ], [ %.05069, %35 ]
+  %.1 = phi ptr [ %.05069, %35 ], [ %.04970, %29 ]
   %45 = getelementptr inbounds nuw i8, ptr %.05069, i64 16
   %.not = icmp eq ptr %45, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !222
@@ -2694,7 +2694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3as
   br label %65
 
 63:                                               ; preds = %54, %48
-  %.3 = phi ptr [ %.273, %48 ], [ %.15172, %54 ]
+  %.3 = phi ptr [ %.15172, %54 ], [ %.273, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %.15172, i64 16
   %.not53 = icmp eq ptr %64, %24
   br i1 %.not53, label %._crit_edge, label %.lr.ph74, !llvm.loop !223

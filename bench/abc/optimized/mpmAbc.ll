@@ -918,7 +918,7 @@ Mig_ObjSibl.exit:                                 ; preds = %Mig_ObjSiblId.exit.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %175, %.loopexit.loopexit, %Mig_ObjIsCi.exit, %5
-  %.070 = phi i32 [ %.val87, %5 ], [ -1, %Mig_ObjIsCi.exit ], [ %.val90.pre, %.loopexit.loopexit ], [ %spec.select, %175 ]
+  %.070 = phi i32 [ -1, %Mig_ObjIsCi.exit ], [ %.val87, %5 ], [ %.val90.pre, %.loopexit.loopexit ], [ %spec.select, %175 ]
   ret i32 %.070
 }
 
@@ -1747,7 +1747,7 @@ Vec_IntPush.exit..critedge2.loopexit_crit_edge:   ; preds = %Vec_IntPush.exit
   br label %.critedge2, !llvm.loop !90
 
 .critedge2:                                       ; preds = %121, %.lr.ph, %Vec_IntPush.exit..critedge2.loopexit_crit_edge, %87
-  %.lcssa = phi i32 [ %112, %87 ], [ %180, %Vec_IntPush.exit..critedge2.loopexit_crit_edge ], [ %112, %.lr.ph ], [ %180, %121 ]
+  %.lcssa = phi i32 [ %112, %87 ], [ %112, %.lr.ph ], [ %180, %Vec_IntPush.exit..critedge2.loopexit_crit_edge ], [ %180, %121 ]
   %184 = load ptr, ptr %56, align 8, !tbaa !91
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 44
   %186 = load i32, ptr %185, align 4, !tbaa !92
@@ -1859,8 +1859,8 @@ Vec_IntPush.exit..critedge2.loopexit_crit_edge:   ; preds = %Vec_IntPush.exit
   br label %Vec_IntGrow.exit.sink.split.i.i
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %245, %247, %236, %238
-  %storemerge = phi ptr [ %237, %236 ], [ %239, %238 ], [ %246, %245 ], [ %248, %247 ]
-  %.sink.i.i = phi i32 [ %226, %236 ], [ %226, %238 ], [ %230, %245 ], [ %230, %247 ]
+  %storemerge = phi ptr [ %239, %238 ], [ %237, %236 ], [ %246, %245 ], [ %248, %247 ]
+  %.sink.i.i = phi i32 [ %226, %238 ], [ %226, %236 ], [ %230, %245 ], [ %230, %247 ]
   store ptr %storemerge, ptr %58, align 8, !tbaa !29
   store i32 %.sink.i.i, ptr %5, align 8, !tbaa !28
   %.pre.i186 = load i32, ptr %7, align 4, !tbaa !31

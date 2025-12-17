@@ -361,7 +361,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %51, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ 257, %for.end.i.i.i.i ], [ %51, %if.then26.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
   %52 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -1165,7 +1165,7 @@ if.then.i.i.i2.i57:                               ; preds = %_ZNSt6vectorImSaImE
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i2.i57, %_ZNSt6vectorImSaImEED2Ev.exit.i54, %sw.bb25, %cond.false, %if.end22, %sw.bb, %if.end28, %if.then10
-  %retval.0 = phi i32 [ %call18, %if.then10 ], [ %cond31, %if.end28 ], [ 2, %sw.bb ], [ %call24, %cond.false ], [ 4, %if.end22 ], [ 2, %sw.bb25 ], [ %cond60, %_ZNSt6vectorImSaImEED2Ev.exit.i54 ], [ %cond60, %if.then.i.i.i2.i57 ]
+  %retval.0 = phi i32 [ 2, %sw.bb25 ], [ %call18, %if.then10 ], [ 2, %sw.bb ], [ %cond31, %if.end28 ], [ 4, %if.end22 ], [ %call24, %cond.false ], [ %cond60, %_ZNSt6vectorImSaImEED2Ev.exit.i54 ], [ %cond60, %if.then.i.i.i2.i57 ]
   ret i32 %retval.0
 }
 
@@ -1745,8 +1745,8 @@ if.then26.i:                                      ; preds = %for.end.i
   br i1 %tobool.not.i55.i, label %_ZN8facebook5velox4bits9testWordsIZNS1_12findFirstBitEPKmiiEUlimE_ZNS1_12findFirstBitES4_iiEUliE_EEbiiT_T0_.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then26.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i, %if.then3.i
-  %and.i54.sink.i = phi i64 [ %4, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i ], [ %and.i35.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i ], [ %and.i.i, %if.then3.i ], [ %and.i54.i, %if.then26.i ]
-  %.sink.i = phi i32 [ %mul.i46.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i ], [ %mul.i38.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i ], [ %1, %if.then3.i ], [ %1, %if.then26.i ]
+  %and.i54.sink.i = phi i64 [ %and.i.i, %if.then3.i ], [ %4, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i ], [ %and.i35.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i ], [ %and.i54.i, %if.then26.i ]
+  %.sink.i = phi i32 [ %1, %if.then3.i ], [ %mul.i46.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i ], [ %mul.i38.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i ], [ %1, %if.then26.i ]
   %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i, i1 true)
   %cast.i58.i = trunc nuw nsw i64 %6 to i32
   %add.i59.i = or disjoint i32 %.sink.i, %cast.i58.i

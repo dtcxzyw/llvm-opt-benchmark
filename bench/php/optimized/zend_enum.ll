@@ -1075,7 +1075,7 @@ zend_class_constants_table.exit:                  ; preds = %68, %71, %73
   br label %88
 
 88:                                               ; preds = %42, %86, %51, %47, %81, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %42 ], [ 0, %86 ], [ -1, %51 ], [ -1, %47 ], [ -1, %81 ]
+  %.0 = phi i32 [ -1, %12 ], [ 0, %42 ], [ 0, %86 ], [ -1, %47 ], [ -1, %51 ], [ -1, %81 ]
   ret i32 %.0
 }
 
@@ -2332,7 +2332,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %50
   br label %.critedge144
 
 .critedge144:                                     ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_long_ex.exit, %.thread220, %.thread, %61, %.critedge149
-  %.0 = phi i1 [ true, %61 ], [ false, %.critedge149 ], [ false, %.thread ], [ false, %.thread220 ], [ false, %zend_parse_arg_long_ex.exit ], [ false, %zend_parse_arg_str_ex.exit ]
+  %.0 = phi i1 [ false, %.thread220 ], [ false, %.thread ], [ true, %61 ], [ false, %.critedge149 ], [ false, %zend_parse_arg_long_ex.exit ], [ false, %zend_parse_arg_str_ex.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %64 = load i64, ptr %5, align 8, !tbaa !158
   %65 = load ptr, ptr %4, align 8, !tbaa !25

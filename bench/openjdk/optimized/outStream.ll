@@ -756,7 +756,7 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   br label %82
 
 82:                                               ; preds = %outStream_writeObjectRef.exit, %79, %45, %76, %72, %69, %63, %59, %52, %48, %46
-  %.0 = phi i16 [ %47, %46 ], [ %51, %48 ], [ %58, %52 ], [ %62, %59 ], [ %68, %63 ], [ %71, %69 ], [ %75, %72 ], [ %78, %76 ], [ 0, %45 ], [ 0, %79 ], [ 0, %outStream_writeObjectRef.exit ]
+  %.0 = phi i16 [ 0, %45 ], [ %47, %46 ], [ %51, %48 ], [ %58, %52 ], [ %62, %59 ], [ %68, %63 ], [ %71, %69 ], [ %75, %72 ], [ %78, %76 ], [ 0, %79 ], [ 0, %outStream_writeObjectRef.exit ]
   ret i16 %.0
 }
 

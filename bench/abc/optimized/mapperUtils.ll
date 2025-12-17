@@ -211,7 +211,7 @@ define internal fastcc range(i32 0, 65536) i32 @Map_MappingCountLevels_rec(ptr n
   br label %common.ret14
 
 common.ret14:                                     ; preds = %9, %5, %12
-  %common.ret14.op = phi i32 [ %34, %12 ], [ %11, %9 ], [ 0, %5 ]
+  %common.ret14.op = phi i32 [ %34, %12 ], [ 0, %5 ], [ %11, %9 ]
   ret i32 %common.ret14.op
 
 12:                                               ; preds = %7
@@ -986,7 +986,7 @@ define i32 @Map_MappingCountDoubles(ptr noundef readnone captures(none) %0, ptr 
   br label %23
 
 23:                                               ; preds = %19, %10, %13, %16, %.lr.ph
-  %.1 = phi i32 [ %.01116, %16 ], [ %.01116, %13 ], [ %.01116, %10 ], [ %.01116, %.lr.ph ], [ %spec.select, %19 ]
+  %.1 = phi i32 [ %.01116, %.lr.ph ], [ %spec.select, %19 ], [ %.01116, %16 ], [ %.01116, %13 ], [ %.01116, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %3, align 8, !tbaa !28
   %25 = sext i32 %24 to i64

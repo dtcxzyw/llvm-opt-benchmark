@@ -735,14 +735,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %120
   %129 = load ptr, ptr %12, align 8, !tbaa !67
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %.critedge53, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
+  br i1 %131, label %.critedge53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %127
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63: ; preds = %127
   call void @_ZdlPv(ptr noundef %129) #13
   br label %.critedge53
 
-.critedge53:                                      ; preds = %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %.critedge51.thread83, %124
-  %.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %126, %.critedge51.thread83 ], [ %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %128, %127 ]
+.critedge53:                                      ; preds = %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63, %.critedge51.thread83, %124
+  %.pn.pn.pn = phi { ptr, i32 } [ %126, %.critedge51.thread83 ], [ %128, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63 ], [ %125, %124 ], [ %128, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %134
@@ -896,7 +896,7 @@ _ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit: ; p
   br label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
 
 _ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit: ; preds = %31, %36, %41, %47
-  %.0.i25 = phi i1 [ true, %47 ], [ false, %31 ], [ false, %36 ], [ false, %41 ]
+  %.0.i25 = phi i1 [ false, %41 ], [ false, %36 ], [ true, %47 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
@@ -1003,7 +1003,7 @@ _ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16
   br label %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread
 
 _ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread: ; preds = %15, %9, %18, %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %20
-  %.0.i11 = phi i1 [ true, %18 ], [ false, %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ true, %20 ], [ false, %9 ], [ false, %15 ]
+  %.0.i11 = phi i1 [ false, %9 ], [ true, %18 ], [ false, %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ true, %20 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
@@ -1047,7 +1047,7 @@ define noundef zeroext i1 @_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdat
   br label %21
 
 21:                                               ; preds = %13, %8, %2, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %2 ], [ false, %8 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %8 ], [ true, %19 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -1134,7 +1134,7 @@ define noundef zeroext i1 @_ZN3net12HpackDecoder14DecodeNextNameEPNS_16HpackInpu
   br label %_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
 
 _ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit: ; preds = %19, %17, %11, %21, %31, %29, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %29 ], [ true, %31 ], [ false, %21 ], [ %13, %11 ], [ %20, %19 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %3 ], [ true, %29 ], [ true, %31 ], [ %13, %11 ], [ %20, %19 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

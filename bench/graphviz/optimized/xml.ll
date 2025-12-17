@@ -124,7 +124,7 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   br i1 %41, label %.preheader.i.i, label %xml_isentity.exit.i, !llvm.loop !10
 
 xml_isentity.exit.i:                              ; preds = %switch.early.test.i.i, %.preheader19.i.i, %.preheader.i.i
-  %43 = phi i8 [ %37, %.preheader.i.i ], [ %32, %.preheader19.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
+  %43 = phi i8 [ %32, %.preheader19.i.i ], [ %37, %.preheader.i.i ], [ %.fr.i.i, %switch.early.test.i.i ]
   %44 = icmp eq i8 %43, 59
   br i1 %44, label %53, label %xml_isentity.exit.thread.i
 

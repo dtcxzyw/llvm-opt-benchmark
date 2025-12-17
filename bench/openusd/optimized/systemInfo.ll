@@ -141,8 +141,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19: ; 
   ret void
 
 .body:                                            ; preds = %29, %27, %23, %19, %13, %11
-  %.sink = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %19 ], [ %4, %23 ], [ %5, %27 ], [ %5, %29 ]
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ], [ %20, %19 ], [ %24, %23 ], [ %28, %27 ], [ %30, %29 ]
+  %.sink = phi ptr [ %4, %23 ], [ %3, %13 ], [ %3, %11 ], [ %4, %19 ], [ %5, %27 ], [ %5, %29 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ], [ %12, %11 ], [ %20, %19 ], [ %28, %27 ], [ %30, %29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #15
   resume { ptr, i32 } %.pn
 }

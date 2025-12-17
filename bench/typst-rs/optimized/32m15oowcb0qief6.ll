@@ -40,9 +40,9 @@ define internal fastcc noundef ptr @_ZN6flate22gz11read_to_nul17h813a94eeabab097
   %15 = and i64 %14, 3
   switch i64 %15, label %default.unreachable [
     i64 2, label %16
-    i64 3, label %18
-    i64 0, label %21
-    i64 1, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i
+    i64 0, label %18
+    i64 1, label %22
   ]
 
 default.unreachable:                              ; preds = %.lr.ph.i.i
@@ -54,25 +54,25 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br i1 %17, label %28, label %33
 
 18:                                               ; preds = %.lr.ph.i.i
-  %19 = icmp ult ptr %.val6.i.i, inttoptr (i64 176093659136 to ptr)
-  call void @llvm.assume(i1 %19)
-  %.mask.i.i.i = and i64 %14, -4294967296
-  %20 = icmp eq i64 %.mask.i.i.i, 150323855360
-  br i1 %20, label %28, label %33
+  %19 = getelementptr inbounds nuw i8, ptr %.val6.i.i, i64 16
+  %20 = load i8, ptr %19, align 8, !range !11, !noalias !4, !noundef !10
+  %21 = icmp eq i8 %20, 35
+  br i1 %21, label %28, label %33
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.val6.i.i, i64 16
-  %23 = load i8, ptr %22, align 8, !range !11, !noalias !4, !noundef !10
-  %24 = icmp eq i8 %23, 35
-  br i1 %24, label %28, label %33
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = getelementptr i8, ptr %.val6.i.i, i64 15
+  %24 = load i8, ptr %23, align 8, !range !11, !noalias !4, !noundef !10
+  %25 = icmp eq i8 %24, 35
+  br i1 %25, label %28, label %33
 
 _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %.lr.ph.i.i
-  %25 = getelementptr i8, ptr %.val6.i.i, i64 15
-  %26 = load i8, ptr %25, align 8, !range !11, !noalias !4, !noundef !10
-  %27 = icmp eq i8 %26, 35
+  %26 = icmp ult ptr %.val6.i.i, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %26)
+  %.mask.i.i.i = and i64 %14, -4294967296
+  %27 = icmp eq i64 %.mask.i.i.i, 150323855360
   br i1 %27, label %28, label %33
 
-28:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %21, %18, %16
+28:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %22, %18, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !12
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h77a360f655fc94f5E.llvm.7454132670541690561(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.val6.i.i), !noalias !12
   %29 = load i8, ptr %3, align 8, !range !19, !alias.scope !20, !noalias !12, !noundef !10
@@ -97,7 +97,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   br label %.loopexit
 
-33:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %21, %18, %16
+33:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i, %22, %18, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   br label %.loopexit
@@ -110,7 +110,7 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit.i.i: ; preds = %
   br i1 %36, label %.loopexit, label %37
 
 .loopexit:                                        ; preds = %34, %.thread71, %49, %33
-  %.0 = phi ptr [ %50, %49 ], [ %.val6.i.i, %33 ], [ inttoptr (i64 158913789955 to ptr), %.thread71 ], [ null, %34 ]
+  %.0 = phi ptr [ %.val6.i.i, %33 ], [ inttoptr (i64 158913789955 to ptr), %.thread71 ], [ %50, %49 ], [ null, %34 ]
   ret ptr %.0
 
 37:                                               ; preds = %34
@@ -361,7 +361,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   br label %.backedge.backedge
 
 106:                                              ; preds = %104, %163
-  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %164, %163 ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %105, %104 ]
   resume { ptr, i32 } %.pn
 
 .lr.ph298:                                        ; preds = %.preheader, %134
@@ -416,7 +416,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %126, %123, %119
-  %.0.i.i = phi i8 [ %spec.select.i.i.i.i, %119 ], [ %125, %123 ], [ %128, %126 ]
+  %.0.i.i = phi i8 [ %128, %126 ], [ %spec.select.i.i.i.i, %119 ], [ %125, %123 ]
   %129 = icmp eq i8 %.0.i.i, 35
   br i1 %129, label %130, label %139
 
@@ -583,7 +583,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %126, %123, %1
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i195
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i195: ; preds = %185, %182, %178
-  %.0.i.i196 = phi i8 [ %spec.select.i.i.i.i200, %178 ], [ %184, %182 ], [ %187, %185 ]
+  %.0.i.i196 = phi i8 [ %187, %185 ], [ %spec.select.i.i.i.i200, %178 ], [ %184, %182 ]
   %188 = icmp eq i8 %.0.i.i196, 35
   br i1 %188, label %189, label %198
 
@@ -693,7 +693,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i195: ; preds = %185, %182,
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i209
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i209: ; preds = %225, %222, %218
-  %.0.i.i210 = phi i8 [ %spec.select.i.i.i.i214, %218 ], [ %224, %222 ], [ %227, %225 ]
+  %.0.i.i210 = phi i8 [ %227, %225 ], [ %spec.select.i.i.i.i214, %218 ], [ %224, %222 ]
   %228 = icmp eq i8 %.0.i.i210, 35
   br i1 %228, label %229, label %240
 
@@ -905,7 +905,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i209: ; preds = %225, %222,
   br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i230
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i230: ; preds = %303, %300, %296
-  %.0.i.i231 = phi i8 [ %spec.select.i.i.i.i235, %296 ], [ %302, %300 ], [ %305, %303 ]
+  %.0.i.i231 = phi i8 [ %305, %303 ], [ %spec.select.i.i.i.i235, %296 ], [ %302, %300 ]
   %306 = icmp eq i8 %.0.i.i231, 35
   br i1 %306, label %307, label %316
 
@@ -1011,7 +1011,7 @@ default.unreachable:                              ; preds = %13
   br label %.thread12
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %24, %21, %17
-  %.0.i = phi i8 [ %spec.select.i.i.i, %17 ], [ %23, %21 ], [ %26, %24 ]
+  %.0.i = phi i8 [ %26, %24 ], [ %spec.select.i.i.i, %17 ], [ %23, %21 ]
   %29 = icmp eq i8 %.0.i, 35
   br i1 %29, label %31, label %.thread
 

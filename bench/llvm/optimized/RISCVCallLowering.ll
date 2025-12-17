@@ -488,7 +488,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %39, %43
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %tailrecurse, %26, %3, %21, %_ZNK4llvm4Type13getScalarTypeEv.exit, %48
-  %.022 = phi i1 [ false, %48 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %21 ], [ true, %3 ], [ %30, %26 ], [ true, %tailrecurse ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %.lr.ph ]
+  %.022 = phi i1 [ false, %48 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %3 ], [ true, %21 ], [ %30, %26 ], [ true, %tailrecurse ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %.lr.ph ]
   ret i1 %.022
 }
 
@@ -1332,7 +1332,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   br label %145
 
 145:                                              ; preds = %139, %144, %._crit_edge, %137
-  %.4 = phi i1 [ false, %137 ], [ false, %._crit_edge ], [ true, %144 ], [ true, %139 ]
+  %.4 = phi i1 [ false, %._crit_edge ], [ false, %137 ], [ true, %144 ], [ true, %139 ]
   %146 = getelementptr inbounds nuw i8, ptr %14, i64 368
   %147 = load ptr, ptr %146, align 8, !tbaa !224
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 384
@@ -1893,7 +1893,7 @@ _ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit: ; preds = %_ZN4l
   br label %.thread
 
 .thread:                                          ; preds = %158, %207, %.thread138, %84, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit
-  %.4 = phi i1 [ false, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit ], [ false, %84 ], [ true, %.thread138 ], [ true, %207 ], [ true, %158 ]
+  %.4 = phi i1 [ false, %84 ], [ false, %_ZN4llvm11SmallVectorINS_12CallLowering7ArgInfoELj4EED2Ev.exit ], [ true, %.thread138 ], [ true, %207 ], [ true, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %218 = load ptr, ptr %10, align 8, !tbaa !224
@@ -2123,7 +2123,7 @@ define internal fastcc noundef zeroext i1 @_ZL24isLegalElementTypeForRVVPN4llvm4
   br label %47
 
 47:                                               ; preds = %29, %15, %17, %19, %21, %11, %7, %43, %39, %35, %31, %25
-  %.0 = phi i1 [ %28, %25 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %14, %11 ], [ true, %7 ], [ true, %21 ], [ true, %19 ], [ true, %17 ], [ true, %15 ], [ false, %29 ]
+  %.0 = phi i1 [ true, %15 ], [ true, %7 ], [ %28, %25 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %14, %11 ], [ true, %21 ], [ true, %19 ], [ true, %17 ], [ false, %29 ]
   ret i1 %.0
 }
 

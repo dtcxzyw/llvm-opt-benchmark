@@ -261,7 +261,7 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
   unreachable
 
 125:                                              ; preds = %123, %121, %116
-  %.5.i.i = phi i32 [ %111, %116 ], [ %122, %121 ], [ %124, %123 ]
+  %.5.i.i = phi i32 [ %124, %123 ], [ %111, %116 ], [ %122, %121 ]
   %126 = and i32 %114, 7
   %127 = icmp eq i32 %126, 4
   br i1 %127, label %128, label %_asm_x86_inslen.exit.i
@@ -281,7 +281,7 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
   br label %_asm_x86_inslen.exit.i
 
 _asm_x86_inslen.exit.i:                           ; preds = %131, %128, %125, %119, %.loopexit56.i.i, %.loopexit.i.i, %59
-  %.054.i.i = phi i32 [ %62, %59 ], [ %120, %119 ], [ %80, %.loopexit.i.i ], [ %111, %.loopexit56.i.i ], [ %129, %128 ], [ %.5.i.i, %125 ], [ %spec.select.i.i, %131 ]
+  %.054.i.i = phi i32 [ %62, %59 ], [ %111, %.loopexit56.i.i ], [ %120, %119 ], [ %80, %.loopexit.i.i ], [ %.5.i.i, %125 ], [ %spec.select.i.i, %131 ], [ %129, %128 ]
   %137 = zext i32 %.054.i.i to i64
   %138 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 %137
   %139 = icmp ult ptr %138, %19
@@ -296,7 +296,7 @@ _asm_x86_inslen.exit.i:                           ; preds = %131, %128, %125, %1
   br label %ir_patch_code.exit
 
 ir_patch_code.exit:                               ; preds = %.loopexit, %._crit_edge.i, %140
-  %.0.lcssa92.i = phi i32 [ %.1.i, %140 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
+  %.0.lcssa92.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %140 ], [ 0, %.loopexit ]
   %142 = add nsw i32 %.0.lcssa92.i, %.015
   ret i32 %142
 }

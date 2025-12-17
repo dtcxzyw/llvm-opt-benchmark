@@ -81,8 +81,8 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %.176 = select i1 %26, i32 6, i32 5
   br label %29
 
-29:                                               ; preds = %20, %27, %28
-  %.0154.ph = phi i32 [ %.176, %28 ], [ %.175, %27 ], [ %., %20 ]
+29:                                               ; preds = %27, %20, %28
+  %.0154.ph = phi i32 [ %.176, %28 ], [ %., %20 ], [ %.175, %27 ]
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 124) #10
   %.not167214 = icmp eq ptr %30, null
   br i1 %.not167214, label %._crit_edge, label %.lr.ph
@@ -273,8 +273,8 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br label %.thread190
 
 123:                                              ; preds = %111, %81, %118, %89, %99, %68, %56, %46, %40
-  %124 = phi ptr [ %113, %111 ], [ %83, %81 ], [ %113, %118 ], [ %101, %99 ], [ %83, %89 ], [ %70, %68 ], [ %58, %56 ], [ %48, %46 ], [ %41, %40 ]
-  %.2153.ph = phi i64 [ -1, %111 ], [ -1, %81 ], [ %121, %118 ], [ %.0151216, %99 ], [ %92, %89 ], [ %.0151216, %68 ], [ %.0151216, %56 ], [ %.0151216, %46 ], [ %.0151216, %40 ]
+  %124 = phi ptr [ %113, %111 ], [ %113, %118 ], [ %101, %99 ], [ %83, %81 ], [ %83, %89 ], [ %70, %68 ], [ %58, %56 ], [ %48, %46 ], [ %41, %40 ]
+  %.2153.ph = phi i64 [ -1, %111 ], [ %121, %118 ], [ %.0151216, %99 ], [ -1, %81 ], [ %92, %89 ], [ %.0151216, %68 ], [ %.0151216, %56 ], [ %.0151216, %46 ], [ %.0151216, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -467,7 +467,7 @@ thread-pre-split:                                 ; preds = %.lr.ph223, %.prehea
   br label %.thread190
 
 .thread190:                                       ; preds = %.loopexit, %.thread193, %._crit_edge220.thread, %122, %._crit_edge, %161, %153
-  %.2 = phi i32 [ -22, %122 ], [ -22, %161 ], [ -22, %153 ], [ -12, %._crit_edge ], [ -12, %._crit_edge220.thread ], [ %.1149.ph, %.loopexit ], [ 0, %.thread193 ]
+  %.2 = phi i32 [ -22, %122 ], [ -12, %._crit_edge220.thread ], [ -12, %._crit_edge ], [ -22, %161 ], [ -22, %153 ], [ %.1149.ph, %.loopexit ], [ 0, %.thread193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
@@ -511,7 +511,7 @@ define internal range(i32 -2147483648, 1) i32 @channelmap_query_formats(ptr noun
   br label %19
 
 19:                                               ; preds = %14, %10, %3
-  %.0 = phi i32 [ %8, %3 ], [ %12, %10 ], [ %., %14 ]
+  %.0 = phi i32 [ %12, %10 ], [ %8, %3 ], [ %., %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -635,7 +635,7 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   br label %62
 
 62:                                               ; preds = %32, %55, %60
-  %.1 = phi i32 [ %61, %60 ], [ -12, %32 ], [ %58, %55 ]
+  %.1 = phi i32 [ -12, %32 ], [ %61, %60 ], [ %58, %55 ]
   ret i32 %.1
 }
 
@@ -710,8 +710,8 @@ define internal range(i32 -22, 1) i32 @channelmap_config_input(ptr noundef %0) #
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %5, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %24, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #11
   br label %check_idx_and_id.exit
 
-check_idx_and_id.exit:                            ; preds = %32, %34, %27
-  %35 = phi i32 [ %.02227, %27 ], [ -22, %34 ], [ -22, %32 ]
+check_idx_and_id.exit:                            ; preds = %34, %32, %27
+  %35 = phi i32 [ %.02227, %27 ], [ -22, %32 ], [ -22, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -779,7 +779,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_idx_and_id(ptr noundef %0, i
   br label %18
 
 18:                                               ; preds = %9, %15, %17
-  %.0 = phi i32 [ -22, %17 ], [ -22, %15 ], [ 0, %9 ]
+  %.0 = phi i32 [ -22, %15 ], [ -22, %17 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -845,7 +845,7 @@ split.exit:                                       ; preds = %6
   br label %21
 
 21:                                               ; preds = %17, %11, %split.exit, %3, %20
-  %.0 = phi i32 [ 0, %20 ], [ -22, %3 ], [ -22, %split.exit ], [ -22, %11 ], [ -22, %17 ]
+  %.0 = phi i32 [ -22, %3 ], [ -22, %split.exit ], [ -22, %11 ], [ 0, %20 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

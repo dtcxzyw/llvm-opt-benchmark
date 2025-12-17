@@ -1546,9 +1546,9 @@ _.exit220.i:                                      ; preds = %607, %605
   br label %run_dir_diff.exit
 
 run_dir_diff.exit:                                ; preds = %220, %470, %472, %585, %_.exit217.i, %._crit_edge429.thread.i, %_.exit220.i, %.loopexit289.i, %609
-  %.0105284.i = phi ptr [ %250, %609 ], [ %250, %.loopexit289.i ], [ null, %220 ], [ %250, %472 ], [ %250, %._crit_edge429.thread.i ], [ %250, %_.exit220.i ], [ %250, %_.exit217.i ], [ %250, %585 ], [ %250, %470 ]
-  %.0106283.i = phi ptr [ %260, %609 ], [ %260, %.loopexit289.i ], [ null, %220 ], [ %260, %472 ], [ %260, %._crit_edge429.thread.i ], [ %260, %_.exit220.i ], [ %260, %_.exit217.i ], [ %260, %585 ], [ %260, %470 ]
-  %.0107282.i = phi i32 [ -1, %609 ], [ -1, %.loopexit289.i ], [ -1, %220 ], [ 0, %472 ], [ 0, %._crit_edge429.thread.i ], [ %522, %_.exit220.i ], [ 1, %_.exit217.i ], [ -1, %585 ], [ -1, %470 ]
+  %.0105284.i = phi ptr [ %250, %.loopexit289.i ], [ %250, %609 ], [ null, %220 ], [ %250, %472 ], [ %250, %._crit_edge429.thread.i ], [ %250, %_.exit220.i ], [ %250, %_.exit217.i ], [ %250, %585 ], [ %250, %470 ]
+  %.0106283.i = phi ptr [ %260, %.loopexit289.i ], [ %260, %609 ], [ null, %220 ], [ %260, %472 ], [ %260, %._crit_edge429.thread.i ], [ %260, %_.exit220.i ], [ %260, %_.exit217.i ], [ %260, %585 ], [ %260, %470 ]
+  %.0107282.i = phi i32 [ -1, %.loopexit289.i ], [ -1, %609 ], [ -1, %220 ], [ 0, %472 ], [ 0, %._crit_edge429.thread.i ], [ %522, %_.exit220.i ], [ 1, %_.exit217.i ], [ -1, %585 ], [ -1, %470 ]
   call void @hashmap_clear_(ptr noundef nonnull %17, i64 noundef 0) #18
   call void @hashmap_clear_(ptr noundef nonnull %25, i64 noundef 0) #18
   call void @hashmap_clear_(ptr noundef nonnull %26, i64 noundef 0) #18

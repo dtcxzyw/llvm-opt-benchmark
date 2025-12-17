@@ -1907,7 +1907,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %143, %146
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55, %150, %68
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %33, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %59, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55 ], [ %.pn.pn119, %150 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %33, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn.pn119, %150 ], [ %59, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i55 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
@@ -1968,7 +1968,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn13GemmLayerImpl14suppor
   br label %20
 
 20:                                               ; preds = %3, %2, %2, %2, %.fold.split, %10, %15
-  %21 = phi i1 [ true, %2 ], [ false, %10 ], [ %19, %15 ], [ true, %2 ], [ true, %2 ], [ false, %.fold.split ], [ true, %3 ]
+  %21 = phi i1 [ true, %2 ], [ true, %2 ], [ true, %3 ], [ true, %2 ], [ false, %.fold.split ], [ false, %10 ], [ %19, %15 ]
   ret i1 %21
 }
 
@@ -2327,8 +2327,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   br i1 %or.cond, label %.thread186, label %.invoke231
 
 .invoke231:                                       ; preds = %172, %.thread184, %162, %164, %148
-  %152 = phi i32 [ %149, %148 ], [ %155, %164 ], [ %155, %162 ], [ %166, %.thread184 ], [ %166, %172 ]
-  %153 = phi ptr [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__80, %148 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %164 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %162 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__89, %.thread184 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__91, %172 ]
+  %152 = phi i32 [ %166, %.thread184 ], [ %149, %148 ], [ %155, %162 ], [ %155, %164 ], [ %166, %172 ]
+  %153 = phi ptr [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__89, %.thread184 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__80, %148 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %162 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__87, %164 ], [ @_ZZNK2cv3dnn13GemmLayerImpl15getMemoryShapesERKSt6vectorIS2_IiSaIiEESaIS4_EEiRS6_S9_E14__cv_check__91, %172 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %152, ptr noundef nonnull align 8 dereferenceable(48) %153) #25
           to label %.cont232 unwind label %.thread194
 
@@ -2394,7 +2394,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   br i1 %.not.i.i.i85, label %.body75.thread, label %176
 
 176:                                              ; preds = %.thread194, %175
-  %.pn55191 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %175 ], [ %lpad.thr_comm, %.thread194 ]
+  %.pn55191 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread194 ], [ %lpad.thr_comm.split-lp, %175 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0130.0) #22
   br label %.body75.thread
 
@@ -2473,12 +2473,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit96:                  ; preds = %195, %192, %190
   br label %.body75.thread
 
 .body75.thread:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit96, %103, %176, %175, %141, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i74, %.body75
-  %.pn58.pn.pn.pn199 = phi { ptr, i32 } [ %71, %.body75 ], [ %.pn55191, %176 ], [ %lpad.thr_comm.split-lp, %175 ], [ %122, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i74 ], [ %142, %141 ], [ %.pn58, %_ZNSt6vectorIiSaIiEED2Ev.exit96 ], [ %104, %103 ]
+  %.pn58.pn.pn.pn199 = phi { ptr, i32 } [ %71, %.body75 ], [ %.pn55191, %176 ], [ %lpad.thr_comm.split-lp, %175 ], [ %142, %141 ], [ %122, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i74 ], [ %.pn58, %_ZNSt6vectorIiSaIiEED2Ev.exit96 ], [ %104, %103 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0159.0) #22
   br label %.body
 
 .body:                                            ; preds = %.body75.thread, %.body75, %69, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn58.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %53, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %71, %.body75 ], [ %.pn58.pn.pn.pn199, %.body75.thread ]
+  %.pn58.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %70, %69 ], [ %71, %.body75 ], [ %.pn58.pn.pn.pn199, %.body75.thread ]
   %.not.i.i.i99 = icmp eq ptr %40, null
   br i1 %.not.i.i.i99, label %_ZNSt6vectorIiSaIiEED2Ev.exit100, label %196
 

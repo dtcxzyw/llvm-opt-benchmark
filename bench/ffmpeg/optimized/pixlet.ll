@@ -1069,7 +1069,7 @@ read_high_coeffs.exit.i.i:                        ; preds = %530, %._crit_edge29
   br i1 %534, label %read_high_coeffs.exit.thread.i.i, label %537
 
 read_high_coeffs.exit.thread.i.i:                 ; preds = %read_high_coeffs.exit.i.i, %.lr.ph.preheader.i.i.i, %329, %518, %516, %470, %391
-  %.0.i6975.i.i = phi i32 [ -1094995529, %391 ], [ -1094995529, %470 ], [ -1094995529, %516 ], [ -1094995529, %518 ], [ -1094995529, %.lr.ph.preheader.i.i.i ], [ -1094995529, %329 ], [ %533, %read_high_coeffs.exit.i.i ]
+  %.0.i6975.i.i = phi i32 [ -1094995529, %518 ], [ -1094995529, %391 ], [ -1094995529, %470 ], [ -1094995529, %516 ], [ -1094995529, %.lr.ph.preheader.i.i.i ], [ -1094995529, %329 ], [ %533, %read_high_coeffs.exit.i.i ]
   %535 = trunc nuw nsw i64 %indvars.iv to i32
   %536 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef range(i32 -2147483648, 3) %535, i32 noundef %536) #11
@@ -1610,7 +1610,7 @@ decode_plane.exit:                                ; preds = %._crit_edge12.i.i
   br label %812
 
 812:                                              ; preds = %808, %806, %802
-  %.sink.i = phi i16 [ %811, %808 ], [ -1, %806 ], [ 0, %802 ]
+  %.sink.i = phi i16 [ -1, %806 ], [ %811, %808 ], [ 0, %802 ]
   store i16 %.sink.i, ptr %803, align 2, !tbaa !42
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i
@@ -1630,7 +1630,7 @@ postprocess_luma.exit:                            ; preds = %._crit_edge.us.i, %
   br label %decode_plane.exit.thread
 
 decode_plane.exit.thread:                         ; preds = %bytestream2_get_be16.exit.i, %bytestream2_get_be32.exit.i, %327, %read_high_coeffs.exit.thread.i.i, %325, %bytestream2_get_be32.exit.thread.i, %251, %237, %226, %217, %bytestream2_get_be32.exit108.thread, %bytestream2_get_be32.exit102.thread, %115, %build_luma_lut.exit, %bytestream2_get_be32.exit108, %bytestream2_get_be32.exit106, %bytestream2_get_be32.exit102, %postprocess_luma.exit, %114, %84, %26
-  %.0 = phi i32 [ -1094995529, %26 ], [ -1094995529, %84 ], [ %112, %114 ], [ %21, %postprocess_luma.exit ], [ -1094995529, %bytestream2_get_be32.exit102 ], [ -1094995529, %bytestream2_get_be32.exit106 ], [ -1094995529, %bytestream2_get_be32.exit108 ], [ %100, %build_luma_lut.exit ], [ %123, %115 ], [ -1094995529, %bytestream2_get_be32.exit102.thread ], [ -1094995529, %bytestream2_get_be32.exit108.thread ], [ %.0.i6975.i.i, %read_high_coeffs.exit.thread.i.i ], [ -1094995529, %325 ], [ -1094995529, %bytestream2_get_be32.exit.thread.i ], [ -1094995529, %251 ], [ %235, %237 ], [ %224, %226 ], [ %215, %217 ], [ -1094995529, %327 ], [ -1094995529, %bytestream2_get_be32.exit.i ], [ -1094995529, %bytestream2_get_be16.exit.i ]
+  %.0 = phi i32 [ -1094995529, %26 ], [ %21, %postprocess_luma.exit ], [ -1094995529, %bytestream2_get_be32.exit102 ], [ -1094995529, %bytestream2_get_be32.exit106 ], [ -1094995529, %84 ], [ -1094995529, %bytestream2_get_be32.exit108 ], [ %112, %114 ], [ %100, %build_luma_lut.exit ], [ %123, %115 ], [ -1094995529, %bytestream2_get_be32.exit108.thread ], [ -1094995529, %bytestream2_get_be32.exit102.thread ], [ %.0.i6975.i.i, %read_high_coeffs.exit.thread.i.i ], [ -1094995529, %325 ], [ -1094995529, %bytestream2_get_be32.exit.thread.i ], [ -1094995529, %251 ], [ %235, %237 ], [ %224, %226 ], [ %215, %217 ], [ -1094995529, %bytestream2_get_be32.exit.i ], [ -1094995529, %327 ], [ -1094995529, %bytestream2_get_be16.exit.i ]
   ret i32 %.0
 }
 
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -12, 1) i32 @init_decoder(ptr captures(none) in
   br i1 %exitcond9.not, label %.loopexit, label %26, !llvm.loop !91
 
 .loopexit:                                        ; preds = %52, %0, %19
-  %.0 = phi i32 [ -12, %19 ], [ -12, %0 ], [ 0, %52 ]
+  %.0 = phi i32 [ -12, %0 ], [ -12, %19 ], [ 0, %52 ]
   ret i32 %.0
 }
 

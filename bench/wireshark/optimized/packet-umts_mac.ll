@@ -1958,12 +1958,12 @@ get_sdu.exit196.i:                                ; preds = %337
   %349 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %348, ptr noundef %346, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %mac_is_add_fragment.exit
 
-mac_is_add_fragment.exit.thread:                  ; preds = %find_tail.exit189.i, %find_head.exit172.i, %find_head.exit.i, %find_tail.exit.i, %._crit_edge.i.i, %._crit_edge.i157.i, %get_sdu.exit.i, %get_sdu.exit.thread.i, %get_sdu.exit193.i, %get_sdu.exit193.thread.i, %get_sdu.exit196.i, %get_sdu.exit196.thread.i
+mac_is_add_fragment.exit.thread:                  ; preds = %._crit_edge.i157.i, %get_sdu.exit196.thread.i, %get_sdu.exit193.thread.i, %get_sdu.exit.thread.i, %find_tail.exit189.i, %find_head.exit172.i, %find_head.exit.i, %find_tail.exit.i, %._crit_edge.i.i, %get_sdu.exit.i, %get_sdu.exit193.i, %get_sdu.exit196.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %call_rlc.exit
 
 mac_is_add_fragment.exit:                         ; preds = %211, %.thread217.i, %.thread219.i, %312, %322, %331, %342, %344
-  %.5.i = phi ptr [ %311, %.thread219.i ], [ %264, %.thread217.i ], [ %313, %312 ], [ %215, %211 ], [ %346, %344 ], [ %343, %342 ], [ %332, %331 ], [ %323, %322 ]
+  %.5.i = phi ptr [ %313, %312 ], [ %311, %.thread219.i ], [ %264, %.thread217.i ], [ %215, %211 ], [ %343, %342 ], [ %332, %331 ], [ %323, %322 ], [ %346, %344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %.5.i, null
   br i1 %.not, label %call_rlc.exit, label %350
@@ -2727,7 +2727,7 @@ proto_item_set_generated.exit106:                 ; preds = %96, %93, %proto_ite
   br label %proto_item_set_generated.exit109
 
 proto_item_set_generated.exit109:                 ; preds = %.thread, %138, %135, %117, %106
-  %.1 = phi i16 [ %.0, %106 ], [ %126, %117 ], [ %126, %135 ], [ %126, %138 ], [ %116, %.thread ]
+  %.1 = phi i16 [ %.0, %106 ], [ %116, %.thread ], [ %126, %117 ], [ %126, %135 ], [ %126, %138 ]
   ret i16 %.1
 }
 

@@ -159,16 +159,16 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %exitcond217.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !10
 
 65:                                               ; preds = %62, %59, %._crit_edge.us.us, %50
-  %.4122.us.us = phi i32 [ %.0123.lcssa.us.us, %62 ], [ %.3121167.us.us, %59 ], [ %.3121167.us.us, %._crit_edge.us.us ], [ %.3121167.us.us, %50 ]
-  %.4.us.us = phi i32 [ %63, %62 ], [ %.3117168.us.us, %59 ], [ %.3117168.us.us, %._crit_edge.us.us ], [ %.3117168.us.us, %50 ]
+  %.4122.us.us = phi i32 [ %.0123.lcssa.us.us, %62 ], [ %.3121167.us.us, %50 ], [ %.3121167.us.us, %59 ], [ %.3121167.us.us, %._crit_edge.us.us ]
+  %.4.us.us = phi i32 [ %63, %62 ], [ %.3117168.us.us, %50 ], [ %.3117168.us.us, %59 ], [ %.3117168.us.us, %._crit_edge.us.us ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next219 to i32
   %exitcond221.not = icmp eq i32 %.1131194, %lftr.wideiv
   br i1 %exitcond221.not, label %._crit_edge173.split.us.us, label %.lr.ph169.us, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge173.split.us.us, %.lr.ph.split.us
-  %.0118.lcssa = phi i32 [ %.3121.lcssa.us, %._crit_edge173.split.us.us ], [ %.0118179.us, %.lr.ph.split.us ]
-  %.0114.lcssa = phi i32 [ %.3117.lcssa.us, %._crit_edge173.split.us.us ], [ %.0114180.us, %.lr.ph.split.us ]
+  %.0118.lcssa = phi i32 [ %.0118179.us, %.lr.ph.split.us ], [ %.3121.lcssa.us, %._crit_edge173.split.us.us ]
+  %.0114.lcssa = phi i32 [ %.0114180.us, %.lr.ph.split.us ], [ %.3117.lcssa.us, %._crit_edge173.split.us.us ]
   %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %.0118.lcssa, i32 65535)
   %.not146 = icmp eq i32 %.0118.lcssa, 0
   br i1 %.not146, label %.critedge.thread, label %66

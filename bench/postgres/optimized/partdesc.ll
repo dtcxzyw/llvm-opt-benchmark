@@ -264,7 +264,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %124, %123, %118, %116, %111, %108, %105, %102, %76
-  %.0.i.i = phi i64 [ %77, %76 ], [ 0, %123 ], [ %125, %124 ], [ %119, %118 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %112, %111 ], [ %117, %116 ]
+  %.0.i.i = phi i64 [ %77, %76 ], [ %125, %124 ], [ 0, %123 ], [ %119, %118 ], [ %104, %102 ], [ %107, %105 ], [ %110, %108 ], [ %112, %111 ], [ %117, %116 ]
   %126 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %132, label %128
@@ -490,7 +490,7 @@ RelationBuildPartitionDesc.exit:                  ; preds = %216, %225
   br label %.critedge17
 
 .critedge17:                                      ; preds = %11, %..critedge17_crit_edge, %27, %RelationBuildPartitionDesc.exit
-  %.013 = phi ptr [ %175, %RelationBuildPartitionDesc.exit ], [ %28, %27 ], [ %.pre, %..critedge17_crit_edge ], [ %10, %11 ]
+  %.013 = phi ptr [ %28, %27 ], [ %175, %RelationBuildPartitionDesc.exit ], [ %.pre, %..critedge17_crit_edge ], [ %10, %11 ]
   ret ptr %.013
 }
 

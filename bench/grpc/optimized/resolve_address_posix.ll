@@ -1265,7 +1265,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %285, %283, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %284, %283 ], [ %286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119 ], [ %286, %285 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119 ], [ %284, %283 ], [ %286, %285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %402
@@ -1401,9 +1401,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit130:        ; preds = %._crit_edge, %319, 
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit130.thread
 
 _ZN4absl12lts_202407226StatusD2Ev.exit130.thread: ; preds = %.preheader, %326, %_ZN4absl12lts_202407226StatusD2Ev.exit130
-  %.sroa.0173.0286 = phi ptr [ %.sroa.0173.0.ph, %326 ], [ %.sroa.0173.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ null, %.preheader ]
-  %.sroa.10.0285 = phi ptr [ %.sroa.10.0.ph, %326 ], [ %.sroa.10.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ null, %.preheader ]
-  %.sroa.15.0284 = phi ptr [ %.sroa.15.0.ph, %326 ], [ %.sroa.15.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ null, %.preheader ]
+  %.sroa.0173.0286 = phi ptr [ %.sroa.0173.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ %.sroa.0173.0.ph, %326 ], [ null, %.preheader ]
+  %.sroa.10.0285 = phi ptr [ %.sroa.10.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ %.sroa.10.0.ph, %326 ], [ null, %.preheader ]
+  %.sroa.15.0284 = phi ptr [ %.sroa.15.0.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit130 ], [ %.sroa.15.0.ph, %326 ], [ null, %.preheader ]
   %327 = load i64, ptr %13, align 8, !tbaa !23
   %328 = icmp eq i64 %327, 1
   br i1 %328, label %329, label %333
@@ -2028,7 +2028,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   unreachable
 
 .body:                                            ; preds = %80, %78, %25, %22
-  %.pn.pn = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %.pn, %78 ], [ %.pn, %80 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn, %80 ], [ %23, %25 ], [ %.pn, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2275,7 +2275,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   unreachable
 
 .body:                                            ; preds = %80, %78, %25, %22
-  %.pn.pn = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %.pn, %78 ], [ %.pn, %80 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn, %80 ], [ %23, %25 ], [ %.pn, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -443,7 +443,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   br i1 %62, label %.preheader43.i.i, label %calculatePrimaryColorsApproximation.exit.i, !llvm.loop !9
 
 calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %128, %110, %93, %77, %126, %.preheader.split.split.i.i, %112, %.preheader.split.split.us.i.i, %95, %.preheader.split.us.us.split.i.i, %79, %.preheader.split.us.us.split.us.i.i
-  %.0.i.i = phi i32 [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %79 ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %95 ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %112 ], [ 0, %.preheader.split.split.i.i ], [ 0, %126 ], [ 0, %77 ], [ 0, %93 ], [ 0, %110 ], [ 0, %128 ], [ 1, %.split50.us.i.i ]
+  %.0.i.i = phi i32 [ 0, %128 ], [ 0, %79 ], [ 0, %95 ], [ 0, %112 ], [ 0, %126 ], [ 0, %93 ], [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %.preheader.split.split.i.i ], [ 0, %77 ], [ 0, %110 ], [ 1, %.split50.us.i.i ]
   %130 = getelementptr inbounds nuw i8, ptr %35, i64 84
   store i32 %.0.i.i, ptr %130, align 4
   %131 = icmp eq i8 %42, 1
@@ -494,7 +494,7 @@ calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %1
   call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %146, ptr noundef nonnull @BufImg_Dispose_ICMColorData, i64 noundef %158) #6
   br label %.sink.split
 
-BufImg_SetupICM.exit.thread:                      ; preds = %50, %57, %151, %15, %26, %.thread.i
+BufImg_SetupICM.exit.thread:                      ; preds = %15, %26, %50, %57, %151, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %159, align 8

@@ -949,7 +949,7 @@ is_mmconf_reserved.specialized.2.exit:            ; preds = %.loopexit.i
   br label %is_mmconf_reserved.specialized.1.exit
 
 is_mmconf_reserved.specialized.1.exit:            ; preds = %67, %66, %41, %172, %171, %146, %136, %119, %.critedge, %116, %112
-  %180 = phi i1 [ true, %116 ], [ true, %112 ], [ true, %.critedge ], [ false, %119 ], [ false, %136 ], [ true, %146 ], [ true, %171 ], [ true, %172 ], [ true, %41 ], [ true, %66 ], [ true, %67 ]
+  %180 = phi i1 [ false, %119 ], [ true, %172 ], [ true, %116 ], [ true, %112 ], [ true, %.critedge ], [ false, %136 ], [ true, %146 ], [ true, %171 ], [ true, %41 ], [ true, %66 ], [ true, %67 ]
   ret i1 %180
 }
 

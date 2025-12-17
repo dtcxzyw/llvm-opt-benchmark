@@ -709,7 +709,7 @@ lpad120:                                          ; preds = %invoke.cont119
   unreachable
 
 cleanup126:                                       ; preds = %invoke.cont113.thread, %if.end.sink.split.i.i.i, %if.else.i.i.i, %invoke.cont63, %invoke.cont90, %invoke.cont113, %_ZN8proxygen11HPACKHeaderD2Ev.exit, %invoke.cont86, %invoke.cont32, %invoke.cont18
-  %retval.0 = phi i32 [ 0, %invoke.cont18 ], [ 0, %invoke.cont86 ], [ 0, %invoke.cont32 ], [ %call91, %_ZN8proxygen11HPACKHeaderD2Ev.exit ], [ %call91, %invoke.cont113 ], [ %call91, %invoke.cont90 ], [ 0, %invoke.cont63 ], [ 0, %if.else.i.i.i ], [ 0, %if.end.sink.split.i.i.i ], [ %call91, %invoke.cont113.thread ]
+  %retval.0 = phi i32 [ 0, %invoke.cont18 ], [ 0, %invoke.cont86 ], [ %call91, %invoke.cont90 ], [ 0, %invoke.cont32 ], [ %call91, %_ZN8proxygen11HPACKHeaderD2Ev.exit ], [ %call91, %invoke.cont113 ], [ 0, %invoke.cont63 ], [ 0, %if.else.i.i.i ], [ 0, %if.end.sink.split.i.i.i ], [ %call91, %invoke.cont113.thread ]
   %53 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %cmp.i.i.i54 = icmp ult i8 %53, 64
   br i1 %cmp.i.i.i54, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit.i61, label %if.end.i.i.i55
@@ -769,7 +769,7 @@ _ZN8proxygen11HPACKHeaderD2Ev.exit76:             ; preds = %_ZN5folly14basic_fb
   ret i32 %retval.0
 
 ehcleanup127:                                     ; preds = %if.end.sink.split.i.i.i28, %if.else.i.i.i25, %ehcleanup, %lpad, %lpad.i.i, %lpad98, %lpad75, %lpad27, %lpad12
-  %.pn8 = phi { ptr, i32 } [ %2, %lpad12 ], [ %33, %lpad75 ], [ %51, %lpad98 ], [ %9, %lpad27 ], [ %1, %lpad ], [ %50, %lpad.i.i ], [ %.pn, %ehcleanup ], [ %.pn, %if.else.i.i.i25 ], [ %.pn, %if.end.sink.split.i.i.i28 ]
+  %.pn8 = phi { ptr, i32 } [ %2, %lpad12 ], [ %50, %lpad.i.i ], [ %33, %lpad75 ], [ %51, %lpad98 ], [ %9, %lpad27 ], [ %1, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.else.i.i.i25 ], [ %.pn, %if.end.sink.split.i.i.i28 ]
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %header) #14
   resume { ptr, i32 } %.pn8
 }

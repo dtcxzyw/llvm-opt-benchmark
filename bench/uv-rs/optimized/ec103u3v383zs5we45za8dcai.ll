@@ -916,7 +916,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   br i1 %58, label %205, label %.thread164
 
 59:                                               ; preds = %134, %200, %190, %.thread191, %173, %54
-  %.sroa.051.0 = phi i8 [ 1, %190 ], [ 0, %200 ], [ 1, %.thread191 ], [ 1, %173 ], [ 1, %54 ], [ %.sroa.051.5, %134 ]
+  %.sroa.051.0 = phi i8 [ 1, %190 ], [ 0, %200 ], [ 1, %54 ], [ 1, %.thread191 ], [ 1, %173 ], [ %.sroa.051.5, %134 ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit"
@@ -957,7 +957,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit" unwind label %126
 
 76:                                               ; preds = %.invoke, %164, %.thread180, %137, %119, %.thread174, %92
-  %.sroa.051.2 = phi i8 [ 0, %164 ], [ 1, %.thread180 ], [ 1, %137 ], [ 0, %119 ], [ 1, %.thread174 ], [ 1, %92 ], [ 1, %.invoke ]
+  %.sroa.051.2 = phi i8 [ 1, %.invoke ], [ 0, %164 ], [ 0, %119 ], [ 1, %.thread180 ], [ 1, %137 ], [ 1, %92 ], [ 1, %.thread174 ]
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -1093,7 +1093,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %or.cond.not.i.i137 = icmp eq i32 %124, -2147483648
   br i1 %or.cond.not.i.i137, label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split", label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139", !prof !197
 
-.thread177:                                       ; preds = %90, %98, %85, %94
+.thread177:                                       ; preds = %90, %85, %98, %94
   %125 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %24)
@@ -1106,7 +1106,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   br label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139"
 
 "_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139": ; preds = %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split", %201, %120
-  %.sroa.0.0 = phi ptr [ %121, %120 ], [ null, %201 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split" ]
+  %.sroa.0.0 = phi ptr [ null, %201 ], [ %121, %120 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split" ]
   ret ptr %.sroa.0.0
 
 126:                                              ; preds = %75, %51, %206, %.thread154, %205, %198, %162, %117
@@ -1121,7 +1121,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   br i1 %130, label %135, label %.thread183
 
 .thread183:                                       ; preds = %135, %139, %128, %165, %143
-  %.sroa.051.5 = phi i8 [ 0, %165 ], [ 1, %143 ], [ 1, %128 ], [ 1, %139 ], [ 1, %135 ]
+  %.sroa.051.5 = phi i8 [ 1, %128 ], [ 0, %165 ], [ 1, %143 ], [ 1, %139 ], [ 1, %135 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %131 = load ptr, ptr %18, align 8, !alias.scope !228, !nonnull !8, !noundef !8
@@ -1369,7 +1369,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %or.cond.not.i.i142 = icmp eq i32 %204, -2147483648
   br i1 %or.cond.not.i.i142, label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split", label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139", !prof !197
 
-.thread186:                                       ; preds = %171, %175, %168, %179, %166
+.thread186:                                       ; preds = %171, %175, %179, %168, %166
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %24)
           to label %201 unwind label %52
 
@@ -1383,7 +1383,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
           to label %206 unwind label %126
 
 .thread:                                          ; preds = %51, %.thread164, %206
-  %.pn129153 = phi { ptr, i32 } [ %eh.lpad-body159, %206 ], [ %.pn127, %.thread164 ], [ %.pn127, %51 ]
+  %.pn129153 = phi { ptr, i32 } [ %.pn127, %51 ], [ %.pn127, %.thread164 ], [ %eh.lpad-body159, %206 ]
   resume { ptr, i32 } %.pn129153
 
 206:                                              ; preds = %.thread154
@@ -1477,7 +1477,7 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h3c60ebbc0661df7dE.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %179, %.body, %47, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %42, %47 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %179 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %47 ], [ %42, %41 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %179 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hba0ffaae2373039bE.exit": ; preds = %_ZN3std3sys4sync6rwlock5futex6RwLock4read17h3c60ebbc0661df7dE.exit
@@ -1577,7 +1577,7 @@ common.resume:                                    ; preds = %179, %.body, %47, %
   unreachable
 
 .body24.i:                                        ; preds = %172, %.loopexit.split-lp.i, %.loopexit.i, %76, %69, %64
-  %.pn.i = phi { ptr, i32 } [ %173, %172 ], [ %77, %76 ], [ %65, %69 ], [ %65, %64 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %173, %172 ], [ %65, %64 ], [ %65, %69 ], [ %77, %76 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h88e1a02559ca68f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #22
           to label %.body unwind label %170
 
@@ -2112,7 +2112,7 @@ common.resume:                                    ; preds = %179, %.body, %47, %
   br label %"_ZN4core3ptr94drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hfac1990be8cfb3e4E.exit143"
 
 "_ZN4core3ptr94drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hfac1990be8cfb3e4E.exit143": ; preds = %"_ZN4core3ptr94drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hfac1990be8cfb3e4E.exit143.sink.split", %.thread173, %.thread167
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %.thread167 ], [ null, %.thread173 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr94drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hfac1990be8cfb3e4E.exit143.sink.split" ]
+  %.sroa.0.1 = phi ptr [ null, %.thread173 ], [ %.sroa.0.0, %.thread167 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr94drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hfac1990be8cfb3e4E.exit143.sink.split" ]
   ret ptr %.sroa.0.1
 
 .thread:                                          ; preds = %193, %184, %180, %197, %199
@@ -2168,7 +2168,7 @@ common.resume:                                    ; preds = %179, %.body, %47, %
   br i1 %.not127, label %.invoke, label %296
 
 .invoke:                                          ; preds = %285, %255, %221
-  %295 = phi ptr [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.58, %221 ], [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.61, %255 ], [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.64, %285 ]
+  %295 = phi ptr [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.61, %255 ], [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.58, %221 ], [ @anon.a7c7d2f6e7026e145e0382bcb0537e57.64, %285 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.a7c7d2f6e7026e145e0382bcb0537e57.46, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %295) #23
           to label %.cont unwind label %174
 
@@ -2278,7 +2278,7 @@ define void @_ZN7uv_auth5cache16CredentialsCache6insert17h9b577435c4cf398eE(ptr 
 39:                                               ; preds = %313, %.body
   br i1 %.sroa.02.3, label %314, label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit26"
 
-.thread:                                          ; preds = %42, %43
+.thread:                                          ; preds = %43, %42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %314
@@ -2340,15 +2340,15 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit"
 
 .body:                                            ; preds = %93, %50, %.body17, %66
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body18, %.body17 ], [ %67, %66 ], [ %51, %50 ], [ %94, %93 ]
-  %.sroa.02.3 = phi i1 [ false, %.body17 ], [ true, %66 ], [ %.sroa.02.2, %50 ], [ true, %93 ]
-  %.sroa.0.1 = phi i8 [ %.sroa.0.2, %.body17 ], [ %.sroa.0.2, %66 ], [ %.sroa.0.0, %50 ], [ %.sroa.0.2, %93 ]
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body18, %.body17 ], [ %51, %50 ], [ %94, %93 ]
+  %.sroa.02.3 = phi i1 [ true, %66 ], [ false, %.body17 ], [ %.sroa.02.2, %50 ], [ true, %93 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.2, %66 ], [ %.sroa.0.2, %.body17 ], [ %.sroa.0.0, %50 ], [ %.sroa.0.2, %93 ]
   %49 = trunc nuw i8 %.sroa.0.1 to i1
   br i1 %49, label %313, label %39
 
 50:                                               ; preds = %298, %295, %293, %289, %84, %80, %76, %64, %68, %56, %55, %54
-  %.sroa.02.2 = phi i1 [ true, %68 ], [ true, %55 ], [ true, %56 ], [ true, %54 ], [ true, %64 ], [ true, %76 ], [ true, %80 ], [ true, %84 ], [ false, %289 ], [ false, %293 ], [ false, %295 ], [ false, %298 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.2, %68 ], [ %.sroa.0.2, %55 ], [ 0, %56 ], [ 1, %54 ], [ 0, %64 ], [ %.sroa.0.2, %76 ], [ %.sroa.0.2, %80 ], [ %.sroa.0.2, %84 ], [ %.sroa.0.2, %289 ], [ %.sroa.0.2, %293 ], [ %.sroa.0.2, %295 ], [ %.sroa.0.2, %298 ]
+  %.sroa.02.2 = phi i1 [ false, %298 ], [ true, %54 ], [ true, %84 ], [ true, %76 ], [ true, %68 ], [ true, %55 ], [ true, %64 ], [ true, %56 ], [ true, %80 ], [ false, %289 ], [ false, %293 ], [ false, %295 ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.2, %298 ], [ 1, %54 ], [ %.sroa.0.2, %84 ], [ %.sroa.0.2, %76 ], [ %.sroa.0.2, %68 ], [ %.sroa.0.2, %55 ], [ 0, %64 ], [ 0, %56 ], [ %.sroa.0.2, %80 ], [ %.sroa.0.2, %289 ], [ %.sroa.0.2, %293 ], [ %.sroa.0.2, %295 ]
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2607,8 +2607,8 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   unreachable
 
 .body32.i:                                        ; preds = %276, %266, %231, %191, %187, %.thread74.i, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %127, %120, %115
-  %.sroa.018.2.i = phi i1 [ true, %276 ], [ true, %115 ], [ true, %120 ], [ true, %127 ], [ false, %.thread74.i ], [ false, %191 ], [ false, %187 ], [ true, %231 ], [ true, %266 ], [ true, %.loopexit.split-lp.loopexit.i ], [ true, %.loopexit.split-lp.loopexit.split-lp.i ], [ true, %.loopexit.i ]
-  %.pn28.i = phi { ptr, i32 } [ %277, %276 ], [ %116, %115 ], [ %116, %120 ], [ %128, %127 ], [ %177, %.thread74.i ], [ %188, %191 ], [ %188, %187 ], [ %232, %231 ], [ %lpad.phi91.i, %266 ], [ %lpad.loopexit85.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp86.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %.sroa.018.2.i = phi i1 [ true, %276 ], [ true, %127 ], [ false, %187 ], [ false, %.thread74.i ], [ true, %120 ], [ true, %115 ], [ true, %266 ], [ true, %231 ], [ false, %191 ], [ true, %.loopexit.i ], [ true, %.loopexit.split-lp.loopexit.i ], [ true, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn28.i = phi { ptr, i32 } [ %277, %276 ], [ %128, %127 ], [ %188, %187 ], [ %177, %.thread74.i ], [ %116, %120 ], [ %116, %115 ], [ %lpad.phi91.i, %266 ], [ %232, %231 ], [ %188, %191 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit85.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp86.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h88e1a02559ca68f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %102 unwind label %192
 
@@ -3027,8 +3027,8 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   br label %.body32.i
 
 .thread.i:                                        ; preds = %.body.i, %103, %..thread_crit_edge.i
-  %278 = phi ptr [ %.pre157.i, %..thread_crit_edge.i ], [ %101, %103 ], [ %101, %.body.i ]
-  %.pn28.pn60.i = phi { ptr, i32 } [ %.pn28.i, %..thread_crit_edge.i ], [ %lpad.thr_comm.split-lp.i, %103 ], [ %109, %.body.i ]
+  %278 = phi ptr [ %101, %103 ], [ %.pre157.i, %..thread_crit_edge.i ], [ %101, %.body.i ]
+  %.pn28.pn60.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %103 ], [ %.pn28.i, %..thread_crit_edge.i ], [ %109, %.body.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !506)
   call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %279 = atomicrmw sub ptr %278, i64 1 release, align 8, !noalias !407
@@ -3046,7 +3046,7 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   br label %.body17
 
 .body17:                                          ; preds = %102, %.thread.i, %281, %282
-  %eh.lpad-body18 = phi { ptr, i32 } [ %283, %282 ], [ %.pn28.i, %102 ], [ %.pn28.pn60.i, %281 ], [ %.pn28.pn60.i, %.thread.i ]
+  %eh.lpad-body18 = phi { ptr, i32 } [ %283, %282 ], [ %.pn28.pn60.i, %.thread.i ], [ %.pn28.i, %102 ], [ %.pn28.pn60.i, %281 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$uv_auth..cache..UrlTrie$GT$$GT$17hb0aab54c046c4e3aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #22
           to label %.body unwind label %311
 
@@ -3142,11 +3142,11 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.llvm.853492669094159605.exit.i
           to label %39 unwind label %311
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit26": ; preds = %314, %318, %39
-  %.pn529 = phi { ptr, i32 } [ %.pn, %39 ], [ %.pn530, %318 ], [ %.pn530, %314 ]
+  %.pn529 = phi { ptr, i32 } [ %.pn530, %314 ], [ %.pn, %39 ], [ %.pn530, %318 ]
   resume { ptr, i32 } %.pn529
 
 314:                                              ; preds = %.thread, %39
-  %.pn530 = phi { ptr, i32 } [ %.pn, %39 ], [ %lpad.thr_comm, %.thread ]
+  %.pn530 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn, %39 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %315 = load ptr, ptr %31, align 8, !alias.scope !543, !nonnull !8, !noundef !8
@@ -3185,7 +3185,7 @@ define internal fastcc noundef ptr @_ZN7uv_auth5cache16CredentialsCache12insert_
 16:                                               ; preds = %41
   br i1 %.sroa.04.2, label %.body.thread, label %108
 
-.body.thread35:                                   ; preds = %22, %26, %80, %84, %86, %89
+.body.thread35:                                   ; preds = %89, %26, %22, %80, %84, %86
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -3421,11 +3421,11 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.llvm.853492669094159605.exit.i
   unreachable
 
 108:                                              ; preds = %.body.thread, %16
-  %.pn31 = phi { ptr, i32 } [ %.pn32, %.body.thread ], [ %42, %16 ]
+  %.pn31 = phi { ptr, i32 } [ %42, %16 ], [ %.pn32, %.body.thread ]
   resume { ptr, i32 } %.pn31
 
 .body.thread:                                     ; preds = %36, %.body.thread35, %16
-  %.pn32 = phi { ptr, i32 } [ %42, %16 ], [ %lpad.thr_comm, %.body.thread35 ], [ %37, %36 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread35 ], [ %42, %16 ], [ %37, %36 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %1) #22
           to label %108 unwind label %106
 }

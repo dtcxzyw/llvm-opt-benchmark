@@ -649,7 +649,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %105, %106
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %114, %.thread.i, %118, %122, %125, %128
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %118 ], [ %129, %128 ], [ 9223372036854775807, %122 ], [ -9223372036854775808, %125 ], [ %spec.select.i, %114 ]
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %114 ], [ 9223372036854775807, %122 ], [ -9223372036854775808, %118 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %125 ], [ %129, %128 ]
   %130 = trunc i64 %.sroa.04.0.i to i32
   %131 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 3272
@@ -737,7 +737,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit77:             ; preds = %150, %153
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit85
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit85:         ; preds = %161, %.thread.i82, %165, %169, %172, %175
-  %.sroa.04.0.i80 = phi i64 [ 9223372036854775807, %.thread.i82 ], [ -9223372036854775808, %165 ], [ %176, %175 ], [ 9223372036854775807, %169 ], [ -9223372036854775808, %172 ], [ %spec.select.i79, %161 ]
+  %.sroa.04.0.i80 = phi i64 [ %spec.select.i79, %161 ], [ 9223372036854775807, %169 ], [ -9223372036854775808, %165 ], [ 9223372036854775807, %.thread.i82 ], [ -9223372036854775808, %172 ], [ %176, %175 ]
   %177 = trunc i64 %.sroa.04.0.i80 to i32
   %178 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 3112

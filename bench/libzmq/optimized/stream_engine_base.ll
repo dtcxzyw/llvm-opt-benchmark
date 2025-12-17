@@ -2915,7 +2915,7 @@ _ZNK3zmq19endpoint_uri_pair_t5clashEv.exit.thread: ; preds = %136, %_ZNK3zmq19en
   br label %149
 
 149:                                              ; preds = %.thread, %16, %148, %47
-  %.010 = phi i1 [ true, %47 ], [ %.2, %148 ], [ false, %16 ], [ %.not17, %.thread ]
+  %.010 = phi i1 [ true, %47 ], [ %.2, %148 ], [ %.not17, %.thread ], [ false, %16 ]
   ret i1 %.010
 }
 
@@ -3523,7 +3523,7 @@ define noundef i32 @_ZN3zmq20stream_engine_base_t22next_handshake_commandEPNS_5m
   br label %_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE.exit
 
 _ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE.exit: ; preds = %32, %24, %48, %55, %46
-  %.0 = phi i32 [ -1, %46 ], [ 0, %55 ], [ %53, %48 ], [ -1, %24 ], [ %..i, %32 ]
+  %.0 = phi i32 [ %53, %48 ], [ -1, %46 ], [ 0, %55 ], [ -1, %24 ], [ %..i, %32 ]
   ret i32 %.0
 }
 
@@ -4554,7 +4554,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq20stream_engine_base_t15decode_and_p
   br label %53
 
 53:                                               ; preds = %39, %47, %51, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %51 ], [ -1, %47 ], [ 0, %39 ]
+  %.0 = phi i32 [ -1, %47 ], [ -1, %10 ], [ -1, %51 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -4683,7 +4683,7 @@ define void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(p
   br label %47
 
 47:                                               ; preds = %43, %37, %31, %26
-  %.0 = phi i32 [ %1, %31 ], [ 0, %26 ], [ %1, %37 ], [ %spec.select, %43 ]
+  %.0 = phi i32 [ 0, %26 ], [ %1, %31 ], [ %1, %37 ], [ %spec.select, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %49 = load ptr, ptr %48, align 8, !tbaa !137
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1464
@@ -5616,7 +5616,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %20
 
 20:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %5
-  %21 = phi i1 [ true, %5 ], [ %19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
+  %21 = phi i1 [ %19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ true, %5 ]
   %22 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -5752,8 +5752,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5824,7 +5824,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %27 = phi i1 [ true, %12 ], [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %27 = phi i1 [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %12 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %13) #26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !109
@@ -6148,7 +6148,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %40, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %54 = phi i1 [ true, %40 ], [ %53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %54 = phi i1 [ %53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %40 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %5, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(32) %41) #26
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i64, ptr %55, align 8, !tbaa !109

@@ -257,7 +257,7 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %110, %109, %105
-  %111 = phi i32 [ %.pre.i, %109 ], [ %.off.i, %110 ], [ %.pre.i, %105 ]
+  %111 = phi i32 [ %.off.i, %110 ], [ %.pre.i, %109 ], [ %.pre.i, %105 ]
   %112 = icmp eq i32 %111, 0
   %113 = getelementptr inbounds nuw i8, ptr %.083, i64 96
   %114 = load i32, ptr %113, align 8, !tbaa !50
@@ -752,7 +752,7 @@ anim_mark_list_change.exit:                       ; preds = %37, %38
   %39 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #11
   br label %42
 
-40:                                               ; preds = %26, %23, %19, %15, %.lr.ph
+40:                                               ; preds = %.lr.ph, %26, %23, %19, %15
   %41 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.02135) #11
   br label %42
 
@@ -995,7 +995,7 @@ anim_mark_list_change.exit:                       ; preds = %.lr.ph.split.split,
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %67, %47, %31, %14, %2
-  %.013.lcssa = phi i1 [ false, %2 ], [ true, %14 ], [ %.117.us, %31 ], [ %.117.us28, %47 ], [ %.117, %67 ]
+  %.013.lcssa = phi i1 [ false, %2 ], [ %.117.us28, %47 ], [ true, %14 ], [ %.117.us, %31 ], [ %.117, %67 ]
   ret i1 %.013.lcssa
 }
 
@@ -1582,7 +1582,7 @@ define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_
   br i1 %.not.i, label %lv_anim_get.exit, label %.lr.ph.split.i, !llvm.loop !59
 
 lv_anim_get.exit:                                 ; preds = %15, %19, %.lr.ph.split.us.i, %11, %5
-  %.0.lcssa.i = phi ptr [ null, %5 ], [ %.012.us.i, %.lr.ph.split.us.i ], [ null, %11 ], [ %.012.i, %15 ], [ null, %19 ]
+  %.0.lcssa.i = phi ptr [ null, %5 ], [ null, %11 ], [ %.012.us.i, %.lr.ph.split.us.i ], [ %.012.i, %15 ], [ null, %19 ]
   ret ptr %.0.lcssa.i
 }
 

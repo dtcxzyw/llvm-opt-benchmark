@@ -391,7 +391,7 @@ define internal range(i32 0, 2) i32 @CVAhermiteMalloc(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %66, %94, %21, %78, %1, %19
-  %.073 = phi i32 [ 0, %19 ], [ 0, %1 ], [ 0, %78 ], [ 1, %21 ], [ 0, %94 ], [ 1, %66 ]
+  %.073 = phi i32 [ 0, %1 ], [ 0, %19 ], [ 0, %78 ], [ 1, %21 ], [ 0, %94 ], [ 1, %66 ]
   ret i32 %.073
 }
 
@@ -595,10 +595,10 @@ define internal range(i32 -107, 1) i32 @CVAhermiteGetY(ptr noundef readonly capt
   br label %77
 
 77:                                               ; preds = %63, %76
-  %78 = phi double [ %65, %63 ], [ %71, %76 ]
-  %79 = phi ptr [ %64, %63 ], [ %70, %76 ]
-  %.1117.ph = phi i64 [ %33, %63 ], [ %storemerge.i, %76 ]
-  %.2.ph = phi i32 [ %.0115, %63 ], [ 1, %76 ]
+  %78 = phi double [ %71, %76 ], [ %65, %63 ]
+  %79 = phi ptr [ %70, %76 ], [ %64, %63 ]
+  %.1117.ph = phi i64 [ %storemerge.i, %76 ], [ %33, %63 ]
+  %.2.ph = phi i32 [ 1, %76 ], [ %.0115, %63 ]
   %80 = icmp eq i64 %.1117.ph, 0
   br i1 %80, label %..thread_crit_edge, label %._crit_edge
 
@@ -806,7 +806,7 @@ define internal range(i32 -107, 1) i32 @CVAhermiteGetY(ptr noundef readonly capt
   br label %CVAfindIndex.exit
 
 CVAfindIndex.exit:                                ; preds = %.loopexit, %170, %150, %146, %135, %128, %113, %91, %179, %95
-  %.0 = phi i32 [ 0, %95 ], [ 0, %179 ], [ -28, %91 ], [ -28, %113 ], [ -28, %128 ], [ -28, %135 ], [ -28, %146 ], [ -28, %150 ], [ -28, %170 ], [ -107, %.loopexit ]
+  %.0 = phi i32 [ 0, %179 ], [ -28, %170 ], [ 0, %95 ], [ -28, %91 ], [ -28, %113 ], [ -28, %128 ], [ -28, %135 ], [ -28, %146 ], [ -28, %150 ], [ -107, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -939,7 +939,7 @@ define internal range(i32 -28, 1) i32 @CVAhermiteStorePnt(ptr noundef %0, ptr no
   br label %75
 
 75:                                               ; preds = %._crit_edge57, %._crit_edge, %74
-  %.045 = phi i32 [ 0, %74 ], [ -28, %._crit_edge ], [ -28, %._crit_edge57 ]
+  %.045 = phi i32 [ -28, %._crit_edge ], [ 0, %74 ], [ -28, %._crit_edge57 ]
   ret i32 %.045
 }
 
@@ -1084,7 +1084,7 @@ define internal range(i32 0, 2) i32 @CVApolynomialMalloc(ptr noundef readonly ca
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph75
 
 .loopexit:                                        ; preds = %44, %67, %21, %56, %1, %19
-  %.053 = phi i32 [ 0, %19 ], [ 0, %1 ], [ 0, %56 ], [ 1, %21 ], [ 0, %67 ], [ 1, %44 ]
+  %.053 = phi i32 [ 0, %1 ], [ 0, %19 ], [ 0, %56 ], [ 1, %21 ], [ 0, %67 ], [ 1, %44 ]
   ret i32 %.053
 }
 
@@ -1274,8 +1274,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br label %74
 
 74:                                               ; preds = %60, %73
-  %.1183.ph = phi i64 [ %30, %60 ], [ %storemerge.i, %73 ]
-  %.2181.ph = phi i32 [ %.0179, %60 ], [ 1, %73 ]
+  %.1183.ph = phi i64 [ %storemerge.i, %73 ], [ %30, %60 ]
+  %.2181.ph = phi i32 [ 1, %73 ], [ %.0179, %60 ]
   %75 = icmp eq i64 %.1183.ph, 0
   br i1 %75, label %..thread_crit_edge, label %90
 
@@ -1489,7 +1489,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br i1 %exitcond.not, label %.loopexit205, label %.lr.ph.split
 
 .loopexit205:                                     ; preds = %.lr.ph.split, %140, %169
-  %.0153289296 = phi i32 [ %114, %169 ], [ %104, %140 ], [ %104, %.lr.ph.split ]
+  %.0153289296 = phi i32 [ %104, %140 ], [ %114, %169 ], [ %104, %.lr.ph.split ]
   %.not170223 = icmp slt i32 %.0153289296, 1
   br i1 %.not170223, label %.loopexit.thread, label %.preheader202.lr.ph
 
@@ -1568,8 +1568,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count270
   br i1 %exitcond263.not, label %.loopexit, label %.preheader202
 
-.loopexit.thread:                                 ; preds = %.loopexit205, %.preheader208, %.preheader204
-  %.0153290.ph = phi i32 [ %.0153289296, %.loopexit205 ], [ %114, %.preheader204 ], [ %104, %.preheader208 ]
+.loopexit.thread:                                 ; preds = %.loopexit205, %.preheader204, %.preheader208
+  %.0153290.ph = phi i32 [ %.0153289296, %.loopexit205 ], [ %104, %.preheader208 ], [ %114, %.preheader204 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %218 = load ptr, ptr %217, align 8, !tbaa !66
   store double 1.000000e+00, ptr %218, align 8, !tbaa !67
@@ -1627,7 +1627,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br label %CVAfindIndex.exit
 
 CVAfindIndex.exit:                                ; preds = %134, %163, %185, %.loopexit211, %238, %._crit_edge, %85, %242, %89
-  %.0 = phi i32 [ 0, %89 ], [ 0, %242 ], [ -28, %85 ], [ -28, %._crit_edge ], [ -28, %238 ], [ -107, %.loopexit211 ], [ -28, %185 ], [ -28, %163 ], [ -28, %134 ]
+  %.0 = phi i32 [ -28, %238 ], [ 0, %89 ], [ -28, %85 ], [ -28, %._crit_edge ], [ 0, %242 ], [ -107, %.loopexit211 ], [ -28, %163 ], [ -28, %185 ], [ -28, %134 ]
   ret i32 %.0
 }
 
@@ -2886,7 +2886,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not476.not.i, label %385, label %.loopexit497.i
 
 .loopexit497.i:                                   ; preds = %385, %382, %._crit_edge559.i
-  %390 = phi i32 [ %383, %382 ], [ %.pre812.i, %._crit_edge559.i ], [ %388, %385 ]
+  %390 = phi i32 [ %.pre812.i, %._crit_edge559.i ], [ %383, %382 ], [ %388, %385 ]
   %391 = icmp slt i32 %390, %271
   br i1 %391, label %392, label %397
 
@@ -3136,7 +3136,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not469.not.i, label %487, label %.loopexit492.i
 
 .loopexit492.i:                                   ; preds = %487, %484, %._crit_edge594.i
-  %492 = phi i32 [ %485, %484 ], [ %.lcssa508.i, %._crit_edge594.i ], [ %490, %487 ]
+  %492 = phi i32 [ %.lcssa508.i, %._crit_edge594.i ], [ %485, %484 ], [ %490, %487 ]
   %493 = icmp slt i32 %492, %271
   br i1 %493, label %494, label %499
 
@@ -4779,7 +4779,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %147, label %.loopexit, label %.lr.ph186
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %134, %..critedge_crit_edge.split.us203, %.lr.ph186.split.split.us202, %.lr.ph186.split.split.us.us
-  %.0133178 = phi ptr [ %.0133.us197, %.lr.ph186.split.split.us.us ], [ %.0133.us197, %.lr.ph186.split.split.us202 ], [ %.0133.us197, %..critedge_crit_edge.split.us203 ], [ %.0133, %134 ], [ %.0133, %..critedge_crit_edge.split.us ]
+  %.0133178 = phi ptr [ %.0133, %134 ], [ %.0133.us197, %.lr.ph186.split.split.us.us ], [ %.0133.us197, %.lr.ph186.split.split.us202 ], [ %.0133.us197, %..critedge_crit_edge.split.us203 ], [ %.0133, %..critedge_crit_edge.split.us ]
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %150 = icmp eq i32 %2, 2
@@ -4942,7 +4942,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %.split222.split.split
 
 .critedge163:                                     ; preds = %182, %217, %178, %153, %151, %.split222.us.split.us, %156, %.split222.us.split.split.us, %.thread164, %94, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %.us-phi233, %.thread164 ], [ -22, %94 ], [ -22, %70 ], [ 0, %.split222.us.split.split.us ], [ 0, %.split222.us.split.us ], [ %157, %156 ], [ %152, %151 ], [ %154, %153 ], [ %.5.us, %178 ], [ %.5, %217 ], [ %183, %182 ]
+  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi233, %.thread164 ], [ -22, %94 ], [ 0, %.split222.us.split.split.us ], [ %154, %153 ], [ %152, %151 ], [ 0, %.split222.us.split.us ], [ %157, %156 ], [ %.5, %217 ], [ %.5.us, %178 ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0128
 }
@@ -5500,8 +5500,8 @@ CVAckpntGet.exit:                                 ; preds = %._crit_edge283.i, %
   store i64 %269, ptr %279, align 8, !tbaa !63
   br label %CVAckpntGet.exit.thread
 
-CVAckpntGet.exit.thread:                          ; preds = %258, %._crit_edge276.i, %._crit_edge271.i, %._crit_edge264.i, %._crit_edge260.i, %._crit_edge254.i, %._crit_edge.i, %38, %29, %22, %11, %276
-  %.0 = phi i32 [ 0, %276 ], [ -105, %11 ], [ -105, %22 ], [ -105, %29 ], [ -105, %38 ], [ -105, %._crit_edge.i ], [ -105, %._crit_edge254.i ], [ -105, %._crit_edge260.i ], [ -105, %._crit_edge264.i ], [ -105, %._crit_edge271.i ], [ -105, %._crit_edge276.i ], [ -106, %258 ]
+CVAckpntGet.exit.thread:                          ; preds = %258, %._crit_edge276.i, %._crit_edge264.i, %._crit_edge260.i, %._crit_edge254.i, %._crit_edge.i, %38, %29, %22, %11, %._crit_edge271.i, %276
+  %.0 = phi i32 [ 0, %276 ], [ -105, %._crit_edge271.i ], [ -105, %11 ], [ -105, %22 ], [ -105, %29 ], [ -105, %38 ], [ -105, %._crit_edge.i ], [ -105, %._crit_edge254.i ], [ -105, %._crit_edge260.i ], [ -105, %._crit_edge264.i ], [ -105, %._crit_edge276.i ], [ -106, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

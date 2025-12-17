@@ -561,7 +561,7 @@ _ZN4ncnn3MatD2Ev.exit99:                          ; preds = %214, %212, %220, %2
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %38, %241, %_ZNK4ncnn3Mat5emptyEv.exit, %239, %_ZN4ncnn3MatD2Ev.exit, %57
-  %.1 = phi i32 [ 0, %57 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ %240, %239 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %242, %241 ], [ -100, %38 ]
+  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %57 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ %240, %239 ], [ %242, %241 ], [ -100, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -835,7 +835,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ], [ %11, %6 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %16, align 8, !tbaa !75
   ret void

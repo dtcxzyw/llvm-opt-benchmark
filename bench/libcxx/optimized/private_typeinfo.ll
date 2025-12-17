@@ -587,12 +587,12 @@ _ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_i
   br label %_ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit
 
 _ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit: ; preds = %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread, %78, %91, %98
-  %.0.i18 = phi ptr [ %99, %98 ], [ null, %91 ], [ null, %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread ], [ %spec.select.i, %78 ]
+  %.0.i18 = phi ptr [ %99, %98 ], [ null, %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread ], [ null, %91 ], [ %spec.select.i, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit
 
 _ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit: ; preds = %48, %26, %24, %22, %_ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit
-  %.0 = phi ptr [ %.0.i18, %_ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit ], [ %.16.i, %26 ], [ %..i, %22 ], [ null, %24 ], [ %46, %48 ]
+  %.0 = phi ptr [ %.0.i18, %_ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit ], [ %46, %48 ], [ %..i, %22 ], [ %.16.i, %26 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -1080,7 +1080,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__pbase_type_info9can_catchE
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %22, %.thread14, %15, %9
-  %.1 = phi i1 [ false, %9 ], [ %20, %15 ], [ true, %.thread14 ], [ %28, %22 ], [ false, %7 ]
+  %.1 = phi i1 [ %28, %22 ], [ false, %9 ], [ %20, %15 ], [ true, %.thread14 ], [ false, %7 ]
   ret i1 %.1
 }
 
@@ -1113,26 +1113,26 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info9can_catc
   %17 = load i32, ptr %16, align 8, !tbaa !50
   %18 = and i32 %17, 24
   %.not16.i = icmp eq i32 %18, 0
-  br i1 %.not16.i, label %19, label %.thread14.i
-
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !4
-  %22 = icmp eq ptr %21, %6
-  br i1 %22, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57
+  br i1 %.not16.i, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, label %.thread14.i
 
 .thread14.i:                                      ; preds = %15, %9
-  %23 = icmp eq ptr %0, %1
-  br i1 %23, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+  %19 = icmp eq ptr %0, %1
+  br i1 %19, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %20
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread14.i
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !4
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %6) #22
-  %27 = icmp eq i32 %26, 0
+20:                                               ; preds = %.thread14.i
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !4
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %6) #22
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57
+
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !4
+  %27 = icmp eq ptr %26, %6
   br i1 %27, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %19, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %20, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
   %28 = load ptr, ptr %2, align 8, !tbaa !10
   %.not55 = icmp eq ptr %28, null
   br i1 %.not55, label %100, label %29
@@ -1142,7 +1142,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
   store ptr %30, ptr %2, align 8, !tbaa !10
   br label %100
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57: ; preds = %13, %19, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57: ; preds = %13, %20, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
   %31 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN10__cxxabiv116__shim_type_infoE, ptr nonnull @_ZTIN10__cxxabiv119__pointer_type_infoE, i64 0) #18
   %32 = icmp eq ptr %31, null
   br i1 %32, label %100, label %33
@@ -1272,7 +1272,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
   br label %100
 
 100:                                              ; preds = %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57, %37, %44, %48, %60, %73, %71, %99, %78, %75, %65, %67, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, %29, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %29 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57 ], [ false, %37 ], [ false, %44 ], [ true, %48 ], [ %62, %60 ], [ %68, %67 ], [ false, %65 ], [ %74, %73 ], [ false, %71 ], [ false, %75 ], [ %96, %99 ], [ false, %78 ]
+  %.0 = phi i1 [ true, %8 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread ], [ true, %29 ], [ false, %78 ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57 ], [ false, %37 ], [ false, %44 ], [ true, %48 ], [ %62, %60 ], [ false, %65 ], [ %68, %67 ], [ false, %71 ], [ %74, %73 ], [ false, %75 ], [ %96, %99 ]
   ret i1 %.0
 }
 
@@ -1333,7 +1333,7 @@ tailrecurse:                                      ; preds = %26, %2
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse, %24, %14, %7, %4, %28, %30
-  %.0 = phi i1 [ %31, %30 ], [ false, %28 ], [ false, %tailrecurse ], [ false, %24 ], [ true, %14 ], [ false, %7 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %28 ], [ %31, %30 ], [ false, %tailrecurse ], [ true, %14 ], [ false, %7 ], [ false, %4 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -1382,7 +1382,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
   br label %.thread
 
 .thread:                                          ; preds = %2, %24, %14, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %14 ], [ %33, %24 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %14 ], [ %33, %24 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -1430,26 +1430,26 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
   %24 = load i32, ptr %23, align 8, !tbaa !50
   %25 = and i32 %24, 24
   %.not16.i = icmp eq i32 %25, 0
-  br i1 %.not16.i, label %26, label %.thread14.i
-
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !4
-  %29 = icmp eq ptr %28, %5
-  br i1 %29, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21
+  br i1 %.not16.i, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, label %.thread14.i
 
 .thread14.i:                                      ; preds = %22, %16
-  %30 = icmp eq ptr %0, %1
-  br i1 %30, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+  %26 = icmp eq ptr %0, %1
+  br i1 %26, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %27
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %.thread14.i
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !4
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %5) #22
-  %34 = icmp eq i32 %33, 0
+27:                                               ; preds = %.thread14.i
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !4
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %5) #22
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21
+
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit: ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !4
+  %34 = icmp eq ptr %33, %5
   br i1 %34, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21: ; preds = %20, %26, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21: ; preds = %20, %27, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit
   %35 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN10__cxxabiv116__shim_type_infoE, ptr nonnull @_ZTIN10__cxxabiv129__pointer_to_member_type_infoE, i64 0) #18
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, label %37
@@ -1494,8 +1494,8 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
   %66 = icmp eq ptr %63, %65
   br label %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread
 
-_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %26, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21, %37, %43, %47, %57, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21 ], [ false, %37 ], [ false, %43 ], [ false, %47 ], [ %66, %57 ], [ true, %26 ], [ true, %.thread14.i ]
+_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread: ; preds = %.thread14.i, %27, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21, %37, %43, %47, %57, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit, %14
+  %.0 = phi i1 [ true, %14 ], [ true, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit ], [ false, %43 ], [ false, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread21 ], [ false, %37 ], [ %66, %57 ], [ false, %47 ], [ true, %27 ], [ true, %.thread14.i ]
   ret i1 %.0
 }
 
@@ -1775,8 +1775,8 @@ _ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_
   br label %_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi.exit
 
 ._crit_edge:                                      ; preds = %100, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit
-  %.176.lcssa = phi i1 [ %.176122, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.3, %100 ]
-  %.180 = phi i1 [ %.079120, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ], [ %.281, %100 ]
+  %.176.lcssa = phi i1 [ %.3, %100 ], [ %.176122, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ]
+  %.180 = phi i1 [ %.281, %100 ], [ %.079120, %_ZNK10__cxxabiv122__base_class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib.exit ]
   %cond.fr = freeze i1 %.180
   br i1 %cond.fr, label %103, label %104
 

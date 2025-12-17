@@ -639,7 +639,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27: ; preds = %_ZN9Bytecode
   br label %_ZN9Relocator21instruction_length_atEi.exit
 
 _ZN9Relocator21instruction_length_atEi.exit:      ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i, %67, %53
-  %.0 = phi i32 [ %66, %53 ], [ %77, %67 ], [ %51, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i ], [ %50, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %91, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27 ], [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28 ]
+  %.0 = phi i32 [ %50, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i ], [ %77, %67 ], [ %66, %53 ], [ %51, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i ], [ %91, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i.i27 ], [ %90, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i.i28 ]
   ret i32 %.0
 }
 
@@ -1715,7 +1715,7 @@ define hidden void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull
   br label %_ZNK15stack_map_frame12offset_deltaEv.exit
 
 _ZNK15stack_map_frame12offset_deltaEv.exit:       ; preds = %30, %37, %41, %48, %55, %60, %61
-  %.0.i = phi i32 [ %34, %30 ], [ %39, %37 ], [ %45, %41 ], [ %52, %48 ], [ %59, %55 ], [ %65, %61 ], [ 0, %60 ]
+  %.0.i = phi i32 [ 0, %60 ], [ %34, %30 ], [ %39, %37 ], [ %45, %41 ], [ %52, %48 ], [ %59, %55 ], [ %65, %61 ]
   %66 = add nsw i32 %.0.i, %.073158
   %67 = trunc nuw i8 %.074157 to i1
   %68 = icmp sle i32 %66, %1
@@ -1983,11 +1983,11 @@ _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   br label %_ZN15stack_map_frame16set_offset_deltaEi.exit
 
 _ZN15stack_map_frame16set_offset_deltaEi.exit:    ; preds = %206, %205, %140, %139, %130, %129, %128, %117, %116, %105, %104, %_ZNK15stack_map_frame12offset_deltaEv.exit, %95
-  %207 = phi i8 [ %81, %95 ], [ -9, %206 ], [ -9, %205 ], [ -1, %140 ], [ -1, %139 ], [ %27, %130 ], [ %27, %129 ], [ %27, %128 ], [ %27, %117 ], [ %27, %116 ], [ -9, %105 ], [ -9, %104 ], [ %27, %_ZNK15stack_map_frame12offset_deltaEv.exit ]
-  %208 = phi i32 [ %66, %95 ], [ %142, %206 ], [ %142, %205 ], [ %66, %140 ], [ %66, %139 ], [ %66, %130 ], [ %66, %129 ], [ %66, %128 ], [ %66, %117 ], [ %66, %116 ], [ %66, %105 ], [ %66, %104 ], [ %66, %_ZNK15stack_map_frame12offset_deltaEv.exit ]
-  %.175 = phi i8 [ 1, %95 ], [ 1, %206 ], [ 1, %205 ], [ 1, %140 ], [ 1, %139 ], [ 1, %130 ], [ 1, %129 ], [ 1, %128 ], [ 1, %117 ], [ 1, %116 ], [ 1, %105 ], [ 1, %104 ], [ %.074157, %_ZNK15stack_map_frame12offset_deltaEv.exit ]
-  %.168 = phi ptr [ %.067159, %95 ], [ %184, %206 ], [ %184, %205 ], [ %.067159, %140 ], [ %.067159, %139 ], [ %.067159, %130 ], [ %.067159, %129 ], [ %.067159, %128 ], [ %.067159, %117 ], [ %.067159, %116 ], [ %.067159, %105 ], [ %.067159, %104 ], [ %.067159, %_ZNK15stack_map_frame12offset_deltaEv.exit ]
-  %.1 = phi ptr [ %.066160, %95 ], [ %164, %206 ], [ %164, %205 ], [ %.066160, %140 ], [ %.066160, %139 ], [ %.066160, %130 ], [ %.066160, %129 ], [ %.066160, %128 ], [ %.066160, %117 ], [ %.066160, %116 ], [ %.066160, %105 ], [ %.066160, %104 ], [ %.066160, %_ZNK15stack_map_frame12offset_deltaEv.exit ]
+  %207 = phi i8 [ -1, %140 ], [ %81, %95 ], [ -9, %206 ], [ -9, %205 ], [ %27, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ -1, %139 ], [ %27, %130 ], [ %27, %129 ], [ %27, %128 ], [ %27, %117 ], [ %27, %116 ], [ -9, %105 ], [ -9, %104 ]
+  %208 = phi i32 [ %66, %140 ], [ %66, %95 ], [ %142, %206 ], [ %142, %205 ], [ %66, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %66, %139 ], [ %66, %130 ], [ %66, %129 ], [ %66, %128 ], [ %66, %117 ], [ %66, %116 ], [ %66, %105 ], [ %66, %104 ]
+  %.175 = phi i8 [ 1, %140 ], [ 1, %95 ], [ 1, %206 ], [ 1, %205 ], [ %.074157, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ 1, %139 ], [ 1, %130 ], [ 1, %129 ], [ 1, %128 ], [ 1, %117 ], [ 1, %116 ], [ 1, %105 ], [ 1, %104 ]
+  %.168 = phi ptr [ %.067159, %140 ], [ %.067159, %95 ], [ %184, %206 ], [ %184, %205 ], [ %.067159, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.067159, %139 ], [ %.067159, %130 ], [ %.067159, %129 ], [ %.067159, %128 ], [ %.067159, %117 ], [ %.067159, %116 ], [ %.067159, %105 ], [ %.067159, %104 ]
+  %.1 = phi ptr [ %.066160, %140 ], [ %.066160, %95 ], [ %164, %206 ], [ %164, %205 ], [ %.066160, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %.066160, %139 ], [ %.066160, %130 ], [ %.066160, %129 ], [ %.066160, %128 ], [ %.066160, %117 ], [ %.066160, %116 ], [ %.066160, %105 ], [ %.066160, %104 ]
   %209 = icmp ult i8 %207, 64
   %.not.i87 = icmp eq i8 %207, -5
   %or.cond.i = or i1 %209, %.not.i87
@@ -2065,9 +2065,9 @@ _ZNK15stack_map_frame5typesEv.exit.thread210:     ; preds = %222
   br label %_ZNK15stack_map_frame5typesEv.exit
 
 _ZNK15stack_map_frame5typesEv.exit:               ; preds = %225, %.thread122.thread, %229, %231
-  %233 = phi i8 [ -9, %225 ], [ %207, %229 ], [ %207, %.thread122.thread ], [ %207, %231 ]
-  %.0.i89120 = phi i32 [ %.0.i89.ph124, %225 ], [ %.0.i89.ph124128131141, %229 ], [ %.0.i89.ph124, %.thread122.thread ], [ %.0.i89.ph124128131137, %231 ]
-  %.0.i92 = phi ptr [ %226, %225 ], [ %230, %229 ], [ null, %.thread122.thread ], [ %spec.select.i, %231 ]
+  %233 = phi i8 [ %207, %231 ], [ %207, %229 ], [ %207, %.thread122.thread ], [ -9, %225 ]
+  %.0.i89120 = phi i32 [ %.0.i89.ph124128131137, %231 ], [ %.0.i89.ph124128131141, %229 ], [ %.0.i89.ph124, %.thread122.thread ], [ %.0.i89.ph124, %225 ]
+  %.0.i92 = phi ptr [ %spec.select.i, %231 ], [ %230, %229 ], [ null, %.thread122.thread ], [ %226, %225 ]
   %.not294 = icmp eq i32 %.0.i89120, 0
   br i1 %.not294, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2322,12 +2322,12 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread230
   %exitcond31.not.i.i = icmp eq i32 %326, %316
   br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !22
 
-_ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %196, %195, %94, %93, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread, %83, %.preheader.i.i106, %thread-pre-split, %thread-pre-split.thread248, %279, %285, %.thread281, %302
-  %.1199207244 = phi ptr [ %.1, %279 ], [ %.1, %285 ], [ %.1, %302 ], [ %.1, %thread-pre-split ], [ %.1, %thread-pre-split.thread248 ], [ %.1, %.thread281 ], [ %.1, %.preheader.i.i106 ], [ %.066160, %83 ], [ %.066160, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %164, %196 ], [ %164, %195 ], [ %.066160, %94 ], [ %.066160, %93 ], [ %.1, %.lr.ph28.i.i ], [ %.1, %.lr.ph.i.i.i.i ]
-  %.168198208241 = phi ptr [ %.168, %279 ], [ %.168, %285 ], [ %.168, %302 ], [ %.168, %thread-pre-split ], [ %.168, %thread-pre-split.thread248 ], [ %.168, %.thread281 ], [ %.168, %.preheader.i.i106 ], [ %.067159, %83 ], [ %.067159, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %184, %196 ], [ %184, %195 ], [ %.067159, %94 ], [ %.067159, %93 ], [ %.168, %.lr.ph28.i.i ], [ %.168, %.lr.ph.i.i.i.i ]
-  %.175196209238 = phi i8 [ %.175, %279 ], [ %.175, %285 ], [ %.175, %302 ], [ %.175, %thread-pre-split ], [ %.175, %thread-pre-split.thread248 ], [ %.175, %.thread281 ], [ %.175, %.preheader.i.i106 ], [ 1, %83 ], [ %.074157, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 1, %196 ], [ 1, %195 ], [ 1, %94 ], [ 1, %93 ], [ %.175, %.lr.ph28.i.i ], [ %.175, %.lr.ph.i.i.i.i ]
-  %327 = phi i32 [ %208, %279 ], [ %208, %285 ], [ %208, %302 ], [ %208, %thread-pre-split ], [ %208, %thread-pre-split.thread248 ], [ %208, %.thread281 ], [ %208, %.preheader.i.i106 ], [ %70, %83 ], [ %70, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %142, %196 ], [ %142, %195 ], [ %66, %94 ], [ %66, %93 ], [ %208, %.lr.ph28.i.i ], [ %208, %.lr.ph.i.i.i.i ]
-  %.0.i.i = phi i64 [ %283, %279 ], [ %289, %285 ], [ 0, %302 ], [ 1, %thread-pre-split ], [ 3, %thread-pre-split.thread248 ], [ 3, %.thread281 ], [ %.016.lcssa.i.i, %.preheader.i.i106 ], [ 1, %83 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 3, %196 ], [ 3, %195 ], [ 3, %94 ], [ 3, %93 ], [ %324, %.lr.ph28.i.i ], [ %299, %.lr.ph.i.i.i.i ]
+_ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %195, %94, %93, %196, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread, %83, %.preheader.i.i106, %thread-pre-split, %thread-pre-split.thread248, %279, %285, %.thread281, %302
+  %.1199207244 = phi ptr [ %.1, %302 ], [ %.1, %thread-pre-split ], [ %.1, %279 ], [ %.1, %285 ], [ %.1, %thread-pre-split.thread248 ], [ %.1, %.thread281 ], [ %.1, %.preheader.i.i106 ], [ %.066160, %83 ], [ %.066160, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %164, %195 ], [ %.066160, %94 ], [ %.066160, %93 ], [ %164, %196 ], [ %.1, %.lr.ph28.i.i ], [ %.1, %.lr.ph.i.i.i.i ]
+  %.168198208241 = phi ptr [ %.168, %302 ], [ %.168, %thread-pre-split ], [ %.168, %279 ], [ %.168, %285 ], [ %.168, %thread-pre-split.thread248 ], [ %.168, %.thread281 ], [ %.168, %.preheader.i.i106 ], [ %.067159, %83 ], [ %.067159, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %184, %195 ], [ %.067159, %94 ], [ %.067159, %93 ], [ %184, %196 ], [ %.168, %.lr.ph28.i.i ], [ %.168, %.lr.ph.i.i.i.i ]
+  %.175196209238 = phi i8 [ %.175, %302 ], [ %.175, %thread-pre-split ], [ %.175, %279 ], [ %.175, %285 ], [ %.175, %thread-pre-split.thread248 ], [ %.175, %.thread281 ], [ %.175, %.preheader.i.i106 ], [ 1, %83 ], [ %.074157, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 1, %195 ], [ 1, %94 ], [ 1, %93 ], [ 1, %196 ], [ %.175, %.lr.ph28.i.i ], [ %.175, %.lr.ph.i.i.i.i ]
+  %327 = phi i32 [ %208, %302 ], [ %208, %thread-pre-split ], [ %208, %279 ], [ %208, %285 ], [ %208, %thread-pre-split.thread248 ], [ %208, %.thread281 ], [ %208, %.preheader.i.i106 ], [ %70, %83 ], [ %70, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %142, %195 ], [ %66, %94 ], [ %66, %93 ], [ %142, %196 ], [ %208, %.lr.ph28.i.i ], [ %208, %.lr.ph.i.i.i.i ]
+  %.0.i.i = phi i64 [ 0, %302 ], [ 1, %thread-pre-split ], [ %283, %279 ], [ %289, %285 ], [ 3, %thread-pre-split.thread248 ], [ 3, %.thread281 ], [ %.016.lcssa.i.i, %.preheader.i.i106 ], [ 1, %83 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 3, %195 ], [ 3, %94 ], [ 3, %93 ], [ 3, %196 ], [ %324, %.lr.ph28.i.i ], [ %299, %.lr.ph.i.i.i.i ]
   %328 = getelementptr inbounds i8, ptr %.168198208241, i64 %.0.i.i
   %329 = add nuw nsw i32 %.076156, 1
   %exitcond174.not = icmp eq i32 %329, %22
@@ -2757,7 +2757,7 @@ _ZN9Relocator12short_at_putEis.exit37:            ; preds = %41, %42
   unreachable
 
 _ZN9Relocator10int_at_putEii.exit:                ; preds = %74, %73, %57, %56, %58, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %58 ], [ true, %56 ], [ true, %57 ], [ true, %73 ], [ true, %74 ]
+  %.0 = phi i1 [ false, %58 ], [ false, %9 ], [ true, %57 ], [ true, %56 ], [ true, %73 ], [ true, %74 ]
   ret i1 %.0
 }
 

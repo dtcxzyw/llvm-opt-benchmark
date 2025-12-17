@@ -142,8 +142,8 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %71
   br label %BTreeTupleIsPosting.exit.thread.i
 
 BTreeTupleIsPosting.exit.thread.i:                ; preds = %81, %BTreeTupleIsPosting.exit.i, %71, %69
-  %86 = phi i8 [ %45, %69 ], [ 1, %81 ], [ 1, %BTreeTupleIsPosting.exit.i ], [ 1, %71 ]
-  %.062.neg.neg.i = phi i32 [ -8, %69 ], [ %.neg75.i, %81 ], [ -8, %BTreeTupleIsPosting.exit.i ], [ -8, %71 ]
+  %86 = phi i8 [ 1, %71 ], [ %45, %69 ], [ 1, %81 ], [ 1, %BTreeTupleIsPosting.exit.i ]
+  %.062.neg.neg.i = phi i32 [ -8, %71 ], [ -8, %69 ], [ %.neg75.i, %81 ], [ -8, %BTreeTupleIsPosting.exit.i ]
   %87 = trunc i8 %86 to i1
   %.neg76.i = select i1 %87, i32 %.062.neg.neg.i, i32 0
   %.neg488 = add i32 %.080.neg500, %20
@@ -197,8 +197,8 @@ BTreeTupleIsPosting.exit.i114:                    ; preds = %97
   br label %BTreeTupleIsPosting.exit.thread.i97
 
 BTreeTupleIsPosting.exit.thread.i97:              ; preds = %107, %BTreeTupleIsPosting.exit.i114, %97, %95
-  %112 = phi i8 [ %45, %95 ], [ 1, %107 ], [ 1, %BTreeTupleIsPosting.exit.i114 ], [ 1, %97 ]
-  %.062.neg.neg.i98 = phi i32 [ -8, %95 ], [ %.neg75.i119, %107 ], [ -8, %BTreeTupleIsPosting.exit.i114 ], [ -8, %97 ]
+  %112 = phi i8 [ 1, %97 ], [ %45, %95 ], [ 1, %107 ], [ 1, %BTreeTupleIsPosting.exit.i114 ]
+  %.062.neg.neg.i98 = phi i32 [ -8, %97 ], [ -8, %95 ], [ %.neg75.i119, %107 ], [ -8, %BTreeTupleIsPosting.exit.i114 ]
   %113 = trunc i8 %112 to i1
   %.neg76.i100 = select i1 %113, i32 %.062.neg.neg.i98, i32 0
   %114 = add i32 %20, %.080.neg500
@@ -281,8 +281,8 @@ BTreeTupleIsPosting.exit.i166:                    ; preds = %133
   br label %BTreeTupleIsPosting.exit.thread.i149
 
 BTreeTupleIsPosting.exit.thread.i149:             ; preds = %143, %BTreeTupleIsPosting.exit.i166, %133, %_bt_recsplitloc.exit146
-  %148 = phi i8 [ %45, %_bt_recsplitloc.exit146 ], [ 1, %143 ], [ 1, %BTreeTupleIsPosting.exit.i166 ], [ 1, %133 ]
-  %.062.neg.neg.i150 = phi i32 [ -8, %_bt_recsplitloc.exit146 ], [ %.neg75.i171, %143 ], [ -8, %BTreeTupleIsPosting.exit.i166 ], [ -8, %133 ]
+  %148 = phi i8 [ 1, %133 ], [ %45, %_bt_recsplitloc.exit146 ], [ 1, %143 ], [ 1, %BTreeTupleIsPosting.exit.i166 ]
+  %.062.neg.neg.i150 = phi i32 [ -8, %133 ], [ -8, %_bt_recsplitloc.exit146 ], [ %.neg75.i171, %143 ], [ -8, %BTreeTupleIsPosting.exit.i166 ]
   %149 = trunc i8 %148 to i1
   %.neg76.i152 = select i1 %149, i32 %.062.neg.neg.i150, i32 0
   %.059.in.i155 = sub i32 %121, %33
@@ -301,11 +301,11 @@ BTreeTupleIsPosting.exit.thread.i149:             ; preds = %143, %BTreeTupleIsP
   br i1 %or.cond4.i160, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
-  %.160.in.i157.sink = phi i32 [ %.160.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.160.in.i105, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.160.in.i157, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.1.in.i156.sink = phi i32 [ %.1.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.1.in.i104, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.1.in.i156, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.sroa.103.5.sink = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.sroa.117.5.sink555 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.sink = phi i8 [ 0, %BTreeTupleIsPosting.exit.thread.i ], [ 1, %BTreeTupleIsPosting.exit.thread.i97 ], [ 1, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.160.in.i157.sink = phi i32 [ %.160.in.i105, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.160.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.160.in.i157, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.1.in.i156.sink = phi i32 [ %.1.in.i104, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.1.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.1.in.i156, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.sroa.103.5.sink = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.sroa.117.5.sink555 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.sink = phi i8 [ 1, %BTreeTupleIsPosting.exit.thread.i97 ], [ 0, %BTreeTupleIsPosting.exit.thread.i ], [ 1, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.160.i161 = trunc i32 %.160.in.i157.sink to i16
   %.1.i162 = trunc i32 %.1.in.i156.sink to i16
   %..061.i163 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.5.sink, i64 %67)
@@ -324,8 +324,8 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   br label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exit.sink.split, %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
-  %.sroa.103.1 = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %..061.i163, %_bt_recsplitloc.exit.sink.split ]
-  %.sroa.117.1 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %163, %_bt_recsplitloc.exit.sink.split ]
+  %.sroa.103.1 = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %..061.i163, %_bt_recsplitloc.exit.sink.split ]
+  %.sroa.117.1 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %163, %_bt_recsplitloc.exit.sink.split ]
   %164 = add i32 %66, %.080499
   %165 = add i16 %.081498, 1
   %.080.neg = sub i32 0, %164
@@ -542,9 +542,9 @@ _bt_afternewitemoff.exit:                         ; preds = %247
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph506, !llvm.loop !8
 
-.loopexit:                                        ; preds = %264, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %244, %241, %247, %BTreeTupleIsPosting.exit.i201, %208, %202, %194, %189, %192
-  %.0415.shrunk = phi i1 [ true, %192 ], [ %47, %189 ], [ false, %194 ], [ false, %202 ], [ false, %208 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %247 ], [ false, %241 ], [ false, %244 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %264 ]
-  %.078 = phi double [ %193, %192 ], [ 0x3FE6666666666666, %189 ], [ 5.000000e-01, %194 ], [ 5.000000e-01, %202 ], [ 5.000000e-01, %208 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i201 ], [ 5.000000e-01, %247 ], [ 5.000000e-01, %241 ], [ 5.000000e-01, %244 ], [ 5.000000e-01, %.preheader ], [ %.pre, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ %254, %_bt_afternewitemoff.exit ], [ 5.000000e-01, %264 ]
+.loopexit:                                        ; preds = %264, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %244, %241, %208, %247, %202, %194, %BTreeTupleIsPosting.exit.i201, %189, %192
+  %.0415.shrunk = phi i1 [ true, %192 ], [ true, %_bt_afternewitemoff.exit ], [ %47, %189 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %194 ], [ false, %244 ], [ false, %241 ], [ false, %202 ], [ false, %247 ], [ false, %208 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ false, %264 ]
+  %.078 = phi double [ %193, %192 ], [ %254, %_bt_afternewitemoff.exit ], [ 0x3FE6666666666666, %189 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i201 ], [ 5.000000e-01, %194 ], [ 5.000000e-01, %244 ], [ 5.000000e-01, %241 ], [ 5.000000e-01, %202 ], [ 5.000000e-01, %247 ], [ 5.000000e-01, %208 ], [ 5.000000e-01, %.preheader ], [ %.pre, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ 5.000000e-01, %264 ]
   %.sroa.3242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 6
   %.sroa.3242.0.copyload = load i16, ptr %.sroa.3242.0..sroa_idx, align 2
   %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -898,9 +898,9 @@ _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i22
   br label %_bt_strategy.exit
 
 _bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %394, %_bt_split_firstright.exit56.i, %_bt_deltasortsplits.exit226
-  %.0.i211430 = phi i32 [ %.0.i211.ph432, %_bt_deltasortsplits.exit226 ], [ %315, %_bt_split_firstright.exit56.i ], [ %399, %394 ], [ %373, %_bt_split_firstright.exit.i ]
-  %brmerge = phi i1 [ true, %_bt_deltasortsplits.exit226 ], [ %47, %_bt_split_firstright.exit56.i ], [ true, %394 ], [ true, %_bt_split_firstright.exit.i ]
-  %.sroa.204.0 = phi i32 [ 1, %_bt_deltasortsplits.exit226 ], [ %.sroa.117.2, %_bt_split_firstright.exit56.i ], [ %.3.i, %394 ], [ %.3.i, %_bt_split_firstright.exit.i ]
+  %.0.i211430 = phi i32 [ %315, %_bt_split_firstright.exit56.i ], [ %.0.i211.ph432, %_bt_deltasortsplits.exit226 ], [ %399, %394 ], [ %373, %_bt_split_firstright.exit.i ]
+  %brmerge = phi i1 [ %47, %_bt_split_firstright.exit56.i ], [ true, %_bt_deltasortsplits.exit226 ], [ true, %394 ], [ true, %_bt_split_firstright.exit.i ]
+  %.sroa.204.0 = phi i32 [ %.sroa.117.2, %_bt_split_firstright.exit56.i ], [ 1, %_bt_deltasortsplits.exit226 ], [ %.3.i, %394 ], [ %.3.i, %_bt_split_firstright.exit.i ]
   %..i227 = tail call i32 @llvm.smin.i32(i32 %.sroa.204.0, i32 %.sroa.117.2)
   %412 = icmp sgt i32 %..i227, 0
   br i1 %412, label %.lr.ph.split.preheader.i, label %._crit_edge.i
@@ -998,7 +998,7 @@ _bt_split_lastleft.exit.thread21.i.i:             ; preds = %442
   br i1 %457, label %_bt_split_penalty.exit.i, label %._crit_edge.i15.i.i
 
 ._crit_edge.i15.i.i:                              ; preds = %442, %450, %_bt_split_lastleft.exit.thread21.i.i
-  %.0.i20.i.i = phi ptr [ %456, %450 ], [ %449, %_bt_split_lastleft.exit.thread21.i.i ], [ %4, %442 ]
+  %.0.i20.i.i = phi ptr [ %449, %_bt_split_lastleft.exit.thread21.i.i ], [ %456, %450 ], [ %4, %442 ]
   %458 = zext i16 %441 to i64
   %459 = getelementptr %struct.ItemIdData, ptr %415, i64 %458
   %.val.i16.i.i = load i32, ptr %459, align 4
@@ -1056,7 +1056,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
   br label %_bt_bestsplitloc.exit
 
 _bt_bestsplitloc.exit:                            ; preds = %._crit_edge.i.thread, %._crit_edge.i, %_bt_strategy.exit.thread438, %471, %475
-  %.032.i = phi ptr [ %470, %471 ], [ %470, %._crit_edge.i ], [ %spec.select45.i, %475 ], [ %50, %_bt_strategy.exit.thread438 ], [ %468, %._crit_edge.i.thread ]
+  %.032.i = phi ptr [ %50, %_bt_strategy.exit.thread438 ], [ %470, %471 ], [ %spec.select45.i, %475 ], [ %470, %._crit_edge.i ], [ %468, %._crit_edge.i.thread ]
   %482 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %483 = load i8, ptr %482, align 2, !range !6, !noundef !7
   store i8 %483, ptr %5, align 1

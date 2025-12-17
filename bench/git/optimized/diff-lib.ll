@@ -227,7 +227,7 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   br label %.thread228
 
 ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %.thread27.i, %84, %84, %82, %80, %72, %87
-  %.0125 = phi i32 [ 0, %87 ], [ %73, %72 ], [ %86, %.thread27.i ], [ 40960, %80 ], [ 16384, %82 ], [ 57344, %84 ], [ 57344, %84 ], [ %spec.select247, %.thread30.i ]
+  %.0125 = phi i32 [ 0, %87 ], [ %spec.select247, %.thread30.i ], [ %73, %72 ], [ 57344, %84 ], [ %86, %.thread27.i ], [ 40960, %80 ], [ 16384, %82 ], [ 57344, %84 ]
   %90 = load i32, ptr %45, align 8, !tbaa !92
   %91 = zext i32 %90 to i64
   %92 = call ptr @null_oid() #15
@@ -332,7 +332,7 @@ ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %.thre
   br label %ce_mode_from_stat.exit180
 
 ce_mode_from_stat.exit180:                        ; preds = %.thread30.i176, %123, %131, %133, %135, %135, %.thread27.i173
-  %.0.i172 = phi i32 [ %124, %123 ], [ %137, %.thread27.i173 ], [ 40960, %131 ], [ 16384, %133 ], [ 57344, %135 ], [ 57344, %135 ], [ %spec.select249, %.thread30.i176 ]
+  %.0.i172 = phi i32 [ %spec.select249, %.thread30.i176 ], [ %124, %123 ], [ 57344, %135 ], [ %137, %.thread27.i173 ], [ 40960, %131 ], [ 16384, %133 ], [ 57344, %135 ]
   %138 = getelementptr i8, ptr %113, i64 -52
   store i32 %.0.i172, ptr %138, align 4, !tbaa !99
   store i8 77, ptr %114, align 8, !tbaa !101
@@ -515,7 +515,7 @@ ce_mode_from_stat.exit180:                        ; preds = %.thread30.i176, %12
   br label %ce_mode_from_stat.exit195
 
 ce_mode_from_stat.exit195:                        ; preds = %.thread30.i191, %190, %199, %201, %203, %203, %.thread27.i188
-  %.0.i187 = phi i32 [ %192, %190 ], [ %205, %.thread27.i188 ], [ 40960, %199 ], [ 16384, %201 ], [ 57344, %203 ], [ 57344, %203 ], [ %spec.select251, %.thread30.i191 ]
+  %.0.i187 = phi i32 [ %spec.select251, %.thread30.i191 ], [ %192, %190 ], [ 57344, %203 ], [ %205, %.thread27.i188 ], [ 40960, %199 ], [ 16384, %201 ], [ 57344, %203 ]
   %206 = call ptr @null_oid() #15
   %207 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
   call void @diff_addremove(ptr noundef nonnull %10, i32 noundef 43, i32 noundef %.0.i187, ptr noundef %206, i32 noundef 0, ptr noundef nonnull %207, i32 noundef 0) #15
@@ -642,7 +642,7 @@ ce_mode_from_stat.exit211:                        ; preds = %ce_mode_from_stat.e
   br label %296
 
 252:                                              ; preds = %.thread27.i204, %249, %249, %247, %245, %237, %.thread30.i207
-  %.3120.ph = phi i32 [ 57344, %249 ], [ 57344, %249 ], [ 16384, %247 ], [ 40960, %245 ], [ %251, %.thread27.i204 ], [ %238, %237 ], [ %spec.select253, %.thread30.i207 ]
+  %.3120.ph = phi i32 [ 57344, %249 ], [ 57344, %249 ], [ 16384, %247 ], [ 40960, %245 ], [ %251, %.thread27.i204 ], [ %spec.select253, %.thread30.i207 ], [ %238, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %253 = icmp ne i32 %.0.i196, 0
   %254 = icmp ne i32 %.3223, 0
@@ -734,8 +734,8 @@ mark_fsmonitor_valid.exit:                        ; preds = %257, %263, %266, %2
   call void @diff_change(ptr noundef nonnull %10, i32 noundef %291, i32 noundef %.2119308, ptr noundef nonnull %290, ptr noundef nonnull %292, i32 noundef %293, i32 noundef %294, ptr noundef nonnull %295, i32 noundef 0, i32 noundef %.0220304) #15
   br label %296
 
-296:                                              ; preds = %289, %ce_mode_from_stat.exit211, %157, %43, %57, %162, %mark_fsmonitor_valid.exit, %.thread228
-  %.1.ph = phi i32 [ %.3.ph, %.thread228 ], [ %.2, %mark_fsmonitor_valid.exit ], [ %.2, %162 ], [ %.0264, %57 ], [ %.0264, %43 ], [ %149, %157 ], [ %.2, %ce_mode_from_stat.exit211 ], [ %.2, %289 ]
+296:                                              ; preds = %43, %57, %289, %162, %ce_mode_from_stat.exit211, %157, %mark_fsmonitor_valid.exit, %.thread228
+  %.1.ph = phi i32 [ %.3.ph, %.thread228 ], [ %.2, %mark_fsmonitor_valid.exit ], [ %149, %157 ], [ %.2, %ce_mode_from_stat.exit211 ], [ %.2, %162 ], [ %.2, %289 ], [ %.0264, %57 ], [ %.0264, %43 ]
   %297 = add nsw i32 %.1.ph, 1
   %298 = icmp slt i32 %297, %17
   br i1 %298, label %37, label %._crit_edge, !llvm.loop !122
@@ -1485,7 +1485,7 @@ define internal range(i32 -1, 1) i32 @oneway_diff(ptr noundef readonly captures(
   br label %.thread.i
 
 .thread.i:                                        ; preds = %51, %47, %41, %36
-  %54 = phi i1 [ true, %47 ], [ %53, %51 ], [ true, %41 ], [ true, %36 ]
+  %54 = phi i1 [ true, %47 ], [ %53, %51 ], [ true, %36 ], [ true, %41 ]
   %55 = zext i1 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %.val17, i64 288
   %57 = load i64, ptr %56, align 8
@@ -1844,7 +1844,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_stat_data(ptr noundef %0, ptr n
   br label %53
 
 53:                                               ; preds = %48, %45, %41, %38
-  %.1.i = phi i32 [ %28, %41 ], [ %28, %48 ], [ %28, %45 ], [ 0, %38 ]
+  %.1.i = phi i32 [ %28, %45 ], [ %28, %41 ], [ %28, %48 ], [ 0, %38 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %33, ptr noundef nonnull align 4 dereferenceable(140) %8, i64 140, i1 false), !tbaa.struct !111
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %match_stat_with_submodule.exit
@@ -1915,12 +1915,12 @@ match_stat_with_submodule.exit:                   ; preds = %23, %53
   br label %ce_mode_from_stat.exit
 
 ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %60, %68, %70, %72, %72, %.thread27.i
-  %.0.i34 = phi i32 [ %61, %60 ], [ %74, %.thread27.i ], [ 40960, %68 ], [ 16384, %70 ], [ 57344, %72 ], [ 57344, %72 ], [ %spec.select, %.thread30.i ]
+  %.0.i34 = phi i32 [ %spec.select, %.thread30.i ], [ %61, %60 ], [ 57344, %72 ], [ %74, %.thread27.i ], [ 40960, %68 ], [ 16384, %70 ], [ 57344, %72 ]
   %75 = call ptr @null_oid() #15
   br label %76
 
-.thread:                                          ; preds = %22, %17, %21
-  %.026.ph = phi i32 [ -1, %21 ], [ -1, %17 ], [ 0, %22 ]
+.thread:                                          ; preds = %21, %22, %17
+  %.026.ph = phi i32 [ -1, %17 ], [ 0, %22 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %78
 

@@ -498,7 +498,7 @@ define internal range(i32 3, 1) i32 @mov_text_encode_frame(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %28, %27, %50, %._crit_edge, %59, %58
-  %.2 = phi i32 [ -1397118274, %58 ], [ %60, %59 ], [ -34, %._crit_edge ], [ 0, %50 ], [ -22, %27 ], [ -12, %28 ]
+  %.2 = phi i32 [ -1397118274, %58 ], [ 0, %50 ], [ -34, %._crit_edge ], [ %60, %59 ], [ -22, %27 ], [ -12, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
@@ -863,7 +863,7 @@ define internal void @mov_text_text_cb(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %17, label %18, label %utf8_strlen.exit.thread
 
 18:                                               ; preds = %15, %12, %9, %.lr.ph.i
-  %.sink.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %9 ], [ 3, %12 ], [ 4, %15 ]
+  %.sink.i = phi i32 [ 1, %.lr.ph.i ], [ 3, %12 ], [ 2, %9 ], [ 4, %15 ]
   %19 = add i32 %.sink.i, %.01821.i
   %20 = add i32 %.01622.i, 1
   %21 = icmp ult i32 %19, %2

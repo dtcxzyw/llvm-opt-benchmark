@@ -423,7 +423,7 @@ Extra_ProgressBarUpdate.exit.i.i:                 ; preds = %146, %143
   br i1 %.not137.i.i, label %159, label %.preheader.i.i
 
 159:                                              ; preds = %157, %155, %153, %151, %149
-  %.sink.i.i = phi i32 [ 1, %149 ], [ 2, %151 ], [ 4, %153 ], [ 5, %155 ], [ 3, %157 ]
+  %.sink.i.i = phi i32 [ 1, %149 ], [ 4, %153 ], [ 5, %155 ], [ 2, %151 ], [ 3, %157 ]
   %160 = tail call fastcc i32 @Ver_ParseSignal(ptr noundef nonnull %.0.i, ptr noundef %.0.i.i.i, i32 noundef %.sink.i.i)
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %Ver_ParseInternal.exit, label %.preheader172.i.i
@@ -942,7 +942,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
   br i1 %exitcond.not.i.us.us.i.i.i, label %.critedge4.i.us.us.i.i.i, label %372, !llvm.loop !82
 
 .critedge4.i.us.us.i.i.i:                         ; preds = %377, %.preheader.i.us.us.i.i.i, %.critedge2.i.us.us.i.i.i
-  %.263.i.us.us.i.i.i = phi ptr [ %.262.i.us.us.i.i.i, %.preheader.i.us.us.i.i.i ], [ %359, %.critedge2.i.us.us.i.i.i ], [ %.262.i.us.us.i.i.i, %377 ]
+  %.263.i.us.us.i.i.i = phi ptr [ %359, %.critedge2.i.us.us.i.i.i ], [ %.262.i.us.us.i.i.i, %.preheader.i.us.us.i.i.i ], [ %.262.i.us.us.i.i.i, %377 ]
   %indvars.iv.next56.i.us.us.i.i.i = add nuw nsw i64 %indvars.iv55.i.us.us.i.i.i, 1
   %exitcond59.not.i.us.us.i.i.i = icmp eq i64 %indvars.iv.next56.i.us.us.i.i.i, %wide.trip.count58.i.i.i.i
   br i1 %exitcond59.not.i.us.us.i.i.i, label %.critedge.i37.i, label %348, !llvm.loop !83
@@ -1268,12 +1268,12 @@ define ptr @Ver_ParseFindNet(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not12, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %8, %4, %6
-  %.str.4.sink = phi ptr [ @.str.2, %6 ], [ @.str.2, %4 ], [ @.str.4, %8 ]
+  %.str.4.sink = phi ptr [ @.str.2, %4 ], [ @.str.2, %6 ], [ @.str.4, %8 ]
   %10 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %0, ptr noundef nonnull %.str.4.sink) #22
   br label %11
 
 11:                                               ; preds = %.sink.split, %8, %2
-  %.0 = phi ptr [ %3, %2 ], [ null, %8 ], [ %10, %.sink.split ]
+  %.0 = phi ptr [ null, %8 ], [ %3, %2 ], [ %10, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1400,7 +1400,7 @@ define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr noundef 
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %65, %62, %35, %32, %7, %37, %6, %36
-  %.0 = phi i32 [ 1, %36 ], [ 1, %6 ], [ 1, %37 ], [ 1, %7 ], [ 0, %32 ], [ 0, %35 ], [ 0, %62 ], [ 0, %65 ]
+  %.0 = phi i32 [ 0, %35 ], [ 1, %7 ], [ 1, %36 ], [ 1, %6 ], [ 1, %37 ], [ 0, %32 ], [ 0, %62 ], [ 0, %65 ]
   ret i32 %.0
 }
 
@@ -1615,15 +1615,15 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %67, %61, %71
-  %.1 = phi ptr [ %66, %71 ], [ %62, %61 ], [ %66, %67 ], [ %.039, %9 ]
-  %.0 = phi i32 [ %36, %71 ], [ %36, %61 ], [ %36, %67 ], [ %8, %9 ]
+  %.1 = phi ptr [ %62, %61 ], [ %66, %71 ], [ %66, %67 ], [ %.039, %9 ]
+  %.0 = phi i32 [ %36, %61 ], [ %36, %71 ], [ %36, %67 ], [ %8, %9 ]
   store ptr %.1, ptr %1, align 8, !tbaa !92
   store i32 %8, ptr %2, align 4, !tbaa !37
   store i32 %.0, ptr %3, align 4, !tbaa !37
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %60, %57, %32, %29, %.loopexit
-  %.037 = phi i32 [ 1, %.loopexit ], [ 0, %29 ], [ 0, %32 ], [ 0, %57 ], [ 0, %60 ]
+  %.037 = phi i32 [ 0, %32 ], [ 1, %.loopexit ], [ 0, %29 ], [ 0, %57 ], [ 0, %60 ]
   ret i32 %.037
 }
 
@@ -1758,7 +1758,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %62, %59, %31, %28, %63, %32
-  %.0 = phi i32 [ 1, %32 ], [ 1, %63 ], [ 0, %28 ], [ 0, %31 ], [ 0, %59 ], [ 0, %62 ]
+  %.0 = phi i32 [ 1, %63 ], [ 1, %32 ], [ 0, %31 ], [ 0, %28 ], [ 0, %59 ], [ 0, %62 ]
   ret i32 %.0
 }
 
@@ -2069,7 +2069,7 @@ Vec_PtrPush.exit52:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %Ver_ParsePrintErrorMessage.exit, label %.lr.ph, !llvm.loop !99
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %145, %52, %79, %76, %51, %48, %28, %25
-  %.030 = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %48 ], [ 0, %51 ], [ 0, %76 ], [ 0, %79 ], [ 1, %52 ], [ 1, %145 ]
+  %.030 = phi i32 [ 0, %28 ], [ 0, %51 ], [ 0, %25 ], [ 0, %48 ], [ 0, %76 ], [ 0, %79 ], [ 1, %52 ], [ 1, %145 ]
   ret i32 %.030
 }
 
@@ -2883,7 +2883,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %.not.i.i388.i, label %.critedge, label %.critedge.sink.split
 
 270:                                              ; preds = %.critedge22.i, %.critedge20.i
-  %.2291.i = phi ptr [ %.1290.i, %.critedge20.i ], [ %239, %.critedge22.i ]
+  %.2291.i = phi ptr [ %239, %.critedge22.i ], [ %.1290.i, %.critedge20.i ]
   %271 = getelementptr inbounds nuw i8, ptr %.2291.i, i64 8
   %272 = load ptr, ptr %271, align 8, !tbaa !77
   %273 = getelementptr i8, ptr %272, i64 4
@@ -3049,7 +3049,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br label %.critedge32.i
 
 341:                                              ; preds = %.critedge30.i, %.critedge28.i
-  %.8297.i = phi ptr [ %.7296.i, %.critedge28.i ], [ %326, %.critedge30.i ]
+  %.8297.i = phi ptr [ %326, %.critedge30.i ], [ %.7296.i, %.critedge28.i ]
   %342 = getelementptr inbounds nuw i8, ptr %.8297.i, i64 8
   %343 = load ptr, ptr %342, align 8, !tbaa !77
   %344 = getelementptr i8, ptr %343, i64 4
@@ -3280,7 +3280,7 @@ Ver_ParseConnectBox.exit:                         ; preds = %Ver_ParseConnectBox
   br i1 %439, label %.lr.ph137, label %.critedge, !llvm.loop !124
 
 .critedge.sink.split:                             ; preds = %394, %268, %142, %80
-  %.sink = phi ptr [ %81, %80 ], [ %143, %142 ], [ %269, %268 ], [ %395, %394 ]
+  %.sink = phi ptr [ %269, %268 ], [ %143, %142 ], [ %81, %80 ], [ %395, %394 ]
   call void @Abc_DesFree(ptr noundef nonnull %.sink, ptr noundef null) #22
   store ptr null, ptr %3, align 8, !tbaa !33
   br label %.critedge
@@ -3992,7 +3992,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr noundef readonly ca
   br i1 %37, label %.critedge, label %32
 
 .critedge4:                                       ; preds = %32, %.preheader, %.critedge2.split.loop.exit
-  %.263 = phi ptr [ %.262, %.preheader ], [ %19, %.critedge2.split.loop.exit ], [ %.262, %32 ]
+  %.263 = phi ptr [ %19, %.critedge2.split.loop.exit ], [ %.262, %.preheader ], [ %.262, %32 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %.critedge, label %8, !llvm.loop !83
@@ -4143,7 +4143,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not.i.us.us, label %.critedge4.i.us.us, label %55, !llvm.loop !82
 
 .critedge4.i.us.us:                               ; preds = %60, %.preheader.i.us.us, %.critedge2.i.us.us
-  %.263.i.us.us = phi ptr [ %.262.i.us.us, %.preheader.i.us.us ], [ %42, %.critedge2.i.us.us ], [ %.262.i.us.us, %60 ]
+  %.263.i.us.us = phi ptr [ %42, %.critedge2.i.us.us ], [ %.262.i.us.us, %.preheader.i.us.us ], [ %.262.i.us.us, %60 ]
   %indvars.iv.next56.i.us.us = add nuw nsw i64 %indvars.iv55.i.us.us, 1
   %exitcond59.not.i.us.us = icmp eq i64 %indvars.iv.next56.i.us.us, %wide.trip.count58.i
   br i1 %exitcond59.not.i.us.us, label %.critedge, label %31, !llvm.loop !83
@@ -4418,7 +4418,7 @@ Ver_ParseFreeBundle.exit:                         ; preds = %101, %105
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %91, %88, %115, %.critedge2
-  %.070 = phi i32 [ 1, %.critedge2 ], [ 1, %115 ], [ 0, %88 ], [ 0, %91 ]
+  %.070 = phi i32 [ 1, %115 ], [ 1, %.critedge2 ], [ 0, %88 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.070
 }
@@ -4979,7 +4979,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   br label %64
 
 64:                                               ; preds = %Ver_NtkIsDefined.exit.thread, %Ver_NtkIsDefined.exit
-  %.str.23.sink = phi ptr [ @.str.22, %Ver_NtkIsDefined.exit ], [ %.str.23..str.24, %Ver_NtkIsDefined.exit.thread ]
+  %.str.23.sink = phi ptr [ %.str.23..str.24, %Ver_NtkIsDefined.exit.thread ], [ @.str.22, %Ver_NtkIsDefined.exit ]
   %65 = tail call i64 @fwrite(ptr nonnull %.str.23.sink, i64 8, i64 1, ptr %9)
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 192
   %67 = load i32, ptr %66, align 8, !tbaa !151
@@ -5633,7 +5633,7 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %31, %.loopexit, %3, %119, %116
-  %.049 = phi i32 [ 0, %116 ], [ 0, %119 ], [ 0, %3 ], [ 0, %.backedge ], [ 0, %31 ], [ 1, %.loopexit ]
+  %.049 = phi i32 [ 0, %119 ], [ 0, %116 ], [ 0, %3 ], [ 0, %31 ], [ 0, %.backedge ], [ 1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5724,7 +5724,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %38, %40, %42
-  %.str.4.sink.i = phi ptr [ @.str.2, %40 ], [ @.str.2, %38 ], [ @.str.4, %42 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %38 ], [ @.str.2, %40 ], [ @.str.4, %42 ]
   %44 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %45 = icmp eq ptr %44, null
   br i1 %45, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread113
@@ -5971,7 +5971,7 @@ default.unreachable:                              ; preds = %146
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %98, %29, %159, %145, %142, %97, %94, %64, %61, %28, %25, %161, %3, %106
-  %.0 = phi i32 [ 0, %106 ], [ 0, %3 ], [ 1, %159 ], [ 1, %161 ], [ 0, %25 ], [ 0, %28 ], [ 0, %61 ], [ 0, %64 ], [ 0, %94 ], [ 0, %97 ], [ 0, %142 ], [ 0, %145 ], [ 0, %29 ], [ 0, %98 ]
+  %.0 = phi i32 [ 1, %161 ], [ 0, %3 ], [ 0, %28 ], [ 0, %106 ], [ 0, %97 ], [ 0, %64 ], [ 1, %159 ], [ 0, %25 ], [ 0, %61 ], [ 0, %94 ], [ 0, %142 ], [ 0, %145 ], [ 0, %29 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -6051,7 +6051,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseFlopStandard(ptr noundef %0
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %34, %36, %38
-  %.str.4.sink.i = phi ptr [ @.str.2, %36 ], [ @.str.2, %34 ], [ @.str.4, %38 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %34 ], [ @.str.2, %36 ], [ @.str.4, %38 ]
   %40 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %41 = icmp eq ptr %40, null
   br i1 %41, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread74
@@ -6197,7 +6197,7 @@ Ver_ParseFindNet.exit.thread74:                   ; preds = %32, %Ver_ParseFindN
   br i1 %.not12.i69, label %Ver_ParseFindNet.exit72, label %Ver_ParseFindNet.exit72.thread
 
 Ver_ParseFindNet.exit72:                          ; preds = %107, %109, %111
-  %.str.4.sink.i71 = phi ptr [ @.str.2, %109 ], [ @.str.2, %107 ], [ @.str.4, %111 ]
+  %.str.4.sink.i71 = phi ptr [ @.str.2, %107 ], [ @.str.2, %109 ], [ @.str.4, %111 ]
   %113 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i71) #22
   %114 = icmp eq ptr %113, null
   br i1 %114, label %Ver_ParseFindNet.exit72.thread, label %Ver_ParseFindNet.exit72.thread78
@@ -6240,7 +6240,7 @@ Ver_ParseFindNet.exit72.thread78:                 ; preds = %105, %Ver_ParseFind
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %100, %97, %81, %78, %60, %57, %27, %24, %101, %28, %2, %126, %124, %119, %Ver_ParseFindNet.exit72.thread
-  %.0 = phi i32 [ 0, %Ver_ParseFindNet.exit72.thread ], [ 0, %119 ], [ 0, %124 ], [ 1, %126 ], [ 0, %2 ], [ 0, %28 ], [ 0, %101 ], [ 0, %24 ], [ 0, %27 ], [ 0, %57 ], [ 0, %60 ], [ 0, %78 ], [ 0, %81 ], [ 0, %97 ], [ 0, %100 ]
+  %.0 = phi i32 [ 0, %101 ], [ 0, %2 ], [ 0, %27 ], [ 0, %60 ], [ 0, %81 ], [ 0, %28 ], [ 0, %Ver_ParseFindNet.exit72.thread ], [ 0, %119 ], [ 0, %124 ], [ 1, %126 ], [ 0, %24 ], [ 0, %57 ], [ 0, %78 ], [ 0, %97 ], [ 0, %100 ]
   ret i32 %.0
 }
 
@@ -6451,7 +6451,7 @@ Ver_ParseFindNet.exit:                            ; preds = %Ver_ParseFindNet.ex
   br i1 %.not12.i221, label %Ver_ParseFindNet.exit224, label %Ver_ParseFindNet.exit224.thread
 
 Ver_ParseFindNet.exit224:                         ; preds = %86, %87, %88
-  %.str.4.sink.i223 = phi ptr [ @.str.2, %87 ], [ @.str.2, %86 ], [ @.str.4, %88 ]
+  %.str.4.sink.i223 = phi ptr [ @.str.2, %86 ], [ @.str.2, %87 ], [ @.str.4, %88 ]
   %89 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i223) #22
   %90 = icmp eq ptr %89, null
   br i1 %90, label %Ver_ParseFindNet.exit224.thread, label %Ver_ParseFindNet.exit224.thread286
@@ -6542,7 +6542,7 @@ Ver_ParseFindNet.exit224.thread286:               ; preds = %Ver_ParseFindNet.ex
   br i1 %.not12.i230, label %Ver_ParseFindNet.exit233, label %Ver_ParseFindNet.exit233.thread
 
 Ver_ParseFindNet.exit233:                         ; preds = %122, %124, %126
-  %.str.4.sink.i232 = phi ptr [ @.str.2, %124 ], [ @.str.2, %122 ], [ @.str.4, %126 ]
+  %.str.4.sink.i232 = phi ptr [ @.str.2, %122 ], [ @.str.2, %124 ], [ @.str.4, %126 ]
   %128 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i232) #22
   %129 = icmp eq ptr %128, null
   br i1 %129, label %Ver_ParseFindNet.exit233.thread, label %Ver_ParseFindNet.exit233.thread292
@@ -6642,7 +6642,7 @@ Ver_ParseFindNet.exit233.thread292:               ; preds = %.thread, %Ver_Parse
   br i1 %.not12.i238, label %Ver_ParseFindNet.exit241, label %Ver_ParseFindNet.exit241.thread
 
 Ver_ParseFindNet.exit241:                         ; preds = %165, %167, %169
-  %.str.4.sink.i240 = phi ptr [ @.str.2, %167 ], [ @.str.2, %165 ], [ @.str.4, %169 ]
+  %.str.4.sink.i240 = phi ptr [ @.str.2, %165 ], [ @.str.2, %167 ], [ @.str.4, %169 ]
   %171 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i240) #22
   %172 = icmp eq ptr %171, null
   br i1 %172, label %Ver_ParseFindNet.exit241.thread, label %Ver_ParseFindNet.exit241.thread296
@@ -6941,7 +6941,7 @@ sub_0310:                                         ; preds = %250
   br i1 %.not12.i269, label %Ver_ParseFindNet.exit256, label %Ver_ParseFindNet.exit256.thread
 
 Ver_ParseFindNet.exit256:                         ; preds = %300, %302, %304, %296, %292
-  %.str.4.sink.i271.sink = phi ptr [ @.str.2, %292 ], [ @.str.4, %296 ], [ @.str.2, %302 ], [ @.str.2, %300 ], [ @.str.4, %304 ]
+  %.str.4.sink.i271.sink = phi ptr [ @.str.4, %296 ], [ @.str.2, %292 ], [ @.str.2, %300 ], [ @.str.2, %302 ], [ @.str.4, %304 ]
   %306 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i271.sink) #22
   %307 = icmp eq ptr %306, null
   br i1 %307, label %Ver_ParseFindNet.exit256.thread, label %Ver_ParseFindNet.exit256.thread300
@@ -6998,7 +6998,7 @@ Ver_ParseFindNet.exit256.thread300:               ; preds = %298, %296, %292, %V
   br i1 %332, label %Ver_ParsePrintErrorMessage.exit, label %.backedge
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %55, %63, %134, %.loopexit, %.preheader313, %325, %322, %108, %105, %2, %275, %242, %Ver_ParseFindNet.exit241.thread, %139, %132, %Ver_ParseFindNet.exit233.thread, %70, %61, %53
-  %.0152 = phi i32 [ 0, %53 ], [ 0, %70 ], [ 0, %61 ], [ 0, %Ver_ParseFindNet.exit233.thread ], [ 0, %132 ], [ 0, %139 ], [ 0, %Ver_ParseFindNet.exit241.thread ], [ 0, %242 ], [ 0, %275 ], [ 0, %2 ], [ 0, %105 ], [ 0, %108 ], [ 0, %322 ], [ 0, %325 ], [ 0, %.preheader313 ], [ 0, %.backedge ], [ 0, %55 ], [ 0, %63 ], [ 0, %134 ], [ 1, %.loopexit ]
+  %.0152 = phi i32 [ 0, %2 ], [ 0, %53 ], [ 0, %275 ], [ 0, %70 ], [ 0, %325 ], [ 0, %105 ], [ 0, %322 ], [ 0, %61 ], [ 0, %Ver_ParseFindNet.exit233.thread ], [ 0, %132 ], [ 0, %139 ], [ 0, %Ver_ParseFindNet.exit241.thread ], [ 0, %242 ], [ 0, %108 ], [ 0, %.preheader313 ], [ 0, %55 ], [ 0, %.backedge ], [ 0, %63 ], [ 0, %134 ], [ 1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0152
@@ -7066,7 +7066,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseAlways(ptr noundef %0, ptr 
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %24, %26, %28
-  %.str.4.sink.i = phi ptr [ @.str.2, %26 ], [ @.str.2, %24 ], [ @.str.4, %28 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %24 ], [ @.str.2, %26 ], [ @.str.4, %28 ]
   %30 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %31 = icmp eq ptr %30, null
   br i1 %31, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread81
@@ -7193,12 +7193,12 @@ Ver_ParseFindNet.exit.thread81:                   ; preds = %22, %Ver_ParseFindN
   br i1 %.not12.i65, label %.sink.split.i66, label %Ver_ParseFindNet.exit68
 
 .sink.split.i66:                                  ; preds = %92, %90, %88
-  %.str.4.sink.i67 = phi ptr [ @.str.2, %90 ], [ @.str.2, %88 ], [ @.str.4, %92 ]
+  %.str.4.sink.i67 = phi ptr [ @.str.2, %88 ], [ @.str.2, %90 ], [ @.str.4, %92 ]
   %94 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i67) #22
   br label %Ver_ParseFindNet.exit68
 
 Ver_ParseFindNet.exit68:                          ; preds = %85, %92, %.sink.split.i66
-  %.0.i62 = phi ptr [ %87, %85 ], [ null, %92 ], [ %94, %.sink.split.i66 ]
+  %.0.i62 = phi ptr [ null, %92 ], [ %87, %85 ], [ %94, %.sink.split.i66 ]
   %95 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %1, ptr noundef %.0.i62) #22
   %96 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 6) #22
   tail call void @Abc_ObjAddFanin(ptr noundef %96, ptr noundef %95) #22
@@ -7225,7 +7225,7 @@ Ver_ParseFindNet.exit68:                          ; preds = %85, %92, %.sink.spl
   br i1 %.not12.i73, label %.sink.split.i74, label %Ver_ParseFindNet.exit76.thread
 
 .sink.split.i74:                                  ; preds = %103, %101, %99
-  %.str.4.sink.i75 = phi ptr [ @.str.2, %101 ], [ @.str.2, %99 ], [ @.str.4, %103 ]
+  %.str.4.sink.i75 = phi ptr [ @.str.2, %99 ], [ @.str.2, %101 ], [ @.str.4, %103 ]
   %105 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i75) #22
   br label %Ver_ParseFindNet.exit76
 
@@ -7286,7 +7286,7 @@ Ver_ParseFindNet.exit76.thread85:                 ; preds = %97, %Ver_ParseFindN
   br i1 %.not, label %16, label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %20, %Ver_ParseFindNet.exit76.thread85, %79, %77, %17, %125, %122, %72, %69, %50, %47, %10, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 0, %47 ], [ 0, %50 ], [ 0, %69 ], [ 0, %72 ], [ 0, %122 ], [ 0, %125 ], [ 1, %20 ], [ 1, %Ver_ParseFindNet.exit76.thread85 ], [ 0, %79 ], [ 0, %77 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 0, %125 ], [ 0, %50 ], [ 0, %47 ], [ 0, %72 ], [ 0, %69 ], [ 0, %122 ], [ 1, %Ver_ParseFindNet.exit76.thread85 ], [ 0, %17 ], [ 0, %79 ], [ 0, %77 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -7339,7 +7339,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseInitial(ptr noundef %0, ptr
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %17, %19, %21
-  %.str.4.sink.i = phi ptr [ @.str.2, %19 ], [ @.str.2, %17 ], [ @.str.4, %21 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %17 ], [ @.str.2, %19 ], [ @.str.4, %21 ]
   %23 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %24 = icmp eq ptr %23, null
   br i1 %24, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread68
@@ -7575,14 +7575,14 @@ sub_072:                                          ; preds = %.tail.thread
   br label %Ver_ParsePrintErrorMessage.exit
 
 140:                                              ; preds = %.tail71, %.tail71.thread, %.tail, %.tail.thread, %.thread
-  %.sink = phi ptr [ inttoptr (i64 1 to ptr), %.thread ], [ inttoptr (i64 1 to ptr), %.tail.thread ], [ inttoptr (i64 1 to ptr), %.tail ], [ inttoptr (i64 2 to ptr), %.tail71.thread ], [ inttoptr (i64 2 to ptr), %.tail71 ]
+  %.sink = phi ptr [ inttoptr (i64 1 to ptr), %.tail ], [ inttoptr (i64 1 to ptr), %.thread ], [ inttoptr (i64 1 to ptr), %.tail.thread ], [ inttoptr (i64 2 to ptr), %.tail71.thread ], [ inttoptr (i64 2 to ptr), %.tail71 ]
   %141 = getelementptr inbounds nuw i8, ptr %108, i64 56
   store ptr %.sink, ptr %141, align 8, !tbaa !73
   %142 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %4) #22
   br i1 %.not, label %9, label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %13, %140, %72, %70, %10, %139, %136, %96, %93, %65, %62, %43, %40, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %40 ], [ 0, %43 ], [ 0, %62 ], [ 0, %65 ], [ 0, %93 ], [ 0, %96 ], [ 0, %136 ], [ 0, %139 ], [ 1, %13 ], [ 1, %140 ], [ 0, %72 ], [ 0, %70 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %40 ], [ 0, %43 ], [ 0, %62 ], [ 0, %65 ], [ 0, %96 ], [ 0, %93 ], [ 0, %136 ], [ 0, %139 ], [ 1, %140 ], [ 0, %10 ], [ 0, %72 ], [ 0, %70 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -7776,7 +7776,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %94, %96, %98
-  %.str.4.sink.i = phi ptr [ @.str.2, %96 ], [ @.str.2, %94 ], [ @.str.4, %98 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %94 ], [ @.str.2, %96 ], [ @.str.4, %98 ]
   %100 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %101 = icmp eq ptr %100, null
   br i1 %101, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread145
@@ -8018,7 +8018,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond192.not, label %Ver_ParsePrintErrorMessage.exit, label %196, !llvm.loop !176
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %89, %73, %182, %196, %.critedge.preheader, %.preheader148, %54, %51, %26, %23, %29, %27, %178, %167, %154, %105, %Ver_ParseFindNet.exit.thread, %85, %79, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %79 ], [ 0, %85 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %167 ], [ 0, %154 ], [ 0, %27 ], [ 0, %29 ], [ 0, %23 ], [ 0, %26 ], [ 0, %51 ], [ 0, %54 ], [ 1, %.preheader148 ], [ 1, %.critedge.preheader ], [ 1, %196 ], [ 1, %182 ], [ 0, %73 ], [ 0, %89 ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %27 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %79 ], [ 0, %85 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %167 ], [ 0, %154 ], [ 0, %23 ], [ 0, %51 ], [ 1, %.preheader148 ], [ 1, %.critedge.preheader ], [ 1, %182 ], [ 1, %196 ], [ 0, %73 ], [ 0, %89 ]
   ret i32 %.0
 }
 
@@ -8291,7 +8291,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not12.i, label %Ver_ParseFindNet.exit, label %Ver_ParseFindNet.exit.thread
 
 Ver_ParseFindNet.exit:                            ; preds = %136, %137, %138
-  %.str.4.sink.i = phi ptr [ @.str.2, %137 ], [ @.str.2, %136 ], [ @.str.4, %138 ]
+  %.str.4.sink.i = phi ptr [ @.str.2, %136 ], [ @.str.2, %137 ], [ @.str.4, %138 ]
   %139 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i) #22
   %140 = icmp eq ptr %139, null
   br i1 %140, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread325
@@ -8485,7 +8485,7 @@ Ver_ParseLookupSuffix.exit:                       ; preds = %207, %210, %212
   br i1 %.not12.i256, label %Ver_ParseFindNet.exit259, label %Ver_ParseFindNet.exit259.thread
 
 Ver_ParseFindNet.exit259:                         ; preds = %226, %228, %230
-  %.str.4.sink.i258 = phi ptr [ @.str.2, %228 ], [ @.str.2, %226 ], [ @.str.4, %230 ]
+  %.str.4.sink.i258 = phi ptr [ @.str.2, %226 ], [ @.str.2, %228 ], [ @.str.4, %230 ]
   %232 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i258) #22
   %233 = icmp eq ptr %232, null
   br i1 %233, label %Ver_ParseFindNet.exit259.thread, label %Ver_ParseFindNet.exit259.thread329
@@ -8613,7 +8613,7 @@ Vec_PtrPush.exit266:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not12.i271, label %Ver_ParseFindNet.exit274, label %Ver_ParseFindNet.exit274.thread
 
 Ver_ParseFindNet.exit274:                         ; preds = %281, %282, %283
-  %.str.4.sink.i273 = phi ptr [ @.str.2, %282 ], [ @.str.2, %281 ], [ @.str.4, %283 ]
+  %.str.4.sink.i273 = phi ptr [ @.str.2, %281 ], [ @.str.2, %282 ], [ @.str.4, %283 ]
   %284 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i273) #22
   %285 = icmp eq ptr %284, null
   br i1 %285, label %Ver_ParseFindNet.exit274.thread, label %Ver_ParseFindNet.exit274.thread332
@@ -8862,7 +8862,7 @@ Vec_PtrPush.exit291:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not12.i296, label %Ver_ParseFindNet.exit299, label %Ver_ParseFindNet.exit299.thread
 
 Ver_ParseFindNet.exit299:                         ; preds = %396, %398, %400
-  %.str.4.sink.i298 = phi ptr [ @.str.2, %398 ], [ @.str.2, %396 ], [ @.str.4, %400 ]
+  %.str.4.sink.i298 = phi ptr [ @.str.2, %396 ], [ @.str.2, %398 ], [ @.str.4, %400 ]
   %402 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i298) #22
   %403 = icmp eq ptr %402, null
   br i1 %403, label %Ver_ParseFindNet.exit299.thread, label %Ver_ParseFindNet.exit299.thread335
@@ -8956,7 +8956,7 @@ Ver_ParseLookupSuffix.exit301:                    ; preds = %Ver_ParseFindNet.ex
   br i1 %.not12.i306, label %Ver_ParseFindNet.exit309, label %Ver_ParseFindNet.exit309.thread
 
 Ver_ParseFindNet.exit309:                         ; preds = %435, %436, %437
-  %.str.4.sink.i308 = phi ptr [ @.str.2, %436 ], [ @.str.2, %435 ], [ @.str.4, %437 ]
+  %.str.4.sink.i308 = phi ptr [ @.str.2, %435 ], [ @.str.2, %436 ], [ @.str.4, %437 ]
   %438 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %.str.4.sink.i308) #22
   %439 = icmp eq ptr %438, null
   br i1 %439, label %Ver_ParseFindNet.exit309.thread, label %Ver_ParseFindNet.exit309.thread339
@@ -9128,7 +9128,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit350
 
 .loopexit350:                                     ; preds = %Vec_PtrPush.exit316, %347, %118, %.loopexit, %.critedge, %Vec_PtrPush.exit291, %Vec_PtrPush.exit323
-  %.0191 = phi ptr [ %355, %Vec_PtrPush.exit291 ], [ %355, %Vec_PtrPush.exit323 ], [ %355, %.critedge ], [ %110, %.loopexit ], [ %110, %118 ], [ %110, %347 ], [ %355, %Vec_PtrPush.exit316 ]
+  %.0191 = phi ptr [ %355, %Vec_PtrPush.exit291 ], [ %355, %.critedge ], [ %355, %Vec_PtrPush.exit323 ], [ %110, %347 ], [ %110, %.loopexit ], [ %110, %118 ], [ %355, %Vec_PtrPush.exit316 ]
   br i1 %.not234, label %516, label %525
 
 516:                                              ; preds = %.loopexit350
@@ -9180,7 +9180,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %108, %311, %308, %160, %157, %38, %35, %533, %3, %536, %527, %519, %445, %423, %350, %239, %97, %87
-  %.0190 = phi i32 [ 0, %87 ], [ 0, %97 ], [ 0, %519 ], [ 0, %536 ], [ 0, %527 ], [ 0, %350 ], [ 0, %239 ], [ 0, %423 ], [ 0, %445 ], [ 0, %3 ], [ 1, %533 ], [ 0, %35 ], [ 0, %38 ], [ 0, %157 ], [ 0, %160 ], [ 0, %308 ], [ 0, %311 ], [ 0, %108 ], [ 0, %123 ], [ 0, %91 ], [ 0, %354 ]
+  %.0190 = phi i32 [ 0, %445 ], [ 1, %533 ], [ 0, %87 ], [ 0, %3 ], [ 0, %97 ], [ 0, %519 ], [ 0, %536 ], [ 0, %527 ], [ 0, %38 ], [ 0, %350 ], [ 0, %239 ], [ 0, %160 ], [ 0, %423 ], [ 0, %35 ], [ 0, %157 ], [ 0, %308 ], [ 0, %311 ], [ 0, %123 ], [ 0, %108 ], [ 0, %91 ], [ 0, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

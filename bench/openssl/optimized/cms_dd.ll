@@ -38,7 +38,7 @@ define ptr @ossl_cms_DigestedData_create(ptr noundef %0, ptr noundef %1, ptr nou
   br label %19
 
 19:                                               ; preds = %3, %18, %10
-  %.0 = phi ptr [ null, %18 ], [ %4, %10 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %10 ], [ null, %18 ], [ null, %3 ]
   ret ptr %.0
 }
 

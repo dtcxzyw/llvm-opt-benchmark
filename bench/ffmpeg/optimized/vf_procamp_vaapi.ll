@@ -182,7 +182,7 @@ define internal i32 @procamp_vaapi_filter_frame(ptr noundef readonly captures(no
   br label %60
 
 60:                                               ; preds = %26, %59, %48, %24
-  %.019 = phi i32 [ %25, %24 ], [ %.0, %59 ], [ %58, %48 ], [ -22, %26 ]
+  %.019 = phi i32 [ %25, %24 ], [ %58, %48 ], [ %.0, %59 ], [ -22, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019

@@ -159,7 +159,7 @@ define internal i32 @pkey_dsa_paramgen(ptr noundef %0, ptr noundef %1) #1 {
   br label %34
 
 34:                                               ; preds = %31, %33, %8, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %8 ], [ %29, %33 ], [ %29, %31 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %15 ], [ %29, %33 ], [ %29, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -195,7 +195,7 @@ define internal i32 @pkey_dsa_keygen(ptr noundef readonly captures(none) %0, ptr
   br label %17
 
 17:                                               ; preds = %10, %7, %14, %6
-  %.0 = phi i32 [ 0, %6 ], [ %16, %14 ], [ 0, %7 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %16, %14 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -416,7 +416,7 @@ define internal range(i32 -2, 2) i32 @pkey_dsa_ctrl(ptr noundef readonly capture
   br label %53
 
 53:                                               ; preds = %4, %4, %4, %10, %7, %52, %51, %48, %46, %45, %21, %20, %12, %9
-  %.0 = phi i32 [ -2, %52 ], [ 1, %9 ], [ 1, %12 ], [ 0, %20 ], [ 1, %21 ], [ 0, %45 ], [ 1, %46 ], [ 1, %48 ], [ -2, %51 ], [ -2, %7 ], [ -2, %10 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+  %.0 = phi i32 [ -2, %52 ], [ -2, %51 ], [ 1, %9 ], [ -2, %7 ], [ 1, %12 ], [ 0, %20 ], [ 1, %21 ], [ 0, %45 ], [ 1, %46 ], [ 1, %48 ], [ -2, %10 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -464,7 +464,7 @@ define internal i32 @pkey_dsa_ctrl_str(ptr noundef %0, ptr noundef readonly capt
   br label %26
 
 26:                                               ; preds = %17, %23, %24, %13, %6
-  %.0 = phi i32 [ %9, %6 ], [ %16, %13 ], [ 0, %23 ], [ %25, %24 ], [ -2, %17 ]
+  %.0 = phi i32 [ %9, %6 ], [ %16, %13 ], [ %25, %24 ], [ 0, %23 ], [ -2, %17 ]
   ret i32 %.0
 }
 

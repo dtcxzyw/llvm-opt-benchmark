@@ -236,9 +236,9 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %82
 
 82:                                               ; preds = %75, %71, %67
-  %.4123.us = phi i1 [ true, %75 ], [ false, %71 ], [ %.1120.us, %67 ]
-  %.3118.us = phi i64 [ %81, %75 ], [ %.0115.us, %71 ], [ %.0115.us, %67 ]
-  %.3113.us = phi i64 [ %.4114.us, %75 ], [ %.0110.us, %71 ], [ %.0110.us, %67 ]
+  %.4123.us = phi i1 [ %.1120.us, %67 ], [ true, %75 ], [ false, %71 ]
+  %.3118.us = phi i64 [ %.0115.us, %67 ], [ %81, %75 ], [ %.0115.us, %71 ]
+  %.3113.us = phi i64 [ %.0110.us, %67 ], [ %.4114.us, %75 ], [ %.0110.us, %71 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %63 unwind label %.split271.us
 
@@ -343,16 +343,16 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %115 unwind label %.split271
 
 115:                                              ; preds = %112, %111, %87, %100, %104
-  %.4123 = phi i1 [ true, %104 ], [ false, %100 ], [ %.1120, %111 ], [ true, %112 ], [ %.1120, %87 ]
-  %.3118 = phi i64 [ %110, %104 ], [ %.0115, %100 ], [ %.0115, %111 ], [ %.0115, %112 ], [ %.0115, %87 ]
-  %.3113 = phi i64 [ %.4114, %104 ], [ %.0110, %100 ], [ %.0110, %111 ], [ %.0110, %112 ], [ %.0110, %87 ]
+  %.4123 = phi i1 [ %.1120, %87 ], [ true, %104 ], [ false, %100 ], [ %.1120, %111 ], [ true, %112 ]
+  %.3118 = phi i64 [ %.0115, %87 ], [ %110, %104 ], [ %.0115, %100 ], [ %.0115, %111 ], [ %.0115, %112 ]
+  %.3113 = phi i64 [ %.0110, %87 ], [ %.4114, %104 ], [ %.0110, %100 ], [ %.0110, %111 ], [ %.0110, %112 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %.split unwind label %.split271
 
 .thread:                                          ; preds = %85, %65, %.split265.us, %93
-  %.1120192 = phi i1 [ %.us-phi266, %.split265.us ], [ %.us-phi266, %93 ], [ %.1120.us, %65 ], [ %.1120, %85 ]
-  %.0115188 = phi i64 [ %.us-phi267, %.split265.us ], [ %.us-phi267, %93 ], [ %.0115.us, %65 ], [ %.0115, %85 ]
-  %.0110184 = phi i64 [ %.us-phi268, %.split265.us ], [ %.us-phi268, %93 ], [ %.0110.us, %65 ], [ %.0110, %85 ]
+  %.1120192 = phi i1 [ %.us-phi266, %93 ], [ %.us-phi266, %.split265.us ], [ %.1120.us, %65 ], [ %.1120, %85 ]
+  %.0115188 = phi i64 [ %.us-phi267, %93 ], [ %.us-phi267, %.split265.us ], [ %.0115.us, %65 ], [ %.0115, %85 ]
+  %.0110184 = phi i64 [ %.us-phi268, %93 ], [ %.us-phi268, %.split265.us ], [ %.0110.us, %65 ], [ %.0110, %85 ]
   switch i32 %13, label %116 [
     i32 84, label %132
     i32 66, label %132
@@ -437,7 +437,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %149 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.split271, %.split271.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %131
-  %.pn152 = phi { ptr, i32 } [ %.pn, %131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %97, %.split271 ], [ %83, %.split271.us ]
+  %.pn152 = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %.pn, %131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %97, %.split271 ], [ %83, %.split271.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %148
 
@@ -446,7 +446,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %151
 
-.thread172:                                       ; preds = %146, %138, %132
+.thread172:                                       ; preds = %132, %146, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread164

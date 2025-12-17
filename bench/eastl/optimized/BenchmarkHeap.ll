@@ -493,7 +493,7 @@ while.body.i.i.i660:                              ; preds = %if.end16.i.i
   br label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.i
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.i: ; preds = %while.body.i.i.i660, %if.end16.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i652 = phi i64 [ 49999, %while.body.i.i.i660 ], [ 99999, %if.end16.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i652 = phi i64 [ 99999, %if.end16.i.i ], [ 49999, %while.body.i.i.i660 ]
   %add.ptr5.i.i.i653 = getelementptr inbounds nuw i32, ptr %call3, i64 %__holeIndex.addr.0.lcssa.i.i.i652
   store i32 %40, ptr %add.ptr5.i.i.i653, align 4
   br label %while.body.i42.i.preheader
@@ -3054,7 +3054,7 @@ if.then.i24:                                      ; preds = %if.then21
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then.i24, %if.then21, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ], [ %__holeIndex.addr.0.lcssa, %if.then21 ], [ %sub25, %if.then.i24 ]
+  %__holeIndex.addr.1 = phi i64 [ %__holeIndex.addr.0.lcssa, %while.end ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %if.then21 ], [ %sub25, %if.then.i24 ]
   %17 = load i32, ptr %__value, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %__value, i64 4
   %18 = load i8, ptr %mbThrowOnCopy3.i, align 4

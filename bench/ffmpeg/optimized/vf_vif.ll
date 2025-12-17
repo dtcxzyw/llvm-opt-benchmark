@@ -268,7 +268,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   br i1 %.not54, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %43, %.lr.ph, %72, %.preheader, %66, %58, %.critedge, %20
-  %.047 = phi i32 [ -22, %20 ], [ -12, %.critedge ], [ -12, %58 ], [ -12, %66 ], [ 0, %.preheader ], [ -12, %.lr.ph ], [ 0, %72 ], [ -12, %43 ]
+  %.047 = phi i32 [ -22, %20 ], [ -12, %66 ], [ -12, %58 ], [ -12, %.critedge ], [ 0, %.preheader ], [ 0, %72 ], [ -12, %.lr.ph ], [ -12, %43 ]
   ret i32 %.047
 }
 

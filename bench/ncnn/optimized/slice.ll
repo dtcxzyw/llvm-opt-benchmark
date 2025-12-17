@@ -1632,7 +1632,7 @@ _ZNK4ncnn3Mat5emptyEv.exit402:                    ; preds = %522
   br label %.critedge
 
 .critedge:                                        ; preds = %292, %_ZNK4ncnn3Mat5emptyEv.exit399, %_ZN4ncnn3MatD2Ev.exit, %144, %_ZNK4ncnn3Mat5emptyEv.exit397, %156, %76, %_ZNK4ncnn3Mat5emptyEv.exit, %88, %249, %106, %40, %477, %.loopexit417, %.loopexit416, %.loopexit415, %.loopexit
-  %.4 = phi i32 [ %spec.select382, %.loopexit ], [ %spec.select388, %.loopexit415 ], [ %spec.select392, %.loopexit416 ], [ %spec.select395, %.loopexit417 ], [ 0, %477 ], [ 0, %40 ], [ 0, %106 ], [ 0, %249 ], [ -100, %76 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %88 ], [ -100, %144 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit397 ], [ 0, %156 ], [ -100, %292 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit399 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ]
+  %.4 = phi i32 [ 0, %477 ], [ 0, %88 ], [ %spec.select382, %.loopexit ], [ 0, %156 ], [ %spec.select388, %.loopexit415 ], [ %spec.select392, %.loopexit416 ], [ %spec.select395, %.loopexit417 ], [ 0, %249 ], [ 0, %40 ], [ 0, %106 ], [ -100, %76 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %144 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit397 ], [ -100, %292 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4
 }
@@ -2012,9 +2012,9 @@ _ZN4ncnn3MatD2Ev.exit.loopexit:                   ; preds = %._crit_edge
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %_ZN4ncnn3MatD2Ev.exit.loopexit, %.noexc49
-  %59 = phi i32 [ %.pre99, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %32, %.noexc49 ], [ %32, %.preheader.lr.ph ]
-  %60 = phi i32 [ %63, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %33, %.noexc49 ], [ %33, %.preheader.lr.ph ]
-  %61 = phi i32 [ %63, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %34, %.noexc49 ], [ %34, %.preheader.lr.ph ]
+  %59 = phi i32 [ %32, %.noexc49 ], [ %.pre99, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %32, %.preheader.lr.ph ]
+  %60 = phi i32 [ %33, %.noexc49 ], [ %63, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %33, %.preheader.lr.ph ]
+  %61 = phi i32 [ %34, %.noexc49 ], [ %63, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %34, %.preheader.lr.ph ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %62 = sext i32 %59 to i64
   %.not.not = icmp slt i64 %indvars.iv94, %62

@@ -985,8 +985,8 @@ define dso_local void @__filemap_remove_folio(ptr noundef %0, ptr noundef %1) lo
   br label %.thread
 
 .thread:                                          ; preds = %46, %42
-  %.lhs.trunc = phi i8 [ 0, %42 ], [ %54, %46 ]
-  %55 = phi i64 [ %31, %42 ], [ %spec.select, %46 ]
+  %.lhs.trunc = phi i8 [ %54, %46 ], [ 0, %42 ]
+  %55 = phi i64 [ %spec.select, %46 ], [ %31, %42 ]
   store i64 %55, ptr %29, align 8
   %56 = urem i8 %.lhs.trunc, 6
   %57 = sub nuw i8 %.lhs.trunc, %56
@@ -3030,7 +3030,7 @@ define dso_local i32 @file_write_and_wait_range(ptr noundef %0, i64 noundef %1, 
   br label %39
 
 39:                                               ; preds = %35, %.thread5, %.thread3, %3
-  %40 = phi i32 [ 0, %3 ], [ -5, %.thread5 ], [ %12, %.thread3 ], [ %spec.select, %35 ]
+  %40 = phi i32 [ 0, %3 ], [ -5, %.thread5 ], [ %spec.select, %35 ], [ %12, %.thread3 ]
   ret i32 %40
 }
 
@@ -3273,8 +3273,8 @@ define dso_local i32 @__filemap_add_folio(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread
 
 .thread:                                          ; preds = %34, %30
-  %.lhs.trunc = phi i8 [ 0, %30 ], [ %42, %34 ]
-  %43 = phi i64 [ %2, %30 ], [ %spec.select, %34 ]
+  %.lhs.trunc = phi i8 [ %42, %34 ], [ 0, %30 ]
+  %43 = phi i64 [ %spec.select, %34 ], [ %2, %30 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !14
   store i64 %43, ptr %9, align 8
   %44 = urem i8 %.lhs.trunc, 6
@@ -3709,7 +3709,7 @@ define dso_local ptr @filemap_alloc_folio(i32 noundef %0, i32 noundef %1) #1 ali
   br label %.loopexit1
 
 .loopexit1:                                       ; preds = %46, %51, %52, %35, %34, %31, %55
-  %57 = phi ptr [ %56, %55 ], [ null, %34 ], [ null, %35 ], [ %32, %31 ], [ null, %51 ], [ null, %52 ], [ %49, %46 ]
+  %57 = phi ptr [ %56, %55 ], [ %32, %31 ], [ null, %34 ], [ null, %35 ], [ null, %51 ], [ null, %52 ], [ %49, %46 ]
   ret ptr %57
 }
 
@@ -5233,7 +5233,7 @@ define dso_local ptr @__filemap_get_folio(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %73, label %.loopexit, label %.split.split
 
 .split22:                                         ; preds = %18, %57, %30
-  %.split23 = phi ptr [ %23, %30 ], [ %47, %57 ], [ %12, %18 ]
+  %.split23 = phi ptr [ %47, %57 ], [ %23, %30 ], [ %12, %18 ]
   %74 = and i32 %11, 1
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %77, label %76
@@ -5407,7 +5407,7 @@ define dso_local ptr @__filemap_get_folio(ptr noundef %0, i64 noundef %1, i32 no
   br label %.thread8
 
 .thread8:                                         ; preds = %.loopexit, %162, %145, %142, %80, %77
-  %163 = phi ptr [ %.split23, %77 ], [ %.split23, %80 ], [ %111, %162 ], [ %111, %145 ], [ %111, %142 ], [ null, %.loopexit ]
+  %163 = phi ptr [ %.split23, %77 ], [ %.split23, %80 ], [ %111, %142 ], [ %111, %162 ], [ %111, %145 ], [ null, %.loopexit ]
   %164 = icmp eq ptr %163, null
   %165 = select i1 %164, ptr inttoptr (i64 -2 to ptr), ptr %163
   br label %166
@@ -7346,7 +7346,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
   br label %292
 
 283:                                              ; preds = %282, %264, %238
-  %284 = phi i32 [ %245, %238 ], [ %265, %264 ], [ %265, %282 ]
+  %284 = phi i32 [ %265, %264 ], [ %265, %282 ], [ %245, %238 ]
   call void @up_read(ptr noundef nonnull %36) #14
   %285 = icmp eq i32 %284, 524289
   br i1 %285, label %286, label %292
@@ -7653,7 +7653,7 @@ define dso_local i64 @generic_file_read_iter(ptr noundef %0, ptr noundef %1) #1 
   br label %.thread7
 
 .thread7:                                         ; preds = %54, %56, %.thread3, %67, %62, %2
-  %70 = phi i64 [ %69, %67 ], [ %49, %62 ], [ 0, %2 ], [ %49, %56 ], [ %37, %.thread3 ], [ -529, %54 ]
+  %70 = phi i64 [ %69, %67 ], [ %49, %62 ], [ 0, %2 ], [ %37, %.thread3 ], [ %49, %56 ], [ -529, %54 ]
   ret i64 %70
 }
 
@@ -8038,13 +8038,13 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   br label %.thread20
 
 .thread20:                                        ; preds = %103, %203, %201
-  %204 = phi i64 [ %196, %203 ], [ %196, %201 ], [ %92, %103 ]
-  %205 = phi i64 [ %187, %203 ], [ %187, %201 ], [ %93, %103 ]
+  %204 = phi i64 [ %196, %201 ], [ %196, %203 ], [ %92, %103 ]
+  %205 = phi i64 [ %187, %201 ], [ %187, %203 ], [ %93, %103 ]
   %206 = icmp eq i64 %204, 0
   br i1 %206, label %.thread19, label %82, !llvm.loop !111
 
 .thread19:                                        ; preds = %.thread20, %96, %90, %82, %144, %.thread17, %184, %.preheader, %49
-  %207 = phi i32 [ 0, %49 ], [ %94, %.preheader ], [ %94, %184 ], [ %94, %.thread17 ], [ %94, %144 ], [ %94, %82 ], [ %94, %90 ], [ %94, %96 ], [ %94, %.thread20 ]
+  %207 = phi i32 [ 0, %49 ], [ %94, %144 ], [ %94, %.preheader ], [ %94, %184 ], [ %94, %.thread17 ], [ %94, %82 ], [ %94, %90 ], [ %94, %96 ], [ %94, %.thread20 ]
   %208 = phi i64 [ 0, %49 ], [ %112, %144 ], [ %187, %.thread17 ], [ %112, %184 ], [ %112, %.preheader ], [ %205, %.thread20 ], [ %93, %96 ], [ %93, %90 ], [ %205, %82 ]
   %209 = load i8, ptr %6, align 8
   %210 = icmp eq i8 %209, 0
@@ -9050,10 +9050,10 @@ filemap_read_folio.exit:                          ; preds = %maybe_unlock_mmap_f
   br label %349
 
 .thread:                                          ; preds = %121, %157, %164, %171, %filemap_read_folio.exit, %237, %218, %108
-  %329 = phi ptr [ %97, %108 ], [ %292, %filemap_read_folio.exit ], [ %176, %218 ], [ %176, %237 ], [ %113, %121 ], [ %150, %157 ], [ null, %164 ], [ null, %171 ]
-  %330 = phi ptr [ %106, %108 ], [ %114, %filemap_read_folio.exit ], [ %114, %218 ], [ %114, %237 ], [ %114, %121 ], [ %114, %157 ], [ %114, %164 ], [ %114, %171 ]
-  %331 = phi i32 [ %98, %108 ], [ %115, %filemap_read_folio.exit ], [ %115, %218 ], [ %115, %237 ], [ %115, %121 ], [ %115, %157 ], [ %115, %164 ], [ %115, %171 ]
-  %332 = phi i8 [ 1, %108 ], [ 1, %filemap_read_folio.exit ], [ %117, %218 ], [ %117, %237 ], [ %117, %121 ], [ %117, %157 ], [ %117, %164 ], [ %117, %171 ]
+  %329 = phi ptr [ %97, %108 ], [ %176, %237 ], [ %292, %filemap_read_folio.exit ], [ %176, %218 ], [ %113, %121 ], [ %150, %157 ], [ null, %164 ], [ null, %171 ]
+  %330 = phi ptr [ %106, %108 ], [ %114, %237 ], [ %114, %filemap_read_folio.exit ], [ %114, %218 ], [ %114, %121 ], [ %114, %157 ], [ %114, %164 ], [ %114, %171 ]
+  %331 = phi i32 [ %98, %108 ], [ %115, %237 ], [ %115, %filemap_read_folio.exit ], [ %115, %218 ], [ %115, %121 ], [ %115, %157 ], [ %115, %164 ], [ %115, %171 ]
+  %332 = phi i8 [ 1, %108 ], [ %117, %237 ], [ 1, %filemap_read_folio.exit ], [ %117, %218 ], [ %117, %121 ], [ %117, %157 ], [ %117, %164 ], [ %117, %171 ]
   %333 = icmp ugt ptr %330, inttoptr (i64 -4096 to ptr)
   br i1 %333, label %340, label %334
 
@@ -10413,7 +10413,7 @@ filemap_add_folio.exit.thread:                    ; preds = %37, %41
   br label %148
 
 116:                                              ; preds = %filemap_add_folio.exit.thread, %92
-  %117 = phi ptr [ %24, %92 ], [ %27, %filemap_add_folio.exit.thread ]
+  %117 = phi ptr [ %27, %filemap_add_folio.exit.thread ], [ %24, %92 ]
   %118 = load volatile i64, ptr %117, align 8
   %119 = getelementptr i8, ptr %117, i64 1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %119, i32 -5, ptr elementtype(i8) %119) #14, !srcloc !50
@@ -10774,7 +10774,7 @@ define dso_local i64 @generic_perform_write(ptr noundef captures(none) %0, ptr n
   br i1 %66, label %.thread, label %29, !prof !46
 
 .thread:                                          ; preds = %16, %55, %34, %62, %42
-  %.ph = phi i64 [ %43, %42 ], [ %53, %55 ], [ -4, %34 ], [ -14, %62 ], [ -14, %16 ]
+  %.ph = phi i64 [ %43, %42 ], [ -14, %62 ], [ %53, %55 ], [ -4, %34 ], [ -14, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit

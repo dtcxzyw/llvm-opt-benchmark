@@ -2856,8 +2856,8 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly capture
   br label %.split12.us
 
 .split12.us:                                      ; preds = %80, %58, %39, %.split12.us.loopexit
-  %.us-phi = phi ptr [ %17, %.split12.us.loopexit ], [ %29, %39 ], [ %45, %58 ], [ %65, %80 ]
-  %.us-phi13 = phi ptr [ %85, %.split12.us.loopexit ], [ %30, %39 ], [ %46, %58 ], [ %66, %80 ]
+  %.us-phi = phi ptr [ %17, %.split12.us.loopexit ], [ %45, %58 ], [ %29, %39 ], [ %65, %80 ]
+  %.us-phi13 = phi ptr [ %85, %.split12.us.loopexit ], [ %46, %58 ], [ %30, %39 ], [ %66, %80 ]
   %86 = getelementptr i8, ptr %.us-phi, i64 -8
   %87 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86, i32 1, ptr elementtype(i32) %86) #18, !srcloc !35
   %88 = icmp eq i32 %87, 0
@@ -2880,7 +2880,7 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us18, %.critedge.us, %.critedge.us.us, %95, %89, %9
-  %97 = phi ptr [ %.us-phi13, %89 ], [ null, %9 ], [ %.us-phi13, %95 ], [ null, %.critedge.us.us ], [ null, %.critedge.us ], [ null, %.critedge.us18 ], [ null, %.critedge ]
+  %97 = phi ptr [ %.us-phi13, %89 ], [ null, %9 ], [ %.us-phi13, %95 ], [ null, %.critedge.us18 ], [ null, %.critedge.us.us ], [ null, %.critedge.us ], [ null, %.critedge ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %10) #18
   br label %98
 

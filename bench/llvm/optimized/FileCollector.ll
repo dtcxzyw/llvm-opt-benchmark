@@ -1562,8 +1562,8 @@ _ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.ex
   br i1 %.not53, label %.critedge30, label %50
 
 select.unfold:                                    ; preds = %71, %53, %57, %75, %100
-  %.sroa.041.1.ph = phi i32 [ %85, %100 ], [ %73, %71 ], [ %52, %53 ], [ %66, %57 ], [ %77, %75 ]
-  %.pn = phi { i32, ptr } [ %84, %100 ], [ %72, %71 ], [ %51, %53 ], [ %65, %57 ], [ %76, %75 ]
+  %.sroa.041.1.ph = phi i32 [ %85, %100 ], [ %73, %71 ], [ %77, %75 ], [ %66, %57 ], [ %52, %53 ]
+  %.pn = phi { i32, ptr } [ %84, %100 ], [ %72, %71 ], [ %76, %75 ], [ %65, %57 ], [ %51, %53 ]
   %.sroa.14.1.ph = extractvalue { i32, ptr } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
@@ -1784,7 +1784,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %72
   br label %76
 
 76:                                               ; preds = %75, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i
-  %.0.i = phi i16 [ 257, %75 ], [ 257, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
+  %.0.i = phi i16 [ 257, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i ], [ 257, %75 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %77 = load ptr, ptr %7, align 8, !tbaa !48
   %78 = icmp eq ptr %77, %36
   br i1 %78, label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit.i, label %79

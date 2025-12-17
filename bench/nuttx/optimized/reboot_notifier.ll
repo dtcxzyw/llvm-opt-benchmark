@@ -42,9 +42,9 @@ define void @register_reboot_notifier(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %6, !llvm.loop !8
 
-.critedge:                                        ; preds = %9, %14, %1
-  %.015.lcssa = phi ptr [ @g_reboot_notifier_list, %1 ], [ %15, %14 ], [ %.01521, %9 ]
-  %.lcssa = phi ptr [ null, %1 ], [ null, %14 ], [ %7, %9 ]
+.critedge:                                        ; preds = %14, %9, %1
+  %.015.lcssa = phi ptr [ @g_reboot_notifier_list, %1 ], [ %.01521, %9 ], [ %15, %14 ]
+  %.lcssa = phi ptr [ null, %1 ], [ %7, %9 ], [ null, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.lcssa, ptr %17, align 8
   store ptr %0, ptr %.015.lcssa, align 8

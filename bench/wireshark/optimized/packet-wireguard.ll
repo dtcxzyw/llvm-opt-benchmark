@@ -455,36 +455,36 @@ define internal i32 @dissect_wg(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 37:                                               ; preds = %4
   %38 = tail call i32 @tvb_reported_length(ptr noundef %0)
   switch i8 %34, label %wg_is_valid_message_length.exit.thread [
-    i8 1, label %39
-    i8 2, label %41
-    i8 3, label %43
-    i8 4, label %wg_is_valid_message_length.exit
+    i8 1, label %wg_is_valid_message_length.exit
+    i8 2, label %39
+    i8 3, label %41
+    i8 4, label %43
   ]
 
 39:                                               ; preds = %37
-  %40 = icmp eq i32 %38, 148
+  %40 = icmp eq i32 %38, 92
   br i1 %40, label %.thread, label %wg_is_valid_message_length.exit.thread
 
 41:                                               ; preds = %37
-  %42 = icmp eq i32 %38, 92
+  %42 = icmp eq i32 %38, 64
   br i1 %42, label %.thread, label %wg_is_valid_message_length.exit.thread
 
 43:                                               ; preds = %37
-  %44 = icmp eq i32 %38, 64
-  br i1 %44, label %.thread, label %wg_is_valid_message_length.exit.thread
+  %44 = icmp ugt i32 %38, 31
+  br i1 %44, label %46, label %wg_is_valid_message_length.exit.thread
 
 wg_is_valid_message_length.exit:                  ; preds = %37
-  %45 = icmp ugt i32 %38, 31
-  br i1 %45, label %46, label %wg_is_valid_message_length.exit.thread
+  %45 = icmp eq i32 %38, 148
+  br i1 %45, label %.thread, label %wg_is_valid_message_length.exit.thread
 
-46:                                               ; preds = %wg_is_valid_message_length.exit
+46:                                               ; preds = %43
   %47 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %48 = icmp eq i32 %47, 32
   %spec.select = select i1 %48, ptr @.str.104, ptr %36
   br label %.thread
 
-.thread:                                          ; preds = %39, %41, %43, %46
-  %.038 = phi ptr [ %spec.select, %46 ], [ %36, %43 ], [ %36, %41 ], [ %36, %39 ]
+.thread:                                          ; preds = %wg_is_valid_message_length.exit, %41, %39, %46
+  %.038 = phi ptr [ %spec.select, %46 ], [ %36, %39 ], [ %36, %41 ], [ %36, %wg_is_valid_message_length.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @col_set_str(ptr noundef %50, i32 noundef 35, ptr noundef nonnull @.str.80)
@@ -1427,7 +1427,7 @@ wg_create_cipher.exit77.i.i:                      ; preds = %454, %451, %wg_crea
   br label %wg_process_response.exit.i
 
 wg_process_response.exit.i:                       ; preds = %457, %456, %455, %356, %355, %322, %319
-  %.0.i44 = phi ptr [ %321, %322 ], [ null, %319 ], [ %458, %457 ], [ null, %456 ], [ %321, %355 ], [ %321, %356 ], [ %321, %455 ]
+  %.0.i44 = phi ptr [ null, %319 ], [ null, %456 ], [ %321, %322 ], [ %458, %457 ], [ %321, %355 ], [ %321, %356 ], [ %321, %455 ]
   call fastcc void @wg_dissect_pubkey(ptr noundef %55, ptr noundef %0, i32 noundef 12, i1 noundef zeroext true)
   %459 = load i32, ptr @hf_wg_encrypted_empty, align 4
   %460 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %459, ptr noundef %0, i32 noundef 44, i32 noundef 16, i32 noundef 0)
@@ -1875,7 +1875,7 @@ addresses_equal.exit.i.i:                         ; preds = %682, %675, %670, %6
   br i1 %.not27.i.i, label %wg_dissect_data.exit, label %660, !llvm.loop !11
 
 wg_sessions_lookup.exit.i:                        ; preds = %704, %702, %682, %680
-  %.059.i = phi i8 [ 1, %682 ], [ 1, %680 ], [ 0, %704 ], [ 0, %702 ]
+  %.059.i = phi i8 [ 1, %680 ], [ 1, %682 ], [ 0, %704 ], [ 0, %702 ]
   %712 = getelementptr inbounds nuw i8, ptr %661, i64 64
   %.not50.i = icmp eq ptr %661, null
   br i1 %.not50.i, label %wg_dissect_data.exit, label %713
@@ -2079,8 +2079,8 @@ wg_dissect_data.exit:                             ; preds = %710, %631, %648, %6
 default.unreachable:                              ; preds = %73
   unreachable
 
-wg_is_valid_message_length.exit.thread:           ; preds = %37, %43, %41, %39, %wg_is_valid_message_length.exit, %4, %wg_dissect_data.exit, %wg_dissect_handshake_cookie.exit, %wg_dissect_handshake_response.exit, %wg_dissect_handshake_initiation.exit
-  %.039 = phi i32 [ 148, %wg_dissect_handshake_initiation.exit ], [ 92, %wg_dissect_handshake_response.exit ], [ 64, %wg_dissect_handshake_cookie.exit ], [ %.045.i, %wg_dissect_data.exit ], [ 0, %4 ], [ 0, %wg_is_valid_message_length.exit ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %37 ]
+wg_is_valid_message_length.exit.thread:           ; preds = %37, %39, %41, %43, %wg_is_valid_message_length.exit, %4, %wg_dissect_data.exit, %wg_dissect_handshake_cookie.exit, %wg_dissect_handshake_response.exit, %wg_dissect_handshake_initiation.exit
+  %.039 = phi i32 [ 148, %wg_dissect_handshake_initiation.exit ], [ 92, %wg_dissect_handshake_response.exit ], [ 64, %wg_dissect_handshake_cookie.exit ], [ %.045.i, %wg_dissect_data.exit ], [ 0, %4 ], [ 0, %wg_is_valid_message_length.exit ], [ 0, %39 ], [ 0, %43 ], [ 0, %41 ], [ 0, %37 ]
   ret i32 %.039
 }
 
@@ -2380,7 +2380,7 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
   %or.cond7 = and i1 %57, %58
   br i1 %or.cond7, label %.critedge2.thread, label %.critedge2.thread.thread
 
-.critedge2.thread.thread:                         ; preds = %43, %.critedge2, %.critedge5, %.critedge
+.critedge2.thread.thread:                         ; preds = %43, %.critedge, %.critedge2, %.critedge5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %98
 
@@ -2596,42 +2596,42 @@ define internal noundef zeroext i1 @dissect_wg_heur(ptr noundef %0, ptr noundef 
   %10 = icmp ne i32 %9, 0
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0)
   switch i8 %8, label %wg_is_valid_message_length.exit.thread [
-    i8 1, label %12
-    i8 2, label %14
-    i8 3, label %16
-    i8 4, label %wg_is_valid_message_length.exit
+    i8 1, label %wg_is_valid_message_length.exit
+    i8 2, label %12
+    i8 3, label %14
+    i8 4, label %16
   ]
 
 12:                                               ; preds = %7
-  %13 = icmp eq i32 %11, 148
-  br i1 %13, label %19, label %wg_is_valid_message_length.exit.thread
+  %13 = icmp eq i32 %11, 92
+  br i1 %13, label %.thread19, label %wg_is_valid_message_length.exit.thread
 
 14:                                               ; preds = %7
-  %15 = icmp eq i32 %11, 92
-  br i1 %15, label %.thread19, label %wg_is_valid_message_length.exit.thread
-
-16:                                               ; preds = %7
-  %17 = icmp ne i32 %11, 64
-  %brmerge = select i1 %17, i1 true, i1 %10
+  %15 = icmp ne i32 %11, 64
+  %brmerge = select i1 %15, i1 true, i1 %10
   br i1 %brmerge, label %wg_is_valid_message_length.exit.thread, label %.thread19
 
-wg_is_valid_message_length.exit:                  ; preds = %7
-  %18 = icmp ult i32 %11, 32
-  %brmerge24 = select i1 %18, i1 true, i1 %10
+16:                                               ; preds = %7
+  %17 = icmp ult i32 %11, 32
+  %brmerge24 = select i1 %17, i1 true, i1 %10
   br i1 %brmerge24, label %wg_is_valid_message_length.exit.thread, label %.thread19
 
-19:                                               ; preds = %12
+wg_is_valid_message_length.exit:                  ; preds = %7
+  %18 = icmp eq i32 %11, 148
+  br i1 %18, label %19, label %wg_is_valid_message_length.exit.thread
+
+19:                                               ; preds = %wg_is_valid_message_length.exit
   %20 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %21 = load ptr, ptr @wg_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef %20, ptr noundef %21)
   br label %.thread19
 
-.thread19:                                        ; preds = %wg_is_valid_message_length.exit, %16, %14, %19
+.thread19:                                        ; preds = %16, %14, %12, %19
   %22 = tail call i32 @dissect_wg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %wg_is_valid_message_length.exit.thread
 
-wg_is_valid_message_length.exit.thread:           ; preds = %wg_is_valid_message_length.exit, %16, %7, %14, %12, %4, %.thread19
-  %.0 = phi i1 [ true, %.thread19 ], [ false, %4 ], [ false, %wg_is_valid_message_length.exit ], [ false, %12 ], [ false, %14 ], [ false, %16 ], [ false, %7 ]
+wg_is_valid_message_length.exit.thread:           ; preds = %16, %14, %7, %12, %wg_is_valid_message_length.exit, %4, %.thread19
+  %.0 = phi i1 [ false, %4 ], [ true, %.thread19 ], [ false, %wg_is_valid_message_length.exit ], [ false, %7 ], [ false, %12 ], [ false, %16 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -2936,7 +2936,7 @@ define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %39, %36, %31, %19, %16
-  %.0.i = phi i64 [ 0, %16 ], [ %22, %19 ], [ %32, %31 ], [ %32, %36 ], [ %32, %39 ]
+  %.0.i = phi i64 [ %22, %19 ], [ 0, %16 ], [ %32, %31 ], [ %32, %36 ], [ %32, %39 ]
   %43 = load i32, ptr @hf_wg_ephemeral_known_privkey, align 4
   %44 = load i32, ptr @hf_wg_static_known_privkey, align 4
   %45 = select i1 %3, i32 %43, i32 %44

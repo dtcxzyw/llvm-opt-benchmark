@@ -1526,7 +1526,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEEaSINS_12CwiseUna
   br label %911
 
 911:                                              ; preds = %907, %905, %903, %901, %899, %897, %909, %895
-  %.pn216 = phi { ptr, i32 } [ %896, %895 ], [ %910, %909 ], [ %898, %897 ], [ %900, %899 ], [ %902, %901 ], [ %904, %903 ], [ %906, %905 ], [ %908, %907 ]
+  %.pn216 = phi { ptr, i32 } [ %896, %895 ], [ %910, %909 ], [ %906, %905 ], [ %904, %903 ], [ %902, %901 ], [ %900, %899 ], [ %898, %897 ], [ %908, %907 ]
   %912 = load ptr, ptr %29, align 8, !tbaa !11
   call void @free(ptr noundef %912) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

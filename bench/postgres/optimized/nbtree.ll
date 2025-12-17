@@ -1553,7 +1553,7 @@ BTPageIsRecyclable.exit.thread.i:                 ; preds = %BTPageIsRecyclable.
   br label %133
 
 133:                                              ; preds = %128, %125, %121, %119
-  %.1129.i = phi i32 [ 0, %125 ], [ 0, %121 ], [ 0, %119 ], [ %spec.select.i, %128 ]
+  %.1129.i = phi i32 [ 0, %125 ], [ %spec.select.i, %128 ], [ 0, %121 ], [ 0, %119 ]
   %134 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %135, 0
@@ -1792,7 +1792,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph237.i, %240, %236, %234, %224
-  %.0135.i = phi i16 [ %.0.i178.i, %240 ], [ %.0.i178.i, %236 ], [ %.0.i178.i, %234 ], [ %.0.i182.i, %224 ], [ %.0.i182.i, %.lr.ph237.i ]
+  %.0135.i = phi i16 [ %.0.i178.i, %234 ], [ %.0.i178.i, %240 ], [ %.0.i178.i, %236 ], [ %.0.i182.i, %224 ], [ %.0.i182.i, %.lr.ph237.i ]
   %241 = icmp samesign ugt i16 %137, %.0135.i
   br i1 %241, label %245, label %.thread217.i
 
@@ -1800,9 +1800,9 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   %narrow.i = sub nuw nsw i16 %.0135.i, %137
   %narrow = add nuw i16 %narrow.i, 1
   %242 = uitofp i16 %narrow to double
-  %.0130.sink.i = select i1 %.not166.i, double %242, double %.0130.i
+  %.sink255.i = select i1 %.not166.i, double %242, double %.0130.i
   %243 = load double, ptr %55, align 8
-  %244 = fadd double %.0130.sink.i, %243
+  %244 = fadd double %.sink255.i, %243
   store double %244, ptr %55, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1825,7 +1825,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   br label %249
 
 .thread207.i:                                     ; preds = %245, %.thread217.i, %117, %112, %104
-  %.0128211.i = phi i32 [ %.1129.i, %245 ], [ %.1129.i, %.thread217.i ], [ 0, %104 ], [ 0, %112 ], [ 0, %117 ]
+  %.0128211.i = phi i32 [ %.1129.i, %.thread217.i ], [ %.1129.i, %245 ], [ 0, %104 ], [ 0, %112 ], [ 0, %117 ]
   call void @_bt_relbuf(ptr noundef %49, i32 noundef %60) #8
   br label %249
 

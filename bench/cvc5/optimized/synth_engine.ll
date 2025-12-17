@@ -647,9 +647,9 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_
   br label %90
 
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %69, %67, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.sroa.28.1 = phi ptr [ %.sroa.28.0369, %67 ], [ %.sroa.28.0369, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %89, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %.sroa.28.0369, %69 ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0370, %67 ], [ %.sroa.17.0370, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %87, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %70, %69 ]
-  %.sroa.0277.1 = phi ptr [ %.sroa.0277.0371, %67 ], [ %.sroa.0277.0371, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %83, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %.sroa.0277.0371, %69 ]
+  %.sroa.28.1 = phi ptr [ %.sroa.28.0369, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.28.0369, %67 ], [ %89, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %.sroa.28.0369, %69 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0370, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.17.0370, %67 ], [ %87, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %70, %69 ]
+  %.sroa.0277.1 = phi ptr [ %.sroa.0277.0371, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.sroa.0277.0371, %67 ], [ %83, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i ], [ %.sroa.0277.0371, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -936,11 +936,11 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EED2Ev.
   ret void
 
 168:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit313, %.loopexit.split-lp314
-  %.sroa.18.3 = phi ptr [ %.sroa.18.0.ph, %.loopexit313 ], [ %.sroa.18.0.ph315, %.loopexit.split-lp314 ], [ %.sroa.18.2375.lcssa, %.loopexit ], [ %.sroa.11.1376, %.loopexit.split-lp ]
-  %.sroa.0242.3 = phi ptr [ %.sroa.0242.0.ph, %.loopexit313 ], [ %.sroa.0242.0.ph316, %.loopexit.split-lp314 ], [ %.sroa.0242.2377, %.loopexit ], [ %.sroa.0242.2377, %.loopexit.split-lp ]
-  %.sroa.28.5 = phi ptr [ %.sroa.28.3.ph, %.loopexit313 ], [ %.sroa.28.3.ph317, %.loopexit.split-lp314 ], [ %.sroa.28.4, %.loopexit ], [ %.sroa.28.4, %.loopexit.split-lp ]
-  %.sroa.0277.5 = phi ptr [ %.sroa.0277.3.ph, %.loopexit313 ], [ %.sroa.0277.3.ph318, %.loopexit.split-lp314 ], [ %.sroa.0277.4, %.loopexit ], [ %.sroa.0277.4, %.loopexit.split-lp ]
-  %.pn40 = phi { ptr, i32 } [ %lpad.loopexit319, %.loopexit313 ], [ %lpad.loopexit.split-lp320, %.loopexit.split-lp314 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.18.3 = phi ptr [ %.sroa.18.0.ph315, %.loopexit.split-lp314 ], [ %.sroa.18.0.ph, %.loopexit313 ], [ %.sroa.18.2375.lcssa, %.loopexit ], [ %.sroa.11.1376, %.loopexit.split-lp ]
+  %.sroa.0242.3 = phi ptr [ %.sroa.0242.0.ph316, %.loopexit.split-lp314 ], [ %.sroa.0242.0.ph, %.loopexit313 ], [ %.sroa.0242.2377, %.loopexit ], [ %.sroa.0242.2377, %.loopexit.split-lp ]
+  %.sroa.28.5 = phi ptr [ %.sroa.28.3.ph317, %.loopexit.split-lp314 ], [ %.sroa.28.3.ph, %.loopexit313 ], [ %.sroa.28.4, %.loopexit ], [ %.sroa.28.4, %.loopexit.split-lp ]
+  %.sroa.0277.5 = phi ptr [ %.sroa.0277.3.ph318, %.loopexit.split-lp314 ], [ %.sroa.0277.3.ph, %.loopexit313 ], [ %.sroa.0277.4, %.loopexit ], [ %.sroa.0277.4, %.loopexit.split-lp ]
+  %.pn40 = phi { ptr, i32 } [ %lpad.loopexit.split-lp320, %.loopexit.split-lp314 ], [ %lpad.loopexit319, %.loopexit313 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i171 = icmp eq ptr %.sroa.0242.3, null
   br i1 %.not.i.i.i171, label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EED2Ev.exit172, label %169
 

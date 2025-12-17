@@ -145,7 +145,7 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
   br label %76
 
 76:                                               ; preds = %74, %.thread.i, %61, %BufferGetPage.exit.i
-  %.0.i = phi ptr [ %62, %61 ], [ %66, %74 ], [ %66, %.thread.i ], [ %30, %BufferGetPage.exit.i ]
+  %.0.i = phi ptr [ %62, %61 ], [ %30, %BufferGetPage.exit.i ], [ %66, %74 ], [ %66, %.thread.i ]
   %77 = ptrtoint ptr %.0.i to i64
   %78 = ptrtoint ptr %30 to i64
   %79 = sub i64 %77, %78
@@ -1101,7 +1101,7 @@ define dso_local void @gistXLogPageReuse(ptr noundef readonly captures(none) %0,
   br label %26
 
 26:                                               ; preds = %23, %16, %19, %14, %8, %4
-  %27 = phi i8 [ 0, %8 ], [ 0, %4 ], [ 1, %14 ], [ %25, %23 ], [ 0, %16 ], [ 0, %19 ]
+  %27 = phi i8 [ 1, %14 ], [ 0, %4 ], [ 0, %8 ], [ %25, %23 ], [ 0, %19 ], [ 0, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 %27, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
@@ -1207,7 +1207,7 @@ define dso_local i64 @gistXLogDelete(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %27
 
 27:                                               ; preds = %24, %17, %20, %15, %9, %5
-  %28 = phi i8 [ 0, %9 ], [ 0, %5 ], [ 1, %15 ], [ %26, %24 ], [ 0, %17 ], [ 0, %20 ]
+  %28 = phi i8 [ 1, %15 ], [ 0, %5 ], [ 0, %9 ], [ %26, %24 ], [ 0, %20 ], [ 0, %17 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 %28, ptr %29, align 2
   store i32 %3, ptr %6, align 4

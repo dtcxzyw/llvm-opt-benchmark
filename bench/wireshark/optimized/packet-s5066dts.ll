@@ -529,7 +529,7 @@ define internal range(i32 15, 1) i32 @dissect_s5066dts_tcp(ptr noundef %0, ptr n
   br label %19
 
 19:                                               ; preds = %11, %7, %9, %4, %16
-  %.0 = phi i32 [ %5, %16 ], [ 0, %4 ], [ 0, %9 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %5, %16 ], [ 0, %9 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -616,7 +616,7 @@ switch.early.test:                                ; preds = %8
   br label %23
 
 23:                                               ; preds = %17, %switch.early.test, %6, %4
-  %.0 = phi i32 [ 1, %4 ], [ 2, %6 ], [ %22, %17 ], [ %14, %switch.early.test ]
+  %.0 = phi i32 [ 2, %6 ], [ 1, %4 ], [ %22, %17 ], [ %14, %switch.early.test ]
   ret i32 %.0
 }
 

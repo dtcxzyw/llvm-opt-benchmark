@@ -554,10 +554,10 @@ define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConver
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %2, %33
-  %.0128 = phi i32 [ %30, %33 ], [ %22, %2 ]
-  %.0116 = phi i32 [ %.1117, %33 ], [ %20, %2 ]
-  %.0104 = phi ptr [ %28, %33 ], [ %12, %2 ]
-  %.0103 = phi ptr [ %.1, %33 ], [ %8, %2 ]
+  %.0128 = phi i32 [ %22, %2 ], [ %30, %33 ]
+  %.0116 = phi i32 [ %20, %2 ], [ %.1117, %33 ]
+  %.0104 = phi ptr [ %12, %2 ], [ %28, %33 ]
+  %.0103 = phi ptr [ %8, %2 ], [ %.1, %33 ]
   %37 = icmp ult ptr %.0104, %14
   br i1 %37, label %38, label %48
 
@@ -856,7 +856,7 @@ switch.early.test363.i:                           ; preds = %96
   br i1 %or.cond213.i, label %_ZL8getStatei.exit, label %.preheader158
 
 _ZL8getStatei.exit:                               ; preds = %93, %switch.early.test357.i, %switch.early.test.i, %54, %101, %101, %101, %101, %102, %50, %50, %50, %51, %56, %64, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67, %68, %switch.early.test358.i, %switch.early.test358.i, %switch.early.test358.i, %switch.early.test358.i, %switch.early.test358.i, %switch.early.test358.i, %70, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %switch.early.test359.i, %71, %73, %73, %73, %73, %74, %77, %switch.early.test361.i, %switch.early.test361.i, %switch.early.test361.i, %switch.early.test361.i, %79, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %81, %82, %83, %86, %86, %86, %87, %90, %96, %switch.early.test363.i, %switch.early.test363.i, %98
-  %.0.i = phi i32 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %51 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %64 ], [ 16, %56 ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %68 ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %70 ], [ 18, %71 ], [ 19, %73 ], [ 19, %73 ], [ 19, %73 ], [ 19, %73 ], [ 15, %74 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %77 ], [ 14, %79 ], [ 2, %83 ], [ 2, %82 ], [ 3, %86 ], [ 3, %86 ], [ 3, %86 ], [ 3, %90 ], [ 3, %87 ], [ 13, %switch.early.test363.i ], [ 13, %switch.early.test363.i ], [ 13, %96 ], [ 12, %98 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 1, %102 ], [ 1, %101 ], [ 1, %101 ], [ 1, %101 ], [ 1, %101 ], [ 16, %54 ], [ 16, %switch.early.test.i ], [ 17, %switch.early.test357.i ], [ 3, %93 ]
+  %.0.i = phi i32 [ 3, %86 ], [ 0, %51 ], [ 1, %101 ], [ 17, %68 ], [ 18, %71 ], [ 19, %73 ], [ 15, %74 ], [ 14, %79 ], [ 2, %82 ], [ 3, %87 ], [ 13, %96 ], [ 1, %101 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %54 ], [ 1, %102 ], [ 1, %101 ], [ 12, %98 ], [ 13, %switch.early.test363.i ], [ 1, %101 ], [ 16, %64 ], [ 16, %56 ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 17, %switch.early.test358.i ], [ 3, %93 ], [ 16, %switch.early.test.i ], [ 13, %switch.early.test363.i ], [ 3, %90 ], [ 3, %86 ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %switch.early.test359.i ], [ 18, %70 ], [ 19, %73 ], [ 19, %73 ], [ 19, %73 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %81 ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %switch.early.test361.i ], [ 14, %77 ], [ 2, %83 ], [ 17, %switch.early.test357.i ], [ 3, %86 ]
   %.not139 = icmp eq i32 %.3119, %.0.i
   br i1 %.not139, label %_ZL8getStatei.exit.thread, label %.lr.ph.preheader
 
@@ -1059,9 +1059,9 @@ thread-pre-split:                                 ; preds = %155, %.loopexit154
   br label %174
 
 174:                                              ; preds = %.thread, %173, %49, %48, %.loopexit
-  %.2118 = phi i32 [ %.1117, %49 ], [ %.1117, %173 ], [ %.1117, %.loopexit ], [ %.0116, %48 ], [ %.0116, %.thread ]
-  %.2106 = phi ptr [ %28, %49 ], [ %.1105, %173 ], [ %.1105, %.loopexit ], [ %.0104, %48 ], [ %.0104, %.thread ]
-  %.2 = phi ptr [ %.1, %49 ], [ %.1, %173 ], [ %.1, %.loopexit ], [ %.0103, %48 ], [ %.0103, %.thread ]
+  %.2118 = phi i32 [ %.1117, %49 ], [ %.1117, %173 ], [ %.1117, %.loopexit ], [ %.0116, %.thread ], [ %.0116, %48 ]
+  %.2106 = phi ptr [ %28, %49 ], [ %.1105, %173 ], [ %.1105, %.loopexit ], [ %.0104, %.thread ], [ %.0104, %48 ]
+  %.2 = phi ptr [ %.1, %49 ], [ %.1, %173 ], [ %.1, %.loopexit ], [ %.0103, %.thread ], [ %.0103, %48 ]
   store i32 %.2118, ptr %19, align 8, !tbaa !20
   store ptr %.2106, ptr %11, align 8, !tbaa !49
   store ptr %.2, ptr %7, align 8, !tbaa !47

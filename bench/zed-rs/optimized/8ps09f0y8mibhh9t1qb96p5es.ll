@@ -373,7 +373,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   unreachable
 
 .body:                                            ; preds = %286, %289, %262, %.body.thread.thread.i, %.body62.thread69, %33, %21
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %22, %21 ], [ %lpad.thr_comm, %.body62.thread69 ], [ %.pn73.i, %.body.thread.thread.i ], [ %.pn73.i, %262 ], [ %lpad.thr_comm.split-lp, %289 ], [ %lpad.thr_comm.split-lp, %286 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.body62.thread69 ], [ %.pn73.i, %262 ], [ %34, %33 ], [ %22, %21 ], [ %.pn73.i, %.body.thread.thread.i ], [ %lpad.thr_comm.split-lp, %289 ], [ %lpad.thr_comm.split-lp, %286 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17h872f5dcc66297e8dE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2) #11
           to label %301 unwind label %297
 
@@ -431,7 +431,7 @@ define hidden void @"_ZN4http8response7Builder6header28_$u7b$$u7b$closure$u7d$$u
   %52 = icmp eq ptr %45, %43
   br i1 %52, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.body62.thread69:                                 ; preds = %.noexc45.i, %215, %226, %230, %241
+.body62.thread69:                                 ; preds = %230, %241, %.noexc45.i, %215, %226
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -960,7 +960,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %273
 
-271:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hf4ab95a9d0339c47E.exit.thread.i", %214, %.noexc58, %241
+271:                                              ; preds = %.noexc58, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hf4ab95a9d0339c47E.exit.thread.i", %214, %241
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 6, ptr %272, align 8
@@ -975,7 +975,7 @@ split.i:                                          ; preds = %112, %"_ZN71_$LT$ht
   call void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17h872f5dcc66297e8dE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %2)
   br label %273
 
-274:                                              ; preds = %48, %50
+274:                                              ; preds = %50, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 5, ptr %275, align 8

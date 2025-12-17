@@ -746,7 +746,7 @@ _ZN7QStringD2Ev.exit90:                           ; preds = %133, %_ZN17QArrayDa
   store i64 2, ptr %139, align 8
   br label %145
 
-.critedge:                                        ; preds = %.invoke, %_ZN7QStringD2Ev.exit78, %_ZN7QStringD2Ev.exit69, %126
+.critedge:                                        ; preds = %.invoke, %_ZN7QStringD2Ev.exit69, %_ZN7QStringD2Ev.exit78, %126
   %140 = load ptr, ptr %8, align 8
   %.not.i.i.i91 = icmp eq ptr %140, null
   br i1 %.not.i.i.i91, label %_ZN7QStringD2Ev.exit94, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i92
@@ -992,7 +992,7 @@ _ZN7QStringD2Ev.exit29.sink.split:                ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit29
 
 _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN7QStringD2Ev.exit29.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31, %78, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27, %74
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %75, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %79, %78 ], [ %79, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit29.sink.split ]
+  %.pn = phi { ptr, i32 } [ %79, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31 ], [ %75, %74 ], [ %75, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %79, %78 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit29.sink.split ]
   resume { ptr, i32 } %.pn
 }
 

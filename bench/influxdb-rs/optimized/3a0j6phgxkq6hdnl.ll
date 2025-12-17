@@ -217,7 +217,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h4279f46a9cb37813E.exit"
 
 common.resume:                                    ; preds = %155, %30, %38
-  %common.resume.op = phi { ptr, i32 } [ %31, %38 ], [ %31, %30 ], [ %156, %155 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %31, %38 ], [ %156, %155 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %1
@@ -962,7 +962,7 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5close
   unreachable
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hb11158dd45d13de4E.llvm.924007400533848899.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$parquet..arrow..arrow_writer..ArrowRowGroupWriter$GT$$GT$17h8b7c23c83c913f7dE.llvm.924007400533848899.exit15", %44, %18, %24
-  %.pn = phi { ptr, i32 } [ %19, %24 ], [ %19, %18 ], [ %33, %44 ], [ %33, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$parquet..arrow..arrow_writer..ArrowRowGroupWriter$GT$$GT$17h8b7c23c83c913f7dE.llvm.924007400533848899.exit15" ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %19, %24 ], [ %33, %44 ], [ %33, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$parquet..arrow..arrow_writer..ArrowRowGroupWriter$GT$$GT$17h8b7c23c83c913f7dE.llvm.924007400533848899.exit15" ]
   resume { ptr, i32 } %.pn
 
 32:                                               ; preds = %5, %37
@@ -1057,7 +1057,7 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5flush
   invoke void @_ZN7parquet5arrow12arrow_writer19ArrowRowGroupWriter5close17h7e285ea70dcac79aE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %11)
           to label %25 unwind label %.thread108
 
-.thread108:                                       ; preds = %24, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b0f99bab8f5b065E.exit.thread", %74
+.thread108:                                       ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b0f99bab8f5b065E.exit.thread", %74, %24
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread102
@@ -1292,7 +1292,7 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5flush
   br label %66
 
 .thread:                                          ; preds = %.thread102, %79
-  %.pn.pn97 = phi { ptr, i32 } [ %80, %79 ], [ %.pn106, %.thread102 ]
+  %.pn.pn97 = phi { ptr, i32 } [ %.pn106, %.thread102 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn.pn97
 
 79:                                               ; preds = %18
@@ -2552,7 +2552,7 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$5write17h3959fa5124e33
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hb11158dd45d13de4E.llvm.924007400533848899.exit", %142, %76, %83
-  %common.resume.op = phi { ptr, i32 } [ %77, %83 ], [ %77, %76 ], [ %.pn114, %142 ], [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hb11158dd45d13de4E.llvm.924007400533848899.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %77, %83 ], [ %.pn114, %142 ], [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hb11158dd45d13de4E.llvm.924007400533848899.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 83:                                               ; preds = %76
@@ -2847,7 +2847,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
   unreachable
 
 .body137:                                         ; preds = %202, %167, %156, %173, %.body147
-  %.pn112 = phi { ptr, i32 } [ %eh.lpad-body148, %.body147 ], [ %168, %167 ], [ %157, %156 ], [ %174, %173 ], [ %203, %202 ]
+  %.pn112 = phi { ptr, i32 } [ %eh.lpad-body148, %.body147 ], [ %157, %156 ], [ %168, %167 ], [ %174, %173 ], [ %203, %202 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #18
           to label %142 unwind label %287
 

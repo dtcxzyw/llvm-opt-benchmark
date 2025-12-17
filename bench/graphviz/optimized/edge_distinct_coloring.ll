@@ -410,8 +410,8 @@ gv_recalloc.exit.i:                               ; preds = %179, %177, %171, %1
   br i1 %185, label %.lr.ph311.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %gv_recalloc.exit.i, %153, %.lr.ph.split.split.i
-  %.0175.lcssa.i = phi ptr [ %96, %.lr.ph.split.split.i ], [ %.1176.i, %gv_recalloc.exit.i ], [ %.0175267306.i, %153 ]
-  %.0169.lcssa.i = phi i64 [ 100, %.lr.ph.split.split.i ], [ %.1170.i, %gv_recalloc.exit.i ], [ %.0169268305.i, %153 ]
+  %.0175.lcssa.i = phi ptr [ %96, %.lr.ph.split.split.i ], [ %.0175267306.i, %153 ], [ %.1176.i, %gv_recalloc.exit.i ]
+  %.0169.lcssa.i = phi i64 [ 100, %.lr.ph.split.split.i ], [ %.0169268305.i, %153 ], [ %.1170.i, %gv_recalloc.exit.i ]
   %.1189.i = phi i64 [ 0, %.lr.ph.split.split.i ], [ %.2190.i, %153 ], [ %.2190.i, %gv_recalloc.exit.i ]
   %.sroa.7.1.i = phi double [ 0.000000e+00, %.lr.ph.split.split.i ], [ %.sroa.7.2.i, %153 ], [ %.sroa.7.2.i, %gv_recalloc.exit.i ]
   %.sroa.0.1.i = phi double [ 0.000000e+00, %.lr.ph.split.split.i ], [ %.sroa.0.2.i, %153 ], [ %.sroa.0.2.i, %gv_recalloc.exit.i ]
@@ -460,7 +460,7 @@ gv_recalloc.exit.i:                               ; preds = %179, %177, %171, %1
   br label %gv_recalloc.exit240.i
 
 gv_recalloc.exit240.i:                            ; preds = %208, %206, %.critedge.i
-  %.3178.i = phi ptr [ %.0175.lcssa.i, %.critedge.i ], [ %201, %208 ], [ %201, %206 ]
+  %.3178.i = phi ptr [ %.0175.lcssa.i, %.critedge.i ], [ %201, %206 ], [ %201, %208 ]
   %.idx246.i = shl i64 %.1189.i, 4
   %211 = getelementptr inbounds nuw i8, ptr %.3178.i, i64 %.idx246.i
   store double %.sroa.0.1.i, ptr %211, align 8, !tbaa !24
@@ -646,7 +646,7 @@ gv_recalloc.exit242.i:                            ; preds = %259, %257, %250, %2
   br label %gv_recalloc.exit244.i
 
 gv_recalloc.exit244.i:                            ; preds = %289, %287, %266
-  %.3174.i = phi ptr [ %.0171333.i.lcssa, %266 ], [ %282, %289 ], [ %282, %287 ]
+  %.3174.i = phi ptr [ %.0171333.i.lcssa, %266 ], [ %282, %287 ], [ %282, %289 ]
   %.idx248.i = shl i64 %.1185.i, 4
   %292 = getelementptr inbounds nuw i8, ptr %.3174.i, i64 %.idx248.i
   store double %.sroa.0.4.i, ptr %292, align 8, !tbaa !24
@@ -798,7 +798,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   br i1 %exitcond271.not, label %.loopexit, label %330, !llvm.loop !26
 
 .loopexit111:                                     ; preds = %.loopexit116, %.loopexit, %.loopexit.us, %83, %.preheader110
-  %.3 = phi ptr [ %46, %.preheader110 ], [ %46, %83 ], [ %.5.lcssa.us, %.loopexit.us ], [ %.5.lcssa, %.loopexit ], [ %.1.lcssa, %.loopexit116 ]
+  %.3 = phi ptr [ %46, %.preheader110 ], [ %46, %83 ], [ %.5.lcssa, %.loopexit ], [ %.5.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit116 ]
   %350 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.3) #15
   %.not104 = icmp eq ptr %.3, %350
   br i1 %.not104, label %352, label %351
@@ -869,7 +869,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   br label %378
 
 378:                                              ; preds = %365, %._crit_edge217, %19
-  %.0 = phi ptr [ null, %19 ], [ %2, %._crit_edge217 ], [ %2, %365 ]
+  %.0 = phi ptr [ %2, %365 ], [ null, %19 ], [ %2, %._crit_edge217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

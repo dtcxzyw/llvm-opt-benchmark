@@ -557,9 +557,9 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i: ; preds = %3
   %.sroa.52.0. = select i1 %.not, ptr %52, ptr null
   br label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
-_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread: ; preds = %23, %41, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i, %30, %34, %29, %22, %14, %7, %2, %50
-  %.sroa.4.0 = phi i64 [ %.sroa.8.0., %50 ], [ undef, %2 ], [ undef, %7 ], [ undef, %14 ], [ undef, %22 ], [ undef, %29 ], [ undef, %34 ], [ undef, %30 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i ], [ undef, %41 ], [ undef, %23 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.52.0., %50 ], [ null, %2 ], [ null, %7 ], [ null, %14 ], [ null, %22 ], [ null, %29 ], [ null, %34 ], [ null, %30 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i ], [ null, %41 ], [ null, %23 ]
+_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread: ; preds = %23, %7, %34, %30, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i, %22, %29, %14, %41, %2, %50
+  %.sroa.4.0 = phi i64 [ %.sroa.8.0., %50 ], [ undef, %2 ], [ undef, %41 ], [ undef, %14 ], [ undef, %29 ], [ undef, %22 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i ], [ undef, %30 ], [ undef, %34 ], [ undef, %7 ], [ undef, %23 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.52.0., %50 ], [ null, %2 ], [ null, %41 ], [ null, %14 ], [ null, %29 ], [ null, %22 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i ], [ null, %30 ], [ null, %34 ], [ null, %7 ], [ null, %23 ]
   %55 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %56 = insertvalue { ptr, i64 } %55, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %56
@@ -865,9 +865,9 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i: ; preds = 
   %..sroa.716.sroa.0.045 = select i1 %.not44, ptr null, ptr %53
   br label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread: ; preds = %22, %40, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i, %29, %33, %28, %21, %13, %6, %1, %49, %59, %61, %58, %51
-  %.sroa.8.0 = phi i64 [ undef, %51 ], [ %.sroa.7.0., %59 ], [ 1, %58 ], [ %..sroa.624.sroa.4.0, %61 ], [ undef, %49 ], [ undef, %1 ], [ undef, %6 ], [ undef, %13 ], [ undef, %21 ], [ undef, %28 ], [ undef, %33 ], [ undef, %29 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i ], [ undef, %40 ], [ undef, %22 ]
-  %.sroa.0.0 = phi ptr [ null, %51 ], [ %.sroa.07.0., %59 ], [ %50, %58 ], [ %..sroa.716.sroa.0.045, %61 ], [ null, %49 ], [ null, %1 ], [ null, %6 ], [ null, %13 ], [ null, %21 ], [ null, %28 ], [ null, %33 ], [ null, %29 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i ], [ null, %40 ], [ null, %22 ]
+_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread: ; preds = %22, %6, %33, %29, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i, %21, %28, %13, %40, %1, %49, %59, %61, %58, %51
+  %.sroa.8.0 = phi i64 [ undef, %51 ], [ 1, %58 ], [ %.sroa.7.0., %59 ], [ %..sroa.624.sroa.4.0, %61 ], [ undef, %49 ], [ undef, %1 ], [ undef, %40 ], [ undef, %13 ], [ undef, %28 ], [ undef, %21 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i ], [ undef, %29 ], [ undef, %33 ], [ undef, %6 ], [ undef, %22 ]
+  %.sroa.0.0 = phi ptr [ null, %51 ], [ %50, %58 ], [ %.sroa.07.0., %59 ], [ %..sroa.716.sroa.0.045, %61 ], [ null, %49 ], [ null, %1 ], [ null, %40 ], [ null, %13 ], [ null, %28 ], [ null, %21 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit63.i.i ], [ null, %29 ], [ null, %33 ], [ null, %6 ], [ null, %22 ]
   %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %64
@@ -2058,17 +2058,17 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %84, %.sink.split.sink.split.sink.split, %89, %64
-  %.1.ph.ph = phi i1 [ true, %64 ], [ true, %89 ], [ %.1.ph.ph.ph, %.sink.split.sink.split.sink.split ], [ true, %84 ]
+  %.1.ph.ph = phi i1 [ true, %89 ], [ true, %64 ], [ %.1.ph.ph.ph, %.sink.split.sink.split.sink.split ], [ true, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %59, %39, %47, %56
-  %.1.ph = phi i1 [ true, %56 ], [ true, %47 ], [ true, %39 ], [ true, %59 ], [ %.1.ph.ph, %.sink.split.sink.split ]
+  %.1.ph = phi i1 [ true, %59 ], [ true, %56 ], [ true, %47 ], [ true, %39 ], [ %.1.ph.ph, %.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %107
 
 107:                                              ; preds = %.sink.split, %33, %12, %4, %28
-  %.1 = phi i1 [ true, %28 ], [ true, %4 ], [ true, %12 ], [ true, %33 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i1 [ true, %33 ], [ true, %28 ], [ true, %4 ], [ true, %12 ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1
 }

@@ -2506,8 +2506,8 @@ put_bits.exit363:                                 ; preds = %1238, %1246, %1228
   br i1 %1253, label %1194, label %.loopexit407, !llvm.loop !89
 
 .loopexit407:                                     ; preds = %1248, %put_bits.exit355, %put_bits.exit351
-  %1254 = phi i32 [ %1189, %put_bits.exit355 ], [ %1160, %put_bits.exit351 ], [ %1249, %1248 ]
-  %1255 = phi i32 [ %.026.i.i353, %put_bits.exit355 ], [ %.026.i.i349, %put_bits.exit351 ], [ %1250, %1248 ]
+  %1254 = phi i32 [ %1160, %put_bits.exit351 ], [ %1189, %put_bits.exit355 ], [ %1249, %1248 ]
+  %1255 = phi i32 [ %.026.i.i349, %put_bits.exit351 ], [ %.026.i.i353, %put_bits.exit355 ], [ %1250, %1248 ]
   %1256 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %1257 = load i32, ptr %1256, align 4, !tbaa !25
   %.not154 = icmp eq i32 %1257, 0
@@ -2695,8 +2695,8 @@ put_bits.exit371:                                 ; preds = %1324, %1344
   br i1 %1354, label %1306, label %.loopexit405, !llvm.loop !92
 
 .loopexit405:                                     ; preds = %put_bits.exit367, %._crit_edge, %1264, %.preheader404
-  %1355 = phi i32 [ %1254, %1264 ], [ %1254, %.preheader404 ], [ %1350, %._crit_edge ], [ %.0.i.i366, %put_bits.exit367 ]
-  %1356 = phi i32 [ %1255, %1264 ], [ %1255, %.preheader404 ], [ %1351, %._crit_edge ], [ %.026.i.i365, %put_bits.exit367 ]
+  %1355 = phi i32 [ %1254, %.preheader404 ], [ %1254, %1264 ], [ %1350, %._crit_edge ], [ %.0.i.i366, %put_bits.exit367 ]
+  %1356 = phi i32 [ %1255, %.preheader404 ], [ %1255, %1264 ], [ %1351, %._crit_edge ], [ %.026.i.i365, %put_bits.exit367 ]
   %1357 = load i32, ptr %170, align 16, !tbaa !64
   %.not159 = icmp eq i32 %1357, 0
   %.pr400 = load i32, ptr %885, align 4, !tbaa !4
@@ -2911,8 +2911,8 @@ put_bits.exit379:                                 ; preds = %1421, %1426, %1410
   br label %put_bits.exit383
 
 put_bits.exit383:                                 ; preds = %1467, %1472, %1447, %1455, %1458, %1437
-  %.sink545 = phi i32 [ -5, %1458 ], [ -5, %1437 ], [ 27, %1455 ], [ 27, %1447 ], [ 27, %1472 ], [ 27, %1467 ]
-  %storemerge401 = phi i32 [ %1459, %1458 ], [ %1439, %1437 ], [ %1435, %1455 ], [ %1435, %1447 ], [ 0, %1472 ], [ 0, %1467 ]
+  %.sink545 = phi i32 [ 27, %1447 ], [ -5, %1458 ], [ -5, %1437 ], [ 27, %1455 ], [ 27, %1472 ], [ 27, %1467 ]
+  %storemerge401 = phi i32 [ %1435, %1447 ], [ %1459, %1458 ], [ %1439, %1437 ], [ %1435, %1455 ], [ 0, %1472 ], [ 0, %1467 ]
   %1473 = add nsw i32 %1429, %.sink545
   store i32 %storemerge401, ptr %1, align 8, !tbaa !55
   store i32 %1473, ptr %5, align 4, !tbaa !57
@@ -2923,8 +2923,8 @@ put_bits.exit383:                                 ; preds = %1467, %1472, %1447,
   br i1 %.not161.not, label %1428, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %put_bits.exit383, %.preheader, %put_bits.exit379
-  %1476 = phi i32 [ %1399, %.preheader ], [ %1427, %put_bits.exit379 ], [ %1473, %put_bits.exit383 ]
-  %1477 = phi i32 [ %1400, %.preheader ], [ %.026.i.i377, %put_bits.exit379 ], [ %storemerge401, %put_bits.exit383 ]
+  %1476 = phi i32 [ %1427, %put_bits.exit379 ], [ %1399, %.preheader ], [ %1473, %put_bits.exit383 ]
+  %1477 = phi i32 [ %.026.i.i377, %put_bits.exit379 ], [ %1400, %.preheader ], [ %storemerge401, %put_bits.exit383 ]
   %1478 = getelementptr inbounds nuw i8, ptr %0, i64 5200
   %1479 = load i32, ptr %1478, align 16, !tbaa !96
   %1480 = icmp sgt i32 %1476, 6

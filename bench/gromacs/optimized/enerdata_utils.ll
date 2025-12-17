@@ -405,7 +405,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   br i1 %.not.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.split.i
 
 _ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit: ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
-  %.us-phi.i = phi double [ %48, %.split.us.split.us.i ], [ %59, %.split.us.split.i ], [ %71, %.split.split.us.i ], [ %89, %.split.split.i ]
+  %.us-phi.i = phi double [ %71, %.split.split.us.i ], [ %48, %.split.us.split.us.i ], [ %59, %.split.us.split.i ], [ %89, %.split.split.i ]
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   store double %.us-phi.i, ptr %gep, align 8, !tbaa !26
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -591,7 +591,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45:                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %.body35
 
 .body35:                                          ; preds = %130, %155, %152
-  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %153, %152 ], [ %153, %155 ]
+  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %153, %155 ], [ %153, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %161 = load ptr, ptr %4, align 8, !tbaa !23
   %.not.i.i.i49 = icmp eq ptr %161, null
@@ -607,12 +607,12 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45:                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %.body
 
 .body:                                            ; preds = %115, %162, %.body35
-  %.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %.pn, %.body35 ], [ %.pn, %162 ]
+  %.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %.pn, %162 ], [ %.pn, %.body35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %168
 
 168:                                              ; preds = %.body, %99
-  %.pn24 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %100, %99 ]
+  %.pn24 = phi { ptr, i32 } [ %100, %99 ], [ %.pn.pn, %.body ]
   %.not.i.i.i52 = icmp eq ptr %.sroa.058.0101, null
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIdSaIdEED2Ev.exit54, label %169
 
@@ -967,7 +967,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !63
   br label %41
 

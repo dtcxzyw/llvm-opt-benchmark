@@ -673,7 +673,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit100:           ; preds = %_ZN4cvc58internal8T
   br label %263
 
 263:                                              ; preds = %252, %.body
-  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %.body ], [ %253, %252 ]
+  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %253, %252 ], [ %.pn35.pn.pn, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %336
 
@@ -825,7 +825,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit108:           ; preds = %.critedge, %310, %3
   br i1 %.not126, label %.critedge54, label %.lr.ph, !llvm.loop !55
 
 336:                                              ; preds = %.loopexit, %.loopexit.split-lp, %250, %263
-  %.pn42 = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn, %263 ], [ %251, %250 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn42 = phi { ptr, i32 } [ %251, %250 ], [ %.pn35.pn.pn.pn.pn, %263 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #18
   br label %337
 
@@ -880,7 +880,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit112:           ; preds = %_ZN4cvc58internal8T
   ret void
 
 353:                                              ; preds = %242, %244, %338, %41
-  %.pn50 = phi { ptr, i32 } [ %42, %41 ], [ %243, %242 ], [ %.pn42.pn.pn, %338 ], [ %245, %244 ]
+  %.pn50 = phi { ptr, i32 } [ %42, %41 ], [ %243, %242 ], [ %245, %244 ], [ %.pn42.pn.pn, %338 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn50
@@ -1181,7 +1181,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %31, %5
   tail call void @_ZN4cvc58internal11NodeManager19builtinOperatorTypeEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3560) %1)
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit.thread
 
-_ZN4cvc58internal8TypeNode4nullEv.exit.thread:    ; preds = %52, %50, %44, %29, %27, %21, %_ZN4cvc58internal8TypeNode4nullEv.exit
+_ZN4cvc58internal8TypeNode4nullEv.exit.thread:    ; preds = %52, %50, %44, %27, %21, %29, %_ZN4cvc58internal8TypeNode4nullEv.exit
   ret void
 }
 
@@ -2525,7 +2525,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit54:            ; preds = %_ZNSt6vectorIN4cvc5
   br label %239
 
 239:                                              ; preds = %235, %237
-  %.pn29.pn = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
+  %.pn29.pn = phi { ptr, i32 } [ %236, %235 ], [ %238, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %289
 
@@ -2655,7 +2655,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
   br label %289
 
 289:                                              ; preds = %239, %192, %190, %194, %288
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %288 ], [ %.pn29.pn, %239 ], [ %193, %192 ], [ %191, %190 ], [ %195, %194 ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn27, %288 ], [ %.pn29.pn, %239 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ]
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %290
@@ -4239,8 +4239,8 @@ _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EE13_M_deallocateEPS2_m.exit:
   tail call void @_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #18
   br label %71
 
-66:                                               ; preds = %38, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8TypeNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %.0.ph = phi ptr [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8TypeNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %22, %38 ]
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8TypeNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %38
+  %.0.ph = phi ptr [ %22, %38 ], [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8TypeNodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %lpad.thr_comm, 0

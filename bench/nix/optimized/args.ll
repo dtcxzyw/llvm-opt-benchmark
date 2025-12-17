@@ -6798,7 +6798,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51: ; preds = %203, %146, %145, %133
-  %.pn20.pn = phi { ptr, i32 } [ %134, %133 ], [ %147, %146 ], [ %.pn.pn.pn, %145 ], [ %.pn20, %203 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn.pn, %145 ], [ %134, %133 ], [ %147, %146 ], [ %.pn20, %203 ]
   call void @_ZN2rc6detail12TestMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #22
   resume { ptr, i32 } %.pn20.pn
 }
@@ -7009,8 +7009,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %74
 
 74:                                               ; preds = %67, %73, %60, %66
-  %.sink = phi ptr [ %9, %66 ], [ %9, %60 ], [ %15, %73 ], [ %15, %67 ]
-  %.pn13.pn.pn = phi { ptr, i32 } [ %.pn, %66 ], [ %61, %60 ], [ %.pn13, %73 ], [ %68, %67 ]
+  %.sink = phi ptr [ %9, %60 ], [ %9, %66 ], [ %15, %73 ], [ %15, %67 ]
+  %.pn13.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %66 ], [ %.pn13, %73 ], [ %68, %67 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #22
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   br label %75
@@ -8167,7 +8167,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51: ; preds = %203, %146, %145, %133
-  %.pn20.pn = phi { ptr, i32 } [ %134, %133 ], [ %147, %146 ], [ %.pn.pn.pn, %145 ], [ %.pn20, %203 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn.pn, %145 ], [ %134, %133 ], [ %147, %146 ], [ %.pn20, %203 ]
   call void @_ZN2rc6detail12TestMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #22
   resume { ptr, i32 } %.pn20.pn
 }
@@ -8532,8 +8532,8 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   br label %127
 
 127:                                              ; preds = %120, %126, %113, %119, %106, %112
-  %.sink = phi ptr [ %13, %112 ], [ %13, %106 ], [ %19, %119 ], [ %19, %113 ], [ %25, %126 ], [ %25, %120 ]
-  %.pn29.pn.pn = phi { ptr, i32 } [ %.pn23, %112 ], [ %107, %106 ], [ %.pn26, %119 ], [ %114, %113 ], [ %.pn29, %126 ], [ %121, %120 ]
+  %.sink = phi ptr [ %19, %113 ], [ %13, %106 ], [ %13, %112 ], [ %19, %119 ], [ %25, %126 ], [ %25, %120 ]
+  %.pn29.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %107, %106 ], [ %.pn23, %112 ], [ %.pn26, %119 ], [ %.pn29, %126 ], [ %121, %120 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #22
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #22
   br label %128
@@ -23640,8 +23640,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %401, %407, %375, %381, %349, %355, %323, %329, %297, %303, %271, %277, %245, %251, %219, %225, %193, %199, %167, %173, %141, %147, %115, %121, %89, %95, %63, %69
-  %.sink = phi ptr [ %42, %69 ], [ %42, %63 ], [ %39, %95 ], [ %39, %89 ], [ %36, %121 ], [ %36, %115 ], [ %33, %147 ], [ %33, %141 ], [ %30, %173 ], [ %30, %167 ], [ %27, %199 ], [ %27, %193 ], [ %24, %225 ], [ %24, %219 ], [ %21, %251 ], [ %21, %245 ], [ %18, %277 ], [ %18, %271 ], [ %15, %303 ], [ %15, %297 ], [ %12, %329 ], [ %12, %323 ], [ %9, %355 ], [ %9, %349 ], [ %6, %381 ], [ %6, %375 ], [ %3, %407 ], [ %3, %401 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %69 ], [ %64, %63 ], [ %.pn.i, %95 ], [ %90, %89 ], [ %.pn.i8, %121 ], [ %116, %115 ], [ %.pn.i15, %147 ], [ %142, %141 ], [ %.pn.i22, %173 ], [ %168, %167 ], [ %.pn.i29, %199 ], [ %194, %193 ], [ %.pn.i36, %225 ], [ %220, %219 ], [ %.pn.i43, %251 ], [ %246, %245 ], [ %.pn.i50, %277 ], [ %272, %271 ], [ %.pn.i57, %303 ], [ %298, %297 ], [ %.pn.i64, %329 ], [ %324, %323 ], [ %.pn.i71, %355 ], [ %350, %349 ], [ %.pn.i78, %381 ], [ %376, %375 ], [ %.pn.i85, %407 ], [ %402, %401 ]
+  %.sink = phi ptr [ %6, %375 ], [ %9, %349 ], [ %12, %323 ], [ %15, %297 ], [ %18, %271 ], [ %21, %245 ], [ %24, %219 ], [ %27, %193 ], [ %30, %167 ], [ %33, %141 ], [ %36, %115 ], [ %39, %89 ], [ %42, %63 ], [ %42, %69 ], [ %39, %95 ], [ %36, %121 ], [ %33, %147 ], [ %30, %173 ], [ %27, %199 ], [ %24, %225 ], [ %21, %251 ], [ %18, %277 ], [ %15, %303 ], [ %12, %329 ], [ %9, %355 ], [ %6, %381 ], [ %3, %407 ], [ %3, %401 ]
+  %common.resume.op = phi { ptr, i32 } [ %376, %375 ], [ %350, %349 ], [ %324, %323 ], [ %298, %297 ], [ %272, %271 ], [ %246, %245 ], [ %220, %219 ], [ %194, %193 ], [ %168, %167 ], [ %142, %141 ], [ %116, %115 ], [ %90, %89 ], [ %64, %63 ], [ %.pn.pn.i, %69 ], [ %.pn.i, %95 ], [ %.pn.i8, %121 ], [ %.pn.i15, %147 ], [ %.pn.i22, %173 ], [ %.pn.i29, %199 ], [ %.pn.i36, %225 ], [ %.pn.i43, %251 ], [ %.pn.i50, %277 ], [ %.pn.i57, %303 ], [ %.pn.i64, %329 ], [ %.pn.i71, %355 ], [ %.pn.i78, %381 ], [ %.pn.i85, %407 ], [ %402, %401 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #22
   resume { ptr, i32 } %common.resume.op
 

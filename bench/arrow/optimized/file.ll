@@ -7683,7 +7683,7 @@ define linkonce_odr void @_ZSt4lockISt11unique_lockISt5mutexES2_JEEvRT_RT0_DpRT1
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit, label %.invoke
 
 .invoke:                                          ; preds = %18, %14, %11, %7
-  %20 = phi i32 [ 1, %7 ], [ 1, %11 ], [ 35, %14 ], [ %19, %18 ]
+  %20 = phi i32 [ 35, %14 ], [ 1, %11 ], [ 1, %7 ], [ %19, %18 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %20) #33
           to label %.cont unwind label %27
 
@@ -7724,7 +7724,7 @@ _ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit:     ; preds = %18
   br i1 %37, label %.invoke109, label %39
 
 .invoke109:                                       ; preds = %34, %32, %29, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit
-  %38 = phi i32 [ 1, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit ], [ 35, %29 ], [ 1, %32 ], [ 35, %34 ]
+  %38 = phi i32 [ 1, %32 ], [ 35, %29 ], [ 1, %_ZNSt11unique_lockIS_ISt5mutexEE4lockEv.exit ], [ 35, %34 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %38) #33
           to label %.cont110 unwind label %47
 

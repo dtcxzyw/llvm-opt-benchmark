@@ -643,7 +643,7 @@ thread-pre-split:                                 ; preds = %.preheader64.split.
   br i1 %274, label %160, label %286, !llvm.loop !14
 
 .loopexit65:                                      ; preds = %211, %160, %.lr.ph, %176
-  %275 = phi i32 [ %161, %176 ], [ %161, %.lr.ph ], [ %204, %211 ], [ %161, %160 ]
+  %275 = phi i32 [ %161, %.lr.ph ], [ %161, %176 ], [ %204, %211 ], [ %161, %160 ]
   %276 = icmp eq i32 %163, 0
   %277 = select i1 %128, i1 %276, i1 false
   %278 = load i32, ptr @core_uses_pid, align 4
@@ -975,13 +975,13 @@ thread-pre-split:                                 ; preds = %.preheader64.split.
   br i1 %.ph59, label %.thread58, label %.thread51
 
 .thread58:                                        ; preds = %304, %.thread45, %462, %464
-  %465 = phi i8 [ %.ph61, %464 ], [ %.ph61, %462 ], [ 0, %.thread45 ], [ 0, %304 ]
+  %465 = phi i8 [ %.ph61, %462 ], [ %.ph61, %464 ], [ 0, %.thread45 ], [ 0, %304 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @do_coredump.core_dump_count, ptr nonnull elementtype(i32) @do_coredump.core_dump_count) #20, !srcloc !21
   br label %.thread51
 
 .thread51:                                        ; preds = %.thread55.thread, %.thread141, %362, %.thread, %351, %293, %.thread40, %462, %.thread58, %464
-  %466 = phi ptr [ %151, %.thread58 ], [ %151, %464 ], [ %151, %462 ], [ %151, %293 ], [ %.ph3444, %.thread40 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread141 ], [ %151, %.thread55.thread ]
-  %467 = phi i8 [ %465, %.thread58 ], [ %.ph61, %464 ], [ %.ph61, %462 ], [ 0, %293 ], [ 0, %.thread40 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread141 ], [ 0, %.thread55.thread ]
+  %466 = phi ptr [ %151, %462 ], [ %151, %.thread58 ], [ %151, %464 ], [ %.ph3444, %.thread40 ], [ %151, %293 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread141 ], [ %151, %.thread55.thread ]
+  %467 = phi i8 [ %.ph61, %462 ], [ %465, %.thread58 ], [ %.ph61, %464 ], [ 0, %.thread40 ], [ 0, %293 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread141 ], [ 0, %.thread55.thread ]
   call void @kfree(ptr noundef %466) #20
   %468 = load ptr, ptr %3, align 8
   call void @kfree(ptr noundef %468) #20

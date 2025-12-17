@@ -1382,7 +1382,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore6health17h8a76d062
   unreachable
 
 common.resume:                                    ; preds = %.body, %66, %70, %75, %44, %48, %53, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %45, %53 ], [ %45, %48 ], [ %45, %44 ], [ %67, %75 ], [ %67, %70 ], [ %67, %66 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %22, %21 ], [ %45, %44 ], [ %45, %53 ], [ %45, %48 ], [ %67, %75 ], [ %67, %70 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -1822,7 +1822,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore8is_empty17h2aa965d9c7846
   unreachable
 
 common.resume:                                    ; preds = %26, %.body, %65, %69, %74, %34, %38, %43, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %35, %43 ], [ %35, %38 ], [ %35, %34 ], [ %66, %74 ], [ %66, %69 ], [ %66, %65 ], [ %61, %.body ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %23, %22 ], [ %35, %34 ], [ %35, %43 ], [ %35, %38 ], [ %66, %74 ], [ %66, %69 ], [ %61, %.body ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -2064,7 +2064,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
           to label %40 unwind label %38
 
 .body:                                            ; preds = %.thread134.thread155, %255, %259, %264, %51, %38, %.thread
-  %.pn46 = phi { ptr, i32 } [ %.pn43.pn133, %.thread ], [ %39, %38 ], [ %52, %51 ], [ %256, %264 ], [ %256, %259 ], [ %256, %255 ], [ %lpad.thr_comm153, %.thread134.thread155 ]
+  %.pn46 = phi { ptr, i32 } [ %lpad.thr_comm153, %.thread134.thread155 ], [ %.pn43.pn133, %.thread ], [ %52, %51 ], [ %39, %38 ], [ %256, %264 ], [ %256, %259 ], [ %256, %255 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$meilisearch_types..keys..Key$GT$17h742edfeb8268e68cE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %2) #22
           to label %278 unwind label %226
 
@@ -2277,9 +2277,9 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
     i8 12, label %239
     i8 16, label %249
     i8 19, label %240
-    i8 21, label %241
-    i8 23, label %242
-    i8 25, label %243
+    i8 21, label %243
+    i8 23, label %244
+    i8 25, label %245
   ]
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4bb341aeec9326a5E.exit": ; preds = %.noexc55, %97
@@ -2751,19 +2751,19 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
 240:                                              ; preds = %102
   br label %.invoke213
 
-241:                                              ; preds = %102
-  br label %.invoke213
-
-242:                                              ; preds = %102
-  br label %.invoke213
+.invoke213:                                       ; preds = %102, %245, %244, %243, %240
+  %241 = phi i8 [ 20, %240 ], [ 22, %243 ], [ 26, %245 ], [ 24, %244 ], [ %104, %102 ]
+  %242 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i8 noundef %241)
+          to label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" unwind label %.loopexit.split-lp163
 
 243:                                              ; preds = %102
   br label %.invoke213
 
-.invoke213:                                       ; preds = %102, %240, %241, %242, %243
-  %244 = phi i8 [ 26, %243 ], [ 24, %242 ], [ 22, %241 ], [ 20, %240 ], [ %104, %102 ]
-  %245 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i8 noundef %244)
-          to label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" unwind label %.loopexit.split-lp163
+244:                                              ; preds = %102
+  br label %.invoke213
+
+245:                                              ; preds = %102
+  br label %.invoke213
 
 246:                                              ; preds = %237
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h648924a926a84bf9E.llvm.17336248082475965192(i8 noundef %238, ptr noalias noundef nonnull align 8 dereferenceable(48) %28)
@@ -2790,7 +2790,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
           cleanup
   br label %252
 
-.loopexit.split-lp163:                            ; preds = %.invoke213, %.invoke, %246, %239, %237
+.loopexit.split-lp163:                            ; preds = %.invoke213, %.invoke, %239, %237, %246
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %252
@@ -2960,7 +2960,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore11get_api_key17h2e
   unreachable
 
 common.resume:                                    ; preds = %.body, %43, %47, %52, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %44, %52 ], [ %44, %47 ], [ %44, %43 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %22, %21 ], [ %44, %52 ], [ %44, %47 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -3215,7 +3215,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore24get_uid_from_enc
   unreachable
 
 common.resume:                                    ; preds = %.body, %99, %103, %108, %75, %79, %84, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %76, %84 ], [ %76, %79 ], [ %76, %75 ], [ %100, %108 ], [ %100, %103 ], [ %100, %99 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %48, %47 ], [ %76, %75 ], [ %76, %84 ], [ %76, %79 ], [ %100, %108 ], [ %100, %103 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -3230,7 +3230,7 @@ common.resume:                                    ; preds = %.body, %99, %103, %
   br label %"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E.exit51"
 
 .body:                                            ; preds = %71, %67, %51
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %68, %67 ], [ %lpad.phi, %71 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %52, %51 ], [ %lpad.phi, %71 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %common.resume unwind label %96
 
@@ -3554,7 +3554,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore14delete_api_key17
   unreachable
 
 common.resume:                                    ; preds = %.body.thread, %60, %66, %70, %75, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %67, %75 ], [ %67, %70 ], [ %67, %66 ], [ %eh.lpad-body55, %.body.thread ], [ %61, %60 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %26, %25 ], [ %67, %75 ], [ %67, %70 ], [ %eh.lpad-body55, %.body.thread ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -3568,7 +3568,7 @@ common.resume:                                    ; preds = %.body.thread, %60, 
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %"_ZN4core3ptr37drop_in_place$LT$heed..txn..RwTxn$GT$17h276c0046cfefdc56E.exit"
 
-.body.thread59:                                   ; preds = %34, %18
+.body.thread59:                                   ; preds = %18, %34
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -3892,7 +3892,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore15delete_all_keys1
   unreachable
 
 common.resume:                                    ; preds = %.body.thread, %65, %70, %74, %79, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %71, %79 ], [ %71, %74 ], [ %71, %70 ], [ %eh.lpad-body41, %.body.thread ], [ %66, %65 ]
+  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %45, %44 ], [ %71, %79 ], [ %71, %74 ], [ %eh.lpad-body41, %.body.thread ], [ %66, %65 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -3906,7 +3906,7 @@ common.resume:                                    ; preds = %.body.thread, %65, 
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %"_ZN4core3ptr37drop_in_place$LT$heed..txn..RwTxn$GT$17h276c0046cfefdc56E.exit"
 
-.body.thread45:                                   ; preds = %17, %23, %28, %.noexc15, %37
+.body.thread45:                                   ; preds = %28, %.noexc15, %37, %17, %23
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -4111,7 +4111,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
   invoke void @_ZN4heed3env3Env8read_txn17hc0bb75551c5ea8e0E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19)
           to label %20 unwind label %.thread111
 
-.thread111:                                       ; preds = %2, %141
+.thread111:                                       ; preds = %141, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread102
@@ -4205,7 +4205,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
   unreachable
 
 .body56:                                          ; preds = %.body67, %60, %51
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %61, %60 ], [ %eh.lpad-body68, %.body67 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %52, %51 ], [ %eh.lpad-body68, %.body67 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #22
           to label %.thread102 unwind label %144
 
@@ -4277,7 +4277,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
   br label %.body67
 
 .body67:                                          ; preds = %113, %104, %65
-  %eh.lpad-body68 = phi { ptr, i32 } [ %66, %65 ], [ %105, %104 ], [ %114, %113 ]
+  %eh.lpad-body68 = phi { ptr, i32 } [ %105, %104 ], [ %66, %65 ], [ %114, %113 ]
   invoke void @"_ZN64_$LT$heed..cursor..RoCursor$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc8a5d2e07869bf33E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
           to label %.body56 unwind label %144
 
@@ -4538,11 +4538,11 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
   br label %"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E.exit81"
 
 .thread105:                                       ; preds = %86, %81, %77, %.thread102
-  %.pn50100 = phi { ptr, i32 } [ %.pn50101, %.thread102 ], [ %78, %77 ], [ %78, %81 ], [ %78, %86 ]
+  %.pn50100 = phi { ptr, i32 } [ %.pn50101, %.thread102 ], [ %78, %86 ], [ %78, %77 ], [ %78, %81 ]
   resume { ptr, i32 } %.pn50100
 
 .thread102:                                       ; preds = %132, %127, %123, %.body56, %47, %.thread111
-  %.pn50101 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread111 ], [ %48, %47 ], [ %.pn, %.body56 ], [ %124, %123 ], [ %124, %127 ], [ %124, %132 ]
+  %.pn50101 = phi { ptr, i32 } [ %48, %47 ], [ %lpad.thr_comm, %.thread111 ], [ %.pn, %.body56 ], [ %124, %123 ], [ %124, %127 ], [ %124, %132 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..keys..Key$GT$$GT$17h35d70ace5af672fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #22
           to label %.thread105 unwind label %144
 }
@@ -4644,7 +4644,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore19get_expiration_d
   unreachable
 
 common.resume:                                    ; preds = %49, %.body193, %181, %185, %190, %105, %109, %114, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %106, %114 ], [ %106, %109 ], [ %106, %105 ], [ %182, %190 ], [ %182, %185 ], [ %182, %181 ], [ %.pn186, %.body193 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %182, %181 ], [ %46, %45 ], [ %106, %105 ], [ %106, %114 ], [ %106, %109 ], [ %182, %190 ], [ %182, %185 ], [ %.pn186, %.body193 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -4743,7 +4743,7 @@ common.resume:                                    ; preds = %49, %.body193, %181
   br label %104
 
 .body193:                                         ; preds = %163, %94, %62, %71, %.body
-  %.pn186 = phi { ptr, i32 } [ %.pn, %.body ], [ %63, %62 ], [ %72, %71 ], [ %95, %94 ], [ %164, %163 ]
+  %.pn186 = phi { ptr, i32 } [ %.pn, %.body ], [ %63, %62 ], [ %95, %94 ], [ %72, %71 ], [ %164, %163 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #22
           to label %common.resume unwind label %157
 
@@ -5327,7 +5327,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore28prefix_first_exp
   unreachable
 
 common.resume:                                    ; preds = %.body, %122, %126, %131, %85, %89, %94, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %86, %94 ], [ %86, %89 ], [ %86, %85 ], [ %123, %131 ], [ %123, %126 ], [ %123, %122 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %123, %122 ], [ %32, %31 ], [ %86, %85 ], [ %86, %94 ], [ %86, %89 ], [ %123, %131 ], [ %123, %126 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -5342,7 +5342,7 @@ common.resume:                                    ; preds = %.body, %122, %126, 
   br label %"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E.exit95"
 
 .body:                                            ; preds = %108, %68, %47, %35, %.body84
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body85, %.body84 ], [ %36, %35 ], [ %48, %47 ], [ %69, %68 ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body85, %.body84 ], [ %69, %68 ], [ %48, %47 ], [ %36, %35 ], [ %109, %108 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #22
           to label %common.resume unwind label %143
 
@@ -5768,7 +5768,7 @@ define internal fastcc void @_ZN16meilisearch_auth5store13HeedAuthStore27delete_
   unreachable
 
 common.resume:                                    ; preds = %.body, %74, %35, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %36, %35 ], [ %75, %74 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %26, %25 ], [ %36, %35 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E.exit": ; preds = %.noexc.i
@@ -5794,7 +5794,7 @@ common.resume:                                    ; preds = %.body, %74, %35, %2
   br label %.body
 
 .body:                                            ; preds = %68, %55, %30
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %56, %55 ], [ %69, %68 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %31, %30 ], [ %69, %68 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$heed..iterator..prefix..RwPrefix$LT$heed_types..bytes..Bytes$C$heed_types..decode_ignore..DecodeIgnore$GT$$GT$17h353d65adca8c2d8dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #22
           to label %common.resume unwind label %88
 

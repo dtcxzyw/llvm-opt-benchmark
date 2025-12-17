@@ -1014,8 +1014,8 @@ _ZL12debug_strcmpPcS_.exit164.i.i:                ; preds = %411
   br label %429
 
 429:                                              ; preds = %427, %_ZL12debug_strcmpPcS_.exit164.i.i, %_ZL12debug_strcmpPcS_.exit164.thread.i.i, %.thread.i.i
-  %.3138.i.i = phi i32 [ %426, %427 ], [ %426, %_ZL12debug_strcmpPcS_.exit164.i.i ], [ %.2137174.i.i, %.thread.i.i ], [ %424, %_ZL12debug_strcmpPcS_.exit164.thread.i.i ]
-  %.3.i.i = phi i1 [ false, %427 ], [ false, %_ZL12debug_strcmpPcS_.exit164.i.i ], [ %.2130175.i.i, %.thread.i.i ], [ false, %_ZL12debug_strcmpPcS_.exit164.thread.i.i ]
+  %.3138.i.i = phi i32 [ %426, %427 ], [ %426, %_ZL12debug_strcmpPcS_.exit164.i.i ], [ %424, %_ZL12debug_strcmpPcS_.exit164.thread.i.i ], [ %.2137174.i.i, %.thread.i.i ]
+  %.3.i.i = phi i1 [ false, %427 ], [ false, %_ZL12debug_strcmpPcS_.exit164.i.i ], [ false, %_ZL12debug_strcmpPcS_.exit164.thread.i.i ], [ %.2130175.i.i, %.thread.i.i ]
   %430 = icmp eq i32 %.3138.i.i, 0
   %brmerge.reass.reass.i.reass.reass.i.reass.reass.reass = or i1 %430, %invariant.op
   %brmerge214.i.i = select i1 %brmerge.reass.reass.i.reass.reass.i.reass.reass.reass, i1 true, i1 %379
@@ -1222,9 +1222,9 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %518, %.critedge.l
   br label %.thread264.i
 
 .thread264.i:                                     ; preds = %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i, %507, %475, %367
-  %.1254261271.i = phi i32 [ %486, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %257, %507 ], [ %257, %367 ], [ %257, %475 ]
-  %.1252262270.i = phi i32 [ %483, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %483, %507 ], [ %249, %367 ], [ %249, %475 ]
-  %.0135.lcssa257274.i263269.i = phi i32 [ 0, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ 0, %507 ], [ -9368163, %367 ], [ %.4139.i.i, %475 ]
+  %.1254261271.i = phi i32 [ %257, %507 ], [ %486, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %257, %367 ], [ %257, %475 ]
+  %.1252262270.i = phi i32 [ %483, %507 ], [ %483, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %249, %367 ], [ %249, %475 ]
+  %.0135.lcssa257274.i263269.i = phi i32 [ 0, %507 ], [ 0, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ -9368163, %367 ], [ %.4139.i.i, %475 ]
   %528 = load ptr, ptr @debug, align 8, !tbaa !22
   %.not154.i = icmp eq ptr %528, null
   %.pre311.i = load i32, ptr %3, align 4, !tbaa !4
@@ -1368,10 +1368,10 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %589, %.critedge.loo
   br label %.thread.i
 
 .thread.i:                                        ; preds = %597, %352, %_ZL12debug_strcmpPcS_.exit.i
-  %.0253.ph.i = phi i32 [ %.1254261271.i, %597 ], [ %257, %352 ], [ %257, %_ZL12debug_strcmpPcS_.exit.i ]
-  %.0251.ph.i = phi i32 [ %.1252262270.i, %597 ], [ %249, %352 ], [ %249, %_ZL12debug_strcmpPcS_.exit.i ]
-  %.2122.ph.i = phi i32 [ %.0135.lcssa257274.i263269.i, %597 ], [ %.1121.i, %352 ], [ %.1121.i, %_ZL12debug_strcmpPcS_.exit.i ]
-  %.2.ph.i = phi i32 [ %595, %597 ], [ 0, %352 ], [ 0, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.0253.ph.i = phi i32 [ %257, %352 ], [ %.1254261271.i, %597 ], [ %257, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.0251.ph.i = phi i32 [ %249, %352 ], [ %.1252262270.i, %597 ], [ %249, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.2122.ph.i = phi i32 [ %.1121.i, %352 ], [ %.0135.lcssa257274.i263269.i, %597 ], [ %.1121.i, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.2.ph.i = phi i32 [ 0, %352 ], [ %595, %597 ], [ 0, %_ZL12debug_strcmpPcS_.exit.i ]
   %.pr.i = load ptr, ptr @debug, align 8, !tbaa !22
   %.not157.i = icmp eq ptr %.pr.i, null
   br i1 %.not157.i, label %.thread272.i, label %615
@@ -1383,11 +1383,11 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %589, %.critedge.loo
   br label %.thread272.i
 
 .thread272.i:                                     ; preds = %615, %.thread.i, %594
-  %.pre309.i459 = phi ptr [ %.pre309.i.pre, %615 ], [ null, %.thread.i ], [ null, %594 ]
-  %.2281.i = phi i32 [ %.2.ph.i, %615 ], [ %.2.ph.i, %.thread.i ], [ %595, %594 ]
-  %.2122280.i = phi i32 [ %.2122.ph.i, %615 ], [ %.2122.ph.i, %.thread.i ], [ %.0135.lcssa257274.i263269.i, %594 ]
-  %.0251279.i = phi i32 [ %.0251.ph.i, %615 ], [ %.0251.ph.i, %.thread.i ], [ %.1252262270.i, %594 ]
-  %.0253278.i = phi i32 [ %.0253.ph.i, %615 ], [ %.0253.ph.i, %.thread.i ], [ %.1254261271.i, %594 ]
+  %.pre309.i459 = phi ptr [ null, %.thread.i ], [ %.pre309.i.pre, %615 ], [ null, %594 ]
+  %.2281.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.ph.i, %615 ], [ %595, %594 ]
+  %.2122280.i = phi i32 [ %.2122.ph.i, %.thread.i ], [ %.2122.ph.i, %615 ], [ %.0135.lcssa257274.i263269.i, %594 ]
+  %.0251279.i = phi i32 [ %.0251.ph.i, %.thread.i ], [ %.0251.ph.i, %615 ], [ %.1252262270.i, %594 ]
+  %.0253278.i = phi i32 [ %.0253.ph.i, %.thread.i ], [ %.0253.ph.i, %615 ], [ %.1254261271.i, %594 ]
   %618 = icmp eq i32 %.2281.i, 0
   %.pre312.i = load i32, ptr %3, align 4, !tbaa !4
   %.pre313.i = load i32, ptr %4, align 4, !tbaa !4
@@ -2581,7 +2581,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit262:       ; preds = %_ZNSt10filesystem7_
   br label %1185
 
 .body:                                            ; preds = %69, %1179, %1139, %1113, %722, %685, %158, %126, %108
-  %.pn209.pn = phi { ptr, i32 } [ %.pn209, %126 ], [ %.pn207, %722 ], [ %.pn204, %1179 ], [ %.pn202, %1113 ], [ %.pn200, %1139 ], [ %.pn196, %685 ], [ %.pn194, %158 ], [ %.pn, %108 ], [ %70, %69 ]
+  %.pn209.pn = phi { ptr, i32 } [ %.pn209, %126 ], [ %.pn207, %722 ], [ %.pn, %108 ], [ %.pn204, %1179 ], [ %.pn202, %1113 ], [ %.pn200, %1139 ], [ %.pn196, %685 ], [ %.pn194, %158 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -3147,8 +3147,8 @@ _ZL12debug_strcmpPcS_.exit94:                     ; preds = %60
   br label %85
 
 85:                                               ; preds = %_ZL12debug_strcmpPcS_.exit94.thread, %14, %_ZL12debug_strcmpPcS_.exit94, %79, %56, %.thread
-  %.376 = phi i32 [ %78, %79 ], [ %78, %_ZL12debug_strcmpPcS_.exit94 ], [ %.275102, %56 ], [ %.275102, %.thread ], [ %.174109, %14 ], [ %76, %_ZL12debug_strcmpPcS_.exit94.thread ]
-  %.3 = phi i8 [ 0, %79 ], [ 0, %_ZL12debug_strcmpPcS_.exit94 ], [ %.2103, %56 ], [ %.2103, %.thread ], [ %.1110, %14 ], [ 0, %_ZL12debug_strcmpPcS_.exit94.thread ]
+  %.376 = phi i32 [ %78, %79 ], [ %78, %_ZL12debug_strcmpPcS_.exit94 ], [ %.275102, %56 ], [ %.275102, %.thread ], [ %76, %_ZL12debug_strcmpPcS_.exit94.thread ], [ %.174109, %14 ]
+  %.3 = phi i8 [ 0, %79 ], [ 0, %_ZL12debug_strcmpPcS_.exit94 ], [ %.2103, %56 ], [ %.2103, %.thread ], [ 0, %_ZL12debug_strcmpPcS_.exit94.thread ], [ %.1110, %14 ]
   %86 = add nuw nsw i32 %.179106, 1
   %87 = icmp slt i32 %86, %.sroa.speculated
   %88 = icmp ne i32 %.376, 0

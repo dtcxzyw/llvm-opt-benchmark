@@ -370,7 +370,7 @@ ieee80211_get_max_required_bw.exit8.loopexit:     ; preds = %133
   br label %ieee80211_get_max_required_bw.exit
 
 ieee80211_get_max_required_bw.exit:               ; preds = %85, %91, %ieee80211_get_max_required_bw.exit8.loopexit, %47, %145, %140, %45
-  %146 = phi i32 [ 0, %45 ], [ 0, %145 ], [ %144, %140 ], [ 0, %47 ], [ %95, %91 ], [ %139, %ieee80211_get_max_required_bw.exit8.loopexit ], [ %87, %85 ]
+  %146 = phi i32 [ 0, %45 ], [ 0, %145 ], [ %144, %140 ], [ %139, %ieee80211_get_max_required_bw.exit8.loopexit ], [ 0, %47 ], [ %95, %91 ], [ %87, %85 ]
   %147 = tail call i32 @llvm.umax.i32(i32 %33, i32 %146)
   br label %148
 
@@ -1570,7 +1570,7 @@ ieee80211_new_chanctx.exit.thread:                ; preds = %97, %ieee80211_new_
   br i1 %151, label %.loopexit, label %.preheader, !llvm.loop !95
 
 .loopexit:                                        ; preds = %149, %145, %138
-  %152 = phi ptr [ %15, %138 ], [ %15, %149 ], [ %141, %145 ]
+  %152 = phi ptr [ %15, %138 ], [ %141, %145 ], [ %15, %149 ]
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread22, label %.thread21
 
@@ -4101,7 +4101,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %508, label %.thread68, label %.preheader81, !llvm.loop !203
 
 .thread70:                                        ; preds = %253, %234, %140, %484, %.thread76, %.thread71, %22, %54, %.loopexit94, %137, %132, %127, %.thread69
-  %509 = phi i32 [ %205, %.loopexit94 ], [ -22, %137 ], [ -22, %132 ], [ -22, %127 ], [ -22, %.thread69 ], [ -22, %484 ], [ -16, %54 ], [ -22, %22 ], [ -22, %.thread71 ], [ -22, %.thread76 ], [ -12, %140 ], [ %225, %234 ], [ %225, %253 ]
+  %509 = phi i32 [ %205, %.loopexit94 ], [ %225, %234 ], [ -22, %.thread76 ], [ -22, %137 ], [ -22, %132 ], [ -22, %127 ], [ -22, %.thread69 ], [ -22, %484 ], [ -16, %54 ], [ -22, %22 ], [ -12, %140 ], [ -22, %.thread71 ], [ %225, %253 ]
   %510 = load ptr, ptr %3, align 8
   %511 = icmp eq ptr %510, %3
   br i1 %511, label %.thread68, label %.preheader80
@@ -4178,7 +4178,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %543, label %.thread68, label %.preheader80, !llvm.loop !205
 
 .thread68:                                        ; preds = %86, %507, %.loopexit, %52, %.thread70, %.loopexit89
-  %544 = phi i32 [ %509, %.thread70 ], [ 0, %.loopexit89 ], [ -11, %52 ], [ %509, %.loopexit ], [ 0, %507 ], [ -11, %86 ]
+  %544 = phi i32 [ %509, %.thread70 ], [ 0, %.loopexit89 ], [ -11, %52 ], [ 0, %507 ], [ %509, %.loopexit ], [ -11, %86 ]
   ret i32 %544
 }
 

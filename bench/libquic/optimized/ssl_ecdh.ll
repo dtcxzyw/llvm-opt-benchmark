@@ -219,8 +219,8 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %25, %20, %23, %9
-  %.027 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ %spec.select, %25 ], [ 0, %16 ]
-  %.026 = phi ptr [ null, %9 ], [ null, %20 ], [ %21, %23 ], [ %21, %25 ], [ null, %16 ]
+  %.027 = phi i32 [ 0, %9 ], [ 0, %20 ], [ %spec.select, %25 ], [ 0, %23 ], [ 0, %16 ]
+  %.026 = phi ptr [ null, %9 ], [ null, %20 ], [ %21, %25 ], [ %21, %23 ], [ null, %16 ]
   tail call void @EC_GROUP_free(ptr noundef %12) #8
   tail call void @EC_POINT_free(ptr noundef %.026) #8
   tail call void @BN_CTX_end(ptr noundef nonnull %7) #8
@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef reado
   br label %16
 
 16:                                               ; preds = %6, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %14 ], [ 0, %6 ]
   ret i32 %.0
 }
 

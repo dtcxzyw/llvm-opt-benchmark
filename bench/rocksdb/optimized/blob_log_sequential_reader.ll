@@ -1225,7 +1225,7 @@ _ZN7rocksdb6StatusD2Ev.exit70:                    ; preds = %_ZN7rocksdb6StatusC
   ret void
 
 200:                                              ; preds = %128, %130, %171, %173, %182, %84, %44
-  %.pn32 = phi { ptr, i32 } [ %45, %44 ], [ %85, %84 ], [ %131, %130 ], [ %129, %128 ], [ %183, %182 ], [ %174, %173 ], [ %172, %171 ]
+  %.pn32 = phi { ptr, i32 } [ %45, %44 ], [ %85, %84 ], [ %172, %171 ], [ %131, %130 ], [ %129, %128 ], [ %183, %182 ], [ %174, %173 ]
   %201 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !85
   %.not.i.i71 = icmp eq ptr %202, null
@@ -1999,7 +1999,7 @@ define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_1
   unreachable
 
 common.resume:                                    ; preds = %44, %41, %23, %26
-  %common.resume.op = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %42, %41 ], [ %42, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %26 ], [ %42, %41 ], [ %42, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit: ; preds = %9, %19

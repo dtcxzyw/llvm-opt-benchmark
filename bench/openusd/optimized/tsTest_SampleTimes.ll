@@ -120,7 +120,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_Sample
   br label %16
 
 16:                                               ; preds = %6, %11, %2
-  %17 = phi i1 [ true, %2 ], [ false, %6 ], [ %15, %11 ]
+  %17 = phi i1 [ true, %2 ], [ %15, %11 ], [ false, %6 ]
   ret i1 %17
 }
 
@@ -896,7 +896,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %41 = select i1 %not.or.cond.i.i5.i, i1 true, i1 %40
   br i1 %41, label %43, label %select.unfold
 
-select.unfold:                                    ; preds = %33, %._crit_edge.thread.i, %28
+select.unfold:                                    ; preds = %33, %28, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa42.i, %28 ], [ %.021.lcssa43.i, %._crit_edge.thread.i ], [ %.021.lcssa42.i, %33 ]
   store ptr %0, ptr %3, align 8
   %42 = call ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -941,7 +941,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsT
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit: ; preds = %18, %13, %8, %5
-  %23 = phi i1 [ true, %5 ], [ true, %8 ], [ false, %13 ], [ %22, %18 ]
+  %23 = phi i1 [ false, %13 ], [ true, %5 ], [ true, %8 ], [ %22, %18 ]
   %24 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %3)
@@ -1396,8 +1396,8 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread: ; preds = %169, %165, %._crit_edge.thread.i75, %117, %113, %._crit_edge.thread.i37, %53, %48, %._crit_edge.thread.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread, %16, %124, %9, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread
-  %.sroa.0106.0 = phi ptr [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ null, %9 ], [ %1, %124 ], [ null, %16 ], [ %spec.select, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %spec.select124, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ null, %._crit_edge.thread.i ], [ null, %48 ], [ %spec.select.i, %53 ], [ null, %._crit_edge.thread.i37 ], [ null, %113 ], [ %spec.select.i31, %117 ], [ null, %._crit_edge.thread.i75 ], [ null, %165 ], [ %spec.select.i69, %169 ]
-  %.sroa.12.0 = phi ptr [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ %130, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ %11, %9 ], [ null, %124 ], [ %11, %16 ], [ %spec.select119, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %spec.select125, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ %.021.lcssa43.i, %._crit_edge.thread.i ], [ %.021.lcssa42.i, %48 ], [ %spec.select28.i, %53 ], [ %.021.lcssa43.i38, %._crit_edge.thread.i37 ], [ %.021.lcssa42.i27, %113 ], [ %spec.select28.i32, %117 ], [ %.021.lcssa43.i76, %._crit_edge.thread.i75 ], [ %.021.lcssa42.i65, %165 ], [ %spec.select28.i70, %169 ]
+  %.sroa.0106.0 = phi ptr [ %spec.select.i31, %117 ], [ %spec.select, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ null, %16 ], [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ %1, %124 ], [ %spec.select.i, %53 ], [ %spec.select124, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ null, %9 ], [ null, %48 ], [ null, %._crit_edge.thread.i ], [ null, %113 ], [ null, %._crit_edge.thread.i37 ], [ null, %165 ], [ null, %._crit_edge.thread.i75 ], [ %spec.select.i69, %169 ]
+  %.sroa.12.0 = phi ptr [ %spec.select28.i32, %117 ], [ %spec.select119, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit13.thread ], [ %11, %16 ], [ %76, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread ], [ null, %124 ], [ %spec.select28.i, %53 ], [ %spec.select125, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit51.thread ], [ %130, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit49.thread ], [ %11, %9 ], [ %.021.lcssa42.i, %48 ], [ %.021.lcssa43.i, %._crit_edge.thread.i ], [ %.021.lcssa42.i27, %113 ], [ %.021.lcssa43.i38, %._crit_edge.thread.i37 ], [ %.021.lcssa42.i65, %165 ], [ %.021.lcssa43.i76, %._crit_edge.thread.i75 ], [ %spec.select28.i70, %169 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0106.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1434,7 +1434,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsT
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit: ; preds = %18, %13, %8, %5
-  %23 = phi i1 [ true, %5 ], [ true, %8 ], [ false, %13 ], [ %22, %18 ]
+  %23 = phi i1 [ false, %13 ], [ true, %5 ], [ true, %8 ], [ %22, %18 ]
   %24 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %3)

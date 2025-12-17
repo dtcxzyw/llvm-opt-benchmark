@@ -1208,7 +1208,7 @@ skip_prefix.exit:                                 ; preds = %4
   br label %35
 
 35:                                               ; preds = %.thread33, %.thread36, %9
-  %.0 = phi ptr [ %10, %9 ], [ %34, %.thread36 ], [ null, %.thread33 ]
+  %.0 = phi ptr [ %10, %9 ], [ null, %.thread33 ], [ %34, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1420,8 +1420,8 @@ strbuf_setlen.exit71:                             ; preds = %strbuf_setlen.exit,
   tail call void @check_repository_format(ptr noundef null) #30
   br label %.critedge66.thread
 
-.critedge66.thread:                               ; preds = %54, %66, %27, %.critedge, %74, %.critedge66, %2, %77
-  %.0 = phi ptr [ %.139, %77 ], [ null, %74 ], [ null, %2 ], [ null, %.critedge66 ], [ null, %.critedge ], [ null, %27 ], [ null, %66 ], [ null, %54 ]
+.critedge66.thread:                               ; preds = %54, %66, %.critedge, %27, %74, %.critedge66, %2, %77
+  %.0 = phi ptr [ %.139, %77 ], [ null, %2 ], [ null, %74 ], [ null, %.critedge66 ], [ null, %27 ], [ null, %.critedge ], [ null, %66 ], [ null, %54 ]
   ret ptr %.0
 }
 
@@ -1547,7 +1547,7 @@ get_st_mode_bits.exit.thread:                     ; preds = %4
   br label %40
 
 40:                                               ; preds = %get_st_mode_bits.exit.thread, %35, %1, %39
-  %.08 = phi i32 [ 0, %39 ], [ 0, %1 ], [ -2, %35 ], [ -1, %get_st_mode_bits.exit.thread ]
+  %.08 = phi i32 [ 0, %1 ], [ -1, %get_st_mode_bits.exit.thread ], [ 0, %39 ], [ -2, %35 ]
   ret i32 %.08
 }
 
@@ -1788,8 +1788,8 @@ define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit137
 
 .loopexit137:                                     ; preds = %.loopexit137.loopexit161, %.loopexit137.loopexit, %.thread195, %37, %43, %45
-  %.289 = phi i32 [ %.087.lcssa188, %45 ], [ %.087.lcssa188, %43 ], [ %6, %37 ], [ %.087.lcssa187204, %.thread195 ], [ %51, %.loopexit137.loopexit ], [ %6, %.loopexit137.loopexit161 ]
-  %.384 = phi i32 [ %.081.lcssa190, %45 ], [ %.081.lcssa190, %43 ], [ %.081.lcssa, %37 ], [ %.085.lcssa189203, %.thread195 ], [ %.081.lcssa191202, %.loopexit137.loopexit ], [ %52, %.loopexit137.loopexit161 ]
+  %.289 = phi i32 [ %.087.lcssa188, %43 ], [ %6, %37 ], [ %.087.lcssa187204, %.thread195 ], [ %.087.lcssa188, %45 ], [ %51, %.loopexit137.loopexit ], [ %6, %.loopexit137.loopexit161 ]
+  %.384 = phi i32 [ %.081.lcssa190, %43 ], [ %.081.lcssa, %37 ], [ %.085.lcssa189203, %.thread195 ], [ %.081.lcssa190, %45 ], [ %.081.lcssa191202, %.loopexit137.loopexit ], [ %52, %.loopexit137.loopexit161 ]
   %53 = sext i32 %.289 to i64
   %54 = getelementptr inbounds i8, ptr %0, i64 %53
   %.not107 = icmp slt i32 %.384, %9
@@ -1871,7 +1871,7 @@ define dso_local ptr @relative_path(ptr noundef %0, ptr noundef readonly capture
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %3, %55, %11, %10, %7, %79
-  %.090 = phi ptr [ %81, %79 ], [ @.str.11, %7 ], [ %0, %10 ], [ %0, %11 ], [ %.str.11., %55 ], [ @.str.11, %3 ], [ %spec.select, %.thread ]
+  %.090 = phi ptr [ %0, %11 ], [ %.str.11., %55 ], [ %81, %79 ], [ %0, %10 ], [ @.str.11, %7 ], [ %spec.select, %.thread ], [ @.str.11, %3 ]
   ret ptr %.090
 }
 
@@ -1996,7 +1996,7 @@ strbuf_setlen.exit:                               ; preds = %29, %32
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %15, %10, %22, %2, %3, %37
-  %.039 = phi ptr [ %38, %37 ], [ %0, %3 ], [ %0, %2 ], [ %0, %22 ], [ %0, %10 ], [ %0, %15 ]
+  %.039 = phi ptr [ %0, %2 ], [ %38, %37 ], [ %0, %3 ], [ %0, %22 ], [ %0, %10 ], [ %0, %15 ]
   ret ptr %.039
 }
 
@@ -2115,7 +2115,7 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
   br label %.preheader180
 
 .preheader180:                                    ; preds = %.preheader180.loopexit.split.loop.exit213, %.preheader109.split.us, %17, %20
-  %.8.us.ph = phi ptr [ %.262.us, %20 ], [ %.262.us, %17 ], [ %38, %.preheader180.loopexit.split.loop.exit213 ], [ %.262.us, %.preheader109.split.us ]
+  %.8.us.ph = phi ptr [ %.262.us, %17 ], [ %.262.us, %20 ], [ %38, %.preheader180.loopexit.split.loop.exit213 ], [ %.262.us, %.preheader109.split.us ]
   br label %39
 
 39:                                               ; preds = %.preheader180, %45
@@ -2201,7 +2201,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
   br label %.preheader190
 
 .preheader190:                                    ; preds = %57, %49, %.fold.split, %.preheader109.split
-  %.8.ph = phi ptr [ %.262, %57 ], [ %.262, %.fold.split ], [ %50, %49 ], [ %.262, %.preheader109.split ]
+  %.8.ph = phi ptr [ %.262, %.fold.split ], [ %50, %49 ], [ %.262, %.preheader109.split ], [ %.262, %57 ]
   br label %65
 
 65:                                               ; preds = %.preheader190, %68
@@ -2375,7 +2375,7 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit.split.loop.exit68, %.preheader109.split.us.i, %15, %18
-  %.8.us.i.ph = phi ptr [ %.262.us.i, %18 ], [ %.262.us.i, %15 ], [ %36, %.preheader.loopexit.split.loop.exit68 ], [ %.262.us.i, %.preheader109.split.us.i ]
+  %.8.us.i.ph = phi ptr [ %.262.us.i, %15 ], [ %.262.us.i, %18 ], [ %36, %.preheader.loopexit.split.loop.exit68 ], [ %.262.us.i, %.preheader109.split.us.i ]
   br label %37
 
 37:                                               ; preds = %.preheader, %43
@@ -2538,7 +2538,7 @@ define dso_local range(i32 -1, 1) i32 @strbuf_normalize_path(ptr noundef capture
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit.split.loop.exit69, %.preheader109.split.us.i.i, %22, %25
-  %.8.us.i.i.ph = phi ptr [ %.262.us.i.i, %25 ], [ %.262.us.i.i, %22 ], [ %43, %.preheader.loopexit.split.loop.exit69 ], [ %.262.us.i.i, %.preheader109.split.us.i.i ]
+  %.8.us.i.i.ph = phi ptr [ %.262.us.i.i, %22 ], [ %.262.us.i.i, %25 ], [ %43, %.preheader.loopexit.split.loop.exit69 ], [ %.262.us.i.i, %.preheader109.split.us.i.i ]
   br label %44
 
 44:                                               ; preds = %.preheader, %50
@@ -2905,7 +2905,7 @@ define dso_local range(i32 -1, 1) i32 @daemon_avoid_alias(ptr noundef readonly c
   ]
 
 .thread:                                          ; preds = %13, %9, %11, %1, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %1 ], [ %., %11 ], [ 0, %13 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %2 ], [ %., %11 ], [ 0, %13 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -2993,7 +2993,7 @@ define dso_local range(i32 0, 2) i32 @is_ntfs_dotgit(ptr noundef readonly captur
   br label %.fold.split
 
 .fold.split:                                      ; preds = %33, %.fold.split.loopexit53, %17, %26, %29, %19, %22, %5, %8, %12
-  %.045 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 0, %5 ], [ 0, %22 ], [ 0, %19 ], [ 0, %29 ], [ 0, %26 ], [ 0, %17 ], [ 1, %.fold.split.loopexit53 ], [ 0, %33 ]
+  %.045 = phi i32 [ 0, %26 ], [ 0, %17 ], [ 0, %5 ], [ 0, %12 ], [ 0, %8 ], [ 0, %22 ], [ 0, %19 ], [ 0, %29 ], [ 1, %.fold.split.loopexit53 ], [ 0, %33 ]
   ret i32 %.045
 }
 
@@ -3108,8 +3108,8 @@ define internal fastcc range(i32 0, 2) i32 @is_ntfs_dot_str(ptr noundef readonly
   br i1 %.not57.i, label %50, label %is_ntfs_dot_generic.exit
 
 50:                                               ; preds = %42, %35, %31
-  %.149.i = phi i32 [ 0, %42 ], [ 1, %31 ], [ 1, %35 ]
-  %.3.i = phi i64 [ %.24767.i, %42 ], [ %.24767.i, %31 ], [ %36, %35 ]
+  %.149.i = phi i32 [ 1, %31 ], [ 0, %42 ], [ 1, %35 ]
+  %.3.i = phi i64 [ %.24767.i, %31 ], [ %.24767.i, %42 ], [ %36, %35 ]
   %51 = add nuw nsw i64 %.3.i, 1
   %52 = icmp ult i64 %.3.i, 7
   br i1 %52, label %26, label %.loopexit.i.preheader, !llvm.loop !104
@@ -3118,7 +3118,7 @@ is_ntfs_dot_generic.exit.loopexit:                ; preds = %.loopexit.i
   br label %is_ntfs_dot_generic.exit
 
 is_ntfs_dot_generic.exit:                         ; preds = %26, %31, %35, %40, %42, %.loopexit.i, %.loopexit.i, %is_ntfs_dot_generic.exit.loopexit
-  %.2.i = phi i32 [ 0, %is_ntfs_dot_generic.exit.loopexit ], [ 1, %.loopexit.i ], [ 1, %.loopexit.i ], [ 0, %42 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %26 ]
+  %.2.i = phi i32 [ 1, %.loopexit.i ], [ 0, %is_ntfs_dot_generic.exit.loopexit ], [ 1, %.loopexit.i ], [ 0, %42 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %26 ]
   ret i32 %.2.i
 }
 
@@ -3402,7 +3402,7 @@ define internal fastcc void @update_common_dir(ptr noundef %0, i32 noundef %1, p
   br label %strbuf_strip_suffix.exit
 
 strbuf_strip_suffix.exit:                         ; preds = %3, %11, %18, %19
-  %.not = phi i1 [ false, %18 ], [ false, %19 ], [ true, %11 ], [ true, %3 ]
+  %.not = phi i1 [ false, %19 ], [ false, %18 ], [ true, %11 ], [ true, %3 ]
   %.b.i = load i1, ptr @common_trie_done_setup, align 4
   br i1 %.b.i, label %init_common_trie.exit, label %.preheader.i
 
@@ -3791,7 +3791,7 @@ check_common.exit70:                              ; preds = %50
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.thread, %50, %46, %33, %8, %11, %check_common.exit70, %check_common.exit66, %check_common.exit
-  %.0 = phi i32 [ %.0.i69, %check_common.exit70 ], [ %.0.i65, %check_common.exit66 ], [ %.0.i, %check_common.exit ], [ -1, %11 ], [ -1, %8 ], [ -1, %33 ], [ %.0462, %.thread ], [ %48, %46 ], [ -1, %50 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %33 ], [ %.0.i69, %check_common.exit70 ], [ %48, %46 ], [ %.0.i65, %check_common.exit66 ], [ %.0.i, %check_common.exit ], [ -1, %11 ], [ %.0462, %.thread ], [ -1, %50 ], [ -1, %25 ]
   ret i32 %.0
 }
 

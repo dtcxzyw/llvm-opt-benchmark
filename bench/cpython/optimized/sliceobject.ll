@@ -1211,7 +1211,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %26, %8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %26, %Py_DECREF.exit14, %8, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ null, %8 ], [ %19, %Py_DECREF.exit14 ], [ %19, %26 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ %19, %26 ], [ null, %2 ], [ null, %7 ], [ null, %8 ], [ %19, %Py_DECREF.exit14 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1328,7 +1328,7 @@ define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr noundef readonly c
   br label %56
 
 56:                                               ; preds = %53, %51, %48, %39, %23, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %23 ], [ -1, %39 ], [ -1, %48 ], [ -1, %51 ], [ %., %53 ]
+  %.0 = phi i32 [ -1, %39 ], [ -1, %48 ], [ %., %53 ], [ -1, %51 ], [ -1, %23 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -1403,7 +1403,7 @@ define dso_local range(i32 -1, 1) i32 @PySlice_Unpack(ptr noundef readonly captu
   br label %35
 
 35:                                               ; preds = %32, %22, %8, %34, %12
-  %.0 = phi i32 [ 0, %34 ], [ -1, %12 ], [ -1, %8 ], [ -1, %22 ], [ -1, %32 ]
+  %.0 = phi i32 [ 0, %34 ], [ -1, %22 ], [ -1, %8 ], [ -1, %12 ], [ -1, %32 ]
   ret i32 %.0
 }
 
@@ -1820,7 +1820,7 @@ _Py_NewRef.exit173:                               ; preds = %83, %86
   br label %_Py_NewRef.exit163
 
 _Py_NewRef.exit163:                               ; preds = %78, %75, %_Py_NewRef.exit172, %68, %92, %89, %_Py_NewRef.exit173, %43, %40, %82
-  %.1104 = phi ptr [ %51, %82 ], [ %36, %40 ], [ %36, %43 ], [ %.175, %_Py_NewRef.exit173 ], [ %.175, %89 ], [ %.175, %92 ], [ %.177, %78 ], [ %.177, %75 ], [ %.177, %_Py_NewRef.exit172 ], [ %58, %68 ]
+  %.1104 = phi ptr [ %51, %82 ], [ %.175, %92 ], [ %36, %43 ], [ %36, %40 ], [ %.175, %_Py_NewRef.exit173 ], [ %.175, %89 ], [ %.177, %78 ], [ %.177, %75 ], [ %.177, %_Py_NewRef.exit172 ], [ %58, %68 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !37
   %95 = icmp eq ptr %94, @_Py_NoneStruct
@@ -1956,7 +1956,7 @@ _Py_NewRef.exit184:                               ; preds = %139, %142
   br label %_Py_NewRef.exit174
 
 _Py_NewRef.exit174:                               ; preds = %134, %131, %_Py_NewRef.exit183, %124, %148, %145, %_Py_NewRef.exit184, %99, %96, %138
-  %.1107 = phi ptr [ %107, %138 ], [ %35, %96 ], [ %35, %99 ], [ %.175, %_Py_NewRef.exit184 ], [ %.175, %145 ], [ %.175, %148 ], [ %.177, %134 ], [ %.177, %131 ], [ %.177, %_Py_NewRef.exit183 ], [ %114, %124 ]
+  %.1107 = phi ptr [ %107, %138 ], [ %.175, %148 ], [ %35, %99 ], [ %35, %96 ], [ %.175, %_Py_NewRef.exit184 ], [ %.175, %145 ], [ %.177, %134 ], [ %.177, %131 ], [ %.177, %_Py_NewRef.exit183 ], [ %114, %124 ]
   store ptr %.1104, ptr %2, align 8, !tbaa !16
   store ptr %.1107, ptr %3, align 8, !tbaa !16
   store ptr %.073206, ptr %4, align 8, !tbaa !16
@@ -1985,18 +1985,18 @@ Py_DECREF.exit142:                                ; preds = %_Py_NewRef.exit174,
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
-Py_XDECREF.exit.thread:                           ; preds = %Py_DECREF.exit154, %evaluate_slice_index.exit171.thread, %evaluate_slice_index.exit.thread, %22, %evaluate_slice_index.exit, %evaluate_slice_index.exit171, %28, %25
-  %.076.ph = phi ptr [ %.177, %Py_DECREF.exit154 ], [ %.177, %evaluate_slice_index.exit171.thread ], [ null, %evaluate_slice_index.exit.thread ], [ null, %22 ], [ null, %evaluate_slice_index.exit ], [ %.177, %evaluate_slice_index.exit171 ], [ %26, %28 ], [ null, %25 ]
-  %.074.ph = phi ptr [ %.175, %Py_DECREF.exit154 ], [ %.175, %evaluate_slice_index.exit171.thread ], [ null, %evaluate_slice_index.exit.thread ], [ null, %22 ], [ null, %evaluate_slice_index.exit ], [ %.175, %evaluate_slice_index.exit171 ], [ null, %28 ], [ null, %25 ]
-  %.1.ph = phi ptr [ %.073206, %Py_DECREF.exit154 ], [ %.073206, %evaluate_slice_index.exit171.thread ], [ null, %evaluate_slice_index.exit.thread ], [ %16, %22 ], [ null, %evaluate_slice_index.exit ], [ %.073206, %evaluate_slice_index.exit171 ], [ %16, %28 ], [ %16, %25 ]
+Py_XDECREF.exit.thread:                           ; preds = %Py_DECREF.exit154, %evaluate_slice_index.exit.thread, %22, %evaluate_slice_index.exit, %evaluate_slice_index.exit171.thread, %evaluate_slice_index.exit171, %28, %25
+  %.076.ph = phi ptr [ %.177, %Py_DECREF.exit154 ], [ null, %evaluate_slice_index.exit.thread ], [ null, %22 ], [ null, %evaluate_slice_index.exit ], [ %.177, %evaluate_slice_index.exit171.thread ], [ %.177, %evaluate_slice_index.exit171 ], [ %26, %28 ], [ null, %25 ]
+  %.074.ph = phi ptr [ %.175, %Py_DECREF.exit154 ], [ null, %evaluate_slice_index.exit.thread ], [ null, %22 ], [ null, %evaluate_slice_index.exit ], [ %.175, %evaluate_slice_index.exit171.thread ], [ %.175, %evaluate_slice_index.exit171 ], [ null, %28 ], [ null, %25 ]
+  %.1.ph = phi ptr [ %.073206, %Py_DECREF.exit154 ], [ null, %evaluate_slice_index.exit.thread ], [ %16, %22 ], [ null, %evaluate_slice_index.exit ], [ %.073206, %evaluate_slice_index.exit171.thread ], [ %.073206, %evaluate_slice_index.exit171 ], [ %16, %28 ], [ %16, %25 ]
   store ptr null, ptr %4, align 8, !tbaa !16
   store ptr null, ptr %3, align 8, !tbaa !16
   store ptr null, ptr %2, align 8, !tbaa !16
   br label %Py_XDECREF.exit189
 
 158:                                              ; preds = %79, %evaluate_slice_index.exit182, %135, %65, %evaluate_slice_index.exit182.thread, %121, %Py_DECREF.exit148
-  %.0106 = phi ptr [ null, %evaluate_slice_index.exit182 ], [ %107, %135 ], [ null, %79 ], [ null, %65 ], [ null, %evaluate_slice_index.exit182.thread ], [ null, %Py_DECREF.exit148 ], [ %114, %121 ]
-  %.0103 = phi ptr [ %.1104, %evaluate_slice_index.exit182 ], [ %.1104, %135 ], [ %51, %79 ], [ %58, %65 ], [ %.1104, %evaluate_slice_index.exit182.thread ], [ %.1104, %Py_DECREF.exit148 ], [ %.1104, %121 ]
+  %.0106 = phi ptr [ null, %evaluate_slice_index.exit182 ], [ null, %evaluate_slice_index.exit182.thread ], [ %107, %135 ], [ null, %79 ], [ null, %65 ], [ %114, %121 ], [ null, %Py_DECREF.exit148 ]
+  %.0103 = phi ptr [ %.1104, %evaluate_slice_index.exit182 ], [ %.1104, %evaluate_slice_index.exit182.thread ], [ %.1104, %135 ], [ %51, %79 ], [ %58, %65 ], [ %.1104, %121 ], [ %.1104, %Py_DECREF.exit148 ]
   store ptr null, ptr %4, align 8, !tbaa !16
   store ptr null, ptr %3, align 8, !tbaa !16
   store ptr null, ptr %2, align 8, !tbaa !16
@@ -2096,7 +2096,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %184, %155
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %184, %182, %Py_XDECREF.exit195, %155, %Py_DECREF.exit142
-  %.0 = phi i32 [ 0, %Py_DECREF.exit142 ], [ 0, %155 ], [ -1, %Py_XDECREF.exit195 ], [ -1, %182 ], [ -1, %184 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi i32 [ -1, %184 ], [ 0, %Py_DECREF.exit142 ], [ 0, %155 ], [ -1, %Py_XDECREF.exit195 ], [ -1, %182 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -2239,7 +2239,7 @@ define internal i64 @slicehash(ptr noundef readonly captures(none) %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %5, %1, %13
-  %.1 = phi i64 [ %..230, %13 ], [ -1, %1 ], [ -1, %5 ], [ -1, %9 ]
+  %.1 = phi i64 [ %..230, %13 ], [ -1, %1 ], [ -1, %9 ], [ -1, %5 ]
   ret i64 %.1
 }
 
@@ -2398,7 +2398,7 @@ Py_DECREF.exit30:                                 ; preds = %42, %45, %48
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %53, %50, %Py_DECREF.exit30, %41, %38, %36, %16, %.split, %12, %.split23, %18, %3, %5
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %5 ], [ @_Py_NotImplementedStruct, %3 ], [ null, %18 ], [ @_Py_TrueStruct, %.split23 ], [ @_Py_TrueStruct, %12 ], [ @_Py_FalseStruct, %.split ], [ @_Py_FalseStruct, %16 ], [ null, %36 ], [ null, %38 ], [ null, %41 ], [ %43, %Py_DECREF.exit30 ], [ %43, %50 ], [ %43, %53 ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ null, %41 ], [ @_Py_NotImplementedStruct, %5 ], [ @_Py_TrueStruct, %12 ], [ null, %18 ], [ @_Py_FalseStruct, %16 ], [ @_Py_TrueStruct, %.split23 ], [ @_Py_FalseStruct, %.split ], [ null, %36 ], [ null, %38 ], [ %43, %Py_DECREF.exit30 ], [ %43, %50 ], [ %43, %53 ]
   ret ptr %.0
 }
 
@@ -2575,7 +2575,7 @@ Py_DECREF.exit:                                   ; preds = %19, %22, %25
   br label %Py_DECREF.exit10
 
 Py_DECREF.exit10:                                 ; preds = %18, %15, %12, %Py_DECREF.exit, %2, %27
-  %.0 = phi ptr [ %31, %27 ], [ null, %2 ], [ null, %Py_DECREF.exit ], [ null, %12 ], [ null, %15 ], [ null, %18 ]
+  %.0 = phi ptr [ %31, %27 ], [ null, %Py_DECREF.exit ], [ null, %2 ], [ null, %12 ], [ null, %15 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

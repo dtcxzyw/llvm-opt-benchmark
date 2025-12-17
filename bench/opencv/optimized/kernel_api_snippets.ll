@@ -589,8 +589,8 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %62
   br label %.body
 
 .body:                                            ; preds = %68, %46, %43, %70
-  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %44, %46 ], [ %44, %43 ]
-  %.3 = phi i1 [ true, %70 ], [ false, %68 ], [ true, %46 ], [ true, %43 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %44, %43 ], [ %44, %46 ]
+  %.3 = phi i1 [ true, %70 ], [ false, %68 ], [ true, %43 ], [ true, %46 ]
   %72 = load i64, ptr %15, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw ptr, ptr @constinit.13, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !32
@@ -1737,14 +1737,14 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4G
   ret ptr %0
 
 104:                                              ; preds = %66, %59, %52, %46, %38, %28
-  %.012 = phi ptr [ %34, %28 ], [ %41, %38 ], [ %49, %46 ], [ %55, %52 ], [ %62, %59 ], [ %69, %66 ]
+  %.012 = phi ptr [ %69, %66 ], [ %62, %59 ], [ %55, %52 ], [ %49, %46 ], [ %41, %38 ], [ %34, %28 ]
   %105 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %104, %44
-  %.012.lpad-body = phi ptr [ %.012, %104 ], [ %41, %44 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %105, %104 ], [ %45, %44 ]
+  %.012.lpad-body = phi ptr [ %41, %44 ], [ %.012, %104 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %105, %104 ]
   br label %106
 
 106:                                              ; preds = %.body, %_ZN2cv4GArgD2Ev.exit30
@@ -1774,7 +1774,7 @@ _ZN2cv4GArgD2Ev.exit30:                           ; preds = %106, %_ZNKSt14defau
   br label %.body23
 
 .body23:                                          ; preds = %82, %79, %115
-  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %80, %82 ], [ %80, %79 ]
+  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %80, %79 ], [ %80, %82 ]
   br label %117
 
 117:                                              ; preds = %_ZN2cv4GArgD2Ev.exit33, %.body23
@@ -2013,7 +2013,7 @@ _ZN2cv4util8any_castIiEEPKT_PKNS0_3anyE.exit.thread.i.i.i47: ; preds = %_ZN2cv4u
   br i1 %.not.i.i.i52.not, label %.invoke90, label %_ZNKSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i53
 
 .invoke90:                                        ; preds = %69, %61, %53, %_ZN2cv6detail11get_in_metaINS_3MatEEENSt9enable_ifIXsr15is_nongapi_typeIT_EE5valueES4_E4typeERKSt6vectorINS_4util7variantIJNS8_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISG_EERKS7_INS_4GArgESaISL_EEi.exit
-  %70 = phi i64 [ 3, %_ZN2cv6detail11get_in_metaINS_3MatEEENSt9enable_ifIXsr15is_nongapi_typeIT_EE5valueES4_E4typeERKSt6vectorINS_4util7variantIJNS8_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISG_EERKS7_INS_4GArgESaISL_EEi.exit ], [ 4, %53 ], [ 5, %61 ], [ 6, %69 ]
+  %70 = phi i64 [ 5, %61 ], [ 4, %53 ], [ 3, %_ZN2cv6detail11get_in_metaINS_3MatEEENSt9enable_ifIXsr15is_nongapi_typeIT_EE5valueES4_E4typeERKSt6vectorINS_4util7variantIJNS8_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISG_EERKS7_INS_4GArgESaISL_EEi.exit ], [ 6, %69 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.7, i64 noundef %70, i64 noundef %45) #25
           to label %.cont91 unwind label %120
 
@@ -2217,7 +2217,7 @@ _ZN2cv8GMatDescD2Ev.exit68.sink.split:            ; preds = %.loopexit, %.body
   br label %_ZN2cv8GMatDescD2Ev.exit68
 
 _ZN2cv8GMatDescD2Ev.exit68:                       ; preds = %_ZN2cv8GMatDescD2Ev.exit68.sink.split, %.loopexit, %.body
-  %.pn21.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn21, %.loopexit ], [ %.pn21.pn.ph, %_ZN2cv8GMatDescD2Ev.exit68.sink.split ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %.loopexit ], [ %.pn, %.body ], [ %.pn21.pn.ph, %_ZN2cv8GMatDescD2Ev.exit68.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn21.pn
 }

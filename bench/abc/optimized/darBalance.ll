@@ -750,7 +750,7 @@ define range(i32 -1, 2) i32 @Aig_NodeCompareLevelsDecrease(ptr noundef readonly 
   br label %28
 
 28:                                               ; preds = %27, %23, %21, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %21 ], [ -1, %23 ], [ %., %27 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %2 ], [ 1, %21 ], [ %., %27 ]
   ret i32 %.0
 }
 
@@ -1095,7 +1095,7 @@ define range(i32 -2147483648, 2147483647) i32 @Aig_BaseSize(ptr noundef %0, ptr 
   br label %15
 
 15:                                               ; preds = %13, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %9 ], [ %., %13 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %3 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -1181,7 +1181,7 @@ Vec_PtrSort.exit:                                 ; preds = %5
   br label %Aig_BaseSize.exit
 
 Aig_BaseSize.exit:                                ; preds = %.lr.ph, %36, %40
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ 1, %36 ], [ %..i, %40 ]
+  %.0.i = phi i32 [ 1, %36 ], [ 0, %.lr.ph ], [ %..i, %40 ]
   %42 = add nsw i32 %.0.i, %.040
   %43 = icmp sgt i32 %42, %4
   %44 = icmp samesign ugt i32 %.val32, 1
@@ -1383,7 +1383,7 @@ define ptr @Dar_Balance_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %58, %5, %62, %42, %16
-  %.034 = phi ptr [ %20, %16 ], [ %44, %42 ], [ %48, %62 ], [ %7, %5 ], [ null, %58 ], [ null, %21 ]
+  %.034 = phi ptr [ %20, %16 ], [ %7, %5 ], [ %44, %42 ], [ %48, %62 ], [ null, %58 ], [ null, %21 ]
   ret ptr %.034
 }
 
@@ -1965,7 +1965,7 @@ Vec_VecFree.exit234:                              ; preds = %.critedge.i222, %.c
   br label %270
 
 270:                                              ; preds = %Vec_PtrFree.exit, %.thread, %Vec_VecFree.exit234, %269, %Vec_VecFree.exit
-  %.1 = phi ptr [ null, %Vec_VecFree.exit ], [ null, %Vec_PtrFree.exit ], [ %5, %269 ], [ %5, %Vec_VecFree.exit234 ], [ null, %.thread ]
+  %.1 = phi ptr [ null, %Vec_PtrFree.exit ], [ null, %.thread ], [ null, %Vec_VecFree.exit ], [ %5, %269 ], [ %5, %Vec_VecFree.exit234 ]
   ret ptr %.1
 }
 

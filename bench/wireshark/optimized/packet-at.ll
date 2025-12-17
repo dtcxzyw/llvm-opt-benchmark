@@ -879,8 +879,8 @@ define internal i32 @dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %. = select i1 %25, i32 2, i32 1
   br label %.thread91
 
-.thread91:                                        ; preds = %4, %17, %20, %.thread94, %23
-  %.1 = phi i32 [ %., %23 ], [ 2, %.thread94 ], [ 1, %20 ], [ 1, %17 ], [ 2, %4 ]
+.thread91:                                        ; preds = %4, %20, %17, %.thread94, %23
+  %.1 = phi i32 [ %., %23 ], [ 2, %4 ], [ 2, %.thread94 ], [ 1, %17 ], [ 1, %20 ]
   %26 = load i32, ptr @proto_at, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.536, ptr noundef %9)
@@ -1183,12 +1183,12 @@ dissect_at_command_continuation.exit:             ; preds = %91, %118
   br label %182
 
 182:                                              ; preds = %.critedge.i80, %163, %147
-  %.0380.i = phi ptr [ %154, %163 ], [ %174, %.critedge.i80 ], [ null, %147 ]
-  %.0378.i = phi ptr [ %152, %163 ], [ %172, %.critedge.i80 ], [ null, %147 ]
-  %.0377.i = phi ptr [ %169, %163 ], [ %180, %.critedge.i80 ], [ %135, %147 ]
-  %.0366.i = phi i32 [ %167, %163 ], [ %.2369.lcssa.ph.i, %.critedge.i80 ], [ 0, %147 ]
-  %.0365.i = phi i32 [ %170, %163 ], [ %181, %.critedge.i80 ], [ %123, %147 ]
-  %.1362.i = phi i32 [ %166, %163 ], [ %179, %.critedge.i80 ], [ %.066132, %147 ]
+  %.0380.i = phi ptr [ %174, %.critedge.i80 ], [ %154, %163 ], [ null, %147 ]
+  %.0378.i = phi ptr [ %172, %.critedge.i80 ], [ %152, %163 ], [ null, %147 ]
+  %.0377.i = phi ptr [ %180, %.critedge.i80 ], [ %169, %163 ], [ %135, %147 ]
+  %.0366.i = phi i32 [ %.2369.lcssa.ph.i, %.critedge.i80 ], [ %167, %163 ], [ 0, %147 ]
+  %.0365.i = phi i32 [ %181, %.critedge.i80 ], [ %170, %163 ], [ %123, %147 ]
+  %.1362.i = phi i32 [ %179, %.critedge.i80 ], [ %166, %163 ], [ %.066132, %147 ]
   %.not408.i = icmp eq ptr %.0377.i, null
   br i1 %.not408.i, label %.thread454.i, label %.preheader466.i
 
@@ -1395,9 +1395,9 @@ dissect_at_command_continuation.exit:             ; preds = %91, %118
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %270, %267, %264, %262, %.thread452.thread.i, %248, %237, %221, %219
-  %.4371.i = phi i32 [ %241, %237 ], [ %252, %248 ], [ %210, %.thread452.thread.i ], [ %.3370.lcssa.i, %262 ], [ %.3370.lcssa.i, %221 ], [ %.3370.lcssa.i, %219 ], [ %.0365.i, %264 ], [ %.0365.i, %267 ], [ %.0365.i, %270 ]
-  %.2363.i = phi i32 [ %240, %237 ], [ %251, %248 ], [ %261, %.thread452.thread.i ], [ %222, %262 ], [ %222, %221 ], [ %220, %219 ], [ %222, %264 ], [ %222, %267 ], [ %222, %270 ]
-  %.0349.i = phi i16 [ 15679, %237 ], [ 3338, %248 ], [ %257, %.thread452.thread.i ], [ 0, %262 ], [ 0, %221 ], [ 0, %219 ], [ 13, %264 ], [ 13, %267 ], [ 13, %270 ]
+  %.4371.i = phi i32 [ %241, %237 ], [ %252, %248 ], [ %210, %.thread452.thread.i ], [ %.3370.lcssa.i, %219 ], [ %.3370.lcssa.i, %262 ], [ %.3370.lcssa.i, %221 ], [ %.0365.i, %264 ], [ %.0365.i, %267 ], [ %.0365.i, %270 ]
+  %.2363.i = phi i32 [ %240, %237 ], [ %251, %248 ], [ %261, %.thread452.thread.i ], [ %220, %219 ], [ %222, %262 ], [ %222, %221 ], [ %222, %264 ], [ %222, %267 ], [ %222, %270 ]
+  %.0349.i = phi i16 [ 15679, %237 ], [ 3338, %248 ], [ %257, %.thread452.thread.i ], [ 0, %219 ], [ 0, %262 ], [ 0, %221 ], [ 13, %264 ], [ 13, %267 ], [ 13, %270 ]
   br i1 %.not.i77, label %276, label %274
 
 274:                                              ; preds = %proto_item_set_generated.exit.i
@@ -1527,8 +1527,8 @@ proto_item_set_generated.exit.i:                  ; preds = %270, %267, %264, %2
   br label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %.outer.i, %313, %309, %302, %.critedge9.i.loopexit, %.preheader.i
-  %.1358474.i = phi i32 [ 0, %.preheader.i ], [ %.1358507.i, %302 ], [ %310, %309 ], [ %.1358507.i, %.critedge9.i.loopexit ], [ %.1358507.i, %313 ], [ %320, %.outer.i ]
-  %.1.i = phi i1 [ false, %.preheader.i ], [ false, %302 ], [ false, %309 ], [ true, %.critedge9.i.loopexit ], [ false, %313 ], [ false, %.outer.i ]
+  %.1358474.i = phi i32 [ 0, %.preheader.i ], [ %.1358507.i, %.critedge9.i.loopexit ], [ %.1358507.i, %302 ], [ %310, %309 ], [ %320, %.outer.i ], [ %.1358507.i, %313 ]
+  %.1.i = phi i1 [ false, %.preheader.i ], [ true, %.critedge9.i.loopexit ], [ false, %302 ], [ false, %309 ], [ false, %313 ], [ false, %.outer.i ]
   switch i16 %.0349.i, label %.critedge427.i [
     i16 61, label %324
     i16 58, label %324
@@ -1563,8 +1563,8 @@ proto_item_set_generated.exit.i:                  ; preds = %270, %267, %264, %2
   br label %.critedge427.i
 
 .critedge427.i:                                   ; preds = %294, %.thread453.i, %333, %329, %324, %.critedge9.i
-  %.0357.i = phi i32 [ %.1358474.i, %.thread453.i ], [ %.1358474.i, %333 ], [ %.1358474.i, %329 ], [ %.1358474.i, %.critedge9.i ], [ %.1358474.i, %324 ], [ 0, %294 ]
-  %.0344.i = phi i1 [ %.1.i, %.thread453.i ], [ %.1.i, %333 ], [ %.1.i, %329 ], [ %.1.i, %.critedge9.i ], [ %.1.i, %324 ], [ false, %294 ]
+  %.0357.i = phi i32 [ %.1358474.i, %.thread453.i ], [ %.1358474.i, %333 ], [ %.1358474.i, %324 ], [ %.1358474.i, %329 ], [ %.1358474.i, %.critedge9.i ], [ 0, %294 ]
+  %.0344.i = phi i1 [ %.1.i, %.thread453.i ], [ %.1.i, %333 ], [ %.1.i, %324 ], [ %.1.i, %329 ], [ %.1.i, %.critedge9.i ], [ false, %294 ]
   switch i16 %.0349.i, label %337 [
     i16 15679, label %339
     i16 3338, label %339
@@ -1807,7 +1807,7 @@ is_padded.exit.sink.split:                        ; preds = %23, %32, %13, %30
   br label %is_padded.exit
 
 is_padded.exit:                                   ; preds = %.lr.ph.i27, %is_padded.exit.sink.split, %10, %32
-  %.0 = phi i1 [ false, %32 ], [ false, %10 ], [ true, %is_padded.exit.sink.split ], [ false, %.lr.ph.i27 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %32 ], [ true, %is_padded.exit.sink.split ], [ false, %.lr.ph.i27 ]
   ret i1 %.0
 }
 
@@ -1923,7 +1923,7 @@ define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2053,7 +2053,7 @@ default.unreachable:                              ; preds = %32, %19
   unreachable
 
 check_ccwa.exit.thread96:                         ; preds = %29, %26, %23, %13, %43, %36, %69, %63, %60, %54, %51, %45, %33, %17, %check_ccwa.exit
-  %.0 = phi i1 [ false, %check_ccwa.exit ], [ false, %17 ], [ true, %33 ], [ true, %45 ], [ true, %51 ], [ true, %54 ], [ true, %60 ], [ true, %63 ], [ true, %69 ], [ true, %36 ], [ true, %43 ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %check_ccwa.exit ], [ false, %17 ], [ false, %13 ], [ true, %23 ], [ true, %33 ], [ true, %45 ], [ true, %51 ], [ true, %54 ], [ true, %60 ], [ true, %63 ], [ true, %69 ], [ true, %36 ], [ true, %43 ], [ true, %26 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -2076,7 +2076,7 @@ define internal noundef zeroext i1 @check_cfun(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2099,7 +2099,7 @@ define internal noundef zeroext i1 @dissect_cfun_parameter(ptr noundef %0, ptr n
   br label %check_cfun.exit
 
 check_cfun.exit:                                  ; preds = %13, %13, %13, %14
-  %.0.i = phi i1 [ false, %13 ], [ false, %13 ], [ false, %13 ], [ %or.cond8.i.not, %14 ]
+  %.0.i = phi i1 [ false, %13 ], [ %or.cond8.i.not, %14 ], [ false, %13 ], [ false, %13 ]
   %17 = icmp ugt i32 %7, 1
   %or.cond64 = or i1 %17, %.0.i
   br i1 %or.cond64, label %75, label %18
@@ -2227,7 +2227,7 @@ define internal noundef zeroext i1 @check_cgdcont(i32 noundef %0, i16 noundef ze
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond11, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond11, %5 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2357,7 +2357,7 @@ define internal noundef zeroext i1 @check_cgmi(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2397,7 +2397,7 @@ define internal noundef zeroext i1 @check_cgmm(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2437,7 +2437,7 @@ define internal noundef zeroext i1 @check_cgmr(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2498,7 +2498,7 @@ define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2687,7 +2687,7 @@ define internal noundef zeroext i1 @check_cimi(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2728,7 +2728,7 @@ proto_item_set_hidden.exit:                       ; preds = %15, %18, %21
   br label %check_cimi.exit.thread
 
 check_cimi.exit.thread:                           ; preds = %11, %check_cimi.exit, %proto_item_set_hidden.exit
-  %.0 = phi i1 [ true, %proto_item_set_hidden.exit ], [ false, %check_cimi.exit ], [ false, %11 ]
+  %.0 = phi i1 [ false, %check_cimi.exit ], [ true, %proto_item_set_hidden.exit ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2750,7 +2750,7 @@ define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -2772,7 +2772,7 @@ define internal noundef zeroext i1 @dissect_cind_parameter(ptr noundef %0, ptr r
   br label %check_cind.exit
 
 check_cind.exit:                                  ; preds = %13, %13, %14
-  %.0.i = phi i1 [ false, %13 ], [ false, %13 ], [ %or.cond5.i.not, %14 ]
+  %.0.i = phi i1 [ false, %13 ], [ %or.cond5.i.not, %14 ], [ false, %13 ]
   %17 = icmp ugt i32 %7, 19
   %or.cond = or i1 %17, %.0.i
   br i1 %or.cond, label %23, label %18
@@ -2823,7 +2823,7 @@ define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3028,7 +3028,7 @@ define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3159,7 +3159,7 @@ check_clip.exit:                                  ; preds = %11
   br label %check_clip.exit.thread79
 
 check_clip.exit.thread79:                         ; preds = %13, %36, %22, %21, %60, %53, %74, %71, %65, %62, %50, %.thread88, %17, %check_clip.exit
-  %.0 = phi i1 [ false, %check_clip.exit ], [ false, %17 ], [ true, %.thread88 ], [ true, %50 ], [ true, %62 ], [ true, %65 ], [ true, %71 ], [ true, %74 ], [ true, %53 ], [ true, %60 ], [ true, %21 ], [ true, %22 ], [ true, %36 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %check_clip.exit ], [ false, %17 ], [ false, %13 ], [ true, %.thread88 ], [ true, %50 ], [ true, %62 ], [ true, %65 ], [ true, %71 ], [ true, %74 ], [ true, %53 ], [ true, %60 ], [ true, %21 ], [ true, %22 ], [ true, %36 ]
   ret i1 %.0
 }
 
@@ -3254,7 +3254,7 @@ define internal noundef zeroext i1 @check_cmee(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond11, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond11, %5 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3296,7 +3296,7 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr n
   br label %32
 
 32:                                               ; preds = %17, %14, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %14 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %14 ], [ true, %18 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -3319,7 +3319,7 @@ define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3430,7 +3430,7 @@ define internal noundef zeroext i1 @check_cmgl(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3528,7 +3528,7 @@ default.unreachable:                              ; preds = %22
   unreachable
 
 62:                                               ; preds = %19, %40, %37, %23, %43, %57, %18, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %57 ], [ true, %43 ], [ true, %23 ], [ true, %37 ], [ true, %40 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %19 ], [ true, %57 ], [ true, %43 ], [ true, %40 ], [ true, %23 ], [ true, %37 ]
   ret i1 %.0
 }
 
@@ -3550,7 +3550,7 @@ define internal noundef zeroext i1 @check_cmgr(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -3661,7 +3661,7 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
   br label %75
 
 75:                                               ; preds = %35, %32, %53, %39, %38, %56, %70, %18, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %70 ], [ true, %56 ], [ true, %38 ], [ true, %39 ], [ true, %53 ], [ true, %32 ], [ true, %35 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %32 ], [ true, %70 ], [ true, %56 ], [ true, %38 ], [ true, %39 ], [ true, %53 ], [ true, %35 ]
   ret i1 %.0
 }
 
@@ -3684,7 +3684,7 @@ define internal noundef zeroext i1 @check_cmux(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4073,7 +4073,7 @@ define internal noundef zeroext i1 @check_cpin(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4128,7 +4128,7 @@ define internal noundef zeroext i1 @dissect_cpin_parameter(ptr noundef %0, ptr n
   br label %36
 
 36:                                               ; preds = %31, %32, %19, %22, %18, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %22 ], [ true, %19 ], [ true, %32 ], [ true, %31 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ true, %19 ], [ true, %31 ], [ true, %22 ], [ true, %32 ]
   ret i1 %.0
 }
 
@@ -4151,7 +4151,7 @@ define internal noundef zeroext i1 @check_cpms(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4244,7 +4244,7 @@ define internal noundef zeroext i1 @dissect_cpms_parameter(ptr noundef %0, ptr n
   br label %57
 
 57:                                               ; preds = %39, %42, %45, %48, %51, %54, %27, %18, %21, %24, %17, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %17 ], [ true, %24 ], [ true, %21 ], [ true, %18 ], [ false, %27 ], [ true, %54 ], [ true, %51 ], [ true, %48 ], [ true, %45 ], [ true, %42 ], [ true, %39 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %17 ], [ true, %18 ], [ false, %27 ], [ true, %24 ], [ true, %21 ], [ true, %54 ], [ true, %51 ], [ true, %48 ], [ true, %45 ], [ true, %42 ], [ true, %39 ]
   ret i1 %.0
 }
 
@@ -4267,7 +4267,7 @@ define internal noundef zeroext i1 @check_cscs(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ true, %4 ], [ %or.cond8, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond8, %5 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4296,7 +4296,7 @@ define internal noundef zeroext i1 @dissect_cscs_parameter(ptr noundef %0, ptr r
   br label %21
 
 21:                                               ; preds = %17, %14, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %14 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %14 ], [ true, %18 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -4318,7 +4318,7 @@ define internal noundef zeroext i1 @check_csim(i32 noundef %0, i16 noundef zeroe
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4434,7 +4434,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   br label %75
 
 75:                                               ; preds = %66, %._crit_edge, %20, %17, %14, %44, %40
-  %.065 = phi i1 [ true, %40 ], [ true, %44 ], [ false, %14 ], [ true, %17 ], [ true, %20 ], [ true, %._crit_edge ], [ true, %66 ]
+  %.065 = phi i1 [ false, %14 ], [ true, %17 ], [ true, %40 ], [ true, %44 ], [ true, %20 ], [ true, %._crit_edge ], [ true, %66 ]
   ret i1 %.065
 }
 
@@ -4456,7 +4456,7 @@ define internal noundef zeroext i1 @check_csq(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4555,7 +4555,7 @@ define internal noundef zeroext i1 @check_gmi(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4595,7 +4595,7 @@ define internal noundef zeroext i1 @check_gmm(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4635,7 +4635,7 @@ define internal noundef zeroext i1 @check_gmr(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -4691,7 +4691,7 @@ define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroex
   br label %8
 
 8:                                                ; preds = %5, %4, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %4 ], [ %or.cond5, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ], [ true, %4 ]
   ret i1 %.0
 }
 

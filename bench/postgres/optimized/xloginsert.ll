@@ -577,8 +577,8 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br label %60
 
 60:                                               ; preds = %58, %54, %52, %47
-  %.330 = phi i64 [ %.128, %54 ], [ %.128, %52 ], [ %.128, %47 ], [ %spec.select, %58 ]
-  %.0175.i = phi i1 [ true, %54 ], [ false, %52 ], [ true, %47 ], [ false, %58 ]
+  %.330 = phi i64 [ %spec.select, %58 ], [ %.128, %47 ], [ %.128, %54 ], [ %.128, %52 ]
+  %.0175.i = phi i1 [ false, %58 ], [ true, %47 ], [ true, %54 ], [ false, %52 ]
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 0
@@ -592,7 +592,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br label %67
 
 67:                                               ; preds = %64, %60
-  %.0176.i = phi i1 [ false, %60 ], [ %spec.select194.i, %64 ]
+  %.0176.i = phi i1 [ %spec.select194.i, %64 ], [ false, %60 ]
   %68 = trunc i64 %indvars.iv.i13 to i8
   %69 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %70 = load i32, ptr %69, align 8
@@ -840,8 +840,8 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br label %187
 
 187:                                              ; preds = %182, %176, %168, %167
-  %.sroa.4.3.i = phi i8 [ %.sroa.4.2.i, %176 ], [ %.sroa.4.2.i, %168 ], [ %.sroa.4.2.i, %167 ], [ %spec.select197.i, %182 ]
-  %.0168.i = phi i1 [ false, %176 ], [ false, %168 ], [ false, %167 ], [ %185, %182 ]
+  %.sroa.4.3.i = phi i8 [ %.sroa.4.2.i, %167 ], [ %spec.select197.i, %182 ], [ %.sroa.4.2.i, %176 ], [ %.sroa.4.2.i, %168 ]
+  %.0168.i = phi i1 [ false, %167 ], [ %185, %182 ], [ false, %176 ], [ false, %168 ]
   store i8 %68, ptr %.0169216.i, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0169216.i, i64 1
   store i8 %.sroa.4.3.i, ptr %.sroa.4.0..sroa_idx.i, align 1

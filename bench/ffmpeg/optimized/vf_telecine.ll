@@ -529,7 +529,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %._crit_edge, %1, %33
-  %.0 = phi i32 [ 0, %33 ], [ -12, %1 ], [ %31, %._crit_edge ], [ -12, %23 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %33 ], [ %31, %._crit_edge ], [ -12, %23 ]
   ret i32 %.0
 }
 

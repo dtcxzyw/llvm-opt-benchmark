@@ -663,10 +663,10 @@ _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit.i.i.i33.i: ; 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %153, %159, %.sink.split.i.i.i40.i, %127, %133, %.sink.split.i.i.i.i
-  %.sink74.in.i = phi ptr [ %129, %.sink.split.i.i.i.i ], [ %129, %133 ], [ %129, %127 ], [ %155, %.sink.split.i.i.i40.i ], [ %155, %159 ], [ %155, %153 ]
-  %.sink72.i = phi i32 [ 1, %.sink.split.i.i.i.i ], [ 1, %133 ], [ 1, %127 ], [ 2, %.sink.split.i.i.i40.i ], [ 2, %159 ], [ 2, %153 ]
-  %.sink.i = phi ptr [ %128, %.sink.split.i.i.i.i ], [ %128, %133 ], [ %128, %127 ], [ %154, %.sink.split.i.i.i40.i ], [ %154, %159 ], [ %154, %153 ]
-  %.sink68.i = phi i64 [ -27456, %.sink.split.i.i.i.i ], [ -27456, %133 ], [ -27456, %127 ], [ -27392, %.sink.split.i.i.i40.i ], [ -27392, %159 ], [ -27392, %153 ]
+  %.sink74.in.i = phi ptr [ %129, %127 ], [ %129, %.sink.split.i.i.i.i ], [ %129, %133 ], [ %155, %.sink.split.i.i.i40.i ], [ %155, %159 ], [ %155, %153 ]
+  %.sink72.i = phi i32 [ 1, %127 ], [ 1, %.sink.split.i.i.i.i ], [ 1, %133 ], [ 2, %.sink.split.i.i.i40.i ], [ 2, %159 ], [ 2, %153 ]
+  %.sink.i = phi ptr [ %128, %127 ], [ %128, %.sink.split.i.i.i.i ], [ %128, %133 ], [ %154, %.sink.split.i.i.i40.i ], [ %154, %159 ], [ %154, %153 ]
+  %.sink68.i = phi i64 [ -27456, %127 ], [ -27456, %.sink.split.i.i.i.i ], [ -27456, %133 ], [ -27392, %.sink.split.i.i.i40.i ], [ -27392, %159 ], [ -27392, %153 ]
   %.sink74.i = load ptr, ptr %.sink74.in.i, align 8, !tbaa !28
   %177 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink74.i, i64 %100
   store i32 %.sink72.i, ptr %177, align 8, !tbaa !372

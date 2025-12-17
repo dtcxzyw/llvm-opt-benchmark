@@ -883,7 +883,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
   br i1 %.not, label %194, label %.thread
 
 .thread:                                          ; preds = %56, %89, %119, %168, %169
-  %.12433 = phi i32 [ -1, %169 ], [ %.3, %168 ], [ %.2, %119 ], [ -1, %89 ], [ -1, %56 ]
+  %.12433 = phi i32 [ -1, %169 ], [ %.2, %119 ], [ %.3, %168 ], [ -1, %89 ], [ -1, %56 ]
   %172 = call i32 @H5I_dec_ref(i64 noundef %17) #7
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %174, label %194
@@ -2355,7 +2355,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   %543 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 500, i64 noundef %535, i64 noundef %542, ptr noundef nonnull @.str.26) #7
   br label %.thread117
 
-.thread113:                                       ; preds = %114, %158, %181, %204, %227, %273, %318, %250, %137
+.thread113:                                       ; preds = %114, %158, %181, %204, %227, %273, %318, %137, %250
   %544 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
   br label %.thread108
 
@@ -2368,7 +2368,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   br i1 %.05494, label %.thread108, label %549, !prof !28
 
 .thread108:                                       ; preds = %91, %68, %39, %.thread117, %.thread113, %546
-  %.360100112 = phi i32 [ %.05792, %546 ], [ -1, %.thread113 ], [ -1, %.thread117 ], [ -1, %39 ], [ -1, %68 ], [ -1, %91 ]
+  %.360100112 = phi i32 [ -1, %.thread117 ], [ %.05792, %546 ], [ -1, %.thread113 ], [ -1, %39 ], [ -1, %68 ], [ -1, %91 ]
   %548 = call i32 @H5E_dump_api_stack() #7
   br label %549
 
@@ -4381,7 +4381,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
   br i1 %.062, label %.thread76, label %403, !prof !28
 
 .thread76:                                        ; preds = %86, %63, %34, %.thread85, %.thread81, %400
-  %.1356880 = phi i64 [ %.03460, %400 ], [ -1, %.thread81 ], [ -1, %.thread85 ], [ -1, %34 ], [ -1, %63 ], [ -1, %86 ]
+  %.1356880 = phi i64 [ -1, %.thread85 ], [ %.03460, %400 ], [ -1, %.thread81 ], [ -1, %34 ], [ -1, %63 ], [ -1, %86 ]
   %402 = call i32 @H5E_dump_api_stack() #7
   br label %403
 

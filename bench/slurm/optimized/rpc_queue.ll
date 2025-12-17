@@ -1067,7 +1067,7 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !16
 
 .loopexit:                                        ; preds = %59, %.preheader, %55, %33, %10, %1
-  %.0 = phi i32 [ 2036, %1 ], [ %., %33 ], [ 0, %55 ], [ 2036, %10 ], [ 2036, %.preheader ], [ 2036, %59 ]
+  %.0 = phi i32 [ 2036, %1 ], [ 0, %55 ], [ %., %33 ], [ 2036, %10 ], [ 2036, %.preheader ], [ 2036, %59 ]
   ret i32 %.0
 }
 

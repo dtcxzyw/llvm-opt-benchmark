@@ -312,7 +312,7 @@ _ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2
   ret void
 
 .body:                                            ; preds = %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit42, %81, %88
-  %.pn15 = phi { ptr, i32 } [ %90, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit42 ], [ %89, %88 ], [ %82, %81 ]
+  %.pn15 = phi { ptr, i32 } [ %82, %81 ], [ %90, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit42 ], [ %89, %88 ]
   %.not.i43 = icmp eq ptr %74, null
   br i1 %.not.i43, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45, label %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
 
@@ -323,8 +323,8 @@ _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44: ; pre
   call void %97(ptr noundef nonnull align 8 dereferenceable(8) %74) #19
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45: ; preds = %55, %47, %41, %36, %26, %21, %66, %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
-  %.pn1555 = phi { ptr, i32 } [ %.pn15, %.body ], [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %56, %55 ], [ %48, %47 ], [ %42, %41 ], [ %37, %36 ], [ %27, %26 ], [ %22, %21 ], [ %67, %66 ]
+_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45: ; preds = %47, %41, %36, %26, %21, %55, %66, %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
+  %.pn1555 = phi { ptr, i32 } [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %.pn15, %.body ], [ %48, %47 ], [ %42, %41 ], [ %37, %36 ], [ %27, %26 ], [ %22, %21 ], [ %56, %55 ], [ %67, %66 ]
   store ptr null, ptr %0, align 8, !tbaa !27
   resume { ptr, i32 } %.pn1555
 }

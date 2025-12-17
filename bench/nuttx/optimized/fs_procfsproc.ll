@@ -168,7 +168,7 @@ split:                                            ; preds = %30
   br label %proc_findnode.exit
 
 proc_findnode.exit:                               ; preds = %37, %41, %43, %split, %20, %17, %11, %14, %46
-  %.0 = phi i32 [ 0, %46 ], [ -2, %14 ], [ -2, %11 ], [ -2, %17 ], [ -2, %20 ], [ -21, %split ], [ -12, %43 ], [ -21, %37 ], [ -2, %41 ]
+  %.0 = phi i32 [ -12, %43 ], [ -2, %11 ], [ -2, %17 ], [ -2, %20 ], [ -21, %split ], [ 0, %46 ], [ -2, %14 ], [ -21, %37 ], [ -2, %41 ]
   ret i32 %.0
 }
 
@@ -605,7 +605,7 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   br i1 %exitcond.not.i, label %proc_groupfd.exit, label %.lr.ph.i48, !llvm.loop !9
 
 proc_groupfd.exit:                                ; preds = %250, %266, %227, %234
-  %.044.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
+  %.044.i = phi i64 [ %238, %234 ], [ 0, %227 ], [ %.1.i, %266 ], [ %263, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %279
@@ -633,7 +633,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   br label %279
 
 279:                                              ; preds = %268, %proc_groupfd.exit, %proc_groupstatus.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
-  %.0 = phi i64 [ %.0.i, %proc_status.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.044.i, %proc_groupfd.exit ], [ %278, %268 ]
+  %.0 = phi i64 [ %278, %268 ], [ %.0.i, %proc_status.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.044.i, %proc_groupfd.exit ]
   %280 = icmp sgt i64 %.0, 0
   br i1 %280, label %281, label %.thread
 
@@ -807,7 +807,7 @@ split.thread:                                     ; preds = %44, %.tail, %24, %s
   br label %55
 
 55:                                               ; preds = %21, %17, %15, %9, %12, %split.thread, %50, %proc_findnode.exit
-  %.0 = phi i32 [ -2, %proc_findnode.exit ], [ 0, %split.thread ], [ -20, %50 ], [ -2, %12 ], [ -2, %9 ], [ -2, %15 ], [ -2, %17 ], [ -12, %21 ]
+  %.0 = phi i32 [ -20, %50 ], [ -2, %9 ], [ -2, %15 ], [ -2, %17 ], [ -2, %proc_findnode.exit ], [ 0, %split.thread ], [ -2, %12 ], [ -12, %21 ]
   ret i32 %.0
 }
 
@@ -863,7 +863,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0
   br label %28
 
 28:                                               ; preds = %18, %2, %12, %7
-  %.017 = phi i32 [ -2, %7 ], [ -2, %12 ], [ 0, %18 ], [ -2, %2 ]
+  %.017 = phi i32 [ -2, %12 ], [ -2, %7 ], [ 0, %18 ], [ -2, %2 ]
   ret i32 %.017
 }
 
@@ -970,13 +970,13 @@ split.thread:                                     ; preds = %41, %split
   br label %proc_findnode.exit.sink.split
 
 proc_findnode.exit.sink.split:                    ; preds = %split, %.tail, %20, %split.thread
-  %.sink = phi i32 [ 16676, %split.thread ], [ 16676, %20 ], [ 16676, %.tail ], [ 33060, %split ]
+  %.sink = phi i32 [ 16676, %split.thread ], [ 16676, %.tail ], [ 16676, %20 ], [ 33060, %split ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %47, align 8
   br label %proc_findnode.exit
 
 proc_findnode.exit:                               ; preds = %45, %proc_findnode.exit.sink.split, %20, %16, %12
-  %.0 = phi i32 [ -2, %12 ], [ -2, %16 ], [ -2, %20 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %45 ]
+  %.0 = phi i32 [ -2, %20 ], [ -2, %12 ], [ -2, %16 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %45 ]
   ret i32 %.0
 }
 

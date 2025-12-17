@@ -332,7 +332,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %87, %101, %98, %.loopexit.i, %.preheader.i.i.i.i
-  %104 = phi ptr [ %103, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %98 ], [ null, %101 ], [ null, %87 ]
+  %104 = phi ptr [ %103, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %101 ], [ null, %98 ], [ null, %87 ]
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %40, ptr noundef %104)
           to label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit unwind label %105
 
@@ -477,7 +477,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br label %.lr.ph38.i.i.i.i81
 
 .lr.ph38.i.i.i.i81:                               ; preds = %.lr.ph38.i.i.i.i81.preheader, %.lr.ph38.backedge.i.i.i.i86
-  %.137.i.i.i.i82 = phi ptr [ %.pn185, %.lr.ph38.backedge.i.i.i.i86 ], [ %149, %.lr.ph38.i.i.i.i81.preheader ]
+  %.137.i.i.i.i82 = phi ptr [ %.137.be.i.i.i.i87, %.lr.ph38.backedge.i.i.i.i86 ], [ %149, %.lr.ph38.i.i.i.i81.preheader ]
   %165 = load ptr, ptr %.137.i.i.i.i82, align 8, !tbaa !69
   %166 = icmp ult ptr %165, inttoptr (i64 2 to ptr)
   br i1 %166, label %172, label %167
@@ -496,7 +496,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   br label %.lr.ph38.backedge.i.i.i.i86
 
 .lr.ph38.backedge.i.i.i.i86:                      ; preds = %167, %172
-  %.pn185 = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i82, i64 16
+  %.137.be.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i82, i64 16
   br label %.lr.ph38.i.i.i.i81, !llvm.loop !74
 
 .loopexit.i88:                                    ; preds = %156, %167
@@ -645,7 +645,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %215, %216
   br label %229
 
 229:                                              ; preds = %178, %35, %105, %228, %222, %33
-  %.pn49.pn = phi { ptr, i32 } [ %34, %33 ], [ %106, %105 ], [ %36, %35 ], [ %.pn, %228 ], [ %223, %222 ], [ %179, %178 ]
+  %.pn49.pn = phi { ptr, i32 } [ %34, %33 ], [ %106, %105 ], [ %223, %222 ], [ %36, %35 ], [ %.pn, %228 ], [ %179, %178 ]
   call void @_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn49.pn

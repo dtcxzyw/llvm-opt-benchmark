@@ -462,7 +462,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %cdata_getptr.exit
 
 cdata_getptr.exit:                                ; preds = %71, %67, %73, %80
-  %.2102 = phi ptr [ %.1101, %80 ], [ %.1101, %73 ], [ %70, %67 ], [ %72, %71 ]
+  %.2102 = phi ptr [ %.1101, %73 ], [ %.1101, %80 ], [ %70, %67 ], [ %72, %71 ]
   %83 = load i64, ptr %6, align 8, !tbaa !67
   %84 = sext i32 %55 to i64
   %85 = mul nsw i64 %83, %84
@@ -647,7 +647,7 @@ ctype_rawchild.exit:                              ; preds = %.preheader161, %cty
   br label %197
 
 .thread:                                          ; preds = %125, %168, %ctype_rawchild.exit, %130, %145, %121, %135, %.thread141, %102, %87, %50
-  %.3106 = phi ptr [ %.2105.lcssa, %50 ], [ %.2105.lcssa, %87 ], [ %.2105.lcssa, %102 ], [ %.2105.lcssa, %.thread141 ], [ %.2105.lcssa, %145 ], [ %.2105.lcssa, %121 ], [ %.2105.lcssa, %135 ], [ %.2105.lcssa, %130 ], [ %.099, %ctype_rawchild.exit ], [ %.099, %168 ], [ %.2105.lcssa, %125 ]
+  %.3106 = phi ptr [ %.2105.lcssa, %50 ], [ %.2105.lcssa, %87 ], [ %.2105.lcssa, %102 ], [ %.2105.lcssa, %.thread141 ], [ %.2105.lcssa, %145 ], [ %.2105.lcssa, %130 ], [ %.2105.lcssa, %121 ], [ %.2105.lcssa, %125 ], [ %.2105.lcssa, %135 ], [ %.099, %ctype_rawchild.exit ], [ %.099, %168 ]
   %170 = load i32, ptr %.3106, align 8, !tbaa !51
   %.mask126 = and i32 %170, -268435456
   %171 = icmp eq i32 %.mask126, 536870912
@@ -701,7 +701,7 @@ cdata_getptr.exit136:                             ; preds = %185, %189
   br label %197
 
 197:                                              ; preds = %134, %139, %114, %169, %194, %cdata_getptr.exit
-  %.1 = phi ptr [ %.2105.lcssa, %cdata_getptr.exit ], [ %.3106, %194 ], [ %113, %114 ], [ %.2105.lcssa, %134 ], [ %.2105.lcssa, %139 ], [ %164, %169 ]
+  %.1 = phi ptr [ %.2105.lcssa, %cdata_getptr.exit ], [ %.3106, %194 ], [ %164, %169 ], [ %113, %114 ], [ %.2105.lcssa, %134 ], [ %.2105.lcssa, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 }

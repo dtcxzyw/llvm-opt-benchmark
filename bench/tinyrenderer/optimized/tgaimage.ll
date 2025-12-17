@@ -209,8 +209,8 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   ]
 
 .invoke:                                          ; preds = %30, %40, %54
-  %55 = phi ptr [ @.str.4, %54 ], [ @.str.4, %40 ], [ @.str.3, %30 ]
-  %56 = phi i64 [ 32, %54 ], [ 32, %40 ], [ 42, %30 ]
+  %55 = phi ptr [ @.str.4, %40 ], [ @.str.4, %54 ], [ @.str.3, %30 ]
+  %56 = phi i64 [ 32, %40 ], [ 32, %54 ], [ 42, %30 ]
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %55, i64 noundef %56)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %38
 
@@ -353,7 +353,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %119
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %89
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %.invoke65, %.invoke, %125
-  %.1 = phi i1 [ true, %125 ], [ false, %.invoke ], [ false, %.invoke65 ]
+  %.1 = phi i1 [ false, %.invoke65 ], [ true, %125 ], [ false, %.invoke ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34
 

@@ -341,9 +341,9 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
   br i1 %146, label %43, label %.thread18, !llvm.loop !19
 
 .thread18:                                        ; preds = %135, %138, %86, %89
-  %147 = phi i8 [ %63, %89 ], [ %63, %86 ], [ %136, %138 ], [ %136, %135 ]
-  %148 = phi i64 [ %45, %89 ], [ %45, %86 ], [ %45, %135 ], [ %145, %138 ]
-  %149 = phi i32 [ -22, %89 ], [ -22, %86 ], [ -22, %135 ], [ 0, %138 ]
+  %147 = phi i8 [ %63, %86 ], [ %63, %89 ], [ %136, %138 ], [ %136, %135 ]
+  %148 = phi i64 [ %45, %86 ], [ %45, %89 ], [ %45, %135 ], [ %145, %138 ]
+  %149 = phi i32 [ -22, %86 ], [ -22, %89 ], [ -22, %135 ], [ 0, %138 ]
   %150 = icmp eq i8 %147, 0
   br i1 %150, label %.thread19, label %151
 
@@ -352,8 +352,8 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
   br label %.thread19
 
 .thread19:                                        ; preds = %23, %151, %.thread18
-  %152 = phi i32 [ %149, %151 ], [ %149, %.thread18 ], [ 0, %23 ]
-  %153 = phi i64 [ %148, %151 ], [ %148, %.thread18 ], [ 0, %23 ]
+  %152 = phi i32 [ %149, %.thread18 ], [ %149, %151 ], [ 0, %23 ]
+  %153 = phi i64 [ %148, %.thread18 ], [ %148, %151 ], [ 0, %23 ]
   %154 = icmp eq ptr %7, null
   br i1 %154, label %158, label %155
 

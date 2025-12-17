@@ -550,8 +550,8 @@ select.unfold.i:                                  ; preds = %68, %57
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %IDASensRes1DQ.exit.thread, label %24, !llvm.loop !68
 
-IDASensRes1DQ.exit.thread:                        ; preds = %161, %select.unfold.i, %81, %93, %101, %108, %118, %129, %143, %149, %12
-  %.021 = phi i32 [ 0, %12 ], [ %156, %149 ], [ %146, %143 ], [ %137, %129 ], [ %124, %118 ], [ %115, %108 ], [ %105, %101 ], [ %98, %93 ], [ %88, %81 ], [ %78, %select.unfold.i ], [ 0, %161 ]
+IDASensRes1DQ.exit.thread:                        ; preds = %161, %143, %select.unfold.i, %81, %93, %101, %108, %118, %129, %149, %12
+  %.021 = phi i32 [ 0, %12 ], [ %146, %143 ], [ %156, %149 ], [ %137, %129 ], [ %124, %118 ], [ %115, %108 ], [ %105, %101 ], [ %98, %93 ], [ %88, %81 ], [ %78, %select.unfold.i ], [ 0, %161 ]
   ret i32 %.021
 }
 
@@ -664,7 +664,7 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   br label %85
 
 85:                                               ; preds = %82, %73
-  %.0113.i = phi i64 [ 2, %73 ], [ 1, %82 ]
+  %.0113.i = phi i64 [ 1, %82 ], [ 2, %73 ]
   %86 = load ptr, ptr %17, align 8, !tbaa !63
   %87 = getelementptr inbounds double, ptr %86, i64 %42
   store double %44, ptr %87, align 8, !tbaa !60
@@ -675,8 +675,8 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %IDAQuadSensRhs1InternalDQ.exit.thread, label %23, !llvm.loop !71
 
-IDAQuadSensRhs1InternalDQ.exit.thread:            ; preds = %85, %57, %65, %75, %12
-  %.0 = phi i32 [ 0, %12 ], [ %81, %75 ], [ %72, %65 ], [ %64, %57 ], [ 0, %85 ]
+IDAQuadSensRhs1InternalDQ.exit.thread:            ; preds = %85, %65, %57, %75, %12
+  %.0 = phi i32 [ 0, %12 ], [ %72, %65 ], [ %81, %75 ], [ %64, %57 ], [ 0, %85 ]
   ret i32 %.0
 }
 
@@ -784,7 +784,7 @@ IDACheckNvector.exit:                             ; preds = %55
   %.not69 = icmp eq ptr %60, null
   br i1 %.not69, label %IDACheckNvector.exit.thread, label %61
 
-IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, %35, %39, %43, %47, %51, %55, %IDACheckNvector.exit
+IDACheckNvector.exit.thread:                      ; preds = %23, %27, %31, %35, %39, %43, %47, %51, %55, %19, %IDACheckNvector.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8)
   br label %153
 
@@ -2007,7 +2007,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %189
 
-.loopexit:                                        ; preds = %164, %46, %53, %62, %73, %86, %123, %173, %27
+.loopexit:                                        ; preds = %164, %46, %53, %62, %73, %86, %123, %27, %173
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.2)
   br label %214
 
@@ -2898,7 +2898,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(addre
   br i1 %exitcond48.not, label %.loopexit, label %43, !llvm.loop !187
 
 .loopexit:                                        ; preds = %43, %40, %27, %22, %16, %13, %9, %5
-  %.032 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -50, %13 ], [ -40, %9 ], [ 0, %40 ], [ 0, %43 ]
+  %.032 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -40, %9 ], [ -50, %13 ], [ 0, %40 ], [ 0, %43 ]
   ret i32 %.032
 }
 
@@ -3031,7 +3031,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef captures(addre
   br i1 %66, label %58, label %.loopexit, !llvm.loop !191
 
 .loopexit:                                        ; preds = %58, %54, %31, %22, %16, %13, %9, %5
-  %.037 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %31 ], [ -50, %13 ], [ -40, %9 ], [ 0, %54 ], [ 0, %58 ]
+  %.037 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %31 ], [ -40, %9 ], [ -50, %13 ], [ 0, %54 ], [ 0, %58 ]
   ret i32 %.037
 }
 
@@ -3357,7 +3357,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %115
 
 115:                                              ; preds = %40, %._crit_edge, %103, %98, %93, %87, %82, %77, %69, %66, %45, %36, %5
-  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %._crit_edge ], [ 0, %40 ]
+  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ 0, %._crit_edge ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -4453,7 +4453,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %484, %48
   br i1 %.not146.not.i.i, label %601, label %.loopexit154.i.i, !llvm.loop !228
 
 .loopexit154.i.i:                                 ; preds = %601, %598, %._crit_edge170.i.i
-  %608 = phi i32 [ %596, %598 ], [ %596, %._crit_edge170.i.i ], [ %606, %601 ]
+  %608 = phi i32 [ %596, %._crit_edge170.i.i ], [ %596, %598 ], [ %606, %601 ]
   %609 = load i32, ptr %36, align 8, !tbaa !37
   %.not147.i.i = icmp eq i32 %609, 0
   br i1 %.not147.i.i, label %.loopexit153.i.i, label %.preheader152.i.i
@@ -4508,7 +4508,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %484, %48
   br i1 %630, label %.lr.ph181.split.i.i, label %.loopexit153.i.i, !llvm.loop !230
 
 .loopexit153.i.i:                                 ; preds = %._crit_edge179.i.i, %.lr.ph181.i.i, %.preheader152.i.i, %.loopexit154.i.i
-  %631 = phi i32 [ %608, %.preheader152.i.i ], [ %608, %.loopexit154.i.i ], [ %608, %.lr.ph181.i.i ], [ %628, %._crit_edge179.i.i ]
+  %631 = phi i32 [ %608, %.lr.ph181.i.i ], [ %608, %.loopexit154.i.i ], [ %608, %.preheader152.i.i ], [ %628, %._crit_edge179.i.i ]
   %632 = load i32, ptr %48, align 8, !tbaa !46
   %.not148.i.i = icmp eq i32 %632, 0
   br i1 %.not148.i.i, label %IDASetCoeffs.exit.i, label %.preheader.i.i
@@ -5069,7 +5069,7 @@ IDASensWrmsNorm.exit.i.i.i:                       ; preds = %IDAWrmsNorm.exit20.
   br label %791
 
 .loopexit.i.i:                                    ; preds = %931, %911, %897, %883, %804, %824
-  %.0.i.ph.i.i = phi i32 [ 3, %824 ], [ 11, %931 ], [ 1, %911 ], [ 4, %897 ], [ 4, %883 ], [ 3, %804 ]
+  %.0.i.ph.i.i = phi i32 [ 3, %824 ], [ 1, %911 ], [ 4, %897 ], [ 4, %883 ], [ 11, %931 ], [ 3, %804 ]
   %932 = load i32, ptr %.phi.trans.insert.i121.i, align 8, !tbaa !234
   %.not141.i.i = icmp ne i32 %932, 0
   %spec.select145.i.i = select i1 %.not141.i.i, i1 %.4.i.i, i1 false
@@ -5260,10 +5260,10 @@ IDATestError.exit.i:                              ; preds = %.sink.split.i.i, %1
   br i1 %1042, label %IDANls.exit.thread.i, label %1075
 
 IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774, %762, %760, %._crit_edge.i124.i, %716, %IDAPredict.exit.i.i, %913, %900, %791, %.lr.ph144.i.i.i, %IDATestError.exit.i, %958
-  %.1272.ph.i = phi double [ %.0271.i, %958 ], [ %982, %IDATestError.exit.i ], [ %.0271.i, %.lr.ph144.i.i.i ], [ %.0271.i, %791 ], [ %.0271.i, %900 ], [ %.0271.i, %913 ], [ %.0271.i, %IDAPredict.exit.i.i ], [ %.0271.i, %716 ], [ %.0271.i, %._crit_edge.i124.i ], [ %.0271.i, %760 ], [ %.0271.i, %762 ], [ %.0271.i, %774 ], [ %.0271.i, %.loopexit.i.i ]
-  %.1257.ph.i = phi double [ %.0256.i, %958 ], [ %.8264.i, %IDATestError.exit.i ], [ %.0256.i, %.lr.ph144.i.i.i ], [ %.0256.i, %791 ], [ %.0256.i, %900 ], [ %.0256.i, %913 ], [ %.0256.i, %IDAPredict.exit.i.i ], [ %.0256.i, %716 ], [ %.0256.i, %._crit_edge.i124.i ], [ %.0256.i, %760 ], [ %.0256.i, %762 ], [ %.0256.i, %774 ], [ %.0256.i, %.loopexit.i.i ]
-  %.1253.ph.i = phi double [ %.0252.i, %958 ], [ %.8.i, %IDATestError.exit.i ], [ %.0252.i, %.lr.ph144.i.i.i ], [ %.0252.i, %791 ], [ %.0252.i, %900 ], [ %.0252.i, %913 ], [ %.0252.i, %IDAPredict.exit.i.i ], [ %.0252.i, %716 ], [ %.0252.i, %._crit_edge.i124.i ], [ %.0252.i, %760 ], [ %.0252.i, %762 ], [ %.0252.i, %774 ], [ %.0252.i, %.loopexit.i.i ]
-  %.0101.ph.i = phi i32 [ 5, %958 ], [ 7, %IDATestError.exit.i ], [ -7, %.lr.ph144.i.i.i ], [ -41, %913 ], [ -8, %900 ], [ -7, %791 ], [ %.0.i.ph.i.i, %.loopexit.i.i ], [ 2, %774 ], [ -6, %762 ], [ 11, %760 ], [ -41, %._crit_edge.i124.i ], [ 1, %716 ], [ -8, %IDAPredict.exit.i.i ]
+  %.1272.ph.i = phi double [ %.0271.i, %958 ], [ %982, %IDATestError.exit.i ], [ %.0271.i, %913 ], [ %.0271.i, %.lr.ph144.i.i.i ], [ %.0271.i, %791 ], [ %.0271.i, %900 ], [ %.0271.i, %IDAPredict.exit.i.i ], [ %.0271.i, %716 ], [ %.0271.i, %._crit_edge.i124.i ], [ %.0271.i, %760 ], [ %.0271.i, %762 ], [ %.0271.i, %774 ], [ %.0271.i, %.loopexit.i.i ]
+  %.1257.ph.i = phi double [ %.0256.i, %958 ], [ %.8264.i, %IDATestError.exit.i ], [ %.0256.i, %913 ], [ %.0256.i, %.lr.ph144.i.i.i ], [ %.0256.i, %791 ], [ %.0256.i, %900 ], [ %.0256.i, %IDAPredict.exit.i.i ], [ %.0256.i, %716 ], [ %.0256.i, %._crit_edge.i124.i ], [ %.0256.i, %760 ], [ %.0256.i, %762 ], [ %.0256.i, %774 ], [ %.0256.i, %.loopexit.i.i ]
+  %.1253.ph.i = phi double [ %.0252.i, %958 ], [ %.8.i, %IDATestError.exit.i ], [ %.0252.i, %913 ], [ %.0252.i, %.lr.ph144.i.i.i ], [ %.0252.i, %791 ], [ %.0252.i, %900 ], [ %.0252.i, %IDAPredict.exit.i.i ], [ %.0252.i, %716 ], [ %.0252.i, %._crit_edge.i124.i ], [ %.0252.i, %760 ], [ %.0252.i, %762 ], [ %.0252.i, %774 ], [ %.0252.i, %.loopexit.i.i ]
+  %.0101.ph.i = phi i32 [ 5, %958 ], [ 7, %IDATestError.exit.i ], [ -41, %913 ], [ -7, %.lr.ph144.i.i.i ], [ -8, %900 ], [ -7, %791 ], [ -6, %762 ], [ 11, %760 ], [ -41, %._crit_edge.i124.i ], [ 1, %716 ], [ -8, %IDAPredict.exit.i.i ], [ %.0.i.ph.i.i, %.loopexit.i.i ], [ 2, %774 ]
   tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %517)
   %1043 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.0101.ph.i, double noundef %.1272.ph.i, double noundef %.1257.ph.i, ptr noundef %383, ptr noundef %7, ptr noundef %384, ptr noundef %8)
   %.not119.i = icmp eq i32 %1043, 20
@@ -5275,9 +5275,9 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   br i1 %1046, label %.backedge.sink.split.i, label %.backedge.i.backedge
 
 .backedge.sink.split.i:                           ; preds = %1654, %1445, %1179, %1044
-  %.0271.be.ph.i = phi double [ %.3274.i, %1179 ], [ %.5276.i, %1445 ], [ %.6277.i, %1654 ], [ %.1272.ph.i, %1044 ]
-  %.0256.be.ph.i = phi double [ %.3259.i, %1179 ], [ %.5261.i, %1445 ], [ %.6262.i, %1654 ], [ %.1257.ph.i, %1044 ]
-  %.0252.be.ph.i = phi double [ %.3255.i, %1179 ], [ %.5.i, %1445 ], [ %.6.i, %1654 ], [ %.1253.ph.i, %1044 ]
+  %.0271.be.ph.i = phi double [ %.5276.i, %1445 ], [ %.3274.i, %1179 ], [ %.6277.i, %1654 ], [ %.1272.ph.i, %1044 ]
+  %.0256.be.ph.i = phi double [ %.5261.i, %1445 ], [ %.3259.i, %1179 ], [ %.6262.i, %1654 ], [ %.1257.ph.i, %1044 ]
+  %.0252.be.ph.i = phi double [ %.5.i, %1445 ], [ %.3255.i, %1179 ], [ %.6.i, %1654 ], [ %.1253.ph.i, %1044 ]
   %1047 = load double, ptr %317, align 8, !tbaa !205
   store double %1047, ptr %318, align 8, !tbaa !60
   %1048 = load double, ptr %363, align 8, !tbaa !252
@@ -5327,9 +5327,9 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   br i1 %1067, label %.lr.ph32.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.lr.ph32.i, %.preheader.i429, %.loopexit29.i, %1654, %1445, %1191, %1179, %1044
-  %.0271.i.be = phi double [ %.2273.i, %1191 ], [ %.1272.ph.i, %1044 ], [ %.3274.i, %1179 ], [ %.5276.i, %1445 ], [ %.6277.i, %1654 ], [ %.0271.be.ph.i, %.loopexit29.i ], [ %.0271.be.ph.i, %.preheader.i429 ], [ %.0271.be.ph.i, %.lr.ph32.i ]
-  %.0256.i.be = phi double [ %.2258.i, %1191 ], [ %.1257.ph.i, %1044 ], [ %.3259.i, %1179 ], [ %.5261.i, %1445 ], [ %.6262.i, %1654 ], [ %.0256.be.ph.i, %.loopexit29.i ], [ %.0256.be.ph.i, %.preheader.i429 ], [ %.0256.be.ph.i, %.lr.ph32.i ]
-  %.0252.i.be = phi double [ %.2254.i, %1191 ], [ %.1253.ph.i, %1044 ], [ %.3255.i, %1179 ], [ %.5.i, %1445 ], [ %.6.i, %1654 ], [ %.0252.be.ph.i, %.loopexit29.i ], [ %.0252.be.ph.i, %.preheader.i429 ], [ %.0252.be.ph.i, %.lr.ph32.i ]
+  %.0271.i.be = phi double [ %.5276.i, %1445 ], [ %.3274.i, %1179 ], [ %.2273.i, %1191 ], [ %.1272.ph.i, %1044 ], [ %.6277.i, %1654 ], [ %.0271.be.ph.i, %.loopexit29.i ], [ %.0271.be.ph.i, %.preheader.i429 ], [ %.0271.be.ph.i, %.lr.ph32.i ]
+  %.0256.i.be = phi double [ %.5261.i, %1445 ], [ %.3259.i, %1179 ], [ %.2258.i, %1191 ], [ %.1257.ph.i, %1044 ], [ %.6262.i, %1654 ], [ %.0256.be.ph.i, %.loopexit29.i ], [ %.0256.be.ph.i, %.preheader.i429 ], [ %.0256.be.ph.i, %.lr.ph32.i ]
+  %.0252.i.be = phi double [ %.5.i, %1445 ], [ %.3255.i, %1179 ], [ %.2254.i, %1191 ], [ %.1253.ph.i, %1044 ], [ %.6.i, %1654 ], [ %.0252.be.ph.i, %.loopexit29.i ], [ %.0252.be.ph.i, %.preheader.i429 ], [ %.0252.be.ph.i, %.lr.ph32.i ]
   br label %.backedge.i
 
 .lr.ph32.i:                                       ; preds = %.preheader.i429, %.lr.ph32.i
@@ -5516,10 +5516,10 @@ IDAQuadTestError.exit.i:                          ; preds = %.sink.split.i141.i,
   br i1 %1177, label %IDAQuadNls.exit.thread.i, label %.thread296.i
 
 IDAQuadNls.exit.thread.i:                         ; preds = %IDAQuadTestError.exit.i, %1101, %IDAQuadPredict.exit.i.i
-  %.3274.i = phi double [ %982, %IDAQuadPredict.exit.i.i ], [ %982, %1101 ], [ %.8279.i, %IDAQuadTestError.exit.i ]
-  %.3259.i = phi double [ %.8264.i, %IDAQuadPredict.exit.i.i ], [ %.8264.i, %1101 ], [ %.10266.i, %IDAQuadTestError.exit.i ]
-  %.3255.i = phi double [ %.8.i, %IDAQuadPredict.exit.i.i ], [ %.8.i, %1101 ], [ %.11.i, %IDAQuadTestError.exit.i ]
-  %.1.i423 = phi i32 [ -31, %IDAQuadPredict.exit.i.i ], [ 10, %1101 ], [ 7, %IDAQuadTestError.exit.i ]
+  %.3274.i = phi double [ %982, %1101 ], [ %982, %IDAQuadPredict.exit.i.i ], [ %.8279.i, %IDAQuadTestError.exit.i ]
+  %.3259.i = phi double [ %.8264.i, %1101 ], [ %.8264.i, %IDAQuadPredict.exit.i.i ], [ %.10266.i, %IDAQuadTestError.exit.i ]
+  %.3255.i = phi double [ %.8.i, %1101 ], [ %.8.i, %IDAQuadPredict.exit.i.i ], [ %.11.i, %IDAQuadTestError.exit.i ]
+  %.1.i423 = phi i32 [ 10, %1101 ], [ -31, %IDAQuadPredict.exit.i.i ], [ 7, %IDAQuadTestError.exit.i ]
   tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %517)
   %1178 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.1.i423, double noundef %.3274.i, double noundef %.3259.i, ptr noundef %371, ptr noundef %7, ptr noundef %372, ptr noundef %8)
   %.not118.i = icmp eq i32 %1178, 20
@@ -5831,14 +5831,14 @@ IDASensWrmsNorm.exit.i.i149.i:                    ; preds = %IDAWrmsNorm.exit20.
   br i1 %.not84.i.i.i, label %.preheader.i.i147.i, label %.loopexit68.i.i
 
 .loopexit68.i.i:                                  ; preds = %1355, %1334, %1320, %1275
-  %.0.i.ph.i153.i = phi i32 [ 3, %1275 ], [ 11, %1355 ], [ 4, %1334 ], [ 4, %1320 ]
+  %.0.i.ph.i153.i = phi i32 [ 3, %1275 ], [ 4, %1334 ], [ 4, %1320 ], [ 11, %1355 ]
   %1356 = load i32, ptr %.phi.trans.insert.i121.i, align 8, !tbaa !234
   %.not57.i.i = icmp ne i32 %1356, 0
   %spec.select.i154.i = and i1 %.not55.i.i, %.not57.i.i
   br i1 %spec.select.i154.i, label %.preheader.i, label %.loopexit.i155.i
 
 .loopexit.i155.i:                                 ; preds = %.loopexit68.i.i, %1337, %.lr.ph90.i.i.i
-  %.0.i63.ph.i.i = phi i32 [ -7, %.lr.ph90.i.i.i ], [ -41, %1337 ], [ %.0.i.ph.i153.i, %.loopexit68.i.i ]
+  %.0.i63.ph.i.i = phi i32 [ -41, %1337 ], [ -7, %.lr.ph90.i.i.i ], [ %.0.i.ph.i153.i, %.loopexit68.i.i ]
   %1357 = load i64, ptr %382, align 8, !tbaa !154
   %1358 = add nsw i64 %1357, 1
   store i64 %1358, ptr %382, align 8, !tbaa !154
@@ -6094,7 +6094,7 @@ IDASensNls.exit.thread.i:                         ; preds = %1249, %1236, %1234,
   br i1 %1488, label %.preheader.i.i191.i, label %IDAQuadSensPredict.exit.i.i, !llvm.loop !264
 
 IDAQuadSensPredict.exit.i.i:                      ; preds = %._crit_edge.i.i194.i, %.preheader.lr.ph.i.i.i, %.preheader31.i.i.i, %1449
-  %1489 = phi i32 [ %1452, %1449 ], [ %1464, %.preheader31.i.i.i ], [ %1464, %.preheader.lr.ph.i.i.i ], [ %1485, %._crit_edge.i.i194.i ]
+  %1489 = phi i32 [ %1464, %.preheader.lr.ph.i.i.i ], [ %1452, %1449 ], [ %1464, %.preheader31.i.i.i ], [ %1485, %._crit_edge.i.i194.i ]
   %1490 = load ptr, ptr %378, align 8, !tbaa !48
   %1491 = load double, ptr %313, align 8, !tbaa !98
   %1492 = load ptr, ptr %20, align 8, !tbaa !199
@@ -6636,8 +6636,8 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   br label %.thread263.i.i
 
 .thread263.i.i:                                   ; preds = %1790, %1789, %1787, %1778, %.thread258.i.i, %.thread258.thread.i.i
-  %1791 = phi i32 [ %1773, %1789 ], [ %.pre-phi.i218.i, %1790 ], [ %1659, %.thread258.i.i ], [ %1769, %1787 ], [ 1, %1778 ], [ %1659, %.thread258.thread.i.i ]
-  %.0238.i.i = phi double [ %1772, %1789 ], [ %.7263.i, %1790 ], [ %.7278.i, %.thread258.i.i ], [ %.7278.i, %1787 ], [ %.7278.i, %1778 ], [ %.7278.i, %.thread258.thread.i.i ]
+  %1791 = phi i32 [ %1773, %1789 ], [ %.pre-phi.i218.i, %1790 ], [ %1659, %.thread258.i.i ], [ %1659, %.thread258.thread.i.i ], [ %1769, %1787 ], [ 1, %1778 ]
+  %.0238.i.i = phi double [ %1772, %1789 ], [ %.7263.i, %1790 ], [ %.7278.i, %.thread258.i.i ], [ %.7278.i, %.thread258.thread.i.i ], [ %.7278.i, %1787 ], [ %.7278.i, %1778 ]
   %1792 = load double, ptr %317, align 8, !tbaa !205
   %1793 = tail call double @llvm.fmuladd.f64(double %.0238.i.i, double 2.000000e+00, double 1.000000e-04)
   %1794 = add nsw i32 %1791, 1
@@ -6936,7 +6936,7 @@ IDAStep.exit.thread:                              ; preds = %._crit_edge302.i.i,
   br label %1954
 
 IDAStep.exit:                                     ; preds = %IDANls.exit.thread.i, %IDAQuadNls.exit.thread.i, %IDASensNls.exit.thread.i, %IDAQuadSensNls.exit.thread.i
-  %.0.i422 = phi i32 [ %1653, %IDAQuadSensNls.exit.thread.i ], [ %1444, %IDASensNls.exit.thread.i ], [ %1178, %IDAQuadNls.exit.thread.i ], [ %1043, %IDANls.exit.thread.i ]
+  %.0.i422 = phi i32 [ %1043, %IDANls.exit.thread.i ], [ %1653, %IDAQuadSensNls.exit.thread.i ], [ %1444, %IDASensNls.exit.thread.i ], [ %1178, %IDAQuadNls.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not413 = icmp eq i32 %.0.i422, 0
@@ -7180,8 +7180,8 @@ IDAStopTest2.exit:                                ; preds = %2009, %2029, %2037
   %or.cond417 = select i1 %2081, i1 true, i1 %.not399
   br i1 %or.cond417, label %397, label %._crit_edge
 
-IDAStopTest2.exit.thread:                         ; preds = %.thread, %2076, %2058, %2024, %2006, %._crit_edge, %410, %427, %439, %453, %.loopexit, %1978, %1983, %508, %501, %291, %67, %288, %285, %282, %256, %253, %250, %190, %169, %97, %86, %76, %58, %46, %29, %26, %22, %18, %15, %10
-  %.0358 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -22, %46 ], [ -22, %58 ], [ -22, %76 ], [ -22, %86 ], [ -22, %97 ], [ -22, %169 ], [ -10, %190 ], [ -22, %250 ], [ -10, %253 ], [ 2, %256 ], [ 0, %282 ], [ 2, %285 ], [ -10, %288 ], [ %68, %67 ], [ %292, %291 ], [ -1, %._crit_edge ], [ -22, %410 ], [ -22, %427 ], [ -22, %439 ], [ -22, %453 ], [ -2, %508 ], [ -2, %501 ], [ %1950, %.loopexit ], [ 2, %1978 ], [ -10, %1983 ], [ 0, %2076 ], [ 1, %2058 ], [ 1, %2024 ], [ 0, %2006 ], [ -99, %.thread ]
+IDAStopTest2.exit.thread:                         ; preds = %.thread, %2058, %2076, %2024, %2006, %._crit_edge, %410, %427, %439, %453, %.loopexit, %1978, %1983, %508, %501, %291, %67, %288, %285, %282, %256, %253, %250, %190, %169, %97, %86, %76, %58, %46, %29, %26, %22, %18, %15, %10
+  %.0358 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -22, %46 ], [ -22, %58 ], [ -10, %288 ], [ -22, %76 ], [ -22, %86 ], [ -22, %97 ], [ -22, %169 ], [ -10, %190 ], [ -22, %250 ], [ -10, %253 ], [ 2, %256 ], [ 0, %282 ], [ %68, %67 ], [ %292, %291 ], [ 2, %285 ], [ -1, %._crit_edge ], [ -22, %410 ], [ -22, %427 ], [ -22, %439 ], [ -22, %453 ], [ -2, %508 ], [ -2, %501 ], [ %1950, %.loopexit ], [ 2, %1978 ], [ -10, %1983 ], [ 1, %2058 ], [ 0, %2076 ], [ 1, %2024 ], [ 0, %2006 ], [ -99, %.thread ]
   ret i32 %.0358
 }
 
@@ -7554,7 +7554,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 197:                                              ; preds = %191, %194, %40, %41, %196, %190, %185, %177, %165, %159, %154, %147, %142, %136, %134, %96, %89, %79, %73, %65, %63, %21, %17, %12
-  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -31, %63 ], [ -32, %65 ], [ -22, %73 ], [ -22, %79 ], [ -22, %89 ], [ -22, %96 ], [ -31, %134 ], [ -52, %136 ], [ -22, %147 ], [ -22, %154 ], [ -22, %159 ], [ -22, %165 ], [ -22, %177 ], [ -22, %190 ], [ -5, %196 ], [ -22, %185 ], [ -22, %142 ], [ -22, %41 ], [ -22, %40 ], [ 0, %194 ], [ 0, %191 ]
+  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -22, %142 ], [ -31, %63 ], [ -32, %65 ], [ -22, %73 ], [ -22, %79 ], [ -22, %89 ], [ -22, %96 ], [ -31, %134 ], [ -52, %136 ], [ -22, %147 ], [ -22, %154 ], [ -22, %159 ], [ -22, %165 ], [ -22, %177 ], [ -22, %190 ], [ -5, %196 ], [ -22, %40 ], [ -22, %185 ], [ -22, %41 ], [ 0, %194 ], [ 0, %191 ]
   ret i32 %.0
 }
 
@@ -8019,7 +8019,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull cap
   br i1 %129, label %103, label %.loopexit, !llvm.loop !289
 
 .loopexit:                                        ; preds = %117, %126, %.preheader86, %.preheader85, %.preheader, %89, %._crit_edge, %5, %1
-  %.076 = phi i32 [ 0, %1 ], [ -10, %5 ], [ 0, %._crit_edge ], [ -10, %89 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 3, %117 ], [ %.3, %126 ]
+  %.076 = phi i32 [ -10, %5 ], [ 0, %1 ], [ 0, %._crit_edge ], [ -10, %89 ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 0, %.preheader ], [ %.3, %126 ], [ 3, %117 ]
   ret i32 %.076
 }
 
@@ -8184,7 +8184,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %102, label %.thread.i, label %103
 
 103:                                              ; preds = %98, %91, %82, %81, %71, %61
-  %.1212.i = phi i32 [ 1, %81 ], [ %.0211264.i, %71 ], [ %.0211264.i, %98 ], [ %.0211264.i, %91 ], [ %.0211264.i, %82 ], [ %.0211264.i, %61 ]
+  %.1212.i = phi i32 [ 1, %81 ], [ %.0211264.i, %71 ], [ %.0211264.i, %61 ], [ %.0211264.i, %98 ], [ %.0211264.i, %91 ], [ %.0211264.i, %82 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %104 = load i32, ptr %51, align 8, !tbaa !108
   %105 = sext i32 %104 to i64
@@ -8462,7 +8462,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %273, label %.thread387.i, label %274
 
 274:                                              ; preds = %269, %262, %253, %252, %242, %.lr.ph274.i
-  %.3214.i = phi i32 [ 1, %252 ], [ %.2213272.i, %242 ], [ %.2213272.i, %269 ], [ %.2213272.i, %262 ], [ %.2213272.i, %253 ], [ %.2213272.i, %.lr.ph274.i ]
+  %.3214.i = phi i32 [ 1, %252 ], [ %.2213272.i, %242 ], [ %.2213272.i, %.lr.ph274.i ], [ %.2213272.i, %269 ], [ %.2213272.i, %262 ], [ %.2213272.i, %253 ]
   %indvars.iv.next321.i = add nuw nsw i64 %indvars.iv320.i, 1
   %275 = load i32, ptr %51, align 8, !tbaa !108
   %276 = sext i32 %275 to i64
@@ -8517,9 +8517,9 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %295, label %.backedge.i, label %.loopexit246.i
 
 .backedge.i:                                      ; preds = %._crit_edge287.i, %._crit_edge283.i
-  %.3220.lcssa383.i = phi i32 [ %.4393400.i, %._crit_edge283.i ], [ %.3220.lcssa384406410.i, %._crit_edge287.i ]
-  %.v.be.i = phi double [ 5.000000e-01, %._crit_edge283.i ], [ 2.000000e+00, %._crit_edge287.i ]
-  %.0216.be.i = phi i32 [ 1, %._crit_edge283.i ], [ 2, %._crit_edge287.i ]
+  %.3220.lcssa383.i = phi i32 [ %.3220.lcssa384406410.i, %._crit_edge287.i ], [ %.4393400.i, %._crit_edge283.i ]
+  %.v.be.i = phi double [ 2.000000e+00, %._crit_edge287.i ], [ 5.000000e-01, %._crit_edge283.i ]
+  %.0216.be.i = phi i32 [ 2, %._crit_edge287.i ], [ 1, %._crit_edge283.i ]
   %296 = load double, ptr %20, align 8, !tbaa !290
   %297 = load double, ptr %111, align 8, !tbaa !217
   %298 = fsub double %296, %297
@@ -9082,7 +9082,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %135
 
 135:                                              ; preds = %87, %6, %130, %122, %38, %68, %60, %121, %119, %98, %86, %59, %57, %37, %36, %25, %20
-  %.0 = phi i32 [ -22, %20 ], [ 0, %25 ], [ -22, %36 ], [ 0, %37 ], [ -22, %57 ], [ 1, %59 ], [ -22, %86 ], [ 0, %98 ], [ -22, %119 ], [ 1, %121 ], [ 99, %60 ], [ 99, %68 ], [ 99, %38 ], [ 99, %122 ], [ 99, %130 ], [ -99, %6 ], [ 99, %87 ]
+  %.0 = phi i32 [ -99, %6 ], [ -22, %20 ], [ 0, %25 ], [ -22, %36 ], [ 0, %37 ], [ -22, %57 ], [ 1, %59 ], [ 99, %38 ], [ -22, %86 ], [ 0, %98 ], [ -22, %119 ], [ 1, %121 ], [ 99, %60 ], [ 99, %68 ], [ 99, %122 ], [ 99, %130 ], [ 99, %87 ]
   ret i32 %.0
 }
 
@@ -9267,7 +9267,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr noundef readonly captures(none) %
   br i1 %86, label %68, label %IDASensEwtSetEE.exit, !llvm.loop !305
 
 IDASensEwtSetEE.exit:                             ; preds = %80, %68, %54, %41, %26, %15, %61, %34, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %34 ], [ 0, %61 ], [ -1, %15 ], [ 0, %26 ], [ -1, %41 ], [ 0, %54 ], [ -1, %68 ], [ 0, %80 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %61 ], [ -1, %41 ], [ 0, %6 ], [ -1, %15 ], [ 0, %34 ], [ 0, %26 ], [ 0, %54 ], [ -1, %68 ], [ 0, %80 ]
   ret i32 %.0
 }
 
@@ -9393,7 +9393,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr noundef readonly captures(non
   br i1 %75, label %61, label %IDAQuadSensEwtSetEE.exit, !llvm.loop !308
 
 IDAQuadSensEwtSetEE.exit:                         ; preds = %70, %61, %47, %38, %22, %.lr.ph.i, %53, %30, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %30 ], [ 0, %53 ], [ -1, %.lr.ph.i ], [ 0, %22 ], [ -1, %38 ], [ 0, %47 ], [ -1, %61 ], [ 0, %70 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %53 ], [ -1, %38 ], [ 0, %6 ], [ -1, %.lr.ph.i ], [ 0, %30 ], [ 0, %22 ], [ 0, %47 ], [ -1, %61 ], [ 0, %70 ]
   ret i32 %.0
 }
 
@@ -9456,7 +9456,7 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonn
   br label %28
 
 28:                                               ; preds = %2, %25, %22, %19, %16, %13, %8, %3
-  %.0 = phi i32 [ -3, %3 ], [ -4, %8 ], [ -6, %13 ], [ -7, %16 ], [ -9, %19 ], [ -8, %22 ], [ -11, %25 ], [ -99, %2 ]
+  %.0 = phi i32 [ -11, %25 ], [ -3, %3 ], [ -4, %8 ], [ -6, %13 ], [ -7, %16 ], [ -9, %19 ], [ -8, %22 ], [ -99, %2 ]
   ret i32 %.0
 }
 
@@ -11373,7 +11373,7 @@ define internal fastcc void @IDARestore(ptr noundef nonnull captures(none) initi
   br i1 %.not66.not, label %36, label %.loopexit73, !llvm.loop !335
 
 .loopexit73:                                      ; preds = %36, %31, %._crit_edge80
-  %44 = phi i32 [ %28, %31 ], [ %28, %._crit_edge80 ], [ %42, %36 ]
+  %44 = phi i32 [ %28, %._crit_edge80 ], [ %28, %31 ], [ %42, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load i32, ptr %45, align 8, !tbaa !37
   %.not67 = icmp eq i32 %46, 0
@@ -11433,7 +11433,7 @@ define internal fastcc void @IDARestore(ptr noundef nonnull captures(none) initi
   br i1 %71, label %.lr.ph91.split, label %.loopexit72, !llvm.loop !337
 
 .loopexit72:                                      ; preds = %._crit_edge89, %.lr.ph91, %.preheader71, %.loopexit73
-  %72 = phi i32 [ %44, %.preheader71 ], [ %44, %.loopexit73 ], [ %44, %.lr.ph91 ], [ %69, %._crit_edge89 ]
+  %72 = phi i32 [ %44, %.lr.ph91 ], [ %44, %.loopexit73 ], [ %44, %.preheader71 ], [ %69, %._crit_edge89 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %74 = load i32, ptr %73, align 8, !tbaa !46
   %.not68 = icmp eq i32 %74, 0
@@ -11619,7 +11619,7 @@ switch.lookup:                                    ; preds = %26
   br label %75
 
 75:                                               ; preds = %26, %switch.lookup, %64, %18, %10, %68, %56, %34
-  %.0 = phi i32 [ 20, %34 ], [ 20, %56 ], [ 20, %68 ], [ %1, %10 ], [ 20, %18 ], [ -3, %64 ], [ %switch.load, %switch.lookup ], [ -4, %26 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %1, %10 ], [ 20, %18 ], [ -3, %64 ], [ 20, %68 ], [ 20, %56 ], [ 20, %34 ], [ -4, %26 ]
   ret i32 %.0
 }
 

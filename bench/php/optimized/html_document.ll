@@ -1162,17 +1162,17 @@ select.unfold.i:                                  ; preds = %75, %dom_seek_utf8_
   br i1 %84, label %._crit_edge96.i, label %.thread62.i
 
 ._crit_edge96.i:                                  ; preds = %80, %.loopexit.i, %._crit_edge91.i
-  %85 = phi ptr [ %79, %.loopexit.i ], [ %.pre100.i, %80 ], [ %42, %._crit_edge91.i ]
+  %85 = phi ptr [ %.pre100.i, %80 ], [ %79, %.loopexit.i ], [ %42, %._crit_edge91.i ]
   store ptr %85, ptr %3, align 8, !tbaa !10
   br label %dom_decode_encode_fast_path.exit
 
 .thread62.i:                                      ; preds = %75, %80, %..thread62.loopexit_crit_edge.i, %31
-  %86 = phi ptr [ %.pre99.i, %31 ], [ %.pre100.i, %80 ], [ %.pre98.pre.i, %..thread62.loopexit_crit_edge.i ], [ %77, %75 ]
+  %86 = phi ptr [ %.pre100.i, %80 ], [ %.pre99.i, %31 ], [ %.pre98.pre.i, %..thread62.loopexit_crit_edge.i ], [ %77, %75 ]
   store ptr %86, ptr %3, align 8, !tbaa !10
   br label %dom_decode_encode_fast_path.exit
 
 dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._crit_edge96.i, %.thread62.i
-  %.0.i = phi i1 [ true, %._crit_edge96.i ], [ false, %.thread62.i ], [ true, %.thread65.i ]
+  %.0.i = phi i1 [ true, %.thread65.i ], [ true, %._crit_edge96.i ], [ false, %.thread62.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %153
 
@@ -1937,7 +1937,7 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %162, %158
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
 dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179, %180, %181
-  %.0.i116 = phi ptr [ @.str.74, %181 ], [ @.str.115, %178 ], [ @.str.116, %179 ], [ @.str.117, %180 ], [ @.str.114, %168 ]
+  %.0.i116 = phi ptr [ @.str.74, %181 ], [ @.str.117, %180 ], [ @.str.115, %178 ], [ @.str.116, %179 ], [ @.str.114, %168 ]
   %182 = load ptr, ptr %5, align 8, !tbaa !10
   call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i116, ptr noundef %182) #10
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2008,7 +2008,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179
   br label %.thread135
 
 .thread135:                                       ; preds = %204, %212, %213
-  %.sink = phi ptr [ %209, %212 ], [ %215, %213 ], [ %203, %204 ]
+  %.sink = phi ptr [ %215, %213 ], [ %209, %212 ], [ %203, %204 ]
   %216 = load ptr, ptr %19, align 8, !tbaa !130
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 136
   store ptr %.sink, ptr %217, align 8, !tbaa !175
@@ -2438,7 +2438,7 @@ lxb_encoding_encode_finish.exit:                  ; preds = %80, %84
   br label %94
 
 94:                                               ; preds = %87, %lxb_encoding_encode_init.exit, %69, %93
-  %.023 = phi i32 [ 0, %93 ], [ -1, %69 ], [ -1, %lxb_encoding_encode_init.exit ], [ -1, %87 ]
+  %.023 = phi i32 [ -1, %69 ], [ -1, %lxb_encoding_encode_init.exit ], [ 0, %93 ], [ -1, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2663,9 +2663,9 @@ define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noun
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %5, %11
-  %12 = phi i64 [ %.pre2, %11 ], [ %7, %5 ]
-  %13 = phi ptr [ %.pre, %11 ], [ %4, %5 ]
-  %.1.i = phi i64 [ %.0.i, %11 ], [ %8, %5 ]
+  %12 = phi i64 [ %7, %5 ], [ %.pre2, %11 ]
+  %13 = phi ptr [ %4, %5 ], [ %.pre, %11 ]
+  %.1.i = phi i64 [ %8, %5 ], [ %.0.i, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %1, i64 %2, i1 false)
@@ -2786,7 +2786,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_element_read_helper(ptr no
   br i1 %.not15.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
 dom_html_document_element_read_raw.exit:          ; preds = %25, %29, %7, %10, %13, %17
-  %.013.i = phi ptr [ null, %13 ], [ null, %10 ], [ null, %7 ], [ null, %17 ], [ %.018.i, %25 ], [ null, %29 ]
+  %.013.i = phi ptr [ null, %7 ], [ null, %13 ], [ null, %10 ], [ null, %17 ], [ %.018.i, %25 ], [ null, %29 ]
   %31 = tail call zeroext i1 @php_dom_create_nullable_object(ptr noundef %.013.i, ptr noundef %1, ptr noundef %0) #10
   br label %32
 
@@ -2878,7 +2878,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_head_read(ptr noundef %0, 
   br i1 %.not15.i.i, label %dom_html_document_element_read_raw.exit.i, label %.lr.ph.i.i
 
 dom_html_document_element_read_raw.exit.i:        ; preds = %28, %24, %16, %12, %9, %6
-  %.013.i.i = phi ptr [ null, %12 ], [ null, %9 ], [ null, %6 ], [ null, %16 ], [ null, %28 ], [ %.018.i.i, %24 ]
+  %.013.i.i = phi ptr [ null, %6 ], [ null, %12 ], [ null, %9 ], [ null, %16 ], [ null, %28 ], [ %.018.i.i, %24 ]
   %30 = tail call zeroext i1 @php_dom_create_nullable_object(ptr noundef %.013.i.i, ptr noundef %1, ptr noundef %0) #10
   br label %dom_html_document_element_read_helper.exit
 
@@ -2977,7 +2977,7 @@ dom_accept_body_name.exit44:                      ; preds = %36
   br i1 %.not15.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
 dom_html_document_element_read_raw.exit:          ; preds = %36, %dom_accept_body_name.exit44, %41, %dom_accept_body_name.exit.thread, %21, %24, %28
-  %.013.i = phi ptr [ null, %24 ], [ null, %21 ], [ null, %dom_accept_body_name.exit.thread ], [ null, %28 ], [ %.018.i, %36 ], [ %.018.i, %dom_accept_body_name.exit44 ], [ null, %41 ]
+  %.013.i = phi ptr [ null, %dom_accept_body_name.exit.thread ], [ null, %24 ], [ null, %21 ], [ null, %28 ], [ %.018.i, %36 ], [ %.018.i, %dom_accept_body_name.exit44 ], [ null, %41 ]
   %43 = icmp eq ptr %.013.i, %14
   br i1 %43, label %59, label %44
 
@@ -3019,7 +3019,7 @@ dom_html_document_element_read_raw.exit:          ; preds = %36, %dom_accept_bod
   br label %59
 
 59:                                               ; preds = %dom_html_document_element_read_raw.exit, %51, %48, %45, %56, %55, %.thread, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %.thread ], [ 0, %dom_html_document_element_read_raw.exit ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ -1, %55 ], [ 0, %56 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %45 ], [ 0, %dom_html_document_element_read_raw.exit ], [ 0, %51 ], [ 0, %48 ], [ -1, %55 ]
   ret i32 %.0
 }
 
@@ -3143,7 +3143,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i32.backedge
 
 .lr.ph.i32.backedge:                              ; preds = %55, %.thread.i, %47
-  %.02.i.be = phi ptr [ %49, %47 ], [ %51, %.thread.i ], [ %57, %55 ]
+  %.02.i.be = phi ptr [ %51, %.thread.i ], [ %49, %47 ], [ %57, %55 ]
   br label %.lr.ph.i32
 
 .preheader.i:                                     ; preds = %.thread.i, %55
@@ -3237,9 +3237,9 @@ define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull reado
   br label %smart_str_appends.exit
 
 smart_str_appends.exit:                           ; preds = %14, %19
-  %20 = phi i64 [ %.pre17, %19 ], [ %16, %14 ]
-  %21 = phi ptr [ %.pre, %19 ], [ %6, %14 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %19 ], [ %17, %14 ]
+  %20 = phi i64 [ %16, %14 ], [ %.pre17, %19 ]
+  %21 = phi ptr [ %6, %14 ], [ %.pre, %19 ]
+  %.1.i.i = phi i64 [ %17, %14 ], [ %.0.i.i, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %11, i64 %13, i1 false)
@@ -3535,7 +3535,7 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i74.backedge
 
 .lr.ph.i74.backedge:                              ; preds = %92, %.thread.i, %84
-  %.02.i.be = phi ptr [ %86, %84 ], [ %88, %.thread.i ], [ %94, %92 ]
+  %.02.i.be = phi ptr [ %88, %.thread.i ], [ %86, %84 ], [ %94, %92 ]
   br label %.lr.ph.i74
 
 .preheader.i:                                     ; preds = %.thread.i, %92
@@ -3633,7 +3633,7 @@ dom_html_document_element_read_raw.exit:          ; preds = %118, %dom_get_title
   br label %.thread86
 
 .thread86:                                        ; preds = %.thread85, %dom_html_document_element_read_raw.exit, %67, %.critedge, %127, %.thread, %6, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %6 ], [ -1, %.thread ], [ 0, %127 ], [ 0, %.critedge ], [ 0, %67 ], [ -1, %.thread85 ], [ 0, %dom_html_document_element_read_raw.exit ]
+  %.0 = phi i32 [ -1, %5 ], [ 0, %67 ], [ -1, %.thread ], [ 0, %6 ], [ 0, %127 ], [ 0, %.critedge ], [ -1, %.thread85 ], [ 0, %dom_html_document_element_read_raw.exit ]
   ret i32 %.0
 }
 
@@ -3877,8 +3877,8 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
 ._crit_edge.thread:                               ; preds = %3, %38, %._crit_edge
   br label %.thread
 
-.thread:                                          ; preds = %30, %16, %25, %38, %._crit_edge.thread
-  %.2 = phi i32 [ 0, %._crit_edge.thread ], [ -1, %38 ], [ 0, %25 ], [ -1, %16 ], [ -1, %30 ]
+.thread:                                          ; preds = %16, %30, %25, %38, %._crit_edge.thread
+  %.2 = phi i32 [ -1, %38 ], [ 0, %._crit_edge.thread ], [ 0, %25 ], [ -1, %30 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
@@ -3972,7 +3972,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   br label %dom_saveHTML_write_string_len_utf8_output.exit
 
 dom_saveHTML_write_string_len_utf8_output.exit:   ; preds = %16, %30, %25, %38, %._crit_edge.thread.i
-  %.2.i = phi i32 [ 0, %._crit_edge.thread.i ], [ -1, %38 ], [ 0, %25 ], [ -1, %30 ], [ -1, %16 ]
+  %.2.i = phi i32 [ -1, %38 ], [ 0, %._crit_edge.thread.i ], [ 0, %25 ], [ -1, %30 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2.i
 }

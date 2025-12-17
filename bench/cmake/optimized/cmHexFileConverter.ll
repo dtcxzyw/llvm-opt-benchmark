@@ -241,7 +241,7 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %47, %42
   br label %55
 
 55:                                               ; preds = %54, %53, %51
-  %.0.i.us = phi i32 [ 10, %54 ], [ 12, %53 ], [ 8, %51 ]
+  %.0.i.us = phi i32 [ 12, %53 ], [ 10, %54 ], [ 8, %51 ]
   %56 = add nsw i32 %.1.i.i.us, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %29, align 1, !tbaa !4

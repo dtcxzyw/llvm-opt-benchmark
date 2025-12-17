@@ -1181,7 +1181,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %30
   br label %_ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit
 
 .thread:                                          ; preds = %30, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i, %15, %7, %8, %13
-  %41 = phi i32 [ %cttz6.i, %13 ], [ %12, %8 ], [ -1, %7 ], [ 0, %15 ], [ 0, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i ], [ 0, %30 ]
+  %41 = phi i32 [ %cttz6.i, %13 ], [ -1, %7 ], [ %12, %8 ], [ 0, %15 ], [ 0, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i ], [ 0, %30 ]
   invoke void @je_sdallocx_default(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %41)
           to label %_ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit unwind label %42
 
@@ -1265,7 +1265,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %30
   br label %_ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit
 
 .thread:                                          ; preds = %30, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i, %15, %7, %8, %13
-  %41 = phi i32 [ %cttz6.i, %13 ], [ %12, %8 ], [ -1, %7 ], [ 0, %15 ], [ 0, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i ], [ 0, %30 ]
+  %41 = phi i32 [ %cttz6.i, %13 ], [ -1, %7 ], [ %12, %8 ], [ 0, %15 ], [ 0, %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i ], [ 0, %30 ]
   invoke void @je_sdallocx_default(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %41)
           to label %_ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit unwind label %42
 

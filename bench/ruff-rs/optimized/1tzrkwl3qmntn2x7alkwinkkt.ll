@@ -488,7 +488,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit"
 
 "_ZN78_$LT$ruff_python_ast..generated..ExprSlice$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha19168c8d104febaE.exit": ; preds = %0, %6, %18, %19, %20, %28, %29, %30, %32, %38
-  %.sroa.0.0.shrunk.i = phi i1 [ %39, %38 ], [ false, %28 ], [ false, %18 ], [ false, %0 ], [ false, %29 ], [ false, %19 ], [ false, %6 ], [ false, %20 ], [ false, %30 ], [ %.mux.i, %32 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %39, %38 ], [ false, %6 ], [ false, %30 ], [ false, %28 ], [ false, %18 ], [ false, %0 ], [ false, %29 ], [ false, %19 ], [ %.mux.i, %32 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -711,7 +711,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit"
 
 "_ZN83_$LT$ruff_python_ast..nodes..TypeParamParamSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf084a10a7fd3fc87E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ], [ false, %6 ], [ %.mux.i, %28 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -889,7 +889,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit"
 
 "_ZN81_$LT$ruff_python_ast..nodes..TypeParamTypeVar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6094a178265b4bfcE.exit": ; preds = %0, %6, %12, %16, %22, %34, %35, %36, %38, %44
-  %.sroa.0.0.shrunk.i = phi i1 [ %45, %44 ], [ false, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %35 ], [ false, %22 ], [ false, %6 ], [ false, %36 ], [ %.mux.i, %38 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %45, %44 ], [ false, %6 ], [ false, %36 ], [ false, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %35 ], [ false, %22 ], [ %.mux.i, %38 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -970,7 +970,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit"
 
 "_ZN78_$LT$ruff_python_ast..generated..ExprYield$u20$as$u20$core..cmp..PartialEq$GT$2eq17had2484cfd75b280cE.exit": ; preds = %0, %6, %12, %18
-  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %0 ], [ false, %6 ], [ %.mux.i, %12 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %6 ], [ %.mux.i, %12 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -1668,7 +1668,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit"
 
 "_ZN78_$LT$ruff_python_ast..generated..StmtRaise$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67344055f6aae56E.exit": ; preds = %0, %6, %18, %19, %20, %22, %28
-  %.sroa.0.0.shrunk.i = phi i1 [ %29, %28 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %6 ], [ false, %20 ], [ %.mux.i, %22 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %29, %28 ], [ false, %6 ], [ false, %20 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ %.mux.i, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -1809,7 +1809,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit"
 
 "_ZN85_$LT$ruff_python_ast..nodes..ParameterWithDefault$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38eeefff368381eaE.exit": ; preds = %0, %6, %12, %18, %24, %28, %34, %46, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i", %48, %54
-  %.sroa.0.0.shrunk.i = phi i1 [ %55, %54 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i" ], [ false, %0 ], [ false, %6 ], [ false, %46 ], [ false, %28 ], [ false, %24 ], [ false, %12 ], [ false, %34 ], [ false, %18 ], [ %.mux.i, %48 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %55, %54 ], [ false, %6 ], [ false, %34 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.i" ], [ false, %0 ], [ %.mux.i, %48 ], [ false, %46 ], [ false, %18 ], [ false, %28 ], [ false, %24 ], [ false, %12 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -1933,7 +1933,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit"
 
 "_ZN82_$LT$ruff_python_ast..nodes..PatternMatchClass$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbfc28ef3eb1b5a34E.exit": ; preds = %0, %8, %14, %20, %26, %32, %38
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %14 ], [ false, %8 ], [ %43, %38 ], [ false, %32 ], [ false, %20 ], [ false, %26 ]
+  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %14 ], [ %43, %38 ], [ false, %32 ], [ false, %20 ], [ false, %26 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2009,7 +2009,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit"
 
 "_ZN77_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4d5539ce72ab6440E.exit": ; preds = %0, %8, %14, %18, %26, %32, %40
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %14 ], [ false, %8 ], [ %49, %40 ], [ false, %18 ], [ false, %32 ], [ false, %26 ]
+  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %14 ], [ %49, %40 ], [ false, %18 ], [ false, %32 ], [ false, %26 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2105,7 +2105,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit"
 
 "_ZN89_$LT$ruff_python_ast..nodes..FStringExpressionElement$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51f0913b899c6dc8E.exit": ; preds = %0, %8, %14, %24, %25, %26, %32, %38, %44, %50
-  %.sroa.0.0.shrunk.i = phi i1 [ %51, %50 ], [ false, %26 ], [ false, %24 ], [ false, %0 ], [ false, %38 ], [ false, %25 ], [ false, %14 ], [ false, %8 ], [ false, %32 ], [ %.mux.i, %44 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %51, %50 ], [ false, %8 ], [ false, %32 ], [ false, %26 ], [ false, %24 ], [ false, %0 ], [ false, %38 ], [ false, %25 ], [ false, %14 ], [ %.mux.i, %44 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -2187,7 +2187,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit"
 
 "_ZN86_$LT$ruff_python_ast..generated..ExprStringLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17he8b23c104f3f43aaE.exit": ; preds = %0, %8, %14, %21, %23, %31, %37, %45
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %8 ], [ %22, %21 ], [ false, %14 ], [ %50, %45 ], [ false, %23 ], [ false, %37 ], [ false, %31 ]
+  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ %22, %21 ], [ false, %14 ], [ %50, %45 ], [ false, %23 ], [ false, %37 ], [ false, %31 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2276,7 +2276,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit"
 
 "_ZN79_$LT$ruff_python_ast..generated..StmtAssert$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9f966a93694dca27E.exit": ; preds = %0, %8, %14, %18, %24
-  %.sroa.0.0.shrunk.i = phi i1 [ %25, %24 ], [ false, %0 ], [ false, %14 ], [ false, %8 ], [ %.mux.i, %18 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %25, %24 ], [ false, %8 ], [ %.mux.i, %18 ], [ false, %0 ], [ false, %14 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -2374,7 +2374,7 @@ default.unreachable:                              ; preds = %18
   br label %"_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit"
 
 "_ZN86_$LT$ruff_python_ast..generated..ExprNumberLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0f559f34ed2495ffE.exit": ; preds = %0, %8, %14, %20, %28, %31, %33, %38, %43
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %8 ], [ %37, %33 ], [ %48, %43 ], [ false, %14 ], [ false, %38 ], [ %30, %28 ], [ %32, %31 ], [ false, %20 ]
+  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ false, %38 ], [ %37, %33 ], [ %48, %43 ], [ false, %14 ], [ %30, %28 ], [ %32, %31 ], [ false, %20 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2459,7 +2459,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit"
 
 "_ZN79_$LT$ruff_python_ast..nodes..PatternMatchAs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h07b7fc085b5c8feaE.exit": ; preds = %0, %6, %18, %19, %20, %26, %30, %34, %38, %42
-  %.sroa.0.0.shrunk.i = phi i1 [ %47, %42 ], [ %33, %30 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %6 ], [ false, %26 ], [ false, %34 ], [ false, %38 ], [ false, %20 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %47, %42 ], [ false, %34 ], [ false, %26 ], [ false, %6 ], [ %33, %30 ], [ false, %18 ], [ false, %0 ], [ false, %19 ], [ false, %38 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -2615,7 +2615,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit"
 
 "_ZN81_$LT$ruff_python_ast..nodes..PatternMatchStar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57d0a58fe5b52fb1E.exit": ; preds = %0, %6, %16, %20, %24, %28, %32
-  %.sroa.0.0.shrunk.i = phi i1 [ %37, %32 ], [ %23, %20 ], [ false, %0 ], [ false, %6 ], [ false, %16 ], [ false, %24 ], [ false, %28 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %37, %32 ], [ false, %24 ], [ false, %16 ], [ false, %6 ], [ %23, %20 ], [ false, %0 ], [ false, %28 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -3234,7 +3234,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit"
 
 "_ZN84_$LT$ruff_python_ast..nodes..PatternMatchMapping$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0c36fc9d74358b41E.exit": ; preds = %0, %8, %14, %20, %30, %34, %38, %42, %46
-  %.sroa.0.0.shrunk.i = phi i1 [ %51, %46 ], [ %37, %34 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %8 ], [ false, %30 ], [ false, %38 ], [ false, %42 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %51, %46 ], [ false, %38 ], [ false, %30 ], [ false, %8 ], [ %37, %34 ], [ false, %20 ], [ false, %14 ], [ false, %0 ], [ false, %42 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -3626,7 +3626,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit"
 
 "_ZN79_$LT$ruff_python_ast..generated..StmtReturn$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha760b00922318136E.exit": ; preds = %0, %6, %12, %18
-  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %0 ], [ false, %6 ], [ %.mux.i, %12 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %19, %18 ], [ false, %6 ], [ %.mux.i, %12 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4077,7 +4077,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit"
 
 "_ZN86_$LT$ruff_python_ast..nodes..TypeParamTypeVarTuple$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9d312ab49c902d97E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ], [ false, %6 ], [ %.mux.i, %28 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4415,7 +4415,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit"
 
 "_ZN70_$LT$ruff_python_ast..nodes..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17h74f730d2e6055ed8E.exit": ; preds = %0, %8, %14, %18, %24, %30, %36, %40, %44
-  %.sroa.0.0.shrunk.i = phi i1 [ %49, %44 ], [ false, %18 ], [ false, %14 ], [ false, %0 ], [ false, %24 ], [ false, %8 ], [ false, %36 ], [ false, %40 ], [ %.mux.i, %30 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %49, %44 ], [ false, %36 ], [ %.mux.i, %30 ], [ false, %8 ], [ false, %40 ], [ false, %18 ], [ false, %14 ], [ false, %0 ], [ false, %24 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4685,7 +4685,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit"
 
 "_ZN73_$LT$ruff_python_ast..nodes..WithItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcb9c5bb8fba66a4dE.exit": ; preds = %0, %8, %14, %16, %22
-  %.sroa.0.0.shrunk.i = phi i1 [ %23, %22 ], [ false, %14 ], [ false, %0 ], [ false, %8 ], [ %.mux.i, %16 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %23, %22 ], [ false, %8 ], [ %.mux.i, %16 ], [ false, %14 ], [ false, %0 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4786,7 +4786,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit"
 
 "_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit": ; preds = %0, %6, %12, %16, %22, %28, %34
-  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ], [ false, %6 ], [ %.mux.i, %28 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %35, %34 ], [ false, %6 ], [ %.mux.i, %28 ], [ false, %16 ], [ false, %12 ], [ false, %0 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -4874,7 +4874,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   br label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
 "_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %8, %14, %21, %27, %34, %40, %46
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %8 ], [ %26, %21 ], [ %51, %46 ], [ false, %14 ], [ false, %27 ], [ false, %40 ], [ false, %34 ]
+  %.sroa.0.0.i = phi i1 [ false, %8 ], [ false, %0 ], [ %26, %21 ], [ %51, %46 ], [ false, %14 ], [ false, %27 ], [ false, %40 ], [ false, %34 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -4990,7 +4990,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Nu
   ]
 
 "_ZN69_$LT$ruff_python_ast..int..Number$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3339b1251ab82da9E.exit": ; preds = %19, %16, %8, %26, %2, %31, %21
-  %.sroa.0.0.shrunk = phi i1 [ %25, %21 ], [ %36, %31 ], [ false, %2 ], [ false, %26 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %26 ], [ %25, %21 ], [ %36, %31 ], [ false, %2 ], [ %18, %16 ], [ %20, %19 ], [ false, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable5:                             ; preds = %6
@@ -5092,7 +5092,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated
   ]
 
 7:                                                ; preds = %206, %212, %134, %116, %110, %182, %104, %174, %96, %166, %88, %158, %80, %2, %214, %200, %194, %188, %180, %172, %164, %154, %150, %146, %142, %130, %126, %122, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.sroa.0.0.shrunk = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %165, %164 ], [ %173, %172 ], [ %181, %180 ], [ %193, %188 ], [ %199, %194 ], [ %205, %200 ], [ %125, %122 ], [ %129, %126 ], [ %133, %130 ], [ %219, %214 ], [ %145, %142 ], [ %149, %146 ], [ %153, %150 ], [ %157, %154 ], [ false, %2 ], [ false, %80 ], [ false, %158 ], [ false, %88 ], [ false, %166 ], [ false, %96 ], [ false, %174 ], [ false, %104 ], [ false, %182 ], [ false, %110 ], [ false, %116 ], [ false, %134 ], [ false, %212 ], [ false, %206 ]
+  %.sroa.0.0.shrunk = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %165, %164 ], [ false, %2 ], [ %173, %172 ], [ false, %158 ], [ %181, %180 ], [ false, %166 ], [ %193, %188 ], [ false, %174 ], [ %199, %194 ], [ false, %182 ], [ %205, %200 ], [ false, %110 ], [ %125, %122 ], [ %129, %126 ], [ %133, %130 ], [ %219, %214 ], [ false, %116 ], [ %145, %142 ], [ %149, %146 ], [ %153, %150 ], [ %157, %154 ], [ false, %80 ], [ false, %88 ], [ false, %96 ], [ false, %104 ], [ false, %134 ], [ false, %212 ], [ false, %206 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6
@@ -5494,7 +5494,7 @@ define internal fastcc noundef zeroext i1 @"_ZN74_$LT$ruff_python_ast..nodes..Pa
   br i1 %brmerge, label %34, label %35
 
 34:                                               ; preds = %28, %6, %22, %2, %12, %16, %35
-  %.sroa.0.0.shrunk = phi i1 [ %36, %35 ], [ false, %16 ], [ false, %12 ], [ false, %2 ], [ false, %22 ], [ false, %6 ], [ %.mux, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ %36, %35 ], [ false, %6 ], [ %.mux, %28 ], [ false, %16 ], [ false, %12 ], [ false, %2 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 35:                                               ; preds = %28
@@ -6525,8 +6525,8 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Pa
   %.mux = and i1 %.not3, %80
   br i1 %brmerge, label %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.thread", label %81
 
-"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.thread": ; preds = %75, %66, %38, %54, %34, %44, %48, %67, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit", %8, %33, %2, %14, %20, %32, %69, %81
-  %.sroa.0.0.shrunk = phi i1 [ %82, %81 ], [ false, %69 ], [ false, %32 ], [ false, %20 ], [ false, %14 ], [ false, %2 ], [ false, %33 ], [ false, %8 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit" ], [ false, %67 ], [ false, %48 ], [ false, %44 ], [ false, %34 ], [ false, %54 ], [ false, %38 ], [ false, %66 ], [ %.mux, %75 ]
+"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit.thread": ; preds = %75, %66, %54, %34, %44, %48, %38, %67, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit", %8, %33, %2, %14, %20, %32, %69, %81
+  %.sroa.0.0.shrunk = phi i1 [ %82, %81 ], [ false, %8 ], [ false, %66 ], [ false, %69 ], [ false, %32 ], [ false, %20 ], [ false, %14 ], [ false, %2 ], [ false, %33 ], [ %.mux, %75 ], [ false, %"_ZN74_$LT$ruff_python_ast..nodes..Parameter$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0387cff65557f243E.exit" ], [ false, %67 ], [ false, %38 ], [ false, %48 ], [ false, %44 ], [ false, %34 ], [ false, %54 ]
   ret i1 %.sroa.0.0.shrunk
 
 81:                                               ; preds = %75
@@ -6594,7 +6594,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   ]
 
 "_ZN85_$LT$ruff_python_ast..nodes..PatternMatchSequence$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cc740c362ed6977E.exit": ; preds = %236, %230, %224, %218, %214, %210, %206, %202, %195, %194, %182, %176, %196, %170, %166, %162, %158, %154, %144, %138, %132, %126, %120, %114, %108, %102, %96, %90, %86, %82, %78, %74, %64, %58, %52, %46, %40, %34, %28, %252, %22, %242, %14, %2, %258, %248
-  %.sroa.0.0.shrunk = phi i1 [ %251, %248 ], [ %263, %258 ], [ false, %2 ], [ false, %14 ], [ false, %242 ], [ false, %22 ], [ false, %252 ], [ %45, %40 ], [ false, %28 ], [ false, %34 ], [ %95, %90 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %52 ], [ false, %74 ], [ false, %82 ], [ false, %86 ], [ false, %96 ], [ false, %108 ], [ false, %102 ], [ %137, %132 ], [ false, %126 ], [ false, %114 ], [ false, %120 ], [ %175, %170 ], [ %161, %158 ], [ false, %138 ], [ false, %144 ], [ false, %154 ], [ false, %162 ], [ false, %166 ], [ %223, %218 ], [ %209, %206 ], [ false, %194 ], [ false, %176 ], [ false, %195 ], [ false, %182 ], [ false, %202 ], [ false, %210 ], [ false, %214 ], [ false, %196 ], [ %241, %236 ], [ false, %224 ], [ false, %230 ]
+  %.sroa.0.0.shrunk = phi i1 [ %251, %248 ], [ false, %2 ], [ %263, %258 ], [ false, %242 ], [ false, %252 ], [ false, %34 ], [ false, %86 ], [ false, %120 ], [ false, %166 ], [ false, %196 ], [ false, %14 ], [ false, %22 ], [ %45, %40 ], [ false, %28 ], [ %95, %90 ], [ false, %82 ], [ false, %74 ], [ false, %52 ], [ %81, %78 ], [ false, %64 ], [ false, %58 ], [ false, %46 ], [ false, %102 ], [ false, %96 ], [ false, %108 ], [ %137, %132 ], [ false, %126 ], [ false, %114 ], [ %175, %170 ], [ false, %162 ], [ false, %154 ], [ false, %144 ], [ %161, %158 ], [ false, %138 ], [ %223, %218 ], [ false, %210 ], [ false, %202 ], [ false, %182 ], [ %209, %206 ], [ false, %194 ], [ false, %176 ], [ false, %195 ], [ false, %214 ], [ %241, %236 ], [ false, %224 ], [ false, %230 ]
   ret i1 %.sroa.0.0.shrunk
 
 13:                                               ; preds = %12
@@ -7060,7 +7060,7 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$ruff_python_ast..generated
   br label %"_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit"
 
 "_ZN74_$LT$ruff_python_ast..nodes..Arguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h61aaa6cb87de7082E.exit": ; preds = %40, %32, %26, %18, %8, %14, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %8 ], [ %49, %40 ], [ false, %18 ], [ false, %32 ], [ false, %26 ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %14 ], [ %49, %40 ], [ false, %18 ], [ false, %32 ], [ false, %26 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7313,7 +7313,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   br i1 %brmerge, label %38, label %39
 
 38:                                               ; preds = %32, %30, %20, %6, %19, %29, %2, %18, %28, %39
-  %.sroa.0.0.shrunk = phi i1 [ %40, %39 ], [ false, %28 ], [ false, %18 ], [ false, %2 ], [ false, %29 ], [ false, %19 ], [ false, %6 ], [ false, %20 ], [ false, %30 ], [ %.mux, %32 ]
+  %.sroa.0.0.shrunk = phi i1 [ %40, %39 ], [ false, %6 ], [ false, %30 ], [ false, %28 ], [ false, %18 ], [ false, %2 ], [ false, %29 ], [ false, %19 ], [ %.mux, %32 ], [ false, %20 ]
   ret i1 %.sroa.0.0.shrunk
 
 39:                                               ; preds = %32
@@ -7398,7 +7398,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$ruff_python_ast..generated
   br i1 %brmerge, label %18, label %19
 
 18:                                               ; preds = %12, %6, %2, %19
-  %.sroa.0.0.shrunk = phi i1 [ %20, %19 ], [ false, %2 ], [ false, %6 ], [ %.mux, %12 ]
+  %.sroa.0.0.shrunk = phi i1 [ %20, %19 ], [ false, %6 ], [ %.mux, %12 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk
 
 19:                                               ; preds = %12
@@ -7685,7 +7685,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated
   br label %"_ZN77_$LT$ruff_python_ast..nodes..FStringValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8072e925d095f6a9E.exit"
 
 "_ZN77_$LT$ruff_python_ast..nodes..FStringValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8072e925d095f6a9E.exit": ; preds = %79, %71, %65, %57, %51, %45, %39, %33, %27, %21, %14, %8, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %26, %21 ], [ false, %14 ], [ false, %27 ], [ %56, %51 ], [ false, %45 ], [ false, %33 ], [ false, %39 ], [ %84, %79 ], [ false, %57 ], [ false, %71 ], [ false, %65 ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %2 ], [ %26, %21 ], [ false, %14 ], [ false, %27 ], [ false, %39 ], [ %56, %51 ], [ false, %45 ], [ false, %33 ], [ %84, %79 ], [ false, %57 ], [ false, %71 ], [ false, %65 ]
   ret i1 %.sroa.0.0
 }
 
@@ -8436,7 +8436,7 @@ define void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ru
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread", label %10
 
-"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread": ; preds = %261, %257, %239, %233, %179, %175, %129, %125, %10, %245, %185, %135, %255, %253, %251, %249, %247, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %146, %141, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %76, %71, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit", %7, %270, %3
+"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread": ; preds = %259, %255, %231, %173, %123, %237, %177, %127, %10, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %69, %74, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %139, %144, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %245, %247, %249, %251, %253, %133, %183, %243, %263, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit", %7, %270, %3
   ret void
 
 10:                                               ; preds = %7
@@ -8457,97 +8457,97 @@ define void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ru
   tail call void @llvm.assume(i1 %19)
   switch i64 %1, label %default.unreachable [
     i64 0, label %20
-    i64 1, label %22
-    i64 2, label %24
-    i64 3, label %26
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %32
-    i64 7, label %34
-    i64 8, label %36
-    i64 9, label %38
-    i64 10, label %40
-    i64 11, label %42
-    i64 12, label %44
-    i64 13, label %46
-    i64 14, label %48
-    i64 15, label %50
-    i64 16, label %52
-    i64 17, label %54
-    i64 18, label %56
-    i64 19, label %58
-    i64 20, label %60
-    i64 21, label %62
-    i64 22, label %64
-    i64 23, label %66
-    i64 24, label %71
-    i64 25, label %76
-    i64 26, label %81
-    i64 27, label %83
-    i64 28, label %85
-    i64 29, label %87
-    i64 30, label %89
-    i64 31, label %91
-    i64 32, label %93
-    i64 33, label %95
-    i64 34, label %97
-    i64 35, label %99
-    i64 36, label %101
-    i64 37, label %103
-    i64 38, label %105
-    i64 39, label %107
-    i64 40, label %109
-    i64 41, label %111
-    i64 42, label %113
-    i64 43, label %115
-    i64 44, label %117
-    i64 45, label %119
-    i64 46, label %121
-    i64 47, label %123
-    i64 48, label %125
-    i64 49, label %141
-    i64 50, label %146
-    i64 51, label %151
-    i64 52, label %153
-    i64 53, label %155
-    i64 54, label %157
-    i64 55, label %159
-    i64 56, label %161
-    i64 57, label %163
-    i64 58, label %165
-    i64 59, label %167
-    i64 60, label %169
-    i64 61, label %171
-    i64 62, label %173
-    i64 63, label %175
-    i64 64, label %191
-    i64 65, label %193
-    i64 66, label %195
-    i64 67, label %197
-    i64 68, label %199
-    i64 69, label %201
-    i64 70, label %203
-    i64 71, label %205
-    i64 72, label %207
-    i64 73, label %209
-    i64 74, label %211
-    i64 75, label %213
-    i64 76, label %215
-    i64 77, label %217
-    i64 78, label %219
-    i64 79, label %221
-    i64 80, label %223
-    i64 81, label %225
-    i64 82, label %227
-    i64 83, label %229
-    i64 84, label %231
-    i64 85, label %233
-    i64 86, label %247
-    i64 87, label %249
-    i64 88, label %251
-    i64 89, label %253
-    i64 90, label %255
-    i64 91, label %257
+    i64 1, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
+    i64 2, label %22
+    i64 3, label %24
+    i64 4, label %26
+    i64 5, label %28
+    i64 6, label %30
+    i64 7, label %32
+    i64 8, label %34
+    i64 9, label %36
+    i64 10, label %38
+    i64 11, label %40
+    i64 12, label %42
+    i64 13, label %44
+    i64 14, label %46
+    i64 15, label %48
+    i64 16, label %50
+    i64 17, label %52
+    i64 18, label %54
+    i64 19, label %56
+    i64 20, label %58
+    i64 21, label %60
+    i64 22, label %62
+    i64 23, label %64
+    i64 24, label %69
+    i64 25, label %74
+    i64 26, label %79
+    i64 27, label %81
+    i64 28, label %83
+    i64 29, label %85
+    i64 30, label %87
+    i64 31, label %89
+    i64 32, label %91
+    i64 33, label %93
+    i64 34, label %95
+    i64 35, label %97
+    i64 36, label %99
+    i64 37, label %101
+    i64 38, label %103
+    i64 39, label %105
+    i64 40, label %107
+    i64 41, label %109
+    i64 42, label %111
+    i64 43, label %113
+    i64 44, label %115
+    i64 45, label %117
+    i64 46, label %119
+    i64 47, label %121
+    i64 48, label %123
+    i64 49, label %139
+    i64 50, label %144
+    i64 51, label %149
+    i64 52, label %151
+    i64 53, label %153
+    i64 54, label %155
+    i64 55, label %157
+    i64 56, label %159
+    i64 57, label %161
+    i64 58, label %163
+    i64 59, label %165
+    i64 60, label %167
+    i64 61, label %169
+    i64 62, label %171
+    i64 63, label %173
+    i64 64, label %189
+    i64 65, label %191
+    i64 66, label %193
+    i64 67, label %195
+    i64 68, label %197
+    i64 69, label %199
+    i64 70, label %201
+    i64 71, label %203
+    i64 72, label %205
+    i64 73, label %207
+    i64 74, label %209
+    i64 75, label %211
+    i64 76, label %213
+    i64 77, label %215
+    i64 78, label %217
+    i64 79, label %219
+    i64 80, label %221
+    i64 81, label %223
+    i64 82, label %225
+    i64 83, label %227
+    i64 84, label %229
+    i64 85, label %231
+    i64 86, label %245
+    i64 87, label %247
+    i64 88, label %249
+    i64 89, label %251
+    i64 90, label %253
+    i64 91, label %255
   ]
 
 default.unreachable:                              ; preds = %17
@@ -8558,484 +8558,484 @@ default.unreachable:                              ; preds = %17
   br i1 %21, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 22:                                               ; preds = %17
-  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr nonnull %.val1, ptr nonnull %2)
+  %23 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h732cf4f336efc016E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %23, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 24:                                               ; preds = %17
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h732cf4f336efc016E"(ptr nonnull %.val1, ptr nonnull %2)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h735dc4ce9c224aedE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %25, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 26:                                               ; preds = %17
-  %27 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h735dc4ce9c224aedE"(ptr nonnull %.val1, ptr nonnull %2)
+  %27 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %27, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 28:                                               ; preds = %17
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha01446d2e1abccbcE"(ptr nonnull %.val1, ptr nonnull %2)
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %29, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 30:                                               ; preds = %17
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cff50f9a1a0ba40E"(ptr nonnull %.val1, ptr nonnull %2)
+  %31 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %31, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 32:                                               ; preds = %17
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he5ca3648121b1345E"(ptr nonnull %.val1, ptr nonnull %2)
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %33, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 34:                                               ; preds = %17
-  %35 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hde557f2d71191bdaE"(ptr nonnull %.val1, ptr nonnull %2)
+  %35 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %35, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 36:                                               ; preds = %17
-  %37 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he09eb2e7198ab78eE"(ptr nonnull %.val1, ptr nonnull %2)
+  %37 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %37, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 38:                                               ; preds = %17
-  %39 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8b83d7f2b5dd1cc8E"(ptr nonnull %.val1, ptr nonnull %2)
+  %39 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %39, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 40:                                               ; preds = %17
-  %41 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9ab064e10d039f92E"(ptr nonnull %.val1, ptr nonnull %2)
+  %41 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %41, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 42:                                               ; preds = %17
-  %43 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hbf528c0f6cadd4d6E"(ptr nonnull %.val1, ptr nonnull %2)
+  %43 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %43, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 44:                                               ; preds = %17
-  %45 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h39e0b858145329dfE"(ptr nonnull %.val1, ptr nonnull %2)
+  %45 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %45, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 46:                                               ; preds = %17
-  %47 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4a96b74f13d52f3cE"(ptr nonnull %.val1, ptr nonnull %2)
+  %47 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %47, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 48:                                               ; preds = %17
-  %49 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h77ef153c6cbbe4b5E"(ptr nonnull %.val1, ptr nonnull %2)
+  %49 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %49, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 50:                                               ; preds = %17
-  %51 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4f131928800e3e63E"(ptr nonnull %.val1, ptr nonnull %2)
+  %51 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %51, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 52:                                               ; preds = %17
-  %53 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc8566fa5ea3a6d64E"(ptr nonnull %.val1, ptr nonnull %2)
+  %53 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %53, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 54:                                               ; preds = %17
-  %55 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6ae18d75d1d980cfE"(ptr nonnull %.val1, ptr nonnull %2)
+  %55 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %55, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 56:                                               ; preds = %17
-  %57 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h67827e06489ccc04E"(ptr nonnull %.val1, ptr nonnull %2)
+  %57 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h30d4e8c4d7ff3a4aE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %57, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 58:                                               ; preds = %17
-  %59 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h30d4e8c4d7ff3a4aE"(ptr nonnull %.val1, ptr nonnull %2)
+  %59 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %59, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 60:                                               ; preds = %17
-  %61 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd24805042da6fac1E"(ptr nonnull %.val1, ptr nonnull %2)
+  %61 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %61, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 62:                                               ; preds = %17
-  %63 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h20ca67e9b8fc610cE"(ptr nonnull %.val1, ptr nonnull %2)
+  %63 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %63, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 64:                                               ; preds = %17
-  %65 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hccac9d0fcb3d7c8aE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %65, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-66:                                               ; preds = %17
   %.val.i.i = load i32, ptr %.val1, align 4, !noundef !8
-  %67 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i.i = load i32, ptr %67, align 4
+  %65 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i.i = load i32, ptr %65, align 4
   %.val2.i.i = load i32, ptr %2, align 4, !noundef !8
-  %68 = getelementptr i8, ptr %2, i64 4
-  %.val3.i.i = load i32, ptr %68, align 4
-  %69 = icmp eq i32 %.val.i.i, %.val2.i.i
-  %70 = icmp eq i32 %.val1.i.i, %.val3.i.i
-  %.sroa.0.0.i.i.i.i = select i1 %69, i1 %70, i1 false
+  %66 = getelementptr i8, ptr %2, i64 4
+  %.val3.i.i = load i32, ptr %66, align 4
+  %67 = icmp eq i32 %.val.i.i, %.val2.i.i
+  %68 = icmp eq i32 %.val1.i.i, %.val3.i.i
+  %.sroa.0.0.i.i.i.i = select i1 %67, i1 %68, i1 false
   br i1 %.sroa.0.0.i.i.i.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-71:                                               ; preds = %17
+69:                                               ; preds = %17
   %.val.i185.i = load i32, ptr %.val1, align 4, !noundef !8
-  %72 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i186.i = load i32, ptr %72, align 4
+  %70 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i186.i = load i32, ptr %70, align 4
   %.val2.i187.i = load i32, ptr %2, align 4, !noundef !8
-  %73 = getelementptr i8, ptr %2, i64 4
-  %.val3.i188.i = load i32, ptr %73, align 4
-  %74 = icmp eq i32 %.val.i185.i, %.val2.i187.i
-  %75 = icmp eq i32 %.val1.i186.i, %.val3.i188.i
-  %.sroa.0.0.i.i.i189.i = select i1 %74, i1 %75, i1 false
+  %71 = getelementptr i8, ptr %2, i64 4
+  %.val3.i188.i = load i32, ptr %71, align 4
+  %72 = icmp eq i32 %.val.i185.i, %.val2.i187.i
+  %73 = icmp eq i32 %.val1.i186.i, %.val3.i188.i
+  %.sroa.0.0.i.i.i189.i = select i1 %72, i1 %73, i1 false
   br i1 %.sroa.0.0.i.i.i189.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-76:                                               ; preds = %17
+74:                                               ; preds = %17
   %.val.i190.i = load i32, ptr %.val1, align 4, !noundef !8
-  %77 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i191.i = load i32, ptr %77, align 4
+  %75 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i191.i = load i32, ptr %75, align 4
   %.val2.i192.i = load i32, ptr %2, align 4, !noundef !8
-  %78 = getelementptr i8, ptr %2, i64 4
-  %.val3.i193.i = load i32, ptr %78, align 4
-  %79 = icmp eq i32 %.val.i190.i, %.val2.i192.i
-  %80 = icmp eq i32 %.val1.i191.i, %.val3.i193.i
-  %.sroa.0.0.i.i.i194.i = select i1 %79, i1 %80, i1 false
+  %76 = getelementptr i8, ptr %2, i64 4
+  %.val3.i193.i = load i32, ptr %76, align 4
+  %77 = icmp eq i32 %.val.i190.i, %.val2.i192.i
+  %78 = icmp eq i32 %.val1.i191.i, %.val3.i193.i
+  %.sroa.0.0.i.i.i194.i = select i1 %77, i1 %78, i1 false
   br i1 %.sroa.0.0.i.i.i194.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
+79:                                               ; preds = %17
+  %80 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %80, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
 81:                                               ; preds = %17
-  %82 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hb340c06ae6c87fc4E"(ptr nonnull %.val1, ptr nonnull %2)
+  %82 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %82, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 83:                                               ; preds = %17
-  %84 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf67702bdb4e61669E"(ptr nonnull %.val1, ptr nonnull %2)
+  %84 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %84, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 85:                                               ; preds = %17
-  %86 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h07e1007b618d6f6aE"(ptr nonnull %.val1, ptr nonnull %2)
+  %86 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %86, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 87:                                               ; preds = %17
-  %88 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h16e90405f6414a61E"(ptr nonnull %.val1, ptr nonnull %2)
+  %88 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %88, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 89:                                               ; preds = %17
-  %90 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd96d6fa073e515f4E"(ptr nonnull %.val1, ptr nonnull %2)
+  %90 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %90, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 91:                                               ; preds = %17
-  %92 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2beb70fb9bf401ddE"(ptr nonnull %.val1, ptr nonnull %2)
+  %92 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %92, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 93:                                               ; preds = %17
-  %94 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6cec051dd832a9ffE"(ptr nonnull %.val1, ptr nonnull %2)
+  %94 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %94, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 95:                                               ; preds = %17
-  %96 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17haec8fac89c90ab26E"(ptr nonnull %.val1, ptr nonnull %2)
+  %96 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %96, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 97:                                               ; preds = %17
-  %98 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h94f154f53d69d807E"(ptr nonnull %.val1, ptr nonnull %2)
+  %98 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %98, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 99:                                               ; preds = %17
-  %100 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc297a57ef8ab79c7E"(ptr nonnull %.val1, ptr nonnull %2)
+  %100 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %100, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 101:                                              ; preds = %17
-  %102 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05fe0fa89d958246E"(ptr nonnull %.val1, ptr nonnull %2)
+  %102 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %102, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 103:                                              ; preds = %17
-  %104 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h225e8d3ad5ac4452E"(ptr nonnull %.val1, ptr nonnull %2)
+  %104 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %104, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 105:                                              ; preds = %17
-  %106 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1b699fbc9ce6d7d9E"(ptr nonnull %.val1, ptr nonnull %2)
+  %106 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %106, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 107:                                              ; preds = %17
-  %108 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha1fbe7f3bdc14ad0E"(ptr nonnull %.val1, ptr nonnull %2)
+  %108 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %108, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 109:                                              ; preds = %17
-  %110 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h25231688648bfd02E"(ptr nonnull %.val1, ptr nonnull %2)
+  %110 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %110, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 111:                                              ; preds = %17
-  %112 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h75a04afd29d0b431E"(ptr nonnull %.val1, ptr nonnull %2)
+  %112 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %112, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 113:                                              ; preds = %17
-  %114 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha0f49ed68b1c77fcE"(ptr nonnull %.val1, ptr nonnull %2)
+  %114 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %114, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 115:                                              ; preds = %17
-  %116 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5646e489e2c27ad9E"(ptr nonnull %.val1, ptr nonnull %2)
+  %116 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprFString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h12480722649b2ec7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
   br i1 %116, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 117:                                              ; preds = %17
-  %118 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$ruff_python_ast..generated..ExprFString$u20$as$u20$core..cmp..PartialEq$GT$2eq17h12480722649b2ec7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
+  %118 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5bd1edb21933fc7cE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %118, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 119:                                              ; preds = %17
-  %120 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5bd1edb21933fc7cE"(ptr nonnull %.val1, ptr nonnull %2)
+  %120 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %120, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 121:                                              ; preds = %17
-  %122 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hf5822757b876a409E"(ptr nonnull %.val1, ptr nonnull %2)
+  %122 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %122, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 123:                                              ; preds = %17
-  %124 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b6a2c8eb9cd393bE"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %124, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-125:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
-  %126 = load i32, ptr %.val1, align 4, !alias.scope !606, !noalias !609, !noundef !8
-  %127 = load i32, ptr %2, align 4, !alias.scope !609, !noalias !606, !noundef !8
-  %128 = icmp eq i32 %126, %127
-  br i1 %128, label %129, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %124 = load i32, ptr %.val1, align 4, !alias.scope !606, !noalias !609, !noundef !8
+  %125 = load i32, ptr %2, align 4, !alias.scope !609, !noalias !606, !noundef !8
+  %126 = icmp eq i32 %124, %125
+  br i1 %126, label %127, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %131 = load i32, ptr %130, align 4, !alias.scope !606, !noalias !609, !noundef !8
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %133 = load i32, ptr %132, align 4, !alias.scope !609, !noalias !606, !noundef !8
-  %134 = icmp eq i32 %131, %133
-  br i1 %134, label %135, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %129 = load i32, ptr %128, align 4, !alias.scope !606, !noalias !609, !noundef !8
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %131 = load i32, ptr %130, align 4, !alias.scope !609, !noalias !606, !noundef !8
+  %132 = icmp eq i32 %129, %131
+  br i1 %132, label %133, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %137 = load i8, ptr %136, align 4, !range !59, !alias.scope !606, !noalias !609, !noundef !8
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %139 = load i8, ptr %138, align 4, !range !59, !alias.scope !609, !noalias !606, !noundef !8
-  %140 = icmp eq i8 %137, %139
-  br i1 %140, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %135 = load i8, ptr %134, align 4, !range !59, !alias.scope !606, !noalias !609, !noundef !8
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %137 = load i8, ptr %136, align 4, !range !59, !alias.scope !609, !noalias !606, !noundef !8
+  %138 = icmp eq i8 %135, %137
+  br i1 %138, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-141:                                              ; preds = %17
+139:                                              ; preds = %17
   %.val.i195.i = load i32, ptr %.val1, align 4, !noundef !8
-  %142 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i196.i = load i32, ptr %142, align 4
+  %140 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i196.i = load i32, ptr %140, align 4
   %.val2.i197.i = load i32, ptr %2, align 4, !noundef !8
-  %143 = getelementptr i8, ptr %2, i64 4
-  %.val3.i198.i = load i32, ptr %143, align 4
-  %144 = icmp eq i32 %.val.i195.i, %.val2.i197.i
-  %145 = icmp eq i32 %.val1.i196.i, %.val3.i198.i
-  %.sroa.0.0.i.i.i199.i = select i1 %144, i1 %145, i1 false
+  %141 = getelementptr i8, ptr %2, i64 4
+  %.val3.i198.i = load i32, ptr %141, align 4
+  %142 = icmp eq i32 %.val.i195.i, %.val2.i197.i
+  %143 = icmp eq i32 %.val1.i196.i, %.val3.i198.i
+  %.sroa.0.0.i.i.i199.i = select i1 %142, i1 %143, i1 false
   br i1 %.sroa.0.0.i.i.i199.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-146:                                              ; preds = %17
+144:                                              ; preds = %17
   %.val.i200.i = load i32, ptr %.val1, align 4, !noundef !8
-  %147 = getelementptr i8, ptr %.val1, i64 4
-  %.val1.i201.i = load i32, ptr %147, align 4
+  %145 = getelementptr i8, ptr %.val1, i64 4
+  %.val1.i201.i = load i32, ptr %145, align 4
   %.val2.i202.i = load i32, ptr %2, align 4, !noundef !8
-  %148 = getelementptr i8, ptr %2, i64 4
-  %.val3.i203.i = load i32, ptr %148, align 4
-  %149 = icmp eq i32 %.val.i200.i, %.val2.i202.i
-  %150 = icmp eq i32 %.val1.i201.i, %.val3.i203.i
-  %.sroa.0.0.i.i.i204.i = select i1 %149, i1 %150, i1 false
+  %146 = getelementptr i8, ptr %2, i64 4
+  %.val3.i203.i = load i32, ptr %146, align 4
+  %147 = icmp eq i32 %.val.i200.i, %.val2.i202.i
+  %148 = icmp eq i32 %.val1.i201.i, %.val3.i203.i
+  %.sroa.0.0.i.i.i204.i = select i1 %147, i1 %148, i1 false
   br i1 %.sroa.0.0.i.i.i204.i, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
+149:                                              ; preds = %17
+  %150 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h48b92b134b1994d0E"(ptr nonnull %.val1, ptr nonnull %2)
+  br i1 %150, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
 151:                                              ; preds = %17
-  %152 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h48b92b134b1994d0E"(ptr nonnull %.val1, ptr nonnull %2)
+  %152 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %152, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 153:                                              ; preds = %17
-  %154 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h45ad9c2900ba512eE"(ptr nonnull %.val1, ptr nonnull %2)
+  %154 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %154, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 155:                                              ; preds = %17
-  %156 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4fa9d63053e6f457E"(ptr nonnull %.val1, ptr nonnull %2)
+  %156 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05cf9cf45dbf82e7E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %156, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 157:                                              ; preds = %17
-  %158 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h05cf9cf45dbf82e7E"(ptr nonnull %.val1, ptr nonnull %2)
+  %158 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %158, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 159:                                              ; preds = %17
-  %160 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hfd891d3fd080bb63E"(ptr nonnull %.val1, ptr nonnull %2)
+  %160 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %160, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 161:                                              ; preds = %17
-  %162 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h97d7175096ccb736E"(ptr nonnull %.val1, ptr nonnull %2)
+  %162 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %162, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 163:                                              ; preds = %17
-  %164 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h105c560fe23607ffE"(ptr nonnull %.val1, ptr nonnull %2)
+  %164 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %164, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 165:                                              ; preds = %17
-  %166 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b83bd2b8344578E"(ptr nonnull %.val1, ptr nonnull %2)
+  %166 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc71cf1b35a7a2fb8E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %166, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 167:                                              ; preds = %17
-  %168 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc71cf1b35a7a2fb8E"(ptr nonnull %.val1, ptr nonnull %2)
+  %168 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %168, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 169:                                              ; preds = %17
-  %170 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h59874956c2333fe0E"(ptr nonnull %.val1, ptr nonnull %2)
+  %170 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %170, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 171:                                              ; preds = %17
-  %172 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hed56a155e8e1b86dE"(ptr nonnull %.val1, ptr nonnull %2)
+  %172 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %172, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 173:                                              ; preds = %17
-  %174 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h295391cc486acfa2E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %174, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-175:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
-  %176 = load i32, ptr %.val1, align 4, !alias.scope !611, !noalias !614, !noundef !8
-  %177 = load i32, ptr %2, align 4, !alias.scope !614, !noalias !611, !noundef !8
-  %178 = icmp eq i32 %176, %177
-  br i1 %178, label %179, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %174 = load i32, ptr %.val1, align 4, !alias.scope !611, !noalias !614, !noundef !8
+  %175 = load i32, ptr %2, align 4, !alias.scope !614, !noalias !611, !noundef !8
+  %176 = icmp eq i32 %174, %175
+  br i1 %176, label %177, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %181 = load i32, ptr %180, align 4, !alias.scope !611, !noalias !614, !noundef !8
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %183 = load i32, ptr %182, align 4, !alias.scope !614, !noalias !611, !noundef !8
-  %184 = icmp eq i32 %181, %183
-  br i1 %184, label %185, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %179 = load i32, ptr %178, align 4, !alias.scope !611, !noalias !614, !noundef !8
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %181 = load i32, ptr %180, align 4, !alias.scope !614, !noalias !611, !noundef !8
+  %182 = icmp eq i32 %179, %181
+  br i1 %182, label %183, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %187 = load i8, ptr %186, align 4, !range !553, !alias.scope !611, !noalias !614, !noundef !8
-  %188 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %189 = load i8, ptr %188, align 4, !range !553, !alias.scope !614, !noalias !611, !noundef !8
-  %190 = icmp eq i8 %187, %189
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %185 = load i8, ptr %184, align 4, !range !553, !alias.scope !611, !noalias !614, !noundef !8
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %187 = load i8, ptr %186, align 4, !range !553, !alias.scope !614, !noalias !611, !noundef !8
+  %188 = icmp eq i8 %185, %187
+  br i1 %188, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+189:                                              ; preds = %17
+  %190 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %190, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 191:                                              ; preds = %17
-  %192 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h2ac9c1cb60300650E"(ptr nonnull %.val1, ptr nonnull %2)
+  %192 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8928f7bef9dbfaceE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %192, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 193:                                              ; preds = %17
-  %194 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h8928f7bef9dbfaceE"(ptr nonnull %.val1, ptr nonnull %2)
+  %194 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %194, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 195:                                              ; preds = %17
-  %196 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h551c4c6c1195b8dbE"(ptr nonnull %.val1, ptr nonnull %2)
+  %196 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h71b1c2aafd80c5e0E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %196, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 197:                                              ; preds = %17
-  %198 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h71b1c2aafd80c5e0E"(ptr nonnull %.val1, ptr nonnull %2)
+  %198 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b9d804d7ca53a43E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %198, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 199:                                              ; preds = %17
-  %200 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h6b9d804d7ca53a43E"(ptr nonnull %.val1, ptr nonnull %2)
+  %200 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %200, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 201:                                              ; preds = %17
-  %202 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h91ca308cc75150a4E"(ptr nonnull %.val1, ptr nonnull %2)
+  %202 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h24750f750e236357E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %202, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 203:                                              ; preds = %17
-  %204 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h24750f750e236357E"(ptr nonnull %.val1, ptr nonnull %2)
+  %204 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc6ff61e33eec6dc6E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %204, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 205:                                              ; preds = %17
-  %206 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc6ff61e33eec6dc6E"(ptr nonnull %.val1, ptr nonnull %2)
+  %206 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1e03d589550df506E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %206, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 207:                                              ; preds = %17
-  %208 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h1e03d589550df506E"(ptr nonnull %.val1, ptr nonnull %2)
+  %208 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %208, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 209:                                              ; preds = %17
-  %210 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h4e3a5c4fcc188278E"(ptr nonnull %.val1, ptr nonnull %2)
+  %210 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %210, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 211:                                              ; preds = %17
-  %212 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hc01dd1ec795ef6c3E"(ptr nonnull %.val1, ptr nonnull %2)
+  %212 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h186716b609c5e7a8E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %212, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 213:                                              ; preds = %17
-  %214 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h186716b609c5e7a8E"(ptr nonnull %.val1, ptr nonnull %2)
+  %214 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7cdd4d866bd3533aE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %214, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 215:                                              ; preds = %17
-  %216 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7cdd4d866bd3533aE"(ptr nonnull %.val1, ptr nonnull %2)
+  %216 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %216, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 217:                                              ; preds = %17
-  %218 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha909415a406bab25E"(ptr nonnull %.val1, ptr nonnull %2)
+  %218 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2)
   br i1 %218, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 219:                                              ; preds = %17
-  %220 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..Parameters$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ad75d9997808284E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %2)
+  %220 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hee655070a5c6e640E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %220, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 221:                                              ; preds = %17
-  %222 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hee655070a5c6e640E"(ptr nonnull %.val1, ptr nonnull %2)
+  %222 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h518c3a55d64d560cE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %222, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 223:                                              ; preds = %17
-  %224 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h518c3a55d64d560cE"(ptr nonnull %.val1, ptr nonnull %2)
+  %224 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h927f1499c6b5d6feE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %224, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 225:                                              ; preds = %17
-  %226 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h927f1499c6b5d6feE"(ptr nonnull %.val1, ptr nonnull %2)
+  %226 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd34ebb2ab1cdd88aE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %226, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 227:                                              ; preds = %17
-  %228 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hd34ebb2ab1cdd88aE"(ptr nonnull %.val1, ptr nonnull %2)
+  %228 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he9c48906a12f248eE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %228, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 229:                                              ; preds = %17
-  %230 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17he9c48906a12f248eE"(ptr nonnull %.val1, ptr nonnull %2)
+  %230 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7c4e4591bfcccc96E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %230, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 231:                                              ; preds = %17
-  %232 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7c4e4591bfcccc96E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %232, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-233:                                              ; preds = %17
-  %234 = getelementptr inbounds nuw i8, ptr %.val1, i64 64
+  %232 = getelementptr inbounds nuw i8, ptr %.val1, i64 64
+  %233 = load i32, ptr %232, align 8, !noundef !8
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %235 = load i32, ptr %234, align 8, !noundef !8
-  %236 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %237 = load i32, ptr %236, align 8, !noundef !8
-  %238 = icmp eq i32 %235, %237
-  br i1 %238, label %239, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %236 = icmp eq i32 %233, %235
+  br i1 %236, label %237, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-239:                                              ; preds = %233
-  %240 = getelementptr inbounds nuw i8, ptr %.val1, i64 68
+237:                                              ; preds = %231
+  %238 = getelementptr inbounds nuw i8, ptr %.val1, i64 68
+  %239 = load i32, ptr %238, align 4, !noundef !8
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %241 = load i32, ptr %240, align 4, !noundef !8
-  %242 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %243 = load i32, ptr %242, align 4, !noundef !8
-  %244 = icmp eq i32 %241, %243
-  br i1 %244, label %245, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %242 = icmp eq i32 %239, %241
+  br i1 %242, label %243, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-245:                                              ; preds = %239
-  %246 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.val1, ptr noundef nonnull align 8 %2)
+243:                                              ; preds = %237
+  %244 = tail call fastcc noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha5bf619357204ccfE"(ptr noundef nonnull align 8 %.val1, ptr noundef nonnull align 8 %2)
+  br i1 %244, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+245:                                              ; preds = %17
+  %246 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3903bfc436d547e7E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %246, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 247:                                              ; preds = %17
-  %248 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3903bfc436d547e7E"(ptr nonnull %.val1, ptr nonnull %2)
+  %248 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %248, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 249:                                              ; preds = %17
-  %250 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h250b7bcfa7c0b0e8E"(ptr nonnull %.val1, ptr nonnull %2)
+  %250 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %250, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 251:                                              ; preds = %17
-  %252 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h036b75b3640b4dd0E"(ptr nonnull %.val1, ptr nonnull %2)
+  %252 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %252, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 253:                                              ; preds = %17
-  %254 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h49b5303f46d4fe74E"(ptr nonnull %.val1, ptr nonnull %2)
+  %254 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %254, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
 255:                                              ; preds = %17
-  %256 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h52d4b978617937a2E"(ptr nonnull %.val1, ptr nonnull %2)
-  br i1 %256, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
-
-257:                                              ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
-  %258 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %259 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %260 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %258, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %259)
-  br i1 %260, label %261, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+  %256 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %258 = tail call noundef zeroext i1 @"_ZN76_$LT$compact_str..CompactString$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1b61d8a3be31e498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %257)
+  br i1 %258, label %259, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-261:                                              ; preds = %257
-  %262 = load i32, ptr %.val1, align 8, !alias.scope !616, !noalias !619, !noundef !8
-  %263 = load i32, ptr %2, align 8, !alias.scope !619, !noalias !616, !noundef !8
-  %264 = icmp eq i32 %262, %263
-  br i1 %264, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit", label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+259:                                              ; preds = %255
+  %260 = load i32, ptr %.val1, align 8, !alias.scope !616, !noalias !619, !noundef !8
+  %261 = load i32, ptr %2, align 8, !alias.scope !619, !noalias !616, !noundef !8
+  %262 = icmp eq i32 %260, %261
+  br i1 %262, label %263, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit": ; preds = %261
-  %265 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
-  %266 = load i32, ptr %265, align 4, !alias.scope !616, !noalias !619, !noundef !8
-  %267 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %268 = load i32, ptr %267, align 4, !alias.scope !619, !noalias !616, !noundef !8
-  %269 = icmp eq i32 %266, %268
+263:                                              ; preds = %259
+  %264 = getelementptr inbounds nuw i8, ptr %.val1, i64 4
+  %265 = load i32, ptr %264, align 4, !alias.scope !616, !noalias !619, !noundef !8
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %267 = load i32, ptr %266, align 4, !alias.scope !619, !noalias !616, !noundef !8
+  %268 = icmp eq i32 %265, %267
+  br i1 %268, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
+
+"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit": ; preds = %17
+  %269 = tail call fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h7a3d33fca62d602fE"(ptr nonnull %.val1, ptr nonnull %2)
   br i1 %269, label %270, label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 
-270:                                              ; preds = %245, %185, %135, %255, %253, %251, %249, %247, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %146, %141, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %76, %71, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
+270:                                              ; preds = %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %69, %74, %79, %81, %83, %85, %87, %89, %91, %93, %95, %97, %99, %101, %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %139, %144, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %169, %171, %189, %191, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %245, %247, %249, %251, %253, %133, %183, %243, %263, %20, %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit"
   store i8 1, ptr %4, align 8
   br label %"_ZN79_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..cmp..PartialEq$GT$2eq17he2fe42d05b119d1cE.exit.thread"
 }

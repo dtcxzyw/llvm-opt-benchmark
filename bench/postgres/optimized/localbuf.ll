@@ -268,8 +268,8 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
   br label %PinLocalBuffer.exit
 
 PinLocalBuffer.exit:                              ; preds = %23, %38, %43
-  %45 = phi i32 [ %.pre.i, %43 ], [ 0, %38 ], [ %36, %23 ]
-  %.0.i = phi i32 [ %44, %43 ], [ %32, %38 ], [ %32, %23 ]
+  %45 = phi i32 [ %.pre.i, %43 ], [ %36, %23 ], [ 0, %38 ]
+  %.0.i = phi i32 [ %44, %43 ], [ %32, %23 ], [ %32, %38 ]
   %46 = add i32 %45, 1
   store i32 %46, ptr %35, align 4
   %47 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -352,8 +352,8 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   br label %19
 
 19:                                               ; preds = %12, %17, %2
-  %20 = phi i32 [ %.pre, %17 ], [ 0, %12 ], [ %10, %2 ]
-  %.0 = phi i32 [ %18, %17 ], [ %6, %12 ], [ %6, %2 ]
+  %20 = phi i32 [ %.pre, %17 ], [ %10, %2 ], [ 0, %12 ]
+  %.0 = phi i32 [ %18, %17 ], [ %6, %2 ], [ %6, %12 ]
   %21 = add i32 %20, 1
   store i32 %21, ptr %9, align 4
   %22 = load ptr, ptr @CurrentResourceOwner, align 8

@@ -1711,9 +1711,9 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   br label %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit78
 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit78: ; preds = %100, %99, %84, %83, %87
-  %.2107 = phi ptr [ %.0105, %87 ], [ %86, %84 ], [ %82, %83 ], [ %111, %100 ], [ %98, %99 ]
-  %.262 = phi i64 [ %13, %87 ], [ %.161, %84 ], [ %.161, %83 ], [ %.161, %100 ], [ %.161, %99 ]
-  %.2 = phi i64 [ %1, %87 ], [ %6, %84 ], [ %6, %83 ], [ %1, %100 ], [ %1, %99 ]
+  %.2107 = phi ptr [ %82, %83 ], [ %.0105, %87 ], [ %86, %84 ], [ %111, %100 ], [ %98, %99 ]
+  %.262 = phi i64 [ %.161, %83 ], [ %13, %87 ], [ %.161, %84 ], [ %.161, %100 ], [ %.161, %99 ]
+  %.2 = phi i64 [ %6, %83 ], [ %1, %87 ], [ %6, %84 ], [ %1, %100 ], [ %1, %99 ]
   %112 = load i8, ptr %77, align 1, !tbaa !95, !range !54, !noundef !55
   %113 = trunc nuw i8 %112 to i1
   %114 = icmp ne i64 %.058176, 0
@@ -2394,9 +2394,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   br label %.critedge, !llvm.loop !146
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %48
-  %.0.lcssa = phi i64 [ %55, %48 ], [ %65, %..critedge.loopexit_crit_edge ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %.lr.ph ]
-  %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %55, %48 ], [ %55, %.lr.ph.preheader ], [ %65, %..critedge.loopexit_crit_edge ], [ %65, %.lr.ph ]
+  %.pn.lcssa = phi ptr [ %5, %48 ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %storemerge106120, %.lr.ph ]
+  %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge, %.lr.ph ]
   %.not40 = icmp eq ptr %storemerge.lcssa, %3
   br i1 %.not40, label %103, label %66
 
@@ -2584,7 +2584,7 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit: ; preds = %24, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread, %27
-  %.sink = phi i32 [ 2, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread ], [ 1, %27 ], [ 1, %24 ]
+  %.sink = phi i32 [ 1, %27 ], [ 2, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit.thread ], [ 1, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sink, ptr %30, align 8, !tbaa !48, !alias.scope !163
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

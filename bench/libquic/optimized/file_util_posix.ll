@@ -945,7 +945,7 @@ define noundef zeroext i1 @_ZN4base13CopyDirectoryERKNS_8FilePathES2_b(ptr nound
           to label %152 unwind label %137
 
 152:                                              ; preds = %150, %147, %139, %142
-  %.3 = phi i1 [ true, %142 ], [ %.not52, %147 ], [ true, %139 ], [ %151, %150 ]
+  %.3 = phi i1 [ true, %139 ], [ %.not52, %147 ], [ true, %142 ], [ %151, %150 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN4base14FileEnumerator4NextEv(ptr dead_on_unwind nonnull writable sret(%"class.base::FilePath") align 8 %19, ptr noundef nonnull align 8 dereferenceable(184) %12)
           to label %153 unwind label %160
@@ -1066,7 +1066,7 @@ define noundef zeroext i1 @_ZN4base13CopyDirectoryERKNS_8FilePathES2_b(ptr nound
   br label %180
 
 179:                                              ; preds = %56, %37, %176
-  %.141 = phi i1 [ %.242, %176 ], [ false, %37 ], [ false, %56 ]
+  %.141 = phi i1 [ false, %37 ], [ %.242, %176 ], [ false, %56 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %181
@@ -1236,8 +1236,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %48, %36
   call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %51
 
-_ZNSt6vectorIcSaIcEED2Ev.exit45:                  ; preds = %38, %31, %.loopexit
-  %.123 = phi i1 [ false, %.loopexit ], [ true, %38 ], [ false, %31 ]
+_ZNSt6vectorIcSaIcEED2Ev.exit45:                  ; preds = %31, %38, %.loopexit
+  %.123 = phi i1 [ false, %.loopexit ], [ false, %31 ], [ true, %38 ]
   call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %50
 
@@ -1300,7 +1300,7 @@ define noundef zeroext i1 @_ZN4base14SetNonBlockingEi(i32 noundef %0) local_unna
   br i1 %12, label %7, label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %9, %7, %4, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %4 ], [ %.not9.not.not, %7 ], [ %.not9.not.not, %9 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %1 ], [ %.not9.not.not, %7 ], [ %.not9.not.not, %9 ]
   ret i1 %.0
 }
 
@@ -2626,7 +2626,7 @@ _ZNSt6vectorIN4base8FilePathESaIS1_EE9push_backERKS1_.exit38: ; preds = %.noexc3
   br i1 %.not45, label %.critedge33, label %58, !llvm.loop !83
 
 .critedge33:                                      ; preds = %.critedge, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread43, %79, %82
-  %.not4547 = phi i1 [ false, %79 ], [ false, %82 ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread43 ], [ true, %.critedge ]
+  %.not4547 = phi i1 [ false, %82 ], [ false, %79 ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread43 ], [ true, %.critedge ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %86 = load ptr, ptr %5, align 8, !tbaa !84
@@ -2772,7 +2772,7 @@ define noundef zeroext i1 @_ZN4base17NormalizeFilePathERKNS_8FilePathEPS0_(ptr n
           to label %28 unwind label %24
 
 28:                                               ; preds = %26, %16, %19
-  %.1 = phi i1 [ false, %19 ], [ false, %16 ], [ true, %26 ]
+  %.1 = phi i1 [ false, %16 ], [ false, %19 ], [ true, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %29
 
@@ -3163,7 +3163,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %44
   br label %74
 
 .critedge48:                                      ; preds = %30, %28, %.critedge47, %_ZN4base19WriteFileDescriptorEiPKci.exit
-  %.not22.i59 = phi i1 [ false, %_ZN4base19WriteFileDescriptorEiPKci.exit ], [ false, %.critedge47 ], [ true, %28 ], [ true, %30 ]
+  %.not22.i59 = phi i1 [ false, %.critedge47 ], [ false, %_ZN4base19WriteFileDescriptorEiPKci.exit ], [ true, %28 ], [ true, %30 ]
   %54 = call i32 @close(i32 noundef %9)
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %56, label %60
@@ -3211,7 +3211,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %64
   br label %74
 
 .critedge45:                                      ; preds = %56, %.critedge50, %.thread, %.critedge44, %.critedge.thread, %60
-  %.031 = phi i1 [ %.not22.i59, %60 ], [ false, %.critedge.thread ], [ false, %.critedge44 ], [ false, %.thread ], [ false, %.critedge50 ], [ %.not22.i59, %56 ]
+  %.031 = phi i1 [ %.not22.i59, %60 ], [ false, %.critedge50 ], [ false, %.critedge.thread ], [ false, %.critedge44 ], [ false, %.thread ], [ %.not22.i59, %56 ]
   ret i1 %.031
 
 74:                                               ; preds = %72, %52, %26
@@ -3386,7 +3386,7 @@ _ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i: ; preds = %_
   %.not2.i = icmp ult i32 %44, %51
   br i1 %.not2.i, label %.thread, label %52
 
-.thread:                                          ; preds = %28, %30, %_ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i, %39
+.thread:                                          ; preds = %_ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i, %28, %30, %39, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -3483,7 +3483,7 @@ _ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i40: ; preds = 
   %.not2.i41 = icmp ult i32 %80, %87
   br i1 %.not2.i41, label %.thread70, label %88
 
-.thread70:                                        ; preds = %69, %71, %_ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i40, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i39, %78
+.thread70:                                        ; preds = %_ZN4base11ContainsKeyISt3setIjSt4lessIjESaIjEEjEEbRKT_RKT0_.exit.i40, %69, %71, %78, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -3853,7 +3853,7 @@ _ZN7logging11CheckGEImplIliEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %45
 
 44:                                               ; preds = %31, %35
-  %.pn21.pn = phi { ptr, i32 } [ %36, %35 ], [ %32, %31 ]
+  %.pn21.pn = phi { ptr, i32 } [ %32, %31 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #24
   br label %49
@@ -3960,7 +3960,7 @@ define noundef zeroext i1 @_ZN4base8internal10MoveUnsafeERKNS_8FilePathES3_(ptr 
   br label %30
 
 30:                                               ; preds = %26, %21, %.critedge, %12, %28
-  %.1 = phi i1 [ true, %28 ], [ false, %12 ], [ false, %.critedge ], [ true, %21 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %.critedge ], [ true, %28 ], [ true, %21 ], [ false, %12 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.1
 }
@@ -4797,7 +4797,7 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   br label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !33
   %57 = load ptr, ptr %.0, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -1272,7 +1272,7 @@ define void @Bac_PtrUpdateBox(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not60, label %25, label %65
 
 25:                                               ; preds = %23, %21, %19, %17, %15, %13, %11, %9, %7, %2
-  %.sink = phi i64 [ 8, %2 ], [ 16, %7 ], [ 24, %9 ], [ 32, %11 ], [ 40, %13 ], [ 48, %15 ], [ 56, %17 ], [ 64, %19 ], [ 72, %21 ], [ 80, %23 ]
+  %.sink = phi i64 [ 8, %2 ], [ 16, %7 ], [ 32, %11 ], [ 48, %15 ], [ 64, %19 ], [ 72, %21 ], [ 56, %17 ], [ 40, %13 ], [ 24, %9 ], [ 80, %23 ]
   %26 = getelementptr i8, ptr %1, i64 8
   %.val75 = load ptr, ptr %26, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %.val75, i64 %.sink

@@ -848,7 +848,7 @@ _destroy_list.exit:                               ; preds = %.lr.ph.i53
   br label %72
 
 72:                                               ; preds = %3, %_destroy_list.exit, %_destroy_hashtbl.exit
-  %.031 = phi i32 [ -1, %_destroy_hashtbl.exit ], [ %.0, %_destroy_list.exit ], [ -1, %3 ]
+  %.031 = phi i32 [ %.0, %_destroy_list.exit ], [ -1, %_destroy_hashtbl.exit ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.031
 }

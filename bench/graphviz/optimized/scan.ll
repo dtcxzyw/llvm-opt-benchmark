@@ -2350,9 +2350,9 @@ yy_get_next_buffer.exit.thread225:                ; preds = %1089, %yy_get_next_
   br i1 %1262, label %.lr.ph26.i208, label %.preheader.outer.backedge
 
 .preheader.outer.backedge:                        ; preds = %._crit_edge.i218, %yy_get_next_buffer.exit.thread225, %yy_try_NUL_trans.exit
-  %.161.ph.be = phi ptr [ %1000, %yy_try_NUL_trans.exit ], [ %1254, %yy_get_next_buffer.exit.thread225 ], [ %1254, %._crit_edge.i218 ]
-  %.248.ph.be = phi ptr [ %1003, %yy_try_NUL_trans.exit ], [ %1257, %yy_get_next_buffer.exit.thread225 ], [ %1257, %._crit_edge.i218 ]
-  %.3.ph.be = phi i32 [ %.017.lcssa.i, %yy_try_NUL_trans.exit ], [ %1261, %yy_get_next_buffer.exit.thread225 ], [ %1302, %._crit_edge.i218 ]
+  %.161.ph.be = phi ptr [ %1254, %yy_get_next_buffer.exit.thread225 ], [ %1000, %yy_try_NUL_trans.exit ], [ %1254, %._crit_edge.i218 ]
+  %.248.ph.be = phi ptr [ %1257, %yy_get_next_buffer.exit.thread225 ], [ %1003, %yy_try_NUL_trans.exit ], [ %1257, %._crit_edge.i218 ]
+  %.3.ph.be = phi i32 [ %1261, %yy_get_next_buffer.exit.thread225 ], [ %.017.lcssa.i, %yy_try_NUL_trans.exit ], [ %1302, %._crit_edge.i218 ]
   br label %.preheader.outer
 
 .lr.ph26.i208:                                    ; preds = %yy_get_next_buffer.exit.thread225, %._crit_edge.i218
@@ -2446,7 +2446,7 @@ yy_get_previous_state.exit206:                    ; preds = %yy_get_next_buffer.
   unreachable
 
 .loopexit:                                        ; preds = %117, %117, %117, %117, %484, %465, %433, %436, %417, %420, %414, %416, %395, %397, %363, %366, %347, %350, %122, %125, %951, %820, %endstr.exit, %chkNum.exit.thread, %502
-  %.0 = phi i32 [ 267, %502 ], [ 267, %chkNum.exit.thread ], [ 268, %endstr.exit ], [ 268, %820 ], [ %953, %951 ], [ -1, %125 ], [ -1, %122 ], [ 259, %350 ], [ 259, %347 ], [ 260, %366 ], [ 260, %363 ], [ 258, %397 ], [ 258, %395 ], [ 261, %416 ], [ 261, %414 ], [ 263, %420 ], [ 263, %417 ], [ 262, %436 ], [ 262, %433 ], [ %., %465 ], [ %.115, %484 ], [ 0, %117 ], [ 0, %117 ], [ 0, %117 ], [ 0, %117 ]
+  %.0 = phi i32 [ 263, %420 ], [ -1, %122 ], [ 259, %347 ], [ 260, %363 ], [ 258, %395 ], [ 261, %414 ], [ 263, %417 ], [ %., %465 ], [ 262, %433 ], [ %.115, %484 ], [ 262, %436 ], [ 267, %502 ], [ 267, %chkNum.exit.thread ], [ 268, %endstr.exit ], [ 268, %820 ], [ %953, %951 ], [ -1, %125 ], [ 259, %350 ], [ 260, %366 ], [ 258, %397 ], [ 261, %416 ], [ 0, %117 ], [ 0, %117 ], [ 0, %117 ], [ 0, %117 ]
   ret i32 %.0
 }
 
@@ -2770,7 +2770,7 @@ aag_flush_buffer.exit.thread14.i:                 ; preds = %43
   br label %aag_init_buffer.exit
 
 aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread14.i.thread, %.critedge.i
-  %56 = phi ptr [ %.pre, %.critedge.i ], [ %44, %aag_flush_buffer.exit.thread14.i.thread ]
+  %56 = phi ptr [ %44, %aag_flush_buffer.exit.thread14.i.thread ], [ %.pre, %.critedge.i ]
   %.not11.i4 = icmp ne ptr %0, null
   %57 = load i32, ptr @gv_isatty_suppression, align 4
   %58 = icmp sgt i32 %57, 0

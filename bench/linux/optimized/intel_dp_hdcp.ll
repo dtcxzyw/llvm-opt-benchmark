@@ -436,7 +436,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
   br label %15
 
 15:                                               ; preds = %14, %2, %2, %2, %2
-  %16 = phi ptr [ %4, %2 ], [ %4, %2 ], [ %4, %2 ], [ %4, %2 ], [ null, %14 ]
+  %16 = phi ptr [ null, %14 ], [ %4, %2 ], [ %4, %2 ], [ %4, %2 ], [ %4, %2 ]
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 132
   %19 = load i32, ptr %18, align 4
@@ -459,10 +459,10 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
   br label %23
 
 23:                                               ; preds = %.thread, %._crit_edge, %22, %15, %15, %15, %15
-  %24 = phi i32 [ %21, %15 ], [ %21, %15 ], [ %21, %15 ], [ %21, %15 ], [ %21, %22 ], [ %13, %.thread ], [ %21, %._crit_edge ]
-  %25 = phi i32 [ %19, %15 ], [ %19, %15 ], [ %19, %15 ], [ %19, %15 ], [ %19, %22 ], [ %11, %.thread ], [ %19, %._crit_edge ]
-  %26 = phi ptr [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %22 ], [ %9, %.thread ], [ %17, %._crit_edge ]
-  %27 = phi ptr [ %4, %15 ], [ %4, %15 ], [ %4, %15 ], [ %4, %15 ], [ null, %22 ], [ %8, %.thread ], [ %.pre, %._crit_edge ]
+  %24 = phi i32 [ %21, %22 ], [ %21, %15 ], [ %21, %15 ], [ %21, %15 ], [ %21, %15 ], [ %13, %.thread ], [ %21, %._crit_edge ]
+  %25 = phi i32 [ %19, %22 ], [ %19, %15 ], [ %19, %15 ], [ %19, %15 ], [ %19, %15 ], [ %11, %.thread ], [ %19, %._crit_edge ]
+  %26 = phi ptr [ %17, %22 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %9, %.thread ], [ %17, %._crit_edge ]
+  %27 = phi ptr [ null, %22 ], [ %4, %15 ], [ %4, %15 ], [ %4, %15 ], [ %4, %15 ], [ %8, %.thread ], [ %.pre, %._crit_edge ]
   %28 = tail call i32 @intel_ddi_toggle_hdcp_bits(ptr noundef %27, i32 noundef %24, i1 noundef zeroext %1, i32 noundef 32) #7
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %38, label %30

@@ -1574,7 +1574,7 @@ dclist_push_tail.exit:                            ; preds = %87, %91
   br label %110
 
 110:                                              ; preds = %.thread115.thread, %79, %.thread115, %96
-  %.4 = phi i32 [ 1, %96 ], [ 0, %79 ], [ 2, %.thread115 ], [ 2, %.thread115.thread ]
+  %.4 = phi i32 [ 0, %79 ], [ 2, %.thread115 ], [ 1, %96 ], [ 2, %.thread115.thread ]
   ret i32 %.4
 }
 
@@ -1788,7 +1788,7 @@ CheckDeadLock.exit:                               ; preds = %106
   br label %114
 
 114:                                              ; preds = %63, %73, %69, %111, %113
-  %.3 = phi i8 [ %.075, %113 ], [ %.075, %111 ], [ %.075, %63 ], [ 1, %73 ], [ 0, %69 ]
+  %.3 = phi i8 [ %.075, %111 ], [ %.075, %113 ], [ %.075, %63 ], [ 1, %73 ], [ 0, %69 ]
   %115 = load ptr, ptr @MyProc, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load volatile i32, ptr %116, align 8

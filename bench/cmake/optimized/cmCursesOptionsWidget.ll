@@ -269,7 +269,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit18:  ; preds = %10, %10
   br label %79
 
 79:                                               ; preds = %10, %4, %75, %40, %30
-  %.0 = phi i1 [ true, %30 ], [ true, %40 ], [ true, %75 ], [ false, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %75 ], [ false, %4 ], [ true, %30 ], [ true, %40 ], [ false, %10 ]
   ret i1 %.0
 }
 

@@ -605,8 +605,8 @@ H5VL_conn_inc_rc.exit:                            ; preds = %63, %60, %56, %H5VL
   %87 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5VL__set_def_conn, i32 noundef 439, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.23) #15
   br label %.thread
 
-.thread:                                          ; preds = %20, %27, %45, %84, %76
-  %.038.ph = phi ptr [ null, %76 ], [ %.139, %84 ], [ null, %45 ], [ null, %27 ], [ null, %20 ]
+.thread:                                          ; preds = %20, %27, %76, %45, %84
+  %.038.ph = phi ptr [ %.139, %84 ], [ null, %45 ], [ null, %76 ], [ null, %27 ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %142
 
@@ -941,7 +941,7 @@ define range(i32 0, 2) i32 @H5VL__is_connector_registered_by_name(ptr noundef re
   br i1 %.not.us.i, label %H5VL__conn_find.exit, label %.lr.ph.split.us.i, !llvm.loop !41
 
 H5VL__conn_find.exit:                             ; preds = %11, %.lr.ph.split.us.i, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %.lr.ph.split.us.i ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 1, %.lr.ph.split.us.i ]
   ret i32 %.0
 }
 
@@ -1012,7 +1012,7 @@ H5VL__conn_find.exit:                             ; preds = %.lr.ph.split.us.i
   br label %H5VL_conn_inc_rc.exit
 
 H5VL_conn_inc_rc.exit:                            ; preds = %11, %17, %21, %24, %1
-  %.0 = phi ptr [ null, %1 ], [ %.015.us.i, %17 ], [ %.015.us.i, %21 ], [ %.015.us.i, %24 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ %.015.us.i, %24 ], [ %.015.us.i, %17 ], [ %.015.us.i, %21 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1466,7 +1466,7 @@ H5VL_conn_inc_rc.exit:                            ; preds = %48, %52, %55
   br label %.thread64
 
 .thread64:                                        ; preds = %28, %21, %13, %60, %H5VL_conn_inc_rc.exit, %81, %17
-  %.1 = phi ptr [ null, %81 ], [ null, %17 ], [ %61, %60 ], [ %26, %H5VL_conn_inc_rc.exit ], [ null, %13 ], [ null, %21 ], [ null, %28 ]
+  %.1 = phi ptr [ null, %81 ], [ %26, %H5VL_conn_inc_rc.exit ], [ null, %17 ], [ %61, %60 ], [ null, %13 ], [ null, %21 ], [ null, %28 ]
   ret ptr %.1
 }
 
@@ -1696,7 +1696,7 @@ H5VL_conn_inc_rc.exit:                            ; preds = %30, %34, %36
   br label %53
 
 53:                                               ; preds = %15, %H5VL_conn_inc_rc.exit, %23, %11, %52
-  %.012 = phi i32 [ -1, %11 ], [ %.1, %52 ], [ 0, %H5VL_conn_inc_rc.exit ], [ 0, %23 ], [ 0, %15 ]
+  %.012 = phi i32 [ -1, %11 ], [ 0, %15 ], [ %.1, %52 ], [ 0, %H5VL_conn_inc_rc.exit ], [ 0, %23 ]
   ret i32 %.012
 }
 
@@ -1799,7 +1799,7 @@ define range(i32 -1, 1) i32 @H5VL_conn_prop_cmp(ptr noundef writeonly captures(n
   br label %51
 
 51:                                               ; preds = %17, %22, %13, %50
-  %.018 = phi i32 [ -1, %13 ], [ 0, %22 ], [ %.1, %50 ], [ 0, %17 ]
+  %.018 = phi i32 [ -1, %13 ], [ 0, %22 ], [ 0, %17 ], [ %.1, %50 ]
   ret i32 %.018
 }
 
@@ -1936,7 +1936,7 @@ define range(i32 -1, 1) i32 @H5VL_cmp_connector_cls(ptr noundef writeonly captur
   br label %61
 
 61:                                               ; preds = %.thread, %12, %21, %28, %31, %38, %40, %46, %49, %56, %59, %60, %16
-  %.0 = phi i32 [ -1, %12 ], [ 0, %21 ], [ 0, %28 ], [ 0, %31 ], [ 0, %38 ], [ 0, %40 ], [ 0, %46 ], [ 0, %49 ], [ 0, %56 ], [ 0, %59 ], [ 0, %60 ], [ 0, %16 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1, %12 ], [ 0, %21 ], [ 0, %28 ], [ 0, %31 ], [ 0, %38 ], [ 0, %40 ], [ 0, %16 ], [ 0, %46 ], [ 0, %49 ], [ 0, %56 ], [ 0, %59 ], [ 0, %60 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -2333,7 +2333,7 @@ define range(i32 -1, 2) i32 @H5VL_conn_same_class(ptr noundef readonly captures(
   br label %35
 
 35:                                               ; preds = %16, %12, %19, %34
-  %.08 = phi i32 [ -1, %12 ], [ %.1, %34 ], [ -1, %16 ], [ 1, %19 ]
+  %.08 = phi i32 [ -1, %12 ], [ -1, %16 ], [ 1, %19 ], [ %.1, %34 ]
   ret i32 %.08
 }
 
@@ -2624,7 +2624,7 @@ define range(i32 -1, 1) i32 @H5VL_file_is_same(ptr noundef %0, ptr noundef %1, p
   br label %75
 
 75:                                               ; preds = %66, %63
-  %.1.i = phi ptr [ null, %63 ], [ %spec.select.i, %66 ]
+  %.1.i = phi ptr [ %spec.select.i, %66 ], [ null, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %H5VL_object_data.exit
 
@@ -2666,7 +2666,7 @@ H5VL_object_data.exit.thread:                     ; preds = %50, %H5VL_object_da
   br label %93
 
 93:                                               ; preds = %21, %49, %43, %34, %27, %17, %92
-  %.016 = phi i32 [ -1, %17 ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ], [ 0, %49 ], [ %.1, %92 ], [ 0, %21 ]
+  %.016 = phi i32 [ -1, %17 ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ], [ 0, %49 ], [ 0, %21 ], [ %.1, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2712,7 +2712,7 @@ define ptr @H5VL_object_data(ptr noundef readonly captures(none) %0) local_unnam
   br label %27
 
 27:                                               ; preds = %18, %15
-  %.1 = phi ptr [ null, %15 ], [ %spec.select, %18 ]
+  %.1 = phi ptr [ %spec.select, %18 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -2869,7 +2869,7 @@ define ptr @H5VL__register_connector(ptr noundef readonly captures(none) %0, i64
   br label %82
 
 82:                                               ; preds = %73, %62, %2, %80, %63, %69
-  %.031 = phi ptr [ null, %69 ], [ null, %63 ], [ null, %80 ], [ null, %73 ], [ %51, %62 ], [ null, %2 ]
+  %.031 = phi ptr [ %51, %62 ], [ null, %2 ], [ null, %69 ], [ null, %63 ], [ null, %80 ], [ null, %73 ]
   ret ptr %.031
 }
 
@@ -2941,7 +2941,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__free_cls(ptr nounde
   br label %34
 
 34:                                               ; preds = %.thread, %1, %29, %25
-  %.010 = phi i32 [ -1, %25 ], [ %.1, %29 ], [ 0, %1 ], [ -1, %.thread ]
+  %.010 = phi i32 [ -1, %25 ], [ %.1, %29 ], [ -1, %.thread ], [ 0, %1 ]
   ret i32 %.010
 }
 
@@ -3117,7 +3117,7 @@ H5VL__conn_find.exit:                             ; preds = %.lr.ph.split.us.i, 
   br label %H5VL_conn_inc_rc.exit
 
 H5VL_conn_inc_rc.exit:                            ; preds = %81, %78, %74, %10, %16, %23, %29, %39, %49, %62, %2
-  %.0 = phi ptr [ null, %16 ], [ null, %29 ], [ null, %62 ], [ null, %49 ], [ null, %39 ], [ null, %23 ], [ null, %10 ], [ null, %2 ], [ %.031, %74 ], [ %.031, %78 ], [ %.031, %81 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %29 ], [ null, %2 ], [ null, %62 ], [ null, %10 ], [ null, %49 ], [ null, %39 ], [ null, %23 ], [ %.031, %74 ], [ %.031, %78 ], [ %.031, %81 ]
   ret ptr %.0
 }
 
@@ -3268,7 +3268,7 @@ define range(i32 0, 2) i32 @H5VL__is_connector_registered_by_value(i32 noundef %
   br i1 %.not.i, label %H5VL__conn_find.exit, label %.lr.ph.split.i, !llvm.loop !41
 
 H5VL__conn_find.exit:                             ; preds = %10, %.lr.ph.split.i, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %.lr.ph.split.i ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 1, %.lr.ph.split.i ]
   ret i32 %.0
 }
 
@@ -3338,7 +3338,7 @@ H5VL__conn_find.exit:                             ; preds = %.lr.ph.split.i
   br label %H5VL_conn_inc_rc.exit
 
 H5VL_conn_inc_rc.exit:                            ; preds = %10, %16, %20, %23, %1
-  %.0 = phi ptr [ null, %1 ], [ %.015.i, %16 ], [ %.015.i, %20 ], [ %.015.i, %23 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %1 ], [ %.015.i, %23 ], [ %.015.i, %16 ], [ %.015.i, %20 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -3511,7 +3511,7 @@ define ptr @H5VL_vol_object_verify(i64 noundef %0, i32 noundef %1) local_unnamed
   br label %39
 
 39:                                               ; preds = %28, %27, %11, %23, %31, %35, %15
-  %.0 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %31 ], [ null, %35 ], [ null, %15 ], [ %29, %28 ], [ %21, %27 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %31 ], [ null, %15 ], [ null, %35 ], [ %29, %28 ], [ %21, %27 ]
   ret ptr %.0
 }
 
@@ -3674,7 +3674,7 @@ define internal fastcc ptr @H5VL__object(i64 noundef %0, i32 noundef %1) unnamed
   br label %61
 
 61:                                               ; preds = %52, %49
-  %.1.i = phi ptr [ null, %49 ], [ %spec.select.i, %52 ]
+  %.1.i = phi ptr [ %spec.select.i, %52 ], [ null, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %H5VL_object_data.exit
 
@@ -3683,7 +3683,7 @@ define internal fastcc ptr @H5VL__object(i64 noundef %0, i32 noundef %1) unnamed
   br label %H5VL_object_data.exit
 
 H5VL_object_data.exit:                            ; preds = %28, %21, %62, %61, %36, %2, %32, %14
-  %.011 = phi ptr [ null, %32 ], [ null, %14 ], [ null, %2 ], [ %.1.i, %61 ], [ %63, %62 ], [ null, %36 ], [ null, %21 ], [ null, %28 ]
+  %.011 = phi ptr [ null, %32 ], [ null, %14 ], [ null, %2 ], [ null, %36 ], [ %.1.i, %61 ], [ %63, %62 ], [ null, %21 ], [ null, %28 ]
   ret ptr %.011
 }
 
@@ -3868,7 +3868,7 @@ define range(i32 -1, 1) i32 @H5VL_start_lib_state(ptr noundef writeonly captures
   br label %.thread
 
 .thread:                                          ; preds = %20, %10, %27, %28, %14
-  %.1 = phi i32 [ -1, %28 ], [ 0, %14 ], [ 0, %27 ], [ -1, %20 ], [ -1, %10 ]
+  %.1 = phi i32 [ -1, %28 ], [ -1, %10 ], [ 0, %14 ], [ 0, %27 ], [ -1, %20 ]
   ret i32 %.1
 }
 
@@ -4478,7 +4478,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__free_vol_wrapper(pt
   br label %45
 
 45:                                               ; preds = %.thread, %1, %43, %39, %30
-  %.012 = phi i32 [ -1, %30 ], [ -1, %39 ], [ %.1, %43 ], [ 0, %1 ], [ -1, %.thread ]
+  %.012 = phi i32 [ -1, %30 ], [ -1, %39 ], [ %.1, %43 ], [ -1, %.thread ], [ 0, %1 ]
   ret i32 %.012
 }
 

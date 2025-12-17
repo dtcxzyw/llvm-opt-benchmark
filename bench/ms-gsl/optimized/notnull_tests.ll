@@ -8684,7 +8684,7 @@ _ZN7testing7MessageD2Ev.exit62:                   ; preds = %148, %_ZNKSt14defau
   ret void
 
 154:                                              ; preds = %134, %_ZN7testing7MessageD2Ev.exit62
-  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35, %_ZN7testing7MessageD2Ev.exit62 ], [ %.pn32.pn, %134 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %134 ], [ %.pn35, %_ZN7testing7MessageD2Ev.exit62 ]
   resume { ptr, i32 } %.pn35.pn.pn
 
 155:                                              ; preds = %116, %106
@@ -9231,7 +9231,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %117, %11
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit128.thread, %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %120
-  %121 = phi ptr [ %97, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit128.thread ], [ %101, %105 ], [ %101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %101, %120 ]
+  %121 = phi ptr [ %97, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit128.thread ], [ %101, %120 ], [ %101, %105 ], [ %101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ]
   %122 = load atomic i64, ptr %70 acquire, align 8
   %123 = icmp eq i64 %122, 4294967297
   %124 = trunc i64 %122 to i32
@@ -9535,7 +9535,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i160: ; preds = %228, 
   br label %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %231, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i160, %216, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread
-  %232 = phi ptr [ %208, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread ], [ %212, %216 ], [ %212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i160 ], [ %212, %231 ]
+  %232 = phi ptr [ %208, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit.thread ], [ %212, %231 ], [ %212, %216 ], [ %212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i160 ]
   br i1 %.not.i.i.i150, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit175, label %233
 
 233:                                              ; preds = %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -9839,7 +9839,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i205: ; preds = %338, 
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212: ; preds = %341, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i205, %326, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit202.thread
-  %342 = phi ptr [ %319, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit202.thread ], [ %322, %326 ], [ %322, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i205 ], [ %322, %341 ]
+  %342 = phi ptr [ %319, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit202.thread ], [ %322, %341 ], [ %322, %326 ], [ %322, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i205 ]
   br i1 %.not.i.i.i193, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit222, label %343
 
 343:                                              ; preds = %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212
@@ -10143,7 +10143,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i252: ; preds = %450, 
   br label %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit259
 
 _ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit259: ; preds = %453, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i252, %438, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit249.thread
-  %454 = phi ptr [ %430, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit249.thread ], [ %434, %438 ], [ %434, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i252 ], [ %434, %453 ]
+  %454 = phi ptr [ %430, %_ZN3gsl8not_nullISt10shared_ptrIKiEEC2IvEES3_.exit249.thread ], [ %434, %453 ], [ %434, %438 ], [ %434, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i252 ]
   br i1 %.not.i.i.i240, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit269, label %455
 
 455:                                              ; preds = %_ZNSt12__shared_ptrIKiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit259
@@ -10447,7 +10447,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i299: ; preds = %562, 
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit306
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit306: ; preds = %565, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i299, %550, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit296.thread
-  %566 = phi ptr [ %542, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit296.thread ], [ %546, %550 ], [ %546, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i299 ], [ %546, %565 ]
+  %566 = phi ptr [ %542, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit296.thread ], [ %546, %565 ], [ %546, %550 ], [ %546, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i299 ]
   br i1 %.not.i.i.i287, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit316, label %567
 
 567:                                              ; preds = %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit306
@@ -11347,7 +11347,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i440: ; preds = %902, 
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit447
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit447: ; preds = %905, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i440, %890, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit437.thread
-  %906 = phi ptr [ %882, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit437.thread ], [ %886, %890 ], [ %886, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i440 ], [ %886, %905 ]
+  %906 = phi ptr [ %882, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit437.thread ], [ %886, %905 ], [ %886, %890 ], [ %886, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i440 ]
   br i1 %.not.i.i.i428, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit457, label %907
 
 907:                                              ; preds = %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit447
@@ -12247,7 +12247,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i581: ; preds = %1242,
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit588
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit588: ; preds = %1245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i581, %1230, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit578.thread
-  %1246 = phi ptr [ %1222, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit578.thread ], [ %1226, %1230 ], [ %1226, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i581 ], [ %1226, %1245 ]
+  %1246 = phi ptr [ %1222, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit578.thread ], [ %1226, %1245 ], [ %1226, %1230 ], [ %1226, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i581 ]
   br i1 %.not.i.i.i569, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit598, label %1247
 
 1247:                                             ; preds = %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit588
@@ -13147,7 +13147,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i722: ; preds = %1582,
   br label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit729
 
 _ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit729: ; preds = %1585, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i722, %1570, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit719.thread
-  %1586 = phi ptr [ %1562, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit719.thread ], [ %1566, %1570 ], [ %1566, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i722 ], [ %1566, %1585 ]
+  %1586 = phi ptr [ %1562, %_ZN3gsl8not_nullISt10shared_ptrIiEEC2IvEES2_.exit719.thread ], [ %1566, %1585 ], [ %1566, %1570 ], [ %1566, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i722 ]
   br i1 %.not.i.i.i710, label %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit739, label %1587
 
 1587:                                             ; preds = %_ZNSt12__shared_ptrIiLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit729
@@ -16078,7 +16078,7 @@ _ZN7testing15AssertionResultD2Ev.exit634:         ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 669:                                              ; preds = %_ZN7testing7MessageD2Ev.exit593, %_ZN7testing7MessageD2Ev.exit557, %_ZN7testing7MessageD2Ev.exit530, %_ZN7testing7MessageD2Ev.exit458, %_ZN7testing7MessageD2Ev.exit398, %_ZN7testing7MessageD2Ev.exit364, %_ZN7testing7MessageD2Ev.exit338, %_ZN7testing7MessageD2Ev.exit272, %_ZN7testing7MessageD2Ev.exit246, %_ZN7testing7MessageD2Ev.exit219, %_ZN7testing7MessageD2Ev.exit192, %_ZN7testing7MessageD2Ev.exit171
-  %.pn155.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn150.pn.pn, %_ZN7testing7MessageD2Ev.exit593 ], [ %.pn146.pn.pn, %_ZN7testing7MessageD2Ev.exit557 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit530 ], [ %.pn132.pn.pn, %_ZN7testing7MessageD2Ev.exit458 ], [ %.pn122.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ], [ %.pn118.pn.pn, %_ZN7testing7MessageD2Ev.exit364 ], [ %.pn113.pn.pn, %_ZN7testing7MessageD2Ev.exit338 ], [ %.pn104.pn.pn, %_ZN7testing7MessageD2Ev.exit272 ], [ %.pn100.pn.pn, %_ZN7testing7MessageD2Ev.exit246 ], [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit219 ], [ %.pn92.pn.pn, %_ZN7testing7MessageD2Ev.exit192 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit171 ]
+  %.pn155.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn100.pn.pn, %_ZN7testing7MessageD2Ev.exit246 ], [ %.pn150.pn.pn, %_ZN7testing7MessageD2Ev.exit593 ], [ %.pn146.pn.pn, %_ZN7testing7MessageD2Ev.exit557 ], [ %.pn141.pn.pn, %_ZN7testing7MessageD2Ev.exit530 ], [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit219 ], [ %.pn132.pn.pn, %_ZN7testing7MessageD2Ev.exit458 ], [ %.pn92.pn.pn, %_ZN7testing7MessageD2Ev.exit192 ], [ %.pn122.pn.pn, %_ZN7testing7MessageD2Ev.exit398 ], [ %.pn118.pn.pn, %_ZN7testing7MessageD2Ev.exit364 ], [ %.pn113.pn.pn, %_ZN7testing7MessageD2Ev.exit338 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit171 ], [ %.pn104.pn.pn, %_ZN7testing7MessageD2Ev.exit272 ]
   resume { ptr, i32 } %.pn155.pn.pn.pn.pn
 }
 
@@ -17467,7 +17467,7 @@ _ZN7testing7MessageD2Ev.exit334:                  ; preds = %597, %_ZNKSt14defau
   ret void
 
 603:                                              ; preds = %439, %_ZN7testing7MessageD2Ev.exit309, %583, %_ZN7testing7MessageD2Ev.exit334, %295, %_ZN7testing7MessageD2Ev.exit284, %149, %_ZN7testing7MessageD2Ev.exit263
-  %.pn150.pn.pn.pn = phi { ptr, i32 } [ %.pn108, %_ZN7testing7MessageD2Ev.exit263 ], [ %.pn105.pn, %149 ], [ %.pn121, %_ZN7testing7MessageD2Ev.exit284 ], [ %.pn118.pn, %295 ], [ %.pn150, %_ZN7testing7MessageD2Ev.exit334 ], [ %.pn147.pn, %583 ], [ %.pn136, %_ZN7testing7MessageD2Ev.exit309 ], [ %.pn133.pn, %439 ]
+  %.pn150.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn, %295 ], [ %.pn105.pn, %149 ], [ %.pn108, %_ZN7testing7MessageD2Ev.exit263 ], [ %.pn121, %_ZN7testing7MessageD2Ev.exit284 ], [ %.pn150, %_ZN7testing7MessageD2Ev.exit334 ], [ %.pn147.pn, %583 ], [ %.pn136, %_ZN7testing7MessageD2Ev.exit309 ], [ %.pn133.pn, %439 ]
   resume { ptr, i32 } %.pn150.pn.pn.pn
 
 604:                                              ; preds = %565, %555, %421, %411, %277, %267, %131, %121
@@ -17837,45 +17837,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body:                                            ; preds = %19
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = load ptr, ptr %4, align 8
   %72 = icmp eq ptr %71, %7
-  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
+  br i1 %72, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
   %73 = load i64, ptr %7, align 8
   %74 = add i64 %73, 1
   call void @_ZdlPvm(ptr noundef %71, i64 noundef %74) #30
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body.thread:                                     ; preds = %30
   %75 = load ptr, ptr %4, align 8
   %76 = icmp eq ptr %75, %7
-  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br i1 %76, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
   %77 = load i64, ptr %7, align 8
   %78 = add i64 %77, 1
   call void @_ZdlPvm(ptr noundef %75, i64 noundef %78) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %70, %.body ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %70, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #30
   br label %79
 
-79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
+79:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
   resume { ptr, i32 } %.pn15
 }
 

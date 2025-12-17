@@ -1066,8 +1066,8 @@ define void @_ZN5arrow5DatumC2ERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull 
   br label %_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4, %12, %15, %2
-  %.sroa.0.0 = phi ptr [ %6, %4 ], [ %6, %12 ], [ %6, %15 ], [ null, %2 ]
-  %.sroa.4.0 = phi ptr [ null, %4 ], [ %8, %12 ], [ %8, %15 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %6, %15 ], [ %6, %4 ], [ %6, %12 ], [ null, %2 ]
+  %.sroa.4.0 = phi ptr [ %8, %15 ], [ null, %4 ], [ %8, %12 ], [ null, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %17, align 8, !tbaa !38
@@ -2855,7 +2855,7 @@ _ZSt3getISt10shared_ptrIN5arrow5TableEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS
   br label %29
 
 29:                                               ; preds = %1, %_ZSt3getISt10shared_ptrIN5arrow5TableEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES3_EERKT_RKSt7variantIJDpT0_EE.exit, %_ZSt3getISt10shared_ptrIN5arrow11RecordBatchEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES3_S0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit, %_ZSt3getISt10shared_ptrIN5arrow12ChunkedArrayEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES3_S0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit, %_ZSt3getISt10shared_ptrIN5arrow9ArrayDataEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES3_S0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit
-  %.0 = phi i64 [ %10, %_ZSt3getISt10shared_ptrIN5arrow9ArrayDataEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES3_S0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %16, %_ZSt3getISt10shared_ptrIN5arrow12ChunkedArrayEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES3_S0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %22, %_ZSt3getISt10shared_ptrIN5arrow11RecordBatchEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES3_S0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %28, %_ZSt3getISt10shared_ptrIN5arrow5TableEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES3_EERKT_RKSt7variantIJDpT0_EE.exit ], [ 0, %1 ]
+  %.0 = phi i64 [ %28, %_ZSt3getISt10shared_ptrIN5arrow5TableEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES3_EERKT_RKSt7variantIJDpT0_EE.exit ], [ %10, %_ZSt3getISt10shared_ptrIN5arrow9ArrayDataEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES3_S0_INS1_12ChunkedArrayEES0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %16, %_ZSt3getISt10shared_ptrIN5arrow12ChunkedArrayEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES3_S0_INS1_11RecordBatchEES0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %22, %_ZSt3getISt10shared_ptrIN5arrow11RecordBatchEEJNS1_5Datum5EmptyES0_INS1_6ScalarEES0_INS1_9ArrayDataEES0_INS1_12ChunkedArrayEES3_S0_INS1_5TableEEEERKT_RKSt7variantIJDpT0_EE.exit ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -3350,7 +3350,7 @@ _ZNK5arrow5Datum5tableEv.exit:                    ; preds = %44
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit, %.preheader, %_ZNK5arrow5Datum5tableEv.exit, %_ZNK5arrow5Datum12record_batchEv.exit, %1, %61, %_ZNK5arrow5Datum13chunked_arrayEv.exit, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit
-  %.sroa.021.0 = phi i64 [ 0, %61 ], [ %14, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit ], [ %20, %_ZNK5arrow5Datum13chunked_arrayEv.exit ], [ 2, %1 ], [ 2, %_ZNK5arrow5Datum12record_batchEv.exit ], [ 2, %_ZNK5arrow5Datum5tableEv.exit ], [ %59, %.preheader ], [ %42, %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit ]
+  %.sroa.021.0 = phi i64 [ 0, %61 ], [ 2, %_ZNK5arrow5Datum5tableEv.exit ], [ 2, %_ZNK5arrow5Datum12record_batchEv.exit ], [ %14, %_ZN5arrow23DeviceAllocationTypeSetC2ENS_20DeviceAllocationTypeE.exit ], [ %20, %_ZNK5arrow5Datum13chunked_arrayEv.exit ], [ 2, %1 ], [ %59, %.preheader ], [ %42, %_ZN5arrow23DeviceAllocationTypeSet3addENS_20DeviceAllocationTypeE.exit ]
   ret i64 %.sroa.021.0
 }
 
@@ -3763,7 +3763,7 @@ _ZNK5arrow5Datum5tableEv.exit55:                  ; preds = %_ZNK5arrow5Datum5ta
   br label %_ZN5arrow8internal15SharedPtrEqualsINS_6ScalarEEEbRKSt10shared_ptrIT_ES7_.exit
 
 _ZN5arrow8internal15SharedPtrEqualsINS_6ScalarEEEbRKSt10shared_ptrIT_ES7_.exit: ; preds = %139, %138, %_ZNK5arrow5Datum5tableEv.exit55, %124, %123, %_ZNK5arrow5Datum12record_batchEv.exit48, %109, %108, %_ZNK5arrow5Datum13chunked_arrayEv.exit41, %27, %26, %_ZNK5arrow5Datum6scalarEv.exit21, %15, %2, %141, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38
-  %.010 = phi i1 [ false, %141 ], [ %.0.i30, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38 ], [ false, %2 ], [ true, %15 ], [ %30, %27 ], [ true, %_ZNK5arrow5Datum6scalarEv.exit21 ], [ false, %26 ], [ %112, %109 ], [ true, %_ZNK5arrow5Datum13chunked_arrayEv.exit41 ], [ false, %108 ], [ %127, %124 ], [ true, %_ZNK5arrow5Datum12record_batchEv.exit48 ], [ false, %123 ], [ %140, %139 ], [ true, %_ZNK5arrow5Datum5tableEv.exit55 ], [ false, %138 ]
+  %.010 = phi i1 [ false, %123 ], [ false, %141 ], [ false, %2 ], [ true, %15 ], [ %.0.i30, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit38 ], [ false, %26 ], [ false, %108 ], [ %30, %27 ], [ true, %_ZNK5arrow5Datum6scalarEv.exit21 ], [ %112, %109 ], [ true, %_ZNK5arrow5Datum13chunked_arrayEv.exit41 ], [ %127, %124 ], [ true, %_ZNK5arrow5Datum12record_batchEv.exit48 ], [ %140, %139 ], [ true, %_ZNK5arrow5Datum5tableEv.exit55 ], [ false, %138 ]
   ret i1 %.010
 }
 
@@ -4703,7 +4703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137: ; preds = %_Z
   ret void
 
 345:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
-  %.pn19 = phi { ptr, i32 } [ %.pn17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %.pn14.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ %.pn10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ]
+  %.pn19 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ], [ %.pn10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %.pn17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %.pn14.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %.pn12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ]
   resume { ptr, i32 } %.pn19
 }
 

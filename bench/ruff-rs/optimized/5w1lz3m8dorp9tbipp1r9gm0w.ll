@@ -655,8 +655,8 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   br label %10
 
 10:                                               ; preds = %5, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ %6, %5 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select5, %5 ]
+  %.sroa.3.0 = phi ptr [ %6, %5 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %spec.select5, %5 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %12

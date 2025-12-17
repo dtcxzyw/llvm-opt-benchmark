@@ -284,7 +284,7 @@ pcm_dvd_parse_header.exit:                        ; preds = %40
   br label %154
 
 154:                                              ; preds = %.thread, %pcm_dvd_parse_header.exit, %104, %152, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ %153, %152 ], [ -1094995529, %pcm_dvd_parse_header.exit ], [ %117, %104 ], [ %131, %.thread ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ %131, %.thread ], [ -1094995529, %pcm_dvd_parse_header.exit ], [ %153, %152 ], [ %117, %104 ]
   ret i32 %.0
 }
 
@@ -608,7 +608,7 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %.not75, label %.loopexit, label %.preheader109.splitthread-pre-split, !llvm.loop !64
 
 .loopexit:                                        ; preds = %._crit_edge, %132, %._crit_edge125, %54, %18, %.preheader109, %.preheader105, %bytestream2_init.exit
-  %.066 = phi ptr [ null, %bytestream2_init.exit ], [ %2, %.preheader105 ], [ %2, %.preheader109 ], [ %22, %18 ], [ %51, %54 ], [ %.4.lcssa, %._crit_edge125 ], [ %129, %132 ], [ %.9.lcssa, %._crit_edge ]
+  %.066 = phi ptr [ null, %bytestream2_init.exit ], [ %2, %.preheader109 ], [ %2, %.preheader105 ], [ %129, %132 ], [ %22, %18 ], [ %51, %54 ], [ %.4.lcssa, %._crit_edge125 ], [ %.9.lcssa, %._crit_edge ]
   ret ptr %.066
 }
 

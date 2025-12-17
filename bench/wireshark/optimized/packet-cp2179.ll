@@ -519,7 +519,7 @@ clean_telnet_iac.exit:                            ; preds = %.outer.i, %31, %.th
   br label %classify_message_type.exit.i
 
 classify_message_type.exit.i:                     ; preds = %94, %87, %84, %82, %77, %76, %73, %70, %68, %65, %60, %56, %53, %49, %40
-  %.0.i.i = phi i32 [ -99, %94 ], [ -1, %76 ], [ 1, %49 ], [ %spec.select.i.i, %53 ], [ 10, %56 ], [ 11, %60 ], [ %spec.select70.i.i, %65 ], [ %spec.select71.i.i, %68 ], [ 3, %70 ], [ 5, %73 ], [ %spec.select72.i.i, %77 ], [ %..i.i, %82 ], [ 20, %40 ], [ %spec.select75.i.i, %84 ], [ %spec.select76.i.i, %87 ]
+  %.0.i.i = phi i32 [ -99, %94 ], [ %spec.select76.i.i, %87 ], [ 1, %49 ], [ 20, %40 ], [ %spec.select.i.i, %53 ], [ 10, %56 ], [ 11, %60 ], [ %..i.i, %82 ], [ %spec.select70.i.i, %65 ], [ %spec.select75.i.i, %84 ], [ %spec.select71.i.i, %68 ], [ 3, %70 ], [ 5, %73 ], [ %spec.select72.i.i, %77 ], [ -1, %76 ]
   %95 = trunc nsw i32 %.0.i.i to i16
   %96 = load ptr, ptr %41, align 8
   %97 = tail call ptr @val_to_str_ext_const(i32 noundef %.0.i.i, ptr noundef nonnull @cp2179_messagetype_vals_ext, ptr noundef nonnull @.str.168)
@@ -1111,7 +1111,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %271, %266
   br label %dissect_cp2179_pdu.exit
 
 .thread270.i.i:                                   ; preds = %.loopexit.i.i, %.preheader281.i.i, %.preheader279.i.i, %.preheader277.i.i, %.preheader275.i.i, %329, %307, %.preheader.i71.i, %.thread270.sink.split.i.i, %383, %.split.i.i, %343, %294, %292, %291, %289
-  %.10.lcssa.lcssa.sink.i.i = phi i32 [ 7, %294 ], [ 8, %383 ], [ 7, %343 ], [ 7, %.split.i.i ], [ 7, %291 ], [ 7, %289 ], [ 7, %292 ], [ 8, %.thread270.sink.split.i.i ], [ %304, %.preheader.i71.i ], [ %318, %307 ], [ %340, %329 ], [ %358, %.preheader275.i.i ], [ %366, %.preheader277.i.i ], [ %373, %.preheader279.i.i ], [ %380, %.preheader281.i.i ], [ %.10.lcssa.i.i, %.loopexit.i.i ]
+  %.10.lcssa.lcssa.sink.i.i = phi i32 [ 8, %.thread270.sink.split.i.i ], [ 8, %383 ], [ 7, %343 ], [ 7, %.split.i.i ], [ 7, %294 ], [ 7, %291 ], [ 7, %292 ], [ 7, %289 ], [ %380, %.preheader281.i.i ], [ %304, %.preheader.i71.i ], [ %318, %307 ], [ %340, %329 ], [ %358, %.preheader275.i.i ], [ %366, %.preheader277.i.i ], [ %373, %.preheader279.i.i ], [ %.10.lcssa.i.i, %.loopexit.i.i ]
   %428 = load i32, ptr @hf_cp2179_crc, align 4
   %429 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %428, ptr noundef %.014, i32 noundef %.10.lcssa.lcssa.sink.i.i, i32 noundef 2, i32 noundef 0)
   %430 = tail call i32 @tvb_reported_length(ptr noundef %.014)

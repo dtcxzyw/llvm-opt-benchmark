@@ -406,7 +406,7 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
   unreachable
 
 179:                                              ; preds = %164, %167, %173
-  %.0319 = phi double [ %172, %167 ], [ %175, %173 ], [ 1.000000e+00, %164 ]
+  %.0319 = phi double [ %175, %173 ], [ %172, %167 ], [ 1.000000e+00, %164 ]
   %180 = fmul double %.0319, %.0319
   %181 = fdiv double -1.000000e+00, %180
   %182 = getelementptr inbounds double, ptr %136, i64 %165
@@ -530,8 +530,8 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
   unreachable
 
 238:                                              ; preds = %223, %224, %232
-  %239 = phi i32 [ %218, %224 ], [ %.pre543, %232 ], [ %218, %223 ]
-  %.1320 = phi double [ %231, %224 ], [ %234, %232 ], [ 2.000000e+00, %223 ]
+  %239 = phi i32 [ %.pre543, %232 ], [ %218, %224 ], [ %218, %223 ]
+  %.1320 = phi double [ %234, %232 ], [ %231, %224 ], [ 2.000000e+00, %223 ]
   %240 = sext i32 %.12446 to i64
   %241 = getelementptr inbounds i32, ptr %134, i64 %240
   store i32 %239, ptr %241, align 4, !tbaa !22

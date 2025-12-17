@@ -180,7 +180,7 @@ switch.lookup:                                    ; preds = %13
   br label %19
 
 19:                                               ; preds = %13, %switch.lookup, %8, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ true, %13 ], [ true, %switch.lookup ]
+  %.0 = phi i1 [ false, %8 ], [ false, %1 ], [ true, %13 ], [ true, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
@@ -195,7 +195,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %39, label %10
+  br i1 %.not, label %40, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -248,21 +248,21 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
 
 36:                                               ; preds = %33
   %37 = call fastcc zeroext i1 @DBus_ExtractThemeVariant(ptr noundef %4)
-  br i1 %37, label %.critedge, label %.sink.split
+  br i1 %37, label %38, label %.sink.split
 
-.critedge:                                        ; preds = %36
-  %38 = load i32, ptr @system_theme_data.1, align 8
-  call void @SDL_SetSystemTheme(i32 noundef %38) #4
+38:                                               ; preds = %36
+  %39 = load i32, ptr @system_theme_data.1, align 8
+  call void @SDL_SetSystemTheme(i32 noundef %39) #4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %17, %22, %26, %29, %33, %36, %.critedge
-  %.1.ph = phi i32 [ 0, %.critedge ], [ 1, %36 ], [ 1, %33 ], [ 1, %29 ], [ 1, %26 ], [ 1, %22 ], [ 1, %17 ], [ 1, %10 ]
+.sink.split:                                      ; preds = %17, %10, %22, %26, %33, %29, %36, %38
+  %.1.ph = phi i32 [ 0, %38 ], [ 1, %36 ], [ 1, %29 ], [ 1, %33 ], [ 1, %26 ], [ 1, %22 ], [ 1, %10 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %39
+  br label %40
 
-39:                                               ; preds = %.sink.split, %3
+40:                                               ; preds = %.sink.split, %3
   %.1 = phi i32 [ 1, %3 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }

@@ -604,7 +604,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %.body
 
 .body:                                            ; preds = %73, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33, %97
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %98, %97 ], [ %98, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33 ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %98, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33 ], [ %98, %97 ]
   store ptr null, ptr %68, align 8, !tbaa !103
   call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 48) #20
   br label %100
@@ -742,7 +742,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EE5resetEPS
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %46
   br label %.loopexit, !llvm.loop !108
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %24, %29, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %24, %..loopexit_crit_edge21.i.i.i.i, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str, ptr %5, align 8, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1200,7 +1200,7 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EE5resetEPS
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %56
   br label %.loopexit, !llvm.loop !108
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %34, %39, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %34, %..loopexit_crit_edge21.i.i.i.i, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str, ptr %7, align 8, !tbaa !109
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1722,7 +1722,7 @@ _ZN7rocksdb13PinnableSliceD2Ev.exit72:            ; preds = %_ZN7rocksdb13Pinnab
   br label %300
 
 300:                                              ; preds = %.body, %295, %293
-  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body ], [ %296, %295 ], [ %294, %293 ]
+  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body ], [ %294, %293 ], [ %296, %295 ]
   call void @_ZN7rocksdb13PinnableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %15) #19
   br label %301
 
@@ -1969,7 +1969,7 @@ _ZN7rocksdb6StatusD2Ev.exit116:                   ; preds = %375, %_ZNKSt14defau
   br label %378
 
 378:                                              ; preds = %135, %283, %_ZN7rocksdb6StatusD2Ev.exit116, %167, %152, %137, %111
-  %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %136, %135 ], [ %153, %152 ], [ %168, %167 ], [ %138, %137 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN7rocksdb6StatusD2Ev.exit116 ], [ %284, %283 ]
+  %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %136, %135 ], [ %138, %137 ], [ %153, %152 ], [ %168, %167 ], [ %.pn49.pn.pn.pn.pn.pn, %_ZN7rocksdb6StatusD2Ev.exit116 ], [ %284, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %379
 

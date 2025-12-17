@@ -669,8 +669,8 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
   br label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit: ; preds = %20, %5, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i
-  %.sroa.02.0.i = phi ptr [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ null, %5 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %3, %20 ]
-  %.sroa.6.0.i = phi i64 [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ undef, %5 ], [ %4, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %4, %20 ]
+  %.sroa.02.0.i = phi ptr [ null, %5 ], [ %3, %20 ], [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ]
+  %.sroa.6.0.i = phi i64 [ undef, %5 ], [ %4, %20 ], [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ %4, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ]
   %24 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %25, i64 %1, i32 %2, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.23)
@@ -1454,7 +1454,7 @@ define zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names
   br label %16
 
 16:                                               ; preds = %13, %2, %6, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %2 ], [ %15, %13 ]
+  %.0 = phi i1 [ %15, %13 ], [ false, %2 ], [ false, %9 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -1467,8 +1467,8 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
   br i1 %or.cond, label %7, label %10
 
 7:                                                ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread, %10, %4, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4
-  %.sroa.02.0 = phi ptr [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4 ], [ null, %4 ], [ null, %10 ], [ %2, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread ], [ %2, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ]
-  %.sroa.6.0 = phi i64 [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4 ], [ undef, %4 ], [ undef, %10 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ]
+  %.sroa.02.0 = phi ptr [ null, %4 ], [ null, %10 ], [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4 ], [ %2, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ], [ %2, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread ]
+  %.sroa.6.0 = phi i64 [ undef, %4 ], [ undef, %10 ], [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread ]
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %9
@@ -1657,7 +1657,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_en
           to label %98 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %196, %153, %.thread, %138, %122
-  %.pn64 = phi { ptr, i32 } [ %154, %153 ], [ %.pn62, %.thread ], [ %139, %138 ], [ %123, %122 ], [ %.pn.i, %196 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn64 = phi { ptr, i32 } [ %123, %122 ], [ %154, %153 ], [ %.pn62, %.thread ], [ %139, %138 ], [ %.pn.i, %196 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %34) #13
           to label %94 unwind label %275
 
@@ -1715,8 +1715,8 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
   br label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread.i: ; preds = %106, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i, %.noexc72, %.noexc
-  %.sroa.02.0.i = phi ptr [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ null, %.noexc ], [ %90, %.noexc72 ], [ %90, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ %90, %106 ]
-  %.sroa.6.0.i = phi i64 [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ undef, %.noexc ], [ %91, %.noexc72 ], [ %91, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ %91, %106 ]
+  %.sroa.02.0.i = phi ptr [ null, %.noexc ], [ %90, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ %90, %.noexc72 ], [ %90, %106 ]
+  %.sroa.6.0.i = phi i64 [ undef, %.noexc ], [ %91, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.thread4.i ], [ %91, %.noexc72 ], [ %91, %106 ]
   invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.72, i64 46)
           to label %114 unwind label %.loopexit.split-lp
 

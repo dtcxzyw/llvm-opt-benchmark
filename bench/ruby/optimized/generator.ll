@@ -433,7 +433,7 @@ define internal i64 @cState_from_state_s(i64 noundef %0, i64 noundef %1) #0 {
   br label %13
 
 13:                                               ; preds = %2, %10, %7
-  %.0 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %1, %2 ]
+  %.0 = phi i64 [ %12, %10 ], [ %9, %7 ], [ %1, %2 ]
   ret i64 %.0
 }
 
@@ -1289,7 +1289,7 @@ Check_Type.exit:                                  ; preds = %15
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %25, %28
-  %.0.i = phi i64 [ %27, %25 ], [ %30, %28 ], [ %10, %Check_Type.exit ]
+  %.0.i = phi i64 [ %30, %28 ], [ %27, %25 ], [ %10, %Check_Type.exit ]
   %31 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %5, ptr noundef nonnull @generate_json_string, i64 noundef 0)
   ret i64 %31
 }
@@ -1335,7 +1335,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
-  %.0.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %10, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %17, %15 ], [ %10, %9 ]
   %21 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %2, ptr noundef nonnull @generate_json_object, i64 noundef 0)
   ret i64 %21
 }
@@ -1381,7 +1381,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
-  %.0.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %10, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %17, %15 ], [ %10, %9 ]
   %21 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %2, ptr noundef nonnull @generate_json_array, i64 noundef 0)
   ret i64 %21
 }
@@ -1427,7 +1427,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
-  %.0.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %10, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %17, %15 ], [ %10, %9 ]
   %21 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %2, ptr noundef nonnull @generate_json_integer, i64 noundef 0)
   ret i64 %21
 }
@@ -1473,7 +1473,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
-  %.0.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %10, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %17, %15 ], [ %10, %9 ]
   %21 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %2, ptr noundef nonnull @generate_json_float, i64 noundef 0)
   ret i64 %21
 }
@@ -1530,7 +1530,7 @@ rb_check_arity.exit:                              ; preds = %3
   br label %cState_from_state_s.exit
 
 cState_from_state_s.exit:                         ; preds = %9, %15, %18
-  %.0.i = phi i64 [ %17, %15 ], [ %20, %18 ], [ %10, %9 ]
+  %.0.i = phi i64 [ %20, %18 ], [ %17, %15 ], [ %10, %9 ]
   %21 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %2, ptr noundef nonnull @generate_json_string, i64 noundef 0)
   ret i64 %21
 }
@@ -3226,7 +3226,7 @@ RB_ENCODING_GET.exit.i:                           ; preds = %12, %4
   br label %ensure_valid_encoding.exit
 
 ensure_valid_encoding.exit:                       ; preds = %RB_ENCODING_GET.exit.i, %21, %26, %27
-  %.0.i = phi i64 [ %24, %26 ], [ %24, %21 ], [ %28, %27 ], [ %3, %RB_ENCODING_GET.exit.i ]
+  %.0.i = phi i64 [ %24, %21 ], [ %24, %26 ], [ %28, %27 ], [ %3, %RB_ENCODING_GET.exit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !47
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3759,7 +3759,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #11 {
   br label %17
 
 17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+  %.0.in = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !6
   ret i64 %.0
 }
@@ -4196,7 +4196,7 @@ rb_type.exit.thread:                              ; preds = %39, %39, %39, %41, 
   br label %57
 
 57:                                               ; preds = %47, %52, %rb_type.exit.thread, %rb_type.exit.thread52
-  %.0 = phi i64 [ %56, %rb_type.exit.thread ], [ %54, %52 ], [ %55, %rb_type.exit.thread52 ], [ %0, %47 ]
+  %.0 = phi i64 [ %56, %rb_type.exit.thread ], [ %55, %rb_type.exit.thread52 ], [ %54, %52 ], [ %0, %47 ]
   %58 = inttoptr i64 %.0 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !60
@@ -4674,7 +4674,7 @@ fbuffer_append.exit75.i:                          ; preds = %200, %183
   br label %.lr.ph.preheader.i3
 
 .lr.ph.preheader.i3:                              ; preds = %60, %211, %209, %207
-  %.0.shrunk.i = phi i8 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ 0, %60 ]
+  %.0.shrunk.i = phi i8 [ 0, %60 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ]
   %.0.i = zext nneg i8 %.0.shrunk.i to i32
   %wide.trip.count = zext nneg i8 %59 to i64
   br label %.lr.ph.i4
@@ -4932,7 +4932,7 @@ ruby_nonempty_memcpy.exit.i.i:                    ; preds = %37, %30
   br label %46
 
 46:                                               ; preds = %44, %21, %17, %.lr.ph.i
-  %.sink.i = phi i64 [ %45, %44 ], [ 3, %17 ], [ 3, %21 ], [ 1, %.lr.ph.i ]
+  %.sink.i = phi i64 [ %45, %44 ], [ 3, %21 ], [ 3, %17 ], [ 1, %.lr.ph.i ]
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.i
   store ptr %47, ptr %0, align 8, !tbaa !74
   %48 = icmp ult ptr %47, %7

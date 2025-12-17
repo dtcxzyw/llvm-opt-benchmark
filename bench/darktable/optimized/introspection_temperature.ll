@@ -2555,10 +2555,10 @@ define internal fastcc void @_color_finetuning_slider(ptr readonly captures(none
   br i1 %exitcond.not, label %97, label %.preheader
 
 106:                                              ; preds = %97, %84
-  %107 = phi float [ %88, %84 ], [ %., %97 ]
-  %108 = phi float [ %87, %84 ], [ %.17, %97 ]
-  %109 = phi float [ %86, %84 ], [ %.17, %97 ]
-  %110 = phi float [ %85, %84 ], [ %., %97 ]
+  %107 = phi float [ %., %97 ], [ %88, %84 ]
+  %108 = phi float [ %.17, %97 ], [ %87, %84 ]
+  %109 = phi float [ %.17, %97 ], [ %86, %84 ]
+  %110 = phi float [ %., %97 ], [ %85, %84 ]
   %111 = load ptr, ptr %5, align 8, !tbaa !125
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = load double, ptr %112, align 8, !tbaa !78
@@ -3515,10 +3515,10 @@ _ignore_missing_wb.exit:                          ; preds = %68
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %79) #24
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %69, %78, %.critedge60, %63, %_calculate_bogus_daylight_wb.exit, %23
-  %.sink91 = phi double [ %34, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %69 ]
-  %.sink88 = phi double [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %69 ]
-  %.sink = phi double [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %69 ]
+.loopexit.sink.split:                             ; preds = %69, %78, %63, %.critedge60, %_calculate_bogus_daylight_wb.exit, %23
+  %.sink91 = phi double [ 1.000000e+00, %23 ], [ %34, %_calculate_bogus_daylight_wb.exit ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %69 ]
+  %.sink88 = phi double [ 1.000000e+00, %23 ], [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %69 ]
+  %.sink = phi double [ 1.000000e+00, %23 ], [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %69 ]
   store double %.sink91, ptr %1, align 8, !tbaa !78
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double 1.000000e+00, ptr %80, align 8, !tbaa !78
@@ -4610,8 +4610,8 @@ _temp_params_from_array.exit149:                  ; preds = %125, %_temp_params_
   store i32 %213, ptr %211, align 8, !tbaa !206
   br label %_temp_params_from_array.exit
 
-_temp_params_from_array.exit:                     ; preds = %83, %75, %67, %51, %.lr.ph173, %144, %151, %170, %.critedge131, %.critedge2, %188, %_temp_params_from_array.exit149, %57, %62
-  %.0 = phi i32 [ 0, %57 ], [ 0, %62 ], [ 0, %.critedge2 ], [ 1, %188 ], [ 0, %_temp_params_from_array.exit149 ], [ 0, %.critedge131 ], [ 0, %170 ], [ 0, %151 ], [ 0, %144 ], [ 0, %.lr.ph173 ], [ 0, %51 ], [ 0, %67 ], [ 0, %75 ], [ 0, %83 ]
+_temp_params_from_array.exit:                     ; preds = %83, %75, %67, %51, %.lr.ph173, %144, %170, %151, %.critedge131, %.critedge2, %188, %_temp_params_from_array.exit149, %57, %62
+  %.0 = phi i32 [ 0, %_temp_params_from_array.exit149 ], [ 0, %57 ], [ 0, %62 ], [ 0, %.critedge2 ], [ 1, %188 ], [ 0, %.critedge131 ], [ 0, %75 ], [ 0, %.lr.ph173 ], [ 0, %51 ], [ 0, %67 ], [ 0, %151 ], [ 0, %170 ], [ 0, %144 ], [ 0, %83 ]
   %214 = load ptr, ptr %18, align 8, !tbaa !125
   %215 = tail call i64 @gtk_widget_get_type() #25
   %216 = call ptr @g_type_check_instance_cast(ptr noundef %214, i64 noundef %215) #24
@@ -4877,7 +4877,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %19
 
 19:                                               ; preds = %16, %2, %14, %10, %6
-  %.0 = phi ptr [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %16 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -4909,7 +4909,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ %., %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

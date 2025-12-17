@@ -207,7 +207,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1297,12 +1297,12 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   br label %112
 
 112:                                              ; preds = %96, %107
-  %.1137 = phi i32 [ %.0136172, %96 ], [ %110, %107 ]
-  %.1134 = phi i32 [ %.0133173, %96 ], [ %89, %107 ]
-  %.1131 = phi i32 [ %.0130174, %96 ], [ %109, %107 ]
-  %.1128 = phi i32 [ %83, %96 ], [ %89, %107 ]
-  %.1125 = phi i32 [ %85, %96 ], [ 0, %107 ]
-  %.1122 = phi i32 [ %.0121176, %96 ], [ %111, %107 ]
+  %.1137 = phi i32 [ %110, %107 ], [ %.0136172, %96 ]
+  %.1134 = phi i32 [ %89, %107 ], [ %.0133173, %96 ]
+  %.1131 = phi i32 [ %109, %107 ], [ %.0130174, %96 ]
+  %.1128 = phi i32 [ %89, %107 ], [ %83, %96 ]
+  %.1125 = phi i32 [ 0, %107 ], [ %85, %96 ]
+  %.1122 = phi i32 [ %111, %107 ], [ %.0121176, %96 ]
   %113 = load ptr, ptr %1, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %115 = load ptr, ptr %114, align 8
@@ -1572,7 +1572,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit86:    ; preds = %_ZN6icu_7713Unicode
   br label %91
 
 91:                                               ; preds = %88, %86, %_ZN6icu_7713UnicodeString6appendERKS0_.exit86
-  %.0.i87 = phi ptr [ %87, %86 ], [ %90, %88 ], [ null, %_ZN6icu_7713UnicodeString6appendERKS0_.exit86 ]
+  %.0.i87 = phi ptr [ %90, %88 ], [ %87, %86 ], [ null, %_ZN6icu_7713UnicodeString6appendERKS0_.exit86 ]
   %92 = icmp slt i16 %82, 0
   %93 = ashr i16 %82, 5
   %94 = sext i16 %93 to i32
@@ -1953,7 +1953,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit94:    ; preds = %215, %212
           to label %243 unwind label %120
 
 243:                                              ; preds = %.thread, %241
-  %.4 = phi ptr [ %2, %241 ], [ %.1.ph, %.thread ]
+  %.4 = phi ptr [ %.1.ph, %.thread ], [ %2, %241 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %246
@@ -2285,7 +2285,7 @@ thread-pre-split:                                 ; preds = %96, %.thread, %30
   br label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit: ; preds = %_ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE.exit, %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit, %thread-pre-split, %98
-  %.361 = phi ptr [ null, %thread-pre-split ], [ null, %98 ], [ %.02051, %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit ], [ %.02051, %_ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE.exit ]
+  %.361 = phi ptr [ null, %98 ], [ null, %thread-pre-split ], [ %.02051, %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit ], [ %.02051, %_ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %100
 
@@ -2601,7 +2601,7 @@ define noundef ptr @_ZN6icu_7714Transliterator19createBasicInstanceERKNS_13Unico
   br label %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit
 
 _ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit: ; preds = %64, %67, %94, %90, %87, %86, %.loopexit, %23, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %23 ], [ %.2, %.loopexit ], [ %.2, %86 ], [ %.2, %87 ], [ %.2, %90 ], [ %.2, %94 ], [ null, %67 ], [ null, %64 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %26 ], [ %.2, %94 ], [ %.2, %.loopexit ], [ %.2, %86 ], [ %.2, %87 ], [ %.2, %90 ], [ null, %67 ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2815,7 +2815,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %95
           cleanup
   br label %189
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %.sink.split.i.i.i, %78, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %78, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %.sink.split.i.i.i, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
   %105 = invoke ptr @ures_getNextResource_77(ptr noundef %71, ptr noundef null, ptr noundef nonnull %7)
           to label %106 unwind label %114
 
@@ -3034,7 +3034,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %186
 
 185:                                              ; preds = %.body, %168, %182, %162
-  %.pn162.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %.pn158, %182 ], [ %.pn162, %168 ], [ %.pn10.i, %.body ]
+  %.pn162.pn.pn = phi { ptr, i32 } [ %.pn158, %182 ], [ %163, %162 ], [ %.pn162, %168 ], [ %.pn10.i, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %188
 
@@ -3530,7 +3530,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %345
 
 343:                                              ; preds = %.loopexit190, %.loopexit.split-lp, %261, %265, %269, %310, %320, %330, %340, %273, %271, %267, %263, %190
-  %.pn173 = phi { ptr, i32 } [ %.pn170.pn, %190 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %311, %310 ], [ %.pn144.pn, %340 ], [ %.pn141.pn, %330 ], [ %.pn.pn, %320 ], [ %274, %273 ], [ %lpad.loopexit, %.loopexit190 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn173 = phi { ptr, i32 } [ %274, %273 ], [ %.pn170.pn, %190 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %311, %310 ], [ %.pn144.pn, %340 ], [ %.pn141.pn, %330 ], [ %.pn.pn, %320 ], [ %lpad.loopexit, %.loopexit190 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #21
   br label %344
 
@@ -3541,7 +3541,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %346
 
 345:                                              ; preds = %1, %342, %39
-  %.0 = phi i8 [ 0, %39 ], [ %.1, %342 ], [ 1, %1 ]
+  %.0 = phi i8 [ %.1, %342 ], [ 0, %39 ], [ 1, %1 ]
   ret i8 %.0
 
 346:                                              ; preds = %40, %344
@@ -3945,7 +3945,7 @@ _ZNKSt9type_infoneERKS_.exit.thread193:           ; preds = %144, %_ZNKSt9type_i
   call void %166(ptr noundef nonnull align 8 dereferenceable(84) %130) #21
   br label %.critedge174
 
-.critedge174:                                     ; preds = %143, %_ZNKSt9type_infoneERKS_.exit.thread193, %158, %125, %120
+.critedge174:                                     ; preds = %143, %125, %_ZNKSt9type_infoneERKS_.exit.thread193, %158, %120
   %167 = load i32, ptr %113, align 8, !tbaa !44
   %.not207 = icmp eq i32 %167, 0
   br i1 %.not207, label %209, label %168
@@ -4179,13 +4179,13 @@ _ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit
 
-252:                                              ; preds = %205, %188, %185, %134, %135, %161
+252:                                              ; preds = %185, %205, %188, %135, %161, %134
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit.thread
 
 253:                                              ; preds = %141, %139, %199, %.body, %189, %250, %118
-  %.pn161 = phi { ptr, i32 } [ %119, %118 ], [ %251, %250 ], [ %142, %141 ], [ %140, %139 ], [ %190, %189 ], [ %200, %199 ], [ %.pn148.pn.pn, %.body ]
+  %.pn161 = phi { ptr, i32 } [ %119, %118 ], [ %251, %250 ], [ %140, %139 ], [ %142, %141 ], [ %190, %189 ], [ %200, %199 ], [ %.pn148.pn.pn, %.body ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #21
   br label %254
 
@@ -4195,7 +4195,7 @@ _ZN6icu_7714Transliterator11adoptFilterEPNS_13UnicodeFilterE.exit: ; preds = %24
   br label %259
 
 _ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit: ; preds = %.thread203, %39, %30, %83
-  %.094 = phi ptr [ null, %83 ], [ null, %30 ], [ null, %39 ], [ %212, %.thread203 ]
+  %.094 = phi ptr [ %212, %.thread203 ], [ null, %30 ], [ null, %39 ], [ null, %83 ]
   %255 = load i32, ptr %4, align 4, !tbaa !13
   %256 = icmp slt i32 %255, 1
   %257 = icmp eq ptr %.094, null
@@ -4213,7 +4213,7 @@ _ZN6icu_7714Transliterator5setIDERKNS_13UnicodeStringE.exit.thread: ; preds = %1
   ret ptr %.0
 
 259:                                              ; preds = %45, %34, %254, %78, %20
-  %.pn172 = phi { ptr, i32 } [ %35, %34 ], [ %46, %45 ], [ %21, %20 ], [ %.pn165.pn.pn.pn, %78 ], [ %.pn161.pn, %254 ]
+  %.pn172 = phi { ptr, i32 } [ %35, %34 ], [ %.pn161.pn, %254 ], [ %46, %45 ], [ %.pn165.pn.pn.pn, %78 ], [ %21, %20 ]
   call void @_ZN6icu_7720TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn172

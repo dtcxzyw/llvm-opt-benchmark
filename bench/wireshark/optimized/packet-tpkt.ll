@@ -91,7 +91,7 @@ define range(i32 -1, 65536) i32 @is_tpkt(ptr noundef %0, i32 noundef %1) local_u
   br label %19
 
 19:                                               ; preds = %14, %8, %11, %5, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ -1, %11 ], [ -1, %8 ], [ %., %14 ]
+  %.0 = phi i32 [ -1, %2 ], [ %., %14 ], [ -1, %8 ], [ -1, %5 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -137,7 +137,7 @@ define hidden zeroext range(i16 -1, 2) i16 @is_asciitpkt(ptr noundef %0) local_u
   br i1 %.not, label %.loopexit, label %7
 
 .loopexit:                                        ; preds = %7, %8, %4, %1
-  %.05 = phi i16 [ -1, %1 ], [ -1, %4 ], [ 1, %7 ], [ 0, %8 ]
+  %.05 = phi i16 [ -1, %4 ], [ -1, %1 ], [ 1, %7 ], [ 0, %8 ]
   ret i16 %.05
 }
 
@@ -1041,8 +1041,8 @@ is_tpkt.exit:                                     ; preds = %16
   %22 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %is_tpkt.exit.thread
 
-is_tpkt.exit.thread:                              ; preds = %16, %10, %13, %7, %4, %is_tpkt.exit
-  %.0 = phi i32 [ %22, %is_tpkt.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %13 ], [ 0, %10 ], [ 0, %16 ]
+is_tpkt.exit.thread:                              ; preds = %16, %13, %7, %10, %4, %is_tpkt.exit
+  %.0 = phi i32 [ %22, %is_tpkt.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %13 ], [ 0, %16 ]
   ret i32 %.0
 }
 

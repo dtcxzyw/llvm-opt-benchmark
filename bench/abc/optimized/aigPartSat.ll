@@ -1572,8 +1572,8 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %43, %45, %35, %37
-  %.sink26 = phi ptr [ %36, %35 ], [ %38, %37 ], [ %44, %43 ], [ %46, %45 ]
-  %.sink = phi i32 [ 16, %35 ], [ 16, %37 ], [ %40, %43 ], [ %40, %45 ]
+  %.sink26 = phi ptr [ %38, %37 ], [ %36, %35 ], [ %44, %43 ], [ %46, %45 ]
+  %.sink = phi i32 [ 16, %37 ], [ 16, %35 ], [ %40, %43 ], [ %40, %45 ]
   store ptr %.sink26, ptr %13, align 8, !tbaa !25
   store i32 %.sink, ptr %5, align 8, !tbaa !23
   br label %Vec_IntPush.exit
@@ -1970,7 +1970,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %149, %153
   br i1 %203, label %177, label %.critedge8, !llvm.loop !80
 
 .critedge8:                                       ; preds = %28, %175, %185, %.critedge6, %.critedge6.preheader
-  %.0104 = phi i32 [ 0, %.critedge6.preheader ], [ 1, %185 ], [ 0, %.critedge6 ], [ 1, %175 ], [ 1, %28 ]
+  %.0104 = phi i32 [ 0, %.critedge6.preheader ], [ 1, %175 ], [ 0, %.critedge6 ], [ 1, %185 ], [ 1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0104
 }
@@ -2077,7 +2077,7 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %25
   br label %236
 
 Aig_ManPartitionMonolithic.exit:                  ; preds = %36, %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i, %43, %41, %39
-  %.086 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
+  %.086 = phi ptr [ %44, %43 ], [ %40, %39 ], [ %42, %41 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %71, label %46
 
@@ -2423,7 +2423,7 @@ Abc_Clock.exit117:                                ; preds = %164, %176
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %185, %Aig_ManPartResetNodePolarity.exit, %195, %.critedge2
-  %.1143 = phi i32 [ 0, %195 ], [ -1, %.critedge2 ], [ 1, %Aig_ManPartResetNodePolarity.exit ], [ 1, %185 ]
+  %.1143 = phi i32 [ -1, %.critedge2 ], [ 0, %195 ], [ 1, %Aig_ManPartResetNodePolarity.exit ], [ 1, %185 ]
   call void @sat_solver_delete(ptr noundef %98) #19
   %196 = getelementptr i8, ptr %72, i64 8
   %.val96 = load ptr, ptr %196, align 8, !tbaa !33

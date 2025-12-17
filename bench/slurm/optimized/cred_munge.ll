@@ -460,7 +460,7 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
   br label %49
 
 45:                                               ; preds = %.critedge.thread, %.critedge, %31
-  %.021 = phi i32 [ 5002, %31 ], [ %.mux, %.critedge ], [ 6, %.critedge.thread ]
+  %.021 = phi i32 [ %.mux, %.critedge ], [ 5002, %31 ], [ 6, %.critedge.thread ]
   %46 = load ptr, ptr %7, align 8
   %.not31 = icmp eq ptr %46, null
   br i1 %.not31, label %48, label %47

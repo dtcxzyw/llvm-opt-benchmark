@@ -298,7 +298,7 @@ _ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.t
   br label %_ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.thread.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %73, %74
-  %.015 = phi i32 [ 1, %74 ], [ 1, %73 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %83, %_ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.thread.sink.split ]
+  %.015 = phi i32 [ 1, %73 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %74 ], [ %83, %_ZN4llvm16dyn_cast_or_nullINS_3pdb13PDBSymbolDataENS1_9PDBSymbolEEEDaPT0_.exit.thread.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %84 = load ptr, ptr %64, align 8, !tbaa !10
   %85 = load ptr, ptr %84, align 8, !tbaa !8
@@ -1584,7 +1584,7 @@ _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEP
   br label %.thread
 
 .thread:                                          ; preds = %105, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEPS4_.exit.i, %234
-  %.12375 = phi i32 [ %.123.ph, %234 ], [ %.123.ph, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEPS4_.exit.i ], [ 3, %105 ]
+  %.12375 = phi i32 [ %.123.ph, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEPS4_.exit.i ], [ %.123.ph, %234 ], [ 3, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pr76 = load ptr, ptr %10, align 8, !tbaa !40
   %.not.i52 = icmp eq ptr %.pr76, null
@@ -1633,8 +1633,8 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
   br label %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit30
 
 _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit30: ; preds = %.critedge.i.i.i.i56, %250, %.loopexit, %.critedge.i.i.i.i27, %93, %84
-  %.sink127 = phi ptr [ %.pre3.i.i25, %84 ], [ %97, %93 ], [ %.pre.i.i28, %.critedge.i.i.i.i27 ], [ %.pre3.i.i54, %.loopexit ], [ %254, %250 ], [ %.pre.i.i57, %.critedge.i.i.i.i56 ]
-  %.016.i.i.i.i58.sink = phi ptr [ %7, %84 ], [ %98, %93 ], [ %7, %.critedge.i.i.i.i27 ], [ %7, %.loopexit ], [ %255, %250 ], [ %7, %.critedge.i.i.i.i56 ]
+  %.sink127 = phi ptr [ %.pre.i.i28, %.critedge.i.i.i.i27 ], [ %.pre3.i.i25, %84 ], [ %97, %93 ], [ %.pre3.i.i54, %.loopexit ], [ %254, %250 ], [ %.pre.i.i57, %.critedge.i.i.i.i56 ]
+  %.016.i.i.i.i58.sink = phi ptr [ %7, %.critedge.i.i.i.i27 ], [ %7, %84 ], [ %98, %93 ], [ %7, %.loopexit ], [ %255, %250 ], [ %7, %.critedge.i.i.i.i56 ]
   %256 = load i32, ptr %18, align 8, !tbaa !65
   %257 = zext i32 %256 to i64
   %258 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.sink127, i64 %257

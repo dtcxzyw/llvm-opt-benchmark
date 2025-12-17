@@ -179,7 +179,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
   br i1 %.not47, label %.loopexit, label %.preheader50
 
 .loopexit:                                        ; preds = %51, %.lr.ph, %.lr.ph67, %.preheader48, %.preheader, %15, %2
-  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.23563, %.preheader ], [ %.459, %.preheader48 ], [ %.235, %.lr.ph67 ], [ %.4, %.lr.ph ], [ %.5, %51 ]
+  %.037 = phi ptr [ null, %2 ], [ null, %15 ], [ %.23563, %.preheader ], [ %.459, %.preheader48 ], [ %.4, %.lr.ph ], [ %.235, %.lr.ph67 ], [ %.5, %51 ]
   ret ptr %.037
 }
 

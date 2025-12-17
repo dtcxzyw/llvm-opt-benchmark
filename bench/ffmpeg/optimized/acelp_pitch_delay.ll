@@ -220,7 +220,7 @@ define void @ff_decode_pitch_lag(ptr noundef writeonly captures(none) initialize
   br label %54
 
 54:                                               ; preds = %25, %35, %31, %48, %42, %14, %16
-  %.0 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %47, %42 ], [ %53, %48 ], [ %28, %25 ], [ %34, %31 ], [ %38, %35 ]
+  %.0 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %53, %48 ], [ %47, %42 ], [ %28, %25 ], [ %34, %31 ], [ %38, %35 ]
   %55 = mul nsw i32 %.0, 10923
   %56 = ashr i32 %55, 15
   store i32 %56, ptr %0, align 4, !tbaa !16

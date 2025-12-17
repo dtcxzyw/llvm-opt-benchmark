@@ -518,9 +518,9 @@ skip_label.exit.i:                                ; preds = %.lr.ph.i.i, %.prehe
   br label %get_vlc2.exit.i.i.i
 
 get_vlc2.exit.i.i.i:                              ; preds = %112, %94
-  %.064.i.i.i.i = phi i32 [ %114, %112 ], [ %.val.i.i.i, %94 ]
-  %.062.i.i.i.i = phi i32 [ %128, %112 ], [ %107, %94 ]
-  %.0.i.i.i.i = phi i32 [ %131, %112 ], [ %110, %94 ]
+  %.064.i.i.i.i = phi i32 [ %.val.i.i.i, %94 ], [ %114, %112 ]
+  %.062.i.i.i.i = phi i32 [ %107, %94 ], [ %128, %112 ]
+  %.0.i.i.i.i = phi i32 [ %110, %94 ], [ %131, %112 ]
   %132 = add i32 %.0.i.i.i.i, %.064.i.i.i.i
   %133 = tail call i32 @llvm.umin.i32(i32 %93, i32 %132)
   store i32 %133, ptr %35, align 8, !tbaa !65
@@ -634,9 +634,9 @@ get_vlc2.exit.i.i.i:                              ; preds = %112, %94
   br label %get_vlc2.exit.i69.i.i
 
 get_vlc2.exit.i69.i.i:                            ; preds = %191, %171
-  %.064.i.i70.i.i = phi i32 [ %193, %191 ], [ %.val.i65.i.i, %171 ]
-  %.062.i.i71.i.i = phi i32 [ %207, %191 ], [ %186, %171 ]
-  %.0.i.i72.i.i = phi i32 [ %210, %191 ], [ %189, %171 ]
+  %.064.i.i70.i.i = phi i32 [ %.val.i65.i.i, %171 ], [ %193, %191 ]
+  %.062.i.i71.i.i = phi i32 [ %186, %171 ], [ %207, %191 ]
+  %.0.i.i72.i.i = phi i32 [ %189, %171 ], [ %210, %191 ]
   %211 = add i32 %.0.i.i72.i.i, %.064.i.i70.i.i
   %212 = tail call i32 @llvm.umin.i32(i32 %172, i32 %211)
   store i32 %212, ptr %35, align 8, !tbaa !65
@@ -872,9 +872,9 @@ read_noise_data.exit.i:                           ; preds = %._crit_edge.i151.i,
   br label %get_vlc2.exit.i.i161.i
 
 get_vlc2.exit.i.i161.i:                           ; preds = %329, %309
-  %.064.i.i.i162.i = phi i32 [ %331, %329 ], [ %.val.i.i158.i, %309 ]
-  %.062.i.i.i163.i = phi i32 [ %345, %329 ], [ %324, %309 ]
-  %.0.i.i.i164.i = phi i32 [ %348, %329 ], [ %327, %309 ]
+  %.064.i.i.i162.i = phi i32 [ %.val.i.i158.i, %309 ], [ %331, %329 ]
+  %.062.i.i.i163.i = phi i32 [ %324, %309 ], [ %345, %329 ]
+  %.0.i.i.i164.i = phi i32 [ %327, %309 ], [ %348, %329 ]
   %349 = add i32 %.0.i.i.i164.i, %.064.i.i.i162.i
   %350 = tail call i32 @llvm.umin.i32(i32 %310, i32 %349)
   %351 = icmp slt i32 %.062.i.i.i163.i, 0
@@ -969,9 +969,9 @@ get_vlc2.exit.i.i161.i:                           ; preds = %329, %309
   br label %get_vlc2.exit.i100.i.i
 
 get_vlc2.exit.i100.i.i:                           ; preds = %405, %387
-  %.064.i.i101.i.i = phi i32 [ %407, %405 ], [ %384, %387 ]
-  %.062.i.i102.i.i = phi i32 [ %421, %405 ], [ %400, %387 ]
-  %.0.i.i103.i.i = phi i32 [ %424, %405 ], [ %403, %387 ]
+  %.064.i.i101.i.i = phi i32 [ %384, %387 ], [ %407, %405 ]
+  %.062.i.i102.i.i = phi i32 [ %400, %387 ], [ %421, %405 ]
+  %.0.i.i103.i.i = phi i32 [ %403, %387 ], [ %424, %405 ]
   %425 = add i32 %.0.i.i103.i.i, %.064.i.i101.i.i
   %426 = tail call i32 @llvm.umin.i32(i32 %310, i32 %425)
   %427 = icmp slt i32 %.062.i.i102.i.i, 0
@@ -1053,9 +1053,9 @@ get_vlc2.exit.i100.i.i:                           ; preds = %405, %387
   br label %get_vlc2.exit.i110.i.i
 
 get_vlc2.exit.i110.i.i:                           ; preds = %470, %452
-  %.064.i.i111.i.i = phi i32 [ %472, %470 ], [ %.val.i106.i.i, %452 ]
-  %.062.i.i112.i.i = phi i32 [ %486, %470 ], [ %465, %452 ]
-  %.0.i.i113.i.i = phi i32 [ %489, %470 ], [ %468, %452 ]
+  %.064.i.i111.i.i = phi i32 [ %.val.i106.i.i, %452 ], [ %472, %470 ]
+  %.062.i.i112.i.i = phi i32 [ %465, %452 ], [ %486, %470 ]
+  %.0.i.i113.i.i = phi i32 [ %468, %452 ], [ %489, %470 ]
   %490 = add i32 %.0.i.i113.i.i, %.064.i.i111.i.i
   %491 = tail call i32 @llvm.umin.i32(i32 %310, i32 %490)
   store i32 %491, ptr %35, align 8, !tbaa !65
@@ -1856,7 +1856,7 @@ decode_frame.exit:                                ; preds = %936, %931
   %944 = load i32, ptr %13, align 4, !tbaa !42
   br label %950
 
-.loopexit:                                        ; preds = %91, %166, %245, %169, %272, %450, %386, %308, %562, %skip_label.exit.i, %36
+.loopexit:                                        ; preds = %91, %245, %169, %166, %272, %562, %386, %450, %308, %skip_label.exit.i, %36
   %945 = load ptr, ptr %6, align 8, !tbaa !4
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 656708
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %946, i8 0, i64 262144, i1 false)
@@ -1869,7 +1869,7 @@ decode_frame.exit:                                ; preds = %936, %931
   br label %950
 
 950:                                              ; preds = %22, %16, %10, %4, %.loopexit, %decode_frame.exit
-  %.0 = phi i32 [ %944, %decode_frame.exit ], [ -1094995529, %.loopexit ], [ 0, %4 ], [ -1094995529, %10 ], [ %20, %16 ], [ -1094995529, %22 ]
+  %.0 = phi i32 [ 0, %4 ], [ -1094995529, %10 ], [ %20, %16 ], [ %944, %decode_frame.exit ], [ -1094995529, %.loopexit ], [ -1094995529, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2123,9 +2123,9 @@ define internal fastcc i32 @qdmc_get_vlc(ptr noundef nonnull captures(none) %0, 
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %5, %26
-  %.064.i = phi i32 [ %28, %26 ], [ %.val, %5 ]
-  %.062.i = phi i32 [ %42, %26 ], [ %21, %5 ]
-  %.0.i = phi i32 [ %45, %26 ], [ %24, %5 ]
+  %.064.i = phi i32 [ %.val, %5 ], [ %28, %26 ]
+  %.062.i = phi i32 [ %21, %5 ], [ %42, %26 ]
+  %.0.i = phi i32 [ %24, %5 ], [ %45, %26 ]
   %46 = add i32 %.0.i, %.064.i
   %47 = tail call i32 @llvm.umin.i32(i32 %7, i32 %46)
   store i32 %47, ptr %3, align 8, !tbaa !65
@@ -2197,7 +2197,7 @@ get_bitsz.exit:                                   ; preds = %75, %80
   br label %94
 
 94:                                               ; preds = %71, %get_bitsz.exit, %73, %2
-  %.013 = phi i32 [ -1094995529, %2 ], [ -1094995529, %73 ], [ %93, %get_bitsz.exit ], [ %.0, %71 ]
+  %.013 = phi i32 [ -1094995529, %73 ], [ -1094995529, %2 ], [ %93, %get_bitsz.exit ], [ %.0, %71 ]
   ret i32 %.013
 }
 

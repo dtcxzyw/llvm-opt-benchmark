@@ -114,8 +114,8 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   br label %36
 
 36:                                               ; preds = %.loopexit, %35
-  %.2.ph76 = phi ptr [ %.2.ph75, %35 ], [ %.2.ph, %.loopexit ]
-  %.013 = phi i32 [ 0, %35 ], [ 1, %.loopexit ]
+  %.2.ph76 = phi ptr [ %.2.ph, %.loopexit ], [ %.2.ph75, %35 ]
+  %.013 = phi i32 [ 1, %.loopexit ], [ 0, %35 ]
   %.not17 = icmp eq ptr %.2.ph76, null
   br i1 %.not17, label %39, label %OPENSSL_DIR_end.exit
 

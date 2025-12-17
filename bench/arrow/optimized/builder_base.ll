@@ -13851,7 +13851,7 @@ _ZN5arrow6StatusD2Ev.exit59.i.i:                  ; preds = %.critedge41.i.i.i, 
   br i1 %.not36.i.i, label %.lr.ph85.split.i.i, label %.critedge.sink.split.i.i, !llvm.loop !1514
 
 .critedge.sink.split.i.i:                         ; preds = %.critedge42.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit54.i.i.i, %_ZN5arrow6StatusD2Ev.exit50.i.i.i, %_ZN5arrow6StatusD2Ev.exit46.i.i.i, %.lr.ph85.i.i, %.critedge39.preheader.i.i
-  %.sroa.0.0.ph.sink.i.i = phi ptr [ null, %.lr.ph85.i.i ], [ null, %.critedge39.preheader.i.i ], [ %5035, %_ZN5arrow6StatusD2Ev.exit46.i.i.i ], [ %5040, %_ZN5arrow6StatusD2Ev.exit50.i.i.i ], [ %5045, %_ZN5arrow6StatusD2Ev.exit54.i.i.i ], [ %5002, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i ], [ null, %.critedge42.i.i ]
+  %.sroa.0.0.ph.sink.i.i = phi ptr [ null, %.lr.ph85.i.i ], [ null, %.critedge39.preheader.i.i ], [ %5002, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i ], [ %5040, %_ZN5arrow6StatusD2Ev.exit50.i.i.i ], [ %5045, %_ZN5arrow6StatusD2Ev.exit54.i.i.i ], [ %5035, %_ZN5arrow6StatusD2Ev.exit46.i.i.i ], [ null, %.critedge42.i.i ]
   store ptr %.sroa.0.0.ph.sink.i.i, ptr %0, align 8, !tbaa !52, !alias.scope !1458
   br label %_ZN5arrow12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEE5VisitINS_11BooleanTypeEEENSt9enable_ifIXsr10has_c_typeIT_EE5valueENS_6StatusEE4typeERKS9_.exit
 
@@ -14234,7 +14234,7 @@ _ZN5arrow6StatusD2Ev.exit59.i.i1269:              ; preds = %.critedge35.i.i.i, 
   br i1 %.not36.i.i1274, label %.lr.ph88.split.i.i, label %.critedge.sink.split.i.i1264, !llvm.loop !1596
 
 .critedge.sink.split.i.i1264:                     ; preds = %.critedge42.i.i1273, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1280, %_ZN5arrow6StatusD2Ev.exit40.i.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i, %.lr.ph88.i.i, %.critedge39.preheader.i.i1263
-  %.sroa.0.0.ph.sink.i.i1265 = phi ptr [ %.ph.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i ], [ null, %.lr.ph88.i.i ], [ null, %.critedge39.preheader.i.i1263 ], [ %5221, %_ZN5arrow6StatusD2Ev.exit40.i.i.i ], [ %5226, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1280 ], [ %.pr72.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i ], [ null, %.critedge42.i.i1273 ]
+  %.sroa.0.0.ph.sink.i.i1265 = phi ptr [ %.ph.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i ], [ null, %.lr.ph88.i.i ], [ null, %.critedge39.preheader.i.i1263 ], [ %.pr72.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i ], [ %5226, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1280 ], [ %5221, %_ZN5arrow6StatusD2Ev.exit40.i.i.i ], [ null, %.critedge42.i.i1273 ]
   store ptr %.sroa.0.0.ph.sink.i.i1265, ptr %0, align 8, !tbaa !52, !alias.scope !1521
   br label %_ZN5arrow12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEE5VisitINS_11BooleanTypeEEENSt9enable_ifIXsr10has_c_typeIT_EE5valueENS_6StatusEE4typeERKS9_.exit
 
@@ -24852,7 +24852,7 @@ _ZN5arrow6StatusD2Ev.exit58.i.i:                  ; preds = %.critedge41.i.i.i, 
   br i1 %.not31.i.i, label %4772, label %.critedge.sink.split.i.i, !llvm.loop !2729
 
 .critedge.sink.split.i.i:                         ; preds = %.critedge37.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit54.i.i.i, %_ZN5arrow6StatusD2Ev.exit50.i.i.i, %_ZN5arrow6StatusD2Ev.exit46.i.i.i, %.critedge34.preheader.i.i
-  %.sroa.0.0.ph.sink.i.i = phi ptr [ null, %.critedge34.preheader.i.i ], [ %4815, %_ZN5arrow6StatusD2Ev.exit46.i.i.i ], [ %4820, %_ZN5arrow6StatusD2Ev.exit50.i.i.i ], [ %4825, %_ZN5arrow6StatusD2Ev.exit54.i.i.i ], [ %4782, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i ], [ null, %.critedge37.i.i ]
+  %.sroa.0.0.ph.sink.i.i = phi ptr [ null, %.critedge34.preheader.i.i ], [ %4782, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i.i ], [ %4820, %_ZN5arrow6StatusD2Ev.exit50.i.i.i ], [ %4825, %_ZN5arrow6StatusD2Ev.exit54.i.i.i ], [ %4815, %_ZN5arrow6StatusD2Ev.exit46.i.i.i ], [ null, %.critedge37.i.i ]
   store ptr %.sroa.0.0.ph.sink.i.i, ptr %0, align 8, !tbaa !52, !alias.scope !2681
   br label %_ZN5arrow12_GLOBAL__N_116AppendScalarImplINS0_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS7_SaIS7_EEEEEEE5VisitINS_11BooleanTypeEEENSt9enable_ifIXsr10has_c_typeIT_EE5valueENS_6StatusEE4typeERKSJ_.exit
 
@@ -25235,7 +25235,7 @@ _ZN5arrow6StatusD2Ev.exit58.i.i1477:              ; preds = %.critedge35.i.i.i, 
   br i1 %.not31.i.i1482, label %4905, label %.critedge.sink.split.i.i1471, !llvm.loop !2805
 
 .critedge.sink.split.i.i1471:                     ; preds = %.critedge37.i.i1481, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1488, %_ZN5arrow6StatusD2Ev.exit40.i.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i, %.critedge34.preheader.i.i1470
-  %.sroa.0.0.ph.sink.i.i1472 = phi ptr [ %.ph.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i ], [ null, %.critedge34.preheader.i.i1470 ], [ %4995, %_ZN5arrow6StatusD2Ev.exit40.i.i.i ], [ %5000, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1488 ], [ %.pr72.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i ], [ null, %.critedge37.i.i1481 ]
+  %.sroa.0.0.ph.sink.i.i1472 = phi ptr [ %.ph.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.thread.i.i ], [ null, %.critedge34.preheader.i.i1470 ], [ %.pr72.i.i, %_ZN5arrow17DenseUnionBuilder6AppendEa.exit.i.i ], [ %5000, %_ZN5arrow6StatusD2Ev.exit44.i.i.i1488 ], [ %4995, %_ZN5arrow6StatusD2Ev.exit40.i.i.i ], [ null, %.critedge37.i.i1481 ]
   store ptr %.sroa.0.0.ph.sink.i.i1472, ptr %0, align 8, !tbaa !52, !alias.scope !2736
   br label %_ZN5arrow12_GLOBAL__N_116AppendScalarImplINS0_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS7_SaIS7_EEEEEEE5VisitINS_11BooleanTypeEEENSt9enable_ifIXsr10has_c_typeIT_EE5valueENS_6StatusEE4typeERKSJ_.exit
 

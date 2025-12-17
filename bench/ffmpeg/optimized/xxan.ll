@@ -77,7 +77,7 @@ define internal range(i32 -22, 1) i32 @xan_decode_init(ptr noundef %0) #0 {
   br label %29
 
 29:                                               ; preds = %26, %20, %14, %13, %8
-  %.0 = phi i32 [ -22, %8 ], [ -22, %13 ], [ -12, %14 ], [ -12, %20 ], [ %., %26 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %13 ], [ -12, %20 ], [ %., %26 ], [ -12, %14 ]
   ret i32 %.0
 }
 
@@ -667,7 +667,7 @@ bytestream2_get_le32.exit.i23:                    ; preds = %210, %209
   br label %xan_decode_frame_type0.exit
 
 xan_decode_frame_type0.exit:                      ; preds = %bytestream2_get_le32.exit.i, %66, %bytestream2_get_le32.exit.i23, %228, %.loopexit, %4, %305, %301
-  %.020 = phi i32 [ -1094995529, %301 ], [ %306, %305 ], [ %9, %4 ], [ %303, %.loopexit ], [ %65, %66 ], [ %48, %bytestream2_get_le32.exit.i ], [ %227, %228 ], [ %213, %bytestream2_get_le32.exit.i23 ]
+  %.020 = phi i32 [ %306, %305 ], [ -1094995529, %301 ], [ %9, %4 ], [ %303, %.loopexit ], [ %48, %bytestream2_get_le32.exit.i ], [ %65, %66 ], [ %213, %bytestream2_get_le32.exit.i23 ], [ %227, %228 ]
   ret i32 %.020
 }
 
@@ -1099,7 +1099,7 @@ bytestream2_get_le16.exit164:                     ; preds = %35, %36
   br label %.thread
 
 .thread:                                          ; preds = %86, %.lr.ph, %.lr.ph195, %170, %126, %._crit_edge189, %._crit_edge205, %220, %2, %57, %44, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %44 ], [ %55, %57 ], [ 0, %2 ], [ 0, %220 ], [ 0, %._crit_edge205 ], [ 0, %._crit_edge189 ], [ 0, %126 ], [ -1094995529, %170 ], [ 0, %.lr.ph195 ], [ -1094995529, %86 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %44 ], [ %55, %57 ], [ 0, %2 ], [ 0, %._crit_edge205 ], [ 0, %._crit_edge189 ], [ 0, %.lr.ph195 ], [ 0, %126 ], [ 0, %220 ], [ -1094995529, %170 ], [ -1094995529, %86 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1251,7 +1251,7 @@ bytestream2_get_byte.exit57:                      ; preds = %43, %57
   %79 = zext i8 %78 to i32
   br label %.outer
 
-.loopexit:                                        ; preds = %68, %bytestream2_get_byte.exit57, %63
+.loopexit:                                        ; preds = %68, %63, %bytestream2_get_byte.exit57
   %.1.ph = phi ptr [ %.032, %bytestream2_get_byte.exit57 ], [ %65, %63 ], [ %.2, %68 ]
   %.not49 = icmp eq ptr %.1.ph, %5
   %80 = select i1 %.not49, i32 0, i32 -1094995529
@@ -1484,7 +1484,7 @@ bytestream2_get_byte.exit77:                      ; preds = %83, %84
   br i1 %134, label %11, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %126, %bytestream2_get_byte.exit77, %.thread91
-  %.166.ph = phi ptr [ %.368, %.thread91 ], [ %.06594, %bytestream2_get_byte.exit77 ], [ %133, %126 ]
+  %.166.ph = phi ptr [ %.368, %.thread91 ], [ %133, %126 ], [ %.06594, %bytestream2_get_byte.exit77 ]
   %.pre100 = ptrtoint ptr %.166.ph to i64
   br label %._crit_edge
 

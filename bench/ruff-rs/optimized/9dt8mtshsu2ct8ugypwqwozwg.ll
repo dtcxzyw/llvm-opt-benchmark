@@ -434,7 +434,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %11, %10, %8, %4, %1
-  %.not.i4.neg.i = phi i64 [ -1, %8 ], [ 0, %1 ], [ 0, %4 ], [ -1, %10 ], [ %spec.select.i, %11 ]
+  %.not.i4.neg.i = phi i64 [ %spec.select.i, %11 ], [ -1, %8 ], [ 0, %1 ], [ 0, %4 ], [ -1, %10 ]
   %15 = add i64 %.not.i4.neg.i, %.val1
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %17
@@ -495,7 +495,7 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %12, %11, %9, %5, %2
-  %.not.i4.neg.i = phi i64 [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ], [ %spec.select.i, %12 ]
+  %.not.i4.neg.i = phi i64 [ %spec.select.i, %12 ], [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ]
   %16 = add i64 %.not.i4.neg.i, %.val1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %18
@@ -558,7 +558,7 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.thread.i: ; preds = %12, %11, %9, %5, %2
-  %.not.i4.neg.i = phi i64 [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ], [ %spec.select.i, %12 ]
+  %.not.i4.neg.i = phi i64 [ %spec.select.i, %12 ], [ -1, %9 ], [ 0, %2 ], [ 0, %5 ], [ -1, %11 ]
   %16 = add i64 %.not.i4.neg.i, %.val1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %_ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit, label %18

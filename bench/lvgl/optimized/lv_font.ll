@@ -144,7 +144,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc(ptr noundef %0, ptr noundef %1,
   br label %48
 
 48:                                               ; preds = %.critedge, %33, %26
-  %.2 = phi i1 [ true, %26 ], [ false, %33 ], [ true, %.critedge ]
+  %.2 = phi i1 [ true, %.critedge ], [ true, %26 ], [ false, %33 ]
   ret i1 %.2
 }
 

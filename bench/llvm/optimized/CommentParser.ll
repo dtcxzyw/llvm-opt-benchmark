@@ -875,7 +875,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit.thread, %.critedge.loopexit
-  %.0.lcssa = phi i64 [ %45, %.critedge.loopexit ], [ 0, %.loopexit.thread ]
+  %.0.lcssa = phi i64 [ 0, %.loopexit.thread ], [ %45, %.critedge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.0.lcssa, 1
@@ -976,7 +976,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit.thread, %.critedge.loopexit
-  %.0.lcssa = phi i64 [ %45, %.critedge.loopexit ], [ 0, %.loopexit.thread ]
+  %.0.lcssa = phi i64 [ 0, %.loopexit.thread ], [ %45, %.critedge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.0.lcssa, 1
@@ -1294,7 +1294,7 @@ _ZN4llvm11SmallStringILj32EE5c_strEv.exit:        ; preds = %_ZN4llvm13Allocator
   br label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit24.thread30
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit24.thread30: ; preds = %70, %123, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit
-  %.3 = phi i1 [ true, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ false, %123 ], [ false, %70 ]
+  %.3 = phi i1 [ false, %123 ], [ true, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ false, %70 ]
   %154 = load ptr, ptr %4, align 8, !tbaa !56
   %155 = icmp eq ptr %154, %46
   br i1 %155, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, label %156
@@ -1404,7 +1404,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit.thread, %.critedge.loopexit
-  %.0.lcssa = phi i64 [ %45, %.critedge.loopexit ], [ 0, %.loopexit.thread ]
+  %.0.lcssa = phi i64 [ 0, %.loopexit.thread ], [ %45, %.critedge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.0.lcssa, 1
@@ -1682,7 +1682,7 @@ _ZN4llvm11SmallStringILj32EE5c_strEv.exit:        ; preds = %_ZN4llvm13Allocator
   br label %135
 
 135:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i, %104, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit
-  %.1 = phi i1 [ true, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ false, %104 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i ]
+  %.1 = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i ], [ true, %_ZN4llvm11SmallStringILj32EE5c_strEv.exit ], [ false, %104 ]
   %136 = load ptr, ptr %4, align 8, !tbaa !56
   %137 = icmp eq ptr %136, %45
   br i1 %137, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, label %138
@@ -2018,7 +2018,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit79: ; preds = %146, %148
   br label %_ZN5clang8comments6Parser17isTokBlockCommandEv.exit81
 
 _ZN5clang8comments6Parser17isTokBlockCommandEv.exit81: ; preds = %_ZN5clang8comments6Parser12consumeTokenEv.exit79, %157
-  %165 = phi i1 [ %164, %157 ], [ false, %_ZN5clang8comments6Parser12consumeTokenEv.exit79 ]
+  %165 = phi i1 [ false, %_ZN5clang8comments6Parser12consumeTokenEv.exit79 ], [ %164, %157 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %167 = load i32, ptr %41, align 8, !tbaa !23
   %168 = zext i32 %167 to i64
@@ -2098,7 +2098,7 @@ _ZN5clang8comments6Parser7putBackERKNS0_5TokenE.exit: ; preds = %_ZN5clang8comme
   br label %201
 
 201:                                              ; preds = %197, %199, %200, %64, %68, %69
-  %.1 = phi ptr [ %.058, %64 ], [ %.059, %68 ], [ %.060, %69 ], [ %.058, %197 ], [ %.059, %199 ], [ %.060, %200 ]
+  %.1 = phi ptr [ %.060, %69 ], [ %.058, %64 ], [ %.059, %68 ], [ %.058, %197 ], [ %.059, %199 ], [ %.060, %200 ]
   ret ptr %.1
 }
 
@@ -4630,7 +4630,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit14: ; preds = %57, %59
   br label %_ZN5clang8comments6Parser12consumeTokenEv.exit16
 
 _ZN5clang8comments6Parser12consumeTokenEv.exit16: ; preds = %82, %80, %71, %69, %_ZN5clang8comments6Parser12consumeTokenEv.exit14
-  %.0 = phi ptr [ %55, %_ZN5clang8comments6Parser12consumeTokenEv.exit14 ], [ %55, %69 ], [ %55, %71 ], [ %78, %80 ], [ %78, %82 ]
+  %.0 = phi ptr [ %55, %71 ], [ %55, %_ZN5clang8comments6Parser12consumeTokenEv.exit14 ], [ %55, %69 ], [ %78, %80 ], [ %78, %82 ]
   %88 = load i32, ptr %43, align 8, !tbaa !23
   %89 = load i32, ptr %44, align 4, !tbaa !24
   %.not.i.i.not.i = icmp ult i32 %88, %89
@@ -5375,7 +5375,7 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit4:  ; preds = %88, %91
   br label %117
 
 117:                                              ; preds = %50, %_ZN5clang8comments6Parser12consumeTokenEv.exit4, %101, %1, %57
-  %.02 = phi i1 [ false, %57 ], [ false, %50 ], [ false, %1 ], [ true, %101 ], [ true, %_ZN5clang8comments6Parser12consumeTokenEv.exit4 ]
+  %.02 = phi i1 [ false, %50 ], [ false, %57 ], [ false, %1 ], [ true, %101 ], [ true, %_ZN5clang8comments6Parser12consumeTokenEv.exit4 ]
   ret i1 %.02
 }
 

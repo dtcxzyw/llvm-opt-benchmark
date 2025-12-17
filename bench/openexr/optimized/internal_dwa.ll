@@ -139,8 +139,8 @@ check_for_x86_simd.exit.i:                        ; preds = %17
   br label %check_for_x86_simd.exit.thread.i
 
 check_for_x86_simd.exit.thread.i:                 ; preds = %24, %check_for_x86_simd.exit.i, %17, %9, %5
-  %.019.i = phi i32 [ 1, %24 ], [ %.lobit.i.i, %check_for_x86_simd.exit.i ], [ 0, %9 ], [ 0, %5 ], [ 0, %17 ]
-  %.sroa.13.0.i1218.i = phi i32 [ %14, %24 ], [ %14, %check_for_x86_simd.exit.i ], [ %14, %9 ], [ 0, %5 ], [ %14, %17 ]
+  %.019.i = phi i32 [ %.lobit.i.i, %check_for_x86_simd.exit.i ], [ 1, %24 ], [ 0, %9 ], [ 0, %5 ], [ 0, %17 ]
+  %.sroa.13.0.i1218.i = phi i32 [ %14, %check_for_x86_simd.exit.i ], [ %14, %24 ], [ %14, %9 ], [ 0, %5 ], [ %14, %17 ]
   store ptr @dctInverse8x8_scalar_0, ptr @dctInverse8x8_0, align 8, !tbaa !14
   store ptr @dctInverse8x8_scalar_1, ptr @dctInverse8x8_1, align 8, !tbaa !14
   store ptr @dctInverse8x8_scalar_2, ptr @dctInverse8x8_2, align 8, !tbaa !14
@@ -380,7 +380,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   br i1 %exitcond.not, label %._crit_edge133, label %142, !llvm.loop !73
 
 .critedge:                                        ; preds = %92, %._crit_edge, %.thread, %._crit_edge133, %.thread128
-  %.1 = phi i32 [ 1, %.thread128 ], [ %96, %92 ], [ 0, %._crit_edge133 ], [ %77, %._crit_edge ], [ 1, %.thread ]
+  %.1 = phi i32 [ 1, %.thread128 ], [ 1, %.thread ], [ 0, %._crit_edge133 ], [ %96, %92 ], [ %77, %._crit_edge ]
   ret i32 %.1
 }
 
@@ -502,7 +502,7 @@ define internal fastcc i32 @DwaCompressor_compress(ptr noundef nonnull captures(
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %69, %67
-  %.0.shrunk.i.in.i = phi i32 [ %68, %67 ], [ %70, %69 ]
+  %.0.shrunk.i.in.i = phi i32 [ %70, %69 ], [ %68, %67 ]
   %.0.shrunk.i.not.i = icmp eq i32 %.0.shrunk.i.in.i, 0
   br i1 %.0.shrunk.i.not.i, label %71, label %Classifier_match.exit.thread.i
 
@@ -1400,7 +1400,7 @@ DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData
   br label %DwaCompressor_writeRelevantChannelRules.exit.thread
 
 DwaCompressor_writeRelevantChannelRules.exit.thread: ; preds = %71, %195, %252, %333, %312, %432, %444, %21, %._crit_edge.i, %515, %.thread465, %465, %427, %526, %533, %516, %430, %._crit_edge.i.thread, %17, %1
-  %.0 = phi i32 [ %511, %515 ], [ %463, %465 ], [ %423, %427 ], [ 1, %1 ], [ %20, %17 ], [ 1, %._crit_edge.i.thread ], [ 3, %430 ], [ 23, %516 ], [ 0, %533 ], [ 0, %526 ], [ %.21.ph, %.thread465 ], [ 1, %._crit_edge.i ], [ 1, %21 ], [ 0, %444 ], [ %443, %432 ], [ 1, %333 ], [ 3, %312 ], [ 1, %252 ], [ 1, %195 ], [ 1, %71 ]
+  %.0 = phi i32 [ 1, %1 ], [ %20, %17 ], [ 0, %526 ], [ 3, %430 ], [ 23, %516 ], [ %511, %515 ], [ %.21.ph, %.thread465 ], [ %443, %432 ], [ %463, %465 ], [ %423, %427 ], [ 1, %._crit_edge.i.thread ], [ 0, %533 ], [ 1, %._crit_edge.i ], [ 1, %21 ], [ 0, %444 ], [ 1, %195 ], [ 1, %333 ], [ 1, %252 ], [ 3, %312 ], [ 1, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1800,7 +1800,7 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   br i1 %.not.i.i, label %.thread53.i.i, label %70
 
 .thread53.i.i:                                    ; preds = %.thread.i.i, %66, %60
-  %.1.ph.i.i = phi i32 [ 23, %60 ], [ 23, %66 ], [ 1, %.thread.i.i ]
+  %.1.ph.i.i = phi i32 [ 23, %66 ], [ 23, %60 ], [ 1, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %DwaCompressor_readChannelRules.exit.thread
 
@@ -1942,8 +1942,8 @@ Classifier_destroy.exit.i:                        ; preds = %76, %70
   br label %Classifier_read.exit52.i
 
 Classifier_read.exit52.i:                         ; preds = %133, %128, %123, %110, %.thread53.i46.i, %.lr.ph93.i
-  %.166.i = phi ptr [ %.06588.i, %.lr.ph93.i ], [ %.06588.i, %.thread53.i46.i ], [ %116, %110 ], [ %116, %123 ], [ %116, %128 ], [ %116, %133 ]
-  %.3.i = phi i64 [ %.16489.i, %.lr.ph93.i ], [ %.16489.i, %.thread53.i46.i ], [ %117, %110 ], [ %117, %123 ], [ %117, %128 ], [ %117, %133 ]
+  %.166.i = phi ptr [ %.06588.i, %.lr.ph93.i ], [ %.06588.i, %.thread53.i46.i ], [ %116, %133 ], [ %116, %110 ], [ %116, %123 ], [ %116, %128 ]
+  %.3.i = phi i64 [ %.16489.i, %.lr.ph93.i ], [ %.16489.i, %.thread53.i46.i ], [ %117, %133 ], [ %117, %110 ], [ %117, %123 ], [ %117, %128 ]
   %136 = add nuw i64 %.091.i, 1
   %exitcond.not.i = icmp eq i64 %136, %.037.lcssa120.i
   br i1 %exitcond.not.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph93.i, !llvm.loop !146
@@ -2268,8 +2268,8 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br i1 %.not460.not, label %.preheader559, label %.preheader558, !llvm.loop !156
 
 .preheader558:                                    ; preds = %._crit_edge582, %._crit_edge.thread, %._crit_edge
-  %.ph = phi ptr [ %254, %._crit_edge ], [ %257, %._crit_edge.thread ], [ %254, %._crit_edge582 ]
-  %.ph719 = phi ptr [ %252, %._crit_edge ], [ %256, %._crit_edge.thread ], [ %252, %._crit_edge582 ]
+  %.ph = phi ptr [ %257, %._crit_edge.thread ], [ %254, %._crit_edge ], [ %254, %._crit_edge582 ]
+  %.ph719 = phi ptr [ %256, %._crit_edge.thread ], [ %252, %._crit_edge ], [ %252, %._crit_edge582 ]
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %300 = load i32, ptr %299, align 4, !tbaa !113
   %.not468588 = icmp sgt i32 %300, 0
@@ -2400,8 +2400,8 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %.not467 = icmp eq i32 %368, 0
   br i1 %.not467, label %378, label %.thread533
 
-.thread533:                                       ; preds = %357, %334, %345, %352
-  %.14.ph = phi i32 [ %368, %357 ], [ 23, %334 ], [ 23, %345 ], [ 23, %352 ]
+.thread533:                                       ; preds = %357, %345, %352, %334
+  %.14.ph = phi i32 [ %368, %357 ], [ 23, %345 ], [ 23, %352 ], [ 23, %334 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %DwaCompressor_readChannelRules.exit.thread
 
@@ -2604,8 +2604,8 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader554, %.loopexit.loopexit
-  %.pre664 = phi i32 [ %.pre664.pre, %.loopexit.loopexit ], [ %.pre664667, %.preheader554 ]
-  %474 = phi i32 [ %472, %.loopexit.loopexit ], [ %457, %.preheader554 ]
+  %.pre664 = phi i32 [ %.pre664667, %.preheader554 ], [ %.pre664.pre, %.loopexit.loopexit ]
+  %474 = phi i32 [ %457, %.preheader554 ], [ %472, %.loopexit.loopexit ]
   %475 = add nsw i32 %.0341613, 1
   br label %476
 
@@ -2672,27 +2672,27 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   br i1 %.not470.not, label %489, label %.thread540, !llvm.loop !172
 
 .thread540:                                       ; preds = %508, %476, %452, %480, %425, %409
-  %.6392 = phi ptr [ %422, %409 ], [ %.4390618, %425 ], [ %.4390618, %480 ], [ %.4390618, %452 ], [ %.4390618, %476 ], [ %.4390618, %508 ]
-  %.6385 = phi ptr [ %419, %409 ], [ %.4383619, %425 ], [ %.4383619, %480 ], [ %.4383619, %452 ], [ %.4383619, %476 ], [ %.4383619, %508 ]
-  %.5373 = phi i64 [ %424, %409 ], [ %.3371621, %425 ], [ %.3371621, %480 ], [ %.3371621, %452 ], [ %.3371621, %476 ], [ %.3371621, %508 ]
-  %.5367 = phi i64 [ %423, %409 ], [ %.3365622, %425 ], [ %.3365622, %480 ], [ %.3365622, %452 ], [ %.3365622, %476 ], [ %.3365622, %508 ]
+  %.6392 = phi ptr [ %422, %409 ], [ %.4390618, %425 ], [ %.4390618, %480 ], [ %.4390618, %476 ], [ %.4390618, %452 ], [ %.4390618, %508 ]
+  %.6385 = phi ptr [ %419, %409 ], [ %.4383619, %425 ], [ %.4383619, %480 ], [ %.4383619, %476 ], [ %.4383619, %452 ], [ %.4383619, %508 ]
+  %.5373 = phi i64 [ %424, %409 ], [ %.3371621, %425 ], [ %.3371621, %480 ], [ %.3371621, %476 ], [ %.3371621, %452 ], [ %.3371621, %508 ]
+  %.5367 = phi i64 [ %423, %409 ], [ %.3365622, %425 ], [ %.3365622, %480 ], [ %.3365622, %476 ], [ %.3365622, %452 ], [ %.3365622, %508 ]
   store i32 1, ptr %395, align 32, !tbaa !105
   %.pre666 = load i32, ptr %247, align 8, !tbaa !45
   br label %511
 
 511:                                              ; preds = %405, %.thread540, %387
-  %512 = phi i32 [ %388, %405 ], [ %.pre666, %.thread540 ], [ %388, %387 ]
-  %.5391 = phi ptr [ %.4390618, %405 ], [ %.6392, %.thread540 ], [ %.4390618, %387 ]
-  %.5384 = phi ptr [ %.4383619, %405 ], [ %.6385, %.thread540 ], [ %.4383619, %387 ]
-  %.4372 = phi i64 [ %.3371621, %405 ], [ %.5373, %.thread540 ], [ %.3371621, %387 ]
-  %.4366 = phi i64 [ %.3365622, %405 ], [ %.5367, %.thread540 ], [ %.3365622, %387 ]
+  %512 = phi i32 [ %.pre666, %.thread540 ], [ %388, %405 ], [ %388, %387 ]
+  %.5391 = phi ptr [ %.6392, %.thread540 ], [ %.4390618, %405 ], [ %.4390618, %387 ]
+  %.5384 = phi ptr [ %.6385, %.thread540 ], [ %.4383619, %405 ], [ %.4383619, %387 ]
+  %.4372 = phi i64 [ %.5373, %.thread540 ], [ %.3371621, %405 ], [ %.3371621, %387 ]
+  %.4366 = phi i64 [ %.5367, %.thread540 ], [ %.3365622, %405 ], [ %.3365622, %387 ]
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
   %513 = sext i32 %512 to i64
   %.not476 = icmp slt i64 %indvars.iv.next659, %513
   br i1 %.not476, label %387, label %DwaCompressor_readChannelRules.exit.thread, !llvm.loop !173
 
-DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %275, %406, %409, %511, %493, %.preheader556, %.thread53.i.i, %44, %._crit_edge.thread.i, %._crit_edge.i, %42, %.thread533, %.thread508, %.thread503, %.thread, %223, %184, %185, %177, %179, %169, %165, %162, %138, %157, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %197, %241
-  %.0333 = phi i32 [ 23, %241 ], [ 23, %197 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %157 ], [ 23, %138 ], [ 22, %162 ], [ 23, %165 ], [ 23, %169 ], [ 23, %179 ], [ 23, %177 ], [ %191, %185 ], [ 23, %184 ], [ 23, %223 ], [ %196, %.thread ], [ %.3.ph, %.thread503 ], [ 23, %.thread508 ], [ %.14.ph, %.thread533 ], [ %.1.ph.i.i, %.thread53.i.i ], [ 23, %44 ], [ 1, %._crit_edge.thread.i ], [ %.0.i.ph.i, %._crit_edge.i ], [ 23, %42 ], [ 0, %.preheader556 ], [ 23, %493 ], [ 23, %406 ], [ %416, %409 ], [ 0, %511 ], [ 1, %275 ], [ 23, %55 ]
+DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %275, %409, %406, %511, %493, %.preheader556, %.thread53.i.i, %44, %._crit_edge.i, %42, %._crit_edge.thread.i, %.thread533, %.thread508, %.thread503, %.thread, %223, %184, %185, %177, %179, %169, %165, %162, %138, %157, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %197, %241
+  %.0333 = phi i32 [ 23, %184 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ 23, %.thread508 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %138 ], [ 23, %197 ], [ 22, %162 ], [ 23, %165 ], [ 23, %169 ], [ %191, %185 ], [ 23, %177 ], [ 23, %223 ], [ 23, %42 ], [ %.14.ph, %.thread533 ], [ 23, %241 ], [ %.3.ph, %.thread503 ], [ 23, %157 ], [ 23, %179 ], [ %196, %.thread ], [ %.1.ph.i.i, %.thread53.i.i ], [ 1, %._crit_edge.thread.i ], [ 23, %44 ], [ %.0.i.ph.i, %._crit_edge.i ], [ 0, %.preheader556 ], [ 1, %275 ], [ 23, %493 ], [ 0, %511 ], [ %416, %409 ], [ 23, %406 ], [ 23, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0333
 }
@@ -2831,7 +2831,7 @@ define internal void @convertFloatToHalf64_scalar(ptr noundef writeonly captures
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %16, %19, %29, %31, %40, %54, %57
-  %.0.i.i = phi i16 [ %26, %19 ], [ %30, %29 ], [ %39, %31 ], [ %17, %16 ], [ %12, %40 ], [ %58, %57 ], [ %52, %54 ]
+  %.0.i.i = phi i16 [ %12, %40 ], [ %26, %19 ], [ %30, %29 ], [ %39, %31 ], [ %17, %16 ], [ %58, %57 ], [ %52, %54 ]
   %59 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %.0.i.i, ptr %59, align 2, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6917,7 +6917,7 @@ CscPrefixMap_find.exit.us.i:                      ; preds = %75, %77, %.loopexit
   br label %Classifier_match.exit.us.i
 
 Classifier_match.exit.us.i:                       ; preds = %101, %99
-  %.0.shrunk.i.in.us.i = phi i32 [ %100, %99 ], [ %102, %101 ]
+  %.0.shrunk.i.in.us.i = phi i32 [ %102, %101 ], [ %100, %99 ]
   %.0.shrunk.i.not.us.i = icmp eq i32 %.0.shrunk.i.in.us.i, 0
   br i1 %.0.shrunk.i.not.us.i, label %103, label %Classifier_match.exit.thread.us.i
 
@@ -7024,7 +7024,7 @@ Classifier_match.exit.thread.us.i:                ; preds = %109, %103, %Classif
   br i1 %146, label %.lr.ph.i.i._crit_edge, label %.lr.ph203, !llvm.loop !195
 
 CscPrefixMap_find.exit.i:                         ; preds = %143, %141, %.lr.ph.i.i._crit_edge, %.lr.ph123.split.i
-  %147 = phi i32 [ %119, %.lr.ph123.split.i ], [ %.pre.i, %.lr.ph.i.i._crit_edge ], [ %119, %141 ], [ %119, %143 ]
+  %147 = phi i32 [ %.pre.i, %.lr.ph.i.i._crit_edge ], [ %119, %.lr.ph123.split.i ], [ %119, %141 ], [ %119, %143 ]
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next137.i, %148
@@ -7364,7 +7364,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %150, %202, %43, %.p
   br i1 %exitcond245, label %DwaCompressor_classifyChannels.exit.thread, label %313, !llvm.loop !202
 
 DwaCompressor_classifyChannels.exit.thread:       ; preds = %220, %327, %324, %37, %._crit_edge, %303, %288, %273
-  %.0121 = phi i32 [ 1, %273 ], [ 1, %288 ], [ 1, %303 ], [ 1, %._crit_edge ], [ 1, %37 ], [ 1, %324 ], [ 0, %327 ], [ 3, %220 ]
+  %.0121 = phi i32 [ 1, %37 ], [ 1, %303 ], [ 1, %288 ], [ 1, %273 ], [ 1, %._crit_edge ], [ 1, %324 ], [ 0, %327 ], [ 3, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0121
 }
@@ -7697,7 +7697,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef 
   br label %70
 
 70:                                               ; preds = %69, %67, %63
-  %.0125.us = phi float [ -6.550400e+04, %69 ], [ %65, %67 ], [ 6.550400e+04, %63 ]
+  %.0125.us = phi float [ %65, %67 ], [ -6.550400e+04, %69 ], [ 6.550400e+04, %63 ]
   %71 = bitcast float %.0125.us to i32
   %72 = tail call float @llvm.fabs.f32(float %.0125.us)
   %73 = bitcast float %72 to i32
@@ -7775,7 +7775,7 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef 
   br label %float_to_half.exit.us
 
 float_to_half.exit.us:                            ; preds = %115, %112, %110, %101, %95, %92, %78
-  %.0.i.i.us = phi i16 [ %122, %115 ], [ %111, %110 ], [ %109, %101 ], [ %113, %112 ], [ %76, %78 ], [ %96, %95 ], [ %90, %92 ]
+  %.0.i.i.us = phi i16 [ %76, %78 ], [ %122, %115 ], [ %111, %110 ], [ %109, %101 ], [ %113, %112 ], [ %96, %95 ], [ %90, %92 ]
   %123 = getelementptr inbounds nuw i16, ptr %.3173.us, i64 %indvars.iv220
   store i16 %.0.i.i.us, ptr %123, align 2, !tbaa !90
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
@@ -8130,7 +8130,7 @@ dctForward8x8.exit.us:                            ; preds = %235
   br label %float_to_half.exit.i.us
 
 float_to_half.exit.i.us:                          ; preds = %331, %328, %326, %317, %311, %308, %294
-  %.0.i.i.i.us = phi i16 [ %338, %331 ], [ %327, %326 ], [ %325, %317 ], [ %329, %328 ], [ %292, %294 ], [ %312, %311 ], [ %306, %308 ]
+  %.0.i.i.i.us = phi i16 [ %292, %294 ], [ %338, %331 ], [ %327, %326 ], [ %325, %317 ], [ %329, %328 ], [ %312, %311 ], [ %306, %308 ]
   %339 = or disjoint i64 %indvars.iv.i155.us, 1
   %340 = getelementptr inbounds nuw float, ptr %156, i64 %339
   %341 = load float, ptr %340, align 4, !tbaa !174, !alias.scope !220, !noalias !226
@@ -8211,7 +8211,7 @@ float_to_half.exit.i.us:                          ; preds = %331, %328, %326, %3
   br label %float_to_half.exit56.i.us
 
 float_to_half.exit56.i.us:                        ; preds = %386, %383, %381, %372, %366, %363, %349
-  %.0.i.i55.i.us = phi i16 [ %393, %386 ], [ %382, %381 ], [ %380, %372 ], [ %384, %383 ], [ %347, %349 ], [ %367, %366 ], [ %361, %363 ]
+  %.0.i.i55.i.us = phi i16 [ %347, %349 ], [ %393, %386 ], [ %382, %381 ], [ %380, %372 ], [ %384, %383 ], [ %367, %366 ], [ %361, %363 ]
   %394 = or disjoint i64 %indvars.iv.i155.us, 2
   %395 = getelementptr inbounds nuw float, ptr %156, i64 %394
   %396 = load float, ptr %395, align 4, !tbaa !174, !alias.scope !220, !noalias !226
@@ -8292,7 +8292,7 @@ float_to_half.exit56.i.us:                        ; preds = %386, %383, %381, %3
   br label %float_to_half.exit60.i.us
 
 float_to_half.exit60.i.us:                        ; preds = %441, %438, %436, %427, %421, %418, %404
-  %.0.i.i59.i.us = phi i16 [ %448, %441 ], [ %437, %436 ], [ %435, %427 ], [ %439, %438 ], [ %402, %404 ], [ %422, %421 ], [ %416, %418 ]
+  %.0.i.i59.i.us = phi i16 [ %402, %404 ], [ %448, %441 ], [ %437, %436 ], [ %435, %427 ], [ %439, %438 ], [ %422, %421 ], [ %416, %418 ]
   %449 = or disjoint i64 %indvars.iv.i155.us, 3
   %450 = getelementptr inbounds nuw float, ptr %156, i64 %449
   %451 = load float, ptr %450, align 4, !tbaa !174, !alias.scope !220, !noalias !226
@@ -8373,7 +8373,7 @@ float_to_half.exit60.i.us:                        ; preds = %441, %438, %436, %4
   br label %float_to_half.exit64.i.us
 
 float_to_half.exit64.i.us:                        ; preds = %496, %493, %491, %482, %476, %473, %459
-  %.0.i.i63.i.us = phi i16 [ %503, %496 ], [ %492, %491 ], [ %490, %482 ], [ %494, %493 ], [ %457, %459 ], [ %477, %476 ], [ %471, %473 ]
+  %.0.i.i63.i.us = phi i16 [ %457, %459 ], [ %503, %496 ], [ %492, %491 ], [ %490, %482 ], [ %494, %493 ], [ %477, %476 ], [ %471, %473 ]
   %504 = getelementptr inbounds nuw float, ptr %.0120193.us, i64 %indvars.iv.i155.us
   %505 = load float, ptr %504, align 4, !tbaa !174, !alias.scope !222, !noalias !227
   %506 = getelementptr inbounds nuw float, ptr %.0120193.us, i64 %339
@@ -8622,8 +8622,8 @@ quantizeCoeffAndZigXDR.exit.us:                   ; preds = %half_to_float.exit7
   br i1 %654, label %.lr.ph.i.us, label %.critedge.i.us, !llvm.loop !233
 
 .critedge.i.us:                                   ; preds = %650, %.lr.ph.i.us
-  %.0.lcssa.i.us = phi i16 [ %.039.i.us, %.lr.ph.i.us ], [ %651, %650 ]
-  %.lcssa.i.us = phi i32 [ %645, %.lr.ph.i.us ], [ %653, %650 ]
+  %.0.lcssa.i.us = phi i16 [ %651, %650 ], [ %.039.i.us, %.lr.ph.i.us ]
+  %.lcssa.i.us = phi i32 [ %653, %650 ], [ %645, %.lr.ph.i.us ]
   %655 = icmp eq i16 %.0.lcssa.i.us, 1
   br i1 %655, label %.critedge.thread.i.us, label %656
 
@@ -8635,8 +8635,8 @@ quantizeCoeffAndZigXDR.exit.us:                   ; preds = %half_to_float.exit7
   br label %.critedge.thread.i.us
 
 .critedge.thread.i.us:                            ; preds = %656, %.critedge.i.us, %.preheader.i157.us, %639
-  %storemerge53.i.us = phi i16 [ %642, %639 ], [ 0, %.preheader.i157.us ], [ 0, %.critedge.i.us ], [ %spec.select.i.us, %656 ]
-  %.sink52.i.us = phi i32 [ 1, %639 ], [ 1, %.preheader.i157.us ], [ 1, %.critedge.i.us ], [ %659, %656 ]
+  %storemerge53.i.us = phi i16 [ %642, %639 ], [ 0, %.critedge.i.us ], [ %spec.select.i.us, %656 ], [ 0, %.preheader.i157.us ]
+  %.sink52.i.us = phi i32 [ 1, %639 ], [ 1, %.critedge.i.us ], [ %659, %656 ], [ 1, %.preheader.i157.us ]
   store i16 %storemerge53.i.us, ptr %.03345.i.us, align 2, !tbaa !90
   %storemerge.i.us = add i64 %storemerge.in.i191.us, 1
   %660 = add nuw nsw i32 %.sink52.i.us, %.03544.i.us
@@ -9039,7 +9039,7 @@ define internal fastcc void @LossyDctEncoder_base_construct(ptr noundef nonnull 
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %40, %43, %53, %55, %64, %78, %81
-  %.0.i.i = phi i16 [ %50, %43 ], [ %54, %53 ], [ %63, %55 ], [ %41, %40 ], [ %36, %64 ], [ %82, %81 ], [ %76, %78 ]
+  %.0.i.i = phi i16 [ %36, %64 ], [ %50, %43 ], [ %54, %53 ], [ %63, %55 ], [ %41, %40 ], [ %82, %81 ], [ %76, %78 ]
   %83 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   store i16 %.0.i.i, ptr %83, align 2, !tbaa !90
   %84 = getelementptr inbounds nuw i32, ptr @__const.LossyDctEncoder_base_construct.jpegQuantTableCbCr, i64 %indvars.iv
@@ -9126,7 +9126,7 @@ float_to_half.exit:                               ; preds = %40, %43, %53, %55, 
   br label %float_to_half.exit42
 
 float_to_half.exit42:                             ; preds = %99, %102, %112, %114, %123, %137, %140
-  %.0.i.i41 = phi i16 [ %109, %102 ], [ %113, %112 ], [ %122, %114 ], [ %100, %99 ], [ %95, %123 ], [ %141, %140 ], [ %135, %137 ]
+  %.0.i.i41 = phi i16 [ %95, %123 ], [ %109, %102 ], [ %113, %112 ], [ %122, %114 ], [ %100, %99 ], [ %141, %140 ], [ %135, %137 ]
   %142 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
   store i16 %.0.i.i41, ptr %142, align 2, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11347,7 +11347,7 @@ half_to_float.exit79.i.i:                         ; preds = %1205, %1204, %1202,
   br label %handleQuantizeDefault.exit
 
 handleQuantizeDefault.exit:                       ; preds = %half_to_float.exit.i.i, %half_to_float.exit65.i.i, %.thread.i.i, %889, %half_to_float.exit77.i.i, %half_to_float.exit81.i.i, %.critedge.i.i, %half_to_float.exit.i32.i, %half_to_float.exit62.i.i, %.thread.i30.i, %1038, %half_to_float.exit74.i.i, %half_to_float.exit78.i.i, %.critedge.i27.i, %1155, %1159, %half_to_float.exit75.i.i, %half_to_float.exit79.i.i, %1216
-  %.0.i73 = phi i32 [ %6, %.critedge.i.i ], [ %793, %889 ], [ %793, %half_to_float.exit.i.i ], [ %791, %half_to_float.exit65.i.i ], [ %791, %half_to_float.exit77.i.i ], [ %793, %half_to_float.exit81.i.i ], [ %888, %.thread.i.i ], [ %6, %.critedge.i27.i ], [ %941, %1038 ], [ %941, %half_to_float.exit.i32.i ], [ %939, %half_to_float.exit62.i.i ], [ %939, %half_to_float.exit74.i.i ], [ %941, %half_to_float.exit78.i.i ], [ %1037, %.thread.i30.i ], [ %.052.i.i, %1216 ], [ %941, %half_to_float.exit75.i.i ], [ %941, %half_to_float.exit79.i.i ], [ %941, %1155 ], [ %6, %1159 ]
+  %.0.i73 = phi i32 [ %1037, %.thread.i30.i ], [ %888, %.thread.i.i ], [ %791, %half_to_float.exit77.i.i ], [ %793, %half_to_float.exit.i.i ], [ %6, %.critedge.i.i ], [ %793, %889 ], [ %791, %half_to_float.exit65.i.i ], [ %793, %half_to_float.exit81.i.i ], [ %939, %half_to_float.exit74.i.i ], [ %941, %half_to_float.exit.i32.i ], [ %6, %.critedge.i27.i ], [ %941, %1038 ], [ %939, %half_to_float.exit62.i.i ], [ %941, %half_to_float.exit78.i.i ], [ %941, %half_to_float.exit79.i.i ], [ %.052.i.i, %1216 ], [ %941, %half_to_float.exit75.i.i ], [ %6, %1159 ], [ %941, %1155 ]
   %1217 = or i32 %.0.i73, %5
   br label %1456
 
@@ -11613,7 +11613,7 @@ half_to_float.exit111.i:                          ; preds = %1320
   br label %half_to_float.exit115.i
 
 half_to_float.exit115.i:                          ; preds = %1350, %1349, %1347
-  %.sroa.0.0.i.i114.i = phi i32 [ %1356, %1350 ], [ 0, %1349 ], [ %1348, %1347 ]
+  %.sroa.0.0.i.i114.i = phi i32 [ %1348, %1347 ], [ 0, %1349 ], [ %1356, %1350 ]
   %1357 = bitcast i32 %.sroa.0.0.i.i114.i to float
   %1358 = fsub float %7, %1357
   %1359 = fcmp olt float %1358, %2
@@ -11650,7 +11650,7 @@ half_to_float.exit115.i:                          ; preds = %1350, %1349, %1347
   br label %half_to_float.exit119.i
 
 half_to_float.exit119.i:                          ; preds = %1370, %1369, %1367
-  %.sroa.0.0.i.i118.i = phi i32 [ %1376, %1370 ], [ 0, %1369 ], [ %1368, %1367 ]
+  %.sroa.0.0.i.i118.i = phi i32 [ %1368, %1367 ], [ 0, %1369 ], [ %1376, %1370 ]
   %1377 = bitcast i32 %.sroa.0.0.i.i118.i to float
   %1378 = fsub float %7, %1377
   %1379 = fcmp olt float %1378, %2
@@ -11692,7 +11692,7 @@ half_to_float.exit119.i:                          ; preds = %1370, %1369, %1367
   br label %half_to_float.exit123.i
 
 half_to_float.exit123.i:                          ; preds = %1392, %1391, %1389
-  %.sroa.0.0.i.i122.i = phi i32 [ %1398, %1392 ], [ 0, %1391 ], [ %1390, %1389 ]
+  %.sroa.0.0.i.i122.i = phi i32 [ %1390, %1389 ], [ 0, %1391 ], [ %1398, %1392 ]
   %1399 = bitcast i32 %.sroa.0.0.i.i122.i to float
   %1400 = fsub float %7, %1399
   %1401 = fcmp olt float %1400, %2
@@ -11729,7 +11729,7 @@ half_to_float.exit123.i:                          ; preds = %1392, %1391, %1389
   br label %half_to_float.exit127.i
 
 half_to_float.exit127.i:                          ; preds = %1412, %1411, %1409
-  %.sroa.0.0.i.i126.i = phi i32 [ %1418, %1412 ], [ 0, %1411 ], [ %1410, %1409 ]
+  %.sroa.0.0.i.i126.i = phi i32 [ %1410, %1409 ], [ 0, %1411 ], [ %1418, %1412 ]
   %1419 = bitcast i32 %.sroa.0.0.i.i126.i to float
   %1420 = fsub float %7, %1419
   %1421 = fcmp olt float %1420, %.0.i89
@@ -11815,7 +11815,7 @@ handleQuantizeCloseExp.exit:                      ; preds = %half_to_float.exit1
   br label %1456
 
 1456:                                             ; preds = %774, %549, %26, %handleQuantizeCloseExp.exit, %handleQuantizeEqualExp.exit, %handleQuantizeDefault.exit, %handleQuantizeDenormTol.exit, %handleQuantizeGeneric.exit
-  %.1.in = phi i32 [ %548, %handleQuantizeGeneric.exit ], [ %773, %handleQuantizeDenormTol.exit ], [ %1217, %handleQuantizeDefault.exit ], [ %1308, %handleQuantizeEqualExp.exit ], [ %1455, %handleQuantizeCloseExp.exit ], [ %0, %26 ], [ %0, %549 ], [ %0, %774 ]
+  %.1.in = phi i32 [ %1455, %handleQuantizeCloseExp.exit ], [ %548, %handleQuantizeGeneric.exit ], [ %0, %26 ], [ %773, %handleQuantizeDenormTol.exit ], [ %0, %549 ], [ %1217, %handleQuantizeDefault.exit ], [ %1308, %handleQuantizeEqualExp.exit ], [ %0, %774 ]
   %.1 = trunc nuw i32 %.1.in to i16
   br label %1457
 
@@ -12182,8 +12182,8 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
   br label %.loopexit349.sink.split
 
 .loopexit349.sink.split:                          ; preds = %196, %194, %192, %190, %188, %186, %183
-  %dctInverse8x8_7.sink = phi ptr [ @dctInverse8x8_7, %183 ], [ @dctInverse8x8_6, %186 ], [ @dctInverse8x8_5, %188 ], [ @dctInverse8x8_4, %190 ], [ @dctInverse8x8_3, %192 ], [ @dctInverse8x8_2, %194 ], [ %dctInverse8x8_1.dctInverse8x8_0, %196 ]
-  %198 = load ptr, ptr %dctInverse8x8_7.sink, align 8, !tbaa !14
+  %dctInverse8x8_0.sink = phi ptr [ @dctInverse8x8_2, %194 ], [ %dctInverse8x8_1.dctInverse8x8_0, %196 ], [ @dctInverse8x8_7, %183 ], [ @dctInverse8x8_6, %186 ], [ @dctInverse8x8_5, %188 ], [ @dctInverse8x8_4, %190 ], [ @dctInverse8x8_3, %192 ]
+  %198 = load ptr, ptr %dctInverse8x8_0.sink, align 8, !tbaa !14
   tail call void %198(ptr noundef nonnull %125) #21
   br label %.loopexit349
 
@@ -12467,7 +12467,7 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
   br label %.lr.ph380.split
 
 .lr.ph380.split.us.preheader:                     ; preds = %.thread530.thread, %.lr.ph380
-  %404 = phi i64 [ %402, %.lr.ph380 ], [ %393, %.thread530.thread ]
+  %404 = phi i64 [ %393, %.thread530.thread ], [ %402, %.lr.ph380 ]
   br label %.lr.ph380.split.us
 
 .lr.ph380.split.us:                               ; preds = %.lr.ph380.split.us.preheader, %.lr.ph380.split.us
@@ -12568,7 +12568,7 @@ half_to_float.exit:                               ; preds = %163, %165, %167, %1
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %426, %429, %439, %441, %450, %464, %467
-  %.0.i.i = phi i16 [ %436, %429 ], [ %440, %439 ], [ %449, %441 ], [ %427, %426 ], [ %422, %450 ], [ %468, %467 ], [ %462, %464 ]
+  %.0.i.i = phi i16 [ %422, %450 ], [ %436, %429 ], [ %440, %439 ], [ %449, %441 ], [ %427, %426 ], [ %468, %467 ], [ %462, %464 ]
   %469 = insertelement <8 x i16> poison, i16 %.0.i.i, i64 0
   %470 = shufflevector <8 x i16> %469, <8 x i16> poison, <8 x i32> zeroinitializer
   store <8 x i16> %470, ptr %413, align 16, !tbaa !86

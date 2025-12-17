@@ -582,7 +582,7 @@ alloc_pd.exit:                                    ; preds = %63
   br i1 %81, label %43, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %.thread.sink.split.i, %.thread7.loopexit, %33, %.thread6.loopexit
-  %.ph40 = phi i32 [ -12, %33 ], [ %39, %.thread6.loopexit ], [ -12, %.thread.sink.split.i ], [ %73, %.thread7.loopexit ]
+  %.ph40 = phi i32 [ %39, %.thread6.loopexit ], [ -12, %33 ], [ -12, %.thread.sink.split.i ], [ %73, %.thread7.loopexit ]
   tail call void @i915_vm_free_pt_stash(ptr poison, ptr noundef %1)
   br label %.loopexit
 

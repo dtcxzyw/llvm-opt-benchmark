@@ -853,7 +853,7 @@ _ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   br label %273
 
 273:                                              ; preds = %269, %271
-  %.pn49.pn.pn = phi { ptr, i32 } [ %272, %271 ], [ %270, %269 ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %270, %269 ], [ %272, %271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %298
 
@@ -869,7 +869,7 @@ _ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   br label %278
 
 278:                                              ; preds = %274, %276
-  %.pn53.pn.pn = phi { ptr, i32 } [ %277, %276 ], [ %275, %274 ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %275, %274 ], [ %277, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %298
 

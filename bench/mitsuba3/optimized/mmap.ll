@@ -674,8 +674,8 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   ret void
 
 79:                                               ; preds = %66, %68, %53, %55, %42, %44, %27, %29, %75, %25
-  %.sink = phi ptr [ %11, %75 ], [ %2, %25 ], [ %4, %29 ], [ %4, %27 ], [ %6, %44 ], [ %6, %42 ], [ %8, %55 ], [ %8, %53 ], [ %10, %68 ], [ %10, %66 ]
-  %.pn21.pn = phi { ptr, i32 } [ %76, %75 ], [ %26, %25 ], [ %30, %29 ], [ %28, %27 ], [ %45, %44 ], [ %43, %42 ], [ %56, %55 ], [ %54, %53 ], [ %69, %68 ], [ %67, %66 ]
+  %.sink = phi ptr [ %11, %75 ], [ %8, %53 ], [ %6, %42 ], [ %4, %27 ], [ %2, %25 ], [ %4, %29 ], [ %6, %44 ], [ %8, %55 ], [ %10, %68 ], [ %10, %66 ]
+  %.pn21.pn = phi { ptr, i32 } [ %76, %75 ], [ %54, %53 ], [ %43, %42 ], [ %28, %27 ], [ %26, %25 ], [ %30, %29 ], [ %45, %44 ], [ %56, %55 ], [ %69, %68 ], [ %67, %66 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #26
   resume { ptr, i32 } %.pn21.pn
 }
@@ -1084,8 +1084,8 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
   ret void
 
 81:                                               ; preds = %69, %71, %53, %55, %27, %29, %17, %19, %78, %51
-  %.sink = phi ptr [ %11, %78 ], [ %6, %51 ], [ %3, %19 ], [ %3, %17 ], [ %5, %29 ], [ %5, %27 ], [ %8, %55 ], [ %8, %53 ], [ %10, %71 ], [ %10, %69 ]
-  %.pn16.pn = phi { ptr, i32 } [ %79, %78 ], [ %52, %51 ], [ %20, %19 ], [ %18, %17 ], [ %30, %29 ], [ %28, %27 ], [ %56, %55 ], [ %54, %53 ], [ %72, %71 ], [ %70, %69 ]
+  %.sink = phi ptr [ %11, %78 ], [ %8, %53 ], [ %5, %27 ], [ %6, %51 ], [ %3, %17 ], [ %3, %19 ], [ %5, %29 ], [ %8, %55 ], [ %10, %71 ], [ %10, %69 ]
+  %.pn16.pn = phi { ptr, i32 } [ %79, %78 ], [ %54, %53 ], [ %28, %27 ], [ %52, %51 ], [ %18, %17 ], [ %20, %19 ], [ %30, %29 ], [ %56, %55 ], [ %72, %71 ], [ %70, %69 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #26
   resume { ptr, i32 } %.pn16.pn
 }
@@ -1973,7 +1973,7 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %50, %_ZNSt3__16vect
   ret void
 
 .body:                                            ; preds = %37, %47, %111, %103, %88, %74, %68, %39
-  %.pn26 = phi { ptr, i32 } [ %40, %39 ], [ %.pn24, %74 ], [ %.pn22, %88 ], [ %.pn, %103 ], [ %112, %111 ], [ %69, %68 ], [ %38, %37 ], [ %.pn.i, %47 ]
+  %.pn26 = phi { ptr, i32 } [ %40, %39 ], [ %69, %68 ], [ %.pn24, %74 ], [ %.pn22, %88 ], [ %.pn, %103 ], [ %112, %111 ], [ %38, %37 ], [ %.pn.i, %47 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #26
   resume { ptr, i32 } %.pn26
 }
@@ -3627,7 +3627,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -3702,7 +3702,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -4310,7 +4310,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

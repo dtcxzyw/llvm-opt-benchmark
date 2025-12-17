@@ -2868,7 +2868,7 @@ define internal fastcc noundef zeroext i1 @_ZN15deltalake_azure6config17AzureCon
           to label %49 unwind label %47
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hdb1c940fdf08aaf1E.exit": ; preds = %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.i", %.noexc16, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us13.i", %.noexc12, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us.i", %.noexc8, %.noexc10, %.noexc6, %.lr.ph.split.us.i, %1
-  %.lcssa.i = phi i1 [ true, %1 ], [ false, %.noexc10 ], [ false, %.noexc6 ], [ false, %.lr.ph.split.us.i ], [ %25, %.noexc8 ], [ %25, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us.i" ], [ %31, %.noexc12 ], [ %31, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us13.i" ], [ false, %.noexc16 ], [ true, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.i" ]
+  %.lcssa.i = phi i1 [ true, %1 ], [ false, %.lr.ph.split.us.i ], [ %25, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us.i" ], [ %31, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.us13.i" ], [ false, %.noexc10 ], [ false, %.noexc6 ], [ %25, %.noexc8 ], [ %31, %.noexc12 ], [ true, %"_ZN15deltalake_azure6config17AzureConfigHelper24has_full_config_with_env28_$u7b$$u7b$closure$u7d$$u7d$17h46d9479533e35063E.exit.backedge.i" ], [ false, %.noexc16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !98
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2f05f3c4f059a151E.llvm.2651239618181311204"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2957,7 +2957,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           cleanup
   br label %.thread194
 
-.thread207.loopexit.split-lp.loopexit:            ; preds = %142, %119, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h58a4e1551b3f9390E.exit.i"
+.thread207.loopexit.split-lp.loopexit:            ; preds = %119, %142, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h58a4e1551b3f9390E.exit.i"
   %lpad.loopexit283 = landingpad { ptr, i32 }
           cleanup
   br label %.thread194
@@ -2967,7 +2967,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           cleanup
   br label %.thread194
 
-.thread207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %283, %282, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf1d515e533b626cE.llvm.2651239618181311204.exit.i100", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf1d515e533b626cE.llvm.2651239618181311204.exit.i", %.noexc, %40, %147, %218
+.thread207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %40, %147, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf1d515e533b626cE.llvm.2651239618181311204.exit.i", %.noexc, %218, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbf1d515e533b626cE.llvm.2651239618181311204.exit.i100", %282, %283
   %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
           cleanup
   br label %.thread194
@@ -4056,7 +4056,7 @@ define hidden void @_ZN15deltalake_azure6config17AzureConfigHelper5build17hf36ec
           to label %415 unwind label %209
 
 .thread194:                                       ; preds = %.thread207.loopexit, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.thread207.loopexit.split-lp.loopexit, %.body88, %.body107, %.body123, %226, %155, %132, %101
-  %.pn193 = phi { ptr, i32 } [ %102, %101 ], [ %lpad.phi.i, %132 ], [ %156, %155 ], [ %227, %226 ], [ %eh.lpad-body89, %.body88 ], [ %eh.lpad-body108, %.body107 ], [ %eh.lpad-body124, %.body123 ], [ %lpad.loopexit275, %.thread207.loopexit ], [ %lpad.loopexit283, %.thread207.loopexit.split-lp.loopexit ], [ %lpad.loopexit286, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp287, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn193 = phi { ptr, i32 } [ %227, %226 ], [ %eh.lpad-body124, %.body123 ], [ %156, %155 ], [ %102, %101 ], [ %lpad.phi.i, %132 ], [ %eh.lpad-body89, %.body88 ], [ %eh.lpad-body108, %.body107 ], [ %lpad.loopexit275, %.thread207.loopexit ], [ %lpad.loopexit283, %.thread207.loopexit.split-lp.loopexit ], [ %lpad.loopexit286, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp287, %.thread207.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %36) #20
           to label %413 unwind label %209
 

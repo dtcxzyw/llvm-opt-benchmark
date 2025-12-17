@@ -226,8 +226,8 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   br label %.outer
 
 .outer:                                           ; preds = %23, %.preheader28
-  %.032.ph = phi i1 [ false, %.preheader28 ], [ true, %23 ]
-  %.02231.ph = phi i32 [ 0, %.preheader28 ], [ %26, %23 ]
+  %.032.ph = phi i1 [ true, %23 ], [ false, %.preheader28 ]
+  %.02231.ph = phi i32 [ %26, %23 ], [ 0, %.preheader28 ]
   br label %17
 
 17:                                               ; preds = %.outer, %28

@@ -2297,7 +2297,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #22
   resume { ptr, i32 } %.pn
 
@@ -4683,7 +4683,7 @@ _ZN10btSoftBody14updateNodeTreeEbb.exit:          ; preds = %._ZN10btSoftBody14u
   br i1 %89, label %.lr.ph, label %_ZNK17btCollisionObject8isActiveEv.exit, !llvm.loop !375
 
 _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZN10btSoftBody14updateNodeTreeEbb.exit, %13, %13, %13
-  %90 = phi ptr [ %33, %_ZN10btSoftBody14updateNodeTreeEbb.exit ], [ %14, %13 ], [ %14, %13 ], [ %14, %13 ], [ %83, %.lr.ph ]
+  %90 = phi ptr [ %14, %13 ], [ %33, %_ZN10btSoftBody14updateNodeTreeEbb.exit ], [ %14, %13 ], [ %14, %13 ], [ %83, %.lr.ph ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %91 = load i32, ptr %4, align 4, !tbaa !142
   %92 = sext i32 %91 to i64
@@ -5064,7 +5064,7 @@ _ZNK17btCollisionObject8isActiveEv.exit174:       ; preds = %._ZNK17btCollisionO
   ret void
 
 296:                                              ; preds = %261, %287, %119, %37
-  %.pn107.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %262, %261 ], [ %288, %287 ], [ %120, %119 ]
+  %.pn107.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %120, %119 ], [ %288, %287 ], [ %262, %261 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn107.pn.pn

@@ -774,7 +774,7 @@ _ZNKSt14default_deleteIN4LIEF4objc8MetadataEEclEPS2_.exit.i: ; preds = %_ZNKSt7_
   br label %_ZNSt10unique_ptrIN4LIEF4objc8MetadataESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF4objc8MetadataESt14default_deleteIS2_EED2Ev.exit: ; preds = %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138, %_ZNKSt14default_deleteIN4LIEF4objc8MetadataEEclEPS2_.exit.i
-  %.3154 = phi i32 [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ], [ 0, %_ZNKSt14default_deleteIN4LIEF4objc8MetadataEEclEPS2_.exit.i ], [ 1, %96 ]
+  %.3154 = phi i32 [ 0, %_ZNKSt14default_deleteIN4LIEF4objc8MetadataEEclEPS2_.exit.i ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138 ], [ 1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %209
 
@@ -815,7 +815,7 @@ _ZNKSt14default_deleteIN4LIEF5MachO9FatBinaryEEclEPS2_.exit.i146: ; preds = %209
   br label %_ZNSt10unique_ptrIN4LIEF5MachO9FatBinaryESt14default_deleteIS2_EED2Ev.exit147
 
 _ZNSt10unique_ptrIN4LIEF5MachO9FatBinaryESt14default_deleteIS2_EED2Ev.exit147: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %209, %_ZNKSt14default_deleteIN4LIEF5MachO9FatBinaryEEclEPS2_.exit.i146
-  %.1159 = phi i32 [ %.1.ph, %209 ], [ %.1.ph, %_ZNKSt14default_deleteIN4LIEF5MachO9FatBinaryEEclEPS2_.exit.i146 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
+  %.1159 = phi i32 [ %.1.ph, %_ZNKSt14default_deleteIN4LIEF5MachO9FatBinaryEEclEPS2_.exit.i146 ], [ %.1.ph, %209 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %213
 

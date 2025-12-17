@@ -225,7 +225,7 @@ define i64 @pqsecure_raw_write(ptr noundef captures(none) %0, ptr noundef %1, i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %3, %56
-  %.030 = phi i64 [ %.029, %56 ], [ %2, %3 ], [ -1, %23 ]
+  %.030 = phi i64 [ %2, %3 ], [ %.029, %56 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -268,7 +268,7 @@ define range(i32 -1, 1) i32 @pq_block_sigpipe(ptr noundef %0, ptr noundef writeo
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %11 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %2 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

@@ -314,7 +314,7 @@ define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %0, ptr nou
   br label %49
 
 38:                                               ; preds = %35, %30
-  %.1 = phi i64 [ %31, %30 ], [ 0, %35 ]
+  %.1 = phi i64 [ 0, %35 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %39 = load ptr, ptr %14, align 8, !tbaa !15
@@ -350,7 +350,7 @@ define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %0, ptr nou
   br label %53
 
 53:                                               ; preds = %10, %11, %49
-  %.0 = phi i32 [ %.036, %49 ], [ -1, %11 ], [ -1, %10 ]
+  %.0 = phi i32 [ %.036, %49 ], [ -1, %10 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -583,7 +583,7 @@ define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %22, %.thread, %3, %39, %6
-  %.0 = phi i64 [ -1, %6 ], [ 0, %3 ], [ %34, %39 ], [ -1, %.thread ], [ %.040, %22 ], [ %34, %37 ]
+  %.0 = phi i64 [ -1, %.thread ], [ 0, %3 ], [ -1, %6 ], [ %34, %39 ], [ %.040, %22 ], [ %34, %37 ]
   ret i64 %.0
 }
 
@@ -701,7 +701,7 @@ define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %10, %.thread, %3, %37, %9
-  %.0 = phi i64 [ -1, %9 ], [ 0, %3 ], [ %34, %37 ], [ -1, %.thread ], [ 0, %10 ], [ %34, %35 ]
+  %.0 = phi i64 [ -1, %.thread ], [ 0, %3 ], [ -1, %9 ], [ %34, %37 ], [ 0, %10 ], [ %34, %35 ]
   ret i64 %.0
 }
 
@@ -897,7 +897,7 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %56, %52, %3, %.thread, %.critedge
-  %.2 = phi i64 [ -1, %.critedge ], [ -1, %.thread ], [ 0, %3 ], [ -1, %56 ], [ %.051.ph87, %52 ], [ %28, %.outer ]
+  %.2 = phi i64 [ -1, %.thread ], [ -1, %.critedge ], [ 0, %3 ], [ -1, %56 ], [ %.051.ph87, %52 ], [ %28, %.outer ]
   ret i64 %.2
 }
 

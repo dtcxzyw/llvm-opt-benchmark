@@ -533,7 +533,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %413
 
 ._crit_edge.i.i:                                  ; preds = %354, %350, %349
-  %361 = phi i16 [ %320, %354 ], [ %352, %350 ], [ %320, %349 ]
+  %361 = phi i16 [ %352, %350 ], [ %320, %354 ], [ %320, %349 ]
   %362 = load ptr, ptr %300, align 8, !tbaa !65
   %363 = shl i64 %indvars.iv.i.i, 3
   %364 = and i64 %363, 8

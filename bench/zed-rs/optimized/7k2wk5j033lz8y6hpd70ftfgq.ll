@@ -1239,7 +1239,7 @@ define hidden void @_ZN4gpui3app10AppContext16end_global_lease17h7ec179b77f41084
   ret void
 
 .body.thread:                                     ; preds = %35, %27, %36
-  %eh.lpad-body5 = phi { ptr, i32 } [ %37, %36 ], [ %28, %27 ], [ %28, %35 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %28, %35 ], [ %37, %36 ], [ %28, %27 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 36:                                               ; preds = %3
@@ -1345,7 +1345,7 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %22, %25, %30, %34, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %26, %34 ], [ %26, %30 ], [ %26, %25 ], [ %23, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %18, %17 ], [ %26, %34 ], [ %26, %30 ], [ %23, %22 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdcf1678579b80930E.exit": ; preds = %12, %9, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit
@@ -3264,7 +3264,7 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   br label %.body
 
 .body:                                            ; preds = %40, %107, %113, %153, %156, %32
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %.pn.i.i, %40 ], [ %108, %107 ], [ %108, %113 ], [ %.pn.pn49.i.i, %153 ], [ %.pn.pn49.i.i, %156 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %.pn.pn49.i.i, %156 ], [ %108, %113 ], [ %.pn.i.i, %40 ], [ %108, %107 ], [ %.pn.pn49.i.i, %153 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17h898af159b506e1bbE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #27
           to label %common.resume unwind label %180
 
@@ -3411,7 +3411,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8d97e31623e5f414E.exit.i.i: ; preds = 
   br label %75
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke.i.i, %._crit_edge.i.i, %71
-  %.sroa.012.2.ph.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %71 ], [ true, %.invoke.i.i ]
+  %.sroa.012.2.ph.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %71 ], [ false, %._crit_edge.i.i ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -3606,7 +3606,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8d97e31623e5f414E.exit.i.i: ; preds = 
   unreachable
 
 153:                                              ; preds = %.body.thread52.i.i, %40
-  %.pn.pn49.i.i = phi { ptr, i32 } [ %.pn.i.i, %40 ], [ %lpad.thr_comm.i.i, %.body.thread52.i.i ]
+  %.pn.pn49.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.body.thread52.i.i ], [ %.pn.i.i, %40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !663)
   call void @llvm.experimental.noalias.scope.decl(metadata !666)
   call void @llvm.experimental.noalias.scope.decl(metadata !669)
@@ -3679,7 +3679,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8d97e31623e5f414E.exit.i.i: ; preds = 
   unreachable
 
 common.resume:                                    ; preds = %.body, %166, %172
-  %common.resume.op = phi { ptr, i32 } [ %167, %172 ], [ %167, %166 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %167, %166 ], [ %167, %172 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17h898af159b506e1bbE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17ha16cae4ad099e731E.exit.i", %177
@@ -3800,7 +3800,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
 44:                                               ; preds = %.body16
   br i1 %.sroa.06.3, label %307, label %306
 
-.thread:                                          ; preds = %45, %.noexc
+.thread:                                          ; preds = %.noexc, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %307
@@ -4337,7 +4337,7 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i: ; preds = 
   br label %233
 
 218:                                              ; preds = %261, %.noexc73.i.i, %233, %229, %220, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i", %205, %188
-  %.sroa.041.1.i.i = phi i1 [ true, %220 ], [ true, %188 ], [ true, %205 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %229 ], [ true, %233 ], [ true, %.noexc73.i.i ], [ true, %261 ]
+  %.sroa.041.1.i.i = phi i1 [ true, %261 ], [ true, %.noexc73.i.i ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %229 ], [ true, %205 ], [ true, %220 ], [ true, %188 ], [ true, %233 ]
   %219 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr248drop_in_place$LT$core..result..Result$LT$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$anyhow..Error$GT$$GT$17ha0b72c64f2af918dE"(ptr noalias noundef align 8 dereferenceable(24) %26) #27
@@ -4494,13 +4494,13 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i: ; preds = 
           to label %.critedge62.thread.i.i unwind label %262, !noalias !765
 
 .critedge62.thread.i.i:                           ; preds = %266, %182, %158, %154, %150, %147, %.body.i.i, %122, %.critedge62.i.i
-  %.pn93.i.i = phi { ptr, i32 } [ %219, %.critedge62.i.i ], [ %127, %.body.i.i ], [ %265, %266 ], [ %123, %122 ], [ %183, %182 ], [ %151, %158 ], [ %151, %154 ], [ %151, %150 ], [ %148, %147 ]
-  %.sroa.043.492.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %266 ], [ %.sroa.043.3.i.i, %122 ], [ false, %182 ], [ false, %158 ], [ false, %154 ], [ false, %150 ], [ false, %147 ]
+  %.pn93.i.i = phi { ptr, i32 } [ %219, %.critedge62.i.i ], [ %127, %.body.i.i ], [ %148, %147 ], [ %265, %266 ], [ %123, %122 ], [ %151, %150 ], [ %183, %182 ], [ %151, %158 ], [ %151, %154 ]
+  %.sroa.043.492.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %147 ], [ false, %266 ], [ %.sroa.043.3.i.i, %122 ], [ false, %150 ], [ false, %182 ], [ false, %158 ], [ false, %154 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17h26e8fe7854784fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %27) #27
           to label %88 unwind label %262, !noalias !765
 
 267:                                              ; preds = %.thread.i.i, %88
-  %.pn5977.i.i = phi { ptr, i32 } [ %.pn93.i.i, %88 ], [ %lpad.thr_comm.i.i, %.thread.i.i ]
+  %.pn5977.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread.i.i ], [ %.pn93.i.i, %88 ]
   invoke fastcc void @"_ZN4core3ptr466drop_in_place$LT$gpui..window..WindowHandle$LT$workspace..Workspace$GT$..update$LT$gpui..app..async_context..AsyncWindowContext$C$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha28b3eb38b2b46f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #27
           to label %.body unwind label %262, !noalias !792
 
@@ -4541,7 +4541,7 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %88, %.critedge62.i.i, %267, %274, %279
-  %eh.lpad-body = phi { ptr, i32 } [ %280, %279 ], [ %.pn5977.i.i, %267 ], [ %.pn93.i.i, %88 ], [ %219, %.critedge62.i.i ], [ %275, %274 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %280, %279 ], [ %.pn93.i.i, %88 ], [ %219, %.critedge62.i.i ], [ %.pn5977.i.i, %267 ], [ %275, %274 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h21fc386581fa73e5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33) #27
           to label %.body16 unwind label %304
 
@@ -4614,11 +4614,11 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i: ; preds = 
   unreachable
 
 306:                                              ; preds = %307, %44
-  %.pn1019 = phi { ptr, i32 } [ %.pn1020, %307 ], [ %.pn, %44 ]
+  %.pn1019 = phi { ptr, i32 } [ %.pn, %44 ], [ %.pn1020, %307 ]
   resume { ptr, i32 } %.pn1019
 
 307:                                              ; preds = %.thread, %44
-  %.pn1020 = phi { ptr, i32 } [ %.pn, %44 ], [ %lpad.thr_comm, %.thread ]
+  %.pn1020 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn, %44 ]
   invoke fastcc void @"_ZN4core3ptr466drop_in_place$LT$gpui..window..WindowHandle$LT$workspace..Workspace$GT$..update$LT$gpui..app..async_context..AsyncWindowContext$C$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha28b3eb38b2b46f6E"(ptr noalias noundef align 8 dereferenceable(24) %3) #27
           to label %306 unwind label %304
 }
@@ -4678,7 +4678,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
 41:                                               ; preds = %.body16
   br i1 %.sroa.06.3, label %261, label %260
 
-.thread:                                          ; preds = %42, %.noexc
+.thread:                                          ; preds = %.noexc, %42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %261
@@ -4906,7 +4906,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br i1 %.sroa.041.1.i.i, label %.critedge62.thread.i.i, label %.body
 
 119:                                              ; preds = %186, %185, %.noexc73.i.i, %182, %181, %.thread91.i.i, %116
-  %.sroa.043.3.i.i = phi i1 [ true, %.thread91.i.i ], [ true, %116 ], [ false, %181 ], [ false, %182 ], [ false, %.noexc73.i.i ], [ false, %185 ], [ false, %186 ]
+  %.sroa.043.3.i.i = phi i1 [ true, %.thread91.i.i ], [ false, %186 ], [ true, %116 ], [ false, %181 ], [ false, %182 ], [ false, %.noexc73.i.i ], [ false, %185 ]
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge62.thread.i.i
@@ -5037,7 +5037,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br label %188
 
 166:                                              ; preds = %216, %.noexc77.i.i, %188, %177, %168, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i", %155, %140
-  %.sroa.041.1.i.i = phi i1 [ true, %168 ], [ true, %140 ], [ true, %155 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %177 ], [ true, %188 ], [ true, %.noexc77.i.i ], [ true, %216 ]
+  %.sroa.041.1.i.i = phi i1 [ true, %216 ], [ true, %.noexc77.i.i ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %177 ], [ true, %155 ], [ true, %168 ], [ true, %140 ], [ true, %188 ]
   %167 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h1f2cf204e18cbd7bE"(ptr noalias noundef align 8 dereferenceable(24) %23) #27
@@ -5232,13 +5232,13 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
           to label %.critedge62.thread.i.i unwind label %217, !noalias !1006
 
 .critedge62.thread.i.i:                           ; preds = %221, %132, %.body.i.i, %119, %.critedge62.i.i
-  %.pn97.i.i = phi { ptr, i32 } [ %167, %.critedge62.i.i ], [ %124, %.body.i.i ], [ %220, %221 ], [ %120, %119 ], [ %133, %132 ]
-  %.sroa.043.496.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %221 ], [ %.sroa.043.3.i.i, %119 ], [ false, %132 ]
+  %.pn97.i.i = phi { ptr, i32 } [ %167, %.critedge62.i.i ], [ %124, %.body.i.i ], [ %133, %132 ], [ %220, %221 ], [ %120, %119 ]
+  %.sroa.043.496.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %132 ], [ false, %221 ], [ %.sroa.043.3.i.i, %119 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17h26e8fe7854784fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %24) #27
           to label %85 unwind label %217, !noalias !1006
 
 222:                                              ; preds = %.thread.i.i, %85
-  %.pn5981.i.i = phi { ptr, i32 } [ %.pn97.i.i, %85 ], [ %lpad.thr_comm.i.i, %.thread.i.i ]
+  %.pn5981.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread.i.i ], [ %.pn97.i.i, %85 ]
   invoke fastcc void @"_ZN4core3ptr476drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$workspace..Workspace$C$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h587d04a9d33ce8d8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28) #27
           to label %.body unwind label %217, !noalias !1033
 
@@ -5279,7 +5279,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br label %.body
 
 .body:                                            ; preds = %85, %.critedge62.i.i, %222, %229, %234
-  %eh.lpad-body = phi { ptr, i32 } [ %235, %234 ], [ %.pn5981.i.i, %222 ], [ %.pn97.i.i, %85 ], [ %167, %.critedge62.i.i ], [ %230, %229 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %235, %234 ], [ %.pn97.i.i, %85 ], [ %167, %.critedge62.i.i ], [ %.pn5981.i.i, %222 ], [ %230, %229 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h21fc386581fa73e5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30) #27
           to label %.body16 unwind label %258
 
@@ -5349,11 +5349,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 260:                                              ; preds = %261, %41
-  %.pn1019 = phi { ptr, i32 } [ %.pn1020, %261 ], [ %.pn, %41 ]
+  %.pn1019 = phi { ptr, i32 } [ %.pn, %41 ], [ %.pn1020, %261 ]
   resume { ptr, i32 } %.pn1019
 
 261:                                              ; preds = %.thread, %41
-  %.pn1020 = phi { ptr, i32 } [ %.pn, %41 ], [ %lpad.thr_comm, %.thread ]
+  %.pn1020 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn, %41 ]
   invoke fastcc void @"_ZN4core3ptr476drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$workspace..Workspace$C$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h587d04a9d33ce8d8E"(ptr noalias noundef align 8 dereferenceable(32) %3) #27
           to label %260 unwind label %258
 }
@@ -5804,7 +5804,7 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
           to label %.body unwind label %173, !noalias !1178
 
 "_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$13update_window28_$u7b$$u7b$closure$u7d$$u7d$17hc2700a2ddcc8cba1E.exit.i": ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17hae7a36802c586e2dE.exit.i.i", %141, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$17h8308b8e233e1ad91E.exit.i.i", %.noexc14, %.noexc13
-  %175 = phi ptr [ null, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$17h8308b8e233e1ad91E.exit.i.i" ], [ %70, %.noexc13 ], [ %82, %.noexc14 ], [ %136, %141 ], [ null, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17hae7a36802c586e2dE.exit.i.i" ]
+  %175 = phi ptr [ null, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$17h8308b8e233e1ad91E.exit.i.i" ], [ %136, %141 ], [ %82, %.noexc14 ], [ %70, %.noexc13 ], [ null, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17hae7a36802c586e2dE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1171
   store ptr %175, ptr %20, align 8, !noalias !1167
   %176 = getelementptr inbounds nuw i8, ptr %42, i64 1168
@@ -5971,7 +5971,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
 41:                                               ; preds = %.body16
   br i1 %.sroa.06.3, label %256, label %255
 
-.thread:                                          ; preds = %42, %.noexc
+.thread:                                          ; preds = %.noexc, %42
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %256
@@ -6358,7 +6358,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br label %183
 
 169:                                              ; preds = %211, %.noexc72.i.i, %183, %180, %171, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i", %158, %143
-  %.sroa.041.1.i.i = phi i1 [ true, %171 ], [ true, %143 ], [ true, %158 ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %180 ], [ true, %183 ], [ true, %.noexc72.i.i ], [ true, %211 ]
+  %.sroa.041.1.i.i = phi i1 [ true, %211 ], [ true, %.noexc72.i.i ], [ true, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7d24faeb078f3e4fE.llvm.15108067646381413786.exit.i.i.i" ], [ false, %180 ], [ true, %158 ], [ true, %171 ], [ true, %143 ], [ true, %183 ]
   %170 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr313drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$gpui..window..WindowHandle$LT$workspace..Workspace$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$RP$$C$anyhow..Error$GT$$GT$$GT$17h1a3ba7fc57a39f0eE"(ptr noalias noundef align 8 dereferenceable(48) %24) #27
@@ -6505,13 +6505,13 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
           to label %.critedge62.thread.i.i unwind label %212, !noalias !1313
 
 .critedge62.thread.i.i:                           ; preds = %216, %.body.i.i.i, %.body.i.i, %101, %.critedge62.i.i
-  %.pn92.i.i = phi { ptr, i32 } [ %170, %.critedge62.i.i ], [ %106, %.body.i.i ], [ %215, %216 ], [ %102, %101 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
-  %.sroa.043.491.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %216 ], [ %.sroa.043.3.i.i, %101 ], [ false, %.body.i.i.i ]
+  %.pn92.i.i = phi { ptr, i32 } [ %170, %.critedge62.i.i ], [ %106, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %215, %216 ], [ %102, %101 ]
+  %.sroa.043.491.i.i = phi i1 [ false, %.critedge62.i.i ], [ false, %.body.i.i ], [ false, %.body.i.i.i ], [ false, %216 ], [ %.sroa.043.3.i.i, %101 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17h26e8fe7854784fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %25) #27
           to label %76 unwind label %212, !noalias !1313
 
 217:                                              ; preds = %.thread.i.i, %76
-  %.pn5976.i.i = phi { ptr, i32 } [ %.pn92.i.i, %76 ], [ %lpad.thr_comm.i.i, %.thread.i.i ]
+  %.pn5976.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread.i.i ], [ %.pn92.i.i, %76 ]
   invoke fastcc void @"_ZN4core3ptr518drop_in_place$LT$gpui..app..async_context..AsyncWindowContext..update$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$gpui..window..WindowHandle$LT$workspace..Workspace$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$RP$$C$anyhow..Error$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3499aed283853ef2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28) #27
           to label %.body unwind label %212, !noalias !1427
 
@@ -6556,7 +6556,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br label %.body
 
 .body:                                            ; preds = %76, %.critedge62.i.i, %217, %224, %229
-  %eh.lpad-body = phi { ptr, i32 } [ %230, %229 ], [ %.pn5976.i.i, %217 ], [ %.pn92.i.i, %76 ], [ %170, %.critedge62.i.i ], [ %225, %224 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %230, %229 ], [ %.pn92.i.i, %76 ], [ %170, %.critedge62.i.i ], [ %.pn5976.i.i, %217 ], [ %225, %224 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h21fc386581fa73e5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30) #27
           to label %.body16 unwind label %253
 
@@ -6626,11 +6626,11 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   unreachable
 
 255:                                              ; preds = %256, %41
-  %.pn1019 = phi { ptr, i32 } [ %.pn1020, %256 ], [ %.pn, %41 ]
+  %.pn1019 = phi { ptr, i32 } [ %.pn, %41 ], [ %.pn1020, %256 ]
   resume { ptr, i32 } %.pn1019
 
 256:                                              ; preds = %.thread, %41
-  %.pn1020 = phi { ptr, i32 } [ %.pn, %41 ], [ %lpad.thr_comm, %.thread ]
+  %.pn1020 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn, %41 ]
   invoke fastcc void @"_ZN4core3ptr518drop_in_place$LT$gpui..app..async_context..AsyncWindowContext..update$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$gpui..window..WindowHandle$LT$workspace..Workspace$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$RP$$C$anyhow..Error$GT$$GT$$C$journal..new_journal_entry..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3499aed283853ef2E"(ptr noalias noundef align 8 dereferenceable(32) %3) #27
           to label %255 unwind label %253
 }

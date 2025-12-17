@@ -290,9 +290,9 @@ define { i64, ptr } @stbrp__skyline_find_best_pos(ptr noundef %0, i32 noundef %1
   br label %66
 
 66:                                               ; preds = %64, %63, %60, %56
-  %.189.us = phi i32 [ %.1.i.us, %63 ], [ %.088128.us, %60 ], [ %.088128.us, %56 ], [ %.088128.us, %64 ]
-  %.181.us = phi i32 [ %.140.i.us, %63 ], [ %.080129.us, %60 ], [ %.080129.us, %56 ], [ %spec.select.us, %64 ]
-  %.1.us = phi ptr [ %.077130.us, %63 ], [ %.0132.us, %60 ], [ %.0132.us, %56 ], [ %spec.select104.us, %64 ]
+  %.189.us = phi i32 [ %.088128.us, %56 ], [ %.088128.us, %60 ], [ %.1.i.us, %63 ], [ %.088128.us, %64 ]
+  %.181.us = phi i32 [ %.080129.us, %56 ], [ %.080129.us, %60 ], [ %.140.i.us, %63 ], [ %spec.select.us, %64 ]
+  %.1.us = phi ptr [ %.0132.us, %56 ], [ %.0132.us, %60 ], [ %.077130.us, %63 ], [ %spec.select104.us, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %.074131.us, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !14
   %69 = load i32, ptr %68, align 8, !tbaa !21
@@ -450,10 +450,10 @@ stbrp__skyline_find_min_y.exit121:                ; preds = %117, %89
   br label %129
 
 129:                                              ; preds = %128, %125, %stbrp__skyline_find_min_y.exit121
-  %.391 = phi i32 [ %.036.lcssa.i109, %128 ], [ %.290174, %125 ], [ %.290174, %stbrp__skyline_find_min_y.exit121 ]
-  %.287 = phi i32 [ %84, %128 ], [ %.186175, %125 ], [ %.186175, %stbrp__skyline_find_min_y.exit121 ]
-  %.484 = phi i32 [ %.039.lcssa.i108, %128 ], [ %.383176, %125 ], [ %.383176, %stbrp__skyline_find_min_y.exit121 ]
-  %.4 = phi ptr [ %.279, %128 ], [ %.3180, %125 ], [ %.3180, %stbrp__skyline_find_min_y.exit121 ]
+  %.391 = phi i32 [ %.036.lcssa.i109, %128 ], [ %.290174, %stbrp__skyline_find_min_y.exit121 ], [ %.290174, %125 ]
+  %.287 = phi i32 [ %84, %128 ], [ %.186175, %stbrp__skyline_find_min_y.exit121 ], [ %.186175, %125 ]
+  %.484 = phi i32 [ %.039.lcssa.i108, %128 ], [ %.383176, %stbrp__skyline_find_min_y.exit121 ], [ %.383176, %125 ]
+  %.4 = phi ptr [ %.279, %128 ], [ %.3180, %stbrp__skyline_find_min_y.exit121 ], [ %.3180, %125 ]
   %130 = getelementptr inbounds nuw i8, ptr %.173179, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !14
   %.not99 = icmp eq ptr %131, null
@@ -560,7 +560,7 @@ define { i64, ptr } @stbrp__skyline_pack_rectangle(ptr noundef %0, i32 noundef %
   br label %41
 
 41:                                               ; preds = %.critedge, %40, %3, %8, %13
-  %.sroa.9.0 = phi ptr [ null, %13 ], [ null, %8 ], [ null, %3 ], [ %6, %40 ], [ %6, %.critedge ]
+  %.sroa.9.0 = phi ptr [ null, %3 ], [ null, %13 ], [ null, %8 ], [ %6, %40 ], [ %6, %.critedge ]
   %.fca.1.insert = insertvalue { i64, ptr } %4, ptr %.sroa.9.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
@@ -739,7 +739,7 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %59, %.critedge.i
   store i64 %26, ptr %60, align 4
   br label %63
 
-stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %24, %29, %33
+stbrp__skyline_pack_rectangle.exit.thread:        ; preds = %29, %33, %24
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 2147483647, ptr %61, align 4, !tbaa !36
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 12

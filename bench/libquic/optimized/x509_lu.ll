@@ -100,7 +100,7 @@ define hidden i32 @X509_LOOKUP_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -122,7 +122,7 @@ define hidden i32 @X509_LOOKUP_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -144,7 +144,7 @@ define hidden i32 @X509_LOOKUP_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %14
 
 14:                                               ; preds = %9, %5, %12
-  %.0 = phi i32 [ %13, %12 ], [ -1, %5 ], [ 1, %9 ]
+  %.0 = phi i32 [ -1, %5 ], [ %13, %12 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -172,7 +172,7 @@ define hidden i32 @X509_LOOKUP_by_subject(ptr noundef %0, i32 noundef %1, ptr no
   br label %17
 
 17:                                               ; preds = %12, %4, %8, %15
-  %.0 = phi i32 [ %16, %15 ], [ 0, %8 ], [ 0, %4 ], [ 0, %12 ]
+  %.0 = phi i32 [ %16, %15 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -312,7 +312,7 @@ define hidden noundef ptr @X509_STORE_new() local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %0, %28, %15
-  %.0 = phi ptr [ null, %28 ], [ %calloc, %15 ], [ null, %0 ]
+  %.0 = phi ptr [ %calloc, %15 ], [ null, %28 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -356,7 +356,7 @@ define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr
   br label %21
 
 21:                                               ; preds = %9, %15, %8, %2
-  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %14, %9 ], [ %20, %15 ]
+  %.010 = phi i32 [ 0, %8 ], [ %7, %2 ], [ %14, %9 ], [ %20, %15 ]
   ret i32 %.010
 }
 
@@ -712,7 +712,7 @@ X509_LOOKUP_by_subject.exit:                      ; preds = %50
   store i32 0, ptr %33, align 8, !tbaa !83
   br label %61
 
-.thread:                                          ; preds = %46, %.lr.ph, %50, %56
+.thread:                                          ; preds = %.lr.ph, %46, %50, %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %57 = load ptr, ptr %35, align 8, !tbaa !33
   %58 = call i64 @sk_num(ptr noundef %57) #10
@@ -912,7 +912,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %14, %16, %18
   br label %24
 
 24:                                               ; preds = %2, %23, %7
-  %.015 = phi i32 [ 0, %7 ], [ %.0, %23 ], [ 0, %2 ]
+  %.015 = phi i32 [ %.0, %23 ], [ 0, %7 ], [ 0, %2 ]
   ret i32 %.015
 }
 
@@ -975,7 +975,7 @@ define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) lo
   br label %x509_object_cmp.exit
 
 x509_object_cmp.exit:                             ; preds = %19, %24
-  %.010.i = phi i32 [ %23, %19 ], [ %28, %24 ]
+  %.010.i = phi i32 [ %28, %24 ], [ %23, %19 ]
   %.not12 = icmp eq i32 %.010.i, 0
   br i1 %.not12, label %thread-pre-split, label %x509_object_cmp.exit.thread25
 
@@ -1013,7 +1013,7 @@ x509_object_cmp.exit.thread:                      ; preds = %18, %thread-pre-spl
   br i1 %43, label %14, label %x509_object_cmp.exit.thread25, !llvm.loop !86
 
 x509_object_cmp.exit.thread25:                    ; preds = %x509_object_cmp.exit, %40, %30, %35, %x509_object_cmp.exit.thread, %14, %10, %2, %8
-  %.07 = phi ptr [ %9, %8 ], [ null, %2 ], [ null, %10 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %15, %30 ], [ %15, %35 ], [ %15, %x509_object_cmp.exit.thread ], [ null, %14 ]
+  %.07 = phi ptr [ %9, %8 ], [ null, %2 ], [ null, %10 ], [ %15, %x509_object_cmp.exit.thread ], [ null, %x509_object_cmp.exit ], [ %15, %30 ], [ null, %40 ], [ %15, %35 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.07
 }
@@ -1102,7 +1102,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %13, %15, %17
   br label %23
 
 23:                                               ; preds = %2, %22, %7
-  %.015 = phi i32 [ 0, %7 ], [ %.0, %22 ], [ 0, %2 ]
+  %.015 = phi i32 [ %.0, %22 ], [ 0, %7 ], [ 0, %2 ]
   ret i32 %.015
 }
 
@@ -1258,7 +1258,7 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
   br label %x509_object_cmp.exit
 
 x509_object_cmp.exit:                             ; preds = %33, %38
-  %.010.i = phi i32 [ %37, %33 ], [ %42, %38 ]
+  %.010.i = phi i32 [ %42, %38 ], [ %37, %33 ]
   %.not16 = icmp eq i32 %.010.i, 0
   br i1 %.not16, label %x509_object_cmp.exit.thread, label %x509_object_cmp.exit.thread20
 
@@ -1412,7 +1412,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   br label %57
 
 57:                                               ; preds = %.critedge, %2, %._crit_edge, %50
-  %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.critedge ]
+  %.029 = phi ptr [ null, %.critedge ], [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.029
 }
@@ -1517,7 +1517,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   br label %45
 
 45:                                               ; preds = %2, %._crit_edge, %38, %28, %9
-  %.0 = phi ptr [ null, %28 ], [ null, %38 ], [ %5, %._crit_edge ], [ null, %9 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %28 ], [ null, %38 ], [ %5, %._crit_edge ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -1702,7 +1702,7 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
   br label %X509_OBJECT_free_contents.exit42
 
 X509_OBJECT_free_contents.exit42:                 ; preds = %24, %21, %19, %3, %.loopexit, %33, %X509_OBJECT_free_contents.exit
-  %.033 = phi i32 [ -1, %X509_OBJECT_free_contents.exit ], [ 1, %33 ], [ %.032, %.loopexit ], [ %10, %3 ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ]
+  %.033 = phi i32 [ -1, %X509_OBJECT_free_contents.exit ], [ %10, %3 ], [ %.032, %.loopexit ], [ 1, %33 ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.033
 }

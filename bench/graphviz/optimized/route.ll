@@ -58,8 +58,8 @@ define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i64 noundef %1, ptr %2
   store i64 4, ptr @opn, align 8, !tbaa !7
   br label %28
 
-28:                                               ; preds = %27, %6
-  %29 = phi ptr [ %26, %27 ], [ %.pre, %6 ]
+28:                                               ; preds = %6, %27
+  %29 = phi ptr [ %.pre, %6 ], [ %26, %27 ]
   %30 = trunc i64 %3 to i32
   store i64 1, ptr @opl, align 8, !tbaa !7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !12
@@ -708,7 +708,7 @@ addroot.exit129.i.i.i:                            ; preds = %307
   br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 splineintersectsline.exit.i.i:                    ; preds = %318, %281, %addroot.exit123.i.i.i, %._crit_edge.us.i.i.i, %addroot.exit.i.i.i
-  %.0111.i.i.i = phi i32 [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.7.i.i.i, %281 ], [ %.9.i.i.i, %318 ]
+  %.0111.i.i.i = phi i32 [ %.7.i.i.i, %281 ], [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.9.i.i.i, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -998,7 +998,7 @@ splinefits.exit:                                  ; preds = %386, %365
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %splinefits.exit, %16, %._crit_edge206, %477
-  %.1 = phi i32 [ 0, %splinefits.exit ], [ -1, %._crit_edge206 ], [ %479, %477 ], [ -1, %16 ], [ -1, %.thread ]
+  %.1 = phi i32 [ -1, %16 ], [ %479, %477 ], [ -1, %._crit_edge206 ], [ 0, %splinefits.exit ], [ -1, %.thread ]
   ret i32 %.1
 }
 

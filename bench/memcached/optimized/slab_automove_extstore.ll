@@ -56,7 +56,7 @@ define dso_local noundef ptr @slab_automove_extstore_init(ptr noundef %0) local_
   br label %26
 
 26:                                               ; preds = %1, %23, %22
-  %.0 = phi ptr [ null, %22 ], [ %6, %23 ], [ null, %1 ]
+  %.0 = phi ptr [ %6, %23 ], [ null, %22 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -98,7 +98,7 @@ define dso_local void @slab_automove_extstore_run(ptr noundef %0, ptr noundef wr
   br label %global_pool_check.exit
 
 global_pool_check.exit:                           ; preds = %3, %10
-  %.0.i = phi i1 [ false, %3 ], [ %11, %10 ]
+  %.0.i = phi i1 [ %11, %10 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   call void @fill_item_stats_automove(ptr noundef nonnull %13) #10
@@ -297,9 +297,9 @@ window_sum.exit.thread:                           ; preds = %91, %window_sum.exi
   br label %123
 
 123:                                              ; preds = %121, %115, %116, %window_sum.exit
-  %.195 = phi i1 [ %.094129, %window_sum.exit ], [ %.296, %116 ], [ %.296, %121 ], [ %.296, %115 ]
-  %.191 = phi i64 [ %.090130, %window_sum.exit ], [ %.090130, %116 ], [ %spec.select, %121 ], [ %.090130, %115 ]
-  %.1 = phi i32 [ %.089131, %window_sum.exit ], [ %.089131, %116 ], [ %spec.select104, %121 ], [ %.089131, %115 ]
+  %.195 = phi i1 [ %.094129, %window_sum.exit ], [ %.296, %116 ], [ %.296, %115 ], [ %.296, %121 ]
+  %.191 = phi i64 [ %.090130, %window_sum.exit ], [ %.090130, %116 ], [ %.090130, %115 ], [ %spec.select, %121 ]
+  %.1 = phi i32 [ %.089131, %window_sum.exit ], [ %.089131, %116 ], [ %.089131, %115 ], [ %spec.select104, %121 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %124, label %38, !llvm.loop !52

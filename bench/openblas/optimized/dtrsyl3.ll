@@ -222,7 +222,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not1904, label %149, label %.thread2585
 
 .thread2585.sink.split:                           ; preds = %142, %139, %136, %133, %130, %128, %126, %121
-  %.sink = phi i32 [ -1, %121 ], [ -2, %126 ], [ -3, %128 ], [ -4, %130 ], [ -5, %133 ], [ -7, %136 ], [ -9, %139 ], [ -11, %142 ]
+  %.sink = phi i32 [ -1, %121 ], [ -2, %126 ], [ -4, %130 ], [ -7, %136 ], [ -9, %139 ], [ -5, %133 ], [ -3, %128 ], [ -11, %142 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread2585
 
@@ -363,9 +363,9 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %216
 
 216:                                              ; preds = %211, %.lr.ph, %196, %205, %193, %214
-  %217 = phi i32 [ %191, %193 ], [ %215, %214 ], [ %191, %205 ], [ %191, %196 ], [ %191, %.lr.ph ], [ %191, %211 ]
-  %218 = phi i32 [ %192, %193 ], [ %215, %214 ], [ %192, %205 ], [ %192, %196 ], [ %192, %.lr.ph ], [ %191, %211 ]
-  %.21841 = phi i32 [ 0, %193 ], [ 0, %214 ], [ 0, %205 ], [ 0, %196 ], [ 0, %.lr.ph ], [ 1, %211 ]
+  %217 = phi i32 [ %191, %196 ], [ %191, %193 ], [ %215, %214 ], [ %191, %.lr.ph ], [ %191, %205 ], [ %191, %211 ]
+  %218 = phi i32 [ %192, %196 ], [ %192, %193 ], [ %215, %214 ], [ %192, %.lr.ph ], [ %192, %205 ], [ %191, %211 ]
+  %.21841 = phi i32 [ 0, %196 ], [ 0, %193 ], [ 0, %214 ], [ 0, %.lr.ph ], [ 0, %205 ], [ 1, %211 ]
   %indvars.iv.next3044 = add nsw i64 %indvars.iv3043, 1
   %exitcond3047.not = icmp eq i64 %indvars.iv.next3044, %wide.trip.count3046
   br i1 %exitcond3047.not, label %.loopexit2620, label %.lr.ph, !llvm.loop !12
@@ -477,8 +477,8 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %271
 
 271:                                              ; preds = %266, %.lr.ph2632, %251, %260, %248, %269
-  %272 = phi i32 [ %247, %248 ], [ %270, %269 ], [ %247, %260 ], [ %247, %251 ], [ %247, %.lr.ph2632 ], [ %247, %266 ]
-  %.51844 = phi i32 [ 0, %248 ], [ 0, %269 ], [ 0, %260 ], [ 0, %251 ], [ 0, %.lr.ph2632 ], [ 1, %266 ]
+  %272 = phi i32 [ %247, %251 ], [ %247, %248 ], [ %270, %269 ], [ %247, %.lr.ph2632 ], [ %247, %260 ], [ %247, %266 ]
+  %.51844 = phi i32 [ 0, %251 ], [ 0, %248 ], [ 0, %269 ], [ 0, %.lr.ph2632 ], [ 0, %260 ], [ 1, %266 ]
   %indvars.iv.next3059 = add nsw i64 %indvars.iv3058, 1
   %exitcond3062.not = icmp eq i64 %indvars.iv.next3059, %wide.trip.count3061
   br i1 %exitcond3062.not, label %._crit_edge, label %.lr.ph2632, !llvm.loop !14
@@ -939,8 +939,8 @@ dpow_ui.exit2052:                                 ; preds = %.lr.ph.i2045, %427,
   br label %.loopexit2593
 
 .loopexit2593:                                    ; preds = %..loopexit2593_crit_edge, %390
-  %.pre-phi3378 = phi double [ %.pre3379, %..loopexit2593_crit_edge ], [ %408, %390 ]
-  %.2 = phi double [ %.3, %..loopexit2593_crit_edge ], [ %.12963, %390 ]
+  %.pre-phi3378 = phi double [ %408, %390 ], [ %.pre3379, %..loopexit2593_crit_edge ]
+  %.2 = phi double [ %.12963, %390 ], [ %.3, %..loopexit2593_crit_edge ]
   store double %.pre-phi3378, ptr %gep3672, align 8, !tbaa !7
   store i32 %379, ptr %59, align 4, !tbaa !3
   store i32 %395, ptr %60, align 4, !tbaa !3
@@ -1797,8 +1797,8 @@ dpow_ui.exit2192:                                 ; preds = %.lr.ph.i2185, %746,
   br label %.loopexit2600
 
 .loopexit2600:                                    ; preds = %..loopexit2600_crit_edge, %709
-  %.pre-phi3381 = phi double [ %.pre3382, %..loopexit2600_crit_edge ], [ %727, %709 ]
-  %.11 = phi double [ %.12, %..loopexit2600_crit_edge ], [ %.102891, %709 ]
+  %.pre-phi3381 = phi double [ %727, %709 ], [ %.pre3382, %..loopexit2600_crit_edge ]
+  %.11 = phi double [ %.102891, %709 ], [ %.12, %..loopexit2600_crit_edge ]
   store double %.pre-phi3381, ptr %gep3644, align 8, !tbaa !7
   store i32 %700, ptr %60, align 4, !tbaa !3
   store i32 %714, ptr %61, align 4, !tbaa !3
@@ -4109,7 +4109,7 @@ dpow_ui.exit2584.us:                              ; preds = %.lr.ph.i2577.us, %1
   br i1 %1628, label %.lr.ph2809.us, label %.loopexit2594, !llvm.loop !77
 
 .loopexit2594:                                    ; preds = %..loopexit2617_crit_edge.us, %._crit_edge2810.us, %.loopexit2601, %._crit_edge2966, %.lr.ph2814, %.lr.ph2734, %1001, %682, %.preheader, %1316
-  %.8 = phi double [ 1.000000e+00, %1316 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %682 ], [ 1.000000e+00, %1001 ], [ 1.000000e+00, %.lr.ph2734 ], [ 1.000000e+00, %.lr.ph2814 ], [ %.1.lcssa, %._crit_edge2966 ], [ %.10.lcssa, %.loopexit2601 ], [ %.29.lcssa.us, %._crit_edge2810.us ], [ %.21.lcssa.us, %..loopexit2617_crit_edge.us ]
+  %.8 = phi double [ 1.000000e+00, %1316 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %682 ], [ 1.000000e+00, %1001 ], [ 1.000000e+00, %.lr.ph2814 ], [ 1.000000e+00, %.lr.ph2734 ], [ %.29.lcssa.us, %._crit_edge2810.us ], [ %.1.lcssa, %._crit_edge2966 ], [ %.10.lcssa, %.loopexit2601 ], [ %.21.lcssa.us, %..loopexit2617_crit_edge.us ]
   call void @free(ptr noundef %157) #8
   %1629 = load double, ptr %14, align 8, !tbaa !7
   store double %1629, ptr %11, align 8, !tbaa !7
@@ -4339,7 +4339,7 @@ dpow_ui.exit2584.us:                              ; preds = %.lr.ph.i2577.us, %1
   br label %._crit_edge3014
 
 ._crit_edge3014:                                  ; preds = %.lr.ph3013, %._crit_edge3014.split, %1694
-  %1710 = phi double [ %1709, %._crit_edge3014.split ], [ %1695, %1694 ], [ %1695, %.lr.ph3013 ]
+  %1710 = phi double [ %1695, %1694 ], [ %1709, %._crit_edge3014.split ], [ %1695, %.lr.ph3013 ]
   %1711 = fdiv double %220, %1710
   store double %1711, ptr %64, align 8, !tbaa !7
   %1712 = fdiv double 1.000000e+00, %.33

@@ -492,7 +492,7 @@ native_read_msr.exit35:                           ; preds = %219, %222
   br label %.thread42
 
 .thread42:                                        ; preds = %244, %.thread42.loopexit, %247
-  %.pr = phi ptr [ %.pr.pre, %.thread42.loopexit ], [ %234, %247 ], [ %234, %244 ]
+  %.pr = phi ptr [ %234, %247 ], [ %.pr.pre, %.thread42.loopexit ], [ %234, %244 ]
   %260 = icmp eq ptr %.pr, @pci_root_infos
   br i1 %260, label %.thread42.thread, label %.preheader43
 

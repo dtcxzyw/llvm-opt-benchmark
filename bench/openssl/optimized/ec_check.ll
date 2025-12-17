@@ -147,10 +147,10 @@ define range(i32 0, 2) i32 @EC_GROUP_check(ptr noundef %0, ptr noundef %1) local
   br i1 %.not40, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %35, %31, %22, %18, %16, %13
-  %.sink48 = phi i32 [ 72, %13 ], [ 79, %16 ], [ 85, %18 ], [ 89, %22 ], [ 100, %31 ], [ 107, %35 ]
-  %.sink = phi i32 [ 524291, %13 ], [ 118, %16 ], [ 113, %18 ], [ 107, %22 ], [ 128, %31 ], [ 122, %35 ]
-  %.1.ph = phi ptr [ null, %13 ], [ %.024, %16 ], [ %.024, %18 ], [ %.024, %22 ], [ %.024, %31 ], [ %.024, %35 ]
-  %.0.ph = phi ptr [ null, %13 ], [ null, %16 ], [ null, %18 ], [ null, %22 ], [ %26, %31 ], [ %26, %35 ]
+  %.sink48 = phi i32 [ 100, %31 ], [ 89, %22 ], [ 85, %18 ], [ 79, %16 ], [ 72, %13 ], [ 107, %35 ]
+  %.sink = phi i32 [ 128, %31 ], [ 107, %22 ], [ 113, %18 ], [ 118, %16 ], [ 524291, %13 ], [ 122, %35 ]
+  %.1.ph = phi ptr [ %.024, %31 ], [ %.024, %22 ], [ %.024, %18 ], [ %.024, %16 ], [ null, %13 ], [ %.024, %35 ]
+  %.0.ph = phi ptr [ %26, %31 ], [ null, %22 ], [ null, %18 ], [ null, %16 ], [ null, %13 ], [ %26, %35 ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink48, ptr noundef nonnull @__func__.EC_GROUP_check) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #2

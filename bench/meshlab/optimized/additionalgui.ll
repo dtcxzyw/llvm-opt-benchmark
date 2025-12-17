@@ -852,8 +852,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %.loopexit.split-lp
 
 86:                                               ; preds = %._crit_edge105, %70, %82, %63, %61
-  %87 = phi ptr [ %60, %63 ], [ %60, %61 ], [ %60, %70 ], [ %.pre, %._crit_edge105 ], [ %83, %82 ]
-  %.1 = phi i8 [ 1, %63 ], [ 0, %61 ], [ 0, %70 ], [ 1, %._crit_edge105 ], [ %85, %82 ]
+  %87 = phi ptr [ %60, %61 ], [ %60, %63 ], [ %60, %70 ], [ %.pre, %._crit_edge105 ], [ %83, %82 ]
+  %.1 = phi i8 [ 0, %61 ], [ 1, %63 ], [ 0, %70 ], [ 1, %._crit_edge105 ], [ %85, %82 ]
   %88 = invoke noundef zeroext i1 @_ZNK7QAction11isSeparatorEv(ptr noundef nonnull align 8 dereferenceable(16) %87)
           to label %89 unwind label %.loopexit.split-lp.loopexit
 
@@ -979,7 +979,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %105, %.loopexit79.loopexit.split.loop.exit, %.loopexit79.loopexit.split.loop.exit131, %.loopexit79.loopexit.split.loop.exit133, %138, %132, %126
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %126 ], [ %.1.i.i.i.i.i, %132 ], [ %.2.i.i.i.i.i, %138 ], [ %142, %.loopexit79.loopexit.split.loop.exit ], [ %143, %.loopexit79.loopexit.split.loop.exit131 ], [ %144, %.loopexit79.loopexit.split.loop.exit133 ], [ %.02946.i.i.i.i.i, %105 ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %132 ], [ %.029.lcssa.i.i.i.i.i, %126 ], [ %.2.i.i.i.i.i, %138 ], [ %144, %.loopexit79.loopexit.split.loop.exit133 ], [ %143, %.loopexit79.loopexit.split.loop.exit131 ], [ %142, %.loopexit79.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %105 ]
   %.not76 = icmp eq ptr %.028.i.i.i.i.i, %100
   br i1 %.not76, label %.thread, label %_ZN5QListIP7QActionE9push_backERKS1_.exit
 
@@ -988,7 +988,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
           to label %_ZN5QListIP7QActionE9push_backERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loopexit79
-  %.2 = phi i8 [ %.1, %.loopexit79 ], [ %.094, %52 ], [ %.1, %.thread ]
+  %.2 = phi i8 [ %.094, %52 ], [ %.1, %.loopexit79 ], [ %.1, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %145 = load ptr, ptr %5, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
@@ -1937,7 +1937,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
   br i1 %.not28, label %.loopexit, label %.preheader.split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %61, %42, %14, %5, %7, %.split.us
-  %.0 = phi i32 [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %5 ], [ -1, %14 ], [ -1, %42 ], [ -1, %61 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %14 ], [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %42 ], [ -1, %61 ]
   ret i32 %.0
 }
 

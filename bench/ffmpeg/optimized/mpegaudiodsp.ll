@@ -108,7 +108,7 @@ define internal void @mpadsp_init_tabs() #2 {
   br label %48
 
 48:                                               ; preds = %46, %44, %42, %47, %45
-  %.054 = phi nsz double [ 1.000000e+00, %45 ], [ 1.000000e+00, %47 ], [ %.mux80, %44 ], [ %6, %42 ], [ %.mux82, %46 ]
+  %.054 = phi nsz double [ %6, %42 ], [ %.mux82, %46 ], [ 1.000000e+00, %45 ], [ 1.000000e+00, %47 ], [ %.mux80, %44 ]
   %49 = fmul nsz double %29, %.054
   %50 = fmul nsz double %49, 3.125000e-02
   %51 = fptrunc nsz double %50 to float

@@ -933,7 +933,7 @@ _.exit36.i:                                       ; preds = %358, %356
   br label %edit_and_replace.exit
 
 edit_and_replace.exit:                            ; preds = %_.exit.i46, %_.exit23.i, %233, %263, %_.exit27.i, %355, %_.exit36.i, %362
-  %.0.i41 = phi i32 [ -1, %_.exit.i46 ], [ -1, %_.exit23.i ], [ -1, %263 ], [ -1, %_.exit27.i ], [ -1, %355 ], [ -1, %_.exit36.i ], [ %363, %362 ], [ -1, %233 ]
+  %.0.i41 = phi i32 [ -1, %_.exit.i46 ], [ -1, %_.exit23.i ], [ %363, %362 ], [ -1, %263 ], [ -1, %_.exit27.i ], [ -1, %355 ], [ -1, %_.exit36.i ], [ -1, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1113,7 +1113,7 @@ _.exit.i59:                                       ; preds = %428, %426
   br label %list_replace_refs.exit
 
 431:                                              ; preds = %424, %422, %420, %417, %412
-  %.sink.i = phi i32 [ 0, %420 ], [ 0, %417 ], [ 0, %412 ], [ 1, %422 ], [ 2, %424 ]
+  %.sink.i = phi i32 [ 0, %412 ], [ 1, %422 ], [ 0, %420 ], [ 0, %417 ], [ 2, %424 ]
   %432 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.sink.i, ptr %432, align 8, !tbaa !66
   %433 = call ptr @get_main_ref_store(ptr noundef %414) #16

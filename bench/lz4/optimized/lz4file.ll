@@ -148,7 +148,7 @@ switch.lookup:                                    ; preds = %47
   br label %64
 
 64:                                               ; preds = %51, %8, %2, %59, %58, %LZ4F_freeAndNullReadFile.exit36, %LZ4F_freeAndNullReadFile.exit
-  %.0 = phi i64 [ %12, %LZ4F_freeAndNullReadFile.exit ], [ -23, %LZ4F_freeAndNullReadFile.exit36 ], [ -9, %58 ], [ %12, %59 ], [ %.1, %51 ], [ -21, %2 ], [ -9, %8 ]
+  %.0 = phi i64 [ %.1, %51 ], [ -21, %2 ], [ %12, %LZ4F_freeAndNullReadFile.exit ], [ -23, %LZ4F_freeAndNullReadFile.exit36 ], [ -9, %58 ], [ %12, %59 ], [ -9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
@@ -272,7 +272,7 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.loopexit.sink.split, %.preheader, %3
-  %.033 = phi i64 [ -21, %3 ], [ 0, %.preheader ], [ %.033.ph, %.loopexit.sink.split ], [ %37, %32 ]
+  %.033 = phi i64 [ 0, %.preheader ], [ -21, %3 ], [ %.033.ph, %.loopexit.sink.split ], [ %37, %32 ]
   ret i64 %.033
 }
 
@@ -341,7 +341,7 @@ switch.lookup:                                    ; preds = %11
   br label %18
 
 18:                                               ; preds = %switch.lookup, %10
-  %.sink = phi i64 [ 65536, %10 ], [ %switch.load, %switch.lookup ]
+  %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 65536, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sink, ptr %19, align 8, !tbaa !31
   %20 = tail call i64 @LZ4F_compressBound(i64 noundef %.sink, ptr noundef %2) #10
@@ -430,7 +430,7 @@ LZ4F_freeAndNullWriteFile.exit45:                 ; preds = %44, %47
   br label %59
 
 59:                                               ; preds = %7, %3, %55, %54, %LZ4F_freeAndNullWriteFile.exit45, %LZ4F_freeAndNullWriteFile.exit44, %LZ4F_freeAndNullWriteFile.exit43, %LZ4F_freeAndNullWriteFile.exit
-  %.0 = phi i64 [ -2, %LZ4F_freeAndNullWriteFile.exit ], [ -9, %LZ4F_freeAndNullWriteFile.exit43 ], [ %30, %LZ4F_freeAndNullWriteFile.exit44 ], [ %42, %LZ4F_freeAndNullWriteFile.exit45 ], [ -22, %54 ], [ 0, %55 ], [ -21, %3 ], [ -9, %7 ]
+  %.0 = phi i64 [ 0, %55 ], [ -21, %3 ], [ -2, %LZ4F_freeAndNullWriteFile.exit ], [ -9, %LZ4F_freeAndNullWriteFile.exit43 ], [ %30, %LZ4F_freeAndNullWriteFile.exit44 ], [ %42, %LZ4F_freeAndNullWriteFile.exit45 ], [ -22, %54 ], [ -9, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -515,7 +515,7 @@ define noundef i64 @LZ4F_write(ptr noundef captures(address_is_null) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.loopexit.sink.split, %.preheader, %3
-  %.0 = phi i64 [ -21, %3 ], [ 0, %.preheader ], [ %.sink, %.loopexit.sink.split ], [ %2, %21 ]
+  %.0 = phi i64 [ 0, %.preheader ], [ -21, %3 ], [ %.sink, %.loopexit.sink.split ], [ %2, %21 ]
   ret i64 %.0
 }
 

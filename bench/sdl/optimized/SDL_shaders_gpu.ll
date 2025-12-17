@@ -198,7 +198,7 @@ GPU_ReleaseShaders.exit:                          ; preds = %CompileShader.exit3
   br i1 %69, label %GPU_ReleaseShaders.exit.thread, label %42
 
 GPU_ReleaseShaders.exit.thread:                   ; preds = %GPU_ReleaseShaders.exit, %.preheader.i36, %38
-  %.126 = phi i1 [ false, %38 ], [ false, %.preheader.i36 ], [ true, %GPU_ReleaseShaders.exit ]
+  %.126 = phi i1 [ false, %.preheader.i36 ], [ false, %38 ], [ true, %GPU_ReleaseShaders.exit ]
   ret i1 %.126
 }
 

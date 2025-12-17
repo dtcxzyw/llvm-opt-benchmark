@@ -292,8 +292,8 @@ _ZNK12aiMatrix4x4tIfEneERKS0_.exit:               ; preds = %104
   %exitcond78.not = icmp eq i32 %132, %4
   br i1 %exitcond78.not, label %.thread, label %10, !llvm.loop !5
 
-.thread:                                          ; preds = %._crit_edge, %_ZNK12aiMatrix4x4tIfEneERKS0_.exit, %10, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %120, %125, %2
-  %133 = phi i1 [ true, %2 ], [ false, %125 ], [ false, %120 ], [ true, %._crit_edge ], [ false, %_ZNK12aiMatrix4x4tIfEneERKS0_.exit ], [ false, %10 ], [ false, %104 ], [ false, %98 ], [ false, %92 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %68 ], [ false, %62 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ]
+.thread:                                          ; preds = %._crit_edge, %10, %_ZNK12aiMatrix4x4tIfEneERKS0_.exit, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %120, %125, %2
+  %133 = phi i1 [ true, %2 ], [ false, %120 ], [ false, %125 ], [ true, %._crit_edge ], [ false, %10 ], [ false, %_ZNK12aiMatrix4x4tIfEneERKS0_.exit ], [ false, %104 ], [ false, %98 ], [ false, %92 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %68 ], [ false, %62 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ]
   ret i1 %133
 }
 
@@ -962,7 +962,7 @@ _ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread272: ; preds = %_ZN6
   store ptr null, ptr %332, align 8
   br label %.loopexit
 
-_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269: ; preds = %.lr.ph.i, %.lr.ph.i187, %.lr.ph.i196, %.lr.ph.i204, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit232, %277, %72, %76, %80, %84, %88, %68, %63
+_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269: ; preds = %.lr.ph.i, %.lr.ph.i187, %.lr.ph.i196, %.lr.ph.i204, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit232, %76, %80, %84, %88, %72, %277, %68, %63
   %indvars.iv.next367 = add nsw i64 %indvars.iv366, -1
   %333 = icmp sgt i64 %indvars.iv366, 0
   br i1 %333, label %63, label %.loopexit, !llvm.loop !19
@@ -1067,7 +1067,7 @@ _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit: ; preds = %373, %370
   br label %374
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit242: ; preds = %293, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit235, %59, %61, %368, %366
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %369, %368 ], [ %367, %366 ], [ %60, %59 ], [ %62, %61 ], [ %295, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit235 ], [ %294, %293 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %367, %366 ], [ %369, %368 ], [ %60, %59 ], [ %62, %61 ], [ %295, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit235 ], [ %294, %293 ]
   call void @_ZdaPv(ptr noundef nonnull %12) #22
   br label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit245
 

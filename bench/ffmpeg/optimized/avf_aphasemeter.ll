@@ -242,7 +242,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %27
 
 27:                                               ; preds = %20, %14, %3, %10, %26
-  %.015 = phi i32 [ 0, %26 ], [ %8, %3 ], [ %12, %10 ], [ %15, %14 ], [ %24, %20 ]
+  %.015 = phi i32 [ 0, %26 ], [ %12, %10 ], [ %15, %14 ], [ %8, %3 ], [ %24, %20 ]
   ret i32 %.015
 }
 
@@ -726,14 +726,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %filter_frame.exit
 
 .thread172.i:                                     ; preds = %281, %275, %99, %78
-  %.0142.i = phi i32 [ %100, %99 ], [ -12, %78 ], [ -12, %275 ], [ %282, %281 ]
+  %.0142.i = phi i32 [ -12, %78 ], [ %100, %99 ], [ -12, %275 ], [ %282, %281 ]
   call void @av_frame_free(ptr noundef nonnull %3) #13
   %286 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr null, ptr %286, align 8, !tbaa !40
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %.thread170.i, %.thread172.i
-  %.0138.i = phi i32 [ %285, %.thread170.i ], [ %.0142.i, %.thread172.i ]
+  %.0138.i = phi i32 [ %.0142.i, %.thread172.i ], [ %285, %.thread170.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %309
 
@@ -798,7 +798,7 @@ filter_frame.exit:                                ; preds = %.thread170.i, %.thr
   br label %309
 
 309:                                              ; preds = %._crit_edge, %24, %16, %301, %303, %35, %308, %300, %filter_frame.exit
-  %.1 = phi i32 [ 0, %300 ], [ 0, %308 ], [ 0, %._crit_edge ], [ %.0138.i, %filter_frame.exit ], [ 0, %24 ], [ 0, %16 ], [ %.045, %35 ], [ -1497649742, %303 ], [ -1497649742, %301 ]
+  %.1 = phi i32 [ 0, %300 ], [ 0, %308 ], [ %.045, %35 ], [ 0, %._crit_edge ], [ 0, %16 ], [ %.0138.i, %filter_frame.exit ], [ 0, %24 ], [ -1497649742, %303 ], [ -1497649742, %301 ]
   ret i32 %.1
 }
 

@@ -160,7 +160,7 @@ refstr_eq.exit.thread.i.i:                        ; preds = %refstr_eq.exit.i.i,
   br i1 %exitcond.not.i.i, label %refstrbind.exit, label %24, !llvm.loop !28
 
 refstrbind.exit:                                  ; preds = %24, %refstr_eq.exit.i.i, %refstr_eq.exit.thread.i.i, %refdict.exit
-  %spec.select.i.i = phi ptr [ null, %refdict.exit ], [ %28, %refstr_eq.exit.i.i ], [ null, %24 ], [ null, %refstr_eq.exit.thread.i.i ]
+  %spec.select.i.i = phi ptr [ null, %refdict.exit ], [ %28, %refstr_eq.exit.i.i ], [ null, %refstr_eq.exit.thread.i.i ], [ null, %24 ]
   %.not.i2 = icmp eq ptr %spec.select.i.i, null
   %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %.0.i3 = select i1 %.not.i2, ptr null, ptr %36
@@ -260,7 +260,7 @@ strdict_find.exit:                                ; preds = %refstr_eq.exit.i
   store i64 %42, ptr %31, align 8
   br label %60
 
-.loopexit:                                        ; preds = %27, %refstr_eq.exit.thread.i, %refdict.exit
+.loopexit:                                        ; preds = %refstr_eq.exit.thread.i, %27, %refdict.exit
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %44 = add i64 %43, 9
   br i1 %.not.i, label %53, label %45
@@ -462,8 +462,8 @@ refstr_eq.exit.thread.i18:                        ; preds = %refstr_eq.exit.i21,
   %exitcond.not.i19 = icmp eq i64 %72, %53
   br i1 %exitcond.not.i19, label %strdict_remove.exit, label %55, !llvm.loop !30
 
-strdict_remove.exit:                              ; preds = %27, %refstr_eq.exit.thread.i, %55, %refstr_eq.exit.thread.i18, %strdict_find.exit, %40, %47, %66, %refdict.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %47 ], [ 0, %66 ], [ -1, %refdict.exit ], [ 0, %refstr_eq.exit.thread.i18 ], [ 0, %55 ], [ -1, %refstr_eq.exit.thread.i ], [ -1, %27 ]
+strdict_remove.exit:                              ; preds = %refstr_eq.exit.thread.i, %27, %55, %refstr_eq.exit.thread.i18, %strdict_find.exit, %40, %47, %66, %refdict.exit, %3
+  %.0 = phi i32 [ -1, %3 ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %47 ], [ 0, %66 ], [ -1, %refdict.exit ], [ 0, %55 ], [ 0, %refstr_eq.exit.thread.i18 ], [ -1, %27 ], [ -1, %refstr_eq.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -604,8 +604,8 @@ gv_calloc.exit:                                   ; preds = %21
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 41:                                               ; preds = %._crit_edge, %6
-  %42 = phi i64 [ %.pre59, %._crit_edge ], [ %8, %6 ]
-  %43 = phi ptr [ %24, %._crit_edge ], [ %9, %6 ]
+  %42 = phi i64 [ %8, %6 ], [ %.pre59, %._crit_edge ]
+  %43 = phi ptr [ %9, %6 ], [ %24, %._crit_edge ]
   %44 = shl nuw i64 1, %42
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %1, align 8

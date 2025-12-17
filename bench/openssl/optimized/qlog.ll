@@ -151,7 +151,7 @@ define ptr @ossl_qlog_new(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %60
 
 60:                                               ; preds = %47, %50, %1, %51
-  %.0 = phi ptr [ null, %51 ], [ null, %1 ], [ %2, %50 ], [ %2, %47 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %51 ], [ %2, %50 ], [ %2, %47 ]
   ret ptr %.0
 }
 
@@ -304,7 +304,7 @@ ossl_qlog_set_sink_filename.exit.thread:          ; preds = %49, %63, %._crit_ed
   br label %66
 
 66:                                               ; preds = %ossl_determine_dirsep.exit, %6, %1, %ossl_qlog_set_sink_filename.exit.thread, %65
-  %.0 = phi ptr [ null, %ossl_qlog_set_sink_filename.exit.thread ], [ %47, %65 ], [ null, %1 ], [ null, %6 ], [ null, %ossl_determine_dirsep.exit ]
+  %.0 = phi ptr [ %47, %65 ], [ null, %1 ], [ null, %6 ], [ null, %ossl_qlog_set_sink_filename.exit.thread ], [ null, %ossl_determine_dirsep.exit ]
   ret ptr %.0
 }
 
@@ -338,7 +338,7 @@ ossl_qlog_set_sink_bio.exit:                      ; preds = %4
   br label %12
 
 12:                                               ; preds = %ossl_qlog_set_sink_bio.exit, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %ossl_qlog_set_sink_bio.exit ]
+  %.0 = phi i32 [ 1, %ossl_qlog_set_sink_bio.exit ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -462,8 +462,8 @@ is_name_char.exit44:                              ; preds = %34
   br i1 %or.cond8, label %.loopexit, label %is_name_char.exit.thread
 
 is_name_char.exit.thread:                         ; preds = %lex_peek_char.exit.thread, %34, %lex_peek_char.exit40, %25, %is_name_char.exit44, %is_name_char.exit
-  %.sroa.0105.0 = phi ptr [ %.022.i, %is_name_char.exit44 ], [ %19, %is_name_char.exit ], [ %19, %25 ], [ %19, %lex_peek_char.exit40 ], [ %.022.i, %34 ], [ %.022.i, %lex_peek_char.exit.thread ]
-  %.0.shrunk = phi i1 [ true, %is_name_char.exit44 ], [ %18, %is_name_char.exit ], [ %18, %25 ], [ %18, %lex_peek_char.exit40 ], [ true, %34 ], [ true, %lex_peek_char.exit.thread ]
+  %.sroa.0105.0 = phi ptr [ %.022.i, %is_name_char.exit44 ], [ %19, %is_name_char.exit ], [ %19, %lex_peek_char.exit40 ], [ %19, %25 ], [ %.022.i, %34 ], [ %.022.i, %lex_peek_char.exit.thread ]
+  %.0.shrunk = phi i1 [ true, %is_name_char.exit44 ], [ %18, %is_name_char.exit ], [ %18, %lex_peek_char.exit40 ], [ %18, %25 ], [ true, %34 ], [ true, %lex_peek_char.exit.thread ]
   %40 = ptrtoint ptr %.0.i36.ptr to i64
   %41 = ptrtoint ptr %.sroa.0105.0 to i64
   %42 = sub i64 %40, %41
@@ -843,7 +843,7 @@ lex_do.exit:                                      ; preds = %is_term_sep_ws.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %validate_name.exit, %51, %.critedge.i, %is_name_char.exit44, %is_name_char.exit, %switch.early.test.i, %switch.early.test.i61, %lex_do.exit
-  %.021 = phi i32 [ 1, %lex_do.exit ], [ 0, %switch.early.test.i61 ], [ 0, %switch.early.test.i ], [ 0, %is_name_char.exit ], [ 0, %is_name_char.exit44 ], [ 0, %.critedge.i ], [ 0, %51 ], [ 0, %validate_name.exit ]
+  %.021 = phi i32 [ 1, %lex_do.exit ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i61 ], [ 0, %is_name_char.exit ], [ 0, %is_name_char.exit44 ], [ 0, %.critedge.i ], [ 0, %51 ], [ 0, %validate_name.exit ]
   ret i32 %.021
 }
 
@@ -939,7 +939,7 @@ ossl_qlog_set_sink_bio.exit:                      ; preds = %5
   br label %13
 
 13:                                               ; preds = %ossl_qlog_set_sink_bio.exit, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %ossl_qlog_set_sink_bio.exit ]
+  %.0 = phi i32 [ 1, %ossl_qlog_set_sink_bio.exit ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1180,7 +1180,7 @@ qlog_event_prologue.exit:                         ; preds = %21, %68
   br label %74
 
 74:                                               ; preds = %8, %ossl_qlog_enabled.exit, %5, %qlog_event_prologue.exit
-  %.0 = phi i32 [ 1, %qlog_event_prologue.exit ], [ 0, %5 ], [ 0, %ossl_qlog_enabled.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %qlog_event_prologue.exit ], [ 0, %ossl_qlog_enabled.exit ], [ 0, %8 ]
   ret i32 %.0
 }
 

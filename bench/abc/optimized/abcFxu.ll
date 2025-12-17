@@ -584,8 +584,8 @@ Abc_NtkFxuReconstruct.exit:                       ; preds = %._crit_edge63.i, %.
   br i1 %.not13, label %.sink.split, label %264
 
 .sink.split:                                      ; preds = %28, %.lr.ph.us.i, %Abc_NtkFxuCollectInfo.exit, %Abc_NtkFxuReconstruct.exit, %Abc_NtkIsSopLogic.exit
-  %str.3.sink = phi ptr [ @str, %Abc_NtkIsSopLogic.exit ], [ @str.3, %Abc_NtkFxuReconstruct.exit ], [ @str.2, %Abc_NtkFxuCollectInfo.exit ], [ @str.1, %.lr.ph.us.i ], [ @str.1, %28 ]
-  %.0.ph = phi i32 [ 0, %Abc_NtkIsSopLogic.exit ], [ 1, %Abc_NtkFxuReconstruct.exit ], [ 0, %Abc_NtkFxuCollectInfo.exit ], [ 0, %.lr.ph.us.i ], [ 0, %28 ]
+  %str.3.sink = phi ptr [ @str.3, %Abc_NtkFxuReconstruct.exit ], [ @str, %Abc_NtkIsSopLogic.exit ], [ @str.2, %Abc_NtkFxuCollectInfo.exit ], [ @str.1, %.lr.ph.us.i ], [ @str.1, %28 ]
+  %.0.ph = phi i32 [ 1, %Abc_NtkFxuReconstruct.exit ], [ 0, %Abc_NtkIsSopLogic.exit ], [ 0, %Abc_NtkFxuCollectInfo.exit ], [ 0, %.lr.ph.us.i ], [ 0, %28 ]
   %puts14 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.3.sink)
   br label %264
 

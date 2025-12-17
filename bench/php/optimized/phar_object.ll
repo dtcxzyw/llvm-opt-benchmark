@@ -864,8 +864,8 @@ zend_hash_str_find_ptr.exit28.thread:             ; preds = %45
   br label %107
 
 .thread:                                          ; preds = %16, %24, %23, %18
-  %.038 = phi ptr [ %19, %24 ], [ %19, %23 ], [ %19, %18 ], [ @.str.3, %16 ]
-  %.01137 = phi i64 [ %21, %24 ], [ %21, %23 ], [ %21, %18 ], [ 0, %16 ]
+  %.038 = phi ptr [ %19, %18 ], [ %19, %24 ], [ %19, %23 ], [ @.str.3, %16 ]
+  %.01137 = phi i64 [ %21, %18 ], [ %21, %24 ], [ %21, %23 ], [ 0, %16 ]
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 64), align 8, !tbaa !8
   %81 = and i32 %80, 8
   %82 = icmp eq i32 %81, 0
@@ -1623,8 +1623,8 @@ thread-pre-split:                                 ; preds = %171, %198
   br label %.thread221.thread
 
 .thread221.thread:                                ; preds = %314, %306, %.thread221
-  %324 = phi ptr [ %.pre240, %.thread221 ], [ @.str.3, %306 ], [ %316, %314 ]
-  %.3145 = phi i32 [ %323, %.thread221 ], [ %307, %306 ], [ 2, %314 ]
+  %324 = phi ptr [ %316, %314 ], [ %.pre240, %.thread221 ], [ @.str.3, %306 ]
+  %.3145 = phi i32 [ 2, %314 ], [ %323, %.thread221 ], [ %307, %306 ]
   %325 = load ptr, ptr %19, align 8, !tbaa !27
   %326 = load i64, ptr %13, align 8, !tbaa !21
   call fastcc void @phar_file_action(ptr noundef %325, ptr noundef %283, ptr noundef %324, i32 noundef %.3145, ptr noundef %282, i64 noundef %.pre, ptr noundef nonnull %61, ptr noundef %.3140, i64 noundef %326)
@@ -2526,7 +2526,7 @@ zend_string_equals_cstr.exit27.thread:            ; preds = %zend_string_equals_
   br i1 %.not17, label %.loopexit, label %28
 
 .loopexit.sink.split.sink.split:                  ; preds = %28, %13, %8
-  %.str.34.sink = phi ptr [ @.str.34, %8 ], [ @.str.35, %13 ], [ @.str.36, %28 ]
+  %.str.34.sink = phi ptr [ @.str.35, %13 ], [ @.str.34, %8 ], [ @.str.36, %28 ]
   %44 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !25
   %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull %.str.34.sink) #20
   br label %.loopexit
@@ -4093,8 +4093,8 @@ zend_string_release_ex.exit:                      ; preds = %110, %118, %123
   br i1 %.not186, label %199, label %.thread238
 
 .thread238:                                       ; preds = %151, %138, %159
-  %.2152243 = phi i64 [ %163, %159 ], [ %139, %138 ], [ %152, %151 ]
-  %.4163242 = phi ptr [ null, %159 ], [ %136, %138 ], [ %147, %151 ]
+  %.2152243 = phi i64 [ %163, %159 ], [ %152, %151 ], [ %139, %138 ]
+  %.4163242 = phi ptr [ null, %159 ], [ %147, %151 ], [ %136, %138 ]
   %164 = call ptr @expand_filepath(ptr noundef nonnull %14, ptr noundef null) #20
   %.not190 = icmp eq ptr %164, null
   br i1 %.not190, label %165, label %169
@@ -4546,8 +4546,8 @@ zend_string_release_ex.exit216:                   ; preds = %306, %301, %297, %2
   call void @phar_entry_delref(ptr noundef nonnull %288) #20
   br label %.thread
 
-.thread:                                          ; preds = %140, %132, %101, %148, %zval_ptr_dtor_str.exit220, %zval_ptr_dtor_str.exit, %308, %309, %zend_string_release_ex.exit214, %280, %259, %260, %246, %247, %192, %198, %185, %186, %165, %168, %2, %371, %229, %153, %74, %38, %25
-  %.0 = phi i32 [ 2, %153 ], [ 0, %371 ], [ 2, %zval_ptr_dtor_str.exit220 ], [ 2, %229 ], [ 2, %zval_ptr_dtor_str.exit ], [ 2, %74 ], [ 2, %38 ], [ 2, %25 ], [ 2, %2 ], [ 2, %168 ], [ 2, %165 ], [ 0, %186 ], [ 0, %185 ], [ 2, %198 ], [ 2, %192 ], [ 2, %247 ], [ 2, %246 ], [ 2, %260 ], [ 2, %259 ], [ 0, %280 ], [ 0, %zend_string_release_ex.exit214 ], [ 2, %309 ], [ 2, %308 ], [ 2, %140 ], [ 0, %132 ], [ 2, %101 ], [ 2, %148 ]
+.thread:                                          ; preds = %132, %148, %101, %140, %zval_ptr_dtor_str.exit220, %zval_ptr_dtor_str.exit, %308, %309, %zend_string_release_ex.exit214, %280, %259, %260, %246, %247, %192, %198, %185, %186, %165, %168, %2, %371, %229, %153, %74, %38, %25
+  %.0 = phi i32 [ 2, %25 ], [ 2, %153 ], [ 2, %165 ], [ 2, %192 ], [ 0, %371 ], [ 0, %zend_string_release_ex.exit214 ], [ 2, %259 ], [ 2, %246 ], [ 0, %185 ], [ 2, %2 ], [ 2, %zval_ptr_dtor_str.exit220 ], [ 2, %229 ], [ 2, %zval_ptr_dtor_str.exit ], [ 2, %74 ], [ 2, %38 ], [ 2, %308 ], [ 2, %168 ], [ 0, %186 ], [ 2, %198 ], [ 2, %247 ], [ 2, %260 ], [ 0, %280 ], [ 2, %309 ], [ 0, %132 ], [ 2, %148 ], [ 2, %101 ], [ 2, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4969,7 +4969,7 @@ define hidden void @zim_Phar_convertToExecutable(ptr noundef readonly captures(n
   br label %79
 
 79:                                               ; preds = %.sink.split26, %66, %55, %48
-  %.0 = phi i32 [ 0, %48 ], [ 1048576, %55 ], [ 2097152, %66 ], [ %78, %.sink.split26 ]
+  %.0 = phi i32 [ 0, %48 ], [ 2097152, %66 ], [ 1048576, %55 ], [ %78, %.sink.split26 ]
   %80 = load ptr, ptr %21, align 8, !tbaa !8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 316
   %82 = load i16, ptr %81, align 4
@@ -5055,7 +5055,7 @@ define internal fastcc ptr @phar_convert_to_other(ptr noundef %0, i32 noundef %1
   br label %33
 
 33:                                               ; preds = %4, %31, %29
-  %.sink = phi i16 [ %32, %31 ], [ %30, %29 ], [ %27, %4 ]
+  %.sink = phi i16 [ %30, %29 ], [ %32, %31 ], [ %27, %4 ]
   store i16 %.sink, ptr %25, align 4
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 64
   tail call void @_zend_hash_init(ptr noundef nonnull %34, i32 noundef 152, ptr noundef nonnull @destroy_phar_manifest_entry, i1 noundef zeroext false) #20
@@ -5431,7 +5431,7 @@ zend_hash_add_mem.exit:                           ; preds = %phar_set_inode.exit
   br label %phar_rename_archive.exit.thread
 
 .sink.split.i:                                    ; preds = %203, %202, %201, %200, %193
-  %.str.250.sink.i = phi ptr [ %.str.250..str.249.i, %193 ], [ %.str.252..str.251.i, %200 ], [ %.str.254..str.253.i, %201 ], [ %.str.256..str.255.i, %202 ], [ %switch.select192.i, %203 ]
+  %.str.250.sink.i = phi ptr [ %.str.256..str.255.i, %202 ], [ %.str.250..str.249.i, %193 ], [ %switch.select192.i, %203 ], [ %.str.252..str.251.i, %200 ], [ %.str.254..str.253.i, %201 ]
   store ptr %.str.250.sink.i, ptr %7, align 8, !tbaa !17
   br label %218
 
@@ -6056,7 +6056,7 @@ define hidden void @zim_Phar_convertToData(ptr noundef readonly captures(none) %
   br label %81
 
 81:                                               ; preds = %.sink.split26, %68, %57, %50
-  %.0 = phi i32 [ 0, %50 ], [ 1048576, %57 ], [ 2097152, %68 ], [ %80, %.sink.split26 ]
+  %.0 = phi i32 [ 0, %50 ], [ 2097152, %68 ], [ 1048576, %57 ], [ %80, %.sink.split26 ]
   %82 = load ptr, ptr %21, align 8, !tbaa !8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 316
   %84 = load i16, ptr %83, align 4
@@ -7259,7 +7259,7 @@ zend_string_release_ex.exit:                      ; preds = %82, %87, %92
   store i32 3, ptr %128, align 8, !tbaa !8
   br label %.critedge
 
-.critedge:                                        ; preds = %103, %100, %67, %zend_string_release.exit, %98, %77, %127, %123, %115, %29, %25, %16
+.critedge:                                        ; preds = %103, %100, %zend_string_release.exit, %67, %98, %77, %127, %123, %115, %29, %25, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7851,7 +7851,7 @@ define hidden void @zim_Phar_compress(ptr noundef readonly captures(none) %0, pt
   br label %61
 
 53:                                               ; preds = %44, %38, %36
-  %.0 = phi i32 [ 0, %36 ], [ 1048576, %38 ], [ 2097152, %44 ]
+  %.0 = phi i32 [ 1048576, %38 ], [ 0, %36 ], [ 2097152, %44 ]
   %54 = and i16 %27, 64
   %.not21 = icmp eq i16 %54, 0
   %55 = load ptr, ptr %4, align 8, !tbaa !17
@@ -9942,7 +9942,7 @@ define hidden void @zim_Phar_getMetadata(ptr noundef %0, ptr noundef %1) #0 {
   br label %41
 
 .critedge:                                        ; preds = %.thread61, %7
-  %.1 = phi ptr [ null, %7 ], [ %14, %.thread61 ]
+  %.1 = phi ptr [ %14, %.thread61 ], [ null, %7 ]
   %16 = load ptr, ptr %3, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !109
@@ -10207,7 +10207,7 @@ define internal fastcc range(i32 -1, 1) i32 @serialize_metadata_or_throw(ptr nou
   br label %zend_string_release.exit20
 
 zend_string_release.exit20:                       ; preds = %44, %43, %36, %29, %25, %24, %17, %12, %3, %54
-  %.0 = phi i32 [ 0, %54 ], [ -1, %3 ], [ -1, %12 ], [ -1, %17 ], [ -1, %24 ], [ -1, %25 ], [ -1, %29 ], [ -1, %36 ], [ -1, %43 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %54 ], [ -1, %3 ], [ -1, %25 ], [ -1, %12 ], [ -1, %17 ], [ -1, %24 ], [ -1, %29 ], [ -1, %36 ], [ -1, %43 ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -10438,16 +10438,16 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %40
   %cond.fr159 = freeze i1 %44
   br i1 %cond.fr159, label %.critedge, label %.thread169, !prof !207
 
-.thread169:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_array_ht_or_str.exit, %zend_parse_arg_path.exit, %12
-  %.0102181 = phi i32 [ 2, %zend_parse_arg_array_ht_or_str.exit ], [ 1, %zend_parse_arg_path.exit ], [ 0, %12 ], [ 3, %zend_parse_arg_bool_ex.exit ]
-  %.0103180 = phi ptr [ %32, %zend_parse_arg_array_ht_or_str.exit ], [ %14, %zend_parse_arg_path.exit ], [ null, %12 ], [ %43, %zend_parse_arg_bool_ex.exit ]
-  %.0105179 = phi i32 [ 9, %zend_parse_arg_array_ht_or_str.exit ], [ 9, %zend_parse_arg_path.exit ], [ 1, %12 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.0106178 = phi i32 [ 27, %zend_parse_arg_array_ht_or_str.exit ], [ 16, %zend_parse_arg_path.exit ], [ 0, %12 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+.thread169:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_path.exit, %zend_parse_arg_array_ht_or_str.exit, %12
+  %.0102181 = phi i32 [ 0, %12 ], [ 2, %zend_parse_arg_array_ht_or_str.exit ], [ 1, %zend_parse_arg_path.exit ], [ 3, %zend_parse_arg_bool_ex.exit ]
+  %.0103180 = phi ptr [ null, %12 ], [ %32, %zend_parse_arg_array_ht_or_str.exit ], [ %14, %zend_parse_arg_path.exit ], [ %43, %zend_parse_arg_bool_ex.exit ]
+  %.0105179 = phi i32 [ 1, %12 ], [ 9, %zend_parse_arg_array_ht_or_str.exit ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.0106178 = phi i32 [ 0, %12 ], [ 27, %zend_parse_arg_array_ht_or_str.exit ], [ 16, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105179, i32 noundef %.0102181, ptr noundef null, i32 noundef %.0106178, ptr noundef %.0103180) #20
   br label %171
 
 .critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread182, %27, %zend_parse_arg_array_ht_or_str.exit.thread
-  %.1143 = phi ptr [ null, %27 ], [ %.2144158, %zend_parse_arg_array_ht_or_str.exit.thread ], [ %.2144158, %.thread182 ], [ %.2144158, %zend_parse_arg_bool_ex.exit ]
+  %.1143 = phi ptr [ %.2144158, %.thread182 ], [ null, %27 ], [ %.2144158, %zend_parse_arg_array_ht_or_str.exit.thread ], [ %.2144158, %zend_parse_arg_bool_ex.exit ]
   %45 = load ptr, ptr %8, align 8, !tbaa !8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !109
@@ -10707,8 +10707,8 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
   %21 = add nsw i32 %.054105, 1
   br i1 %20, label %.thread81, label %22
 
-22:                                               ; preds = %.lr.ph106, %17
-  %.155.ph = phi i32 [ %21, %17 ], [ %.054105, %.lr.ph106 ]
+22:                                               ; preds = %17, %.lr.ph106
+  %.155.ph = phi i32 [ %.054105, %.lr.ph106 ], [ %21, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %.066104, i64 32
   %.not71 = icmp eq ptr %23, %13
   br i1 %.not71, label %.thread81, label %.lr.ph106
@@ -10772,7 +10772,7 @@ zend_string_starts_with.exit:                     ; preds = %44
   br i1 %54, label %.thread81, label %zend_string_starts_with.exit.thread
 
 zend_string_starts_with.exit.thread:              ; preds = %44, %40, %zend_string_starts_with.exit, %52
-  %.559.ph = phi i32 [ %55, %52 ], [ %.458100, %zend_string_starts_with.exit ], [ %.458100, %40 ], [ %.458100, %44 ]
+  %.559.ph = phi i32 [ %.458100, %40 ], [ %55, %52 ], [ %.458100, %zend_string_starts_with.exit ], [ %.458100, %44 ]
   %56 = getelementptr inbounds nuw i8, ptr %.06199, i64 32
   %.not74 = icmp eq ptr %56, %38
   br i1 %.not74, label %.thread81, label %40
@@ -10791,7 +10791,7 @@ zend_string_starts_with.exit.thread:              ; preds = %44, %40, %zend_stri
   br label %.thread81
 
 .thread81:                                        ; preds = %52, %zend_string_starts_with.exit.thread, %17, %22, %32, %7, %57, %60
-  %.3 = phi i32 [ %., %60 ], [ 0, %57 ], [ 0, %7 ], [ 0, %32 ], [ -1, %17 ], [ %.155.ph, %22 ], [ -1, %52 ], [ %.559.ph, %zend_string_starts_with.exit.thread ]
+  %.3 = phi i32 [ %., %60 ], [ 0, %57 ], [ 0, %32 ], [ %.155.ph, %22 ], [ 0, %7 ], [ -1, %17 ], [ %.559.ph, %zend_string_starts_with.exit.thread ], [ -1, %52 ]
   ret i32 %.3
 }
 
@@ -11649,7 +11649,7 @@ define hidden void @zim_PharFileInfo_getMetadata(ptr noundef %0, ptr noundef %1)
   br label %41
 
 .critedge:                                        ; preds = %.thread61, %7
-  %.1 = phi ptr [ null, %7 ], [ %14, %.thread61 ]
+  %.1 = phi ptr [ %14, %.thread61 ], [ null, %7 ]
   %16 = load ptr, ptr %3, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !109
@@ -14083,7 +14083,7 @@ phar_get_fp_type.exit:                            ; preds = %158, %160
   br label %230
 
 230:                                              ; preds = %zend_string_starts_with_cstr.exit, %5, %228, %222, %207, %195, %184, %149, %146, %123, %114, %82, %70, %61, %49, %41
-  %.0 = phi i32 [ -1, %41 ], [ -1, %49 ], [ -1, %70 ], [ 0, %146 ], [ -1, %184 ], [ -1, %195 ], [ -1, %207 ], [ -1, %222 ], [ 0, %228 ], [ -1, %149 ], [ -1, %114 ], [ -1, %123 ], [ -1, %82 ], [ -1, %61 ], [ 0, %5 ], [ 0, %zend_string_starts_with_cstr.exit ]
+  %.0 = phi i32 [ -1, %61 ], [ 0, %5 ], [ -1, %41 ], [ -1, %49 ], [ -1, %70 ], [ 0, %146 ], [ -1, %184 ], [ -1, %195 ], [ -1, %207 ], [ -1, %222 ], [ 0, %228 ], [ -1, %149 ], [ -1, %114 ], [ -1, %123 ], [ -1, %82 ], [ 0, %zend_string_starts_with_cstr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -791,7 +791,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit: ; preds = %.preheader.i133.i, %317, %309, %306, %296, %280, %277, %261, %257, %254, %.loopexit58.i131.i, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit70.i, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit.i, %10, %250, %264, %262, %15
-  %.0 = phi i32 [ %16, %15 ], [ %251, %250 ], [ %263, %262 ], [ %265, %264 ], [ 0, %10 ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit.i ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit70.i ], [ %16, %.loopexit58.i131.i ], [ %251, %254 ], [ %251, %257 ], [ %251, %261 ], [ 4, %277 ], [ 4, %280 ], [ 4, %296 ], [ 3, %306 ], [ 3, %309 ], [ 3, %317 ], [ %16, %.preheader.i133.i ]
+  %.0 = phi i32 [ 0, %10 ], [ %16, %15 ], [ %251, %250 ], [ %263, %262 ], [ %265, %264 ], [ %251, %261 ], [ 4, %296 ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit.i ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_.exit70.i ], [ %16, %.loopexit58.i131.i ], [ %251, %254 ], [ %251, %257 ], [ 4, %277 ], [ 4, %280 ], [ 3, %306 ], [ 3, %309 ], [ 3, %317 ], [ %16, %.preheader.i133.i ]
   ret i32 %.0
 }
 
@@ -4352,7 +4352,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit: ; preds = %.preheader.i133.i, %317, %309, %306, %296, %280, %277, %261, %257, %254, %.loopexit58.i131.i, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit70.i, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit.i, %10, %250, %264, %262, %15
-  %.0 = phi i32 [ %16, %15 ], [ %251, %250 ], [ %263, %262 ], [ %265, %264 ], [ 0, %10 ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit.i ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit70.i ], [ %16, %.loopexit58.i131.i ], [ %251, %254 ], [ %251, %257 ], [ %251, %261 ], [ 4, %277 ], [ 4, %280 ], [ 4, %296 ], [ 3, %306 ], [ 3, %309 ], [ 3, %317 ], [ %16, %.preheader.i133.i ]
+  %.0 = phi i32 [ 0, %10 ], [ %16, %15 ], [ %251, %250 ], [ %263, %262 ], [ %265, %264 ], [ %251, %261 ], [ 4, %296 ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit.i ], [ %16, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_.exit70.i ], [ %16, %.loopexit58.i131.i ], [ %251, %254 ], [ %251, %257 ], [ 4, %277 ], [ 4, %280 ], [ 3, %306 ], [ 3, %309 ], [ 3, %317 ], [ %16, %.preheader.i133.i ]
   ret i32 %.0
 }
 

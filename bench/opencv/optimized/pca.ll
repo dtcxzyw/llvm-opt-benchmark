@@ -1064,7 +1064,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %354
 
 354:                                              ; preds = %350, %352
-  %.pn54.pn = phi { ptr, i32 } [ %353, %352 ], [ %351, %350 ]
+  %.pn54.pn = phi { ptr, i32 } [ %351, %350 ], [ %353, %352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %388
@@ -1684,7 +1684,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc51
   br label %96
 
 96:                                               ; preds = %92, %94
-  %.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
+  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %95, %94 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1734,7 +1734,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc51
   br label %110
 
 110:                                              ; preds = %106, %108
-  %.pn34.pn = phi { ptr, i32 } [ %109, %108 ], [ %107, %106 ]
+  %.pn34.pn = phi { ptr, i32 } [ %107, %106 ], [ %109, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %115

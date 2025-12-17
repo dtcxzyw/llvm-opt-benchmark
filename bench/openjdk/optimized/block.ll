@@ -379,7 +379,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %1, %4
   br label %48
 
 48:                                               ; preds = %_ZNK5Block4headEv.exit, %13, %40, %45, %22
-  %.0 = phi i32 [ %27, %22 ], [ %47, %45 ], [ 1, %40 ], [ 1, %13 ], [ 1, %_ZNK5Block4headEv.exit ]
+  %.0 = phi i32 [ %27, %22 ], [ 1, %40 ], [ %47, %45 ], [ 1, %13 ], [ 1, %_ZNK5Block4headEv.exit ]
   ret i32 %.0
 }
 
@@ -683,7 +683,7 @@ _ZNK5Block8get_nodeEj.exit17:                     ; preds = %_ZNK5Block8get_node
   br label %_ZNK5Block4headEv.exit.i
 
 _ZNK5Block4headEv.exit.i:                         ; preds = %_ZNK5Block8get_nodeEj.exit17, %1, %.critedge.thread, %.critedge, %27, %_ZNK5Block4headEv.exit.thread
-  %.011 = phi i32 [ 0, %_ZNK5Block4headEv.exit.thread ], [ %.010, %27 ], [ %.010, %.critedge.thread ], [ 0, %.critedge ], [ 0, %1 ], [ 0, %_ZNK5Block8get_nodeEj.exit17 ]
+  %.011 = phi i32 [ 0, %_ZNK5Block4headEv.exit.thread ], [ 0, %1 ], [ %.010, %27 ], [ 0, %.critedge ], [ %.010, %.critedge.thread ], [ 0, %_ZNK5Block8get_nodeEj.exit17 ]
   ret i32 %.011
 }
 
@@ -983,7 +983,7 @@ _ZNK5Block17has_uncommon_codeEv.exit:             ; preds = %71, %63, %59
   br label %_ZNK5Block17has_uncommon_codeEv.exit.thread
 
 _ZNK5Block17has_uncommon_codeEv.exit.thread:      ; preds = %2, %71, %_ZNK5Block4headEv.exit.thread, %._crit_edge, %_ZNK5Block17has_uncommon_codeEv.exit, %14, %._crit_edge.thread
-  %.0 = phi i1 [ false, %._crit_edge.thread ], [ true, %14 ], [ true, %_ZNK5Block17has_uncommon_codeEv.exit ], [ true, %._crit_edge ], [ false, %_ZNK5Block4headEv.exit.thread ], [ true, %71 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %._crit_edge.thread ], [ false, %_ZNK5Block4headEv.exit.thread ], [ true, %14 ], [ true, %_ZNK5Block17has_uncommon_codeEv.exit ], [ true, %71 ], [ true, %._crit_edge ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4330,7 +4330,7 @@ _ZNK5Block4headEv.exit.i.i:                       ; preds = %_ZNK5Block4headEv.e
   br label %_ZN5Block22compute_loop_alignmentEv.exit.i
 
 _ZN5Block22compute_loop_alignmentEv.exit.i:       ; preds = %39, %39, %58, %53, %32, %_ZNK5Block4headEv.exit.i.i
-  %.0.i.i = phi i32 [ %11, %58 ], [ 1, %53 ], [ 1, %32 ], [ 1, %_ZNK5Block4headEv.exit.i.i ], [ %10, %39 ], [ %10, %39 ]
+  %.0.i.i = phi i32 [ 1, %_ZNK5Block4headEv.exit.i.i ], [ 1, %53 ], [ %11, %58 ], [ 1, %32 ], [ %10, %39 ], [ %10, %39 ]
   %59 = getelementptr inbounds nuw i8, ptr %15, i64 140
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i32 %.0.i.i, %60
@@ -4599,8 +4599,8 @@ _ZNK5Block8is_EmptyEv.exit:                       ; preds = %145, %.critedge.i, 
   br label %_ZNK5Block8is_EmptyEv.exit.thread
 
 _ZNK5Block8is_EmptyEv.exit.thread:                ; preds = %_ZNK5Block8get_nodeEj.exit17.i, %101, %.critedge.i, %_ZNK5Block4headEv.exit.thread.i, %_ZNK5Block8is_EmptyEv.exit
-  %.128 = phi i32 [ %149, %_ZNK5Block8is_EmptyEv.exit ], [ %.02740, %_ZNK5Block4headEv.exit.thread.i ], [ %.02740, %.critedge.i ], [ %.02740, %101 ], [ %.02740, %_ZNK5Block8get_nodeEj.exit17.i ]
-  %.4 = phi i32 [ %148, %_ZNK5Block8is_EmptyEv.exit ], [ %.341, %_ZNK5Block4headEv.exit.thread.i ], [ %.341, %.critedge.i ], [ %.341, %101 ], [ %.341, %_ZNK5Block8get_nodeEj.exit17.i ]
+  %.128 = phi i32 [ %149, %_ZNK5Block8is_EmptyEv.exit ], [ %.02740, %_ZNK5Block4headEv.exit.thread.i ], [ %.02740, %101 ], [ %.02740, %.critedge.i ], [ %.02740, %_ZNK5Block8get_nodeEj.exit17.i ]
+  %.4 = phi i32 [ %148, %_ZNK5Block8is_EmptyEv.exit ], [ %.341, %_ZNK5Block4headEv.exit.thread.i ], [ %.341, %101 ], [ %.341, %.critedge.i ], [ %.341, %_ZNK5Block8get_nodeEj.exit17.i ]
   %150 = add i32 %.128, 1
   %151 = icmp ult i32 %150, %.4
   br i1 %151, label %101, label %._crit_edge44, !llvm.loop !29
@@ -5402,7 +5402,7 @@ _ZNK5Block23non_connector_successorEi.exit120:    ; preds = %.lr.ph.i.i118, %_ZN
   br label %274
 
 274:                                              ; preds = %272, %262, %_ZNK5Block23non_connector_successorEi.exit120
-  %.088 = phi ptr [ %26, %_ZNK5Block23non_connector_successorEi.exit120 ], [ %.091, %262 ], [ %spec.select, %272 ]
+  %.088 = phi ptr [ %26, %_ZNK5Block23non_connector_successorEi.exit120 ], [ %spec.select, %272 ], [ %.091, %262 ]
   %275 = icmp eq ptr %.088, %.0.lcssa.i.i
   br i1 %275, label %276, label %338
 
@@ -5711,10 +5711,10 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %44, %_ZN11Block_Arr
   br label %_ZNK5Block24is_trivially_unreachableEv.exit.thread
 
 _ZNK5Block24is_trivially_unreachableEv.exit.thread: ; preds = %27, %_ZNK5Block4headEv.exit.i, %_ZN10Block_List4pushEP5Block.exit
-  %73 = phi i32 [ %.pre, %_ZN10Block_List4pushEP5Block.exit ], [ %28, %_ZNK5Block4headEv.exit.i ], [ %28, %27 ]
-  %.sroa.16.1 = phi ptr [ %.sroa.16.6, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.16.070, %_ZNK5Block4headEv.exit.i ], [ %.sroa.16.070, %27 ]
-  %.sroa.27.1 = phi i32 [ %45, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.27.071, %_ZNK5Block4headEv.exit.i ], [ %.sroa.27.071, %27 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.5, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.0.072, %_ZNK5Block4headEv.exit.i ], [ %.sroa.0.072, %27 ]
+  %73 = phi i32 [ %.pre, %_ZN10Block_List4pushEP5Block.exit ], [ %28, %27 ], [ %28, %_ZNK5Block4headEv.exit.i ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.6, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.16.070, %27 ], [ %.sroa.16.070, %_ZNK5Block4headEv.exit.i ]
+  %.sroa.27.1 = phi i32 [ %45, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.27.071, %27 ], [ %.sroa.27.071, %_ZNK5Block4headEv.exit.i ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.5, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.0.072, %27 ], [ %.sroa.0.072, %_ZNK5Block4headEv.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next, %74
@@ -5954,9 +5954,9 @@ _ZN10Block_List4pushEP5Block.exit44:              ; preds = %161, %_ZN11Block_Ar
   br label %_ZNK5Block24is_trivially_unreachableEv.exit34.thread
 
 _ZNK5Block24is_trivially_unreachableEv.exit34.thread: ; preds = %._crit_edge82, %_ZNK5Block4headEv.exit.i32, %_ZN10Block_List4pushEP5Block.exit44
-  %.sroa.16.4 = phi ptr [ %.sroa.16.8, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.16.383, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.16.383, %._crit_edge82 ]
-  %.sroa.27.4 = phi i32 [ %162, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.27.384, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.27.384, %._crit_edge82 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.6, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.0.385, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.0.385, %._crit_edge82 ]
+  %.sroa.16.4 = phi ptr [ %.sroa.16.8, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.16.383, %._crit_edge82 ], [ %.sroa.16.383, %_ZNK5Block4headEv.exit.i32 ]
+  %.sroa.27.4 = phi i32 [ %162, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.27.384, %._crit_edge82 ], [ %.sroa.27.384, %_ZNK5Block4headEv.exit.i32 ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.6, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.0.385, %._crit_edge82 ], [ %.sroa.0.385, %_ZNK5Block4headEv.exit.i32 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %190 = load i32, ptr %115, align 8
   %191 = zext i32 %190 to i64
@@ -6896,8 +6896,8 @@ _ZN5Block11find_removeEPK4Node.exit:              ; preds = %_ZNK5Block8get_node
   br label %_ZNK5Block8containsEPK4Node.exit.thread
 
 _ZNK5Block8containsEPK4Node.exit.thread:          ; preds = %396, %.lr.ph390, %_ZN5Block11find_removeEPK4Node.exit
-  %.pre461465 = phi i32 [ %.pre461464, %.lr.ph390 ], [ %414, %_ZN5Block11find_removeEPK4Node.exit ], [ %.pre461464, %396 ]
-  %415 = phi i32 [ 0, %.lr.ph390 ], [ %414, %_ZN5Block11find_removeEPK4Node.exit ], [ %392, %396 ]
+  %.pre461465 = phi i32 [ %414, %_ZN5Block11find_removeEPK4Node.exit ], [ %.pre461464, %.lr.ph390 ], [ %.pre461464, %396 ]
+  %415 = phi i32 [ %414, %_ZN5Block11find_removeEPK4Node.exit ], [ 0, %.lr.ph390 ], [ %392, %396 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond455.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count454
   br i1 %exitcond455.not, label %._crit_edge391, label %.lr.ph390, !llvm.loop !48
@@ -7198,7 +7198,7 @@ define hidden noundef i32 @_ZNK9UnionFind10Find_constEj(ptr noundef nonnull read
   br i1 %.not14, label %.loopexit, label %10, !llvm.loop !56
 
 .loopexit:                                        ; preds = %10, %4, %2
-  %.012 = phi i32 [ 0, %2 ], [ %1, %4 ], [ %.011, %10 ]
+  %.012 = phi i32 [ %1, %4 ], [ 0, %2 ], [ %.011, %10 ]
   ret i32 %.012
 }
 
@@ -7678,7 +7678,7 @@ _ZN26GrowableArrayWithAllocatorIP7CFGEdge13GrowableArrayIS1_EE6appendERKS1_.exit
   br i1 %190, label %87, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %187, %.preheader63, %.critedge
-  %.1.lcssa124 = phi i32 [ %.1.lcssa125, %.preheader63 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa125, %187 ]
+  %.1.lcssa124 = phi i32 [ %.1.lcssa, %.critedge ], [ %.1.lcssa125, %.preheader63 ], [ %.1.lcssa125, %187 ]
   %191 = add i32 %.1.lcssa124, 1
   %192 = load ptr, ptr %2, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
@@ -7993,7 +7993,7 @@ _ZNK5Block4headEv.exit.i.i:                       ; preds = %38, %35
   br label %_ZN5Block22compute_loop_alignmentEv.exit.i
 
 _ZN5Block22compute_loop_alignmentEv.exit.i:       ; preds = %79, %74, %56, %47, %_ZNK5Block4headEv.exit.i.i
-  %.0.i.i = phi i32 [ %61, %56 ], [ %81, %79 ], [ 1, %74 ], [ 1, %47 ], [ 1, %_ZNK5Block4headEv.exit.i.i ]
+  %.0.i.i = phi i32 [ %61, %56 ], [ 1, %74 ], [ %81, %79 ], [ 1, %47 ], [ 1, %_ZNK5Block4headEv.exit.i.i ]
   %82 = getelementptr inbounds nuw i8, ptr %27, i64 140
   %83 = load i32, ptr %82, align 4
   %84 = icmp ugt i32 %.0.i.i, %83
@@ -8274,7 +8274,7 @@ _ZN16PhaseBlockLayout12union_tracesEP5TraceS1_.exit: ; preds = %_ZN9UnionFind4Fi
   br label %_ZN5Block18set_loop_alignmentEPS_.exit
 
 _ZN5Block18set_loop_alignmentEPS_.exit:           ; preds = %85, %_ZN5Block22compute_loop_alignmentEv.exit.i, %118, %_ZN16PhaseBlockLayout5traceEP5Block.exit44, %120, %_ZN16PhaseBlockLayout12union_tracesEP5TraceS1_.exit, %15
-  %.1 = phi i32 [ %.050, %15 ], [ %.050, %_ZN16PhaseBlockLayout12union_tracesEP5TraceS1_.exit ], [ %.050, %120 ], [ %.050, %_ZN16PhaseBlockLayout5traceEP5Block.exit44 ], [ %spec.select, %118 ], [ %.050, %_ZN5Block22compute_loop_alignmentEv.exit.i ], [ %.050, %85 ]
+  %.1 = phi i32 [ %.050, %15 ], [ %.050, %_ZN16PhaseBlockLayout5traceEP5Block.exit44 ], [ %spec.select, %118 ], [ %.050, %_ZN16PhaseBlockLayout12union_tracesEP5TraceS1_.exit ], [ %.050, %120 ], [ %.050, %_ZN5Block22compute_loop_alignmentEv.exit.i ], [ %.050, %85 ]
   %201 = add nsw i32 %.1, 1
   %202 = load ptr, ptr %2, align 8
   %203 = load i32, ptr %202, align 4
@@ -8530,7 +8530,7 @@ _ZNK5Block4headEv.exit.i.i:                       ; preds = %80, %_ZNK5Block4hea
   br label %_ZN5Block22compute_loop_alignmentEv.exit.i
 
 _ZN5Block22compute_loop_alignmentEv.exit.i:       ; preds = %121, %116, %98, %89, %_ZNK5Block4headEv.exit.i.i
-  %.0.i.i = phi i32 [ %103, %98 ], [ %123, %121 ], [ 1, %116 ], [ 1, %89 ], [ 1, %_ZNK5Block4headEv.exit.i.i ]
+  %.0.i.i = phi i32 [ %103, %98 ], [ 1, %116 ], [ %123, %121 ], [ 1, %89 ], [ 1, %_ZNK5Block4headEv.exit.i.i ]
   %124 = getelementptr inbounds nuw i8, ptr %77, i64 140
   %125 = load i32, ptr %124, align 4
   %126 = icmp ugt i32 %.0.i.i, %125
@@ -8627,7 +8627,7 @@ _ZNK5Block4headEv.exit33:                         ; preds = %142
   br label %_ZN5Block22compute_loop_alignmentEv.exit.i36
 
 _ZN5Block22compute_loop_alignmentEv.exit.i36:     ; preds = %_ZNK5Block4headEv.exit31, %183, %178, %160, %151
-  %.0.i.i37 = phi i32 [ %165, %160 ], [ %185, %183 ], [ 1, %178 ], [ 1, %151 ], [ 1, %_ZNK5Block4headEv.exit31 ]
+  %.0.i.i37 = phi i32 [ %165, %160 ], [ 1, %178 ], [ %185, %183 ], [ 1, %151 ], [ 1, %_ZNK5Block4headEv.exit31 ]
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %187 = load i32, ptr %186, align 4
   %188 = icmp ugt i32 %.0.i.i37, %187
@@ -8638,7 +8638,7 @@ _ZN5Block22compute_loop_alignmentEv.exit.i36:     ; preds = %_ZNK5Block4headEv.e
   br label %_ZN5Block18set_loop_alignmentEPS_.exit
 
 _ZN5Block18set_loop_alignmentEPS_.exit:           ; preds = %189, %_ZN5Block22compute_loop_alignmentEv.exit.i36, %127, %_ZN5Block22compute_loop_alignmentEv.exit.i, %_ZNK5Block4headEv.exit33
-  %.1 = phi i1 [ false, %_ZNK5Block4headEv.exit33 ], [ %.0, %_ZN5Block22compute_loop_alignmentEv.exit.i ], [ %.0, %127 ], [ false, %_ZN5Block22compute_loop_alignmentEv.exit.i36 ], [ false, %189 ]
+  %.1 = phi i1 [ %.0, %127 ], [ false, %_ZNK5Block4headEv.exit33 ], [ %.0, %_ZN5Block22compute_loop_alignmentEv.exit.i ], [ false, %_ZN5Block22compute_loop_alignmentEv.exit.i36 ], [ false, %189 ]
   ret i1 %.1
 }
 

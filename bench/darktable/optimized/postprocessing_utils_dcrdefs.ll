@@ -977,7 +977,7 @@ define void @_ZN6LibRaw12scale_colorsEv(ptr noundef nonnull align 8 dereferencea
   %exitcond322.not = icmp eq i64 %indvars.iv.next320, 3
   br i1 %exitcond322.not, label %.thread, label %247, !llvm.loop !122
 
-.thread:                                          ; preds = %216, %247, %231, %229, %.loopexit224.thread, %236, %.loopexit221
+.thread:                                          ; preds = %216, %247, %229, %231, %.loopexit224.thread, %236, %.loopexit221
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 153192
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 153196
   %255 = load float, ptr %254, align 4, !tbaa !91

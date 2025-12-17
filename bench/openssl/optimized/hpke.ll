@@ -76,7 +76,7 @@ define ptr @OSSL_HPKE_CTX_new(i32 noundef %0, i48 %1, i32 noundef %2, ptr nounde
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %hpke_suite_check.exit
 
-16:                                               ; preds = %7, %10, %13
+16:                                               ; preds = %13, %7, %10
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 811, ptr noundef nonnull @__func__.OSSL_HPKE_CTX_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524550, ptr noundef null) #6
@@ -160,7 +160,7 @@ hpke_suite_check.exit:                            ; preds = %13
   br label %45
 
 45:                                               ; preds = %18, %41, %34, %17, %16, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %16 ], [ null, %17 ], [ null, %41 ], [ %19, %34 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %16 ], [ null, %17 ], [ %19, %34 ], [ null, %41 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -346,7 +346,7 @@ define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef captures(address_
   br label %42
 
 42:                                               ; preds = %34, %27, %39, %26, %22, %19, %15, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %19 ], [ 0, %22 ], [ 0, %26 ], [ 0, %39 ], [ 0, %27 ], [ 1, %34 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %19 ], [ 0, %22 ], [ 0, %26 ], [ 0, %27 ], [ 0, %39 ], [ 1, %34 ]
   ret i32 %.0
 }
 
@@ -1356,7 +1356,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr noundef nonnull c
   br i1 %.not96, label %132, label %.sink.split
 
 .sink.split:                                      ; preds = %129, %121, %111, %93, %89, %86, %._crit_edge
-  %.sink = phi i32 [ 719, %._crit_edge ], [ 727, %86 ], [ 733, %89 ], [ 742, %93 ], [ 756, %111 ], [ 768, %121 ], [ 781, %129 ]
+  %.sink = phi i32 [ 768, %121 ], [ 756, %111 ], [ 742, %93 ], [ 733, %89 ], [ 727, %86 ], [ 719, %._crit_edge ], [ 781, %129 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.hpke_do_middle) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #6
@@ -1979,7 +1979,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr noundef nonnull re
   br label %74
 
 74:                                               ; preds = %22, %73, %21, %18
-  %.040 = phi i32 [ 0, %18 ], [ %.060, %73 ], [ 0, %21 ], [ 0, %22 ]
+  %.040 = phi i32 [ 0, %18 ], [ 0, %21 ], [ %.060, %73 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.040
@@ -2448,7 +2448,7 @@ define range(i32 0, 2) i32 @OSSL_HPKE_keygen(i48 %0, ptr noundef %1, ptr noundef
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %hpke_suite_check.exit
 
-29:                                               ; preds = %20, %23, %26
+29:                                               ; preds = %26, %20, %23
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1307, ptr noundef nonnull @__func__.OSSL_HPKE_keygen) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 524550, ptr noundef null) #6
@@ -2550,8 +2550,8 @@ hpke_kem_id_nist_curve.exit.thread:               ; preds = %37, %hpke_kem_id_ni
   br label %71
 
 69:                                               ; preds = %63, %60, %57, %49, %51
-  %.sink = phi i32 [ 1326, %51 ], [ 1326, %49 ], [ 1334, %57 ], [ 1338, %60 ], [ 1345, %63 ]
-  %.143.ph = phi ptr [ %.042, %51 ], [ %.042, %49 ], [ %.042, %57 ], [ %.042, %60 ], [ null, %63 ]
+  %.sink = phi i32 [ 1338, %60 ], [ 1326, %49 ], [ 1334, %57 ], [ 1326, %51 ], [ 1345, %63 ]
+  %.143.ph = phi ptr [ %.042, %60 ], [ %.042, %49 ], [ %.042, %57 ], [ %.042, %51 ], [ null, %63 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.OSSL_HPKE_keygen) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #6
@@ -2611,7 +2611,7 @@ define range(i32 0, 2) i32 @OSSL_HPKE_suite_check(i48 %0) local_unnamed_addr #0 
   br label %hpke_suite_check.exit
 
 hpke_suite_check.exit:                            ; preds = %7, %1, %4
-  %.0.i = phi i32 [ 0, %1 ], [ 0, %4 ], [ %spec.select, %7 ]
+  %.0.i = phi i32 [ %spec.select, %7 ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2697,7 +2697,7 @@ hpke_random_suite.exit:                           ; preds = %25, %30
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %hpke_suite_check.exit
 
-40:                                               ; preds = %hpke_random_suite.exit, %34, %37
+40:                                               ; preds = %37, %hpke_random_suite.exit, %34
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1390, ptr noundef nonnull @__func__.OSSL_HPKE_get_grease_value) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #6
@@ -2837,8 +2837,8 @@ hpke_suite_check.exit:                            ; preds = %7
   %11 = load i64, ptr %10, align 8, !tbaa !70
   br label %hpke_suite_check.exit.thread
 
-hpke_suite_check.exit.thread:                     ; preds = %7, %4, %1, %hpke_suite_check.exit
-  %.0 = phi i64 [ %11, %hpke_suite_check.exit ], [ 0, %1 ], [ 0, %4 ], [ 0, %7 ]
+hpke_suite_check.exit.thread:                     ; preds = %4, %1, %7, %hpke_suite_check.exit
+  %.0 = phi i64 [ %11, %hpke_suite_check.exit ], [ 0, %7 ], [ 0, %1 ], [ 0, %4 ]
   ret i64 %.0
 }
 

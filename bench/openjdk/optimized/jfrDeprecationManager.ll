@@ -1050,7 +1050,7 @@ _ZL13is_jdk_modulePKc.exit.i:                     ; preds = %18, %6
   br label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit
 
 _ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit: ; preds = %2, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i, %22, %24
-  %.0.i = phi i1 [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %19, %22 ], [ %19, %24 ], [ false, %2 ]
+  %.0.i = phi i1 [ %19, %24 ], [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %19, %22 ], [ false, %2 ]
   %25 = xor i1 %.0.i, true
   ret i1 %25
 }

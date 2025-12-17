@@ -67,7 +67,7 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   br label %17
 
 17:                                               ; preds = %13, %.lr.ph.split.us.split.i
-  %.034.us.i = phi i64 [ %16, %13 ], [ 15, %.lr.ph.split.us.split.i ]
+  %.034.us.i = phi i64 [ 15, %.lr.ph.split.us.split.i ], [ %16, %13 ]
   %18 = icmp eq i32 %11, 4
   %19 = zext i1 %18 to i64
   %20 = add i64 %.034.us.i, %19

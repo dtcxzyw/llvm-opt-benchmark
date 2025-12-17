@@ -978,8 +978,8 @@ default.unreachable42:                            ; preds = %block_len.exit32
   unreachable
 
 block_len.exit34:                                 ; preds = %block_len.exit32.thread40, %block_len.exit32.thread38, %block_len.exit32.thread36, %block_len.exit32.thread, %block_len.exit32, %10, %11, %12, %13
-  %14 = phi ptr [ %9, %10 ], [ %9, %block_len.exit32 ], [ %5, %block_len.exit32.thread ], [ %6, %block_len.exit32.thread36 ], [ %9, %11 ], [ %7, %block_len.exit32.thread38 ], [ %9, %12 ], [ %8, %block_len.exit32.thread40 ], [ %9, %13 ]
-  %.0.i33 = phi i64 [ 136, %10 ], [ 144, %block_len.exit32 ], [ 144, %block_len.exit32.thread ], [ 104, %block_len.exit32.thread36 ], [ 104, %11 ], [ 72, %block_len.exit32.thread38 ], [ 72, %12 ], [ 168, %block_len.exit32.thread40 ], [ 168, %13 ]
+  %14 = phi ptr [ %9, %block_len.exit32 ], [ %9, %10 ], [ %5, %block_len.exit32.thread ], [ %9, %11 ], [ %9, %12 ], [ %6, %block_len.exit32.thread36 ], [ %7, %block_len.exit32.thread38 ], [ %8, %block_len.exit32.thread40 ], [ %9, %13 ]
+  %.0.i33 = phi i64 [ 144, %block_len.exit32 ], [ 136, %10 ], [ 144, %block_len.exit32.thread ], [ 104, %11 ], [ 72, %12 ], [ 104, %block_len.exit32.thread36 ], [ 72, %block_len.exit32.thread38 ], [ 168, %block_len.exit32.thread40 ], [ 168, %13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.528.0.copyload, i64 %.0.i33, i1 false)
   %15 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #19
   %.sroa.0.sroa.025.0.insert.ext = and i64 %.sroa.0.0.copyload26, 255
@@ -1111,8 +1111,8 @@ default.unreachable393:                           ; preds = %block_len.exit208
   unreachable
 
 block_len.exit212:                                ; preds = %18, %block_len.exit208.thread279, %block_len.exit208.thread276, %block_len.exit208.thread273, %block_len.exit208, %23, %24, %25, %26
-  %.0194272 = phi i32 [ %.0194, %23 ], [ %.0194, %block_len.exit208 ], [ 104, %block_len.exit208.thread273 ], [ %.0194, %24 ], [ 72, %block_len.exit208.thread276 ], [ %.0194, %25 ], [ 168, %block_len.exit208.thread279 ], [ %.0194, %26 ], [ 144, %18 ]
-  %.0.i211 = phi i32 [ 136, %23 ], [ 144, %block_len.exit208 ], [ 104, %block_len.exit208.thread273 ], [ 104, %24 ], [ 72, %block_len.exit208.thread276 ], [ 72, %25 ], [ 168, %block_len.exit208.thread279 ], [ 168, %26 ], [ 144, %18 ]
+  %.0194272 = phi i32 [ %.0194, %block_len.exit208 ], [ %.0194, %23 ], [ %.0194, %26 ], [ %.0194, %24 ], [ %.0194, %25 ], [ 104, %block_len.exit208.thread273 ], [ 72, %block_len.exit208.thread276 ], [ 168, %block_len.exit208.thread279 ], [ 144, %18 ]
+  %.0.i211 = phi i32 [ 144, %block_len.exit208 ], [ 136, %23 ], [ 168, %26 ], [ 104, %24 ], [ 72, %25 ], [ 104, %block_len.exit208.thread273 ], [ 72, %block_len.exit208.thread276 ], [ 168, %block_len.exit208.thread279 ], [ 144, %18 ]
   %27 = sub nsw i32 %.0.i211, %.0194272
   %.not = icmp ugt i32 %2, %27
   br i1 %.not, label %36, label %switch.lookup402
@@ -1333,9 +1333,9 @@ default.unreachable370:                           ; preds = %block_len.exit238
   unreachable
 
 block_len.exit240:                                ; preds = %block_len.exit238.thread325, %block_len.exit238.thread321, %block_len.exit238.thread317, %block_len.exit238.thread, %block_len.exit238, %79, %80, %81, %82
-  %83 = phi ptr [ %78, %79 ], [ %78, %block_len.exit238 ], [ %66, %block_len.exit238.thread ], [ %69, %block_len.exit238.thread317 ], [ %78, %80 ], [ %72, %block_len.exit238.thread321 ], [ %78, %81 ], [ %75, %block_len.exit238.thread325 ], [ %78, %82 ]
-  %84 = phi i32 [ %76, %79 ], [ %76, %block_len.exit238 ], [ %64, %block_len.exit238.thread ], [ %67, %block_len.exit238.thread317 ], [ %76, %80 ], [ %70, %block_len.exit238.thread321 ], [ %76, %81 ], [ %73, %block_len.exit238.thread325 ], [ %76, %82 ]
-  %.0.i239 = phi i32 [ 136, %79 ], [ 144, %block_len.exit238 ], [ 144, %block_len.exit238.thread ], [ 104, %block_len.exit238.thread317 ], [ 104, %80 ], [ 72, %block_len.exit238.thread321 ], [ 72, %81 ], [ 168, %block_len.exit238.thread325 ], [ 168, %82 ]
+  %83 = phi ptr [ %78, %block_len.exit238 ], [ %78, %79 ], [ %66, %block_len.exit238.thread ], [ %78, %80 ], [ %78, %81 ], [ %69, %block_len.exit238.thread317 ], [ %72, %block_len.exit238.thread321 ], [ %75, %block_len.exit238.thread325 ], [ %78, %82 ]
+  %84 = phi i32 [ %76, %block_len.exit238 ], [ %76, %79 ], [ %64, %block_len.exit238.thread ], [ %76, %80 ], [ %76, %81 ], [ %67, %block_len.exit238.thread317 ], [ %70, %block_len.exit238.thread321 ], [ %73, %block_len.exit238.thread325 ], [ %76, %82 ]
+  %.0.i239 = phi i32 [ 144, %block_len.exit238 ], [ 136, %79 ], [ 144, %block_len.exit238.thread ], [ 104, %80 ], [ 72, %81 ], [ 104, %block_len.exit238.thread317 ], [ 72, %block_len.exit238.thread321 ], [ 168, %block_len.exit238.thread325 ], [ 168, %82 ]
   %85 = sub i32 %2, %84
   %86 = udiv i32 %84, %.0.i239
   tail call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %.sroa.0159.0.copyload, ptr noundef %.sroa.5103.0.copyload, ptr noundef %1, i32 noundef %86)
@@ -1415,10 +1415,10 @@ default.unreachable389:                           ; preds = %block_len.exit242
   unreachable
 
 block_len.exit244:                                ; preds = %block_len.exit242.thread338, %block_len.exit242.thread334, %block_len.exit242.thread330, %block_len.exit242.thread, %block_len.exit242, %105, %106, %107, %108
-  %109 = phi ptr [ %104, %105 ], [ %104, %block_len.exit242 ], [ %92, %block_len.exit242.thread ], [ %95, %block_len.exit242.thread330 ], [ %104, %106 ], [ %98, %block_len.exit242.thread334 ], [ %104, %107 ], [ %101, %block_len.exit242.thread338 ], [ %104, %108 ]
-  %110 = phi i64 [ %103, %105 ], [ %103, %block_len.exit242 ], [ %91, %block_len.exit242.thread ], [ %94, %block_len.exit242.thread330 ], [ %103, %106 ], [ %97, %block_len.exit242.thread334 ], [ %103, %107 ], [ %100, %block_len.exit242.thread338 ], [ %103, %108 ]
-  %111 = phi i32 [ %102, %105 ], [ %102, %block_len.exit242 ], [ %90, %block_len.exit242.thread ], [ %93, %block_len.exit242.thread330 ], [ %102, %106 ], [ %96, %block_len.exit242.thread334 ], [ %102, %107 ], [ %99, %block_len.exit242.thread338 ], [ %102, %108 ]
-  %.0.i243 = phi i64 [ 136, %105 ], [ 144, %block_len.exit242 ], [ 144, %block_len.exit242.thread ], [ 104, %block_len.exit242.thread330 ], [ 104, %106 ], [ 72, %block_len.exit242.thread334 ], [ 72, %107 ], [ 168, %block_len.exit242.thread338 ], [ 168, %108 ]
+  %109 = phi ptr [ %104, %block_len.exit242 ], [ %104, %105 ], [ %92, %block_len.exit242.thread ], [ %104, %106 ], [ %104, %107 ], [ %95, %block_len.exit242.thread330 ], [ %98, %block_len.exit242.thread334 ], [ %101, %block_len.exit242.thread338 ], [ %104, %108 ]
+  %110 = phi i64 [ %103, %block_len.exit242 ], [ %103, %105 ], [ %91, %block_len.exit242.thread ], [ %103, %106 ], [ %103, %107 ], [ %94, %block_len.exit242.thread330 ], [ %97, %block_len.exit242.thread334 ], [ %100, %block_len.exit242.thread338 ], [ %103, %108 ]
+  %111 = phi i32 [ %102, %block_len.exit242 ], [ %102, %105 ], [ %90, %block_len.exit242.thread ], [ %102, %106 ], [ %102, %107 ], [ %93, %block_len.exit242.thread330 ], [ %96, %block_len.exit242.thread334 ], [ %99, %block_len.exit242.thread338 ], [ %102, %108 ]
+  %.0.i243 = phi i64 [ 144, %block_len.exit242 ], [ 136, %105 ], [ 144, %block_len.exit242.thread ], [ 104, %106 ], [ 72, %107 ], [ 104, %block_len.exit242.thread330 ], [ 72, %block_len.exit242.thread334 ], [ 168, %block_len.exit242.thread338 ], [ 168, %108 ]
   %112 = urem i64 %.sroa.5162.0.copyload, %.0.i243
   %113 = icmp eq i64 %112, 0
   %or.cond10 = and i1 %17, %113
@@ -1606,8 +1606,8 @@ default.unreachable385:                           ; preds = %block_len.exit266
   unreachable
 
 block_len.exit268:                                ; preds = %block_len.exit266.thread361, %block_len.exit266.thread357, %block_len.exit266.thread353, %block_len.exit266.thread, %block_len.exit266, %155, %156, %157, %158
-  %159 = phi i32 [ %154, %155 ], [ %154, %block_len.exit266 ], [ %150, %block_len.exit266.thread ], [ %151, %block_len.exit266.thread353 ], [ %154, %156 ], [ %152, %block_len.exit266.thread357 ], [ %154, %157 ], [ %153, %block_len.exit266.thread361 ], [ %154, %158 ]
-  %.0.i267 = phi i32 [ 136, %155 ], [ 144, %block_len.exit266 ], [ 144, %block_len.exit266.thread ], [ 104, %block_len.exit266.thread353 ], [ 104, %156 ], [ 72, %block_len.exit266.thread357 ], [ 72, %157 ], [ 168, %block_len.exit266.thread361 ], [ 168, %158 ]
+  %159 = phi i32 [ %154, %block_len.exit266 ], [ %154, %155 ], [ %150, %block_len.exit266.thread ], [ %154, %156 ], [ %154, %157 ], [ %151, %block_len.exit266.thread353 ], [ %152, %block_len.exit266.thread357 ], [ %153, %block_len.exit266.thread361 ], [ %154, %158 ]
+  %.0.i267 = phi i32 [ 144, %block_len.exit266 ], [ 136, %155 ], [ 144, %block_len.exit266.thread ], [ 104, %156 ], [ 72, %157 ], [ 104, %block_len.exit266.thread353 ], [ 72, %block_len.exit266.thread357 ], [ 168, %block_len.exit266.thread361 ], [ 168, %158 ]
   %switch.tableidx455 = add i8 %.sroa.0.0.copyload, -8
   %160 = icmp ult i8 %switch.tableidx455, 6
   br i1 %160, label %switch.lookup456, label %161
@@ -1788,8 +1788,8 @@ default.unreachable1270:                          ; preds = %block_len.exit1190
   unreachable
 
 block_len.exit1194:                               ; preds = %block_len.exit1190.thread1234, %block_len.exit1190.thread1231, %block_len.exit1190.thread1228, %block_len.exit1190.thread, %block_len.exit1190, %24, %25, %26, %27
-  %.01227 = phi i32 [ %.0, %24 ], [ %.0, %block_len.exit1190 ], [ 144, %block_len.exit1190.thread ], [ 104, %block_len.exit1190.thread1228 ], [ %.0, %25 ], [ 72, %block_len.exit1190.thread1231 ], [ %.0, %26 ], [ 168, %block_len.exit1190.thread1234 ], [ %.0, %27 ]
-  %.0.i1193 = phi i8 [ -120, %24 ], [ -112, %block_len.exit1190 ], [ -112, %block_len.exit1190.thread ], [ 104, %block_len.exit1190.thread1228 ], [ 104, %25 ], [ 72, %block_len.exit1190.thread1231 ], [ 72, %26 ], [ -88, %block_len.exit1190.thread1234 ], [ -88, %27 ]
+  %.01227 = phi i32 [ %.0, %block_len.exit1190 ], [ %.0, %24 ], [ 144, %block_len.exit1190.thread ], [ %.0, %25 ], [ %.0, %26 ], [ 104, %block_len.exit1190.thread1228 ], [ 72, %block_len.exit1190.thread1231 ], [ 168, %block_len.exit1190.thread1234 ], [ %.0, %27 ]
+  %.0.i1193 = phi i8 [ -112, %block_len.exit1190 ], [ -120, %24 ], [ -112, %block_len.exit1190.thread ], [ 104, %25 ], [ 72, %26 ], [ 104, %block_len.exit1190.thread1228 ], [ 72, %block_len.exit1190.thread1231 ], [ -88, %block_len.exit1190.thread1234 ], [ -88, %27 ]
   %.lhs.trunc = trunc nuw i32 %.01227 to i8
   %28 = urem i8 %.lhs.trunc, %.0.i1193
   %29 = icmp eq i8 %28, 0
@@ -1853,7 +1853,7 @@ block_len.exit1196:                               ; preds = %31, %31, %switch.lo
   br label %block_len.exit1200
 
 block_len.exit1200:                               ; preds = %block_len.exit1196, %block_len.exit1196.thread1242, %block_len.exit1196.thread1240, %block_len.exit1196.thread1238, %block_len.exit1196.thread
-  %51 = phi ptr [ %34, %block_len.exit1196.thread ], [ %37, %block_len.exit1196.thread1238 ], [ %40, %block_len.exit1196.thread1240 ], [ %43, %block_len.exit1196.thread1242 ], [ %50, %block_len.exit1196 ]
+  %51 = phi ptr [ %34, %block_len.exit1196.thread ], [ %43, %block_len.exit1196.thread1242 ], [ %40, %block_len.exit1196.thread1240 ], [ %37, %block_len.exit1196.thread1238 ], [ %50, %block_len.exit1196 ]
   call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %0, ptr noundef nonnull %5, ptr noundef %.sroa.51160.0.copyload, i32 noundef 0)
   call void @python_hashlib_Hacl_Hash_SHA3_update_last_sha3(i8 noundef zeroext %0, ptr noundef nonnull %5, ptr noundef %51, i32 noundef %.01227)
   %52 = and i8 %0, 14
@@ -1997,8 +1997,8 @@ default.unreachable1260:                          ; preds = %block_len.exit1206
   unreachable
 
 block_len.exit1208:                               ; preds = %block_len.exit1206.thread1249, %block_len.exit1206.thread1247, %block_len.exit1206.thread1245, %block_len.exit1206.thread, %block_len.exit1206, %108, %109, %110, %111
-  %112 = phi ptr [ %107, %108 ], [ %107, %block_len.exit1206 ], [ %93, %block_len.exit1206.thread ], [ %96, %block_len.exit1206.thread1245 ], [ %107, %109 ], [ %98, %block_len.exit1206.thread1247 ], [ %107, %110 ], [ %101, %block_len.exit1206.thread1249 ], [ %107, %111 ]
-  %.0.i1207 = phi i64 [ 136, %108 ], [ 144, %block_len.exit1206 ], [ 144, %block_len.exit1206.thread ], [ 104, %block_len.exit1206.thread1245 ], [ 104, %109 ], [ 72, %block_len.exit1206.thread1247 ], [ 72, %110 ], [ 168, %block_len.exit1206.thread1249 ], [ 168, %111 ]
+  %112 = phi ptr [ %107, %block_len.exit1206 ], [ %107, %108 ], [ %93, %block_len.exit1206.thread ], [ %107, %109 ], [ %107, %110 ], [ %96, %block_len.exit1206.thread1245 ], [ %98, %block_len.exit1206.thread1247 ], [ %101, %block_len.exit1206.thread1249 ], [ %107, %111 ]
+  %.0.i1207 = phi i64 [ 144, %block_len.exit1206 ], [ 136, %108 ], [ 144, %block_len.exit1206.thread ], [ 104, %109 ], [ 72, %110 ], [ 104, %block_len.exit1206.thread1245 ], [ 72, %block_len.exit1206.thread1247 ], [ 168, %block_len.exit1206.thread1249 ], [ 168, %111 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %112, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %.0.i1207, i1 false)
   %.pre = load i64, ptr %5, align 16, !tbaa !10
   %.pre1291 = load i64, ptr %53, align 8, !tbaa !10
@@ -2329,7 +2329,7 @@ define hidden zeroext range(i8 0, 3) i8 @python_hashlib_Hacl_Hash_SHA3_squeeze(p
   br label %8
 
 8:                                                ; preds = %5, %3, %7
-  %.0 = phi i8 [ 0, %7 ], [ 1, %3 ], [ 2, %5 ]
+  %.0 = phi i8 [ 1, %3 ], [ 0, %7 ], [ 2, %5 ]
   ret i8 %.0
 }
 

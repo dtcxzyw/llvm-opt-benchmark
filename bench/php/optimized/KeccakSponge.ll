@@ -202,8 +202,8 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %26, %.lr.ph74.split.us._crit_edge, %17
-  %.pn = phi i64 [ %18, %17 ], [ %.05666.us, %26 ], [ %.05666.us, %.lr.ph74.split.us._crit_edge ]
-  %.2.us = phi ptr [ %19, %17 ], [ %22, %26 ], [ %22, %.lr.ph74.split.us._crit_edge ]
+  %.pn = phi i64 [ %18, %17 ], [ %.05666.us, %.lr.ph74.split.us._crit_edge ], [ %.05666.us, %26 ]
+  %.2.us = phi ptr [ %19, %17 ], [ %22, %.lr.ph74.split.us._crit_edge ], [ %22, %26 ]
   %.159.us = add i64 %.pn, %.05872.us
   %28 = icmp ult i64 %.159.us, %2
   br i1 %28, label %.lr.ph74.split.us, label %.loopexit
@@ -252,8 +252,8 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   br label %44
 
 44:                                               ; preds = %35, %43, %._crit_edge
-  %.159 = phi i64 [ %34, %._crit_edge ], [ %38, %43 ], [ %38, %35 ]
-  %.2 = phi ptr [ %32, %._crit_edge ], [ %39, %43 ], [ %39, %35 ]
+  %.159 = phi i64 [ %38, %35 ], [ %34, %._crit_edge ], [ %38, %43 ]
+  %.2 = phi ptr [ %39, %35 ], [ %32, %._crit_edge ], [ %39, %43 ]
   %45 = icmp ult i64 %.159, %2
   br i1 %45, label %.lr.ph74.split, label %.loopexit
 

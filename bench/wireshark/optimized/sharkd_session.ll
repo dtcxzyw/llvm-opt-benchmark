@@ -755,7 +755,7 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
   br label %94
 
 94:                                               ; preds = %92, %88, %.preheader229.i.i
-  %.1125.i.i = phi i1 [ %.0124269.i.i, %88 ], [ %.0124269.i.i, %.preheader229.i.i ], [ %spec.select.i.i, %92 ]
+  %.1125.i.i = phi i1 [ %.0124269.i.i, %88 ], [ %spec.select.i.i, %92 ], [ %.0124269.i.i, %.preheader229.i.i ]
   %indvars.iv.next342.i.i = add nuw nsw i64 %indvars.iv341.i.i, 1
   %.not151.i.i = icmp eq i64 %indvars.iv.next342.i.i, 101
   br i1 %.not151.i.i, label %95, label %.preheader229.i.i, !llvm.loop !11
@@ -769,8 +769,8 @@ json_find_attr.exit184.i.i:                       ; preds = %.lr.ph.i178.i.i
   br label %sharkd_session_process.exit
 
 .critedge.i.i:                                    ; preds = %74, %95, %json_find_attr.exit184.i.i
-  %.not150209.i.i = phi i1 [ false, %95 ], [ true, %json_find_attr.exit184.i.i ], [ true, %74 ]
-  %.2.i182208.i.i = phi ptr [ %85, %95 ], [ null, %json_find_attr.exit184.i.i ], [ null, %74 ]
+  %.not150209.i.i = phi i1 [ true, %json_find_attr.exit184.i.i ], [ false, %95 ], [ true, %74 ]
+  %.2.i182208.i.i = phi ptr [ null, %json_find_attr.exit184.i.i ], [ %85, %95 ], [ null, %74 ]
   br label %.lr.ph286.i.i
 
 .lr.ph286.i.i:                                    ; preds = %.thread217.i.i, %.critedge.i.i
@@ -935,9 +935,9 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
   br i1 %.not161.i.i, label %.split.us.i.i, label %.backedge.i.i
 
 .split.us.i.i:                                    ; preds = %171, %148, %145
-  %.us-phi.i.i = phi ptr [ %132, %145 ], [ %132, %148 ], [ %155, %171 ]
-  %.us-phi272.i.i = phi ptr [ %134, %145 ], [ %134, %148 ], [ %157, %171 ]
-  %.us-phi274.i.i = phi i64 [ %131, %145 ], [ %131, %148 ], [ %154, %171 ]
+  %.us-phi.i.i = phi ptr [ %132, %148 ], [ %132, %145 ], [ %155, %171 ]
+  %.us-phi272.i.i = phi ptr [ %134, %148 ], [ %134, %145 ], [ %157, %171 ]
+  %.us-phi274.i.i = phi i64 [ %131, %148 ], [ %131, %145 ], [ %154, %171 ]
   %174 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 24
   %175 = load i32, ptr %110, align 4
   %176 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 20
@@ -1001,7 +1001,7 @@ is_param_match.exit.i.i:                          ; preds = %164, %159
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.backedge.i.i, %.backedge.us.i.i, %.critedge172.i.i, %193, %191, %183, %181
-  %.4.ph.i.i = phi i1 [ true, %181 ], [ true, %.critedge172.i.i ], [ true, %191 ], [ true, %193 ], [ true, %183 ], [ %.0122281.i.i, %.backedge.us.i.i ], [ %.0122281.i.i, %.backedge.i.i ]
+  %.4.ph.i.i = phi i1 [ true, %181 ], [ true, %.critedge172.i.i ], [ true, %183 ], [ true, %191 ], [ true, %193 ], [ %.0122281.i.i, %.backedge.us.i.i ], [ %.0122281.i.i, %.backedge.i.i ]
   br i1 %exitcond.i.i, label %197, label %.preheader228.i.i, !llvm.loop !13
 
 197:                                              ; preds = %.loopexit.i.i
@@ -3024,8 +3024,8 @@ sharkd_session_filter_data.exit.thread:           ; preds = %135, %sharkd_sessio
   br label %.loopexit175
 
 224:                                              ; preds = %218, %220, %173, %162
-  %.158.ph = phi i32 [ %.057199, %162 ], [ %.057199, %173 ], [ %.2, %220 ], [ %.2, %218 ]
-  %.155.ph = phi i32 [ %.054203, %162 ], [ %.056200, %173 ], [ %.056200, %220 ], [ %.056200, %218 ]
+  %.158.ph = phi i32 [ %.057199, %173 ], [ %.057199, %162 ], [ %.2, %220 ], [ %.2, %218 ]
+  %.155.ph = phi i32 [ %.056200, %173 ], [ %.054203, %162 ], [ %.056200, %220 ], [ %.056200, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %225 = add i32 %.056200, 1
@@ -3743,8 +3743,8 @@ sub_2427:                                         ; preds = %sub_1426
   br i1 %.not367, label %290, label %300
 
 290:                                              ; preds = %288, %.tail424, %286
-  %.2288 = phi i8 [ 1, %286 ], [ 1, %.tail424 ], [ %.1287488, %288 ]
-  %.2285 = phi i8 [ %.1284489, %286 ], [ %.1284489, %.tail424 ], [ 1, %288 ]
+  %.2288 = phi i8 [ 1, %.tail424 ], [ 1, %286 ], [ %.1287488, %288 ]
+  %.2285 = phi i8 [ %.1284489, %.tail424 ], [ %.1284489, %286 ], [ 1, %288 ]
   %291 = add i32 %.0490, 1
   %292 = sext i32 %291 to i64
   %293 = getelementptr ptr, ptr %271, i64 %292
@@ -3785,7 +3785,7 @@ sub_2427:                                         ; preds = %sub_1426
   br label %.thread416
 
 304:                                              ; preds = %.thread412, %.loopexit430, %.thread405, %183, %165, %146, %123, %107, %79, %64, %67, %210, %218, %204, %187
-  %.1281 = phi ptr [ %263, %.loopexit430 ], [ %220, %218 ], [ %215, %210 ], [ %207, %204 ], [ %189, %187 ], [ %185, %183 ], [ %172, %165 ], [ %152, %146 ], [ %133, %123 ], [ %116, %107 ], [ %86, %79 ], [ %72, %67 ], [ %59, %64 ], [ %200, %.thread405 ], [ %299, %.thread412 ]
+  %.1281 = phi ptr [ %299, %.thread412 ], [ %263, %.loopexit430 ], [ %220, %218 ], [ %215, %210 ], [ %207, %204 ], [ %200, %.thread405 ], [ %189, %187 ], [ %185, %183 ], [ %172, %165 ], [ %152, %146 ], [ %133, %123 ], [ %116, %107 ], [ %86, %79 ], [ %72, %67 ], [ %59, %64 ]
   %.not368 = icmp eq ptr %.1281, null
   br i1 %.not368, label %312, label %305
 
@@ -3814,7 +3814,7 @@ sub_2427:                                         ; preds = %sub_1426
   %318 = add i32 %.0277495, 1
   br label %319
 
-.thread416:                                       ; preds = %302, %300, %310, %305, %.thread, %.thread386, %.thread393, %.thread396, %.thread400, %.thread403, %.thread409, %105, %97
+.thread416:                                       ; preds = %302, %300, %.thread409, %.thread403, %.thread400, %.thread396, %.thread393, %.thread386, %.thread, %310, %305, %105, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4322,7 +4322,7 @@ sub_1224:                                         ; preds = %sub_0218
   br label %.tail227.thread
 
 .tail227.thread:                                  ; preds = %.tail217, %sub_0218, %sub_1219, %sub_1224, %.tail222, %62, %68, %.tail227
-  %.0117 = phi i32 [ %64, %62 ], [ %70, %68 ], [ 0, %.tail227 ], [ 0, %.tail222 ], [ 0, %sub_1224 ], [ 0, %sub_1219 ], [ %spec.select352, %.tail217 ], [ 0, %sub_0218 ]
+  %.0117 = phi i32 [ %spec.select352, %.tail217 ], [ %64, %62 ], [ %70, %68 ], [ 0, %.tail227 ], [ 0, %sub_0218 ], [ 0, %.tail222 ], [ 0, %sub_1224 ], [ 0, %sub_1219 ]
   %71 = zext nneg i32 %2 to i64
   br i1 %.not.i, label %.loopexit.thread326, label %.lr.ph.preheader.i160
 
@@ -4449,7 +4449,7 @@ json_find_attr.exit176:                           ; preds = %89, %.thread.i175
   br i1 %.not142, label %.loopexit, label %.lr.ph.preheader.i178
 
 .lr.ph.preheader.i178:                            ; preds = %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %json_find_attr.exit176
-  %.sink = phi i32 [ 0, %json_find_attr.exit176 ], [ 1, %102 ], [ 2, %104 ], [ 3, %106 ], [ 4, %108 ], [ 5, %110 ], [ 6, %112 ], [ 7, %114 ], [ 8, %116 ], [ 10, %118 ], [ 9, %120 ]
+  %.sink = phi i32 [ 0, %json_find_attr.exit176 ], [ 2, %104 ], [ 4, %108 ], [ 6, %112 ], [ 8, %116 ], [ 10, %118 ], [ 7, %114 ], [ 5, %110 ], [ 3, %106 ], [ 1, %102 ], [ 9, %120 ]
   %122 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %.sink, ptr %122, align 4
   %123 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %87, i32 noundef 58) #19
@@ -4531,7 +4531,7 @@ json_find_attr.exit185.thread:                    ; preds = %130, %json_find_att
   %exitcond.not = icmp eq i32 %157, 10
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph.preheader.i160, !llvm.loop !39
 
-.loopexit:                                        ; preds = %json_find_attr.exit167, %120, %76
+.loopexit:                                        ; preds = %120, %json_find_attr.exit167, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.0255, label %.loopexit.thread, label %159
 
@@ -4948,9 +4948,9 @@ sharkd_session_filter_data.exit.thread:           ; preds = %34, %sharkd_session
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %46, %49, %122, %._crit_edge
-  %.sroa.624.0.lcssa147 = phi i64 [ %.sroa.624.0.lcssa, %122 ], [ %.sroa.624.0.lcssa, %._crit_edge ], [ 0, %49 ], [ 0, %46 ]
-  %.049.lcssa146 = phi i64 [ %.049.lcssa, %122 ], [ %.049.lcssa, %._crit_edge ], [ 0, %49 ], [ 0, %46 ]
-  %.sroa.0.0.lcssa145 = phi i32 [ %.sroa.0.0.lcssa, %122 ], [ %.sroa.0.0.lcssa, %._crit_edge ], [ 0, %49 ], [ 0, %46 ]
+  %.sroa.624.0.lcssa147 = phi i64 [ %.sroa.624.0.lcssa, %._crit_edge ], [ %.sroa.624.0.lcssa, %122 ], [ 0, %49 ], [ 0, %46 ]
+  %.049.lcssa146 = phi i64 [ %.049.lcssa, %._crit_edge ], [ %.049.lcssa, %122 ], [ 0, %49 ], [ 0, %46 ]
+  %.sroa.0.0.lcssa145 = phi i32 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %.sroa.0.0.lcssa, %122 ], [ 0, %49 ], [ 0, %46 ]
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.128, i64 noundef %.049.lcssa146)
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.123, i32 noundef %.sroa.0.0.lcssa145)
@@ -8508,7 +8508,7 @@ define internal void @sharkd_session_process_tap_rtp_analyse_cb(ptr noundef read
   br i1 %.not50, label %68, label %.sink.split
 
 .sink.split:                                      ; preds = %67, %42, %48, %54, %63, %66, %59, %51, %43
-  %.sink = phi i32 [ 1, %43 ], [ 3, %51 ], [ 3, %59 ], [ 4, %66 ], [ 3, %63 ], [ 3, %54 ], [ 2, %48 ], [ 1, %42 ], [ 3, %67 ]
+  %.sink = phi i32 [ 1, %43 ], [ 3, %51 ], [ 3, %59 ], [ 4, %66 ], [ 1, %42 ], [ 3, %63 ], [ 3, %54 ], [ 2, %48 ], [ 3, %67 ]
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.5, i32 noundef %.sink)
   br label %68
 
@@ -9374,7 +9374,7 @@ define internal fastcc zeroext i1 @sharkd_session_geoip_addr(ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %2, %54, %58, %13, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %13 ], [ true, %58 ], [ %.5, %54 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %14 ], [ true, %58 ], [ %.5, %54 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

@@ -657,7 +657,7 @@ default.unreachable6:                             ; preds = %2
   br label %17
 
 17:                                               ; preds = %5, %7, %9, %24, %18, %11
-  %.0.shrunk = phi i1 [ %16, %11 ], [ %23, %18 ], [ %29, %24 ], [ false, %9 ], [ false, %7 ], [ false, %5 ]
+  %.0.shrunk = phi i1 [ %16, %11 ], [ %29, %24 ], [ %23, %18 ], [ false, %9 ], [ false, %7 ], [ false, %5 ]
   ret i1 %.0.shrunk
 
 18:                                               ; preds = %7

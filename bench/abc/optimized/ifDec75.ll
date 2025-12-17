@@ -806,7 +806,7 @@ Dau_DsdCheckDecExist.exit69:                      ; preds = %135
   br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !28
 
 .loopexit:                                        ; preds = %141, %Dau_DsdCheckDecExist.exit69, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecAndExist.exit46, %Dau_DsdCheckDecExist.exit
-  %.1 = phi i32 [ 1, %Dau_DsdCheckDecExist.exit ], [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 0, %141 ], [ 1, %Dau_DsdCheckDecExist.exit69 ], [ 1, %Dau_DsdCheckDecExist.exit51 ]
+  %.1 = phi i32 [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 1, %Dau_DsdCheckDecExist.exit ], [ 0, %141 ], [ 1, %Dau_DsdCheckDecExist.exit51 ], [ 1, %Dau_DsdCheckDecExist.exit69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -851,7 +851,7 @@ Dau_DsdCheckDecExist.exit71:                      ; preds = %144
   br label %156
 
 156:                                              ; preds = %29, %151, %Dau_DsdCheckDecExist.exit71, %Dau_DsdCheckDecAndExist.exit, %31, %27, %5, %154, %.loopexit
-  %.035 = phi i32 [ %.1, %.loopexit ], [ %155, %154 ], [ 1, %5 ], [ 1, %27 ], [ 0, %31 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %Dau_DsdCheckDecExist.exit71 ], [ 1, %151 ], [ 0, %29 ]
+  %.035 = phi i32 [ 1, %151 ], [ 1, %5 ], [ 1, %27 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 0, %31 ], [ %.1, %.loopexit ], [ %155, %154 ], [ 1, %Dau_DsdCheckDecExist.exit71 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.035
 }
@@ -1253,7 +1253,7 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %143, %147
   br label %Abc_TtMinimumBase.exit.thread
 
 Abc_TtMinimumBase.exit.thread:                    ; preds = %24, %.lr.ph.split.i, %154, %152, %129, %Abc_TtMinimumBase.exit, %151
-  %.0 = phi i32 [ %.1, %151 ], [ 1, %Abc_TtMinimumBase.exit ], [ 1, %129 ], [ 1, %152 ], [ %.24, %154 ], [ 1, %.lr.ph.split.i ], [ 1, %24 ]
+  %.0 = phi i32 [ %.1, %151 ], [ 1, %Abc_TtMinimumBase.exit ], [ 1, %129 ], [ %.24, %154 ], [ 1, %152 ], [ 1, %.lr.ph.split.i ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

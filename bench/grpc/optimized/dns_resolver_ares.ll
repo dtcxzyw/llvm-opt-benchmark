@@ -717,7 +717,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %_ZN4absl12lts_20240
   br label %.body8
 
 .body8:                                           ; preds = %92, %90, %84, %44
-  %.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %45, %44 ], [ %.pn, %90 ], [ %.pn, %92 ]
+  %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %85, %84 ], [ %.pn, %90 ], [ %.pn, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
@@ -1899,7 +1899,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %196, %
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit
 
 .body.i:                                          ; preds = %169, %161
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %169 ], [ %162, %161 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %162, %161 ], [ %.pn.i.i, %169 ]
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %6) #34, !noalias !69
   call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 544) #37, !noalias !69
   resume { ptr, i32 } %eh.lpad-body.i
@@ -2815,7 +2815,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.thread.i.i: ; pre
   unreachable
 
 197:                                              ; preds = %193, %182, %136, %125, %79, %68, %66
-  %.pn43.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.i.i, %79 ], [ %69, %68 ], [ %.pn38.pn.pn.i.i, %136 ], [ %126, %125 ], [ %.pn43.pn.pn.i.i, %193 ], [ %183, %182 ]
+  %.pn43.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %126, %125 ], [ %67, %66 ], [ %.pn38.pn.pn.i.i, %136 ], [ %69, %68 ], [ %.pn43.pn.pn.i.i, %193 ], [ %183, %182 ], [ %.pn.pn.pn.i.i, %79 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit114.i.i unwind label %198, !noalias !159
 
@@ -2873,7 +2873,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit5
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128AresClientChannelDNSResolverEED2Ev.exit5: ; preds = %.body.thread, %209, %213
-  %eh.lpad-body12 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.pn.i.i, %.body.thread ], [ %210, %209 ], [ %210, %213 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.pn.i.i, %.body.thread ], [ %210, %213 ], [ %210, %209 ]
   resume { ptr, i32 } %eh.lpad-body12
 }
 
@@ -3212,7 +3212,7 @@ _ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit20: ; preds 
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit19:      ; preds = %93, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18, %106
-  %.pn14 = phi { ptr, i32 } [ %107, %106 ], [ %94, %93 ], [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ], [ %107, %106 ], [ %94, %93 ]
   %116 = load i8, ptr %7, align 8, !tbaa !188, !range !177, !noundef !178
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit21
@@ -3547,7 +3547,7 @@ _ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit20: ; preds 
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit19:      ; preds = %93, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18, %106
-  %.pn14 = phi { ptr, i32 } [ %107, %106 ], [ %94, %93 ], [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ], [ %107, %106 ], [ %94, %93 ]
   %116 = load i8, ptr %7, align 8, !tbaa !188, !range !177, !noundef !178
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit21
@@ -3854,7 +3854,7 @@ _ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit20: ; preds 
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit19:      ; preds = %93, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18, %106
-  %.pn14 = phi { ptr, i32 } [ %107, %106 ], [ %94, %93 ], [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn, %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit18 ], [ %107, %106 ], [ %94, %93 ]
   %116 = load i8, ptr %7, align 8, !tbaa !188, !range !177, !noundef !178
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %_ZNSt14_Optional_baseIN9grpc_core8Resolver6ResultELb0ELb0EED2Ev.exit21
@@ -4938,8 +4938,8 @@ _ZNR4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %239
 
 239:                                              ; preds = %237, %231
-  %.sroa.0.0.i = phi i64 [ %236, %231 ], [ %spec.select.i, %237 ]
-  %.sroa.4.0.i = phi ptr [ %234, %231 ], [ %spec.select2.i, %237 ]
+  %.sroa.0.0.i = phi i64 [ %spec.select.i, %237 ], [ %236, %231 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %237 ], [ %234, %231 ]
   store i64 %.sroa.0.0.i, ptr %21, align 8, !tbaa !116
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !174
@@ -5070,7 +5070,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
   br label %285
 
 283:                                              ; preds = %207, %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184, %254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.pn94, %254 ], [ %.pn85.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163 ], [ %.pn90.pn, %216 ], [ %208, %207 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %208, %207 ], [ %.pn94, %254 ], [ %.pn85.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163 ], [ %.pn90.pn, %216 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #34
   br label %284
 
@@ -8813,7 +8813,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.critedge47
   ret i1 %.016
 
 .body:                                            ; preds = %86, %77, %139, %144, %40, %58, %38
-  %.pn41.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn.pn.pn.pn, %58 ], [ %41, %40 ], [ %.pn37.pn, %86 ], [ %78, %77 ], [ %145, %144 ], [ %.pn19.i, %139 ]
+  %.pn41.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %.pn.pn.pn.pn, %58 ], [ %78, %77 ], [ %.pn37.pn, %86 ], [ %145, %144 ], [ %.pn19.i, %139 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit69 unwind label %149
 
@@ -9779,7 +9779,7 @@ _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %_ZN4absl12lts_
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit45
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit45: ; preds = %145, %148, %147, %80, %24
-  %.pn20.pn = phi { ptr, i32 } [ %.pn17.pn, %80 ], [ %.pn, %24 ], [ %lpad.phi, %147 ], [ %lpad.phi, %148 ], [ %146, %145 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn, %24 ], [ %.pn17.pn, %80 ], [ %lpad.phi, %148 ], [ %lpad.phi, %147 ], [ %146, %145 ]
   resume { ptr, i32 } %.pn20.pn
 }
 
@@ -9898,7 +9898,7 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14de
   br label %_ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i20
 
 _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestEEclEPS3_.exit.i20: ; preds = %46, %15, %13
-  %.pn1428 = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ], [ %47, %46 ]
+  %.pn1428 = phi { ptr, i32 } [ %47, %46 ], [ %16, %15 ], [ %14, %13 ]
   %48 = load ptr, ptr %0, align 8, !tbaa !6
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -10623,7 +10623,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !312
 
 .thread55:                                        ; preds = %.thread.i.i, %43
-  %.sroa.011.0.i.i = phi i64 [ %64, %43 ], [ %74, %.thread.i.i ]
+  %.sroa.011.0.i.i = phi i64 [ %74, %.thread.i.i ], [ %64, %43 ]
   %82 = trunc i128 %56 to i8
   %83 = and i8 %82, 127
   %84 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.011.0.i.i
@@ -10712,7 +10712,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i44, label %.lr.ph.i.i41, label %.thread.i.i35, !llvm.loop !312
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45: ; preds = %98, %.thread.i.i35
-  %.sroa.011.0.i.i39 = phi i64 [ %121, %98 ], [ %131, %.thread.i.i35 ]
+  %.sroa.011.0.i.i39 = phi i64 [ %131, %.thread.i.i35 ], [ %121, %98 ]
   %139 = trunc i128 %113 to i8
   %140 = and i8 %139, 127
   %141 = getelementptr inbounds nuw i8, ptr %115, i64 %.sroa.011.0.i.i39
@@ -11553,7 +11553,7 @@ _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %_ZN4absl12lts_
   br label %_ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit45
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit45: ; preds = %145, %148, %147, %80, %24
-  %.pn20.pn = phi { ptr, i32 } [ %.pn17.pn, %80 ], [ %.pn, %24 ], [ %lpad.phi, %147 ], [ %lpad.phi, %148 ], [ %146, %145 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn, %24 ], [ %.pn17.pn, %80 ], [ %lpad.phi, %148 ], [ %lpad.phi, %147 ], [ %146, %145 ]
   resume { ptr, i32 } %.pn20.pn
 }
 

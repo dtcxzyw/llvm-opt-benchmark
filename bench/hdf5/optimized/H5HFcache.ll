@@ -1612,7 +1612,7 @@ H5HF__dtable_decode.exit:                         ; preds = %554, %671
   br label %.thread220
 
 .thread220:                                       ; preds = %16, %810, %4, %.thread, %821
-  %.0210 = phi ptr [ null, %821 ], [ null, %.thread ], [ null, %4 ], [ %14, %810 ], [ null, %16 ]
+  %.0210 = phi ptr [ null, %821 ], [ null, %.thread ], [ null, %16 ], [ null, %4 ], [ %14, %810 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0210
 }
@@ -2921,7 +2921,7 @@ H5HF__dtable_encode.exit._crit_edge:              ; preds = %H5HF__dtable_encode
   br label %729
 
 729:                                              ; preds = %700, %709, %4
-  %.0268 = phi i32 [ -1, %700 ], [ 0, %709 ], [ 0, %4 ]
+  %.0268 = phi i32 [ 0, %4 ], [ -1, %700 ], [ 0, %709 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0268
 }
@@ -3509,7 +3509,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   br label %.thread176
 
 .thread176:                                       ; preds = %259, %21, %270, %4, %272, %275
-  %.0144 = phi ptr [ null, %275 ], [ null, %272 ], [ null, %4 ], [ %19, %270 ], [ null, %21 ], [ %19, %259 ]
+  %.0144 = phi ptr [ null, %275 ], [ null, %272 ], [ %19, %259 ], [ null, %4 ], [ %19, %270 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0144
@@ -3625,7 +3625,7 @@ define internal noundef range(i32 -1, 1) i32 @H5HF__cache_iblock_pre_serialize(p
   br label %62
 
 62:                                               ; preds = %57, %7, %61, %.thread, %44, %32, %23
-  %.033 = phi i32 [ 0, %61 ], [ 0, %7 ], [ -1, %23 ], [ -1, %32 ], [ -1, %44 ], [ 0, %.thread ], [ -1, %57 ]
+  %.033 = phi i32 [ 0, %7 ], [ 0, %61 ], [ -1, %23 ], [ -1, %32 ], [ -1, %44 ], [ 0, %.thread ], [ -1, %57 ]
   ret i32 %.033
 }
 
@@ -4208,7 +4208,7 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   br label %92
 
 92:                                               ; preds = %.thread, %46, %14, %78, %89, %85
-  %.1 = phi i32 [ -1, %85 ], [ 1, %89 ], [ 1, %78 ], [ 1, %14 ], [ 0, %46 ], [ -1, %.thread ]
+  %.1 = phi i32 [ 1, %14 ], [ -1, %85 ], [ 1, %89 ], [ 1, %78 ], [ -1, %.thread ], [ 0, %46 ]
   %93 = load ptr, ptr %5, align 8, !tbaa !143
   %.not57 = icmp eq ptr %93, null
   %.not58 = icmp eq ptr %93, %0
@@ -4220,7 +4220,7 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   br label %96
 
 96:                                               ; preds = %3, %94, %92
-  %.052 = phi i32 [ %.1, %94 ], [ %.1, %92 ], [ 1, %3 ]
+  %.052 = phi i32 [ %.1, %94 ], [ 1, %3 ], [ %.1, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052
 }
@@ -4485,7 +4485,7 @@ define internal ptr @H5HF__cache_dblock_deserialize(ptr noundef %0, i64 noundef 
   br label %146
 
 146:                                              ; preds = %.thread, %._crit_edge, %144, %120, %100, %89, %81, %74, %32, %21
-  %.1 = phi ptr [ null, %21 ], [ null, %32 ], [ null, %81 ], [ null, %89 ], [ null, %120 ], [ null, %100 ], [ null, %74 ], [ %19, %144 ], [ %19, %._crit_edge ], [ null, %.thread ]
+  %.1 = phi ptr [ null, %21 ], [ null, %32 ], [ null, %81 ], [ null, %89 ], [ null, %120 ], [ null, %74 ], [ null, %100 ], [ null, %.thread ], [ %19, %144 ], [ %19, %._crit_edge ]
   %147 = load ptr, ptr %7, align 8, !tbaa !143
   %.not85 = icmp eq ptr %147, null
   br i1 %.not85, label %150, label %148
@@ -4574,7 +4574,7 @@ define internal noundef i32 @H5HF__cache_dblock_image_len(ptr noundef readonly c
   br label %33
 
 33:                                               ; preds = %.sink.split, %29, %14
-  %.2 = phi i64 [ %16, %14 ], [ %.0, %29 ], [ %32, %.sink.split ]
+  %.2 = phi i64 [ %.0, %29 ], [ %16, %14 ], [ %32, %.sink.split ]
   store i64 %.2, ptr %1, align 8, !tbaa !14
   br label %34
 
@@ -4899,7 +4899,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %.thread161
 
 .thread177:                                       ; preds = %145, %105, %.thread204, %.thread201
-  %.0119.ph = phi i64 [ %.4169, %.thread204 ], [ %.1120160, %.thread201 ], [ %2, %105 ], [ %2, %145 ]
+  %.0119.ph = phi i64 [ %.4169, %.thread204 ], [ %2, %105 ], [ %.1120160, %.thread201 ], [ %2, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %211
@@ -4962,7 +4962,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %223
 
 211:                                              ; preds = %.thread177, %179, %201, %193
-  %.6 = phi i64 [ %184, %193 ], [ %184, %201 ], [ %2, %179 ], [ %.0119.ph, %.thread177 ]
+  %.6 = phi i64 [ %.0119.ph, %.thread177 ], [ %184, %193 ], [ %184, %201 ], [ %2, %179 ]
   %212 = load ptr, ptr %8, align 8, !tbaa !143
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store ptr %212, ptr %213, align 8, !tbaa !161
@@ -4979,7 +4979,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %218
 
 218:                                              ; preds = %211, %217
-  %.0133 = phi i32 [ 2, %217 ], [ 0, %211 ]
+  %.0133 = phi i32 [ 0, %211 ], [ 2, %217 ]
   %219 = load i32, ptr %77, align 4, !tbaa !75
   %.not152 = icmp eq i32 %219, 0
   %.not153 = icmp eq i64 %3, %214

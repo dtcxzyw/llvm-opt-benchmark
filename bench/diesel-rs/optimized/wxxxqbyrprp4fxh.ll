@@ -198,7 +198,7 @@ define noundef zeroext i1 @"_ZN82_$LT$diesel_migrations..errors..MigrationError$
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %2, %12, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit", %9
-  %.0.shrunk = phi i1 [ %11, %9 ], [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit" ], [ false, %12 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ %.0.i.i, %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit" ], [ %11, %9 ], [ false, %12 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
 16:                                               ; preds = %12

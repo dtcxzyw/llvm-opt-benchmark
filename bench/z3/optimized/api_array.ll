@@ -782,7 +782,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %66
   br label %75
 
 75:                                               ; preds = %.invoke, %74
-  %.0 = phi ptr [ %64, %74 ], [ null, %.invoke ]
+  %.0 = phi ptr [ null, %.invoke ], [ %64, %74 ]
   br i1 %7, label %.thread, label %_ZN10z3_log_ctxD2Ev.exit, !prof !185
 
 .thread:                                          ; preds = %46, %75
@@ -806,7 +806,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %66
   br label %79
 
 78:                                               ; preds = %23, %49, %77, %47
-  %.pn57.pn = phi { ptr, i32 } [ %24, %23 ], [ %48, %47 ], [ %50, %49 ], [ %.pn.pn, %77 ]
+  %.pn57.pn = phi { ptr, i32 } [ %50, %49 ], [ %24, %23 ], [ %48, %47 ], [ %.pn.pn, %77 ]
   %.043 = extractvalue { ptr, i32 } %.pn57.pn, 1
   br i1 %7, label %79, label %_ZN10z3_log_ctxD2Ev.exit60, !prof !165
 
@@ -1191,7 +1191,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %136
   br label %158
 
 144:                                              ; preds = %75, %_Z11check_sortsP11_Z3_contextP3ast.exit, %137
-  %.3 = phi ptr [ %134, %137 ], [ %134, %_Z11check_sortsP11_Z3_contextP3ast.exit ], [ null, %75 ]
+  %.3 = phi ptr [ %134, %_Z11check_sortsP11_Z3_contextP3ast.exit ], [ %134, %137 ], [ null, %75 ]
   %145 = load ptr, ptr %6, align 8, !tbaa !189
   %.not.i.i = icmp eq ptr %145, null
   br i1 %.not.i.i, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %146
@@ -1240,7 +1240,7 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN6vectorIP4exprLb
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 158:                                              ; preds = %138, %142, %140, %76, %114, %116, %64
-  %.pn61.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %77, %76 ], [ %117, %116 ], [ %115, %114 ], [ %139, %138 ], [ %143, %142 ], [ %141, %140 ]
+  %.pn61.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %65, %64 ], [ %77, %76 ], [ %117, %116 ], [ %139, %138 ], [ %143, %142 ], [ %141, %140 ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -1253,7 +1253,7 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN6vectorIP4exprLb
   br label %160
 
 159:                                              ; preds = %40, %158, %24
-  %.pn67.pn = phi { ptr, i32 } [ %25, %24 ], [ %41, %40 ], [ %.pn61.pn.pn, %158 ]
+  %.pn67.pn = phi { ptr, i32 } [ %41, %40 ], [ %25, %24 ], [ %.pn61.pn.pn, %158 ]
   %.047 = extractvalue { ptr, i32 } %.pn67.pn, 1
   br i1 %8, label %160, label %_ZN10z3_log_ctxD2Ev.exit85, !prof !165
 
@@ -1553,7 +1553,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %81
   br label %90
 
 90:                                               ; preds = %.invoke, %89
-  %.0 = phi ptr [ %79, %89 ], [ null, %.invoke ]
+  %.0 = phi ptr [ null, %.invoke ], [ %79, %89 ]
   br i1 %8, label %.thread, label %_ZN10z3_log_ctxD2Ev.exit, !prof !185
 
 .thread:                                          ; preds = %56, %90
@@ -1577,7 +1577,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %81
   br label %94
 
 93:                                               ; preds = %24, %59, %92, %61, %57
-  %.pn68.pn = phi { ptr, i32 } [ %25, %24 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %.pn.pn, %92 ]
+  %.pn68.pn = phi { ptr, i32 } [ %62, %61 ], [ %25, %24 ], [ %58, %57 ], [ %60, %59 ], [ %.pn.pn, %92 ]
   %.051 = extractvalue { ptr, i32 } %.pn68.pn, 1
   br i1 %8, label %94, label %_ZN10z3_log_ctxD2Ev.exit71, !prof !165
 
@@ -2030,7 +2030,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %160, %162
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 174:                                              ; preds = %154, %158, %156, %111, %113, %72
-  %.pn49.pn = phi { ptr, i32 } [ %73, %72 ], [ %114, %113 ], [ %112, %111 ], [ %155, %154 ], [ %159, %158 ], [ %157, %156 ]
+  %.pn49.pn = phi { ptr, i32 } [ %73, %72 ], [ %112, %111 ], [ %114, %113 ], [ %155, %154 ], [ %159, %158 ], [ %157, %156 ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
@@ -2043,7 +2043,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %160, %162
   br label %176
 
 175:                                              ; preds = %32, %174, %34
-  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ], [ %.pn49.pn, %174 ]
+  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn49.pn, %174 ], [ %33, %32 ]
   %.037 = extractvalue { ptr, i32 } %.pn52.pn.pn.pn, 1
   br i1 %9, label %176, label %_ZN10z3_log_ctxD2Ev.exit82, !prof !165
 
@@ -2281,7 +2281,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %53
   br label %71
 
 71:                                               ; preds = %70, %10
-  %.pn52 = phi { ptr, i32 } [ %11, %10 ], [ %.pn49, %70 ]
+  %.pn52 = phi { ptr, i32 } [ %.pn49, %70 ], [ %11, %10 ]
   %.039 = extractvalue { ptr, i32 } %.pn52, 1
   br i1 %8, label %72, label %_ZN10z3_log_ctxD2Ev.exit55, !prof !196
 
@@ -3387,7 +3387,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !164
 
 54:                                               ; preds = %53
@@ -3398,7 +3398,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
+  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !165
 
 56:                                               ; preds = %.thread, %55
@@ -3546,7 +3546,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %45, %46
   ret ptr %.0
 
 47:                                               ; preds = %43, %41, %35
-  %.merged = phi { ptr, i32 } [ %.pn30, %35 ], [ %44, %43 ], [ %42, %41 ]
+  %.merged = phi { ptr, i32 } [ %42, %41 ], [ %.pn30, %35 ], [ %44, %43 ]
   br i1 %5, label %48, label %_ZN10z3_log_ctxD2Ev.exit34, !prof !165
 
 48:                                               ; preds = %.thread, %47
@@ -3695,7 +3695,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !164
 
 54:                                               ; preds = %53
@@ -3706,7 +3706,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
+  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !165
 
 56:                                               ; preds = %.thread, %55
@@ -3855,7 +3855,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !164
 
 54:                                               ; preds = %53
@@ -3866,7 +3866,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
+  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !165
 
 56:                                               ; preds = %.thread, %55
@@ -4015,7 +4015,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !164
 
 54:                                               ; preds = %53
@@ -4026,7 +4026,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
+  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !165
 
 56:                                               ; preds = %.thread, %55
@@ -4432,7 +4432,7 @@ _ZL13is_array_sortP11_Z3_contextP8_Z3_sort.exit:  ; preds = %_ZNK4decl13get_fami
   br label %_Z15get_array_arityPK4sort.exit
 
 _Z15get_array_arityPK4sort.exit:                  ; preds = %30, %26
-  %34 = phi i32 [ %33, %30 ], [ -1, %26 ]
+  %34 = phi i32 [ -1, %26 ], [ %33, %30 ]
   %35 = icmp ugt i32 %34, %2
   br i1 %35, label %36, label %_ZL13is_array_sortP11_Z3_contextP8_Z3_sort.exit.thread
 
@@ -4622,7 +4622,7 @@ _ZL13is_array_sortP11_Z3_contextP8_Z3_sort.exit:  ; preds = %_ZNK4decl13get_fami
   br label %_ZNK4decl18get_num_parametersEv.exit.i
 
 _ZNK4decl18get_num_parametersEv.exit.i:           ; preds = %29, %25
-  %34 = phi i64 [ %33, %29 ], [ 4294967295, %25 ]
+  %34 = phi i64 [ 4294967295, %25 ], [ %33, %29 ]
   %35 = getelementptr inbounds nuw %class.parameter, ptr %27, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !160

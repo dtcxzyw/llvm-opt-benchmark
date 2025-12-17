@@ -669,12 +669,12 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit40.i: ; preds = %230, %227
   br label %.body.i
 
 common.resume:                                    ; preds = %.body.i27, %770, %.body.i10, %551, %.body.i1, %430, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.pn.i, %.body.i ], [ %.pn14.pn.i, %430 ], [ %.pn.i, %.body.i1 ], [ %.pn9.pn.pn.pn.pn.i, %551 ], [ %.pn.i11, %.body.i10 ], [ %.pn17.pn.i, %770 ], [ %.pn.i28, %.body.i27 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.pn.i, %.body.i ], [ %.pn.i11, %.body.i10 ], [ %.pn.i, %.body.i1 ], [ %.pn14.pn.i, %430 ], [ %.pn9.pn.pn.pn.pn.i, %551 ], [ %.pn17.pn.i, %770 ], [ %.pn.i28, %.body.i27 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %235, %223, %222, %216, %214, %212, %.body, %.body49, %.body52
-  %.sink.i = phi ptr [ %53, %212 ], [ %53, %.body52 ], [ %53, %214 ], [ %56, %216 ], [ %56, %.body49 ], [ %56, %222 ], [ %59, %223 ], [ %59, %.body ], [ %59, %235 ]
-  %.pn11.pn.pn.i = phi { ptr, i32 } [ %213, %212 ], [ %70, %.body52 ], [ %215, %214 ], [ %217, %216 ], [ %80, %.body49 ], [ %.pn8.i, %222 ], [ %224, %223 ], [ %128, %.body ], [ %.pn11.i, %235 ]
+  %.sink.i = phi ptr [ %56, %222 ], [ %53, %214 ], [ %53, %212 ], [ %53, %.body52 ], [ %56, %216 ], [ %56, %.body49 ], [ %59, %223 ], [ %59, %.body ], [ %59, %235 ]
+  %.pn11.pn.pn.i = phi { ptr, i32 } [ %.pn8.i, %222 ], [ %215, %214 ], [ %213, %212 ], [ %70, %.body52 ], [ %217, %216 ], [ %80, %.body49 ], [ %224, %223 ], [ %128, %.body ], [ %.pn11.i, %235 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #15
   br label %common.resume
 
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24.i:                ; preds = %350, %_ZNSt6vectorI
   br label %.body19.i
 
 .body19.i:                                        ; preds = %368, %366, %324
-  %.pn9.pn.i = phi { ptr, i32 } [ %325, %324 ], [ %.pn9.i, %366 ], [ %.pn9.i, %368 ]
+  %.pn9.pn.i = phi { ptr, i32 } [ %325, %324 ], [ %.pn9.i, %368 ], [ %.pn9.i, %366 ]
   %373 = load ptr, ptr %44, align 8
   %.not.i.i.i28.i = icmp eq ptr %373, null
   br i1 %.not.i.i.i28.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit30.i, label %374
@@ -2077,7 +2077,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body29.i
 
 .body29.i:                                        ; preds = %758, %756, %645
-  %.pn14.pn.i38 = phi { ptr, i32 } [ %646, %645 ], [ %.pn14.i40, %756 ], [ %.pn14.i40, %758 ]
+  %.pn14.pn.i38 = phi { ptr, i32 } [ %646, %645 ], [ %.pn14.i40, %758 ], [ %.pn14.i40, %756 ]
   %763 = load ptr, ptr %22, align 8
   %.not.i.i.i49.i = icmp eq ptr %763, null
   br i1 %.not.i.i.i49.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit51.i, label %764

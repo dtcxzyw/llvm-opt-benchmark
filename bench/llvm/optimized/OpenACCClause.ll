@@ -3473,7 +3473,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   unreachable
 
 _ZN5clanglsERN4llvm11raw_ostreamENS_24OpenACCDefaultClauseKindE.exit: ; preds = %28, %30, %35, %37, %42, %44
-  %.0.i.i2 = phi ptr [ %29, %28 ], [ %.0.i.i, %30 ], [ %36, %35 ], [ %.0.i.i, %37 ], [ %43, %42 ], [ %.0.i.i, %44 ]
+  %.0.i.i2 = phi ptr [ %.0.i.i, %44 ], [ %43, %42 ], [ %29, %28 ], [ %.0.i.i, %30 ], [ %36, %35 ], [ %.0.i.i, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i2, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !195
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i2, i64 32
@@ -7099,7 +7099,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %60, %58, %47
   unreachable
 
 _ZN5clanglsERN4llvm11raw_ostreamENS_15OpenACCGangKindE.exit: ; preds = %77, %79, %84, %86, %91, %93
-  %.0.i.i24 = phi ptr [ %78, %77 ], [ %63, %79 ], [ %85, %84 ], [ %63, %86 ], [ %92, %91 ], [ %63, %93 ]
+  %.0.i.i24 = phi ptr [ %63, %93 ], [ %92, %91 ], [ %78, %77 ], [ %63, %79 ], [ %85, %84 ], [ %63, %86 ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !195
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 32
@@ -7901,7 +7901,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %89, %87, %79, %77, %69, %67, %59, %57, %52, %50, %45, %43, %38, %36, %28, %26, %18, %16, %11, %9
-  %.0 = phi ptr [ %10, %9 ], [ %0, %11 ], [ %17, %16 ], [ %0, %18 ], [ %27, %26 ], [ %0, %28 ], [ %37, %36 ], [ %0, %38 ], [ %44, %43 ], [ %0, %45 ], [ %51, %50 ], [ %0, %52 ], [ %58, %57 ], [ %0, %59 ], [ %68, %67 ], [ %0, %69 ], [ %78, %77 ], [ %0, %79 ], [ %88, %87 ], [ %0, %89 ]
+  %.0 = phi ptr [ %0, %89 ], [ %0, %52 ], [ %58, %57 ], [ %0, %59 ], [ %68, %67 ], [ %0, %69 ], [ %78, %77 ], [ %0, %79 ], [ %88, %87 ], [ %10, %9 ], [ %0, %11 ], [ %17, %16 ], [ %0, %18 ], [ %27, %26 ], [ %0, %28 ], [ %37, %36 ], [ %0, %38 ], [ %44, %43 ], [ %0, %45 ], [ %51, %50 ]
   ret ptr %.0
 }
 

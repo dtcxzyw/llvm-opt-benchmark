@@ -494,7 +494,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %81, %_Z
   br i1 %92, label %18, label %._crit_edge63, !llvm.loop !75
 
 93:                                               ; preds = %82, %84, %86, %28
-  %.pn30 = phi { ptr, i32 } [ %29, %28 ], [ %83, %82 ], [ %87, %86 ], [ %85, %84 ]
+  %.pn30 = phi { ptr, i32 } [ %85, %84 ], [ %29, %28 ], [ %83, %82 ], [ %87, %86 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn30
@@ -883,7 +883,7 @@ _ZN11btUnionFind5uniteEii.exit112:                ; preds = %164, %170, %_ZN11bt
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN11btUnionFind5uniteEii.exit112, %160
-  %.174 = phi ptr [ %spec.select, %_ZN11btUnionFind5uniteEii.exit112 ], [ %.073140, %160 ]
+  %.174 = phi ptr [ %.073140, %160 ], [ %spec.select, %_ZN11btUnionFind5uniteEii.exit112 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
   br i1 %exitcond167.not, label %._crit_edge144, label %160, !llvm.loop !143
@@ -1005,7 +1005,7 @@ _ZN11btUnionFind5uniteEii.exit123:                ; preds = %259, %_ZN11btUnionF
   ret void
 
 277:                                              ; preds = %269, %271, %24
-  %.pn89 = phi { ptr, i32 } [ %25, %24 ], [ %272, %271 ], [ %270, %269 ]
+  %.pn89 = phi { ptr, i32 } [ %270, %269 ], [ %272, %271 ], [ %25, %24 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn89
@@ -1220,7 +1220,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld21updateActivationStateEf(pt
   br label %91
 
 91:                                               ; preds = %27, %51, %29, %79, %62, %89
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %28, %27 ], [ %30, %29 ], [ %52, %51 ], [ %63, %62 ], [ %80, %79 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %80, %79 ], [ %28, %27 ], [ %30, %29 ], [ %52, %51 ], [ %63, %62 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn60.pn.pn.pn
@@ -2422,7 +2422,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E10deallocateEv.exit.i.i: ; preds = %131,
   br i1 %156, label %42, label %._crit_edge92, !llvm.loop !205
 
 157:                                              ; preds = %151, %149, %147, %145
-  %.pn = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ]
+  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %152, %151 ], [ %150, %149 ], [ %146, %145 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
@@ -3991,7 +3991,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %600, %601
   br label %.thread558
 
 .thread558:                                       ; preds = %614, %527
-  %.pn244.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %614 ], [ %528, %527 ]
+  %.pn244.pn.pn = phi { ptr, i32 } [ %528, %527 ], [ %.pn.pn.pn, %614 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.sroa.14542.2)
           to label %_ZN20btAlignedObjectArrayIfED2Ev.exit530 unwind label %615
 
@@ -4010,7 +4010,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit527:         ; preds = %609, %304, %._crit_
   br i1 %620, label %211, label %._crit_edge615, !llvm.loop !229
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit530:         ; preds = %.thread553, %.thread558, %316, %314, %312, %310
-  %.pn251 = phi { ptr, i32 } [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %317, %316 ], [ %378, %.thread553 ], [ %.pn244.pn.pn, %.thread558 ]
+  %.pn251 = phi { ptr, i32 } [ %378, %.thread553 ], [ %311, %310 ], [ %315, %314 ], [ %.pn244.pn.pn, %.thread558 ], [ %313, %312 ], [ %317, %316 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %621
 
@@ -4020,7 +4020,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit530:         ; preds = %.thread553, %.threa
   br label %622
 
 622:                                              ; preds = %79, %136, %207, %621, %205, %140, %138, %77, %75
-  %.pn251.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %137, %136 ], [ %80, %79 ], [ %206, %205 ], [ %141, %140 ], [ %139, %138 ], [ %.pn251.pn, %621 ], [ %208, %207 ]
+  %.pn251.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %137, %136 ], [ %139, %138 ], [ %206, %205 ], [ %141, %140 ], [ %.pn251.pn, %621 ], [ %208, %207 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn251.pn.pn.pn.pn.pn
@@ -4908,7 +4908,7 @@ _ZN11btMultiBody15substractSplitVEv.exit:         ; preds = %_ZN11btMultiBody21a
   br i1 %150, label %18, label %._crit_edge83, !llvm.loop !233
 
 151:                                              ; preds = %71, %82, %143, %145, %28
-  %.pn41 = phi { ptr, i32 } [ %29, %28 ], [ %72, %71 ], [ %146, %145 ], [ %144, %143 ], [ %83, %82 ]
+  %.pn41 = phi { ptr, i32 } [ %83, %82 ], [ %29, %28 ], [ %72, %71 ], [ %146, %145 ], [ %144, %143 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
@@ -6887,7 +6887,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   br i1 %1370, label %178, label %._crit_edge, !llvm.loop !240
 
 1371:                                             ; preds = %1365, %974, %583, %166, %168, %191, %108
-  %.pn115 = phi { ptr, i32 } [ %109, %108 ], [ %169, %168 ], [ %167, %166 ], [ %192, %191 ], [ %584, %583 ], [ %975, %974 ], [ %1366, %1365 ]
+  %.pn115 = phi { ptr, i32 } [ %109, %108 ], [ %167, %166 ], [ %169, %168 ], [ %584, %583 ], [ %975, %974 ], [ %192, %191 ], [ %1366, %1365 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br label %1372
 

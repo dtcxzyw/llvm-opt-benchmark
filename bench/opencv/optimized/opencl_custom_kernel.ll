@@ -916,8 +916,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207: ; preds = %31
   br label %468
 
 318:                                              ; preds = %_ZNSolsEPFRSoS_E.exit191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204
-  %cond1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ], [ %not., %_ZNSolsEPFRSoS_E.exit191 ]
-  %.4 = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ], [ %.3, %_ZNSolsEPFRSoS_E.exit191 ]
+  %cond1 = phi i1 [ %not., %_ZNSolsEPFRSoS_E.exit191 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ]
+  %.4 = phi i32 [ %.3, %_ZNSolsEPFRSoS_E.exit191 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204 ]
   %319 = load ptr, ptr %10, align 8, !tbaa !12
   %320 = icmp eq ptr %319, %193
   br i1 %320, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i208

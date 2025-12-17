@@ -381,7 +381,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dsm_get_label(ptr %.632.v
   br label %.thread
 
 .thread:                                          ; preds = %49, %2, %.thread1, %11, %7
-  %52 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %49 ]
+  %52 = phi i32 [ -1, %.thread1 ], [ -1, %7 ], [ -1, %11 ], [ -1, %2 ], [ %spec.select, %49 ]
   ret i32 %52
 }
 

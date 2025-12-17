@@ -339,16 +339,16 @@ degreeKind.exit.thread.i:                         ; preds = %73, %71
   br i1 %.not.i114, label %prune.exit, label %.lr.ph.i113, !llvm.loop !38
 
 prune.exit.sink.split:                            ; preds = %degreeKind.exit.thread27.i, %69, %15, %degreeKind.exit
-  %.036.i.lcssa.sink = phi ptr [ %.097146, %degreeKind.exit ], [ %.097146, %15 ], [ %.036.i, %69 ], [ %.036.i, %degreeKind.exit.thread27.i ]
-  %.3123126.ph = phi ptr [ %.2122, %degreeKind.exit ], [ %.0120145, %15 ], [ %.2122, %69 ], [ %.2122, %degreeKind.exit.thread27.i ]
-  %.096.ph = phi ptr [ %16, %degreeKind.exit ], [ %16, %15 ], [ %70, %69 ], [ %.01735.i, %degreeKind.exit.thread27.i ]
+  %.036.i.lcssa.sink = phi ptr [ %.097146, %15 ], [ %.097146, %degreeKind.exit ], [ %.036.i, %69 ], [ %.036.i, %degreeKind.exit.thread27.i ]
+  %.3123126.ph = phi ptr [ %.0120145, %15 ], [ %.2122, %degreeKind.exit ], [ %.2122, %69 ], [ %.2122, %degreeKind.exit.thread27.i ]
+  %.096.ph = phi ptr [ %16, %15 ], [ %16, %degreeKind.exit ], [ %70, %69 ], [ %.01735.i, %degreeKind.exit.thread27.i ]
   %77 = load ptr, ptr %14, align 8, !tbaa !31
   %78 = tail call i32 @agdelete(ptr noundef %77, ptr noundef nonnull %.036.i.lcssa.sink) #22
   br label %prune.exit
 
 prune.exit:                                       ; preds = %34, %degreeKind.exit.thread.i, %61, %prune.exit.sink.split, %41
-  %.3123126 = phi ptr [ null, %41 ], [ %.3123126.ph, %prune.exit.sink.split ], [ %.2122, %61 ], [ %.2122, %degreeKind.exit.thread.i ], [ %.1121, %34 ]
-  %.096 = phi ptr [ %16, %41 ], [ %.096.ph, %prune.exit.sink.split ], [ %.01735.i, %61 ], [ %.3.i, %degreeKind.exit.thread.i ], [ %16, %34 ]
+  %.3123126 = phi ptr [ null, %41 ], [ %.3123126.ph, %prune.exit.sink.split ], [ %.2122, %degreeKind.exit.thread.i ], [ %.2122, %61 ], [ %.1121, %34 ]
+  %.096 = phi ptr [ %16, %41 ], [ %.096.ph, %prune.exit.sink.split ], [ %.3.i, %degreeKind.exit.thread.i ], [ %.01735.i, %61 ], [ %16, %34 ]
   %.not105 = icmp eq ptr %.096, null
   br i1 %.not105, label %.loopexit138, label %15, !llvm.loop !39
 
@@ -517,7 +517,7 @@ gv_calloc.exit117:                                ; preds = %126
   br i1 %.not106, label %.loopexit, label %.lr.ph162, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph151, %.lr.ph156, %.lr.ph162, %gv_calloc.exit117, %gv_calloc.exit, %149
-  %.194 = phi double [ 0.000000e+00, %149 ], [ 0.000000e+00, %gv_calloc.exit ], [ 0.000000e+00, %gv_calloc.exit117 ], [ %156, %.lr.ph162 ], [ %118, %.lr.ph156 ], [ %147, %.lr.ph151 ]
+  %.194 = phi double [ 0.000000e+00, %149 ], [ 0.000000e+00, %gv_calloc.exit ], [ 0.000000e+00, %gv_calloc.exit117 ], [ %118, %.lr.ph156 ], [ %156, %.lr.ph162 ], [ %147, %.lr.ph151 ]
   %158 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.4) #22
   %.not110 = icmp eq ptr %158, null
   br i1 %.not110, label %165, label %159

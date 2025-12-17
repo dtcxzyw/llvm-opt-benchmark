@@ -230,7 +230,7 @@ define dso_local range(i32 -4095, 1) i32 @i915_gem_mmap_ioctl(ptr noundef readon
   br label %116
 
 .thread15:                                        ; preds = %74, %.thread17, %67, %63, %56, %52
-  %108 = phi i64 [ %68, %67 ], [ -6, %52 ], [ -22, %63 ], [ -22, %56 ], [ -12, %.thread17 ], [ -4, %74 ]
+  %108 = phi i64 [ %68, %67 ], [ -12, %.thread17 ], [ -6, %52 ], [ -22, %63 ], [ -22, %56 ], [ -4, %74 ]
   %109 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %32, i32 -1, ptr nonnull elementtype(i32) %32) #13, !srcloc !13
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %114, label %111
@@ -761,7 +761,7 @@ define internal fastcc i32 @__assign_mmap_offset_handle(ptr noundef %0, i32 noun
   br label %.thread13
 
 .thread13:                                        ; preds = %85, %87, %.thread11, %88
-  %89 = phi i32 [ %82, %88 ], [ -2, %.thread11 ], [ %82, %87 ], [ %82, %85 ]
+  %89 = phi i32 [ %82, %85 ], [ -2, %.thread11 ], [ %82, %88 ], [ %82, %87 ]
   ret i32 %89
 }
 
@@ -955,9 +955,9 @@ define dso_local i32 @i915_gem_mmap(ptr noundef readonly captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %76, %55, %25, %11, %57, %35, %29
-  %78 = phi i32 [ -13, %29 ], [ -13, %35 ], [ -13, %57 ], [ -22, %11 ], [ -22, %25 ], [ -13, %55 ], [ -13, %76 ]
-  %79 = phi ptr [ null, %29 ], [ null, %35 ], [ null, %57 ], [ null, %11 ], [ null, %25 ], [ %spec.select, %55 ], [ %spec.select28, %76 ]
-  %80 = phi ptr [ null, %29 ], [ %23, %35 ], [ null, %57 ], [ null, %11 ], [ null, %25 ], [ %23, %55 ], [ null, %76 ]
+  %78 = phi i32 [ -13, %29 ], [ -22, %11 ], [ -13, %35 ], [ -13, %55 ], [ -13, %57 ], [ -13, %76 ], [ -22, %25 ]
+  %79 = phi ptr [ null, %29 ], [ null, %11 ], [ null, %35 ], [ %spec.select, %55 ], [ null, %57 ], [ %spec.select28, %76 ], [ null, %25 ]
+  %80 = phi ptr [ null, %29 ], [ null, %11 ], [ %23, %35 ], [ %23, %55 ], [ null, %57 ], [ null, %76 ], [ null, %25 ]
   %81 = load ptr, ptr %13, align 8
   call void @_raw_read_unlock(ptr noundef %81) #13
   call void @__rcu_read_unlock() #13
@@ -1203,7 +1203,7 @@ define internal fastcc i32 @i915_gem_object_mmap(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %18, %20, %122, %119, %105, %99, %95, %84, %.thread9, %21
-  %128 = phi i32 [ %62, %.thread9 ], [ 0, %84 ], [ -22, %21 ], [ 0, %95 ], [ 0, %122 ], [ 0, %119 ], [ 0, %105 ], [ 0, %99 ], [ -22, %20 ], [ -22, %18 ]
+  %128 = phi i32 [ %62, %.thread9 ], [ 0, %84 ], [ 0, %99 ], [ -22, %21 ], [ 0, %95 ], [ 0, %122 ], [ 0, %119 ], [ 0, %105 ], [ -22, %20 ], [ -22, %18 ]
   ret i32 %128
 }
 
@@ -1889,7 +1889,7 @@ define internal i32 @vm_access(ptr noundef readonly captures(none) %0, i64 nound
   br label %87
 
 .thread:                                          ; preds = %58, %77
-  %84 = phi i32 [ %79, %77 ], [ %45, %58 ]
+  %84 = phi i32 [ %45, %58 ], [ %79, %77 ]
   %.fr = freeze i32 %84
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %6) #13
   %85 = icmp eq i32 %.fr, 0
@@ -2279,7 +2279,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   br label %262
 
 183:                                              ; preds = %.thread20, %129
-  %184 = phi ptr [ %130, %129 ], [ %.ph, %.thread20 ]
+  %184 = phi ptr [ %.ph, %.thread20 ], [ %130, %129 ]
   %185 = icmp ugt ptr %184, inttoptr (i64 -4096 to ptr)
   br i1 %185, label %186, label %189
 
@@ -2413,7 +2413,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   br label %268
 
 268:                                              ; preds = %266, %._crit_edge
-  %269 = phi i32 [ %124, %._crit_edge ], [ %267, %266 ]
+  %269 = phi i32 [ %267, %266 ], [ %124, %._crit_edge ]
   %270 = icmp eq i32 %269, -35
   br i1 %270, label %271, label %.thread23
 

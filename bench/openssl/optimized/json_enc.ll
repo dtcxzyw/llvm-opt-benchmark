@@ -325,7 +325,7 @@ json_push.exit:                                   ; preds = %24, %3
   store i8 1, ptr %52, align 4, !tbaa !23
   br label %json_push.exit.thread
 
-json_push.exit.thread:                            ; preds = %30, %49, %json_push.exit
+json_push.exit.thread:                            ; preds = %49, %30, %json_push.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %54 = load i8, ptr %53, align 4, !tbaa !23
   %.not.i7 = icmp eq i8 %54, 0
@@ -1195,7 +1195,7 @@ json_write_char.exit:                             ; preds = %json_undefer.exit.i
   br label %66
 
 66:                                               ; preds = %json_write_char.exit.thread, %5, %.thread, %json_write_char.exit, %1, %65, %29
-  %.0 = phi i32 [ 0, %65 ], [ 0, %29 ], [ 0, %1 ], [ 0, %json_write_char.exit ], [ 1, %.thread ], [ 1, %5 ], [ 0, %json_write_char.exit.thread ]
+  %.0 = phi i32 [ 0, %json_write_char.exit ], [ 0, %65 ], [ 0, %29 ], [ 0, %1 ], [ 1, %.thread ], [ 1, %5 ], [ 0, %json_write_char.exit.thread ]
   ret i32 %.0
 }
 
@@ -1551,7 +1551,7 @@ wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i
   br label %json_write_char.exit
 
 json_write_char.exit:                             ; preds = %.thread, %44, %wbuf_write_char.exit.i, %11
-  %48 = phi i1 [ false, %11 ], [ true, %wbuf_write_char.exit.i ], [ true, %44 ], [ false, %.thread ]
+  %48 = phi i1 [ true, %44 ], [ false, %11 ], [ false, %.thread ], [ true, %wbuf_write_char.exit.i ]
   %49 = icmp eq i64 %1, 0
   br i1 %49, label %.loopexit, label %json_write_char.exit.thread
 
@@ -2794,9 +2794,9 @@ wbuf_write_char.exit.i96:                         ; preds = %wbuf_flush.exit.i.i
   br label %json_write_char.exit102
 
 156:                                              ; preds = %52, %129, %110, %88, %68, %59, %58, %57, %56, %55, %54
-  %.069 = phi ptr [ %8, %68 ], [ %8, %129 ], [ %8, %110 ], [ %8, %88 ], [ @.str.8, %54 ], [ @.str.9, %55 ], [ @.str.10, %56 ], [ @.str.11, %57 ], [ @.str.12, %58 ], [ @.str.13, %59 ], [ @.str.7, %52 ]
-  %.167 = phi ptr [ %66, %68 ], [ %.066132, %129 ], [ %102, %110 ], [ %80, %88 ], [ %.066132, %54 ], [ %.066132, %55 ], [ %.066132, %56 ], [ %.066132, %57 ], [ %.066132, %58 ], [ %.066132, %59 ], [ %.066132, %52 ]
-  %.1 = phi i64 [ %70, %68 ], [ %.0134, %129 ], [ %112, %110 ], [ %89, %88 ], [ %.0134, %54 ], [ %.0134, %55 ], [ %.0134, %56 ], [ %.0134, %57 ], [ %.0134, %58 ], [ %.0134, %59 ], [ %.0134, %52 ]
+  %.069 = phi ptr [ %8, %68 ], [ %8, %129 ], [ %8, %110 ], [ %8, %88 ], [ @.str.13, %59 ], [ @.str.8, %54 ], [ @.str.9, %55 ], [ @.str.10, %56 ], [ @.str.11, %57 ], [ @.str.12, %58 ], [ @.str.7, %52 ]
+  %.167 = phi ptr [ %66, %68 ], [ %.066132, %129 ], [ %102, %110 ], [ %80, %88 ], [ %.066132, %59 ], [ %.066132, %54 ], [ %.066132, %55 ], [ %.066132, %56 ], [ %.066132, %57 ], [ %.066132, %58 ], [ %.066132, %52 ]
+  %.1 = phi i64 [ %70, %68 ], [ %.0134, %129 ], [ %112, %110 ], [ %89, %88 ], [ %.0134, %59 ], [ %.0134, %54 ], [ %.0134, %55 ], [ %.0134, %56 ], [ %.0134, %57 ], [ %.0134, %58 ], [ %.0134, %52 ]
   call fastcc void @json_write_str(ptr noundef %0, ptr noundef nonnull %.069)
   br label %json_write_char.exit102
 

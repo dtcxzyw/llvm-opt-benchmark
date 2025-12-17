@@ -196,7 +196,7 @@ BN_copy.exit:                                     ; preds = %8
   br label %BN_free.exit
 
 BN_free.exit:                                     ; preds = %5, %14, %33, %32, %BN_new.exit.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %BN_new.exit.thread ], [ null, %32 ], [ null, %33 ], [ %calloc.i, %14 ], [ %calloc.i, %5 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %1 ], [ null, %BN_new.exit.thread ], [ null, %32 ], [ %calloc.i, %14 ], [ %calloc.i, %5 ]
   ret ptr %.0
 }
 
@@ -285,7 +285,7 @@ define hidden noundef ptr @bn_wexpand(ptr noundef captures(ret: address, provena
   br label %26
 
 26:                                               ; preds = %2, %19, %18, %13, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ null, %18 ], [ %0, %19 ], [ %0, %2 ]
+  %.0 = phi ptr [ %0, %19 ], [ null, %8 ], [ null, %13 ], [ null, %18 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -721,7 +721,7 @@ bn_wexpand.exit.i:                                ; preds = %13, %.bn_wexpand.ex
   br label %BN_set_word.exit
 
 BN_set_word.exit:                                 ; preds = %8, %12, %bn_wexpand.exit.i
-  %.0.i = phi i32 [ 1, %bn_wexpand.exit.i ], [ 0, %8 ], [ 0, %12 ]
+  %.0.i = phi i32 [ 0, %12 ], [ 1, %bn_wexpand.exit.i ], [ 0, %8 ]
   ret i32 %.0.i
 }
 

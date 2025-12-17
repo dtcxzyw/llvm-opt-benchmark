@@ -192,7 +192,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not512, label %120, label %.thread
 
 .thread.sink.split:                               ; preds = %112, %108, %104, %101, %98, %95, %92, %89, %87, %84, %81
-  %.sink = phi i32 [ -1, %81 ], [ -2, %84 ], [ -3, %87 ], [ -4, %89 ], [ -5, %92 ], [ -6, %95 ], [ -10, %98 ], [ -12, %101 ], [ -18, %104 ], [ -20, %108 ], [ -22, %112 ]
+  %.sink = phi i32 [ -1, %81 ], [ -2, %84 ], [ -4, %89 ], [ -6, %95 ], [ -12, %101 ], [ -20, %108 ], [ -18, %104 ], [ -10, %98 ], [ -5, %92 ], [ -3, %87 ], [ -22, %112 ]
   store i32 %.sink, ptr %24, align 4, !tbaa !3
   br label %.thread
 
@@ -852,7 +852,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not525.not, label %475, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %475, %._crit_edge588, %361
-  %.0483559 = phi i32 [ %.0483572, %._crit_edge588 ], [ 41, %361 ], [ %.0483572, %475 ]
+  %.0483559 = phi i32 [ 41, %361 ], [ %.0483572, %._crit_edge588 ], [ %.0483572, %475 ]
   store i32 %.0483559, ptr %23, align 4, !tbaa !3
   br label %478
 

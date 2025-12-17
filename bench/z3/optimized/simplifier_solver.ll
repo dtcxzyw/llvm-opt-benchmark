@@ -2363,7 +2363,7 @@ _ZN6vectorI14dependent_exprLb1EjE3endEv.exit:     ; preds = %18
   br label %.thread
 
 .thread:                                          ; preds = %73, %77, %75
-  %81 = phi ptr [ %76, %77 ], [ null, %75 ], [ null, %73 ]
+  %81 = phi ptr [ null, %75 ], [ %76, %77 ], [ null, %73 ]
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 464
   %83 = load ptr, ptr %82, align 8, !tbaa !97
   %.not.i.i = icmp eq ptr %83, null
@@ -4099,7 +4099,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit108: 
   br label %.body113
 
 .body113:                                         ; preds = %.loopexit, %.loopexit.split-lp, %133, %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %.body
-  %.pn38.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body ], [ %134, %133 ], [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %117, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn38.pn = phi { ptr, i32 } [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %.pn.pn.pn.pn, %.body ], [ %117, %116 ], [ %134, %133 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn38.pn
@@ -6979,7 +6979,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN15r
   ret void
 
 280:                                              ; preds = %82, %173, %239, %45
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %174, %173 ], [ %.pn, %239 ], [ %83, %82 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %46, %45 ], [ %174, %173 ], [ %.pn, %239 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #24
@@ -7888,7 +7888,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !272
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %111, %41, %36, %33
-  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %111 ]
+  %.sink34 = phi i64 [ 16, %41 ], [ 16, %33 ], [ 16, %36 ], [ 24, %111 ]
   %112 = load ptr, ptr %21, align 8, !tbaa !273
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %112, i64 noundef %.sink34, ptr noundef nonnull %29)
   %113 = load ptr, ptr %5, align 8, !tbaa !270

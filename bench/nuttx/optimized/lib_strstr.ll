@@ -207,7 +207,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader118, %54, %57, %72, %42, %44, %.critedge.thread, %.preheader, %33, %.critedge, %4, %2, %81, %66
-  %.0 = phi ptr [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %4 ], [ %.mux, %.critedge ], [ null, %33 ], [ null, %.preheader ], [ %.mux191, %.critedge.thread ], [ %40, %42 ], [ null, %44 ], [ null, %72 ], [ %52, %54 ], [ null, %57 ], [ null, %.preheader118 ]
+  %.0 = phi ptr [ null, %4 ], [ %.mux, %.critedge ], [ %.mux191, %.critedge.thread ], [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %.preheader ], [ null, %33 ], [ %52, %54 ], [ null, %44 ], [ null, %72 ], [ %40, %42 ], [ null, %57 ], [ null, %.preheader118 ]
   ret ptr %.0
 }
 

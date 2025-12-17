@@ -473,7 +473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34, %
   br label %125
 
 125:                                              ; preds = %121, %123
-  %.pn50.pn = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ]
+  %.pn50.pn = phi { ptr, i32 } [ %122, %121 ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %126
@@ -717,7 +717,7 @@ _ZN12_GLOBAL__N_19filter_2DIN2cv4UMatEEEvRKS2_RT_RKNS1_11_InputArrayENS1_6Point_
   br label %.body
 
 .body:                                            ; preds = %66, %65
-  %.pn26 = phi { ptr, i32 } [ %67, %66 ], [ %.pn30.pn.i, %65 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn30.pn.i, %65 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %68
 
@@ -1326,7 +1326,7 @@ define void @_ZN2cv7quality11QualityGMSD9_mat_data7computeERKS2_S4_(ptr dead_on_
   br label %116
 
 116:                                              ; preds = %112, %114
-  %.pn54.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %115, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %119
 
@@ -1745,7 +1745,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %28, %31
   br label %48
 
 48:                                               ; preds = %47, %44
-  %.pn42.pn = phi { ptr, i32 } [ %.pn42.ph, %47 ], [ %45, %44 ]
+  %.pn42.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn42.ph, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #17
   br label %49
@@ -1832,7 +1832,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %28, %31
   br label %74
 
 74:                                               ; preds = %73, %70
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37.ph, %73 ], [ %71, %70 ]
+  %.pn37.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn37.ph, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #17
   br label %75

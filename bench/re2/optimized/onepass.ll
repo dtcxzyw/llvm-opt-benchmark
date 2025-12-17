@@ -278,7 +278,7 @@ land.lhs.true109:                                 ; preds = %if.end106
   br i1 %or.cond3, label %for.cond161.preheader, label %if.end117
 
 skipmatch:                                        ; preds = %if.end75, %lor.lhs.false85, %if.end106, %if.end69
-  %matched.1 = phi i1 [ %matched.0145, %if.end69 ], [ true, %if.end106 ], [ %matched.0145, %lor.lhs.false85 ], [ %matched.0145, %if.end75 ]
+  %matched.1 = phi i1 [ %matched.0145, %if.end69 ], [ %matched.0145, %if.end75 ], [ true, %if.end106 ], [ %matched.0145, %lor.lhs.false85 ]
   %cmp115.old = icmp eq ptr %state.1, null
   br i1 %cmp115.old, label %done, label %if.end117
 
@@ -414,7 +414,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body163
   br i1 %exitcond.not, label %return, label %for.body163, !llvm.loop !7
 
 return:                                           ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %for.cond161.preheader, %if.end29, %if.end, %done, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %done ], [ false, %if.end ], [ false, %if.end29 ], [ true, %for.cond161.preheader ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
+  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %if.end29 ], [ false, %if.end ], [ false, %done ], [ true, %for.cond161.preheader ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
   ret i1 %retval.0
 }
 
@@ -1271,7 +1271,7 @@ if.then286:                                       ; preds = %if.end270
   br label %if.end290
 
 if.end290:                                        ; preds = %if.end270, %land.lhs.true, %if.then277, %if.then286
-  %cond81.2 = phi i32 [ %or289, %if.then286 ], [ %cond81.0.ph434, %land.lhs.true ], [ %or281, %if.then277 ], [ %cond81.0.ph434, %if.end270 ]
+  %cond81.2 = phi i32 [ %or289, %if.then286 ], [ %cond81.0.ph434, %if.end270 ], [ %cond81.0.ph434, %land.lhs.true ], [ %or281, %if.then277 ]
   %shr.i311 = lshr i32 %95, 4
   %cmp.i312 = icmp eq i32 %shr.i311, 0
   br i1 %cmp.i312, label %invoke.cont85.outer431.backedge, label %if.end.i313
@@ -1370,9 +1370,9 @@ invoke.cont85.outer.backedge:                     ; preds = %if.then5.i.i.i354, 
   br label %invoke.cont85.outer
 
 sw.epilog:                                        ; preds = %if.end302, %if.end240, %invoke.cont85, %invoke.cont98
-  %matched.2 = phi i8 [ %matched.1.ph, %invoke.cont98 ], [ %matched.1.ph, %invoke.cont85 ], [ %matched.1.ph, %if.end240 ], [ 1, %if.end302 ]
-  %node.2 = phi ptr [ %node.1.ph439, %invoke.cont98 ], [ %node.1.ph439, %invoke.cont85 ], [ %node.3, %if.end240 ], [ %node.1.ph439, %if.end302 ]
-  %nalloc.3 = phi i32 [ %nalloc.2.ph440, %invoke.cont98 ], [ %nalloc.2.ph440, %invoke.cont85 ], [ %nalloc.4, %if.end240 ], [ %nalloc.2.ph440, %if.end302 ]
+  %matched.2 = phi i8 [ %matched.1.ph, %invoke.cont98 ], [ %matched.1.ph, %if.end240 ], [ %matched.1.ph, %invoke.cont85 ], [ 1, %if.end302 ]
+  %node.2 = phi ptr [ %node.1.ph439, %invoke.cont98 ], [ %node.3, %if.end240 ], [ %node.1.ph439, %invoke.cont85 ], [ %node.1.ph439, %if.end302 ]
+  %nalloc.3 = phi i32 [ %nalloc.2.ph440, %invoke.cont98 ], [ %nalloc.4, %if.end240 ], [ %nalloc.2.ph440, %invoke.cont85 ], [ %nalloc.2.ph440, %if.end302 ]
   %cmp76 = icmp sgt i32 %nstack.1.ph432, 0
   br i1 %cmp76, label %while.body, label %for.inc317, !llvm.loop !13
 
@@ -1435,7 +1435,7 @@ _ZN3re28PODArrayIhED2Ev.exit:                     ; preds = %if.then.i.i.i.i.i37
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i358, %sw.bb299, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272, %if.then112, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176, %if.else, %if.else232, %_ZN3re28PODArrayIhED2Ev.exit
-  %cmp58.not550 = phi i1 [ true, %_ZN3re28PODArrayIhED2Ev.exit ], [ false, %if.else232 ], [ false, %if.else ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176 ], [ false, %if.then112 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329 ], [ false, %sw.bb299 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i358 ]
+  %cmp58.not550 = phi i1 [ true, %_ZN3re28PODArrayIhED2Ev.exit ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329 ], [ false, %if.else232 ], [ false, %if.else ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272 ], [ false, %if.then112 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300 ], [ false, %sw.bb299 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i358 ]
   %123 = load ptr, ptr %20, align 8
   %cmp.not.i.i.i381 = icmp eq ptr %123, null
   br i1 %cmp.not.i.i.i381, label %_ZN3re28PODArrayIiED2Ev.exit.i382, label %if.then.i.i.i
@@ -1547,7 +1547,7 @@ invoke.cont11.i.i413:                             ; preds = %ehcleanup341
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont11.i.i399, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit, %if.end6, %lor.lhs.false, %if.end, %if.then
-  %retval.0 = phi i1 [ %cmp, %if.then ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end6 ], [ %cmp58.not550, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit ], [ %cmp58.not550, %invoke.cont11.i.i399 ]
+  %retval.0 = phi i1 [ %cmp, %if.then ], [ false, %if.end6 ], [ false, %if.end ], [ false, %lor.lhs.false ], [ %cmp58.not550, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit ], [ %cmp58.not550, %invoke.cont11.i.i399 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %invoke.cont11.i.i413, %ehcleanup341

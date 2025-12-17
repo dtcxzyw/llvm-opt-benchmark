@@ -1494,7 +1494,7 @@ define hidden noundef zeroext i1 @_ZN4aead11AeadInPlace16decrypt_in_place17h8ff9
   br label %32
 
 32:                                               ; preds = %26, %6, %29
-  %.0 = phi i1 [ false, %29 ], [ true, %6 ], [ true, %26 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %29 ], [ true, %26 ]
   ret i1 %.0
 }
 
@@ -6382,9 +6382,9 @@ default.unreachable48:                            ; preds = %3
   unreachable
 
 .noexc12:                                         ; preds = %63, %.noexc36, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i", %.noexc16, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i"
-  %.sroa.941.1 = phi ptr [ %.sroa.941.0, %.noexc36 ], [ undef, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ undef, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ %88, %.noexc16 ], [ %64, %63 ]
-  %.sroa.7.0 = phi i8 [ undef, %.noexc36 ], [ %167, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ %74, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ undef, %.noexc16 ], [ undef, %63 ]
-  %.sroa.0.1 = phi i8 [ 1, %.noexc36 ], [ 0, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ 0, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ 1, %.noexc16 ], [ 1, %63 ]
+  %.sroa.941.1 = phi ptr [ %.sroa.941.0, %.noexc36 ], [ undef, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ %88, %.noexc16 ], [ undef, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ %64, %63 ]
+  %.sroa.7.0 = phi i8 [ undef, %.noexc36 ], [ %167, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ undef, %.noexc16 ], [ %74, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ undef, %63 ]
+  %.sroa.0.1 = phi i8 [ 1, %.noexc36 ], [ 0, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit46.i" ], [ 1, %.noexc16 ], [ 0, %"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$signature..error..Error$GT$$GT$17h88d8ff99006b884cE.exit.i" ], [ 1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   store i8 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6952,7 +6952,7 @@ default.unreachable48:                            ; preds = %3
   br label %.noexc12
 
 .body9:                                           ; preds = %183, %177, %155, %84, %59
-  %.pn = phi { ptr, i32 } [ %184, %183 ], [ %60, %59 ], [ %85, %84 ], [ %156, %155 ], [ %178, %177 ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %184, %183 ], [ %156, %155 ], [ %60, %59 ], [ %85, %84 ]
   store i8 2, ptr %31, align 8
   resume { ptr, i32 } %.pn
 

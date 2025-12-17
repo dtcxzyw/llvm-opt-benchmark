@@ -955,7 +955,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   unreachable
 
 .body.thread.i:                                   ; preds = %34, %30, %24
-  %eh.lpad-body23.i = phi { ptr, i32 } [ %25, %24 ], [ %31, %30 ], [ %31, %34 ]
+  %eh.lpad-body23.i = phi { ptr, i32 } [ %31, %30 ], [ %31, %34 ], [ %25, %24 ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %44 = load ptr, ptr %43, align 8, !alias.scope !200, !noalias !205, !noundef !8
   %.not34.i = icmp eq ptr %44, null
@@ -1050,7 +1050,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %70
 
 72:                                               ; preds = %.body.i, %45, %.body.thread.i
-  %eh.lpad-body31 = phi { ptr, i32 } [ %38, %.body.i ], [ %eh.lpad-body23.i, %.body.thread.i ], [ %eh.lpad-body23.i, %45 ]
+  %eh.lpad-body31 = phi { ptr, i32 } [ %eh.lpad-body23.i, %.body.thread.i ], [ %eh.lpad-body23.i, %45 ], [ %38, %.body.i ]
   %.val = load ptr, ptr %1, align 8, !nonnull !8, !align !116, !noundef !8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val21 = load i64, ptr %73, align 8, !noundef !8
@@ -1360,13 +1360,13 @@ define hidden void @_ZN10wasmi_core9func_type8FuncType3new17h635d5ecdbe8f7b86E(p
   br label %75
 
 _ZN10wasmi_core9func_type13FuncTypeInner3new17hbefebbcdba796dadE.exit: ; preds = %.noexc.i, %.loopexit.i
-  %.sroa.13.sroa.6.0 = phi i8 [ %.sroa.13.sroa.6.0.extract.trunc, %.noexc.i ], [ %.sroa.13.sroa.6.1.copyload, %.loopexit.i ]
-  %.sroa.13.sroa.0.0 = phi i8 [ %27, %.noexc.i ], [ %.sroa.67.0.i.i, %.loopexit.i ]
-  %.sroa.18.0 = phi i64 [ %68, %.noexc.i ], [ %.sroa.18.3.copyload, %.loopexit.i ]
-  %.sroa.1714.0 = phi ptr [ %65, %.noexc.i ], [ %.sroa.1714.3.copyload, %.loopexit.i ]
-  %.sroa.17.0 = phi i32 [ undef, %.noexc.i ], [ %.sroa.17.3.copyload, %.loopexit.i ]
-  %.sroa.812.0 = phi i8 [ undef, %.noexc.i ], [ %.sroa.6.0.i.i, %.loopexit.i ]
-  %.sroa.0.0 = phi i8 [ 1, %.noexc.i ], [ 0, %.loopexit.i ]
+  %.sroa.13.sroa.6.0 = phi i8 [ %.sroa.13.sroa.6.1.copyload, %.loopexit.i ], [ %.sroa.13.sroa.6.0.extract.trunc, %.noexc.i ]
+  %.sroa.13.sroa.0.0 = phi i8 [ %.sroa.67.0.i.i, %.loopexit.i ], [ %27, %.noexc.i ]
+  %.sroa.18.0 = phi i64 [ %.sroa.18.3.copyload, %.loopexit.i ], [ %68, %.noexc.i ]
+  %.sroa.1714.0 = phi ptr [ %.sroa.1714.3.copyload, %.loopexit.i ], [ %65, %.noexc.i ]
+  %.sroa.17.0 = phi i32 [ %.sroa.17.3.copyload, %.loopexit.i ], [ undef, %.noexc.i ]
+  %.sroa.812.0 = phi i8 [ %.sroa.6.0.i.i, %.loopexit.i ], [ undef, %.noexc.i ]
+  %.sroa.0.0 = phi i8 [ 0, %.loopexit.i ], [ 1, %.noexc.i ]
   %.sroa.13.sroa.6.0.insert.ext = zext i8 %.sroa.13.sroa.6.0 to i16
   %.sroa.13.sroa.6.0.insert.shift = shl nuw i16 %.sroa.13.sroa.6.0.insert.ext, 8
   %.sroa.13.sroa.0.0.insert.ext = zext i8 %.sroa.13.sroa.0.0 to i16
@@ -1784,7 +1784,7 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 28:                                               ; preds = %11, %2, %22, %16
-  %.sink = phi i64 [ 1, %22 ], [ 1, %16 ], [ 0, %2 ], [ 0, %11 ]
+  %.sink = phi i64 [ 1, %22 ], [ 0, %2 ], [ 1, %16 ], [ 0, %11 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -4316,7 +4316,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   unreachable
 
 247:                                              ; preds = %.thread, %100
-  %.pn124144 = phi { ptr, i32 } [ %.pn122, %100 ], [ %lpad.thr_comm, %.thread ]
+  %.pn124144 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn122, %100 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$wasmi..module..ModuleHeader$GT$17h0b6ceb6aed50088dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35) #31
           to label %70 unwind label %155
 
@@ -5781,8 +5781,8 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   br label %56
 
 64:                                               ; preds = %82, %102, %112, %90, %100, %66, %74, %60
-  %.sroa.031.0 = phi i32 [ %.sroa.063.0.extract.trunc, %66 ], [ %.sroa.067.0.extract.trunc, %74 ], [ %.sroa.061.0.extract.trunc, %60 ], [ %.sroa.065.0.extract.trunc, %90 ], [ %.sroa.050.0.copyload, %100 ], [ %.sroa.069.0.extract.trunc, %102 ], [ %.sroa.053.0.copyload, %112 ], [ %.sroa.056.0.copyload, %82 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.464.0.extract.trunc, %66 ], [ %.sroa.468.0.extract.trunc, %74 ], [ %.sroa.462.0.extract.trunc, %60 ], [ %.sroa.466.0.extract.trunc, %90 ], [ %.sroa.551.0.copyload, %100 ], [ %.sroa.470.0.extract.trunc, %102 ], [ %.sroa.554.0.copyload, %112 ], [ %89, %82 ]
+  %.sroa.031.0 = phi i32 [ %.sroa.063.0.extract.trunc, %66 ], [ %.sroa.061.0.extract.trunc, %60 ], [ %.sroa.067.0.extract.trunc, %74 ], [ %.sroa.050.0.copyload, %100 ], [ %.sroa.053.0.copyload, %112 ], [ %.sroa.065.0.extract.trunc, %90 ], [ %.sroa.069.0.extract.trunc, %102 ], [ %.sroa.056.0.copyload, %82 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.464.0.extract.trunc, %66 ], [ %.sroa.462.0.extract.trunc, %60 ], [ %.sroa.468.0.extract.trunc, %74 ], [ %.sroa.551.0.copyload, %100 ], [ %.sroa.554.0.copyload, %112 ], [ %.sroa.466.0.extract.trunc, %90 ], [ %.sroa.470.0.extract.trunc, %102 ], [ %89, %82 ]
   %65 = call noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE(ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %.not74 = icmp eq ptr %65, null
   br i1 %.not74, label %118, label %116
@@ -6428,9 +6428,9 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   ]
 
 30:                                               ; preds = %57, %51, %79, %42, %68, %5, %39, %48, %137, %106, %37
-  %.sroa.099.0 = phi i64 [ 6, %39 ], [ 6, %48 ], [ 3, %37 ], [ %107, %106 ], [ %138, %137 ], [ 2, %5 ], [ 7, %42 ], [ 3, %68 ], [ 8, %51 ], [ 3, %79 ], [ 3, %57 ]
-  %.sroa.12.0 = phi i16 [ undef, %39 ], [ undef, %48 ], [ %38, %37 ], [ %.sroa.4130.0.extract.trunc, %106 ], [ %.sroa.4133.0.extract.trunc, %137 ], [ undef, %5 ], [ undef, %42 ], [ %78, %68 ], [ undef, %51 ], [ %89, %79 ], [ %67, %57 ]
-  %.sroa.16.0 = phi i32 [ %41, %39 ], [ %50, %48 ], [ undef, %37 ], [ %.sroa.5131.0.extract.trunc, %106 ], [ %.sroa.5134.0.extract.trunc, %137 ], [ undef, %5 ], [ %47, %42 ], [ undef, %68 ], [ %56, %51 ], [ undef, %79 ], [ undef, %57 ]
+  %.sroa.099.0 = phi i64 [ %138, %137 ], [ 6, %39 ], [ 2, %5 ], [ 6, %48 ], [ 3, %68 ], [ 3, %79 ], [ 3, %37 ], [ %107, %106 ], [ 7, %42 ], [ 8, %51 ], [ 3, %57 ]
+  %.sroa.12.0 = phi i16 [ %.sroa.4133.0.extract.trunc, %137 ], [ undef, %39 ], [ undef, %5 ], [ undef, %48 ], [ %78, %68 ], [ %89, %79 ], [ %38, %37 ], [ %.sroa.4130.0.extract.trunc, %106 ], [ undef, %42 ], [ undef, %51 ], [ %67, %57 ]
+  %.sroa.16.0 = phi i32 [ %.sroa.5134.0.extract.trunc, %137 ], [ %41, %39 ], [ undef, %5 ], [ %50, %48 ], [ undef, %68 ], [ undef, %79 ], [ undef, %37 ], [ %.sroa.5131.0.extract.trunc, %106 ], [ %47, %42 ], [ %56, %51 ], [ undef, %57 ]
   %31 = tail call noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %.not146 = icmp eq ptr %31, null
   br i1 %.not146, label %139, label %90
@@ -6556,7 +6556,7 @@ default.unreachable162:                           ; preds = %35
   br i1 %85, label %90, label %30
 
 90:                                               ; preds = %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit, %197, %191, %184, %177, %170, %159, %116, %30, %130, %122, %108, %98, %91, %57, %79, %68, %164
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %164 ], [ %76, %68 ], [ %87, %79 ], [ %65, %57 ], [ %95, %91 ], [ %103, %98 ], [ %113, %108 ], [ %127, %122 ], [ %134, %130 ], [ %31, %30 ], [ %121, %116 ], [ %160, %159 ], [ %174, %170 ], [ %181, %177 ], [ %188, %184 ], [ %196, %191 ], [ %198, %197 ], [ null, %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit ]
+  %.sroa.0.0 = phi ptr [ %113, %108 ], [ %121, %116 ], [ %.sroa.0.1, %164 ], [ %160, %159 ], [ %174, %170 ], [ %181, %177 ], [ %188, %184 ], [ %196, %191 ], [ null, %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder10push_instr17he5586b0fe88762d0E.exit ], [ %134, %130 ], [ %31, %30 ], [ %198, %197 ], [ %127, %122 ], [ %76, %68 ], [ %87, %79 ], [ %65, %57 ], [ %95, %91 ], [ %103, %98 ]
   ret ptr %.sroa.0.0
 
 91:                                               ; preds = %5
@@ -6827,7 +6827,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   ]
 
 .loopexit:                                        ; preds = %108, %102, %77, %29, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence4push17h6e984a690250580dE.exit, %69, %93, %85, %52, %59, %30
-  %.sroa.015.0 = phi ptr [ %34, %30 ], [ %56, %52 ], [ %64, %59 ], [ %74, %69 ], [ %90, %85 ], [ %97, %93 ], [ null, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence4push17h6e984a690250580dE.exit ], [ %111, %108 ], [ %106, %102 ], [ %83, %77 ], [ null, %29 ]
+  %.sroa.015.0 = phi ptr [ %97, %93 ], [ %74, %69 ], [ %64, %59 ], [ %90, %85 ], [ %34, %30 ], [ null, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence4push17h6e984a690250580dE.exit ], [ %56, %52 ], [ %83, %77 ], [ %106, %102 ], [ %111, %108 ], [ null, %29 ]
   ret ptr %.sroa.015.0
 
 30:                                               ; preds = %29
@@ -6843,9 +6843,9 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   br i1 %32, label %.loopexit, label %37
 
 37:                                               ; preds = %30, %100, %67
-  %.sroa.067.0 = phi i64 [ %68, %67 ], [ %101, %100 ], [ 519, %30 ]
-  %.sroa.4.0 = phi i16 [ %.sroa.491.0.extract.trunc, %67 ], [ %.sroa.494.0.extract.trunc, %100 ], [ %36, %30 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.592.0.extract.shift, %67 ], [ %.sroa.595.0.extract.shift, %100 ], [ 0, %30 ]
+  %.sroa.067.0 = phi i64 [ %101, %100 ], [ %68, %67 ], [ 519, %30 ]
+  %.sroa.4.0 = phi i16 [ %.sroa.494.0.extract.trunc, %100 ], [ %.sroa.491.0.extract.trunc, %67 ], [ %36, %30 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.595.0.extract.shift, %100 ], [ %.sroa.592.0.extract.shift, %67 ], [ 0, %30 ]
   %.sroa.497.0.insert.ext = zext i16 %.sroa.4.0 to i64
   %.sroa.497.0.insert.shift = shl nuw nsw i64 %.sroa.497.0.insert.ext, 16
   %.sroa.497.0.insert.insert = or disjoint i64 %.sroa.497.0.insert.shift, %.sroa.5.0
@@ -7116,7 +7116,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit": ; preds = %122, %119, %104, %101, %25, %40, %96, %81, %58, %35
-  %.sroa.014.0 = phi ptr [ %26, %25 ], [ %59, %58 ], [ %82, %81 ], [ %97, %96 ], [ %41, %40 ], [ %36, %35 ], [ null, %101 ], [ null, %104 ], [ %.sroa.014.1, %119 ], [ %.sroa.014.1, %122 ]
+  %.sroa.014.0 = phi ptr [ %26, %25 ], [ %59, %58 ], [ %82, %81 ], [ null, %104 ], [ %36, %35 ], [ %41, %40 ], [ %97, %96 ], [ null, %101 ], [ %.sroa.014.1, %119 ], [ %.sroa.014.1, %122 ]
   ret ptr %.sroa.014.0
 
 37:                                               ; preds = %31
@@ -7330,7 +7330,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   br label %101
 
 119:                                              ; preds = %87, %106, %110
-  %.sroa.014.1 = phi ptr [ %91, %87 ], [ %100, %106 ], [ %114, %110 ]
+  %.sroa.014.1 = phi ptr [ %100, %106 ], [ %91, %87 ], [ %114, %110 ]
   %120 = load i32, ptr %7, align 8, !range !163, !alias.scope !634, !noundef !8
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit", label %122
@@ -7348,7 +7348,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
           cleanup
   br label %124
 
-.loopexit.split-lp:                               ; preds = %68, %63, %46, %27, %83, %99, %107, %109, %117
+.loopexit.split-lp:                               ; preds = %46, %27, %63, %68, %83, %99, %107, %109, %117
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %124
@@ -7510,7 +7510,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit23"
 
 "_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit23": ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit23.sink.split", %58, %49
-  %.sroa.01.1 = phi ptr [ %.sroa.01.0, %49 ], [ null, %58 ], [ %.sroa.01.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit23.sink.split" ]
+  %.sroa.01.1 = phi ptr [ null, %58 ], [ %.sroa.01.0, %49 ], [ %.sroa.01.1.ph, %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit23.sink.split" ]
   ret ptr %.sroa.01.1
 
 62:                                               ; preds = %20
@@ -7904,7 +7904,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence10next_instr17h4a560f6
   br label %86
 
 86:                                               ; preds = %57, %71, %78, %28
-  %.sroa.0.0 = phi ptr [ %30, %28 ], [ null, %78 ], [ %59, %57 ], [ %73, %71 ]
+  %.sroa.0.0 = phi ptr [ %30, %28 ], [ null, %78 ], [ %73, %71 ], [ %59, %57 ]
   ret ptr %.sroa.0.0
 }
 
@@ -8154,7 +8154,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence10next_instr17h4a560f6
   br label %86
 
 86:                                               ; preds = %57, %71, %78, %28
-  %.sroa.0.0 = phi ptr [ %30, %28 ], [ null, %78 ], [ %59, %57 ], [ %73, %71 ]
+  %.sroa.0.0 = phi ptr [ %30, %28 ], [ null, %78 ], [ %73, %71 ], [ %59, %57 ]
   ret ptr %.sroa.0.0
 }
 

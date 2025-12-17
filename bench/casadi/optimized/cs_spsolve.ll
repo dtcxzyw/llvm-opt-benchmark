@@ -224,7 +224,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br i1 %exitcond118.not, label %.loopexit93, label %.lr.ph102.split, !llvm.loop !21
 
 .loopexit93:                                      ; preds = %.loopexit, %.loopexit.us, %.preheader, %7, %8, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %13 ], [ -1, %8 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
   ret i32 %.0
 }
 

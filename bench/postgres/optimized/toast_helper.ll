@@ -334,8 +334,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br label %37
 
 37:                                               ; preds = %32, %29, %22, %.lr.ph.split.us.split.us
-  %.131.us.us = phi i32 [ %spec.select38.us.us, %32 ], [ %.03041.us.us, %.lr.ph.split.us.split.us ], [ %.03041.us.us, %22 ], [ %.03041.us.us, %29 ]
-  %.1.us.us = phi i32 [ %spec.select39.us.us, %32 ], [ %.043.us.us, %.lr.ph.split.us.split.us ], [ %.043.us.us, %22 ], [ %.043.us.us, %29 ]
+  %.131.us.us = phi i32 [ %.03041.us.us, %29 ], [ %.03041.us.us, %.lr.ph.split.us.split.us ], [ %.03041.us.us, %22 ], [ %spec.select38.us.us, %32 ]
+  %.1.us.us = phi i32 [ %.043.us.us, %29 ], [ %.043.us.us, %.lr.ph.split.us.split.us ], [ %.043.us.us, %22 ], [ %spec.select39.us.us, %32 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %9
   br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
@@ -381,8 +381,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br label %61
 
 61:                                               ; preds = %56, %53, %44, %.lr.ph.split.us.split
-  %.131.us = phi i32 [ %spec.select38.us, %56 ], [ %.03041.us, %.lr.ph.split.us.split ], [ %.03041.us, %44 ], [ %.03041.us, %53 ]
-  %.1.us = phi i32 [ %spec.select39.us, %56 ], [ %.043.us, %.lr.ph.split.us.split ], [ %.043.us, %44 ], [ %.043.us, %53 ]
+  %.131.us = phi i32 [ %.03041.us, %53 ], [ %.03041.us, %.lr.ph.split.us.split ], [ %.03041.us, %44 ], [ %spec.select38.us, %56 ]
+  %.1.us = phi i32 [ %.043.us, %53 ], [ %.043.us, %.lr.ph.split.us.split ], [ %.043.us, %44 ], [ %spec.select39.us, %56 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %9
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
@@ -430,8 +430,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br label %82
 
 82:                                               ; preds = %77, %.critedge.us, %68, %.lr.ph.split.split.us
-  %.131.us51 = phi i32 [ %spec.select38.us49, %77 ], [ %.03041.us46, %.lr.ph.split.split.us ], [ %.03041.us46, %68 ], [ %.03041.us46, %.critedge.us ]
-  %.1.us52 = phi i32 [ %spec.select39.us50, %77 ], [ %.043.us44, %.lr.ph.split.split.us ], [ %.043.us44, %68 ], [ %.043.us44, %.critedge.us ]
+  %.131.us51 = phi i32 [ %.03041.us46, %.critedge.us ], [ %.03041.us46, %.lr.ph.split.split.us ], [ %.03041.us46, %68 ], [ %spec.select38.us49, %77 ]
+  %.1.us52 = phi i32 [ %.043.us44, %.critedge.us ], [ %.043.us44, %.lr.ph.split.split.us ], [ %.043.us44, %68 ], [ %spec.select39.us50, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
@@ -479,14 +479,14 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   br label %105
 
 105:                                              ; preds = %.critedge, %89, %.lr.ph.split.split, %100
-  %.131 = phi i32 [ %spec.select38, %100 ], [ %.03041, %.lr.ph.split.split ], [ %.03041, %89 ], [ %.03041, %.critedge ]
-  %.1 = phi i32 [ %spec.select39, %100 ], [ %.043, %.lr.ph.split.split ], [ %.043, %89 ], [ %.043, %.critedge ]
+  %.131 = phi i32 [ %.03041, %.critedge ], [ %.03041, %.lr.ph.split.split ], [ %.03041, %89 ], [ %spec.select38, %100 ]
+  %.1 = phi i32 [ %.043, %.critedge ], [ %.043, %.lr.ph.split.split ], [ %.043, %89 ], [ %spec.select39, %100 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %9
   br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %82, %105, %37, %61, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %61 ], [ %.1.us.us, %37 ], [ %.1, %105 ], [ %.1.us52, %82 ]
+  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1, %105 ], [ %.1.us, %61 ], [ %.1.us.us, %37 ], [ %.1.us52, %82 ]
   ret i32 %.0.lcssa
 }
 

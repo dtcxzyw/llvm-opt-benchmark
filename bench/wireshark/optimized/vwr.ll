@@ -103,8 +103,8 @@ define hidden range(i32 -1, 2) i32 @vwr_open(ptr noundef %0, ptr noundef initial
   br label %decode_msg.exit.i
 
 decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, %23, %23
-  %.not111.i = phi i1 [ false, %31 ], [ false, %32 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ]
-  %.0.i.i = phi i32 [ %30, %31 ], [ %38, %32 ], [ %30, %23 ], [ %30, %23 ], [ %30, %23 ], [ %30, %23 ]
+  %.not111.i = phi i1 [ false, %32 ], [ false, %31 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ]
+  %.0.i.i = phi i32 [ %38, %32 ], [ %30, %31 ], [ %30, %23 ], [ %30, %23 ], [ %30, %23 ], [ %30, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %decode_msg.exit.thread.i, label %39
 
@@ -177,7 +177,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br label %77
 
 77:                                               ; preds = %66, %53
-  %.2.i = phi i16 [ 1000, %53 ], [ %spec.select125.i, %66 ]
+  %.2.i = phi i16 [ %spec.select125.i, %66 ], [ 1000, %53 ]
   %78 = icmp samesign ugt i32 %.0.i.i, 44
   %79 = icmp eq i16 %.2.i, 1000
   %or.cond.i = select i1 %78, i1 %79, i1 false
@@ -303,7 +303,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br i1 %145, label %vwr_get_fpga_version.exit.thread, label %vwr_get_fpga_version.exit
 
 decode_msg.exit.thread.i:                         ; preds = %140, %133, %43, %decode_msg.exit.i, %23
-  %.1.i = phi i1 [ %.0.i, %140 ], [ %.0.i, %decode_msg.exit.i ], [ %.0.i, %23 ], [ true, %43 ], [ %.0.i, %133 ]
+  %.1.i = phi i1 [ %.0.i, %decode_msg.exit.i ], [ %.0.i, %23 ], [ %.0.i, %140 ], [ true, %43 ], [ %.0.i, %133 ]
   %146 = add nuw nsw i64 %.0102.i, 16
   %147 = icmp samesign ugt i64 %.0102.i, 1073741807
   br i1 %147, label %vwr_get_fpga_version.exit.thread46, label %20, !llvm.loop !11
@@ -338,7 +338,7 @@ vwr_get_fpga_version.exit.thread46:               ; preds = %decode_msg.exit.thr
   br label %155
 
 vwr_get_fpga_version.exit:                        ; preds = %.thread138.i, %45, %50, %152
-  %.0101.i = phi i32 [ %..i, %45 ], [ %.117.i, %50 ], [ %142, %.thread138.i ], [ %.124.i, %152 ]
+  %.0101.i = phi i32 [ %..i, %45 ], [ %.124.i, %152 ], [ %142, %.thread138.i ], [ %.117.i, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %.0101.i, label %156 [
     i32 -1, label %323
@@ -713,7 +713,7 @@ setup_defaults.exit:                              ; preds = %156, %161, %204, %2
   br label %323
 
 323:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %322, %155
-  %.0 = phi i32 [ 0, %155 ], [ 1, %322 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
+  %.0 = phi i32 [ 1, %322 ], [ 0, %155 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
   ret i32 %.0
 }
 
@@ -788,7 +788,7 @@ define internal noundef zeroext i1 @vwr_seek_read(ptr noundef readonly captures(
   br label %24
 
 24:                                               ; preds = %15, %5, %18
-  %.0 = phi i1 [ %23, %18 ], [ false, %5 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %5 ], [ %23, %18 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -936,9 +936,9 @@ decode_msg.exit.thread.us:                        ; preds = %.lr.ph.split.us, %3
   br label %decode_msg.exit.thread
 
 .sink.split.i:                                    ; preds = %.lr.ph.split, %49, %50, %51, %52, %53
-  %.sink36.i = phi i32 [ 1, %49 ], [ 3, %50 ], [ 4, %51 ], [ 2, %52 ], [ 2, %53 ], [ 0, %.lr.ph.split ]
-  %58 = phi i1 [ true, %49 ], [ true, %50 ], [ true, %51 ], [ false, %52 ], [ false, %53 ], [ true, %.lr.ph.split ]
-  %.0.ph.i = phi i32 [ %42, %49 ], [ %42, %50 ], [ %42, %51 ], [ %42, %52 ], [ %57, %53 ], [ %42, %.lr.ph.split ]
+  %.sink36.i = phi i32 [ 2, %53 ], [ 2, %52 ], [ 4, %51 ], [ 3, %50 ], [ 1, %49 ], [ 0, %.lr.ph.split ]
+  %58 = phi i1 [ false, %53 ], [ false, %52 ], [ true, %51 ], [ true, %50 ], [ true, %49 ], [ true, %.lr.ph.split ]
+  %.0.ph.i = phi i32 [ %57, %53 ], [ %42, %52 ], [ %42, %51 ], [ %42, %50 ], [ %42, %49 ], [ %42, %.lr.ph.split ]
   store i32 %.sink36.i, ptr %3, align 4
   %.not = icmp eq i32 %.0.ph.i, 0
   br i1 %.not, label %decode_msg.exit.thread, label %59
@@ -971,7 +971,7 @@ decode_msg.exit.thread:                           ; preds = %.sink.split.i.threa
   br i1 %65, label %.lr.ph.split, label %.loopexit
 
 .loopexit:                                        ; preds = %decode_msg.exit.thread, %63, %decode_msg.exit.thread.us, %33, %7, %.split25.us, %.split.us
-  %.0 = phi i1 [ false, %.split.us ], [ true, %.split25.us ], [ false, %7 ], [ false, %33 ], [ false, %decode_msg.exit.thread.us ], [ false, %63 ], [ false, %decode_msg.exit.thread ]
+  %.0 = phi i1 [ false, %.split.us ], [ true, %.split25.us ], [ false, %7 ], [ false, %decode_msg.exit.thread.us ], [ false, %33 ], [ false, %63 ], [ false, %decode_msg.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -1129,8 +1129,8 @@ switch.lookup:                                    ; preds = %78
   br label %get_ofdm_rate.exit.i
 
 get_ofdm_rate.exit.i:                             ; preds = %78, %switch.lookup, %92, %91, %90, %89, %85
-  %94 = phi i16 [ 6, %85 ], [ 6, %92 ], [ 6, %90 ], [ 6, %91 ], [ 6, %89 ], [ 4, %switch.lookup ], [ 4, %78 ]
-  %.0372.i = phi i8 [ 1, %85 ], [ 0, %92 ], [ 2, %90 ], [ 3, %91 ], [ 1, %89 ], [ %switch.masked, %switch.lookup ], [ 0, %78 ]
+  %94 = phi i16 [ 6, %85 ], [ 4, %switch.lookup ], [ 6, %91 ], [ 6, %92 ], [ 6, %89 ], [ 6, %90 ], [ 4, %78 ]
+  %.0372.i = phi i8 [ 1, %85 ], [ %switch.masked, %switch.lookup ], [ 3, %91 ], [ 0, %92 ], [ 1, %89 ], [ 2, %90 ], [ 0, %78 ]
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, %74
@@ -1335,7 +1335,7 @@ get_ofdm_rate.exit.i:                             ; preds = %78, %switch.lookup,
   br i1 %exitcond.not.i.i, label %find_signature.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 find_signature.exit.i:                            ; preds = %242, %231, %215
-  %.032.i.ph.i = phi i32 [ 42, %242 ], [ %202, %231 ], [ %202, %215 ]
+  %.032.i.ph.i = phi i32 [ %202, %231 ], [ 42, %242 ], [ %202, %215 ]
   %.phi.trans.insert.i = sext i32 %.032.i.ph.i to i64
   %.phi.trans.insert418.i = getelementptr i8, ptr %102, i64 %.phi.trans.insert.i
   %.pre.i = load i8, ptr %.phi.trans.insert418.i, align 1
@@ -1928,11 +1928,11 @@ default.unreachable:                              ; preds = %514
   unreachable
 
 get_legacy_rate.exit.i:                           ; preds = %601, %599, %597, %596, %586, %577, %570, %542, %523, %519, %515
-  %.0422.i = phi i8 [ %534, %523 ], [ %552, %542 ], [ 0, %515 ], [ 0, %519 ], [ %narrow.i, %570 ], [ %narrow.i, %577 ], [ %narrow.i, %586 ], [ %narrow.i, %596 ], [ 3, %597 ], [ 6, %599 ], [ %narrow.i, %601 ]
-  %.0420.i = phi i8 [ %524, %523 ], [ %543, %542 ], [ %516, %515 ], [ %516, %519 ], [ %562, %570 ], [ %562, %577 ], [ %562, %586 ], [ 9, %596 ], [ 9, %597 ], [ 9, %599 ], [ %562, %601 ]
-  %.1419.i = phi i8 [ 64, %523 ], [ 64, %542 ], [ %..i, %515 ], [ %..i, %519 ], [ 64, %570 ], [ 64, %577 ], [ 64, %586 ], [ 64, %596 ], [ 64, %597 ], [ 64, %599 ], [ 64, %601 ]
-  %.0414.i = phi i16 [ %530, %523 ], [ %548, %542 ], [ 0, %515 ], [ 0, %519 ], [ %.1415.i, %570 ], [ %.1415.i, %577 ], [ %.1415.i, %586 ], [ %.1415.i, %596 ], [ %.1415.i, %597 ], [ %.1415.i, %599 ], [ %.1415.i, %601 ]
-  %.0412.i = phi float [ %541, %523 ], [ %559, %542 ], [ 0.000000e+00, %515 ], [ %522, %519 ], [ 0.000000e+00, %570 ], [ %584, %577 ], [ %593, %586 ], [ 0.000000e+00, %596 ], [ %598, %597 ], [ %600, %599 ], [ %608, %601 ]
+  %.0422.i = phi i8 [ 0, %519 ], [ %552, %542 ], [ %534, %523 ], [ 0, %515 ], [ %narrow.i, %570 ], [ %narrow.i, %577 ], [ %narrow.i, %586 ], [ %narrow.i, %596 ], [ 3, %597 ], [ 6, %599 ], [ %narrow.i, %601 ]
+  %.0420.i = phi i8 [ %516, %519 ], [ %543, %542 ], [ %524, %523 ], [ %516, %515 ], [ %562, %570 ], [ %562, %577 ], [ %562, %586 ], [ 9, %596 ], [ 9, %597 ], [ 9, %599 ], [ %562, %601 ]
+  %.1419.i = phi i8 [ %..i, %519 ], [ 64, %542 ], [ 64, %523 ], [ %..i, %515 ], [ 64, %570 ], [ 64, %577 ], [ 64, %586 ], [ 64, %596 ], [ 64, %597 ], [ 64, %599 ], [ 64, %601 ]
+  %.0414.i = phi i16 [ 0, %519 ], [ %548, %542 ], [ %530, %523 ], [ 0, %515 ], [ %.1415.i, %570 ], [ %.1415.i, %577 ], [ %.1415.i, %586 ], [ %.1415.i, %596 ], [ %.1415.i, %597 ], [ %.1415.i, %599 ], [ %.1415.i, %601 ]
+  %.0412.i = phi float [ %522, %519 ], [ %559, %542 ], [ %541, %523 ], [ 0.000000e+00, %515 ], [ 0.000000e+00, %570 ], [ %584, %577 ], [ %593, %586 ], [ 0.000000e+00, %596 ], [ %598, %597 ], [ %600, %599 ], [ %608, %601 ]
   %609 = icmp samesign ult i32 %427, 4
   br i1 %609, label %610, label %613
 
@@ -2121,7 +2121,7 @@ get_legacy_rate.exit.i:                           ; preds = %601, %599, %597, %5
   br i1 %exitcond.not.i.i54, label %find_signature.exit.i42, label %.lr.ph.i.i51, !llvm.loop !12
 
 find_signature.exit.i42:                          ; preds = %747, %736, %720, %615
-  %.032.i.i = phi i32 [ 42, %615 ], [ 42, %747 ], [ %707, %736 ], [ %707, %720 ]
+  %.032.i.i = phi i32 [ 42, %615 ], [ %707, %736 ], [ 42, %747 ], [ %707, %720 ]
   %748 = sext i32 %.032.i.i to i64
   %749 = getelementptr i8, ptr %697, i64 %748
   %750 = load i8, ptr %749, align 1
@@ -2525,9 +2525,9 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   br label %971
 
 971:                                              ; preds = %967, %961, %959, %949
-  %.0729.i = phi i8 [ %960, %959 ], [ %962, %961 ], [ %968, %967 ], [ 0, %949 ]
-  %.1728.i = phi i8 [ 0, %959 ], [ %966, %961 ], [ %narrow.i61, %967 ], [ 0, %949 ]
-  %.1702.i = phi i32 [ 0, %959 ], [ 0, %961 ], [ 1, %967 ], [ 0, %949 ]
+  %.0729.i = phi i8 [ %968, %967 ], [ %960, %959 ], [ %962, %961 ], [ 0, %949 ]
+  %.1728.i = phi i8 [ %narrow.i61, %967 ], [ 0, %959 ], [ %966, %961 ], [ 0, %949 ]
+  %.1702.i = phi i32 [ 1, %967 ], [ 0, %959 ], [ 0, %961 ], [ 0, %949 ]
   %972 = icmp eq i32 %4, 1
   br i1 %972, label %.split.us.i, label %.split972.us.i
 
@@ -2815,7 +2815,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   br label %get_legacy_rate.exit.i66
 
 get_legacy_rate.exit.i66:                         ; preds = %1141, %1139, %1137, %1136, %1126, %1117, %1111, %1093, %1082, %1078, %1076, %1075
-  %.0696.i = phi float [ %1092, %1082 ], [ %1102, %1093 ], [ 0.000000e+00, %1075 ], [ %1081, %1078 ], [ 0.000000e+00, %1076 ], [ 0.000000e+00, %1111 ], [ %1124, %1117 ], [ %1133, %1126 ], [ %1138, %1137 ], [ %1140, %1139 ], [ %1148, %1141 ], [ 0.000000e+00, %1136 ]
+  %.0696.i = phi float [ 0.000000e+00, %1076 ], [ 0.000000e+00, %1075 ], [ %1092, %1082 ], [ %1102, %1093 ], [ %1081, %1078 ], [ 0.000000e+00, %1111 ], [ %1124, %1117 ], [ %1133, %1126 ], [ %1138, %1137 ], [ %1140, %1139 ], [ %1148, %1141 ], [ 0.000000e+00, %1136 ]
   %1149 = fmul float %.0696.i, 1.000000e+01
   %1150 = fptoui float %1149 to i16
   %.mux.i = select i1 %.not955.i, i8 1, i8 17
@@ -2840,8 +2840,8 @@ get_legacy_rate.exit.i66:                         ; preds = %1141, %1139, %1137,
   br label %1158
 
 1158:                                             ; preds = %1156, %1153, %get_legacy_rate.exit.i66
-  %.3733.i = phi i32 [ 0, %1153 ], [ %1157, %1156 ], [ %.1731.i, %get_legacy_rate.exit.i66 ]
-  %.1705.i = phi i8 [ 17, %1153 ], [ 17, %1156 ], [ %.mux.i, %get_legacy_rate.exit.i66 ]
+  %.3733.i = phi i32 [ %.1731.i, %get_legacy_rate.exit.i66 ], [ 0, %1153 ], [ %1157, %1156 ]
+  %.1705.i = phi i8 [ %.mux.i, %get_legacy_rate.exit.i66 ], [ 17, %1153 ], [ 17, %1156 ]
   %1159 = getelementptr i8, ptr %954, i64 4
   %1160 = load i8, ptr %1159, align 1
   %1161 = zext i8 %1160 to i64
@@ -3013,7 +3013,7 @@ get_legacy_rate.exit.i66:                         ; preds = %1141, %1139, %1137,
   br i1 %exitcond.not.i.i81, label %find_signature.exit.loopexit.i, label %.lr.ph.i.i78, !llvm.loop !12
 
 find_signature.exit.loopexit.i:                   ; preds = %1292, %1281, %1265
-  %.032.i.ph.i82 = phi i32 [ 42, %1292 ], [ %1252, %1281 ], [ %1252, %1265 ]
+  %.032.i.ph.i82 = phi i32 [ %1252, %1281 ], [ 42, %1292 ], [ %1252, %1265 ]
   %.phi.trans.insert.i83 = sext i32 %.032.i.ph.i82 to i64
   %.phi.trans.insert1137.i = getelementptr i8, ptr %1242, i64 %.phi.trans.insert.i83
   %.pre.i84 = load i8, ptr %.phi.trans.insert1137.i, align 1
@@ -3065,7 +3065,7 @@ get_signature_ts.exit.i71:                        ; preds = %1297, %1295, %find_
   br label %1314
 
 1314:                                             ; preds = %1311, %1309, %get_signature_ts.exit.i71
-  %.1726.i = phi i64 [ %1310, %1309 ], [ 0, %get_signature_ts.exit.i71 ], [ %..i72, %1311 ]
+  %.1726.i = phi i64 [ %1310, %1309 ], [ %..i72, %1311 ], [ 0, %get_signature_ts.exit.i71 ]
   %.1189.i = select i1 %934, i32 163, i32 87
   %1315 = add i32 %.3733.i, %.1189.i
   %1316 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -3753,7 +3753,7 @@ get_signature_ts.exit.i71:                        ; preds = %1297, %1295, %find_
   br label %vwr_read_s3_W_rec.exit
 
 vwr_read_s3_W_rec.exit:                           ; preds = %918, %940, %947, %1002, %1154, %1319, %1509, %1631
-  %.0.i73 = phi i1 [ false, %918 ], [ false, %940 ], [ false, %1002 ], [ false, %1154 ], [ false, %1319 ], [ false, %947 ], [ true, %1631 ], [ true, %1509 ]
+  %.0.i73 = phi i1 [ false, %918 ], [ false, %947 ], [ false, %940 ], [ false, %1002 ], [ false, %1154 ], [ false, %1319 ], [ true, %1631 ], [ true, %1509 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %vwr_read_s1_W_rec.exit
 
@@ -4047,7 +4047,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %918, %940, %947, %1
   br label %1877
 
 1877:                                             ; preds = %1873, %1869, %1865, %1774
-  %.sink.i98 = phi i32 [ 40, %1774 ], [ 28, %1865 ], [ 24, %1869 ], [ %..i120, %1873 ]
+  %.sink.i98 = phi i32 [ 40, %1774 ], [ %..i120, %1873 ], [ 24, %1869 ], [ 28, %1865 ]
   %1878 = add nuw nsw i32 %.sink.i98, %1732
   %1879 = zext nneg i32 %1878 to i64
   %1880 = getelementptr i8, ptr %10, i64 %1879
@@ -4135,7 +4135,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %918, %940, %947, %1
   br i1 %exitcond.not.i.i113, label %find_signature.exit.i100, label %.lr.ph.i.i110, !llvm.loop !12
 
 find_signature.exit.i100:                         ; preds = %1928, %1917, %1901, %1877
-  %.032.i.i101 = phi i32 [ %1878, %1877 ], [ %1878, %1928 ], [ %1888, %1917 ], [ %1888, %1901 ]
+  %.032.i.i101 = phi i32 [ %1878, %1877 ], [ %1888, %1917 ], [ %1878, %1928 ], [ %1888, %1901 ]
   %1929 = sext i32 %.032.i.i101 to i64
   %1930 = getelementptr i8, ptr %10, i64 %1929
   %1931 = load i8, ptr %1930, align 1
@@ -4348,7 +4348,7 @@ get_signature_ts.exit.i103:                       ; preds = %1936, %1934, %find_
   unreachable
 
 vwr_read_s1_W_rec.exit:                           ; preds = %vwr_read_s3_W_rec.exit, %17, %70, %105, %108, %391, %409, %438, %611, %899, %1651, %1668, %1770, %1955, %8
-  %.038 = phi i1 [ false, %8 ], [ %.0.i73, %vwr_read_s3_W_rec.exit ], [ false, %17 ], [ false, %70 ], [ false, %108 ], [ true, %391 ], [ false, %105 ], [ false, %409 ], [ false, %438 ], [ false, %611 ], [ true, %899 ], [ false, %1651 ], [ false, %1668 ], [ false, %1770 ], [ true, %1955 ]
+  %.038 = phi i1 [ false, %8 ], [ true, %899 ], [ false, %105 ], [ %.0.i73, %vwr_read_s3_W_rec.exit ], [ false, %17 ], [ false, %70 ], [ false, %108 ], [ true, %391 ], [ false, %409 ], [ false, %438 ], [ false, %611 ], [ false, %1651 ], [ false, %1668 ], [ false, %1770 ], [ true, %1955 ]
   tail call void @g_free(ptr noundef %10)
   ret i1 %.038
 }

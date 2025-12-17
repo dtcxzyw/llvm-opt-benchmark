@@ -1332,8 +1332,8 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br label %118
 
 118:                                              ; preds = %108, %105, %104, %85
-  %.064.i = phi i1 [ false, %108 ], [ true, %104 ], [ false, %85 ], [ true, %105 ]
-  %.2.i = phi i32 [ %99, %108 ], [ %99, %104 ], [ %88, %85 ], [ %99, %105 ]
+  %.064.i = phi i1 [ false, %108 ], [ false, %85 ], [ true, %104 ], [ true, %105 ]
+  %.2.i = phi i32 [ %99, %108 ], [ %88, %85 ], [ %99, %104 ], [ %99, %105 ]
   %119 = tail call ptr @__errno_location() #15
   store i32 0, ptr %119, align 4
   %120 = load ptr, ptr @my_wait_event_info, align 8
@@ -1563,7 +1563,7 @@ SlruFileName.exit:                                ; preds = %15, %17
   br label %42
 
 42:                                               ; preds = %22, %38, %35
-  %.0 = phi i1 [ false, %35 ], [ %41, %38 ], [ false, %22 ]
+  %.0 = phi i1 [ %41, %38 ], [ false, %35 ], [ false, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -1815,7 +1815,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   tail call fastcc void @SimpleLruWaitIO(ptr %.val, i32 noundef %25)
   br label %63
 
-59:                                               ; preds = %56, %35, %40
+59:                                               ; preds = %35, %56, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %4, align 8
   %61 = sext i32 %60 to i64

@@ -263,13 +263,13 @@ bytestream2_get_byte.exit83:                      ; preds = %._crit_edge, %21
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %bytestream2_get_byte.exit83, %.loopexit, %110
-  %storemerge = phi i32 [ 1, %110 ], [ 1, %.loopexit ], [ 0, %bytestream2_get_byte.exit83 ]
+  %storemerge = phi i32 [ 1, %.loopexit ], [ 1, %110 ], [ 0, %bytestream2_get_byte.exit83 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !38
   %115 = load i32, ptr %6, align 8, !tbaa !32
   br label %116
 
 116:                                              ; preds = %110, %97, %94, %bytestream2_init.exit, %114, %93, %90, %85, %78, %14, %11
-  %.070 = phi i32 [ -22, %11 ], [ -22, %14 ], [ %115, %114 ], [ -22, %78 ], [ -22, %85 ], [ %89, %90 ], [ -22, %93 ], [ %19, %bytestream2_init.exit ], [ %95, %94 ], [ %101, %97 ], [ %112, %110 ]
+  %.070 = phi i32 [ -22, %11 ], [ -22, %14 ], [ %95, %94 ], [ %115, %114 ], [ %101, %97 ], [ -22, %78 ], [ -22, %85 ], [ %89, %90 ], [ -22, %93 ], [ %19, %bytestream2_init.exit ], [ %112, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.070
 }

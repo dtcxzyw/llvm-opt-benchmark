@@ -117,7 +117,7 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i: ; preds = %.
   br label %_ZN5proto5shell9ShellType11encoded_len17hf1e095491371de8fE.llvm.4489484971173406073.exit
 
 _ZN5proto5shell9ShellType11encoded_len17hf1e095491371de8fE.llvm.4489484971173406073.exit: ; preds = %1, %4, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i
-  %.sroa.0.0.i = phi i64 [ %14, %4 ], [ %52, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i ], [ 2, %1 ]
+  %.sroa.0.0.i = phi i64 [ %52, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i ], [ %14, %4 ], [ 2, %1 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -1515,7 +1515,7 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i: ; preds = 
   br label %_ZN4core3ops8function6FnOnce9call_once17h11c7d1ac3eb9d137E.llvm.4489484971173406073.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h11c7d1ac3eb9d137E.llvm.4489484971173406073.exit: ; preds = %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i, %7, %4, %2
-  %.sroa.02.0 = phi i64 [ %1, %2 ], [ %17, %7 ], [ %55, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i ], [ 2, %4 ]
+  %.sroa.02.0 = phi i64 [ %1, %2 ], [ %55, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i ], [ %17, %7 ], [ 2, %4 ]
   ret i64 %.sroa.02.0
 }
 
@@ -5960,7 +5960,7 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i: ; preds 
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h51d9c76795f4fa64E.llvm.4489484971173406073.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h51d9c76795f4fa64E.llvm.4489484971173406073.exit": ; preds = %1, %4, %6, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i
-  %.sroa.02.0.i = phi i64 [ 0, %1 ], [ %16, %6 ], [ %54, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i ], [ 2, %4 ]
+  %.sroa.02.0.i = phi i64 [ 0, %1 ], [ %54, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i ], [ %16, %6 ], [ 2, %4 ]
   ret i64 %.sroa.02.0.i
 }
 
@@ -11488,7 +11488,7 @@ _ZN5prost8encoding7message5merge17h09a9b39d483d406cE.exit.thread: ; preds = %16,
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %44, %48, %32, %28
-  %eh.lpad-body20 = phi { ptr, i32 } [ %29, %28 ], [ %29, %32 ], [ %45, %48 ], [ %45, %44 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %45, %48 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 44:                                               ; preds = %16, %18
@@ -12349,7 +12349,7 @@ _ZN5prost8encoding7message5merge17h3a38d215cbc80bccE.exit.thread: ; preds = %16,
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %44, %48, %32, %28
-  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %28 ], [ %29, %32 ], [ %45, %48 ], [ %45, %44 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %45, %48 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body21
 
 44:                                               ; preds = %16, %18
@@ -12759,7 +12759,7 @@ _ZN5prost8encoding7message5merge17hcd56c2e532c83c5fE.exit.thread: ; preds = %16,
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %44, %48, %32, %28
-  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %28 ], [ %29, %32 ], [ %45, %48 ], [ %45, %44 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %45, %48 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body21
 
 44:                                               ; preds = %16, %18
@@ -18218,7 +18218,7 @@ _ZN5prost8encoding7message5merge17h9df025877711a3daE.exit.thread: ; preds = %16,
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %44, %48, %32, %28
-  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %28 ], [ %29, %32 ], [ %45, %48 ], [ %45, %44 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %45, %48 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body21
 
 44:                                               ; preds = %16, %18
@@ -96444,7 +96444,7 @@ define hidden noundef i64 @_ZN5proto12lsp_response8Response11encoded_len17h89816
   br label %_ZN5prost8encoding7message11encoded_len17h19dc019f0ac8a338E.llvm.4489484971173406073.exit
 
 _ZN5prost8encoding7message11encoded_len17h19dc019f0ac8a338E.llvm.4489484971173406073.exit: ; preds = %"_ZN75_$LT$proto..GetSignatureHelpResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h61aaef0620b0cca6E.llvm.4489484971173406073.exit.i.i.i", %23, %7, %5
-  %.sroa.02.0.i.i.i.sink4 = phi i64 [ %22, %7 ], [ %6, %5 ], [ %68, %"_ZN75_$LT$proto..GetSignatureHelpResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h61aaef0620b0cca6E.llvm.4489484971173406073.exit.i.i.i" ], [ 0, %23 ]
+  %.sroa.02.0.i.i.i.sink4 = phi i64 [ %6, %5 ], [ %22, %7 ], [ %68, %"_ZN75_$LT$proto..GetSignatureHelpResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h61aaef0620b0cca6E.llvm.4489484971173406073.exit.i.i.i" ], [ 0, %23 ]
   %69 = or i64 %.sroa.02.0.i.i.i.sink4, 1
   %70 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %69, i1 true)
   %71 = xor i64 %70, 63
@@ -96700,7 +96700,7 @@ _ZN5prost8encoding7message11encoded_len17hfa7b30253f627b17E.exit: ; preds = %78,
   br label %96
 
 96:                                               ; preds = %1, %_ZN5prost8encoding7message11encoded_len17hfa7b30253f627b17E.exit, %_ZN5prost8encoding7message11encoded_len17h9eddb518997a52b8E.exit, %_ZN5prost8encoding7message11encoded_len17h81455df4a8794c8eE.exit
-  %.sroa.0.0 = phi i64 [ %49, %_ZN5prost8encoding7message11encoded_len17h81455df4a8794c8eE.exit ], [ %77, %_ZN5prost8encoding7message11encoded_len17h9eddb518997a52b8E.exit ], [ %95, %_ZN5prost8encoding7message11encoded_len17hfa7b30253f627b17E.exit ], [ 2, %1 ]
+  %.sroa.0.0 = phi i64 [ %95, %_ZN5prost8encoding7message11encoded_len17hfa7b30253f627b17E.exit ], [ %49, %_ZN5prost8encoding7message11encoded_len17h81455df4a8794c8eE.exit ], [ %77, %_ZN5prost8encoding7message11encoded_len17h9eddb518997a52b8E.exit ], [ 2, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -96988,7 +96988,7 @@ _ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit: ; preds = %"_Z
   br label %_ZN5prost8encoding7message11encoded_len17h61d40010f0b4208dE.exit
 
 _ZN5prost8encoding7message11encoded_len17h61d40010f0b4208dE.exit: ; preds = %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h3ea83e8a7e476089E.llvm.4489484971173406073.exit.i.i.i", %130, %_ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit, %_ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit, %29, %_ZN5prost8encoding7message11encoded_len17h28f028b72043c56fE.exit
-  %.sroa.02.0.i.i.i8.sink14 = phi i64 [ %129, %_ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit ], [ %80, %_ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit ], [ %31, %29 ], [ %28, %_ZN5prost8encoding7message11encoded_len17h28f028b72043c56fE.exit ], [ %142, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h3ea83e8a7e476089E.llvm.4489484971173406073.exit.i.i.i" ], [ 0, %130 ]
+  %.sroa.02.0.i.i.i8.sink14 = phi i64 [ %28, %_ZN5prost8encoding7message11encoded_len17h28f028b72043c56fE.exit ], [ %129, %_ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit ], [ %80, %_ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit ], [ %31, %29 ], [ %142, %"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h3ea83e8a7e476089E.llvm.4489484971173406073.exit.i.i.i" ], [ 0, %130 ]
   %143 = or i64 %.sroa.02.0.i.i.i8.sink14, 1
   %144 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %143, i1 true)
   %145 = xor i64 %144, 63
@@ -97421,7 +97421,7 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit: ; preds = %.pr
   br label %53
 
 53:                                               ; preds = %1, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit, %4
-  %.sroa.0.0 = phi i64 [ %14, %4 ], [ %52, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit ], [ 2, %1 ]
+  %.sroa.0.0 = phi i64 [ %52, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit ], [ %14, %4 ], [ 2, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -103450,7 +103450,7 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i.i.i.i.i: 
   br label %"_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h22801321b3e0a862E.exit.i"
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h22801321b3e0a862E.exit.i": ; preds = %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i.i.i.i.i, %108, %106, %104
-  %.sroa.02.0.i.i.i.i.i = phi i64 [ 0, %104 ], [ %118, %108 ], [ %156, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i.i.i.i.i ], [ 2, %106 ]
+  %.sroa.02.0.i.i.i.i.i = phi i64 [ 0, %104 ], [ %156, %_ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i.i.i.i.i ], [ %118, %108 ], [ 2, %106 ]
   %157 = or i64 %.sroa.02.0.i.i.i.i.i, 1
   %158 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %157, i1 true)
   %159 = xor i64 %158, 63

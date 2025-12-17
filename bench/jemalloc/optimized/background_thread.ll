@@ -366,7 +366,7 @@ malloc_mutex_lock.exit40:                         ; preds = %89, %93
   br label %100
 
 100:                                              ; preds = %malloc_mutex_lock.exit40, %post_reentrancy.exit, %.critedge, %malloc_mutex_lock.exit35
-  %.0 = phi i1 [ false, %malloc_mutex_lock.exit35 ], [ false, %.critedge ], [ false, %post_reentrancy.exit ], [ true, %malloc_mutex_lock.exit40 ]
+  %.0 = phi i1 [ false, %malloc_mutex_lock.exit35 ], [ true, %malloc_mutex_lock.exit40 ], [ false, %.critedge ], [ false, %post_reentrancy.exit ]
   ret i1 %.0
 }
 
@@ -1244,7 +1244,7 @@ atomic_store_b.exit:                              ; preds = %malloc_mutex_lock.e
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %20, %9, %6, %atomic_store_b.exit
-  %.0 = phi i1 [ false, %atomic_store_b.exit ], [ true, %6 ], [ true, %9 ], [ true, %20 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ false, %atomic_store_b.exit ], [ true, %20 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1804,7 +1804,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph.split.us
-  %.1.us = phi i64 [ %spec.select.us, %19 ], [ %.02227.us, %.lr.ph.split.us ]
+  %.1.us = phi i64 [ %.02227.us, %.lr.ph.split.us ], [ %spec.select.us, %19 ]
   %23 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
@@ -1918,7 +1918,7 @@ background_thread_sleep.exit:                     ; preds = %56, %63
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph.split, %70
-  %.1 = phi i64 [ %spec.select, %70 ], [ %.02227, %.lr.ph.split ], [ %.02227, %68 ]
+  %.1 = phi i64 [ %.02227, %.lr.ph.split ], [ %spec.select, %70 ], [ %.02227, %68 ]
   %74 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %75 = trunc i64 %74 to i32
   %76 = add i32 %.02326, %75

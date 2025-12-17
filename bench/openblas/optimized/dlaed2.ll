@@ -315,10 +315,10 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   br label %.preheader
 
 .preheader:                                       ; preds = %176, %.lr.ph492.preheader, %.lr.ph492..preheader.split.loop.exit_crit_edge
-  %164 = phi i32 [ %153, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %142, %.lr.ph492.preheader ], [ %170, %176 ]
-  %165 = phi i32 [ %173, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %140, %.lr.ph492.preheader ], [ %173, %176 ]
-  %.1415.lcssa.ph = phi i32 [ %163, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ 1, %.lr.ph492.preheader ], [ %141, %176 ]
-  %.0411.lcssa.ph = phi i32 [ %162, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %141, %.lr.ph492.preheader ], [ 1, %176 ]
+  %164 = phi i32 [ %142, %.lr.ph492.preheader ], [ %153, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %170, %176 ]
+  %165 = phi i32 [ %140, %.lr.ph492.preheader ], [ %173, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %173, %176 ]
+  %.1415.lcssa.ph = phi i32 [ 1, %.lr.ph492.preheader ], [ %163, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ %141, %176 ]
+  %.0411.lcssa.ph = phi i32 [ %141, %.lr.ph492.preheader ], [ %162, %.lr.ph492..preheader.split.loop.exit_crit_edge ], [ 1, %176 ]
   %166 = icmp slt i32 %.1415.lcssa.ph, %165
   br i1 %166, label %.lr.ph508.preheader, label %.loopexit454
 

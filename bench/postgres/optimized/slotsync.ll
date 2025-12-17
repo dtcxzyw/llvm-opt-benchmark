@@ -1494,7 +1494,7 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %344
   br label %synchronize_one_slot.exit
 
 synchronize_one_slot.exit:                        ; preds = %229, %233, %.thread.i, %.thread85.i, %.critedge.i
-  %.0.i = phi i1 [ %.3.i, %.thread85.i ], [ %263, %.thread.i ], [ false, %.critedge.i ], [ false, %233 ], [ false, %229 ]
+  %.0.i = phi i1 [ false, %.critedge.i ], [ %.3.i, %.thread85.i ], [ %263, %.thread.i ], [ false, %233 ], [ false, %229 ]
   %362 = or i1 %.163106141, %.0.i
   call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %224, i16 noundef zeroext 0, i32 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv140, 1
@@ -2154,7 +2154,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   br label %87
 
 87:                                               ; preds = %.sink.split, %65, %69, %54, %44
-  %.0 = phi i1 [ false, %44 ], [ false, %54 ], [ true, %69 ], [ true, %65 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ true, %65 ], [ false, %44 ], [ false, %54 ], [ true, %69 ], [ %.0.ph, %.sink.split ]
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %89 = load i32, ptr %88, align 8
   %.not86 = icmp eq i32 %1, %89
@@ -2245,7 +2245,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   br label %.thread99
 
 .thread99:                                        ; preds = %118, %123, %.thread
-  %.07993101 = phi i1 [ true, %123 ], [ true, %.thread ], [ false, %118 ]
+  %.07993101 = phi i1 [ true, %.thread ], [ true, %123 ], [ false, %118 ]
   ret i1 %.07993101
 }
 

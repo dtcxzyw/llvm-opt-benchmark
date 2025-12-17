@@ -66,7 +66,7 @@ define internal i32 @test_set_min_max_version(i32 noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
+  %.0 = phi ptr [ %9, %8 ], [ %5, %4 ], [ %7, %6 ]
   %11 = icmp eq ptr %.0, null
   br i1 %11, label %.thread, label %13
 
@@ -144,8 +144,8 @@ define internal i32 @test_set_min_max_version(i32 noundef %0) #0 {
   br label %53
 
 53:                                               ; preds = %49, %45, %41, %37, %33, %29, %24, %19, %16, %13
-  %.025 = phi i32 [ 0, %13 ], [ 0, %16 ], [ 0, %45 ], [ 0, %41 ], [ 0, %37 ], [ 0, %33 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ %spec.select, %49 ]
-  %.024 = phi ptr [ null, %13 ], [ null, %16 ], [ %17, %45 ], [ %17, %41 ], [ %17, %37 ], [ %17, %33 ], [ %17, %29 ], [ %17, %24 ], [ %17, %19 ], [ %17, %49 ]
+  %.025 = phi i32 [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ %spec.select, %49 ], [ 0, %45 ], [ 0, %41 ], [ 0, %37 ], [ 0, %33 ], [ 0, %29 ], [ 0, %24 ]
+  %.024 = phi ptr [ null, %13 ], [ null, %16 ], [ %17, %19 ], [ %17, %49 ], [ %17, %45 ], [ %17, %41 ], [ %17, %37 ], [ %17, %33 ], [ %17, %29 ], [ %17, %24 ]
   tail call void @SSL_free(ptr noundef %.024) #2
   tail call void @SSL_CTX_free(ptr noundef %14) #2
   br label %54

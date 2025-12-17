@@ -139,7 +139,7 @@ define internal i32 @init(ptr noundef %0) #0 {
   br i1 %52, label %29, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %49, %.preheader, %.thread42, %15, %11
-  %.027 = phi i32 [ %16, %15 ], [ %13, %11 ], [ %.3.ph, %.thread42 ], [ %.128, %.preheader ], [ %47, %49 ]
+  %.027 = phi i32 [ %16, %15 ], [ %.3.ph, %.thread42 ], [ %13, %11 ], [ %.128, %.preheader ], [ %47, %49 ]
   call void @av_channel_layout_uninit(ptr noundef nonnull %2) #7
   br label %53
 
@@ -258,7 +258,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br i1 %50, label %27, label %.loopexit
 
 .loopexit:                                        ; preds = %44, %27, %.preheader, %.thread, %12, %16, %3
-  %.0 = phi i32 [ %10, %3 ], [ %14, %12 ], [ %20, %16 ], [ %.2.ph, %.thread ], [ 0, %.preheader ], [ %49, %44 ], [ 0, %27 ]
+  %.0 = phi i32 [ %20, %16 ], [ %10, %3 ], [ %.2.ph, %.thread ], [ %14, %12 ], [ 0, %.preheader ], [ %49, %44 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -498,7 +498,7 @@ filter_frame.exit:                                ; preds = %50
   br i1 %.not70, label %100, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph95, %96, %111, %.preheader78, %.preheader76, %.preheader, %110, %.thread, %.critedge73
-  %.3 = phi i32 [ %27, %.critedge73 ], [ %.157.ph, %.thread ], [ 0, %110 ], [ 0, %.preheader ], [ -1497649742, %.preheader76 ], [ 0, %.preheader78 ], [ -1497649742, %111 ], [ 0, %96 ], [ 0, %.lr.ph95 ]
+  %.3 = phi i32 [ %27, %.critedge73 ], [ %.157.ph, %.thread ], [ 0, %110 ], [ -1497649742, %.preheader76 ], [ 0, %.preheader ], [ 0, %.preheader78 ], [ 0, %96 ], [ -1497649742, %111 ], [ 0, %.lr.ph95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

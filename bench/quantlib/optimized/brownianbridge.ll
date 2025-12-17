@@ -840,12 +840,12 @@ if.end.i.i.i.i.i.i.i109:                          ; preds = %call5.i.i.i.i2.i.i.
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i122
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i122: ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115, %call5.i.i.i.i2.i.i.noexc118, %if.end.i.i.i.i.i.i.i109
-  %rightWeight_266 = phi ptr [ %rightWeight_252, %call5.i.i.i.i2.i.i.noexc118 ], [ %rightWeight_252, %if.end.i.i.i.i.i.i.i109 ], [ %rightWeight_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
-  %rightIndex_228236263 = phi ptr [ %rightIndex_220, %call5.i.i.i.i2.i.i.noexc118 ], [ %rightIndex_220, %if.end.i.i.i.i.i.i.i109 ], [ %rightIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
-  %bridgeIndex_206212225239260 = phi ptr [ %bridgeIndex_204, %call5.i.i.i.i2.i.i.noexc118 ], [ %bridgeIndex_204, %if.end.i.i.i.i.i.i.i109 ], [ %bridgeIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
-  %leftIndex_215222242257 = phi ptr [ %leftIndex_210, %call5.i.i.i.i2.i.i.noexc118 ], [ %leftIndex_210, %if.end.i.i.i.i.i.i.i109 ], [ %leftIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
-  %leftWeight_245254 = phi ptr [ %leftWeight_234, %call5.i.i.i.i2.i.i.noexc118 ], [ %leftWeight_234, %if.end.i.i.i.i.i.i.i109 ], [ %leftWeight_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
-  %__first.addr.0.i.i.i.i.i113 = phi ptr [ %incdec.ptr.i.i.i.i.i106, %call5.i.i.i.i2.i.i.noexc118 ], [ %add.ptr.i.i.i.i.i.i.i111, %if.end.i.i.i.i.i.i.i109 ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ]
+  %rightWeight_266 = phi ptr [ %rightWeight_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %rightWeight_252, %call5.i.i.i.i2.i.i.noexc118 ], [ %rightWeight_252, %if.end.i.i.i.i.i.i.i109 ]
+  %rightIndex_228236263 = phi ptr [ %rightIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %rightIndex_220, %call5.i.i.i.i2.i.i.noexc118 ], [ %rightIndex_220, %if.end.i.i.i.i.i.i.i109 ]
+  %bridgeIndex_206212225239260 = phi ptr [ %bridgeIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %bridgeIndex_204, %call5.i.i.i.i2.i.i.noexc118 ], [ %bridgeIndex_204, %if.end.i.i.i.i.i.i.i109 ]
+  %leftIndex_215222242257 = phi ptr [ %leftIndex_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %leftIndex_210, %call5.i.i.i.i2.i.i.noexc118 ], [ %leftIndex_210, %if.end.i.i.i.i.i.i.i109 ]
+  %leftWeight_245254 = phi ptr [ %leftWeight_, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %leftWeight_234, %call5.i.i.i.i2.i.i.noexc118 ], [ %leftWeight_234, %if.end.i.i.i.i.i.i.i109 ]
+  %__first.addr.0.i.i.i.i.i113 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i115 ], [ %incdec.ptr.i.i.i.i.i106, %call5.i.i.i.i2.i.i.noexc118 ], [ %add.ptr.i.i.i.i.i.i.i111, %if.end.i.i.i.i.i.i.i109 ]
   %_M_finish.i.i7.i114 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %__first.addr.0.i.i.i.i.i113, ptr %_M_finish.i.i7.i114, align 8, !tbaa !21
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -875,7 +875,7 @@ if.end.i.i.i.i.i.i.i131:                          ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i122, %if.end.i.i.i.i.i.i.i131, %call5.i.i.i.i2.i.i.noexc140
-  %__first.addr.0.i.i.i.i.i135 = phi ptr [ %incdec.ptr.i.i.i.i.i128, %call5.i.i.i.i2.i.i.noexc140 ], [ %add.ptr.i.i.i.i.i.i.i133, %if.end.i.i.i.i.i.i.i131 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i122 ]
+  %__first.addr.0.i.i.i.i.i135 = phi ptr [ %add.ptr.i.i.i.i.i.i.i133, %if.end.i.i.i.i.i.i.i131 ], [ %incdec.ptr.i.i.i.i.i128, %call5.i.i.i.i2.i.i.noexc140 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i122 ]
   %_M_finish.i.i7.i136 = getelementptr inbounds nuw i8, ptr %this, i64 184
   store ptr %__first.addr.0.i.i.i.i.i135, ptr %_M_finish.i.i7.i136, align 8, !tbaa !21
   invoke void @_ZN8QuantLib14BrownianBridge10initializeEv(ptr noundef nonnull align 8 dereferenceable(200) %this)

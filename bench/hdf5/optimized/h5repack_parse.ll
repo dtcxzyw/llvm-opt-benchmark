@@ -586,9 +586,9 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   br i1 %228, label %217, label %.loopexit.sink.split, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %225, %.preheader335, %.preheader334, %._crit_edge383.loopexit
-  %.4286.lcssa.sink = phi i64 [ 0, %.preheader334 ], [ %216, %._crit_edge383.loopexit ], [ 0, %.preheader335 ], [ %227, %225 ]
-  %.1283.ph = phi i64 [ 0, %.preheader334 ], [ %213, %._crit_edge383.loopexit ], [ 0, %.preheader335 ], [ %227, %225 ]
-  %.3245.ph = phi i32 [ 0, %.preheader334 ], [ %.7, %._crit_edge383.loopexit ], [ 0, %.preheader335 ], [ 0, %225 ]
+  %.4286.lcssa.sink = phi i64 [ %216, %._crit_edge383.loopexit ], [ 0, %.preheader334 ], [ 0, %.preheader335 ], [ %227, %225 ]
+  %.1283.ph = phi i64 [ %213, %._crit_edge383.loopexit ], [ 0, %.preheader334 ], [ 0, %.preheader335 ], [ %227, %225 ]
+  %.3245.ph = phi i32 [ %.7, %._crit_edge383.loopexit ], [ 0, %.preheader334 ], [ 0, %.preheader335 ], [ 0, %225 ]
   %229 = getelementptr inbounds i8, ptr %8, i64 %.4286.lcssa.sink
   store i8 0, ptr %229, align 1, !tbaa !8
   br label %.loopexit

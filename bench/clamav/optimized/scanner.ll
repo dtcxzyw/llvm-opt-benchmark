@@ -697,7 +697,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly captures(address_is_nul
   br label %265
 
 265:                                              ; preds = %263, %260, %129, %142, %146, %131, %45, %48, %33, %39, %251, %216, %181, %180, %164, %102, %90, %82, %80, %71, %69, %62, %58
-  %.0 = phi i32 [ 0, %90 ], [ 0, %102 ], [ %168, %164 ], [ 21, %180 ], [ 0, %181 ], [ 21, %216 ], [ 21, %251 ], [ 20, %58 ], [ 0, %62 ], [ 0, %69 ], [ 0, %71 ], [ 0, %80 ], [ 0, %82 ], [ 22, %39 ], [ 22, %33 ], [ 22, %48 ], [ 22, %45 ], [ 20, %129 ], [ 20, %142 ], [ 20, %146 ], [ 0, %131 ], [ 20, %260 ], [ %., %263 ]
+  %.0 = phi i32 [ 0, %82 ], [ 22, %33 ], [ 0, %90 ], [ 0, %102 ], [ 22, %45 ], [ %168, %164 ], [ 21, %180 ], [ 0, %181 ], [ 0, %131 ], [ %., %263 ], [ 20, %260 ], [ 21, %216 ], [ 21, %251 ], [ 20, %58 ], [ 0, %62 ], [ 0, %69 ], [ 0, %71 ], [ 0, %80 ], [ 22, %39 ], [ 22, %48 ], [ 20, %129 ], [ 20, %146 ], [ 20, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1006,7 +1006,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %99
 
 99:                                               ; preds = %46, %84, %79, %93, %97, %87, %64
-  %.0 = phi i32 [ %67, %64 ], [ %spec.select, %79 ], [ %spec.select, %84 ], [ %spec.select52, %87 ], [ %spec.select53, %97 ], [ %spec.select53, %93 ], [ %., %46 ]
+  %.0 = phi i32 [ %., %46 ], [ %spec.select53, %93 ], [ %67, %64 ], [ %spec.select, %79 ], [ %spec.select, %84 ], [ %spec.select52, %87 ], [ %spec.select53, %97 ]
   %100 = load ptr, ptr %12, align 8, !tbaa !35
   %.not51 = icmp eq ptr %100, null
   br i1 %.not51, label %102, label %101
@@ -1387,7 +1387,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %205
 
 205:                                              ; preds = %192, %200, %203, %194, %195, %144, %98, %84, %76, %70, %60, %.critedge
-  %.0 = phi i32 [ -1, %60 ], [ -1, %70 ], [ -1, %76 ], [ -1, %84 ], [ -1, %98 ], [ -1, %144 ], [ -1, %.critedge ], [ %.0112, %195 ], [ %.0112, %194 ], [ 0, %203 ], [ 0, %200 ], [ 1, %192 ]
+  %.0 = phi i32 [ -1, %60 ], [ -1, %70 ], [ -1, %76 ], [ -1, %84 ], [ -1, %98 ], [ -1, %.critedge ], [ -1, %144 ], [ %.0112, %195 ], [ %.0112, %194 ], [ 0, %203 ], [ 0, %200 ], [ 1, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

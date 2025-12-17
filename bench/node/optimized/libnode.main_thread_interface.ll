@@ -1392,7 +1392,7 @@ _ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit: ; preds = %fo
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %do.body4, label %do.end5
 
-do.body4:                                         ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i, %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit
+do.body4:                                         ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %_ZN4node9inspector19MainThreadInterface17GetObjectIfExistsEi.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9inspector19MainThreadInterface9GetObjectEiE4args) #20
   tail call void @abort() #21
   unreachable
@@ -1471,8 +1471,8 @@ if.end:                                           ; preds = %for.cond.i.i.i.i, %
   %9 = load ptr, ptr %second, align 8
   br label %return
 
-return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i, %if.end
-  %retval.0 = phi ptr [ %9, %if.end ], [ null, %if.end15.i.i ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ null, %for.cond.i.i ], [ null, %if.end3.i.i.i.i ]
+return:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end
+  %retval.0 = phi ptr [ %9, %if.end ], [ null, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i ], [ null, %if.end15.i.i ], [ null, %for.cond.i.i ], [ null, %if.end3.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -3713,7 +3713,7 @@ _ZSt4copyIPPSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EES8_E
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EES8_ET0_T_SA_S9_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EES8_ET0_T_SA_S9_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EES8_ET0_T_SA_S9_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

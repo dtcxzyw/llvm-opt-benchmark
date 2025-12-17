@@ -2455,7 +2455,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !46
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -2537,7 +2537,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !72
   br label %common.resume
 
@@ -2597,8 +2597,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -2687,7 +2687,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !85
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -2769,7 +2769,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !103
   br label %common.resume
 
@@ -2829,8 +2829,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -2919,7 +2919,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !112
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -3001,7 +3001,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !130
   br label %common.resume
 
@@ -3061,8 +3061,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -3151,7 +3151,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !139
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -3233,7 +3233,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !157
   br label %common.resume
 
@@ -3293,8 +3293,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -3383,7 +3383,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !166
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -3465,7 +3465,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !184
   br label %common.resume
 
@@ -3525,8 +3525,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -3615,7 +3615,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !193
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -3697,7 +3697,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE1ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !211
   br label %common.resume
 
@@ -3757,8 +3757,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -4963,7 +4963,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !233
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -5065,7 +5065,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !234
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -5167,7 +5167,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !235
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -5192,7 +5192,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -6934,7 +6934,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -8789,7 +8789,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !255
   br label %41
 
@@ -11349,7 +11349,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !320
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -11451,7 +11451,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !321
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -11553,7 +11553,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !322
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -11578,7 +11578,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -13188,7 +13188,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -17345,7 +17345,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !364
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -17447,7 +17447,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !365
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -17549,7 +17549,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !366
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -17574,7 +17574,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -19184,7 +19184,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -23341,7 +23341,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !408
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -23443,7 +23443,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !409
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -23545,7 +23545,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !410
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -23570,7 +23570,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -25180,7 +25180,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -28422,7 +28422,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 4
@@ -29414,7 +29414,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !452
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -29516,7 +29516,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !453
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -29618,7 +29618,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !454
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -29643,7 +29643,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -30881,7 +30881,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -30961,7 +30961,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -31042,7 +31042,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 3
@@ -31126,7 +31126,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 4
@@ -31402,7 +31402,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 4
@@ -31638,7 +31638,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -31832,7 +31832,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueA
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -31912,7 +31912,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -31993,7 +31993,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 3
@@ -32077,7 +32077,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 4
@@ -32426,7 +32426,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %105, %108, %118, %120, %129, %143, %146
-  %.0.i.i.i = phi i16 [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %101, %129 ], [ %147, %146 ], [ %141, %143 ]
+  %.0.i.i.i = phi i16 [ %101, %129 ], [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %147, %146 ], [ %141, %143 ]
   store i16 %.0.i.i.i, ptr %.03348, align 2, !tbaa !247
   %148 = bitcast float %84 to i32
   %149 = tail call float @llvm.fabs.f32(float %84)
@@ -32505,7 +32505,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %157, %160, %170, %172, %181, %195, %198
-  %.0.i.i.i37 = phi i16 [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %153, %181 ], [ %199, %198 ], [ %193, %195 ]
+  %.0.i.i.i37 = phi i16 [ %153, %181 ], [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %199, %198 ], [ %193, %195 ]
   %200 = getelementptr inbounds nuw i8, ptr %.03348, i64 2
   store i16 %.0.i.i.i37, ptr %200, align 2, !tbaa !247
   %201 = bitcast float %95 to i32
@@ -32585,7 +32585,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %210, %213, %223, %225, %234, %248, %251
-  %.0.i.i.i41 = phi i16 [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %206, %234 ], [ %252, %251 ], [ %246, %248 ]
+  %.0.i.i.i41 = phi i16 [ %206, %234 ], [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %252, %251 ], [ %246, %248 ]
   %253 = getelementptr inbounds nuw i8, ptr %.03348, i64 4
   store i16 %.0.i.i.i41, ptr %253, align 2, !tbaa !247
   %254 = getelementptr inbounds nuw i8, ptr %.049, i64 3
@@ -32669,7 +32669,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %267, %270, %280, %282, %291, %305, %308
-  %.0.i.i.i45 = phi i16 [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %263, %291 ], [ %309, %308 ], [ %303, %305 ]
+  %.0.i.i.i45 = phi i16 [ %263, %291 ], [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %309, %308 ], [ %303, %305 ]
   %310 = getelementptr inbounds nuw i8, ptr %.03348, i64 6
   store i16 %.0.i.i.i45, ptr %310, align 2, !tbaa !247
   %311 = getelementptr inbounds nuw i8, ptr %.049, i64 4
@@ -33441,7 +33441,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %95, %98, %108, %110, %119, %133, %136
-  %.0.i.i.i = phi i16 [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %91, %119 ], [ %137, %136 ], [ %131, %133 ]
+  %.0.i.i.i = phi i16 [ %91, %119 ], [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %137, %136 ], [ %131, %133 ]
   store i16 %.0.i.i.i, ptr %.01861, align 2, !tbaa !247
   %138 = getelementptr inbounds nuw i8, ptr %.062, i64 1
   %139 = load i8, ptr %138, align 1, !tbaa !222
@@ -33567,7 +33567,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37: ; preds = %178, %181, %191, %193, %202, %216, %219
-  %.0.i.i.i36 = phi i16 [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %174, %202 ], [ %220, %219 ], [ %214, %216 ]
+  %.0.i.i.i36 = phi i16 [ %174, %202 ], [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %220, %219 ], [ %214, %216 ]
   %221 = getelementptr inbounds nuw i8, ptr %.01861, i64 2
   store i16 %.0.i.i.i36, ptr %221, align 2, !tbaa !247
   %222 = getelementptr inbounds nuw i8, ptr %.062, i64 2
@@ -33694,7 +33694,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds = %262, %265, %275, %277, %286, %300, %303
-  %.0.i.i.i54 = phi i16 [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %258, %286 ], [ %304, %303 ], [ %298, %300 ]
+  %.0.i.i.i54 = phi i16 [ %258, %286 ], [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %304, %303 ], [ %298, %300 ]
   %305 = getelementptr inbounds nuw i8, ptr %.01861, i64 4
   store i16 %.0.i.i.i54, ptr %305, align 2, !tbaa !247
   %306 = getelementptr inbounds nuw i8, ptr %.062, i64 3
@@ -33778,7 +33778,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds = %319, %322, %332, %334, %343, %357, %360
-  %.0.i.i.i58 = phi i16 [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %315, %343 ], [ %361, %360 ], [ %355, %357 ]
+  %.0.i.i.i58 = phi i16 [ %315, %343 ], [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %361, %360 ], [ %355, %357 ]
   %362 = getelementptr inbounds nuw i8, ptr %.01861, i64 6
   store i16 %.0.i.i.i58, ptr %362, align 2, !tbaa !247
   %363 = getelementptr inbounds nuw i8, ptr %.062, i64 4
@@ -34761,7 +34761,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %150, %153, %163, %165, %174, %188, %191
-  %.0.i.i.i = phi i16 [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %146, %174 ], [ %192, %191 ], [ %186, %188 ]
+  %.0.i.i.i = phi i16 [ %146, %174 ], [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %192, %191 ], [ %186, %188 ]
   store i16 %.0.i.i.i, ptr %.02849, align 2, !tbaa !247
   %193 = load float, ptr %65, align 4, !tbaa !245
   %194 = bitcast float %193 to i32
@@ -34841,7 +34841,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds = %203, %206, %216, %218, %227, %241, %244
-  %.0.i.i.i33 = phi i16 [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %199, %227 ], [ %245, %244 ], [ %239, %241 ]
+  %.0.i.i.i33 = phi i16 [ %199, %227 ], [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %245, %244 ], [ %239, %241 ]
   %246 = getelementptr inbounds nuw i8, ptr %.02849, i64 2
   store i16 %.0.i.i.i33, ptr %246, align 2, !tbaa !247
   %247 = load float, ptr %66, align 4, !tbaa !245
@@ -34922,7 +34922,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %257, %260, %270, %272, %281, %295, %298
-  %.0.i.i.i37 = phi i16 [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %253, %281 ], [ %299, %298 ], [ %293, %295 ]
+  %.0.i.i.i37 = phi i16 [ %253, %281 ], [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %299, %298 ], [ %293, %295 ]
   %300 = getelementptr inbounds nuw i8, ptr %.02849, i64 4
   store i16 %.0.i.i.i37, ptr %300, align 2, !tbaa !247
   %301 = getelementptr inbounds nuw i8, ptr %.050, i64 3
@@ -35006,7 +35006,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %314, %317, %327, %329, %338, %352, %355
-  %.0.i.i.i41 = phi i16 [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %310, %338 ], [ %356, %355 ], [ %350, %352 ]
+  %.0.i.i.i41 = phi i16 [ %310, %338 ], [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %356, %355 ], [ %350, %352 ]
   %357 = getelementptr inbounds nuw i8, ptr %.02849, i64 6
   store i16 %.0.i.i.i41, ptr %357, align 2, !tbaa !247
   %358 = getelementptr inbounds nuw i8, ptr %.050, i64 4
@@ -35721,7 +35721,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %202, %205, %215, %217, %226, %240, %243
-  %.0.i.i.i = phi i16 [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %198, %226 ], [ %244, %243 ], [ %238, %240 ]
+  %.0.i.i.i = phi i16 [ %198, %226 ], [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %244, %243 ], [ %238, %240 ]
   store i16 %.0.i.i.i, ptr %.02271, align 2, !tbaa !247
   %245 = load float, ptr %27, align 4, !tbaa !245
   %246 = bitcast float %245 to i32
@@ -35801,7 +35801,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %255, %258, %268, %270, %279, %293, %296
-  %.0.i.i.i55 = phi i16 [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %251, %279 ], [ %297, %296 ], [ %291, %293 ]
+  %.0.i.i.i55 = phi i16 [ %251, %279 ], [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %297, %296 ], [ %291, %293 ]
   %298 = getelementptr inbounds nuw i8, ptr %.02271, i64 2
   store i16 %.0.i.i.i55, ptr %298, align 2, !tbaa !247
   %299 = load float, ptr %43, align 4, !tbaa !245
@@ -35882,7 +35882,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %309, %312, %322, %324, %333, %347, %350
-  %.0.i.i.i59 = phi i16 [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %305, %333 ], [ %351, %350 ], [ %345, %347 ]
+  %.0.i.i.i59 = phi i16 [ %305, %333 ], [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %351, %350 ], [ %345, %347 ]
   %352 = getelementptr inbounds nuw i8, ptr %.02271, i64 4
   store i16 %.0.i.i.i59, ptr %352, align 2, !tbaa !247
   %353 = getelementptr inbounds nuw i8, ptr %.072, i64 3
@@ -35966,7 +35966,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %366, %369, %379, %381, %390, %404, %407
-  %.0.i.i.i63 = phi i16 [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %362, %390 ], [ %408, %407 ], [ %402, %404 ]
+  %.0.i.i.i63 = phi i16 [ %362, %390 ], [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %408, %407 ], [ %402, %404 ]
   %409 = getelementptr inbounds nuw i8, ptr %.02271, i64 6
   store i16 %.0.i.i.i63, ptr %409, align 2, !tbaa !247
   %410 = getelementptr inbounds nuw i8, ptr %.072, i64 4
@@ -37158,7 +37158,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !496
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -37260,7 +37260,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !497
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -37362,7 +37362,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !498
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -37387,7 +37387,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -38992,7 +38992,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -41868,7 +41868,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !537
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -41950,7 +41950,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !555
   br label %common.resume
 
@@ -42010,8 +42010,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -42100,7 +42100,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !564
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -42182,7 +42182,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !582
   br label %common.resume
 
@@ -42242,8 +42242,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -42332,7 +42332,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !591
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -42414,7 +42414,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !609
   br label %common.resume
 
@@ -42474,8 +42474,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -42564,7 +42564,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !618
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -42646,7 +42646,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !636
   br label %common.resume
 
@@ -42706,8 +42706,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -42796,7 +42796,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !645
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -42878,7 +42878,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !663
   br label %common.resume
 
@@ -42938,8 +42938,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -43028,7 +43028,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !672
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -43110,7 +43110,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE2ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !690
   br label %common.resume
 
@@ -43170,8 +43170,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -44359,7 +44359,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !705
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -44461,7 +44461,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !706
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -44563,7 +44563,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !707
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -44588,7 +44588,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -46198,7 +46198,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -50369,7 +50369,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !758
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -50471,7 +50471,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !759
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -50573,7 +50573,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !760
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -50598,7 +50598,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -52208,7 +52208,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -56365,7 +56365,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !802
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -56467,7 +56467,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !803
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -56569,7 +56569,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !804
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -56594,7 +56594,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -58204,7 +58204,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -62361,7 +62361,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !846
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -62463,7 +62463,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !847
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -62565,7 +62565,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !848
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -62590,7 +62590,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -64200,7 +64200,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -67442,7 +67442,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -68434,7 +68434,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !890
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -68536,7 +68536,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !891
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -68638,7 +68638,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !892
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -68663,7 +68663,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -69901,7 +69901,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -69981,7 +69981,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -70062,7 +70062,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -70146,7 +70146,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -70422,7 +70422,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -70658,7 +70658,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -70852,7 +70852,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueA
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -70932,7 +70932,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -71013,7 +71013,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -71097,7 +71097,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -71446,7 +71446,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %105, %108, %118, %120, %129, %143, %146
-  %.0.i.i.i = phi i16 [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %101, %129 ], [ %147, %146 ], [ %141, %143 ]
+  %.0.i.i.i = phi i16 [ %101, %129 ], [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %147, %146 ], [ %141, %143 ]
   store i16 %.0.i.i.i, ptr %.03348, align 2, !tbaa !247
   %148 = bitcast float %84 to i32
   %149 = tail call float @llvm.fabs.f32(float %84)
@@ -71525,7 +71525,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %157, %160, %170, %172, %181, %195, %198
-  %.0.i.i.i37 = phi i16 [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %153, %181 ], [ %199, %198 ], [ %193, %195 ]
+  %.0.i.i.i37 = phi i16 [ %153, %181 ], [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %199, %198 ], [ %193, %195 ]
   %200 = getelementptr inbounds nuw i8, ptr %.03348, i64 2
   store i16 %.0.i.i.i37, ptr %200, align 2, !tbaa !247
   %201 = bitcast float %95 to i32
@@ -71605,7 +71605,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %210, %213, %223, %225, %234, %248, %251
-  %.0.i.i.i41 = phi i16 [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %206, %234 ], [ %252, %251 ], [ %246, %248 ]
+  %.0.i.i.i41 = phi i16 [ %206, %234 ], [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %252, %251 ], [ %246, %248 ]
   %253 = getelementptr inbounds nuw i8, ptr %.03348, i64 4
   store i16 %.0.i.i.i41, ptr %253, align 2, !tbaa !247
   %254 = getelementptr inbounds nuw i8, ptr %.049, i64 6
@@ -71689,7 +71689,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %267, %270, %280, %282, %291, %305, %308
-  %.0.i.i.i45 = phi i16 [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %263, %291 ], [ %309, %308 ], [ %303, %305 ]
+  %.0.i.i.i45 = phi i16 [ %263, %291 ], [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %309, %308 ], [ %303, %305 ]
   %310 = getelementptr inbounds nuw i8, ptr %.03348, i64 6
   store i16 %.0.i.i.i45, ptr %310, align 2, !tbaa !247
   %311 = getelementptr inbounds nuw i8, ptr %.049, i64 8
@@ -72461,7 +72461,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %95, %98, %108, %110, %119, %133, %136
-  %.0.i.i.i = phi i16 [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %91, %119 ], [ %137, %136 ], [ %131, %133 ]
+  %.0.i.i.i = phi i16 [ %91, %119 ], [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %137, %136 ], [ %131, %133 ]
   store i16 %.0.i.i.i, ptr %.01861, align 2, !tbaa !247
   %138 = getelementptr inbounds nuw i8, ptr %.062, i64 2
   %139 = load i16, ptr %138, align 2, !tbaa !247
@@ -72587,7 +72587,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37: ; preds = %178, %181, %191, %193, %202, %216, %219
-  %.0.i.i.i36 = phi i16 [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %174, %202 ], [ %220, %219 ], [ %214, %216 ]
+  %.0.i.i.i36 = phi i16 [ %174, %202 ], [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %220, %219 ], [ %214, %216 ]
   %221 = getelementptr inbounds nuw i8, ptr %.01861, i64 2
   store i16 %.0.i.i.i36, ptr %221, align 2, !tbaa !247
   %222 = getelementptr inbounds nuw i8, ptr %.062, i64 4
@@ -72714,7 +72714,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds = %262, %265, %275, %277, %286, %300, %303
-  %.0.i.i.i54 = phi i16 [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %258, %286 ], [ %304, %303 ], [ %298, %300 ]
+  %.0.i.i.i54 = phi i16 [ %258, %286 ], [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %304, %303 ], [ %298, %300 ]
   %305 = getelementptr inbounds nuw i8, ptr %.01861, i64 4
   store i16 %.0.i.i.i54, ptr %305, align 2, !tbaa !247
   %306 = getelementptr inbounds nuw i8, ptr %.062, i64 6
@@ -72798,7 +72798,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds = %319, %322, %332, %334, %343, %357, %360
-  %.0.i.i.i58 = phi i16 [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %315, %343 ], [ %361, %360 ], [ %355, %357 ]
+  %.0.i.i.i58 = phi i16 [ %315, %343 ], [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %361, %360 ], [ %355, %357 ]
   %362 = getelementptr inbounds nuw i8, ptr %.01861, i64 6
   store i16 %.0.i.i.i58, ptr %362, align 2, !tbaa !247
   %363 = getelementptr inbounds nuw i8, ptr %.062, i64 8
@@ -73781,7 +73781,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %150, %153, %163, %165, %174, %188, %191
-  %.0.i.i.i = phi i16 [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %146, %174 ], [ %192, %191 ], [ %186, %188 ]
+  %.0.i.i.i = phi i16 [ %146, %174 ], [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %192, %191 ], [ %186, %188 ]
   store i16 %.0.i.i.i, ptr %.02849, align 2, !tbaa !247
   %193 = load float, ptr %65, align 4, !tbaa !245
   %194 = bitcast float %193 to i32
@@ -73861,7 +73861,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds = %203, %206, %216, %218, %227, %241, %244
-  %.0.i.i.i33 = phi i16 [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %199, %227 ], [ %245, %244 ], [ %239, %241 ]
+  %.0.i.i.i33 = phi i16 [ %199, %227 ], [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %245, %244 ], [ %239, %241 ]
   %246 = getelementptr inbounds nuw i8, ptr %.02849, i64 2
   store i16 %.0.i.i.i33, ptr %246, align 2, !tbaa !247
   %247 = load float, ptr %66, align 4, !tbaa !245
@@ -73942,7 +73942,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %257, %260, %270, %272, %281, %295, %298
-  %.0.i.i.i37 = phi i16 [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %253, %281 ], [ %299, %298 ], [ %293, %295 ]
+  %.0.i.i.i37 = phi i16 [ %253, %281 ], [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %299, %298 ], [ %293, %295 ]
   %300 = getelementptr inbounds nuw i8, ptr %.02849, i64 4
   store i16 %.0.i.i.i37, ptr %300, align 2, !tbaa !247
   %301 = getelementptr inbounds nuw i8, ptr %.050, i64 6
@@ -74026,7 +74026,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %314, %317, %327, %329, %338, %352, %355
-  %.0.i.i.i41 = phi i16 [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %310, %338 ], [ %356, %355 ], [ %350, %352 ]
+  %.0.i.i.i41 = phi i16 [ %310, %338 ], [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %356, %355 ], [ %350, %352 ]
   %357 = getelementptr inbounds nuw i8, ptr %.02849, i64 6
   store i16 %.0.i.i.i41, ptr %357, align 2, !tbaa !247
   %358 = getelementptr inbounds nuw i8, ptr %.050, i64 8
@@ -74741,7 +74741,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %202, %205, %215, %217, %226, %240, %243
-  %.0.i.i.i = phi i16 [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %198, %226 ], [ %244, %243 ], [ %238, %240 ]
+  %.0.i.i.i = phi i16 [ %198, %226 ], [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %244, %243 ], [ %238, %240 ]
   store i16 %.0.i.i.i, ptr %.02271, align 2, !tbaa !247
   %245 = load float, ptr %27, align 4, !tbaa !245
   %246 = bitcast float %245 to i32
@@ -74821,7 +74821,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %255, %258, %268, %270, %279, %293, %296
-  %.0.i.i.i55 = phi i16 [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %251, %279 ], [ %297, %296 ], [ %291, %293 ]
+  %.0.i.i.i55 = phi i16 [ %251, %279 ], [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %297, %296 ], [ %291, %293 ]
   %298 = getelementptr inbounds nuw i8, ptr %.02271, i64 2
   store i16 %.0.i.i.i55, ptr %298, align 2, !tbaa !247
   %299 = load float, ptr %43, align 4, !tbaa !245
@@ -74902,7 +74902,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %309, %312, %322, %324, %333, %347, %350
-  %.0.i.i.i59 = phi i16 [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %305, %333 ], [ %351, %350 ], [ %345, %347 ]
+  %.0.i.i.i59 = phi i16 [ %305, %333 ], [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %351, %350 ], [ %345, %347 ]
   %352 = getelementptr inbounds nuw i8, ptr %.02271, i64 4
   store i16 %.0.i.i.i59, ptr %352, align 2, !tbaa !247
   %353 = getelementptr inbounds nuw i8, ptr %.072, i64 6
@@ -74986,7 +74986,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %366, %369, %379, %381, %390, %404, %407
-  %.0.i.i.i63 = phi i16 [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %362, %390 ], [ %408, %407 ], [ %402, %404 ]
+  %.0.i.i.i63 = phi i16 [ %362, %390 ], [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %408, %407 ], [ %402, %404 ]
   %409 = getelementptr inbounds nuw i8, ptr %.02271, i64 6
   store i16 %.0.i.i.i63, ptr %409, align 2, !tbaa !247
   %410 = getelementptr inbounds nuw i8, ptr %.072, i64 8
@@ -76178,7 +76178,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !934
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -76280,7 +76280,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !935
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -76382,7 +76382,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !936
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -76407,7 +76407,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -78012,7 +78012,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -80888,7 +80888,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !975
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -80970,7 +80970,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !993
   br label %common.resume
 
@@ -81030,8 +81030,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -81120,7 +81120,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1002
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -81202,7 +81202,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1020
   br label %common.resume
 
@@ -81262,8 +81262,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -81352,7 +81352,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1029
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -81434,7 +81434,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1047
   br label %common.resume
 
@@ -81494,8 +81494,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -81584,7 +81584,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1056
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -81666,7 +81666,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1074
   br label %common.resume
 
@@ -81726,8 +81726,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -81816,7 +81816,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1083
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -81898,7 +81898,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1101
   br label %common.resume
 
@@ -81958,8 +81958,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -82048,7 +82048,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1110
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -82130,7 +82130,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE3ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1128
   br label %common.resume
 
@@ -82190,8 +82190,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -83379,7 +83379,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1143
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -83481,7 +83481,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1144
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -83583,7 +83583,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1145
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -83608,7 +83608,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -85218,7 +85218,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -89389,7 +89389,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1196
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -89491,7 +89491,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1197
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -89593,7 +89593,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1198
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -89618,7 +89618,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -91228,7 +91228,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -95385,7 +95385,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1240
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -95487,7 +95487,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1241
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -95589,7 +95589,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1242
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -95614,7 +95614,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -97224,7 +97224,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -101381,7 +101381,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1284
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -101483,7 +101483,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1285
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -101585,7 +101585,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1286
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -101610,7 +101610,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -103220,7 +103220,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -106462,7 +106462,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -107454,7 +107454,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1328
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -107556,7 +107556,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1329
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -107658,7 +107658,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1330
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -107683,7 +107683,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -108921,7 +108921,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -109001,7 +109001,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -109082,7 +109082,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -109166,7 +109166,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -109442,7 +109442,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -109678,7 +109678,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -109872,7 +109872,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueA
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -109952,7 +109952,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -110033,7 +110033,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -110117,7 +110117,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -110466,7 +110466,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %105, %108, %118, %120, %129, %143, %146
-  %.0.i.i.i = phi i16 [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %101, %129 ], [ %147, %146 ], [ %141, %143 ]
+  %.0.i.i.i = phi i16 [ %101, %129 ], [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %147, %146 ], [ %141, %143 ]
   store i16 %.0.i.i.i, ptr %.03348, align 2, !tbaa !247
   %148 = bitcast float %84 to i32
   %149 = tail call float @llvm.fabs.f32(float %84)
@@ -110545,7 +110545,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %157, %160, %170, %172, %181, %195, %198
-  %.0.i.i.i37 = phi i16 [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %153, %181 ], [ %199, %198 ], [ %193, %195 ]
+  %.0.i.i.i37 = phi i16 [ %153, %181 ], [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %199, %198 ], [ %193, %195 ]
   %200 = getelementptr inbounds nuw i8, ptr %.03348, i64 2
   store i16 %.0.i.i.i37, ptr %200, align 2, !tbaa !247
   %201 = bitcast float %95 to i32
@@ -110625,7 +110625,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %210, %213, %223, %225, %234, %248, %251
-  %.0.i.i.i41 = phi i16 [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %206, %234 ], [ %252, %251 ], [ %246, %248 ]
+  %.0.i.i.i41 = phi i16 [ %206, %234 ], [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %252, %251 ], [ %246, %248 ]
   %253 = getelementptr inbounds nuw i8, ptr %.03348, i64 4
   store i16 %.0.i.i.i41, ptr %253, align 2, !tbaa !247
   %254 = getelementptr inbounds nuw i8, ptr %.049, i64 6
@@ -110709,7 +110709,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %267, %270, %280, %282, %291, %305, %308
-  %.0.i.i.i45 = phi i16 [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %263, %291 ], [ %309, %308 ], [ %303, %305 ]
+  %.0.i.i.i45 = phi i16 [ %263, %291 ], [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %309, %308 ], [ %303, %305 ]
   %310 = getelementptr inbounds nuw i8, ptr %.03348, i64 6
   store i16 %.0.i.i.i45, ptr %310, align 2, !tbaa !247
   %311 = getelementptr inbounds nuw i8, ptr %.049, i64 8
@@ -111481,7 +111481,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %95, %98, %108, %110, %119, %133, %136
-  %.0.i.i.i = phi i16 [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %91, %119 ], [ %137, %136 ], [ %131, %133 ]
+  %.0.i.i.i = phi i16 [ %91, %119 ], [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %137, %136 ], [ %131, %133 ]
   store i16 %.0.i.i.i, ptr %.01861, align 2, !tbaa !247
   %138 = getelementptr inbounds nuw i8, ptr %.062, i64 2
   %139 = load i16, ptr %138, align 2, !tbaa !247
@@ -111607,7 +111607,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37: ; preds = %178, %181, %191, %193, %202, %216, %219
-  %.0.i.i.i36 = phi i16 [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %174, %202 ], [ %220, %219 ], [ %214, %216 ]
+  %.0.i.i.i36 = phi i16 [ %174, %202 ], [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %220, %219 ], [ %214, %216 ]
   %221 = getelementptr inbounds nuw i8, ptr %.01861, i64 2
   store i16 %.0.i.i.i36, ptr %221, align 2, !tbaa !247
   %222 = getelementptr inbounds nuw i8, ptr %.062, i64 4
@@ -111734,7 +111734,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds = %262, %265, %275, %277, %286, %300, %303
-  %.0.i.i.i54 = phi i16 [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %258, %286 ], [ %304, %303 ], [ %298, %300 ]
+  %.0.i.i.i54 = phi i16 [ %258, %286 ], [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %304, %303 ], [ %298, %300 ]
   %305 = getelementptr inbounds nuw i8, ptr %.01861, i64 4
   store i16 %.0.i.i.i54, ptr %305, align 2, !tbaa !247
   %306 = getelementptr inbounds nuw i8, ptr %.062, i64 6
@@ -111818,7 +111818,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds = %319, %322, %332, %334, %343, %357, %360
-  %.0.i.i.i58 = phi i16 [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %315, %343 ], [ %361, %360 ], [ %355, %357 ]
+  %.0.i.i.i58 = phi i16 [ %315, %343 ], [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %361, %360 ], [ %355, %357 ]
   %362 = getelementptr inbounds nuw i8, ptr %.01861, i64 6
   store i16 %.0.i.i.i58, ptr %362, align 2, !tbaa !247
   %363 = getelementptr inbounds nuw i8, ptr %.062, i64 8
@@ -112801,7 +112801,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %150, %153, %163, %165, %174, %188, %191
-  %.0.i.i.i = phi i16 [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %146, %174 ], [ %192, %191 ], [ %186, %188 ]
+  %.0.i.i.i = phi i16 [ %146, %174 ], [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %192, %191 ], [ %186, %188 ]
   store i16 %.0.i.i.i, ptr %.02849, align 2, !tbaa !247
   %193 = load float, ptr %65, align 4, !tbaa !245
   %194 = bitcast float %193 to i32
@@ -112881,7 +112881,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds = %203, %206, %216, %218, %227, %241, %244
-  %.0.i.i.i33 = phi i16 [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %199, %227 ], [ %245, %244 ], [ %239, %241 ]
+  %.0.i.i.i33 = phi i16 [ %199, %227 ], [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %245, %244 ], [ %239, %241 ]
   %246 = getelementptr inbounds nuw i8, ptr %.02849, i64 2
   store i16 %.0.i.i.i33, ptr %246, align 2, !tbaa !247
   %247 = load float, ptr %66, align 4, !tbaa !245
@@ -112962,7 +112962,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %257, %260, %270, %272, %281, %295, %298
-  %.0.i.i.i37 = phi i16 [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %253, %281 ], [ %299, %298 ], [ %293, %295 ]
+  %.0.i.i.i37 = phi i16 [ %253, %281 ], [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %299, %298 ], [ %293, %295 ]
   %300 = getelementptr inbounds nuw i8, ptr %.02849, i64 4
   store i16 %.0.i.i.i37, ptr %300, align 2, !tbaa !247
   %301 = getelementptr inbounds nuw i8, ptr %.050, i64 6
@@ -113046,7 +113046,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %314, %317, %327, %329, %338, %352, %355
-  %.0.i.i.i41 = phi i16 [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %310, %338 ], [ %356, %355 ], [ %350, %352 ]
+  %.0.i.i.i41 = phi i16 [ %310, %338 ], [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %356, %355 ], [ %350, %352 ]
   %357 = getelementptr inbounds nuw i8, ptr %.02849, i64 6
   store i16 %.0.i.i.i41, ptr %357, align 2, !tbaa !247
   %358 = getelementptr inbounds nuw i8, ptr %.050, i64 8
@@ -113761,7 +113761,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %202, %205, %215, %217, %226, %240, %243
-  %.0.i.i.i = phi i16 [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %198, %226 ], [ %244, %243 ], [ %238, %240 ]
+  %.0.i.i.i = phi i16 [ %198, %226 ], [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %244, %243 ], [ %238, %240 ]
   store i16 %.0.i.i.i, ptr %.02271, align 2, !tbaa !247
   %245 = load float, ptr %27, align 4, !tbaa !245
   %246 = bitcast float %245 to i32
@@ -113841,7 +113841,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %255, %258, %268, %270, %279, %293, %296
-  %.0.i.i.i55 = phi i16 [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %251, %279 ], [ %297, %296 ], [ %291, %293 ]
+  %.0.i.i.i55 = phi i16 [ %251, %279 ], [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %297, %296 ], [ %291, %293 ]
   %298 = getelementptr inbounds nuw i8, ptr %.02271, i64 2
   store i16 %.0.i.i.i55, ptr %298, align 2, !tbaa !247
   %299 = load float, ptr %43, align 4, !tbaa !245
@@ -113922,7 +113922,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %309, %312, %322, %324, %333, %347, %350
-  %.0.i.i.i59 = phi i16 [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %305, %333 ], [ %351, %350 ], [ %345, %347 ]
+  %.0.i.i.i59 = phi i16 [ %305, %333 ], [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %351, %350 ], [ %345, %347 ]
   %352 = getelementptr inbounds nuw i8, ptr %.02271, i64 4
   store i16 %.0.i.i.i59, ptr %352, align 2, !tbaa !247
   %353 = getelementptr inbounds nuw i8, ptr %.072, i64 6
@@ -114006,7 +114006,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %366, %369, %379, %381, %390, %404, %407
-  %.0.i.i.i63 = phi i16 [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %362, %390 ], [ %408, %407 ], [ %402, %404 ]
+  %.0.i.i.i63 = phi i16 [ %362, %390 ], [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %408, %407 ], [ %402, %404 ]
   %409 = getelementptr inbounds nuw i8, ptr %.02271, i64 6
   store i16 %.0.i.i.i63, ptr %409, align 2, !tbaa !247
   %410 = getelementptr inbounds nuw i8, ptr %.072, i64 8
@@ -115198,7 +115198,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1372
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -115300,7 +115300,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1373
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -115402,7 +115402,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1374
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -115427,7 +115427,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -117032,7 +117032,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -119908,7 +119908,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1413
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -119990,7 +119990,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1431
   br label %common.resume
 
@@ -120050,8 +120050,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -120140,7 +120140,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1440
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -120222,7 +120222,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1458
   br label %common.resume
 
@@ -120282,8 +120282,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -120372,7 +120372,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1467
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -120454,7 +120454,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1485
   br label %common.resume
 
@@ -120514,8 +120514,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -120604,7 +120604,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1494
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -120686,7 +120686,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1512
   br label %common.resume
 
@@ -120746,8 +120746,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -120836,7 +120836,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1521
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -120918,7 +120918,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1539
   br label %common.resume
 
@@ -120978,8 +120978,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -121068,7 +121068,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1548
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -121150,7 +121150,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE5ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1566
   br label %common.resume
 
@@ -121210,8 +121210,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -122399,7 +122399,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1581
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -122501,7 +122501,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1582
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -122603,7 +122603,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1583
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -122628,7 +122628,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -124238,7 +124238,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -128409,7 +128409,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1634
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -128511,7 +128511,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1635
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -128613,7 +128613,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1636
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -128638,7 +128638,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -130248,7 +130248,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -134405,7 +134405,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1678
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -134507,7 +134507,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1679
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -134609,7 +134609,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1680
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -134634,7 +134634,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -136244,7 +136244,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -140401,7 +140401,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1722
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -140503,7 +140503,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1723
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -140605,7 +140605,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1724
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -140630,7 +140630,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -142240,7 +142240,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -145482,7 +145482,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -146474,7 +146474,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1766
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -146576,7 +146576,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1767
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -146678,7 +146678,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1768
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -146703,7 +146703,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -147941,7 +147941,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalf
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -148021,7 +148021,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -148102,7 +148102,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -148186,7 +148186,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -148462,7 +148462,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %38, %41, %51, %53, %62, %76, %79
-  %.0.i.i = phi i16 [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %34, %62 ], [ %80, %79 ], [ %74, %76 ]
+  %.0.i.i = phi i16 [ %34, %62 ], [ %48, %41 ], [ %52, %51 ], [ %61, %53 ], [ %39, %38 ], [ %80, %79 ], [ %74, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %.02026, i64 6
   store i16 %.0.i.i, ptr %81, align 2, !tbaa !247
   %82 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -148698,7 +148698,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -148892,7 +148892,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueA
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.02550, align 2, !tbaa !247
   %126 = load float, ptr %16, align 4, !tbaa !245
   %127 = bitcast float %126 to i32
@@ -148972,7 +148972,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %83, %86, %96, %98, 
   br label %_ZN9Imath_3_14halfC2Ef.exit32
 
 _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %151, %160, %174, %177
-  %.0.i.i31 = phi i16 [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %132, %160 ], [ %178, %177 ], [ %172, %174 ]
+  %.0.i.i31 = phi i16 [ %132, %160 ], [ %146, %139 ], [ %150, %149 ], [ %159, %151 ], [ %137, %136 ], [ %178, %177 ], [ %172, %174 ]
   %179 = getelementptr inbounds nuw i8, ptr %.02550, i64 2
   store i16 %.0.i.i31, ptr %179, align 2, !tbaa !247
   %180 = load float, ptr %17, align 4, !tbaa !245
@@ -149053,7 +149053,7 @@ _ZN9Imath_3_14halfC2Ef.exit32:                    ; preds = %136, %139, %149, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit36
 
 _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %205, %214, %228, %231
-  %.0.i.i35 = phi i16 [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %186, %214 ], [ %232, %231 ], [ %226, %228 ]
+  %.0.i.i35 = phi i16 [ %186, %214 ], [ %200, %193 ], [ %204, %203 ], [ %213, %205 ], [ %191, %190 ], [ %232, %231 ], [ %226, %228 ]
   %233 = getelementptr inbounds nuw i8, ptr %.02550, i64 4
   store i16 %.0.i.i35, ptr %233, align 2, !tbaa !247
   %234 = getelementptr inbounds nuw i8, ptr %.051, i64 6
@@ -149137,7 +149137,7 @@ _ZN9Imath_3_14halfC2Ef.exit36:                    ; preds = %190, %193, %203, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit40
 
 _ZN9Imath_3_14halfC2Ef.exit40:                    ; preds = %247, %250, %260, %262, %271, %285, %288
-  %.0.i.i39 = phi i16 [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %243, %271 ], [ %289, %288 ], [ %283, %285 ]
+  %.0.i.i39 = phi i16 [ %243, %271 ], [ %257, %250 ], [ %261, %260 ], [ %270, %262 ], [ %248, %247 ], [ %289, %288 ], [ %283, %285 ]
   %290 = getelementptr inbounds nuw i8, ptr %.02550, i64 6
   store i16 %.0.i.i39, ptr %290, align 2, !tbaa !247
   %291 = getelementptr inbounds nuw i8, ptr %.051, i64 8
@@ -149486,7 +149486,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %105, %108, %118, %120, %129, %143, %146
-  %.0.i.i.i = phi i16 [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %101, %129 ], [ %147, %146 ], [ %141, %143 ]
+  %.0.i.i.i = phi i16 [ %101, %129 ], [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %147, %146 ], [ %141, %143 ]
   store i16 %.0.i.i.i, ptr %.03348, align 2, !tbaa !247
   %148 = bitcast float %84 to i32
   %149 = tail call float @llvm.fabs.f32(float %84)
@@ -149565,7 +149565,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %157, %160, %170, %172, %181, %195, %198
-  %.0.i.i.i37 = phi i16 [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %153, %181 ], [ %199, %198 ], [ %193, %195 ]
+  %.0.i.i.i37 = phi i16 [ %153, %181 ], [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %199, %198 ], [ %193, %195 ]
   %200 = getelementptr inbounds nuw i8, ptr %.03348, i64 2
   store i16 %.0.i.i.i37, ptr %200, align 2, !tbaa !247
   %201 = bitcast float %95 to i32
@@ -149645,7 +149645,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %210, %213, %223, %225, %234, %248, %251
-  %.0.i.i.i41 = phi i16 [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %206, %234 ], [ %252, %251 ], [ %246, %248 ]
+  %.0.i.i.i41 = phi i16 [ %206, %234 ], [ %220, %213 ], [ %224, %223 ], [ %233, %225 ], [ %211, %210 ], [ %252, %251 ], [ %246, %248 ]
   %253 = getelementptr inbounds nuw i8, ptr %.03348, i64 4
   store i16 %.0.i.i.i41, ptr %253, align 2, !tbaa !247
   %254 = getelementptr inbounds nuw i8, ptr %.049, i64 6
@@ -149729,7 +149729,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %267, %270, %280, %282, %291, %305, %308
-  %.0.i.i.i45 = phi i16 [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %263, %291 ], [ %309, %308 ], [ %303, %305 ]
+  %.0.i.i.i45 = phi i16 [ %263, %291 ], [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %309, %308 ], [ %303, %305 ]
   %310 = getelementptr inbounds nuw i8, ptr %.03348, i64 6
   store i16 %.0.i.i.i45, ptr %310, align 2, !tbaa !247
   %311 = getelementptr inbounds nuw i8, ptr %.049, i64 8
@@ -150501,7 +150501,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %95, %98, %108, %110, %119, %133, %136
-  %.0.i.i.i = phi i16 [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %91, %119 ], [ %137, %136 ], [ %131, %133 ]
+  %.0.i.i.i = phi i16 [ %91, %119 ], [ %105, %98 ], [ %109, %108 ], [ %118, %110 ], [ %96, %95 ], [ %137, %136 ], [ %131, %133 ]
   store i16 %.0.i.i.i, ptr %.01861, align 2, !tbaa !247
   %138 = getelementptr inbounds nuw i8, ptr %.062, i64 2
   %139 = load i16, ptr %138, align 2, !tbaa !247
@@ -150627,7 +150627,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37: ; preds = %178, %181, %191, %193, %202, %216, %219
-  %.0.i.i.i36 = phi i16 [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %174, %202 ], [ %220, %219 ], [ %214, %216 ]
+  %.0.i.i.i36 = phi i16 [ %174, %202 ], [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %220, %219 ], [ %214, %216 ]
   %221 = getelementptr inbounds nuw i8, ptr %.01861, i64 2
   store i16 %.0.i.i.i36, ptr %221, align 2, !tbaa !247
   %222 = getelementptr inbounds nuw i8, ptr %.062, i64 4
@@ -150754,7 +150754,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds = %262, %265, %275, %277, %286, %300, %303
-  %.0.i.i.i54 = phi i16 [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %258, %286 ], [ %304, %303 ], [ %298, %300 ]
+  %.0.i.i.i54 = phi i16 [ %258, %286 ], [ %272, %265 ], [ %276, %275 ], [ %285, %277 ], [ %263, %262 ], [ %304, %303 ], [ %298, %300 ]
   %305 = getelementptr inbounds nuw i8, ptr %.01861, i64 4
   store i16 %.0.i.i.i54, ptr %305, align 2, !tbaa !247
   %306 = getelementptr inbounds nuw i8, ptr %.062, i64 6
@@ -150838,7 +150838,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds = %319, %322, %332, %334, %343, %357, %360
-  %.0.i.i.i58 = phi i16 [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %315, %343 ], [ %361, %360 ], [ %355, %357 ]
+  %.0.i.i.i58 = phi i16 [ %315, %343 ], [ %329, %322 ], [ %333, %332 ], [ %342, %334 ], [ %320, %319 ], [ %361, %360 ], [ %355, %357 ]
   %362 = getelementptr inbounds nuw i8, ptr %.01861, i64 6
   store i16 %.0.i.i.i58, ptr %362, align 2, !tbaa !247
   %363 = getelementptr inbounds nuw i8, ptr %.062, i64 8
@@ -151821,7 +151821,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %150, %153, %163, %165, %174, %188, %191
-  %.0.i.i.i = phi i16 [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %146, %174 ], [ %192, %191 ], [ %186, %188 ]
+  %.0.i.i.i = phi i16 [ %146, %174 ], [ %160, %153 ], [ %164, %163 ], [ %173, %165 ], [ %151, %150 ], [ %192, %191 ], [ %186, %188 ]
   store i16 %.0.i.i.i, ptr %.02849, align 2, !tbaa !247
   %193 = load float, ptr %65, align 4, !tbaa !245
   %194 = bitcast float %193 to i32
@@ -151901,7 +151901,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds = %203, %206, %216, %218, %227, %241, %244
-  %.0.i.i.i33 = phi i16 [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %199, %227 ], [ %245, %244 ], [ %239, %241 ]
+  %.0.i.i.i33 = phi i16 [ %199, %227 ], [ %213, %206 ], [ %217, %216 ], [ %226, %218 ], [ %204, %203 ], [ %245, %244 ], [ %239, %241 ]
   %246 = getelementptr inbounds nuw i8, ptr %.02849, i64 2
   store i16 %.0.i.i.i33, ptr %246, align 2, !tbaa !247
   %247 = load float, ptr %66, align 4, !tbaa !245
@@ -151982,7 +151982,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %257, %260, %270, %272, %281, %295, %298
-  %.0.i.i.i37 = phi i16 [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %253, %281 ], [ %299, %298 ], [ %293, %295 ]
+  %.0.i.i.i37 = phi i16 [ %253, %281 ], [ %267, %260 ], [ %271, %270 ], [ %280, %272 ], [ %258, %257 ], [ %299, %298 ], [ %293, %295 ]
   %300 = getelementptr inbounds nuw i8, ptr %.02849, i64 4
   store i16 %.0.i.i.i37, ptr %300, align 2, !tbaa !247
   %301 = getelementptr inbounds nuw i8, ptr %.050, i64 6
@@ -152066,7 +152066,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %314, %317, %327, %329, %338, %352, %355
-  %.0.i.i.i41 = phi i16 [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %310, %338 ], [ %356, %355 ], [ %350, %352 ]
+  %.0.i.i.i41 = phi i16 [ %310, %338 ], [ %324, %317 ], [ %328, %327 ], [ %337, %329 ], [ %315, %314 ], [ %356, %355 ], [ %350, %352 ]
   %357 = getelementptr inbounds nuw i8, ptr %.02849, i64 6
   store i16 %.0.i.i.i41, ptr %357, align 2, !tbaa !247
   %358 = getelementptr inbounds nuw i8, ptr %.050, i64 8
@@ -152781,7 +152781,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %202, %205, %215, %217, %226, %240, %243
-  %.0.i.i.i = phi i16 [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %198, %226 ], [ %244, %243 ], [ %238, %240 ]
+  %.0.i.i.i = phi i16 [ %198, %226 ], [ %212, %205 ], [ %216, %215 ], [ %225, %217 ], [ %203, %202 ], [ %244, %243 ], [ %238, %240 ]
   store i16 %.0.i.i.i, ptr %.02271, align 2, !tbaa !247
   %245 = load float, ptr %27, align 4, !tbaa !245
   %246 = bitcast float %245 to i32
@@ -152861,7 +152861,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %255, %258, %268, %270, %279, %293, %296
-  %.0.i.i.i55 = phi i16 [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %251, %279 ], [ %297, %296 ], [ %291, %293 ]
+  %.0.i.i.i55 = phi i16 [ %251, %279 ], [ %265, %258 ], [ %269, %268 ], [ %278, %270 ], [ %256, %255 ], [ %297, %296 ], [ %291, %293 ]
   %298 = getelementptr inbounds nuw i8, ptr %.02271, i64 2
   store i16 %.0.i.i.i55, ptr %298, align 2, !tbaa !247
   %299 = load float, ptr %43, align 4, !tbaa !245
@@ -152942,7 +152942,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %309, %312, %322, %324, %333, %347, %350
-  %.0.i.i.i59 = phi i16 [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %305, %333 ], [ %351, %350 ], [ %345, %347 ]
+  %.0.i.i.i59 = phi i16 [ %305, %333 ], [ %319, %312 ], [ %323, %322 ], [ %332, %324 ], [ %310, %309 ], [ %351, %350 ], [ %345, %347 ]
   %352 = getelementptr inbounds nuw i8, ptr %.02271, i64 4
   store i16 %.0.i.i.i59, ptr %352, align 2, !tbaa !247
   %353 = getelementptr inbounds nuw i8, ptr %.072, i64 6
@@ -153026,7 +153026,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %366, %369, %379, %381, %390, %404, %407
-  %.0.i.i.i63 = phi i16 [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %362, %390 ], [ %408, %407 ], [ %402, %404 ]
+  %.0.i.i.i63 = phi i16 [ %362, %390 ], [ %376, %369 ], [ %380, %379 ], [ %389, %381 ], [ %367, %366 ], [ %408, %407 ], [ %402, %404 ]
   %409 = getelementptr inbounds nuw i8, ptr %.02271, i64 6
   store i16 %.0.i.i.i63, ptr %409, align 2, !tbaa !247
   %410 = getelementptr inbounds nuw i8, ptr %.072, i64 8
@@ -154218,7 +154218,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !1810
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -154320,7 +154320,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !1811
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -154422,7 +154422,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !1812
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -154447,7 +154447,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -156052,7 +156052,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -158928,7 +158928,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1851
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -159010,7 +159010,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1869
   br label %common.resume
 
@@ -159070,8 +159070,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -159160,7 +159160,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1878
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -159242,7 +159242,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1896
   br label %common.resume
 
@@ -159302,8 +159302,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -159392,7 +159392,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1905
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -159474,7 +159474,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1923
   br label %common.resume
 
@@ -159534,8 +159534,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -159624,7 +159624,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1932
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -159706,7 +159706,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1950
   br label %common.resume
 
@@ -159766,8 +159766,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -159856,7 +159856,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1959
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -159938,7 +159938,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !1977
   br label %common.resume
 
@@ -159998,8 +159998,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -160088,7 +160088,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !1986
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -160170,7 +160170,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE7ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2004
   br label %common.resume
 
@@ -160230,8 +160230,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -161456,7 +161456,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2019
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -161558,7 +161558,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2020
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -161660,7 +161660,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2021
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -161685,7 +161685,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -163480,7 +163480,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -168428,7 +168428,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2074
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -168530,7 +168530,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2075
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -168632,7 +168632,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2076
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -168657,7 +168657,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -170452,7 +170452,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -175386,7 +175386,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2118
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -175488,7 +175488,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2119
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -175590,7 +175590,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2120
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -175615,7 +175615,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -177410,7 +177410,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -182344,7 +182344,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2162
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -182446,7 +182446,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2163
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -182548,7 +182548,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2164
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -182573,7 +182573,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -184368,7 +184368,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -188387,7 +188387,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %35, %37, %39, %40
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %59, %62, %72, %74, %83, %97, %100
-  %.0.i.i = phi i16 [ %69, %62 ], [ %73, %72 ], [ %82, %74 ], [ %60, %59 ], [ %55, %83 ], [ %101, %100 ], [ %95, %97 ]
+  %.0.i.i = phi i16 [ %55, %83 ], [ %69, %62 ], [ %73, %72 ], [ %82, %74 ], [ %60, %59 ], [ %101, %100 ], [ %95, %97 ]
   %102 = getelementptr inbounds nuw i8, ptr %.02027, i64 6
   store i16 %.0.i.i, ptr %102, align 2, !tbaa !247
   %103 = getelementptr inbounds nuw i8, ptr %.028, i64 8
@@ -189379,7 +189379,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2206
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -189481,7 +189481,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2207
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -189583,7 +189583,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2208
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -189608,7 +189608,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -190957,7 +190957,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36._crit_edge:       ; preds = %_ZNK9Imath_3_14half
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %146, %149, %159, %161, %170, %184, %187
-  %.0.i.i = phi i16 [ %156, %149 ], [ %160, %159 ], [ %169, %161 ], [ %147, %146 ], [ %142, %170 ], [ %188, %187 ], [ %182, %184 ]
+  %.0.i.i = phi i16 [ %142, %170 ], [ %156, %149 ], [ %160, %159 ], [ %169, %161 ], [ %147, %146 ], [ %188, %187 ], [ %182, %184 ]
   store i16 %.0.i.i, ptr %.02563, align 2, !tbaa !247
   %189 = load float, ptr %16, align 4, !tbaa !245
   %190 = bitcast float %189 to i32
@@ -191037,7 +191037,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %146, %149, %159, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit41
 
 _ZN9Imath_3_14halfC2Ef.exit41:                    ; preds = %199, %202, %212, %214, %223, %237, %240
-  %.0.i.i40 = phi i16 [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %195, %223 ], [ %241, %240 ], [ %235, %237 ]
+  %.0.i.i40 = phi i16 [ %195, %223 ], [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %241, %240 ], [ %235, %237 ]
   %242 = getelementptr inbounds nuw i8, ptr %.02563, i64 2
   store i16 %.0.i.i40, ptr %242, align 2, !tbaa !247
   %243 = load float, ptr %17, align 4, !tbaa !245
@@ -191118,7 +191118,7 @@ _ZN9Imath_3_14halfC2Ef.exit41:                    ; preds = %199, %202, %212, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit45
 
 _ZN9Imath_3_14halfC2Ef.exit45:                    ; preds = %253, %256, %266, %268, %277, %291, %294
-  %.0.i.i44 = phi i16 [ %263, %256 ], [ %267, %266 ], [ %276, %268 ], [ %254, %253 ], [ %249, %277 ], [ %295, %294 ], [ %289, %291 ]
+  %.0.i.i44 = phi i16 [ %249, %277 ], [ %263, %256 ], [ %267, %266 ], [ %276, %268 ], [ %254, %253 ], [ %295, %294 ], [ %289, %291 ]
   %296 = getelementptr inbounds nuw i8, ptr %.02563, i64 4
   store i16 %.0.i.i44, ptr %296, align 2, !tbaa !247
   %297 = getelementptr inbounds nuw i8, ptr %.064, i64 6
@@ -191239,7 +191239,7 @@ _ZNK9Imath_3_14halfcvfEv.exit49:                  ; preds = %307, %309, %311, %3
   br label %_ZN9Imath_3_14halfC2Ef.exit53
 
 _ZN9Imath_3_14halfC2Ef.exit53:                    ; preds = %331, %334, %344, %346, %355, %369, %372
-  %.0.i.i52 = phi i16 [ %341, %334 ], [ %345, %344 ], [ %354, %346 ], [ %332, %331 ], [ %327, %355 ], [ %373, %372 ], [ %367, %369 ]
+  %.0.i.i52 = phi i16 [ %327, %355 ], [ %341, %334 ], [ %345, %344 ], [ %354, %346 ], [ %332, %331 ], [ %373, %372 ], [ %367, %369 ]
   %374 = getelementptr inbounds nuw i8, ptr %.02563, i64 6
   store i16 %.0.i.i52, ptr %374, align 2, !tbaa !247
   %375 = getelementptr inbounds nuw i8, ptr %.064, i64 8
@@ -191552,7 +191552,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %35, %37, %39, %40
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %59, %62, %72, %74, %83, %97, %100
-  %.0.i.i = phi i16 [ %69, %62 ], [ %73, %72 ], [ %82, %74 ], [ %60, %59 ], [ %55, %83 ], [ %101, %100 ], [ %95, %97 ]
+  %.0.i.i = phi i16 [ %55, %83 ], [ %69, %62 ], [ %73, %72 ], [ %82, %74 ], [ %60, %59 ], [ %101, %100 ], [ %95, %97 ]
   %102 = getelementptr inbounds nuw i8, ptr %.02027, i64 6
   store i16 %.0.i.i, ptr %102, align 2, !tbaa !247
   %103 = getelementptr inbounds nuw i8, ptr %.028, i64 8
@@ -191788,7 +191788,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -192093,7 +192093,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36._crit_edge:       ; preds = %_ZNK9Imath_3_14half
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %146, %149, %159, %161, %170, %184, %187
-  %.0.i.i = phi i16 [ %156, %149 ], [ %160, %159 ], [ %169, %161 ], [ %147, %146 ], [ %142, %170 ], [ %188, %187 ], [ %182, %184 ]
+  %.0.i.i = phi i16 [ %142, %170 ], [ %156, %149 ], [ %160, %159 ], [ %169, %161 ], [ %147, %146 ], [ %188, %187 ], [ %182, %184 ]
   store i16 %.0.i.i, ptr %.02563, align 2, !tbaa !247
   %189 = load float, ptr %16, align 4, !tbaa !245
   %190 = bitcast float %189 to i32
@@ -192173,7 +192173,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %146, %149, %159, %1
   br label %_ZN9Imath_3_14halfC2Ef.exit41
 
 _ZN9Imath_3_14halfC2Ef.exit41:                    ; preds = %199, %202, %212, %214, %223, %237, %240
-  %.0.i.i40 = phi i16 [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %195, %223 ], [ %241, %240 ], [ %235, %237 ]
+  %.0.i.i40 = phi i16 [ %195, %223 ], [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %241, %240 ], [ %235, %237 ]
   %242 = getelementptr inbounds nuw i8, ptr %.02563, i64 2
   store i16 %.0.i.i40, ptr %242, align 2, !tbaa !247
   %243 = load float, ptr %17, align 4, !tbaa !245
@@ -192254,7 +192254,7 @@ _ZN9Imath_3_14halfC2Ef.exit41:                    ; preds = %199, %202, %212, %2
   br label %_ZN9Imath_3_14halfC2Ef.exit45
 
 _ZN9Imath_3_14halfC2Ef.exit45:                    ; preds = %253, %256, %266, %268, %277, %291, %294
-  %.0.i.i44 = phi i16 [ %263, %256 ], [ %267, %266 ], [ %276, %268 ], [ %254, %253 ], [ %249, %277 ], [ %295, %294 ], [ %289, %291 ]
+  %.0.i.i44 = phi i16 [ %249, %277 ], [ %263, %256 ], [ %267, %266 ], [ %276, %268 ], [ %254, %253 ], [ %295, %294 ], [ %289, %291 ]
   %296 = getelementptr inbounds nuw i8, ptr %.02563, i64 4
   store i16 %.0.i.i44, ptr %296, align 2, !tbaa !247
   %297 = getelementptr inbounds nuw i8, ptr %.064, i64 6
@@ -192375,7 +192375,7 @@ _ZNK9Imath_3_14halfcvfEv.exit49:                  ; preds = %307, %309, %311, %3
   br label %_ZN9Imath_3_14halfC2Ef.exit53
 
 _ZN9Imath_3_14halfC2Ef.exit53:                    ; preds = %331, %334, %344, %346, %355, %369, %372
-  %.0.i.i52 = phi i16 [ %341, %334 ], [ %345, %344 ], [ %354, %346 ], [ %332, %331 ], [ %327, %355 ], [ %373, %372 ], [ %367, %369 ]
+  %.0.i.i52 = phi i16 [ %327, %355 ], [ %341, %334 ], [ %345, %344 ], [ %354, %346 ], [ %332, %331 ], [ %373, %372 ], [ %367, %369 ]
   %374 = getelementptr inbounds nuw i8, ptr %.02563, i64 6
   store i16 %.0.i.i52, ptr %374, align 2, !tbaa !247
   %375 = getelementptr inbounds nuw i8, ptr %.064, i64 8
@@ -192835,7 +192835,7 @@ _ZNK9Imath_3_14halfcvfEv.exit42:                  ; preds = %137, %139, %141, %1
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %168, %171, %181, %183, %192, %206, %209
-  %.0.i.i.i = phi i16 [ %178, %171 ], [ %182, %181 ], [ %191, %183 ], [ %169, %168 ], [ %164, %192 ], [ %210, %209 ], [ %204, %206 ]
+  %.0.i.i.i = phi i16 [ %164, %192 ], [ %178, %171 ], [ %182, %181 ], [ %191, %183 ], [ %169, %168 ], [ %210, %209 ], [ %204, %206 ]
   store i16 %.0.i.i.i, ptr %.03360, align 2, !tbaa !247
   %211 = bitcast float %126 to i32
   %212 = tail call float @llvm.fabs.f32(float %126)
@@ -192914,7 +192914,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %220, %223, %233, %235, %244, %258, %261
-  %.0.i.i.i45 = phi i16 [ %230, %223 ], [ %234, %233 ], [ %243, %235 ], [ %221, %220 ], [ %216, %244 ], [ %262, %261 ], [ %256, %258 ]
+  %.0.i.i.i45 = phi i16 [ %216, %244 ], [ %230, %223 ], [ %234, %233 ], [ %243, %235 ], [ %221, %220 ], [ %262, %261 ], [ %256, %258 ]
   %263 = getelementptr inbounds nuw i8, ptr %.03360, i64 2
   store i16 %.0.i.i.i45, ptr %263, align 2, !tbaa !247
   %264 = bitcast float %158 to i32
@@ -192994,7 +192994,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit50
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit50: ; preds = %273, %276, %286, %288, %297, %311, %314
-  %.0.i.i.i49 = phi i16 [ %283, %276 ], [ %287, %286 ], [ %296, %288 ], [ %274, %273 ], [ %269, %297 ], [ %315, %314 ], [ %309, %311 ]
+  %.0.i.i.i49 = phi i16 [ %269, %297 ], [ %283, %276 ], [ %287, %286 ], [ %296, %288 ], [ %274, %273 ], [ %315, %314 ], [ %309, %311 ]
   %316 = getelementptr inbounds nuw i8, ptr %.03360, i64 4
   store i16 %.0.i.i.i49, ptr %316, align 2, !tbaa !247
   %317 = getelementptr inbounds nuw i8, ptr %.061, i64 6
@@ -193115,7 +193115,7 @@ _ZNK9Imath_3_14halfcvfEv.exit54:                  ; preds = %327, %329, %331, %3
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit58
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit58: ; preds = %351, %354, %364, %366, %375, %389, %392
-  %.0.i.i.i57 = phi i16 [ %361, %354 ], [ %365, %364 ], [ %374, %366 ], [ %352, %351 ], [ %347, %375 ], [ %393, %392 ], [ %387, %389 ]
+  %.0.i.i.i57 = phi i16 [ %347, %375 ], [ %361, %354 ], [ %365, %364 ], [ %374, %366 ], [ %352, %351 ], [ %393, %392 ], [ %387, %389 ]
   %394 = getelementptr inbounds nuw i8, ptr %.03360, i64 6
   store i16 %.0.i.i.i57, ptr %394, align 2, !tbaa !247
   %395 = getelementptr inbounds nuw i8, ptr %.061, i64 8
@@ -193924,7 +193924,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %116, %119, %129, %131, %140, %154, %157
-  %.0.i.i.i = phi i16 [ %126, %119 ], [ %130, %129 ], [ %139, %131 ], [ %117, %116 ], [ %112, %140 ], [ %158, %157 ], [ %152, %154 ]
+  %.0.i.i.i = phi i16 [ %112, %140 ], [ %126, %119 ], [ %130, %129 ], [ %139, %131 ], [ %117, %116 ], [ %158, %157 ], [ %152, %154 ]
   store i16 %.0.i.i.i, ptr %.01873, align 2, !tbaa !247
   %159 = getelementptr inbounds nuw i8, ptr %.074, i64 2
   %160 = load i16, ptr %159, align 2, !tbaa !2022
@@ -194087,7 +194087,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit41
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit41: ; preds = %220, %223, %233, %235, %244, %258, %261
-  %.0.i.i.i40 = phi i16 [ %230, %223 ], [ %234, %233 ], [ %243, %235 ], [ %221, %220 ], [ %216, %244 ], [ %262, %261 ], [ %256, %258 ]
+  %.0.i.i.i40 = phi i16 [ %216, %244 ], [ %230, %223 ], [ %234, %233 ], [ %243, %235 ], [ %221, %220 ], [ %262, %261 ], [ %256, %258 ]
   %263 = getelementptr inbounds nuw i8, ptr %.01873, i64 2
   store i16 %.0.i.i.i40, ptr %263, align 2, !tbaa !247
   %264 = getelementptr inbounds nuw i8, ptr %.074, i64 4
@@ -194251,7 +194251,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit63
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit63: ; preds = %325, %328, %338, %340, %349, %363, %366
-  %.0.i.i.i62 = phi i16 [ %335, %328 ], [ %339, %338 ], [ %348, %340 ], [ %326, %325 ], [ %321, %349 ], [ %367, %366 ], [ %361, %363 ]
+  %.0.i.i.i62 = phi i16 [ %321, %349 ], [ %335, %328 ], [ %339, %338 ], [ %348, %340 ], [ %326, %325 ], [ %367, %366 ], [ %361, %363 ]
   %368 = getelementptr inbounds nuw i8, ptr %.01873, i64 4
   store i16 %.0.i.i.i62, ptr %368, align 2, !tbaa !247
   %369 = getelementptr inbounds nuw i8, ptr %.074, i64 6
@@ -194372,7 +194372,7 @@ _ZNK9Imath_3_14halfcvfEv.exit67:                  ; preds = %379, %381, %383, %3
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit71
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit71: ; preds = %403, %406, %416, %418, %427, %441, %444
-  %.0.i.i.i70 = phi i16 [ %413, %406 ], [ %417, %416 ], [ %426, %418 ], [ %404, %403 ], [ %399, %427 ], [ %445, %444 ], [ %439, %441 ]
+  %.0.i.i.i70 = phi i16 [ %399, %427 ], [ %413, %406 ], [ %417, %416 ], [ %426, %418 ], [ %404, %403 ], [ %445, %444 ], [ %439, %441 ]
   %446 = getelementptr inbounds nuw i8, ptr %.01873, i64 6
   store i16 %.0.i.i.i70, ptr %446, align 2, !tbaa !247
   %447 = getelementptr inbounds nuw i8, ptr %.074, i64 8
@@ -195466,7 +195466,7 @@ _ZNK9Imath_3_14halfcvfEv.exit38:                  ; preds = %127, %129, %131, %1
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %213, %216, %226, %228, %237, %251, %254
-  %.0.i.i.i = phi i16 [ %223, %216 ], [ %227, %226 ], [ %236, %228 ], [ %214, %213 ], [ %209, %237 ], [ %255, %254 ], [ %249, %251 ]
+  %.0.i.i.i = phi i16 [ %209, %237 ], [ %223, %216 ], [ %227, %226 ], [ %236, %228 ], [ %214, %213 ], [ %255, %254 ], [ %249, %251 ]
   store i16 %.0.i.i.i, ptr %.02861, align 2, !tbaa !247
   %256 = load float, ptr %65, align 4, !tbaa !245
   %257 = bitcast float %256 to i32
@@ -195546,7 +195546,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %266, %269, %279, %281, %290, %304, %307
-  %.0.i.i.i41 = phi i16 [ %276, %269 ], [ %280, %279 ], [ %289, %281 ], [ %267, %266 ], [ %262, %290 ], [ %308, %307 ], [ %302, %304 ]
+  %.0.i.i.i41 = phi i16 [ %262, %290 ], [ %276, %269 ], [ %280, %279 ], [ %289, %281 ], [ %267, %266 ], [ %308, %307 ], [ %302, %304 ]
   %309 = getelementptr inbounds nuw i8, ptr %.02861, i64 2
   store i16 %.0.i.i.i41, ptr %309, align 2, !tbaa !247
   %310 = load float, ptr %66, align 4, !tbaa !245
@@ -195627,7 +195627,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %320, %323, %333, %335, %344, %358, %361
-  %.0.i.i.i45 = phi i16 [ %330, %323 ], [ %334, %333 ], [ %343, %335 ], [ %321, %320 ], [ %316, %344 ], [ %362, %361 ], [ %356, %358 ]
+  %.0.i.i.i45 = phi i16 [ %316, %344 ], [ %330, %323 ], [ %334, %333 ], [ %343, %335 ], [ %321, %320 ], [ %362, %361 ], [ %356, %358 ]
   %363 = getelementptr inbounds nuw i8, ptr %.02861, i64 4
   store i16 %.0.i.i.i45, ptr %363, align 2, !tbaa !247
   %364 = getelementptr inbounds nuw i8, ptr %.062, i64 6
@@ -195748,7 +195748,7 @@ _ZNK9Imath_3_14halfcvfEv.exit50:                  ; preds = %374, %376, %378, %3
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit54
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit54: ; preds = %398, %401, %411, %413, %422, %436, %439
-  %.0.i.i.i53 = phi i16 [ %408, %401 ], [ %412, %411 ], [ %421, %413 ], [ %399, %398 ], [ %394, %422 ], [ %440, %439 ], [ %434, %436 ]
+  %.0.i.i.i53 = phi i16 [ %394, %422 ], [ %408, %401 ], [ %412, %411 ], [ %421, %413 ], [ %399, %398 ], [ %440, %439 ], [ %434, %436 ]
   %441 = getelementptr inbounds nuw i8, ptr %.02861, i64 6
   store i16 %.0.i.i.i53, ptr %441, align 2, !tbaa !247
   %442 = getelementptr inbounds nuw i8, ptr %.062, i64 8
@@ -196574,7 +196574,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %265, %268, %278, %280, %289, %303, %306
-  %.0.i.i.i = phi i16 [ %275, %268 ], [ %279, %278 ], [ %288, %280 ], [ %266, %265 ], [ %261, %289 ], [ %307, %306 ], [ %301, %303 ]
+  %.0.i.i.i = phi i16 [ %261, %289 ], [ %275, %268 ], [ %279, %278 ], [ %288, %280 ], [ %266, %265 ], [ %307, %306 ], [ %301, %303 ]
   store i16 %.0.i.i.i, ptr %.02283, align 2, !tbaa !247
   %308 = load float, ptr %27, align 4, !tbaa !245
   %309 = bitcast float %308 to i32
@@ -196654,7 +196654,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %318, %321, %331, %333, %342, %356, %359
-  %.0.i.i.i63 = phi i16 [ %328, %321 ], [ %332, %331 ], [ %341, %333 ], [ %319, %318 ], [ %314, %342 ], [ %360, %359 ], [ %354, %356 ]
+  %.0.i.i.i63 = phi i16 [ %314, %342 ], [ %328, %321 ], [ %332, %331 ], [ %341, %333 ], [ %319, %318 ], [ %360, %359 ], [ %354, %356 ]
   %361 = getelementptr inbounds nuw i8, ptr %.02283, i64 2
   store i16 %.0.i.i.i63, ptr %361, align 2, !tbaa !247
   %362 = load float, ptr %43, align 4, !tbaa !245
@@ -196735,7 +196735,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit68
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit68: ; preds = %372, %375, %385, %387, %396, %410, %413
-  %.0.i.i.i67 = phi i16 [ %382, %375 ], [ %386, %385 ], [ %395, %387 ], [ %373, %372 ], [ %368, %396 ], [ %414, %413 ], [ %408, %410 ]
+  %.0.i.i.i67 = phi i16 [ %368, %396 ], [ %382, %375 ], [ %386, %385 ], [ %395, %387 ], [ %373, %372 ], [ %414, %413 ], [ %408, %410 ]
   %415 = getelementptr inbounds nuw i8, ptr %.02283, i64 4
   store i16 %.0.i.i.i67, ptr %415, align 2, !tbaa !247
   %416 = getelementptr inbounds nuw i8, ptr %.084, i64 6
@@ -196856,7 +196856,7 @@ _ZNK9Imath_3_14halfcvfEv.exit72:                  ; preds = %426, %428, %430, %4
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit76
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit76: ; preds = %450, %453, %463, %465, %474, %488, %491
-  %.0.i.i.i75 = phi i16 [ %460, %453 ], [ %464, %463 ], [ %473, %465 ], [ %451, %450 ], [ %446, %474 ], [ %492, %491 ], [ %486, %488 ]
+  %.0.i.i.i75 = phi i16 [ %446, %474 ], [ %460, %453 ], [ %464, %463 ], [ %473, %465 ], [ %451, %450 ], [ %492, %491 ], [ %486, %488 ]
   %493 = getelementptr inbounds nuw i8, ptr %.02283, i64 6
   store i16 %.0.i.i.i75, ptr %493, align 2, !tbaa !247
   %494 = getelementptr inbounds nuw i8, ptr %.084, i64 8
@@ -198085,7 +198085,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i75.i: ; preds = %413, %
   br label %_ZN9Imath_3_14halfC2Ef.exit.i
 
 _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %455, %453, %443, %440
-  %.0.i.i.i = phi i16 [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %436, %464 ], [ %482, %481 ], [ %476, %478 ]
+  %.0.i.i.i = phi i16 [ %436, %464 ], [ %450, %443 ], [ %454, %453 ], [ %463, %455 ], [ %441, %440 ], [ %482, %481 ], [ %476, %478 ]
   %483 = load ptr, ptr %261, align 8, !tbaa !2250
   %484 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %483, i64 %.05298.i
   store i16 %.0.i.i.i, ptr %484, align 2, !tbaa !247
@@ -198187,7 +198187,7 @@ _ZN9Imath_3_14halfC2Ef.exit.i:                    ; preds = %481, %478, %464, %4
   br label %_ZN9Imath_3_14halfC2Ef.exit84.i
 
 _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %522, %520, %510, %507
-  %.0.i.i83.i = phi i16 [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %503, %531 ], [ %549, %548 ], [ %543, %545 ]
+  %.0.i.i83.i = phi i16 [ %503, %531 ], [ %517, %510 ], [ %521, %520 ], [ %530, %522 ], [ %508, %507 ], [ %549, %548 ], [ %543, %545 ]
   %550 = load ptr, ptr %266, align 8, !tbaa !2251
   %551 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %550, i64 %.05298.i
   store i16 %.0.i.i83.i, ptr %551, align 2, !tbaa !247
@@ -198289,7 +198289,7 @@ _ZN9Imath_3_14halfC2Ef.exit84.i:                  ; preds = %548, %545, %531, %5
   br label %_ZN9Imath_3_14halfC2Ef.exit90.i
 
 _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %589, %587, %577, %574
-  %.0.i.i89.i = phi i16 [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %570, %598 ], [ %616, %615 ], [ %610, %612 ]
+  %.0.i.i89.i = phi i16 [ %570, %598 ], [ %584, %577 ], [ %588, %587 ], [ %597, %589 ], [ %575, %574 ], [ %616, %615 ], [ %610, %612 ]
   %617 = load ptr, ptr %271, align 8, !tbaa !2252
   %618 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %617, i64 %.05298.i
   store i16 %.0.i.i89.i, ptr %618, align 2, !tbaa !247
@@ -198314,7 +198314,7 @@ _ZN9Imath_3_14halfC2Ef.exit90.i:                  ; preds = %615, %612, %598, %5
   br label %628
 
 628:                                              ; preds = %626, %624, %622, %417, %377
-  %.pn59.pn.i = phi { ptr, i32 } [ %418, %417 ], [ %.pn.i10, %377 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
+  %.pn59.pn.i = phi { ptr, i32 } [ %.pn.i10, %377 ], [ %418, %417 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ]
   call void @_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -200104,7 +200104,7 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRendererI
   br i1 %64, label %.sink.split.i, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %62, %53, %44, %35, %26, %17
-  %.sink.i = phi ptr [ %18, %17 ], [ %27, %26 ], [ %36, %35 ], [ %45, %44 ], [ %54, %53 ], [ %63, %62 ]
+  %.sink.i = phi ptr [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %27, %26 ], [ %18, %17 ], [ %63, %62 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink.i) #31
   br label %.sink.split.i
 
@@ -203720,7 +203720,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2291
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -203802,7 +203802,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2309
   br label %common.resume
 
@@ -203862,8 +203862,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -203952,7 +203952,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2318
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -204034,7 +204034,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2336
   br label %common.resume
 
@@ -204094,8 +204094,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -204184,7 +204184,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2345
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -204266,7 +204266,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2363
   br label %common.resume
 
@@ -204326,8 +204326,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -204416,7 +204416,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2372
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -204498,7 +204498,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2390
   br label %common.resume
 
@@ -204558,8 +204558,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -204648,7 +204648,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2399
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -204730,7 +204730,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2417
   br label %common.resume
 
@@ -204790,8 +204790,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -204880,7 +204880,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %20, %25, %23, %18
-  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), %25 ]
+  %.sink31.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), %23 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), %20 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEE, i64 16), %18 ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EEE, i64 16), %25 ]
   store ptr %.sink31.i, ptr %16, align 8, !tbaa !54, !noalias !2426
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -204962,7 +204962,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS1_8BitDepthE8ELS4_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %48, %46, %44
-  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ], [ %47, %46 ]
+  %eh.lpad-body.i.i.i.i17 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %45, %44 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef 288) #31, !noalias !2444
   br label %common.resume
 
@@ -205022,8 +205022,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i28, %51, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink43 = phi ptr [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %51 ], [ %37, %.noexc.i.i.i.i28 ]
-  %.sink = phi ptr [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %51 ], [ %34, %.noexc.i.i.i.i28 ]
+  %.sink43 = phi ptr [ %37, %51 ], [ %37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %37, %.noexc.i.i.i.i ], [ %16, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %37, %.noexc.i.i.i.i28 ]
+  %.sink = phi ptr [ %34, %51 ], [ %34, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE.exit.i.i.i.i.i.i.i.i ], [ %34, %.noexc.i.i.i.i ], [ %13, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %34, %.noexc.i.i.i.i28 ]
   store ptr %.sink43, ptr %0, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %62, align 8, !tbaa !84
@@ -205821,7 +205821,7 @@ define internal fastcc i64 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_19IndexPair18Ge
   br label %_ZN9Imath_3_14halfC2Ef.exit
 
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %11, %14, %24, %26, %35, %49, %52
-  %.0.i.i = phi i16 [ %21, %14 ], [ %25, %24 ], [ %34, %26 ], [ %12, %11 ], [ %7, %35 ], [ %53, %52 ], [ %47, %49 ]
+  %.0.i.i = phi i16 [ %7, %35 ], [ %21, %14 ], [ %25, %24 ], [ %34, %26 ], [ %12, %11 ], [ %53, %52 ], [ %47, %49 ]
   %54 = and i16 %.0.i.i, 32767
   %55 = icmp eq i16 %54, 31744
   br i1 %55, label %_ZNK9Imath_3_14halfcvfEv.exit, label %61
@@ -224316,7 +224316,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121Lut1DRendererHalf
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %44, %47, %57, %59, %68, %82, %85
-  %.0.i.i.i = phi i16 [ %54, %47 ], [ %58, %57 ], [ %67, %59 ], [ %45, %44 ], [ %40, %68 ], [ %86, %85 ], [ %80, %82 ]
+  %.0.i.i.i = phi i16 [ %40, %68 ], [ %54, %47 ], [ %58, %57 ], [ %67, %59 ], [ %45, %44 ], [ %86, %85 ], [ %80, %82 ]
   store i16 %.0.i.i.i, ptr %.03146, align 2, !tbaa !247
   %87 = and i64 %.sroa.46.0.extract.shift, 65535
   %88 = getelementptr inbounds nuw float, ptr %8, i64 %87
@@ -224404,7 +224404,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit36
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit36: ; preds = %105, %108, %118, %120, %129, %143, %146
-  %.0.i.i.i35 = phi i16 [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %101, %129 ], [ %147, %146 ], [ %141, %143 ]
+  %.0.i.i.i35 = phi i16 [ %101, %129 ], [ %115, %108 ], [ %119, %118 ], [ %128, %120 ], [ %106, %105 ], [ %147, %146 ], [ %141, %143 ]
   %148 = getelementptr inbounds nuw i8, ptr %.03146, i64 2
   store i16 %.0.i.i.i35, ptr %148, align 2, !tbaa !247
   %149 = and i64 %.sroa.4.0.extract.shift, 65535
@@ -224493,7 +224493,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit36: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit40
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit40: ; preds = %167, %170, %180, %182, %191, %205, %208
-  %.0.i.i.i39 = phi i16 [ %177, %170 ], [ %181, %180 ], [ %190, %182 ], [ %168, %167 ], [ %163, %191 ], [ %209, %208 ], [ %203, %205 ]
+  %.0.i.i.i39 = phi i16 [ %163, %191 ], [ %177, %170 ], [ %181, %180 ], [ %190, %182 ], [ %168, %167 ], [ %209, %208 ], [ %203, %205 ]
   %210 = getelementptr inbounds nuw i8, ptr %.03146, i64 4
   store i16 %.0.i.i.i39, ptr %210, align 2, !tbaa !247
   %211 = getelementptr inbounds nuw i8, ptr %.047, i64 12
@@ -224576,7 +224576,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit40: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit44
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit44: ; preds = %223, %226, %236, %238, %247, %261, %264
-  %.0.i.i.i43 = phi i16 [ %233, %226 ], [ %237, %236 ], [ %246, %238 ], [ %224, %223 ], [ %219, %247 ], [ %265, %264 ], [ %259, %261 ]
+  %.0.i.i.i43 = phi i16 [ %219, %247 ], [ %233, %226 ], [ %237, %236 ], [ %246, %238 ], [ %224, %223 ], [ %265, %264 ], [ %259, %261 ]
   %266 = getelementptr inbounds nuw i8, ptr %.03146, i64 6
   store i16 %.0.i.i.i43, ptr %266, align 2, !tbaa !247
   %267 = getelementptr inbounds nuw i8, ptr %.047, i64 16
@@ -225406,7 +225406,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_130Lut1DRendererHalf
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %104, %107, %117, %119, %128, %142, %145
-  %.0.i.i.i = phi i16 [ %114, %107 ], [ %118, %117 ], [ %127, %119 ], [ %105, %104 ], [ %100, %128 ], [ %146, %145 ], [ %140, %142 ]
+  %.0.i.i.i = phi i16 [ %100, %128 ], [ %114, %107 ], [ %118, %117 ], [ %127, %119 ], [ %105, %104 ], [ %146, %145 ], [ %140, %142 ]
   store i16 %.0.i.i.i, ptr %.03556, align 2, !tbaa !247
   %147 = load float, ptr %16, align 4, !tbaa !245
   %148 = bitcast float %147 to i32
@@ -225486,7 +225486,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit41
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit41: ; preds = %157, %160, %170, %172, %181, %195, %198
-  %.0.i.i.i40 = phi i16 [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %153, %181 ], [ %199, %198 ], [ %193, %195 ]
+  %.0.i.i.i40 = phi i16 [ %153, %181 ], [ %167, %160 ], [ %171, %170 ], [ %180, %172 ], [ %158, %157 ], [ %199, %198 ], [ %193, %195 ]
   %200 = getelementptr inbounds nuw i8, ptr %.03556, i64 2
   store i16 %.0.i.i.i40, ptr %200, align 2, !tbaa !247
   %201 = load float, ptr %17, align 4, !tbaa !245
@@ -225567,7 +225567,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit41: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit45
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit45: ; preds = %211, %214, %224, %226, %235, %249, %252
-  %.0.i.i.i44 = phi i16 [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %207, %235 ], [ %253, %252 ], [ %247, %249 ]
+  %.0.i.i.i44 = phi i16 [ %207, %235 ], [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %253, %252 ], [ %247, %249 ]
   %254 = getelementptr inbounds nuw i8, ptr %.03556, i64 4
   store i16 %.0.i.i.i44, ptr %254, align 2, !tbaa !247
   %255 = getelementptr inbounds nuw i8, ptr %.057, i64 12
@@ -225650,7 +225650,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit45: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit49
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit49: ; preds = %267, %270, %280, %282, %291, %305, %308
-  %.0.i.i.i48 = phi i16 [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %263, %291 ], [ %309, %308 ], [ %303, %305 ]
+  %.0.i.i.i48 = phi i16 [ %263, %291 ], [ %277, %270 ], [ %281, %280 ], [ %290, %282 ], [ %268, %267 ], [ %309, %308 ], [ %303, %305 ]
   %310 = getelementptr inbounds nuw i8, ptr %.03556, i64 6
   store i16 %.0.i.i.i48, ptr %310, align 2, !tbaa !247
   %311 = getelementptr inbounds nuw i8, ptr %.057, i64 16
@@ -226008,7 +226008,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut1DRendererILNS
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i.i, ptr %.04076, align 2, !tbaa !247
   %126 = zext i32 %57 to i64
   %127 = getelementptr inbounds nuw float, ptr %12, i64 %126
@@ -226095,7 +226095,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit52
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit52: ; preds = %143, %146, %156, %158, %167, %181, %184
-  %.0.i.i.i51 = phi i16 [ %153, %146 ], [ %157, %156 ], [ %166, %158 ], [ %144, %143 ], [ %139, %167 ], [ %185, %184 ], [ %179, %181 ]
+  %.0.i.i.i51 = phi i16 [ %139, %167 ], [ %153, %146 ], [ %157, %156 ], [ %166, %158 ], [ %144, %143 ], [ %185, %184 ], [ %179, %181 ]
   %186 = getelementptr inbounds nuw i8, ptr %.04076, i64 2
   store i16 %.0.i.i.i51, ptr %186, align 2, !tbaa !247
   %187 = zext i32 %59 to i64
@@ -226183,7 +226183,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit52: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %204, %207, %217, %219, %228, %242, %245
-  %.0.i.i.i55 = phi i16 [ %214, %207 ], [ %218, %217 ], [ %227, %219 ], [ %205, %204 ], [ %200, %228 ], [ %246, %245 ], [ %240, %242 ]
+  %.0.i.i.i55 = phi i16 [ %200, %228 ], [ %214, %207 ], [ %218, %217 ], [ %227, %219 ], [ %205, %204 ], [ %246, %245 ], [ %240, %242 ]
   %247 = getelementptr inbounds nuw i8, ptr %.04076, i64 4
   store i16 %.0.i.i.i55, ptr %247, align 2, !tbaa !247
   %248 = getelementptr inbounds nuw i8, ptr %.077, i64 12
@@ -226266,7 +226266,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %260, %263, %273, %275, %284, %298, %301
-  %.0.i.i.i59 = phi i16 [ %270, %263 ], [ %274, %273 ], [ %283, %275 ], [ %261, %260 ], [ %256, %284 ], [ %302, %301 ], [ %296, %298 ]
+  %.0.i.i.i59 = phi i16 [ %256, %284 ], [ %270, %263 ], [ %274, %273 ], [ %283, %275 ], [ %261, %260 ], [ %302, %301 ], [ %296, %298 ]
   %303 = getelementptr inbounds nuw i8, ptr %.04076, i64 6
   store i16 %.0.i.i.i59, ptr %303, align 2, !tbaa !247
   %304 = getelementptr inbounds nuw i8, ptr %.077, i64 16
@@ -226658,7 +226658,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_122Lut1DRendererHueA
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %124, %127, %137, %139, %148, %162, %165
-  %.0.i.i.i = phi i16 [ %134, %127 ], [ %138, %137 ], [ %147, %139 ], [ %125, %124 ], [ %120, %148 ], [ %166, %165 ], [ %160, %162 ]
+  %.0.i.i.i = phi i16 [ %120, %148 ], [ %134, %127 ], [ %138, %137 ], [ %147, %139 ], [ %125, %124 ], [ %166, %165 ], [ %160, %162 ]
   store i16 %.0.i.i.i, ptr %.03760, align 2, !tbaa !247
   %167 = load float, ptr %25, align 4, !tbaa !245
   %168 = bitcast float %167 to i32
@@ -226738,7 +226738,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit43
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit43: ; preds = %177, %180, %190, %192, %201, %215, %218
-  %.0.i.i.i42 = phi i16 [ %187, %180 ], [ %191, %190 ], [ %200, %192 ], [ %178, %177 ], [ %173, %201 ], [ %219, %218 ], [ %213, %215 ]
+  %.0.i.i.i42 = phi i16 [ %173, %201 ], [ %187, %180 ], [ %191, %190 ], [ %200, %192 ], [ %178, %177 ], [ %219, %218 ], [ %213, %215 ]
   %220 = getelementptr inbounds nuw i8, ptr %.03760, i64 2
   store i16 %.0.i.i.i42, ptr %220, align 2, !tbaa !247
   %221 = load float, ptr %26, align 4, !tbaa !245
@@ -226819,7 +226819,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit43: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit47
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit47: ; preds = %231, %234, %244, %246, %255, %269, %272
-  %.0.i.i.i46 = phi i16 [ %241, %234 ], [ %245, %244 ], [ %254, %246 ], [ %232, %231 ], [ %227, %255 ], [ %273, %272 ], [ %267, %269 ]
+  %.0.i.i.i46 = phi i16 [ %227, %255 ], [ %241, %234 ], [ %245, %244 ], [ %254, %246 ], [ %232, %231 ], [ %273, %272 ], [ %267, %269 ]
   %274 = getelementptr inbounds nuw i8, ptr %.03760, i64 4
   store i16 %.0.i.i.i46, ptr %274, align 2, !tbaa !247
   %275 = fmul float %64, %28
@@ -226900,7 +226900,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit47: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit51
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit51: ; preds = %285, %288, %298, %300, %309, %323, %326
-  %.0.i.i.i50 = phi i16 [ %295, %288 ], [ %299, %298 ], [ %308, %300 ], [ %286, %285 ], [ %281, %309 ], [ %327, %326 ], [ %321, %323 ]
+  %.0.i.i.i50 = phi i16 [ %281, %309 ], [ %295, %288 ], [ %299, %298 ], [ %308, %300 ], [ %286, %285 ], [ %327, %326 ], [ %321, %323 ]
   %328 = getelementptr inbounds nuw i8, ptr %.03760, i64 6
   store i16 %.0.i.i.i50, ptr %328, align 2, !tbaa !247
   %329 = getelementptr inbounds nuw i8, ptr %.061, i64 16
@@ -227246,7 +227246,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_124InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %102, %105, %115, %117, %126, %140, %143
-  %.0.i.i.i = phi i16 [ %112, %105 ], [ %116, %115 ], [ %125, %117 ], [ %103, %102 ], [ %98, %126 ], [ %144, %143 ], [ %138, %140 ]
+  %.0.i.i.i = phi i16 [ %98, %126 ], [ %112, %105 ], [ %116, %115 ], [ %125, %117 ], [ %103, %102 ], [ %144, %143 ], [ %138, %140 ]
   store i16 %.0.i.i.i, ptr %.03348, align 2, !tbaa !247
   %145 = bitcast float %82 to i32
   %146 = tail call float @llvm.fabs.f32(float %82)
@@ -227325,7 +227325,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %154, %157, %167, %169, %178, %192, %195
-  %.0.i.i.i37 = phi i16 [ %164, %157 ], [ %168, %167 ], [ %177, %169 ], [ %155, %154 ], [ %150, %178 ], [ %196, %195 ], [ %190, %192 ]
+  %.0.i.i.i37 = phi i16 [ %150, %178 ], [ %164, %157 ], [ %168, %167 ], [ %177, %169 ], [ %155, %154 ], [ %196, %195 ], [ %190, %192 ]
   %197 = getelementptr inbounds nuw i8, ptr %.03348, i64 2
   store i16 %.0.i.i.i37, ptr %197, align 2, !tbaa !247
   %198 = bitcast float %92 to i32
@@ -227405,7 +227405,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %207, %210, %220, %222, %231, %245, %248
-  %.0.i.i.i41 = phi i16 [ %217, %210 ], [ %221, %220 ], [ %230, %222 ], [ %208, %207 ], [ %203, %231 ], [ %249, %248 ], [ %243, %245 ]
+  %.0.i.i.i41 = phi i16 [ %203, %231 ], [ %217, %210 ], [ %221, %220 ], [ %230, %222 ], [ %208, %207 ], [ %249, %248 ], [ %243, %245 ]
   %250 = getelementptr inbounds nuw i8, ptr %.03348, i64 4
   store i16 %.0.i.i.i41, ptr %250, align 2, !tbaa !247
   %251 = getelementptr inbounds nuw i8, ptr %.049, i64 12
@@ -227488,7 +227488,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit46: ; preds = %263, %266, %276, %278, %287, %301, %304
-  %.0.i.i.i45 = phi i16 [ %273, %266 ], [ %277, %276 ], [ %286, %278 ], [ %264, %263 ], [ %259, %287 ], [ %305, %304 ], [ %299, %301 ]
+  %.0.i.i.i45 = phi i16 [ %259, %287 ], [ %273, %266 ], [ %277, %276 ], [ %286, %278 ], [ %264, %263 ], [ %305, %304 ], [ %299, %301 ]
   %306 = getelementptr inbounds nuw i8, ptr %.03348, i64 6
   store i16 %.0.i.i.i45, ptr %306, align 2, !tbaa !247
   %307 = getelementptr inbounds nuw i8, ptr %.049, i64 16
@@ -228259,7 +228259,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %94, %97, %107, %109, %118, %132, %135
-  %.0.i.i.i = phi i16 [ %104, %97 ], [ %108, %107 ], [ %117, %109 ], [ %95, %94 ], [ %90, %118 ], [ %136, %135 ], [ %130, %132 ]
+  %.0.i.i.i = phi i16 [ %90, %118 ], [ %104, %97 ], [ %108, %107 ], [ %117, %109 ], [ %95, %94 ], [ %136, %135 ], [ %130, %132 ]
   store i16 %.0.i.i.i, ptr %.01861, align 2, !tbaa !247
   %137 = getelementptr inbounds nuw i8, ptr %.062, i64 4
   %138 = load float, ptr %137, align 4, !tbaa !245
@@ -228384,7 +228384,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit37: ; preds = %176, %179, %189, %191, %200, %214, %217
-  %.0.i.i.i36 = phi i16 [ %186, %179 ], [ %190, %189 ], [ %199, %191 ], [ %177, %176 ], [ %172, %200 ], [ %218, %217 ], [ %212, %214 ]
+  %.0.i.i.i36 = phi i16 [ %172, %200 ], [ %186, %179 ], [ %190, %189 ], [ %199, %191 ], [ %177, %176 ], [ %218, %217 ], [ %212, %214 ]
   %219 = getelementptr inbounds nuw i8, ptr %.01861, i64 2
   store i16 %.0.i.i.i36, ptr %219, align 2, !tbaa !247
   %220 = getelementptr inbounds nuw i8, ptr %.062, i64 8
@@ -228510,7 +228510,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds = %259, %262, %272, %274, %283, %297, %300
-  %.0.i.i.i54 = phi i16 [ %269, %262 ], [ %273, %272 ], [ %282, %274 ], [ %260, %259 ], [ %255, %283 ], [ %301, %300 ], [ %295, %297 ]
+  %.0.i.i.i54 = phi i16 [ %255, %283 ], [ %269, %262 ], [ %273, %272 ], [ %282, %274 ], [ %260, %259 ], [ %301, %300 ], [ %295, %297 ]
   %302 = getelementptr inbounds nuw i8, ptr %.01861, i64 4
   store i16 %.0.i.i.i54, ptr %302, align 2, !tbaa !247
   %303 = getelementptr inbounds nuw i8, ptr %.062, i64 12
@@ -228593,7 +228593,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit55: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit59: ; preds = %315, %318, %328, %330, %339, %353, %356
-  %.0.i.i.i58 = phi i16 [ %325, %318 ], [ %329, %328 ], [ %338, %330 ], [ %316, %315 ], [ %311, %339 ], [ %357, %356 ], [ %351, %353 ]
+  %.0.i.i.i58 = phi i16 [ %311, %339 ], [ %325, %318 ], [ %329, %328 ], [ %338, %330 ], [ %316, %315 ], [ %357, %356 ], [ %351, %353 ]
   %358 = getelementptr inbounds nuw i8, ptr %.01861, i64 6
   store i16 %.0.i.i.i58, ptr %358, align 2, !tbaa !247
   %359 = getelementptr inbounds nuw i8, ptr %.062, i64 16
@@ -229573,7 +229573,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_133InvLut1DRendererH
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %147, %150, %160, %162, %171, %185, %188
-  %.0.i.i.i = phi i16 [ %157, %150 ], [ %161, %160 ], [ %170, %162 ], [ %148, %147 ], [ %143, %171 ], [ %189, %188 ], [ %183, %185 ]
+  %.0.i.i.i = phi i16 [ %143, %171 ], [ %157, %150 ], [ %161, %160 ], [ %170, %162 ], [ %148, %147 ], [ %189, %188 ], [ %183, %185 ]
   store i16 %.0.i.i.i, ptr %.02849, align 2, !tbaa !247
   %190 = load float, ptr %65, align 4, !tbaa !245
   %191 = bitcast float %190 to i32
@@ -229653,7 +229653,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds = %200, %203, %213, %215, %224, %238, %241
-  %.0.i.i.i33 = phi i16 [ %210, %203 ], [ %214, %213 ], [ %223, %215 ], [ %201, %200 ], [ %196, %224 ], [ %242, %241 ], [ %236, %238 ]
+  %.0.i.i.i33 = phi i16 [ %196, %224 ], [ %210, %203 ], [ %214, %213 ], [ %223, %215 ], [ %201, %200 ], [ %242, %241 ], [ %236, %238 ]
   %243 = getelementptr inbounds nuw i8, ptr %.02849, i64 2
   store i16 %.0.i.i.i33, ptr %243, align 2, !tbaa !247
   %244 = load float, ptr %66, align 4, !tbaa !245
@@ -229734,7 +229734,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit34: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds = %254, %257, %267, %269, %278, %292, %295
-  %.0.i.i.i37 = phi i16 [ %264, %257 ], [ %268, %267 ], [ %277, %269 ], [ %255, %254 ], [ %250, %278 ], [ %296, %295 ], [ %290, %292 ]
+  %.0.i.i.i37 = phi i16 [ %250, %278 ], [ %264, %257 ], [ %268, %267 ], [ %277, %269 ], [ %255, %254 ], [ %296, %295 ], [ %290, %292 ]
   %297 = getelementptr inbounds nuw i8, ptr %.02849, i64 4
   store i16 %.0.i.i.i37, ptr %297, align 2, !tbaa !247
   %298 = getelementptr inbounds nuw i8, ptr %.050, i64 12
@@ -229817,7 +229817,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit38: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit42: ; preds = %310, %313, %323, %325, %334, %348, %351
-  %.0.i.i.i41 = phi i16 [ %320, %313 ], [ %324, %323 ], [ %333, %325 ], [ %311, %310 ], [ %306, %334 ], [ %352, %351 ], [ %346, %348 ]
+  %.0.i.i.i41 = phi i16 [ %306, %334 ], [ %320, %313 ], [ %324, %323 ], [ %333, %325 ], [ %311, %310 ], [ %352, %351 ], [ %346, %348 ]
   %353 = getelementptr inbounds nuw i8, ptr %.02849, i64 6
   store i16 %.0.i.i.i41, ptr %353, align 2, !tbaa !247
   %354 = getelementptr inbounds nuw i8, ptr %.050, i64 16
@@ -230529,7 +230529,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %199, %202, %212, %214, %223, %237, %240
-  %.0.i.i.i = phi i16 [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %195, %223 ], [ %241, %240 ], [ %235, %237 ]
+  %.0.i.i.i = phi i16 [ %195, %223 ], [ %209, %202 ], [ %213, %212 ], [ %222, %214 ], [ %200, %199 ], [ %241, %240 ], [ %235, %237 ]
   store i16 %.0.i.i.i, ptr %.02271, align 2, !tbaa !247
   %242 = load float, ptr %27, align 4, !tbaa !245
   %243 = bitcast float %242 to i32
@@ -230609,7 +230609,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds = %252, %255, %265, %267, %276, %290, %293
-  %.0.i.i.i55 = phi i16 [ %262, %255 ], [ %266, %265 ], [ %275, %267 ], [ %253, %252 ], [ %248, %276 ], [ %294, %293 ], [ %288, %290 ]
+  %.0.i.i.i55 = phi i16 [ %248, %276 ], [ %262, %255 ], [ %266, %265 ], [ %275, %267 ], [ %253, %252 ], [ %294, %293 ], [ %288, %290 ]
   %295 = getelementptr inbounds nuw i8, ptr %.02271, i64 2
   store i16 %.0.i.i.i55, ptr %295, align 2, !tbaa !247
   %296 = load float, ptr %43, align 4, !tbaa !245
@@ -230690,7 +230690,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit56: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds = %306, %309, %319, %321, %330, %344, %347
-  %.0.i.i.i59 = phi i16 [ %316, %309 ], [ %320, %319 ], [ %329, %321 ], [ %307, %306 ], [ %302, %330 ], [ %348, %347 ], [ %342, %344 ]
+  %.0.i.i.i59 = phi i16 [ %302, %330 ], [ %316, %309 ], [ %320, %319 ], [ %329, %321 ], [ %307, %306 ], [ %348, %347 ], [ %342, %344 ]
   %349 = getelementptr inbounds nuw i8, ptr %.02271, i64 4
   store i16 %.0.i.i.i59, ptr %349, align 2, !tbaa !247
   %350 = getelementptr inbounds nuw i8, ptr %.072, i64 12
@@ -230773,7 +230773,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit60: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit64: ; preds = %362, %365, %375, %377, %386, %400, %403
-  %.0.i.i.i63 = phi i16 [ %372, %365 ], [ %376, %375 ], [ %385, %377 ], [ %363, %362 ], [ %358, %386 ], [ %404, %403 ], [ %398, %400 ]
+  %.0.i.i.i63 = phi i16 [ %358, %386 ], [ %372, %365 ], [ %376, %375 ], [ %385, %377 ], [ %363, %362 ], [ %404, %403 ], [ %398, %400 ]
   %405 = getelementptr inbounds nuw i8, ptr %.02271, i64 6
   store i16 %.0.i.i.i63, ptr %405, align 2, !tbaa !247
   %406 = getelementptr inbounds nuw i8, ptr %.072, i64 16

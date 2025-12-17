@@ -748,8 +748,8 @@ hdcd_analyze_prepare.exit111.i:                   ; preds = %129
   br label %hdcd_process_stereo.exit
 
 hdcd_process_stereo.exit:                         ; preds = %hdcd_analyze_prepare.exit111.thread140.i, %hdcd_analyze_prepare.exit111.i, %263, %273
-  %.sroa.12.2.i = phi i32 [ %272, %263 ], [ %281, %273 ], [ %138, %hdcd_analyze_prepare.exit111.i ], [ %138, %hdcd_analyze_prepare.exit111.thread140.i ]
-  %.sroa.0.2.i = phi i32 [ %267, %263 ], [ %277, %273 ], [ %136, %hdcd_analyze_prepare.exit111.i ], [ %136, %hdcd_analyze_prepare.exit111.thread140.i ]
+  %.sroa.12.2.i = phi i32 [ %272, %263 ], [ %281, %273 ], [ %138, %hdcd_analyze_prepare.exit111.thread140.i ], [ %138, %hdcd_analyze_prepare.exit111.i ]
+  %.sroa.0.2.i = phi i32 [ %267, %263 ], [ %277, %273 ], [ %136, %hdcd_analyze_prepare.exit111.thread140.i ], [ %136, %hdcd_analyze_prepare.exit111.i ]
   store i32 %.sroa.0.2.i, ptr %135, align 4, !tbaa !92
   store i32 %.sroa.12.2.i, ptr %137, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -988,7 +988,7 @@ hdcd_detect_end.exit.sink.split.sink.split:       ; preds = %395, %285
   br label %hdcd_detect_end.exit.sink.split
 
 hdcd_detect_end.exit.sink.split:                  ; preds = %hdcd_detect_end.exit.sink.split.sink.split, %395, %285
-  %.sink.i92.sink = phi i32 [ 2, %285 ], [ 2, %395 ], [ %spec.select.i90, %hdcd_detect_end.exit.sink.split.sink.split ]
+  %.sink.i92.sink = phi i32 [ 2, %395 ], [ 2, %285 ], [ %spec.select.i90, %hdcd_detect_end.exit.sink.split.sink.split ]
   store i32 %.sink.i92.sink, ptr %124, align 4, !tbaa !106
   br label %hdcd_detect_end.exit
 

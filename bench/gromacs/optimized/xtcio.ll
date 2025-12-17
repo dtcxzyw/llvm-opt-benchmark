@@ -128,8 +128,8 @@ _ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %31
   %spec.select = zext i1 %.not13 to i32
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread
 
-_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %28, %26, %33, %35, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, %16, %7
-  %.09 = phi i32 [ 1, %7 ], [ 0, %16 ], [ %spec.select, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %35 ], [ 0, %33 ], [ 0, %26 ], [ 0, %28 ]
+_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %28, %26, %35, %33, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit, %16, %7
+  %.09 = phi i32 [ 1, %7 ], [ 0, %16 ], [ %spec.select, %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit ], [ 0, %33 ], [ 0, %35 ], [ 0, %26 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.09
@@ -176,7 +176,7 @@ _ZL9xtc_checkPKcbS0_i.exit:                       ; preds = %10
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 126) #10
   br label %_ZL9xtc_checkPKcbS0_i.exit20.thread
 
-_ZL9xtc_checkPKcbS0_i.exit20.thread:              ; preds = %21, %19
+_ZL9xtc_checkPKcbS0_i.exit20.thread:              ; preds = %19, %21
   %23 = load i32, ptr %7, align 4, !tbaa !4
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %3, align 8, !tbaa !8
@@ -201,8 +201,8 @@ _ZL9xtc_checkPKcbS0_i.exit20.thread:              ; preds = %21, %19
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 131) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %14, %31, %29, %25, %_ZL9xtc_checkPKcbS0_i.exit20.thread
-  %.1 = phi i32 [ 0, %_ZL9xtc_checkPKcbS0_i.exit20.thread ], [ 0, %31 ], [ 0, %29 ], [ 1, %25 ], [ 0, %14 ], [ 0, %12 ]
+.critedge:                                        ; preds = %14, %12, %31, %29, %25, %_ZL9xtc_checkPKcbS0_i.exit20.thread
+  %.1 = phi i32 [ 1, %25 ], [ 0, %_ZL9xtc_checkPKcbS0_i.exit20.thread ], [ 0, %29 ], [ 0, %31 ], [ 0, %12 ], [ 0, %14 ]
   %33 = trunc nuw nsw i32 %.1 to i8
   store i8 %33, ptr %5, align 1, !tbaa !18
   br label %34
@@ -311,7 +311,7 @@ _ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %24
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
 _ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %27, %29, %32, %34, %36
-  %.021.i = phi i32 [ 0, %36 ], [ 0, %34 ], [ 1, %32 ], [ 0, %27 ], [ 0, %29 ]
+  %.021.i = phi i32 [ 1, %32 ], [ 0, %34 ], [ 0, %36 ], [ 0, %27 ], [ 0, %29 ]
   %38 = trunc nuw nsw i32 %.021.i to i8
   store i8 %38, ptr %7, align 1, !tbaa !18
   br label %39
@@ -577,7 +577,7 @@ _ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %30
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
 _ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit:            ; preds = %33, %35, %38, %40, %42
-  %.021.i = phi i32 [ 0, %42 ], [ 0, %40 ], [ 1, %38 ], [ 0, %33 ], [ 0, %35 ]
+  %.021.i = phi i32 [ 1, %38 ], [ 0, %40 ], [ 0, %42 ], [ 0, %33 ], [ 0, %35 ]
   %44 = trunc nuw nsw i32 %.021.i to i8
   store i8 %44, ptr %7, align 1, !tbaa !18
   br label %45

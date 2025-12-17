@@ -229,7 +229,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12: ; preds = %8
   %.pre = load i32, ptr %3, align 4, !tbaa !20
   br label %50
 
-.critedge:                                        ; preds = %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12, %48
+.critedge:                                        ; preds = %48, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
@@ -451,7 +451,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715ChineseCalen
   br label %72
 
 72:                                               ; preds = %5, %71, %17
-  %.0 = phi i64 [ 0, %17 ], [ %.1, %71 ], [ 0, %5 ]
+  %.0 = phi i64 [ %.1, %71 ], [ 0, %17 ], [ 0, %5 ]
   ret i64 %.0
 }
 
@@ -560,7 +560,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
           to label %_ZN6icu_7712_GLOBAL__N_112millisToDaysEPKNS_8TimeZoneEdR10UErrorCode.exit unwind label %54
 
 _ZN6icu_7712_GLOBAL__N_112millisToDaysEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %.noexc14, %31, %49
-  %.0.i12 = phi double [ %.1.i13, %.noexc14 ], [ 0.000000e+00, %31 ], [ %52, %49 ]
+  %.0.i12 = phi double [ 0.000000e+00, %31 ], [ %.1.i13, %.noexc14 ], [ %52, %49 ]
   %53 = fptosi double %.0.i12 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %9) #8
@@ -678,7 +678,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15Chin
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %52, %6, %49, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %49 ], [ 0, %16 ], [ %55, %52 ], [ %11, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %16 ], [ 0, %49 ], [ %55, %52 ], [ %11, %14 ]
   ret i32 %.0
 }
 
@@ -845,8 +845,8 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   br label %100
 
 100:                                              ; preds = %.thread, %7, %21, %34, %23, %97, %4
-  %.sroa.12.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ %.sroa.12.3, %97 ], [ 0, %23 ], [ %.sroa.12.8.insert.ext, %34 ], [ 0, %.thread ]
-  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ %99, %97 ], [ 0, %23 ], [ 0, %34 ], [ 0, %.thread ]
+  %.sroa.12.0 = phi i64 [ 0, %4 ], [ 0, %21 ], [ 0, %7 ], [ %.sroa.12.3, %97 ], [ 0, %23 ], [ %.sroa.12.8.insert.ext, %34 ], [ 0, %.thread ]
+  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ 0, %21 ], [ 0, %7 ], [ %99, %97 ], [ 0, %23 ], [ 0, %34 ], [ 0, %.thread ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.12.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1367,7 +1367,7 @@ define noundef i32 @_ZNK6icu_7715ChineseCalendar14getRelatedYearER10UErrorCode(p
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %9 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1719,7 +1719,7 @@ _ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit21: ; preds = %38, %40, %27
   resume { ptr, i32 } %.pn.pn
 
 51:                                               ; preds = %2, %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit, %8
-  %.0 = phi i32 [ %10, %8 ], [ %.1, %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ %.1, %_ZN6icu_7712LocalPointerINS_8CalendarEED2Ev.exit ], [ %10, %8 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2080,7 +2080,7 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
   br i1 %19, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit, %4
-  %.0 = phi i8 [ 0, %4 ], [ 0, %.preheader ], [ 0, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread ], [ 1, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit ]
+  %.0 = phi i8 [ 0, %4 ], [ 0, %.preheader ], [ 1, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit ], [ 0, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread ]
   ret i8 %.0
 }
 
@@ -2242,7 +2242,7 @@ define internal fastcc noundef double @_ZN6icu_7712_GLOBAL__N_112millisToDaysEPK
   br label %28
 
 28:                                               ; preds = %3, %24, %23
-  %.0 = phi double [ %.1, %23 ], [ %27, %24 ], [ 0.000000e+00, %3 ]
+  %.0 = phi double [ %27, %24 ], [ %.1, %23 ], [ 0.000000e+00, %3 ]
   ret double %.0
 }
 
@@ -2366,7 +2366,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %17, %53, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit, %9, %44, %52, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %44 ], [ 0, %52 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit ], [ %57, %53 ], [ %14, %17 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ %14, %17 ], [ 0, %44 ], [ 0, %52 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit ], [ %57, %53 ], [ 0, %19 ]
   ret i32 %.0
 }
 

@@ -132,8 +132,8 @@ define hidden void @dissect_sscop_and_payload(ptr noundef %0, ptr noundef %1, pt
   br label %23
 
 23:                                               ; preds = %4, %21, %19, %17
-  %.078 = phi i32 [ 4, %17 ], [ 8, %19 ], [ 4, %21 ], [ %5, %4 ]
-  %.0 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ 0, %4 ]
+  %.078 = phi i32 [ 4, %21 ], [ 4, %17 ], [ 8, %19 ], [ %5, %4 ]
+  %.0 = phi i32 [ %22, %21 ], [ %18, %17 ], [ %20, %19 ], [ 0, %4 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %dissect_stat_list.exitthread-pre-split, label %24
 

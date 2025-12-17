@@ -99,8 +99,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %46
 
 46:                                               ; preds = %28, %34, %42, %24, %21
-  %.077 = phi i32 [ %45, %42 ], [ 0, %24 ], [ 0, %21 ], [ 0, %34 ], [ 0, %28 ]
-  %.076 = phi ptr [ %spec.store.select, %42 ], [ null, %24 ], [ null, %21 ], [ null, %34 ], [ null, %28 ]
+  %.077 = phi i32 [ %45, %42 ], [ 0, %21 ], [ 0, %24 ], [ 0, %34 ], [ 0, %28 ]
+  %.076 = phi ptr [ %spec.store.select, %42 ], [ null, %21 ], [ null, %24 ], [ null, %34 ], [ null, %28 ]
   %47 = tail call ptr @av_frame_clone(ptr noundef %1) #6
   store ptr %47, ptr %4, align 8, !tbaa !4
   %.not91 = icmp eq ptr %47, null
@@ -555,7 +555,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %58
 
 58:                                               ; preds = %49, %10, %1, %56
-  %.0 = phi i32 [ -22, %49 ], [ 0, %56 ], [ 0, %1 ], [ %11, %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ -22, %49 ], [ 0, %56 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

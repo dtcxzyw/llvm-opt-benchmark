@@ -143,8 +143,8 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %85
 
 85:                                               ; preds = %83, %81, %78
-  %86 = phi i1 [ false, %78 ], [ false, %81 ], [ %.not1985, %83 ]
-  %87 = phi i1 [ false, %78 ], [ false, %81 ], [ %not..not1985, %83 ]
+  %86 = phi i1 [ false, %81 ], [ false, %78 ], [ %.not1985, %83 ]
+  %87 = phi i1 [ false, %81 ], [ false, %78 ], [ %not..not1985, %83 ]
   %88 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #5
   %.not1986.not = icmp eq i32 %88, 0
   br i1 %.not1986.not, label %89, label %93
@@ -161,8 +161,8 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %93
 
 93:                                               ; preds = %91, %89, %85
-  %94 = phi i1 [ false, %85 ], [ false, %89 ], [ %.not1988, %91 ]
-  %95 = phi i1 [ false, %85 ], [ false, %89 ], [ %not..not1988, %91 ]
+  %94 = phi i1 [ false, %89 ], [ false, %85 ], [ %.not1988, %91 ]
+  %95 = phi i1 [ false, %89 ], [ false, %85 ], [ %not..not1988, %91 ]
   store i32 0, ptr %19, align 4, !tbaa !3
   %96 = load i32, ptr %3, align 4, !tbaa !3
   %97 = icmp slt i32 %96, 2
@@ -229,8 +229,8 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond, label %128, label %.thread
 
 .thread:                                          ; preds = %93, %125, %121, %117, %114, %111, %106, %103, %101
-  %.sink = phi i32 [ %.mux2716.mux, %93 ], [ -4, %101 ], [ -5, %103 ], [ -6, %106 ], [ -8, %111 ], [ -10, %114 ], [ -15, %117 ], [ -17, %121 ], [ -19, %125 ]
-  %.neg = phi i32 [ %.mux2717.mux, %93 ], [ 4, %101 ], [ 5, %103 ], [ 6, %106 ], [ 8, %111 ], [ 10, %114 ], [ 15, %117 ], [ 17, %121 ], [ 19, %125 ]
+  %.sink = phi i32 [ %.mux2716.mux, %93 ], [ -19, %125 ], [ -4, %101 ], [ -6, %106 ], [ -10, %114 ], [ -17, %121 ], [ -15, %117 ], [ -8, %111 ], [ -5, %103 ]
+  %.neg = phi i32 [ %.mux2717.mux, %93 ], [ 19, %125 ], [ 4, %101 ], [ 6, %106 ], [ 10, %114 ], [ 17, %121 ], [ 15, %117 ], [ 8, %111 ], [ 5, %103 ]
   store i32 %.sink, ptr %19, align 4, !tbaa !3
   store i32 %.neg, ptr %21, align 4, !tbaa !3
   %127 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %21, i32 noundef 6) #5
@@ -669,7 +669,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %403
 
 .preheader2097:                                   ; preds = %336, %.thread2557
-  %355 = phi i1 [ true, %.thread2557 ], [ false, %336 ]
+  %355 = phi i1 [ false, %336 ], [ true, %.thread2557 ]
   %.not2002.not2133 = icmp sgt i32 %.019392249, %indvars2331
   br i1 %.not2002.not2133, label %.lr.ph2136, label %.loopexit2098
 
@@ -2402,9 +2402,9 @@ split:                                            ; preds = %623, %._crit_edge25
   br label %1379
 
 1379:                                             ; preds = %1373, %1354
-  %.01948 = phi double [ 1.000000e+00, %1354 ], [ %1375, %1373 ]
-  %.pn2080 = phi double [ %1355, %1354 ], [ %1378, %1373 ]
-  %.21916 = phi double [ 0.000000e+00, %1354 ], [ %.41918, %1373 ]
+  %.01948 = phi double [ %1375, %1373 ], [ 1.000000e+00, %1354 ]
+  %.pn2080 = phi double [ %1378, %1373 ], [ %1355, %1354 ]
+  %.21916 = phi double [ %.41918, %1373 ], [ 0.000000e+00, %1354 ]
   %.01945 = fdiv double %.pn2080, %.11936
   br i1 %1343, label %.thread2070, label %1380
 
@@ -2802,11 +2802,11 @@ split:                                            ; preds = %623, %._crit_edge25
   br label %.loopexit2093
 
 .loopexit2093:                                    ; preds = %.loopexit2086, %1530, %..loopexit2095_crit_edge, %split, %1094, %539, %538, %900, %1529
-  %.11940 = phi i32 [ %536, %538 ], [ %.019392249, %900 ], [ %.019392249, %1529 ], [ %536, %539 ], [ %1095, %1094 ], [ %.019392249, %split ], [ %.019392249, %..loopexit2095_crit_edge ], [ %.019392249, %1530 ], [ %.019392249, %.loopexit2086 ]
-  %.11938 = phi i32 [ 0, %538 ], [ %540, %900 ], [ %540, %1529 ], [ 0, %539 ], [ 0, %1094 ], [ %540, %split ], [ %540, %..loopexit2095_crit_edge ], [ %540, %1530 ], [ %540, %.loopexit2086 ]
-  %.31909 = phi double [ 0.000000e+00, %538 ], [ %.019062253, %900 ], [ %.019062253, %1529 ], [ 0.000000e+00, %539 ], [ 0.000000e+00, %1094 ], [ %.21908, %split ], [ %.019062253, %..loopexit2095_crit_edge ], [ %.019062253, %1530 ], [ %.21908, %.loopexit2086 ]
-  %.21903 = phi i32 [ %.119022254, %538 ], [ %.119022254, %900 ], [ %.119022254, %1529 ], [ %536, %539 ], [ %spec.select2083, %1094 ], [ %.119022254, %split ], [ %.119022254, %..loopexit2095_crit_edge ], [ %.119022254, %1530 ], [ %.119022254, %.loopexit2086 ]
-  %.3 = phi i32 [ %.118962257, %538 ], [ %spec.select2067, %900 ], [ %spec.select2067, %1529 ], [ %spec.select2066, %539 ], [ %spec.select2084, %1094 ], [ %spec.select2067, %split ], [ %spec.select2067, %..loopexit2095_crit_edge ], [ %spec.select2067, %1530 ], [ %spec.select2067, %.loopexit2086 ]
+  %.11940 = phi i32 [ %536, %538 ], [ %.019392249, %1529 ], [ %.019392249, %900 ], [ %1095, %1094 ], [ %536, %539 ], [ %.019392249, %split ], [ %.019392249, %..loopexit2095_crit_edge ], [ %.019392249, %1530 ], [ %.019392249, %.loopexit2086 ]
+  %.11938 = phi i32 [ 0, %538 ], [ %540, %1529 ], [ %540, %900 ], [ 0, %1094 ], [ 0, %539 ], [ %540, %split ], [ %540, %..loopexit2095_crit_edge ], [ %540, %1530 ], [ %540, %.loopexit2086 ]
+  %.31909 = phi double [ 0.000000e+00, %538 ], [ %.019062253, %1529 ], [ %.019062253, %900 ], [ 0.000000e+00, %1094 ], [ 0.000000e+00, %539 ], [ %.21908, %split ], [ %.019062253, %..loopexit2095_crit_edge ], [ %.019062253, %1530 ], [ %.21908, %.loopexit2086 ]
+  %.21903 = phi i32 [ %.119022254, %538 ], [ %.119022254, %1529 ], [ %.119022254, %900 ], [ %spec.select2083, %1094 ], [ %536, %539 ], [ %.119022254, %split ], [ %.119022254, %..loopexit2095_crit_edge ], [ %.119022254, %1530 ], [ %.119022254, %.loopexit2086 ]
+  %.3 = phi i32 [ %.118962257, %538 ], [ %spec.select2067, %1529 ], [ %spec.select2067, %900 ], [ %spec.select2084, %1094 ], [ %spec.select2066, %539 ], [ %spec.select2067, %split ], [ %spec.select2067, %..loopexit2095_crit_edge ], [ %spec.select2067, %1530 ], [ %spec.select2067, %.loopexit2086 ]
   %1547 = add nuw nsw i32 %.019412248, 1
   %.not1996.not = icmp slt i32 %.019412248, %240
   br i1 %.not1996.not, label %261, label %._crit_edge2262, !llvm.loop !38

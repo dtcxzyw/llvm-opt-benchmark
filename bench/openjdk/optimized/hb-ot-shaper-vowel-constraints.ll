@@ -244,7 +244,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit287:           ; preds = %108, %94, %_ZN11hb_
   tail call fastcc void @_ZL26_output_with_dotted_circleP11hb_buffer_t(ptr noundef %1)
   br label %_ZN11hb_buffer_t10next_glyphEv.exit292
 
-.critedge224:                                     ; preds = %47, %52, %55, %34, %30, %25
+.critedge224:                                     ; preds = %52, %55, %47, %34, %30, %25
   %111 = load i8, ptr %17, align 2
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %131
@@ -1142,7 +1142,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
   br label %565
 
 565:                                              ; preds = %556, %560
-  %.0215 = phi i1 [ %564, %560 ], [ %switch.selectcmp, %556 ]
+  %.0215 = phi i1 [ %switch.selectcmp, %556 ], [ %564, %560 ]
   %566 = load i8, ptr %543, align 2
   %567 = trunc i8 %566 to i1
   br i1 %567, label %568, label %586
@@ -1671,7 +1671,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
   br label %_ZN11hb_buffer_t10next_glyphEv.exit382
 
 832:                                              ; preds = %791, %800, %795
-  %.0212.shrunk = phi i1 [ %799, %795 ], [ %804, %800 ], [ %switch250, %791 ]
+  %.0212.shrunk = phi i1 [ %switch250, %791 ], [ %799, %795 ], [ %804, %800 ]
   %833 = load i8, ptr %778, align 2
   %834 = trunc i8 %833 to i1
   br i1 %834, label %835, label %853
@@ -2036,7 +2036,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   br label %1017
 
 1017:                                             ; preds = %1007, %1012, %1002
-  %.0210.shrunk = phi i1 [ %1006, %1002 ], [ %1016, %1012 ], [ %switch259, %1007 ]
+  %.0210.shrunk = phi i1 [ %1006, %1002 ], [ %switch259, %1007 ], [ %1016, %1012 ]
   %1018 = load i8, ptr %962, align 2
   %1019 = trunc i8 %1018 to i1
   br i1 %1019, label %1020, label %1038

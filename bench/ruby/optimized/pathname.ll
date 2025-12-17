@@ -3984,7 +3984,7 @@ define internal i64 @path_f_pathname(i64 %0, i64 noundef %1) #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !6
   %19 = load i64, ptr @rb_cPathname, align 8, !tbaa !6
   %20 = icmp eq i64 %.0.i, %19

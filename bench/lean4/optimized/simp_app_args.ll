@@ -1916,7 +1916,7 @@ _ZN4lean10object_refD2Ev.exit77:                  ; preds = %160, %150, %157, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %114, %.loopexit.loopexit86, %146, %_ZN4lean10object_refD2Ev.exit
-  %168 = phi i64 [ %.pre, %.loopexit.loopexit86 ], [ 0, %146 ], [ %38, %_ZN4lean10object_refD2Ev.exit ], [ %117, %114 ]
+  %168 = phi i64 [ %.pre, %.loopexit.loopexit86 ], [ %38, %_ZN4lean10object_refD2Ev.exit ], [ 0, %146 ], [ %117, %114 ]
   %169 = trunc i64 %168 to i32
   %170 = load ptr, ptr %5, align 8, !tbaa !15, !noalias !74
   invoke void @_ZN4lean6mk_appERKNS_4exprEjPS1_(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %169, ptr noundef %170)
@@ -1988,7 +1988,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   ret void
 
 192:                                              ; preds = %167, %74, %113, %47, %41
-  %.pn41.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn36, %47 ], [ %.pn41, %74 ], [ %.pn38.pn, %113 ], [ %.pn, %167 ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %.pn, %167 ], [ %42, %41 ], [ %.pn36, %47 ], [ %.pn41, %74 ], [ %.pn38.pn, %113 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn41.pn.pn

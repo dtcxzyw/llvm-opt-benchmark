@@ -127,7 +127,7 @@ define ptr @PKCS12_create_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %pkcs12_remove_bag.exit
 
 pkcs12_remove_bag.exit:                           ; preds = %58, %55, %53, %50, %37
-  %.087 = phi ptr [ %1, %37 ], [ %.1, %50 ], [ %.1, %53 ], [ %.1, %55 ], [ %.1, %58 ]
+  %.087 = phi ptr [ %1, %37 ], [ %.1, %50 ], [ %.1, %58 ], [ %.1, %53 ], [ %.1, %55 ]
   %59 = call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
@@ -344,7 +344,7 @@ thread-pre-split:                                 ; preds = %113, %114
   br label %PKCS12_add_safe_ex.exit.thread
 
 PKCS12_add_safe_ex.exit:                          ; preds = %93, %129, %118
-  %134 = phi ptr [ null, %118 ], [ %119, %129 ], [ null, %93 ]
+  %134 = phi ptr [ %119, %129 ], [ null, %118 ], [ null, %93 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %134, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   store ptr null, ptr %18, align 8, !tbaa !8
   %135 = load ptr, ptr %17, align 8, !tbaa !3
@@ -372,8 +372,8 @@ PKCS12_add_safes_ex.exit:                         ; preds = %138
   %.not124 = icmp eq i32 %142, 0
   br i1 %.not124, label %PKCS12_add_safe_ex.exit.thread, label %145
 
-PKCS12_add_safe_ex.exit.thread:                   ; preds = %.lr.ph.split, %.lr.ph.split.us, %PKCS12_add_safe_ex.exit, %140, %122, %133, %141, %111, %107, %copy_bag_attr.exit132, %copy_bag_attr.exit, %94, %91, %116, %82, %52
-  %.085 = phi ptr [ null, %52 ], [ null, %82 ], [ null, %116 ], [ %136, %141 ], [ null, %111 ], [ null, %107 ], [ null, %copy_bag_attr.exit132 ], [ null, %copy_bag_attr.exit ], [ null, %94 ], [ null, %91 ], [ null, %133 ], [ null, %122 ], [ null, %140 ], [ null, %PKCS12_add_safe_ex.exit ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
+PKCS12_add_safe_ex.exit.thread:                   ; preds = %.lr.ph.split, %.lr.ph.split.us, %PKCS12_add_safe_ex.exit, %140, %133, %122, %141, %111, %107, %copy_bag_attr.exit132, %copy_bag_attr.exit, %94, %91, %116, %82, %52
+  %.085 = phi ptr [ null, %52 ], [ null, %82 ], [ null, %116 ], [ null, %133 ], [ %136, %141 ], [ null, %91 ], [ null, %111 ], [ null, %107 ], [ null, %copy_bag_attr.exit132 ], [ null, %copy_bag_attr.exit ], [ null, %94 ], [ null, %122 ], [ null, %140 ], [ null, %PKCS12_add_safe_ex.exit ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
   call void @PKCS12_free(ptr noundef %.085) #3
   %143 = load ptr, ptr %17, align 8, !tbaa !3
   call void @OPENSSL_sk_pop_free(ptr noundef %143, ptr noundef nonnull @PKCS7_free) #3
@@ -382,7 +382,7 @@ PKCS12_add_safe_ex.exit.thread:                   ; preds = %.lr.ph.split, %.lr.
   br label %145
 
 145:                                              ; preds = %PKCS12_add_safes_ex.exit, %141, %34, %32, %PKCS12_add_safe_ex.exit.thread, %28
-  %.086 = phi ptr [ null, %28 ], [ null, %PKCS12_add_safe_ex.exit.thread ], [ null, %32 ], [ null, %34 ], [ %136, %141 ], [ %136, %PKCS12_add_safes_ex.exit ]
+  %.086 = phi ptr [ null, %28 ], [ null, %PKCS12_add_safe_ex.exit.thread ], [ null, %34 ], [ null, %32 ], [ %136, %141 ], [ %136, %PKCS12_add_safes_ex.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -468,7 +468,7 @@ pkcs12_add_bag.exit.thread:                       ; preds = %.thread, %25, %20, 
   br label %pkcs12_add_bag.exit.thread22
 
 pkcs12_add_bag.exit.thread22:                     ; preds = %23, %.thread, %15, %pkcs12_add_bag.exit.thread
-  %.0 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %7, %15 ], [ %7, %.thread ], [ %7, %23 ]
+  %.0 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %7, %.thread ], [ %7, %15 ], [ %7, %23 ]
   ret ptr %.0
 }
 
@@ -563,7 +563,7 @@ define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr noundef captures(none) %0, pt
   br label %28
 
 28:                                               ; preds = %21, %9, %27
-  %.020 = phi i32 [ 0, %27 ], [ 0, %9 ], [ 1, %21 ]
+  %.020 = phi i32 [ 0, %9 ], [ 0, %27 ], [ 1, %21 ]
   ret i32 %.020
 }
 
@@ -642,12 +642,12 @@ define ptr @PKCS12_add_key_ex(ptr noundef captures(address_is_null) %0, ptr noun
   br label %pkcs12_add_bag.exit.thread
 
 pkcs12_add_bag.exit.thread:                       ; preds = %.thread, %30, %25, %.thread43, %18, %8, %14
-  %.021 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %14 ], [ null, %.thread43 ], [ %.13842, %25 ], [ %.13842, %30 ], [ %.13842, %.thread ]
+  %.021 = phi ptr [ null, %8 ], [ null, %18 ], [ %.13842, %.thread ], [ null, %14 ], [ null, %.thread43 ], [ %.13842, %25 ], [ %.13842, %30 ]
   tail call void @PKCS12_SAFEBAG_free(ptr noundef %.021) #3
   br label %pkcs12_add_bag.exit.thread47
 
 pkcs12_add_bag.exit.thread47:                     ; preds = %28, %.thread, %.thread40, %pkcs12_add_bag.exit.thread
-  %.022 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %.13842, %.thread40 ], [ %.13842, %.thread ], [ %.13842, %28 ]
+  %.022 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %.13842, %.thread ], [ %.13842, %.thread40 ], [ %.13842, %28 ]
   ret ptr %.022
 }
 
@@ -759,7 +759,7 @@ pkcs12_add_bag.exit.thread:                       ; preds = %.thread, %17, %12, 
   br label %pkcs12_add_bag.exit.thread10
 
 pkcs12_add_bag.exit.thread10:                     ; preds = %15, %.thread, %7, %pkcs12_add_bag.exit.thread
-  %.0 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %5, %7 ], [ %5, %.thread ], [ %5, %15 ]
+  %.0 = phi ptr [ null, %pkcs12_add_bag.exit.thread ], [ %5, %.thread ], [ %5, %7 ], [ %5, %15 ]
   ret ptr %.0
 }
 

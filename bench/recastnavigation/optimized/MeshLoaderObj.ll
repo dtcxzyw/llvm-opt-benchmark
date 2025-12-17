@@ -324,9 +324,9 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %50
 
 50:                                               ; preds = %45, %43, %41, %.lr.ph.i, %.lr.ph.i
-  %.119.i = phi i8 [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %.lr.ph.i ], [ 1, %43 ], [ %.01824.i, %41 ], [ 0, %45 ]
-  %.117.i = phi i1 [ false, %.lr.ph.i ], [ false, %.lr.ph.i ], [ false, %43 ], [ %not..i, %41 ], [ %49, %45 ]
-  %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %43 ], [ %.01526.i, %41 ], [ %46, %45 ]
+  %.119.i = phi i8 [ %.01824.i, %.lr.ph.i ], [ 0, %45 ], [ %.01824.i, %41 ], [ 1, %43 ], [ %.01824.i, %.lr.ph.i ]
+  %.117.i = phi i1 [ false, %.lr.ph.i ], [ %49, %45 ], [ %not..i, %41 ], [ false, %43 ], [ false, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.01526.i, %.lr.ph.i ], [ %46, %45 ], [ %.01526.i, %41 ], [ %.01526.i, %43 ], [ %.01526.i, %.lr.ph.i ]
   %51 = icmp uge ptr %40, %31
   %.not22.i = select i1 %.117.i, i1 true, i1 %51
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !5
@@ -582,7 +582,7 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   br label %148
 
 148:                                              ; preds = %.lr.ph.split, %118, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit
-  %.3 = phi i32 [ %.2127, %.lr.ph.split ], [ %.4, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit ], [ %.2127, %118 ]
+  %.3 = phi i32 [ %.2127, %118 ], [ %.2127, %.lr.ph.split ], [ %.4, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10

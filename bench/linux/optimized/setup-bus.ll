@@ -2495,7 +2495,7 @@ define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i6
   br label %60
 
 60:                                               ; preds = %53, %._crit_edge, %50, %46
-  %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ %59, %._crit_edge ], [ 2, %53 ]
+  %61 = phi i32 [ 0, %46 ], [ 1, %50 ], [ 2, %53 ], [ %59, %._crit_edge ]
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr %struct.resource, ptr %47, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40

@@ -577,7 +577,7 @@ _ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEng
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.loopexit.sink.split, %25, %22
-  %.sroa.3.0 = phi i64 [ 0, %22 ], [ 0, %25 ], [ %38, %.loopexit.sink.split ], [ 0, %32 ]
+  %.sroa.3.0 = phi i64 [ 0, %25 ], [ 0, %22 ], [ %38, %.loopexit.sink.split ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.3.0
 }
@@ -1140,7 +1140,7 @@ _ZN4absl12lts_202407228StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %192
 
 191:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %.pn40 = phi { ptr, i32 } [ %.pn38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %136, %135 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ]
+  %.pn40 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %.pn38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %136, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
@@ -1730,7 +1730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
   br label %202
 
 197:                                              ; preds = %177, %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56, %151
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %152, %151 ], [ %.pn, %177 ], [ %182, %181 ]
+  %.pn28 = phi { ptr, i32 } [ %182, %181 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %152, %151 ], [ %.pn, %177 ]
   %198 = load ptr, ptr %8, align 8, !tbaa !22
   %199 = icmp eq ptr %198, %61
   br i1 %199, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
@@ -4057,7 +4057,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
   br label %733
 
 .body56:                                          ; preds = %396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i, %397, %716, %.body40
-  %.pn33 = phi { ptr, i32 } [ %.pn27.pn.pn.pn.pn, %716 ], [ %123, %.body40 ], [ %.pn16.pn.pn.pn.pn.i, %396 ], [ %398, %397 ], [ %.pn13.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i ]
+  %.pn33 = phi { ptr, i32 } [ %123, %.body40 ], [ %.pn27.pn.pn.pn.pn, %716 ], [ %.pn16.pn.pn.pn.pn.i, %396 ], [ %398, %397 ], [ %.pn13.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)

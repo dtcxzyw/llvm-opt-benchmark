@@ -1105,7 +1105,7 @@ dissect_nhrp_mand.exit:                           ; preds = %267, %268, %269, %2
   br label %378
 
 378:                                              ; preds = %375, %372
-  %.4.i30 = phi i32 [ %.0176.i, %372 ], [ %spec.select.i, %375 ]
+  %.4.i30 = phi i32 [ %spec.select.i, %375 ], [ %.0176.i, %372 ]
   %379 = add nuw nsw i32 %.4.i30, 4
   %380 = icmp ugt i32 %379, %328
   br i1 %380, label %381, label %383

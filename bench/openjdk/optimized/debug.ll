@@ -3129,7 +3129,7 @@ define hidden noundef zeroext i1 @_Z26handle_assert_poison_faultPKvS0_(ptr nound
   br label %14
 
 14:                                               ; preds = %2, %8, %13, %9, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %9 ], [ true, %13 ], [ true, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %5 ], [ true, %9 ], [ true, %13 ], [ false, %2 ]
   ret i1 %.0
 }
 

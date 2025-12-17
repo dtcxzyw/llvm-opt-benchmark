@@ -213,7 +213,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
   br label %VP8LPrefixEncodeBits.exit33
 
 VP8LPrefixEncodeBits.exit33:                      ; preds = %88, %84, %72, %68
-  %.0 = phi i32 [ %71, %68 ], [ %80, %72 ], [ %87, %84 ], [ %96, %88 ]
+  %.0 = phi i32 [ %80, %72 ], [ %71, %68 ], [ %87, %84 ], [ %96, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   %98 = sext i32 %.0 to i64
   %99 = getelementptr inbounds i32, ptr %97, i64 %98
@@ -528,7 +528,7 @@ define hidden i64 @VP8LBitsEntropy(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %24
 
 24:                                               ; preds = %23, %9, %2
-  %.0.i = phi i64 [ 700, %23 ], [ 950, %9 ], [ 627, %2 ]
+  %.0.i = phi i64 [ 950, %9 ], [ 700, %23 ], [ 627, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !35
   %27 = shl i32 %26, 1
@@ -678,7 +678,7 @@ define internal fastcc i64 @PopulationCost(ptr noundef %0, i32 noundef range(i32
   br label %39
 
 39:                                               ; preds = %38, %24, %._crit_edge
-  %.0.i = phi i64 [ 700, %38 ], [ 950, %24 ], [ 627, %._crit_edge ]
+  %.0.i = phi i64 [ 950, %24 ], [ 700, %38 ], [ 627, %._crit_edge ]
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !35
   %42 = shl i32 %41, 1
@@ -2562,7 +2562,7 @@ HistogramCombineGreedy.exit.thread:               ; preds = %.loopexit.i154, %.p
   %901 = call i32 @WebPEncodingSetError(ptr noundef %10, i32 noundef 1) #10
   br label %1010
 
-.thread239:                                       ; preds = %HistogramCombineGreedy.exit.thread, %.critedge.i, %OptimizeHistogramSymbols.exit
+.thread239:                                       ; preds = %.critedge.i, %HistogramCombineGreedy.exit.thread, %OptimizeHistogramSymbols.exit
   %902 = load i32, ptr %7, align 8, !tbaa !28
   %903 = icmp sgt i32 %902, 0
   br i1 %903, label %.lr.ph.i166, label %RemoveEmptyHistograms.exit173.thread
@@ -2977,7 +2977,7 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
   br label %47
 
 47:                                               ; preds = %41, %39, %35, %32
-  %.065 = phi i32 [ 0, %35 ], [ 0, %32 ], [ 0, %39 ], [ %spec.select, %41 ]
+  %.065 = phi i32 [ 0, %32 ], [ 0, %35 ], [ %spec.select, %41 ], [ 0, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3281
@@ -3050,7 +3050,7 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
   br label %101
 
 101:                                              ; preds = %83, %71, %59, %47, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %47 ], [ 0, %59 ], [ 0, %71 ], [ %., %83 ]
+  %.0 = phi i32 [ 0, %71 ], [ 0, %4 ], [ 0, %6 ], [ 0, %47 ], [ 0, %59 ], [ %., %83 ]
   ret i32 %.0
 }
 
@@ -3149,7 +3149,7 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
   br label %48
 
 48:                                               ; preds = %47, %33, %27
-  %.0.i = phi i64 [ 700, %47 ], [ 950, %33 ], [ 627, %27 ]
+  %.0.i = phi i64 [ 950, %33 ], [ 700, %47 ], [ 627, %27 ]
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !35
   %51 = shl i32 %50, 1

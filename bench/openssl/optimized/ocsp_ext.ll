@@ -366,8 +366,8 @@ define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %0, ptr 
   br label %24
 
 24:                                               ; preds = %21, %18, %9
-  %25 = phi ptr [ null, %9 ], [ %11, %18 ], [ %.pre, %21 ]
-  %.0 = phi i32 [ 0, %9 ], [ 0, %18 ], [ %spec.select, %21 ]
+  %25 = phi ptr [ null, %9 ], [ %.pre, %21 ], [ %11, %18 ]
+  %.0 = phi i32 [ 0, %9 ], [ %spec.select, %21 ], [ 0, %18 ]
   call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 276) #4
   br label %26
 
@@ -421,7 +421,7 @@ define range(i32 -1, 4) i32 @OCSP_check_nonce(ptr noundef readonly captures(none
   br label %23
 
 23:                                               ; preds = %15, %13, %11, %2
-  %.0 = phi i32 [ 2, %2 ], [ -1, %11 ], [ 3, %13 ], [ %., %15 ]
+  %.0 = phi i32 [ 3, %13 ], [ 2, %2 ], [ -1, %11 ], [ %., %15 ]
   ret i32 %.0
 }
 

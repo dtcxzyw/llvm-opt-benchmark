@@ -1356,7 +1356,7 @@ lean_alloc_ctor.exit224:                          ; preds = %345
   br label %353
 
 353:                                              ; preds = %lean_obj_tag.exit184, %lean_alloc_ctor.exit224, %lean_alloc_ctor.exit206, %lean_alloc_ctor.exit198, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit177, %43, %lean_alloc_ctor.exit197
-  %.4 = phi ptr [ inttoptr (i64 1 to ptr), %43 ], [ %52, %lean_alloc_ctor.exit ], [ %91, %lean_alloc_ctor.exit177 ], [ %193, %lean_alloc_ctor.exit197 ], [ %348, %lean_alloc_ctor.exit224 ], [ %217, %lean_alloc_ctor.exit198 ], [ %256, %lean_alloc_ctor.exit206 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
+  %.4 = phi ptr [ %193, %lean_alloc_ctor.exit197 ], [ %91, %lean_alloc_ctor.exit177 ], [ inttoptr (i64 1 to ptr), %43 ], [ %52, %lean_alloc_ctor.exit ], [ %256, %lean_alloc_ctor.exit206 ], [ %348, %lean_alloc_ctor.exit224 ], [ %217, %lean_alloc_ctor.exit198 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit184 ]
   ret ptr %.4
 }
 

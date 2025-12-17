@@ -128,7 +128,7 @@ define internal fastcc ptr @expand_dynamic_library_name(ptr noundef %0) unnamed_
   br label %18
 
 18:                                               ; preds = %11, %8, %5, %3, %16
-  %.0 = phi ptr [ %17, %16 ], [ %4, %3 ], [ %6, %5 ], [ %10, %8 ], [ %13, %11 ]
+  %.0 = phi ptr [ %4, %3 ], [ %10, %8 ], [ %17, %16 ], [ %6, %5 ], [ %13, %11 ]
   ret ptr %.0
 }
 

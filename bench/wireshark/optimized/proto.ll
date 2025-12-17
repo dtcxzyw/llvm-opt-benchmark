@@ -2146,7 +2146,7 @@ define noundef zeroext i1 @proto_field_is_referenced(ptr noundef readonly captur
   br label %39
 
 39:                                               ; preds = %34, %27, %3, %2, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %2 ], [ true, %3 ], [ true, %27 ], [ true, %34 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %3 ], [ false, %38 ], [ true, %27 ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -2319,7 +2319,7 @@ switch.early.test45:                              ; preds = %switch.early.test, 
   br i1 %.not, label %3, label %.thread
 
 .thread:                                          ; preds = %switch.early.test, %switch.early.test45, %8, %8, %11
-  %.148 = phi i32 [ 0, %11 ], [ 0, %switch.early.test45 ], [ 0, %switch.early.test ], [ 1, %8 ], [ 1, %8 ]
+  %.148 = phi i32 [ 0, %11 ], [ 1, %8 ], [ 0, %switch.early.test ], [ 0, %switch.early.test45 ], [ 1, %8 ]
   ret i32 %.148
 }
 
@@ -2399,7 +2399,7 @@ define ptr @proto_registrar_get_byname(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %18, %23, %16, %14, %1, %11, %6
-  %.0 = phi ptr [ %7, %6 ], [ %10, %11 ], [ null, %1 ], [ null, %14 ], [ null, %16 ], [ %22, %23 ], [ null, %18 ]
+  %.0 = phi ptr [ %7, %6 ], [ %10, %11 ], [ null, %16 ], [ null, %14 ], [ null, %1 ], [ %22, %23 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -3056,7 +3056,7 @@ ptvcursor_add_subtree_item.exit:                  ; preds = %ptvcursor_subtree_s
   br label %ptvcursor_tree.exit.thread
 
 ptvcursor_tree.exit.thread:                       ; preds = %93, %4, %proto_item_is_hidden.exit52, %proto_tree_add_text_node.exit, %ptvcursor_tree.exit, %ptvcursor_add_subtree_item.exit, %76
-  %.0 = phi ptr [ %111, %ptvcursor_add_subtree_item.exit ], [ %77, %76 ], [ null, %ptvcursor_tree.exit ], [ %84, %proto_tree_add_text_node.exit ], [ %84, %proto_item_is_hidden.exit52 ], [ null, %4 ], [ null, %93 ]
+  %.0 = phi ptr [ %111, %ptvcursor_add_subtree_item.exit ], [ %84, %proto_tree_add_text_node.exit ], [ null, %ptvcursor_tree.exit ], [ %77, %76 ], [ %84, %proto_item_is_hidden.exit52 ], [ null, %4 ], [ null, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -3489,7 +3489,7 @@ proto_item_is_hidden.exit56:                      ; preds = %95
   br label %proto_item_is_hidden.exit56.thread
 
 proto_item_is_hidden.exit56.thread:               ; preds = %95, %proto_item_is_hidden.exit56, %proto_tree_add_text_node.exit, %15, %99, %82
-  %.0 = phi ptr [ %86, %99 ], [ %83, %82 ], [ null, %15 ], [ %86, %proto_tree_add_text_node.exit ], [ %86, %proto_item_is_hidden.exit56 ], [ null, %95 ]
+  %.0 = phi ptr [ %86, %99 ], [ %86, %proto_tree_add_text_node.exit ], [ null, %15 ], [ %83, %82 ], [ %86, %proto_item_is_hidden.exit56 ], [ null, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -3674,7 +3674,7 @@ proto_item_is_hidden.exit47:                      ; preds = %88
   br label %proto_item_is_hidden.exit47.thread
 
 proto_item_is_hidden.exit47.thread:               ; preds = %88, %proto_item_is_hidden.exit47, %proto_tree_add_text_node.exit, %6, %92, %75
-  %.0 = phi ptr [ %79, %92 ], [ %76, %75 ], [ null, %6 ], [ %79, %proto_tree_add_text_node.exit ], [ %79, %proto_item_is_hidden.exit47 ], [ null, %88 ]
+  %.0 = phi ptr [ %79, %92 ], [ %79, %proto_tree_add_text_node.exit ], [ null, %6 ], [ %76, %75 ], [ %79, %proto_item_is_hidden.exit47 ], [ null, %88 ]
   ret ptr %.0
 }
 
@@ -3817,7 +3817,7 @@ proto_tree_add_text_node.exit:                    ; preds = %27, %26, %21, %get_
   br label %proto_tree_add_text_node.exit.thread
 
 proto_tree_add_text_node.exit.thread:             ; preds = %2, %45, %proto_tree_add_text_node.exit
-  %.0.i9 = phi ptr [ %44, %45 ], [ null, %proto_tree_add_text_node.exit ], [ null, %2 ]
+  %.0.i9 = phi ptr [ null, %proto_tree_add_text_node.exit ], [ %44, %45 ], [ null, %2 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
   %46 = load ptr, ptr @stdout, align 8, !noalias !17
   %47 = call i32 @__vfprintf_chk(ptr noundef %46, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3) #39
@@ -4007,7 +4007,7 @@ proto_item_is_hidden.exit49:                      ; preds = %86
   br label %proto_item_is_hidden.exit49.thread
 
 proto_item_is_hidden.exit49.thread:               ; preds = %86, %proto_item_is_hidden.exit49, %proto_tree_add_text_node.exit, %4, %90, %73
-  %.0 = phi ptr [ %77, %90 ], [ %74, %73 ], [ null, %4 ], [ %77, %proto_tree_add_text_node.exit ], [ %77, %proto_item_is_hidden.exit49 ], [ null, %86 ]
+  %.0 = phi ptr [ %77, %90 ], [ %77, %proto_tree_add_text_node.exit ], [ null, %4 ], [ %74, %73 ], [ %77, %proto_item_is_hidden.exit49 ], [ null, %86 ]
   ret ptr %.0
 }
 
@@ -4241,7 +4241,7 @@ proto_item_is_hidden.exit50:                      ; preds = %86
   br label %proto_item_is_hidden.exit50.thread
 
 proto_item_is_hidden.exit50.thread:               ; preds = %86, %proto_item_is_hidden.exit50, %proto_tree_add_text_node.exit, %4, %90, %73
-  %.0 = phi ptr [ %77, %90 ], [ %74, %73 ], [ null, %4 ], [ %77, %proto_tree_add_text_node.exit ], [ %77, %proto_item_is_hidden.exit50 ], [ null, %86 ]
+  %.0 = phi ptr [ %77, %90 ], [ %77, %proto_tree_add_text_node.exit ], [ null, %4 ], [ %74, %73 ], [ %77, %proto_item_is_hidden.exit50 ], [ null, %86 ]
   ret ptr %.0
 }
 
@@ -4539,7 +4539,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %115, %proto_item_is
   br label %140
 
 140:                                              ; preds = %63, %37, %38, %133, %131
-  %.0 = phi ptr [ %139, %133 ], [ %132, %131 ], [ null, %38 ], [ null, %37 ], [ null, %63 ]
+  %.0 = phi ptr [ null, %37 ], [ %139, %133 ], [ %132, %131 ], [ null, %38 ], [ null, %63 ]
   ret ptr %.0
 }
 
@@ -4625,7 +4625,7 @@ report_type_length_mismatch.exit:                 ; preds = %29, %31
   br label %36
 
 36:                                               ; preds = %22, %24, %17, %19, %report_type_length_mismatch.exit, %14, %6
-  %.027 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %8, %6 ], [ %15, %14 ], [ %18, %17 ], [ %20, %19 ], [ %23, %22 ], [ %25, %24 ]
+  %.027 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %8, %6 ], [ %15, %14 ], [ %20, %19 ], [ %18, %17 ], [ %23, %22 ], [ %25, %24 ]
   ret i32 %.027
 }
 
@@ -4866,7 +4866,7 @@ ws_sign_ext32.exit:                               ; preds = %6, %15
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %21, %21, %21, %26, %29, %30, %31, %32, %33, %34, %35
-  %.0.i.i = phi i32 [ %28, %26 ], [ 16, %29 ], [ 24, %30 ], [ 32, %31 ], [ 40, %32 ], [ 48, %33 ], [ 56, %34 ], [ 64, %35 ], [ 8, %21 ], [ 8, %21 ], [ 8, %21 ]
+  %.0.i.i = phi i32 [ %28, %26 ], [ 8, %21 ], [ 64, %35 ], [ 16, %29 ], [ 24, %30 ], [ 32, %31 ], [ 40, %32 ], [ 48, %33 ], [ 56, %34 ], [ 8, %21 ], [ 8, %21 ]
   %37 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = add i32 %.0.i.i, %38
@@ -4897,7 +4897,7 @@ hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %ws_sign_ext32.exit, %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i32 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ], [ %.0.i, %ws_sign_ext32.exit ]
+  %.0 = phi i32 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %.0.i, %ws_sign_ext32.exit ], [ %1, %2 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8
   tail call void @fvalue_set_sinteger(ptr noundef %54, i32 noundef %.0)
@@ -5340,7 +5340,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is
   br label %138
 
 138:                                              ; preds = %59, %35, %36, %129, %127
-  %.074 = phi ptr [ %137, %129 ], [ %128, %127 ], [ null, %36 ], [ null, %35 ], [ null, %59 ]
+  %.074 = phi ptr [ null, %35 ], [ %137, %129 ], [ %128, %127 ], [ null, %36 ], [ null, %59 ]
   ret ptr %.074
 }
 
@@ -5443,7 +5443,7 @@ report_type_length_mismatch.exit:                 ; preds = %35, %37
   br label %42
 
 42:                                               ; preds = %28, %30, %23, %25, %17, %20, %6, %10, %report_type_length_mismatch.exit
-  %.032 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %spec.store.select, %10 ], [ %8, %6 ], [ %spec.store.select1, %20 ], [ %18, %17 ], [ %24, %23 ], [ %26, %25 ], [ %29, %28 ], [ %31, %30 ]
+  %.032 = phi i32 [ %.1.ph, %report_type_length_mismatch.exit ], [ %spec.store.select, %10 ], [ %8, %6 ], [ %spec.store.select1, %20 ], [ %18, %17 ], [ %26, %25 ], [ %24, %23 ], [ %29, %28 ], [ %31, %30 ]
   ret i32 %.032
 }
 
@@ -5521,7 +5521,7 @@ define internal fastcc void @proto_tree_set_uint(ptr noundef captures(address_is
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %12, %12, %12, %17, %20, %21, %22, %23, %24, %25, %26
-  %.0.i.i = phi i32 [ %19, %17 ], [ 16, %20 ], [ 24, %21 ], [ 32, %22 ], [ 40, %23 ], [ 48, %24 ], [ 56, %25 ], [ 64, %26 ], [ 8, %12 ], [ 8, %12 ], [ 8, %12 ]
+  %.0.i.i = phi i32 [ %19, %17 ], [ 8, %12 ], [ 64, %26 ], [ 16, %20 ], [ 24, %21 ], [ 32, %22 ], [ 40, %23 ], [ 48, %24 ], [ 56, %25 ], [ 8, %12 ], [ 8, %12 ]
   %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = add i32 %.0.i.i, %29
@@ -5552,7 +5552,7 @@ hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i32 [ %11, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ], [ %11, %6 ]
+  %.0 = phi i32 [ %11, %hfinfo_mask_bitwidth.exit ], [ %11, %6 ], [ %1, %2 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   tail call void @fvalue_set_uinteger(ptr noundef %45, i32 noundef %.0)
@@ -5989,7 +5989,7 @@ thread-pre-split65:                               ; preds = %32, %41
   unreachable
 
 .thread67.sink.split:                             ; preds = %8, %27, %.thread62, %._crit_edge, %16
-  %.sink76 = phi i32 [ -1, %16 ], [ %.pre, %._crit_edge ], [ 0, %.thread62 ], [ %28, %27 ], [ 0, %8 ]
+  %.sink76 = phi i32 [ %28, %27 ], [ -1, %16 ], [ %.pre, %._crit_edge ], [ 0, %.thread62 ], [ 0, %8 ]
   store i32 %.sink76, ptr %4, align 4
   br label %.thread67
 
@@ -6132,7 +6132,7 @@ define internal fastcc i32 @get_full_length(ptr noundef nonnull readonly capture
   unreachable
 
 45:                                               ; preds = %31, %33, %.thread, %22, %28, %35, %16, %11, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
-  %.0 = phi i32 [ %13, %11 ], [ %4, %16 ], [ %38, %35 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %25, %28 ], [ %3, %22 ], [ %.pre, %33 ], [ %3, %31 ], [ %3, %.thread ]
+  %.0 = phi i32 [ %13, %11 ], [ %4, %6 ], [ %4, %16 ], [ %3, %22 ], [ %38, %35 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %4, %6 ], [ %25, %28 ], [ %.pre, %33 ], [ %3, %31 ], [ %3, %.thread ]
   ret i32 %.0
 }
 
@@ -6944,9 +6944,9 @@ get_stringztrunc_value.exit:                      ; preds = %303, %311
   unreachable
 
 proto_tree_set_eui64_tvb.exit:                    ; preds = %172, %148, %6, %22, %proto_tree_set_bytes_tvb.exit, %proto_tree_set_bytes_tvb.exit293, %get_uint64_value.exit, %72, %93, %95, %97, %106, %112, %proto_tree_set_ipv6_tvb.exit, %proto_tree_set_fcwwn_tvb.exit, %132, %137, %142, %199, %proto_tree_set_oid_tvb.exit, %proto_tree_set_system_id_tvb.exit, %231, %242, %get_string_value.exit, %get_stringz_value.exit, %275, %get_stringzpad_value.exit, %get_stringztrunc_value.exit, %316, %319, %325, %330, %329
-  %.0358 = phi i32 [ %4, %6 ], [ %4, %22 ], [ %4, %proto_tree_set_bytes_tvb.exit ], [ %4, %proto_tree_set_bytes_tvb.exit293 ], [ %4, %get_uint64_value.exit ], [ %4, %72 ], [ %4, %93 ], [ %4, %95 ], [ %4, %97 ], [ %4, %106 ], [ %4, %112 ], [ %4, %proto_tree_set_ipv6_tvb.exit ], [ %4, %proto_tree_set_fcwwn_tvb.exit ], [ %4, %132 ], [ %4, %137 ], [ %4, %142 ], [ %4, %199 ], [ %4, %proto_tree_set_oid_tvb.exit ], [ %4, %proto_tree_set_system_id_tvb.exit ], [ %4, %231 ], [ %4, %242 ], [ %.0.i, %get_string_value.exit ], [ %272, %get_stringz_value.exit ], [ %287, %275 ], [ %.0.i308, %get_stringzpad_value.exit ], [ %.0.i311, %get_stringztrunc_value.exit ], [ %4, %316 ], [ %4, %319 ], [ %4, %325 ], [ 4, %329 ], [ %4, %330 ], [ %4, %148 ], [ %4, %172 ]
-  %.0240 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %proto_tree_set_bytes_tvb.exit ], [ null, %proto_tree_set_bytes_tvb.exit293 ], [ null, %get_uint64_value.exit ], [ null, %72 ], [ null, %93 ], [ null, %95 ], [ null, %97 ], [ null, %106 ], [ null, %112 ], [ null, %proto_tree_set_ipv6_tvb.exit ], [ null, %proto_tree_set_fcwwn_tvb.exit ], [ null, %132 ], [ null, %137 ], [ null, %142 ], [ null, %199 ], [ null, %proto_tree_set_oid_tvb.exit ], [ null, %proto_tree_set_system_id_tvb.exit ], [ null, %231 ], [ null, %242 ], [ %253, %get_string_value.exit ], [ %.0.i303, %get_stringz_value.exit ], [ %286, %275 ], [ %300, %get_stringzpad_value.exit ], [ %313, %get_stringztrunc_value.exit ], [ null, %316 ], [ null, %319 ], [ null, %325 ], [ null, %329 ], [ null, %330 ], [ null, %148 ], [ null, %172 ]
-  %.2 = phi i32 [ %5, %6 ], [ %5, %22 ], [ %5, %proto_tree_set_bytes_tvb.exit ], [ %5, %proto_tree_set_bytes_tvb.exit293 ], [ %spec.store.select, %get_uint64_value.exit ], [ %.0, %72 ], [ %.1, %93 ], [ %spec.store.select3, %95 ], [ %spec.store.select4, %97 ], [ %spec.store.select5, %106 ], [ %5, %112 ], [ %5, %proto_tree_set_ipv6_tvb.exit ], [ %5, %proto_tree_set_fcwwn_tvb.exit ], [ %5, %132 ], [ %5, %137 ], [ %5, %142 ], [ %spec.store.select7, %199 ], [ %5, %proto_tree_set_oid_tvb.exit ], [ %5, %proto_tree_set_system_id_tvb.exit ], [ %spec.store.select8, %231 ], [ %spec.store.select9, %242 ], [ %5, %get_string_value.exit ], [ %5, %get_stringz_value.exit ], [ %spec.store.select10, %275 ], [ %5, %get_stringzpad_value.exit ], [ %5, %get_stringztrunc_value.exit ], [ %spec.store.select11, %316 ], [ %spec.store.select12, %319 ], [ %spec.store.select13, %325 ], [ %spec.store.select14, %329 ], [ %spec.store.select14, %330 ], [ -2147483648, %148 ], [ 0, %172 ]
+  %.0358 = phi i32 [ %4, %6 ], [ %4, %22 ], [ %4, %proto_tree_set_bytes_tvb.exit ], [ %4, %proto_tree_set_bytes_tvb.exit293 ], [ %4, %get_uint64_value.exit ], [ %4, %72 ], [ %4, %93 ], [ %4, %95 ], [ %4, %97 ], [ %4, %106 ], [ %4, %112 ], [ %4, %proto_tree_set_ipv6_tvb.exit ], [ %4, %proto_tree_set_fcwwn_tvb.exit ], [ %4, %132 ], [ %4, %137 ], [ %4, %142 ], [ %4, %330 ], [ %4, %199 ], [ %4, %proto_tree_set_oid_tvb.exit ], [ %4, %proto_tree_set_system_id_tvb.exit ], [ %4, %231 ], [ %4, %242 ], [ %.0.i, %get_string_value.exit ], [ %272, %get_stringz_value.exit ], [ %287, %275 ], [ %.0.i308, %get_stringzpad_value.exit ], [ %.0.i311, %get_stringztrunc_value.exit ], [ %4, %316 ], [ %4, %319 ], [ %4, %325 ], [ 4, %329 ], [ %4, %148 ], [ %4, %172 ]
+  %.0240 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %proto_tree_set_bytes_tvb.exit ], [ null, %proto_tree_set_bytes_tvb.exit293 ], [ null, %get_uint64_value.exit ], [ null, %72 ], [ null, %93 ], [ null, %95 ], [ null, %97 ], [ null, %106 ], [ null, %112 ], [ null, %proto_tree_set_ipv6_tvb.exit ], [ null, %proto_tree_set_fcwwn_tvb.exit ], [ null, %132 ], [ null, %137 ], [ null, %142 ], [ null, %330 ], [ null, %199 ], [ null, %proto_tree_set_oid_tvb.exit ], [ null, %proto_tree_set_system_id_tvb.exit ], [ null, %231 ], [ null, %242 ], [ %253, %get_string_value.exit ], [ %.0.i303, %get_stringz_value.exit ], [ %286, %275 ], [ %300, %get_stringzpad_value.exit ], [ %313, %get_stringztrunc_value.exit ], [ null, %316 ], [ null, %319 ], [ null, %325 ], [ null, %329 ], [ null, %148 ], [ null, %172 ]
+  %.2 = phi i32 [ %5, %6 ], [ %5, %22 ], [ %5, %proto_tree_set_bytes_tvb.exit ], [ %5, %proto_tree_set_bytes_tvb.exit293 ], [ %spec.store.select, %get_uint64_value.exit ], [ %.0, %72 ], [ %.1, %93 ], [ %spec.store.select3, %95 ], [ %spec.store.select4, %97 ], [ %spec.store.select5, %106 ], [ %5, %112 ], [ %5, %proto_tree_set_ipv6_tvb.exit ], [ %5, %proto_tree_set_fcwwn_tvb.exit ], [ %5, %132 ], [ %5, %137 ], [ %5, %142 ], [ %spec.store.select14, %330 ], [ %spec.store.select7, %199 ], [ %5, %proto_tree_set_oid_tvb.exit ], [ %5, %proto_tree_set_system_id_tvb.exit ], [ %spec.store.select8, %231 ], [ %spec.store.select9, %242 ], [ %5, %get_string_value.exit ], [ %5, %get_stringz_value.exit ], [ %spec.store.select10, %275 ], [ %5, %get_stringzpad_value.exit ], [ %5, %get_stringztrunc_value.exit ], [ %spec.store.select11, %316 ], [ %spec.store.select12, %319 ], [ %spec.store.select13, %325 ], [ %spec.store.select14, %329 ], [ -2147483648, %148 ], [ 0, %172 ]
   %.not287 = icmp eq ptr %0, null
   br i1 %.not287, label %.split, label %.split244
 
@@ -7985,7 +7985,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %136, %137, %proto_i
   br label %161
 
 161:                                              ; preds = %75, %36, %37, %155, %153
-  %.075 = phi ptr [ %160, %155 ], [ %154, %153 ], [ null, %37 ], [ null, %36 ], [ null, %75 ]
+  %.075 = phi ptr [ null, %36 ], [ %160, %155 ], [ %154, %153 ], [ null, %37 ], [ null, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.075
 }
@@ -8288,7 +8288,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is
   br label %139
 
 139:                                              ; preds = %59, %36, %37, %129, %127
-  %.0 = phi ptr [ %138, %129 ], [ %128, %127 ], [ null, %37 ], [ null, %36 ], [ null, %59 ]
+  %.0 = phi ptr [ null, %36 ], [ %138, %129 ], [ %128, %127 ], [ null, %37 ], [ null, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -8365,7 +8365,7 @@ define internal fastcc void @proto_tree_set_uint64(ptr noundef captures(address_
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %10, %10, %10, %15, %18, %19, %20, %21, %22, %23, %24
-  %.0.i.i = phi i32 [ %17, %15 ], [ 16, %18 ], [ 24, %19 ], [ 32, %20 ], [ 40, %21 ], [ 48, %22 ], [ 56, %23 ], [ 64, %24 ], [ 8, %10 ], [ 8, %10 ], [ 8, %10 ]
+  %.0.i.i = phi i32 [ %17, %15 ], [ 8, %10 ], [ 64, %24 ], [ 16, %18 ], [ 24, %19 ], [ 32, %20 ], [ 40, %21 ], [ 48, %22 ], [ 56, %23 ], [ 8, %10 ], [ 8, %10 ]
   %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %27 = trunc nuw nsw i64 %26 to i32
   %28 = add i32 %.0.i.i, %27
@@ -8396,7 +8396,7 @@ hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i64 [ %9, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ], [ %9, %6 ]
+  %.0 = phi i64 [ %9, %hfinfo_mask_bitwidth.exit ], [ %9, %6 ], [ %1, %2 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
   tail call void @fvalue_set_uinteger64(ptr noundef %43, i64 noundef %.0)
@@ -8656,7 +8656,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %102, %proto_item_is
   br label %130
 
 130:                                              ; preds = %50, %36, %37, %120, %118
-  %.0 = phi ptr [ %129, %120 ], [ %119, %118 ], [ null, %37 ], [ null, %36 ], [ null, %50 ]
+  %.0 = phi ptr [ null, %36 ], [ %129, %120 ], [ %119, %118 ], [ null, %37 ], [ null, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -8836,7 +8836,7 @@ ws_sign_ext64.exit:                               ; preds = %6, %12
   unreachable
 
 hfinfo_bitoffset.exit:                            ; preds = %19, %19, %19, %24, %27, %28, %29, %30, %31, %32, %33
-  %.0.i.i = phi i32 [ %26, %24 ], [ 16, %27 ], [ 24, %28 ], [ 32, %29 ], [ 40, %30 ], [ 48, %31 ], [ 56, %32 ], [ 64, %33 ], [ 8, %19 ], [ 8, %19 ], [ 8, %19 ]
+  %.0.i.i = phi i32 [ %26, %24 ], [ 8, %19 ], [ 64, %33 ], [ 16, %27 ], [ 24, %28 ], [ 32, %29 ], [ 40, %30 ], [ 48, %31 ], [ 56, %32 ], [ 8, %19 ], [ 8, %19 ]
   %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = add i32 %.0.i.i, %36
@@ -8867,7 +8867,7 @@ hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %ws_sign_ext64.exit, %hfinfo_mask_bitwidth.exit, %2
-  %.0 = phi i64 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %1, %2 ], [ %.0.i, %ws_sign_ext64.exit ]
+  %.0 = phi i64 [ %.0.i, %hfinfo_mask_bitwidth.exit ], [ %.0.i, %ws_sign_ext64.exit ], [ %1, %2 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8
   tail call void @fvalue_set_sinteger64(ptr noundef %52, i64 noundef %.0)
@@ -9399,7 +9399,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %101, %proto_item_is
   br label %126
 
 126:                                              ; preds = %49, %34, %35, %119, %117
-  %.066 = phi ptr [ %125, %119 ], [ %118, %117 ], [ null, %35 ], [ null, %34 ], [ null, %49 ]
+  %.066 = phi ptr [ null, %34 ], [ %125, %119 ], [ %118, %117 ], [ null, %35 ], [ null, %49 ]
   ret ptr %.066
 }
 
@@ -10950,7 +10950,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %120, %proto_item_is
   unreachable
 
 detect_trailing_stray_characters.exit:            ; preds = %158, %161, %153, %151, %150, %138, %138, %138, %138, %68, %136
-  %.087 = phi ptr [ %137, %136 ], [ null, %68 ], [ %147, %138 ], [ %147, %138 ], [ %147, %138 ], [ %147, %138 ], [ %147, %150 ], [ %147, %151 ], [ %147, %153 ], [ %147, %161 ], [ %147, %158 ]
+  %.087 = phi ptr [ null, %68 ], [ %137, %136 ], [ %147, %138 ], [ %147, %138 ], [ %147, %138 ], [ %147, %138 ], [ %147, %150 ], [ %147, %151 ], [ %147, %153 ], [ %147, %161 ], [ %147, %158 ]
   ret ptr %.087
 }
 
@@ -11440,7 +11440,7 @@ proto_tree_set_bytes.exit191:                     ; preds = %186
   unreachable
 
 detect_trailing_stray_characters.exit:            ; preds = %209, %212, %204, %202, %201, %194, %194, %194, %194, %194, %194, %95, %163
-  %.0151 = phi ptr [ %164, %163 ], [ null, %95 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %201 ], [ %199, %202 ], [ %199, %204 ], [ %199, %212 ], [ %199, %209 ]
+  %.0151 = phi ptr [ null, %95 ], [ %164, %163 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %194 ], [ %199, %201 ], [ %199, %202 ], [ %199, %204 ], [ %199, %212 ], [ %199, %209 ]
   ret ptr %.0151
 }
 
@@ -13856,7 +13856,7 @@ proto_tree_set_bytes_tvb.exit:                    ; preds = %182
   br label %199
 
 199:                                              ; preds = %79, %80, %32, %197, %158
-  %.0129 = phi ptr [ %198, %197 ], [ %159, %158 ], [ null, %32 ], [ null, %80 ], [ null, %79 ]
+  %.0129 = phi ptr [ null, %32 ], [ %198, %197 ], [ %159, %158 ], [ null, %80 ], [ null, %79 ]
   ret ptr %.0129
 }
 
@@ -13983,8 +13983,8 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
   br label %53
 
 53:                                               ; preds = %42, %49, %51
-  %.not115 = phi i1 [ %.not104, %42 ], [ true, %51 ], [ true, %49 ]
-  %.087 = phi i32 [ %spec.select120, %42 ], [ 0, %51 ], [ 0, %49 ]
+  %.not115 = phi i1 [ true, %49 ], [ %.not104, %42 ], [ true, %51 ]
+  %.087 = phi i32 [ 0, %49 ], [ %spec.select120, %42 ], [ 0, %51 ]
   %.not105 = icmp eq ptr %8, null
   br i1 %.not105, label %55, label %54
 
@@ -14169,7 +14169,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %113, %proto_item_is
   br label %147
 
 147:                                              ; preds = %61, %31, %32, %145, %129
-  %.0 = phi ptr [ %146, %145 ], [ %130, %129 ], [ null, %32 ], [ null, %31 ], [ null, %61 ]
+  %.0 = phi ptr [ null, %31 ], [ %146, %145 ], [ %130, %129 ], [ null, %32 ], [ null, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -14364,7 +14364,7 @@ proto_item_is_hidden.exit53:                      ; preds = %96
   br label %proto_item_is_hidden.exit53.thread
 
 proto_item_is_hidden.exit53.thread:               ; preds = %96, %proto_item_is_hidden.exit53, %84, %6, %100, %75
-  %.0 = phi ptr [ %87, %100 ], [ %76, %75 ], [ null, %6 ], [ %87, %84 ], [ %87, %proto_item_is_hidden.exit53 ], [ null, %96 ]
+  %.0 = phi ptr [ %87, %100 ], [ %87, %84 ], [ null, %6 ], [ %76, %75 ], [ %87, %proto_item_is_hidden.exit53 ], [ null, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -14591,7 +14591,7 @@ proto_item_is_hidden.exit65:                      ; preds = %108
   br label %proto_item_is_hidden.exit65.thread
 
 proto_item_is_hidden.exit65.thread:               ; preds = %108, %proto_item_is_hidden.exit65, %94, %6, %112, %76
-  %.0 = phi ptr [ %phi.call, %112 ], [ %77, %76 ], [ null, %6 ], [ %phi.call, %94 ], [ %phi.call, %proto_item_is_hidden.exit65 ], [ null, %108 ]
+  %.0 = phi ptr [ %phi.call, %112 ], [ %phi.call, %94 ], [ null, %6 ], [ %77, %76 ], [ %phi.call, %proto_item_is_hidden.exit65 ], [ null, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -15269,8 +15269,8 @@ hfinfo_container_bitwidth.exit.thread67:          ; preds = %43, %hfinfo_contain
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 5606, ptr noundef nonnull @.str.376) #37
   unreachable
 
-hfinfo_container_bitwidth.exit.thread:            ; preds = %48, %48, %48, %56, %55, %54, %53, %52, %51, %50, %hfinfo_container_bitwidth.exit
-  %.0.i6266 = phi i32 [ %59, %hfinfo_container_bitwidth.exit ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 64, %56 ], [ 56, %55 ], [ 48, %54 ], [ 40, %53 ], [ 32, %52 ], [ 24, %51 ], [ 16, %50 ]
+hfinfo_container_bitwidth.exit.thread:            ; preds = %48, %48, %48, %55, %54, %53, %52, %51, %50, %56, %hfinfo_container_bitwidth.exit
+  %.0.i6266 = phi i32 [ %59, %hfinfo_container_bitwidth.exit ], [ 8, %48 ], [ 8, %48 ], [ 8, %48 ], [ 56, %55 ], [ 48, %54 ], [ 40, %53 ], [ 32, %52 ], [ 24, %51 ], [ 16, %50 ], [ 64, %56 ]
   %61 = add nsw i32 %.0.i6266, -1
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 1, %62
@@ -15325,7 +15325,7 @@ decode_bitfield_value.exit:                       ; preds = %72, %hfinfo_contain
   br label %81
 
 81:                                               ; preds = %31, %decode_bitfield_value.exit, %.thread
-  %.0 = phi i64 [ %80, %decode_bitfield_value.exit ], [ 0, %.thread ], [ 0, %31 ]
+  %.0 = phi i64 [ %80, %decode_bitfield_value.exit ], [ 0, %31 ], [ 0, %.thread ]
   %82 = load ptr, ptr %25, align 8
   %83 = load ptr, ptr %19, align 8
   %84 = tail call i64 @ws_label_strcpy(ptr noundef %82, i64 noundef 240, i64 noundef %.0, ptr noundef %83, i32 noundef 0)
@@ -19628,7 +19628,7 @@ proto_item_set_hidden.exit169:                    ; preds = %175, %172, %169, %p
   br label %proto_item_set_hidden.exit172
 
 proto_item_set_hidden.exit172:                    ; preds = %187, %184, %181, %proto_item_set_hidden.exit169, %105, %6
-  %.099 = phi ptr [ null, %6 ], [ %35, %105 ], [ %35, %proto_item_set_hidden.exit169 ], [ %35, %181 ], [ %35, %184 ], [ %35, %187 ]
+  %.099 = phi ptr [ %35, %105 ], [ null, %6 ], [ %35, %proto_item_set_hidden.exit169 ], [ %35, %181 ], [ %35, %184 ], [ %35, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.099
 }
@@ -20608,7 +20608,7 @@ protoo_strlcpy.exit373:                           ; preds = %454, %456
   br label %protoo_strlcpy.exit
 
 protoo_strlcpy.exit:                              ; preds = %346, %344, %protoo_strlcpy.exit341, %326, %324, %protoo_strlcpy.exit337, %286, %281, %276, %274, %178, %174, %169, %167, %109, %106, %101, %99, %68, %59, %15, %13, %protoo_strlcpy.exit254, %protoo_strlcpy.exit258, %protoo_strlcpy.exit262, %protoo_strlcpy.exit332, %protoo_strlcpy.exit348, %protoo_strlcpy.exit352, %protoo_strlcpy.exit356, %protoo_strlcpy.exit360, %protoo_strlcpy.exit364, %protoo_strlcpy.exit368, %428, %protoo_strlcpy.exit373, %protoo_strlcpy.exit270, %protoo_strlcpy.exit290, %protoo_strlcpy.exit282, %protoo_strlcpy.exit313, %protoo_strlcpy.exit302, %440, %431
-  %.0 = phi i32 [ %.08.i372, %protoo_strlcpy.exit373 ], [ %.08.i253, %protoo_strlcpy.exit254 ], [ %.08.i257, %protoo_strlcpy.exit258 ], [ %.08.i261, %protoo_strlcpy.exit262 ], [ %.08.i269, %protoo_strlcpy.exit270 ], [ %.08.i281, %protoo_strlcpy.exit282 ], [ %161, %protoo_strlcpy.exit290 ], [ %.08.i301, %protoo_strlcpy.exit302 ], [ %255, %protoo_strlcpy.exit313 ], [ %.08.i331, %protoo_strlcpy.exit332 ], [ %.08.i347, %protoo_strlcpy.exit348 ], [ %.08.i351, %protoo_strlcpy.exit352 ], [ %.08.i355, %protoo_strlcpy.exit356 ], [ %.08.i359, %protoo_strlcpy.exit360 ], [ %.08.i363, %protoo_strlcpy.exit364 ], [ %.08.i367, %protoo_strlcpy.exit368 ], [ %430, %428 ], [ %441, %440 ], [ %439, %431 ], [ %19, %15 ], [ 0, %13 ], [ %72, %68 ], [ 0, %59 ], [ %105, %101 ], [ 0, %99 ], [ %113, %109 ], [ 0, %106 ], [ %173, %169 ], [ 0, %167 ], [ %182, %178 ], [ 0, %174 ], [ %280, %276 ], [ 0, %274 ], [ %290, %286 ], [ 0, %281 ], [ %.08.i336, %protoo_strlcpy.exit337 ], [ %.08.i336, %324 ], [ %.08.i336, %326 ], [ %.08.i340, %protoo_strlcpy.exit341 ], [ %.08.i340, %344 ], [ %.08.i340, %346 ]
+  %.0 = phi i32 [ %439, %431 ], [ %.08.i372, %protoo_strlcpy.exit373 ], [ %.08.i253, %protoo_strlcpy.exit254 ], [ %.08.i257, %protoo_strlcpy.exit258 ], [ %.08.i261, %protoo_strlcpy.exit262 ], [ 0, %13 ], [ %.08.i269, %protoo_strlcpy.exit270 ], [ 0, %59 ], [ 0, %99 ], [ %.08.i281, %protoo_strlcpy.exit282 ], [ %161, %protoo_strlcpy.exit290 ], [ 0, %106 ], [ 0, %167 ], [ %.08.i301, %protoo_strlcpy.exit302 ], [ %255, %protoo_strlcpy.exit313 ], [ 0, %174 ], [ 0, %274 ], [ %.08.i331, %protoo_strlcpy.exit332 ], [ 0, %281 ], [ %.08.i336, %326 ], [ %.08.i347, %protoo_strlcpy.exit348 ], [ %.08.i351, %protoo_strlcpy.exit352 ], [ %.08.i355, %protoo_strlcpy.exit356 ], [ %.08.i359, %protoo_strlcpy.exit360 ], [ %.08.i363, %protoo_strlcpy.exit364 ], [ %.08.i367, %protoo_strlcpy.exit368 ], [ %430, %428 ], [ %441, %440 ], [ %19, %15 ], [ %72, %68 ], [ %105, %101 ], [ %113, %109 ], [ %173, %169 ], [ %182, %178 ], [ %280, %276 ], [ %290, %286 ], [ %.08.i336, %protoo_strlcpy.exit337 ], [ %.08.i336, %324 ], [ %.08.i340, %protoo_strlcpy.exit341 ], [ %.08.i340, %344 ], [ %.08.i340, %346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -21191,7 +21191,7 @@ display_to_port_type.exit:                        ; preds = %83, %switch.lookup9
   unreachable
 
 101:                                              ; preds = %95, %97, %34, %36, %10, %12, %display_to_port_type.exit, %hfinfo_hex_digits.exit75, %hfinfo_hex_digits.exit70, %38
-  %.0 = phi ptr [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit70 ], [ %82, %hfinfo_hex_digits.exit75 ], [ %2, %display_to_port_type.exit ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ], [ %2, %97 ], [ %2, %95 ]
+  %.0 = phi ptr [ %37, %36 ], [ %13, %12 ], [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit70 ], [ %82, %hfinfo_hex_digits.exit75 ], [ %2, %display_to_port_type.exit ], [ %11, %10 ], [ %35, %34 ], [ %2, %97 ], [ %2, %95 ]
   ret ptr %.0
 }
 
@@ -21385,7 +21385,7 @@ hfinfo_hex_digits.exit56:                         ; preds = %switch.lookup69, %h
   unreachable
 
 85:                                               ; preds = %34, %36, %10, %12, %hfinfo_hex_digits.exit56, %hfinfo_hex_digits.exit51, %38
-  %.0 = phi ptr [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit51 ], [ %82, %hfinfo_hex_digits.exit56 ], [ %11, %10 ], [ %13, %12 ], [ %35, %34 ], [ %37, %36 ]
+  %.0 = phi ptr [ %82, %hfinfo_hex_digits.exit56 ], [ %13, %12 ], [ %39, %38 ], [ %56, %hfinfo_hex_digits.exit51 ], [ %11, %10 ], [ %35, %34 ], [ %37, %36 ]
   ret ptr %.0
 }
 
@@ -21539,7 +21539,7 @@ protoo_strlcpy.exit:                              ; preds = %hf_try_double_val_t
   br label %64
 
 64:                                               ; preds = %37, %62, %60, %16
-  %.0 = phi i64 [ %17, %16 ], [ %61, %60 ], [ %63, %62 ], [ 0, %37 ]
+  %.0 = phi i64 [ %17, %16 ], [ %63, %62 ], [ %61, %60 ], [ 0, %37 ]
   ret i64 %.0
 }
 
@@ -22113,7 +22113,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
   br i1 %.old1.i, label %.loopexit381, label %.thread.i
 
 .loopexit381:                                     ; preds = %200, %183, %220, %.split587.us
-  %.2255.val445 = phi i32 [ 0, %.split587.us ], [ %.2255.val, %220 ], [ %.2255.val.us, %183 ], [ %.2255.val.us661, %200 ]
+  %.2255.val445 = phi i32 [ 0, %.split587.us ], [ %.2255.val.us, %183 ], [ %.2255.val, %220 ], [ %.2255.val.us661, %200 ]
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 7004, ptr noundef nonnull @__func__.hfinfo_same_name_get_prev, ptr noundef nonnull @.str.2, i32 noundef %.2255.val445) #37
   unreachable
 
@@ -24661,7 +24661,7 @@ define noundef ptr @proto_item_get_subtree(ptr noundef readonly captures(address
   br label %10
 
 10:                                               ; preds = %5, %1, %9
-  %.0 = phi ptr [ %0, %9 ], [ null, %1 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %1 ], [ %0, %9 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -25806,7 +25806,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not49, label %.sink.split, label %46
 
 .sink.split:                                      ; preds = %42, %44, %39, %36, %33, %30, %27, %.tail, %.tail.thread
-  %.sink = phi ptr [ %1, %.tail.thread ], [ %1, %.tail ], [ %2, %27 ], [ %3, %30 ], [ %4, %33 ], [ %5, %36 ], [ %6, %39 ], [ %7, %44 ], [ %7, %42 ]
+  %.sink = phi ptr [ %1, %.tail ], [ %3, %30 ], [ %5, %36 ], [ %6, %39 ], [ %4, %33 ], [ %2, %27 ], [ %1, %.tail.thread ], [ %7, %44 ], [ %7, %42 ]
   store i8 1, ptr %.sink, align 1
   br label %46
 
@@ -26581,7 +26581,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !57
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph91, %.lr.ph94, %.lr.ph102, %5, %._crit_edge, %._crit_edge99, %.preheader, %.preheader78, %.preheader80, %.preheader82, %6, %9, %15, %48, %38, %71
-  %.05177 = phi ptr [ null, %71 ], [ null, %38 ], [ %2, %48 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader80 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ null, %._crit_edge99 ], [ null, %._crit_edge ], [ %2, %5 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph ]
+  %.05177 = phi ptr [ %2, %5 ], [ %2, %48 ], [ null, %38 ], [ null, %71 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ %2, %.preheader80 ], [ null, %._crit_edge ], [ null, %._crit_edge99 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph ]
   tail call void @g_free(ptr noundef %.05177)
   br label %79
 
@@ -26793,8 +26793,8 @@ define internal fastcc void @fill_label_boolean(ptr readonly captures(none) %.0.
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.271, ptr noundef nonnull @.str.1, i32 noundef 10848) #37
   unreachable
 
-hfinfo_container_bitwidth.exit.thread:            ; preds = %9, %10, %11, %12, %13, %14, %15, %6, %6, %6
-  %.0.i.ph = phi i32 [ 8, %6 ], [ 8, %6 ], [ 8, %6 ], [ 64, %15 ], [ 56, %14 ], [ 48, %13 ], [ 40, %12 ], [ 32, %11 ], [ 24, %10 ], [ 16, %9 ]
+hfinfo_container_bitwidth.exit.thread:            ; preds = %6, %6, %6, %15, %9, %10, %11, %12, %13, %14
+  %.0.i.ph = phi i32 [ 8, %6 ], [ 8, %6 ], [ 56, %14 ], [ 48, %13 ], [ 40, %12 ], [ 32, %11 ], [ 24, %10 ], [ 16, %9 ], [ 64, %15 ], [ 8, %6 ]
   %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   br label %23
 
@@ -27026,7 +27026,7 @@ define internal fastcc void @fill_label_bitfield_char(ptr noundef nonnull readon
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %3, %9, %9, %9, %12, %15, %16, %17, %18, %19, %20, %21
-  %.0.i = phi i32 [ %14, %12 ], [ 0, %3 ], [ 16, %15 ], [ 24, %16 ], [ 32, %17 ], [ 40, %18 ], [ 48, %19 ], [ 56, %20 ], [ 64, %21 ], [ 8, %9 ], [ 8, %9 ], [ 8, %9 ]
+  %.0.i = phi i32 [ %14, %12 ], [ 0, %3 ], [ 64, %21 ], [ 16, %15 ], [ 24, %16 ], [ 32, %17 ], [ 40, %18 ], [ 48, %19 ], [ 56, %20 ], [ 8, %9 ], [ 8, %9 ], [ 8, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @fvalue_get_uinteger(ptr noundef %24)
@@ -27292,7 +27292,7 @@ define internal fastcc void @fill_label_bitfield(ptr noundef nonnull readonly ca
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, %26, %25, %24, %21, %18, %18, %18, %15, %11
-  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 64, %30 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
+  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 64, %30 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   br i1 %3, label %34, label %36
@@ -27758,7 +27758,7 @@ define internal fastcc void @fill_label_bitfield64(ptr noundef nonnull readonly 
   unreachable
 
 hfinfo_container_bitwidth.exit:                   ; preds = %30, %29, %28, %27, %26, %25, %24, %21, %18, %18, %18, %15, %11
-  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 64, %30 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
+  %.068 = phi i32 [ %14, %11 ], [ %23, %21 ], [ 0, %15 ], [ 64, %30 ], [ 16, %24 ], [ 24, %25 ], [ 32, %26 ], [ 40, %27 ], [ 48, %28 ], [ 56, %29 ], [ 8, %18 ], [ 8, %18 ], [ 8, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   br i1 %3, label %34, label %36
@@ -29220,7 +29220,7 @@ proto_is_protocol_enabled.exit:                   ; preds = %.lr.ph.i.us, %.lr.p
   br label %proto_is_protocol_enabled.exit.thread
 
 proto_is_protocol_enabled.exit.thread:            ; preds = %find_protocol_by_id.exit21.us, %tailrecurse.i8.us, %find_protocol_by_id.exit21, %tailrecurse.i8, %proto_is_protocol_enabled.exit, %proto_is_protocol_enabled_by_default.exit
-  %91 = phi i32 [ 70, %proto_is_protocol_enabled_by_default.exit ], [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %tailrecurse.i8 ], [ 70, %find_protocol_by_id.exit21 ], [ 70, %tailrecurse.i8.us ], [ 70, %find_protocol_by_id.exit21.us ]
+  %91 = phi i32 [ %spec.select, %proto_is_protocol_enabled.exit ], [ 70, %proto_is_protocol_enabled_by_default.exit ], [ 70, %find_protocol_by_id.exit21 ], [ 70, %tailrecurse.i8 ], [ 70, %tailrecurse.i8.us ], [ 70, %find_protocol_by_id.exit21.us ]
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %93 = load i32, ptr %92, align 8
   %94 = trunc nuw i8 %.fr58 to i1
@@ -29481,7 +29481,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   br label %.thread240
 
 .thread188.thread:                                ; preds = %47, %.thread198
-  %.0145195281 = phi ptr [ %52, %.thread198 ], [ %31, %47 ]
+  %.0145195281 = phi ptr [ %31, %47 ], [ %52, %.thread198 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0145195281, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not169259 = icmp eq ptr %67, null
@@ -30240,7 +30240,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
   br label %70
 
 70:                                               ; preds = %55, %60, %66, %63
-  %.058 = phi ptr [ %65, %63 ], [ %1, %66 ], [ @.str.164, %60 ], [ @.str.77, %55 ]
+  %.058 = phi ptr [ @.str.77, %55 ], [ %65, %63 ], [ %1, %66 ], [ @.str.164, %60 ]
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
@@ -30601,7 +30601,7 @@ define internal fastcc noundef zeroext i1 @construct_match_selected_string(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %37, %36, %47, %46, %65, %94, %93, %60, %55, %52, %3
-  %.0 = phi i1 [ true, %30 ], [ false, %3 ], [ false, %52 ], [ false, %55 ], [ false, %60 ], [ true, %93 ], [ true, %94 ], [ true, %65 ], [ true, %46 ], [ true, %47 ], [ true, %36 ], [ true, %37 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ false, %60 ], [ false, %3 ], [ false, %52 ], [ true, %37 ], [ false, %55 ], [ true, %30 ], [ true, %93 ], [ true, %94 ], [ true, %65 ], [ true, %46 ], [ true, %47 ], [ true, %36 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -31750,7 +31750,7 @@ hf_try_val64_to_str.exit387.thread:               ; preds = %hf_try_val64_to_str
   unreachable
 
 393:                                              ; preds = %115, %126, %122, %107, %148, %180, %155, %139, %208, %235, %214, %200, %252, %296, %257, %244, %323, %367, %328, %315, %384, %385, %377, %378, %372, %92, %73
-  %.1270 = phi i8 [ %.0269471, %73 ], [ %.0269471, %92 ], [ 0, %107 ], [ 0, %115 ], [ %.0269471, %122 ], [ 0, %126 ], [ 0, %139 ], [ %.0269471, %155 ], [ 0, %180 ], [ 0, %148 ], [ 0, %200 ], [ %.0269471, %214 ], [ 0, %235 ], [ 0, %208 ], [ 0, %244 ], [ %.0269471, %257 ], [ 0, %296 ], [ 0, %252 ], [ 0, %315 ], [ %.0269471, %328 ], [ 0, %367 ], [ 0, %323 ], [ 0, %385 ], [ %.0269471, %384 ], [ 0, %372 ], [ %.0269471, %377 ], [ 0, %378 ]
+  %.1270 = phi i8 [ %.0269471, %92 ], [ %.0269471, %73 ], [ 0, %107 ], [ 0, %115 ], [ %.0269471, %122 ], [ 0, %126 ], [ 0, %139 ], [ %.0269471, %155 ], [ 0, %180 ], [ 0, %148 ], [ 0, %200 ], [ %.0269471, %214 ], [ 0, %235 ], [ 0, %208 ], [ 0, %244 ], [ %.0269471, %257 ], [ 0, %296 ], [ 0, %252 ], [ 0, %315 ], [ %.0269471, %328 ], [ 0, %367 ], [ 0, %323 ], [ 0, %385 ], [ %.0269471, %384 ], [ 0, %372 ], [ %.0269471, %377 ], [ 0, %378 ]
   %.1 = getelementptr i8, ptr %.0472, i64 8
   %394 = load ptr, ptr %.1, align 8
   %.not307 = icmp eq ptr %394, null
@@ -35210,7 +35210,7 @@ proto_item_set_generated.exit:                    ; preds = %38, %40, %43
   br label %.critedge
 
 105:                                              ; preds = %84, %86, %92
-  %.094 = phi i32 [ %91, %86 ], [ %7, %84 ], [ %7, %92 ]
+  %.094 = phi i32 [ %7, %92 ], [ %91, %86 ], [ %7, %84 ]
   %.not113 = icmp eq i32 %4, -1
   br i1 %.not113, label %proto_item_set_generated.exit135, label %106
 
@@ -35282,7 +35282,7 @@ proto_item_set_generated.exit135:                 ; preds = %111, %108, %106, %1
   br label %.critedge
 
 .critedge:                                        ; preds = %131, %128, %126, %101, %98, %96, %80, %77, %75, %63, %60, %58, %52, %49, %47, %125, %120, %122, %116, %117, %95, %74, %proto_item_set_generated.exit
-  %.093 = phi ptr [ %39, %proto_item_set_generated.exit ], [ %68, %117 ], [ %68, %116 ], [ %68, %122 ], [ %68, %120 ], [ %68, %125 ], [ %68, %95 ], [ %68, %74 ], [ %39, %47 ], [ %39, %49 ], [ %39, %52 ], [ null, %58 ], [ %59, %60 ], [ %59, %63 ], [ %68, %75 ], [ %68, %77 ], [ %68, %80 ], [ %68, %96 ], [ %68, %98 ], [ %68, %101 ], [ %68, %126 ], [ %68, %128 ], [ %68, %131 ]
+  %.093 = phi ptr [ %39, %proto_item_set_generated.exit ], [ %68, %74 ], [ %39, %52 ], [ %68, %117 ], [ %68, %116 ], [ %68, %122 ], [ %68, %120 ], [ %68, %125 ], [ %68, %101 ], [ %68, %95 ], [ %68, %80 ], [ %59, %63 ], [ %39, %47 ], [ %39, %49 ], [ null, %58 ], [ %59, %60 ], [ %68, %75 ], [ %68, %77 ], [ %68, %96 ], [ %68, %98 ], [ %68, %126 ], [ %68, %128 ], [ %68, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.093
 }
@@ -35490,7 +35490,7 @@ proto_item_set_generated.exit:                    ; preds = %36, %39, %42
   store i32 %100, ptr %98, align 4
   br label %proto_item_set_generated.exit141
 
-.critedge:                                        ; preds = %89, %77
+.critedge:                                        ; preds = %77, %89
   %.not129 = icmp eq i32 %4, -1
   br i1 %.not129, label %proto_item_set_generated.exit153, label %101
 
@@ -35585,7 +35585,7 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   br label %proto_item_set_generated.exit141
 
 proto_item_set_generated.exit141:                 ; preds = %140, %137, %135, %97, %94, %92, %85, %82, %80, %63, %60, %57, %51, %48, %46, %134, %111, %112, %91, %79, %131, %._crit_edge, %proto_item_set_generated.exit
-  %.0111 = phi ptr [ %38, %proto_item_set_generated.exit ], [ %73, %112 ], [ %73, %111 ], [ %73, %134 ], [ %73, %91 ], [ %73, %79 ], [ %73, %131 ], [ %73, %._crit_edge ], [ %38, %46 ], [ %38, %48 ], [ %38, %51 ], [ null, %57 ], [ %59, %60 ], [ %59, %63 ], [ %73, %80 ], [ %73, %82 ], [ %73, %85 ], [ %73, %92 ], [ %73, %94 ], [ %73, %97 ], [ %73, %135 ], [ %73, %137 ], [ %73, %140 ]
+  %.0111 = phi ptr [ %38, %proto_item_set_generated.exit ], [ %73, %._crit_edge ], [ %38, %51 ], [ %73, %112 ], [ %73, %111 ], [ %59, %63 ], [ %73, %134 ], [ %73, %97 ], [ %73, %91 ], [ %73, %85 ], [ %73, %79 ], [ %73, %131 ], [ %38, %46 ], [ %38, %48 ], [ null, %57 ], [ %59, %60 ], [ %73, %80 ], [ %73, %82 ], [ %73, %92 ], [ %73, %94 ], [ %73, %135 ], [ %73, %137 ], [ %73, %140 ]
   ret ptr %.0111
 }
 

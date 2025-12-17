@@ -133,7 +133,7 @@ define void @Abc_SclReportDupFanins(ptr noundef readonly captures(none) %0) loca
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader, %11, %.lr.ph47
-  %43 = phi ptr [ %.pre, %.critedge2.loopexit ], [ %6, %.preheader ], [ %6, %11 ], [ %6, %.lr.ph47 ]
+  %43 = phi ptr [ %6, %.lr.ph47 ], [ %.pre, %.critedge2.loopexit ], [ %6, %.preheader ], [ %6, %11 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %44 = getelementptr i8, ptr %43, i64 4
   %.val = load i32, ptr %44, align 4, !tbaa !24
@@ -232,7 +232,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %2, %Vec_IntAlloc.exit.i, %9
-  %12 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %8, %9 ], [ null, %2 ]
+  %12 = phi ptr [ %8, %9 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %2 ]
   %13 = icmp sgt i32 %.val81.val, 0
   br i1 %13, label %.lr.ph, label %.critedge2
 
@@ -473,7 +473,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.exit.i, %8
-  %11 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %7, %8 ], [ null, %1 ]
+  %11 = phi ptr [ %7, %8 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %1 ]
   %12 = icmp sgt i32 %.val38.val, 0
   br i1 %12, label %.lr.ph50, label %.critedge
 
@@ -601,7 +601,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.exit.i, %9
-  %12 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %8, %9 ], [ null, %2 ]
+  %12 = phi ptr [ %8, %9 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %2 ]
   %13 = icmp sgt i32 %.val79.val, 0
   br i1 %13, label %.lr.ph105, label %.critedge
 
@@ -1586,7 +1586,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %Abc_NodeSetTravIdCu
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %211, %.thread, %218, %.critedge2
-  %.193 = phi i32 [ 1, %218 ], [ %.0.lcssa, %.critedge2 ], [ 0, %.thread ], [ 0, %211 ]
+  %.193 = phi i32 [ %.0.lcssa, %.critedge2 ], [ 1, %218 ], [ 0, %.thread ], [ 0, %211 ]
   ret i32 %.193
 }
 
@@ -1838,7 +1838,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareLevels(ptr noundef readonly captures
   br label %18
 
 18:                                               ; preds = %17, %11, %10, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %10 ], [ -1, %11 ], [ %., %17 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %2 ], [ 1, %10 ], [ %., %17 ]
   ret i32 %.0
 }
 
@@ -2004,7 +2004,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   %or.cond123 = or i1 %59, %60
   br i1 %or.cond123, label %.thread, label %67
 
-.thread:                                          ; preds = %._crit_edge, %28, %42
+.thread:                                          ; preds = %._crit_edge, %42, %28
   %61 = sub nsw i32 %.val75, %1
   %62 = icmp sgt i32 %1, %61
   br i1 %62, label %63, label %67
@@ -2564,8 +2564,8 @@ Vec_IntAlloc.exit:                                ; preds = %11, %17
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %44, %46, %36, %38
-  %.sink122 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
-  %.sink = phi i32 [ 16, %36 ], [ 16, %38 ], [ %41, %44 ], [ %41, %46 ]
+  %.sink122 = phi ptr [ %39, %38 ], [ %37, %36 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink = phi i32 [ 16, %38 ], [ 16, %36 ], [ %41, %44 ], [ %41, %46 ]
   store ptr %.sink122, ptr %22, align 8, !tbaa !45
   store i32 %.sink, ptr %14, align 8, !tbaa !51
   br label %Vec_IntPush.exit
@@ -3411,8 +3411,8 @@ Vec_QuePrio.exit30.i.i:                           ; preds = %.lr.ph43.i.i
   br i1 %75, label %Vec_QuePrio.exit30.i.i, label %Vec_QueMoveUp.exit.thread.i, !llvm.loop !106
 
 Vec_QueMoveUp.exit.thread.i:                      ; preds = %.lr.ph43.i.i, %Vec_QuePrio.exit30.i.i, %.lr.ph48.i.i, %Vec_QuePrio.exit30.us.i.i
-  %.ph12.i = phi ptr [ %37, %Vec_QuePrio.exit30.us.i.i ], [ %37, %.lr.ph48.i.i ], [ %55, %Vec_QuePrio.exit30.i.i ], [ %55, %.lr.ph43.i.i ]
-  %.027.lcssa.i.ph.i = phi i32 [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ]
+  %.ph12.i = phi ptr [ %37, %.lr.ph48.i.i ], [ %37, %Vec_QuePrio.exit30.us.i.i ], [ %55, %Vec_QuePrio.exit30.i.i ], [ %55, %.lr.ph43.i.i ]
+  %.027.lcssa.i.ph.i = phi i32 [ %.02634.us46.i.i, %.lr.ph48.i.i ], [ %.02634.us46.i.i, %Vec_QuePrio.exit30.us.i.i ], [ %.0263441.i.i, %Vec_QuePrio.exit30.i.i ], [ %.0263441.i.i, %.lr.ph43.i.i ]
   %76 = zext nneg i32 %.027.lcssa.i.ph.i to i64
   %77 = getelementptr inbounds nuw i32, ptr %.ph12.i, i64 %76
   store i32 %.val17, ptr %77, align 4, !tbaa !33
@@ -3472,8 +3472,8 @@ Vec_QuePrio.exit44.us.i.i:                        ; preds = %.lr.ph.split.us.i11
   br label %Vec_QuePrio.exit46.us.i.i
 
 Vec_QuePrio.exit46.us.i.i:                        ; preds = %101, %Vec_QuePrio.exit44.us.i.i, %.lr.ph.split.us.i11.i
-  %.pre-phi56.i.i = phi i64 [ %96, %101 ], [ %92, %Vec_QuePrio.exit44.us.i.i ], [ %92, %.lr.ph.split.us.i11.i ]
-  %.1.us.i.i = phi i32 [ %90, %101 ], [ %.049.us.i.i, %Vec_QuePrio.exit44.us.i.i ], [ %.049.us.i.i, %.lr.ph.split.us.i11.i ]
+  %.pre-phi56.i.i = phi i64 [ %92, %Vec_QuePrio.exit44.us.i.i ], [ %96, %101 ], [ %92, %.lr.ph.split.us.i11.i ]
+  %.1.us.i.i = phi i32 [ %.049.us.i.i, %Vec_QuePrio.exit44.us.i.i ], [ %90, %101 ], [ %.049.us.i.i, %.lr.ph.split.us.i11.i ]
   %102 = getelementptr inbounds i32, ptr %.sink78, i64 %.pre-phi56.i.i
   %103 = load i32, ptr %102, align 4, !tbaa !33
   %104 = sitofp i32 %103 to float
@@ -3520,8 +3520,8 @@ Vec_QuePrio.exit44.i.i:                           ; preds = %.lr.ph.split.i8.i
   br label %Vec_QuePrio.exit46.i.i
 
 Vec_QuePrio.exit46.i.i:                           ; preds = %129, %Vec_QuePrio.exit44.i.i, %.lr.ph.split.i8.i
-  %.pre-phi58.i.i = phi i64 [ %122, %129 ], [ %116, %Vec_QuePrio.exit44.i.i ], [ %116, %.lr.ph.split.i8.i ]
-  %.1.i.i = phi i32 [ %114, %129 ], [ %.049.i.i, %Vec_QuePrio.exit44.i.i ], [ %.049.i.i, %.lr.ph.split.i8.i ]
+  %.pre-phi58.i.i = phi i64 [ %116, %Vec_QuePrio.exit44.i.i ], [ %122, %129 ], [ %116, %.lr.ph.split.i8.i ]
+  %.1.i.i = phi i32 [ %.049.i.i, %Vec_QuePrio.exit44.i.i ], [ %114, %129 ], [ %.049.i.i, %.lr.ph.split.i8.i ]
   %130 = getelementptr inbounds i32, ptr %.pre52.i.i.sink, i64 %.pre-phi58.i.i
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = sext i32 %131 to i64
@@ -3542,8 +3542,8 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %129, %Vec_QuePrio.e
   br i1 %141, label %.lr.ph.split.i8.i, label %Vec_QueMoveDown.exit.i, !llvm.loop !108
 
 Vec_QueMoveDown.exit.i:                           ; preds = %136, %Vec_QuePrio.exit46.i.i, %106, %Vec_QuePrio.exit46.us.i.i, %Vec_QuePrio.exit.thread.i6.i, %Vec_QuePrio.exit.i9.i
-  %142 = phi ptr [ %.pre52.i.i.sink, %Vec_QuePrio.exit.thread.i6.i ], [ %.sink78, %Vec_QuePrio.exit.i9.i ], [ %.sink78, %Vec_QuePrio.exit46.us.i.i ], [ %.sink78, %106 ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit46.i.i ], [ %.pre52.i.i.sink, %136 ]
-  %.035.lcssa.i.i = phi i32 [ %27, %Vec_QuePrio.exit.thread.i6.i ], [ %27, %Vec_QuePrio.exit.i9.i ], [ %.1.us.i.i, %106 ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.i.i, %136 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ]
+  %142 = phi ptr [ %.sink78, %Vec_QuePrio.exit.i9.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit.thread.i6.i ], [ %.sink78, %106 ], [ %.sink78, %Vec_QuePrio.exit46.us.i.i ], [ %.pre52.i.i.sink, %Vec_QuePrio.exit46.i.i ], [ %.pre52.i.i.sink, %136 ]
+  %.035.lcssa.i.i = phi i32 [ %27, %Vec_QuePrio.exit.i9.i ], [ %27, %Vec_QuePrio.exit.thread.i6.i ], [ %.1.us.i.i, %106 ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.i.i, %136 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ]
   %143 = sext i32 %.035.lcssa.i.i to i64
   %144 = getelementptr inbounds i32, ptr %142, i64 %143
   store i32 %.val17, ptr %144, align 4, !tbaa !33
@@ -3776,7 +3776,7 @@ Vec_QuePrio.exit30.i.i32:                         ; preds = %.lr.ph43.i.i29
   br i1 %272, label %Vec_QuePrio.exit30.i.i32, label %Vec_QuePush.exit, !llvm.loop !106
 
 Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.i.i32, %.lr.ph43.i.i29, %Vec_QuePrio.exit30.us.i.i40, %.lr.ph48.i.i37, %Vec_QuePrio.exit.i.i34, %Vec_QuePrio.exit.thread.i.i26, %.lr.ph.split.us.i.i35, %.lr.ph.split.i.i27
-  %.027.lcssa.i.i = phi i32 [ %231, %.lr.ph.split.us.i.i35 ], [ %235, %.lr.ph.split.i.i27 ], [ %235, %Vec_QuePrio.exit.thread.i.i26 ], [ %231, %Vec_QuePrio.exit.i.i34 ], [ %.02634.us46.i.i39, %.lr.ph48.i.i37 ], [ %.02634.us46.i.i39, %Vec_QuePrio.exit30.us.i.i40 ], [ %.0263441.i.i31, %.lr.ph43.i.i29 ], [ %.0263441.i.i31, %Vec_QuePrio.exit30.i.i32 ]
+  %.027.lcssa.i.i = phi i32 [ %231, %.lr.ph.split.us.i.i35 ], [ %235, %.lr.ph.split.i.i27 ], [ %235, %Vec_QuePrio.exit.thread.i.i26 ], [ %231, %Vec_QuePrio.exit.i.i34 ], [ %.02634.us46.i.i39, %Vec_QuePrio.exit30.us.i.i40 ], [ %.02634.us46.i.i39, %.lr.ph48.i.i37 ], [ %.0263441.i.i31, %.lr.ph43.i.i29 ], [ %.0263441.i.i31, %Vec_QuePrio.exit30.i.i32 ]
   %273 = sext i32 %.027.lcssa.i.i to i64
   %274 = getelementptr inbounds i32, ptr %225, i64 %273
   store i32 %.val17, ptr %274, align 4, !tbaa !33
@@ -7095,8 +7095,8 @@ Vec_QuePrio.exit44.us.i.i:                        ; preds = %.lr.ph.split.us.i.i
   br label %Vec_QuePrio.exit46.us.i.i
 
 Vec_QuePrio.exit46.us.i.i:                        ; preds = %52, %Vec_QuePrio.exit44.us.i.i, %.lr.ph.split.us.i.i
-  %.pre-phi56.i.i = phi i64 [ %47, %52 ], [ %43, %Vec_QuePrio.exit44.us.i.i ], [ %43, %.lr.ph.split.us.i.i ]
-  %.1.us.i.i = phi i32 [ %41, %52 ], [ %.049.us.i.i, %Vec_QuePrio.exit44.us.i.i ], [ %.049.us.i.i, %.lr.ph.split.us.i.i ]
+  %.pre-phi56.i.i = phi i64 [ %43, %Vec_QuePrio.exit44.us.i.i ], [ %47, %52 ], [ %43, %.lr.ph.split.us.i.i ]
+  %.1.us.i.i = phi i32 [ %.049.us.i.i, %Vec_QuePrio.exit44.us.i.i ], [ %41, %52 ], [ %.049.us.i.i, %.lr.ph.split.us.i.i ]
   %53 = getelementptr inbounds i32, ptr %15, i64 %.pre-phi56.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !33
   %55 = sitofp i32 %54 to float
@@ -7143,8 +7143,8 @@ Vec_QuePrio.exit44.i.i:                           ; preds = %.lr.ph.split.i.i
   br label %Vec_QuePrio.exit46.i.i
 
 Vec_QuePrio.exit46.i.i:                           ; preds = %80, %Vec_QuePrio.exit44.i.i, %.lr.ph.split.i.i
-  %.pre-phi58.i.i = phi i64 [ %73, %80 ], [ %67, %Vec_QuePrio.exit44.i.i ], [ %67, %.lr.ph.split.i.i ]
-  %.1.i.i = phi i32 [ %65, %80 ], [ %.049.i.i, %Vec_QuePrio.exit44.i.i ], [ %.049.i.i, %.lr.ph.split.i.i ]
+  %.pre-phi58.i.i = phi i64 [ %67, %Vec_QuePrio.exit44.i.i ], [ %73, %80 ], [ %67, %.lr.ph.split.i.i ]
+  %.1.i.i = phi i32 [ %.049.i.i, %Vec_QuePrio.exit44.i.i ], [ %65, %80 ], [ %.049.i.i, %.lr.ph.split.i.i ]
   %81 = getelementptr inbounds i32, ptr %15, i64 %.pre-phi58.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !33
   %83 = sext i32 %82 to i64
@@ -7165,7 +7165,7 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %80, %Vec_QuePrio.ex
   br i1 %92, label %.lr.ph.split.i.i, label %Vec_QueMoveDown.exit.i, !llvm.loop !108
 
 Vec_QueMoveDown.exit.i:                           ; preds = %87, %Vec_QuePrio.exit46.i.i, %57, %Vec_QuePrio.exit46.us.i.i, %Vec_QuePrio.exit.thread.i.i, %Vec_QuePrio.exit.i.i
-  %.035.lcssa.i.i = phi i32 [ 1, %Vec_QuePrio.exit.thread.i.i ], [ 1, %Vec_QuePrio.exit.i.i ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.us.i.i, %57 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ], [ %.1.i.i, %87 ]
+  %.035.lcssa.i.i = phi i32 [ %.1.us.i.i, %57 ], [ 1, %Vec_QuePrio.exit.thread.i.i ], [ 1, %Vec_QuePrio.exit.i.i ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.i.i, %87 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ]
   %93 = sext i32 %.035.lcssa.i.i to i64
   %94 = getelementptr inbounds i32, ptr %15, i64 %93
   store i32 %29, ptr %94, align 4, !tbaa !33

@@ -670,7 +670,7 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %.loopexit323
 
 .loopexit323:                                     ; preds = %._crit_edge349.split.us361, %._crit_edge349.split.us.us.us, %.preheader321.lr.ph, %.preheader322, %287
-  %300 = phi i32 [ %186, %.preheader322 ], [ %.pre461, %287 ], [ %186, %.preheader321.lr.ph ], [ %186, %._crit_edge349.split.us.us.us ], [ %186, %._crit_edge349.split.us361 ]
+  %300 = phi i32 [ %186, %.preheader321.lr.ph ], [ %.pre461, %287 ], [ %186, %.preheader322 ], [ %186, %._crit_edge349.split.us.us.us ], [ %186, %._crit_edge349.split.us361 ]
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %301 = sext i32 %300 to i64
   %302 = icmp slt i64 %indvars.iv.next439, %301
@@ -867,7 +867,7 @@ define internal noundef i32 @amplify_frame(ptr noundef readonly captures(none) %
   br label %.loopexit327
 
 .loopexit327:                                     ; preds = %._crit_edge333.split.us341, %._crit_edge333.split.us.us.us, %.preheader325.lr.ph, %.preheader326, %399
-  %412 = phi i32 [ %314, %.preheader326 ], [ %.pre, %399 ], [ %314, %.preheader325.lr.ph ], [ %314, %._crit_edge333.split.us.us.us ], [ %314, %._crit_edge333.split.us341 ]
+  %412 = phi i32 [ %314, %.preheader325.lr.ph ], [ %.pre, %399 ], [ %314, %.preheader326 ], [ %314, %._crit_edge333.split.us.us.us ], [ %314, %._crit_edge333.split.us341 ]
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %413 = sext i32 %412 to i64
   %414 = icmp slt i64 %indvars.iv.next413, %413
@@ -956,7 +956,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   br label %43
 
 43:                                               ; preds = %12, %1, %27
-  %.0 = phi i32 [ 0, %27 ], [ -558323010, %1 ], [ %25, %12 ]
+  %.0 = phi i32 [ -558323010, %1 ], [ 0, %27 ], [ %25, %12 ]
   ret i32 %.0
 }
 

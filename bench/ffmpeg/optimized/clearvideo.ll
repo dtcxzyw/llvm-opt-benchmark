@@ -175,7 +175,7 @@ define internal range(i32 -2147483648, 1) i32 @clv_decode_init(ptr noundef %0) #
   br label %80
 
 80:                                               ; preds = %48, %75, %34, %77, %33, %17
-  %.0 = phi i32 [ -1094995529, %33 ], [ 0, %77 ], [ -1094995529, %17 ], [ %46, %34 ], [ -12, %75 ], [ -12, %48 ]
+  %.0 = phi i32 [ -1094995529, %33 ], [ -1094995529, %17 ], [ 0, %77 ], [ %46, %34 ], [ -12, %75 ], [ -12, %48 ]
   ret i32 %.0
 }
 
@@ -587,7 +587,7 @@ bytestream2_get_byte.exit218:                     ; preds = %bytestream2_get_be3
   br i1 %exitcond92.not.i, label %decode_mb.exit, label %.split.i, !llvm.loop !78
 
 decode_mb.exit:                                   ; preds = %129, %.split.i, %210, %.split.us.i, %183
-  %231 = phi i32 [ %.1189320, %183 ], [ -1094995529, %.split.us.i ], [ %.1189320, %210 ], [ -1094995529, %.split.i ], [ -1094995529, %129 ]
+  %231 = phi i32 [ -1094995529, %.split.i ], [ %.1189320, %183 ], [ -1094995529, %.split.us.i ], [ %.1189320, %210 ], [ -1094995529, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %232 = add nuw nsw i32 %.2184321, 1
   %233 = load i32, ptr %44, align 16, !tbaa !43
@@ -888,7 +888,7 @@ decode_mb.exit:                                   ; preds = %129, %.split.i, %21
   br label %mid_pred.exit.i
 
 mid_pred.exit.i:                                  ; preds = %378, %376, %375, %373
-  %.0.i.i240 = phi i32 [ %370, %373 ], [ %370, %376 ], [ %..i.i, %375 ], [ %.20.i.i, %378 ]
+  %.0.i.i240 = phi i32 [ %..i.i, %375 ], [ %370, %376 ], [ %370, %373 ], [ %.20.i.i, %378 ]
   %379 = trunc i32 %.0.i.i240 to i16
   %380 = sext i16 %.sroa.44.0.copyload.i to i32
   %381 = zext i16 %.sroa.42.0.copyload.i to i32
@@ -913,15 +913,15 @@ mid_pred.exit.i:                                  ; preds = %378, %376, %375, %3
   br label %mid_pred.exit68.i
 
 mid_pred.exit68.i:                                ; preds = %389, %387, %386, %384
-  %.0.i65.i = phi i32 [ %381, %384 ], [ %381, %387 ], [ %..i67.i, %386 ], [ %.20.i66.i, %389 ]
+  %.0.i65.i = phi i32 [ %..i67.i, %386 ], [ %381, %387 ], [ %381, %384 ], [ %.20.i66.i, %389 ]
   %390 = trunc i32 %.0.i65.i to i16
   br label %mvi_predict.exit
 
 mvi_predict.exit:                                 ; preds = %344, %346, %358, %mid_pred.exit68.i
-  %391 = phi i32 [ %.pre364, %346 ], [ %.pre363, %358 ], [ %.pre363.pre366, %mid_pred.exit68.i ], [ %.pre364, %344 ]
-  %392 = phi ptr [ %345, %346 ], [ %359, %358 ], [ %.pre362, %mid_pred.exit68.i ], [ %345, %344 ]
-  %.sroa.012.0.i = phi i16 [ %.sroa.012.0.copyload.i, %346 ], [ %.sroa.012.0.copyload14.i, %358 ], [ %379, %mid_pred.exit68.i ], [ 0, %344 ]
-  %.sroa.7.0.i = phi i16 [ %.sroa.7.0.copyload.i, %346 ], [ %.sroa.7.0.copyload18.i, %358 ], [ %390, %mid_pred.exit68.i ], [ 0, %344 ]
+  %391 = phi i32 [ %.pre364, %346 ], [ %.pre363.pre366, %mid_pred.exit68.i ], [ %.pre363, %358 ], [ %.pre364, %344 ]
+  %392 = phi ptr [ %345, %346 ], [ %.pre362, %mid_pred.exit68.i ], [ %359, %358 ], [ %345, %344 ]
+  %.sroa.012.0.i = phi i16 [ %.sroa.012.0.copyload.i, %346 ], [ %379, %mid_pred.exit68.i ], [ %.sroa.012.0.copyload14.i, %358 ], [ 0, %344 ]
+  %.sroa.7.0.i = phi i16 [ %.sroa.7.0.copyload.i, %346 ], [ %390, %mid_pred.exit68.i ], [ %.sroa.7.0.copyload18.i, %358 ], [ 0, %344 ]
   %393 = load i32, ptr %326, align 8, !tbaa !89
   %394 = trunc nuw nsw i64 %indvars.iv352 to i32
   %395 = mul i32 %393, %394
@@ -1067,8 +1067,8 @@ mvi_predict.exit:                                 ; preds = %344, %346, %358, %m
   %exitcond.not.i247 = icmp eq i32 %490, %444
   br i1 %exitcond.not.i247, label %copy_block.exit, label %487, !llvm.loop !97
 
-copy_block.exit:                                  ; preds = %487, %432, %452, %457, %466
-  %491 = phi i32 [ %.7328, %466 ], [ -1094995529, %457 ], [ -1094995529, %452 ], [ -1094995529, %432 ], [ %.7328, %487 ]
+copy_block.exit:                                  ; preds = %487, %452, %457, %432, %466
+  %491 = phi i32 [ %.7328, %466 ], [ -1094995529, %432 ], [ -1094995529, %457 ], [ -1094995529, %452 ], [ %.7328, %487 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next349, 3
   br i1 %exitcond351.not, label %.loopexit, label %432, !llvm.loop !98
@@ -1203,7 +1203,7 @@ extend_edges.exit:                                ; preds = %extend_edges.exit.l
   br label %.thread297
 
 .thread297:                                       ; preds = %339, %302, %296, %291, %.thread, %extend_edges.exit, %bytestream2_get_byte.exit218, %51, %557, %50, %40
-  %.0 = phi i32 [ %9, %40 ], [ -1094995529, %50 ], [ %559, %557 ], [ %54, %51 ], [ -1094995529, %bytestream2_get_byte.exit218 ], [ %543, %extend_edges.exit ], [ -1094995529, %302 ], [ %300, %296 ], [ %294, %291 ], [ -1094995529, %.thread ], [ -1094995529, %339 ]
+  %.0 = phi i32 [ %9, %40 ], [ -1094995529, %50 ], [ %543, %extend_edges.exit ], [ %54, %51 ], [ -1094995529, %bytestream2_get_byte.exit218 ], [ %559, %557 ], [ -1094995529, %.thread ], [ -1094995529, %302 ], [ %300, %296 ], [ %294, %291 ], [ -1094995529, %339 ]
   ret i32 %.0
 }
 
@@ -1501,9 +1501,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_tile(ptr noundef re
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %13, %35
-  %.064.i = phi i32 [ %37, %35 ], [ %15, %13 ]
-  %.062.i = phi i32 [ %51, %35 ], [ %30, %13 ]
-  %.0.i = phi i32 [ %54, %35 ], [ %33, %13 ]
+  %.064.i = phi i32 [ %15, %13 ], [ %37, %35 ]
+  %.062.i = phi i32 [ %30, %13 ], [ %51, %35 ]
+  %.0.i = phi i32 [ %33, %13 ], [ %54, %35 ]
   %55 = add i32 %.0.i, %.064.i
   %56 = tail call i32 @llvm.umin.i32(i32 %17, i32 %55)
   store i32 %56, ptr %14, align 8, !tbaa !68
@@ -1563,9 +1563,9 @@ get_vlc2.exit:                                    ; preds = %13, %35
   br label %get_vlc2.exit105
 
 get_vlc2.exit105:                                 ; preds = %60, %82
-  %.064.i102 = phi i32 [ %84, %82 ], [ %62, %60 ]
-  %.062.i103 = phi i32 [ %98, %82 ], [ %77, %60 ]
-  %.0.i104 = phi i32 [ %101, %82 ], [ %80, %60 ]
+  %.064.i102 = phi i32 [ %62, %60 ], [ %84, %82 ]
+  %.062.i103 = phi i32 [ %77, %60 ], [ %98, %82 ]
+  %.0.i104 = phi i32 [ %80, %60 ], [ %101, %82 ]
   %102 = add i32 %.0.i104, %.064.i102
   %103 = tail call i32 @llvm.umin.i32(i32 %64, i32 %102)
   store i32 %103, ptr %61, align 8, !tbaa !68
@@ -1687,9 +1687,9 @@ get_vlc2.exit105:                                 ; preds = %60, %82
   br label %get_vlc2.exit109
 
 get_vlc2.exit109:                                 ; preds = %150, %172
-  %.064.i106 = phi i32 [ %174, %172 ], [ %152, %150 ]
-  %.062.i107 = phi i32 [ %188, %172 ], [ %167, %150 ]
-  %.0.i108 = phi i32 [ %191, %172 ], [ %170, %150 ]
+  %.064.i106 = phi i32 [ %152, %150 ], [ %174, %172 ]
+  %.062.i107 = phi i32 [ %167, %150 ], [ %188, %172 ]
+  %.0.i108 = phi i32 [ %170, %150 ], [ %191, %172 ]
   %192 = add i32 %.0.i108, %.064.i106
   %193 = tail call i32 @llvm.umin.i32(i32 %154, i32 %192)
   store i32 %193, ptr %151, align 8, !tbaa !68
@@ -1910,9 +1910,9 @@ get_vlc2.exit:                                    ; preds = %4, %26, %47
   br label %get_vlc2.exit54
 
 get_vlc2.exit54:                                  ; preds = %70, %88
-  %.064.i51 = phi i32 [ %90, %88 ], [ %71, %70 ]
-  %.062.i52 = phi i32 [ %104, %88 ], [ %83, %70 ]
-  %.0.i53 = phi i32 [ %107, %88 ], [ %86, %70 ]
+  %.064.i51 = phi i32 [ %71, %70 ], [ %90, %88 ]
+  %.062.i52 = phi i32 [ %83, %70 ], [ %104, %88 ]
+  %.0.i53 = phi i32 [ %86, %70 ], [ %107, %88 ]
   %108 = add i32 %.0.i53, %.064.i51
   %109 = tail call i32 @llvm.umin.i32(i32 %9, i32 %108)
   store i32 %109, ptr %6, align 8, !tbaa !68
@@ -2027,7 +2027,7 @@ get_vlc2.exit54:                                  ; preds = %70, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %169, %get_vlc2.exit54, %get_vlc2.exit, %181
-  %.0 = phi i32 [ %182, %181 ], [ 0, %get_vlc2.exit ], [ -1094995529, %get_vlc2.exit54 ], [ -1094995529, %169 ]
+  %.0 = phi i32 [ 0, %get_vlc2.exit ], [ %182, %181 ], [ -1094995529, %get_vlc2.exit54 ], [ -1094995529, %169 ]
   ret i32 %.0
 }
 
@@ -2427,7 +2427,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
   br i1 %exitcond91.not.i, label %copy_block.exit, label %.lr.ph.us.i, !llvm.loop !114
 
 copy_block.exit:                                  ; preds = %._crit_edge.us.i, %57, %.preheader.i, %86, %80, %61, %35, %25, %19, %15
-  %.0 = phi i32 [ -1094995529, %25 ], [ -1094995529, %19 ], [ -1094995529, %15 ], [ 0, %35 ], [ -1094995529, %86 ], [ -1094995529, %80 ], [ -1094995529, %61 ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %._crit_edge.us.i ]
+  %.0 = phi i32 [ -1094995529, %15 ], [ -1094995529, %25 ], [ -1094995529, %19 ], [ 0, %35 ], [ -1094995529, %61 ], [ -1094995529, %86 ], [ -1094995529, %80 ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %._crit_edge.us.i ]
   ret i32 %.0
 }
 

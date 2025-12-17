@@ -38,8 +38,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %25
 
 25:                                               ; preds = %13, %15, %20
-  %.0118 = phi i32 [ -1, %15 ], [ %.1119, %20 ], [ -1, %13 ]
-  %.0117 = phi i32 [ %19, %15 ], [ 0, %20 ], [ -1, %13 ]
+  %.0118 = phi i32 [ %.1119, %20 ], [ -1, %15 ], [ -1, %13 ]
+  %.0117 = phi i32 [ 0, %20 ], [ %19, %15 ], [ -1, %13 ]
   %26 = load i16, ptr %5, align 1
   %27 = zext i16 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -292,8 +292,8 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %161
 
 161:                                              ; preds = %143, %145, %154, %147
-  %.1132 = phi i32 [ %59, %145 ], [ %150, %147 ], [ %157, %154 ], [ %.0129148, %143 ]
-  %.1130 = phi i32 [ %60, %145 ], [ %153, %147 ], [ %160, %154 ], [ %59, %143 ]
+  %.1132 = phi i32 [ %157, %154 ], [ %59, %145 ], [ %150, %147 ], [ %.0129148, %143 ]
+  %.1130 = phi i32 [ %160, %154 ], [ %60, %145 ], [ %153, %147 ], [ %59, %143 ]
   %162 = icmp samesign ugt i64 %.in, 1
   br i1 %162, label %57, label %._crit_edge, !llvm.loop !8
 

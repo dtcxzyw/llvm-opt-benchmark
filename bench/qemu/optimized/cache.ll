@@ -498,14 +498,14 @@ cache_config_error.exit125:                       ; preds = %175, %177
   br label %202
 
 glib_auto_cleanup_GStrv.exit127:                  ; preds = %124, %138, %120
-  %.str.19.sink = phi ptr [ @.str.13, %120 ], [ @.str.18, %138 ], [ @.str.19, %124 ]
+  %.str.18.sink = phi ptr [ @.str.13, %120 ], [ @.str.18, %138 ], [ @.str.19, %124 ]
   %200 = load ptr, ptr @stderr, align 8
-  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull %.str.19.sink, ptr noundef %15) #15
+  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull %.str.18.sink, ptr noundef %15) #15
   tail call void @g_strfreev(ptr noundef nonnull %16) #12
   br label %202
 
 202:                                              ; preds = %glib_auto_cleanup_GStrv.exit127, %197, %cache_config_error.exit125, %cache_config_error.exit120, %cache_config_error.exit
-  %.2 = phi i32 [ -1, %cache_config_error.exit125 ], [ 0, %197 ], [ -1, %cache_config_error.exit120 ], [ -1, %cache_config_error.exit ], [ -1, %glib_auto_cleanup_GStrv.exit127 ]
+  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit127 ], [ -1, %cache_config_error.exit125 ], [ 0, %197 ], [ -1, %cache_config_error.exit120 ], [ -1, %cache_config_error.exit ]
   ret i32 %.2
 }
 

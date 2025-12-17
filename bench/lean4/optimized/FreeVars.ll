@@ -156,7 +156,7 @@ lean_nat_lt.exit.thread:                          ; preds = %5
   br label %lean_inc.exit7
 
 lean_inc.exit7:                                   ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %16, %19, %21, %22, %12, %14, %15
-  %.0 = phi ptr [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %0, %16 ], [ %1, %lean_nat_lt.exit ], [ %spec.select, %lean_nat_lt.exit.thread ]
+  %.0 = phi ptr [ %spec.select, %lean_nat_lt.exit.thread ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %16 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %1, %lean_nat_lt.exit ]
   ret ptr %.0
 }
 
@@ -256,7 +256,7 @@ l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collect.exit.thread: ;
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %14, %lean_nat_lt.exit.thread.i, %lean_nat_lt.exit.i, %28, %27, %25, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collect.exit
-  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collect.exit ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %.0.i10, %28 ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %lean_nat_lt.exit.i ], [ %1, %14 ]
+  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collect.exit ], [ %.0.i10, %28 ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %1, %lean_nat_lt.exit.i ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %14 ]
   %29 = ptrtoint ptr %0 to i64
   %30 = and i64 %29, 1
   %.not20 = icmp eq i64 %30, 0
@@ -353,7 +353,7 @@ lean_nat_lt.exit.thread:                          ; preds = %5
   br label %lean_inc.exit7
 
 lean_inc.exit7:                                   ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %16, %19, %21, %22, %12, %14, %15
-  %.0 = phi ptr [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %0, %16 ], [ %1, %lean_nat_lt.exit ], [ %spec.select, %lean_nat_lt.exit.thread ]
+  %.0 = phi ptr [ %spec.select, %lean_nat_lt.exit.thread ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %16 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %1, %lean_nat_lt.exit ]
   ret ptr %.0
 }
 
@@ -453,7 +453,7 @@ l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectVar.exit.thread
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %14, %lean_nat_lt.exit.thread.i, %lean_nat_lt.exit.i, %28, %27, %25, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectVar.exit
-  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectVar.exit ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %.0.i10, %28 ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %lean_nat_lt.exit.i ], [ %1, %14 ]
+  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectVar.exit ], [ %.0.i10, %28 ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %1, %lean_nat_lt.exit.i ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %14 ]
   %29 = ptrtoint ptr %0 to i64
   %30 = and i64 %29, 1
   %.not20 = icmp eq i64 %30, 0
@@ -550,7 +550,7 @@ lean_nat_lt.exit.thread:                          ; preds = %5
   br label %lean_inc.exit7
 
 lean_inc.exit7:                                   ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %16, %19, %21, %22, %12, %14, %15
-  %.0 = phi ptr [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %0, %16 ], [ %1, %lean_nat_lt.exit ], [ %spec.select, %lean_nat_lt.exit.thread ]
+  %.0 = phi ptr [ %spec.select, %lean_nat_lt.exit.thread ], [ %1, %15 ], [ %1, %14 ], [ %1, %12 ], [ %0, %16 ], [ %0, %22 ], [ %0, %21 ], [ %0, %19 ], [ %1, %lean_nat_lt.exit ]
   ret ptr %.0
 }
 
@@ -650,7 +650,7 @@ l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectJP.exit.thread:
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %14, %lean_nat_lt.exit.thread.i, %lean_nat_lt.exit.i, %28, %27, %25, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectJP.exit
-  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectJP.exit ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %.0.i10, %28 ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %lean_nat_lt.exit.i ], [ %1, %14 ]
+  %.0.i11 = phi ptr [ %0, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectJP.exit ], [ %.0.i10, %28 ], [ %.0.i10, %25 ], [ %.0.i10, %27 ], [ %1, %lean_nat_lt.exit.i ], [ %spec.select.i, %lean_nat_lt.exit.thread.i ], [ %1, %14 ]
   %29 = ptrtoint ptr %0 to i64
   %30 = and i64 %29, 1
   %.not20 = icmp eq i64 %30, 0
@@ -813,7 +813,7 @@ lean_nat_lt.exit.thread:                          ; preds = %17
   br label %lean_inc.exit12
 
 lean_inc.exit12:                                  ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %35, %40, %42, %43, %28, %31, %33, %34, %24, %26, %27
-  %.1 = phi ptr [ %1, %27 ], [ %1, %26 ], [ %1, %24 ], [ %14, %34 ], [ %14, %33 ], [ %14, %31 ], [ %14, %28 ], [ %1, %43 ], [ %1, %42 ], [ %1, %40 ], [ %1, %35 ], [ %1, %lean_nat_lt.exit ], [ %spec.select, %lean_nat_lt.exit.thread ]
+  %.1 = phi ptr [ %14, %28 ], [ %spec.select, %lean_nat_lt.exit.thread ], [ %1, %27 ], [ %1, %26 ], [ %1, %24 ], [ %1, %35 ], [ %14, %34 ], [ %14, %33 ], [ %14, %31 ], [ %1, %43 ], [ %1, %42 ], [ %1, %40 ], [ %1, %lean_nat_lt.exit ]
   ret ptr %.1
 }
 
@@ -1131,7 +1131,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit23
 
 lean_dec.exit23:                                  ; preds = %lean_dec.exit24, %9, %11, %12, %lean_dec.exit
-  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %2, %12 ], [ %2, %11 ], [ %2, %9 ], [ %2, %lean_dec.exit24 ]
+  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %2, %lean_dec.exit24 ], [ %2, %12 ], [ %2, %11 ], [ %2, %9 ]
   ret ptr %.0
 }
 
@@ -1196,7 +1196,7 @@ lean_dec.exit.i:                                  ; preds = %3
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %10, %12, %13, %lean_dec.exit.i
-  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %2, %13 ], [ %2, %12 ], [ %2, %10 ], [ %2, %lean_dec.exit24.i ]
+  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %2, %lean_dec.exit24.i ], [ %2, %13 ], [ %2, %12 ], [ %2, %10 ]
   %15 = ptrtoint ptr %0 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -1262,7 +1262,7 @@ lean_dec.exit.i:                                  ; preds = %2
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %10, %12, %13, %lean_dec.exit.i
-  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ], [ %1, %lean_dec.exit24.i ]
+  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %1, %lean_dec.exit24.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ]
   ret ptr %.0.i
 }
 
@@ -1304,7 +1304,7 @@ lean_dec.exit.i.i:                                ; preds = %2
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArgs.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArgs.exit: ; preds = %lean_dec.exit24.i.i, %10, %12, %13, %lean_dec.exit.i.i
-  %.0.i.i = phi ptr [ %14, %lean_dec.exit.i.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ], [ %1, %lean_dec.exit24.i.i ]
+  %.0.i.i = phi ptr [ %14, %lean_dec.exit.i.i ], [ %1, %lean_dec.exit24.i.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ]
   %15 = ptrtoint ptr %0 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -1403,7 +1403,7 @@ lean_nat_lt.exit.thread:                          ; preds = %7
   br label %lean_inc.exit8
 
 lean_inc.exit8:                                   ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %18, %21, %23, %24, %14, %16, %17
-  %.0 = phi ptr [ %1, %17 ], [ %1, %16 ], [ %1, %14 ], [ %4, %24 ], [ %4, %23 ], [ %4, %21 ], [ %4, %18 ], [ %1, %lean_nat_lt.exit ], [ %spec.select, %lean_nat_lt.exit.thread ]
+  %.0 = phi ptr [ %spec.select, %lean_nat_lt.exit.thread ], [ %1, %17 ], [ %1, %16 ], [ %1, %14 ], [ %4, %18 ], [ %4, %24 ], [ %4, %23 ], [ %4, %21 ], [ %1, %lean_nat_lt.exit ]
   ret ptr %.0
 }
 
@@ -1499,7 +1499,7 @@ lean_dec.exit.i:                                  ; preds = %2
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %10, %12, %13, %lean_dec.exit.i
-  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ], [ %1, %lean_dec.exit24.i ]
+  %.0.i = phi ptr [ %14, %lean_dec.exit.i ], [ %1, %lean_dec.exit24.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ]
   ret ptr %.0.i
 }
 
@@ -1541,7 +1541,7 @@ lean_dec.exit.i.i:                                ; preds = %2
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectParams.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectParams.exit: ; preds = %lean_dec.exit24.i.i, %10, %12, %13, %lean_dec.exit.i.i
-  %.0.i.i = phi ptr [ %14, %lean_dec.exit.i.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ], [ %1, %lean_dec.exit24.i.i ]
+  %.0.i.i = phi ptr [ %14, %lean_dec.exit.i.i ], [ %1, %lean_dec.exit24.i.i ], [ %1, %13 ], [ %1, %12 ], [ %1, %10 ]
   %15 = ptrtoint ptr %0 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -1685,7 +1685,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit144
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %36, %38, %39, %lean_dec.exit.i
-  %.0.i222 = phi ptr [ %40, %lean_dec.exit.i ], [ %1, %39 ], [ %1, %38 ], [ %1, %36 ], [ %1, %lean_dec.exit24.i ]
+  %.0.i222 = phi ptr [ %40, %lean_dec.exit.i ], [ %1, %lean_dec.exit24.i ], [ %1, %39 ], [ %1, %38 ], [ %1, %36 ]
   br i1 %.not371, label %41, label %lean_dec.exit143
 
 41:                                               ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
@@ -1858,7 +1858,7 @@ lean_dec.exit.i232:                               ; preds = %lean_dec.exit141
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237: ; preds = %lean_dec.exit24.i234, %95, %97, %98, %lean_dec.exit.i232
-  %.0.i233 = phi ptr [ %99, %lean_dec.exit.i232 ], [ %1, %98 ], [ %1, %97 ], [ %1, %95 ], [ %1, %lean_dec.exit24.i234 ]
+  %.0.i233 = phi ptr [ %99, %lean_dec.exit.i232 ], [ %1, %lean_dec.exit24.i234 ], [ %1, %98 ], [ %1, %97 ], [ %1, %95 ]
   br i1 %.not367, label %100, label %lean_dec.exit143
 
 100:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237
@@ -1934,7 +1934,7 @@ lean_dec.exit.i241:                               ; preds = %lean_dec.exit139
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246: ; preds = %lean_dec.exit24.i243, %121, %123, %124, %lean_dec.exit.i241
-  %.0.i242 = phi ptr [ %125, %lean_dec.exit.i241 ], [ %50, %124 ], [ %50, %123 ], [ %50, %121 ], [ %50, %lean_dec.exit24.i243 ]
+  %.0.i242 = phi ptr [ %125, %lean_dec.exit.i241 ], [ %50, %lean_dec.exit24.i243 ], [ %50, %124 ], [ %50, %123 ], [ %50, %121 ]
   br i1 %.not367, label %126, label %lean_dec.exit143
 
 126:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246
@@ -2147,7 +2147,7 @@ lean_dec.exit.i256:                               ; preds = %lean_dec.exit134
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261: ; preds = %lean_dec.exit24.i258, %195, %197, %198, %lean_dec.exit.i256
-  %.0.i257 = phi ptr [ %199, %lean_dec.exit.i256 ], [ %1, %198 ], [ %1, %197 ], [ %1, %195 ], [ %1, %lean_dec.exit24.i258 ]
+  %.0.i257 = phi ptr [ %199, %lean_dec.exit.i256 ], [ %1, %lean_dec.exit24.i258 ], [ %1, %198 ], [ %1, %197 ], [ %1, %195 ]
   br i1 %.not360, label %200, label %lean_dec.exit143
 
 200:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261
@@ -2252,7 +2252,7 @@ lean_dec.exit.i268:                               ; preds = %lean_dec.exit132
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273: ; preds = %lean_dec.exit24.i270, %232, %234, %235, %lean_dec.exit.i268
-  %.0.i269 = phi ptr [ %236, %lean_dec.exit.i268 ], [ %1, %235 ], [ %1, %234 ], [ %1, %232 ], [ %1, %lean_dec.exit24.i270 ]
+  %.0.i269 = phi ptr [ %236, %lean_dec.exit.i268 ], [ %1, %lean_dec.exit24.i270 ], [ %1, %235 ], [ %1, %234 ], [ %1, %232 ]
   br i1 %.not358, label %237, label %lean_dec.exit143
 
 237:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273
@@ -2425,7 +2425,7 @@ lean_dec.exit.i283:                               ; preds = %lean_dec.exit129
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288: ; preds = %lean_dec.exit24.i285, %291, %293, %294, %lean_dec.exit.i283
-  %.0.i284 = phi ptr [ %295, %lean_dec.exit.i283 ], [ %1, %294 ], [ %1, %293 ], [ %1, %291 ], [ %1, %lean_dec.exit24.i285 ]
+  %.0.i284 = phi ptr [ %295, %lean_dec.exit.i283 ], [ %1, %lean_dec.exit24.i285 ], [ %1, %294 ], [ %1, %293 ], [ %1, %291 ]
   br i1 %.not354, label %296, label %lean_dec.exit143
 
 296:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288
@@ -2501,7 +2501,7 @@ lean_dec.exit.i292:                               ; preds = %lean_dec.exit127
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297: ; preds = %lean_dec.exit24.i294, %317, %319, %320, %lean_dec.exit.i292
-  %.0.i293 = phi ptr [ %321, %lean_dec.exit.i292 ], [ %246, %320 ], [ %246, %319 ], [ %246, %317 ], [ %246, %lean_dec.exit24.i294 ]
+  %.0.i293 = phi ptr [ %321, %lean_dec.exit.i292 ], [ %246, %lean_dec.exit24.i294 ], [ %246, %320 ], [ %246, %319 ], [ %246, %317 ]
   br i1 %.not354, label %322, label %lean_dec.exit143
 
 322:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297
@@ -2868,7 +2868,7 @@ lean_nat_lt.exit215.thread:                       ; preds = %431
   br label %lean_dec.exit143
 
 lean_dec.exit143:                                 ; preds = %lean_nat_lt.exit215.thread, %lean_nat_lt.exit212.thread, %lean_nat_lt.exit209.thread, %lean_nat_lt.exit203.thread, %lean_nat_lt.exit215.thread339, %lean_nat_lt.exit212.thread336, %lean_nat_lt.exit209.thread333, %lean_nat_lt.exit203.thread327, %444, %446, %447, %434, %437, %439, %440, %407, %409, %410, %397, %400, %402, %403, %366, %370, %372, %373, %362, %364, %365, %352, %355, %357, %358, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297, %325, %327, %328, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288, %299, %301, %302, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273, %240, %242, %243, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261, %203, %205, %206, %166, %168, %169, %156, %159, %161, %162, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246, %129, %131, %132, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237, %103, %105, %106, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit, %44, %46, %47
-  %.0 = phi ptr [ %.0.i222, %47 ], [ %.0.i222, %46 ], [ %.0.i222, %44 ], [ %.0.i222, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %.0.i233, %106 ], [ %.0.i233, %105 ], [ %.0.i233, %103 ], [ %.0.i233, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237 ], [ %.0.i242, %132 ], [ %.0.i242, %131 ], [ %.0.i242, %129 ], [ %.0.i242, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246 ], [ %1, %162 ], [ %1, %161 ], [ %1, %159 ], [ %1, %156 ], [ %135, %169 ], [ %135, %168 ], [ %135, %166 ], [ %.0.i257, %206 ], [ %.0.i257, %205 ], [ %.0.i257, %203 ], [ %.0.i257, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261 ], [ %.0.i269, %243 ], [ %.0.i269, %242 ], [ %.0.i269, %240 ], [ %.0.i269, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273 ], [ %.0.i284, %302 ], [ %.0.i284, %301 ], [ %.0.i284, %299 ], [ %.0.i284, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288 ], [ %.0.i293, %328 ], [ %.0.i293, %327 ], [ %.0.i293, %325 ], [ %.0.i293, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297 ], [ %1, %358 ], [ %1, %357 ], [ %1, %355 ], [ %1, %352 ], [ %331, %365 ], [ %331, %364 ], [ %331, %362 ], [ %1, %373 ], [ %1, %372 ], [ %1, %370 ], [ %1, %366 ], [ %1, %403 ], [ %1, %402 ], [ %1, %400 ], [ %1, %397 ], [ %376, %410 ], [ %376, %409 ], [ %376, %407 ], [ %1, %440 ], [ %1, %439 ], [ %1, %437 ], [ %1, %434 ], [ %413, %447 ], [ %413, %446 ], [ %413, %444 ], [ %135, %lean_nat_lt.exit203.thread327 ], [ %331, %lean_nat_lt.exit209.thread333 ], [ %376, %lean_nat_lt.exit212.thread336 ], [ %413, %lean_nat_lt.exit215.thread339 ], [ %spec.select, %lean_nat_lt.exit203.thread ], [ %spec.select342, %lean_nat_lt.exit209.thread ], [ %spec.select343, %lean_nat_lt.exit212.thread ], [ %spec.select344, %lean_nat_lt.exit215.thread ]
+  %.0 = phi ptr [ %1, %397 ], [ %1, %434 ], [ %1, %352 ], [ %.0.i233, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit237 ], [ %413, %446 ], [ %.0.i257, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit261 ], [ %1, %156 ], [ %.0.i284, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit288 ], [ %135, %lean_nat_lt.exit203.thread327 ], [ %.0.i222, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %.0.i242, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit246 ], [ %.0.i269, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit273 ], [ %.0.i293, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit297 ], [ %1, %366 ], [ %331, %lean_nat_lt.exit209.thread333 ], [ %.0.i222, %47 ], [ %.0.i222, %46 ], [ %.0.i222, %44 ], [ %.0.i233, %106 ], [ %.0.i233, %105 ], [ %.0.i233, %103 ], [ %.0.i242, %132 ], [ %.0.i242, %131 ], [ %.0.i242, %129 ], [ %1, %162 ], [ %1, %161 ], [ %1, %159 ], [ %413, %lean_nat_lt.exit215.thread339 ], [ %135, %169 ], [ %135, %168 ], [ %135, %166 ], [ %376, %lean_nat_lt.exit212.thread336 ], [ %.0.i257, %206 ], [ %.0.i257, %205 ], [ %.0.i257, %203 ], [ %.0.i269, %243 ], [ %.0.i269, %242 ], [ %.0.i269, %240 ], [ %.0.i284, %302 ], [ %.0.i284, %301 ], [ %.0.i284, %299 ], [ %.0.i293, %328 ], [ %.0.i293, %327 ], [ %.0.i293, %325 ], [ %1, %358 ], [ %1, %357 ], [ %1, %355 ], [ %spec.select344, %lean_nat_lt.exit215.thread ], [ %331, %365 ], [ %331, %364 ], [ %331, %362 ], [ %spec.select, %lean_nat_lt.exit203.thread ], [ %1, %373 ], [ %1, %372 ], [ %1, %370 ], [ %1, %403 ], [ %1, %402 ], [ %1, %400 ], [ %413, %444 ], [ %376, %410 ], [ %376, %409 ], [ %376, %407 ], [ %spec.select342, %lean_nat_lt.exit209.thread ], [ %1, %440 ], [ %1, %439 ], [ %1, %437 ], [ %spec.select343, %lean_nat_lt.exit212.thread ], [ %413, %447 ]
   ret ptr %.0
 }
 
@@ -2925,7 +2925,7 @@ lean_dec.exit.i:                                  ; preds = %lean_alloc_closure.
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %15, %lean_dec.exit.i
-  %.0.i = phi ptr [ %16, %lean_dec.exit.i ], [ %2, %15 ], [ %2, %lean_dec.exit24.i ]
+  %.0.i = phi ptr [ %16, %lean_dec.exit.i ], [ %2, %lean_dec.exit24.i ], [ %2, %15 ]
   ret ptr %.0.i
 }
 
@@ -3004,7 +3004,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_alloc_closure.
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit: ; preds = %lean_dec.exit24.i.i, %15, %lean_dec.exit.i.i
-  %.0.i.i = phi ptr [ %16, %lean_dec.exit.i.i ], [ %2, %15 ], [ %2, %lean_dec.exit24.i.i ]
+  %.0.i.i = phi ptr [ %16, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit24.i.i ], [ %2, %15 ]
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
@@ -3443,7 +3443,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit295
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %138, %140, %141, %lean_dec.exit.i
-  %.0.i456 = phi ptr [ %142, %lean_dec.exit.i ], [ %130, %141 ], [ %130, %140 ], [ %130, %138 ], [ %130, %lean_dec.exit24.i ]
+  %.0.i456 = phi ptr [ %142, %lean_dec.exit.i ], [ %130, %lean_dec.exit24.i ], [ %130, %141 ], [ %130, %140 ], [ %130, %138 ]
   br i1 %.not680, label %143, label %.backedge.backedge
 
 143:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
@@ -3520,7 +3520,7 @@ lean_dec.exit.i460:                               ; preds = %lean_dec.exit293
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465: ; preds = %lean_dec.exit24.i462, %165, %167, %168, %lean_dec.exit.i460
-  %.0.i461 = phi ptr [ %169, %lean_dec.exit.i460 ], [ %157, %168 ], [ %157, %167 ], [ %157, %165 ], [ %157, %lean_dec.exit24.i462 ]
+  %.0.i461 = phi ptr [ %169, %lean_dec.exit.i460 ], [ %157, %lean_dec.exit24.i462 ], [ %157, %168 ], [ %157, %167 ], [ %157, %165 ]
   br i1 %.not680, label %170, label %.backedge.backedge
 
 170:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465
@@ -4696,7 +4696,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_alloc_closure.
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit: ; preds = %lean_dec.exit24.i.i, %567, %lean_dec.exit.i.i
-  %.0.i.i = phi ptr [ %568, %lean_dec.exit.i.i ], [ %.0215, %567 ], [ %.0215, %lean_dec.exit24.i.i ]
+  %.0.i.i = phi ptr [ %568, %lean_dec.exit.i.i ], [ %.0215, %lean_dec.exit24.i.i ], [ %.0215, %567 ]
   br i1 %.not646, label %569, label %lean_dec.exit264
 
 569:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit
@@ -4779,7 +4779,7 @@ lean_dec.exit.i.i512:                             ; preds = %lean_alloc_closure.
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516: ; preds = %lean_dec.exit24.i.i514, %595, %lean_dec.exit.i.i512
-  %.0.i.i513 = phi ptr [ %596, %lean_dec.exit.i.i512 ], [ %517, %595 ], [ %517, %lean_dec.exit24.i.i514 ]
+  %.0.i.i513 = phi ptr [ %596, %lean_dec.exit.i.i512 ], [ %517, %lean_dec.exit24.i.i514 ], [ %517, %595 ]
   br i1 %.not646, label %597, label %lean_dec.exit264
 
 597:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516
@@ -5045,7 +5045,7 @@ lean_dec.exit.i529:                               ; preds = %lean_dec.exit257
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534: ; preds = %lean_dec.exit24.i531, %686, %688, %689, %lean_dec.exit.i529
-  %.0.i530 = phi ptr [ %690, %lean_dec.exit.i529 ], [ %.0215, %689 ], [ %.0215, %688 ], [ %.0215, %686 ], [ %.0215, %lean_dec.exit24.i531 ]
+  %.0.i530 = phi ptr [ %690, %lean_dec.exit.i529 ], [ %.0215, %lean_dec.exit24.i531 ], [ %.0215, %689 ], [ %.0215, %688 ], [ %.0215, %686 ]
   br i1 %.not638, label %691, label %lean_dec.exit264
 
 691:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534
@@ -5121,7 +5121,7 @@ lean_dec.exit.i538:                               ; preds = %lean_dec.exit255
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543: ; preds = %lean_dec.exit24.i540, %712, %714, %715, %lean_dec.exit.i538
-  %.0.i539 = phi ptr [ %716, %lean_dec.exit.i538 ], [ %641, %715 ], [ %641, %714 ], [ %641, %712 ], [ %641, %lean_dec.exit24.i540 ]
+  %.0.i539 = phi ptr [ %716, %lean_dec.exit.i538 ], [ %641, %lean_dec.exit24.i540 ], [ %641, %715 ], [ %641, %714 ], [ %641, %712 ]
   br i1 %.not638, label %717, label %lean_dec.exit264
 
 717:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543
@@ -5259,8 +5259,8 @@ lean_nat_lt.exit431.thread:                       ; preds = %754
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %763, %762, %760, %757, %770, %769, %767, %lean_nat_lt.exit431.thread630, %lean_nat_lt.exit431.thread, %lean_inc.exit233, %511, %513, %514, %489, %488, %486, %483, %496, %495, %493, %lean_nat_lt.exit422.thread621, %lean_nat_lt.exit422.thread, %419, %418, %416, %413, %426, %425, %423, %442, %441, %439, %436, %449, %448, %446, %lean_nat_lt.exit416.thread613, %lean_nat_lt.exit419.thread618, %lean_nat_lt.exit416.thread, %lean_nat_lt.exit419.thread, %330, %329, %327, %324, %337, %336, %334, %353, %352, %350, %347, %360, %359, %357, %lean_nat_lt.exit407.thread602, %lean_nat_lt.exit410.thread607, %lean_nat_lt.exit407.thread, %lean_nat_lt.exit410.thread, %247, %246, %244, %lean_dec.exit289, %271, %270, %268, %lean_dec.exit286, %149, %148, %146, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit, %176, %175, %173, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465, %lean_dec.exit298, %lean_dec.exit297
-  %.0215.be = phi ptr [ %61, %lean_dec.exit298 ], [ %69, %lean_dec.exit297 ], [ %.0.i456, %149 ], [ %.0.i456, %148 ], [ %.0.i456, %146 ], [ %.0.i456, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %.0.i461, %176 ], [ %.0.i461, %175 ], [ %.0.i461, %173 ], [ %.0.i461, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %240, %247 ], [ %240, %246 ], [ %240, %244 ], [ %240, %lean_dec.exit289 ], [ %264, %271 ], [ %264, %270 ], [ %264, %268 ], [ %264, %lean_dec.exit286 ], [ %.0215, %330 ], [ %.0215, %329 ], [ %.0215, %327 ], [ %.0215, %324 ], [ %284, %337 ], [ %284, %336 ], [ %284, %334 ], [ %274, %353 ], [ %274, %352 ], [ %274, %350 ], [ %274, %347 ], [ %284, %360 ], [ %284, %359 ], [ %284, %357 ], [ %284, %lean_nat_lt.exit407.thread602 ], [ %284, %lean_nat_lt.exit410.thread607 ], [ %spec.select, %lean_nat_lt.exit407.thread ], [ %spec.select633, %lean_nat_lt.exit410.thread ], [ %.0215, %419 ], [ %.0215, %418 ], [ %.0215, %416 ], [ %.0215, %413 ], [ %373, %426 ], [ %373, %425 ], [ %373, %423 ], [ %363, %442 ], [ %363, %441 ], [ %363, %439 ], [ %363, %436 ], [ %373, %449 ], [ %373, %448 ], [ %373, %446 ], [ %373, %lean_nat_lt.exit416.thread613 ], [ %373, %lean_nat_lt.exit419.thread618 ], [ %spec.select634, %lean_nat_lt.exit416.thread ], [ %spec.select635, %lean_nat_lt.exit419.thread ], [ %.0215, %489 ], [ %.0215, %488 ], [ %.0215, %486 ], [ %.0215, %483 ], [ %452, %496 ], [ %452, %495 ], [ %452, %493 ], [ %452, %lean_nat_lt.exit422.thread621 ], [ %spec.select636, %lean_nat_lt.exit422.thread ], [ %.0215, %514 ], [ %.0215, %513 ], [ %.0215, %511 ], [ %.0215, %lean_inc.exit233 ], [ %.0215, %763 ], [ %.0215, %762 ], [ %.0215, %760 ], [ %.0215, %757 ], [ %726, %770 ], [ %726, %769 ], [ %726, %767 ], [ %726, %lean_nat_lt.exit431.thread630 ], [ %spec.select637, %lean_nat_lt.exit431.thread ]
-  %.0212.be = phi ptr [ %33, %lean_dec.exit298 ], [ %33, %lean_dec.exit297 ], [ %102, %149 ], [ %102, %148 ], [ %102, %146 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %102, %176 ], [ %102, %175 ], [ %102, %173 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %199, %247 ], [ %199, %246 ], [ %199, %244 ], [ %199, %lean_dec.exit289 ], [ %199, %271 ], [ %199, %270 ], [ %199, %268 ], [ %199, %lean_dec.exit286 ], [ %294, %330 ], [ %294, %329 ], [ %294, %327 ], [ %294, %324 ], [ %294, %337 ], [ %294, %336 ], [ %294, %334 ], [ %294, %353 ], [ %294, %352 ], [ %294, %350 ], [ %294, %347 ], [ %294, %360 ], [ %294, %359 ], [ %294, %357 ], [ %294, %lean_nat_lt.exit407.thread602 ], [ %294, %lean_nat_lt.exit410.thread607 ], [ %294, %lean_nat_lt.exit407.thread ], [ %294, %lean_nat_lt.exit410.thread ], [ %383, %419 ], [ %383, %418 ], [ %383, %416 ], [ %383, %413 ], [ %383, %426 ], [ %383, %425 ], [ %383, %423 ], [ %383, %442 ], [ %383, %441 ], [ %383, %439 ], [ %383, %436 ], [ %383, %449 ], [ %383, %448 ], [ %383, %446 ], [ %383, %lean_nat_lt.exit416.thread613 ], [ %383, %lean_nat_lt.exit419.thread618 ], [ %383, %lean_nat_lt.exit416.thread ], [ %383, %lean_nat_lt.exit419.thread ], [ %462, %489 ], [ %462, %488 ], [ %462, %486 ], [ %462, %483 ], [ %462, %496 ], [ %462, %495 ], [ %462, %493 ], [ %462, %lean_nat_lt.exit422.thread621 ], [ %462, %lean_nat_lt.exit422.thread ], [ %499, %514 ], [ %499, %513 ], [ %499, %511 ], [ %499, %lean_inc.exit233 ], [ %736, %763 ], [ %736, %762 ], [ %736, %760 ], [ %736, %757 ], [ %736, %770 ], [ %736, %769 ], [ %736, %767 ], [ %736, %lean_nat_lt.exit431.thread630 ], [ %736, %lean_nat_lt.exit431.thread ]
+  %.0215.be = phi ptr [ %.0215, %lean_inc.exit233 ], [ %spec.select636, %lean_nat_lt.exit422.thread ], [ %69, %lean_dec.exit297 ], [ %.0.i461, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %264, %lean_dec.exit286 ], [ %284, %357 ], [ %373, %446 ], [ %61, %lean_dec.exit298 ], [ %.0.i456, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %.0.i456, %149 ], [ %.0.i456, %148 ], [ %.0.i456, %146 ], [ %.0.i461, %176 ], [ %.0.i461, %175 ], [ %.0.i461, %173 ], [ %240, %lean_dec.exit289 ], [ %240, %247 ], [ %240, %246 ], [ %240, %244 ], [ %264, %271 ], [ %264, %270 ], [ %264, %268 ], [ %.0215, %324 ], [ %274, %347 ], [ %spec.select, %lean_nat_lt.exit407.thread ], [ %.0215, %330 ], [ %.0215, %329 ], [ %.0215, %327 ], [ %284, %lean_nat_lt.exit410.thread607 ], [ %284, %337 ], [ %284, %336 ], [ %284, %334 ], [ %284, %lean_nat_lt.exit407.thread602 ], [ %274, %353 ], [ %274, %352 ], [ %274, %350 ], [ %spec.select633, %lean_nat_lt.exit410.thread ], [ %284, %360 ], [ %284, %359 ], [ %.0215, %413 ], [ %363, %436 ], [ %spec.select634, %lean_nat_lt.exit416.thread ], [ %.0215, %419 ], [ %.0215, %418 ], [ %.0215, %416 ], [ %373, %lean_nat_lt.exit419.thread618 ], [ %373, %426 ], [ %373, %425 ], [ %373, %423 ], [ %373, %lean_nat_lt.exit416.thread613 ], [ %363, %442 ], [ %363, %441 ], [ %363, %439 ], [ %spec.select635, %lean_nat_lt.exit419.thread ], [ %373, %449 ], [ %373, %448 ], [ %.0215, %483 ], [ %.0215, %489 ], [ %.0215, %488 ], [ %.0215, %486 ], [ %452, %lean_nat_lt.exit422.thread621 ], [ %452, %496 ], [ %452, %495 ], [ %452, %493 ], [ %.0215, %514 ], [ %.0215, %513 ], [ %.0215, %511 ], [ %.0215, %757 ], [ %.0215, %763 ], [ %.0215, %762 ], [ %.0215, %760 ], [ %726, %lean_nat_lt.exit431.thread630 ], [ %726, %770 ], [ %726, %769 ], [ %726, %767 ], [ %spec.select637, %lean_nat_lt.exit431.thread ]
+  %.0212.be = phi ptr [ %499, %lean_inc.exit233 ], [ %462, %lean_nat_lt.exit422.thread ], [ %33, %lean_dec.exit297 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit465 ], [ %199, %lean_dec.exit286 ], [ %294, %357 ], [ %383, %446 ], [ %33, %lean_dec.exit298 ], [ %102, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit ], [ %102, %149 ], [ %102, %148 ], [ %102, %146 ], [ %102, %176 ], [ %102, %175 ], [ %102, %173 ], [ %199, %lean_dec.exit289 ], [ %199, %247 ], [ %199, %246 ], [ %199, %244 ], [ %199, %271 ], [ %199, %270 ], [ %199, %268 ], [ %294, %324 ], [ %294, %347 ], [ %294, %lean_nat_lt.exit407.thread ], [ %294, %330 ], [ %294, %329 ], [ %294, %327 ], [ %294, %lean_nat_lt.exit410.thread607 ], [ %294, %337 ], [ %294, %336 ], [ %294, %334 ], [ %294, %lean_nat_lt.exit407.thread602 ], [ %294, %353 ], [ %294, %352 ], [ %294, %350 ], [ %294, %lean_nat_lt.exit410.thread ], [ %294, %360 ], [ %294, %359 ], [ %383, %413 ], [ %383, %436 ], [ %383, %lean_nat_lt.exit416.thread ], [ %383, %419 ], [ %383, %418 ], [ %383, %416 ], [ %383, %lean_nat_lt.exit419.thread618 ], [ %383, %426 ], [ %383, %425 ], [ %383, %423 ], [ %383, %lean_nat_lt.exit416.thread613 ], [ %383, %442 ], [ %383, %441 ], [ %383, %439 ], [ %383, %lean_nat_lt.exit419.thread ], [ %383, %449 ], [ %383, %448 ], [ %462, %483 ], [ %462, %489 ], [ %462, %488 ], [ %462, %486 ], [ %462, %lean_nat_lt.exit422.thread621 ], [ %462, %496 ], [ %462, %495 ], [ %462, %493 ], [ %499, %514 ], [ %499, %513 ], [ %499, %511 ], [ %736, %757 ], [ %736, %763 ], [ %736, %762 ], [ %736, %760 ], [ %736, %lean_nat_lt.exit431.thread630 ], [ %736, %770 ], [ %736, %769 ], [ %736, %767 ], [ %736, %lean_nat_lt.exit431.thread ]
   br label %.backedge
 
 764:                                              ; preds = %lean_nat_lt.exit431
@@ -5282,7 +5282,7 @@ lean_nat_lt.exit431.thread:                       ; preds = %754
   br label %.backedge.backedge
 
 lean_dec.exit264:                                 ; preds = %lean_obj_tag.exit, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543, %720, %722, %723, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534, %694, %696, %697, %lean_dec.exit260, %635, %637, %638, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516, %600, %602, %603, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit, %572, %574, %575
-  %.1 = phi ptr [ %.0.i.i, %575 ], [ %.0.i.i, %574 ], [ %.0.i.i, %572 ], [ %.0.i.i, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit ], [ %.0.i.i513, %603 ], [ %.0.i.i513, %602 ], [ %.0.i.i513, %600 ], [ %.0.i.i513, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516 ], [ %622, %638 ], [ %622, %637 ], [ %622, %635 ], [ %622, %lean_dec.exit260 ], [ %.0.i530, %697 ], [ %.0.i530, %696 ], [ %.0.i530, %694 ], [ %.0.i530, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534 ], [ %.0.i539, %723 ], [ %.0.i539, %722 ], [ %.0.i539, %720 ], [ %.0.i539, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543 ], [ %.0215, %lean_obj_tag.exit ]
+  %.1 = phi ptr [ %.0.i530, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit534 ], [ %.0.i.i513, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit516 ], [ %.0.i.i, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectAlts.exit ], [ %622, %lean_dec.exit260 ], [ %.0.i.i, %575 ], [ %.0.i.i, %574 ], [ %.0.i.i, %572 ], [ %.0.i.i513, %603 ], [ %.0.i.i513, %602 ], [ %.0.i.i513, %600 ], [ %622, %638 ], [ %622, %637 ], [ %622, %635 ], [ %.0.i530, %697 ], [ %.0.i530, %696 ], [ %.0.i530, %694 ], [ %.0.i539, %723 ], [ %.0.i539, %722 ], [ %.0.i539, %720 ], [ %.0.i539, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit543 ], [ %.0215, %lean_obj_tag.exit ]
   ret ptr %.1
 }
 
@@ -5419,7 +5419,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit26
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit: ; preds = %lean_dec.exit24.i, %47, %49, %50, %lean_dec.exit.i
-  %.0.i41 = phi ptr [ %51, %lean_dec.exit.i ], [ %1, %50 ], [ %1, %49 ], [ %1, %47 ], [ %1, %lean_dec.exit24.i ]
+  %.0.i41 = phi ptr [ %51, %lean_dec.exit.i ], [ %1, %lean_dec.exit24.i ], [ %1, %50 ], [ %1, %49 ], [ %1, %47 ]
   br i1 %.not55, label %52, label %lean_dec.exit25
 
 52:                                               ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit
@@ -5523,7 +5523,7 @@ lean_dec.exit.i48:                                ; preds = %lean_dec.exit24
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit53
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit53: ; preds = %lean_dec.exit24.i50, %81, %83, %84, %lean_dec.exit.i48
-  %.0.i49 = phi ptr [ %85, %lean_dec.exit.i48 ], [ %1, %84 ], [ %1, %83 ], [ %1, %81 ], [ %1, %lean_dec.exit24.i50 ]
+  %.0.i49 = phi ptr [ %85, %lean_dec.exit.i48 ], [ %1, %lean_dec.exit24.i50 ], [ %1, %84 ], [ %1, %83 ], [ %1, %81 ]
   br i1 %.not55, label %86, label %lean_dec.exit
 
 86:                                               ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_MaxIndex_collectArray___rarg.exit53
@@ -5810,7 +5810,7 @@ lean_nat_lt.exit.thread:                          ; preds = %33
   br i1 %45, label %.split53.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
-  %.024.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %41, %.thread ]
+  %.024.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %35, %lean_nat_lt.exit ], [ %41, %.thread ]
   br label %.split
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit
@@ -6956,7 +6956,7 @@ lean_dec.exit16:                                  ; preds = %lean_obj_tag.exit28
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit16, %49, %51, %52, %lean_obj_tag.exit, %38
-  %.1 = phi ptr [ %39, %38 ], [ %2, %lean_obj_tag.exit ], [ %2, %52 ], [ %2, %51 ], [ %2, %49 ], [ %2, %lean_dec.exit16 ]
+  %.1 = phi ptr [ %2, %lean_obj_tag.exit ], [ %39, %38 ], [ %2, %52 ], [ %2, %51 ], [ %2, %49 ], [ %2, %lean_dec.exit16 ]
   ret ptr %.1
 }
 
@@ -7429,7 +7429,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit27
 
 lean_dec.exit27:                                  ; preds = %lean_dec.exit28, %19, %21, %22, %lean_dec.exit
-  %.0 = phi ptr [ %23, %lean_dec.exit ], [ %3, %22 ], [ %3, %21 ], [ %3, %19 ], [ %3, %lean_dec.exit28 ]
+  %.0 = phi ptr [ %23, %lean_dec.exit ], [ %3, %lean_dec.exit28 ], [ %3, %22 ], [ %3, %21 ], [ %3, %19 ]
   ret ptr %.0
 }
 
@@ -7518,7 +7518,7 @@ lean_dec.exit.i:                                  ; preds = %4
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit: ; preds = %lean_dec.exit28.i, %20, %22, %23, %lean_dec.exit.i
-  %.0.i = phi ptr [ %24, %lean_dec.exit.i ], [ %3, %23 ], [ %3, %22 ], [ %3, %20 ], [ %3, %lean_dec.exit28.i ]
+  %.0.i = phi ptr [ %24, %lean_dec.exit.i ], [ %3, %lean_dec.exit28.i ], [ %3, %23 ], [ %3, %22 ], [ %3, %20 ]
   %25 = ptrtoint ptr %0 to i64
   %26 = and i64 %25, 1
   %.not = icmp eq i64 %26, 0
@@ -7608,7 +7608,7 @@ lean_dec.exit.i:                                  ; preds = %3
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit: ; preds = %lean_dec.exit28.i, %20, %22, %23, %lean_dec.exit.i
-  %.0.i = phi ptr [ %24, %lean_dec.exit.i ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %2, %lean_dec.exit28.i ]
+  %.0.i = phi ptr [ %24, %lean_dec.exit.i ], [ %2, %lean_dec.exit28.i ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ]
   ret ptr %.0.i
 }
 
@@ -7674,7 +7674,7 @@ lean_dec.exit.i.i:                                ; preds = %3
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArgs.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArgs.exit: ; preds = %lean_dec.exit28.i.i, %20, %22, %23, %lean_dec.exit.i.i
-  %.0.i.i = phi ptr [ %24, %lean_dec.exit.i.i ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %2, %lean_dec.exit28.i.i ]
+  %.0.i.i = phi ptr [ %24, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit28.i.i ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ]
   %25 = ptrtoint ptr %0 to i64
   %26 = and i64 %25, 1
   %.not = icmp eq i64 %26, 0
@@ -7842,7 +7842,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit180
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit: ; preds = %lean_dec.exit28.i, %46, %48, %49, %lean_dec.exit.i
-  %.0.i252 = phi ptr [ %50, %lean_dec.exit.i ], [ %2, %49 ], [ %2, %48 ], [ %2, %46 ], [ %2, %lean_dec.exit28.i ]
+  %.0.i252 = phi ptr [ %50, %lean_dec.exit.i ], [ %2, %lean_dec.exit28.i ], [ %2, %49 ], [ %2, %48 ], [ %2, %46 ]
   br i1 %.not410, label %51, label %lean_dec.exit179
 
 51:                                               ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
@@ -8016,7 +8016,7 @@ lean_dec.exit.i266:                               ; preds = %93
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274: ; preds = %lean_dec.exit28.i270, %111, %113, %114, %lean_dec.exit.i266
-  %.0.i267 = phi ptr [ %115, %lean_dec.exit.i266 ], [ %94, %114 ], [ %94, %113 ], [ %94, %111 ], [ %94, %lean_dec.exit28.i270 ]
+  %.0.i267 = phi ptr [ %115, %lean_dec.exit.i266 ], [ %94, %lean_dec.exit28.i270 ], [ %94, %114 ], [ %94, %113 ], [ %94, %111 ]
   br i1 %.not408, label %116, label %lean_dec.exit179
 
 116:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274
@@ -8137,7 +8137,7 @@ lean_dec.exit.i278:                               ; preds = %lean_dec.exit175
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286: ; preds = %lean_dec.exit28.i282, %152, %154, %155, %lean_dec.exit.i278
-  %.0.i279 = phi ptr [ %156, %lean_dec.exit.i278 ], [ %2, %155 ], [ %2, %154 ], [ %2, %152 ], [ %2, %lean_dec.exit28.i282 ]
+  %.0.i279 = phi ptr [ %156, %lean_dec.exit.i278 ], [ %2, %lean_dec.exit28.i282 ], [ %2, %155 ], [ %2, %154 ], [ %2, %152 ]
   br i1 %.not408, label %157, label %lean_dec.exit179
 
 157:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286
@@ -8398,7 +8398,7 @@ lean_dec.exit.i300:                               ; preds = %lean_dec.exit169
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308: ; preds = %lean_dec.exit28.i304, %247, %249, %250, %lean_dec.exit.i300
-  %.0.i301 = phi ptr [ %251, %lean_dec.exit.i300 ], [ %2, %250 ], [ %2, %249 ], [ %2, %247 ], [ %2, %lean_dec.exit28.i304 ]
+  %.0.i301 = phi ptr [ %251, %lean_dec.exit.i300 ], [ %2, %lean_dec.exit28.i304 ], [ %2, %250 ], [ %2, %249 ], [ %2, %247 ]
   br i1 %.not402, label %252, label %lean_dec.exit179
 
 252:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308
@@ -8527,7 +8527,7 @@ lean_dec.exit.i315:                               ; preds = %lean_dec.exit167
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323: ; preds = %lean_dec.exit28.i319, %293, %295, %296, %lean_dec.exit.i315
-  %.0.i316 = phi ptr [ %297, %lean_dec.exit.i315 ], [ %2, %296 ], [ %2, %295 ], [ %2, %293 ], [ %2, %lean_dec.exit28.i319 ]
+  %.0.i316 = phi ptr [ %297, %lean_dec.exit.i315 ], [ %2, %lean_dec.exit28.i319 ], [ %2, %296 ], [ %2, %295 ], [ %2, %293 ]
   br i1 %.not400, label %298, label %lean_dec.exit179
 
 298:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323
@@ -8701,7 +8701,7 @@ lean_dec.exit.i337:                               ; preds = %340
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345: ; preds = %lean_dec.exit28.i341, %358, %360, %361, %lean_dec.exit.i337
-  %.0.i338 = phi ptr [ %362, %lean_dec.exit.i337 ], [ %341, %361 ], [ %341, %360 ], [ %341, %358 ], [ %341, %lean_dec.exit28.i341 ]
+  %.0.i338 = phi ptr [ %362, %lean_dec.exit.i337 ], [ %341, %lean_dec.exit28.i341 ], [ %341, %361 ], [ %341, %360 ], [ %341, %358 ]
   br i1 %.not398, label %363, label %lean_dec.exit179
 
 363:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345
@@ -8822,7 +8822,7 @@ lean_dec.exit.i349:                               ; preds = %lean_dec.exit162
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357: ; preds = %lean_dec.exit28.i353, %399, %401, %402, %lean_dec.exit.i349
-  %.0.i350 = phi ptr [ %403, %lean_dec.exit.i349 ], [ %2, %402 ], [ %2, %401 ], [ %2, %399 ], [ %2, %lean_dec.exit28.i353 ]
+  %.0.i350 = phi ptr [ %403, %lean_dec.exit.i349 ], [ %2, %lean_dec.exit28.i353 ], [ %2, %402 ], [ %2, %401 ], [ %2, %399 ]
   br i1 %.not398, label %404, label %lean_dec.exit179
 
 404:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357
@@ -9285,7 +9285,7 @@ lean_dec.exit148:                                 ; preds = %lean_obj_tag.exit37
   br label %lean_dec.exit179
 
 lean_dec.exit179:                                 ; preds = %lean_dec.exit148, %571, %573, %574, %lean_dec.exit152, %522, %524, %525, %lean_dec.exit156, %473, %475, %476, %lean_dec.exit158, %456, %458, %459, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357, %407, %409, %410, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345, %366, %368, %369, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323, %301, %303, %304, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308, %255, %257, %258, %lean_dec.exit171, %209, %211, %212, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286, %160, %162, %163, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274, %119, %121, %122, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit, %54, %56, %57, %560, %511, %445, %198
-  %.0 = phi ptr [ %199, %198 ], [ %446, %445 ], [ %512, %511 ], [ %561, %560 ], [ %.0.i252, %57 ], [ %.0.i252, %56 ], [ %.0.i252, %54 ], [ %.0.i252, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit ], [ %.0.i267, %122 ], [ %.0.i267, %121 ], [ %.0.i267, %119 ], [ %.0.i267, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274 ], [ %.0.i279, %163 ], [ %.0.i279, %162 ], [ %.0.i279, %160 ], [ %.0.i279, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286 ], [ %2, %212 ], [ %2, %211 ], [ %2, %209 ], [ %2, %lean_dec.exit171 ], [ %.0.i301, %258 ], [ %.0.i301, %257 ], [ %.0.i301, %255 ], [ %.0.i301, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308 ], [ %.0.i316, %304 ], [ %.0.i316, %303 ], [ %.0.i316, %301 ], [ %.0.i316, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323 ], [ %.0.i338, %369 ], [ %.0.i338, %368 ], [ %.0.i338, %366 ], [ %.0.i338, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345 ], [ %.0.i350, %410 ], [ %.0.i350, %409 ], [ %.0.i350, %407 ], [ %.0.i350, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357 ], [ %2, %459 ], [ %2, %458 ], [ %2, %456 ], [ %2, %lean_dec.exit158 ], [ %2, %476 ], [ %2, %475 ], [ %2, %473 ], [ %2, %lean_dec.exit156 ], [ %2, %525 ], [ %2, %524 ], [ %2, %522 ], [ %2, %lean_dec.exit152 ], [ %2, %574 ], [ %2, %573 ], [ %2, %571 ], [ %2, %lean_dec.exit148 ]
+  %.0 = phi ptr [ %2, %lean_dec.exit156 ], [ %2, %lean_dec.exit152 ], [ %.0.i350, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit357 ], [ %.0.i267, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit274 ], [ %2, %lean_dec.exit171 ], [ %.0.i301, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit308 ], [ %.0.i279, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit286 ], [ %.0.i338, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit345 ], [ %2, %lean_dec.exit158 ], [ %.0.i252, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit ], [ %199, %198 ], [ %.0.i316, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit323 ], [ %446, %445 ], [ %512, %511 ], [ %561, %560 ], [ %.0.i252, %57 ], [ %.0.i252, %56 ], [ %.0.i252, %54 ], [ %.0.i267, %122 ], [ %.0.i267, %121 ], [ %.0.i267, %119 ], [ %.0.i279, %163 ], [ %.0.i279, %162 ], [ %.0.i279, %160 ], [ %2, %212 ], [ %2, %211 ], [ %2, %209 ], [ %.0.i301, %258 ], [ %.0.i301, %257 ], [ %.0.i301, %255 ], [ %.0.i316, %304 ], [ %.0.i316, %303 ], [ %.0.i316, %301 ], [ %.0.i338, %369 ], [ %.0.i338, %368 ], [ %.0.i338, %366 ], [ %.0.i350, %410 ], [ %.0.i350, %409 ], [ %.0.i350, %407 ], [ %2, %459 ], [ %2, %458 ], [ %2, %456 ], [ %2, %476 ], [ %2, %475 ], [ %2, %473 ], [ %2, %525 ], [ %2, %524 ], [ %2, %522 ], [ %2, %574 ], [ %2, %573 ], [ %2, %571 ], [ %2, %lean_dec.exit148 ]
   ret ptr %.0
 }
 
@@ -9378,7 +9378,7 @@ lean_dec.exit.i:                                  ; preds = %lean_alloc_closure.
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit: ; preds = %lean_dec.exit28.i, %28, %30, %31, %lean_dec.exit.i
-  %.0.i = phi ptr [ %32, %lean_dec.exit.i ], [ %3, %31 ], [ %3, %30 ], [ %3, %28 ], [ %3, %lean_dec.exit28.i ]
+  %.0.i = phi ptr [ %32, %lean_dec.exit.i ], [ %3, %lean_dec.exit28.i ], [ %3, %31 ], [ %3, %30 ], [ %3, %28 ]
   ret ptr %.0.i
 }
 
@@ -11104,7 +11104,7 @@ lean_dec.exit.i520:                               ; preds = %596
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit: ; preds = %lean_dec.exit28.i, %614, %616, %617, %lean_dec.exit.i520
-  %.0.i521 = phi ptr [ %618, %lean_dec.exit.i520 ], [ %597, %617 ], [ %597, %616 ], [ %597, %614 ], [ %597, %lean_dec.exit28.i ]
+  %.0.i521 = phi ptr [ %618, %lean_dec.exit.i520 ], [ %597, %lean_dec.exit28.i ], [ %597, %617 ], [ %597, %616 ], [ %597, %614 ]
   br i1 %.not566, label %619, label %lean_dec.exit292
 
 619:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit
@@ -11225,7 +11225,7 @@ lean_dec.exit.i525:                               ; preds = %lean_dec.exit283
   br label %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533
 
 l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533: ; preds = %lean_dec.exit28.i529, %655, %657, %658, %lean_dec.exit.i525
-  %.0.i526 = phi ptr [ %659, %lean_dec.exit.i525 ], [ %.0242, %658 ], [ %.0242, %657 ], [ %.0242, %655 ], [ %.0242, %lean_dec.exit28.i529 ]
+  %.0.i526 = phi ptr [ %659, %lean_dec.exit.i525 ], [ %.0242, %lean_dec.exit28.i529 ], [ %.0242, %658 ], [ %.0242, %657 ], [ %.0242, %655 ]
   br i1 %.not566, label %660, label %lean_dec.exit292
 
 660:                                              ; preds = %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533
@@ -11366,9 +11366,9 @@ lean_obj_tag.exit543.thread:                      ; preds = %lean_dec.exit280
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %712, %726, %725, %723, %lean_dec.exit279, %lean_inc.exit258, %461, %463, %464, %432, %446, %445, %443, %lean_dec.exit296, %347, %382, %361, %360, %358, %lean_dec.exit303, %396, %395, %393, %lean_dec.exit299, %243, %278, %257, %256, %254, %lean_dec.exit310, %292, %291, %289, %lean_dec.exit306, %172, %lean_dec.exit312, %lean_inc.exit275, %lean_dec.exit315
-  %.0242.be = phi ptr [ %58, %lean_inc.exit275 ], [ %125, %lean_dec.exit315 ], [ %174, %172 ], [ %188, %lean_dec.exit312 ], [ %244, %243 ], [ %279, %278 ], [ %235, %257 ], [ %235, %256 ], [ %235, %254 ], [ %235, %lean_dec.exit310 ], [ %.0242, %292 ], [ %.0242, %291 ], [ %.0242, %289 ], [ %.0242, %lean_dec.exit306 ], [ %348, %347 ], [ %383, %382 ], [ %339, %361 ], [ %339, %360 ], [ %339, %358 ], [ %339, %lean_dec.exit303 ], [ %.0242, %396 ], [ %.0242, %395 ], [ %.0242, %393 ], [ %.0242, %lean_dec.exit299 ], [ %433, %432 ], [ %.0242, %446 ], [ %.0242, %445 ], [ %.0242, %443 ], [ %.0242, %lean_dec.exit296 ], [ %.0242, %464 ], [ %.0242, %463 ], [ %.0242, %461 ], [ %.0242, %lean_inc.exit258 ], [ %713, %712 ], [ %.0242, %726 ], [ %.0242, %725 ], [ %.0242, %723 ], [ %.0242, %lean_dec.exit279 ]
-  %.0241.be = phi ptr [ %59, %lean_inc.exit275 ], [ %126, %lean_dec.exit315 ], [ %.0241, %172 ], [ %.0241, %lean_dec.exit312 ], [ %.0241, %243 ], [ %.0241, %278 ], [ %.0241, %257 ], [ %.0241, %256 ], [ %.0241, %254 ], [ %.0241, %lean_dec.exit310 ], [ %.0241, %292 ], [ %.0241, %291 ], [ %.0241, %289 ], [ %.0241, %lean_dec.exit306 ], [ %.0241, %347 ], [ %.0241, %382 ], [ %.0241, %361 ], [ %.0241, %360 ], [ %.0241, %358 ], [ %.0241, %lean_dec.exit303 ], [ %.0241, %396 ], [ %.0241, %395 ], [ %.0241, %393 ], [ %.0241, %lean_dec.exit299 ], [ %.0241, %432 ], [ %.0241, %446 ], [ %.0241, %445 ], [ %.0241, %443 ], [ %.0241, %lean_dec.exit296 ], [ %.0241, %464 ], [ %.0241, %463 ], [ %.0241, %461 ], [ %.0241, %lean_inc.exit258 ], [ %.0241, %712 ], [ %.0241, %726 ], [ %.0241, %725 ], [ %.0241, %723 ], [ %.0241, %lean_dec.exit279 ]
-  %.0238.be = phi ptr [ %34, %lean_inc.exit275 ], [ %92, %lean_dec.exit315 ], [ %149, %172 ], [ %149, %lean_dec.exit312 ], [ %211, %243 ], [ %211, %278 ], [ %211, %257 ], [ %211, %256 ], [ %211, %254 ], [ %211, %lean_dec.exit310 ], [ %211, %292 ], [ %211, %291 ], [ %211, %289 ], [ %211, %lean_dec.exit306 ], [ %315, %347 ], [ %315, %382 ], [ %315, %361 ], [ %315, %360 ], [ %315, %358 ], [ %315, %lean_dec.exit303 ], [ %315, %396 ], [ %315, %395 ], [ %315, %393 ], [ %315, %lean_dec.exit299 ], [ %409, %432 ], [ %409, %446 ], [ %409, %445 ], [ %409, %443 ], [ %409, %lean_dec.exit296 ], [ %449, %464 ], [ %449, %463 ], [ %449, %461 ], [ %449, %lean_inc.exit258 ], [ %689, %712 ], [ %689, %726 ], [ %689, %725 ], [ %689, %723 ], [ %689, %lean_dec.exit279 ]
+  %.0242.be = phi ptr [ %.0242, %lean_inc.exit258 ], [ %58, %lean_inc.exit275 ], [ %125, %lean_dec.exit315 ], [ %.0242, %lean_dec.exit296 ], [ %188, %lean_dec.exit312 ], [ %.0242, %lean_dec.exit306 ], [ %.0242, %lean_dec.exit299 ], [ %174, %172 ], [ %235, %lean_dec.exit310 ], [ %244, %243 ], [ %279, %278 ], [ %235, %257 ], [ %235, %256 ], [ %235, %254 ], [ %.0242, %292 ], [ %.0242, %291 ], [ %.0242, %289 ], [ %339, %lean_dec.exit303 ], [ %348, %347 ], [ %383, %382 ], [ %339, %361 ], [ %339, %360 ], [ %339, %358 ], [ %.0242, %396 ], [ %.0242, %395 ], [ %.0242, %393 ], [ %433, %432 ], [ %.0242, %446 ], [ %.0242, %445 ], [ %.0242, %443 ], [ %.0242, %464 ], [ %.0242, %463 ], [ %.0242, %461 ], [ %713, %712 ], [ %.0242, %726 ], [ %.0242, %725 ], [ %.0242, %723 ], [ %.0242, %lean_dec.exit279 ]
+  %.0241.be = phi ptr [ %.0241, %lean_inc.exit258 ], [ %59, %lean_inc.exit275 ], [ %126, %lean_dec.exit315 ], [ %.0241, %lean_dec.exit296 ], [ %.0241, %lean_dec.exit312 ], [ %.0241, %lean_dec.exit306 ], [ %.0241, %lean_dec.exit299 ], [ %.0241, %172 ], [ %.0241, %lean_dec.exit310 ], [ %.0241, %243 ], [ %.0241, %278 ], [ %.0241, %257 ], [ %.0241, %256 ], [ %.0241, %254 ], [ %.0241, %292 ], [ %.0241, %291 ], [ %.0241, %289 ], [ %.0241, %lean_dec.exit303 ], [ %.0241, %347 ], [ %.0241, %382 ], [ %.0241, %361 ], [ %.0241, %360 ], [ %.0241, %358 ], [ %.0241, %396 ], [ %.0241, %395 ], [ %.0241, %393 ], [ %.0241, %432 ], [ %.0241, %446 ], [ %.0241, %445 ], [ %.0241, %443 ], [ %.0241, %464 ], [ %.0241, %463 ], [ %.0241, %461 ], [ %.0241, %712 ], [ %.0241, %726 ], [ %.0241, %725 ], [ %.0241, %723 ], [ %.0241, %lean_dec.exit279 ]
+  %.0238.be = phi ptr [ %449, %lean_inc.exit258 ], [ %34, %lean_inc.exit275 ], [ %92, %lean_dec.exit315 ], [ %409, %lean_dec.exit296 ], [ %149, %lean_dec.exit312 ], [ %211, %lean_dec.exit306 ], [ %315, %lean_dec.exit299 ], [ %149, %172 ], [ %211, %lean_dec.exit310 ], [ %211, %243 ], [ %211, %278 ], [ %211, %257 ], [ %211, %256 ], [ %211, %254 ], [ %211, %292 ], [ %211, %291 ], [ %211, %289 ], [ %315, %lean_dec.exit303 ], [ %315, %347 ], [ %315, %382 ], [ %315, %361 ], [ %315, %360 ], [ %315, %358 ], [ %315, %396 ], [ %315, %395 ], [ %315, %393 ], [ %409, %432 ], [ %409, %446 ], [ %409, %445 ], [ %409, %443 ], [ %449, %464 ], [ %449, %463 ], [ %449, %461 ], [ %689, %712 ], [ %689, %726 ], [ %689, %725 ], [ %689, %723 ], [ %689, %lean_dec.exit279 ]
   br label %.backedge
 
 .thread564:                                       ; preds = %lean_obj_tag.exit543.thread
@@ -11411,7 +11411,7 @@ lean_dec.exit279:                                 ; preds = %lean_obj_tag.exit54
   br label %.backedge.backedge
 
 lean_dec.exit292:                                 ; preds = %667, %673, %675, %676, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533, %663, %665, %666, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit, %622, %624, %625, %lean_dec.exit288, %557, %559, %560, %lean_dec.exit290, %529, %531, %532, %500, %507, %509, %510
-  %.1 = phi ptr [ %503, %510 ], [ %503, %509 ], [ %503, %507 ], [ %503, %500 ], [ %525, %532 ], [ %525, %531 ], [ %525, %529 ], [ %525, %lean_dec.exit290 ], [ %551, %560 ], [ %551, %559 ], [ %551, %557 ], [ %551, %lean_dec.exit288 ], [ %.0.i521, %625 ], [ %.0.i521, %624 ], [ %.0.i521, %622 ], [ %.0.i521, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit ], [ %.0.i526, %666 ], [ %.0.i526, %665 ], [ %.0.i526, %663 ], [ %.0.i526, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533 ], [ %.0242, %676 ], [ %.0242, %675 ], [ %.0242, %673 ], [ %.0242, %667 ]
+  %.1 = phi ptr [ %.0.i526, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit533 ], [ %525, %lean_dec.exit290 ], [ %503, %500 ], [ %.0.i521, %l___private_Lean_Compiler_IR_FreeVars_0__Lean_IR_FreeIndices_collectArray___rarg.exit ], [ %551, %lean_dec.exit288 ], [ %503, %510 ], [ %503, %509 ], [ %503, %507 ], [ %525, %532 ], [ %525, %531 ], [ %525, %529 ], [ %551, %560 ], [ %551, %559 ], [ %551, %557 ], [ %.0.i521, %625 ], [ %.0.i521, %624 ], [ %.0.i521, %622 ], [ %.0.i526, %666 ], [ %.0.i526, %665 ], [ %.0.i526, %663 ], [ %.0242, %676 ], [ %.0242, %675 ], [ %.0242, %673 ], [ %.0242, %667 ]
   ret ptr %.1
 }
 
@@ -12622,7 +12622,7 @@ lean_nat_eq.exit62:                               ; preds = %108, %.critedge.i60
   br label %l_Lean_IR_HasIndex_visitArgs.exit
 
 l_Lean_IR_HasIndex_visitArgs.exit:                ; preds = %67, %27, %lean_dec.exit.i88, %70, %lean_dec.exit.i82, %51, %lean_dec.exit.i76, %46, %lean_dec.exit.i70, %30, %lean_dec.exit.i, %11, %lean_obj_tag.exit, %lean_nat_eq.exit53, %lean_nat_eq.exit, %lean_nat_eq.exit62, %lean_nat_eq.exit59, %lean_nat_eq.exit56, %lean_nat_eq.exit50
-  %.0 = phi i8 [ %111, %lean_nat_eq.exit62 ], [ %45, %lean_nat_eq.exit50 ], [ %85, %lean_nat_eq.exit56 ], [ %98, %lean_nat_eq.exit59 ], [ 1, %lean_nat_eq.exit ], [ 1, %lean_nat_eq.exit53 ], [ 0, %lean_obj_tag.exit ], [ %15, %lean_dec.exit.i ], [ 0, %11 ], [ %32, %lean_dec.exit.i70 ], [ 0, %30 ], [ %50, %lean_dec.exit.i76 ], [ 0, %46 ], [ %55, %lean_dec.exit.i82 ], [ 0, %51 ], [ %72, %lean_dec.exit.i88 ], [ 0, %70 ], [ 1, %27 ], [ 1, %67 ]
+  %.0 = phi i8 [ %111, %lean_nat_eq.exit62 ], [ 0, %lean_obj_tag.exit ], [ %98, %lean_nat_eq.exit59 ], [ %45, %lean_nat_eq.exit50 ], [ 0, %30 ], [ 0, %46 ], [ 1, %lean_nat_eq.exit ], [ %85, %lean_nat_eq.exit56 ], [ 1, %lean_nat_eq.exit53 ], [ 0, %11 ], [ 0, %51 ], [ %15, %lean_dec.exit.i ], [ %32, %lean_dec.exit.i70 ], [ %50, %lean_dec.exit.i76 ], [ %55, %lean_dec.exit.i82 ], [ %72, %lean_dec.exit.i88 ], [ 0, %70 ], [ 1, %27 ], [ 1, %67 ]
   ret i8 %.0
 }
 
@@ -13131,7 +13131,7 @@ lean_dec.exit.i:                                  ; preds = %154
   br i1 %166, label %lean_dec.exit142, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %165, %102, %91, %74, %57, %l_Lean_IR_HasIndex_visitArg.exit, %lean_obj_tag.exit.i, %105, %14, %21, %lean_nat_eq.exit159, %lean_nat_eq.exit168, %lean_nat_eq.exit150, %lean_nat_eq.exit156
-  %.0107.be = phi ptr [ %161, %lean_nat_eq.exit168 ], [ %18, %14 ], [ %25, %21 ], [ %98, %lean_nat_eq.exit159 ], [ %107, %105 ], [ %66, %lean_nat_eq.exit150 ], [ %83, %lean_nat_eq.exit156 ], [ %34, %lean_obj_tag.exit.i ], [ %34, %l_Lean_IR_HasIndex_visitArg.exit ], [ %34, %57 ], [ %66, %74 ], [ %83, %91 ], [ %98, %102 ], [ %161, %165 ]
+  %.0107.be = phi ptr [ %161, %lean_nat_eq.exit168 ], [ %18, %14 ], [ %25, %21 ], [ %83, %lean_nat_eq.exit156 ], [ %107, %105 ], [ %66, %lean_nat_eq.exit150 ], [ %98, %lean_nat_eq.exit159 ], [ %34, %lean_obj_tag.exit.i ], [ %34, %l_Lean_IR_HasIndex_visitArg.exit ], [ %34, %57 ], [ %66, %74 ], [ %83, %91 ], [ %98, %102 ], [ %161, %165 ]
   br label %.backedge
 
 lean_nat_eq.exit168:                              ; preds = %157
@@ -13139,7 +13139,7 @@ lean_nat_eq.exit168:                              ; preds = %157
   br i1 %167, label %lean_dec.exit142, label %.backedge.backedge
 
 lean_dec.exit142:                                 ; preds = %lean_nat_eq.exit153.thread208, %lean_nat_eq.exit153.thread, %lean_nat_eq.exit153, %lean_nat_eq.exit156, %lean_nat_eq.exit147.thread206, %lean_nat_eq.exit147.thread, %lean_nat_eq.exit147, %lean_nat_eq.exit150, %lean_nat_eq.exit, %l_Lean_IR_HasIndex_visitArg.exit, %lean_nat_eq.exit168, %lean_nat_eq.exit159, %21, %14, %lean_obj_tag.exit, %38, %57, %74, %91, %102, %165, %151, %116, %lean_dec.exit.i, %154, %lean_nat_eq.exit.i181, %lean_obj_tag.exit.i176, %lean_nat_lt.exit, %lean_nat_eq.exit165, %lean_dec.exit, %lean_nat_eq.exit162
-  %.2 = phi i8 [ %120, %lean_dec.exit ], [ 1, %lean_nat_eq.exit162 ], [ 1, %lean_nat_eq.exit165 ], [ 0, %lean_nat_lt.exit ], [ %142, %lean_nat_eq.exit.i181 ], [ 0, %lean_obj_tag.exit.i176 ], [ %156, %lean_dec.exit.i ], [ 0, %154 ], [ 1, %116 ], [ 1, %151 ], [ 1, %165 ], [ 1, %102 ], [ 1, %91 ], [ 1, %74 ], [ 1, %57 ], [ 1, %38 ], [ 1, %lean_nat_eq.exit153.thread208 ], [ 1, %lean_nat_eq.exit153.thread ], [ 1, %lean_nat_eq.exit153 ], [ 1, %lean_nat_eq.exit156 ], [ 1, %lean_nat_eq.exit147.thread206 ], [ 1, %lean_nat_eq.exit147.thread ], [ 1, %lean_nat_eq.exit147 ], [ 1, %lean_nat_eq.exit150 ], [ 1, %lean_nat_eq.exit ], [ 1, %l_Lean_IR_HasIndex_visitArg.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %lean_nat_eq.exit159 ], [ 1, %21 ], [ 1, %14 ], [ 1, %lean_nat_eq.exit168 ]
+  %.2 = phi i8 [ 0, %lean_nat_lt.exit ], [ 1, %lean_nat_eq.exit162 ], [ %120, %lean_dec.exit ], [ 0, %154 ], [ %156, %lean_dec.exit.i ], [ 0, %lean_obj_tag.exit.i176 ], [ %142, %lean_nat_eq.exit.i181 ], [ 1, %lean_nat_eq.exit165 ], [ 1, %151 ], [ 1, %116 ], [ 1, %165 ], [ 1, %102 ], [ 1, %91 ], [ 1, %74 ], [ 1, %57 ], [ 1, %38 ], [ 1, %lean_nat_eq.exit153.thread208 ], [ 1, %lean_nat_eq.exit153.thread ], [ 1, %lean_nat_eq.exit153 ], [ 1, %lean_nat_eq.exit156 ], [ 1, %lean_nat_eq.exit147.thread ], [ 1, %lean_nat_eq.exit147 ], [ 1, %lean_nat_eq.exit150 ], [ 1, %l_Lean_IR_HasIndex_visitArg.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %lean_nat_eq.exit159 ], [ 1, %lean_nat_eq.exit147.thread206 ], [ 1, %lean_nat_eq.exit ], [ 1, %21 ], [ 1, %14 ], [ 1, %lean_nat_eq.exit168 ]
   ret i8 %.2
 }
 

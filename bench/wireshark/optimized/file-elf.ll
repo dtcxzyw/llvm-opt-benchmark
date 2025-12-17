@@ -1559,8 +1559,8 @@ value_guard.exit1050:                             ; preds = %354
   br label %value_guard.exit1045
 
 value_guard.exit1045:                             ; preds = %380, %377
-  %.1960 = phi i64 [ %.0989, %377 ], [ %.09591232, %380 ]
-  %.1958 = phi i64 [ %.09571233, %377 ], [ %spec.select1039, %380 ]
+  %.1960 = phi i64 [ %.09591232, %380 ], [ %.0989, %377 ]
+  %.1958 = phi i64 [ %spec.select1039, %380 ], [ %.09571233, %377 ]
   %383 = add i32 %191, %363
   %.not1024 = icmp eq i16 %336, 0
   br i1 %.not1024, label %.lr.ph1260, label %335, !llvm.loop !8
@@ -2003,14 +2003,14 @@ value_guard.exit169.i:                            ; preds = %value_guard.exit168
   br label %613
 
 613:                                              ; preds = %604, %.thread243.i, %.thread225.i
-  %614 = phi i32 [ %602, %.thread243.i ], [ %592, %.thread225.i ], [ %610, %604 ]
-  %.1241.i = phi i32 [ %597, %.thread243.i ], [ %.0192.i, %.thread225.i ], [ 0, %604 ]
-  %.1145239.i = phi i32 [ %.0144191.i, %.thread243.i ], [ %.0144191.i, %.thread225.i ], [ %605, %604 ]
-  %.1152237.i = phi i32 [ %598, %.thread243.i ], [ %.0151188.i, %.thread225.i ], [ %595, %604 ]
-  %.1156235.i = phi ptr [ %.0155187.i, %.thread243.i ], [ %.0155187.i, %.thread225.i ], [ %607, %604 ]
-  %.0157233.i = phi ptr [ %601, %.thread243.i ], [ %591, %.thread225.i ], [ %609, %604 ]
-  %615 = phi i1 [ false, %.thread243.i ], [ true, %.thread225.i ], [ %585, %604 ]
-  %616 = phi i32 [ %603, %.thread243.i ], [ %593, %.thread225.i ], [ %spec.select.i, %604 ]
+  %614 = phi i32 [ %602, %.thread243.i ], [ %610, %604 ], [ %592, %.thread225.i ]
+  %.1241.i = phi i32 [ %597, %.thread243.i ], [ 0, %604 ], [ %.0192.i, %.thread225.i ]
+  %.1145239.i = phi i32 [ %.0144191.i, %.thread243.i ], [ %605, %604 ], [ %.0144191.i, %.thread225.i ]
+  %.1152237.i = phi i32 [ %598, %.thread243.i ], [ %595, %604 ], [ %.0151188.i, %.thread225.i ]
+  %.1156235.i = phi ptr [ %.0155187.i, %.thread243.i ], [ %607, %604 ], [ %.0155187.i, %.thread225.i ]
+  %.0157233.i = phi ptr [ %601, %.thread243.i ], [ %609, %604 ], [ %591, %.thread225.i ]
+  %615 = phi i1 [ false, %.thread243.i ], [ %585, %604 ], [ true, %.thread225.i ]
+  %616 = phi i32 [ %603, %.thread243.i ], [ %spec.select.i, %604 ], [ %593, %.thread225.i ]
   %617 = call ptr @proto_tree_add_item(ptr noundef %.0157233.i, i32 noundef %616, ptr noundef %0, i32 noundef %.0147190.i, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.)
   %618 = add nuw i32 %.0147190.i, 4
   br i1 %580, label %619, label %625
@@ -2255,7 +2255,7 @@ dissect_dwarf_encoding.exit.i:                    ; preds = %value_guard.exit106
   br label %get_dwarf_extension_length.exit.i
 
 get_dwarf_extension_length.exit.i:                ; preds = %742, %741, %740, %739, %738, %737, %dissect_dwarf_encoding.exit.i
-  %.0.i.i1063 = phi i8 [ 0, %742 ], [ %334, %737 ], [ 2, %738 ], [ 4, %739 ], [ 8, %740 ], [ -1, %741 ], [ -2, %dissect_dwarf_encoding.exit.i ]
+  %.0.i.i1063 = phi i8 [ 0, %742 ], [ %334, %737 ], [ -2, %dissect_dwarf_encoding.exit.i ], [ 2, %738 ], [ 4, %739 ], [ 8, %740 ], [ -1, %741 ]
   %743 = add nuw i32 %557, 2
   %744 = load i32, ptr @hf_elf_eh_frame_hdr_fde_count_encoding, align 4
   %745 = call ptr @proto_tree_add_item(ptr noundef %562, i32 noundef %744, ptr noundef %0, i32 noundef %743, i32 noundef 1, i32 noundef range(i32 -2147483648, 1) %.)
@@ -2307,7 +2307,7 @@ dissect_dwarf_encoding.exit117.i:                 ; preds = %get_dwarf_extension
   br label %get_dwarf_extension_length.exit119.i
 
 get_dwarf_extension_length.exit119.i:             ; preds = %762, %761, %760, %759, %758, %757, %dissect_dwarf_encoding.exit117.i
-  %.0.i118.i = phi i8 [ 0, %762 ], [ %334, %757 ], [ 2, %758 ], [ 4, %759 ], [ 8, %760 ], [ -1, %761 ], [ -2, %dissect_dwarf_encoding.exit117.i ]
+  %.0.i118.i = phi i8 [ 0, %762 ], [ %334, %757 ], [ -2, %dissect_dwarf_encoding.exit117.i ], [ 2, %758 ], [ 4, %759 ], [ 8, %760 ], [ -1, %761 ]
   %763 = sext i8 %.0.i118.i to i32
   %764 = add nuw i32 %557, 3
   %765 = load i32, ptr @hf_elf_eh_frame_hdr_binary_search_table_encoding, align 4
@@ -2360,7 +2360,7 @@ dissect_dwarf_encoding.exit121.i:                 ; preds = %get_dwarf_extension
   br label %get_dwarf_extension_length.exit123.i
 
 get_dwarf_extension_length.exit123.i:             ; preds = %783, %782, %781, %780, %779, %778, %dissect_dwarf_encoding.exit121.i
-  %.0.i122.i = phi i8 [ 0, %783 ], [ %334, %778 ], [ 2, %779 ], [ 4, %780 ], [ 8, %781 ], [ -1, %782 ], [ -2, %dissect_dwarf_encoding.exit121.i ]
+  %.0.i122.i = phi i8 [ 0, %783 ], [ %334, %778 ], [ -2, %dissect_dwarf_encoding.exit121.i ], [ 2, %779 ], [ 4, %780 ], [ 8, %781 ], [ -1, %782 ]
   %784 = sext i8 %.0.i122.i to i32
   %785 = add nuw i32 %557, 4
   %786 = icmp eq i8 %.0.i.i1063, -2
@@ -2692,7 +2692,7 @@ value_guard.exit.i1072:                           ; preds = %919
   br label %.thread.i1073
 
 .thread.i1073:                                    ; preds = %.critedge84.i, %.critedge83.i, %930, %927
-  %hf_elf64_dynamic_value.sink.i = phi ptr [ @hf_elf64_dynamic_unspecified, %.critedge84.i ], [ @hf_elf64_dynamic_value, %927 ], [ @hf_elf64_dynamic_pointer, %930 ], [ @hf_elf64_dynamic_ignored, %.critedge83.i ]
+  %hf_elf64_dynamic_value.sink.i = phi ptr [ @hf_elf64_dynamic_value, %927 ], [ @hf_elf64_dynamic_pointer, %930 ], [ @hf_elf64_dynamic_unspecified, %.critedge84.i ], [ @hf_elf64_dynamic_ignored, %.critedge83.i ]
   %933 = load i32, ptr %hf_elf64_dynamic_value.sink.i, align 4
   %934 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %933, ptr noundef %0, i32 noundef %925, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.)
   %935 = add i32 %.09621252, 16
@@ -3081,8 +3081,8 @@ value_guard.exit1051.sink.split:                  ; preds = %dissect_eh_frame_hd
   br label %value_guard.exit1051
 
 value_guard.exit1051:                             ; preds = %value_guard.exit1080, %value_guard.exit1075, %value_guard.exit1083, %value_guard.exit1070, %value_guard.exit1051.sink.split, %value_guard.exit1080.preheader, %value_guard.exit1075.preheader, %dissect_eh_frame.exit, %885, %1116, %959, %dissect_eh_frame_hdr.exit, %544
-  %.3984 = phi i64 [ %549, %dissect_eh_frame.exit ], [ %549, %dissect_eh_frame_hdr.exit ], [ %549, %885 ], [ %549, %959 ], [ %549, %1116 ], [ %.29831257, %544 ], [ %549, %value_guard.exit1075.preheader ], [ %549, %value_guard.exit1080.preheader ], [ %549, %value_guard.exit1051.sink.split ], [ %549, %value_guard.exit1070 ], [ %549, %value_guard.exit1083 ], [ %549, %value_guard.exit1075 ], [ %549, %value_guard.exit1080 ]
-  %.5978 = phi i32 [ %554, %dissect_eh_frame.exit ], [ %554, %dissect_eh_frame_hdr.exit ], [ %554, %885 ], [ %554, %959 ], [ %554, %1116 ], [ %.49771258, %544 ], [ %554, %value_guard.exit1075.preheader ], [ %554, %value_guard.exit1080.preheader ], [ %554, %value_guard.exit1051.sink.split ], [ %554, %value_guard.exit1070 ], [ %554, %value_guard.exit1083 ], [ %554, %value_guard.exit1075 ], [ %554, %value_guard.exit1080 ]
+  %.3984 = phi i64 [ %549, %dissect_eh_frame.exit ], [ %549, %dissect_eh_frame_hdr.exit ], [ %549, %885 ], [ %549, %959 ], [ %549, %1116 ], [ %.29831257, %544 ], [ %549, %value_guard.exit1075.preheader ], [ %549, %value_guard.exit1080.preheader ], [ %549, %value_guard.exit1051.sink.split ], [ %549, %value_guard.exit1075 ], [ %549, %value_guard.exit1070 ], [ %549, %value_guard.exit1083 ], [ %549, %value_guard.exit1080 ]
+  %.5978 = phi i32 [ %554, %dissect_eh_frame.exit ], [ %554, %dissect_eh_frame_hdr.exit ], [ %554, %885 ], [ %554, %959 ], [ %554, %1116 ], [ %.49771258, %544 ], [ %554, %value_guard.exit1075.preheader ], [ %554, %value_guard.exit1080.preheader ], [ %554, %value_guard.exit1051.sink.split ], [ %554, %value_guard.exit1075 ], [ %554, %value_guard.exit1070 ], [ %554, %value_guard.exit1083 ], [ %554, %value_guard.exit1080 ]
   %.not1025.wide = icmp eq i32 %385, 0
   br i1 %.not1025.wide, label %value_guard.exit1051._crit_edge, label %384, !llvm.loop !16
 

@@ -2052,7 +2052,7 @@ _ZL8lean_incP11lean_object.exit.i.i.i:            ; preds = %25, %24, %22, %_ZL8
   br label %"_ZSt10__invoke_rIbRZ14lean_find_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZ14lean_find_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %2, %_ZL8lean_incP11lean_object.exit.i.i.i, %30
-  %.0.i.i.i = phi i1 [ false, %30 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %2 ], [ false, %30 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -2177,7 +2177,7 @@ _ZL8lean_incP11lean_object.exit.i.i.i:            ; preds = %25, %24, %22, %_ZL8
   unreachable
 
 "_ZSt10__invoke_rIbRZ18lean_find_ext_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %2, %_ZL8lean_incP11lean_object.exit.i.i.i, %32, %35
-  %.0.i.i.i = phi i1 [ false, %32 ], [ false, %35 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %35 ], [ false, %32 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

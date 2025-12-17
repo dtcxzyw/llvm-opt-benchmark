@@ -710,7 +710,7 @@ cdce.call:                                        ; preds = %_ZL2RMddd.exit
   br label %_ZL2RNddd.exit
 
 54:                                               ; preds = %34, %41, %44
-  %.0.i.ph = phi double [ %50, %44 ], [ %43, %41 ], [ %36, %34 ]
+  %.0.i.ph = phi double [ %43, %41 ], [ %36, %34 ], [ %50, %44 ]
   %55 = tail call double @sin(double noundef %10) #9, !tbaa !74
   %56 = fneg double %55
   %57 = fmul double %29, %56
@@ -833,7 +833,7 @@ cdce.call:                                        ; preds = %_ZL2RMddd.exit
   br label %_ZL2RNddd.exit
 
 52:                                               ; preds = %32, %39, %42
-  %.0.i.ph = phi double [ %48, %42 ], [ %41, %39 ], [ %34, %32 ]
+  %.0.i.ph = phi double [ %41, %39 ], [ %34, %32 ], [ %48, %42 ]
   %53 = tail call double @sin(double noundef %10) #9, !tbaa !74
   %54 = fneg double %53
   %55 = fmul double %27, %54

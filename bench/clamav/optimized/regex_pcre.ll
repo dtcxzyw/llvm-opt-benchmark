@@ -112,7 +112,7 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef captures(address_is
   br label %9
 
 .loopexit:                                        ; preds = %9, %18, %3, %6, %19
-  %.0 = phi i32 [ 4, %19 ], [ 2, %6 ], [ 2, %3 ], [ 27, %18 ], [ 0, %9 ]
+  %.0 = phi i32 [ 4, %19 ], [ 2, %3 ], [ 27, %18 ], [ 2, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 

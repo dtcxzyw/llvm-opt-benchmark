@@ -111,7 +111,7 @@ define internal range(i32 -12, 1) i32 @pjs_read_header(ptr noundef %0) #1 {
   %33 = icmp ugt i64 %32, 2147483647
   br i1 %33, label %read_ts.exit.thread, label %read_ts.exit
 
-read_ts.exit.thread:                              ; preds = %31, %24, %19
+read_ts.exit.thread:                              ; preds = %24, %31, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
@@ -156,7 +156,7 @@ read_ts.exit:                                     ; preds = %31
   br label %45
 
 45:                                               ; preds = %.critedge.thread, %1, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.critedge.thread ]
+  %.0 = phi i32 [ -12, %.critedge.thread ], [ 0, %.loopexit ], [ -12, %1 ]
   ret i32 %.0
 }
 

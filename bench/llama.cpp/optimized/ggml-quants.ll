@@ -11018,8 +11018,8 @@ iq2_data_index.exit.thread197:                    ; preds = %1
   br label %iq2_grid_size.exit
 
 iq2_grid_size.exit:                               ; preds = %1, %iq2_data_index.exit.thread197, %5
-  %11 = phi i64 [ %10, %5 ], [ 1, %iq2_data_index.exit.thread197 ], [ 0, %1 ]
-  %12 = phi i32 [ %9, %5 ], [ 512, %iq2_data_index.exit.thread197 ], [ 256, %1 ]
+  %11 = phi i64 [ 0, %1 ], [ %10, %5 ], [ 1, %iq2_data_index.exit.thread197 ]
+  %12 = phi i32 [ 256, %1 ], [ %9, %5 ], [ 512, %iq2_data_index.exit.thread197 ]
   %13 = getelementptr inbounds nuw %struct.iq2_entry_t, ptr @iq2_data, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !685
   %.not = icmp eq ptr %14, null
@@ -11441,7 +11441,7 @@ define void @iq2xs_free_impl(i32 noundef %0) local_unnamed_addr #5 {
   br label %iq2_data_index.exit
 
 iq2_data_index.exit:                              ; preds = %1, %3, %.fold.split.i
-  %8 = phi i64 [ %7, %3 ], [ 1, %.fold.split.i ], [ 0, %1 ]
+  %8 = phi i64 [ 0, %1 ], [ %7, %3 ], [ 1, %.fold.split.i ]
   %9 = getelementptr inbounds nuw %struct.iq2_entry_t, ptr @iq2_data, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !685
   %.not = icmp eq ptr %10, null
@@ -12994,9 +12994,9 @@ iq2_find_best_neighbour.exit.i.us:                ; preds = %167, %131
   br label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %.preheader373.preheader.i.us, %190, %188
-  %196 = phi i16 [ %106, %190 ], [ %106, %188 ], [ %.sroa.022.0.insert.insert.us, %.preheader373.preheader.i.us ]
-  %.1332.i.us = phi float [ %.0331413.i.us, %190 ], [ %.0331413.i.us, %188 ], [ %195, %.preheader373.preheader.i.us ]
-  %.1329.i.us = phi float [ %.0328414.i.us, %190 ], [ %.0328414.i.us, %188 ], [ %194, %.preheader373.preheader.i.us ]
+  %196 = phi i16 [ %106, %188 ], [ %106, %190 ], [ %.sroa.022.0.insert.insert.us, %.preheader373.preheader.i.us ]
+  %.1332.i.us = phi float [ %.0331413.i.us, %188 ], [ %.0331413.i.us, %190 ], [ %195, %.preheader373.preheader.i.us ]
+  %.1329.i.us = phi float [ %.0328414.i.us, %188 ], [ %.0328414.i.us, %190 ], [ %194, %.preheader373.preheader.i.us ]
   %197 = add nsw i32 %.0327415.i.us, 1
   %exitcond487.not.i.us = icmp eq i32 %197, 10
   br i1 %exitcond487.not.i.us, label %.preheader378.i.us, label %105, !llvm.loop !829
@@ -14359,9 +14359,9 @@ iq3_find_best_neighbour.exit:                     ; preds = %197, %147
   br label %.loopexit411
 
 .loopexit411:                                     ; preds = %.preheader410.preheader, %220, %204
-  %227 = phi i64 [ %128, %220 ], [ %128, %204 ], [ %224, %.preheader410.preheader ]
-  %.1365 = phi float [ %.0364454, %220 ], [ %.0364454, %204 ], [ %226, %.preheader410.preheader ]
-  %.1362 = phi float [ %.0361455, %220 ], [ %.0361455, %204 ], [ %225, %.preheader410.preheader ]
+  %227 = phi i64 [ %128, %204 ], [ %128, %220 ], [ %224, %.preheader410.preheader ]
+  %.1365 = phi float [ %.0364454, %204 ], [ %.0364454, %220 ], [ %226, %.preheader410.preheader ]
+  %.1362 = phi float [ %.0361455, %204 ], [ %.0361455, %220 ], [ %225, %.preheader410.preheader ]
   %228 = add nsw i32 %.0360456, 1
   %exitcond538.not = icmp eq i32 %228, 16
   br i1 %exitcond538.not, label %.preheader416, label %127, !llvm.loop !910
@@ -15186,9 +15186,9 @@ iq3_find_best_neighbour.exit.i.us:                ; preds = %156, %117
   br label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %.preheader.us.preheader, %179, %177
-  %186 = phi i64 [ %90, %179 ], [ %90, %177 ], [ %183, %.preheader.us.preheader ]
-  %.1406.i.us = phi float [ %.0405489.i.us, %179 ], [ %.0405489.i.us, %177 ], [ %184, %.preheader.us.preheader ]
-  %.1402.i.us = phi float [ %.0401491.i.us, %179 ], [ %.0401491.i.us, %177 ], [ %185, %.preheader.us.preheader ]
+  %186 = phi i64 [ %90, %177 ], [ %90, %179 ], [ %183, %.preheader.us.preheader ]
+  %.1406.i.us = phi float [ %.0405489.i.us, %177 ], [ %.0405489.i.us, %179 ], [ %184, %.preheader.us.preheader ]
+  %.1402.i.us = phi float [ %.0401491.i.us, %177 ], [ %.0401491.i.us, %179 ], [ %185, %.preheader.us.preheader ]
   %187 = add nsw i32 %.0403490.i.us, 1
   %exitcond575.not.i.us = icmp eq i32 %187, 10
   br i1 %exitcond575.not.i.us, label %.preheader452.i.preheader.us, label %.preheader453.i.us, !llvm.loop !980
@@ -18560,9 +18560,9 @@ iq2_find_best_neighbour.exit.i.us:                ; preds = %145, %109
   br label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %.preheader349.preheader.i.us, %168, %166
-  %174 = phi i16 [ %84, %168 ], [ %84, %166 ], [ %.sroa.022.0.insert.insert.us, %.preheader349.preheader.i.us ]
-  %.1313.i.us = phi float [ %.0312389.i.us, %168 ], [ %.0312389.i.us, %166 ], [ %172, %.preheader349.preheader.i.us ]
-  %.1310.i.us = phi float [ %.0309391.i.us, %168 ], [ %.0309391.i.us, %166 ], [ %173, %.preheader349.preheader.i.us ]
+  %174 = phi i16 [ %84, %166 ], [ %84, %168 ], [ %.sroa.022.0.insert.insert.us, %.preheader349.preheader.i.us ]
+  %.1313.i.us = phi float [ %.0312389.i.us, %166 ], [ %.0312389.i.us, %168 ], [ %172, %.preheader349.preheader.i.us ]
+  %.1310.i.us = phi float [ %.0309391.i.us, %166 ], [ %.0309391.i.us, %168 ], [ %173, %.preheader349.preheader.i.us ]
   %175 = add nsw i32 %.0311390.i.us, 1
   %exitcond464.not.i.us = icmp eq i32 %175, 10
   br i1 %exitcond464.not.i.us, label %.preheader354.i.us, label %83, !llvm.loop !1143
@@ -20005,7 +20005,7 @@ validate_fp16.exit543:                            ; preds = %266, %271
   br label %.critedge
 
 .critedge:                                        ; preds = %487, %472, %457, %442, %427, %412, %397, %382, %351, %336, %320, %304, %294, %280, %251, %220, %206, %174, %161, %130, %117, %86, %71, %59, %48, %.preheader, %.preheader673, %.preheader671, %.preheader669, %.preheader667, %.preheader665, %.preheader663, %.preheader661, %.preheader659, %.preheader657, %.preheader655, %.preheader653, %.preheader651, %.preheader649, %.preheader647, %.preheader645, %.preheader643, %.preheader641, %.preheader639, %.preheader637, %.preheader635, %.preheader633, %.preheader631, %.preheader629, %.preheader627, %.preheader626, %16, %16, %16, %16, %33, %.critedge458, %.critedge456, %.critedge454, %.critedge452, %.critedge450, %.critedge448, %.critedge446, %.critedge444, %.critedge442, %.critedge440, %.critedge438, %.critedge436, %.critedge434, %validate_fp16.exit539, %validate_fp16.exit543, %validate_fp16.exit531, %validate_fp16.exit535, %.critedge428, %validate_fp16.exit519, %validate_fp16.exit523, %.critedge424, %validate_fp16.exit507, %validate_fp16.exit511, %.critedge420, %validate_fp16.exit495, %validate_fp16.exit499, %.critedge416, %.critedge414, %61, %50, %491, %34, %30, %11, %5
-  %.0322 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %491 ], [ false, %50 ], [ false, %61 ], [ false, %.critedge414 ], [ false, %.critedge416 ], [ false, %.critedge420 ], [ false, %.critedge424 ], [ false, %.critedge428 ], [ false, %.critedge434 ], [ false, %.critedge436 ], [ false, %.critedge438 ], [ false, %.critedge440 ], [ false, %.critedge442 ], [ false, %.critedge444 ], [ false, %.critedge446 ], [ false, %.critedge448 ], [ false, %.critedge450 ], [ false, %.critedge452 ], [ false, %.critedge454 ], [ false, %.critedge456 ], [ false, %.critedge458 ], [ false, %34 ], [ false, %30 ], [ false, %validate_fp16.exit499 ], [ false, %validate_fp16.exit495 ], [ false, %validate_fp16.exit511 ], [ false, %validate_fp16.exit507 ], [ false, %validate_fp16.exit523 ], [ false, %validate_fp16.exit519 ], [ false, %validate_fp16.exit535 ], [ false, %validate_fp16.exit531 ], [ false, %validate_fp16.exit543 ], [ false, %validate_fp16.exit539 ], [ true, %33 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %.preheader626 ], [ true, %.preheader627 ], [ true, %.preheader629 ], [ true, %.preheader631 ], [ true, %.preheader633 ], [ true, %.preheader635 ], [ true, %.preheader637 ], [ true, %.preheader639 ], [ true, %.preheader641 ], [ true, %.preheader643 ], [ true, %.preheader645 ], [ true, %.preheader647 ], [ true, %.preheader649 ], [ true, %.preheader651 ], [ true, %.preheader653 ], [ true, %.preheader655 ], [ true, %.preheader657 ], [ true, %.preheader659 ], [ true, %.preheader661 ], [ true, %.preheader663 ], [ true, %.preheader665 ], [ true, %.preheader667 ], [ true, %.preheader669 ], [ true, %.preheader671 ], [ true, %.preheader673 ], [ true, %.preheader ], [ true, %48 ], [ true, %59 ], [ true, %71 ], [ true, %86 ], [ true, %117 ], [ true, %130 ], [ true, %161 ], [ true, %174 ], [ true, %206 ], [ true, %220 ], [ true, %251 ], [ true, %280 ], [ true, %294 ], [ true, %304 ], [ true, %320 ], [ true, %336 ], [ true, %351 ], [ true, %382 ], [ true, %397 ], [ true, %412 ], [ true, %427 ], [ true, %442 ], [ true, %457 ], [ true, %472 ], [ true, %487 ]
+  %.0322 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %491 ], [ false, %validate_fp16.exit539 ], [ false, %.critedge458 ], [ false, %50 ], [ false, %61 ], [ false, %.critedge414 ], [ false, %.critedge416 ], [ false, %30 ], [ false, %.critedge420 ], [ false, %validate_fp16.exit495 ], [ false, %.critedge424 ], [ false, %validate_fp16.exit507 ], [ false, %.critedge428 ], [ false, %validate_fp16.exit519 ], [ false, %validate_fp16.exit531 ], [ false, %.critedge434 ], [ false, %.critedge436 ], [ false, %.critedge438 ], [ false, %.critedge440 ], [ false, %.critedge442 ], [ false, %.critedge444 ], [ false, %.critedge446 ], [ false, %.critedge448 ], [ false, %.critedge450 ], [ false, %.critedge452 ], [ false, %.critedge454 ], [ false, %.critedge456 ], [ false, %34 ], [ false, %validate_fp16.exit499 ], [ false, %validate_fp16.exit511 ], [ false, %validate_fp16.exit523 ], [ false, %validate_fp16.exit535 ], [ false, %validate_fp16.exit543 ], [ true, %33 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %.preheader671 ], [ true, %.preheader626 ], [ true, %.preheader627 ], [ true, %.preheader629 ], [ true, %.preheader631 ], [ true, %.preheader633 ], [ true, %.preheader635 ], [ true, %.preheader637 ], [ true, %.preheader639 ], [ true, %.preheader641 ], [ true, %.preheader643 ], [ true, %.preheader645 ], [ true, %.preheader647 ], [ true, %.preheader649 ], [ true, %.preheader651 ], [ true, %.preheader653 ], [ true, %.preheader655 ], [ true, %.preheader657 ], [ true, %.preheader659 ], [ true, %.preheader661 ], [ true, %.preheader663 ], [ true, %.preheader665 ], [ true, %.preheader667 ], [ true, %.preheader669 ], [ true, %.preheader673 ], [ true, %.preheader ], [ true, %472 ], [ true, %48 ], [ true, %59 ], [ true, %71 ], [ true, %86 ], [ true, %117 ], [ true, %130 ], [ true, %161 ], [ true, %174 ], [ true, %206 ], [ true, %220 ], [ true, %251 ], [ true, %280 ], [ true, %294 ], [ true, %304 ], [ true, %320 ], [ true, %336 ], [ true, %351 ], [ true, %382 ], [ true, %397 ], [ true, %412 ], [ true, %427 ], [ true, %442 ], [ true, %457 ], [ true, %487 ]
   ret i1 %.0322
 }
 
@@ -20185,7 +20185,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @iq1_find_best_neighbour2(p
   unreachable
 
 .thread109:                                       ; preds = %12, %57
-  %.292108111 = phi i32 [ %.4, %57 ], [ %.191, %12 ]
+  %.292108111 = phi i32 [ %.191, %12 ], [ %.4, %57 ]
   %84 = zext nneg i32 %.292108111 to i64
   %85 = getelementptr inbounds nuw i64, ptr %1, i64 %84
   br label %87

@@ -395,7 +395,7 @@ CMP_PKIFAILUREINFO_to_string.exit:                ; preds = %27, %36
   br i1 %exitcond158.not, label %.loopexit, label %62, !llvm.loop !16
 
 .loopexit:                                        ; preds = %switch.lookup180, %34, %70, %62, %72, %ossl_cmp_PKIStatus_to_string.exit, %50, %53, %57, %42, %45, %19, %22, %switch.lookup, %13, %5
-  %.092 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %5 ], [ null, %13 ], [ null, %switch.lookup ], [ null, %22 ], [ null, %19 ], [ null, %45 ], [ null, %42 ], [ null, %57 ], [ null, %53 ], [ %3, %50 ], [ null, %70 ], [ null, %62 ], [ %3, %72 ], [ null, %34 ], [ null, %switch.lookup180 ]
+  %.092 = phi ptr [ %3, %50 ], [ null, %5 ], [ null, %switch.lookup ], [ null, %19 ], [ null, %42 ], [ null, %53 ], [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %13 ], [ null, %22 ], [ null, %45 ], [ null, %57 ], [ %3, %72 ], [ null, %62 ], [ null, %70 ], [ null, %34 ], [ null, %switch.lookup180 ]
   ret ptr %.092
 }
 

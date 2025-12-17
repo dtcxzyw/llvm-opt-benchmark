@@ -71,8 +71,8 @@ define dso_local noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloat
   br label %25
 
 select.unfold.i:                                  ; preds = %21, %17, %15
-  %.055.ph.i = phi i8 [ 43, %17 ], [ 45, %15 ], [ 32, %21 ]
-  %.054.ph.i = phi x86_fp80 [ %0, %17 ], [ %16, %15 ], [ %0, %21 ]
+  %.055.ph.i = phi i8 [ 45, %15 ], [ 43, %17 ], [ 32, %21 ]
+  %.054.ph.i = phi x86_fp80 [ %16, %15 ], [ %0, %17 ], [ %0, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %.055.ph.i, ptr %7, align 1, !tbaa !12
@@ -427,7 +427,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFINS_7uint128EEEvT_iRKNS1_11Fo
   br label %._crit_edge136.i
 
 ._crit_edge136.i:                                 ; preds = %161, %156
-  %165 = phi ptr [ %.val.i, %156 ], [ %spec.select161.i, %161 ]
+  %165 = phi ptr [ %spec.select161.i, %161 ], [ %.val.i, %156 ]
   %166 = load i32, ptr %8, align 4, !tbaa !16
   %167 = load i8, ptr %1, align 4, !tbaa !13
   %168 = icmp eq i8 %167, 7
@@ -553,7 +553,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit.
   br label %232
 
 232:                                              ; preds = %224, %223, %._crit_edge.i, %210, %207
-  %233 = phi i32 [ %205, %210 ], [ %205, %207 ], [ 0, %223 ], [ 0, %224 ], [ 0, %._crit_edge.i ]
+  %233 = phi i32 [ %205, %207 ], [ %205, %210 ], [ 0, %223 ], [ 0, %224 ], [ 0, %._crit_edge.i ]
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %235 = load i8, ptr %234, align 1, !tbaa !4
   %236 = and i8 %235, 8
@@ -1004,8 +1004,8 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   br label %25
 
 select.unfold:                                    ; preds = %21, %15, %17
-  %.064.ph = phi i8 [ 43, %17 ], [ 45, %15 ], [ 32, %21 ]
-  %.063.ph = phi double [ %0, %17 ], [ %16, %15 ], [ %0, %21 ]
+  %.064.ph = phi i8 [ 45, %15 ], [ 43, %17 ], [ 32, %21 ]
+  %.063.ph = phi double [ %16, %15 ], [ %0, %17 ], [ %0, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %.064.ph, ptr %8, align 1, !tbaa !12
@@ -1389,7 +1389,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.
   br label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %170, %165
-  %174 = phi ptr [ %.val, %165 ], [ %spec.select190, %170 ]
+  %174 = phi ptr [ %spec.select190, %170 ], [ %.val, %165 ]
   %175 = load i32, ptr %9, align 4, !tbaa !16
   %176 = load i8, ptr %1, align 4, !tbaa !13
   %177 = icmp eq i8 %176, 7
@@ -1516,7 +1516,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit:
   br label %242
 
 242:                                              ; preds = %._crit_edge, %234, %233, %220, %217
-  %243 = phi i32 [ %215, %220 ], [ %215, %217 ], [ 0, %233 ], [ 0, %234 ], [ 0, %._crit_edge ]
+  %243 = phi i32 [ %215, %217 ], [ %215, %220 ], [ 0, %233 ], [ 0, %234 ], [ 0, %._crit_edge ]
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %245 = load i8, ptr %244, align 1, !tbaa !4
   %246 = and i8 %245, 8
@@ -1659,16 +1659,16 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %301, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i, %292
-  %.161.i = phi i8 [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %.060.i, %292 ], [ %309, %301 ]
-  %.pre.i37.i = phi i64 [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %.2.i, %292 ], [ %305, %301 ]
+  %.161.i = phi i8 [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %309, %301 ], [ %.060.i, %292 ]
+  %.pre.i37.i = phi i64 [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %305, %301 ], [ %.2.i, %292 ]
   %310 = xor i64 %287, -1
   %311 = and i64 %.pre.i37.i, %310
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i: ; preds = %._crit_edge.i.i, %281, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i
-  %or.cond64.v.i = phi i64 [ %spec.select, %281 ], [ %spec.select, %._crit_edge.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
-  %.363.i = phi i8 [ %.060.i, %281 ], [ %.161.i, %._crit_edge.i.i ], [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
-  %.3.i = phi i64 [ %.2.i, %281 ], [ %311, %._crit_edge.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+  %or.cond64.v.i = phi i64 [ %spec.select, %._crit_edge.i.i ], [ %spec.select, %281 ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+  %.363.i = phi i8 [ %.161.i, %._crit_edge.i.i ], [ %.060.i, %281 ], [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+  %.3.i = phi i64 [ %311, %._crit_edge.i.i ], [ %.2.i, %281 ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %312 = select i1 %260, i64 0, i64 16
   %313 = getelementptr inbounds nuw i8, ptr @.str.27, i64 %312
@@ -2357,7 +2357,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25: ; pr
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIoeLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIoeLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph112.i, %.lr.ph105.i, %34, %80, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %99, %32, %.critedge.i.i24, %._crit_edge.i.i20, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25, %217, %198, %157, %152, %150, %129, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %129 ], [ true, %150 ], [ false, %157 ], [ true, %217 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25 ], [ true, %._crit_edge.i.i20 ], [ true, %.critedge.i.i24 ], [ true, %198 ], [ true, %152 ], [ true, %32 ], [ true, %99 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %80 ], [ true, %34 ], [ true, %.lr.ph105.i ], [ true, %.lr.ph112.i ]
+  %.0 = phi i1 [ false, %4 ], [ false, %157 ], [ false, %129 ], [ true, %150 ], [ true, %217 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i25 ], [ true, %._crit_edge.i.i20 ], [ true, %.critedge.i.i24 ], [ true, %198 ], [ true, %152 ], [ true, %32 ], [ true, %99 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %80 ], [ true, %34 ], [ true, %.lr.ph105.i ], [ true, %.lr.ph112.i ]
   ret i1 %.0
 }
 
@@ -2681,8 +2681,8 @@ define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteB
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %13, %11, %15, %._crit_edge.i
-  %.0216 = phi i64 [ 0, %15 ], [ 0, %._crit_edge.i ], [ 0, %11 ], [ %.023, %13 ]
-  %.0225 = phi i64 [ 0, %15 ], [ 0, %._crit_edge.i ], [ %.023, %11 ], [ 0, %13 ]
+  %.0216 = phi i64 [ 0, %._crit_edge.i ], [ 0, %15 ], [ 0, %11 ], [ %.023, %13 ]
+  %.0225 = phi i64 [ 0, %._crit_edge.i ], [ 0, %15 ], [ %.023, %11 ], [ 0, %13 ]
   %.not = icmp eq i8 %0, 0
   br i1 %.not, label %59, label %45
 
@@ -2970,7 +2970,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   br label %14
 
 14:                                               ; preds = %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread
-  %15 = phi i64 [ %10, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread ], [ %spec.select, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit ]
+  %15 = phi i64 [ %spec.select, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit ], [ %10, %_ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit.thread ]
   %16 = load i8, ptr %3, align 8, !tbaa !25
   %.not = icmp ne i8 %16, 0
   %17 = zext i1 %.not to i64
@@ -2998,9 +2998,9 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_111FormatState14ShouldPrintDotEv.exit
   %.not2.i = icmp eq i8 %30, 0
   br i1 %.not2.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit, label %_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread
 
-_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread: ; preds = %22, %14, %24, %29
-  %.sroa.12.0.ph = phi i64 [ 0, %29 ], [ %25, %24 ], [ 0, %14 ], [ 0, %22 ]
-  %.sroa.7.0.ph = phi i64 [ %25, %29 ], [ 0, %24 ], [ 0, %14 ], [ 0, %22 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11FormatStateE.exit.thread: ; preds = %14, %24, %22, %29
+  %.sroa.12.0.ph = phi i64 [ 0, %29 ], [ 0, %22 ], [ %25, %24 ], [ 0, %14 ]
+  %.sroa.7.0.ph = phi i64 [ %25, %29 ], [ 0, %22 ], [ 0, %24 ], [ 0, %14 ]
   %31 = add nuw nsw i64 %.sroa.7.0.ph, 1
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
@@ -3709,10 +3709,10 @@ _ZN4absl19str_format_internal12_GLOBAL__N_119ExtraWidthToPaddingEmRKNS1_11Format
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i, %35, %30, %28, %19
-  %66 = phi i8 [ %.pre77.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %22, %35 ], [ %22, %30 ], [ %22, %19 ], [ %22, %28 ]
-  %67 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %12, %35 ], [ %12, %30 ], [ %12, %19 ], [ %12, %28 ]
-  %.sroa.10.064.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 0, %35 ], [ %31, %30 ], [ 0, %19 ], [ 0, %28 ]
-  %.sroa.7.063.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ %31, %35 ], [ 0, %30 ], [ 0, %19 ], [ 0, %28 ]
+  %66 = phi i8 [ %.pre77.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %22, %19 ], [ %22, %35 ], [ %22, %28 ], [ %22, %30 ]
+  %67 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %12, %19 ], [ %12, %35 ], [ %12, %28 ], [ %12, %30 ]
+  %.sroa.10.064.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 0, %19 ], [ 0, %35 ], [ 0, %28 ], [ %31, %30 ]
+  %.sroa.7.063.i.i.i.i = phi i64 [ 0, %._crit_edge.i.i.i.i.i ], [ 0, %19 ], [ %31, %35 ], [ 0, %28 ], [ 0, %30 ]
   %.not1.i.i.i.i = icmp eq i8 %66, 0
   br i1 %.not1.i.i.i.i, label %84, label %68
 
@@ -4536,7 +4536,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit60.i.i.i.i: ; preds 
   br label %183
 
 183:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit60.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit32.i.i.i.i
-  %184 = phi i64 [ 0, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit60.i.i.i.i ], [ %98, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit32.i.i.i.i ]
+  %184 = phi i64 [ %98, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit32.i.i.i.i ], [ 0, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit60.i.i.i.i ]
   br i1 %.not61.i.i.i.i, label %8, label %"_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_24FractionalDigitGeneratorEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
 "_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_24FractionalDigitGeneratorEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit": ; preds = %8, %10, %183, %2, %.thread.i.i.i.i
@@ -5422,7 +5422,7 @@ define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_120Remove
   br label %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i"
 
 "_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit30", %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit32", %36, %33, %30
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i.i, %33 ], [ %.2.i.i.i.i.i.i, %36 ], [ %37, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit" ], [ %38, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit30" ], [ %39, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit32" ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %33 ], [ %.029.lcssa.i.i.i.i.i.i, %30 ], [ %.2.i.i.i.i.i.i, %36 ], [ %39, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit32" ], [ %37, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit" ], [ %38, %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.i.loopexit.split.loop.exit30" ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not4.i = icmp eq ptr %6, %.028.i.i.i.i.i.i
   br i1 %.not4.i, label %"_ZSt6any_ofIPcZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS3_6BufferEPiENK3$_0clEvEUlcE_EbT_S9_T0_.exit.thread.i", label %"_ZZN4absl19str_format_internal12_GLOBAL__N_120RemoveExtraPrecisionEmbPNS1_6BufferEPiENK3$_0clEv.exit.thread"
 
@@ -5660,7 +5660,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -6230,7 +6230,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26: ; pr
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIodLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_117FloatToBufferImplIodLNS1_11FormatStyleE1EEEbT_imPNS1_6BufferEPi.exit: ; preds = %.lr.ph104.i, %.lr.ph112.i, %35, %81, %.critedge.i.i, %._crit_edge.i.i, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i, %100, %33, %.critedge.i.i25, %._crit_edge.i.i21, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26, %214, %195, %156, %151, %149, %128, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %128 ], [ true, %149 ], [ false, %156 ], [ true, %214 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26 ], [ true, %._crit_edge.i.i21 ], [ true, %.critedge.i.i25 ], [ true, %195 ], [ true, %151 ], [ true, %33 ], [ true, %100 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %81 ], [ true, %35 ], [ true, %.lr.ph112.i ], [ true, %.lr.ph104.i ]
+  %.0 = phi i1 [ false, %5 ], [ false, %156 ], [ false, %128 ], [ true, %149 ], [ true, %214 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i26 ], [ true, %._crit_edge.i.i21 ], [ true, %.critedge.i.i25 ], [ true, %195 ], [ true, %151 ], [ true, %33 ], [ true, %100 ], [ true, %_ZNK4absl19str_format_internal12_GLOBAL__N_16Buffer10last_digitEv.exit.i ], [ true, %._crit_edge.i.i ], [ true, %.critedge.i.i ], [ true, %81 ], [ true, %35 ], [ true, %.lr.ph112.i ], [ true, %.lr.ph104.i ]
   ret i1 %.0
 }
 

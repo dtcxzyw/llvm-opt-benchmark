@@ -270,7 +270,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %39, %49, %8, %3, %5
-  %.0 = phi i32 [ -173, %5 ], [ -173, %3 ], [ 0, %8 ], [ 0, %49 ], [ 0, %39 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -173, %3 ], [ 0, %39 ], [ -173, %5 ], [ 0, %8 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -472,7 +472,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_n
   br label %wc_Poly1305Update.exit
 
 wc_Poly1305Update.exit:                           ; preds = %46, %36, %._crit_edge.i, %7, %5, %2
-  %.0 = phi i32 [ -173, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %._crit_edge.i ], [ 0, %36 ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %5 ], [ -173, %2 ], [ 0, %7 ], [ 0, %._crit_edge.i ], [ 0, %36 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -875,7 +875,7 @@ wc_Poly1305Update.exit:                           ; preds = %55, %45, %._crit_ed
   br label %98
 
 98:                                               ; preds = %61, %59, %wc_Poly1305Update.exit, %14, %7, %96
-  %.0 = phi i32 [ %97, %96 ], [ -173, %7 ], [ -173, %14 ], [ %58, %wc_Poly1305Update.exit ], [ %60, %59 ], [ %62, %61 ]
+  %.0 = phi i32 [ %97, %96 ], [ -173, %7 ], [ -173, %14 ], [ %62, %61 ], [ %58, %wc_Poly1305Update.exit ], [ %60, %59 ]
   ret i32 %.0
 }
 

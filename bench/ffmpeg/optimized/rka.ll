@@ -273,7 +273,7 @@ init_acoder.exit:                                 ; preds = %21, %22
   br i1 %.not2026.i.i, label %.thread175, label %76
 
 76:                                               ; preds = %.thread.i.i, %73
-  %77 = phi ptr [ %70, %.thread.i.i ], [ %.pre.i.i, %73 ]
+  %77 = phi ptr [ %.pre.i.i, %73 ], [ %70, %.thread.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(74) %77, i8 0, i64 74, i1 false)
   %78 = load ptr, ptr %71, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(74) %78, i8 0, i64 74, i1 false)
@@ -442,7 +442,7 @@ model64_init.exit71.i:                            ; preds = %130
   br i1 %.not2026.i75.i, label %.thread175, label %151
 
 151:                                              ; preds = %.thread.i74.i, %148
-  %152 = phi ptr [ %145, %.thread.i74.i ], [ %.pre.i78.i, %148 ]
+  %152 = phi ptr [ %.pre.i78.i, %148 ], [ %145, %.thread.i74.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(522) %152, i8 0, i64 522, i1 false)
   %153 = load ptr, ptr %146, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(522) %153, i8 0, i64 522, i1 false)
@@ -488,7 +488,7 @@ model64_init.exit71.i:                            ; preds = %130
   br i1 %.not2026.i85.i, label %.thread175, label %171
 
 171:                                              ; preds = %.thread.i84.i, %168
-  %172 = phi ptr [ %165, %.thread.i84.i ], [ %.pre.i88.i, %168 ]
+  %172 = phi ptr [ %.pre.i88.i, %168 ], [ %165, %.thread.i84.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %172, i8 0, i64 42, i1 false)
   %173 = load ptr, ptr %166, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %173, i8 0, i64 42, i1 false)
@@ -533,7 +533,7 @@ model64_init.exit71.i:                            ; preds = %130
   br i1 %.not2026.i95.i, label %.thread175, label %190
 
 190:                                              ; preds = %.thread.i94.i, %187
-  %191 = phi ptr [ %184, %.thread.i94.i ], [ %.pre.i98.i, %187 ]
+  %191 = phi ptr [ %.pre.i98.i, %187 ], [ %184, %.thread.i94.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %191, i8 0, i64 42, i1 false)
   %192 = load ptr, ptr %185, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %192, i8 0, i64 42, i1 false)
@@ -578,7 +578,7 @@ model64_init.exit71.i:                            ; preds = %130
   br i1 %.not2026.i105.i, label %.thread175, label %209
 
 209:                                              ; preds = %.thread.i104.i, %206
-  %210 = phi ptr [ %203, %.thread.i104.i ], [ %.pre.i108.i, %206 ]
+  %210 = phi ptr [ %.pre.i108.i, %206 ], [ %203, %.thread.i104.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %210, i8 0, i64 26, i1 false)
   %211 = load ptr, ptr %204, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %211, i8 0, i64 26, i1 false)
@@ -623,7 +623,7 @@ model64_init.exit71.i:                            ; preds = %130
   br i1 %.not2026.i115.i, label %.thread175, label %228
 
 228:                                              ; preds = %.thread.i114.i, %225
-  %229 = phi ptr [ %222, %.thread.i114.i ], [ %.pre.i118.i, %225 ]
+  %229 = phi ptr [ %.pre.i118.i, %225 ], [ %222, %.thread.i114.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(74) %229, i8 0, i64 74, i1 false)
   %230 = load ptr, ptr %223, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(74) %230, i8 0, i64 74, i1 false)
@@ -898,7 +898,7 @@ model64_init.exit71.i:                            ; preds = %130
   br label %.thread195
 
 .thread195:                                       ; preds = %.loopexit202, %.thread183, %.thread195.sink.split, %.thread298, %244, %315
-  %354 = phi i32 [ %250, %244 ], [ %316, %315 ], [ %318, %.thread298 ], [ %.0158222, %.thread195.sink.split ], [ %352, %.thread183 ], [ %313, %.loopexit202 ]
+  %354 = phi i32 [ %318, %.thread298 ], [ %250, %244 ], [ %316, %315 ], [ %.0158222, %.thread195.sink.split ], [ %352, %.thread183 ], [ %313, %.loopexit202 ]
   %355 = load i32, ptr %233, align 8, !tbaa !43
   %356 = icmp slt i32 %354, %355
   br i1 %356, label %357, label %362
@@ -918,8 +918,8 @@ model64_init.exit71.i:                            ; preds = %130
   %363 = load i32, ptr %10, align 8, !tbaa !52
   br label %.thread175
 
-.thread175:                                       ; preds = %.thread.i104.i, %206, %.thread.i94.i, %187, %.thread.i84.i, %168, %.thread.i74.i, %148, %.thread.i114.i, %225, %.thread.i.i, %73, %275, %269, %271, %260, %262, %333, %331, %337, %.thread, %362
-  %.1 = phi i32 [ %363, %362 ], [ %236, %.thread ], [ -1094995529, %337 ], [ -1094995529, %331 ], [ -1094995529, %333 ], [ -1094995529, %262 ], [ -1094995529, %260 ], [ -1094995529, %271 ], [ -1094995529, %269 ], [ -1094995529, %275 ], [ -12, %73 ], [ -12, %.thread.i.i ], [ -12, %225 ], [ -12, %.thread.i114.i ], [ -12, %148 ], [ -12, %.thread.i74.i ], [ -12, %168 ], [ -12, %.thread.i84.i ], [ -12, %187 ], [ -12, %.thread.i94.i ], [ -12, %206 ], [ -12, %.thread.i104.i ]
+.thread175:                                       ; preds = %206, %.thread.i104.i, %.thread.i94.i, %.thread.i84.i, %.thread.i74.i, %.thread.i114.i, %168, %148, %225, %187, %73, %.thread.i.i, %275, %271, %262, %269, %260, %337, %331, %333, %.thread, %362
+  %.1 = phi i32 [ %363, %362 ], [ %236, %.thread ], [ -12, %73 ], [ -1094995529, %337 ], [ -1094995529, %275 ], [ -1094995529, %333 ], [ -1094995529, %331 ], [ -1094995529, %260 ], [ -1094995529, %269 ], [ -1094995529, %262 ], [ -1094995529, %271 ], [ -12, %.thread.i.i ], [ -12, %187 ], [ -12, %225 ], [ -12, %148 ], [ -12, %168 ], [ -12, %.thread.i114.i ], [ -12, %.thread.i74.i ], [ -12, %.thread.i84.i ], [ -12, %.thread.i94.i ], [ -12, %.thread.i104.i ], [ -12, %206 ]
   ret i32 %.1
 }
 
@@ -1153,7 +1153,7 @@ ac_update.exit.i:                                 ; preds = %55, %50
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %decode_samples.exit.thread, label %decode_samples.exit
 
-decode_samples.exit.thread:                       ; preds = %ac_update.exit.i, %76, %80, %86, %94, %98, %102, %106, %27, %30
+decode_samples.exit.thread:                       ; preds = %102, %80, %106, %ac_update.exit.i, %76, %86, %94, %98, %27, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %111
 
@@ -2211,7 +2211,7 @@ decode_filt_coeffs.exit.thread:                   ; preds = %144, %34
   br label %202
 
 202:                                              ; preds = %200, %198, %194
-  %.0126 = phi ptr [ %190, %194 ], [ %189, %198 ], [ %gep, %200 ]
+  %.0126 = phi ptr [ %189, %198 ], [ %190, %194 ], [ %gep, %200 ]
   %203 = load i32, ptr %.0126, align 4, !tbaa !66
   %204 = getelementptr inbounds nuw i8, ptr %.0126, i64 4
   %205 = load i32, ptr %204, align 4, !tbaa !66
@@ -2503,9 +2503,9 @@ ac_update.exit92.i:                               ; preds = %351, %346
   br label %ac_update.exit.i160
 
 ac_update.exit.i160:                              ; preds = %274, %269, %.ac_update.exit.i160_crit_edge, %ac_update.exit92.i
-  %.promoted154.i.pre = phi i32 [ %.promoted154.i.pre375, %ac_update.exit92.i ], [ %.promoted154.i.pre.pre, %.ac_update.exit.i160_crit_edge ], [ %.023.i.i169, %274 ], [ %.0.i80.i, %269 ]
-  %.promoted.i161.pre = phi i32 [ %342, %ac_update.exit92.i ], [ %.promoted.i161.pre.pre, %.ac_update.exit.i160_crit_edge ], [ %265, %269 ], [ %265, %274 ]
-  %.0117.i = phi i32 [ %369, %ac_update.exit92.i ], [ 0, %.ac_update.exit.i160_crit_edge ], [ %.1.i168, %269 ], [ %.1.i168, %274 ]
+  %.promoted154.i.pre = phi i32 [ %.promoted154.i.pre.pre, %.ac_update.exit.i160_crit_edge ], [ %.promoted154.i.pre375, %ac_update.exit92.i ], [ %.023.i.i169, %274 ], [ %.0.i80.i, %269 ]
+  %.promoted.i161.pre = phi i32 [ %.promoted.i161.pre.pre, %.ac_update.exit.i160_crit_edge ], [ %342, %ac_update.exit92.i ], [ %265, %269 ], [ %265, %274 ]
+  %.0117.i = phi i32 [ 0, %.ac_update.exit.i160_crit_edge ], [ %369, %ac_update.exit92.i ], [ %.1.i168, %269 ], [ %.1.i168, %274 ]
   %370 = getelementptr inbounds nuw i8, ptr %.0126, i64 16
   %371 = load i32, ptr %370, align 4, !tbaa !77
   %372 = icmp sgt i32 %371, -1
@@ -3066,7 +3066,7 @@ mdl64_decode.exit:                                ; preds = %ac_update.exit98.i,
   br i1 %.not153, label %181, label %.thread193, !llvm.loop !118
 
 .thread193:                                       ; preds = %657, %193, %233, %235, %412, %441, %decode_filt_coeffs.exit.thread, %.loopexit
-  %.0121 = phi i32 [ 0, %.loopexit ], [ -1, %decode_filt_coeffs.exit.thread ], [ -1, %441 ], [ -1, %412 ], [ -1, %235 ], [ -1, %233 ], [ -1, %193 ], [ 0, %657 ]
+  %.0121 = phi i32 [ -1, %decode_filt_coeffs.exit.thread ], [ 0, %.loopexit ], [ -1, %193 ], [ -1, %441 ], [ -1, %412 ], [ -1, %235 ], [ -1, %233 ], [ 0, %657 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3190,7 +3190,7 @@ define internal fastcc range(i32 -1, 2) i32 @ac_decode_bool(ptr noundef captures
   br label %48
 
 .loopexit:                                        ; preds = %29, %24, %59, %54
-  %.048 = phi i32 [ -1, %59 ], [ 0, %54 ], [ -1, %29 ], [ 1, %24 ]
+  %.048 = phi i32 [ 0, %54 ], [ -1, %59 ], [ 1, %24 ], [ -1, %29 ]
   ret i32 %.048
 }
 

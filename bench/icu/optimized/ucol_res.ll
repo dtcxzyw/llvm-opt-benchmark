@@ -232,7 +232,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1082,8 +1082,8 @@ _ZN6icu_7712SharedObject7copyPtrINS_19CollationCacheEntryEEEvPKT_RS5_.exit.i: ; 
   br label %_ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i
 
 _ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i: ; preds = %.noexc4._ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge, %19
-  %20 = phi i32 [ %.pre, %.noexc4._ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ], [ %17, %19 ]
-  %.1 = phi ptr [ %.0, %.noexc4._ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ], [ null, %19 ]
+  %20 = phi i32 [ %17, %19 ], [ %.pre, %.noexc4._ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ]
+  %.1 = phi ptr [ null, %19 ], [ %.0, %.noexc4._ZN6icu_7712SharedObject8clearPtrINS_19CollationCacheEntryEEEvRPKT_.exit.i_crit_edge ]
   %21 = load i32, ptr %1, align 4, !tbaa !13
   %22 = icmp ne i32 %21, 0
   %23 = icmp slt i32 %20, 1
@@ -1451,7 +1451,7 @@ _ZN6icu_776Locale15setKeywordValueEPKcS2_R10UErrorCode.exit: ; preds = %.noexc22
           to label %55 unwind label %26
 
 55:                                               ; preds = %53, %51, %23
-  %.116 = phi ptr [ null, %23 ], [ %52, %51 ], [ %54, %53 ]
+  %.116 = phi ptr [ %52, %51 ], [ null, %23 ], [ %54, %53 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
@@ -1463,7 +1463,7 @@ _ZN6icu_776Locale15setKeywordValueEPKcS2_R10UErrorCode.exit: ; preds = %.noexc22
   resume { ptr, i32 } %.pn20
 
 57:                                               ; preds = %2, %55, %16
-  %.015 = phi ptr [ %19, %16 ], [ %.116, %55 ], [ null, %2 ]
+  %.015 = phi ptr [ %.116, %55 ], [ %19, %16 ], [ null, %2 ]
   ret ptr %.015
 }
 
@@ -1650,7 +1650,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %91
 
 91:                                               ; preds = %22, %2, %89, %61, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit
-  %.0 = phi ptr [ %21, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ %69, %61 ], [ %90, %89 ], [ null, %2 ], [ null, %22 ]
+  %.0 = phi ptr [ %90, %89 ], [ %21, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ null, %2 ], [ %69, %61 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -1935,7 +1935,7 @@ define noundef ptr @_ZN6icu_7715CollationLoader18loadFromCollationsER10UErrorCod
           to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %96
 
 _ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit: ; preds = %.noexc, %62, %60
-  %.1 = phi ptr [ %61, %60 ], [ null, %62 ], [ %49, %.noexc ]
+  %.1 = phi ptr [ %49, %.noexc ], [ null, %62 ], [ %61, %60 ]
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %127
 
@@ -1950,8 +1950,8 @@ _ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.
   call void @__clang_call_terminate(ptr %130) #18
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %125, %119, %110, %83, %67, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit, %127
-  %.164 = phi ptr [ %.1, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ %.1, %127 ], [ %126, %125 ], [ %120, %119 ], [ %111, %110 ], [ null, %83 ], [ null, %67 ]
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %110, %83, %119, %67, %125, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit, %127
+  %.164 = phi ptr [ %.1, %127 ], [ %.1, %_ZNK6icu_7715CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit ], [ %111, %110 ], [ null, %83 ], [ %120, %119 ], [ null, %67 ], [ %126, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %132
 
@@ -2326,8 +2326,8 @@ define noundef ptr @_ZN6icu_7715CollationLoader12loadFromDataER10UErrorCode(ptr 
   br label %151
 
 151:                                              ; preds = %.critedge, %133, %150, %147, %43
-  %.sroa.0.1 = phi ptr [ %17, %147 ], [ null, %150 ], [ %17, %133 ], [ %17, %.critedge ], [ %17, %43 ]
-  %.2 = phi ptr [ null, %147 ], [ %144, %150 ], [ null, %133 ], [ null, %.critedge ], [ null, %43 ]
+  %.sroa.0.1 = phi ptr [ %17, %147 ], [ null, %150 ], [ %17, %133 ], [ %17, %43 ], [ %17, %.critedge ]
+  %.2 = phi ptr [ null, %147 ], [ %144, %150 ], [ null, %133 ], [ null, %43 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %152 = load ptr, ptr %3, align 8, !tbaa !24
   %.not.i = icmp eq ptr %152, null
@@ -2349,7 +2349,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %163
 
 .thread99:                                        ; preds = %148, %124, %116, %94, %85, %83, %82, %47
-  %.pn71.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %149, %148 ], [ %.pn60.pn, %94 ], [ %.pn64.pn, %116 ], [ %125, %124 ], [ %86, %85 ], [ %84, %83 ], [ %48, %47 ], [ %.pn, %82 ]
+  %.pn71.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %149, %148 ], [ %.pn64.pn, %116 ], [ %125, %124 ], [ %.pn60.pn, %94 ], [ %86, %85 ], [ %84, %83 ], [ %.pn, %82 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %159
@@ -2496,7 +2496,7 @@ _ZN6icu_7719CollationCacheEntryC2ERKNS_6LocaleEPKNS_18CollationTailoringE.exit: 
   br label %25
 
 25:                                               ; preds = %.sink.split, %3, %6
-  %.0 = phi ptr [ %1, %6 ], [ %1, %3 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %1, %3 ], [ %1, %6 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2812,7 +2812,7 @@ define ptr @ucol_getKeywordValues_77(ptr noundef readonly captures(address_is_nu
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

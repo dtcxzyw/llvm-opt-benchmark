@@ -6314,7 +6314,7 @@ oidclr.exit.i:                                    ; preds = %48, %.split.loop.ex
   br label %update_branch.exit
 
 update_branch.exit:                               ; preds = %21, %28, %32, %60, %70, %83, %86
-  %.0.i = phi i32 [ -1, %83 ], [ 0, %86 ], [ 0, %21 ], [ 0, %32 ], [ 0, %28 ], [ -1, %60 ], [ -1, %70 ]
+  %.0.i = phi i32 [ 0, %21 ], [ -1, %83 ], [ 0, %86 ], [ 0, %28 ], [ 0, %32 ], [ -1, %70 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %87 = load i32, ptr @failure, align 4, !tbaa !11
@@ -8515,7 +8515,7 @@ define internal fastcc range(i32 -1, 1) i32 @validate_raw_date(ptr noundef %0, p
   br label %30
 
 30:                                               ; preds = %16, %20, %23, %25, %13, %3, %8, %11, %28
-  %.0 = phi i32 [ 0, %28 ], [ -1, %11 ], [ -1, %8 ], [ -1, %3 ], [ -1, %13 ], [ -1, %25 ], [ -1, %23 ], [ -1, %20 ], [ -1, %16 ]
+  %.0 = phi i32 [ 0, %28 ], [ -1, %3 ], [ -1, %13 ], [ -1, %11 ], [ -1, %8 ], [ -1, %25 ], [ -1, %23 ], [ -1, %20 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -9614,7 +9614,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
-  %.1.i = phi i32 [ 0, %8 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = icmp eq i32 %.1.i, %10
   br i1 %38, label %39, label %50
@@ -9647,7 +9647,7 @@ kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
   br label %59
 
 59:                                               ; preds = %39, %3, %50
-  %.0 = phi i32 [ 0, %50 ], [ -1, %3 ], [ %., %39 ]
+  %.0 = phi i32 [ 0, %50 ], [ %., %39 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -9792,7 +9792,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, 
   br i1 %71, label %22, label %.loopexit, !llvm.loop !230
 
 .thread:                                          ; preds = %35, %12
-  %.0 = phi ptr [ %0, %12 ], [ %25, %35 ]
+  %.0 = phi ptr [ %25, %35 ], [ %0, %12 ]
   %.not56 = icmp eq ptr %2, null
   br i1 %.not56, label %73, label %72
 
@@ -10378,7 +10378,7 @@ new_tree_content.exit121:                         ; preds = %188, %192, %.crited
   br label %.sink.split
 
 .sink.split:                                      ; preds = %110, %74, %214, %.split.loop.exit9.i.i126, %.split.loop.exit9.i.i96, %.split.loop.exit9.i.i
-  %.2.i.i125.sink = phi i32 [ %76, %.split.loop.exit9.i.i ], [ %112, %.split.loop.exit9.i.i96 ], [ %216, %.split.loop.exit9.i.i126 ], [ 0, %214 ], [ 0, %74 ], [ 0, %110 ]
+  %.2.i.i125.sink = phi i32 [ %76, %.split.loop.exit9.i.i ], [ %112, %.split.loop.exit9.i.i96 ], [ %216, %.split.loop.exit9.i.i126 ], [ 0, %74 ], [ 0, %214 ], [ 0, %110 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.2.i.i125.sink, ptr %217, align 4, !tbaa !58
   br label %218
@@ -10944,8 +10944,8 @@ construct_path_with_fanout.exit:                  ; preds = %.preheader.i, %._cr
   br label %123
 
 123:                                              ; preds = %34, %121, %105, %72
-  %.155 = phi i64 [ %.2, %121 ], [ %73, %72 ], [ %106, %105 ], [ %.05476, %34 ]
-  %.1 = phi ptr [ %122, %121 ], [ %.077, %72 ], [ %.077, %105 ], [ %.077, %34 ]
+  %.155 = phi i64 [ %.05476, %34 ], [ %106, %105 ], [ %.2, %121 ], [ %73, %72 ]
+  %.1 = phi ptr [ %.077, %34 ], [ %.077, %105 ], [ %122, %121 ], [ %.077, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not62 = icmp eq ptr %.1, null
   br i1 %.not62, label %.critedge, label %29, !llvm.loop !234
@@ -11220,7 +11220,7 @@ skip_prefix.exit.preheader:                       ; preds = %4
   unreachable
 
 option_date_format.exit:                          ; preds = %9, %11, %13, %15
-  %.sink.i = phi i32 [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ]
+  %.sink.i = phi i32 [ 1, %9 ], [ 3, %13 ], [ 2, %11 ], [ 4, %15 ]
   store i32 %.sink.i, ptr @whenspec, align 4, !tbaa !11
   br label %88
 

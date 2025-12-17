@@ -366,12 +366,12 @@ thread-pre-split:                                 ; preds = %77
   br i1 %108, label %.lr.ph, label %.outer245
 
 .outer245._crit_edge:                             ; preds = %.outer245, %.lr.ph, %.critedge6.us
-  %114 = phi i8 [ %111, %.critedge6.us ], [ %97, %.lr.ph ], [ %105, %.outer245 ]
-  %.2176.ph.lcssa = phi double [ %.2176.ph339, %.critedge6.us ], [ %.2176.ph339, %.lr.ph ], [ %101, %.outer245 ]
-  %.0170.ph.lcssa = phi i32 [ %.0170.ph340, %.critedge6.us ], [ %.0170.ph340, %.lr.ph ], [ %spec.select238, %.outer245 ]
-  %.2162.ph.lcssa = phi i32 [ %smax, %.critedge6.us ], [ %.2162.ph342, %.lr.ph ], [ %103, %.outer245 ]
-  %.0159.ph.lcssa = phi i32 [ %90, %.critedge6.us ], [ %.0159.ph343, %.lr.ph ], [ %104, %.outer245 ]
-  %.7.lcssa = phi ptr [ %110, %.critedge6.us ], [ %96, %.lr.ph ], [ %102, %.outer245 ]
+  %114 = phi i8 [ %97, %.lr.ph ], [ %111, %.critedge6.us ], [ %105, %.outer245 ]
+  %.2176.ph.lcssa = phi double [ %.2176.ph339, %.lr.ph ], [ %.2176.ph339, %.critedge6.us ], [ %101, %.outer245 ]
+  %.0170.ph.lcssa = phi i32 [ %.0170.ph340, %.lr.ph ], [ %.0170.ph340, %.critedge6.us ], [ %spec.select238, %.outer245 ]
+  %.2162.ph.lcssa = phi i32 [ %.2162.ph342, %.lr.ph ], [ %smax, %.critedge6.us ], [ %103, %.outer245 ]
+  %.0159.ph.lcssa = phi i32 [ %.0159.ph343, %.lr.ph ], [ %90, %.critedge6.us ], [ %104, %.outer245 ]
+  %.7.lcssa = phi ptr [ %96, %.lr.ph ], [ %110, %.critedge6.us ], [ %102, %.outer245 ]
   %.not214 = icmp eq i32 %.0170.ph.lcssa, 0
   br i1 %.not214, label %.outer245._crit_edge.thread, label %115
 
@@ -501,8 +501,8 @@ thread-pre-split:                                 ; preds = %77
   br label %157
 
 157:                                              ; preds = %.critedge9, %128, %123, %.outer._crit_edge
-  %.1173 = phi i32 [ %156, %.outer._crit_edge ], [ %.0172, %123 ], [ %.0172, %128 ], [ %.0172, %.critedge9 ]
-  %.8 = phi ptr [ %.11.lcssa, %.outer._crit_edge ], [ %.4, %123 ], [ %.4, %128 ], [ %.4, %.critedge9 ]
+  %.1173 = phi i32 [ %.0172, %123 ], [ %156, %.outer._crit_edge ], [ %.0172, %128 ], [ %.0172, %.critedge9 ]
+  %.8 = phi ptr [ %.4, %123 ], [ %.11.lcssa, %.outer._crit_edge ], [ %.4, %128 ], [ %.4, %.critedge9 ]
   %.not221 = icmp eq ptr %1, null
   br i1 %.not221, label %159, label %158
 
@@ -551,7 +551,7 @@ thread-pre-split:                                 ; preds = %77
   br label %179
 
 179:                                              ; preds = %22, %23, %170, %175, %163, %138, %139, %120, %122, %93, %74, %.loopexit249, %59, %42, %43, %34, %35, %29, %30, %18, %19, %6, %8, %161, %94, %75
-  %.0179 = phi double [ %76, %75 ], [ %95, %94 ], [ 0x7FF0000000000000, %161 ], [ 0x7FF0000000000000, %8 ], [ 0x7FF0000000000000, %6 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %43 ], [ 0.000000e+00, %42 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %.loopexit249 ], [ %.0174.ph.lcssa, %74 ], [ %.0174.ph.lcssa, %93 ], [ 0x7FF0000000000000, %122 ], [ 0x7FF0000000000000, %120 ], [ 0x7FF0000000000000, %139 ], [ 0x7FF0000000000000, %138 ], [ %.3177, %163 ], [ %174, %170 ], [ %178, %175 ], [ 0x7FF8000000000000, %23 ], [ 0x7FF8000000000000, %22 ]
+  %.0179 = phi double [ 0.000000e+00, %29 ], [ 0x7FF0000000000000, %6 ], [ %178, %175 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %42 ], [ %76, %75 ], [ 0.000000e+00, %.loopexit249 ], [ %95, %94 ], [ %.0174.ph.lcssa, %74 ], [ %.0174.ph.lcssa, %93 ], [ 0x7FF0000000000000, %161 ], [ 0x7FF0000000000000, %138 ], [ %.3177, %163 ], [ 0x7FF0000000000000, %120 ], [ 0x7FF0000000000000, %8 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %43 ], [ 0.000000e+00, %59 ], [ 0x7FF0000000000000, %122 ], [ 0x7FF0000000000000, %139 ], [ %174, %170 ], [ 0x7FF8000000000000, %23 ], [ 0x7FF8000000000000, %22 ]
   ret double %.0179
 }
 

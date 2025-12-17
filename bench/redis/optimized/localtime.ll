@@ -94,8 +94,8 @@ is_leap_year.exit.thread:                         ; preds = %25
   br label %is_leap_year.exit43
 
 is_leap_year.exit43:                              ; preds = %.thread, %39, %43
-  %46 = phi i32 [ %40, %39 ], [ %40, %43 ], [ %34, %.thread ]
-  %.0.i39 = phi i32 [ 29, %39 ], [ %45, %43 ], [ 28, %.thread ]
+  %46 = phi i32 [ %40, %39 ], [ %34, %.thread ], [ %40, %43 ]
+  %.0.i39 = phi i32 [ 29, %39 ], [ 28, %.thread ], [ %45, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0.i39, ptr %47, align 4, !tbaa !18
   %.not54 = icmp slt i64 %.035, 31

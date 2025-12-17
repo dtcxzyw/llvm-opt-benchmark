@@ -460,7 +460,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %.loopexit334
 
 .loopexit334:                                     ; preds = %.loopexit334.loopexit, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
-  %104 = phi i32 [ %.pre565, %.loopexit334.loopexit ], [ %33, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ]
+  %104 = phi i32 [ %33, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit ], [ %.pre565, %.loopexit334.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -617,23 +617,23 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit:              ; preds = %_ZNK6aiMesh16HasTex
   %167 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
   %168 = load float, ptr %167, align 4
   %169 = fcmp une float %168, %156
-  br i1 %169, label %170, label %_ZNK10aiVector3tIfEltERKS0_.exit.i
+  br i1 %169, label %_ZNK10aiVector3tIfEltERKS0_.exit.i, label %170
 
 170:                                              ; preds = %166
-  %171 = fcmp olt float %168, %156
-  br i1 %171, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
+  %171 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %172 = load float, ptr %171, align 4
+  %173 = fcmp olt float %172, %157
+  br i1 %173, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.i
 
 _ZNK10aiVector3tIfEltERKS0_.exit.i:               ; preds = %166
-  %172 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
-  %173 = load float, ptr %172, align 4
-  %174 = fcmp olt float %173, %157
-  br i1 %174, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.i
+  %174 = fcmp olt float %168, %156
+  br i1 %174, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
 
-_ZNK10aiVector3tIfEneERKS0_.exit.thread.i:        ; preds = %170, %164
+_ZNK10aiVector3tIfEneERKS0_.exit.thread.i:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit.i, %164
   br label %.noexc124
 
-_ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit.i
-  %175 = fcmp une float %173, %157
+_ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %170
+  %175 = fcmp une float %172, %157
   br i1 %175, label %.noexc124, label %176
 
 176:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.i
@@ -650,23 +650,23 @@ _ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %_ZNK10aiVector3tIfE
   %183 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %184 = load float, ptr %183, align 4
   %185 = fcmp une float %184, %159
-  br i1 %185, label %186, label %_ZNK10aiVector3tIfEltERKS0_.exit28.i
+  br i1 %185, label %_ZNK10aiVector3tIfEltERKS0_.exit28.i, label %186
 
 186:                                              ; preds = %182
-  %187 = fcmp olt float %184, %159
-  br i1 %187, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i
+  %187 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 52
+  %188 = load float, ptr %187, align 4
+  %189 = fcmp olt float %188, %160
+  br i1 %189, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.i
 
 _ZNK10aiVector3tIfEltERKS0_.exit28.i:             ; preds = %182
-  %188 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 52
-  %189 = load float, ptr %188, align 4
-  %190 = fcmp olt float %189, %160
-  br i1 %190, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.i
+  %190 = fcmp olt float %184, %159
+  br i1 %190, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i
 
-_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i:      ; preds = %186, %180
+_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i:      ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %180
   br label %.noexc124
 
-_ZNK10aiVector3tIfEneERKS0_.exit29.i:             ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28.i
-  %191 = fcmp une float %189, %160
+_ZNK10aiVector3tIfEneERKS0_.exit29.i:             ; preds = %186
+  %191 = fcmp une float %188, %160
   br i1 %191, label %.noexc124, label %.preheader46.i
 
 .preheader46.i:                                   ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit29.i
@@ -701,25 +701,25 @@ _ZNK10aiVector3tIfEneERKS0_.exit29.i:             ; preds = %_ZNK10aiVector3tIfE
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %207 = load float, ptr %206, align 4
   %208 = fcmp une float %205, %207
-  br i1 %208, label %209, label %_ZNK10aiVector3tIfEltERKS0_.exit30.i
+  br i1 %208, label %_ZNK10aiVector3tIfEltERKS0_.exit30.i, label %209
 
 209:                                              ; preds = %203
-  %210 = fcmp olt float %205, %207
-  br i1 %210, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
+  %210 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %211 = load float, ptr %210, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %213 = load float, ptr %212, align 4
+  %214 = fcmp olt float %211, %213
+  br i1 %214, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.i
 
 _ZNK10aiVector3tIfEltERKS0_.exit30.i:             ; preds = %203
-  %211 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %212 = load float, ptr %211, align 4
-  %213 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %214 = load float, ptr %213, align 4
-  %215 = fcmp olt float %212, %214
-  br i1 %215, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.i
+  %215 = fcmp olt float %205, %207
+  br i1 %215, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
-_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i:      ; preds = %209, %201
+_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i:      ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201
   br label %.noexc124
 
-_ZNK10aiVector3tIfEneERKS0_.exit31.i:             ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30.i
-  %216 = fcmp une float %212, %214
+_ZNK10aiVector3tIfEneERKS0_.exit31.i:             ; preds = %209
+  %216 = fcmp une float %211, %213
   br i1 %216, label %.noexc124, label %193
 
 217:                                              ; preds = %_ZNK9aiColor4tIfEneERKS0_.exit.i, %.preheader.i
@@ -798,9 +798,9 @@ _ZNK9aiColor4tIfEneERKS0_.exit.i:                 ; preds = %253
   %or.cond.i = select i1 %263, i1 true, i1 %exitcond69.not.i
   br i1 %or.cond.i, label %.noexc124, label %217, !llvm.loop !12
 
-.noexc124:                                        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i, %217, %225, %233, %_ZNK9aiColor4tIfEneERKS0_.exit.i, %253, %247, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i, %209, %201, %186, %180, %170, %164, %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
-  %264 = phi ptr [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ %.0811.i.i.i, %164 ], [ %.0811.i.i.i, %170 ], [ %.0811.i.i.i, %180 ], [ %.0811.i.i.i, %186 ], [ %.0811.i.i.i, %201 ], [ %.0811.i.i.i, %209 ], [ %.0811.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %217 ], [ %.0811.i.i.i, %225 ], [ %.0811.i.i.i, %233 ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ %.012.i.i.i, %247 ], [ %.012.i.i.i, %253 ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
-  %265 = phi i64 [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ 24, %164 ], [ 24, %170 ], [ 24, %180 ], [ 24, %186 ], [ 24, %201 ], [ 24, %209 ], [ 24, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ 24, %217 ], [ 24, %225 ], [ 24, %233 ], [ 16, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ 16, %247 ], [ 16, %253 ], [ 16, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
+.noexc124:                                        ; preds = %209, %_ZNK10aiVector3tIfEneERKS0_.exit31.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i, %217, %225, %233, %_ZNK9aiColor4tIfEneERKS0_.exit.i, %253, %247, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201, %186, %180, %170, %164, %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
+  %264 = phi ptr [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ %.0811.i.i.i, %180 ], [ %.0811.i.i.i, %186 ], [ %.0811.i.i.i, %201 ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ %.0811.i.i.i, %170 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ %.0811.i.i.i, %164 ], [ %.0811.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %217 ], [ %.0811.i.i.i, %225 ], [ %.0811.i.i.i, %233 ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ %.012.i.i.i, %247 ], [ %.012.i.i.i, %253 ], [ %.0811.i.i.i, %209 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
+  %265 = phi i64 [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ 24, %180 ], [ 24, %186 ], [ 24, %201 ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ 24, %170 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ 16, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ 24, %164 ], [ 24, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ 24, %217 ], [ 24, %225 ], [ 24, %233 ], [ 16, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ 16, %247 ], [ 16, %253 ], [ 24, %209 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %265
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -1073,9 +1073,9 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRjEEERiDpOT_.exit: ; preds = %_ZNSt6vectorIi
   br i1 %338, label %124, label %._crit_edge432.loopexit, !llvm.loop !15
 
 339:                                              ; preds = %.loopexit319, %.loopexit.split-lp320, %.loopexit329, %.loopexit.split-lp330, %.loopexit324, %.loopexit.split-lp325
-  %.sroa.24.4 = phi ptr [ %.sroa.24.2422, %.loopexit324 ], [ %.sroa.24.2422, %.loopexit.split-lp325 ], [ %.sroa.17.0423, %.loopexit329 ], [ %.sroa.17.0423, %.loopexit.split-lp330 ], [ %.sroa.24.7, %.loopexit319 ], [ %.sroa.24.7, %.loopexit.split-lp320 ]
-  %.sroa.0258.4 = phi ptr [ %.sroa.0258.2426, %.loopexit324 ], [ %.sroa.0258.2426, %.loopexit.split-lp325 ], [ %.sroa.0258.2426, %.loopexit329 ], [ %.sroa.0258.2426, %.loopexit.split-lp330 ], [ %.sroa.0258.7, %.loopexit319 ], [ %.sroa.0258.7, %.loopexit.split-lp320 ]
-  %.pn103 = phi { ptr, i32 } [ %lpad.loopexit326, %.loopexit324 ], [ %lpad.loopexit.split-lp327, %.loopexit.split-lp325 ], [ %lpad.loopexit331, %.loopexit329 ], [ %lpad.loopexit.split-lp332, %.loopexit.split-lp330 ], [ %lpad.loopexit321, %.loopexit319 ], [ %lpad.loopexit.split-lp322, %.loopexit.split-lp320 ]
+  %.sroa.24.4 = phi ptr [ %.sroa.24.2422, %.loopexit.split-lp325 ], [ %.sroa.17.0423, %.loopexit.split-lp330 ], [ %.sroa.24.2422, %.loopexit324 ], [ %.sroa.17.0423, %.loopexit329 ], [ %.sroa.24.7, %.loopexit319 ], [ %.sroa.24.7, %.loopexit.split-lp320 ]
+  %.sroa.0258.4 = phi ptr [ %.sroa.0258.2426, %.loopexit.split-lp325 ], [ %.sroa.0258.2426, %.loopexit.split-lp330 ], [ %.sroa.0258.2426, %.loopexit324 ], [ %.sroa.0258.2426, %.loopexit329 ], [ %.sroa.0258.7, %.loopexit319 ], [ %.sroa.0258.7, %.loopexit.split-lp320 ]
+  %.pn103 = phi { ptr, i32 } [ %lpad.loopexit.split-lp327, %.loopexit.split-lp325 ], [ %lpad.loopexit.split-lp332, %.loopexit.split-lp330 ], [ %lpad.loopexit326, %.loopexit324 ], [ %lpad.loopexit331, %.loopexit329 ], [ %lpad.loopexit321, %.loopexit319 ], [ %lpad.loopexit.split-lp322, %.loopexit.split-lp320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.body
 
@@ -2230,9 +2230,9 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit:   ; preds = %802, %804
   br label %.body
 
 .body:                                            ; preds = %811, %810, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i, %365, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i, %339, %367
-  %.sroa.24.6 = phi ptr [ %.sroa.24.2.lcssa, %367 ], [ %.sroa.24.4, %339 ], [ %.sroa.24.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %.sroa.24.2.lcssa, %365 ], [ %.sroa.24.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ], [ %.sroa.24.2.lcssa, %810 ], [ %.sroa.24.2.lcssa, %811 ]
-  %.sroa.0258.6 = phi ptr [ %.sroa.0258.2.lcssa, %367 ], [ %.sroa.0258.4, %339 ], [ %.sroa.0258.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %.sroa.0258.2.lcssa, %365 ], [ %.sroa.0258.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ], [ %.sroa.0258.2.lcssa, %810 ], [ %.sroa.0258.2.lcssa, %811 ]
-  %.pn103.pn.pn.pn = phi { ptr, i32 } [ %368, %367 ], [ %.pn103, %339 ], [ %.pn.i, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %366, %365 ], [ %.pn.i145, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ], [ %.pn, %810 ], [ %.pn, %811 ]
+  %.sroa.24.6 = phi ptr [ %.sroa.24.2.lcssa, %367 ], [ %.sroa.24.2.lcssa, %810 ], [ %.sroa.24.2.lcssa, %365 ], [ %.sroa.24.2.lcssa, %811 ], [ %.sroa.24.4, %339 ], [ %.sroa.24.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %.sroa.24.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ]
+  %.sroa.0258.6 = phi ptr [ %.sroa.0258.2.lcssa, %367 ], [ %.sroa.0258.2.lcssa, %810 ], [ %.sroa.0258.2.lcssa, %365 ], [ %.sroa.0258.2.lcssa, %811 ], [ %.sroa.0258.4, %339 ], [ %.sroa.0258.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %.sroa.0258.2.lcssa, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ]
+  %.pn103.pn.pn.pn = phi { ptr, i32 } [ %368, %367 ], [ %.pn, %810 ], [ %366, %365 ], [ %.pn, %811 ], [ %.pn103, %339 ], [ %.pn.i, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit123.i ], [ %.pn.i145, %_ZNSt10unique_ptrIA_9aiColor4tIfESt14default_deleteIS2_EED2Ev.exit122.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt3mapIN6Assimp6VertexEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2265,7 +2265,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit194:                 ; preds = %817, %816
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit196
 
 _ZNSt6vectorIiSaIiEED2Ev.exit196:                 ; preds = %820, %_ZNSt6vectorIjSaIjEED2Ev.exit194, %_ZNSt6vectorIjSaIjEED2Ev.exit194.thread, %40
-  %.pn111 = phi { ptr, i32 } [ %41, %40 ], [ %73, %_ZNSt6vectorIjSaIjEED2Ev.exit194.thread ], [ %.pn108, %_ZNSt6vectorIjSaIjEED2Ev.exit194 ], [ %.pn108, %820 ]
+  %.pn111 = phi { ptr, i32 } [ %.pn108, %820 ], [ %41, %40 ], [ %73, %_ZNSt6vectorIjSaIjEED2Ev.exit194.thread ], [ %.pn108, %_ZNSt6vectorIjSaIjEED2Ev.exit194 ]
   %823 = load ptr, ptr %5, align 8
   %.not.i.i197 = icmp eq ptr %823, null
   br i1 %.not.i.i197, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit201, label %824
@@ -3549,24 +3549,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Assimp6VertexltERKS0_(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fcmp une float %10, %12
-  br i1 %13, label %14, label %_ZNK10aiVector3tIfEltERKS0_.exit
+  br i1 %13, label %_ZNK10aiVector3tIfEltERKS0_.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = fcmp olt float %10, %12
-  br i1 %15, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load float, ptr %17, align 4
+  %19 = fcmp olt float %16, %18
+  br i1 %19, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit
 
 _ZNK10aiVector3tIfEltERKS0_.exit:                 ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load float, ptr %18, align 4
-  %20 = fcmp olt float %17, %19
-  br i1 %20, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit
+  %20 = fcmp olt float %10, %12
+  br i1 %20, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread
 
-_ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %14, %6
+_ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit, %6
   br label %.thread37
 
-_ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit
+_ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load float, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3592,24 +3592,24 @@ _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %_ZNK10aiVector3tIfE
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load float, ptr %37, align 4
   %39 = fcmp une float %36, %38
-  br i1 %39, label %40, label %_ZNK10aiVector3tIfEltERKS0_.exit28
+  br i1 %39, label %_ZNK10aiVector3tIfEltERKS0_.exit28, label %40
 
 40:                                               ; preds = %34
-  %41 = fcmp olt float %36, %38
-  br i1 %41, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %42 = load float, ptr %41, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %44 = load float, ptr %43, align 4
+  %45 = fcmp olt float %42, %44
+  br i1 %45, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29
 
 _ZNK10aiVector3tIfEltERKS0_.exit28:               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %45 = load float, ptr %44, align 4
-  %46 = fcmp olt float %43, %45
-  br i1 %46, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29
+  %46 = fcmp olt float %36, %38
+  br i1 %46, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread
 
-_ZNK10aiVector3tIfEneERKS0_.exit29.thread:        ; preds = %40, %32
+_ZNK10aiVector3tIfEneERKS0_.exit29.thread:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28, %32
   br label %.thread37
 
-_ZNK10aiVector3tIfEneERKS0_.exit29:               ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28
+_ZNK10aiVector3tIfEneERKS0_.exit29:               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load float, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3651,24 +3651,24 @@ _ZNK10aiVector3tIfEneERKS0_.exit29:               ; preds = %_ZNK10aiVector3tIfE
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %69 = load float, ptr %68, align 4
   %70 = fcmp une float %67, %69
-  br i1 %70, label %71, label %_ZNK10aiVector3tIfEltERKS0_.exit30
+  br i1 %70, label %_ZNK10aiVector3tIfEltERKS0_.exit30, label %71
 
 71:                                               ; preds = %65
-  %72 = fcmp olt float %67, %69
-  br i1 %72, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %73 = load float, ptr %72, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %75 = load float, ptr %74, align 4
+  %76 = fcmp olt float %73, %75
+  br i1 %76, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31
 
 _ZNK10aiVector3tIfEltERKS0_.exit30:               ; preds = %65
-  %73 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %76 = load float, ptr %75, align 4
-  %77 = fcmp olt float %74, %76
-  br i1 %77, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31
+  %77 = fcmp olt float %67, %69
+  br i1 %77, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
-_ZNK10aiVector3tIfEneERKS0_.exit31.thread:        ; preds = %71, %63
+_ZNK10aiVector3tIfEneERKS0_.exit31.thread:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30, %63
   br label %.thread37
 
-_ZNK10aiVector3tIfEneERKS0_.exit31:               ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30
+_ZNK10aiVector3tIfEneERKS0_.exit31:               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %79 = load float, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -3752,8 +3752,8 @@ _ZNK9aiColor4tIfEneERKS0_.exit:                   ; preds = %119
   %or.cond = select i1 %129, i1 true, i1 %exitcond69.not
   br i1 %or.cond, label %.thread37, label %83, !llvm.loop !12
 
-.thread37:                                        ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit31, %_ZNK10aiVector3tIfEltERKS0_.exit30, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41, %113, %119, %99, %91, %83, %_ZNK9aiColor4tIfEneERKS0_.exit, %_ZNK9aiColor4tIfEltERKS0_.exit, %71, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread, %63, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread, %40, %32, %_ZNK10aiVector3tIfEneERKS0_.exit.thread, %14, %6, %_ZNK10aiVector3tIfEneERKS0_.exit29, %_ZNK10aiVector3tIfEltERKS0_.exit28, %_ZNK10aiVector3tIfEneERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit
-  %.025 = phi i1 [ true, %_ZNK10aiVector3tIfEltERKS0_.exit ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit28 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29 ], [ true, %6 ], [ true, %14 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ true, %32 ], [ true, %40 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread ], [ true, %63 ], [ true, %71 ], [ false, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41 ], [ false, %113 ], [ false, %119 ], [ true, %99 ], [ true, %91 ], [ true, %83 ], [ true, %_ZNK9aiColor4tIfEltERKS0_.exit ], [ false, %_ZNK9aiColor4tIfEneERKS0_.exit ], [ %77, %_ZNK10aiVector3tIfEltERKS0_.exit30 ], [ %77, %_ZNK10aiVector3tIfEneERKS0_.exit31 ]
+.thread37:                                        ; preds = %71, %_ZNK10aiVector3tIfEneERKS0_.exit31, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41, %113, %119, %99, %91, %83, %_ZNK9aiColor4tIfEneERKS0_.exit, %_ZNK9aiColor4tIfEltERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit30, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread, %63, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread, %40, %32, %_ZNK10aiVector3tIfEneERKS0_.exit.thread, %14, %6, %_ZNK10aiVector3tIfEneERKS0_.exit29, %_ZNK10aiVector3tIfEltERKS0_.exit28, %_ZNK10aiVector3tIfEneERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit
+  %.025 = phi i1 [ true, %99 ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit28 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread ], [ true, %6 ], [ true, %14 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ true, %32 ], [ true, %40 ], [ true, %63 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit30 ], [ false, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41 ], [ false, %113 ], [ false, %119 ], [ true, %91 ], [ true, %83 ], [ false, %_ZNK9aiColor4tIfEneERKS0_.exit ], [ true, %_ZNK9aiColor4tIfEltERKS0_.exit ], [ %76, %_ZNK10aiVector3tIfEneERKS0_.exit31 ], [ %76, %71 ]
   ret i1 %.025
 }
 
@@ -3999,8 +3999,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp6VertexESt4pairI
   br label %_ZNSt8_Rb_treeIN6Assimp6VertexESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN6Assimp6VertexESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
-  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
+  %.sroa.070.0 = phi ptr [ null, %56 ], [ null, %14 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %58, %56 ], [ %15, %14 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

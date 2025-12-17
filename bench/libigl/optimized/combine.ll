@@ -284,8 +284,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %69, %._crit_edge, %76
-  %81 = phi i64 [ %73, %._crit_edge ], [ %73, %76 ], [ 0, %69 ]
-  %.053.lcssa100 = phi i32 [ %132, %._crit_edge ], [ %132, %76 ], [ 0, %69 ]
+  %81 = phi i64 [ %73, %76 ], [ %73, %._crit_edge ], [ 0, %69 ]
+  %.053.lcssa100 = phi i32 [ %132, %76 ], [ %132, %._crit_edge ], [ 0, %69 ]
   %82 = mul nsw i64 %62, %81
   tail call void @_ZN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %82, i64 noundef %81, i64 noundef %62)
   %83 = sext i32 %.053.lcssa100 to i64
@@ -629,8 +629,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixImLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %69, %._crit_edge, %76
-  %81 = phi i64 [ %73, %._crit_edge ], [ %73, %76 ], [ 0, %69 ]
-  %.053.lcssa100 = phi i32 [ %132, %._crit_edge ], [ %132, %76 ], [ 0, %69 ]
+  %81 = phi i64 [ %73, %76 ], [ %73, %._crit_edge ], [ 0, %69 ]
+  %.053.lcssa100 = phi i32 [ %132, %76 ], [ %132, %._crit_edge ], [ 0, %69 ]
   %82 = mul nsw i64 %62, %81
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %82, i64 noundef %81, i64 noundef %62)
   %83 = sext i32 %.053.lcssa100 to i64
@@ -1178,8 +1178,8 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_R
   br label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.loopexit, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i, %107, %_ZN5Eigen5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKS2_EEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELi3ELi1ELin1ELi3EEEEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
-  %141 = phi ptr [ %.pre111, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.loopexit ], [ %70, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i ], [ %70, %107 ], [ %70, %_ZN5Eigen5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKS2_EEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELi3ELi1ELin1ELi3EEEEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ], [ %70, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i ]
-  %142 = phi ptr [ %.pre110, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.loopexit ], [ %71, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i ], [ %71, %107 ], [ %71, %_ZN5Eigen5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKS2_EEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELi3ELi1ELin1ELi3EEEEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ], [ %71, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i ]
+  %141 = phi ptr [ %70, %_ZN5Eigen5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKS2_EEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELi3ELi1ELin1ELi3EEEEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ], [ %.pre111, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.loopexit ], [ %70, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i ], [ %70, %107 ], [ %70, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i ]
+  %142 = phi ptr [ %71, %_ZN5Eigen5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIiiEEKNS_12ArrayWrapperIKS2_EEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIiEEKNS_5ArrayIiLin1ELi3ELi1ELin1ELi3EEEEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ], [ %.pre110, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.loopexit ], [ %71, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i ], [ %71, %107 ], [ %71, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i ]
   %143 = add nsw i32 %.08088, %75
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %144 = ptrtoint ptr %142 to i64
@@ -1366,8 +1366,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit64
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %69, %._crit_edge, %76
-  %81 = phi i64 [ %73, %._crit_edge ], [ %73, %76 ], [ 0, %69 ]
-  %.053.lcssa100 = phi i32 [ %132, %._crit_edge ], [ %132, %76 ], [ 0, %69 ]
+  %81 = phi i64 [ %73, %76 ], [ %73, %._crit_edge ], [ 0, %69 ]
+  %.053.lcssa100 = phi i32 [ %132, %76 ], [ %132, %._crit_edge ], [ 0, %69 ]
   %82 = mul nsw i64 %62, %81
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %82, i64 noundef %81, i64 noundef %62)
   %83 = sext i32 %.053.lcssa100 to i64

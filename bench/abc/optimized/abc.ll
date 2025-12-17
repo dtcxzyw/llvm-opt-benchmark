@@ -5431,7 +5431,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %3
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %24, %Vec_IntAlloc.exit
-  %27 = phi ptr [ %26, %24 ], [ %10, %Vec_IntAlloc.exit ]
+  %27 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ %26, %24 ]
   %28 = icmp sgt i32 %.val, 0
   br i1 %28, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
@@ -5617,8 +5617,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %3
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %24, %Vec_IntAlloc.exit
-  %27 = phi ptr [ %26, %24 ], [ %10, %Vec_IntAlloc.exit ]
-  %28 = phi ptr [ %25, %24 ], [ %11, %Vec_IntAlloc.exit ]
+  %27 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ %26, %24 ]
+  %28 = phi ptr [ %11, %Vec_IntAlloc.exit ], [ %25, %24 ]
   %29 = icmp sgt i32 %.val22, 0
   br i1 %29, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
@@ -7173,7 +7173,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %14, %Abc_NtkIsSopLo
   br label %47
 
 47:                                               ; preds = %43, %44, %39, %40, %.loopexit, %32, %Abc_NtkIsSopLogic.exit.thread, %13
-  %.028 = phi i32 [ 1, %.loopexit ], [ 1, %13 ], [ 1, %32 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 0, %40 ], [ 0, %39 ], [ 0, %44 ], [ 0, %43 ]
+  %.028 = phi i32 [ 1, %.loopexit ], [ 1, %13 ], [ 1, %32 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 0, %39 ], [ 0, %40 ], [ 0, %44 ], [ 0, %43 ]
   ret i32 %.028
 }
 
@@ -8551,8 +8551,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   br label %52
 
 52:                                               ; preds = %.lr.ph, %49
-  %53 = phi ptr [ %.pre187, %49 ], [ %45, %.lr.ph ]
-  %.184 = phi i32 [ %50, %49 ], [ %.083160, %.lr.ph ]
+  %53 = phi ptr [ %45, %.lr.ph ], [ %.pre187, %49 ]
+  %.184 = phi i32 [ %.083160, %.lr.ph ], [ %50, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = getelementptr i8, ptr %53, i64 4
   %.val112 = load i32, ptr %54, align 4, !tbaa !25
@@ -8747,7 +8747,7 @@ Vec_IntCountEntry.exit135:                        ; preds = %.lr.ph.i129, %98
   br label %131
 
 131:                                              ; preds = %.thread136, %.critedge, %.critedge4, %.loopexit, %23, %22
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %22 ], [ 0, %23 ], [ 0, %.critedge4 ], [ 0, %.critedge ], [ 0, %.thread136 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %22 ], [ 0, %23 ], [ 0, %.thread136 ], [ 0, %.critedge4 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -9229,7 +9229,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %Abc_NtkIsBddLo
   br label %68
 
 68:                                               ; preds = %.thread, %61, %62, %20, %22, %.loopexit, %55, %47, %Abc_NtkIsBddLogic.exit.thread, %17
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %17 ], [ 1, %47 ], [ 1, %55 ], [ 1, %Abc_NtkIsBddLogic.exit.thread ], [ 0, %22 ], [ 0, %20 ], [ 0, %62 ], [ 0, %61 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %17 ], [ 1, %Abc_NtkIsBddLogic.exit.thread ], [ 0, %20 ], [ 1, %47 ], [ 1, %55 ], [ 0, %22 ], [ 0, %62 ], [ 0, %61 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -9334,7 +9334,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandShowCut(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.123 = phi i32 [ %.022.ph, %.loopexit.sink.split ], [ %.022.ph, %5 ], [ %.022.ph, %19 ], [ %14, %9 ]
+  %.123 = phi i32 [ %.022.ph, %.loopexit.sink.split ], [ %.022.ph, %19 ], [ %.022.ph, %5 ], [ %14, %9 ]
   %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %24, %19 ], [ %.0, %5 ], [ %.0, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.780)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.781)
@@ -9728,14 +9728,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandSatClp(ptr noundef %0, i32 nound
   br label %63
 
 .loopexit.sink.split:                             ; preds = %7, %27, %17
-  %.str.798.sink = phi ptr [ @.str.798, %27 ], [ @.str.556, %17 ], [ @.str.536, %7 ]
+  %.str.798.sink = phi ptr [ @.str.556, %17 ], [ @.str.798, %27 ], [ @.str.536, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.798.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %29, %9, %.loopexit.sink.split
-  %.162 = phi i32 [ %.061.ph, %.loopexit.sink.split ], [ %.061.ph, %19 ], [ %.061.ph, %5 ], [ %.061.ph, %29 ], [ %14, %9 ]
-  %.159 = phi i32 [ %.058.ph215, %.loopexit.sink.split ], [ %.058.ph215, %29 ], [ %.058.ph215, %5 ], [ %24, %19 ], [ %.058.ph215, %9 ]
-  %.157 = phi i32 [ %.056.ph222, %.loopexit.sink.split ], [ %.056.ph222, %5 ], [ %34, %29 ], [ %.056.ph222, %19 ], [ %.056.ph222, %9 ]
+  %.162 = phi i32 [ %.061.ph, %.loopexit.sink.split ], [ %.061.ph, %29 ], [ %.061.ph, %19 ], [ %.061.ph, %5 ], [ %14, %9 ]
+  %.159 = phi i32 [ %.058.ph215, %.loopexit.sink.split ], [ %24, %19 ], [ %.058.ph215, %5 ], [ %.058.ph215, %29 ], [ %.058.ph215, %9 ]
+  %.157 = phi i32 [ %.056.ph222, %.loopexit.sink.split ], [ %.056.ph222, %19 ], [ %34, %29 ], [ %.056.ph222, %5 ], [ %.056.ph222, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.799)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.800)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.801, i32 noundef %.162)
@@ -10231,8 +10231,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandMulti(ptr noundef %0, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.144 = phi i32 [ %.043.ph, %.loopexit.sink.split ], [ %.043.ph, %19 ], [ %.043.ph, %5 ], [ %14, %9 ]
-  %.142 = phi i32 [ %.041.ph153, %.loopexit.sink.split ], [ %.041.ph153, %5 ], [ %24, %19 ], [ %.041.ph153, %9 ]
+  %.144 = phi i32 [ %.043.ph, %.loopexit.sink.split ], [ %.043.ph, %5 ], [ %.043.ph, %19 ], [ %14, %9 ]
+  %.142 = phi i32 [ %.041.ph153, %.loopexit.sink.split ], [ %24, %19 ], [ %.041.ph153, %5 ], [ %.041.ph153, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.837)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.838)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.839, i32 noundef %.142)
@@ -10453,15 +10453,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandRenode(ptr noundef %0, i32 nound
   br label %87
 
 .loopexit.sink.split:                             ; preds = %37, %27, %17, %7
-  %.str.850.sink = phi ptr [ @.str.568, %7 ], [ @.str.536, %17 ], [ @.str.849, %27 ], [ @.str.850, %37 ]
+  %.str.850.sink = phi ptr [ @.str.849, %27 ], [ @.str.536, %17 ], [ @.str.568, %7 ], [ @.str.850, %37 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.850.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %39, %29, %19, %9, %.loopexit.sink.split
-  %.180 = phi i32 [ %.079, %.loopexit.sink.split ], [ %.079, %5 ], [ %.079, %39 ], [ %.079, %29 ], [ %.079, %19 ], [ %14, %9 ]
-  %.177 = phi i32 [ %.076, %.loopexit.sink.split ], [ %.076, %5 ], [ %.076, %39 ], [ %.076, %29 ], [ %24, %19 ], [ %.076, %9 ]
-  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %5 ], [ %.072, %39 ], [ %34, %29 ], [ %.072, %19 ], [ %.072, %9 ]
-  %.171 = phi i32 [ %.070, %.loopexit.sink.split ], [ %.070, %5 ], [ %44, %39 ], [ %.070, %29 ], [ %.070, %19 ], [ %.070, %9 ]
+  %.180 = phi i32 [ %.079, %.loopexit.sink.split ], [ %.079, %29 ], [ %.079, %19 ], [ %14, %9 ], [ %.079, %5 ], [ %.079, %39 ]
+  %.177 = phi i32 [ %.076, %.loopexit.sink.split ], [ %.076, %29 ], [ %24, %19 ], [ %.076, %9 ], [ %.076, %5 ], [ %.076, %39 ]
+  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %34, %29 ], [ %.072, %19 ], [ %.072, %9 ], [ %.072, %5 ], [ %.072, %39 ]
+  %.171 = phi i32 [ %.070, %.loopexit.sink.split ], [ %.070, %29 ], [ %.070, %19 ], [ %.070, %9 ], [ %.070, %5 ], [ %44, %39 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.854)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.855)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.856)
@@ -10950,12 +10950,12 @@ Abc_NtkIsSopLogic.exit:                           ; preds = %120
   br label %159
 
 .loopexit.sink.split:                             ; preds = %74, %63, %52, %41, %30, %19
-  %.str.883.sink = phi ptr [ @.str.554, %19 ], [ @.str.555, %30 ], [ @.str.579, %41 ], [ @.str.881, %52 ], [ @.str.882, %63 ], [ @.str.883, %74 ]
+  %.str.883.sink = phi ptr [ @.str.882, %63 ], [ @.str.881, %52 ], [ @.str.579, %41 ], [ @.str.555, %30 ], [ @.str.554, %19 ], [ @.str.883, %74 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.883.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %76, %65, %54, %43, %32, %21, %.loopexit.sink.split
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %17 ], [ %81, %76 ], [ %.0, %65 ], [ %.0, %54 ], [ %.0, %43 ], [ %.0, %32 ], [ %.0, %21 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %65 ], [ %.0, %54 ], [ %.0, %43 ], [ %.0, %32 ], [ %.0, %21 ], [ %.0, %17 ], [ %81, %76 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.888)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.889)
   %139 = load i32, ptr %16, align 4, !tbaa !136
@@ -11303,14 +11303,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandEliminate(ptr noundef %0, i32 no
   br label %66
 
 .loopexit.sink.split:                             ; preds = %7, %27, %17
-  %.str.914.sink = phi ptr [ @.str.914, %27 ], [ @.str.913, %17 ], [ @.str.912, %7 ]
+  %.str.914.sink = phi ptr [ @.str.913, %17 ], [ @.str.914, %27 ], [ @.str.912, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.914.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %29, %9, %.loopexit.sink.split
-  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %19 ], [ %.053.ph, %5 ], [ %.053.ph, %29 ], [ %14, %9 ]
-  %.151 = phi i32 [ %.050.ph203, %.loopexit.sink.split ], [ %.050.ph203, %29 ], [ %.050.ph203, %5 ], [ %24, %19 ], [ %.050.ph203, %9 ]
-  %.149 = phi i32 [ %.048.ph210, %.loopexit.sink.split ], [ %.048.ph210, %5 ], [ %34, %29 ], [ %.048.ph210, %19 ], [ %.048.ph210, %9 ]
+  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %29 ], [ %.053.ph, %19 ], [ %.053.ph, %5 ], [ %14, %9 ]
+  %.151 = phi i32 [ %.050.ph203, %.loopexit.sink.split ], [ %24, %19 ], [ %.050.ph203, %5 ], [ %.050.ph203, %29 ], [ %.050.ph203, %9 ]
+  %.149 = phi i32 [ %.048.ph210, %.loopexit.sink.split ], [ %.048.ph210, %19 ], [ %34, %29 ], [ %.048.ph210, %5 ], [ %.048.ph210, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.916)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.917)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.918)
@@ -11528,7 +11528,7 @@ Abc_NtkIsBddLogic.exit67.thread:                  ; preds = %42, %Abc_NtkIsBddLo
   br label %55
 
 55:                                               ; preds = %30, %46, %48, %39, %41, %49, %Abc_NtkIsBddLogic.exit67.thread, %Abc_NtkIsBddLogic.exit.thread, %29, %19
-  %.0 = phi i32 [ 1, %49 ], [ 1, %19 ], [ 1, %29 ], [ 1, %Abc_NtkIsBddLogic.exit.thread ], [ 1, %Abc_NtkIsBddLogic.exit67.thread ], [ 0, %41 ], [ 0, %39 ], [ 0, %48 ], [ 0, %46 ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %49 ], [ 1, %19 ], [ 1, %29 ], [ 1, %Abc_NtkIsBddLogic.exit67.thread ], [ 1, %Abc_NtkIsBddLogic.exit.thread ], [ 0, %41 ], [ 0, %39 ], [ 0, %48 ], [ 0, %46 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -11837,15 +11837,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutpack(ptr noundef %0, i32 noun
   br label %101
 
 .loopexit.sink.split:                             ; preds = %59, %49, %39, %28
-  %.str.556.sink = phi ptr [ @.str.579, %28 ], [ @.str.952, %39 ], [ @.str.554, %49 ], [ @.str.556, %59 ]
+  %.str.556.sink = phi ptr [ @.str.554, %49 ], [ @.str.952, %39 ], [ @.str.579, %28 ], [ @.str.556, %59 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.556.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %61, %51, %41, %30, %.loopexit.sink.split
-  %91 = phi i32 [ %20, %.loopexit.sink.split ], [ %20, %30 ], [ %20, %41 ], [ %20, %51 ], [ %66, %61 ], [ %20, %16 ]
-  %92 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %30 ], [ %19, %41 ], [ %56, %51 ], [ %19, %61 ], [ %19, %16 ]
-  %93 = phi i32 [ %18, %.loopexit.sink.split ], [ %18, %30 ], [ %46, %41 ], [ %18, %51 ], [ %18, %61 ], [ %18, %16 ]
-  %94 = phi i32 [ %17, %.loopexit.sink.split ], [ %35, %30 ], [ %17, %41 ], [ %17, %51 ], [ %17, %61 ], [ %17, %16 ]
+  %91 = phi i32 [ %20, %.loopexit.sink.split ], [ %20, %41 ], [ %20, %51 ], [ %66, %61 ], [ %20, %16 ], [ %20, %30 ]
+  %92 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %41 ], [ %56, %51 ], [ %19, %61 ], [ %19, %16 ], [ %19, %30 ]
+  %93 = phi i32 [ %18, %.loopexit.sink.split ], [ %46, %41 ], [ %18, %51 ], [ %18, %61 ], [ %18, %16 ], [ %18, %30 ]
+  %94 = phi i32 [ %17, %.loopexit.sink.split ], [ %17, %41 ], [ %17, %51 ], [ %17, %61 ], [ %17, %16 ], [ %35, %30 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.956)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.957)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.958)
@@ -11877,7 +11877,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutpack(ptr noundef %0, i32 noun
   br label %101
 
 101:                                              ; preds = %88, %.loopexit, %90, %87, %85, %83
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %83 ], [ 1, %87 ], [ 1, %90 ], [ 1, %85 ], [ 0, %88 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %83 ], [ 1, %87 ], [ 1, %85 ], [ 1, %90 ], [ 0, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -12221,7 +12221,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs(ptr noundef %0, i32 noundef 
   br label %152
 
 .loopexit.sink.split:                             ; preds = %77, %67, %56, %45, %34, %23
-  %.str.536.sink = phi ptr [ @.str.881, %23 ], [ @.str.568, %34 ], [ @.str.555, %45 ], [ @.str.882, %56 ], [ @.str.556, %67 ], [ @.str.536, %77 ]
+  %.str.536.sink = phi ptr [ @.str.556, %67 ], [ @.str.882, %56 ], [ @.str.555, %45 ], [ @.str.568, %34 ], [ @.str.881, %23 ], [ @.str.536, %77 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
@@ -12284,7 +12284,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs(ptr noundef %0, i32 noundef 
   br label %152
 
 152:                                              ; preds = %123, %.loopexit, %125, %122, %120
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %120 ], [ 1, %125 ], [ 1, %122 ], [ 0, %123 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %120 ], [ 1, %122 ], [ 1, %125 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -12429,9 +12429,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef
   br i1 %or.cond, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %67, %111, %100, %89, %78, %56, %45, %34, %23, %138, %135, %132, %130, %128, %125, %122, %119
-  %.094.be = phi i32 [ %.094, %23 ], [ %.094, %34 ], [ %.094, %45 ], [ %.094, %56 ], [ %.094, %78 ], [ %.094, %89 ], [ %.094, %100 ], [ %.094, %111 ], [ %.094, %119 ], [ %.094, %122 ], [ %.094, %125 ], [ %129, %128 ], [ %.094, %130 ], [ %.094, %132 ], [ %.094, %135 ], [ %.094, %138 ], [ %.094, %67 ]
-  %.092.be = phi i32 [ %.092, %23 ], [ %.092, %34 ], [ %.092, %45 ], [ %.092, %56 ], [ %.092, %78 ], [ %.092, %89 ], [ %.092, %100 ], [ %.092, %111 ], [ %.092, %119 ], [ %.092, %122 ], [ %.092, %125 ], [ %.092, %128 ], [ %131, %130 ], [ %.092, %132 ], [ %.092, %135 ], [ %.092, %138 ], [ %.092, %67 ]
-  %.0.be = phi i32 [ %.0, %23 ], [ %.0, %34 ], [ %.0, %45 ], [ %.0, %56 ], [ %.0, %78 ], [ %.0, %89 ], [ %.0, %100 ], [ %116, %111 ], [ %.0, %119 ], [ %.0, %122 ], [ %.0, %125 ], [ %.0, %128 ], [ %.0, %130 ], [ %.0, %132 ], [ %.0, %135 ], [ %.0, %138 ], [ %.0, %67 ]
+  %.094.be = phi i32 [ %.094, %23 ], [ %.094, %34 ], [ %.094, %45 ], [ %.094, %56 ], [ %.094, %67 ], [ %.094, %78 ], [ %.094, %89 ], [ %.094, %100 ], [ %.094, %111 ], [ %.094, %119 ], [ %.094, %122 ], [ %.094, %125 ], [ %129, %128 ], [ %.094, %130 ], [ %.094, %132 ], [ %.094, %135 ], [ %.094, %138 ]
+  %.092.be = phi i32 [ %.092, %23 ], [ %.092, %34 ], [ %.092, %45 ], [ %.092, %56 ], [ %.092, %67 ], [ %.092, %78 ], [ %.092, %89 ], [ %.092, %100 ], [ %.092, %111 ], [ %.092, %119 ], [ %.092, %122 ], [ %.092, %125 ], [ %.092, %128 ], [ %131, %130 ], [ %.092, %132 ], [ %.092, %135 ], [ %.092, %138 ]
+  %.0.be = phi i32 [ %.0, %23 ], [ %.0, %34 ], [ %.0, %45 ], [ %.0, %56 ], [ %.0, %67 ], [ %.0, %78 ], [ %.0, %89 ], [ %.0, %100 ], [ %116, %111 ], [ %.0, %119 ], [ %.0, %122 ], [ %.0, %125 ], [ %.0, %128 ], [ %.0, %130 ], [ %.0, %132 ], [ %.0, %135 ], [ %.0, %138 ]
   br label %19, !llvm.loop !183
 
 76:                                               ; preds = %19
@@ -12645,12 +12645,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef
   br label %197
 
 .loopexit.sink.split:                             ; preds = %109, %98, %87, %76, %65, %54, %43, %32, %21
-  %.str.1003.sink = phi ptr [ @.str.881, %21 ], [ @.str.568, %32 ], [ @.str.555, %43 ], [ @.str.882, %54 ], [ @.str.556, %65 ], [ @.str.536, %76 ], [ @.str.798, %87 ], [ @.str.579, %98 ], [ @.str.1003, %109 ]
+  %.str.1003.sink = phi ptr [ @.str.579, %98 ], [ @.str.798, %87 ], [ @.str.536, %76 ], [ @.str.556, %65 ], [ @.str.882, %54 ], [ @.str.555, %43 ], [ @.str.568, %32 ], [ @.str.881, %21 ], [ @.str.1003, %109 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1003.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %111, %100, %89, %78, %67, %56, %45, %34, %23, %.loopexit.sink.split
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %19 ], [ %116, %111 ], [ %.0, %100 ], [ %.0, %89 ], [ %.0, %78 ], [ %.0, %67 ], [ %.0, %56 ], [ %.0, %45 ], [ %.0, %34 ], [ %.0, %23 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %89 ], [ %.0, %78 ], [ %116, %111 ], [ %.0, %67 ], [ %.0, %56 ], [ %.0, %45 ], [ %.0, %34 ], [ %.0, %23 ], [ %.0, %19 ], [ %.0, %100 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1007)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.982)
   %175 = load i32, ptr %4, align 4, !tbaa !177
@@ -12704,7 +12704,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef
   br label %197
 
 197:                                              ; preds = %171, %170, %172, %.loopexit, %174, %169, %166, %162, %157, %145, %143
-  %.096 = phi i32 [ 1, %.loopexit ], [ 1, %143 ], [ 0, %157 ], [ 0, %162 ], [ 0, %166 ], [ 1, %169 ], [ 1, %174 ], [ 1, %145 ], [ 0, %172 ], [ 0, %170 ], [ 0, %171 ]
+  %.096 = phi i32 [ 1, %.loopexit ], [ 1, %143 ], [ 0, %157 ], [ 0, %162 ], [ 0, %166 ], [ 1, %145 ], [ 1, %169 ], [ 1, %174 ], [ 0, %172 ], [ 0, %170 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.096
 }
@@ -13151,7 +13151,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %236, %Abc_NtkIsMapp
   br label %279
 
 .loopexit.sink.split:                             ; preds = %186, %175, %165, %154, %143, %132, %121, %110, %99, %88, %77, %66, %55, %44, %35, %33
-  %.str.1018.sink = phi ptr [ @.str.1003, %33 ], [ @.str.1015, %35 ], [ @.str.689, %44 ], [ @.str.1016, %55 ], [ @.str.568, %66 ], [ @.str.972, %77 ], [ @.str.556, %88 ], [ @.str.1017, %99 ], [ @.str.537, %110 ], [ @.str.882, %121 ], [ @.str.536, %132 ], [ @.str.579, %143 ], [ @.str.883, %154 ], [ @.str.881, %165 ], [ @.str.555, %175 ], [ @.str.1018, %186 ]
+  %.str.1018.sink = phi ptr [ @.str.555, %175 ], [ @.str.881, %165 ], [ @.str.883, %154 ], [ @.str.579, %143 ], [ @.str.536, %132 ], [ @.str.882, %121 ], [ @.str.537, %110 ], [ @.str.1017, %99 ], [ @.str.556, %88 ], [ @.str.972, %77 ], [ @.str.568, %66 ], [ @.str.1016, %55 ], [ @.str.689, %44 ], [ @.str.1015, %35 ], [ @.str.1003, %33 ], [ @.str.1018, %186 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1018.sink)
   br label %.loopexit
 
@@ -13454,7 +13454,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfse(ptr noundef %0, i32 noundef
   br label %125
 
 .loopexit.sink.split:                             ; preds = %73, %62, %51, %40, %29, %18
-  %.str.536.sink = phi ptr [ @.str.1003, %18 ], [ @.str.689, %29 ], [ @.str.881, %40 ], [ @.str.568, %51 ], [ @.str.556, %62 ], [ @.str.536, %73 ]
+  %.str.536.sink = phi ptr [ @.str.556, %62 ], [ @.str.568, %51 ], [ @.str.881, %40 ], [ @.str.689, %29 ], [ @.str.1003, %18 ], [ @.str.536, %73 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
@@ -13756,8 +13756,8 @@ Abc_NtkIsMappedLogic.exit:                        ; preds = %34, %38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.126 = phi i32 [ %.025.ph, %.loopexit.sink.split ], [ %.025.ph, %19 ], [ %.025.ph, %5 ], [ %14, %9 ]
-  %.124 = phi i32 [ %.023.ph87, %.loopexit.sink.split ], [ %.023.ph87, %5 ], [ %24, %19 ], [ %.023.ph87, %9 ]
+  %.126 = phi i32 [ %.025.ph, %.loopexit.sink.split ], [ %.025.ph, %5 ], [ %.025.ph, %19 ], [ %14, %9 ]
+  %.124 = phi i32 [ %.023.ph87, %.loopexit.sink.split ], [ %24, %19 ], [ %.023.ph87, %5 ], [ %.023.ph87, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1064)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1065)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1066, i32 noundef %.126)
@@ -13899,8 +13899,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSpeedup(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.139 = phi i32 [ %.038.ph129, %.loopexit.sink.split ], [ %.038.ph129, %19 ], [ %.038.ph129, %5 ], [ %14, %9 ]
-  %.137 = phi i32 [ %.036.ph134, %.loopexit.sink.split ], [ %.036.ph134, %5 ], [ %24, %19 ], [ %.036.ph134, %9 ]
+  %.139 = phi i32 [ %.038.ph129, %.loopexit.sink.split ], [ %.038.ph129, %5 ], [ %.038.ph129, %19 ], [ %14, %9 ]
+  %.137 = phi i32 [ %.036.ph134, %.loopexit.sink.split ], [ %24, %19 ], [ %.036.ph134, %5 ], [ %.036.ph134, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1069)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1070)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1071)
@@ -14049,8 +14049,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPowerdown(ptr noundef %0, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.138 = phi i32 [ %.037.ph123, %.loopexit.sink.split ], [ %.037.ph123, %19 ], [ %.037.ph123, %5 ], [ %14, %9 ]
-  %.136 = phi i32 [ %.035.ph128, %.loopexit.sink.split ], [ %.035.ph128, %5 ], [ %24, %19 ], [ %.035.ph128, %9 ]
+  %.138 = phi i32 [ %.037.ph123, %.loopexit.sink.split ], [ %.037.ph123, %5 ], [ %.037.ph123, %19 ], [ %14, %9 ]
+  %.136 = phi i32 [ %.035.ph128, %.loopexit.sink.split ], [ %24, %19 ], [ %.035.ph128, %5 ], [ %.035.ph128, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1074)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1070)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1075)
@@ -14382,16 +14382,16 @@ Vec_IntFree.exit:                                 ; preds = %92, %96
   br label %106
 
 .loopexit.sink.split:                             ; preds = %69, %58, %47, %36, %25
-  %.str.568.sink = phi ptr [ @.str.579, %25 ], [ @.str.554, %36 ], [ @.str.555, %47 ], [ @.str.556, %58 ], [ @.str.568, %69 ]
+  %.str.568.sink = phi ptr [ @.str.556, %58 ], [ @.str.555, %47 ], [ @.str.554, %36 ], [ @.str.579, %25 ], [ @.str.568, %69 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.568.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %71, %60, %49, %38, %27, %.loopexit.sink.split
-  %97 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %27 ], [ %19, %38 ], [ %19, %49 ], [ %19, %60 ], [ %76, %71 ], [ %19, %14 ]
-  %98 = phi i32 [ %18, %.loopexit.sink.split ], [ %18, %27 ], [ %18, %38 ], [ %18, %49 ], [ %65, %60 ], [ %18, %71 ], [ %18, %14 ]
-  %99 = phi i32 [ %17, %.loopexit.sink.split ], [ %17, %27 ], [ %17, %38 ], [ %54, %49 ], [ %17, %60 ], [ %17, %71 ], [ %17, %14 ]
-  %100 = phi i32 [ %16, %.loopexit.sink.split ], [ %16, %27 ], [ %43, %38 ], [ %16, %49 ], [ %16, %60 ], [ %16, %71 ], [ %16, %14 ]
-  %101 = phi i32 [ %15, %.loopexit.sink.split ], [ %32, %27 ], [ %15, %38 ], [ %15, %49 ], [ %15, %60 ], [ %15, %71 ], [ %15, %14 ]
+  %97 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %38 ], [ %19, %49 ], [ %19, %60 ], [ %76, %71 ], [ %19, %14 ], [ %19, %27 ]
+  %98 = phi i32 [ %18, %.loopexit.sink.split ], [ %18, %38 ], [ %18, %49 ], [ %65, %60 ], [ %18, %71 ], [ %18, %14 ], [ %18, %27 ]
+  %99 = phi i32 [ %17, %.loopexit.sink.split ], [ %17, %38 ], [ %54, %49 ], [ %17, %60 ], [ %17, %71 ], [ %17, %14 ], [ %17, %27 ]
+  %100 = phi i32 [ %16, %.loopexit.sink.split ], [ %43, %38 ], [ %16, %49 ], [ %16, %60 ], [ %16, %71 ], [ %16, %14 ], [ %16, %27 ]
+  %101 = phi i32 [ %15, %.loopexit.sink.split ], [ %15, %38 ], [ %15, %49 ], [ %15, %60 ], [ %15, %71 ], [ %15, %14 ], [ %32, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1086)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1087)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1088, i32 noundef %101)
@@ -14513,7 +14513,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestDec(ptr readnone captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.122 = phi i32 [ %.021.ph79, %.loopexit.sink.split ], [ %.021.ph79, %4 ], [ %.021.ph79, %18 ], [ %13, %8 ]
+  %.122 = phi i32 [ %.021.ph79, %.loopexit.sink.split ], [ %.021.ph79, %18 ], [ %.021.ph79, %4 ], [ %13, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1099)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1100)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1101, i32 noundef %.122)
@@ -14659,7 +14659,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestNpn(ptr readnone captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.132 = phi i32 [ %.031.ph121, %.loopexit.sink.split ], [ %.031.ph121, %18 ], [ %.031.ph121, %4 ], [ %13, %8 ]
+  %.132 = phi i32 [ %.031.ph121, %.loopexit.sink.split ], [ %.031.ph121, %4 ], [ %.031.ph121, %18 ], [ %13, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1116)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1117)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1118)
@@ -15042,7 +15042,7 @@ Abc_Clock.exit59:                                 ; preds = %._crit_edge, %59
   br label %72
 
 .loopexit:                                        ; preds = %7, %12, %29, %11
-  %.137 = phi i32 [ %.036.ph129, %11 ], [ %.036.ph129, %29 ], [ %.036.ph129, %7 ], [ %17, %12 ]
+  %.137 = phi i32 [ %.036.ph129, %29 ], [ %.036.ph129, %11 ], [ %.036.ph129, %7 ], [ %17, %12 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1152)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1153)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1154, i32 noundef %.137)
@@ -15230,7 +15230,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(non
   br label %66
 
 .loopexit:                                        ; preds = %5, %10, %35, %9
-  %.155 = phi i32 [ %.054.ph, %9 ], [ %.054.ph, %35 ], [ %.054.ph, %5 ], [ %15, %10 ]
+  %.155 = phi i32 [ %.054.ph, %35 ], [ %.054.ph, %9 ], [ %.054.ph, %5 ], [ %15, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1162)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1163)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1164)
@@ -15262,7 +15262,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(non
   br label %66
 
 66:                                               ; preds = %.thread, %.loopexit, %._crit_edge
-  %.2 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ], [ 0, %.thread ]
+  %.2 = phi i32 [ 1, %.loopexit ], [ 0, %.thread ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
@@ -15406,7 +15406,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunGen(ptr readnone captures(non
   br label %55
 
 .loopexit.sink.split:                             ; preds = %15, %33, %42, %24, %6, %51
-  %.str.1178.sink = phi ptr [ @.str.1178, %51 ], [ @.str.1177, %42 ], [ @.str.554, %33 ], [ @.str.537, %24 ], [ @.str.882, %15 ], [ @.str.1003, %6 ]
+  %.str.1178.sink = phi ptr [ @.str.1178, %51 ], [ @.str.882, %15 ], [ @.str.537, %24 ], [ @.str.554, %33 ], [ @.str.1177, %42 ], [ @.str.1003, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1178.sink)
   br label %.loopexit
 
@@ -15649,7 +15649,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRewrite(ptr noundef %0, i32 noun
   br label %42
 
 42:                                               ; preds = %33, %34, %37, %36, %28, %25, %23, %20
-  %.040 = phi i32 [ 1, %37 ], [ 0, %20 ], [ 1, %23 ], [ 1, %28 ], [ 1, %36 ], [ 1, %25 ], [ 0, %34 ], [ 0, %33 ]
+  %.040 = phi i32 [ 1, %37 ], [ 0, %20 ], [ 1, %23 ], [ 1, %28 ], [ 1, %25 ], [ 1, %36 ], [ 0, %34 ], [ 0, %33 ]
   ret i32 %.040
 }
 
@@ -15851,13 +15851,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandRefactor(ptr noundef %0, i32 nou
   br label %70
 
 .loopexit.sink.split:                             ; preds = %7, %27, %17
-  %.str.536.sink = phi ptr [ @.str.536, %27 ], [ @.str.882, %17 ], [ @.str.579, %7 ]
+  %.str.536.sink = phi ptr [ @.str.882, %17 ], [ @.str.536, %27 ], [ @.str.579, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %29, %9, %.loopexit.sink.split
-  %.157 = phi i32 [ %.056.ph, %.loopexit.sink.split ], [ %.056.ph, %19 ], [ %.056.ph, %5 ], [ %.056.ph, %29 ], [ %14, %9 ]
-  %.154 = phi i32 [ %.053.ph203, %.loopexit.sink.split ], [ %.053.ph203, %29 ], [ %.053.ph203, %5 ], [ %24, %19 ], [ %.053.ph203, %9 ]
+  %.157 = phi i32 [ %.056.ph, %.loopexit.sink.split ], [ %.056.ph, %29 ], [ %.056.ph, %19 ], [ %.056.ph, %5 ], [ %14, %9 ]
+  %.154 = phi i32 [ %.053.ph203, %.loopexit.sink.split ], [ %24, %19 ], [ %.053.ph203, %5 ], [ %.053.ph203, %29 ], [ %.053.ph203, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1230)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1231)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1232, i32 noundef %.157)
@@ -15875,7 +15875,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRefactor(ptr noundef %0, i32 nou
   br label %70
 
 70:                                               ; preds = %63, %64, %.loopexit, %66, %58, %56, %53, %50, %48
-  %.059 = phi i32 [ 1, %.loopexit ], [ 1, %48 ], [ 1, %53 ], [ 1, %56 ], [ 1, %58 ], [ 1, %66 ], [ 1, %50 ], [ 0, %64 ], [ 0, %63 ]
+  %.059 = phi i32 [ 1, %.loopexit ], [ 1, %48 ], [ 1, %53 ], [ 1, %56 ], [ 1, %58 ], [ 1, %50 ], [ 1, %66 ], [ 0, %64 ], [ 0, %63 ]
   ret i32 %.059
 }
 
@@ -16053,15 +16053,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubstitute(ptr noundef %0, i32
   br label %76
 
 .loopexit.sink.split:                             ; preds = %37, %27, %17, %7
-  %.str.568.sink = phi ptr [ @.str.972, %7 ], [ @.str.579, %17 ], [ @.str.882, %27 ], [ @.str.568, %37 ]
+  %.str.568.sink = phi ptr [ @.str.882, %27 ], [ @.str.579, %17 ], [ @.str.972, %7 ], [ @.str.568, %37 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.568.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %39, %29, %19, %9, %.loopexit.sink.split
-  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %5 ], [ %.066, %39 ], [ %.066, %29 ], [ %.066, %19 ], [ %14, %9 ]
-  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %5 ], [ %.063, %39 ], [ %.063, %29 ], [ %24, %19 ], [ %.063, %9 ]
-  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %5 ], [ %44, %39 ], [ %.060, %29 ], [ %.060, %19 ], [ %.060, %9 ]
-  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %.058, %5 ], [ %.058, %39 ], [ %34, %29 ], [ %.058, %19 ], [ %.058, %9 ]
+  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %29 ], [ %.066, %19 ], [ %14, %9 ], [ %.066, %5 ], [ %.066, %39 ]
+  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %29 ], [ %24, %19 ], [ %.063, %9 ], [ %.063, %5 ], [ %.063, %39 ]
+  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %29 ], [ %.060, %19 ], [ %.060, %9 ], [ %.060, %5 ], [ %44, %39 ]
+  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %34, %29 ], [ %.058, %19 ], [ %.058, %9 ], [ %.058, %5 ], [ %.058, %39 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1238)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1239)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1240, i32 noundef 4, i32 noundef 16, i32 noundef %.167)
@@ -16084,7 +16084,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubstitute(ptr noundef %0, i32
   br label %76
 
 76:                                               ; preds = %69, %.loopexit, %71, %68, %65, %63, %60, %57
-  %.069 = phi i32 [ 1, %.loopexit ], [ 1, %57 ], [ 1, %60 ], [ 1, %63 ], [ 1, %68 ], [ 1, %71 ], [ 1, %65 ], [ 0, %69 ]
+  %.069 = phi i32 [ 1, %.loopexit ], [ 1, %57 ], [ 1, %60 ], [ 1, %63 ], [ 1, %68 ], [ 1, %65 ], [ 1, %71 ], [ 0, %69 ]
   ret i32 %.069
 }
 
@@ -16198,7 +16198,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubUnate(ptr noundef %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %18, %.loopexit.sink.split
-  %.130 = phi i32 [ %.029.ph114, %.loopexit.sink.split ], [ %.029.ph114, %4 ], [ %.029.ph114, %8 ], [ %23, %18 ]
+  %.130 = phi i32 [ %.029.ph114, %.loopexit.sink.split ], [ %.029.ph114, %8 ], [ %.029.ph114, %4 ], [ %23, %18 ]
   %.1 = phi i32 [ %.028, %.loopexit.sink.split ], [ %13, %8 ], [ %.028, %4 ], [ %.028, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1247)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1248)
@@ -16329,7 +16329,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubCore(ptr noundef %0, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %18, %.loopexit.sink.split
-  %.130 = phi i32 [ %.029.ph114, %.loopexit.sink.split ], [ %.029.ph114, %4 ], [ %.029.ph114, %8 ], [ %23, %18 ]
+  %.130 = phi i32 [ %.029.ph114, %.loopexit.sink.split ], [ %.029.ph114, %8 ], [ %.029.ph114, %4 ], [ %23, %18 ]
   %.1 = phi i32 [ %.028, %.loopexit.sink.split ], [ %13, %8 ], [ %.028, %4 ], [ %.028, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1254)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1248)
@@ -16721,15 +16721,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutCasDec(ptr noundef %0, i32 no
   br label %73
 
 .loopexit.sink.split:                             ; preds = %7, %27, %37, %17
-  %.str.1003.sink = phi ptr [ @.str.1003, %37 ], [ @.str.537, %27 ], [ @.str.579, %17 ], [ @.str.972, %7 ]
+  %.str.1003.sink = phi ptr [ @.str.579, %17 ], [ @.str.537, %27 ], [ @.str.1003, %37 ], [ @.str.972, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1003.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %39, %5, %29, %9, %.loopexit.sink.split
-  %.156 = phi i32 [ %.055.ph, %.loopexit.sink.split ], [ %.055.ph, %19 ], [ %.055.ph, %39 ], [ %.055.ph, %5 ], [ %.055.ph, %29 ], [ %14, %9 ]
-  %.153 = phi i32 [ %.052.ph190, %.loopexit.sink.split ], [ %.052.ph190, %29 ], [ %.052.ph190, %5 ], [ %.052.ph190, %39 ], [ %24, %19 ], [ %.052.ph190, %9 ]
-  %.150 = phi i32 [ %.049.ph195, %.loopexit.sink.split ], [ %.049.ph195, %39 ], [ %.049.ph195, %5 ], [ %34, %29 ], [ %.049.ph195, %19 ], [ %.049.ph195, %9 ]
-  %.148 = phi i32 [ %.047.ph199, %.loopexit.sink.split ], [ %.047.ph199, %5 ], [ %44, %39 ], [ %.047.ph199, %29 ], [ %.047.ph199, %19 ], [ %.047.ph199, %9 ]
+  %.156 = phi i32 [ %.055.ph, %.loopexit.sink.split ], [ %.055.ph, %29 ], [ %.055.ph, %19 ], [ %.055.ph, %39 ], [ %.055.ph, %5 ], [ %14, %9 ]
+  %.153 = phi i32 [ %.052.ph190, %.loopexit.sink.split ], [ %24, %19 ], [ %.052.ph190, %39 ], [ %.052.ph190, %29 ], [ %.052.ph190, %5 ], [ %.052.ph190, %9 ]
+  %.150 = phi i32 [ %.049.ph195, %.loopexit.sink.split ], [ %.049.ph195, %19 ], [ %34, %29 ], [ %.049.ph195, %5 ], [ %.049.ph195, %39 ], [ %.049.ph195, %9 ]
+  %.148 = phi i32 [ %.047.ph199, %.loopexit.sink.split ], [ %.047.ph199, %19 ], [ %.047.ph199, %29 ], [ %44, %39 ], [ %.047.ph199, %5 ], [ %.047.ph199, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1278)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1279)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1266, i32 noundef %.156)
@@ -16944,18 +16944,18 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutCas(ptr noundef %0, i32 nound
   br label %95
 
 .loopexit.sink.split:                             ; preds = %67, %57, %47, %37, %27, %17, %7
-  %.str.555.sink = phi ptr [ @.str.972, %7 ], [ @.str.882, %17 ], [ @.str.1003, %27 ], [ @.str.554, %37 ], [ @.str.556, %47 ], [ @.str.881, %57 ], [ @.str.555, %67 ]
+  %.str.555.sink = phi ptr [ @.str.881, %57 ], [ @.str.556, %47 ], [ @.str.554, %37 ], [ @.str.1003, %27 ], [ @.str.882, %17 ], [ @.str.972, %7 ], [ @.str.555, %67 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.555.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %69, %59, %49, %39, %29, %19, %9, %.loopexit.sink.split
-  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %5 ], [ %.068, %69 ], [ %.068, %59 ], [ %.068, %49 ], [ %.068, %39 ], [ %.068, %29 ], [ %.068, %19 ], [ %14, %9 ]
-  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %5 ], [ %.065, %69 ], [ %.065, %59 ], [ %.065, %49 ], [ %.065, %39 ], [ %.065, %29 ], [ %24, %19 ], [ %.065, %9 ]
-  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %.062, %5 ], [ %.062, %69 ], [ %.062, %59 ], [ %.062, %49 ], [ %.062, %39 ], [ %34, %29 ], [ %.062, %19 ], [ %.062, %9 ]
-  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %.059, %5 ], [ %.059, %69 ], [ %.059, %59 ], [ %.059, %49 ], [ %44, %39 ], [ %.059, %29 ], [ %.059, %19 ], [ %.059, %9 ]
-  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %5 ], [ %.054, %69 ], [ %.054, %59 ], [ %54, %49 ], [ %.054, %39 ], [ %.054, %29 ], [ %.054, %19 ], [ %.054, %9 ]
-  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %.051, %5 ], [ %.051, %69 ], [ %64, %59 ], [ %.051, %49 ], [ %.051, %39 ], [ %.051, %29 ], [ %.051, %19 ], [ %.051, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %74, %69 ], [ %.0, %59 ], [ %.0, %49 ], [ %.0, %39 ], [ %.0, %29 ], [ %.0, %19 ], [ %.0, %9 ]
+  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %59 ], [ %.068, %49 ], [ %.068, %39 ], [ %.068, %29 ], [ %.068, %19 ], [ %14, %9 ], [ %.068, %5 ], [ %.068, %69 ]
+  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %59 ], [ %.065, %49 ], [ %.065, %39 ], [ %.065, %29 ], [ %24, %19 ], [ %.065, %9 ], [ %.065, %5 ], [ %.065, %69 ]
+  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %.062, %59 ], [ %.062, %49 ], [ %.062, %39 ], [ %34, %29 ], [ %.062, %19 ], [ %.062, %9 ], [ %.062, %5 ], [ %.062, %69 ]
+  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %.059, %59 ], [ %.059, %49 ], [ %44, %39 ], [ %.059, %29 ], [ %.059, %19 ], [ %.059, %9 ], [ %.059, %5 ], [ %.059, %69 ]
+  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %59 ], [ %54, %49 ], [ %.054, %39 ], [ %.054, %29 ], [ %.054, %19 ], [ %.054, %9 ], [ %.054, %5 ], [ %.054, %69 ]
+  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %64, %59 ], [ %.051, %49 ], [ %.051, %39 ], [ %.051, %29 ], [ %.051, %19 ], [ %.051, %9 ], [ %.051, %5 ], [ %.051, %69 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %59 ], [ %.0, %49 ], [ %.0, %39 ], [ %.0, %29 ], [ %.0, %19 ], [ %.0, %9 ], [ %.0, %5 ], [ %74, %69 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1286)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1287)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1266, i32 noundef %.169)
@@ -17217,14 +17217,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandBsEval(ptr readnone captures(non
   br label %97
 
 .loopexit.sink.split:                             ; preds = %7, %27, %47, %36, %17
-  %.str.882.sink = phi ptr [ @.str.882, %47 ], [ @.str.537, %36 ], [ @.str.554, %27 ], [ @.str.786, %17 ], [ @.str.1003, %7 ]
+  %.str.882.sink = phi ptr [ @.str.786, %17 ], [ @.str.554, %27 ], [ @.str.537, %36 ], [ @.str.882, %47 ], [ @.str.1003, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.882.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %38, %5, %29, %9, %.loopexit.sink.split
-  %.173 = phi i32 [ %.072.ph, %.loopexit.sink.split ], [ %.072.ph, %19 ], [ %.072.ph, %38 ], [ %.072.ph, %5 ], [ %.072.ph, %29 ], [ %14, %9 ]
-  %.170 = phi i32 [ %.069.ph260, %.loopexit.sink.split ], [ %.069.ph260, %29 ], [ %.069.ph260, %5 ], [ %.069.ph260, %38 ], [ %24, %19 ], [ %.069.ph260, %9 ]
-  %.168 = phi i32 [ %.067.ph267, %.loopexit.sink.split ], [ %.067.ph267, %38 ], [ %.067.ph267, %5 ], [ %34, %29 ], [ %.067.ph267, %19 ], [ %.067.ph267, %9 ]
+  %.173 = phi i32 [ %.072.ph, %.loopexit.sink.split ], [ %.072.ph, %29 ], [ %.072.ph, %19 ], [ %.072.ph, %38 ], [ %.072.ph, %5 ], [ %14, %9 ]
+  %.170 = phi i32 [ %.069.ph260, %.loopexit.sink.split ], [ %24, %19 ], [ %.069.ph260, %38 ], [ %.069.ph260, %29 ], [ %.069.ph260, %5 ], [ %.069.ph260, %9 ]
+  %.168 = phi i32 [ %.067.ph267, %.loopexit.sink.split ], [ %.067.ph267, %19 ], [ %34, %29 ], [ %.067.ph267, %5 ], [ %.067.ph267, %38 ], [ %.067.ph267, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1297)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1298)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1181, i32 noundef %.173)
@@ -17461,8 +17461,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandVarMin(ptr readnone captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.132 = phi i32 [ %.031.ph, %.loopexit.sink.split ], [ %.031.ph, %18 ], [ %.031.ph, %4 ], [ %13, %8 ]
-  %.130 = phi i32 [ %.029.ph120, %.loopexit.sink.split ], [ %.029.ph120, %4 ], [ %23, %18 ], [ %.029.ph120, %8 ]
+  %.132 = phi i32 [ %.031.ph, %.loopexit.sink.split ], [ %.031.ph, %4 ], [ %.031.ph, %18 ], [ %13, %8 ]
+  %.130 = phi i32 [ %.029.ph120, %.loopexit.sink.split ], [ %23, %18 ], [ %.029.ph120, %4 ], [ %.029.ph120, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1313)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1314)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1315, i32 noundef %.132)
@@ -17885,12 +17885,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   br label %100
 
 .loopexit.sink.split:                             ; preds = %42, %8, %52, %18, %86, %84, %.lr.ph
-  %.str.1335.sink = phi ptr [ @.str.1333, %.lr.ph ], [ @.str.1334, %84 ], [ @.str.1335, %86 ], [ @.str.555, %8 ], [ @.str.536, %52 ], [ @.str.554, %42 ], [ @.str.1096, %18 ]
+  %.str.1335.sink = phi ptr [ @.str.1334, %84 ], [ @.str.1333, %.lr.ph ], [ @.str.1335, %86 ], [ @.str.554, %42 ], [ @.str.536, %52 ], [ @.str.555, %8 ], [ @.str.1096, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1335.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %10, %44, %.loopexit.sink.split, %69
-  %.176 = phi i32 [ %.075.ph319, %69 ], [ %.075.ph319, %.loopexit.sink.split ], [ %.075.ph319, %6 ], [ %.075.ph319, %10 ], [ %49, %44 ]
+  %.176 = phi i32 [ %.075.ph319, %.loopexit.sink.split ], [ %.075.ph319, %69 ], [ %.075.ph319, %10 ], [ %.075.ph319, %6 ], [ %49, %44 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1338)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1339)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1340)
@@ -17947,14 +17947,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrchestrate(ptr noundef %0, i32 
   ]
 
 .backedge:                                        ; preds = %5, %29, %19, %9, %45, %43, %41, %39, %37
-  %.076.be = phi i32 [ %.076, %9 ], [ %.076, %19 ], [ %.076, %29 ], [ %.076, %37 ], [ %.076, %39 ], [ %42, %41 ], [ %.076, %43 ], [ %.076, %45 ], [ %.076, %5 ]
-  %.074.be = phi i32 [ %.074, %9 ], [ %.074, %19 ], [ %.074, %29 ], [ %.074, %37 ], [ %40, %39 ], [ %.074, %41 ], [ %.074, %43 ], [ %.074, %45 ], [ %.074, %5 ]
-  %.071.be = phi i32 [ %14, %9 ], [ %.071, %19 ], [ %.071, %29 ], [ %.071, %37 ], [ %.071, %39 ], [ %.071, %41 ], [ %.071, %43 ], [ %.071, %45 ], [ %.071, %5 ]
-  %.068.be = phi i32 [ %.068, %9 ], [ %24, %19 ], [ %.068, %29 ], [ %.068, %37 ], [ %.068, %39 ], [ %.068, %41 ], [ %.068, %43 ], [ %.068, %45 ], [ %.068, %5 ]
-  %.066.be = phi i32 [ %.066, %9 ], [ %.066, %19 ], [ %34, %29 ], [ %.066, %37 ], [ %.066, %39 ], [ %.066, %41 ], [ %.066, %43 ], [ %.066, %45 ], [ %.066, %5 ]
-  %.064.be = phi i32 [ %.064, %9 ], [ %.064, %19 ], [ %.064, %29 ], [ %38, %37 ], [ %.064, %39 ], [ %.064, %41 ], [ %.064, %43 ], [ %.064, %45 ], [ %.064, %5 ]
-  %.061.be = phi i32 [ %.061, %9 ], [ %.061, %19 ], [ %.061, %29 ], [ %.061, %37 ], [ %.061, %39 ], [ %.061, %41 ], [ %44, %43 ], [ %.061, %45 ], [ %.061, %5 ]
-  %.0.be = phi i32 [ %.0, %9 ], [ %.0, %19 ], [ %.0, %29 ], [ %.0, %37 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %43 ], [ %46, %45 ], [ %.0, %5 ]
+  %.076.be = phi i32 [ %.076, %5 ], [ %.076, %9 ], [ %.076, %19 ], [ %.076, %29 ], [ %.076, %37 ], [ %.076, %39 ], [ %42, %41 ], [ %.076, %43 ], [ %.076, %45 ]
+  %.074.be = phi i32 [ %.074, %5 ], [ %.074, %9 ], [ %.074, %19 ], [ %.074, %29 ], [ %.074, %37 ], [ %40, %39 ], [ %.074, %41 ], [ %.074, %43 ], [ %.074, %45 ]
+  %.071.be = phi i32 [ %.071, %5 ], [ %14, %9 ], [ %.071, %19 ], [ %.071, %29 ], [ %.071, %37 ], [ %.071, %39 ], [ %.071, %41 ], [ %.071, %43 ], [ %.071, %45 ]
+  %.068.be = phi i32 [ %.068, %5 ], [ %.068, %9 ], [ %24, %19 ], [ %.068, %29 ], [ %.068, %37 ], [ %.068, %39 ], [ %.068, %41 ], [ %.068, %43 ], [ %.068, %45 ]
+  %.066.be = phi i32 [ %.066, %5 ], [ %.066, %9 ], [ %.066, %19 ], [ %34, %29 ], [ %.066, %37 ], [ %.066, %39 ], [ %.066, %41 ], [ %.066, %43 ], [ %.066, %45 ]
+  %.064.be = phi i32 [ %.064, %5 ], [ %.064, %9 ], [ %.064, %19 ], [ %.064, %29 ], [ %38, %37 ], [ %.064, %39 ], [ %.064, %41 ], [ %.064, %43 ], [ %.064, %45 ]
+  %.061.be = phi i32 [ %.061, %5 ], [ %.061, %9 ], [ %.061, %19 ], [ %.061, %29 ], [ %.061, %37 ], [ %.061, %39 ], [ %.061, %41 ], [ %44, %43 ], [ %.061, %45 ]
+  %.0.be = phi i32 [ %.0, %5 ], [ %.0, %9 ], [ %.0, %19 ], [ %.0, %29 ], [ %.0, %37 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %43 ], [ %46, %45 ]
   br label %5, !llvm.loop !262
 
 7:                                                ; preds = %5
@@ -18081,14 +18081,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrchestrate(ptr noundef %0, i32 
   br label %71
 
 .loopexit.sink.split:                             ; preds = %27, %17, %7
-  %.str.568.sink = phi ptr [ @.str.972, %7 ], [ @.str.579, %17 ], [ @.str.568, %27 ]
+  %.str.568.sink = phi ptr [ @.str.579, %17 ], [ @.str.972, %7 ], [ @.str.568, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.568.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %29, %19, %9, %.loopexit.sink.split
-  %.273 = phi i32 [ %.071, %.loopexit.sink.split ], [ %.071, %5 ], [ %.071, %29 ], [ %.071, %19 ], [ %14, %9 ]
-  %.270 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %5 ], [ %.068, %29 ], [ %24, %19 ], [ %.068, %9 ]
-  %.2 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %5 ], [ %34, %29 ], [ %.066, %19 ], [ %.066, %9 ]
+  %.273 = phi i32 [ %.071, %.loopexit.sink.split ], [ %.071, %29 ], [ %.071, %19 ], [ %14, %9 ], [ %.071, %5 ]
+  %.270 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %29 ], [ %24, %19 ], [ %.068, %9 ], [ %.068, %5 ]
+  %.2 = phi i32 [ %.066, %.loopexit.sink.split ], [ %34, %29 ], [ %.066, %19 ], [ %.066, %9 ], [ %.066, %5 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1200)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1201)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1202, i32 noundef 4, i32 noundef 16, i32 noundef %.273)
@@ -18113,7 +18113,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrchestrate(ptr noundef %0, i32 
   br label %71
 
 71:                                               ; preds = %62, %63, %.loopexit, %65, %57, %54, %52, %49
-  %.063 = phi i32 [ 1, %.loopexit ], [ 1, %49 ], [ 1, %52 ], [ 1, %57 ], [ 1, %65 ], [ 1, %54 ], [ 0, %63 ], [ 0, %62 ]
+  %.063 = phi i32 [ 1, %.loopexit ], [ 1, %54 ], [ 1, %49 ], [ 1, %52 ], [ 1, %57 ], [ 1, %65 ], [ 0, %63 ], [ 0, %62 ]
   ret i32 %.063
 }
 
@@ -18288,8 +18288,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAIGAugmentation(ptr noundef %0, 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %64, %66, %56, %58
-  %.sink95 = phi ptr [ %57, %56 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ]
-  %.sink = phi i32 [ 16, %56 ], [ 16, %58 ], [ %61, %64 ], [ %61, %66 ]
+  %.sink95 = phi ptr [ %59, %58 ], [ %57, %56 ], [ %65, %64 ], [ %67, %66 ]
+  %.sink = phi i32 [ 16, %58 ], [ 16, %56 ], [ %61, %64 ], [ %61, %66 ]
   store ptr %.sink95, ptr %45, align 8, !tbaa !38
   store i32 %.sink, ptr %42, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -18337,7 +18337,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %79
 
 79:                                               ; preds = %73, %74, %.loopexit, %76, %38, %35, %33
-  %.053 = phi i32 [ 1, %.loopexit ], [ 1, %33 ], [ 1, %38 ], [ 1, %76 ], [ 1, %35 ], [ 0, %74 ], [ 0, %73 ]
+  %.053 = phi i32 [ 1, %.loopexit ], [ 1, %35 ], [ 1, %33 ], [ 1, %76 ], [ 1, %38 ], [ 0, %74 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18673,14 +18673,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr readnone captures(n
   br label %60
 
 .loopexit.sink.split:                             ; preds = %26, %16, %6
-  %.str.537.sink = phi ptr [ @.str.1003, %6 ], [ @.str.579, %16 ], [ @.str.537, %26 ]
+  %.str.537.sink = phi ptr [ @.str.579, %16 ], [ @.str.1003, %6 ], [ @.str.537, %26 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.537.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %28, %18, %8, %.loopexit.sink.split
-  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %4 ], [ %.053, %28 ], [ %.053, %18 ], [ %13, %8 ]
-  %.151 = phi i32 [ %.050, %.loopexit.sink.split ], [ %.050, %4 ], [ %.050, %28 ], [ %23, %18 ], [ %.050, %8 ]
-  %.141 = phi i32 [ %.040, %.loopexit.sink.split ], [ %.040, %4 ], [ %33, %28 ], [ %.040, %18 ], [ %.040, %8 ]
+  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %18 ], [ %13, %8 ], [ %.053, %4 ], [ %.053, %28 ]
+  %.151 = phi i32 [ %.050, %.loopexit.sink.split ], [ %23, %18 ], [ %.050, %8 ], [ %.050, %4 ], [ %.050, %28 ]
+  %.141 = phi i32 [ %.040, %.loopexit.sink.split ], [ %.040, %18 ], [ %.040, %8 ], [ %.040, %4 ], [ %33, %28 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1367)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1368)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1181, i32 noundef %.154)
@@ -19066,10 +19066,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr readnone captures(n
   br label %144
 
 144:                                              ; preds = %.loopexit, %73, %61, %49, %37
-  %145 = phi i32 [ %23, %37 ], [ %23, %49 ], [ %23, %61 ], [ %23, %73 ], [ %141, %.loopexit ]
-  %146 = phi i32 [ %24, %37 ], [ %24, %49 ], [ %24, %61 ], [ %24, %73 ], [ %142, %.loopexit ]
-  %147 = phi i32 [ %33, %37 ], [ %33, %49 ], [ %33, %61 ], [ %33, %73 ], [ %143, %.loopexit ]
-  %.1 = phi i32 [ %.072, %37 ], [ %.072, %49 ], [ %.072, %61 ], [ %.072, %73 ], [ %.1.ph, %.loopexit ]
+  %145 = phi i32 [ %23, %73 ], [ %23, %37 ], [ %23, %61 ], [ %23, %49 ], [ %141, %.loopexit ]
+  %146 = phi i32 [ %24, %73 ], [ %24, %37 ], [ %24, %61 ], [ %24, %49 ], [ %142, %.loopexit ]
+  %147 = phi i32 [ %33, %73 ], [ %33, %37 ], [ %33, %61 ], [ %33, %49 ], [ %143, %.loopexit ]
+  %.1 = phi i32 [ %.072, %73 ], [ %.072, %37 ], [ %.072, %61 ], [ %.072, %49 ], [ %.1.ph, %.loopexit ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1380)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1381)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1181, i32 noundef %147)
@@ -20281,7 +20281,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandComb(ptr noundef %0, i32 noundef
   br label %37
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.1 = phi i32 [ %.0, %9 ], [ %.0, %5 ], [ %15, %10 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %15, %10 ], [ %.0, %5 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1436)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1437)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1438, i32 noundef %.1)
@@ -20720,7 +20720,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDemiter(ptr noundef %0, i32 noun
   br label %31
 
 31:                                               ; preds = %25, %22, %28, %27, %24, %21, %15, %13
-  %.017 = phi i32 [ 1, %28 ], [ 1, %13 ], [ 0, %21 ], [ 1, %24 ], [ 1, %27 ], [ 1, %15 ], [ 0, %22 ], [ 0, %25 ]
+  %.017 = phi i32 [ 1, %28 ], [ 1, %13 ], [ 0, %21 ], [ 1, %15 ], [ 1, %24 ], [ 0, %22 ], [ 1, %27 ], [ 0, %25 ]
   ret i32 %.017
 }
 
@@ -20862,7 +20862,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandOrPos(ptr noundef %0, i32 nounde
   br label %48
 
 48:                                               ; preds = %34, %44, %41, %45, %40, %15, %13
-  %.0 = phi i32 [ 1, %45 ], [ 1, %13 ], [ 1, %40 ], [ 1, %15 ], [ 0, %41 ], [ 0, %44 ], [ 0, %34 ]
+  %.0 = phi i32 [ 1, %45 ], [ 1, %13 ], [ 1, %15 ], [ 1, %40 ], [ 0, %41 ], [ 0, %44 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -20934,7 +20934,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAndPos(ptr noundef %0, i32 nound
   br label %24
 
 24:                                               ; preds = %20, %23, %22, %19, %16, %11, %9
-  %.0 = phi i32 [ 1, %23 ], [ 1, %9 ], [ 1, %16 ], [ 1, %19 ], [ 1, %22 ], [ 1, %11 ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %23 ], [ 1, %9 ], [ 1, %16 ], [ 1, %19 ], [ 1, %11 ], [ 1, %22 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -21344,7 +21344,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDropSat(ptr noundef %0, i32 noun
   br label %35
 
 35:                                               ; preds = %26, %31, %32, %30, %25, %20, %15, %13
-  %.023 = phi i32 [ 1, %32 ], [ 1, %13 ], [ 1, %20 ], [ 1, %25 ], [ 1, %30 ], [ 1, %15 ], [ 0, %31 ], [ 0, %26 ]
+  %.023 = phi i32 [ 1, %32 ], [ 1, %13 ], [ 1, %20 ], [ 1, %25 ], [ 1, %15 ], [ 1, %30 ], [ 0, %31 ], [ 0, %26 ]
   ret i32 %.023
 }
 
@@ -21516,7 +21516,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAppend(ptr noundef %0, i32 nound
   br label %31
 
 31:                                               ; preds = %13, %30, %26, %25, %22, %12, %10
-  %.0 = phi i32 [ 1, %30 ], [ 1, %10 ], [ 0, %22 ], [ 0, %26 ], [ 1, %25 ], [ 1, %12 ], [ 1, %13 ]
+  %.0 = phi i32 [ 1, %30 ], [ 1, %10 ], [ 1, %12 ], [ 0, %22 ], [ 0, %26 ], [ 1, %25 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -21692,8 +21692,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1536)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %18, %22, %33, %58, %57, %48, %42, %32, %29, %27, %._crit_edge
-  %.2 = phi i32 [ 1, %58 ], [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %32 ], [ 0, %42 ], [ 0, %48 ], [ 0, %57 ], [ 1, %29 ], [ 1, %33 ], [ 1, %22 ], [ 1, %18 ], [ 1, %.lr.ph ]
+.critedge:                                        ; preds = %18, %.lr.ph, %22, %33, %58, %57, %48, %42, %32, %29, %27, %._crit_edge
+  %.2 = phi i32 [ 1, %58 ], [ 1, %33 ], [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %32 ], [ 1, %29 ], [ 0, %42 ], [ 0, %48 ], [ 0, %57 ], [ 1, %22 ], [ 1, %.lr.ph ], [ 1, %18 ]
   ret i32 %.2
 }
 
@@ -21932,8 +21932,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandDFrames(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %19 ], [ %.042.ph, %5 ], [ %14, %9 ]
-  %.141 = phi i32 [ %.040.ph119, %.loopexit.sink.split ], [ %.040.ph119, %5 ], [ %24, %19 ], [ %.040.ph119, %9 ]
+  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %5 ], [ %.042.ph, %19 ], [ %14, %9 ]
+  %.141 = phi i32 [ %.040.ph119, %.loopexit.sink.split ], [ %24, %19 ], [ %.040.ph119, %5 ], [ %.040.ph119, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1546)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1547)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1548, i32 noundef %.143)
@@ -22074,7 +22074,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSop(ptr noundef %0, i32 noundef 
   br label %.thread46
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.1 = phi i32 [ %.0, %9 ], [ %.0, %5 ], [ %15, %10 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %15, %10 ], [ %.0, %5 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1555)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1556)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1557, i32 noundef %.1)
@@ -22091,7 +22091,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSop(ptr noundef %0, i32 noundef 
   br label %.thread46
 
 .thread46:                                        ; preds = %.thread, %37, %.loopexit, %36, %32, %29, %25, %23
-  %.029 = phi i32 [ 1, %.loopexit ], [ 1, %23 ], [ 0, %29 ], [ 0, %36 ], [ 0, %32 ], [ 1, %25 ], [ 0, %37 ], [ 0, %.thread ]
+  %.029 = phi i32 [ 1, %.loopexit ], [ 1, %23 ], [ 0, %29 ], [ 1, %25 ], [ 0, %36 ], [ 0, %32 ], [ 0, %37 ], [ 0, %.thread ]
   ret i32 %.029
 }
 
@@ -22184,7 +22184,7 @@ Abc_NtkIsBddLogic.exit:                           ; preds = %._crit_edge
   br label %27
 
 27:                                               ; preds = %21, %24, %23, %Abc_NtkIsBddLogic.exit, %17, %15, %13
-  %.0 = phi i32 [ 1, %24 ], [ 1, %13 ], [ %19, %17 ], [ 0, %Abc_NtkIsBddLogic.exit ], [ 1, %23 ], [ 1, %15 ], [ 0, %21 ]
+  %.0 = phi i32 [ 1, %24 ], [ 1, %13 ], [ %19, %17 ], [ 0, %Abc_NtkIsBddLogic.exit ], [ 1, %15 ], [ 1, %23 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -22239,7 +22239,7 @@ Abc_NtkIsAigLogic.exit:                           ; preds = %11
   br label %19
 
 19:                                               ; preds = %15, %18, %17, %Abc_NtkIsAigLogic.exit, %10, %8
-  %.0 = phi i32 [ 1, %18 ], [ 1, %8 ], [ 0, %Abc_NtkIsAigLogic.exit ], [ 1, %17 ], [ 1, %10 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %8 ], [ 0, %Abc_NtkIsAigLogic.exit ], [ 1, %10 ], [ 1, %17 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -22551,7 +22551,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %28, %Abc_NtkIsBddLo
   br label %40
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.1 = phi i32 [ %.0, %9 ], [ %.0, %5 ], [ %15, %10 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %15, %10 ], [ %.0, %5 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1592)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1593)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1594)
@@ -22819,7 +22819,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %23, %Abc_NtkIsSopLo
   br label %34
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.1 = phi i32 [ %.0, %9 ], [ %.0, %5 ], [ %15, %10 ]
+  %.1 = phi i32 [ %.0, %9 ], [ %15, %10 ], [ %.0, %5 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1611)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1612)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1613, i32 noundef %.1)
@@ -22899,7 +22899,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtSeqDcs(ptr noundef %0, i32 no
   br label %24
 
 24:                                               ; preds = %19, %22, %21, %18, %16, %12
-  %.012 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %16 ], [ 1, %21 ], [ 0, %18 ], [ 0, %19 ]
+  %.012 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %16 ], [ 0, %18 ], [ 1, %21 ], [ 0, %19 ]
   ret i32 %.012
 }
 
@@ -23101,7 +23101,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReach(ptr noundef %0, i32 nounde
   br label %112
 
 .loopexit.sink.split:                             ; preds = %48, %37, %26, %15
-  %.str.730.sink = phi ptr [ @.str.834, %15 ], [ @.str.786, %26 ], [ @.str.568, %37 ], [ @.str.730, %48 ]
+  %.str.730.sink = phi ptr [ @.str.568, %37 ], [ @.str.786, %26 ], [ @.str.834, %15 ], [ @.str.730, %48 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -23372,7 +23372,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr noundef %0, i32 noundef
   br label %103
 
 .thread:                                          ; preds = %89, %63, %61, %91
-  %.070103 = phi ptr [ %.070.ph105, %91 ], [ %64, %63 ], [ %62, %61 ], [ %90, %89 ]
+  %.070103 = phi ptr [ %90, %89 ], [ %62, %61 ], [ %.070.ph105, %91 ], [ %64, %63 ]
   %101 = icmp eq ptr %.070103, null
   br i1 %101, label %102, label %103
 
@@ -24148,7 +24148,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMoveNames(ptr noundef %0, i32 no
   br label %39
 
 39:                                               ; preds = %10, %38, %37, %36, %30, %22, %9
-  %.0 = phi i32 [ 1, %38 ], [ 1, %9 ], [ 0, %22 ], [ 0, %30 ], [ 0, %36 ], [ 0, %37 ], [ 1, %10 ]
+  %.0 = phi i32 [ 1, %38 ], [ 1, %9 ], [ 0, %37 ], [ 0, %22 ], [ 0, %30 ], [ 0, %36 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -25105,15 +25105,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef 
   br label %116
 
 .loopexit.sink.split:                             ; preds = %37, %27, %17, %7
-  %.str.556.sink = phi ptr [ @.str.579, %7 ], [ @.str.1096, %17 ], [ @.str.972, %27 ], [ @.str.556, %37 ]
+  %.str.556.sink = phi ptr [ @.str.972, %27 ], [ @.str.1096, %17 ], [ @.str.579, %7 ], [ @.str.556, %37 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.556.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %39, %29, %19, %9, %.loopexit.sink.split, %69
-  %.1113 = phi i32 [ %.0112, %69 ], [ %.0112, %.loopexit.sink.split ], [ %.0112, %5 ], [ %.0112, %39 ], [ %.0112, %29 ], [ %.0112, %19 ], [ %14, %9 ]
-  %.1110 = phi i32 [ %.0109, %69 ], [ %.0109, %.loopexit.sink.split ], [ %.0109, %5 ], [ %.0109, %39 ], [ %.0109, %29 ], [ %24, %19 ], [ %.0109, %9 ]
-  %.1107 = phi i32 [ %.0106, %69 ], [ %.0106, %.loopexit.sink.split ], [ %.0106, %5 ], [ %.0106, %39 ], [ %34, %29 ], [ %.0106, %19 ], [ %.0106, %9 ]
-  %.1105 = phi i32 [ %.0104, %69 ], [ %.0104, %.loopexit.sink.split ], [ %.0104, %5 ], [ %44, %39 ], [ %.0104, %29 ], [ %.0104, %19 ], [ %.0104, %9 ]
+  %.1113 = phi i32 [ %.0112, %69 ], [ %.0112, %.loopexit.sink.split ], [ %.0112, %29 ], [ %.0112, %19 ], [ %14, %9 ], [ %.0112, %5 ], [ %.0112, %39 ]
+  %.1110 = phi i32 [ %.0109, %69 ], [ %.0109, %.loopexit.sink.split ], [ %.0109, %29 ], [ %24, %19 ], [ %.0109, %9 ], [ %.0109, %5 ], [ %.0109, %39 ]
+  %.1107 = phi i32 [ %.0106, %69 ], [ %.0106, %.loopexit.sink.split ], [ %34, %29 ], [ %.0106, %19 ], [ %.0106, %9 ], [ %.0106, %5 ], [ %.0106, %39 ]
+  %.1105 = phi i32 [ %.0104, %69 ], [ %.0104, %.loopexit.sink.split ], [ %.0104, %29 ], [ %.0104, %19 ], [ %.0104, %9 ], [ %.0104, %5 ], [ %44, %39 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1741)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1742)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1743, i32 noundef %.1113)
@@ -25418,8 +25418,8 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge.thread,
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %97, %99, %89, %91
-  %.sink210 = phi ptr [ %90, %89 ], [ %92, %91 ], [ %98, %97 ], [ %100, %99 ]
-  %.sink = phi i32 [ 16, %89 ], [ 16, %91 ], [ %94, %97 ], [ %94, %99 ]
+  %.sink210 = phi ptr [ %92, %91 ], [ %90, %89 ], [ %98, %97 ], [ %100, %99 ]
+  %.sink = phi i32 [ 16, %91 ], [ 16, %89 ], [ %94, %97 ], [ %94, %99 ]
   store ptr %.sink210, ptr %75, align 8, !tbaa !38
   store i32 %.sink, ptr %67, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -25478,7 +25478,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.critedge
 
 .loopexit.sink.split:                             ; preds = %7, %27, %17
-  %.str.1760.sink = phi ptr [ @.str.1760, %27 ], [ @.str.972, %17 ], [ @.str.881, %7 ]
+  %.str.1760.sink = phi ptr [ @.str.972, %17 ], [ @.str.1760, %27 ], [ @.str.881, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1760.sink)
   br label %.loopexit
 
@@ -25608,8 +25608,8 @@ Vec_IntAlloc.exit:                                ; preds = %14, %18
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink55 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink55 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink55, ptr %23, align 8, !tbaa !38
   store i32 %.sink, ptr %15, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -25862,17 +25862,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr readnone captures(non
   br label %82
 
 .loopexit.sink.split:                             ; preds = %16, %36, %56, %46, %26, %6, %71
-  %.str.1780.sink = phi ptr [ @.str.1780, %71 ], [ @.str.952, %56 ], [ @.str.883, %46 ], [ @.str.556, %36 ], [ @.str.554, %26 ], [ @.str.689, %16 ], [ @.str.1003, %6 ]
+  %.str.1780.sink = phi ptr [ @.str.1780, %71 ], [ @.str.689, %16 ], [ @.str.554, %26 ], [ @.str.556, %36 ], [ @.str.883, %46 ], [ @.str.952, %56 ], [ @.str.1003, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1780.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %58, %4, %48, %28, %8, %.loopexit.sink.split, %68
-  %.166 = phi i32 [ %.065.ph, %68 ], [ %.065.ph, %.loopexit.sink.split ], [ %.065.ph, %18 ], [ %.065.ph, %38 ], [ %.065.ph, %58 ], [ %.065.ph, %4 ], [ %.065.ph, %48 ], [ %.065.ph, %28 ], [ %13, %8 ]
-  %.163 = phi i32 [ %.062.ph286, %68 ], [ %.062.ph286, %.loopexit.sink.split ], [ %.062.ph286, %28 ], [ %.062.ph286, %48 ], [ %.062.ph286, %4 ], [ %.062.ph286, %58 ], [ %.062.ph286, %38 ], [ %23, %18 ], [ %.062.ph286, %8 ]
-  %.160 = phi i32 [ %.059.ph293, %68 ], [ %.059.ph293, %.loopexit.sink.split ], [ %.059.ph293, %38 ], [ %.059.ph293, %58 ], [ %.059.ph293, %4 ], [ %.059.ph293, %48 ], [ %33, %28 ], [ %.059.ph293, %18 ], [ %.059.ph293, %8 ]
-  %.157 = phi i32 [ %.056.ph299, %68 ], [ %.056.ph299, %.loopexit.sink.split ], [ %.056.ph299, %48 ], [ %.056.ph299, %4 ], [ %.056.ph299, %58 ], [ %43, %38 ], [ %.056.ph299, %28 ], [ %.056.ph299, %18 ], [ %.056.ph299, %8 ]
-  %.154 = phi i32 [ %.053.ph304, %68 ], [ %.053.ph304, %.loopexit.sink.split ], [ %.053.ph304, %58 ], [ %.053.ph304, %4 ], [ %53, %48 ], [ %.053.ph304, %38 ], [ %.053.ph304, %28 ], [ %.053.ph304, %18 ], [ %.053.ph304, %8 ]
-  %.152 = phi i32 [ %.051.ph308, %68 ], [ %.051.ph308, %.loopexit.sink.split ], [ %.051.ph308, %4 ], [ %63, %58 ], [ %.051.ph308, %48 ], [ %.051.ph308, %38 ], [ %.051.ph308, %28 ], [ %.051.ph308, %18 ], [ %.051.ph308, %8 ]
+  %.166 = phi i32 [ %.065.ph, %68 ], [ %.065.ph, %.loopexit.sink.split ], [ %.065.ph, %28 ], [ %.065.ph, %18 ], [ %.065.ph, %38 ], [ %.065.ph, %58 ], [ %.065.ph, %4 ], [ %.065.ph, %48 ], [ %13, %8 ]
+  %.163 = phi i32 [ %.062.ph286, %68 ], [ %.062.ph286, %.loopexit.sink.split ], [ %23, %18 ], [ %.062.ph286, %38 ], [ %.062.ph286, %28 ], [ %.062.ph286, %48 ], [ %.062.ph286, %4 ], [ %.062.ph286, %58 ], [ %.062.ph286, %8 ]
+  %.160 = phi i32 [ %.059.ph293, %68 ], [ %.059.ph293, %.loopexit.sink.split ], [ %.059.ph293, %18 ], [ %33, %28 ], [ %.059.ph293, %48 ], [ %.059.ph293, %38 ], [ %.059.ph293, %58 ], [ %.059.ph293, %4 ], [ %.059.ph293, %8 ]
+  %.157 = phi i32 [ %.056.ph299, %68 ], [ %.056.ph299, %.loopexit.sink.split ], [ %.056.ph299, %18 ], [ %.056.ph299, %28 ], [ %43, %38 ], [ %.056.ph299, %58 ], [ %.056.ph299, %48 ], [ %.056.ph299, %4 ], [ %.056.ph299, %8 ]
+  %.154 = phi i32 [ %.053.ph304, %68 ], [ %.053.ph304, %.loopexit.sink.split ], [ %.053.ph304, %18 ], [ %.053.ph304, %28 ], [ %.053.ph304, %38 ], [ %53, %48 ], [ %.053.ph304, %4 ], [ %.053.ph304, %58 ], [ %.053.ph304, %8 ]
+  %.152 = phi i32 [ %.051.ph308, %68 ], [ %.051.ph308, %.loopexit.sink.split ], [ %.051.ph308, %18 ], [ %.051.ph308, %28 ], [ %.051.ph308, %38 ], [ %.051.ph308, %48 ], [ %63, %58 ], [ %.051.ph308, %4 ], [ %.051.ph308, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1781)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1782)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1783, i32 noundef %.166)
@@ -26031,8 +26031,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCover(ptr noundef %0, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.132 = phi i32 [ %.031.ph160, %.loopexit.sink.split ], [ %.031.ph160, %5 ], [ %.031.ph160, %19 ], [ %14, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %24, %19 ], [ %.0, %5 ], [ %.0, %9 ]
+  %.132 = phi i32 [ %.031.ph160, %.loopexit.sink.split ], [ %.031.ph160, %19 ], [ %.031.ph160, %5 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %24, %19 ], [ %.0, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1791)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1792)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1793)
@@ -26816,16 +26816,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr readnone captures(none)
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %46, %36, %26, %16, %6
-  %.str.882.sink = phi ptr [ @.str.536, %6 ], [ @.str.972, %16 ], [ @.str.555, %26 ], [ @.str.579, %36 ], [ @.str.882, %46 ]
+  %.str.882.sink = phi ptr [ @.str.579, %36 ], [ @.str.555, %26 ], [ @.str.972, %16 ], [ @.str.536, %6 ], [ @.str.882, %46 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.882.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %4 ], [ %.049, %48 ], [ %.049, %38 ], [ %.049, %28 ], [ %.049, %18 ], [ %13, %8 ]
-  %.147 = phi i32 [ %.046, %.loopexit.sink.split ], [ %.046, %4 ], [ %.046, %48 ], [ %.046, %38 ], [ %.046, %28 ], [ %23, %18 ], [ %.046, %8 ]
-  %.144 = phi i32 [ %.043, %.loopexit.sink.split ], [ %.043, %4 ], [ %.043, %48 ], [ %.043, %38 ], [ %33, %28 ], [ %.043, %18 ], [ %.043, %8 ]
-  %.141 = phi i32 [ %.040, %.loopexit.sink.split ], [ %.040, %4 ], [ %.040, %48 ], [ %43, %38 ], [ %.040, %28 ], [ %.040, %18 ], [ %.040, %8 ]
-  %.139 = phi i32 [ %.038, %.loopexit.sink.split ], [ %.038, %4 ], [ %53, %48 ], [ %.038, %38 ], [ %.038, %28 ], [ %.038, %18 ], [ %.038, %8 ]
+  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %38 ], [ %.049, %28 ], [ %.049, %18 ], [ %13, %8 ], [ %.049, %4 ], [ %.049, %48 ]
+  %.147 = phi i32 [ %.046, %.loopexit.sink.split ], [ %.046, %38 ], [ %.046, %28 ], [ %23, %18 ], [ %.046, %8 ], [ %.046, %4 ], [ %.046, %48 ]
+  %.144 = phi i32 [ %.043, %.loopexit.sink.split ], [ %.043, %38 ], [ %33, %28 ], [ %.043, %18 ], [ %.043, %8 ], [ %.043, %4 ], [ %.043, %48 ]
+  %.141 = phi i32 [ %.040, %.loopexit.sink.split ], [ %43, %38 ], [ %.040, %28 ], [ %.040, %18 ], [ %.040, %8 ], [ %.040, %4 ], [ %.040, %48 ]
+  %.139 = phi i32 [ %.038, %.loopexit.sink.split ], [ %.038, %38 ], [ %.038, %28 ], [ %.038, %18 ], [ %.038, %8 ], [ %.038, %4 ], [ %53, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1847)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1848)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1849, i32 noundef %.150)
@@ -27498,7 +27498,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSendAig(ptr noundef readonly cap
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %29, %19, %30, %36, %18, %12
-  %.0 = phi i32 [ 1, %36 ], [ 1, %18 ], [ 1, %12 ], [ 0, %30 ], [ 0, %19 ], [ 1, %29 ], [ 1, %27 ]
+  %.0 = phi i32 [ 1, %36 ], [ 1, %18 ], [ 1, %12 ], [ 0, %19 ], [ 0, %30 ], [ 1, %29 ], [ 1, %27 ]
   ret i32 %.0
 }
 
@@ -28030,7 +28030,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRewrite(ptr noundef %0, i32 nou
   br label %97
 
 .loopexit.sink.split:                             ; preds = %38, %27, %16
-  %.str.882.sink = phi ptr [ @.str.536, %16 ], [ @.str.579, %27 ], [ @.str.882, %38 ]
+  %.str.882.sink = phi ptr [ @.str.579, %27 ], [ @.str.536, %16 ], [ @.str.882, %38 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.882.sink)
   br label %.loopexit
 
@@ -28234,7 +28234,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRefactor(ptr noundef %0, i32 no
   br label %90
 
 .loopexit.sink.split:                             ; preds = %37, %26, %15
-  %.str.536.sink = phi ptr [ @.str.536, %15 ], [ @.str.579, %26 ], [ @.str.536, %37 ]
+  %.str.536.sink = phi ptr [ @.str.579, %26 ], [ @.str.536, %15 ], [ @.str.536, %37 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
@@ -28530,8 +28530,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandDChoice(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.133 = phi i32 [ %.032.ph166, %.loopexit.sink.split ], [ %.032.ph166, %5 ], [ %.032.ph166, %19 ], [ %14, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %24, %19 ], [ %.0, %5 ], [ %.0, %9 ]
+  %.133 = phi i32 [ %.032.ph166, %.loopexit.sink.split ], [ %.032.ph166, %19 ], [ %.032.ph166, %5 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %24, %19 ], [ %.0, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1917)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1918)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1883, i32 noundef %.133)
@@ -28736,7 +28736,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDch(ptr noundef %0, i32 noundef 
   br label %110
 
 .loopexit.sink.split:                             ; preds = %41, %30, %19
-  %.str.554.sink = phi ptr [ @.str.881, %19 ], [ @.str.536, %30 ], [ @.str.554, %41 ]
+  %.str.554.sink = phi ptr [ @.str.536, %30 ], [ @.str.881, %19 ], [ @.str.554, %41 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
@@ -28898,8 +28898,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandIRewriteSeq(ptr noundef %0, i32 
   br label %13
 
 13:                                               ; preds = %.lr.ph, %11, %9
-  %.118 = phi i32 [ %10, %9 ], [ %.01733, %11 ], [ %.01733, %.lr.ph ]
-  %.1 = phi i32 [ %.034, %9 ], [ %12, %11 ], [ %.034, %.lr.ph ]
+  %.118 = phi i32 [ %.01733, %11 ], [ %10, %9 ], [ %.01733, %.lr.ph ]
+  %.1 = phi i32 [ %12, %11 ], [ %.034, %9 ], [ %.034, %.lr.ph ]
   %14 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1890) #35
   %.not = icmp eq i32 %14, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !399
@@ -29279,14 +29279,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandIFraig(ptr noundef %0, i32 nound
   br label %60
 
 .loopexit.sink.split:                             ; preds = %17, %27, %7
-  %.str.556.sink = phi ptr [ @.str.556, %27 ], [ @.str.883, %7 ], [ @.str.536, %17 ]
+  %.str.556.sink = phi ptr [ @.str.883, %7 ], [ @.str.556, %27 ], [ @.str.536, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.556.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %29, %19, %.loopexit.sink.split
-  %.142 = phi i32 [ %.041.ph189, %.loopexit.sink.split ], [ %.041.ph189, %9 ], [ %.041.ph189, %5 ], [ %.041.ph189, %29 ], [ %24, %19 ]
-  %.139 = phi i32 [ %.038.ph193, %.loopexit.sink.split ], [ %.038.ph193, %29 ], [ %.038.ph193, %5 ], [ %14, %9 ], [ %.038.ph193, %19 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %34, %29 ], [ %.0, %9 ], [ %.0, %19 ]
+  %.142 = phi i32 [ %.041.ph189, %.loopexit.sink.split ], [ %.041.ph189, %29 ], [ %.041.ph189, %9 ], [ %.041.ph189, %5 ], [ %24, %19 ]
+  %.139 = phi i32 [ %.038.ph193, %.loopexit.sink.split ], [ %14, %9 ], [ %.038.ph193, %5 ], [ %.038.ph193, %29 ], [ %.038.ph193, %19 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %9 ], [ %34, %29 ], [ %.0, %5 ], [ %.0, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1945)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1946)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1947, i32 noundef %.139)
@@ -29577,8 +29577,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCSweep(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.130 = phi i32 [ %.029.ph, %.loopexit.sink.split ], [ %.029.ph, %19 ], [ %.029.ph, %5 ], [ %14, %9 ]
-  %.128 = phi i32 [ %.027.ph92, %.loopexit.sink.split ], [ %.027.ph92, %5 ], [ %24, %19 ], [ %.027.ph92, %9 ]
+  %.130 = phi i32 [ %.029.ph, %.loopexit.sink.split ], [ %.029.ph, %5 ], [ %.029.ph, %19 ], [ %14, %9 ]
+  %.128 = phi i32 [ %.027.ph92, %.loopexit.sink.split ], [ %24, %19 ], [ %.027.ph92, %5 ], [ %.027.ph92, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1958)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1959)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1960, i32 noundef %.130)
@@ -29736,8 +29736,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandQbf(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.140 = phi i32 [ %.039.ph, %.loopexit.sink.split ], [ %.039.ph, %19 ], [ %.039.ph, %5 ], [ %14, %9 ]
-  %.138 = phi i32 [ %.037.ph122, %.loopexit.sink.split ], [ %.037.ph122, %5 ], [ %24, %19 ], [ %.037.ph122, %9 ]
+  %.140 = phi i32 [ %.039.ph, %.loopexit.sink.split ], [ %.039.ph, %5 ], [ %.039.ph, %19 ], [ %14, %9 ]
+  %.138 = phi i32 [ %.037.ph122, %.loopexit.sink.split ], [ %24, %19 ], [ %.037.ph122, %5 ], [ %.037.ph122, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1983)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1984)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1985, i32 noundef %.140)
@@ -29782,7 +29782,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandQbf(ptr noundef %0, i32 noundef 
   br label %54
 
 54:                                               ; preds = %49, %50, %.loopexit, %47, %40, %36, %33
-  %.042 = phi i32 [ 1, %.loopexit ], [ 1, %33 ], [ 1, %40 ], [ 1, %47 ], [ 1, %36 ], [ 0, %50 ], [ 0, %49 ]
+  %.042 = phi i32 [ 1, %.loopexit ], [ 1, %33 ], [ 1, %40 ], [ 1, %36 ], [ 1, %47 ], [ 0, %50 ], [ 0, %49 ]
   ret i32 %.042
 }
 
@@ -30023,14 +30023,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraig(ptr noundef %0, i32 nounde
   br label %118
 
 .loopexit.sink.split:                             ; preds = %50, %39, %28
-  %.str.536.sink = phi ptr [ @.str.537, %28 ], [ @.str.555, %39 ], [ @.str.536, %50 ]
+  %.str.536.sink = phi ptr [ @.str.555, %39 ], [ @.str.537, %28 ], [ @.str.536, %50 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %52, %41, %30, %.loopexit.sink.split
-  %104 = phi i32 [ %20, %.loopexit.sink.split ], [ %20, %30 ], [ %46, %41 ], [ %20, %52 ], [ %20, %18 ]
-  %105 = phi i32 [ %19, %.loopexit.sink.split ], [ %35, %30 ], [ %19, %41 ], [ %19, %52 ], [ %19, %18 ]
-  %106 = phi i32 [ %21, %.loopexit.sink.split ], [ %21, %30 ], [ %21, %41 ], [ %57, %52 ], [ %21, %18 ]
+  %104 = phi i32 [ %20, %.loopexit.sink.split ], [ %46, %41 ], [ %20, %52 ], [ %20, %18 ], [ %20, %30 ]
+  %105 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %41 ], [ %19, %52 ], [ %19, %18 ], [ %35, %30 ]
+  %106 = phi i32 [ %21, %.loopexit.sink.split ], [ %21, %41 ], [ %57, %52 ], [ %21, %18 ], [ %21, %30 ]
   %107 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.1447, i32 noundef %106) #35
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2038)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2039)
@@ -30258,12 +30258,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigRestore(ptr noundef %0, i32
   br label %45
 
 .loopexit.sink.split:                             ; preds = %7, %27, %17
-  %.str.536.sink = phi ptr [ @.str.536, %27 ], [ @.str.555, %17 ], [ @.str.537, %7 ]
+  %.str.536.sink = phi ptr [ @.str.555, %17 ], [ @.str.536, %27 ], [ @.str.537, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %29, %9, %.loopexit.sink.split
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %34, %29 ], [ %.0, %19 ], [ %.0, %9 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %19 ], [ %34, %29 ], [ %.0, %5 ], [ %.0, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2060)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2061)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2062)
@@ -30403,7 +30403,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigSweep(ptr noundef %0, i32 n
   br label %28
 
 28:                                               ; preds = %21, %24, %23, %20, %19, %17
-  %.025 = phi i32 [ 1, %24 ], [ 1, %17 ], [ 1, %19 ], [ 1, %23 ], [ 1, %20 ], [ 0, %21 ]
+  %.025 = phi i32 [ 1, %24 ], [ 1, %17 ], [ 1, %19 ], [ 1, %20 ], [ 1, %23 ], [ 0, %21 ]
   ret i32 %.025
 }
 
@@ -30502,7 +30502,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigDress(ptr noundef %0, i32 n
   br label %41
 
 .loopexit:                                        ; preds = %5, %10, %25, %9
-  %.127 = phi i32 [ %.026.ph, %9 ], [ %.026.ph, %25 ], [ %.026.ph, %5 ], [ %15, %10 ]
+  %.127 = phi i32 [ %.026.ph, %25 ], [ %.026.ph, %9 ], [ %.026.ph, %5 ], [ %15, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2078)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2079)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2080)
@@ -30807,8 +30807,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr readnone captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.144 = phi i32 [ %.043.ph, %.loopexit.sink.split ], [ %.043.ph, %18 ], [ %.043.ph, %4 ], [ %13, %8 ]
-  %.142 = phi i32 [ %.041.ph130, %.loopexit.sink.split ], [ %.041.ph130, %4 ], [ %23, %18 ], [ %.041.ph130, %8 ]
+  %.144 = phi i32 [ %.043.ph, %.loopexit.sink.split ], [ %.043.ph, %4 ], [ %.043.ph, %18 ], [ %13, %8 ]
+  %.142 = phi i32 [ %.041.ph130, %.loopexit.sink.split ], [ %23, %18 ], [ %.041.ph130, %4 ], [ %.041.ph130, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2101)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2102)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2103)
@@ -31053,7 +31053,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecDump3(ptr readnone captures(n
   br label %38
 
 38:                                               ; preds = %21, %34, %23, %35, %33, %27, %16, %12
-  %.0 = phi i32 [ 1, %35 ], [ 1, %16 ], [ 1, %27 ], [ 1, %33 ], [ 1, %12 ], [ 0, %23 ], [ 0, %34 ], [ 0, %21 ]
+  %.0 = phi i32 [ 1, %35 ], [ 1, %16 ], [ 1, %12 ], [ 1, %27 ], [ 1, %33 ], [ 0, %23 ], [ 0, %34 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -31435,7 +31435,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   br label %138
 
 .loopexit.sink.split:                             ; preds = %69, %59, %49, %39, %29, %19, %8
-  %.str.2138.sink = phi ptr [ @.str.2132, %8 ], [ @.str.2133, %19 ], [ @.str.2134, %29 ], [ @.str.2135, %39 ], [ @.str.2136, %49 ], [ @.str.2137, %59 ], [ @.str.2138, %69 ]
+  %.str.2138.sink = phi ptr [ @.str.2137, %59 ], [ @.str.2136, %49 ], [ @.str.2135, %39 ], [ @.str.2134, %29 ], [ @.str.2133, %19 ], [ @.str.2132, %8 ], [ @.str.2138, %69 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2138.sink)
   br label %.loopexit
 
@@ -31611,7 +31611,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
   br i1 %or.cond, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %51, %63, %40, %29, %18, %83, %81, %78, %75, %72
-  %.063.be = phi i32 [ %.063, %18 ], [ %.063, %29 ], [ %.063, %40 ], [ %.063, %63 ], [ %.063, %72 ], [ %.063, %75 ], [ %.063, %78 ], [ %82, %81 ], [ %.063, %83 ], [ %.063, %51 ]
+  %.063.be = phi i32 [ %.063, %18 ], [ %.063, %29 ], [ %.063, %40 ], [ %.063, %51 ], [ %.063, %63 ], [ %.063, %72 ], [ %.063, %75 ], [ %.063, %78 ], [ %82, %81 ], [ %.063, %83 ]
   br label %14, !llvm.loop !432
 
 61:                                               ; preds = %14
@@ -31735,7 +31735,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
   br label %129
 
 .loopexit.sink.split:                             ; preds = %61, %49, %38, %27, %16
-  %.str.2165.sink = phi ptr [ @.str.2135, %16 ], [ @.str.2133, %27 ], [ @.str.2163, %38 ], [ @.str.2164, %49 ], [ @.str.2165, %61 ]
+  %.str.2165.sink = phi ptr [ @.str.2164, %49 ], [ @.str.2163, %38 ], [ @.str.2133, %27 ], [ @.str.2135, %16 ], [ @.str.2165, %61 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2165.sink)
   br label %.loopexit
 
@@ -31878,7 +31878,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnmap(ptr noundef %0, i32 nounde
   br label %16
 
 16:                                               ; preds = %12, %15, %14, %11, %8
-  %.0 = phi i32 [ 1, %15 ], [ 1, %8 ], [ 1, %14 ], [ 1, %11 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %8 ], [ 1, %11 ], [ 1, %14 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -31929,7 +31929,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %9, %Abc_NtkIsSopLog
   br label %18
 
 18:                                               ; preds = %14, %17, %16, %Abc_NtkIsSopLogic.exit.thread, %8
-  %.0 = phi i32 [ 1, %17 ], [ 1, %8 ], [ 1, %16 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %8 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 1, %16 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -32085,8 +32085,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSuperChoiceLut(ptr noundef %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %19 ], [ %.026.ph, %5 ], [ %14, %9 ]
-  %.125 = phi i32 [ %.024.ph88, %.loopexit.sink.split ], [ %.024.ph88, %5 ], [ %24, %19 ], [ %.024.ph88, %9 ]
+  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %5 ], [ %.026.ph, %19 ], [ %14, %9 ]
+  %.125 = phi i32 [ %.024.ph88, %.loopexit.sink.split ], [ %24, %19 ], [ %.024.ph88, %5 ], [ %.024.ph88, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2194)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2195)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2196)
@@ -33304,7 +33304,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   br label %.critedge
 
 .loopexitthread-pre-split.sink.split:             ; preds = %233, %231, %224, %222, %211, %199, %188, %177, %166, %154, %142, %132, %121, %98, %87, %76, %65, %53
-  %.str.1051.sink = phi ptr [ @.str.1051, %53 ], [ @.str.2207, %65 ], [ @.str.849, %76 ], [ @.str.850, %87 ], [ @.str.2208, %98 ], [ @.str.2210, %121 ], [ @.str.2211, %132 ], [ @.str.2212, %142 ], [ @.str.2213, %154 ], [ @.str.2214, %166 ], [ @.str.2215, %177 ], [ @.str.2132, %188 ], [ @.str.2164, %199 ], [ @.str.2216, %211 ], [ @.str.2217, %222 ], [ @.str.2218, %224 ], [ @.str.2219, %231 ], [ @.str.2220, %233 ]
+  %.str.1051.sink = phi ptr [ @.str.2219, %231 ], [ @.str.1051, %53 ], [ @.str.2207, %65 ], [ @.str.849, %76 ], [ @.str.850, %87 ], [ @.str.2208, %98 ], [ @.str.2210, %121 ], [ @.str.2211, %132 ], [ @.str.2212, %142 ], [ @.str.2213, %154 ], [ @.str.2214, %166 ], [ @.str.2215, %177 ], [ @.str.2132, %188 ], [ @.str.2164, %199 ], [ @.str.2216, %211 ], [ @.str.2217, %222 ], [ @.str.2218, %224 ], [ @.str.2220, %233 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1051.sink)
   br label %.loopexitthread-pre-split
 
@@ -33473,7 +33473,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %475, %481, %471, %465, %372, %377, %385, %548, %535, %534, %530, %523, %519, %514, %505, %500, %492, %488, %417, %414, %411, %395, %391, %366, %359, %354, %341, %332, %328, %321, %314, %111
-  %.0 = phi i32 [ 1, %548 ], [ 0, %111 ], [ 1, %314 ], [ 1, %321 ], [ 1, %328 ], [ 1, %332 ], [ 1, %341 ], [ 1, %354 ], [ 1, %359 ], [ 1, %391 ], [ 1, %395 ], [ 1, %411 ], [ 1, %414 ], [ 1, %417 ], [ 0, %492 ], [ 0, %505 ], [ 1, %514 ], [ 0, %534 ], [ 0, %535 ], [ 1, %519 ], [ 1, %523 ], [ 0, %530 ], [ 0, %500 ], [ 0, %488 ], [ 1, %366 ], [ 1, %385 ], [ 1, %377 ], [ 1, %372 ], [ 0, %465 ], [ 0, %471 ], [ 0, %481 ], [ 0, %475 ]
+  %.0 = phi i32 [ 1, %548 ], [ 0, %111 ], [ 1, %314 ], [ 1, %321 ], [ 1, %328 ], [ 1, %332 ], [ 1, %341 ], [ 1, %354 ], [ 1, %359 ], [ 1, %391 ], [ 1, %395 ], [ 1, %411 ], [ 1, %414 ], [ 1, %417 ], [ 0, %492 ], [ 0, %505 ], [ 1, %514 ], [ 0, %534 ], [ 0, %535 ], [ 1, %519 ], [ 1, %523 ], [ 0, %530 ], [ 0, %500 ], [ 0, %488 ], [ 1, %372 ], [ 1, %366 ], [ 1, %385 ], [ 1, %377 ], [ 0, %465 ], [ 0, %471 ], [ 0, %481 ], [ 0, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -33692,8 +33692,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %13, %18, %.loopexit.sink.split
-  %83 = phi i32 [ %.ph214, %.loopexit.sink.split ], [ %.ph214, %13 ], [ %34, %29 ], [ %.ph214, %18 ]
-  %84 = phi float [ %.ph208, %.loopexit.sink.split ], [ %.ph208, %29 ], [ %.ph208, %13 ], [ %23, %18 ]
+  %83 = phi i32 [ %.ph214, %.loopexit.sink.split ], [ %34, %29 ], [ %.ph214, %13 ], [ %.ph214, %18 ]
+  %84 = phi float [ %.ph208, %.loopexit.sink.split ], [ %.ph208, %13 ], [ %.ph208, %29 ], [ %23, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2297)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2298)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2299)
@@ -33714,7 +33714,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   br label %._crit_edge.thread144
 
 ._crit_edge.thread144:                            ; preds = %.thread, %._crit_edge, %.loopexit, %._crit_edge.thread, %57, %51, %48, %46
-  %.062 = phi i32 [ 1, %.loopexit ], [ 1, %46 ], [ 1, %51 ], [ 1, %57 ], [ 0, %._crit_edge.thread ], [ 1, %48 ], [ 1, %._crit_edge ], [ 1, %.thread ]
+  %.062 = phi i32 [ 1, %.loopexit ], [ 1, %46 ], [ 1, %51 ], [ 1, %57 ], [ 1, %48 ], [ 0, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
 }
@@ -33792,7 +33792,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdSave(ptr readnone captures(no
   br label %28
 
 28:                                               ; preds = %19, %24, %26, %23, %18, %11
-  %.013 = phi i32 [ 1, %26 ], [ 1, %11 ], [ 1, %18 ], [ 1, %23 ], [ 0, %24 ], [ 0, %19 ]
+  %.013 = phi i32 [ 1, %26 ], [ 1, %11 ], [ 1, %23 ], [ 1, %18 ], [ 0, %24 ], [ 0, %19 ]
   ret i32 %.013
 }
 
@@ -33961,7 +33961,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdFree(ptr readnone captures(no
   br label %19
 
 19:                                               ; preds = %12, %16, %17, %15, %11
-  %.06 = phi i32 [ 1, %17 ], [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ 0, %12 ]
+  %.06 = phi i32 [ 1, %17 ], [ 0, %15 ], [ 0, %11 ], [ 0, %16 ], [ 0, %12 ]
   ret i32 %.06
 }
 
@@ -34104,8 +34104,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr readnone captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.139 = phi i32 [ %.038.ph, %.loopexit.sink.split ], [ %.038.ph, %18 ], [ %.038.ph, %4 ], [ %13, %8 ]
-  %.137 = phi i32 [ %.036.ph147, %.loopexit.sink.split ], [ %.036.ph147, %4 ], [ %23, %18 ], [ %.036.ph147, %8 ]
+  %.139 = phi i32 [ %.038.ph, %.loopexit.sink.split ], [ %.038.ph, %4 ], [ %.038.ph, %18 ], [ %13, %8 ]
+  %.137 = phi i32 [ %.036.ph147, %.loopexit.sink.split ], [ %23, %18 ], [ %.036.ph147, %4 ], [ %.036.ph147, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2318)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2319)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2320, i32 noundef %.139)
@@ -34126,7 +34126,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr readnone captures(none
   br label %49
 
 49:                                               ; preds = %38, %43, %.loopexit, %42, %37
-  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %37 ], [ 0, %42 ], [ 0, %43 ], [ 0, %38 ]
+  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %42 ], [ 0, %37 ], [ 0, %43 ], [ 0, %38 ]
   ret i32 %.041
 }
 
@@ -34299,7 +34299,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMatch(ptr readnone captures(n
   br label %74
 
 .loopexit.sink.split:                             ; preds = %44, %35, %26, %17, %7
-  %.str.2217.sink = phi ptr [ @.str.2325, %7 ], [ @.str.2163, %17 ], [ @.str.2326, %26 ], [ @.str.2327, %35 ], [ @.str.2217, %44 ]
+  %.str.2217.sink = phi ptr [ @.str.2327, %35 ], [ @.str.2326, %26 ], [ @.str.2163, %17 ], [ @.str.2325, %7 ], [ @.str.2217, %44 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2217.sink)
   br label %.loopexit
 
@@ -34421,7 +34421,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMerge(ptr readnone captures(n
   br label %35
 
 35:                                               ; preds = %28, %34, %32, %27, %11, %7
-  %.0 = phi i32 [ 1, %34 ], [ 1, %11 ], [ 1, %27 ], [ 0, %32 ], [ 0, %7 ], [ 1, %28 ]
+  %.0 = phi i32 [ 1, %34 ], [ 1, %11 ], [ 1, %27 ], [ 0, %7 ], [ 0, %32 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -35095,7 +35095,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInit(ptr noundef %0, i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %72, %90, %112, %130, %.preheader186, %.preheader184, %.preheader182, %96, %.preheader, %139, %146, %141, %171, %.critedge13, %.loopexit, %41, %32, %29
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %29 ], [ 0, %32 ], [ 1, %41 ], [ 0, %.critedge13 ], [ 0, %171 ], [ 0, %141 ], [ 0, %146 ], [ 0, %139 ], [ 0, %.preheader ], [ 0, %96 ], [ 0, %.preheader182 ], [ 0, %.preheader184 ], [ 0, %.preheader186 ], [ 0, %130 ], [ 0, %112 ], [ 0, %90 ], [ 0, %72 ], [ 0, %54 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %29 ], [ 0, %32 ], [ 1, %41 ], [ 0, %.critedge13 ], [ 0, %171 ], [ 0, %141 ], [ 0, %146 ], [ 0, %139 ], [ 0, %.preheader184 ], [ 0, %.preheader ], [ 0, %96 ], [ 0, %.preheader182 ], [ 0, %.preheader186 ], [ 0, %72 ], [ 0, %130 ], [ 0, %112 ], [ 0, %90 ], [ 0, %54 ]
   ret i32 %.0
 }
 
@@ -35287,7 +35287,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUndc(ptr noundef %0, i32 noundef
   br label %49
 
 49:                                               ; preds = %17, %36, %38, %40, %47, %46, %45, %43, %11
-  %.032 = phi i32 [ 1, %47 ], [ 1, %11 ], [ 0, %43 ], [ 0, %46 ], [ 0, %45 ], [ 1, %17 ], [ 1, %36 ], [ 0, %38 ], [ 0, %40 ]
+  %.032 = phi i32 [ 1, %47 ], [ 1, %11 ], [ 0, %45 ], [ 0, %43 ], [ 0, %46 ], [ 1, %17 ], [ 1, %36 ], [ 0, %38 ], [ 0, %40 ]
   ret i32 %.032
 }
 
@@ -35625,8 +35625,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.156 = phi i32 [ %.055.ph219, %.loopexit.sink.split ], [ %.055.ph219, %5 ], [ %.055.ph219, %19 ], [ %14, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %24, %19 ], [ %.0, %5 ], [ %.0, %9 ]
+  %.156 = phi i32 [ %.055.ph219, %.loopexit.sink.split ], [ %.055.ph219, %19 ], [ %.055.ph219, %5 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %24, %19 ], [ %.0, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2399)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2400)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2401)
@@ -35817,8 +35817,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRetime(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %5 ], [ %24, %19 ], [ %.049, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %.0, %19 ], [ %14, %9 ]
+  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %9 ], [ %.049, %5 ], [ %24, %19 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %14, %9 ], [ %.0, %5 ], [ %.0, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2418)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2419)
   %.not75 = icmp eq i32 %.058, 0
@@ -36013,7 +36013,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFlowRetime(ptr noundef %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %19, %9, %.loopexit.sink.split
-  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %5 ], [ %.063, %19 ], [ %14, %9 ]
+  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %14, %9 ], [ %.063, %5 ], [ %.063, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2432)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2433)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2434, i32 noundef %.164)
@@ -36043,7 +36043,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFlowRetime(ptr noundef %0, i32 n
   br label %68
 
 68:                                               ; preds = %58, %60, %.loopexit, %57, %54, %51, %47, %43
-  %.065 = phi i32 [ 1, %.loopexit ], [ 1, %43 ], [ 1, %47 ], [ 0, %57 ], [ 0, %54 ], [ 1, %51 ], [ 0, %60 ], [ 0, %58 ]
+  %.065 = phi i32 [ 1, %.loopexit ], [ 1, %43 ], [ 1, %47 ], [ 0, %57 ], [ 1, %51 ], [ 0, %54 ], [ 0, %60 ], [ 0, %58 ]
   ret i32 %.065
 }
 
@@ -37039,12 +37039,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep2(ptr noundef %0, i32 no
   br label %292
 
 .loopexit.sink.split:                             ; preds = %163, %152, %141, %131, %120, %109, %98, %87, %76, %65, %54, %43, %32
-  %.str.786.sink = phi ptr [ @.str.883, %32 ], [ @.str.952, %43 ], [ @.str.568, %54 ], [ @.str.536, %65 ], [ @.str.556, %76 ], [ @.str.554, %87 ], [ @.str.1003, %98 ], [ @.str.1016, %109 ], [ @.str.882, %120 ], [ @.str.579, %131 ], [ @.str.2461, %141 ], [ @.str.537, %152 ], [ @.str.786, %163 ]
+  %.str.786.sink = phi ptr [ @.str.537, %152 ], [ @.str.2461, %141 ], [ @.str.579, %131 ], [ @.str.882, %120 ], [ @.str.1016, %109 ], [ @.str.1003, %98 ], [ @.str.554, %87 ], [ @.str.556, %76 ], [ @.str.536, %65 ], [ @.str.568, %54 ], [ @.str.952, %43 ], [ @.str.883, %32 ], [ @.str.786, %163 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.786.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %165, %154, %143, %133, %122, %111, %100, %89, %78, %67, %56, %45, %34, %.loopexit.sink.split
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %30 ], [ %.0, %165 ], [ %.0, %154 ], [ %.0, %143 ], [ %138, %133 ], [ %.0, %122 ], [ %.0, %111 ], [ %.0, %100 ], [ %.0, %89 ], [ %.0, %78 ], [ %.0, %67 ], [ %.0, %56 ], [ %.0, %45 ], [ %.0, %34 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %154 ], [ %.0, %143 ], [ %138, %133 ], [ %.0, %122 ], [ %.0, %111 ], [ %.0, %100 ], [ %.0, %89 ], [ %.0, %78 ], [ %.0, %67 ], [ %.0, %56 ], [ %.0, %45 ], [ %.0, %34 ], [ %.0, %30 ], [ %.0, %165 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2469)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2449)
   %253 = load i32, ptr %4, align 8, !tbaa !534
@@ -37654,8 +37654,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestScorr(ptr noundef %0, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %18 ], [ %.042.ph, %4 ], [ %13, %8 ]
-  %.141 = phi i32 [ %.040.ph157, %.loopexit.sink.split ], [ %.040.ph157, %4 ], [ %23, %18 ], [ %.040.ph157, %8 ]
+  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %4 ], [ %.042.ph, %18 ], [ %13, %8 ]
+  %.141 = phi i32 [ %.040.ph157, %.loopexit.sink.split ], [ %23, %18 ], [ %.040.ph157, %4 ], [ %.040.ph157, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2497)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2498)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2499)
@@ -37862,15 +37862,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandLcorr(ptr noundef %0, i32 nounde
   br label %70
 
 .loopexit.sink.split:                             ; preds = %7, %27, %37, %17
-  %.str.2461.sink = phi ptr [ @.str.2461, %37 ], [ @.str.554, %27 ], [ @.str.536, %17 ], [ @.str.883, %7 ]
+  %.str.2461.sink = phi ptr [ @.str.536, %17 ], [ @.str.554, %27 ], [ @.str.2461, %37 ], [ @.str.883, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2461.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %39, %5, %29, %9, %.loopexit.sink.split
-  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %19 ], [ %.050.ph, %39 ], [ %.050.ph, %5 ], [ %.050.ph, %29 ], [ %14, %9 ]
-  %.148 = phi i32 [ %.047.ph204, %.loopexit.sink.split ], [ %.047.ph204, %29 ], [ %.047.ph204, %5 ], [ %.047.ph204, %39 ], [ %24, %19 ], [ %.047.ph204, %9 ]
-  %.145 = phi i32 [ %.044.ph210, %.loopexit.sink.split ], [ %.044.ph210, %39 ], [ %.044.ph210, %5 ], [ %34, %29 ], [ %.044.ph210, %19 ], [ %.044.ph210, %9 ]
-  %.143 = phi i32 [ %.042.ph215, %.loopexit.sink.split ], [ %.042.ph215, %5 ], [ %44, %39 ], [ %.042.ph215, %29 ], [ %.042.ph215, %19 ], [ %.042.ph215, %9 ]
+  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %29 ], [ %.050.ph, %19 ], [ %.050.ph, %39 ], [ %.050.ph, %5 ], [ %14, %9 ]
+  %.148 = phi i32 [ %.047.ph204, %.loopexit.sink.split ], [ %24, %19 ], [ %.047.ph204, %39 ], [ %.047.ph204, %29 ], [ %.047.ph204, %5 ], [ %.047.ph204, %9 ]
+  %.145 = phi i32 [ %.044.ph210, %.loopexit.sink.split ], [ %.044.ph210, %19 ], [ %34, %29 ], [ %.044.ph210, %5 ], [ %.044.ph210, %39 ], [ %.044.ph210, %9 ]
+  %.143 = phi i32 [ %.042.ph215, %.loopexit.sink.split ], [ %.042.ph215, %19 ], [ %.042.ph215, %29 ], [ %44, %39 ], [ %.042.ph215, %5 ], [ %.042.ph215, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2508)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2509)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2510, i32 noundef %.151)
@@ -38032,8 +38032,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqCleanup(ptr noundef %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %27, %17, %.loopexit.sink.split
-  %.245 = phi i32 [ %.043, %.loopexit.sink.split ], [ %.043, %5 ], [ %.043, %27 ], [ %22, %17 ]
-  %.2 = phi i32 [ %.041, %.loopexit.sink.split ], [ %.041, %5 ], [ %32, %27 ], [ %.041, %17 ]
+  %.245 = phi i32 [ %.043, %.loopexit.sink.split ], [ %22, %17 ], [ %.043, %5 ], [ %.043, %27 ]
+  %.2 = phi i32 [ %.041, %.loopexit.sink.split ], [ %.041, %17 ], [ %.041, %5 ], [ %32, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2514)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2515)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2516)
@@ -38197,7 +38197,7 @@ Abc_NtkIsSopLogic.exit.thread:                    ; preds = %26
   br label %41
 
 41:                                               ; preds = %36, %38, %37, %.loopexit, %35, %32, %Abc_NtkIsSopLogic.exit.thread, %24
-  %.033 = phi i32 [ 1, %.loopexit ], [ 1, %24 ], [ 0, %35 ], [ 0, %32 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 0, %37 ], [ 0, %38 ], [ 0, %36 ]
+  %.033 = phi i32 [ 1, %.loopexit ], [ 1, %24 ], [ 1, %Abc_NtkIsSopLogic.exit.thread ], [ 0, %35 ], [ 0, %32 ], [ 0, %37 ], [ 0, %38 ], [ 0, %36 ]
   ret i32 %.033
 }
 
@@ -38570,7 +38570,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %76, %Vec_PtrFreeFre
   br label %104
 
 .loopexit.sink.split:                             ; preds = %44, %37, %27, %17, %7
-  %.str.730.sink = phi ptr [ @.str.568, %7 ], [ @.str.881, %17 ], [ @.str.834, %27 ], [ @.str.1760, %37 ], [ @.str.730, %44 ]
+  %.str.730.sink = phi ptr [ @.str.1760, %37 ], [ @.str.834, %27 ], [ @.str.881, %17 ], [ @.str.568, %7 ], [ @.str.730, %44 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -39035,7 +39035,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef
   br label %228
 
 .loopexit.sink.split:                             ; preds = %109, %98, %87, %76, %65, %54, %43, %32, %21
-  %.str.730.sink = phi ptr [ @.str.568, %21 ], [ @.str.881, %32 ], [ @.str.786, %43 ], [ @.str.537, %54 ], [ @.str.554, %65 ], [ @.str.579, %76 ], [ @.str.834, %87 ], [ @.str.569, %98 ], [ @.str.730, %109 ]
+  %.str.730.sink = phi ptr [ @.str.569, %98 ], [ @.str.834, %87 ], [ @.str.579, %76 ], [ @.str.554, %65 ], [ @.str.537, %54 ], [ @.str.786, %43 ], [ @.str.881, %32 ], [ @.str.568, %21 ], [ @.str.730, %109 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -39085,7 +39085,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef
   br label %228
 
 228:                                              ; preds = %.thread, %202, %203, %.loopexit, %198, %139, %135, %133
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %133 ], [ 1, %139 ], [ 1, %198 ], [ 1, %135 ], [ 0, %203 ], [ 0, %202 ], [ 1, %.thread ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %133 ], [ 1, %139 ], [ 1, %135 ], [ 1, %198 ], [ 1, %.thread ], [ 0, %203 ], [ 0, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -39304,7 +39304,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %10, %20, %.loopexit.sink.split
-  %.156 = phi i32 [ %.055.ph201, %.loopexit.sink.split ], [ %.055.ph201, %6 ], [ %.055.ph201, %10 ], [ %25, %20 ]
+  %.156 = phi i32 [ %.055.ph201, %.loopexit.sink.split ], [ %.055.ph201, %10 ], [ %.055.ph201, %6 ], [ %25, %20 ]
   %.153 = phi i32 [ %.052, %.loopexit.sink.split ], [ %15, %10 ], [ %.052, %6 ], [ %.052, %20 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2573)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2515)
@@ -39328,7 +39328,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
   br label %78
 
 78:                                               ; preds = %70, %.loopexit, %73, %68, %66, %63, %40, %38
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %38 ], [ %.1, %63 ], [ 0, %68 ], [ 0, %73 ], [ 0, %66 ], [ 1, %40 ], [ 0, %70 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %38 ], [ %.1, %63 ], [ 0, %68 ], [ 1, %40 ], [ 0, %73 ], [ 0, %66 ], [ 0, %70 ]
   ret i32 %.0
 }
 
@@ -39732,7 +39732,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 no
   br label %129
 
 .loopexit.sink.split:                             ; preds = %71, %60, %49, %38, %27, %16
-  %.str.972.sink = phi ptr [ @.str.556, %16 ], [ @.str.579, %27 ], [ @.str.555, %38 ], [ @.str.536, %49 ], [ @.str.1016, %60 ], [ @.str.972, %71 ]
+  %.str.972.sink = phi ptr [ @.str.1016, %60 ], [ @.str.536, %49 ], [ @.str.555, %38 ], [ @.str.579, %27 ], [ @.str.556, %16 ], [ @.str.972, %71 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.972.sink)
   br label %.loopexit
 
@@ -39881,8 +39881,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtWin(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %19 ], [ %.026.ph, %5 ], [ %14, %9 ]
-  %.125 = phi i32 [ %.024.ph90, %.loopexit.sink.split ], [ %.024.ph90, %5 ], [ %24, %19 ], [ %.024.ph90, %9 ]
+  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %5 ], [ %.026.ph, %19 ], [ %14, %9 ]
+  %.125 = phi i32 [ %.024.ph90, %.loopexit.sink.split ], [ %24, %19 ], [ %.024.ph90, %5 ], [ %.024.ph90, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2616)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2617)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2618, i32 noundef %.127)
@@ -40032,8 +40032,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandInsWin(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %19 ], [ %.035.ph, %5 ], [ %14, %9 ]
-  %.134 = phi i32 [ %.033.ph104, %.loopexit.sink.split ], [ %.033.ph104, %5 ], [ %24, %19 ], [ %.033.ph104, %9 ]
+  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %5 ], [ %.035.ph, %19 ], [ %14, %9 ]
+  %.134 = phi i32 [ %.033.ph104, %.loopexit.sink.split ], [ %24, %19 ], [ %.033.ph104, %5 ], [ %.033.ph104, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2621)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2622)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2618, i32 noundef %.136)
@@ -40908,11 +40908,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(non
   br label %80
 
 .loopexit:                                        ; preds = %5, %32, %21, %10, %65, %72, %68, %54, %31, %20, %9
-  %.072195 = phi i32 [ %.072, %54 ], [ %.072, %9 ], [ %.072, %20 ], [ %.072, %31 ], [ %.072, %65 ], [ 0, %68 ], [ 0, %72 ], [ %.072, %10 ], [ %.072, %21 ], [ %.072, %32 ], [ %.072, %5 ]
-  %.070189 = phi i32 [ %.070, %54 ], [ %.070, %9 ], [ %.070, %20 ], [ %.070, %31 ], [ %.070, %65 ], [ 0, %68 ], [ 0, %72 ], [ %.070, %10 ], [ %.070, %21 ], [ %.070, %32 ], [ %.070, %5 ]
-  %.184 = phi i32 [ %.083, %54 ], [ %.083, %9 ], [ %.083, %20 ], [ %.083, %31 ], [ %.083, %65 ], [ %.083, %68 ], [ %.083, %72 ], [ %.083, %5 ], [ %.083, %32 ], [ %.083, %21 ], [ %15, %10 ]
-  %.181 = phi i32 [ %.080, %54 ], [ %.080, %9 ], [ %.080, %20 ], [ %.080, %31 ], [ %.080, %65 ], [ %.080, %68 ], [ %.080, %72 ], [ %.080, %5 ], [ %.080, %32 ], [ %26, %21 ], [ %.080, %10 ]
-  %.179 = phi i32 [ %.078, %54 ], [ %.078, %9 ], [ %.078, %20 ], [ %.078, %31 ], [ %.078, %65 ], [ %.078, %68 ], [ %.078, %72 ], [ %.078, %5 ], [ %37, %32 ], [ %.078, %21 ], [ %.078, %10 ]
+  %.072195 = phi i32 [ %.072, %54 ], [ %.072, %9 ], [ 0, %72 ], [ %.072, %20 ], [ %.072, %65 ], [ %.072, %31 ], [ 0, %68 ], [ %.072, %10 ], [ %.072, %21 ], [ %.072, %32 ], [ %.072, %5 ]
+  %.070189 = phi i32 [ %.070, %54 ], [ %.070, %9 ], [ 0, %72 ], [ %.070, %20 ], [ %.070, %65 ], [ %.070, %31 ], [ 0, %68 ], [ %.070, %10 ], [ %.070, %21 ], [ %.070, %32 ], [ %.070, %5 ]
+  %.184 = phi i32 [ %.083, %54 ], [ %.083, %9 ], [ %.083, %72 ], [ %.083, %20 ], [ %.083, %65 ], [ %.083, %31 ], [ %.083, %68 ], [ %.083, %5 ], [ %.083, %32 ], [ %.083, %21 ], [ %15, %10 ]
+  %.181 = phi i32 [ %.080, %54 ], [ %.080, %9 ], [ %.080, %72 ], [ %.080, %20 ], [ %.080, %65 ], [ %.080, %31 ], [ %.080, %68 ], [ %.080, %5 ], [ %.080, %32 ], [ %26, %21 ], [ %.080, %10 ]
+  %.179 = phi i32 [ %.078, %54 ], [ %.078, %9 ], [ %.078, %72 ], [ %.078, %20 ], [ %.078, %65 ], [ %.078, %31 ], [ %.078, %68 ], [ %.078, %5 ], [ %37, %32 ], [ %.078, %21 ], [ %.078, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2670)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2671)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2672, i32 noundef %.184)
@@ -40944,7 +40944,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(non
   br label %80
 
 80:                                               ; preds = %.thread, %73, %.loopexit
-  %.064 = phi i32 [ 1, %.loopexit ], [ 0, %73 ], [ 0, %.thread ]
+  %.064 = phi i32 [ 1, %.loopexit ], [ 0, %.thread ], [ 0, %73 ]
   ret i32 %.064
 }
 
@@ -41191,14 +41191,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandCec(ptr noundef %0, i32 noundef 
   br label %115
 
 .loopexit.sink.split:                             ; preds = %42, %32, %22, %12
-  %.str.883.sink = phi ptr [ @.str.834, %12 ], [ @.str.536, %22 ], [ @.str.1003, %32 ], [ @.str.883, %42 ]
+  %.str.883.sink = phi ptr [ @.str.1003, %32 ], [ @.str.536, %22 ], [ @.str.834, %12 ], [ @.str.883, %42 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.883.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %34, %24, %14, %.loopexit.sink.split
-  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %.059, %10 ], [ %.059, %34 ], [ %.059, %24 ], [ %19, %14 ]
-  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %10 ], [ %.053, %34 ], [ %29, %24 ], [ %.053, %14 ]
-  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %.051, %10 ], [ %39, %34 ], [ %.051, %24 ], [ %.051, %14 ]
+  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %.059, %34 ], [ %.059, %24 ], [ %19, %14 ], [ %.059, %10 ]
+  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %34 ], [ %29, %24 ], [ %.053, %14 ], [ %.053, %10 ]
+  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %39, %34 ], [ %.051, %24 ], [ %.051, %14 ], [ %.051, %10 ]
   %107 = icmp eq i32 %.056, 0
   br i1 %107, label %108, label %.thread
 
@@ -41519,14 +41519,14 @@ thread-pre-split:                                 ; preds = %58
   br label %105
 
 .loopexit.sink.split:                             ; preds = %11, %31, %21
-  %.str.1003.sink = phi ptr [ @.str.1003, %31 ], [ @.str.536, %21 ], [ @.str.834, %11 ]
+  %.str.1003.sink = phi ptr [ @.str.536, %21 ], [ @.str.1003, %31 ], [ @.str.834, %11 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1003.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %9, %33, %13, %.loopexit.sink.split
-  %.155 = phi i32 [ %.054.ph231, %.loopexit.sink.split ], [ %.054.ph231, %23 ], [ %.054.ph231, %9 ], [ %.054.ph231, %33 ], [ %18, %13 ]
-  %.152 = phi i32 [ %.051.ph237, %.loopexit.sink.split ], [ %.051.ph237, %33 ], [ %.051.ph237, %9 ], [ %28, %23 ], [ %.051.ph237, %13 ]
-  %.150 = phi i32 [ %.049.ph242, %.loopexit.sink.split ], [ %.049.ph242, %9 ], [ %38, %33 ], [ %.049.ph242, %23 ], [ %.049.ph242, %13 ]
+  %.155 = phi i32 [ %.054.ph231, %.loopexit.sink.split ], [ %.054.ph231, %33 ], [ %.054.ph231, %23 ], [ %.054.ph231, %9 ], [ %18, %13 ]
+  %.152 = phi i32 [ %.051.ph237, %.loopexit.sink.split ], [ %28, %23 ], [ %.051.ph237, %9 ], [ %.051.ph237, %33 ], [ %.051.ph237, %13 ]
+  %.150 = phi i32 [ %.049.ph242, %.loopexit.sink.split ], [ %.049.ph242, %23 ], [ %38, %33 ], [ %.049.ph242, %9 ], [ %.049.ph242, %13 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2700)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2684)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2563, i32 noundef %.155)
@@ -42285,13 +42285,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 nound
   br label %260
 
 .loopexit.sink.split:                             ; preds = %144, %133, %122, %111, %100, %89, %78, %67, %56, %46, %36
-  %.str.730.sink = phi ptr [ @.str.1096, %36 ], [ @.str.1018, %46 ], [ @.str.568, %56 ], [ @.str.536, %67 ], [ @.str.569, %78 ], [ @.str.555, %89 ], [ @.str.1016, %100 ], [ @.str.786, %111 ], [ @.str.537, %122 ], [ @.str.834, %133 ], [ @.str.730, %144 ]
+  %.str.730.sink = phi ptr [ @.str.834, %133 ], [ @.str.537, %122 ], [ @.str.786, %111 ], [ @.str.1016, %100 ], [ @.str.555, %89 ], [ @.str.569, %78 ], [ @.str.536, %67 ], [ @.str.568, %56 ], [ @.str.1018, %46 ], [ @.str.1096, %36 ], [ @.str.730, %144 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %135, %124, %113, %102, %91, %80, %69, %58, %48, %38, %.loopexit.sink.split
-  %.2110 = phi i32 [ %.0108, %.loopexit.sink.split ], [ %.0108, %28 ], [ %.0108, %135 ], [ %.0108, %124 ], [ %.0108, %113 ], [ %.0108, %102 ], [ %.0108, %91 ], [ %.0108, %80 ], [ %.0108, %69 ], [ %.0108, %58 ], [ %.0108, %48 ], [ %43, %38 ]
-  %.2 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %28 ], [ %.0, %135 ], [ %.0, %124 ], [ %.0, %113 ], [ %.0, %102 ], [ %.0, %91 ], [ %.0, %80 ], [ %.0, %69 ], [ %.0, %58 ], [ %53, %48 ], [ %.0, %38 ]
+  %.2110 = phi i32 [ %.0108, %.loopexit.sink.split ], [ %.0108, %135 ], [ %.0108, %124 ], [ %.0108, %113 ], [ %.0108, %102 ], [ %.0108, %91 ], [ %.0108, %80 ], [ %.0108, %69 ], [ %.0108, %58 ], [ %.0108, %48 ], [ %43, %38 ], [ %.0108, %28 ]
+  %.2 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %135 ], [ %.0, %124 ], [ %.0, %113 ], [ %.0, %102 ], [ %.0, %91 ], [ %.0, %80 ], [ %.0, %69 ], [ %.0, %58 ], [ %53, %48 ], [ %.0, %38 ], [ %.0, %28 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2720)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2721)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2722, i32 noundef %.2110)
@@ -42570,7 +42570,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbSec(ptr noundef %0, i32 nounde
   br label %75
 
 75:                                               ; preds = %39, %38, %71, %69, %40, %.loopexit, %61, %33, %31
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %31 ], [ 0, %33 ], [ 0, %61 ], [ 1, %40 ], [ 0, %69 ], [ 0, %71 ], [ 0, %38 ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %31 ], [ 1, %40 ], [ 0, %33 ], [ 0, %61 ], [ 0, %69 ], [ 0, %71 ], [ 0, %38 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -42798,7 +42798,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSimSec(ptr noundef %0, i32 nound
   br label %96
 
 96:                                               ; preds = %53, %85, %83, %55, %.loopexit, %77, %52
-  %.035 = phi i32 [ 1, %.loopexit ], [ 0, %52 ], [ 0, %77 ], [ 1, %55 ], [ 0, %83 ], [ 0, %85 ], [ 0, %53 ]
+  %.035 = phi i32 [ 1, %.loopexit ], [ 1, %55 ], [ 0, %52 ], [ 0, %77 ], [ 0, %83 ], [ 0, %85 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -43180,8 +43180,8 @@ Abc_Clock.exit61:                                 ; preds = %68, %71
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %21, %11, %.loopexit.sink.split
-  %.140 = phi i32 [ %.039.ph111, %.loopexit.sink.split ], [ %.039.ph111, %7 ], [ %.039.ph111, %21 ], [ %16, %11 ]
-  %.1 = phi i32 [ %.038, %.loopexit.sink.split ], [ %26, %21 ], [ %.038, %7 ], [ %.038, %11 ]
+  %.140 = phi i32 [ %.039.ph111, %.loopexit.sink.split ], [ %.039.ph111, %21 ], [ %.039.ph111, %7 ], [ %16, %11 ]
+  %.1 = phi i32 [ %.038, %.loopexit.sink.split ], [ %.038, %7 ], [ %26, %21 ], [ %.038, %11 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2765)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2766)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2767)
@@ -43523,16 +43523,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
   br label %152
 
 .loopexit.sink.split:                             ; preds = %48, %38, %28, %18, %8
-  %.str.1018.sink = phi ptr [ @.str.536, %8 ], [ @.str.1003, %18 ], [ @.str.556, %28 ], [ @.str.555, %38 ], [ @.str.1018, %48 ]
+  %.str.1018.sink = phi ptr [ @.str.555, %38 ], [ @.str.556, %28 ], [ @.str.1003, %18 ], [ @.str.536, %8 ], [ @.str.1018, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1018.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %50, %40, %30, %20, %10, %.loopexit.sink.split
-  %.1104 = phi i32 [ %.0103, %.loopexit.sink.split ], [ %.0103, %6 ], [ %.0103, %50 ], [ %.0103, %40 ], [ %.0103, %30 ], [ %.0103, %20 ], [ %15, %10 ]
-  %.1101 = phi i32 [ %.0100, %.loopexit.sink.split ], [ %.0100, %6 ], [ %.0100, %50 ], [ %.0100, %40 ], [ %35, %30 ], [ %.0100, %20 ], [ %.0100, %10 ]
-  %.198 = phi i32 [ %.097, %.loopexit.sink.split ], [ %.097, %6 ], [ %.097, %50 ], [ %45, %40 ], [ %.097, %30 ], [ %.097, %20 ], [ %.097, %10 ]
-  %.195 = phi i32 [ %.094, %.loopexit.sink.split ], [ %.094, %6 ], [ %55, %50 ], [ %.094, %40 ], [ %.094, %30 ], [ %.094, %20 ], [ %.094, %10 ]
-  %.193 = phi i32 [ %.092, %.loopexit.sink.split ], [ %.092, %6 ], [ %.092, %50 ], [ %.092, %40 ], [ %.092, %30 ], [ %25, %20 ], [ %.092, %10 ]
+  %.1104 = phi i32 [ %.0103, %.loopexit.sink.split ], [ %.0103, %40 ], [ %.0103, %30 ], [ %.0103, %20 ], [ %15, %10 ], [ %.0103, %6 ], [ %.0103, %50 ]
+  %.1101 = phi i32 [ %.0100, %.loopexit.sink.split ], [ %.0100, %40 ], [ %35, %30 ], [ %.0100, %20 ], [ %.0100, %10 ], [ %.0100, %6 ], [ %.0100, %50 ]
+  %.198 = phi i32 [ %.097, %.loopexit.sink.split ], [ %45, %40 ], [ %.097, %30 ], [ %.097, %20 ], [ %.097, %10 ], [ %.097, %6 ], [ %.097, %50 ]
+  %.195 = phi i32 [ %.094, %.loopexit.sink.split ], [ %.094, %40 ], [ %.094, %30 ], [ %.094, %20 ], [ %.094, %10 ], [ %.094, %6 ], [ %55, %50 ]
+  %.193 = phi i32 [ %.092, %.loopexit.sink.split ], [ %.092, %40 ], [ %.092, %30 ], [ %25, %20 ], [ %.092, %10 ], [ %.092, %6 ], [ %.092, %50 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2772)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2766)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2773)
@@ -43783,16 +43783,16 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %87
   br label %100
 
 .loopexit.sink.split:                             ; preds = %19, %39, %9, %49, %29
-  %.str.1018.sink = phi ptr [ @.str.536, %9 ], [ @.str.1018, %49 ], [ @.str.555, %39 ], [ @.str.556, %29 ], [ @.str.1003, %19 ]
+  %.str.1018.sink = phi ptr [ @.str.556, %29 ], [ @.str.555, %39 ], [ @.str.1018, %49 ], [ @.str.536, %9 ], [ @.str.1003, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1018.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %51, %7, %11, %41, %21, %.loopexit.sink.split, %61
-  %.149 = phi i32 [ %.048.ph, %61 ], [ %.048.ph, %.loopexit.sink.split ], [ %.048.ph, %31 ], [ %.048.ph, %51 ], [ %.048.ph, %7 ], [ %.048.ph, %11 ], [ %.048.ph, %41 ], [ %26, %21 ]
-  %.146 = phi i32 [ %.045.ph220, %61 ], [ %.045.ph220, %.loopexit.sink.split ], [ %.045.ph220, %41 ], [ %.045.ph220, %11 ], [ %.045.ph220, %7 ], [ %.045.ph220, %51 ], [ %36, %31 ], [ %.045.ph220, %21 ]
-  %.143 = phi i32 [ %.042.ph226, %61 ], [ %.042.ph226, %.loopexit.sink.split ], [ %.042.ph226, %51 ], [ %.042.ph226, %7 ], [ %.042.ph226, %11 ], [ %46, %41 ], [ %.042.ph226, %31 ], [ %.042.ph226, %21 ]
-  %.140 = phi i32 [ %.039.ph231, %61 ], [ %.039.ph231, %.loopexit.sink.split ], [ %.039.ph231, %11 ], [ %.039.ph231, %7 ], [ %56, %51 ], [ %.039.ph231, %41 ], [ %.039.ph231, %31 ], [ %.039.ph231, %21 ]
-  %.138 = phi i32 [ %.037.ph235, %61 ], [ %.037.ph235, %.loopexit.sink.split ], [ %.037.ph235, %7 ], [ %16, %11 ], [ %.037.ph235, %51 ], [ %.037.ph235, %41 ], [ %.037.ph235, %31 ], [ %.037.ph235, %21 ]
+  %.149 = phi i32 [ %.048.ph, %61 ], [ %.048.ph, %.loopexit.sink.split ], [ %.048.ph, %41 ], [ %.048.ph, %31 ], [ %.048.ph, %51 ], [ %.048.ph, %7 ], [ %.048.ph, %11 ], [ %26, %21 ]
+  %.146 = phi i32 [ %.045.ph220, %61 ], [ %.045.ph220, %.loopexit.sink.split ], [ %36, %31 ], [ %.045.ph220, %51 ], [ %.045.ph220, %41 ], [ %.045.ph220, %11 ], [ %.045.ph220, %7 ], [ %.045.ph220, %21 ]
+  %.143 = phi i32 [ %.042.ph226, %61 ], [ %.042.ph226, %.loopexit.sink.split ], [ %.042.ph226, %31 ], [ %46, %41 ], [ %.042.ph226, %11 ], [ %.042.ph226, %51 ], [ %.042.ph226, %7 ], [ %.042.ph226, %21 ]
+  %.140 = phi i32 [ %.039.ph231, %61 ], [ %.039.ph231, %.loopexit.sink.split ], [ %.039.ph231, %31 ], [ %.039.ph231, %41 ], [ %56, %51 ], [ %.039.ph231, %7 ], [ %.039.ph231, %11 ], [ %.039.ph231, %21 ]
+  %.138 = phi i32 [ %.037.ph235, %61 ], [ %.037.ph235, %.loopexit.sink.split ], [ %.037.ph235, %31 ], [ %.037.ph235, %41 ], [ %.037.ph235, %51 ], [ %16, %11 ], [ %.037.ph235, %7 ], [ %.037.ph235, %21 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2784)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2766)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2773)
@@ -44355,12 +44355,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kissat(ptr noundef %0, i32 n
   br label %61
 
 .loopexit.sink.split:                             ; preds = %26, %6, %16
-  %.str.1760.sink = phi ptr [ @.str.536, %6 ], [ @.str.834, %16 ], [ @.str.1760, %26 ]
+  %.str.1760.sink = phi ptr [ @.str.834, %16 ], [ @.str.536, %6 ], [ @.str.1760, %26 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1760.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %18, %.loopexit.sink.split
-  %.152 = phi i32 [ %.051.ph230, %.loopexit.sink.split ], [ %.051.ph230, %4 ], [ %.051.ph230, %8 ], [ %23, %18 ]
+  %.152 = phi i32 [ %.051.ph230, %.loopexit.sink.split ], [ %.051.ph230, %8 ], [ %.051.ph230, %4 ], [ %23, %18 ]
   %.1 = phi i32 [ %.050, %.loopexit.sink.split ], [ %13, %8 ], [ %.050, %4 ], [ %.050, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2821)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2822)
@@ -44568,7 +44568,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   br label %67
 
 67:                                               ; preds = %55, %65, %52, %66
-  %.str.2764.sink = phi ptr [ @.str.1967, %66 ], [ @.str.1965, %52 ], [ @.str.2764, %65 ], [ @.str.2764, %55 ]
+  %.str.2764.sink = phi ptr [ @.str.1965, %52 ], [ @.str.1967, %66 ], [ @.str.2764, %65 ], [ @.str.2764, %55 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.2764.sink)
   %68 = tail call fastcc i64 @Abc_Clock()
   %69 = sub nsw i64 %68, %53
@@ -44576,14 +44576,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   br label %73
 
 .loopexit.sink.split:                             ; preds = %17, %27, %7
-  %.str.536.sink = phi ptr [ @.str.536, %27 ], [ @.str.1096, %7 ], [ @.str.883, %17 ]
+  %.str.536.sink = phi ptr [ @.str.1096, %7 ], [ @.str.536, %27 ], [ @.str.883, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %29, %19, %.loopexit.sink.split
-  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %9 ], [ %.053.ph, %5 ], [ %.053.ph, %29 ], [ %24, %19 ]
-  %.151 = phi i32 [ %.050.ph185, %.loopexit.sink.split ], [ %.050.ph185, %29 ], [ %.050.ph185, %5 ], [ %14, %9 ], [ %.050.ph185, %19 ]
-  %.149 = phi i32 [ %.048.ph191, %.loopexit.sink.split ], [ %.048.ph191, %5 ], [ %34, %29 ], [ %.048.ph191, %9 ], [ %.048.ph191, %19 ]
+  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %29 ], [ %.053.ph, %9 ], [ %.053.ph, %5 ], [ %24, %19 ]
+  %.151 = phi i32 [ %.050.ph185, %.loopexit.sink.split ], [ %14, %9 ], [ %.050.ph185, %5 ], [ %.050.ph185, %29 ], [ %.050.ph185, %19 ]
+  %.149 = phi i32 [ %.048.ph191, %.loopexit.sink.split ], [ %.048.ph191, %9 ], [ %34, %29 ], [ %.048.ph191, %5 ], [ %.048.ph191, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2830)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2831)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2832)
@@ -44877,7 +44877,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandProve(ptr noundef %0, i32 nounde
   br label %149
 
 .loopexit.sink.split:                             ; preds = %74, %63, %51, %40, %29, %18
-  %.str.1003.sink = phi ptr [ @.str.579, %18 ], [ @.str.536, %29 ], [ @.str.568, %40 ], [ @.str.569, %51 ], [ @.str.556, %63 ], [ @.str.1003, %74 ]
+  %.str.1003.sink = phi ptr [ @.str.556, %63 ], [ @.str.569, %51 ], [ @.str.568, %40 ], [ @.str.536, %29 ], [ @.str.579, %18 ], [ @.str.1003, %74 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1003.sink)
   br label %.loopexit
 
@@ -45275,7 +45275,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
   br label %181
 
 .loopexit.sink.split:                             ; preds = %86, %75, %64, %52, %41, %30, %19
-  %.str.730.sink = phi ptr [ @.str.579, %19 ], [ @.str.536, %30 ], [ @.str.568, %41 ], [ @.str.569, %52 ], [ @.str.882, %64 ], [ @.str.1003, %75 ], [ @.str.730, %86 ]
+  %.str.730.sink = phi ptr [ @.str.1003, %75 ], [ @.str.882, %64 ], [ @.str.569, %52 ], [ @.str.568, %41 ], [ @.str.536, %30 ], [ @.str.579, %19 ], [ @.str.730, %86 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -45624,14 +45624,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc(ptr noundef %0, i32 noundef 
   br label %104
 
 .loopexit.sink.split:                             ; preds = %58, %48, %38, %28, %18, %8
-  %.str.730.sink = phi ptr [ @.str.568, %8 ], [ @.str.579, %18 ], [ @.str.536, %28 ], [ @.str.569, %38 ], [ @.str.555, %48 ], [ @.str.730, %58 ]
+  %.str.730.sink = phi ptr [ @.str.555, %48 ], [ @.str.569, %38 ], [ @.str.536, %28 ], [ @.str.579, %18 ], [ @.str.568, %8 ], [ @.str.730, %58 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %50, %40, %30, %20, %10, %.loopexit.sink.split
-  %.178 = phi i32 [ %.077, %.loopexit.sink.split ], [ %.077, %6 ], [ %.077, %50 ], [ %.077, %40 ], [ %.077, %30 ], [ %.077, %20 ], [ %15, %10 ]
-  %.175 = phi i32 [ %.074, %.loopexit.sink.split ], [ %.074, %6 ], [ %.074, %50 ], [ %.074, %40 ], [ %.074, %30 ], [ %25, %20 ], [ %.074, %10 ]
-  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %6 ], [ %.072, %50 ], [ %.072, %40 ], [ %35, %30 ], [ %.072, %20 ], [ %.072, %10 ]
+  %.178 = phi i32 [ %.077, %.loopexit.sink.split ], [ %.077, %50 ], [ %.077, %40 ], [ %.077, %30 ], [ %.077, %20 ], [ %15, %10 ], [ %.077, %6 ]
+  %.175 = phi i32 [ %.074, %.loopexit.sink.split ], [ %.074, %50 ], [ %.074, %40 ], [ %.074, %30 ], [ %25, %20 ], [ %.074, %10 ], [ %.074, %6 ]
+  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %50 ], [ %.072, %40 ], [ %35, %30 ], [ %.072, %20 ], [ %.072, %10 ], [ %.072, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2858)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2859)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2860, i32 noundef %.178)
@@ -45923,17 +45923,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc2(ptr noundef %0, i32 noundef
   br label %126
 
 .loopexit.sink.split:                             ; preds = %78, %68, %58, %48, %38, %28, %18, %8
-  %.str.730.sink = phi ptr [ @.str.554, %8 ], [ @.str.568, %18 ], [ @.str.579, %28 ], [ @.str.834, %38 ], [ @.str.536, %48 ], [ @.str.569, %58 ], [ @.str.555, %68 ], [ @.str.730, %78 ]
+  %.str.730.sink = phi ptr [ @.str.555, %68 ], [ @.str.569, %58 ], [ @.str.536, %48 ], [ @.str.834, %38 ], [ @.str.579, %28 ], [ @.str.568, %18 ], [ @.str.554, %8 ], [ @.str.730, %78 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %70, %60, %50, %40, %30, %20, %10, %.loopexit.sink.split
-  %.198 = phi i32 [ %.097, %.loopexit.sink.split ], [ %.097, %6 ], [ %.097, %70 ], [ %.097, %60 ], [ %.097, %50 ], [ %.097, %40 ], [ %.097, %30 ], [ %.097, %20 ], [ %15, %10 ]
-  %.195 = phi i32 [ %.094, %.loopexit.sink.split ], [ %.094, %6 ], [ %.094, %70 ], [ %.094, %60 ], [ %.094, %50 ], [ %.094, %40 ], [ %.094, %30 ], [ %25, %20 ], [ %.094, %10 ]
-  %.190 = phi i32 [ %.089, %.loopexit.sink.split ], [ %.089, %6 ], [ %.089, %70 ], [ %.089, %60 ], [ %55, %50 ], [ %.089, %40 ], [ %.089, %30 ], [ %.089, %20 ], [ %.089, %10 ]
-  %.187 = phi i32 [ %.086, %.loopexit.sink.split ], [ %.086, %6 ], [ %.086, %70 ], [ %65, %60 ], [ %.086, %50 ], [ %.086, %40 ], [ %.086, %30 ], [ %.086, %20 ], [ %.086, %10 ]
-  %.184 = phi i32 [ %.083, %.loopexit.sink.split ], [ %.083, %6 ], [ %75, %70 ], [ %.083, %60 ], [ %.083, %50 ], [ %.083, %40 ], [ %.083, %30 ], [ %.083, %20 ], [ %.083, %10 ]
-  %.182 = phi i32 [ %.081, %.loopexit.sink.split ], [ %.081, %6 ], [ %.081, %70 ], [ %.081, %60 ], [ %.081, %50 ], [ %45, %40 ], [ %.081, %30 ], [ %.081, %20 ], [ %.081, %10 ]
+  %.198 = phi i32 [ %.097, %.loopexit.sink.split ], [ %.097, %70 ], [ %.097, %60 ], [ %.097, %50 ], [ %.097, %40 ], [ %.097, %30 ], [ %.097, %20 ], [ %15, %10 ], [ %.097, %6 ]
+  %.195 = phi i32 [ %.094, %.loopexit.sink.split ], [ %.094, %70 ], [ %.094, %60 ], [ %.094, %50 ], [ %.094, %40 ], [ %.094, %30 ], [ %25, %20 ], [ %.094, %10 ], [ %.094, %6 ]
+  %.190 = phi i32 [ %.089, %.loopexit.sink.split ], [ %.089, %70 ], [ %.089, %60 ], [ %55, %50 ], [ %.089, %40 ], [ %.089, %30 ], [ %.089, %20 ], [ %.089, %10 ], [ %.089, %6 ]
+  %.187 = phi i32 [ %.086, %.loopexit.sink.split ], [ %.086, %70 ], [ %65, %60 ], [ %.086, %50 ], [ %.086, %40 ], [ %.086, %30 ], [ %.086, %20 ], [ %.086, %10 ], [ %.086, %6 ]
+  %.184 = phi i32 [ %.083, %.loopexit.sink.split ], [ %75, %70 ], [ %.083, %60 ], [ %.083, %50 ], [ %.083, %40 ], [ %.083, %30 ], [ %.083, %20 ], [ %.083, %10 ], [ %.083, %6 ]
+  %.182 = phi i32 [ %.081, %.loopexit.sink.split ], [ %.081, %70 ], [ %.081, %60 ], [ %.081, %50 ], [ %45, %40 ], [ %.081, %30 ], [ %.081, %20 ], [ %.081, %10 ], [ %.081, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2864)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2865)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2866, i32 noundef %.198)
@@ -46473,7 +46473,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
   br label %291
 
 .loopexit.sink.split:                             ; preds = %169, %162, %151, %140, %129, %118, %107, %96, %85, %74, %63, %52, %41, %30
-  %.str.2873.sink = phi ptr [ @.str.554, %30 ], [ @.str.568, %41 ], [ @.str.834, %52 ], [ @.str.1017, %63 ], [ @.str.569, %74 ], [ @.str.536, %85 ], [ @.str.555, %96 ], [ @.str.2872, %107 ], [ @.str.1003, %118 ], [ @.str.883, %129 ], [ @.str.952, %140 ], [ @.str.537, %151 ], [ @.str.730, %162 ], [ @.str.2873, %169 ]
+  %.str.2873.sink = phi ptr [ @.str.730, %162 ], [ @.str.537, %151 ], [ @.str.952, %140 ], [ @.str.883, %129 ], [ @.str.1003, %118 ], [ @.str.2872, %107 ], [ @.str.555, %96 ], [ @.str.536, %85 ], [ @.str.569, %74 ], [ @.str.1017, %63 ], [ @.str.834, %52 ], [ @.str.568, %41 ], [ @.str.554, %30 ], [ @.str.2873, %169 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2873.sink)
   br label %.loopexit
 
@@ -46550,7 +46550,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
   br label %291
 
 291:                                              ; preds = %257, %258, %.loopexit, %253, %221, %214, %210, %206, %204
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %204 ], [ 0, %210 ], [ 0, %214 ], [ 0, %221 ], [ 1, %253 ], [ 0, %206 ], [ 0, %258 ], [ 0, %257 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %204 ], [ 0, %210 ], [ 0, %214 ], [ 0, %221 ], [ 0, %206 ], [ 1, %253 ], [ 0, %258 ], [ 0, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46948,7 +46948,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmcInter(ptr noundef %0, i32 nou
   br label %222
 
 .loopexit.sink.split:                             ; preds = %77, %70, %59, %48, %37, %26
-  %.str.2893.sink = phi ptr [ @.str.536, %26 ], [ @.str.568, %37 ], [ @.str.834, %48 ], [ @.str.579, %59 ], [ @.str.730, %70 ], [ @.str.2893, %77 ]
+  %.str.2893.sink = phi ptr [ @.str.730, %70 ], [ @.str.579, %59 ], [ @.str.834, %48 ], [ @.str.568, %37 ], [ @.str.536, %26 ], [ @.str.2893, %77 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2893.sink)
   br label %.loopexit
 
@@ -47027,7 +47027,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmcInter(ptr noundef %0, i32 nou
   br label %222
 
 222:                                              ; preds = %.thread, %182, %183, %.loopexit, %155, %142, %138, %134, %127, %125
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %125 ], [ 0, %134 ], [ 0, %138 ], [ 0, %142 ], [ 0, %155 ], [ 0, %127 ], [ 0, %183 ], [ 0, %182 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %125 ], [ 0, %134 ], [ 0, %138 ], [ 0, %142 ], [ 0, %182 ], [ 0, %155 ], [ 0, %127 ], [ 0, %.thread ], [ 0, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -47263,18 +47263,18 @@ define internal range(i32 0, 2) i32 @Abc_CommandIndcut(ptr noundef %0, i32 nound
   br label %107
 
 .loopexit.sink.split:                             ; preds = %67, %57, %47, %37, %27, %17, %7
-  %.str.786.sink = phi ptr [ @.str.568, %7 ], [ @.str.883, %17 ], [ @.str.536, %27 ], [ @.str.972, %37 ], [ @.str.556, %47 ], [ @.str.579, %57 ], [ @.str.786, %67 ]
+  %.str.786.sink = phi ptr [ @.str.579, %57 ], [ @.str.556, %47 ], [ @.str.972, %37 ], [ @.str.536, %27 ], [ @.str.883, %17 ], [ @.str.568, %7 ], [ @.str.786, %67 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.786.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %69, %59, %49, %39, %29, %19, %9, %.loopexit.sink.split
-  %.190 = phi i32 [ %.089, %.loopexit.sink.split ], [ %.089, %5 ], [ %.089, %69 ], [ %.089, %59 ], [ %.089, %49 ], [ %.089, %39 ], [ %.089, %29 ], [ %.089, %19 ], [ %14, %9 ]
-  %.187 = phi i32 [ %.086, %.loopexit.sink.split ], [ %.086, %5 ], [ %.086, %69 ], [ %.086, %59 ], [ %.086, %49 ], [ %.086, %39 ], [ %.086, %29 ], [ %24, %19 ], [ %.086, %9 ]
-  %.184 = phi i32 [ %.083, %.loopexit.sink.split ], [ %.083, %5 ], [ %.083, %69 ], [ %.083, %59 ], [ %.083, %49 ], [ %.083, %39 ], [ %34, %29 ], [ %.083, %19 ], [ %.083, %9 ]
-  %.181 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %5 ], [ %.080, %69 ], [ %.080, %59 ], [ %.080, %49 ], [ %44, %39 ], [ %.080, %29 ], [ %.080, %19 ], [ %.080, %9 ]
-  %.178 = phi i32 [ %.077, %.loopexit.sink.split ], [ %.077, %5 ], [ %.077, %69 ], [ %.077, %59 ], [ %54, %49 ], [ %.077, %39 ], [ %.077, %29 ], [ %.077, %19 ], [ %.077, %9 ]
-  %.175 = phi i32 [ %.074, %.loopexit.sink.split ], [ %.074, %5 ], [ %.074, %69 ], [ %64, %59 ], [ %.074, %49 ], [ %.074, %39 ], [ %.074, %29 ], [ %.074, %19 ], [ %.074, %9 ]
-  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %5 ], [ %74, %69 ], [ %.072, %59 ], [ %.072, %49 ], [ %.072, %39 ], [ %.072, %29 ], [ %.072, %19 ], [ %.072, %9 ]
+  %.190 = phi i32 [ %.089, %.loopexit.sink.split ], [ %.089, %59 ], [ %.089, %49 ], [ %.089, %39 ], [ %.089, %29 ], [ %.089, %19 ], [ %14, %9 ], [ %.089, %5 ], [ %.089, %69 ]
+  %.187 = phi i32 [ %.086, %.loopexit.sink.split ], [ %.086, %59 ], [ %.086, %49 ], [ %.086, %39 ], [ %.086, %29 ], [ %24, %19 ], [ %.086, %9 ], [ %.086, %5 ], [ %.086, %69 ]
+  %.184 = phi i32 [ %.083, %.loopexit.sink.split ], [ %.083, %59 ], [ %.083, %49 ], [ %.083, %39 ], [ %34, %29 ], [ %.083, %19 ], [ %.083, %9 ], [ %.083, %5 ], [ %.083, %69 ]
+  %.181 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %59 ], [ %.080, %49 ], [ %44, %39 ], [ %.080, %29 ], [ %.080, %19 ], [ %.080, %9 ], [ %.080, %5 ], [ %.080, %69 ]
+  %.178 = phi i32 [ %.077, %.loopexit.sink.split ], [ %.077, %59 ], [ %54, %49 ], [ %.077, %39 ], [ %.077, %29 ], [ %.077, %19 ], [ %.077, %9 ], [ %.077, %5 ], [ %.077, %69 ]
+  %.175 = phi i32 [ %.074, %.loopexit.sink.split ], [ %64, %59 ], [ %.074, %49 ], [ %.074, %39 ], [ %.074, %29 ], [ %.074, %19 ], [ %.074, %9 ], [ %.074, %5 ], [ %.074, %69 ]
+  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %59 ], [ %.072, %49 ], [ %.072, %39 ], [ %.072, %29 ], [ %.072, %19 ], [ %.072, %9 ], [ %.072, %5 ], [ %74, %69 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2923)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2924)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2453, i32 noundef %.190)
@@ -47609,14 +47609,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandTempor(ptr noundef %0, i32 nound
   br label %88
 
 .loopexit.sink.split:                             ; preds = %28, %18, %8
-  %.str.536.sink = phi ptr [ @.str.568, %8 ], [ @.str.834, %18 ], [ @.str.536, %28 ]
+  %.str.536.sink = phi ptr [ @.str.834, %18 ], [ @.str.568, %8 ], [ @.str.536, %28 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %30, %20, %10, %.loopexit.sink.split
-  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %6 ], [ %.065, %30 ], [ %.065, %20 ], [ %15, %10 ]
-  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %.062, %6 ], [ %.062, %30 ], [ %25, %20 ], [ %.062, %10 ]
-  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %6 ], [ %35, %30 ], [ %.060, %20 ], [ %.060, %10 ]
+  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %20 ], [ %15, %10 ], [ %.065, %6 ], [ %.065, %30 ]
+  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %25, %20 ], [ %.062, %10 ], [ %.062, %6 ], [ %.062, %30 ]
+  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %20 ], [ %.060, %10 ], [ %.060, %6 ], [ %35, %30 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2944)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2945)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2946, i32 noundef %.166)
@@ -47816,14 +47816,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandInduction(ptr noundef %0, i32 no
   br label %73
 
 .loopexit.sink.split:                             ; preds = %27, %17, %7
-  %.str.834.sink = phi ptr [ @.str.568, %7 ], [ @.str.536, %17 ], [ @.str.834, %27 ]
+  %.str.834.sink = phi ptr [ @.str.536, %17 ], [ @.str.568, %7 ], [ @.str.834, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %29, %19, %9, %.loopexit.sink.split
-  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %5 ], [ %34, %29 ], [ %.060, %19 ], [ %.060, %9 ]
-  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %5 ], [ %.057, %29 ], [ %.057, %19 ], [ %14, %9 ]
-  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %.055, %5 ], [ %.055, %29 ], [ %24, %19 ], [ %.055, %9 ]
+  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %19 ], [ %.060, %9 ], [ %.060, %5 ], [ %34, %29 ]
+  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %19 ], [ %14, %9 ], [ %.057, %5 ], [ %.057, %29 ]
+  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %24, %19 ], [ %.055, %9 ], [ %.055, %5 ], [ %.055, %29 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2959)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2960)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2961, i32 noundef %.158)
@@ -48139,15 +48139,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandConstr(ptr noundef %0, i32 nound
   br label %116
 
 .loopexit.sink.split:                             ; preds = %37, %27, %17, %7
-  %.str.579.sink = phi ptr [ @.str.568, %7 ], [ @.str.536, %17 ], [ @.str.883, %27 ], [ @.str.579, %37 ]
+  %.str.579.sink = phi ptr [ @.str.883, %27 ], [ @.str.536, %17 ], [ @.str.568, %7 ], [ @.str.579, %37 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.579.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %39, %29, %19, %9, %.loopexit.sink.split
-  %.192 = phi i32 [ %.091, %.loopexit.sink.split ], [ %.091, %5 ], [ %.091, %39 ], [ %.091, %29 ], [ %.091, %19 ], [ %14, %9 ]
-  %.189 = phi i32 [ %.088, %.loopexit.sink.split ], [ %.088, %5 ], [ %.088, %39 ], [ %.088, %29 ], [ %24, %19 ], [ %.088, %9 ]
-  %.186 = phi i32 [ %.085, %.loopexit.sink.split ], [ %.085, %5 ], [ %.085, %39 ], [ %34, %29 ], [ %.085, %19 ], [ %.085, %9 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %5 ], [ %44, %39 ], [ %.0, %29 ], [ %.0, %19 ], [ %.0, %9 ]
+  %.192 = phi i32 [ %.091, %.loopexit.sink.split ], [ %.091, %29 ], [ %.091, %19 ], [ %14, %9 ], [ %.091, %5 ], [ %.091, %39 ]
+  %.189 = phi i32 [ %.088, %.loopexit.sink.split ], [ %.088, %29 ], [ %24, %19 ], [ %.088, %9 ], [ %.088, %5 ], [ %.088, %39 ]
+  %.186 = phi i32 [ %.085, %.loopexit.sink.split ], [ %34, %29 ], [ %.085, %19 ], [ %.085, %9 ], [ %.085, %5 ], [ %.085, %39 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %29 ], [ %.0, %19 ], [ %.0, %9 ], [ %.0, %5 ], [ %44, %39 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2977)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2978)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2979)
@@ -48179,7 +48179,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandConstr(ptr noundef %0, i32 nound
   br label %116
 
 116:                                              ; preds = %104, %105, %.loopexit, %109, %108, %95, %94, %80, %76, %68, %63, %61
-  %.094 = phi i32 [ 1, %.loopexit ], [ 1, %61 ], [ 0, %68 ], [ 1, %76 ], [ 0, %80 ], [ 0, %94 ], [ 0, %95 ], [ 0, %108 ], [ 0, %109 ], [ 0, %63 ], [ 0, %105 ], [ 0, %104 ]
+  %.094 = phi i32 [ 1, %.loopexit ], [ 1, %61 ], [ 0, %68 ], [ 1, %76 ], [ 0, %80 ], [ 0, %94 ], [ 0, %95 ], [ 0, %63 ], [ 0, %108 ], [ 0, %109 ], [ 0, %105 ], [ 0, %104 ]
   ret i32 %.094
 }
 
@@ -48406,14 +48406,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold(ptr noundef %0, i32 nound
   br label %89
 
 .loopexit.sink.split:                             ; preds = %17, %7, %27
-  %.str.883.sink = phi ptr [ @.str.568, %7 ], [ @.str.883, %27 ], [ @.str.536, %17 ]
+  %.str.883.sink = phi ptr [ @.str.883, %27 ], [ @.str.568, %7 ], [ @.str.536, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.883.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %5, %9, %19, %.loopexit.sink.split
-  %.170 = phi i32 [ %.069.ph, %.loopexit.sink.split ], [ %.069.ph, %29 ], [ %.069.ph, %5 ], [ %.069.ph, %9 ], [ %24, %19 ]
-  %.167 = phi i32 [ %.066.ph210, %.loopexit.sink.split ], [ %.066.ph210, %9 ], [ %.066.ph210, %5 ], [ %34, %29 ], [ %.066.ph210, %19 ]
-  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %.058, %5 ], [ %14, %9 ], [ %.058, %29 ], [ %.058, %19 ]
+  %.170 = phi i32 [ %.069.ph, %.loopexit.sink.split ], [ %.069.ph, %9 ], [ %.069.ph, %29 ], [ %.069.ph, %5 ], [ %24, %19 ]
+  %.167 = phi i32 [ %.066.ph210, %.loopexit.sink.split ], [ %34, %29 ], [ %.066.ph210, %5 ], [ %.066.ph210, %9 ], [ %.066.ph210, %19 ]
+  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %.058, %29 ], [ %.058, %5 ], [ %14, %9 ], [ %.058, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2996)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2997)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2982, i32 noundef %.159)
@@ -48432,7 +48432,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold(ptr noundef %0, i32 nound
   br label %89
 
 89:                                               ; preds = %58, %65, %.loopexit, %85, %84, %80, %74, %70, %52, %45
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %45 ], [ 0, %52 ], [ 0, %74 ], [ 0, %84 ], [ 0, %85 ], [ 0, %80 ], [ 0, %70 ], [ 0, %65 ], [ 0, %58 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %45 ], [ 0, %52 ], [ 0, %70 ], [ 0, %74 ], [ 0, %84 ], [ 0, %85 ], [ 0, %80 ], [ 0, %65 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -48689,8 +48689,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnfold2(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %19, %.loopexit.sink.split
-  %.135 = phi i32 [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %9 ], [ %.034.ph, %5 ], [ %24, %19 ]
-  %.133 = phi i32 [ %.032.ph101, %.loopexit.sink.split ], [ %.032.ph101, %5 ], [ %14, %9 ], [ %.032.ph101, %19 ]
+  %.135 = phi i32 [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %5 ], [ %.034.ph, %9 ], [ %24, %19 ]
+  %.133 = phi i32 [ %.032.ph101, %.loopexit.sink.split ], [ %14, %9 ], [ %.032.ph101, %5 ], [ %.032.ph101, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5052)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2997)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2983, i32 noundef %.133)
@@ -48911,7 +48911,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm(ptr noundef %0, i32 noundef %
   br label %48
 
 48:                                               ; preds = %44, %46, %36, %38, %14, %.loopexit
-  %.013 = phi i32 [ 1, %.loopexit ], [ 1, %14 ], [ 1, %38 ], [ 1, %36 ], [ 0, %46 ], [ 0, %44 ]
+  %.013 = phi i32 [ 1, %.loopexit ], [ 1, %14 ], [ 1, %36 ], [ 1, %38 ], [ 0, %46 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -49183,7 +49183,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   br label %128
 
 128:                                              ; preds = %123, %125, %35, %37, %13, %127
-  %.0 = phi i32 [ 1, %127 ], [ 1, %13 ], [ 1, %37 ], [ 1, %35 ], [ 0, %125 ], [ 0, %123 ]
+  %.0 = phi i32 [ 1, %127 ], [ 1, %13 ], [ 1, %35 ], [ 1, %37 ], [ 0, %125 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -50166,7 +50166,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdr(ptr noundef %0, i32 noundef 
   br label %318
 
 .loopexit.sink.split:                             ; preds = %145, %138, %127, %116, %105, %94, %83, %72, %61, %50, %39
-  %.str.2893.sink = phi ptr [ @.str.882, %39 ], [ @.str.568, %50 ], [ @.str.536, %61 ], [ @.str.555, %72 ], [ @.str.952, %83 ], [ @.str.834, %94 ], [ @.str.1017, %105 ], [ @.str.569, %116 ], [ @.str.554, %127 ], [ @.str.730, %138 ], [ @.str.2893, %145 ]
+  %.str.2893.sink = phi ptr [ @.str.730, %138 ], [ @.str.554, %127 ], [ @.str.569, %116 ], [ @.str.1017, %105 ], [ @.str.834, %94 ], [ @.str.952, %83 ], [ @.str.555, %72 ], [ @.str.536, %61 ], [ @.str.568, %50 ], [ @.str.882, %39 ], [ @.str.2893, %145 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2893.sink)
   br label %.loopexit
 
@@ -50517,7 +50517,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %84, %Vec_PtrFreeDat
   br label %Abc_FrameReplaceCex.exit
 
 Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exit.i, %67, %57, %58, %16, %85, %46, %41, %32, %14, %9
-  %.0 = phi i32 [ 1, %85 ], [ 1, %9 ], [ 1, %14 ], [ 1, %32 ], [ 0, %41 ], [ 0, %46 ], [ 1, %16 ], [ 1, %58 ], [ 1, %57 ], [ 0, %67 ], [ 0, %Vec_PtrFreeFree.exit.i ]
+  %.0 = phi i32 [ 1, %85 ], [ 1, %9 ], [ 1, %14 ], [ 0, %46 ], [ 1, %32 ], [ 1, %16 ], [ 1, %57 ], [ 0, %41 ], [ 1, %58 ], [ 0, %67 ], [ 0, %Vec_PtrFreeFree.exit.i ]
   ret i32 %.0
 }
 
@@ -50798,8 +50798,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexCut(ptr noundef %0, i32 nound
   br label %70
 
 .loopexit:                                        ; preds = %4, %9, %20, %36, %19, %8
-  %.154 = phi i32 [ %.053.ph, %36 ], [ %.053.ph, %8 ], [ %.053.ph, %19 ], [ %.053.ph, %4 ], [ %.053.ph, %9 ], [ %25, %20 ]
-  %.143 = phi i32 [ %.042, %36 ], [ %.042, %8 ], [ %.042, %19 ], [ %14, %9 ], [ %.042, %4 ], [ %.042, %20 ]
+  %.154 = phi i32 [ %.053.ph, %36 ], [ %.053.ph, %8 ], [ %.053.ph, %19 ], [ %.053.ph, %9 ], [ %.053.ph, %4 ], [ %25, %20 ]
+  %.143 = phi i32 [ %.042, %36 ], [ %.042, %8 ], [ %.042, %19 ], [ %.042, %4 ], [ %14, %9 ], [ %.042, %20 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3138)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3139)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.576, i32 noundef %.143)
@@ -50955,8 +50955,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexMerge(ptr noundef captures(no
   br label %58
 
 .loopexit:                                        ; preds = %20, %4, %9, %30, %19, %8
-  %.132 = phi i32 [ %.031.ph, %30 ], [ %.031.ph, %8 ], [ %.031.ph, %19 ], [ %.031.ph, %20 ], [ %.031.ph, %4 ], [ %14, %9 ]
-  %.130 = phi i32 [ %.029.ph113, %30 ], [ %.029.ph113, %8 ], [ %.029.ph113, %19 ], [ %.029.ph113, %4 ], [ %25, %20 ], [ %.029.ph113, %9 ]
+  %.132 = phi i32 [ %.031.ph, %30 ], [ %.031.ph, %8 ], [ %.031.ph, %19 ], [ %.031.ph, %4 ], [ %.031.ph, %20 ], [ %14, %9 ]
+  %.130 = phi i32 [ %.029.ph113, %30 ], [ %.029.ph113, %8 ], [ %.029.ph113, %19 ], [ %25, %20 ], [ %.029.ph113, %4 ], [ %.029.ph113, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3143)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.574)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.575)
@@ -52847,7 +52847,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SaveAig(ptr noundef %0, i32 
   br label %87
 
 87:                                               ; preds = %50, %56, %24, %84, %80, %19, %14
-  %.028 = phi i32 [ 1, %84 ], [ 1, %14 ], [ 0, %19 ], [ 0, %80 ], [ 0, %24 ], [ 0, %56 ], [ 0, %50 ]
+  %.028 = phi i32 [ 1, %84 ], [ 1, %14 ], [ 0, %19 ], [ 0, %24 ], [ 0, %80 ], [ 0, %56 ], [ 0, %50 ]
   ret i32 %.028
 }
 
@@ -54913,7 +54913,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr noundef reado
   br label %.loopexit51
 
 .loopexit51:                                      ; preds = %19, %5, %9, %.loopexit51.sink.split
-  %.132 = phi i32 [ %.031.ph, %.loopexit51.sink.split ], [ %.031.ph, %19 ], [ %.031.ph, %5 ], [ %14, %9 ]
+  %.132 = phi i32 [ %.031.ph, %.loopexit51.sink.split ], [ %.031.ph, %5 ], [ %.031.ph, %19 ], [ %14, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3334)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3335)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3336, i32 noundef %.132)
@@ -55143,8 +55143,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %18 ], [ %.020.ph, %4 ], [ %13, %8 ]
-  %.119 = phi i32 [ %.018.ph80, %.loopexit.sink.split ], [ %.018.ph80, %4 ], [ %23, %18 ], [ %.018.ph80, %8 ]
+  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %4 ], [ %.020.ph, %18 ], [ %13, %8 ]
+  %.119 = phi i32 [ %.018.ph80, %.loopexit.sink.split ], [ %23, %18 ], [ %.018.ph80, %4 ], [ %.018.ph80, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3356)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3357)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3358, i32 noundef %.121)
@@ -55292,8 +55292,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Show(ptr noundef readonly ca
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %51, %53, %43, %45
-  %.sink67 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %52, %51 ], [ %54, %53 ]
-  %.sink = phi i32 [ 16, %43 ], [ 16, %45 ], [ %48, %51 ], [ %48, %53 ]
+  %.sink67 = phi ptr [ %46, %45 ], [ %44, %43 ], [ %52, %51 ], [ %54, %53 ]
+  %.sink = phi i32 [ 16, %45 ], [ 16, %43 ], [ %48, %51 ], [ %48, %53 ]
   store ptr %.sink67, ptr %27, align 8, !tbaa !38
   store i32 %.sink, ptr %24, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -55817,8 +55817,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.1114 = phi i32 [ %.0113, %.loopexit.sink.split ], [ %.0113, %4 ], [ %.0113, %18 ], [ %13, %8 ]
-  %.1112 = phi i32 [ %.0111, %.loopexit.sink.split ], [ %.0111, %4 ], [ %23, %18 ], [ %.0111, %8 ]
+  %.1114 = phi i32 [ %.0113, %.loopexit.sink.split ], [ %13, %8 ], [ %.0113, %4 ], [ %.0113, %18 ]
+  %.1112 = phi i32 [ %.0111, %.loopexit.sink.split ], [ %.0111, %8 ], [ %.0111, %4 ], [ %23, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3381)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3382)
   %.not149 = icmp eq i32 %.0109, 0
@@ -55849,7 +55849,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr noundef captures(
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %.lr.ph, %.preheader, %.loopexit, %156, %101, %71, %68, %44
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 0, %68 ], [ 0, %71 ], [ 0, %156 ], [ 1, %101 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %52 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 1, %101 ], [ 0, %68 ], [ 0, %71 ], [ 0, %156 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -56121,7 +56121,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr noundef captures(non
   br label %69
 
 .loopexit.sink.split:                             ; preds = %16, %35, %25, %6, %64
-  %.str.3406.sink = phi ptr [ @.str.3406, %64 ], [ @.str.579, %35 ], [ @.str.556, %25 ], [ @.str.536, %16 ], [ @.str.1016, %6 ]
+  %.str.3406.sink = phi ptr [ @.str.3406, %64 ], [ @.str.536, %16 ], [ @.str.556, %25 ], [ @.str.579, %35 ], [ @.str.1016, %6 ]
   %.159.ph = phi i32 [ 0, %64 ], [ %.058.ph192, %6 ], [ %.058.ph192, %25 ], [ %.058.ph192, %35 ], [ %.058.ph192, %16 ]
   %.154.ph = phi i32 [ 0, %64 ], [ %.053.ph201, %6 ], [ %.053.ph201, %25 ], [ %.053.ph201, %35 ], [ %.053.ph201, %16 ]
   %.1.ph = phi i32 [ 0, %64 ], [ %.0, %6 ], [ %.0, %25 ], [ %.0, %35 ], [ %.0, %16 ]
@@ -56129,9 +56129,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr noundef captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %37, %27, %8, %.loopexit.sink.split
-  %.159 = phi i32 [ %.159.ph, %.loopexit.sink.split ], [ %.058.ph192, %18 ], [ %.058.ph192, %4 ], [ %.058.ph192, %37 ], [ %.058.ph192, %27 ], [ %13, %8 ]
-  %.154 = phi i32 [ %.154.ph, %.loopexit.sink.split ], [ %.053.ph201, %4 ], [ %.053.ph201, %37 ], [ %32, %27 ], [ %.053.ph201, %18 ], [ %.053.ph201, %8 ]
-  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %42, %37 ], [ %.0, %4 ], [ %.0, %27 ], [ %.0, %18 ], [ %.0, %8 ]
+  %.159 = phi i32 [ %.159.ph, %.loopexit.sink.split ], [ %.058.ph192, %27 ], [ %.058.ph192, %18 ], [ %.058.ph192, %4 ], [ %.058.ph192, %37 ], [ %13, %8 ]
+  %.154 = phi i32 [ %.154.ph, %.loopexit.sink.split ], [ %.053.ph201, %18 ], [ %32, %27 ], [ %.053.ph201, %37 ], [ %.053.ph201, %4 ], [ %.053.ph201, %8 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ %.0, %18 ], [ %.0, %27 ], [ %42, %37 ], [ %.0, %4 ], [ %.0, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3407)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3408)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3409, i32 noundef %.159)
@@ -56380,8 +56380,8 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntStartNatural
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.137 = phi i32 [ %.137.ph, %.loopexit.sink.split ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %13, %8 ]
-  %.135 = phi i32 [ %.135.ph, %.loopexit.sink.split ], [ %.034.ph125, %4 ], [ %23, %18 ], [ %.034.ph125, %8 ]
+  %.137 = phi i32 [ %.137.ph, %.loopexit.sink.split ], [ %.036.ph, %4 ], [ %.036.ph, %18 ], [ %13, %8 ]
+  %.135 = phi i32 [ %.135.ph, %.loopexit.sink.split ], [ %23, %18 ], [ %.034.ph125, %4 ], [ %.034.ph125, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3416)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3417)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3409, i32 noundef %.137)
@@ -56864,7 +56864,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(non
   br label %102
 
 .loopexit.sink.split:                             ; preds = %57, %46, %35, %24, %13
-  %.str.1003.sink = phi ptr [ @.str.834, %46 ], [ @.str.579, %35 ], [ @.str.881, %24 ], [ @.str.568, %13 ], [ @.str.1003, %57 ]
+  %.str.1003.sink = phi ptr [ @.str.834, %46 ], [ @.str.568, %13 ], [ @.str.881, %24 ], [ @.str.579, %35 ], [ @.str.1003, %57 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1003.sink)
   br label %.loopexit
 
@@ -57242,15 +57242,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
   br label %.thread127
 
 .loopexit.sink.split:                             ; preds = %8, %28, %38, %18
-  %.str.834.sink = phi ptr [ @.str.834, %38 ], [ @.str.579, %28 ], [ @.str.537, %18 ], [ @.str.881, %8 ]
+  %.str.834.sink = phi ptr [ @.str.537, %18 ], [ @.str.579, %28 ], [ @.str.834, %38 ], [ @.str.881, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %6, %40, %30, %10, %.loopexit.sink.split
-  %.182 = phi i32 [ %.081.ph264, %.loopexit.sink.split ], [ %.081.ph264, %20 ], [ %.081.ph264, %6 ], [ %.081.ph264, %40 ], [ %.081.ph264, %30 ], [ %15, %10 ]
-  %.179 = phi i32 [ %.078.ph269, %.loopexit.sink.split ], [ %.078.ph269, %30 ], [ %.078.ph269, %40 ], [ %.078.ph269, %6 ], [ %25, %20 ], [ %.078.ph269, %10 ]
-  %.176 = phi i32 [ %.075.ph273, %.loopexit.sink.split ], [ %.075.ph273, %6 ], [ %.075.ph273, %40 ], [ %35, %30 ], [ %.075.ph273, %20 ], [ %.075.ph273, %10 ]
-  %.174 = phi i32 [ %.073, %.loopexit.sink.split ], [ %45, %40 ], [ %.073, %6 ], [ %.073, %30 ], [ %.073, %20 ], [ %.073, %10 ]
+  %.182 = phi i32 [ %.081.ph264, %.loopexit.sink.split ], [ %.081.ph264, %30 ], [ %.081.ph264, %20 ], [ %.081.ph264, %6 ], [ %.081.ph264, %40 ], [ %15, %10 ]
+  %.179 = phi i32 [ %.078.ph269, %.loopexit.sink.split ], [ %25, %20 ], [ %.078.ph269, %6 ], [ %.078.ph269, %30 ], [ %.078.ph269, %40 ], [ %.078.ph269, %10 ]
+  %.176 = phi i32 [ %.075.ph273, %.loopexit.sink.split ], [ %.075.ph273, %20 ], [ %35, %30 ], [ %.075.ph273, %40 ], [ %.075.ph273, %6 ], [ %.075.ph273, %10 ]
+  %.174 = phi i32 [ %.073, %.loopexit.sink.split ], [ %.073, %20 ], [ %.073, %30 ], [ %.073, %6 ], [ %45, %40 ], [ %.073, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3448)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3449)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2558, i32 noundef %.182)
@@ -57553,7 +57553,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %145, %Vec_PtrFreeDa
   br label %Abc_FrameReplaceCex.exit
 
 .loopexit.sink.split:                             ; preds = %93, %82, %71, %60, %49, %38, %27, %16
-  %.str.569.sink = phi ptr [ @.str.568, %16 ], [ @.str.881, %27 ], [ @.str.786, %38 ], [ @.str.537, %49 ], [ @.str.554, %60 ], [ @.str.579, %71 ], [ @.str.834, %82 ], [ @.str.569, %93 ]
+  %.str.569.sink = phi ptr [ @.str.834, %82 ], [ @.str.579, %71 ], [ @.str.554, %60 ], [ @.str.537, %49 ], [ @.str.786, %38 ], [ @.str.881, %27 ], [ @.str.568, %16 ], [ @.str.569, %93 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.569.sink)
   br label %.loopexit
 
@@ -57756,8 +57756,8 @@ Vec_WrdFreeP.exit:                                ; preds = %39, %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %4 ], [ %.042.ph, %18 ], [ %13, %8 ]
-  %.1 = phi i32 [ %.036, %.loopexit.sink.split ], [ %23, %18 ], [ %.036, %4 ], [ %.036, %8 ]
+  %.143 = phi i32 [ %.042.ph, %.loopexit.sink.split ], [ %.042.ph, %18 ], [ %.042.ph, %4 ], [ %13, %8 ]
+  %.1 = phi i32 [ %.036, %.loopexit.sink.split ], [ %.036, %4 ], [ %23, %18 ], [ %.036, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3459)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3460)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2558, i32 noundef %.143)
@@ -58045,7 +58045,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iwls21Test(ptr noundef reado
   br label %59
 
 59:                                               ; preds = %26, %31, %35, %36, %.loopexit, %54, %53, %49, %47, %43
-  %.1 = phi i32 [ 1, %.loopexit ], [ 1, %43 ], [ 0, %47 ], [ 0, %49 ], [ 0, %53 ], [ 0, %54 ], [ 0, %36 ], [ 0, %35 ], [ 0, %31 ], [ 0, %26 ]
+  %.1 = phi i32 [ 1, %.loopexit ], [ 0, %54 ], [ 1, %43 ], [ 0, %47 ], [ 0, %49 ], [ 0, %53 ], [ 0, %36 ], [ 0, %35 ], [ 0, %31 ], [ 0, %26 ]
   ret i32 %.1
 }
 
@@ -58847,8 +58847,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.147 = phi i32 [ %.046.ph, %.loopexit.sink.split ], [ %.046.ph, %18 ], [ %.046.ph, %4 ], [ %13, %8 ]
-  %.145 = phi i32 [ %.044.ph141, %.loopexit.sink.split ], [ %.044.ph141, %4 ], [ %23, %18 ], [ %.044.ph141, %8 ]
+  %.147 = phi i32 [ %.046.ph, %.loopexit.sink.split ], [ %.046.ph, %4 ], [ %.046.ph, %18 ], [ %13, %8 ]
+  %.145 = phi i32 [ %.044.ph141, %.loopexit.sink.split ], [ %23, %18 ], [ %.044.ph141, %4 ], [ %.044.ph141, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3512)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3513)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3514, i32 noundef %.147)
@@ -59174,8 +59174,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.132 = phi i32 [ %.031.ph, %.loopexit.sink.split ], [ %.031.ph, %18 ], [ %.031.ph, %4 ], [ %13, %8 ]
-  %.130 = phi i32 [ %.029.ph122, %.loopexit.sink.split ], [ %.029.ph122, %4 ], [ %23, %18 ], [ %.029.ph122, %8 ]
+  %.132 = phi i32 [ %.031.ph, %.loopexit.sink.split ], [ %.031.ph, %4 ], [ %.031.ph, %18 ], [ %13, %8 ]
+  %.130 = phi i32 [ %.029.ph122, %.loopexit.sink.split ], [ %23, %18 ], [ %.029.ph122, %4 ], [ %.029.ph122, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3530)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3531)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3532, i32 noundef %.132)
@@ -59360,7 +59360,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr noundef readonly c
   br label %101
 
 .loopexit.sink.split:                             ; preds = %59, %48, %37, %26, %15
-  %.str.834.sink = phi ptr [ @.str.881, %15 ], [ @.str.568, %26 ], [ @.str.537, %37 ], [ @.str.554, %48 ], [ @.str.834, %59 ]
+  %.str.834.sink = phi ptr [ @.str.554, %48 ], [ @.str.537, %37 ], [ @.str.568, %26 ], [ @.str.881, %15 ], [ @.str.834, %59 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
@@ -59589,16 +59589,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr noundef captures(
   br label %89
 
 .loopexit.sink.split:                             ; preds = %46, %36, %26, %16, %6
-  %.str.554.sink = phi ptr [ @.str.568, %6 ], [ @.str.536, %16 ], [ @.str.537, %26 ], [ @.str.834, %36 ], [ @.str.554, %46 ]
+  %.str.554.sink = phi ptr [ @.str.834, %36 ], [ @.str.537, %26 ], [ @.str.536, %16 ], [ @.str.568, %6 ], [ @.str.554, %46 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.165 = phi i32 [ %.064, %.loopexit.sink.split ], [ %.064, %4 ], [ %.064, %48 ], [ %.064, %38 ], [ %.064, %28 ], [ %.064, %18 ], [ %13, %8 ]
-  %.162 = phi i32 [ %.061, %.loopexit.sink.split ], [ %.061, %4 ], [ %.061, %48 ], [ %.061, %38 ], [ %.061, %28 ], [ %23, %18 ], [ %.061, %8 ]
-  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %.058, %4 ], [ %.058, %48 ], [ %.058, %38 ], [ %33, %28 ], [ %.058, %18 ], [ %.058, %8 ]
-  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %.055, %4 ], [ %.055, %48 ], [ %43, %38 ], [ %.055, %28 ], [ %.055, %18 ], [ %.055, %8 ]
-  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %4 ], [ %53, %48 ], [ %.053, %38 ], [ %.053, %28 ], [ %.053, %18 ], [ %.053, %8 ]
+  %.165 = phi i32 [ %.064, %.loopexit.sink.split ], [ %.064, %38 ], [ %.064, %28 ], [ %.064, %18 ], [ %13, %8 ], [ %.064, %4 ], [ %.064, %48 ]
+  %.162 = phi i32 [ %.061, %.loopexit.sink.split ], [ %.061, %38 ], [ %.061, %28 ], [ %23, %18 ], [ %.061, %8 ], [ %.061, %4 ], [ %.061, %48 ]
+  %.159 = phi i32 [ %.058, %.loopexit.sink.split ], [ %.058, %38 ], [ %33, %28 ], [ %.058, %18 ], [ %.058, %8 ], [ %.058, %4 ], [ %.058, %48 ]
+  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %43, %38 ], [ %.055, %28 ], [ %.055, %18 ], [ %.055, %8 ], [ %.055, %4 ], [ %.055, %48 ]
+  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %38 ], [ %.053, %28 ], [ %.053, %18 ], [ %.053, %8 ], [ %.053, %4 ], [ %53, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3547)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3537)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3548, i32 noundef %.165)
@@ -59890,7 +59890,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr noundef captures(
   br label %156
 
 .loopexit.sink.split:                             ; preds = %83, %72, %61, %50, %39, %28, %17
-  %.str.834.sink = phi ptr [ @.str.568, %17 ], [ @.str.881, %28 ], [ @.str.786, %39 ], [ @.str.537, %50 ], [ @.str.554, %61 ], [ @.str.579, %72 ], [ @.str.834, %83 ]
+  %.str.834.sink = phi ptr [ @.str.579, %72 ], [ @.str.554, %61 ], [ @.str.537, %50 ], [ @.str.786, %39 ], [ @.str.881, %28 ], [ @.str.568, %17 ], [ @.str.834, %83 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
@@ -60129,7 +60129,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr noundef readonly ca
   br label %122
 
 .loopexit.sink.split:                             ; preds = %82, %71, %60, %49, %38, %27, %16
-  %.str.834.sink = phi ptr [ @.str.881, %16 ], [ @.str.537, %27 ], [ @.str.568, %38 ], [ @.str.554, %49 ], [ @.str.882, %60 ], [ @.str.536, %71 ], [ @.str.834, %82 ]
+  %.str.834.sink = phi ptr [ @.str.536, %71 ], [ @.str.882, %60 ], [ @.str.554, %49 ], [ @.str.568, %38 ], [ @.str.537, %27 ], [ @.str.881, %16 ], [ @.str.834, %82 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
@@ -60409,7 +60409,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %24, %13, %.loopexit.sink.split
-  %.146 = phi i32 [ %.045, %.loopexit.sink.split ], [ %.045, %9 ], [ %29, %24 ], [ %.045, %13 ]
+  %.146 = phi i32 [ %.045, %.loopexit.sink.split ], [ %.045, %13 ], [ %.045, %9 ], [ %29, %24 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3574)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3575)
   %73 = load i32, ptr %4, align 4, !tbaa !948
@@ -60877,7 +60877,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr noundef captures(
   br label %44
 
 .loopexit:                                        ; preds = %4, %9, %8
-  %.1 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %8 ], [ %14, %9 ], [ %.0, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3605)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3606)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3607, i32 noundef %.1)
@@ -61021,8 +61021,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %18 ], [ %.035.ph, %4 ], [ %13, %8 ]
-  %.134 = phi i32 [ %.033.ph130, %.loopexit.sink.split ], [ %.033.ph130, %4 ], [ %23, %18 ], [ %.033.ph130, %8 ]
+  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %4 ], [ %.035.ph, %18 ], [ %13, %8 ]
+  %.134 = phi i32 [ %.033.ph130, %.loopexit.sink.split ], [ %23, %18 ], [ %.033.ph130, %4 ], [ %.033.ph130, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3611)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3612)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.892, i32 noundef %.136)
@@ -61405,8 +61405,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BalanceLut(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.147 = phi i32 [ %.046, %.loopexit.sink.split ], [ %.046, %4 ], [ %.046, %18 ], [ %13, %8 ]
-  %.145 = phi i32 [ %.044, %.loopexit.sink.split ], [ %.044, %4 ], [ %23, %18 ], [ %.044, %8 ]
+  %.147 = phi i32 [ %.046, %.loopexit.sink.split ], [ %13, %8 ], [ %.046, %4 ], [ %.046, %18 ]
+  %.145 = phi i32 [ %.044, %.loopexit.sink.split ], [ %.044, %8 ], [ %.044, %4 ], [ %23, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3630)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3631)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3632, i32 noundef 6, i32 noundef %.147)
@@ -61572,9 +61572,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr noundef captures(n
   br label %61
 
 .loopexit:                                        ; preds = %9, %31, %4, %20
-  %.146 = phi i32 [ %.045.ph, %20 ], [ %.045.ph, %4 ], [ %.045.ph, %31 ], [ %14, %9 ]
-  %.143 = phi i32 [ %.042.ph155, %31 ], [ %.042.ph155, %4 ], [ %25, %20 ], [ %.042.ph155, %9 ]
-  %.141 = phi i32 [ %.040.ph160, %4 ], [ %36, %31 ], [ %.040.ph160, %20 ], [ %.040.ph160, %9 ]
+  %.146 = phi i32 [ %.045.ph, %31 ], [ %.045.ph, %20 ], [ %.045.ph, %4 ], [ %14, %9 ]
+  %.143 = phi i32 [ %25, %20 ], [ %.042.ph155, %4 ], [ %.042.ph155, %31 ], [ %.042.ph155, %9 ]
+  %.141 = phi i32 [ %.040.ph160, %20 ], [ %36, %31 ], [ %.040.ph160, %4 ], [ %.040.ph160, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3639)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3640)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3641, i32 noundef %.146)
@@ -62145,13 +62145,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr noundef captures(
   br label %91
 
 .loopexit.sink.split:                             ; preds = %45, %34, %23, %12
-  %.str.3627.sink = phi ptr [ @.str.881, %12 ], [ @.str.536, %23 ], [ @.str.554, %34 ], [ @.str.3627, %45 ]
+  %.str.3627.sink = phi ptr [ @.str.554, %34 ], [ @.str.536, %23 ], [ @.str.881, %12 ], [ @.str.3627, %45 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.3627.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %58, %47, %36, %25, %14, %.loopexit.sink.split
-  %.142 = phi i32 [ %.041, %.loopexit.sink.split ], [ %.041, %10 ], [ %.041, %58 ], [ %52, %47 ], [ %.041, %36 ], [ %.041, %25 ], [ %.041, %14 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %10 ], [ %63, %58 ], [ %.0, %47 ], [ %.0, %36 ], [ %.0, %25 ], [ %.0, %14 ]
+  %.142 = phi i32 [ %.041, %.loopexit.sink.split ], [ %.041, %36 ], [ %.041, %25 ], [ %.041, %14 ], [ %.041, %10 ], [ %.041, %58 ], [ %52, %47 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %36 ], [ %.0, %25 ], [ %.0, %14 ], [ %.0, %10 ], [ %63, %58 ], [ %.0, %47 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3661)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1923)
   %82 = load i32, ptr %4, align 8, !tbaa !384
@@ -62278,8 +62278,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr noundef captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.129 = phi i32 [ %.028.ph, %.loopexit.sink.split ], [ %.028.ph, %18 ], [ %.028.ph, %4 ], [ %13, %8 ]
-  %.127 = phi i32 [ %.026.ph103, %.loopexit.sink.split ], [ %.026.ph103, %4 ], [ %23, %18 ], [ %.026.ph103, %8 ]
+  %.129 = phi i32 [ %.028.ph, %.loopexit.sink.split ], [ %.028.ph, %4 ], [ %.028.ph, %18 ], [ %13, %8 ]
+  %.127 = phi i32 [ %.026.ph103, %.loopexit.sink.split ], [ %23, %18 ], [ %.026.ph103, %4 ], [ %.026.ph103, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3675)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3676)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3677, i32 noundef %.129)
@@ -62567,7 +62567,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr noundef captures(n
   br label %114
 
 .loopexit:                                        ; preds = %4, %9, %8
-  %.195 = phi i32 [ %.094, %8 ], [ %.094, %4 ], [ %14, %9 ]
+  %.195 = phi i32 [ %.094, %8 ], [ %14, %9 ], [ %.094, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3686)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3687)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3688, i32 noundef %.195)
@@ -63129,7 +63129,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr noundef captures(n
   br label %111
 
 .loopexit.sink.split:                             ; preds = %49, %38, %27, %16
-  %.str.2461.sink = phi ptr [ @.str.568, %16 ], [ @.str.536, %27 ], [ @.str.883, %38 ], [ @.str.2461, %49 ]
+  %.str.2461.sink = phi ptr [ @.str.883, %38 ], [ @.str.536, %27 ], [ @.str.568, %16 ], [ @.str.2461, %49 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2461.sink)
   br label %.loopexit
 
@@ -63536,12 +63536,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr noundef captures(n
   br label %206
 
 .loopexit.sink.split:                             ; preds = %86, %75, %64, %53, %42, %31, %20
-  %.str.798.sink = phi ptr [ @.str.568, %20 ], [ @.str.536, %31 ], [ @.str.883, %42 ], [ @.str.2461, %53 ], [ @.str.883, %64 ], [ @.str.554, %75 ], [ @.str.798, %86 ]
+  %.str.798.sink = phi ptr [ @.str.554, %75 ], [ @.str.883, %64 ], [ @.str.2461, %53 ], [ @.str.883, %42 ], [ @.str.536, %31 ], [ @.str.568, %20 ], [ @.str.798, %86 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.798.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %88, %77, %66, %55, %44, %33, %22, %.loopexit.sink.split
-  %.1115 = phi i32 [ %.0114, %.loopexit.sink.split ], [ %.0114, %18 ], [ %93, %88 ], [ %.0114, %77 ], [ %.0114, %66 ], [ %.0114, %55 ], [ %.0114, %44 ], [ %.0114, %33 ], [ %.0114, %22 ]
+  %.1115 = phi i32 [ %.0114, %.loopexit.sink.split ], [ %.0114, %77 ], [ %.0114, %66 ], [ %.0114, %55 ], [ %.0114, %44 ], [ %.0114, %33 ], [ %.0114, %22 ], [ %.0114, %18 ], [ %93, %88 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3723)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3724)
   %184 = load i32, ptr %16, align 8, !tbaa !982
@@ -64069,12 +64069,12 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %163, %Vec_PtrFreeDa
   br label %Abc_FrameReplaceCexVec.exit
 
 .loopexit.sink.split:                             ; preds = %59, %48, %38, %27, %16
-  %.str.579.sink = phi ptr [ @.str.2872, %16 ], [ @.str.536, %27 ], [ @.str.537, %38 ], [ @.str.554, %48 ], [ @.str.579, %59 ]
+  %.str.579.sink = phi ptr [ @.str.554, %48 ], [ @.str.537, %38 ], [ @.str.536, %27 ], [ @.str.2872, %16 ], [ @.str.579, %59 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.579.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %61, %50, %40, %29, %18, %.loopexit.sink.split
-  %.1 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %14 ], [ %.080, %61 ], [ %.080, %50 ], [ %45, %40 ], [ %.080, %29 ], [ %.080, %18 ]
+  %.1 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %50 ], [ %45, %40 ], [ %.080, %29 ], [ %.080, %18 ], [ %.080, %14 ], [ %.080, %61 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3739)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3740)
   %169 = load i32, ptr %4, align 4, !tbaa !1001
@@ -64209,8 +64209,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %18 ], [ %.020.ph, %4 ], [ %13, %8 ]
-  %.119 = phi i32 [ %.018.ph80, %.loopexit.sink.split ], [ %.018.ph80, %4 ], [ %23, %18 ], [ %.018.ph80, %8 ]
+  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %4 ], [ %.020.ph, %18 ], [ %13, %8 ]
+  %.119 = phi i32 [ %.018.ph80, %.loopexit.sink.split ], [ %23, %18 ], [ %.018.ph80, %4 ], [ %.018.ph80, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3753)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3754)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1883, i32 noundef %.121)
@@ -64470,7 +64470,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
   br label %124
 
 .loopexit.sink.split:                             ; preds = %70, %59, %48, %37, %26, %15
-  %.str.3759.sink = phi ptr [ @.str.1018, %15 ], [ @.str.689, %26 ], [ @.str.554, %37 ], [ @.str.3757, %48 ], [ @.str.3758, %59 ], [ @.str.3759, %70 ]
+  %.str.3759.sink = phi ptr [ @.str.3758, %59 ], [ @.str.3757, %48 ], [ @.str.554, %37 ], [ @.str.689, %26 ], [ @.str.1018, %15 ], [ @.str.3759, %70 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.3759.sink)
   br label %.loopexit
 
@@ -64956,12 +64956,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr noundef captures(n
   br label %260
 
 .loopexit.sink.split:                             ; preds = %133, %123, %112, %101, %90, %79, %68, %57, %46, %35, %24
-  %.str.568.sink = phi ptr [ @.str.2872, %24 ], [ @.str.881, %35 ], [ @.str.537, %46 ], [ @.str.1003, %57 ], [ @.str.556, %68 ], [ @.str.555, %79 ], [ @.str.536, %90 ], [ @.str.579, %101 ], [ @.str.883, %112 ], [ @.str.882, %123 ], [ @.str.568, %133 ]
+  %.str.568.sink = phi ptr [ @.str.882, %123 ], [ @.str.883, %112 ], [ @.str.579, %101 ], [ @.str.536, %90 ], [ @.str.555, %79 ], [ @.str.556, %68 ], [ @.str.1003, %57 ], [ @.str.537, %46 ], [ @.str.881, %35 ], [ @.str.2872, %24 ], [ @.str.568, %133 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.568.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %125, %114, %103, %92, %81, %70, %59, %48, %37, %26, %.loopexit.sink.split
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %22 ], [ %130, %125 ], [ %.0, %114 ], [ %.0, %103 ], [ %.0, %92 ], [ %.0, %81 ], [ %.0, %70 ], [ %.0, %59 ], [ %.0, %48 ], [ %.0, %37 ], [ %.0, %26 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %130, %125 ], [ %.0, %114 ], [ %.0, %103 ], [ %.0, %92 ], [ %.0, %81 ], [ %.0, %70 ], [ %.0, %59 ], [ %.0, %48 ], [ %.0, %37 ], [ %.0, %26 ], [ %.0, %22 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3773)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3774)
   %228 = load i32, ptr %4, align 8, !tbaa !1029
@@ -66205,7 +66205,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br i1 %exitcond.not, label %.critedge, label %116, !llvm.loop !1075
 
 .critedge:                                        ; preds = %135, %107, %.lr.ph, %133
-  %136 = phi ptr [ %109, %107 ], [ %109, %.lr.ph ], [ %.pre343, %133 ], [ %109, %135 ]
+  %136 = phi ptr [ %.pre343, %133 ], [ %109, %107 ], [ %109, %.lr.ph ], [ %109, %135 ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 368
   %138 = load ptr, ptr %137, align 8, !tbaa !1074
   %139 = icmp eq ptr %138, null
@@ -66643,7 +66643,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br label %.thread268
 
 .thread268:                                       ; preds = %183, %194, %212, %207, %185, %.thread, %.loopexit, %301, %251, %154, %149, %81, %73, %65
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %65 ], [ 1, %73 ], [ 1, %81 ], [ 0, %149 ], [ 1, %154 ], [ 0, %251 ], [ 0, %301 ], [ %.2, %183 ], [ 0, %.thread ], [ 1, %194 ], [ 0, %212 ], [ 1, %207 ], [ 1, %185 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %65 ], [ 1, %73 ], [ 1, %81 ], [ 0, %149 ], [ 1, %185 ], [ 1, %154 ], [ 0, %251 ], [ 0, %301 ], [ %.2, %183 ], [ 0, %.thread ], [ 1, %194 ], [ 0, %212 ], [ 1, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -67148,8 +67148,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.135 = phi i32 [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %18 ], [ %.034.ph, %4 ], [ %13, %8 ]
-  %.133 = phi i32 [ %.032.ph125, %.loopexit.sink.split ], [ %.032.ph125, %4 ], [ %23, %18 ], [ %.032.ph125, %8 ]
+  %.135 = phi i32 [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %4 ], [ %.034.ph, %18 ], [ %13, %8 ]
+  %.133 = phi i32 [ %.032.ph125, %.loopexit.sink.split ], [ %23, %18 ], [ %.032.ph125, %4 ], [ %.032.ph125, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3894)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3895)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1883, i32 noundef %.135)
@@ -67311,7 +67311,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr noundef captures(n
   br label %78
 
 .loopexit.sink.split:                             ; preds = %33, %22, %11
-  %.str.554.sink = phi ptr [ @.str.881, %11 ], [ @.str.536, %22 ], [ @.str.554, %33 ]
+  %.str.554.sink = phi ptr [ @.str.536, %22 ], [ @.str.881, %11 ], [ @.str.554, %33 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
@@ -67563,8 +67563,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %36, %25, %.loopexit.sink.split
-  %63 = phi i32 [ %15, %.loopexit.sink.split ], [ %15, %25 ], [ %41, %36 ], [ %15, %13 ]
-  %64 = phi i32 [ %14, %.loopexit.sink.split ], [ %30, %25 ], [ %14, %36 ], [ %14, %13 ]
+  %63 = phi i32 [ %15, %.loopexit.sink.split ], [ %41, %36 ], [ %15, %13 ], [ %15, %25 ]
+  %64 = phi i32 [ %14, %.loopexit.sink.split ], [ %14, %36 ], [ %14, %13 ], [ %30, %25 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3912)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3913)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3914)
@@ -67738,15 +67738,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr noundef captures(no
   br label %61
 
 .loopexit.sink.split:                             ; preds = %6, %26, %36, %16
-  %.str.537.sink = phi ptr [ @.str.537, %36 ], [ @.str.536, %26 ], [ @.str.881, %16 ], [ @.str.556, %6 ]
+  %.str.537.sink = phi ptr [ @.str.881, %16 ], [ @.str.536, %26 ], [ @.str.537, %36 ], [ @.str.556, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.537.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %4, %28, %8, %.loopexit.sink.split
-  %.147 = phi i32 [ %.046.ph, %.loopexit.sink.split ], [ %.046.ph, %18 ], [ %.046.ph, %38 ], [ %.046.ph, %4 ], [ %.046.ph, %28 ], [ %13, %8 ]
-  %.144 = phi i32 [ %.043.ph172, %.loopexit.sink.split ], [ %.043.ph172, %28 ], [ %.043.ph172, %4 ], [ %.043.ph172, %38 ], [ %23, %18 ], [ %.043.ph172, %8 ]
-  %.141 = phi i32 [ %.040.ph177, %.loopexit.sink.split ], [ %.040.ph177, %38 ], [ %.040.ph177, %4 ], [ %33, %28 ], [ %.040.ph177, %18 ], [ %.040.ph177, %8 ]
-  %.139 = phi i32 [ %.038.ph181, %.loopexit.sink.split ], [ %.038.ph181, %4 ], [ %43, %38 ], [ %.038.ph181, %28 ], [ %.038.ph181, %18 ], [ %.038.ph181, %8 ]
+  %.147 = phi i32 [ %.046.ph, %.loopexit.sink.split ], [ %.046.ph, %28 ], [ %.046.ph, %18 ], [ %.046.ph, %38 ], [ %.046.ph, %4 ], [ %13, %8 ]
+  %.144 = phi i32 [ %.043.ph172, %.loopexit.sink.split ], [ %23, %18 ], [ %.043.ph172, %38 ], [ %.043.ph172, %28 ], [ %.043.ph172, %4 ], [ %.043.ph172, %8 ]
+  %.141 = phi i32 [ %.040.ph177, %.loopexit.sink.split ], [ %.040.ph177, %18 ], [ %33, %28 ], [ %.040.ph177, %4 ], [ %.040.ph177, %38 ], [ %.040.ph177, %8 ]
+  %.139 = phi i32 [ %.038.ph181, %.loopexit.sink.split ], [ %.038.ph181, %18 ], [ %.038.ph181, %28 ], [ %43, %38 ], [ %.038.ph181, %4 ], [ %.038.ph181, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3923)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3924)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3925, i32 noundef %.147)
@@ -67954,16 +67954,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr noundef captures(no
   br label %83
 
 .loopexit.sink.split:                             ; preds = %6, %26, %46, %36, %16
-  %.str.537.sink = phi ptr [ @.str.537, %46 ], [ @.str.536, %36 ], [ @.str.972, %26 ], [ @.str.881, %16 ], [ @.str.556, %6 ]
+  %.str.537.sink = phi ptr [ @.str.881, %16 ], [ @.str.972, %26 ], [ @.str.536, %36 ], [ @.str.537, %46 ], [ @.str.556, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.537.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %4, %48, %28, %8, %.loopexit.sink.split
-  %.159 = phi i32 [ %.058.ph, %.loopexit.sink.split ], [ %.058.ph, %18 ], [ %.058.ph, %38 ], [ %.058.ph, %4 ], [ %.058.ph, %48 ], [ %.058.ph, %28 ], [ %13, %8 ]
-  %.156 = phi i32 [ %.055.ph225, %.loopexit.sink.split ], [ %.055.ph225, %28 ], [ %.055.ph225, %48 ], [ %.055.ph225, %4 ], [ %.055.ph225, %38 ], [ %23, %18 ], [ %.055.ph225, %8 ]
-  %.153 = phi i32 [ %.052.ph231, %.loopexit.sink.split ], [ %.052.ph231, %38 ], [ %.052.ph231, %4 ], [ %.052.ph231, %48 ], [ %33, %28 ], [ %.052.ph231, %18 ], [ %.052.ph231, %8 ]
-  %.150 = phi i32 [ %.049.ph236, %.loopexit.sink.split ], [ %.049.ph236, %48 ], [ %.049.ph236, %4 ], [ %43, %38 ], [ %.049.ph236, %28 ], [ %.049.ph236, %18 ], [ %.049.ph236, %8 ]
-  %.148 = phi i32 [ %.047.ph240, %.loopexit.sink.split ], [ %.047.ph240, %4 ], [ %53, %48 ], [ %.047.ph240, %38 ], [ %.047.ph240, %28 ], [ %.047.ph240, %18 ], [ %.047.ph240, %8 ]
+  %.159 = phi i32 [ %.058.ph, %.loopexit.sink.split ], [ %.058.ph, %28 ], [ %.058.ph, %18 ], [ %.058.ph, %38 ], [ %.058.ph, %4 ], [ %.058.ph, %48 ], [ %13, %8 ]
+  %.156 = phi i32 [ %.055.ph225, %.loopexit.sink.split ], [ %23, %18 ], [ %.055.ph225, %38 ], [ %.055.ph225, %28 ], [ %.055.ph225, %48 ], [ %.055.ph225, %4 ], [ %.055.ph225, %8 ]
+  %.153 = phi i32 [ %.052.ph231, %.loopexit.sink.split ], [ %.052.ph231, %18 ], [ %33, %28 ], [ %.052.ph231, %48 ], [ %.052.ph231, %38 ], [ %.052.ph231, %4 ], [ %.052.ph231, %8 ]
+  %.150 = phi i32 [ %.049.ph236, %.loopexit.sink.split ], [ %.049.ph236, %18 ], [ %.049.ph236, %28 ], [ %43, %38 ], [ %.049.ph236, %4 ], [ %.049.ph236, %48 ], [ %.049.ph236, %8 ]
+  %.148 = phi i32 [ %.047.ph240, %.loopexit.sink.split ], [ %.047.ph240, %18 ], [ %.047.ph240, %28 ], [ %.047.ph240, %38 ], [ %53, %48 ], [ %.047.ph240, %4 ], [ %.047.ph240, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3932)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3933)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3925, i32 noundef %.159)
@@ -68107,8 +68107,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.134 = phi i32 [ %.033.ph, %.loopexit.sink.split ], [ %.033.ph, %18 ], [ %.033.ph, %4 ], [ %13, %8 ]
-  %.132 = phi i32 [ %.031.ph124, %.loopexit.sink.split ], [ %.031.ph124, %4 ], [ %23, %18 ], [ %.031.ph124, %8 ]
+  %.134 = phi i32 [ %.033.ph, %.loopexit.sink.split ], [ %.033.ph, %4 ], [ %.033.ph, %18 ], [ %13, %8 ]
+  %.132 = phi i32 [ %.031.ph124, %.loopexit.sink.split ], [ %23, %18 ], [ %.031.ph124, %4 ], [ %.031.ph124, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3937)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3938)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3934, i32 noundef %.134)
@@ -68269,8 +68269,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.139 = phi i32 [ %.038.ph, %.loopexit.sink.split ], [ %.038.ph, %18 ], [ %.038.ph, %4 ], [ %13, %8 ]
-  %.137 = phi i32 [ %.036.ph145, %.loopexit.sink.split ], [ %.036.ph145, %4 ], [ %23, %18 ], [ %.036.ph145, %8 ]
+  %.139 = phi i32 [ %.038.ph, %.loopexit.sink.split ], [ %.038.ph, %4 ], [ %.038.ph, %18 ], [ %13, %8 ]
+  %.137 = phi i32 [ %.036.ph145, %.loopexit.sink.split ], [ %23, %18 ], [ %.036.ph145, %4 ], [ %.036.ph145, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3943)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3938)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3934, i32 noundef %.139)
@@ -68444,8 +68444,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.142 = phi i32 [ %.041.ph, %.loopexit.sink.split ], [ %.041.ph, %18 ], [ %.041.ph, %4 ], [ %13, %8 ]
-  %.140 = phi i32 [ %.039.ph163, %.loopexit.sink.split ], [ %.039.ph163, %4 ], [ %23, %18 ], [ %.039.ph163, %8 ]
+  %.142 = phi i32 [ %.041.ph, %.loopexit.sink.split ], [ %.041.ph, %4 ], [ %.041.ph, %18 ], [ %13, %8 ]
+  %.140 = phi i32 [ %.039.ph163, %.loopexit.sink.split ], [ %23, %18 ], [ %.039.ph163, %4 ], [ %.039.ph163, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3949)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3938)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3934, i32 noundef %.142)
@@ -69716,7 +69716,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   br label %.critedge
 
 .loopexit522thread-pre-split.sink.split:          ; preds = %211, %205, %203, %196, %194, %183, %171, %160, %148, %136, %126, %103, %92, %81, %70, %58
-  %.str.1051.sink = phi ptr [ @.str.1051, %58 ], [ @.str.2207, %70 ], [ @.str.849, %81 ], [ @.str.850, %92 ], [ @.str.2208, %103 ], [ @.str.2211, %126 ], [ @.str.2212, %136 ], [ @.str.2213, %148 ], [ @.str.2132, %160 ], [ @.str.2164, %171 ], [ @.str.2216, %183 ], [ @.str.2217, %194 ], [ @.str.2218, %196 ], [ @.str.2217, %203 ], [ @.str.3953, %205 ], [ @.str.2215, %211 ]
+  %.str.1051.sink = phi ptr [ @.str.3953, %205 ], [ @.str.1051, %58 ], [ @.str.2207, %70 ], [ @.str.849, %81 ], [ @.str.850, %92 ], [ @.str.2208, %103 ], [ @.str.2211, %126 ], [ @.str.2212, %136 ], [ @.str.2213, %148 ], [ @.str.2132, %160 ], [ @.str.2164, %171 ], [ @.str.2216, %183 ], [ @.str.2217, %194 ], [ @.str.2218, %196 ], [ @.str.2217, %203 ], [ @.str.2215, %211 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1051.sink)
   br label %.loopexit522thread-pre-split
 
@@ -69896,7 +69896,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   br label %.critedge
 
 .critedge:                                        ; preds = %503, %509, %499, %493, %386, %391, %399, %304, %306, %584, %571, %570, %538, %529, %520, %516, %440, %437, %434, %420, %416, %409, %405, %377, %370, %362, %358, %339, %330, %326, %319, %312, %309, %116
-  %.0328 = phi i32 [ 1, %584 ], [ 0, %116 ], [ 1, %309 ], [ 1, %312 ], [ 1, %319 ], [ 1, %326 ], [ 1, %330 ], [ 1, %339 ], [ 1, %358 ], [ 1, %362 ], [ 1, %370 ], [ 1, %405 ], [ 1, %409 ], [ 1, %416 ], [ 1, %420 ], [ 1, %434 ], [ 1, %437 ], [ 1, %440 ], [ 0, %520 ], [ 1, %529 ], [ 1, %538 ], [ 1, %570 ], [ 0, %571 ], [ 0, %516 ], [ 1, %377 ], [ 0, %306 ], [ 0, %304 ], [ 1, %399 ], [ 1, %391 ], [ 1, %386 ], [ 0, %493 ], [ 0, %499 ], [ 0, %509 ], [ 0, %503 ]
+  %.0328 = phi i32 [ 1, %584 ], [ 0, %116 ], [ 1, %377 ], [ 1, %309 ], [ 1, %312 ], [ 1, %319 ], [ 1, %326 ], [ 1, %330 ], [ 1, %339 ], [ 1, %358 ], [ 1, %362 ], [ 1, %370 ], [ 1, %405 ], [ 1, %409 ], [ 1, %416 ], [ 1, %420 ], [ 1, %434 ], [ 1, %437 ], [ 1, %440 ], [ 0, %520 ], [ 1, %529 ], [ 1, %538 ], [ 1, %570 ], [ 0, %571 ], [ 0, %516 ], [ 1, %386 ], [ 0, %304 ], [ 0, %306 ], [ 1, %399 ], [ 1, %391 ], [ 0, %493 ], [ 0, %499 ], [ 0, %509 ], [ 0, %503 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -73618,7 +73618,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Edge(ptr noundef readonly ca
   br label %110
 
 110:                                              ; preds = %98, %100, %.loopexit, %96, %88, %85, %84, %75, %71, %66, %64
-  %.077 = phi i32 [ 1, %.loopexit ], [ 1, %64 ], [ 0, %66 ], [ 0, %75 ], [ 0, %84 ], [ 0, %85 ], [ 0, %96 ], [ 0, %88 ], [ 1, %71 ], [ 0, %100 ], [ 0, %98 ]
+  %.077 = phi i32 [ 1, %.loopexit ], [ 1, %64 ], [ 0, %66 ], [ 0, %75 ], [ 0, %84 ], [ 0, %85 ], [ 0, %96 ], [ 1, %71 ], [ 0, %88 ], [ 0, %100 ], [ 0, %98 ]
   ret i32 %.077
 }
 
@@ -73794,8 +73794,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatLut(ptr noundef readonly 
   br label %79
 
 .loopexit.sink.split:                             ; preds = %44, %35, %26, %17, %8, %6
-  %.str.4059.sink = phi ptr [ @.str.913, %6 ], [ @.str.4093, %8 ], [ @.str.914, %17 ], [ @.str.2207, %26 ], [ @.str.2393, %35 ], [ @.str.4059, %44 ]
-  %.157.ph = phi i32 [ %.056, %6 ], [ %13, %8 ], [ %.056, %17 ], [ %.056, %26 ], [ %.056, %35 ], [ %.056, %44 ]
+  %.str.4059.sink = phi ptr [ @.str.2393, %35 ], [ @.str.2207, %26 ], [ @.str.914, %17 ], [ @.str.4093, %8 ], [ @.str.913, %6 ], [ @.str.4059, %44 ]
+  %.157.ph = phi i32 [ %.056, %35 ], [ %.056, %26 ], [ %.056, %17 ], [ %13, %8 ], [ %.056, %6 ], [ %.056, %44 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4059.sink)
   br label %.loopexit
 
@@ -74205,7 +74205,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr noundef captures
   br label %74
 
 .loopexit.sink.split:                             ; preds = %6, %24, %33, %15
-  %.str.4121.sink = phi ptr [ @.str.4121, %33 ], [ @.str.4120, %24 ], [ @.str.4113, %15 ], [ @.str.914, %6 ]
+  %.str.4121.sink = phi ptr [ @.str.4113, %15 ], [ @.str.4120, %24 ], [ @.str.4121, %33 ], [ @.str.914, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4121.sink)
   br label %.loopexit
 
@@ -74224,7 +74224,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr noundef captures
   br label %74
 
 74:                                               ; preds = %.thread, %44, %.loopexit, %70, %52
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %52 ], [ 0, %70 ], [ 0, %44 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %.thread ], [ 1, %52 ], [ 0, %70 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -74396,7 +74396,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr noundef captures(n
   br label %76
 
 .loopexit.sink.split:                             ; preds = %6, %24, %33, %15
-  %.str.4121.sink = phi ptr [ @.str.4121, %33 ], [ @.str.4120, %24 ], [ @.str.4113, %15 ], [ @.str.914, %6 ]
+  %.str.4121.sink = phi ptr [ @.str.4113, %15 ], [ @.str.4120, %24 ], [ @.str.4121, %33 ], [ @.str.914, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4121.sink)
   br label %.loopexit
 
@@ -74420,7 +74420,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr noundef captures(n
   br label %76
 
 76:                                               ; preds = %.thread, %44, %.loopexit, %74, %52
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %52 ], [ 0, %74 ], [ 0, %44 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %.thread ], [ 1, %52 ], [ 0, %74 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -74666,7 +74666,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
   br label %.critedge
 
 .loopexit.sink.split:                             ; preds = %51, %42, %33, %24, %15, %6, %68
-  %.str.622.sink = phi ptr [ @.str.622, %68 ], [ @.str.2201, %6 ], [ @.str.4120, %15 ], [ @.str.2415, %24 ], [ @.str.914, %33 ], [ @.str.4021, %42 ], [ @.str.4134, %51 ]
+  %.str.622.sink = phi ptr [ @.str.622, %68 ], [ @.str.4134, %51 ], [ @.str.4021, %42 ], [ @.str.914, %33 ], [ @.str.2415, %24 ], [ @.str.4120, %15 ], [ @.str.2201, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.622.sink)
   br label %.loopexit
 
@@ -74949,7 +74949,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr noundef captur
   br label %.thread
 
 .loopexit.sink.split:                             ; preds = %42, %33, %24, %15, %6, %69
-  %.str.622.sink = phi ptr [ @.str.622, %69 ], [ @.str.913, %6 ], [ @.str.2138, %15 ], [ @.str.4120, %24 ], [ @.str.4021, %33 ], [ @.str.4134, %42 ]
+  %.str.622.sink = phi ptr [ @.str.622, %69 ], [ @.str.4134, %42 ], [ @.str.4021, %33 ], [ @.str.4120, %24 ], [ @.str.2138, %15 ], [ @.str.913, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.622.sink)
   br label %.loopexit
 
@@ -75627,8 +75627,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.140 = phi i32 [ %.039.ph128, %.loopexit.sink.split ], [ %.039.ph128, %18 ], [ %.039.ph128, %4 ], [ %13, %8 ]
-  %.138 = phi i32 [ %.037.ph133, %.loopexit.sink.split ], [ %.037.ph133, %4 ], [ %23, %18 ], [ %.037.ph133, %8 ]
+  %.140 = phi i32 [ %.039.ph128, %.loopexit.sink.split ], [ %.039.ph128, %4 ], [ %.039.ph128, %18 ], [ %13, %8 ]
+  %.138 = phi i32 [ %.037.ph133, %.loopexit.sink.split ], [ %23, %18 ], [ %.037.ph133, %4 ], [ %.037.ph133, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4194)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1070)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1071)
@@ -75851,7 +75851,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %70, %Vec_PtrFreeDat
   br label %Abc_FrameReplaceCex.exit
 
 .loopexit:                                        ; preds = %4, %9, %8
-  %.1 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %8 ], [ %14, %9 ], [ %.0, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4199)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4200)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4201, i32 noundef %.1)
@@ -76105,7 +76105,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr noundef captures(non
   br label %136
 
 .loopexit.sink.split:                             ; preds = %41, %30, %19
-  %.str.554.sink = phi ptr [ @.str.881, %19 ], [ @.str.536, %30 ], [ @.str.554, %41 ]
+  %.str.554.sink = phi ptr [ @.str.536, %30 ], [ @.str.881, %19 ], [ @.str.554, %41 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
@@ -76432,14 +76432,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr noundef captur
   br label %52
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.536, %16 ], [ @.str.568, %6 ]
+  %.str.834.sink = phi ptr [ @.str.536, %16 ], [ @.str.834, %26 ], [ @.str.568, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.130 = phi i32 [ %.029.ph123, %.loopexit.sink.split ], [ %.029.ph123, %18 ], [ %.029.ph123, %4 ], [ %.029.ph123, %28 ], [ %13, %8 ]
-  %.127 = phi i32 [ %.026.ph127, %.loopexit.sink.split ], [ %.026.ph127, %28 ], [ %.026.ph127, %4 ], [ %23, %18 ], [ %.026.ph127, %8 ]
-  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %4 ], [ %33, %28 ], [ %.0, %18 ], [ %.0, %8 ]
+  %.130 = phi i32 [ %.029.ph123, %.loopexit.sink.split ], [ %.029.ph123, %28 ], [ %.029.ph123, %18 ], [ %.029.ph123, %4 ], [ %13, %8 ]
+  %.127 = phi i32 [ %.026.ph127, %.loopexit.sink.split ], [ %23, %18 ], [ %.026.ph127, %4 ], [ %.026.ph127, %28 ], [ %.026.ph127, %8 ]
+  %.1 = phi i32 [ %.0, %.loopexit.sink.split ], [ %.0, %18 ], [ %33, %28 ], [ %.0, %4 ], [ %.0, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4222)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4223)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2708, i32 noundef %.130)
@@ -76913,7 +76913,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr noundef captures(
   br label %172
 
 .loopexit.sink.split:                             ; preds = %87, %76, %65, %54, %43, %32, %21
-  %.str.730.sink = phi ptr [ @.str.834, %21 ], [ @.str.786, %32 ], [ @.str.568, %43 ], [ @.str.536, %54 ], [ @.str.1017, %65 ], [ @.str.554, %76 ], [ @.str.730, %87 ]
+  %.str.730.sink = phi ptr [ @.str.554, %76 ], [ @.str.1017, %65 ], [ @.str.536, %54 ], [ @.str.568, %43 ], [ @.str.786, %32 ], [ @.str.834, %21 ], [ @.str.730, %87 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -77205,7 +77205,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr noundef captures(
   br label %134
 
 .loopexit.sink.split:                             ; preds = %61, %50, %39, %28, %17
-  %.str.730.sink = phi ptr [ @.str.579, %17 ], [ @.str.786, %28 ], [ @.str.568, %39 ], [ @.str.834, %50 ], [ @.str.730, %61 ]
+  %.str.730.sink = phi ptr [ @.str.834, %50 ], [ @.str.568, %39 ], [ @.str.786, %28 ], [ @.str.579, %17 ], [ @.str.730, %61 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -77511,7 +77511,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %93, %Vec_PtrFreeFre
   br label %129
 
 .loopexit.sink.split:                             ; preds = %47, %36, %25, %14
-  %.str.730.sink = phi ptr [ @.str.786, %14 ], [ @.str.568, %25 ], [ @.str.834, %36 ], [ @.str.730, %47 ]
+  %.str.730.sink = phi ptr [ @.str.834, %36 ], [ @.str.568, %25 ], [ @.str.786, %14 ], [ @.str.730, %47 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -77835,7 +77835,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %109, %Vec_PtrFreeFr
   br label %150
 
 .loopexit.sink.split:                             ; preds = %61, %50, %39, %28, %17
-  %.str.730.sink = phi ptr [ @.str.786, %17 ], [ @.str.536, %28 ], [ @.str.568, %39 ], [ @.str.834, %50 ], [ @.str.730, %61 ]
+  %.str.730.sink = phi ptr [ @.str.834, %50 ], [ @.str.568, %39 ], [ @.str.536, %28 ], [ @.str.786, %17 ], [ @.str.730, %61 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -78089,14 +78089,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr noundef readonly ca
   br label %66
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.4278, %16 ], [ @.str.2461, %6 ]
+  %.str.834.sink = phi ptr [ @.str.4278, %16 ], [ @.str.834, %26 ], [ @.str.2461, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.146 = phi i32 [ %.045.ph, %.loopexit.sink.split ], [ %.045.ph, %18 ], [ %.045.ph, %4 ], [ %.045.ph, %28 ], [ %13, %8 ]
-  %.143 = phi i32 [ %.042.ph156, %.loopexit.sink.split ], [ %.042.ph156, %28 ], [ %.042.ph156, %4 ], [ %23, %18 ], [ %.042.ph156, %8 ]
-  %.141 = phi i32 [ %.040.ph161, %.loopexit.sink.split ], [ %.040.ph161, %4 ], [ %33, %28 ], [ %.040.ph161, %18 ], [ %.040.ph161, %8 ]
+  %.146 = phi i32 [ %.045.ph, %.loopexit.sink.split ], [ %.045.ph, %28 ], [ %.045.ph, %18 ], [ %.045.ph, %4 ], [ %13, %8 ]
+  %.143 = phi i32 [ %.042.ph156, %.loopexit.sink.split ], [ %23, %18 ], [ %.042.ph156, %4 ], [ %.042.ph156, %28 ], [ %.042.ph156, %8 ]
+  %.141 = phi i32 [ %.040.ph161, %.loopexit.sink.split ], [ %.040.ph161, %18 ], [ %33, %28 ], [ %.040.ph161, %4 ], [ %.040.ph161, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4283)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4284)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4285, i32 noundef %.146)
@@ -79409,16 +79409,16 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %71
   br label %161
 
 .loopexit.sink.split:                             ; preds = %47, %37, %27, %17, %7
-  %.str.881.sink = phi ptr [ @.str.689, %7 ], [ @.str.537, %17 ], [ @.str.883, %27 ], [ @.str.556, %37 ], [ @.str.881, %47 ]
+  %.str.881.sink = phi ptr [ @.str.556, %37 ], [ @.str.883, %27 ], [ @.str.537, %17 ], [ @.str.689, %7 ], [ @.str.881, %47 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.881.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %49, %39, %29, %19, %9, %.loopexit.sink.split
-  %.1117 = phi i32 [ %.0116, %.loopexit.sink.split ], [ %.0116, %5 ], [ %.0116, %49 ], [ %.0116, %39 ], [ %34, %29 ], [ %.0116, %19 ], [ %.0116, %9 ]
-  %.1114 = phi i32 [ %.0113, %.loopexit.sink.split ], [ %.0113, %5 ], [ %.0113, %49 ], [ %44, %39 ], [ %.0113, %29 ], [ %.0113, %19 ], [ %.0113, %9 ]
-  %.1111 = phi i32 [ %.0110, %.loopexit.sink.split ], [ %.0110, %5 ], [ %54, %49 ], [ %.0110, %39 ], [ %.0110, %29 ], [ %.0110, %19 ], [ %.0110, %9 ]
-  %.1100 = phi i32 [ %.099, %.loopexit.sink.split ], [ %.099, %5 ], [ %.099, %49 ], [ %.099, %39 ], [ %.099, %29 ], [ %24, %19 ], [ %.099, %9 ]
-  %.197 = phi i32 [ %.096, %.loopexit.sink.split ], [ %.096, %5 ], [ %.096, %49 ], [ %.096, %39 ], [ %.096, %29 ], [ %.096, %19 ], [ %14, %9 ]
+  %.1117 = phi i32 [ %.0116, %.loopexit.sink.split ], [ %.0116, %39 ], [ %34, %29 ], [ %.0116, %19 ], [ %.0116, %9 ], [ %.0116, %5 ], [ %.0116, %49 ]
+  %.1114 = phi i32 [ %.0113, %.loopexit.sink.split ], [ %44, %39 ], [ %.0113, %29 ], [ %.0113, %19 ], [ %.0113, %9 ], [ %.0113, %5 ], [ %.0113, %49 ]
+  %.1111 = phi i32 [ %.0110, %.loopexit.sink.split ], [ %.0110, %39 ], [ %.0110, %29 ], [ %.0110, %19 ], [ %.0110, %9 ], [ %.0110, %5 ], [ %54, %49 ]
+  %.1100 = phi i32 [ %.099, %.loopexit.sink.split ], [ %.099, %39 ], [ %.099, %29 ], [ %24, %19 ], [ %.099, %9 ], [ %.099, %5 ], [ %.099, %49 ]
+  %.197 = phi i32 [ %.096, %.loopexit.sink.split ], [ %.096, %39 ], [ %.096, %29 ], [ %.096, %19 ], [ %14, %9 ], [ %.096, %5 ], [ %.096, %49 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4344)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.560)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4345, i32 noundef %.197)
@@ -79442,7 +79442,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %71
   br label %161
 
 161:                                              ; preds = %155, %156, %144, %145, %119, %122, %132, %123, %.loopexit, %111, %110, %.critedge, %69
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %69 ], [ 0, %.critedge ], [ 1, %110 ], [ 0, %111 ], [ 1, %119 ], [ 1, %122 ], [ 0, %132 ], [ 0, %123 ], [ 1, %145 ], [ 1, %144 ], [ 0, %156 ], [ 0, %155 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %69 ], [ 0, %.critedge ], [ 1, %110 ], [ 0, %111 ], [ 1, %144 ], [ 0, %123 ], [ 1, %119 ], [ 1, %122 ], [ 0, %132 ], [ 1, %145 ], [ 0, %156 ], [ 0, %155 ]
   ret i32 %.0
 }
 
@@ -79792,7 +79792,7 @@ Vec_IntFree.exit:                                 ; preds = %32, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %.loopexit.sink.split
-  %.121 = phi i32 [ %.020, %.loopexit.sink.split ], [ %.020, %4 ], [ %13, %8 ]
+  %.121 = phi i32 [ %.020, %.loopexit.sink.split ], [ %13, %8 ], [ %.020, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4366)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4367)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4368)
@@ -80089,16 +80089,16 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %127, %Vec_PtrFreeDa
   br label %Abc_FrameReplaceCexVec.exit
 
 .loopexit.sink.split:                             ; preds = %68, %57, %46, %35, %24
-  %.str.1017.sink = phi ptr [ @.str.834, %24 ], [ @.str.556, %35 ], [ @.str.882, %46 ], [ @.str.569, %57 ], [ @.str.1017, %68 ]
+  %.str.1017.sink = phi ptr [ @.str.569, %57 ], [ @.str.882, %46 ], [ @.str.556, %35 ], [ @.str.834, %24 ], [ @.str.1017, %68 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1017.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %70, %59, %48, %37, %26, %.loopexit.sink.split
-  %133 = phi i32 [ %22, %.loopexit.sink.split ], [ %22, %26 ], [ %22, %37 ], [ %22, %48 ], [ %22, %59 ], [ %75, %70 ], [ %22, %13 ]
-  %134 = phi i32 [ %21, %.loopexit.sink.split ], [ %21, %26 ], [ %21, %37 ], [ %21, %48 ], [ %64, %59 ], [ %21, %70 ], [ %21, %13 ]
-  %135 = phi i32 [ %20, %.loopexit.sink.split ], [ %20, %26 ], [ %20, %37 ], [ %53, %48 ], [ %20, %59 ], [ %20, %70 ], [ %20, %13 ]
-  %136 = phi i32 [ %19, %.loopexit.sink.split ], [ %19, %26 ], [ %42, %37 ], [ %19, %48 ], [ %19, %59 ], [ %19, %70 ], [ %19, %13 ]
-  %137 = phi i32 [ %18, %.loopexit.sink.split ], [ %31, %26 ], [ %18, %37 ], [ %18, %48 ], [ %18, %59 ], [ %18, %70 ], [ %18, %13 ]
+  %133 = phi i32 [ %22, %.loopexit.sink.split ], [ %22, %37 ], [ %22, %48 ], [ %22, %59 ], [ %75, %70 ], [ %22, %13 ], [ %22, %26 ]
+  %134 = phi i32 [ %21, %.loopexit.sink.split ], [ %21, %37 ], [ %21, %48 ], [ %64, %59 ], [ %21, %70 ], [ %21, %13 ], [ %21, %26 ]
+  %135 = phi i32 [ %20, %.loopexit.sink.split ], [ %20, %37 ], [ %53, %48 ], [ %20, %59 ], [ %20, %70 ], [ %20, %13 ], [ %20, %26 ]
+  %136 = phi i32 [ %19, %.loopexit.sink.split ], [ %42, %37 ], [ %19, %48 ], [ %19, %59 ], [ %19, %70 ], [ %19, %13 ], [ %19, %26 ]
+  %137 = phi i32 [ %18, %.loopexit.sink.split ], [ %18, %37 ], [ %18, %48 ], [ %18, %59 ], [ %18, %70 ], [ %18, %13 ], [ %31, %26 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4375)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4376)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4377, i32 noundef %137)
@@ -80321,10 +80321,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr noundef captu
   br label %76
 
 .loopexit:                                        ; preds = %20, %4, %31, %9, %50, %41, %30, %19, %8
-  %.155 = phi i32 [ %.054.ph, %8 ], [ %.054.ph, %19 ], [ %.054.ph, %30 ], [ %.054.ph, %41 ], [ %.054.ph, %50 ], [ %.054.ph, %20 ], [ %.054.ph, %4 ], [ %.054.ph, %31 ], [ %14, %9 ]
-  %.152 = phi i32 [ %.051.ph270, %8 ], [ %.051.ph270, %19 ], [ %.051.ph270, %30 ], [ %.051.ph270, %41 ], [ %.051.ph270, %50 ], [ %.051.ph270, %31 ], [ %.051.ph270, %4 ], [ %25, %20 ], [ %.051.ph270, %9 ]
-  %.149 = phi i32 [ %.048.ph277, %8 ], [ %.048.ph277, %19 ], [ %.048.ph277, %30 ], [ %.048.ph277, %41 ], [ %.048.ph277, %50 ], [ %.048.ph277, %4 ], [ %36, %31 ], [ %.048.ph277, %20 ], [ %.048.ph277, %9 ]
-  %.147 = phi i32 [ %.046.ph283, %8 ], [ %.046.ph283, %19 ], [ %.046.ph283, %30 ], [ %.046.ph283, %41 ], [ %47, %50 ], [ %.046.ph283, %9 ], [ %.046.ph283, %31 ], [ %.046.ph283, %4 ], [ %.046.ph283, %20 ]
+  %.155 = phi i32 [ %.054.ph, %30 ], [ %.054.ph, %8 ], [ %.054.ph, %50 ], [ %.054.ph, %19 ], [ %.054.ph, %41 ], [ %.054.ph, %31 ], [ %.054.ph, %20 ], [ %.054.ph, %4 ], [ %14, %9 ]
+  %.152 = phi i32 [ %.051.ph270, %30 ], [ %.051.ph270, %8 ], [ %.051.ph270, %50 ], [ %.051.ph270, %19 ], [ %.051.ph270, %41 ], [ %25, %20 ], [ %.051.ph270, %4 ], [ %.051.ph270, %31 ], [ %.051.ph270, %9 ]
+  %.149 = phi i32 [ %.048.ph277, %30 ], [ %.048.ph277, %8 ], [ %.048.ph277, %50 ], [ %.048.ph277, %19 ], [ %.048.ph277, %41 ], [ %.048.ph277, %20 ], [ %36, %31 ], [ %.048.ph277, %4 ], [ %.048.ph277, %9 ]
+  %.147 = phi i32 [ %.046.ph283, %30 ], [ %.046.ph283, %8 ], [ %47, %50 ], [ %.046.ph283, %19 ], [ %.046.ph283, %41 ], [ %.046.ph283, %9 ], [ %.046.ph283, %31 ], [ %.046.ph283, %4 ], [ %.046.ph283, %20 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4388)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4389)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3726, i32 noundef %.155)
@@ -80580,15 +80580,15 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %87, %Vec_PtrFreeDat
   br label %Abc_FrameReplaceCex.exit
 
 .loopexit.sink.split:                             ; preds = %6, %26, %36, %16
-  %.str.4009.sink = phi ptr [ @.str.4009, %36 ], [ @.str.4394, %26 ], [ @.str.2201, %16 ], [ @.str.4021, %6 ]
+  %.str.4009.sink = phi ptr [ @.str.2201, %16 ], [ @.str.4394, %26 ], [ @.str.4009, %36 ], [ @.str.4021, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4009.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %4, %28, %8, %.loopexit.sink.split
-  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %18 ], [ %.050.ph, %38 ], [ %.050.ph, %4 ], [ %.050.ph, %28 ], [ %13, %8 ]
-  %.148 = phi i32 [ %.047.ph224, %.loopexit.sink.split ], [ %.047.ph224, %28 ], [ %.047.ph224, %4 ], [ %.047.ph224, %38 ], [ %23, %18 ], [ %.047.ph224, %8 ]
-  %.145 = phi i32 [ %.044.ph231, %.loopexit.sink.split ], [ %.044.ph231, %38 ], [ %.044.ph231, %4 ], [ %33, %28 ], [ %.044.ph231, %18 ], [ %.044.ph231, %8 ]
-  %.143 = phi i32 [ %.042.ph237, %.loopexit.sink.split ], [ %.042.ph237, %4 ], [ %43, %38 ], [ %.042.ph237, %28 ], [ %.042.ph237, %18 ], [ %.042.ph237, %8 ]
+  %.151 = phi i32 [ %.050.ph, %.loopexit.sink.split ], [ %.050.ph, %28 ], [ %.050.ph, %18 ], [ %.050.ph, %38 ], [ %.050.ph, %4 ], [ %13, %8 ]
+  %.148 = phi i32 [ %.047.ph224, %.loopexit.sink.split ], [ %23, %18 ], [ %.047.ph224, %38 ], [ %.047.ph224, %28 ], [ %.047.ph224, %4 ], [ %.047.ph224, %8 ]
+  %.145 = phi i32 [ %.044.ph231, %.loopexit.sink.split ], [ %.044.ph231, %18 ], [ %33, %28 ], [ %.044.ph231, %4 ], [ %.044.ph231, %38 ], [ %.044.ph231, %8 ]
+  %.143 = phi i32 [ %.042.ph237, %.loopexit.sink.split ], [ %.042.ph237, %18 ], [ %.042.ph237, %28 ], [ %43, %38 ], [ %.042.ph237, %4 ], [ %.042.ph237, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4397)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4389)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3726, i32 noundef %.151)
@@ -80820,19 +80820,19 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr readnone captur
   br label %102
 
 .loopexit.sink.split:                             ; preds = %75, %65, %55, %45, %36, %26, %16, %6
-  %.str.554.sink = phi ptr [ @.str.4401, %6 ], [ @.str.4077, %16 ], [ @.str.913, %26 ], [ @.str.4134, %36 ], [ @.str.2201, %45 ], [ @.str.4021, %55 ], [ @.str.1003, %65 ], [ @.str.554, %75 ]
+  %.str.554.sink = phi ptr [ @.str.1003, %65 ], [ @.str.4021, %55 ], [ @.str.2201, %45 ], [ @.str.4134, %36 ], [ @.str.913, %26 ], [ @.str.4077, %16 ], [ @.str.4401, %6 ], [ @.str.554, %75 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %77, %67, %57, %47, %38, %28, %18, %8, %.loopexit.sink.split
-  %.185 = phi i32 [ %.084, %.loopexit.sink.split ], [ %.084, %4 ], [ %.084, %77 ], [ %.084, %67 ], [ %.084, %57 ], [ %.084, %47 ], [ %.084, %38 ], [ %.084, %28 ], [ %.084, %18 ], [ %13, %8 ]
-  %.182 = phi i32 [ %.081, %.loopexit.sink.split ], [ %.081, %4 ], [ %.081, %77 ], [ %.081, %67 ], [ %.081, %57 ], [ %.081, %47 ], [ %.081, %38 ], [ %.081, %28 ], [ %23, %18 ], [ %.081, %8 ]
-  %.179 = phi i32 [ %.078, %.loopexit.sink.split ], [ %.078, %4 ], [ %.078, %77 ], [ %.078, %67 ], [ %.078, %57 ], [ %.078, %47 ], [ %.078, %38 ], [ %33, %28 ], [ %.078, %18 ], [ %.078, %8 ]
-  %.176 = phi i32 [ %.075, %.loopexit.sink.split ], [ %.075, %4 ], [ %.075, %77 ], [ %.075, %67 ], [ %.075, %57 ], [ %.075, %47 ], [ %43, %38 ], [ %.075, %28 ], [ %.075, %18 ], [ %.075, %8 ]
-  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %4 ], [ %.072, %77 ], [ %.072, %67 ], [ %.072, %57 ], [ %52, %47 ], [ %.072, %38 ], [ %.072, %28 ], [ %.072, %18 ], [ %.072, %8 ]
-  %.170 = phi i32 [ %.069, %.loopexit.sink.split ], [ %.069, %4 ], [ %.069, %77 ], [ %.069, %67 ], [ %62, %57 ], [ %.069, %47 ], [ %.069, %38 ], [ %.069, %28 ], [ %.069, %18 ], [ %.069, %8 ]
-  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %4 ], [ %.066, %77 ], [ %72, %67 ], [ %.066, %57 ], [ %.066, %47 ], [ %.066, %38 ], [ %.066, %28 ], [ %.066, %18 ], [ %.066, %8 ]
-  %.165 = phi i32 [ %.064, %.loopexit.sink.split ], [ %.064, %4 ], [ %82, %77 ], [ %.064, %67 ], [ %.064, %57 ], [ %.064, %47 ], [ %.064, %38 ], [ %.064, %28 ], [ %.064, %18 ], [ %.064, %8 ]
+  %.185 = phi i32 [ %.084, %.loopexit.sink.split ], [ %.084, %67 ], [ %.084, %57 ], [ %.084, %47 ], [ %.084, %38 ], [ %.084, %28 ], [ %.084, %18 ], [ %13, %8 ], [ %.084, %4 ], [ %.084, %77 ]
+  %.182 = phi i32 [ %.081, %.loopexit.sink.split ], [ %.081, %67 ], [ %.081, %57 ], [ %.081, %47 ], [ %.081, %38 ], [ %.081, %28 ], [ %23, %18 ], [ %.081, %8 ], [ %.081, %4 ], [ %.081, %77 ]
+  %.179 = phi i32 [ %.078, %.loopexit.sink.split ], [ %.078, %67 ], [ %.078, %57 ], [ %.078, %47 ], [ %.078, %38 ], [ %33, %28 ], [ %.078, %18 ], [ %.078, %8 ], [ %.078, %4 ], [ %.078, %77 ]
+  %.176 = phi i32 [ %.075, %.loopexit.sink.split ], [ %.075, %67 ], [ %.075, %57 ], [ %.075, %47 ], [ %43, %38 ], [ %.075, %28 ], [ %.075, %18 ], [ %.075, %8 ], [ %.075, %4 ], [ %.075, %77 ]
+  %.173 = phi i32 [ %.072, %.loopexit.sink.split ], [ %.072, %67 ], [ %.072, %57 ], [ %52, %47 ], [ %.072, %38 ], [ %.072, %28 ], [ %.072, %18 ], [ %.072, %8 ], [ %.072, %4 ], [ %.072, %77 ]
+  %.170 = phi i32 [ %.069, %.loopexit.sink.split ], [ %.069, %67 ], [ %62, %57 ], [ %.069, %47 ], [ %.069, %38 ], [ %.069, %28 ], [ %.069, %18 ], [ %.069, %8 ], [ %.069, %4 ], [ %.069, %77 ]
+  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %72, %67 ], [ %.066, %57 ], [ %.066, %47 ], [ %.066, %38 ], [ %.066, %28 ], [ %.066, %18 ], [ %.066, %8 ], [ %.066, %4 ], [ %.066, %77 ]
+  %.165 = phi i32 [ %.064, %.loopexit.sink.split ], [ %.064, %67 ], [ %.064, %57 ], [ %.064, %47 ], [ %.064, %38 ], [ %.064, %28 ], [ %.064, %18 ], [ %.064, %8 ], [ %.064, %4 ], [ %82, %77 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4404)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4405)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4406, i32 noundef %.185)
@@ -81736,8 +81736,8 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %9, %.loopexit.sink.split
-  %.128 = phi i32 [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %19 ], [ %.027.ph, %5 ], [ %14, %9 ]
-  %.126 = phi i32 [ %.025.ph108, %.loopexit.sink.split ], [ %.025.ph108, %5 ], [ %24, %19 ], [ %.025.ph108, %9 ]
+  %.128 = phi i32 [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %5 ], [ %.027.ph, %19 ], [ %14, %9 ]
+  %.126 = phi i32 [ %.025.ph108, %.loopexit.sink.split ], [ %24, %19 ], [ %.025.ph108, %5 ], [ %.025.ph108, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4438)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4439)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4440, i32 noundef %.128)
@@ -81950,14 +81950,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly c
   br label %88
 
 .loopexit.sink.split:                             ; preds = %15, %37, %48, %26
-  %.str.4444.sink = phi ptr [ @.str.4444, %48 ], [ @.str.834, %37 ], [ @.str.689, %26 ], [ @.str.568, %15 ]
+  %.str.4444.sink = phi ptr [ @.str.689, %26 ], [ @.str.834, %37 ], [ @.str.4444, %48 ], [ @.str.568, %15 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4444.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %12, %39, %17, %.loopexit.sink.split
-  %84 = phi i32 [ %.ph202, %.loopexit.sink.split ], [ %.ph202, %12 ], [ %44, %39 ], [ %.ph202, %28 ], [ %.ph202, %17 ]
-  %85 = phi i32 [ %.ph197, %.loopexit.sink.split ], [ %.ph197, %39 ], [ %.ph197, %12 ], [ %33, %28 ], [ %.ph197, %17 ]
-  %86 = phi i32 [ %.ph191, %.loopexit.sink.split ], [ %.ph191, %28 ], [ %.ph191, %12 ], [ %.ph191, %39 ], [ %22, %17 ]
+  %84 = phi i32 [ %.ph202, %.loopexit.sink.split ], [ %.ph202, %28 ], [ %44, %39 ], [ %.ph202, %12 ], [ %.ph202, %17 ]
+  %85 = phi i32 [ %.ph197, %.loopexit.sink.split ], [ %33, %28 ], [ %.ph197, %12 ], [ %.ph197, %39 ], [ %.ph197, %17 ]
+  %86 = phi i32 [ %.ph191, %.loopexit.sink.split ], [ %.ph191, %39 ], [ %.ph191, %28 ], [ %.ph191, %12 ], [ %22, %17 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4449)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4450)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4451, i32 noundef %86)
@@ -81972,7 +81972,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly c
   br label %88
 
 88:                                               ; preds = %.thread68, %.thread, %.loopexit, %82, %65, %61
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %61 ], [ 0, %65 ], [ 0, %82 ], [ 0, %.thread ], [ 0, %.thread68 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %61 ], [ 0, %65 ], [ 0, %82 ], [ 0, %.thread68 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -82145,8 +82145,8 @@ Vec_IntFreeP.exit:                                ; preds = %47, %56
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %.055, %4 ], [ %.055, %18 ], [ %13, %8 ]
-  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %4 ], [ %23, %18 ], [ %.053, %8 ]
+  %.156 = phi i32 [ %.055, %.loopexit.sink.split ], [ %13, %8 ], [ %.055, %4 ], [ %.055, %18 ]
+  %.154 = phi i32 [ %.053, %.loopexit.sink.split ], [ %.053, %8 ], [ %.053, %4 ], [ %23, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4458)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4459)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4460, i32 noundef %.156)
@@ -82305,8 +82305,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   br i1 %or.cond188, label %.loopexit208, label %.backedge
 
 .backedge:                                        ; preds = %25, %57, %46, %35, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %82, %75, %68
-  %.0137.be = phi ptr [ %.0137, %35 ], [ %.0137, %46 ], [ %.0137, %57 ], [ %.0137, %68 ], [ %78, %75 ], [ %.0137, %82 ], [ %.0137, %87 ], [ %.0137, %90 ], [ %.0137, %93 ], [ %.0137, %96 ], [ %.0137, %99 ], [ %.0137, %102 ], [ %.0137, %105 ], [ %.0137, %108 ], [ %.0137, %111 ], [ %.0137, %114 ], [ %.0137, %25 ]
-  %.0135.be = phi ptr [ %.0135, %35 ], [ %.0135, %46 ], [ %.0135, %57 ], [ %.0135, %68 ], [ %.0135, %75 ], [ %85, %82 ], [ %.0135, %87 ], [ %.0135, %90 ], [ %.0135, %93 ], [ %.0135, %96 ], [ %.0135, %99 ], [ %.0135, %102 ], [ %.0135, %105 ], [ %.0135, %108 ], [ %.0135, %111 ], [ %.0135, %114 ], [ %.0135, %25 ]
+  %.0137.be = phi ptr [ %.0137, %25 ], [ %.0137, %35 ], [ %.0137, %46 ], [ %.0137, %57 ], [ %.0137, %68 ], [ %78, %75 ], [ %.0137, %82 ], [ %.0137, %87 ], [ %.0137, %90 ], [ %.0137, %93 ], [ %.0137, %96 ], [ %.0137, %99 ], [ %.0137, %102 ], [ %.0137, %105 ], [ %.0137, %108 ], [ %.0137, %111 ], [ %.0137, %114 ]
+  %.0135.be = phi ptr [ %.0135, %25 ], [ %.0135, %35 ], [ %.0135, %46 ], [ %.0135, %57 ], [ %.0135, %68 ], [ %.0135, %75 ], [ %85, %82 ], [ %.0135, %87 ], [ %.0135, %90 ], [ %.0135, %93 ], [ %.0135, %96 ], [ %.0135, %99 ], [ %.0135, %102 ], [ %.0135, %105 ], [ %.0135, %108 ], [ %.0135, %111 ], [ %.0135, %114 ]
   br label %21, !llvm.loop !1263
 
 33:                                               ; preds = %21
@@ -82709,7 +82709,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   br label %.critedge
 
 .loopexit208.sink.split:                          ; preds = %80, %73, %66, %55, %44, %33, %23
-  %.str.4472.sink = phi ptr [ @.str.1096, %23 ], [ @.str.834, %33 ], [ @.str.579, %44 ], [ @.str.972, %55 ], [ @.str.4471, %66 ], [ @.str.2638, %73 ], [ @.str.4472, %80 ]
+  %.str.4472.sink = phi ptr [ @.str.2638, %73 ], [ @.str.4471, %66 ], [ @.str.972, %55 ], [ @.str.579, %44 ], [ @.str.834, %33 ], [ @.str.1096, %23 ], [ @.str.4472, %80 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4472.sink)
   br label %.loopexit208
 
@@ -82796,7 +82796,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread207, %.thread206, %188, %193, %204, %212, %215, %218, %220, %.loopexit208, %183, %177, %160, %158
-  %.1 = phi i32 [ 1, %.loopexit208 ], [ 0, %158 ], [ 0, %160 ], [ 0, %177 ], [ 0, %183 ], [ 0, %220 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %204 ], [ 0, %193 ], [ 0, %188 ], [ 0, %.thread206 ], [ 0, %.thread207 ]
+  %.1 = phi i32 [ 1, %.loopexit208 ], [ 0, %158 ], [ 0, %160 ], [ 0, %177 ], [ 0, %183 ], [ 0, %188 ], [ 0, %215 ], [ 0, %.thread207 ], [ 0, %.thread206 ], [ 0, %220 ], [ 0, %218 ], [ 0, %212 ], [ 0, %204 ], [ 0, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
@@ -83008,16 +83008,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Qbf(ptr noundef readonly cap
   br label %93
 
 .loopexit.sink.split:                             ; preds = %46, %36, %26, %16, %6
-  %.str.972.sink = phi ptr [ @.str.883, %6 ], [ @.str.1003, %16 ], [ @.str.536, %26 ], [ @.str.834, %36 ], [ @.str.972, %46 ]
+  %.str.972.sink = phi ptr [ @.str.834, %36 ], [ @.str.536, %26 ], [ @.str.1003, %16 ], [ @.str.883, %6 ], [ @.str.972, %46 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.972.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %4 ], [ %.068, %48 ], [ %.068, %38 ], [ %.068, %28 ], [ %.068, %18 ], [ %13, %8 ]
-  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %4 ], [ %.065, %48 ], [ %.065, %38 ], [ %.065, %28 ], [ %23, %18 ], [ %.065, %8 ]
-  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %.062, %4 ], [ %.062, %48 ], [ %.062, %38 ], [ %33, %28 ], [ %.062, %18 ], [ %.062, %8 ]
-  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %.059, %4 ], [ %.059, %48 ], [ %43, %38 ], [ %.059, %28 ], [ %.059, %18 ], [ %.059, %8 ]
-  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %4 ], [ %53, %48 ], [ %.057, %38 ], [ %.057, %28 ], [ %.057, %18 ], [ %.057, %8 ]
+  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %38 ], [ %.068, %28 ], [ %.068, %18 ], [ %13, %8 ], [ %.068, %4 ], [ %.068, %48 ]
+  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %38 ], [ %.065, %28 ], [ %23, %18 ], [ %.065, %8 ], [ %.065, %4 ], [ %.065, %48 ]
+  %.163 = phi i32 [ %.062, %.loopexit.sink.split ], [ %.062, %38 ], [ %33, %28 ], [ %.062, %18 ], [ %.062, %8 ], [ %.062, %4 ], [ %.062, %48 ]
+  %.160 = phi i32 [ %.059, %.loopexit.sink.split ], [ %43, %38 ], [ %.059, %28 ], [ %.059, %18 ], [ %.059, %8 ], [ %.059, %4 ], [ %.059, %48 ]
+  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %38 ], [ %.057, %28 ], [ %.057, %18 ], [ %.057, %8 ], [ %.057, %4 ], [ %53, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4533)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1984)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1985, i32 noundef %.169)
@@ -83406,9 +83406,9 @@ Abc_UtilStrsav.exit:                              ; preds = %42
   br label %78
 
 .loopexit:                                        ; preds = %20, %4, %9, %31, %Abc_UtilStrsav.exit.thread, %41, %30, %19, %8
-  %.155 = phi i32 [ %.054.ph, %8 ], [ %.054.ph, %19 ], [ %.054.ph, %30 ], [ %.054.ph, %41 ], [ %.054.ph, %Abc_UtilStrsav.exit.thread ], [ %.054.ph, %20 ], [ %.054.ph, %4 ], [ %.054.ph, %9 ], [ %36, %31 ]
-  %.152 = phi i32 [ %.051.ph250, %8 ], [ %.051.ph250, %19 ], [ %.051.ph250, %30 ], [ %.051.ph250, %41 ], [ %.051.ph250, %Abc_UtilStrsav.exit.thread ], [ %.051.ph250, %9 ], [ %.051.ph250, %4 ], [ %25, %20 ], [ %.051.ph250, %31 ]
-  %.1 = phi i32 [ %.044, %8 ], [ %.044, %19 ], [ %.044, %30 ], [ %.044, %41 ], [ %.044, %Abc_UtilStrsav.exit.thread ], [ %.044, %4 ], [ %14, %9 ], [ %.044, %20 ], [ %.044, %31 ]
+  %.155 = phi i32 [ %.054.ph, %30 ], [ %.054.ph, %8 ], [ %.054.ph, %Abc_UtilStrsav.exit.thread ], [ %.054.ph, %19 ], [ %.054.ph, %41 ], [ %.054.ph, %9 ], [ %.054.ph, %20 ], [ %.054.ph, %4 ], [ %36, %31 ]
+  %.152 = phi i32 [ %.051.ph250, %30 ], [ %.051.ph250, %8 ], [ %.051.ph250, %Abc_UtilStrsav.exit.thread ], [ %.051.ph250, %19 ], [ %.051.ph250, %41 ], [ %25, %20 ], [ %.051.ph250, %4 ], [ %.051.ph250, %9 ], [ %.051.ph250, %31 ]
+  %.1 = phi i32 [ %.044, %30 ], [ %.044, %8 ], [ %.044, %Abc_UtilStrsav.exit.thread ], [ %.044, %19 ], [ %.044, %41 ], [ %.044, %20 ], [ %.044, %4 ], [ %14, %9 ], [ %.044, %31 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4570)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4571)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4572, i32 noundef %.1)
@@ -83501,7 +83501,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %18, %.loopexit.sink.split
-  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %4 ], [ %.020.ph, %8 ], [ %23, %18 ]
+  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %8 ], [ %.020.ph, %4 ], [ %23, %18 ]
   %.1 = phi i32 [ %.017, %.loopexit.sink.split ], [ %13, %8 ], [ %.017, %4 ], [ %.017, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4577)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4578)
@@ -83620,8 +83620,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %18 ], [ %.026.ph, %4 ], [ %13, %8 ]
-  %.125 = phi i32 [ %.024.ph102, %.loopexit.sink.split ], [ %.024.ph102, %4 ], [ %23, %18 ], [ %.024.ph102, %8 ]
+  %.127 = phi i32 [ %.026.ph, %.loopexit.sink.split ], [ %.026.ph, %4 ], [ %.026.ph, %18 ], [ %13, %8 ]
+  %.125 = phi i32 [ %.024.ph102, %.loopexit.sink.split ], [ %23, %18 ], [ %.024.ph102, %4 ], [ %.024.ph102, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4581)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4582)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4583, i32 noundef %.127)
@@ -83747,7 +83747,7 @@ Vec_StrFree.exit:                                 ; preds = %35, %39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %18, %.loopexit.sink.split
-  %.129 = phi i32 [ %.028.ph, %.loopexit.sink.split ], [ %.028.ph, %4 ], [ %.028.ph, %8 ], [ %23, %18 ]
+  %.129 = phi i32 [ %.028.ph, %.loopexit.sink.split ], [ %.028.ph, %8 ], [ %.028.ph, %4 ], [ %23, %18 ]
   %.1 = phi i32 [ %.023, %.loopexit.sink.split ], [ %13, %8 ], [ %.023, %4 ], [ %.023, %18 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4588)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.800)
@@ -83929,14 +83929,14 @@ Vec_IntFreeP.exit:                                ; preds = %62, %52, %49
   br label %70
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.881, %16 ], [ @.str.568, %6 ]
+  %.str.834.sink = phi ptr [ @.str.881, %16 ], [ @.str.834, %26 ], [ @.str.568, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.138 = phi i32 [ %.037.ph, %.loopexit.sink.split ], [ %.037.ph, %18 ], [ %.037.ph, %4 ], [ %.037.ph, %28 ], [ %13, %8 ]
-  %.135 = phi i32 [ %.034.ph149, %.loopexit.sink.split ], [ %.034.ph149, %28 ], [ %.034.ph149, %4 ], [ %23, %18 ], [ %.034.ph149, %8 ]
-  %.133 = phi i32 [ %.032.ph154, %.loopexit.sink.split ], [ %.032.ph154, %4 ], [ %33, %28 ], [ %.032.ph154, %18 ], [ %.032.ph154, %8 ]
+  %.138 = phi i32 [ %.037.ph, %.loopexit.sink.split ], [ %.037.ph, %28 ], [ %.037.ph, %18 ], [ %.037.ph, %4 ], [ %13, %8 ]
+  %.135 = phi i32 [ %.034.ph149, %.loopexit.sink.split ], [ %23, %18 ], [ %.034.ph149, %4 ], [ %.034.ph149, %28 ], [ %.034.ph149, %8 ]
+  %.133 = phi i32 [ %.032.ph154, %.loopexit.sink.split ], [ %.032.ph154, %18 ], [ %33, %28 ], [ %.032.ph154, %4 ], [ %.032.ph154, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4593)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4594)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4595, i32 noundef %.138)
@@ -84100,14 +84100,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr noundef readonly ca
   br label %Vec_IntFreeP.exit
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.881, %16 ], [ @.str.568, %6 ]
+  %.str.834.sink = phi ptr [ @.str.881, %16 ], [ @.str.834, %26 ], [ @.str.568, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %.036.ph, %28 ], [ %13, %8 ]
-  %.134 = phi i32 [ %.033.ph148, %.loopexit.sink.split ], [ %.033.ph148, %28 ], [ %.033.ph148, %4 ], [ %23, %18 ], [ %.033.ph148, %8 ]
-  %.132 = phi i32 [ %.031.ph153, %.loopexit.sink.split ], [ %.031.ph153, %4 ], [ %33, %28 ], [ %.031.ph153, %18 ], [ %.031.ph153, %8 ]
+  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %28 ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %13, %8 ]
+  %.134 = phi i32 [ %.033.ph148, %.loopexit.sink.split ], [ %23, %18 ], [ %.033.ph148, %4 ], [ %.033.ph148, %28 ], [ %.033.ph148, %8 ]
+  %.132 = phi i32 [ %.031.ph153, %.loopexit.sink.split ], [ %.031.ph153, %18 ], [ %33, %28 ], [ %.031.ph153, %4 ], [ %.031.ph153, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4600)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4594)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4595, i32 noundef %.137)
@@ -84261,14 +84261,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr noundef readonly ca
   br label %58
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.881, %16 ], [ @.str.568, %6 ]
+  %.str.834.sink = phi ptr [ @.str.881, %16 ], [ @.str.834, %26 ], [ @.str.568, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %.036.ph, %28 ], [ %13, %8 ]
-  %.134 = phi i32 [ %.033.ph147, %.loopexit.sink.split ], [ %.033.ph147, %28 ], [ %.033.ph147, %4 ], [ %23, %18 ], [ %.033.ph147, %8 ]
-  %.132 = phi i32 [ %.031.ph152, %.loopexit.sink.split ], [ %.031.ph152, %4 ], [ %33, %28 ], [ %.031.ph152, %18 ], [ %.031.ph152, %8 ]
+  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %28 ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %13, %8 ]
+  %.134 = phi i32 [ %.033.ph147, %.loopexit.sink.split ], [ %23, %18 ], [ %.033.ph147, %4 ], [ %.033.ph147, %28 ], [ %.033.ph147, %8 ]
+  %.132 = phi i32 [ %.031.ph152, %.loopexit.sink.split ], [ %.031.ph152, %18 ], [ %33, %28 ], [ %.031.ph152, %4 ], [ %.031.ph152, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4604)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4594)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4595, i32 noundef %.137)
@@ -84819,16 +84819,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fadds(ptr noundef captures(n
   br label %91
 
 .loopexit.sink.split:                             ; preds = %46, %36, %26, %16, %6
-  %.str.883.sink = phi ptr [ @.str.579, %6 ], [ @.str.786, %16 ], [ @.str.554, %26 ], [ @.str.556, %36 ], [ @.str.883, %46 ]
+  %.str.883.sink = phi ptr [ @.str.556, %36 ], [ @.str.554, %26 ], [ @.str.786, %16 ], [ @.str.579, %6 ], [ @.str.883, %46 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.883.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.181 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %4 ], [ %.080, %48 ], [ %.080, %38 ], [ %.080, %28 ], [ %.080, %18 ], [ %13, %8 ]
-  %.172 = phi i32 [ %.071, %.loopexit.sink.split ], [ %.071, %4 ], [ %.071, %48 ], [ %.071, %38 ], [ %.071, %28 ], [ %23, %18 ], [ %.071, %8 ]
-  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %4 ], [ %.068, %48 ], [ %.068, %38 ], [ %33, %28 ], [ %.068, %18 ], [ %.068, %8 ]
-  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %.065, %4 ], [ %.065, %48 ], [ %43, %38 ], [ %.065, %28 ], [ %.065, %18 ], [ %.065, %8 ]
-  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %4 ], [ %53, %48 ], [ %.063, %38 ], [ %.063, %28 ], [ %.063, %18 ], [ %.063, %8 ]
+  %.181 = phi i32 [ %.080, %.loopexit.sink.split ], [ %.080, %38 ], [ %.080, %28 ], [ %.080, %18 ], [ %13, %8 ], [ %.080, %4 ], [ %.080, %48 ]
+  %.172 = phi i32 [ %.071, %.loopexit.sink.split ], [ %.071, %38 ], [ %.071, %28 ], [ %23, %18 ], [ %.071, %8 ], [ %.071, %4 ], [ %.071, %48 ]
+  %.169 = phi i32 [ %.068, %.loopexit.sink.split ], [ %.068, %38 ], [ %33, %28 ], [ %.068, %18 ], [ %.068, %8 ], [ %.068, %4 ], [ %.068, %48 ]
+  %.166 = phi i32 [ %.065, %.loopexit.sink.split ], [ %43, %38 ], [ %.065, %28 ], [ %.065, %18 ], [ %.065, %8 ], [ %.065, %4 ], [ %.065, %48 ]
+  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %38 ], [ %.063, %28 ], [ %.063, %18 ], [ %.063, %8 ], [ %.063, %4 ], [ %53, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4622)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4623)
   %.not110 = icmp eq i32 %.078, 0
@@ -85642,7 +85642,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   br label %.thread
 
 .thread:                                          ; preds = %151, %.thread146, %189, %144, %150, %130, %.loopexit, %190, %115
-  %.1 = phi i32 [ 1, %.loopexit ], [ %.0105, %115 ], [ %.3, %189 ], [ 1, %190 ], [ 1, %144 ], [ 0, %150 ], [ 1, %130 ], [ 0, %.thread146 ], [ 0, %151 ]
+  %.1 = phi i32 [ 1, %.loopexit ], [ %.0105, %115 ], [ 1, %130 ], [ 1, %190 ], [ %.3, %189 ], [ 1, %144 ], [ 0, %150 ], [ 0, %.thread146 ], [ 0, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -86008,14 +86008,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr noundef readonl
   br label %.thread144
 
 .loopexit.sink.split:                             ; preds = %17, %27, %7, %50
-  %.str.4683.sink = phi ptr [ @.str.4683, %50 ], [ @.str.536, %27 ], [ @.str.1016, %17 ], [ @.str.952, %7 ]
+  %.str.4683.sink = phi ptr [ @.str.4683, %50 ], [ @.str.1016, %17 ], [ @.str.536, %27 ], [ @.str.952, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4683.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %29, %9, %.loopexit.sink.split
-  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %19 ], [ %.053.ph, %5 ], [ %.053.ph, %29 ], [ %14, %9 ]
-  %.151 = phi i32 [ %.050.ph186, %.loopexit.sink.split ], [ %.050.ph186, %29 ], [ %.050.ph186, %5 ], [ %24, %19 ], [ %.050.ph186, %9 ]
-  %.149 = phi i32 [ %.048.ph191, %.loopexit.sink.split ], [ %.048.ph191, %5 ], [ %34, %29 ], [ %.048.ph191, %19 ], [ %.048.ph191, %9 ]
+  %.154 = phi i32 [ %.053.ph, %.loopexit.sink.split ], [ %.053.ph, %29 ], [ %.053.ph, %19 ], [ %.053.ph, %5 ], [ %14, %9 ]
+  %.151 = phi i32 [ %.050.ph186, %.loopexit.sink.split ], [ %24, %19 ], [ %.050.ph186, %5 ], [ %.050.ph186, %29 ], [ %.050.ph186, %9 ]
+  %.149 = phi i32 [ %.048.ph191, %.loopexit.sink.split ], [ %.048.ph191, %19 ], [ %34, %29 ], [ %.048.ph191, %5 ], [ %.048.ph191, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4687)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4688)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4689, i32 noundef %.154)
@@ -86316,7 +86316,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr noundef captures(non
   br label %163
 
 .loopexit.sink.split:                             ; preds = %85, %74, %64, %53, %42, %31, %20
-  %.str.579.sink = phi ptr [ @.str.881, %20 ], [ @.str.568, %31 ], [ @.str.555, %42 ], [ @.str.882, %53 ], [ @.str.556, %64 ], [ @.str.536, %74 ], [ @.str.579, %85 ]
+  %.str.579.sink = phi ptr [ @.str.536, %74 ], [ @.str.556, %64 ], [ @.str.882, %53 ], [ @.str.555, %42 ], [ @.str.568, %31 ], [ @.str.881, %20 ], [ @.str.579, %85 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.579.sink)
   br label %.loopexit
 
@@ -86636,7 +86636,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr noundef captures(no
   br label %160
 
 .loopexit.sink.split:                             ; preds = %97, %86, %75, %64, %53, %42, %31, %20
-  %.str.536.sink = phi ptr [ @.str.972, %20 ], [ @.str.554, %31 ], [ @.str.579, %42 ], [ @.str.883, %53 ], [ @.str.881, %64 ], [ @.str.568, %75 ], [ @.str.882, %86 ], [ @.str.536, %97 ]
+  %.str.536.sink = phi ptr [ @.str.882, %86 ], [ @.str.568, %75 ], [ @.str.881, %64 ], [ @.str.883, %53 ], [ @.str.579, %42 ], [ @.str.554, %31 ], [ @.str.972, %20 ], [ @.str.536, %97 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.536.sink)
   br label %.loopexit
 
@@ -86860,16 +86860,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr noundef captures
   br label %69
 
 .loopexit.sink.split:                             ; preds = %6, %26, %46, %36, %16
-  %.str.554.sink = phi ptr [ @.str.554, %46 ], [ @.str.1096, %36 ], [ @.str.834, %26 ], [ @.str.2872, %16 ], [ @.str.1003, %6 ]
+  %.str.554.sink = phi ptr [ @.str.2872, %16 ], [ @.str.834, %26 ], [ @.str.1096, %36 ], [ @.str.554, %46 ], [ @.str.1003, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %4, %48, %28, %8, %.loopexit.sink.split
-  %.152 = phi i32 [ %.051.ph, %.loopexit.sink.split ], [ %.051.ph, %18 ], [ %.051.ph, %38 ], [ %.051.ph, %4 ], [ %.051.ph, %48 ], [ %.051.ph, %28 ], [ %13, %8 ]
-  %.149 = phi i32 [ %.048.ph244, %.loopexit.sink.split ], [ %.048.ph244, %28 ], [ %.048.ph244, %48 ], [ %.048.ph244, %4 ], [ %.048.ph244, %38 ], [ %23, %18 ], [ %.048.ph244, %8 ]
-  %.146 = phi i32 [ %.045.ph251, %.loopexit.sink.split ], [ %.045.ph251, %38 ], [ %.045.ph251, %4 ], [ %.045.ph251, %48 ], [ %33, %28 ], [ %.045.ph251, %18 ], [ %.045.ph251, %8 ]
-  %.143 = phi i32 [ %.042.ph257, %.loopexit.sink.split ], [ %.042.ph257, %48 ], [ %.042.ph257, %4 ], [ %43, %38 ], [ %.042.ph257, %28 ], [ %.042.ph257, %18 ], [ %.042.ph257, %8 ]
-  %.141 = phi i32 [ %.040.ph262, %.loopexit.sink.split ], [ %.040.ph262, %4 ], [ %53, %48 ], [ %.040.ph262, %38 ], [ %.040.ph262, %28 ], [ %.040.ph262, %18 ], [ %.040.ph262, %8 ]
+  %.152 = phi i32 [ %.051.ph, %.loopexit.sink.split ], [ %.051.ph, %28 ], [ %.051.ph, %18 ], [ %.051.ph, %38 ], [ %.051.ph, %4 ], [ %.051.ph, %48 ], [ %13, %8 ]
+  %.149 = phi i32 [ %.048.ph244, %.loopexit.sink.split ], [ %23, %18 ], [ %.048.ph244, %38 ], [ %.048.ph244, %28 ], [ %.048.ph244, %48 ], [ %.048.ph244, %4 ], [ %.048.ph244, %8 ]
+  %.146 = phi i32 [ %.045.ph251, %.loopexit.sink.split ], [ %.045.ph251, %18 ], [ %33, %28 ], [ %.045.ph251, %48 ], [ %.045.ph251, %38 ], [ %.045.ph251, %4 ], [ %.045.ph251, %8 ]
+  %.143 = phi i32 [ %.042.ph257, %.loopexit.sink.split ], [ %.042.ph257, %18 ], [ %.042.ph257, %28 ], [ %43, %38 ], [ %.042.ph257, %4 ], [ %.042.ph257, %48 ], [ %.042.ph257, %8 ]
+  %.141 = phi i32 [ %.040.ph262, %.loopexit.sink.split ], [ %.040.ph262, %18 ], [ %.040.ph262, %28 ], [ %.040.ph262, %38 ], [ %53, %48 ], [ %.040.ph262, %4 ], [ %.040.ph262, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4720)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4721)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4722, i32 noundef %.152)
@@ -87020,14 +87020,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr noundef captures(
   br label %52
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.834.sink = phi ptr [ @.str.834, %26 ], [ @.str.689, %16 ], [ @.str.579, %6 ]
+  %.str.834.sink = phi ptr [ @.str.689, %16 ], [ @.str.834, %26 ], [ @.str.579, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.834.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.141 = phi i32 [ %.040.ph, %.loopexit.sink.split ], [ %.040.ph, %18 ], [ %.040.ph, %4 ], [ %.040.ph, %28 ], [ %13, %8 ]
-  %.138 = phi i32 [ %.037.ph168, %.loopexit.sink.split ], [ %.037.ph168, %28 ], [ %.037.ph168, %4 ], [ %23, %18 ], [ %.037.ph168, %8 ]
-  %.136 = phi i32 [ %.035.ph174, %.loopexit.sink.split ], [ %.035.ph174, %4 ], [ %33, %28 ], [ %.035.ph174, %18 ], [ %.035.ph174, %8 ]
+  %.141 = phi i32 [ %.040.ph, %.loopexit.sink.split ], [ %.040.ph, %28 ], [ %.040.ph, %18 ], [ %.040.ph, %4 ], [ %13, %8 ]
+  %.138 = phi i32 [ %.037.ph168, %.loopexit.sink.split ], [ %23, %18 ], [ %.037.ph168, %4 ], [ %.037.ph168, %28 ], [ %.037.ph168, %8 ]
+  %.136 = phi i32 [ %.035.ph174, %.loopexit.sink.split ], [ %.035.ph174, %18 ], [ %33, %28 ], [ %.035.ph174, %4 ], [ %.035.ph174, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4730)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4721)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4731, i32 noundef %.141)
@@ -87248,11 +87248,11 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %72
   br label %82
 
 .loopexit:                                        ; preds = %20, %42, %4, %53, %31, %9, %71, %52, %41, %30, %19, %8
-  %.149 = phi i32 [ %.048.ph, %8 ], [ %.048.ph, %19 ], [ %.048.ph, %30 ], [ %.048.ph, %41 ], [ %.048.ph, %52 ], [ %.048.ph, %71 ], [ %.048.ph, %20 ], [ %.048.ph, %42 ], [ %.048.ph, %4 ], [ %.048.ph, %53 ], [ %.048.ph, %31 ], [ %14, %9 ]
-  %.146 = phi i32 [ %.045.ph243, %8 ], [ %.045.ph243, %19 ], [ %.045.ph243, %30 ], [ %.045.ph243, %41 ], [ %.045.ph243, %52 ], [ %.045.ph243, %71 ], [ %.045.ph243, %31 ], [ %.045.ph243, %53 ], [ %.045.ph243, %4 ], [ %.045.ph243, %42 ], [ %25, %20 ], [ %.045.ph243, %9 ]
-  %.143 = phi i32 [ %.042.ph249, %8 ], [ %.042.ph249, %19 ], [ %.042.ph249, %30 ], [ %.042.ph249, %41 ], [ %.042.ph249, %52 ], [ %.042.ph249, %71 ], [ %.042.ph249, %42 ], [ %.042.ph249, %4 ], [ %.042.ph249, %53 ], [ %36, %31 ], [ %.042.ph249, %20 ], [ %.042.ph249, %9 ]
-  %.140 = phi i32 [ %.039.ph254, %8 ], [ %.039.ph254, %19 ], [ %.039.ph254, %30 ], [ %.039.ph254, %41 ], [ %.039.ph254, %52 ], [ %.039.ph254, %71 ], [ %.039.ph254, %53 ], [ %.039.ph254, %4 ], [ %47, %42 ], [ %.039.ph254, %31 ], [ %.039.ph254, %20 ], [ %.039.ph254, %9 ]
-  %.138 = phi i32 [ %.037.ph258, %8 ], [ %.037.ph258, %19 ], [ %.037.ph258, %30 ], [ %.037.ph258, %41 ], [ %.037.ph258, %52 ], [ %.037.ph258, %71 ], [ %.037.ph258, %4 ], [ %58, %53 ], [ %.037.ph258, %42 ], [ %.037.ph258, %31 ], [ %.037.ph258, %20 ], [ %.037.ph258, %9 ]
+  %.149 = phi i32 [ %.048.ph, %52 ], [ %.048.ph, %8 ], [ %.048.ph, %41 ], [ %.048.ph, %19 ], [ %.048.ph, %71 ], [ %.048.ph, %30 ], [ %.048.ph, %31 ], [ %.048.ph, %20 ], [ %.048.ph, %42 ], [ %.048.ph, %4 ], [ %.048.ph, %53 ], [ %14, %9 ]
+  %.146 = phi i32 [ %.045.ph243, %52 ], [ %.045.ph243, %8 ], [ %.045.ph243, %41 ], [ %.045.ph243, %19 ], [ %.045.ph243, %71 ], [ %.045.ph243, %30 ], [ %25, %20 ], [ %.045.ph243, %42 ], [ %.045.ph243, %31 ], [ %.045.ph243, %53 ], [ %.045.ph243, %4 ], [ %.045.ph243, %9 ]
+  %.143 = phi i32 [ %.042.ph249, %52 ], [ %.042.ph249, %8 ], [ %.042.ph249, %41 ], [ %.042.ph249, %19 ], [ %.042.ph249, %71 ], [ %.042.ph249, %30 ], [ %.042.ph249, %20 ], [ %36, %31 ], [ %.042.ph249, %53 ], [ %.042.ph249, %42 ], [ %.042.ph249, %4 ], [ %.042.ph249, %9 ]
+  %.140 = phi i32 [ %.039.ph254, %52 ], [ %.039.ph254, %8 ], [ %.039.ph254, %41 ], [ %.039.ph254, %19 ], [ %.039.ph254, %71 ], [ %.039.ph254, %30 ], [ %.039.ph254, %20 ], [ %.039.ph254, %31 ], [ %47, %42 ], [ %.039.ph254, %4 ], [ %.039.ph254, %53 ], [ %.039.ph254, %9 ]
+  %.138 = phi i32 [ %.037.ph258, %52 ], [ %.037.ph258, %8 ], [ %.037.ph258, %41 ], [ %.037.ph258, %19 ], [ %.037.ph258, %71 ], [ %.037.ph258, %30 ], [ %.037.ph258, %20 ], [ %.037.ph258, %31 ], [ %.037.ph258, %42 ], [ %58, %53 ], [ %.037.ph258, %4 ], [ %.037.ph258, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4738)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4739)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4740, i32 noundef %.149)
@@ -87268,7 +87268,7 @@ Abc_UtilStrsav.exit.thread:                       ; preds = %72
   br label %82
 
 82:                                               ; preds = %Abc_UtilStrsav.exit.thread, %76, %.loopexit, %67
-  %.051 = phi i32 [ 1, %.loopexit ], [ 0, %67 ], [ 0, %76 ], [ 0, %Abc_UtilStrsav.exit.thread ]
+  %.051 = phi i32 [ 1, %.loopexit ], [ 0, %67 ], [ 0, %Abc_UtilStrsav.exit.thread ], [ 0, %76 ]
   ret i32 %.051
 }
 
@@ -87891,8 +87891,8 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %67, %Vec_PtrFreeDat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.131 = phi i32 [ %.030.ph, %.loopexit.sink.split ], [ %.030.ph, %18 ], [ %.030.ph, %4 ], [ %13, %8 ]
-  %.129 = phi i32 [ %.028.ph95, %.loopexit.sink.split ], [ %.028.ph95, %4 ], [ %23, %18 ], [ %.028.ph95, %8 ]
+  %.131 = phi i32 [ %.030.ph, %.loopexit.sink.split ], [ %.030.ph, %4 ], [ %.030.ph, %18 ], [ %13, %8 ]
+  %.129 = phi i32 [ %.028.ph95, %.loopexit.sink.split ], [ %23, %18 ], [ %.028.ph95, %4 ], [ %.028.ph95, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4768)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4769)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4770, i32 noundef %.131)
@@ -88039,8 +88039,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.132 = phi i32 [ %.031.ph155, %.loopexit.sink.split ], [ %.031.ph155, %18 ], [ %.031.ph155, %4 ], [ %13, %8 ]
-  %.130 = phi i32 [ %.029.ph159, %.loopexit.sink.split ], [ %.029.ph159, %4 ], [ %23, %18 ], [ %.029.ph159, %8 ]
+  %.132 = phi i32 [ %.031.ph155, %.loopexit.sink.split ], [ %.031.ph155, %4 ], [ %.031.ph155, %18 ], [ %13, %8 ]
+  %.130 = phi i32 [ %.029.ph159, %.loopexit.sink.split ], [ %23, %18 ], [ %.029.ph159, %4 ], [ %.029.ph159, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4775)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4776)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4777, i32 noundef %.132)
@@ -88699,7 +88699,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %365
 
 .loopexit.sink.split:                             ; preds = %162, %155, %144, %133, %122, %111, %100, %89, %78, %67, %56, %45, %34
-  %.str.730.sink = phi ptr [ @.str.568, %34 ], [ @.str.554, %45 ], [ @.str.536, %56 ], [ @.str.882, %67 ], [ @.str.555, %78 ], [ @.str.883, %89 ], [ @.str.834, %100 ], [ @.str.537, %111 ], [ @.str.952, %122 ], [ @.str.883, %133 ], [ @.str.786, %144 ], [ @.str.1760, %155 ], [ @.str.730, %162 ]
+  %.str.730.sink = phi ptr [ @.str.1760, %155 ], [ @.str.786, %144 ], [ @.str.883, %133 ], [ @.str.952, %122 ], [ @.str.537, %111 ], [ @.str.834, %100 ], [ @.str.883, %89 ], [ @.str.555, %78 ], [ @.str.882, %67 ], [ @.str.536, %56 ], [ @.str.554, %45 ], [ @.str.568, %34 ], [ @.str.730, %162 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.730.sink)
   br label %.loopexit
 
@@ -89115,7 +89115,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr noundef captures(non
   br label %192
 
 .loopexit.sink.split:                             ; preds = %120, %109, %98, %87, %76, %65, %54, %43, %32, %21
-  %.str.1760.sink = phi ptr [ @.str.568, %21 ], [ @.str.554, %32 ], [ @.str.883, %43 ], [ @.str.536, %54 ], [ @.str.556, %65 ], [ @.str.555, %76 ], [ @.str.1018, %87 ], [ @.str.834, %98 ], [ @.str.537, %109 ], [ @.str.1760, %120 ]
+  %.str.1760.sink = phi ptr [ @.str.537, %109 ], [ @.str.834, %98 ], [ @.str.1018, %87 ], [ @.str.555, %76 ], [ @.str.556, %65 ], [ @.str.536, %54 ], [ @.str.883, %43 ], [ @.str.554, %32 ], [ @.str.568, %21 ], [ @.str.1760, %120 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.1760.sink)
   br label %.loopexit
 
@@ -89414,7 +89414,7 @@ Vec_IntFreeP.exit:                                ; preds = %35, %44
   br label %Vec_IntFreeP.exit32
 
 .loopexit:                                        ; preds = %6, %11, %10
-  %.1 = phi i32 [ %.0, %10 ], [ %.0, %6 ], [ %16, %11 ]
+  %.1 = phi i32 [ %.0, %10 ], [ %16, %11 ], [ %.0, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4830)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4831)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4832, i32 noundef %.1)
@@ -89826,18 +89826,18 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr noundef captures(non
   br label %84
 
 .loopexit.sink.split:                             ; preds = %66, %56, %46, %36, %26, %16, %6
-  %.str.882.sink = phi ptr [ @.str.1096, %6 ], [ @.str.972, %16 ], [ @.str.579, %26 ], [ @.str.555, %36 ], [ @.str.556, %46 ], [ @.str.786, %56 ], [ @.str.882, %66 ]
+  %.str.882.sink = phi ptr [ @.str.786, %56 ], [ @.str.556, %46 ], [ @.str.555, %36 ], [ @.str.579, %26 ], [ @.str.972, %16 ], [ @.str.1096, %6 ], [ @.str.882, %66 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.882.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %68, %58, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %4 ], [ %.066, %68 ], [ %.066, %58 ], [ %.066, %48 ], [ %.066, %38 ], [ %.066, %28 ], [ %.066, %18 ], [ %13, %8 ]
-  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %4 ], [ %.063, %68 ], [ %.063, %58 ], [ %.063, %48 ], [ %.063, %38 ], [ %.063, %28 ], [ %23, %18 ], [ %.063, %8 ]
-  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %4 ], [ %.060, %68 ], [ %.060, %58 ], [ %.060, %48 ], [ %.060, %38 ], [ %33, %28 ], [ %.060, %18 ], [ %.060, %8 ]
-  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %4 ], [ %.057, %68 ], [ %.057, %58 ], [ %.057, %48 ], [ %43, %38 ], [ %.057, %28 ], [ %.057, %18 ], [ %.057, %8 ]
-  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %4 ], [ %.054, %68 ], [ %.054, %58 ], [ %53, %48 ], [ %.054, %38 ], [ %.054, %28 ], [ %.054, %18 ], [ %.054, %8 ]
-  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %.051, %4 ], [ %.051, %68 ], [ %63, %58 ], [ %.051, %48 ], [ %.051, %38 ], [ %.051, %28 ], [ %.051, %18 ], [ %.051, %8 ]
-  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %4 ], [ %73, %68 ], [ %.049, %58 ], [ %.049, %48 ], [ %.049, %38 ], [ %.049, %28 ], [ %.049, %18 ], [ %.049, %8 ]
+  %.167 = phi i32 [ %.066, %.loopexit.sink.split ], [ %.066, %58 ], [ %.066, %48 ], [ %.066, %38 ], [ %.066, %28 ], [ %.066, %18 ], [ %13, %8 ], [ %.066, %4 ], [ %.066, %68 ]
+  %.164 = phi i32 [ %.063, %.loopexit.sink.split ], [ %.063, %58 ], [ %.063, %48 ], [ %.063, %38 ], [ %.063, %28 ], [ %23, %18 ], [ %.063, %8 ], [ %.063, %4 ], [ %.063, %68 ]
+  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %58 ], [ %.060, %48 ], [ %.060, %38 ], [ %33, %28 ], [ %.060, %18 ], [ %.060, %8 ], [ %.060, %4 ], [ %.060, %68 ]
+  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %58 ], [ %.057, %48 ], [ %43, %38 ], [ %.057, %28 ], [ %.057, %18 ], [ %.057, %8 ], [ %.057, %4 ], [ %.057, %68 ]
+  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %58 ], [ %53, %48 ], [ %.054, %38 ], [ %.054, %28 ], [ %.054, %18 ], [ %.054, %8 ], [ %.054, %4 ], [ %.054, %68 ]
+  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %63, %58 ], [ %.051, %48 ], [ %.051, %38 ], [ %.051, %28 ], [ %.051, %18 ], [ %.051, %8 ], [ %.051, %4 ], [ %.051, %68 ]
+  %.150 = phi i32 [ %.049, %.loopexit.sink.split ], [ %.049, %58 ], [ %.049, %48 ], [ %.049, %38 ], [ %.049, %28 ], [ %.049, %18 ], [ %.049, %8 ], [ %.049, %4 ], [ %73, %68 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4842)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4843)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4844, i32 noundef %.167)
@@ -90013,16 +90013,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr noundef readonly cap
   br label %75
 
 .loopexit.sink.split:                             ; preds = %46, %36, %26, %16, %6
-  %.str.883.sink = phi ptr [ @.str.556, %6 ], [ @.str.579, %16 ], [ @.str.557, %26 ], [ @.str.537, %36 ], [ @.str.883, %46 ]
+  %.str.883.sink = phi ptr [ @.str.537, %36 ], [ @.str.557, %26 ], [ @.str.579, %16 ], [ @.str.556, %6 ], [ @.str.883, %46 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.883.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %48, %38, %28, %18, %8, %.loopexit.sink.split
-  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %4 ], [ %.060, %48 ], [ %.060, %38 ], [ %.060, %28 ], [ %.060, %18 ], [ %13, %8 ]
-  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %4 ], [ %.057, %48 ], [ %.057, %38 ], [ %.057, %28 ], [ %23, %18 ], [ %.057, %8 ]
-  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %4 ], [ %.054, %48 ], [ %.054, %38 ], [ %33, %28 ], [ %.054, %18 ], [ %.054, %8 ]
-  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %.051, %4 ], [ %.051, %48 ], [ %43, %38 ], [ %.051, %28 ], [ %.051, %18 ], [ %.051, %8 ]
-  %.144 = phi float [ %.043, %.loopexit.sink.split ], [ %.043, %4 ], [ %53, %48 ], [ %.043, %38 ], [ %.043, %28 ], [ %.043, %18 ], [ %.043, %8 ]
+  %.161 = phi i32 [ %.060, %.loopexit.sink.split ], [ %.060, %38 ], [ %.060, %28 ], [ %.060, %18 ], [ %13, %8 ], [ %.060, %4 ], [ %.060, %48 ]
+  %.158 = phi i32 [ %.057, %.loopexit.sink.split ], [ %.057, %38 ], [ %.057, %28 ], [ %23, %18 ], [ %.057, %8 ], [ %.057, %4 ], [ %.057, %48 ]
+  %.155 = phi i32 [ %.054, %.loopexit.sink.split ], [ %.054, %38 ], [ %33, %28 ], [ %.054, %18 ], [ %.054, %8 ], [ %.054, %4 ], [ %.054, %48 ]
+  %.152 = phi i32 [ %.051, %.loopexit.sink.split ], [ %43, %38 ], [ %.051, %28 ], [ %.051, %18 ], [ %.051, %8 ], [ %.051, %4 ], [ %.051, %48 ]
+  %.144 = phi float [ %.043, %.loopexit.sink.split ], [ %.043, %38 ], [ %.043, %28 ], [ %.043, %18 ], [ %.043, %8 ], [ %.043, %4 ], [ %53, %48 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4854)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4855)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4856, i32 noundef %.161)
@@ -90169,14 +90169,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr readnone capture
   br label %46
 
 .loopexit.sink.split:                             ; preds = %6, %26, %16
-  %.str.554.sink = phi ptr [ @.str.554, %26 ], [ @.str.786, %16 ], [ @.str.1096, %6 ]
+  %.str.554.sink = phi ptr [ @.str.786, %16 ], [ @.str.554, %26 ], [ @.str.1096, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.554.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %28, %8, %.loopexit.sink.split
-  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %.036.ph, %28 ], [ %13, %8 ]
-  %.134 = phi i32 [ %.033.ph161, %.loopexit.sink.split ], [ %.033.ph161, %28 ], [ %.033.ph161, %4 ], [ %23, %18 ], [ %.033.ph161, %8 ]
-  %.132 = phi i32 [ %.031.ph167, %.loopexit.sink.split ], [ %.031.ph167, %4 ], [ %33, %28 ], [ %.031.ph167, %18 ], [ %.031.ph167, %8 ]
+  %.137 = phi i32 [ %.036.ph, %.loopexit.sink.split ], [ %.036.ph, %28 ], [ %.036.ph, %18 ], [ %.036.ph, %4 ], [ %13, %8 ]
+  %.134 = phi i32 [ %.033.ph161, %.loopexit.sink.split ], [ %23, %18 ], [ %.033.ph161, %4 ], [ %.033.ph161, %28 ], [ %.033.ph161, %8 ]
+  %.132 = phi i32 [ %.031.ph167, %.loopexit.sink.split ], [ %.031.ph167, %18 ], [ %33, %28 ], [ %.031.ph167, %4 ], [ %.031.ph167, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4865)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4866)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4867, i32 noundef %.137)
@@ -90766,10 +90766,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr noundef capture
   br label %.thread150
 
 .thread150:                                       ; preds = %96, %.critedge135.thread
-  %.6159 = phi i1 [ %.6169, %96 ], [ %.6, %.critedge135.thread ]
-  %.096158 = phi ptr [ %.096168, %96 ], [ %.096, %.critedge135.thread ]
-  %.088143157 = phi ptr [ %.088143167, %96 ], [ %.088143, %.critedge135.thread ]
-  %.087146156 = phi ptr [ %.087146166, %96 ], [ %.087146, %.critedge135.thread ]
+  %.6159 = phi i1 [ %.6, %.critedge135.thread ], [ %.6169, %96 ]
+  %.096158 = phi ptr [ %.096, %.critedge135.thread ], [ %.096168, %96 ]
+  %.088143157 = phi ptr [ %.088143, %.critedge135.thread ], [ %.088143167, %96 ]
+  %.087146156 = phi ptr [ %.087146, %.critedge135.thread ], [ %.087146166, %96 ]
   call void @Gia_ManStop(ptr noundef nonnull %58) #35
   %.not123 = icmp eq ptr %.088143157, null
   br i1 %.not123, label %98, label %97
@@ -91121,13 +91121,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenCex(ptr noundef readonly 
   br label %54
 
 .loopexit.sink.split:                             ; preds = %26, %16, %6
-  %.str.2638.sink = phi ptr [ @.str.536, %6 ], [ @.str.882, %16 ], [ @.str.2638, %26 ]
+  %.str.2638.sink = phi ptr [ @.str.882, %16 ], [ @.str.536, %6 ], [ @.str.2638, %26 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2638.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %18, %8, %.loopexit.sink.split
-  %.146 = phi i32 [ %.045, %.loopexit.sink.split ], [ %.045, %4 ], [ %.045, %18 ], [ %13, %8 ]
-  %.144 = phi i32 [ %.043, %.loopexit.sink.split ], [ %.043, %4 ], [ %23, %18 ], [ %.043, %8 ]
+  %.146 = phi i32 [ %.045, %.loopexit.sink.split ], [ %.045, %18 ], [ %13, %8 ], [ %.045, %4 ]
+  %.144 = phi i32 [ %.043, %.loopexit.sink.split ], [ %23, %18 ], [ %.043, %8 ], [ %.043, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4933)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4934)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4935, i32 noundef %.146)
@@ -91403,8 +91403,8 @@ Vec_IntPush.exit:                                 ; preds = %34
   br label %Vec_IntPush.exit71.sink.split
 
 Vec_IntPush.exit71.sink.split:                    ; preds = %65, %67, %57, %59
-  %.sink137 = phi ptr [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ]
-  %.sink = phi i32 [ 16, %57 ], [ 16, %59 ], [ %62, %65 ], [ %62, %67 ]
+  %.sink137 = phi ptr [ %60, %59 ], [ %58, %57 ], [ %66, %65 ], [ %68, %67 ]
+  %.sink = phi i32 [ 16, %59 ], [ 16, %57 ], [ %62, %65 ], [ %62, %67 ]
   store ptr %.sink137, ptr %40, align 8, !tbaa !38
   store i32 %.sink, ptr %37, align 8, !tbaa !41
   br label %Vec_IntPush.exit71
@@ -91464,8 +91464,8 @@ Vec_IntPush.exit71:                               ; preds = %Vec_IntPush.exit71.
   br label %Vec_IntPush.exit78.sink.split
 
 Vec_IntPush.exit78.sink.split:                    ; preds = %90, %92, %82, %84
-  %.sink139 = phi ptr [ %83, %82 ], [ %85, %84 ], [ %91, %90 ], [ %93, %92 ]
-  %.sink138 = phi i32 [ 16, %82 ], [ 16, %84 ], [ %87, %90 ], [ %87, %92 ]
+  %.sink139 = phi ptr [ %85, %84 ], [ %83, %82 ], [ %91, %90 ], [ %93, %92 ]
+  %.sink138 = phi i32 [ 16, %84 ], [ 16, %82 ], [ %87, %90 ], [ %87, %92 ]
   store ptr %.sink139, ptr %40, align 8, !tbaa !38
   store i32 %.sink138, ptr %37, align 8, !tbaa !41
   br label %Vec_IntPush.exit78
@@ -91531,8 +91531,8 @@ Vec_IntPush.exit78:                               ; preds = %Vec_IntPush.exit78.
   br label %Vec_IntPush.exit85.sink.split
 
 Vec_IntPush.exit85.sink.split:                    ; preds = %121, %123, %113, %115
-  %.sink141 = phi ptr [ %114, %113 ], [ %116, %115 ], [ %122, %121 ], [ %124, %123 ]
-  %.sink140 = phi i32 [ 16, %113 ], [ 16, %115 ], [ %118, %121 ], [ %118, %123 ]
+  %.sink141 = phi ptr [ %116, %115 ], [ %114, %113 ], [ %122, %121 ], [ %124, %123 ]
+  %.sink140 = phi i32 [ 16, %115 ], [ 16, %113 ], [ %118, %121 ], [ %118, %123 ]
   store ptr %.sink141, ptr %40, align 8, !tbaa !38
   store i32 %.sink140, ptr %37, align 8, !tbaa !41
   br label %Vec_IntPush.exit85
@@ -91728,7 +91728,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenMux(ptr noundef captures(
   br label %47
 
 47:                                               ; preds = %.critedge, %.loopexit, %._crit_edge.thread, %43, %27
-  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %43 ], [ 0, %.critedge ]
+  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %.critedge ], [ 0, %43 ]
   ret i32 %.041
 }
 
@@ -92150,8 +92150,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Window(ptr noundef captures(
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %47, %49, %39, %41
-  %.sink44 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
-  %.sink = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
+  %.sink44 = phi ptr [ %42, %41 ], [ %40, %39 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink = phi i32 [ 16, %41 ], [ 16, %39 ], [ %44, %47 ], [ %44, %49 ]
   store ptr %.sink44, ptr %25, align 8, !tbaa !38
   store i32 %.sink, ptr %22, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -92466,8 +92466,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.160 = phi i32 [ %.059.ph, %.loopexit.sink.split ], [ %.059.ph, %18 ], [ %.059.ph, %4 ], [ %13, %8 ]
-  %.158 = phi i32 [ %.057.ph172, %.loopexit.sink.split ], [ %.057.ph172, %4 ], [ %23, %18 ], [ %.057.ph172, %8 ]
+  %.160 = phi i32 [ %.059.ph, %.loopexit.sink.split ], [ %.059.ph, %4 ], [ %.059.ph, %18 ], [ %13, %8 ]
+  %.158 = phi i32 [ %.057.ph172, %.loopexit.sink.split ], [ %23, %18 ], [ %.057.ph172, %4 ], [ %.057.ph172, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5001)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5002)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5003, i32 noundef %.160)
@@ -92733,7 +92733,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DsdInfo(ptr noundef readonly
   br label %.loopexit
 
 .loopexit109:                                     ; preds = %4, %9, %8
-  %.173 = phi i32 [ %.072, %8 ], [ %.072, %4 ], [ %14, %9 ]
+  %.173 = phi i32 [ %.072, %8 ], [ %14, %9 ], [ %.072, %4 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5015)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5016)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5017, i32 noundef %.173)
@@ -92750,7 +92750,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DsdInfo(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit106, %.preheader, %.preheader107.split.us, %.preheader102, %42, %.loopexit109, %94, %93, %31, %29
-  %.0 = phi i32 [ 1, %.loopexit109 ], [ 0, %29 ], [ 0, %31 ], [ 0, %93 ], [ 0, %94 ], [ 0, %42 ], [ 0, %.preheader102 ], [ 0, %.preheader107.split.us ], [ 0, %.preheader ], [ 0, %.loopexit106 ]
+  %.0 = phi i32 [ 1, %.loopexit109 ], [ 0, %29 ], [ 0, %31 ], [ 0, %94 ], [ 0, %42 ], [ 0, %93 ], [ 0, %.preheader102 ], [ 0, %.preheader107.split.us ], [ 0, %.preheader ], [ 0, %.loopexit106 ]
   ret i32 %.0
 }
 
@@ -93113,15 +93113,15 @@ Abc_Clock.exit:                                   ; preds = %66, %69
   br label %161
 
 .loopexit.sink.split:                             ; preds = %27, %47, %7, %17, %37
-  %.str.2638.sink = phi ptr [ @.str.536, %7 ], [ @.str.972, %17 ], [ @.str.2638, %47 ], [ @.str.882, %37 ], [ @.str.579, %27 ]
+  %.str.2638.sink = phi ptr [ @.str.882, %37 ], [ @.str.2638, %47 ], [ @.str.972, %17 ], [ @.str.536, %7 ], [ @.str.579, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.2638.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %5, %9, %19, %29, %.loopexit.sink.split
-  %.1116 = phi i32 [ %.0115.ph, %.loopexit.sink.split ], [ %.0115.ph, %39 ], [ %.0115.ph, %5 ], [ %.0115.ph, %9 ], [ %.0115.ph, %19 ], [ %34, %29 ]
-  %.1113 = phi i32 [ %.0112.ph323, %.loopexit.sink.split ], [ %.0112.ph323, %19 ], [ %.0112.ph323, %9 ], [ %.0112.ph323, %5 ], [ %44, %39 ], [ %.0112.ph323, %29 ]
-  %.1103 = phi i32 [ %.0102.ph345, %.loopexit.sink.split ], [ %.0102.ph345, %5 ], [ %.0102.ph345, %9 ], [ %24, %19 ], [ %.0102.ph345, %39 ], [ %.0102.ph345, %29 ]
-  %.1101 = phi i32 [ %.0100, %.loopexit.sink.split ], [ %14, %9 ], [ %.0100, %5 ], [ %.0100, %19 ], [ %.0100, %39 ], [ %.0100, %29 ]
+  %.1116 = phi i32 [ %.0115.ph, %.loopexit.sink.split ], [ %.0115.ph, %19 ], [ %.0115.ph, %39 ], [ %.0115.ph, %5 ], [ %.0115.ph, %9 ], [ %34, %29 ]
+  %.1113 = phi i32 [ %.0112.ph323, %.loopexit.sink.split ], [ %44, %39 ], [ %.0112.ph323, %5 ], [ %.0112.ph323, %19 ], [ %.0112.ph323, %9 ], [ %.0112.ph323, %29 ]
+  %.1103 = phi i32 [ %.0102.ph345, %.loopexit.sink.split ], [ %.0102.ph345, %39 ], [ %24, %19 ], [ %.0102.ph345, %9 ], [ %.0102.ph345, %5 ], [ %.0102.ph345, %29 ]
+  %.1101 = phi i32 [ %.0100, %.loopexit.sink.split ], [ %.0100, %39 ], [ %.0100, %19 ], [ %14, %9 ], [ %.0100, %5 ], [ %.0100, %29 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5031)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5032)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5033, i32 noundef %.1101)
@@ -93141,7 +93141,7 @@ Abc_Clock.exit:                                   ; preds = %66, %69
   br label %161
 
 161:                                              ; preds = %75, %78, %79, %.loopexit, %158, %150, %139, %121, %118, %109, %99, %62
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %62 ], [ 0, %99 ], [ 0, %109 ], [ 0, %121 ], [ 0, %118 ], [ 0, %139 ], [ 0, %150 ], [ 0, %158 ], [ 0, %79 ], [ 0, %78 ], [ 0, %75 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %62 ], [ 0, %158 ], [ 0, %99 ], [ 0, %109 ], [ 0, %121 ], [ 0, %118 ], [ 0, %139 ], [ 0, %150 ], [ 0, %79 ], [ 0, %78 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -93339,13 +93339,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr noundef readonly ca
   br label %56
 
 .loopexit.sink.split:                             ; preds = %25, %16, %6
-  %.str.568.sink = phi ptr [ @.str.883, %16 ], [ @.str.881, %6 ], [ @.str.568, %25 ]
+  %.str.568.sink = phi ptr [ @.str.881, %6 ], [ @.str.883, %16 ], [ @.str.568, %25 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.568.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %4, %18, %27, %.loopexit.sink.split
-  %.128 = phi i32 [ %.027.ph117, %.loopexit.sink.split ], [ %.027.ph117, %8 ], [ %.027.ph117, %4 ], [ %.027.ph117, %18 ], [ %32, %27 ]
-  %.1 = phi i32 [ %.024.ph124, %.loopexit.sink.split ], [ %.024.ph124, %18 ], [ %.024.ph124, %4 ], [ %13, %8 ], [ %.024.ph124, %27 ]
+  %.128 = phi i32 [ %.027.ph117, %.loopexit.sink.split ], [ %.027.ph117, %18 ], [ %.027.ph117, %8 ], [ %.027.ph117, %4 ], [ %32, %27 ]
+  %.1 = phi i32 [ %.024.ph124, %.loopexit.sink.split ], [ %13, %8 ], [ %.024.ph124, %4 ], [ %.024.ph124, %18 ], [ %.024.ph124, %27 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5046)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5047)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.5048, i32 noundef %.128)
@@ -93571,8 +93571,8 @@ define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, pt
   br label %65
 
 .loopexit:                                        ; preds = %4, %9, %20, %30, %19, %8
-  %.146 = phi i32 [ %.045.ph, %30 ], [ %.045.ph, %8 ], [ %.045.ph, %19 ], [ %.045.ph, %4 ], [ %.045.ph, %9 ], [ %25, %20 ]
-  %.141 = phi i32 [ %.040, %30 ], [ %.040, %8 ], [ %.040, %19 ], [ %14, %9 ], [ %.040, %4 ], [ %.040, %20 ]
+  %.146 = phi i32 [ %.045.ph, %30 ], [ %.045.ph, %8 ], [ %.045.ph, %19 ], [ %.045.ph, %9 ], [ %.045.ph, %4 ], [ %25, %20 ]
+  %.141 = phi i32 [ %.040, %30 ], [ %.040, %8 ], [ %.040, %19 ], [ %.040, %4 ], [ %14, %9 ], [ %.040, %20 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.545)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.546)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.547, i32 noundef %.141)
@@ -93584,7 +93584,7 @@ define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, pt
   br label %65
 
 65:                                               ; preds = %58, %61, %39, %48, %41, %.loopexit, %35
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %35 ], [ 0, %41 ], [ 0, %48 ], [ 0, %39 ], [ 0, %61 ], [ 0, %58 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %35 ], [ 0, %39 ], [ 0, %41 ], [ 0, %48 ], [ 0, %61 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -93820,15 +93820,15 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %59, %Vec_VecFree.ex
   br label %82
 
 .loopexit.sink.split:                             ; preds = %7, %27, %37, %17
-  %.str.557.sink = phi ptr [ @.str.557, %37 ], [ @.str.556, %27 ], [ @.str.555, %17 ], [ @.str.554, %7 ]
+  %.str.557.sink = phi ptr [ @.str.555, %17 ], [ @.str.556, %27 ], [ @.str.557, %37 ], [ @.str.554, %7 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.557.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %39, %5, %29, %9, %.loopexit.sink.split
-  %.146 = phi i32 [ %.045.ph, %.loopexit.sink.split ], [ %.045.ph, %19 ], [ %.045.ph, %39 ], [ %.045.ph, %5 ], [ %.045.ph, %29 ], [ %14, %9 ]
-  %.143 = phi i32 [ %.042.ph200, %.loopexit.sink.split ], [ %.042.ph200, %29 ], [ %.042.ph200, %5 ], [ %.042.ph200, %39 ], [ %24, %19 ], [ %.042.ph200, %9 ]
-  %.140 = phi i32 [ %.039.ph206, %.loopexit.sink.split ], [ %.039.ph206, %39 ], [ %.039.ph206, %5 ], [ %34, %29 ], [ %.039.ph206, %19 ], [ %.039.ph206, %9 ]
-  %.138 = phi i32 [ %.037.ph211, %.loopexit.sink.split ], [ %.037.ph211, %5 ], [ %44, %39 ], [ %.037.ph211, %29 ], [ %.037.ph211, %19 ], [ %.037.ph211, %9 ]
+  %.146 = phi i32 [ %.045.ph, %.loopexit.sink.split ], [ %.045.ph, %29 ], [ %.045.ph, %19 ], [ %.045.ph, %39 ], [ %.045.ph, %5 ], [ %14, %9 ]
+  %.143 = phi i32 [ %.042.ph200, %.loopexit.sink.split ], [ %24, %19 ], [ %.042.ph200, %39 ], [ %.042.ph200, %29 ], [ %.042.ph200, %5 ], [ %.042.ph200, %9 ]
+  %.140 = phi i32 [ %.039.ph206, %.loopexit.sink.split ], [ %.039.ph206, %19 ], [ %34, %29 ], [ %.039.ph206, %5 ], [ %.039.ph206, %39 ], [ %.039.ph206, %9 ]
+  %.138 = phi i32 [ %.037.ph211, %.loopexit.sink.split ], [ %.037.ph211, %19 ], [ %.037.ph211, %29 ], [ %44, %39 ], [ %.037.ph211, %5 ], [ %.037.ph211, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.559)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.560)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.561, i32 noundef %.146)
@@ -93986,8 +93986,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr noundef captures(none) %
   br label %56
 
 .loopexit:                                        ; preds = %20, %4, %9, %30, %19, %8
-  %.131 = phi i32 [ %.030.ph, %30 ], [ %.030.ph, %8 ], [ %.030.ph, %19 ], [ %.030.ph, %20 ], [ %.030.ph, %4 ], [ %14, %9 ]
-  %.129 = phi i32 [ %.028.ph112, %30 ], [ %.028.ph112, %8 ], [ %.028.ph112, %19 ], [ %.028.ph112, %4 ], [ %25, %20 ], [ %.028.ph112, %9 ]
+  %.131 = phi i32 [ %.030.ph, %30 ], [ %.030.ph, %8 ], [ %.030.ph, %19 ], [ %.030.ph, %4 ], [ %.030.ph, %20 ], [ %14, %9 ]
+  %.129 = phi i32 [ %.028.ph112, %30 ], [ %.028.ph112, %8 ], [ %.028.ph112, %19 ], [ %25, %20 ], [ %.028.ph112, %4 ], [ %.028.ph112, %9 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.573)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.574)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.575)
@@ -94196,8 +94196,8 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %68, %Vec_PtrFreeDat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %18 ], [ %.035.ph, %4 ], [ %13, %8 ]
-  %.134 = phi i32 [ %.033.ph134, %.loopexit.sink.split ], [ %.033.ph134, %4 ], [ %23, %18 ], [ %.033.ph134, %8 ]
+  %.136 = phi i32 [ %.035.ph, %.loopexit.sink.split ], [ %.035.ph, %4 ], [ %.035.ph, %18 ], [ %13, %8 ]
+  %.134 = phi i32 [ %.033.ph134, %.loopexit.sink.split ], [ %23, %18 ], [ %.033.ph134, %4 ], [ %.033.ph134, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.583)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.584)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.585, i32 noundef %.136)
@@ -96156,8 +96156,8 @@ define internal fastcc noalias noundef ptr @Vec_WrdReadHex(ptr noundef %0) unnam
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %30, %32, %22, %24
-  %.sink53 = phi ptr [ %23, %22 ], [ %25, %24 ], [ %31, %30 ], [ %33, %32 ]
-  %.sink = phi i32 [ 16, %22 ], [ 16, %24 ], [ %27, %30 ], [ %27, %32 ]
+  %.sink53 = phi ptr [ %25, %24 ], [ %23, %22 ], [ %31, %30 ], [ %33, %32 ]
+  %.sink = phi i32 [ 16, %24 ], [ 16, %22 ], [ %27, %30 ], [ %27, %32 ]
   store ptr %.sink53, ptr %10, align 8, !tbaa !902
   store i32 %.sink, ptr %7, align 8, !tbaa !1423
   br label %Vec_WrdPush.exit
@@ -96265,8 +96265,8 @@ Vec_WrdReadHexOne.exit:                           ; preds = %50, %54, %56
   br label %Vec_WrdPush.exit49.sink.split
 
 Vec_WrdPush.exit49.sink.split:                    ; preds = %79, %81, %71, %73
-  %.sink56 = phi ptr [ %72, %71 ], [ %74, %73 ], [ %80, %79 ], [ %82, %81 ]
-  %.sink55 = phi i32 [ 16, %71 ], [ 16, %73 ], [ %76, %79 ], [ %76, %81 ]
+  %.sink56 = phi ptr [ %74, %73 ], [ %72, %71 ], [ %80, %79 ], [ %82, %81 ]
+  %.sink55 = phi i32 [ 16, %73 ], [ 16, %71 ], [ %76, %79 ], [ %76, %81 ]
   store ptr %.sink56, ptr %10, align 8, !tbaa !902
   store i32 %.sink55, ptr %7, align 8, !tbaa !1423
   br label %Vec_WrdPush.exit49

@@ -1460,8 +1460,8 @@ define hidden void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder11with
           to label %300 unwind label %102
 
 .body:                                            ; preds = %38, %68, %102, %98, %83, %53, %298, %283, %268, %253, %238, %223, %208, %193, %178, %163, %148, %133, %117
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %134, %133 ], [ %149, %148 ], [ %164, %163 ], [ %179, %178 ], [ %194, %193 ], [ %209, %208 ], [ %224, %223 ], [ %239, %238 ], [ %254, %253 ], [ %269, %268 ], [ %284, %283 ], [ %299, %298 ], [ %39, %38 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %103, %102 ], [ %99, %98 ]
-  %.1 = phi i1 [ true, %117 ], [ true, %133 ], [ true, %148 ], [ true, %163 ], [ true, %178 ], [ true, %193 ], [ true, %208 ], [ true, %223 ], [ true, %238 ], [ true, %253 ], [ true, %268 ], [ true, %283 ], [ true, %298 ], [ true, %38 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ false, %102 ], [ true, %98 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %299, %298 ], [ %134, %133 ], [ %149, %148 ], [ %164, %163 ], [ %179, %178 ], [ %194, %193 ], [ %209, %208 ], [ %224, %223 ], [ %239, %238 ], [ %254, %253 ], [ %269, %268 ], [ %284, %283 ], [ %39, %38 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %103, %102 ], [ %99, %98 ]
+  %.1 = phi i1 [ true, %117 ], [ true, %298 ], [ true, %133 ], [ true, %148 ], [ true, %163 ], [ true, %178 ], [ true, %193 ], [ true, %208 ], [ true, %223 ], [ true, %238 ], [ true, %253 ], [ true, %268 ], [ true, %283 ], [ true, %38 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ false, %102 ], [ true, %98 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.800285880109910518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101) #37
           to label %303 unwind label %301
@@ -3075,7 +3075,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag11
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hfef9abc2a59b3540E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hfef9abc2a59b3540E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3104,7 +3104,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17heb99a510cf8be732E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17heb99a510cf8be732E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3134,7 +3134,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h01fc406717e09975E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h01fc406717e09975E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3163,7 +3163,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hc4c5c7fc16118823E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17hc4c5c7fc16118823E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3192,7 +3192,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h6921412be7e20eb5E.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h6921412be7e20eb5E.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3221,7 +3221,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %"_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h1fcab7ae17c6a9eeE.exit"
 
 "_ZN127_$LT$aws_smithy_types..config_bag..storable..StoreReplace$LT$U$GT$$u20$as$u20$aws_smithy_types..config_bag..storable..Store$GT$10merge_iter17h1fcab7ae17c6a9eeE.exit": ; preds = %1, %11
-  %.0.i = phi ptr [ null, %1 ], [ %..i, %11 ]
+  %.0.i = phi ptr [ %..i, %11 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -3282,7 +3282,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag4l
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h6a967f7d95592a9bE.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h6a967f7d95592a9bE.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3347,7 +3347,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h8dc9e506e78584d5E.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h8dc9e506e78584d5E.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3380,7 +3380,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h92623b4cb1144b92E.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17h92623b4cb1144b92E.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3412,7 +3412,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17ha44e08e7dd2caefbE.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17ha44e08e7dd2caefbE.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3477,7 +3477,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17hc9e828684af10c7fE.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17hc9e828684af10c7fE.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3509,7 +3509,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   br label %_ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17hcfa1a4922aa785a0E.llvm.800285880109910518.exit
 
 _ZN16aws_smithy_types10config_bag9ConfigBag11sourced_get17hcfa1a4922aa785a0E.llvm.800285880109910518.exit: ; preds = %1, %11
-  %.0.i.i = phi ptr [ null, %1 ], [ %..i.i, %11 ]
+  %.0.i.i = phi ptr [ %..i.i, %11 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i.i
 }
@@ -3883,13 +3883,13 @@ default.unreachable132:                           ; preds = %3
   br label %.body
 
 126:                                              ; preds = %59, %62, %124, %52
-  %.pn35.ph = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ], [ %.pn18.pn.pn.pn, %62 ], [ %.pn28.pn.pn.pn, %124 ]
+  %.pn35.ph = phi { ptr, i32 } [ %.pn28.pn.pn.pn, %124 ], [ %60, %59 ], [ %.pn18.pn.pn.pn, %62 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke fastcc void @"_ZN4core3ptr143drop_in_place$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h84393a2110308307E"(ptr noundef nonnull align 8 %20) #37
           to label %125 unwind label %94
 
 .body:                                            ; preds = %142, %137, %131, %125
-  %.pn41 = phi { ptr, i32 } [ %132, %131 ], [ %.pn35.ph, %125 ], [ %143, %142 ], [ %138, %137 ]
+  %.pn41 = phi { ptr, i32 } [ %.pn35.ph, %125 ], [ %132, %131 ], [ %143, %142 ], [ %138, %137 ]
   store i8 2, ptr %22, align 8
   resume { ptr, i32 } %.pn41
 
@@ -5230,7 +5230,7 @@ define internal fastcc void @"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$
   ret void
 
 96:                                               ; preds = %94, %88, %70, %52, %34, %.body.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %35, %34 ], [ %53, %52 ], [ %71, %70 ], [ %89, %88 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %71, %70 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %35, %34 ], [ %53, %52 ], [ %89, %88 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 128, i64 noundef 8) #39
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6692,7 +6692,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr226dro
   unreachable
 
 common.resume:                                    ; preds = %25, %31, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %32, %31 ], [ %26, %25 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %22, %21 ], [ %26, %25 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..PutResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf892fdb8a54277c8E.exit": ; preds = %15
@@ -7412,7 +7412,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   unreachable
 
 .body.i.i:                                        ; preds = %164, %158, %149, %137
-  %.pn4.i.i = phi { ptr, i32 } [ %159, %158 ], [ %.pn.i.i, %149 ], [ %165, %164 ], [ %138, %137 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %.pn.i.i, %149 ], [ %159, %158 ], [ %165, %164 ], [ %138, %137 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %163, align 8
   br label %.body.i
@@ -7436,7 +7436,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
   br i1 %171, label %179, label %178
 
 .body.i:                                          ; preds = %176, %166, %.body.i.i, %105, %.body.i.i.i, %11
-  %.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %12, %11 ], [ %177, %176 ], [ %.pn4.i.i, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn4.i.i.i, %105 ]
+  %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %167, %166 ], [ %177, %176 ], [ %.pn4.i.i, %.body.i.i ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn4.i.i.i, %105 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %172, align 1
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7458,7 +7458,7 @@ common.ret:                                       ; preds = %206, %186, %178, %5
           to label %178 unwind label %181
 
 common.resume:                                    ; preds = %.body.i2, %208, %210, %.body.i, %181, %183
-  %common.resume.op = phi { ptr, i32 } [ %182, %181 ], [ %.pn.i, %183 ], [ %.pn.i, %.body.i ], [ %209, %208 ], [ %.pn.i3, %210 ], [ %.pn.i3, %.body.i2 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %182, %181 ], [ %.pn.i, %183 ], [ %209, %208 ], [ %.pn.i3, %210 ], [ %.pn.i3, %.body.i2 ]
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 0, ptr %180, align 8
   resume { ptr, i32 } %common.resume.op
@@ -7522,7 +7522,7 @@ common.resume:                                    ; preds = %.body.i2, %208, %21
   br i1 %201, label %207, label %206
 
 .body.i2:                                         ; preds = %196, %192
-  %.pn.i3 = phi { ptr, i32 } [ %197, %196 ], [ %193, %192 ]
+  %.pn.i3 = phi { ptr, i32 } [ %193, %192 ], [ %197, %196 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %202, align 1
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7974,7 +7974,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc67603320c6d890aE.exit.i"
 
 .body20.i.i:                                      ; preds = %122, %117, %113, %93, %.body6.i.i
-  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %117 ], [ %94, %93 ], [ %eh.lpad-body7.i.i, %.body6.i.i ], [ %123, %122 ], [ %114, %113 ]
+  %.pn2.i.i = phi { ptr, i32 } [ %eh.lpad-body7.i.i, %.body6.i.i ], [ %.pn.i.i, %117 ], [ %94, %93 ], [ %123, %122 ], [ %114, %113 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1259
   store i8 0, ptr %125, align 1
   br label %.body.i
@@ -7993,7 +7993,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %131, label %137, label %136
 
 .body.i:                                          ; preds = %126, %.body20.i.i, %.body.i.i, %10
-  %.pn.i = phi { ptr, i32 } [ %127, %126 ], [ %11, %10 ], [ %.pn2.i.i, %.body20.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %127, %126 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn2.i.i, %.body20.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1161
   store i8 0, ptr %132, align 1
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -8068,7 +8068,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %158, label %164, label %163
 
 .body.i4:                                         ; preds = %153, %149
-  %.pn.i5 = phi { ptr, i32 } [ %154, %153 ], [ %150, %149 ]
+  %.pn.i5 = phi { ptr, i32 } [ %150, %149 ], [ %154, %153 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1161
   store i8 0, ptr %159, align 1
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -8103,7 +8103,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   resume { ptr, i32 } %.pn
 
 .body:                                            ; preds = %.body.i4, %165, %167, %.body.i, %138, %140
-  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn.i, %140 ], [ %.pn.i, %.body.i ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %139, %138 ], [ %.pn.i, %140 ], [ %166, %165 ], [ %.pn.i5, %167 ], [ %.pn.i5, %.body.i4 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store i8 0, ptr %171, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17hc7306568a0caf2efE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %0) #37
@@ -8146,7 +8146,7 @@ define internal fastcc void @"_ZN4core3ptr179drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr183drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..put_item..PutItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h7a2b8bcbda77d87dE.exit": ; preds = %5
@@ -8294,7 +8294,7 @@ define internal fastcc void @"_ZN4core3ptr185drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %8, %7 ], [ %18, %17 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr189drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_dynamodb..operation..update_item..UpdateItemError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h9acaf2a3337170ffE.exit": ; preds = %5
@@ -8555,7 +8555,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.exit"
 
 common.resume:                                    ; preds = %289, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48", %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44", %243, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40", %281, %258, %235, %210, %218, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36", %165, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23", %157, %119, %126, %136, %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %34, %33 ], [ %137, %136 ], [ %120, %119 ], [ %127, %126 ], [ %158, %157 ], [ %166, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23" ], [ %166, %165 ], [ %219, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36" ], [ %219, %218 ], [ %211, %210 ], [ %236, %235 ], [ %259, %258 ], [ %282, %281 ], [ %244, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40" ], [ %244, %243 ], [ %267, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44" ], [ %267, %266 ], [ %290, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48" ], [ %290, %289 ]
+  %common.resume.op = phi { ptr, i32 } [ %267, %266 ], [ %34, %33 ], [ %127, %126 ], [ %158, %157 ], [ %166, %165 ], [ %219, %218 ], [ %282, %281 ], [ %244, %243 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %137, %136 ], [ %120, %119 ], [ %166, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i23" ], [ %219, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i36" ], [ %211, %210 ], [ %236, %235 ], [ %259, %258 ], [ %244, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i40" ], [ %267, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i44" ], [ %290, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i48" ], [ %290, %289 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %1
@@ -9680,7 +9680,7 @@ define internal void @"_ZN4core3ptr59drop_in_place$LT$deltalake_aws..errors..Loc
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.exit"
 
 common.resume:                                    ; preds = %100, %64, %76, %86, %96, %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %41, %40 ], [ %65, %64 ], [ %77, %76 ], [ %87, %86 ], [ %97, %96 ], [ %101, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %97, %96 ], [ %41, %40 ], [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %87, %86 ], [ %65, %64 ], [ %77, %76 ], [ %101, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %1
@@ -9746,7 +9746,7 @@ common.resume:                                    ; preds = %100, %64, %76, %86,
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$aws_credential_types..provider..error..CredentialsNotLoaded$GT$17h18daeda744a40a9dE.exit.sink.split.i": ; preds = %90, %80, %72, %58
-  %.sink.i = phi ptr [ %81, %80 ], [ %91, %90 ], [ %59, %58 ], [ %69, %72 ]
+  %.sink.i = phi ptr [ %59, %58 ], [ %81, %80 ], [ %91, %90 ], [ %69, %72 ]
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c3b8898271d9448E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink.i)
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE.exit"
 
@@ -10546,8 +10546,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he85b4ef09abd7c9aE.llvm.800285880109910518.exit.thread", %7
-  %.sink20.i11 = phi i64 [ %8, %7 ], [ %6, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he85b4ef09abd7c9aE.llvm.800285880109910518.exit.thread" ]
-  %.sroa.5.sroa.4.0 = phi i64 [ %11, %7 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he85b4ef09abd7c9aE.llvm.800285880109910518.exit.thread" ]
+  %.sink20.i11 = phi i64 [ %6, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he85b4ef09abd7c9aE.llvm.800285880109910518.exit.thread" ], [ %8, %7 ]
+  %.sroa.5.sroa.4.0 = phi i64 [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17he85b4ef09abd7c9aE.llvm.800285880109910518.exit.thread" ], [ %11, %7 ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 896, i64 992
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #39
@@ -14222,7 +14222,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
           to label %247 unwind label %240, !noalias !2660
 
 common.resume:                                    ; preds = %462, %448, %451, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit44", %251
-  %common.resume.op = phi { ptr, i32 } [ %.pn64.i, %251 ], [ %431, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit44" ], [ %lpad.thr_comm.split-lp, %462 ], [ %449, %448 ], [ %452, %451 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn64.i, %251 ], [ %431, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit44" ], [ %449, %448 ], [ %lpad.thr_comm.split-lp, %462 ], [ %452, %451 ]
   resume { ptr, i32 } %common.resume.op
 
 251:                                              ; preds = %.body104.i, %430, %426, %408, %252, %236
@@ -14423,7 +14423,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
   br label %.body25.i.i
 
 .body25.i.i:                                      ; preds = %288, %282, %278
-  %.pn6.pn.i.i = phi { ptr, i32 } [ %289, %288 ], [ %283, %282 ], [ %279, %278 ]
+  %.pn6.pn.i.i = phi { ptr, i32 } [ %289, %288 ], [ %279, %278 ], [ %283, %282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2740
   invoke void @"_ZN4core3ptr98drop_in_place$LT$aws_sdk_dynamodb..operation..update_item.._update_item_input..UpdateItemInput$GT$17ha92833e1fe0883dbE"(ptr noalias noundef nonnull align 8 dereferenceable(432) %23) #37
           to label %.body39.i.i unwind label %286, !noalias !2779
@@ -14499,7 +14499,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %308, !noalias !2779
 
 .body28.i.i:                                      ; preds = %404, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %308, %303, %296
-  %.pn22.i.i = phi { ptr, i32 } [ %297, %296 ], [ %.pn18.pn.pn.i.i, %404 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %309, %308 ], [ %.pn.i.i.i.i, %303 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %297, %296 ], [ %.pn18.pn.pn.i.i, %404 ], [ %309, %308 ], [ %.pn.i.i.i.i, %303 ]
   store i8 0, ptr %93, align 1, !noalias !2740
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !2740
   br label %.body104.i
@@ -14510,7 +14510,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
   br label %.body28.i.i
 
 .body39.i.i:                                      ; preds = %396, %391, %387, %.body25.i.i, %.body.i.i
-  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %387 ], [ %397, %396 ], [ %392, %391 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %266, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %392, %391 ], [ %.pn13.i.i, %387 ], [ %397, %396 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %266, %.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2740
   call void @llvm.experimental.noalias.scope.decl(metadata !2799)
   call void @llvm.experimental.noalias.scope.decl(metadata !2802)
@@ -14606,7 +14606,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
           to label %326 unwind label %324, !noalias !2819
 
 .body.i.i.i.i:                                    ; preds = %343, %339, %330, %324
-  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %325, %324 ], [ %331, %330 ], [ %344, %343 ], [ %340, %339 ]
+  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %325, %324 ], [ %340, %339 ], [ %331, %330 ], [ %344, %343 ]
   store i8 2, ptr %.phi.trans.insert.i.i.i, align 1, !noalias !2811
   br label %.body.i.i.i
 
@@ -14910,7 +14910,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
   br label %386
 
 376:                                              ; preds = %.body.i.i.i, %378, %.body24.i.i.i, %369, %352
-  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %372, %.body24.i.i.i ], [ %370, %369 ], [ %.pn4.i.i.i, %378 ], [ %353, %352 ], [ %.pn.i.i.i, %.body.i.i.i ]
+  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %378 ], [ %372, %.body24.i.i.i ], [ %370, %369 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %353, %352 ]
   store i8 2, ptr %.phi.trans.insert.i.i, align 8, !noalias !2807
   br label %.body36.i.i
 
@@ -14941,7 +14941,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
   br label %384
 
 .body.i.i.i:                                      ; preds = %347, %.body.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %348, %347 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ], [ %348, %347 ]
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..UpdateItem..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h898d12d2625ef435E"(ptr noundef nonnull align 8 %67) #37
           to label %376 unwind label %380, !noalias !2820
 
@@ -15028,7 +15028,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %308, !noalias !2779
 
 .body36.i.i:                                      ; preds = %382, %376
-  %.pn11.i.i = phi { ptr, i32 } [ %383, %382 ], [ %.pn10.pn.i.i.i, %376 ]
+  %.pn11.i.i = phi { ptr, i32 } [ %.pn10.pn.i.i.i, %376 ], [ %383, %382 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.984.sroa.6.i.i)
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..UpdateItem..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40d15c27aae7a5a4E"(ptr noundef nonnull align 8 %66) #37
           to label %387 unwind label %286, !noalias !2779
@@ -15048,9 +15048,9 @@ common.resume:                                    ; preds = %462, %448, %451, %"
   br label %.body104.i
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %401, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
-  %407 = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i144.i.i, %401 ], [ %.sroa.062.0.i144.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.386.0.i.i = phi i64 [ %291, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %291, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i145.i.i, %401 ], [ %.sroa.4.0.i145.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.587.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0143.i.i, %401 ], [ %.sroa.665.i.sroa.0.0143.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %407 = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i144.i.i, %401 ], [ %.sroa.062.0.i144.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.386.0.i.i = phi i64 [ %291, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %291, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i145.i.i, %401 ], [ %.sroa.4.0.i145.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.587.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0143.i.i, %401 ], [ %.sroa.665.i.sroa.0.0143.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %93, align 1, !noalias !2740
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.6120.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.788.i.i, i64 352, i1 false), !noalias !2656
   store i8 1, ptr %.phi.trans.insert.i, align 8, !noalias !2740
@@ -15149,7 +15149,7 @@ common.resume:                                    ; preds = %462, %448, %451, %"
           to label %251 unwind label %240, !noalias !2660
 
 .body104.i:                                       ; preds = %405, %.body28.i.i
-  %.pn55.i = phi { ptr, i32 } [ %406, %405 ], [ %.pn22.i.i, %.body28.i.i ]
+  %.pn55.i = phi { ptr, i32 } [ %.pn22.i.i, %.body28.i.i ], [ %406, %405 ]
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_dynamodb..operation..update_item..builders..UpdateItemFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4d23f4aad26880d1E"(ptr noundef nonnull align 8 %65) #37
           to label %251 unwind label %240, !noalias !2660
 
@@ -15923,7 +15923,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
           to label %162 unwind label %157, !noalias !2909
 
 common.resume:                                    ; preds = %370, %358, %361, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit60", %165
-  %common.resume.op = phi { ptr, i32 } [ %.pn60.pn.i, %165 ], [ %336, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit60" ], [ %lpad.thr_comm.split-lp, %370 ], [ %359, %358 ], [ %362, %361 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn60.pn.i, %165 ], [ %336, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit60" ], [ %359, %358 ], [ %lpad.thr_comm.split-lp, %370 ], [ %362, %361 ]
   resume { ptr, i32 } %common.resume.op
 
 165:                                              ; preds = %.body73.i, %.body74, %315, %159
@@ -16107,7 +16107,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %.body25.i.i
 
 .body25.i.i:                                      ; preds = %196, %190, %186
-  %.pn6.pn.i.i = phi { ptr, i32 } [ %197, %196 ], [ %191, %190 ], [ %187, %186 ]
+  %.pn6.pn.i.i = phi { ptr, i32 } [ %197, %196 ], [ %187, %186 ], [ %191, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2968
   invoke void @"_ZN4core3ptr81drop_in_place$LT$aws_sdk_dynamodb..operation..query.._query_input..QueryInput$GT$17h693c8e0c91d2ea28E"(ptr noalias noundef nonnull align 8 dereferenceable(472) %23) #37
           to label %.body40.i.i unwind label %194, !noalias !3004
@@ -16183,7 +16183,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %216, !noalias !3004
 
 .body28.i.i:                                      ; preds = %312, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %216, %211, %204
-  %.pn22.i.i = phi { ptr, i32 } [ %205, %204 ], [ %.pn18.pn.pn.i.i, %312 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %217, %216 ], [ %.pn.i.i.i.i, %211 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %205, %204 ], [ %.pn18.pn.pn.i.i, %312 ], [ %217, %216 ], [ %.pn.i.i.i.i, %211 ]
   store i8 0, ptr %65, align 1, !noalias !2968
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !2968
   br label %.body73.i
@@ -16194,7 +16194,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %.body28.i.i
 
 .body40.i.i:                                      ; preds = %304, %299, %295, %.body25.i.i, %.body.i.i
-  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn13.i.i, %295 ], [ %305, %304 ], [ %300, %299 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %174, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %300, %299 ], [ %.pn13.i.i, %295 ], [ %305, %304 ], [ %.pn6.pn.i.i, %.body25.i.i ], [ %174, %.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2968
   call void @llvm.experimental.noalias.scope.decl(metadata !3024)
   call void @llvm.experimental.noalias.scope.decl(metadata !3027)
@@ -16288,7 +16288,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
           to label %234 unwind label %232, !noalias !3044
 
 .body.i.i.i.i:                                    ; preds = %251, %247, %238, %232
-  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %233, %232 ], [ %239, %238 ], [ %252, %251 ], [ %248, %247 ]
+  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %233, %232 ], [ %248, %247 ], [ %239, %238 ], [ %252, %251 ]
   store i8 2, ptr %.phi.trans.insert.i.i.i, align 1, !noalias !3036
   br label %.body.i.i.i
 
@@ -16634,7 +16634,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %294
 
 284:                                              ; preds = %.body.i.i.i, %286, %.body24.i.i.i, %277, %260
-  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %280, %.body24.i.i.i ], [ %278, %277 ], [ %.pn4.i.i.i, %286 ], [ %261, %260 ], [ %.pn.i.i.i, %.body.i.i.i ]
+  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %286 ], [ %280, %.body24.i.i.i ], [ %278, %277 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %261, %260 ]
   store i8 2, ptr %.phi.trans.insert.i.i, align 8, !noalias !3032
   br label %.body37.i.i
 
@@ -16683,7 +16683,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %292
 
 .body.i.i.i:                                      ; preds = %255, %.body.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %256, %255 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ], [ %256, %255 ]
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$aws_sdk_dynamodb..operation..query..Query..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18a526c528583aedE"(ptr noundef nonnull align 8 %54) #37
           to label %284 unwind label %288, !noalias !3045
 
@@ -16781,7 +16781,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %216, !noalias !3004
 
 .body37.i.i:                                      ; preds = %290, %284
-  %.pn11.i.i = phi { ptr, i32 } [ %291, %290 ], [ %.pn10.pn.i.i.i, %284 ]
+  %.pn11.i.i = phi { ptr, i32 } [ %.pn10.pn.i.i.i, %284 ], [ %291, %290 ]
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$aws_sdk_dynamodb..operation..query..Query..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e902b9f92410f71E"(ptr noundef nonnull align 8 %53) #37
           to label %295 unwind label %194, !noalias !3004
 
@@ -16800,14 +16800,14 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %.body73.i
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %309, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
-  %.sroa.12126.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %309 ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.7121.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %309 ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.7121.i.sroa.5.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %309 ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.0118.0.i.i = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i142.i, %309 ], [ %.sroa.062.0.i.i142.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.3119.0.i.i = phi i64 [ %199, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %199, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i143.i, %309 ], [ %.sroa.4.0.i.i143.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.5120.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i139.i, %309 ], [ %.sroa.665.i.sroa.0.0.i139.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.8122.0.i.i = phi i32 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.9.0.i140.i, %309 ], [ %.sroa.665.i.sroa.9.0.i140.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.9123.0.i.i = phi i32 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.10.0.i141.i, %309 ], [ %.sroa.665.i.sroa.10.0.i141.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.12126.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %309 ], [ %.sroa.665.i.sroa.13.i.sroa.6.0136.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.7121.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %309 ], [ %.sroa.665.i.sroa.6.i.sroa.6.0137.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.7121.i.sroa.5.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %309 ], [ %.sroa.665.i.sroa.6.i.sroa.8.0138.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.0118.0.i.i = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i142.i, %309 ], [ %.sroa.062.0.i.i142.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.3119.0.i.i = phi i64 [ %199, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %199, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i143.i, %309 ], [ %.sroa.4.0.i.i143.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.5120.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i139.i, %309 ], [ %.sroa.665.i.sroa.0.0.i139.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.8122.0.i.i = phi i32 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.9.0.i140.i, %309 ], [ %.sroa.665.i.sroa.9.0.i140.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.9123.0.i.i = phi i32 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.10.0.i141.i, %309 ], [ %.sroa.665.i.sroa.10.0.i141.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %65, align 1, !noalias !2968
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1193.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7121.i.sroa.0.i, i64 32, i1 false), !noalias !2905
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.1193.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7121.i.sroa.6.i, i64 136, i1 false), !noalias !2905
@@ -16949,7 +16949,7 @@ common.resume:                                    ; preds = %370, %358, %361, %"
   br label %.body74
 
 .body73.i:                                        ; preds = %313, %.body28.i.i
-  %.pn54.i = phi { ptr, i32 } [ %314, %313 ], [ %.pn22.i.i, %.body28.i.i ]
+  %.pn54.i = phi { ptr, i32 } [ %.pn22.i.i, %.body28.i.i ], [ %314, %313 ]
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$aws_sdk_dynamodb..operation..query..builders..QueryFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h419206e9be1e094cE"(ptr noundef nonnull align 8 %52) #37
           to label %165 unwind label %157, !noalias !2909
 
@@ -17483,7 +17483,7 @@ default.unreachable:                              ; preds = %163, %159, %102, %7
   br label %93
 
 common.resume:                                    ; preds = %307, %294, %297, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit59", %99
-  %common.resume.op = phi { ptr, i32 } [ %.pn34.pn.i, %99 ], [ %272, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit59" ], [ %lpad.thr_comm.split-lp, %307 ], [ %295, %294 ], [ %298, %297 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn34.pn.i, %99 ], [ %272, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit59" ], [ %295, %294 ], [ %lpad.thr_comm.split-lp, %307 ], [ %298, %297 ]
   resume { ptr, i32 } %common.resume.op
 
 99:                                               ; preds = %.body.i, %.body73, %251, %93
@@ -17651,7 +17651,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %.body25.i.i
 
 .body25.i.i:                                      ; preds = %131, %125, %121
-  %.pn8.pn.i.i = phi { ptr, i32 } [ %132, %131 ], [ %126, %125 ], [ %122, %121 ]
+  %.pn8.pn.i.i = phi { ptr, i32 } [ %132, %131 ], [ %122, %121 ], [ %126, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !3140
   invoke void @"_ZN4core3ptr89drop_in_place$LT$aws_sdk_dynamodb..operation..get_item.._get_item_input..GetItemInput$GT$17hf27b9944e92ec8caE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22) #37
           to label %.body39.i.i unwind label %129, !noalias !3173
@@ -17724,7 +17724,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %151, !noalias !3173
 
 .body28.i.i:                                      ; preds = %248, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %151, %146, %139
-  %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %248 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %140, %139 ], [ %152, %151 ], [ %.pn.i.i.i.i, %146 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %140, %139 ], [ %.pn18.pn.pn.i.i, %248 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %152, %151 ], [ %.pn.i.i.i.i, %146 ]
   store i8 0, ptr %46, align 1, !noalias !3140
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !3140
   br label %.body.i
@@ -17735,7 +17735,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %.body28.i.i
 
 .body39.i.i:                                      ; preds = %240, %235, %231, %.body25.i.i, %.body.i.i
-  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn16.i.i, %231 ], [ %241, %240 ], [ %236, %235 ], [ %.pn8.pn.i.i, %.body25.i.i ], [ %108, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %236, %235 ], [ %.pn16.i.i, %231 ], [ %241, %240 ], [ %.pn8.pn.i.i, %.body25.i.i ], [ %108, %.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3140
   call void @llvm.experimental.noalias.scope.decl(metadata !3193)
   call void @llvm.experimental.noalias.scope.decl(metadata !3196)
@@ -17835,7 +17835,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
           to label %169 unwind label %167, !noalias !3213
 
 .body.i.i.i.i:                                    ; preds = %186, %182, %173, %167
-  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %174, %173 ], [ %187, %186 ], [ %183, %182 ]
+  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %183, %182 ], [ %174, %173 ], [ %187, %186 ]
   store i8 2, ptr %.phi.trans.insert.i.i.i, align 1, !noalias !3205
   br label %.body.i.i.i
 
@@ -18199,7 +18199,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %228
 
 220:                                              ; preds = %.body.i.i.i, %222, %.body24.i.i.i, %212, %195
-  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %215, %.body24.i.i.i ], [ %213, %212 ], [ %.pn4.i.i.i, %222 ], [ %196, %195 ], [ %.pn.i.i.i, %.body.i.i.i ]
+  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %222 ], [ %215, %.body24.i.i.i ], [ %213, %212 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %196, %195 ]
   store i8 2, ptr %.phi.trans.insert.i.i, align 8, !noalias !3201
   br label %.body36.i.i
 
@@ -18252,7 +18252,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %228
 
 .body.i.i.i:                                      ; preds = %190, %.body.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %191, %190 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ], [ %191, %190 ]
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..GetItem..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h668639695e0156f0E"(ptr noundef nonnull align 8 %42) #37
           to label %220 unwind label %224, !noalias !3214
 
@@ -18352,7 +18352,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %151, !noalias !3173
 
 .body36.i.i:                                      ; preds = %226, %220
-  %.pn14.i.i = phi { ptr, i32 } [ %227, %226 ], [ %.pn10.pn.i.i.i, %220 ]
+  %.pn14.i.i = phi { ptr, i32 } [ %.pn10.pn.i.i.i, %220 ], [ %227, %226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.987.sroa.6.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.987.sroa.6.sroa.9.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.987.sroa.6.sroa.10.i.i)
@@ -18374,14 +18374,14 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %.body.i
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %245, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
-  %.sroa.791.sroa.4.sroa.3.i.sroa.0.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.791.sroa.4.sroa.3.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.791.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %245 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.892.0.i.i = phi i8 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.14.0.i.i, %245 ], [ %.sroa.665.i.sroa.14.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.590.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %245 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.389.0.i.i = phi i64 [ %134, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %134, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i.i, %245 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.088.0.i.i = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i.i, %245 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.791.sroa.4.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.791.sroa.4.sroa.3.i.sroa.0.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.0.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.791.sroa.4.sroa.3.i.sroa.4.0.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.6.i.sroa.8.0.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.791.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %245 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.892.0.i.i = phi i8 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.14.0.i.i, %245 ], [ %.sroa.665.i.sroa.14.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.590.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %245 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.389.0.i.i = phi i64 [ %134, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %134, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i.i, %245 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.088.0.i.i = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i.i, %245 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.791.sroa.4.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %245 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %46, align 1, !noalias !3140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.791.sroa.3.i.i, i64 24, i1 false), !noalias !3128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.sroa.6.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.791.sroa.5.i.i, i64 24, i1 false), !noalias !3128
@@ -18535,7 +18535,7 @@ common.resume:                                    ; preds = %307, %294, %297, %"
   br label %.body73
 
 .body.i:                                          ; preds = %249, %.body28.i.i
-  %.pn28.i = phi { ptr, i32 } [ %250, %249 ], [ %.pn22.i.i, %.body28.i.i ]
+  %.pn28.i = phi { ptr, i32 } [ %.pn22.i.i, %.body28.i.i ], [ %250, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21.i)
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..operation..get_item..builders..GetItemFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcc28aa899bec9204E"(ptr noundef nonnull align 8 %40) #37
           to label %99 unwind label %96, !noalias !3132
@@ -19120,7 +19120,7 @@ _ZN13deltalake_aws18DynamoDbLockClient19get_lock_table_name17hd3fa74fa11ae3ca9E.
           to label %118 unwind label %116, !noalias !3303
 
 122:                                              ; preds = %123, %112
-  %.pn25108.i = phi { ptr, i32 } [ %.pn.i36, %123 ], [ %113, %112 ]
+  %.pn25108.i = phi { ptr, i32 } [ %113, %112 ], [ %.pn.i36, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !3299
   br label %124
 
@@ -19143,7 +19143,7 @@ _ZN13deltalake_aws18DynamoDbLockClient19get_lock_table_name17hd3fa74fa11ae3ca9E.
   br label %124
 
 common.resume:                                    ; preds = %349, %336, %339, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit39", %126
-  %common.resume.op = phi { ptr, i32 } [ %.pn40.pn.i, %126 ], [ %320, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit39" ], [ %lpad.thr_comm.split-lp, %349 ], [ %337, %336 ], [ %340, %339 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn40.pn.i, %126 ], [ %320, %"_ZN4core3ptr83drop_in_place$LT$backoff..future..OptionPinned$LT$tokio..time..sleep..Sleep$GT$$GT$17h332196c636fded6cE.exit39" ], [ %337, %336 ], [ %lpad.thr_comm.split-lp, %349 ], [ %340, %339 ]
   resume { ptr, i32 } %common.resume.op
 
 126:                                              ; preds = %124, %90
@@ -19320,7 +19320,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
   br label %.body25.i.i
 
 .body25.i.i:                                      ; preds = %158, %152, %148
-  %.pn8.pn.i.i = phi { ptr, i32 } [ %159, %158 ], [ %153, %152 ], [ %149, %148 ]
+  %.pn8.pn.i.i = phi { ptr, i32 } [ %159, %158 ], [ %149, %148 ], [ %153, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !3307
   invoke void @"_ZN4core3ptr89drop_in_place$LT$aws_sdk_dynamodb..operation..put_item.._put_item_input..PutItemInput$GT$17h0255228c94bb31b5E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %22) #37
           to label %.body39.i.i unwind label %156, !noalias !3340
@@ -19393,7 +19393,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %178, !noalias !3340
 
 .body28.i.i:                                      ; preds = %275, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i", %178, %173, %166
-  %.pn22.i.i = phi { ptr, i32 } [ %.pn18.pn.pn.i.i, %275 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %167, %166 ], [ %179, %178 ], [ %.pn.i.i.i.i, %173 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %167, %166 ], [ %.pn18.pn.pn.i.i, %275 ], [ %.pn18.pn.pn.i.i, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit32.i.i" ], [ %179, %178 ], [ %.pn.i.i.i.i, %173 ]
   store i8 0, ptr %51, align 1, !noalias !3307
   store i8 2, ptr %.phi.trans.insert.i, align 8, !noalias !3307
   br label %.body.i
@@ -19404,7 +19404,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
   br label %.body28.i.i
 
 .body39.i.i:                                      ; preds = %267, %262, %258, %.body25.i.i, %.body.i.i
-  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %.pn16.i.i, %258 ], [ %268, %267 ], [ %263, %262 ], [ %.pn8.pn.i.i, %.body25.i.i ], [ %135, %.body.i.i ]
+  %.pn18.pn.pn.i.i = phi { ptr, i32 } [ %263, %262 ], [ %.pn16.i.i, %258 ], [ %268, %267 ], [ %.pn8.pn.i.i, %.body25.i.i ], [ %135, %.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3307
   call void @llvm.experimental.noalias.scope.decl(metadata !3360)
   call void @llvm.experimental.noalias.scope.decl(metadata !3363)
@@ -19508,7 +19508,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
           to label %196 unwind label %194, !noalias !3380
 
 .body.i.i.i.i:                                    ; preds = %213, %209, %200, %194
-  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %195, %194 ], [ %201, %200 ], [ %214, %213 ], [ %210, %209 ]
+  %.pn2.pn.i.i.i.i = phi { ptr, i32 } [ %195, %194 ], [ %210, %209 ], [ %201, %200 ], [ %214, %213 ]
   store i8 2, ptr %.phi.trans.insert.i.i.i, align 1, !noalias !3372
   br label %.body.i.i.i
 
@@ -19826,7 +19826,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
   br label %255
 
 247:                                              ; preds = %.body.i.i.i, %249, %.body24.i.i.i, %239, %222
-  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %242, %.body24.i.i.i ], [ %240, %239 ], [ %.pn4.i.i.i, %249 ], [ %223, %222 ], [ %.pn.i.i.i, %.body.i.i.i ]
+  %.pn10.pn.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %249 ], [ %242, %.body24.i.i.i ], [ %240, %239 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %223, %222 ]
   store i8 2, ptr %.phi.trans.insert.i.i, align 8, !noalias !3368
   br label %.body36.i.i
 
@@ -19861,7 +19861,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
   br label %255
 
 .body.i.i.i:                                      ; preds = %217, %.body.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %218, %217 ], [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn2.pn.i.i.i.i, %.body.i.i.i.i ], [ %218, %217 ]
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..operation..put_item..PutItem..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed4576a7edf136dcE"(ptr noundef nonnull align 8 %47) #37
           to label %247 unwind label %251, !noalias !3381
 
@@ -19973,7 +19973,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i" unwind label %178, !noalias !3340
 
 .body36.i.i:                                      ; preds = %253, %247
-  %.pn14.i.i = phi { ptr, i32 } [ %254, %253 ], [ %.pn10.pn.i.i.i, %247 ]
+  %.pn14.i.i = phi { ptr, i32 } [ %.pn10.pn.i.i.i, %247 ], [ %254, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.976.sroa.6.sroa.7.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.976.sroa.6.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.976.sroa.6.sroa.9.i.i)
@@ -20001,12 +20001,12 @@ common.resume:                                    ; preds = %349, %336, %339, %"
   br label %.body.i
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$aws_sdk_dynamodb..config..Builder$GT$$GT$17hdde63a09cdbe024fE.exit.i.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i", %272, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i"
-  %.sroa.780.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %272 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.881.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.19.0.i.i, %272 ], [ %.sroa.665.i.sroa.19.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.579.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %272 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.378.0.i.i = phi i64 [ %161, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %161, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.4.0.i.i.i, %272 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %278 = phi i64 [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.062.0.i.i.i, %272 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
-  %.sroa.780.sroa.4.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %272 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.780.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.6.0.i.i, %272 ], [ %.sroa.665.i.sroa.6.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.881.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.19.0.i.i, %272 ], [ %.sroa.665.i.sroa.19.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.579.0.i.i = phi ptr [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ @anon.bb3ac03fbec98e6f1237e605a61dca23.53.llvm.6974339801470247616, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.0.0.i.i, %272 ], [ %.sroa.665.i.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.378.0.i.i = phi i64 [ %161, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ %161, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.4.0.i.i.i, %272 ], [ %.sroa.4.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %278 = phi i64 [ 3, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ 3, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.062.0.i.i.i, %272 ], [ %.sroa.062.0.i.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
+  %.sroa.780.sroa.4.sroa.0.0.i.i = phi i64 [ undef, %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_dynamodb..client..Handle$GT$$GT$17h727b9f45841057f5E.exit.i.i" ], [ undef, %"_ZN4core3ptr54drop_in_place$LT$aws_sdk_dynamodb..config..Builder$GT$17hf24e920567615d58E.exit.i.i.i" ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %272 ], [ %.sroa.665.i.sroa.8.sroa.0.0.i.i, %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h624426945f3c55eaE.exit.i.i" ]
   store i8 0, ptr %51, align 1, !noalias !3307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.759.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.780.sroa.3.i.i, i64 24, i1 false), !noalias !3299
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.961.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.780.sroa.4.sroa.3.i.i, i64 16, i1 false), !noalias !3299
@@ -20180,7 +20180,7 @@ common.resume:                                    ; preds = %349, %336, %339, %"
           to label %124 unwind label %116, !noalias !3303
 
 .body.i:                                          ; preds = %276, %.body28.i.i
-  %.pn27.i = phi { ptr, i32 } [ %277, %276 ], [ %.pn22.i.i, %.body28.i.i ]
+  %.pn27.i = phi { ptr, i32 } [ %.pn22.i.i, %.body28.i.i ], [ %277, %276 ]
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$aws_sdk_dynamodb..operation..put_item..builders..PutItemFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc62bdc0222bae1c0E"(ptr noundef nonnull align 8 %45) #37
           to label %279 unwind label %116, !noalias !3303
 
@@ -21199,8 +21199,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h17
   br label %.thread
 
 .thread:                                          ; preds = %88, %84
-  %95 = phi i8 [ %.pre, %88 ], [ %86, %84 ]
-  %.sroa.4.0.ph = phi i64 [ %94, %88 ], [ %.sroa.6.1.i.i, %84 ]
+  %95 = phi i8 [ %86, %84 ], [ %.pre, %88 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %84 ], [ %94, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -21481,8 +21481,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h66
   br label %.thread
 
 .thread:                                          ; preds = %87, %83
-  %94 = phi i8 [ %.pre, %87 ], [ %85, %83 ]
-  %.sroa.4.0.ph = phi i64 [ %93, %87 ], [ %.sroa.6.1.i.i, %83 ]
+  %94 = phi i8 [ %85, %83 ], [ %.pre, %87 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %83 ], [ %93, %87 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -21680,8 +21680,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6c
   ret void
 
 60:                                               ; preds = %46, %50
-  %61 = phi i8 [ %.pre, %50 ], [ %48, %46 ]
-  %.sroa.4.0.ph = phi i64 [ %56, %50 ], [ %.sroa.6.1.i.i, %46 ]
+  %61 = phi i8 [ %48, %46 ], [ %.pre, %50 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %46 ], [ %56, %50 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3891)
   %62 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
   %63 = and i8 %61, 1
@@ -21926,8 +21926,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %.thread
 
 .thread:                                          ; preds = %82, %78
-  %89 = phi i8 [ %.pre, %82 ], [ %80, %78 ]
-  %.sroa.4.0.ph = phi i64 [ %88, %82 ], [ %.sroa.6.1.i.i, %78 ]
+  %89 = phi i8 [ %80, %78 ], [ %.pre, %82 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %78 ], [ %88, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.013)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !3985)
@@ -22538,7 +22538,7 @@ define void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFactory$u20$as$u20
   unreachable
 
 common.resume:                                    ; preds = %.body105, %44, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %.pn41.i, %.body.i ], [ %.pn92, %.body105 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn41.i, %.body.i ], [ %45, %44 ], [ %.pn92, %.body105 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3801d17224263844E.exit.i": ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h092acbce64f49439E.llvm.16645689973058714621.exit.i.i.i", %4
@@ -22985,7 +22985,7 @@ common.resume:                                    ; preds = %.body105, %44, %.bo
   br label %77
 
 .body105:                                         ; preds = %281, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i", %.thread178, %201, %298, %277
-  %.pn92 = phi { ptr, i32 } [ %.pn90177, %298 ], [ %.pn88157, %277 ], [ %202, %201 ], [ %lpad.thr_comm.split-lp, %.thread178 ], [ %282, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %282, %281 ]
+  %.pn92 = phi { ptr, i32 } [ %.pn88157, %277 ], [ %.pn90177, %298 ], [ %202, %201 ], [ %lpad.thr_comm.split-lp, %.thread178 ], [ %282, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.800285880109910518.exit.i.i" ], [ %282, %281 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..storage..StorageOptions$GT$17hfbdce2515e45e467E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %38) #37
           to label %common.resume unwind label %262
 
@@ -23112,7 +23112,7 @@ common.resume:                                    ; preds = %.body105, %44, %.bo
           to label %237 unwind label %235
 
 .body:                                            ; preds = %252, %235
-  %.pn = phi { ptr, i32 } [ %236, %235 ], [ %253, %252 ]
+  %.pn = phi { ptr, i32 } [ %253, %252 ], [ %236, %235 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$deltalake_aws..storage..S3StorageOptions$GT$17h65f832cdbca8a35eE"(ptr noalias noundef nonnull align 8 dereferenceable(504) %34) #37
           to label %.thread148 unwind label %262
 
@@ -23449,7 +23449,7 @@ define noundef zeroext i1 @"_ZN81_$LT$deltalake_aws..storage..S3StorageOptions$u
   br i1 %brmerge, label %.critedge, label %82
 
 .critedge:                                        ; preds = %75, %85, %82, %69, %19, %13, %73, %71, %14, %2, %15, %22, %33, %44, %50, %56
-  %.0 = phi i1 [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %33 ], [ false, %22 ], [ false, %15 ], [ false, %2 ], [ false, %14 ], [ false, %71 ], [ false, %73 ], [ false, %13 ], [ false, %19 ], [ false, %69 ], [ %.mux, %75 ], [ %88, %85 ], [ false, %82 ]
+  %.0 = phi i1 [ false, %73 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %33 ], [ false, %22 ], [ false, %15 ], [ false, %2 ], [ false, %14 ], [ false, %71 ], [ %88, %85 ], [ %.mux, %75 ], [ false, %82 ], [ false, %13 ], [ false, %19 ], [ false, %69 ]
   ret i1 %.0
 
 82:                                               ; preds = %75
@@ -23532,7 +23532,7 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
 39:                                               ; preds = %128
   br i1 %.3, label %.body.thread, label %213
 
-.body.thread104:                                  ; preds = %159, %126, %120, %95, %71, %53, %51, %49, %47, %46, %45, %44, %43, %42, %41, %40, %2, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i", %84, %109
+.body.thread104:                                  ; preds = %159, %126, %120, %109, %95, %84, %71, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i", %53, %51, %49, %47, %46, %45, %44, %43, %42, %41, %40, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -24116,11 +24116,11 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
           to label %128 unwind label %197
 
 213:                                              ; preds = %.body.thread, %39
-  %.pn7799 = phi { ptr, i32 } [ %.pn77100, %.body.thread ], [ %.pn75, %39 ]
+  %.pn7799 = phi { ptr, i32 } [ %.pn75, %39 ], [ %.pn77100, %.body.thread ]
   resume { ptr, i32 } %.pn7799
 
 .body.thread:                                     ; preds = %107, %82, %.body.thread104, %39
-  %.pn77100 = phi { ptr, i32 } [ %.pn75, %39 ], [ %lpad.thr_comm, %.body.thread104 ], [ %83, %82 ], [ %108, %107 ]
+  %.pn77100 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread104 ], [ %.pn75, %39 ], [ %83, %82 ], [ %108, %107 ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17hfb47c4a461874398E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28) #37
           to label %213 unwind label %197
 }
@@ -24861,7 +24861,7 @@ common.ret:                                       ; preds = %48, %9
   br label %29
 
 .body:                                            ; preds = %49, %44, %36, %17
-  %.pn2 = phi { ptr, i32 } [ %37, %36 ], [ %18, %17 ], [ %50, %49 ], [ %45, %44 ]
+  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %37, %36 ], [ %45, %44 ], [ %50, %49 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load i8, ptr %24, align 8, !range !1021, !noundef !14
   %26 = trunc nuw i8 %25 to i1
@@ -25079,7 +25079,7 @@ common.ret:                                       ; preds = %54, %11
   br label %35
 
 .body:                                            ; preds = %55, %50, %42, %23
-  %.pn2 = phi { ptr, i32 } [ %43, %42 ], [ %24, %23 ], [ %56, %55 ], [ %51, %50 ]
+  %.pn2 = phi { ptr, i32 } [ %24, %23 ], [ %43, %42 ], [ %51, %50 ], [ %56, %55 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 138
   %31 = load i8, ptr %30, align 2, !range !1021, !noundef !14
   %32 = trunc nuw i8 %31 to i1
@@ -25278,7 +25278,7 @@ common.ret:                                       ; preds = %42, %8
   br label %23
 
 .body6:                                           ; preds = %43, %38, %30, %14
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ], [ %44, %43 ], [ %39, %38 ]
+  %.pn2 = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ], [ %39, %38 ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -25467,7 +25467,7 @@ common.ret:                                       ; preds = %49, %10
   br label %30
 
 .body6:                                           ; preds = %50, %45, %37, %18
-  %.pn2 = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ], [ %51, %50 ], [ %46, %45 ]
+  %.pn2 = phi { ptr, i32 } [ %19, %18 ], [ %38, %37 ], [ %46, %45 ], [ %51, %50 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 161
   %26 = load i8, ptr %25, align 1, !range !1021, !noundef !14
   %27 = trunc nuw i8 %26 to i1
@@ -25659,7 +25659,7 @@ common.ret:                                       ; preds = %46, %8
   br label %27
 
 .body:                                            ; preds = %47, %42, %34, %18
-  %.pn2 = phi { ptr, i32 } [ %35, %34 ], [ %19, %18 ], [ %48, %47 ], [ %43, %42 ]
+  %.pn2 = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %43, %42 ], [ %48, %47 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -25837,7 +25837,7 @@ common.ret:                                       ; preds = %42, %8
   br label %23
 
 .body:                                            ; preds = %43, %38, %30, %14
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ], [ %44, %43 ], [ %39, %38 ]
+  %.pn2 = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ], [ %39, %38 ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -26015,7 +26015,7 @@ common.ret:                                       ; preds = %42, %8
   br label %23
 
 .body:                                            ; preds = %43, %38, %30, %14
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ], [ %44, %43 ], [ %39, %38 ]
+  %.pn2 = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ], [ %39, %38 ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -26205,7 +26205,7 @@ common.ret:                                       ; preds = %42, %8
   br label %23
 
 .body:                                            ; preds = %43, %38, %30, %14
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ], [ %44, %43 ], [ %39, %38 ]
+  %.pn2 = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ], [ %39, %38 ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -26387,7 +26387,7 @@ common.ret:                                       ; preds = %44, %8
   br label %25
 
 .body:                                            ; preds = %45, %40, %32, %16
-  %.pn2 = phi { ptr, i32 } [ %33, %32 ], [ %17, %16 ], [ %46, %45 ], [ %41, %40 ]
+  %.pn2 = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %41, %40 ], [ %46, %45 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -26682,7 +26682,7 @@ common.ret:                                       ; preds = %57, %"_ZN4core3ptr2
   br label %38
 
 .body32:                                          ; preds = %58, %53, %45, %29, %.body
-  %.pn28 = phi { ptr, i32 } [ %46, %45 ], [ %30, %29 ], [ %19, %.body ], [ %59, %58 ], [ %54, %53 ]
+  %.pn28 = phi { ptr, i32 } [ %19, %.body ], [ %46, %45 ], [ %54, %53 ], [ %30, %29 ], [ %59, %58 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn28
 
@@ -26869,7 +26869,7 @@ common.ret:                                       ; preds = %42, %8
   br label %23
 
 .body5:                                           ; preds = %43, %38, %30, %14
-  %.pn2 = phi { ptr, i32 } [ %31, %30 ], [ %15, %14 ], [ %44, %43 ], [ %39, %38 ]
+  %.pn2 = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ], [ %39, %38 ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -27051,7 +27051,7 @@ common.ret:                                       ; preds = %44, %8
   br label %25
 
 .body:                                            ; preds = %45, %40, %32, %16
-  %.pn2 = phi { ptr, i32 } [ %33, %32 ], [ %17, %16 ], [ %46, %45 ], [ %41, %40 ]
+  %.pn2 = phi { ptr, i32 } [ %17, %16 ], [ %33, %32 ], [ %41, %40 ], [ %46, %45 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 

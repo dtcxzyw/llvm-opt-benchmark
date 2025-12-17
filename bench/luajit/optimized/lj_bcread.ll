@@ -235,7 +235,7 @@ bcread_uv.exit:                                   ; preds = %.preheader.i, %bcre
   br label %123
 
 123:                                              ; preds = %119, %117, %113
-  %124 = phi i32 [ %122, %119 ], [ 1, %117 ], [ 0, %113 ]
+  %124 = phi i32 [ 1, %117 ], [ %122, %119 ], [ 0, %113 ]
   %125 = call ptr @lj_tab_new(ptr noundef %116, i32 noundef %114, i32 noundef %124) #12
   %.not27.i.i = icmp eq i32 %114, 0
   br i1 %.not27.i.i, label %.loopexit30.i.i, label %126
@@ -811,7 +811,7 @@ bcread_header.exit:                               ; preds = %64, %bcread_need.ex
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %91
 
-89:                                               ; preds = %31, %28, %bcread_want.exit.i, %34, %37
+89:                                               ; preds = %37, %bcread_want.exit.i, %34, %31, %28
   %.val = load ptr, ptr %2, align 8, !tbaa !21
   %90 = getelementptr i8, ptr %0, i64 128
   %.val45 = load ptr, ptr %90, align 8, !tbaa !58
@@ -1079,8 +1079,8 @@ lj_buf_need.exit:                                 ; preds = %37, %43
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %36, %lj_buf_need.exit
-  %.pre-phi87 = phi i64 [ %.pre86, %36 ], [ %46, %lj_buf_need.exit ], [ %.pre86, %35 ]
-  %.1 = phi ptr [ %24, %36 ], [ %.0.i, %lj_buf_need.exit ], [ %24, %35 ]
+  %.pre-phi87 = phi i64 [ %46, %lj_buf_need.exit ], [ %.pre86, %36 ], [ %.pre86, %35 ]
+  %.1 = phi ptr [ %.0.i, %lj_buf_need.exit ], [ %24, %36 ], [ %24, %35 ]
   store ptr %.1, ptr %13, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %.1, i64 %.pre-phi87
   store ptr %47, ptr %12, align 8, !tbaa !73

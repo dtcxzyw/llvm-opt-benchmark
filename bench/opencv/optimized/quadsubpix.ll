@@ -599,8 +599,8 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %26
   br i1 %exitcond.not.i, label %.loopexit238, label %_ZNK2cv3Mat2atIfEERKT_i.exit.i, !llvm.loop !52
 
 .loopexit238:                                     ; preds = %260, %240, %221, %197
-  %.036.lcssa.i = phi i32 [ -1, %197 ], [ %.137.us.i, %221 ], [ %.137.us80.i, %240 ], [ %.137.i, %260 ]
-  %.034.lcssa.i = phi i32 [ -1, %197 ], [ %.135.us.i, %221 ], [ %.135.us81.i, %240 ], [ %.135.i, %260 ]
+  %.036.lcssa.i = phi i32 [ -1, %197 ], [ %.137.us80.i, %240 ], [ %.137.us.i, %221 ], [ %.137.i, %260 ]
+  %.034.lcssa.i = phi i32 [ -1, %197 ], [ %.135.us81.i, %240 ], [ %.135.us.i, %221 ], [ %.135.i, %260 ]
   %262 = sitofp i32 %.036.lcssa.i to double
   %263 = sub nsw i32 %.034.lcssa.i, %.036.lcssa.i
   %264 = sitofp i32 %263 to double
@@ -1179,8 +1179,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %430, %442
   br label %.body168
 
 .body168:                                         ; preds = %.loopexit, %.loopexit.split-lp, %445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %443
-  %.sroa.0213.4246 = phi ptr [ %.sroa.0213.4.lcssa, %443 ], [ %.sroa.0213.4.lcssa, %445 ], [ %.sroa.0213.4.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.0213.4257, %.loopexit ], [ %.sroa.0213.4257, %.loopexit.split-lp ]
-  %.pn123 = phi { ptr, i32 } [ %444, %443 ], [ %446, %445 ], [ %426, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0213.4246 = phi ptr [ %.sroa.0213.4.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.0213.4.lcssa, %443 ], [ %.sroa.0213.4.lcssa, %445 ], [ %.sroa.0213.4257, %.loopexit ], [ %.sroa.0213.4257, %.loopexit.split-lp ]
+  %.pn123 = phi { ptr, i32 } [ %426, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %444, %443 ], [ %446, %445 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i170 = icmp eq ptr %.sroa.0213.4246, null
   br i1 %.not.i.i.i170, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit171, label %447
 
@@ -1437,7 +1437,7 @@ _ZNSt6vectorISt4pairIifESaIS1_EED2Ev.exit198:     ; preds = %_ZNSt6vectorISt4pai
   br label %.body
 
 .body:                                            ; preds = %300, %302, %529, %306, %304, %241, %298
-  %.pn123.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %299, %298 ], [ %303, %302 ], [ %301, %300 ], [ %.pn123.pn.pn.pn, %529 ], [ %307, %306 ], [ %305, %304 ], [ %242, %241 ]
+  %.pn123.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %299, %298 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %.pn123.pn.pn.pn, %529 ], [ %307, %306 ], [ %242, %241 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #25
   br label %530
 

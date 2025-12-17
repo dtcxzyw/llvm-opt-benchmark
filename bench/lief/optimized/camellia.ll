@@ -1704,7 +1704,7 @@ define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr noundef read
   br i1 %.not36, label %.loopexit, label %.preheader46, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.preheader46, %.lr.ph62, %.preheader47, %.preheader44, %8, %6
-  %.033 = phi i32 [ -36, %6 ], [ -38, %8 ], [ 0, %.preheader44 ], [ 0, %.preheader47 ], [ 0, %.lr.ph62 ], [ 0, %.preheader46 ]
+  %.033 = phi i32 [ -38, %8 ], [ -36, %6 ], [ 0, %.preheader44 ], [ 0, %.preheader47 ], [ 0, %.lr.ph62 ], [ 0, %.preheader46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.033
 }

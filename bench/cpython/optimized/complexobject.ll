@@ -1213,8 +1213,8 @@ define dso_local { double, double } @_Py_c_quot(double %0, double %1, double %2,
   br label %33
 
 33:                                               ; preds = %23, %25, %15
-  %.sroa.066.0 = phi double [ %19, %15 ], [ %29, %25 ], [ 0x7FF8000000000000, %23 ]
-  %.sroa.8.0 = phi double [ %22, %15 ], [ %32, %25 ], [ 0x7FF8000000000000, %23 ]
+  %.sroa.066.0 = phi double [ 0x7FF8000000000000, %23 ], [ %19, %15 ], [ %29, %25 ]
+  %.sroa.8.0 = phi double [ 0x7FF8000000000000, %23 ], [ %22, %15 ], [ %32, %25 ]
   %34 = fcmp uno double %.sroa.066.0, 0.000000e+00
   %35 = fcmp uno double %.sroa.8.0, 0.000000e+00
   %or.cond = select i1 %34, i1 %35, i1 false
@@ -1272,8 +1272,8 @@ define dso_local { double, double } @_Py_c_quot(double %0, double %1, double %2,
   br label %73
 
 73:                                               ; preds = %.thread, %56, %45, %61, %33
-  %.sroa.066.1 = phi double [ %52, %45 ], [ %68, %61 ], [ %.sroa.066.0, %33 ], [ %.sroa.066.0, %56 ], [ 0.000000e+00, %.thread ]
-  %.sroa.8.1 = phi double [ %55, %45 ], [ %72, %61 ], [ %.sroa.8.0, %33 ], [ %.sroa.8.0, %56 ], [ 0.000000e+00, %.thread ]
+  %.sroa.066.1 = phi double [ %52, %45 ], [ %68, %61 ], [ %.sroa.066.0, %56 ], [ %.sroa.066.0, %33 ], [ 0.000000e+00, %.thread ]
+  %.sroa.8.1 = phi double [ %55, %45 ], [ %72, %61 ], [ %.sroa.8.0, %56 ], [ %.sroa.8.0, %33 ], [ 0.000000e+00, %.thread ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.066.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.8.1, 1
   ret { double, double } %.fca.1.insert
@@ -1379,8 +1379,8 @@ define dso_local { double, double } @_Py_rc_quot(double noundef %0, double %1, d
   br label %51
 
 51:                                               ; preds = %36, %41, %31
-  %.sroa.040.1 = phi double [ %47, %41 ], [ %.sroa.040.0, %31 ], [ %.sroa.040.0, %36 ]
-  %.sroa.7.1 = phi double [ %50, %41 ], [ %.sroa.7.0, %31 ], [ %.sroa.7.0, %36 ]
+  %.sroa.040.1 = phi double [ %47, %41 ], [ %.sroa.040.0, %36 ], [ %.sroa.040.0, %31 ]
+  %.sroa.7.1 = phi double [ %50, %41 ], [ %.sroa.7.0, %36 ], [ %.sroa.7.0, %31 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.040.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
@@ -1457,8 +1457,8 @@ define dso_local { double, double } @_Py_c_pow(double %0, double %1, double %2, 
   br label %_Py_ADJUST_ERANGE2.exit
 
 _Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %40, %38, %13, %10, %4
-  %.sroa.030.0 = phi double [ 1.000000e+00, %4 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %13 ], [ %30, %38 ], [ %30, %40 ], [ %30, %.sink.split.i ]
-  %.sroa.531.0 = phi double [ 0.000000e+00, %4 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %13 ], [ %32, %38 ], [ %32, %40 ], [ %32, %.sink.split.i ]
+  %.sroa.030.0 = phi double [ 0.000000e+00, %13 ], [ 1.000000e+00, %4 ], [ 0.000000e+00, %10 ], [ %30, %38 ], [ %30, %40 ], [ %30, %.sink.split.i ]
+  %.sroa.531.0 = phi double [ 0.000000e+00, %13 ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %10 ], [ %32, %38 ], [ %32, %40 ], [ %32, %.sink.split.i ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.030.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.531.0, 1
   ret { double, double } %.fca.1.insert
@@ -1528,7 +1528,7 @@ define dso_local double @_Py_c_abs(double %0, double %1) local_unnamed_addr #7 {
   br label %22
 
 22:                                               ; preds = %20, %21, %11, %13, %9
-  %.0 = phi double [ 0x7FF0000000000000, %9 ], [ 0x7FF0000000000000, %13 ], [ 0x7FF8000000000000, %11 ], [ %16, %21 ], [ %16, %20 ]
+  %.0 = phi double [ 0x7FF8000000000000, %11 ], [ 0x7FF0000000000000, %9 ], [ 0x7FF0000000000000, %13 ], [ %16, %21 ], [ %16, %20 ]
   ret double %.0
 }
 
@@ -1655,7 +1655,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %15, %12, %8, %18, %16, %PyObject_TypeCheck.exit.thread
-  %.0 = phi double [ %5, %PyObject_TypeCheck.exit.thread ], [ -1.000000e+00, %16 ], [ %19, %18 ], [ %10, %8 ], [ %10, %12 ], [ %10, %15 ]
+  %.0 = phi double [ %5, %PyObject_TypeCheck.exit.thread ], [ %19, %18 ], [ -1.000000e+00, %16 ], [ %10, %8 ], [ %10, %12 ], [ %10, %15 ]
   ret double %.0
 }
 
@@ -1762,7 +1762,7 @@ Py_DECREF.exit21.sink.split:                      ; preds = %38, %31
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %Py_DECREF.exit21.sink.split, %38, %36, %31, %27, %1, %22, %Py_DECREF.exit, %PyObject_TypeCheck.exit.thread
-  %.1 = phi ptr [ %.0.i.i, %22 ], [ null, %Py_DECREF.exit ], [ %.0.i.i, %PyObject_TypeCheck.exit.thread ], [ null, %1 ], [ null, %27 ], [ null, %31 ], [ null, %36 ], [ null, %38 ], [ null, %Py_DECREF.exit21.sink.split ]
+  %.1 = phi ptr [ %.0.i.i, %PyObject_TypeCheck.exit.thread ], [ null, %1 ], [ null, %Py_DECREF.exit ], [ %.0.i.i, %22 ], [ null, %27 ], [ null, %31 ], [ null, %36 ], [ null, %38 ], [ null, %Py_DECREF.exit21.sink.split ]
   ret ptr %.1
 }
 
@@ -1824,7 +1824,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %15, %12, %8, %18, %21, %16, %PyObject_TypeCheck.exit.thread
-  %.0 = phi double [ %5, %PyObject_TypeCheck.exit.thread ], [ -1.000000e+00, %16 ], [ -1.000000e+00, %18 ], [ 0.000000e+00, %21 ], [ %10, %8 ], [ %10, %12 ], [ %10, %15 ]
+  %.0 = phi double [ %5, %PyObject_TypeCheck.exit.thread ], [ 0.000000e+00, %21 ], [ -1.000000e+00, %16 ], [ -1.000000e+00, %18 ], [ %10, %8 ], [ %10, %12 ], [ %10, %15 ]
   ret double %.0
 }
 
@@ -1881,8 +1881,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %13, %10, %7, %14, %16, %PyObject_TypeCheck.exit.thread
-  %.sroa.016.0 = phi double [ %.sroa.016.0.copyload, %PyObject_TypeCheck.exit.thread ], [ %17, %16 ], [ -1.000000e+00, %14 ], [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload, %10 ], [ %.sroa.0.0.copyload, %13 ]
-  %.sroa.5.0 = phi double [ %.sroa.5.0.copyload, %PyObject_TypeCheck.exit.thread ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %14 ], [ %.sroa.8.0.copyload, %7 ], [ %.sroa.8.0.copyload, %10 ], [ %.sroa.8.0.copyload, %13 ]
+  %.sroa.016.0 = phi double [ %.sroa.016.0.copyload, %PyObject_TypeCheck.exit.thread ], [ -1.000000e+00, %14 ], [ %17, %16 ], [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload, %10 ], [ %.sroa.0.0.copyload, %13 ]
+  %.sroa.5.0 = phi double [ %.sroa.5.0.copyload, %PyObject_TypeCheck.exit.thread ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %16 ], [ %.sroa.8.0.copyload, %7 ], [ %.sroa.8.0.copyload, %10 ], [ %.sroa.8.0.copyload, %13 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.016.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -2145,7 +2145,7 @@ PyObject_TypeCheck.exit34.thread:                 ; preds = %PyObject_TypeCheck.
   br label %Py_DECREF.exit
 
 67:                                               ; preds = %.thread, %PyObject_TypeCheck.exit30.thread
-  %.014.shrunk = phi i1 [ %48, %PyObject_TypeCheck.exit30.thread ], [ %64, %.thread ]
+  %.014.shrunk = phi i1 [ %64, %.thread ], [ %48, %PyObject_TypeCheck.exit30.thread ]
   %68 = icmp ne i32 %2, 2
   %69 = xor i1 %68, %.014.shrunk
   br i1 %69, label %.split17, label %.split
@@ -2171,7 +2171,7 @@ PyObject_TypeCheck.exit34.thread:                 ; preds = %PyObject_TypeCheck.
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %76, %.split, %72, %.split17, %65, %39, %36, %33, %3, %PyObject_TypeCheck.exit32, %29, %20
-  %.0 = phi ptr [ %66, %65 ], [ %21, %20 ], [ null, %29 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit32 ], [ @_Py_NotImplementedStruct, %3 ], [ %34, %33 ], [ %34, %36 ], [ %34, %39 ], [ @_Py_TrueStruct, %.split17 ], [ @_Py_TrueStruct, %72 ], [ @_Py_FalseStruct, %.split ], [ @_Py_FalseStruct, %76 ]
+  %.0 = phi ptr [ %34, %39 ], [ %21, %20 ], [ null, %29 ], [ %66, %65 ], [ @_Py_NotImplementedStruct, %3 ], [ @_Py_TrueStruct, %72 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit32 ], [ %34, %33 ], [ %34, %36 ], [ @_Py_TrueStruct, %.split17 ], [ @_Py_FalseStruct, %.split ], [ @_Py_FalseStruct, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2272,7 +2272,7 @@ define internal ptr @actual_complex_new(ptr noundef %0, ptr noundef %1, ptr noun
   br label %complex_subtype_from_string.exit
 
 complex_subtype_from_string.exit:                 ; preds = %33, %36, %41, %44
-  %.0.i = phi ptr [ null, %33 ], [ %39, %36 ], [ %39, %41 ], [ %39, %44 ]
+  %.0.i = phi ptr [ %39, %44 ], [ null, %33 ], [ %39, %36 ], [ %39, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %complex_subtype_from_doubles.exit
 
@@ -2396,7 +2396,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %61, %PyObject_TypeC
   br label %complex_subtype_from_doubles.exit
 
 complex_subtype_from_doubles.exit:                ; preds = %87, %83, %67, %PyObject_TypeCheck.exit.thread, %58, %55, %complex_subtype_from_doubles.exit63, %28, %25, %17, %13, %complex_subtype_from_string.exit, %89, %81, %59, %.split, %.split38
-  %.0 = phi ptr [ %7, %.split ], [ %11, %.split38 ], [ %.0.i, %complex_subtype_from_string.exit ], [ null, %59 ], [ null, %89 ], [ null, %81 ], [ null, %13 ], [ %16, %17 ], [ %21, %25 ], [ %21, %28 ], [ %51, %complex_subtype_from_doubles.exit63 ], [ %51, %55 ], [ %51, %58 ], [ null, %PyObject_TypeCheck.exit.thread ], [ %66, %67 ], [ null, %83 ], [ %86, %87 ]
+  %.0 = phi ptr [ null, %81 ], [ %11, %.split38 ], [ %7, %.split ], [ %16, %17 ], [ %.0.i, %complex_subtype_from_string.exit ], [ null, %59 ], [ %21, %28 ], [ %51, %58 ], [ null, %89 ], [ %66, %67 ], [ null, %13 ], [ %21, %25 ], [ %51, %complex_subtype_from_doubles.exit63 ], [ %51, %55 ], [ null, %PyObject_TypeCheck.exit.thread ], [ null, %83 ], [ %86, %87 ]
   ret ptr %.0
 }
 
@@ -2597,7 +2597,7 @@ _PyObject_Init.exit.i:                            ; preds = %59, %55
   br label %PyComplex_FromCComplex.exit
 
 PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %53, %41, %27, %PyObject_TypeCheck.exit19, %46
-  %.1 = phi ptr [ null, %46 ], [ %28, %27 ], [ %42, %41 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %54, %53 ], [ %51, %_PyObject_Init.exit.i ]
+  %.1 = phi ptr [ null, %46 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %28, %27 ], [ %42, %41 ], [ %54, %53 ], [ %51, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -2773,7 +2773,7 @@ _PyObject_Init.exit.i:                            ; preds = %60, %56
   br label %PyComplex_FromCComplex.exit
 
 PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %54, %42, %28, %PyObject_TypeCheck.exit21, %47
-  %.1 = phi ptr [ null, %47 ], [ %29, %28 ], [ %43, %42 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit21 ], [ %55, %54 ], [ %52, %_PyObject_Init.exit.i ]
+  %.1 = phi ptr [ null, %47 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit21 ], [ %29, %28 ], [ %43, %42 ], [ %55, %54 ], [ %52, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -2953,7 +2953,7 @@ _PyObject_Init.exit.i:                            ; preds = %63, %59
   br label %PyComplex_FromCComplex.exit
 
 PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %57, %46, %29, %PyObject_TypeCheck.exit19, %52
-  %.1 = phi ptr [ null, %52 ], [ %30, %29 ], [ %47, %46 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %58, %57 ], [ %55, %_PyObject_Init.exit.i ]
+  %.1 = phi ptr [ null, %52 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %30, %29 ], [ %47, %46 ], [ %58, %57 ], [ %55, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -3252,7 +3252,7 @@ _PyObject_Init.exit.i:                            ; preds = %114, %110
   br label %PyComplex_FromCComplex.exit
 
 PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %108, %103, %101, %35, %33, %18
-  %.0 = phi ptr [ null, %35 ], [ null, %101 ], [ null, %103 ], [ %34, %33 ], [ %19, %18 ], [ %109, %108 ], [ %106, %_PyObject_Init.exit.i ]
+  %.0 = phi ptr [ null, %35 ], [ null, %101 ], [ null, %103 ], [ %19, %18 ], [ %34, %33 ], [ %109, %108 ], [ %106, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -3350,7 +3350,7 @@ _PyObject_Init.exit.i:                            ; preds = %21, %17
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_PyObject_Init.exit.i, %15, %6, %3
-  %.0 = phi ptr [ %0, %3 ], [ %0, %6 ], [ %16, %15 ], [ %13, %_PyObject_Init.exit.i ]
+  %.0 = phi ptr [ %0, %6 ], [ %0, %3 ], [ %16, %15 ], [ %13, %_PyObject_Init.exit.i ]
   ret ptr %.0
 }
 
@@ -3402,8 +3402,8 @@ _Py_c_abs.exit:                                   ; preds = %14
   br label %26
 
 _Py_c_abs.exit.thread.sink.split:                 ; preds = %17, %14, %12
-  %.sink = phi ptr [ %13, %12 ], [ %16, %14 ], [ %21, %17 ]
-  %.0.i6.ph = phi double [ 0x7FF0000000000000, %12 ], [ 0x7FF0000000000000, %14 ], [ %18, %17 ]
+  %.sink = phi ptr [ %16, %14 ], [ %13, %12 ], [ %21, %17 ]
+  %.0.i6.ph = phi double [ 0x7FF0000000000000, %14 ], [ 0x7FF0000000000000, %12 ], [ %18, %17 ]
   store i32 0, ptr %.sink, align 4, !tbaa !4
   br label %_Py_c_abs.exit.thread
 
@@ -3578,8 +3578,8 @@ real_to_double.exit:                              ; preds = %23, %PyObject_TypeC
   br label %_Py_rc_quot.exit
 
 _Py_rc_quot.exit:                                 ; preds = %53, %58, %63
-  %.sroa.040.1.i = phi double [ %69, %63 ], [ %.sroa.040.0.i, %53 ], [ %.sroa.040.0.i, %58 ]
-  %.sroa.7.1.i = phi double [ %72, %63 ], [ %.sroa.7.0.i, %53 ], [ %.sroa.7.0.i, %58 ]
+  %.sroa.040.1.i = phi double [ %69, %63 ], [ %.sroa.040.0.i, %58 ], [ %.sroa.040.0.i, %53 ]
+  %.sroa.7.1.i = phi double [ %72, %63 ], [ %.sroa.7.0.i, %58 ], [ %.sroa.7.0.i, %53 ]
   store double %.sroa.040.1.i, ptr %5, align 8, !tbaa !13
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %.sroa.7.1.i, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !13
@@ -3695,7 +3695,7 @@ _PyObject_Init.exit.i:                            ; preds = %110, %106
   br label %PyComplex_FromCComplex.exit
 
 PyComplex_FromCComplex.exit:                      ; preds = %_PyObject_Init.exit.i, %104, %93, %73, %PyObject_TypeCheck.exit19, %99
-  %.1 = phi ptr [ null, %99 ], [ %74, %73 ], [ %94, %93 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %105, %104 ], [ %102, %_PyObject_Init.exit.i ]
+  %.1 = phi ptr [ null, %99 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit19 ], [ %74, %73 ], [ %94, %93 ], [ %105, %104 ], [ %102, %_PyObject_Init.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -3831,7 +3831,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %21, %_PyObject_Init
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %38, %35, %32, %9, %6, %16, %PyComplex_FromCComplex.exit
-  %.0 = phi ptr [ null, %16 ], [ %.0.i, %PyComplex_FromCComplex.exit ], [ %1, %6 ], [ %1, %9 ], [ %33, %32 ], [ %33, %35 ], [ %33, %38 ]
+  %.0 = phi ptr [ %.0.i, %PyComplex_FromCComplex.exit ], [ null, %16 ], [ %1, %9 ], [ %1, %6 ], [ %33, %32 ], [ %33, %35 ], [ %33, %38 ]
   ret ptr %.0
 }
 
@@ -3926,7 +3926,7 @@ _PyObject_Init.exit.i.i:                          ; preds = %22, %18
   br label %complex___complex___impl.exit
 
 complex___complex___impl.exit:                    ; preds = %4, %7, %16, %_PyObject_Init.exit.i.i
-  %.0.i = phi ptr [ %0, %4 ], [ %0, %7 ], [ %17, %16 ], [ %14, %_PyObject_Init.exit.i.i ]
+  %.0.i = phi ptr [ %0, %7 ], [ %0, %4 ], [ %17, %16 ], [ %14, %_PyObject_Init.exit.i.i ]
   ret ptr %.0.i
 }
 
@@ -4043,8 +4043,8 @@ define internal fastcc ptr @complex_new(ptr noundef %0, ptr noundef %1, ptr noun
   br label %23
 
 23:                                               ; preds = %18, %.thread40, %20
-  %.028 = phi ptr [ %19, %20 ], [ null, %.thread40 ], [ %19, %18 ]
-  %.0 = phi ptr [ %22, %20 ], [ null, %.thread40 ], [ null, %18 ]
+  %.028 = phi ptr [ %19, %20 ], [ %19, %18 ], [ null, %.thread40 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %18 ], [ null, %.thread40 ]
   %24 = icmp eq ptr %.028, null
   %spec.select.i = select i1 %24, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), ptr %.028
   %25 = call fastcc ptr @try_complex_special_method(ptr noundef nonnull %spec.select.i)
@@ -4306,7 +4306,7 @@ Py_DECREF.exit.i:                                 ; preds = %PyObject_TypeCheck.
   br label %complex_new_impl.exit
 
 complex_new_impl.exit:                            ; preds = %131, %126, %114, %PyObject_TypeCheck.exit98.thread.i, %98, %95, %74, %71, %69, %66, %50, %47, %45, %42, %26, %12
-  %.029 = phi ptr [ null, %12 ], [ null, %26 ], [ null, %42 ], [ null, %66 ], [ null, %95 ], [ null, %98 ], [ null, %PyObject_TypeCheck.exit98.thread.i ], [ null, %114 ], [ null, %45 ], [ null, %47 ], [ null, %50 ], [ null, %69 ], [ null, %71 ], [ null, %74 ], [ null, %126 ], [ %130, %131 ]
+  %.029 = phi ptr [ null, %12 ], [ null, %26 ], [ null, %42 ], [ null, %66 ], [ null, %74 ], [ null, %98 ], [ null, %PyObject_TypeCheck.exit98.thread.i ], [ null, %95 ], [ null, %114 ], [ null, %50 ], [ null, %45 ], [ null, %47 ], [ null, %69 ], [ null, %71 ], [ null, %126 ], [ %130, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.029
 }
@@ -4527,7 +4527,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   br label %complex_subtype_from_doubles.exit
 
 complex_subtype_from_doubles.exit:                ; preds = %84, %80, %35, %22, %86
-  %.0 = phi ptr [ null, %86 ], [ null, %22 ], [ null, %35 ], [ null, %80 ], [ %83, %84 ]
+  %.0 = phi ptr [ null, %86 ], [ null, %35 ], [ null, %22 ], [ null, %80 ], [ %83, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

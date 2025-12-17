@@ -68,7 +68,7 @@ define internal range(i32 -2147483648, 1) i32 @afc_read_header(ptr noundef %0) #
   br label %38
 
 38:                                               ; preds = %5, %1, %13
-  %.0 = phi i32 [ 0, %13 ], [ -12, %1 ], [ %11, %5 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %13 ], [ %11, %5 ]
   ret i32 %.0
 }
 

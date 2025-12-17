@@ -1396,7 +1396,7 @@ define internal i32 @dissect_dect_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i73, label %dissect_dect_nwk_lce.exit, label %.lr.ph.i71, !llvm.loop !13
 
 dissect_dect_nwk_lce.exit:                        ; preds = %.lr.ph.i71, %.lr.ph.i66, %.lr.ph.i61, %.lr.ph.i56, %.lr.ph.i51, %.lr.ph.i, %66, %57, %48, %39, %31, %19, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %19 ], [ 2, %31 ], [ 2, %39 ], [ 2, %48 ], [ 2, %57 ], [ 2, %66 ], [ %26, %.lr.ph.i ], [ %37, %.lr.ph.i51 ], [ %46, %.lr.ph.i56 ], [ %55, %.lr.ph.i61 ], [ %64, %.lr.ph.i66 ], [ %73, %.lr.ph.i71 ]
+  %.0 = phi i32 [ 0, %4 ], [ 2, %19 ], [ 2, %31 ], [ 2, %39 ], [ 2, %48 ], [ 2, %57 ], [ 2, %66 ], [ %64, %.lr.ph.i66 ], [ %26, %.lr.ph.i ], [ %37, %.lr.ph.i51 ], [ %46, %.lr.ph.i56 ], [ %55, %.lr.ph.i61 ], [ %73, %.lr.ph.i71 ]
   %75 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %76 = icmp ult i32 %.0, %75
   br i1 %76, label %77, label %80
@@ -1601,7 +1601,7 @@ define internal fastcc i32 @dissect_dect_nwk_s_ie(ptr noundef %0, i32 noundef %1
   %90 = load i32, ptr @hf_dect_nwk_s_ie_length, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %90, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef 0)
   %92 = add i32 %1, 2
-  switch i8 %76, label %516 [
+  switch i8 %76, label %518 [
     i8 10, label %93
     i8 108, label %131
     i8 25, label %153
@@ -2255,17 +2255,14 @@ dissect_dect_nwk_s_ie_escape_to_proprietary.exit: ; preds = %475, %481
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %498
   %.026.i = phi i32 [ %501, %498 ], [ %.026.i.be, %.backedge.i.backedge ]
   %.0.i212 = phi i32 [ 0, %498 ], [ %.0.i212.be, %.backedge.i.backedge ]
-  switch i32 %.0.i212, label %default.unreachable [
-    i32 0, label %.backedge.sink.split.i
+  switch i32 %.0.i212, label %default.unreachable.i [
+    i32 0, label %513
     i32 1, label %502
     i32 2, label %503
   ]
 
 502:                                              ; preds = %.backedge.i
-  br label %.backedge.sink.split.i
-
-default.unreachable:                              ; preds = %.backedge.i
-  unreachable
+  br label %513
 
 503:                                              ; preds = %.backedge.i
   %504 = load i32, ptr @hf_dect_nwk_s_ie_codec_list_last_codec, align 4
@@ -2279,25 +2276,28 @@ default.unreachable:                              ; preds = %.backedge.i
   %512 = add i32 %.026.i, 1
   br i1 %511, label %dissect_dect_nwk_s_ie_auth_type.exit, label %.backedge.i.backedge
 
-.backedge.sink.split.i:                           ; preds = %502, %.backedge.i
-  %hf_dect_nwk_s_ie_codec_list_codec_identifier.sink.i = phi ptr [ @hf_dect_nwk_s_ie_codec_list_mac_and_dlc_service, %502 ], [ @hf_dect_nwk_s_ie_codec_list_codec_identifier, %.backedge.i ]
-  %.0.be.ph.i = phi i32 [ 2, %502 ], [ 1, %.backedge.i ]
-  %513 = load i32, ptr %hf_dect_nwk_s_ie_codec_list_codec_identifier.sink.i, align 4
-  %514 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %513, ptr noundef %0, i32 noundef %.026.i, i32 noundef 1, i32 noundef 0)
-  %515 = add i32 %.026.i, 1
+default.unreachable.i:                            ; preds = %.backedge.i
+  unreachable
+
+513:                                              ; preds = %502, %.backedge.i
+  %hf_dect_nwk_s_ie_codec_list_mac_and_dlc_service.sink.i = phi ptr [ @hf_dect_nwk_s_ie_codec_list_mac_and_dlc_service, %502 ], [ @hf_dect_nwk_s_ie_codec_list_codec_identifier, %.backedge.i ]
+  %514 = load i32, ptr %hf_dect_nwk_s_ie_codec_list_mac_and_dlc_service.sink.i, align 4
+  %515 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %514, ptr noundef %0, i32 noundef %.026.i, i32 noundef 1, i32 noundef 0)
+  %516 = add nuw nsw i32 %.0.i212, 1
+  %517 = add i32 %.026.i, 1
   br label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %.backedge.sink.split.i, %503
-  %.026.i.be = phi i32 [ %512, %503 ], [ %515, %.backedge.sink.split.i ]
-  %.0.i212.be = phi i32 [ 0, %503 ], [ %.0.be.ph.i, %.backedge.sink.split.i ]
+.backedge.i.backedge:                             ; preds = %513, %503
+  %.026.i.be = phi i32 [ %517, %513 ], [ %512, %503 ]
+  %.0.i212.be = phi i32 [ %516, %513 ], [ 0, %503 ]
   br label %.backedge.i, !llvm.loop !18
 
-516:                                              ; preds = %75
-  %517 = add i32 %92, %79
+518:                                              ; preds = %75
+  %519 = add i32 %92, %79
   br label %dissect_dect_nwk_s_ie_auth_type.exit
 
-dissect_dect_nwk_s_ie_auth_type.exit:             ; preds = %503, %471, %494, %487, %486, %463, %371, %366, %360, %358, %298, %292, %276, %262, %256, %243, %204, %184, %180, %171, %124, %103, %dissect_dect_nwk_s_ie_calling_party_number.exit, %dissect_dect_nwk_s_ie_cipher_info.exit, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit, %270, %273, %377, %381, %385, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit, %516, %73
-  %.1 = phi i32 [ %74, %73 ], [ %517, %516 ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.exit ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit ], [ %272, %270 ], [ %275, %273 ], [ %380, %377 ], [ %384, %381 ], [ %388, %385 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit ], [ %130, %124 ], [ %123, %103 ], [ %179, %171 ], [ %183, %180 ], [ %209, %204 ], [ %202, %184 ], [ %269, %262 ], [ %260, %256 ], [ %255, %243 ], [ %297, %292 ], [ %290, %276 ], [ %312, %298 ], [ %365, %360 ], [ %359, %358 ], [ %370, %366 ], [ %376, %371 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %92, %486 ], [ %474, %471 ], [ %512, %503 ]
+dissect_dect_nwk_s_ie_auth_type.exit:             ; preds = %503, %471, %494, %487, %486, %463, %371, %366, %360, %358, %298, %292, %276, %262, %256, %243, %204, %184, %180, %171, %124, %103, %dissect_dect_nwk_s_ie_calling_party_number.exit, %dissect_dect_nwk_s_ie_cipher_info.exit, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit, %270, %273, %377, %381, %385, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit, %518, %73
+  %.1 = phi i32 [ %74, %73 ], [ %519, %518 ], [ %92, %486 ], [ %152, %dissect_dect_nwk_s_ie_calling_party_number.exit ], [ %170, %dissect_dect_nwk_s_ie_cipher_info.exit ], [ %123, %103 ], [ %183, %180 ], [ %242, %dissect_dect_nwk_s_ie_iwu_to_iwu.exit ], [ %202, %184 ], [ %272, %270 ], [ %275, %273 ], [ %255, %243 ], [ %290, %276 ], [ %380, %377 ], [ %384, %381 ], [ %388, %385 ], [ %376, %371 ], [ %485, %dissect_dect_nwk_s_ie_escape_to_proprietary.exit ], [ %130, %124 ], [ %179, %171 ], [ %209, %204 ], [ %269, %262 ], [ %260, %256 ], [ %297, %292 ], [ %312, %298 ], [ %365, %360 ], [ %359, %358 ], [ %370, %366 ], [ %464, %463 ], [ %493, %487 ], [ %497, %494 ], [ %474, %471 ], [ %512, %503 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

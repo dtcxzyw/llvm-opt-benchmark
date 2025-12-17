@@ -585,8 +585,8 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.then2
-  %retval.sroa.0.0 = phi ptr [ %call.i, %if.then2 ], [ null, %if.end ], [ @.str.1, %entry ]
-  %retval.sroa.4.0 = phi i64 [ %call1.i, %if.then2 ], [ 0, %if.end ], [ 14, %entry ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.end ], [ %call.i, %if.then2 ], [ @.str.1, %entry ]
+  %retval.sroa.4.0 = phi i64 [ 0, %if.end ], [ %call1.i, %if.then2 ], [ 14, %entry ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

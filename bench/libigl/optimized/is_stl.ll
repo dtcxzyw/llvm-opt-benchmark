@@ -118,7 +118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   br label %46
 
 46:                                               ; preds = %2, %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit", %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit19"
-  %.010 = phi i1 [ true, %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit" ], [ %.0.i16, %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit19" ], [ false, %2 ]
+  %.010 = phi i1 [ %.0.i16, %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit19" ], [ true, %"_ZZN3igl6is_stlEP8_IO_FILERbENK3$_0clES1_.exit" ], [ false, %2 ]
   call void @rewind(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -5072,7 +5072,7 @@ define internal range(i32 0, 2) i32 @pfcp_stat_packet(ptr noundef readonly captu
   br label %41
 
 41:                                               ; preds = %8, %5, %39
-  %.018 = phi i32 [ 1, %39 ], [ 0, %5 ], [ 0, %8 ]
+  %.018 = phi i32 [ 0, %5 ], [ 1, %39 ], [ 0, %8 ]
   ret i32 %.018
 }
 
@@ -5226,7 +5226,7 @@ define internal range(i32 0, 2) i32 @pfcp_sn_equal_matched(ptr noundef %0, ptr n
   br label %32
 
 32:                                               ; preds = %15, %21, %12, %6, %23
-  %.0 = phi i32 [ %31, %23 ], [ 0, %6 ], [ 0, %12 ], [ 1, %21 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %6 ], [ %31, %23 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -6402,8 +6402,8 @@ define internal void @dissect_pfcp_redirect_information(ptr noundef %0, ptr noun
   br label %35
 
 35:                                               ; preds = %17, %26
-  %36 = phi i32 [ %.pre, %26 ], [ %25, %17 ]
-  %.0 = phi i32 [ %34, %26 ], [ %24, %17 ]
+  %36 = phi i32 [ %25, %17 ], [ %.pre, %26 ]
+  %.0 = phi i32 [ %24, %17 ], [ %34, %26 ]
   %37 = add i32 %36, -5
   %or.cond7 = icmp ult i32 %37, 4
   br i1 %or.cond7, label %.thread, label %41
@@ -15764,7 +15764,7 @@ define internal range(i32 0, 2) i32 @pfcp_info_equal(ptr noundef readonly captur
   br label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %18, %16, %11, %6, %2
-  %26 = phi i32 [ 0, %2 ], [ %25, %18 ], [ 0, %6 ], [ 0, %11 ], [ 1, %16 ]
+  %26 = phi i32 [ 0, %2 ], [ %25, %18 ], [ 0, %6 ], [ 1, %16 ], [ 0, %11 ]
   ret i32 %26
 }
 

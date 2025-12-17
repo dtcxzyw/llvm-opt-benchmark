@@ -71,7 +71,7 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_write_packet(ptr noundef %0, ptr nound
   store i16 %33, ptr %31, align 8, !tbaa !23
   br label %34
 
-34:                                               ; preds = %22, %7
+34:                                               ; preds = %7, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = icmp sgt i32 %3, 0
   br i1 %35, label %.lr.ph.i, label %mov_cenc_write_encrypted.exit
@@ -153,7 +153,7 @@ mov_cenc_write_encrypted.exit:                    ; preds = %.lr.ph.i, %34
   br label %auxiliary_info_add_subsample.exit
 
 auxiliary_info_add_subsample.exit:                ; preds = %59, %52, %46, %17, %4
-  %.0 = phi i32 [ %6, %4 ], [ -12, %17 ], [ 0, %59 ], [ 0, %46 ], [ -12, %52 ]
+  %.0 = phi i32 [ -12, %17 ], [ %6, %4 ], [ 0, %46 ], [ 0, %59 ], [ -12, %52 ]
   ret i32 %.0
 }
 
@@ -415,8 +415,8 @@ auxiliary_info_add_subsample.exit:                ; preds = %mov_cenc_write_encr
   store i16 %96, ptr %99, align 1, !tbaa !22
   br label %mov_cenc_end_packet.exit
 
-mov_cenc_end_packet.exit:                         ; preds = %76, %83, %70, %4
-  %.0 = phi i32 [ %8, %4 ], [ -12, %76 ], [ %.037, %83 ], [ %.037, %70 ]
+mov_cenc_end_packet.exit:                         ; preds = %76, %70, %83, %4
+  %.0 = phi i32 [ %8, %4 ], [ -12, %76 ], [ %.037, %70 ], [ %.037, %83 ]
   ret i32 %.0
 }
 
@@ -632,7 +632,7 @@ auxiliary_info_add_subsample.exit:                ; preds = %mov_cenc_write_encr
   br label %mov_cenc_end_packet.exit
 
 mov_cenc_end_packet.exit:                         ; preds = %87, %80, %74, %6, %.loopexit, %22
-  %.042 = phi i32 [ -1, %22 ], [ -1, %.loopexit ], [ %8, %6 ], [ 0, %87 ], [ 0, %74 ], [ -12, %80 ]
+  %.042 = phi i32 [ %8, %6 ], [ -1, %22 ], [ -1, %.loopexit ], [ 0, %74 ], [ 0, %87 ], [ -12, %80 ]
   ret i32 %.042
 }
 
@@ -1092,7 +1092,7 @@ write_tiles.exit:                                 ; preds = %auxiliary_info_add_
   br i1 %231, label %write_tiles.exit.thread, label %232
 
 write_tiles.exit.thread:                          ; preds = %write_tiles.exit, %120, %125, %86
-  %.2.i117 = phi i32 [ %84, %86 ], [ -1094995529, %125 ], [ -1094995529, %120 ], [ %.112121.i, %write_tiles.exit ]
+  %.2.i117 = phi i32 [ %84, %86 ], [ -1094995529, %120 ], [ -1094995529, %125 ], [ %.112121.i, %write_tiles.exit ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4) #5
   br label %mov_cenc_end_packet.exit
 
@@ -1112,11 +1112,11 @@ write_tiles.exit.thread:                          ; preds = %write_tiles.exit, %
   %239 = add i32 %.076177, %.112121.i
   br label %240
 
-240:                                              ; preds = %33, %47, %42, %238
-  %.388.ph = phi ptr [ %.186111, %238 ], [ %44, %42 ], [ %.085175, %47 ], [ %.085175, %33 ]
-  %.384.ph = phi i64 [ %.182113, %238 ], [ %46, %42 ], [ %.081176, %47 ], [ %.081176, %33 ]
-  %.480.ph = phi i32 [ %239, %238 ], [ %.076177, %42 ], [ %57, %47 ], [ %.076177, %33 ]
-  %.4.ph = phi ptr [ null, %238 ], [ %40, %42 ], [ %.066179, %47 ], [ %.066179, %33 ]
+240:                                              ; preds = %42, %33, %47, %238
+  %.388.ph = phi ptr [ %.186111, %238 ], [ %.085175, %47 ], [ %.085175, %33 ], [ %44, %42 ]
+  %.384.ph = phi i64 [ %.182113, %238 ], [ %.081176, %47 ], [ %.081176, %33 ], [ %46, %42 ]
+  %.480.ph = phi i32 [ %239, %238 ], [ %57, %47 ], [ %.076177, %33 ], [ %.076177, %42 ]
+  %.4.ph = phi ptr [ null, %238 ], [ %.066179, %47 ], [ %.066179, %33 ], [ %40, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %241 = load i32, ptr %20, align 8, !tbaa !44
   %242 = sext i32 %241 to i64
@@ -1241,13 +1241,13 @@ auxiliary_info_add_subsample.exit:                ; preds = %262, %257, %246, %.
   store i16 %307, ptr %311, align 1, !tbaa !22
   br label %mov_cenc_end_packet.exit
 
-mov_cenc_end_packet.exit:                         ; preds = %63, %write_tiles.exit.thread, %285, %292, %279, %32
-  %.071 = phi i32 [ -1094995529, %32 ], [ -1094995529, %285 ], [ %.076.lcssa, %292 ], [ %.076.lcssa, %279 ], [ %.2.i117, %write_tiles.exit.thread ], [ -1094995529, %63 ]
+mov_cenc_end_packet.exit:                         ; preds = %63, %write_tiles.exit.thread, %285, %279, %292, %32
+  %.071 = phi i32 [ %.076.lcssa, %292 ], [ -1094995529, %32 ], [ -1094995529, %285 ], [ %.076.lcssa, %279 ], [ %.2.i117, %write_tiles.exit.thread ], [ -1094995529, %63 ]
   call void @ff_lavf_cbs_fragment_reset(ptr noundef nonnull %6) #5
   br label %312
 
 312:                                              ; preds = %4, %mov_cenc_end_packet.exit, %16
-  %.065 = phi i32 [ %14, %16 ], [ %.071, %mov_cenc_end_packet.exit ], [ %11, %4 ]
+  %.065 = phi i32 [ %.071, %mov_cenc_end_packet.exit ], [ %14, %16 ], [ %11, %4 ]
   ret i32 %.065
 }
 

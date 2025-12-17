@@ -1096,7 +1096,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2r125cancellation_dissemin
   br label %.body
 
 .body:                                            ; preds = %33, %39
-  %.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %34, %33 ]
+  %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %40, %39 ]
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn

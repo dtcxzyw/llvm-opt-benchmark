@@ -445,12 +445,12 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %122 = select i1 %.not17.i, i64 32, i64 16
   br label %sndioGetFmt.exit
 
-123:                                              ; preds = %100, %93, %107, %110, %116, %104
+123:                                              ; preds = %100, %93, %110, %116, %104, %107
   call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %107
-  %.sink.i = phi i64 [ %115, %113 ], [ %122, %119 ], [ 2, %107 ], [ 8, %116 ]
+  %.sink.i = phi i64 [ %122, %119 ], [ %115, %113 ], [ 2, %107 ], [ 8, %116 ]
   %124 = and i32 %.1, 2
   %.not119 = icmp eq i32 %124, 0
   br i1 %.not119, label %131, label %125
@@ -614,7 +614,7 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   br label %sndioSetFmt.exit.thread
 
 sndioSetFmt.exit.thread:                          ; preds = %.split.i127, %55, %.split.i, %22, %83, %84, %52, %48, %19, %15, %199, %184, %171, %158, %150, %146, %138, %130, %123, %92, %89
-  %.097 = phi i32 [ -9998, %130 ], [ -9998, %138 ], [ -9997, %146 ], [ -9992, %150 ], [ %157, %158 ], [ -9992, %171 ], [ -9992, %184 ], [ 0, %199 ], [ -9994, %123 ], [ -9999, %92 ], [ -9999, %89 ], [ -9996, %15 ], [ -9984, %19 ], [ -9996, %48 ], [ -9984, %52 ], [ -9999, %84 ], [ -9999, %83 ], [ -9994, %22 ], [ -9994, %.split.i ], [ -9994, %55 ], [ -9994, %.split.i127 ]
+  %.097 = phi i32 [ -9984, %19 ], [ -9996, %15 ], [ -9999, %84 ], [ -9996, %48 ], [ -9999, %83 ], [ -9998, %130 ], [ -9998, %138 ], [ -9997, %146 ], [ -9992, %150 ], [ %157, %158 ], [ -9992, %171 ], [ -9992, %184 ], [ 0, %199 ], [ -9994, %123 ], [ -9999, %92 ], [ -9999, %89 ], [ -9994, %.split.i ], [ -9984, %52 ], [ -9994, %22 ], [ -9994, %55 ], [ -9994, %.split.i127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.097
 }
@@ -778,7 +778,7 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %41, %4, %1, %44
-  %.0 = phi i32 [ 0, %44 ], [ 0, %1 ], [ -9999, %4 ], [ -9999, %41 ]
+  %.0 = phi i32 [ -9999, %4 ], [ 0, %44 ], [ 0, %1 ], [ -9999, %41 ]
   ret i32 %.0
 }
 
@@ -814,7 +814,7 @@ define internal range(i32 -9999, 1) i32 @StopStream(ptr noundef captures(none) %
   br label %16
 
 16:                                               ; preds = %12, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ -9999, %8 ], [ %., %12 ]
+  %.0 = phi i32 [ %., %12 ], [ 0, %1 ], [ -9999, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -851,7 +851,7 @@ define internal range(i32 -9999, 1) i32 @AbortStream(ptr noundef captures(none) 
   br label %StopStream.exit
 
 StopStream.exit:                                  ; preds = %1, %8, %12
-  %.0.i = phi i32 [ 0, %1 ], [ -9999, %8 ], [ %..i, %12 ]
+  %.0.i = phi i32 [ %..i, %12 ], [ 0, %1 ], [ -9999, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }

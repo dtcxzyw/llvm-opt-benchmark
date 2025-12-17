@@ -808,7 +808,7 @@ evws_force_disconnect_.exit46:                    ; preds = %107, %110
   %.not = icmp eq i64 %118, 0
   br i1 %.not, label %.thread, label %14
 
-.thread:                                          ; preds = %117, %14, %47, %30, %35, %2
+.thread:                                          ; preds = %117, %14, %30, %47, %35, %2
   %119 = load ptr, ptr %5, align 8
   %120 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %119) #9
   ret void

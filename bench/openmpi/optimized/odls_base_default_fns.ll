@@ -714,7 +714,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i169, %239
   br label %250
 
 250:                                              ; preds = %pmix_obj_run_destructors.exit, %249, %95, %93, %91, %89, %87, %85, %29, %27, %20, %170, %156, %84, %.loopexit174, %.loopexit173, %.loopexit, %.loopexit172, %18
-  %.0 = phi i32 [ -5, %18 ], [ %43, %.loopexit172 ], [ %59, %.loopexit ], [ %68, %.loopexit173 ], [ %72, %.loopexit174 ], [ %81, %84 ], [ %157, %156 ], [ %171, %170 ], [ 0, %20 ], [ %28, %27 ], [ %28, %29 ], [ %86, %85 ], [ %86, %87 ], [ %90, %89 ], [ %90, %91 ], [ %94, %93 ], [ %94, %95 ], [ %.0100, %249 ], [ %.0100, %pmix_obj_run_destructors.exit ]
+  %.0 = phi i32 [ -5, %18 ], [ %86, %87 ], [ 0, %20 ], [ %43, %.loopexit172 ], [ %59, %.loopexit ], [ %68, %.loopexit173 ], [ %72, %.loopexit174 ], [ %81, %84 ], [ %28, %29 ], [ %90, %91 ], [ %157, %156 ], [ %171, %170 ], [ %94, %95 ], [ %28, %27 ], [ %86, %85 ], [ %90, %89 ], [ %94, %93 ], [ %.0100, %249 ], [ %.0100, %pmix_obj_run_destructors.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2341,8 +2341,8 @@ pmix_obj_run_destructors.exit327:                 ; preds = %.lr.ph.i324, %._cri
   br label %736
 
 691:                                              ; preds = %665, %661, %._crit_edge402, %365, %263, %47, %55, %65, %.loopexit338, %.loopexit339, %.loopexit337, %pmix_pointer_array_get_item.exit301.thread, %261, %271, %321, %373, %382, %505, %pmix_pointer_array_get_item.exit316.thread, %265, %367, %657
-  %.1201 = phi ptr [ null, %47 ], [ null, %55 ], [ null, %265 ], [ null, %271 ], [ null, %321 ], [ null, %367 ], [ null, %373 ], [ null, %382 ], [ %.0200, %505 ], [ %.0200, %pmix_pointer_array_get_item.exit316.thread ], [ %.0200, %657 ], [ null, %65 ], [ null, %.loopexit338 ], [ null, %.loopexit339 ], [ null, %.loopexit337 ], [ null, %pmix_pointer_array_get_item.exit301.thread ], [ null, %261 ], [ null, %263 ], [ null, %365 ], [ %.0200, %._crit_edge402 ], [ %.0200, %661 ], [ %.0200, %665 ]
-  %.1 = phi i32 [ %48, %47 ], [ %56, %55 ], [ %264, %265 ], [ -5, %271 ], [ -13, %321 ], [ %366, %367 ], [ -1, %373 ], [ -1, %382 ], [ -5, %505 ], [ -13, %pmix_pointer_array_get_item.exit316.thread ], [ %656, %657 ], [ %66, %65 ], [ %75, %.loopexit338 ], [ %77, %.loopexit339 ], [ %165, %.loopexit337 ], [ -13, %pmix_pointer_array_get_item.exit301.thread ], [ %262, %261 ], [ %264, %263 ], [ %366, %365 ], [ %656, %._crit_edge402 ], [ -1, %661 ], [ -1, %665 ]
+  %.1201 = phi ptr [ null, %47 ], [ null, %55 ], [ null, %265 ], [ null, %263 ], [ null, %271 ], [ null, %321 ], [ null, %367 ], [ null, %365 ], [ null, %373 ], [ null, %382 ], [ %.0200, %505 ], [ %.0200, %pmix_pointer_array_get_item.exit316.thread ], [ %.0200, %657 ], [ %.0200, %._crit_edge402 ], [ null, %261 ], [ null, %65 ], [ null, %.loopexit338 ], [ null, %.loopexit339 ], [ null, %.loopexit337 ], [ null, %pmix_pointer_array_get_item.exit301.thread ], [ %.0200, %661 ], [ %.0200, %665 ]
+  %.1 = phi i32 [ %48, %47 ], [ %56, %55 ], [ %264, %265 ], [ %264, %263 ], [ -5, %271 ], [ -13, %321 ], [ %366, %367 ], [ %366, %365 ], [ -1, %373 ], [ -1, %382 ], [ -5, %505 ], [ -13, %pmix_pointer_array_get_item.exit316.thread ], [ %656, %657 ], [ %656, %._crit_edge402 ], [ %262, %261 ], [ %66, %65 ], [ %75, %.loopexit338 ], [ %77, %.loopexit339 ], [ %165, %.loopexit337 ], [ -13, %pmix_pointer_array_get_item.exit301.thread ], [ -1, %661 ], [ -1, %665 ]
   fence acquire
   %692 = load ptr, ptr %31, align 8, !tbaa !65
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 48
@@ -2430,7 +2430,7 @@ pmix_obj_run_destructors.exit332:                 ; preds = %.lr.ph.i329, %691
   br label %736
 
 736:                                              ; preds = %688, %689, %351, %356, %734, %327
-  %.0 = phi i32 [ %.1, %734 ], [ 1, %327 ], [ 1, %356 ], [ 1, %351 ], [ 0, %689 ], [ 0, %688 ]
+  %.0 = phi i32 [ %.1, %734 ], [ 1, %327 ], [ 1, %351 ], [ 1, %356 ], [ 0, %689 ], [ 0, %688 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3059,8 +3059,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %252
   br label %319
 
 266:                                              ; preds = %109, %27, %205, %44, %.loopexit, %159, %133
-  %.3145 = phi i32 [ 63, %27 ], [ 63, %109 ], [ 63, %133 ], [ 63, %159 ], [ 63, %.loopexit ], [ 63, %44 ], [ 53, %205 ]
-  %.3 = phi i32 [ -5, %27 ], [ -5, %109 ], [ -5, %133 ], [ -5, %159 ], [ -1, %.loopexit ], [ -1, %44 ], [ %208, %205 ]
+  %.3145 = phi i32 [ 63, %27 ], [ 63, %159 ], [ 63, %44 ], [ 63, %109 ], [ 63, %133 ], [ 63, %.loopexit ], [ 53, %205 ]
+  %.3 = phi i32 [ -5, %27 ], [ -5, %159 ], [ -1, %44 ], [ -5, %109 ], [ -5, %133 ], [ -1, %.loopexit ], [ %208, %205 ]
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 472
   %268 = load i16, ptr %267, align 8, !tbaa !116
   %269 = and i16 %268, -2
@@ -3345,8 +3345,8 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %79, %101
   br label %101
 
 101:                                              ; preds = %97, %93, %pmix_pointer_array_get_item.exit.i
-  %102 = phi ptr [ %87, %pmix_pointer_array_get_item.exit.i ], [ %87, %93 ], [ %.pre.i, %97 ]
-  %.1.i = phi i32 [ %.010.i, %pmix_pointer_array_get_item.exit.i ], [ %.010.i, %93 ], [ %spec.select.i, %97 ]
+  %102 = phi ptr [ %87, %pmix_pointer_array_get_item.exit.i ], [ %.pre.i, %97 ], [ %87, %93 ]
+  %.1.i = phi i32 [ %.010.i, %pmix_pointer_array_get_item.exit.i ], [ %spec.select.i, %97 ], [ %.010.i, %93 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %104 = load i32, ptr %103, align 8, !tbaa !27
@@ -5082,7 +5082,7 @@ define internal fastcc i32 @setup_path(ptr noundef %0, ptr noundef nonnull write
   br label %27
 
 27:                                               ; preds = %.sink.split, %17, %21, %14, %12, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %12 ], [ -2, %14 ], [ -2, %21 ], [ %20, %17 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -2, %14 ], [ -1, %6 ], [ -1, %12 ], [ -2, %21 ], [ %20, %17 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5421,7 +5421,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %181
   br label %189
 
 189:                                              ; preds = %._crit_edge, %118, %122, %128, %139, %133
-  %.1.ph = phi i32 [ %., %._crit_edge ], [ 7, %118 ], [ 62, %122 ], [ 62, %128 ], [ 55, %133 ], [ 55, %139 ]
+  %.1.ph = phi i32 [ 62, %122 ], [ 62, %128 ], [ %., %._crit_edge ], [ 55, %133 ], [ 55, %139 ], [ 7, %118 ]
   %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_base_framework, i64 76), align 4, !tbaa !84
   %or.cond27 = icmp ult i32 %.pr, 64
   br i1 %or.cond27, label %190, label %.thread
@@ -5474,7 +5474,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %181
   br label %.thread
 
 .thread:                                          ; preds = %39, %131, %120, %43, %51, %53, %59, %216, %196, %190, %189, %168, %162, %161, %178, %172, %171, %73, %75, %81, %46, %67
-  %.097 = phi i32 [ 7, %67 ], [ 7, %81 ], [ 7, %75 ], [ 7, %73 ], [ %.1.ph, %196 ], [ %.1.ph, %190 ], [ %.1.ph, %189 ], [ 62, %168 ], [ 62, %162 ], [ 62, %161 ], [ 55, %178 ], [ 55, %172 ], [ 55, %171 ], [ 54, %216 ], [ 54, %46 ], [ %spec.select, %43 ], [ 58, %59 ], [ 58, %53 ], [ 58, %51 ], [ 62, %120 ], [ 55, %131 ], [ 7, %39 ]
+  %.097 = phi i32 [ 58, %51 ], [ 7, %67 ], [ 7, %81 ], [ 7, %75 ], [ 7, %73 ], [ %.1.ph, %196 ], [ %.1.ph, %190 ], [ %.1.ph, %189 ], [ 62, %168 ], [ 62, %162 ], [ 62, %161 ], [ 55, %178 ], [ 55, %172 ], [ 55, %171 ], [ 54, %216 ], [ 7, %39 ], [ %spec.select, %43 ], [ 54, %46 ], [ 58, %59 ], [ 58, %53 ], [ 62, %120 ], [ 55, %131 ]
   tail call void @prte_wait_cb_cancel(ptr noundef nonnull %6) #16
   %218 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8, !tbaa !78
@@ -5710,7 +5710,7 @@ pmix_pointer_array_get_item.exit45:               ; preds = %.preheader46, %61
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.loopexit.sink.split, %.preheader, %57, %57
-  %.034 = phi i32 [ %60, %57 ], [ %60, %57 ], [ 0, %.preheader ], [ %.sink62, %.loopexit.sink.split ], [ %.133, %42 ]
+  %.034 = phi i32 [ 0, %.preheader ], [ %60, %57 ], [ %60, %57 ], [ %.sink62, %.loopexit.sink.split ], [ %.133, %42 ]
   ret i32 %.034
 }
 

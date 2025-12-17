@@ -161,7 +161,7 @@ default.unreachable:                              ; preds = %69, %39
   br label %63
 
 63:                                               ; preds = %58, %59, %61
-  %64 = phi i64 [ %62, %61 ], [ 0, %59 ], [ 0, %58 ]
+  %64 = phi i64 [ %62, %61 ], [ 0, %58 ], [ 0, %59 ]
   %65 = ptrtoint ptr %43 to i64
   %66 = sub i64 %65, %36
   %67 = add nsw i64 %66, %64
@@ -324,8 +324,8 @@ default.unreachable:                              ; preds = %69, %39
   %161 = icmp ult ptr %.2131, %28
   br i1 %161, label %33, label %.critedge.loopexit
 
-.critedge.loopexit:                               ; preds = %63, %54, %.loopexit, %33
-  %.0129.lcssa.ph = phi ptr [ %.0129180, %33 ], [ %.2131, %.loopexit ], [ %.0129180, %54 ], [ %.0129180, %63 ]
+.critedge.loopexit:                               ; preds = %54, %63, %.loopexit, %33
+  %.0129.lcssa.ph = phi ptr [ %.0129180, %33 ], [ %.2131, %.loopexit ], [ %.0129180, %63 ], [ %.0129180, %54 ]
   %.pre = load ptr, ptr %1, align 8, !tbaa !38
   br label %.critedge
 
@@ -341,7 +341,7 @@ default.unreachable:                              ; preds = %69, %39
   br label %167
 
 167:                                              ; preds = %20, %4, %.critedge, %32, %19, %11
-  %.0 = phi i32 [ -22, %11 ], [ -1094995529, %19 ], [ %8, %32 ], [ %8, %.critedge ], [ 0, %4 ], [ %23, %20 ]
+  %.0 = phi i32 [ -22, %11 ], [ -1094995529, %19 ], [ 0, %4 ], [ %8, %32 ], [ %8, %.critedge ], [ %23, %20 ]
   ret i32 %.0
 }
 

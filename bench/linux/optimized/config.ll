@@ -623,10 +623,10 @@ split:                                            ; preds = %82, %._crit_edge322
   br label %.thread106
 
 .thread106:                                       ; preds = %200, %.thread92.thread, %.thread92
-  %202 = phi i32 [ 0, %.thread92 ], [ 0, %.thread92.thread ], [ %185, %200 ]
-  %203 = phi i64 [ %196, %.thread92 ], [ %96, %.thread92.thread ], [ %188, %200 ]
-  %204 = phi i32 [ 0, %.thread92 ], [ 0, %.thread92.thread ], [ %190, %200 ]
-  %205 = phi ptr [ @.str.28, %.thread92 ], [ @.str.28, %.thread92.thread ], [ %spec.select107, %200 ]
+  %202 = phi i32 [ 0, %.thread92.thread ], [ %185, %200 ], [ 0, %.thread92 ]
+  %203 = phi i64 [ %96, %.thread92.thread ], [ %188, %200 ], [ %196, %.thread92 ]
+  %204 = phi i32 [ 0, %.thread92.thread ], [ %190, %200 ], [ 0, %.thread92 ]
+  %205 = phi ptr [ @.str.28, %.thread92.thread ], [ %spec.select107, %200 ], [ @.str.28, %.thread92 ]
   tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, i32 noundef %90, i32 noundef %202, ptr noundef nonnull %205, i32 noundef %76) #11
   br label %210
 
@@ -642,9 +642,9 @@ split:                                            ; preds = %82, %._crit_edge322
   br label %.loopexit139
 
 210:                                              ; preds = %206, %.thread106
-  %211 = phi i32 [ %190, %206 ], [ %204, %.thread106 ]
-  %212 = phi i64 [ %188, %206 ], [ %203, %.thread106 ]
-  %213 = phi i32 [ %100, %206 ], [ %202, %.thread106 ]
+  %211 = phi i32 [ %204, %.thread106 ], [ %190, %206 ]
+  %212 = phi i64 [ %203, %.thread106 ], [ %188, %206 ]
+  %213 = phi i32 [ %202, %.thread106 ], [ %100, %206 ]
   %214 = trunc i32 %213 to i8
   store i8 %214, ptr %74, align 4
   %215 = icmp sgt i32 %213, 0
@@ -1069,7 +1069,7 @@ split:                                            ; preds = %82, %._crit_edge322
   br i1 %480, label %.loopexit, label %426, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.loopexit109, %469, %454
-  %481 = phi i1 [ %428, %454 ], [ %428, %469 ], [ %479, %.loopexit109 ]
+  %481 = phi i1 [ %428, %469 ], [ %428, %454 ], [ %479, %.loopexit109 ]
   br i1 %481, label %482, label %.critedge
 
 482:                                              ; preds = %.loopexit
@@ -1741,7 +1741,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
   br i1 %880, label %.loopexit132, label %847, !llvm.loop !31
 
 .thread99:                                        ; preds = %248, %378, %839, %799, %split
-  %.ph101 = phi i32 [ -22, %split ], [ %801, %799 ], [ -12, %378 ], [ %840, %839 ], [ -12, %248 ]
+  %.ph101 = phi i32 [ -22, %split ], [ %840, %839 ], [ %801, %799 ], [ -12, %378 ], [ -12, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %881 = trunc i64 %35 to i32

@@ -1871,9 +1871,9 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1609, ptr noundef nonnull @__func__.heapam_index_build_range_scan) #10
   unreachable
 
-.thread:                                          ; preds = %158, %127, %141, %165, %162, %HeapTupleIsHotUpdated.exit178.thread, %204, %200
-  %.0140.ph = phi i1 [ false, %HeapTupleIsHotUpdated.exit178.thread ], [ true, %162 ], [ false, %165 ], [ true, %141 ], [ true, %127 ], [ false, %204 ], [ false, %200 ], [ true, %158 ]
-  %.1.ph = phi double [ %199, %HeapTupleIsHotUpdated.exit178.thread ], [ %163, %162 ], [ %166, %165 ], [ %142, %141 ], [ %128, %127 ], [ %.0130221, %204 ], [ %.0130221, %200 ], [ %.0130221, %158 ]
+.thread:                                          ; preds = %158, %162, %127, %141, %165, %HeapTupleIsHotUpdated.exit178.thread, %204, %200
+  %.0140.ph = phi i1 [ true, %162 ], [ false, %HeapTupleIsHotUpdated.exit178.thread ], [ false, %200 ], [ false, %165 ], [ true, %141 ], [ true, %127 ], [ false, %204 ], [ true, %158 ]
+  %.1.ph = phi double [ %163, %162 ], [ %199, %HeapTupleIsHotUpdated.exit178.thread ], [ %.0130221, %200 ], [ %166, %165 ], [ %142, %141 ], [ %128, %127 ], [ %.0130221, %204 ], [ %.0130221, %158 ]
   %215 = load i32, ptr %76, align 4
   call void @LockBuffer(i32 noundef %215, i32 noundef 0) #10
   br label %222
@@ -1899,8 +1899,8 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   br label %222
 
 222:                                              ; preds = %.thread192, %.thread, %220
-  %.1141 = phi i1 [ true, %220 ], [ %.0140.ph, %.thread ], [ false, %.thread192 ]
-  %.5 = phi double [ %221, %220 ], [ %.1.ph, %.thread ], [ %.0130221, %.thread192 ]
+  %.1141 = phi i1 [ false, %.thread192 ], [ true, %220 ], [ %.0140.ph, %.thread ]
+  %.5 = phi double [ %.0130221, %.thread192 ], [ %221, %220 ], [ %.1.ph, %.thread ]
   %223 = load ptr, ptr %80, align 8
   call void @MemoryContextReset(ptr noundef %223) #10
   %224 = load i32, ptr %76, align 4
@@ -2010,7 +2010,7 @@ BufferGetPage.exit182:                            ; preds = %246, %252
   br label %277
 
 277:                                              ; preds = %218, %.thread187, %273, %275, %226
-  %.4 = phi double [ %.0130221, %218 ], [ %.5, %226 ], [ %.5, %275 ], [ %.5, %273 ], [ %.0130221, %.thread187 ]
+  %.4 = phi double [ %.5, %226 ], [ %.0130221, %218 ], [ %.5, %275 ], [ %.5, %273 ], [ %.0130221, %.thread187 ]
   %278 = call ptr @heap_getnext(ptr noundef nonnull %.0, i32 noundef 1) #10
   %.not159 = icmp eq ptr %278, null
   br i1 %.not159, label %._crit_edge, label %84
@@ -2427,7 +2427,7 @@ define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readon
   br label %31
 
 31:                                               ; preds = %19, %28, %25, %22
-  %32 = phi i32 [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %.02946, %19 ]
+  %32 = phi i32 [ %24, %22 ], [ %30, %28 ], [ %27, %25 ], [ %.02946, %19 ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %34 = load i16, ptr %33, align 4
   %35 = icmp sgt i16 %34, 0
@@ -2456,10 +2456,10 @@ define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readon
   br label %49
 
 49:                                               ; preds = %36, %39, %15, %.lr.ph
-  %50 = phi i32 [ %6, %.lr.ph ], [ %6, %15 ], [ %6, %36 ], [ %.pre, %39 ]
-  %.136 = phi i1 [ %.03543, %.lr.ph ], [ %.03543, %15 ], [ %.03543, %36 ], [ %.338, %39 ]
-  %.132 = phi i1 [ %.03144, %.lr.ph ], [ %.03144, %15 ], [ %.03144, %36 ], [ %.334, %39 ]
-  %.1 = phi i32 [ %.02946, %.lr.ph ], [ %.02946, %15 ], [ %38, %36 ], [ %.3, %39 ]
+  %50 = phi i32 [ %6, %15 ], [ %6, %.lr.ph ], [ %6, %36 ], [ %.pre, %39 ]
+  %.136 = phi i1 [ %.03543, %15 ], [ %.03543, %.lr.ph ], [ %.03543, %36 ], [ %.338, %39 ]
+  %.132 = phi i1 [ %.03144, %15 ], [ %.03144, %.lr.ph ], [ %.03144, %36 ], [ %.334, %39 ]
+  %.1 = phi i32 [ %.02946, %15 ], [ %.02946, %.lr.ph ], [ %38, %36 ], [ %.3, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
@@ -2482,7 +2482,7 @@ define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readon
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge, %53
-  %.0 = phi i1 [ %60, %53 ], [ %.136, %._crit_edge ], [ false, %1 ]
+  %.0 = phi i1 [ %.136, %._crit_edge ], [ %60, %53 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2995,8 +2995,8 @@ define internal noundef zeroext i1 @heapam_scan_sample_next_block(ptr noundef %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %42, %50, %37, %.thread
-  %.sink = phi i8 [ 0, %.thread ], [ 0, %37 ], [ 1, %50 ], [ 1, %42 ]
-  %.032.ph = phi i1 [ false, %.thread ], [ false, %37 ], [ true, %50 ], [ true, %42 ]
+  %.sink = phi i8 [ 0, %37 ], [ 0, %.thread ], [ 1, %50 ], [ 1, %42 ]
+  %.032.ph = phi i1 [ false, %37 ], [ false, %.thread ], [ true, %50 ], [ true, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i8 %.sink, ptr %51, align 4
   br label %52
@@ -3296,7 +3296,7 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %145
   br label %.thread60
 
 .thread60:                                        ; preds = %.thread, %SampleHeapTupleVisible.exit.us, %.split75
-  %167 = phi ptr [ %61, %SampleHeapTupleVisible.exit.us ], [ %165, %.split75 ], [ %78, %.thread ]
+  %167 = phi ptr [ %165, %.split75 ], [ %61, %SampleHeapTupleVisible.exit.us ], [ %78, %.thread ]
   %168 = load i32, ptr %15, align 4
   %169 = tail call ptr @ExecStoreBufferHeapTuple(ptr noundef nonnull %167, ptr noundef %2, i32 noundef %168) #10
   %170 = load ptr, ptr %0, align 8

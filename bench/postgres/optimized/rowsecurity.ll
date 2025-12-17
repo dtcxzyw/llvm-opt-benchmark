@@ -368,23 +368,23 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 22:                                               ; preds = %.lr.ph132
   switch i32 %1, label %29 [
-    i32 1, label %23
-    i32 3, label %25
-    i32 2, label %27
-    i32 4, label %32
+    i32 1, label %32
+    i32 3, label %23
+    i32 2, label %25
+    i32 4, label %27
     i32 5, label %.critedge76
   ]
 
 23:                                               ; preds = %22
-  %24 = icmp eq i8 %18, 114
+  %24 = icmp eq i8 %18, 97
   br i1 %24, label %.critedge78, label %.critedge76
 
 25:                                               ; preds = %22
-  %26 = icmp eq i8 %18, 97
+  %26 = icmp eq i8 %18, 119
   br i1 %26, label %.critedge78, label %.critedge76
 
 27:                                               ; preds = %22
-  %28 = icmp eq i8 %18, 119
+  %28 = icmp eq i8 %18, 100
   br i1 %28, label %.critedge78, label %.critedge76
 
 29:                                               ; preds = %22
@@ -394,10 +394,10 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   unreachable
 
 32:                                               ; preds = %22
-  %33 = icmp eq i8 %18, 100
+  %33 = icmp eq i8 %18, 114
   br i1 %33, label %.critedge78, label %.critedge76
 
-.critedge78:                                      ; preds = %27, %25, %23, %.lr.ph132, %32
+.critedge78:                                      ; preds = %27, %23, %25, %.lr.ph132, %32
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -455,7 +455,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   store ptr %66, ptr %., align 8
   br label %.critedge76
 
-.critedge76:                                      ; preds = %55, %.loopexit101, %.preheader.i, %27, %25, %23, %22, %32
+.critedge76:                                      ; preds = %55, %.loopexit101, %.preheader.i, %27, %23, %25, %22, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
   %67 = load i32, ptr %10, align 4
   %68 = sext i32 %67 to i64

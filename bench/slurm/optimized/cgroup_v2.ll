@@ -683,7 +683,7 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   br label %168
 
 168:                                              ; preds = %165, %._crit_edge9.i, %155, %._crit_edge.i17, %131, %120, %112, %108, %104
-  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %165 ], [ false, %155 ], [ false, %131 ], [ true, %._crit_edge9.i ], [ true, %._crit_edge.i17 ]
+  %.not4 = phi i1 [ false, %104 ], [ false, %108 ], [ false, %112 ], [ false, %120 ], [ false, %165 ], [ false, %131 ], [ false, %155 ], [ true, %._crit_edge9.i ], [ true, %._crit_edge.i17 ]
   call void @common_cgroup_destroy(ptr noundef nonnull %22) #17
   %.not33.i = icmp eq ptr %101, null
   br i1 %.not33.i, label %_empty_pids.exit, label %169
@@ -1360,7 +1360,7 @@ _init_slurmd_system_scope.exit:                   ; preds = %209
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %450
 
-428:                                              ; preds = %_init_new_scope_dbus.exit.i, %200, %217, %220, %212
+428:                                              ; preds = %200, %_init_new_scope_dbus.exit.i, %217, %220, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %429 = load ptr, ptr @invoc_id, align 8
   %.not7 = icmp eq ptr %429, null
@@ -1412,7 +1412,7 @@ _init_slurmd_system_scope.exit:                   ; preds = %209
   br label %450
 
 450:                                              ; preds = %_init_slurmd_system_scope.exit, %446, %437, %_setup_controllers.exit, %449, %170, %87, %69, %65
-  %.0 = phi i32 [ -1, %69 ], [ -1, %87 ], [ -1, %170 ], [ 0, %449 ], [ -1, %65 ], [ -1, %_setup_controllers.exit ], [ -1, %_init_slurmd_system_scope.exit ], [ -1, %437 ], [ -1, %446 ]
+  %.0 = phi i32 [ -1, %69 ], [ -1, %87 ], [ -1, %170 ], [ -1, %65 ], [ -1, %_setup_controllers.exit ], [ -1, %437 ], [ 0, %449 ], [ -1, %_init_slurmd_system_scope.exit ], [ -1, %446 ]
   ret i32 %.0
 }
 
@@ -1521,7 +1521,7 @@ define dso_local noundef zeroext i1 @cgroup_p_has_feature(i32 noundef %0) local_
   br label %43
 
 43:                                               ; preds = %40, %34, %28, %19, %10, %42
-  %.0 = phi i1 [ false, %42 ], [ true, %10 ], [ true, %19 ], [ true, %28 ], [ true, %34 ], [ true, %40 ]
+  %.0 = phi i1 [ false, %42 ], [ true, %34 ], [ true, %10 ], [ true, %19 ], [ true, %28 ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -1711,7 +1711,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local
   br label %28
 
 28:                                               ; preds = %1, %3, %12, %.thread, %27, %8
-  %.07 = phi i32 [ -1, %27 ], [ -1, %8 ], [ 0, %.thread ], [ 0, %12 ], [ 0, %3 ], [ %0, %1 ]
+  %.07 = phi i32 [ -1, %8 ], [ -1, %27 ], [ 0, %.thread ], [ 0, %12 ], [ 0, %3 ], [ %0, %1 ]
   ret i32 %.07
 }
 
@@ -2310,7 +2310,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr readnone 
   br label %80
 
 80:                                               ; preds = %74, %77, %4, %60, %48
-  %.05 = phi i32 [ -1, %48 ], [ -1, %60 ], [ 0, %4 ], [ 0, %77 ], [ 0, %74 ]
+  %.05 = phi i32 [ 0, %4 ], [ -1, %48 ], [ -1, %60 ], [ 0, %77 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.05
@@ -2734,7 +2734,7 @@ _wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64
   br label %145
 
 145:                                              ; preds = %11, %18, %15, %143, %26, %9
-  %.05 = phi i32 [ 0, %9 ], [ -1, %26 ], [ %.0, %143 ], [ 0, %15 ], [ 0, %18 ], [ 0, %11 ]
+  %.05 = phi i32 [ 0, %9 ], [ %.0, %143 ], [ -1, %26 ], [ 0, %15 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.05
 }
@@ -2788,7 +2788,7 @@ define dso_local noundef zeroext i1 @cgroup_p_has_pid(i32 noundef %0) local_unna
   br label %17
 
 17:                                               ; preds = %.sink.split, %7, %1
-  %.04 = phi i1 [ true, %1 ], [ false, %7 ], [ %.04.ph, %.sink.split ]
+  %.04 = phi i1 [ false, %7 ], [ true, %1 ], [ %.04.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.04
@@ -3031,7 +3031,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %91
 
 91:                                               ; preds = %42, %21, %10, %80, %89, %18, %39, %6, %3, %61, %56
-  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %0, %10 ], [ %.1, %18 ], [ %.3, %39 ], [ %88, %80 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
+  %.043 = phi i32 [ 0, %3 ], [ -1, %6 ], [ -1, %61 ], [ -1, %56 ], [ -1, %89 ], [ %0, %10 ], [ %88, %80 ], [ %.3, %39 ], [ %.1, %18 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.043
 }
@@ -3146,7 +3146,7 @@ define dso_local i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i
   br label %43
 
 43:                                               ; preds = %36, %40, %37, %3, %41, %33, %21, %16
-  %.022 = phi i32 [ %35, %33 ], [ -1, %21 ], [ -1, %16 ], [ -1, %41 ], [ 0, %3 ], [ 0, %37 ], [ 0, %40 ], [ 0, %36 ]
+  %.022 = phi i32 [ -1, %41 ], [ %35, %33 ], [ 0, %3 ], [ -1, %21 ], [ -1, %16 ], [ 0, %37 ], [ 0, %40 ], [ 0, %36 ]
   ret i32 %.022
 }
 
@@ -3624,7 +3624,7 @@ define internal range(i32 0, 2) i32 @_find_purge_task_special(ptr noundef %0, pt
   br label %18
 
 18:                                               ; preds = %2, %7, %9, %12, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 1, %9 ], [ 1, %7 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %15 ], [ 1, %12 ], [ 1, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -3979,7 +3979,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %158
 
 158:                                              ; preds = %151, %157, %15, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %15 ], [ %110, %157 ], [ %110, %151 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %17 ], [ %110, %157 ], [ %110, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4465,7 +4465,7 @@ define internal fastcc range(i32 -1, 1) i32 @_migrate_to_stepd_scope() unnamed_a
   br label %38
 
 38:                                               ; preds = %33, %22, %35, %30, %11, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %30 ], [ -1, %35 ], [ -1, %22 ], [ 0, %33 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %22 ], [ -1, %30 ], [ -1, %35 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }

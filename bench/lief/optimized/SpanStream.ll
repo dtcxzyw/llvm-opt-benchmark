@@ -208,7 +208,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9peek_dataERSt6vectorIhSaI
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %12, %7, %5
-  %.sroa.3.0 = phi i64 [ 4294967297, %5 ], [ 1, %7 ], [ 1, %12 ], [ %28, %22 ]
+  %.sroa.3.0 = phi i64 [ %28, %22 ], [ 4294967297, %5 ], [ 1, %12 ], [ 1, %7 ]
   ret i64 %.sroa.3.0
 }
 
@@ -375,7 +375,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !28
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

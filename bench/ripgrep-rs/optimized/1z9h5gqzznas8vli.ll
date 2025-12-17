@@ -104,7 +104,7 @@ common.resume:                                    ; preds = %.body114, %19
   unreachable
 
 .body114:                                         ; preds = %.body111, %45, %29
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn, %45 ], [ %.pn.pn.pn, %.body111 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn, %.body111 ], [ %.pn.pn.pn, %45 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..HyperlinkConfig$GT$17h7e045ad75e23a7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #13
           to label %common.resume unwind label %132
 
@@ -138,7 +138,7 @@ common.resume:                                    ; preds = %.body114, %19
   unreachable
 
 .body111:                                         ; preds = %.body, %51, %38
-  %.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn.pn, %51 ], [ %.pn.pn, %.body ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn.pn, %.body ], [ %.pn.pn, %51 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %42 = load ptr, ptr %11, align 8, !alias.scope !16, !nonnull !17, !noundef !17
@@ -159,7 +159,7 @@ common.resume:                                    ; preds = %.body114, %19
           to label %54 unwind label %52
 
 .body:                                            ; preds = %.body119, %73, %64, %52
-  %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %65, %64 ], [ %.pn, %73 ], [ %.pn, %.body119 ]
+  %.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %53, %52 ], [ %.pn, %73 ], [ %.pn, %.body119 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %48 = load ptr, ptr %10, align 8, !alias.scope !24, !nonnull !17, !noundef !17
@@ -226,7 +226,7 @@ common.resume:                                    ; preds = %.body114, %19
           to label %76 unwind label %74
 
 .body119:                                         ; preds = %.body117, %96, %86, %74
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %87, %86 ], [ %eh.lpad-body118, %96 ], [ %eh.lpad-body118, %.body117 ]
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %75, %74 ], [ %eh.lpad-body118, %96 ], [ %eh.lpad-body118, %.body117 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %70 = load ptr, ptr %9, align 8, !alias.scope !34, !nonnull !17, !noundef !17

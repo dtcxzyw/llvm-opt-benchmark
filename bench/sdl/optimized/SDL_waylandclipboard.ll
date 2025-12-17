@@ -77,7 +77,7 @@ define hidden zeroext i1 @Wayland_SetClipboardData(ptr noundef %0) local_unnamed
   br label %37
 
 37:                                               ; preds = %6, %35, %34, %23, %14
-  %.022 = phi i1 [ false, %14 ], [ %36, %35 ], [ false, %34 ], [ true, %23 ], [ false, %6 ]
+  %.022 = phi i1 [ true, %23 ], [ false, %14 ], [ %36, %35 ], [ false, %34 ], [ false, %6 ]
   ret i1 %.022
 }
 
@@ -128,7 +128,7 @@ define hidden ptr @Wayland_GetClipboardData(ptr noundef %0, ptr noundef %1, ptr 
   br label %23
 
 23:                                               ; preds = %14, %20, %16, %8, %3
-  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %15, %14 ], [ %22, %20 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %15, %14 ], [ %22, %20 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -170,7 +170,7 @@ define hidden zeroext i1 @Wayland_HasClipboardData(ptr noundef %0, ptr noundef %
   br label %19
 
 19:                                               ; preds = %13, %15, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %14, %13 ], [ %18, %15 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %14, %13 ], [ %18, %15 ]
   ret i1 %.0
 }
 
@@ -313,7 +313,7 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
   %.not20 = icmp eq ptr %.014, null
   br i1 %.not20, label %.thread, label %30
 
-.thread:                                          ; preds = %26, %1, %7, %28
+.thread:                                          ; preds = %26, %7, %1, %28
   %29 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull @.str.2) #4
   br label %30
 
@@ -366,7 +366,7 @@ define hidden noundef zeroext i1 @Wayland_HasPrimarySelectionText(ptr noundef re
   br i1 %or.cond, label %.loopexit, label %13, !llvm.loop !5
 
 .loopexit:                                        ; preds = %13, %9, %6, %1
-  %.012 = phi i1 [ false, %6 ], [ false, %1 ], [ true, %9 ], [ %17, %13 ]
+  %.012 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %9 ], [ %17, %13 ]
   ret i1 %.012
 }
 

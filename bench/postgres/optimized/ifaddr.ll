@@ -136,7 +136,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   br label %36
 
 36:                                               ; preds = %29, %27, %31
-  %.sink = phi i8 [ %35, %31 ], [ 0, %27 ], [ -1, %29 ]
+  %.sink = phi i8 [ 0, %27 ], [ %35, %31 ], [ -1, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   store i8 %.sink, ptr %37, align 1
   %38 = add i64 %.13641, -8
@@ -159,7 +159,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %17, %.critedge40, %10, %14, %40
-  %.032 = phi i32 [ 0, %40 ], [ -1, %14 ], [ -1, %10 ], [ -1, %.critedge40 ], [ -1, %17 ], [ -1, %18 ]
+  %.032 = phi i32 [ -1, %.critedge40 ], [ 0, %40 ], [ -1, %17 ], [ -1, %10 ], [ -1, %14 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.032
 }
@@ -279,7 +279,7 @@ select.unfold.thread31.i:                         ; preds = %select.unfold.i, %3
   br label %pg_sockaddr_cidr_mask.exit.i
 
 pg_sockaddr_cidr_mask.exit.i:                     ; preds = %37, %select.unfold.i, %33, %29, %25, %21, %17, %16
-  %.1.i = phi ptr [ %12, %17 ], [ %12, %16 ], [ %12, %33 ], [ %4, %select.unfold.i ], [ %4, %37 ], [ %12, %29 ], [ %12, %25 ], [ %12, %21 ]
+  %.1.i = phi ptr [ %4, %37 ], [ %12, %17 ], [ %12, %16 ], [ %12, %33 ], [ %4, %select.unfold.i ], [ %12, %29 ], [ %12, %25 ], [ %12, %21 ]
   call void %0(ptr noundef nonnull %10, ptr noundef nonnull %.1.i, ptr noundef %1) #9
   br label %run_ifaddr_callback.exit
 

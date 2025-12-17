@@ -560,7 +560,7 @@ _ZN4core4hash11BuildHasher8hash_one17h189c98ef8cec59c2E.exit: ; preds = %29, %33
   unreachable
 
 common.resume:                                    ; preds = %237, %370, %343, %144
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %144 ], [ %344, %343 ], [ %371, %370 ], [ %238, %237 ]
+  %common.resume.op = phi { ptr, i32 } [ %371, %370 ], [ %.pn.i, %144 ], [ %344, %343 ], [ %238, %237 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN12polars_utils11regex_cache10RegexCache7compile28_$u7b$$u7b$closure$u7d$$u7d$17hd0444c9ccd99a11aE.exit": ; preds = %147, %169

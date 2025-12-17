@@ -1250,8 +1250,8 @@ _ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i: ;
   br label %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread.i
 
 _ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread.i: ; preds = %319, %312, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.i, %302
-  %.sroa.0258.1.i = phi ptr [ %.sroa.0258.0287.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.i ], [ %.sroa.0258.0287.i, %319 ], [ %.sroa.0258.0287.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i ], [ %.sroa.0258.0287.i, %302 ], [ %.fca.0.extract15.i, %312 ]
-  %.sroa.5259.1.i = phi i8 [ %.sroa.5259.0288.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.i ], [ %.sroa.5259.0288.i, %319 ], [ %.sroa.5259.0288.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i ], [ %.sroa.5259.0288.i, %302 ], [ %.fca.1.extract16.i, %312 ]
+  %.sroa.0258.1.i = phi ptr [ %.sroa.0258.0287.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.i ], [ %.sroa.0258.0287.i, %302 ], [ %.sroa.0258.0287.i, %319 ], [ %.sroa.0258.0287.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i ], [ %.fca.0.extract15.i, %312 ]
+  %.sroa.5259.1.i = phi i8 [ %.sroa.5259.0288.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.i ], [ %.sroa.5259.0288.i, %302 ], [ %.sroa.5259.0288.i, %319 ], [ %.sroa.5259.0288.i, %_ZNK5clang4Type5getAsINS_25SubstTemplateTypeParmTypeEEEPKT_v.exit.thread280.i ], [ %.fca.1.extract16.i, %312 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %320 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %21) #16
   %321 = zext i32 %320 to i64

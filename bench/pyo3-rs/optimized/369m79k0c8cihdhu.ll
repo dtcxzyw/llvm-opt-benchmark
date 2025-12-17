@@ -1799,7 +1799,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass27simple_enum_default_method
   unreachable
 
 25:                                               ; preds = %13, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2007,7 +2007,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass28complex_enum_default_metho
   unreachable
 
 26:                                               ; preds = %13, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %14, %13 ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %17, %16 ]
   resume { ptr, i32 } %.pn
 }
 

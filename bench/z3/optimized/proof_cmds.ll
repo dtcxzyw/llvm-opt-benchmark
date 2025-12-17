@@ -6690,7 +6690,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %._cri
   br i1 %.not, label %._crit_edge113, label %37
 
 165:                                              ; preds = %158, %120, %83, %79, %73
-  %.pn68.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %79 ], [ %84, %83 ], [ %121, %120 ], [ %159, %158 ]
+  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn, %79 ], [ %159, %158 ], [ %121, %120 ], [ %74, %73 ], [ %84, %83 ]
   call void @_ZN6vectorISt4pairIj7svectorIjjEELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %166
 

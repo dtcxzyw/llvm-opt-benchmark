@@ -285,9 +285,9 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   br label %70
 
 70:                                               ; preds = %68, %65, %58, %50, %53, %61
-  %.050 = phi ptr [ %51, %53 ], [ null, %61 ], [ null, %50 ], [ null, %58 ], [ null, %68 ], [ null, %65 ]
-  %.047 = phi ptr [ null, %53 ], [ %59, %61 ], [ null, %50 ], [ null, %58 ], [ null, %68 ], [ null, %65 ]
-  %.0 = phi i32 [ 1, %53 ], [ 1, %61 ], [ 0, %50 ], [ 0, %58 ], [ %spec.select, %68 ], [ 0, %65 ]
+  %.050 = phi ptr [ null, %65 ], [ %51, %53 ], [ null, %50 ], [ null, %61 ], [ null, %68 ], [ null, %58 ]
+  %.047 = phi ptr [ null, %65 ], [ null, %53 ], [ null, %50 ], [ %59, %61 ], [ null, %68 ], [ null, %58 ]
+  %.0 = phi i32 [ 0, %65 ], [ 1, %53 ], [ 0, %50 ], [ 1, %61 ], [ %spec.select, %68 ], [ 0, %58 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.047, ptr noundef nonnull @X509V3_conf_free) #3
   call void @CRYPTO_free(ptr noundef %.050, ptr noundef nonnull @.str.7, i32 noundef 131) #3
   %71 = load ptr, ptr %23, align 8, !tbaa !13
@@ -306,7 +306,7 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   br label %unknown_ext_print.exit
 
 unknown_ext_print.exit:                           ; preds = %46, %44, %41, %39, %35, %21, %19, %16, %14, %11, %72, %74
-  %.048 = phi i32 [ %.0, %74 ], [ %.0, %72 ], [ 1, %21 ], [ %18, %16 ], [ %20, %19 ], [ 0, %11 ], [ 1, %14 ], [ 1, %46 ], [ %43, %41 ], [ %45, %44 ], [ 0, %35 ], [ 1, %39 ]
+  %.048 = phi i32 [ %.0, %72 ], [ 1, %14 ], [ %.0, %74 ], [ 1, %21 ], [ %20, %19 ], [ 0, %11 ], [ %18, %16 ], [ 1, %46 ], [ %45, %44 ], [ 0, %35 ], [ %43, %41 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.048
 }
@@ -412,8 +412,8 @@ define range(i32 0, 2) i32 @X509V3_extensions_print(ptr noundef %0, ptr noundef 
   %46 = icmp slt i32 %44, %45
   br i1 %46, label %17, label %.thread, !llvm.loop !22
 
-.thread:                                          ; preds = %43, %25, %28, %40, %12, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %12 ], [ 1, %43 ], [ 0, %25 ], [ 0, %28 ], [ 0, %40 ]
+.thread:                                          ; preds = %43, %28, %25, %40, %12, %5
+  %.0 = phi i32 [ 1, %5 ], [ 1, %12 ], [ 0, %25 ], [ 0, %28 ], [ 1, %43 ], [ 0, %40 ]
   ret i32 %.0
 }
 

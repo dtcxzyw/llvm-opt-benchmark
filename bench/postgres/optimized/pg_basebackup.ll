@@ -1264,7 +1264,7 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
   unreachable
 
 353:                                              ; preds = %330, %329
-  %.290 = phi i32 [ 2, %330 ], [ %.083, %329 ]
+  %.290 = phi i32 [ %.083, %329 ], [ 2, %330 ]
   store i32 0, ptr %27, align 8
   %354 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %354, align 4
@@ -2167,7 +2167,7 @@ sub_0.i:                                          ; preds = %._crit_edge.i75
   unreachable
 
 .thread227.i:                                     ; preds = %715, %.tail.i, %sub_0.i, %._crit_edge.i75
-  %720 = phi i1 [ true, %715 ], [ false, %.tail.i ], [ false, %._crit_edge.i75 ], [ false, %sub_0.i ]
+  %720 = phi i1 [ false, %.tail.i ], [ true, %715 ], [ false, %._crit_edge.i75 ], [ false, %sub_0.i ]
   %721 = load i32, ptr @includewal, align 4
   %722 = icmp eq i32 %721, 2
   br i1 %722, label %723, label %823
@@ -3666,7 +3666,7 @@ define internal zeroext i1 @reached_end_position(i64 noundef %0, i32 %1, i1 zero
   br label %38
 
 38:                                               ; preds = %35, %36
-  %.1 = phi i1 [ false, %35 ], [ %.not12, %36 ]
+  %.1 = phi i1 [ %.not12, %36 ], [ false, %35 ]
   ret i1 %.1
 }
 
@@ -4090,10 +4090,10 @@ sub_0:                                            ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %28, %.tail.thread, %21, %32
-  %38 = phi i1 [ %35, %32 ], [ false, %21 ], [ false, %.tail.thread ], [ false, %28 ]
-  %39 = phi i1 [ %26, %32 ], [ %26, %21 ], [ false, %.tail.thread ], [ %26, %28 ]
-  %40 = phi i1 [ %31, %32 ], [ false, %21 ], [ false, %.tail.thread ], [ %31, %28 ]
-  %41 = phi i1 [ %37, %32 ], [ false, %21 ], [ false, %.tail.thread ], [ false, %28 ]
+  %38 = phi i1 [ false, %.tail.thread ], [ %35, %32 ], [ false, %21 ], [ false, %28 ]
+  %39 = phi i1 [ false, %.tail.thread ], [ %26, %32 ], [ %26, %21 ], [ %26, %28 ]
+  %40 = phi i1 [ false, %.tail.thread ], [ %31, %32 ], [ false, %21 ], [ %31, %28 ]
+  %41 = phi i1 [ false, %.tail.thread ], [ %37, %32 ], [ false, %21 ], [ false, %28 ]
   %or.cond = select i1 %40, i1 true, i1 %38
   %spec.select = select i1 %or.cond, i1 true, i1 %41
   %or.cond3 = select i1 %19, i1 %spec.select, i1 false
@@ -4117,7 +4117,7 @@ sub_0:                                            ; preds = %6
   br label %48
 
 48:                                               ; preds = %45, %43
-  %49 = phi i1 [ true, %43 ], [ %47, %45 ]
+  %49 = phi i1 [ %47, %45 ], [ true, %43 ]
   %.not = xor i1 %49, true
   %or.cond7 = select i1 %.not, i1 true, i1 %39
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %spec.select

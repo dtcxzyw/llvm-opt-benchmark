@@ -95,11 +95,11 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %36, %41
   %spec.select = select i1 %51, i32 %.0.i, i32 0
   br label %52
 
-52:                                               ; preds = %47, %50, %_ZNK6icu_7717CollationSettings7reorderEj.exit, %44
-  %.385.ph = phi i32 [ %.0.i, %47 ], [ %.0.i, %50 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.082153, %44 ]
-  %.381.ph = phi i32 [ %.078154, %47 ], [ %.078154, %50 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.078154, %44 ]
-  %.377.ph = phi i32 [ %.074155, %47 ], [ %.074155, %50 ], [ %.0.i, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.074155, %44 ]
-  %.3.ph = phi i32 [ %.073156, %47 ], [ %spec.select, %50 ], [ %.073156, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.073156, %44 ]
+52:                                               ; preds = %47, %44, %50, %_ZNK6icu_7717CollationSettings7reorderEj.exit
+  %.385.ph = phi i32 [ %.0.i, %50 ], [ %.0.i, %47 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.082153, %44 ]
+  %.381.ph = phi i32 [ %.078154, %50 ], [ %.078154, %47 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.078154, %44 ]
+  %.377.ph = phi i32 [ %.074155, %50 ], [ %.074155, %47 ], [ %.0.i, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.074155, %44 ]
+  %.3.ph = phi i32 [ %spec.select, %50 ], [ %.073156, %47 ], [ %.073156, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.073156, %44 ]
   %53 = add nuw nsw i32 %.072157, 1
   %exitcond = icmp eq i32 %53, 4104
   br i1 %exitcond, label %54, label %.preheader, !llvm.loop !29
@@ -183,7 +183,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
   br label %.critedge117
 
 .critedge117:                                     ; preds = %45, %_ZNK6icu_7717CollationSettings7reorderEj.exit124, %.loopexit, %13, %4
-  %.090 = phi i32 [ -1, %4 ], [ %91, %.loopexit ], [ -1, %_ZNK6icu_7717CollationSettings7reorderEj.exit124 ], [ -1, %13 ], [ -1, %45 ]
+  %.090 = phi i32 [ -1, %13 ], [ -1, %4 ], [ -1, %_ZNK6icu_7717CollationSettings7reorderEj.exit124 ], [ %91, %.loopexit ], [ -1, %45 ]
   ret i32 %.090
 }
 
@@ -334,12 +334,12 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit.thread: ; preds = %58, %_ZN6icu_
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit: ; preds = %77, %75, %71
-  %.3291 = phi i32 [ %72, %71 ], [ %76, %75 ], [ %spec.select910, %77 ]
+  %.3291 = phi i32 [ %72, %71 ], [ %spec.select910, %77 ], [ %76, %75 ]
   %79 = icmp eq i32 %.3291, 0
   br i1 %79, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit, %.lr.ph, %.backedge672, %63, %60, %34
-  %.2290 = phi i32 [ %64, %63 ], [ %61, %60 ], [ %35, %34 ], [ %.0288, %.backedge672 ], [ %.3291, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
+  %.2290 = phi i32 [ %61, %60 ], [ %35, %34 ], [ %64, %63 ], [ %.0288, %.backedge672 ], [ %.3291, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
   %80 = icmp eq i32 %.0315, 0
   br i1 %80, label %.lr.ph686, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread
 
@@ -460,12 +460,12 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit438.thread: ; preds = %119, %_ZN6
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441: ; preds = %138, %136, %132
-  %.3318 = phi i32 [ %133, %132 ], [ %137, %136 ], [ %spec.select911, %138 ]
+  %.3318 = phi i32 [ %133, %132 ], [ %spec.select911, %138 ], [ %137, %136 ]
   %140 = icmp eq i32 %.3318, 0
   br i1 %140, label %.lr.ph686, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441, %.lr.ph686, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %124, %121, %95
-  %.2317 = phi i32 [ %125, %124 ], [ %122, %121 ], [ %96, %95 ], [ %.0315, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3318, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441 ], [ 2, %.lr.ph686 ]
+  %.2317 = phi i32 [ %122, %121 ], [ %96, %95 ], [ %125, %124 ], [ %.0315, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3318, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441 ], [ 2, %.lr.ph686 ]
   %141 = icmp eq i32 %.2290, %.2317
   br i1 %141, label %142, label %144
 
@@ -623,7 +623,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit448.thread: ; preds = %187, %_ZN6
   br i1 %213, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit878, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %209, %211
-  %.10298 = phi i32 [ %..i450, %211 ], [ %spec.select912, %209 ]
+  %.10298 = phi i32 [ %spec.select912, %209 ], [ %..i450, %211 ]
   %215 = icmp eq i32 %.10298, 0
   br i1 %215, label %.lr.ph690, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
@@ -633,7 +633,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loo
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit448.thread, %.lr.ph690, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit, %207, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit878, %201, %.backedge669, %189
-  %.8296 = phi i32 [ %.0.i449, %189 ], [ %.6294, %.backedge669 ], [ %.0.i.i, %201 ], [ %217, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit878 ], [ 192, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit448.thread ], [ 2, %.lr.ph690 ], [ %.10298, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 192, %207 ]
+  %.8296 = phi i32 [ %.0.i449, %189 ], [ %.6294, %.backedge669 ], [ %.0.i.i, %201 ], [ %217, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit878 ], [ %.10298, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 2, %.lr.ph690 ], [ 192, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit448.thread ], [ 192, %207 ]
   %218 = icmp eq i32 %.6321, 0
   br i1 %218, label %.lr.ph695, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread
 
@@ -746,7 +746,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit458.thread: ; preds = %250, %_ZN6
   br i1 %276, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread.loopexit.split.loop.exit888, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465: ; preds = %272, %274
-  %.10325 = phi i32 [ %..i460, %274 ], [ %spec.select913, %272 ]
+  %.10325 = phi i32 [ %spec.select913, %272 ], [ %..i460, %274 ]
   %278 = icmp eq i32 %.10325, 0
   br i1 %278, label %.lr.ph695, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread
 
@@ -756,7 +756,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread.loopexit.split.
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread: ; preds = %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit458.thread, %.lr.ph695, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465, %270, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread.loopexit.split.loop.exit888, %264, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %252
-  %.8323 = phi i32 [ %.0.i459, %252 ], [ %.6321, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i464, %264 ], [ %280, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread.loopexit.split.loop.exit888 ], [ 192, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit458.thread ], [ 2, %.lr.ph695 ], [ %.10325, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465 ], [ 192, %270 ]
+  %.8323 = phi i32 [ %.0.i459, %252 ], [ %.6321, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i464, %264 ], [ %280, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread.loopexit.split.loop.exit888 ], [ %.10325, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465 ], [ 2, %.lr.ph695 ], [ 192, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit458.thread ], [ 192, %270 ]
   %281 = icmp eq i32 %.8296, %.8323
   br i1 %281, label %282, label %284
 
@@ -907,7 +907,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit472.thread: ; preds = %323, %_ZN6
   br i1 %348, label %._crit_edge, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %336, %330, %347, %343, %345
-  %.1.i474 = phi i32 [ %344, %343 ], [ %346, %345 ], [ 0, %347 ], [ %331, %330 ], [ %spec.select914, %336 ]
+  %.1.i474 = phi i32 [ 0, %347 ], [ %331, %330 ], [ %spec.select914, %336 ], [ %344, %343 ], [ %346, %345 ]
   %349 = icmp eq i32 %.1.i474, 0
   br i1 %349, label %.lr.ph700, label %._crit_edge, !llvm.loop !37
 
@@ -916,7 +916,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %336, %330, %347, %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph700, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, %334, %347, %._crit_edge.loopexit.split.loop.exit894, %.backedge668
-  %.14302 = phi i32 [ %.12300, %.backedge668 ], [ %350, %._crit_edge.loopexit.split.loop.exit894 ], [ 2, %.lr.ph700 ], [ %.1.i474, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 8, %334 ], [ 524296, %347 ]
+  %.14302 = phi i32 [ %.12300, %.backedge668 ], [ %350, %._crit_edge.loopexit.split.loop.exit894 ], [ %.1.i474, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 2, %.lr.ph700 ], [ 8, %334 ], [ 524296, %347 ]
   %351 = icmp eq i32 %.12327, 0
   br i1 %351, label %.lr.ph705, label %._crit_edge706
 
@@ -1017,7 +1017,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit484.thread: ; preds = %375, %_ZN6
   br i1 %400, label %._crit_edge706, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492
 
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492: ; preds = %388, %382, %399, %395, %397
-  %.1.i486 = phi i32 [ %396, %395 ], [ %398, %397 ], [ 0, %399 ], [ %383, %382 ], [ %spec.select915, %388 ]
+  %.1.i486 = phi i32 [ 0, %399 ], [ %383, %382 ], [ %spec.select915, %388 ], [ %396, %395 ], [ %398, %397 ]
   %401 = icmp eq i32 %.1.i486, 0
   br i1 %401, label %.lr.ph705, label %._crit_edge706, !llvm.loop !38
 
@@ -1026,7 +1026,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492: ; preds = %388, %382, %399,
   br label %._crit_edge706
 
 ._crit_edge706:                                   ; preds = %.lr.ph705, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492, %386, %399, %._crit_edge706.loopexit.split.loop.exit903, %._crit_edge
-  %.14329 = phi i32 [ %.12327, %._crit_edge ], [ %402, %._crit_edge706.loopexit.split.loop.exit903 ], [ 2, %.lr.ph705 ], [ %.1.i486, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492 ], [ 8, %386 ], [ 524296, %399 ]
+  %.14329 = phi i32 [ %.12327, %._crit_edge ], [ %402, %._crit_edge706.loopexit.split.loop.exit903 ], [ %.1.i486, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492 ], [ 2, %.lr.ph705 ], [ 8, %386 ], [ 524296, %399 ]
   %403 = icmp eq i32 %.14302, %.14329
   br i1 %403, label %404, label %406
 
@@ -1137,7 +1137,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit499: ; preds = %449, %443, %436
 
 _ZN6icu_7718CollationFastLatin6lookupEPKti.exit499.thread: ; preds = %449, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit499
   %452 = phi i32 [ %450, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit499 ], [ 3, %449 ]
-  %453 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %434, i32 noundef %452, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %453 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %434, i32 noundef %452, ptr noundef %3, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %454 = icmp ult i32 %453, 65536
   br i1 %454, label %.thread627, label %469
 
@@ -1197,12 +1197,12 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit499.thread: ; preds = %449, %_ZN6
   br label %._crit_edge712
 
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %467, %474
-  %.1.i500 = phi i32 [ 0, %474 ], [ %spec.select916, %467 ]
+  %.1.i500 = phi i32 [ %spec.select916, %467 ], [ 0, %474 ]
   %478 = icmp eq i32 %.1.i500, 0
   br i1 %478, label %.lr.ph711, label %._crit_edge712, !llvm.loop !40
 
-._crit_edge712:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph711, %476, %472, %465, %461, %459, %.backedge667
-  %.19307 = phi i32 [ %.17305, %.backedge667 ], [ %spec.select35.i, %476 ], [ %473, %472 ], [ %spec.select34.i, %465 ], [ %spec.select33.i, %461 ], [ %spec.select.i, %459 ], [ 2, %.lr.ph711 ], [ %.1.i500, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
+._crit_edge712:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph711, %459, %461, %465, %476, %472, %.backedge667
+  %.19307 = phi i32 [ %.17305, %.backedge667 ], [ %spec.select35.i, %476 ], [ %473, %472 ], [ %spec.select.i, %459 ], [ %spec.select33.i, %461 ], [ %spec.select34.i, %465 ], [ 2, %.lr.ph711 ], [ %.1.i500, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
   %479 = icmp eq i32 %.17332, 0
   br i1 %479, label %.lr.ph717, label %._crit_edge718
 
@@ -1255,7 +1255,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit508: ; preds = %503, %497, %490
 
 _ZN6icu_7718CollationFastLatin6lookupEPKti.exit508.thread: ; preds = %503, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit508
   %506 = phi i32 [ %504, %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit508 ], [ 3, %503 ]
-  %507 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %488, i32 noundef %506, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %507 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %488, i32 noundef %506, ptr noundef %5, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %508 = icmp ult i32 %507, 65536
   br i1 %508, label %.thread631, label %523
 
@@ -1315,12 +1315,12 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit508.thread: ; preds = %503, %_ZN6
   br label %._crit_edge718
 
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525: ; preds = %521, %528
-  %.1.i509 = phi i32 [ 0, %528 ], [ %spec.select917, %521 ]
+  %.1.i509 = phi i32 [ %spec.select917, %521 ], [ 0, %528 ]
   %532 = icmp eq i32 %.1.i509, 0
   br i1 %532, label %.lr.ph717, label %._crit_edge718, !llvm.loop !41
 
-._crit_edge718:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525, %.lr.ph717, %530, %526, %519, %515, %513, %._crit_edge712
-  %.19334 = phi i32 [ %.17332, %._crit_edge712 ], [ %spec.select35.i512, %530 ], [ %527, %526 ], [ %spec.select34.i519, %519 ], [ %spec.select33.i524, %515 ], [ %spec.select.i522, %513 ], [ 2, %.lr.ph717 ], [ %.1.i509, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525 ]
+._crit_edge718:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525, %.lr.ph717, %513, %515, %519, %530, %526, %._crit_edge712
+  %.19334 = phi i32 [ %.17332, %._crit_edge712 ], [ %spec.select35.i512, %530 ], [ %527, %526 ], [ %spec.select.i522, %513 ], [ %spec.select33.i524, %515 ], [ %spec.select34.i519, %519 ], [ 2, %.lr.ph717 ], [ %.1.i509, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525 ]
   %533 = icmp eq i32 %.19307, %.19334
   br i1 %533, label %534, label %536
 
@@ -1465,7 +1465,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit532.thread: ; preds = %579, %_ZN6
   br i1 %596, label %._crit_edge724, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %594, %591
-  %.0.i534 = phi i32 [ %597, %594 ], [ %spec.select.i535, %591 ]
+  %.0.i534 = phi i32 [ %spec.select.i535, %591 ], [ %597, %594 ]
   %598 = icmp eq i32 %.0.i534, 0
   br i1 %598, label %.lr.ph723, label %._crit_edge724, !llvm.loop !43
 
@@ -1555,7 +1555,7 @@ _ZN6icu_7718CollationFastLatin6lookupEPKti.exit543.thread: ; preds = %623, %_ZN6
   br i1 %640, label %._crit_edge730, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit548
 
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit548: ; preds = %638, %635
-  %.0.i545 = phi i32 [ %641, %638 ], [ %spec.select.i546, %635 ]
+  %.0.i545 = phi i32 [ %spec.select.i546, %635 ], [ %641, %638 ]
   %642 = icmp eq i32 %.0.i545, 0
   br i1 %642, label %.lr.ph729, label %._crit_edge730, !llvm.loop !44
 
@@ -1593,8 +1593,8 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit548: ; preds = %638, %635
   %655 = lshr i32 %.24339, 16
   br label %.backedge.backedge
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread556: ; preds = %65, %36, %126, %97, %651, %644, %287, %289, %.thread652, %.thread634, %415, %413, %.thread, %.thread639, %.thread622
-  %.4 = phi i32 [ 0, %.thread622 ], [ 0, %.thread639 ], [ %148, %.thread ], [ %416, %415 ], [ %414, %413 ], [ %547, %.thread634 ], [ %650, %.thread652 ], [ -2, %287 ], [ %291, %289 ], [ 0, %644 ], [ 0, %651 ], [ -2, %97 ], [ -2, %126 ], [ -2, %36 ], [ -2, %65 ]
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread556: ; preds = %36, %65, %97, %126, %651, %644, %287, %289, %.thread652, %.thread634, %415, %413, %.thread, %.thread639, %.thread622
+  %.4 = phi i32 [ 0, %.thread622 ], [ 0, %.thread639 ], [ %148, %.thread ], [ %547, %.thread634 ], [ %414, %413 ], [ %650, %.thread652 ], [ %416, %415 ], [ %291, %289 ], [ -2, %287 ], [ -2, %97 ], [ 0, %651 ], [ 0, %644 ], [ -2, %126 ], [ -2, %65 ], [ -2, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
@@ -1781,8 +1781,8 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br label %.thread
 
 .thread:                                          ; preds = %86, %84, %52, %40, %38, %88
-  %.0115148 = phi i32 [ %29, %88 ], [ %29, %86 ], [ %85, %84 ], [ %57, %52 ], [ %29, %40 ], [ %29, %38 ]
-  %.5124 = phi i32 [ -1, %88 ], [ %.0119, %86 ], [ %.3122, %84 ], [ %56, %52 ], [ -1, %40 ], [ %39, %38 ]
+  %.0115148 = phi i32 [ %29, %88 ], [ %29, %38 ], [ %29, %86 ], [ %85, %84 ], [ %57, %52 ], [ %29, %40 ]
+  %.5124 = phi i32 [ -1, %88 ], [ %39, %38 ], [ %.0119, %86 ], [ %.3122, %84 ], [ %56, %52 ], [ -1, %40 ]
   %89 = zext nneg i32 %26 to i64
   %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !25
@@ -1811,7 +1811,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %104, %102, %24
-  %.0109 = phi i32 [ %26, %24 ], [ %95, %104 ], [ %26, %102 ]
+  %.0109 = phi i32 [ %26, %24 ], [ %26, %102 ], [ %95, %104 ]
   %105 = sext i32 %.0109 to i64
   %106 = getelementptr inbounds i16, ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !25
@@ -1835,7 +1835,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br label %.critedge144
 
 .critedge144:                                     ; preds = %62, %67, %61, %79, %74, %58, %110, %.critedge, %115, %40, %7, %21, %11
-  %.0 = phi i32 [ %16, %11 ], [ 2, %21 ], [ %2, %7 ], [ %120, %115 ], [ 1, %.critedge ], [ %113, %110 ], [ 1, %40 ], [ 1, %58 ], [ 1, %74 ], [ 1, %79 ], [ 1, %61 ], [ 1, %67 ], [ 1, %62 ]
+  %.0 = phi i32 [ %2, %7 ], [ %16, %11 ], [ 2, %21 ], [ %113, %110 ], [ %120, %115 ], [ 1, %.critedge ], [ 1, %40 ], [ 1, %58 ], [ 1, %74 ], [ 1, %79 ], [ 1, %61 ], [ 1, %67 ], [ 1, %62 ]
   ret i32 %.0
 }
 
@@ -1877,7 +1877,7 @@ define noundef range(i32 0, 67109889) i32 @_ZN6icu_7718CollationFastLatin14getSe
   br label %22
 
 22:                                               ; preds = %12, %6, %14, %16
-  %.0 = phi i32 [ %.0.i, %6 ], [ %spec.store.select, %14 ], [ %.1, %16 ], [ 192, %12 ]
+  %.0 = phi i32 [ %.0.i, %6 ], [ %.1, %16 ], [ %spec.store.select, %14 ], [ 192, %12 ]
   ret i32 %.0
 }
 
@@ -1934,7 +1934,7 @@ define noundef range(i32 0, 1572889) i32 @_ZN6icu_7718CollationFastLatin8getCase
   br label %27
 
 27:                                               ; preds = %23, %21, %25, %12, %7, %14
-  %.1 = phi i32 [ %.0, %7 ], [ %spec.store.select, %14 ], [ 8, %12 ], [ %22, %21 ], [ %24, %23 ], [ %., %25 ]
+  %.1 = phi i32 [ %.0, %7 ], [ 8, %12 ], [ %spec.store.select, %14 ], [ %22, %21 ], [ %24, %23 ], [ %., %25 ]
   ret i32 %.1
 }
 
@@ -2005,7 +2005,7 @@ define noundef range(i32 0, 4128832) i32 @_ZN6icu_7718CollationFastLatin13getTer
   br label %29
 
 29:                                               ; preds = %27, %16, %12, %10, %23, %25, %18
-  %.1 = phi i32 [ %spec.store.select, %18 ], [ %spec.select, %10 ], [ %spec.select33, %12 ], [ %spec.select34, %16 ], [ %24, %23 ], [ %spec.select35, %27 ], [ 0, %25 ]
+  %.1 = phi i32 [ %24, %23 ], [ %spec.select35, %27 ], [ %spec.select34, %16 ], [ %spec.store.select, %18 ], [ %spec.select33, %12 ], [ 0, %25 ], [ %spec.select, %10 ]
   ret i32 %.1
 }
 
@@ -2042,7 +2042,7 @@ define noundef range(i32 0, -458759) i32 @_ZN6icu_7718CollationFastLatin15getQua
   br label %18
 
 18:                                               ; preds = %11, %9, %6, %14
-  %.0 = phi i32 [ %.1, %14 ], [ %., %6 ], [ 64512, %9 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ %., %6 ], [ %.1, %14 ], [ %spec.select, %11 ], [ 64512, %9 ]
   ret i32 %.0
 }
 
@@ -2203,7 +2203,7 @@ _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit: ; preds = %87, %78, 
   %90 = and i32 %.4318, 64512
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread: ; preds = %87, %63, %84, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread: ; preds = %87, %84, %63, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
   %.4318562 = phi i32 [ %.4318, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ 1, %63 ], [ 1, %84 ], [ 3, %87 ]
   %.0368561 = phi i32 [ %.0368, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ %28, %63 ], [ %28, %84 ], [ 239, %87 ]
   %91 = icmp samesign ugt i32 %.4318562, %16
@@ -2241,12 +2241,12 @@ _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread: ; preds = %87
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit: ; preds = %106, %104, %100
-  %.3317 = phi i32 [ %101, %100 ], [ %105, %104 ], [ %spec.select973, %106 ]
+  %.3317 = phi i32 [ %spec.select973, %106 ], [ %101, %100 ], [ %105, %104 ]
   %108 = icmp eq i32 %.3317, 0
   br i1 %108, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit, %.lr.ph, %.backedge721, %57, %92, %89, %34
-  %.2316 = phi i32 [ %58, %57 ], [ %93, %92 ], [ %90, %89 ], [ %35, %34 ], [ %.0314, %.backedge721 ], [ %.3317, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit, %.lr.ph, %.backedge721, %92, %89, %57, %34
+  %.2316 = phi i32 [ %58, %57 ], [ %35, %34 ], [ %93, %92 ], [ %90, %89 ], [ %.0314, %.backedge721 ], [ %.3317, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
   %109 = icmp eq i32 %.0341, 0
   br i1 %109, label %.lr.ph737, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread
 
@@ -2379,7 +2379,7 @@ _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480: ; preds = %177, %
   %180 = and i32 %.4345, 64512
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480.thread: ; preds = %177, %153, %174, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480.thread: ; preds = %177, %174, %153, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480
   %.4345576 = phi i32 [ %.4345, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480 ], [ 1, %153 ], [ 1, %174 ], [ 3, %177 ]
   %.0379575 = phi i32 [ %.0379, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480 ], [ %118, %153 ], [ %118, %174 ], [ 239, %177 ]
   %181 = icmp samesign ugt i32 %.4345576, %16
@@ -2417,12 +2417,12 @@ _ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480.thread: ; preds = 
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483: ; preds = %196, %194, %190
-  %.3344 = phi i32 [ %191, %190 ], [ %195, %194 ], [ %spec.select974, %196 ]
+  %.3344 = phi i32 [ %spec.select974, %196 ], [ %191, %190 ], [ %195, %194 ]
   %198 = icmp eq i32 %.3344, 0
   br i1 %198, label %.lr.ph737, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483, %.lr.ph737, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %147, %182, %179, %124
-  %.2343 = phi i32 [ %148, %147 ], [ %183, %182 ], [ %180, %179 ], [ %125, %124 ], [ %.0341, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3344, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483 ], [ 2, %.lr.ph737 ]
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483, %.lr.ph737, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %182, %179, %147, %124
+  %.2343 = phi i32 [ %148, %147 ], [ %125, %124 ], [ %183, %182 ], [ %180, %179 ], [ %.0341, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3344, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483 ], [ 2, %.lr.ph737 ]
   %199 = icmp eq i32 %.2316, %.2343
   br i1 %199, label %200, label %202
 
@@ -2587,7 +2587,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread598: ; pre
   br i1 %277, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit937, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %273, %275
-  %.10324 = phi i32 [ %..i487, %275 ], [ %spec.select975, %273 ]
+  %.10324 = phi i32 [ %spec.select975, %273 ], [ %..i487, %275 ]
   %279 = icmp eq i32 %.10324, 0
   br i1 %279, label %.lr.ph741, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
@@ -2597,7 +2597,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loo
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread598, %.lr.ph741, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit, %271, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit937, %265, %.backedge718, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread
-  %.8322 = phi i32 [ %.0.i486, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread ], [ %.6320, %.backedge718 ], [ %.0.i.i, %265 ], [ %281, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit937 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread598 ], [ 2, %.lr.ph741 ], [ %.10324, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 192, %271 ]
+  %.8322 = phi i32 [ %.0.i486, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread ], [ %.6320, %.backedge718 ], [ %.0.i.i, %265 ], [ %281, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit937 ], [ %.10324, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 2, %.lr.ph741 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread598 ], [ 192, %271 ]
   %282 = icmp eq i32 %.6347, 0
   br i1 %282, label %.lr.ph746, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread
 
@@ -2717,7 +2717,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread606: ; 
   br i1 %346, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread.loopexit.split.loop.exit947, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499: ; preds = %342, %344
-  %.10351 = phi i32 [ %..i494, %344 ], [ %spec.select976, %342 ]
+  %.10351 = phi i32 [ %spec.select976, %342 ], [ %..i494, %344 ]
   %348 = icmp eq i32 %.10351, 0
   br i1 %348, label %.lr.ph746, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread
 
@@ -2727,7 +2727,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread.loopexit.split.
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread
 
 _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread606, %.lr.ph746, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499, %340, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread.loopexit.split.loop.exit947, %334, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread
-  %.8349 = phi i32 [ %.0.i493, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread ], [ %.6347, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i498, %334 ], [ %350, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread.loopexit.split.loop.exit947 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread606 ], [ 2, %.lr.ph746 ], [ %.10351, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499 ], [ 192, %340 ]
+  %.8349 = phi i32 [ %.0.i493, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread ], [ %.6347, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i498, %334 ], [ %350, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread.loopexit.split.loop.exit947 ], [ %.10351, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499 ], [ 2, %.lr.ph746 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492.thread606 ], [ 192, %340 ]
   %351 = icmp eq i32 %.8322, %.8349
   br i1 %351, label %352, label %354
 
@@ -2897,7 +2897,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit502.thread: ; pre
   br i1 %432, label %._crit_edge, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %420, %.thread624.thread, %431, %427, %429
-  %.1.i504 = phi i32 [ %428, %427 ], [ %430, %429 ], [ 0, %431 ], [ %415, %.thread624.thread ], [ %spec.select977, %420 ]
+  %.1.i504 = phi i32 [ 0, %431 ], [ %415, %.thread624.thread ], [ %spec.select977, %420 ], [ %428, %427 ], [ %430, %429 ]
   %433 = icmp eq i32 %.1.i504, 0
   br i1 %433, label %.lr.ph751, label %._crit_edge, !llvm.loop !49
 
@@ -2906,7 +2906,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %420, %.thread624.th
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph751, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, %418, %431, %407, %._crit_edge.loopexit.split.loop.exit953, %.backedge717
-  %.14328 = phi i32 [ %.12326, %.backedge717 ], [ %434, %._crit_edge.loopexit.split.loop.exit953 ], [ 2, %.lr.ph751 ], [ %.1.i504, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 8, %418 ], [ 524296, %431 ], [ 8, %407 ]
+  %.14328 = phi i32 [ %.12326, %.backedge717 ], [ %434, %._crit_edge.loopexit.split.loop.exit953 ], [ 8, %418 ], [ %.1.i504, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 2, %.lr.ph751 ], [ 524296, %431 ], [ 8, %407 ]
   %435 = icmp eq i32 %.12353, 0
   br i1 %435, label %.lr.ph756, label %._crit_edge757
 
@@ -3026,7 +3026,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit510.thread: ; pre
   br i1 %498, label %._crit_edge757, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518
 
 _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518: ; preds = %486, %.thread630.thread, %497, %493, %495
-  %.1.i512 = phi i32 [ %494, %493 ], [ %496, %495 ], [ 0, %497 ], [ %481, %.thread630.thread ], [ %spec.select978, %486 ]
+  %.1.i512 = phi i32 [ 0, %497 ], [ %481, %.thread630.thread ], [ %spec.select978, %486 ], [ %494, %493 ], [ %496, %495 ]
   %499 = icmp eq i32 %.1.i512, 0
   br i1 %499, label %.lr.ph756, label %._crit_edge757, !llvm.loop !50
 
@@ -3035,7 +3035,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518: ; preds = %486, %.thread630
   br label %._crit_edge757
 
 ._crit_edge757:                                   ; preds = %.lr.ph756, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518, %484, %497, %473, %._crit_edge757.loopexit.split.loop.exit964, %._crit_edge
-  %.14355 = phi i32 [ %.12353, %._crit_edge ], [ %500, %._crit_edge757.loopexit.split.loop.exit964 ], [ 2, %.lr.ph756 ], [ %.1.i512, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518 ], [ 8, %484 ], [ 524296, %497 ], [ 8, %473 ]
+  %.14355 = phi i32 [ %.12353, %._crit_edge ], [ %500, %._crit_edge757.loopexit.split.loop.exit964 ], [ 8, %484 ], [ %.1.i512, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518 ], [ 2, %.lr.ph756 ], [ 524296, %497 ], [ 8, %473 ]
   %501 = icmp eq i32 %.14328, %.14355
   br i1 %501, label %502, label %504
 
@@ -3226,12 +3226,12 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit521.thread: ; pre
   br label %._crit_edge763
 
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %579, %586
-  %.1.i522 = phi i32 [ 0, %586 ], [ %spec.select979, %579 ]
+  %.1.i522 = phi i32 [ %spec.select979, %579 ], [ 0, %586 ]
   %590 = icmp eq i32 %.1.i522, 0
   br i1 %590, label %.lr.ph762, label %._crit_edge763, !llvm.loop !52
 
-._crit_edge763:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph762, %588, %584, %577, %573, %571, %.backedge716
-  %.19333 = phi i32 [ %.17331, %.backedge716 ], [ %spec.select35.i, %588 ], [ %585, %584 ], [ %spec.select34.i, %577 ], [ %spec.select33.i, %573 ], [ %spec.select.i, %571 ], [ 2, %.lr.ph762 ], [ %.1.i522, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
+._crit_edge763:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph762, %571, %573, %577, %588, %584, %.backedge716
+  %.19333 = phi i32 [ %.17331, %.backedge716 ], [ %spec.select35.i, %588 ], [ %585, %584 ], [ %spec.select.i, %571 ], [ %spec.select33.i, %573 ], [ %spec.select34.i, %577 ], [ 2, %.lr.ph762 ], [ %.1.i522, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
   %591 = icmp eq i32 %.17358, 0
   br i1 %591, label %.lr.ph768, label %._crit_edge769
 
@@ -3364,12 +3364,12 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit526.thread: ; pre
   br label %._crit_edge769
 
 _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543: ; preds = %647, %654
-  %.1.i527 = phi i32 [ 0, %654 ], [ %spec.select980, %647 ]
+  %.1.i527 = phi i32 [ %spec.select980, %647 ], [ 0, %654 ]
   %658 = icmp eq i32 %.1.i527, 0
   br i1 %658, label %.lr.ph768, label %._crit_edge769, !llvm.loop !53
 
-._crit_edge769:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543, %.lr.ph768, %656, %652, %645, %641, %639, %._crit_edge763
-  %.19360 = phi i32 [ %.17358, %._crit_edge763 ], [ %spec.select35.i530, %656 ], [ %653, %652 ], [ %spec.select34.i537, %645 ], [ %spec.select33.i542, %641 ], [ %spec.select.i540, %639 ], [ 2, %.lr.ph768 ], [ %.1.i527, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543 ]
+._crit_edge769:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543, %.lr.ph768, %639, %641, %645, %656, %652, %._crit_edge763
+  %.19360 = phi i32 [ %.17358, %._crit_edge763 ], [ %spec.select35.i530, %656 ], [ %653, %652 ], [ %spec.select.i540, %639 ], [ %spec.select33.i542, %641 ], [ %spec.select34.i537, %645 ], [ 2, %.lr.ph768 ], [ %.1.i527, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543 ]
   %659 = icmp eq i32 %.19333, %.19360
   br i1 %659, label %660, label %662
 
@@ -3534,7 +3534,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit546.thread: ; pre
   br i1 %736, label %._crit_edge775, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
 
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %734, %731
-  %.0.i548 = phi i32 [ %737, %734 ], [ %spec.select.i549, %731 ]
+  %.0.i548 = phi i32 [ %spec.select.i549, %731 ], [ %737, %734 ]
   %738 = icmp eq i32 %.0.i548, 0
   br i1 %738, label %.lr.ph774, label %._crit_edge775, !llvm.loop !55
 
@@ -3644,7 +3644,7 @@ _ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit553.thread: ; pre
   br i1 %794, label %._crit_edge781, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit558
 
 _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit558: ; preds = %792, %789
-  %.0.i555 = phi i32 [ %795, %792 ], [ %spec.select.i556, %789 ]
+  %.0.i555 = phi i32 [ %spec.select.i556, %789 ], [ %795, %792 ]
   %796 = icmp eq i32 %.0.i555, 0
   br i1 %796, label %.lr.ph780, label %._crit_edge781, !llvm.loop !56
 
@@ -3683,7 +3683,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit558: ; preds = %792, %789
   br label %.backedge.backedge
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread568: ; preds = %94, %36, %184, %126, %805, %798, %357, %359, %.thread684, %.thread662, %513, %511, %.thread, %.thread667, %.thread646
-  %.4 = phi i32 [ 0, %.thread646 ], [ 0, %.thread667 ], [ %206, %.thread ], [ %514, %513 ], [ %512, %511 ], [ %673, %.thread662 ], [ %804, %.thread684 ], [ -2, %357 ], [ %361, %359 ], [ 0, %798 ], [ 0, %805 ], [ -2, %126 ], [ -2, %184 ], [ -2, %36 ], [ -2, %94 ]
+  %.4 = phi i32 [ 0, %.thread646 ], [ 0, %.thread667 ], [ %206, %.thread ], [ %673, %.thread662 ], [ %512, %511 ], [ %804, %.thread684 ], [ %514, %513 ], [ %361, %359 ], [ -2, %357 ], [ -2, %184 ], [ 0, %805 ], [ 0, %798 ], [ -2, %126 ], [ -2, %36 ], [ -2, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
@@ -3736,7 +3736,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
   br label %31
 
 31:                                               ; preds = %30, %21, %5, %27
-  %.1 = phi i32 [ 1, %27 ], [ 1, %5 ], [ %26, %21 ], [ %switch.select38, %30 ]
+  %.1 = phi i32 [ 1, %5 ], [ 1, %27 ], [ %switch.select38, %30 ], [ %26, %21 ]
   ret i32 %.1
 }
 

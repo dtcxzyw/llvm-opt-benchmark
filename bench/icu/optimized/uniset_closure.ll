@@ -171,7 +171,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -792,7 +792,7 @@ define linkonce_odr void @_ZN6icu_7710UnicodeSet10setPatternERKNS_13UnicodeStrin
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %8, %10
-  %.0.i = phi ptr [ %9, %8 ], [ %12, %10 ], [ null, %2 ]
+  %.0.i = phi ptr [ %12, %10 ], [ %9, %8 ], [ null, %2 ]
   %13 = icmp slt i16 %4, 0
   %14 = ashr i16 %4, 5
   %15 = sext i16 %14 to i32
@@ -1061,7 +1061,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
-  %.0.i.i.us = phi ptr [ %81, %80 ], [ %84, %82 ], [ null, %74 ]
+  %.0.i.i.us = phi ptr [ %84, %82 ], [ %81, %80 ], [ null, %74 ]
   %85 = icmp slt i16 %76, 0
   %86 = ashr i16 %76, 5
   %87 = sext i16 %86 to i32
@@ -1288,7 +1288,7 @@ _ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread65: ; pr
   ret void
 
 184:                                              ; preds = %.split85, %.split85.us, %.split, %.split.us, %49, %.loopexit.split-lp, %.split88.us, %58, %47
-  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %lpad.phi, %.loopexit.split-lp ], [ %50, %49 ], [ %43, %.split88.us ], [ %59, %58 ], [ %54, %.split ], [ %41, %.split.us ], [ %55, %.split85 ], [ %42, %.split85.us ]
+  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %lpad.phi, %.loopexit.split-lp ], [ %41, %.split.us ], [ %43, %.split88.us ], [ %59, %58 ], [ %54, %.split ], [ %55, %.split85 ], [ %42, %.split85.us ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #13
   br label %185
 
@@ -1740,7 +1740,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
   ret void
 
 .body:                                            ; preds = %57, %91, %108, %113, %74, %40, %42, %174, %127
-  %.pn48.pn.pn = phi { ptr, i32 } [ %.pn.pn, %174 ], [ %128, %127 ], [ %41, %40 ], [ %43, %42 ], [ %58, %57 ], [ %75, %74 ], [ %92, %91 ], [ %114, %113 ], [ %109, %108 ]
+  %.pn48.pn.pn = phi { ptr, i32 } [ %128, %127 ], [ %.pn.pn, %174 ], [ %41, %40 ], [ %43, %42 ], [ %58, %57 ], [ %75, %74 ], [ %92, %91 ], [ %114, %113 ], [ %109, %108 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

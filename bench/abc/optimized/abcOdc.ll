@@ -353,7 +353,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !58
 
 .critedge:                                        ; preds = %26, %.preheader, %21
-  %31 = phi ptr [ %11, %.preheader ], [ %.pre, %21 ], [ %11, %26 ]
+  %31 = phi ptr [ %.pre, %21 ], [ %11, %.preheader ], [ %11, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 0, ptr %32, align 4, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1567,7 +1567,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not17, label %.critedge, label %140
 
 .critedge:                                        ; preds = %143, %140, %.preheader, %2, %Vec_PtrPush.exit
-  %.014 = phi i32 [ %139, %Vec_PtrPush.exit ], [ 1, %2 ], [ 1, %.preheader ], [ 0, %143 ], [ 1, %140 ]
+  %.014 = phi i32 [ 1, %2 ], [ %139, %Vec_PtrPush.exit ], [ 1, %.preheader ], [ 0, %143 ], [ 1, %140 ]
   ret i32 %.014
 }
 
@@ -1887,7 +1887,7 @@ Abc_NtkDontCareWinSweepLeafTfo.exit:              ; preds = %30, %Abc_NtkIncreme
   br label %56
 
 56:                                               ; preds = %54, %49
-  %.0 = phi i32 [ 0, %49 ], [ %55, %54 ]
+  %.0 = phi i32 [ %55, %54 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -2013,7 +2013,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   br label %common.ret46
 
 common.ret46:                                     ; preds = %56, %5, %58
-  %common.ret46.op = phi ptr [ %103, %58 ], [ %7, %5 ], [ inttoptr (i64 1 to ptr), %56 ]
+  %common.ret46.op = phi ptr [ %103, %58 ], [ inttoptr (i64 1 to ptr), %56 ], [ %7, %5 ]
   ret ptr %common.ret46.op
 
 58:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
@@ -2280,7 +2280,7 @@ Odc_HashLookup.exit.thread:                       ; preds = %Odc_HashLookup.exit
   br label %Odc_HashLookup.exit
 
 Odc_HashLookup.exit:                              ; preds = %82, %14, %10, %5, %3, %Odc_HashLookup.exit.thread
-  %.0 = phi i16 [ %111, %Odc_HashLookup.exit.thread ], [ %1, %3 ], [ 1, %5 ], [ %spec.select50, %10 ], [ %spec.select51, %14 ], [ %.pr, %82 ]
+  %.0 = phi i16 [ %111, %Odc_HashLookup.exit.thread ], [ 1, %5 ], [ %1, %3 ], [ %spec.select50, %10 ], [ %spec.select51, %14 ], [ %.pr, %82 ]
   ret i16 %.0
 }
 
@@ -2701,7 +2701,7 @@ define i32 @Abc_NtkDontCareCofactors_rec(ptr noundef %0, i16 noundef zeroext %1,
   br label %common.ret54
 
 common.ret54:                                     ; preds = %28, %19, %10, %30
-  %common.ret54.op = phi i32 [ %56, %30 ], [ %13, %10 ], [ %21, %19 ], [ 1, %28 ]
+  %common.ret54.op = phi i32 [ %56, %30 ], [ 1, %28 ], [ %13, %10 ], [ %21, %19 ]
   ret i32 %common.ret54.op
 
 30:                                               ; preds = %25, %23

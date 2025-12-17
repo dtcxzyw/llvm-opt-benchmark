@@ -678,7 +678,7 @@ define internal i32 @ipv6_frag_rcv(ptr noundef %0) #2 align 16 {
   br label %122
 
 122:                                              ; preds = %121, %120, %118
-  %123 = phi i32 [ 1, %121 ], [ 8, %120 ], [ 20, %118 ]
+  %123 = phi i32 [ 1, %121 ], [ 20, %118 ], [ 8, %120 ]
   %124 = add nuw i32 %123, %112
   %125 = load i32, ptr %50, align 8
   %126 = icmp ugt i32 %124, %125

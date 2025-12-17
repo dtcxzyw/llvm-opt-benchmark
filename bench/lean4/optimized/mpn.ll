@@ -677,8 +677,8 @@ _ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i:            ; preds = %.lr.ph.i69.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %213, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %213, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i
-  %221 = phi ptr [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %192, %213 ]
-  %222 = phi ptr [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %193, %213 ]
+  %221 = phi ptr [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %120, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %192, %213 ]
+  %222 = phi ptr [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.i ], [ %121, %_ZN4lean7mpn_subEPKjmS1_mPjS2_.exit.thread.i ], [ %193, %213 ]
   %223 = add i64 %.0649.i, -1
   %.not.i81 = icmp eq i64 %.0649.i, 0
   br i1 %.not.i81, label %_ZN4leanL5div_1ERNS_10mpn_bufferEjPj.exit, label %119, !llvm.loop !35

@@ -1106,7 +1106,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   br label %select.unfold
 
 select.unfold:                                    ; preds = %163, %166, %214
-  %218 = phi i32 [ %215, %214 ], [ %129, %166 ], [ %129, %163 ]
+  %218 = phi i32 [ %215, %214 ], [ %129, %163 ], [ %129, %166 ]
   %219 = icmp eq i32 %137, 0
   br i1 %219, label %116, label %127, !llvm.loop !23
 
@@ -1120,7 +1120,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   br label %.thread52
 
 .thread51:                                        ; preds = %.preheader69, %.loopexit68, %187, %184, %175, %178, %127
-  %222 = phi i32 [ -12, %187 ], [ -22, %184 ], [ -22, %175 ], [ -22, %178 ], [ -22, %127 ], [ -22, %.preheader69 ], [ %220, %.loopexit68 ]
+  %222 = phi i32 [ -22, %127 ], [ -12, %187 ], [ -22, %184 ], [ -22, %175 ], [ -22, %178 ], [ -22, %.preheader69 ], [ %220, %.loopexit68 ]
   %223 = load ptr, ptr %87, align 8
   %224 = icmp eq ptr %223, null
   br i1 %224, label %.loopexit66, label %.preheader65
@@ -1159,7 +1159,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   br i1 %243, label %.thread55, label %247
 
 .thread55:                                        ; preds = %81, %50, %84, %79, %.loopexit72
-  %244 = phi ptr [ %242, %.loopexit72 ], [ inttoptr (i64 -12 to ptr), %84 ], [ inttoptr (i64 -22 to ptr), %79 ], [ inttoptr (i64 -22 to ptr), %50 ], [ inttoptr (i64 -12 to ptr), %81 ]
+  %244 = phi ptr [ %242, %.loopexit72 ], [ inttoptr (i64 -22 to ptr), %50 ], [ inttoptr (i64 -22 to ptr), %79 ], [ inttoptr (i64 -12 to ptr), %84 ], [ inttoptr (i64 -12 to ptr), %81 ]
   %245 = ptrtoint ptr %244 to i64
   %246 = trunc i64 %245 to i32
   br label %.thread58
@@ -1275,7 +1275,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   br label %328
 
 .thread58:                                        ; preds = %.thread41, %.thread, %.thread55, %275, %272
-  %305 = phi i32 [ %273, %272 ], [ -12, %275 ], [ -12, %.thread41 ], [ -12, %.thread ], [ %246, %.thread55 ]
+  %305 = phi i32 [ -12, %275 ], [ %273, %272 ], [ -12, %.thread41 ], [ -12, %.thread ], [ %246, %.thread55 ]
   %306 = getelementptr i8, ptr %23, i64 792
   %307 = load ptr, ptr %306, align 8
   %308 = icmp eq ptr %307, null

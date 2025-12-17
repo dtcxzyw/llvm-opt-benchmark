@@ -608,7 +608,7 @@ Saig_ObjIsLo.exit92.thread:                       ; preds = %58, %66, %77, %Saig
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %Vec_PtrFind.exit, %Vec_PtrFind.exit.thread
-  %.159 = phi ptr [ %85, %Vec_PtrFind.exit.thread ], [ %85, %Vec_PtrFind.exit ], [ %.2, %.critedge2.loopexit ]
+  %.159 = phi ptr [ %.2, %.critedge2.loopexit ], [ %85, %Vec_PtrFind.exit.thread ], [ %85, %Vec_PtrFind.exit ]
   %.not.i100 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i100, label %Vec_PtrFree.exit101, label %107
 

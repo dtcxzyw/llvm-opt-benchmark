@@ -28,7 +28,7 @@ define ptr @CMAC_CTX_new() local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %0, %7, %6
-  %.0 = phi ptr [ null, %6 ], [ %1, %7 ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %7 ], [ null, %6 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr noundef captures(none) %0, ptr nou
   br label %26
 
 26:                                               ; preds = %10, %6, %2, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %2 ], [ 0, %6 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 1, %14 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -160,26 +160,26 @@ define range(i32 0, 2) i32 @ossl_cmac_init(ptr noundef %0, ptr noundef %1, i64 n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i32, ptr %14, align 8, !tbaa !10
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %86, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8, !tbaa !3
   %19 = tail call i32 @EVP_EncryptInit_ex2(ptr noundef %18, ptr noundef null, ptr noundef null, ptr noundef nonnull @ossl_cmac_init.zero_iv, ptr noundef %5) #7
   %.not61 = icmp eq i32 %19, 0
-  br i1 %.not61, label %86, label %20
+  br i1 %.not61, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %22 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %21) #7
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %86, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = sext i32 %22 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %26, i1 false)
   store i32 0, ptr %14, align 8, !tbaa !10
-  br label %86
+  br label %.critedge
 
 27:                                               ; preds = %6
   br i1 %8, label %28, label %35
@@ -194,16 +194,16 @@ define range(i32 0, 2) i32 @ossl_cmac_init(ptr noundef %0, ptr noundef %1, i64 n
   %32 = tail call i32 @EVP_EncryptInit_ex(ptr noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #7
   %.not58 = icmp ne i32 %32, 0
   %brmerge.not = and i1 %7, %.not58
-  br i1 %brmerge.not, label %36, label %86
+  br i1 %brmerge.not, label %36, label %.critedge
 
 33:                                               ; preds = %28
   %34 = tail call i32 @EVP_EncryptInit_ex2(ptr noundef %30, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef %5) #7
   %.not = icmp ne i32 %34, 0
   %brmerge64.not = and i1 %7, %.not
-  br i1 %brmerge64.not, label %36, label %86
+  br i1 %brmerge64.not, label %36, label %.critedge
 
 35:                                               ; preds = %27
-  br i1 %7, label %36, label %86
+  br i1 %7, label %36, label %.critedge
 
 36:                                               ; preds = %33, %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -211,33 +211,33 @@ define range(i32 0, 2) i32 @ossl_cmac_init(ptr noundef %0, ptr noundef %1, i64 n
   %38 = load ptr, ptr %0, align 8, !tbaa !3
   %39 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %38) #7
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %86, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = trunc i64 %2 to i32
   %44 = tail call i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef %42, i32 noundef %43) #7
   %45 = icmp slt i32 %44, 1
-  br i1 %45, label %86, label %46
+  br i1 %45, label %.critedge, label %46
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %0, align 8, !tbaa !3
   %48 = tail call i32 @EVP_EncryptInit_ex2(ptr noundef %47, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @ossl_cmac_init.zero_iv, ptr noundef %5) #7
   %.not59 = icmp eq i32 %48, 0
-  br i1 %.not59, label %86, label %49
+  br i1 %.not59, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8, !tbaa !3
   %51 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %50) #7
   %52 = icmp slt i32 %51, 0
-  br i1 %52, label %86, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %0, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %56 = tail call i32 @EVP_Cipher(ptr noundef %54, ptr noundef nonnull %55, ptr noundef nonnull @ossl_cmac_init.zero_iv, i32 noundef %51) #7
   %57 = icmp slt i32 %56, 1
-  br i1 %57, label %86, label %58
+  br i1 %57, label %.critedge, label %58
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -307,15 +307,15 @@ make_kn.exit77:                                   ; preds = %.lr.ph.i71, %make_k
   %84 = load ptr, ptr %0, align 8, !tbaa !3
   %85 = tail call i32 @EVP_EncryptInit_ex2(ptr noundef %84, ptr noundef null, ptr noundef null, ptr noundef nonnull @ossl_cmac_init.zero_iv, ptr noundef %5) #7
   %.not60 = icmp eq i32 %85, 0
-  br i1 %.not60, label %86, label %.critedge
+  br i1 %.not60, label %.critedge, label %86
 
-.critedge:                                        ; preds = %make_kn.exit77
+86:                                               ; preds = %make_kn.exit77
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %55, i8 0, i64 %83, i1 false)
   store i32 0, ptr %37, align 8, !tbaa !10
-  br label %86
+  br label %.critedge
 
-86:                                               ; preds = %33, %31, %35, %.critedge, %36, %41, %46, %49, %53, %make_kn.exit77, %20, %17, %13, %24
-  %.0.shrunk = phi i1 [ true, %24 ], [ false, %13 ], [ false, %17 ], [ false, %20 ], [ %.not58, %31 ], [ %.not, %33 ], [ false, %make_kn.exit77 ], [ false, %53 ], [ false, %49 ], [ false, %46 ], [ false, %41 ], [ false, %36 ], [ true, %.critedge ], [ true, %35 ]
+.critedge:                                        ; preds = %33, %31, %41, %36, %46, %49, %53, %make_kn.exit77, %35, %86, %20, %17, %13, %24
+  %.0.shrunk = phi i1 [ %.not58, %31 ], [ false, %17 ], [ true, %24 ], [ false, %13 ], [ %.not, %33 ], [ true, %35 ], [ false, %20 ], [ true, %86 ], [ false, %make_kn.exit77 ], [ false, %53 ], [ false, %49 ], [ false, %46 ], [ false, %36 ], [ false, %41 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -480,7 +480,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %54, %46, %17, %63, %10, %8, %3, %28, %.loopexit
-  %.076 = phi i32 [ 1, %.loopexit ], [ 0, %28 ], [ 0, %3 ], [ 1, %8 ], [ 0, %10 ], [ 0, %63 ], [ 1, %17 ], [ 0, %46 ], [ 0, %54 ]
+  %.076 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 1, %8 ], [ 0, %10 ], [ 1, %.loopexit ], [ 0, %63 ], [ 1, %17 ], [ 0, %46 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.076
 }
@@ -589,7 +589,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
   br label %53
 
 53:                                               ; preds = %.loopexit, %14, %7, %3, %51
-  %.0 = phi i32 [ 0, %51 ], [ 0, %3 ], [ 0, %7 ], [ 1, %14 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %51 ], [ 1, %14 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

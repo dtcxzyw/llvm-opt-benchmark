@@ -4859,7 +4859,7 @@ H5O__close_check_type.exit:                       ; preds = %50, %40
   br i1 %.0, label %.thread55, label %101, !prof !35
 
 .thread55:                                        ; preds = %36, %29, %16, %.thread64, %.thread61, %98
-  %.1284859 = phi i32 [ %.027, %98 ], [ -1, %.thread61 ], [ -1, %.thread64 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+  %.1284859 = phi i32 [ -1, %.thread64 ], [ %.027, %98 ], [ -1, %.thread61 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %100 = call i32 @H5E_dump_api_stack() #6
   br label %101
 

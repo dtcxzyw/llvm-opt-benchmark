@@ -219,7 +219,7 @@ mcelem_array_contain_overlap_selec.exit:          ; preds = %mcelem_array_contai
   br label %112
 
 112:                                              ; preds = %111, %109, %106, %45, %48, %33, %36, %23, %26, %14, %17
-  %.0 = phi double [ -1.000000e+00, %17 ], [ -1.000000e+00, %14 ], [ -1.000000e+00, %26 ], [ -1.000000e+00, %23 ], [ 0.000000e+00, %36 ], [ 0.000000e+00, %33 ], [ -1.000000e+00, %48 ], [ -1.000000e+00, %45 ], [ 1.000000e+00, %111 ], [ %.3, %109 ], [ 0.000000e+00, %106 ]
+  %.0 = phi double [ -1.000000e+00, %23 ], [ -1.000000e+00, %45 ], [ 0.000000e+00, %33 ], [ -1.000000e+00, %14 ], [ -1.000000e+00, %17 ], [ -1.000000e+00, %26 ], [ 0.000000e+00, %36 ], [ -1.000000e+00, %48 ], [ %.3, %109 ], [ 1.000000e+00, %111 ], [ 0.000000e+00, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret double %.0
@@ -1039,7 +1039,7 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
   br label %242
 
 242:                                              ; preds = %._crit_edge220, %239, %241
-  %.2137 = phi float [ 1.000000e+00, %241 ], [ %237, %239 ], [ 0.000000e+00, %._crit_edge220 ]
+  %.2137 = phi float [ %237, %239 ], [ 1.000000e+00, %241 ], [ 0.000000e+00, %._crit_edge220 ]
   %243 = fpext float %.2137 to double
   br label %244
 
@@ -1286,12 +1286,12 @@ calc_arraycontsel.exit:                           ; preds = %117, %115, %69, %11
   br label %131
 
 131:                                              ; preds = %126, %128, %130
-  %.1 = phi double [ 1.000000e+00, %130 ], [ %.019, %128 ], [ 0.000000e+00, %126 ]
+  %.1 = phi double [ %.019, %128 ], [ 1.000000e+00, %130 ], [ 0.000000e+00, %126 ]
   %132 = bitcast double %.1 to i64
   br label %133
 
 133:                                              ; preds = %40, %43, %131, %33, %20
-  %.0 = phi i64 [ %132, %131 ], [ %35, %33 ], [ %22, %20 ], [ 0, %43 ], [ 0, %40 ]
+  %.0 = phi i64 [ %22, %20 ], [ %132, %131 ], [ %35, %33 ], [ 0, %43 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

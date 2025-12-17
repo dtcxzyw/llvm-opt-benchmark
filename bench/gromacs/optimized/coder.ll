@@ -1434,7 +1434,7 @@ unpack_array_bwlzh.exit:                          ; preds = %.split.us.us.i, %84
   br label %unpack_array_stop_bits.exit
 
 unpack_array_stop_bits.exit:                      ; preds = %.split22.us.i, %26, %._crit_edge.i42, %8, %106, %108, %unpack_array_bwlzh.exit, %80
-  %.0 = phi i32 [ %81, %80 ], [ 0, %unpack_array_bwlzh.exit ], [ %109, %108 ], [ 1, %106 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %26 ], [ 0, %.split22.us.i ]
+  %.0 = phi i32 [ 1, %106 ], [ %81, %80 ], [ 0, %unpack_array_bwlzh.exit ], [ %109, %108 ], [ 0, %8 ], [ 0, %._crit_edge.i42 ], [ 0, %26 ], [ 0, %.split22.us.i ]
   ret i32 %.0
 }
 

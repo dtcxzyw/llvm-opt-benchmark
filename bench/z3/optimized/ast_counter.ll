@@ -512,8 +512,8 @@ _ZNK7counter5beginEv.exit:                        ; preds = %.lr.ph.i.i.i.i.i, %
   br label %24
 
 24:                                               ; preds = %19, %23, %.lr.ph
-  %25 = phi i32 [ %.pre, %23 ], [ %15, %.lr.ph ], [ %15, %19 ]
-  %.1 = phi i8 [ 1, %23 ], [ %.016, %.lr.ph ], [ 1, %19 ]
+  %25 = phi i32 [ %.pre, %23 ], [ %15, %19 ], [ %15, %.lr.ph ]
+  %.1 = phi i8 [ 1, %23 ], [ 1, %19 ], [ %.016, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
   %.not1.i.i = icmp eq ptr %26, %7
   br i1 %.not1.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE8iteratorppEv.exit, label %.lr.ph.i.i
@@ -586,9 +586,9 @@ _ZNK7counter5beginEv.exit.i:                      ; preds = %10, %.lr.ph.i.i.i.i
   br label %21
 
 21:                                               ; preds = %17, %.lr.ph.i
-  %.1 = phi i32 [ %.0, %.lr.ph.i ], [ %spec.select, %17 ]
-  %22 = phi i32 [ %13, %.lr.ph.i ], [ %spec.select6, %17 ]
-  %.1.i = phi i8 [ %.016.i, %.lr.ph.i ], [ 1, %17 ]
+  %.1 = phi i32 [ %spec.select, %17 ], [ %.0, %.lr.ph.i ]
+  %22 = phi i32 [ %spec.select6, %17 ], [ %13, %.lr.ph.i ]
+  %.1.i = phi i8 [ 1, %17 ], [ %.016.i, %.lr.ph.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 16
   %.not1.i.i.i = icmp eq ptr %23, %6
   br i1 %.not1.i.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE8iteratorppEv.exit.i, label %.lr.ph.i.i.i
@@ -1553,7 +1553,7 @@ _ZN6vectorIP10quantifierLb0EjED2Ev.exit:          ; preds = %221, %_ZN13ast_fast
   ret i32 %.377
 
 .body60:                                          ; preds = %142, %125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %27, %72, %.body
-  %.pn39.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %28, %27 ], [ %73, %72 ], [ %143, %142 ], [ %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %126, %125 ]
+  %.pn39.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn.pn, %.body ], [ %28, %27 ], [ %73, %72 ], [ %143, %142 ], [ %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ]
   call void @_ZN6vectorIP10quantifierLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn39.pn

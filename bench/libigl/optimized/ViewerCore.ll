@@ -272,9 +272,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread18, %.thread, %34
-  %36 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread18 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %37 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread18 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %38 = phi i64 [ 0, %.thread ], [ 1, %34 ], [ %24, %.thread18 ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %36 = phi i64 [ 0, %.thread ], [ %27, %.thread18 ], [ %35, %34 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %37 = phi ptr [ null, %.thread ], [ null, %.thread18 ], [ %31, %34 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %38 = phi i64 [ 0, %.thread ], [ %24, %.thread18 ], [ 1, %34 ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i ]
   %39 = icmp slt i64 %36, %38
   br i1 %39, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit
 

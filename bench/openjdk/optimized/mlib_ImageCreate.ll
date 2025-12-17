@@ -122,7 +122,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly captures(address_
   br label %66
 
 66:                                               ; preds = %42, %23, %37, %33, %29, %25, %20, %9, %7, %64
-  %.073 = phi ptr [ %0, %64 ], [ null, %7 ], [ null, %9 ], [ null, %20 ], [ null, %25 ], [ null, %29 ], [ null, %33 ], [ null, %37 ], [ null, %23 ], [ null, %42 ]
+  %.073 = phi ptr [ null, %9 ], [ null, %7 ], [ null, %37 ], [ null, %23 ], [ %0, %64 ], [ null, %20 ], [ null, %25 ], [ null, %29 ], [ null, %33 ], [ null, %42 ]
   ret ptr %.073
 }
 
@@ -146,7 +146,7 @@ define ptr @j2d_mlib_ImageCreateStruct(i32 noundef %0, i32 noundef %1, i32 nound
   br label %15
 
 15:                                               ; preds = %11, %14, %8, %6
-  %.011 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %14 ], [ %9, %11 ]
+  %.011 = phi ptr [ null, %8 ], [ null, %6 ], [ null, %14 ], [ %9, %11 ]
   ret ptr %.011
 }
 
@@ -274,7 +274,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %66
 
 66:                                               ; preds = %34, %31, %12, %26, %22, %18, %14, %9, %4, %42, %41
-  %.0 = phi ptr [ null, %41 ], [ %39, %42 ], [ null, %4 ], [ null, %9 ], [ null, %14 ], [ null, %18 ], [ null, %22 ], [ null, %26 ], [ null, %12 ], [ null, %31 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %26 ], [ null, %31 ], [ null, %41 ], [ %39, %42 ], [ null, %12 ], [ null, %9 ], [ null, %14 ], [ null, %18 ], [ null, %22 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -466,8 +466,8 @@ j2d_mlib_ImageCreateStruct.exit:                  ; preds = %71
   store i32 %.072, ptr %77, align 4
   br label %j2d_mlib_ImageCreateStruct.exit.thread
 
-j2d_mlib_ImageCreateStruct.exit.thread:           ; preds = %74, %68, %66, %j2d_mlib_ImageCreateStruct.exit, %76, %24, %9, %21, %5
-  %.073 = phi ptr [ null, %5 ], [ null, %21 ], [ null, %9 ], [ null, %24 ], [ %69, %76 ], [ %69, %j2d_mlib_ImageCreateStruct.exit ], [ null, %66 ], [ null, %68 ], [ null, %74 ]
+j2d_mlib_ImageCreateStruct.exit.thread:           ; preds = %74, %66, %68, %j2d_mlib_ImageCreateStruct.exit, %76, %24, %9, %21, %5
+  %.073 = phi ptr [ null, %24 ], [ null, %5 ], [ null, %9 ], [ null, %21 ], [ %69, %76 ], [ %69, %j2d_mlib_ImageCreateStruct.exit ], [ null, %68 ], [ null, %66 ], [ null, %74 ]
   ret ptr %.073
 }
 

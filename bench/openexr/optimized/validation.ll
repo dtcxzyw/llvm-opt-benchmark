@@ -113,7 +113,7 @@ define hidden i32 @internal_exr_validate_read_part(ptr noundef %0, ptr noundef %
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %2
-  %.0 = phi i32 [ %6, %2 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
+  %.0 = phi i32 [ %14, %13 ], [ %6, %2 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %16, %15 ]
   ret i32 %.0
 }
 
@@ -556,7 +556,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread245, %.thread209, %.thread200, %173, %222, %219, %.thread255, %.thread235, %.thread223, %7, %225, %215, %199, %192, %186, %179, %166, %158, %139, %131, %116, %108, %92, %84, %67, %59, %41, %33, %17, %10
-  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %161, %158 ], [ %134, %131 ], [ %111, %108 ], [ %87, %84 ], [ %62, %59 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %83, %.thread223 ], [ %107, %.thread235 ], [ %154, %.thread255 ], [ %.9, %222 ], [ %.9, %219 ], [ %.7, %173 ], [ %32, %.thread200 ], [ %58, %.thread209 ], [ %130, %.thread245 ]
+  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %154, %.thread255 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %107, %.thread235 ], [ %161, %158 ], [ %58, %.thread209 ], [ %134, %131 ], [ %83, %.thread223 ], [ %111, %108 ], [ %.7, %173 ], [ %87, %84 ], [ %.9, %219 ], [ %62, %59 ], [ %32, %.thread200 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %.9, %222 ], [ %130, %.thread245 ]
   ret i32 %.0134
 }
 
@@ -884,7 +884,7 @@ define internal fastcc i32 @validate_channels(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %43, %51, %59, %67, %75, %84, %93, %28, %21, %12, %5
-  %.0 = phi i32 [ %15, %12 ], [ %31, %28 ], [ %24, %21 ], [ %8, %5 ], [ %98, %93 ], [ %89, %84 ], [ %80, %75 ], [ %72, %67 ], [ %64, %59 ], [ %56, %51 ], [ 0, %43 ]
+  %.0 = phi i32 [ %15, %12 ], [ %31, %28 ], [ %8, %5 ], [ %24, %21 ], [ %98, %93 ], [ %89, %84 ], [ %80, %75 ], [ %72, %67 ], [ %64, %59 ], [ %56, %51 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -951,7 +951,7 @@ switch.lookup:                                    ; preds = %29
   br label %.thread
 
 .thread:                                          ; preds = %19, %22, %switch.lookup
-  %.035 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.51, %22 ], [ @.str.51, %19 ]
+  %.035 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.51, %19 ], [ @.str.51, %22 ]
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1000,8 +1000,8 @@ switch.lookup:                                    ; preds = %29
   %59 = tail call i32 (ptr, i32, ptr, ...) %58(ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.56) #7
   br label %.fold.split.thread
 
-.fold.split.thread:                               ; preds = %37, %49, %43, %25, %15, %.fold.split, %56
-  %.1 = phi i32 [ %59, %56 ], [ 0, %.fold.split ], [ 14, %37 ], [ %52, %49 ], [ %46, %43 ], [ %28, %25 ], [ %18, %15 ]
+.fold.split.thread:                               ; preds = %49, %43, %37, %25, %15, %.fold.split, %56
+  %.1 = phi i32 [ %59, %56 ], [ 0, %.fold.split ], [ %52, %49 ], [ %46, %43 ], [ 14, %37 ], [ %28, %25 ], [ %18, %15 ]
   ret i32 %.1
 }
 
@@ -1284,7 +1284,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 25:                                               ; preds = %6
   br i1 %.not58, label %26, label %.critedge
 
-.critedge:                                        ; preds = %20, %17, %14, %13, %25
+.critedge:                                        ; preds = %20, %14, %13, %17, %25
   store ptr @.str, ptr %4, align 8, !tbaa !71
   br label %26
 
@@ -1323,7 +1323,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 41:                                               ; preds = %26
   br i1 %.not65, label %45, label %.critedge86
 
-.critedge86:                                      ; preds = %38, %35, %32, %31, %41
+.critedge86:                                      ; preds = %38, %32, %31, %35, %41
   %42 = add nuw nsw i32 %.0, 1
   %43 = zext nneg i32 %.0 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %43
@@ -1457,7 +1457,7 @@ define hidden i32 @internal_exr_validate_write_part(ptr noundef %0, ptr noundef 
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
+  %.0 = phi i32 [ %11, %10 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %13, %12 ]
   ret i32 %.0
 }
 

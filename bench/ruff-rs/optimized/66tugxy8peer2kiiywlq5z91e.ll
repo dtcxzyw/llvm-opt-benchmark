@@ -688,7 +688,7 @@ define noundef zeroext i1 @"_ZN66_$LT$ruff_formatter..IndentStyle$u20$as$u20$cor
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %10, %8
-  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ]
+  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %9, %8 ]
   ret i1 %.sroa.0.0.in
 }
 

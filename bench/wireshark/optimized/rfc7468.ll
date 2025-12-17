@@ -79,7 +79,7 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr noundef captures(none) %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %22, %29, %25, %8
-  %.0 = phi i32 [ -1, %8 ], [ 1, %29 ], [ -1, %25 ], [ 0, %22 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %25 ], [ 1, %29 ], [ 0, %22 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -177,7 +177,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   br label %17
 
 17:                                               ; preds = %15, %12
-  %.sink.i = phi i32 [ 0, %12 ], [ %..i, %15 ]
+  %.sink.i = phi i32 [ %..i, %15 ], [ 0, %12 ]
   br label %18
 
 18:                                               ; preds = %31, %17
@@ -250,7 +250,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   br label %47
 
 47:                                               ; preds = %43, %45
-  %.1 = phi i8 [ %spec.select, %45 ], [ 1, %43 ]
+  %.1 = phi i8 [ 1, %43 ], [ %spec.select, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = call ptr @file_getsp(ptr noundef nonnull %5, i32 noundef 131, ptr noundef %0)
   %.not.i = icmp eq ptr %48, null
@@ -274,8 +274,8 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   store i32 %54, ptr %56, align 4
   br label %.thread
 
-.thread:                                          ; preds = %35, %39, %49
-  %.223 = phi i1 [ true, %49 ], [ false, %39 ], [ false, %35 ]
+.thread:                                          ; preds = %39, %35, %49
+  %.223 = phi i1 [ true, %49 ], [ false, %35 ], [ false, %39 ]
   ret i1 %.223
 }
 

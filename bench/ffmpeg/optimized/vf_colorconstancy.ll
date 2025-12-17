@@ -809,7 +809,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   br label %set_gauss.exit
 
 set_gauss.exit:                                   ; preds = %.lr.ph127.i, %.loopexit, %17
-  %.0 = phi i32 [ 0, %.loopexit ], [ -22, %17 ], [ -12, %.lr.ph127.i ]
+  %.0 = phi i32 [ -22, %17 ], [ 0, %.loopexit ], [ -12, %.lr.ph127.i ]
   ret i32 %.0
 }
 

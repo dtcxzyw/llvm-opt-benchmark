@@ -284,7 +284,7 @@ isGray.exit.thread:                               ; preds = %28, %32
   br label %isPlanarYUV.exit.thread
 
 isPlanarYUV.exit.thread:                          ; preds = %32, %17, %10, %isGray.exit.thread, %isPlanarYUV.exit
-  %38 = phi i32 [ 1, %isPlanarYUV.exit ], [ 2, %isGray.exit.thread ], [ 1, %10 ], [ 1, %17 ], [ 1, %32 ]
+  %38 = phi i32 [ 1, %isPlanarYUV.exit ], [ 1, %32 ], [ 2, %isGray.exit.thread ], [ 1, %10 ], [ 1, %17 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 53032
   %40 = load ptr, ptr %39, align 8, !tbaa !46
   %.not220 = icmp eq ptr %40, null
@@ -1012,12 +1012,12 @@ alloc_slice.exit259.thread:                       ; preds = %.split.us.i253
   br i1 %423, label %.loopexit, label %425
 
 .loopexit:                                        ; preds = %214, %alloc_slice.exit259.thread, %alloc_slice.exit247.thread, %alloc_slice.exit242.thread, %alloc_slice.exit.thread, %153, %413, %397, %395, %365, %340, %326, %318, %259
-  %.0 = phi i32 [ %263, %259 ], [ %323, %318 ], [ %331, %326 ], [ %356, %340 ], [ %370, %365 ], [ %.1, %395 ], [ %410, %397 ], [ %422, %413 ], [ -12, %153 ], [ -12, %alloc_slice.exit.thread ], [ -12, %alloc_slice.exit242.thread ], [ -12, %alloc_slice.exit247.thread ], [ -12, %alloc_slice.exit259.thread ], [ %221, %214 ]
+  %.0 = phi i32 [ -12, %alloc_slice.exit.thread ], [ -12, %alloc_slice.exit242.thread ], [ -12, %alloc_slice.exit247.thread ], [ %263, %259 ], [ -12, %alloc_slice.exit259.thread ], [ %323, %318 ], [ %331, %326 ], [ %356, %340 ], [ %370, %365 ], [ %.1, %395 ], [ %410, %397 ], [ %422, %413 ], [ -12, %153 ], [ %221, %214 ]
   %424 = tail call i32 @ff_free_filters(ptr noundef %0)
   br label %425
 
 425:                                              ; preds = %412, %413, %isFloat16.exit.thread, %143, %.loopexit
-  %.0193 = phi i32 [ %.0, %.loopexit ], [ -12, %143 ], [ -12, %isFloat16.exit.thread ], [ 0, %413 ], [ 0, %412 ]
+  %.0193 = phi i32 [ %.0, %.loopexit ], [ -12, %isFloat16.exit.thread ], [ -12, %143 ], [ 0, %413 ], [ 0, %412 ]
   ret i32 %.0193
 }
 

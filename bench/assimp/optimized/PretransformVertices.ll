@@ -1170,7 +1170,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12aiMatrix4x4tIfE10IsIdentity
   br label %87
 
 87:                                               ; preds = %85, %81, %76, %71, %68, %64, %59, %54, %49, %44, %39, %34, %29, %24, %19, %14, %9, %6, %2
-  %88 = phi i1 [ false, %81 ], [ false, %76 ], [ false, %71 ], [ false, %68 ], [ false, %64 ], [ false, %59 ], [ false, %54 ], [ false, %49 ], [ false, %44 ], [ false, %39 ], [ false, %34 ], [ false, %29 ], [ false, %24 ], [ false, %19 ], [ false, %14 ], [ false, %9 ], [ false, %6 ], [ false, %2 ], [ %86, %85 ]
+  %88 = phi i1 [ false, %81 ], [ %86, %85 ], [ false, %76 ], [ false, %29 ], [ false, %71 ], [ false, %68 ], [ false, %64 ], [ false, %9 ], [ false, %59 ], [ false, %24 ], [ false, %54 ], [ false, %6 ], [ false, %49 ], [ false, %19 ], [ false, %44 ], [ false, %2 ], [ false, %39 ], [ false, %14 ], [ false, %34 ]
   ret i1 %88
 }
 
@@ -3162,7 +3162,7 @@ _ZN12_GLOBAL__N_114GetVFormatListEPK7aiScenejRNSt7__cxx114listIjSaIjEEE.exit: ; 
   br label %_ZNSt7__cxx114listIjSaIjEE6spliceESt20_List_const_iteratorIjERS2_S4_.exit.i
 
 _ZNSt7__cxx114listIjSaIjEE6spliceESt20_List_const_iteratorIjERS2_S4_.exit.i: ; preds = %281, %276, %.lr.ph.i366
-  %.sroa.010.1.i = phi ptr [ %.sroa.010.013.i, %276 ], [ %.sroa.010.013.i, %281 ], [ %270, %.lr.ph.i366 ]
+  %.sroa.010.1.i = phi ptr [ %.sroa.010.013.i, %281 ], [ %.sroa.010.013.i, %276 ], [ %270, %.lr.ph.i366 ]
   %286 = load ptr, ptr %.sroa.010.1.i, align 8
   %.not.i367 = icmp eq ptr %286, %8
   br i1 %.not.i367, label %._crit_edge.i, label %.lr.ph.i366, !llvm.loop !34
@@ -3536,7 +3536,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
   br i1 %.not573, label %._crit_edge648, label %.lr.ph647, !llvm.loop !38
 
 .loopexit.split-lp:                               ; preds = %.loopexit580, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit584, %.loopexit.split-lp585, %416, %370
-  %.pn.pn = phi { ptr, i32 } [ %371, %370 ], [ %417, %416 ], [ %lpad.loopexit586, %.loopexit584 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp585 ], [ %lpad.loopexit, %.loopexit580 ], [ %lpad.loopexit581, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp582, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %371, %370 ], [ %417, %416 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp585 ], [ %lpad.loopexit586, %.loopexit584 ], [ %lpad.loopexit, %.loopexit580 ], [ %lpad.loopexit581, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp582, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit379
@@ -3643,7 +3643,7 @@ _ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit:       ; preds = %.lr.ph.i.i375, %_ZN
   br i1 %462, label %455, label %_ZNSt6vectorIjSaIjEED2Ev.exit, !llvm.loop !41
 
 _ZNSt6vectorIjSaIjEED2Ev.exit379:                 ; preds = %.loopexit.split-lp, %424, %233, %.loopexit.split-lp589, %.loopexit588
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %425, %424 ], [ %.pn.pn, %.loopexit.split-lp ], [ %lpad.loopexit590, %.loopexit588 ], [ %lpad.loopexit.split-lp591, %.loopexit.split-lp589 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %425, %424 ], [ %234, %233 ], [ %.pn.pn, %.loopexit.split-lp ], [ %lpad.loopexit590, %.loopexit588 ], [ %lpad.loopexit.split-lp591, %.loopexit.split-lp589 ]
   call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef %221) #28
   %.pre837 = load ptr, ptr %8, align 8
   %.not8.i.i380 = icmp eq ptr %.pre837, %8
@@ -4514,7 +4514,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %917, %919
   ret void
 
 926:                                              ; preds = %720, %722, %817, %819, %792, %794, %765, %767, %737, %915, %698, %594, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384, %207, %188
-  %.pn357 = phi { ptr, i32 } [ %208, %207 ], [ %595, %594 ], [ %699, %698 ], [ %189, %188 ], [ %916, %915 ], [ %.pn.pn.pn.pn.pn896, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384 ], [ %721, %720 ], [ %723, %722 ], [ %738, %737 ], [ %766, %765 ], [ %768, %767 ], [ %795, %794 ], [ %793, %792 ], [ %820, %819 ], [ %818, %817 ]
+  %.pn357 = phi { ptr, i32 } [ %208, %207 ], [ %595, %594 ], [ %699, %698 ], [ %818, %817 ], [ %189, %188 ], [ %916, %915 ], [ %.pn.pn.pn.pn.pn896, %_ZNSt7__cxx1110_List_baseIjSaIjEED2Ev.exit384 ], [ %723, %722 ], [ %721, %720 ], [ %738, %737 ], [ %768, %767 ], [ %793, %792 ], [ %766, %765 ], [ %795, %794 ], [ %820, %819 ]
   %927 = load ptr, ptr %7, align 8
   %.not.i.i.i440 = icmp eq ptr %927, null
   br i1 %.not.i.i.i440, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit441, label %928

@@ -830,8 +830,8 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   br label %.thread427
 
 .thread427:                                       ; preds = %432, %430
-  %.5378430 = phi i1 [ true, %430 ], [ %433, %432 ]
-  %434 = phi ptr [ %429, %430 ], [ %spec.select438, %432 ]
+  %.5378430 = phi i1 [ %433, %432 ], [ true, %430 ]
+  %434 = phi ptr [ %spec.select438, %432 ], [ %429, %430 ]
   store ptr %434, ptr %173, align 8, !tbaa !42
   %435 = icmp sgt i32 %420, 0
   br i1 %435, label %436, label %.loopexit444
@@ -956,8 +956,8 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   br label %.thread433
 
 .thread433:                                       ; preds = %490, %488
-  %.6379436 = phi i1 [ true, %488 ], [ %491, %490 ]
-  %492 = phi ptr [ %487, %488 ], [ %spec.select439, %490 ]
+  %.6379436 = phi i1 [ %491, %490 ], [ true, %488 ]
+  %492 = phi ptr [ %spec.select439, %490 ], [ %487, %488 ]
   store ptr %492, ptr %173, align 8, !tbaa !42
   %493 = icmp sgt i32 %479, 0
   br i1 %493, label %494, label %.loopexit443

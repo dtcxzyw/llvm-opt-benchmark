@@ -6389,7 +6389,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %2510
 
 2510:                                             ; preds = %2509, %2409
-  %.pn2932.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2924.pn, %2409 ], [ %.pn2932.pn.pn, %2509 ]
+  %.pn2932.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2932.pn.pn, %2509 ], [ %.pn2924.pn, %2409 ]
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %97) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %4629
@@ -8002,7 +8002,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br label %3158
 
 3158:                                             ; preds = %3154, %3156, %3152, %3150, %3148
-  %.pn2893.pn = phi { ptr, i32 } [ %3149, %3148 ], [ %3153, %3152 ], [ %3151, %3150 ], [ %3157, %3156 ], [ %3155, %3154 ]
+  %.pn2893.pn = phi { ptr, i32 } [ %3151, %3150 ], [ %3149, %3148 ], [ %3153, %3152 ], [ %3157, %3156 ], [ %3155, %3154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %124) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
@@ -11416,11 +11416,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   br label %41
 
 41:                                               ; preds = %2, %39, %37, %22, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit
-  %.sroa.12.0 = phi i32 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %.sroa.12.0.extract.trunc, %22 ], [ %38, %37 ], [ %40, %39 ], [ 0, %2 ]
-  %.sroa.10.0 = phi i64 [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %34, %22 ], [ 335544320, %37 ], [ 335544320, %39 ], [ 268435456, %2 ]
-  %.sroa.8.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %.sroa.8.0.extract.trunc, %22 ], [ 116, %37 ], [ 100, %39 ], [ -128, %2 ]
-  %.sroa.6.0 = phi i64 [ 32768, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %35, %22 ], [ 32768, %37 ], [ 32768, %39 ], [ 32768, %2 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %36, %22 ], [ 1, %37 ], [ 1, %39 ], [ 0, %2 ]
+  %.sroa.12.0 = phi i32 [ %40, %39 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %.sroa.12.0.extract.trunc, %22 ], [ %38, %37 ], [ 0, %2 ]
+  %.sroa.10.0 = phi i64 [ 335544320, %39 ], [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %34, %22 ], [ 335544320, %37 ], [ 268435456, %2 ]
+  %.sroa.8.0 = phi i8 [ 100, %39 ], [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %.sroa.8.0.extract.trunc, %22 ], [ 116, %37 ], [ -128, %2 ]
+  %.sroa.6.0 = phi i64 [ 32768, %39 ], [ 32768, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %35, %22 ], [ 32768, %37 ], [ 32768, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %39 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %36, %22 ], [ 1, %37 ], [ 0, %2 ]
   %.sroa.12.0.insert.ext = zext i32 %.sroa.12.0 to i64
   %.sroa.12.0.insert.shift = shl nuw i64 %.sroa.12.0.insert.ext, 32
   %.sroa.10.0.insert.insert = or disjoint i64 %.sroa.12.0.insert.shift, %.sroa.10.0
@@ -11733,10 +11733,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   br label %31
 
 31:                                               ; preds = %2, %28, %25, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit
-  %.sroa.11.0 = phi i32 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %27, %25 ], [ %30, %28 ], [ 0, %2 ]
-  %.sroa.9.0 = phi i64 [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 318767104, %25 ], [ 318767104, %28 ], [ 268435456, %2 ]
-  %.sroa.7.0 = phi i64 [ %24, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 7634944, %25 ], [ 6586368, %28 ], [ 8421376, %2 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 1, %25 ], [ 1, %28 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i32 [ %30, %28 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %27, %25 ], [ 0, %2 ]
+  %.sroa.9.0 = phi i64 [ 318767104, %28 ], [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 318767104, %25 ], [ 268435456, %2 ]
+  %.sroa.7.0 = phi i64 [ 6586368, %28 ], [ %24, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 7634944, %25 ], [ 8421376, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %28 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 1, %25 ], [ 0, %2 ]
   %.sroa.11.0.insert.ext = zext i32 %.sroa.11.0 to i64
   %.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.0.insert.ext, 32
   %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.shift, %.sroa.9.0
@@ -12017,7 +12017,7 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE.exit.
   br label %_ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit
 
 _ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit: ; preds = %_ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE.exit.thread20, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84
-  %.0.i17 = phi i8 [ 26, %84 ], [ 0, %59 ], [ 3, %60 ], [ 2, %61 ], [ 13, %62 ], [ 14, %63 ], [ 15, %64 ], [ 16, %65 ], [ 17, %66 ], [ 18, %67 ], [ 19, %68 ], [ 20, %69 ], [ 21, %70 ], [ 4, %71 ], [ 5, %72 ], [ 6, %73 ], [ 7, %74 ], [ 8, %75 ], [ 9, %76 ], [ 10, %77 ], [ 11, %78 ], [ 12, %79 ], [ 23, %80 ], [ 22, %81 ], [ 25, %82 ], [ 24, %83 ], [ 1, %_ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE.exit.thread20 ]
+  %.0.i17 = phi i8 [ 26, %84 ], [ 24, %83 ], [ 0, %59 ], [ 3, %60 ], [ 2, %61 ], [ 13, %62 ], [ 14, %63 ], [ 15, %64 ], [ 16, %65 ], [ 17, %66 ], [ 18, %67 ], [ 19, %68 ], [ 20, %69 ], [ 21, %70 ], [ 4, %71 ], [ 5, %72 ], [ 6, %73 ], [ 7, %74 ], [ 8, %75 ], [ 9, %76 ], [ 10, %77 ], [ 11, %78 ], [ 12, %79 ], [ 23, %80 ], [ 22, %81 ], [ 25, %82 ], [ 1, %_ZN4Luau7CodeGen3X6413IrLoweringX6414getTargetLabelENS0_4IrOpERNS0_5LabelE.exit.thread20 ]
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %57, i8 noundef zeroext %.0.i17, ptr noundef nonnull align 4 dereferenceable(8) %.0.i22)
   %85 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643ud2Ev(ptr noundef nonnull align 8 dereferenceable(252) %85)
@@ -12030,7 +12030,7 @@ _ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit: ; preds = %_ZN4L
   br i1 %88, label %90, label %105
 
 .thread:                                          ; preds = %20, %15, %11
-  %.0.i.ph = phi ptr [ %5, %20 ], [ %5, %15 ], [ %14, %11 ]
+  %.0.i.ph = phi ptr [ %5, %15 ], [ %5, %20 ], [ %14, %11 ]
   %89 = icmp eq i8 %1, 26
   br i1 %89, label %.thread26, label %105
 
@@ -12053,7 +12053,7 @@ _ZN4Luau7CodeGen19getReverseConditionENS0_12ConditionX64E.exit: ; preds = %_ZN4L
   br i1 %103, label %107, label %.thread26
 
 .thread26:                                        ; preds = %.thread, %92, %90
-  %.0.i192428 = phi ptr [ %.0.i, %92 ], [ %.0.i, %90 ], [ %.0.i.ph, %.thread ]
+  %.0.i192428 = phi ptr [ %.0.i, %90 ], [ %.0.i, %92 ], [ %.0.i.ph, %.thread ]
   %104 = load ptr, ptr %0, align 8, !tbaa !60
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %104, ptr noundef nonnull align 4 dereferenceable(8) %.0.i192428)
   br label %107
@@ -12128,10 +12128,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   br label %37
 
 37:                                               ; preds = %2, %35, %25, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit
-  %.sroa.14.0 = phi i32 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %34, %25 ], [ %36, %35 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 268435456, %25 ], [ 318767104, %35 ], [ 268435456, %2 ]
-  %.sroa.8.0 = phi i64 [ %24, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 8421376, %25 ], [ 7634944, %35 ], [ 8421376, %2 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 2, %25 ], [ 1, %35 ], [ 0, %2 ]
+  %.sroa.14.0 = phi i32 [ %36, %35 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ %34, %25 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ 318767104, %35 ], [ 268435456, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 268435456, %25 ], [ 268435456, %2 ]
+  %.sroa.8.0 = phi i64 [ 7634944, %35 ], [ %24, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 8421376, %25 ], [ 8421376, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %35 ], [ 0, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit ], [ 2, %25 ], [ 0, %2 ]
   %.sroa.14.0.insert.ext = zext i32 %.sroa.14.0 to i64
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0.insert.ext, 32
   %.sroa.11.0.insert.insert = or disjoint i64 %.sroa.14.0.insert.shift, %.sroa.11.0
@@ -12399,9 +12399,9 @@ _ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23: ; preds = %56, %60
   br label %72
 
 72:                                               ; preds = %4, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20
-  %.sroa.7.0 = phi i32 [ %6, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ %71, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ 0, %4 ]
-  %.sroa.5.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ %.sroa.06.0.copyload.i22, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ -128, %4 ]
-  %.sroa.4.0 = phi i64 [ %44, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ 268468225, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ 268468224, %4 ]
+  %.sroa.7.0 = phi i32 [ %71, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ %6, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ 0, %4 ]
+  %.sroa.5.0 = phi i8 [ %.sroa.06.0.copyload.i22, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ -128, %4 ]
+  %.sroa.4.0 = phi i64 [ 268468225, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit23 ], [ %44, %_ZN4Luau7CodeGen3X6413IrLoweringX645regOpENS0_4IrOpE.exit20 ], [ 268468224, %4 ]
   %.sroa.7.0.insert.ext = zext i32 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i8 %.sroa.5.0 to i64
@@ -12658,8 +12658,8 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit: ; preds = %28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
 
-_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %17, %12, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %45, %8
-  %.0 = phi ptr [ %11, %8 ], [ %52, %45 ], [ %2, %3 ], [ %44, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %12 ], [ %2, %17 ], [ %2, %32 ], [ %2, %34 ]
+_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %12, %17, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %45, %8
+  %.0 = phi ptr [ %52, %45 ], [ %11, %8 ], [ %2, %3 ], [ %44, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %17 ], [ %2, %12 ], [ %2, %32 ], [ %2, %34 ]
   ret ptr %.0
 }
 
@@ -12745,7 +12745,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6419finalizeTargetLabelE
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i: ; preds = %42, %.loopexit.i.i, %13
-  %52 = phi i64 [ %28, %13 ], [ %.pre.i, %.loopexit.i.i ], [ %28, %42 ]
+  %52 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %28, %13 ], [ %28, %42 ]
   %53 = add i64 %52, -1
   %54 = zext nneg i32 %24 to i64
   %55 = and i64 %53, %54

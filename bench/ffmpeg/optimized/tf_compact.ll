@@ -134,8 +134,8 @@ define internal void @compact_print_section_header(ptr noundef %0, ptr noundef %
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %9, %.thread.i
-  %14 = phi i32 [ %.pre, %.thread.i ], [ %6, %9 ]
-  %.0.i = phi ptr [ null, %.thread.i ], [ %13, %9 ]
+  %14 = phi i32 [ %6, %9 ], [ %.pre, %.thread.i ]
+  %.0.i = phi ptr [ %13, %9 ], [ null, %.thread.i ]
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %tf_get_parent_section.exit, label %16
 
@@ -158,7 +158,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
-  %.0.i79 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
+  %.0.i79 = phi ptr [ null, %tf_get_section.exit ], [ %23, %19 ], [ null, %.thread.i.i ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %119, label %24
 

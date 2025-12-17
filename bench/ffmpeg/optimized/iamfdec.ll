@@ -81,8 +81,8 @@ get_score.exit.thread29:                          ; preds = %25, %get_score.exit
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %get_score.exit.thread, label %.lr.ph
 
-get_score.exit.thread:                            ; preds = %get_score.exit, %get_score.exit.thread29, %25, %21, %29, %1
-  %.1.ph = phi i32 [ 0, %1 ], [ %spec.select, %29 ], [ 0, %21 ], [ 0, %25 ], [ 0, %get_score.exit.thread29 ], [ 0, %get_score.exit ]
+get_score.exit.thread:                            ; preds = %get_score.exit, %get_score.exit.thread29, %21, %25, %29, %1
+  %.1.ph = phi i32 [ %spec.select, %29 ], [ 0, %1 ], [ 0, %25 ], [ 0, %21 ], [ 0, %get_score.exit.thread29 ], [ 0, %get_score.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -231,8 +231,8 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   br label %87
 
 87:                                               ; preds = %84, %81
-  %.3171 = phi i32 [ %64, %81 ], [ %.0168250, %84 ]
-  %.3167 = phi i32 [ %.0164251, %81 ], [ %spec.select, %84 ]
+  %.3171 = phi i32 [ %.0168250, %84 ], [ %64, %81 ]
+  %.3167 = phi i32 [ %spec.select, %84 ], [ %.0164251, %81 ]
   %88 = load i32, ptr %51, align 8, !tbaa !70
   %89 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 %88, ptr %89, align 4, !tbaa !71
@@ -459,8 +459,8 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %. = select i1 %.not189, i32 -1094995529, i32 0
   br label %.thread203
 
-.thread203:                                       ; preds = %15, %49, %53, %56, %128, %180, %._crit_edge278, %1
-  %.0148 = phi i32 [ %7, %1 ], [ %., %._crit_edge278 ], [ %184, %180 ], [ -12, %128 ], [ -12, %49 ], [ %54, %53 ], [ %61, %56 ], [ -12, %15 ]
+.thread203:                                       ; preds = %15, %53, %56, %49, %128, %180, %._crit_edge278, %1
+  %.0148 = phi i32 [ %7, %1 ], [ %., %._crit_edge278 ], [ %61, %56 ], [ %184, %180 ], [ -12, %128 ], [ -12, %49 ], [ %54, %53 ], [ -12, %15 ]
   ret i32 %.0148
 }
 

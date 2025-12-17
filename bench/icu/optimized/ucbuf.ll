@@ -161,7 +161,7 @@ define ptr @ucbuf_autodetect(ptr noundef %0, ptr noundef captures(address_is_nul
   br label %23
 
 23:                                               ; preds = %19, %5, %7, %21, %18, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %21 ], [ null, %7 ], [ null, %5 ], [ %16, %19 ]
+  %.0 = phi ptr [ null, %21 ], [ null, %14 ], [ null, %18 ], [ null, %5 ], [ null, %7 ], [ %16, %19 ]
   ret ptr %.0
 }
 
@@ -217,7 +217,7 @@ define range(i32 -1, 65536) i32 @ucbuf_getc(ptr noundef captures(none) %0, ptr n
   br label %26
 
 26:                                               ; preds = %16, %12, %2, %4, %20
-  %.0 = phi i32 [ %25, %20 ], [ 0, %4 ], [ 0, %2 ], [ -1, %12 ], [ -1, %16 ]
+  %.0 = phi i32 [ %25, %20 ], [ 0, %2 ], [ -1, %12 ], [ 0, %4 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -535,7 +535,7 @@ define range(i32 -1, 10559488) i32 @ucbuf_getc32(ptr noundef captures(none) %0, 
   br label %36
 
 36:                                               ; preds = %.sink.split, %17, %13, %2, %4
-  %.014 = phi i32 [ 0, %4 ], [ 0, %2 ], [ -1, %13 ], [ -1, %17 ], [ %.014.ph, %.sink.split ]
+  %.014 = phi i32 [ -1, %17 ], [ 0, %2 ], [ -1, %13 ], [ 0, %4 ], [ %.014.ph, %.sink.split ]
   ret i32 %.014
 }
 
@@ -648,7 +648,7 @@ define i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %.thread
 
 .thread:                                          ; preds = %56, %17, %21, %2, %6, %58, %55
-  %.043 = phi i32 [ 92, %55 ], [ %44, %58 ], [ 0, %6 ], [ 0, %2 ], [ %24, %21 ], [ -1, %17 ], [ 92, %56 ]
+  %.043 = phi i32 [ %24, %21 ], [ 0, %2 ], [ 92, %55 ], [ %44, %58 ], [ 0, %6 ], [ 92, %56 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.043
 }
@@ -854,7 +854,7 @@ sub_0:                                            ; preds = %11
   br label %91
 
 91:                                               ; preds = %27, %.thread95, %74, %80, %89, %85, %5, %8, %90, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %90 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %.thread95 ], [ null, %74 ], [ null, %80 ], [ null, %89 ], [ %24, %85 ]
+  %.0 = phi ptr [ null, %90 ], [ null, %14 ], [ null, %5 ], [ null, %8 ], [ null, %27 ], [ null, %.thread95 ], [ null, %74 ], [ null, %80 ], [ null, %89 ], [ %24, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -919,7 +919,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL15ucbuf_isCPKnownPK
   br label %31
 
 31:                                               ; preds = %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i8 [ 1, %1 ], [ 1, %4 ], [ 1, %7 ], [ 1, %10 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ], [ 1, %22 ], [ 1, %25 ], [ %., %28 ]
+  %.0 = phi i8 [ 1, %25 ], [ 1, %1 ], [ 1, %4 ], [ 1, %7 ], [ 1, %10 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ], [ 1, %22 ], [ %., %28 ]
   ret i8 %.0
 }
 
@@ -1149,7 +1149,7 @@ define ptr @ucbuf_getBuffer(ptr noundef readonly captures(address_is_null) %0, p
   br label %21
 
 21:                                               ; preds = %3, %5, %12, %11
-  %.0 = phi ptr [ null, %11 ], [ %15, %12 ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ %15, %12 ], [ null, %11 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1256,7 +1256,7 @@ define noundef ptr @ucbuf_resolveFileName(ptr noundef readonly captures(address_
   br label %55
 
 55:                                               ; preds = %5, %7, %53, %49, %34, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %34 ], [ %2, %53 ], [ null, %49 ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %19 ], [ null, %34 ], [ %2, %53 ], [ null, %7 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1417,7 +1417,7 @@ _ZL19ucbuf_isCharNewLineDs.exit73.thread:         ; preds = %63, %63, %63, %63, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %_ZL19ucbuf_isCharNewLineDs.exit, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader, %_ZL19ucbuf_isCharNewLineDs.exit73.thread, %55, %_ZL19ucbuf_isCharNewLineDs.exit.thread, %33, %23
-  %.057 = phi ptr [ null, %23 ], [ %35, %33 ], [ %43, %_ZL19ucbuf_isCharNewLineDs.exit.thread ], [ %5, %55 ], [ %5, %_ZL19ucbuf_isCharNewLineDs.exit73.thread ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit ], [ null, %24 ]
+  %.057 = phi ptr [ %5, %_ZL19ucbuf_isCharNewLineDs.exit73.thread ], [ null, %23 ], [ %35, %33 ], [ %43, %_ZL19ucbuf_isCharNewLineDs.exit.thread ], [ %5, %55 ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit ], [ null, %24 ]
   ret ptr %.057
 }
 

@@ -139,7 +139,7 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   br i1 %52, label %.lr.ph.split.split, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %4
-  %.0.lcssa = phi ptr [ %7, %4 ], [ %16, %.lr.ph.split.us.split.us ], [ %25, %.lr.ph.split.us.split ], [ %37, %.lr.ph.split.split.us ], [ %50, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %7, %4 ], [ %37, %.lr.ph.split.split.us ], [ %16, %.lr.ph.split.us.split.us ], [ %25, %.lr.ph.split.us.split ], [ %50, %.lr.ph.split.split ]
   tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #15
   store i64 %6, ptr %5, align 8, !tbaa !3
   ret ptr %.0.lcssa

@@ -165,7 +165,7 @@ define void @_ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8Arra
   unreachable
 
 _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit: ; preds = %28, %30, %34
-  %.0.i = phi i64 [ %33, %30 ], [ %36, %34 ], [ 0, %28 ]
+  %.0.i = phi i64 [ 0, %28 ], [ %33, %30 ], [ %36, %34 ]
   store i64 %.0.i, ptr %25, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %9, align 8

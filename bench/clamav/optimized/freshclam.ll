@@ -459,8 +459,8 @@ define dso_local range(i32 0, 17) i32 @download_complete_callback(ptr noundef %0
   %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19) #18
   br label %115
 
-.thread:                                          ; preds = %110, %108, %101, %9, %30, %47
-  %.031 = phi i32 [ 16, %9 ], [ 8, %30 ], [ 8, %47 ], [ 8, %101 ], [ 8, %108 ], [ 8, %110 ]
+.thread:                                          ; preds = %108, %110, %101, %9, %30, %47
+  %.031 = phi i32 [ 16, %9 ], [ 8, %30 ], [ 8, %47 ], [ 8, %101 ], [ 8, %110 ], [ 8, %108 ]
   %114 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.20) #18
   br label %115
 
@@ -933,9 +933,9 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
   br label %68
 
 .thread:                                          ; preds = %59, %53, %._crit_edge.thread
-  %.str.107.sink = phi ptr [ @.str.107, %._crit_edge.thread ], [ @.str.108, %53 ], [ @.str.109, %59 ]
-  %.5124.ph = phi ptr [ %.1120195, %._crit_edge.thread ], [ %.1120195, %53 ], [ %57, %59 ]
-  %.0.i.ph = phi i32 [ 16, %._crit_edge.thread ], [ 15, %53 ], [ 15, %59 ]
+  %.str.107.sink = phi ptr [ @.str.108, %53 ], [ @.str.107, %._crit_edge.thread ], [ @.str.109, %59 ]
+  %.5124.ph = phi ptr [ %.1120195, %53 ], [ %.1120195, %._crit_edge.thread ], [ %57, %59 ]
+  %.0.i.ph = phi i32 [ 15, %53 ], [ 16, %._crit_edge.thread ], [ 15, %59 ]
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.107.sink) #18
   %64 = load ptr, ptr %7, align 8, !tbaa !12
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv242
@@ -1014,9 +1014,9 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
   br i1 %101, label %string_list_add.exit84, label %105
 
 string_list_add.exit84:                           ; preds = %97, %91, %85
-  %.str.109.sink = phi ptr [ @.str.107, %85 ], [ @.str.108, %91 ], [ @.str.109, %97 ]
-  %.6125.ph = phi ptr [ %.3122208, %85 ], [ %.3122208, %91 ], [ %95, %97 ]
-  %.0.i83.ph = phi i32 [ 16, %85 ], [ 15, %91 ], [ 15, %97 ]
+  %.str.109.sink = phi ptr [ @.str.108, %91 ], [ @.str.107, %85 ], [ @.str.109, %97 ]
+  %.6125.ph = phi ptr [ %.3122208, %91 ], [ %.3122208, %85 ], [ %95, %97 ]
+  %.0.i83.ph = phi i32 [ 15, %91 ], [ 16, %85 ], [ 15, %97 ]
   %102 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.109.sink) #18
   %103 = load ptr, ptr %102, align 8, !tbaa !15
@@ -1273,9 +1273,9 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   br i1 %47, label %.critedge75.thread.thread, label %.critedge75
 
 .critedge75.thread.thread:                        ; preds = %43, %37
-  %.str.109.sink = phi ptr [ @.str.108, %37 ], [ @.str.109, %43 ]
+  %.str.108.sink = phi ptr [ @.str.108, %37 ], [ @.str.109, %43 ]
   %.4115.ph = phi ptr [ %.1112183, %37 ], [ %41, %43 ]
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.109.sink) #18
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.108.sink) #18
   %48 = load ptr, ptr %6, align 8, !tbaa !12
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !15
@@ -1312,9 +1312,9 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   br i1 %67, label %68, label %.critedge75
 
 68:                                               ; preds = %63, %57
-  %.str.108.sink = phi ptr [ @.str.108, %57 ], [ @.str.109, %63 ]
+  %.str.109.sink = phi ptr [ @.str.108, %57 ], [ @.str.109, %63 ]
   %.5116.ph = phi ptr [ %.1112183, %57 ], [ %61, %63 ]
-  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.108.sink) #18
+  call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.109.sink) #18
   %69 = load ptr, ptr %8, align 8, !tbaa !12
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv231
   %71 = load ptr, ptr %70, align 8, !tbaa !15
@@ -1326,8 +1326,8 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   br label %.critedge75.thread
 
 .critedge75:                                      ; preds = %28, %43, %63
-  %.2113 = phi ptr [ %.1112183, %28 ], [ %41, %43 ], [ %61, %63 ]
-  %.2110 = phi i32 [ %.1184, %28 ], [ %38, %43 ], [ %58, %63 ]
+  %.2113 = phi ptr [ %.1112183, %28 ], [ %61, %63 ], [ %41, %43 ]
+  %.2110 = phi i32 [ %.1184, %28 ], [ %58, %63 ], [ %38, %43 ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %17
   br i1 %exitcond240.not, label %._crit_edge, label %.lr.ph186
@@ -1337,10 +1337,10 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   store i32 %.2110, ptr %3, align 4, !tbaa !4
   br label %.critedge75.thread
 
-.critedge75.thread:                               ; preds = %68, %.critedge.preheader._crit_edge, %._crit_edge, %20, %15
-  %.0111.ph = phi ptr [ %.5116.ph, %68 ], [ %.1112183, %.critedge.preheader._crit_edge ], [ %18, %20 ], [ %.2113, %._crit_edge ], [ null, %15 ]
-  %.0109.ph = phi i32 [ %.1184, %68 ], [ %.1184, %.critedge.preheader._crit_edge ], [ 0, %20 ], [ %.2110, %._crit_edge ], [ 0, %15 ]
-  %.054.ph = phi i32 [ 15, %68 ], [ 9, %.critedge.preheader._crit_edge ], [ %19, %20 ], [ 0, %._crit_edge ], [ 16, %15 ]
+.critedge75.thread:                               ; preds = %.critedge.preheader._crit_edge, %68, %._crit_edge, %20, %15
+  %.0111.ph = phi ptr [ %.5116.ph, %68 ], [ %.1112183, %.critedge.preheader._crit_edge ], [ %.2113, %._crit_edge ], [ %18, %20 ], [ null, %15 ]
+  %.0109.ph = phi i32 [ %.1184, %68 ], [ %.1184, %.critedge.preheader._crit_edge ], [ %.2110, %._crit_edge ], [ 0, %20 ], [ 0, %15 ]
+  %.054.ph = phi i32 [ 15, %68 ], [ 9, %.critedge.preheader._crit_edge ], [ 0, %._crit_edge ], [ %19, %20 ], [ 16, %15 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !12
   %.not72 = icmp eq ptr %.pr, null
   br i1 %.not72, label %80, label %.preheader.i
@@ -1669,8 +1669,8 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
   br label %108
 
 108:                                              ; preds = %103, %106, %96, %86, %75
-  %.0104 = phi i32 [ 10, %75 ], [ %85, %86 ], [ %95, %96 ], [ 0, %106 ], [ 0, %103 ]
-  %.0101 = phi i32 [ 0, %75 ], [ 0, %86 ], [ %.1102, %96 ], [ %.2103, %106 ], [ %.2103, %103 ]
+  %.0104 = phi i32 [ %95, %96 ], [ 0, %106 ], [ 0, %103 ], [ %85, %86 ], [ 10, %75 ]
+  %.0101 = phi i32 [ %.1102, %96 ], [ %.2103, %106 ], [ %.2103, %103 ], [ 0, %86 ], [ 0, %75 ]
   %.not125 = icmp eq ptr %.197, null
   br i1 %.not125, label %.thread, label %.preheader
 
@@ -1700,8 +1700,8 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %40, %29, %22, %._crit_edge143, %108
-  %.0101134 = phi i32 [ %.0101186195, %._crit_edge143 ], [ %.0101, %108 ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ]
-  %.0104133 = phi i32 [ %.0104185196, %._crit_edge143 ], [ %.0104, %108 ], [ 16, %22 ], [ 16, %29 ], [ 15, %40 ]
+  %.0101134 = phi i32 [ %.0101, %108 ], [ %.0101186195, %._crit_edge143 ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ]
+  %.0104133 = phi i32 [ %.0104, %108 ], [ %.0104185196, %._crit_edge143 ], [ 16, %22 ], [ 16, %29 ], [ 15, %40 ]
   %111 = call i32 @lstat(ptr noundef nonnull @g_freshclamTempDirectory, ptr noundef nonnull %20) #18
   %112 = icmp ne i32 %111, -1
   %113 = load i8, ptr @g_freshclamTempDirectory, align 16
@@ -2216,9 +2216,9 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not50.i, label %get_database_server_list.exit, label %.preheader.i
 
 131:                                              ; preds = %.thread99.i, %.thread.i
-  %.072.ph.i = phi ptr [ %.577.ph.i, %.thread99.i ], [ %.274.ph.i, %.thread.i ]
-  %.067.ph.i = phi i32 [ %.471.i, %.thread99.i ], [ %.168.i, %.thread.i ]
-  %.034.ph.i = phi i32 [ %.4.ph.i, %.thread99.i ], [ %.2.ph.i, %.thread.i ]
+  %.072.ph.i = phi ptr [ %.274.ph.i, %.thread.i ], [ %.577.ph.i, %.thread99.i ]
+  %.067.ph.i = phi i32 [ %.168.i, %.thread.i ], [ %.471.i, %.thread99.i ]
+  %.034.ph.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.4.ph.i, %.thread99.i ]
   %.not.i.i = icmp eq ptr %.072.ph.i, null
   br i1 %.not.i.i, label %136, label %.preheader.i.i
 
@@ -2251,8 +2251,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   tail call void @free(ptr noundef nonnull %.072.ph.i) #18
   br label %136
 
-136:                                              ; preds = %.thread114.i, %131, %._crit_edge.i.i
-  %.034113.i.ph = phi i32 [ %.034.ph.i, %._crit_edge.i.i ], [ %.034.ph.i, %131 ], [ 9, %.thread114.i ]
+136:                                              ; preds = %._crit_edge.i.i, %.thread114.i, %131
+  %.034113.i.ph = phi i32 [ %.034.ph.i, %131 ], [ 9, %.thread114.i ], [ %.034.ph.i, %._crit_edge.i.i ]
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.65) #18
   br label %463
 
@@ -2891,7 +2891,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
   br i1 %.not202, label %380, label %._crit_edge
 
 .thread289:                                       ; preds = %278, %291, %300, %369, %434, %307, %.thread280, %351
-  %.4.ph = phi i32 [ 9, %.thread280 ], [ 2, %307 ], [ 9, %351 ], [ 17, %434 ], [ 9, %369 ], [ 14, %300 ], [ 9, %291 ], [ 9, %278 ]
+  %.4.ph = phi i32 [ 9, %.thread280 ], [ 2, %307 ], [ 17, %434 ], [ 9, %369 ], [ 9, %351 ], [ 14, %300 ], [ 9, %291 ], [ 9, %278 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread419
@@ -2902,25 +2902,25 @@ get_database_server_list.exit:                    ; preds = %99, %128
   br label %.thread293
 
 .thread293:                                       ; preds = %34, %61, %69, %._crit_edge, %264, %28, %54
-  %.0259.ph = phi ptr [ %.1260, %264 ], [ %.1260, %._crit_edge ], [ null, %34 ], [ null, %61 ], [ null, %69 ], [ null, %54 ], [ null, %28 ]
-  %.0257.ph = phi i32 [ %.1258, %264 ], [ %.1258, %._crit_edge ], [ 0, %34 ], [ 0, %61 ], [ 0, %69 ], [ 0, %54 ], [ 0, %28 ]
-  %.0140.ph = phi ptr [ %52, %264 ], [ %52, %._crit_edge ], [ %26, %34 ], [ %52, %61 ], [ %52, %69 ], [ null, %54 ], [ null, %28 ]
-  %.0135.ph = phi ptr [ %51, %264 ], [ %51, %._crit_edge ], [ null, %34 ], [ %51, %61 ], [ %51, %69 ], [ %51, %54 ], [ null, %28 ]
-  %.0129.ph = phi i32 [ 0, %264 ], [ 0, %._crit_edge ], [ 0, %34 ], [ 0, %61 ], [ 0, %69 ], [ 2, %54 ], [ 2, %28 ]
+  %.0259.ph = phi ptr [ %.1260, %264 ], [ %.1260, %._crit_edge ], [ null, %61 ], [ null, %69 ], [ null, %34 ], [ null, %54 ], [ null, %28 ]
+  %.0257.ph = phi i32 [ %.1258, %264 ], [ %.1258, %._crit_edge ], [ 0, %61 ], [ 0, %69 ], [ 0, %34 ], [ 0, %54 ], [ 0, %28 ]
+  %.0140.ph = phi ptr [ %52, %264 ], [ %52, %._crit_edge ], [ %52, %61 ], [ %52, %69 ], [ %26, %34 ], [ null, %54 ], [ null, %28 ]
+  %.0135.ph = phi ptr [ %51, %264 ], [ %51, %._crit_edge ], [ %51, %61 ], [ %51, %69 ], [ null, %34 ], [ %51, %54 ], [ null, %28 ]
+  %.0129.ph = phi i32 [ 0, %264 ], [ 0, %._crit_edge ], [ 0, %61 ], [ 0, %69 ], [ 0, %34 ], [ 2, %54 ], [ 2, %28 ]
   %462 = icmp ne ptr %.0140.ph, null
   br label %474
 
 463:                                              ; preds = %.thread272, %.thread, %267, %136
-  %.0259 = phi ptr [ %.1260, %267 ], [ null, %136 ], [ %.1260, %.thread ], [ %.1260, %.thread272 ]
-  %.0257 = phi i32 [ %.1258, %267 ], [ 0, %136 ], [ %.1258, %.thread ], [ %.1258, %.thread272 ]
-  %.0129 = phi i32 [ %266, %267 ], [ %.034113.i.ph, %136 ], [ %.1.ph, %.thread ], [ %.3.ph, %.thread272 ]
+  %.0259 = phi ptr [ %.1260, %.thread272 ], [ %.1260, %.thread ], [ null, %136 ], [ %.1260, %267 ]
+  %.0257 = phi i32 [ %.1258, %.thread272 ], [ %.1258, %.thread ], [ 0, %136 ], [ %.1258, %267 ]
+  %.0129 = phi i32 [ %.3.ph, %.thread272 ], [ %.1.ph, %.thread ], [ %.034113.i.ph, %136 ], [ %266, %267 ]
   %464 = icmp ugt i32 %.0129, 1
   br i1 %464, label %.thread419, label %474
 
-.thread419:                                       ; preds = %.thread289, %204, %463
-  %.0129425 = phi i32 [ %.0129, %463 ], [ %.4.ph, %.thread289 ], [ 2, %204 ]
-  %.0257424 = phi i32 [ %.0257, %463 ], [ %.1258, %.thread289 ], [ %.1258, %204 ]
-  %.0259423 = phi ptr [ %.0259, %463 ], [ %.1260, %.thread289 ], [ %.1260, %204 ]
+.thread419:                                       ; preds = %204, %.thread289, %463
+  %.0129425 = phi i32 [ %.0129, %463 ], [ 2, %204 ], [ %.4.ph, %.thread289 ]
+  %.0257424 = phi i32 [ %.0257, %463 ], [ %.1258, %204 ], [ %.1258, %.thread289 ]
+  %.0259423 = phi ptr [ %.0259, %463 ], [ %.1260, %204 ], [ %.1260, %.thread289 ]
   %465 = call ptr @optget(ptr noundef nonnull %52, ptr noundef nonnull @.str.101) #18
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %467 = load i32, ptr %466, align 8, !tbaa !17
@@ -3152,8 +3152,8 @@ define internal fastcc range(i32 0, 17) i32 @get_string_list(ptr noundef readonl
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19, %12, %.preheader
-  %.str.107.sink = phi ptr [ @.str.107, %.preheader ], [ @.str.108, %12 ], [ @.str.109, %19 ]
-  %.0.i.ph = phi i32 [ 16, %.preheader ], [ 15, %12 ], [ 15, %19 ]
+  %.str.107.sink = phi ptr [ @.str.108, %12 ], [ @.str.107, %.preheader ], [ @.str.109, %19 ]
+  %.0.i.ph = phi i32 [ 15, %12 ], [ 16, %.preheader ], [ 15, %19 ]
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.107.sink) #18
   br label %.thread.sink.split
 
@@ -3716,8 +3716,8 @@ define internal fastcc i32 @initialize(ptr noundef nonnull %0) unnamed_addr #0 {
   call void @free(ptr noundef nonnull %200) #18
   br label %.thread
 
-.thread:                                          ; preds = %42, %45, %56, %20, %71, %78, %312
-  %.069125 = phi i32 [ %.069.ph, %312 ], [ 2, %78 ], [ 9, %71 ], [ 10, %20 ], [ 10, %56 ], [ 10, %45 ], [ 10, %42 ]
+.thread:                                          ; preds = %45, %56, %42, %20, %71, %78, %312
+  %.069125 = phi i32 [ %.069.ph, %312 ], [ 9, %71 ], [ 2, %78 ], [ 10, %20 ], [ 10, %42 ], [ 10, %56 ], [ 10, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.069125

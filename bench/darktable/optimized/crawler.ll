@@ -317,7 +317,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   br label %168
 
 121:                                              ; preds = %.thread127, %90
-  %.2 = phi ptr [ %.099139, %90 ], [ %.4.ph, %.thread127 ]
+  %.2 = phi ptr [ %.4.ph, %.thread127 ], [ %.099139, %90 ]
   %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #16
   %123 = getelementptr inbounds nuw i8, ptr %63, i64 %122
   %.not142 = icmp eq i64 %122, 0
@@ -418,7 +418,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   br label %168
 
 168:                                              ; preds = %120, %.thread, %.critedge, %167, %86, %89
-  %.1100 = phi ptr [ %.099139, %120 ], [ %.099139, %89 ], [ %.099139, %86 ], [ %.2, %167 ], [ %.2, %.critedge ], [ %.099139, %.thread ]
+  %.1100 = phi ptr [ %.099139, %86 ], [ %.099139, %120 ], [ %.099139, %89 ], [ %.2, %167 ], [ %.2, %.critedge ], [ %.099139, %.thread ]
   %169 = load ptr, ptr %3, align 8, !tbaa !51
   %170 = call i32 @sqlite3_step(ptr noundef %169) #14
   %171 = icmp eq i32 %170, 100
@@ -1663,8 +1663,8 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br label %235
 
 235:                                              ; preds = %234, %230, %_update_img_thumbs.exit.i
-  %.117.i = phi i32 [ %229, %_update_img_thumbs.exit.i ], [ %.01638.i, %234 ], [ %.01638.i, %230 ]
-  %.1.i = phi i32 [ %.039.i, %_update_img_thumbs.exit.i ], [ %231, %234 ], [ %231, %230 ]
+  %.117.i = phi i32 [ %229, %_update_img_thumbs.exit.i ], [ %.01638.i, %230 ], [ %.01638.i, %234 ]
+  %.1.i = phi i32 [ %.039.i, %_update_img_thumbs.exit.i ], [ %231, %230 ], [ %231, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %236 = load ptr, ptr %6, align 8, !tbaa !51
   %237 = call i32 @sqlite3_step(ptr noundef %236) #14
@@ -1675,8 +1675,8 @@ _update_img_thumbs.exit.i:                        ; preds = %218, %215
   br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %235, %_still_thumbing.exit.i, %_lighttable_silent.exit.i.i, %154, %151, %149, %.lr.ph.i
-  %.016.lcssa.i = phi i32 [ %.01638.i, %_still_thumbing.exit.i ], [ %.117.i, %235 ], [ %.01638.i, %_lighttable_silent.exit.i.i ], [ %.01638.i, %154 ], [ %.01638.i, %151 ], [ %.01638.i, %149 ], [ %.01638.i, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ %.039.i, %_still_thumbing.exit.i ], [ %.1.i, %235 ], [ %.039.i, %_lighttable_silent.exit.i.i ], [ %.039.i, %154 ], [ %.039.i, %151 ], [ %.039.i, %149 ], [ %.039.i, %.lr.ph.i ]
+  %.016.lcssa.i = phi i32 [ %.01638.i, %.lr.ph.i ], [ %.01638.i, %_still_thumbing.exit.i ], [ %.117.i, %235 ], [ %.01638.i, %_lighttable_silent.exit.i.i ], [ %.01638.i, %154 ], [ %.01638.i, %151 ], [ %.01638.i, %149 ]
+  %.0.lcssa.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.039.i, %_still_thumbing.exit.i ], [ %.1.i, %235 ], [ %.039.i, %_lighttable_silent.exit.i.i ], [ %.039.i, %154 ], [ %.039.i, %151 ], [ %.039.i, %149 ]
   %240 = load ptr, ptr %6, align 8, !tbaa !51
   %241 = call i32 @sqlite3_finalize(ptr noundef %240) #14
   %.not21.i = icmp eq i32 %.016.lcssa.i, 0

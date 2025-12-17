@@ -668,7 +668,7 @@ define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noun
   br label %97
 
 97:                                               ; preds = %93, %69, %39
-  %98 = phi i32 [ %40, %39 ], [ %72, %69 ], [ %96, %93 ]
+  %98 = phi i32 [ %40, %39 ], [ %96, %93 ], [ %72, %69 ]
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %.thread9, label %.thread8
 
@@ -2451,8 +2451,8 @@ define internal range(i32 -99, 1) i32 @rawv6_bind(ptr noundef %0, ptr noundef %1
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %select.unfold.sink.split
 
-79:                                               ; preds = %64, %58, %73, %69, %27
-  %.ph = phi i32 [ 0, %27 ], [ 100663423, %69 ], [ 100663423, %73 ], [ 100663423, %58 ], [ 100663423, %64 ]
+79:                                               ; preds = %69, %64, %58, %73, %27
+  %.ph = phi i32 [ 0, %27 ], [ 100663423, %73 ], [ 100663423, %58 ], [ 100663423, %64 ], [ 100663423, %69 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store i32 %.ph, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2477,7 +2477,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br label %86
 
 86:                                               ; preds = %84, %19, %16, %13
-  %87 = phi i32 [ %85, %84 ], [ -22, %13 ], [ -22, %16 ], [ -99, %19 ]
+  %87 = phi i32 [ %85, %84 ], [ -99, %19 ], [ -22, %13 ], [ -22, %16 ]
   ret i32 %87
 }
 
@@ -3092,7 +3092,7 @@ define internal fastcc i32 @rawv6_send_hdrinc(ptr noundef %0, ptr noundef %1, i3
   br label %206
 
 206:                                              ; preds = %201, %198, %185, %32, %30, %29
-  %207 = phi i32 [ -90, %29 ], [ -22, %30 ], [ 0, %32 ], [ 0, %185 ], [ %199, %198 ], [ %spec.select, %201 ]
+  %207 = phi i32 [ -90, %29 ], [ 0, %185 ], [ -22, %30 ], [ 0, %32 ], [ %199, %198 ], [ %spec.select, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %207
 }

@@ -1207,7 +1207,7 @@ _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl1
   br label %_ZNK7obj_mapI4exprN12polymorphism4inst9instancesEE8containsEPS0_.exit
 
 _ZNK7obj_mapI4exprN12polymorphism4inst9instancesEE8containsEPS0_.exit: ; preds = %69, %80, %91, %_ZN8ast_markD2Ev.exit
-  %.pr = phi ptr [ %.pr.pre148, %91 ], [ %.pr.pre, %_ZN8ast_markD2Ev.exit ], [ %49, %80 ], [ %49, %69 ]
+  %.pr = phi ptr [ %.pr.pre, %_ZN8ast_markD2Ev.exit ], [ %.pr.pre148, %91 ], [ %49, %80 ], [ %49, %69 ]
   %.not.i.i.i91 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i91, label %_ZN6vectorIP9func_declLb0EjED2Ev.exit.i, label %_ZNK7obj_mapI4exprN12polymorphism4inst9instancesEE8containsEPS0_.exit.thread
 
@@ -1280,7 +1280,7 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8con
   br label %422
 
 422:                                              ; preds = %159, %.body, %221, %289, %287, %420, %418, %416, %414, %412, %410
-  %.pn.pn.pn = phi { ptr, i32 } [ %421, %420 ], [ %419, %418 ], [ %411, %410 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ %222, %221 ], [ %201, %.body ], [ %160, %159 ], [ %290, %289 ], [ %288, %287 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %413, %412 ], [ %421, %420 ], [ %419, %418 ], [ %411, %410 ], [ %417, %416 ], [ %415, %414 ], [ %160, %159 ], [ %222, %221 ], [ %201, %.body ], [ %290, %289 ], [ %288, %287 ]
   call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %423
@@ -2293,7 +2293,7 @@ _ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread.loopexit: 
   br label %_ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread
 
 _ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread: ; preds = %149, %163, %160, %_ZN7obj_mapI9func_decl10ptr_vectorI4exprEEixEPS0_.exit, %_ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread.loopexit, %_ZN6vectorIP4exprLb0EjE3endEv.exit, %.preheader.i.i.i
-  %194 = phi i32 [ %.pre, %_ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread.loopexit ], [ %93, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %93, %.preheader.i.i.i ], [ %93, %_ZN7obj_mapI9func_decl10ptr_vectorI4exprEEixEPS0_.exit ], [ %93, %160 ], [ %93, %163 ], [ %93, %149 ]
+  %194 = phi i32 [ %.pre, %_ZNK7obj_mapI9func_decl10ptr_vectorI4exprEE8containsEPS0_.exit.thread.loopexit ], [ %93, %_ZN6vectorIP4exprLb0EjE3endEv.exit ], [ %93, %.preheader.i.i.i ], [ %93, %_ZN7obj_mapI9func_decl10ptr_vectorI4exprEEixEPS0_.exit ], [ %93, %163 ], [ %93, %160 ], [ %93, %149 ]
   %195 = add i32 %194, 1
   store i32 %195, ptr %65, align 8, !tbaa !207
   %196 = icmp ult i32 %195, %.0.i.i
@@ -3005,7 +3005,7 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %.not27.i = icmp eq ptr %311, %185
   br i1 %.not27.i, label %.thread, label %.lr.ph35.i, !llvm.loop !213
 
-.thread:                                          ; preds = %.lr.ph.i, %.lr.ph35.i, %.noexc138.thread, %._crit_edge.i
+.thread:                                          ; preds = %.lr.ph.i, %.noexc138.thread, %.lr.ph35.i, %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %15, ptr %18, align 8, !tbaa !188
   %312 = invoke noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4hashENS2_2eqEE9find_coreERKS3_(ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -3637,7 +3637,7 @@ _ZN14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4ha
   br i1 %.not252, label %._crit_edge, label %.lr.ph
 
 .body:                                            ; preds = %532, %534, %536, %.body.i.body, %530, %358
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %359, %358 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %531, %530 ], [ %eh.lpad-body144, %.body.i.body ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %359, %358 ], [ %eh.lpad-body144, %.body.i.body ], [ %531, %530 ], [ %537, %536 ], [ %533, %532 ], [ %535, %534 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   br label %555
 
@@ -4192,7 +4192,7 @@ _ZN12polymorphism12substitutionD2Ev.exit132:      ; preds = %_ZN15ref_vector_cor
   br i1 %.not, label %._crit_edge304, label %93
 
 .body157:                                         ; preds = %701, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i153, %618, %703, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i167, %681, %705, %149, %314, %555
-  %.pn49.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn, %555 ], [ %315, %314 ], [ %150, %149 ], [ %702, %701 ], [ %704, %703 ], [ %613, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i153 ], [ %619, %618 ], [ %706, %705 ], [ %676, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i167 ], [ %682, %681 ]
+  %.pn49.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %682, %681 ], [ %676, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i167 ], [ %.pn49.pn.pn.pn.pn, %555 ], [ %315, %314 ], [ %706, %705 ], [ %613, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i153 ], [ %704, %703 ], [ %619, %618 ], [ %702, %701 ]
   call void @_ZN14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4hashENS2_2eqEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %17) #19
   br label %771
 
@@ -4334,7 +4334,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !241
@@ -4381,7 +4381,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !242
@@ -5586,7 +5586,7 @@ _ZN7obj_mapI9func_decl10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dat
   br label %_ZN7obj_mapI9func_decl10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dataE.exit
 
 65:                                               ; preds = %45, %28
-  %.1 = phi ptr [ %.04473, %28 ], [ %.04572, %45 ]
+  %.1 = phi ptr [ %.04572, %45 ], [ %.04473, %28 ]
   %66 = getelementptr inbounds nuw i8, ptr %.04572, i64 16
   %.not = icmp eq ptr %66, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !265
@@ -5690,7 +5690,7 @@ _ZN7obj_mapI9func_decl10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dat
   br label %_ZN7obj_mapI9func_decl10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dataE.exit
 
 106:                                              ; preds = %86, %69
-  %.3 = phi ptr [ %.276, %69 ], [ %.14675, %86 ]
+  %.3 = phi ptr [ %.14675, %86 ], [ %.276, %69 ]
   %107 = getelementptr inbounds nuw i8, ptr %.14675, i64 16
   %.not47 = icmp eq ptr %107, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph77, !llvm.loop !266
@@ -6700,8 +6700,8 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %.not22 = icmp eq ptr %.sroa.017.2, %19
   br i1 %.not22, label %.critedge, label %27
 
-.critedge:                                        ; preds = %.preheader.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %.loopexit, %41, %55, %52, %_ZNK12polymorphism12substitution5beginEv.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %_ZNK12polymorphism12substitution5beginEv.exit ], [ false, %52 ], [ false, %55 ], [ false, %41 ], [ false, %.preheader.i.i.i.i ], [ true, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ false, %.loopexit ]
+.critedge:                                        ; preds = %.preheader.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %.loopexit, %41, %52, %55, %_ZNK12polymorphism12substitution5beginEv.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %_ZNK12polymorphism12substitution5beginEv.exit ], [ false, %52 ], [ false, %41 ], [ false, %55 ], [ false, %.preheader.i.i.i.i ], [ true, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -6901,7 +6901,7 @@ _ZN7obj_mapI4exprN12polymorphism4inst9instancesEE13obj_map_entry8set_dataEONS4_8
   br label %160
 
 91:                                               ; preds = %58, %28
-  %.1 = phi ptr [ %.04476, %28 ], [ %.04575, %58 ]
+  %.1 = phi ptr [ %.04575, %58 ], [ %.04476, %28 ]
   %92 = getelementptr inbounds nuw i8, ptr %.04575, i64 32
   %.not = icmp eq ptr %92, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !289
@@ -7062,7 +7062,7 @@ _ZN7obj_mapI4exprN12polymorphism4inst9instancesEE13obj_map_entry8set_dataEONS4_8
   br label %160
 
 158:                                              ; preds = %125, %95
-  %.3 = phi ptr [ %.279, %95 ], [ %.14678, %125 ]
+  %.3 = phi ptr [ %.14678, %125 ], [ %.279, %95 ]
   %159 = getelementptr inbounds nuw i8, ptr %.14678, i64 32
   %.not47 = icmp eq ptr %159, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph80, !llvm.loop !290
@@ -8037,7 +8037,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN12polymorphism12substitutionEENS2_4h
   br i1 %.not27, label %.loopexit, label %.lr.ph35, !llvm.loop !213
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %60, %65, %.lr.ph35, %._crit_edge
-  %.026 = phi ptr [ null, %._crit_edge ], [ %.133, %60 ], [ null, %65 ], [ null, %.lr.ph35 ], [ null, %.lr.ph ], [ %.031, %47 ]
+  %.026 = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph35 ], [ %.133, %60 ], [ null, %65 ], [ %.031, %47 ], [ null, %.lr.ph ]
   ret ptr %.026
 }
 

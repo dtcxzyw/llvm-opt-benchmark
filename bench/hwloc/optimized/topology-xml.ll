@@ -526,13 +526,13 @@ hwloc__xml_verbose.exit.i:                        ; preds = %61, %55
   br label %.thread
 
 70:                                               ; preds = %53, %49, %45, %41, %39, %35, %31, %27
-  %.176.i = phi ptr [ %.075134.i, %53 ], [ %.075134.i, %49 ], [ %.075134.i, %45 ], [ %.075134.i, %41 ], [ %.075134.i, %39 ], [ %.075134.i, %35 ], [ %32, %31 ], [ %.075134.i, %27 ]
-  %.173.i = phi ptr [ %.072135.i, %53 ], [ %.072135.i, %49 ], [ %.072135.i, %45 ], [ %.072135.i, %41 ], [ %.072135.i, %39 ], [ %36, %35 ], [ %.072135.i, %31 ], [ %.072135.i, %27 ]
-  %.170.i = phi ptr [ %.069136.i, %53 ], [ %.069136.i, %49 ], [ %.069136.i, %45 ], [ %.069136.i, %41 ], [ %40, %39 ], [ %.069136.i, %35 ], [ %.069136.i, %31 ], [ %.069136.i, %27 ]
-  %.167.i = phi ptr [ %.066137.i, %53 ], [ %.066137.i, %49 ], [ %46, %45 ], [ %.066137.i, %41 ], [ %.066137.i, %39 ], [ %.066137.i, %35 ], [ %.066137.i, %31 ], [ %.066137.i, %27 ]
-  %.164.i = phi ptr [ %.063138.i, %53 ], [ %50, %49 ], [ %.063138.i, %45 ], [ %.063138.i, %41 ], [ %.063138.i, %39 ], [ %.063138.i, %35 ], [ %.063138.i, %31 ], [ %.063138.i, %27 ]
-  %.161.i = phi ptr [ %54, %53 ], [ %.060139.i, %49 ], [ %.060139.i, %45 ], [ %.060139.i, %41 ], [ %.060139.i, %39 ], [ %.060139.i, %35 ], [ %.060139.i, %31 ], [ %.060139.i, %27 ]
-  %.156.i = phi ptr [ %.055140.i, %53 ], [ %.055140.i, %49 ], [ %.055140.i, %45 ], [ %.055140.i, %41 ], [ %.055140.i, %39 ], [ %.055140.i, %35 ], [ %.055140.i, %31 ], [ %28, %27 ]
+  %.176.i = phi ptr [ %.075134.i, %27 ], [ %.075134.i, %53 ], [ %.075134.i, %49 ], [ %.075134.i, %45 ], [ %.075134.i, %41 ], [ %.075134.i, %39 ], [ %.075134.i, %35 ], [ %32, %31 ]
+  %.173.i = phi ptr [ %.072135.i, %27 ], [ %.072135.i, %53 ], [ %.072135.i, %49 ], [ %.072135.i, %45 ], [ %.072135.i, %41 ], [ %.072135.i, %39 ], [ %36, %35 ], [ %.072135.i, %31 ]
+  %.170.i = phi ptr [ %.069136.i, %27 ], [ %.069136.i, %53 ], [ %.069136.i, %49 ], [ %.069136.i, %45 ], [ %.069136.i, %41 ], [ %40, %39 ], [ %.069136.i, %35 ], [ %.069136.i, %31 ]
+  %.167.i = phi ptr [ %.066137.i, %27 ], [ %.066137.i, %53 ], [ %.066137.i, %49 ], [ %46, %45 ], [ %.066137.i, %41 ], [ %.066137.i, %39 ], [ %.066137.i, %35 ], [ %.066137.i, %31 ]
+  %.164.i = phi ptr [ %.063138.i, %27 ], [ %.063138.i, %53 ], [ %50, %49 ], [ %.063138.i, %45 ], [ %.063138.i, %41 ], [ %.063138.i, %39 ], [ %.063138.i, %35 ], [ %.063138.i, %31 ]
+  %.161.i = phi ptr [ %.060139.i, %27 ], [ %54, %53 ], [ %.060139.i, %49 ], [ %.060139.i, %45 ], [ %.060139.i, %41 ], [ %.060139.i, %39 ], [ %.060139.i, %35 ], [ %.060139.i, %31 ]
+  %.156.i = phi ptr [ %28, %27 ], [ %.055140.i, %53 ], [ %.055140.i, %49 ], [ %.055140.i, %45 ], [ %.055140.i, %41 ], [ %.055140.i, %39 ], [ %.055140.i, %35 ], [ %.055140.i, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -776,7 +776,7 @@ hwloc__xml_import_diff_one.exit:                  ; preds = %._crit_edge.thread.
   br label %176
 
 176:                                              ; preds = %.thread, %175
-  %.2 = phi i32 [ 0, %175 ], [ %.1.ph, %.thread ]
+  %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %175 ]
   ret i32 %.2
 }
 
@@ -890,7 +890,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %14, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %28, %33, %38, %._crit_edge
-  %.0 = phi i32 [ %45, %._crit_edge ], [ %26, %.lr.ph.split.us.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
+  %.0 = phi i32 [ %45, %._crit_edge ], [ %26, %28 ], [ %26, %.lr.ph.split.us.split.us ], [ %36, %33 ], [ %36, %38 ]
   br i1 %.not27, label %48, label %46
 
 46:                                               ; preds = %.loopexit
@@ -1035,7 +1035,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %13, %21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %27, %32, %37, %._crit_edge
-  %.0 = phi i32 [ %44, %._crit_edge ], [ %25, %.lr.ph.split.us.split.us ], [ %25, %27 ], [ %35, %32 ], [ %35, %37 ]
+  %.0 = phi i32 [ %44, %._crit_edge ], [ %25, %27 ], [ %25, %.lr.ph.split.us.split.us ], [ %35, %32 ], [ %35, %37 ]
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %.loopexit
@@ -3354,7 +3354,7 @@ hwloc_obj_get_info_by_name.exit.thread.i:         ; preds = %347, %hwloc_obj_get
   br i1 %.not231.i, label %.critedge.sink.split.i, label %.critedge.i
 
 .critedge.sink.split.i:                           ; preds = %363, %361, %359, %357, %355, %hwloc_obj_get_info_by_name.exit.thread.i
-  %.str.70.sink.i = phi ptr [ @.str.70, %hwloc_obj_get_info_by_name.exit.thread.i ], [ @.str.71, %355 ], [ @.str.72, %357 ], [ @.str.73, %359 ], [ @.str.74, %361 ], [ @.str.76, %363 ]
+  %.str.70.sink.i = phi ptr [ @.str.70, %hwloc_obj_get_info_by_name.exit.thread.i ], [ @.str.71, %355 ], [ @.str.73, %359 ], [ @.str.74, %361 ], [ @.str.72, %357 ], [ @.str.76, %363 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %365 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %366 = load ptr, ptr %365, align 8, !tbaa !66
@@ -3676,7 +3676,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %18, %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %32, %37, %42, %._crit_edge
-  %.0 = phi i32 [ %49, %._crit_edge ], [ %30, %.lr.ph.split.us.split.us ], [ %30, %32 ], [ %40, %37 ], [ %40, %42 ]
+  %.0 = phi i32 [ %49, %._crit_edge ], [ %30, %32 ], [ %30, %.lr.ph.split.us.split.us ], [ %40, %37 ], [ %40, %42 ]
   br i1 %.not25, label %52, label %50
 
 50:                                               ; preds = %.loopexit
@@ -3809,7 +3809,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %19, %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %33, %38, %43, %._crit_edge
-  %.0 = phi i32 [ %50, %._crit_edge ], [ %31, %.lr.ph.split.us.split.us ], [ %31, %33 ], [ %41, %38 ], [ %41, %43 ]
+  %.0 = phi i32 [ %50, %._crit_edge ], [ %31, %33 ], [ %31, %.lr.ph.split.us.split.us ], [ %41, %38 ], [ %41, %43 ]
   br i1 %.not27, label %53, label %51
 
 51:                                               ; preds = %.loopexit
@@ -3937,7 +3937,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph31.split.us.split.us, %28, %33, %38, %._crit_edge32
-  %.0 = phi i32 [ %45, %._crit_edge32 ], [ %26, %.lr.ph31.split.us.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
+  %.0 = phi i32 [ %45, %._crit_edge32 ], [ %26, %28 ], [ %26, %.lr.ph31.split.us.split.us ], [ %36, %33 ], [ %36, %38 ]
   br i1 %.not26, label %48, label %46
 
 46:                                               ; preds = %.loopexit
@@ -4068,7 +4068,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph33.split.us.split.us, %29, %34, %39, %._crit_edge34
-  %.0 = phi i32 [ %46, %._crit_edge34 ], [ %27, %.lr.ph33.split.us.split.us ], [ %27, %29 ], [ %37, %34 ], [ %37, %39 ]
+  %.0 = phi i32 [ %46, %._crit_edge34 ], [ %27, %29 ], [ %27, %.lr.ph33.split.us.split.us ], [ %37, %34 ], [ %37, %39 ]
   br i1 %.not28, label %49, label %47
 
 47:                                               ; preds = %.loopexit
@@ -5017,7 +5017,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %35
   br label %.critedge51
 
 .critedge51:                                      ; preds = %.lr.ph.split.us.split.us, %45, %13, %.critedge, %15, %._crit_edge
-  %.039 = phi ptr [ %16, %._crit_edge ], [ null, %15 ], [ null, %.critedge ], [ null, %13 ], [ %16, %45 ], [ %16, %.lr.ph.split.us.split.us ]
+  %.039 = phi ptr [ %16, %._crit_edge ], [ null, %13 ], [ null, %15 ], [ null, %.critedge ], [ %16, %45 ], [ %16, %.lr.ph.split.us.split.us ]
   ret ptr %.039
 }
 
@@ -5310,8 +5310,8 @@ hwloc__xml_verbose.exit.i:                        ; preds = %153, %147
   br label %162
 
 162:                                              ; preds = %155, %hwloc__xml_verbose.exit.i, %143, %139
-  %.1108.i = phi ptr [ %.0107153.i, %155 ], [ %.0107153.i, %hwloc__xml_verbose.exit.i ], [ %.0107153.i, %143 ], [ %140, %139 ]
-  %.1.i = phi i8 [ %.0106154.i, %155 ], [ %.0106154.i, %hwloc__xml_verbose.exit.i ], [ %146, %143 ], [ %.0106154.i, %139 ]
+  %.1108.i = phi ptr [ %140, %139 ], [ %.0107153.i, %155 ], [ %.0107153.i, %hwloc__xml_verbose.exit.i ], [ %.0107153.i, %143 ]
+  %.1.i = phi i8 [ %.0106154.i, %139 ], [ %.0106154.i, %155 ], [ %.0106154.i, %hwloc__xml_verbose.exit.i ], [ %146, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -5786,8 +5786,8 @@ hwloc__xml_verbose.exit.i186:                     ; preds = %360, %354
   br label %hwloc__xml_import_memattr.exit.thread
 
 369:                                              ; preds = %351, %347
-  %.137.i = phi ptr [ %.03685.i, %351 ], [ %348, %347 ]
-  %.134.i = phi i64 [ %353, %351 ], [ %.03386.i, %347 ]
+  %.137.i = phi ptr [ %348, %347 ], [ %.03685.i, %351 ]
+  %.134.i = phi i64 [ %.03386.i, %347 ], [ %353, %351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -5840,7 +5840,7 @@ hwloc__xml_verbose.exit.i186:                     ; preds = %360, %354
   br label %392
 
 392:                                              ; preds = %386, %383
-  %.132.i = phi i32 [ %.2.i, %386 ], [ %spec.select.i, %383 ]
+  %.132.i = phi i32 [ %spec.select.i, %383 ], [ %.2.i, %386 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %393
 
@@ -5984,12 +5984,12 @@ hwloc__xml_verbose.exit.i.i:                      ; preds = %439, %433
   br label %hwloc__xml_import_memattr_value.exit.i
 
 448:                                              ; preds = %431, %427, %423, %419, %415, %411
-  %.156.i.i = phi ptr [ %.055114.i.i, %431 ], [ %.055114.i.i, %427 ], [ %.055114.i.i, %423 ], [ %.055114.i.i, %419 ], [ %416, %415 ], [ %.055114.i.i, %411 ]
-  %.153.i.i = phi ptr [ %.052115.i.i, %431 ], [ %.052115.i.i, %427 ], [ %.052115.i.i, %423 ], [ %.052115.i.i, %419 ], [ %.052115.i.i, %415 ], [ %412, %411 ]
-  %.150.i.i = phi ptr [ %.049116.i.i, %431 ], [ %.049116.i.i, %427 ], [ %.049116.i.i, %423 ], [ %420, %419 ], [ %.049116.i.i, %415 ], [ %.049116.i.i, %411 ]
-  %.144.i.i = phi ptr [ %.043117.i.i, %431 ], [ %.043117.i.i, %427 ], [ %424, %423 ], [ %.043117.i.i, %419 ], [ %.043117.i.i, %415 ], [ %.043117.i.i, %411 ]
-  %.141.i.i = phi ptr [ %.040118.i.i, %431 ], [ %428, %427 ], [ %.040118.i.i, %423 ], [ %.040118.i.i, %419 ], [ %.040118.i.i, %415 ], [ %.040118.i.i, %411 ]
-  %.139.i.i = phi ptr [ %432, %431 ], [ %.038119.i.i, %427 ], [ %.038119.i.i, %423 ], [ %.038119.i.i, %419 ], [ %.038119.i.i, %415 ], [ %.038119.i.i, %411 ]
+  %.156.i.i = phi ptr [ %.055114.i.i, %411 ], [ %.055114.i.i, %431 ], [ %.055114.i.i, %427 ], [ %.055114.i.i, %423 ], [ %.055114.i.i, %419 ], [ %416, %415 ]
+  %.153.i.i = phi ptr [ %412, %411 ], [ %.052115.i.i, %431 ], [ %.052115.i.i, %427 ], [ %.052115.i.i, %423 ], [ %.052115.i.i, %419 ], [ %.052115.i.i, %415 ]
+  %.150.i.i = phi ptr [ %.049116.i.i, %411 ], [ %.049116.i.i, %431 ], [ %.049116.i.i, %427 ], [ %.049116.i.i, %423 ], [ %420, %419 ], [ %.049116.i.i, %415 ]
+  %.144.i.i = phi ptr [ %.043117.i.i, %411 ], [ %.043117.i.i, %431 ], [ %.043117.i.i, %427 ], [ %424, %423 ], [ %.043117.i.i, %419 ], [ %.043117.i.i, %415 ]
+  %.141.i.i = phi ptr [ %.040118.i.i, %411 ], [ %.040118.i.i, %431 ], [ %428, %427 ], [ %.040118.i.i, %423 ], [ %.040118.i.i, %419 ], [ %.040118.i.i, %415 ]
+  %.139.i.i = phi ptr [ %.038119.i.i, %411 ], [ %432, %431 ], [ %.038119.i.i, %427 ], [ %.038119.i.i, %423 ], [ %.038119.i.i, %419 ], [ %.038119.i.i, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6252,7 +6252,7 @@ hwloc__xml_verbose.exit62.i:                      ; preds = %530, %524
   br label %hwloc__xml_import_memattr_value.exit.i
 
 hwloc__xml_import_memattr_value.exit.i:           ; preds = %.critedge76.i.i, %560, %559, %496, %hwloc__xml_verbose.exit85.i.i, %479, %hwloc__xml_verbose.exit82.i.i, %462, %hwloc__xml_verbose.exit79.i.i, %.thread.i.i
-  %.248.i.i = phi i32 [ -1, %462 ], [ -1, %hwloc__xml_verbose.exit79.i.i ], [ -1, %479 ], [ -1, %hwloc__xml_verbose.exit82.i.i ], [ -1, %496 ], [ -1, %hwloc__xml_verbose.exit85.i.i ], [ -1, %.critedge76.i.i ], [ 0, %559 ], [ 0, %560 ], [ -1, %.thread.i.i ]
+  %.248.i.i = phi i32 [ -1, %.thread.i.i ], [ -1, %hwloc__xml_verbose.exit79.i.i ], [ -1, %hwloc__xml_verbose.exit85.i.i ], [ -1, %.critedge76.i.i ], [ -1, %hwloc__xml_verbose.exit82.i.i ], [ -1, %462 ], [ -1, %479 ], [ -1, %496 ], [ 0, %559 ], [ 0, %560 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %hwloc___xml_import_info.exit.i
 
@@ -8081,7 +8081,7 @@ hwloc__xml_import_object_attr.exit.thread:        ; preds = %hwloc__xml_import_o
   br label %.thread394
 
 hwloc__xml_import_object_attr.exit:               ; preds = %623, %621, %615, %613, %612, %604, %602, %601, %579, %577, %576, %545, %543, %542, %516, %514, %509, %499, %497, %496, %445, %443, %442, %407, %405, %401, %389, %387, %383, %371, %369, %365, %353, %351, %347, %346, %346, %333, %331, %330, %326, %314, %312, %306, %304, %300, %285, %283, %280, %265, %263, %259, %245, %243, %241, %231, %224, %216, %214, %209, %200, %191, %189, %184, %175, %164, %hwloc__xml_verbose.exit295.i, %155, %152, %127, %124, %103, %68, %78, %73, %61
-  %.1367 = phi i32 [ %.0366510, %68 ], [ %.0366510, %73 ], [ %.0366510, %78 ], [ %.0366510, %61 ], [ %.0366510, %103 ], [ %.0366510, %124 ], [ %.0366510, %127 ], [ %.0366510, %152 ], [ %.0366510, %155 ], [ %.0366510, %hwloc__xml_verbose.exit295.i ], [ %.0366510, %164 ], [ %.0366510, %175 ], [ %.0366510, %184 ], [ %.0366510, %191 ], [ %.0366510, %189 ], [ %.0366510, %200 ], [ %.0366510, %209 ], [ %.0366510, %216 ], [ %.0366510, %214 ], [ %.0366510, %224 ], [ %.0366510, %231 ], [ %.0366510, %243 ], [ %.0366510, %245 ], [ %.0366510, %241 ], [ %.0366510, %263 ], [ %.0366510, %265 ], [ %.0366510, %259 ], [ %.0366510, %283 ], [ %.0366510, %285 ], [ %.0366510, %280 ], [ %.0366510, %312 ], [ %.0366510, %314 ], [ %.0366510, %300 ], [ %.0366510, %304 ], [ %.0366510, %306 ], [ %.0366510, %326 ], [ %.0366510, %330 ], [ %.0366510, %331 ], [ %.0366510, %333 ], [ %.0366510, %351 ], [ %.0366510, %353 ], [ %.0366510, %347 ], [ %.0366510, %346 ], [ %.0366510, %346 ], [ %.0366510, %365 ], [ %.0366510, %369 ], [ %.0366510, %371 ], [ %.0366510, %383 ], [ %.0366510, %387 ], [ %.0366510, %389 ], [ %.0366510, %401 ], [ %.0366510, %405 ], [ %.0366510, %407 ], [ %.4, %442 ], [ %.0366510, %443 ], [ %.0366510, %445 ], [ %.0366510, %496 ], [ %.0366510, %497 ], [ %.0366510, %499 ], [ %.0366510, %509 ], [ %.0366510, %514 ], [ %.0366510, %516 ], [ %.0366510, %542 ], [ %.0366510, %543 ], [ %.0366510, %545 ], [ %.3, %576 ], [ %.0366510, %577 ], [ %.0366510, %579 ], [ %.0366510, %601 ], [ %.0366510, %602 ], [ %.0366510, %604 ], [ %.0366510, %612 ], [ %.0366510, %613 ], [ %.0366510, %615 ], [ %.0366510, %621 ], [ %.0366510, %623 ]
+  %.1367 = phi i32 [ %.0366510, %621 ], [ %.0366510, %68 ], [ %.0366510, %73 ], [ %.0366510, %78 ], [ %.0366510, %61 ], [ %.0366510, %623 ], [ %.0366510, %103 ], [ %.0366510, %124 ], [ %.0366510, %127 ], [ %.0366510, %152 ], [ %.0366510, %155 ], [ %.0366510, %hwloc__xml_verbose.exit295.i ], [ %.0366510, %164 ], [ %.0366510, %175 ], [ %.0366510, %184 ], [ %.0366510, %191 ], [ %.0366510, %189 ], [ %.0366510, %200 ], [ %.0366510, %209 ], [ %.0366510, %216 ], [ %.0366510, %214 ], [ %.0366510, %224 ], [ %.0366510, %231 ], [ %.0366510, %243 ], [ %.0366510, %245 ], [ %.0366510, %241 ], [ %.0366510, %263 ], [ %.0366510, %265 ], [ %.0366510, %259 ], [ %.0366510, %283 ], [ %.0366510, %285 ], [ %.0366510, %280 ], [ %.0366510, %312 ], [ %.0366510, %314 ], [ %.0366510, %300 ], [ %.0366510, %304 ], [ %.0366510, %306 ], [ %.0366510, %326 ], [ %.0366510, %330 ], [ %.0366510, %331 ], [ %.0366510, %333 ], [ %.0366510, %351 ], [ %.0366510, %353 ], [ %.0366510, %347 ], [ %.0366510, %346 ], [ %.0366510, %346 ], [ %.0366510, %365 ], [ %.0366510, %369 ], [ %.0366510, %371 ], [ %.0366510, %383 ], [ %.0366510, %387 ], [ %.0366510, %389 ], [ %.0366510, %401 ], [ %.0366510, %405 ], [ %.0366510, %407 ], [ %.4, %442 ], [ %.0366510, %443 ], [ %.0366510, %445 ], [ %.0366510, %496 ], [ %.0366510, %497 ], [ %.0366510, %499 ], [ %.0366510, %509 ], [ %.0366510, %514 ], [ %.0366510, %516 ], [ %.0366510, %542 ], [ %.0366510, %543 ], [ %.0366510, %545 ], [ %.3, %576 ], [ %.0366510, %577 ], [ %.0366510, %579 ], [ %.0366510, %601 ], [ %.0366510, %602 ], [ %.0366510, %604 ], [ %.0366510, %612 ], [ %.0366510, %613 ], [ %.0366510, %615 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -8438,9 +8438,9 @@ hwloc___xml_import_info.exit.i:                   ; preds = %select.unfold.i.i, 
   br label %.thread
 
 select.unfold.i:                                  ; preds = %784, %780, %775
-  %.186.i = phi ptr [ %.085131.i, %780 ], [ %.085131.i, %775 ], [ %786, %784 ]
-  %.183.i = phi i32 [ %783, %780 ], [ %.082132.i, %775 ], [ %.082132.i, %784 ]
-  %.180.i = phi i64 [ %.079133.i, %780 ], [ %777, %775 ], [ %.079133.i, %784 ]
+  %.186.i = phi ptr [ %.085131.i, %775 ], [ %.085131.i, %780 ], [ %786, %784 ]
+  %.183.i = phi i32 [ %.082132.i, %775 ], [ %783, %780 ], [ %.082132.i, %784 ]
+  %.180.i = phi i64 [ %777, %775 ], [ %.079133.i, %780 ], [ %.079133.i, %784 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8531,7 +8531,7 @@ select.unfold.i:                                  ; preds = %784, %780, %775
   %818 = load ptr, ptr %817, align 8, !tbaa !240
   %819 = call i32 %818(ptr noundef nonnull %36, ptr noundef nonnull %10, i64 noundef %815) #23
   %820 = icmp slt i32 %819, 0
-  br i1 %820, label %833, label %821
+  br i1 %820, label %.critedge.i, label %821
 
 821:                                              ; preds = %814
   %.not107.i = icmp eq ptr %.085.lcssa144162169.i, null
@@ -8546,22 +8546,18 @@ select.unfold.i:                                  ; preds = %784, %780, %775
   %826 = phi i64 [ %824, %822 ], [ 12, %821 ]
   %827 = call noalias ptr @malloc(i64 noundef %826) #26
   %.not108.i = icmp eq ptr %827, null
-  br i1 %.not108.i, label %833, label %.critedge.i
+  br i1 %.not108.i, label %.critedge.i, label %828
 
-.critedge.i:                                      ; preds = %825
-  %828 = select i1 %.not107.i, i32 45, i32 58
-  %829 = select i1 %.not107.i, ptr @.str.226, ptr %.085.lcssa144162169.i
-  %830 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %827, ptr noundef nonnull dereferenceable(1) %.not106171.i, i32 noundef %828, ptr noundef nonnull %829) #23
-  %831 = load ptr, ptr %646, align 8, !tbaa !192
-  %832 = load ptr, ptr %10, align 8, !tbaa !22
-  call void %831(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %827, ptr noundef %832, i64 noundef %.079.lcssa147158170.i) #23
+828:                                              ; preds = %825
+  %829 = select i1 %.not107.i, i32 45, i32 58
+  %830 = select i1 %.not107.i, ptr @.str.226, ptr %.085.lcssa144162169.i
+  %831 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %827, ptr noundef nonnull dereferenceable(1) %.not106171.i, i32 noundef %829, ptr noundef nonnull %830) #23
+  %832 = load ptr, ptr %646, align 8, !tbaa !192
+  %833 = load ptr, ptr %10, align 8, !tbaa !22
+  call void %832(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %827, ptr noundef %833, i64 noundef %.079.lcssa147158170.i) #23
   call void @free(ptr noundef nonnull %827) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %867
-
-833:                                              ; preds = %825, %814
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread
 
 834:                                              ; preds = %806
   %835 = icmp ne i32 %.183.i, 0
@@ -8579,17 +8575,17 @@ select.unfold.i:                                  ; preds = %784, %780, %775
   %843 = load ptr, ptr %842, align 8, !tbaa !240
   %844 = call i32 %843(ptr noundef nonnull %36, ptr noundef nonnull %11, i64 noundef %840) #23
   %845 = icmp slt i32 %844, 0
-  br i1 %845, label %.critedge111.i, label %846
+  br i1 %845, label %.critedge110.i, label %846
 
 846:                                              ; preds = %837
   %.not103.i = icmp eq i32 %844, 0
-  br i1 %.not103.i, label %.critedge110.i, label %847
+  br i1 %.not103.i, label %.critedge111.i, label %847
 
 847:                                              ; preds = %846
   %848 = add i64 %.180.i, 1
   %849 = call noalias ptr @malloc(i64 noundef %848) #26
   %.not104.i = icmp eq ptr %849, null
-  br i1 %.not104.i, label %.critedge111.i, label %850
+  br i1 %.not104.i, label %.critedge110.i, label %850
 
 850:                                              ; preds = %847
   %851 = load ptr, ptr %11, align 8, !tbaa !22
@@ -8600,17 +8596,17 @@ select.unfold.i:                                  ; preds = %784, %780, %775
 
 854:                                              ; preds = %850
   call void @free(ptr noundef nonnull %849) #23
-  br label %.critedge111.i
+  br label %.critedge110.i
 
 855:                                              ; preds = %850
   %856 = load ptr, ptr %646, align 8, !tbaa !192
   call void %856(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.186.i, ptr noundef nonnull %849, i64 noundef %.180.i) #23
   call void @free(ptr noundef nonnull %849) #23
-  br label %.critedge110.i
+  br label %.critedge111.i
 
-.critedge110.i:                                   ; preds = %855, %846
+.critedge110.i:                                   ; preds = %847, %837, %854
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %867
+  br label %.thread
 
 857:                                              ; preds = %834
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -8643,7 +8639,11 @@ select.unfold.i:                                  ; preds = %784, %780, %775
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-867:                                              ; preds = %.critedge113.i, %.critedge110.i, %.critedge.i, %799
+.critedge111.i:                                   ; preds = %855, %846
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %867
+
+867:                                              ; preds = %.critedge111.i, %.critedge113.i, %828, %799
   %868 = load ptr, ptr %645, align 8, !tbaa !15
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 64
   %870 = load ptr, ptr %869, align 8, !tbaa !241
@@ -8654,8 +8654,8 @@ select.unfold.i:                                  ; preds = %784, %780, %775
   %874 = call i32 %873(ptr noundef nonnull %36) #23
   br label %hwloc__xml_import_obj_info.exit
 
-.critedge111.i:                                   ; preds = %847, %837, %854
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+.critedge.i:                                      ; preds = %825, %814
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 875:                                              ; preds = %765
@@ -8692,11 +8692,11 @@ hwloc__xml_verbose.exit344:                       ; preds = %875, %881
   br label %.thread
 
 hwloc__xml_import_obj_info.exit:                  ; preds = %867, %665, %661
-  %.0225 = phi i32 [ %663, %661 ], [ %666, %665 ], [ %874, %867 ]
+  %.0225 = phi i32 [ %874, %867 ], [ %663, %661 ], [ %666, %665 ]
   %890 = icmp slt i32 %.0225, 0
   br i1 %890, label %.thread, label %hwloc__xml_import_obj_info.exit.thread373
 
-hwloc__xml_import_obj_info.exit.thread373:        ; preds = %707, %763, %739, %760, %749, %hwloc__xml_import_obj_info.exit
+hwloc__xml_import_obj_info.exit.thread373:        ; preds = %739, %707, %763, %760, %749, %hwloc__xml_import_obj_info.exit
   %891 = load ptr, ptr %40, align 8, !tbaa !15
   %892 = getelementptr inbounds nuw i8, ptr %891, i64 48
   %893 = load ptr, ptr %892, align 8, !tbaa !29
@@ -8709,7 +8709,7 @@ hwloc__xml_import_obj_info.exit.thread373:        ; preds = %707, %763, %739, %7
   %898 = icmp slt i32 %897, 0
   br i1 %898, label %.thread, label %651
 
-899:                                              ; preds = %651, %653
+899:                                              ; preds = %653, %651
   %900 = icmp ne ptr %2, null
   %.pre438 = load i32, ptr %3, align 8, !tbaa !147
   br i1 %900, label %901, label %.critedge
@@ -9463,8 +9463,8 @@ sub_1416:                                         ; preds = %sub_0415
   br label %.thread386
 
 .thread386:                                       ; preds = %1244, %1249, %1247
-  %or.cond5390 = phi i1 [ true, %1249 ], [ false, %1247 ], [ false, %1244 ]
-  %.2368389 = phi i32 [ 0, %1249 ], [ %.0366.lcssa, %1247 ], [ 1, %1244 ]
+  %or.cond5390 = phi i1 [ false, %1247 ], [ true, %1249 ], [ false, %1244 ]
+  %.2368389 = phi i32 [ %.0366.lcssa, %1247 ], [ 0, %1249 ], [ 1, %1244 ]
   %.not311 = icmp eq i32 %.2368389, 0
   %1250 = select i1 %.not311, ptr %3, ptr %2
   br label %1251
@@ -9611,8 +9611,8 @@ hwloc__xml_verbose.exit361:                       ; preds = %1260, %1266
   call void @hwloc_free_unlinked_object(ptr noundef %3) #23
   br label %.thread
 
-.thread:                                          ; preds = %hwloc__xml_import_obj_info.exit.thread373, %hwloc__xml_import_obj_info.exit, %hwloc___xml_import_info.exit.i, %799, %.preheader421, %1284, %.critedge327, %.thread.i, %.critedge111.i, %866, %833, %hwloc___xml_import_info.exit.thread.i, %hwloc__xml_verbose.exit344, %883, %hwloc__xml_verbose.exit337, %675, %.thread402, %.thread394, %.loopexit
-  %.0222 = phi i32 [ %1308, %.loopexit ], [ -1, %.thread394 ], [ -1, %.thread402 ], [ -1, %675 ], [ -1, %hwloc__xml_verbose.exit337 ], [ -1, %883 ], [ -1, %hwloc__xml_verbose.exit344 ], [ -1, %hwloc___xml_import_info.exit.thread.i ], [ -1, %833 ], [ -1, %866 ], [ -1, %.critedge111.i ], [ -1, %.thread.i ], [ -1, %.critedge327 ], [ -1, %1284 ], [ -1, %.preheader421 ], [ -1, %799 ], [ -1, %hwloc___xml_import_info.exit.i ], [ -1, %hwloc__xml_import_obj_info.exit ], [ -1, %hwloc__xml_import_obj_info.exit.thread373 ]
+.thread:                                          ; preds = %hwloc__xml_import_obj_info.exit.thread373, %hwloc__xml_import_obj_info.exit, %hwloc___xml_import_info.exit.i, %799, %.preheader421, %1284, %.critedge327, %866, %.critedge110.i, %.critedge.i, %.thread.i, %883, %675, %hwloc__xml_verbose.exit344, %hwloc___xml_import_info.exit.thread.i, %hwloc__xml_verbose.exit337, %.thread402, %.thread394, %.loopexit
+  %.0222 = phi i32 [ %1308, %.loopexit ], [ -1, %.thread394 ], [ -1, %.thread402 ], [ -1, %hwloc__xml_verbose.exit337 ], [ -1, %hwloc___xml_import_info.exit.thread.i ], [ -1, %hwloc__xml_verbose.exit344 ], [ -1, %675 ], [ -1, %883 ], [ -1, %.thread.i ], [ -1, %.critedge.i ], [ -1, %.critedge110.i ], [ -1, %866 ], [ -1, %.critedge327 ], [ -1, %1284 ], [ -1, %.preheader421 ], [ -1, %799 ], [ -1, %hwloc___xml_import_info.exit.i ], [ -1, %hwloc__xml_import_obj_info.exit ], [ -1, %hwloc__xml_import_obj_info.exit.thread373 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -9809,18 +9809,18 @@ hwloc__xml_verbose.exit269:                       ; preds = %77, %83
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.242, ptr noundef %89, ptr noundef nonnull %24, ptr noundef %90) #25
   br label %.tail356
 
-.thread:                                          ; preds = %46, %hwloc__xml_verbose.exit
+.thread:                                          ; preds = %hwloc__xml_verbose.exit, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit361
 
 .tail356:                                         ; preds = %.tail, %sub_0, %sub_1, %sub_2359, %sub_1358, %28, %75, %85, %hwloc__xml_verbose.exit269, %70, %34
-  %.1200 = phi i32 [ %.0199396, %85 ], [ %.0199396, %hwloc__xml_verbose.exit269 ], [ %.0199396, %75 ], [ %.0199396, %70 ], [ %.0199396, %34 ], [ %.0199396, %28 ], [ %.0199396, %sub_1358 ], [ %.0199396, %sub_2359 ], [ %.0199396, %sub_1 ], [ %spec.select, %.tail ], [ %.0199396, %sub_0 ]
-  %.1197 = phi i32 [ %.0196397, %85 ], [ %.0196397, %hwloc__xml_verbose.exit269 ], [ %.0196397, %75 ], [ %.0196397, %70 ], [ %.0196397, %34 ], [ %.0196397, %28 ], [ %.0196397, %sub_1358 ], [ %67, %sub_2359 ], [ %.0196397, %sub_1 ], [ %.0196397, %.tail ], [ %.0196397, %sub_0 ]
-  %.1194 = phi ptr [ %.0193398, %85 ], [ %.0193398, %hwloc__xml_verbose.exit269 ], [ %76, %75 ], [ %.0193398, %70 ], [ %.0193398, %34 ], [ %.0193398, %28 ], [ %.0193398, %sub_1358 ], [ %.0193398, %sub_2359 ], [ %.0193398, %sub_1 ], [ %.0193398, %.tail ], [ %.0193398, %sub_0 ]
-  %.1190 = phi i64 [ %.0189399, %85 ], [ %.0189399, %hwloc__xml_verbose.exit269 ], [ %.0189399, %75 ], [ %72, %70 ], [ %.0189399, %34 ], [ %.0189399, %28 ], [ %.0189399, %sub_1358 ], [ %.0189399, %sub_2359 ], [ %.0189399, %sub_1 ], [ %.0189399, %.tail ], [ %.0189399, %sub_0 ]
-  %.1169 = phi i32 [ %.0168400, %85 ], [ %.0168400, %hwloc__xml_verbose.exit269 ], [ %.0168400, %75 ], [ %.0168400, %70 ], [ %.0168400, %34 ], [ %.0168400, %28 ], [ 1, %sub_1358 ], [ 1, %sub_2359 ], [ 1, %sub_1 ], [ 1, %.tail ], [ 1, %sub_0 ]
-  %.1162 = phi i32 [ %.0161401, %85 ], [ %.0161401, %hwloc__xml_verbose.exit269 ], [ %.0161401, %75 ], [ %.0161401, %70 ], [ %.0161401, %34 ], [ %31, %28 ], [ %.0161401, %sub_1358 ], [ %.0161401, %sub_2359 ], [ %.0161401, %sub_1 ], [ %.0161401, %.tail ], [ %.0161401, %sub_0 ]
+  %.1200 = phi i32 [ %.0199396, %34 ], [ %.0199396, %85 ], [ %.0199396, %hwloc__xml_verbose.exit269 ], [ %.0199396, %75 ], [ %.0199396, %70 ], [ %.0199396, %28 ], [ %spec.select, %.tail ], [ %.0199396, %sub_2359 ], [ %.0199396, %sub_1 ], [ %.0199396, %sub_0 ], [ %.0199396, %sub_1358 ]
+  %.1197 = phi i32 [ %.0196397, %34 ], [ %.0196397, %85 ], [ %.0196397, %hwloc__xml_verbose.exit269 ], [ %.0196397, %75 ], [ %.0196397, %70 ], [ %.0196397, %28 ], [ %.0196397, %.tail ], [ %67, %sub_2359 ], [ %.0196397, %sub_1 ], [ %.0196397, %sub_0 ], [ %.0196397, %sub_1358 ]
+  %.1194 = phi ptr [ %.0193398, %34 ], [ %.0193398, %85 ], [ %.0193398, %hwloc__xml_verbose.exit269 ], [ %76, %75 ], [ %.0193398, %70 ], [ %.0193398, %28 ], [ %.0193398, %.tail ], [ %.0193398, %sub_2359 ], [ %.0193398, %sub_1 ], [ %.0193398, %sub_0 ], [ %.0193398, %sub_1358 ]
+  %.1190 = phi i64 [ %.0189399, %34 ], [ %.0189399, %85 ], [ %.0189399, %hwloc__xml_verbose.exit269 ], [ %.0189399, %75 ], [ %72, %70 ], [ %.0189399, %28 ], [ %.0189399, %.tail ], [ %.0189399, %sub_2359 ], [ %.0189399, %sub_1 ], [ %.0189399, %sub_0 ], [ %.0189399, %sub_1358 ]
+  %.1169 = phi i32 [ %.0168400, %34 ], [ %.0168400, %85 ], [ %.0168400, %hwloc__xml_verbose.exit269 ], [ %.0168400, %75 ], [ %.0168400, %70 ], [ %.0168400, %28 ], [ 1, %.tail ], [ 1, %sub_2359 ], [ 1, %sub_1 ], [ 1, %sub_0 ], [ 1, %sub_1358 ]
+  %.1162 = phi i32 [ %.0161401, %34 ], [ %.0161401, %85 ], [ %.0161401, %hwloc__xml_verbose.exit269 ], [ %.0161401, %75 ], [ %.0161401, %70 ], [ %31, %28 ], [ %.0161401, %.tail ], [ %.0161401, %sub_2359 ], [ %.0161401, %sub_1 ], [ %.0161401, %sub_0 ], [ %.0161401, %sub_1358 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -10292,9 +10292,9 @@ hwloc__xml_verbose.exit288:                       ; preds = %264, %270
   br label %.thread326
 
 297:                                              ; preds = %290, %.thread315
-  %.4187 = phi i32 [ %291, %290 ], [ %.3186, %.thread315 ]
-  %.5 = phi i32 [ 0, %290 ], [ %.4.ph, %.thread315 ]
-  %.3 = phi ptr [ %296, %290 ], [ %.0163, %.thread315 ]
+  %.4187 = phi i32 [ %.3186, %.thread315 ], [ %291, %290 ]
+  %.5 = phi i32 [ %.4.ph, %.thread315 ], [ 0, %290 ]
+  %.3 = phi ptr [ %.0163, %.thread315 ], [ %296, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   switch i32 %.5, label %.loopexit [
     i32 0, label %258
@@ -10390,7 +10390,7 @@ select.unfold335:                                 ; preds = %320, %.lr.ph410, %3
   call void %345(ptr noundef nonnull %10) #23
   br label %.loopexit.thread
 
-.thread346:                                       ; preds = %hwloc___xml_import_info.exit, %189, %hwloc__xml_verbose.exit279, %213, %hwloc__xml_verbose.exit282, %238, %hwloc__xml_verbose.exit285, %335, %333, %hwloc___xml_import_info.exit.thread, %249, %247, %299, %301
+.thread346:                                       ; preds = %hwloc___xml_import_info.exit, %333, %hwloc__xml_verbose.exit279, %hwloc__xml_verbose.exit282, %hwloc__xml_verbose.exit285, %189, %213, %238, %335, %hwloc___xml_import_info.exit.thread, %247, %249, %299, %301
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10398,9 +10398,9 @@ select.unfold335:                                 ; preds = %320, %.lr.ph410, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit362
 
-.loopexit.thread:                                 ; preds = %342, %hwloc___xml_import_info.exit
-  %.1184.ph = phi i32 [ %.0183415, %hwloc___xml_import_info.exit ], [ %.5188, %342 ]
-  %.1178.ph = phi i32 [ %.0177416, %hwloc___xml_import_info.exit ], [ %.2179, %342 ]
+.loopexit.thread:                                 ; preds = %hwloc___xml_import_info.exit, %342
+  %.1184.ph = phi i32 [ %.5188, %342 ], [ %.0183415, %hwloc___xml_import_info.exit ]
+  %.1178.ph = phi i32 [ %.2179, %342 ], [ %.0177416, %hwloc___xml_import_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -10900,7 +10900,7 @@ hwloc__xml_verbose.exit53:                        ; preds = %111, %117
   br label %138
 
 138:                                              ; preds = %.thread, %137, %132
-  %.236 = phi i32 [ %136, %132 ], [ -1, %137 ], [ -1, %.thread ]
+  %.236 = phi i32 [ -1, %.thread ], [ -1, %137 ], [ %136, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.236
 }
@@ -11025,8 +11025,8 @@ hwloc___xml_import_info.exit:                     ; preds = %select.unfold.i, %1
   br label %69
 
 45:                                               ; preds = %hwloc___xml_import_info.exit, %42, %37
-  %.127 = phi i64 [ %44, %42 ], [ %.02653, %37 ], [ %.02653, %hwloc___xml_import_info.exit ]
-  %.124 = phi i64 [ %.02354, %42 ], [ %39, %37 ], [ %.02354, %hwloc___xml_import_info.exit ]
+  %.127 = phi i64 [ %.02653, %37 ], [ %44, %42 ], [ %.02653, %hwloc___xml_import_info.exit ]
+  %.124 = phi i64 [ %39, %37 ], [ %.02354, %42 ], [ %.02354, %hwloc___xml_import_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -11074,7 +11074,7 @@ hwloc___xml_import_info.exit:                     ; preds = %select.unfold.i, %1
   br label %69
 
 69:                                               ; preds = %.thread, %64
-  %.4 = phi i32 [ %68, %64 ], [ -1, %.thread ]
+  %.4 = phi i32 [ -1, %.thread ], [ %68, %64 ]
   ret i32 %.4
 }
 
@@ -11141,7 +11141,7 @@ define internal fastcc range(i32 0, 2) i32 @hwloc_filter_check_keep_object(ptr n
   br label %30
 
 30:                                               ; preds = %2, %29, %23, %8
-  %.0.shrunk = phi i1 [ %narrow.i, %8 ], [ %28, %23 ], [ true, %29 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ true, %29 ], [ %narrow.i, %8 ], [ %28, %23 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

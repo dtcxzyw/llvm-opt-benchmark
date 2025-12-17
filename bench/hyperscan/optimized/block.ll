@@ -328,7 +328,7 @@ rvermUnalign.exit:                                ; preds = %147, %151
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %117, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i64 = phi ptr [ %159, %rvermUnalign.exit ], [ %146, %rvermSearchAligned.exit ], [ %133, %.thread ], [ %.046.i, %117 ], [ %.046.i, %.preheader ]
+  %.0.i64 = phi ptr [ %133, %.thread ], [ %159, %rvermUnalign.exit ], [ %146, %rvermSearchAligned.exit ], [ %.046.i, %117 ], [ %.046.i, %.preheader ]
   %160 = ptrtoint ptr %.0.i64 to i64
   %161 = sub i64 %107, %115
   %162 = add i64 %161, %160
@@ -448,7 +448,7 @@ rvermUnalignNocase.exit:                          ; preds = %210, %215
   br label %rvermicelliExec.exit83
 
 rvermicelliExec.exit83:                           ; preds = %.preheader474, %177, %rvermSearchAlignedNocase.exit, %.thread311, %rvermUnalignNocase.exit
-  %.0.i73 = phi ptr [ %223, %rvermUnalignNocase.exit ], [ %209, %rvermSearchAlignedNocase.exit ], [ %195, %.thread311 ], [ %.046.i80, %177 ], [ %.046.i80, %.preheader474 ]
+  %.0.i73 = phi ptr [ %195, %.thread311 ], [ %223, %rvermUnalignNocase.exit ], [ %209, %rvermSearchAlignedNocase.exit ], [ %.046.i80, %177 ], [ %.046.i80, %.preheader474 ]
   %224 = ptrtoint ptr %.0.i73 to i64
   %225 = sub i64 %167, %175
   %226 = add i64 %225, %224
@@ -667,7 +667,7 @@ rdvermPreconditionNocase.exit:                    ; preds = %306
   br label %rvermicelliDoubleExec.exit99
 
 rvermicelliDoubleExec.exit99:                     ; preds = %323, %.thread347, %rdvermPreconditionNocase.exit.thread, %rdvermPreconditionNocase.exit
-  %.1.i97 = phi ptr [ %.ptr440, %rdvermPreconditionNocase.exit ], [ %322, %rdvermPreconditionNocase.exit.thread ], [ %348, %.thread347 ], [ %.022.i.ptr, %323 ]
+  %.1.i97 = phi ptr [ %322, %rdvermPreconditionNocase.exit.thread ], [ %.ptr440, %rdvermPreconditionNocase.exit ], [ %348, %.thread347 ], [ %.022.i.ptr, %323 ]
   %349 = ptrtoint ptr %.1.i97 to i64
   %350 = ptrtoint ptr %94 to i64
   %351 = sub i64 %292, %350
@@ -727,7 +727,7 @@ rvermicelliDoubleExec.exit99:                     ; preds = %323, %.thread347, %
   br i1 %.not.i61, label %393, label %nfaRevAccelCheck.exit.thread
 
 393:                                              ; preds = %100, %382, %372, %362, %353, %rvermicelliDoubleExec.exit99, %288, %rvermicelliDoubleExec.exit, %227, %rvermicelliExec.exit83, %163, %rvermicelliExec.exit, %103
-  %.0.i62 = phi i64 [ %95, %103 ], [ %162, %rvermicelliExec.exit ], [ %95, %163 ], [ %226, %rvermicelliExec.exit83 ], [ %95, %227 ], [ %287, %rvermicelliDoubleExec.exit ], [ %95, %288 ], [ %352, %rvermicelliDoubleExec.exit99 ], [ %95, %353 ], [ %95, %362 ], [ %95, %372 ], [ %95, %382 ], [ %95, %100 ]
+  %.0.i62 = phi i64 [ %95, %100 ], [ %95, %103 ], [ %162, %rvermicelliExec.exit ], [ %95, %163 ], [ %226, %rvermicelliExec.exit83 ], [ %95, %227 ], [ %287, %rvermicelliDoubleExec.exit ], [ %95, %288 ], [ %352, %rvermicelliDoubleExec.exit99 ], [ %95, %353 ], [ %95, %362 ], [ %95, %372 ], [ %95, %382 ]
   %394 = icmp ult i64 %.0.i62, %98
   br i1 %394, label %nfaRevAccelCheck.exit.thread, label %nfaRevAccelCheck.exit
 
@@ -925,7 +925,7 @@ mmbit_set_i.exit131:                              ; preds = %.thread356, %.lr.ph
   store i32 2, ptr %475, align 4, !alias.scope !10
   br label %nfaRevAccelCheck.exit.thread
 
-nfaRevAccelCheck.exit.thread:                     ; preds = %393, %382, %372, %362, %353, %85, %mmbit_set_i.exit131, %nfaRevAccelCheck.exit, %scatter.exit
+nfaRevAccelCheck.exit.thread:                     ; preds = %393, %362, %353, %372, %382, %85, %mmbit_set_i.exit131, %nfaRevAccelCheck.exit, %scatter.exit
   %.not32.i = icmp eq i8 %14, 0
   br i1 %.not32.i, label %514, label %511
 
@@ -2153,7 +2153,7 @@ mmbit_sparse_iter_next.exit:                      ; preds = %mmbit_mask_index.ex
   %.not78.i = icmp eq i32 %.0.i165, -1
   br i1 %.not78.i, label %._crit_edge613, label %721
 
-._crit_edge613:                                   ; preds = %634, %681, %1133, %mmbit_sparse_iter_next.exit, %1248, %mmbit_sparse_iter_next.exit.loopexit469, %582, %637, %mmbit_get_flat_block.exit, %mmbit_sparse_iter_begin.exit
+._crit_edge613:                                   ; preds = %634, %681, %1133, %mmbit_sparse_iter_next.exit, %1248, %mmbit_sparse_iter_next.exit.loopexit469, %582, %mmbit_get_flat_block.exit, %637, %mmbit_sparse_iter_begin.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %runEagerPrefixesBlock.exit
 
@@ -2341,12 +2341,12 @@ roseBlockAnchored.exit.thread:                    ; preds = %1272, %1266, %runEa
   br label %mmbit_any.exit
 
 mmbit_any.exit:                                   ; preds = %1329, %1332, %1335, %1343, %.critedge.i251, %1357
-  %.0.i236.in.in = phi i64 [ %1358, %1357 ], [ %1356, %.critedge.i251 ], [ %1349, %1343 ], [ %1331, %1329 ], [ %1334, %1332 ], [ %1342, %1335 ]
+  %.0.i236.in.in = phi i64 [ %1356, %.critedge.i251 ], [ %1358, %1357 ], [ %1349, %1343 ], [ %1331, %1329 ], [ %1334, %1332 ], [ %1342, %1335 ]
   %.0.i236.in.in.fr = freeze i64 %.0.i236.in.in
   %.0.i236.in.not = icmp eq i64 %.0.i236.in.in.fr, 0
   br i1 %.0.i236.in.not, label %roseBlockFloating.exit.thread, label %roseHasInFlightMatches.exit.thread
 
-roseHasInFlightMatches.exit.thread:               ; preds = %.lr.ph617, %mmbit_any.exit, %1316, %1313, %1309
+roseHasInFlightMatches.exit.thread:               ; preds = %.lr.ph617, %mmbit_any.exit, %1313, %1316, %1309
   %1359 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1360 = load i32, ptr %1359, align 8
   %.not40.i = icmp ne i32 %1360, -1
@@ -2389,7 +2389,7 @@ roseBlockFloating.exit:                           ; preds = %1368
   %.not39 = icmp eq i8 %1384, 0
   br i1 %.not39, label %roseBlockFloating.exit.thread, label %cleanUpDelayed.exit.thread
 
-roseBlockFloating.exit.thread:                    ; preds = %1318, %mmbit_any.exit, %1368, %1363, %roseHasInFlightMatches.exit.thread, %roseBlockAnchored.exit.thread, %roseBlockFloating.exit, %init_outfixes_for_block.exit.thread
+roseBlockFloating.exit.thread:                    ; preds = %1318, %mmbit_any.exit, %1363, %roseHasInFlightMatches.exit.thread, %1368, %roseBlockAnchored.exit.thread, %roseBlockFloating.exit, %init_outfixes_for_block.exit.thread
   %1385 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %1386 = load i8, ptr %1385, align 8
   %1387 = and i8 %1386, 11

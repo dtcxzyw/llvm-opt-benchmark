@@ -652,7 +652,7 @@ define linkonce_odr dso_local void @_ZN3igl14DualContouringIdEC2ERKSt8functionIF
   unreachable
 
 common.resume:                                    ; preds = %82, %.body, %17, %20
-  %common.resume.op = phi { ptr, i32 } [ %18, %20 ], [ %18, %17 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn, %82 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %20 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFdRKN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEC2ERKS6_.exit: ; preds = %6, %13
@@ -798,7 +798,7 @@ _ZNSt10_HashtableISt5tupleIJiiiEESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stES
   unreachable
 
 .body:                                            ; preds = %76, %.body22, %39, %36
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %71, %.body22 ], [ %71, %76 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %71, %76 ], [ %37, %39 ], [ %71, %.body22 ]
   %81 = load ptr, ptr %7, align 8, !tbaa !12
   %.not.i27 = icmp eq ptr %81, null
   br i1 %.not.i27, label %common.resume, label %82
@@ -2811,7 +2811,7 @@ define linkonce_odr dso_local void @_ZN3igl14DualContouringIfEC2ERKSt8functionIF
   unreachable
 
 common.resume:                                    ; preds = %82, %.body, %17, %20
-  %common.resume.op = phi { ptr, i32 } [ %18, %20 ], [ %18, %17 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn, %82 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %20 ], [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %.pn.pn.pn.pn.pn.pn, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFfRKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEEEEC2ERKS6_.exit: ; preds = %6, %13
@@ -2957,7 +2957,7 @@ _ZNSt10_HashtableISt5tupleIJiiiEESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stES
   unreachable
 
 .body:                                            ; preds = %76, %.body22, %39, %36
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %71, %.body22 ], [ %71, %76 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %71, %76 ], [ %37, %39 ], [ %71, %.body22 ]
   %81 = load ptr, ptr %7, align 8, !tbaa !12
   %.not.i27 = icmp eq ptr %81, null
   br i1 %.not.i27, label %common.resume, label %82
@@ -5754,7 +5754,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.thread
   br label %668
 
 .thread676:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %82, %80
-  %99 = phi i64 [ %79, %82 ], [ %79, %80 ], [ -1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %99 = phi i64 [ %79, %80 ], [ %79, %82 ], [ -1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %72) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6030,7 +6030,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %259
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %259
-  %.0.i.i.i.i = phi ptr [ %260, %259 ], [ %263, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %263, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %260, %259 ]
   store ptr %.0.i.i.i.i, ptr %142, align 8, !tbaa !374
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
@@ -6100,7 +6100,7 @@ _ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i:      ; preds = %282
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i, %282, %280
-  %284 = phi i64 [ %242, %280 ], [ %242, %282 ], [ %242, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i ], [ %.pre.i232.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %242, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
+  %284 = phi i64 [ %242, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i ], [ %242, %280 ], [ %242, %282 ], [ %.pre.i232.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %242, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
   %285 = load ptr, ptr %145, align 8, !tbaa !375
   %286 = load ptr, ptr %144, align 8, !tbaa !138
   %287 = ptrtoint ptr %285 to i64
@@ -6189,7 +6189,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocato
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i: ; preds = %301, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %321, %319, %317
-  %322 = phi i64 [ %284, %317 ], [ %284, %319 ], [ %284, %321 ], [ %.pre7.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %284, %301 ]
+  %322 = phi i64 [ %284, %321 ], [ %284, %317 ], [ %284, %319 ], [ %.pre7.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %284, %301 ]
   %323 = load ptr, ptr %148, align 8, !tbaa !382
   %324 = load ptr, ptr %147, align 8, !tbaa !137
   %325 = ptrtoint ptr %323 to i64
@@ -6278,7 +6278,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocato
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i: ; preds = %339, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %359, %357, %355
-  %360 = phi i64 [ %322, %355 ], [ %322, %357 ], [ %322, %359 ], [ %.pre8.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %322, %339 ]
+  %360 = phi i64 [ %322, %359 ], [ %322, %355 ], [ %322, %357 ], [ %.pre8.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %322, %339 ]
   %361 = load ptr, ptr %151, align 8, !tbaa !389
   %362 = load ptr, ptr %150, align 8, !tbaa !136
   %363 = ptrtoint ptr %361 to i64
@@ -6381,7 +6381,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocato
   br label %.noexc
 
 .noexc:                                           ; preds = %377, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %398, %396, %394
-  %399 = phi ptr [ %362, %394 ], [ %362, %396 ], [ %362, %398 ], [ %384, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %362, %377 ]
+  %399 = phi ptr [ %362, %398 ], [ %362, %394 ], [ %362, %396 ], [ %384, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %362, %377 ]
   %400 = load ptr, ptr %141, align 8, !tbaa !134
   %401 = getelementptr inbounds nuw i32, ptr %400, i64 %241
   store i32 0, ptr %401, align 4, !tbaa !72
@@ -6996,7 +6996,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !374
   br label %41
 
@@ -12691,7 +12691,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.thread
   br label %674
 
 .thread674:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %96, %94
-  %116 = phi i64 [ %93, %96 ], [ %93, %94 ], [ -1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %116 = phi i64 [ %93, %94 ], [ %93, %96 ], [ -1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %117 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %86) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12963,7 +12963,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %273
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %273
-  %.0.i.i.i.i = phi ptr [ %274, %273 ], [ %277, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %277, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %274, %273 ]
   store ptr %.0.i.i.i.i, ptr %156, align 8, !tbaa !374
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
@@ -13033,7 +13033,7 @@ _ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i:      ; preds = %296
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i, %296, %294
-  %298 = phi i64 [ %256, %294 ], [ %256, %296 ], [ %256, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i ], [ %.pre.i231.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %256, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
+  %298 = phi i64 [ %256, %_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E.exit.i.i.i ], [ %256, %294 ], [ %256, %296 ], [ %.pre.i231.pre, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %256, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
   %299 = load ptr, ptr %159, align 8, !tbaa !708
   %300 = load ptr, ptr %158, align 8, !tbaa !263
   %301 = ptrtoint ptr %299 to i64
@@ -13122,7 +13122,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocato
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i: ; preds = %315, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %335, %333, %331
-  %336 = phi i64 [ %298, %331 ], [ %298, %333 ], [ %298, %335 ], [ %.pre7.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %298, %315 ]
+  %336 = phi i64 [ %298, %335 ], [ %298, %331 ], [ %298, %333 ], [ %.pre7.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %298, %315 ]
   %337 = load ptr, ptr %162, align 8, !tbaa !382
   %338 = load ptr, ptr %161, align 8, !tbaa !137
   %339 = ptrtoint ptr %337 to i64
@@ -13211,7 +13211,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocato
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit.i: ; preds = %353, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %373, %371, %369
-  %374 = phi i64 [ %336, %369 ], [ %336, %371 ], [ %336, %373 ], [ %.pre8.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %336, %353 ]
+  %374 = phi i64 [ %336, %373 ], [ %336, %369 ], [ %336, %371 ], [ %.pre8.i.pre, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %336, %353 ]
   %375 = load ptr, ptr %165, align 8, !tbaa !719
   %376 = load ptr, ptr %164, align 8, !tbaa !262
   %377 = ptrtoint ptr %375 to i64
@@ -13314,7 +13314,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocato
   br label %.noexc
 
 .noexc:                                           ; preds = %391, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i, %412, %410, %408
-  %413 = phi ptr [ %376, %408 ], [ %376, %410 ], [ %376, %412 ], [ %398, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %376, %391 ]
+  %413 = phi ptr [ %376, %412 ], [ %376, %408 ], [ %376, %410 ], [ %398, %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32.i ], [ %376, %391 ]
   %414 = load ptr, ptr %155, align 8, !tbaa !134
   %415 = getelementptr inbounds nuw i32, ptr %414, i64 %255
   store i32 0, ptr %415, align 4, !tbaa !72

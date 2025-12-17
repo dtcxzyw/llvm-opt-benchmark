@@ -56,7 +56,7 @@ define dso_local void @lolwutUnstableCommand(ptr noundef %0) local_unnamed_addr 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %1, %9, %12, %16, %20, %24
-  %.0.i = phi i64 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %26, %24 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %26, %24 ], [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ 0, %1 ]
   tail call void @addReplyVerbatim(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.0.i, ptr noundef nonnull @.str.3) #15
   tail call void @sdsfree(ptr noundef nonnull %4) #15
   ret void

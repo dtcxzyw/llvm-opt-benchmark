@@ -259,8 +259,8 @@ common.resume:                                    ; preds = %.body.i10, %197, %.
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %44, %42, %40, %38, %36, %.body
-  %.sink.i = phi ptr [ %22, %38 ], [ %22, %.body ], [ %22, %40 ], [ %24, %42 ], [ %24, %36 ], [ %24, %44 ]
-  %.pn5.pn.i = phi { ptr, i32 } [ %39, %38 ], [ %33, %.body ], [ %41, %40 ], [ %43, %42 ], [ %37, %36 ], [ %45, %44 ]
+  %.sink.i = phi ptr [ %22, %40 ], [ %22, %38 ], [ %22, %.body ], [ %24, %42 ], [ %24, %36 ], [ %24, %44 ]
+  %.pn5.pn.i = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %33, %.body ], [ %43, %42 ], [ %37, %36 ], [ %45, %44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #16
   br label %common.resume
 
@@ -366,8 +366,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13.i9:
   br label %.body.i1
 
 .body.i1:                                         ; preds = %65, %63, %61, %59, %57, %.body14
-  %.sink.i2 = phi ptr [ %18, %59 ], [ %18, %.body14 ], [ %18, %61 ], [ %20, %63 ], [ %20, %57 ], [ %20, %65 ]
-  %.pn5.pn.i3 = phi { ptr, i32 } [ %60, %59 ], [ %54, %.body14 ], [ %62, %61 ], [ %64, %63 ], [ %58, %57 ], [ %66, %65 ]
+  %.sink.i2 = phi ptr [ %18, %61 ], [ %18, %59 ], [ %18, %.body14 ], [ %20, %63 ], [ %20, %57 ], [ %20, %65 ]
+  %.pn5.pn.i3 = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %54, %.body14 ], [ %64, %63 ], [ %58, %57 ], [ %66, %65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i2) #16
   br label %common.resume
 
@@ -1729,7 +1729,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit14
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit14:      ; preds = %.loopexit23, %.loopexit.split-lp24, %222, %.body, %137, %135, %217, %165, %133
-  %.pn10 = phi { ptr, i32 } [ %166, %165 ], [ %134, %133 ], [ %218, %217 ], [ %lpad.phi, %135 ], [ %lpad.phi, %137 ], [ %.pn, %.body ], [ %.pn, %222 ], [ %lpad.loopexit25, %.loopexit23 ], [ %lpad.loopexit.split-lp26, %.loopexit.split-lp24 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %222 ], [ %166, %165 ], [ %218, %217 ], [ %134, %133 ], [ %lpad.phi, %137 ], [ %lpad.phi, %135 ], [ %.pn, %.body ], [ %lpad.loopexit25, %.loopexit23 ], [ %lpad.loopexit.split-lp26, %.loopexit.split-lp24 ]
   %228 = load ptr, ptr %5, align 8
   %.not.i20 = icmp eq ptr %228, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i21

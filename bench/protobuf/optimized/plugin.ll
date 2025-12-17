@@ -202,7 +202,7 @@ cond.false.i:                                     ; preds = %invoke.cont4
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %cond.false.i, %cond.true.i
-  %.fca.1.insert.merged.i = phi { i64, ptr } [ %call4.i, %cond.true.i ], [ %5, %cond.false.i ]
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %5, %cond.false.i ], [ %call4.i, %cond.true.i ]
   %6 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
   %7 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
   store i64 %6, ptr %ref.tmp5, align 8
@@ -340,7 +340,7 @@ cond.false.i35:                                   ; preds = %invoke.cont24
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %cond.false.i35, %cond.true.i30
-  %.fca.1.insert.merged.i34 = phi { i64, ptr } [ %call4.i33, %cond.true.i30 ], [ %29, %cond.false.i35 ]
+  %.fca.1.insert.merged.i34 = phi { i64, ptr } [ %29, %cond.false.i35 ], [ %call4.i33, %cond.true.i30 ]
   %30 = extractvalue { i64, ptr } %.fca.1.insert.merged.i34, 0
   %31 = extractvalue { i64, ptr } %.fca.1.insert.merged.i34, 1
   %call32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, i64 %30, ptr %31)
@@ -718,7 +718,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i79
   unreachable
 
 ehcleanup110:                                     ; preds = %lpad18.loopexit, %lpad18.loopexit.split-lp, %if.then.i.i.i75, %ehcleanup
-  %.pn22 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i75 ], [ %lpad.loopexit84, %lpad18.loopexit ], [ %lpad.loopexit.split-lp85, %lpad18.loopexit.split-lp ]
+  %.pn22 = phi { ptr, i32 } [ %.pn, %if.then.i.i.i75 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit84, %lpad18.loopexit ], [ %lpad.loopexit.split-lp85, %lpad18.loopexit.split-lp ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %status) #18
   br label %ehcleanup112
 

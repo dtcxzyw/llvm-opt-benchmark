@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr noundef readonly captur
   br i1 %.not, label %51, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %51, %.lr.ph44, %38, %.lr.ph49, %26, %46, %33, %21, %45
-  %.033 = phi i32 [ 1, %45 ], [ 1, %21 ], [ 1, %33 ], [ 1, %46 ], [ 0, %.lr.ph49 ], [ 1, %26 ], [ 0, %.lr.ph44 ], [ 1, %38 ], [ 0, %.lr.ph ], [ 1, %51 ]
+  %.033 = phi i32 [ 1, %45 ], [ 1, %33 ], [ 1, %46 ], [ 1, %26 ], [ 1, %21 ], [ 1, %38 ], [ 0, %.lr.ph49 ], [ 0, %.lr.ph44 ], [ 0, %.lr.ph ], [ 1, %51 ]
   ret i32 %.033
 }
 
@@ -416,8 +416,8 @@ Fra_OneHotNodeIsConst.exit75:                     ; preds = %.lr.ph.i69
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %95, %97, %87, %89
-  %.sink222 = phi ptr [ %88, %87 ], [ %90, %89 ], [ %96, %95 ], [ %98, %97 ]
-  %.sink = phi i32 [ 16, %87 ], [ 16, %89 ], [ %92, %95 ], [ %92, %97 ]
+  %.sink222 = phi ptr [ %90, %89 ], [ %88, %87 ], [ %96, %95 ], [ %98, %97 ]
+  %.sink = phi i32 [ 16, %89 ], [ 16, %87 ], [ %92, %95 ], [ %92, %97 ]
   store ptr %.sink222, ptr %10, align 8, !tbaa !36
   store i32 %.sink, ptr %7, align 8, !tbaa !35
   br label %Vec_IntPush.exit
@@ -522,8 +522,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit105.sink.split
 
 Vec_IntPush.exit105.sink.split:                   ; preds = %145, %147, %137, %139
-  %.sink228 = phi ptr [ %138, %137 ], [ %140, %139 ], [ %146, %145 ], [ %148, %147 ]
-  %.sink227 = phi i32 [ 16, %137 ], [ 16, %139 ], [ %142, %145 ], [ %142, %147 ]
+  %.sink228 = phi ptr [ %140, %139 ], [ %138, %137 ], [ %146, %145 ], [ %148, %147 ]
+  %.sink227 = phi i32 [ 16, %139 ], [ 16, %137 ], [ %142, %145 ], [ %142, %147 ]
   store ptr %.sink228, ptr %10, align 8, !tbaa !36
   store i32 %.sink227, ptr %7, align 8, !tbaa !35
   br label %Vec_IntPush.exit105
@@ -629,8 +629,8 @@ Vec_IntPush.exit105:                              ; preds = %Vec_IntPush.exit105
   br label %Vec_IntPush.exit121.sink.split
 
 Vec_IntPush.exit121.sink.split:                   ; preds = %195, %197, %187, %189
-  %.sink234 = phi ptr [ %188, %187 ], [ %190, %189 ], [ %196, %195 ], [ %198, %197 ]
-  %.sink233 = phi i32 [ 16, %187 ], [ 16, %189 ], [ %192, %195 ], [ %192, %197 ]
+  %.sink234 = phi ptr [ %190, %189 ], [ %188, %187 ], [ %196, %195 ], [ %198, %197 ]
+  %.sink233 = phi i32 [ 16, %189 ], [ 16, %187 ], [ %192, %195 ], [ %192, %197 ]
   store ptr %.sink234, ptr %10, align 8, !tbaa !36
   store i32 %.sink233, ptr %7, align 8, !tbaa !35
   br label %Vec_IntPush.exit121
@@ -685,20 +685,20 @@ Vec_IntPush.exit121:                              ; preds = %Vec_IntPush.exit121
   br label %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split
 
 Fra_OneHotNodesAreClause.exit114.sink.split.sink.split: ; preds = %214, %212, %222, %220, %163, %161, %171, %169, %113, %111, %121, %119
-  %.sink236.sink = phi ptr [ %112, %111 ], [ %114, %113 ], [ %120, %119 ], [ %122, %121 ], [ %162, %161 ], [ %164, %163 ], [ %170, %169 ], [ %172, %171 ], [ %213, %212 ], [ %215, %214 ], [ %221, %220 ], [ %223, %222 ]
-  %.sink235.sink = phi i32 [ 16, %111 ], [ 16, %113 ], [ %116, %119 ], [ %116, %121 ], [ 16, %161 ], [ 16, %163 ], [ %166, %169 ], [ %166, %171 ], [ 16, %212 ], [ 16, %214 ], [ %217, %220 ], [ %217, %222 ]
-  %.sink242.ph = phi i32 [ %105, %111 ], [ %105, %113 ], [ %105, %119 ], [ %105, %121 ], [ %155, %161 ], [ %155, %163 ], [ %155, %169 ], [ %155, %171 ], [ %206, %212 ], [ %206, %214 ], [ %206, %220 ], [ %206, %222 ]
-  %.sink237.ph = phi i32 [ %104, %111 ], [ %104, %113 ], [ %104, %119 ], [ %104, %121 ], [ %154, %161 ], [ %154, %163 ], [ %154, %169 ], [ %154, %171 ], [ %205, %212 ], [ %205, %214 ], [ %205, %220 ], [ %205, %222 ]
+  %.sink236.sink = phi ptr [ %172, %171 ], [ %122, %121 ], [ %114, %113 ], [ %112, %111 ], [ %120, %119 ], [ %164, %163 ], [ %162, %161 ], [ %170, %169 ], [ %215, %214 ], [ %213, %212 ], [ %221, %220 ], [ %223, %222 ]
+  %.sink235.sink = phi i32 [ %166, %171 ], [ %116, %121 ], [ 16, %113 ], [ 16, %111 ], [ %116, %119 ], [ 16, %163 ], [ 16, %161 ], [ %166, %169 ], [ 16, %214 ], [ 16, %212 ], [ %217, %220 ], [ %217, %222 ]
+  %.sink242.ph = phi i32 [ %155, %171 ], [ %105, %121 ], [ %105, %113 ], [ %105, %111 ], [ %105, %119 ], [ %155, %163 ], [ %155, %161 ], [ %155, %169 ], [ %206, %214 ], [ %206, %212 ], [ %206, %220 ], [ %206, %222 ]
+  %.sink237.ph = phi i32 [ %154, %171 ], [ %104, %121 ], [ %104, %113 ], [ %104, %111 ], [ %104, %119 ], [ %154, %163 ], [ %154, %161 ], [ %154, %169 ], [ %205, %214 ], [ %205, %212 ], [ %205, %220 ], [ %205, %222 ]
   store ptr %.sink236.sink, ptr %10, align 8, !tbaa !36
   store i32 %.sink235.sink, ptr %7, align 8, !tbaa !35
   br label %Fra_OneHotNodesAreClause.exit114.sink.split
 
 Fra_OneHotNodesAreClause.exit114.sink.split:      ; preds = %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split, %Vec_IntPush.exit121, %Vec_IntPush.exit105, %Vec_IntPush.exit
-  %.sink242 = phi i32 [ %105, %Vec_IntPush.exit ], [ %155, %Vec_IntPush.exit105 ], [ %206, %Vec_IntPush.exit121 ], [ %.sink242.ph, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
-  %.pre.i124177.sink = phi ptr [ %99, %Vec_IntPush.exit ], [ %149, %Vec_IntPush.exit105 ], [ %199, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
-  %.sink237 = phi i32 [ %104, %Vec_IntPush.exit ], [ %154, %Vec_IntPush.exit105 ], [ %205, %Vec_IntPush.exit121 ], [ %.sink237.ph, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
-  %.pre.i85194.ph = phi ptr [ %99, %Vec_IntPush.exit ], [ %.pre.i85192, %Vec_IntPush.exit105 ], [ %.pre.i85190, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
-  %.pre.i108184.ph = phi ptr [ %99, %Vec_IntPush.exit ], [ %149, %Vec_IntPush.exit105 ], [ %.pre.i108182, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
+  %.sink242 = phi i32 [ %155, %Vec_IntPush.exit105 ], [ %105, %Vec_IntPush.exit ], [ %206, %Vec_IntPush.exit121 ], [ %.sink242.ph, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
+  %.pre.i124177.sink = phi ptr [ %149, %Vec_IntPush.exit105 ], [ %99, %Vec_IntPush.exit ], [ %199, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
+  %.sink237 = phi i32 [ %154, %Vec_IntPush.exit105 ], [ %104, %Vec_IntPush.exit ], [ %205, %Vec_IntPush.exit121 ], [ %.sink237.ph, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
+  %.pre.i85194.ph = phi ptr [ %.pre.i85192, %Vec_IntPush.exit105 ], [ %99, %Vec_IntPush.exit ], [ %.pre.i85190, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
+  %.pre.i108184.ph = phi ptr [ %149, %Vec_IntPush.exit105 ], [ %99, %Vec_IntPush.exit ], [ %.pre.i108182, %Vec_IntPush.exit121 ], [ %.sink236.sink, %Fra_OneHotNodesAreClause.exit114.sink.split.sink.split ]
   %224 = add nsw i32 %.sink242, 1
   store i32 %224, ptr %8, align 4, !tbaa !33
   %225 = sext i32 %.sink242 to i64
@@ -707,10 +707,10 @@ Fra_OneHotNodesAreClause.exit114.sink.split:      ; preds = %Fra_OneHotNodesAreC
   br label %Fra_OneHotNodesAreClause.exit114
 
 Fra_OneHotNodesAreClause.exit114:                 ; preds = %62, %69, %.lr.ph44.i, %Fra_OneHotNodesAreClause.exit114.sink.split, %.lr.ph.split
-  %.pre.i85194 = phi ptr [ %.pre.i85193, %.lr.ph.split ], [ %.pre.i85194.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %.pre.i85193, %.lr.ph44.i ], [ %.pre.i85193, %69 ], [ %.pre.i85193, %62 ]
-  %.pre.i108184 = phi ptr [ %46, %.lr.ph.split ], [ %.pre.i108184.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %46, %.lr.ph44.i ], [ %46, %69 ], [ %46, %62 ]
-  %.pre.i124176 = phi ptr [ %47, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %47, %.lr.ph44.i ], [ %47, %69 ], [ %47, %62 ]
-  %.pre.i117172 = phi ptr [ %48, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %48, %.lr.ph44.i ], [ %48, %69 ], [ %48, %62 ]
+  %.pre.i85194 = phi ptr [ %.pre.i85193, %.lr.ph.split ], [ %.pre.i85194.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %.pre.i85193, %69 ], [ %.pre.i85193, %.lr.ph44.i ], [ %.pre.i85193, %62 ]
+  %.pre.i108184 = phi ptr [ %46, %.lr.ph.split ], [ %.pre.i108184.ph, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %46, %69 ], [ %46, %.lr.ph44.i ], [ %46, %62 ]
+  %.pre.i124176 = phi ptr [ %47, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %47, %69 ], [ %47, %.lr.ph44.i ], [ %47, %62 ]
+  %.pre.i117172 = phi ptr [ %48, %.lr.ph.split ], [ %.pre.i124177.sink, %Fra_OneHotNodesAreClause.exit114.sink.split ], [ %48, %69 ], [ %48, %.lr.ph44.i ], [ %48, %62 ]
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %227 = load ptr, ptr %1, align 8, !tbaa !21
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -723,11 +723,11 @@ Fra_OneHotNodesAreClause.exit114:                 ; preds = %62, %69, %.lr.ph44.
   br i1 %232, label %.lr.ph.split, label %.critedge2, !llvm.loop !42
 
 .critedge2:                                       ; preds = %36, %Fra_OneHotNodesAreClause.exit114, %Fra_OneHotNodeIsConst.exit.preheader, %.lr.ph153.split
-  %234 = phi ptr [ %22, %Fra_OneHotNodeIsConst.exit.preheader ], [ %22, %.lr.ph153.split ], [ %227, %Fra_OneHotNodesAreClause.exit114 ], [ %22, %36 ]
-  %.pre.i85188 = phi ptr [ %.pre.i85187, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i85187, %.lr.ph153.split ], [ %.pre.i85194, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i85187, %36 ]
-  %.pre.i108180 = phi ptr [ %.pre.i108179, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i108179, %.lr.ph153.split ], [ %.pre.i108184, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i108179, %36 ]
-  %.pre.i124174 = phi ptr [ %.pre.i124173, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i124173, %.lr.ph153.split ], [ %.pre.i124176, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i124173, %36 ]
-  %.pre.i117170 = phi ptr [ %.pre.i117169, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i117169, %.lr.ph153.split ], [ %.pre.i117172, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i117169, %36 ]
+  %234 = phi ptr [ %22, %.lr.ph153.split ], [ %22, %Fra_OneHotNodeIsConst.exit.preheader ], [ %227, %Fra_OneHotNodesAreClause.exit114 ], [ %22, %36 ]
+  %.pre.i85188 = phi ptr [ %.pre.i85187, %.lr.ph153.split ], [ %.pre.i85187, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i85194, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i85187, %36 ]
+  %.pre.i108180 = phi ptr [ %.pre.i108179, %.lr.ph153.split ], [ %.pre.i108179, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i108184, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i108179, %36 ]
+  %.pre.i124174 = phi ptr [ %.pre.i124173, %.lr.ph153.split ], [ %.pre.i124173, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i124176, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i124173, %36 ]
+  %.pre.i117170 = phi ptr [ %.pre.i117169, %.lr.ph153.split ], [ %.pre.i117169, %Fra_OneHotNodeIsConst.exit.preheader ], [ %.pre.i117172, %Fra_OneHotNodesAreClause.exit114 ], [ %.pre.i117169, %36 ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !37
@@ -1118,9 +1118,9 @@ Fra_OneHotNodesAreClause.exit:                    ; preds = %.lr.ph49.i, %.lr.ph
   %.val29.pre = load i32, ptr %8, align 4, !tbaa !33
   br label %Fra_OneHotNodesAreClause.exit.thread
 
-Fra_OneHotNodesAreClause.exit.thread:             ; preds = %59, %85, %72, %80, %67, %54, %79, %Fra_OneHotNodesAreClause.exit, %13
-  %.val29 = phi i32 [ %.val2951, %13 ], [ %.val29.pre, %Fra_OneHotNodesAreClause.exit ], [ %.val2951, %79 ], [ %.val2951, %54 ], [ %.val2951, %67 ], [ %.val2951, %80 ], [ %.val2951, %72 ], [ %.val2951, %85 ], [ %.val2951, %59 ]
-  %.1 = phi i32 [ %.02744, %13 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.02744, %79 ], [ %.02744, %54 ], [ %.02744, %67 ], [ %.02744, %80 ], [ %.02744, %72 ], [ %.02744, %85 ], [ %.02744, %59 ]
+Fra_OneHotNodesAreClause.exit.thread:             ; preds = %59, %85, %72, %54, %80, %67, %79, %Fra_OneHotNodesAreClause.exit, %13
+  %.val29 = phi i32 [ %.val2951, %13 ], [ %.val29.pre, %Fra_OneHotNodesAreClause.exit ], [ %.val2951, %79 ], [ %.val2951, %67 ], [ %.val2951, %80 ], [ %.val2951, %54 ], [ %.val2951, %85 ], [ %.val2951, %72 ], [ %.val2951, %59 ]
+  %.1 = phi i32 [ %.02744, %13 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.02744, %79 ], [ %.02744, %67 ], [ %.02744, %80 ], [ %.02744, %54 ], [ %.02744, %85 ], [ %.02744, %72 ], [ %.02744, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %92 = sext i32 %.val29 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92

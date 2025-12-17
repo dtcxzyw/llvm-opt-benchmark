@@ -268,7 +268,7 @@ define ptr @H5T__complex_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %34, %27, %21, %13, %51, %64, %58, %1
-  %.0 = phi ptr [ null, %64 ], [ null, %58 ], [ null, %1 ], [ %32, %51 ], [ null, %34 ], [ null, %27 ], [ null, %21 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %64 ], [ null, %58 ], [ null, %13 ], [ null, %1 ], [ %32, %51 ], [ null, %34 ], [ null, %27 ], [ null, %21 ]
   ret ptr %.0
 }
 

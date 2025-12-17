@@ -100,7 +100,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %1
   br label %_ZNK6icu_7713StringSegment12getCodePointEv.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i: ; preds = %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %1
-  %32 = phi i32 [ %22, %25 ], [ %22, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ 65535, %1 ]
+  %32 = phi i32 [ %22, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %22, %25 ], [ 65535, %1 ]
   %33 = and i32 %32, 63488
   %34 = icmp eq i32 %33, 55296
   %..i = select i1 %34, i32 -1, i32 %32
@@ -159,7 +159,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %1
   br label %35
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %1, %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %32 = phi i32 [ %22, %25 ], [ %22, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 65535, %1 ]
+  %32 = phi i32 [ %22, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %22, %25 ], [ 65535, %1 ]
   %33 = and i32 %32, 63488
   %34 = icmp eq i32 %33, 55296
   %. = select i1 %34, i32 -1, i32 %32
@@ -276,7 +276,7 @@ define void @_ZNK6icu_7713StringSegment15toUnicodeStringEv(ptr dead_on_unwind no
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %9, %11
-  %.0.i = phi ptr [ %10, %9 ], [ %13, %11 ], [ null, %2 ]
+  %.0.i = phi ptr [ %13, %11 ], [ %10, %9 ], [ null, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !8
   %16 = sext i32 %15 to i64
@@ -315,7 +315,7 @@ define void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwin
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %10, %12
-  %.0.i = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %2 ]
+  %.0.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !8
   %17 = sext i32 %16 to i64
@@ -387,7 +387,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %2
   br label %_ZNK6icu_7713StringSegment12getCodePointEv.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i: ; preds = %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %2
-  %33 = phi i32 [ %23, %26 ], [ %23, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ 65535, %2 ]
+  %33 = phi i32 [ %23, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %23, %26 ], [ 65535, %2 ]
   %34 = and i32 %33, 63488
   %35 = icmp eq i32 %34, 55296
   %..i = select i1 %35, i32 -1, i32 %33
@@ -410,7 +410,7 @@ _ZNK6icu_7713StringSegment12getCodePointEv.exit:  ; preds = %31, %_ZNK6icu_7713U
   br label %_ZN6icu_7713StringSegment15codePointsEqualEiib.exit
 
 _ZN6icu_7713StringSegment15codePointsEqualEiib.exit: ; preds = %_ZNK6icu_7713StringSegment12getCodePointEv.exit, %40
-  %.0.i1 = phi i1 [ %43, %40 ], [ %39, %_ZNK6icu_7713StringSegment12getCodePointEv.exit ]
+  %.0.i1 = phi i1 [ %39, %_ZNK6icu_7713StringSegment12getCodePointEv.exit ], [ %43, %40 ]
   ret i1 %.0.i1
 }
 
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN6icu_7713StringSegment15codePointsEqualEiib(i32 no
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.0 = phi i1 [ %8, %5 ], [ %4, %3 ]
+  %.0 = phi i1 [ %4, %3 ], [ %8, %5 ]
   ret i1 %.0
 }
 
@@ -579,7 +579,7 @@ _ZNK6icu_7713StringSegment12getCodePointEv.exit:  ; preds = %44, %_ZNK6icu_7713U
   br label %_ZN6icu_7713StringSegment15codePointsEqualEiib.exit
 
 _ZN6icu_7713StringSegment15codePointsEqualEiib.exit: ; preds = %54, %_ZNK6icu_7713StringSegment12getCodePointEv.exit, %2, %6, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %6 ], [ false, %2 ], [ %57, %54 ], [ %53, %_ZNK6icu_7713StringSegment12getCodePointEv.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %6 ], [ %53, %_ZNK6icu_7713StringSegment12getCodePointEv.exit ], [ %57, %54 ]
   ret i1 %.0
 }
 
@@ -753,7 +753,7 @@ define noundef zeroext i1 @_ZNK6icu_7713StringSegmenteqERKNS_13UnicodeStringE(pt
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %13, %11, %2
-  %.0.i.i = phi ptr [ %12, %11 ], [ %15, %13 ], [ null, %2 ]
+  %.0.i.i = phi ptr [ %15, %13 ], [ %12, %11 ], [ null, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !8, !noalias !24
   %18 = sext i32 %17 to i64
@@ -829,7 +829,7 @@ _ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit: ; preds = %_ZNK6icu_7713
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %35, %30
-  %.0.i = phi i1 [ %34, %30 ], [ false, %35 ], [ %59, %.noexc ]
+  %.0.i = phi i1 [ %34, %30 ], [ %59, %.noexc ], [ false, %35 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i

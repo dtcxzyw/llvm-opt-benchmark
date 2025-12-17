@@ -1037,7 +1037,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   br i1 %.not40, label %.critedge4, label %.lr.ph85
 
 .critedge4:                                       ; preds = %.lr.ph121, %15, %.critedge
-  %.not.i77 = phi i1 [ false, %15 ], [ %exitcond, %.critedge ], [ %exitcond, %.lr.ph121 ]
+  %.not.i77 = phi i1 [ %exitcond, %.critedge ], [ false, %15 ], [ %exitcond, %.lr.ph121 ]
   %55 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %56 = call i32 @peel_iterated_oid(ptr noundef %55, ptr noundef %2, ptr noundef nonnull %7) #16
   %.not42 = icmp eq i32 %56, 0
@@ -1673,7 +1673,7 @@ commit_names_peek.exit:                           ; preds = %113
   br label %.lr.ph233.preheader
 
 .thread:                                          ; preds = %113, %108, %130, %132, %commit_names_peek.exit
-  %.3141 = phi i32 [ %.0138241, %132 ], [ %131, %130 ], [ %.0138241, %commit_names_peek.exit ], [ %.0138241, %108 ], [ %.0138241, %113 ]
+  %.3141 = phi i32 [ %.0138241, %108 ], [ %.0138241, %132 ], [ %131, %130 ], [ %.0138241, %commit_names_peek.exit ], [ %.0138241, %113 ]
   %.not265 = icmp eq i32 %.0121244, 0
   br i1 %.not265, label %._crit_edge234, label %.lr.ph233.preheader
 
@@ -1826,10 +1826,10 @@ _.exit188:                                        ; preds = %183, %186
   %.not163 = icmp eq ptr %209, null
   br i1 %.not163, label %.thread212, label %.lr.ph246
 
-.thread212:                                       ; preds = %208, %hashmap_get_size.exit, %.lr.ph246, %_.exit188, %181
-  %.1139 = phi i32 [ %.3141321, %181 ], [ %.3141321, %_.exit188 ], [ %.3141321, %208 ], [ %.0138241, %hashmap_get_size.exit ], [ %.0138241, %.lr.ph246 ]
-  %.1122 = phi i32 [ %.3325, %181 ], [ %.3325, %_.exit188 ], [ %.3325, %208 ], [ %.0121244, %hashmap_get_size.exit ], [ %.0121244, %.lr.ph246 ]
-  %.1 = phi ptr [ null, %181 ], [ null, %_.exit188 ], [ null, %208 ], [ %96, %hashmap_get_size.exit ], [ %96, %.lr.ph246 ]
+.thread212:                                       ; preds = %208, %.lr.ph246, %hashmap_get_size.exit, %_.exit188, %181
+  %.1139 = phi i32 [ %.3141321, %181 ], [ %.3141321, %_.exit188 ], [ %.0138241, %.lr.ph246 ], [ %.0138241, %hashmap_get_size.exit ], [ %.3141321, %208 ]
+  %.1122 = phi i32 [ %.3325, %181 ], [ %.3325, %_.exit188 ], [ %.0121244, %.lr.ph246 ], [ %.0121244, %hashmap_get_size.exit ], [ %.3325, %208 ]
+  %.1 = phi ptr [ null, %181 ], [ null, %_.exit188 ], [ %96, %.lr.ph246 ], [ %96, %hashmap_get_size.exit ], [ null, %208 ]
   switch i32 %.1122, label %222 [
     i32 0, label %210
     i32 1, label %sane_qsort.exit
@@ -2123,7 +2123,7 @@ _.exit204:                                        ; preds = %310, %313
   br i1 %.not179, label %336, label %.sink.split
 
 .sink.split:                                      ; preds = %333, %213, %39
-  %.sink349 = phi ptr [ %40, %39 ], [ %215, %213 ], [ %334, %333 ]
+  %.sink349 = phi ptr [ %215, %213 ], [ %40, %39 ], [ %334, %333 ]
   %335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink349) #19
   call void @strbuf_add(ptr noundef %1, ptr noundef nonnull %.sink349, i64 noundef %335) #16
   br label %336
@@ -2236,7 +2236,7 @@ define internal fastcc void @append_name(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not29, label %.thread, label %.thread39
 
 .thread39:                                        ; preds = %23, %.thread43, %39
-  %.pr42 = phi ptr [ %.pr.pre.pre, %39 ], [ %22, %.thread43 ], [ %22, %23 ]
+  %.pr42 = phi ptr [ %22, %.thread43 ], [ %.pr.pre.pre, %39 ], [ %22, %23 ]
   %44 = load i32, ptr @all, align 4, !tbaa !4
   %.not30 = icmp eq i32 %44, 0
   br i1 %.not30, label %46, label %45

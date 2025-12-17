@@ -661,7 +661,7 @@ _ZN4ncnn3MatD2Ev.exit9:                           ; preds = %90, %87, %97, %101,
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %4, %106
-  %.0 = phi i32 [ %110, %106 ], [ -1, %4 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
+  %.0 = phi i32 [ -1, %4 ], [ %110, %106 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -7450,7 +7450,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br label %_ZN4ncnn18create_layer_naiveEi.exit
 
 _ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %9, %_ZN4ncnn14layer_to_indexEPKc.exit, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ %12, %9 ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %7 ]
+  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %12, %9 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -7515,7 +7515,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br label %14
 
 14:                                               ; preds = %12, %10, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ @_ZN4ncnnL18layer_registry_fmaE, %10 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %12 ]
+  %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL18layer_registry_fmaE, %10 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %12 ], [ @_ZN4ncnnL21layer_registry_avx512E, %_ZN4ncnn14layer_to_indexEPKc.exit ]
   %15 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.014.i = load ptr, ptr %16, align 8, !tbaa !68
@@ -7538,7 +7538,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   br label %_ZN4ncnn16create_layer_cpuEi.exit
 
 _ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %17
-  %.0 = phi ptr [ %20, %.thread.i ], [ null, %17 ], [ null, %17 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %17 ], [ %20, %.thread.i ], [ null, %7 ]
   ret ptr %.0
 }
 

@@ -2222,8 +2222,8 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   br label %118
 
 98:                                               ; preds = %27, %38
-  %.049 = phi i64 [ %21, %27 ], [ %32, %38 ]
-  %.045 = phi ptr [ %25, %27 ], [ %36, %38 ]
+  %.049 = phi i64 [ %32, %38 ], [ %21, %27 ]
+  %.045 = phi ptr [ %36, %38 ], [ %25, %27 ]
   tail call void @free(ptr noundef nonnull %.045) #14
   br label %.thread
 
@@ -2523,8 +2523,8 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %132
 
 112:                                              ; preds = %29, %43, %47
-  %.082 = phi i64 [ %19, %29 ], [ %.183, %47 ], [ %33, %43 ]
-  %.073 = phi ptr [ %27, %29 ], [ %.1, %47 ], [ %41, %43 ]
+  %.082 = phi i64 [ %33, %43 ], [ %19, %29 ], [ %.183, %47 ]
+  %.073 = phi ptr [ %41, %43 ], [ %27, %29 ], [ %.1, %47 ]
   tail call void @free(ptr noundef nonnull %.073) #14
   br label %.thread128
 
@@ -4315,7 +4315,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %142, %130, %197, %82, %71, %187, %182, %192, %191, %64
-  %.1 = phi i32 [ -1, %64 ], [ -1, %197 ], [ -1, %71 ], [ %.2, %82 ], [ 0, %182 ], [ -1, %187 ], [ -1, %191 ], [ 0, %192 ], [ 0, %142 ], [ -1, %130 ]
+  %.1 = phi i32 [ -1, %64 ], [ 0, %192 ], [ -1, %197 ], [ -1, %71 ], [ %.2, %82 ], [ 0, %182 ], [ -1, %187 ], [ -1, %191 ], [ 0, %142 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %313
 

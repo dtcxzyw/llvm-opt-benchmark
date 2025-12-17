@@ -123,7 +123,7 @@ define hidden noundef nonnull ptr @_ZN19Abstract_VM_Version14vm_info_stringEv() 
   unreachable
 
 21:                                               ; preds = %10, %9, %17, %15, %2
-  %.0 = phi ptr [ %4, %2 ], [ %16, %15 ], [ %18, %17 ], [ %.str.9..str.10, %9 ], [ %.str.11..str.12, %10 ]
+  %.0 = phi ptr [ %4, %2 ], [ %.str.9..str.10, %9 ], [ %18, %17 ], [ %.str.11..str.12, %10 ], [ %16, %15 ]
   ret ptr %.0
 }
 

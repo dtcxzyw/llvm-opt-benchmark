@@ -648,7 +648,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end3.i.i.i.i.i
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i
   br label %if.then95, !llvm.loop !10
 
-if.then95:                                        ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %if.end15.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i
+if.then95:                                        ; preds = %if.end3.i.i.i.i.i, %for.cond.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i, %if.end15.i.i.i
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %str96, ptr noundef %2, ptr nonnull %call13) #22
   %buf_.i18 = getelementptr inbounds nuw i8, ptr %str96, i64 16
   %29 = load ptr, ptr %buf_.i18, align 8
@@ -680,7 +680,7 @@ if.else.loopexit:                                 ; preds = %for.body.i.i.i
   br label %if.else
 
 if.else:                                          ; preds = %for.cond.i.i.i.i.i, %if.else.loopexit, %if.end.i.i.i.i.i
-  %conv108.pre-phi = phi i64 [ %.pre37, %if.else.loopexit ], [ %conv.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %conv.i.i.i.i.i, %for.cond.i.i.i.i.i ]
+  %conv108.pre-phi = phi i64 [ %conv.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %.pre37, %if.else.loopexit ], [ %conv.i.i.i.i.i, %for.cond.i.i.i.i.i ]
   store i64 %conv108.pre-phi, ptr %ref.tmp107, align 8
   %34 = load i8, ptr %arrayidx.i.i, align 1
   %tobool.i.i385 = trunc i8 %34 to i1
@@ -1368,7 +1368,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
@@ -1824,7 +1824,7 @@ if.end8.sink.split.i.i.i.i38:                     ; preds = %_ZN9__gnu_cxx27__ex
 cleanup.done:                                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25
   br i1 %tobool593, label %do.body, label %if.end40
 
-do.body:                                          ; preds = %land.lhs.true, %if.end8.sink.split.i.i.i.i38, %cleanup.action, %cleanup.done
+do.body:                                          ; preds = %land.lhs.true, %cleanup.action, %if.end8.sink.split.i.i.i.i38, %cleanup.done
   %coverage_connection_.i = getelementptr inbounds nuw i8, ptr %env, i64 1496
   %34 = load ptr, ptr %coverage_connection_.i, align 8
   %cmp30.not = icmp eq ptr %34, null
@@ -1896,7 +1896,7 @@ _ZNSt10unique_ptrIN4node8profiler20V8CoverageConnectionESt14default_deleteIS2_EE
   %call2.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %call.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i1 noundef zeroext false)
   br label %if.end40
 
-if.end40:                                         ; preds = %if.end8.sink.split.i.i.i.i38, %cleanup.action, %_ZNSt10unique_ptrIN4node8profiler20V8CoverageConnectionESt14default_deleteIS2_EED2Ev.exit, %cleanup.done
+if.end40:                                         ; preds = %cleanup.action, %if.end8.sink.split.i.i.i.i38, %_ZNSt10unique_ptrIN4node8profiler20V8CoverageConnectionESt14default_deleteIS2_EED2Ev.exit, %cleanup.done
   %options_.i50 = getelementptr inbounds nuw i8, ptr %env, i64 1696
   %39 = load ptr, ptr %options_.i50, align 8, !noalias !31
   %_M_refcount3.i.i.i52 = getelementptr inbounds nuw i8, ptr %env, i64 1704
@@ -3546,7 +3546,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end8, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end8 ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end8 ]
   %18 = load i32, ptr %length_.i52, align 8
   %cmp2.i = icmp slt i32 %18, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -6507,7 +6507,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !330
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %__val.lobit = lshr i32 %__val, 31
   %add2 = add i32 %retval.0.i, %__val.lobit
   %conv3 = zext i32 %add2 to i64

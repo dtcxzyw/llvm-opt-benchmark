@@ -1141,7 +1141,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -3117,7 +3117,7 @@ _ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPPFviEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFviEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPFviEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3216,7 +3216,7 @@ _ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.
   br label %_ZSt27__uninitialized_default_n_aIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPFvRK6boardsRSt6vectorIiSaIiEES6_EmS8_ET_SA_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3315,7 +3315,7 @@ _ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPPFviiEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFviiEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPFviiEmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3414,7 +3414,7 @@ _ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i: ; pr
   br label %_ZSt27__uninitialized_default_n_aIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPFvRKSt6vectorIiSaIiEEEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3850,13 +3850,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %126, label %common.resume, label %.preheader.i
 
 common.resume.sink.split:                         ; preds = %.body75, %110, %.body123, %357, %.body96, %242, %.body87, %183
-  %.sink = phi ptr [ %37, %183 ], [ %37, %.body87 ], [ %33, %242 ], [ %33, %.body96 ], [ %23, %357 ], [ %23, %.body123 ], [ %43, %110 ], [ %43, %.body75 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %184, %183 ], [ %136, %.body87 ], [ %243, %242 ], [ %209, %.body96 ], [ %358, %357 ], [ %264, %.body123 ], [ %111, %110 ], [ %57, %.body75 ]
+  %.sink = phi ptr [ %33, %.body96 ], [ %37, %.body87 ], [ %23, %.body123 ], [ %37, %183 ], [ %33, %242 ], [ %23, %357 ], [ %43, %110 ], [ %43, %.body75 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %209, %.body96 ], [ %136, %.body87 ], [ %264, %.body123 ], [ %184, %183 ], [ %243, %242 ], [ %358, %357 ], [ %111, %110 ], [ %57, %.body75 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %.preheader.i, %.preheader.i12, %.preheader.i45, %.preheader.i56, %common.resume.sink.split, %.body.i54, %.body.i42, %.body.i8, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.i10, %.body.i8 ], [ %.pn.pn.i43, %.body.i42 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i54 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i56 ], [ %.pn.pn.i43, %.preheader.i45 ], [ %.pn.pn.pn.pn.i10, %.preheader.i12 ], [ %.pn.pn.pn.pn.i, %.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.i10, %.body.i8 ], [ %.pn.pn.i43, %.body.i42 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i54 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %.pn.pn.pn.pn.i10, %.preheader.i12 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i56 ], [ %.pn.pn.i43, %.preheader.i45 ], [ %.pn.pn.pn.pn.i, %.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit.i

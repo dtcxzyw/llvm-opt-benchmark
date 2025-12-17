@@ -513,12 +513,12 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_deltas(ptr noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %17, %13, %14, %11, %9, %.thread47
-  %.sink = phi double [ %33, %.thread47 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %11 ], [ -1.000000e+00, %14 ], [ -1.000000e+00, %13 ], [ 1.000000e+00, %17 ], [ 1.000000e+00, %16 ]
+  %.sink = phi double [ 0.000000e+00, %11 ], [ -1.000000e+00, %13 ], [ %33, %.thread47 ], [ 0.000000e+00, %9 ], [ -1.000000e+00, %14 ], [ 1.000000e+00, %17 ], [ 1.000000e+00, %16 ]
   store double %.sink, ptr %2, align 8, !tbaa !59
   br label %34
 
 34:                                               ; preds = %.sink.split, %8, %10, %12, %15, %24, %23, %5, %9, %11, %31, %3
-  %.029 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ], [ 0, %15 ], [ 0, %24 ], [ 0, %23 ], [ 1, %9 ], [ 1, %11 ], [ 1, %31 ], [ 1, %.sink.split ]
+  %.029 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %23 ], [ 0, %8 ], [ 1, %9 ], [ 0, %10 ], [ 0, %12 ], [ 0, %15 ], [ 1, %11 ], [ 0, %24 ], [ 1, %31 ], [ 1, %.sink.split ]
   ret i32 %.029
 }
 
@@ -659,7 +659,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_deltas(ptr noundef %0, ptr no
   br label %51
 
 51:                                               ; preds = %26, %8, %11, %17, %14, %21, %18, %27, %5, %10, %9, %13, %12, %40, %49, %48, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 1, %17 ], [ 0, %14 ], [ 1, %21 ], [ 0, %18 ], [ 0, %26 ], [ 0, %27 ], [ 1, %10 ], [ 1, %9 ], [ 1, %13 ], [ 1, %12 ], [ 0, %40 ], [ 1, %49 ], [ 1, %48 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %27 ], [ 0, %8 ], [ 1, %9 ], [ 0, %11 ], [ 1, %17 ], [ 0, %14 ], [ 1, %21 ], [ 0, %18 ], [ 0, %26 ], [ 1, %12 ], [ 0, %40 ], [ 1, %10 ], [ 1, %13 ], [ 1, %49 ], [ 1, %48 ]
   ret i32 %.0
 }
 
@@ -775,7 +775,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_unit_delta(ptr noundef %0, ptr nou
   %32 = fptosi double %25 to i32
   br label %33
 
-33:                                               ; preds = %4, %8, %9, %7, %28
+33:                                               ; preds = %4, %28, %7, %8, %9
   %.04.ph = phi i32 [ %31, %28 ], [ 0, %9 ], [ 0, %8 ], [ 1, %7 ], [ -1, %4 ]
   %.03.ph = phi i32 [ %32, %28 ], [ 1, %9 ], [ -1, %8 ], [ 0, %7 ], [ 0, %4 ]
   %34 = add nsw i32 %.03.ph, %.04.ph
@@ -1764,7 +1764,7 @@ define noundef i32 @dt_gui_gtk_init(ptr noundef initializes((0, 5608)) %0) local
   br label %dt_configure_ppd_dpi.exit.i
 
 dt_configure_ppd_dpi.exit.i:                      ; preds = %48, %47, %46, %45
-  %.0.i.i.i = phi nsz double [ 1.000000e+00, %46 ], [ 1.000000e+00, %45 ], [ %41, %48 ], [ %41, %47 ]
+  %.0.i.i.i = phi nsz double [ 1.000000e+00, %45 ], [ 1.000000e+00, %46 ], [ %41, %48 ], [ %41, %47 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store double %.0.i.i.i, ptr %49, align 8, !tbaa !102
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1432
@@ -2745,7 +2745,7 @@ define internal i32 @_configure(ptr noundef %0, ptr noundef %1, ptr noundef init
   br label %dt_configure_ppd_dpi.exit
 
 dt_configure_ppd_dpi.exit:                        ; preds = %12, %13, %14, %15
-  %.0.i.i = phi nsz double [ 1.000000e+00, %13 ], [ 1.000000e+00, %12 ], [ %8, %15 ], [ %8, %14 ]
+  %.0.i.i = phi nsz double [ 1.000000e+00, %12 ], [ 1.000000e+00, %13 ], [ %8, %15 ], [ %8, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1440
   store double %.0.i.i, ptr %16, align 8, !tbaa !102
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1432
@@ -3529,7 +3529,7 @@ define double @dt_get_system_gui_ppd(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %10, %7, %8
-  %.0 = phi nsz double [ 1.000000e+00, %8 ], [ 1.000000e+00, %7 ], [ %3, %10 ], [ %3, %9 ]
+  %.0 = phi nsz double [ 1.000000e+00, %7 ], [ 1.000000e+00, %8 ], [ %3, %10 ], [ %3, %9 ]
   ret double %.0
 }
 
@@ -3584,7 +3584,7 @@ define double @dt_get_screen_resolution(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %19, %15, %23, %20, %6, %9
-  %.0 = phi nsz float [ %2, %9 ], [ %2, %6 ], [ 9.600000e+01, %19 ], [ 9.600000e+01, %15 ], [ %12, %23 ], [ %12, %20 ]
+  %.0 = phi nsz float [ %12, %20 ], [ %2, %9 ], [ %2, %6 ], [ %12, %23 ], [ 9.600000e+01, %19 ], [ 9.600000e+01, %15 ]
   %25 = fpext reassoc nsz arcp contract afn float %.0 to double
   ret double %25
 }
@@ -3626,7 +3626,7 @@ define void @dt_configure_ppd_dpi(ptr noundef captures(none) initializes((1416, 
   br label %dt_get_system_gui_ppd.exit
 
 dt_get_system_gui_ppd.exit:                       ; preds = %10, %11, %12, %13
-  %.0.i = phi nsz double [ 1.000000e+00, %11 ], [ 1.000000e+00, %10 ], [ %6, %13 ], [ %6, %12 ]
+  %.0.i = phi nsz double [ 1.000000e+00, %10 ], [ 1.000000e+00, %11 ], [ %6, %13 ], [ %6, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store double %.0.i, ptr %14, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1432
@@ -4245,8 +4245,8 @@ _panels_get_panel_path.exit:                      ; preds = %1
   br label %22
 
 22:                                               ; preds = %_panels_get_panel_path.exit.thread, %12, %20, %18, %6, %_panels_get_panel_path.exit
-  %.0.i11 = phi ptr [ %5, %6 ], [ null, %_panels_get_panel_path.exit ], [ %5, %12 ], [ %5, %18 ], [ %5, %20 ], [ null, %_panels_get_panel_path.exit.thread ]
-  %.0 = phi i32 [ 120, %6 ], [ 120, %_panels_get_panel_path.exit ], [ %13, %12 ], [ %19, %18 ], [ %21, %20 ], [ 120, %_panels_get_panel_path.exit.thread ]
+  %.0.i11 = phi ptr [ null, %_panels_get_panel_path.exit ], [ %5, %6 ], [ %5, %12 ], [ %5, %18 ], [ %5, %20 ], [ null, %_panels_get_panel_path.exit.thread ]
+  %.0 = phi i32 [ 120, %_panels_get_panel_path.exit ], [ 120, %6 ], [ %13, %12 ], [ %19, %18 ], [ %21, %20 ], [ 120, %_panels_get_panel_path.exit.thread ]
   call void @gtk_widget_set_size_request(ptr noundef %0, i32 noundef -1, i32 noundef %.0) #18
   call void @g_free(ptr noundef %.0.i11) #18
   ret void
@@ -4930,7 +4930,7 @@ define range(i32 0, 2) i32 @dt_gui_show_standalone_yes_no_dialog(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %4, %14, %20, %24
-  %.sink60 = phi i32 [ 4, %24 ], [ 2, %20 ], [ 2, %14 ], [ 2, %4 ]
+  %.sink60 = phi i32 [ 4, %24 ], [ 2, %14 ], [ 2, %20 ], [ 2, %4 ]
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %9) #18
   tail call void @gtk_window_set_position(ptr noundef %27, i32 noundef %.sink60) #18
   %28 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef %8) #18
@@ -5494,7 +5494,7 @@ _get_base_url.exit:                               ; preds = %12, %16
   br i1 %.not63.not, label %.thread86, label %46
 
 .thread86:                                        ; preds = %46, %56, %.thread71, %.thread90
-  %58 = phi i64 [ %indvars.iv, %.thread90 ], [ 0, %.thread71 ], [ 0, %46 ], [ %indvars.iv, %56 ]
+  %58 = phi i64 [ 0, %.thread71 ], [ %indvars.iv, %.thread90 ], [ 0, %46 ], [ %indvars.iv, %56 ]
   %59 = load ptr, ptr %2, align 8, !tbaa !126
   %sext = shl i64 %58, 32
   %60 = ashr exact i64 %sext, 29
@@ -6127,7 +6127,7 @@ dt_gui_get_scroll_unit_delta.exit:                ; preds = %21, %24, %25, %26, 
   br label %dt_gui_ignore_scroll.exit.thread9
 
 dt_gui_ignore_scroll.exit.thread9:                ; preds = %32, %31, %21, %dt_gui_ignore_scroll.exit.thread, %15, %dt_gui_get_scroll_unit_delta.exit, %51, %dt_gui_ignore_scroll.exit
-  %.0 = phi i32 [ 0, %dt_gui_ignore_scroll.exit ], [ 1, %51 ], [ 1, %dt_gui_get_scroll_unit_delta.exit ], [ 0, %15 ], [ 1, %dt_gui_ignore_scroll.exit.thread ], [ 1, %21 ], [ 1, %31 ], [ 1, %32 ]
+  %.0 = phi i32 [ 1, %dt_gui_get_scroll_unit_delta.exit ], [ 0, %dt_gui_ignore_scroll.exit ], [ 0, %15 ], [ 1, %51 ], [ 1, %dt_gui_ignore_scroll.exit.thread ], [ 1, %21 ], [ 1, %31 ], [ 1, %32 ]
   ret i32 %.0
 }
 
@@ -6709,7 +6709,7 @@ DTGTK_IS_DRAWING_AREA.exit.thread:                ; preds = %4, %DTGTK_IS_DRAWIN
   br label %46
 
 46:                                               ; preds = %DTGTK_IS_DRAWING_AREA.exit.thread17, %DTGTK_IS_DRAWING_AREA.exit.thread, %45, %44
-  %.0 = phi i32 [ 0, %45 ], [ 1, %44 ], [ 1, %DTGTK_IS_DRAWING_AREA.exit.thread ], [ 1, %DTGTK_IS_DRAWING_AREA.exit.thread17 ]
+  %.0 = phi i32 [ 1, %44 ], [ 0, %45 ], [ 1, %DTGTK_IS_DRAWING_AREA.exit.thread ], [ 1, %DTGTK_IS_DRAWING_AREA.exit.thread17 ]
   ret i32 %.0
 }
 

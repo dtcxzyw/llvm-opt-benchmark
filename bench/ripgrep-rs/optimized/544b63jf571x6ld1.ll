@@ -489,7 +489,7 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
   br label %17
 
 17:                                               ; preds = %18, %21, %12, %15
-  %storemerge7 = phi i32 [ 0, %15 ], [ 1, %12 ], [ 0, %21 ], [ 1, %18 ]
+  %storemerge7 = phi i32 [ 1, %12 ], [ 0, %15 ], [ 0, %21 ], [ 1, %18 ]
   store i32 %storemerge7, ptr %0, align 8
   ret void
 
@@ -895,7 +895,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 99:                                               ; preds = %.split202.us, %.split181.us, %.split188.us, %.split195.us
-  %.sink = phi i64 [ %91, %.split195.us ], [ %84, %.split188.us ], [ %77, %.split181.us ], [ %96, %.split202.us ]
+  %.sink = phi i64 [ %84, %.split188.us ], [ %91, %.split195.us ], [ %77, %.split181.us ], [ %96, %.split202.us ]
   %100 = getelementptr inbounds i32, ptr %10, i64 %.sink
   %.068 = load i32, ptr %100, align 4, !noundef !5
   br label %.loopexit
@@ -950,7 +950,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %118, label %119, label %.split210, !prof !18
 
 .loopexit:                                        ; preds = %114, %39, %.loopexit.split.loop.exit153.split.us, %19, %110, %99
-  %.1 = phi i32 [ %.068, %99 ], [ %112, %110 ], [ 0, %19 ], [ %28, %.loopexit.split.loop.exit153.split.us ], [ 0, %39 ], [ %116, %114 ]
+  %.1 = phi i32 [ %112, %110 ], [ %.068, %99 ], [ 0, %19 ], [ %28, %.loopexit.split.loop.exit153.split.us ], [ 0, %39 ], [ %116, %114 ]
   ret i32 %.1
 
 119:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread"
@@ -1418,7 +1418,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   br i1 %.not.not, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread, label %.split46
 
 .split46:                                         ; preds = %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us
-  %.us-phi48 = phi i32 [ 0, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread ], [ %.0.i.us.fr, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit ]
+  %.us-phi48 = phi i32 [ %.0.i.us.fr, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us ], [ 0, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread ], [ %.0.i, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit ]
   ret i32 %.us-phi48
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread: ; preds = %60, %69, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit

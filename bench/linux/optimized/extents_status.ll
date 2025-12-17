@@ -1434,7 +1434,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br label %.thread129
 
 .thread129:                                       ; preds = %515, %551, %.thread126, %533, %556
-  %558 = phi ptr [ %110, %556 ], [ null, %533 ], [ %110, %.thread126 ], [ %110, %551 ], [ %110, %515 ]
+  %558 = phi ptr [ null, %533 ], [ %110, %556 ], [ %110, %.thread126 ], [ %110, %551 ], [ %110, %515 ]
   %559 = load i32, ptr %148, align 16
   %560 = sub i32 0, %559
   %561 = and i32 %8, %560
@@ -1690,7 +1690,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br label %.thread116
 
 .thread116:                                       ; preds = %662, %698, %251, %376, %412, %.thread116.sink.split, %.thread141, %.thread114
-  %704 = phi ptr [ %110, %.thread114 ], [ %558, %.thread141 ], [ %.ph, %.thread116.sink.split ], [ %110, %412 ], [ %110, %376 ], [ %110, %251 ], [ %558, %698 ], [ %558, %662 ]
+  %704 = phi ptr [ %110, %.thread114 ], [ %558, %.thread141 ], [ %.ph, %.thread116.sink.split ], [ %558, %698 ], [ %110, %412 ], [ %110, %376 ], [ %110, %251 ], [ %558, %662 ]
   %.not = icmp eq ptr %704, null
   br i1 %.not, label %.thread146, label %705
 
@@ -2095,7 +2095,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_remove_extent(ptr nou
   br label %.thread52
 
 .thread52:                                        ; preds = %177, %159, %196, %191, %180
-  %204 = phi ptr [ %160, %180 ], [ %160, %196 ], [ %160, %191 ], [ null, %159 ], [ null, %177 ]
+  %204 = phi ptr [ %160, %191 ], [ %160, %196 ], [ %160, %180 ], [ null, %159 ], [ null, %177 ]
   br i1 %22, label %205, label %.thread44
 
 205:                                              ; preds = %.thread53, %.thread52
@@ -2326,7 +2326,7 @@ thread-pre-split:                                 ; preds = %205
   br i1 %336, label %.loopexit, label %.thread55, !llvm.loop !51
 
 .loopexit:                                        ; preds = %332, %328, %.thread55, %300, %298, %._crit_edge, %thread-pre-split
-  %337 = phi i32 [ 0, %thread-pre-split ], [ %.pre80, %._crit_edge ], [ %.promoted, %298 ], [ %.promoted, %300 ], [ %325, %.thread55 ], [ %325, %328 ], [ %333, %332 ]
+  %337 = phi i32 [ 0, %thread-pre-split ], [ %.pre80, %._crit_edge ], [ %.promoted, %300 ], [ %.promoted, %298 ], [ %325, %.thread55 ], [ %325, %328 ], [ %333, %332 ]
   store i32 %337, ptr %3, align 4
   br label %.thread44
 
@@ -2338,7 +2338,7 @@ thread-pre-split:                                 ; preds = %205
   br label %.thread44
 
 .thread44:                                        ; preds = %139, %21, %51, %.thread48, %338, %.loopexit, %.thread52, %.thread45, %54
-  %340 = phi i32 [ 0, %.thread45 ], [ 0, %.loopexit ], [ 0, %.thread52 ], [ 0, %54 ], [ %121, %338 ], [ 0, %.thread48 ], [ 0, %51 ], [ 0, %21 ], [ 0, %139 ]
+  %340 = phi i32 [ 0, %.thread48 ], [ 0, %.thread45 ], [ 0, %.loopexit ], [ 0, %.thread52 ], [ 0, %54 ], [ %121, %338 ], [ 0, %21 ], [ 0, %51 ], [ 0, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %340
@@ -2694,7 +2694,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   unreachable
 
 .critedge:                                        ; preds = %142, %129, %144, %33, %18, %35, %163, %54
-  %221 = phi i64 [ 16, %54 ], [ 8, %163 ], [ 16, %35 ], [ 16, %18 ], [ 16, %33 ], [ 8, %144 ], [ 8, %129 ], [ 8, %142 ]
+  %221 = phi i64 [ 16, %54 ], [ 8, %163 ], [ 16, %33 ], [ 16, %35 ], [ 16, %18 ], [ 8, %144 ], [ 8, %129 ], [ 8, %142 ]
   %222 = load ptr, ptr %13, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 %221
   %224 = load ptr, ptr %223, align 8
@@ -3747,9 +3747,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_es_scan(ptr noundef
   br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %135, %97, %82, %43
-  %137 = phi i32 [ %44, %43 ], [ %52, %82 ], [ %52, %97 ], [ %131, %135 ]
-  %138 = phi i32 [ 0, %43 ], [ %55, %82 ], [ %55, %97 ], [ %133, %135 ]
-  %139 = phi i32 [ %48, %43 ], [ %59, %82 ], [ %59, %97 ], [ %.us-phi49, %135 ]
+  %137 = phi i32 [ %44, %43 ], [ %52, %97 ], [ %52, %82 ], [ %131, %135 ]
+  %138 = phi i32 [ 0, %43 ], [ %55, %97 ], [ %55, %82 ], [ %133, %135 ]
+  %139 = phi i32 [ %48, %43 ], [ %59, %97 ], [ %59, %82 ], [ %.us-phi49, %135 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %39) #11
   %140 = icmp ne i32 %138, 0
   %141 = icmp eq i32 %139, 0

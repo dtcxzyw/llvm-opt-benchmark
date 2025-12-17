@@ -107,7 +107,7 @@ define dso_local void @_Z6lookat3vecILi3EES0_S0_(ptr noundef readonly byval(%str
   br label %_ZNK3vecILi3EEixEi.exit.i
 
 _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %15, %14, %12
-  %.in.i.i = phi ptr [ %10, %14 ], [ %11, %15 ], [ %0, %12 ]
+  %.in.i.i = phi ptr [ %11, %15 ], [ %10, %14 ], [ %0, %12 ]
   %16 = load double, ptr %.in.i.i, align 8, !tbaa !8, !noalias !10
   %.not.i.i = icmp eq i32 %13, 0
   %17 = icmp eq i32 %13, 1
@@ -477,7 +477,7 @@ define dso_local void @_Z11barycentricPK3vecILi2EES0_(ptr dead_on_unwind noalias
   br label %_ZNK3vecILi3EEixEi.exit.i.i
 
 _ZNK3vecILi3EEixEi.exit.i.i:                      ; preds = %30, %29, %27
-  %.in.i.i.i = phi ptr [ %9, %29 ], [ %12, %30 ], [ %6, %27 ]
+  %.in.i.i.i = phi ptr [ %12, %30 ], [ %9, %29 ], [ %6, %27 ]
   %31 = load double, ptr %.in.i.i.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -533,7 +533,7 @@ _ZNK3vecILi3EEixEi.exit.i.i:                      ; preds = %30, %29, %27
   br label %_ZNK3vecILi3EEixEi.exit.i.i.i
 
 _ZNK3vecILi3EEixEi.exit.i.i.i:                    ; preds = %51, %50, %45
-  %.in.i.i.i.i = phi ptr [ %35, %50 ], [ %36, %51 ], [ %33, %45 ]
+  %.in.i.i.i.i = phi ptr [ %36, %51 ], [ %35, %50 ], [ %33, %45 ]
   %52 = load double, ptr %.in.i.i.i.i, align 8, !tbaa !8
   %.not.i.i.i.i = icmp eq i32 %46, 0
   %.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i.i.i, i64 0, i64 8
@@ -776,7 +776,7 @@ _ZdvILi3ELi3EE3matIXT_EXT0_EERKS1_RKd.exit:       ; preds = %_ZdvILi3EE3vecIXT_E
   br label %_ZNK3vecILi3EEixEi.exit.i10
 
 _ZNK3vecILi3EEixEi.exit.i10:                      ; preds = %54, %53, %48
-  %.in.i.i = phi ptr [ %38, %53 ], [ %39, %54 ], [ %36, %48 ]
+  %.in.i.i = phi ptr [ %39, %54 ], [ %38, %53 ], [ %36, %48 ]
   %55 = load double, ptr %.in.i.i, align 8, !tbaa !8
   %.not.i.i = icmp eq i32 %49, 0
   %.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i, i64 0, i64 8
@@ -1219,7 +1219,7 @@ define internal void @_Z9rasterizePK3vecILi4EERK7IShaderR8TGAImageRSt6vectorIdSa
   br label %_ZNK3vecILi3EEixEi.exit.i.i.i
 
 _ZNK3vecILi3EEixEi.exit.i.i.i:                    ; preds = %78, %77, %75
-  %.in.i.i.i.i = phi ptr [ %35, %77 ], [ %37, %78 ], [ %17, %75 ]
+  %.in.i.i.i.i = phi ptr [ %37, %78 ], [ %35, %77 ], [ %17, %75 ]
   %79 = load double, ptr %.in.i.i.i.i, align 8, !tbaa !8, !noalias !104
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !noalias !104
@@ -1275,7 +1275,7 @@ _ZNK3vecILi3EEixEi.exit.i.i.i:                    ; preds = %78, %77, %75
   br label %_ZNK3vecILi3EEixEi.exit.i.i.i.i
 
 _ZNK3vecILi3EEixEi.exit.i.i.i.i:                  ; preds = %99, %98, %93
-  %.in.i.i.i.i.i = phi ptr [ %83, %98 ], [ %84, %99 ], [ %81, %93 ]
+  %.in.i.i.i.i.i = phi ptr [ %84, %99 ], [ %83, %98 ], [ %81, %93 ]
   %100 = load double, ptr %.in.i.i.i.i.i, align 8, !tbaa !8, !noalias !104
   %.not.i.i.i.i.i = icmp eq i32 %94, 0
   %.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i.i.i.i, i64 0, i64 8
@@ -1446,7 +1446,7 @@ _ZdvILi3EE3vecIXT_EERKS1_RKd.exit.i.i:            ; preds = %121
   br label %_ZNK3vecILi3EEixEi.exit.i10.i
 
 _ZNK3vecILi3EEixEi.exit.i10.i:                    ; preds = %146, %145, %140
-  %.in.i.i.i51 = phi ptr [ %.sroa.sel.sroa.sel76.v.sroa.sel.v.sroa.sel, %145 ], [ %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, %146 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %140 ]
+  %.in.i.i.i51 = phi ptr [ %.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, %146 ], [ %.sroa.sel.sroa.sel76.v.sroa.sel.v.sroa.sel, %145 ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %140 ]
   %147 = load double, ptr %.in.i.i.i51, align 8, !tbaa !8, !noalias !107
   %.not.i.i.i52 = icmp eq i32 %141, 0
   %.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i.i.i52, i64 0, i64 8

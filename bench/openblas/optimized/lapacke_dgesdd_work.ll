@@ -68,9 +68,9 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br label %36
 
 36:                                               ; preds = %.thread.thread, %.thread, %.thread133
-  %37 = phi i1 [ %33, %.thread133 ], [ %34, %.thread ], [ %33, %.thread.thread ]
-  %38 = phi i32 [ %2, %.thread133 ], [ %spec.select147, %.thread ], [ %2, %.thread.thread ]
-  %.ph = phi i32 [ %35, %.thread133 ], [ %2, %.thread ], [ %2, %.thread.thread ]
+  %37 = phi i1 [ %34, %.thread ], [ %33, %.thread133 ], [ %33, %.thread.thread ]
+  %38 = phi i32 [ %spec.select147, %.thread ], [ %2, %.thread133 ], [ %2, %.thread.thread ]
+  %.ph = phi i32 [ %2, %.thread ], [ %35, %.thread133 ], [ %2, %.thread.thread ]
   %.not64 = icmp eq i32 %32, 0
   %or.cond107 = or i1 %37, %.not64
   %brmerge.not = and i1 %.not58, %or.cond107
@@ -88,9 +88,9 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br label %.thread142
 
 .thread142:                                       ; preds = %.thread136, %36, %28, %39
-  %41 = phi i32 [ %.ph, %39 ], [ %2, %28 ], [ %.ph, %36 ], [ 1, %.thread136 ]
-  %42 = phi i32 [ %38, %39 ], [ %2, %28 ], [ %38, %36 ], [ %spec.select147, %.thread136 ]
-  %43 = phi i32 [ %40, %39 ], [ %3, %28 ], [ %.mux, %36 ], [ %spec.select148, %.thread136 ]
+  %41 = phi i32 [ 1, %.thread136 ], [ %.ph, %39 ], [ %.ph, %36 ], [ %2, %28 ]
+  %42 = phi i32 [ %spec.select147, %.thread136 ], [ %38, %39 ], [ %38, %36 ], [ %2, %28 ]
+  %43 = phi i32 [ %spec.select148, %.thread136 ], [ %40, %39 ], [ %.mux, %36 ], [ %3, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %44 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   store i32 %44, ptr %23, align 4, !tbaa !6
@@ -195,7 +195,7 @@ define i32 @LAPACKE_dgesdd_work(i32 noundef %0, i8 noundef signext %1, i32 nound
   br i1 %or.cond109, label %92, label %85
 
 85:                                               ; preds = %.thread93.thread, %.thread93, %82
-  %.04797 = phi ptr [ %80, %.thread93 ], [ %80, %82 ], [ %.04798146, %.thread93.thread ]
+  %.04797 = phi ptr [ %.04798146, %.thread93.thread ], [ %80, %.thread93 ], [ %80, %82 ]
   %86 = zext nneg i32 %46 to i64
   %87 = shl nuw nsw i64 %64, 3
   %88 = mul i64 %87, %86

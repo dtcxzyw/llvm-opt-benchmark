@@ -1259,7 +1259,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   br label %"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h8a1d1899a6b9af21E.llvm.11137950688059199535.exit"
 
 "_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h8a1d1899a6b9af21E.llvm.11137950688059199535.exit": ; preds = %2, %7, %8, %9
-  %.0.i.i = phi i32 [ 57, %7 ], [ 102, %9 ], [ 122, %8 ], [ 0, %2 ]
+  %.0.i.i = phi i32 [ 122, %8 ], [ 57, %7 ], [ 0, %2 ], [ 102, %9 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   %10 = load ptr, ptr %0, align 8, !alias.scope !388, !nonnull !18, !align !44, !noundef !18
@@ -1774,7 +1774,7 @@ define hidden noundef range(i32 0, 123) i32 @"_ZN75_$LT$uu_split..number..Dynami
   br label %_ZN8uu_split6number9map_digit17h3462e8fac456b162E.exit
 
 _ZN8uu_split6number9map_digit17h3462e8fac456b162E.exit: ; preds = %2, %6, %7, %8
-  %.0.i = phi i32 [ 57, %6 ], [ 102, %8 ], [ 122, %7 ], [ 0, %2 ]
+  %.0.i = phi i32 [ 122, %7 ], [ 57, %6 ], [ 0, %2 ], [ 102, %8 ]
   ret i32 %.0.i
 }
 

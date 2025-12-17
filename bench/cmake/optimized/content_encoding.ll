@@ -184,7 +184,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %19, %17, %17, %21
-  %.1105 = phi i64 [ %23, %21 ], [ %.0104, %17 ], [ %.0104, %17 ], [ %.0104, %19 ]
+  %.1105 = phi i64 [ %.0104, %17 ], [ %.0104, %17 ], [ %.0104, %19 ], [ %23, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
   %.pr = load i8, ptr %25, align 1, !tbaa !4
   br label %17, !llvm.loop !18
@@ -327,7 +327,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not52.i, label %find_unencode_writer.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread145, %81, %79, %78
-  %84 = phi i1 [ %48, %81 ], [ %48, %79 ], [ %48, %78 ], [ false, %.thread145 ]
+  %84 = phi i1 [ false, %.thread145 ], [ %48, %81 ], [ %48, %79 ], [ %48, %78 ]
   br label %85
 
 85:                                               ; preds = %102, %.loopexit.i
@@ -370,8 +370,8 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not42.i, label %find_unencode_writer.exit.thread, label %85, !llvm.loop !90
 
 find_unencode_writer.exit:                        ; preds = %89, %98, %75, %81
-  %105 = phi i1 [ %48, %81 ], [ %48, %75 ], [ %84, %98 ], [ %84, %89 ]
-  %.3.i = phi ptr [ @Curl_httpchunk_unencoder, %81 ], [ @Curl_httpchunk_unencoder, %75 ], [ %86, %98 ], [ %86, %89 ]
+  %105 = phi i1 [ %48, %75 ], [ %48, %81 ], [ %84, %98 ], [ %84, %89 ]
+  %.3.i = phi ptr [ @Curl_httpchunk_unencoder, %75 ], [ @Curl_httpchunk_unencoder, %81 ], [ %86, %98 ], [ %86, %89 ]
   br i1 %105, label %106, label %find_unencode_writer.exit.thread
 
 106:                                              ; preds = %find_unencode_writer.exit
@@ -427,7 +427,7 @@ find_unencode_writer.exit.thread:                 ; preds = %102, %find_unencode
   br label %.thread154
 
 find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_unencode_writer.exit.thread
-  %spec.store.select209 = phi ptr [ %spec.store.select, %123 ], [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %.3.i, %106 ]
+  %spec.store.select209 = phi ptr [ %spec.store.select, %find_unencode_writer.exit.thread ], [ %spec.store.select, %123 ], [ %.3.i, %106 ]
   %126 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select209, i32 noundef %6) #8
   br i1 %.not126, label %141, label %127
 
@@ -476,8 +476,8 @@ find_unencode_writer.exit.thread.thread:          ; preds = %106, %123, %find_un
   call void @Curl_cwriter_free(ptr noundef %0, ptr noundef %146) #8
   br label %.thread154
 
-.thread154:                                       ; preds = %141, %73, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109, %108
-  %.2.ph = phi i32 [ 0, %108 ], [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ %144, %145 ], [ 61, %73 ], [ %126, %141 ]
+.thread154:                                       ; preds = %141, %73, %108, %145, %125, %64, %63, %57, %52, %121, %120, %114, %109
+  %.2.ph = phi i32 [ 0, %109 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %52 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ], [ 61, %125 ], [ %144, %145 ], [ 0, %108 ], [ 61, %73 ], [ %126, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -754,7 +754,7 @@ process_zlib_error.exit.i26:                      ; preds = %34, %33, %29
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %process_zlib_error.exit.i26, %27, %process_zlib_error.exit.i, %18, %35
-  %.1 = phi i32 [ 0, %35 ], [ 23, %process_zlib_error.exit.i ], [ 23, %18 ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %27 ]
+  %.1 = phi i32 [ 0, %35 ], [ 23, %18 ], [ 23, %process_zlib_error.exit.i ], [ %.1.i27, %process_zlib_error.exit.i26 ], [ 0, %27 ]
   ret i32 %.1
 }
 
@@ -979,8 +979,8 @@ process_zlib_error.exit102:                       ; preds = %75, %76
   store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
-exit_zlib.exit90.thread:                          ; preds = %51, %84, %82, %72, %70, %52, %process_zlib_error.exit.i, %48
-  %.169 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %84 ], [ 61, %82 ], [ 61, %72 ], [ 61, %70 ], [ %53, %52 ], [ 0, %51 ]
+exit_zlib.exit90.thread:                          ; preds = %51, %84, %82, %70, %52, %72, %48, %process_zlib_error.exit.i
+  %.169 = phi i32 [ %41, %process_zlib_error.exit.i ], [ %41, %48 ], [ 61, %84 ], [ 61, %82 ], [ 61, %70 ], [ %53, %52 ], [ 61, %72 ], [ 0, %51 ]
   %86 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %86(ptr noundef nonnull %19) #8
   %.not80 = icmp eq i32 %7, 0
@@ -996,7 +996,7 @@ exit_zlib.exit90.thread:                          ; preds = %51, %84, %82, %72, 
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %33, %31, %15, %13, %exit_zlib.exit90.thread, %87, %90
-  %.0 = phi i32 [ %.169, %90 ], [ %.169, %87 ], [ %.169, %exit_zlib.exit90.thread ], [ 23, %13 ], [ 23, %15 ], [ 27, %31 ], [ 27, %33 ]
+  %.0 = phi i32 [ %.169, %exit_zlib.exit90.thread ], [ 23, %15 ], [ %.169, %90 ], [ %.169, %87 ], [ 23, %13 ], [ 27, %31 ], [ 27, %33 ]
   ret i32 %.0
 }
 
@@ -1119,7 +1119,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
   br label %process_zlib_error.exit
 
 process_zlib_error.exit:                          ; preds = %22, %21, %14, %13, %15, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %15 ], [ 61, %13 ], [ 61, %14 ], [ 61, %21 ], [ 61, %22 ]
+  %.0 = phi i32 [ 0, %15 ], [ 61, %14 ], [ 0, %23 ], [ 61, %13 ], [ 61, %21 ], [ 61, %22 ]
   ret i32 %.0
 }
 
@@ -1266,7 +1266,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %62 = add nsw i64 %.453.i, -2
   br label %exit_zlib.exit
 
-.loopexit:                                        ; preds = %53, %56, %21, %59, %40, %38, %.preheader.i, %.preheader74.i
+.loopexit:                                        ; preds = %53, %56, %59, %21, %38, %40, %.preheader.i, %.preheader74.i
   %63 = trunc i64 %4 to i32
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %63, ptr %64, align 8, !tbaa !102
@@ -1288,7 +1288,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 4, ptr %15, align 8, !tbaa !97
   br label %exit_zlib.exit.thread
 
-73:                                               ; preds = %25, %23, %28
+73:                                               ; preds = %23, %28, %25
   %74 = getelementptr i8, ptr %1, i64 88
   %.val96 = load ptr, ptr %74, align 8, !tbaa !96
   %.not.i97 = icmp eq ptr %.val96, null
@@ -1490,7 +1490,7 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   %156 = add nsw i64 %.453.i135, -2
   br label %exit_zlib.exit105
 
-157:                                              ; preds = %119, %117, %122
+157:                                              ; preds = %117, %122, %119
   %158 = getelementptr i8, ptr %1, i64 88
   %.val = load ptr, ptr %158, align 8, !tbaa !96
   %.not.i139 = icmp eq ptr %.val, null
@@ -1569,8 +1569,8 @@ exit_zlib.exit105:                                ; preds = %.critedge2.i134, %1
   %191 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 5)
   br label %exit_zlib.exit.thread
 
-exit_zlib.exit.thread:                            ; preds = %147, %150, %.preheader74.i116, %.preheader.i127, %132, %134, %153, %107, %168, %166, %105, %103, %84, %82, %68, %70, %187, %190, %180, %17, %10
-  %.089 = phi i32 [ %20, %17 ], [ %191, %190 ], [ %183, %180 ], [ %13, %10 ], [ 0, %187 ], [ 61, %84 ], [ 61, %82 ], [ %69, %68 ], [ 0, %70 ], [ 61, %168 ], [ 61, %166 ], [ 27, %105 ], [ 27, %103 ], [ 0, %107 ], [ 0, %153 ], [ 0, %134 ], [ 0, %132 ], [ 0, %.preheader.i127 ], [ 0, %.preheader74.i116 ], [ 0, %150 ], [ 0, %147 ]
+exit_zlib.exit.thread:                            ; preds = %147, %150, %.preheader74.i116, %.preheader.i127, %134, %132, %107, %153, %168, %166, %103, %105, %84, %82, %70, %68, %187, %190, %180, %17, %10
+  %.089 = phi i32 [ %20, %17 ], [ %13, %10 ], [ %191, %190 ], [ 0, %187 ], [ %69, %68 ], [ %183, %180 ], [ 61, %84 ], [ 61, %82 ], [ 0, %70 ], [ 61, %168 ], [ 61, %166 ], [ 27, %103 ], [ 27, %105 ], [ 0, %153 ], [ 0, %107 ], [ 0, %132 ], [ 0, %134 ], [ 0, %.preheader.i127 ], [ 0, %.preheader74.i116 ], [ 0, %150 ], [ 0, %147 ]
   ret i32 %.089
 }
 

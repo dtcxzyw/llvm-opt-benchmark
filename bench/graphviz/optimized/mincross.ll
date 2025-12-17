@@ -1136,7 +1136,7 @@ merge_components.exit.i:                          ; preds = %143, %.merge_compon
   br i1 %exitcond.not.i46, label %.loopexit.i, label %.lr.ph.i43, !llvm.loop !91
 
 .loopexit.i:                                      ; preds = %201, %197, %.lr.ph38.i
-  %206 = phi ptr [ %171, %.lr.ph38.i ], [ %198, %197 ], [ %171, %201 ]
+  %206 = phi ptr [ %198, %197 ], [ %171, %.lr.ph38.i ], [ %171, %201 ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, 1
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 340
   %208 = load i32, ptr %207, align 4, !tbaa !32
@@ -1606,9 +1606,9 @@ save_best.exit:                                   ; preds = %._crit_edge.i, %5, 
   br i1 %.not22.not.i, label %.lr.ph29.i, label %save_best.exit83, !llvm.loop !117
 
 save_best.exit83:                                 ; preds = %._crit_edge.i74, %.lr.ph29.i, %68, %43, %66, %41
-  %.059 = phi i32 [ %34, %41 ], [ %32, %66 ], [ %34, %43 ], [ %32, %68 ], [ %32, %.lr.ph29.i ], [ %34, %._crit_edge.i74 ]
-  %.352 = phi i64 [ %42, %41 ], [ %.1164, %66 ], [ %42, %43 ], [ %.1164, %68 ], [ %.1164, %.lr.ph29.i ], [ %42, %._crit_edge.i74 ]
-  %.3 = phi i64 [ %.1164, %41 ], [ %.1164, %66 ], [ %42, %43 ], [ %.1164, %68 ], [ %.1164, %.lr.ph29.i ], [ %42, %._crit_edge.i74 ]
+  %.059 = phi i32 [ %32, %66 ], [ %34, %41 ], [ %34, %43 ], [ %32, %68 ], [ %32, %.lr.ph29.i ], [ %34, %._crit_edge.i74 ]
+  %.352 = phi i64 [ %.1164, %66 ], [ %42, %41 ], [ %42, %43 ], [ %.1164, %68 ], [ %.1164, %.lr.ph29.i ], [ %42, %._crit_edge.i74 ]
+  %.3 = phi i64 [ %.1164, %66 ], [ %.1164, %41 ], [ %42, %43 ], [ %.1164, %68 ], [ %.1164, %.lr.ph29.i ], [ %42, %._crit_edge.i74 ]
   %111 = icmp sgt i32 %.059, 0
   br i1 %111, label %.lr.ph, label %._crit_edge
 
@@ -2250,7 +2250,7 @@ left2right.exit.thread.i.i:                       ; preds = %left2right.exit.i.i
   br i1 %471, label %.preheader.i33.i, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %.thread.thread.i.i, %.critedge.preheader.i.i, %393, %.critedge.i.i, %.preheader18.i.i
-  %.126.i.i = phi i32 [ %.038.i.i, %.preheader18.i.i ], [ %.133.i.i, %.critedge.i.i ], [ %.133.i.i, %393 ], [ %.133.i.i, %.critedge.preheader.i.i ], [ %.3.i.i, %.thread.thread.i.i ]
+  %.126.i.i = phi i32 [ %.038.i.i, %.preheader18.i.i ], [ %.133.i.i, %393 ], [ %.133.i.i, %.critedge.i.i ], [ %.133.i.i, %.critedge.preheader.i.i ], [ %.3.i.i, %.thread.thread.i.i ]
   %spec.select72.i.i = getelementptr inbounds i8, ptr %.05836.i.i, i64 %spec.select72.idx.i.i
   %472 = icmp sgt i32 %.05339.in.i.i, 1
   br i1 %472, label %.preheader18.i.i, label %._crit_edge.i.i, !llvm.loop !143
@@ -2275,8 +2275,8 @@ left2right.exit.thread.i.i:                       ; preds = %left2right.exit.i.i
   br label %reorder.exit.i
 
 reorder.exit.i:                                   ; preds = %481, %474, %._crit_edge.i.i, %.preheader.i.i, %152
-  %.val32113.i = phi ptr [ %272, %._crit_edge.i.i ], [ %272, %474 ], [ %272, %481 ], [ %.val3283.i, %152 ], [ %272, %.preheader.i.i ]
-  %.pre8589112.i = phi ptr [ %274, %._crit_edge.i.i ], [ %274, %474 ], [ %274, %481 ], [ %.pre85.i, %152 ], [ %274, %.preheader.i.i ]
+  %.val32113.i = phi ptr [ %272, %481 ], [ %272, %.preheader.i.i ], [ %272, %._crit_edge.i.i ], [ %272, %474 ], [ %.val3283.i, %152 ]
+  %.pre8589112.i = phi ptr [ %274, %481 ], [ %274, %.preheader.i.i ], [ %274, %._crit_edge.i.i ], [ %274, %474 ], [ %.pre85.i, %152 ]
   %indvars.iv.next.i94 = add nsw i64 %indvars.iv.i93, %151
   %483 = icmp eq i64 %indvars.iv.i93, %sext.i
   br i1 %483, label %mincross_step.exit, label %152, !llvm.loop !144
@@ -2782,8 +2782,8 @@ is_a_normal_node_of.exit.thread.us.i:             ; preds = %is_a_normal_node_of
   br label %is_a_vnode_of_an_edge_of.exit.us.i
 
 is_a_vnode_of_an_edge_of.exit.us.i:               ; preds = %76, %63, %59, %is_a_normal_node_of.exit.thread.us.i, %is_a_normal_node_of.exit.us.i
-  %78 = phi ptr [ %.pre30.i, %is_a_normal_node_of.exit.us.i ], [ %.val.us.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.val.us.i, %59 ], [ %.val.us.i, %63 ], [ %.pre29.i, %76 ]
-  %.1.us.i = phi ptr [ %.0.i.us.i, %is_a_normal_node_of.exit.us.i ], [ %.0.us19.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.0.us19.i, %59 ], [ %.0.us19.i, %63 ], [ %spec.select.us.i, %76 ]
+  %78 = phi ptr [ %.pre30.i, %is_a_normal_node_of.exit.us.i ], [ %.pre29.i, %76 ], [ %.val.us.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.val.us.i, %59 ], [ %.val.us.i, %63 ]
+  %.1.us.i = phi ptr [ %.0.i.us.i, %is_a_normal_node_of.exit.us.i ], [ %spec.select.us.i, %76 ], [ %.0.us19.i, %is_a_normal_node_of.exit.thread.us.i ], [ %.0.us19.i, %59 ], [ %.0.us19.i, %63 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 364
   %80 = load i32, ptr %79, align 4, !tbaa !55
   %81 = icmp sgt i32 %80, 0
@@ -2881,8 +2881,8 @@ is_a_normal_node_of.exit.thread.i:                ; preds = %is_a_normal_node_of
   br label %is_a_vnode_of_an_edge_of.exit.i
 
 is_a_vnode_of_an_edge_of.exit.i:                  ; preds = %123, %110, %106, %is_a_normal_node_of.exit.thread.i, %is_a_normal_node_of.exit.i
-  %125 = phi ptr [ %.pre25.i, %is_a_normal_node_of.exit.i ], [ %.val.i, %is_a_normal_node_of.exit.thread.i ], [ %.val.i, %106 ], [ %.val.i, %110 ], [ %.pre24.i, %123 ]
-  %.1.i = phi ptr [ %.0.i18.i, %is_a_normal_node_of.exit.i ], [ %.017.i, %is_a_normal_node_of.exit.thread.i ], [ %.017.i, %106 ], [ %.017.i, %110 ], [ %spec.select.i, %123 ]
+  %125 = phi ptr [ %.pre25.i, %is_a_normal_node_of.exit.i ], [ %.pre24.i, %123 ], [ %.val.i, %is_a_normal_node_of.exit.thread.i ], [ %.val.i, %106 ], [ %.val.i, %110 ]
+  %.1.i = phi ptr [ %.0.i18.i, %is_a_normal_node_of.exit.i ], [ %spec.select.i, %123 ], [ %.017.i, %is_a_normal_node_of.exit.thread.i ], [ %.017.i, %106 ], [ %.017.i, %110 ]
   %126 = load ptr, ptr @Root, align 8, !tbaa !74
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !3
@@ -4991,8 +4991,8 @@ out_cross.exit120.loopexit.i:                     ; preds = %._crit_edge.i114.i
   br label %out_cross.exit120.i
 
 out_cross.exit120.i:                              ; preds = %out_cross.exit120.loopexit.i, %.lr.ph9.i86.i, %210
-  %321 = phi i64 [ %319, %out_cross.exit120.loopexit.i ], [ %.055.i, %.lr.ph9.i86.i ], [ %.055.i, %210 ]
-  %.022.lcssa.i116.i = phi i64 [ %320, %out_cross.exit120.loopexit.i ], [ 0, %.lr.ph9.i86.i ], [ 0, %210 ]
+  %321 = phi i64 [ %.055.i, %210 ], [ %319, %out_cross.exit120.loopexit.i ], [ %.055.i, %.lr.ph9.i86.i ]
+  %.022.lcssa.i116.i = phi i64 [ 0, %210 ], [ %320, %out_cross.exit120.loopexit.i ], [ 0, %.lr.ph9.i86.i ]
   %322 = add nsw i64 %.022.lcssa.i116.i, %.0.i
   br label %323
 
@@ -5973,8 +5973,8 @@ is_a_normal_node_of.exit.thread.i11.i:            ; preds = %is_a_normal_node_of
   %139 = add nsw i32 %.0105163, 1
   br label %constraining_flat_edge.exit.thread
 
-constraining_flat_edge.exit.thread:               ; preds = %is_a_normal_node_of.exit.thread.i11.i, %119, %123, %136, %102, %89, %85, %is_a_normal_node_of.exit.thread.i.i, %.lr.ph166, %138
-  %140 = phi i32 [ %139, %138 ], [ %.0105163, %.lr.ph166 ], [ %.0105163, %is_a_normal_node_of.exit.thread.i.i ], [ %.0105163, %85 ], [ %.0105163, %89 ], [ %.0105163, %102 ], [ %.0105163, %136 ], [ %.0105163, %123 ], [ %.0105163, %119 ], [ %.0105163, %is_a_normal_node_of.exit.thread.i11.i ]
+constraining_flat_edge.exit.thread:               ; preds = %is_a_normal_node_of.exit.thread.i11.i, %119, %123, %136, %89, %85, %is_a_normal_node_of.exit.thread.i.i, %102, %.lr.ph166, %138
+  %140 = phi i32 [ %139, %138 ], [ %.0105163, %.lr.ph166 ], [ %.0105163, %102 ], [ %.0105163, %is_a_normal_node_of.exit.thread.i.i ], [ %.0105163, %85 ], [ %.0105163, %89 ], [ %.0105163, %136 ], [ %.0105163, %123 ], [ %.0105163, %119 ], [ %.0105163, %is_a_normal_node_of.exit.thread.i11.i ]
   %141 = add nuw i64 %.098164, 1
   %142 = load ptr, ptr %52, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 312
@@ -6141,8 +6141,8 @@ is_a_normal_node_of.exit.thread.i11.i129:         ; preds = %is_a_normal_node_of
   %226 = add nsw i32 %.0103167, 1
   br label %constraining_flat_edge.exit147.thread
 
-constraining_flat_edge.exit147.thread:            ; preds = %is_a_normal_node_of.exit.thread.i11.i129, %206, %210, %223, %189, %176, %172, %is_a_normal_node_of.exit.thread.i.i121, %.lr.ph169, %225
-  %227 = phi i32 [ %226, %225 ], [ %.0103167, %.lr.ph169 ], [ %.0103167, %is_a_normal_node_of.exit.thread.i.i121 ], [ %.0103167, %172 ], [ %.0103167, %176 ], [ %.0103167, %189 ], [ %.0103167, %223 ], [ %.0103167, %210 ], [ %.0103167, %206 ], [ %.0103167, %is_a_normal_node_of.exit.thread.i11.i129 ]
+constraining_flat_edge.exit147.thread:            ; preds = %is_a_normal_node_of.exit.thread.i11.i129, %206, %210, %223, %176, %172, %is_a_normal_node_of.exit.thread.i.i121, %189, %.lr.ph169, %225
+  %227 = phi i32 [ %226, %225 ], [ %.0103167, %.lr.ph169 ], [ %.0103167, %189 ], [ %.0103167, %is_a_normal_node_of.exit.thread.i.i121 ], [ %.0103167, %172 ], [ %.0103167, %176 ], [ %.0103167, %223 ], [ %.0103167, %210 ], [ %.0103167, %206 ], [ %.0103167, %is_a_normal_node_of.exit.thread.i11.i129 ]
   %228 = add nuw i64 %.097168, 1
   %229 = load ptr, ptr %52, align 8, !tbaa !3
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 296
@@ -6412,7 +6412,7 @@ nodes_reverse.exit:                               ; preds = %293, %288, %284
   br i1 %377, label %.lr.ph186, label %.loopexit154, !llvm.loop !223
 
 .loopexit154:                                     ; preds = %.loopexit, %24, %nodes_reverse.exit, %._crit_edge176
-  %378 = phi ptr [ %277, %._crit_edge176 ], [ %277, %nodes_reverse.exit ], [ %18, %24 ], [ %370, %.loopexit ]
+  %378 = phi ptr [ %277, %nodes_reverse.exit ], [ %18, %24 ], [ %277, %._crit_edge176 ], [ %370, %.loopexit ]
   %379 = load ptr, ptr @Root, align 8, !tbaa !74
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load ptr, ptr %380, align 8, !tbaa !3
@@ -6877,7 +6877,7 @@ define internal fastcc void @flat_search(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not51, label %.loopexit, label %29, !llvm.loop !230
 
 .loopexit:                                        ; preds = %117, %.preheader, %2
-  %125 = phi ptr [ %23, %.preheader ], [ %23, %2 ], [ %119, %117 ]
+  %125 = phi ptr [ %23, %2 ], [ %23, %.preheader ], [ %119, %117 ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 232
   store i8 0, ptr %126, align 8, !tbaa !210
   ret void
@@ -7228,7 +7228,7 @@ is_a_normal_node_of.exit.thread.i11:              ; preds = %is_a_normal_node_of
   br label %inside_cluster.exit
 
 inside_cluster.exit:                              ; preds = %76, %74, %is_a_normal_node_of.exit.i17, %40, %27, %23, %is_a_normal_node_of.exit.thread.i, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %is_a_normal_node_of.exit.thread.i ], [ false, %23 ], [ false, %27 ], [ false, %40 ], [ true, %is_a_normal_node_of.exit.i17 ], [ false, %76 ], [ true, %74 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %40 ], [ false, %is_a_normal_node_of.exit.thread.i ], [ false, %23 ], [ false, %27 ], [ true, %is_a_normal_node_of.exit.i17 ], [ false, %76 ], [ true, %74 ]
   ret i1 %.0
 }
 

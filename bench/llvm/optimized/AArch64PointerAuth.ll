@@ -435,7 +435,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %_ZN4llvm11SmallVectorINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEELj6EED2Ev.exit: ; preds = %2, %._crit_edge60, %128
-  %.not56120122 = phi i1 [ %.not56.not, %._crit_edge60 ], [ %.not56.not, %128 ], [ false, %2 ]
+  %.not56120122 = phi i1 [ %.not56.not, %128 ], [ %.not56.not, %._crit_edge60 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   ret i1 %.not56120122
 

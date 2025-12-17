@@ -150,7 +150,7 @@ define internal i32 @prores_metadata(ptr noundef %0, ptr noundef %1) #0 {
   br label %43
 
 .sink.split:                                      ; preds = %19, %16, %10
-  %.str.26.sink = phi ptr [ @.str.26, %10 ], [ @.str.28, %16 ], [ @.str.29, %19 ]
+  %.str.26.sink = phi ptr [ @.str.28, %16 ], [ @.str.26, %10 ], [ @.str.29, %19 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.26.sink) #3
   br label %42
 

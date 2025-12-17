@@ -323,8 +323,8 @@ cbs_vp9_read_superframe_index.exit.thread61:      ; preds = %108
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-cbs_vp9_read_superframe_index.exit.thread:        ; preds = %35, %105, %102, %49, %.thread68.i, %cbs_vp9_read_le.exit.thread.i
-  %.155.i.ph = phi i32 [ -1094995529, %cbs_vp9_read_le.exit.thread.i ], [ %52, %.thread68.i ], [ %47, %49 ], [ %103, %102 ], [ %106, %105 ], [ %44, %35 ]
+cbs_vp9_read_superframe_index.exit.thread:        ; preds = %35, %105, %102, %cbs_vp9_read_le.exit.thread.i, %.thread68.i, %49
+  %.155.i.ph = phi i32 [ %47, %49 ], [ %52, %.thread68.i ], [ %106, %105 ], [ %103, %102 ], [ -1094995529, %cbs_vp9_read_le.exit.thread.i ], [ %44, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -381,7 +381,7 @@ cbs_vp9_read_superframe_index.exit:               ; preds = %108
   br label %.loopexit
 
 .loopexit:                                        ; preds = %126, %cbs_vp9_read_superframe_index.exit.thread61, %cbs_vp9_read_superframe_index.exit.thread, %133, %135, %25, %123
-  %.1 = phi i32 [ -1094995529, %123 ], [ -1094995529, %25 ], [ 0, %135 ], [ 0, %133 ], [ %.155.i.ph, %cbs_vp9_read_superframe_index.exit.thread ], [ %109, %cbs_vp9_read_superframe_index.exit.thread61 ], [ %130, %126 ]
+  %.1 = phi i32 [ -1094995529, %25 ], [ %.155.i.ph, %cbs_vp9_read_superframe_index.exit.thread ], [ -1094995529, %123 ], [ %109, %cbs_vp9_read_superframe_index.exit.thread61 ], [ 0, %135 ], [ 0, %133 ], [ %130, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %142
@@ -394,7 +394,7 @@ cbs_vp9_read_superframe_index.exit:               ; preds = %108
   br label %142
 
 142:                                              ; preds = %138, %3, %.loopexit
-  %.049 = phi i32 [ %.1, %.loopexit ], [ -1094995529, %3 ], [ %., %138 ]
+  %.049 = phi i32 [ -1094995529, %3 ], [ %.1, %.loopexit ], [ %., %138 ]
   ret i32 %.049
 }
 
@@ -1013,7 +1013,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_read_unit(ptr noundef %0,
   br label %cbs_vp9_read_uncompressed_header.exit.thread.i
 
 cbs_vp9_read_uncompressed_header.exit.thread.i:   ; preds = %.critedge.i.i, %.thread363.i.i, %268, %265, %262, %256, %255, %248, %238, %226, %225, %219, %.thread350.i.i, %207, %.thread345.i.i, %189, %183, %182, %169, %163, %157, %144, %130, %127, %123, %120, %113, %106, %99, %88, %80, %74, %63, %56
-  %.1.i.ph.i = phi i32 [ %272, %.thread363.i.i ], [ %213, %.thread350.i.i ], [ %193, %.thread345.i.i ], [ %269, %268 ], [ %266, %265 ], [ %263, %262 ], [ %260, %256 ], [ %230, %226 ], [ %220, %219 ], [ %190, %189 ], [ %187, %183 ], [ %170, %169 ], [ %164, %163 ], [ %131, %130 ], [ %128, %127 ], [ %125, %123 ], [ %121, %120 ], [ %49, %.critedge.i.i ], [ %54, %56 ], [ %61, %63 ], [ %75, %74 ], [ %78, %80 ], [ %97, %99 ], [ %104, %106 ], [ %111, %113 ], [ %139, %144 ], [ %152, %157 ], [ %223, %225 ], [ %205, %207 ], [ %180, %182 ], [ %236, %238 ], [ %243, %248 ], [ %253, %255 ], [ %86, %88 ]
+  %.1.i.ph.i = phi i32 [ %269, %268 ], [ %54, %56 ], [ %61, %63 ], [ %75, %74 ], [ %78, %80 ], [ %97, %99 ], [ %104, %106 ], [ %111, %113 ], [ %139, %144 ], [ %152, %157 ], [ %193, %.thread345.i.i ], [ %223, %225 ], [ %220, %219 ], [ %190, %189 ], [ %205, %207 ], [ %213, %.thread350.i.i ], [ %180, %182 ], [ %187, %183 ], [ %170, %169 ], [ %164, %163 ], [ %131, %130 ], [ %236, %238 ], [ %243, %248 ], [ %253, %255 ], [ %272, %.thread363.i.i ], [ %266, %265 ], [ %263, %262 ], [ %260, %256 ], [ %230, %226 ], [ %128, %127 ], [ %125, %123 ], [ %121, %120 ], [ %49, %.critedge.i.i ], [ %86, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %cbs_vp9_read_frame.exit.thread
@@ -1073,7 +1073,7 @@ cbs_vp9_read_frame.exit:                          ; preds = %319
   br label %cbs_vp9_read_frame.exit.thread
 
 cbs_vp9_read_frame.exit.thread:                   ; preds = %321, %cbs_vp9_read_uncompressed_header.exit.thread.i, %335, %328, %330, %41, %2
-  %.0 = phi i32 [ -1094995529, %2 ], [ %42, %41 ], [ -12, %330 ], [ 0, %328 ], [ 0, %335 ], [ %.1.i.ph.i, %cbs_vp9_read_uncompressed_header.exit.thread.i ], [ %322, %321 ]
+  %.0 = phi i32 [ 0, %335 ], [ -1094995529, %2 ], [ %42, %41 ], [ -12, %330 ], [ 0, %328 ], [ %.1.i.ph.i, %cbs_vp9_read_uncompressed_header.exit.thread.i ], [ %322, %321 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret i32 %.0
 }
@@ -1584,7 +1584,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_write_unit(ptr noundef %0
   br label %309
 
 cbs_vp9_write_uncompressed_header.exit.thread.i:  ; preds = %201, %194, %263, %260, %257, %254, %251, %245, %229, %225, %217, %211, %208, %183, %180, %177, %171, %144, %138, %127, %114, %100, %97, %93, %90, %81, %75, %69, %45, %37, %34, %20, %14, %3
-  %.0.i.ph.i = phi i32 [ %267, %263 ], [ %261, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %245 ], [ %233, %229 ], [ %227, %225 ], [ %218, %217 ], [ %215, %211 ], [ %209, %208 ], [ %187, %183 ], [ %181, %180 ], [ %178, %177 ], [ %175, %171 ], [ %145, %144 ], [ %139, %138 ], [ %129, %127 ], [ %116, %114 ], [ %101, %100 ], [ %98, %97 ], [ %95, %93 ], [ %91, %90 ], [ %85, %81 ], [ %79, %75 ], [ %73, %69 ], [ %49, %45 ], [ %41, %37 ], [ %35, %34 ], [ %24, %20 ], [ %18, %14 ], [ %12, %3 ], [ %199, %194 ], [ %206, %201 ]
+  %.0.i.ph.i = phi i32 [ %12, %3 ], [ %215, %211 ], [ %209, %208 ], [ %267, %263 ], [ %187, %183 ], [ %181, %180 ], [ %178, %177 ], [ %175, %171 ], [ %145, %144 ], [ %139, %138 ], [ %129, %127 ], [ %116, %114 ], [ %101, %100 ], [ %261, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %245 ], [ %233, %229 ], [ %227, %225 ], [ %218, %217 ], [ %98, %97 ], [ %95, %93 ], [ %91, %90 ], [ %85, %81 ], [ %79, %75 ], [ %73, %69 ], [ %49, %45 ], [ %41, %37 ], [ %35, %34 ], [ %24, %20 ], [ %18, %14 ], [ %199, %194 ], [ %206, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %cbs_vp9_write_frame.exit.thread
@@ -1704,7 +1704,7 @@ skip_put_bytes.exit:                              ; preds = %flush_put_bits.exit
   br label %cbs_vp9_write_frame.exit.thread
 
 cbs_vp9_write_frame.exit.thread:                  ; preds = %314, %cbs_vp9_write_uncompressed_header.exit.thread.i, %317, %skip_put_bytes.exit, %322
-  %.0 = phi i32 [ -28, %322 ], [ 0, %skip_put_bytes.exit ], [ 0, %317 ], [ %.0.i.ph.i, %cbs_vp9_write_uncompressed_header.exit.thread.i ], [ %315, %314 ]
+  %.0 = phi i32 [ -28, %322 ], [ 0, %317 ], [ 0, %skip_put_bytes.exit ], [ %.0.i.ph.i, %cbs_vp9_write_uncompressed_header.exit.thread.i ], [ %315, %314 ]
   ret i32 %.0
 }
 
@@ -2090,8 +2090,8 @@ put_bits.exit.i.i:                                ; preds = %170, %162, %152
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %cbs_vp9_write_superframe_index.exit.thread, label %cbs_vp9_write_superframe_index.exit
 
-cbs_vp9_write_superframe_index.exit.thread:       ; preds = %139, %100, %112, %115, %191, %194
-  %.042.i.ph = phi i32 [ %195, %194 ], [ %192, %191 ], [ %117, %115 ], [ %113, %112 ], [ %110, %100 ], [ -28, %139 ]
+cbs_vp9_write_superframe_index.exit.thread:       ; preds = %139, %194, %100, %112, %115, %191
+  %.042.i.ph = phi i32 [ %192, %191 ], [ %117, %115 ], [ %113, %112 ], [ %110, %100 ], [ %195, %194 ], [ -28, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %199
 
@@ -2182,7 +2182,7 @@ cbs_vp9_write_superframe_index.exit:              ; preds = %194
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %.loopexit, %.thread98, %10
-  %.180 = phi i32 [ -12, %10 ], [ %.281.ph, %.thread98 ], [ 0, %.loopexit ], [ 0, %17 ]
+  %.180 = phi i32 [ %.281.ph, %.thread98 ], [ -12, %10 ], [ 0, %.loopexit ], [ 0, %17 ]
   ret i32 %.180
 }
 
@@ -2244,7 +2244,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_frame_sync_co
   br label %13
 
 13:                                               ; preds = %11, %8, %2
-  %.118 = phi i32 [ %9, %8 ], [ %6, %2 ], [ %spec.select, %11 ]
+  %.118 = phi i32 [ %6, %2 ], [ %spec.select, %11 ], [ %9, %8 ]
   ret i32 %.118
 }
 
@@ -2531,7 +2531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_render_size(p
   br label %27
 
 27:                                               ; preds = %9, %.thread28, %26, %16, %.critedge
-  %.122 = phi i32 [ %21, %26 ], [ %14, %16 ], [ %7, %.critedge ], [ 0, %.thread28 ], [ 0, %9 ]
+  %.122 = phi i32 [ %7, %.critedge ], [ %21, %26 ], [ %14, %16 ], [ 0, %.thread28 ], [ 0, %9 ]
   ret i32 %.122
 }
 
@@ -2742,8 +2742,8 @@ cbs_vp9_read_frame_size.exit:                     ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %cbs_vp9_read_render_size.exit
 
-cbs_vp9_read_render_size.exit:                    ; preds = %.critedge.i, %35, %102, %.thread28.i, %119, %109, %.critedge.i50, %20
-  %.2 = phi i32 [ %18, %20 ], [ 0, %102 ], [ 0, %.thread28.i ], [ %100, %.critedge.i50 ], [ %107, %109 ], [ %114, %119 ], [ %27, %.critedge.i ], [ %33, %35 ]
+cbs_vp9_read_render_size.exit:                    ; preds = %.critedge.i, %35, %102, %.thread28.i, %.critedge.i50, %119, %109, %20
+  %.2 = phi i32 [ %18, %20 ], [ %100, %.critedge.i50 ], [ 0, %.thread28.i ], [ 0, %102 ], [ %107, %109 ], [ %114, %119 ], [ %27, %.critedge.i ], [ %33, %35 ]
   ret i32 %.2
 }
 
@@ -2788,7 +2788,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_interpolation
   br label %19
 
 19:                                               ; preds = %8, %.thread, %18, %.critedge
-  %.115 = phi i32 [ %13, %18 ], [ %6, %.critedge ], [ 0, %.thread ], [ 0, %8 ]
+  %.115 = phi i32 [ %6, %.critedge ], [ %13, %18 ], [ 0, %.thread ], [ 0, %8 ]
   ret i32 %.115
 }
 
@@ -2983,7 +2983,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_loop_filter_p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %86, %85, %74, %67, %56, %39, %31, %24, %32, %40, %.critedge
-  %.176 = phi i32 [ %62, %67 ], [ %54, %56 ], [ %80, %85 ], [ %72, %74 ], [ %37, %39 ], [ %29, %31 ], [ %22, %24 ], [ %16, %.critedge ], [ 0, %40 ], [ 0, %32 ], [ 0, %86 ]
+  %.176 = phi i32 [ %62, %67 ], [ %54, %56 ], [ %80, %85 ], [ %72, %74 ], [ %16, %.critedge ], [ %37, %39 ], [ %29, %31 ], [ %22, %24 ], [ 0, %32 ], [ 0, %40 ], [ 0, %86 ]
   ret i32 %.176
 }
 
@@ -3089,7 +3089,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_quantization_
   br label %.thread
 
 .thread:                                          ; preds = %41, %49, %28, %36, %13, %23, %54, %.critedge
-  %.167 = phi i32 [ %11, %.critedge ], [ 0, %54 ], [ %17, %13 ], [ %24, %23 ], [ %30, %28 ], [ %37, %36 ], [ %43, %41 ], [ %50, %49 ]
+  %.167 = phi i32 [ %11, %.critedge ], [ %37, %36 ], [ %24, %23 ], [ 0, %54 ], [ %17, %13 ], [ %30, %28 ], [ %43, %41 ], [ %50, %49 ]
   ret i32 %.167
 }
 
@@ -3249,7 +3249,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_segmentation_
   br i1 %75, label %78, label %.thread190
 
 78:                                               ; preds = %.split, %71, %73
-  %.3.sink = phi i8 [ %77, %73 ], [ -1, %71 ], [ -1, %.split ]
+  %.3.sink = phi i8 [ -1, %71 ], [ %77, %73 ], [ -1, %.split ]
   %79 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv238
   store i8 %.3.sink, ptr %79, align 1, !tbaa !15
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
@@ -3411,7 +3411,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_read_segmentation_
   br label %.thread190
 
 .thread190:                                       ; preds = %40, %47, %66, %73, %142, %136, %124, %112, %.thread204, %82, %.thread194, %32, %25, %83, %.critedge
-  %.1156 = phi i32 [ %131, %136 ], [ %122, %124 ], [ %110, %112 ], [ %80, %82 ], [ %30, %32 ], [ %23, %.critedge ], [ 0, %83 ], [ 0, %25 ], [ %55, %.thread194 ], [ %88, %.thread204 ], [ 0, %142 ], [ %74, %73 ], [ %68, %66 ], [ %48, %47 ], [ %42, %40 ]
+  %.1156 = phi i32 [ %131, %136 ], [ %122, %124 ], [ %110, %112 ], [ %23, %.critedge ], [ %88, %.thread204 ], [ %80, %82 ], [ %55, %.thread194 ], [ %30, %32 ], [ 0, %25 ], [ 0, %83 ], [ 0, %142 ], [ %68, %66 ], [ %74, %73 ], [ %42, %40 ], [ %48, %47 ]
   ret i32 %.1156
 }
 
@@ -3697,7 +3697,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_frame_sync_c
   br label %10
 
 10:                                               ; preds = %8, %5, %2
-  %.0 = phi i32 [ %3, %2 ], [ %6, %5 ], [ %., %8 ]
+  %.0 = phi i32 [ %6, %5 ], [ %3, %2 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -3850,7 +3850,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_color_config
   br label %87
 
 87:                                               ; preds = %77, %46, %40, %36, %28, %17, %8, %80
-  %.0 = phi i32 [ 0, %80 ], [ %12, %8 ], [ %22, %17 ], [ %30, %28 ], [ %38, %36 ], [ %44, %40 ], [ %47, %46 ], [ %78, %77 ]
+  %.0 = phi i32 [ %47, %46 ], [ %12, %8 ], [ %22, %17 ], [ %30, %28 ], [ %38, %36 ], [ %44, %40 ], [ 0, %80 ], [ %78, %77 ]
   ret i32 %.0
 }
 
@@ -4109,7 +4109,7 @@ cbs_vp9_write_frame_size.exit:                    ; preds = %26
   br label %cbs_vp9_write_render_size.exit
 
 cbs_vp9_write_render_size.exit:                   ; preds = %10, %107, %26, %19, %99, %89, %101
-  %.0 = phi i32 [ 0, %99 ], [ %105, %101 ], [ %97, %89 ], [ %30, %26 ], [ %24, %19 ], [ %spec.select, %107 ], [ %15, %10 ]
+  %.0 = phi i32 [ %24, %19 ], [ %spec.select, %107 ], [ 0, %99 ], [ %105, %101 ], [ %97, %89 ], [ %30, %26 ], [ %15, %10 ]
   ret i32 %.0
 }
 
@@ -4139,7 +4139,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_interpolatio
   br label %18
 
 18:                                               ; preds = %11, %3, %17
-  %.0 = phi i32 [ 0, %17 ], [ %7, %3 ], [ %15, %11 ]
+  %.0 = phi i32 [ %7, %3 ], [ 0, %17 ], [ %15, %11 ]
   ret i32 %.0
 }
 
@@ -4276,7 +4276,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_loop_filter_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %43, %.loopexit.loopexit.split.loop.exit, %59, %75, %25, %33, %27, %19, %13, %3
-  %.058 = phi i32 [ %11, %3 ], [ %17, %13 ], [ %23, %19 ], [ %31, %27 ], [ 0, %33 ], [ 0, %25 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ %65, %59 ], [ 0, %75 ], [ %56, %52 ], [ %48, %43 ]
+  %.058 = phi i32 [ 0, %33 ], [ %11, %3 ], [ %17, %13 ], [ %23, %19 ], [ %31, %27 ], [ 0, %25 ], [ 0, %75 ], [ %65, %59 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ %56, %52 ], [ %48, %43 ]
   ret i32 %.058
 }
 
@@ -4624,7 +4624,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_vp9_write_segmentation
   br i1 %exitcond186.not, label %.loopexit, label %.preheader, !llvm.loop !151
 
 .loopexit:                                        ; preds = %39, %29, %65, %55, %144, %124, %112, %103, %16, %81, %83, %.loopexit159, %44, %18, %3
-  %.0130 = phi i32 [ %14, %3 ], [ %22, %18 ], [ %48, %44 ], [ %79, %.loopexit159 ], [ %87, %83 ], [ 0, %81 ], [ 0, %16 ], [ %128, %124 ], [ %120, %112 ], [ %108, %103 ], [ 0, %144 ], [ %67, %65 ], [ %61, %55 ], [ %41, %39 ], [ %35, %29 ]
+  %.0130 = phi i32 [ 0, %81 ], [ %14, %3 ], [ %22, %18 ], [ 0, %16 ], [ %48, %44 ], [ %61, %55 ], [ %128, %124 ], [ %79, %.loopexit159 ], [ %87, %83 ], [ 0, %144 ], [ %120, %112 ], [ %108, %103 ], [ %67, %65 ], [ %41, %39 ], [ %35, %29 ]
   ret i32 %.0130
 }
 

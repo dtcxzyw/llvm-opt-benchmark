@@ -827,7 +827,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %57, %._crit_edge.i, %31
-  %.034.lcssa59.i = phi i32 [ %54, %57 ], [ %54, %._crit_edge.i ], [ 0, %31 ]
+  %.034.lcssa59.i = phi i32 [ %54, %._crit_edge.i ], [ %54, %57 ], [ 0, %31 ]
   %62 = zext nneg i32 %.034.lcssa59.i to i64
   %63 = getelementptr inbounds nuw i64, ptr %45, i64 %62
   %64 = load i64, ptr %63, align 8
@@ -1304,7 +1304,7 @@ emit_restart.exit:                                ; preds = %110, %105, %17, %2
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %152, %._crit_edge.i, %126
-  %.057.lcssa96.i = phi i32 [ %149, %152 ], [ %149, %._crit_edge.i ], [ 0, %126 ]
+  %.057.lcssa96.i = phi i32 [ %149, %._crit_edge.i ], [ %149, %152 ], [ 0, %126 ]
   %159 = zext nneg i32 %.057.lcssa96.i to i64
   %160 = getelementptr inbounds nuw i32, ptr %140, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -2044,7 +2044,7 @@ encode_one_block.exit:                            ; preds = %.thread.i, %emit_bi
   br label %emit_restart.exit.thread
 
 emit_restart.exit.thread:                         ; preds = %59, %40, %210, %191, %260, %241, %526, %507, %416, %397, %464, %445, %335, %316, %96, %78, %._crit_edge, %561
-  %.0 = phi i32 [ 1, %561 ], [ 1, %._crit_edge ], [ 0, %78 ], [ 0, %96 ], [ 0, %316 ], [ 0, %335 ], [ 0, %445 ], [ 0, %464 ], [ 0, %397 ], [ 0, %416 ], [ 0, %507 ], [ 0, %526 ], [ 0, %241 ], [ 0, %260 ], [ 0, %191 ], [ 0, %210 ], [ 0, %40 ], [ 0, %59 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %561 ], [ 0, %78 ], [ 0, %96 ], [ 0, %210 ], [ 0, %335 ], [ 0, %464 ], [ 0, %416 ], [ 0, %526 ], [ 0, %260 ], [ 0, %316 ], [ 0, %445 ], [ 0, %397 ], [ 0, %507 ], [ 0, %241 ], [ 0, %191 ], [ 0, %40 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -2137,7 +2137,7 @@ dump_buffer.exit35.i.i:                           ; preds = %36
   %47 = icmp sgt i32 %.03043.i.i, 15
   br i1 %47, label %15, label %flush_bits.exit, !llvm.loop !29
 
-48:                                               ; preds = %21, %36
+48:                                               ; preds = %36, %21
   %.sroa.0.4.ph = phi ptr [ %33, %36 ], [ %18, %21 ]
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40

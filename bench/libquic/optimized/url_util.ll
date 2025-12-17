@@ -525,7 +525,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %21
 
 _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i, %30, %18, %17
-  %.012.i = phi i1 [ false, %18 ], [ false, %17 ], [ %32, %30 ], [ %41, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i ]
+  %.012.i = phi i1 [ false, %17 ], [ false, %18 ], [ %32, %30 ], [ %41, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %5, align 8, !tbaa !24
@@ -651,7 +651,7 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i unwind label %21
 
 _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit.i: ; preds = %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i, %30, %18, %17
-  %.012.i = phi i1 [ false, %18 ], [ false, %17 ], [ %32, %30 ], [ %41, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i ]
+  %.012.i = phi i1 [ false, %17 ], [ false, %18 ], [ %32, %30 ], [ %41, %_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !24
@@ -740,7 +740,7 @@ define noundef zeroext i1 @_ZN3url8DomainIsEN4base16BasicStringPieceINSt7__cxx11
   br label %31
 
 31:                                               ; preds = %17, %27, %19, %30, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %17 ], [ true, %30 ], [ false, %19 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %27 ], [ false, %17 ], [ true, %30 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -978,7 +978,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
           to label %101 unwind label %.loopexit.split-lp
 
 101:                                              ; preds = %40, %55, %77, %93, %98, %20
-  %.038 = phi i1 [ false, %20 ], [ %42, %40 ], [ %57, %55 ], [ %79, %77 ], [ %95, %93 ], [ %100, %98 ]
+  %.038 = phi i1 [ false, %20 ], [ %95, %93 ], [ %42, %40 ], [ %57, %55 ], [ %79, %77 ], [ %100, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1257,7 +1257,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
           to label %101 unwind label %.loopexit.split-lp
 
 101:                                              ; preds = %40, %55, %77, %93, %98, %20
-  %.038 = phi i1 [ false, %20 ], [ %42, %40 ], [ %57, %55 ], [ %79, %77 ], [ %95, %93 ], [ %100, %98 ]
+  %.038 = phi i1 [ false, %20 ], [ %95, %93 ], [ %42, %40 ], [ %57, %55 ], [ %79, %77 ], [ %100, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1428,8 +1428,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %.not.i.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i: ; preds = %.critedge.i.i.i, %.noexc70.i, %21, %.noexc.i, %36
-  %.059100.i = phi i1 [ false, %36 ], [ %.059101.i, %.noexc.i ], [ false, %21 ], [ false, %.noexc70.i ], [ %.059101.i, %.critedge.i.i.i ]
-  %.06098.i = phi i1 [ false, %36 ], [ %.06099.i, %.noexc.i ], [ false, %21 ], [ true, %.noexc70.i ], [ %.06099.i, %.critedge.i.i.i ]
+  %.059100.i = phi i1 [ false, %36 ], [ %.059101.i, %.noexc.i ], [ false, %21 ], [ %.059101.i, %.critedge.i.i.i ], [ false, %.noexc70.i ]
+  %.06098.i = phi i1 [ false, %36 ], [ %.06099.i, %.noexc.i ], [ false, %21 ], [ %.06099.i, %.critedge.i.i.i ], [ true, %.noexc70.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !20
@@ -1590,7 +1590,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
           to label %112 unwind label %58
 
 112:                                              ; preds = %109, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i, %.thread.i, %57
-  %.0.i = phi i1 [ false, %57 ], [ %106, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ], [ %111, %109 ], [ %73, %.thread.i ]
+  %.0.i = phi i1 [ false, %57 ], [ %106, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ], [ %73, %.thread.i ], [ %111, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1755,8 +1755,8 @@ _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %.not.i.i.i, label %_ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i, label %.lr.ph.i.i.i
 
 _ZN3url12_GLOBAL__N_112DoIsStandardIcEEbPKT_RKNS_9ComponentEPNS_10SchemeTypeE.exit.i: ; preds = %.critedge.i.i.i, %.noexc70.i, %21, %.noexc.i, %36
-  %.05999.i = phi i1 [ false, %36 ], [ %.059100.i, %.noexc.i ], [ false, %21 ], [ false, %.noexc70.i ], [ %.059100.i, %.critedge.i.i.i ]
-  %.06097.i = phi i1 [ false, %36 ], [ %.06098.i, %.noexc.i ], [ false, %21 ], [ true, %.noexc70.i ], [ %.06098.i, %.critedge.i.i.i ]
+  %.05999.i = phi i1 [ false, %36 ], [ %.059100.i, %.noexc.i ], [ false, %21 ], [ %.059100.i, %.critedge.i.i.i ], [ false, %.noexc70.i ]
+  %.06097.i = phi i1 [ false, %36 ], [ %.06098.i, %.noexc.i ], [ false, %21 ], [ %.06098.i, %.critedge.i.i.i ], [ true, %.noexc70.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !20
@@ -1917,7 +1917,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit
           to label %112 unwind label %58
 
 112:                                              ; preds = %109, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i, %.thread.i, %57
-  %.0.i = phi i1 [ false, %57 ], [ %106, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ], [ %111, %109 ], [ %73, %.thread.i ]
+  %.0.i = phi i1 [ false, %57 ], [ %106, %_ZN3url12_GLOBAL__N_124DoCompareSchemeComponentIcEEbPKT_RKNS_9ComponentEPKc.exit.i ], [ %73, %.thread.i ], [ %111, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2888,9 +2888,9 @@ select.unfold.i.i46:                              ; preds = %select.unfold.i.pre
   br label %239
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split: ; preds = %.noexc53, %80, %.noexc42, %68, %.noexc, %41
-  %.sink.i50.sink = phi i32 [ %65, %.noexc ], [ %18, %41 ], [ %79, %.noexc42 ], [ %17, %68 ], [ %91, %.noexc53 ], [ %19, %80 ]
-  %.sink = phi i8 [ %53, %.noexc ], [ %53, %41 ], [ 37, %.noexc42 ], [ 37, %68 ], [ %22, %.noexc53 ], [ %22, %80 ]
-  %.097.ph = phi i32 [ %54, %.noexc ], [ %54, %41 ], [ %storemerge135, %.noexc42 ], [ %storemerge135, %68 ], [ %storemerge135, %.noexc53 ], [ %storemerge135, %80 ]
+  %.sink.i50.sink = phi i32 [ %17, %68 ], [ %18, %41 ], [ %65, %.noexc ], [ %79, %.noexc42 ], [ %91, %.noexc53 ], [ %19, %80 ]
+  %.sink = phi i8 [ 37, %68 ], [ %53, %41 ], [ %53, %.noexc ], [ 37, %.noexc42 ], [ %22, %.noexc53 ], [ %22, %80 ]
+  %.097.ph = phi i32 [ %storemerge135, %68 ], [ %54, %41 ], [ %54, %.noexc ], [ %storemerge135, %.noexc42 ], [ %storemerge135, %.noexc53 ], [ %storemerge135, %80 ]
   %.sink5.i52 = load ptr, ptr %7, align 8, !tbaa !26
   %94 = sext i32 %.sink.i50.sink to i64
   %95 = getelementptr inbounds i8, ptr %.sink5.i52, i64 %94
@@ -2901,10 +2901,10 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split: ; preds = %.noexc53, %80, 
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i46, %select.unfold.i.i, %select.unfold.i.i35, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split
-  %98 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i35 ], [ %17, %select.unfold.i.i ], [ %17, %select.unfold.i.i46 ]
-  %99 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i35 ], [ %18, %select.unfold.i.i ], [ %18, %select.unfold.i.i46 ]
-  %100 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i35 ], [ %18, %select.unfold.i.i ], [ %19, %select.unfold.i.i46 ]
-  %.097 = phi i32 [ %.097.ph, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %storemerge135, %select.unfold.i.i35 ], [ %54, %select.unfold.i.i ], [ %storemerge135, %select.unfold.i.i46 ]
+  %98 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %17, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %17, %select.unfold.i.i46 ]
+  %99 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %18, %select.unfold.i.i46 ]
+  %100 = phi i32 [ %97, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %18, %select.unfold.i.i ], [ %17, %select.unfold.i.i35 ], [ %19, %select.unfold.i.i46 ]
+  %.097 = phi i32 [ %.097.ph, %_ZN3url12CanonOutputTIcE9push_backEc.exit.sink.split ], [ %54, %select.unfold.i.i ], [ %storemerge135, %select.unfold.i.i35 ], [ %storemerge135, %select.unfold.i.i46 ]
   %101 = add nsw i32 %.097, 1
   %102 = icmp slt i32 %101, %1
   br i1 %102, label %16, label %.preheader123, !llvm.loop !54
@@ -3275,7 +3275,7 @@ _ZN3url12CanonOutputTItE9push_backEt.exit:        ; preds = %select.unfold.i.i58
   br i1 %238, label %106, label %._crit_edge140, !llvm.loop !61
 
 239:                                              ; preds = %66, %92, %130, %191
-  %.pn29.pn = phi { ptr, i32 } [ %131, %130 ], [ %lpad.phi, %191 ], [ %67, %66 ], [ %93, %92 ]
+  %.pn29.pn = phi { ptr, i32 } [ %lpad.phi, %191 ], [ %131, %130 ], [ %67, %66 ], [ %93, %92 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !24
   %240 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i91 = icmp eq ptr %240, %9

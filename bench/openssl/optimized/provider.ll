@@ -307,19 +307,19 @@ default.unreachable157:                           ; preds = %12
   unreachable
 
 read_uint.exit.thread.sink.split.sink.split:      ; preds = %98, %89, %80, %62, %.split64, %.split67, %.split70, %.split73, %.split79
-  %.sink183 = phi ptr [ %73, %.split79 ], [ %55, %.split73 ], [ %46, %.split70 ], [ %37, %.split67 ], [ %28, %.split64 ], [ %64, %62 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ]
+  %.sink183 = phi ptr [ %91, %89 ], [ %82, %80 ], [ %64, %62 ], [ %73, %.split79 ], [ %28, %.split64 ], [ %55, %.split73 ], [ %46, %.split70 ], [ %37, %.split67 ], [ %100, %98 ]
   tail call fastcc void @free_params(ptr noundef nonnull %.sink183)
   br label %read_uint.exit.thread.sink.split
 
 read_uint.exit.thread.sink.split:                 ; preds = %read_uint.exit.thread.sink.split.sink.split, %98, %89, %80, %71, %62, %53, %44, %35, %26
-  %.sink = phi ptr [ %28, %26 ], [ %37, %35 ], [ %46, %44 ], [ %55, %53 ], [ %64, %62 ], [ %73, %71 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ], [ %.sink183, %read_uint.exit.thread.sink.split.sink.split ]
+  %.sink = phi ptr [ %37, %35 ], [ %46, %44 ], [ %55, %53 ], [ %64, %62 ], [ %73, %71 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ], [ %28, %26 ], [ %.sink183, %read_uint.exit.thread.sink.split.sink.split ]
   tail call void @OSSL_PARAM_free(ptr noundef %.sink) #6
   br label %read_uint.exit.thread
 
 read_uint.exit.thread:                            ; preds = %read_uint.exit.thread.sink.split, %6, %2, %92, %83, %74, %65, %56, %47, %38, %29, %20, %12
-  %.0130134 = phi ptr [ %7, %20 ], [ %7, %29 ], [ %7, %38 ], [ %7, %47 ], [ %7, %56 ], [ %7, %65 ], [ %7, %74 ], [ %7, %83 ], [ %7, %92 ], [ %7, %12 ], [ null, %2 ], [ %7, %6 ], [ %7, %read_uint.exit.thread.sink.split ]
-  %.0129 = phi ptr [ %14, %20 ], [ %14, %29 ], [ %14, %38 ], [ %14, %47 ], [ %14, %56 ], [ %14, %65 ], [ %14, %74 ], [ %14, %83 ], [ %14, %92 ], [ %14, %12 ], [ null, %2 ], [ null, %6 ], [ %14, %read_uint.exit.thread.sink.split ]
-  %.0 = phi i32 [ 1, %20 ], [ 1, %29 ], [ 1, %38 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %74 ], [ 1, %83 ], [ 1, %92 ], [ 1, %12 ], [ 0, %2 ], [ 0, %6 ], [ 1, %read_uint.exit.thread.sink.split ]
+  %.0130134 = phi ptr [ %7, %12 ], [ null, %2 ], [ %7, %20 ], [ %7, %29 ], [ %7, %38 ], [ %7, %47 ], [ %7, %56 ], [ %7, %65 ], [ %7, %74 ], [ %7, %83 ], [ %7, %92 ], [ %7, %6 ], [ %7, %read_uint.exit.thread.sink.split ]
+  %.0129 = phi ptr [ %14, %12 ], [ null, %2 ], [ %14, %20 ], [ %14, %29 ], [ %14, %38 ], [ %14, %47 ], [ %14, %56 ], [ %14, %65 ], [ %14, %74 ], [ %14, %83 ], [ %14, %92 ], [ null, %6 ], [ %14, %read_uint.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %2 ], [ 1, %20 ], [ 1, %29 ], [ 1, %38 ], [ 1, %47 ], [ 1, %56 ], [ 1, %65 ], [ 1, %74 ], [ 1, %83 ], [ 1, %92 ], [ 0, %6 ], [ 1, %read_uint.exit.thread.sink.split ]
   tail call void @CRYPTO_free(ptr noundef %.0130134, ptr noundef nonnull @.str, i32 noundef 655) #6
   tail call void @CRYPTO_free(ptr noundef %.0129, ptr noundef nonnull @.str, i32 noundef 656) #6
   ret i32 %.0

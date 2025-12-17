@@ -171,12 +171,12 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not598646, label %97, label %.thread
 
 .thread.sink.split:                               ; preds = %88, %84, %81, %78, %75, %73, %69, %66, %61
-  %.sink = phi i32 [ -1, %61 ], [ -2, %66 ], [ -3, %69 ], [ -4, %73 ], [ -5, %75 ], [ -6, %78 ], [ -8, %81 ], [ -10, %84 ], [ -14, %88 ]
+  %.sink = phi i32 [ -1, %61 ], [ -2, %66 ], [ -4, %73 ], [ -6, %78 ], [ -10, %84 ], [ -8, %81 ], [ -5, %75 ], [ -3, %69 ], [ -14, %88 ]
   store i32 %.sink, ptr %14, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.thread644, %93
-  %94 = phi i32 [ %.pr, %93 ], [ %.pr645, %.thread644 ], [ %.sink, %.thread.sink.split ]
+  %94 = phi i32 [ %.pr645, %.thread644 ], [ %.pr, %93 ], [ %.sink, %.thread.sink.split ]
   %95 = sub nsw i32 0, %94
   store i32 %95, ptr %16, align 4, !tbaa !3
   %96 = call i32 @xerbla_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, i32 noundef 7) #5
@@ -587,8 +587,8 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %exitcond772.not, label %.loopexit874, label %270, !llvm.loop !18
 
 .loopexit874:                                     ; preds = %270, %249, %262, %248
-  %271 = phi double [ %235, %249 ], [ 1.000000e+00, %262 ], [ 1.000000e+00, %248 ], [ 1.000000e+00, %270 ]
-  %.pre-phi = phi i64 [ %251, %249 ], [ %251, %262 ], [ %.pre, %248 ], [ %251, %270 ]
+  %271 = phi double [ %235, %249 ], [ 1.000000e+00, %248 ], [ 1.000000e+00, %262 ], [ 1.000000e+00, %270 ]
+  %.pre-phi = phi i64 [ %251, %249 ], [ %.pre, %248 ], [ %251, %262 ], [ %251, %270 ]
   %272 = getelementptr inbounds double, ptr %37, i64 %.pre-phi
   %273 = load double, ptr %272, align 8, !tbaa !7
   %274 = fmul double %273, %271

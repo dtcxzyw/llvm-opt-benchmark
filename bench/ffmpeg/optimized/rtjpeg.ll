@@ -214,7 +214,7 @@ define range(i32 -1094995529, 268435456) i32 @ff_rtjpeg_decode_frame_yuv420(ptr 
   br label %.thread168
 
 .thread168:                                       ; preds = %86, %77, %68, %59, %50, %42, %29, %._crit_edge199.loopexit, %.preheader.lr.ph, %4
-  %.0 = phi i32 [ -1094995529, %4 ], [ %115, %._crit_edge199.loopexit ], [ 0, %29 ], [ 0, %.preheader.lr.ph ], [ %88, %86 ], [ %43, %42 ], [ %52, %50 ], [ %61, %59 ], [ %70, %68 ], [ %79, %77 ]
+  %.0 = phi i32 [ 0, %.preheader.lr.ph ], [ -1094995529, %4 ], [ 0, %29 ], [ %115, %._crit_edge199.loopexit ], [ %88, %86 ], [ %70, %68 ], [ %61, %59 ], [ %52, %50 ], [ %79, %77 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

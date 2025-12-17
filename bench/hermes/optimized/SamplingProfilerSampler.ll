@@ -747,7 +747,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6threadC2IMN6h
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt6threadD2Ev.exit
-  %retval.0 = phi i1 [ true, %_ZNSt6threadD2Ev.exit ], [ true, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ false, %if.end ]
+  %retval.0 = phi i1 [ true, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %_ZNSt6threadD2Ev.exit ], [ false, %if.end ]
   %call1.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %profilerLock_) #15
   ret i1 %retval.0
 }

@@ -119,7 +119,7 @@ define i32 @cs_scatter(ptr noundef readonly captures(address_is_null) %0, i32 no
   br i1 %74, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %71, %46, %19, %8, %9, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us.us, %46 ], [ %.1, %71 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %15 ], [ -1, %9 ], [ %7, %19 ], [ %.1.us.us, %46 ], [ %.1, %71 ]
   ret i32 %.0
 }
 

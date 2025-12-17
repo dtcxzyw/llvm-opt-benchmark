@@ -476,9 +476,9 @@ define hidden void @ByteGrayToByteIndexedConvert(ptr noundef %0, ptr noundef %1,
   br label %111
 
 111:                                              ; preds = %93, %97
-  %.068 = phi i32 [ %102, %97 ], [ %95, %93 ]
-  %.066 = phi i32 [ %106, %97 ], [ %95, %93 ]
-  %.0 = phi i32 [ %110, %97 ], [ %95, %93 ]
+  %.068 = phi i32 [ %95, %93 ], [ %102, %97 ]
+  %.066 = phi i32 [ %95, %93 ], [ %106, %97 ]
+  %.0 = phi i32 [ %95, %93 ], [ %110, %97 ]
   %112 = or i32 %.066, %.068
   %113 = or i32 %112, %.0
   %.not81 = icmp ult i32 %113, 256
@@ -613,9 +613,9 @@ define hidden void @Index12GrayToByteIndexedConvert(ptr noundef %0, ptr noundef 
   br label %60
 
 60:                                               ; preds = %39, %46
-  %.070 = phi i32 [ %51, %46 ], [ %45, %39 ]
-  %.068 = phi i32 [ %55, %46 ], [ %45, %39 ]
-  %.0 = phi i32 [ %59, %46 ], [ %45, %39 ]
+  %.070 = phi i32 [ %45, %39 ], [ %51, %46 ]
+  %.068 = phi i32 [ %45, %39 ], [ %55, %46 ]
+  %.0 = phi i32 [ %45, %39 ], [ %59, %46 ]
   %61 = or i32 %.068, %.070
   %62 = or i32 %61, %.0
   %.not83 = icmp ult i32 %62, 256
@@ -1254,9 +1254,9 @@ define hidden void @ByteGrayToByteIndexedScaleConvert(ptr noundef %0, ptr nounde
   br label %67
 
 67:                                               ; preds = %46, %53
-  %.074 = phi i32 [ %58, %53 ], [ %51, %46 ]
-  %.072 = phi i32 [ %62, %53 ], [ %51, %46 ]
-  %.0 = phi i32 [ %66, %53 ], [ %51, %46 ]
+  %.074 = phi i32 [ %51, %46 ], [ %58, %53 ]
+  %.072 = phi i32 [ %51, %46 ], [ %62, %53 ]
+  %.0 = phi i32 [ %51, %46 ], [ %66, %53 ]
   %68 = or i32 %.072, %.074
   %69 = or i32 %68, %.0
   %.not87 = icmp ult i32 %69, 256
@@ -1395,9 +1395,9 @@ define hidden void @Index12GrayToByteIndexedScaleConvert(ptr noundef %0, ptr nou
   br label %72
 
 72:                                               ; preds = %48, %58
-  %.076 = phi i32 [ %63, %58 ], [ %57, %48 ]
-  %.074 = phi i32 [ %67, %58 ], [ %57, %48 ]
-  %.0 = phi i32 [ %71, %58 ], [ %57, %48 ]
+  %.076 = phi i32 [ %57, %48 ], [ %63, %58 ]
+  %.074 = phi i32 [ %57, %48 ], [ %67, %58 ]
+  %.0 = phi i32 [ %57, %48 ], [ %71, %58 ]
   %73 = or i32 %.074, %.076
   %74 = or i32 %73, %.0
   %.not89 = icmp ult i32 %74, 256
@@ -2899,10 +2899,10 @@ define hidden void @ByteIndexedAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32
   br i1 %138, label %231, label %139
 
 139:                                              ; preds = %137, %121, %122
-  %.0178 = phi i32 [ %127, %122 ], [ %18, %121 ], [ 0, %137 ]
-  %.0172 = phi i32 [ %130, %122 ], [ %.0192, %121 ], [ 0, %137 ]
-  %.0167 = phi i32 [ %133, %122 ], [ %.0193, %121 ], [ 0, %137 ]
-  %.0166 = phi i32 [ %136, %122 ], [ %.0194, %121 ], [ 0, %137 ]
+  %.0178 = phi i32 [ %18, %121 ], [ %127, %122 ], [ 0, %137 ]
+  %.0172 = phi i32 [ %.0192, %121 ], [ %130, %122 ], [ 0, %137 ]
+  %.0167 = phi i32 [ %.0193, %121 ], [ %133, %122 ], [ 0, %137 ]
+  %.0166 = phi i32 [ %.0194, %121 ], [ %136, %122 ], [ 0, %137 ]
   %.not231 = icmp eq i32 %.4204, 0
   br i1 %.not231, label %173, label %140
 
@@ -4643,7 +4643,7 @@ define hidden zeroext range(i8 0, 2) i8 @checkSameLut(ptr noundef readonly captu
   br i1 %.not16, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.preheader, %4, %5
-  %.012 = phi i8 [ 0, %5 ], [ 1, %4 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %11 ]
+  %.012 = phi i8 [ 1, %4 ], [ 0, %5 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %11 ]
   ret i8 %.012
 }
 

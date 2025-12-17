@@ -871,7 +871,7 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   br label %290
 
 290:                                              ; preds = %99, %13, %14, %288
-  %.0 = phi i32 [ %289, %288 ], [ 0, %14 ], [ 0, %13 ], [ 0, %99 ]
+  %.0 = phi i32 [ %289, %288 ], [ 0, %13 ], [ 0, %14 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

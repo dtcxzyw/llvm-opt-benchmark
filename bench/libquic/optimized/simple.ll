@@ -317,7 +317,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %0,
   br label %45
 
 45:                                               ; preds = %18, %6, %44
-  %.031 = phi i32 [ %.029, %44 ], [ 0, %6 ], [ 0, %18 ]
+  %.031 = phi i32 [ 0, %6 ], [ %.029, %44 ], [ 0, %18 ]
   ret i32 %.031
 }
 
@@ -387,7 +387,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_point_copy(ptr noundef %0, ptr 
   br label %14
 
 14:                                               ; preds = %10, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -437,17 +437,17 @@ set_Jprojective_coordinate_GFp.exit.thread:       ; preds = %14, %16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !18
   %.not14.i = icmp eq ptr %23, null
-  br i1 %.not14.i, label %set_Jprojective_coordinate_GFp.exit, label %24
+  br i1 %.not14.i, label %24, label %set_Jprojective_coordinate_GFp.exit
 
 24:                                               ; preds = %20
-  %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %.017) #4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit.thread33
+  %25 = tail call ptr @BN_copy(ptr noundef nonnull %12, ptr noundef nonnull %2) #4
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit.thread33
 
 set_Jprojective_coordinate_GFp.exit:              ; preds = %20
-  %27 = tail call ptr @BN_copy(ptr noundef nonnull %12, ptr noundef nonnull %2) #4
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit.thread33
+  %26 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %.017) #4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit.thread33
 
 set_Jprojective_coordinate_GFp.exit.thread33:     ; preds = %24, %11, %set_Jprojective_coordinate_GFp.exit
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -474,17 +474,17 @@ set_Jprojective_coordinate_GFp.exit26.thread:     ; preds = %30, %32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   %.not14.i25 = icmp eq ptr %39, null
-  br i1 %.not14.i25, label %set_Jprojective_coordinate_GFp.exit26, label %40
+  br i1 %.not14.i25, label %40, label %set_Jprojective_coordinate_GFp.exit26
 
 40:                                               ; preds = %36
-  %41 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %3, ptr noundef nonnull %.017) #4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit26.thread38
+  %41 = tail call ptr @BN_copy(ptr noundef nonnull %28, ptr noundef nonnull %3) #4
+  %.not48 = icmp eq ptr %41, null
+  br i1 %.not48, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit26.thread38
 
 set_Jprojective_coordinate_GFp.exit26:            ; preds = %36
-  %43 = tail call ptr @BN_copy(ptr noundef nonnull %28, ptr noundef nonnull %3) #4
-  %.not48 = icmp eq ptr %43, null
-  br i1 %.not48, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit26.thread38
+  %42 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %3, ptr noundef nonnull %.017) #4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %set_Jprojective_coordinate_GFp.exit30.thread44, label %set_Jprojective_coordinate_GFp.exit26.thread38
 
 set_Jprojective_coordinate_GFp.exit26.thread38:   ; preds = %40, %set_Jprojective_coordinate_GFp.exit.thread33, %set_Jprojective_coordinate_GFp.exit26
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -511,25 +511,25 @@ set_Jprojective_coordinate_GFp.exit30.thread:     ; preds = %46, %48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %.not14.i29 = icmp eq ptr %55, null
-  br i1 %.not14.i29, label %set_Jprojective_coordinate_GFp.exit30, label %56
+  br i1 %.not14.i29, label %56, label %set_Jprojective_coordinate_GFp.exit30
 
 56:                                               ; preds = %52
-  %57 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %.017) #4
-  %.fr = freeze i32 %57
-  %58 = icmp eq i32 %.fr, 0
-  br i1 %58, label %60, label %set_Jprojective_coordinate_GFp.exit30.thread44
-
-set_Jprojective_coordinate_GFp.exit30:            ; preds = %52
-  %59 = tail call ptr @BN_copy(ptr noundef nonnull %44, ptr noundef nonnull %4) #4
-  %.fr59 = freeze ptr %59
+  %57 = tail call ptr @BN_copy(ptr noundef nonnull %44, ptr noundef nonnull %4) #4
+  %.fr59 = freeze ptr %57
   %.not49 = icmp eq ptr %.fr59, null
   br i1 %.not49, label %60, label %set_Jprojective_coordinate_GFp.exit30.thread44
+
+set_Jprojective_coordinate_GFp.exit30:            ; preds = %52
+  %58 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %.017) #4
+  %.fr = freeze i32 %58
+  %59 = icmp eq i32 %.fr, 0
+  br i1 %59, label %60, label %set_Jprojective_coordinate_GFp.exit30.thread44
 
 60:                                               ; preds = %56, %set_Jprojective_coordinate_GFp.exit30.thread, %set_Jprojective_coordinate_GFp.exit30
   br label %set_Jprojective_coordinate_GFp.exit30.thread44
 
 set_Jprojective_coordinate_GFp.exit30.thread44:   ; preds = %56, %40, %24, %set_Jprojective_coordinate_GFp.exit26.thread38, %60, %set_Jprojective_coordinate_GFp.exit30, %set_Jprojective_coordinate_GFp.exit26.thread, %set_Jprojective_coordinate_GFp.exit.thread, %set_Jprojective_coordinate_GFp.exit, %set_Jprojective_coordinate_GFp.exit26
-  %.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit26 ], [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit26.thread ], [ 0, %60 ], [ 1, %set_Jprojective_coordinate_GFp.exit30 ], [ 1, %set_Jprojective_coordinate_GFp.exit26.thread38 ], [ 0, %24 ], [ 0, %40 ], [ 1, %56 ]
+  %.0 = phi i32 [ 0, %set_Jprojective_coordinate_GFp.exit ], [ 0, %set_Jprojective_coordinate_GFp.exit26.thread ], [ 0, %set_Jprojective_coordinate_GFp.exit26 ], [ 0, %set_Jprojective_coordinate_GFp.exit.thread ], [ 0, %60 ], [ 1, %set_Jprojective_coordinate_GFp.exit30 ], [ 1, %set_Jprojective_coordinate_GFp.exit26.thread38 ], [ 0, %24 ], [ 0, %40 ], [ 1, %56 ]
   tail call void @BN_CTX_free(ptr noundef %.016) #4
   br label %61
 
@@ -947,8 +947,8 @@ define hidden i32 @ec_GFp_simple_add(ptr noundef %0, ptr noundef %1, ptr noundef
   %137 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.0194) #4
   br label %139
 
-138:                                              ; preds = %28, %86, %131, %127, %125, %123, %121, %119, %117, %114, %112, %110, %108, %94, %105, %98, %101, %103, %90, %88, %80, %78, %65, %62, %75, %73, %70, %68, %45, %42, %55, %53, %50, %48, %133
-  %.0195.ph = phi i32 [ %spec.select, %133 ], [ 0, %48 ], [ 0, %50 ], [ 0, %53 ], [ 0, %55 ], [ 0, %42 ], [ 0, %45 ], [ 0, %68 ], [ 0, %70 ], [ 0, %73 ], [ 0, %75 ], [ 0, %62 ], [ 0, %65 ], [ 0, %78 ], [ 0, %80 ], [ 0, %88 ], [ 0, %90 ], [ 0, %103 ], [ 0, %101 ], [ 0, %98 ], [ 0, %105 ], [ 0, %94 ], [ 0, %108 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ], [ 0, %117 ], [ 0, %119 ], [ 0, %121 ], [ 0, %123 ], [ 0, %125 ], [ 0, %127 ], [ 0, %131 ], [ 1, %86 ], [ 0, %28 ]
+138:                                              ; preds = %28, %86, %48, %133, %131, %127, %125, %123, %121, %119, %117, %114, %112, %110, %108, %94, %105, %98, %101, %103, %90, %88, %80, %78, %65, %62, %75, %73, %70, %68, %45, %42, %55, %53, %50
+  %.0195.ph = phi i32 [ 0, %50 ], [ 0, %53 ], [ 0, %55 ], [ 0, %42 ], [ 0, %45 ], [ 0, %68 ], [ 0, %70 ], [ 0, %73 ], [ 0, %75 ], [ 0, %62 ], [ 0, %65 ], [ 0, %78 ], [ 0, %80 ], [ 0, %88 ], [ 0, %90 ], [ 0, %103 ], [ 0, %101 ], [ 0, %98 ], [ 0, %105 ], [ 0, %94 ], [ 0, %108 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ], [ 0, %117 ], [ 0, %119 ], [ 0, %121 ], [ 0, %123 ], [ 0, %125 ], [ 0, %127 ], [ 0, %131 ], [ %spec.select, %133 ], [ 0, %48 ], [ 1, %86 ], [ 0, %28 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0194) #4
   br label %139
 
@@ -1203,7 +1203,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_dbl(ptr noundef %0, ptr noundef
   br label %109
 
 109:                                              ; preds = %106, %102, %104, %98, %100, %91, %93, %96, %83, %86, %89, %80, %78, %76, %56, %59, %61, %63, %65, %67, %70, %43, %45, %48, %50, %52, %54, %30, %33, %35, %37, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %104 ], [ 0, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %96 ], [ 0, %93 ], [ 0, %91 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %76 ], [ 0, %78 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %48 ], [ 0, %45 ], [ 0, %43 ], [ 0, %70 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ], [ 0, %56 ], [ %spec.select, %106 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %56 ], [ %spec.select, %106 ], [ 0, %104 ], [ 0, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %96 ], [ 0, %93 ], [ 0, %91 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %76 ], [ 0, %78 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %48 ], [ 0, %45 ], [ 0, %43 ], [ 0, %70 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0156) #4
   tail call void @BN_CTX_free(ptr noundef %.0157) #4
   br label %110
@@ -1555,13 +1555,13 @@ define hidden range(i32 -1, 2) i32 @ec_GFp_simple_cmp(ptr noundef %0, ptr nounde
   br label %81
 
 81:                                               ; preds = %79, %61, %72, %74, %64, %66, %54, %56, %46, %48, %39
-  %.091 = phi i32 [ -1, %39 ], [ -1, %74 ], [ -1, %72 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %54 ], [ -1, %48 ], [ -1, %46 ], [ 1, %61 ], [ %., %79 ]
+  %.091 = phi i32 [ -1, %39 ], [ -1, %46 ], [ %., %79 ], [ 1, %61 ], [ -1, %74 ], [ -1, %72 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %54 ], [ -1, %48 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.090) #4
   tail call void @BN_CTX_free(ptr noundef %.096) #4
   br label %82
 
 82:                                               ; preds = %81, %23, %18, %36, %9, %7
-  %.0 = phi i32 [ %8, %7 ], [ 1, %9 ], [ %.091, %81 ], [ 1, %18 ], [ %28, %23 ], [ -1, %36 ]
+  %.0 = phi i32 [ %8, %7 ], [ 1, %9 ], [ %.091, %81 ], [ %28, %23 ], [ 1, %18 ], [ -1, %36 ]
   ret i32 %.0
 }
 
@@ -1616,13 +1616,13 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_make_affine(ptr noundef %0, ptr
   br label %26
 
 26:                                               ; preds = %23, %19, %21, %15, %25
-  %.0 = phi i32 [ 0, %15 ], [ 0, %25 ], [ 0, %21 ], [ 0, %19 ], [ 1, %23 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %25 ], [ 0, %19 ], [ 0, %21 ], [ 1, %23 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.026) #4
   tail call void @BN_CTX_free(ptr noundef %.027) #4
   br label %27
 
 27:                                               ; preds = %12, %3, %8, %26
-  %.025 = phi i32 [ %.0, %26 ], [ 1, %8 ], [ 1, %3 ], [ 0, %12 ]
+  %.025 = phi i32 [ %.0, %26 ], [ 1, %3 ], [ 1, %8 ], [ 0, %12 ]
   ret i32 %.025
 }
 
@@ -1886,9 +1886,9 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %exitcond185.not = icmp eq i64 %144, %1
   br i1 %exitcond185.not, label %.thread, label %113, !llvm.loop !30
 
-.thread:                                          ; preds = %.preheader207, %53, %42, %83, %91, %98, %140, %118, %123, %129, %134, %143, %107, %71, %73, %33, %29, %16, %11, %66
-  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %118 ], [ %calloc, %140 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader207 ]
-  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %29 ], [ 0, %140 ], [ 0, %118 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %83 ], [ 0, %42 ], [ 0, %53 ], [ 0, %.preheader207 ]
+.thread:                                          ; preds = %.preheader207, %53, %42, %83, %91, %98, %140, %123, %129, %134, %118, %143, %107, %71, %73, %33, %29, %16, %11, %66
+  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %29 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %53 ], [ %calloc, %140 ], [ %calloc, %83 ], [ %calloc, %143 ], [ %calloc, %118 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %42 ], [ %calloc, %.preheader207 ]
+  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %29 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %53 ], [ 0, %140 ], [ 0, %83 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 0, %118 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %42 ], [ 0, %.preheader207 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0132) #4
   tail call void @BN_CTX_free(ptr noundef %.0133) #4
   %.not163 = icmp eq ptr %.0131, null
@@ -1912,7 +1912,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br label %151
 
 151:                                              ; preds = %.thread, %150, %8, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %8 ], [ %.0129, %150 ], [ %.0129, %.thread ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %4 ], [ %.0129, %150 ], [ %.0129, %.thread ]
   ret i32 %.0
 }
 

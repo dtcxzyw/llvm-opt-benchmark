@@ -181,14 +181,14 @@ aes_wrap_cipher_internal.exit:                    ; preds = %28, %.thread50.i
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %aes_wrap_cipher_internal.exit.thread16, label %aes_wrap_cipher_internal.exit.thread
 
-aes_wrap_cipher_internal.exit.thread:             ; preds = %24, %27, %43, %47, %46, %aes_wrap_cipher_internal.exit
-  %.0.i15 = phi i32 [ %50, %aes_wrap_cipher_internal.exit ], [ -1, %24 ], [ -1, %27 ], [ -1, %43 ], [ %48, %47 ], [ -1, %46 ]
+aes_wrap_cipher_internal.exit.thread:             ; preds = %43, %47, %46, %24, %27, %aes_wrap_cipher_internal.exit
+  %.0.i15 = phi i32 [ %50, %aes_wrap_cipher_internal.exit ], [ -1, %43 ], [ %48, %47 ], [ -1, %46 ], [ -1, %24 ], [ -1, %27 ]
   %52 = sext i32 %.0.i15 to i64
   store i64 %52, ptr %2, align 8, !tbaa !13
   br label %aes_wrap_cipher_internal.exit.thread16
 
 aes_wrap_cipher_internal.exit.thread16:           ; preds = %14, %aes_wrap_cipher_internal.exit, %6, %aes_wrap_cipher_internal.exit.thread, %13, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %aes_wrap_cipher_internal.exit.thread ], [ 0, %6 ], [ 0, %aes_wrap_cipher_internal.exit ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 0, %6 ], [ 1, %aes_wrap_cipher_internal.exit.thread ], [ 0, %aes_wrap_cipher_internal.exit ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -252,7 +252,7 @@ define internal ptr @aes_wrap_dupctx(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %4, %6, %9, %17, %12, %1
-  %.014 = phi ptr [ null, %1 ], [ null, %17 ], [ %5, %12 ], [ %5, %9 ], [ %5, %6 ], [ null, %4 ]
+  %.014 = phi ptr [ null, %1 ], [ null, %4 ], [ null, %17 ], [ %5, %12 ], [ %5, %9 ], [ %5, %6 ]
   ret ptr %.014
 }
 

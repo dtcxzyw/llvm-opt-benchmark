@@ -32,7 +32,7 @@ _.exit.sink.split:                                ; preds = %3
   br label %_.exit
 
 _.exit:                                           ; preds = %3, %_.exit.sink.split
-  %.0.i7.sink = phi ptr [ %6, %_.exit.sink.split ], [ %.str..str.1, %3 ]
+  %.0.i7.sink = phi ptr [ %.str..str.1, %3 ], [ %6, %_.exit.sink.split ]
   %7 = tail call ptr @absolute_path(ptr noundef %0) #11
   %8 = tail call ptr @strerror(i32 noundef %1) #11
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %2, ptr noundef %.0.i7.sink, ptr noundef %7, ptr noundef %8) #11
@@ -162,7 +162,7 @@ _.exit.sink.split.i:                              ; preds = %44
   br label %unable_to_lock_message.exit
 
 unable_to_lock_message.exit:                      ; preds = %44, %_.exit.sink.split.i
-  %.0.i7.sink.i = phi ptr [ %49, %_.exit.sink.split.i ], [ %.str..str.1.i, %44 ]
+  %.0.i7.sink.i = phi ptr [ %.str..str.1.i, %44 ], [ %49, %_.exit.sink.split.i ]
   %50 = tail call ptr @absolute_path(ptr noundef %1) #11
   %51 = tail call ptr @strerror(i32 noundef %46) #11
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef %.0.i7.sink.i, ptr noundef %50, ptr noundef %51) #11
@@ -174,7 +174,7 @@ unable_to_lock_message.exit:                      ; preds = %44, %_.exit.sink.sp
   br label %lock_file_timeout.exit.thread
 
 lock_file_timeout.exit.thread:                    ; preds = %19, %11, %42, %unable_to_lock_message.exit, %lock_file_timeout.exit
-  %.0.i12 = phi i32 [ %.0.i15, %42 ], [ %.0.i15, %unable_to_lock_message.exit ], [ %36, %lock_file_timeout.exit ], [ %13, %11 ], [ %34, %19 ]
+  %.0.i12 = phi i32 [ %36, %lock_file_timeout.exit ], [ %.0.i15, %42 ], [ %.0.i15, %unable_to_lock_message.exit ], [ %13, %11 ], [ %34, %19 ]
   ret i32 %.0.i12
 }
 

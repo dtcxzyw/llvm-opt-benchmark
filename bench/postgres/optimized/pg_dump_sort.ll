@@ -277,7 +277,7 @@ define internal i32 @DOTypeNameCompare(ptr noundef readonly captures(none) %0, p
   br label %.thread138
 
 .thread138:                                       ; preds = %66, %60, %34, %27, %26, %19, %20, %2, %76, %84, %90, %100, %110, %.loopexit
-  %.0 = phi i32 [ %124, %.loopexit ], [ %83, %76 ], [ %89, %84 ], [ %99, %90 ], [ %109, %100 ], [ %119, %110 ], [ %13, %2 ], [ %25, %20 ], [ -1, %19 ], [ 1, %26 ], [ %32, %27 ], [ %39, %34 ], [ %65, %60 ], [ %71, %66 ]
+  %.0 = phi i32 [ -1, %19 ], [ %13, %2 ], [ 1, %26 ], [ %124, %.loopexit ], [ %32, %27 ], [ %83, %76 ], [ %89, %84 ], [ %99, %90 ], [ %109, %100 ], [ %119, %110 ], [ %25, %20 ], [ %39, %34 ], [ %65, %60 ], [ %71, %66 ]
   ret i32 %.0
 }
 
@@ -1164,7 +1164,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
   br label %.lr.ph.preheader.i
 
 .critedge283.thread.thread.i.i:                   ; preds = %431, %.critedge283.thread.i.i, %400, %396, %.thread301.i.i, %390, %386, %359, %343, %._crit_edge.i.thread.i, %337, %307, %303, %295, %291, %290, %198, %194, %190, %187, %179, %175, %171, %168, %134
-  %438 = phi ptr [ @.str.3, %431 ], [ @.str.4, %.critedge283.thread.i.i ], [ @.str.4, %390 ], [ @.str.4, %386 ], [ @.str.4, %343 ], [ @.str.4, %.thread301.i.i ], [ @.str.4, %396 ], [ @.str.4, %400 ], [ @.str.4, %359 ], [ @.str.4, %337 ], [ @.str.4, %295 ], [ @.str.4, %291 ], [ @.str.4, %179 ], [ @.str.4, %175 ], [ @.str.4, %171 ], [ @.str.4, %168 ], [ @.str.4, %187 ], [ @.str.4, %190 ], [ @.str.4, %194 ], [ @.str.4, %198 ], [ @.str.4, %303 ], [ @.str.4, %307 ], [ @.str.4, %._crit_edge.i.thread.i ], [ @.str.4, %290 ], [ @.str.4, %134 ]
+  %438 = phi ptr [ @.str.4, %.critedge283.thread.i.i ], [ @.str.3, %431 ], [ @.str.4, %390 ], [ @.str.4, %386 ], [ @.str.4, %290 ], [ @.str.4, %343 ], [ @.str.4, %._crit_edge.i.thread.i ], [ @.str.4, %.thread301.i.i ], [ @.str.4, %396 ], [ @.str.4, %400 ], [ @.str.4, %307 ], [ @.str.4, %303 ], [ @.str.4, %359 ], [ @.str.4, %337 ], [ @.str.4, %295 ], [ @.str.4, %291 ], [ @.str.4, %179 ], [ @.str.4, %175 ], [ @.str.4, %171 ], [ @.str.4, %168 ], [ @.str.4, %187 ], [ @.str.4, %190 ], [ @.str.4, %194 ], [ @.str.4, %198 ], [ @.str.4, %134 ]
   %wide.trip.count441.i.i = zext nneg i32 %125 to i64
   br label %440
 
@@ -1946,7 +1946,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %36, %41
+44:                                               ; preds = %41, %36
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %45 = load i32, ptr %25, align 8
   %46 = sext i32 %45 to i64
@@ -1961,7 +1961,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %41, %13, %6, %._crit_edge61
-  %.0 = phi i32 [ 0, %._crit_edge61 ], [ 0, %6 ], [ 0, %13 ], [ %42, %41 ], [ %22, %32 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %._crit_edge61 ], [ 0, %6 ], [ 0, %13 ], [ %22, %32 ], [ %42, %41 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

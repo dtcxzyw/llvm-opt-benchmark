@@ -237,7 +237,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %738
 
-119:                                              ; preds = %33, %26, %_ZN4llvm16isShiftedMask_64Em.exit56.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i
+119:                                              ; preds = %26, %33, %_ZN4llvm16isShiftedMask_64Em.exit56.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i
   %120 = add nsw i32 %12, -2
   %.not = icmp ult i32 %.0.lcssa, %120
   %.not97 = icmp ult i32 %.087.lcssa, %120
@@ -453,7 +453,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit144: ; preds = %207, %22
   %228 = sub i32 %.146.i132, %.049.i141
   br label %.critedge
 
-229:                                              ; preds = %.thread370, %.thread372, %177, %_ZN4llvm16isShiftedMask_64Em.exit56.i140, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i137
+229:                                              ; preds = %.thread370, %177, %.thread372, %_ZN4llvm16isShiftedMask_64Em.exit56.i140, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i137
   %230 = add i64 %130, 1
   %or.cond.i145 = icmp ult i64 %230, 2
   br i1 %or.cond.i145, label %340, label %231
@@ -663,7 +663,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %738
 
-340:                                              ; preds = %232, %229, %_ZN4llvm16isShiftedMask_64Em.exit56.i160, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i157
+340:                                              ; preds = %229, %232, %_ZN4llvm16isShiftedMask_64Em.exit56.i160, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i157
   %341 = add i32 %.092302, 16
   %.not98 = icmp ult i32 %341, %1
   br i1 %.not98, label %124, label %.critedge103, !llvm.loop !21
@@ -1026,7 +1026,7 @@ _ZL25tryOrrOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmIns
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %738
 
-535:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i17.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i20.i, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit.i, %_ZL23maximalLogicalImmWithinmm.exit25.i.i, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit25.i
+535:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.thread.i17.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i20.i, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit.i, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit25.i, %_ZL23maximalLogicalImmWithinmm.exit25.i.i
   %536 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 false)
   %.0.i.i.i183 = tail call noundef i64 @llvm.fshr.i64(i64 %343, i64 %343, i64 %536)
   %537 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i.i183, i1 false)
@@ -1376,7 +1376,7 @@ _ZL25tryAndOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmIns
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %738
 
-.thread:                                          ; preds = %.critedge103, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit24.i, %_ZL23maximalLogicalImmWithinmm.exit25.i.i198, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit.i215, %_ZN4llvm16isShiftedMask_64Em.exit56.i19.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i17.i227
+.thread:                                          ; preds = %.critedge103, %_ZL23maximalLogicalImmWithinmm.exit25.i.i198, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit24.i, %_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit.i215, %_ZN4llvm16isShiftedMask_64Em.exit56.i19.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i17.i227
   %727 = tail call fastcc noundef zeroext i1 @_ZL25tryEorOfLogicalImmediatesmRN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEEE(i64 noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %727, label %738, label %728
 
@@ -2413,7 +2413,7 @@ _ZN4llvm16DenseMapIteratorImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEE
   br i1 %.not99, label %.critedge53, label %.lr.ph
 
 .critedge53:                                      ; preds = %_ZN4llvm16DenseMapIteratorImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEELb0EEppEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit67
-  %189 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit67 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit ], [ false, %_ZN4llvm16DenseMapIteratorImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEELb0EEppEv.exit ]
+  %189 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit67 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_backERKS2_.exit60 ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_E5beginEv.exit ], [ false, %_ZN4llvm16DenseMapIteratorImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEELb0EEppEv.exit ]
   %190 = load ptr, ptr %3, align 8, !tbaa !31
   %191 = load i32, ptr %13, align 8, !tbaa !32
   %192 = zext i32 %191 to i64
@@ -2464,8 +2464,8 @@ _ZL12isStartChunkm.exit:                          ; preds = %9
   br label %.thread
 
 .thread:                                          ; preds = %18, %9, %_ZL12isStartChunkm.exit
-  %.1100 = phi i32 [ %17, %_ZL12isStartChunkm.exit ], [ %.099115, %9 ], [ %.099115, %18 ]
-  %.1 = phi i32 [ %.098116, %_ZL12isStartChunkm.exit ], [ %.098116, %9 ], [ %spec.select, %18 ]
+  %.1100 = phi i32 [ %.099115, %18 ], [ %.099115, %9 ], [ %17, %_ZL12isStartChunkm.exit ]
+  %.1 = phi i32 [ %spec.select, %18 ], [ %.098116, %9 ], [ %.098116, %_ZL12isStartChunkm.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %6, label %9, !llvm.loop !41
@@ -2519,9 +2519,9 @@ _ZL12isStartChunkm.exit:                          ; preds = %9
   br label %44
 
 44:                                               ; preds = %30, %38, %35
-  %.150.us = phi i64 [ %.049118.us, %35 ], [ %32, %30 ], [ %41, %38 ]
-  %.148.us = phi i32 [ %.047119.us, %35 ], [ %.044..047.us, %30 ], [ %.044..04759.us, %38 ]
-  %.146.us = phi i32 [ %.045120.us, %35 ], [ %.045..044.us, %30 ], [ %.045..04460.us, %38 ]
+  %.150.us = phi i64 [ %32, %30 ], [ %.049118.us, %35 ], [ %41, %38 ]
+  %.148.us = phi i32 [ %.044..047.us, %30 ], [ %.047119.us, %35 ], [ %.044..04759.us, %38 ]
+  %.146.us = phi i32 [ %.045..044.us, %30 ], [ %.045120.us, %35 ], [ %.045..04460.us, %38 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 4
   br i1 %exitcond135.not, label %.split123.us, label %.split.us, !llvm.loop !42
@@ -2770,9 +2770,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11AArch64_IMM12ImmInsnModelELb1EE9push_back
   br label %174
 
 174:                                              ; preds = %169, %160, %166
-  %.150 = phi i64 [ %.049118, %166 ], [ %163, %160 ], [ %171, %169 ]
-  %.148 = phi i32 [ %.047119, %166 ], [ %.044..047, %160 ], [ %.044..04759, %169 ]
-  %.146 = phi i32 [ %.045120, %166 ], [ %.045..044, %160 ], [ %.045..04460, %169 ]
+  %.150 = phi i64 [ %163, %160 ], [ %.049118, %166 ], [ %171, %169 ]
+  %.148 = phi i32 [ %.044..047, %160 ], [ %.047119, %166 ], [ %.044..04759, %169 ]
+  %.146 = phi i32 [ %.045..044, %160 ], [ %.045120, %166 ], [ %.045..04460, %169 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 4
   br i1 %exitcond131.not, label %.split123.us, label %.split, !llvm.loop !42

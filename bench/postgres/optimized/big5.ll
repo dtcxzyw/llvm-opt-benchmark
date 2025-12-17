@@ -76,8 +76,8 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
   br label %31
 
 29:                                               ; preds = %26, %15, %13
-  %.sink = phi i8 [ -107, %13 ], [ -107, %15 ], [ -106, %26 ]
-  %.022.ph = phi i16 [ %14, %13 ], [ 17474, %15 ], [ %27, %26 ]
+  %.sink = phi i8 [ -107, %15 ], [ -107, %13 ], [ -106, %26 ]
+  %.022.ph = phi i16 [ 17474, %15 ], [ %14, %13 ], [ %27, %26 ]
   store i8 %.sink, ptr %1, align 1
   %30 = or i16 %.022.ph, -32640
   br label %31
@@ -184,7 +184,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr noundef readonly captu
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !6
 
 .loopexit:                                        ; preds = %68, %13, %48, %24
-  %.059 = phi i16 [ %47, %24 ], [ %67, %48 ], [ 0, %13 ], [ 0, %68 ]
+  %.059 = phi i16 [ 0, %13 ], [ %47, %24 ], [ %67, %48 ], [ 0, %68 ]
   ret i16 %.059
 }
 
@@ -241,7 +241,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %8, %4, %6, %2, %20, %13
-  %.017 = phi i16 [ %14, %13 ], [ %21, %20 ], [ 0, %2 ], [ %5, %4 ], [ %7, %6 ], [ 0, %8 ], [ 0, %15 ]
+  %.017 = phi i16 [ %21, %20 ], [ %14, %13 ], [ 0, %2 ], [ %5, %4 ], [ %7, %6 ], [ 0, %8 ], [ 0, %15 ]
   ret i16 %.017
 }
 

@@ -402,7 +402,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
   ret void
 
 102:                                              ; preds = %51, %57, %67, %40, %34
-  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %35, %34 ], [ %.pn14, %57 ], [ %52, %51 ], [ %.pn12, %67 ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %40 ], [ %.pn14, %57 ], [ %52, %51 ], [ %.pn12, %67 ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %common.resume

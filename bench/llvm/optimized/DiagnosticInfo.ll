@@ -3243,8 +3243,8 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %69, 
   br label %_ZN4llvmplERKNS_5TwineES2_.exit30
 
 _ZN4llvmplERKNS_5TwineES2_.exit30:                ; preds = %_ZNK4llvm7DIScope7getFileEv.exit.i.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i, %75
-  %.sroa.56.0.copyload.i.i = phi i64 [ %78, %75 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
-  %.sroa.05.0.copyload.i.i = phi ptr [ %77, %75 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i ], [ @.str, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
+  %.sroa.56.0.copyload.i.i = phi i64 [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i ], [ %78, %75 ], [ 0, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
+  %.sroa.05.0.copyload.i.i = phi ptr [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i ], [ %77, %75 ], [ @.str, %_ZNK4llvm7DIScope7getFileEv.exit.i.i ]
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 5, ptr %79, align 8, !tbaa !28, !alias.scope !237
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 33

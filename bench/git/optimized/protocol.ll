@@ -71,7 +71,7 @@ switch.lookup.i17:                                ; preds = %16
   unreachable
 
 parse_protocol_version.exit:                      ; preds = %switch.lookup.i17, %switch.lookup.i, %12, %14
-  %.0.shrunk = phi i8 [ 2, %14 ], [ 2, %12 ], [ %switch.tableidx.i, %switch.lookup.i ], [ %switch.tableidx.i15, %switch.lookup.i17 ]
+  %.0.shrunk = phi i8 [ 2, %12 ], [ %switch.tableidx.i, %switch.lookup.i ], [ 2, %14 ], [ %switch.tableidx.i15, %switch.lookup.i17 ]
   %.0 = zext nneg i8 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0

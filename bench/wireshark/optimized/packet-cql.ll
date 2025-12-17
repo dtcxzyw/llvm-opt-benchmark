@@ -784,7 +784,7 @@ cql_enrich_transaction_with_response.exit:        ; preds = %114, %.preheader.i,
   %.not616 = icmp eq ptr %.0581, null
   br i1 %.not616, label %cql_enrich_transaction_with_response.exit.thread, label %121
 
-cql_enrich_transaction_with_response.exit.thread: ; preds = %117, %107, %103, %98, %96, %92, %cql_enrich_transaction_with_response.exit
+cql_enrich_transaction_with_response.exit.thread: ; preds = %117, %103, %107, %92, %96, %98, %cql_enrich_transaction_with_response.exit
   %119 = load i32, ptr %10, align 4
   %120 = call fastcc ptr @cql_transaction_add_request(ptr noundef %.0583, ptr noundef %1, i32 noundef %119, i32 noundef 1)
   br label %121
@@ -965,7 +965,7 @@ proto_item_set_generated.exit.thread:             ; preds = %122, %125, %128, %1
   br label %681
 
 207:                                              ; preds = %.thread668, %.thread659, %199
-  %.4 = phi ptr [ %200, %199 ], [ %176, %.thread659 ], [ %196, %.thread668 ]
+  %.4 = phi ptr [ %200, %199 ], [ %196, %.thread668 ], [ %176, %.thread659 ]
   br i1 %40, label %208, label %365
 
 208:                                              ; preds = %207
@@ -2541,12 +2541,12 @@ define internal fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %4, %4, %13
-  %.sink = phi i32 [ %14, %13 ], [ %11, %4 ], [ %11, %4 ]
+  %.sink = phi i32 [ %11, %4 ], [ %14, %13 ], [ %11, %4 ]
   %57 = call fastcc i32 @parse_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %.loopexit.sink.split, %48, %15, %4
-  %.066 = phi i32 [ %11, %4 ], [ %34, %15 ], [ %51, %48 ], [ %57, %.loopexit.sink.split ], [ %44, %.lr.ph73 ], [ %53, %.lr.ph ]
+  %.066 = phi i32 [ %11, %4 ], [ %51, %48 ], [ %34, %15 ], [ %57, %.loopexit.sink.split ], [ %44, %.lr.ph73 ], [ %53, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3216,12 +3216,12 @@ proto_item_set_hidden.exit260:                    ; preds = %326, %330, %333
   br i1 %343, label %.lr.ph282, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph270, %.lr.ph274, %proto_item_set_hidden.exit257, %.lr.ph282, %186, %proto_item_set_hidden.exit251, %proto_item_set_hidden.exit260, %45, %229, %208, %173, %170, %add_cql_uuid.exit236, %add_varint_item.exit231, %121, %add_cql_uuid.exit, %97, %93, %89, %85, %add_varint_item.exit, %69, %63, %59, %53, %47
-  %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %220, %229 ], [ %198, %208 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %211, %.lr.ph270 ], [ %189, %.lr.ph ]
+  %.0220 = phi i32 [ %20, %45 ], [ %52, %47 ], [ %58, %53 ], [ %62, %59 ], [ %68, %63 ], [ %72, %69 ], [ %84, %add_varint_item.exit ], [ %88, %85 ], [ %92, %89 ], [ %96, %93 ], [ %100, %97 ], [ %120, %add_cql_uuid.exit ], [ %126, %121 ], [ %134, %add_varint_item.exit231 ], [ %154, %add_cql_uuid.exit236 ], [ %177, %173 ], [ %.1, %170 ], [ %220, %229 ], [ %198, %208 ], [ %20, %proto_item_set_hidden.exit260 ], [ %20, %proto_item_set_hidden.exit251 ], [ %187, %186 ], [ %211, %.lr.ph270 ], [ %340, %.lr.ph282 ], [ %322, %proto_item_set_hidden.exit257 ], [ %231, %.lr.ph274 ], [ %189, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1)
   br label %344
 
 344:                                              ; preds = %39, %42, %35, %.loopexit, %223, %202, %183
-  %.0 = phi i32 [ %.0220, %.loopexit ], [ %225, %223 ], [ %204, %202 ], [ %185, %183 ], [ %20, %35 ], [ %20, %42 ], [ %20, %39 ]
+  %.0 = phi i32 [ %185, %183 ], [ %.0220, %.loopexit ], [ %225, %223 ], [ %204, %202 ], [ %20, %35 ], [ %20, %42 ], [ %20, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

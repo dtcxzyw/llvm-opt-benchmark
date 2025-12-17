@@ -290,7 +290,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -738,7 +738,7 @@ define noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_22MeasureFormatCacheDataEE12c
 .thread:                                          ; preds = %16
   %.pr = load i32, ptr %2, align 4, !tbaa !13
   %17 = icmp slt i32 %.pr, 1
-  br i1 %17, label %23, label %.thread66
+  br i1 %17, label %23, label %.thread71
 
 18:                                               ; preds = %3
   %19 = load i32, ptr %2, align 4
@@ -868,7 +868,7 @@ _ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEEC2EPS1_R10UErrorCode.exit.
   br label %.body.thread
 
 _ZN6icu_77L25loadNumericDateFormattersEPK15UResourceBundleR10UErrorCode.exit: ; preds = %40, %.critedge47.i, %23
-  %.035.i = phi ptr [ null, %40 ], [ %24, %.critedge47.i ], [ null, %23 ]
+  %.035.i = phi ptr [ null, %23 ], [ %24, %.critedge47.i ], [ null, %40 ]
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !32
   %54 = icmp eq ptr %53, null
@@ -888,7 +888,7 @@ _ZN6icu_7722MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDate
   store ptr %.035.i, ptr %52, align 8, !tbaa !32
   %59 = load i32, ptr %2, align 4, !tbaa !13
   %60 = icmp slt i32 %59, 1
-  br i1 %60, label %.preheader, label %.thread66
+  br i1 %60, label %.preheader, label %.thread71
 
 .preheader:                                       ; preds = %_ZN6icu_7722MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -963,7 +963,7 @@ _ZN6icu_7722MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exi
   %84 = phi i32 [ %.pre, %_ZN6icu_7722MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit._crit_edge ], [ %76, %77 ]
   %85 = icmp slt i32 %84, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %85, label %62, label %.thread66
+  br i1 %85, label %62, label %.thread71
 
 .critedge:                                        ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -979,7 +979,7 @@ _ZN6icu_7722MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %89 = load i32, ptr %2, align 4, !tbaa !13
   %90 = icmp slt i32 %89, 1
-  br i1 %90, label %98, label %.thread66
+  br i1 %90, label %98, label %.thread71
 
 91:                                               ; preds = %.critedge
   %92 = landingpad { ptr, i32 }
@@ -1044,15 +1044,15 @@ _ZN6icu_7722MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit:
   invoke void @_ZNK6icu_7712SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit unwind label %108
 
-.thread66:                                        ; preds = %83, %.thread, %_ZN6icu_7722MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit, %88
+.thread71:                                        ; preds = %83, %.thread, %88, %_ZN6icu_7722MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
   %118 = load ptr, ptr %14, align 8, !tbaa !15
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(80) %14) #19
   br label %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit: ; preds = %18, %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEEC2EPS1_R10UErrorCode.exit.thread, %_ZN6icu_7722MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit, %.thread66
-  %.071 = phi ptr [ null, %.thread66 ], [ %14, %_ZN6icu_7722MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit ], [ null, %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEEC2EPS1_R10UErrorCode.exit.thread ], [ null, %18 ]
+_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit: ; preds = %18, %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEEC2EPS1_R10UErrorCode.exit.thread, %_ZN6icu_7722MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit, %.thread71
+  %.069 = phi ptr [ null, %.thread71 ], [ null, %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEEC2EPS1_R10UErrorCode.exit.thread ], [ %14, %_ZN6icu_7722MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit ], [ null, %18 ]
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %121
 
@@ -1069,10 +1069,10 @@ _ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit: ; preds = %18, 
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret ptr %.071
+  ret ptr %.069
 
-.body.thread:                                     ; preds = %82, %51, %95, %96, %108
-  %.pn52.pn77 = phi { ptr, i32 } [ %.pn48, %95 ], [ %97, %96 ], [ %109, %108 ], [ %.pn, %82 ], [ %.pn.pn.pn.i, %51 ]
+.body.thread:                                     ; preds = %82, %108, %96, %95, %51
+  %.pn52.pn = phi { ptr, i32 } [ %.pn48, %95 ], [ %.pn, %82 ], [ %109, %108 ], [ %97, %96 ], [ %.pn.pn.pn.i, %51 ]
   %125 = load ptr, ptr %14, align 8, !tbaa !15
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
@@ -1080,7 +1080,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %_ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit56
 
 _ZN6icu_7712LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit56: ; preds = %.body.thread, %21
-  %.pn52.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn52.pn77, %.body.thread ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %.pn52.pn, %.body.thread ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn52.pn.pn
@@ -1529,7 +1529,7 @@ _ZN6icu_7712SharedObject7copyPtrINS_17SharedPluralRulesEEEvPKT_RS5_.exit: ; pred
   resume { ptr, i32 } %49
 
 50:                                               ; preds = %40, %43, %46
-  %storemerge = phi ptr [ null, %43 ], [ %44, %46 ], [ null, %40 ]
+  %storemerge = phi ptr [ %44, %46 ], [ null, %43 ], [ null, %40 ]
   store ptr %storemerge, ptr %33, align 8, !tbaa !49
   br label %51
 
@@ -1710,7 +1710,7 @@ define noundef zeroext i1 @_ZNK6icu_7713MeasureFormateqERKNS_6FormatE(ptr nounde
   br label %39
 
 39:                                               ; preds = %22, %7, %.critedge, %30, %24, %5, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %22 ], [ false, %7 ], [ false, %.critedge ], [ true, %24 ], [ %38, %30 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %22 ], [ false, %.critedge ], [ false, %7 ], [ true, %24 ], [ %38, %30 ]
   ret i1 %.0
 }
 
@@ -1779,7 +1779,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   br label %22
 
 22:                                               ; preds = %16, %5, %.thread20
-  %.014 = phi ptr [ %2, %.thread20 ], [ %21, %16 ], [ %2, %5 ]
+  %.014 = phi ptr [ %21, %16 ], [ %2, %.thread20 ], [ %2, %5 ]
   ret ptr %.014
 }
 
@@ -1887,7 +1887,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   br label %.thread103
 
 .thread103:                                       ; preds = %50, %48, %.thread108, %53
-  %.pn9297106 = phi { ptr, i32 } [ %54, %53 ], [ %.pn9298.ph, %.thread108 ], [ %51, %50 ], [ %49, %48 ]
+  %.pn9297106 = phi { ptr, i32 } [ %.pn9298.ph, %.thread108 ], [ %54, %53 ], [ %51, %50 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -2634,7 +2634,7 @@ _ZN6icu_77L10isTimeUnitERKNS_11MeasureUnitEPKc.exit41.i: ; preds = %.noexc91
   br label %79
 
 79:                                               ; preds = %77, %62, %.noexc87
-  %.1.i = phi i32 [ %63, %62 ], [ %78, %77 ], [ 1, %.noexc87 ]
+  %.1.i = phi i32 [ %78, %77 ], [ %63, %62 ], [ 1, %.noexc87 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit, label %33, !llvm.loop !91
@@ -2670,8 +2670,8 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit: ; preds =
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit102 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br label %94
 
-_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; preds = %42, %.noexc87, %55, %.noexc90, %.noexc93, %.noexc92, %.noexc91, %26, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit
-  %88 = phi i1 [ false, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit ], [ true, %26 ], [ true, %.noexc91 ], [ true, %.noexc92 ], [ true, %.noexc93 ], [ true, %.noexc90 ], [ true, %55 ], [ true, %.noexc87 ], [ true, %42 ]
+_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; preds = %.noexc91, %.noexc92, %.noexc93, %.noexc90, %55, %.noexc87, %42, %26, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit
+  %88 = phi i1 [ false, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit ], [ true, %26 ], [ true, %42 ], [ true, %.noexc87 ], [ true, %55 ], [ true, %.noexc90 ], [ true, %.noexc93 ], [ true, %.noexc92 ], [ true, %.noexc91 ]
   br label %89
 
 89:                                               ; preds = %89, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread
@@ -2791,7 +2791,7 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; 
   br label %137
 
 137:                                              ; preds = %121, %.loopexit, %93, %10, %6, %101, %11
-  %.054 = phi ptr [ %16, %11 ], [ %3, %101 ], [ %3, %93 ], [ %3, %6 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %121 ]
+  %.054 = phi ptr [ %3, %93 ], [ %3, %6 ], [ %16, %11 ], [ %3, %101 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %121 ]
   ret ptr %.054
 }
 
@@ -2913,8 +2913,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   br label %200
 
 69:                                               ; preds = %66, %57, %47
-  %.095 = phi double [ %48, %47 ], [ %23, %57 ], [ %67, %66 ]
-  %.073 = phi double [ %46, %47 ], [ %58, %57 ], [ %20, %66 ]
+  %.095 = phi double [ %23, %57 ], [ %48, %47 ], [ %67, %66 ]
+  %.073 = phi double [ %58, %57 ], [ %46, %47 ], [ %20, %66 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !54
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -3049,7 +3049,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %108
   br label %.thread145
 
 .thread145:                                       ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit, %123, %122
-  %.094149 = phi double [ %26, %123 ], [ %.095, %122 ], [ %.073, %_ZNK6icu_7713UnicodeStringixEi.exit ]
+  %.094149 = phi double [ %.073, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ %.095, %122 ], [ %26, %123 ]
   %.not116 = icmp eq i8 %.0100156, 0
   br i1 %.not116, label %130, label %124
 
@@ -3199,15 +3199,15 @@ _ZNK6icu_7713UnicodeStringixEi.exit139.thread:    ; preds = %_ZNK6icu_7713Unicod
   br label %_ZN6icu_7722FormattedStringBuilder12appendChar16EDsNS0_5FieldER10UErrorCode.exit
 
 .thread150:                                       ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit, %108
-  %.0.i.i144153 = phi i16 [ -1, %108 ], [ %121, %_ZNK6icu_7713UnicodeStringixEi.exit ]
+  %.0.i.i144153 = phi i16 [ %121, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ -1, %108 ]
   %176 = load i32, ptr %104, align 4, !tbaa !97
   %177 = zext i16 %.0.i.i144153 to i32
   %178 = invoke noundef i32 @_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef %176, i32 noundef %177, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7722FormattedStringBuilder12appendChar16EDsNS0_5FieldER10UErrorCode.exit unwind label %128
 
 _ZN6icu_7722FormattedStringBuilder12appendChar16EDsNS0_5FieldER10UErrorCode.exit: ; preds = %.thread150, %172, %124, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit
-  %.1101 = phi i8 [ 0, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %175, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ 1, %124 ], [ %.0100156, %172 ], [ %.0100156, %.thread150 ]
-  %.298 = phi i32 [ %.197, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %.096157, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ %.096157, %124 ], [ %165, %172 ], [ %.096157, %.thread150 ]
+  %.1101 = phi i8 [ %.0100156, %172 ], [ 1, %124 ], [ 0, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %175, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ %.0100156, %.thread150 ]
+  %.298 = phi i32 [ %165, %172 ], [ %.096157, %124 ], [ %.197, %_ZN6icu_7722FormattedStringBuilder6appendERKNS_13UnicodeStringENS0_5FieldER10UErrorCode.exit ], [ %.096157, %_ZNK6icu_7713UnicodeStringixEi.exit139.thread ], [ %.096157, %.thread150 ]
   %179 = add nsw i32 %.298, 1
   %180 = icmp slt i32 %179, %100
   br i1 %180, label %108, label %._crit_edge, !llvm.loop !98
@@ -3248,7 +3248,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %181
   br label %196
 
 196:                                              ; preds = %163, %128, %195
-  %.pn124.pn.pn = phi { ptr, i32 } [ %.pn113, %195 ], [ %129, %128 ], [ %.pn121, %163 ]
+  %.pn124.pn.pn = phi { ptr, i32 } [ %.pn121, %163 ], [ %.pn113, %195 ], [ %129, %128 ]
   call void @_ZN6icu_7722FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #19
   br label %197
 
@@ -3869,7 +3869,7 @@ define noundef ptr @_ZN6icu_7713MeasureFormat20createCurrencyFormatERKNS_6Locale
   resume { ptr, i32 } %14
 
 _ZN6icu_7712LocalPointerINS_14CurrencyFormatEED2Ev.exit: ; preds = %8, %9, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %12 ], [ %6, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %9 ], [ %6, %8 ]
   ret ptr %.0
 }
 
@@ -3912,7 +3912,7 @@ define noundef ptr @_ZN6icu_7713MeasureFormat20createCurrencyFormatER10UErrorCod
   resume { ptr, i32 } %17
 
 _ZN6icu_7713MeasureFormat20createCurrencyFormatERKNS_6LocaleER10UErrorCode.exit: ; preds = %15, %12, %11, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ null, %12 ], [ null, %15 ], [ %9, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ null, %15 ], [ null, %12 ], [ %9, %11 ]
   ret ptr %.0
 }
 
@@ -4111,7 +4111,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %83
 
 .body:                                            ; preds = %67, %54, %69
-  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ], [ %55, %54 ]
+  %.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %70, %69 ], [ %68, %67 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %80
 

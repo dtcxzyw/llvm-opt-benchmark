@@ -104,7 +104,7 @@ define internal noalias ptr @newreno_new(ptr noundef %0, ptr noundef %1) #0 {
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %40, %37
-  %.sink.i.i = phi i32 [ 82, %37 ], [ %..i.i, %40 ]
+  %.sink.i.i = phi i32 [ %..i.i, %40 ], [ 82, %37 ]
   store i32 %.sink.i.i, ptr %36, align 4, !tbaa !27
   br label %newreno_set_max_dgram_size.exit
 
@@ -277,7 +277,7 @@ define internal range(i32 0, 2) i32 @newreno_set_input_params(ptr noundef captur
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %47, %44
-  %.sink.i.i = phi i32 [ 82, %44 ], [ %..i.i, %47 ]
+  %.sink.i.i = phi i32 [ %..i.i, %47 ], [ 82, %44 ]
   store i32 %.sink.i.i, ptr %43, align 4, !tbaa !27
   br label %newreno_set_max_dgram_size.exit
 
@@ -518,12 +518,12 @@ bind_diag.exit41:                                 ; preds = %55, %bind_diag.exit
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %102, %99
-  %.sink.i = phi i32 [ 82, %99 ], [ %..i, %102 ]
+  %.sink.i = phi i32 [ %..i, %102 ], [ 82, %99 ]
   store i32 %.sink.i, ptr %98, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 
 newreno_update_diag.exit:                         ; preds = %49, %52, %38, %41, %27, %30, %16, %19, %5, %8, %.sink.split.i, %96
-  %.0 = phi i32 [ 1, %96 ], [ 1, %.sink.split.i ], [ 0, %8 ], [ 0, %5 ], [ 0, %19 ], [ 0, %16 ], [ 0, %30 ], [ 0, %27 ], [ 0, %41 ], [ 0, %38 ], [ 0, %52 ], [ 0, %49 ]
+  %.0 = phi i32 [ 1, %.sink.split.i ], [ 0, %38 ], [ 0, %27 ], [ 0, %16 ], [ 0, %5 ], [ 1, %96 ], [ 0, %8 ], [ 0, %19 ], [ 0, %30 ], [ 0, %41 ], [ 0, %52 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -677,7 +677,7 @@ define internal noundef i32 @newreno_on_data_sent(ptr noundef captures(none) %0,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %34, %31
-  %.sink.i = phi i32 [ 82, %31 ], [ %..i, %34 ]
+  %.sink.i = phi i32 [ %..i, %34 ], [ 82, %31 ]
   store i32 %.sink.i, ptr %30, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 
@@ -825,7 +825,7 @@ newreno_is_cong_limited.exit.thread:              ; preds = %10, %2, %newreno_is
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %65, %62
-  %.sink.i = phi i32 [ 82, %62 ], [ %..i, %65 ]
+  %.sink.i = phi i32 [ %..i, %65 ], [ 82, %62 ]
   store i32 %.sink.i, ptr %61, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 
@@ -944,7 +944,7 @@ define internal range(i32 0, 2) i32 @newreno_on_data_lost(ptr noundef captures(n
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %51, %48
-  %.sink.i = phi i32 [ 82, %48 ], [ %..i16, %51 ]
+  %.sink.i = phi i32 [ %..i16, %51 ], [ 82, %48 ]
   store i32 %.sink.i, ptr %47, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 
@@ -1033,7 +1033,7 @@ define internal noundef i32 @newreno_on_data_invalidated(ptr noundef captures(no
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %34, %31
-  %.sink.i = phi i32 [ 82, %31 ], [ %..i, %34 ]
+  %.sink.i = phi i32 [ %..i, %34 ], [ 82, %31 ]
   store i32 %.sink.i, ptr %30, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 
@@ -1123,7 +1123,7 @@ safe_mul_u64.exit38.i.i:                          ; preds = %safe_mul_u64.exit36
   br label %safe_muldiv_u64.exit.thread33.i
 
 safe_muldiv_u64.exit.thread33.i:                  ; preds = %safe_mul_u64.exit38.i.i, %safe_mul_u64.exit36.i.i, %safe_muldiv_u64.exit.thread25.i, %9
-  %36 = phi i64 [ %28, %safe_muldiv_u64.exit.thread25.i ], [ -1, %9 ], [ -1, %safe_mul_u64.exit36.i.i ], [ %spec.select.i, %safe_mul_u64.exit38.i.i ]
+  %36 = phi i64 [ %spec.select.i, %safe_mul_u64.exit38.i.i ], [ -1, %safe_mul_u64.exit36.i.i ], [ %28, %safe_muldiv_u64.exit.thread25.i ], [ -1, %9 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1216,7 +1216,7 @@ newreno_cong.exit:                                ; preds = %5, %safe_muldiv_u64
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %75, %72
-  %.sink.i = phi i32 [ 82, %72 ], [ %..i, %75 ]
+  %.sink.i = phi i32 [ %..i, %75 ], [ 82, %72 ]
   store i32 %.sink.i, ptr %71, align 4, !tbaa !27
   br label %newreno_update_diag.exit
 

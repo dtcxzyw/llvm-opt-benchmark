@@ -2362,7 +2362,7 @@ if.then107:                                       ; preds = %lor.lhs.false101, %
   br label %return
 
 return:                                           ; preds = %if.then.i56, %if.then47, %if.end78, %lor.lhs.false101, %if.then85, %if.then107, %if.then62, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11merge_nodesEPNS1_10btree_nodeISH_EESL_.exit
-  %retval.0 = phi i1 [ true, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11merge_nodesEPNS1_10btree_nodeISH_EESL_.exit ], [ false, %if.then62 ], [ false, %if.then107 ], [ false, %if.then85 ], [ false, %lor.lhs.false101 ], [ false, %if.end78 ], [ true, %if.then47 ], [ true, %if.then.i56 ]
+  %retval.0 = phi i1 [ true, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE11merge_nodesEPNS1_10btree_nodeISH_EESL_.exit ], [ false, %if.end78 ], [ false, %if.then62 ], [ false, %if.then107 ], [ false, %if.then85 ], [ false, %lor.lhs.false101 ], [ true, %if.then47 ], [ true, %if.then.i56 ]
   ret i1 %retval.0
 }
 
@@ -3495,7 +3495,7 @@ if.else11:                                        ; preds = %entry
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %if.else11, %if.then
-  %.sink = phi i8 [ %2, %if.else11 ], [ %sub, %if.then ], [ 0, %entry ]
+  %.sink = phi i8 [ %sub, %if.then ], [ %2, %if.else11 ], [ 0, %entry ]
   %arrayidx.i22 = getelementptr i8, ptr %dest, i64 10
   store i8 %.sink, ptr %arrayidx.i22, align 1
   %arrayidx.i24 = getelementptr i8, ptr %this, i64 10

@@ -1156,7 +1156,7 @@ Q_.exit:                                          ; preds = %77, %80
   br label %86
 
 86:                                               ; preds = %4, %.thread55, %29, %20, %13
-  %.0 = phi i32 [ 0, %20 ], [ -1, %29 ], [ %.358, %.thread55 ], [ 0, %13 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %20 ], [ -1, %29 ], [ %.358, %.thread55 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1346,7 +1346,7 @@ Q_.exit:                                          ; preds = %83, %86
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_.exit, %17, %Q_.exit, %78, %21, %72, %14
-  %.0.ph = phi i32 [ 0, %14 ], [ 0, %17 ], [ %80, %78 ], [ 0, %Q_.exit ], [ -1, %_.exit ], [ -1, %21 ], [ -1, %72 ]
+  %.0.ph = phi i32 [ 0, %14 ], [ 0, %17 ], [ -1, %_.exit ], [ %80, %78 ], [ 0, %Q_.exit ], [ -1, %21 ], [ -1, %72 ]
   %90 = load ptr, ptr @stdout, align 8, !tbaa !18
   %91 = call i32 @putc(i32 noundef 10, ptr noundef %90)
   br label %92
@@ -1590,7 +1590,7 @@ Q_.exit:                                          ; preds = %108, %111
   br label %.critedge
 
 .critedge:                                        ; preds = %95, %_.exit44, %69, %Q_.exit, %60, %_.exit
-  %.033 = phi i32 [ 0, %60 ], [ 0, %Q_.exit ], [ 0, %_.exit ], [ -1, %69 ], [ -1, %_.exit44 ], [ -1, %95 ]
+  %.033 = phi i32 [ 0, %60 ], [ 0, %_.exit ], [ -1, %69 ], [ 0, %Q_.exit ], [ -1, %_.exit44 ], [ -1, %95 ]
   %115 = load ptr, ptr @stdout, align 8, !tbaa !18
   %116 = call i32 @putc(i32 noundef 10, ptr noundef %115)
   br label %117
@@ -1806,7 +1806,7 @@ _.exit59:                                         ; preds = %.thread61, %66
   br label %93
 
 93:                                               ; preds = %69, %._crit_edge68, %_.exit56, %_.exit59, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %_.exit59 ], [ 0, %_.exit56 ], [ %92, %._crit_edge68 ], [ 0, %69 ]
+  %.0 = phi i32 [ -1, %4 ], [ 0, %_.exit56 ], [ 0, %_.exit59 ], [ %92, %._crit_edge68 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2094,7 +2094,7 @@ strbuf_setlen.exit48:                             ; preds = %is_valid_prefix.exi
   br label %is_valid_prefix.exit.thread
 
 is_valid_prefix.exit.thread:                      ; preds = %35, %35, %23, %25, %27, %29, %strbuf_setlen.exit48, %strbuf_setlen.exit46
-  %.0 = phi ptr [ %49, %strbuf_setlen.exit48 ], [ null, %strbuf_setlen.exit46 ], [ null, %29 ], [ null, %27 ], [ null, %25 ], [ null, %23 ], [ null, %35 ], [ null, %35 ]
+  %.0 = phi ptr [ %49, %strbuf_setlen.exit48 ], [ null, %35 ], [ null, %strbuf_setlen.exit46 ], [ null, %29 ], [ null, %27 ], [ null, %25 ], [ null, %23 ], [ null, %35 ]
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %51 = load i8, ptr %50, align 8
   %52 = and i8 %51, 1
@@ -2795,7 +2795,7 @@ find_unique.exit:                                 ; preds = %190, %222
   %or.cond.not148 = select i1 %.not, i1 %.not112, i1 false
   br i1 %or.cond.not148, label %.thread, label %240
 
-.thread:                                          ; preds = %196, %208, %217, %213, %233, %.thread131, %find_unique.exit
+.thread:                                          ; preds = %208, %196, %217, %213, %233, %.thread131, %find_unique.exit
   %235 = load ptr, ptr @stderr, align 8, !tbaa !18
   %236 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
   %.not4.i = icmp eq i32 %236, 0
@@ -3207,8 +3207,8 @@ define internal fastcc void @list(ptr noundef %0, ptr noundef readonly captures(
   br label %.lr.ph.split.us._crit_edge
 
 .lr.ph.split.us._crit_edge:                       ; preds = %23, %.lr.ph.split.us
-  %.sink = phi i32 [ 10, %.lr.ph.split.us ], [ %spec.select, %23 ]
-  %.1.us = phi i32 [ 1, %.lr.ph.split.us ], [ %spec.select50, %23 ]
+  %.sink = phi i32 [ %spec.select, %23 ], [ 10, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %spec.select50, %23 ], [ 1, %.lr.ph.split.us ]
   %26 = load ptr, ptr @stdout, align 8, !tbaa !18
   %27 = tail call i32 @putc(i32 noundef %.sink, ptr noundef %26)
   %28 = load i64, ptr %5, align 8, !tbaa !68
@@ -3239,8 +3239,8 @@ define internal fastcc void @list(ptr noundef %0, ptr noundef readonly captures(
   br label %.lr.ph.split._crit_edge
 
 .lr.ph.split._crit_edge:                          ; preds = %38, %.lr.ph.split
-  %.sink48 = phi i32 [ 10, %.lr.ph.split ], [ %spec.select51, %38 ]
-  %.1 = phi i32 [ 1, %.lr.ph.split ], [ %spec.select52, %38 ]
+  %.sink48 = phi i32 [ %spec.select51, %38 ], [ 10, %.lr.ph.split ]
+  %.1 = phi i32 [ %spec.select52, %38 ], [ 1, %.lr.ph.split ]
   %41 = load ptr, ptr @stdout, align 8, !tbaa !18
   %42 = tail call i32 @putc(i32 noundef %.sink48, ptr noundef %41)
   %43 = load i64, ptr %5, align 8, !tbaa !68

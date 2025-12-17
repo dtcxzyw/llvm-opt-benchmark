@@ -1648,8 +1648,8 @@ default.unreachable978:                           ; preds = %621, %87
   br label %.thread789
 
 884:                                              ; preds = %874, %807, %717, %627, %.thread795, %621
-  %H5D_COPS_BT2.sink = phi ptr [ @H5D_COPS_NONE, %621 ], [ @H5D_COPS_SINGLE, %.thread795 ], [ @H5D_COPS_SINGLE, %627 ], [ @H5D_COPS_FARRAY, %717 ], [ @H5D_COPS_EARRAY, %807 ], [ @H5D_COPS_BT2, %874 ]
-  %885 = phi ptr [ %613, %621 ], [ %703, %.thread795 ], [ %613, %627 ], [ %718, %717 ], [ %808, %807 ], [ %875, %874 ]
+  %H5D_COPS_BT2.sink = phi ptr [ @H5D_COPS_EARRAY, %807 ], [ @H5D_COPS_FARRAY, %717 ], [ @H5D_COPS_SINGLE, %627 ], [ @H5D_COPS_NONE, %621 ], [ @H5D_COPS_SINGLE, %.thread795 ], [ @H5D_COPS_BT2, %874 ]
+  %885 = phi ptr [ %808, %807 ], [ %718, %717 ], [ %613, %627 ], [ %613, %621 ], [ %703, %.thread795 ], [ %875, %874 ]
   %886 = getelementptr inbounds nuw i8, ptr %19, i64 1936
   store ptr %H5D_COPS_BT2.sink, ptr %886, align 8, !tbaa !20
   %887 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #12
@@ -2369,8 +2369,8 @@ default.unreachable978:                           ; preds = %621, %87
   %1348 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 768, i64 noundef %1346, i64 noundef %1347, ptr noundef nonnull @.str.40) #12
   br label %.thread789
 
-.thread789:                                       ; preds = %28, %39, %253, %268, %287, %295, %316, %336, %397, %407, %413, %430, %448, %502, %512, %519, %529, %536, %546, %560, %608, %617, %623, %713, %722, %731, %740, %749, %758, %767, %776, %785, %794, %803, %812, %823, %851, %860, %870, %879, %899, %909, %926, %939, %1345, %482, %.loopexit986, %704, %.thread810, %48, %57, %64, %72, %83, %101, %139, %209, %238, %246, %149, %164, %119, %.thread
-  %.0625 = phi ptr [ null, %28 ], [ null, %39 ], [ null, %253 ], [ null, %1345 ], [ null, %268 ], [ null, %287 ], [ null, %295 ], [ null, %316 ], [ null, %336 ], [ null, %397 ], [ null, %407 ], [ null, %413 ], [ null, %430 ], [ null, %448 ], [ null, %482 ], [ null, %502 ], [ null, %512 ], [ null, %519 ], [ null, %529 ], [ null, %536 ], [ null, %546 ], [ null, %560 ], [ null, %608 ], [ null, %617 ], [ null, %623 ], [ null, %899 ], [ null, %704 ], [ null, %713 ], [ null, %722 ], [ null, %731 ], [ null, %740 ], [ null, %749 ], [ null, %758 ], [ null, %767 ], [ null, %776 ], [ null, %785 ], [ null, %794 ], [ null, %803 ], [ null, %812 ], [ null, %823 ], [ null, %851 ], [ null, %860 ], [ null, %870 ], [ null, %879 ], [ null, %.loopexit986 ], [ null, %909 ], [ null, %926 ], [ null, %939 ], [ %971, %.thread810 ], [ null, %48 ], [ null, %57 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %209 ], [ null, %238 ], [ null, %246 ], [ null, %149 ], [ null, %164 ], [ null, %119 ], [ null, %.thread ]
+.thread789:                                       ; preds = %28, %39, %253, %268, %287, %295, %316, %336, %397, %407, %413, %430, %448, %502, %512, %519, %529, %536, %546, %560, %608, %617, %623, %713, %722, %731, %740, %749, %758, %767, %776, %785, %794, %803, %812, %823, %851, %860, %870, %879, %899, %909, %926, %939, %1345, %482, %.loopexit986, %704, %.thread810, %48, %57, %64, %72, %83, %101, %139, %209, %238, %246, %149, %164, %.thread, %119
+  %.0625 = phi ptr [ null, %939 ], [ null, %28 ], [ null, %39 ], [ %971, %.thread810 ], [ null, %926 ], [ null, %253 ], [ null, %1345 ], [ null, %268 ], [ null, %287 ], [ null, %295 ], [ null, %316 ], [ null, %336 ], [ null, %397 ], [ null, %407 ], [ null, %413 ], [ null, %430 ], [ null, %448 ], [ null, %482 ], [ null, %502 ], [ null, %512 ], [ null, %519 ], [ null, %529 ], [ null, %536 ], [ null, %546 ], [ null, %560 ], [ null, %608 ], [ null, %617 ], [ null, %.thread ], [ null, %623 ], [ null, %899 ], [ null, %704 ], [ null, %713 ], [ null, %722 ], [ null, %731 ], [ null, %740 ], [ null, %749 ], [ null, %758 ], [ null, %767 ], [ null, %776 ], [ null, %785 ], [ null, %794 ], [ null, %803 ], [ null, %812 ], [ null, %823 ], [ null, %851 ], [ null, %860 ], [ null, %870 ], [ null, %879 ], [ null, %.loopexit986 ], [ null, %909 ], [ null, %48 ], [ null, %57 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %209 ], [ null, %238 ], [ null, %246 ], [ null, %119 ], [ null, %149 ], [ null, %164 ]
   %1349 = load i32, ptr %19, align 8, !tbaa !22
   %1350 = icmp eq i32 %1349, 3
   br i1 %1350, label %1351, label %1358
@@ -2391,8 +2391,8 @@ default.unreachable978:                           ; preds = %621, %87
   br label %.thread813
 
 .thread813:                                       ; preds = %21, %.loopexit, %250, %213, %1343, %905, %389, %301, %1358
-  %.0625817 = phi ptr [ %.0625, %1358 ], [ null, %.loopexit ], [ null, %250 ], [ null, %213 ], [ %.2, %1343 ], [ null, %905 ], [ null, %389 ], [ null, %301 ], [ null, %21 ]
-  %.12 = phi ptr [ null, %1358 ], [ %19, %.loopexit ], [ %19, %250 ], [ %19, %213 ], [ %19, %1343 ], [ %19, %905 ], [ %19, %389 ], [ %19, %301 ], [ null, %21 ]
+  %.0625817 = phi ptr [ %.0625, %1358 ], [ null, %21 ], [ null, %.loopexit ], [ null, %250 ], [ null, %213 ], [ %.2, %1343 ], [ null, %905 ], [ null, %389 ], [ null, %301 ]
+  %.12 = phi ptr [ null, %1358 ], [ null, %21 ], [ %19, %.loopexit ], [ %19, %250 ], [ %19, %213 ], [ %19, %1343 ], [ %19, %905 ], [ %19, %389 ], [ %19, %301 ]
   %1360 = call ptr @H5MM_xfree(ptr noundef %.0625817) #12
   br label %1361
 
@@ -2943,7 +2943,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   br label %.loopexit
 
 .loopexit:                                        ; preds = %91, %64, %34, %35, %83, %154, %286, %315, %290, %40, %69, %36, %21, %293, %5
-  %.0118 = phi i32 [ -1, %315 ], [ 0, %21 ], [ 0, %36 ], [ 0, %40 ], [ 0, %69 ], [ -1, %286 ], [ -1, %154 ], [ 0, %290 ], [ 0, %293 ], [ 0, %5 ], [ 0, %83 ], [ 0, %35 ], [ 0, %34 ], [ 0, %64 ], [ 0, %91 ]
+  %.0118 = phi i32 [ -1, %315 ], [ 0, %21 ], [ 0, %36 ], [ 0, %40 ], [ 0, %34 ], [ 0, %69 ], [ -1, %286 ], [ -1, %154 ], [ 0, %290 ], [ 0, %293 ], [ 0, %5 ], [ 0, %83 ], [ 0, %35 ], [ 0, %64 ], [ 0, %91 ]
   ret i32 %.0118
 }
 
@@ -3450,7 +3450,7 @@ define internal noundef ptr @H5O__layout_copy_file(ptr noundef %0, ptr noundef %
   br label %.thread74
 
 .thread74:                                        ; preds = %70, %73, %75, %17, %26, %23, %93, %91, %88, %108, %7, %119
-  %.063 = phi ptr [ null, %119 ], [ null, %7 ], [ %15, %26 ], [ %15, %23 ], [ %15, %93 ], [ %15, %91 ], [ %15, %88 ], [ %15, %108 ], [ null, %17 ], [ %15, %75 ], [ %15, %73 ], [ %15, %70 ]
+  %.063 = phi ptr [ null, %119 ], [ %15, %70 ], [ null, %7 ], [ %15, %26 ], [ %15, %23 ], [ %15, %93 ], [ %15, %91 ], [ %15, %88 ], [ %15, %108 ], [ null, %17 ], [ %15, %75 ], [ %15, %73 ]
   ret ptr %.063
 }
 

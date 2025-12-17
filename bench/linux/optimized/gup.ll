@@ -2115,7 +2115,7 @@ define dso_local range(i32 -14, 1) i32 @fixup_user_fault(ptr noundef %0, i64 nou
   br i1 %119, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %41, %66, %75, %88, %110, %117, %4, %107, %104, %24, %16, %31, %100
-  %120 = phi i32 [ 0, %100 ], [ -14, %31 ], [ -14, %16 ], [ -14, %24 ], [ -14, %107 ], [ -12, %104 ], [ -14, %4 ], [ -14, %41 ], [ -14, %66 ], [ -14, %75 ], [ -4, %88 ], [ 0, %110 ], [ -14, %117 ]
+  %120 = phi i32 [ 0, %100 ], [ -14, %24 ], [ -14, %107 ], [ -14, %31 ], [ -12, %104 ], [ -14, %16 ], [ -14, %4 ], [ 0, %110 ], [ -14, %41 ], [ -14, %66 ], [ -4, %88 ], [ -14, %75 ], [ -14, %117 ]
   ret i32 %120
 }
 
@@ -2202,10 +2202,10 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   br label %42
 
 42:                                               ; preds = %.thread34, %10
-  %43 = phi ptr [ null, %10 ], [ %256, %.thread34 ]
-  %44 = phi i64 [ 0, %10 ], [ %286, %.thread34 ]
-  %45 = phi i64 [ %2, %10 ], [ %289, %.thread34 ]
-  %46 = phi i64 [ %1, %10 ], [ %288, %.thread34 ]
+  %43 = phi ptr [ %256, %.thread34 ], [ null, %10 ]
+  %44 = phi i64 [ %286, %.thread34 ], [ 0, %10 ]
+  %45 = phi i64 [ %289, %.thread34 ], [ %2, %10 ]
+  %46 = phi i64 [ %288, %.thread34 ], [ %1, %10 ]
   %47 = icmp eq ptr %43, null
   br i1 %47, label %52, label %48
 
@@ -2627,7 +2627,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   br label %.thread38
 
 .thread31.loopexit:                               ; preds = %223, %.thread29.us, %.thread29.us, %.thread29.us
-  %.ph91 = phi i32 [ %237, %.thread29.us ], [ %237, %.thread29.us ], [ %237, %.thread29.us ], [ -12, %223 ]
+  %.ph91 = phi i32 [ %237, %.thread29.us ], [ %237, %.thread29.us ], [ -12, %223 ], [ %237, %.thread29.us ]
   %285 = sext i32 %.ph91 to i64
   br label %.thread38
 
@@ -2640,8 +2640,8 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   br i1 %290, label %.thread38, label %42, !llvm.loop !69
 
 .thread38:                                        ; preds = %83, %.split66.us, %.split70.us, %.thread34, %241, %248, %.critedge, %.thread29.us, %.thread29.us, %232, %201, %.split75.us, %.thread31.loopexit, %.thread25, %.thread23.loopexit, %191, %282
-  %291 = phi i64 [ %192, %191 ], [ -14, %282 ], [ -14, %.thread25 ], [ %185, %.thread23.loopexit ], [ -14, %.split75.us ], [ %285, %.thread31.loopexit ], [ 0, %232 ], [ 0, %.thread29.us ], [ 0, %.thread29.us ], [ -4, %201 ], [ -4, %241 ], [ -17, %.split70.us ], [ %.us-phi68, %.split66.us ], [ -14, %83 ], [ 0, %.thread34 ], [ -14, %.critedge ], [ -14, %248 ]
-  %292 = phi i64 [ %44, %191 ], [ %44, %282 ], [ %44, %.thread25 ], [ %44, %.thread23.loopexit ], [ %44, %.split75.us ], [ %44, %.thread31.loopexit ], [ %44, %201 ], [ %44, %232 ], [ %44, %.thread29.us ], [ %44, %.thread29.us ], [ %44, %241 ], [ %44, %.split70.us ], [ %44, %.split66.us ], [ %44, %83 ], [ %286, %.thread34 ], [ %44, %.critedge ], [ %44, %248 ]
+  %291 = phi i64 [ %185, %.thread23.loopexit ], [ %285, %.thread31.loopexit ], [ -4, %201 ], [ %192, %191 ], [ -14, %282 ], [ -14, %.thread25 ], [ -14, %.split75.us ], [ 0, %232 ], [ 0, %.thread29.us ], [ 0, %.thread29.us ], [ 0, %.thread34 ], [ -4, %241 ], [ -17, %.split70.us ], [ %.us-phi68, %.split66.us ], [ -14, %248 ], [ -14, %.critedge ], [ -14, %83 ]
+  %292 = phi i64 [ %44, %.thread23.loopexit ], [ %44, %.thread31.loopexit ], [ %44, %.thread29.us ], [ %44, %191 ], [ %44, %282 ], [ %44, %.thread25 ], [ %44, %.split75.us ], [ %44, %201 ], [ %44, %232 ], [ %44, %.thread29.us ], [ %286, %.thread34 ], [ %44, %241 ], [ %44, %.split70.us ], [ %44, %.split66.us ], [ %44, %248 ], [ %44, %.critedge ], [ %44, %83 ]
   %293 = load ptr, ptr %8, align 8
   %294 = icmp eq ptr %293, null
   br i1 %294, label %313, label %295
@@ -2967,7 +2967,7 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
   br label %.thread6
 
 .thread6:                                         ; preds = %3, %74, %68
-  %75 = phi i32 [ %70, %74 ], [ %70, %68 ], [ 0, %3 ]
+  %75 = phi i32 [ %70, %68 ], [ %70, %74 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %75
 }
@@ -3334,7 +3334,7 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   br label %.thread
 
 .thread:                                          ; preds = %25, %14, %.thread2
-  %29 = phi ptr [ null, %.thread2 ], [ null, %14 ], [ %spec.select, %25 ]
+  %29 = phi ptr [ null, %14 ], [ %spec.select, %25 ], [ null, %.thread2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %29
@@ -4187,9 +4187,9 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
   br label %.split43
 
 .loopexit:                                        ; preds = %112, %170, %65, %53, %167, %.split51.us
-  %180 = phi i32 [ 1, %.split51.us ], [ 1, %167 ], [ %45, %53 ], [ 1, %65 ], [ %104, %112 ], [ 1, %170 ]
-  %181 = phi i64 [ %120, %.split51.us ], [ %169, %167 ], [ %55, %53 ], [ %67, %65 ], [ %114, %112 ], [ %172, %170 ]
-  %182 = phi i8 [ %.us-phi54, %.split51.us ], [ 1, %167 ], [ %41, %53 ], [ 1, %65 ], [ %100, %112 ], [ 1, %170 ]
+  %180 = phi i32 [ 1, %.split51.us ], [ 1, %167 ], [ %45, %53 ], [ 1, %65 ], [ 1, %170 ], [ %104, %112 ]
+  %181 = phi i64 [ %120, %.split51.us ], [ %169, %167 ], [ %55, %53 ], [ %67, %65 ], [ %172, %170 ], [ %114, %112 ]
+  %182 = phi i8 [ %.us-phi54, %.split51.us ], [ 1, %167 ], [ %41, %53 ], [ 1, %65 ], [ 1, %170 ], [ %100, %112 ]
   %183 = icmp eq i8 %182, 0
   %184 = icmp eq i32 %180, 0
   %185 = or i1 %183, %184
@@ -4208,7 +4208,7 @@ define dso_local i64 @get_user_pages(i64 noundef %0, i64 noundef %1, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %25, %188, %.loopexit
-  %189 = phi i64 [ %181, %188 ], [ %181, %.loopexit ], [ %30, %25 ]
+  %189 = phi i64 [ %181, %.loopexit ], [ %181, %188 ], [ %30, %25 ]
   %190 = icmp eq i64 %189, 0
   %191 = and i32 %29, 16
   %192 = icmp eq i32 %191, 0
@@ -5474,7 +5474,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   br label %gup_must_unshare.exit
 
 gup_must_unshare.exit:                            ; preds = %494, %495, %499, %503, %511, %514
-  %517 = phi ptr [ %516, %514 ], [ %320, %511 ], [ %320, %494 ], [ %320, %503 ], [ %320, %499 ], [ %320, %495 ]
+  %517 = phi ptr [ %516, %514 ], [ %320, %511 ], [ %320, %495 ], [ %320, %494 ], [ %320, %503 ], [ %320, %499 ]
   %518 = load volatile i64, ptr %517, align 8
   %519 = and i64 %518, 131072
   %520 = icmp eq i64 %519, 0
@@ -7235,7 +7235,7 @@ unpin_user_page.exit:                             ; preds = %537, %555, %561
   br label %588
 
 588:                                              ; preds = %.thread28, %.thread28.thread308, %.thread28.thread35, %.thread28.thread, %.thread31, %213, %207, %23, %11
-  %589 = phi i64 [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ %208, %207 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ 0, %.thread28.thread35 ], [ -12, %.thread28.thread308 ], [ %383, %.thread28 ]
+  %589 = phi i64 [ %208, %207 ], [ 0, %11 ], [ -11, %23 ], [ -14, %213 ], [ 0, %.thread28.thread35 ], [ %383, %.thread31 ], [ %.ph33, %.thread28.thread ], [ -12, %.thread28.thread308 ], [ %383, %.thread28 ]
   ret i64 %589
 }
 
@@ -7476,7 +7476,7 @@ define internal fastcc zeroext i1 @gup_must_unshare(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %53, %57, %61, %52, %72, %69
-  %75 = phi ptr [ %74, %72 ], [ %2, %69 ], [ %2, %52 ], [ %2, %61 ], [ %2, %57 ], [ %2, %53 ]
+  %75 = phi ptr [ %74, %72 ], [ %2, %69 ], [ %2, %53 ], [ %2, %52 ], [ %2, %61 ], [ %2, %57 ]
   %76 = load volatile i64, ptr %75, align 8
   %77 = and i64 %76, 131072
   %78 = icmp eq i64 %77, 0
@@ -7844,7 +7844,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   br label %gup_must_unshare.exit
 
 gup_must_unshare.exit:                            ; preds = %169, %170, %174, %178, %186, %189
-  %192 = phi ptr [ %191, %189 ], [ %61, %186 ], [ %61, %169 ], [ %61, %178 ], [ %61, %174 ], [ %61, %170 ]
+  %192 = phi ptr [ %191, %189 ], [ %61, %186 ], [ %61, %170 ], [ %61, %169 ], [ %61, %178 ], [ %61, %174 ]
   %193 = load volatile i64, ptr %192, align 8
   %194 = and i64 %193, 131072
   %195 = icmp eq i64 %194, 0

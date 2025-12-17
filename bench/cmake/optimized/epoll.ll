@@ -275,12 +275,12 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 560
   br label %select.unfold.outer
 
-select.unfold.outer:                              ; preds = %48, %split
-  %.0133.ph = phi i32 [ %1, %48 ], [ %169, %split ]
-  %.0127.ph = phi i32 [ 48, %48 ], [ %.0127.ph174, %split ]
-  %.0124.ph = phi i32 [ %56, %48 ], [ %.1125, %split ]
-  %.0114.ph = phi i32 [ %55, %48 ], [ %.1115, %split ]
-  %.1.ph = phi i32 [ %spec.select172, %48 ], [ %169, %split ]
+select.unfold.outer:                              ; preds = %split, %48
+  %.0133.ph = phi i32 [ %169, %split ], [ %1, %48 ]
+  %.0127.ph = phi i32 [ %.0127.ph174, %split ], [ 48, %48 ]
+  %.0124.ph = phi i32 [ %.1125, %split ], [ %56, %48 ]
+  %.0114.ph = phi i32 [ %.1115, %split ], [ %55, %48 ]
+  %.1.ph = phi i32 [ %169, %split ], [ %spec.select172, %48 ]
   br label %select.unfold.outer173
 
 select.unfold.outer173:                           ; preds = %select.unfold.outer, %163
@@ -392,9 +392,6 @@ select.unfold:                                    ; preds = %select.unfold.outer
     i32 -1, label %select.unfold.outer179.backedge
     i32 0, label %.loopexit
   ]
-
-select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
-  br label %select.unfold.outer179
 
 95:                                               ; preds = %89
   switch i32 %91, label %96 [
@@ -552,6 +549,9 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %166
     i32 0, label %.loopexit
     i32 -1, label %select.unfold.outer179.backedge
   ]
+
+select.unfold.outer179.backedge:                  ; preds = %166, %94, %97
+  br label %select.unfold.outer179
 
 ._crit_edge254:                                   ; preds = %166
   %.pre = load i64, ptr %49, align 8, !tbaa !37

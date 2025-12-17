@@ -1290,7 +1290,7 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39:   ; preds = %178, %181, %198, %.
   br i1 %.not17.i.i44, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45, label %.sink.split.i.i40
 
 .sink.split.i.i40:                                ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39, %231
-  %.sink.i.i41 = phi ptr [ %232, %231 ], [ %208, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39 ], [ %208, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39 ]
+  %.sink.i.i41 = phi ptr [ %208, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39 ], [ %208, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit39 ], [ %232, %231 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %237 = load i32, ptr %236, align 4
@@ -1351,7 +1351,7 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45:   ; preds = %_ZN16LIR_OpVisitSta
   br i1 %.not17.i.i50, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51, label %.sink.split.i.i46
 
 .sink.split.i.i46:                                ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45, %264
-  %.sink.i.i47 = phi ptr [ %265, %264 ], [ %241, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45 ], [ %241, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45 ]
+  %.sink.i.i47 = phi ptr [ %241, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45 ], [ %241, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit45 ], [ %265, %264 ]
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %270 = load i32, ptr %269, align 4
@@ -1412,8 +1412,8 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51:   ; preds = %_ZN16LIR_OpVisitSta
   br i1 %.not17.i.i56, label %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, label %.sink.split.i.i52
 
 .sink.split.i.i52:                                ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51, %297
-  %spec.store.select.sink.i.i = phi i64 [ 0, %297 ], [ 2, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ 2, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ]
-  %.sink.i.i53 = phi ptr [ %298, %297 ], [ %274, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ %274, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ]
+  %spec.store.select.sink.i.i = phi i64 [ 2, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ 2, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ 0, %297 ]
+  %.sink.i.i53 = phi ptr [ %274, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ %274, %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit51 ], [ %298, %297 ]
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %302 = getelementptr inbounds nuw [21 x ptr], ptr %301, i64 %spec.store.select.sink.i.i
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 8

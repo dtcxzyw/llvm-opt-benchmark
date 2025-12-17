@@ -572,8 +572,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %224
 
 224:                                              ; preds = %218, %223, %222
-  %.pn77 = phi i32 [ %204, %222 ], [ %206, %223 ], [ %205, %218 ]
-  %.pn78 = phi i32 [ %205, %222 ], [ %204, %223 ], [ %206, %218 ]
+  %.pn77 = phi i32 [ %206, %223 ], [ %204, %222 ], [ %205, %218 ]
+  %.pn78 = phi i32 [ %204, %223 ], [ %205, %222 ], [ %206, %218 ]
   %.039.i = add i32 %219, %.pn78
   %.040.i = add i32 %219, %.pn77
   %225 = zext nneg i32 %211 to i64
@@ -698,7 +698,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit57:                  ; preds = %_ZNSt6vectorIiSaIiE
   ret void
 
 .body42:                                          ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIiSaIiEED2Ev.exit39.i, %267, %164, %166
-  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %163, %_ZNSt6vectorIiSaIiEED2Ev.exit39.i ], [ %165, %164 ], [ %.pn.pn.pn.i, %267 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.pn.pn.pn.i, %267 ], [ %167, %166 ], [ %163, %_ZNSt6vectorIiSaIiEED2Ev.exit39.i ], [ %165, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %281 = load ptr, ptr %8, align 8, !tbaa !16
   %.not.i.i.i58 = icmp eq ptr %281, null
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIiSaIiEED2Ev.exit59, label %282
@@ -717,7 +717,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit59:                  ; preds = %.body42, %282
   br label %.body
 
 .body:                                            ; preds = %83, %70, %85, %87, %_ZNSt6vectorIiSaIiEED2Ev.exit59
-  %.pn29.pn = phi { ptr, i32 } [ %86, %85 ], [ %88, %87 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit59 ], [ %84, %83 ], [ %71, %70 ]
+  %.pn29.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit59 ], [ %86, %85 ], [ %88, %87 ], [ %84, %83 ], [ %71, %70 ]
   %288 = load ptr, ptr %7, align 8, !tbaa !16
   %.not.i.i.i60 = icmp eq ptr %288, null
   br i1 %.not.i.i.i60, label %_ZNSt6vectorIiSaIiEED2Ev.exit61, label %289
@@ -778,7 +778,7 @@ define noundef range(i32 2, 7) i32 @_ZN5ZXing6Pdf4177Encoder41GetRecommendedMini
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i32 [ 2, %1 ], [ 3, %3 ], [ 4, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 4, %5 ], [ 2, %1 ], [ 3, %3 ], [ %., %7 ]
   ret i32 %.0
 }
 

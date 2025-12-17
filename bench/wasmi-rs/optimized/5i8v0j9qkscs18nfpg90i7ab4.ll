@@ -1962,7 +1962,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
           to label %152 unwind label %149, !noalias !66
 
 .loopexit8.i.i:                                   ; preds = %139, %140, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i"
-  %.sroa.6.0.i.i = phi ptr [ %136, %140 ], [ %69, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i" ], [ %.sroa.018.0.i.i, %139 ]
+  %.sroa.6.0.i.i = phi ptr [ %69, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i.i" ], [ %136, %140 ], [ %.sroa.018.0.i.i, %139 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$wasmi..module..builder..ModuleHeaderBuilder$GT$17h95b92fc7cebb2916E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %33)
           to label %151 unwind label %149, !noalias !66
 
@@ -2045,7 +2045,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
           to label %139 unwind label %.loopexit.i.i.loopexit, !noalias !66
 
 139:                                              ; preds = %137, %126, %124, %120, %118, %116, %114, %112, %110, %108, %106, %100, %98
-  %.sroa.018.0.i.i = phi ptr [ %105, %100 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %123, %120 ], [ %125, %124 ], [ %129, %126 ], [ %138, %137 ], [ %99, %98 ]
+  %.sroa.018.0.i.i = phi ptr [ %138, %137 ], [ %129, %126 ], [ %105, %100 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %123, %120 ], [ %125, %124 ], [ %99, %98 ]
   %.not40.i.i = icmp eq ptr %.sroa.018.0.i.i, null
   br i1 %.not40.i.i, label %144, label %.loopexit8.i.i
 
@@ -2106,14 +2106,14 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   unreachable
 
 149:                                              ; preds = %268, %.loopexit7.i75.i, %206, %193, %.loopexit8.i.i, %.loopexit7.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$wasmparser..validator..Validator$GT$$GT$17h2493183921544aa3E.exit"
-  %.sroa.021.0.i = phi i8 [ 1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$wasmparser..validator..Validator$GT$$GT$17h2493183921544aa3E.exit" ], [ 1, %.loopexit7.i.i ], [ 1, %.loopexit8.i.i ], [ 0, %193 ], [ 0, %206 ], [ 0, %.loopexit7.i75.i ], [ 0, %268 ]
+  %.sroa.021.0.i = phi i8 [ 0, %268 ], [ 0, %206 ], [ 1, %.loopexit8.i.i ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$wasmparser..validator..Validator$GT$$GT$17h2493183921544aa3E.exit" ], [ 1, %.loopexit7.i.i ], [ 0, %193 ], [ 0, %.loopexit7.i75.i ]
   %150 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.i69.i, %209, %149, %.loopexit.i.i
-  %.sroa.021.0.lpad-body.i = phi i8 [ 1, %.loopexit.i.i ], [ %.sroa.021.0.i, %149 ], [ 0, %209 ], [ 0, %.loopexit.i69.i ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i, %.loopexit.i.i ], [ %150, %149 ], [ %.pn.ph.i.i, %209 ], [ %lpad.phi.i71.i, %.loopexit.i69.i ]
+  %.sroa.021.0.lpad-body.i = phi i8 [ 1, %.loopexit.i.i ], [ 0, %209 ], [ %.sroa.021.0.i, %149 ], [ 0, %.loopexit.i69.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i.i, %.loopexit.i.i ], [ %.pn.ph.i.i, %209 ], [ %150, %149 ], [ %lpad.phi.i71.i, %.loopexit.i69.i ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$wasmi..module..parser..streaming..ParseBuffer$GT$17h615bea0efa949023E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #13
           to label %277 unwind label %291, !noalias !66
 
@@ -2518,7 +2518,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   br label %.outer
 
 .loopexit7.i75.i:                                 ; preds = %270, %264, %262, %265, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i80.i"
-  %.sroa.8.0.i.i = phi ptr [ %261, %265 ], [ %226, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i80.i" ], [ %255, %270 ], [ %259, %264 ], [ %257, %262 ]
+  %.sroa.8.0.i.i = phi ptr [ %226, %"_ZN111_$LT$wasmi..error..Error$u20$as$u20$core..convert..From$LT$wasmparser..binary_reader..BinaryReaderError$GT$$GT$4from17h4a3716f61907bf7aE.exit.i80.i" ], [ %261, %265 ], [ %259, %264 ], [ %257, %262 ], [ %255, %270 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasmi..module..builder..ModuleBuilder$GT$17h1742c2936dba75c2E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %34)
           to label %275 unwind label %149, !noalias !66
 
@@ -2708,7 +2708,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   unreachable
 
 .critedge:                                        ; preds = %294, %298, %301
-  %.pn10 = phi { ptr, i32 } [ %.pn11, %301 ], [ %.pn11, %298 ], [ %.pn44.i, %294 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn11, %298 ], [ %.pn44.i, %294 ], [ %.pn11, %301 ]
   resume { ptr, i32 } %.pn10
 
 298:                                              ; preds = %295

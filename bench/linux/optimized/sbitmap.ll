@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr noundef ca
   br label %70
 
 70:                                               ; preds = %67, %.thread5, %30, %27, %.loopexit
-  %71 = phi i32 [ 0, %27 ], [ -12, %67 ], [ -22, %.loopexit ], [ 0, %.thread5 ], [ -12, %30 ]
+  %71 = phi i32 [ 0, %27 ], [ -12, %67 ], [ -22, %.loopexit ], [ -12, %30 ], [ 0, %.thread5 ]
   ret i32 %71
 }
 

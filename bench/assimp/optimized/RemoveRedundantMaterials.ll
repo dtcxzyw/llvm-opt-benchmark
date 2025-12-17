@@ -788,7 +788,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %225, %228, %._crit_
   ret void
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit173:          ; preds = %95, %168, %190, %126, %98, %89
-  %.pn143 = phi { ptr, i32 } [ %.pn138.pn.pn.pn, %89 ], [ %96, %95 ], [ %99, %98 ], [ %127, %126 ], [ %169, %168 ], [ %191, %190 ]
+  %.pn143 = phi { ptr, i32 } [ %169, %168 ], [ %.pn138.pn.pn.pn, %89 ], [ %96, %95 ], [ %99, %98 ], [ %127, %126 ], [ %191, %190 ]
   call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %.idx.i) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

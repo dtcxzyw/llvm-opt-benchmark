@@ -1105,7 +1105,7 @@ define ptr @Io_NtkDeriveSop(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %14
 
 14:                                               ; preds = %8, %4, %11, %13
-  %.0 = phi ptr [ %12, %13 ], [ %12, %11 ], [ @.str.12, %8 ], [ @.str.38, %4 ]
+  %.0 = phi ptr [ %12, %11 ], [ %12, %13 ], [ @.str.12, %8 ], [ @.str.38, %4 ]
   ret ptr %.0
 }
 
@@ -1366,7 +1366,7 @@ define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef reado
   br label %Io_NtkDeriveSop.exit
 
 Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %124
-  %.0.i = phi ptr [ %123, %124 ], [ %123, %122 ], [ @.str.12, %120 ], [ @.str.38, %113 ]
+  %.0.i = phi ptr [ %123, %122 ], [ %123, %124 ], [ @.str.12, %120 ], [ @.str.38, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   %126 = load i32, ptr %indvars.iv210.sroa.phi222, align 4, !tbaa !26
@@ -1567,7 +1567,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %113, %120, %122, %1
   br label %Io_NtkDeriveSop.exit169
 
 Io_NtkDeriveSop.exit169:                          ; preds = %._crit_edge, %221, %223, %225
-  %.0.i168 = phi ptr [ %224, %225 ], [ %224, %223 ], [ @.str.12, %221 ], [ @.str.38, %._crit_edge ]
+  %.0.i168 = phi ptr [ %224, %223 ], [ %224, %225 ], [ @.str.12, %221 ], [ @.str.38, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %fputs = call i32 @fputs(ptr %.0.i168, ptr %0)
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1

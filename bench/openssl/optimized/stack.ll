@@ -84,7 +84,7 @@ OPENSSL_sk_free.exit:                             ; preds = %14
   br label %.split
 
 .split:                                           ; preds = %1, %OPENSSL_sk_free.exit, %22, %11
-  %.0 = phi ptr [ %2, %11 ], [ %2, %22 ], [ null, %OPENSSL_sk_free.exit ], [ null, %1 ]
+  %.0 = phi ptr [ %2, %22 ], [ %2, %11 ], [ null, %OPENSSL_sk_free.exit ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -284,7 +284,7 @@ define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr noundef nonnull captu
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 184, ptr noundef nonnull @__func__.sk_reserve) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 114, ptr noundef null) #16
-  br label %51
+  br label %52
 
 8:                                                ; preds = %3
   %9 = add nsw i32 %4, %1
@@ -300,88 +300,88 @@ define internal fastcc range(i32 0, 2) i32 @sk_reserve(ptr noundef nonnull captu
   %16 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %15, ptr noundef nonnull @.str, i32 noundef 199) #16
   store ptr %16, ptr %10, align 8, !tbaa !14
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %51, label %18
+  br i1 %17, label %52, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %spec.store.select, ptr %19, align 4, !tbaa !15
-  br label %51
+  br label %52
 
 20:                                               ; preds = %8
   %.not = icmp eq i32 %2, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  br i1 %.not, label %23, label %43
+  br i1 %.not, label %23, label %44
 
 23:                                               ; preds = %20
   %.not30 = icmp sgt i32 %spec.store.select, %22
-  br i1 %.not30, label %.preheader, label %51
+  br i1 %.not30, label %.preheader, label %52
 
 .preheader:                                       ; preds = %23, %.backedge.i
   %.0.i33 = phi i32 [ %.0.be.i, %.backedge.i ], [ %22, %23 ]
   %24 = add i32 %.0.i33, -268435456
   %25 = icmp ult i32 %24, -536870912
-  br i1 %25, label %safe_mul_int.exit42.i.i, label %safe_muldiv_int.exit.i
+  br i1 %25, label %safe_mul_int.exit42.i.i, label %26
+
+26:                                               ; preds = %.preheader
+  %27 = shl nsw i32 %.0.i33, 3
+  %28 = sdiv i32 %27, 5
+  br label %.backedge.i
 
 safe_mul_int.exit42.i.i:                          ; preds = %.preheader
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.0.i33, i32 8)
   %spec.select38.i.i = tail call i32 @llvm.smax.i32(i32 %.0.i33, i32 8)
-  %26 = udiv i32 %spec.select38.i.i, 5
-  %27 = urem i32 %spec.select38.i.i, 5
-  %28 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %27, i32 range(i32 -2147483648, 9) %spec.select.i.i)
-  %29 = extractvalue { i32, i1 } %28, 1
+  %29 = udiv i32 %spec.select38.i.i, 5
+  %30 = urem i32 %spec.select38.i.i, 5
+  %31 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %30, i32 range(i32 -2147483648, 9) %spec.select.i.i)
+  %32 = extractvalue { i32, i1 } %31, 1
   %.not.i41.i.i = icmp sgt i32 %.0.i33, -1
-  %30 = select i1 %.not.i41.i.i, i32 2147483647, i32 -2147483648
-  %31 = extractvalue { i32, i1 } %28, 0
-  %.0.i39.i.i = select i1 %29, i32 %30, i32 %31
-  %32 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %26, i32 range(i32 -2147483648, 9) %spec.select.i.i)
-  %33 = extractvalue { i32, i1 } %32, 1
-  %34 = extractvalue { i32, i1 } %32, 0
-  %.0.i43.i.i = select i1 %33, i32 %30, i32 %34
-  %35 = sdiv i32 %.0.i39.i.i, 5
-  %36 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.0.i43.i.i, i32 range(i32 -429496729, 429496730) %35)
-  %37 = extractvalue { i32, i1 } %36, 1
-  %38 = extractvalue { i32, i1 } %36, 0
-  %39 = or i1 %29, %37
-  %or.cond.demorgan.i = or i1 %33, %39
+  %33 = select i1 %.not.i41.i.i, i32 2147483647, i32 -2147483648
+  %34 = extractvalue { i32, i1 } %31, 0
+  %.0.i39.i.i = select i1 %32, i32 %33, i32 %34
+  %35 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %29, i32 range(i32 -2147483648, 9) %spec.select.i.i)
+  %36 = extractvalue { i32, i1 } %35, 1
+  %37 = extractvalue { i32, i1 } %35, 0
+  %.0.i43.i.i = select i1 %36, i32 %33, i32 %37
+  %38 = sdiv i32 %.0.i39.i.i, 5
+  %39 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %.0.i43.i.i, i32 range(i32 -429496729, 429496730) %38)
+  %40 = extractvalue { i32, i1 } %39, 1
+  %41 = extractvalue { i32, i1 } %39, 0
+  %42 = or i1 %32, %40
+  %or.cond.demorgan.i = or i1 %36, %42
   br i1 %or.cond.demorgan.i, label %compute_growth.exit.thread, label %.backedge.i
 
-.backedge.i:                                      ; preds = %safe_muldiv_int.exit.i, %safe_mul_int.exit42.i.i
-  %.0.be.i = phi i32 [ %42, %safe_muldiv_int.exit.i ], [ %38, %safe_mul_int.exit42.i.i ]
-  %40 = icmp slt i32 %.0.be.i, %spec.store.select
-  br i1 %40, label %.preheader, label %compute_growth.exit, !llvm.loop !19
-
-safe_muldiv_int.exit.i:                           ; preds = %.preheader
-  %41 = shl nsw i32 %.0.i33, 3
-  %42 = sdiv i32 %41, 5
-  br label %.backedge.i
+.backedge.i:                                      ; preds = %safe_mul_int.exit42.i.i, %26
+  %.0.be.i = phi i32 [ %41, %safe_mul_int.exit42.i.i ], [ %28, %26 ]
+  %43 = icmp slt i32 %.0.be.i, %spec.store.select
+  br i1 %43, label %.preheader, label %compute_growth.exit, !llvm.loop !19
 
 compute_growth.exit.thread:                       ; preds = %safe_mul_int.exit42.i.i
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.sk_reserve) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 114, ptr noundef null) #16
-  br label %51
+  br label %52
 
-43:                                               ; preds = %20
-  %44 = icmp eq i32 %spec.store.select, %22
-  br i1 %44, label %51, label %compute_growth.exit
+44:                                               ; preds = %20
+  %45 = icmp eq i32 %spec.store.select, %22
+  br i1 %45, label %52, label %compute_growth.exit
 
-compute_growth.exit:                              ; preds = %.backedge.i, %43
-  %.0 = phi i32 [ %spec.store.select, %43 ], [ %.0.be.i, %.backedge.i ]
-  %45 = zext nneg i32 %.0 to i64
-  %46 = shl nuw nsw i64 %45, 3
-  %47 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %11, i64 noundef %46, ptr noundef nonnull @.str, i32 noundef 217) #16
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %51, label %49
+compute_growth.exit:                              ; preds = %.backedge.i, %44
+  %.0 = phi i32 [ %spec.store.select, %44 ], [ %.0.be.i, %.backedge.i ]
+  %46 = zext nneg i32 %.0 to i64
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %11, i64 noundef %47, ptr noundef nonnull @.str, i32 noundef 217) #16
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %compute_growth.exit
-  store ptr %47, ptr %10, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.0, ptr %50, align 4, !tbaa !15
-  br label %51
+50:                                               ; preds = %compute_growth.exit
+  store ptr %48, ptr %10, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.0, ptr %51, align 4, !tbaa !15
+  br label %52
 
-51:                                               ; preds = %compute_growth.exit, %43, %23, %13, %49, %compute_growth.exit.thread, %18, %7
-  %.025 = phi i32 [ 0, %7 ], [ 1, %18 ], [ 1, %49 ], [ 0, %compute_growth.exit.thread ], [ 0, %13 ], [ 1, %23 ], [ 1, %43 ], [ 0, %compute_growth.exit ]
+52:                                               ; preds = %compute_growth.exit, %44, %23, %13, %50, %compute_growth.exit.thread, %18, %7
+  %.025 = phi i32 [ 0, %7 ], [ 0, %compute_growth.exit.thread ], [ 1, %18 ], [ 1, %23 ], [ 1, %44 ], [ 1, %50 ], [ 0, %13 ], [ 0, %compute_growth.exit ]
   ret i32 %.025
 }
 
@@ -541,7 +541,7 @@ internal_delete.exit:                             ; preds = %12, %18
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !20
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %internal_delete.exit
-  %.09 = phi ptr [ %16, %internal_delete.exit ], [ null, %2 ], [ null, %.preheader ], [ null, %24 ]
+  %.09 = phi ptr [ null, %2 ], [ %16, %internal_delete.exit ], [ null, %.preheader ], [ null, %24 ]
   ret ptr %.09
 }
 
@@ -688,7 +688,7 @@ define i32 @OPENSSL_sk_find(ptr noundef readonly captures(address_is_null) %0, p
   br label %internal_find.exit
 
 internal_find.exit:                               ; preds = %34, %21, %.preheader87.i, %.preheader.i, %2, %5, %19, %22, %38, %.loopexit.thread.i, %.cont79.loopexit.i
-  %.051.i = phi i32 [ -1, %5 ], [ -1, %2 ], [ -1, %22 ], [ %48, %.loopexit.thread.i ], [ -1, %38 ], [ %20, %19 ], [ %49, %.cont79.loopexit.i ], [ -1, %.preheader.i ], [ -1, %.preheader87.i ], [ -1, %21 ], [ -1, %34 ]
+  %.051.i = phi i32 [ -1, %22 ], [ %20, %19 ], [ %48, %.loopexit.thread.i ], [ -1, %2 ], [ -1, %.preheader.i ], [ -1, %5 ], [ -1, %38 ], [ %49, %.cont79.loopexit.i ], [ -1, %.preheader87.i ], [ -1, %21 ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.051.i
 }
@@ -793,7 +793,7 @@ define i32 @OPENSSL_sk_find_ex(ptr noundef readonly captures(address_is_null) %0
   br label %internal_find.exit
 
 internal_find.exit:                               ; preds = %34, %21, %.preheader87.i, %.preheader.i, %2, %5, %19, %22, %38, %.loopexit.thread.i, %.cont79.loopexit.i
-  %.051.i = phi i32 [ -1, %5 ], [ -1, %2 ], [ -1, %22 ], [ %48, %.loopexit.thread.i ], [ -1, %38 ], [ %20, %19 ], [ %49, %.cont79.loopexit.i ], [ -1, %.preheader.i ], [ -1, %.preheader87.i ], [ -1, %21 ], [ -1, %34 ]
+  %.051.i = phi i32 [ -1, %22 ], [ %20, %19 ], [ %48, %.loopexit.thread.i ], [ -1, %2 ], [ -1, %.preheader.i ], [ -1, %5 ], [ -1, %38 ], [ %49, %.cont79.loopexit.i ], [ -1, %.preheader87.i ], [ -1, %21 ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.051.i
 }
@@ -986,7 +986,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   br label %internal_find.exit
 
 internal_find.exit:                               ; preds = %3, %6, %21, %.else81.i, %._crit_edge101.i, %.else78.i, %24, %._crit_edge.i, %.else.i, %.cont73.i, %.loopexit.i, %.loopexit.thread.i, %.cont79.loopexit.i
-  %.051.i = phi i32 [ -1, %6 ], [ -1, %3 ], [ -1, %24 ], [ %.048.lcssa.i, %._crit_edge.i ], [ %77, %.loopexit.thread.i ], [ -1, %.loopexit.i ], [ -1, %.cont73.i ], [ %22, %21 ], [ %22, %.else81.i ], [ -1, %._crit_edge101.i ], [ -1, %.else78.i ], [ -1, %.else.i ], [ %78, %.cont79.loopexit.i ]
+  %.051.i = phi i32 [ -1, %24 ], [ -1, %.cont73.i ], [ %22, %.else81.i ], [ -1, %3 ], [ %.048.lcssa.i, %._crit_edge.i ], [ -1, %6 ], [ -1, %.else.i ], [ -1, %.else78.i ], [ %77, %.loopexit.thread.i ], [ -1, %.loopexit.i ], [ %22, %21 ], [ -1, %._crit_edge101.i ], [ %78, %.cont79.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051.i
 }
@@ -1050,7 +1050,7 @@ define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef capt
   br label %OPENSSL_sk_insert.exit
 
 OPENSSL_sk_insert.exit:                           ; preds = %28, %8, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %30, %28 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %7 ], [ %30, %28 ]
   ret i32 %.0
 }
 

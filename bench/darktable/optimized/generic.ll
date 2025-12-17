@@ -416,8 +416,8 @@ define void @_ZN6LibRaw18eight_bit_load_rawEv(ptr noundef nonnull align 8 derefe
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %10, %.noexc, %1
-  %.sroa.11.0 = phi ptr [ %7, %.noexc ], [ %7, %10 ], [ null, %1 ]
-  %.sroa.015.0 = phi ptr [ %6, %.noexc ], [ %6, %10 ], [ null, %1 ]
+  %.sroa.11.0 = phi ptr [ %7, %10 ], [ %7, %.noexc ], [ null, %1 ]
+  %.sroa.015.0 = phi ptr [ %6, %10 ], [ %6, %.noexc ], [ null, %1 ]
   %12 = load i16, ptr %2, align 8, !tbaa !75
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %._crit_edge26, label %.lr.ph25

@@ -165,7 +165,7 @@ get_git_var.exit:                                 ; preds = %.lr.ph.i14
   br label %list_vars.exit
 
 list_vars.exit:                                   ; preds = %41, %get_git_var.exit, %57
-  %.0 = phi i32 [ 0, %57 ], [ 1, %get_git_var.exit ], [ 0, %41 ]
+  %.0 = phi i32 [ 1, %get_git_var.exit ], [ 0, %57 ], [ 0, %41 ]
   ret i32 %.0
 }
 

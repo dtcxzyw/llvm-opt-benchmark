@@ -1588,13 +1588,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i: ; preds = %98
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i: ; preds = %102, %.thread.i.i.i.i16.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i
-  %.1.i.i.i.i.i = phi i32 [ %104, %102 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i ], [ 0, %.thread.i.i.i.i16.i ]
+  %.1.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i ], [ %104, %102 ], [ 0, %.thread.i.i.i.i16.i ]
   %105 = icmp slt i32 %.1.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit
 
 _ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit: ; preds = %90, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i
-  %.0.lcssa.i22.i = phi ptr [ %.0713.i.i, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i ], [ %.0713.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i ], [ %67, %90 ]
-  %106 = phi i1 [ true, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i ], [ %105, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i ], [ true, %90 ]
+  %.0.lcssa.i22.i = phi ptr [ %.0713.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i ], [ %.0713.i.i, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i ], [ %67, %90 ]
+  %106 = phi i1 [ %105, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i ], [ true, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i ], [ true, %90 ]
   %107 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store ptr %.sroa.0219.0.copyload220, ptr %108, align 8
@@ -1756,13 +1756,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183: ; preds = %167
   br label %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189
 
 _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189: ; preds = %171, %.thread.i.i.i.i16.i192, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183
-  %.1.i.i.i.i.i190 = phi i32 [ %173, %171 ], [ %spec.select.i.i.i.i.i188, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183 ], [ 0, %.thread.i.i.i.i16.i192 ]
+  %.1.i.i.i.i.i190 = phi i32 [ %spec.select.i.i.i.i.i188, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i10.i183 ], [ %173, %171 ], [ 0, %.thread.i.i.i.i16.i192 ]
   %174 = icmp slt i32 %.1.i.i.i.i.i190, 0
   br label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit194
 
 _ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE15_M_insert_equalIS9_EESt17_Rb_tree_iteratorIS9_EOT_.exit194: ; preds = %159, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i182, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189
-  %.0.lcssa.i22.i191 = phi ptr [ %.0713.i.i168, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i182 ], [ %.0713.i.i168, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189 ], [ %67, %159 ]
-  %175 = phi i1 [ true, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i182 ], [ %174, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189 ], [ true, %159 ]
+  %.0.lcssa.i22.i191 = phi ptr [ %.0713.i.i168, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189 ], [ %.0713.i.i168, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i182 ], [ %67, %159 ]
+  %175 = phi i1 [ %174, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i15.i189 ], [ true, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_RKN5clang4ento13CmdLineOptionEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE23_M_get_insert_equal_posERS3_.exit.i182 ], [ true, %159 ]
   %176 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   store ptr %.sroa.0215.0.copyload216, ptr %177, align 8

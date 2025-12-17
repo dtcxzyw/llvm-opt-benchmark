@@ -632,7 +632,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %67, %49, %59, %.loo
   br i1 %exitcond171.not.i.us, label %.loopexit259.us, label %.lr.ph139.i.us, !llvm.loop !62
 
 .loopexit259.us:                                  ; preds = %161, %.preheader.i.us, %._crit_edge136.loopexit.i.us, %.preheader123.i.us, %._crit_edge.loopexit.i.us, %.preheader124.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ 0, %.preheader.i.us ], [ %.3.i.us, %.preheader124.i.us ], [ %139, %._crit_edge.loopexit.i.us ], [ %.1.i.us, %.preheader123.i.us ], [ %155, %._crit_edge136.loopexit.i.us ], [ %93, %161 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %139, %._crit_edge.loopexit.i.us ], [ 0, %.preheader.i.us ], [ %.3.i.us, %.preheader124.i.us ], [ %.1.i.us, %.preheader123.i.us ], [ %155, %._crit_edge136.loopexit.i.us ], [ %93, %161 ]
   %163 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
   %164 = shl i32 %.5.lcssa.sink.i.us.fr, 27
@@ -907,7 +907,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i.us.i208.us: ; preds = %259, %.outer.i.s
   br label %Bal_SetLastCutContains.exit.i188.us
 
 Bal_SetLastCutContains.exit.i188.us:              ; preds = %._crit_edge56.loopexit.i.i187.us, %._crit_edge.i.i178.us
-  %.0.i.i189.us = phi i32 [ %.6313.us, %._crit_edge.i.i178.us ], [ %282, %._crit_edge56.loopexit.i.i187.us ]
+  %.0.i.i189.us = phi i32 [ %282, %._crit_edge56.loopexit.i.i187.us ], [ %.6313.us, %._crit_edge.i.i178.us ]
   %283 = icmp sgt i32 %.0.i.i189.us, 0
   br i1 %283, label %.lr.ph.i8.i190.us, label %Bal_SetSortByDelay.exit.i166.us
 
@@ -955,7 +955,7 @@ Bal_SetSortByDelay.exit.i166.us:                  ; preds = %.lr.ph.i8.i190.us, 
   br label %Bal_SetAddCut.exit211.us
 
 Bal_SetAddCut.exit211.us:                         ; preds = %156, %.lr.ph139.i.us, %191, %218, %203, %213, %Bal_SetSortByDelay.exit.i166.us, %Bal_SetLastCutIsContained.exit165.thread238.us, %145, %129, %.preheader125.i.us, %87
-  %.7.us = phi i32 [ %.6313.us, %87 ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %.6313.us, %129 ], [ %.6313.us, %145 ], [ %.6313.us, %.preheader125.i.us ], [ %.6313.us, %213 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %191 ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %156 ]
+  %.7.us = phi i32 [ %.6313.us, %87 ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ %.6313.us, %129 ], [ %.6313.us, %145 ], [ %.6313.us, %.preheader125.i.us ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %213 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %191 ], [ %.6313.us, %156 ]
   %310 = getelementptr inbounds nuw i8, ptr %.179312.us, i64 40
   %311 = icmp ult ptr %310, %73
   br i1 %311, label %87, label %._crit_edge316.us, !llvm.loop !69
@@ -1422,7 +1422,7 @@ Bal_SetCutIsContainedOrder.exit.thread.i.us.i.us.us.us: ; preds = %511, %.outer.
   br label %Bal_SetLastCutContains.exit.i.us.us.us
 
 Bal_SetLastCutContains.exit.i.us.us.us:           ; preds = %._crit_edge56.loopexit.i.i.us.us.us, %._crit_edge.i.i.us.us.us
-  %.0.i.i.us.us.us = phi i32 [ %.2320.us.us.us, %._crit_edge.i.i.us.us.us ], [ %534, %._crit_edge56.loopexit.i.i.us.us.us ]
+  %.0.i.i.us.us.us = phi i32 [ %534, %._crit_edge56.loopexit.i.i.us.us.us ], [ %.2320.us.us.us, %._crit_edge.i.i.us.us.us ]
   %535 = icmp sgt i32 %.0.i.i.us.us.us, 0
   br i1 %535, label %.lr.ph.i8.i.us.us.us, label %Bal_SetSortByDelay.exit.i.us.us.us
 
@@ -1470,7 +1470,7 @@ Bal_SetSortByDelay.exit.i.us.us.us:               ; preds = %.lr.ph.i8.i.us.us.u
   br label %Bal_SetAddCut.exit.us.us.us
 
 Bal_SetAddCut.exit.us.us.us:                      ; preds = %400, %443, %470, %455, %465, %Bal_SetSortByDelay.exit.i.us.us.us, %Bal_SetLastCutIsContained.exit.thread232.us.us.us, %351
-  %.3.us.us.us = phi i32 [ %.2320.us.us.us, %351 ], [ %561, %Bal_SetSortByDelay.exit.i.us.us.us ], [ 1, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %.2320.us.us.us, %465 ], [ %.2320.us.us.us, %455 ], [ %.2320.us.us.us, %470 ], [ %.2320.us.us.us, %443 ], [ %.2320.us.us.us, %400 ]
+  %.3.us.us.us = phi i32 [ %.2320.us.us.us, %351 ], [ 1, %Bal_SetLastCutIsContained.exit.thread232.us.us.us ], [ %561, %Bal_SetSortByDelay.exit.i.us.us.us ], [ %.2320.us.us.us, %443 ], [ %.2320.us.us.us, %465 ], [ %.2320.us.us.us, %455 ], [ %.2320.us.us.us, %470 ], [ %.2320.us.us.us, %400 ]
   %562 = getelementptr inbounds nuw i8, ptr %.074321.us.us.us, i64 40
   %563 = icmp ult ptr %562, %340
   br i1 %563, label %351, label %._crit_edge323.us.us.us, !llvm.loop !71
@@ -1685,7 +1685,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %577, ptr %659, align 4, !tbaa !47
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.preheader250.lr.ph, %.preheader261.lr.ph, %.preheader262, %Bal_ManPrepareSet.exit115, %569, %Vec_IntPush.exit, %.loopexit
+.loopexit.thread:                                 ; preds = %.preheader261.lr.ph, %.preheader250.lr.ph, %.preheader262, %Bal_ManPrepareSet.exit115, %569, %Vec_IntPush.exit, %.loopexit
   %.0 = phi i32 [ -1, %.loopexit ], [ %577, %Vec_IntPush.exit ], [ %577, %569 ], [ -1, %Bal_ManPrepareSet.exit115 ], [ -1, %.preheader262 ], [ -1, %.preheader261.lr.ph ], [ -1, %.preheader250.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1751,7 +1751,7 @@ Gia_ObjIsMux.exit:                                ; preds = %3, %11
   br label %Gia_ObjFaninC2.exit
 
 Gia_ObjFaninC2.exit:                              ; preds = %19, %27
-  %31 = phi i32 [ %spec.select.i, %27 ], [ %.mux, %19 ]
+  %31 = phi i32 [ %.mux, %19 ], [ %spec.select.i, %27 ]
   %32 = getelementptr i8, ptr %0, i64 32
   %.val66 = load ptr, ptr %32, align 8, !tbaa !41
   %33 = getelementptr i8, ptr %.val66, i64 8
@@ -2129,8 +2129,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %.critedge2, !llvm.loop !90
 
 .critedge2:                                       ; preds = %.lr.ph103, %..critedge2_crit_edge, %.lr.ph103.preheader
-  %.val75105.pre = phi i32 [ %.val74, %..critedge2_crit_edge ], [ %.val74101, %.lr.ph103.preheader ], [ %.val74, %.lr.ph103 ]
-  %133 = phi ptr [ %129, %..critedge2_crit_edge ], [ %116, %.lr.ph103.preheader ], [ %129, %.lr.ph103 ]
+  %.val75105.pre = phi i32 [ %.val74101, %.lr.ph103.preheader ], [ %.val74, %..critedge2_crit_edge ], [ %.val74, %.lr.ph103 ]
+  %133 = phi ptr [ %116, %.lr.ph103.preheader ], [ %129, %..critedge2_crit_edge ], [ %129, %.lr.ph103 ]
   %134 = icmp sgt i32 %.val75105.pre, 0
   br i1 %134, label %.lr.ph107, label %.critedge4
 
@@ -2782,9 +2782,9 @@ Vec_IntFill.exit31.i.i:                           ; preds = %200, %198
   br label %Gia_ManSuperCollect.exit
 
 203:                                              ; preds = %197, %193, %183
-  %.val27.i.i = phi i32 [ %.val27.pre.i.i, %193 ], [ %.val2745.i.i, %197 ], [ %.val2745.i.i, %183 ]
-  %.123.i.i = phi i32 [ %194, %193 ], [ %.02241.i.i, %197 ], [ %.02241.i.i, %183 ]
-  %.1.i34.i = phi i32 [ %185, %193 ], [ %.02142.i.i, %197 ], [ %.02142.i.i, %183 ]
+  %.val27.i.i = phi i32 [ %.val2745.i.i, %183 ], [ %.val27.pre.i.i, %193 ], [ %.val2745.i.i, %197 ]
+  %.123.i.i = phi i32 [ %.02241.i.i, %183 ], [ %194, %193 ], [ %.02241.i.i, %197 ]
+  %.1.i34.i = phi i32 [ %.02142.i.i, %183 ], [ %185, %193 ], [ %.02142.i.i, %197 ]
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %204 = sext i32 %.val27.i.i to i64
   %205 = icmp slt i64 %indvars.iv.next.i35.i, %204

@@ -214,7 +214,7 @@ define internal i32 @dissect_smb_direct_infiniband(ptr noundef %0, ptr noundef %
   br label %21
 
 21:                                               ; preds = %9, %6, %4, %19, %18
-  %.0 = phi i32 [ 0, %18 ], [ %20, %19 ], [ 0, %4 ], [ 0, %6 ], [ 0, %9 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %4 ], [ 0, %6 ], [ 0, %18 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -314,7 +314,7 @@ define internal zeroext i1 @dissect_smb_direct_infiniband_heur(ptr noundef %0, p
   br label %dissect_smb_direct_infiniband.exit
 
 dissect_smb_direct_infiniband.exit:               ; preds = %4, %6, %9, %18, %19
-  %.0.i = phi i1 [ false, %18 ], [ %21, %19 ], [ false, %4 ], [ false, %6 ], [ false, %9 ]
+  %.0.i = phi i1 [ %21, %19 ], [ false, %4 ], [ false, %6 ], [ false, %18 ], [ false, %9 ]
   ret i1 %.0.i
 }
 
@@ -368,7 +368,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br label %27
 
 27:                                               ; preds = %24, %21, %18
-  %.not = phi i32 [ -1, %21 ], [ -1, %18 ], [ %26, %24 ]
+  %.not = phi i32 [ -1, %18 ], [ %26, %24 ], [ -1, %21 ]
   %28 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
   %29 = icmp ult i16 %28, 256
   br i1 %29, label %30, label %39
@@ -389,7 +389,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %27
-  %.027 = phi i1 [ false, %33 ], [ false, %30 ], [ false, %27 ], [ %38, %36 ]
+  %.027 = phi i1 [ false, %27 ], [ %38, %36 ], [ false, %33 ], [ false, %30 ]
   %40 = icmp eq i32 %2, 20
   br i1 %40, label %41, label %48
 
@@ -428,7 +428,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br label %.thread
 
 .thread:                                          ; preds = %55, %41, %52, %50, %48, %15, %1
-  %.0 = phi i32 [ -1, %1 ], [ 2, %15 ], [ -1, %48 ], [ -1, %50 ], [ -1, %52 ], [ %spec.select2, %41 ], [ %spec.select, %55 ]
+  %.0 = phi i32 [ 2, %15 ], [ -1, %1 ], [ %spec.select2, %41 ], [ %spec.select, %55 ], [ -1, %48 ], [ -1, %50 ], [ -1, %52 ]
   ret i32 %.0
 }
 

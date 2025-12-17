@@ -2712,12 +2712,12 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290: ; preds = %_ZN7
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292
 
 .thread388:                                       ; preds = %_ZN7testing7MessageD2Ev.exit127, %167, %_ZN7testing7MessageD2Ev.exit177
-  %.pn78.pn.pn.pn.pn.pn379 = phi { ptr, i32 } [ %.pn54.pn.pn, %_ZN7testing7MessageD2Ev.exit127 ], [ %.pn58.pn.pn, %167 ], [ %.pn62.pn.pn, %_ZN7testing7MessageD2Ev.exit177 ]
+  %.pn78.pn.pn.pn.pn.pn379 = phi { ptr, i32 } [ %.pn62.pn.pn, %_ZN7testing7MessageD2Ev.exit177 ], [ %.pn58.pn.pn, %167 ], [ %.pn54.pn.pn, %_ZN7testing7MessageD2Ev.exit127 ]
   call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef 72) #26
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292
 
 _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292: ; preds = %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290, %76, %.thread388
-  %.pn78.pn.pn.pn.pn.pn380 = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn379, %.thread388 ], [ %.pn78.pn.pn.pn, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290 ], [ %.pn.pn.pn, %76 ]
+  %.pn78.pn.pn.pn.pn.pn380 = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn379, %.thread388 ], [ %.pn.pn.pn, %76 ], [ %.pn78.pn.pn.pn, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290 ]
   resume { ptr, i32 } %.pn78.pn.pn.pn.pn.pn380
 }
 
@@ -3294,8 +3294,8 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
   br i1 %.not.i.i.i.i244, label %209, label %.lr.ph.i.i.i.i239, !llvm.loop !51
 
 207:                                              ; preds = %.loopexit, %177
-  %.sroa.32.3 = phi ptr [ %179, %.loopexit ], [ %36, %177 ]
-  %.sroa.0430.3 = phi ptr [ %178, %.loopexit ], [ %34, %177 ]
+  %.sroa.32.3 = phi ptr [ %36, %177 ], [ %179, %.loopexit ]
+  %.sroa.0430.3 = phi ptr [ %34, %177 ], [ %178, %.loopexit ]
   %208 = landingpad { ptr, i32 }
           cleanup
   br label %480
@@ -4159,11 +4159,11 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit376: ; preds = %_ZN7
   ret void
 
 480:                                              ; preds = %207, %_ZN7testing7MessageD2Ev.exit368, %_ZN7testing7MessageD2Ev.exit350, %_ZN7testing7MessageD2Ev.exit327, %344, %297, %_ZN7testing7MessageD2Ev.exit262, %_ZN7testing7MessageD2Ev.exit194, %136, %_ZN7testing7MessageD2Ev.exit130
-  %.sroa.26.1.ph = phi ptr [ %39, %_ZN7testing7MessageD2Ev.exit130 ], [ %39, %136 ], [ %39, %_ZN7testing7MessageD2Ev.exit194 ], [ %202, %_ZN7testing7MessageD2Ev.exit262 ], [ %202, %297 ], [ %202, %344 ], [ %202, %_ZN7testing7MessageD2Ev.exit327 ], [ %202, %_ZN7testing7MessageD2Ev.exit350 ], [ %202, %_ZN7testing7MessageD2Ev.exit368 ], [ %39, %207 ]
-  %.sroa.0399.1.ph = phi ptr [ %37, %_ZN7testing7MessageD2Ev.exit130 ], [ %37, %136 ], [ %37, %_ZN7testing7MessageD2Ev.exit194 ], [ %200, %_ZN7testing7MessageD2Ev.exit262 ], [ %200, %297 ], [ %200, %344 ], [ %200, %_ZN7testing7MessageD2Ev.exit327 ], [ %200, %_ZN7testing7MessageD2Ev.exit350 ], [ %200, %_ZN7testing7MessageD2Ev.exit368 ], [ %37, %207 ]
-  %.sroa.32.2.ph = phi ptr [ %36, %_ZN7testing7MessageD2Ev.exit130 ], [ %36, %136 ], [ %36, %_ZN7testing7MessageD2Ev.exit194 ], [ %179, %_ZN7testing7MessageD2Ev.exit262 ], [ %179, %297 ], [ %179, %344 ], [ %179, %_ZN7testing7MessageD2Ev.exit327 ], [ %179, %_ZN7testing7MessageD2Ev.exit350 ], [ %179, %_ZN7testing7MessageD2Ev.exit368 ], [ %.sroa.32.3, %207 ]
-  %.sroa.0430.2.ph = phi ptr [ %34, %_ZN7testing7MessageD2Ev.exit130 ], [ %34, %136 ], [ %34, %_ZN7testing7MessageD2Ev.exit194 ], [ %178, %_ZN7testing7MessageD2Ev.exit262 ], [ %178, %297 ], [ %178, %344 ], [ %178, %_ZN7testing7MessageD2Ev.exit327 ], [ %178, %_ZN7testing7MessageD2Ev.exit350 ], [ %178, %_ZN7testing7MessageD2Ev.exit368 ], [ %.sroa.0430.3, %207 ]
-  %.pn99.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit130 ], [ %.pn71.pn.pn, %136 ], [ %.pn75.pn.pn, %_ZN7testing7MessageD2Ev.exit194 ], [ %.pn79.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %.pn83.pn.pn, %297 ], [ %.pn87.pn.pn, %344 ], [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit327 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit350 ], [ %.pn99.pn.pn, %_ZN7testing7MessageD2Ev.exit368 ], [ %208, %207 ]
+  %.sroa.26.1.ph = phi ptr [ %39, %_ZN7testing7MessageD2Ev.exit130 ], [ %39, %207 ], [ %39, %136 ], [ %39, %_ZN7testing7MessageD2Ev.exit194 ], [ %202, %_ZN7testing7MessageD2Ev.exit262 ], [ %202, %297 ], [ %202, %344 ], [ %202, %_ZN7testing7MessageD2Ev.exit327 ], [ %202, %_ZN7testing7MessageD2Ev.exit350 ], [ %202, %_ZN7testing7MessageD2Ev.exit368 ]
+  %.sroa.0399.1.ph = phi ptr [ %37, %_ZN7testing7MessageD2Ev.exit130 ], [ %37, %207 ], [ %37, %136 ], [ %37, %_ZN7testing7MessageD2Ev.exit194 ], [ %200, %_ZN7testing7MessageD2Ev.exit262 ], [ %200, %297 ], [ %200, %344 ], [ %200, %_ZN7testing7MessageD2Ev.exit327 ], [ %200, %_ZN7testing7MessageD2Ev.exit350 ], [ %200, %_ZN7testing7MessageD2Ev.exit368 ]
+  %.sroa.32.2.ph = phi ptr [ %36, %_ZN7testing7MessageD2Ev.exit130 ], [ %.sroa.32.3, %207 ], [ %36, %136 ], [ %36, %_ZN7testing7MessageD2Ev.exit194 ], [ %179, %_ZN7testing7MessageD2Ev.exit262 ], [ %179, %297 ], [ %179, %344 ], [ %179, %_ZN7testing7MessageD2Ev.exit327 ], [ %179, %_ZN7testing7MessageD2Ev.exit350 ], [ %179, %_ZN7testing7MessageD2Ev.exit368 ]
+  %.sroa.0430.2.ph = phi ptr [ %34, %_ZN7testing7MessageD2Ev.exit130 ], [ %.sroa.0430.3, %207 ], [ %34, %136 ], [ %34, %_ZN7testing7MessageD2Ev.exit194 ], [ %178, %_ZN7testing7MessageD2Ev.exit262 ], [ %178, %297 ], [ %178, %344 ], [ %178, %_ZN7testing7MessageD2Ev.exit327 ], [ %178, %_ZN7testing7MessageD2Ev.exit350 ], [ %178, %_ZN7testing7MessageD2Ev.exit368 ]
+  %.pn99.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit130 ], [ %208, %207 ], [ %.pn71.pn.pn, %136 ], [ %.pn75.pn.pn, %_ZN7testing7MessageD2Ev.exit194 ], [ %.pn79.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %.pn83.pn.pn, %297 ], [ %.pn87.pn.pn, %344 ], [ %.pn91.pn.pn, %_ZN7testing7MessageD2Ev.exit327 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit350 ], [ %.pn99.pn.pn, %_ZN7testing7MessageD2Ev.exit368 ]
   %481 = ptrtoint ptr %.sroa.26.1.ph to i64
   %482 = ptrtoint ptr %.sroa.0399.1.ph to i64
   %483 = sub i64 %481, %482
@@ -5073,8 +5073,8 @@ _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %_ZNK4entt16adjacenc
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit306
 
 _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit306: ; preds = %_ZN7testing15AssertionResultD2Ev.exit302, %_ZN7testing15AssertionResultD2Ev.exit118, %_ZN7testing15AssertionResultD2Ev.exit137, %_ZN7testing15AssertionResultD2Ev.exit230, %_ZN7testing15AssertionResultD2Ev.exit250, %_ZN7testing15AssertionResultD2Ev.exit273
-  %.sroa.0332.1 = phi ptr [ %117, %_ZN7testing15AssertionResultD2Ev.exit302 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit273 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit250 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %24, %_ZN7testing15AssertionResultD2Ev.exit137 ], [ %24, %_ZN7testing15AssertionResultD2Ev.exit118 ]
-  %.sroa.20.1 = phi ptr [ %120, %_ZN7testing15AssertionResultD2Ev.exit302 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit273 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit250 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit137 ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit118 ]
+  %.sroa.0332.1 = phi ptr [ %117, %_ZN7testing15AssertionResultD2Ev.exit302 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit273 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit250 ], [ %117, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %24, %_ZN7testing15AssertionResultD2Ev.exit118 ], [ %24, %_ZN7testing15AssertionResultD2Ev.exit137 ]
+  %.sroa.20.1 = phi ptr [ %120, %_ZN7testing15AssertionResultD2Ev.exit302 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit273 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit250 ], [ %120, %_ZN7testing15AssertionResultD2Ev.exit230 ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit118 ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit137 ]
   %296 = ptrtoint ptr %.sroa.20.1 to i64
   %297 = ptrtoint ptr %.sroa.0332.1 to i64
   %298 = sub i64 %296, %297
@@ -6278,12 +6278,12 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %_ZNK4entt16adjacenc
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit411
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit411: ; preds = %_ZN7testing15AssertionResultD2Ev.exit227, %_ZN7testing15AssertionResultD2Ev.exit182, %_ZN7testing15AssertionResultD2Ev.exit166, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit408, %_ZN7testing15AssertionResultD2Ev.exit314, %_ZN7testing15AssertionResultD2Ev.exit338, %_ZN7testing15AssertionResultD2Ev.exit359
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit411: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit182, %_ZN7testing15AssertionResultD2Ev.exit166, %_ZN7testing15AssertionResultD2Ev.exit227, %_ZN7testing15AssertionResultD2Ev.exit408, %_ZN7testing15AssertionResultD2Ev.exit314, %_ZN7testing15AssertionResultD2Ev.exit338, %_ZN7testing15AssertionResultD2Ev.exit359
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 72) #26
   ret void
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit415: ; preds = %_ZN7testing7MessageD2Ev.exit233, %_ZN7testing7MessageD2Ev.exit188, %124, %78, %_ZN7testing7MessageD2Ev.exit320, %304, %346, %_ZN7testing7MessageD2Ev.exit403
-  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn101.pn.pn, %_ZN7testing7MessageD2Ev.exit320 ], [ %.pn105.pn.pn, %304 ], [ %.pn109.pn.pn, %346 ], [ %.pn117.pn.pn, %_ZN7testing7MessageD2Ev.exit403 ], [ %.pn.pn.pn, %78 ], [ %.pn77.pn.pn, %124 ], [ %.pn81.pn.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn89.pn.pn, %_ZN7testing7MessageD2Ev.exit233 ]
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit415: ; preds = %_ZN7testing7MessageD2Ev.exit188, %124, %78, %_ZN7testing7MessageD2Ev.exit233, %_ZN7testing7MessageD2Ev.exit320, %304, %346, %_ZN7testing7MessageD2Ev.exit403
+  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn109.pn.pn, %346 ], [ %.pn117.pn.pn, %_ZN7testing7MessageD2Ev.exit403 ], [ %.pn101.pn.pn, %_ZN7testing7MessageD2Ev.exit320 ], [ %.pn105.pn.pn, %304 ], [ %.pn89.pn.pn, %_ZN7testing7MessageD2Ev.exit233 ], [ %.pn.pn.pn, %78 ], [ %.pn77.pn.pn, %124 ], [ %.pn81.pn.pn, %_ZN7testing7MessageD2Ev.exit188 ]
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 72) #26
   resume { ptr, i32 } %.pn117.pn.pn.pn.pn
 }
@@ -6338,7 +6338,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
   br i1 %.not.i.i.i, label %35, label %.lr.ph.i.i.i, !llvm.loop !51
 
 35:                                               ; preds = %33, %.lr.ph.i.i.i
-  %36 = phi i64 [ %.sroa.5.0.i, %.lr.ph.i.i.i ], [ 9, %33 ]
+  %36 = phi i64 [ 9, %33 ], [ %.sroa.5.0.i, %.lr.ph.i.i.i ]
   store ptr %29, ptr %2, align 8, !tbaa !104, !alias.scope !101
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !20, !alias.scope !101
@@ -6369,7 +6369,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
   br i1 %.not.i.i.i121, label %43, label %.lr.ph.i.i.i112, !llvm.loop !51
 
 43:                                               ; preds = %41, %.lr.ph.i.i.i112
-  %44 = phi i64 [ %.sroa.5.0.i113, %.lr.ph.i.i.i112 ], [ 9, %41 ]
+  %44 = phi i64 [ 9, %41 ], [ %.sroa.5.0.i113, %.lr.ph.i.i.i112 ]
   store ptr %29, ptr %3, align 8, !tbaa !104, !alias.scope !110
   %.sroa.4.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i117, align 8, !tbaa !20, !alias.scope !110
@@ -6399,7 +6399,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
   br i1 %.not.i.i.i133, label %50, label %.lr.ph.i.i.i124, !llvm.loop !51
 
 50:                                               ; preds = %48, %.lr.ph.i.i.i124
-  %.sroa.5.1.i127 = phi i64 [ %.sroa.5.0.i125, %.lr.ph.i.i.i124 ], [ 9, %48 ]
+  %.sroa.5.1.i127 = phi i64 [ 9, %48 ], [ %.sroa.5.0.i125, %.lr.ph.i.i.i124 ]
   store ptr %29, ptr %4, align 8, !tbaa !104, !alias.scope !113
   %.sroa.4.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i129, align 8, !tbaa !20, !alias.scope !113
@@ -7404,7 +7404,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
   br i1 %.not.i.i.i, label %36, label %.lr.ph.i.i.i, !llvm.loop !51
 
 36:                                               ; preds = %34, %.lr.ph.i.i.i
-  %37 = phi i64 [ %.sroa.5.0.i, %.lr.ph.i.i.i ], [ 9, %34 ]
+  %37 = phi i64 [ 9, %34 ], [ %.sroa.5.0.i, %.lr.ph.i.i.i ]
   store ptr %29, ptr %2, align 8, !tbaa !104, !alias.scope !123
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !20, !alias.scope !123
@@ -7437,7 +7437,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
   br i1 %.not.i.i.i121, label %45, label %.lr.ph.i.i.i112, !llvm.loop !51
 
 45:                                               ; preds = %43, %.lr.ph.i.i.i112
-  %46 = phi i64 [ %.sroa.5.0.i113, %.lr.ph.i.i.i112 ], [ 9, %43 ]
+  %46 = phi i64 [ 9, %43 ], [ %.sroa.5.0.i113, %.lr.ph.i.i.i112 ]
   store ptr %29, ptr %3, align 8, !tbaa !104, !alias.scope !126
   %.sroa.4.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i117, align 8, !tbaa !20, !alias.scope !126
@@ -7468,7 +7468,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
   br i1 %.not.i.i.i133, label %52, label %.lr.ph.i.i.i124, !llvm.loop !51
 
 52:                                               ; preds = %50, %.lr.ph.i.i.i124
-  %.sroa.5.1.i127 = phi i64 [ %.sroa.5.0.i125, %.lr.ph.i.i.i124 ], [ 9, %50 ]
+  %.sroa.5.1.i127 = phi i64 [ 9, %50 ], [ %.sroa.5.0.i125, %.lr.ph.i.i.i124 ]
   store ptr %29, ptr %4, align 8, !tbaa !104, !alias.scope !129
   %.sroa.4.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx.i129, align 8, !tbaa !20, !alias.scope !129
@@ -10096,7 +10096,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit: ; preds = %_ZN7tes
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit276
 
 _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit276: ; preds = %142, %104, %_ZN7testing7MessageD2Ev.exit113
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %142 ], [ %.pn61.pn.pn, %104 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit113 ]
+  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %142 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit113 ], [ %.pn61.pn.pn, %104 ]
   call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 72) #26
   resume { ptr, i32 } %.pn77.pn.pn.pn
 }
@@ -11294,7 +11294,7 @@ define hidden void @_ZN33AdjacencyMatrix_EdgeIterator_Test8TestBodyEv(ptr nonnul
   br i1 %.not.i.i.i101, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit, label %.lr.ph.i.i.i98, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit: ; preds = %.lr.ph.i.i.i98, %40
-  %.sroa.311.1.i = phi i64 [ %.sroa.311.0.i, %.lr.ph.i.i.i98 ], [ 9, %40 ]
+  %.sroa.311.1.i = phi i64 [ 9, %40 ], [ %.sroa.311.0.i, %.lr.ph.i.i.i98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %35, ptr %3, align 8, !tbaa !104
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13546,7 +13546,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit: ; preds = %_ZN7tes
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit224
 
 _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit224: ; preds = %247, %291, %327, %203, %158, %69, %113
-  %.pn67.pn.pn.pn.pn251 = phi { ptr, i32 } [ %.pn.pn.pn, %69 ], [ %.pn47.pn.pn, %113 ], [ %.pn55.pn.pn, %203 ], [ %.pn51.pn.pn, %158 ], [ %.pn67.pn.pn, %327 ], [ %.pn63.pn.pn, %291 ], [ %.pn59.pn.pn, %247 ]
+  %.pn67.pn.pn.pn.pn251 = phi { ptr, i32 } [ %.pn47.pn.pn, %113 ], [ %.pn.pn.pn, %69 ], [ %.pn51.pn.pn, %158 ], [ %.pn55.pn.pn, %203 ], [ %.pn67.pn.pn, %327 ], [ %.pn63.pn.pn, %291 ], [ %.pn59.pn.pn, %247 ]
   resume { ptr, i32 } %.pn67.pn.pn.pn.pn251
 }
 
@@ -13595,7 +13595,7 @@ define hidden void @_ZN34AdjacencyMatrix_EdgesDirected_Test8TestBodyEv(ptr nonnu
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit: ; preds = %.lr.ph.i.i.i, %31
-  %.sroa.311.1.i = phi i64 [ %.sroa.311.0.i, %.lr.ph.i.i.i ], [ 9, %31 ]
+  %.sroa.311.1.i = phi i64 [ 9, %31 ], [ %.sroa.311.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %27, ptr %3, align 8, !tbaa !104
@@ -13785,7 +13785,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i102, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit103, label %.lr.ph.i.i.i90, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit103: ; preds = %.lr.ph.i.i.i90, %82
-  %.sroa.311.1.i93 = phi i64 [ %.sroa.311.0.i91, %.lr.ph.i.i.i90 ], [ 9, %82 ]
+  %.sroa.311.1.i93 = phi i64 [ 9, %82 ], [ %.sroa.311.0.i91, %.lr.ph.i.i.i90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %27, ptr %8, align 8, !tbaa !104
@@ -14000,7 +14000,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i126, %..loopexit_crit_edge, %.lr.ph.i.i.i126.preheader
-  %138 = phi i64 [ 9, %..loopexit_crit_edge ], [ %131, %.lr.ph.i.i.i126.preheader ], [ %137, %.lr.ph.i.i.i126 ]
+  %138 = phi i64 [ %131, %.lr.ph.i.i.i126.preheader ], [ 9, %..loopexit_crit_edge ], [ %137, %.lr.ph.i.i.i126 ]
   store i64 %138, ptr %.sroa.10220.0..sroa_idx223, align 8
   br label %139
 
@@ -14576,7 +14576,7 @@ define hidden void @_ZN46AdjacencyMatrix_EdgesBackwardOnlyDirected_Test8TestBody
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit: ; preds = %.lr.ph.i.i.i, %25
-  %.sroa.311.1.i = phi i64 [ %.sroa.311.0.i, %.lr.ph.i.i.i ], [ 4, %25 ]
+  %.sroa.311.1.i = phi i64 [ 4, %25 ], [ %.sroa.311.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %22, ptr %3, align 8, !tbaa !104
@@ -14765,7 +14765,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i78, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit79, label %.lr.ph.i.i.i66, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit79: ; preds = %.lr.ph.i.i.i66, %76
-  %.sroa.311.1.i69 = phi i64 [ %.sroa.311.0.i67, %.lr.ph.i.i.i66 ], [ 4, %76 ]
+  %.sroa.311.1.i69 = phi i64 [ 4, %76 ], [ %.sroa.311.0.i67, %.lr.ph.i.i.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %22, ptr %8, align 8, !tbaa !104
@@ -14980,7 +14980,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i102, %..loopexit_crit_edge, %.lr.ph.i.i.i102.preheader
-  %132 = phi i64 [ 4, %..loopexit_crit_edge ], [ %125, %.lr.ph.i.i.i102.preheader ], [ %131, %.lr.ph.i.i.i102 ]
+  %132 = phi i64 [ %125, %.lr.ph.i.i.i102.preheader ], [ 4, %..loopexit_crit_edge ], [ %131, %.lr.ph.i.i.i102 ]
   store i64 %132, ptr %.sroa.10163.0..sroa_idx166, align 8
   %133 = icmp eq i64 %132, 4
   br label %134
@@ -15375,7 +15375,7 @@ define hidden void @_ZN36AdjacencyMatrix_EdgesUndirected_Test8TestBodyEv(ptr non
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit: ; preds = %.lr.ph.i.i.i, %41
-  %.sroa.311.1.i = phi i64 [ %.sroa.311.0.i, %.lr.ph.i.i.i ], [ 9, %41 ]
+  %.sroa.311.1.i = phi i64 [ 9, %41 ], [ %.sroa.311.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %37, ptr %3, align 8, !tbaa !104
@@ -15569,7 +15569,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i126, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit127, label %.lr.ph.i.i.i114, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit127: ; preds = %.lr.ph.i.i.i114, %94
-  %.sroa.311.1.i117 = phi i64 [ %.sroa.311.0.i115, %.lr.ph.i.i.i114 ], [ 9, %94 ]
+  %.sroa.311.1.i117 = phi i64 [ 9, %94 ], [ %.sroa.311.0.i115, %.lr.ph.i.i.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %37, ptr %8, align 8, !tbaa !104
@@ -15784,7 +15784,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.loopexit364, !llvm.loop !51
 
 .loopexit364:                                     ; preds = %.lr.ph.i.i.i150, %..loopexit364_crit_edge, %.lr.ph.i.i.i150.preheader
-  %150 = phi i64 [ 9, %..loopexit364_crit_edge ], [ %143, %.lr.ph.i.i.i150.preheader ], [ %149, %.lr.ph.i.i.i150 ]
+  %150 = phi i64 [ %143, %.lr.ph.i.i.i150.preheader ], [ 9, %..loopexit364_crit_edge ], [ %149, %.lr.ph.i.i.i150 ]
   store i64 %150, ptr %.sroa.10308.0..sroa_idx311, align 8
   br label %151
 
@@ -16772,7 +16772,7 @@ define hidden void @_ZN48AdjacencyMatrix_EdgesBackwardOnlyUndirected_Test8TestBo
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit: ; preds = %.lr.ph.i.i.i, %31
-  %.sroa.311.1.i = phi i64 [ %.sroa.311.0.i, %.lr.ph.i.i.i ], [ 4, %31 ]
+  %.sroa.311.1.i = phi i64 [ 4, %31 ], [ %.sroa.311.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %27, ptr %3, align 8, !tbaa !104
@@ -16962,7 +16962,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i90, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit91, label %.lr.ph.i.i.i78, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit91: ; preds = %.lr.ph.i.i.i78, %82
-  %.sroa.311.1.i81 = phi i64 [ %.sroa.311.0.i79, %.lr.ph.i.i.i78 ], [ 4, %82 ]
+  %.sroa.311.1.i81 = phi i64 [ 4, %82 ], [ %.sroa.311.0.i79, %.lr.ph.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %27, ptr %8, align 8, !tbaa !104
@@ -17176,7 +17176,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.loopexit265, !llvm.loop !51
 
 .loopexit265:                                     ; preds = %.lr.ph.i.i.i114, %..loopexit265_crit_edge, %.lr.ph.i.i.i114.preheader
-  %138 = phi i64 [ 4, %..loopexit265_crit_edge ], [ %131, %.lr.ph.i.i.i114.preheader ], [ %137, %.lr.ph.i.i.i114 ]
+  %138 = phi i64 [ %131, %.lr.ph.i.i.i114.preheader ], [ 4, %..loopexit265_crit_edge ], [ %137, %.lr.ph.i.i.i114 ]
   store i64 %138, ptr %.sroa.10211.0..sroa_idx214, align 8
   br label %139
 
@@ -17378,8 +17378,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.loopexit.loopexit, !llvm.loop !51
 
 .loopexit.loopexit:                               ; preds = %197, %..loopexit.loopexit_crit_edge322, %.lr.ph.i.i.i138
-  %202 = phi i64 [ %201, %..loopexit.loopexit_crit_edge322 ], [ %.sroa.10211.0..sroa_idx214.promoted, %.lr.ph.i.i.i138 ], [ %201, %197 ]
-  %203 = phi i1 [ true, %..loopexit.loopexit_crit_edge322 ], [ false, %.lr.ph.i.i.i138 ], [ false, %197 ]
+  %202 = phi i64 [ %.sroa.10211.0..sroa_idx214.promoted, %.lr.ph.i.i.i138 ], [ %201, %..loopexit.loopexit_crit_edge322 ], [ %201, %197 ]
+  %203 = phi i1 [ false, %.lr.ph.i.i.i138 ], [ true, %..loopexit.loopexit_crit_edge322 ], [ false, %197 ]
   store i64 %202, ptr %.sroa.10211.0..sroa_idx214, align 8
   br label %.loopexit
 
@@ -17762,7 +17762,7 @@ define hidden void @_ZN37AdjacencyMatrix_OutEdgesDirected_Test8TestBodyEv(ptr no
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %30
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 3, %30 ]
+  %.sroa.314.1.i = phi i64 [ 3, %30 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %26, ptr %3, align 8, !tbaa !104
@@ -17952,7 +17952,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i102, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit103, label %.lr.ph.i.i.i90, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit103: ; preds = %.lr.ph.i.i.i90, %81
-  %.sroa.314.1.i93 = phi i64 [ %.sroa.314.0.i91, %.lr.ph.i.i.i90 ], [ 3, %81 ]
+  %.sroa.314.1.i93 = phi i64 [ 3, %81 ], [ %.sroa.314.0.i91, %.lr.ph.i.i.i90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %26, ptr %8, align 8, !tbaa !104
@@ -18505,7 +18505,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i183, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit184, label %.lr.ph.i.i.i171, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit184: ; preds = %.lr.ph.i.i.i171, %241
-  %.sroa.314.1.i174 = phi i64 [ %.sroa.314.0.i172, %.lr.ph.i.i.i171 ], [ 9, %241 ]
+  %.sroa.314.1.i174 = phi i64 [ 9, %241 ], [ %.sroa.314.0.i172, %.lr.ph.i.i.i171 ]
   store ptr %26, ptr %12, align 8, !tbaa !104
   store i64 3, ptr %.sroa.10236.0..sroa_idx239, align 8, !tbaa !20
   store i64 %.sroa.314.1.i174, ptr %.sroa.13.0..sroa_idx245, align 8, !tbaa !20
@@ -18710,8 +18710,8 @@ define hidden void @_ZN49AdjacencyMatrix_OutEdgesBackwardOnlyDirected_Test8TestB
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1
-  %.not.i.i.i = phi i1 [ false, %1 ], [ true, %.lr.ph.i.i.i ]
-  %.sroa.314.0.i = phi i64 [ 2, %1 ], [ 3, %.lr.ph.i.i.i ]
+  %.not.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %1 ]
+  %.sroa.314.0.i = phi i64 [ 3, %.lr.ph.i.i.i ], [ 2, %1 ]
   %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i
   %28 = load i64, ptr %27, align 8, !tbaa !20, !noalias !271
   %.not1.i.i.i = icmp ne i64 %28, 0
@@ -18895,8 +18895,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i78
 
 .lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78, %.lr.ph.i.i.i78.preheader
-  %.not.i.i.i90 = phi i1 [ false, %.lr.ph.i.i.i78.preheader ], [ true, %.lr.ph.i.i.i78 ]
-  %.sroa.314.0.i79 = phi i64 [ 2, %.lr.ph.i.i.i78.preheader ], [ 3, %.lr.ph.i.i.i78 ]
+  %.not.i.i.i90 = phi i1 [ true, %.lr.ph.i.i.i78 ], [ false, %.lr.ph.i.i.i78.preheader ]
+  %.sroa.314.0.i79 = phi i64 [ 3, %.lr.ph.i.i.i78 ], [ 2, %.lr.ph.i.i.i78.preheader ]
   %75 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i79
   %76 = load i64, ptr %75, align 8, !tbaa !20, !noalias !277
   %.not1.i.i.i80 = icmp ne i64 %76, 0
@@ -19444,8 +19444,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i159
 
 .lr.ph.i.i.i159:                                  ; preds = %.lr.ph.i.i.i159, %232
-  %.not.i.i.i171 = phi i1 [ false, %232 ], [ true, %.lr.ph.i.i.i159 ]
-  %.sroa.314.0.i160 = phi i64 [ 0, %232 ], [ 1, %.lr.ph.i.i.i159 ]
+  %.not.i.i.i171 = phi i1 [ true, %.lr.ph.i.i.i159 ], [ false, %232 ]
+  %.sroa.314.0.i160 = phi i64 [ 1, %.lr.ph.i.i.i159 ], [ 0, %232 ]
   %233 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i160
   %234 = load i64, ptr %233, align 8, !tbaa !20, !noalias !288
   %.not1.i.i.i161 = icmp ne i64 %234, 0
@@ -19679,7 +19679,7 @@ define hidden void @_ZN39AdjacencyMatrix_OutEdgesUndirected_Test8TestBodyEv(ptr 
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %39
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 3, %39 ]
+  %.sroa.314.1.i = phi i64 [ 3, %39 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %35, ptr %3, align 8, !tbaa !104
@@ -19873,7 +19873,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i126, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit127, label %.lr.ph.i.i.i114, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit127: ; preds = %.lr.ph.i.i.i114, %92
-  %.sroa.314.1.i117 = phi i64 [ %.sroa.314.0.i115, %.lr.ph.i.i.i114 ], [ 3, %92 ]
+  %.sroa.314.1.i117 = phi i64 [ 3, %92 ], [ %.sroa.314.0.i115, %.lr.ph.i.i.i114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %35, ptr %8, align 8, !tbaa !104
@@ -20426,7 +20426,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i207, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit208, label %.lr.ph.i.i.i195, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit208: ; preds = %.lr.ph.i.i.i195, %252
-  %.sroa.314.1.i198 = phi i64 [ %.sroa.314.0.i196, %.lr.ph.i.i.i195 ], [ 9, %252 ]
+  %.sroa.314.1.i198 = phi i64 [ 9, %252 ], [ %.sroa.314.0.i196, %.lr.ph.i.i.i195 ]
   store ptr %35, ptr %12, align 8, !tbaa !104
   store i64 3, ptr %.sroa.10318.0..sroa_idx321, align 8, !tbaa !20
   store i64 %.sroa.314.1.i198, ptr %.sroa.13.0..sroa_idx327, align 8, !tbaa !20
@@ -21001,8 +21001,8 @@ define hidden void @_ZN51AdjacencyMatrix_OutEdgesBackwardOnlyUndirected_Test8Tes
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1
-  %.not.i.i.i = phi i1 [ false, %1 ], [ true, %.lr.ph.i.i.i ]
-  %.sroa.314.0.i = phi i64 [ 2, %1 ], [ 3, %.lr.ph.i.i.i ]
+  %.not.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %1 ]
+  %.sroa.314.0.i = phi i64 [ 3, %.lr.ph.i.i.i ], [ 2, %1 ]
   %37 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
   %38 = load i64, ptr %37, align 8, !tbaa !20, !noalias !322
   %.not1.i.i.i = icmp ne i64 %38, 0
@@ -21187,8 +21187,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i102
 
 .lr.ph.i.i.i102:                                  ; preds = %.lr.ph.i.i.i102, %.lr.ph.i.i.i102.preheader
-  %.not.i.i.i114 = phi i1 [ false, %.lr.ph.i.i.i102.preheader ], [ true, %.lr.ph.i.i.i102 ]
-  %.sroa.314.0.i103 = phi i64 [ 2, %.lr.ph.i.i.i102.preheader ], [ 3, %.lr.ph.i.i.i102 ]
+  %.not.i.i.i114 = phi i1 [ true, %.lr.ph.i.i.i102 ], [ false, %.lr.ph.i.i.i102.preheader ]
+  %.sroa.314.0.i103 = phi i64 [ 3, %.lr.ph.i.i.i102 ], [ 2, %.lr.ph.i.i.i102.preheader ]
   %85 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i103
   %86 = load i64, ptr %85, align 8, !tbaa !20, !noalias !328
   %.not1.i.i.i104 = icmp ne i64 %86, 0
@@ -21736,8 +21736,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i183
 
 .lr.ph.i.i.i183:                                  ; preds = %.lr.ph.i.i.i183, %242
-  %.not.i.i.i195 = phi i1 [ false, %242 ], [ true, %.lr.ph.i.i.i183 ]
-  %.sroa.314.0.i184 = phi i64 [ 0, %242 ], [ 1, %.lr.ph.i.i.i183 ]
+  %.not.i.i.i195 = phi i1 [ true, %.lr.ph.i.i.i183 ], [ false, %242 ]
+  %.sroa.314.0.i184 = phi i64 [ 1, %.lr.ph.i.i.i183 ], [ 0, %242 ]
   %243 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i184
   %244 = load i64, ptr %243, align 8, !tbaa !20, !noalias !339
   %.not1.i.i.i185 = icmp ne i64 %244, 0
@@ -22322,7 +22322,7 @@ define hidden void @_ZN36AdjacencyMatrix_InEdgesDirected_Test8TestBodyEv(ptr non
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %30
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 10, %30 ]
+  %.sroa.314.1.i = phi i64 [ 10, %30 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %26, ptr %3, align 8, !tbaa !104
@@ -22512,7 +22512,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i102, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit103, label %.lr.ph.i.i.i90, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit103: ; preds = %.lr.ph.i.i.i90, %81
-  %.sroa.314.1.i93 = phi i64 [ %.sroa.314.0.i91, %.lr.ph.i.i.i90 ], [ 10, %81 ]
+  %.sroa.314.1.i93 = phi i64 [ 10, %81 ], [ %.sroa.314.0.i91, %.lr.ph.i.i.i90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %26, ptr %8, align 8, !tbaa !104
@@ -23065,7 +23065,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i183, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit184, label %.lr.ph.i.i.i171, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit184: ; preds = %.lr.ph.i.i.i171, %241
-  %.sroa.314.1.i174 = phi i64 [ %.sroa.314.0.i172, %.lr.ph.i.i.i171 ], [ 9, %241 ]
+  %.sroa.314.1.i174 = phi i64 [ 9, %241 ], [ %.sroa.314.0.i172, %.lr.ph.i.i.i171 ]
   store ptr %26, ptr %12, align 8, !tbaa !104
   store i64 3, ptr %.sroa.10236.0..sroa_idx239, align 8, !tbaa !20
   store i64 %.sroa.314.1.i174, ptr %.sroa.13.0..sroa_idx245, align 8, !tbaa !20
@@ -23282,7 +23282,7 @@ define hidden void @_ZN48AdjacencyMatrix_InEdgesBackwardOnlyDirected_Test8TestBo
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %29
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 4, %29 ]
+  %.sroa.314.1.i = phi i64 [ 4, %29 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %26, ptr %3, align 8, !tbaa !104
@@ -23471,7 +23471,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i90, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit91, label %.lr.ph.i.i.i78, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit91: ; preds = %.lr.ph.i.i.i78, %80
-  %.sroa.314.1.i81 = phi i64 [ %.sroa.314.0.i79, %.lr.ph.i.i.i78 ], [ 4, %80 ]
+  %.sroa.314.1.i81 = phi i64 [ 4, %80 ], [ %.sroa.314.0.i79, %.lr.ph.i.i.i78 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %26, ptr %8, align 8, !tbaa !104
@@ -24032,7 +24032,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i171, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit172, label %.lr.ph.i.i.i159, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit172: ; preds = %.lr.ph.i.i.i159, %240
-  %.sroa.314.1.i162 = phi i64 [ %.sroa.314.0.i160, %.lr.ph.i.i.i159 ], [ 5, %240 ]
+  %.sroa.314.1.i162 = phi i64 [ 5, %240 ], [ %.sroa.314.0.i160, %.lr.ph.i.i.i159 ]
   store ptr %26, ptr %12, align 8, !tbaa !104
   store i64 2, ptr %.sroa.10217.0..sroa_idx220, align 8, !tbaa !20
   store i64 %.sroa.314.1.i162, ptr %.sroa.13.0..sroa_idx226, align 8, !tbaa !20
@@ -24264,7 +24264,7 @@ define hidden void @_ZN38AdjacencyMatrix_InEdgesUndirected_Test8TestBodyEv(ptr n
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %44
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 10, %44 ]
+  %.sroa.314.1.i = phi i64 [ 10, %44 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %40, ptr %3, align 8, !tbaa !104
@@ -24458,7 +24458,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i138, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit139, label %.lr.ph.i.i.i126, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit139: ; preds = %.lr.ph.i.i.i126, %97
-  %.sroa.314.1.i129 = phi i64 [ %.sroa.314.0.i127, %.lr.ph.i.i.i126 ], [ 10, %97 ]
+  %.sroa.314.1.i129 = phi i64 [ 10, %97 ], [ %.sroa.314.0.i127, %.lr.ph.i.i.i126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %40, ptr %8, align 8, !tbaa !104
@@ -25206,7 +25206,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i249, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit250, label %.lr.ph.i.i.i237, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit250: ; preds = %.lr.ph.i.i.i237, %321
-  %.sroa.314.1.i240 = phi i64 [ %.sroa.314.0.i238, %.lr.ph.i.i.i237 ], [ 9, %321 ]
+  %.sroa.314.1.i240 = phi i64 [ 9, %321 ], [ %.sroa.314.0.i238, %.lr.ph.i.i.i237 ]
   store ptr %40, ptr %12, align 8, !tbaa !104
   store i64 3, ptr %.sroa.10366.0..sroa_idx369, align 8, !tbaa !20
   store i64 %.sroa.314.1.i240, ptr %.sroa.13.0..sroa_idx375, align 8, !tbaa !20
@@ -25793,7 +25793,7 @@ define hidden void @_ZN50AdjacencyMatrix_InEdgesBackwardOnlyUndirected_Test8Test
   br i1 %.not.i.i.i, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit, label %.lr.ph.i.i.i, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit: ; preds = %.lr.ph.i.i.i, %39
-  %.sroa.314.1.i = phi i64 [ %.sroa.314.0.i, %.lr.ph.i.i.i ], [ 4, %39 ]
+  %.sroa.314.1.i = phi i64 [ 4, %39 ], [ %.sroa.314.0.i, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %35, ptr %3, align 8, !tbaa !104
@@ -25983,7 +25983,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i114, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit115, label %.lr.ph.i.i.i102, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit115: ; preds = %.lr.ph.i.i.i102, %90
-  %.sroa.314.1.i105 = phi i64 [ %.sroa.314.0.i103, %.lr.ph.i.i.i102 ], [ 4, %90 ]
+  %.sroa.314.1.i105 = phi i64 [ 4, %90 ], [ %.sroa.314.0.i103, %.lr.ph.i.i.i102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %35, ptr %8, align 8, !tbaa !104
@@ -26544,7 +26544,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i.i.i195, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit196, label %.lr.ph.i.i.i183, !llvm.loop !51
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit196: ; preds = %.lr.ph.i.i.i183, %250
-  %.sroa.314.1.i186 = phi i64 [ %.sroa.314.0.i184, %.lr.ph.i.i.i183 ], [ 5, %250 ]
+  %.sroa.314.1.i186 = phi i64 [ 5, %250 ], [ %.sroa.314.0.i184, %.lr.ph.i.i.i183 ]
   store ptr %35, ptr %12, align 8, !tbaa !104
   store i64 2, ptr %.sroa.10299.0..sroa_idx302, align 8, !tbaa !20
   store i64 %.sroa.314.1.i186, ptr %.sroa.13.0..sroa_idx308, align 8, !tbaa !20
@@ -27825,7 +27825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %28
           cleanup
   br label %332
 
-301:                                              ; preds = %280, %277, %.critedge79
+301:                                              ; preds = %277, %280, %.critedge79
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %302 unwind label %310
@@ -28239,7 +28239,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit174
 
 _ZN7testing15AssertionResultD2Ev.exit174:         ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEE8containsEmm.exit157, %426, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i172
-  %433 = phi ptr [ %393, %426 ], [ %393, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i172 ], [ %390, %_ZNK4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEE8containsEmm.exit157 ]
+  %433 = phi ptr [ %393, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i172 ], [ %393, %426 ], [ %390, %_ZNK4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEE8containsEmm.exit157 ]
   store ptr null, ptr %433, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %434
@@ -32444,7 +32444,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !576
   br label %41
 
@@ -32654,8 +32654,8 @@ _ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread: ; pre
   br label %63
 
 63:                                               ; preds = %.lr.ph.preheader.i.i, %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread
-  %64 = phi ptr [ %59, %.lr.ph.preheader.i.i ], [ %54, %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread ]
-  %.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %.lr.ph.preheader.i.i ], [ null, %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread ]
+  %64 = phi ptr [ %54, %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread ], [ %59, %.lr.ph.preheader.i.i ]
+  %.0.lcssa.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread ], [ %scevgep.i.i, %.lr.ph.preheader.i.i ]
   store ptr %.0.lcssa.i.i, ptr %64, align 8, !tbaa !510
   ret void
 }

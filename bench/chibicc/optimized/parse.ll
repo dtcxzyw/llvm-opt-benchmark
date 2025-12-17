@@ -880,8 +880,8 @@ is_typename.exit.thread46:                        ; preds = %.loopexit.i, %is_ty
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %162, %176, %187, %185, %169, %254
-  %.037.ph.be = phi i32 [ %.239, %254 ], [ 65536, %169 ], [ 65536, %185 ], [ 65536, %187 ], [ 65536, %176 ], [ 65536, %162 ]
-  %.035.ph.be = phi ptr [ %.5, %254 ], [ %172, %169 ], [ %186, %185 ], [ %144, %187 ], [ %179, %176 ], [ %165, %162 ]
+  %.037.ph.be = phi i32 [ %.239, %254 ], [ 65536, %162 ], [ 65536, %169 ], [ 65536, %185 ], [ 65536, %187 ], [ 65536, %176 ]
+  %.035.ph.be = phi ptr [ %.5, %254 ], [ %165, %162 ], [ %172, %169 ], [ %186, %185 ], [ %144, %187 ], [ %179, %176 ]
   br label %.outer, !llvm.loop !80
 
 166:                                              ; preds = %158
@@ -1093,7 +1093,7 @@ is_typename.exit.thread46:                        ; preds = %.loopexit.i, %is_ty
   unreachable
 
 254:                                              ; preds = %239, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240
-  %.5.in = phi ptr [ @ty_bool, %240 ], [ @ty_char, %241 ], [ @ty_uchar, %242 ], [ @ty_short, %243 ], [ @ty_ushort, %244 ], [ @ty_int, %245 ], [ @ty_uint, %246 ], [ @ty_long, %247 ], [ @ty_ulong, %248 ], [ @ty_float, %249 ], [ @ty_double, %250 ], [ @ty_ldouble, %251 ], [ @ty_void, %239 ]
+  %.5.in = phi ptr [ @ty_ldouble, %251 ], [ @ty_bool, %240 ], [ @ty_char, %241 ], [ @ty_uchar, %242 ], [ @ty_short, %243 ], [ @ty_ushort, %244 ], [ @ty_int, %245 ], [ @ty_uint, %246 ], [ @ty_long, %247 ], [ @ty_ulong, %248 ], [ @ty_float, %249 ], [ @ty_double, %250 ], [ @ty_void, %239 ]
   %.5 = load ptr, ptr %.5.in, align 8, !tbaa !52
   %255 = load ptr, ptr %4, align 8, !tbaa !25
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
@@ -1334,8 +1334,8 @@ find_func.exit:                                   ; preds = %28
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %59, %79, %81
-  %85 = phi i8 [ 0, %79 ], [ 1, %81 ], [ %.pre, %59 ]
-  %86 = phi i8 [ 0, %79 ], [ %84, %81 ], [ 1, %59 ]
+  %85 = phi i8 [ 1, %81 ], [ 0, %79 ], [ %.pre, %59 ]
+  %86 = phi i8 [ %84, %81 ], [ 0, %79 ], [ 1, %59 ]
   store i8 %86, ptr %70, align 2, !tbaa !54
   %87 = getelementptr inbounds nuw i8, ptr %60, i64 72
   store i8 %85, ptr %87, align 8, !tbaa !90
@@ -1920,7 +1920,7 @@ tailrecurse.outer:                                ; preds = %8
   br i1 %18, label %tailrecurse.outer._crit_edge, label %.lr.ph
 
 common.ret650:                                    ; preds = %47, %49, %67, %69, %159, %162, %177, %180, %296, %215, %205, %196, %191, %138, %129, %121, %113, %95, %87, %79, %71, %51, %27, %19
-  %common.ret650.op = phi i64 [ %accumulator.ret.tr, %19 ], [ %accumulator.ret.tr111, %27 ], [ %accumulator.ret.tr114, %51 ], [ %accumulator.ret.tr117, %71 ], [ %accumulator.ret.tr118, %79 ], [ %accumulator.ret.tr119, %87 ], [ %accumulator.ret.tr120, %95 ], [ %accumulator.ret.tr121, %113 ], [ %accumulator.ret.tr122, %121 ], [ %accumulator.ret.tr123, %129 ], [ %accumulator.ret.tr124, %138 ], [ %accumulator.ret.tr129, %191 ], [ %accumulator.ret.tr130, %196 ], [ %accumulator.ret.tr131, %205 ], [ %accumulator.ret.tr132, %215 ], [ %accumulator.ret.tr112, %47 ], [ %accumulator.ret.tr113, %49 ], [ %accumulator.ret.tr115, %67 ], [ %accumulator.ret.tr116, %69 ], [ %accumulator.ret.tr125, %159 ], [ %accumulator.ret.tr126, %162 ], [ %accumulator.ret.tr127, %177 ], [ %accumulator.ret.tr128, %180 ], [ %accumulator.ret.tr133, %296 ]
+  %common.ret650.op = phi i64 [ %accumulator.ret.tr132, %215 ], [ %accumulator.ret.tr, %19 ], [ %accumulator.ret.tr111, %27 ], [ %accumulator.ret.tr114, %51 ], [ %accumulator.ret.tr117, %71 ], [ %accumulator.ret.tr118, %79 ], [ %accumulator.ret.tr119, %87 ], [ %accumulator.ret.tr120, %95 ], [ %accumulator.ret.tr121, %113 ], [ %accumulator.ret.tr122, %121 ], [ %accumulator.ret.tr123, %129 ], [ %accumulator.ret.tr124, %138 ], [ %accumulator.ret.tr129, %191 ], [ %accumulator.ret.tr130, %196 ], [ %accumulator.ret.tr131, %205 ], [ %accumulator.ret.tr133, %296 ], [ %accumulator.ret.tr128, %180 ], [ %accumulator.ret.tr112, %47 ], [ %accumulator.ret.tr113, %49 ], [ %accumulator.ret.tr127, %177 ], [ %accumulator.ret.tr115, %67 ], [ %accumulator.ret.tr116, %69 ], [ %accumulator.ret.tr126, %162 ], [ %accumulator.ret.tr125, %159 ]
   ret i64 %common.ret650.op
 
 19:                                               ; preds = %8
@@ -2355,8 +2355,8 @@ tailrecurse.backedge:                             ; preds = %183, %8
   unreachable
 
 296:                                              ; preds = %232, %239, %246, %228, %221, %211, %201, %290, %288, %265, %252, %248, %tailrecurse.outer._crit_edge
-  %accumulator.tr.ph236 = phi i64 [ %accumulator.tr.ph.lcssa235, %tailrecurse.outer._crit_edge ], [ %accumulator.tr.ph246, %248 ], [ %accumulator.tr.ph246, %252 ], [ %accumulator.tr.ph246, %265 ], [ %accumulator.tr.ph246, %288 ], [ %accumulator.tr.ph246, %290 ], [ %accumulator.tr.ph246, %201 ], [ %accumulator.tr.ph246, %211 ], [ %accumulator.tr.ph246, %232 ], [ %accumulator.tr.ph246, %239 ], [ %accumulator.tr.ph246, %246 ], [ %accumulator.tr.ph246, %228 ], [ %accumulator.tr.ph246, %221 ]
-  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %251, %248 ], [ 0, %252 ], [ %274, %265 ], [ 0, %288 ], [ %292, %290 ], [ 0, %201 ], [ 1, %211 ], [ %238, %232 ], [ %245, %239 ], [ %247, %246 ], [ %225, %228 ], [ %225, %221 ]
+  %accumulator.tr.ph236 = phi i64 [ %accumulator.tr.ph.lcssa235, %tailrecurse.outer._crit_edge ], [ %accumulator.tr.ph246, %221 ], [ %accumulator.tr.ph246, %228 ], [ %accumulator.tr.ph246, %239 ], [ %accumulator.tr.ph246, %232 ], [ %accumulator.tr.ph246, %246 ], [ %accumulator.tr.ph246, %211 ], [ %accumulator.tr.ph246, %201 ], [ %accumulator.tr.ph246, %290 ], [ %accumulator.tr.ph246, %288 ], [ %accumulator.tr.ph246, %265 ], [ %accumulator.tr.ph246, %252 ], [ %accumulator.tr.ph246, %248 ]
+  %.0 = phi i64 [ %7, %tailrecurse.outer._crit_edge ], [ %225, %221 ], [ %225, %228 ], [ %245, %239 ], [ %238, %232 ], [ %247, %246 ], [ 1, %211 ], [ 0, %201 ], [ %292, %290 ], [ 0, %288 ], [ %274, %265 ], [ 0, %252 ], [ %251, %248 ]
   %accumulator.ret.tr133 = add nsw i64 %.0, %accumulator.tr.ph236
   br label %common.ret650
 }
@@ -2405,7 +2405,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   ]
 
 common.ret85:                                     ; preds = %77, %73, %13, %11, %48, %40, %32, %24, %16
-  %common.ret85.op = phi double [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %47, %40 ], [ %52, %48 ], [ %12, %11 ], [ %14, %13 ], [ %76, %73 ], [ %80, %77 ]
+  %common.ret85.op = phi double [ %52, %48 ], [ %23, %16 ], [ %31, %24 ], [ %39, %32 ], [ %47, %40 ], [ %80, %77 ], [ %76, %73 ], [ %14, %13 ], [ %12, %11 ]
   ret double %common.ret85.op
 
 16:                                               ; preds = %.lr.ph
@@ -2547,7 +2547,7 @@ define internal fastcc i64 @eval_rval(ptr noundef readonly captures(none) %0, pt
   br label %common.ret11
 
 common.ret11:                                     ; preds = %15, %13, %19
-  %common.ret11.op = phi i64 [ %28, %19 ], [ 0, %13 ], [ %18, %15 ]
+  %common.ret11.op = phi i64 [ %28, %19 ], [ %18, %15 ], [ 0, %13 ]
   ret i64 %common.ret11.op
 
 19:                                               ; preds = %2
@@ -2921,8 +2921,8 @@ add.exit560:                                      ; preds = %218
   br i1 %241, label %243, label %mul.exit557
 
 243:                                              ; preds = %240, %237, %233
-  %.sink25.i555 = phi ptr [ %236, %233 ], [ %239, %237 ], [ %242, %240 ]
-  %.sink22.i556 = phi i32 [ 3, %233 ], [ 4, %237 ], [ 6, %240 ]
+  %.sink25.i555 = phi ptr [ %239, %237 ], [ %236, %233 ], [ %242, %240 ]
+  %.sink22.i556 = phi i32 [ 4, %237 ], [ 3, %233 ], [ 6, %240 ]
   %244 = getelementptr inbounds nuw i8, ptr %.sink25.i555, i64 8
   %245 = load ptr, ptr %244, align 8, !tbaa !26
   %246 = call fastcc ptr @cast(ptr noundef %168, ptr noundef %245)
@@ -2972,8 +2972,8 @@ mul.exit557:                                      ; preds = %240
   br i1 %265, label %267, label %mul.exit553
 
 267:                                              ; preds = %264, %261, %257
-  %.sink25.i551 = phi ptr [ %260, %257 ], [ %263, %261 ], [ %266, %264 ]
-  %.sink22.i552 = phi i32 [ 3, %257 ], [ 4, %261 ], [ 6, %264 ]
+  %.sink25.i551 = phi ptr [ %263, %261 ], [ %260, %257 ], [ %266, %264 ]
+  %.sink22.i552 = phi i32 [ 4, %261 ], [ 3, %257 ], [ 6, %264 ]
   %268 = getelementptr inbounds nuw i8, ptr %.sink25.i551, i64 8
   %269 = load ptr, ptr %268, align 8, !tbaa !26
   %270 = call fastcc ptr @cast(ptr noundef %169, ptr noundef %269)
@@ -3119,8 +3119,8 @@ new_add.exit549:                                  ; preds = %278, %.sink.split.i
   br i1 %334, label %336, label %mul.exit534
 
 336:                                              ; preds = %333, %330, %326
-  %.sink25.i532 = phi ptr [ %329, %326 ], [ %332, %330 ], [ %335, %333 ]
-  %.sink22.i533 = phi i32 [ 3, %326 ], [ 4, %330 ], [ 6, %333 ]
+  %.sink25.i532 = phi ptr [ %332, %330 ], [ %329, %326 ], [ %335, %333 ]
+  %.sink22.i533 = phi i32 [ 4, %330 ], [ 3, %326 ], [ 6, %333 ]
   %337 = getelementptr inbounds nuw i8, ptr %.sink25.i532, i64 8
   %338 = load ptr, ptr %337, align 8, !tbaa !26
   %339 = call fastcc ptr @cast(ptr noundef %170, ptr noundef %338)
@@ -3201,8 +3201,8 @@ shift.exit220:                                    ; preds = %227, %shift.exit214
   br i1 %369, label %371, label %mul.exit1702
 
 371:                                              ; preds = %368, %365, %361
-  %.sink25.i1700 = phi ptr [ %364, %361 ], [ %367, %365 ], [ %370, %368 ]
-  %.sink22.i1701 = phi i32 [ 3, %361 ], [ 4, %365 ], [ 6, %368 ]
+  %.sink25.i1700 = phi ptr [ %367, %365 ], [ %364, %361 ], [ %370, %368 ]
+  %.sink22.i1701 = phi i32 [ 4, %365 ], [ 3, %361 ], [ 6, %368 ]
   %372 = getelementptr inbounds nuw i8, ptr %.sink25.i1700, i64 8
   %373 = load ptr, ptr %372, align 8, !tbaa !26
   %374 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %373)
@@ -3349,8 +3349,8 @@ new_add.exit1698:                                 ; preds = %382, %.sink.split.i
   br i1 %438, label %440, label %mul.exit1683
 
 440:                                              ; preds = %437, %434, %430
-  %.sink25.i1681 = phi ptr [ %433, %430 ], [ %436, %434 ], [ %439, %437 ]
-  %.sink22.i1682 = phi i32 [ 3, %430 ], [ 4, %434 ], [ 6, %437 ]
+  %.sink25.i1681 = phi ptr [ %436, %434 ], [ %433, %430 ], [ %439, %437 ]
+  %.sink22.i1682 = phi i32 [ 4, %434 ], [ 3, %430 ], [ 6, %437 ]
   %441 = getelementptr inbounds nuw i8, ptr %.sink25.i1681, i64 8
   %442 = load ptr, ptr %441, align 8, !tbaa !26
   %443 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %442)
@@ -3415,8 +3415,8 @@ add.exit530:                                      ; preds = %424
   br i1 %465, label %467, label %mul.exit527
 
 467:                                              ; preds = %464, %461, %457
-  %.sink25.i525 = phi ptr [ %460, %457 ], [ %463, %461 ], [ %466, %464 ]
-  %.sink22.i526 = phi i32 [ 3, %457 ], [ 4, %461 ], [ 6, %464 ]
+  %.sink25.i525 = phi ptr [ %463, %461 ], [ %460, %457 ], [ %466, %464 ]
+  %.sink22.i526 = phi i32 [ 4, %461 ], [ 3, %457 ], [ 6, %464 ]
   %468 = getelementptr inbounds nuw i8, ptr %.sink25.i525, i64 8
   %469 = load ptr, ptr %468, align 8, !tbaa !26
   %470 = call fastcc ptr @cast(ptr noundef %172, ptr noundef %469)
@@ -3466,8 +3466,8 @@ mul.exit527:                                      ; preds = %464
   br i1 %489, label %491, label %mul.exit523
 
 491:                                              ; preds = %488, %485, %481
-  %.sink25.i521 = phi ptr [ %484, %481 ], [ %487, %485 ], [ %490, %488 ]
-  %.sink22.i522 = phi i32 [ 3, %481 ], [ 4, %485 ], [ 6, %488 ]
+  %.sink25.i521 = phi ptr [ %487, %485 ], [ %484, %481 ], [ %490, %488 ]
+  %.sink22.i522 = phi i32 [ 4, %485 ], [ 3, %481 ], [ 6, %488 ]
   %492 = getelementptr inbounds nuw i8, ptr %.sink25.i521, i64 8
   %493 = load ptr, ptr %492, align 8, !tbaa !26
   %494 = call fastcc ptr @cast(ptr noundef %173, ptr noundef %493)
@@ -3613,8 +3613,8 @@ new_add.exit519:                                  ; preds = %502, %.sink.split.i
   br i1 %558, label %560, label %mul.exit504
 
 560:                                              ; preds = %557, %554, %550
-  %.sink25.i502 = phi ptr [ %553, %550 ], [ %556, %554 ], [ %559, %557 ]
-  %.sink22.i503 = phi i32 [ 3, %550 ], [ 4, %554 ], [ 6, %557 ]
+  %.sink25.i502 = phi ptr [ %556, %554 ], [ %553, %550 ], [ %559, %557 ]
+  %.sink22.i503 = phi i32 [ 4, %554 ], [ 3, %550 ], [ 6, %557 ]
   %561 = getelementptr inbounds nuw i8, ptr %.sink25.i502, i64 8
   %562 = load ptr, ptr %561, align 8, !tbaa !26
   %563 = call fastcc ptr @cast(ptr noundef %174, ptr noundef %562)
@@ -3693,8 +3693,8 @@ add.exit.i212:                                    ; preds = %544
   br i1 %594, label %596, label %mul.exit1679
 
 596:                                              ; preds = %593, %590, %586
-  %.sink25.i1677 = phi ptr [ %589, %586 ], [ %592, %590 ], [ %595, %593 ]
-  %.sink22.i1678 = phi i32 [ 3, %586 ], [ 4, %590 ], [ 6, %593 ]
+  %.sink25.i1677 = phi ptr [ %592, %590 ], [ %589, %586 ], [ %595, %593 ]
+  %.sink22.i1678 = phi i32 [ 4, %590 ], [ 3, %586 ], [ 6, %593 ]
   %597 = getelementptr inbounds nuw i8, ptr %.sink25.i1677, i64 8
   %598 = load ptr, ptr %597, align 8, !tbaa !26
   %599 = call fastcc ptr @cast(ptr noundef %23, ptr noundef %598)
@@ -3841,8 +3841,8 @@ new_add.exit1675:                                 ; preds = %607, %.sink.split.i
   br i1 %663, label %665, label %mul.exit1660
 
 665:                                              ; preds = %662, %659, %655
-  %.sink25.i1658 = phi ptr [ %658, %655 ], [ %661, %659 ], [ %664, %662 ]
-  %.sink22.i1659 = phi i32 [ 3, %655 ], [ 4, %659 ], [ 6, %662 ]
+  %.sink25.i1658 = phi ptr [ %661, %659 ], [ %658, %655 ], [ %664, %662 ]
+  %.sink22.i1659 = phi i32 [ 4, %659 ], [ 3, %655 ], [ 6, %662 ]
   %666 = getelementptr inbounds nuw i8, ptr %.sink25.i1658, i64 8
   %667 = load ptr, ptr %666, align 8, !tbaa !26
   %668 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %667)
@@ -3907,8 +3907,8 @@ add.exit500:                                      ; preds = %649
   br i1 %690, label %692, label %mul.exit497
 
 692:                                              ; preds = %689, %686, %682
-  %.sink25.i495 = phi ptr [ %685, %682 ], [ %688, %686 ], [ %691, %689 ]
-  %.sink22.i496 = phi i32 [ 3, %682 ], [ 4, %686 ], [ 6, %689 ]
+  %.sink25.i495 = phi ptr [ %688, %686 ], [ %685, %682 ], [ %691, %689 ]
+  %.sink22.i496 = phi i32 [ 4, %686 ], [ 3, %682 ], [ 6, %689 ]
   %693 = getelementptr inbounds nuw i8, ptr %.sink25.i495, i64 8
   %694 = load ptr, ptr %693, align 8, !tbaa !26
   %695 = call fastcc ptr @cast(ptr noundef %176, ptr noundef %694)
@@ -3958,8 +3958,8 @@ mul.exit497:                                      ; preds = %689
   br i1 %714, label %716, label %mul.exit493
 
 716:                                              ; preds = %713, %710, %706
-  %.sink25.i491 = phi ptr [ %709, %706 ], [ %712, %710 ], [ %715, %713 ]
-  %.sink22.i492 = phi i32 [ 3, %706 ], [ 4, %710 ], [ 6, %713 ]
+  %.sink25.i491 = phi ptr [ %712, %710 ], [ %709, %706 ], [ %715, %713 ]
+  %.sink22.i492 = phi i32 [ 4, %710 ], [ 3, %706 ], [ 6, %713 ]
   %717 = getelementptr inbounds nuw i8, ptr %.sink25.i491, i64 8
   %718 = load ptr, ptr %717, align 8, !tbaa !26
   %719 = call fastcc ptr @cast(ptr noundef %177, ptr noundef %718)
@@ -4105,8 +4105,8 @@ new_add.exit489:                                  ; preds = %727, %.sink.split.i
   br i1 %783, label %785, label %mul.exit474
 
 785:                                              ; preds = %782, %779, %775
-  %.sink25.i472 = phi ptr [ %778, %775 ], [ %781, %779 ], [ %784, %782 ]
-  %.sink22.i473 = phi i32 [ 3, %775 ], [ 4, %779 ], [ 6, %782 ]
+  %.sink25.i472 = phi ptr [ %781, %779 ], [ %778, %775 ], [ %784, %782 ]
+  %.sink22.i473 = phi i32 [ 4, %779 ], [ 3, %775 ], [ 6, %782 ]
   %786 = getelementptr inbounds nuw i8, ptr %.sink25.i472, i64 8
   %787 = load ptr, ptr %786, align 8, !tbaa !26
   %788 = call fastcc ptr @cast(ptr noundef %178, ptr noundef %787)
@@ -4185,8 +4185,8 @@ add.exit.i206:                                    ; preds = %769
   br i1 %819, label %821, label %mul.exit1656
 
 821:                                              ; preds = %818, %815, %811
-  %.sink25.i1654 = phi ptr [ %814, %811 ], [ %817, %815 ], [ %820, %818 ]
-  %.sink22.i1655 = phi i32 [ 3, %811 ], [ 4, %815 ], [ 6, %818 ]
+  %.sink25.i1654 = phi ptr [ %817, %815 ], [ %814, %811 ], [ %820, %818 ]
+  %.sink22.i1655 = phi i32 [ 4, %815 ], [ 3, %811 ], [ 6, %818 ]
   %822 = getelementptr inbounds nuw i8, ptr %.sink25.i1654, i64 8
   %823 = load ptr, ptr %822, align 8, !tbaa !26
   %824 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %823)
@@ -4333,8 +4333,8 @@ new_add.exit1652:                                 ; preds = %832, %.sink.split.i
   br i1 %888, label %890, label %mul.exit1637
 
 890:                                              ; preds = %887, %884, %880
-  %.sink25.i1635 = phi ptr [ %883, %880 ], [ %886, %884 ], [ %889, %887 ]
-  %.sink22.i1636 = phi i32 [ 3, %880 ], [ 4, %884 ], [ 6, %887 ]
+  %.sink25.i1635 = phi ptr [ %886, %884 ], [ %883, %880 ], [ %889, %887 ]
+  %.sink22.i1636 = phi i32 [ 4, %884 ], [ 3, %880 ], [ 6, %887 ]
   %891 = getelementptr inbounds nuw i8, ptr %.sink25.i1635, i64 8
   %892 = load ptr, ptr %891, align 8, !tbaa !26
   %893 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %892)
@@ -4399,8 +4399,8 @@ add.exit470:                                      ; preds = %874
   br i1 %915, label %917, label %mul.exit467
 
 917:                                              ; preds = %914, %911, %907
-  %.sink25.i465 = phi ptr [ %910, %907 ], [ %913, %911 ], [ %916, %914 ]
-  %.sink22.i466 = phi i32 [ 3, %907 ], [ 4, %911 ], [ 6, %914 ]
+  %.sink25.i465 = phi ptr [ %913, %911 ], [ %910, %907 ], [ %916, %914 ]
+  %.sink22.i466 = phi i32 [ 4, %911 ], [ 3, %907 ], [ 6, %914 ]
   %918 = getelementptr inbounds nuw i8, ptr %.sink25.i465, i64 8
   %919 = load ptr, ptr %918, align 8, !tbaa !26
   %920 = call fastcc ptr @cast(ptr noundef %180, ptr noundef %919)
@@ -4450,8 +4450,8 @@ mul.exit467:                                      ; preds = %914
   br i1 %939, label %941, label %mul.exit463
 
 941:                                              ; preds = %938, %935, %931
-  %.sink25.i461 = phi ptr [ %934, %931 ], [ %937, %935 ], [ %940, %938 ]
-  %.sink22.i462 = phi i32 [ 3, %931 ], [ 4, %935 ], [ 6, %938 ]
+  %.sink25.i461 = phi ptr [ %937, %935 ], [ %934, %931 ], [ %940, %938 ]
+  %.sink22.i462 = phi i32 [ 4, %935 ], [ 3, %931 ], [ 6, %938 ]
   %942 = getelementptr inbounds nuw i8, ptr %.sink25.i461, i64 8
   %943 = load ptr, ptr %942, align 8, !tbaa !26
   %944 = call fastcc ptr @cast(ptr noundef %181, ptr noundef %943)
@@ -4597,8 +4597,8 @@ new_add.exit459:                                  ; preds = %952, %.sink.split.i
   br i1 %1008, label %1010, label %mul.exit444
 
 1010:                                             ; preds = %1007, %1004, %1000
-  %.sink25.i442 = phi ptr [ %1003, %1000 ], [ %1006, %1004 ], [ %1009, %1007 ]
-  %.sink22.i443 = phi i32 [ 3, %1000 ], [ 4, %1004 ], [ 6, %1007 ]
+  %.sink25.i442 = phi ptr [ %1006, %1004 ], [ %1003, %1000 ], [ %1009, %1007 ]
+  %.sink22.i443 = phi i32 [ 4, %1004 ], [ 3, %1000 ], [ 6, %1007 ]
   %1011 = getelementptr inbounds nuw i8, ptr %.sink25.i442, i64 8
   %1012 = load ptr, ptr %1011, align 8, !tbaa !26
   %1013 = call fastcc ptr @cast(ptr noundef %182, ptr noundef %1012)
@@ -4677,8 +4677,8 @@ add.exit.i200:                                    ; preds = %994
   br i1 %1044, label %1046, label %mul.exit1633
 
 1046:                                             ; preds = %1043, %1040, %1036
-  %.sink25.i1631 = phi ptr [ %1039, %1036 ], [ %1042, %1040 ], [ %1045, %1043 ]
-  %.sink22.i1632 = phi i32 [ 3, %1036 ], [ 4, %1040 ], [ 6, %1043 ]
+  %.sink25.i1631 = phi ptr [ %1042, %1040 ], [ %1039, %1036 ], [ %1045, %1043 ]
+  %.sink22.i1632 = phi i32 [ 4, %1040 ], [ 3, %1036 ], [ 6, %1043 ]
   %1047 = getelementptr inbounds nuw i8, ptr %.sink25.i1631, i64 8
   %1048 = load ptr, ptr %1047, align 8, !tbaa !26
   %1049 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %1048)
@@ -4825,8 +4825,8 @@ new_add.exit1629:                                 ; preds = %1057, %.sink.split.
   br i1 %1113, label %1115, label %mul.exit1614
 
 1115:                                             ; preds = %1112, %1109, %1105
-  %.sink25.i1612 = phi ptr [ %1108, %1105 ], [ %1111, %1109 ], [ %1114, %1112 ]
-  %.sink22.i1613 = phi i32 [ 3, %1105 ], [ 4, %1109 ], [ 6, %1112 ]
+  %.sink25.i1612 = phi ptr [ %1111, %1109 ], [ %1108, %1105 ], [ %1114, %1112 ]
+  %.sink22.i1613 = phi i32 [ 4, %1109 ], [ 3, %1105 ], [ 6, %1112 ]
   %1116 = getelementptr inbounds nuw i8, ptr %.sink25.i1612, i64 8
   %1117 = load ptr, ptr %1116, align 8, !tbaa !26
   %1118 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %1117)
@@ -4891,8 +4891,8 @@ add.exit:                                         ; preds = %1099
   br i1 %1140, label %1142, label %mul.exit439
 
 1142:                                             ; preds = %1139, %1136, %1132
-  %.sink25.i437 = phi ptr [ %1135, %1132 ], [ %1138, %1136 ], [ %1141, %1139 ]
-  %.sink22.i438 = phi i32 [ 3, %1132 ], [ 4, %1136 ], [ 6, %1139 ]
+  %.sink25.i437 = phi ptr [ %1138, %1136 ], [ %1135, %1132 ], [ %1141, %1139 ]
+  %.sink22.i438 = phi i32 [ 4, %1136 ], [ 3, %1132 ], [ 6, %1139 ]
   %1143 = getelementptr inbounds nuw i8, ptr %.sink25.i437, i64 8
   %1144 = load ptr, ptr %1143, align 8, !tbaa !26
   %1145 = call fastcc ptr @cast(ptr noundef %184, ptr noundef %1144)
@@ -4942,8 +4942,8 @@ mul.exit439:                                      ; preds = %1139
   br i1 %1164, label %1166, label %mul.exit435
 
 1166:                                             ; preds = %1163, %1160, %1156
-  %.sink25.i433 = phi ptr [ %1159, %1156 ], [ %1162, %1160 ], [ %1165, %1163 ]
-  %.sink22.i434 = phi i32 [ 3, %1156 ], [ 4, %1160 ], [ 6, %1163 ]
+  %.sink25.i433 = phi ptr [ %1162, %1160 ], [ %1159, %1156 ], [ %1165, %1163 ]
+  %.sink22.i434 = phi i32 [ 4, %1160 ], [ 3, %1156 ], [ 6, %1163 ]
   %1167 = getelementptr inbounds nuw i8, ptr %.sink25.i433, i64 8
   %1168 = load ptr, ptr %1167, align 8, !tbaa !26
   %1169 = call fastcc ptr @cast(ptr noundef %185, ptr noundef %1168)
@@ -5089,8 +5089,8 @@ new_add.exit:                                     ; preds = %1177, %.sink.split.
   br i1 %1233, label %1235, label %mul.exit
 
 1235:                                             ; preds = %1232, %1229, %1225
-  %.sink25.i = phi ptr [ %1228, %1225 ], [ %1231, %1229 ], [ %1234, %1232 ]
-  %.sink22.i = phi i32 [ 3, %1225 ], [ 4, %1229 ], [ 6, %1232 ]
+  %.sink25.i = phi ptr [ %1231, %1229 ], [ %1228, %1225 ], [ %1234, %1232 ]
+  %.sink22.i = phi i32 [ 4, %1229 ], [ 3, %1225 ], [ 6, %1232 ]
   %1236 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %1237 = load ptr, ptr %1236, align 8, !tbaa !26
   %1238 = call fastcc ptr @cast(ptr noundef %186, ptr noundef %1237)
@@ -5126,10 +5126,10 @@ add.exit.i:                                       ; preds = %1219
   br label %1124
 
 shift.exit214:                                    ; preds = %1126, %901, %676, %451
-  %.1 = phi ptr [ %.02015, %451 ], [ %.02012, %676 ], [ %.02009, %901 ], [ %.02006, %1126 ]
-  %.sink23.i = phi i32 [ 14, %451 ], [ 15, %676 ], [ 14, %901 ], [ 15, %1126 ]
-  %.sink.i = phi ptr [ %.012.i, %451 ], [ %.012.i, %676 ], [ %.08.i197, %901 ], [ %.08.i196, %1126 ]
-  %.012.sink.i = phi ptr [ %.08.i209, %451 ], [ %.08.i203, %676 ], [ %.012.i, %901 ], [ %.012.i, %1126 ]
+  %.1 = phi ptr [ %.02009, %901 ], [ %.02015, %451 ], [ %.02012, %676 ], [ %.02006, %1126 ]
+  %.sink23.i = phi i32 [ 14, %901 ], [ 14, %451 ], [ 15, %676 ], [ 15, %1126 ]
+  %.sink.i = phi ptr [ %.08.i197, %901 ], [ %.012.i, %451 ], [ %.012.i, %676 ], [ %.08.i196, %1126 ]
+  %.012.sink.i = phi ptr [ %.012.i, %901 ], [ %.08.i209, %451 ], [ %.08.i203, %676 ], [ %.012.i, %1126 ]
   %1248 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1248, align 16, !tbaa !7
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 24
@@ -5191,8 +5191,8 @@ relational.exit:                                  ; preds = %1023, %relational.e
   br i1 %1274, label %1276, label %mul.exit1825
 
 1276:                                             ; preds = %1273, %1270, %1266
-  %.sink25.i1823 = phi ptr [ %1269, %1266 ], [ %1272, %1270 ], [ %1275, %1273 ]
-  %.sink22.i1824 = phi i32 [ 3, %1266 ], [ 4, %1270 ], [ 6, %1273 ]
+  %.sink25.i1823 = phi ptr [ %1272, %1270 ], [ %1269, %1266 ], [ %1275, %1273 ]
+  %.sink22.i1824 = phi i32 [ 4, %1270 ], [ 3, %1266 ], [ 6, %1273 ]
   %1277 = getelementptr inbounds nuw i8, ptr %.sink25.i1823, i64 8
   %1278 = load ptr, ptr %1277, align 8, !tbaa !26
   %1279 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %1278)
@@ -5339,8 +5339,8 @@ new_add.exit1821:                                 ; preds = %1287, %.sink.split.
   br i1 %1343, label %1345, label %mul.exit1806
 
 1345:                                             ; preds = %1342, %1339, %1335
-  %.sink25.i1804 = phi ptr [ %1338, %1335 ], [ %1341, %1339 ], [ %1344, %1342 ]
-  %.sink22.i1805 = phi i32 [ 3, %1335 ], [ 4, %1339 ], [ 6, %1342 ]
+  %.sink25.i1804 = phi ptr [ %1341, %1339 ], [ %1338, %1335 ], [ %1344, %1342 ]
+  %.sink22.i1805 = phi i32 [ 4, %1339 ], [ 3, %1335 ], [ 6, %1342 ]
   %1346 = getelementptr inbounds nuw i8, ptr %.sink25.i1804, i64 8
   %1347 = load ptr, ptr %1346, align 8, !tbaa !26
   %1348 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %1347)
@@ -5405,8 +5405,8 @@ add.exit710:                                      ; preds = %1329
   br i1 %1370, label %1372, label %mul.exit707
 
 1372:                                             ; preds = %1369, %1366, %1362
-  %.sink25.i705 = phi ptr [ %1365, %1362 ], [ %1368, %1366 ], [ %1371, %1369 ]
-  %.sink22.i706 = phi i32 [ 3, %1362 ], [ 4, %1366 ], [ 6, %1369 ]
+  %.sink25.i705 = phi ptr [ %1368, %1366 ], [ %1365, %1362 ], [ %1371, %1369 ]
+  %.sink22.i706 = phi i32 [ 4, %1366 ], [ 3, %1362 ], [ 6, %1369 ]
   %1373 = getelementptr inbounds nuw i8, ptr %.sink25.i705, i64 8
   %1374 = load ptr, ptr %1373, align 8, !tbaa !26
   %1375 = call fastcc ptr @cast(ptr noundef %150, ptr noundef %1374)
@@ -5456,8 +5456,8 @@ mul.exit707:                                      ; preds = %1369
   br i1 %1394, label %1396, label %mul.exit703
 
 1396:                                             ; preds = %1393, %1390, %1386
-  %.sink25.i701 = phi ptr [ %1389, %1386 ], [ %1392, %1390 ], [ %1395, %1393 ]
-  %.sink22.i702 = phi i32 [ 3, %1386 ], [ 4, %1390 ], [ 6, %1393 ]
+  %.sink25.i701 = phi ptr [ %1392, %1390 ], [ %1389, %1386 ], [ %1395, %1393 ]
+  %.sink22.i702 = phi i32 [ 4, %1390 ], [ 3, %1386 ], [ 6, %1393 ]
   %1397 = getelementptr inbounds nuw i8, ptr %.sink25.i701, i64 8
   %1398 = load ptr, ptr %1397, align 8, !tbaa !26
   %1399 = call fastcc ptr @cast(ptr noundef %151, ptr noundef %1398)
@@ -5603,8 +5603,8 @@ new_add.exit699:                                  ; preds = %1407, %.sink.split.
   br i1 %1463, label %1465, label %mul.exit684
 
 1465:                                             ; preds = %1462, %1459, %1455
-  %.sink25.i682 = phi ptr [ %1458, %1455 ], [ %1461, %1459 ], [ %1464, %1462 ]
-  %.sink22.i683 = phi i32 [ 3, %1455 ], [ 4, %1459 ], [ 6, %1462 ]
+  %.sink25.i682 = phi ptr [ %1461, %1459 ], [ %1458, %1455 ], [ %1464, %1462 ]
+  %.sink22.i683 = phi i32 [ 4, %1459 ], [ 3, %1455 ], [ 6, %1462 ]
   %1466 = getelementptr inbounds nuw i8, ptr %.sink25.i682, i64 8
   %1467 = load ptr, ptr %1466, align 8, !tbaa !26
   %1468 = call fastcc ptr @cast(ptr noundef %152, ptr noundef %1467)
@@ -5671,8 +5671,8 @@ shift.exit250:                                    ; preds = %1356, %shift.exit24
   br i1 %1491, label %1493, label %mul.exit1802
 
 1493:                                             ; preds = %1490, %1487, %1483
-  %.sink25.i1800 = phi ptr [ %1486, %1483 ], [ %1489, %1487 ], [ %1492, %1490 ]
-  %.sink22.i1801 = phi i32 [ 3, %1483 ], [ 4, %1487 ], [ 6, %1490 ]
+  %.sink25.i1800 = phi ptr [ %1489, %1487 ], [ %1486, %1483 ], [ %1492, %1490 ]
+  %.sink22.i1801 = phi i32 [ 4, %1487 ], [ 3, %1483 ], [ 6, %1490 ]
   %1494 = getelementptr inbounds nuw i8, ptr %.sink25.i1800, i64 8
   %1495 = load ptr, ptr %1494, align 8, !tbaa !26
   %1496 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %1495)
@@ -5722,8 +5722,8 @@ mul.exit1802:                                     ; preds = %1490
   br i1 %1515, label %1517, label %mul.exit1798
 
 1517:                                             ; preds = %1514, %1511, %1507
-  %.sink25.i1796 = phi ptr [ %1510, %1507 ], [ %1513, %1511 ], [ %1516, %1514 ]
-  %.sink22.i1797 = phi i32 [ 3, %1507 ], [ 4, %1511 ], [ 6, %1514 ]
+  %.sink25.i1796 = phi ptr [ %1513, %1511 ], [ %1510, %1507 ], [ %1516, %1514 ]
+  %.sink22.i1797 = phi i32 [ 4, %1511 ], [ 3, %1507 ], [ 6, %1514 ]
   %1518 = getelementptr inbounds nuw i8, ptr %.sink25.i1796, i64 8
   %1519 = load ptr, ptr %1518, align 8, !tbaa !26
   %1520 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %1519)
@@ -5869,8 +5869,8 @@ new_add.exit1794:                                 ; preds = %1528, %.sink.split.
   br i1 %1584, label %1586, label %mul.exit1779
 
 1586:                                             ; preds = %1583, %1580, %1576
-  %.sink25.i1777 = phi ptr [ %1579, %1576 ], [ %1582, %1580 ], [ %1585, %1583 ]
-  %.sink22.i1778 = phi i32 [ 3, %1576 ], [ 4, %1580 ], [ 6, %1583 ]
+  %.sink25.i1777 = phi ptr [ %1582, %1580 ], [ %1579, %1576 ], [ %1585, %1583 ]
+  %.sink22.i1778 = phi i32 [ 4, %1580 ], [ 3, %1576 ], [ 6, %1583 ]
   %1587 = getelementptr inbounds nuw i8, ptr %.sink25.i1777, i64 8
   %1588 = load ptr, ptr %1587, align 8, !tbaa !26
   %1589 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %1588)
@@ -5931,8 +5931,8 @@ add.exit680:                                      ; preds = %1570, %add.exit.i24
   br i1 %1610, label %1612, label %mul.exit677
 
 1612:                                             ; preds = %1609, %1606, %1602
-  %.sink25.i675 = phi ptr [ %1605, %1602 ], [ %1608, %1606 ], [ %1611, %1609 ]
-  %.sink22.i676 = phi i32 [ 3, %1602 ], [ 4, %1606 ], [ 6, %1609 ]
+  %.sink25.i675 = phi ptr [ %1608, %1606 ], [ %1605, %1602 ], [ %1611, %1609 ]
+  %.sink22.i676 = phi i32 [ 4, %1606 ], [ 3, %1602 ], [ 6, %1609 ]
   %1613 = getelementptr inbounds nuw i8, ptr %.sink25.i675, i64 8
   %1614 = load ptr, ptr %1613, align 8, !tbaa !26
   %1615 = call fastcc ptr @cast(ptr noundef %153, ptr noundef %1614)
@@ -5982,8 +5982,8 @@ mul.exit677:                                      ; preds = %1609
   br i1 %1634, label %1636, label %mul.exit673
 
 1636:                                             ; preds = %1633, %1630, %1626
-  %.sink25.i671 = phi ptr [ %1629, %1626 ], [ %1632, %1630 ], [ %1635, %1633 ]
-  %.sink22.i672 = phi i32 [ 3, %1626 ], [ 4, %1630 ], [ 6, %1633 ]
+  %.sink25.i671 = phi ptr [ %1632, %1630 ], [ %1629, %1626 ], [ %1635, %1633 ]
+  %.sink22.i672 = phi i32 [ 4, %1630 ], [ 3, %1626 ], [ 6, %1633 ]
   %1637 = getelementptr inbounds nuw i8, ptr %.sink25.i671, i64 8
   %1638 = load ptr, ptr %1637, align 8, !tbaa !26
   %1639 = call fastcc ptr @cast(ptr noundef %154, ptr noundef %1638)
@@ -6129,8 +6129,8 @@ new_add.exit669:                                  ; preds = %1647, %.sink.split.
   br i1 %1703, label %1705, label %mul.exit654
 
 1705:                                             ; preds = %1702, %1699, %1695
-  %.sink25.i652 = phi ptr [ %1698, %1695 ], [ %1701, %1699 ], [ %1704, %1702 ]
-  %.sink22.i653 = phi i32 [ 3, %1695 ], [ 4, %1699 ], [ 6, %1702 ]
+  %.sink25.i652 = phi ptr [ %1701, %1699 ], [ %1698, %1695 ], [ %1704, %1702 ]
+  %.sink22.i653 = phi i32 [ 4, %1699 ], [ 3, %1695 ], [ 6, %1702 ]
   %1706 = getelementptr inbounds nuw i8, ptr %.sink25.i652, i64 8
   %1707 = load ptr, ptr %1706, align 8, !tbaa !26
   %1708 = call fastcc ptr @cast(ptr noundef %155, ptr noundef %1707)
@@ -6195,8 +6195,8 @@ add.exit.i242:                                    ; preds = %1689
   br i1 %1732, label %1734, label %mul.exit1775
 
 1734:                                             ; preds = %1731, %1728, %1724
-  %.sink25.i1773 = phi ptr [ %1727, %1724 ], [ %1730, %1728 ], [ %1733, %1731 ]
-  %.sink22.i1774 = phi i32 [ 3, %1724 ], [ 4, %1728 ], [ 6, %1731 ]
+  %.sink25.i1773 = phi ptr [ %1730, %1728 ], [ %1727, %1724 ], [ %1733, %1731 ]
+  %.sink22.i1774 = phi i32 [ 4, %1728 ], [ 3, %1724 ], [ 6, %1731 ]
   %1735 = getelementptr inbounds nuw i8, ptr %.sink25.i1773, i64 8
   %1736 = load ptr, ptr %1735, align 8, !tbaa !26
   %1737 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %1736)
@@ -6246,8 +6246,8 @@ mul.exit1775:                                     ; preds = %1731
   br i1 %1756, label %1758, label %mul.exit1771
 
 1758:                                             ; preds = %1755, %1752, %1748
-  %.sink25.i1769 = phi ptr [ %1751, %1748 ], [ %1754, %1752 ], [ %1757, %1755 ]
-  %.sink22.i1770 = phi i32 [ 3, %1748 ], [ 4, %1752 ], [ 6, %1755 ]
+  %.sink25.i1769 = phi ptr [ %1754, %1752 ], [ %1751, %1748 ], [ %1757, %1755 ]
+  %.sink22.i1770 = phi i32 [ 4, %1752 ], [ 3, %1748 ], [ 6, %1755 ]
   %1759 = getelementptr inbounds nuw i8, ptr %.sink25.i1769, i64 8
   %1760 = load ptr, ptr %1759, align 8, !tbaa !26
   %1761 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %1760)
@@ -6393,8 +6393,8 @@ new_add.exit1767:                                 ; preds = %1769, %.sink.split.
   br i1 %1825, label %1827, label %mul.exit1752
 
 1827:                                             ; preds = %1824, %1821, %1817
-  %.sink25.i1750 = phi ptr [ %1820, %1817 ], [ %1823, %1821 ], [ %1826, %1824 ]
-  %.sink22.i1751 = phi i32 [ 3, %1817 ], [ 4, %1821 ], [ 6, %1824 ]
+  %.sink25.i1750 = phi ptr [ %1823, %1821 ], [ %1820, %1817 ], [ %1826, %1824 ]
+  %.sink22.i1751 = phi i32 [ 4, %1821 ], [ 3, %1817 ], [ 6, %1824 ]
   %1828 = getelementptr inbounds nuw i8, ptr %.sink25.i1750, i64 8
   %1829 = load ptr, ptr %1828, align 8, !tbaa !26
   %1830 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %1829)
@@ -6455,8 +6455,8 @@ add.exit650:                                      ; preds = %1811, %add.exit.i23
   br i1 %1851, label %1853, label %mul.exit647
 
 1853:                                             ; preds = %1850, %1847, %1843
-  %.sink25.i645 = phi ptr [ %1846, %1843 ], [ %1849, %1847 ], [ %1852, %1850 ]
-  %.sink22.i646 = phi i32 [ 3, %1843 ], [ 4, %1847 ], [ 6, %1850 ]
+  %.sink25.i645 = phi ptr [ %1849, %1847 ], [ %1846, %1843 ], [ %1852, %1850 ]
+  %.sink22.i646 = phi i32 [ 4, %1847 ], [ 3, %1843 ], [ 6, %1850 ]
   %1854 = getelementptr inbounds nuw i8, ptr %.sink25.i645, i64 8
   %1855 = load ptr, ptr %1854, align 8, !tbaa !26
   %1856 = call fastcc ptr @cast(ptr noundef %156, ptr noundef %1855)
@@ -6506,8 +6506,8 @@ mul.exit647:                                      ; preds = %1850
   br i1 %1875, label %1877, label %mul.exit643
 
 1877:                                             ; preds = %1874, %1871, %1867
-  %.sink25.i641 = phi ptr [ %1870, %1867 ], [ %1873, %1871 ], [ %1876, %1874 ]
-  %.sink22.i642 = phi i32 [ 3, %1867 ], [ 4, %1871 ], [ 6, %1874 ]
+  %.sink25.i641 = phi ptr [ %1873, %1871 ], [ %1870, %1867 ], [ %1876, %1874 ]
+  %.sink22.i642 = phi i32 [ 4, %1871 ], [ 3, %1867 ], [ 6, %1874 ]
   %1878 = getelementptr inbounds nuw i8, ptr %.sink25.i641, i64 8
   %1879 = load ptr, ptr %1878, align 8, !tbaa !26
   %1880 = call fastcc ptr @cast(ptr noundef %157, ptr noundef %1879)
@@ -6653,8 +6653,8 @@ new_add.exit639:                                  ; preds = %1888, %.sink.split.
   br i1 %1944, label %1946, label %mul.exit624
 
 1946:                                             ; preds = %1943, %1940, %1936
-  %.sink25.i622 = phi ptr [ %1939, %1936 ], [ %1942, %1940 ], [ %1945, %1943 ]
-  %.sink22.i623 = phi i32 [ 3, %1936 ], [ 4, %1940 ], [ 6, %1943 ]
+  %.sink25.i622 = phi ptr [ %1942, %1940 ], [ %1939, %1936 ], [ %1945, %1943 ]
+  %.sink22.i623 = phi i32 [ 4, %1940 ], [ 3, %1936 ], [ 6, %1943 ]
   %1947 = getelementptr inbounds nuw i8, ptr %.sink25.i622, i64 8
   %1948 = load ptr, ptr %1947, align 8, !tbaa !26
   %1949 = call fastcc ptr @cast(ptr noundef %158, ptr noundef %1948)
@@ -6733,8 +6733,8 @@ add.exit.i236:                                    ; preds = %1930
   br i1 %1980, label %1982, label %mul.exit1748
 
 1982:                                             ; preds = %1979, %1976, %1972
-  %.sink25.i1746 = phi ptr [ %1975, %1972 ], [ %1978, %1976 ], [ %1981, %1979 ]
-  %.sink22.i1747 = phi i32 [ 3, %1972 ], [ 4, %1976 ], [ 6, %1979 ]
+  %.sink25.i1746 = phi ptr [ %1978, %1976 ], [ %1975, %1972 ], [ %1981, %1979 ]
+  %.sink22.i1747 = phi i32 [ 4, %1976 ], [ 3, %1972 ], [ 6, %1979 ]
   %1983 = getelementptr inbounds nuw i8, ptr %.sink25.i1746, i64 8
   %1984 = load ptr, ptr %1983, align 8, !tbaa !26
   %1985 = call fastcc ptr @cast(ptr noundef %17, ptr noundef %1984)
@@ -6881,8 +6881,8 @@ new_add.exit1744:                                 ; preds = %1993, %.sink.split.
   br i1 %2049, label %2051, label %mul.exit1729
 
 2051:                                             ; preds = %2048, %2045, %2041
-  %.sink25.i1727 = phi ptr [ %2044, %2041 ], [ %2047, %2045 ], [ %2050, %2048 ]
-  %.sink22.i1728 = phi i32 [ 3, %2041 ], [ 4, %2045 ], [ 6, %2048 ]
+  %.sink25.i1727 = phi ptr [ %2047, %2045 ], [ %2044, %2041 ], [ %2050, %2048 ]
+  %.sink22.i1728 = phi i32 [ 4, %2045 ], [ 3, %2041 ], [ 6, %2048 ]
   %2052 = getelementptr inbounds nuw i8, ptr %.sink25.i1727, i64 8
   %2053 = load ptr, ptr %2052, align 8, !tbaa !26
   %2054 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %2053)
@@ -6947,8 +6947,8 @@ add.exit620:                                      ; preds = %2035
   br i1 %2076, label %2078, label %mul.exit617
 
 2078:                                             ; preds = %2075, %2072, %2068
-  %.sink25.i615 = phi ptr [ %2071, %2068 ], [ %2074, %2072 ], [ %2077, %2075 ]
-  %.sink22.i616 = phi i32 [ 3, %2068 ], [ 4, %2072 ], [ 6, %2075 ]
+  %.sink25.i615 = phi ptr [ %2074, %2072 ], [ %2071, %2068 ], [ %2077, %2075 ]
+  %.sink22.i616 = phi i32 [ 4, %2072 ], [ 3, %2068 ], [ 6, %2075 ]
   %2079 = getelementptr inbounds nuw i8, ptr %.sink25.i615, i64 8
   %2080 = load ptr, ptr %2079, align 8, !tbaa !26
   %2081 = call fastcc ptr @cast(ptr noundef %160, ptr noundef %2080)
@@ -6998,8 +6998,8 @@ mul.exit617:                                      ; preds = %2075
   br i1 %2100, label %2102, label %mul.exit613
 
 2102:                                             ; preds = %2099, %2096, %2092
-  %.sink25.i611 = phi ptr [ %2095, %2092 ], [ %2098, %2096 ], [ %2101, %2099 ]
-  %.sink22.i612 = phi i32 [ 3, %2092 ], [ 4, %2096 ], [ 6, %2099 ]
+  %.sink25.i611 = phi ptr [ %2098, %2096 ], [ %2095, %2092 ], [ %2101, %2099 ]
+  %.sink22.i612 = phi i32 [ 4, %2096 ], [ 3, %2092 ], [ 6, %2099 ]
   %2103 = getelementptr inbounds nuw i8, ptr %.sink25.i611, i64 8
   %2104 = load ptr, ptr %2103, align 8, !tbaa !26
   %2105 = call fastcc ptr @cast(ptr noundef %161, ptr noundef %2104)
@@ -7145,8 +7145,8 @@ new_add.exit609:                                  ; preds = %2113, %.sink.split.
   br i1 %2169, label %2171, label %mul.exit594
 
 2171:                                             ; preds = %2168, %2165, %2161
-  %.sink25.i592 = phi ptr [ %2164, %2161 ], [ %2167, %2165 ], [ %2170, %2168 ]
-  %.sink22.i593 = phi i32 [ 3, %2161 ], [ 4, %2165 ], [ 6, %2168 ]
+  %.sink25.i592 = phi ptr [ %2167, %2165 ], [ %2164, %2161 ], [ %2170, %2168 ]
+  %.sink22.i593 = phi i32 [ 4, %2165 ], [ 3, %2161 ], [ 6, %2168 ]
   %2172 = getelementptr inbounds nuw i8, ptr %.sink25.i592, i64 8
   %2173 = load ptr, ptr %2172, align 8, !tbaa !26
   %2174 = call fastcc ptr @cast(ptr noundef %162, ptr noundef %2173)
@@ -7225,8 +7225,8 @@ add.exit.i230:                                    ; preds = %2155
   br i1 %2205, label %2207, label %mul.exit1725
 
 2207:                                             ; preds = %2204, %2201, %2197
-  %.sink25.i1723 = phi ptr [ %2200, %2197 ], [ %2203, %2201 ], [ %2206, %2204 ]
-  %.sink22.i1724 = phi i32 [ 3, %2197 ], [ 4, %2201 ], [ 6, %2204 ]
+  %.sink25.i1723 = phi ptr [ %2203, %2201 ], [ %2200, %2197 ], [ %2206, %2204 ]
+  %.sink22.i1724 = phi i32 [ 4, %2201 ], [ 3, %2197 ], [ 6, %2204 ]
   %2208 = getelementptr inbounds nuw i8, ptr %.sink25.i1723, i64 8
   %2209 = load ptr, ptr %2208, align 8, !tbaa !26
   %2210 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %2209)
@@ -7373,8 +7373,8 @@ new_add.exit1721:                                 ; preds = %2218, %.sink.split.
   br i1 %2274, label %2276, label %mul.exit1706
 
 2276:                                             ; preds = %2273, %2270, %2266
-  %.sink25.i1704 = phi ptr [ %2269, %2266 ], [ %2272, %2270 ], [ %2275, %2273 ]
-  %.sink22.i1705 = phi i32 [ 3, %2266 ], [ 4, %2270 ], [ 6, %2273 ]
+  %.sink25.i1704 = phi ptr [ %2272, %2270 ], [ %2269, %2266 ], [ %2275, %2273 ]
+  %.sink22.i1705 = phi i32 [ 4, %2270 ], [ 3, %2266 ], [ 6, %2273 ]
   %2277 = getelementptr inbounds nuw i8, ptr %.sink25.i1704, i64 8
   %2278 = load ptr, ptr %2277, align 8, !tbaa !26
   %2279 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %2278)
@@ -7439,8 +7439,8 @@ add.exit590:                                      ; preds = %2260
   br i1 %2301, label %2303, label %mul.exit587
 
 2303:                                             ; preds = %2300, %2297, %2293
-  %.sink25.i585 = phi ptr [ %2296, %2293 ], [ %2299, %2297 ], [ %2302, %2300 ]
-  %.sink22.i586 = phi i32 [ 3, %2293 ], [ 4, %2297 ], [ 6, %2300 ]
+  %.sink25.i585 = phi ptr [ %2299, %2297 ], [ %2296, %2293 ], [ %2302, %2300 ]
+  %.sink22.i586 = phi i32 [ 4, %2297 ], [ 3, %2293 ], [ 6, %2300 ]
   %2304 = getelementptr inbounds nuw i8, ptr %.sink25.i585, i64 8
   %2305 = load ptr, ptr %2304, align 8, !tbaa !26
   %2306 = call fastcc ptr @cast(ptr noundef %164, ptr noundef %2305)
@@ -7490,8 +7490,8 @@ mul.exit587:                                      ; preds = %2300
   br i1 %2325, label %2327, label %mul.exit583
 
 2327:                                             ; preds = %2324, %2321, %2317
-  %.sink25.i581 = phi ptr [ %2320, %2317 ], [ %2323, %2321 ], [ %2326, %2324 ]
-  %.sink22.i582 = phi i32 [ 3, %2317 ], [ 4, %2321 ], [ 6, %2324 ]
+  %.sink25.i581 = phi ptr [ %2323, %2321 ], [ %2320, %2317 ], [ %2326, %2324 ]
+  %.sink22.i582 = phi i32 [ 4, %2321 ], [ 3, %2317 ], [ 6, %2324 ]
   %2328 = getelementptr inbounds nuw i8, ptr %.sink25.i581, i64 8
   %2329 = load ptr, ptr %2328, align 8, !tbaa !26
   %2330 = call fastcc ptr @cast(ptr noundef %165, ptr noundef %2329)
@@ -7637,8 +7637,8 @@ new_add.exit579:                                  ; preds = %2338, %.sink.split.
   br i1 %2394, label %2396, label %mul.exit564
 
 2396:                                             ; preds = %2393, %2390, %2386
-  %.sink25.i562 = phi ptr [ %2389, %2386 ], [ %2392, %2390 ], [ %2395, %2393 ]
-  %.sink22.i563 = phi i32 [ 3, %2386 ], [ 4, %2390 ], [ 6, %2393 ]
+  %.sink25.i562 = phi ptr [ %2392, %2390 ], [ %2389, %2386 ], [ %2395, %2393 ]
+  %.sink22.i563 = phi i32 [ 4, %2390 ], [ 3, %2386 ], [ 6, %2393 ]
   %2397 = getelementptr inbounds nuw i8, ptr %.sink25.i562, i64 8
   %2398 = load ptr, ptr %2397, align 8, !tbaa !26
   %2399 = call fastcc ptr @cast(ptr noundef %166, ptr noundef %2398)
@@ -7674,10 +7674,10 @@ add.exit.i224:                                    ; preds = %2380
   br label %2285
 
 shift.exit244:                                    ; preds = %2287, %2062, %1837, %1596
-  %.11993 = phi ptr [ %.02030, %1596 ], [ %.02027, %1837 ], [ %.02024, %2062 ], [ %.02021, %2287 ]
-  %.sink23.i162 = phi i32 [ 14, %1596 ], [ 15, %1837 ], [ 14, %2062 ], [ 15, %2287 ]
-  %.sink.i163 = phi ptr [ %.012.i161, %1596 ], [ %.012.i161, %1837 ], [ %.08.i227, %2062 ], [ %.08.i221, %2287 ]
-  %.012.sink.i164 = phi ptr [ %.08.i239, %1596 ], [ %.08.i233, %1837 ], [ %.012.i161, %2062 ], [ %.012.i161, %2287 ]
+  %.11993 = phi ptr [ %.02024, %2062 ], [ %.02030, %1596 ], [ %.02027, %1837 ], [ %.02021, %2287 ]
+  %.sink23.i162 = phi i32 [ 14, %2062 ], [ 14, %1596 ], [ 15, %1837 ], [ 15, %2287 ]
+  %.sink.i163 = phi ptr [ %.08.i227, %2062 ], [ %.012.i161, %1596 ], [ %.012.i161, %1837 ], [ %.08.i221, %2287 ]
+  %.012.sink.i164 = phi ptr [ %.012.i161, %2062 ], [ %.08.i239, %1596 ], [ %.08.i233, %1837 ], [ %.012.i161, %2287 ]
   %2409 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i162, ptr %2409, align 16, !tbaa !7
   %2410 = getelementptr inbounds nuw i8, ptr %2409, i64 24
@@ -7788,8 +7788,8 @@ add.exit860:                                      ; preds = %2430
   br i1 %2453, label %2455, label %mul.exit857
 
 2455:                                             ; preds = %2452, %2449, %2445
-  %.sink25.i855 = phi ptr [ %2448, %2445 ], [ %2451, %2449 ], [ %2454, %2452 ]
-  %.sink22.i856 = phi i32 [ 3, %2445 ], [ 4, %2449 ], [ 6, %2452 ]
+  %.sink25.i855 = phi ptr [ %2451, %2449 ], [ %2448, %2445 ], [ %2454, %2452 ]
+  %.sink22.i856 = phi i32 [ 4, %2449 ], [ 3, %2445 ], [ 6, %2452 ]
   %2456 = getelementptr inbounds nuw i8, ptr %.sink25.i855, i64 8
   %2457 = load ptr, ptr %2456, align 8, !tbaa !26
   %2458 = call fastcc ptr @cast(ptr noundef %130, ptr noundef %2457)
@@ -7839,8 +7839,8 @@ mul.exit857:                                      ; preds = %2452
   br i1 %2477, label %2479, label %mul.exit853
 
 2479:                                             ; preds = %2476, %2473, %2469
-  %.sink25.i851 = phi ptr [ %2472, %2469 ], [ %2475, %2473 ], [ %2478, %2476 ]
-  %.sink22.i852 = phi i32 [ 3, %2469 ], [ 4, %2473 ], [ 6, %2476 ]
+  %.sink25.i851 = phi ptr [ %2475, %2473 ], [ %2472, %2469 ], [ %2478, %2476 ]
+  %.sink22.i852 = phi i32 [ 4, %2473 ], [ 3, %2469 ], [ 6, %2476 ]
   %2480 = getelementptr inbounds nuw i8, ptr %.sink25.i851, i64 8
   %2481 = load ptr, ptr %2480, align 8, !tbaa !26
   %2482 = call fastcc ptr @cast(ptr noundef %131, ptr noundef %2481)
@@ -7986,8 +7986,8 @@ new_add.exit849:                                  ; preds = %2490, %.sink.split.
   br i1 %2546, label %2548, label %mul.exit834
 
 2548:                                             ; preds = %2545, %2542, %2538
-  %.sink25.i832 = phi ptr [ %2541, %2538 ], [ %2544, %2542 ], [ %2547, %2545 ]
-  %.sink22.i833 = phi i32 [ 3, %2538 ], [ 4, %2542 ], [ 6, %2545 ]
+  %.sink25.i832 = phi ptr [ %2544, %2542 ], [ %2541, %2538 ], [ %2547, %2545 ]
+  %.sink22.i833 = phi i32 [ 4, %2542 ], [ 3, %2538 ], [ 6, %2545 ]
   %2549 = getelementptr inbounds nuw i8, ptr %.sink25.i832, i64 8
   %2550 = load ptr, ptr %2549, align 8, !tbaa !26
   %2551 = call fastcc ptr @cast(ptr noundef %132, ptr noundef %2550)
@@ -8105,8 +8105,8 @@ add.exit830:                                      ; preds = %2574
   br i1 %2597, label %2599, label %mul.exit827
 
 2599:                                             ; preds = %2596, %2593, %2589
-  %.sink25.i825 = phi ptr [ %2592, %2589 ], [ %2595, %2593 ], [ %2598, %2596 ]
-  %.sink22.i826 = phi i32 [ 3, %2589 ], [ 4, %2593 ], [ 6, %2596 ]
+  %.sink25.i825 = phi ptr [ %2595, %2593 ], [ %2592, %2589 ], [ %2598, %2596 ]
+  %.sink22.i826 = phi i32 [ 4, %2593 ], [ 3, %2589 ], [ 6, %2596 ]
   %2600 = getelementptr inbounds nuw i8, ptr %.sink25.i825, i64 8
   %2601 = load ptr, ptr %2600, align 8, !tbaa !26
   %2602 = call fastcc ptr @cast(ptr noundef %134, ptr noundef %2601)
@@ -8156,8 +8156,8 @@ mul.exit827:                                      ; preds = %2596
   br i1 %2621, label %2623, label %mul.exit823
 
 2623:                                             ; preds = %2620, %2617, %2613
-  %.sink25.i821 = phi ptr [ %2616, %2613 ], [ %2619, %2617 ], [ %2622, %2620 ]
-  %.sink22.i822 = phi i32 [ 3, %2613 ], [ 4, %2617 ], [ 6, %2620 ]
+  %.sink25.i821 = phi ptr [ %2619, %2617 ], [ %2616, %2613 ], [ %2622, %2620 ]
+  %.sink22.i822 = phi i32 [ 4, %2617 ], [ 3, %2613 ], [ 6, %2620 ]
   %2624 = getelementptr inbounds nuw i8, ptr %.sink25.i821, i64 8
   %2625 = load ptr, ptr %2624, align 8, !tbaa !26
   %2626 = call fastcc ptr @cast(ptr noundef %135, ptr noundef %2625)
@@ -8303,8 +8303,8 @@ new_add.exit819:                                  ; preds = %2634, %.sink.split.
   br i1 %2690, label %2692, label %mul.exit804
 
 2692:                                             ; preds = %2689, %2686, %2682
-  %.sink25.i802 = phi ptr [ %2685, %2682 ], [ %2688, %2686 ], [ %2691, %2689 ]
-  %.sink22.i803 = phi i32 [ 3, %2682 ], [ 4, %2686 ], [ 6, %2689 ]
+  %.sink25.i802 = phi ptr [ %2688, %2686 ], [ %2685, %2682 ], [ %2691, %2689 ]
+  %.sink22.i803 = phi i32 [ 4, %2686 ], [ 3, %2682 ], [ 6, %2689 ]
   %2693 = getelementptr inbounds nuw i8, ptr %.sink25.i802, i64 8
   %2694 = load ptr, ptr %2693, align 8, !tbaa !26
   %2695 = call fastcc ptr @cast(ptr noundef %136, ptr noundef %2694)
@@ -8420,8 +8420,8 @@ add.exit800:                                      ; preds = %2719
   br i1 %2742, label %2744, label %mul.exit797
 
 2744:                                             ; preds = %2741, %2738, %2734
-  %.sink25.i795 = phi ptr [ %2737, %2734 ], [ %2740, %2738 ], [ %2743, %2741 ]
-  %.sink22.i796 = phi i32 [ 3, %2734 ], [ 4, %2738 ], [ 6, %2741 ]
+  %.sink25.i795 = phi ptr [ %2740, %2738 ], [ %2737, %2734 ], [ %2743, %2741 ]
+  %.sink22.i796 = phi i32 [ 4, %2738 ], [ 3, %2734 ], [ 6, %2741 ]
   %2745 = getelementptr inbounds nuw i8, ptr %.sink25.i795, i64 8
   %2746 = load ptr, ptr %2745, align 8, !tbaa !26
   %2747 = call fastcc ptr @cast(ptr noundef %138, ptr noundef %2746)
@@ -8471,8 +8471,8 @@ mul.exit797:                                      ; preds = %2741
   br i1 %2766, label %2768, label %mul.exit793
 
 2768:                                             ; preds = %2765, %2762, %2758
-  %.sink25.i791 = phi ptr [ %2761, %2758 ], [ %2764, %2762 ], [ %2767, %2765 ]
-  %.sink22.i792 = phi i32 [ 3, %2758 ], [ 4, %2762 ], [ 6, %2765 ]
+  %.sink25.i791 = phi ptr [ %2764, %2762 ], [ %2761, %2758 ], [ %2767, %2765 ]
+  %.sink22.i792 = phi i32 [ 4, %2762 ], [ 3, %2758 ], [ 6, %2765 ]
   %2769 = getelementptr inbounds nuw i8, ptr %.sink25.i791, i64 8
   %2770 = load ptr, ptr %2769, align 8, !tbaa !26
   %2771 = call fastcc ptr @cast(ptr noundef %139, ptr noundef %2770)
@@ -8618,8 +8618,8 @@ new_add.exit789:                                  ; preds = %2779, %.sink.split.
   br i1 %2835, label %2837, label %mul.exit774
 
 2837:                                             ; preds = %2834, %2831, %2827
-  %.sink25.i772 = phi ptr [ %2830, %2827 ], [ %2833, %2831 ], [ %2836, %2834 ]
-  %.sink22.i773 = phi i32 [ 3, %2827 ], [ 4, %2831 ], [ 6, %2834 ]
+  %.sink25.i772 = phi ptr [ %2833, %2831 ], [ %2830, %2827 ], [ %2836, %2834 ]
+  %.sink22.i773 = phi i32 [ 4, %2831 ], [ 3, %2827 ], [ 6, %2834 ]
   %2838 = getelementptr inbounds nuw i8, ptr %.sink25.i772, i64 8
   %2839 = load ptr, ptr %2838, align 8, !tbaa !26
   %2840 = call fastcc ptr @cast(ptr noundef %140, ptr noundef %2839)
@@ -8735,8 +8735,8 @@ add.exit770:                                      ; preds = %2864
   br i1 %2887, label %2889, label %mul.exit767
 
 2889:                                             ; preds = %2886, %2883, %2879
-  %.sink25.i765 = phi ptr [ %2882, %2879 ], [ %2885, %2883 ], [ %2888, %2886 ]
-  %.sink22.i766 = phi i32 [ 3, %2879 ], [ 4, %2883 ], [ 6, %2886 ]
+  %.sink25.i765 = phi ptr [ %2885, %2883 ], [ %2882, %2879 ], [ %2888, %2886 ]
+  %.sink22.i766 = phi i32 [ 4, %2883 ], [ 3, %2879 ], [ 6, %2886 ]
   %2890 = getelementptr inbounds nuw i8, ptr %.sink25.i765, i64 8
   %2891 = load ptr, ptr %2890, align 8, !tbaa !26
   %2892 = call fastcc ptr @cast(ptr noundef %142, ptr noundef %2891)
@@ -8786,8 +8786,8 @@ mul.exit767:                                      ; preds = %2886
   br i1 %2911, label %2913, label %mul.exit763
 
 2913:                                             ; preds = %2910, %2907, %2903
-  %.sink25.i761 = phi ptr [ %2906, %2903 ], [ %2909, %2907 ], [ %2912, %2910 ]
-  %.sink22.i762 = phi i32 [ 3, %2903 ], [ 4, %2907 ], [ 6, %2910 ]
+  %.sink25.i761 = phi ptr [ %2909, %2907 ], [ %2906, %2903 ], [ %2912, %2910 ]
+  %.sink22.i762 = phi i32 [ 4, %2907 ], [ 3, %2903 ], [ 6, %2910 ]
   %2914 = getelementptr inbounds nuw i8, ptr %.sink25.i761, i64 8
   %2915 = load ptr, ptr %2914, align 8, !tbaa !26
   %2916 = call fastcc ptr @cast(ptr noundef %143, ptr noundef %2915)
@@ -8933,8 +8933,8 @@ new_add.exit759:                                  ; preds = %2924, %.sink.split.
   br i1 %2980, label %2982, label %mul.exit744
 
 2982:                                             ; preds = %2979, %2976, %2972
-  %.sink25.i742 = phi ptr [ %2975, %2972 ], [ %2978, %2976 ], [ %2981, %2979 ]
-  %.sink22.i743 = phi i32 [ 3, %2972 ], [ 4, %2976 ], [ 6, %2979 ]
+  %.sink25.i742 = phi ptr [ %2978, %2976 ], [ %2975, %2972 ], [ %2981, %2979 ]
+  %.sink22.i743 = phi i32 [ 4, %2976 ], [ 3, %2972 ], [ 6, %2979 ]
   %2983 = getelementptr inbounds nuw i8, ptr %.sink25.i742, i64 8
   %2984 = load ptr, ptr %2983, align 8, !tbaa !26
   %2985 = call fastcc ptr @cast(ptr noundef %144, ptr noundef %2984)
@@ -9050,8 +9050,8 @@ add.exit740:                                      ; preds = %3009
   br i1 %3032, label %3034, label %mul.exit737
 
 3034:                                             ; preds = %3031, %3028, %3024
-  %.sink25.i735 = phi ptr [ %3027, %3024 ], [ %3030, %3028 ], [ %3033, %3031 ]
-  %.sink22.i736 = phi i32 [ 3, %3024 ], [ 4, %3028 ], [ 6, %3031 ]
+  %.sink25.i735 = phi ptr [ %3030, %3028 ], [ %3027, %3024 ], [ %3033, %3031 ]
+  %.sink22.i736 = phi i32 [ 4, %3028 ], [ 3, %3024 ], [ 6, %3031 ]
   %3035 = getelementptr inbounds nuw i8, ptr %.sink25.i735, i64 8
   %3036 = load ptr, ptr %3035, align 8, !tbaa !26
   %3037 = call fastcc ptr @cast(ptr noundef %146, ptr noundef %3036)
@@ -9101,8 +9101,8 @@ mul.exit737:                                      ; preds = %3031
   br i1 %3056, label %3058, label %mul.exit733
 
 3058:                                             ; preds = %3055, %3052, %3048
-  %.sink25.i731 = phi ptr [ %3051, %3048 ], [ %3054, %3052 ], [ %3057, %3055 ]
-  %.sink22.i732 = phi i32 [ 3, %3048 ], [ 4, %3052 ], [ 6, %3055 ]
+  %.sink25.i731 = phi ptr [ %3054, %3052 ], [ %3051, %3048 ], [ %3057, %3055 ]
+  %.sink22.i732 = phi i32 [ 4, %3052 ], [ 3, %3048 ], [ 6, %3055 ]
   %3059 = getelementptr inbounds nuw i8, ptr %.sink25.i731, i64 8
   %3060 = load ptr, ptr %3059, align 8, !tbaa !26
   %3061 = call fastcc ptr @cast(ptr noundef %147, ptr noundef %3060)
@@ -9248,8 +9248,8 @@ new_add.exit729:                                  ; preds = %3069, %.sink.split.
   br i1 %3125, label %3127, label %mul.exit714
 
 3127:                                             ; preds = %3124, %3121, %3117
-  %.sink25.i712 = phi ptr [ %3120, %3117 ], [ %3123, %3121 ], [ %3126, %3124 ]
-  %.sink22.i713 = phi i32 [ 3, %3117 ], [ 4, %3121 ], [ 6, %3124 ]
+  %.sink25.i712 = phi ptr [ %3123, %3121 ], [ %3120, %3117 ], [ %3126, %3124 ]
+  %.sink22.i713 = phi i32 [ 4, %3121 ], [ 3, %3117 ], [ 6, %3124 ]
   %3128 = getelementptr inbounds nuw i8, ptr %.sink25.i712, i64 8
   %3129 = load ptr, ptr %3128, align 8, !tbaa !26
   %3130 = call fastcc ptr @cast(ptr noundef %148, ptr noundef %3129)
@@ -9285,10 +9285,10 @@ add.exit.i254:                                    ; preds = %3111
   br label %3016
 
 shift.exit274:                                    ; preds = %3018, %2873, %2728, %2583
-  %.11995 = phi ptr [ %.02045, %2583 ], [ %.02042, %2728 ], [ %.02039, %2873 ], [ %.02036, %3018 ]
-  %.sink23.i167 = phi i32 [ 14, %2583 ], [ 15, %2728 ], [ 14, %2873 ], [ 15, %3018 ]
-  %.sink.i168 = phi ptr [ %.012.i166, %2583 ], [ %.012.i166, %2728 ], [ %.08.i257, %2873 ], [ %.08.i251, %3018 ]
-  %.012.sink.i169 = phi ptr [ %.08.i269, %2583 ], [ %.08.i263, %2728 ], [ %.012.i166, %2873 ], [ %.012.i166, %3018 ]
+  %.11995 = phi ptr [ %.02039, %2873 ], [ %.02045, %2583 ], [ %.02042, %2728 ], [ %.02036, %3018 ]
+  %.sink23.i167 = phi i32 [ 14, %2873 ], [ 14, %2583 ], [ 15, %2728 ], [ 15, %3018 ]
+  %.sink.i168 = phi ptr [ %.08.i257, %2873 ], [ %.012.i166, %2583 ], [ %.012.i166, %2728 ], [ %.08.i251, %3018 ]
+  %.012.sink.i169 = phi ptr [ %.012.i166, %2873 ], [ %.08.i269, %2583 ], [ %.08.i263, %2728 ], [ %.012.i166, %3018 ]
   %3140 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i167, ptr %3140, align 16, !tbaa !7
   %3141 = getelementptr inbounds nuw i8, ptr %3140, i64 24
@@ -9387,8 +9387,8 @@ add.exit1010:                                     ; preds = %3159
   br i1 %3182, label %3184, label %mul.exit1007
 
 3184:                                             ; preds = %3181, %3178, %3174
-  %.sink25.i1005 = phi ptr [ %3177, %3174 ], [ %3180, %3178 ], [ %3183, %3181 ]
-  %.sink22.i1006 = phi i32 [ 3, %3174 ], [ 4, %3178 ], [ 6, %3181 ]
+  %.sink25.i1005 = phi ptr [ %3180, %3178 ], [ %3177, %3174 ], [ %3183, %3181 ]
+  %.sink22.i1006 = phi i32 [ 4, %3178 ], [ 3, %3174 ], [ 6, %3181 ]
   %3185 = getelementptr inbounds nuw i8, ptr %.sink25.i1005, i64 8
   %3186 = load ptr, ptr %3185, align 8, !tbaa !26
   %3187 = call fastcc ptr @cast(ptr noundef %110, ptr noundef %3186)
@@ -9438,8 +9438,8 @@ mul.exit1007:                                     ; preds = %3181
   br i1 %3206, label %3208, label %mul.exit1003
 
 3208:                                             ; preds = %3205, %3202, %3198
-  %.sink25.i1001 = phi ptr [ %3201, %3198 ], [ %3204, %3202 ], [ %3207, %3205 ]
-  %.sink22.i1002 = phi i32 [ 3, %3198 ], [ 4, %3202 ], [ 6, %3205 ]
+  %.sink25.i1001 = phi ptr [ %3204, %3202 ], [ %3201, %3198 ], [ %3207, %3205 ]
+  %.sink22.i1002 = phi i32 [ 4, %3202 ], [ 3, %3198 ], [ 6, %3205 ]
   %3209 = getelementptr inbounds nuw i8, ptr %.sink25.i1001, i64 8
   %3210 = load ptr, ptr %3209, align 8, !tbaa !26
   %3211 = call fastcc ptr @cast(ptr noundef %111, ptr noundef %3210)
@@ -9585,8 +9585,8 @@ new_add.exit999:                                  ; preds = %3219, %.sink.split.
   br i1 %3275, label %3277, label %mul.exit984
 
 3277:                                             ; preds = %3274, %3271, %3267
-  %.sink25.i982 = phi ptr [ %3270, %3267 ], [ %3273, %3271 ], [ %3276, %3274 ]
-  %.sink22.i983 = phi i32 [ 3, %3267 ], [ 4, %3271 ], [ 6, %3274 ]
+  %.sink25.i982 = phi ptr [ %3273, %3271 ], [ %3270, %3267 ], [ %3276, %3274 ]
+  %.sink22.i983 = phi i32 [ 4, %3271 ], [ 3, %3267 ], [ 6, %3274 ]
   %3278 = getelementptr inbounds nuw i8, ptr %.sink25.i982, i64 8
   %3279 = load ptr, ptr %3278, align 8, !tbaa !26
   %3280 = call fastcc ptr @cast(ptr noundef %112, ptr noundef %3279)
@@ -9667,8 +9667,8 @@ shift.exit310:                                    ; preds = %3168, %shift.exit30
   br i1 %3310, label %3312, label %mul.exit1871
 
 3312:                                             ; preds = %3309, %3306, %3302
-  %.sink25.i1869 = phi ptr [ %3305, %3302 ], [ %3308, %3306 ], [ %3311, %3309 ]
-  %.sink22.i1870 = phi i32 [ 3, %3302 ], [ 4, %3306 ], [ 6, %3309 ]
+  %.sink25.i1869 = phi ptr [ %3308, %3306 ], [ %3305, %3302 ], [ %3311, %3309 ]
+  %.sink22.i1870 = phi i32 [ 4, %3306 ], [ 3, %3302 ], [ 6, %3309 ]
   %3313 = getelementptr inbounds nuw i8, ptr %.sink25.i1869, i64 8
   %3314 = load ptr, ptr %3313, align 8, !tbaa !26
   %3315 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %3314)
@@ -9815,8 +9815,8 @@ new_add.exit1867:                                 ; preds = %3323, %.sink.split.
   br i1 %3379, label %3381, label %mul.exit1852
 
 3381:                                             ; preds = %3378, %3375, %3371
-  %.sink25.i1850 = phi ptr [ %3374, %3371 ], [ %3377, %3375 ], [ %3380, %3378 ]
-  %.sink22.i1851 = phi i32 [ 3, %3371 ], [ 4, %3375 ], [ 6, %3378 ]
+  %.sink25.i1850 = phi ptr [ %3377, %3375 ], [ %3374, %3371 ], [ %3380, %3378 ]
+  %.sink22.i1851 = phi i32 [ 4, %3375 ], [ 3, %3371 ], [ 6, %3378 ]
   %3382 = getelementptr inbounds nuw i8, ptr %.sink25.i1850, i64 8
   %3383 = load ptr, ptr %3382, align 8, !tbaa !26
   %3384 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %3383)
@@ -9881,8 +9881,8 @@ add.exit980:                                      ; preds = %3365
   br i1 %3406, label %3408, label %mul.exit977
 
 3408:                                             ; preds = %3405, %3402, %3398
-  %.sink25.i975 = phi ptr [ %3401, %3398 ], [ %3404, %3402 ], [ %3407, %3405 ]
-  %.sink22.i976 = phi i32 [ 3, %3398 ], [ 4, %3402 ], [ 6, %3405 ]
+  %.sink25.i975 = phi ptr [ %3404, %3402 ], [ %3401, %3398 ], [ %3407, %3405 ]
+  %.sink22.i976 = phi i32 [ 4, %3402 ], [ 3, %3398 ], [ 6, %3405 ]
   %3409 = getelementptr inbounds nuw i8, ptr %.sink25.i975, i64 8
   %3410 = load ptr, ptr %3409, align 8, !tbaa !26
   %3411 = call fastcc ptr @cast(ptr noundef %114, ptr noundef %3410)
@@ -9932,8 +9932,8 @@ mul.exit977:                                      ; preds = %3405
   br i1 %3430, label %3432, label %mul.exit973
 
 3432:                                             ; preds = %3429, %3426, %3422
-  %.sink25.i971 = phi ptr [ %3425, %3422 ], [ %3428, %3426 ], [ %3431, %3429 ]
-  %.sink22.i972 = phi i32 [ 3, %3422 ], [ 4, %3426 ], [ 6, %3429 ]
+  %.sink25.i971 = phi ptr [ %3428, %3426 ], [ %3425, %3422 ], [ %3431, %3429 ]
+  %.sink22.i972 = phi i32 [ 4, %3426 ], [ 3, %3422 ], [ 6, %3429 ]
   %3433 = getelementptr inbounds nuw i8, ptr %.sink25.i971, i64 8
   %3434 = load ptr, ptr %3433, align 8, !tbaa !26
   %3435 = call fastcc ptr @cast(ptr noundef %115, ptr noundef %3434)
@@ -10079,8 +10079,8 @@ new_add.exit969:                                  ; preds = %3443, %.sink.split.
   br i1 %3499, label %3501, label %mul.exit954
 
 3501:                                             ; preds = %3498, %3495, %3491
-  %.sink25.i952 = phi ptr [ %3494, %3491 ], [ %3497, %3495 ], [ %3500, %3498 ]
-  %.sink22.i953 = phi i32 [ 3, %3491 ], [ 4, %3495 ], [ 6, %3498 ]
+  %.sink25.i952 = phi ptr [ %3497, %3495 ], [ %3494, %3491 ], [ %3500, %3498 ]
+  %.sink22.i953 = phi i32 [ 4, %3495 ], [ 3, %3491 ], [ 6, %3498 ]
   %3502 = getelementptr inbounds nuw i8, ptr %.sink25.i952, i64 8
   %3503 = load ptr, ptr %3502, align 8, !tbaa !26
   %3504 = call fastcc ptr @cast(ptr noundef %116, ptr noundef %3503)
@@ -10159,8 +10159,8 @@ add.exit.i302:                                    ; preds = %3485
   br i1 %3535, label %3537, label %mul.exit1848
 
 3537:                                             ; preds = %3534, %3531, %3527
-  %.sink25.i1846 = phi ptr [ %3530, %3527 ], [ %3533, %3531 ], [ %3536, %3534 ]
-  %.sink22.i1847 = phi i32 [ 3, %3527 ], [ 4, %3531 ], [ 6, %3534 ]
+  %.sink25.i1846 = phi ptr [ %3533, %3531 ], [ %3530, %3527 ], [ %3536, %3534 ]
+  %.sink22.i1847 = phi i32 [ 4, %3531 ], [ 3, %3527 ], [ 6, %3534 ]
   %3538 = getelementptr inbounds nuw i8, ptr %.sink25.i1846, i64 8
   %3539 = load ptr, ptr %3538, align 8, !tbaa !26
   %3540 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %3539)
@@ -10307,8 +10307,8 @@ new_add.exit1844:                                 ; preds = %3548, %.sink.split.
   br i1 %3604, label %3606, label %mul.exit1829
 
 3606:                                             ; preds = %3603, %3600, %3596
-  %.sink25.i1827 = phi ptr [ %3599, %3596 ], [ %3602, %3600 ], [ %3605, %3603 ]
-  %.sink22.i1828 = phi i32 [ 3, %3596 ], [ 4, %3600 ], [ 6, %3603 ]
+  %.sink25.i1827 = phi ptr [ %3602, %3600 ], [ %3599, %3596 ], [ %3605, %3603 ]
+  %.sink22.i1828 = phi i32 [ 4, %3600 ], [ 3, %3596 ], [ 6, %3603 ]
   %3607 = getelementptr inbounds nuw i8, ptr %.sink25.i1827, i64 8
   %3608 = load ptr, ptr %3607, align 8, !tbaa !26
   %3609 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %3608)
@@ -10373,8 +10373,8 @@ add.exit950:                                      ; preds = %3590
   br i1 %3631, label %3633, label %mul.exit947
 
 3633:                                             ; preds = %3630, %3627, %3623
-  %.sink25.i945 = phi ptr [ %3626, %3623 ], [ %3629, %3627 ], [ %3632, %3630 ]
-  %.sink22.i946 = phi i32 [ 3, %3623 ], [ 4, %3627 ], [ 6, %3630 ]
+  %.sink25.i945 = phi ptr [ %3629, %3627 ], [ %3626, %3623 ], [ %3632, %3630 ]
+  %.sink22.i946 = phi i32 [ 4, %3627 ], [ 3, %3623 ], [ 6, %3630 ]
   %3634 = getelementptr inbounds nuw i8, ptr %.sink25.i945, i64 8
   %3635 = load ptr, ptr %3634, align 8, !tbaa !26
   %3636 = call fastcc ptr @cast(ptr noundef %118, ptr noundef %3635)
@@ -10424,8 +10424,8 @@ mul.exit947:                                      ; preds = %3630
   br i1 %3655, label %3657, label %mul.exit943
 
 3657:                                             ; preds = %3654, %3651, %3647
-  %.sink25.i941 = phi ptr [ %3650, %3647 ], [ %3653, %3651 ], [ %3656, %3654 ]
-  %.sink22.i942 = phi i32 [ 3, %3647 ], [ 4, %3651 ], [ 6, %3654 ]
+  %.sink25.i941 = phi ptr [ %3653, %3651 ], [ %3650, %3647 ], [ %3656, %3654 ]
+  %.sink22.i942 = phi i32 [ 4, %3651 ], [ 3, %3647 ], [ 6, %3654 ]
   %3658 = getelementptr inbounds nuw i8, ptr %.sink25.i941, i64 8
   %3659 = load ptr, ptr %3658, align 8, !tbaa !26
   %3660 = call fastcc ptr @cast(ptr noundef %119, ptr noundef %3659)
@@ -10571,8 +10571,8 @@ new_add.exit939:                                  ; preds = %3668, %.sink.split.
   br i1 %3724, label %3726, label %mul.exit924
 
 3726:                                             ; preds = %3723, %3720, %3716
-  %.sink25.i922 = phi ptr [ %3719, %3716 ], [ %3722, %3720 ], [ %3725, %3723 ]
-  %.sink22.i923 = phi i32 [ 3, %3716 ], [ 4, %3720 ], [ 6, %3723 ]
+  %.sink25.i922 = phi ptr [ %3722, %3720 ], [ %3719, %3716 ], [ %3725, %3723 ]
+  %.sink22.i923 = phi i32 [ 4, %3720 ], [ 3, %3716 ], [ 6, %3723 ]
   %3727 = getelementptr inbounds nuw i8, ptr %.sink25.i922, i64 8
   %3728 = load ptr, ptr %3727, align 8, !tbaa !26
   %3729 = call fastcc ptr @cast(ptr noundef %120, ptr noundef %3728)
@@ -10688,8 +10688,8 @@ add.exit920:                                      ; preds = %3753
   br i1 %3776, label %3778, label %mul.exit917
 
 3778:                                             ; preds = %3775, %3772, %3768
-  %.sink25.i915 = phi ptr [ %3771, %3768 ], [ %3774, %3772 ], [ %3777, %3775 ]
-  %.sink22.i916 = phi i32 [ 3, %3768 ], [ 4, %3772 ], [ 6, %3775 ]
+  %.sink25.i915 = phi ptr [ %3774, %3772 ], [ %3771, %3768 ], [ %3777, %3775 ]
+  %.sink22.i916 = phi i32 [ 4, %3772 ], [ 3, %3768 ], [ 6, %3775 ]
   %3779 = getelementptr inbounds nuw i8, ptr %.sink25.i915, i64 8
   %3780 = load ptr, ptr %3779, align 8, !tbaa !26
   %3781 = call fastcc ptr @cast(ptr noundef %122, ptr noundef %3780)
@@ -10739,8 +10739,8 @@ mul.exit917:                                      ; preds = %3775
   br i1 %3800, label %3802, label %mul.exit913
 
 3802:                                             ; preds = %3799, %3796, %3792
-  %.sink25.i911 = phi ptr [ %3795, %3792 ], [ %3798, %3796 ], [ %3801, %3799 ]
-  %.sink22.i912 = phi i32 [ 3, %3792 ], [ 4, %3796 ], [ 6, %3799 ]
+  %.sink25.i911 = phi ptr [ %3798, %3796 ], [ %3795, %3792 ], [ %3801, %3799 ]
+  %.sink22.i912 = phi i32 [ 4, %3796 ], [ 3, %3792 ], [ 6, %3799 ]
   %3803 = getelementptr inbounds nuw i8, ptr %.sink25.i911, i64 8
   %3804 = load ptr, ptr %3803, align 8, !tbaa !26
   %3805 = call fastcc ptr @cast(ptr noundef %123, ptr noundef %3804)
@@ -10886,8 +10886,8 @@ new_add.exit909:                                  ; preds = %3813, %.sink.split.
   br i1 %3869, label %3871, label %mul.exit894
 
 3871:                                             ; preds = %3868, %3865, %3861
-  %.sink25.i892 = phi ptr [ %3864, %3861 ], [ %3867, %3865 ], [ %3870, %3868 ]
-  %.sink22.i893 = phi i32 [ 3, %3861 ], [ 4, %3865 ], [ 6, %3868 ]
+  %.sink25.i892 = phi ptr [ %3867, %3865 ], [ %3864, %3861 ], [ %3870, %3868 ]
+  %.sink22.i893 = phi i32 [ 4, %3865 ], [ 3, %3861 ], [ 6, %3868 ]
   %3872 = getelementptr inbounds nuw i8, ptr %.sink25.i892, i64 8
   %3873 = load ptr, ptr %3872, align 8, !tbaa !26
   %3874 = call fastcc ptr @cast(ptr noundef %124, ptr noundef %3873)
@@ -11003,8 +11003,8 @@ add.exit890:                                      ; preds = %3898
   br i1 %3921, label %3923, label %mul.exit887
 
 3923:                                             ; preds = %3920, %3917, %3913
-  %.sink25.i885 = phi ptr [ %3916, %3913 ], [ %3919, %3917 ], [ %3922, %3920 ]
-  %.sink22.i886 = phi i32 [ 3, %3913 ], [ 4, %3917 ], [ 6, %3920 ]
+  %.sink25.i885 = phi ptr [ %3919, %3917 ], [ %3916, %3913 ], [ %3922, %3920 ]
+  %.sink22.i886 = phi i32 [ 4, %3917 ], [ 3, %3913 ], [ 6, %3920 ]
   %3924 = getelementptr inbounds nuw i8, ptr %.sink25.i885, i64 8
   %3925 = load ptr, ptr %3924, align 8, !tbaa !26
   %3926 = call fastcc ptr @cast(ptr noundef %126, ptr noundef %3925)
@@ -11054,8 +11054,8 @@ mul.exit887:                                      ; preds = %3920
   br i1 %3945, label %3947, label %mul.exit883
 
 3947:                                             ; preds = %3944, %3941, %3937
-  %.sink25.i881 = phi ptr [ %3940, %3937 ], [ %3943, %3941 ], [ %3946, %3944 ]
-  %.sink22.i882 = phi i32 [ 3, %3937 ], [ 4, %3941 ], [ 6, %3944 ]
+  %.sink25.i881 = phi ptr [ %3943, %3941 ], [ %3940, %3937 ], [ %3946, %3944 ]
+  %.sink22.i882 = phi i32 [ 4, %3941 ], [ 3, %3937 ], [ 6, %3944 ]
   %3948 = getelementptr inbounds nuw i8, ptr %.sink25.i881, i64 8
   %3949 = load ptr, ptr %3948, align 8, !tbaa !26
   %3950 = call fastcc ptr @cast(ptr noundef %127, ptr noundef %3949)
@@ -11201,8 +11201,8 @@ new_add.exit879:                                  ; preds = %3958, %.sink.split.
   br i1 %4014, label %4016, label %mul.exit864
 
 4016:                                             ; preds = %4013, %4010, %4006
-  %.sink25.i862 = phi ptr [ %4009, %4006 ], [ %4012, %4010 ], [ %4015, %4013 ]
-  %.sink22.i863 = phi i32 [ 3, %4006 ], [ 4, %4010 ], [ 6, %4013 ]
+  %.sink25.i862 = phi ptr [ %4012, %4010 ], [ %4009, %4006 ], [ %4015, %4013 ]
+  %.sink22.i863 = phi i32 [ 4, %4010 ], [ 3, %4006 ], [ 6, %4013 ]
   %4017 = getelementptr inbounds nuw i8, ptr %.sink25.i862, i64 8
   %4018 = load ptr, ptr %4017, align 8, !tbaa !26
   %4019 = call fastcc ptr @cast(ptr noundef %128, ptr noundef %4018)
@@ -11238,10 +11238,10 @@ add.exit.i284:                                    ; preds = %4000
   br label %3905
 
 shift.exit304:                                    ; preds = %3907, %3762, %3617, %3392
-  %.11997 = phi ptr [ %.02060, %3392 ], [ %.02057, %3617 ], [ %.02054, %3762 ], [ %.02051, %3907 ]
-  %.sink23.i172 = phi i32 [ 14, %3392 ], [ 15, %3617 ], [ 14, %3762 ], [ 15, %3907 ]
-  %.sink.i173 = phi ptr [ %.012.i171, %3392 ], [ %.012.i171, %3617 ], [ %.08.i287, %3762 ], [ %.08.i281, %3907 ]
-  %.012.sink.i174 = phi ptr [ %.08.i299, %3392 ], [ %.08.i293, %3617 ], [ %.012.i171, %3762 ], [ %.012.i171, %3907 ]
+  %.11997 = phi ptr [ %.02054, %3762 ], [ %.02060, %3392 ], [ %.02057, %3617 ], [ %.02051, %3907 ]
+  %.sink23.i172 = phi i32 [ 14, %3762 ], [ 14, %3392 ], [ 15, %3617 ], [ 15, %3907 ]
+  %.sink.i173 = phi ptr [ %.08.i287, %3762 ], [ %.012.i171, %3392 ], [ %.012.i171, %3617 ], [ %.08.i281, %3907 ]
+  %.012.sink.i174 = phi ptr [ %.012.i171, %3762 ], [ %.08.i299, %3392 ], [ %.08.i293, %3617 ], [ %.012.i171, %3907 ]
   %4029 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i172, ptr %4029, align 16, !tbaa !7
   %4030 = getelementptr inbounds nuw i8, ptr %4029, i64 24
@@ -11354,8 +11354,8 @@ add.exit1160:                                     ; preds = %4053
   br i1 %4076, label %4078, label %mul.exit1157
 
 4078:                                             ; preds = %4075, %4072, %4068
-  %.sink25.i1155 = phi ptr [ %4071, %4068 ], [ %4074, %4072 ], [ %4077, %4075 ]
-  %.sink22.i1156 = phi i32 [ 3, %4068 ], [ 4, %4072 ], [ 6, %4075 ]
+  %.sink25.i1155 = phi ptr [ %4074, %4072 ], [ %4071, %4068 ], [ %4077, %4075 ]
+  %.sink22.i1156 = phi i32 [ 4, %4072 ], [ 3, %4068 ], [ 6, %4075 ]
   %4079 = getelementptr inbounds nuw i8, ptr %.sink25.i1155, i64 8
   %4080 = load ptr, ptr %4079, align 8, !tbaa !26
   %4081 = call fastcc ptr @cast(ptr noundef %90, ptr noundef %4080)
@@ -11405,8 +11405,8 @@ mul.exit1157:                                     ; preds = %4075
   br i1 %4100, label %4102, label %mul.exit1153
 
 4102:                                             ; preds = %4099, %4096, %4092
-  %.sink25.i1151 = phi ptr [ %4095, %4092 ], [ %4098, %4096 ], [ %4101, %4099 ]
-  %.sink22.i1152 = phi i32 [ 3, %4092 ], [ 4, %4096 ], [ 6, %4099 ]
+  %.sink25.i1151 = phi ptr [ %4098, %4096 ], [ %4095, %4092 ], [ %4101, %4099 ]
+  %.sink22.i1152 = phi i32 [ 4, %4096 ], [ 3, %4092 ], [ 6, %4099 ]
   %4103 = getelementptr inbounds nuw i8, ptr %.sink25.i1151, i64 8
   %4104 = load ptr, ptr %4103, align 8, !tbaa !26
   %4105 = call fastcc ptr @cast(ptr noundef %91, ptr noundef %4104)
@@ -11552,8 +11552,8 @@ new_add.exit1149:                                 ; preds = %4113, %.sink.split.
   br i1 %4169, label %4171, label %mul.exit1134
 
 4171:                                             ; preds = %4168, %4165, %4161
-  %.sink25.i1132 = phi ptr [ %4164, %4161 ], [ %4167, %4165 ], [ %4170, %4168 ]
-  %.sink22.i1133 = phi i32 [ 3, %4161 ], [ 4, %4165 ], [ 6, %4168 ]
+  %.sink25.i1132 = phi ptr [ %4167, %4165 ], [ %4164, %4161 ], [ %4170, %4168 ]
+  %.sink22.i1133 = phi i32 [ 4, %4165 ], [ 3, %4161 ], [ 6, %4168 ]
   %4172 = getelementptr inbounds nuw i8, ptr %.sink25.i1132, i64 8
   %4173 = load ptr, ptr %4172, align 8, !tbaa !26
   %4174 = call fastcc ptr @cast(ptr noundef %92, ptr noundef %4173)
@@ -11671,8 +11671,8 @@ add.exit1130:                                     ; preds = %4197
   br i1 %4220, label %4222, label %mul.exit1127
 
 4222:                                             ; preds = %4219, %4216, %4212
-  %.sink25.i1125 = phi ptr [ %4215, %4212 ], [ %4218, %4216 ], [ %4221, %4219 ]
-  %.sink22.i1126 = phi i32 [ 3, %4212 ], [ 4, %4216 ], [ 6, %4219 ]
+  %.sink25.i1125 = phi ptr [ %4218, %4216 ], [ %4215, %4212 ], [ %4221, %4219 ]
+  %.sink22.i1126 = phi i32 [ 4, %4216 ], [ 3, %4212 ], [ 6, %4219 ]
   %4223 = getelementptr inbounds nuw i8, ptr %.sink25.i1125, i64 8
   %4224 = load ptr, ptr %4223, align 8, !tbaa !26
   %4225 = call fastcc ptr @cast(ptr noundef %94, ptr noundef %4224)
@@ -11722,8 +11722,8 @@ mul.exit1127:                                     ; preds = %4219
   br i1 %4244, label %4246, label %mul.exit1123
 
 4246:                                             ; preds = %4243, %4240, %4236
-  %.sink25.i1121 = phi ptr [ %4239, %4236 ], [ %4242, %4240 ], [ %4245, %4243 ]
-  %.sink22.i1122 = phi i32 [ 3, %4236 ], [ 4, %4240 ], [ 6, %4243 ]
+  %.sink25.i1121 = phi ptr [ %4242, %4240 ], [ %4239, %4236 ], [ %4245, %4243 ]
+  %.sink22.i1122 = phi i32 [ 4, %4240 ], [ 3, %4236 ], [ 6, %4243 ]
   %4247 = getelementptr inbounds nuw i8, ptr %.sink25.i1121, i64 8
   %4248 = load ptr, ptr %4247, align 8, !tbaa !26
   %4249 = call fastcc ptr @cast(ptr noundef %95, ptr noundef %4248)
@@ -11869,8 +11869,8 @@ new_add.exit1119:                                 ; preds = %4257, %.sink.split.
   br i1 %4313, label %4315, label %mul.exit1104
 
 4315:                                             ; preds = %4312, %4309, %4305
-  %.sink25.i1102 = phi ptr [ %4308, %4305 ], [ %4311, %4309 ], [ %4314, %4312 ]
-  %.sink22.i1103 = phi i32 [ 3, %4305 ], [ 4, %4309 ], [ 6, %4312 ]
+  %.sink25.i1102 = phi ptr [ %4311, %4309 ], [ %4308, %4305 ], [ %4314, %4312 ]
+  %.sink22.i1103 = phi i32 [ 4, %4309 ], [ 3, %4305 ], [ 6, %4312 ]
   %4316 = getelementptr inbounds nuw i8, ptr %.sink25.i1102, i64 8
   %4317 = load ptr, ptr %4316, align 8, !tbaa !26
   %4318 = call fastcc ptr @cast(ptr noundef %96, ptr noundef %4317)
@@ -11986,8 +11986,8 @@ add.exit1100:                                     ; preds = %4342
   br i1 %4365, label %4367, label %mul.exit1097
 
 4367:                                             ; preds = %4364, %4361, %4357
-  %.sink25.i1095 = phi ptr [ %4360, %4357 ], [ %4363, %4361 ], [ %4366, %4364 ]
-  %.sink22.i1096 = phi i32 [ 3, %4357 ], [ 4, %4361 ], [ 6, %4364 ]
+  %.sink25.i1095 = phi ptr [ %4363, %4361 ], [ %4360, %4357 ], [ %4366, %4364 ]
+  %.sink22.i1096 = phi i32 [ 4, %4361 ], [ 3, %4357 ], [ 6, %4364 ]
   %4368 = getelementptr inbounds nuw i8, ptr %.sink25.i1095, i64 8
   %4369 = load ptr, ptr %4368, align 8, !tbaa !26
   %4370 = call fastcc ptr @cast(ptr noundef %98, ptr noundef %4369)
@@ -12037,8 +12037,8 @@ mul.exit1097:                                     ; preds = %4364
   br i1 %4389, label %4391, label %mul.exit1093
 
 4391:                                             ; preds = %4388, %4385, %4381
-  %.sink25.i1091 = phi ptr [ %4384, %4381 ], [ %4387, %4385 ], [ %4390, %4388 ]
-  %.sink22.i1092 = phi i32 [ 3, %4381 ], [ 4, %4385 ], [ 6, %4388 ]
+  %.sink25.i1091 = phi ptr [ %4387, %4385 ], [ %4384, %4381 ], [ %4390, %4388 ]
+  %.sink22.i1092 = phi i32 [ 4, %4385 ], [ 3, %4381 ], [ 6, %4388 ]
   %4392 = getelementptr inbounds nuw i8, ptr %.sink25.i1091, i64 8
   %4393 = load ptr, ptr %4392, align 8, !tbaa !26
   %4394 = call fastcc ptr @cast(ptr noundef %99, ptr noundef %4393)
@@ -12184,8 +12184,8 @@ new_add.exit1089:                                 ; preds = %4402, %.sink.split.
   br i1 %4458, label %4460, label %mul.exit1074
 
 4460:                                             ; preds = %4457, %4454, %4450
-  %.sink25.i1072 = phi ptr [ %4453, %4450 ], [ %4456, %4454 ], [ %4459, %4457 ]
-  %.sink22.i1073 = phi i32 [ 3, %4450 ], [ 4, %4454 ], [ 6, %4457 ]
+  %.sink25.i1072 = phi ptr [ %4456, %4454 ], [ %4453, %4450 ], [ %4459, %4457 ]
+  %.sink22.i1073 = phi i32 [ 4, %4454 ], [ 3, %4450 ], [ 6, %4457 ]
   %4461 = getelementptr inbounds nuw i8, ptr %.sink25.i1072, i64 8
   %4462 = load ptr, ptr %4461, align 8, !tbaa !26
   %4463 = call fastcc ptr @cast(ptr noundef %100, ptr noundef %4462)
@@ -12301,8 +12301,8 @@ add.exit1070:                                     ; preds = %4487
   br i1 %4510, label %4512, label %mul.exit1067
 
 4512:                                             ; preds = %4509, %4506, %4502
-  %.sink25.i1065 = phi ptr [ %4505, %4502 ], [ %4508, %4506 ], [ %4511, %4509 ]
-  %.sink22.i1066 = phi i32 [ 3, %4502 ], [ 4, %4506 ], [ 6, %4509 ]
+  %.sink25.i1065 = phi ptr [ %4508, %4506 ], [ %4505, %4502 ], [ %4511, %4509 ]
+  %.sink22.i1066 = phi i32 [ 4, %4506 ], [ 3, %4502 ], [ 6, %4509 ]
   %4513 = getelementptr inbounds nuw i8, ptr %.sink25.i1065, i64 8
   %4514 = load ptr, ptr %4513, align 8, !tbaa !26
   %4515 = call fastcc ptr @cast(ptr noundef %102, ptr noundef %4514)
@@ -12352,8 +12352,8 @@ mul.exit1067:                                     ; preds = %4509
   br i1 %4534, label %4536, label %mul.exit1063
 
 4536:                                             ; preds = %4533, %4530, %4526
-  %.sink25.i1061 = phi ptr [ %4529, %4526 ], [ %4532, %4530 ], [ %4535, %4533 ]
-  %.sink22.i1062 = phi i32 [ 3, %4526 ], [ 4, %4530 ], [ 6, %4533 ]
+  %.sink25.i1061 = phi ptr [ %4532, %4530 ], [ %4529, %4526 ], [ %4535, %4533 ]
+  %.sink22.i1062 = phi i32 [ 4, %4530 ], [ 3, %4526 ], [ 6, %4533 ]
   %4537 = getelementptr inbounds nuw i8, ptr %.sink25.i1061, i64 8
   %4538 = load ptr, ptr %4537, align 8, !tbaa !26
   %4539 = call fastcc ptr @cast(ptr noundef %103, ptr noundef %4538)
@@ -12499,8 +12499,8 @@ new_add.exit1059:                                 ; preds = %4547, %.sink.split.
   br i1 %4603, label %4605, label %mul.exit1044
 
 4605:                                             ; preds = %4602, %4599, %4595
-  %.sink25.i1042 = phi ptr [ %4598, %4595 ], [ %4601, %4599 ], [ %4604, %4602 ]
-  %.sink22.i1043 = phi i32 [ 3, %4595 ], [ 4, %4599 ], [ 6, %4602 ]
+  %.sink25.i1042 = phi ptr [ %4601, %4599 ], [ %4598, %4595 ], [ %4604, %4602 ]
+  %.sink22.i1043 = phi i32 [ 4, %4599 ], [ 3, %4595 ], [ 6, %4602 ]
   %4606 = getelementptr inbounds nuw i8, ptr %.sink25.i1042, i64 8
   %4607 = load ptr, ptr %4606, align 8, !tbaa !26
   %4608 = call fastcc ptr @cast(ptr noundef %104, ptr noundef %4607)
@@ -12616,8 +12616,8 @@ add.exit1040:                                     ; preds = %4632
   br i1 %4655, label %4657, label %mul.exit1037
 
 4657:                                             ; preds = %4654, %4651, %4647
-  %.sink25.i1035 = phi ptr [ %4650, %4647 ], [ %4653, %4651 ], [ %4656, %4654 ]
-  %.sink22.i1036 = phi i32 [ 3, %4647 ], [ 4, %4651 ], [ 6, %4654 ]
+  %.sink25.i1035 = phi ptr [ %4653, %4651 ], [ %4650, %4647 ], [ %4656, %4654 ]
+  %.sink22.i1036 = phi i32 [ 4, %4651 ], [ 3, %4647 ], [ 6, %4654 ]
   %4658 = getelementptr inbounds nuw i8, ptr %.sink25.i1035, i64 8
   %4659 = load ptr, ptr %4658, align 8, !tbaa !26
   %4660 = call fastcc ptr @cast(ptr noundef %106, ptr noundef %4659)
@@ -12667,8 +12667,8 @@ mul.exit1037:                                     ; preds = %4654
   br i1 %4679, label %4681, label %mul.exit1033
 
 4681:                                             ; preds = %4678, %4675, %4671
-  %.sink25.i1031 = phi ptr [ %4674, %4671 ], [ %4677, %4675 ], [ %4680, %4678 ]
-  %.sink22.i1032 = phi i32 [ 3, %4671 ], [ 4, %4675 ], [ 6, %4678 ]
+  %.sink25.i1031 = phi ptr [ %4677, %4675 ], [ %4674, %4671 ], [ %4680, %4678 ]
+  %.sink22.i1032 = phi i32 [ 4, %4675 ], [ 3, %4671 ], [ 6, %4678 ]
   %4682 = getelementptr inbounds nuw i8, ptr %.sink25.i1031, i64 8
   %4683 = load ptr, ptr %4682, align 8, !tbaa !26
   %4684 = call fastcc ptr @cast(ptr noundef %107, ptr noundef %4683)
@@ -12814,8 +12814,8 @@ new_add.exit1029:                                 ; preds = %4692, %.sink.split.
   br i1 %4748, label %4750, label %mul.exit1014
 
 4750:                                             ; preds = %4747, %4744, %4740
-  %.sink25.i1012 = phi ptr [ %4743, %4740 ], [ %4746, %4744 ], [ %4749, %4747 ]
-  %.sink22.i1013 = phi i32 [ 3, %4740 ], [ 4, %4744 ], [ 6, %4747 ]
+  %.sink25.i1012 = phi ptr [ %4746, %4744 ], [ %4743, %4740 ], [ %4749, %4747 ]
+  %.sink22.i1013 = phi i32 [ 4, %4744 ], [ 3, %4740 ], [ 6, %4747 ]
   %4751 = getelementptr inbounds nuw i8, ptr %.sink25.i1012, i64 8
   %4752 = load ptr, ptr %4751, align 8, !tbaa !26
   %4753 = call fastcc ptr @cast(ptr noundef %108, ptr noundef %4752)
@@ -12851,10 +12851,10 @@ add.exit.i314:                                    ; preds = %4734
   br label %4639
 
 shift.exit334:                                    ; preds = %4641, %4496, %4351, %4206
-  %.11999 = phi ptr [ %.02075, %4206 ], [ %.02072, %4351 ], [ %.02069, %4496 ], [ %.02066, %4641 ]
-  %.sink23.i177 = phi i32 [ 14, %4206 ], [ 15, %4351 ], [ 14, %4496 ], [ 15, %4641 ]
-  %.sink.i178 = phi ptr [ %.012.i176, %4206 ], [ %.012.i176, %4351 ], [ %.08.i317, %4496 ], [ %.08.i311, %4641 ]
-  %.012.sink.i179 = phi ptr [ %.08.i329, %4206 ], [ %.08.i323, %4351 ], [ %.012.i176, %4496 ], [ %.012.i176, %4641 ]
+  %.11999 = phi ptr [ %.02069, %4496 ], [ %.02075, %4206 ], [ %.02072, %4351 ], [ %.02066, %4641 ]
+  %.sink23.i177 = phi i32 [ 14, %4496 ], [ 14, %4206 ], [ 15, %4351 ], [ 15, %4641 ]
+  %.sink.i178 = phi ptr [ %.08.i317, %4496 ], [ %.012.i176, %4206 ], [ %.012.i176, %4351 ], [ %.08.i311, %4641 ]
+  %.012.sink.i179 = phi ptr [ %.012.i176, %4496 ], [ %.08.i329, %4206 ], [ %.08.i323, %4351 ], [ %.012.i176, %4641 ]
   %4763 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i177, ptr %4763, align 16, !tbaa !7
   %4764 = getelementptr inbounds nuw i8, ptr %4763, i64 24
@@ -12953,8 +12953,8 @@ add.exit1310:                                     ; preds = %4782
   br i1 %4805, label %4807, label %mul.exit1307
 
 4807:                                             ; preds = %4804, %4801, %4797
-  %.sink25.i1305 = phi ptr [ %4800, %4797 ], [ %4803, %4801 ], [ %4806, %4804 ]
-  %.sink22.i1306 = phi i32 [ 3, %4797 ], [ 4, %4801 ], [ 6, %4804 ]
+  %.sink25.i1305 = phi ptr [ %4803, %4801 ], [ %4800, %4797 ], [ %4806, %4804 ]
+  %.sink22.i1306 = phi i32 [ 4, %4801 ], [ 3, %4797 ], [ 6, %4804 ]
   %4808 = getelementptr inbounds nuw i8, ptr %.sink25.i1305, i64 8
   %4809 = load ptr, ptr %4808, align 8, !tbaa !26
   %4810 = call fastcc ptr @cast(ptr noundef %70, ptr noundef %4809)
@@ -13004,8 +13004,8 @@ mul.exit1307:                                     ; preds = %4804
   br i1 %4829, label %4831, label %mul.exit1303
 
 4831:                                             ; preds = %4828, %4825, %4821
-  %.sink25.i1301 = phi ptr [ %4824, %4821 ], [ %4827, %4825 ], [ %4830, %4828 ]
-  %.sink22.i1302 = phi i32 [ 3, %4821 ], [ 4, %4825 ], [ 6, %4828 ]
+  %.sink25.i1301 = phi ptr [ %4827, %4825 ], [ %4824, %4821 ], [ %4830, %4828 ]
+  %.sink22.i1302 = phi i32 [ 4, %4825 ], [ 3, %4821 ], [ 6, %4828 ]
   %4832 = getelementptr inbounds nuw i8, ptr %.sink25.i1301, i64 8
   %4833 = load ptr, ptr %4832, align 8, !tbaa !26
   %4834 = call fastcc ptr @cast(ptr noundef %71, ptr noundef %4833)
@@ -13151,8 +13151,8 @@ new_add.exit1299:                                 ; preds = %4842, %.sink.split.
   br i1 %4898, label %4900, label %mul.exit1284
 
 4900:                                             ; preds = %4897, %4894, %4890
-  %.sink25.i1282 = phi ptr [ %4893, %4890 ], [ %4896, %4894 ], [ %4899, %4897 ]
-  %.sink22.i1283 = phi i32 [ 3, %4890 ], [ 4, %4894 ], [ 6, %4897 ]
+  %.sink25.i1282 = phi ptr [ %4896, %4894 ], [ %4893, %4890 ], [ %4899, %4897 ]
+  %.sink22.i1283 = phi i32 [ 4, %4894 ], [ 3, %4890 ], [ 6, %4897 ]
   %4901 = getelementptr inbounds nuw i8, ptr %.sink25.i1282, i64 8
   %4902 = load ptr, ptr %4901, align 8, !tbaa !26
   %4903 = call fastcc ptr @cast(ptr noundef %72, ptr noundef %4902)
@@ -13233,8 +13233,8 @@ shift.exit370:                                    ; preds = %4791, %shift.exit36
   br i1 %4933, label %4935, label %mul.exit1894
 
 4935:                                             ; preds = %4932, %4929, %4925
-  %.sink25.i1892 = phi ptr [ %4928, %4925 ], [ %4931, %4929 ], [ %4934, %4932 ]
-  %.sink22.i1893 = phi i32 [ 3, %4925 ], [ 4, %4929 ], [ 6, %4932 ]
+  %.sink25.i1892 = phi ptr [ %4931, %4929 ], [ %4928, %4925 ], [ %4934, %4932 ]
+  %.sink22.i1893 = phi i32 [ 4, %4929 ], [ 3, %4925 ], [ 6, %4932 ]
   %4936 = getelementptr inbounds nuw i8, ptr %.sink25.i1892, i64 8
   %4937 = load ptr, ptr %4936, align 8, !tbaa !26
   %4938 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %4937)
@@ -13381,8 +13381,8 @@ new_add.exit1890:                                 ; preds = %4946, %.sink.split.
   br i1 %5002, label %5004, label %mul.exit1875
 
 5004:                                             ; preds = %5001, %4998, %4994
-  %.sink25.i1873 = phi ptr [ %4997, %4994 ], [ %5000, %4998 ], [ %5003, %5001 ]
-  %.sink22.i1874 = phi i32 [ 3, %4994 ], [ 4, %4998 ], [ 6, %5001 ]
+  %.sink25.i1873 = phi ptr [ %5000, %4998 ], [ %4997, %4994 ], [ %5003, %5001 ]
+  %.sink22.i1874 = phi i32 [ 4, %4998 ], [ 3, %4994 ], [ 6, %5001 ]
   %5005 = getelementptr inbounds nuw i8, ptr %.sink25.i1873, i64 8
   %5006 = load ptr, ptr %5005, align 8, !tbaa !26
   %5007 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %5006)
@@ -13447,8 +13447,8 @@ add.exit1280:                                     ; preds = %4988
   br i1 %5029, label %5031, label %mul.exit1277
 
 5031:                                             ; preds = %5028, %5025, %5021
-  %.sink25.i1275 = phi ptr [ %5024, %5021 ], [ %5027, %5025 ], [ %5030, %5028 ]
-  %.sink22.i1276 = phi i32 [ 3, %5021 ], [ 4, %5025 ], [ 6, %5028 ]
+  %.sink25.i1275 = phi ptr [ %5027, %5025 ], [ %5024, %5021 ], [ %5030, %5028 ]
+  %.sink22.i1276 = phi i32 [ 4, %5025 ], [ 3, %5021 ], [ 6, %5028 ]
   %5032 = getelementptr inbounds nuw i8, ptr %.sink25.i1275, i64 8
   %5033 = load ptr, ptr %5032, align 8, !tbaa !26
   %5034 = call fastcc ptr @cast(ptr noundef %74, ptr noundef %5033)
@@ -13498,8 +13498,8 @@ mul.exit1277:                                     ; preds = %5028
   br i1 %5053, label %5055, label %mul.exit1273
 
 5055:                                             ; preds = %5052, %5049, %5045
-  %.sink25.i1271 = phi ptr [ %5048, %5045 ], [ %5051, %5049 ], [ %5054, %5052 ]
-  %.sink22.i1272 = phi i32 [ 3, %5045 ], [ 4, %5049 ], [ 6, %5052 ]
+  %.sink25.i1271 = phi ptr [ %5051, %5049 ], [ %5048, %5045 ], [ %5054, %5052 ]
+  %.sink22.i1272 = phi i32 [ 4, %5049 ], [ 3, %5045 ], [ 6, %5052 ]
   %5056 = getelementptr inbounds nuw i8, ptr %.sink25.i1271, i64 8
   %5057 = load ptr, ptr %5056, align 8, !tbaa !26
   %5058 = call fastcc ptr @cast(ptr noundef %75, ptr noundef %5057)
@@ -13645,8 +13645,8 @@ new_add.exit1269:                                 ; preds = %5066, %.sink.split.
   br i1 %5122, label %5124, label %mul.exit1254
 
 5124:                                             ; preds = %5121, %5118, %5114
-  %.sink25.i1252 = phi ptr [ %5117, %5114 ], [ %5120, %5118 ], [ %5123, %5121 ]
-  %.sink22.i1253 = phi i32 [ 3, %5114 ], [ 4, %5118 ], [ 6, %5121 ]
+  %.sink25.i1252 = phi ptr [ %5120, %5118 ], [ %5117, %5114 ], [ %5123, %5121 ]
+  %.sink22.i1253 = phi i32 [ 4, %5118 ], [ 3, %5114 ], [ 6, %5121 ]
   %5125 = getelementptr inbounds nuw i8, ptr %.sink25.i1252, i64 8
   %5126 = load ptr, ptr %5125, align 8, !tbaa !26
   %5127 = call fastcc ptr @cast(ptr noundef %76, ptr noundef %5126)
@@ -13762,8 +13762,8 @@ add.exit1250:                                     ; preds = %5151
   br i1 %5174, label %5176, label %mul.exit1247
 
 5176:                                             ; preds = %5173, %5170, %5166
-  %.sink25.i1245 = phi ptr [ %5169, %5166 ], [ %5172, %5170 ], [ %5175, %5173 ]
-  %.sink22.i1246 = phi i32 [ 3, %5166 ], [ 4, %5170 ], [ 6, %5173 ]
+  %.sink25.i1245 = phi ptr [ %5172, %5170 ], [ %5169, %5166 ], [ %5175, %5173 ]
+  %.sink22.i1246 = phi i32 [ 4, %5170 ], [ 3, %5166 ], [ 6, %5173 ]
   %5177 = getelementptr inbounds nuw i8, ptr %.sink25.i1245, i64 8
   %5178 = load ptr, ptr %5177, align 8, !tbaa !26
   %5179 = call fastcc ptr @cast(ptr noundef %78, ptr noundef %5178)
@@ -13813,8 +13813,8 @@ mul.exit1247:                                     ; preds = %5173
   br i1 %5198, label %5200, label %mul.exit1243
 
 5200:                                             ; preds = %5197, %5194, %5190
-  %.sink25.i1241 = phi ptr [ %5193, %5190 ], [ %5196, %5194 ], [ %5199, %5197 ]
-  %.sink22.i1242 = phi i32 [ 3, %5190 ], [ 4, %5194 ], [ 6, %5197 ]
+  %.sink25.i1241 = phi ptr [ %5196, %5194 ], [ %5193, %5190 ], [ %5199, %5197 ]
+  %.sink22.i1242 = phi i32 [ 4, %5194 ], [ 3, %5190 ], [ 6, %5197 ]
   %5201 = getelementptr inbounds nuw i8, ptr %.sink25.i1241, i64 8
   %5202 = load ptr, ptr %5201, align 8, !tbaa !26
   %5203 = call fastcc ptr @cast(ptr noundef %79, ptr noundef %5202)
@@ -13960,8 +13960,8 @@ new_add.exit1239:                                 ; preds = %5211, %.sink.split.
   br i1 %5267, label %5269, label %mul.exit1224
 
 5269:                                             ; preds = %5266, %5263, %5259
-  %.sink25.i1222 = phi ptr [ %5262, %5259 ], [ %5265, %5263 ], [ %5268, %5266 ]
-  %.sink22.i1223 = phi i32 [ 3, %5259 ], [ 4, %5263 ], [ 6, %5266 ]
+  %.sink25.i1222 = phi ptr [ %5265, %5263 ], [ %5262, %5259 ], [ %5268, %5266 ]
+  %.sink22.i1223 = phi i32 [ 4, %5263 ], [ 3, %5259 ], [ 6, %5266 ]
   %5270 = getelementptr inbounds nuw i8, ptr %.sink25.i1222, i64 8
   %5271 = load ptr, ptr %5270, align 8, !tbaa !26
   %5272 = call fastcc ptr @cast(ptr noundef %80, ptr noundef %5271)
@@ -14077,8 +14077,8 @@ add.exit1220:                                     ; preds = %5296
   br i1 %5319, label %5321, label %mul.exit1217
 
 5321:                                             ; preds = %5318, %5315, %5311
-  %.sink25.i1215 = phi ptr [ %5314, %5311 ], [ %5317, %5315 ], [ %5320, %5318 ]
-  %.sink22.i1216 = phi i32 [ 3, %5311 ], [ 4, %5315 ], [ 6, %5318 ]
+  %.sink25.i1215 = phi ptr [ %5317, %5315 ], [ %5314, %5311 ], [ %5320, %5318 ]
+  %.sink22.i1216 = phi i32 [ 4, %5315 ], [ 3, %5311 ], [ 6, %5318 ]
   %5322 = getelementptr inbounds nuw i8, ptr %.sink25.i1215, i64 8
   %5323 = load ptr, ptr %5322, align 8, !tbaa !26
   %5324 = call fastcc ptr @cast(ptr noundef %82, ptr noundef %5323)
@@ -14128,8 +14128,8 @@ mul.exit1217:                                     ; preds = %5318
   br i1 %5343, label %5345, label %mul.exit1213
 
 5345:                                             ; preds = %5342, %5339, %5335
-  %.sink25.i1211 = phi ptr [ %5338, %5335 ], [ %5341, %5339 ], [ %5344, %5342 ]
-  %.sink22.i1212 = phi i32 [ 3, %5335 ], [ 4, %5339 ], [ 6, %5342 ]
+  %.sink25.i1211 = phi ptr [ %5341, %5339 ], [ %5338, %5335 ], [ %5344, %5342 ]
+  %.sink22.i1212 = phi i32 [ 4, %5339 ], [ 3, %5335 ], [ 6, %5342 ]
   %5346 = getelementptr inbounds nuw i8, ptr %.sink25.i1211, i64 8
   %5347 = load ptr, ptr %5346, align 8, !tbaa !26
   %5348 = call fastcc ptr @cast(ptr noundef %83, ptr noundef %5347)
@@ -14275,8 +14275,8 @@ new_add.exit1209:                                 ; preds = %5356, %.sink.split.
   br i1 %5412, label %5414, label %mul.exit1194
 
 5414:                                             ; preds = %5411, %5408, %5404
-  %.sink25.i1192 = phi ptr [ %5407, %5404 ], [ %5410, %5408 ], [ %5413, %5411 ]
-  %.sink22.i1193 = phi i32 [ 3, %5404 ], [ 4, %5408 ], [ 6, %5411 ]
+  %.sink25.i1192 = phi ptr [ %5410, %5408 ], [ %5407, %5404 ], [ %5413, %5411 ]
+  %.sink22.i1193 = phi i32 [ 4, %5408 ], [ 3, %5404 ], [ 6, %5411 ]
   %5415 = getelementptr inbounds nuw i8, ptr %.sink25.i1192, i64 8
   %5416 = load ptr, ptr %5415, align 8, !tbaa !26
   %5417 = call fastcc ptr @cast(ptr noundef %84, ptr noundef %5416)
@@ -14392,8 +14392,8 @@ add.exit1190:                                     ; preds = %5441
   br i1 %5464, label %5466, label %mul.exit1187
 
 5466:                                             ; preds = %5463, %5460, %5456
-  %.sink25.i1185 = phi ptr [ %5459, %5456 ], [ %5462, %5460 ], [ %5465, %5463 ]
-  %.sink22.i1186 = phi i32 [ 3, %5456 ], [ 4, %5460 ], [ 6, %5463 ]
+  %.sink25.i1185 = phi ptr [ %5462, %5460 ], [ %5459, %5456 ], [ %5465, %5463 ]
+  %.sink22.i1186 = phi i32 [ 4, %5460 ], [ 3, %5456 ], [ 6, %5463 ]
   %5467 = getelementptr inbounds nuw i8, ptr %.sink25.i1185, i64 8
   %5468 = load ptr, ptr %5467, align 8, !tbaa !26
   %5469 = call fastcc ptr @cast(ptr noundef %86, ptr noundef %5468)
@@ -14443,8 +14443,8 @@ mul.exit1187:                                     ; preds = %5463
   br i1 %5488, label %5490, label %mul.exit1183
 
 5490:                                             ; preds = %5487, %5484, %5480
-  %.sink25.i1181 = phi ptr [ %5483, %5480 ], [ %5486, %5484 ], [ %5489, %5487 ]
-  %.sink22.i1182 = phi i32 [ 3, %5480 ], [ 4, %5484 ], [ 6, %5487 ]
+  %.sink25.i1181 = phi ptr [ %5486, %5484 ], [ %5483, %5480 ], [ %5489, %5487 ]
+  %.sink22.i1182 = phi i32 [ 4, %5484 ], [ 3, %5480 ], [ 6, %5487 ]
   %5491 = getelementptr inbounds nuw i8, ptr %.sink25.i1181, i64 8
   %5492 = load ptr, ptr %5491, align 8, !tbaa !26
   %5493 = call fastcc ptr @cast(ptr noundef %87, ptr noundef %5492)
@@ -14590,8 +14590,8 @@ new_add.exit1179:                                 ; preds = %5501, %.sink.split.
   br i1 %5557, label %5559, label %mul.exit1164
 
 5559:                                             ; preds = %5556, %5553, %5549
-  %.sink25.i1162 = phi ptr [ %5552, %5549 ], [ %5555, %5553 ], [ %5558, %5556 ]
-  %.sink22.i1163 = phi i32 [ 3, %5549 ], [ 4, %5553 ], [ 6, %5556 ]
+  %.sink25.i1162 = phi ptr [ %5555, %5553 ], [ %5552, %5549 ], [ %5558, %5556 ]
+  %.sink22.i1163 = phi i32 [ 4, %5553 ], [ 3, %5549 ], [ 6, %5556 ]
   %5560 = getelementptr inbounds nuw i8, ptr %.sink25.i1162, i64 8
   %5561 = load ptr, ptr %5560, align 8, !tbaa !26
   %5562 = call fastcc ptr @cast(ptr noundef %88, ptr noundef %5561)
@@ -14627,10 +14627,10 @@ add.exit.i344:                                    ; preds = %5543
   br label %5448
 
 shift.exit364:                                    ; preds = %5450, %5305, %5160, %5015
-  %.12001 = phi ptr [ %.02090, %5015 ], [ %.02087, %5160 ], [ %.02084, %5305 ], [ %.02081, %5450 ]
-  %.sink23.i182 = phi i32 [ 14, %5015 ], [ 15, %5160 ], [ 14, %5305 ], [ 15, %5450 ]
-  %.sink.i183 = phi ptr [ %.012.i181, %5015 ], [ %.012.i181, %5160 ], [ %.08.i347, %5305 ], [ %.08.i341, %5450 ]
-  %.012.sink.i184 = phi ptr [ %.08.i359, %5015 ], [ %.08.i353, %5160 ], [ %.012.i181, %5305 ], [ %.012.i181, %5450 ]
+  %.12001 = phi ptr [ %.02084, %5305 ], [ %.02090, %5015 ], [ %.02087, %5160 ], [ %.02081, %5450 ]
+  %.sink23.i182 = phi i32 [ 14, %5305 ], [ 14, %5015 ], [ 15, %5160 ], [ 15, %5450 ]
+  %.sink.i183 = phi ptr [ %.08.i347, %5305 ], [ %.012.i181, %5015 ], [ %.012.i181, %5160 ], [ %.08.i341, %5450 ]
+  %.012.sink.i184 = phi ptr [ %.012.i181, %5305 ], [ %.08.i359, %5015 ], [ %.08.i353, %5160 ], [ %.012.i181, %5450 ]
   %5572 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i182, ptr %5572, align 16, !tbaa !7
   %5573 = getelementptr inbounds nuw i8, ptr %5572, i64 24
@@ -14735,8 +14735,8 @@ add.exit1460:                                     ; preds = %5592
   br i1 %5615, label %5617, label %mul.exit1457
 
 5617:                                             ; preds = %5614, %5611, %5607
-  %.sink25.i1455 = phi ptr [ %5610, %5607 ], [ %5613, %5611 ], [ %5616, %5614 ]
-  %.sink22.i1456 = phi i32 [ 3, %5607 ], [ 4, %5611 ], [ 6, %5614 ]
+  %.sink25.i1455 = phi ptr [ %5613, %5611 ], [ %5610, %5607 ], [ %5616, %5614 ]
+  %.sink22.i1456 = phi i32 [ 4, %5611 ], [ 3, %5607 ], [ 6, %5614 ]
   %5618 = getelementptr inbounds nuw i8, ptr %.sink25.i1455, i64 8
   %5619 = load ptr, ptr %5618, align 8, !tbaa !26
   %5620 = call fastcc ptr @cast(ptr noundef %50, ptr noundef %5619)
@@ -14786,8 +14786,8 @@ mul.exit1457:                                     ; preds = %5614
   br i1 %5639, label %5641, label %mul.exit1453
 
 5641:                                             ; preds = %5638, %5635, %5631
-  %.sink25.i1451 = phi ptr [ %5634, %5631 ], [ %5637, %5635 ], [ %5640, %5638 ]
-  %.sink22.i1452 = phi i32 [ 3, %5631 ], [ 4, %5635 ], [ 6, %5638 ]
+  %.sink25.i1451 = phi ptr [ %5637, %5635 ], [ %5634, %5631 ], [ %5640, %5638 ]
+  %.sink22.i1452 = phi i32 [ 4, %5635 ], [ 3, %5631 ], [ 6, %5638 ]
   %5642 = getelementptr inbounds nuw i8, ptr %.sink25.i1451, i64 8
   %5643 = load ptr, ptr %5642, align 8, !tbaa !26
   %5644 = call fastcc ptr @cast(ptr noundef %51, ptr noundef %5643)
@@ -14933,8 +14933,8 @@ new_add.exit1449:                                 ; preds = %5652, %.sink.split.
   br i1 %5708, label %5710, label %mul.exit1434
 
 5710:                                             ; preds = %5707, %5704, %5700
-  %.sink25.i1432 = phi ptr [ %5703, %5700 ], [ %5706, %5704 ], [ %5709, %5707 ]
-  %.sink22.i1433 = phi i32 [ 3, %5700 ], [ 4, %5704 ], [ 6, %5707 ]
+  %.sink25.i1432 = phi ptr [ %5706, %5704 ], [ %5703, %5700 ], [ %5709, %5707 ]
+  %.sink22.i1433 = phi i32 [ 4, %5704 ], [ 3, %5700 ], [ 6, %5707 ]
   %5711 = getelementptr inbounds nuw i8, ptr %.sink25.i1432, i64 8
   %5712 = load ptr, ptr %5711, align 8, !tbaa !26
   %5713 = call fastcc ptr @cast(ptr noundef %52, ptr noundef %5712)
@@ -15052,8 +15052,8 @@ add.exit1430:                                     ; preds = %5736
   br i1 %5759, label %5761, label %mul.exit1427
 
 5761:                                             ; preds = %5758, %5755, %5751
-  %.sink25.i1425 = phi ptr [ %5754, %5751 ], [ %5757, %5755 ], [ %5760, %5758 ]
-  %.sink22.i1426 = phi i32 [ 3, %5751 ], [ 4, %5755 ], [ 6, %5758 ]
+  %.sink25.i1425 = phi ptr [ %5757, %5755 ], [ %5754, %5751 ], [ %5760, %5758 ]
+  %.sink22.i1426 = phi i32 [ 4, %5755 ], [ 3, %5751 ], [ 6, %5758 ]
   %5762 = getelementptr inbounds nuw i8, ptr %.sink25.i1425, i64 8
   %5763 = load ptr, ptr %5762, align 8, !tbaa !26
   %5764 = call fastcc ptr @cast(ptr noundef %54, ptr noundef %5763)
@@ -15103,8 +15103,8 @@ mul.exit1427:                                     ; preds = %5758
   br i1 %5783, label %5785, label %mul.exit1423
 
 5785:                                             ; preds = %5782, %5779, %5775
-  %.sink25.i1421 = phi ptr [ %5778, %5775 ], [ %5781, %5779 ], [ %5784, %5782 ]
-  %.sink22.i1422 = phi i32 [ 3, %5775 ], [ 4, %5779 ], [ 6, %5782 ]
+  %.sink25.i1421 = phi ptr [ %5781, %5779 ], [ %5778, %5775 ], [ %5784, %5782 ]
+  %.sink22.i1422 = phi i32 [ 4, %5779 ], [ 3, %5775 ], [ 6, %5782 ]
   %5786 = getelementptr inbounds nuw i8, ptr %.sink25.i1421, i64 8
   %5787 = load ptr, ptr %5786, align 8, !tbaa !26
   %5788 = call fastcc ptr @cast(ptr noundef %55, ptr noundef %5787)
@@ -15250,8 +15250,8 @@ new_add.exit1419:                                 ; preds = %5796, %.sink.split.
   br i1 %5852, label %5854, label %mul.exit1404
 
 5854:                                             ; preds = %5851, %5848, %5844
-  %.sink25.i1402 = phi ptr [ %5847, %5844 ], [ %5850, %5848 ], [ %5853, %5851 ]
-  %.sink22.i1403 = phi i32 [ 3, %5844 ], [ 4, %5848 ], [ 6, %5851 ]
+  %.sink25.i1402 = phi ptr [ %5850, %5848 ], [ %5847, %5844 ], [ %5853, %5851 ]
+  %.sink22.i1403 = phi i32 [ 4, %5848 ], [ 3, %5844 ], [ 6, %5851 ]
   %5855 = getelementptr inbounds nuw i8, ptr %.sink25.i1402, i64 8
   %5856 = load ptr, ptr %5855, align 8, !tbaa !26
   %5857 = call fastcc ptr @cast(ptr noundef %56, ptr noundef %5856)
@@ -15367,8 +15367,8 @@ add.exit1400:                                     ; preds = %5881
   br i1 %5904, label %5906, label %mul.exit1397
 
 5906:                                             ; preds = %5903, %5900, %5896
-  %.sink25.i1395 = phi ptr [ %5899, %5896 ], [ %5902, %5900 ], [ %5905, %5903 ]
-  %.sink22.i1396 = phi i32 [ 3, %5896 ], [ 4, %5900 ], [ 6, %5903 ]
+  %.sink25.i1395 = phi ptr [ %5902, %5900 ], [ %5899, %5896 ], [ %5905, %5903 ]
+  %.sink22.i1396 = phi i32 [ 4, %5900 ], [ 3, %5896 ], [ 6, %5903 ]
   %5907 = getelementptr inbounds nuw i8, ptr %.sink25.i1395, i64 8
   %5908 = load ptr, ptr %5907, align 8, !tbaa !26
   %5909 = call fastcc ptr @cast(ptr noundef %58, ptr noundef %5908)
@@ -15418,8 +15418,8 @@ mul.exit1397:                                     ; preds = %5903
   br i1 %5928, label %5930, label %mul.exit1393
 
 5930:                                             ; preds = %5927, %5924, %5920
-  %.sink25.i1391 = phi ptr [ %5923, %5920 ], [ %5926, %5924 ], [ %5929, %5927 ]
-  %.sink22.i1392 = phi i32 [ 3, %5920 ], [ 4, %5924 ], [ 6, %5927 ]
+  %.sink25.i1391 = phi ptr [ %5926, %5924 ], [ %5923, %5920 ], [ %5929, %5927 ]
+  %.sink22.i1392 = phi i32 [ 4, %5924 ], [ 3, %5920 ], [ 6, %5927 ]
   %5931 = getelementptr inbounds nuw i8, ptr %.sink25.i1391, i64 8
   %5932 = load ptr, ptr %5931, align 8, !tbaa !26
   %5933 = call fastcc ptr @cast(ptr noundef %59, ptr noundef %5932)
@@ -15565,8 +15565,8 @@ new_add.exit1389:                                 ; preds = %5941, %.sink.split.
   br i1 %5997, label %5999, label %mul.exit1374
 
 5999:                                             ; preds = %5996, %5993, %5989
-  %.sink25.i1372 = phi ptr [ %5992, %5989 ], [ %5995, %5993 ], [ %5998, %5996 ]
-  %.sink22.i1373 = phi i32 [ 3, %5989 ], [ 4, %5993 ], [ 6, %5996 ]
+  %.sink25.i1372 = phi ptr [ %5995, %5993 ], [ %5992, %5989 ], [ %5998, %5996 ]
+  %.sink22.i1373 = phi i32 [ 4, %5993 ], [ 3, %5989 ], [ 6, %5996 ]
   %6000 = getelementptr inbounds nuw i8, ptr %.sink25.i1372, i64 8
   %6001 = load ptr, ptr %6000, align 8, !tbaa !26
   %6002 = call fastcc ptr @cast(ptr noundef %60, ptr noundef %6001)
@@ -15682,8 +15682,8 @@ add.exit1370:                                     ; preds = %6026
   br i1 %6049, label %6051, label %mul.exit1367
 
 6051:                                             ; preds = %6048, %6045, %6041
-  %.sink25.i1365 = phi ptr [ %6044, %6041 ], [ %6047, %6045 ], [ %6050, %6048 ]
-  %.sink22.i1366 = phi i32 [ 3, %6041 ], [ 4, %6045 ], [ 6, %6048 ]
+  %.sink25.i1365 = phi ptr [ %6047, %6045 ], [ %6044, %6041 ], [ %6050, %6048 ]
+  %.sink22.i1366 = phi i32 [ 4, %6045 ], [ 3, %6041 ], [ 6, %6048 ]
   %6052 = getelementptr inbounds nuw i8, ptr %.sink25.i1365, i64 8
   %6053 = load ptr, ptr %6052, align 8, !tbaa !26
   %6054 = call fastcc ptr @cast(ptr noundef %62, ptr noundef %6053)
@@ -15733,8 +15733,8 @@ mul.exit1367:                                     ; preds = %6048
   br i1 %6073, label %6075, label %mul.exit1363
 
 6075:                                             ; preds = %6072, %6069, %6065
-  %.sink25.i1361 = phi ptr [ %6068, %6065 ], [ %6071, %6069 ], [ %6074, %6072 ]
-  %.sink22.i1362 = phi i32 [ 3, %6065 ], [ 4, %6069 ], [ 6, %6072 ]
+  %.sink25.i1361 = phi ptr [ %6071, %6069 ], [ %6068, %6065 ], [ %6074, %6072 ]
+  %.sink22.i1362 = phi i32 [ 4, %6069 ], [ 3, %6065 ], [ 6, %6072 ]
   %6076 = getelementptr inbounds nuw i8, ptr %.sink25.i1361, i64 8
   %6077 = load ptr, ptr %6076, align 8, !tbaa !26
   %6078 = call fastcc ptr @cast(ptr noundef %63, ptr noundef %6077)
@@ -15880,8 +15880,8 @@ new_add.exit1359:                                 ; preds = %6086, %.sink.split.
   br i1 %6142, label %6144, label %mul.exit1344
 
 6144:                                             ; preds = %6141, %6138, %6134
-  %.sink25.i1342 = phi ptr [ %6137, %6134 ], [ %6140, %6138 ], [ %6143, %6141 ]
-  %.sink22.i1343 = phi i32 [ 3, %6134 ], [ 4, %6138 ], [ 6, %6141 ]
+  %.sink25.i1342 = phi ptr [ %6140, %6138 ], [ %6137, %6134 ], [ %6143, %6141 ]
+  %.sink22.i1343 = phi i32 [ 4, %6138 ], [ 3, %6134 ], [ 6, %6141 ]
   %6145 = getelementptr inbounds nuw i8, ptr %.sink25.i1342, i64 8
   %6146 = load ptr, ptr %6145, align 8, !tbaa !26
   %6147 = call fastcc ptr @cast(ptr noundef %64, ptr noundef %6146)
@@ -15997,8 +15997,8 @@ add.exit1340:                                     ; preds = %6171
   br i1 %6194, label %6196, label %mul.exit1337
 
 6196:                                             ; preds = %6193, %6190, %6186
-  %.sink25.i1335 = phi ptr [ %6189, %6186 ], [ %6192, %6190 ], [ %6195, %6193 ]
-  %.sink22.i1336 = phi i32 [ 3, %6186 ], [ 4, %6190 ], [ 6, %6193 ]
+  %.sink25.i1335 = phi ptr [ %6192, %6190 ], [ %6189, %6186 ], [ %6195, %6193 ]
+  %.sink22.i1336 = phi i32 [ 4, %6190 ], [ 3, %6186 ], [ 6, %6193 ]
   %6197 = getelementptr inbounds nuw i8, ptr %.sink25.i1335, i64 8
   %6198 = load ptr, ptr %6197, align 8, !tbaa !26
   %6199 = call fastcc ptr @cast(ptr noundef %66, ptr noundef %6198)
@@ -16048,8 +16048,8 @@ mul.exit1337:                                     ; preds = %6193
   br i1 %6218, label %6220, label %mul.exit1333
 
 6220:                                             ; preds = %6217, %6214, %6210
-  %.sink25.i1331 = phi ptr [ %6213, %6210 ], [ %6216, %6214 ], [ %6219, %6217 ]
-  %.sink22.i1332 = phi i32 [ 3, %6210 ], [ 4, %6214 ], [ 6, %6217 ]
+  %.sink25.i1331 = phi ptr [ %6216, %6214 ], [ %6213, %6210 ], [ %6219, %6217 ]
+  %.sink22.i1332 = phi i32 [ 4, %6214 ], [ 3, %6210 ], [ 6, %6217 ]
   %6221 = getelementptr inbounds nuw i8, ptr %.sink25.i1331, i64 8
   %6222 = load ptr, ptr %6221, align 8, !tbaa !26
   %6223 = call fastcc ptr @cast(ptr noundef %67, ptr noundef %6222)
@@ -16195,8 +16195,8 @@ new_add.exit1329:                                 ; preds = %6231, %.sink.split.
   br i1 %6287, label %6289, label %mul.exit1314
 
 6289:                                             ; preds = %6286, %6283, %6279
-  %.sink25.i1312 = phi ptr [ %6282, %6279 ], [ %6285, %6283 ], [ %6288, %6286 ]
-  %.sink22.i1313 = phi i32 [ 3, %6279 ], [ 4, %6283 ], [ 6, %6286 ]
+  %.sink25.i1312 = phi ptr [ %6285, %6283 ], [ %6282, %6279 ], [ %6288, %6286 ]
+  %.sink22.i1313 = phi i32 [ 4, %6283 ], [ 3, %6279 ], [ 6, %6286 ]
   %6290 = getelementptr inbounds nuw i8, ptr %.sink25.i1312, i64 8
   %6291 = load ptr, ptr %6290, align 8, !tbaa !26
   %6292 = call fastcc ptr @cast(ptr noundef %68, ptr noundef %6291)
@@ -16232,10 +16232,10 @@ add.exit.i374:                                    ; preds = %6273
   br label %6178
 
 shift.exit394:                                    ; preds = %6180, %6035, %5890, %5745
-  %.12003 = phi ptr [ %.02105, %5745 ], [ %.02102, %5890 ], [ %.02099, %6035 ], [ %.02096, %6180 ]
-  %.sink23.i187 = phi i32 [ 14, %5745 ], [ 15, %5890 ], [ 14, %6035 ], [ 15, %6180 ]
-  %.sink.i188 = phi ptr [ %.012.i186, %5745 ], [ %.012.i186, %5890 ], [ %.08.i377, %6035 ], [ %.08.i371, %6180 ]
-  %.012.sink.i189 = phi ptr [ %.08.i389, %5745 ], [ %.08.i383, %5890 ], [ %.012.i186, %6035 ], [ %.012.i186, %6180 ]
+  %.12003 = phi ptr [ %.02099, %6035 ], [ %.02105, %5745 ], [ %.02102, %5890 ], [ %.02096, %6180 ]
+  %.sink23.i187 = phi i32 [ 14, %6035 ], [ 14, %5745 ], [ 15, %5890 ], [ 15, %6180 ]
+  %.sink.i188 = phi ptr [ %.08.i377, %6035 ], [ %.012.i186, %5745 ], [ %.012.i186, %5890 ], [ %.08.i371, %6180 ]
+  %.012.sink.i189 = phi ptr [ %.012.i186, %6035 ], [ %.08.i389, %5745 ], [ %.08.i383, %5890 ], [ %.012.i186, %6180 ]
   %6302 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i187, ptr %6302, align 16, !tbaa !7
   %6303 = getelementptr inbounds nuw i8, ptr %6302, i64 24
@@ -16334,8 +16334,8 @@ add.exit1610:                                     ; preds = %6321
   br i1 %6344, label %6346, label %mul.exit1607
 
 6346:                                             ; preds = %6343, %6340, %6336
-  %.sink25.i1605 = phi ptr [ %6339, %6336 ], [ %6342, %6340 ], [ %6345, %6343 ]
-  %.sink22.i1606 = phi i32 [ 3, %6336 ], [ 4, %6340 ], [ 6, %6343 ]
+  %.sink25.i1605 = phi ptr [ %6342, %6340 ], [ %6339, %6336 ], [ %6345, %6343 ]
+  %.sink22.i1606 = phi i32 [ 4, %6340 ], [ 3, %6336 ], [ 6, %6343 ]
   %6347 = getelementptr inbounds nuw i8, ptr %.sink25.i1605, i64 8
   %6348 = load ptr, ptr %6347, align 8, !tbaa !26
   %6349 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %6348)
@@ -16385,8 +16385,8 @@ mul.exit1607:                                     ; preds = %6343
   br i1 %6368, label %6370, label %mul.exit1603
 
 6370:                                             ; preds = %6367, %6364, %6360
-  %.sink25.i1601 = phi ptr [ %6363, %6360 ], [ %6366, %6364 ], [ %6369, %6367 ]
-  %.sink22.i1602 = phi i32 [ 3, %6360 ], [ 4, %6364 ], [ 6, %6367 ]
+  %.sink25.i1601 = phi ptr [ %6366, %6364 ], [ %6363, %6360 ], [ %6369, %6367 ]
+  %.sink22.i1602 = phi i32 [ 4, %6364 ], [ 3, %6360 ], [ 6, %6367 ]
   %6371 = getelementptr inbounds nuw i8, ptr %.sink25.i1601, i64 8
   %6372 = load ptr, ptr %6371, align 8, !tbaa !26
   %6373 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %6372)
@@ -16532,8 +16532,8 @@ new_add.exit1599:                                 ; preds = %6381, %.sink.split.
   br i1 %6437, label %6439, label %mul.exit1584
 
 6439:                                             ; preds = %6436, %6433, %6429
-  %.sink25.i1582 = phi ptr [ %6432, %6429 ], [ %6435, %6433 ], [ %6438, %6436 ]
-  %.sink22.i1583 = phi i32 [ 3, %6429 ], [ 4, %6433 ], [ 6, %6436 ]
+  %.sink25.i1582 = phi ptr [ %6435, %6433 ], [ %6432, %6429 ], [ %6438, %6436 ]
+  %.sink22.i1583 = phi i32 [ 4, %6433 ], [ 3, %6429 ], [ 6, %6436 ]
   %6440 = getelementptr inbounds nuw i8, ptr %.sink25.i1582, i64 8
   %6441 = load ptr, ptr %6440, align 8, !tbaa !26
   %6442 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %6441)
@@ -16651,8 +16651,8 @@ add.exit1580:                                     ; preds = %6465
   br i1 %6488, label %6490, label %mul.exit1577
 
 6490:                                             ; preds = %6487, %6484, %6480
-  %.sink25.i1575 = phi ptr [ %6483, %6480 ], [ %6486, %6484 ], [ %6489, %6487 ]
-  %.sink22.i1576 = phi i32 [ 3, %6480 ], [ 4, %6484 ], [ 6, %6487 ]
+  %.sink25.i1575 = phi ptr [ %6486, %6484 ], [ %6483, %6480 ], [ %6489, %6487 ]
+  %.sink22.i1576 = phi i32 [ 4, %6484 ], [ 3, %6480 ], [ 6, %6487 ]
   %6491 = getelementptr inbounds nuw i8, ptr %.sink25.i1575, i64 8
   %6492 = load ptr, ptr %6491, align 8, !tbaa !26
   %6493 = call fastcc ptr @cast(ptr noundef %34, ptr noundef %6492)
@@ -16702,8 +16702,8 @@ mul.exit1577:                                     ; preds = %6487
   br i1 %6512, label %6514, label %mul.exit1573
 
 6514:                                             ; preds = %6511, %6508, %6504
-  %.sink25.i1571 = phi ptr [ %6507, %6504 ], [ %6510, %6508 ], [ %6513, %6511 ]
-  %.sink22.i1572 = phi i32 [ 3, %6504 ], [ 4, %6508 ], [ 6, %6511 ]
+  %.sink25.i1571 = phi ptr [ %6510, %6508 ], [ %6507, %6504 ], [ %6513, %6511 ]
+  %.sink22.i1572 = phi i32 [ 4, %6508 ], [ 3, %6504 ], [ 6, %6511 ]
   %6515 = getelementptr inbounds nuw i8, ptr %.sink25.i1571, i64 8
   %6516 = load ptr, ptr %6515, align 8, !tbaa !26
   %6517 = call fastcc ptr @cast(ptr noundef %35, ptr noundef %6516)
@@ -16849,8 +16849,8 @@ new_add.exit1569:                                 ; preds = %6525, %.sink.split.
   br i1 %6581, label %6583, label %mul.exit1554
 
 6583:                                             ; preds = %6580, %6577, %6573
-  %.sink25.i1552 = phi ptr [ %6576, %6573 ], [ %6579, %6577 ], [ %6582, %6580 ]
-  %.sink22.i1553 = phi i32 [ 3, %6573 ], [ 4, %6577 ], [ 6, %6580 ]
+  %.sink25.i1552 = phi ptr [ %6579, %6577 ], [ %6576, %6573 ], [ %6582, %6580 ]
+  %.sink22.i1553 = phi i32 [ 4, %6577 ], [ 3, %6573 ], [ 6, %6580 ]
   %6584 = getelementptr inbounds nuw i8, ptr %.sink25.i1552, i64 8
   %6585 = load ptr, ptr %6584, align 8, !tbaa !26
   %6586 = call fastcc ptr @cast(ptr noundef %36, ptr noundef %6585)
@@ -16966,8 +16966,8 @@ add.exit1550:                                     ; preds = %6610
   br i1 %6633, label %6635, label %mul.exit1547
 
 6635:                                             ; preds = %6632, %6629, %6625
-  %.sink25.i1545 = phi ptr [ %6628, %6625 ], [ %6631, %6629 ], [ %6634, %6632 ]
-  %.sink22.i1546 = phi i32 [ 3, %6625 ], [ 4, %6629 ], [ 6, %6632 ]
+  %.sink25.i1545 = phi ptr [ %6631, %6629 ], [ %6628, %6625 ], [ %6634, %6632 ]
+  %.sink22.i1546 = phi i32 [ 4, %6629 ], [ 3, %6625 ], [ 6, %6632 ]
   %6636 = getelementptr inbounds nuw i8, ptr %.sink25.i1545, i64 8
   %6637 = load ptr, ptr %6636, align 8, !tbaa !26
   %6638 = call fastcc ptr @cast(ptr noundef %38, ptr noundef %6637)
@@ -17017,8 +17017,8 @@ mul.exit1547:                                     ; preds = %6632
   br i1 %6657, label %6659, label %mul.exit1543
 
 6659:                                             ; preds = %6656, %6653, %6649
-  %.sink25.i1541 = phi ptr [ %6652, %6649 ], [ %6655, %6653 ], [ %6658, %6656 ]
-  %.sink22.i1542 = phi i32 [ 3, %6649 ], [ 4, %6653 ], [ 6, %6656 ]
+  %.sink25.i1541 = phi ptr [ %6655, %6653 ], [ %6652, %6649 ], [ %6658, %6656 ]
+  %.sink22.i1542 = phi i32 [ 4, %6653 ], [ 3, %6649 ], [ 6, %6656 ]
   %6660 = getelementptr inbounds nuw i8, ptr %.sink25.i1541, i64 8
   %6661 = load ptr, ptr %6660, align 8, !tbaa !26
   %6662 = call fastcc ptr @cast(ptr noundef %39, ptr noundef %6661)
@@ -17164,8 +17164,8 @@ new_add.exit1539:                                 ; preds = %6670, %.sink.split.
   br i1 %6726, label %6728, label %mul.exit1524
 
 6728:                                             ; preds = %6725, %6722, %6718
-  %.sink25.i1522 = phi ptr [ %6721, %6718 ], [ %6724, %6722 ], [ %6727, %6725 ]
-  %.sink22.i1523 = phi i32 [ 3, %6718 ], [ 4, %6722 ], [ 6, %6725 ]
+  %.sink25.i1522 = phi ptr [ %6724, %6722 ], [ %6721, %6718 ], [ %6727, %6725 ]
+  %.sink22.i1523 = phi i32 [ 4, %6722 ], [ 3, %6718 ], [ 6, %6725 ]
   %6729 = getelementptr inbounds nuw i8, ptr %.sink25.i1522, i64 8
   %6730 = load ptr, ptr %6729, align 8, !tbaa !26
   %6731 = call fastcc ptr @cast(ptr noundef %40, ptr noundef %6730)
@@ -17281,8 +17281,8 @@ add.exit1520:                                     ; preds = %6755
   br i1 %6778, label %6780, label %mul.exit1517
 
 6780:                                             ; preds = %6777, %6774, %6770
-  %.sink25.i1515 = phi ptr [ %6773, %6770 ], [ %6776, %6774 ], [ %6779, %6777 ]
-  %.sink22.i1516 = phi i32 [ 3, %6770 ], [ 4, %6774 ], [ 6, %6777 ]
+  %.sink25.i1515 = phi ptr [ %6776, %6774 ], [ %6773, %6770 ], [ %6779, %6777 ]
+  %.sink22.i1516 = phi i32 [ 4, %6774 ], [ 3, %6770 ], [ 6, %6777 ]
   %6781 = getelementptr inbounds nuw i8, ptr %.sink25.i1515, i64 8
   %6782 = load ptr, ptr %6781, align 8, !tbaa !26
   %6783 = call fastcc ptr @cast(ptr noundef %42, ptr noundef %6782)
@@ -17332,8 +17332,8 @@ mul.exit1517:                                     ; preds = %6777
   br i1 %6802, label %6804, label %mul.exit1513
 
 6804:                                             ; preds = %6801, %6798, %6794
-  %.sink25.i1511 = phi ptr [ %6797, %6794 ], [ %6800, %6798 ], [ %6803, %6801 ]
-  %.sink22.i1512 = phi i32 [ 3, %6794 ], [ 4, %6798 ], [ 6, %6801 ]
+  %.sink25.i1511 = phi ptr [ %6800, %6798 ], [ %6797, %6794 ], [ %6803, %6801 ]
+  %.sink22.i1512 = phi i32 [ 4, %6798 ], [ 3, %6794 ], [ 6, %6801 ]
   %6805 = getelementptr inbounds nuw i8, ptr %.sink25.i1511, i64 8
   %6806 = load ptr, ptr %6805, align 8, !tbaa !26
   %6807 = call fastcc ptr @cast(ptr noundef %43, ptr noundef %6806)
@@ -17479,8 +17479,8 @@ new_add.exit1509:                                 ; preds = %6815, %.sink.split.
   br i1 %6871, label %6873, label %mul.exit1494
 
 6873:                                             ; preds = %6870, %6867, %6863
-  %.sink25.i1492 = phi ptr [ %6866, %6863 ], [ %6869, %6867 ], [ %6872, %6870 ]
-  %.sink22.i1493 = phi i32 [ 3, %6863 ], [ 4, %6867 ], [ 6, %6870 ]
+  %.sink25.i1492 = phi ptr [ %6869, %6867 ], [ %6866, %6863 ], [ %6872, %6870 ]
+  %.sink22.i1493 = phi i32 [ 4, %6867 ], [ 3, %6863 ], [ 6, %6870 ]
   %6874 = getelementptr inbounds nuw i8, ptr %.sink25.i1492, i64 8
   %6875 = load ptr, ptr %6874, align 8, !tbaa !26
   %6876 = call fastcc ptr @cast(ptr noundef %44, ptr noundef %6875)
@@ -17596,8 +17596,8 @@ add.exit1490:                                     ; preds = %6900
   br i1 %6923, label %6925, label %mul.exit1487
 
 6925:                                             ; preds = %6922, %6919, %6915
-  %.sink25.i1485 = phi ptr [ %6918, %6915 ], [ %6921, %6919 ], [ %6924, %6922 ]
-  %.sink22.i1486 = phi i32 [ 3, %6915 ], [ 4, %6919 ], [ 6, %6922 ]
+  %.sink25.i1485 = phi ptr [ %6921, %6919 ], [ %6918, %6915 ], [ %6924, %6922 ]
+  %.sink22.i1486 = phi i32 [ 4, %6919 ], [ 3, %6915 ], [ 6, %6922 ]
   %6926 = getelementptr inbounds nuw i8, ptr %.sink25.i1485, i64 8
   %6927 = load ptr, ptr %6926, align 8, !tbaa !26
   %6928 = call fastcc ptr @cast(ptr noundef %46, ptr noundef %6927)
@@ -17647,8 +17647,8 @@ mul.exit1487:                                     ; preds = %6922
   br i1 %6947, label %6949, label %mul.exit1483
 
 6949:                                             ; preds = %6946, %6943, %6939
-  %.sink25.i1481 = phi ptr [ %6942, %6939 ], [ %6945, %6943 ], [ %6948, %6946 ]
-  %.sink22.i1482 = phi i32 [ 3, %6939 ], [ 4, %6943 ], [ 6, %6946 ]
+  %.sink25.i1481 = phi ptr [ %6945, %6943 ], [ %6942, %6939 ], [ %6948, %6946 ]
+  %.sink22.i1482 = phi i32 [ 4, %6943 ], [ 3, %6939 ], [ 6, %6946 ]
   %6950 = getelementptr inbounds nuw i8, ptr %.sink25.i1481, i64 8
   %6951 = load ptr, ptr %6950, align 8, !tbaa !26
   %6952 = call fastcc ptr @cast(ptr noundef %47, ptr noundef %6951)
@@ -17794,8 +17794,8 @@ new_add.exit1479:                                 ; preds = %6960, %.sink.split.
   br i1 %7016, label %7018, label %mul.exit1464
 
 7018:                                             ; preds = %7015, %7012, %7008
-  %.sink25.i1462 = phi ptr [ %7011, %7008 ], [ %7014, %7012 ], [ %7017, %7015 ]
-  %.sink22.i1463 = phi i32 [ 3, %7008 ], [ 4, %7012 ], [ 6, %7015 ]
+  %.sink25.i1462 = phi ptr [ %7014, %7012 ], [ %7011, %7008 ], [ %7017, %7015 ]
+  %.sink22.i1463 = phi i32 [ 4, %7012 ], [ 3, %7008 ], [ 6, %7015 ]
   %7019 = getelementptr inbounds nuw i8, ptr %.sink25.i1462, i64 8
   %7020 = load ptr, ptr %7019, align 8, !tbaa !26
   %7021 = call fastcc ptr @cast(ptr noundef %48, ptr noundef %7020)
@@ -17831,10 +17831,10 @@ add.exit.i404:                                    ; preds = %7002
   br label %6907
 
 shift.exit424:                                    ; preds = %6909, %6764, %6619, %6474
-  %.12005 = phi ptr [ %.02120, %6474 ], [ %.02117, %6619 ], [ %.02114, %6764 ], [ %.02111, %6909 ]
-  %.sink23.i192 = phi i32 [ 14, %6474 ], [ 15, %6619 ], [ 14, %6764 ], [ 15, %6909 ]
-  %.sink.i193 = phi ptr [ %.012.i191, %6474 ], [ %.012.i191, %6619 ], [ %.08.i407, %6764 ], [ %.08.i401, %6909 ]
-  %.012.sink.i194 = phi ptr [ %.08.i419, %6474 ], [ %.08.i413, %6619 ], [ %.012.i191, %6764 ], [ %.012.i191, %6909 ]
+  %.12005 = phi ptr [ %.02114, %6764 ], [ %.02120, %6474 ], [ %.02117, %6619 ], [ %.02111, %6909 ]
+  %.sink23.i192 = phi i32 [ 14, %6764 ], [ 14, %6474 ], [ 15, %6619 ], [ 15, %6909 ]
+  %.sink.i193 = phi ptr [ %.08.i407, %6764 ], [ %.012.i191, %6474 ], [ %.012.i191, %6619 ], [ %.08.i401, %6909 ]
+  %.012.sink.i194 = phi ptr [ %.012.i191, %6764 ], [ %.08.i419, %6474 ], [ %.08.i413, %6619 ], [ %.012.i191, %6909 ]
   %7031 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i192, ptr %7031, align 16, !tbaa !7
   %7032 = getelementptr inbounds nuw i8, ptr %7031, i64 24
@@ -18103,8 +18103,8 @@ add.exit235:                                      ; preds = %92
   br i1 %115, label %117, label %mul.exit232
 
 117:                                              ; preds = %114, %111, %107
-  %.sink25.i230 = phi ptr [ %110, %107 ], [ %113, %111 ], [ %116, %114 ]
-  %.sink22.i231 = phi i32 [ 3, %107 ], [ 4, %111 ], [ 6, %114 ]
+  %.sink25.i230 = phi ptr [ %113, %111 ], [ %110, %107 ], [ %116, %114 ]
+  %.sink22.i231 = phi i32 [ 4, %111 ], [ 3, %107 ], [ 6, %114 ]
   %118 = getelementptr inbounds nuw i8, ptr %.sink25.i230, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !26
   %120 = call fastcc ptr @cast(ptr noundef %42, ptr noundef %119)
@@ -18154,8 +18154,8 @@ mul.exit232:                                      ; preds = %114
   br i1 %139, label %141, label %mul.exit228
 
 141:                                              ; preds = %138, %135, %131
-  %.sink25.i226 = phi ptr [ %134, %131 ], [ %137, %135 ], [ %140, %138 ]
-  %.sink22.i227 = phi i32 [ 3, %131 ], [ 4, %135 ], [ 6, %138 ]
+  %.sink25.i226 = phi ptr [ %137, %135 ], [ %134, %131 ], [ %140, %138 ]
+  %.sink22.i227 = phi i32 [ 4, %135 ], [ 3, %131 ], [ 6, %138 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sink25.i226, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !26
   %144 = call fastcc ptr @cast(ptr noundef %43, ptr noundef %143)
@@ -18301,8 +18301,8 @@ new_add.exit224:                                  ; preds = %152, %.sink.split.i
   br i1 %208, label %210, label %mul.exit209
 
 210:                                              ; preds = %207, %204, %200
-  %.sink25.i207 = phi ptr [ %203, %200 ], [ %206, %204 ], [ %209, %207 ]
-  %.sink22.i208 = phi i32 [ 3, %200 ], [ 4, %204 ], [ 6, %207 ]
+  %.sink25.i207 = phi ptr [ %206, %204 ], [ %203, %200 ], [ %209, %207 ]
+  %.sink22.i208 = phi i32 [ 4, %204 ], [ 3, %200 ], [ 6, %207 ]
   %211 = getelementptr inbounds nuw i8, ptr %.sink25.i207, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !26
   %213 = call fastcc ptr @cast(ptr noundef %44, ptr noundef %212)
@@ -18383,8 +18383,8 @@ shift.exit75:                                     ; preds = %101, %shift.exit69
   br i1 %243, label %245, label %mul.exit477
 
 245:                                              ; preds = %242, %239, %235
-  %.sink25.i475 = phi ptr [ %238, %235 ], [ %241, %239 ], [ %244, %242 ]
-  %.sink22.i476 = phi i32 [ 3, %235 ], [ 4, %239 ], [ 6, %242 ]
+  %.sink25.i475 = phi ptr [ %241, %239 ], [ %238, %235 ], [ %244, %242 ]
+  %.sink22.i476 = phi i32 [ 4, %239 ], [ 3, %235 ], [ 6, %242 ]
   %246 = getelementptr inbounds nuw i8, ptr %.sink25.i475, i64 8
   %247 = load ptr, ptr %246, align 8, !tbaa !26
   %248 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %247)
@@ -18531,8 +18531,8 @@ new_add.exit473:                                  ; preds = %256, %.sink.split.i
   br i1 %312, label %314, label %mul.exit458
 
 314:                                              ; preds = %311, %308, %304
-  %.sink25.i456 = phi ptr [ %307, %304 ], [ %310, %308 ], [ %313, %311 ]
-  %.sink22.i457 = phi i32 [ 3, %304 ], [ 4, %308 ], [ 6, %311 ]
+  %.sink25.i456 = phi ptr [ %310, %308 ], [ %307, %304 ], [ %313, %311 ]
+  %.sink22.i457 = phi i32 [ 4, %308 ], [ 3, %304 ], [ 6, %311 ]
   %315 = getelementptr inbounds nuw i8, ptr %.sink25.i456, i64 8
   %316 = load ptr, ptr %315, align 8, !tbaa !26
   %317 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %316)
@@ -18597,8 +18597,8 @@ add.exit205:                                      ; preds = %298
   br i1 %339, label %341, label %mul.exit202
 
 341:                                              ; preds = %338, %335, %331
-  %.sink25.i200 = phi ptr [ %334, %331 ], [ %337, %335 ], [ %340, %338 ]
-  %.sink22.i201 = phi i32 [ 3, %331 ], [ 4, %335 ], [ 6, %338 ]
+  %.sink25.i200 = phi ptr [ %337, %335 ], [ %334, %331 ], [ %340, %338 ]
+  %.sink22.i201 = phi i32 [ 4, %335 ], [ 3, %331 ], [ 6, %338 ]
   %342 = getelementptr inbounds nuw i8, ptr %.sink25.i200, i64 8
   %343 = load ptr, ptr %342, align 8, !tbaa !26
   %344 = call fastcc ptr @cast(ptr noundef %46, ptr noundef %343)
@@ -18648,8 +18648,8 @@ mul.exit202:                                      ; preds = %338
   br i1 %363, label %365, label %mul.exit198
 
 365:                                              ; preds = %362, %359, %355
-  %.sink25.i196 = phi ptr [ %358, %355 ], [ %361, %359 ], [ %364, %362 ]
-  %.sink22.i197 = phi i32 [ 3, %355 ], [ 4, %359 ], [ 6, %362 ]
+  %.sink25.i196 = phi ptr [ %361, %359 ], [ %358, %355 ], [ %364, %362 ]
+  %.sink22.i197 = phi i32 [ 4, %359 ], [ 3, %355 ], [ 6, %362 ]
   %366 = getelementptr inbounds nuw i8, ptr %.sink25.i196, i64 8
   %367 = load ptr, ptr %366, align 8, !tbaa !26
   %368 = call fastcc ptr @cast(ptr noundef %47, ptr noundef %367)
@@ -18795,8 +18795,8 @@ new_add.exit194:                                  ; preds = %376, %.sink.split.i
   br i1 %432, label %434, label %mul.exit179
 
 434:                                              ; preds = %431, %428, %424
-  %.sink25.i177 = phi ptr [ %427, %424 ], [ %430, %428 ], [ %433, %431 ]
-  %.sink22.i178 = phi i32 [ 3, %424 ], [ 4, %428 ], [ 6, %431 ]
+  %.sink25.i177 = phi ptr [ %430, %428 ], [ %427, %424 ], [ %433, %431 ]
+  %.sink22.i178 = phi i32 [ 4, %428 ], [ 3, %424 ], [ 6, %431 ]
   %435 = getelementptr inbounds nuw i8, ptr %.sink25.i177, i64 8
   %436 = load ptr, ptr %435, align 8, !tbaa !26
   %437 = call fastcc ptr @cast(ptr noundef %48, ptr noundef %436)
@@ -18875,8 +18875,8 @@ add.exit.i67:                                     ; preds = %418
   br i1 %468, label %470, label %mul.exit454
 
 470:                                              ; preds = %467, %464, %460
-  %.sink25.i452 = phi ptr [ %463, %460 ], [ %466, %464 ], [ %469, %467 ]
-  %.sink22.i453 = phi i32 [ 3, %460 ], [ 4, %464 ], [ 6, %467 ]
+  %.sink25.i452 = phi ptr [ %466, %464 ], [ %463, %460 ], [ %469, %467 ]
+  %.sink22.i453 = phi i32 [ 4, %464 ], [ 3, %460 ], [ 6, %467 ]
   %471 = getelementptr inbounds nuw i8, ptr %.sink25.i452, i64 8
   %472 = load ptr, ptr %471, align 8, !tbaa !26
   %473 = call fastcc ptr @cast(ptr noundef %17, ptr noundef %472)
@@ -19023,8 +19023,8 @@ new_add.exit450:                                  ; preds = %481, %.sink.split.i
   br i1 %537, label %539, label %mul.exit435
 
 539:                                              ; preds = %536, %533, %529
-  %.sink25.i433 = phi ptr [ %532, %529 ], [ %535, %533 ], [ %538, %536 ]
-  %.sink22.i434 = phi i32 [ 3, %529 ], [ 4, %533 ], [ 6, %536 ]
+  %.sink25.i433 = phi ptr [ %535, %533 ], [ %532, %529 ], [ %538, %536 ]
+  %.sink22.i434 = phi i32 [ 4, %533 ], [ 3, %529 ], [ 6, %536 ]
   %540 = getelementptr inbounds nuw i8, ptr %.sink25.i433, i64 8
   %541 = load ptr, ptr %540, align 8, !tbaa !26
   %542 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %541)
@@ -19089,8 +19089,8 @@ add.exit175:                                      ; preds = %523
   br i1 %564, label %566, label %mul.exit172
 
 566:                                              ; preds = %563, %560, %556
-  %.sink25.i170 = phi ptr [ %559, %556 ], [ %562, %560 ], [ %565, %563 ]
-  %.sink22.i171 = phi i32 [ 3, %556 ], [ 4, %560 ], [ 6, %563 ]
+  %.sink25.i170 = phi ptr [ %562, %560 ], [ %559, %556 ], [ %565, %563 ]
+  %.sink22.i171 = phi i32 [ 4, %560 ], [ 3, %556 ], [ 6, %563 ]
   %567 = getelementptr inbounds nuw i8, ptr %.sink25.i170, i64 8
   %568 = load ptr, ptr %567, align 8, !tbaa !26
   %569 = call fastcc ptr @cast(ptr noundef %50, ptr noundef %568)
@@ -19140,8 +19140,8 @@ mul.exit172:                                      ; preds = %563
   br i1 %588, label %590, label %mul.exit168
 
 590:                                              ; preds = %587, %584, %580
-  %.sink25.i166 = phi ptr [ %583, %580 ], [ %586, %584 ], [ %589, %587 ]
-  %.sink22.i167 = phi i32 [ 3, %580 ], [ 4, %584 ], [ 6, %587 ]
+  %.sink25.i166 = phi ptr [ %586, %584 ], [ %583, %580 ], [ %589, %587 ]
+  %.sink22.i167 = phi i32 [ 4, %584 ], [ 3, %580 ], [ 6, %587 ]
   %591 = getelementptr inbounds nuw i8, ptr %.sink25.i166, i64 8
   %592 = load ptr, ptr %591, align 8, !tbaa !26
   %593 = call fastcc ptr @cast(ptr noundef %51, ptr noundef %592)
@@ -19287,8 +19287,8 @@ new_add.exit164:                                  ; preds = %601, %.sink.split.i
   br i1 %657, label %659, label %mul.exit149
 
 659:                                              ; preds = %656, %653, %649
-  %.sink25.i147 = phi ptr [ %652, %649 ], [ %655, %653 ], [ %658, %656 ]
-  %.sink22.i148 = phi i32 [ 3, %649 ], [ 4, %653 ], [ 6, %656 ]
+  %.sink25.i147 = phi ptr [ %655, %653 ], [ %652, %649 ], [ %658, %656 ]
+  %.sink22.i148 = phi i32 [ 4, %653 ], [ 3, %649 ], [ 6, %656 ]
   %660 = getelementptr inbounds nuw i8, ptr %.sink25.i147, i64 8
   %661 = load ptr, ptr %660, align 8, !tbaa !26
   %662 = call fastcc ptr @cast(ptr noundef %52, ptr noundef %661)
@@ -19367,8 +19367,8 @@ add.exit.i61:                                     ; preds = %643
   br i1 %693, label %695, label %mul.exit431
 
 695:                                              ; preds = %692, %689, %685
-  %.sink25.i429 = phi ptr [ %688, %685 ], [ %691, %689 ], [ %694, %692 ]
-  %.sink22.i430 = phi i32 [ 3, %685 ], [ 4, %689 ], [ 6, %692 ]
+  %.sink25.i429 = phi ptr [ %691, %689 ], [ %688, %685 ], [ %694, %692 ]
+  %.sink22.i430 = phi i32 [ 4, %689 ], [ 3, %685 ], [ 6, %692 ]
   %696 = getelementptr inbounds nuw i8, ptr %.sink25.i429, i64 8
   %697 = load ptr, ptr %696, align 8, !tbaa !26
   %698 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %697)
@@ -19515,8 +19515,8 @@ new_add.exit427:                                  ; preds = %706, %.sink.split.i
   br i1 %762, label %764, label %mul.exit412
 
 764:                                              ; preds = %761, %758, %754
-  %.sink25.i410 = phi ptr [ %757, %754 ], [ %760, %758 ], [ %763, %761 ]
-  %.sink22.i411 = phi i32 [ 3, %754 ], [ 4, %758 ], [ 6, %761 ]
+  %.sink25.i410 = phi ptr [ %760, %758 ], [ %757, %754 ], [ %763, %761 ]
+  %.sink22.i411 = phi i32 [ 4, %758 ], [ 3, %754 ], [ 6, %761 ]
   %765 = getelementptr inbounds nuw i8, ptr %.sink25.i410, i64 8
   %766 = load ptr, ptr %765, align 8, !tbaa !26
   %767 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %766)
@@ -19581,8 +19581,8 @@ add.exit145:                                      ; preds = %748
   br i1 %789, label %791, label %mul.exit142
 
 791:                                              ; preds = %788, %785, %781
-  %.sink25.i140 = phi ptr [ %784, %781 ], [ %787, %785 ], [ %790, %788 ]
-  %.sink22.i141 = phi i32 [ 3, %781 ], [ 4, %785 ], [ 6, %788 ]
+  %.sink25.i140 = phi ptr [ %787, %785 ], [ %784, %781 ], [ %790, %788 ]
+  %.sink22.i141 = phi i32 [ 4, %785 ], [ 3, %781 ], [ 6, %788 ]
   %792 = getelementptr inbounds nuw i8, ptr %.sink25.i140, i64 8
   %793 = load ptr, ptr %792, align 8, !tbaa !26
   %794 = call fastcc ptr @cast(ptr noundef %54, ptr noundef %793)
@@ -19632,8 +19632,8 @@ mul.exit142:                                      ; preds = %788
   br i1 %813, label %815, label %mul.exit138
 
 815:                                              ; preds = %812, %809, %805
-  %.sink25.i136 = phi ptr [ %808, %805 ], [ %811, %809 ], [ %814, %812 ]
-  %.sink22.i137 = phi i32 [ 3, %805 ], [ 4, %809 ], [ 6, %812 ]
+  %.sink25.i136 = phi ptr [ %811, %809 ], [ %808, %805 ], [ %814, %812 ]
+  %.sink22.i137 = phi i32 [ 4, %809 ], [ 3, %805 ], [ 6, %812 ]
   %816 = getelementptr inbounds nuw i8, ptr %.sink25.i136, i64 8
   %817 = load ptr, ptr %816, align 8, !tbaa !26
   %818 = call fastcc ptr @cast(ptr noundef %55, ptr noundef %817)
@@ -19779,8 +19779,8 @@ new_add.exit134:                                  ; preds = %826, %.sink.split.i
   br i1 %882, label %884, label %mul.exit119
 
 884:                                              ; preds = %881, %878, %874
-  %.sink25.i117 = phi ptr [ %877, %874 ], [ %880, %878 ], [ %883, %881 ]
-  %.sink22.i118 = phi i32 [ 3, %874 ], [ 4, %878 ], [ 6, %881 ]
+  %.sink25.i117 = phi ptr [ %880, %878 ], [ %877, %874 ], [ %883, %881 ]
+  %.sink22.i118 = phi i32 [ 4, %878 ], [ 3, %874 ], [ 6, %881 ]
   %885 = getelementptr inbounds nuw i8, ptr %.sink25.i117, i64 8
   %886 = load ptr, ptr %885, align 8, !tbaa !26
   %887 = call fastcc ptr @cast(ptr noundef %56, ptr noundef %886)
@@ -19859,8 +19859,8 @@ add.exit.i55:                                     ; preds = %868
   br i1 %918, label %920, label %mul.exit408
 
 920:                                              ; preds = %917, %914, %910
-  %.sink25.i406 = phi ptr [ %913, %910 ], [ %916, %914 ], [ %919, %917 ]
-  %.sink22.i407 = phi i32 [ 3, %910 ], [ 4, %914 ], [ 6, %917 ]
+  %.sink25.i406 = phi ptr [ %916, %914 ], [ %913, %910 ], [ %919, %917 ]
+  %.sink22.i407 = phi i32 [ 4, %914 ], [ 3, %910 ], [ 6, %917 ]
   %921 = getelementptr inbounds nuw i8, ptr %.sink25.i406, i64 8
   %922 = load ptr, ptr %921, align 8, !tbaa !26
   %923 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %922)
@@ -20007,8 +20007,8 @@ new_add.exit404:                                  ; preds = %931, %.sink.split.i
   br i1 %987, label %989, label %mul.exit389
 
 989:                                              ; preds = %986, %983, %979
-  %.sink25.i387 = phi ptr [ %982, %979 ], [ %985, %983 ], [ %988, %986 ]
-  %.sink22.i388 = phi i32 [ 3, %979 ], [ 4, %983 ], [ 6, %986 ]
+  %.sink25.i387 = phi ptr [ %985, %983 ], [ %982, %979 ], [ %988, %986 ]
+  %.sink22.i388 = phi i32 [ 4, %983 ], [ 3, %979 ], [ 6, %986 ]
   %990 = getelementptr inbounds nuw i8, ptr %.sink25.i387, i64 8
   %991 = load ptr, ptr %990, align 8, !tbaa !26
   %992 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %991)
@@ -20073,8 +20073,8 @@ add.exit:                                         ; preds = %973
   br i1 %1014, label %1016, label %mul.exit114
 
 1016:                                             ; preds = %1013, %1010, %1006
-  %.sink25.i112 = phi ptr [ %1009, %1006 ], [ %1012, %1010 ], [ %1015, %1013 ]
-  %.sink22.i113 = phi i32 [ 3, %1006 ], [ 4, %1010 ], [ 6, %1013 ]
+  %.sink25.i112 = phi ptr [ %1012, %1010 ], [ %1009, %1006 ], [ %1015, %1013 ]
+  %.sink22.i113 = phi i32 [ 4, %1010 ], [ 3, %1006 ], [ 6, %1013 ]
   %1017 = getelementptr inbounds nuw i8, ptr %.sink25.i112, i64 8
   %1018 = load ptr, ptr %1017, align 8, !tbaa !26
   %1019 = call fastcc ptr @cast(ptr noundef %58, ptr noundef %1018)
@@ -20124,8 +20124,8 @@ mul.exit114:                                      ; preds = %1013
   br i1 %1038, label %1040, label %mul.exit110
 
 1040:                                             ; preds = %1037, %1034, %1030
-  %.sink25.i108 = phi ptr [ %1033, %1030 ], [ %1036, %1034 ], [ %1039, %1037 ]
-  %.sink22.i109 = phi i32 [ 3, %1030 ], [ 4, %1034 ], [ 6, %1037 ]
+  %.sink25.i108 = phi ptr [ %1036, %1034 ], [ %1033, %1030 ], [ %1039, %1037 ]
+  %.sink22.i109 = phi i32 [ 4, %1034 ], [ 3, %1030 ], [ 6, %1037 ]
   %1041 = getelementptr inbounds nuw i8, ptr %.sink25.i108, i64 8
   %1042 = load ptr, ptr %1041, align 8, !tbaa !26
   %1043 = call fastcc ptr @cast(ptr noundef %59, ptr noundef %1042)
@@ -20271,8 +20271,8 @@ new_add.exit:                                     ; preds = %1051, %.sink.split.
   br i1 %1107, label %1109, label %mul.exit
 
 1109:                                             ; preds = %1106, %1103, %1099
-  %.sink25.i = phi ptr [ %1102, %1099 ], [ %1105, %1103 ], [ %1108, %1106 ]
-  %.sink22.i = phi i32 [ 3, %1099 ], [ 4, %1103 ], [ 6, %1106 ]
+  %.sink25.i = phi ptr [ %1105, %1103 ], [ %1102, %1099 ], [ %1108, %1106 ]
+  %.sink22.i = phi i32 [ 4, %1103 ], [ 3, %1099 ], [ 6, %1106 ]
   %1110 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %1111 = load ptr, ptr %1110, align 8, !tbaa !26
   %1112 = call fastcc ptr @cast(ptr noundef %60, ptr noundef %1111)
@@ -20308,10 +20308,10 @@ add.exit.i:                                       ; preds = %1093
   br label %998
 
 shift.exit69:                                     ; preds = %1000, %775, %550, %325
-  %.1 = phi ptr [ %.0637, %325 ], [ %.0634, %550 ], [ %.0631, %775 ], [ %.0628, %1000 ]
-  %.sink23.i = phi i32 [ 14, %325 ], [ 15, %550 ], [ 14, %775 ], [ 15, %1000 ]
-  %.sink.i = phi ptr [ %.012.i, %325 ], [ %.012.i, %550 ], [ %.08.i52, %775 ], [ %.08.i51, %1000 ]
-  %.012.sink.i = phi ptr [ %.08.i64, %325 ], [ %.08.i58, %550 ], [ %.012.i, %775 ], [ %.012.i, %1000 ]
+  %.1 = phi ptr [ %.0631, %775 ], [ %.0637, %325 ], [ %.0634, %550 ], [ %.0628, %1000 ]
+  %.sink23.i = phi i32 [ 14, %775 ], [ 14, %325 ], [ 15, %550 ], [ 15, %1000 ]
+  %.sink.i = phi ptr [ %.08.i52, %775 ], [ %.012.i, %325 ], [ %.012.i, %550 ], [ %.08.i51, %1000 ]
+  %.012.sink.i = phi ptr [ %.012.i, %775 ], [ %.08.i64, %325 ], [ %.08.i58, %550 ], [ %.012.i, %1000 ]
   %1122 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1122, align 16, !tbaa !7
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 24
@@ -20373,8 +20373,8 @@ relational.exit:                                  ; preds = %897, %relational.ex
   br i1 %1148, label %1150, label %mul.exit600
 
 1150:                                             ; preds = %1147, %1144, %1140
-  %.sink25.i598 = phi ptr [ %1143, %1140 ], [ %1146, %1144 ], [ %1149, %1147 ]
-  %.sink22.i599 = phi i32 [ 3, %1140 ], [ 4, %1144 ], [ 6, %1147 ]
+  %.sink25.i598 = phi ptr [ %1146, %1144 ], [ %1143, %1140 ], [ %1149, %1147 ]
+  %.sink22.i599 = phi i32 [ 4, %1144 ], [ 3, %1140 ], [ 6, %1147 ]
   %1151 = getelementptr inbounds nuw i8, ptr %.sink25.i598, i64 8
   %1152 = load ptr, ptr %1151, align 8, !tbaa !26
   %1153 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %1152)
@@ -20521,8 +20521,8 @@ new_add.exit596:                                  ; preds = %1161, %.sink.split.
   br i1 %1217, label %1219, label %mul.exit581
 
 1219:                                             ; preds = %1216, %1213, %1209
-  %.sink25.i579 = phi ptr [ %1212, %1209 ], [ %1215, %1213 ], [ %1218, %1216 ]
-  %.sink22.i580 = phi i32 [ 3, %1209 ], [ 4, %1213 ], [ 6, %1216 ]
+  %.sink25.i579 = phi ptr [ %1215, %1213 ], [ %1212, %1209 ], [ %1218, %1216 ]
+  %.sink22.i580 = phi i32 [ 4, %1213 ], [ 3, %1209 ], [ 6, %1216 ]
   %1220 = getelementptr inbounds nuw i8, ptr %.sink25.i579, i64 8
   %1221 = load ptr, ptr %1220, align 8, !tbaa !26
   %1222 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %1221)
@@ -20587,8 +20587,8 @@ add.exit385:                                      ; preds = %1203
   br i1 %1244, label %1246, label %mul.exit382
 
 1246:                                             ; preds = %1243, %1240, %1236
-  %.sink25.i380 = phi ptr [ %1239, %1236 ], [ %1242, %1240 ], [ %1245, %1243 ]
-  %.sink22.i381 = phi i32 [ 3, %1236 ], [ 4, %1240 ], [ 6, %1243 ]
+  %.sink25.i380 = phi ptr [ %1242, %1240 ], [ %1239, %1236 ], [ %1245, %1243 ]
+  %.sink22.i381 = phi i32 [ 4, %1240 ], [ 3, %1236 ], [ 6, %1243 ]
   %1247 = getelementptr inbounds nuw i8, ptr %.sink25.i380, i64 8
   %1248 = load ptr, ptr %1247, align 8, !tbaa !26
   %1249 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %1248)
@@ -20638,8 +20638,8 @@ mul.exit382:                                      ; preds = %1243
   br i1 %1268, label %1270, label %mul.exit378
 
 1270:                                             ; preds = %1267, %1264, %1260
-  %.sink25.i376 = phi ptr [ %1263, %1260 ], [ %1266, %1264 ], [ %1269, %1267 ]
-  %.sink22.i377 = phi i32 [ 3, %1260 ], [ 4, %1264 ], [ 6, %1267 ]
+  %.sink25.i376 = phi ptr [ %1266, %1264 ], [ %1263, %1260 ], [ %1269, %1267 ]
+  %.sink22.i377 = phi i32 [ 4, %1264 ], [ 3, %1260 ], [ 6, %1267 ]
   %1271 = getelementptr inbounds nuw i8, ptr %.sink25.i376, i64 8
   %1272 = load ptr, ptr %1271, align 8, !tbaa !26
   %1273 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %1272)
@@ -20785,8 +20785,8 @@ new_add.exit374:                                  ; preds = %1281, %.sink.split.
   br i1 %1337, label %1339, label %mul.exit359
 
 1339:                                             ; preds = %1336, %1333, %1329
-  %.sink25.i357 = phi ptr [ %1332, %1329 ], [ %1335, %1333 ], [ %1338, %1336 ]
-  %.sink22.i358 = phi i32 [ 3, %1329 ], [ 4, %1333 ], [ 6, %1336 ]
+  %.sink25.i357 = phi ptr [ %1335, %1333 ], [ %1332, %1329 ], [ %1338, %1336 ]
+  %.sink22.i358 = phi i32 [ 4, %1333 ], [ 3, %1329 ], [ 6, %1336 ]
   %1340 = getelementptr inbounds nuw i8, ptr %.sink25.i357, i64 8
   %1341 = load ptr, ptr %1340, align 8, !tbaa !26
   %1342 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %1341)
@@ -20853,8 +20853,8 @@ shift.exit105:                                    ; preds = %1230, %shift.exit99
   br i1 %1365, label %1367, label %mul.exit577
 
 1367:                                             ; preds = %1364, %1361, %1357
-  %.sink25.i575 = phi ptr [ %1360, %1357 ], [ %1363, %1361 ], [ %1366, %1364 ]
-  %.sink22.i576 = phi i32 [ 3, %1357 ], [ 4, %1361 ], [ 6, %1364 ]
+  %.sink25.i575 = phi ptr [ %1363, %1361 ], [ %1360, %1357 ], [ %1366, %1364 ]
+  %.sink22.i576 = phi i32 [ 4, %1361 ], [ 3, %1357 ], [ 6, %1364 ]
   %1368 = getelementptr inbounds nuw i8, ptr %.sink25.i575, i64 8
   %1369 = load ptr, ptr %1368, align 8, !tbaa !26
   %1370 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %1369)
@@ -20904,8 +20904,8 @@ mul.exit577:                                      ; preds = %1364
   br i1 %1389, label %1391, label %mul.exit573
 
 1391:                                             ; preds = %1388, %1385, %1381
-  %.sink25.i571 = phi ptr [ %1384, %1381 ], [ %1387, %1385 ], [ %1390, %1388 ]
-  %.sink22.i572 = phi i32 [ 3, %1381 ], [ 4, %1385 ], [ 6, %1388 ]
+  %.sink25.i571 = phi ptr [ %1387, %1385 ], [ %1384, %1381 ], [ %1390, %1388 ]
+  %.sink22.i572 = phi i32 [ 4, %1385 ], [ 3, %1381 ], [ 6, %1388 ]
   %1392 = getelementptr inbounds nuw i8, ptr %.sink25.i571, i64 8
   %1393 = load ptr, ptr %1392, align 8, !tbaa !26
   %1394 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %1393)
@@ -21051,8 +21051,8 @@ new_add.exit569:                                  ; preds = %1402, %.sink.split.
   br i1 %1458, label %1460, label %mul.exit554
 
 1460:                                             ; preds = %1457, %1454, %1450
-  %.sink25.i552 = phi ptr [ %1453, %1450 ], [ %1456, %1454 ], [ %1459, %1457 ]
-  %.sink22.i553 = phi i32 [ 3, %1450 ], [ 4, %1454 ], [ 6, %1457 ]
+  %.sink25.i552 = phi ptr [ %1456, %1454 ], [ %1453, %1450 ], [ %1459, %1457 ]
+  %.sink22.i553 = phi i32 [ 4, %1454 ], [ 3, %1450 ], [ 6, %1457 ]
   %1461 = getelementptr inbounds nuw i8, ptr %.sink25.i552, i64 8
   %1462 = load ptr, ptr %1461, align 8, !tbaa !26
   %1463 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %1462)
@@ -21113,8 +21113,8 @@ add.exit355:                                      ; preds = %1444, %add.exit.i97
   br i1 %1484, label %1486, label %mul.exit352
 
 1486:                                             ; preds = %1483, %1480, %1476
-  %.sink25.i350 = phi ptr [ %1479, %1476 ], [ %1482, %1480 ], [ %1485, %1483 ]
-  %.sink22.i351 = phi i32 [ 3, %1476 ], [ 4, %1480 ], [ 6, %1483 ]
+  %.sink25.i350 = phi ptr [ %1482, %1480 ], [ %1479, %1476 ], [ %1485, %1483 ]
+  %.sink22.i351 = phi i32 [ 4, %1480 ], [ 3, %1476 ], [ 6, %1483 ]
   %1487 = getelementptr inbounds nuw i8, ptr %.sink25.i350, i64 8
   %1488 = load ptr, ptr %1487, align 8, !tbaa !26
   %1489 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %1488)
@@ -21164,8 +21164,8 @@ mul.exit352:                                      ; preds = %1483
   br i1 %1508, label %1510, label %mul.exit348
 
 1510:                                             ; preds = %1507, %1504, %1500
-  %.sink25.i346 = phi ptr [ %1503, %1500 ], [ %1506, %1504 ], [ %1509, %1507 ]
-  %.sink22.i347 = phi i32 [ 3, %1500 ], [ 4, %1504 ], [ 6, %1507 ]
+  %.sink25.i346 = phi ptr [ %1506, %1504 ], [ %1503, %1500 ], [ %1509, %1507 ]
+  %.sink22.i347 = phi i32 [ 4, %1504 ], [ 3, %1500 ], [ 6, %1507 ]
   %1511 = getelementptr inbounds nuw i8, ptr %.sink25.i346, i64 8
   %1512 = load ptr, ptr %1511, align 8, !tbaa !26
   %1513 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %1512)
@@ -21311,8 +21311,8 @@ new_add.exit344:                                  ; preds = %1521, %.sink.split.
   br i1 %1577, label %1579, label %mul.exit329
 
 1579:                                             ; preds = %1576, %1573, %1569
-  %.sink25.i327 = phi ptr [ %1572, %1569 ], [ %1575, %1573 ], [ %1578, %1576 ]
-  %.sink22.i328 = phi i32 [ 3, %1569 ], [ 4, %1573 ], [ 6, %1576 ]
+  %.sink25.i327 = phi ptr [ %1575, %1573 ], [ %1572, %1569 ], [ %1578, %1576 ]
+  %.sink22.i328 = phi i32 [ 4, %1573 ], [ 3, %1569 ], [ 6, %1576 ]
   %1580 = getelementptr inbounds nuw i8, ptr %.sink25.i327, i64 8
   %1581 = load ptr, ptr %1580, align 8, !tbaa !26
   %1582 = call fastcc ptr @cast(ptr noundef %29, ptr noundef %1581)
@@ -21377,8 +21377,8 @@ add.exit.i97:                                     ; preds = %1563
   br i1 %1606, label %1608, label %mul.exit550
 
 1608:                                             ; preds = %1605, %1602, %1598
-  %.sink25.i548 = phi ptr [ %1601, %1598 ], [ %1604, %1602 ], [ %1607, %1605 ]
-  %.sink22.i549 = phi i32 [ 3, %1598 ], [ 4, %1602 ], [ 6, %1605 ]
+  %.sink25.i548 = phi ptr [ %1604, %1602 ], [ %1601, %1598 ], [ %1607, %1605 ]
+  %.sink22.i549 = phi i32 [ 4, %1602 ], [ 3, %1598 ], [ 6, %1605 ]
   %1609 = getelementptr inbounds nuw i8, ptr %.sink25.i548, i64 8
   %1610 = load ptr, ptr %1609, align 8, !tbaa !26
   %1611 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %1610)
@@ -21428,8 +21428,8 @@ mul.exit550:                                      ; preds = %1605
   br i1 %1630, label %1632, label %mul.exit546
 
 1632:                                             ; preds = %1629, %1626, %1622
-  %.sink25.i544 = phi ptr [ %1625, %1622 ], [ %1628, %1626 ], [ %1631, %1629 ]
-  %.sink22.i545 = phi i32 [ 3, %1622 ], [ 4, %1626 ], [ 6, %1629 ]
+  %.sink25.i544 = phi ptr [ %1628, %1626 ], [ %1625, %1622 ], [ %1631, %1629 ]
+  %.sink22.i545 = phi i32 [ 4, %1626 ], [ 3, %1622 ], [ 6, %1629 ]
   %1633 = getelementptr inbounds nuw i8, ptr %.sink25.i544, i64 8
   %1634 = load ptr, ptr %1633, align 8, !tbaa !26
   %1635 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %1634)
@@ -21575,8 +21575,8 @@ new_add.exit542:                                  ; preds = %1643, %.sink.split.
   br i1 %1699, label %1701, label %mul.exit527
 
 1701:                                             ; preds = %1698, %1695, %1691
-  %.sink25.i525 = phi ptr [ %1694, %1691 ], [ %1697, %1695 ], [ %1700, %1698 ]
-  %.sink22.i526 = phi i32 [ 3, %1691 ], [ 4, %1695 ], [ 6, %1698 ]
+  %.sink25.i525 = phi ptr [ %1697, %1695 ], [ %1694, %1691 ], [ %1700, %1698 ]
+  %.sink22.i526 = phi i32 [ 4, %1695 ], [ 3, %1691 ], [ 6, %1698 ]
   %1702 = getelementptr inbounds nuw i8, ptr %.sink25.i525, i64 8
   %1703 = load ptr, ptr %1702, align 8, !tbaa !26
   %1704 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %1703)
@@ -21637,8 +21637,8 @@ add.exit325:                                      ; preds = %1685, %add.exit.i91
   br i1 %1725, label %1727, label %mul.exit322
 
 1727:                                             ; preds = %1724, %1721, %1717
-  %.sink25.i320 = phi ptr [ %1720, %1717 ], [ %1723, %1721 ], [ %1726, %1724 ]
-  %.sink22.i321 = phi i32 [ 3, %1717 ], [ 4, %1721 ], [ 6, %1724 ]
+  %.sink25.i320 = phi ptr [ %1723, %1721 ], [ %1720, %1717 ], [ %1726, %1724 ]
+  %.sink22.i321 = phi i32 [ 4, %1721 ], [ 3, %1717 ], [ 6, %1724 ]
   %1728 = getelementptr inbounds nuw i8, ptr %.sink25.i320, i64 8
   %1729 = load ptr, ptr %1728, align 8, !tbaa !26
   %1730 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %1729)
@@ -21688,8 +21688,8 @@ mul.exit322:                                      ; preds = %1724
   br i1 %1749, label %1751, label %mul.exit318
 
 1751:                                             ; preds = %1748, %1745, %1741
-  %.sink25.i316 = phi ptr [ %1744, %1741 ], [ %1747, %1745 ], [ %1750, %1748 ]
-  %.sink22.i317 = phi i32 [ 3, %1741 ], [ 4, %1745 ], [ 6, %1748 ]
+  %.sink25.i316 = phi ptr [ %1747, %1745 ], [ %1744, %1741 ], [ %1750, %1748 ]
+  %.sink22.i317 = phi i32 [ 4, %1745 ], [ 3, %1741 ], [ 6, %1748 ]
   %1752 = getelementptr inbounds nuw i8, ptr %.sink25.i316, i64 8
   %1753 = load ptr, ptr %1752, align 8, !tbaa !26
   %1754 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %1753)
@@ -21835,8 +21835,8 @@ new_add.exit314:                                  ; preds = %1762, %.sink.split.
   br i1 %1818, label %1820, label %mul.exit299
 
 1820:                                             ; preds = %1817, %1814, %1810
-  %.sink25.i297 = phi ptr [ %1813, %1810 ], [ %1816, %1814 ], [ %1819, %1817 ]
-  %.sink22.i298 = phi i32 [ 3, %1810 ], [ 4, %1814 ], [ 6, %1817 ]
+  %.sink25.i297 = phi ptr [ %1816, %1814 ], [ %1813, %1810 ], [ %1819, %1817 ]
+  %.sink22.i298 = phi i32 [ 4, %1814 ], [ 3, %1810 ], [ 6, %1817 ]
   %1821 = getelementptr inbounds nuw i8, ptr %.sink25.i297, i64 8
   %1822 = load ptr, ptr %1821, align 8, !tbaa !26
   %1823 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %1822)
@@ -21915,8 +21915,8 @@ add.exit.i91:                                     ; preds = %1804
   br i1 %1854, label %1856, label %mul.exit523
 
 1856:                                             ; preds = %1853, %1850, %1846
-  %.sink25.i521 = phi ptr [ %1849, %1846 ], [ %1852, %1850 ], [ %1855, %1853 ]
-  %.sink22.i522 = phi i32 [ 3, %1846 ], [ 4, %1850 ], [ 6, %1853 ]
+  %.sink25.i521 = phi ptr [ %1852, %1850 ], [ %1849, %1846 ], [ %1855, %1853 ]
+  %.sink22.i522 = phi i32 [ 4, %1850 ], [ 3, %1846 ], [ 6, %1853 ]
   %1857 = getelementptr inbounds nuw i8, ptr %.sink25.i521, i64 8
   %1858 = load ptr, ptr %1857, align 8, !tbaa !26
   %1859 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %1858)
@@ -22063,8 +22063,8 @@ new_add.exit519:                                  ; preds = %1867, %.sink.split.
   br i1 %1923, label %1925, label %mul.exit504
 
 1925:                                             ; preds = %1922, %1919, %1915
-  %.sink25.i502 = phi ptr [ %1918, %1915 ], [ %1921, %1919 ], [ %1924, %1922 ]
-  %.sink22.i503 = phi i32 [ 3, %1915 ], [ 4, %1919 ], [ 6, %1922 ]
+  %.sink25.i502 = phi ptr [ %1921, %1919 ], [ %1918, %1915 ], [ %1924, %1922 ]
+  %.sink22.i503 = phi i32 [ 4, %1919 ], [ 3, %1915 ], [ 6, %1922 ]
   %1926 = getelementptr inbounds nuw i8, ptr %.sink25.i502, i64 8
   %1927 = load ptr, ptr %1926, align 8, !tbaa !26
   %1928 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %1927)
@@ -22129,8 +22129,8 @@ add.exit295:                                      ; preds = %1909
   br i1 %1950, label %1952, label %mul.exit292
 
 1952:                                             ; preds = %1949, %1946, %1942
-  %.sink25.i290 = phi ptr [ %1945, %1942 ], [ %1948, %1946 ], [ %1951, %1949 ]
-  %.sink22.i291 = phi i32 [ 3, %1942 ], [ 4, %1946 ], [ 6, %1949 ]
+  %.sink25.i290 = phi ptr [ %1948, %1946 ], [ %1945, %1942 ], [ %1951, %1949 ]
+  %.sink22.i291 = phi i32 [ 4, %1946 ], [ 3, %1942 ], [ 6, %1949 ]
   %1953 = getelementptr inbounds nuw i8, ptr %.sink25.i290, i64 8
   %1954 = load ptr, ptr %1953, align 8, !tbaa !26
   %1955 = call fastcc ptr @cast(ptr noundef %34, ptr noundef %1954)
@@ -22180,8 +22180,8 @@ mul.exit292:                                      ; preds = %1949
   br i1 %1974, label %1976, label %mul.exit288
 
 1976:                                             ; preds = %1973, %1970, %1966
-  %.sink25.i286 = phi ptr [ %1969, %1966 ], [ %1972, %1970 ], [ %1975, %1973 ]
-  %.sink22.i287 = phi i32 [ 3, %1966 ], [ 4, %1970 ], [ 6, %1973 ]
+  %.sink25.i286 = phi ptr [ %1972, %1970 ], [ %1969, %1966 ], [ %1975, %1973 ]
+  %.sink22.i287 = phi i32 [ 4, %1970 ], [ 3, %1966 ], [ 6, %1973 ]
   %1977 = getelementptr inbounds nuw i8, ptr %.sink25.i286, i64 8
   %1978 = load ptr, ptr %1977, align 8, !tbaa !26
   %1979 = call fastcc ptr @cast(ptr noundef %35, ptr noundef %1978)
@@ -22327,8 +22327,8 @@ new_add.exit284:                                  ; preds = %1987, %.sink.split.
   br i1 %2043, label %2045, label %mul.exit269
 
 2045:                                             ; preds = %2042, %2039, %2035
-  %.sink25.i267 = phi ptr [ %2038, %2035 ], [ %2041, %2039 ], [ %2044, %2042 ]
-  %.sink22.i268 = phi i32 [ 3, %2035 ], [ 4, %2039 ], [ 6, %2042 ]
+  %.sink25.i267 = phi ptr [ %2041, %2039 ], [ %2038, %2035 ], [ %2044, %2042 ]
+  %.sink22.i268 = phi i32 [ 4, %2039 ], [ 3, %2035 ], [ 6, %2042 ]
   %2046 = getelementptr inbounds nuw i8, ptr %.sink25.i267, i64 8
   %2047 = load ptr, ptr %2046, align 8, !tbaa !26
   %2048 = call fastcc ptr @cast(ptr noundef %36, ptr noundef %2047)
@@ -22407,8 +22407,8 @@ add.exit.i85:                                     ; preds = %2029
   br i1 %2079, label %2081, label %mul.exit500
 
 2081:                                             ; preds = %2078, %2075, %2071
-  %.sink25.i498 = phi ptr [ %2074, %2071 ], [ %2077, %2075 ], [ %2080, %2078 ]
-  %.sink22.i499 = phi i32 [ 3, %2071 ], [ 4, %2075 ], [ 6, %2078 ]
+  %.sink25.i498 = phi ptr [ %2077, %2075 ], [ %2074, %2071 ], [ %2080, %2078 ]
+  %.sink22.i499 = phi i32 [ 4, %2075 ], [ 3, %2071 ], [ 6, %2078 ]
   %2082 = getelementptr inbounds nuw i8, ptr %.sink25.i498, i64 8
   %2083 = load ptr, ptr %2082, align 8, !tbaa !26
   %2084 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %2083)
@@ -22555,8 +22555,8 @@ new_add.exit496:                                  ; preds = %2092, %.sink.split.
   br i1 %2148, label %2150, label %mul.exit481
 
 2150:                                             ; preds = %2147, %2144, %2140
-  %.sink25.i479 = phi ptr [ %2143, %2140 ], [ %2146, %2144 ], [ %2149, %2147 ]
-  %.sink22.i480 = phi i32 [ 3, %2140 ], [ 4, %2144 ], [ 6, %2147 ]
+  %.sink25.i479 = phi ptr [ %2146, %2144 ], [ %2143, %2140 ], [ %2149, %2147 ]
+  %.sink22.i480 = phi i32 [ 4, %2144 ], [ 3, %2140 ], [ 6, %2147 ]
   %2151 = getelementptr inbounds nuw i8, ptr %.sink25.i479, i64 8
   %2152 = load ptr, ptr %2151, align 8, !tbaa !26
   %2153 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %2152)
@@ -22621,8 +22621,8 @@ add.exit265:                                      ; preds = %2134
   br i1 %2175, label %2177, label %mul.exit262
 
 2177:                                             ; preds = %2174, %2171, %2167
-  %.sink25.i260 = phi ptr [ %2170, %2167 ], [ %2173, %2171 ], [ %2176, %2174 ]
-  %.sink22.i261 = phi i32 [ 3, %2167 ], [ 4, %2171 ], [ 6, %2174 ]
+  %.sink25.i260 = phi ptr [ %2173, %2171 ], [ %2170, %2167 ], [ %2176, %2174 ]
+  %.sink22.i261 = phi i32 [ 4, %2171 ], [ 3, %2167 ], [ 6, %2174 ]
   %2178 = getelementptr inbounds nuw i8, ptr %.sink25.i260, i64 8
   %2179 = load ptr, ptr %2178, align 8, !tbaa !26
   %2180 = call fastcc ptr @cast(ptr noundef %38, ptr noundef %2179)
@@ -22672,8 +22672,8 @@ mul.exit262:                                      ; preds = %2174
   br i1 %2199, label %2201, label %mul.exit258
 
 2201:                                             ; preds = %2198, %2195, %2191
-  %.sink25.i256 = phi ptr [ %2194, %2191 ], [ %2197, %2195 ], [ %2200, %2198 ]
-  %.sink22.i257 = phi i32 [ 3, %2191 ], [ 4, %2195 ], [ 6, %2198 ]
+  %.sink25.i256 = phi ptr [ %2197, %2195 ], [ %2194, %2191 ], [ %2200, %2198 ]
+  %.sink22.i257 = phi i32 [ 4, %2195 ], [ 3, %2191 ], [ 6, %2198 ]
   %2202 = getelementptr inbounds nuw i8, ptr %.sink25.i256, i64 8
   %2203 = load ptr, ptr %2202, align 8, !tbaa !26
   %2204 = call fastcc ptr @cast(ptr noundef %39, ptr noundef %2203)
@@ -22819,8 +22819,8 @@ new_add.exit254:                                  ; preds = %2212, %.sink.split.
   br i1 %2268, label %2270, label %mul.exit239
 
 2270:                                             ; preds = %2267, %2264, %2260
-  %.sink25.i237 = phi ptr [ %2263, %2260 ], [ %2266, %2264 ], [ %2269, %2267 ]
-  %.sink22.i238 = phi i32 [ 3, %2260 ], [ 4, %2264 ], [ 6, %2267 ]
+  %.sink25.i237 = phi ptr [ %2266, %2264 ], [ %2263, %2260 ], [ %2269, %2267 ]
+  %.sink22.i238 = phi i32 [ 4, %2264 ], [ 3, %2260 ], [ 6, %2267 ]
   %2271 = getelementptr inbounds nuw i8, ptr %.sink25.i237, i64 8
   %2272 = load ptr, ptr %2271, align 8, !tbaa !26
   %2273 = call fastcc ptr @cast(ptr noundef %40, ptr noundef %2272)
@@ -22856,10 +22856,10 @@ add.exit.i79:                                     ; preds = %2254
   br label %2159
 
 shift.exit99:                                     ; preds = %2161, %1936, %1711, %1470
-  %.1627 = phi ptr [ %.0652, %1470 ], [ %.0649, %1711 ], [ %.0646, %1936 ], [ %.0643, %2161 ]
-  %.sink23.i47 = phi i32 [ 14, %1470 ], [ 15, %1711 ], [ 14, %1936 ], [ 15, %2161 ]
-  %.sink.i48 = phi ptr [ %.012.i46, %1470 ], [ %.012.i46, %1711 ], [ %.08.i82, %1936 ], [ %.08.i76, %2161 ]
-  %.012.sink.i49 = phi ptr [ %.08.i94, %1470 ], [ %.08.i88, %1711 ], [ %.012.i46, %1936 ], [ %.012.i46, %2161 ]
+  %.1627 = phi ptr [ %.0646, %1936 ], [ %.0652, %1470 ], [ %.0649, %1711 ], [ %.0643, %2161 ]
+  %.sink23.i47 = phi i32 [ 14, %1936 ], [ 14, %1470 ], [ 15, %1711 ], [ 15, %2161 ]
+  %.sink.i48 = phi ptr [ %.08.i82, %1936 ], [ %.012.i46, %1470 ], [ %.012.i46, %1711 ], [ %.08.i76, %2161 ]
+  %.012.sink.i49 = phi ptr [ %.012.i46, %1936 ], [ %.08.i94, %1470 ], [ %.08.i88, %1711 ], [ %.012.i46, %2161 ]
   %2283 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i47, ptr %2283, align 16, !tbaa !7
   %2284 = getelementptr inbounds nuw i8, ptr %2283, i64 24
@@ -23004,8 +23004,8 @@ define internal fastcc ptr @equality(ptr noundef nonnull writeonly captures(none
   br i1 %59, label %61, label %mul.exit307
 
 61:                                               ; preds = %58, %55, %51
-  %.sink25.i305 = phi ptr [ %54, %51 ], [ %57, %55 ], [ %60, %58 ]
-  %.sink22.i306 = phi i32 [ 3, %51 ], [ 4, %55 ], [ 6, %58 ]
+  %.sink25.i305 = phi ptr [ %57, %55 ], [ %54, %51 ], [ %60, %58 ]
+  %.sink22.i306 = phi i32 [ 4, %55 ], [ 3, %51 ], [ 6, %58 ]
   %62 = getelementptr inbounds nuw i8, ptr %.sink25.i305, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !26
   %64 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %63)
@@ -23152,8 +23152,8 @@ new_add.exit303:                                  ; preds = %72, %.sink.split.i2
   br i1 %128, label %130, label %mul.exit288
 
 130:                                              ; preds = %127, %124, %120
-  %.sink25.i286 = phi ptr [ %123, %120 ], [ %126, %124 ], [ %129, %127 ]
-  %.sink22.i287 = phi i32 [ 3, %120 ], [ 4, %124 ], [ 6, %127 ]
+  %.sink25.i286 = phi ptr [ %126, %124 ], [ %123, %120 ], [ %129, %127 ]
+  %.sink22.i287 = phi i32 [ 4, %124 ], [ 3, %120 ], [ 6, %127 ]
   %131 = getelementptr inbounds nuw i8, ptr %.sink25.i286, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !26
   %133 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %132)
@@ -23218,8 +23218,8 @@ add.exit176:                                      ; preds = %114
   br i1 %155, label %157, label %mul.exit173
 
 157:                                              ; preds = %154, %151, %147
-  %.sink25.i171 = phi ptr [ %150, %147 ], [ %153, %151 ], [ %156, %154 ]
-  %.sink22.i172 = phi i32 [ 3, %147 ], [ 4, %151 ], [ 6, %154 ]
+  %.sink25.i171 = phi ptr [ %153, %151 ], [ %150, %147 ], [ %156, %154 ]
+  %.sink22.i172 = phi i32 [ 4, %151 ], [ 3, %147 ], [ 6, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %.sink25.i171, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !26
   %160 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %159)
@@ -23269,8 +23269,8 @@ mul.exit173:                                      ; preds = %154
   br i1 %179, label %181, label %mul.exit169
 
 181:                                              ; preds = %178, %175, %171
-  %.sink25.i167 = phi ptr [ %174, %171 ], [ %177, %175 ], [ %180, %178 ]
-  %.sink22.i168 = phi i32 [ 3, %171 ], [ 4, %175 ], [ 6, %178 ]
+  %.sink25.i167 = phi ptr [ %177, %175 ], [ %174, %171 ], [ %180, %178 ]
+  %.sink22.i168 = phi i32 [ 4, %175 ], [ 3, %171 ], [ 6, %178 ]
   %182 = getelementptr inbounds nuw i8, ptr %.sink25.i167, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !26
   %184 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %183)
@@ -23416,8 +23416,8 @@ new_add.exit165:                                  ; preds = %192, %.sink.split.i
   br i1 %248, label %250, label %mul.exit150
 
 250:                                              ; preds = %247, %244, %240
-  %.sink25.i148 = phi ptr [ %243, %240 ], [ %246, %244 ], [ %249, %247 ]
-  %.sink22.i149 = phi i32 [ 3, %240 ], [ 4, %244 ], [ 6, %247 ]
+  %.sink25.i148 = phi ptr [ %246, %244 ], [ %243, %240 ], [ %249, %247 ]
+  %.sink22.i149 = phi i32 [ 4, %244 ], [ 3, %240 ], [ 6, %247 ]
   %251 = getelementptr inbounds nuw i8, ptr %.sink25.i148, i64 8
   %252 = load ptr, ptr %251, align 8, !tbaa !26
   %253 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %252)
@@ -23484,8 +23484,8 @@ shift.exit46:                                     ; preds = %141, %shift.exit40
   br i1 %276, label %278, label %mul.exit284
 
 278:                                              ; preds = %275, %272, %268
-  %.sink25.i282 = phi ptr [ %271, %268 ], [ %274, %272 ], [ %277, %275 ]
-  %.sink22.i283 = phi i32 [ 3, %268 ], [ 4, %272 ], [ 6, %275 ]
+  %.sink25.i282 = phi ptr [ %274, %272 ], [ %271, %268 ], [ %277, %275 ]
+  %.sink22.i283 = phi i32 [ 4, %272 ], [ 3, %268 ], [ 6, %275 ]
   %279 = getelementptr inbounds nuw i8, ptr %.sink25.i282, i64 8
   %280 = load ptr, ptr %279, align 8, !tbaa !26
   %281 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %280)
@@ -23535,8 +23535,8 @@ mul.exit284:                                      ; preds = %275
   br i1 %300, label %302, label %mul.exit280
 
 302:                                              ; preds = %299, %296, %292
-  %.sink25.i278 = phi ptr [ %295, %292 ], [ %298, %296 ], [ %301, %299 ]
-  %.sink22.i279 = phi i32 [ 3, %292 ], [ 4, %296 ], [ 6, %299 ]
+  %.sink25.i278 = phi ptr [ %298, %296 ], [ %295, %292 ], [ %301, %299 ]
+  %.sink22.i279 = phi i32 [ 4, %296 ], [ 3, %292 ], [ 6, %299 ]
   %303 = getelementptr inbounds nuw i8, ptr %.sink25.i278, i64 8
   %304 = load ptr, ptr %303, align 8, !tbaa !26
   %305 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %304)
@@ -23682,8 +23682,8 @@ new_add.exit276:                                  ; preds = %313, %.sink.split.i
   br i1 %369, label %371, label %mul.exit261
 
 371:                                              ; preds = %368, %365, %361
-  %.sink25.i259 = phi ptr [ %364, %361 ], [ %367, %365 ], [ %370, %368 ]
-  %.sink22.i260 = phi i32 [ 3, %361 ], [ 4, %365 ], [ 6, %368 ]
+  %.sink25.i259 = phi ptr [ %367, %365 ], [ %364, %361 ], [ %370, %368 ]
+  %.sink22.i260 = phi i32 [ 4, %365 ], [ 3, %361 ], [ 6, %368 ]
   %372 = getelementptr inbounds nuw i8, ptr %.sink25.i259, i64 8
   %373 = load ptr, ptr %372, align 8, !tbaa !26
   %374 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %373)
@@ -23744,8 +23744,8 @@ add.exit146:                                      ; preds = %355, %add.exit.i38
   br i1 %395, label %397, label %mul.exit143
 
 397:                                              ; preds = %394, %391, %387
-  %.sink25.i141 = phi ptr [ %390, %387 ], [ %393, %391 ], [ %396, %394 ]
-  %.sink22.i142 = phi i32 [ 3, %387 ], [ 4, %391 ], [ 6, %394 ]
+  %.sink25.i141 = phi ptr [ %393, %391 ], [ %390, %387 ], [ %396, %394 ]
+  %.sink22.i142 = phi i32 [ 4, %391 ], [ 3, %387 ], [ 6, %394 ]
   %398 = getelementptr inbounds nuw i8, ptr %.sink25.i141, i64 8
   %399 = load ptr, ptr %398, align 8, !tbaa !26
   %400 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %399)
@@ -23795,8 +23795,8 @@ mul.exit143:                                      ; preds = %394
   br i1 %419, label %421, label %mul.exit139
 
 421:                                              ; preds = %418, %415, %411
-  %.sink25.i137 = phi ptr [ %414, %411 ], [ %417, %415 ], [ %420, %418 ]
-  %.sink22.i138 = phi i32 [ 3, %411 ], [ 4, %415 ], [ 6, %418 ]
+  %.sink25.i137 = phi ptr [ %417, %415 ], [ %414, %411 ], [ %420, %418 ]
+  %.sink22.i138 = phi i32 [ 4, %415 ], [ 3, %411 ], [ 6, %418 ]
   %422 = getelementptr inbounds nuw i8, ptr %.sink25.i137, i64 8
   %423 = load ptr, ptr %422, align 8, !tbaa !26
   %424 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %423)
@@ -23942,8 +23942,8 @@ new_add.exit135:                                  ; preds = %432, %.sink.split.i
   br i1 %488, label %490, label %mul.exit120
 
 490:                                              ; preds = %487, %484, %480
-  %.sink25.i118 = phi ptr [ %483, %480 ], [ %486, %484 ], [ %489, %487 ]
-  %.sink22.i119 = phi i32 [ 3, %480 ], [ 4, %484 ], [ 6, %487 ]
+  %.sink25.i118 = phi ptr [ %486, %484 ], [ %483, %480 ], [ %489, %487 ]
+  %.sink22.i119 = phi i32 [ 4, %484 ], [ 3, %480 ], [ 6, %487 ]
   %491 = getelementptr inbounds nuw i8, ptr %.sink25.i118, i64 8
   %492 = load ptr, ptr %491, align 8, !tbaa !26
   %493 = call fastcc ptr @cast(ptr noundef %23, ptr noundef %492)
@@ -24008,8 +24008,8 @@ add.exit.i38:                                     ; preds = %474
   br i1 %517, label %519, label %mul.exit257
 
 519:                                              ; preds = %516, %513, %509
-  %.sink25.i255 = phi ptr [ %512, %509 ], [ %515, %513 ], [ %518, %516 ]
-  %.sink22.i256 = phi i32 [ 3, %509 ], [ 4, %513 ], [ 6, %516 ]
+  %.sink25.i255 = phi ptr [ %515, %513 ], [ %512, %509 ], [ %518, %516 ]
+  %.sink22.i256 = phi i32 [ 4, %513 ], [ 3, %509 ], [ 6, %516 ]
   %520 = getelementptr inbounds nuw i8, ptr %.sink25.i255, i64 8
   %521 = load ptr, ptr %520, align 8, !tbaa !26
   %522 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %521)
@@ -24059,8 +24059,8 @@ mul.exit257:                                      ; preds = %516
   br i1 %541, label %543, label %mul.exit253
 
 543:                                              ; preds = %540, %537, %533
-  %.sink25.i251 = phi ptr [ %536, %533 ], [ %539, %537 ], [ %542, %540 ]
-  %.sink22.i252 = phi i32 [ 3, %533 ], [ 4, %537 ], [ 6, %540 ]
+  %.sink25.i251 = phi ptr [ %539, %537 ], [ %536, %533 ], [ %542, %540 ]
+  %.sink22.i252 = phi i32 [ 4, %537 ], [ 3, %533 ], [ 6, %540 ]
   %544 = getelementptr inbounds nuw i8, ptr %.sink25.i251, i64 8
   %545 = load ptr, ptr %544, align 8, !tbaa !26
   %546 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %545)
@@ -24206,8 +24206,8 @@ new_add.exit249:                                  ; preds = %554, %.sink.split.i
   br i1 %610, label %612, label %mul.exit234
 
 612:                                              ; preds = %609, %606, %602
-  %.sink25.i232 = phi ptr [ %605, %602 ], [ %608, %606 ], [ %611, %609 ]
-  %.sink22.i233 = phi i32 [ 3, %602 ], [ 4, %606 ], [ 6, %609 ]
+  %.sink25.i232 = phi ptr [ %608, %606 ], [ %605, %602 ], [ %611, %609 ]
+  %.sink22.i233 = phi i32 [ 4, %606 ], [ 3, %602 ], [ 6, %609 ]
   %613 = getelementptr inbounds nuw i8, ptr %.sink25.i232, i64 8
   %614 = load ptr, ptr %613, align 8, !tbaa !26
   %615 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %614)
@@ -24268,8 +24268,8 @@ add.exit116:                                      ; preds = %596, %add.exit.i32
   br i1 %636, label %638, label %mul.exit113
 
 638:                                              ; preds = %635, %632, %628
-  %.sink25.i111 = phi ptr [ %631, %628 ], [ %634, %632 ], [ %637, %635 ]
-  %.sink22.i112 = phi i32 [ 3, %628 ], [ 4, %632 ], [ 6, %635 ]
+  %.sink25.i111 = phi ptr [ %634, %632 ], [ %631, %628 ], [ %637, %635 ]
+  %.sink22.i112 = phi i32 [ 4, %632 ], [ 3, %628 ], [ 6, %635 ]
   %639 = getelementptr inbounds nuw i8, ptr %.sink25.i111, i64 8
   %640 = load ptr, ptr %639, align 8, !tbaa !26
   %641 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %640)
@@ -24319,8 +24319,8 @@ mul.exit113:                                      ; preds = %635
   br i1 %660, label %662, label %mul.exit109
 
 662:                                              ; preds = %659, %656, %652
-  %.sink25.i107 = phi ptr [ %655, %652 ], [ %658, %656 ], [ %661, %659 ]
-  %.sink22.i108 = phi i32 [ 3, %652 ], [ 4, %656 ], [ 6, %659 ]
+  %.sink25.i107 = phi ptr [ %658, %656 ], [ %655, %652 ], [ %661, %659 ]
+  %.sink22.i108 = phi i32 [ 4, %656 ], [ 3, %652 ], [ 6, %659 ]
   %663 = getelementptr inbounds nuw i8, ptr %.sink25.i107, i64 8
   %664 = load ptr, ptr %663, align 8, !tbaa !26
   %665 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %664)
@@ -24466,8 +24466,8 @@ new_add.exit105:                                  ; preds = %673, %.sink.split.i
   br i1 %729, label %731, label %mul.exit90
 
 731:                                              ; preds = %728, %725, %721
-  %.sink25.i88 = phi ptr [ %724, %721 ], [ %727, %725 ], [ %730, %728 ]
-  %.sink22.i89 = phi i32 [ 3, %721 ], [ 4, %725 ], [ 6, %728 ]
+  %.sink25.i88 = phi ptr [ %727, %725 ], [ %724, %721 ], [ %730, %728 ]
+  %.sink22.i89 = phi i32 [ 4, %725 ], [ 3, %721 ], [ 6, %728 ]
   %732 = getelementptr inbounds nuw i8, ptr %.sink25.i88, i64 8
   %733 = load ptr, ptr %732, align 8, !tbaa !26
   %734 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %733)
@@ -24532,8 +24532,8 @@ add.exit.i32:                                     ; preds = %715
   br i1 %758, label %760, label %mul.exit230
 
 760:                                              ; preds = %757, %754, %750
-  %.sink25.i228 = phi ptr [ %753, %750 ], [ %756, %754 ], [ %759, %757 ]
-  %.sink22.i229 = phi i32 [ 3, %750 ], [ 4, %754 ], [ 6, %757 ]
+  %.sink25.i228 = phi ptr [ %756, %754 ], [ %753, %750 ], [ %759, %757 ]
+  %.sink22.i229 = phi i32 [ 4, %754 ], [ 3, %750 ], [ 6, %757 ]
   %761 = getelementptr inbounds nuw i8, ptr %.sink25.i228, i64 8
   %762 = load ptr, ptr %761, align 8, !tbaa !26
   %763 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %762)
@@ -24583,8 +24583,8 @@ mul.exit230:                                      ; preds = %757
   br i1 %782, label %784, label %mul.exit226
 
 784:                                              ; preds = %781, %778, %774
-  %.sink25.i224 = phi ptr [ %777, %774 ], [ %780, %778 ], [ %783, %781 ]
-  %.sink22.i225 = phi i32 [ 3, %774 ], [ 4, %778 ], [ 6, %781 ]
+  %.sink25.i224 = phi ptr [ %780, %778 ], [ %777, %774 ], [ %783, %781 ]
+  %.sink22.i225 = phi i32 [ 4, %778 ], [ 3, %774 ], [ 6, %781 ]
   %785 = getelementptr inbounds nuw i8, ptr %.sink25.i224, i64 8
   %786 = load ptr, ptr %785, align 8, !tbaa !26
   %787 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %786)
@@ -24730,8 +24730,8 @@ new_add.exit222:                                  ; preds = %795, %.sink.split.i
   br i1 %851, label %853, label %mul.exit207
 
 853:                                              ; preds = %850, %847, %843
-  %.sink25.i205 = phi ptr [ %846, %843 ], [ %849, %847 ], [ %852, %850 ]
-  %.sink22.i206 = phi i32 [ 3, %843 ], [ 4, %847 ], [ 6, %850 ]
+  %.sink25.i205 = phi ptr [ %849, %847 ], [ %846, %843 ], [ %852, %850 ]
+  %.sink22.i206 = phi i32 [ 4, %847 ], [ 3, %843 ], [ 6, %850 ]
   %854 = getelementptr inbounds nuw i8, ptr %.sink25.i205, i64 8
   %855 = load ptr, ptr %854, align 8, !tbaa !26
   %856 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %855)
@@ -24792,8 +24792,8 @@ add.exit86:                                       ; preds = %837, %add.exit.i26
   br i1 %877, label %879, label %mul.exit83
 
 879:                                              ; preds = %876, %873, %869
-  %.sink25.i81 = phi ptr [ %872, %869 ], [ %875, %873 ], [ %878, %876 ]
-  %.sink22.i82 = phi i32 [ 3, %869 ], [ 4, %873 ], [ 6, %876 ]
+  %.sink25.i81 = phi ptr [ %875, %873 ], [ %872, %869 ], [ %878, %876 ]
+  %.sink22.i82 = phi i32 [ 4, %873 ], [ 3, %869 ], [ 6, %876 ]
   %880 = getelementptr inbounds nuw i8, ptr %.sink25.i81, i64 8
   %881 = load ptr, ptr %880, align 8, !tbaa !26
   %882 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %881)
@@ -24843,8 +24843,8 @@ mul.exit83:                                       ; preds = %876
   br i1 %901, label %903, label %mul.exit79
 
 903:                                              ; preds = %900, %897, %893
-  %.sink25.i77 = phi ptr [ %896, %893 ], [ %899, %897 ], [ %902, %900 ]
-  %.sink22.i78 = phi i32 [ 3, %893 ], [ 4, %897 ], [ 6, %900 ]
+  %.sink25.i77 = phi ptr [ %899, %897 ], [ %896, %893 ], [ %902, %900 ]
+  %.sink22.i78 = phi i32 [ 4, %897 ], [ 3, %893 ], [ 6, %900 ]
   %904 = getelementptr inbounds nuw i8, ptr %.sink25.i77, i64 8
   %905 = load ptr, ptr %904, align 8, !tbaa !26
   %906 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %905)
@@ -24990,8 +24990,8 @@ new_add.exit75:                                   ; preds = %914, %.sink.split.i
   br i1 %970, label %972, label %mul.exit60
 
 972:                                              ; preds = %969, %966, %962
-  %.sink25.i58 = phi ptr [ %965, %962 ], [ %968, %966 ], [ %971, %969 ]
-  %.sink22.i59 = phi i32 [ 3, %962 ], [ 4, %966 ], [ 6, %969 ]
+  %.sink25.i58 = phi ptr [ %968, %966 ], [ %965, %962 ], [ %971, %969 ]
+  %.sink22.i59 = phi i32 [ 4, %966 ], [ 3, %962 ], [ 6, %969 ]
   %973 = getelementptr inbounds nuw i8, ptr %.sink25.i58, i64 8
   %974 = load ptr, ptr %973, align 8, !tbaa !26
   %975 = call fastcc ptr @cast(ptr noundef %29, ptr noundef %974)
@@ -25056,8 +25056,8 @@ add.exit.i26:                                     ; preds = %956
   br i1 %999, label %1001, label %mul.exit203
 
 1001:                                             ; preds = %998, %995, %991
-  %.sink25.i201 = phi ptr [ %994, %991 ], [ %997, %995 ], [ %1000, %998 ]
-  %.sink22.i202 = phi i32 [ 3, %991 ], [ 4, %995 ], [ 6, %998 ]
+  %.sink25.i201 = phi ptr [ %997, %995 ], [ %994, %991 ], [ %1000, %998 ]
+  %.sink22.i202 = phi i32 [ 4, %995 ], [ 3, %991 ], [ 6, %998 ]
   %1002 = getelementptr inbounds nuw i8, ptr %.sink25.i201, i64 8
   %1003 = load ptr, ptr %1002, align 8, !tbaa !26
   %1004 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %1003)
@@ -25107,8 +25107,8 @@ mul.exit203:                                      ; preds = %998
   br i1 %1023, label %1025, label %mul.exit199
 
 1025:                                             ; preds = %1022, %1019, %1015
-  %.sink25.i197 = phi ptr [ %1018, %1015 ], [ %1021, %1019 ], [ %1024, %1022 ]
-  %.sink22.i198 = phi i32 [ 3, %1015 ], [ 4, %1019 ], [ 6, %1022 ]
+  %.sink25.i197 = phi ptr [ %1021, %1019 ], [ %1018, %1015 ], [ %1024, %1022 ]
+  %.sink22.i198 = phi i32 [ 4, %1019 ], [ 3, %1015 ], [ 6, %1022 ]
   %1026 = getelementptr inbounds nuw i8, ptr %.sink25.i197, i64 8
   %1027 = load ptr, ptr %1026, align 8, !tbaa !26
   %1028 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %1027)
@@ -25254,8 +25254,8 @@ new_add.exit195:                                  ; preds = %1036, %.sink.split.
   br i1 %1092, label %1094, label %mul.exit180
 
 1094:                                             ; preds = %1091, %1088, %1084
-  %.sink25.i178 = phi ptr [ %1087, %1084 ], [ %1090, %1088 ], [ %1093, %1091 ]
-  %.sink22.i179 = phi i32 [ 3, %1084 ], [ 4, %1088 ], [ 6, %1091 ]
+  %.sink25.i178 = phi ptr [ %1090, %1088 ], [ %1087, %1084 ], [ %1093, %1091 ]
+  %.sink22.i179 = phi i32 [ 4, %1088 ], [ 3, %1084 ], [ 6, %1091 ]
   %1095 = getelementptr inbounds nuw i8, ptr %.sink25.i178, i64 8
   %1096 = load ptr, ptr %1095, align 8, !tbaa !26
   %1097 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %1096)
@@ -25316,8 +25316,8 @@ add.exit:                                         ; preds = %1078, %add.exit.i
   br i1 %1118, label %1120, label %mul.exit55
 
 1120:                                             ; preds = %1117, %1114, %1110
-  %.sink25.i53 = phi ptr [ %1113, %1110 ], [ %1116, %1114 ], [ %1119, %1117 ]
-  %.sink22.i54 = phi i32 [ 3, %1110 ], [ 4, %1114 ], [ 6, %1117 ]
+  %.sink25.i53 = phi ptr [ %1116, %1114 ], [ %1113, %1110 ], [ %1119, %1117 ]
+  %.sink22.i54 = phi i32 [ 4, %1114 ], [ 3, %1110 ], [ 6, %1117 ]
   %1121 = getelementptr inbounds nuw i8, ptr %.sink25.i53, i64 8
   %1122 = load ptr, ptr %1121, align 8, !tbaa !26
   %1123 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %1122)
@@ -25367,8 +25367,8 @@ mul.exit55:                                       ; preds = %1117
   br i1 %1142, label %1144, label %mul.exit51
 
 1144:                                             ; preds = %1141, %1138, %1134
-  %.sink25.i49 = phi ptr [ %1137, %1134 ], [ %1140, %1138 ], [ %1143, %1141 ]
-  %.sink22.i50 = phi i32 [ 3, %1134 ], [ 4, %1138 ], [ 6, %1141 ]
+  %.sink25.i49 = phi ptr [ %1140, %1138 ], [ %1137, %1134 ], [ %1143, %1141 ]
+  %.sink22.i50 = phi i32 [ 4, %1138 ], [ 3, %1134 ], [ 6, %1141 ]
   %1145 = getelementptr inbounds nuw i8, ptr %.sink25.i49, i64 8
   %1146 = load ptr, ptr %1145, align 8, !tbaa !26
   %1147 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %1146)
@@ -25514,8 +25514,8 @@ new_add.exit:                                     ; preds = %1155, %.sink.split.
   br i1 %1211, label %1213, label %mul.exit
 
 1213:                                             ; preds = %1210, %1207, %1203
-  %.sink25.i = phi ptr [ %1206, %1203 ], [ %1209, %1207 ], [ %1212, %1210 ]
-  %.sink22.i = phi i32 [ 3, %1203 ], [ 4, %1207 ], [ 6, %1210 ]
+  %.sink25.i = phi ptr [ %1209, %1207 ], [ %1206, %1203 ], [ %1212, %1210 ]
+  %.sink22.i = phi i32 [ 4, %1207 ], [ 3, %1203 ], [ 6, %1210 ]
   %1214 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %1215 = load ptr, ptr %1214, align 8, !tbaa !26
   %1216 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %1215)
@@ -25551,10 +25551,10 @@ add.exit.i:                                       ; preds = %1197
   br label %add.exit
 
 shift.exit40:                                     ; preds = %1104, %863, %622, %381
-  %.1 = phi ptr [ %.0331, %381 ], [ %.0328, %622 ], [ %.0325, %863 ], [ %.0322, %1104 ]
-  %.sink23.i = phi i32 [ 14, %381 ], [ 15, %622 ], [ 14, %863 ], [ 15, %1104 ]
-  %.sink.i = phi ptr [ %.012.i, %381 ], [ %.012.i, %622 ], [ %.08.i23, %863 ], [ %.08.i, %1104 ]
-  %.012.sink.i = phi ptr [ %.08.i35, %381 ], [ %.08.i29, %622 ], [ %.012.i, %863 ], [ %.012.i, %1104 ]
+  %.1 = phi ptr [ %.0325, %863 ], [ %.0331, %381 ], [ %.0328, %622 ], [ %.0322, %1104 ]
+  %.sink23.i = phi i32 [ 14, %863 ], [ 14, %381 ], [ 15, %622 ], [ 15, %1104 ]
+  %.sink.i = phi ptr [ %.08.i23, %863 ], [ %.012.i, %381 ], [ %.012.i, %622 ], [ %.08.i, %1104 ]
+  %.012.sink.i = phi ptr [ %.012.i, %863 ], [ %.08.i35, %381 ], [ %.08.i29, %622 ], [ %.012.i, %1104 ]
   %1226 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
   store i32 %.sink23.i, ptr %1226, align 16, !tbaa !7
   %1227 = getelementptr inbounds nuw i8, ptr %1226, i64 24
@@ -25633,8 +25633,8 @@ define internal fastcc ptr @relational(ptr noundef nonnull writeonly captures(no
   br i1 %32, label %34, label %mul.exit96
 
 34:                                               ; preds = %31, %28, %24
-  %.sink25.i94 = phi ptr [ %27, %24 ], [ %30, %28 ], [ %33, %31 ]
-  %.sink22.i95 = phi i32 [ 3, %24 ], [ 4, %28 ], [ 6, %31 ]
+  %.sink25.i94 = phi ptr [ %30, %28 ], [ %27, %24 ], [ %33, %31 ]
+  %.sink22.i95 = phi i32 [ 4, %28 ], [ 3, %24 ], [ 6, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sink25.i94, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %36)
@@ -25684,8 +25684,8 @@ mul.exit96:                                       ; preds = %31
   br i1 %56, label %58, label %mul.exit92
 
 58:                                               ; preds = %55, %52, %48
-  %.sink25.i90 = phi ptr [ %51, %48 ], [ %54, %52 ], [ %57, %55 ]
-  %.sink22.i91 = phi i32 [ 3, %48 ], [ 4, %52 ], [ 6, %55 ]
+  %.sink25.i90 = phi ptr [ %54, %52 ], [ %51, %48 ], [ %57, %55 ]
+  %.sink22.i91 = phi i32 [ 4, %52 ], [ 3, %48 ], [ 6, %55 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sink25.i90, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !26
   %61 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %60)
@@ -25831,8 +25831,8 @@ new_add.exit88:                                   ; preds = %69, %.sink.split.i7
   br i1 %125, label %127, label %mul.exit73
 
 127:                                              ; preds = %124, %121, %117
-  %.sink25.i71 = phi ptr [ %120, %117 ], [ %123, %121 ], [ %126, %124 ]
-  %.sink22.i72 = phi i32 [ 3, %117 ], [ 4, %121 ], [ 6, %124 ]
+  %.sink25.i71 = phi ptr [ %123, %121 ], [ %120, %117 ], [ %126, %124 ]
+  %.sink22.i72 = phi i32 [ 4, %121 ], [ 3, %117 ], [ 6, %124 ]
   %128 = getelementptr inbounds nuw i8, ptr %.sink25.i71, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !26
   %130 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %129)
@@ -25893,8 +25893,8 @@ add.exit:                                         ; preds = %111, %add.exit.i
   br i1 %151, label %153, label %mul.exit38
 
 153:                                              ; preds = %150, %147, %143
-  %.sink25.i36 = phi ptr [ %146, %143 ], [ %149, %147 ], [ %152, %150 ]
-  %.sink22.i37 = phi i32 [ 3, %143 ], [ 4, %147 ], [ 6, %150 ]
+  %.sink25.i36 = phi ptr [ %149, %147 ], [ %146, %143 ], [ %152, %150 ]
+  %.sink22.i37 = phi i32 [ 4, %147 ], [ 3, %143 ], [ 6, %150 ]
   %154 = getelementptr inbounds nuw i8, ptr %.sink25.i36, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !26
   %156 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %155)
@@ -25944,8 +25944,8 @@ mul.exit38:                                       ; preds = %150
   br i1 %175, label %177, label %mul.exit34
 
 177:                                              ; preds = %174, %171, %167
-  %.sink25.i32 = phi ptr [ %170, %167 ], [ %173, %171 ], [ %176, %174 ]
-  %.sink22.i33 = phi i32 [ 3, %167 ], [ 4, %171 ], [ 6, %174 ]
+  %.sink25.i32 = phi ptr [ %173, %171 ], [ %170, %167 ], [ %176, %174 ]
+  %.sink22.i33 = phi i32 [ 4, %171 ], [ 3, %167 ], [ 6, %174 ]
   %178 = getelementptr inbounds nuw i8, ptr %.sink25.i32, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !26
   %180 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %179)
@@ -26091,8 +26091,8 @@ new_add.exit:                                     ; preds = %188, %.sink.split.i
   br i1 %244, label %246, label %mul.exit
 
 246:                                              ; preds = %243, %240, %236
-  %.sink25.i = phi ptr [ %239, %236 ], [ %242, %240 ], [ %245, %243 ]
-  %.sink22.i = phi i32 [ 3, %236 ], [ 4, %240 ], [ 6, %243 ]
+  %.sink25.i = phi ptr [ %242, %240 ], [ %239, %236 ], [ %245, %243 ]
+  %.sink22.i = phi i32 [ 4, %240 ], [ 3, %236 ], [ 6, %243 ]
   %247 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %248 = load ptr, ptr %247, align 8, !tbaa !26
   %249 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %248)
@@ -26175,8 +26175,8 @@ shift.exit:                                       ; preds = %137
   br i1 %280, label %282, label %mul.exit119
 
 282:                                              ; preds = %279, %276, %272
-  %.sink25.i117 = phi ptr [ %275, %272 ], [ %278, %276 ], [ %281, %279 ]
-  %.sink22.i118 = phi i32 [ 3, %272 ], [ 4, %276 ], [ 6, %279 ]
+  %.sink25.i117 = phi ptr [ %278, %276 ], [ %275, %272 ], [ %281, %279 ]
+  %.sink22.i118 = phi i32 [ 4, %276 ], [ 3, %272 ], [ 6, %279 ]
   %283 = getelementptr inbounds nuw i8, ptr %.sink25.i117, i64 8
   %284 = load ptr, ptr %283, align 8, !tbaa !26
   %285 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %284)
@@ -26323,8 +26323,8 @@ new_add.exit115:                                  ; preds = %293, %.sink.split.i
   br i1 %349, label %351, label %mul.exit100
 
 351:                                              ; preds = %348, %345, %341
-  %.sink25.i98 = phi ptr [ %344, %341 ], [ %347, %345 ], [ %350, %348 ]
-  %.sink22.i99 = phi i32 [ 3, %341 ], [ 4, %345 ], [ 6, %348 ]
+  %.sink25.i98 = phi ptr [ %347, %345 ], [ %344, %341 ], [ %350, %348 ]
+  %.sink22.i99 = phi i32 [ 4, %345 ], [ 3, %341 ], [ 6, %348 ]
   %352 = getelementptr inbounds nuw i8, ptr %.sink25.i98, i64 8
   %353 = load ptr, ptr %352, align 8, !tbaa !26
   %354 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %353)
@@ -26389,8 +26389,8 @@ add.exit69:                                       ; preds = %335
   br i1 %376, label %378, label %mul.exit66
 
 378:                                              ; preds = %375, %372, %368
-  %.sink25.i64 = phi ptr [ %371, %368 ], [ %374, %372 ], [ %377, %375 ]
-  %.sink22.i65 = phi i32 [ 3, %368 ], [ 4, %372 ], [ 6, %375 ]
+  %.sink25.i64 = phi ptr [ %374, %372 ], [ %371, %368 ], [ %377, %375 ]
+  %.sink22.i65 = phi i32 [ 4, %372 ], [ 3, %368 ], [ 6, %375 ]
   %379 = getelementptr inbounds nuw i8, ptr %.sink25.i64, i64 8
   %380 = load ptr, ptr %379, align 8, !tbaa !26
   %381 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %380)
@@ -26440,8 +26440,8 @@ mul.exit66:                                       ; preds = %375
   br i1 %400, label %402, label %mul.exit62
 
 402:                                              ; preds = %399, %396, %392
-  %.sink25.i60 = phi ptr [ %395, %392 ], [ %398, %396 ], [ %401, %399 ]
-  %.sink22.i61 = phi i32 [ 3, %392 ], [ 4, %396 ], [ 6, %399 ]
+  %.sink25.i60 = phi ptr [ %398, %396 ], [ %395, %392 ], [ %401, %399 ]
+  %.sink22.i61 = phi i32 [ 4, %396 ], [ 3, %392 ], [ 6, %399 ]
   %403 = getelementptr inbounds nuw i8, ptr %.sink25.i60, i64 8
   %404 = load ptr, ptr %403, align 8, !tbaa !26
   %405 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %404)
@@ -26587,8 +26587,8 @@ new_add.exit58:                                   ; preds = %413, %.sink.split.i
   br i1 %469, label %471, label %mul.exit43
 
 471:                                              ; preds = %468, %465, %461
-  %.sink25.i41 = phi ptr [ %464, %461 ], [ %467, %465 ], [ %470, %468 ]
-  %.sink22.i42 = phi i32 [ 3, %461 ], [ 4, %465 ], [ 6, %468 ]
+  %.sink25.i41 = phi ptr [ %467, %465 ], [ %464, %461 ], [ %470, %468 ]
+  %.sink22.i42 = phi i32 [ 4, %465 ], [ 3, %461 ], [ 6, %468 ]
   %472 = getelementptr inbounds nuw i8, ptr %.sink25.i41, i64 8
   %473 = load ptr, ptr %472, align 8, !tbaa !26
   %474 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %473)
@@ -26714,8 +26714,8 @@ define internal fastcc ptr @shift(ptr noundef nonnull writeonly captures(none) %
   br i1 %25, label %27, label %mul.exit30
 
 27:                                               ; preds = %24, %21, %17
-  %.sink25.i28 = phi ptr [ %20, %17 ], [ %23, %21 ], [ %26, %24 ]
-  %.sink22.i29 = phi i32 [ 3, %17 ], [ 4, %21 ], [ 6, %24 ]
+  %.sink25.i28 = phi ptr [ %23, %21 ], [ %20, %17 ], [ %26, %24 ]
+  %.sink22.i29 = phi i32 [ 4, %21 ], [ 3, %17 ], [ 6, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sink25.i28, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %29)
@@ -26765,8 +26765,8 @@ mul.exit30:                                       ; preds = %24
   br i1 %49, label %51, label %mul.exit26
 
 51:                                               ; preds = %48, %45, %41
-  %.sink25.i24 = phi ptr [ %44, %41 ], [ %47, %45 ], [ %50, %48 ]
-  %.sink22.i25 = phi i32 [ 3, %41 ], [ 4, %45 ], [ 6, %48 ]
+  %.sink25.i24 = phi ptr [ %47, %45 ], [ %44, %41 ], [ %50, %48 ]
+  %.sink22.i25 = phi i32 [ 4, %45 ], [ 3, %41 ], [ 6, %48 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sink25.i24, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !26
   %54 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %53)
@@ -26912,8 +26912,8 @@ new_add.exit:                                     ; preds = %62, %.sink.split.i
   br i1 %118, label %120, label %mul.exit
 
 120:                                              ; preds = %117, %114, %110
-  %.sink25.i = phi ptr [ %113, %110 ], [ %116, %114 ], [ %119, %117 ]
-  %.sink22.i = phi i32 [ 3, %110 ], [ 4, %114 ], [ 6, %117 ]
+  %.sink25.i = phi ptr [ %116, %114 ], [ %113, %110 ], [ %119, %117 ]
+  %.sink22.i = phi i32 [ 4, %114 ], [ 3, %110 ], [ 6, %117 ]
   %121 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !26
   %123 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %122)
@@ -27019,8 +27019,8 @@ define internal fastcc ptr @mul(ptr noundef nonnull writeonly captures(none) %0,
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %12, %9, %5
-  %.sink25 = phi ptr [ %8, %5 ], [ %11, %9 ], [ %14, %12 ]
-  %.sink22 = phi i32 [ 3, %5 ], [ 4, %9 ], [ 6, %12 ]
+  %.sink25 = phi ptr [ %11, %9 ], [ %8, %5 ], [ %14, %12 ]
+  %.sink22 = phi i32 [ 4, %9 ], [ 3, %5 ], [ 6, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %17)
@@ -27588,7 +27588,7 @@ define internal fastcc ptr @unary(ptr noundef nonnull %0, ptr noundef %1) unname
   br i1 %69, label %70, label %79
 
 common.ret54:                                     ; preds = %46, %38, %104, %92, %61, %52, %32, %10, %4, %81, %70
-  %common.ret54.op = phi ptr [ %78, %70 ], [ %89, %81 ], [ %7, %4 ], [ %14, %10 ], [ %33, %32 ], [ %56, %52 ], [ %65, %61 ], [ %93, %92 ], [ %105, %104 ], [ %47, %46 ], [ %41, %38 ]
+  %common.ret54.op = phi ptr [ %89, %81 ], [ %78, %70 ], [ %93, %92 ], [ %47, %46 ], [ %7, %4 ], [ %14, %10 ], [ %33, %32 ], [ %105, %104 ], [ %56, %52 ], [ %65, %61 ], [ %41, %38 ]
   ret ptr %common.ret54.op
 
 70:                                               ; preds = %68
@@ -28215,7 +28215,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %6, label %tailrecurse.backedge, label %.loopexit
 
 tailrecurse.backedge:                             ; preds = %3, %tailrecurse, %12, %15
-  %.sink = phi i64 [ %.in.v, %12 ], [ 32, %15 ], [ 40, %tailrecurse ], [ 40, %3 ]
+  %.sink = phi i64 [ 40, %tailrecurse ], [ %.in.v, %12 ], [ 32, %15 ], [ 40, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %7, align 8, !tbaa !101
   br label %tailrecurse
@@ -29677,7 +29677,7 @@ generic_selection.exit:                           ; preds = %._crit_edge
   unreachable
 
 primary.exit:                                     ; preds = %111, %125, %174, %178, %189, %207, %214, %is_typename.exit56.thread72, %269, %generic_selection.exit, %322, %350, %359, %360, %363, %383, %.thread157, %422, %433, %460
-  %.064.i = phi ptr [ %112, %111 ], [ %128, %125 ], [ %263, %is_typename.exit56.thread72 ], [ %279, %269 ], [ %.015.i.be, %generic_selection.exit ], [ %334, %322 ], [ %364, %363 ], [ %384, %383 ], [ %441, %433 ], [ %.0.i, %460 ], [ %175, %174 ], [ %185, %178 ], [ %193, %189 ], [ %211, %207 ], [ %219, %214 ], [ %351, %350 ], [ %356, %359 ], [ %356, %360 ], [ %417, %.thread157 ], [ %426, %422 ]
+  %.064.i = phi ptr [ %112, %111 ], [ %128, %125 ], [ %.0.i, %460 ], [ %193, %189 ], [ %263, %is_typename.exit56.thread72 ], [ %279, %269 ], [ %.015.i.be, %generic_selection.exit ], [ %334, %322 ], [ %219, %214 ], [ %364, %363 ], [ %384, %383 ], [ %356, %360 ], [ %441, %433 ], [ %175, %174 ], [ %185, %178 ], [ %211, %207 ], [ %351, %350 ], [ %356, %359 ], [ %417, %.thread157 ], [ %426, %422 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %466 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.backedge
@@ -30584,7 +30584,7 @@ write_buf.exit:                                   ; preds = %94, %92, %90, %88, 
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %44, %write_buf.exit, %17, %29, %8, %116, %142, %125, %120
-  %.0 = phi ptr [ %0, %120 ], [ %0, %125 ], [ %.1, %142 ], [ %0, %116 ], [ %0, %8 ], [ %0, %29 ], [ %25, %17 ], [ %.181113, %44 ], [ %.2, %write_buf.exit ], [ %0, %103 ]
+  %.0 = phi ptr [ %0, %116 ], [ %0, %120 ], [ %0, %125 ], [ %.1, %142 ], [ %0, %8 ], [ %0, %29 ], [ %.2, %write_buf.exit ], [ %25, %17 ], [ %.181113, %44 ], [ %0, %103 ]
   ret ptr %.0
 }
 
@@ -31344,7 +31344,7 @@ is_end.exit.thread15:                             ; preds = %29, %is_end.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %38, %18, %.critedge.loopexit
-  %storemerge = phi ptr [ %.pre, %.critedge.loopexit ], [ %1, %18 ], [ %34, %38 ], [ %34, %41 ]
+  %storemerge = phi ptr [ %1, %18 ], [ %.pre, %.critedge.loopexit ], [ %34, %38 ], [ %34, %41 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !25
   ret void
 }
@@ -31644,7 +31644,7 @@ is_end.exit.thread12:                             ; preds = %10, %is_end.exit
   br label %.critedge11
 
 .critedge11:                                      ; preds = %18, %21, %4, %.critedge.loopexit
-  %storemerge = phi ptr [ %.pre, %.critedge.loopexit ], [ %1, %4 ], [ %15, %21 ], [ %15, %18 ]
+  %storemerge = phi ptr [ %1, %4 ], [ %.pre, %.critedge.loopexit ], [ %15, %21 ], [ %15, %18 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !25
   ret void
 }
@@ -33081,7 +33081,7 @@ get_ident.exit50:                                 ; preds = %145
   unreachable
 
 204:                                              ; preds = %199, %get_ident.exit, %64, %get_ident.exit48
-  %.1 = phi ptr [ %141, %get_ident.exit48 ], [ %.071, %64 ], [ %.071, %get_ident.exit ], [ %.2, %199 ]
+  %.1 = phi ptr [ %.071, %get_ident.exit ], [ %141, %get_ident.exit48 ], [ %.071, %64 ], [ %.2, %199 ]
   %205 = load ptr, ptr %7, align 8, !tbaa !25
   %206 = call zeroext i1 @equal(ptr noundef %205, ptr noundef nonnull @.str.99) #14
   br i1 %206, label %._crit_edge.loopexit, label %13
@@ -33208,7 +33208,7 @@ define internal fastcc noundef ptr @stmt(ptr noundef nonnull %0, ptr noundef %1)
   br i1 %58, label %59, label %77
 
 common.ret104:                                    ; preds = %31, %5, %326, %322, %285, %273, %258, %250, %240, %213, %102, %55, %299, %189, %180, %125, %59
-  %common.ret104.op = phi ptr [ %60, %59 ], [ %126, %125 ], [ %142, %180 ], [ %190, %189 ], [ %300, %299 ], [ %36, %55 ], [ %83, %102 ], [ %214, %213 ], [ %241, %240 ], [ %248, %250 ], [ %248, %258 ], [ %274, %273 ], [ %286, %285 ], [ %325, %322 ], [ %327, %326 ], [ %6, %5 ], [ %6, %31 ]
+  %common.ret104.op = phi ptr [ %300, %299 ], [ %60, %59 ], [ %126, %125 ], [ %142, %180 ], [ %190, %189 ], [ %274, %273 ], [ %248, %258 ], [ %248, %250 ], [ %241, %240 ], [ %214, %213 ], [ %327, %326 ], [ %36, %55 ], [ %6, %31 ], [ %83, %102 ], [ %6, %5 ], [ %325, %322 ], [ %286, %285 ]
   ret ptr %common.ret104.op
 
 59:                                               ; preds = %57

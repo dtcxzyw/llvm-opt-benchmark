@@ -1407,7 +1407,7 @@ do_major_operation__remove_all.exit.i.i:          ; preds = %662, %652
   br label %do_major_operation_on_file.exit.i
 
 do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
-  %.0.i.i = phi i32 [ %685, %684 ], [ 0, %60 ], [ 0, %61 ]
+  %.0.i.i = phi i32 [ 0, %60 ], [ %685, %684 ], [ 0, %61 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %686 = load i32, ptr %22, align 8, !tbaa !18
   %687 = zext i32 %686 to i64
@@ -1586,7 +1586,7 @@ do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
   br label %do_shorthand_operations_on_file.exit.i
 
 do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %._crit_edge.i.i, %713
-  %.051.i.i = phi i32 [ %.5.i.i, %763 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ 0, %713 ], [ 0, %767 ], [ 0, %764 ]
+  %.051.i.i = phi i32 [ %.5.i.i, %763 ], [ 0, %713 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ 0, %767 ], [ 0, %764 ]
   call void @FLAC__metadata_chain_delete(ptr noundef %707) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %770 = and i32 %.051.i.i, %.032.i
@@ -1884,7 +1884,7 @@ do_shorthand_operation__add_replay_gain.exit:     ; preds = %793, %804, %811, %8
   br i1 %899, label %.lr.ph36.i, label %do_major_operation.exit, !llvm.loop !80
 
 do_major_operation.exit:                          ; preds = %do_major_operation_on_file.exit.i, %896, %.preheader.i, %._crit_edge.i, %692, %21, %689, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %689 ], [ 1, %21 ], [ %.mux.i, %._crit_edge.i ], [ 1, %.preheader.i ], [ 1, %692 ], [ %.3.i, %896 ], [ %.0.i.i, %do_major_operation_on_file.exit.i ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %689 ], [ 1, %21 ], [ 1, %692 ], [ %.mux.i, %._crit_edge.i ], [ 1, %.preheader.i ], [ %.3.i, %896 ], [ %.0.i.i, %do_major_operation_on_file.exit.i ]
   ret i32 %.0
 }
 
@@ -2037,9 +2037,9 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !85
 
 .loopexit:                                        ; preds = %39, %.lr.ph61.split, %35, %.preheader, %19, %12
-  %.343 = phi i32 [ %.04064, %12 ], [ %.04064, %19 ], [ %.04064, %.preheader ], [ %.04064, %35 ], [ %.04064, %.lr.ph61.split ], [ %spec.select, %39 ]
-  %.3 = phi i32 [ %.03865, %12 ], [ %.03865, %19 ], [ %.03865, %.preheader ], [ %.2.us, %35 ], [ %spec.select71, %.lr.ph61.split ], [ %.03865, %39 ]
-  %.1 = phi i32 [ %.066, %12 ], [ %.066, %19 ], [ 1, %.preheader ], [ %.066, %35 ], [ %.066, %.lr.ph61.split ], [ 1, %39 ]
+  %.343 = phi i32 [ %.04064, %12 ], [ %.04064, %19 ], [ %.04064, %.preheader ], [ %.04064, %.lr.ph61.split ], [ %.04064, %35 ], [ %spec.select, %39 ]
+  %.3 = phi i32 [ %.03865, %12 ], [ %.03865, %19 ], [ %.03865, %.preheader ], [ %spec.select71, %.lr.ph61.split ], [ %.2.us, %35 ], [ %.03865, %39 ]
+  %.1 = phi i32 [ %.066, %12 ], [ %.066, %19 ], [ 1, %.preheader ], [ %.066, %.lr.ph61.split ], [ %.066, %35 ], [ 1, %39 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
   br i1 %exitcond92.not, label %._crit_edge.loopexit, label %12, !llvm.loop !86

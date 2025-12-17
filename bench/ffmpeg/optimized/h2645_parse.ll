@@ -356,8 +356,8 @@ define i32 @ff_h2645_extract_rbsp(ptr noundef %0, i32 noundef %1, ptr noundef ca
   br label %.backedge
 
 .backedge:                                        ; preds = %83, %.thread, %111
-  %.0105.be = phi i32 [ %113, %111 ], [ %90, %.thread ], [ %90, %83 ]
-  %.0104.be = phi i32 [ %114, %111 ], [ %87, %.thread ], [ %87, %83 ]
+  %.0105.be = phi i32 [ %113, %111 ], [ %90, %83 ], [ %90, %.thread ]
+  %.0104.be = phi i32 [ %114, %111 ], [ %87, %83 ], [ %87, %.thread ]
   %109 = add nsw i32 %.0105.be, 2
   %110 = icmp slt i32 %109, %.0113
   br i1 %110, label %59, label %.preheader, !llvm.loop !27
@@ -1039,8 +1039,8 @@ vvc_parse_nal_header.exit.vvc_parse_nal_header.exit.thread_crit_edge: ; preds = 
   %.pre268 = load i32, ptr %232, align 8, !tbaa !48
   br label %vvc_parse_nal_header.exit.thread
 
-vvc_parse_nal_header.exit.thread:                 ; preds = %vvc_parse_nal_header.exit.vvc_parse_nal_header.exit.thread_crit_edge, %292, %255, %235, %234
-  %303 = phi i32 [ %.pre268, %vvc_parse_nal_header.exit.vvc_parse_nal_header.exit.thread_crit_edge ], [ 0, %292 ], [ %242, %255 ], [ %242, %235 ], [ 0, %234 ]
+vvc_parse_nal_header.exit.thread:                 ; preds = %vvc_parse_nal_header.exit.vvc_parse_nal_header.exit.thread_crit_edge, %292, %235, %234, %255
+  %303 = phi i32 [ %.pre268, %vvc_parse_nal_header.exit.vvc_parse_nal_header.exit.thread_crit_edge ], [ 0, %292 ], [ %242, %235 ], [ 0, %234 ], [ %242, %255 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %303) #7
   br label %.thread203, !llvm.loop !38
 
@@ -1059,8 +1059,8 @@ vvc_parse_nal_header.exit.thread223:              ; preds = %hevc_parse_nal_head
   %306 = icmp sgt i32 %.pre-phi273, 3
   br i1 %306, label %68, label %.thread226
 
-.thread226:                                       ; preds = %.thread203, %159, %217, %75, %133, %136, %152, %alloc_rbsp_buffer.exit.thread195, %122, %119, %.loopexit, %alloc_rbsp_buffer.exit.thread, %alloc_rbsp_buffer.exit
-  %.0 = phi i32 [ -12, %alloc_rbsp_buffer.exit ], [ -12, %alloc_rbsp_buffer.exit.thread ], [ -1094995529, %.loopexit ], [ -1094995529, %122 ], [ 0, %119 ], [ 0, %alloc_rbsp_buffer.exit.thread195 ], [ 0, %.thread203 ], [ %164, %159 ], [ -1094995529, %217 ], [ -1094995529, %75 ], [ -12, %133 ], [ -12, %136 ], [ -12, %152 ]
+.thread226:                                       ; preds = %.thread203, %159, %217, %75, %133, %136, %152, %alloc_rbsp_buffer.exit.thread195, %119, %122, %.loopexit, %alloc_rbsp_buffer.exit.thread, %alloc_rbsp_buffer.exit
+  %.0 = phi i32 [ -1094995529, %122 ], [ -12, %alloc_rbsp_buffer.exit ], [ 0, %119 ], [ -12, %alloc_rbsp_buffer.exit.thread ], [ -1094995529, %.loopexit ], [ 0, %alloc_rbsp_buffer.exit.thread195 ], [ -12, %133 ], [ -1094995529, %75 ], [ %164, %159 ], [ 0, %.thread203 ], [ -1094995529, %217 ], [ -12, %136 ], [ -12, %152 ]
   ret i32 %.0
 }
 

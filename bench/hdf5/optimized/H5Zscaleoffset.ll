@@ -812,8 +812,8 @@ H5Z__scaleoffset_convert.exit261:                 ; preds = %._crit_edge.us.i260
   br label %H5Z__scaleoffset_convert.exit252.thread
 
 H5Z__scaleoffset_convert.exit252.thread:          ; preds = %._crit_edge.us.i251, %128, %209, %208
-  %.2214 = phi ptr [ %180, %209 ], [ %180, %208 ], [ %109, %128 ], [ %109, %._crit_edge.us.i251 ]
-  %.1202 = phi i64 [ %179, %209 ], [ %179, %208 ], [ %108, %128 ], [ %108, %._crit_edge.us.i251 ]
+  %.2214 = phi ptr [ %180, %208 ], [ %180, %209 ], [ %109, %128 ], [ %109, %._crit_edge.us.i251 ]
+  %.1202 = phi i64 [ %179, %208 ], [ %179, %209 ], [ %108, %128 ], [ %108, %._crit_edge.us.i251 ]
   %213 = load ptr, ptr %5, align 8, !tbaa !16
   %214 = tail call ptr @H5MM_xfree(ptr noundef %213) #14
   store ptr %.2214, ptr %5, align 8, !tbaa !16
@@ -827,8 +827,8 @@ H5Z__scaleoffset_convert.exit252.thread:          ; preds = %._crit_edge.us.i251
   %219 = tail call ptr @H5MM_xfree(ptr noundef nonnull %109) #14
   br label %H5Z__scaleoffset_convert.exit252.thread281
 
-H5Z__scaleoffset_convert.exit252.thread281:       ; preds = %203, %182, %164, %111, %91, %72, %66, %H5Z__scaleoffset_convert.exit252.thread, %55, %50, %43, %23, %16, %6, %215
-  %.0200 = phi i64 [ 0, %215 ], [ 0, %6 ], [ 0, %111 ], [ 0, %91 ], [ %73, %72 ], [ 0, %66 ], [ %.1202, %H5Z__scaleoffset_convert.exit252.thread ], [ 0, %55 ], [ 0, %50 ], [ 0, %43 ], [ 0, %23 ], [ 0, %16 ], [ %207, %203 ], [ 0, %182 ], [ 0, %164 ]
+H5Z__scaleoffset_convert.exit252.thread281:       ; preds = %182, %203, %164, %111, %91, %66, %72, %H5Z__scaleoffset_convert.exit252.thread, %55, %50, %43, %23, %16, %6, %215
+  %.0200 = phi i64 [ 0, %215 ], [ 0, %6 ], [ 0, %164 ], [ 0, %111 ], [ 0, %91 ], [ 0, %66 ], [ 0, %16 ], [ %73, %72 ], [ %.1202, %H5Z__scaleoffset_convert.exit252.thread ], [ 0, %55 ], [ 0, %50 ], [ 0, %43 ], [ 0, %23 ], [ 0, %182 ], [ %207, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0200
@@ -935,7 +935,7 @@ switch.lookup28:                                  ; preds = %.split23
   br label %.thread26
 
 .thread26:                                        ; preds = %switch.lookup28, %switch.lookup, %10, %11, %31, %30, %17, %26, %32, %3
-  %.0 = phi i32 [ 0, %32 ], [ 0, %26 ], [ 0, %17 ], [ 0, %3 ], [ 12, %31 ], [ 11, %30 ], [ 0, %11 ], [ 0, %10 ], [ %switch.offset, %switch.lookup ], [ %switch.offset29, %switch.lookup28 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %32 ], [ 0, %26 ], [ 0, %17 ], [ 0, %10 ], [ 12, %31 ], [ 11, %30 ], [ %switch.offset, %switch.lookup ], [ %switch.offset29, %switch.lookup28 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -1711,7 +1711,7 @@ H5Z__scaleoffset_convert.exit571:                 ; preds = %295, %292
   br label %319
 
 319:                                              ; preds = %5, %41, %60, %79, %113, %147, %159, %178, %197, %231, %265, %284, %318
-  %.0473 = phi i32 [ %.1474, %41 ], [ %.2475, %60 ], [ %.3476, %79 ], [ %.4477, %113 ], [ %.5478, %147 ], [ %.6479, %159 ], [ %.7480, %178 ], [ %.8481, %197 ], [ %.9482, %231 ], [ %.10483, %265 ], [ %.11484, %284 ], [ %.12, %318 ], [ 0, %5 ]
+  %.0473 = phi i32 [ 0, %5 ], [ %.1474, %41 ], [ %.7480, %178 ], [ %.2475, %60 ], [ %.12, %318 ], [ %.3476, %79 ], [ %.9482, %231 ], [ %.4477, %113 ], [ %.11484, %284 ], [ %.5478, %147 ], [ %.8481, %197 ], [ %.6479, %159 ], [ %.10483, %265 ]
   ret i32 %.0473
 }
 

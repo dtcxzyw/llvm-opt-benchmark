@@ -108,9 +108,9 @@ define ptr @ASN1_item_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12, %10, %15
-  %24 = phi ptr [ %.pre, %..thread_crit_edge ], [ %1, %15 ], [ %1, %10 ], [ %1, %12 ]
-  %.not2735 = phi i1 [ false, %..thread_crit_edge ], [ true, %15 ], [ true, %10 ], [ true, %12 ]
-  %.02234 = phi ptr [ %17, %..thread_crit_edge ], [ null, %15 ], [ null, %10 ], [ null, %12 ]
+  %24 = phi ptr [ %1, %15 ], [ %.pre, %..thread_crit_edge ], [ %1, %10 ], [ %1, %12 ]
+  %.not2735 = phi i1 [ true, %15 ], [ false, %..thread_crit_edge ], [ true, %10 ], [ true, %12 ]
+  %.02234 = phi ptr [ null, %15 ], [ %17, %..thread_crit_edge ], [ null, %10 ], [ null, %12 ]
   %25 = call i32 @ASN1_item_i2d(ptr noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %0) #3
   %26 = icmp slt i32 %25, 0
   %27 = load ptr, ptr %4, align 8
@@ -154,7 +154,7 @@ define ptr @ASN1_item_dup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %42
 
 42:                                               ; preds = %30, %._crit_edge, %2, %39, %29
-  %.0 = phi ptr [ null, %29 ], [ null, %39 ], [ null, %2 ], [ %.pre36, %._crit_edge ], [ %34, %30 ]
+  %.0 = phi ptr [ null, %39 ], [ null, %29 ], [ null, %2 ], [ %.pre36, %._crit_edge ], [ %34, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

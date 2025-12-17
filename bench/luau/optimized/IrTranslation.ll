@@ -2029,7 +2029,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen13getJumpTargetEjj(i3
   br label %.thread
 
 .thread:                                          ; preds = %2, %11, %16, %13, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %11 ], [ -1, %2 ]
+  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %2 ], [ -1, %11 ]
   ret i32 %.0
 }
 

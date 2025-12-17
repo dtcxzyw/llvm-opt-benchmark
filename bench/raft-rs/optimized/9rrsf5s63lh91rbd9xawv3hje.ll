@@ -801,7 +801,7 @@ define noundef zeroext i1 @_ZN4raft4raft16UncommittedState31maybe_increase_uncom
   br i1 %or.cond7, label %21, label %22
 
 21:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heee360cb95700b87E.exit", %3, %22
-  %.sroa.0.0 = phi i1 [ true, %22 ], [ true, %3 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heee360cb95700b87E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %3 ], [ true, %22 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heee360cb95700b87E.exit" ]
   ret i1 %.sroa.0.0
 
 22:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heee360cb95700b87E.exit.thread", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heee360cb95700b87E.exit"
@@ -876,7 +876,7 @@ define noundef zeroext i1 @_ZN4raft4raft16UncommittedState29maybe_reduce_uncommi
   br i1 %37, label %43, label %39
 
 38:                                               ; preds = %3, %39, %43
-  %.sroa.0.0 = phi i1 [ false, %43 ], [ true, %39 ], [ true, %3 ]
+  %.sroa.0.0 = phi i1 [ true, %39 ], [ false, %43 ], [ true, %3 ]
   ret i1 %.sroa.0.0
 
 39:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb458cec8bfbbc028E.exit.thread", %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb458cec8bfbbc028E.exit"
@@ -1507,8 +1507,8 @@ select.unfold.us.us:                              ; preds = %.lr.ph.lr.ph.split.
   br label %76
 
 .outer._crit_edge:                                ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit", %select.unfold26, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us", %select.unfold26.loopexit.us.us, %select.unfold.us.us, %2
-  %.sroa.02.0.ph.lcssa = phi i64 [ 0, %2 ], [ 0, %select.unfold.us.us ], [ %.sroa.02.0.ph58.us, %select.unfold26.loopexit.us.us ], [ %.sroa.02.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.02.0.ph58, %select.unfold26 ], [ %.sroa.02.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
-  %.sroa.04.0.ph.lcssa = phi i64 [ 0, %2 ], [ 0, %select.unfold.us.us ], [ %.sroa.04.0.ph60.us, %select.unfold26.loopexit.us.us ], [ %.sroa.04.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.04.0.ph60, %select.unfold26 ], [ %.sroa.04.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
+  %.sroa.02.0.ph.lcssa = phi i64 [ 0, %2 ], [ %.sroa.02.0.ph58, %select.unfold26 ], [ 0, %select.unfold.us.us ], [ %.sroa.02.0.ph58.us, %select.unfold26.loopexit.us.us ], [ %.sroa.02.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.02.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
+  %.sroa.04.0.ph.lcssa = phi i64 [ 0, %2 ], [ %.sroa.04.0.ph60, %select.unfold26 ], [ 0, %select.unfold.us.us ], [ %.sroa.04.0.ph60.us, %select.unfold26.loopexit.us.us ], [ %.sroa.04.1.us, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit.loopexit.split.us.us" ], [ %.sroa.04.1, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4d8edf3d60aa9136E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %98 = call noundef range(i8 0, 3) i8 @_ZN4raft6quorum5joint13Configuration11vote_result17hbd0d910257c60a49E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)

@@ -648,7 +648,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43" unwind label %87
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43": ; preds = %.body, %69, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31", %90, %94, %79, %95, %98
-  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %98 ], [ %.pn2766, %95 ], [ %80, %79 ], [ %91, %94 ], [ %91, %90 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ], [ %64, %69 ], [ %64, %.body ]
+  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %95 ], [ %64, %.body ], [ %.pn2766, %98 ], [ %64, %69 ], [ %91, %90 ], [ %80, %79 ], [ %91, %94 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ]
   resume { ptr, i32 } %.pn2762
 
 95:                                               ; preds = %.thread68, %.thread63
@@ -957,7 +957,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43" unwind label %87
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43": ; preds = %.body, %69, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31", %90, %94, %79, %95, %98
-  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %98 ], [ %.pn2766, %95 ], [ %80, %79 ], [ %91, %94 ], [ %91, %90 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ], [ %64, %69 ], [ %64, %.body ]
+  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %95 ], [ %64, %.body ], [ %.pn2766, %98 ], [ %64, %69 ], [ %91, %90 ], [ %80, %79 ], [ %91, %94 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ]
   resume { ptr, i32 } %.pn2762
 
 95:                                               ; preds = %.thread68, %.thread63
@@ -1266,7 +1266,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43" unwind label %87
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43": ; preds = %.body, %69, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31", %90, %94, %79, %95, %98
-  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %98 ], [ %.pn2766, %95 ], [ %80, %79 ], [ %91, %94 ], [ %91, %90 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ], [ %64, %69 ], [ %64, %.body ]
+  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %95 ], [ %64, %.body ], [ %.pn2766, %98 ], [ %64, %69 ], [ %91, %90 ], [ %80, %79 ], [ %91, %94 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ]
   resume { ptr, i32 } %.pn2762
 
 95:                                               ; preds = %.thread68, %.thread63
@@ -1575,7 +1575,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43" unwind label %87
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit43": ; preds = %.body, %69, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31", %90, %94, %79, %95, %98
-  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %98 ], [ %.pn2766, %95 ], [ %80, %79 ], [ %91, %94 ], [ %91, %90 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ], [ %64, %69 ], [ %64, %.body ]
+  %.pn2762 = phi { ptr, i32 } [ %.pn2766, %95 ], [ %64, %.body ], [ %.pn2766, %98 ], [ %64, %69 ], [ %91, %90 ], [ %80, %79 ], [ %91, %94 ], [ %47, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h886382e66d518527E.exit31" ]
   resume { ptr, i32 } %.pn2762
 
 95:                                               ; preds = %.thread68, %.thread63

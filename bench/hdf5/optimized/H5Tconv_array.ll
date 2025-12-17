@@ -369,7 +369,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   br label %.thread268
 
 187:                                              ; preds = %179, %._crit_edge
-  %.1125 = phi i32 [ 0, %._crit_edge ], [ -1, %179 ]
+  %.1125 = phi i32 [ -1, %179 ], [ 0, %._crit_edge ]
   %188 = icmp sgt i64 %.1141, -1
   br i1 %188, label %189, label %.thread224
 

@@ -227,7 +227,7 @@ define internal ptr @picklebuf_new(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %24, %21, %19, %12, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %10, %12 ], [ null, %19 ], [ null, %21 ], [ null, %24 ]
+  %.0 = phi ptr [ null, %3 ], [ %10, %12 ], [ null, %7 ], [ null, %19 ], [ null, %21 ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

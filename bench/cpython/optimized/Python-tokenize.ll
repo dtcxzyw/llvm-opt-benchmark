@@ -1060,7 +1060,7 @@ define internal range(i32 -1, 1) i32 @tokenizemodule_exec(ptr noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ %.lobit, %7 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %1 ], [ %.lobit, %7 ]
   ret i32 %.0
 }
 
@@ -1190,7 +1190,7 @@ define internal ptr @tokenizeriter_new(ptr noundef %0, ptr noundef %1, ptr nound
   br label %tokenizeriter_new_impl.exit
 
 tokenizeriter_new_impl.exit:                      ; preds = %58, %53, %50, %48, %41, %36, %28, %14, %9, %34, %27
-  %.021 = phi ptr [ null, %14 ], [ null, %28 ], [ null, %34 ], [ null, %27 ], [ null, %9 ], [ null, %36 ], [ %39, %58 ], [ null, %41 ], [ null, %48 ], [ null, %50 ], [ null, %53 ]
+  %.021 = phi ptr [ null, %14 ], [ null, %28 ], [ null, %34 ], [ null, %9 ], [ null, %27 ], [ null, %36 ], [ %39, %58 ], [ null, %41 ], [ null, %48 ], [ null, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.021
 }
@@ -1335,8 +1335,8 @@ define internal ptr @tokenizeriter_next(ptr noundef captures(none) %0) #0 {
   br label %41
 
 41:                                               ; preds = %40, %39, %37, %35, %27, %11
-  %.040.i = phi ptr [ %12, %40 ], [ %28, %27 ], [ %36, %35 ], [ %38, %37 ], [ %12, %39 ], [ %12, %11 ]
-  %.035.i = phi ptr [ @.str.23, %40 ], [ @.str.19, %27 ], [ @.str.20, %35 ], [ @.str.21, %37 ], [ @.str.22, %39 ], [ @.str.17, %11 ]
+  %.040.i = phi ptr [ %12, %40 ], [ %12, %39 ], [ %28, %27 ], [ %36, %35 ], [ %38, %37 ], [ %12, %11 ]
+  %.035.i = phi ptr [ @.str.23, %40 ], [ @.str.22, %39 ], [ @.str.19, %27 ], [ @.str.20, %35 ], [ @.str.21, %37 ], [ @.str.17, %11 ]
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !45
   %44 = load ptr, ptr %13, align 8, !tbaa !46
@@ -1397,8 +1397,8 @@ define internal ptr @tokenizeriter_next(ptr noundef captures(none) %0) #0 {
   br label %Py_XDECREF.exit.thread.i
 
 Py_XDECREF.exit.thread.i:                         ; preds = %74, %71, %69, %64, %58, %50
-  %.0386979.i = phi ptr [ %63, %69 ], [ %63, %71 ], [ %63, %74 ], [ null, %50 ], [ null, %58 ], [ %63, %64 ]
-  %.0377077.i = phi ptr [ %67, %69 ], [ %67, %71 ], [ %67, %74 ], [ null, %50 ], [ null, %58 ], [ null, %64 ]
+  %.0386979.i = phi ptr [ %63, %74 ], [ %63, %69 ], [ %63, %71 ], [ %63, %64 ], [ null, %58 ], [ null, %50 ]
+  %.0377077.i = phi ptr [ %67, %74 ], [ %67, %69 ], [ %67, %71 ], [ null, %64 ], [ null, %58 ], [ null, %50 ]
   %75 = load i32, ptr %49, align 8, !tbaa !11
   %.not.i.i56.i = icmp sgt i32 %75, -1
   br i1 %.not.i.i56.i, label %76, label %Py_XDECREF.exit57.i
@@ -1809,23 +1809,23 @@ Py_DECREF.exit95:                                 ; preds = %247, %249, %252
   call void @_Py_Dealloc(ptr noundef nonnull %.072) #6
   br label %_tokenizer_error.exit.thread
 
-.thread121:                                       ; preds = %227, %225, %244, %254, %_get_col_offsets.exit
-  %.0116 = phi i64 [ %.2118, %_get_col_offsets.exit ], [ %.1117, %254 ], [ %.1117, %244 ], [ %.1117, %225 ], [ %.1117, %227 ]
-  %.0112 = phi i64 [ %.3115, %_get_col_offsets.exit ], [ %.2114, %254 ], [ %.1113, %244 ], [ %.1113, %225 ], [ %.1113, %227 ]
-  %.178 = phi i32 [ %5, %_get_col_offsets.exit ], [ %5, %254 ], [ 63, %244 ], [ 55, %225 ], [ %5, %227 ]
-  %.176 = phi ptr [ %.075, %_get_col_offsets.exit ], [ %.2, %254 ], [ %.075, %244 ], [ %.075, %225 ], [ %.075, %227 ]
-  %.069 = phi i64 [ %176, %_get_col_offsets.exit ], [ %.170, %254 ], [ %.170, %244 ], [ %.170, %225 ], [ %.170, %227 ]
-  %.0 = phi i64 [ %179, %_get_col_offsets.exit ], [ %.1, %254 ], [ %.1, %244 ], [ %.1, %225 ], [ %.1, %227 ]
+.thread121:                                       ; preds = %225, %244, %227, %254, %_get_col_offsets.exit
+  %.0116 = phi i64 [ %.2118, %_get_col_offsets.exit ], [ %.1117, %254 ], [ %.1117, %227 ], [ %.1117, %244 ], [ %.1117, %225 ]
+  %.0112 = phi i64 [ %.3115, %_get_col_offsets.exit ], [ %.2114, %254 ], [ %.1113, %227 ], [ %.1113, %244 ], [ %.1113, %225 ]
+  %.178 = phi i32 [ %5, %_get_col_offsets.exit ], [ %5, %254 ], [ %5, %227 ], [ 63, %244 ], [ 55, %225 ]
+  %.176 = phi ptr [ %.075, %_get_col_offsets.exit ], [ %.2, %254 ], [ %.075, %227 ], [ %.075, %244 ], [ %.075, %225 ]
+  %.069 = phi i64 [ %176, %_get_col_offsets.exit ], [ %.170, %254 ], [ %.170, %227 ], [ %.170, %244 ], [ %.170, %225 ]
+  %.0 = phi i64 [ %179, %_get_col_offsets.exit ], [ %.1, %254 ], [ %.1, %227 ], [ %.1, %244 ], [ %.1, %225 ]
   %262 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, i32 noundef %.178, ptr noundef nonnull %.176, i64 noundef %.069, i64 noundef %.0116, i64 noundef %.0, i64 noundef %.0112, ptr noundef nonnull %.072) #6
   br label %_tokenizer_error.exit
 
-_tokenizer_error.exit.thread:                     ; preds = %7, %9, %16, %29, %31, %33, %41, %Py_XDECREF.exit60.i, %86, %88, %91, %256, %258, %261
+_tokenizer_error.exit.thread:                     ; preds = %7, %91, %9, %16, %29, %31, %33, %41, %Py_XDECREF.exit60.i, %86, %88, %256, %258, %261
   call void @_PyToken_Free(ptr noundef nonnull %2) #6
   br label %265
 
 _tokenizer_error.exit:                            ; preds = %170, %167, %165, %111, %.thread121, %95
-  %.077 = phi i32 [ %5, %95 ], [ %5, %111 ], [ %.178, %.thread121 ], [ %5, %165 ], [ %5, %167 ], [ %5, %170 ]
-  %.073 = phi ptr [ null, %95 ], [ null, %111 ], [ %262, %.thread121 ], [ null, %165 ], [ null, %167 ], [ null, %170 ]
+  %.077 = phi i32 [ %5, %167 ], [ %.178, %.thread121 ], [ %5, %95 ], [ %5, %111 ], [ %5, %165 ], [ %5, %170 ]
+  %.073 = phi ptr [ null, %167 ], [ %262, %.thread121 ], [ null, %95 ], [ null, %111 ], [ null, %165 ], [ null, %170 ]
   call void @_PyToken_Free(ptr noundef nonnull %2) #6
   %263 = icmp eq i32 %.077, 0
   br i1 %263, label %264, label %265

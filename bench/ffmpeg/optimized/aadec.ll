@@ -400,11 +400,11 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   %153 = add nsw i64 %146, %152
   %154 = mul nsw i64 %153, 1000
   %155 = load i64, ptr %123, align 8
-  %156 = call ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %150, i64 %155, i64 noundef %151, i64 noundef %154, ptr noundef null) #10
+  %156 = call ptr @avpriv_new_chapter(ptr noundef nonnull %0, i64 noundef %150, i64 %155, i64 noundef %151, i64 noundef %154, ptr noundef null) #10
   %.not173 = icmp eq ptr %156, null
   br i1 %.not173, label %.thread195, label %130
 
-.critedge:                                        ; preds = %136, %140, %130, %133
+.critedge:                                        ; preds = %140, %136, %130, %133
   %157 = load i32, ptr %122, align 8, !tbaa !74
   %158 = shl i32 %157, 3
   %159 = zext i32 %158 to i64
@@ -421,7 +421,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   br label %.thread195
 
 .thread195:                                       ; preds = %142, %.thread184, %69, %select.unfold, %._crit_edge, %1, %.critedge, %61, %58
-  %.0 = phi i32 [ -22, %58 ], [ -22, %61 ], [ 0, %.critedge ], [ -1094995529, %1 ], [ -1094995529, %._crit_edge ], [ -12, %select.unfold ], [ -12, %69 ], [ -1094995529, %.thread184 ], [ -12, %142 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ -22, %58 ], [ -22, %61 ], [ -1094995529, %.thread184 ], [ 0, %.critedge ], [ -12, %select.unfold ], [ -1094995529, %._crit_edge ], [ -12, %69 ], [ -12, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

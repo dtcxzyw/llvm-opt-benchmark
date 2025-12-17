@@ -75,8 +75,8 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   br i1 %or.cond, label %45, label %.thread
 
 .thread:                                          ; preds = %42, %38, %35, %32, %30, %28, %11
-  %.sink = phi i32 [ -1, %11 ], [ -2, %28 ], [ -3, %30 ], [ -4, %32 ], [ -6, %35 ], [ -8, %38 ], [ -10, %42 ]
-  %.ph213.neg = phi i32 [ 1, %11 ], [ 2, %28 ], [ 3, %30 ], [ 4, %32 ], [ 6, %35 ], [ 8, %38 ], [ 10, %42 ]
+  %.sink = phi i32 [ -1, %11 ], [ -2, %28 ], [ -4, %32 ], [ -8, %38 ], [ -6, %35 ], [ -3, %30 ], [ -10, %42 ]
+  %.ph213.neg = phi i32 [ 1, %11 ], [ 2, %28 ], [ 4, %32 ], [ 8, %38 ], [ 6, %35 ], [ 3, %30 ], [ 10, %42 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   store i32 %.ph213.neg, ptr %12, align 4, !tbaa !3
   %44 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 12) #4

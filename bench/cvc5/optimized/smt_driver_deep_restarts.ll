@@ -725,7 +725,7 @@ _ZNSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__d
   br label %_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEEixERS9_.exit
 
 common.resume:                                    ; preds = %54, %100, %270, %264, %126
-  %common.resume.op = phi { ptr, i32 } [ %127, %126 ], [ %55, %54 ], [ %101, %100 ], [ %.pn39, %270 ], [ %265, %264 ]
+  %common.resume.op = phi { ptr, i32 } [ %127, %126 ], [ %55, %54 ], [ %101, %100 ], [ %265, %264 ], [ %.pn39, %270 ]
   resume { ptr, i32 } %common.resume.op
 
 126:                                              ; preds = %.loopexit.i.i

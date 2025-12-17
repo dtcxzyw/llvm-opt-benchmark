@@ -259,7 +259,7 @@ define internal range(i32 0, 2) i32 @H5HF__sect_single_can_merge(ptr noundef rea
   br label %18
 
 18:                                               ; preds = %15, %10, %3
-  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ %spec.select, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %15 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -391,7 +391,7 @@ define internal range(i32 0, 2) i32 @H5HF__sect_single_can_shrink(ptr noundef re
   br label %33
 
 33:                                               ; preds = %14, %2, %10
-  %.013 = phi i32 [ %., %14 ], [ 0, %2 ], [ 0, %10 ]
+  %.013 = phi i32 [ 0, %10 ], [ 0, %2 ], [ %., %14 ]
   ret i32 %.013
 }
 
@@ -567,7 +567,7 @@ H5HF__sect_node_free.exit.i:                      ; preds = %82, %79, %75
   br label %104
 
 104:                                              ; preds = %17, %H5HF__sect_single_dblock_info.exit.thread, %52, %63, %86, %99, %103, %2
-  %.0 = phi i32 [ -1, %17 ], [ -1, %52 ], [ -1, %63 ], [ -1, %86 ], [ -1, %99 ], [ 0, %103 ], [ -1, %H5HF__sect_single_dblock_info.exit.thread ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %2 ], [ -1, %52 ], [ -1, %63 ], [ -1, %86 ], [ -1, %99 ], [ 0, %103 ], [ -1, %H5HF__sect_single_dblock_info.exit.thread ]
   ret i32 %.0
 }
 
@@ -715,12 +715,12 @@ H5HF__sect_single_dblock_info.exit:               ; preds = %23, %26
   br label %65
 
 65:                                               ; preds = %50, %56, %46, %40
-  %.1 = phi i32 [ -1, %46 ], [ -1, %40 ], [ 0, %56 ], [ 0, %50 ]
+  %.1 = phi i32 [ -1, %40 ], [ -1, %46 ], [ 0, %56 ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 66:                                               ; preds = %2, %10, %14, %65
-  %.021 = phi i32 [ %.1, %65 ], [ 0, %14 ], [ 0, %10 ], [ 0, %2 ]
+  %.021 = phi i32 [ 0, %2 ], [ %.1, %65 ], [ 0, %14 ], [ 0, %10 ]
   ret i32 %.021
 }
 
@@ -1153,7 +1153,7 @@ H5HF__sect_indirect_iblock_off.exit24:            ; preds = %27, %33
   br label %46
 
 46:                                               ; preds = %43, %H5HF__sect_indirect_iblock_off.exit24, %38, %H5HF__sect_indirect_top.exit21, %3
-  %.0 = phi i32 [ 0, %38 ], [ 0, %H5HF__sect_indirect_iblock_off.exit24 ], [ 0, %H5HF__sect_indirect_top.exit21 ], [ 0, %3 ], [ %spec.select, %43 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %43 ], [ 0, %38 ], [ 0, %H5HF__sect_indirect_iblock_off.exit24 ], [ 0, %H5HF__sect_indirect_top.exit21 ]
   ret i32 %.0
 }
 
@@ -1383,7 +1383,7 @@ H5HF__sect_indirect_top.exit155.i:                ; preds = %tailrecurse.i152.i
   br label %309
 
 .thread168.i:                                     ; preds = %._crit_edge.i, %91, %H5HF__sect_indirect_top.exit155.i
-  %.1132.i = phi i1 [ false, %H5HF__sect_indirect_top.exit155.i ], [ %or.cond.i, %._crit_edge.i ], [ true, %91 ]
+  %.1132.i = phi i1 [ %or.cond.i, %._crit_edge.i ], [ false, %H5HF__sect_indirect_top.exit155.i ], [ true, %91 ]
   %134 = getelementptr inbounds nuw i8, ptr %.tr.i153.i, i64 96
   %135 = load i32, ptr %134, align 8, !tbaa !26
   %.not145.i = icmp eq i32 %135, 0
@@ -1679,14 +1679,14 @@ H5HF__sect_indirect_build_parent.exit.i:          ; preds = %290, %243
   %308 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_merge_row, i32 noundef 3497, i64 noundef %306, i64 noundef %307, ptr noundef nonnull @.str.50) #13
   br label %309
 
-309:                                              ; preds = %208, %305, %220, %227, %235, %175, %.thread177.i
+309:                                              ; preds = %175, %.thread177.i, %208, %305, %220, %227, %235
   %310 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
   %311 = load i64, ptr @H5E_CANTMERGE_g, align 8, !tbaa !18
   %312 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_merge, i32 noundef 1711, i64 noundef %310, i64 noundef %311, ptr noundef nonnull @.str.43) #13
   br label %H5HF__sect_indirect_merge_row.exit
 
 H5HF__sect_indirect_merge_row.exit:               ; preds = %H5HF__sect_indirect_build_parent.exit.i, %H5HF__sect_row_free.exit.thread.i, %3, %309, %H5HF__sect_indirect_top.exit, %24
-  %.017 = phi i32 [ -1, %309 ], [ 0, %3 ], [ -1, %24 ], [ 0, %H5HF__sect_indirect_top.exit ], [ 0, %H5HF__sect_row_free.exit.thread.i ], [ 0, %H5HF__sect_indirect_build_parent.exit.i ]
+  %.017 = phi i32 [ 0, %3 ], [ 0, %H5HF__sect_indirect_top.exit ], [ -1, %309 ], [ -1, %24 ], [ 0, %H5HF__sect_row_free.exit.thread.i ], [ 0, %H5HF__sect_indirect_build_parent.exit.i ]
   ret i32 %.017
 }
 
@@ -1795,7 +1795,7 @@ H5HF__sect_node_free.exit.i:                      ; preds = %17
   br label %H5HF__sect_row_free_real.exit
 
 H5HF__sect_row_free_real.exit:                    ; preds = %H5HF__sect_node_free.exit.i, %17, %13, %1
-  %.0 = phi i32 [ -1, %13 ], [ 0, %1 ], [ 0, %17 ], [ 0, %H5HF__sect_node_free.exit.i ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %H5HF__sect_node_free.exit.i ], [ 0, %1 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2038,7 +2038,7 @@ define ptr @H5HF__sect_single_new(i64 noundef %0, i64 noundef %1, ptr noundef %2
   br label %.thread
 
 .thread:                                          ; preds = %14, %29, %31, %4
-  %.0 = phi ptr [ null, %31 ], [ null, %4 ], [ %12, %29 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %31 ], [ null, %14 ], [ null, %4 ], [ %12, %29 ]
   ret ptr %.0
 }
 
@@ -2875,7 +2875,7 @@ H5HF__sect_row_first.exit.thread.i:               ; preds = %129, %124, %114, %1
   %241 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_reduce_row, i32 noundef 2918, i64 noundef %239, i64 noundef %240, ptr noundef nonnull @.str.15) #13
   br label %242
 
-242:                                              ; preds = %238, %232, %59, %51, %170, %135, %117
+242:                                              ; preds = %238, %232, %117, %59, %51, %170, %135
   %243 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
   %244 = load i64, ptr @H5E_CANTSHRINK_g, align 8, !tbaa !18
   %245 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_reduce, i32 noundef 1317, i64 noundef %243, i64 noundef %244, ptr noundef nonnull @.str.9) #13
@@ -2970,8 +2970,8 @@ H5HF__sect_node_free.exit.i.i:                    ; preds = %269
   %302 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_reduce, i32 noundef 1346, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.11) #13
   br label %H5HF__sect_row_free.exit.thread
 
-H5HF__sect_row_free.exit.thread:                  ; preds = %H5HF__sect_node_free.exit.i.i, %269, %258, %242, %277, %299, %.thread26, %3
-  %.0 = phi i32 [ -1, %242 ], [ -1, %277 ], [ -1, %299 ], [ 0, %.thread26 ], [ 0, %3 ], [ 0, %258 ], [ 0, %269 ], [ 0, %H5HF__sect_node_free.exit.i.i ]
+H5HF__sect_row_free.exit.thread:                  ; preds = %269, %258, %H5HF__sect_node_free.exit.i.i, %242, %277, %299, %.thread26, %3
+  %.0 = phi i32 [ -1, %242 ], [ -1, %277 ], [ 0, %3 ], [ -1, %299 ], [ 0, %.thread26 ], [ 0, %H5HF__sect_node_free.exit.i.i ], [ 0, %258 ], [ 0, %269 ]
   ret i32 %.0
 }
 
@@ -3099,7 +3099,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_indirect_add(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %38, %49, %60, %57, %4
-  %.0 = phi i32 [ -1, %60 ], [ -1, %57 ], [ 0, %4 ], [ 0, %49 ], [ -1, %38 ]
+  %.0 = phi i32 [ -1, %60 ], [ -1, %57 ], [ -1, %38 ], [ 0, %4 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3185,7 +3185,7 @@ define internal fastcc ptr @H5HF__sect_indirect_new(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %18, %42, %51, %8
-  %.0 = phi ptr [ null, %51 ], [ null, %8 ], [ %16, %42 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %51 ], [ null, %18 ], [ null, %8 ], [ %16, %42 ]
   ret ptr %.0
 }
 
@@ -3489,7 +3489,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5HF__sect_indirect_init_ro
   br label %218
 
 178:                                              ; preds = %.thread248, %156
-  %.6 = phi ptr [ null, %156 ], [ %.3161.ph, %.thread248 ]
+  %.6 = phi ptr [ %.3161.ph, %.thread248 ], [ null, %156 ]
   %179 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %.3167306, i64 noundef 0, ptr noundef %.6, i64 noundef %.3167306, i32 noundef 0, i32 noundef 0, i32 noundef %152)
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %185
@@ -3932,7 +3932,7 @@ H5HF__sect_row_from_single.exit:                  ; preds = %128, %71
   br label %165
 
 165:                                              ; preds = %43, %2, %39, %33, %164
-  %.027 = phi i32 [ -1, %39 ], [ %.1, %164 ], [ 0, %43 ], [ -1, %33 ], [ 0, %2 ]
+  %.027 = phi i32 [ 0, %2 ], [ -1, %39 ], [ -1, %33 ], [ %.1, %164 ], [ 0, %43 ]
   ret i32 %.027
 }
 
@@ -4061,7 +4061,7 @@ H5HF__sect_row_free_real.exit:                    ; preds = %H5HF__sect_node_fre
   br label %62
 
 62:                                               ; preds = %24, %52, %58, %._crit_edge, %2
-  %.0 = phi i32 [ -1, %24 ], [ -1, %52 ], [ -1, %58 ], [ 0, %._crit_edge ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %2 ], [ -1, %52 ], [ -1, %58 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -4119,7 +4119,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5HF__sect_indirect_decr(pt
   br label %30
 
 30:                                               ; preds = %1, %8, %22, %23, %26, %18
-  %.011 = phi i32 [ 0, %8 ], [ 0, %1 ], [ -1, %18 ], [ -1, %26 ], [ 0, %23 ], [ 0, %22 ]
+  %.011 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %18 ], [ -1, %26 ], [ 0, %23 ], [ 0, %22 ]
   ret i32 %.011
 }
 
@@ -4646,7 +4646,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_first(ptr nound
   br label %H5HF__sect_row_first.exit.thread
 
 H5HF__sect_row_first.exit.thread:                 ; preds = %21, %19, %24, %37, %31, %2
-  %.0 = phi i32 [ -1, %24 ], [ -1, %37 ], [ 0, %31 ], [ 0, %2 ], [ 0, %19 ], [ 0, %21 ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %2 ], [ -1, %37 ], [ 0, %31 ], [ 0, %19 ], [ 0, %21 ]
   ret i32 %.0
 }
 

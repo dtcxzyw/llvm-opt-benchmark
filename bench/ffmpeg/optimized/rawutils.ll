@@ -112,7 +112,7 @@ define range(i32 -2147483648, 3) i32 @ff_reshuffle_raw_rgb(ptr noundef readnone 
   br label %64
 
 64:                                               ; preds = %30, %20, %63, %._crit_edge
-  %.052 = phi i32 [ %.053, %63 ], [ %22, %._crit_edge ], [ 0, %20 ], [ -12, %30 ]
+  %.052 = phi i32 [ -12, %30 ], [ 0, %20 ], [ %.053, %63 ], [ %22, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052
 }

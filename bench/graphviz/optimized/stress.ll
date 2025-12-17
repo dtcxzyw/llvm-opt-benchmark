@@ -1080,7 +1080,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   br label %mdsModel.exit
 
 mdsModel.exit:                                    ; preds = %75, %._crit_edge49.i, %25
-  %.0342 = phi ptr [ %26, %25 ], [ %42, %75 ], [ %42, %._crit_edge49.i ]
+  %.0342 = phi ptr [ %26, %25 ], [ %42, %._crit_edge49.i ], [ %42, %75 ]
   %.not408 = icmp eq ptr %.0342, null
   br i1 %.not408, label %mdsModel.exit.thread, label %mdsModel.exit.thread469
 
@@ -1372,8 +1372,8 @@ gv_calloc.exit565.i:                              ; preds = %gv_calloc.exit564.i
   br label %206
 
 206:                                              ; preds = %200, %._crit_edge754, %198
-  %.3514.i = phi i32 [ %.2513659.i, %198 ], [ %.551.i, %._crit_edge754 ], [ %spec.select, %200 ]
-  %.4508.i = phi i32 [ %.3507660.i, %198 ], [ %.pre755, %._crit_edge754 ], [ %spec.select824, %200 ]
+  %.3514.i = phi i32 [ %.2513659.i, %198 ], [ %spec.select, %200 ], [ %.551.i, %._crit_edge754 ]
+  %.4508.i = phi i32 [ %.3507660.i, %198 ], [ %spec.select824, %200 ], [ %.pre755, %._crit_edge754 ]
   %indvars.iv.next730.i = add nuw nsw i64 %indvars.iv729.i, 1
   %exitcond733.not.i = icmp eq i64 %indvars.iv.next730.i, %117
   br i1 %exitcond733.not.i, label %189, label %192, !llvm.loop !73
@@ -1549,11 +1549,11 @@ gv_calloc.exit589.i:                              ; preds = %gv_calloc.exit584.i
   br i1 %exitcond744.not.i, label %273, label %277, !llvm.loop !81
 
 gv_calloc.exit571.i:                              ; preds = %250, %273, %.preheader643.i
-  %indvars.iv.next756.pre-phi.i = phi i64 [ %239, %.preheader643.i ], [ %.pre816.i, %273 ], [ %239, %250 ]
-  %.1529.i = phi ptr [ %.0528671.i, %.preheader643.i ], [ %275, %273 ], [ %.0528671.i, %250 ]
-  %.1526.i = phi ptr [ %.0525672.i, %.preheader643.i ], [ %274, %273 ], [ %.0525672.i, %250 ]
-  %.1516.i = phi i32 [ %.0515673.i, %.preheader643.i ], [ %276, %273 ], [ %.0515673.i, %250 ]
-  %.pn.i = phi i64 [ %209, %.preheader643.i ], [ 40, %273 ], [ %209, %250 ]
+  %indvars.iv.next756.pre-phi.i = phi i64 [ %.pre816.i, %273 ], [ %239, %.preheader643.i ], [ %239, %250 ]
+  %.1529.i = phi ptr [ %275, %273 ], [ %.0528671.i, %.preheader643.i ], [ %.0528671.i, %250 ]
+  %.1526.i = phi ptr [ %274, %273 ], [ %.0525672.i, %.preheader643.i ], [ %.0525672.i, %250 ]
+  %.1516.i = phi i32 [ %276, %273 ], [ %.0515673.i, %.preheader643.i ], [ %.0515673.i, %250 ]
+  %.pn.i = phi i64 [ 40, %273 ], [ %209, %.preheader643.i ], [ %209, %250 ]
   %.1.i = add i64 %.pn.i, %.0488676.i
   %indvars.iv.next752.i = add nuw i64 %indvars.iv751.i, 1
   %exitcond = icmp eq i64 %indvars.iv751.i, %117
@@ -2968,15 +2968,15 @@ gv_calloc.exit466:                                ; preds = %.thread.i465, %697
   br i1 %exitcond753.not, label %.thread, label %.preheader.us, !llvm.loop !126
 
 .thread:                                          ; preds = %.lr.ph574.split, %.lr.ph574.split.us, %._crit_edge584.us, %.preheader.lr.ph, %851, %sparse_stress_subspace_majorization_kD.exit
-  %.0380 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %581, %851 ], [ %581, %.preheader.lr.ph ], [ %581, %._crit_edge584.us ], [ %581, %.lr.ph574.split.us ], [ %581, %.lr.ph574.split ]
-  %.0379 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %.1343, %851 ], [ %.1343, %.preheader.lr.ph ], [ %.1343, %._crit_edge584.us ], [ %.1343, %.lr.ph574.split.us ], [ %.1343, %.lr.ph574.split ]
-  %.0378 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %638, %851 ], [ %638, %.preheader.lr.ph ], [ %638, %._crit_edge584.us ], [ %638, %.lr.ph574.split.us ], [ %638, %.lr.ph574.split ]
-  %.0371 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %664, %851 ], [ %664, %.preheader.lr.ph ], [ %664, %._crit_edge584.us ], [ %664, %.lr.ph574.split.us ], [ %664, %.lr.ph574.split ]
-  %.0370 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %689, %851 ], [ %689, %.preheader.lr.ph ], [ %689, %._crit_edge584.us ], [ %689, %.lr.ph574.split.us ], [ %689, %.lr.ph574.split ]
-  %.0369 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %690, %851 ], [ %690, %.preheader.lr.ph ], [ %690, %._crit_edge584.us ], [ %690, %.lr.ph574.split.us ], [ %690, %.lr.ph574.split ]
-  %.0368 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %704, %851 ], [ %704, %.preheader.lr.ph ], [ %704, %._crit_edge584.us ], [ %704, %.lr.ph574.split.us ], [ %704, %.lr.ph574.split ]
-  %.0367 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %566, %851 ], [ %566, %.preheader.lr.ph ], [ %566, %._crit_edge584.us ], [ %566, %.lr.ph574.split.us ], [ %566, %.lr.ph574.split ]
-  %.0341 = phi i32 [ -1, %sparse_stress_subspace_majorization_kD.exit ], [ %842, %851 ], [ %842, %.preheader.lr.ph ], [ %842, %._crit_edge584.us ], [ -1, %.lr.ph574.split.us ], [ -1, %.lr.ph574.split ]
+  %.0380 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %581, %851 ], [ %581, %.preheader.lr.ph ], [ %581, %.lr.ph574.split.us ], [ %581, %._crit_edge584.us ], [ %581, %.lr.ph574.split ]
+  %.0379 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %.1343, %851 ], [ %.1343, %.preheader.lr.ph ], [ %.1343, %.lr.ph574.split.us ], [ %.1343, %._crit_edge584.us ], [ %.1343, %.lr.ph574.split ]
+  %.0378 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %638, %851 ], [ %638, %.preheader.lr.ph ], [ %638, %.lr.ph574.split.us ], [ %638, %._crit_edge584.us ], [ %638, %.lr.ph574.split ]
+  %.0371 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %664, %851 ], [ %664, %.preheader.lr.ph ], [ %664, %.lr.ph574.split.us ], [ %664, %._crit_edge584.us ], [ %664, %.lr.ph574.split ]
+  %.0370 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %689, %851 ], [ %689, %.preheader.lr.ph ], [ %689, %.lr.ph574.split.us ], [ %689, %._crit_edge584.us ], [ %689, %.lr.ph574.split ]
+  %.0369 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %690, %851 ], [ %690, %.preheader.lr.ph ], [ %690, %.lr.ph574.split.us ], [ %690, %._crit_edge584.us ], [ %690, %.lr.ph574.split ]
+  %.0368 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %704, %851 ], [ %704, %.preheader.lr.ph ], [ %704, %.lr.ph574.split.us ], [ %704, %._crit_edge584.us ], [ %704, %.lr.ph574.split ]
+  %.0367 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %566, %851 ], [ %566, %.preheader.lr.ph ], [ %566, %.lr.ph574.split.us ], [ %566, %._crit_edge584.us ], [ %566, %.lr.ph574.split ]
+  %.0341 = phi i32 [ -1, %sparse_stress_subspace_majorization_kD.exit ], [ %842, %851 ], [ %842, %.preheader.lr.ph ], [ -1, %.lr.ph574.split.us ], [ %842, %._crit_edge584.us ], [ -1, %.lr.ph574.split ]
   call void @free(ptr noundef %.0380) #16
   call void @free(ptr noundef %.0367) #16
   call void @free(ptr noundef %.0379) #16
@@ -3292,7 +3292,7 @@ define internal fastcc double @compute_stressf(ptr noundef readonly captures(non
   br i1 %exitcond118.not, label %._crit_edge, label %.preheader, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %._crit_edge60.split.split, %._crit_edge60.split.split.us.us, %._crit_edge60.split.us.split.us89, %._crit_edge60.split.us.split.us.us.us, %5
-  %.047.lcssa = phi double [ 0.000000e+00, %5 ], [ %.1.lcssa.us.us, %._crit_edge60.split.us.split.us.us.us ], [ %.1.lcssa.us, %._crit_edge60.split.us.split.us89 ], [ %.1.lcssa.us99, %._crit_edge60.split.split.us.us ], [ %.1.lcssa, %._crit_edge60.split.split ]
+  %.047.lcssa = phi double [ 0.000000e+00, %5 ], [ %.1.lcssa.us99, %._crit_edge60.split.split.us.us ], [ %.1.lcssa.us.us, %._crit_edge60.split.us.split.us.us.us ], [ %.1.lcssa.us, %._crit_edge60.split.us.split.us89 ], [ %.1.lcssa, %._crit_edge60.split.split ]
   ret double %.047.lcssa
 }
 
@@ -3568,7 +3568,7 @@ define internal fastcc double @compute_stress1(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge100.split, label %88, !llvm.loop !131
 
 .loopexit:                                        ; preds = %._crit_edge100.split, %._crit_edge100.split.us.us, %._crit_edge111.split, %._crit_edge111.split.us.us
-  %.3 = phi double [ %.181.lcssa.us, %._crit_edge111.split.us.us ], [ %.181.lcssa, %._crit_edge111.split ], [ %.5.lcssa.us, %._crit_edge100.split.us.us ], [ %.5.lcssa, %._crit_edge100.split ]
+  %.3 = phi double [ %.5.lcssa.us, %._crit_edge100.split.us.us ], [ %.181.lcssa.us, %._crit_edge111.split.us.us ], [ %.181.lcssa, %._crit_edge111.split ], [ %.5.lcssa, %._crit_edge100.split ]
   ret double %.3
 }
 

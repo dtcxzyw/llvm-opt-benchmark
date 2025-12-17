@@ -275,7 +275,7 @@ define hidden void @_ZN2cv14TrackerVitImpl10preprocessERKNS_3MatERS1_NS_5Size_Ii
   br label %29
 
 29:                                               ; preds = %25, %27
-  %.pn12.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+  %.pn12.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %30

@@ -32,7 +32,7 @@ define internal range(i32 0, 91) i32 @brender_read_probe(ptr noundef readonly ca
   br label %8
 
 8:                                                ; preds = %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ %7, %4 ]
+  %.0 = phi i32 [ %7, %4 ], [ 0, %1 ]
   ret i32 %.0
 }
 

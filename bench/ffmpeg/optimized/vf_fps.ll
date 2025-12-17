@@ -505,7 +505,7 @@ write_frame.exit:                                 ; preds = %162
   br label %189
 
 189:                                              ; preds = %write_frame.exit, %read_frame.exit.thread, %14, %183, %180, %182, %73, %186, %75
-  %.1 = phi i32 [ 0, %186 ], [ 0, %75 ], [ 0, %14 ], [ 0, %73 ], [ %.0.i55.ph, %182 ], [ %.0.i55.ph, %180 ], [ -12, %write_frame.exit ], [ -1497649742, %183 ], [ %31, %read_frame.exit.thread ]
+  %.1 = phi i32 [ 0, %73 ], [ 0, %186 ], [ -12, %write_frame.exit ], [ 0, %14 ], [ 0, %75 ], [ %31, %read_frame.exit.thread ], [ %.0.i55.ph, %182 ], [ %.0.i55.ph, %180 ], [ -1497649742, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -609,7 +609,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef captures
   br label %58
 
 58:                                               ; preds = %47, %1, %54, %53
-  %.0 = phi i32 [ %51, %53 ], [ 0, %54 ], [ -22, %47 ], [ %21, %1 ]
+  %.0 = phi i32 [ -22, %47 ], [ %51, %53 ], [ 0, %54 ], [ %21, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

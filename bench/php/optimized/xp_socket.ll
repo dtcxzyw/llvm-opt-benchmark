@@ -195,8 +195,8 @@ php_pollfd_for.exit:                              ; preds = %76
   br i1 %74, label %.split98, label %.lr.ph
 
 .split98:                                         ; preds = %.split, %php_pollfd_for.exit, %php_pollfd_for.exit.us.us
-  %.us-phi99 = phi i64 [ %26, %php_pollfd_for.exit.us.us ], [ %58, %php_pollfd_for.exit ], [ %58, %.split ]
-  %.us-phi100 = phi i32 [ %.152.us.us, %php_pollfd_for.exit.us.us ], [ 4, %php_pollfd_for.exit ], [ 11, %.split ]
+  %.us-phi99 = phi i64 [ %58, %php_pollfd_for.exit ], [ %26, %php_pollfd_for.exit.us.us ], [ %58, %.split ]
+  %.us-phi100 = phi i32 [ 4, %php_pollfd_for.exit ], [ %.152.us.us, %php_pollfd_for.exit.us.us ], [ 11, %.split ]
   store i8 1, ptr %22, align 8, !tbaa !27
   br label %.thread
 
@@ -211,8 +211,8 @@ php_pollfd_for.exit:                              ; preds = %76
   br i1 %78, label %php_pollfd_for.exit, label %.thread
 
 .thread:                                          ; preds = %.lr.ph110.split, %76, %.lr.ph110.split.us, %47, %.split98
-  %79 = phi i64 [ %.us-phi99, %.split98 ], [ %26, %47 ], [ %26, %.lr.ph110.split.us ], [ %58, %76 ], [ %58, %.lr.ph110.split ]
-  %.051 = phi i32 [ %.us-phi100, %.split98 ], [ %48, %47 ], [ %27, %.lr.ph110.split.us ], [ %77, %76 ], [ %59, %.lr.ph110.split ]
+  %79 = phi i64 [ %.us-phi99, %.split98 ], [ %58, %76 ], [ %26, %47 ], [ %26, %.lr.ph110.split.us ], [ %58, %.lr.ph110.split ]
+  %.051 = phi i32 [ %.us-phi100, %.split98 ], [ %77, %76 ], [ %48, %47 ], [ %27, %.lr.ph110.split.us ], [ %59, %.lr.ph110.split ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %81 = load i32, ptr %80, align 4, !tbaa !34
   %82 = and i32 %81, 256
@@ -261,8 +261,8 @@ php_pollfd_for.exit:                              ; preds = %76
   call void @php_stream_notification_notify(ptr noundef nonnull %90, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %101, i64 noundef %103, ptr noundef null) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %61, %29, %.thread, %83, %98, %94, %92, %88, %.thread82, %3, %7
-  %.0 = phi i64 [ 0, %7 ], [ 0, %3 ], [ %.lcssa86, %.thread82 ], [ %.lcssa86, %88 ], [ %.lcssa86, %92 ], [ %.lcssa86, %94 ], [ %.lcssa86, %98 ], [ %79, %83 ], [ %79, %.thread ], [ 0, %29 ], [ 0, %61 ]
+.critedge:                                        ; preds = %61, %29, %83, %.thread, %98, %94, %92, %88, %.thread82, %3, %7
+  %.0 = phi i64 [ 0, %3 ], [ 0, %7 ], [ %.lcssa86, %.thread82 ], [ %.lcssa86, %88 ], [ %.lcssa86, %92 ], [ %.lcssa86, %94 ], [ %.lcssa86, %98 ], [ %79, %.thread ], [ %79, %83 ], [ 0, %29 ], [ 0, %61 ]
   ret i64 %.0
 }
 
@@ -398,8 +398,8 @@ php_sock_stream_wait_for_data.exit.thread:        ; preds = %php_pollfd_for.exit
   br i1 %.not.i, label %.split.i, label %php_sock_stream_wait_for_data.exit
 
 php_sock_stream_wait_for_data.exit:               ; preds = %39, %41, %58, %60
-  %.ph = phi ptr [ %27, %60 ], [ %27, %58 ], [ %26, %41 ], [ %26, %39 ]
-  %spec.select93.ph = phi i32 [ 64, %60 ], [ 64, %58 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
+  %.ph = phi ptr [ %27, %58 ], [ %27, %60 ], [ %26, %41 ], [ %26, %39 ]
+  %spec.select93.ph = phi i32 [ 64, %58 ], [ 64, %60 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
   %.pr = load i8, ptr %.ph, align 8, !tbaa !27
   %.not60 = icmp eq i8 %.pr, 0
   br i1 %.not60, label %php_sock_stream_wait_for_data.exit..thread72_crit_edge, label %.critedge
@@ -474,7 +474,7 @@ php_sock_stream_wait_for_data.exit..thread72_crit_edge: ; preds = %php_sock_stre
   br label %.critedge
 
 .critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit.thread, %php_sock_stream_wait_for_data.exit, %66, %76, %70, %80, %83, %87, %89, %93, %3, %7
-  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %64, %80 ], [ %64, %83 ], [ %64, %87 ], [ %64, %89 ], [ %64, %93 ], [ 0, %66 ], [ 0, %76 ], [ %64, %70 ], [ -1, %php_sock_stream_wait_for_data.exit ], [ -1, %php_sock_stream_wait_for_data.exit.thread ]
+  %.0 = phi i64 [ -1, %3 ], [ -1, %7 ], [ %64, %70 ], [ %64, %80 ], [ %64, %83 ], [ %64, %87 ], [ %64, %89 ], [ %64, %93 ], [ 0, %66 ], [ 0, %76 ], [ -1, %php_sock_stream_wait_for_data.exit ], [ -1, %php_sock_stream_wait_for_data.exit.thread ]
   ret i64 %.0
 }
 
@@ -561,7 +561,7 @@ define internal range(i32 -1, 1) i32 @php_sockop_cast(ptr noundef readonly captu
   br label %15
 
 15:                                               ; preds = %6, %12, %13, %7, %8, %3
-  %.0 = phi i32 [ -1, %3 ], [ %., %8 ], [ 0, %7 ], [ 0, %13 ], [ 0, %12 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %12 ], [ %., %8 ], [ -1, %3 ], [ 0, %7 ], [ 0, %13 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -679,7 +679,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   br label %53
 
 53:                                               ; preds = %47, %45, %41, %22, %php_pollfd_for.exit
-  %.088 = phi i32 [ 0, %php_pollfd_for.exit ], [ -1, %22 ], [ %52, %47 ], [ 0, %45 ], [ -1, %41 ]
+  %.088 = phi i32 [ 0, %php_pollfd_for.exit ], [ -1, %22 ], [ 0, %45 ], [ %52, %47 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %166
 
@@ -848,7 +848,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   br label %166
 
 166:                                              ; preds = %9, %78, %116, %131, %54, %4, %155, %136, %102, %88, %80, %67, %64, %61, %53
-  %.0 = phi i32 [ %.088, %53 ], [ %62, %61 ], [ 0, %64 ], [ 0, %67 ], [ 0, %80 ], [ 0, %88 ], [ 0, %102 ], [ 0, %136 ], [ 0, %155 ], [ -2, %4 ], [ -1, %54 ], [ 0, %131 ], [ 0, %116 ], [ -2, %78 ], [ -2, %9 ]
+  %.0 = phi i32 [ 0, %116 ], [ %.088, %53 ], [ %62, %61 ], [ -2, %4 ], [ 0, %64 ], [ 0, %67 ], [ 0, %80 ], [ 0, %88 ], [ 0, %102 ], [ -1, %54 ], [ 0, %136 ], [ 0, %155 ], [ 0, %131 ], [ -2, %78 ], [ -2, %9 ]
   ret i32 %.0
 }
 
@@ -1064,7 +1064,7 @@ define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr noundef 
   br label %.critedge106.i
 
 .critedge106.i:                                   ; preds = %113, %111, %107, %105, %.critedge.i
-  %.065.i = phi i64 [ 1, %111 ], [ 1, %107 ], [ 1, %.critedge.i ], [ %spec.select.i, %113 ], [ 1, %105 ]
+  %.065.i = phi i64 [ 1, %105 ], [ %spec.select.i, %113 ], [ 1, %111 ], [ 1, %107 ], [ 1, %.critedge.i ]
   %115 = load ptr, ptr %0, align 8, !tbaa !71
   %.not91.i = icmp eq ptr %115, @php_stream_udp_socket_ops
   %.not92.i = icmp eq ptr %115, @php_stream_unix_socket_ops
@@ -1096,7 +1096,7 @@ define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr noundef 
   br label %.critedge110.i
 
 .critedge110.i:                                   ; preds = %124, %122, %118, %116, %.critedge106.i
-  %.1.i = phi i64 [ %.065.i, %122 ], [ %.065.i, %118 ], [ %.065.i, %.critedge106.i ], [ %spec.select111.i, %124 ], [ %.065.i, %116 ]
+  %.1.i = phi i64 [ %.065.i, %116 ], [ %spec.select111.i, %124 ], [ %.065.i, %122 ], [ %.065.i, %118 ], [ %.065.i, %.critedge106.i ]
   %127 = load i32, ptr %8, align 4, !tbaa !26
   %128 = trunc i32 %127 to i16
   %129 = load ptr, ptr %0, align 8, !tbaa !71
@@ -1145,7 +1145,7 @@ define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr noundef 
   br label %php_tcp_sockop_connect.exit
 
 php_tcp_sockop_connect.exit:                      ; preds = %.thread.i, %62, %92, %150, %155
-  %.170.i = phi i32 [ %.167.i, %155 ], [ -1, %92 ], [ -1, %62 ], [ 1, %150 ], [ -1, %.thread.i ]
+  %.170.i = phi i32 [ -1, %62 ], [ %.167.i, %155 ], [ -1, %.thread.i ], [ -1, %92 ], [ 1, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1297,7 +1297,7 @@ parse_unix_address.exit.i:                        ; preds = %188, %183, %178
   br label %.critedge71.i
 
 .critedge71.i:                                    ; preds = %230, %228, %224, %.critedge.i24, %209
-  %.144.i = phi i64 [ %.043.ph.i, %228 ], [ %.043.ph.i, %224 ], [ %spec.select.i25, %230 ], [ %.043.ph.i, %.critedge.i24 ], [ 1, %209 ]
+  %.144.i = phi i64 [ %.043.ph.i, %.critedge.i24 ], [ %spec.select.i25, %230 ], [ %.043.ph.i, %228 ], [ %.043.ph.i, %224 ], [ 1, %209 ]
   %233 = load ptr, ptr %0, align 8, !tbaa !71
   %234 = icmp eq ptr %233, @php_stream_udp_socket_ops
   br i1 %234, label %235, label %.critedge73.i
@@ -1325,7 +1325,7 @@ parse_unix_address.exit.i:                        ; preds = %188, %183, %178
   br label %.critedge73.i
 
 .critedge73.i:                                    ; preds = %243, %241, %237, %235, %.critedge71.i
-  %.2.i = phi i64 [ %.144.i, %241 ], [ %.144.i, %237 ], [ %.144.i, %.critedge71.i ], [ %spec.select74.i, %243 ], [ %.144.i, %235 ]
+  %.2.i = phi i64 [ %.144.i, %235 ], [ %spec.select74.i, %243 ], [ %.144.i, %241 ], [ %.144.i, %237 ], [ %.144.i, %.critedge71.i ]
   %246 = load i32, ptr %5, align 4, !tbaa !26
   %247 = load ptr, ptr %0, align 8, !tbaa !71
   %248 = icmp eq ptr %247, @php_stream_udp_socket_ops
@@ -1375,7 +1375,7 @@ php_tcp_sockop_bind.exit:                         ; preds = %195, %196, %.crited
   br label %.critedge.i34
 
 .critedge.i34:                                    ; preds = %268, %266, %262, %258
-  %.0.i35 = phi i32 [ 0, %266 ], [ 0, %262 ], [ %spec.select.i33, %268 ], [ 0, %258 ]
+  %.0.i35 = phi i32 [ 0, %258 ], [ %spec.select.i33, %268 ], [ 0, %266 ], [ 0, %262 ]
   %270 = load i32, ptr %13, align 8, !tbaa !21
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %272 = load i8, ptr %271, align 4
@@ -1438,7 +1438,7 @@ php_tcp_sockop_accept.exit:                       ; preds = %.critedge._crit_edg
   br label %304
 
 304:                                              ; preds = %.split, %.split20, %php_tcp_sockop_accept.exit, %php_tcp_sockop_bind.exit, %php_tcp_sockop_connect.exit
-  %.0 = phi i32 [ 0, %php_tcp_sockop_connect.exit ], [ 0, %php_tcp_sockop_bind.exit ], [ 0, %php_tcp_sockop_accept.exit ], [ %14, %.split ], [ %17, %.split20 ]
+  %.0 = phi i32 [ 0, %php_tcp_sockop_accept.exit ], [ 0, %php_tcp_sockop_connect.exit ], [ 0, %php_tcp_sockop_bind.exit ], [ %14, %.split ], [ %17, %.split20 ]
   ret i32 %.0
 }
 
@@ -1464,7 +1464,7 @@ define dso_local ptr @php_stream_generic_socket_factory(ptr noundef readonly cap
   br i1 %20, label %21, label %36
 
 21:                                               ; preds = %18, %15, %12, %9
-  %.0 = phi ptr [ @php_stream_socket_ops, %9 ], [ @php_stream_udp_socket_ops, %12 ], [ @php_stream_unix_socket_ops, %15 ], [ @php_stream_unixdg_socket_ops, %18 ]
+  %.0 = phi ptr [ @php_stream_unix_socket_ops, %15 ], [ @php_stream_socket_ops, %9 ], [ @php_stream_udp_socket_ops, %12 ], [ @php_stream_unixdg_socket_ops, %18 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %24, label %22
 
@@ -1501,7 +1501,7 @@ define dso_local ptr @php_stream_generic_socket_factory(ptr noundef readonly cap
   br label %36
 
 36:                                               ; preds = %26, %34, %35, %18
-  %.022 = phi ptr [ null, %18 ], [ null, %35 ], [ null, %34 ], [ %31, %26 ]
+  %.022 = phi ptr [ null, %18 ], [ null, %34 ], [ null, %35 ], [ %31, %26 ]
   ret ptr %.022
 }
 
@@ -1726,7 +1726,7 @@ define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noun
   br label %42
 
 42:                                               ; preds = %.thread, %40, %16, %17, %32, %19
-  %.0 = phi ptr [ %27, %19 ], [ %39, %32 ], [ null, %17 ], [ null, %16 ], [ null, %40 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %16 ], [ %27, %19 ], [ %39, %32 ], [ null, %17 ], [ null, %40 ], [ null, %.thread ]
   ret ptr %.0
 }
 

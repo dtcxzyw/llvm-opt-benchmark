@@ -292,7 +292,7 @@ dt_get_debug_wtime.exit34:                        ; preds = %64, %67
   br label %81
 
 81:                                               ; preds = %dt_get_debug_wtime.exit34, %80, %38, %63, %dt_get_debug_wtime.exit32
-  %.1 = phi ptr [ null, %38 ], [ %28, %63 ], [ %28, %dt_get_debug_wtime.exit32 ], [ null, %80 ], [ null, %dt_get_debug_wtime.exit34 ]
+  %.1 = phi ptr [ %28, %dt_get_debug_wtime.exit32 ], [ null, %38 ], [ %28, %63 ], [ null, %80 ], [ null, %dt_get_debug_wtime.exit34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.1
@@ -510,7 +510,7 @@ dt_get_debug_wtime.exit76:                        ; preds = %93, %103
   br label %117
 
 117:                                              ; preds = %.thread, %dt_get_debug_wtime.exit76, %116
-  %.2 = phi ptr [ %63, %116 ], [ %63, %dt_get_debug_wtime.exit76 ], [ %.us-phi, %.thread ]
+  %.2 = phi ptr [ %.us-phi, %.thread ], [ %63, %116 ], [ %63, %dt_get_debug_wtime.exit76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.2

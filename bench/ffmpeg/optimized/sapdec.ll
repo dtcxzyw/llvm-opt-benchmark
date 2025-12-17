@@ -283,7 +283,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
   br i1 %137, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .thread:                                          ; preds = %37, %110, %.lr.ph, %.loopexit112, %82, %94, %85, %76, %21
-  %.072 = phi i32 [ %29, %21 ], [ %92, %85 ], [ %95, %94 ], [ %35, %76 ], [ -12, %82 ], [ -12, %.loopexit112 ], [ -12, %.lr.ph ], [ %122, %110 ], [ %35, %37 ]
+  %.072 = phi i32 [ %29, %21 ], [ %92, %85 ], [ %95, %94 ], [ -12, %.loopexit112 ], [ -12, %82 ], [ %35, %76 ], [ %122, %110 ], [ -12, %.lr.ph ], [ %35, %37 ]
   %138 = load ptr, ptr %7, align 8, !tbaa !11
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !40
@@ -439,7 +439,7 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %78, label %.lr.ph48, label %.thread, !llvm.loop !65
 
 .thread:                                          ; preds = %53, %.lr.ph48, %.preheader, %41, %._crit_edge, %.critedge, %12, %2
-  %.0 = phi i32 [ %8, %2 ], [ -541478725, %12 ], [ -541478725, %.critedge ], [ %39, %._crit_edge ], [ %39, %41 ], [ %39, %.preheader ], [ %39, %53 ], [ -12, %.lr.ph48 ]
+  %.0 = phi i32 [ -541478725, %.critedge ], [ %8, %2 ], [ -541478725, %12 ], [ %39, %41 ], [ %39, %._crit_edge ], [ %39, %.preheader ], [ %39, %53 ], [ -12, %.lr.ph48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

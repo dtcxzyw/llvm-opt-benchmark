@@ -898,7 +898,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i399: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit404
 
 308:                                              ; preds = %303, %260, %258
-  %.pn277.pn.pn.pn = phi { ptr, i32 } [ %.pn277.pn.pn, %303 ], [ %259, %258 ], [ %261, %260 ]
+  %.pn277.pn.pn.pn = phi { ptr, i32 } [ %.pn277.pn.pn, %303 ], [ %261, %260 ], [ %259, %258 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
   br label %1133
 
@@ -2369,12 +2369,12 @@ _ZN7QStringD2Ev.exit580:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %747
 
 746:                                              ; preds = %730, %678, %743
-  %.3 = phi i1 [ true, %743 ], [ false, %678 ], [ false, %730 ]
+  %.3 = phi i1 [ false, %678 ], [ true, %743 ], [ false, %730 ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #12
   br label %_ZN7QStringD2Ev.exit404
 
 747:                                              ; preds = %.loopexit635, %.loopexit.split-lp636, %744, %739, %725, %686
-  %.pn240.pn.pn.pn = phi { ptr, i32 } [ %.pn240.pn.pn, %725 ], [ %745, %744 ], [ %.pn237, %739 ], [ %.pn235, %686 ], [ %lpad.loopexit637, %.loopexit635 ], [ %lpad.loopexit.split-lp638, %.loopexit.split-lp636 ]
+  %.pn240.pn.pn.pn = phi { ptr, i32 } [ %.pn240.pn.pn, %725 ], [ %.pn237, %739 ], [ %745, %744 ], [ %.pn235, %686 ], [ %lpad.loopexit637, %.loopexit635 ], [ %lpad.loopexit.split-lp638, %.loopexit.split-lp636 ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #12
   br label %1133
 
@@ -2802,7 +2802,7 @@ _ZN11QStringListlsERK7QString.exit591:            ; preds = %862
   br label %_ZN7QStringD2Ev.exit404
 
 889:                                              ; preds = %.loopexit641, %.loopexit.split-lp642, %887, %881, %874, %857
-  %.pn222.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn, %874 ], [ %.pn220, %887 ], [ %882, %881 ], [ %.pn218, %857 ], [ %lpad.loopexit643, %.loopexit641 ], [ %lpad.loopexit.split-lp644, %.loopexit.split-lp642 ]
+  %.pn222.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn, %874 ], [ %.pn218, %857 ], [ %.pn220, %887 ], [ %882, %881 ], [ %lpad.loopexit643, %.loopexit641 ], [ %lpad.loopexit.split-lp644, %.loopexit.split-lp642 ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #12
   br label %1133
 
@@ -3430,7 +3430,7 @@ _ZN11QStringListlsERK7QString.exit591:            ; preds = %862
   br label %1133
 
 _ZN7QStringD2Ev.exit404:                          ; preds = %_ZN7QStringD2Ev.exit541, %660, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i477, %_ZN9QtPrivate8RefCount5derefEv.exit.i478, %_ZN7QStringD2Ev.exit476, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i451, %_ZN9QtPrivate8RefCount5derefEv.exit.i452, %392, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i425, %_ZN9QtPrivate8RefCount5derefEv.exit.i426, %347, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i399, %_ZN9QtPrivate8RefCount5derefEv.exit.i400, %_ZN7QStringD2Ev.exit398, %1101, %1078, %1064, %1051, %1021, %1007, %994, %964, %950, %937, %818, %805, %792, %763, %566, %552, %538, %524, %495, %482, %_ZN7QStringD2Ev.exit502, %_ZN7QStringD2Ev.exit450, %_ZN7QStringD2Ev.exit424, %1112, %1090, %1033, %976, %909, %888, %831, %774, %746, %599, %506
-  %.1 = phi i1 [ true, %506 ], [ true, %599 ], [ %.3, %746 ], [ true, %774 ], [ true, %831 ], [ %851, %888 ], [ true, %909 ], [ true, %976 ], [ true, %1033 ], [ true, %1090 ], [ true, %1112 ], [ false, %_ZN7QStringD2Ev.exit424 ], [ false, %_ZN7QStringD2Ev.exit450 ], [ false, %_ZN7QStringD2Ev.exit502 ], [ false, %482 ], [ false, %495 ], [ false, %524 ], [ false, %538 ], [ false, %552 ], [ false, %566 ], [ false, %763 ], [ false, %792 ], [ false, %805 ], [ false, %818 ], [ false, %937 ], [ false, %950 ], [ false, %964 ], [ false, %994 ], [ false, %1007 ], [ false, %1021 ], [ false, %1051 ], [ false, %1064 ], [ false, %1078 ], [ false, %1101 ], [ %.0131, %_ZN7QStringD2Ev.exit398 ], [ %.0131, %_ZN9QtPrivate8RefCount5derefEv.exit.i400 ], [ %.0131, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i399 ], [ true, %347 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i426 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i425 ], [ true, %392 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i452 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i451 ], [ true, %_ZN7QStringD2Ev.exit476 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i478 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i477 ], [ true, %660 ], [ false, %_ZN7QStringD2Ev.exit541 ]
+  %.1 = phi i1 [ false, %1101 ], [ %.0131, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i399 ], [ false, %1078 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i425 ], [ false, %_ZN7QStringD2Ev.exit424 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i451 ], [ false, %_ZN7QStringD2Ev.exit450 ], [ true, %506 ], [ false, %482 ], [ false, %_ZN7QStringD2Ev.exit502 ], [ false, %495 ], [ false, %524 ], [ false, %538 ], [ false, %552 ], [ true, %599 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i477 ], [ %.3, %746 ], [ true, %774 ], [ false, %566 ], [ true, %831 ], [ false, %805 ], [ false, %792 ], [ false, %763 ], [ %851, %888 ], [ true, %909 ], [ true, %976 ], [ false, %950 ], [ false, %937 ], [ false, %818 ], [ true, %1033 ], [ false, %1007 ], [ false, %994 ], [ false, %964 ], [ true, %1090 ], [ false, %1064 ], [ false, %1051 ], [ false, %1021 ], [ true, %1112 ], [ %.0131, %_ZN7QStringD2Ev.exit398 ], [ %.0131, %_ZN9QtPrivate8RefCount5derefEv.exit.i400 ], [ true, %347 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i426 ], [ true, %392 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i452 ], [ true, %_ZN7QStringD2Ev.exit476 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i478 ], [ true, %660 ], [ false, %_ZN7QStringD2Ev.exit541 ]
   %1117 = load ptr, ptr %12, align 8
   %1118 = load atomic i32, ptr %1117 monotonic, align 4
   switch i32 %1118, label %_ZN9QtPrivate8RefCount5derefEv.exit.i610 [
@@ -3522,7 +3522,7 @@ _ZN7QStringD2Ev.exit632:                          ; preds = %_ZN7QStringD2Ev.exi
   ret i1 %.1
 
 1133:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1113, %1115, %654, %661, %1091, %1034, %977, %832, %775, %600, %507, %439, %397, %352, %1086, %1072, %1058, %1029, %1015, %1001, %972, %958, %944, %921, %910, %889, %827, %812, %799, %770, %747, %574, %560, %546, %532, %502, %489, %476, %388, %343, %308, %257, %251
-  %.pn277.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn277.pn.pn.pn, %308 ], [ %.pn275, %257 ], [ %252, %251 ], [ %353, %352 ], [ %.pn273, %343 ], [ %398, %397 ], [ %.pn271, %388 ], [ %.pn268.pn, %439 ], [ %508, %507 ], [ %.pn266, %502 ], [ %.pn264, %489 ], [ %.pn262, %476 ], [ %601, %600 ], [ %.pn259, %574 ], [ %.pn256, %560 ], [ %.pn253, %546 ], [ %.pn250, %532 ], [ %.pn240.pn.pn.pn, %747 ], [ %776, %775 ], [ %.pn233, %770 ], [ %833, %832 ], [ %.pn231, %827 ], [ %.pn229, %812 ], [ %.pn227, %799 ], [ %.pn222.pn.pn.pn, %889 ], [ %.pn215.pn, %921 ], [ %911, %910 ], [ %978, %977 ], [ %.pn213, %972 ], [ %.pn211, %958 ], [ %.pn209, %944 ], [ %1035, %1034 ], [ %.pn207, %1029 ], [ %.pn205, %1015 ], [ %.pn203, %1001 ], [ %1092, %1091 ], [ %.pn201, %1086 ], [ %.pn199, %1072 ], [ %.pn197, %1058 ], [ %.pn245.pn.pn, %654 ], [ %662, %661 ], [ %1116, %1115 ], [ %1114, %1113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn277.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn277.pn.pn.pn, %308 ], [ %.pn275, %257 ], [ %252, %251 ], [ %353, %352 ], [ %662, %661 ], [ %.pn273, %343 ], [ %398, %397 ], [ %.pn197, %1058 ], [ %.pn271, %388 ], [ %.pn268.pn, %439 ], [ %.pn199, %1072 ], [ %508, %507 ], [ %.pn201, %1086 ], [ %.pn266, %502 ], [ %.pn264, %489 ], [ %.pn262, %476 ], [ %601, %600 ], [ %.pn207, %1029 ], [ %.pn259, %574 ], [ %.pn256, %560 ], [ %.pn253, %546 ], [ %.pn250, %532 ], [ %1035, %1034 ], [ %.pn240.pn.pn.pn, %747 ], [ %776, %775 ], [ %1092, %1091 ], [ %.pn233, %770 ], [ %833, %832 ], [ %.pn203, %1001 ], [ %.pn231, %827 ], [ %.pn229, %812 ], [ %.pn227, %799 ], [ %.pn222.pn.pn.pn, %889 ], [ %.pn215.pn, %921 ], [ %911, %910 ], [ %978, %977 ], [ %.pn205, %1015 ], [ %.pn213, %972 ], [ %.pn211, %958 ], [ %.pn209, %944 ], [ %.pn245.pn.pn, %654 ], [ %1114, %1113 ], [ %1116, %1115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
   br label %1134
 

@@ -395,7 +395,7 @@ define internal range(i32 -1, 1) i32 @H5D__none_idx_copy_setup(ptr readnone capt
   br label %42
 
 42:                                               ; preds = %2, %41
-  %.04 = phi i32 [ %.1, %41 ], [ 0, %2 ]
+  %.04 = phi i32 [ 0, %2 ], [ %.1, %41 ]
   ret i32 %.04
 }
 

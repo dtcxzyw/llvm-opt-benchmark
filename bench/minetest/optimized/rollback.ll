@@ -1824,7 +1824,7 @@ if.then.i.i565:                                   ; preds = %lpad298
   br label %ehcleanup301
 
 ehcleanup301:                                     ; preds = %lpad298, %if.then.i.i565, %lpad296.loopexit.split-lp, %lpad296.loopexit
-  %.pn393 = phi { ptr, i32 } [ %138, %if.then.i.i565 ], [ %lpad.loopexit851, %lpad296.loopexit ], [ %lpad.loopexit.split-lp852, %lpad296.loopexit.split-lp ], [ %138, %lpad298 ]
+  %.pn393 = phi { ptr, i32 } [ %lpad.loopexit.split-lp852, %lpad296.loopexit.split-lp ], [ %138, %if.then.i.i565 ], [ %lpad.loopexit851, %lpad296.loopexit ], [ %138, %lpad298 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp292)
   br label %ehcleanup383
 
@@ -2021,7 +2021,7 @@ if.then.i.i605:                                   ; preds = %lpad346
   br label %ehcleanup349
 
 ehcleanup349:                                     ; preds = %lpad346, %if.then.i.i605, %lpad344.loopexit.split-lp, %lpad344.loopexit
-  %.pn388 = phi { ptr, i32 } [ %162, %if.then.i.i605 ], [ %lpad.loopexit, %lpad344.loopexit ], [ %lpad.loopexit.split-lp, %lpad344.loopexit.split-lp ], [ %162, %lpad346 ]
+  %.pn388 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad344.loopexit.split-lp ], [ %162, %if.then.i.i605 ], [ %lpad.loopexit, %lpad344.loopexit ], [ %162, %lpad346 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp340)
   br label %ehcleanup383
 

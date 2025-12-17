@@ -106,7 +106,7 @@ define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, 
   br label %35
 
 35:                                               ; preds = %.loopexit, %23, %27
-  %.0 = phi i32 [ 1, %27 ], [ -1, %23 ], [ %22, %.loopexit ]
+  %.0 = phi i32 [ 1, %27 ], [ %22, %.loopexit ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -201,7 +201,7 @@ define internal noundef zeroext i1 @cosine_seek_read(ptr noundef readonly captur
   br label %21
 
 21:                                               ; preds = %5, %19, %16
-  %.0 = phi i1 [ false, %16 ], [ %20, %19 ], [ false, %5 ]
+  %.0 = phi i1 [ %20, %19 ], [ false, %16 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -410,7 +410,7 @@ define internal fastcc noundef zeroext i1 @parse_cosine_packet(ptr noundef %0, p
   br label %83
 
 83:                                               ; preds = %82, %80, %78, %77, %75, %73, %47
-  %.sink = phi i8 [ 1, %47 ], [ 2, %73 ], [ 3, %75 ], [ 4, %77 ], [ 5, %78 ], [ 6, %80 ], [ %switch.select112, %82 ]
+  %.sink = phi i8 [ 1, %47 ], [ 3, %75 ], [ 5, %78 ], [ 6, %80 ], [ 2, %73 ], [ %switch.select112, %82 ], [ 4, %77 ]
   store i8 %.sink, ptr %26, align 8
   %bcmp76 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %23, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
   %84 = icmp eq i32 %bcmp76, 0

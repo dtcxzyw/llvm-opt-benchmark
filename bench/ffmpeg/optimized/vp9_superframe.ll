@@ -335,7 +335,7 @@ stats.exit.i:                                     ; preds = %74
   br i1 %exitcond107.not.i, label %.loopexit.i, label %153, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %153, %134, %127, %120, %112
-  %.1.i = phi ptr [ %115, %112 ], [ %126, %120 ], [ %133, %127 ], [ %152, %134 ], [ %158, %153 ]
+  %.1.i = phi ptr [ %115, %112 ], [ %152, %134 ], [ %126, %120 ], [ %133, %127 ], [ %158, %153 ]
   %159 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   store i8 %114, ptr %.1.i, align 1, !tbaa !27
   %160 = load ptr, ptr %13, align 8, !tbaa !26
@@ -387,12 +387,12 @@ merge_superframe.exit:                            ; preds = %.loopexit.i
   br label %.thread98
 
 .thread98:                                        ; preds = %.thread98.sink.split, %stats.exit.i, %10, %merge_superframe.exit, %36
-  %.055100 = phi i32 [ -1094995529, %10 ], [ %171, %merge_superframe.exit ], [ -1094995529, %36 ], [ %95, %stats.exit.i ], [ %.055100.ph, %.thread98.sink.split ]
+  %.055100 = phi i32 [ %95, %stats.exit.i ], [ -1094995529, %10 ], [ %171, %merge_superframe.exit ], [ -1094995529, %36 ], [ %.055100.ph, %.thread98.sink.split ]
   tail call void @av_packet_unref(ptr noundef nonnull %1) #5
   br label %180
 
 180:                                              ; preds = %._crit_edge, %.thread98, %63, %.thread, %10, %2
-  %.0 = phi i32 [ %5, %2 ], [ 0, %10 ], [ 0, %.thread ], [ -11, %63 ], [ %.055100, %.thread98 ], [ %171, %._crit_edge ]
+  %.0 = phi i32 [ %5, %2 ], [ -11, %63 ], [ 0, %.thread ], [ 0, %10 ], [ %.055100, %.thread98 ], [ %171, %._crit_edge ]
   ret i32 %.0
 }
 

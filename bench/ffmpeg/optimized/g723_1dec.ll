@@ -1350,7 +1350,7 @@ residual_interp.exit:                             ; preds = %._crit_edge.i, %734
   br label %782
 
 782:                                              ; preds = %780, %779, %773, %770
-  %.071.i = phi i32 [ %.lobit.i, %779 ], [ %781, %780 ], [ %..i232, %773 ], [ %771, %770 ]
+  %.071.i = phi i32 [ %781, %780 ], [ %..i232, %773 ], [ %771, %770 ], [ %.lobit.i, %779 ]
   %783 = sext i32 %.071.i to i64
   %784 = mul nsw i64 %783, 273
   %785 = lshr i64 %784, 16
@@ -2345,8 +2345,8 @@ formant_postfilter.exit:                          ; preds = %gain_scale.exit.i
   br i1 %exitcond338.not, label %.sink.split, label %90, !llvm.loop !107
 
 .sink.split:                                      ; preds = %.loopexit, %.preheader262, %32, %33
-  %.sink = phi i32 [ 0, %33 ], [ 0, %32 ], [ 1, %.preheader262 ], [ 1, %.loopexit ]
-  %.0.ph = phi i32 [ %21, %33 ], [ %21, %32 ], [ %30, %.preheader262 ], [ %30, %.loopexit ]
+  %.sink = phi i32 [ 0, %32 ], [ 0, %33 ], [ 1, %.preheader262 ], [ 1, %.loopexit ]
+  %.0.ph = phi i32 [ %21, %32 ], [ %21, %33 ], [ %30, %.preheader262 ], [ %30, %.loopexit ]
   store i32 %.sink, ptr %2, align 4, !tbaa !47
   br label %1370
 

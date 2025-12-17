@@ -132,7 +132,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %57
 
 57:                                               ; preds = %55, %54, %52, %51, %49, %46, %34
-  %.1.us = phi i32 [ %.07790.us, %55 ], [ %.07790.us, %54 ], [ %.07790.us, %52 ], [ %.07790.us, %51 ], [ %47, %49 ], [ %.07790.us, %46 ], [ %.07790.us, %34 ]
+  %.1.us = phi i32 [ %.07790.us, %55 ], [ %.07790.us, %54 ], [ %47, %49 ], [ %.07790.us, %34 ], [ %.07790.us, %52 ], [ %.07790.us, %51 ], [ %.07790.us, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %.07891.us, i64 120
   %.078.us = load ptr, ptr %58, align 8, !tbaa !16
   %.not.us = icmp eq ptr %.078.us, %17
@@ -171,7 +171,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %73
 
 73:                                               ; preds = %66, %.lr.ph.split, %64, %69, %72
-  %.1 = phi i32 [ %70, %72 ], [ %.07790, %69 ], [ %.07790, %64 ], [ %.07790, %.lr.ph.split ], [ %.07790, %66 ]
+  %.1 = phi i32 [ %.07790, %69 ], [ %.07790, %.lr.ph.split ], [ %70, %72 ], [ %.07790, %64 ], [ %.07790, %66 ]
   %74 = getelementptr inbounds nuw i8, ptr %.07891, i64 120
   %.078 = load ptr, ptr %74, align 8, !tbaa !16
   %.not = icmp eq ptr %.078, %19
@@ -233,7 +233,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %34, %98, %87
-  %.0 = phi i32 [ -46, %87 ], [ 0, %98 ], [ %36, %34 ], [ %65, %64 ]
+  %.0 = phi i32 [ 0, %98 ], [ -46, %87 ], [ %36, %34 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

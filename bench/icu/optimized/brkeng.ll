@@ -203,7 +203,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1101,7 +1101,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   br label %69
 
 66:                                               ; preds = %33, %39, %45, %51, %57, %63
-  %.143 = phi ptr [ %31, %33 ], [ %37, %39 ], [ %43, %45 ], [ %49, %51 ], [ %55, %57 ], [ %61, %63 ]
+  %.143 = phi ptr [ %55, %57 ], [ %31, %33 ], [ %37, %39 ], [ %43, %45 ], [ %49, %51 ], [ %61, %63 ]
   %67 = load i32, ptr %4, align 4, !tbaa !13
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %.thread65, label %.thread65.sink.split
@@ -1114,7 +1114,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   resume { ptr, i32 } %.pn
 
 .thread65.sink.split:                             ; preds = %66, %60, %54, %48, %42, %36, %30, %29
-  %.143.sink79 = phi ptr [ %28, %29 ], [ %28, %30 ], [ %28, %36 ], [ %28, %42 ], [ %28, %48 ], [ %28, %54 ], [ %28, %60 ], [ %.143, %66 ]
+  %.143.sink79 = phi ptr [ %28, %60 ], [ %28, %29 ], [ %28, %30 ], [ %28, %36 ], [ %28, %42 ], [ %28, %48 ], [ %28, %54 ], [ %.143, %66 ]
   %70 = load ptr, ptr %.143.sink79, align 8, !tbaa !15
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
@@ -1122,7 +1122,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory13loadEngineForEiPKc(ptr 
   br label %.thread65
 
 .thread65:                                        ; preds = %.thread65.sink.split, %66, %13, %3, %24
-  %.2 = phi ptr [ null, %24 ], [ null, %3 ], [ %.143, %66 ], [ %14, %13 ], [ null, %.thread65.sink.split ]
+  %.2 = phi ptr [ null, %3 ], [ null, %24 ], [ %.143, %66 ], [ %14, %13 ], [ null, %.thread65.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2
 }
@@ -1379,7 +1379,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory24loadDictionaryMatcherFo
   br label %110
 
 110:                                              ; preds = %100, %78, %108, %105, %109
-  %.1 = phi ptr [ null, %109 ], [ null, %105 ], [ null, %108 ], [ %76, %78 ], [ %98, %100 ]
+  %.1 = phi ptr [ null, %108 ], [ null, %109 ], [ null, %105 ], [ %76, %78 ], [ %98, %100 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #17
@@ -1387,7 +1387,7 @@ define noundef ptr @_ZN6icu_7723ICULanguageBreakFactory24loadDictionaryMatcherFo
   br label %113
 
 111:                                              ; preds = %90, %106, %92, %88, %48, %42
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %.pn54, %88 ], [ %.pn, %48 ], [ %91, %90 ], [ %93, %92 ], [ %107, %106 ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %43, %42 ], [ %.pn54, %88 ], [ %91, %90 ], [ %93, %92 ], [ %107, %106 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #17
   br label %112
 
@@ -1467,7 +1467,7 @@ _ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode.exit: ; 
   br label %_ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEEC2EPS1_R10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_18BreakEngineWrapperEEC2EPS1_R10UErrorCode.exit: ; preds = %11, %15, %12
-  %.sroa.027.032 = phi ptr [ %1, %12 ], [ %1, %15 ], [ null, %11 ]
+  %.sroa.027.032 = phi ptr [ %1, %15 ], [ %1, %12 ], [ null, %11 ]
   invoke void @umtx_lock_77(ptr noundef nonnull @_ZZN6icu_7723ICULanguageBreakFactory17addExternalEngineEPNS_19ExternalBreakEngineER10UErrorCodeE17gBreakEngineMutex)
           to label %_ZN6icu_775MutexC2EPNS_6UMutexE.exit unwind label %33
 
@@ -1674,8 +1674,8 @@ define noundef i32 @_ZNK6icu_7718BreakEngineWrapper10findBreaksEP5UTextiiRNS_9UV
   br label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %24, %.lr.ph, %..critedge.loopexit_crit_edge, %10
-  %.lcssa42 = phi i64 [ %15, %10 ], [ %32, %..critedge.loopexit_crit_edge ], [ %15, %.lr.ph ], [ %32, %24 ]
-  %.lcssa = phi i32 [ %16, %10 ], [ %33, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph ], [ %33, %24 ]
+  %.lcssa42 = phi i64 [ %15, %10 ], [ %15, %.lr.ph ], [ %32, %..critedge.loopexit_crit_edge ], [ %32, %24 ]
+  %.lcssa = phi i32 [ %16, %10 ], [ %16, %.lr.ph ], [ %33, %..critedge.loopexit_crit_edge ], [ %33, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !53
   %37 = sub nsw i32 %.lcssa, %13

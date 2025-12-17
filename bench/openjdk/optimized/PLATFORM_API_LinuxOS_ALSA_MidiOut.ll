@@ -141,7 +141,7 @@ define hidden i32 @MIDI_OUT_SendLongMessage(ptr noundef readonly captures(addres
   br label %11
 
 11:                                               ; preds = %5, %4, %7
-  %.0 = phi i32 [ %10, %7 ], [ -11113, %4 ], [ -11113, %5 ]
+  %.0 = phi i32 [ %10, %7 ], [ -11113, %5 ], [ -11113, %4 ]
   ret i32 %.0
 }
 

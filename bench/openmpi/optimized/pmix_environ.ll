@@ -78,7 +78,7 @@ define ptr @pmix_environ_merge(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %9, %5, %7
-  %.0 = phi ptr [ %8, %7 ], [ null, %5 ], [ %10, %9 ], [ %.pre, %._crit_edge.loopexit ], [ %10, %.preheader ]
+  %.0 = phi ptr [ %10, %9 ], [ %8, %7 ], [ null, %5 ], [ %.pre, %._crit_edge.loopexit ], [ %10, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -778,13 +778,13 @@ pmix_obj_run_destructors.exit113:                 ; preds = %.lr.ph.i110, %147
   %.not98 = icmp eq ptr %163, null
   br i1 %.not98, label %.loopexit, label %.lr.ph156.split, !llvm.loop !56
 
-.loopexit.sink.split:                             ; preds = %56, %26, %pmix_obj_update.exit.i, %94, %93
+.loopexit.sink.split:                             ; preds = %56, %26, %94, %93, %pmix_obj_update.exit.i
   %.0.ph = phi i32 [ -32, %93 ], [ -32, %94 ], [ -32, %pmix_obj_update.exit.i ], [ -27, %26 ], [ -32, %56 ]
   tail call void @free(ptr noundef %27) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge153, %.loopexit.sink.split, %.lr.ph156, %.preheader, %._crit_edge145
-  %.0 = phi i32 [ 0, %._crit_edge145 ], [ 0, %.preheader ], [ 0, %.lr.ph156 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %._crit_edge153 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph156 ], [ 0, %._crit_edge145 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %._crit_edge153 ]
   ret i32 %.0
 }
 

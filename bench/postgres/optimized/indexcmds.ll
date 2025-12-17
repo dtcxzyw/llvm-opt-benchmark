@@ -850,7 +850,7 @@ define internal fastcc void @ComputeIndexAttrs(ptr noundef captures(none) %0, pt
   br label %163
 
 163:                                              ; preds = %.thread215, %156, %153
-  %.1175 = phi i32 [ %159, %156 ], [ %.0174, %153 ], [ %155, %.thread215 ]
+  %.1175 = phi i32 [ %159, %156 ], [ %155, %.thread215 ], [ %.0174, %153 ]
   %164 = call zeroext i1 @type_is_collatable(i32 noundef %.0173) #10
   %.not200 = icmp eq i32 %.1175, 0
   br i1 %164, label %165, label %171
@@ -1179,8 +1179,8 @@ select.unfold.us.us:                              ; preds = %18, %16
   %or.cond85.not = select i1 %24, i1 %exitcond.not, i1 false
   br i1 %or.cond85.not, label %.thread29.us, label %.thread27, !llvm.loop !11
 
-.thread27:                                        ; preds = %.thread29.us, %.thread.us, %select.unfold.us.us, %18, %15, %16, %.lr.ph.split, %7, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %7 ], [ true, %.lr.ph.split ], [ true, %select.unfold.us.us ], [ false, %18 ], [ false, %15 ], [ false, %16 ], [ %21, %.thread.us ], [ %24, %.thread29.us ]
+.thread27:                                        ; preds = %.thread29.us, %.thread.us, %select.unfold.us.us, %18, %16, %15, %.lr.ph.split, %7, %3
+  %.0 = phi i1 [ true, %3 ], [ true, %.lr.ph.split ], [ true, %7 ], [ %21, %.thread.us ], [ false, %15 ], [ false, %16 ], [ true, %select.unfold.us.us ], [ false, %18 ], [ %24, %.thread29.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1276,7 +1276,7 @@ define dso_local void @WaitForOlderSnapshots(i32 noundef %0, i1 noundef zeroext 
   br label %.thread
 
 .thread:                                          ; preds = %32, %._crit_edge, %.lr.ph51
-  %37 = phi i32 [ %.pre, %._crit_edge ], [ %21, %.lr.ph51 ], [ %21, %32 ]
+  %37 = phi i32 [ %21, %.lr.ph51 ], [ %.pre, %._crit_edge ], [ %21, %32 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next64, %38
@@ -1590,8 +1590,8 @@ list_length.exit540.thread:                       ; preds = %list_length.exit
   br label %152
 
 152:                                              ; preds = %139, %147
-  %153 = phi i32 [ %141, %139 ], [ %.pre, %147 ]
-  %.0432 = phi i32 [ %140, %139 ], [ %151, %147 ]
+  %153 = phi i32 [ %.pre, %147 ], [ %141, %139 ]
+  %.0432 = phi i32 [ %151, %147 ], [ %140, %139 ]
   %154 = icmp eq i32 %.0432, 0
   %or.cond3 = select i1 %.not, i1 true, i1 %154
   %.not504 = icmp eq i32 %.0432, %153
@@ -2221,7 +2221,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
   unreachable
 
 479:                                              ; preds = %474, %471, %467
-  %.0442 = phi ptr [ @.str.21, %467 ], [ @.str.22, %471 ], [ @.str.23, %474 ]
+  %.0442 = phi ptr [ @.str.22, %471 ], [ @.str.21, %467 ], [ @.str.23, %474 ]
   %480 = getelementptr inbounds nuw i8, ptr %468, i64 4
   %481 = load i16, ptr %480, align 4
   %482 = icmp sgt i16 %481, 0
@@ -2449,7 +2449,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1087, ptr noundef nonnull @__func__.DefineIndex) #10
   unreachable
 
-.thread560:                                       ; preds = %586, %589, %576, %582, %592
+.thread560:                                       ; preds = %586, %589, %592, %576, %582
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.pre697 = load i32, ptr %487, align 8
@@ -2666,7 +2666,7 @@ CheckPredicate.exit:                              ; preds = %421, %410
   unreachable
 
 733:                                              ; preds = %728, %725, %722
-  %.0466 = phi ptr [ @.str.21, %722 ], [ @.str.22, %725 ], [ @.str.23, %728 ]
+  %.0466 = phi ptr [ @.str.22, %725 ], [ @.str.21, %722 ], [ @.str.23, %728 ]
   %734 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %734, label %735, label %740
 
@@ -3368,7 +3368,7 @@ define dso_local void @IndexSetParentIndex(ptr noundef readonly captures(none) %
   unreachable
 
 35:                                               ; preds = %25, %27, %15, %17
-  %.0 = phi i1 [ true, %17 ], [ false, %15 ], [ false, %27 ], [ true, %25 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %17 ], [ false, %27 ], [ true, %25 ]
   call void @systable_endscan(ptr noundef %13) #10
   call void @relation_close(ptr noundef %10, i32 noundef 3) #10
   %36 = icmp ne i32 %1, 0
@@ -4470,7 +4470,7 @@ ReindexIndex.exit:                                ; preds = %80, %85, %87
   br label %225
 
 225:                                              ; preds = %222, %220
-  %.0.i = phi i1 [ false, %220 ], [ %.not81.i, %222 ]
+  %.0.i = phi i1 [ %.not81.i, %222 ], [ false, %220 ]
   %226 = call zeroext i1 @IsSystemClass(i32 noundef %184, ptr noundef nonnull %183) #10
   %spec.select82.i = select i1 %226, i1 true, i1 %.0.i
   br i1 %spec.select82.i, label %227, label %233
@@ -4508,9 +4508,9 @@ ReindexIndex.exit:                                ; preds = %80, %85, %87
   br label %.thread88.i
 
 .thread88.i:                                      ; preds = %240, %230, %228, %227, %215, %213, %212, %204, %199, %196, %191, %177
-  %.165.i = phi i1 [ %.06491.i, %240 ], [ %.06491.i, %177 ], [ %.06491.i, %191 ], [ %.06491.i, %196 ], [ %.06491.i, %199 ], [ %.06491.i, %204 ], [ %.06491.i, %213 ], [ %.06491.i, %215 ], [ %.06491.i, %212 ], [ true, %227 ], [ true, %230 ], [ true, %228 ]
-  %.163.i = phi i1 [ %.06292.i, %240 ], [ %.06292.i, %177 ], [ %.06292.i, %191 ], [ %.06292.i, %196 ], [ %.06292.i, %199 ], [ %.06292.i, %204 ], [ true, %213 ], [ true, %215 ], [ true, %212 ], [ %.06292.i, %227 ], [ %.06292.i, %230 ], [ %.06292.i, %228 ]
-  %.160.i = phi ptr [ %.2.i, %240 ], [ %.05993.i, %177 ], [ %.05993.i, %191 ], [ %.05993.i, %196 ], [ %.05993.i, %199 ], [ %.05993.i, %204 ], [ %.05993.i, %213 ], [ %.05993.i, %215 ], [ %.05993.i, %212 ], [ %.05993.i, %227 ], [ %.05993.i, %230 ], [ %.05993.i, %228 ]
+  %.165.i = phi i1 [ %.06491.i, %177 ], [ %.06491.i, %196 ], [ %.06491.i, %199 ], [ %.06491.i, %204 ], [ %.06491.i, %240 ], [ %.06491.i, %212 ], [ %.06491.i, %191 ], [ %.06491.i, %213 ], [ %.06491.i, %215 ], [ true, %227 ], [ true, %230 ], [ true, %228 ]
+  %.163.i = phi i1 [ %.06292.i, %177 ], [ %.06292.i, %196 ], [ %.06292.i, %199 ], [ %.06292.i, %204 ], [ %.06292.i, %240 ], [ true, %212 ], [ %.06292.i, %191 ], [ true, %213 ], [ true, %215 ], [ %.06292.i, %227 ], [ %.06292.i, %230 ], [ %.06292.i, %228 ]
+  %.160.i = phi ptr [ %.05993.i, %177 ], [ %.05993.i, %196 ], [ %.05993.i, %199 ], [ %.05993.i, %204 ], [ %.2.i, %240 ], [ %.05993.i, %212 ], [ %.05993.i, %191 ], [ %.05993.i, %213 ], [ %.05993.i, %215 ], [ %.05993.i, %227 ], [ %.05993.i, %230 ], [ %.05993.i, %228 ]
   %241 = call ptr @heap_getnext(ptr noundef %173, i32 noundef 1) #10
   %.not75.i = icmp eq ptr %241, null
   br i1 %.not75.i, label %ReindexMultipleTables.exit, label %177
@@ -5792,7 +5792,7 @@ define internal fastcc noundef zeroext i1 @ReindexRelationConcurrently(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %155, %132, %32, %179, %529
-  %530 = phi i1 [ false, %179 ], [ true, %529 ], [ false, %32 ], [ false, %132 ], [ false, %155 ]
+  %530 = phi i1 [ true, %529 ], [ false, %179 ], [ false, %32 ], [ false, %132 ], [ false, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

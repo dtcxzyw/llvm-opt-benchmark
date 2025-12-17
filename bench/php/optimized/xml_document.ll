@@ -75,7 +75,7 @@ define hidden void @dom_mark_namespaces_as_attributes_too(ptr noundef %0, ptr no
   br i1 %.not.i, label %.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %18, %10, %.thread
-  %.07.be = phi ptr [ %12, %10 ], [ %14, %.thread ], [ %20, %18 ]
+  %.07.be = phi ptr [ %14, %.thread ], [ %12, %10 ], [ %20, %18 ]
   br label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %10, %8
@@ -247,7 +247,7 @@ define hidden void @dom_document_convert_to_modern(ptr noundef writeonly capture
   br i1 %.not17.i.i, label %.preheader.i, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %22, %.thread.i, %14
-  %.07.i.be = phi ptr [ %16, %14 ], [ %18, %.thread.i ], [ %24, %22 ]
+  %.07.i.be = phi ptr [ %18, %.thread.i ], [ %16, %14 ], [ %24, %22 ]
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.thread.i, %22
@@ -532,7 +532,7 @@ php_is_stream_path.exit.thread:                   ; preds = %64, %66, %php_is_st
   br i1 %.not17.i.i.i, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %113, %.thread.i.i, %105
-  %.07.i.i.be = phi ptr [ %107, %105 ], [ %109, %.thread.i.i ], [ %115, %113 ]
+  %.07.i.i.be = phi ptr [ %109, %.thread.i.i ], [ %107, %105 ], [ %115, %113 ]
   br label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.thread.i.i, %113
@@ -823,7 +823,7 @@ zend_string_alloc.exit:                           ; preds = %52, %56
   br label %smart_str_extract_ex.exit
 
 smart_str_extract_ex.exit:                        ; preds = %46, %smart_str_0.exit, %59, %zend_string_alloc.exit, %80, %.critedge, %29, %33, %38, %84
-  %.0 = phi ptr [ %85, %84 ], [ null, %38 ], [ null, %33 ], [ null, %29 ], [ null, %.critedge ], [ null, %smart_str_0.exit ], [ %45, %46 ], [ %62, %59 ], [ %70, %80 ], [ %70, %zend_string_alloc.exit ]
+  %.0 = phi ptr [ %85, %84 ], [ null, %.critedge ], [ null, %38 ], [ null, %33 ], [ null, %29 ], [ null, %smart_str_0.exit ], [ %45, %46 ], [ %62, %59 ], [ %70, %80 ], [ %70, %zend_string_alloc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -856,9 +856,9 @@ define internal noundef i32 @php_new_dom_write_smart_str(ptr noundef %0, ptr nou
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %6, %12
-  %13 = phi i64 [ %.pre4, %12 ], [ %8, %6 ]
-  %14 = phi ptr [ %.pre, %12 ], [ %5, %6 ]
-  %.1.i = phi i64 [ %.0.i, %12 ], [ %9, %6 ]
+  %13 = phi i64 [ %8, %6 ], [ %.pre4, %12 ]
+  %14 = phi ptr [ %5, %6 ], [ %.pre, %12 ]
+  %.1.i = phi i64 [ %9, %6 ], [ %.0.i, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 range(i64 -2147483648, 2147483648) %4, i1 false)

@@ -761,7 +761,7 @@ thread-pre-split.thread:                          ; preds = %377
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %414, %.loopexit49, %.loopexit52
-  %416 = phi i32 [ %375, %.loopexit52 ], [ %.pr69, %.loopexit49 ], [ %.pr69, %414 ]
+  %416 = phi i32 [ %375, %.loopexit52 ], [ %.pr69, %414 ], [ %.pr69, %.loopexit49 ]
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %418 = sext i32 %416 to i64
   call void @sort(ptr noundef nonnull %6, i64 noundef %418, i64 noundef 4, ptr noundef nonnull @compare_seq, ptr noundef null) #11
@@ -1193,7 +1193,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef re
   br i1 %62, label %.thread5, label %.thread
 
 .thread5:                                         ; preds = %53, %53, %.preheader, %55
-  %63 = phi i32 [ %59, %55 ], [ %47, %.preheader ], [ %47, %53 ], [ %47, %53 ]
+  %63 = phi i32 [ %47, %53 ], [ %59, %55 ], [ %47, %.preheader ], [ %47, %53 ]
   %64 = add nuw nsw i64 %46, 1
   %65 = load i32, ptr %43, align 4
   %66 = sext i32 %65 to i64
@@ -1348,7 +1348,7 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
   br label %.thread7
 
 .thread7:                                         ; preds = %44, %41, %21, %50, %49, %48, %47, %46, %40, %36, %20, %15, %10, %4
-  %51 = phi ptr [ @.str.39, %50 ], [ @.str.31, %49 ], [ @.str.38, %48 ], [ @.str.37, %47 ], [ @.str.36, %46 ], [ %39, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.33, %40 ], [ @.str.35, %4 ], [ @.str.32, %21 ], [ @.str.32, %41 ], [ %spec.select, %44 ]
+  %51 = phi ptr [ @.str.39, %50 ], [ @.str.31, %49 ], [ @.str.38, %48 ], [ @.str.37, %47 ], [ @.str.36, %46 ], [ %39, %36 ], [ @.str.30, %10 ], [ %19, %15 ], [ @.str.27, %20 ], [ @.str.32, %21 ], [ @.str.33, %40 ], [ @.str.35, %4 ], [ @.str.32, %41 ], [ %spec.select, %44 ]
   ret ptr %51
 }
 
@@ -1547,8 +1547,8 @@ hda_get_input_pin_label.exit:                     ; preds = %76, %78, %80, %81
   %99 = icmp eq ptr %98, null
   br i1 %99, label %103, label %hda_get_input_pin_label.exit.thread
 
-hda_get_input_pin_label.exit.thread:              ; preds = %41, %.preheader, %59, %89, %86, %71, %.loopexit, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
-  %100 = phi ptr [ %98, %hda_get_input_pin_label.exit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %.preheader ], [ %22, %41 ]
+hda_get_input_pin_label.exit.thread:              ; preds = %.preheader, %41, %59, %71, %.loopexit, %89, %86, %91, %92, %93, %94, %95, %25, %19, %hda_get_input_pin_label.exit
+  %100 = phi ptr [ %98, %hda_get_input_pin_label.exit ], [ @.str.32, %71 ], [ @.str.35, %.loopexit ], [ %spec.select.i, %89 ], [ @.str.32, %86 ], [ @.str.36, %91 ], [ @.str.37, %92 ], [ @.str.38, %93 ], [ @.str.31, %94 ], [ @.str.39, %95 ], [ %22, %25 ], [ %22, %19 ], [ %61, %59 ], [ %22, %41 ], [ %22, %.preheader ]
   %101 = sext i32 %4 to i64
   %102 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull %100, i64 noundef %101) #11
   br label %103
@@ -1740,7 +1740,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread35
 
 .thread35:                                        ; preds = %103, %99, %.thread38
-  %105 = phi ptr [ @.str.40, %.thread38 ], [ @.str.42, %99 ], [ %spec.select, %103 ]
+  %105 = phi ptr [ @.str.42, %99 ], [ @.str.40, %.thread38 ], [ %spec.select, %103 ]
   %106 = icmp sgt i32 %95, 0
   br i1 %106, label %107, label %.thread25
 
@@ -1805,7 +1805,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread51
 
 .thread51:                                        ; preds = %136, %132, %.thread54
-  %138 = phi ptr [ @.str.40, %.thread54 ], [ @.str.42, %132 ], [ %spec.select60, %136 ]
+  %138 = phi ptr [ @.str.42, %132 ], [ @.str.40, %.thread54 ], [ %spec.select60, %136 ]
   %139 = icmp eq ptr %105, %138
   %140 = zext i1 %139 to i32
   %141 = add i32 %126, %140
@@ -1825,7 +1825,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread25
 
 .thread25:                                        ; preds = %114, %61, %89, %.thread35, %117, %58, %60, %54, %86, %88, %82, %148, %.loopexit, %34
-  %149 = phi ptr [ %92, %89 ], [ @.str.40, %34 ], [ @.str.40, %148 ], [ @.str.40, %.loopexit ], [ @.str.40, %86 ], [ @.str.40, %88 ], [ @.str.40, %82 ], [ %64, %61 ], [ @.str.40, %54 ], [ @.str.40, %60 ], [ @.str.40, %58 ], [ @.str.40, %117 ], [ @.str.40, %.thread35 ], [ @.str.40, %114 ]
+  %149 = phi ptr [ %92, %89 ], [ @.str.40, %34 ], [ @.str.40, %148 ], [ @.str.40, %.loopexit ], [ @.str.40, %58 ], [ %64, %61 ], [ @.str.40, %86 ], [ @.str.40, %88 ], [ @.str.40, %82 ], [ @.str.40, %54 ], [ @.str.40, %60 ], [ @.str.40, %117 ], [ @.str.40, %.thread35 ], [ @.str.40, %114 ]
   %150 = icmp eq i32 %35, 2
   %151 = icmp eq i32 %35, 5
   %152 = select i1 %151, ptr @.str.43, ptr @.str.40
@@ -2225,7 +2225,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   br i1 %88, label %.split14.us, label %.split, !llvm.loop !23
 
 .split14.us:                                      ; preds = %69, %.loopexit, %.thread
-  %.us-phi = phi i1 [ %87, %.thread ], [ %55, %69 ], [ %55, %.loopexit ]
+  %.us-phi = phi i1 [ %55, %.loopexit ], [ %87, %.thread ], [ %55, %69 ]
   br i1 %.us-phi, label %.critedge, label %.critedge20
 
 .critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us..split14.us_crit_edge.split

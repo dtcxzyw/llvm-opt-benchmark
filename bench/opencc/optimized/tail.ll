@@ -2008,7 +2008,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie4Tail5matchERNS_5AgentEm(ptr
   br i1 %59, label %41, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %56, %48, %41, %27, %33, %39
-  %.1 = phi i1 [ false, %39 ], [ true, %33 ], [ false, %27 ], [ false, %56 ], [ true, %48 ], [ false, %41 ]
+  %.1 = phi i1 [ false, %39 ], [ false, %27 ], [ true, %33 ], [ false, %41 ], [ false, %56 ], [ true, %48 ]
   ret i1 %.1
 }
 
@@ -2352,7 +2352,7 @@ _ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72: ; preds = %.preheader
   br i1 %.not74, label %.preheader, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit61, %99, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72, %30, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit50
-  %.1 = phi i1 [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit50 ], [ %.not38, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit ], [ %.not38, %30 ], [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72 ], [ %.not, %99 ], [ %.not, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit61 ]
+  %.1 = phi i1 [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit50 ], [ true, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit72 ], [ %.not38, %30 ], [ %.not38, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit ], [ %.not, %99 ], [ %.not, %_ZN6marisa8grimoire6vector6VectorIcE9push_backERKc.exit61 ]
   ret i1 %.1
 }
 
@@ -4841,7 +4841,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit29.
   br label %_ZN6marisa8grimoire9algorithm7details6medianINS0_4trie5EntryEEEiRKT_S8_S8_m.exit
 
 _ZN6marisa8grimoire9algorithm7details6medianINS0_4trie5EntryEEEiRKT_S8_S8_m.exit: ; preds = %49, %51, %52, %54
-  %.0.i = phi i32 [ %36, %49 ], [ %..i, %51 ], [ %25, %52 ], [ %.27.i, %54 ]
+  %.0.i = phi i32 [ %25, %52 ], [ %..i, %51 ], [ %36, %49 ], [ %.27.i, %54 ]
   %55 = sub nsw i64 0, %.0133205
   br label %56
 
@@ -4953,7 +4953,7 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit171
   br label %109
 
 109:                                              ; preds = %99, %97
-  %.3 = phi ptr [ %100, %99 ], [ %.1136190, %97 ]
+  %.3 = phi ptr [ %.1136190, %97 ], [ %100, %99 ]
   %110 = icmp ult ptr %.1148.lcssa, %85
   br i1 %110, label %.lr.ph191, label %.thread175
 
@@ -5185,10 +5185,10 @@ _ZN6marisa8grimoire9algorithm7details9get_labelINS0_4trie5EntryEEEiRKT_m.exit171
   br label %228
 
 228:                                              ; preds = %191, %195, %193, %182, %186, %184, %218, %224, %226, %220
-  %.4156 = phi i64 [ %219, %218 ], [ %225, %224 ], [ %.6, %226 ], [ %.6, %220 ], [ %183, %182 ], [ %188, %186 ], [ %.1153, %184 ], [ %192, %191 ], [ %197, %195 ], [ %.1153, %193 ]
-  %.1134 = phi i64 [ %.0133205, %218 ], [ %.0133205, %224 ], [ %227, %226 ], [ %.0133205, %220 ], [ %.0133205, %182 ], [ %.0133205, %186 ], [ %.0133205, %184 ], [ %.0133205, %191 ], [ %.0133205, %195 ], [ %.0133205, %193 ]
-  %.1132 = phi ptr [ %.3146.lcssa, %218 ], [ %.3146.lcssa, %224 ], [ %.3146.lcssa, %226 ], [ %.3146.lcssa, %220 ], [ %.0131206, %182 ], [ %.0131206, %186 ], [ %.0131206, %184 ], [ %.4151.lcssa, %191 ], [ %.4151.lcssa, %195 ], [ %.4151.lcssa, %193 ]
-  %.1 = phi ptr [ %.4151.lcssa, %218 ], [ %.3146.lcssa, %224 ], [ %.4151.lcssa, %226 ], [ %.4151.lcssa, %220 ], [ %.3146.lcssa, %182 ], [ %.3146.lcssa, %186 ], [ %.3146.lcssa, %184 ], [ %.0207, %191 ], [ %.0207, %195 ], [ %.0207, %193 ]
+  %.4156 = phi i64 [ %.6, %220 ], [ %.1153, %184 ], [ %219, %218 ], [ %225, %224 ], [ %.6, %226 ], [ %183, %182 ], [ %188, %186 ], [ %192, %191 ], [ %197, %195 ], [ %.1153, %193 ]
+  %.1134 = phi i64 [ %.0133205, %220 ], [ %.0133205, %184 ], [ %.0133205, %218 ], [ %.0133205, %224 ], [ %227, %226 ], [ %.0133205, %182 ], [ %.0133205, %186 ], [ %.0133205, %191 ], [ %.0133205, %195 ], [ %.0133205, %193 ]
+  %.1132 = phi ptr [ %.3146.lcssa, %220 ], [ %.0131206, %184 ], [ %.3146.lcssa, %218 ], [ %.3146.lcssa, %224 ], [ %.3146.lcssa, %226 ], [ %.0131206, %182 ], [ %.0131206, %186 ], [ %.4151.lcssa, %191 ], [ %.4151.lcssa, %195 ], [ %.4151.lcssa, %193 ]
+  %.1 = phi ptr [ %.4151.lcssa, %220 ], [ %.3146.lcssa, %184 ], [ %.4151.lcssa, %218 ], [ %.3146.lcssa, %224 ], [ %.4151.lcssa, %226 ], [ %.3146.lcssa, %182 ], [ %.3146.lcssa, %186 ], [ %.0207, %191 ], [ %.0207, %195 ], [ %.0207, %193 ]
   %229 = ptrtoint ptr %.1132 to i64
   %230 = ptrtoint ptr %.1 to i64
   %231 = sub i64 %229, %230
@@ -5294,7 +5294,7 @@ _ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.t
   br label %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i
 
 _ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread.i: ; preds = %._crit_edge.i.i, %.preheader.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i
-  %269 = phi i64 [ %268, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i ], [ %260, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i ], [ %.01840.i, %.preheader.i ], [ %.01840.i, %._crit_edge.i.i ]
+  %269 = phi i64 [ %260, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.thread30.i ], [ %268, %_ZN6marisa8grimoire9algorithm7details7compareINS0_4trie5EntryEEEiRKT_S8_m.exit.thread.i ], [ %.01840.i, %.preheader.i ], [ %.01840.i, %._crit_edge.i.i ]
   %.017.i = getelementptr inbounds nuw i8, ptr %.01741.i, i64 16
   %270 = icmp ult ptr %.017.i, %.0131.lcssa
   br i1 %270, label %.preheader.i, label %_ZN6marisa8grimoire9algorithm7details14insertion_sortIPNS0_4trie5EntryEEEmT_S7_m.exit, !llvm.loop !107

@@ -479,7 +479,7 @@ _ssa_op1_info.exit.i:                             ; preds = %194
   br label %_ssa_op1_info.exit74.i
 
 _ssa_op1_info.exit74.i:                           ; preds = %236, %232, %227, %225
-  %.0.i72.i = phi i32 [ %226, %225 ], [ %spec.select.i105.i, %232 ], [ %238, %236 ], [ %229, %227 ]
+  %.0.i72.i = phi i32 [ %spec.select.i105.i, %232 ], [ %238, %236 ], [ %226, %225 ], [ %229, %227 ]
   %239 = and i32 %.0.i72.i, 256
   %.not64.i = icmp eq i32 %239, 0
   br i1 %.not64.i, label %304, label %381
@@ -556,7 +556,7 @@ _ssa_op1_info.exit74.i:                           ; preds = %236, %232, %227, %2
   br label %_ssa_op1_info.exit78.i
 
 _ssa_op1_info.exit78.i:                           ; preds = %277, %273, %268, %266
-  %.0.i76.i = phi i32 [ %267, %266 ], [ %spec.select.i101.i, %273 ], [ %279, %277 ], [ %270, %268 ]
+  %.0.i76.i = phi i32 [ %spec.select.i101.i, %273 ], [ %279, %277 ], [ %267, %266 ], [ %270, %268 ]
   %280 = and i32 %.0.i76.i, 256
   %.not59.i = icmp eq i32 %280, 0
   br i1 %.not59.i, label %281, label %381
@@ -725,7 +725,7 @@ _ssa_op1_info.exit86.i:                           ; preds = %316
   br label %_ssa_op2_info.exit.i
 
 _ssa_op2_info.exit.i:                             ; preds = %.thread149.i, %368, %363, %361
-  %.0.i88.i = phi i32 [ %362, %361 ], [ %spec.select.i.i, %368 ], [ %371, %.thread149.i ], [ %365, %363 ]
+  %.0.i88.i = phi i32 [ %spec.select.i.i, %368 ], [ %371, %.thread149.i ], [ %362, %361 ], [ %365, %363 ]
   %372 = and i32 %.0.i88.i, 256
   %.not70.i = icmp eq i32 %372, 0
   br i1 %.not70.i, label %373, label %381
@@ -750,7 +750,7 @@ is_escape_use.exit:                               ; preds = %373, %377, %377, %3
   %380 = icmp sgt i32 %.0.i, -1
   br i1 %380, label %173, label %.loopexit276
 
-381:                                              ; preds = %_ssa_op1_info.exit.i, %199, %_ssa_op1_info.exit74.i, %240, %_ssa_op1_info.exit78.i, %297, %_ssa_op1_info.exit82.i, %281, %187, %327, %_ssa_op1_info.exit86.i, %311, %_ssa_op2_info.exit.i, %308, %377, %194, %221, %234, %262, %275, %287, %285, %316, %314, %357
+381:                                              ; preds = %281, %_ssa_op1_info.exit78.i, %187, %311, %308, %_ssa_op2_info.exit.i, %_ssa_op1_info.exit.i, %240, %199, %_ssa_op1_info.exit74.i, %297, %_ssa_op1_info.exit82.i, %327, %_ssa_op1_info.exit86.i, %377, %314, %194, %234, %275, %285, %316, %221, %262, %357, %287
   %382 = load i8, ptr %162, align 8
   %383 = or i8 %382, 48
   store i8 %383, ptr %162, align 8
@@ -760,8 +760,8 @@ is_escape_use.exit:                               ; preds = %373, %377, %377, %3
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %is_escape_use.exit, %381, %151, %157
-  %.7 = phi i32 [ %.5223287, %157 ], [ %.5223287, %151 ], [ %384, %381 ], [ %.5223287, %is_escape_use.exit ]
-  %.4 = phi i32 [ %.2288, %157 ], [ %.2288, %151 ], [ %spec.select253, %381 ], [ %.2288, %is_escape_use.exit ]
+  %.7 = phi i32 [ %.5223287, %151 ], [ %.5223287, %157 ], [ %384, %381 ], [ %.5223287, %is_escape_use.exit ]
+  %.4 = phi i32 [ %.2288, %151 ], [ %.2288, %157 ], [ %spec.select253, %381 ], [ %.2288, %is_escape_use.exit ]
   %386 = add nuw nsw i32 %.4, 1
   %387 = icmp slt i32 %386, %7
   br i1 %387, label %151, label %._crit_edge290
@@ -912,8 +912,8 @@ zend_ssa_next_use.exit256.us:                     ; preds = %.lr.ph295.us, %415
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.thread267.us, %.thread271.us, %394, %.lr.ph302.us
-  %.13.us = phi i32 [ %.9297.us, %394 ], [ %.9297.us, %.lr.ph302.us ], [ %463, %.thread271.us ], [ %.9297.us, %.thread267.us ]
-  %.6216.us = phi i1 [ %.0210298.us, %394 ], [ %.0210298.us, %.lr.ph302.us ], [ %464, %.thread271.us ], [ %.3213.us, %.thread267.us ]
+  %.13.us = phi i32 [ %.9297.us, %.lr.ph302.us ], [ %.9297.us, %394 ], [ %463, %.thread271.us ], [ %.9297.us, %.thread267.us ]
+  %.6216.us = phi i1 [ %.0210298.us, %.lr.ph302.us ], [ %.0210298.us, %394 ], [ %464, %.thread271.us ], [ %.3213.us, %.thread267.us ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond317.not = icmp ne i64 %indvars.iv.next316, %wide.trip.count
   %brmerge = select i1 %exitcond317.not, i1 true, i1 %.6216.us
@@ -922,8 +922,8 @@ zend_ssa_next_use.exit256.us:                     ; preds = %.lr.ph295.us, %415
   br i1 %brmerge, label %.lr.ph302.us, label %.thread264
 
 .thread267.us:                                    ; preds = %460, %450, %438, %435, %432, %428, %425
-  %465 = phi i8 [ %409, %425 ], [ %409, %428 ], [ %409, %450 ], [ %storemerge.us, %460 ], [ %409, %432 ], [ %409, %438 ], [ %409, %435 ]
-  %.3213.us = phi i1 [ %.1211292.us, %425 ], [ %.1211292.us, %428 ], [ %.1211292.us, %450 ], [ true, %460 ], [ %.1211292.us, %432 ], [ %.1211292.us, %438 ], [ %.1211292.us, %435 ]
+  %465 = phi i8 [ %storemerge.us, %460 ], [ %409, %435 ], [ %409, %425 ], [ %409, %428 ], [ %409, %450 ], [ %409, %432 ], [ %409, %438 ]
+  %.3213.us = phi i1 [ true, %460 ], [ %.1211292.us, %435 ], [ %.1211292.us, %425 ], [ %.1211292.us, %428 ], [ %.1211292.us, %450 ], [ %.1211292.us, %432 ], [ %.1211292.us, %438 ]
   %466 = icmp sgt i32 %.0.i255.us, -1
   br i1 %466, label %.lr.ph295.us, label %.loopexit.us
 
@@ -970,7 +970,7 @@ zend_ssa_next_use.exit256.us:                     ; preds = %.lr.ph295.us, %415
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %8, %.thread260, %._crit_edge308, %483, %40, %32, %3
-  %.0206 = phi i32 [ 0, %3 ], [ -1, %32 ], [ -1, %40 ], [ 0, %483 ], [ 0, %._crit_edge308 ], [ -1, %.thread260 ], [ 0, %8 ], [ 0, %27 ]
+  %.0206 = phi i32 [ -1, %32 ], [ -1, %.thread260 ], [ 0, %3 ], [ 0, %._crit_edge308 ], [ -1, %40 ], [ 0, %483 ], [ 0, %8 ], [ 0, %27 ]
   ret i32 %.0206
 }
 
@@ -1287,7 +1287,7 @@ _ssa_op2_info.exit:                               ; preds = %135
   br label %_ssa_op1_info.exit81
 
 _ssa_op1_info.exit81:                             ; preds = %169, %182, %174, %167
-  %.0.i79 = phi i32 [ %168, %167 ], [ %spec.select.i88, %174 ], [ %185, %182 ], [ %171, %169 ]
+  %.0.i79 = phi i32 [ %spec.select.i88, %174 ], [ %185, %182 ], [ %168, %167 ], [ %171, %169 ]
   %186 = and i32 %.0.i79, 7
   %.not = icmp eq i32 %186, 0
   br i1 %.not, label %.critedge, label %_ssa_op1_info.exit.thread
@@ -1296,7 +1296,7 @@ _ssa_op1_info.exit81:                             ; preds = %169, %182, %174, %1
   br label %_ssa_op1_info.exit.thread
 
 _ssa_op1_info.exit.thread:                        ; preds = %163, %176, %179, %132, %135, %91, %94, %77, %80, %_ssa_op1_info.exit81, %_ssa_op2_info.exit, %127, %_ssa_op1_info.exit77, %_ssa_op1_info.exit, %72, %49, %16, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ true, %16 ], [ true, %49 ], [ true, %72 ], [ true, %_ssa_op1_info.exit ], [ true, %_ssa_op1_info.exit77 ], [ true, %127 ], [ true, %_ssa_op2_info.exit ], [ true, %_ssa_op1_info.exit81 ], [ true, %80 ], [ true, %77 ], [ true, %94 ], [ true, %91 ], [ true, %135 ], [ true, %132 ], [ true, %163 ], [ true, %179 ], [ true, %176 ]
+  %.0 = phi i1 [ false, %.critedge ], [ true, %_ssa_op2_info.exit ], [ true, %16 ], [ true, %49 ], [ true, %72 ], [ true, %_ssa_op1_info.exit ], [ true, %_ssa_op1_info.exit77 ], [ true, %127 ], [ true, %_ssa_op1_info.exit81 ], [ true, %132 ], [ true, %77 ], [ true, %91 ], [ true, %80 ], [ true, %94 ], [ true, %135 ], [ true, %163 ], [ true, %179 ], [ true, %176 ]
   ret i1 %.0
 }
 

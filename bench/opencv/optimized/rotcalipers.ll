@@ -430,8 +430,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i: ; preds = %
   br label %248
 
 177:                                              ; preds = %165, %162, %160, %147
-  %.0237.i = phi float [ %161, %160 ], [ %164, %162 ], [ %156, %165 ], [ %159, %147 ]
-  %.0236.i = phi float [ %159, %160 ], [ %163, %162 ], [ %166, %165 ], [ %156, %147 ]
+  %.0237.i = phi float [ %156, %165 ], [ %161, %160 ], [ %164, %162 ], [ %159, %147 ]
+  %.0236.i = phi float [ %166, %165 ], [ %159, %160 ], [ %163, %162 ], [ %156, %147 ]
   %178 = add nsw i32 %150, 1
   %179 = icmp eq i32 %178, %34
   %spec.select274.i = select i1 %179, i32 0, i32 %178
@@ -656,7 +656,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %303, %312
   ret void
 
 .body:                                            ; preds = %274, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit285.i, %272, %32, %26
-  %.pn35.pn = phi { ptr, i32 } [ %.pn33, %32 ], [ %27, %26 ], [ %273, %272 ], [ %275, %274 ], [ %.pn271.pn.i, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit285.i ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn271.pn.i, %_ZN2cv10AutoBufferIfLm264EED2Ev.exit285.i ], [ %.pn33, %32 ], [ %27, %26 ], [ %273, %272 ], [ %275, %274 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16

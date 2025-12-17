@@ -229,8 +229,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.end6.i, %if.then2.i, %if.else.i.i, %if.end6.i.i, %if.then2.i.i
-  %conv.sink = phi i32 [ %conv.i, %if.then2.i.i ], [ %conv.i, %if.end6.i.i ], [ %conv.i, %if.else.i.i ], [ %conv, %if.then2.i ], [ %conv, %if.end6.i ], [ %conv, %if.else.i ]
-  %ref.tmp12.sroa.2.sink = phi ptr [ %ref.tmp.sroa.2, %if.then2.i.i ], [ %ref.tmp.sroa.2, %if.end6.i.i ], [ %ref.tmp.sroa.2, %if.else.i.i ], [ %ref.tmp12.sroa.2, %if.then2.i ], [ %ref.tmp12.sroa.2, %if.end6.i ], [ %ref.tmp12.sroa.2, %if.else.i ]
+  %conv.sink = phi i32 [ %conv.i, %if.else.i.i ], [ %conv.i, %if.then2.i.i ], [ %conv.i, %if.end6.i.i ], [ %conv, %if.then2.i ], [ %conv, %if.end6.i ], [ %conv, %if.else.i ]
+  %ref.tmp12.sroa.2.sink = phi ptr [ %ref.tmp.sroa.2, %if.else.i.i ], [ %ref.tmp.sroa.2, %if.then2.i.i ], [ %ref.tmp.sroa.2, %if.end6.i.i ], [ %ref.tmp12.sroa.2, %if.then2.i ], [ %ref.tmp12.sroa.2, %if.end6.i ], [ %ref.tmp12.sroa.2, %if.else.i ]
   %value_19 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 %conv.sink, ptr %value_19, align 8
   %ref.tmp12.sroa.2.0.value_19.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 244

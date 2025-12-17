@@ -2626,7 +2626,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   br i1 %51, label %.loopexit18, label %.preheader17, !llvm.loop !22
 
 .loopexit18:                                      ; preds = %.preheader19, %48, %.preheader17, %39
-  %52 = phi ptr [ %40, %39 ], [ %40, %.preheader17 ], [ %40, %48 ], [ %21, %.preheader19 ]
+  %52 = phi ptr [ %40, %39 ], [ %40, %48 ], [ %40, %.preheader17 ], [ %21, %.preheader19 ]
   %53 = phi ptr [ null, %39 ], [ null, %48 ], [ %44, %.preheader17 ], [ %29, %.preheader19 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !17
   call void @blk_mq_freeze_queue(ptr noundef %52) #22
@@ -3030,7 +3030,7 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
   br label %select.unfold
 
 select.unfold:                                    ; preds = %68, %71, %81, %.preheader, %64
-  %.ph = phi i8 [ 0, %64 ], [ %59, %.preheader ], [ 1, %81 ], [ %59, %71 ], [ 1, %68 ]
+  %.ph = phi i8 [ %59, %71 ], [ 1, %81 ], [ 0, %64 ], [ %59, %.preheader ], [ 1, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5804,7 +5804,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1484
 
 1484:                                             ; preds = %1480, %1466, %1469, %1471, %1475
-  %1485 = phi i32 [ %1468, %1466 ], [ 0, %1475 ], [ 0, %1471 ], [ 0, %1469 ], [ %spec.select, %1480 ]
+  %1485 = phi i32 [ %spec.select, %1480 ], [ 0, %1469 ], [ %1468, %1466 ], [ 0, %1475 ], [ 0, %1471 ]
   %1486 = call i32 @llvm.smax.i32(i32 %1485, i32 -1000)
   %1487 = call i32 @llvm.smin.i32(i32 %1486, i32 1000)
   store i32 %1487, ptr %1457, align 8
@@ -7829,7 +7829,7 @@ iocg_unlock.exit:                                 ; preds = %.thread9, %.split.u
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %284, %270, %295, %290
-  %297 = phi i1 [ true, %295 ], [ true, %290 ], [ %257, %270 ], [ %257, %284 ]
+  %297 = phi i1 [ true, %290 ], [ true, %295 ], [ %257, %270 ], [ %257, %284 ]
   store i32 0, ptr %4, align 8
   %298 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %299 = getelementptr inbounds nuw i8, ptr %4, i64 16

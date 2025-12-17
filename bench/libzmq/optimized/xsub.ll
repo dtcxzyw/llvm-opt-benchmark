@@ -589,7 +589,7 @@ define noundef i32 @_ZN3zmq6xsub_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8
   br label %77
 
 77:                                               ; preds = %51, %67, %69, %54, %31, %19
-  %.0 = phi i32 [ %37, %31 ], [ %53, %51 ], [ %56, %54 ], [ %21, %19 ], [ 0, %69 ], [ 0, %67 ]
+  %.0 = phi i32 [ %37, %31 ], [ %21, %19 ], [ %53, %51 ], [ %56, %54 ], [ 0, %69 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -826,8 +826,8 @@ define noundef zeroext i1 @_ZN3zmq6xsub_t7xhas_inEv(ptr noundef nonnull align 8 
   %.not9 = icmp eq i8 %47, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !109
 
-.thread:                                          ; preds = %._crit_edge, %18, %35, %5, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %5 ], [ false, %._crit_edge ], [ false, %18 ], [ true, %35 ]
+.thread:                                          ; preds = %18, %35, %._crit_edge, %5, %1
+  %.0 = phi i1 [ true, %5 ], [ true, %1 ], [ false, %18 ], [ true, %35 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

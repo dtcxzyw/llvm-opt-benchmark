@@ -4572,14 +4572,14 @@ erf_ts_to_nstime.exit.i:                          ; preds = %1389, %1385
   br label %1398
 
 1398:                                             ; preds = %.critedge.i, %1088, %1081, %1074
-  %.0562.i = phi ptr [ %1059, %1081 ], [ %1059, %1074 ], [ %.1563.i, %.critedge.i ], [ %1059, %1088 ]
-  %.2560.i = phi ptr [ %.1559.i, %1081 ], [ %.1559.i, %1074 ], [ %.3561.i, %.critedge.i ], [ %spec.select589.i, %1088 ]
-  %.1414.i = phi ptr [ %spec.select446.i, %1081 ], [ %spec.select446.i, %1074 ], [ %spec.store.select.i, %.critedge.i ], [ %spec.select446.i, %1088 ]
-  %.1409.i = phi i32 [ %.0410614.i, %1081 ], [ %.0410614.i, %1074 ], [ %.0408618.i, %.critedge.i ], [ %.0410614.i, %1088 ]
-  %.1407.i = phi i16 [ %1065, %1081 ], [ %1065, %1074 ], [ %.0406619.i, %.critedge.i ], [ %.0406619.i, %1088 ]
-  %.3.i = phi i16 [ %spec.select447.i, %1081 ], [ %spec.select447.i, %1074 ], [ %.1403.i, %.critedge.i ], [ %spec.select447.i, %1088 ]
-  %.1401.i = phi ptr [ %1079, %1081 ], [ %1079, %1074 ], [ %.0400621.i, %.critedge.i ], [ %.0400621.i, %1088 ]
-  %.1.i148 = phi ptr [ %1056, %1081 ], [ %1056, %1074 ], [ %.2.i143, %.critedge.i ], [ %1056, %1088 ]
+  %.0562.i = phi ptr [ %1059, %1088 ], [ %.1563.i, %.critedge.i ], [ %1059, %1081 ], [ %1059, %1074 ]
+  %.2560.i = phi ptr [ %spec.select589.i, %1088 ], [ %.3561.i, %.critedge.i ], [ %.1559.i, %1081 ], [ %.1559.i, %1074 ]
+  %.1414.i = phi ptr [ %spec.select446.i, %1088 ], [ %spec.store.select.i, %.critedge.i ], [ %spec.select446.i, %1081 ], [ %spec.select446.i, %1074 ]
+  %.1409.i = phi i32 [ %.0410614.i, %1088 ], [ %.0408618.i, %.critedge.i ], [ %.0410614.i, %1081 ], [ %.0410614.i, %1074 ]
+  %.1407.i = phi i16 [ %.0406619.i, %1088 ], [ %.0406619.i, %.critedge.i ], [ %1065, %1081 ], [ %1065, %1074 ]
+  %.3.i = phi i16 [ %spec.select447.i, %1088 ], [ %.1403.i, %.critedge.i ], [ %spec.select447.i, %1081 ], [ %spec.select447.i, %1074 ]
+  %.1401.i = phi ptr [ %.0400621.i, %1088 ], [ %.0400621.i, %.critedge.i ], [ %1079, %1081 ], [ %1079, %1074 ]
+  %.1.i148 = phi ptr [ %1056, %1088 ], [ %.2.i143, %.critedge.i ], [ %1056, %1081 ], [ %1056, %1074 ]
   %.not439.i = icmp eq ptr %.0562.i, null
   br i1 %.not439.i, label %.thread.i149, label %1414
 
@@ -5046,8 +5046,8 @@ define internal fastcc void @dissect_host_id_source_id(ptr noundef %0, ptr nound
   br label %erf_source_find_closest.exit
 
 erf_source_find_closest.exit:                     ; preds = %5, %29, %31, %.sink.split.i
-  %.021.i = phi i32 [ -1, %5 ], [ %.1.i, %29 ], [ -1, %31 ], [ %.021.ph.i, %.sink.split.i ]
-  %.0.i = phi i32 [ -1, %5 ], [ -1, %29 ], [ -1, %31 ], [ %37, %.sink.split.i ]
+  %.021.i = phi i32 [ -1, %5 ], [ -1, %31 ], [ %.1.i, %29 ], [ %.021.ph.i, %.sink.split.i ]
+  %.0.i = phi i32 [ -1, %5 ], [ -1, %31 ], [ -1, %29 ], [ %37, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %.021.i, -1
   %.0 = select i1 %.not, i32 %.0.i, i32 %.021.i

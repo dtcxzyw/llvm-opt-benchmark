@@ -135,7 +135,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr noundef captures(none) %0,
   br label %53
 
 53:                                               ; preds = %7, %52, %34, %25
-  %.039 = phi i32 [ -1, %25 ], [ -1, %34 ], [ 0, %52 ], [ -1, %7 ]
+  %.039 = phi i32 [ 0, %52 ], [ -1, %25 ], [ -1, %34 ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.039
 }
@@ -310,7 +310,7 @@ zend_string_release_ex.exit:                      ; preds = %36, %41, %46
   br label %54
 
 54:                                               ; preds = %10, %4, %48, %zend_string_release_ex.exit, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %zend_string_release_ex.exit ], [ 0, %48 ], [ -1, %4 ], [ -1, %10 ]
+  %.0 = phi i32 [ 0, %48 ], [ -1, %4 ], [ 0, %17 ], [ -1, %zend_string_release_ex.exit ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -612,7 +612,7 @@ define hidden ptr @ps_create_sid_files(ptr noundef readonly captures(none) %0) #
   %exitcond.not.i = icmp eq i32 %38, %31
   br i1 %exitcond.not.i, label %ps_files_key_exists.exit, label %.lr.ph.i.i
 
-ps_files_key_exists.exit.thread:                  ; preds = %17, %12
+ps_files_key_exists.exit.thread:                  ; preds = %12, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
@@ -744,7 +744,7 @@ define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr noundef readonly c
   br label %ps_files_key_exists.exit
 
 ps_files_key_exists.exit:                         ; preds = %2, %6, %11, %.loopexit.i
-  %.0.i = phi i32 [ -1, %2 ], [ %..i, %.loopexit.i ], [ -1, %11 ], [ -1, %6 ]
+  %.0.i = phi i32 [ %..i, %.loopexit.i ], [ -1, %2 ], [ -1, %11 ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
@@ -1162,7 +1162,7 @@ define internal fastcc range(i32 -1, 1) i32 @ps_files_write(ptr noundef captures
   br label %29
 
 29:                                               ; preds = %15, %23, %28, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %28 ], [ -1, %23 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %3 ], [ -1, %28 ], [ 0, %15 ]
   ret i32 %.0
 }
 

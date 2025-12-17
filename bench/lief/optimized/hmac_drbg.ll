@@ -135,7 +135,7 @@ define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 
   br i1 %48, label %.split, label %.split39.us, !llvm.loop !14
 
 .split39.us:                                      ; preds = %.split, %33, %35, %37, %39, %41, %43, %45, %.split.us, %14, %16, %18, %20, %22, %24, %26, %28
-  %.us-phi = phi i32 [ %13, %.split.us ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ 0, %28 ], [ %32, %.split ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 0, %45 ]
+  %.us-phi = phi i32 [ 0, %28 ], [ %13, %.split.us ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %32, %.split ], [ %34, %33 ], [ %36, %35 ], [ 0, %45 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 64) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -176,7 +176,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef %0, ptr noundef %1, pt
   br label %15
 
 15:                                               ; preds = %11, %6, %4
-  %.0 = phi i32 [ %5, %4 ], [ %10, %6 ], [ %14, %11 ]
+  %.0 = phi i32 [ %10, %6 ], [ %5, %4 ], [ %14, %11 ]
   ret i32 %.0
 }
 
@@ -233,7 +233,7 @@ define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly
   br label %hmac_drbg_reseed_core.exit
 
 hmac_drbg_reseed_core.exit:                       ; preds = %3, %.critedge.i, %26
-  %.135.i = phi i32 [ %23, %26 ], [ -5, %3 ], [ -9, %.critedge.i ]
+  %.135.i = phi i32 [ -5, %3 ], [ -9, %.critedge.i ], [ %23, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.135.i
 }
@@ -330,12 +330,12 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   br label %hmac_drbg_reseed_core.exit
 
 hmac_drbg_reseed_core.exit:                       ; preds = %25, %.critedge.i, %33, %53
-  %.135.i = phi i32 [ %50, %53 ], [ -5, %25 ], [ -9, %.critedge.i ], [ -9, %33 ]
+  %.135.i = phi i32 [ -5, %25 ], [ -9, %.critedge.i ], [ %50, %53 ], [ -9, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 54:                                               ; preds = %hmac_drbg_reseed_core.exit, %9, %6
-  %.0 = phi i32 [ %8, %6 ], [ %13, %9 ], [ %.135.i, %hmac_drbg_reseed_core.exit ]
+  %.0 = phi i32 [ %13, %9 ], [ %8, %6 ], [ %.135.i, %hmac_drbg_reseed_core.exit ]
   ret i32 %.0
 }
 
@@ -503,7 +503,7 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %41
   br label %.thread77
 
 .thread77:                                        ; preds = %56, %54, %51, %mbedtls_hmac_drbg_reseed.exit, %mbedtls_hmac_drbg_reseed.exit.thread, %62, %47, %._crit_edge, %11, %5
-  %.0 = phi i32 [ -3, %5 ], [ -5, %11 ], [ %42, %mbedtls_hmac_drbg_reseed.exit ], [ %48, %47 ], [ %61, %._crit_edge ], [ 0, %62 ], [ %.135.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %53, %51 ], [ %55, %54 ], [ %57, %56 ]
+  %.0 = phi i32 [ %42, %mbedtls_hmac_drbg_reseed.exit ], [ -3, %5 ], [ -5, %11 ], [ %48, %47 ], [ %.135.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %61, %._crit_edge ], [ 0, %62 ], [ %53, %51 ], [ %55, %54 ], [ %57, %56 ]
   ret i32 %.0
 }
 
@@ -717,7 +717,7 @@ mbedtls_hmac_drbg_seed.exit.thread.sink.split:    ; preds = %27, %mbedtls_hmac_d
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mbedtls_hmac_drbg_seed.exit.thread
 
-mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_seed.exit.thread.sink.split, %11, %9
+mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_seed.exit.thread.sink.split, %9, %11
   br i1 %.not, label %.critedge37, label %41
 
 41:                                               ; preds = %mbedtls_hmac_drbg_seed.exit.thread
@@ -850,7 +850,7 @@ mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_s
   br label %.critedge37
 
 .critedge37:                                      ; preds = %77, %76, %74, %75, %71, %72, %67, %68, %63, %64, %59, %60, %53, %54, %50, %51, %46, %47, %mbedtls_hmac_drbg_seed.exit.thread, %41
-  %.0 = phi i32 [ 1, %41 ], [ 1, %mbedtls_hmac_drbg_seed.exit.thread ], [ 1, %47 ], [ 1, %46 ], [ 1, %51 ], [ 1, %50 ], [ 1, %54 ], [ 1, %53 ], [ 1, %60 ], [ 1, %59 ], [ 1, %64 ], [ 1, %63 ], [ 1, %68 ], [ 1, %67 ], [ 1, %72 ], [ 1, %71 ], [ 1, %75 ], [ 1, %74 ], [ 0, %76 ], [ 0, %77 ]
+  %.0 = phi i32 [ 1, %74 ], [ 1, %mbedtls_hmac_drbg_seed.exit.thread ], [ 1, %46 ], [ 1, %50 ], [ 1, %53 ], [ 1, %59 ], [ 1, %63 ], [ 1, %67 ], [ 1, %71 ], [ 1, %41 ], [ 1, %47 ], [ 1, %51 ], [ 1, %54 ], [ 1, %60 ], [ 1, %64 ], [ 1, %68 ], [ 1, %72 ], [ 1, %75 ], [ 0, %76 ], [ 0, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

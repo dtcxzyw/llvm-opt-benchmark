@@ -196,7 +196,7 @@ define void @_ZNK4absl12lts_202407224Time2InENS0_8TimeZoneE(ptr dead_on_unwind n
   br label %_ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.exit
 
 _ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.exit: ; preds = %37, %75, %77
-  %80 = phi i32 [ 0, %37 ], [ 1, %75 ], [ %79, %77 ]
+  %80 = phi i32 [ 0, %37 ], [ %79, %77 ], [ 1, %75 ]
   %81 = getelementptr inbounds i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.k_month_offsets, i64 %57
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = add nsw i32 %80, %42
@@ -859,8 +859,8 @@ _ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3
   br label %97
 
 97:                                               ; preds = %52, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6, %.thread7, %.thread, %_ZN4absl12lts_2024072213time_internal4cctz6detailgtINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit
-  %.sroa.032.2 = phi i64 [ 9223372036854775807, %_ZN4absl12lts_2024072213time_internal4cctz6detailgtINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %.thread7 ], [ %.sroa.0.0.copyload.i.i37.pre, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6 ], [ %.sroa.0.0.copyload.i.i35, %52 ]
-  %.sroa.4.2 = phi i32 [ -1, %_ZN4absl12lts_2024072213time_internal4cctz6detailgtINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit ], [ -1, %.thread ], [ -1, %.thread7 ], [ 0, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6 ], [ 0, %52 ]
+  %.sroa.032.2 = phi i64 [ 9223372036854775807, %.thread ], [ -9223372036854775808, %.thread7 ], [ 9223372036854775807, %_ZN4absl12lts_2024072213time_internal4cctz6detailgtINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit ], [ %.sroa.0.0.copyload.i.i37.pre, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6 ], [ %.sroa.0.0.copyload.i.i35, %52 ]
+  %.sroa.4.2 = phi i32 [ -1, %.thread ], [ -1, %.thread7 ], [ -1, %_ZN4absl12lts_2024072213time_internal4cctz6detailgtINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit ], [ 0, %_ZN4absl12lts_2024072213time_internal4cctz6detailltINS3_10second_tagES5_EEbRKNS3_10civil_timeIT_EERKNS6_IT0_EE.exit.thread6 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.032.2, 0
@@ -1262,7 +1262,7 @@ _ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit: ; preds = %14, %11, %16
   br label %36
 
 36:                                               ; preds = %31, %_ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit, %33
-  %.sink = phi i32 [ %35, %33 ], [ -2147483648, %_ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit ], [ 2147481747, %31 ]
+  %.sink = phi i32 [ -2147483648, %_ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit ], [ %35, %33 ], [ 2147481747, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %37, align 4, !tbaa !89
   %38 = srem i64 %.sroa.0.0, 400
@@ -1319,7 +1319,7 @@ switch.lookup:                                    ; preds = %36
   br label %_ZN4absl12lts_2024072210GetYearDayENS0_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit
 
 _ZN4absl12lts_2024072210GetYearDayENS0_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit: ; preds = %61, %65, %67
-  %70 = phi i32 [ 0, %61 ], [ 1, %65 ], [ %69, %67 ]
+  %70 = phi i32 [ 0, %61 ], [ %69, %67 ], [ 1, %65 ]
   %71 = getelementptr inbounds i8, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.k_month_offsets, i64 %45
   %72 = load i32, ptr %71, align 4, !tbaa !3
   %73 = add nsw i32 %25, -1
@@ -1559,12 +1559,12 @@ _ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104: ; 
   br label %114
 
 114:                                              ; preds = %11, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104
-  %.sroa.6.sroa.8.0 = phi i64 [ %.sroa.6.sroa.8.0.extract.shift124148, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.8.0.extract.shift122144, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.8.0.extract.shift120140, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.sroa.6.sroa.8.0.extract.shift136, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %4, %11 ]
-  %.sroa.6.sroa.7.0 = phi i64 [ %.sroa.6.sroa.7.0.extract.shift118147, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.7.0.extract.shift116143, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.7.0.extract.shift114139, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.sroa.6.sroa.7.0.extract.shift135, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %3, %11 ]
-  %.sroa.6.sroa.6.0.in = phi i64 [ %.sroa.6.sroa.6.0.extract.shift112146, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.6.0.extract.shift110142, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.6.0.extract.shift108138, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.sroa.6.sroa.6.0.extract.shift134, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %2, %11 ]
-  %.sroa.6.sroa.0.0.in = phi i64 [ %.fca.1.extract.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.fca.1.extract.i.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.fca.1.extract.i.i.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.fca.1.extract.i.i.i101, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %1, %11 ]
-  %.sroa.6.sroa.9.0 = phi i64 [ %.sroa.6.sroa.9.0.extract.shift130149, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.9.0.extract.shift128145, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.9.0.extract.shift126141, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.sroa.6.sroa.9.0.extract.shift137, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %5, %11 ]
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract22, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.fca.0.extract18, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.fca.0.extract14, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %.fca.0.extract, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %0, %11 ]
+  %.sroa.6.sroa.8.0 = phi i64 [ %.sroa.6.sroa.8.0.extract.shift136, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.sroa.6.sroa.8.0.extract.shift124148, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.8.0.extract.shift122144, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.8.0.extract.shift120140, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %4, %11 ]
+  %.sroa.6.sroa.7.0 = phi i64 [ %.sroa.6.sroa.7.0.extract.shift135, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.sroa.6.sroa.7.0.extract.shift118147, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.7.0.extract.shift116143, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.7.0.extract.shift114139, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %3, %11 ]
+  %.sroa.6.sroa.6.0.in = phi i64 [ %.sroa.6.sroa.6.0.extract.shift134, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.sroa.6.sroa.6.0.extract.shift112146, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.6.0.extract.shift110142, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.6.0.extract.shift108138, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %2, %11 ]
+  %.sroa.6.sroa.0.0.in = phi i64 [ %.fca.1.extract.i.i.i101, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.fca.1.extract.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.fca.1.extract.i.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.fca.1.extract.i.i.i, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %1, %11 ]
+  %.sroa.6.sroa.9.0 = phi i64 [ %.sroa.6.sroa.9.0.extract.shift137, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.sroa.6.sroa.9.0.extract.shift130149, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.sroa.6.sroa.9.0.extract.shift128145, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.sroa.6.sroa.9.0.extract.shift126141, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %5, %11 ]
+  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit104 ], [ %.fca.0.extract22, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_monEllllaaa.exit ], [ %.fca.0.extract18, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl6n_hourElllllaa.exit ], [ %.fca.0.extract14, %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl5n_minElllllla.exit ], [ %0, %11 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.sroa.6.sroa.9.0.insert.ext = shl nuw i64 %.sroa.6.sroa.9.0, 32
   %.sroa.6.sroa.9.0.insert.shift = and i64 %.sroa.6.sroa.9.0.insert.ext, 1095216660480
@@ -1706,7 +1706,7 @@ _ZN4absl12lts_2024072213time_internal4cctz6detail4impl13days_per_yearEla.exit: ;
   br label %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl15days_per_4yearsEi.exit
 
 _ZN4absl12lts_2024072213time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %.preheader130, %71
-  %76 = phi i64 [ 1461, %.preheader130 ], [ %75, %71 ]
+  %76 = phi i64 [ %75, %71 ], [ 1461, %.preheader130 ]
   %.not110 = icmp samesign ugt i64 %.4, %76
   br i1 %.not110, label %77, label %.preheader129
 
@@ -1773,7 +1773,7 @@ _ZN4absl12lts_2024072213time_internal4cctz6detail4impl13days_per_yearEla.exit122
   br label %_ZN4absl12lts_2024072213time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 _ZN4absl12lts_2024072213time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %.preheader, %99, %101
-  %105 = phi i32 [ 0, %.preheader ], [ 1, %99 ], [ %104, %101 ]
+  %105 = phi i32 [ 0, %.preheader ], [ %104, %101 ], [ 1, %99 ]
   %106 = add nsw i32 %105, %95
   %107 = sext i32 %106 to i64
   %.not112 = icmp sgt i64 %.9, %107

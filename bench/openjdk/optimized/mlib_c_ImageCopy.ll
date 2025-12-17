@@ -174,7 +174,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly captures(
   br label %mlib_c_ImageCopy_a1.exit
 
 mlib_c_ImageCopy_a1.exit:                         ; preds = %56, %52, %.lr.ph.i, %.preheader107, %.preheader, %33, %60, %61, %62, %63, %40, %15, %9, %12, %6, %5, %2
-  %.070 = phi i32 [ 2, %2 ], [ 1, %5 ], [ 1, %6 ], [ 1, %12 ], [ 1, %9 ], [ 1, %15 ], [ 0, %40 ], [ 0, %63 ], [ 0, %62 ], [ 0, %61 ], [ 0, %60 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %.preheader107 ], [ 0, %.lr.ph.i ], [ 0, %52 ], [ 0, %56 ]
+  %.070 = phi i32 [ 1, %15 ], [ 2, %2 ], [ 0, %60 ], [ 1, %5 ], [ 1, %6 ], [ 1, %9 ], [ 1, %12 ], [ 0, %40 ], [ 0, %61 ], [ 0, %63 ], [ 0, %62 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %.preheader107 ], [ 0, %52 ], [ 0, %.lr.ph.i ], [ 0, %56 ]
   ret i32 %.070
 }
 

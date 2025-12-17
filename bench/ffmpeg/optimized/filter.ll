@@ -301,7 +301,7 @@ copy_vert.exit.loopexit.i.us:                     ; preds = %.lr.ph30.i.i.us
   br label %copy_vert.exit.i.us
 
 copy_vert.exit.i.us:                              ; preds = %.lr.ph.i.i.us, %copy_vert.exit.loopexit.i.us, %.preheader.i.i.us, %.preheader22.i.i.us
-  %94 = phi ptr [ %.pre.i.us, %copy_vert.exit.loopexit.i.us ], [ %76, %.preheader22.i.i.us ], [ %76, %.preheader.i.i.us ], [ %76, %.lr.ph.i.i.us ]
+  %94 = phi ptr [ %76, %.preheader.i.i.us ], [ %.pre.i.us, %copy_vert.exit.loopexit.i.us ], [ %76, %.preheader22.i.i.us ], [ %76, %.lr.ph.i.i.us ]
   %95 = mul nsw i32 %49, %21
   %96 = add nsw i32 %95, %32
   %97 = shl i32 %96, %57
@@ -506,7 +506,7 @@ define void @ff_vvc_sao_filter(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %exitcond.not.i, label %.preheader.i146, label %.lr.ph.i, !llvm.loop !91
 
 .preheader.i146:                                  ; preds = %57, %53, %.preheader.i
-  %.3.i = phi i32 [ 0, %.preheader.i ], [ %50, %53 ], [ 0, %57 ]
+  %.3.i = phi i32 [ 0, %.preheader.i ], [ 0, %57 ], [ %50, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 1978
   %59 = shl i32 %16, %14
   %.in.in.i147 = getelementptr inbounds nuw i8, ptr %9, i64 1976
@@ -539,7 +539,7 @@ define void @ff_vvc_sao_filter(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %exitcond.not.i155, label %get_virtual_boundary.exit157, label %.lr.ph.i152, !llvm.loop !91
 
 get_virtual_boundary.exit157:                     ; preds = %69, %65, %.preheader.i146, %3
-  %.0133 = phi i32 [ 0, %3 ], [ 0, %.preheader.i146 ], [ %62, %65 ], [ 0, %69 ]
+  %.0133 = phi i32 [ 0, %3 ], [ 0, %.preheader.i146 ], [ 0, %69 ], [ %62, %65 ]
   %.0 = phi i32 [ 0, %3 ], [ %.3.i, %.preheader.i146 ], [ %.3.i, %65 ], [ %.3.i, %69 ]
   %70 = getelementptr i8, ptr %0, i64 4580544
   %.val = load ptr, ptr %70, align 16, !tbaa !92
@@ -1121,7 +1121,7 @@ sao_can_cross_slices.exit232.i:                   ; preds = %379, %.thread162
   br label %sao_get_edges.exit
 
 sao_get_edges.exit:                               ; preds = %91, %.thread4.i, %362, %.thread4.i.thread161, %sao_can_cross_slices.exit232.i
-  %.1 = phi i64 [ 1, %sao_can_cross_slices.exit232.i ], [ 1, %.thread4.i ], [ 1, %.thread4.i.thread161 ], [ 1, %362 ], [ 0, %91 ]
+  %.1 = phi i64 [ 1, %sao_can_cross_slices.exit232.i ], [ 1, %362 ], [ 1, %.thread4.i ], [ 0, %91 ], [ 1, %.thread4.i.thread161 ]
   %394 = getelementptr inbounds nuw i8, ptr %9, i64 1912
   %395 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %396 = getelementptr inbounds nuw i8, ptr %11, i64 11
@@ -1996,7 +1996,7 @@ is_virtual_boundary.exit.i:                       ; preds = %140, %.lr.ph.i.i.i,
   br label %deblock_bs.exit.i
 
 deblock_bs.exit.i:                                ; preds = %257, %256, %255, %252, %246, %243, %240, %236, %.thread.i
-  %.0.i.i = phi i32 [ %259, %257 ], [ %.mux.i.i, %236 ], [ 2, %243 ], [ 2, %240 ], [ 1, %252 ], [ 1, %246 ], [ %.mux77.i.i, %255 ], [ 1, %256 ], [ %.mux.i125.i, %.thread.i ]
+  %.0.i.i = phi i32 [ 1, %246 ], [ %.mux.i.i, %236 ], [ 1, %256 ], [ 1, %252 ], [ %259, %257 ], [ %.mux77.i.i, %255 ], [ 2, %243 ], [ 2, %240 ], [ %.mux.i125.i, %.thread.i ]
   %260 = trunc nuw nsw i32 %.0.i.i to i8
   br label %261
 
@@ -2459,7 +2459,7 @@ deblock_is_boundary.exit.thread62:                ; preds = %27, %47, %deblock_i
   br i1 %exitcond.not.i.i, label %is_virtual_boundary.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !91
 
 is_virtual_boundary.exit.loopexit:                ; preds = %.lr.ph.i.i, %99
-  %.3.i.i.ph = phi i32 [ 0, %99 ], [ %95, %.lr.ph.i.i ]
+  %.3.i.i.ph = phi i32 [ %95, %.lr.ph.i.i ], [ 0, %99 ]
   %100 = icmp eq i32 %.3.i.i.ph, %.90
   br label %is_virtual_boundary.exit
 
@@ -2638,7 +2638,7 @@ deblock_bs.exit.us.us.us:                         ; preds = %deblock_bs.exit.us.
   br label %deblock_bs.exit.us76
 
 deblock_bs.exit.us76:                             ; preds = %.thread65.us, %210, %208, %203, %196, %193, %190, %188
-  %214 = phi i8 [ %.mux.i.us, %188 ], [ 2, %193 ], [ 2, %190 ], [ 1, %208 ], [ 1, %203 ], [ 1, %196 ], [ %213, %210 ], [ %.mux.i70.us, %.thread65.us ]
+  %214 = phi i8 [ %.mux.i70.us, %.thread65.us ], [ 1, %196 ], [ %.mux.i.us, %188 ], [ 1, %208 ], [ %213, %210 ], [ 2, %190 ], [ 1, %203 ], [ 2, %193 ]
   %215 = load ptr, ptr %130, align 8, !tbaa !65
   %216 = load ptr, ptr %24, align 8, !tbaa !61
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4052
@@ -2656,7 +2656,7 @@ deblock_bs.exit.us76:                             ; preds = %.thread65.us, %210,
 ._crit_edge.split.us77:                           ; preds = %deblock_bs.exit.us76
   br i1 %exitcond.not, label %deblock_is_boundary.exit.thread, label %.preheader.us, !llvm.loop !163
 
-deblock_is_boundary.exit.thread:                  ; preds = %._crit_edge.split.us77, %._crit_edge.split.us.us.us, %is_virtual_boundary.exit, %9, %15, %55, %44, %38, %deblock_is_boundary.exit
+deblock_is_boundary.exit.thread:                  ; preds = %._crit_edge.split.us77, %._crit_edge.split.us.us.us, %is_virtual_boundary.exit, %9, %15, %55, %38, %44, %deblock_is_boundary.exit
   ret void
 }
 
@@ -3029,7 +3029,7 @@ define internal fastcc void @vvc_deblock(ptr %.4580552.val, i32 noundef %0, i32 
   br label %.critedge.i.i.us.us, !llvm.loop !172
 
 .critedge.i.i.us.us:                              ; preds = %..critedge.i.loopexit_crit_edge14.i.us.us, %.critedge.i.loopexit.i.us.us, %.lr.ph.i.i.us.us, %218
-  %.027.in.in.lcssa.i.i.us.us = phi ptr [ %226, %218 ], [ %scevgep.i.i.us.us, %..critedge.i.loopexit_crit_edge14.i.us.us ], [ %226, %.lr.ph.i.i.us.us ], [ %242, %.critedge.i.loopexit.i.us.us ]
+  %.027.in.in.lcssa.i.i.us.us = phi ptr [ %226, %218 ], [ %226, %.lr.ph.i.i.us.us ], [ %scevgep.i.i.us.us, %..critedge.i.loopexit_crit_edge14.i.us.us ], [ %242, %.critedge.i.loopexit.i.us.us ]
   %.027.in.le.i.i.us.us = load i8, ptr %.027.in.in.lcssa.i.i.us.us, align 1, !tbaa !59
   %.027.le.i.i.us.us = sext i8 %.027.in.le.i.i.us.us to i32
   %243 = add nsw i32 %214, %.027.le.i.i.us.us
@@ -3427,7 +3427,7 @@ get_virtual_boundary.exit.thread.i:               ; preds = %3
   br i1 %exitcond.not.i.i, label %.preheader.i59.i, label %.lr.ph.i.i, !llvm.loop !91
 
 .preheader.i59.i:                                 ; preds = %54, %.lr.ph.i.i, %.preheader.i.i
-  %storemerge.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %54 ], [ %50, %.lr.ph.i.i ]
+  %storemerge.i = phi i32 [ 0, %.preheader.i.i ], [ %50, %.lr.ph.i.i ], [ 0, %54 ]
   store i32 %storemerge.i, ptr %.sroa.093.i, align 4, !tbaa !82
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 1970
   %56 = shl i32 %18, %17
@@ -3457,9 +3457,9 @@ get_virtual_boundary.exit.thread.i:               ; preds = %3
   br i1 %exitcond.not.i68.i, label %get_virtual_boundary.exit70.i, label %.lr.ph.i65.i, !llvm.loop !91
 
 get_virtual_boundary.exit70.i:                    ; preds = %63, %.lr.ph.i65.i, %.preheader.i59.i, %get_virtual_boundary.exit.thread.i
-  %64 = phi i32 [ %56, %.preheader.i59.i ], [ %47, %get_virtual_boundary.exit.thread.i ], [ %56, %.lr.ph.i65.i ], [ %56, %63 ]
-  %.3.i96.i = phi i32 [ %storemerge.i, %.preheader.i59.i ], [ 0, %get_virtual_boundary.exit.thread.i ], [ %storemerge.i, %.lr.ph.i65.i ], [ %storemerge.i, %63 ]
-  %.3.i69.i = phi i32 [ 0, %.preheader.i59.i ], [ 0, %get_virtual_boundary.exit.thread.i ], [ 0, %63 ], [ %59, %.lr.ph.i65.i ]
+  %64 = phi i32 [ %47, %get_virtual_boundary.exit.thread.i ], [ %56, %.preheader.i59.i ], [ %56, %.lr.ph.i65.i ], [ %56, %63 ]
+  %.3.i96.i = phi i32 [ 0, %get_virtual_boundary.exit.thread.i ], [ %storemerge.i, %.preheader.i59.i ], [ %storemerge.i, %.lr.ph.i65.i ], [ %storemerge.i, %63 ]
+  %.3.i69.i = phi i32 [ 0, %get_virtual_boundary.exit.thread.i ], [ 0, %.preheader.i59.i ], [ 0, %63 ], [ %59, %.lr.ph.i65.i ]
   store i32 %.3.i69.i, ptr %.sroa.594.i, align 4, !tbaa !82
   %65 = icmp sgt i32 %.3.i96.i, %2
   %66 = icmp sgt i32 %.3.i69.i, %1
@@ -3727,7 +3727,7 @@ get_virtual_boundary.exit70.i:                    ; preds = %63, %.lr.ph.i65.i, 
   br i1 %exitcond.not.i.i.i.i, label %is_virtual_boundary.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 is_virtual_boundary.exit.i.i:                     ; preds = %222, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
-  %.3.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ 0, %222 ], [ %218, %.lr.ph.i.i.i.i ]
+  %.3.i.i.i.i = phi i32 [ 0, %.preheader.i.i.i.i ], [ %218, %.lr.ph.i.i.i.i ], [ 0, %222 ]
   %223 = icmp eq i32 %.3.i.i.i.i, %64
   %224 = zext i1 %223 to i32
   br label %225
@@ -3764,7 +3764,7 @@ is_virtual_boundary.exit.i.i:                     ; preds = %222, %.lr.ph.i.i.i.
   br i1 %exitcond.not.i.i125.i.i, label %is_virtual_boundary.exit127.i.i, label %.lr.ph.i.i122.i.i, !llvm.loop !91
 
 is_virtual_boundary.exit127.i.i:                  ; preds = %233, %.lr.ph.i.i122.i.i, %.preheader.i.i116.i.i
-  %.3.i.i126.i.i = phi i32 [ 0, %.preheader.i.i116.i.i ], [ 0, %233 ], [ %229, %.lr.ph.i.i122.i.i ]
+  %.3.i.i126.i.i = phi i32 [ 0, %.preheader.i.i116.i.i ], [ %229, %.lr.ph.i.i122.i.i ], [ 0, %233 ]
   %234 = icmp eq i32 %.3.i.i126.i.i, %44
   %235 = zext i1 %234 to i32
   br label %236
@@ -3804,7 +3804,7 @@ is_virtual_boundary.exit127.i.i:                  ; preds = %233, %.lr.ph.i.i122
   br i1 %exitcond.not.i.i138.i.i, label %is_virtual_boundary.exit140.i.i, label %.lr.ph.i.i135.i.i, !llvm.loop !91
 
 is_virtual_boundary.exit140.i.i:                  ; preds = %247, %.lr.ph.i.i135.i.i, %.preheader.i.i129.i.i
-  %.3.i.i139.i.i = phi i32 [ 0, %.preheader.i.i129.i.i ], [ 0, %247 ], [ %243, %.lr.ph.i.i135.i.i ]
+  %.3.i.i139.i.i = phi i32 [ 0, %.preheader.i.i129.i.i ], [ %243, %.lr.ph.i.i135.i.i ], [ 0, %247 ]
   %248 = icmp eq i32 %.3.i.i139.i.i, %239
   %249 = zext i1 %248 to i32
   br label %250
@@ -3842,7 +3842,7 @@ is_virtual_boundary.exit140.i.i:                  ; preds = %247, %.lr.ph.i.i135
   br i1 %exitcond.not.i.i151.i.i, label %is_virtual_boundary.exit153.i.i, label %.lr.ph.i.i148.i.i, !llvm.loop !91
 
 is_virtual_boundary.exit153.i.i:                  ; preds = %260, %.lr.ph.i.i148.i.i, %.preheader.i.i142.i.i
-  %.3.i.i152.i.i = phi i32 [ 0, %.preheader.i.i142.i.i ], [ 0, %260 ], [ %256, %.lr.ph.i.i148.i.i ]
+  %.3.i.i152.i.i = phi i32 [ 0, %.preheader.i.i142.i.i ], [ %256, %.lr.ph.i.i148.i.i ], [ 0, %260 ]
   %261 = icmp eq i32 %.3.i.i152.i.i, %253
   br label %alf_get_edges.exit.i
 
@@ -4951,7 +4951,7 @@ define internal fastcc range(i32 0, 2) i32 @boundary_strength(ptr readonly captu
   br label %.thread1
 
 .thread1:                                         ; preds = %20, %209, %176, %135, %184, %205, %199, %143, %146, %154, %161, %169, %113, %119, %127, %83, %89, %97, %103, %6, %12, %111
-  %.0175.shrunk = phi i1 [ false, %111 ], [ true, %6 ], [ %19, %12 ], [ true, %103 ], [ true, %97 ], [ true, %89 ], [ true, %83 ], [ true, %127 ], [ true, %119 ], [ true, %113 ], [ true, %169 ], [ true, %161 ], [ true, %154 ], [ true, %146 ], [ true, %143 ], [ true, %205 ], [ true, %199 ], [ true, %184 ], [ %142, %135 ], [ %183, %176 ], [ %212, %209 ], [ true, %20 ]
+  %.0175.shrunk = phi i1 [ true, %199 ], [ %19, %12 ], [ false, %111 ], [ true, %83 ], [ true, %184 ], [ true, %113 ], [ %212, %209 ], [ true, %154 ], [ true, %143 ], [ true, %6 ], [ true, %103 ], [ true, %97 ], [ true, %89 ], [ %142, %135 ], [ true, %127 ], [ true, %119 ], [ %183, %176 ], [ true, %169 ], [ true, %161 ], [ true, %146 ], [ true, %205 ], [ true, %20 ]
   %.0175 = zext i1 %.0175.shrunk to i32
   ret i32 %.0175
 }

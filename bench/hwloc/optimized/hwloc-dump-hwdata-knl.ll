@@ -485,10 +485,10 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.35, i32 noundef %144) #13
   br label %process_knl_entry.exit.thread
 
-process_knl_entry.exit.thread:                    ; preds = %198, %146, %197, %._crit_edge.i37, %194
-  %201 = phi i32 [ %110, %198 ], [ %152, %146 ], [ %110, %197 ], [ %110, %._crit_edge.i37 ], [ %110, %194 ]
-  %202 = phi i32 [ %111, %198 ], [ %150, %146 ], [ %111, %197 ], [ %111, %._crit_edge.i37 ], [ %111, %194 ]
-  %203 = phi i32 [ %112, %198 ], [ %148, %146 ], [ %112, %197 ], [ %112, %._crit_edge.i37 ], [ %112, %194 ]
+process_knl_entry.exit.thread:                    ; preds = %146, %198, %197, %._crit_edge.i37, %194
+  %201 = phi i32 [ %152, %146 ], [ %110, %198 ], [ %110, %197 ], [ %110, %._crit_edge.i37 ], [ %110, %194 ]
+  %202 = phi i32 [ %150, %146 ], [ %111, %198 ], [ %111, %197 ], [ %111, %._crit_edge.i37 ], [ %111, %194 ]
+  %203 = phi i32 [ %148, %146 ], [ %112, %198 ], [ %112, %197 ], [ %112, %._crit_edge.i37 ], [ %112, %194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %204
@@ -611,7 +611,7 @@ switch.lookup170:                                 ; preds = %switch.lookup, %.sp
   br label %get_memory_mode_str.exit.i
 
 get_memory_mode_str.exit.i:                       ; preds = %249, %248, %247, %switch.lookup170
-  %.0.i56.i = phi ptr [ @.str.57, %249 ], [ @.str.59, %247 ], [ @.str.58, %switch.lookup170 ], [ %switch.select5.i.i, %248 ]
+  %.0.i56.i = phi ptr [ @.str.57, %249 ], [ %switch.select5.i.i, %248 ], [ @.str.59, %247 ], [ @.str.58, %switch.lookup170 ]
   %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %switch.load172, ptr noundef %.0.i56.i)
   %251 = load i64, ptr %7, align 8, !tbaa !36
   %252 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %251, i64 noundef %245)
@@ -674,7 +674,7 @@ get_memory_mode_str.exit.i:                       ; preds = %249, %248, %247, %s
   br label %get_memory_mode_str.exit65.i
 
 get_memory_mode_str.exit65.i:                     ; preds = %282, %281, %280, %.split.i58.i
-  %.0.i64.i = phi ptr [ @.str.57, %282 ], [ @.str.59, %280 ], [ @.str.58, %.split.i58.i ], [ %switch.select5.i63.i, %281 ]
+  %.0.i64.i = phi ptr [ @.str.57, %282 ], [ %switch.select5.i63.i, %281 ], [ @.str.59, %280 ], [ @.str.58, %.split.i58.i ]
   %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %265, ptr noundef nonnull @.str.51, ptr noundef %.0.i64.i) #12
   %284 = call i32 @fflush(ptr noundef nonnull %265)
   %285 = call i32 @fclose(ptr noundef nonnull %265)
@@ -682,7 +682,7 @@ get_memory_mode_str.exit65.i:                     ; preds = %282, %281, %280, %.
   br label %print_result.exit
 
 print_result.exit:                                ; preds = %209, %get_memory_mode_str.exit65.i, %266, %258, %242, %236, %221, %.thread50, %.thread156, %83, %18
-  %.0 = phi i32 [ -1, %83 ], [ -1, %209 ], [ -1, %.thread156 ], [ -1, %18 ], [ -1, %.thread50 ], [ -1, %221 ], [ -1, %242 ], [ -1, %258 ], [ 0, %get_memory_mode_str.exit65.i ], [ -1, %266 ], [ -1, %236 ]
+  %.0 = phi i32 [ -1, %83 ], [ -1, %209 ], [ -1, %.thread50 ], [ -1, %.thread156 ], [ -1, %18 ], [ -1, %221 ], [ -1, %242 ], [ -1, %258 ], [ 0, %get_memory_mode_str.exit65.i ], [ -1, %266 ], [ -1, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

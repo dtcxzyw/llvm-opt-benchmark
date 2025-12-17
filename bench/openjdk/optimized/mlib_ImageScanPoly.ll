@@ -803,8 +803,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br label %._crit_edge1189
 
 ._crit_edge1189:                                  ; preds = %424, %449, %455, %453
-  %.1825 = phi i32 [ %.08241129, %449 ], [ %456, %455 ], [ %454, %453 ], [ %.08241129, %424 ]
-  %.1822 = phi i32 [ %.2823, %449 ], [ %.2823, %455 ], [ %.2823, %453 ], [ %.08211130, %424 ]
+  %.1825 = phi i32 [ %454, %453 ], [ %.08241129, %449 ], [ %456, %455 ], [ %.08241129, %424 ]
+  %.1822 = phi i32 [ %.2823, %453 ], [ %.2823, %449 ], [ %.2823, %455 ], [ %.08211130, %424 ]
   store i32 %.0815, ptr %376, align 4
   store i32 %.1813, ptr %378, align 4
   %457 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1173
@@ -967,8 +967,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br label %._crit_edge1188
 
 ._crit_edge1188:                                  ; preds = %509, %534, %540, %538
-  %.4828 = phi i32 [ %.38271120, %534 ], [ %541, %540 ], [ %539, %538 ], [ %.38271120, %509 ]
-  %.5 = phi i32 [ %.6, %534 ], [ %.6, %540 ], [ %.6, %538 ], [ %.41121, %509 ]
+  %.4828 = phi i32 [ %539, %538 ], [ %.38271120, %534 ], [ %541, %540 ], [ %.38271120, %509 ]
+  %.5 = phi i32 [ %.6, %538 ], [ %.6, %534 ], [ %.6, %540 ], [ %.41121, %509 ]
   store i32 %.0797, ptr %461, align 4
   store i32 %.1, ptr %463, align 4
   %542 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1167
@@ -1038,7 +1038,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br label %570
 
 570:                                              ; preds = %194, %135, %68, %51, %48, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 1, %13 ], [ 1, %48 ], [ 1, %51 ], [ 1, %68 ], [ 0, %135 ], [ 0, %194 ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %48 ], [ 1, %51 ], [ 1, %68 ], [ 0, %135 ], [ 0, %.loopexit ], [ 0, %194 ]
   ret i32 %.0
 }
 

@@ -386,7 +386,7 @@ define internal range(i32 -1, 2) i32 @KINBBDPrecSetup(ptr noundef %0, ptr nounde
   %exitcond.not.i = icmp eq i64 %.099129.i, %..i
   br i1 %exitcond.not.i, label %KBBDDQJac.exit.loopexit, label %46, !llvm.loop !54
 
-.loopexit:                                        ; preds = %._crit_edge.i, %22, %28
+.loopexit:                                        ; preds = %._crit_edge.i, %28, %22
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %9, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #5
   br label %126
 

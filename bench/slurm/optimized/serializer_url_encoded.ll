@@ -235,7 +235,7 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br label %.thread
 
 .lr.ph:                                           ; preds = %_decode_seq.exit, %47, %48, %58, %65, %61, %64, %15
-  %.139 = phi ptr [ %.0385578, %15 ], [ %.0385578, %47 ], [ %.0385578, %48 ], [ %.0385578, %58 ], [ %.0385578, %64 ], [ %.0385578, %61 ], [ %.0385578, %65 ], [ %20, %_decode_seq.exit ]
+  %.139 = phi ptr [ %.0385578, %15 ], [ %.0385578, %65 ], [ %.0385578, %47 ], [ %.0385578, %48 ], [ %.0385578, %58 ], [ %.0385578, %64 ], [ %.0385578, %61 ], [ %20, %_decode_seq.exit ]
   %74 = getelementptr inbounds nuw i8, ptr %.139, i64 1
   %75 = load i8, ptr %74, align 1
   %.not = icmp eq i8 %75, 0
@@ -251,9 +251,9 @@ _decode_seq.exit:                                 ; preds = %38, %35
   call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %.thread
 
-.thread:                                          ; preds = %68, %71, %43, %46, %66, %54, %78, %.critedge.thread
-  %.not46 = phi i1 [ true, %78 ], [ true, %.critedge.thread ], [ false, %54 ], [ false, %66 ], [ false, %46 ], [ false, %43 ], [ false, %71 ], [ false, %68 ]
-  %.4 = phi i32 [ 0, %78 ], [ 0, %.critedge.thread ], [ -1, %54 ], [ -1, %66 ], [ -1, %46 ], [ -1, %43 ], [ -1, %71 ], [ -1, %68 ]
+.thread:                                          ; preds = %68, %71, %46, %66, %54, %43, %78, %.critedge.thread
+  %.not46 = phi i1 [ true, %78 ], [ true, %.critedge.thread ], [ false, %43 ], [ false, %54 ], [ false, %66 ], [ false, %46 ], [ false, %71 ], [ false, %68 ]
+  %.4 = phi i32 [ 0, %78 ], [ 0, %.critedge.thread ], [ -1, %43 ], [ -1, %54 ], [ -1, %66 ], [ -1, %46 ], [ -1, %71 ], [ -1, %68 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #4
   call void @slurm_xfree(ptr noundef nonnull %4) #4
   br i1 %.not46, label %81, label %79

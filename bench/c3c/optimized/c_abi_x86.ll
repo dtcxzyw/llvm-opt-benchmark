@@ -242,7 +242,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr noundef captures(none) %1,
   br label %create_indirect_return_x86.exit
 
 create_indirect_return_x86.exit:                  ; preds = %114, %110, %107, %79, %75, %72, %40, %36, %33, %118, %96, %70, %68, %58, %14, %9
-  %.052 = phi ptr [ %10, %9 ], [ %15, %14 ], [ %59, %58 ], [ %69, %68 ], [ %71, %70 ], [ %97, %96 ], [ %119, %118 ], [ %34, %33 ], [ %34, %36 ], [ %34, %40 ], [ %73, %72 ], [ %73, %75 ], [ %73, %79 ], [ %108, %107 ], [ %108, %110 ], [ %108, %114 ]
+  %.052 = phi ptr [ %10, %9 ], [ %15, %14 ], [ %119, %118 ], [ %59, %58 ], [ %69, %68 ], [ %71, %70 ], [ %34, %40 ], [ %97, %96 ], [ %73, %79 ], [ %34, %33 ], [ %34, %36 ], [ %73, %72 ], [ %73, %75 ], [ %108, %107 ], [ %108, %110 ], [ %108, %114 ]
   ret ptr %.052
 }
 
@@ -376,7 +376,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -498,7 +498,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %or.cond112.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
-  %.019 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]
+  %.019 = phi i1 [ false, %1 ], [ %11, %10 ], [ true, %17 ], [ true, %22 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ false, %.lr.ph ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ]
   ret i1 %.019
 }
 
@@ -593,7 +593,7 @@ define dso_local void @c_abi_func_create_x86(ptr noundef captures(none) %0) loca
   br i1 %exitcond.not.i, label %x86_create_params.exit, label %39, !llvm.loop !9
 
 x86_create_params.exit:                           ; preds = %39, %29, %32
-  %.018.i = phi ptr [ null, %29 ], [ null, %32 ], [ %38, %39 ]
+  %.018.i = phi ptr [ null, %32 ], [ null, %29 ], [ %38, %39 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.018.i, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -777,7 +777,7 @@ x86_try_use_free_regs.exit.i.i:                   ; preds = %46
   br label %x86_try_put_primitive_in_reg.exit.i
 
 x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_free_regs.exit.i.i, %44, %33, %30
-  %.0.i.i = phi i1 [ false, %x86_try_use_free_regs.exit.i.i ], [ %.not.i.i, %47 ], [ false, %30 ], [ false, %33 ], [ false, %44 ]
+  %.0.i.i = phi i1 [ %.not.i.i, %47 ], [ false, %x86_try_use_free_regs.exit.i.i ], [ false, %33 ], [ false, %44 ], [ false, %30 ]
   %50 = load i32, ptr %3, align 8
   %51 = icmp eq i32 %50, 31
   br i1 %51, label %52, label %56
@@ -1117,7 +1117,7 @@ x86_stack_alignment.exit.thread19.i34.i:          ; preds = %x86_stack_alignment
   unreachable
 
 x86_classify_primitives.exit:                     ; preds = %x86_stack_alignment.exit.thread19.i34.i, %209, %194, %157, %154, %x86_stack_alignment.exit.thread19.i.i, %113, %x86_is_mmxtype.exit.thread.i, %86, %.critedge.i, %65, %16, %12, %9
-  %.0 = phi ptr [ %66, %65 ], [ %67, %.critedge.i ], [ %10, %9 ], [ %10, %12 ], [ %10, %16 ], [ %88, %86 ], [ %89, %x86_is_mmxtype.exit.thread.i ], [ %195, %194 ], [ %.0.i14, %157 ], [ %.0.i14, %154 ], [ %114, %113 ], [ %115, %x86_stack_alignment.exit.thread19.i.i ], [ %210, %209 ], [ %211, %x86_stack_alignment.exit.thread19.i34.i ]
+  %.0 = phi ptr [ %89, %x86_is_mmxtype.exit.thread.i ], [ %10, %16 ], [ %67, %.critedge.i ], [ %66, %65 ], [ %10, %9 ], [ %10, %12 ], [ %88, %86 ], [ %.0.i14, %154 ], [ %195, %194 ], [ %114, %113 ], [ %.0.i14, %157 ], [ %115, %x86_stack_alignment.exit.thread19.i.i ], [ %211, %x86_stack_alignment.exit.thread19.i34.i ], [ %210, %209 ]
   ret ptr %.0
 }
 
@@ -1206,7 +1206,7 @@ type_is_simd_vector.exit.thread:                  ; preds = %.lr.ph, %type_is_si
   br i1 %29, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %type_is_simd_vector.exit, %type_is_simd_vector.exit.thread, %19, %11, %16, %8
-  %.021 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.exit ], [ true, %type_is_simd_vector.exit.thread ], [ false, %19 ]
+  %.021 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.exit ], [ false, %19 ], [ true, %type_is_simd_vector.exit.thread ]
   ret i1 %.021
 }
 

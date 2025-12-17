@@ -194,7 +194,7 @@ define internal range(i64 0, -9223372036854775808) i64 @fd_read(ptr noundef read
   br label %.critedge9
 
 .critedge9:                                       ; preds = %5, %12, %13
-  %.0 = phi i64 [ 0, %13 ], [ 0, %12 ], [ %7, %5 ]
+  %.0 = phi i64 [ 0, %12 ], [ 0, %13 ], [ %7, %5 ]
   ret i64 %.0
 }
 
@@ -226,7 +226,7 @@ define internal range(i64 0, -9223372036854775808) i64 @fd_write(ptr noundef rea
   br label %.critedge9
 
 .critedge9:                                       ; preds = %5, %12, %13
-  %.0 = phi i64 [ 0, %13 ], [ 0, %12 ], [ %7, %5 ]
+  %.0 = phi i64 [ 0, %12 ], [ 0, %13 ], [ %7, %5 ]
   ret i64 %.0
 }
 
@@ -712,7 +712,7 @@ IsRegularFileOrPipe.exit:                         ; preds = %20
   br label %32
 
 32:                                               ; preds = %15, %30, %27, %11, %6
-  %.014 = phi ptr [ null, %11 ], [ null, %6 ], [ %31, %30 ], [ null, %27 ], [ null, %15 ]
+  %.014 = phi ptr [ null, %6 ], [ null, %11 ], [ %31, %30 ], [ null, %27 ], [ null, %15 ]
   ret ptr %.014
 }
 
@@ -800,7 +800,7 @@ SDL_GetIOProperties_REAL.exit.thread:             ; preds = %16, %SDL_GetIOPrope
   br label %24
 
 24:                                               ; preds = %15, %SDL_GetIOProperties_REAL.exit.thread, %SDL_GetIOProperties_REAL.exit, %8, %6, %3
-  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %8 ], [ %14, %SDL_GetIOProperties_REAL.exit ], [ %14, %SDL_GetIOProperties_REAL.exit.thread ], [ null, %15 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %8 ], [ %14, %SDL_GetIOProperties_REAL.exit ], [ %14, %SDL_GetIOProperties_REAL.exit.thread ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -971,7 +971,7 @@ SDL_GetIOProperties_REAL.exit.thread:             ; preds = %16, %SDL_GetIOPrope
   br label %24
 
 24:                                               ; preds = %15, %SDL_GetIOProperties_REAL.exit.thread, %SDL_GetIOProperties_REAL.exit, %8, %6, %3
-  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %8 ], [ %14, %SDL_GetIOProperties_REAL.exit ], [ %14, %SDL_GetIOProperties_REAL.exit.thread ], [ %14, %15 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %8 ], [ %14, %SDL_GetIOProperties_REAL.exit ], [ %14, %SDL_GetIOProperties_REAL.exit.thread ], [ %14, %15 ]
   ret ptr %.0
 }
 
@@ -1375,7 +1375,7 @@ SDL_SeekIO_REAL.exit17.i:                         ; preds = %22, %20
   br label %SDL_GetIOSize_REAL.exit
 
 SDL_GetIOSize_REAL.exit:                          ; preds = %SDL_SeekIO_REAL.exit.thread.i, %SDL_SeekIO_REAL.exit.i, %26, %28, %31
-  %.0.i = phi i64 [ %34, %31 ], [ -1, %SDL_SeekIO_REAL.exit.i ], [ -1, %SDL_SeekIO_REAL.exit.thread.i ], [ %.0.i16.i, %26 ], [ %.0.i16.i, %28 ]
+  %.0.i = phi i64 [ %34, %31 ], [ %.0.i16.i, %28 ], [ -1, %SDL_SeekIO_REAL.exit.thread.i ], [ -1, %SDL_SeekIO_REAL.exit.i ], [ %.0.i16.i, %26 ]
   %.0.i.fr = freeze i64 %.0.i
   %35 = icmp slt i64 %.0.i.fr, 0
   %spec.select = select i1 %35, i64 1024, i64 %.0.i.fr
@@ -1410,8 +1410,8 @@ SDL_GetIOSize_REAL.exit:                          ; preds = %SDL_SeekIO_REAL.exi
   br i1 %.not49.us.us, label %.split.us, label %47
 
 47:                                               ; preds = %45, %43
-  %.238.us.us = phi i64 [ %.137.us.us, %43 ], [ %41, %45 ]
-  %.2.us.us = phi ptr [ %.1.us.us, %43 ], [ %46, %45 ]
+  %.238.us.us = phi i64 [ %41, %45 ], [ %.137.us.us, %43 ]
+  %.2.us.us = phi ptr [ %46, %45 ], [ %.1.us.us, %43 ]
   %48 = getelementptr inbounds i8, ptr %.2.us.us, i64 %.140.ph.us
   %49 = sub nsw i64 %.238.us.us, %.140.ph.us
   %50 = load ptr, ptr %38, align 8
@@ -1558,15 +1558,15 @@ SDL_GetIOStatus_REAL.exit:                        ; preds = %83, %91
   br label %.split72.us
 
 .split72.us:                                      ; preds = %SDL_GetIOStatus_REAL.exit, %SDL_GetIOStatus_REAL.exit.us77, %SDL_GetIOStatus_REAL.exit.us.us, %.split72.us.sink.split
-  %.us-phi73 = phi i64 [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.140.ph.lcssa100, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
-  %.us-phi74 = phi ptr [ %.us-phi74.ph, %.split72.us.sink.split ], [ %.2.us.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %37, %SDL_GetIOStatus_REAL.exit.us77 ], [ %37, %SDL_GetIOStatus_REAL.exit ]
-  %.us-phi75 = phi ptr [ %.us-phi75.ph, %.split72.us.sink.split ], [ %48, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.lcssa84, %SDL_GetIOStatus_REAL.exit.us77 ], [ %80, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi73 = phi i64 [ %.us-phi73.ph, %.split72.us.sink.split ], [ %.140.ph.lcssa100, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.140.ph.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %.140.ph109, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi74 = phi ptr [ %.us-phi74.ph, %.split72.us.sink.split ], [ %37, %SDL_GetIOStatus_REAL.exit.us77 ], [ %.2.us.us, %SDL_GetIOStatus_REAL.exit.us.us ], [ %37, %SDL_GetIOStatus_REAL.exit ]
+  %.us-phi75 = phi ptr [ %.us-phi75.ph, %.split72.us.sink.split ], [ %.lcssa84, %SDL_GetIOStatus_REAL.exit.us77 ], [ %48, %SDL_GetIOStatus_REAL.exit.us.us ], [ %80, %SDL_GetIOStatus_REAL.exit ]
   store i8 0, ptr %.us-phi75, align 1
   br label %102
 
 102:                                              ; preds = %SDL_GetIOSize_REAL.exit, %.split72.us, %.split.us, %5
-  %.039 = phi i64 [ %.us-phi73, %.split72.us ], [ %.140.ph.us, %.split.us ], [ 0, %SDL_GetIOSize_REAL.exit ], [ 0, %5 ]
-  %.035 = phi ptr [ %.us-phi74, %.split72.us ], [ null, %.split.us ], [ null, %SDL_GetIOSize_REAL.exit ], [ null, %5 ]
+  %.039 = phi i64 [ 0, %5 ], [ %.us-phi73, %.split72.us ], [ %.140.ph.us, %.split.us ], [ 0, %SDL_GetIOSize_REAL.exit ]
+  %.035 = phi ptr [ null, %5 ], [ %.us-phi74, %.split72.us ], [ null, %.split.us ], [ null, %SDL_GetIOSize_REAL.exit ]
   %.not51 = icmp eq ptr %1, null
   br i1 %.not51, label %104, label %103
 
@@ -1670,7 +1670,7 @@ SDL_SeekIO_REAL.exit17:                           ; preds = %20, %18
   br label %SDL_SeekIO_REAL.exit21
 
 SDL_SeekIO_REAL.exit21:                           ; preds = %26, %24, %SDL_SeekIO_REAL.exit.thread, %SDL_SeekIO_REAL.exit, %29, %2
-  %.0 = phi i64 [ %32, %29 ], [ %4, %2 ], [ -1, %SDL_SeekIO_REAL.exit ], [ -1, %SDL_SeekIO_REAL.exit.thread ], [ %.0.i16, %24 ], [ %.0.i16, %26 ]
+  %.0 = phi i64 [ %32, %29 ], [ %4, %2 ], [ -1, %SDL_SeekIO_REAL.exit.thread ], [ -1, %SDL_SeekIO_REAL.exit ], [ %.0.i16, %24 ], [ %.0.i16, %26 ]
   ret i64 %.0
 }
 
@@ -1734,7 +1734,7 @@ define hidden i64 @SDL_ReadIO_REAL(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %29
 
 29:                                               ; preds = %15, %21, %28, %27, %12, %10, %4
-  %.0 = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %12 ], [ 0, %27 ], [ 0, %28 ], [ 0, %21 ], [ %19, %15 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %12 ], [ 0, %10 ], [ 0, %27 ], [ 0, %28 ], [ 0, %21 ], [ %19, %15 ]
   ret i64 %.0
 }
 
@@ -1922,7 +1922,7 @@ define hidden i64 @SDL_WriteIO_REAL(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %25
 
 25:                                               ; preds = %15, %21, %24, %12, %10, %4
-  %.0 = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %12 ], [ 0, %24 ], [ 0, %21 ], [ %19, %15 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %12 ], [ 0, %10 ], [ 0, %24 ], [ 0, %21 ], [ %19, %15 ]
   ret i64 %.0
 }
 
@@ -2065,7 +2065,7 @@ define hidden i64 @SDL_IOprintf_REAL(ptr noundef %0, ptr noundef %1, ...) local_
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %10, %16, %18, %21, %27, %30
-  %.0.i = phi i64 [ 0, %16 ], [ 0, %10 ], [ 0, %18 ], [ 0, %30 ], [ 0, %27 ], [ %25, %21 ]
+  %.0.i = phi i64 [ 0, %10 ], [ 0, %18 ], [ 0, %16 ], [ 0, %30 ], [ 0, %27 ], [ %25, %21 ]
   %31 = load ptr, ptr %4, align 8
   call void @SDL_free_REAL(ptr noundef %31) #18
   br label %32
@@ -2139,7 +2139,7 @@ define hidden i64 @SDL_IOvprintf_REAL(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %10, %16, %18, %21, %27, %30
-  %.0.i = phi i64 [ 0, %16 ], [ 0, %10 ], [ 0, %18 ], [ 0, %30 ], [ 0, %27 ], [ %25, %21 ]
+  %.0.i = phi i64 [ 0, %10 ], [ 0, %18 ], [ 0, %16 ], [ 0, %30 ], [ 0, %27 ], [ %25, %21 ]
   %31 = load ptr, ptr %4, align 8
   call void @SDL_free_REAL(ptr noundef %31) #18
   br label %32
@@ -2242,7 +2242,7 @@ define hidden zeroext i1 @SDL_ReadU8_REAL(ptr noundef %0, ptr noundef writeonly 
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %27
 
@@ -2311,7 +2311,7 @@ define hidden zeroext i1 @SDL_ReadS8_REAL(ptr noundef %0, ptr noundef writeonly 
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %27
 
@@ -2380,7 +2380,7 @@ define hidden zeroext i1 @SDL_ReadU16LE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %27
 
@@ -2455,7 +2455,7 @@ define hidden zeroext i1 @SDL_ReadU16BE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %27
 
@@ -2534,7 +2534,7 @@ define hidden zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %27
 
@@ -2609,7 +2609,7 @@ define hidden zeroext i1 @SDL_ReadU32BE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %27
 
@@ -2688,7 +2688,7 @@ define hidden zeroext i1 @SDL_ReadU64LE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %27
 
@@ -2763,7 +2763,7 @@ define hidden zeroext i1 @SDL_ReadU64BE_REAL(ptr noundef %0, ptr noundef writeon
   br label %SDL_ReadIO_REAL.exit
 
 SDL_ReadIO_REAL.exit:                             ; preds = %4, %10, %12, %19, %25, %26
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %25 ], [ 0, %26 ], [ 0, %19 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %27
 
@@ -2831,7 +2831,7 @@ define hidden zeroext i1 @SDL_WriteU8_REAL(ptr noundef %0, i8 noundef zeroext %1
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %4, %10, %12, %19, %22
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i, 1
   ret i1 %23
 }
@@ -2879,7 +2879,7 @@ define hidden zeroext i1 @SDL_WriteS8_REAL(ptr noundef %0, i8 noundef signext %1
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %4, %10, %12, %19, %22
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i, 1
   ret i1 %23
 }
@@ -2928,7 +2928,7 @@ define hidden zeroext i1 @SDL_WriteU16LE_REAL(ptr noundef %0, i16 noundef zeroex
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %4, %10, %12, %19, %22
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -2978,7 +2978,7 @@ define hidden zeroext i1 @SDL_WriteS16LE_REAL(ptr noundef %0, i16 noundef signex
   br label %SDL_WriteU16LE_REAL.exit
 
 SDL_WriteU16LE_REAL.exit:                         ; preds = %4, %10, %12, %19, %22
-  %.0.i.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -3029,7 +3029,7 @@ define hidden zeroext i1 @SDL_WriteU16BE_REAL(ptr noundef %0, i16 noundef zeroex
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %5, %11, %13, %20, %23
-  %.0.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24
@@ -3080,7 +3080,7 @@ define hidden zeroext i1 @SDL_WriteS16BE_REAL(ptr noundef %0, i16 noundef signex
   br label %SDL_WriteU16BE_REAL.exit
 
 SDL_WriteU16BE_REAL.exit:                         ; preds = %5, %11, %13, %20, %23
-  %.0.i.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24
@@ -3130,7 +3130,7 @@ define hidden zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef %0, i32 noundef %1) lo
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %4, %10, %12, %19, %22
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -3180,7 +3180,7 @@ define hidden zeroext i1 @SDL_WriteS32LE_REAL(ptr noundef %0, i32 noundef %1) lo
   br label %SDL_WriteU32LE_REAL.exit
 
 SDL_WriteU32LE_REAL.exit:                         ; preds = %4, %10, %12, %19, %22
-  %.0.i.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i.i, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -3231,7 +3231,7 @@ define hidden zeroext i1 @SDL_WriteU32BE_REAL(ptr noundef %0, i32 noundef %1) lo
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %5, %11, %13, %20, %23
-  %.0.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24
@@ -3282,7 +3282,7 @@ define hidden zeroext i1 @SDL_WriteS32BE_REAL(ptr noundef %0, i32 noundef %1) lo
   br label %SDL_WriteU32BE_REAL.exit
 
 SDL_WriteU32BE_REAL.exit:                         ; preds = %5, %11, %13, %20, %23
-  %.0.i.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i.i, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24
@@ -3332,7 +3332,7 @@ define hidden zeroext i1 @SDL_WriteU64LE_REAL(ptr noundef %0, i64 noundef %1) lo
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %4, %10, %12, %19, %22
-  %.0.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -3382,7 +3382,7 @@ define hidden zeroext i1 @SDL_WriteS64LE_REAL(ptr noundef %0, i64 noundef %1) lo
   br label %SDL_WriteU64LE_REAL.exit
 
 SDL_WriteU64LE_REAL.exit:                         ; preds = %4, %10, %12, %19, %22
-  %.0.i.i = phi i64 [ 0, %10 ], [ 0, %4 ], [ 0, %22 ], [ 0, %19 ], [ %17, %12 ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %12 ], [ 0, %10 ], [ 0, %22 ], [ 0, %19 ]
   %23 = icmp eq i64 %.0.i.i, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %23
@@ -3433,7 +3433,7 @@ define hidden zeroext i1 @SDL_WriteU64BE_REAL(ptr noundef %0, i64 noundef %1) lo
   br label %SDL_WriteIO_REAL.exit
 
 SDL_WriteIO_REAL.exit:                            ; preds = %5, %11, %13, %20, %23
-  %.0.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24
@@ -3484,7 +3484,7 @@ define hidden zeroext i1 @SDL_WriteS64BE_REAL(ptr noundef %0, i64 noundef %1) lo
   br label %SDL_WriteU64BE_REAL.exit
 
 SDL_WriteU64BE_REAL.exit:                         ; preds = %5, %11, %13, %20, %23
-  %.0.i.i = phi i64 [ 0, %11 ], [ 0, %5 ], [ 0, %23 ], [ 0, %20 ], [ %18, %13 ]
+  %.0.i.i = phi i64 [ 0, %5 ], [ %18, %13 ], [ 0, %11 ], [ 0, %23 ], [ 0, %20 ]
   %24 = icmp eq i64 %.0.i.i, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %24

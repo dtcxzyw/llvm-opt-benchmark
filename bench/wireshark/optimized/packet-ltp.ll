@@ -817,7 +817,7 @@ define internal noundef zeroext i1 @dissect_ltp_heur_udp(ptr noundef %0, ptr nou
   br label %52
 
 52:                                               ; preds = %50, %46, %29, %.loopexit
-  %.3 = phi i32 [ 0, %50 ], [ %.033, %46 ], [ %.033, %29 ], [ %.033, %.loopexit ]
+  %.3 = phi i32 [ 0, %50 ], [ %.033, %.loopexit ], [ %.033, %46 ], [ %.033, %29 ]
   %.0..0..0..0.7 = load volatile i32, ptr %6, align 4
   %53 = and i32 %.0..0..0..0.7, 1
   %.not40 = icmp eq i32 %53, 0
@@ -1582,8 +1582,8 @@ add_sdnv64_to_tree.exit253.thread.i:              ; preds = %add_sdnv64_to_tree.
   br label %348
 
 343:                                              ; preds = %327, %281
-  %.0206.i = phi i32 [ %322, %327 ], [ %238, %281 ]
-  %.0205.i = phi i32 [ %321, %327 ], [ %234, %281 ]
+  %.0206.i = phi i32 [ %238, %281 ], [ %322, %327 ]
+  %.0205.i = phi i32 [ %234, %281 ], [ %321, %327 ]
   %344 = and i8 %206, -2
   %345 = icmp eq i8 %344, 2
   %346 = and i8 %206, -5
@@ -1880,12 +1880,12 @@ add_sdnv64_to_tree.exit260.i:                     ; preds = %456, %450
   br label %dissect_data_segment.exit
 
 dissect_data_segment.exit.thread.sink.split:      ; preds = %461, %add_sdnv64_to_tree.exit260.i
-  %.str.222.sink = phi ptr [ @.str.222, %add_sdnv64_to_tree.exit260.i ], [ @.str.223, %461 ]
+  %.str.223.sink = phi ptr [ @.str.222, %add_sdnv64_to_tree.exit260.i ], [ @.str.223, %461 ]
   %494 = load ptr, ptr %171, align 8
-  call void @col_set_str(ptr noundef %494, i32 noundef 25, ptr noundef nonnull %.str.222.sink)
+  call void @col_set_str(ptr noundef %494, i32 noundef 25, ptr noundef nonnull %.str.223.sink)
   br label %dissect_data_segment.exit.thread
 
-dissect_data_segment.exit.thread:                 ; preds = %dissect_data_segment.exit.thread.sink.split, %add_sdnv64_to_tree.exit250.i, %add_sdnv64_to_tree.exit251.i, %add_sdnv64_to_tree.exit252.i, %add_sdnv64_to_tree.exit253.i
+dissect_data_segment.exit.thread:                 ; preds = %dissect_data_segment.exit.thread.sink.split, %add_sdnv64_to_tree.exit251.i, %add_sdnv64_to_tree.exit250.i, %add_sdnv64_to_tree.exit253.i, %add_sdnv64_to_tree.exit252.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -2564,8 +2564,8 @@ dissect_report_ack_segment.exit:                  ; preds = %add_sdnv64_to_tree.
   br label %dissect_cancel_segment.exit
 
 dissect_cancel_segment.exit:                      ; preds = %789, %822, %813, %802, %791, %dissect_report_segment.exit, %dissect_report_ack_segment.exit, %dissect_data_segment.exit
-  %.0218 = phi i32 [ %237, %dissect_data_segment.exit ], [ 0, %dissect_report_segment.exit ], [ 0, %dissect_report_ack_segment.exit ], [ 0, %791 ], [ 0, %802 ], [ 0, %813 ], [ 0, %822 ], [ 0, %789 ]
-  %.0182 = phi i32 [ %.0206269.i, %dissect_data_segment.exit ], [ %.0167.lcssa.i, %dissect_report_segment.exit ], [ %766, %dissect_report_ack_segment.exit ], [ 1, %791 ], [ 1, %802 ], [ 0, %813 ], [ 0, %822 ], [ 0, %789 ]
+  %.0218 = phi i32 [ %237, %dissect_data_segment.exit ], [ 0, %dissect_report_ack_segment.exit ], [ 0, %802 ], [ 0, %789 ], [ 0, %dissect_report_segment.exit ], [ 0, %791 ], [ 0, %813 ], [ 0, %822 ]
+  %.0182 = phi i32 [ %.0206269.i, %dissect_data_segment.exit ], [ %766, %dissect_report_ack_segment.exit ], [ 1, %802 ], [ 0, %789 ], [ %.0167.lcssa.i, %dissect_report_segment.exit ], [ 1, %791 ], [ 0, %813 ], [ 0, %822 ]
   %834 = add i32 %.0182, %.0180
   %835 = icmp sgt i32 %169, 0
   br i1 %835, label %836, label %860
@@ -2632,7 +2632,7 @@ dissect_trailer_extn.exit:                        ; preds = %add_sdnv64_to_tree.
   br label %866
 
 866:                                              ; preds = %496, %754, %787, %864, %860, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %496 ], [ 0, %754 ], [ 0, %787 ], [ %861, %864 ], [ %861, %860 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %496 ], [ 0, %787 ], [ 0, %754 ], [ %861, %864 ], [ %861, %860 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)

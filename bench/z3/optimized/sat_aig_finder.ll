@@ -788,7 +788,7 @@ _ZNSt14_Function_baseD2Ev.exit119:                ; preds = %168, %170
   br label %176
 
 176:                                              ; preds = %91, %73, %175
-  %.pn98.pn = phi { ptr, i32 } [ %.pn, %175 ], [ %74, %73 ], [ %92, %91 ]
+  %.pn98.pn = phi { ptr, i32 } [ %.pn, %175 ], [ %92, %91 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %7) #25
   br label %177
@@ -887,7 +887,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %_ZNK3sat3big9connec
   br i1 %.not, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
 
 _ZNK3sat3big9connectedENS_7literalES1_.exit.thread: ; preds = %.critedge19, %51, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit
-  %.0 = phi i1 [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ false, %.critedge19 ], [ true, %51 ]
+  %.0 = phi i1 [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ true, %51 ], [ false, %.critedge19 ]
   ret i1 %.0
 }
 
@@ -999,7 +999,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZNK3sat3big9connec
   %.not.i = icmp eq ptr %63, %54
   br i1 %.not.i, label %.critedge, label %.lr.ph.i
 
-_ZN3sat10aig_finder7impliesENS_7literalES1_.exit: ; preds = %59, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %24
+_ZN3sat10aig_finder7impliesENS_7literalES1_.exit: ; preds = %59, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %24
   %64 = getelementptr inbounds nuw i8, ptr %.03762, i64 4
   %.not38 = icmp eq ptr %64, %9
   br i1 %.not38, label %._crit_edge63, label %24
@@ -1385,7 +1385,7 @@ _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vec
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
 _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.thread.i: ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i, %110, %106, %104, %.lr.ph.i
-  %.1.i = phi ptr [ %.04490.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i ], [ %.04490.i, %104 ], [ %.04490.i, %110 ], [ %.04490.i, %106 ], [ %.04589.i, %.lr.ph.i ]
+  %.1.i = phi ptr [ %.04490.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit.i ], [ %.04490.i, %104 ], [ %.04589.i, %.lr.ph.i ], [ %.04490.i, %110 ], [ %.04490.i, %106 ]
   %128 = getelementptr inbounds nuw i8, ptr %.04589.i, i64 32
   %.not.i = icmp eq ptr %128, %102
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !103
@@ -1461,7 +1461,7 @@ _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vec
   br label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6insertEOS7_.exit
 
 _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.thread.i: ; preds = %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i, %136, %132, %130, %.lr.ph95.i
-  %.3.i = phi ptr [ %.294.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i ], [ %.294.i, %130 ], [ %.294.i, %136 ], [ %.294.i, %132 ], [ %.14693.i, %.lr.ph95.i ]
+  %.3.i = phi ptr [ %.294.i, %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE7ternaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE6equalsERKS7_SD_.exit54.i ], [ %.294.i, %130 ], [ %.14693.i, %.lr.ph95.i ], [ %.294.i, %136 ], [ %.294.i, %132 ]
   %154 = getelementptr inbounds nuw i8, ptr %.14693.i, i64 32
   %.not47.i = icmp eq ptr %154, %101
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph95.i, !llvm.loop !104
@@ -1727,7 +1727,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %112
   br label %_ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE4findERKS7_RS7_.exit.thread
 
 _ZNK14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE4findERKS7_RS7_.exit.thread: ; preds = %.lr.ph.i.i, %.lr.ph24.i.i, %79, %88, %.loopexit, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit, %.preheader.i.i, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %.preheader.i.i ], [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit ], [ false, %.loopexit ], [ false, %88 ], [ false, %79 ], [ false, %.lr.ph24.i.i ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %5 ], [ false, %.preheader.i.i ], [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit ], [ false, %.loopexit ], [ false, %.lr.ph24.i.i ], [ false, %88 ], [ false, %79 ], [ false, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -1895,7 +1895,7 @@ _ZNK3sat6solver8num_varsEv.exit:                  ; preds = %27
   br label %.critedge, !llvm.loop !121
 
 .critedge:                                        ; preds = %_ZNK3sat6solver8num_varsEv.exit, %_ZNK3sat6solver8num_varsEv.exit.preheader, %..critedge.loopexit_crit_edge, %3
-  %.lcssa = phi ptr [ %14, %3 ], [ %28, %..critedge.loopexit_crit_edge ], [ %14, %_ZNK3sat6solver8num_varsEv.exit.preheader ], [ %28, %_ZNK3sat6solver8num_varsEv.exit ]
+  %.lcssa = phi ptr [ %14, %3 ], [ %14, %_ZNK3sat6solver8num_varsEv.exit.preheader ], [ %28, %..critedge.loopexit_crit_edge ], [ %28, %_ZNK3sat6solver8num_varsEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !122
   invoke void @_ZNK3sat6solver19collect_bin_clausesER7svectorISt4pairINS_7literalES3_EjEbb(ptr noundef nonnull align 8 dereferenceable(4264) %.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -2109,7 +2109,7 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev.exit: ; preds = %95, %97
   ret void
 
 102:                                              ; preds = %57, %93, %85, %77, %51
-  %.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %86, %85 ], [ %94, %93 ], [ %52, %51 ], [ %58, %57 ]
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %78, %77 ], [ %86, %85 ], [ %94, %93 ], [ %58, %57 ]
   call void @_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %103
@@ -4736,8 +4736,8 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i39:   ; preds = %_ZNK3sat3big9connec
   %.not.i44 = icmp eq ptr %199, %190
   br i1 %.not.i44, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48, label %.lr.ph.i41
 
-_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split: ; preds = %125, %165, %195, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47, %.loopexit25
-  %.sink = phi ptr [ %.sroa.151.0.copyload, %.loopexit25 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %195 ], [ null, %165 ], [ null, %125 ]
+_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split: ; preds = %125, %165, %195, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46, %.loopexit25
+  %.sink = phi ptr [ %.sroa.151.0.copyload, %.loopexit25 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %165 ], [ null, %195 ], [ null, %125 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !34
   br label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48
 

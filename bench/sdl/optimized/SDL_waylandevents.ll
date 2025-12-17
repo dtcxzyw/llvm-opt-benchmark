@@ -691,7 +691,7 @@ keyboard_repeat_handle.exit84:                    ; preds = %150, %116
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %keyboard_repeat_handle.exit84, %.preheader, %93, %105, %158, %162
-  %.2 = phi i32 [ %166, %162 ], [ %100, %93 ], [ 0, %105 ], [ %., %158 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit84 ], [ 1, %72 ]
+  %.2 = phi i32 [ %., %158 ], [ %166, %162 ], [ %100, %93 ], [ 0, %105 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit84 ], [ 1, %72 ]
   ret i32 %.2
 }
 
@@ -2613,13 +2613,13 @@ define hidden void @Wayland_SeatUpdatePointerGrab(ptr noundef %0) local_unnamed_
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 32768
   %.not19.i91 = icmp eq i64 %14, 0
-  br i1 %.not19.i91, label %25, label %15
+  br i1 %.not19.i91, label %22, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not20.i = icmp eq ptr %17, null
-  br i1 %.not20.i, label %22, label %18
+  br i1 %.not20.i, label %27, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2627,20 +2627,20 @@ define hidden void @Wayland_SeatUpdatePointerGrab(ptr noundef %0) local_unnamed_
   %21 = icmp eq ptr %20, %9
   br i1 %21, label %30, label %.critedge.i
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 268
-  %24 = load i32, ptr %23, align 4
-  %.not23.i = icmp eq i32 %24, 0
+22:                                               ; preds = %10
+  %23 = tail call ptr @SDL_GetMouse() #12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 190
+  %25 = load i8, ptr %24, align 2, !range !6, !noundef !7
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %30, label %.critedge.i
+
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 268
+  %29 = load i32, ptr %28, align 4
+  %.not23.i = icmp eq i32 %29, 0
   br i1 %.not23.i, label %.critedge.i, label %30
 
-25:                                               ; preds = %10
-  %26 = tail call ptr @SDL_GetMouse() #12
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 190
-  %28 = load i8, ptr %27, align 2, !range !6, !noundef !7
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %.critedge.i
-
-30:                                               ; preds = %25, %22, %18
+30:                                               ; preds = %27, %22, %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %32 = load ptr, ptr %31, align 8
   %.not22.i = icmp eq ptr %32, null
@@ -2660,7 +2660,7 @@ define hidden void @Wayland_SeatUpdatePointerGrab(ptr noundef %0) local_unnamed_
   %43 = tail call i32 %42(ptr noundef %41, ptr noundef nonnull @relative_pointer_listener, ptr noundef nonnull %0) #12
   br label %Wayland_SeatUpdateRelativePointer.exit
 
-.critedge.i:                                      ; preds = %25, %22, %18, %6
+.critedge.i:                                      ; preds = %27, %22, %18, %6
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %45 = load ptr, ptr %44, align 8
   %.not21.i = icmp eq ptr %45, null
@@ -2859,7 +2859,7 @@ SDL_PointInRect.exit:                             ; preds = %131
   br label %.thread101
 
 .thread101:                                       ; preds = %142, %147
-  %.0 = phi i32 [ %145, %142 ], [ %spec.select88, %147 ]
+  %.0 = phi i32 [ %spec.select88, %147 ], [ %145, %142 ]
   %152 = sitofp i32 %.057 to float
   %153 = sitofp i32 %.0 to float
   tail call void @Wayland_SeatWarpMouse(ptr noundef nonnull %0, ptr noundef nonnull %103, float noundef %152, float noundef %153) #12
@@ -2929,7 +2929,7 @@ SDL_PointInRect.exit:                             ; preds = %131
   %199 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %196(ptr noundef %195, i32 noundef 6, ptr noundef null, i32 noundef %198, i32 noundef 0) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %114, %101, %SDL_RectEmpty.exit, %104, %Wayland_SeatUpdateRelativePointer.exit, %65, %193, %.thread94, %70, %80
+.critedge:                                        ; preds = %114, %101, %104, %SDL_RectEmpty.exit, %Wayland_SeatUpdateRelativePointer.exit, %65, %193, %.thread94, %70, %80
   ret void
 }
 
@@ -3745,7 +3745,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   %87 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %86) #12
   br label %88
 
-88:                                               ; preds = %70, %._crit_edge83, %85, %._crit_edge, %.thread70
+88:                                               ; preds = %.thread70, %._crit_edge83, %70, %85, %._crit_edge
   %89 = load ptr, ptr %7, align 8
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
@@ -4393,7 +4393,7 @@ define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(n
   br label %8
 
 8:                                                ; preds = %5, %6, %7
-  %.0 = phi i64 [ 1, %6 ], [ 2, %7 ], [ 0, %5 ]
+  %.0 = phi i64 [ 2, %7 ], [ 1, %6 ], [ 0, %5 ]
   %9 = icmp eq i32 %4, 1
   %10 = zext i1 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5343,7 +5343,7 @@ define internal void @pointer_handle_frame(ptr noundef captures(none) initialize
   br label %20
 
 20:                                               ; preds = %2, %16, %13, %9
-  %.0 = phi float [ %12, %9 ], [ %15, %13 ], [ %19, %16 ], [ 0.000000e+00, %2 ]
+  %.0 = phi float [ %19, %16 ], [ %12, %9 ], [ %15, %13 ], [ 0.000000e+00, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %34 [
@@ -5370,7 +5370,7 @@ define internal void @pointer_handle_frame(ptr noundef captures(none) initialize
   br label %34
 
 34:                                               ; preds = %20, %30, %27, %23
-  %.020 = phi float [ %26, %23 ], [ %29, %27 ], [ %33, %30 ], [ 0.000000e+00, %20 ]
+  %.020 = phi float [ %33, %30 ], [ %26, %23 ], [ %29, %27 ], [ 0.000000e+00, %20 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %35 = fcmp une float %.0, 0.000000e+00
   %36 = fcmp une float %.020, 0.000000e+00
@@ -5764,7 +5764,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %43, %74, %7, %80, %
   br label %131
 
 131:                                              ; preds = %124, %113, %102, %91, %127, %116, %105, %94, %120, %109, %98, %87, %83
-  %.0 = phi i32 [ %86, %83 ], [ 0, %87 ], [ %spec.select79, %94 ], [ 0, %98 ], [ %spec.select82, %105 ], [ 0, %109 ], [ %spec.select85, %116 ], [ 0, %120 ], [ %spec.select88, %127 ], [ %spec.select93, %91 ], [ %spec.select94, %102 ], [ %spec.select95, %113 ], [ %spec.select96, %124 ]
+  %.0 = phi i32 [ %86, %83 ], [ 0, %109 ], [ 0, %87 ], [ %spec.select82, %105 ], [ %spec.select88, %127 ], [ 0, %120 ], [ %spec.select85, %116 ], [ %spec.select79, %94 ], [ 0, %98 ], [ %spec.select94, %102 ], [ %spec.select95, %113 ], [ %spec.select93, %91 ], [ %spec.select96, %124 ]
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %133 = load i32, ptr %132, align 8
   %.not78 = icmp eq i32 %.0, %133
@@ -6691,7 +6691,7 @@ Wayland_GetScancodeForKey.exit:                   ; preds = %82, %95
   br label %108
 
 108:                                              ; preds = %107, %106, %105, %104, %103, %102, %101, %100, %99, %97
-  %.0.i43 = phi i16 [ 2, %99 ], [ 64, %100 ], [ 128, %101 ], [ 256, %102 ], [ 512, %103 ], [ 1024, %104 ], [ 2048, %105 ], [ 16384, %106 ], [ 4, %107 ], [ 1, %97 ]
+  %.0.i43 = phi i16 [ 4, %107 ], [ 2, %99 ], [ 64, %100 ], [ 128, %101 ], [ 256, %102 ], [ 512, %103 ], [ 1024, %104 ], [ 2048, %105 ], [ 16384, %106 ], [ 1, %97 ]
   %109 = load i16, ptr %76, align 8
   %110 = or i16 %109, %.0.i43
   store i16 %110, ptr %76, align 8
@@ -6865,8 +6865,8 @@ Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %Wayland_GetKeyboard
   br label %keyboard_input_get_text.exit
 
 keyboard_input_get_text.exit:                     ; preds = %72, %61, %51, %54, %57, %81
-  %.163 = phi i1 [ false, %51 ], [ false, %54 ], [ false, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
-  %.019.i = phi i1 [ false, %51 ], [ false, %54 ], [ %84, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
+  %.163 = phi i1 [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %81 ], [ true, %61 ], [ true, %72 ]
+  %.019.i = phi i1 [ false, %51 ], [ false, %54 ], [ false, %57 ], [ %84, %81 ], [ true, %61 ], [ true, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %147
 
@@ -7074,7 +7074,7 @@ Wayland_GetScancodeForKey.exit:                   ; preds = %151, %166
   br label %177
 
 177:                                              ; preds = %176, %175, %174, %173, %172, %171, %170, %169, %168, %Wayland_GetScancodeForKey.exit
-  %.0.i58 = phi i16 [ 2, %168 ], [ 64, %169 ], [ 128, %170 ], [ 256, %171 ], [ 512, %172 ], [ 1024, %173 ], [ 2048, %174 ], [ 16384, %175 ], [ 4, %176 ], [ 1, %Wayland_GetScancodeForKey.exit ]
+  %.0.i58 = phi i16 [ 4, %176 ], [ 2, %168 ], [ 64, %169 ], [ 128, %170 ], [ 256, %171 ], [ 512, %172 ], [ 1024, %173 ], [ 2048, %174 ], [ 16384, %175 ], [ 1, %Wayland_GetScancodeForKey.exit ]
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %179 = load i16, ptr %178, align 8
   %180 = xor i16 %.0.i58, -1
@@ -7267,7 +7267,7 @@ keyboard_repeat_get_key.exit:                     ; preds = %keyboard_repeat_is_
   %54 = call i32 %52(ptr noundef %53) #12
   br label %keyboard_input_get_text.exit
 
-keyboard_input_get_text.exit.thread:              ; preds = %30, %keyboard_repeat_get_key.exit, %32
+keyboard_input_get_text.exit.thread:              ; preds = %keyboard_repeat_get_key.exit, %32, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %keyboard_repeat_set_text.exit
 
@@ -7560,7 +7560,7 @@ define internal void @Wayland_keymap_iter(ptr readnone captures(none) %0, i32 no
   br label %26
 
 26:                                               ; preds = %20, %21, %22, %23, %24, %14
-  %.0 = phi i32 [ %19, %14 ], [ %25, %24 ], [ 27, %21 ], [ 8, %22 ], [ 127, %23 ], [ 13, %20 ]
+  %.0 = phi i32 [ %19, %14 ], [ %25, %24 ], [ 127, %23 ], [ 27, %21 ], [ 8, %22 ], [ 13, %20 ]
   %27 = load ptr, ptr %2, align 8
   %28 = load i16, ptr %17, align 8
   call void @SDL_SetKeymapEntry(ptr noundef %27, i32 noundef %6, i16 noundef zeroext %28, i32 noundef %.0) #12

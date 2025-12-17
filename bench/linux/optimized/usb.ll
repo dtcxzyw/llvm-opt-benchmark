@@ -227,7 +227,7 @@ define dso_local noundef range(i32 -6, 1) i32 @usb_find_common_endpoints(ptr nou
   br label %50
 
 48:                                               ; preds = %38, %34
-  %49 = phi ptr [ %3, %34 ], [ %4, %38 ]
+  %49 = phi ptr [ %4, %38 ], [ %3, %34 ]
   store ptr %25, ptr %49, align 8
   br i1 %9, label %53, label %thread-pre-split
 
@@ -314,7 +314,7 @@ match_endpoint.exit.thread.us:                    ; preds = %41, %match_endpoint
   br i1 %86, label %thread-pre-split.i.us6, label %match_endpoint.exit.thread.us10
 
 thread-pre-split.i.us6:                           ; preds = %84, %73
-  %87 = phi ptr [ %2, %84 ], [ %4, %73 ]
+  %87 = phi ptr [ %4, %73 ], [ %2, %84 ]
   store ptr %65, ptr %87, align 8
   %.pr.i.us7 = load ptr, ptr %1, align 8
   br label %88
@@ -397,7 +397,7 @@ match_endpoint.exit.thread.us10:                  ; preds = %69, %match_endpoint
   br i1 %124, label %thread-pre-split.i.us14, label %match_endpoint.exit.thread.us18
 
 thread-pre-split.i.us14:                          ; preds = %122, %111
-  %125 = phi ptr [ %2, %122 ], [ %3, %111 ]
+  %125 = phi ptr [ %3, %111 ], [ %2, %122 ]
   store ptr %103, ptr %125, align 8
   %.pr.i.us15 = load ptr, ptr %1, align 8
   br label %126
@@ -486,7 +486,7 @@ match_endpoint.exit.thread:                       ; preds = %172, %176, %179, %.
   br i1 %170, label %thread-pre-split.i, label %match_endpoint.exit.thread
 
 thread-pre-split.i:                               ; preds = %168, %165, %158
-  %171 = phi ptr [ %2, %158 ], [ %3, %165 ], [ %4, %168 ]
+  %171 = phi ptr [ %4, %168 ], [ %2, %158 ], [ %3, %165 ]
   store ptr %146, ptr %171, align 8
   %.pr.i = load ptr, ptr %1, align 8
   br label %172
@@ -515,7 +515,7 @@ match_endpoint.exit:                              ; preds = %179
   br i1 %.not, label %match_endpoint.exit.thread, label %match_endpoint.exit.thread5
 
 match_endpoint.exit.thread5:                      ; preds = %match_endpoint.exit.thread, %match_endpoint.exit, %133, %match_endpoint.exit.thread.us18, %95, %match_endpoint.exit.us8, %match_endpoint.exit.thread.us10, %match_endpoint.exit.thread.us, %match_endpoint.exit.us, %57, %17
-  %183 = phi i32 [ -6, %17 ], [ 0, %57 ], [ -6, %match_endpoint.exit.thread.us ], [ 0, %match_endpoint.exit.us ], [ 0, %95 ], [ -6, %match_endpoint.exit.thread.us10 ], [ 0, %match_endpoint.exit.us8 ], [ -6, %match_endpoint.exit.thread.us18 ], [ 0, %133 ], [ -6, %match_endpoint.exit.thread ], [ 0, %match_endpoint.exit ]
+  %183 = phi i32 [ -6, %17 ], [ 0, %match_endpoint.exit.us8 ], [ -6, %match_endpoint.exit.thread.us18 ], [ 0, %match_endpoint.exit.us ], [ 0, %57 ], [ -6, %match_endpoint.exit.thread.us ], [ 0, %95 ], [ -6, %match_endpoint.exit.thread.us10 ], [ 0, %133 ], [ -6, %match_endpoint.exit.thread ], [ 0, %match_endpoint.exit ]
   ret i32 %183
 }
 
@@ -615,7 +615,7 @@ define dso_local noundef range(i32 -6, 1) i32 @usb_find_common_endpoints_reverse
   br label %50
 
 48:                                               ; preds = %38, %34
-  %49 = phi ptr [ %3, %34 ], [ %4, %38 ]
+  %49 = phi ptr [ %4, %38 ], [ %3, %34 ]
   store ptr %25, ptr %49, align 8
   br i1 %9, label %53, label %thread-pre-split
 
@@ -700,7 +700,7 @@ thread-pre-split:                                 ; preds = %48
   br i1 %85, label %thread-pre-split.i.us11, label %.backedge.us15
 
 thread-pre-split.i.us11:                          ; preds = %83, %72
-  %86 = phi ptr [ %2, %83 ], [ %4, %72 ]
+  %86 = phi ptr [ %4, %72 ], [ %2, %83 ]
   store ptr %64, ptr %86, align 8
   %.pr.i.us12 = load ptr, ptr %1, align 8
   br label %87
@@ -781,7 +781,7 @@ thread-pre-split.i.us11:                          ; preds = %83, %72
   br i1 %122, label %thread-pre-split.i.us23, label %.backedge.us27
 
 thread-pre-split.i.us23:                          ; preds = %120, %109
-  %123 = phi ptr [ %2, %120 ], [ %3, %109 ]
+  %123 = phi ptr [ %3, %109 ], [ %2, %120 ]
   store ptr %101, ptr %123, align 8
   %.pr.i.us24 = load ptr, ptr %1, align 8
   br label %124
@@ -861,7 +861,7 @@ thread-pre-split.i.us23:                          ; preds = %120, %109
   br i1 %162, label %thread-pre-split.i, label %.backedge
 
 thread-pre-split.i:                               ; preds = %160, %157, %150
-  %163 = phi ptr [ %2, %150 ], [ %3, %157 ], [ %4, %160 ]
+  %163 = phi ptr [ %4, %160 ], [ %2, %150 ], [ %3, %157 ]
   store ptr %138, ptr %163, align 8
   %.pr.i = load ptr, ptr %1, align 8
   br label %164
@@ -894,7 +894,7 @@ thread-pre-split.i:                               ; preds = %160, %157, %150
   br i1 %176, label %.lr.ph.split.split.split.split, label %match_endpoint.exit.thread, !llvm.loop !10
 
 match_endpoint.exit.thread:                       ; preds = %.backedge, %174, %.backedge.us27, %131, %.backedge.us15, %95, %94, %.backedge.us, %58, %57, %17
-  %177 = phi i32 [ -6, %17 ], [ 0, %57 ], [ 0, %58 ], [ -6, %.backedge.us ], [ 0, %94 ], [ 0, %95 ], [ -6, %.backedge.us15 ], [ 0, %131 ], [ -6, %.backedge.us27 ], [ 0, %174 ], [ -6, %.backedge ]
+  %177 = phi i32 [ -6, %.backedge.us15 ], [ -6, %.backedge.us27 ], [ -6, %17 ], [ 0, %57 ], [ 0, %58 ], [ -6, %.backedge.us ], [ 0, %94 ], [ 0, %95 ], [ 0, %131 ], [ -6, %.backedge ], [ 0, %174 ]
   ret i32 %177
 }
 
@@ -955,7 +955,7 @@ define dso_local noundef zeroext i1 @usb_check_bulk_endpoints(ptr noundef readon
   br i1 %37, label %14, label %.thread
 
 .thread:                                          ; preds = %14, %31, %33, %27, %5, %2
-  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ true, %14 ], [ false, %31 ], [ false, %33 ]
+  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
   ret i1 %38
 }
 
@@ -1016,7 +1016,7 @@ define dso_local noundef zeroext i1 @usb_check_int_endpoints(ptr noundef readonl
   br i1 %37, label %14, label %.thread
 
 .thread:                                          ; preds = %14, %31, %33, %27, %5, %2
-  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ true, %14 ], [ false, %31 ], [ false, %33 ]
+  %38 = phi i1 [ true, %2 ], [ false, %5 ], [ false, %27 ], [ false, %33 ], [ true, %14 ], [ false, %31 ]
   ret i1 %38
 }
 
@@ -1732,7 +1732,7 @@ define dso_local noundef range(i32 -113, 1) i32 @usb_lock_device_for_reset(ptr n
   br label %.split2.us
 
 .split2.us:                                       ; preds = %.split, %34, %34, %36, %26, %.split.us, %32, %24, %.split2.us.loopexit13, %.split2.us.loopexit12, %.thread, %13, %10, %10, %7, %2
-  %39 = phi i32 [ -113, %7 ], [ -19, %2 ], [ -4, %10 ], [ -4, %10 ], [ 0, %13 ], [ 0, %.thread ], [ -113, %24 ], [ -113, %32 ], [ -16, %.split.us ], [ 0, %26 ], [ -19, %.split2.us.loopexit12 ], [ -16, %.split ], [ -4, %34 ], [ -4, %34 ], [ 0, %36 ], [ -19, %.split2.us.loopexit13 ]
+  %39 = phi i32 [ -113, %7 ], [ -19, %2 ], [ -4, %10 ], [ -4, %10 ], [ 0, %13 ], [ 0, %.thread ], [ -19, %.split2.us.loopexit12 ], [ -113, %32 ], [ -113, %24 ], [ -16, %.split.us ], [ 0, %26 ], [ -16, %.split ], [ -4, %34 ], [ -4, %34 ], [ 0, %36 ], [ -19, %.split2.us.loopexit13 ]
   ret i32 %39
 }
 

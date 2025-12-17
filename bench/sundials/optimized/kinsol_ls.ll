@@ -818,7 +818,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %97
 
 97:                                               ; preds = %92, %95, %48, %48, %10, %75, %72, %57, %9
-  %.0 = phi i32 [ -2, %9 ], [ %24, %57 ], [ 1, %72 ], [ -1, %75 ], [ -1, %10 ], [ 1, %48 ], [ 1, %48 ], [ 0, %95 ], [ 0, %92 ]
+  %.0 = phi i32 [ -2, %9 ], [ 1, %48 ], [ %24, %57 ], [ -1, %10 ], [ 1, %72 ], [ -1, %75 ], [ 1, %48 ], [ 0, %95 ], [ 0, %92 ]
   ret i32 %.0
 }
 
@@ -1005,7 +1005,7 @@ kinLs_AccessLMem.exit:                            ; preds = %8
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %31, %65, %30
-  %.0 = phi i32 [ -3, %30 ], [ 0, %65 ], [ %61, %31 ], [ -2, %12 ], [ -1, %7 ]
+  %.0 = phi i32 [ 0, %65 ], [ -3, %30 ], [ %61, %31 ], [ -2, %12 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -1116,7 +1116,7 @@ kinLs_AccessLMem.exit:                            ; preds = %5
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %15, %.critedge, %14
-  %.0 = phi i32 [ -3, %14 ], [ 0, %.critedge ], [ 0, %15 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %15 ], [ -3, %14 ], [ 0, %.critedge ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1200,7 +1200,7 @@ kinLs_AccessLMem.exit:                            ; preds = %6
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %10, %5, %21, %27, %20
-  %.0 = phi i32 [ -3, %20 ], [ -8, %27 ], [ 0, %21 ], [ -2, %10 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %21 ], [ -3, %20 ], [ -8, %27 ], [ -2, %10 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -1353,7 +1353,7 @@ kinLs_AccessLMem.exit:                            ; preds = %5
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %21, %25, %17
-  %.0 = phi i32 [ -3, %17 ], [ 0, %25 ], [ 0, %21 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %21 ], [ -3, %17 ], [ 0, %25 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1403,7 +1403,7 @@ kinLs_AccessLMem.exit:                            ; preds = %5
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %9, %4, %14, %16, %12
-  %.0 = phi i32 [ -3, %12 ], [ 0, %16 ], [ 0, %14 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %12 ], [ 0, %14 ], [ 0, %16 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1545,7 +1545,7 @@ kinLs_AccessLMem.exit:                            ; preds = %10
   br label %kinLs_AccessLMem.exit.thread
 
 kinLs_AccessLMem.exit.thread:                     ; preds = %14, %9, %28, %38, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %38 ], [ 0, %28 ], [ -2, %14 ], [ -1, %9 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %35 ], [ 0, %38 ], [ -2, %14 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

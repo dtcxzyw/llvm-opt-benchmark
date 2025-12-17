@@ -1278,7 +1278,7 @@ define internal noundef zeroext i1 @dissect_ndmp_heur(ptr noundef %0, ptr nounde
   br label %12
 
 12:                                               ; preds = %7, %4, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %4 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %9 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1426,7 +1426,7 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   br label %83
 
 83:                                               ; preds = %cmp_address.exit.thread, %cmp_address.exit.thread.thread, %cmp_address.exit.thread.thread247
-  %84 = phi ptr [ %80, %cmp_address.exit.thread.thread247 ], [ %78, %cmp_address.exit.thread.thread ], [ %spec.select, %cmp_address.exit.thread ]
+  %84 = phi ptr [ %80, %cmp_address.exit.thread.thread247 ], [ %spec.select, %cmp_address.exit.thread ], [ %78, %cmp_address.exit.thread.thread ]
   %.0174 = load ptr, ptr %84, align 8
   %85 = load i32, ptr %3, align 4
   %86 = and i32 %39, 2147483647
@@ -1494,8 +1494,8 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   br label %120
 
 120:                                              ; preds = %.sink.split, %93, %106, %102
-  %.0171.shrunk.ph = phi i16 [ 0, %93 ], [ %104, %106 ], [ %104, %102 ], [ %.0171.shrunk.ph.ph, %.sink.split ]
-  %.0168.ph = phi i32 [ %85, %93 ], [ %105, %106 ], [ %105, %102 ], [ %.0168.ph.ph, %.sink.split ]
+  %.0171.shrunk.ph = phi i16 [ %104, %106 ], [ 0, %93 ], [ %104, %102 ], [ %.0171.shrunk.ph.ph, %.sink.split ]
+  %.0168.ph = phi i32 [ %105, %106 ], [ %85, %93 ], [ %105, %102 ], [ %.0168.ph.ph, %.sink.split ]
   %.0171 = zext i16 %.0171.shrunk.ph to i32
   store i8 1, ptr %40, align 8
   %121 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
@@ -1580,7 +1580,7 @@ check_ndmp_hdr.exit:                              ; preds = %162
   %166 = icmp ult i32 %165, 24
   br i1 %166, label %168, label %check_ndmp_hdr.exit.thread
 
-check_ndmp_hdr.exit.thread:                       ; preds = %162, %159, %156, %153, %check_ndmp_hdr.exit
+check_ndmp_hdr.exit.thread:                       ; preds = %159, %156, %153, %162, %check_ndmp_hdr.exit
   store i8 %41, ptr %40, align 8
   %167 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %378
@@ -1958,7 +1958,7 @@ dissect_ndmp_cmd.exit:                            ; preds = %346, %363, %365, %3
   br label %378
 
 378:                                              ; preds = %4, %dissect_ndmp_cmd.exit, %check_ndmp_hdr.exit.thread, %151, %134
-  %.0 = phi i32 [ %152, %151 ], [ %377, %dissect_ndmp_cmd.exit ], [ %167, %check_ndmp_hdr.exit.thread ], [ %146, %134 ], [ 0, %4 ]
+  %.0 = phi i32 [ %146, %134 ], [ %152, %151 ], [ %377, %dissect_ndmp_cmd.exit ], [ %167, %check_ndmp_hdr.exit.thread ], [ 0, %4 ]
   ret i32 %.0
 }
 

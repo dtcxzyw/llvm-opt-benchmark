@@ -1371,7 +1371,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i42: ; preds = %249, %246
-  %251 = phi ptr [ %243, %246 ], [ %.pr.pre.i.i.i.i48, %249 ]
+  %251 = phi ptr [ %.pr.pre.i.i.i.i48, %249 ], [ %243, %246 ]
   %.not8.i.i.i.i43 = icmp eq ptr %251, null
   br i1 %.not8.i.i.i.i43, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i47, label %252
 
@@ -1522,7 +1522,7 @@ _ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit:   ; preds = %294, %_ZNSt6vectorI
   br label %.body
 
 .body:                                            ; preds = %306, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i.i, %308, %304, %135, %73
-  %.pn = phi { ptr, i32 } [ %309, %308 ], [ %305, %304 ], [ %74, %73 ], [ %136, %135 ], [ %307, %306 ], [ %229, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %309, %308 ], [ %136, %135 ], [ %305, %304 ], [ %74, %73 ], [ %307, %306 ], [ %229, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_115SemisphereSceneESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i.i ]
   %310 = load ptr, ptr %12, align 8, !tbaa !50
   %.not.i.i.i55 = icmp eq ptr %310, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIN2cv7Affine3IfEESaIS2_EED2Ev.exit56, label %311

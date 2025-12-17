@@ -364,7 +364,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl7debian214flags_internal7Flag
   br label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %7, %16, %4, %25, %24, %21, %19, %15, %14, %12, %10, %9
-  %.0 = phi ptr [ null, %25 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ @_ZTIi, %15 ], [ %2, %19 ], [ null, %21 ], [ inttoptr (i64 80 to ptr), %24 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %16 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %16 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ inttoptr (i64 80 to ptr), %24 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ @_ZTIi, %15 ], [ %2, %19 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %21 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -562,8 +562,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   store ptr null, ptr %8, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.outer.backedge
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.outer.backedge: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %160
-  %.0.ph.be = phi ptr [ %125, %160 ], [ %125, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %71, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.outer.backedge: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, %160, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  %.0.ph.be = phi ptr [ %125, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %125, %160 ], [ %71, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.outer, !llvm.loop !10
 
 78:                                               ; preds = %62
@@ -1061,7 +1061,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit69.thread120: ; preds = %
           to label %.invoke unwind label %.loopexit252
 
 .invoke:                                          ; preds = %.invoke230, %264
-  %266 = phi ptr [ %265, %264 ], [ %61, %.invoke230 ]
+  %266 = phi ptr [ %61, %.invoke230 ], [ %265, %264 ]
   %267 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %266, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.backedge unwind label %.loopexit252
 
@@ -1158,8 +1158,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit81: ; pre
   ret void
 
 308:                                              ; preds = %.loopexit252, %.loopexit.split-lp253, %165, %253, %255
-  %.sroa.0105.2 = phi ptr [ %.sroa.0105.5, %165 ], [ %.0.ph, %253 ], [ %.0.ph, %255 ], [ %.0.ph, %.loopexit.split-lp253 ], [ %.0.ph, %.loopexit252 ]
-  %.pn36 = phi { ptr, i32 } [ %.pn33.pn, %165 ], [ %.pn31, %253 ], [ %.pn31, %255 ], [ %lpad.loopexit254, %.loopexit252 ], [ %lpad.loopexit.split-lp255, %.loopexit.split-lp253 ]
+  %.sroa.0105.2 = phi ptr [ %.0.ph, %255 ], [ %.sroa.0105.5, %165 ], [ %.0.ph, %253 ], [ %.0.ph, %.loopexit.split-lp253 ], [ %.0.ph, %.loopexit252 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn31, %255 ], [ %.pn33.pn, %165 ], [ %.pn31, %253 ], [ %lpad.loopexit254, %.loopexit252 ], [ %lpad.loopexit.split-lp255, %.loopexit.split-lp253 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
   %.not.i82 = icmp eq ptr %.sroa.0105.2, null

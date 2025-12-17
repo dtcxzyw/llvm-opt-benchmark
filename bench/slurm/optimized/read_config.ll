@@ -743,7 +743,7 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   br i1 %.not145, label %244, label %.sink.split263
 
 .sink.split263:                                   ; preds = %241, %238, %235, %232, %229, %226, %223, %220
-  %.sink264 = phi i16 [ 0, %220 ], [ 1, %223 ], [ 2, %226 ], [ 3, %229 ], [ 7, %232 ], [ 4, %235 ], [ 5, %238 ], [ 6, %241 ]
+  %.sink264 = phi i16 [ 0, %220 ], [ 2, %226 ], [ 7, %232 ], [ 5, %238 ], [ 4, %235 ], [ 3, %229 ], [ 1, %223 ], [ 6, %241 ]
   store i16 %.sink264, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 624), align 8
   br label %244
 

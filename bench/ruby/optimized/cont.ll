@@ -782,9 +782,9 @@ rb_array_const_ptr.exit:                          ; preds = %58, %56, %41
   br label %113
 
 113:                                              ; preds = %101, %.thread50, %109, %111, %.critedge
-  %.0..0..0.40 = phi ptr [ %0, %101 ], [ %0, %111 ], [ %0, %.critedge ], [ %0, %109 ], [ %.0..0..0..0.40.pre, %.thread50 ]
-  %.041 = phi i32 [ 1, %101 ], [ 1, %111 ], [ 1, %.critedge ], [ 0, %109 ], [ 1, %.thread50 ]
-  %.0 = phi i64 [ %108, %101 ], [ %108, %111 ], [ %112, %.critedge ], [ 0, %109 ], [ 0, %.thread50 ]
+  %.0..0..0.40 = phi ptr [ %0, %101 ], [ %.0..0..0..0.40.pre, %.thread50 ], [ %0, %111 ], [ %0, %.critedge ], [ %0, %109 ]
+  %.041 = phi i32 [ 1, %101 ], [ 1, %.thread50 ], [ 1, %111 ], [ 1, %.critedge ], [ 0, %109 ]
+  %.0 = phi i64 [ %108, %101 ], [ 0, %.thread50 ], [ %108, %111 ], [ %112, %.critedge ], [ 0, %109 ]
   call fastcc void @rb_fiber_terminate(ptr noundef %.0..0..0.40, i32 noundef %.041, i64 noundef %.0) #37
   unreachable
 }
@@ -2336,7 +2336,7 @@ fiber_transfer_kw.exit:                           ; preds = %.split16.us
   br label %45
 
 45:                                               ; preds = %43, %fiber_transfer_kw.exit
-  %.0 = phi i64 [ %44, %43 ], [ %42, %fiber_transfer_kw.exit ]
+  %.0 = phi i64 [ %42, %fiber_transfer_kw.exit ], [ %44, %43 ]
   ret i64 %.0
 }
 
@@ -2711,7 +2711,7 @@ fiber_storage_get.exit:                           ; preds = %fiber_current.exit,
   br label %39
 
 39:                                               ; preds = %fiber_storage_get.exit, %37, %35
-  %.0 = phi i64 [ %36, %35 ], [ %38, %37 ], [ 4, %fiber_storage_get.exit ]
+  %.0 = phi i64 [ %38, %37 ], [ %36, %35 ], [ 4, %fiber_storage_get.exit ]
   ret i64 %.0
 }
 
@@ -3358,7 +3358,7 @@ define dso_local void @ruby_Init_Continuation_body() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !61
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.32) #9
   %19 = load i64, ptr @rb_cContinuation, align 8, !tbaa !61

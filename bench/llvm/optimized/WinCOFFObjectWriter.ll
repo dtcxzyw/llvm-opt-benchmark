@@ -1171,7 +1171,7 @@ _ZL12isDwoSectionRKN4llvm9MCSectionE.exit:        ; preds = %29
   br i1 %34, label %209, label %.thread
 
 .thread:                                          ; preds = %29, %12, %3, %_ZNK4llvm8MCSymbol11getFragmentEb.exit, %_ZL12isDwoSectionRKN4llvm9MCSectionE.exit, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.thread85
-  %.091 = phi ptr [ %24, %_ZL12isDwoSectionRKN4llvm9MCSectionE.exit ], [ %24, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.thread85 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ null, %3 ], [ null, %12 ], [ %24, %29 ]
+  %.091 = phi ptr [ null, %12 ], [ %24, %_ZL12isDwoSectionRKN4llvm9MCSectionE.exit ], [ %24, %_ZNK4llvm8MCSymbol11getFragmentEb.exit.thread85 ], [ null, %_ZNK4llvm8MCSymbol11getFragmentEb.exit ], [ null, %3 ], [ %24, %29 ]
   %35 = tail call fastcc noundef ptr @_ZN4llvm13WinCOFFWriter21GetOrCreateCOFFSymbolEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2)
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i64, ptr %36, align 8
@@ -2571,7 +2571,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter19setWeakDefaultNamesEv(ptr nounde
   %.not34 = icmp eq i32 %64, 0
   br i1 %.not34, label %.split.us, label %.loopexit87
 
-.loopexit87:                                      ; preds = %46, %.loopexit86, %58, %61, %34
+.loopexit87:                                      ; preds = %46, %.loopexit86, %61, %58, %34
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.066.089, i64 8
   %.not84 = icmp eq ptr %65, %.val38
   br i1 %.not84, label %._ZNK4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5countEPKS3_.exit_crit_edge.split, label %34
@@ -2580,7 +2580,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter19setWeakDefaultNamesEv(ptr nounde
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .split.us:                                        ; preds = %.thread, %61, %58, %.thread.us.us103, %19, %29, %26
-  %.us-phi = phi ptr [ %.val42.us.us.us, %26 ], [ %.val42.us.us.us, %29 ], [ %.val42.us.us100, %19 ], [ %.val42.us.us100, %.thread.us.us103 ], [ %.val42, %58 ], [ %.val42, %61 ], [ %.val42, %.thread ]
+  %.us-phi = phi ptr [ %.val42.us.us100, %.thread.us.us103 ], [ %.val42.us.us.us, %29 ], [ %.val42.us.us.us, %26 ], [ %.val42.us.us100, %19 ], [ %.val42, %58 ], [ %.val42, %61 ], [ %.val42, %.thread ]
   %66 = zext i32 %.val45 to i64
   %.idx.i.i = shl nuw nsw i64 %66, 3
   %67 = getelementptr i8, ptr %.val44, i64 %.idx.i.i
@@ -2601,7 +2601,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter19setWeakDefaultNamesEv(ptr nounde
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit, label %.lr.ph.i.i.i.i.i56, !llvm.loop !315
 
 _ZN4llvm6detail12DenseSetImplIPN12_GLOBAL__N_110COFFSymbolENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit: ; preds = %.lr.ph.i.i.i.i.i56, %.critedge2.i.i.i.i.i, %.split.us
-  %.pn9.i.i = phi ptr [ %.val44, %.split.us ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i56 ], [ %67, %.critedge2.i.i.i.i.i ]
+  %.pn9.i.i = phi ptr [ %.val44, %.split.us ], [ %67, %.critedge2.i.i.i.i.i ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i56 ]
   %70 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.val44, i64 %66
   %.not85112 = icmp eq ptr %.pn9.i.i, %70
   br i1 %.not85112, label %.loopexit, label %.lr.ph114
@@ -6897,7 +6897,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %53, label %46, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_111COFFSectionESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZN4llvm13WinCOFFWriter19writeSectionHeadersEvE3$_0EEEvT_T0_SH_T1_T2_.exit.us.i.i.i", !llvm.loop !613
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_111COFFSectionESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZN4llvm13WinCOFFWriter19writeSectionHeadersEvE3$_0EEEvT_T0_SH_T1_T2_.exit.us.i.i.i": ; preds = %51, %46, %.split.us.i.i.i
-  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.09.us.i.i.i, %.split.us.i.i.i ], [ %.06.i.i.us.i.i.i, %46 ], [ %.097.i.i.us.i.i.i, %51 ]
+  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.09.us.i.i.i, %.split.us.i.i.i ], [ %.097.i.i.us.i.i.i, %51 ], [ %.06.i.i.us.i.i.i, %46 ]
   %54 = getelementptr inbounds nuw ptr, ptr %.fr5.i.i.i, i64 %.0.lcssa.i.i.us.i.i.i
   store ptr %29, ptr %54, align 8, !tbaa !127
   %.not.us.i.i.i = icmp eq i64 %.09.us.i.i.i, 0

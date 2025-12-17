@@ -1349,7 +1349,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br label %387
 
 .critedge:                                        ; preds = %261, %233, %307, %.critedge110, %312, %.critedge107, %266, %379, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236, %283, %291, %299, %237, %245, %253, %209, %217, %225
-  %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236 ], [ false, %225 ], [ false, %217 ], [ false, %209 ], [ %232, %233 ], [ false, %253 ], [ false, %245 ], [ false, %237 ], [ %260, %261 ], [ false, %299 ], [ false, %291 ], [ false, %283 ], [ %306, %307 ], [ true, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_.exit ], [ true, %379 ], [ false, %266 ], [ false, %.critedge107 ], [ false, %312 ], [ false, %.critedge110 ]
+  %.0 = phi i1 [ %306, %307 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236 ], [ %232, %233 ], [ true, %379 ], [ %260, %261 ], [ false, %.critedge107 ], [ false, %225 ], [ false, %217 ], [ false, %209 ], [ false, %253 ], [ false, %245 ], [ false, %237 ], [ false, %299 ], [ false, %291 ], [ false, %283 ], [ true, %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_.exit ], [ false, %266 ], [ false, %312 ], [ false, %.critedge110 ]
   call void @_ZN6crypto4HKDFD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %20) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %385 = load ptr, ptr %16, align 8, !tbaa !3
@@ -1707,7 +1707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %107
   br label %110
 
 .critedge34:                                      ; preds = %.critedge, %25, %.critedge33, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.126 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %32 ], [ false, %.critedge33 ], [ false, %25 ], [ false, %.critedge ]
+  %.126 = phi i1 [ false, %.critedge33 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %32 ], [ false, %25 ], [ false, %.critedge ]
   ret i1 %.126
 
 110:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %37, %30

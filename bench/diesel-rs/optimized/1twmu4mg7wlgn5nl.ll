@@ -336,7 +336,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
   br label %.body
 
 .body:                                            ; preds = %34, %42, %51, %21
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %35, %42 ], [ %35, %34 ], [ %52, %51 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %35, %34 ], [ %35, %42 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #12
           to label %99 unwind label %97
 

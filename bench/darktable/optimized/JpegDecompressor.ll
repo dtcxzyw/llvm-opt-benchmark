@@ -304,13 +304,13 @@ _ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit: ; preds = %_ZNSt6
   ret void
 
 .thread:                                          ; preds = %59, %61
-  %.pn.pn139 = phi { ptr, i32 } [ %60, %59 ], [ %lpad.phi, %61 ]
+  %.pn.pn139 = phi { ptr, i32 } [ %lpad.phi, %61 ], [ %60, %59 ]
   call void @llvm.assume(i1 %.not146)
   call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %.sroa.0103.1, i64 noundef 16) #20
   br label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43
 
 _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit43: ; preds = %.thread, %.thread141, %16
-  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %.pn.pn139, %.thread ], [ %58, %.thread141 ]
+  %.pn27 = phi { ptr, i32 } [ %17, %16 ], [ %58, %.thread141 ], [ %.pn.pn139, %.thread ]
   invoke void @jpeg_destroy_decompress(ptr noundef nonnull align 8 dereferenceable(824) %4)
           to label %_ZN8rawspeed16JpegDecompressor20JpegDecompressStructD2Ev.exit44 unwind label %125
 

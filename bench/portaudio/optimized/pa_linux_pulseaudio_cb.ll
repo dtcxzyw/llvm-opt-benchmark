@@ -52,7 +52,7 @@ define range(i32 -16, 1) i32 @PaPulseAudio_updateTimeInfo(ptr noundef %0, ptr no
   br label %27
 
 27:                                               ; preds = %25, %22, %9, %3
-  %.0 = phi i32 [ -16, %3 ], [ -16, %9 ], [ 0, %22 ], [ 0, %25 ]
+  %.0 = phi i32 [ -16, %9 ], [ -16, %3 ], [ 0, %22 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -333,7 +333,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   br label %22
 
 22:                                               ; preds = %18, %21, %2
-  %.090 = phi i64 [ 32, %21 ], [ %16, %2 ], [ %20, %18 ]
+  %.090 = phi i64 [ %16, %2 ], [ 32, %21 ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %.not108 = icmp eq ptr %24, null
@@ -387,7 +387,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   br label %52
 
 52:                                               ; preds = %47, %43, %42
-  %.287 = phi i64 [ %.186, %43 ], [ %.186, %42 ], [ %spec.select135, %47 ]
+  %.287 = phi i64 [ %.186, %42 ], [ %spec.select135, %47 ], [ %.186, %43 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %54 = load volatile i32, ptr %53, align 8, !tbaa !54
   %.not113 = icmp eq i32 %54, 0
@@ -1135,7 +1135,7 @@ PaPulseAudio_UnLock.exit120:                      ; preds = %57, %58
   %.not99 = icmp eq i32 %61, 0
   br i1 %.not99, label %.critedge, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %PaPulseAudio_UnLock.exit120, %29, %55, %56
+.critedge.thread:                                 ; preds = %29, %PaPulseAudio_UnLock.exit120, %55, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
@@ -1259,7 +1259,7 @@ PaPulseAudio_Lock.exit126:                        ; preds = %98, %101
   %.not105 = icmp eq i32 %115, 0
   br i1 %.not105, label %.critedge111, label %.critedge111.thread
 
-.critedge111.thread:                              ; preds = %112, %84, %109, %111
+.critedge111.thread:                              ; preds = %84, %112, %109, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %121
 

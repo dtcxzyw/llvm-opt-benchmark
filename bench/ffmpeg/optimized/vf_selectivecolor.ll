@@ -631,7 +631,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   br label %81
 
 81:                                               ; preds = %77, %79, %.lr.ph10
-  %82 = phi i32 [ 0, %.lr.ph10 ], [ 128, %77 ], [ %80, %79 ]
+  %82 = phi i32 [ 0, %.lr.ph10 ], [ %80, %79 ], [ 128, %77 ]
   %83 = icmp sgt i8 %76, -1
   %84 = select i1 %83, i32 256, i32 0
   %85 = icmp eq i8 %68, %56
@@ -949,7 +949,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   br label %83
 
 83:                                               ; preds = %79, %81, %.lr.ph10
-  %84 = phi i32 [ 0, %.lr.ph10 ], [ 128, %79 ], [ %82, %81 ]
+  %84 = phi i32 [ 0, %.lr.ph10 ], [ %82, %81 ], [ 128, %79 ]
   %85 = icmp sgt i16 %78, -1
   %86 = select i1 %85, i32 256, i32 0
   %87 = icmp eq i16 %70, %58
@@ -1360,7 +1360,7 @@ define internal i32 @get_rgb_scale(i32 noundef %0, i32 noundef %1, i32 noundef %
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %7, %9, %10, %12
-  %.0.i = phi i32 [ %1, %7 ], [ %1, %10 ], [ %..i, %9 ], [ %.20.i, %12 ]
+  %.0.i = phi i32 [ %..i, %9 ], [ %1, %10 ], [ %1, %7 ], [ %.20.i, %12 ]
   %13 = sub nsw i32 %4, %.0.i
   ret i32 %13
 }
@@ -1387,7 +1387,7 @@ define internal i32 @get_cmy_scale(i32 noundef %0, i32 noundef %1, i32 noundef %
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %7, %9, %10, %12
-  %.0.i = phi i32 [ %1, %7 ], [ %1, %10 ], [ %..i, %9 ], [ %.20.i, %12 ]
+  %.0.i = phi i32 [ %..i, %9 ], [ %1, %10 ], [ %1, %7 ], [ %.20.i, %12 ]
   %13 = sub nsw i32 %.0.i, %3
   ret i32 %13
 }

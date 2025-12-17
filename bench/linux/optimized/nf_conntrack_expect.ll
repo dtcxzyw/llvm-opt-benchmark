@@ -772,7 +772,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %16, %20
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %175, %177, %nf_ct_expect_dst_hash.exit, %178, %169, %168, %163, %159, %158, %147, %127, %120, %4
-  %179 = phi ptr [ %52, %168 ], [ null, %4 ], [ null, %120 ], [ null, %147 ], [ null, %127 ], [ %52, %158 ], [ %52, %159 ], [ %52, %163 ], [ null, %169 ], [ null, %178 ], [ null, %nf_ct_expect_dst_hash.exit ], [ null, %177 ], [ null, %175 ], [ null, %.loopexit ]
+  %179 = phi ptr [ %52, %168 ], [ null, %4 ], [ null, %175 ], [ null, %120 ], [ null, %147 ], [ null, %127 ], [ %52, %158 ], [ %52, %159 ], [ %52, %163 ], [ null, %169 ], [ null, %178 ], [ null, %nf_ct_expect_dst_hash.exit ], [ null, %177 ], [ null, %.loopexit ]
   ret ptr %179
 }
 
@@ -1677,7 +1677,7 @@ nf_ct_expect_dst_hash.exit22:                     ; preds = %348, %356
   br label %.thread29
 
 .thread29:                                        ; preds = %149, %232, %4, %15, %326, %329, %.thread25, %27, %422
-  %435 = phi i32 [ 0, %422 ], [ -24, %326 ], [ -24, %329 ], [ -24, %.thread25 ], [ -108, %27 ], [ -108, %15 ], [ -108, %4 ], [ -16, %232 ], [ -114, %149 ]
+  %435 = phi i32 [ 0, %422 ], [ -108, %27 ], [ -24, %.thread25 ], [ -108, %4 ], [ -108, %15 ], [ -24, %326 ], [ -24, %329 ], [ -16, %232 ], [ -114, %149 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #10
   ret i32 %435
 }

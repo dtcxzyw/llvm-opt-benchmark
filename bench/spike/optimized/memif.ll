@@ -70,9 +70,9 @@ define void @_ZN7memif_t4readEmmPv(ptr noundef nonnull readonly align 8 captures
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %4, %13, %11
-  %.059 = phi i64 [ %25, %13 ], [ %2, %11 ], [ 0, %4 ]
-  %.039 = phi ptr [ %23, %13 ], [ %3, %11 ], [ %3, %4 ]
-  %.038 = phi i64 [ %24, %13 ], [ %1, %11 ], [ %1, %4 ]
+  %.059 = phi i64 [ %2, %11 ], [ %25, %13 ], [ 0, %4 ]
+  %.039 = phi ptr [ %3, %11 ], [ %23, %13 ], [ %3, %4 ]
+  %.038 = phi i64 [ %1, %11 ], [ %24, %13 ], [ %1, %4 ]
   %26 = and i64 %.059, %.pre
   %.not43 = icmp eq i64 %26, 0
   br i1 %.not43, label %36, label %27
@@ -174,9 +174,9 @@ define void @_ZN7memif_t5writeEmmPKv(ptr noundef nonnull readonly align 8 captur
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %4, %13, %11
-  %.078 = phi i64 [ %29, %13 ], [ %2, %11 ], [ 0, %4 ]
-  %.054 = phi ptr [ %27, %13 ], [ %3, %11 ], [ %3, %4 ]
-  %.053 = phi i64 [ %28, %13 ], [ %1, %11 ], [ %1, %4 ]
+  %.078 = phi i64 [ %2, %11 ], [ %29, %13 ], [ 0, %4 ]
+  %.054 = phi ptr [ %3, %11 ], [ %27, %13 ], [ %3, %4 ]
+  %.053 = phi i64 [ %1, %11 ], [ %28, %13 ], [ %1, %4 ]
   %30 = and i64 %.078, %.pre
   %.not59 = icmp eq i64 %30, 0
   br i1 %.not59, label %44, label %31

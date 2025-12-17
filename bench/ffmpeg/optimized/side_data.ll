@@ -251,7 +251,7 @@ define ptr @ff_frame_side_data_add_from_buf(ptr noundef captures(none) %0, ptr n
   br label %add_side_data_from_buf_ext.exit
 
 add_side_data_from_buf_ext.exit:                  ; preds = %19, %17, %12, %5, %4
-  %.0 = phi ptr [ null, %4 ], [ %18, %19 ], [ null, %5 ], [ null, %12 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ %18, %19 ], [ null, %12 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -413,7 +413,7 @@ ff_frame_side_data_add_from_buf.exit:             ; preds = %63
   br label %74
 
 74:                                               ; preds = %ff_frame_side_data_add_from_buf.exit, %replace_side_data_from_buf.exit, %73, %50
-  %.0 = phi ptr [ null, %50 ], [ %38, %replace_side_data_from_buf.exit ], [ null, %73 ], [ %64, %ff_frame_side_data_add_from_buf.exit ]
+  %.0 = phi ptr [ %38, %replace_side_data_from_buf.exit ], [ null, %50 ], [ null, %73 ], [ %64, %ff_frame_side_data_add_from_buf.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -686,8 +686,8 @@ define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captu
   br i1 %41, label %.lr.ph.i, label %av_frame_side_data_remove.exit, !llvm.loop !22
 
 av_frame_side_data_remove.exit:                   ; preds = %38, %.thread, %17
-  %42 = phi i32 [ %18, %17 ], [ %14, %.thread ], [ %18, %38 ]
-  %43 = phi i32 [ %13, %17 ], [ 0, %.thread ], [ %39, %38 ]
+  %42 = phi i32 [ %14, %.thread ], [ %18, %17 ], [ %18, %38 ]
+  %43 = phi i32 [ 0, %.thread ], [ %13, %17 ], [ %39, %38 ]
   %.not59.not = icmp eq i32 %42, 20
   br i1 %.not59.not, label %av_frame_side_data_get.exit.thread, label %44
 
@@ -756,7 +756,7 @@ av_frame_side_data_get.exit:                      ; preds = %.lr.ph.i.i
   br label %75
 
 75:                                               ; preds = %54, %av_frame_side_data_get.exit, %66, %65
-  %.1 = phi i32 [ %63, %65 ], [ 0, %66 ], [ -17, %av_frame_side_data_get.exit ], [ %57, %54 ]
+  %.1 = phi i32 [ -17, %av_frame_side_data_get.exit ], [ %63, %65 ], [ 0, %66 ], [ %57, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %remove_side_data_by_entry.exit
 
@@ -863,7 +863,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %48, %av_frame_side_
   br i1 %128, label %114, label %remove_side_data_by_entry.exit, !llvm.loop !38
 
 remove_side_data_by_entry.exit:                   ; preds = %.critedge.i, %117, %109, %95, %av_frame_side_data_get.exit.thread, %4, %15, %94, %75
-  %.0 = phi i32 [ -12, %94 ], [ %.1, %75 ], [ -22, %15 ], [ -22, %4 ], [ -12, %av_frame_side_data_get.exit.thread ], [ 0, %95 ], [ %107, %109 ], [ %107, %117 ], [ %107, %.critedge.i ]
+  %.0 = phi i32 [ 0, %95 ], [ -12, %av_frame_side_data_get.exit.thread ], [ -12, %94 ], [ -22, %4 ], [ %.1, %75 ], [ -22, %15 ], [ %107, %109 ], [ %107, %117 ], [ %107, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

@@ -386,9 +386,9 @@ ir_sccp_add_input.exit.i:                         ; preds = %143, %ir_sccp_ident
   br i1 %146, label %90, label %ir_sccp_add_uses.exit.backedge
 
 .loopexit.i:                                      ; preds = %143, %ir_sccp_identity.exit141.i, %105, %99
-  %.0111.i = phi ptr [ %102, %99 ], [ null, %ir_sccp_identity.exit141.i ], [ null, %143 ], [ %107, %105 ]
-  %.0110.i = phi i32 [ 0, %99 ], [ %127, %ir_sccp_identity.exit141.i ], [ %97, %143 ], [ 0, %105 ]
-  %.2.i386 = phi i32 [ 0, %99 ], [ %.0.i139.i, %ir_sccp_identity.exit141.i ], [ %97, %143 ], [ 0, %105 ]
+  %.0111.i = phi ptr [ %102, %99 ], [ null, %143 ], [ null, %ir_sccp_identity.exit141.i ], [ %107, %105 ]
+  %.0110.i = phi i32 [ 0, %99 ], [ %97, %143 ], [ %127, %ir_sccp_identity.exit141.i ], [ 0, %105 ]
+  %.2.i386 = phi i32 [ 0, %99 ], [ %97, %143 ], [ %.0.i139.i, %ir_sccp_identity.exit141.i ], [ 0, %105 ]
   %147 = icmp samesign ugt i32 %.in.i, 2
   br i1 %147, label %.lr.ph191.i, label %._crit_edge.i
 
@@ -651,8 +651,8 @@ ir_sccp_identity.exit.i.i:                        ; preds = %.preheader.i, %245
   br i1 %272, label %.preheader.i415, label %ir_sccp_add_identity.exit
 
 ir_sccp_add_identity.exit:                        ; preds = %.preheader.i415, %256, %259, %262
-  %.pre-phi.i413 = phi i64 [ %223, %259 ], [ %223, %262 ], [ %223, %256 ], [ %269, %.preheader.i415 ]
-  %.0.i414 = phi i32 [ %.0110.i, %259 ], [ %.0110.i, %262 ], [ %.0110.i, %256 ], [ %268, %.preheader.i415 ]
+  %.pre-phi.i413 = phi i64 [ %223, %262 ], [ %223, %259 ], [ %223, %256 ], [ %269, %.preheader.i415 ]
+  %.0.i414 = phi i32 [ %.0110.i, %262 ], [ %.0110.i, %259 ], [ %.0110.i, %256 ], [ %268, %.preheader.i415 ]
   %273 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %.pre-phi.i413
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 12
   %275 = load i32, ptr %274, align 4, !tbaa !39
@@ -850,8 +850,8 @@ ir_sccp_add_identity.exit:                        ; preds = %.preheader.i415, %2
   br label %ir_sccp_add_input.exit
 
 ir_sccp_add_input.exit:                           ; preds = %358, %361, %373, %354, %374, %.lr.ph
-  %.2310 = phi i1 [ true, %374 ], [ %.1309494, %.lr.ph ], [ %.1309494, %354 ], [ %.1309494, %373 ], [ %.1309494, %361 ], [ %.1309494, %358 ]
-  %.1307 = phi i1 [ %.0306495, %374 ], [ %.0306495, %.lr.ph ], [ %.0306495, %354 ], [ true, %373 ], [ true, %361 ], [ true, %358 ]
+  %.2310 = phi i1 [ %.1309494, %.lr.ph ], [ true, %374 ], [ %.1309494, %354 ], [ %.1309494, %373 ], [ %.1309494, %361 ], [ %.1309494, %358 ]
+  %.1307 = phi i1 [ %.0306495, %.lr.ph ], [ %.0306495, %374 ], [ %.0306495, %354 ], [ true, %373 ], [ true, %361 ], [ true, %358 ]
   %375 = getelementptr inbounds nuw i8, ptr %.0302496, i64 4
   %376 = add nsw i32 %.0293497, -1
   %377 = icmp sgt i32 %.0293497, 1
@@ -1388,8 +1388,8 @@ ir_sccp_identity.exit.i.i401:                     ; preds = %.preheader.i399, %6
   br i1 %668, label %.preheader.i422, label %ir_sccp_add_identity.exit425
 
 ir_sccp_add_identity.exit425:                     ; preds = %.preheader.i422, %653, %656, %659
-  %.pre-phi.i420 = phi i64 [ %649, %659 ], [ %649, %653 ], [ %649, %656 ], [ %665, %.preheader.i422 ]
-  %.0.i421 = phi i32 [ %.1.i390, %659 ], [ %.1.i390, %653 ], [ %.1.i390, %656 ], [ %664, %.preheader.i422 ]
+  %.pre-phi.i420 = phi i64 [ %649, %656 ], [ %649, %653 ], [ %649, %659 ], [ %665, %.preheader.i422 ]
+  %.0.i421 = phi i32 [ %.1.i390, %656 ], [ %.1.i390, %653 ], [ %.1.i390, %659 ], [ %664, %.preheader.i422 ]
   %669 = getelementptr inbounds %struct._ir_insn, ptr %1, i64 %.pre-phi.i420
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 12
   %671 = load i32, ptr %670, align 4, !tbaa !39
@@ -1489,7 +1489,7 @@ ir_sccp_add_identity.exit425:                     ; preds = %.preheader.i422, %6
   store i32 108, ptr %703, align 8, !tbaa !39
   br label %725
 
-725:                                              ; preds = %605, %606, %646, %ir_sccp_add_identity.exit425, %681, %701, %700, %706, %724, %723
+725:                                              ; preds = %700, %606, %605, %ir_sccp_add_identity.exit425, %646, %681, %701, %706, %724, %723
   %726 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   %727 = load i8, ptr %726, align 8, !tbaa !39
   %728 = icmp eq i8 %727, 108
@@ -1708,7 +1708,7 @@ ir_bitqueue_add.exit377:                          ; preds = %763, %753, %752
   br i1 %826, label %ir_sccp_add_uses.exit.backedge.sink.split, label %ir_sccp_add_uses.exit.backedge
 
 ir_sccp_add_uses.exit.backedge.sink.split:        ; preds = %815, %1124, %958, %905, %875
-  %.sink = phi i32 [ %877, %875 ], [ %906, %905 ], [ %960, %958 ], [ %1125, %1124 ], [ %816, %815 ]
+  %.sink = phi i32 [ %960, %958 ], [ %906, %905 ], [ %877, %875 ], [ %1125, %1124 ], [ %816, %815 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !35
   br label %ir_sccp_add_uses.exit.backedge
 
@@ -1772,7 +1772,7 @@ ir_sccp_add_uses.exit.backedge:                   ; preds = %480, %ir_sccp_add_i
   br label %ir_sccp_is_true.exit
 
 ir_sccp_is_true.exit:                             ; preds = %832, %839, %845, %852, %855
-  %.0.i.i409 = phi i1 [ %842, %839 ], [ %848, %845 ], [ %854, %852 ], [ %857, %855 ], [ true, %832 ]
+  %.0.i.i409 = phi i1 [ %857, %855 ], [ %842, %839 ], [ %848, %845 ], [ %854, %852 ], [ true, %832 ]
   %858 = load ptr, ptr %11, align 8, !tbaa !41
   %859 = getelementptr inbounds nuw %struct._ir_use_list, ptr %858, i64 %42
   %860 = load ptr, ptr %20, align 8, !tbaa !47
@@ -1929,7 +1929,7 @@ ir_sccp_is_equal.exit:                            ; preds = %934
   br i1 %exitcond579.not, label %ir_sccp_is_equal.exit._crit_edge, label %934
 
 ir_sccp_is_equal.exit._crit_edge:                 ; preds = %952, %ir_sccp_is_equal.exit
-  %.1287 = phi i32 [ %.2288, %952 ], [ %935, %ir_sccp_is_equal.exit ]
+  %.1287 = phi i32 [ %935, %ir_sccp_is_equal.exit ], [ %.2288, %952 ]
   %.not343 = icmp eq i32 %.1287, 0
   br i1 %.not343, label %ir_bitqueue_add.exit379.thread, label %955
 
@@ -2091,7 +2091,7 @@ ir_is_dead_load_ex.exit.thread:                   ; preds = %979, %ir_is_dead_lo
   br label %ir_sccp_add_input.exit364
 
 ir_sccp_add_input.exit364:                        ; preds = %1018, %1021, %1033, %.lr.ph523, %1013
-  %.1 = phi i1 [ %.0521, %1013 ], [ %.0521, %.lr.ph523 ], [ true, %1033 ], [ true, %1021 ], [ true, %1018 ]
+  %.1 = phi i1 [ %.0521, %.lr.ph523 ], [ %.0521, %1013 ], [ true, %1033 ], [ true, %1021 ], [ true, %1018 ]
   %1034 = add nuw nsw i32 %.3292520, 1
   %1035 = getelementptr inbounds nuw i8, ptr %.3305519, i64 4
   %exitcond585.not = icmp eq i32 %.3292520, %1006
@@ -2142,7 +2142,7 @@ ir_sccp_add_input.exit364:                        ; preds = %1018, %1021, %1033,
   br label %ir_sccp_add_input.exit366
 
 ir_sccp_add_input.exit366:                        ; preds = %1047, %1050, %1062, %1042, %1038
-  %.3 = phi i1 [ false, %1042 ], [ false, %1038 ], [ true, %1062 ], [ true, %1050 ], [ true, %1047 ]
+  %.3 = phi i1 [ false, %1038 ], [ false, %1042 ], [ true, %1062 ], [ true, %1050 ], [ true, %1047 ]
   %.not338 = icmp eq i32 %.2295, 2
   br i1 %.not338, label %ir_sccp_add_input.exit368, label %1063
 
@@ -2186,7 +2186,7 @@ ir_sccp_add_input.exit366:                        ; preds = %1047, %1050, %1062,
   br label %ir_sccp_add_input.exit368
 
 ir_sccp_add_input.exit368:                        ; preds = %ir_sccp_add_input.exit364, %1072, %1075, %1087, %1063, %1067, %ir_sccp_add_input.exit366
-  %.2 = phi i1 [ %.3, %1067 ], [ %.3, %1063 ], [ %.3, %ir_sccp_add_input.exit366 ], [ true, %1087 ], [ true, %1075 ], [ true, %1072 ], [ %.1, %ir_sccp_add_input.exit364 ]
+  %.2 = phi i1 [ true, %1072 ], [ %.3, %1067 ], [ %.3, %1063 ], [ %.3, %ir_sccp_add_input.exit366 ], [ true, %1087 ], [ true, %1075 ], [ %.1, %ir_sccp_add_input.exit364 ]
   %1088 = and i32 %47, 8192
   %.not340 = icmp eq i32 %1088, 0
   %or.cond356 = and i1 %.not340, %.2
@@ -2268,7 +2268,7 @@ ir_bitqueue_add.exit381.thread:                   ; preds = %1036, %ir_sccp_add_
   store i32 108, ptr %997, align 8, !tbaa !39
   br label %ir_sccp_make_bottom_ex.exit369
 
-ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thread, %792, %743, %733, %395, %385, %725, %ir_sccp_make_bottom_ex.exit, %729, %336, %335, %329, %330, %310, %304, %305, %285, %ir_sccp_add_identity.exit, %255, %749, %748, %794, %ir_bitqueue_add.exit379.thread, %ir_bitqueue_add.exit381.thread, %ir_bitqueue_add.exit380, %ir_bitqueue_add.exit378.thread
+ir_sccp_make_bottom_ex.exit369:                   ; preds = %._crit_edge506.thread, %792, %743, %733, %385, %725, %ir_sccp_make_bottom_ex.exit, %729, %395, %336, %335, %330, %310, %305, %285, %255, %ir_sccp_add_identity.exit, %304, %329, %749, %748, %794, %ir_bitqueue_add.exit379.thread, %ir_bitqueue_add.exit381.thread, %ir_bitqueue_add.exit380, %ir_bitqueue_add.exit378.thread
   %1136 = load ptr, ptr %11, align 8, !tbaa !41
   %1137 = getelementptr inbounds nuw %struct._ir_use_list, ptr %1136, i64 %42
   %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 4
@@ -2881,10 +2881,10 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %341, %.preheade
   br label %313
 
 313:                                              ; preds = %._crit_edge234.i, %288, %277
-  %314 = phi i32 [ %.pre279.i, %._crit_edge234.i ], [ %278, %288 ], [ %278, %277 ]
-  %.1162.i = phi ptr [ %312, %._crit_edge234.i ], [ %.0161236.i, %288 ], [ %.0161236.i, %277 ]
-  %.2158.i = phi i32 [ %.1157238.i, %._crit_edge234.i ], [ %.1157238.i, %288 ], [ %279, %277 ]
-  %.2155.i = phi ptr [ %.1154239.i, %._crit_edge234.i ], [ %.1154239.i, %288 ], [ %282, %277 ]
+  %314 = phi i32 [ %278, %288 ], [ %.pre279.i, %._crit_edge234.i ], [ %278, %277 ]
+  %.1162.i = phi ptr [ %.0161236.i, %288 ], [ %312, %._crit_edge234.i ], [ %.0161236.i, %277 ]
+  %.2158.i = phi i32 [ %.1157238.i, %288 ], [ %.1157238.i, %._crit_edge234.i ], [ %279, %277 ]
+  %.2155.i = phi ptr [ %.1154239.i, %288 ], [ %.1154239.i, %._crit_edge234.i ], [ %282, %277 ]
   %315 = add nuw nsw i32 %.0159237.i, 1
   %316 = getelementptr inbounds nuw i8, ptr %.1162.i, i64 4
   %317 = icmp slt i32 %315, %314
@@ -3695,7 +3695,7 @@ ir_try_promote_ext.exit.thread.sink.split:        ; preds = %88, %84
   store i32 %.sink, ptr %75, align 4, !tbaa !39
   br label %ir_try_promote_ext.exit.thread
 
-ir_try_promote_ext.exit.thread:                   ; preds = %155, %159, %ir_try_promote_ext.exit.thread.sink.split, %127, %130, %118, %99, %109, %112, %59, %90, %82, %86, %66, %70
+ir_try_promote_ext.exit.thread:                   ; preds = %155, %159, %ir_try_promote_ext.exit.thread.sink.split, %130, %118, %109, %112, %99, %127, %59, %90, %82, %86, %66, %70
   %285 = load ptr, ptr %0, align 8, !tbaa !38
   %286 = getelementptr inbounds nuw %struct._ir_insn, ptr %285, i64 %34
   %287 = load i16, ptr %286, align 8, !tbaa !39
@@ -4681,7 +4681,7 @@ ir_bitqueue_add.exit230.i.i:                      ; preds = %690, %ir_is_dead.ex
   br i1 %switch.selectcmp376.i.i, label %850, label %ir_iter_fold.exit.backedge
 
 850:                                              ; preds = %849, %848, %840, %838, %838, %838
-  %.0337405.shrunk.i.i = phi i1 [ %narrow414.i.i, %848 ], [ %narrow.i.i, %849 ], [ %842, %840 ], [ true, %838 ], [ true, %838 ], [ true, %838 ]
+  %.0337405.shrunk.i.i = phi i1 [ %narrow.i.i, %849 ], [ %narrow414.i.i, %848 ], [ %842, %840 ], [ true, %838 ], [ true, %838 ], [ true, %838 ]
   %851 = getelementptr inbounds nuw i8, ptr %.06594.i, i64 8
   %852 = load i32, ptr %851, align 8, !tbaa !39
   %853 = getelementptr inbounds nuw i8, ptr %834, i64 4
@@ -5781,7 +5781,7 @@ ir_bitqueue_add.exit:                             ; preds = %144, %132, %103
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ir_bitqueue_add.exit81, %.loopexit.loopexit119, %.preheader93, %.preheader
-  %148 = phi ptr [ %.pre, %.loopexit.loopexit119 ], [ %56, %.preheader93 ], [ %56, %.preheader ], [ %56, %ir_bitqueue_add.exit81 ]
+  %148 = phi ptr [ %.pre, %.loopexit.loopexit119 ], [ %56, %.preheader ], [ %56, %.preheader93 ], [ %56, %ir_bitqueue_add.exit81 ]
   %149 = getelementptr inbounds %struct._ir_use_list, ptr %148, i64 %7
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store i32 0, ptr %150, align 4, !tbaa !42
@@ -6034,7 +6034,7 @@ tailrecurse.backedge:                             ; preds = %19, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %35, %19, %15, %.loopexit.loopexit, %tailrecurse._crit_edge, %9
-  %.0 = phi i1 [ %14, %9 ], [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ false, %15 ], [ false, %19 ], [ false, %35 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ %14, %9 ], [ true, %.loopexit.loopexit ], [ false, %15 ], [ false, %19 ], [ false, %35 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -6124,7 +6124,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   br label %common.ret77
 
 common.ret77:                                     ; preds = %13, %63, %.loopexit72, %.loopexit, %8, %48
-  %common.ret77.op = phi i32 [ %1, %48 ], [ %12, %8 ], [ %34, %.loopexit ], [ %47, %.loopexit72 ], [ %1, %63 ], [ %1, %13 ]
+  %common.ret77.op = phi i32 [ %1, %48 ], [ %1, %13 ], [ %12, %8 ], [ %1, %63 ], [ %34, %.loopexit ], [ %47, %.loopexit72 ]
   ret i32 %common.ret77.op
 
 48:                                               ; preds = %13, %13
@@ -6443,7 +6443,7 @@ ir_bitqueue_add.exit:                             ; preds = %126, %138
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ir_bitqueue_add.exit77, %.loopexit.loopexit114, %.preheader88, %.preheader
-  %142 = phi ptr [ %.pre123, %.loopexit.loopexit114 ], [ %58, %.preheader88 ], [ %58, %.preheader ], [ %58, %ir_bitqueue_add.exit77 ]
+  %142 = phi ptr [ %.pre123, %.loopexit.loopexit114 ], [ %58, %.preheader ], [ %58, %.preheader88 ], [ %58, %ir_bitqueue_add.exit77 ]
   %143 = getelementptr inbounds nuw %struct._ir_use_list, ptr %142, i64 %6
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 0, ptr %144, align 4, !tbaa !42
@@ -6534,7 +6534,7 @@ tailrecurse.backedge:                             ; preds = %23, %39
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %39, %23, %13, %.loopexit.loopexit, %tailrecurse._crit_edge, %9, %17
-  %.0 = phi i1 [ %22, %17 ], [ %12, %9 ], [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ false, %13 ], [ false, %23 ], [ false, %39 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %tailrecurse._crit_edge ], [ %12, %9 ], [ %22, %17 ], [ true, %.loopexit.loopexit ], [ false, %13 ], [ false, %23 ], [ false, %39 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -6679,7 +6679,7 @@ ir_find1.exit.thread:                             ; preds = %68, %48, %ir_find1.
   br label %common.ret108
 
 common.ret108:                                    ; preds = %13, %93, %ir_find1.exit.thread, %72, %.loopexit95, %.loopexit, %8, %78
-  %common.ret108.op = phi i32 [ %1, %78 ], [ %12, %8 ], [ %34, %.loopexit ], [ %47, %.loopexit95 ], [ %64, %72 ], [ %1, %ir_find1.exit.thread ], [ %1, %93 ], [ %1, %13 ]
+  %common.ret108.op = phi i32 [ %1, %78 ], [ %1, %13 ], [ %12, %8 ], [ %1, %93 ], [ %34, %.loopexit ], [ %47, %.loopexit95 ], [ %64, %72 ], [ %1, %ir_find1.exit.thread ]
   ret i32 %common.ret108.op
 
 78:                                               ; preds = %13, %13
@@ -6890,7 +6890,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   br label %common.ret84
 
 common.ret84:                                     ; preds = %14, %65, %.loopexit79, %.loopexit, %9, %49
-  %common.ret84.op = phi i32 [ %2, %49 ], [ %13, %9 ], [ %35, %.loopexit ], [ %48, %.loopexit79 ], [ %2, %65 ], [ %2, %14 ]
+  %common.ret84.op = phi i32 [ %2, %49 ], [ %2, %14 ], [ %13, %9 ], [ %2, %65 ], [ %35, %.loopexit ], [ %48, %.loopexit79 ]
   ret i32 %common.ret84.op
 
 49:                                               ; preds = %14, %14, %14
@@ -7125,7 +7125,7 @@ ir_bitqueue_grow.exit:                            ; preds = %63, %68
   br label %ir_bitqueue_add.exit42
 
 ir_bitqueue_add.exit42:                           ; preds = %93, %ir_bitqueue_grow.exit, %49, %34
-  %.0 = phi i32 [ %26, %34 ], [ %26, %49 ], [ %50, %ir_bitqueue_grow.exit ], [ %50, %93 ]
+  %.0 = phi i32 [ %26, %49 ], [ %26, %34 ], [ %50, %ir_bitqueue_grow.exit ], [ %50, %93 ]
   ret i32 %.0
 }
 
@@ -7277,55 +7277,55 @@ define internal fastcc noundef zeroext i1 @ir_try_split_if(ptr noundef %0, i32 n
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !39
   %91 = icmp eq i8 %90, 1
-  br i1 %91, label %92, label %96
+  br i1 %91, label %ir_const_is_true.exit234, label %92
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %94 = load i8, ptr %93, align 8, !tbaa !39, !range !45, !noundef !46
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %ir_const_is_true.exit234.thread, label %110
+  %93 = icmp ult i8 %90, 12
+  br i1 %93, label %94, label %97
 
-96:                                               ; preds = %86
-  %97 = icmp ult i8 %90, 12
-  br i1 %97, label %98, label %101
-
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %100 = load i64, ptr %99, align 8, !tbaa !39
-  %.not = icmp eq i64 %100, 0
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %96 = load i64, ptr %95, align 8, !tbaa !39
+  %.not = icmp eq i64 %96, 0
   br i1 %.not, label %110, label %ir_const_is_true.exit234.thread
 
-101:                                              ; preds = %96
-  %102 = icmp eq i8 %90, 12
-  %103 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  br i1 %102, label %104, label %ir_const_is_true.exit234
+97:                                               ; preds = %92
+  %98 = icmp eq i8 %90, 12
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  br i1 %98, label %100, label %103
 
-104:                                              ; preds = %101
-  %105 = load double, ptr %103, align 8, !tbaa !39
-  %106 = fcmp une double %105, 0.000000e+00
-  br i1 %106, label %ir_const_is_true.exit234.thread, label %110
+100:                                              ; preds = %97
+  %101 = load double, ptr %99, align 8, !tbaa !39
+  %102 = fcmp une double %101, 0.000000e+00
+  br i1 %102, label %ir_const_is_true.exit234.thread, label %110
 
-ir_const_is_true.exit234:                         ; preds = %101
-  %107 = load float, ptr %103, align 8, !tbaa !39
-  %108 = fcmp une float %107, 0.000000e+00
+103:                                              ; preds = %97
+  %104 = load float, ptr %99, align 8, !tbaa !39
+  %105 = fcmp une float %104, 0.000000e+00
+  br i1 %105, label %ir_const_is_true.exit234.thread, label %110
+
+ir_const_is_true.exit234:                         ; preds = %86
+  %106 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %107 = load i8, ptr %106, align 8, !tbaa !39, !range !45, !noundef !46
+  %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %ir_const_is_true.exit234.thread, label %110
 
-ir_const_is_true.exit234.thread:                  ; preds = %80, %104, %98, %92, %ir_const_is_true.exit234
-  %.0203297 = phi i32 [ %51, %80 ], [ %.0203298, %104 ], [ %.0203298, %98 ], [ %.0203298, %92 ], [ %.0203298, %ir_const_is_true.exit234 ]
-  %.0204294 = phi i32 [ %49, %80 ], [ %.0204295, %104 ], [ %.0204295, %98 ], [ %.0204295, %92 ], [ %.0204295, %ir_const_is_true.exit234 ]
-  %.0205291 = phi ptr [ %53, %80 ], [ %.0205292, %104 ], [ %.0205292, %98 ], [ %.0205292, %92 ], [ %.0205292, %ir_const_is_true.exit234 ]
-  %109 = phi ptr [ %.pre, %80 ], [ %88, %104 ], [ %88, %98 ], [ %88, %92 ], [ %88, %ir_const_is_true.exit234 ]
+ir_const_is_true.exit234.thread:                  ; preds = %80, %94, %100, %103, %ir_const_is_true.exit234
+  %.0203297 = phi i32 [ %51, %80 ], [ %.0203298, %94 ], [ %.0203298, %100 ], [ %.0203298, %103 ], [ %.0203298, %ir_const_is_true.exit234 ]
+  %.0204294 = phi i32 [ %49, %80 ], [ %.0204295, %94 ], [ %.0204295, %100 ], [ %.0204295, %103 ], [ %.0204295, %ir_const_is_true.exit234 ]
+  %.0205291 = phi ptr [ %53, %80 ], [ %.0205292, %94 ], [ %.0205292, %100 ], [ %.0205292, %103 ], [ %.0205292, %ir_const_is_true.exit234 ]
+  %109 = phi ptr [ %.pre, %80 ], [ %88, %94 ], [ %88, %100 ], [ %88, %103 ], [ %88, %ir_const_is_true.exit234 ]
   br label %110
 
-110:                                              ; preds = %104, %98, %92, %ir_const_is_true.exit234.thread, %ir_const_is_true.exit234
-  %.0203296 = phi i32 [ %.0203297, %ir_const_is_true.exit234.thread ], [ %.0203298, %ir_const_is_true.exit234 ], [ %.0203298, %92 ], [ %.0203298, %98 ], [ %.0203298, %104 ]
-  %.0204293 = phi i32 [ %.0204294, %ir_const_is_true.exit234.thread ], [ %.0204295, %ir_const_is_true.exit234 ], [ %.0204295, %92 ], [ %.0204295, %98 ], [ %.0204295, %104 ]
-  %.0205290 = phi ptr [ %.0205291, %ir_const_is_true.exit234.thread ], [ %.0205292, %ir_const_is_true.exit234 ], [ %.0205292, %92 ], [ %.0205292, %98 ], [ %.0205292, %104 ]
-  %111 = phi ptr [ %109, %ir_const_is_true.exit234.thread ], [ %88, %ir_const_is_true.exit234 ], [ %88, %92 ], [ %88, %98 ], [ %88, %104 ]
-  %.0.i233264 = phi i1 [ true, %ir_const_is_true.exit234.thread ], [ false, %ir_const_is_true.exit234 ], [ false, %92 ], [ false, %98 ], [ false, %104 ]
-  %.0260 = phi i32 [ %.1, %ir_const_is_true.exit234.thread ], [ %.1261, %ir_const_is_true.exit234 ], [ %.1261, %92 ], [ %.1261, %98 ], [ %.1261, %104 ]
-  %.0 = phi i32 [ %.1261, %ir_const_is_true.exit234.thread ], [ %.1, %ir_const_is_true.exit234 ], [ %.1, %92 ], [ %.1, %98 ], [ %.1, %104 ]
-  %.0206 = phi i32 [ 65630, %ir_const_is_true.exit234.thread ], [ 65631, %ir_const_is_true.exit234 ], [ 65631, %92 ], [ 65631, %98 ], [ 65631, %104 ]
+110:                                              ; preds = %94, %100, %103, %ir_const_is_true.exit234.thread, %ir_const_is_true.exit234
+  %.0203296 = phi i32 [ %.0203297, %ir_const_is_true.exit234.thread ], [ %.0203298, %ir_const_is_true.exit234 ], [ %.0203298, %103 ], [ %.0203298, %100 ], [ %.0203298, %94 ]
+  %.0204293 = phi i32 [ %.0204294, %ir_const_is_true.exit234.thread ], [ %.0204295, %ir_const_is_true.exit234 ], [ %.0204295, %103 ], [ %.0204295, %100 ], [ %.0204295, %94 ]
+  %.0205290 = phi ptr [ %.0205291, %ir_const_is_true.exit234.thread ], [ %.0205292, %ir_const_is_true.exit234 ], [ %.0205292, %103 ], [ %.0205292, %100 ], [ %.0205292, %94 ]
+  %111 = phi ptr [ %109, %ir_const_is_true.exit234.thread ], [ %88, %ir_const_is_true.exit234 ], [ %88, %103 ], [ %88, %100 ], [ %88, %94 ]
+  %.0.i233264 = phi i1 [ true, %ir_const_is_true.exit234.thread ], [ false, %ir_const_is_true.exit234 ], [ false, %103 ], [ false, %100 ], [ false, %94 ]
+  %.0260 = phi i32 [ %.1, %ir_const_is_true.exit234.thread ], [ %.1261, %ir_const_is_true.exit234 ], [ %.1261, %103 ], [ %.1261, %100 ], [ %.1261, %94 ]
+  %.0 = phi i32 [ %.1261, %ir_const_is_true.exit234.thread ], [ %.1, %ir_const_is_true.exit234 ], [ %.1, %103 ], [ %.1, %100 ], [ %.1, %94 ]
+  %.0206 = phi i32 [ 65630, %ir_const_is_true.exit234.thread ], [ 65631, %ir_const_is_true.exit234 ], [ 65631, %103 ], [ 65631, %100 ], [ 65631, %94 ]
   %112 = sext i32 %.0260 to i64
   %113 = getelementptr inbounds %struct._ir_insn, ptr %111, i64 %112
   %114 = sext i32 %.0 to i64
@@ -7381,7 +7381,7 @@ ir_const_is_true.exit234.thread:                  ; preds = %80, %104, %98, %92,
   br label %ir_const_is_true.exit
 
 ir_const_is_true.exit:                            ; preds = %127, %133, %140, %143
-  %.0.i = phi i1 [ %130, %127 ], [ %136, %133 ], [ %142, %140 ], [ %145, %143 ]
+  %.0.i = phi i1 [ %145, %143 ], [ %130, %127 ], [ %136, %133 ], [ %142, %140 ]
   %146 = xor i1 %.0.i233264, %.0.i
   tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203296, i32 noundef %18, i32 noundef %.0) #14
   %147 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -7582,7 +7582,7 @@ ir_bitqueue_add.exit227:                          ; preds = %217, %240
   br label %.critedge
 
 .critedge:                                        ; preds = %ir_bitqueue_add.exit227, %ir_bitqueue_add.exit230, %183, %184, %212, %248, %258, %34, %4, %12, %16, %30, %38, %47, %58
-  %.4 = phi i1 [ false, %58 ], [ false, %47 ], [ false, %38 ], [ false, %34 ], [ false, %30 ], [ false, %16 ], [ false, %12 ], [ false, %4 ], [ true, %258 ], [ true, %248 ], [ true, %212 ], [ true, %184 ], [ true, %183 ], [ true, %ir_bitqueue_add.exit230 ], [ true, %ir_bitqueue_add.exit227 ]
+  %.4 = phi i1 [ false, %16 ], [ false, %58 ], [ false, %47 ], [ false, %38 ], [ false, %4 ], [ false, %12 ], [ false, %34 ], [ false, %30 ], [ true, %258 ], [ true, %248 ], [ true, %212 ], [ true, %184 ], [ true, %183 ], [ true, %ir_bitqueue_add.exit230 ], [ true, %ir_bitqueue_add.exit227 ]
   ret i1 %.4
 }
 
@@ -8001,7 +8001,7 @@ ir_bitqueue_add.exit281:                          ; preds = %206, %230
   br label %.critedge
 
 .critedge:                                        ; preds = %ir_bitqueue_add.exit281, %ir_bitqueue_add.exit284, %167, %168, %200, %238, %248, %61, %16, %4, %12, %20, %27, %34, %38, %44, %57, %65, %72, %83
-  %.6 = phi i1 [ false, %83 ], [ false, %72 ], [ false, %65 ], [ false, %61 ], [ false, %57 ], [ false, %44 ], [ false, %38 ], [ false, %34 ], [ false, %27 ], [ false, %16 ], [ false, %20 ], [ false, %12 ], [ false, %4 ], [ true, %248 ], [ true, %238 ], [ true, %200 ], [ true, %168 ], [ true, %167 ], [ true, %ir_bitqueue_add.exit284 ], [ true, %ir_bitqueue_add.exit281 ]
+  %.6 = phi i1 [ false, %12 ], [ false, %83 ], [ false, %72 ], [ false, %65 ], [ false, %20 ], [ false, %16 ], [ false, %61 ], [ false, %57 ], [ false, %44 ], [ false, %38 ], [ false, %34 ], [ false, %27 ], [ false, %4 ], [ true, %248 ], [ true, %238 ], [ true, %200 ], [ true, %168 ], [ true, %167 ], [ true, %ir_bitqueue_add.exit284 ], [ true, %ir_bitqueue_add.exit281 ]
   ret i1 %.6
 }
 
@@ -8333,7 +8333,7 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   br label %208
 
 208:                                              ; preds = %147, %86, %7, %202, %196, %190, %184, %178, %172, %166, %160, %154, %148, %141, %135, %129, %123, %117, %111, %105, %99, %93, %87, %78, %72, %66, %60, %58, %56, %48, %46, %38, %36, %28, %26, %14, %8
-  %.0 = phi i1 [ %13, %8 ], [ %19, %14 ], [ %27, %26 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ], [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ], [ %65, %60 ], [ %71, %66 ], [ %77, %72 ], [ %83, %78 ], [ %92, %87 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %116, %111 ], [ %122, %117 ], [ %128, %123 ], [ %134, %129 ], [ %140, %135 ], [ %146, %141 ], [ %153, %148 ], [ %159, %154 ], [ %165, %160 ], [ %171, %166 ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %195, %190 ], [ %201, %196 ], [ %207, %202 ], [ false, %7 ], [ false, %86 ], [ false, %147 ]
+  %.0 = phi i1 [ %13, %8 ], [ %19, %14 ], [ %27, %26 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ], [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ], [ %65, %60 ], [ %71, %66 ], [ %77, %72 ], [ %83, %78 ], [ false, %86 ], [ %92, %87 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %116, %111 ], [ %122, %117 ], [ %128, %123 ], [ %134, %129 ], [ %140, %135 ], [ %146, %141 ], [ false, %7 ], [ %153, %148 ], [ %159, %154 ], [ %165, %160 ], [ %171, %166 ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %195, %190 ], [ %201, %196 ], [ %207, %202 ], [ false, %147 ]
   ret i1 %.0
 }
 

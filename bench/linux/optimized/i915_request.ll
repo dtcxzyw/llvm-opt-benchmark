@@ -2592,7 +2592,7 @@ define dso_local ptr @__i915_request_commit(ptr noundef initializes((476, 480), 
   br label %.thread11
 
 .thread11:                                        ; preds = %186, %188, %65, %189, %172
-  %190 = phi ptr [ %182, %189 ], [ null, %172 ], [ null, %65 ], [ %182, %188 ], [ %182, %186 ]
+  %190 = phi ptr [ %182, %189 ], [ null, %65 ], [ null, %172 ], [ %182, %188 ], [ %182, %186 ]
   ret ptr %190
 }
 
@@ -3132,7 +3132,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   br i1 %233, label %.lr.ph.split, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %228, %218, %222, %226, %204, %202, %187, %.split22.us
-  %234 = phi i64 [ %.us-phi, %.split22.us ], [ %2, %187 ], [ %205, %204 ], [ -62, %202 ], [ %229, %228 ], [ -512, %218 ], [ -512, %222 ], [ -62, %226 ]
+  %234 = phi i64 [ %.us-phi, %.split22.us ], [ %2, %187 ], [ %205, %204 ], [ -62, %202 ], [ -512, %222 ], [ -62, %226 ], [ %229, %228 ], [ -512, %218 ]
   store volatile i32 0, ptr %188, align 8
   %235 = load volatile ptr, ptr %177, align 8
   %236 = icmp eq ptr %235, null
@@ -3467,7 +3467,7 @@ define dso_local range(i32 1, 5) i32 @i915_test_request_state(ptr noundef %0) lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %82, %43, %52, %103, %27, %10, %1
-  %104 = phi i32 [ 1, %10 ], [ 2, %27 ], [ 1, %1 ], [ 1, %103 ], [ %72, %52 ], [ 3, %43 ], [ 4, %82 ], [ 3, %73 ]
+  %104 = phi i32 [ 1, %10 ], [ 2, %27 ], [ 1, %103 ], [ 1, %1 ], [ %72, %52 ], [ 3, %43 ], [ 4, %82 ], [ 3, %73 ]
   ret i32 %104
 }
 
@@ -3842,7 +3842,7 @@ define internal fastcc i32 @i915_request_await_start(ptr noundef %0, ptr noundef
   br label %.thread8
 
 .thread8:                                         ; preds = %84, %86, %.thread6, %88, %87, %17, %8, %2
-  %89 = phi i32 [ 0, %2 ], [ 0, %17 ], [ %81, %87 ], [ 0, %8 ], [ 0, %88 ], [ 0, %.thread6 ], [ %81, %86 ], [ %81, %84 ]
+  %89 = phi i32 [ 0, %2 ], [ 0, %17 ], [ 0, %.thread6 ], [ 0, %88 ], [ %81, %87 ], [ 0, %8 ], [ %81, %86 ], [ %81, %84 ]
   ret i32 %89
 }
 

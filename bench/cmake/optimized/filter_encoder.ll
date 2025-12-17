@@ -223,7 +223,7 @@ encoder_find.exit:                                ; preds = %8
   br label %.thread
 
 .thread:                                          ; preds = %6, %.loopexit, %.preheader39, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.preheader39 ], [ %spec.select77, %.loopexit ], [ -1, %6 ]
+  %.0 = phi i64 [ -1, %1 ], [ %spec.select77, %.loopexit ], [ -1, %.preheader39 ], [ -1, %6 ]
   ret i64 %.0
 }
 

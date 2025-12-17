@@ -580,7 +580,7 @@ define range(i32 -1, 1) i32 @H5G__stab_remove_by_idx(ptr noundef %0, ptr noundef
   br label %61
 
 .thread25:                                        ; preds = %30, %20, %49, %52
-  %.227 = phi i32 [ %.1, %49 ], [ -1, %52 ], [ -1, %20 ], [ -1, %30 ]
+  %.227 = phi i32 [ -1, %52 ], [ %.1, %49 ], [ -1, %20 ], [ -1, %30 ]
   %60 = call i32 @H5O_msg_reset(i32 noundef 6, ptr noundef nonnull %7) #7
   br label %61
 
@@ -660,7 +660,7 @@ define range(i32 -1, 1) i32 @H5G__stab_lookup_by_idx(ptr noundef %0, i32 noundef
   br label %65
 
 44:                                               ; preds = %.thread, %31
-  %.022 = phi i64 [ %2, %31 ], [ %39, %.thread ]
+  %.022 = phi i64 [ %39, %.thread ], [ %2, %31 ]
   store i64 %.022, ptr %5, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %45, align 8, !tbaa !48
@@ -949,7 +949,7 @@ define i32 @H5G__stab_iterate(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br label %88
 
 88:                                               ; preds = %55, %87
-  %.135 = phi i32 [ %.2, %55 ], [ %.3, %87 ]
+  %.135 = phi i32 [ %.3, %87 ], [ %.2, %55 ]
   %89 = call i32 @H5HL_unprotect(ptr noundef nonnull %28) #7
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %.thread
@@ -1178,7 +1178,7 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   br label %75
 
 46:                                               ; preds = %.thread, %33
-  %.036 = phi i64 [ %2, %33 ], [ %41, %.thread ]
+  %.036 = phi i64 [ %41, %.thread ], [ %2, %33 ]
   store i64 %.036, ptr %8, align 8, !tbaa !70
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %47, align 8, !tbaa !72

@@ -359,7 +359,7 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !47
 
 .split.us:                                        ; preds = %.critedge.split.split._crit_edge, %.critedge.split.split.us._crit_edge, %55, %Abc_Clock.exit58.us
-  %.us-phi = phi i32 [ %52, %Abc_Clock.exit58.us ], [ %52, %55 ], [ %77, %.critedge.split.split.us._crit_edge ], [ %91, %.critedge.split.split._crit_edge ]
+  %.us-phi = phi i32 [ %77, %.critedge.split.split.us._crit_edge ], [ %52, %55 ], [ %52, %Abc_Clock.exit58.us ], [ %91, %.critedge.split.split._crit_edge ]
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
   %95 = load i64, ptr %36, align 8, !tbaa !33
   %96 = trunc i64 %95 to i32

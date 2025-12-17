@@ -98,6 +98,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %exitcond = icmp eq i64 %.02129.i.idx, 7
   br i1 %exitcond, label %.lr.ph.i114.preheader, label %24
 
+.lr.ph.i114.preheader:                            ; preds = %37, %.lr.ph.i
+  br label %.lr.ph.i114
+
 24:                                               ; preds = %.lr.ph.i
   %25 = sext i8 %20 to i32
   %26 = tail call ptr @__ctype_b_loc() #10
@@ -120,9 +123,6 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %.022.i = phi i32 [ %25, %24 ], [ %36, %32 ]
   %.not26.i = icmp eq i32 %.022.i, %23
   br i1 %.not26.i, label %38, label %.lr.ph.i114.preheader
-
-.lr.ph.i114.preheader:                            ; preds = %.lr.ph.i, %37
-  br label %.lr.ph.i114
 
 38:                                               ; preds = %37
   %39 = load i8, ptr %21, align 1, !tbaa !9
@@ -359,7 +359,7 @@ keymatch.exit136:                                 ; preds = %95
   %157 = trunc i64 %156 to i32
   br label %keymatch.exit
 
-keymatch.exit124.thread.thread:                   ; preds = %17, %.lr.ph.i126, %94
+keymatch.exit124.thread.thread:                   ; preds = %17, %94, %.lr.ph.i126
   tail call fastcc void @usage()
   unreachable
 

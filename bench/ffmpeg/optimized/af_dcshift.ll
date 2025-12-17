@@ -164,7 +164,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %75
 
 75:                                               ; preds = %69, %67
-  %.063.us = phi nsz double [ %74, %69 ], [ %68, %67 ]
+  %.063.us = phi nsz double [ %68, %67 ], [ %74, %69 ]
   %76 = tail call i32 @llvm.fptosi.sat.i32.f64(double %.063.us)
   %77 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv106
   store i32 %76, ptr %77, align 4, !tbaa !48
@@ -206,7 +206,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %98, label %.lr.ph83.split.split.us, label %._crit_edge84, !llvm.loop !49
 
 ._crit_edge84:                                    ; preds = %.lr.ph83.split.us.split.us, %75, %93, %.lr.ph91.split
-  %99 = phi i32 [ %45, %.lr.ph91.split ], [ %96, %93 ], [ %78, %75 ], [ %60, %.lr.ph83.split.us.split.us ]
+  %99 = phi i32 [ %45, %.lr.ph91.split ], [ %78, %75 ], [ %96, %93 ], [ %60, %.lr.ph83.split.us.split.us ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %100 = load i32, ptr %25, align 4, !tbaa !45
   %101 = sext i32 %100 to i64

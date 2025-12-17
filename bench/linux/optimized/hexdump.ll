@@ -118,7 +118,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
   br i1 %54, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %48, %27, %.lr.ph, %3
-  %55 = phi i32 [ 0, %3 ], [ -22, %.lr.ph ], [ -22, %27 ], [ 0, %48 ]
+  %55 = phi i32 [ 0, %3 ], [ -22, %27 ], [ -22, %.lr.ph ], [ 0, %48 ]
   ret i32 %55
 }
 
@@ -349,7 +349,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.preheader22, %.preheader19, %.preheader16, %137, %50, %44, %37
-  %141 = phi i32 [ %140, %137 ], [ 0, %50 ], [ 0, %44 ], [ 0, %37 ], [ %68, %.preheader16 ], [ %83, %.preheader19 ], [ %99, %.preheader22 ]
+  %141 = phi i32 [ %140, %137 ], [ 0, %50 ], [ 0, %44 ], [ 0, %37 ], [ %83, %.preheader19 ], [ %68, %.preheader16 ], [ %99, %.preheader22 ]
   br i1 %6, label %142, label %.loopexit14
 
 142:                                              ; preds = %.loopexit17

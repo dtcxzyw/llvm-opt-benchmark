@@ -270,7 +270,7 @@ filter_contains.exit.i30:                         ; preds = %.lr.ph.i.i26
   %or.cond54 = select i1 %.not.i31, i1 true, i1 %71
   br i1 %or.cond54, label %.thread, label %72
 
-.critedge:                                        ; preds = %56, %53, %.loopexit55, %50, %5, %25
+.critedge:                                        ; preds = %56, %50, %53, %.loopexit55, %5, %25
   %.old = load i32, ptr @current_log_level, align 4
   %.old53 = icmp ult i32 %1, %.old
   br i1 %.old53, label %.thread, label %72
@@ -325,7 +325,7 @@ filter_contains.exit40:                           ; preds = %.lr.ph.i36
   br label %.thread
 
 .thread:                                          ; preds = %67, %69, %45, %47, %72, %75, %.critedge, %filter_contains.exit, %2, %.loopexit, %filter_contains.exit40
-  %.017 = phi i1 [ %90, %filter_contains.exit40 ], [ %95, %.loopexit ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ true, %75 ], [ %46, %45 ], [ false, %47 ], [ %68, %67 ], [ false, %69 ]
+  %.017 = phi i1 [ true, %75 ], [ true, %2 ], [ true, %filter_contains.exit ], [ false, %.critedge ], [ true, %72 ], [ %90, %filter_contains.exit40 ], [ %95, %.loopexit ], [ false, %47 ], [ %46, %45 ], [ %68, %67 ], [ false, %69 ]
   ret i1 %.017
 }
 
@@ -414,7 +414,7 @@ define internal fastcc range(i32 0, 9) i32 @string_to_log_level(ptr noundef %0) 
   br label %26
 
 26:                                               ; preds = %23, %20, %17, %14, %11, %8, %5, %2, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 2, %5 ], [ 3, %8 ], [ 4, %11 ], [ 5, %14 ], [ 6, %17 ], [ 7, %20 ], [ %., %23 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 2, %5 ], [ 3, %8 ], [ 4, %11 ], [ 5, %14 ], [ 6, %17 ], [ %., %23 ], [ 7, %20 ]
   ret i32 %.0
 }
 
@@ -794,8 +794,8 @@ optequal.exit182.thread:                          ; preds = %.critedge.i179, %op
   br label %.outer.backedge
 
 92:                                               ; preds = %.critedge.i179, %.critedge.i168, %.critedge.i157, %.critedge.i146, %.critedge.i135, %.critedge.i124, %.critedge.i113, %.critedge.i102, %.critedge.i, %optequal.exit182, %optequal.exit171, %optequal.exit160, %optequal.exit149, %optequal.exit138, %optequal.exit127, %optequal.exit116, %optequal.exit105, %optequal.exit
-  %.083 = phi i64 [ 11, %optequal.exit ], [ 12, %optequal.exit105 ], [ 13, %optequal.exit116 ], [ 18, %optequal.exit127 ], [ 19, %optequal.exit138 ], [ 10, %optequal.exit149 ], [ 11, %optequal.exit160 ], [ 11, %optequal.exit171 ], [ 11, %optequal.exit182 ], [ 11, %.critedge.i ], [ 12, %.critedge.i102 ], [ 13, %.critedge.i113 ], [ 18, %.critedge.i124 ], [ 19, %.critedge.i135 ], [ 10, %.critedge.i146 ], [ 11, %.critedge.i157 ], [ 11, %.critedge.i168 ], [ 11, %.critedge.i179 ]
-  %.082 = phi ptr [ @.str.45, %optequal.exit ], [ @.str.46, %optequal.exit105 ], [ @.str.46, %optequal.exit116 ], [ @.str.48, %optequal.exit127 ], [ @.str.48, %optequal.exit138 ], [ @.str.50, %optequal.exit149 ], [ @.str.51, %optequal.exit160 ], [ @.str.52, %optequal.exit171 ], [ @.str.53, %optequal.exit182 ], [ @.str.45, %.critedge.i ], [ @.str.46, %.critedge.i102 ], [ @.str.46, %.critedge.i113 ], [ @.str.48, %.critedge.i124 ], [ @.str.48, %.critedge.i135 ], [ @.str.50, %.critedge.i146 ], [ @.str.51, %.critedge.i157 ], [ @.str.52, %.critedge.i168 ], [ @.str.53, %.critedge.i179 ]
+  %.083 = phi i64 [ 11, %optequal.exit171 ], [ 11, %optequal.exit ], [ 12, %optequal.exit105 ], [ 13, %optequal.exit116 ], [ 18, %optequal.exit127 ], [ 19, %optequal.exit138 ], [ 10, %optequal.exit149 ], [ 11, %optequal.exit160 ], [ 11, %optequal.exit182 ], [ 11, %.critedge.i ], [ 12, %.critedge.i102 ], [ 13, %.critedge.i113 ], [ 18, %.critedge.i124 ], [ 19, %.critedge.i135 ], [ 10, %.critedge.i146 ], [ 11, %.critedge.i157 ], [ 11, %.critedge.i168 ], [ 11, %.critedge.i179 ]
+  %.082 = phi ptr [ @.str.52, %optequal.exit171 ], [ @.str.45, %optequal.exit ], [ @.str.46, %optequal.exit105 ], [ @.str.46, %optequal.exit116 ], [ @.str.48, %optequal.exit127 ], [ @.str.48, %optequal.exit138 ], [ @.str.50, %optequal.exit149 ], [ @.str.51, %optequal.exit160 ], [ @.str.53, %optequal.exit182 ], [ @.str.45, %.critedge.i ], [ @.str.46, %.critedge.i102 ], [ @.str.46, %.critedge.i113 ], [ @.str.48, %.critedge.i124 ], [ @.str.48, %.critedge.i135 ], [ @.str.50, %.critedge.i146 ], [ @.str.51, %.critedge.i157 ], [ @.str.52, %.critedge.i168 ], [ @.str.53, %.critedge.i179 ]
   %93 = getelementptr i8, ptr %11, i64 %.083
   %94 = load i8, ptr %93, align 1
   switch i8 %94, label %.outer.backedge [
@@ -1083,8 +1083,8 @@ free_log_filter.exit.i194:                        ; preds = %198, %195
   br label %ws_log_set_domain_filter.exit
 
 ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_str.exit, %ws_log_set_fatal_level_str.exit, %207, %202, %free_log_filter.exit.i194, %.thread263, %187, %182, %free_log_filter.exit.i190, %143, %138, %free_log_filter.exit.i183, %123, %118, %free_log_filter.exit.i, %158, %ws_log_add_custom_file.exit, %153, %193, %ws_log_set_fatal_level_str.exit.thread, %ws_log_set_level_str.exit.thread
-  %.080214 = phi i32 [ %.080, %ws_log_set_level_str.exit.thread ], [ %.080, %ws_log_set_level_str.exit ], [ %.080, %153 ], [ %.080, %ws_log_set_fatal_level_str.exit.thread ], [ %.080, %ws_log_set_fatal_level_str.exit ], [ %.080, %193 ], [ %.080, %158 ], [ %.080, %ws_log_add_custom_file.exit ], [ %.080, %free_log_filter.exit.i ], [ %.080, %118 ], [ %.080, %123 ], [ %.080, %free_log_filter.exit.i183 ], [ %.080, %138 ], [ %.080, %143 ], [ %.080, %free_log_filter.exit.i190 ], [ %.080, %182 ], [ %.080, %187 ], [ 0, %.thread263 ], [ %.080, %free_log_filter.exit.i194 ], [ %.080, %202 ], [ %.080, %207 ]
-  %.2 = phi i32 [ %108, %ws_log_set_level_str.exit.thread ], [ %.084320, %ws_log_set_level_str.exit ], [ %154, %153 ], [ %172, %ws_log_set_fatal_level_str.exit.thread ], [ %.084320, %ws_log_set_fatal_level_str.exit ], [ %.084320, %193 ], [ %162, %158 ], [ %.084320, %ws_log_add_custom_file.exit ], [ %.084320, %free_log_filter.exit.i ], [ %.084320, %118 ], [ %.084320, %123 ], [ %.084320, %free_log_filter.exit.i183 ], [ %.084320, %138 ], [ %.084320, %143 ], [ %.084320, %free_log_filter.exit.i190 ], [ %.084320, %182 ], [ %.084320, %187 ], [ %100, %.thread263 ], [ %.084320, %free_log_filter.exit.i194 ], [ %.084320, %202 ], [ %.084320, %207 ]
+  %.080214 = phi i32 [ %.080, %ws_log_set_level_str.exit.thread ], [ %.080, %ws_log_set_level_str.exit ], [ %.080, %ws_log_add_custom_file.exit ], [ %.080, %123 ], [ %.080, %153 ], [ %.080, %193 ], [ %.080, %ws_log_set_fatal_level_str.exit.thread ], [ %.080, %ws_log_set_fatal_level_str.exit ], [ %.080, %143 ], [ 0, %.thread263 ], [ %.080, %158 ], [ %.080, %free_log_filter.exit.i ], [ %.080, %118 ], [ %.080, %free_log_filter.exit.i183 ], [ %.080, %138 ], [ %.080, %free_log_filter.exit.i190 ], [ %.080, %182 ], [ %.080, %187 ], [ %.080, %free_log_filter.exit.i194 ], [ %.080, %202 ], [ %.080, %207 ]
+  %.2 = phi i32 [ %108, %ws_log_set_level_str.exit.thread ], [ %.084320, %ws_log_set_level_str.exit ], [ %.084320, %ws_log_add_custom_file.exit ], [ %.084320, %123 ], [ %154, %153 ], [ %.084320, %193 ], [ %172, %ws_log_set_fatal_level_str.exit.thread ], [ %.084320, %ws_log_set_fatal_level_str.exit ], [ %.084320, %143 ], [ %100, %.thread263 ], [ %162, %158 ], [ %.084320, %free_log_filter.exit.i ], [ %.084320, %118 ], [ %.084320, %free_log_filter.exit.i183 ], [ %.084320, %138 ], [ %.084320, %free_log_filter.exit.i190 ], [ %.084320, %182 ], [ %.084320, %187 ], [ %.084320, %free_log_filter.exit.i194 ], [ %.084320, %202 ], [ %.084320, %207 ]
   %213 = zext nneg i32 %.080214 to i64
   %214 = getelementptr ptr, ptr %10, i64 %213
   %215 = sub i32 %.086319, %.080214
@@ -1208,8 +1208,8 @@ sub_1:                                            ; preds = %sub_0
   call void (ptr, i32, ptr, ...) @print_err(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.60, ptr noundef %.019)
   br label %ws_log_set_level.exit
 
-.thread.thread:                                   ; preds = %33, %36, %38, %40, %42
-  %.03134 = phi i32 [ 2, %33 ], [ 3, %36 ], [ 4, %38 ], [ 5, %40 ], [ 6, %42 ]
+.thread.thread:                                   ; preds = %42, %33, %36, %38, %40
+  %.03134 = phi i32 [ 5, %40 ], [ 6, %42 ], [ 2, %33 ], [ 3, %36 ], [ 4, %38 ]
   store i32 %.03134, ptr @current_log_level, align 4
   br label %ws_log_set_level.exit
 
@@ -1862,7 +1862,7 @@ define internal void @glib_log_handler(ptr noundef %0, i32 noundef %1, ptr nound
   br label %16
 
 16:                                               ; preds = %14, %12, %10, %8, %6, %4
-  %.0 = phi i32 [ 7, %4 ], [ 6, %6 ], [ 5, %8 ], [ 4, %10 ], [ 3, %12 ], [ %., %14 ]
+  %.0 = phi i32 [ 3, %12 ], [ 7, %4 ], [ 6, %6 ], [ 5, %8 ], [ 4, %10 ], [ %., %14 ]
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull @.str.63, ptr noundef %2)
   ret void
 }
@@ -2059,9 +2059,9 @@ filter_contains.exit:                             ; preds = %.lr.ph.i
   br label %filter_contains.exit.thread
 
 filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %13, %32, %filter_contains.exit
-  %.042 = phi i1 [ true, %32 ], [ false, %filter_contains.exit ], [ false, %13 ], [ true, %8 ], [ false, %16 ], [ false, %19 ], [ false, %22 ]
-  %.not46 = phi i1 [ false, %32 ], [ true, %filter_contains.exit ], [ true, %13 ], [ false, %8 ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
-  %.0 = phi ptr [ @.str.65, %32 ], [ null, %filter_contains.exit ], [ null, %13 ], [ @.str.64, %8 ], [ null, %16 ], [ null, %19 ], [ null, %22 ]
+  %.042 = phi i1 [ false, %13 ], [ true, %32 ], [ false, %filter_contains.exit ], [ true, %8 ], [ false, %16 ], [ false, %19 ], [ false, %22 ]
+  %.not46 = phi i1 [ true, %13 ], [ false, %32 ], [ true, %filter_contains.exit ], [ false, %8 ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
+  %.0 = phi ptr [ null, %13 ], [ @.str.65, %32 ], [ null, %filter_contains.exit ], [ @.str.64, %8 ], [ null, %16 ], [ null, %19 ], [ null, %22 ]
   %33 = load ptr, ptr @custom_log, align 8
   %.not45 = icmp eq ptr %33, null
   br i1 %.not45, label %44, label %34
@@ -2609,7 +2609,7 @@ level_color_on.exit.thread:                       ; preds = %33
   br label %level_color_on.exit
 
 level_color_on.exit:                              ; preds = %domain_to_string.exit, %33, %33, %34, %35, %36
-  %.0.i = phi ptr [ @.str.67, %36 ], [ @.str.79, %34 ], [ @.str.80, %35 ], [ @.str.67, %domain_to_string.exit ], [ @.str.78, %33 ], [ @.str.78, %33 ]
+  %.0.i = phi ptr [ @.str.67, %36 ], [ @.str.67, %domain_to_string.exit ], [ @.str.79, %34 ], [ @.str.80, %35 ], [ @.str.78, %33 ], [ @.str.78, %33 ]
   switch i32 %6, label %45 [
     i32 0, label %ws_log_level_to_string.exit
     i32 8, label %37
@@ -2650,8 +2650,8 @@ level_color_on.exit:                              ; preds = %domain_to_string.ex
   br label %ws_log_level_to_string.exit
 
 ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on.exit.thread, %level_color_on.exit, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.0.i41 = phi ptr [ %.0.i, %45 ], [ %.0.i, %37 ], [ %.0.i, %40 ], [ %.0.i, %41 ], [ %.0.i, %42 ], [ %.0.i, %43 ], [ %.0.i, %44 ], [ %.0.i, %level_color_on.exit ], [ @.str.82, %level_color_on.exit.thread ], [ %.0.i, %38 ], [ %.0.i, %39 ], [ @.str.81, %33 ]
-  %.0.i38 = phi ptr [ @.str.9, %45 ], [ @.str.1, %37 ], [ @.str.4, %40 ], [ @.str.5, %41 ], [ @.str.6, %42 ], [ @.str.7, %43 ], [ @.str.8, %44 ], [ @.str, %level_color_on.exit ], [ @.str.2, %level_color_on.exit.thread ], [ @.str.2, %38 ], [ @.str.3, %39 ], [ @.str.3, %33 ]
+  %.0.i41 = phi ptr [ %.0.i, %45 ], [ %.0.i, %44 ], [ %.0.i, %37 ], [ %.0.i, %level_color_on.exit ], [ %.0.i, %38 ], [ %.0.i, %40 ], [ %.0.i, %41 ], [ %.0.i, %42 ], [ %.0.i, %43 ], [ @.str.82, %level_color_on.exit.thread ], [ %.0.i, %39 ], [ @.str.81, %33 ]
+  %.0.i38 = phi ptr [ @.str.9, %45 ], [ @.str.8, %44 ], [ @.str.1, %37 ], [ @.str, %level_color_on.exit ], [ @.str.2, %38 ], [ @.str.4, %40 ], [ @.str.5, %41 ], [ @.str.6, %42 ], [ @.str.7, %43 ], [ @.str.2, %level_color_on.exit.thread ], [ @.str.3, %39 ], [ @.str.3, %33 ]
   %46 = select i1 %1, ptr @.str.83, ptr @.str.67
   %47 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %32, ptr noundef nonnull %.0.i41, ptr noundef nonnull %.0.i38, ptr noundef nonnull %46)
   %.not36 = icmp eq ptr %7, null

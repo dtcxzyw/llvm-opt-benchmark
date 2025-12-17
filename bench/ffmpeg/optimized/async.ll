@@ -314,12 +314,12 @@ async_check_interrupt.exit:                       ; preds = %64
   br i1 %.not.i, label %64, label %async_check_interrupt.exit.thread
 
 async_check_interrupt.exit.thread:                ; preds = %async_check_interrupt.exit, %76, %51, %69, %72, %75
-  %.064 = phi i64 [ %73, %75 ], [ %73, %72 ], [ -1414092869, %69 ], [ -1414092869, %51 ], [ -1414092869, %76 ], [ -1414092869, %async_check_interrupt.exit ]
+  %.064 = phi i64 [ %73, %72 ], [ %73, %75 ], [ -1414092869, %69 ], [ -1414092869, %51 ], [ -1414092869, %76 ], [ -1414092869, %async_check_interrupt.exit ]
   %82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %52) #7
   br label %83
 
 83:                                               ; preds = %41, %43, %46, %18, %16, %3, %async_check_interrupt.exit.thread, %7
-  %.0 = phi i64 [ %10, %7 ], [ %.064, %async_check_interrupt.exit.thread ], [ -22, %3 ], [ -22, %16 ], [ %.065, %18 ], [ -22, %46 ], [ %.065, %43 ], [ %.pre, %41 ]
+  %.0 = phi i64 [ %10, %7 ], [ -22, %3 ], [ -22, %16 ], [ %.064, %async_check_interrupt.exit.thread ], [ %.065, %18 ], [ -22, %46 ], [ %.065, %43 ], [ %.pre, %41 ]
   ret i64 %.0
 }
 
@@ -733,8 +733,8 @@ ring_read.exit:                                   ; preds = %38, %43
   %.not.i = icmp eq i32 %67, 0
   br i1 %.not.i, label %.lr.ph90, label %.thread
 
-.thread:                                          ; preds = %62, %ring_read.exit, %async_check_interrupt.exit, %.lr.ph, %3, %23, %57, %59
-  %.143 = phi i32 [ %., %59 ], [ %.0426489, %57 ], [ -1414092869, %23 ], [ 0, %3 ], [ -1414092869, %.lr.ph ], [ -1414092869, %async_check_interrupt.exit ], [ %53, %ring_read.exit ], [ -1414092869, %62 ]
+.thread:                                          ; preds = %62, %async_check_interrupt.exit, %ring_read.exit, %.lr.ph, %3, %23, %57, %59
+  %.143 = phi i32 [ %., %59 ], [ -1414092869, %23 ], [ %.0426489, %57 ], [ 0, %3 ], [ -1414092869, %.lr.ph ], [ %53, %ring_read.exit ], [ -1414092869, %async_check_interrupt.exit ], [ -1414092869, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %69 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %68) #7
   %70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #7

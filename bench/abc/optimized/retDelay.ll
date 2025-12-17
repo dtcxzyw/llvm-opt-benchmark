@@ -59,9 +59,9 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %10, %9, %15, %13
-  %or.cond114 = phi i1 [ false, %15 ], [ true, %13 ], [ true, %9 ], [ true, %10 ]
-  %.083113 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %12, %10 ]
-  %.088112 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %11, %10 ]
+  %or.cond114 = phi i1 [ true, %13 ], [ false, %15 ], [ true, %9 ], [ true, %10 ]
+  %.083113 = phi ptr [ null, %13 ], [ null, %15 ], [ null, %9 ], [ %12, %10 ]
+  %.088112 = phi ptr [ null, %13 ], [ null, %15 ], [ null, %9 ], [ %11, %10 ]
   %16 = getelementptr i8, ptr %0, i64 128
   %.val = load i32, ptr %16, align 8, !tbaa !3
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
@@ -1272,9 +1272,9 @@ Abc_NodeSetTravIdCurrent.exit272.i:               ; preds = %._crit_edge.i.i.i.i
   br i1 %exitcond365.not.i, label %.critedge14.i, label %389, !llvm.loop !56
 
 .critedge14.i:                                    ; preds = %.critedge16.i, %.critedge20.i, %.preheader.i, %.preheader278.i
-  %.val105 = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader278.i ], [ %539, %.critedge20.i ], [ %388, %.critedge16.i ]
-  %541 = phi i32 [ %31, %.preheader.i ], [ %31, %.preheader278.i ], [ %538, %.critedge20.i ], [ %386, %.critedge16.i ]
-  %542 = phi i32 [ %32, %.preheader.i ], [ %32, %.preheader278.i ], [ %540, %.critedge20.i ], [ %387, %.critedge16.i ]
+  %.val105 = phi i32 [ 0, %.preheader278.i ], [ 0, %.preheader.i ], [ %539, %.critedge20.i ], [ %388, %.critedge16.i ]
+  %541 = phi i32 [ %31, %.preheader278.i ], [ %31, %.preheader.i ], [ %538, %.critedge20.i ], [ %386, %.critedge16.i ]
+  %542 = phi i32 [ %32, %.preheader278.i ], [ %32, %.preheader.i ], [ %540, %.critedge20.i ], [ %387, %.critedge16.i ]
   %543 = load ptr, ptr %56, align 8, !tbaa !11
   %.not.i273.i = icmp eq ptr %543, null
   br i1 %.not.i273.i, label %Abc_NtkRetimeTiming.exit, label %544

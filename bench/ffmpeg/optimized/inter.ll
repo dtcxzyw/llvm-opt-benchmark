@@ -638,10 +638,10 @@ pred_get_refs.exit.thread.i.i:                    ; preds = %351, %pred_get_refs
   br label %derive_weight_uni.exit.i.i.i
 
 derive_weight_uni.exit.i.i.i:                     ; preds = %.thread2.i.i.i.i, %397, %394, %361
-  %.086.i.i.i = phi i32 [ undef, %394 ], [ %407, %.thread2.i.i.i.i ], [ undef, %397 ], [ undef, %361 ]
-  %.085.i.i.i = phi i32 [ undef, %394 ], [ %415, %.thread2.i.i.i.i ], [ undef, %397 ], [ undef, %361 ]
-  %.0.i.i.i = phi i32 [ undef, %394 ], [ %420, %.thread2.i.i.i.i ], [ undef, %397 ], [ undef, %361 ]
-  %.not75.i.i.i = phi i1 [ true, %394 ], [ false, %.thread2.i.i.i.i ], [ true, %397 ], [ true, %361 ]
+  %.086.i.i.i = phi i32 [ undef, %397 ], [ undef, %394 ], [ %407, %.thread2.i.i.i.i ], [ undef, %361 ]
+  %.085.i.i.i = phi i32 [ undef, %397 ], [ undef, %394 ], [ %415, %.thread2.i.i.i.i ], [ undef, %361 ]
+  %.0.i.i.i = phi i32 [ undef, %397 ], [ undef, %394 ], [ %420, %.thread2.i.i.i.i ], [ undef, %361 ]
+  %.not75.i.i.i = phi i1 [ true, %397 ], [ true, %394 ], [ false, %.thread2.i.i.i.i ], [ true, %361 ]
   %421 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 1992099
   %422 = load i8, ptr %421, align 1, !tbaa !119
   %423 = zext i8 %422 to i32
@@ -757,7 +757,7 @@ luma_prof_uni.exit.i.i:                           ; preds = %465, %459, %448, %4
   br label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %487, %483, %471
-  %491 = phi i1 [ %.not46.i.i.i.i, %487 ], [ false, %483 ], [ false, %471 ]
+  %491 = phi i1 [ false, %471 ], [ %.not46.i.i.i.i, %487 ], [ false, %483 ]
   %492 = icmp ne i8 %479, 0
   %or.cond.i.i.i.i = select i1 %491, i1 true, i1 %492
   br i1 %or.cond.i.i.i.i, label %493, label %derive_weight.exit.i.i.i
@@ -1683,7 +1683,7 @@ pred_get_refs.exit.thread.i:                      ; preds = %85, %pred_get_refs.
   br label %parametric_mv_refine.exit.i.i
 
 parametric_mv_refine.exit.i.i:                    ; preds = %189, %175, %173, %159
-  %.034.i.i.i = phi i32 [ %.135.i.i.i, %189 ], [ 0, %159 ], [ -8, %173 ], [ 8, %175 ]
+  %.034.i.i.i = phi i32 [ 0, %159 ], [ -8, %173 ], [ %.135.i.i.i, %189 ], [ 8, %175 ]
   %191 = add nsw i32 %.034.i.i.i, %153
   %192 = getelementptr inbounds i8, ptr %163, i64 -20
   %193 = load i32, ptr %192, align 4, !tbaa !90
@@ -1733,7 +1733,7 @@ parametric_mv_refine.exit.i.i:                    ; preds = %189, %175, %173, %1
   br label %parametric_mv_refine.exit132.i.i
 
 parametric_mv_refine.exit132.i.i:                 ; preds = %215, %201, %199, %parametric_mv_refine.exit.i.i
-  %.034.i131.i.i = phi i32 [ %.135.i130.i.i, %215 ], [ 0, %parametric_mv_refine.exit.i.i ], [ -8, %199 ], [ 8, %201 ]
+  %.034.i131.i.i = phi i32 [ 0, %parametric_mv_refine.exit.i.i ], [ -8, %199 ], [ %.135.i130.i.i, %215 ], [ 8, %201 ]
   %217 = add nsw i32 %.034.i131.i.i, %155
   br label %.loopexit.i.i.loopexit.critedge
 
@@ -1947,16 +1947,16 @@ inter_filter_scaled.exit41.thread:                ; preds = %9
   br label %scaled_ref_pos_and_step.exit
 
 scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled.exit41.thread, %70, %98
-  %101 = phi i8 [ %90, %98 ], [ %90, %70 ], [ %69, %inter_filter_scaled.exit41.thread ]
-  %102 = phi i8 [ %87, %98 ], [ %87, %70 ], [ %66, %inter_filter_scaled.exit41.thread ]
-  %.val.val33.val3462 = phi i16 [ %.val.val33.val34, %98 ], [ %.val.val33.val34, %70 ], [ %.val.val33.val3458, %inter_filter_scaled.exit41.thread ]
-  %.val.val33.val61 = phi i16 [ %.val.val33.val, %98 ], [ %.val.val33.val, %70 ], [ %.val.val33.val57, %inter_filter_scaled.exit41.thread ]
-  %.0.i3960 = phi ptr [ %80, %98 ], [ %80, %70 ], [ %.0.i39.ph, %inter_filter_scaled.exit41.thread ]
-  %.0.i5159 = phi ptr [ %72, %98 ], [ %72, %70 ], [ %.0.i.ph, %inter_filter_scaled.exit41.thread ]
-  %103 = phi i32 [ %74, %98 ], [ %74, %70 ], [ %48, %inter_filter_scaled.exit41.thread ]
-  %104 = phi i32 [ %.ph.i, %98 ], [ %.ph.i, %70 ], [ 0, %inter_filter_scaled.exit41.thread ]
-  %105 = phi i32 [ 9, %98 ], [ 9, %70 ], [ 8, %inter_filter_scaled.exit41.thread ]
-  %106 = phi i32 [ %100, %98 ], [ 0, %70 ], [ 0, %inter_filter_scaled.exit41.thread ]
+  %101 = phi i8 [ %90, %70 ], [ %90, %98 ], [ %69, %inter_filter_scaled.exit41.thread ]
+  %102 = phi i8 [ %87, %70 ], [ %87, %98 ], [ %66, %inter_filter_scaled.exit41.thread ]
+  %.val.val33.val3462 = phi i16 [ %.val.val33.val34, %70 ], [ %.val.val33.val34, %98 ], [ %.val.val33.val3458, %inter_filter_scaled.exit41.thread ]
+  %.val.val33.val61 = phi i16 [ %.val.val33.val, %70 ], [ %.val.val33.val, %98 ], [ %.val.val33.val57, %inter_filter_scaled.exit41.thread ]
+  %.0.i3960 = phi ptr [ %80, %70 ], [ %80, %98 ], [ %.0.i39.ph, %inter_filter_scaled.exit41.thread ]
+  %.0.i5159 = phi ptr [ %72, %70 ], [ %72, %98 ], [ %.0.i.ph, %inter_filter_scaled.exit41.thread ]
+  %103 = phi i32 [ %74, %70 ], [ %74, %98 ], [ %48, %inter_filter_scaled.exit41.thread ]
+  %104 = phi i32 [ %.ph.i, %70 ], [ %.ph.i, %98 ], [ 0, %inter_filter_scaled.exit41.thread ]
+  %105 = phi i32 [ 9, %70 ], [ 9, %98 ], [ 8, %inter_filter_scaled.exit41.thread ]
+  %106 = phi i32 [ 0, %70 ], [ %100, %98 ], [ 0, %inter_filter_scaled.exit41.thread ]
   %107 = zext i1 %26 to i32
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %108 = or disjoint i32 %spec.select12.i, 8
@@ -2566,10 +2566,10 @@ clip_to_subpic.exit:                              ; preds = %12
   br i1 %.not45, label %90, label %66
 
 66:                                               ; preds = %clip_to_subpic.exit, %63, %60, %49
-  %67 = phi i32 [ %57, %63 ], [ %57, %60 ], [ %57, %49 ], [ %48, %clip_to_subpic.exit ]
-  %68 = phi i32 [ %56, %63 ], [ %56, %60 ], [ %56, %49 ], [ %47, %clip_to_subpic.exit ]
-  %69 = phi i32 [ %55, %63 ], [ %55, %60 ], [ %55, %49 ], [ %46, %clip_to_subpic.exit ]
-  %70 = phi i32 [ %54, %63 ], [ %54, %60 ], [ %54, %49 ], [ %45, %clip_to_subpic.exit ]
+  %67 = phi i32 [ %57, %63 ], [ %57, %60 ], [ %48, %clip_to_subpic.exit ], [ %57, %49 ]
+  %68 = phi i32 [ %56, %63 ], [ %56, %60 ], [ %47, %clip_to_subpic.exit ], [ %56, %49 ]
+  %69 = phi i32 [ %55, %63 ], [ %55, %60 ], [ %46, %clip_to_subpic.exit ], [ %55, %49 ]
+  %70 = phi i32 [ %54, %63 ], [ %54, %60 ], [ %45, %clip_to_subpic.exit ], [ %54, %49 ]
   %71 = shl i32 1280, %21
   %72 = sext i32 %71 to i64
   %73 = shl i32 %7, %21
@@ -2739,16 +2739,16 @@ inter_filter_scaled.exit59.thread:                ; preds = %10
   br label %scaled_ref_pos_and_step.exit
 
 scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled.exit59.thread, %81, %109
-  %112 = phi i8 [ %101, %109 ], [ %101, %81 ], [ %80, %inter_filter_scaled.exit59.thread ]
-  %113 = phi i8 [ %98, %109 ], [ %98, %81 ], [ %77, %inter_filter_scaled.exit59.thread ]
-  %.val.val49.val5094 = phi i16 [ %.val.val49.val50, %109 ], [ %.val.val49.val50, %81 ], [ %.val.val49.val5090, %inter_filter_scaled.exit59.thread ]
-  %.val.val49.val93 = phi i16 [ %.val.val49.val, %109 ], [ %.val.val49.val, %81 ], [ %.val.val49.val89, %inter_filter_scaled.exit59.thread ]
-  %.0.i5792 = phi ptr [ %91, %109 ], [ %91, %81 ], [ %.0.i57.ph, %inter_filter_scaled.exit59.thread ]
-  %.0.i7991 = phi ptr [ %83, %109 ], [ %83, %81 ], [ %.0.i.ph, %inter_filter_scaled.exit59.thread ]
-  %114 = phi i32 [ %85, %109 ], [ %85, %81 ], [ %59, %inter_filter_scaled.exit59.thread ]
-  %115 = phi i32 [ %.ph.i, %109 ], [ %.ph.i, %81 ], [ 0, %inter_filter_scaled.exit59.thread ]
-  %116 = phi i32 [ 9, %109 ], [ 9, %81 ], [ 8, %inter_filter_scaled.exit59.thread ]
-  %117 = phi i32 [ %111, %109 ], [ 0, %81 ], [ 0, %inter_filter_scaled.exit59.thread ]
+  %112 = phi i8 [ %101, %81 ], [ %101, %109 ], [ %80, %inter_filter_scaled.exit59.thread ]
+  %113 = phi i8 [ %98, %81 ], [ %98, %109 ], [ %77, %inter_filter_scaled.exit59.thread ]
+  %.val.val49.val5094 = phi i16 [ %.val.val49.val50, %81 ], [ %.val.val49.val50, %109 ], [ %.val.val49.val5090, %inter_filter_scaled.exit59.thread ]
+  %.val.val49.val93 = phi i16 [ %.val.val49.val, %81 ], [ %.val.val49.val, %109 ], [ %.val.val49.val89, %inter_filter_scaled.exit59.thread ]
+  %.0.i5792 = phi ptr [ %91, %81 ], [ %91, %109 ], [ %.0.i57.ph, %inter_filter_scaled.exit59.thread ]
+  %.0.i7991 = phi ptr [ %83, %81 ], [ %83, %109 ], [ %.0.i.ph, %inter_filter_scaled.exit59.thread ]
+  %114 = phi i32 [ %85, %81 ], [ %85, %109 ], [ %59, %inter_filter_scaled.exit59.thread ]
+  %115 = phi i32 [ %.ph.i, %81 ], [ %.ph.i, %109 ], [ 0, %inter_filter_scaled.exit59.thread ]
+  %116 = phi i32 [ 9, %81 ], [ 9, %109 ], [ 8, %inter_filter_scaled.exit59.thread ]
+  %117 = phi i32 [ 0, %81 ], [ %111, %109 ], [ 0, %inter_filter_scaled.exit59.thread ]
   %118 = sext i16 %.val.val49.val5094 to i32
   %119 = sext i16 %.val.val49.val93 to i32
   %120 = zext i8 %112 to i32
@@ -2873,7 +2873,7 @@ scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled
   tail call void %216(ptr noundef %1, i64 noundef %2, ptr noundef %217, i64 noundef %218, i32 noundef %219, i32 noundef %149, i32 noundef %158, i32 noundef %160, i32 noundef %162, i32 noundef %8, i32 noundef %194, i32 noundef %204, i32 noundef %210, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #7
   br label %230
 
-220:                                              ; preds = %176, %172, %scaled_ref_pos_and_step.exit
+220:                                              ; preds = %176, %scaled_ref_pos_and_step.exit, %172
   %221 = getelementptr inbounds nuw i8, ptr %15, i64 20416
   %222 = zext i1 %32 to i64
   %223 = getelementptr inbounds nuw [7 x ptr], ptr %221, i64 %222
@@ -3040,9 +3040,9 @@ pred_get_refs.exit:                               ; preds = %33
   br label %.thread165
 
 .thread165:                                       ; preds = %107, %104, %72
-  %108 = phi ptr [ %97, %72 ], [ %45, %104 ], [ %97, %107 ]
-  %109 = phi i1 [ false, %72 ], [ true, %104 ], [ false, %107 ]
-  %110 = phi i64 [ %98, %72 ], [ 256, %104 ], [ %98, %107 ]
+  %108 = phi ptr [ %97, %72 ], [ %97, %107 ], [ %45, %104 ]
+  %109 = phi i1 [ false, %72 ], [ false, %107 ], [ true, %104 ]
+  %110 = phi i64 [ %98, %72 ], [ %98, %107 ], [ 256, %104 ]
   %111 = and i1 %46, %.not117
   %112 = load i8, ptr %27, align 4, !tbaa !92
   %.not119 = icmp eq i8 %112, 3
@@ -3311,7 +3311,7 @@ mc_uni.exit:                                      ; preds = %212, %256
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %289, %285, %275
-  %295 = phi i1 [ %spec.select.i.i124, %289 ], [ false, %285 ], [ false, %275 ]
+  %295 = phi i1 [ false, %275 ], [ %spec.select.i.i124, %289 ], [ false, %285 ]
   %296 = icmp ne i8 %281, 0
   %or.cond.i.i = select i1 %295, i1 true, i1 %296
   br i1 %or.cond.i.i, label %297, label %derive_weight.exit.i
@@ -3602,7 +3602,7 @@ mc.exit.i:                                        ; preds = %378, %375, %355
   br label %.thread.i.i137
 
 .thread.i.i137:                                   ; preds = %478, %474, %442
-  %483 = phi i1 [ %spec.select.i129.i, %478 ], [ false, %474 ], [ false, %442 ]
+  %483 = phi i1 [ false, %442 ], [ %spec.select.i129.i, %478 ], [ false, %474 ]
   %484 = icmp ne i8 %470, 0
   %or.cond.i.i138 = select i1 %483, i1 true, i1 %484
   br i1 %or.cond.i.i138, label %485, label %derive_weight.exit.i139

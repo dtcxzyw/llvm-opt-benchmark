@@ -365,7 +365,7 @@ vduse_queue_get_head.exit:                        ; preds = %36
   br label %72
 
 72:                                               ; preds = %vduse_queue_get_head.exit, %56, %vduse_queue_empty.exit, %13, %21, %2, %58, %33
-  %.0 = phi ptr [ null, %33 ], [ %57, %58 ], [ null, %2 ], [ %19, %21 ], [ %19, %13 ], [ null, %vduse_queue_empty.exit ], [ null, %vduse_queue_get_head.exit ], [ null, %56 ]
+  %.0 = phi ptr [ null, %vduse_queue_empty.exit ], [ null, %2 ], [ %19, %13 ], [ null, %33 ], [ %57, %58 ], [ null, %vduse_queue_get_head.exit ], [ %19, %21 ], [ null, %56 ]
   ret ptr %.0
 }
 
@@ -599,7 +599,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %80, %.thread69
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph81
 
 .loopexit:                                        ; preds = %60, %47, %.lr.ph81, %.preheader, %102, %84, %71, %57, %.thread, %23
-  %.037 = phi ptr [ null, %23 ], [ null, %71 ], [ null, %84 ], [ null, %102 ], [ null, %57 ], [ null, %.thread ], [ %101, %.preheader ], [ %101, %.lr.ph81 ], [ null, %47 ], [ null, %60 ]
+  %.037 = phi ptr [ null, %23 ], [ null, %71 ], [ null, %84 ], [ null, %102 ], [ null, %.thread ], [ null, %57 ], [ %101, %.preheader ], [ %101, %.lr.ph81 ], [ null, %47 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -992,7 +992,7 @@ vduse_iova_remove_region.exit:                    ; preds = %141, %114
   br i1 %165, label %.lr.ph, label %vduse_dev_start_dataplane.exit
 
 vduse_dev_start_dataplane.exit:                   ; preds = %162, %.lr.ph.i, %113, %16, %vduse_iova_remove_region.exit, %53, %37, %.preheader.i, %20
-  %.sink = phi i32 [ 0, %20 ], [ 0, %.preheader.i ], [ 0, %37 ], [ 0, %53 ], [ 0, %vduse_iova_remove_region.exit ], [ 1, %16 ], [ 0, %113 ], [ 0, %.lr.ph.i ], [ 0, %162 ]
+  %.sink = phi i32 [ 0, %vduse_iova_remove_region.exit ], [ 0, %53 ], [ 0, %20 ], [ 0, %.preheader.i ], [ 0, %37 ], [ 1, %16 ], [ 0, %.lr.ph.i ], [ 0, %113 ], [ 0, %162 ]
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sink, ptr %166, align 4
   %167 = load i32, ptr %6, align 8
@@ -1171,7 +1171,7 @@ define dso_local i32 @vduse_dev_setup_queue(ptr noundef readonly captures(none) 
   br label %23
 
 23:                                               ; preds = %3, %22, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -22, %3 ]
+  %.0 = phi i32 [ 0, %22 ], [ %21, %18 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1681,7 +1681,7 @@ vduse_name_is_invalid.exit.thread:                ; preds = %5, %13, %11, %vduse
   br label %31
 
 31:                                               ; preds = %23, %26, %20, %vduse_name_is_invalid.exit.thread
-  %.0 = phi ptr [ null, %26 ], [ null, %20 ], [ null, %vduse_name_is_invalid.exit.thread ], [ %19, %23 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %vduse_name_is_invalid.exit.thread ], [ null, %20 ], [ %19, %23 ]
   ret ptr %.0
 }
 
@@ -2281,7 +2281,7 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
   br label %32
 
 32:                                               ; preds = %.critedge, %31, %10
-  %.022 = phi i1 [ true, %31 ], [ false, %10 ], [ false, %.critedge ]
+  %.022 = phi i1 [ false, %.critedge ], [ true, %31 ], [ false, %10 ]
   ret i1 %.022
 }
 

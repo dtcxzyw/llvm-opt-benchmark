@@ -2702,7 +2702,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5RISCV7RVVType10verifyTypeEv(ptr 
   br label %_ZN4llvm13isPowerOf2_32Ej.exit
 
 _ZN4llvm13isPowerOf2_32Ej.exit:                   ; preds = %5, %52, %47, %42, %37, %54, %49, %44, %39, %.critedge, %.split, %29, %24, %18, %13, %1
-  %.0 = phi i1 [ false, %1 ], [ %12, %5 ], [ false, %13 ], [ false, %18 ], [ false, %24 ], [ false, %29 ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %.critedge ], [ false, %.split ], [ %41, %39 ], [ %46, %44 ], [ %51, %49 ], [ %56, %54 ]
+  %.0 = phi i1 [ %12, %5 ], [ false, %1 ], [ %56, %54 ], [ false, %13 ], [ false, %18 ], [ false, %24 ], [ false, %29 ], [ %51, %49 ], [ %46, %44 ], [ false, %.split ], [ %41, %39 ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ false, %52 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -5581,11 +5581,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %3
   br label %_ZN4llvmplERKNS_5TwineES2_.exit56
 
 _ZN4llvmplERKNS_5TwineES2_.exit56:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit41, %44, %45
-  %.sink68 = phi i8 [ 4, %44 ], [ %.014.i.i45, %45 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sink = phi i8 [ 1, %44 ], [ 4, %45 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sroa.56.0.copyload.i.i59 = phi i64 [ undef, %44 ], [ %.sroa.56.0.i.i47, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sroa.05.0.copyload.i.i57 = phi ptr [ %13, %44 ], [ %.sroa.05.0.i.i46, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %49 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink68 = phi i8 [ %.014.i.i45, %45 ], [ 4, %44 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink = phi i8 [ 4, %45 ], [ 1, %44 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sroa.56.0.copyload.i.i59 = phi i64 [ %.sroa.56.0.i.i47, %45 ], [ undef, %44 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sroa.05.0.copyload.i.i57 = phi ptr [ %.sroa.05.0.i.i46, %45 ], [ %13, %44 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %49 = phi i1 [ false, %45 ], [ true, %44 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %.sink68, ptr %50, align 8, !tbaa !143
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -7215,8 +7215,8 @@ define dso_local range(i32 16777216, 33554432) i32 @_ZN5clang5RISCV19PrototypeDe
   unreachable
 
 27:                                               ; preds = %11, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15
-  %.024 = phi i8 [ 0, %15 ], [ 1, %16 ], [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %11 ]
-  %.0 = phi i32 [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 8, %25 ], [ 1, %11 ]
+  %.024 = phi i8 [ 0, %25 ], [ 0, %15 ], [ 1, %16 ], [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %11 ]
+  %.0 = phi i32 [ 8, %25 ], [ 2, %15 ], [ 2, %16 ], [ 2, %17 ], [ 2, %18 ], [ 2, %19 ], [ 3, %20 ], [ 4, %21 ], [ 5, %22 ], [ 6, %23 ], [ 7, %24 ], [ 1, %11 ]
   %28 = add i64 %1, -1
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %.loopexit, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -7872,7 +7872,7 @@ _ZNSt13unordered_mapImN5clang5RISCV7RVVTypeESt4hashImESt8equal_toImESaISt4pairIK
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %139
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %27, %32, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %27, %..loopexit_crit_edge21.i.i.i.i, %32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !231
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -7902,7 +7902,7 @@ _ZNKSt3setImSt4lessImESaImEE5countERKm.exit:      ; preds = %_ZNKSt8_Rb_treeImmS
   %.not21 = icmp ult i64 %22, %60
   br i1 %.not21, label %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread, label %139
 
-_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread: ; preds = %.loopexit, %_ZNKSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPKSt13_Rb_tree_nodeImEPKSt18_Rb_tree_node_baseRKm.exit.i.i, %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit
+_ZNKSt3setImSt4lessImESaImEE5countERKm.exit.thread: ; preds = %_ZNKSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPKSt13_Rb_tree_nodeImEPKSt18_Rb_tree_node_baseRKm.exit.i.i, %.loopexit, %_ZNKSt3setImSt4lessImESaImEE5countERKm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang5RISCV7RVVTypeC1ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(160) %6, i8 noundef zeroext %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(3) %5) #23
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -8023,7 +8023,7 @@ select.unfold.i.i:                                ; preds = %101, %._crit_edge.t
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %105, %select.unfold.i.i
-  %109 = phi i1 [ true, %select.unfold.i.i ], [ %108, %105 ]
+  %109 = phi i1 [ %108, %105 ], [ true, %select.unfold.i.i ]
   %110 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store i64 %22, ptr %111, align 8, !tbaa !21

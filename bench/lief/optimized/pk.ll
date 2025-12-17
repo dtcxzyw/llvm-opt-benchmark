@@ -98,7 +98,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr noundef captures(no
   br label %14
 
 14:                                               ; preds = %9, %2, %4, %13
-  %.0 = phi i32 [ 0, %13 ], [ -16000, %4 ], [ -16000, %2 ], [ -16256, %9 ]
+  %.0 = phi i32 [ 0, %13 ], [ -16000, %2 ], [ -16000, %4 ], [ -16256, %9 ]
   ret i32 %.0
 }
 
@@ -195,8 +195,8 @@ mbedtls_pk_get_type.exit:                         ; preds = %3, %6, %9
   br label %switch.edge
 
 switch.edge:                                      ; preds = %13, %13, %13, %.thread
-  %16 = phi i32 [ %14, %13 ], [ %15, %.thread ], [ %14, %13 ], [ %14, %13 ]
-  %17 = phi i1 [ true, %13 ], [ false, %.thread ], [ true, %13 ], [ true, %13 ]
+  %16 = phi i32 [ %15, %.thread ], [ %14, %13 ], [ %14, %13 ], [ %14, %13 ]
+  %17 = phi i1 [ false, %.thread ], [ true, %13 ], [ true, %13 ], [ true, %13 ]
   switch i32 %.0.i, label %72 [
     i32 1, label %18
     i32 2, label %mbedtls_pk_ec_ro.exit
@@ -296,11 +296,11 @@ mbedtls_pk_ec_ro.exit:                            ; preds = %switch.edge, %switc
   %57 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %56, ptr noundef nonnull %4) #9
   %58 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %59 = icmp eq i32 %58, 1
-  br i1 %59, label %.split5, label %71
+  br i1 %59, label %.split5, label %.critedge65
 
 .split5:                                          ; preds = %mbedtls_pk_ec_ro.exit
   %60 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
-  switch i32 %60, label %71 [
+  switch i32 %60, label %.critedge65 [
     i32 10, label %61
     i32 12, label %61
     i32 11, label %61
@@ -309,40 +309,36 @@ mbedtls_pk_ec_ro.exit:                            ; preds = %switch.edge, %switc
   ]
 
 61:                                               ; preds = %.split5, %.split5, %.split5, %.split5
-  br i1 %.not, label %71, label %63
+  br i1 %.not, label %.critedge65, label %63
 
 62:                                               ; preds = %.split5
-  br i1 %.not61, label %71, label %63
+  br i1 %.not61, label %.critedge65, label %63
 
 63:                                               ; preds = %61, %62
   %.0 = phi i32 [ 151126016, %62 ], [ 100665343, %61 ]
   %or.cond7 = select i1 %17, i1 true, i1 %55
-  br i1 %or.cond7, label %.critedge65, label %71
+  br i1 %or.cond7, label %64, label %.critedge65
 
-.critedge65:                                      ; preds = %63
-  %64 = zext i8 %57 to i16
+64:                                               ; preds = %63
+  %65 = zext i8 %57 to i16
   %.v = select i1 %17, i16 16640, i16 28928
-  %65 = or disjoint i16 %.v, %64
-  store i16 %65, ptr %2, align 4, !tbaa !22
-  %66 = load i64, ptr %4, align 8, !tbaa !37
-  %67 = icmp ugt i64 %66, 65528
-  %68 = trunc nuw i64 %66 to i16
-  %spec.select.i70 = select i1 %67, i16 -1, i16 %68
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %spec.select.i70, ptr %69, align 2, !tbaa !27
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %.0, ptr %70, align 4, !tbaa !28
+  %66 = or disjoint i16 %.v, %65
+  store i16 %66, ptr %2, align 4, !tbaa !22
+  %67 = load i64, ptr %4, align 8, !tbaa !37
+  %68 = icmp ugt i64 %67, 65528
+  %69 = trunc nuw i64 %67 to i16
+  %spec.select.i70 = select i1 %68, i16 -1, i16 %69
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  store i16 %spec.select.i70, ptr %70, align 2, !tbaa !27
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %.0, ptr %71, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
-
-71:                                               ; preds = %63, %.split5, %mbedtls_pk_ec_ro.exit, %62, %61
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge
 
 72:                                               ; preds = %switch.edge
   br label %.critedge
 
-73:                                               ; preds = %psa_algorithm_for_rsa.exit, %.critedge65
+73:                                               ; preds = %psa_algorithm_for_rsa.exit, %64
   %74 = and i32 %16, 12288
   %.not.i.i = icmp eq i32 %74, 0
   %75 = lshr i32 %16, 2
@@ -355,8 +351,12 @@ mbedtls_pk_ec_ro.exit:                            ; preds = %switch.edge, %switc
   store i32 0, ptr %78, align 4, !tbaa !40
   br label %.critedge
 
-.critedge:                                        ; preds = %.split, %mbedtls_pk_rsa.exit, %18, %switch.edge, %71, %73, %72
-  %.2 = phi i32 [ -16000, %72 ], [ 0, %73 ], [ -16128, %71 ], [ -14720, %switch.edge ], [ -16128, %.split ], [ -16128, %18 ], [ -16128, %mbedtls_pk_rsa.exit ]
+.critedge65:                                      ; preds = %63, %mbedtls_pk_ec_ro.exit, %61, %.split5, %62
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.critedge
+
+.critedge:                                        ; preds = %.split, %mbedtls_pk_rsa.exit, %18, %switch.edge, %.critedge65, %73, %72
+  %.2 = phi i32 [ -16000, %72 ], [ 0, %73 ], [ -16128, %mbedtls_pk_rsa.exit ], [ -16128, %.critedge65 ], [ -16128, %.split ], [ -14720, %switch.edge ], [ -16128, %18 ]
   ret i32 %.2
 }
 
@@ -528,7 +528,7 @@ mbedtls_pk_ec_ro.exit.i:                          ; preds = %mbedtls_pk_get_type
   br label %import_public_into_psa.exit
 
 import_public_into_psa.exit:                      ; preds = %.thread39, %25, %mbedtls_pk_get_type.exit.i, %27, %mbedtls_pk_rsa.exit.i, %.thread.i, %46
-  %.0.i10 = phi i32 [ %50, %46 ], [ -16128, %27 ], [ -16000, %mbedtls_pk_get_type.exit.i ], [ %31, %mbedtls_pk_rsa.exit.i ], [ %.2.ph.i, %.thread.i ], [ -16000, %25 ], [ -16000, %.thread39 ]
+  %.0.i10 = phi i32 [ -16000, %mbedtls_pk_get_type.exit.i ], [ %.2.ph.i, %.thread.i ], [ %50, %46 ], [ %31, %mbedtls_pk_rsa.exit.i ], [ -16128, %27 ], [ -16000, %.thread39 ], [ -16000, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -622,7 +622,7 @@ mbedtls_pk_ec_ro.exit.i12:                        ; preds = %mbedtls_pk_get_type
   br label %import_pair_into_psa.exit
 
 import_pair_into_psa.exit:                        ; preds = %mbedtls_pk_get_type.exit.thread.thread, %mbedtls_pk_get_type.exit.thread, %87, %66, %52, %mbedtls_pk_get_type.exit.i11, %import_public_into_psa.exit, %mbedtls_pk_get_type.exit
-  %.0 = phi i32 [ -14720, %mbedtls_pk_get_type.exit ], [ %.0.i10, %import_public_into_psa.exit ], [ %.1.i, %66 ], [ %.2.i, %87 ], [ -16128, %52 ], [ -16000, %mbedtls_pk_get_type.exit.i11 ], [ -16000, %mbedtls_pk_get_type.exit.thread ], [ -16000, %mbedtls_pk_get_type.exit.thread.thread ]
+  %.0 = phi i32 [ -14720, %mbedtls_pk_get_type.exit ], [ %.0.i10, %import_public_into_psa.exit ], [ -16128, %52 ], [ %.2.i, %87 ], [ %.1.i, %66 ], [ -16000, %mbedtls_pk_get_type.exit.i11 ], [ -16000, %mbedtls_pk_get_type.exit.thread ], [ -16000, %mbedtls_pk_get_type.exit.thread.thread ]
   ret i32 %.0
 }
 
@@ -837,14 +837,14 @@ mbedtls_pk_rsa.exit97:                            ; preds = %55, %mbedtls_pk_get
   %89 = call i32 @mbedtls_pk_ecc_set_pubkey(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %82) #9
   br label %mbedtls_pk_setup.exit.thread
 
-mbedtls_pk_setup.exit.thread:                     ; preds = %85, %88, %70, %66, %28, %24, %mbedtls_pk_rsa.exit92, %52, %mbedtls_pk_rsa.exit97, %74, %83, %39, %16
-  %.057 = phi i32 [ %17, %16 ], [ %.158, %39 ], [ %80, %74 ], [ %84, %83 ], [ %51, %mbedtls_pk_rsa.exit92 ], [ %62, %mbedtls_pk_rsa.exit97 ], [ 0, %52 ], [ -16256, %28 ], [ -16000, %24 ], [ -16256, %70 ], [ -16000, %66 ], [ %87, %85 ], [ %89, %88 ]
+mbedtls_pk_setup.exit.thread:                     ; preds = %85, %88, %66, %70, %24, %28, %mbedtls_pk_rsa.exit92, %52, %mbedtls_pk_rsa.exit97, %74, %83, %39, %16
+  %.057 = phi i32 [ %17, %16 ], [ 0, %52 ], [ %.158, %39 ], [ -16256, %70 ], [ %80, %74 ], [ %84, %83 ], [ -16256, %28 ], [ %51, %mbedtls_pk_rsa.exit92 ], [ %62, %mbedtls_pk_rsa.exit97 ], [ -16000, %24 ], [ -16000, %66 ], [ %87, %85 ], [ %89, %88 ]
   call void @psa_reset_key_attributes(ptr noundef nonnull %4) #9
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 2363) #9
   br label %90
 
 90:                                               ; preds = %63, %8, %3, %mbedtls_pk_setup.exit.thread
-  %.0 = phi i32 [ %.057, %mbedtls_pk_setup.exit.thread ], [ -16000, %3 ], [ -16000, %8 ], [ -16000, %63 ]
+  %.0 = phi i32 [ -16000, %8 ], [ -16000, %3 ], [ %.057, %mbedtls_pk_setup.exit.thread ], [ -16000, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -899,7 +899,7 @@ pk_hashlen_helper.exit.thread:                    ; preds = %pk_hashlen_helper.e
   br label %24
 
 24:                                               ; preds = %pk_hashlen_helper.exit.thread, %11, %pk_hashlen_helper.exit, %7, %22
-  %.0 = phi i32 [ %23, %22 ], [ -16000, %7 ], [ -16000, %pk_hashlen_helper.exit ], [ -16000, %11 ], [ -16128, %pk_hashlen_helper.exit.thread ]
+  %.0 = phi i32 [ %23, %22 ], [ -16000, %7 ], [ -16000, %11 ], [ -16000, %pk_hashlen_helper.exit ], [ -16128, %pk_hashlen_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -945,7 +945,7 @@ pk_hashlen_helper.exit.thread.i:                  ; preds = %pk_hashlen_helper.e
   br label %mbedtls_pk_verify_restartable.exit
 
 mbedtls_pk_verify_restartable.exit:               ; preds = %6, %10, %pk_hashlen_helper.exit.i, %pk_hashlen_helper.exit.thread.i, %21
-  %.0.i = phi i32 [ %22, %21 ], [ -16000, %6 ], [ -16000, %pk_hashlen_helper.exit.i ], [ -16000, %10 ], [ -16128, %pk_hashlen_helper.exit.thread.i ]
+  %.0.i = phi i32 [ %22, %21 ], [ -16000, %6 ], [ -16000, %10 ], [ -16000, %pk_hashlen_helper.exit.i ], [ -16128, %pk_hashlen_helper.exit.thread.i ]
   ret i32 %.0.i
 }
 
@@ -1081,7 +1081,7 @@ mbedtls_pk_get_len.exit48:                        ; preds = %58, %61
   br label %mbedtls_pk_verify.exit
 
 mbedtls_pk_verify.exit:                           ; preds = %33, %31, %pk_hashlen_helper.exit.thread.i.i, %pk_hashlen_helper.exit.i.i, %20, %37, %mbedtls_pk_get_len.exit, %mbedtls_pk_rsa.exit, %mbedtls_pk_get_len.exit48, %mbedtls_pk_get_type.exit, %19, %mbedtls_pk_can_do.exit, %12, %8
-  %.0 = phi i32 [ -16000, %8 ], [ -16000, %12 ], [ -16128, %mbedtls_pk_can_do.exit ], [ -16000, %19 ], [ -14720, %mbedtls_pk_get_type.exit ], [ -16000, %37 ], [ -17280, %mbedtls_pk_get_len.exit ], [ %57, %mbedtls_pk_rsa.exit ], [ %., %mbedtls_pk_get_len.exit48 ], [ %32, %31 ], [ -16000, %pk_hashlen_helper.exit.i.i ], [ -16000, %20 ], [ -16128, %pk_hashlen_helper.exit.thread.i.i ], [ -14720, %33 ]
+  %.0 = phi i32 [ -16000, %12 ], [ -16000, %8 ], [ -16128, %mbedtls_pk_can_do.exit ], [ -17280, %mbedtls_pk_get_len.exit ], [ -16000, %19 ], [ -14720, %mbedtls_pk_get_type.exit ], [ %57, %mbedtls_pk_rsa.exit ], [ -16000, %37 ], [ %., %mbedtls_pk_get_len.exit48 ], [ %32, %31 ], [ -16128, %pk_hashlen_helper.exit.thread.i.i ], [ -16000, %20 ], [ -16000, %pk_hashlen_helper.exit.i.i ], [ -14720, %33 ]
   ret i32 %.0
 }
 
@@ -1129,7 +1129,7 @@ pk_hashlen_helper.exit.thread:                    ; preds = %pk_hashlen_helper.e
   br label %27
 
 27:                                               ; preds = %pk_hashlen_helper.exit.thread, %14, %pk_hashlen_helper.exit, %10, %25
-  %.0 = phi i32 [ %26, %25 ], [ -16000, %10 ], [ -16000, %pk_hashlen_helper.exit ], [ -16000, %14 ], [ -16128, %pk_hashlen_helper.exit.thread ]
+  %.0 = phi i32 [ %26, %25 ], [ -16000, %10 ], [ -16000, %14 ], [ -16000, %pk_hashlen_helper.exit ], [ -16128, %pk_hashlen_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1175,7 +1175,7 @@ pk_hashlen_helper.exit.thread.i:                  ; preds = %pk_hashlen_helper.e
   br label %mbedtls_pk_sign_restartable.exit
 
 mbedtls_pk_sign_restartable.exit:                 ; preds = %9, %13, %pk_hashlen_helper.exit.i, %pk_hashlen_helper.exit.thread.i, %24
-  %.0.i = phi i32 [ %25, %24 ], [ -16000, %9 ], [ -16000, %pk_hashlen_helper.exit.i ], [ -16000, %13 ], [ -16128, %pk_hashlen_helper.exit.thread.i ]
+  %.0.i = phi i32 [ %25, %24 ], [ -16000, %9 ], [ -16000, %13 ], [ -16000, %pk_hashlen_helper.exit.i ], [ -16128, %pk_hashlen_helper.exit.thread.i ]
   ret i32 %.0.i
 }
 
@@ -1290,7 +1290,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %pk_hashlen_helper.e
   br label %mbedtls_pk_sign.exit
 
 mbedtls_pk_sign.exit:                             ; preds = %32, %pk_hashlen_helper.exit.thread.i.i, %pk_hashlen_helper.exit.i.i, %21, %17, %mbedtls_pk_rsa.exit, %55, %pk_hashlen_helper.exit, %mbedtls_pk_get_len.exit, %mbedtls_pk_can_do.exit, %10
-  %.0 = phi i32 [ -16000, %10 ], [ -16128, %mbedtls_pk_can_do.exit ], [ -14464, %mbedtls_pk_get_len.exit ], [ -16000, %pk_hashlen_helper.exit ], [ 0, %55 ], [ %53, %mbedtls_pk_rsa.exit ], [ %33, %32 ], [ -16000, %17 ], [ -16000, %pk_hashlen_helper.exit.i.i ], [ -16000, %21 ], [ -16128, %pk_hashlen_helper.exit.thread.i.i ]
+  %.0 = phi i32 [ -16000, %10 ], [ %53, %mbedtls_pk_rsa.exit ], [ -16128, %mbedtls_pk_can_do.exit ], [ -14464, %mbedtls_pk_get_len.exit ], [ -16000, %pk_hashlen_helper.exit ], [ 0, %55 ], [ %33, %32 ], [ -16000, %17 ], [ -16000, %21 ], [ -16000, %pk_hashlen_helper.exit.i.i ], [ -16128, %pk_hashlen_helper.exit.thread.i.i ]
   ret i32 %.0
 }
 
@@ -1378,7 +1378,7 @@ define hidden i32 @mbedtls_pk_check_pair(ptr noundef %0, ptr noundef %1, ptr nou
   br label %22
 
 22:                                               ; preds = %19, %17, %11, %4, %7, %20
-  %.0 = phi i32 [ %21, %20 ], [ -16000, %7 ], [ -16000, %4 ], [ -14720, %11 ], [ -16128, %17 ], [ -16128, %19 ]
+  %.0 = phi i32 [ -16128, %17 ], [ -16000, %4 ], [ -16128, %19 ], [ -14720, %11 ], [ %21, %20 ], [ -16000, %7 ]
   ret i32 %.0
 }
 

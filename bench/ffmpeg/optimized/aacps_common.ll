@@ -649,9 +649,9 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   br label %get_vlc2.exit.i260
 
 get_vlc2.exit.i260:                               ; preds = %385, %367
-  %.064.i.i261 = phi i32 [ %388, %385 ], [ %.sroa.28303.17, %367 ]
-  %.062.i.i262 = phi i16 [ %401, %385 ], [ %380, %367 ]
-  %.0.i.i263 = phi i32 [ %404, %385 ], [ %383, %367 ]
+  %.064.i.i261 = phi i32 [ %.sroa.28303.17, %367 ], [ %388, %385 ]
+  %.062.i.i262 = phi i16 [ %380, %367 ], [ %401, %385 ]
+  %.0.i.i263 = phi i32 [ %383, %367 ], [ %404, %385 ]
   %405 = trunc i16 %.062.i.i262 to i8
   %406 = add i8 %369, %405
   %407 = getelementptr inbounds nuw i8, ptr %363, i64 %indvars.iv.i259
@@ -711,9 +711,9 @@ get_vlc2.exit.i260:                               ; preds = %385, %367
   br label %get_vlc2.exit52.i
 
 get_vlc2.exit52.i:                                ; preds = %429, %412
-  %.064.i49.i = phi i32 [ %431, %429 ], [ %.sroa.28303.19, %412 ]
-  %.062.i50.i = phi i32 [ %445, %429 ], [ %424, %412 ]
-  %.0.i51.i = phi i32 [ %448, %429 ], [ %427, %412 ]
+  %.064.i49.i = phi i32 [ %.sroa.28303.19, %412 ], [ %431, %429 ]
+  %.062.i50.i = phi i32 [ %424, %412 ], [ %445, %429 ]
+  %.0.i51.i = phi i32 [ %427, %412 ], [ %448, %429 ]
   %449 = add i32 %.062.i50.i, %.060.i
   %450 = trunc i32 %449 to i8
   %451 = getelementptr inbounds nuw i8, ptr %356, i64 %indvars.iv65.i
@@ -1316,7 +1316,7 @@ ps_read_extension_data.exit:                      ; preds = %489, %.loopexit.i27
   br label %774
 
 774:                                              ; preds = %.thread367, %759
-  %.0192 = phi i32 [ %3, %.thread367 ], [ %758, %759 ]
+  %.0192 = phi i32 [ %758, %759 ], [ %3, %.thread367 ]
   ret i32 %.0192
 }
 

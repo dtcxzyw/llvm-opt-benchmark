@@ -2831,7 +2831,7 @@ _init_from_slurmd.exit:                           ; preds = %820, %836
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1008
 
-1008:                                             ; preds = %1005, %925, %.critedge.i
+1008:                                             ; preds = %1005, %.critedge.i, %925
   call fastcc void @_send_fail_to_slurmd(i32 noundef -1)
   br label %1079
 
@@ -3214,7 +3214,7 @@ define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0
 .lr.ph.split.backedge:                            ; preds = %20, %17
   br label %.lr.ph.split, !llvm.loop !26
 
-21:                                               ; preds = %13, %.split23.us
+21:                                               ; preds = %.split23.us, %13
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74) #15
   br label %.loopexit
 
@@ -4016,10 +4016,10 @@ _get_jobid_uid_gid_from_env.exit.thread:          ; preds = %34
   br label %_get_jobid_uid_gid_from_env.exit
 
 _get_jobid_uid_gid_from_env.exit:                 ; preds = %10, %17, %21, %28, %32, %39
-  %.011 = phi i32 [ -1, %10 ], [ -1, %21 ], [ %25, %32 ], [ %25, %39 ], [ %25, %28 ], [ -1, %17 ]
-  %.010 = phi i32 [ -1, %10 ], [ -1, %21 ], [ -1, %32 ], [ %36, %39 ], [ -1, %28 ], [ -1, %17 ]
-  %.09 = phi i32 [ -1, %10 ], [ %14, %21 ], [ %14, %32 ], [ %14, %39 ], [ %14, %28 ], [ %14, %17 ]
-  %.0.i = phi i32 [ %11, %10 ], [ %22, %21 ], [ %33, %32 ], [ %40, %39 ], [ %29, %28 ], [ %18, %17 ]
+  %.011 = phi i32 [ -1, %10 ], [ -1, %21 ], [ %25, %32 ], [ -1, %17 ], [ %25, %39 ], [ %25, %28 ]
+  %.010 = phi i32 [ -1, %10 ], [ -1, %21 ], [ -1, %32 ], [ -1, %17 ], [ %36, %39 ], [ -1, %28 ]
+  %.09 = phi i32 [ -1, %10 ], [ %14, %21 ], [ %14, %32 ], [ %14, %17 ], [ %14, %39 ], [ %14, %28 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %22, %21 ], [ %33, %32 ], [ %18, %17 ], [ %40, %39 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %43, label %41
@@ -4068,7 +4068,7 @@ _get_jobid_uid_gid_from_env.exit:                 ; preds = %10, %17, %21, %28, 
   br label %60
 
 60:                                               ; preds = %54, %49, %59, %57, %41
-  %.0 = phi i32 [ %42, %41 ], [ -1, %57 ], [ 0, %59 ], [ -1, %49 ], [ -1, %54 ]
+  %.0 = phi i32 [ %42, %41 ], [ -1, %57 ], [ -1, %49 ], [ 0, %59 ], [ -1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -4451,7 +4451,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   br label %131
 
 131:                                              ; preds = %.thread110, %127, %123, %130
-  %.sink = phi i32 [ 1, %130 ], [ %124, %123 ], [ %117, %127 ], [ %spec.select, %.thread110 ]
+  %.sink = phi i32 [ %117, %127 ], [ 1, %130 ], [ %124, %123 ], [ %spec.select, %.thread110 ]
   %132 = getelementptr inbounds nuw i8, ptr %.076, i64 4392
   store i32 %.sink, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %.076, i64 4328
@@ -4505,7 +4505,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #15
   br label %160
 
-158:                                              ; preds = %78, %83, %93, %.split184.us
+158:                                              ; preds = %78, %83, %.split184.us, %93
   %.not93 = icmp eq ptr %54, null
   br i1 %.not93, label %.thread114, label %159
 
@@ -4513,12 +4513,12 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #1 {
   tail call void @free_buf(ptr noundef nonnull %54) #15
   br label %.thread114
 
-.thread114:                                       ; preds = %30, %35, %45, %.split134.us, %159, %158
+.thread114:                                       ; preds = %30, %35, %.split134.us, %45, %159, %158
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %160
 
 160:                                              ; preds = %.thread114, %157
-  %.0 = phi ptr [ %.076, %157 ], [ null, %.thread114 ]
+  %.0 = phi ptr [ null, %.thread114 ], [ %.076, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -81,7 +81,7 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not469, label %59, label %.thread
 
 .thread.sink.split:                               ; preds = %52, %49, %46, %43, %41
-  %.sink = phi i32 [ -1, %41 ], [ -2, %43 ], [ -3, %46 ], [ -13, %49 ], [ -15, %52 ]
+  %.sink = phi i32 [ -1, %41 ], [ -2, %43 ], [ -13, %49 ], [ -3, %46 ], [ -15, %52 ]
   store i32 %.sink, ptr %19, align 4, !tbaa !3
   br label %.thread
 
@@ -496,7 +496,7 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not479507, label %.loopexit485.backedge, label %.lr.ph510.preheader
 
 .loopexit485.backedge:                            ; preds = %.lr.ph510, %281, %._crit_edge515
-  %.be = phi i32 [ %285, %281 ], [ %.pre.pre, %._crit_edge515 ], [ %285, %.lr.ph510 ]
+  %.be = phi i32 [ %.pre.pre, %._crit_edge515 ], [ %285, %281 ], [ %285, %.lr.ph510 ]
   br label %.loopexit485
 
 .lr.ph510.preheader:                              ; preds = %281

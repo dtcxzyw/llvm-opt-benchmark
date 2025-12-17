@@ -205,7 +205,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   br label %61
 
 .thread:                                          ; preds = %45, %_ZNKSt14default_deleteIN4llvm3pdb14IPDBLineNumberEEclEPS2_.exit.i, %50
-  %.11432 = phi i32 [ %54, %50 ], [ %54, %_ZNKSt14default_deleteIN4llvm3pdb14IPDBLineNumberEEclEPS2_.exit.i ], [ undef, %45 ]
+  %.11432 = phi i32 [ %54, %_ZNKSt14default_deleteIN4llvm3pdb14IPDBLineNumberEEclEPS2_.exit.i ], [ %54, %50 ], [ undef, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr33 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i25 = icmp eq ptr %.pr33, null
@@ -423,9 +423,9 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread:
   br label %168
 
 168:                                              ; preds = %156, %153, %160
-  %.419.ph = phi i32 [ 1, %156 ], [ 5, %153 ], [ 0, %160 ]
-  %.10.ph = phi i32 [ %.0, %156 ], [ %.9, %153 ], [ %.9, %160 ]
-  %.1.ph = phi i32 [ %.0, %156 ], [ %.0, %153 ], [ %167, %160 ]
+  %.419.ph = phi i32 [ 1, %156 ], [ 0, %160 ], [ 5, %153 ]
+  %.10.ph = phi i32 [ %.0, %156 ], [ %.9, %160 ], [ %.9, %153 ]
+  %.1.ph = phi i32 [ %.0, %156 ], [ %167, %160 ], [ %.0, %153 ]
   %.pr69 = load ptr, ptr %8, align 8, !tbaa !34
   %.not.i28 = icmp eq ptr %.pr69, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i

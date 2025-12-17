@@ -79,7 +79,7 @@ _ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4Span
   br label %_ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4SpanIjEE.exit
 
 _ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4SpanIjEE.exit: ; preds = %10, %._crit_edge.i.i, %_ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4SpanIjEE.exit.i, %6, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %4 ], [ %.120.i.i, %._crit_edge.i.i ], [ false, %_ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4SpanIjEE.exit.i ], [ true, %6 ], [ true, %10 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %2 ], [ false, %_ZN4absl15random_internal12_GLOBAL__N_130ReadSeedMaterialFromGetEntropyENS_4SpanIjEE.exit.i ], [ %.120.i.i, %._crit_edge.i.i ], [ true, %6 ], [ true, %10 ]
   ret i1 %.0
 }
 

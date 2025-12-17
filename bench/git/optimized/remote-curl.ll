@@ -1782,15 +1782,15 @@ skip_prefix.exit.preheader:                       ; preds = %451
   unreachable
 
 set_option.exit:                                  ; preds = %472, %495, %567
-  %.1.i73 = phi i32 [ %.3.i, %567 ], [ %.2.i74, %495 ], [ %.0.i75, %472 ]
+  %.1.i73 = phi i32 [ %.0.i75, %472 ], [ %.3.i, %567 ], [ %.2.i74, %495 ]
   %.not32 = icmp eq i32 %.1.i73, 0
   br i1 %.not32, label %set_option.exit.thread, label %.thread
 
-.thread:                                          ; preds = %480, %511, %524, %537, %550, %575, %588, %601, %620, %633, %661, %set_option.exit
+.thread:                                          ; preds = %661, %633, %601, %620, %588, %575, %550, %537, %524, %511, %480, %set_option.exit
   br label %set_option.exit.thread
 
-set_option.exit.thread:                           ; preds = %678, %set_option.exit, %676, %671, %666, %638, %606, %593, %580, %555, %542, %529, %516, %502, %498, %485, %617, %622, %611, %650, %643, %660, %663, %657, %680, %.thread
-  %str.9.sink = phi ptr [ @str.9, %.thread ], [ @str.7, %680 ], [ @str.7, %657 ], [ @str.7, %663 ], [ @str.7, %660 ], [ @str.7, %643 ], [ @str.7, %650 ], [ @str.7, %611 ], [ @str.7, %622 ], [ @str.7, %617 ], [ @str.7, %485 ], [ @str.7, %498 ], [ @str.7, %502 ], [ @str.7, %516 ], [ @str.7, %529 ], [ @str.7, %542 ], [ @str.7, %555 ], [ @str.7, %580 ], [ @str.7, %593 ], [ @str.7, %606 ], [ @str.7, %638 ], [ @str.7, %666 ], [ @str.7, %671 ], [ @str.7, %676 ], [ @str.7, %set_option.exit ], [ @str.8, %678 ]
+set_option.exit.thread:                           ; preds = %678, %set_option.exit, %680, %657, %676, %671, %666, %643, %611, %638, %606, %593, %580, %555, %542, %529, %516, %502, %498, %485, %617, %622, %650, %660, %663, %.thread
+  %str.9.sink = phi ptr [ @str.9, %.thread ], [ @str.7, %set_option.exit ], [ @str.7, %663 ], [ @str.7, %660 ], [ @str.7, %650 ], [ @str.7, %622 ], [ @str.7, %617 ], [ @str.7, %485 ], [ @str.7, %498 ], [ @str.7, %502 ], [ @str.7, %516 ], [ @str.7, %529 ], [ @str.7, %542 ], [ @str.7, %555 ], [ @str.7, %580 ], [ @str.7, %593 ], [ @str.7, %606 ], [ @str.7, %638 ], [ @str.7, %611 ], [ @str.7, %643 ], [ @str.7, %666 ], [ @str.7, %671 ], [ @str.7, %676 ], [ @str.7, %657 ], [ @str.7, %680 ], [ @str.8, %678 ]
   %puts35 = call i32 @puts(ptr nonnull dereferenceable(1) %str.9.sink)
   %686 = load ptr, ptr @stdout, align 8, !tbaa !29
   %687 = call i32 @fflush(ptr noundef %686)
@@ -1931,12 +1931,12 @@ strbuf_setlen.exit:                               ; preds = %731, %729
   %734 = icmp eq i32 %733, -1
   br i1 %734, label %._crit_edge, label %75
 
-735:                                              ; preds = %75, %722
+735:                                              ; preds = %722, %75
   call void @http_cleanup() #17
   br label %strbuf_setlen.exit.thread
 
-strbuf_setlen.exit.thread:                        ; preds = %._crit_edge, %_.exit41, %_.exit88, %735, %_.exit
-  %.014 = phi i32 [ 1, %_.exit ], [ 0, %735 ], [ 1, %_.exit88 ], [ 1, %_.exit41 ], [ 1, %._crit_edge ]
+strbuf_setlen.exit.thread:                        ; preds = %_.exit41, %._crit_edge, %_.exit88, %735, %_.exit
+  %.014 = phi i32 [ 1, %_.exit ], [ 0, %735 ], [ 1, %_.exit88 ], [ 1, %._crit_edge ], [ 1, %_.exit41 ]
   call void @strbuf_release(ptr noundef nonnull %22) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -2303,7 +2303,7 @@ strbuf_avail.exit.i59:                            ; preds = %45
   br i1 %.not.i61, label %strbuf_addch.exit.sink.split, label %strbuf_addch.exit
 
 strbuf_addch.exit.sink.split:                     ; preds = %45, %strbuf_avail.exit.i59, %42, %strbuf_avail.exit.i
-  %.sink99.ph = phi i8 [ 63, %strbuf_avail.exit.i ], [ 63, %42 ], [ 38, %strbuf_avail.exit.i59 ], [ 38, %45 ]
+  %.sink99.ph = phi i8 [ 63, %42 ], [ 63, %strbuf_avail.exit.i ], [ 38, %strbuf_avail.exit.i59 ], [ 38, %45 ]
   call void @strbuf_grow(ptr noundef nonnull %9, i64 noundef 1) #17
   %.phi.trans.insert.i64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i65 = load i64, ptr %.phi.trans.insert.i64, align 8, !tbaa !31
@@ -2660,7 +2660,7 @@ parse_git_refs.exit:                              ; preds = %172, %177
   unreachable
 
 200:                                              ; preds = %194, %184
-  %.0.i.ph.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @hash_algos, i64 112), %184 ], [ %196, %194 ]
+  %.0.i.ph.i = phi ptr [ %196, %194 ], [ getelementptr inbounds nuw (i8, ptr @hash_algos, i64 112), %184 ]
   store ptr %.0.i.ph.i, ptr getelementptr inbounds nuw (i8, ptr @options, i64 120), align 8, !tbaa !65
   %201 = load ptr, ptr @the_repository, align 8, !tbaa !63
   br label %202

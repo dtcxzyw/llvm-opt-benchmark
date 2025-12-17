@@ -581,14 +581,14 @@ iso_string.exit170:                               ; preds = %iso_string.exit167,
   br i1 %.not154, label %332, label %74
 
 332:                                              ; preds = %321, %319, %331
-  %.0 = phi i32 [ %spec.select155, %331 ], [ %320, %319 ], [ %330, %321 ]
+  %.0 = phi i32 [ %320, %319 ], [ %spec.select155, %331 ], [ %330, %321 ]
   %.0.fr = freeze i32 %.0
   %333 = icmp eq i32 %.0.fr, 22
   %spec.select173 = select i1 %333, i32 0, i32 %.0.fr
   br label %.thread
 
-.thread:                                          ; preds = %332, %5, %11, %318, %24, %14, %2
-  %334 = phi i32 [ 0, %2 ], [ 0, %14 ], [ 0, %24 ], [ 0, %318 ], [ 0, %11 ], [ 0, %5 ], [ %spec.select173, %332 ]
+.thread:                                          ; preds = %332, %11, %5, %318, %24, %14, %2
+  %334 = phi i32 [ 0, %11 ], [ %spec.select173, %332 ], [ 0, %2 ], [ 0, %14 ], [ 0, %24 ], [ 0, %318 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %334
 }
@@ -827,7 +827,7 @@ iso_string.exit:                                  ; preds = %78, %85
   br i1 %.not129, label %131, label %.loopexit
 
 .sink.split174:                                   ; preds = %119, %117, %126, %60
-  %.str.36.sink.sink = phi ptr [ @.str.29, %60 ], [ @.str.34, %119 ], [ @.str.34, %117 ], [ @.str.36, %126 ]
+  %.str.36.sink.sink = phi ptr [ @.str.29, %60 ], [ @.str.34, %117 ], [ @.str.34, %119 ], [ @.str.36, %126 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.36.sink.sink) #9
   br label %131
 
@@ -842,7 +842,7 @@ iso_string.exit:                                  ; preds = %78, %85
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %130, %92, %131, %51, %59
-  %.3109.ph = phi i32 [ 0, %59 ], [ 0, %51 ], [ %.5, %130 ], [ %116, %92 ], [ 0, %131 ]
+  %.3109.ph = phi i32 [ 0, %59 ], [ 0, %51 ], [ %116, %92 ], [ %.5, %130 ], [ 0, %131 ]
   %.3.ph = phi i32 [ 0, %59 ], [ %.099158, %51 ], [ %.099158, %131 ], [ %.099158, %92 ], [ %.099158, %130 ]
   %137 = load ptr, ptr %14, align 8, !tbaa !3
   %138 = load i32, ptr %8, align 8, !tbaa !32
@@ -861,8 +861,8 @@ iso_string.exit:                                  ; preds = %78, %85
   br label %148
 
 148:                                              ; preds = %.loopexit, %18
-  %.1107 = phi i32 [ %.3109.ph, %.loopexit ], [ 0, %18 ]
-  %.1100 = phi i32 [ %.3.ph, %.loopexit ], [ %.099158, %18 ]
+  %.1107 = phi i32 [ 0, %18 ], [ %.3109.ph, %.loopexit ]
+  %.1100 = phi i32 [ %.099158, %18 ], [ %.3.ph, %.loopexit ]
   %149 = add i32 %.096159, 1
   %150 = load i32, ptr %8, align 8, !tbaa !32
   %151 = tail call i32 @llvm.usub.sat.i32(i32 %.1100, i32 %150)
@@ -878,7 +878,7 @@ iso_string.exit:                                  ; preds = %78, %85
   br label %.thread143
 
 .thread143:                                       ; preds = %22, %needblock.exit, %20, %148, %.thread143.sink.split
-  %.0 = phi i32 [ %.0.ph, %.thread143.sink.split ], [ 0, %22 ], [ %21, %20 ], [ 0, %needblock.exit ], [ %.1107, %148 ]
+  %.0 = phi i32 [ %.0.ph, %.thread143.sink.split ], [ 0, %needblock.exit ], [ %.1107, %148 ], [ 0, %22 ], [ %21, %20 ]
   ret i32 %.0
 }
 

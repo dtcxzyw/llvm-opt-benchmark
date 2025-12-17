@@ -402,7 +402,7 @@ define range(i32 0, 15) i32 @rijndaelSetupEncrypt(ptr noundef captures(none) ini
   br label %.preheader132
 
 .loopexit:                                        ; preds = %.preheader132, %.preheader130, %.preheader, %212
-  %.0122 = phi i32 [ 0, %212 ], [ 10, %.preheader ], [ 12, %.preheader130 ], [ 14, %.preheader132 ]
+  %.0122 = phi i32 [ 0, %212 ], [ 12, %.preheader130 ], [ 10, %.preheader ], [ 14, %.preheader132 ]
   ret i32 %.0122
 }
 

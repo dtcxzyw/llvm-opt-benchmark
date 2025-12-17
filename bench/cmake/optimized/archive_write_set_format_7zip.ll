@@ -329,7 +329,7 @@ define internal range(i32 -25, 1) i32 @_7z_options(ptr noundef %0, ptr noundef r
   br label %83
 
 83:                                               ; preds = %68, %67, %22, %38, %54, %65, %46, %30, %80, %79
-  %.1 = phi i32 [ -25, %79 ], [ 0, %80 ], [ -25, %67 ], [ 0, %22 ], [ 0, %38 ], [ 0, %54 ], [ 0, %65 ], [ 0, %46 ], [ 0, %30 ], [ -20, %68 ]
+  %.1 = phi i32 [ 0, %30 ], [ -25, %79 ], [ 0, %80 ], [ -25, %67 ], [ 0, %22 ], [ 0, %38 ], [ 0, %54 ], [ 0, %65 ], [ 0, %46 ], [ -20, %68 ]
   ret i32 %.1
 }
 
@@ -696,7 +696,7 @@ define internal noundef i32 @_7z_write_header(ptr noundef %0, ptr noundef %1) #0
   br label %184
 
 184:                                              ; preds = %162, %.thread, %182, %94, %142, %146, %12, %160, %102
-  %.0 = phi i32 [ -30, %160 ], [ %183, %182 ], [ 0, %102 ], [ -30, %12 ], [ %.0.i.ph, %94 ], [ %.055.i, %146 ], [ %.055.i, %142 ], [ %.045, %.thread ], [ %.045, %162 ]
+  %.0 = phi i32 [ 0, %102 ], [ -30, %12 ], [ %.0.i.ph, %94 ], [ -30, %160 ], [ %.055.i, %146 ], [ %183, %182 ], [ %.055.i, %142 ], [ %.045, %.thread ], [ %.045, %162 ]
   ret i32 %.0
 }
 
@@ -735,7 +735,7 @@ define internal noundef i64 @_7z_write_data(ptr noundef %0, ptr noundef %1, i64 
   br label %25
 
 25:                                               ; preds = %13, %3, %9, %16
-  %.0 = phi i64 [ %14, %16 ], [ 0, %9 ], [ 0, %3 ], [ %14, %13 ]
+  %.0 = phi i64 [ %14, %16 ], [ 0, %3 ], [ 0, %9 ], [ %14, %13 ]
   ret i64 %.0
 }
 
@@ -831,7 +831,7 @@ _7z_write_data.exit:                              ; preds = %11, %19, %26
   br label %52
 
 52:                                               ; preds = %1, %._crit_edge, %36
-  %.0 = phi i32 [ %37, %36 ], [ 0, %._crit_edge ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %37, %36 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1431,8 +1431,8 @@ enc_uint64.exit250.i:                             ; preds = %224, %221
   %289 = icmp slt i32 %288, 0
   br i1 %289, label %make_header.exit.thread, label %make_header.exit
 
-make_header.exit.thread:                          ; preds = %143, %196, %.lr.ph325.i, %.lr.ph330.i, %65, %enc_uint64.exit186.i, %78, %enc_uint64.exit194.i, %enc_uint64.exit202.i, %enc_uint64.exit210.i, %enc_uint64.exit218.i, %._crit_edge.i, %enc_uint64.exit226.i, %enc_uint64.exit234.i, %205, %enc_uint64.exit242.i, %enc_uint64.exit250.i, %233, %._crit_edge326.i, %251, %254, %257, %260, %266, %269, %._crit_edge331.i
-  %.0138.i.ph = phi i32 [ %288, %._crit_edge331.i ], [ %270, %269 ], [ %267, %266 ], [ %264, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %._crit_edge326.i ], [ %234, %233 ], [ %231, %enc_uint64.exit250.i ], [ %210, %enc_uint64.exit242.i ], [ %207, %205 ], [ %179, %enc_uint64.exit234.i ], [ %158, %enc_uint64.exit226.i ], [ %151, %._crit_edge.i ], [ %129, %enc_uint64.exit218.i ], [ %108, %enc_uint64.exit210.i ], [ %102, %enc_uint64.exit202.i ], [ %82, %enc_uint64.exit194.i ], [ %79, %78 ], [ %76, %enc_uint64.exit186.i ], [ %70, %65 ], [ %286, %.lr.ph330.i ], [ %247, %.lr.ph325.i ], [ %198, %196 ], [ %145, %143 ]
+make_header.exit.thread:                          ; preds = %143, %196, %.lr.ph325.i, %.lr.ph330.i, %._crit_edge331.i, %65, %enc_uint64.exit186.i, %78, %enc_uint64.exit194.i, %enc_uint64.exit202.i, %enc_uint64.exit210.i, %enc_uint64.exit218.i, %._crit_edge.i, %enc_uint64.exit226.i, %enc_uint64.exit234.i, %205, %enc_uint64.exit242.i, %enc_uint64.exit250.i, %233, %._crit_edge326.i, %251, %254, %257, %260, %266, %269
+  %.0138.i.ph = phi i32 [ %270, %269 ], [ %267, %266 ], [ %264, %260 ], [ %258, %257 ], [ %255, %254 ], [ %252, %251 ], [ %249, %._crit_edge326.i ], [ %234, %233 ], [ %231, %enc_uint64.exit250.i ], [ %210, %enc_uint64.exit242.i ], [ %207, %205 ], [ %179, %enc_uint64.exit234.i ], [ %158, %enc_uint64.exit226.i ], [ %151, %._crit_edge.i ], [ %129, %enc_uint64.exit218.i ], [ %108, %enc_uint64.exit210.i ], [ %102, %enc_uint64.exit202.i ], [ %82, %enc_uint64.exit194.i ], [ %79, %78 ], [ %76, %enc_uint64.exit186.i ], [ %70, %65 ], [ %288, %._crit_edge331.i ], [ %198, %196 ], [ %286, %.lr.ph330.i ], [ %247, %.lr.ph325.i ], [ %145, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %flush_wbuff.exit
 
@@ -1654,8 +1654,8 @@ copy_out.exit:                                    ; preds = %flush_wbuff.exit.i,
   store i64 61440, ptr %392, align 8, !tbaa !99
   br label %flush_wbuff.exit
 
-flush_wbuff.exit:                                 ; preds = %384, %373, %378, %360, %make_header.exit.thread, %329, %326, %enc_uint64.exit, %292, %make_header.exit, %._crit_edge, %19, %397, %copy_out.exit
-  %.1113 = phi i32 [ %396, %copy_out.exit ], [ 0, %397 ], [ %.0138.i.ph, %make_header.exit.thread ], [ %331, %329 ], [ %327, %326 ], [ %324, %enc_uint64.exit ], [ %294, %292 ], [ %290, %make_header.exit ], [ %63, %._crit_edge ], [ %21, %19 ], [ -30, %373 ], [ -30, %378 ], [ -30, %360 ], [ %390, %384 ]
+flush_wbuff.exit:                                 ; preds = %384, %373, %378, %360, %329, %326, %enc_uint64.exit, %make_header.exit.thread, %292, %make_header.exit, %._crit_edge, %19, %397, %copy_out.exit
+  %.1113 = phi i32 [ 0, %397 ], [ %21, %19 ], [ %396, %copy_out.exit ], [ %331, %329 ], [ %327, %326 ], [ %324, %enc_uint64.exit ], [ %.0138.i.ph, %make_header.exit.thread ], [ %294, %292 ], [ %290, %make_header.exit ], [ %63, %._crit_edge ], [ -30, %373 ], [ -30, %378 ], [ -30, %360 ], [ %390, %384 ]
   ret i32 %.1113
 }
 
@@ -2013,9 +2013,9 @@ compression_init_encoder_deflate.exit:            ; preds = %3, %84
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %compression_init_encoder_deflate.exit.thread35, label %compression_init_encoder_deflate.exit.thread
 
-compression_init_encoder_deflate.exit.thread35.sink.split: ; preds = %compression_init_encoder_copy.exit, %42, %81, %120
-  %.sink45 = phi i64 [ 192, %120 ], [ 224, %81 ], [ 224, %42 ], [ 224, %compression_init_encoder_copy.exit ]
-  %.sink = phi ptr [ %108, %120 ], [ @compression_end_bzip2, %81 ], [ @compression_end_deflate, %42 ], [ @compression_end_copy, %compression_init_encoder_copy.exit ]
+compression_init_encoder_deflate.exit.thread35.sink.split: ; preds = %compression_init_encoder_copy.exit, %81, %42, %120
+  %.sink45 = phi i64 [ 192, %120 ], [ 224, %42 ], [ 224, %81 ], [ 224, %compression_init_encoder_copy.exit ]
+  %.sink = phi ptr [ %108, %120 ], [ @compression_end_deflate, %42 ], [ @compression_end_bzip2, %81 ], [ @compression_end_copy, %compression_init_encoder_copy.exit ]
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink45
   store ptr %.sink, ptr %145, align 8, !tbaa !94
   br label %compression_init_encoder_deflate.exit.thread35
@@ -2033,7 +2033,7 @@ compression_init_encoder_deflate.exit.thread35:   ; preds = %compression_init_en
   br label %compression_init_encoder_deflate.exit.thread
 
 compression_init_encoder_deflate.exit.thread:     ; preds = %118, %110, %103, %98, %79, %58, %40, %19, %compression_init_encoder_deflate.exit.thread35, %compression_init_encoder_deflate.exit
-  %.033 = phi i32 [ 0, %compression_init_encoder_deflate.exit.thread35 ], [ %143, %compression_init_encoder_deflate.exit ], [ -30, %19 ], [ -30, %40 ], [ -30, %58 ], [ -30, %79 ], [ -30, %98 ], [ -30, %103 ], [ -30, %110 ], [ -30, %118 ]
+  %.033 = phi i32 [ %143, %compression_init_encoder_deflate.exit ], [ 0, %compression_init_encoder_deflate.exit.thread35 ], [ -30, %19 ], [ -30, %40 ], [ -30, %58 ], [ -30, %79 ], [ -30, %98 ], [ -30, %103 ], [ -30, %110 ], [ -30, %118 ]
   ret i32 %.033
 }
 
@@ -2242,7 +2242,7 @@ write_to_temp.exit67:                             ; preds = %87, %81
   br label %.critedge
 
 .critedge:                                        ; preds = %compression_code.exit, %85, %74, %.loopexit, %100, %write_to_temp.exit67, %write_to_temp.exit, %8
-  %.0 = phi i64 [ 0, %8 ], [ -30, %write_to_temp.exit ], [ -30, %write_to_temp.exit67 ], [ %2, %100 ], [ %2, %.loopexit ], [ %2, %74 ], [ %2, %85 ], [ -30, %compression_code.exit ]
+  %.0 = phi i64 [ -30, %write_to_temp.exit67 ], [ 0, %8 ], [ -30, %write_to_temp.exit ], [ %2, %100 ], [ %2, %.loopexit ], [ %2, %74 ], [ %2, %85 ], [ -30, %compression_code.exit ]
   ret i64 %.0
 }
 
@@ -2856,7 +2856,7 @@ define internal range(i32 0, 2) i32 @compression_code_ppmd(ptr readnone captures
   br label %.thread
 
 .thread:                                          ; preds = %8, %.critedge.thread, %.critedge, %56, %.critedge2.thread
-  %.1 = phi i32 [ 0, %.critedge2.thread ], [ 1, %56 ], [ 1, %.critedge.thread ], [ 0, %.critedge ], [ 0, %8 ]
+  %.1 = phi i32 [ 1, %56 ], [ 0, %.critedge2.thread ], [ 1, %.critedge.thread ], [ 0, %.critedge ], [ 0, %8 ]
   ret i32 %.1
 }
 
@@ -3549,8 +3549,8 @@ enc_uint64.exit275:                               ; preds = %233, %230
   %271 = icmp slt i32 %270, 0
   br i1 %271, label %.thread287, label %272
 
-.thread287:                                       ; preds = %266, %269
-  %.8.ph = phi i32 [ %270, %269 ], [ %267, %266 ]
+.thread287:                                       ; preds = %269, %266
+  %.8.ph = phi i32 [ %267, %266 ], [ %270, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread279
 
@@ -3583,7 +3583,7 @@ enc_uint64.exit275:                               ; preds = %233, %230
   br label %.thread279
 
 .thread279:                                       ; preds = %enc_uint64.exit211, %156, %242, %enc_uint64.exit275, %213, %211, %260, %.thread290, %.thread287, %283, %.thread291, %276, %263, %._crit_edge, %146, %enc_uint64.exit251, %enc_uint64.exit243, %enc_uint64.exit235, %enc_uint64.exit227, %enc_uint64.exit219, %enc_uint64.exit203, %enc_uint64.exit195, %enc_uint64.exit187, %enc_uint64.exit, %272
-  %.0136 = phi i32 [ %274, %272 ], [ %32, %enc_uint64.exit ], [ %50, %enc_uint64.exit187 ], [ %69, %enc_uint64.exit195 ], [ %72, %enc_uint64.exit203 ], [ %117, %enc_uint64.exit219 ], [ %120, %enc_uint64.exit227 ], [ %123, %enc_uint64.exit235 ], [ %126, %enc_uint64.exit243 ], [ %144, %enc_uint64.exit251 ], [ %147, %146 ], [ %250, %._crit_edge ], [ %264, %263 ], [ %277, %276 ], [ %281, %.thread291 ], [ %.179, %283 ], [ %.8.ph, %.thread287 ], [ %279, %.thread290 ], [ %261, %260 ], [ %.0142, %211 ], [ %220, %213 ], [ %240, %enc_uint64.exit275 ], [ %246, %242 ], [ %157, %156 ], [ %99, %enc_uint64.exit211 ]
+  %.0136 = phi i32 [ %72, %enc_uint64.exit203 ], [ %32, %enc_uint64.exit ], [ %50, %enc_uint64.exit187 ], [ %69, %enc_uint64.exit195 ], [ %117, %enc_uint64.exit219 ], [ %120, %enc_uint64.exit227 ], [ %123, %enc_uint64.exit235 ], [ %126, %enc_uint64.exit243 ], [ %144, %enc_uint64.exit251 ], [ %147, %146 ], [ %279, %.thread290 ], [ %264, %263 ], [ %277, %276 ], [ %.179, %283 ], [ %281, %.thread291 ], [ %274, %272 ], [ %250, %._crit_edge ], [ %.8.ph, %.thread287 ], [ %157, %156 ], [ %261, %260 ], [ %246, %242 ], [ %.0142, %211 ], [ %220, %213 ], [ %240, %enc_uint64.exit275 ], [ %99, %enc_uint64.exit211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.0136
 }
@@ -3847,7 +3847,7 @@ enc_uint64.exit124:                               ; preds = %.thread, %83, %._cr
   br i1 %.not76, label %.loopexit, label %.lr.ph164, !llvm.loop !171
 
 .loopexit:                                        ; preds = %95, %114, %127, %108, %enc_uint64.exit124, %._crit_edge, %enc_uint64.exit116, %enc_uint64.exit108, %enc_uint64.exit100, %50, %enc_uint64.exit92, %enc_uint64.exit84, %enc_uint64.exit
-  %.062 = phi i32 [ %24, %enc_uint64.exit ], [ %45, %enc_uint64.exit84 ], [ %48, %enc_uint64.exit92 ], [ 0, %50 ], [ %53, %enc_uint64.exit100 ], [ %78, %enc_uint64.exit108 ], [ %81, %enc_uint64.exit116 ], [ %103, %._crit_edge ], [ %106, %enc_uint64.exit124 ], [ 0, %108 ], [ %125, %114 ], [ 0, %127 ], [ %97, %95 ]
+  %.062 = phi i32 [ %24, %enc_uint64.exit ], [ %45, %enc_uint64.exit84 ], [ %103, %._crit_edge ], [ %106, %enc_uint64.exit124 ], [ %81, %enc_uint64.exit116 ], [ %48, %enc_uint64.exit92 ], [ 0, %50 ], [ %53, %enc_uint64.exit100 ], [ %78, %enc_uint64.exit108 ], [ 0, %108 ], [ 0, %127 ], [ %125, %114 ], [ %97, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.062
@@ -4071,7 +4071,7 @@ enc_uint64.exit114:                               ; preds = %96, %84, %95
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %enc_uint64.exit90, %89, %enc_uint64.exit114, %enc_uint64.exit106, %enc_uint64.exit98, %enc_uint64.exit82, %enc_uint64.exit74, %enc_uint64.exit66, %enc_uint64.exit
-  %.044 = phi i32 [ %14, %enc_uint64.exit ], [ %23, %enc_uint64.exit66 ], [ %42, %enc_uint64.exit74 ], [ %45, %enc_uint64.exit82 ], [ %79, %enc_uint64.exit98 ], [ %82, %enc_uint64.exit106 ], [ %.58, %enc_uint64.exit114 ], [ %93, %89 ], [ %76, %enc_uint64.exit90 ]
+  %.044 = phi i32 [ %45, %enc_uint64.exit82 ], [ %14, %enc_uint64.exit ], [ %23, %enc_uint64.exit66 ], [ %42, %enc_uint64.exit74 ], [ %79, %enc_uint64.exit98 ], [ %.58, %enc_uint64.exit114 ], [ %82, %enc_uint64.exit106 ], [ %93, %89 ], [ %76, %enc_uint64.exit90 ]
   ret i32 %.044
 }
 

@@ -1045,7 +1045,7 @@ encode_many_ints_prec_uint64.exit:                ; preds = %.critedge.i, %72
   br label %129
 
 129:                                              ; preds = %encode_many_ints_prec_uint64.exit, %encode_many_ints_uint64.exit
-  %.0 = phi i32 [ %71, %encode_many_ints_uint64.exit ], [ %128, %encode_many_ints_prec_uint64.exit ]
+  %.0 = phi i32 [ %128, %encode_many_ints_prec_uint64.exit ], [ %71, %encode_many_ints_uint64.exit ]
   ret i32 %.0
 }
 

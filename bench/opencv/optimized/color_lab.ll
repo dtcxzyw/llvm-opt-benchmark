@@ -771,7 +771,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %90, %93
   ret void
 
 97:                                               ; preds = %.body, %.body50, %.body52
-  %.pn47.pn = phi { ptr, i32 } [ %38, %.body ], [ %58, %.body50 ], [ %88, %.body52 ]
+  %.pn47.pn = phi { ptr, i32 } [ %88, %.body52 ], [ %38, %.body ], [ %58, %.body50 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn47.pn
@@ -1059,7 +1059,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %94, %97
   ret void
 
 101:                                              ; preds = %.body, %.body50, %.body52
-  %.pn47.pn = phi { ptr, i32 } [ %40, %.body ], [ %61, %.body50 ], [ %92, %.body52 ]
+  %.pn47.pn = phi { ptr, i32 } [ %92, %.body52 ], [ %40, %.body ], [ %61, %.body50 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn47.pn
@@ -1369,7 +1369,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %111, %114
   ret void
 
 118:                                              ; preds = %.body, %.body64, %.body66, %.body71
-  %.pn61.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body65, %.body64 ], [ %eh.lpad-body67, %.body66 ], [ %eh.lpad-body72, %.body71 ]
+  %.pn61.pn = phi { ptr, i32 } [ %eh.lpad-body72, %.body71 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body65, %.body64 ], [ %eh.lpad-body67, %.body66 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   resume { ptr, i32 } %.pn61.pn
@@ -2170,7 +2170,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %104, %107
   ret void
 
 111:                                              ; preds = %.body, %.body66, %.body70, %.body73
-  %.pn61.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body67, %.body66 ], [ %eh.lpad-body71, %.body70 ], [ %eh.lpad-body74, %.body73 ]
+  %.pn61.pn = phi { ptr, i32 } [ %eh.lpad-body74, %.body73 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body67, %.body66 ], [ %eh.lpad-body71, %.body70 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   resume { ptr, i32 } %.pn61.pn
@@ -2457,7 +2457,7 @@ _ZNK2cv11_InputArray6getMatEi.exit38:             ; preds = %81, %83
   br label %93
 
 93:                                               ; preds = %37, %54, %68, %92, %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %15, %14 ], [ %55, %54 ], [ %.pn, %68 ], [ %38, %37 ], [ %.pn26, %92 ], [ %87, %86 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %15, %14 ], [ %38, %37 ], [ %55, %54 ], [ %.pn, %68 ], [ %.pn26, %92 ], [ %87, %86 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
   resume { ptr, i32 } %.pn30.pn
@@ -2793,7 +2793,7 @@ _ZNK2cv11_InputArray6getMatEi.exit38:             ; preds = %86, %88
   br label %98
 
 98:                                               ; preds = %37, %57, %71, %97, %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %15
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %15 ], [ %58, %57 ], [ %.pn, %71 ], [ %38, %37 ], [ %.pn26, %97 ], [ %92, %91 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %15 ], [ %38, %37 ], [ %58, %57 ], [ %.pn, %71 ], [ %.pn26, %97 ], [ %92, %91 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #21
   resume { ptr, i32 } %.pn30.pn
@@ -3082,7 +3082,7 @@ common.resume:                                    ; preds = %109, %93
   resume { ptr, i32 } %common.resume.op
 
 93:                                               ; preds = %92, %86, %69, %55, %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %15
-  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %16, %15 ], [ %56, %55 ], [ %.pn.i, %69 ], [ %39, %38 ], [ %.pn26.i, %92 ], [ %87, %86 ]
+  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %16, %15 ], [ %39, %38 ], [ %56, %55 ], [ %.pn.i, %69 ], [ %.pn26.i, %92 ], [ %87, %86 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %9) #21
   br label %common.resume
@@ -3374,7 +3374,7 @@ common.resume:                                    ; preds = %114, %99
   resume { ptr, i32 } %common.resume.op
 
 99:                                               ; preds = %98, %92, %73, %59, %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %17
-  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %18, %17 ], [ %60, %59 ], [ %.pn.i, %73 ], [ %40, %39 ], [ %.pn26.i, %98 ], [ %93, %92 ]
+  %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %18, %17 ], [ %40, %39 ], [ %60, %59 ], [ %.pn.i, %73 ], [ %.pn26.i, %98 ], [ %93, %92 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #21
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %10) #21
   br label %common.resume
@@ -9814,7 +9814,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %249
   ret void
 
 253:                                              ; preds = %243, %245, %241, %194
-  %.pn139.pn.pn = phi { ptr, i32 } [ %.pn, %194 ], [ %242, %241 ], [ %246, %245 ], [ %244, %243 ]
+  %.pn139.pn.pn = phi { ptr, i32 } [ %.pn, %194 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn139.pn.pn
@@ -10460,7 +10460,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %156, %159
   ret void
 
 163:                                              ; preds = %97, %151, %80, %78, %76, %74, %72
-  %.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %152, %151 ], [ %98, %97 ]
+  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %98, %97 ], [ %152, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %164
 

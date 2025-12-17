@@ -308,7 +308,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1504,7 +1504,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   %406 = icmp sgt i32 %405, 0
   br i1 %406, label %336, label %.thread299, !llvm.loop !71
 
-.thread299:                                       ; preds = %379, %.critedge, %375, %360, %401
+.thread299:                                       ; preds = %379, %375, %.critedge, %360, %401
   %407 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8, !tbaa !20
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 56
   %409 = load i32, ptr %408, align 8, !tbaa !55
@@ -1549,7 +1549,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   br label %431
 
 .thread305:                                       ; preds = %222, %230, %242, %258, %272, %280, %292, %214
-  %.4.ph = phi i32 [ %215, %214 ], [ 3, %292 ], [ 3, %280 ], [ %274, %272 ], [ %260, %258 ], [ 1, %242 ], [ 1, %230 ], [ 1, %222 ]
+  %.4.ph = phi i32 [ 3, %292 ], [ 3, %280 ], [ %274, %272 ], [ %260, %258 ], [ 1, %242 ], [ 1, %230 ], [ 1, %222 ], [ %215, %214 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %545
@@ -1861,7 +1861,7 @@ _ZN7ResFile5closeEv.exit:                         ; preds = %517, %520
   br label %545
 
 545:                                              ; preds = %.thread305, %.thread, %543, %176
-  %.2 = phi i32 [ %178, %176 ], [ %spec.select294, %543 ], [ 7, %.thread ], [ %.4.ph, %.thread305 ]
+  %.2 = phi i32 [ %178, %176 ], [ 7, %.thread ], [ %spec.select294, %543 ], [ %.4.ph, %.thread305 ]
   %546 = load ptr, ptr %4, align 8, !tbaa !30
   %547 = icmp eq ptr %546, null
   br i1 %547, label %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit, label %548
@@ -1876,7 +1876,7 @@ _ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit:      ; preds = %545, %548
   br label %549
 
 .loopexit312:                                     ; preds = %.loopexit.split-lp, %.loopexit312.split.us, %.loopexit312.split, %539, %513, %433, %187, %179
-  %.pn289 = phi { ptr, i32 } [ %540, %539 ], [ %.pn284, %513 ], [ %.pn271.pn.pn, %433 ], [ %188, %187 ], [ %180, %179 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit312.split ], [ %lpad.loopexit.us, %.loopexit312.split.us ]
+  %.pn289 = phi { ptr, i32 } [ %180, %179 ], [ %540, %539 ], [ %.pn284, %513 ], [ %.pn271.pn.pn, %433 ], [ %188, %187 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit312.split ], [ %lpad.loopexit.us, %.loopexit312.split.us ]
   call void @_ZN6icu_7712LocalPointerI7SRBRootED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2105,7 +2105,7 @@ define dso_local void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %39
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.invoke, %46, %55, %65
-  %.1 = phi ptr [ %2, %65 ], [ %56, %55 ], [ null, %46 ], [ %2, %.invoke ]
+  %.1 = phi ptr [ %2, %.invoke ], [ %56, %55 ], [ null, %46 ], [ %2, %65 ]
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull %0)
           to label %72 unwind label %39
 
@@ -2979,7 +2979,7 @@ define internal fastcc noundef ptr @_ZL17make_res_filenamePKcS0_S0_R10UErrorCode
   br label %68
 
 68:                                               ; preds = %4, %67
-  %.0 = phi ptr [ %.054, %67 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %4 ], [ %.054, %67 ]
   ret ptr %.0
 }
 

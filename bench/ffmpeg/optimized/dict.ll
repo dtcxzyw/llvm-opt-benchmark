@@ -57,7 +57,7 @@ define ptr @av_dict_iterate(ptr noundef readonly captures(address_is_null) %0, p
   br label %20
 
 20:                                               ; preds = %13, %2, %15
-  %.08 = phi ptr [ %19, %15 ], [ null, %2 ], [ null, %13 ]
+  %.08 = phi ptr [ null, %2 ], [ %19, %15 ], [ null, %13 ]
   ret ptr %.08
 }
 
@@ -257,7 +257,7 @@ av_dict_iterate.exit:                             ; preds = %75
   br i1 %or.cond129, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
 
 av_dict_iterate.exit.thread:                      ; preds = %av_dict_iterate.exit.us75, %.critedge.loopexit56.us, %54, %av_dict_iterate.exit, %75, %.critedge.loopexit56, %av_dict_iterate.exit.us, %17, %.critedge.loopexit.us, %.preheader57, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.preheader57 ], [ null, %av_dict_iterate.exit.us ], [ null, %17 ], [ %20, %.critedge.loopexit.us ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ %78, %.critedge.loopexit56 ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ], [ null, %54 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %av_dict_iterate.exit.us ], [ %78, %.critedge.loopexit56 ], [ null, %.preheader57 ], [ %20, %.critedge.loopexit.us ], [ null, %17 ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ null, %54 ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ]
   ret ptr %.0
 }
 
@@ -473,16 +473,16 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread129
 
 81:                                               ; preds = %11, %15, %.thread
-  %.075 = phi i32 [ -22, %11 ], [ -12, %15 ], [ -12, %.thread ]
-  %.072 = phi ptr [ null, %11 ], [ null, %15 ], [ %.173118, %.thread ]
+  %.075 = phi i32 [ -22, %11 ], [ -12, %.thread ], [ -12, %15 ]
+  %.072 = phi ptr [ null, %11 ], [ %.173118, %.thread ], [ null, %15 ]
   tail call void @av_free(ptr noundef %12) #8
   %.not106 = icmp eq ptr %6, null
   br i1 %.not106, label %85, label %.thread129
 
 .thread129:                                       ; preds = %55, %63, %.thread140, %81
-  %.3138 = phi ptr [ %6, %81 ], [ %.2122, %.thread140 ], [ %.2122, %63 ], [ %.2122, %55 ]
-  %.274136 = phi ptr [ %.072, %81 ], [ %.173118, %.thread140 ], [ %.173118, %63 ], [ %.173118, %55 ]
-  %.176134 = phi i32 [ %.075, %81 ], [ -12, %.thread140 ], [ 0, %63 ], [ 0, %55 ]
+  %.3138 = phi ptr [ %.2122, %.thread140 ], [ %6, %81 ], [ %.2122, %63 ], [ %.2122, %55 ]
+  %.274136 = phi ptr [ %.173118, %.thread140 ], [ %.072, %81 ], [ %.173118, %63 ], [ %.173118, %55 ]
+  %.176134 = phi i32 [ -12, %.thread140 ], [ %.075, %81 ], [ 0, %63 ], [ 0, %55 ]
   %82 = load i32, ptr %.3138, align 8, !tbaa !4
   %.not107 = icmp eq i32 %82, 0
   br i1 %.not107, label %83, label %85
@@ -500,7 +500,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br label %86
 
 86:                                               ; preds = %85, %72, %42, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ 0, %72 ], [ %.176135, %85 ]
+  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ %.176135, %85 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -817,7 +817,7 @@ av_dict_iterate.exit.thread:                      ; preds = %33, %av_dict_iterat
   br label %46
 
 46:                                               ; preds = %4, %14, %av_dict_iterate.exit.thread, %av_dict_count.exit.thread
-  %.022 = phi i32 [ %45, %av_dict_iterate.exit.thread ], [ %21, %av_dict_count.exit.thread ], [ -22, %14 ], [ -22, %4 ]
+  %.022 = phi i32 [ %21, %av_dict_count.exit.thread ], [ %45, %av_dict_iterate.exit.thread ], [ -22, %14 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.022

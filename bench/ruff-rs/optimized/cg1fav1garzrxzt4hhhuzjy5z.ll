@@ -1636,7 +1636,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17hc137a7324476ac14E(ptr noalia
   br i1 %exitcond25.not, label %_ZN4core5slice4sort6shared17find_existing_run17h75878cbf91e6a41eE.exit.thread, label %.lr.ph18
 
 _ZN4core5slice4sort6shared17find_existing_run17h75878cbf91e6a41eE.exit: ; preds = %.lr.ph, %.lr.ph18, %.preheader12, %.preheader
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader12 ], [ %.sroa.01.0.i17, %.lr.ph18 ], [ %.sroa.01.1.i14, %.lr.ph ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader12 ], [ 2, %.preheader ], [ %.sroa.01.0.i17, %.lr.ph18 ], [ %.sroa.01.1.i14, %.lr.ph ]
   %16 = icmp ule i64 %.sroa.0.0.i, %1
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i64 %.sroa.0.0.i, %1
@@ -2659,8 +2659,8 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   br label %10
 
 10:                                               ; preds = %5, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ %6, %5 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select5, %5 ]
+  %.sroa.3.0 = phi ptr [ %6, %5 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %spec.select5, %5 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %12

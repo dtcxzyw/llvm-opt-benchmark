@@ -72,7 +72,7 @@ define hidden noundef zeroext i1 @SDL_Fcitx_Init() local_unnamed_addr #0 {
   br label %GetAppName.exit.i
 
 GetAppName.exit.i:                                ; preds = %15, %0
-  %.str.14.sink.i.i = phi ptr [ @.str.14, %0 ], [ %spec.select.i.i, %15 ]
+  %.str.14.sink.i.i = phi ptr [ %spec.select.i.i, %15 ], [ @.str.14, %0 ]
   %20 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %.str.14.sink.i.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

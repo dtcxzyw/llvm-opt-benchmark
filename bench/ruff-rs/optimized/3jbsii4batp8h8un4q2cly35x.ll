@@ -257,7 +257,7 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file17SourceFileBuilder6fin
   unreachable
 
 .thread.i:                                        ; preds = %22, %16, %12
-  %.pn15.i = phi { ptr, i32 } [ %23, %22 ], [ %13, %16 ], [ %13, %12 ]
+  %.pn15.i = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ], [ %13, %16 ]
   %27 = load atomic i32, ptr %9 acquire, align 8, !alias.scope !25, !noalias !12
   %28 = icmp eq i32 %27, 3
   br i1 %28, label %29, label %67
@@ -409,7 +409,7 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file17SourceFileBuilder6fin
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %77, %74, %62, %79, %.critedge
-  %eh.lpad-body7781 = phi { ptr, i32 } [ %45, %79 ], [ %45, %.critedge ], [ %63, %62 ], [ %.pn15.i, %74 ], [ %.pn15.i, %77 ]
+  %eh.lpad-body7781 = phi { ptr, i32 } [ %45, %.critedge ], [ %45, %79 ], [ %63, %62 ], [ %.pn15.i, %74 ], [ %.pn15.i, %77 ]
   resume { ptr, i32 } %eh.lpad-body7781
 
 79:                                               ; preds = %.critedge

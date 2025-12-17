@@ -116,7 +116,7 @@ switch.early.test:                                ; preds = %45
     i32 1, label %.loopexit
   ]
 
-63:                                               ; preds = %57, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %45, %49, %36
+63:                                               ; preds = %57, %36, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %45, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %36
@@ -150,7 +150,7 @@ switch.early.test:                                ; preds = %45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.loopexit.loopexit, %56, %._crit_edge, %9, %78, %28
-  %.0 = phi i32 [ 7, %78 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %56 ], [ 1, %.loopexit.loopexit ], [ 7, %57 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 7, %78 ], [ 1, %9 ], [ 7, %28 ], [ 1, %.loopexit.loopexit ], [ 1, %56 ], [ 7, %57 ]
   ret i32 %.0
 }
 
@@ -428,7 +428,7 @@ yc_bounds_check.exit175:                          ; preds = %28
   br i1 %exitcond.not, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %138, %yc_bounds_check.exit159, %7, %yc_bounds_check.exit173, %yc_bounds_check.exit171, %yc_bounds_check.exit169, %yc_bounds_check.exit167, %yc_bounds_check.exit165, %yc_bounds_check.exit163, %yc_bounds_check.exit161, %yc_bounds_check.exit159.thread, %yc_bounds_check.exit157, %yc_bounds_check.exit, %yc_bounds_check.exit175
-  %.0143 = phi i32 [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 2, %yc_bounds_check.exit173 ], [ 2, %yc_bounds_check.exit159.thread ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %138 ]
+  %.0143 = phi i32 [ 2, %yc_bounds_check.exit159.thread ], [ 2, %yc_bounds_check.exit ], [ 2, %yc_bounds_check.exit173 ], [ 1, %yc_bounds_check.exit175 ], [ 2, %yc_bounds_check.exit157 ], [ 2, %yc_bounds_check.exit161 ], [ 2, %yc_bounds_check.exit163 ], [ 2, %yc_bounds_check.exit165 ], [ 2, %yc_bounds_check.exit167 ], [ 2, %yc_bounds_check.exit169 ], [ 2, %yc_bounds_check.exit171 ], [ 0, %7 ], [ 2, %yc_bounds_check.exit159 ], [ 0, %138 ]
   ret i32 %.0143
 }
 

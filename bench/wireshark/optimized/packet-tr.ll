@@ -1158,7 +1158,7 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   br label %114
 
 58:                                               ; preds = %49, %39, %31, %56, %34
-  %.083.shrunk.ph = phi i8 [ 0, %49 ], [ 0, %39 ], [ %22, %31 ], [ 0, %34 ], [ 1, %56 ]
+  %.083.shrunk.ph = phi i8 [ 0, %39 ], [ %22, %31 ], [ 0, %34 ], [ 0, %49 ], [ 1, %56 ]
   %.not116 = icmp eq i8 %.083.shrunk.ph, 0
   %.103 = select i1 %.not116, i8 0, i8 %27
   %59 = icmp eq i8 %.103, 2

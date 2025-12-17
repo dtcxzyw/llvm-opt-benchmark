@@ -294,7 +294,7 @@ define dso_local i64 @array_subscript_handler_support(ptr noundef readonly captu
   br label %29
 
 29:                                               ; preds = %25, %7, %12, %15, %19, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ %28, %25 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %7 ], [ %28, %25 ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ]
   ret i64 %.0
 }
 

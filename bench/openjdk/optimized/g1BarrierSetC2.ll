@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC225g1_can_remove_pre_barrie
   br label %76
 
 76:                                               ; preds = %66, %71, %6, %.loopexit
-  %.0 = phi i1 [ false, %.loopexit ], [ false, %6 ], [ true, %71 ], [ true, %66 ]
+  %.0 = phi i1 [ true, %66 ], [ false, %6 ], [ false, %.loopexit ], [ true, %71 ]
   ret i1 %.0
 }
 
@@ -1742,7 +1742,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC218is_gc_barrier_nodeEP4Nod
   br label %18
 
 18:                                               ; preds = %12, %15, %8, %4, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %8 ], [ true, %12 ], [ %17, %15 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %2 ], [ false, %4 ], [ true, %12 ], [ %17, %15 ]
   ret i1 %.0
 }
 

@@ -148,10 +148,10 @@ dh_cms_set_peerkey.exit.i:                        ; preds = %67
   br i1 %71, label %72, label %73
 
 .critedge25.i:                                    ; preds = %67, %65, %62, %59, %55, %51, %47, %42, %40, %37, %35, %32
-  %.032.i.ph.i = phi ptr [ null, %40 ], [ %49, %65 ], [ %49, %67 ], [ %49, %62 ], [ %49, %59 ], [ %49, %55 ], [ %49, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
-  %.030.i.ph.i = phi ptr [ null, %40 ], [ %63, %65 ], [ %63, %67 ], [ null, %62 ], [ null, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
-  %.029.i.ph.i = phi ptr [ null, %40 ], [ %53, %65 ], [ %53, %67 ], [ %53, %62 ], [ %53, %59 ], [ %53, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
-  %.0.i.ph.i = phi ptr [ null, %40 ], [ %57, %65 ], [ %57, %67 ], [ %57, %62 ], [ %57, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
+  %.032.i.ph.i = phi ptr [ %49, %65 ], [ null, %40 ], [ %49, %67 ], [ %49, %62 ], [ %49, %59 ], [ %49, %55 ], [ %49, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
+  %.030.i.ph.i = phi ptr [ %63, %65 ], [ null, %40 ], [ %63, %67 ], [ null, %62 ], [ null, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
+  %.029.i.ph.i = phi ptr [ %53, %65 ], [ null, %40 ], [ %53, %67 ], [ %53, %62 ], [ %53, %59 ], [ %53, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
+  %.0.i.ph.i = phi ptr [ %57, %65 ], [ null, %40 ], [ %57, %67 ], [ %57, %62 ], [ %57, %59 ], [ null, %55 ], [ null, %51 ], [ null, %47 ], [ null, %42 ], [ null, %37 ], [ null, %35 ], [ null, %32 ]
   call void @ASN1_INTEGER_free(ptr noundef %.032.i.ph.i) #3
   call void @BN_free(ptr noundef %.029.i.ph.i) #3
   call void @CRYPTO_free(ptr noundef %.0.i.ph.i, ptr noundef nonnull @.str, i32 noundef 76) #3
@@ -306,8 +306,8 @@ dh_cms_set_shared_info.exit.i:                    ; preds = %136, %134
   br i1 %144, label %145, label %dh_cms_decrypt.exit
 
 .critedge26.i:                                    ; preds = %136, %129, %125, %120, %118, %116, %109, %105, %102, %93, %88, %84, %81, %80, %74
-  %.030.i18.ph.i = phi ptr [ null, %74 ], [ %100, %118 ], [ %100, %136 ], [ %100, %129 ], [ %100, %125 ], [ %100, %120 ], [ %100, %116 ], [ %100, %109 ], [ %100, %105 ], [ %100, %102 ], [ null, %93 ], [ null, %88 ], [ null, %84 ], [ null, %81 ], [ null, %80 ]
-  %.029.i19.ph.i = phi ptr [ null, %74 ], [ %114, %118 ], [ %114, %136 ], [ %114, %129 ], [ %114, %125 ], [ %114, %120 ], [ %114, %116 ], [ null, %109 ], [ null, %105 ], [ null, %102 ], [ null, %93 ], [ null, %88 ], [ null, %84 ], [ null, %81 ], [ null, %80 ]
+  %.030.i18.ph.i = phi ptr [ %100, %118 ], [ null, %74 ], [ %100, %136 ], [ %100, %129 ], [ %100, %125 ], [ %100, %120 ], [ %100, %116 ], [ %100, %109 ], [ %100, %105 ], [ %100, %102 ], [ null, %93 ], [ null, %88 ], [ null, %84 ], [ null, %81 ], [ null, %80 ]
+  %.029.i19.ph.i = phi ptr [ %114, %118 ], [ null, %74 ], [ %114, %136 ], [ %114, %129 ], [ %114, %125 ], [ %114, %120 ], [ %114, %116 ], [ null, %109 ], [ null, %105 ], [ null, %102 ], [ null, %93 ], [ null, %88 ], [ null, %84 ], [ null, %81 ], [ null, %80 ]
   call void @X509_ALGOR_free(ptr noundef %.030.i18.ph.i) #3
   call void @EVP_CIPHER_free(ptr noundef %.029.i19.ph.i) #3
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 158) #3
@@ -528,9 +528,9 @@ dh_cms_set_shared_info.exit.i:                    ; preds = %136, %134
   br label %247
 
 247:                                              ; preds = %246, %241, %238, %235, %232, %225, %220, %211, %206, %202, %195, %193, %191, %187, %181, %180, %177, %174, %.thread.i, %149
-  %.057.i = phi ptr [ null, %174 ], [ null, %177 ], [ null, %181 ], [ null, %187 ], [ null, %195 ], [ null, %202 ], [ null, %206 ], [ null, %211 ], [ null, %220 ], [ null, %225 ], [ %.1.i, %232 ], [ null, %235 ], [ null, %238 ], [ null, %241 ], [ null, %246 ], [ null, %193 ], [ null, %191 ], [ null, %149 ], [ null, %180 ], [ null, %.thread.i ]
-  %.055.i = phi i32 [ 0, %174 ], [ 0, %177 ], [ 0, %181 ], [ 0, %187 ], [ 0, %195 ], [ 0, %202 ], [ 0, %206 ], [ 0, %211 ], [ 0, %220 ], [ 0, %225 ], [ 0, %232 ], [ 0, %235 ], [ 0, %238 ], [ %245, %241 ], [ 0, %246 ], [ 0, %193 ], [ 0, %191 ], [ 0, %149 ], [ 0, %180 ], [ 0, %.thread.i ]
-  %.054.i = phi ptr [ null, %174 ], [ null, %177 ], [ null, %181 ], [ null, %187 ], [ null, %195 ], [ null, %202 ], [ %204, %206 ], [ %204, %211 ], [ %204, %220 ], [ %204, %225 ], [ %204, %232 ], [ %204, %235 ], [ %204, %238 ], [ %204, %241 ], [ %204, %246 ], [ null, %193 ], [ null, %191 ], [ null, %149 ], [ null, %180 ], [ null, %.thread.i ]
+  %.057.i = phi ptr [ null, %174 ], [ null, %177 ], [ null, %181 ], [ null, %187 ], [ null, %195 ], [ null, %202 ], [ null, %206 ], [ null, %211 ], [ null, %220 ], [ null, %225 ], [ %.1.i, %232 ], [ null, %235 ], [ null, %238 ], [ null, %241 ], [ null, %246 ], [ null, %193 ], [ null, %191 ], [ null, %180 ], [ null, %.thread.i ], [ null, %149 ]
+  %.055.i = phi i32 [ 0, %174 ], [ 0, %177 ], [ 0, %181 ], [ 0, %187 ], [ 0, %195 ], [ 0, %202 ], [ 0, %206 ], [ 0, %211 ], [ 0, %220 ], [ 0, %225 ], [ 0, %232 ], [ 0, %235 ], [ 0, %238 ], [ %245, %241 ], [ 0, %246 ], [ 0, %193 ], [ 0, %191 ], [ 0, %180 ], [ 0, %.thread.i ], [ 0, %149 ]
+  %.054.i = phi ptr [ null, %174 ], [ null, %177 ], [ null, %181 ], [ null, %187 ], [ null, %195 ], [ null, %202 ], [ %204, %206 ], [ %204, %211 ], [ %204, %220 ], [ %204, %225 ], [ %204, %232 ], [ %204, %235 ], [ %204, %238 ], [ %204, %241 ], [ %204, %246 ], [ null, %193 ], [ null, %191 ], [ null, %180 ], [ null, %.thread.i ], [ null, %149 ]
   %248 = load ptr, ptr %7, align 8, !tbaa !12
   call void @CRYPTO_free(ptr noundef %248, ptr noundef nonnull @.str, i32 noundef 325) #3
   call void @X509_ALGOR_free(ptr noundef %.054.i) #3
@@ -554,7 +554,7 @@ dh_cms_encrypt.exit:                              ; preds = %146, %247
   br label %dh_cms_decrypt.exit
 
 dh_cms_decrypt.exit:                              ; preds = %.critedge.i, %145, %dh_cms_set_shared_info.exit.i, %20, %249, %dh_cms_encrypt.exit
-  %.0 = phi i32 [ %.0.i, %dh_cms_encrypt.exit ], [ 0, %249 ], [ 0, %145 ], [ 0, %20 ], [ 0, %.critedge.i ], [ 1, %dh_cms_set_shared_info.exit.i ]
+  %.0 = phi i32 [ 0, %249 ], [ %.0.i, %dh_cms_encrypt.exit ], [ 0, %.critedge.i ], [ 0, %20 ], [ 0, %145 ], [ 1, %dh_cms_set_shared_info.exit.i ]
   ret i32 %.0
 }
 

@@ -113,7 +113,7 @@ update_iv.exit:                                   ; preds = %21, %10
   br label %update_iv.exit.thread
 
 update_iv.exit.thread:                            ; preds = %13, %10, %10, %.split, %.split23, %6, %23
-  %.021 = phi i32 [ 1, %23 ], [ 0, %6 ], [ %28, %.split ], [ %31, %.split23 ], [ 0, %10 ], [ 0, %10 ], [ 0, %13 ]
+  %.021 = phi i32 [ 1, %23 ], [ 0, %6 ], [ %31, %.split23 ], [ %28, %.split ], [ 0, %10 ], [ 0, %10 ], [ 0, %13 ]
   ret i32 %.021
 }
 
@@ -237,7 +237,7 @@ aes_generic_ocb_cipher.exit:                      ; preds = %32, %30
   br label %update_iv.exit.thread
 
 update_iv.exit.thread:                            ; preds = %32, %30, %13, %10, %10, %58, %54, %47, %38, %6, %4, %62
-  %.0 = phi i32 [ 1, %62 ], [ 0, %4 ], [ 0, %6 ], [ 0, %38 ], [ 0, %47 ], [ 0, %54 ], [ 0, %58 ], [ 0, %10 ], [ 0, %10 ], [ 0, %13 ], [ 0, %30 ], [ 0, %32 ]
+  %.0 = phi i32 [ 1, %62 ], [ 0, %38 ], [ 0, %47 ], [ 0, %54 ], [ 0, %13 ], [ 0, %6 ], [ 0, %4 ], [ 0, %58 ], [ 0, %10 ], [ 0, %10 ], [ 0, %30 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -516,7 +516,7 @@ define internal range(i32 0, 2) i32 @aes_ocb_get_ctx_params(ptr noundef %0, ptr 
   br label %74
 
 74:                                               ; preds = %54, %70, %69, %59, %53, %46, %37, %31, %22, %15, %8
-  %.0 = phi i32 [ 0, %31 ], [ 0, %46 ], [ 0, %59 ], [ 0, %69 ], [ 0, %53 ], [ 0, %37 ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ], [ 1, %70 ], [ 1, %54 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %46 ], [ 0, %59 ], [ 0, %69 ], [ 0, %8 ], [ 0, %53 ], [ 0, %37 ], [ 0, %22 ], [ 0, %15 ], [ 1, %70 ], [ 1, %54 ]
   ret i32 %.0
 }
 
@@ -671,7 +671,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %50, %58, %.critedge, %42, %ossl_param_is_empty.exit, %41, %34, %28, %21, %12
-  %.027 = phi i32 [ 0, %12 ], [ 0, %21 ], [ 0, %41 ], [ 0, %28 ], [ 0, %34 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %42 ], [ 0, %.critedge ], [ 1, %58 ], [ 1, %50 ], [ 1, %2 ]
+  %.027 = phi i32 [ 0, %34 ], [ 0, %12 ], [ 0, %21 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %42 ], [ 0, %.critedge ], [ 0, %41 ], [ 0, %28 ], [ 1, %58 ], [ 1, %50 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.027
 }
@@ -833,7 +833,7 @@ define internal fastcc range(i32 0, 2) i32 @aes_ocb_init(ptr noundef %0, ptr nou
   br label %40
 
 40:                                               ; preds = %33, %24, %7, %38, %32, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %32 ], [ %39, %38 ], [ 0, %7 ], [ 0, %24 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %32 ], [ %39, %38 ], [ 0, %24 ], [ 0, %7 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -995,7 +995,7 @@ thread-pre-split:                                 ; preds = %25
   br label %47
 
 47:                                               ; preds = %41, %45, %33, %29, %22, %19
-  %.028 = phi i32 [ 0, %19 ], [ 0, %29 ], [ %46, %45 ], [ 0, %33 ], [ 0, %22 ], [ 0, %41 ]
+  %.028 = phi i32 [ 0, %19 ], [ 0, %29 ], [ %46, %45 ], [ 0, %22 ], [ 0, %33 ], [ 0, %41 ]
   ret i32 %.028
 }
 

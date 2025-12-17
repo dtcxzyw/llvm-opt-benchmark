@@ -754,7 +754,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph152, %.loopexit.sink.split, %6, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ %.sink169, %.loopexit.sink.split ], [ %77, %.lr.ph152 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ %.sink169, %.loopexit.sink.split ], [ %77, %.lr.ph152 ]
   ret ptr %.0
 }
 
@@ -1113,7 +1113,7 @@ dissect_dcom_nospec_data.exit:                    ; preds = %95, %103, %106
   br i1 %.not, label %.loopexit, label %51, !llvm.loop !13
 
 .loopexit:                                        ; preds = %116, %31, %20, %6
-  %.0 = phi i32 [ %17, %6 ], [ %28, %20 ], [ %38, %31 ], [ %.2, %116 ]
+  %.0 = phi i32 [ %28, %20 ], [ %17, %6 ], [ %38, %31 ], [ %.2, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2806,7 +2806,7 @@ dcom_get_routine_by_uuid.exit.thread:             ; preds = %4, %2, %dcom_get_ro
   br label %18
 
 18:                                               ; preds = %dcom_get_routine_by_uuid.exit.thread, %dcom_get_routine_by_uuid.exit, %13
-  %.0 = phi i32 [ 0, %13 ], [ -1, %dcom_get_routine_by_uuid.exit ], [ -1, %dcom_get_routine_by_uuid.exit.thread ]
+  %.0 = phi i32 [ -1, %dcom_get_routine_by_uuid.exit ], [ 0, %13 ], [ -1, %dcom_get_routine_by_uuid.exit.thread ]
   ret i32 %.0
 }
 
@@ -2839,7 +2839,7 @@ define hidden ptr @dcom_get_routine_by_uuid(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %8
-  %.09 = phi ptr [ %10, %8 ], [ null, %1 ], [ null, %3 ]
+  %.09 = phi ptr [ null, %1 ], [ %10, %8 ], [ null, %3 ]
   ret ptr %.09
 }
 

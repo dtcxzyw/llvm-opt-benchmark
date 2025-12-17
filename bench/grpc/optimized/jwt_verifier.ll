@@ -749,7 +749,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %_ZN9grpc_core
   %.not = icmp eq ptr %114, %37
   br i1 %.not, label %.loopexit, label %41
 
-115:                                              ; preds = %45, %53, %61, %69, %77, %90, %103
+115:                                              ; preds = %90, %45, %53, %61, %69, %77, %103
   %116 = load i8, ptr %7, align 8, !tbaa !3
   %.not.i.i.i = icmp eq i8 %116, -1
   br i1 %.not.i.i.i, label %_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit, label %117, !prof !7
@@ -1187,7 +1187,7 @@ define noundef ptr @_Z28grpc_jwt_issuer_email_domainPKc(ptr noundef %0) local_un
   br label %21
 
 21:                                               ; preds = %.critedge, %5, %9, %1
-  %.021 = phi ptr [ null, %1 ], [ null, %5 ], [ %6, %9 ], [ %spec.select, %.critedge ]
+  %.021 = phi ptr [ null, %1 ], [ null, %5 ], [ %spec.select, %.critedge ], [ %6, %9 ]
   ret ptr %.021
 }
 
@@ -1908,7 +1908,7 @@ sub_0.i:                                          ; preds = %_ZNK9grpc_core12exp
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %340
 
 _ZL15evp_md_from_algPKc.exit.i:                   ; preds = %209, %204, %199
-  %.0.i.i = phi ptr [ %200, %199 ], [ %205, %204 ], [ %210, %209 ]
+  %.0.i.i = phi ptr [ %205, %204 ], [ %200, %199 ], [ %210, %209 ]
   %211 = icmp eq ptr %.0.i.i, null
   br i1 %211, label %_ZL15evp_md_from_algPKc.exit.thread.i, label %214
 
@@ -2058,7 +2058,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i: ; preds = %240
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke
 
 _ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke: ; preds = %240, %214, %189, %.noexc59, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i
-  %.str.38.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i ], [ @.str.38, %.noexc59 ], [ @.str.32, %189 ], [ @.str.32, %214 ], [ @.str.32, %240 ]
+  %.str.38.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i ], [ @.str.38, %.noexc59 ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i ], [ @.str.32, %189 ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i ], [ @.str.32, %214 ], [ @.str.32, %240 ]
   %241 = call ptr @__cxa_allocate_exception(i64 16) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %241, align 8, !tbaa !25
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -4016,7 +4016,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %947, %944, %941, %936, %_ZN9grpc_core9Timestamp3NowEv.exit.i
-  %.0.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %936 ], [ %948, %947 ], [ 9223372036854775807, %941 ], [ -9223372036854775808, %944 ]
+  %.0.i.i.i = phi i64 [ -9223372036854775808, %936 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %944 ], [ %948, %947 ], [ 9223372036854775807, %941 ]
   invoke void @_ZN9grpc_core31CreateHttpRequestSSLCredentialsEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr") align 8 %28)
           to label %949 unwind label %980
 
@@ -4169,7 +4169,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i155.i:    ; preds = %998
   unreachable
 
 1009:                                             ; preds = %993, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i, %591, %585, %582, %576, %574, %555, %546, %533
-  %.pn98.i = phi { ptr, i32 } [ %575, %574 ], [ %.pn96.i, %546 ], [ %.pn94.i, %555 ], [ %.pn88.i, %993 ], [ %.pn82.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i ], [ %534, %533 ], [ %.pn.i104, %591 ], [ %586, %585 ], [ %583, %582 ], [ %577, %576 ]
+  %.pn98.i = phi { ptr, i32 } [ %575, %574 ], [ %.pn96.i, %546 ], [ %.pn94.i, %555 ], [ %534, %533 ], [ %.pn88.i, %993 ], [ %.pn82.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i ], [ %586, %585 ], [ %.pn.i104, %591 ], [ %583, %582 ], [ %577, %576 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %14) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4207,7 +4207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %10
   br label %.body100
 
 1016:                                             ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit85, %342, %_ZN9grpc_core12experimental4JsonD2Ev.exit96, %448
-  %.047.ph = phi ptr [ %430, %448 ], [ null, %_ZN9grpc_core12experimental4JsonD2Ev.exit96 ], [ null, %342 ], [ null, %_ZN9grpc_core12experimental4JsonD2Ev.exit85 ]
+  %.047.ph = phi ptr [ %430, %448 ], [ null, %_ZN9grpc_core12experimental4JsonD2Ev.exit96 ], [ null, %_ZN9grpc_core12experimental4JsonD2Ev.exit85 ], [ null, %342 ]
   %1017 = getelementptr inbounds nuw i8, ptr %.0.i201, i64 72
   %1018 = load i8, ptr %1017, align 8, !tbaa !3
   %.not.i.i.i117 = icmp eq i8 %1018, -1
@@ -4267,7 +4267,7 @@ _ZN9grpc_core17ManualConstructorINS_12experimental4JsonEE7DestroyEv.exit.i121: ;
   invoke void @gpr_free(ptr noundef nonnull %.047.ph)
           to label %_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit unwind label %92
 
-_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit: ; preds = %_ZL21jose_header_from_jsonN9grpc_core12experimental4JsonE.exit, %_ZN9grpc_core12experimental4JsonD2Ev.exit, %_ZN9grpc_core12experimental4JsonD2Ev.exit78, %.critedge, %_ZN9grpc_core17ManualConstructorINS_12experimental4JsonEE7DestroyEv.exit.i121, %_ZL19jose_header_destroyP11jose_header.exit
+_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit: ; preds = %_ZL21jose_header_from_jsonN9grpc_core12experimental4JsonE.exit, %_ZN9grpc_core12experimental4JsonD2Ev.exit, %.critedge, %_ZN9grpc_core12experimental4JsonD2Ev.exit78, %_ZN9grpc_core17ManualConstructorINS_12experimental4JsonEE7DestroyEv.exit.i121, %_ZL19jose_header_destroyP11jose_header.exit
   invoke void %4(ptr noundef %5, i32 noundef 2, ptr noundef null)
           to label %1032 unwind label %92
 
@@ -4310,7 +4310,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit128:     ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 .body100:                                         ; preds = %common.resume.i, %1009, %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %441, %366, %.body, %90, %68
-  %.pn = phi { ptr, i32 } [ %1011, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %442, %441 ], [ %367, %366 ], [ %eh.lpad-body, %.body ], [ %91, %90 ], [ %69, %68 ], [ %.pn.i, %common.resume.i ], [ %93, %92 ], [ %.pn98.i, %1009 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %1011, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ %442, %441 ], [ %367, %366 ], [ %eh.lpad-body, %.body ], [ %91, %90 ], [ %.pn.i, %common.resume.i ], [ %93, %92 ], [ %.pn98.i, %1009 ]
   %1042 = load ptr, ptr %51, align 8, !tbaa !36
   %1043 = icmp eq ptr %1042, %60
   br i1 %1043, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i129
@@ -4796,8 +4796,8 @@ define internal fastcc void @_ZL20verifier_put_mappingP17grpc_jwt_verifierPKcS2_
   br i1 %13, label %_ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit, label %8
 
 _ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit: ; preds = %8, %.lr.ph.i, %3, %.preheader.i
-  %14 = phi i64 [ 0, %.preheader.i ], [ %.pre, %3 ], [ %.pre, %.lr.ph.i ], [ %.pre, %8 ]
-  %.09.i = phi ptr [ null, %.preheader.i ], [ null, %3 ], [ null, %8 ], [ %10, %.lr.ph.i ]
+  %14 = phi i64 [ %.pre, %3 ], [ 0, %.preheader.i ], [ %.pre, %.lr.ph.i ], [ %.pre, %8 ]
+  %.09.i = phi ptr [ null, %3 ], [ null, %.preheader.i ], [ null, %8 ], [ %10, %.lr.ph.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !158
@@ -6256,7 +6256,7 @@ define internal void @_ZL17on_keys_retrievedPvN4absl12lts_202407226StatusE(ptr n
   ]
 
 .invoke:                                          ; preds = %.noexc55, %.noexc52, %92, %2, %219, %190, %175, %74, %46, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i
-  %.str.31.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i ], [ @.str.32, %46 ], [ @.str.38, %74 ], [ @.str.38, %175 ], [ @.str.32, %190 ], [ @.str.32, %219 ], [ @.str.38, %2 ], [ @.str.38, %92 ], [ @.str.32, %.noexc52 ], [ @.str.32, %.noexc55 ]
+  %.str.31.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i ], [ @.str.32, %190 ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i ], [ @.str.38, %175 ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i ], [ @.str.32, %219 ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i ], [ @.str.38, %2 ], [ @.str.38, %74 ], [ @.str.32, %46 ], [ @.str.32, %.noexc55 ], [ @.str.32, %.noexc52 ], [ @.str.38, %92 ]
   %33 = call ptr @__cxa_allocate_exception(i64 16) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %33, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -7289,7 +7289,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
           to label %_ZL15evp_md_from_algPKc.exit.i unwind label %.loopexit.split-lp
 
 _ZL15evp_md_from_algPKc.exit.i:                   ; preds = %294, %289, %284
-  %.0.i.i83 = phi ptr [ %285, %284 ], [ %290, %289 ], [ %295, %294 ]
+  %.0.i.i83 = phi ptr [ %290, %289 ], [ %285, %284 ], [ %295, %294 ]
   %.not.i.i84 = icmp eq ptr %.0.i.i83, null
   br i1 %.not.i.i84, label %_ZL15evp_md_from_algPKc.exit.thread.i, label %296, !prof !130
 
@@ -7467,9 +7467,9 @@ _ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit: ; preds = %338
   br label %349
 
 349:                                              ; preds = %2, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit, %345, %347, %270
-  %.026 = phi ptr [ null, %270 ], [ %.1.i, %347 ], [ %.1.i, %345 ], [ %.1.i, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ], [ null, %2 ]
-  %.025 = phi i32 [ 4, %270 ], [ 0, %347 ], [ %344, %345 ], [ 1, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ], [ 4, %2 ]
-  %.024 = phi ptr [ null, %270 ], [ %348, %347 ], [ null, %345 ], [ null, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ], [ null, %2 ]
+  %.026 = phi ptr [ null, %2 ], [ null, %270 ], [ %.1.i, %347 ], [ %.1.i, %345 ], [ %.1.i, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ]
+  %.025 = phi i32 [ 4, %2 ], [ 4, %270 ], [ 0, %347 ], [ %344, %345 ], [ 1, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ]
+  %.024 = phi ptr [ null, %2 ], [ null, %270 ], [ %348, %347 ], [ null, %345 ], [ null, %_ZL20verify_jwt_signatureP11evp_pkey_stPKcRK10grpc_sliceS5_.exit ]
   invoke void @EVP_PKEY_free(ptr noundef %.026)
           to label %350 unwind label %.loopexit.split-lp
 
@@ -7511,7 +7511,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit:        ; preds = %356, %.noexc.i
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %303, %308, %322, %336, %65, %71, %78, %182, %188, %211, %240, %251, %261, %275
-  %.pn32 = phi { ptr, i32 } [ %.pn, %275 ], [ %66, %65 ], [ %72, %71 ], [ %183, %182 ], [ %189, %188 ], [ %212, %211 ], [ %241, %240 ], [ %252, %251 ], [ %79, %78 ], [ %262, %261 ], [ %304, %303 ], [ %309, %308 ], [ %323, %322 ], [ %337, %336 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn32 = phi { ptr, i32 } [ %.pn, %275 ], [ %262, %261 ], [ %337, %336 ], [ %252, %251 ], [ %72, %71 ], [ %66, %65 ], [ %183, %182 ], [ %189, %188 ], [ %212, %211 ], [ %241, %240 ], [ %79, %78 ], [ %304, %303 ], [ %309, %308 ], [ %323, %322 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   resume { ptr, i32 } %.pn32
@@ -8472,7 +8472,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %393, %390, %387, %382, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %382 ], [ %394, %393 ], [ 9223372036854775807, %387 ], [ -9223372036854775808, %390 ]
+  %.0.i.i = phi i64 [ -9223372036854775808, %382 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %390 ], [ %394, %393 ], [ 9223372036854775807, %387 ]
   %395 = invoke ptr @gpr_malloc(i64 noundef 48)
           to label %396 unwind label %431
 
@@ -9459,7 +9459,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %23
-  %.sroa.0.0.i.i = phi ptr [ %30, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %30, %23 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ %30, %23 ], [ %30, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %51 = icmp eq ptr %.pre, %12
   br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 

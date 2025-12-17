@@ -483,12 +483,12 @@ define internal noundef ptr @test_list_api(ptr readnone captures(none) %0, ptr r
   br i1 %52, label %Py_DECREF.exit34.sink.split, label %Py_DECREF.exit34
 
 Py_DECREF.exit34.sink.split:                      ; preds = %50, %45, %30, %12
-  %.0.ph = phi ptr [ null, %12 ], [ null, %30 ], [ null, %45 ], [ @_Py_NoneStruct, %50 ]
+  %.0.ph = phi ptr [ null, %30 ], [ null, %12 ], [ null, %45 ], [ @_Py_NoneStruct, %50 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %3) #5
   br label %Py_DECREF.exit34
 
 Py_DECREF.exit34:                                 ; preds = %Py_DECREF.exit34.sink.split, %10, %12, %50, %48, %45, %42, %30, %28, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %28 ], [ null, %30 ], [ null, %42 ], [ null, %45 ], [ @_Py_NoneStruct, %48 ], [ @_Py_NoneStruct, %50 ], [ null, %12 ], [ null, %10 ], [ %.0.ph, %Py_DECREF.exit34.sink.split ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %50 ], [ null, %10 ], [ null, %2 ], [ null, %12 ], [ null, %28 ], [ null, %30 ], [ null, %42 ], [ null, %45 ], [ @_Py_NoneStruct, %48 ], [ %.0.ph, %Py_DECREF.exit34.sink.split ]
   ret ptr %.0
 }
 

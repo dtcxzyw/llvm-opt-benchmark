@@ -627,7 +627,7 @@ define i64 @lean_object_byte_size(ptr noundef readonly captures(none) %0) local_
   br label %40
 
 40:                                               ; preds = %8, %38, %35, %28, %24, %20, %13, %9
-  %.0 = phi i64 [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ %37, %35 ], [ 0, %8 ]
+  %.0 = phi i64 [ %37, %35 ], [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -706,7 +706,7 @@ define i64 @lean_object_data_byte_size(ptr noundef readonly captures(none) %0) l
   br label %40
 
 40:                                               ; preds = %8, %38, %35, %28, %24, %20, %13, %9
-  %.0 = phi i64 [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ %37, %35 ], [ 0, %8 ]
+  %.0 = phi i64 [ %37, %35 ], [ %12, %9 ], [ %19, %13 ], [ %22, %20 ], [ %39, %38 ], [ %27, %24 ], [ %34, %28 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -1351,7 +1351,7 @@ _ZN4leanL18deactivate_promiseEP12lean_promise.exit: ; preds = %192, %194, %195
   unreachable
 
 _ZN4leanL13lean_del_coreEP11lean_objectRS1_.exit: ; preds = %_ZN4leanL9free_taskEP9lean_task.exit.i, %170, %._crit_edge100, %._crit_edge93, %._crit_edge, %93, %100, %103, %_ZN4leanL3decEP11lean_objectRS1_.exit18, %_ZN4leanL3decEP11lean_objectRS1_.exit, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit, %196
-  %.7 = phi ptr [ %.6.lcssa, %._crit_edge100 ], [ %.5.lcssa, %._crit_edge93 ], [ %.4.lcssa, %._crit_edge ], [ %.081, %93 ], [ %.081, %100 ], [ %.081, %103 ], [ %.3, %_ZN4leanL3decEP11lean_objectRS1_.exit18 ], [ %.1, %_ZN4leanL3decEP11lean_objectRS1_.exit ], [ %.081, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit ], [ %.081, %196 ], [ %.081, %170 ], [ %.081, %_ZN4leanL9free_taskEP9lean_task.exit.i ]
+  %.7 = phi ptr [ %.6.lcssa, %._crit_edge100 ], [ %.5.lcssa, %._crit_edge93 ], [ %.4.lcssa, %._crit_edge ], [ %.081, %93 ], [ %.081, %100 ], [ %.081, %103 ], [ %.3, %_ZN4leanL3decEP11lean_objectRS1_.exit18 ], [ %.1, %_ZN4leanL3decEP11lean_objectRS1_.exit ], [ %.081, %196 ], [ %.081, %_ZN4leanL18deactivate_promiseEP12lean_promise.exit ], [ %.081, %170 ], [ %.081, %_ZN4leanL9free_taskEP9lean_task.exit.i ]
   %207 = icmp eq ptr %.7, null
   br i1 %207, label %.loopexit, label %208
 
@@ -2338,7 +2338,7 @@ _ZL8lean_decP11lean_object.exitthread-pre-split:  ; preds = %14, %50, %50, %50, 
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %187, %158, %38, %_ZL8lean_decP11lean_object.exitthread-pre-split, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147, %131, %108, %5
-  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %267, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158 ], [ %244, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147 ], [ %135, %131 ], [ %112, %108 ], [ %11, %5 ], [ %44, %38 ], [ %164, %158 ], [ %193, %187 ]
+  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %267, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158 ], [ %244, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147 ], [ %135, %131 ], [ %112, %108 ], [ %11, %5 ], [ %164, %158 ], [ %44, %38 ], [ %193, %187 ]
   %275 = icmp eq i64 %.pr, 0
   br i1 %275, label %276, label %5, !llvm.loop !69
 
@@ -2358,7 +2358,7 @@ _ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit:    ; preds = %276, %278
   ret void
 
 281:                                              ; preds = %.loopexit, %.loopexit.split-lp, %46, %113, %136, %220, %245, %268, %48, %166, %195
-  %.pn54.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %114, %113 ], [ %137, %136 ], [ %246, %245 ], [ %221, %220 ], [ %269, %268 ], [ %49, %48 ], [ %167, %166 ], [ %196, %195 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %269, %268 ], [ %47, %46 ], [ %221, %220 ], [ %246, %245 ], [ %114, %113 ], [ %137, %136 ], [ %196, %195 ], [ %167, %166 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %282 = load ptr, ptr %1, align 8, !tbaa !60
   %.not.i.i.i159 = icmp eq ptr %282, %2
   br i1 %.not.i.i.i159, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit160, label %283
@@ -3206,7 +3206,7 @@ _ZL8lean_decP11lean_object.exitthread-pre-split:  ; preds = %19, %57, %57, %57, 
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %194, %165, %45, %_ZL8lean_decP11lean_object.exitthread-pre-split, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146, %138, %115, %10
-  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %274, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157 ], [ %251, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146 ], [ %142, %138 ], [ %119, %115 ], [ %16, %10 ], [ %51, %45 ], [ %171, %165 ], [ %200, %194 ]
+  %.pr = phi i64 [ %.pr.pr, %_ZL8lean_decP11lean_object.exitthread-pre-split ], [ %274, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157 ], [ %251, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146 ], [ %142, %138 ], [ %119, %115 ], [ %16, %10 ], [ %171, %165 ], [ %51, %45 ], [ %200, %194 ]
   %282 = icmp eq i64 %.pr, 0
   br i1 %282, label %283, label %10, !llvm.loop !73
 
@@ -3229,7 +3229,7 @@ _ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit:    ; preds = %283, %285
   ret void
 
 289:                                              ; preds = %.loopexit, %.loopexit.split-lp, %53, %120, %143, %227, %252, %275, %55, %173, %202
-  %.pn55.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %121, %120 ], [ %144, %143 ], [ %253, %252 ], [ %228, %227 ], [ %276, %275 ], [ %56, %55 ], [ %174, %173 ], [ %203, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn55.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %276, %275 ], [ %54, %53 ], [ %228, %227 ], [ %253, %252 ], [ %121, %120 ], [ %144, %143 ], [ %203, %202 ], [ %174, %173 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %290 = load ptr, ptr %2, align 8, !tbaa !60
   %.not.i.i.i158 = icmp eq ptr %290, %7
   br i1 %.not.i.i.i158, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit159, label %291
@@ -4264,7 +4264,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %21, %24, %26
   br label %.thread13
 
 .thread13:                                        ; preds = %20, %11, %38, %37, %28
-  %40 = phi i1 [ true, %38 ], [ true, %37 ], [ false, %28 ], [ false, %11 ], [ false, %20 ]
+  %40 = phi i1 [ false, %28 ], [ true, %38 ], [ true, %37 ], [ false, %11 ], [ false, %20 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %42 = load atomic i64, ptr %4 seq_cst, align 8
   %.not2.i = icmp eq i64 %42, 0
@@ -4595,7 +4595,7 @@ define zeroext i1 @lean_io_check_canceled_core() local_unnamed_addr #17 {
   br label %13
 
 13:                                               ; preds = %0, %3, %8
-  %spec.select = phi i1 [ true, %3 ], [ %12, %8 ], [ false, %0 ]
+  %spec.select = phi i1 [ %12, %8 ], [ true, %3 ], [ false, %0 ]
   ret i1 %spec.select
 }
 
@@ -6002,7 +6002,7 @@ _ZN4leanL10mpz_to_natERKNS_3mpzE.exit38:          ; preds = %.noexc37, %.noexc34
   br label %74
 
 73:                                               ; preds = %43, %2, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit38, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit
-  %.014 = phi ptr [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ %.0.i31, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit38 ], [ inttoptr (i64 1 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %43 ]
+  %.014 = phi ptr [ %.0.i31, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit38 ], [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ inttoptr (i64 1 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %43 ]
   ret ptr %.014
 
 74:                                               ; preds = %72, %42
@@ -6641,7 +6641,7 @@ _ZN4leanL10mpz_to_natERKNS_3mpzE.exit58:          ; preds = %.noexc57, %.noexc54
   br label %71
 
 .critedge39:                                      ; preds = %13, %2, %.critedge, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit58
-  %.030 = phi ptr [ %.0.i51, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit58 ], [ %.ph, %.critedge ], [ inttoptr (i64 1 to ptr), %2 ], [ %1, %13 ]
+  %.030 = phi ptr [ %.ph, %.critedge ], [ %.0.i51, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit58 ], [ inttoptr (i64 1 to ptr), %2 ], [ %1, %13 ]
   ret ptr %.030
 
 71:                                               ; preds = %70, %43
@@ -6830,7 +6830,7 @@ _ZN4leanL10mpz_to_natERKNS_3mpzE.exit27:          ; preds = %.noexc26, %.noexc23
   br label %62
 
 61:                                               ; preds = %2, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit27, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit
-  %.011 = phi ptr [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ %.0.i20, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit27 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.011 = phi ptr [ %.0.i20, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit27 ], [ %.0.i, %_ZN4leanL10mpz_to_natERKNS_3mpzE.exit ], [ inttoptr (i64 1 to ptr), %2 ]
   ret ptr %.011
 
 62:                                               ; preds = %59, %37
@@ -10165,7 +10165,7 @@ define noundef ptr @lean_int_big_div_exact(ptr noundef %0, ptr noundef %1) local
   br label %34
 
 33:                                               ; preds = %8, %30, %20
-  %.014 = phi ptr [ %19, %20 ], [ %29, %30 ], [ %spec.select, %8 ]
+  %.014 = phi ptr [ %29, %30 ], [ %19, %20 ], [ %spec.select, %8 ]
   ret ptr %.014
 
 34:                                               ; preds = %31, %25
@@ -12071,7 +12071,7 @@ _ZN4lean12alloc_stringEmmm.exit.i:                ; preds = %30
   br label %_ZL12lean_dec_refP11lean_object.exit
 
 _ZL12lean_dec_refP11lean_object.exit:             ; preds = %_ZN4lean12alloc_stringEmmm.exit.i, %26, %25, %24, %22
-  %.0 = phi ptr [ %9, %22 ], [ %9, %24 ], [ %9, %25 ], [ %33, %_ZN4lean12alloc_stringEmmm.exit.i ], [ %0, %26 ]
+  %.0 = phi ptr [ %9, %25 ], [ %9, %22 ], [ %9, %24 ], [ %33, %_ZN4lean12alloc_stringEmmm.exit.i ], [ %0, %26 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.val
   %45 = getelementptr inbounds i8, ptr %44, i64 -1
@@ -12189,7 +12189,7 @@ _ZN4lean12alloc_stringEmmm.exit.i:                ; preds = %35
   br label %_ZN4lean7dec_refEP11lean_object.exit
 
 _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %_ZN4lean12alloc_stringEmmm.exit.i, %30, %29, %28, %26
-  %.0 = phi ptr [ %14, %26 ], [ %14, %28 ], [ %14, %29 ], [ %38, %_ZN4lean12alloc_stringEmmm.exit.i ], [ %0, %30 ]
+  %.0 = phi ptr [ %14, %29 ], [ %14, %26 ], [ %14, %28 ], [ %38, %_ZN4lean12alloc_stringEmmm.exit.i ], [ %0, %30 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.val28
   %50 = getelementptr inbounds i8, ptr %49, i64 -1
@@ -12345,7 +12345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
           to label %_ZL8lean_decP11lean_object.exit unwind label %.loopexit.split-lp
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1, %27, %25, %28
-  %.08.lcssa25 = phi i64 [ %15, %27 ], [ %15, %25 ], [ %15, %28 ], [ 0, %1 ]
+  %.08.lcssa25 = phi i64 [ %15, %28 ], [ 0, %1 ], [ %15, %27 ], [ %15, %25 ]
   %29 = load ptr, ptr %2, align 8, !tbaa !155
   %30 = load i64, ptr %4, align 8, !tbaa !55
   %31 = add i64 %30, 33
@@ -12743,7 +12743,7 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL25lean_string_utf8_get_coreE
   br label %.critedge59
 
 .critedge59:                                      ; preds = %54, %.critedge, %51, %46, %16, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %16 ], [ true, %46 ], [ false, %51 ], [ false, %.critedge ], [ %or.cond57, %54 ]
+  %.0 = phi i1 [ true, %9 ], [ %or.cond57, %54 ], [ true, %46 ], [ true, %16 ], [ false, %.critedge ], [ false, %51 ]
   ret i1 %.0
 }
 
@@ -12843,7 +12843,7 @@ define range(i32 0, 1114112) i32 @lean_string_utf8_get_fast_cold(ptr noundef rea
   br label %.thread56
 
 .thread56:                                        ; preds = %50, %.thread, %47, %61, %37, %11
-  %.2 = phi i32 [ %72, %61 ], [ %18, %11 ], [ %42, %37 ], [ 65, %47 ], [ 65, %.thread ], [ 65, %50 ]
+  %.2 = phi i32 [ %42, %37 ], [ %72, %61 ], [ %18, %11 ], [ 65, %.thread ], [ 65, %47 ], [ 65, %50 ]
   ret i32 %.2
 }
 
@@ -13052,12 +13052,12 @@ lean_mk_ascii_string_unchecked.exit.i15:          ; preds = %47
   br label %_ZN4leanL26lean_string_utf8_get_panicEv.exit18
 
 _ZN4leanL26lean_string_utf8_get_panicEv.exit18:   ; preds = %62, %61, %59, %45
-  %.2 = phi i32 [ %46, %45 ], [ 65, %59 ], [ 65, %61 ], [ 65, %62 ]
+  %.2 = phi i32 [ %46, %45 ], [ 65, %62 ], [ 65, %59 ], [ 65, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4leanL26lean_string_utf8_get_panicEv.exit
 
 _ZN4leanL26lean_string_utf8_get_panicEv.exit:     ; preds = %41, %40, %38, %21, %20, %18, %_ZN4leanL26lean_string_utf8_get_panicEv.exit18
-  %.0 = phi i32 [ %.2, %_ZN4leanL26lean_string_utf8_get_panicEv.exit18 ], [ 65, %18 ], [ 65, %20 ], [ 65, %21 ], [ 65, %38 ], [ 65, %40 ], [ 65, %41 ]
+  %.0 = phi i32 [ %.2, %_ZN4leanL26lean_string_utf8_get_panicEv.exit18 ], [ 65, %21 ], [ 65, %40 ], [ 65, %18 ], [ 65, %20 ], [ 65, %41 ], [ 65, %38 ]
   ret i32 %.0
 }
 
@@ -13363,7 +13363,7 @@ lean_mk_string_from_bytes_unchecked.exit:         ; preds = %_ZN4leanL18is_utf8_
   br label %69
 
 69:                                               ; preds = %lean_mk_string_unchecked.exit, %lean_mk_string_unchecked.exit33, %lean_mk_string_from_bytes_unchecked.exit, %3, %6
-  %.0 = phi ptr [ %0, %6 ], [ %0, %3 ], [ %16, %lean_mk_string_unchecked.exit ], [ %59, %lean_mk_string_from_bytes_unchecked.exit ], [ %36, %lean_mk_string_unchecked.exit33 ]
+  %.0 = phi ptr [ %0, %3 ], [ %0, %6 ], [ %16, %lean_mk_string_unchecked.exit ], [ %59, %lean_mk_string_from_bytes_unchecked.exit ], [ %36, %lean_mk_string_unchecked.exit33 ]
   ret ptr %.0
 }
 
@@ -13740,7 +13740,7 @@ define noalias nonnull ptr @lean_string_of_usize(i64 noundef %0) local_unnamed_a
   br i1 %18, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !181
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %15, %13, %9, %5, %1
-  %.0.i.i = phi i32 [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ 1, %1 ], [ %17, %15 ]
+  %.0.i.i = phi i32 [ %14, %13 ], [ %6, %5 ], [ %10, %9 ], [ 1, %1 ], [ %17, %15 ]
   %19 = zext i32 %.0.i.i to i64
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %20, ptr %2, align 8, !tbaa !53, !alias.scope !178
@@ -14436,7 +14436,7 @@ _ZL17lean_alloc_sarrayjmm.exit.i.i11:             ; preds = %35
   br label %_ZN4lean28lean_sarray_ensure_exclusiveEP11lean_object.exit
 
 _ZN4lean28lean_sarray_ensure_exclusiveEP11lean_object.exit: ; preds = %33, %32, %30, %_ZL17lean_alloc_sarrayjmm.exit.i.i, %lean_sarray_ensure_capacity.exit, %_ZL17lean_alloc_sarrayjmm.exit.i.i11, %58, %60, %61
-  %.0.i13 = phi ptr [ %42, %_ZL17lean_alloc_sarrayjmm.exit.i.i11 ], [ %42, %58 ], [ %42, %60 ], [ %42, %61 ], [ %0, %lean_sarray_ensure_capacity.exit ], [ %14, %_ZL17lean_alloc_sarrayjmm.exit.i.i ], [ %14, %30 ], [ %14, %32 ], [ %14, %33 ]
+  %.0.i13 = phi ptr [ %42, %61 ], [ %42, %_ZL17lean_alloc_sarrayjmm.exit.i.i11 ], [ %42, %58 ], [ %42, %60 ], [ %0, %lean_sarray_ensure_capacity.exit ], [ %14, %_ZL17lean_alloc_sarrayjmm.exit.i.i ], [ %14, %30 ], [ %14, %32 ], [ %14, %33 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.val
@@ -15064,7 +15064,7 @@ _ZL17lean_alloc_sarrayjmm.exit.i.i12:             ; preds = %35
   br label %_ZN4lean28lean_sarray_ensure_exclusiveEP11lean_object.exit
 
 _ZN4lean28lean_sarray_ensure_exclusiveEP11lean_object.exit: ; preds = %33, %32, %30, %_ZL17lean_alloc_sarrayjmm.exit.i.i, %lean_sarray_ensure_capacity.exit, %_ZL17lean_alloc_sarrayjmm.exit.i.i12, %58, %60, %61
-  %.0.i14 = phi ptr [ %42, %_ZL17lean_alloc_sarrayjmm.exit.i.i12 ], [ %42, %58 ], [ %42, %60 ], [ %42, %61 ], [ %0, %lean_sarray_ensure_capacity.exit ], [ %14, %_ZL17lean_alloc_sarrayjmm.exit.i.i ], [ %14, %30 ], [ %14, %32 ], [ %14, %33 ]
+  %.0.i14 = phi ptr [ %42, %61 ], [ %42, %_ZL17lean_alloc_sarrayjmm.exit.i.i12 ], [ %42, %58 ], [ %42, %60 ], [ %0, %lean_sarray_ensure_capacity.exit ], [ %14, %_ZL17lean_alloc_sarrayjmm.exit.i.i ], [ %14, %30 ], [ %14, %32 ], [ %14, %33 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 24
   %64 = getelementptr inbounds nuw double, ptr %63, i64 %.val
@@ -15437,7 +15437,7 @@ _ZL14lean_string_eqP11lean_objectS0_.exit.thread: ; preds = %31, %20, %_ZL11lean
   br i1 %.not34, label %.preheader, label %_ZL14lean_string_eqP11lean_objectS0_.exit.thread30, !llvm.loop !189
 
 _ZL14lean_string_eqP11lean_objectS0_.exit.thread30: ; preds = %24, %42, %_ZL14lean_string_eqP11lean_objectS0_.exit.thread, %_ZL11lean_nat_eqP11lean_objectS0_.exit, %_ZL14lean_string_eqP11lean_objectS0_.exit, %.preheader, %4, %9, %2
-  %.020 = phi i8 [ 1, %2 ], [ 0, %9 ], [ 0, %4 ], [ 0, %24 ], [ 0, %42 ], [ 1, %_ZL14lean_string_eqP11lean_objectS0_.exit.thread ], [ 0, %_ZL11lean_nat_eqP11lean_objectS0_.exit ], [ 0, %_ZL14lean_string_eqP11lean_objectS0_.exit ], [ 0, %.preheader ]
+  %.020 = phi i8 [ 0, %9 ], [ 1, %2 ], [ 0, %4 ], [ 0, %24 ], [ 0, %42 ], [ 0, %.preheader ], [ 1, %_ZL14lean_string_eqP11lean_objectS0_.exit.thread ], [ 0, %_ZL11lean_nat_eqP11lean_objectS0_.exit ], [ 0, %_ZL14lean_string_eqP11lean_objectS0_.exit ]
   ret i8 %.020
 }
 
@@ -16667,7 +16667,7 @@ _ZL12lean_dec_refP11lean_object.exit32:           ; preds = %31, %29, %32, %22, 
   br i1 %.not.i.i, label %42, label %.invoke
 
 .invoke:                                          ; preds = %8, %39, %36, %_ZL12lean_dec_refP11lean_object.exit32
-  %41 = phi i32 [ 1, %_ZL12lean_dec_refP11lean_object.exit32 ], [ 35, %36 ], [ %40, %39 ], [ 1, %8 ]
+  %41 = phi i32 [ 35, %36 ], [ 1, %_ZL12lean_dec_refP11lean_object.exit32 ], [ %40, %39 ], [ 1, %8 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #43
           to label %.cont unwind label %33
 
@@ -16994,7 +16994,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt6vectorISt10un
   ret void
 
 48:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %26, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %26 ], [ false, %_ZNKSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0 = phi i1 [ false, %_ZNKSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ true, %6 ], [ false, %26 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = load ptr, ptr %8, align 8, !tbaa !215
@@ -17333,7 +17333,7 @@ _ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit24:    ; preds = %67, %68, %70
   br label %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit:      ; preds = %47, %45, %42, %34, %32, %31, %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit24
-  %.0 = phi ptr [ %62, %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit24 ], [ %24, %31 ], [ %24, %32 ], [ %24, %34 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
+  %.0 = phi ptr [ %62, %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit24 ], [ %24, %34 ], [ %24, %31 ], [ %24, %32 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
   store ptr %.0, ptr %6, align 8, !tbaa !207
   %74 = load ptr, ptr %.0, align 8, !tbaa !105
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24

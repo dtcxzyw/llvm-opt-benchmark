@@ -176,9 +176,9 @@ define internal fastcc i32 @compress_b44_impl(ptr noundef %0, i32 noundef range(
   br label %102
 
 102:                                              ; preds = %.lr.ph, %99, %95
-  %103 = phi i16 [ %74, %95 ], [ %.pre373, %99 ], [ %74, %.lr.ph ]
-  %.2203 = phi ptr [ %.1202296, %95 ], [ %100, %99 ], [ %.1202296, %.lr.ph ]
-  %.1191 = phi ptr [ %96, %95 ], [ %101, %99 ], [ %.0190297, %.lr.ph ]
+  %103 = phi i16 [ %.pre373, %99 ], [ %74, %95 ], [ %74, %.lr.ph ]
+  %.2203 = phi ptr [ %100, %99 ], [ %.1202296, %95 ], [ %.1202296, %.lr.ph ]
+  %.1191 = phi ptr [ %101, %99 ], [ %96, %95 ], [ %.0190297, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = sext i16 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
@@ -625,10 +625,10 @@ select.unfold:                                    ; preds = %..thread_crit_edge.
   %340 = getelementptr inbounds nuw i8, ptr %.2192325, i64 %119
   br label %.thread237
 
-.thread237:                                       ; preds = %select.unfold, %106, %337
-  %.1175244 = phi ptr [ %.2176.lcssa, %select.unfold ], [ %.0174329, %106 ], [ %338, %337 ]
-  %.2183243 = phi i64 [ %.3184.lcssa, %select.unfold ], [ %.0181327, %106 ], [ %334, %337 ]
-  %.3193242 = phi ptr [ %340, %select.unfold ], [ %.2192325, %106 ], [ %339, %337 ]
+.thread237:                                       ; preds = %select.unfold, %337, %106
+  %.1175244 = phi ptr [ %.0174329, %106 ], [ %338, %337 ], [ %.2176.lcssa, %select.unfold ]
+  %.2183243 = phi i64 [ %.0181327, %106 ], [ %334, %337 ], [ %.3184.lcssa, %select.unfold ]
+  %.3193242 = phi ptr [ %.2192325, %106 ], [ %339, %337 ], [ %340, %select.unfold ]
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %341 = load i16, ptr %24, align 8, !tbaa !16
   %342 = sext i16 %341 to i64
@@ -1153,10 +1153,10 @@ select.unfold:                                    ; preds = %._crit_edge.us, %.l
   %275 = getelementptr inbounds nuw i8, ptr %.0175272, i64 %45
   br label %.thread214
 
-.thread214:                                       ; preds = %select.unfold, %32, %272
-  %.1145221 = phi ptr [ %.2146.lcssa, %select.unfold ], [ %.0144276, %32 ], [ %273, %272 ]
-  %.1166220 = phi i64 [ %.2167.lcssa, %select.unfold ], [ %.0165274, %32 ], [ %270, %272 ]
-  %.1176219 = phi ptr [ %275, %select.unfold ], [ %.0175272, %32 ], [ %274, %272 ]
+.thread214:                                       ; preds = %select.unfold, %272, %32
+  %.1145221 = phi ptr [ %.0144276, %32 ], [ %273, %272 ], [ %.2146.lcssa, %select.unfold ]
+  %.1166220 = phi i64 [ %.0165274, %32 ], [ %270, %272 ], [ %.2167.lcssa, %select.unfold ]
+  %.1176219 = phi ptr [ %.0175272, %32 ], [ %274, %272 ], [ %275, %select.unfold ]
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %276 = load i16, ptr %9, align 8, !tbaa !49
   %277 = sext i16 %276 to i64
@@ -1236,11 +1236,11 @@ select.unfold:                                    ; preds = %._crit_edge.us, %.l
   %.pre = load i16, ptr %9, align 8, !tbaa !49
   br label %317
 
-317:                                              ; preds = %307, %314, %.lr.ph281
-  %318 = phi i16 [ %286, %.lr.ph281 ], [ %.pre, %314 ], [ %286, %307 ]
-  %.3178.ph = phi ptr [ %.2177277, %.lr.ph281 ], [ %316, %314 ], [ %308, %307 ]
-  %.9174.ph = phi i64 [ %.7172278, %.lr.ph281 ], [ %312, %314 ], [ %.7172278, %307 ]
-  %.3156.ph = phi ptr [ %.1154279, %.lr.ph281 ], [ %315, %314 ], [ %.1154279, %307 ]
+317:                                              ; preds = %314, %307, %.lr.ph281
+  %318 = phi i16 [ %286, %.lr.ph281 ], [ %286, %307 ], [ %.pre, %314 ]
+  %.3178.ph = phi ptr [ %.2177277, %.lr.ph281 ], [ %308, %307 ], [ %316, %314 ]
+  %.9174.ph = phi i64 [ %.7172278, %.lr.ph281 ], [ %.7172278, %307 ], [ %312, %314 ]
+  %.3156.ph = phi ptr [ %.1154279, %.lr.ph281 ], [ %.1154279, %307 ], [ %315, %314 ]
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %319 = sext i16 %318 to i64
   %320 = icmp slt i64 %indvars.iv.next299, %319
@@ -1266,7 +1266,7 @@ select.unfold:                                    ; preds = %._crit_edge.us, %.l
   br label %.thread222
 
 .thread222:                                       ; preds = %269, %71, %64, %311, %.critedge203
-  %.6 = phi i32 [ 0, %.critedge203 ], [ 1, %311 ], [ 1, %64 ], [ 1, %71 ], [ 1, %269 ]
+  %.6 = phi i32 [ 0, %.critedge203 ], [ 1, %71 ], [ 1, %311 ], [ 1, %64 ], [ 1, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.6
 }

@@ -713,8 +713,8 @@ add2dq.exit:                                      ; preds = %249, %254
   br label %329
 
 329:                                              ; preds = %278, %323, %326
-  %.0229 = phi ptr [ %324, %323 ], [ %327, %326 ], [ %., %278 ]
-  %.0228 = phi ptr [ %325, %323 ], [ %328, %326 ], [ %.289, %278 ]
+  %.0229 = phi ptr [ %., %278 ], [ %327, %326 ], [ %324, %323 ]
+  %.0228 = phi ptr [ %.289, %278 ], [ %328, %326 ], [ %325, %323 ]
   %330 = icmp eq i64 %.3224343, %.1222.lcssa.ph
   br i1 %330, label %331, label %344
 
@@ -897,7 +897,7 @@ add2dq.exit278:                                   ; preds = %358, %360
   br label %406
 
 406:                                              ; preds = %growops.exit, %394, %405, %225, %244, %229, %pointintri.exit265._crit_edge.thread, %pointintri.exit._crit_edge.thread, %112, %31
-  %.2 = phi i32 [ -2, %31 ], [ -2, %112 ], [ -1, %pointintri.exit._crit_edge.thread ], [ -1, %pointintri.exit265._crit_edge.thread ], [ 0, %244 ], [ 0, %229 ], [ -2, %225 ], [ -2, %growops.exit ], [ -2, %394 ], [ 0, %405 ]
+  %.2 = phi i32 [ -2, %31 ], [ -2, %112 ], [ -1, %pointintri.exit._crit_edge.thread ], [ -1, %pointintri.exit265._crit_edge.thread ], [ -2, %225 ], [ 0, %244 ], [ -2, %growops.exit ], [ 0, %229 ], [ -2, %394 ], [ 0, %405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %407
 

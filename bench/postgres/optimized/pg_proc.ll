@@ -327,7 +327,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 151:                                              ; preds = %135, %119, %122, %126, %140, %139, %138
-  %.2 = phi i32 [ 0, %122 ], [ %.1419, %126 ], [ %.1419, %119 ], [ %141, %140 ], [ 2283, %138 ], [ 5077, %139 ], [ %137, %135 ]
+  %.2 = phi i32 [ 0, %122 ], [ %.1419, %126 ], [ %.1419, %119 ], [ %141, %140 ], [ 5077, %139 ], [ 2283, %138 ], [ %137, %135 ]
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %exitcond453.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count452
   br i1 %exitcond453.not, label %.loopexit400.loopexit, label %119, !llvm.loop !6
@@ -1492,7 +1492,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   br i1 %114, label %.lr.ph141, label %.critedge.thread154
 
 .critedge:                                        ; preds = %.lr.ph128, %86, %.lr.ph121
-  %.1 = phi ptr [ null, %86 ], [ null, %.lr.ph121 ], [ %95, %.lr.ph128 ]
+  %.1 = phi ptr [ null, %.lr.ph121 ], [ null, %86 ], [ %95, %.lr.ph128 ]
   br i1 %.097.lcssa, label %.critedge.thread, label %.critedge.thread154
 
 .critedge.thread154:                              ; preds = %.lr.ph141, %.lr.ph133, %101, %.critedge
@@ -1677,8 +1677,8 @@ define dso_local noundef zeroext i1 @function_parse_error_transpose(ptr noundef 
   br label %52
 
 52:                                               ; preds = %49, %42, %.lr.ph.i.i
-  %.130.i.i = phi ptr [ %43, %42 ], [ %.02940.i.i, %.lr.ph.i.i ], [ %47, %49 ]
-  %.1.i.i = phi i32 [ %spec.select.i.i, %42 ], [ %.02643.i.i, %.lr.ph.i.i ], [ %spec.select35.i.i, %49 ]
+  %.130.i.i = phi ptr [ %.02940.i.i, %.lr.ph.i.i ], [ %47, %49 ], [ %43, %42 ]
+  %.1.i.i = phi i32 [ %.02643.i.i, %.lr.ph.i.i ], [ %spec.select35.i.i, %49 ], [ %spec.select.i.i, %42 ]
   %53 = tail call i32 @pg_mblen(ptr noundef nonnull %.02742.i.i) #7
   %54 = sext i32 %53 to i64
   %55 = tail call i32 @strncmp(ptr noundef nonnull %.02742.i.i, ptr noundef nonnull %.130.i.i, i64 noundef %54) #8
@@ -1717,7 +1717,7 @@ match_prosrc_to_literal.exit.i:                   ; preds = %._crit_edge.i.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %52, %46, %.thread.sink.split.i, %match_prosrc_to_literal.exit.i, %._crit_edge.i.i, %30, %26, %23
-  %.1.i = phi i32 [ %.02934.i, %._crit_edge.i.i ], [ %.02934.i, %26 ], [ %.02934.i, %30 ], [ %.02934.i, %match_prosrc_to_literal.exit.i ], [ %.02934.i, %23 ], [ %66, %.thread.sink.split.i ], [ %.02934.i, %46 ], [ %.02934.i, %52 ]
+  %.1.i = phi i32 [ %.02934.i, %23 ], [ %.02934.i, %match_prosrc_to_literal.exit.i ], [ %.02934.i, %._crit_edge.i.i ], [ %.02934.i, %26 ], [ %.02934.i, %30 ], [ %66, %.thread.sink.split.i ], [ %.02934.i, %46 ], [ %.02934.i, %52 ]
   %exitcond.not.i = icmp eq i64 %.pre.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %match_prosrc_to_query.exit, label %23, !llvm.loop !13
 
@@ -1725,7 +1725,7 @@ match_prosrc_to_query.exit:                       ; preds = %.thread.i
   %67 = icmp sgt i32 %.1.i, 0
   br i1 %67, label %.sink.split, label %match_prosrc_to_query.exit.thread
 
-match_prosrc_to_query.exit.thread:                ; preds = %36, %64, %13, %7, %9, %match_prosrc_to_query.exit
+match_prosrc_to_query.exit.thread:                ; preds = %36, %64, %13, %9, %7, %match_prosrc_to_query.exit
   br label %.sink.split
 
 .sink.split:                                      ; preds = %match_prosrc_to_query.exit, %match_prosrc_to_query.exit.thread

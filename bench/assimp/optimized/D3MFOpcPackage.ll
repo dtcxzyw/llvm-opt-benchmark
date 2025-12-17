@@ -882,21 +882,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread: ; preds
   %204 = load ptr, ptr %11, align 8
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %206 = icmp eq ptr %204, %205
-  br i1 %206, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+  br i1 %206, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61: ; preds = %202
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.023, label %209, label %215
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %202
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60: ; preds = %202
   %207 = load i64, ptr %205, align 8
   %208 = add i64 %207, 1
   call void @_ZdlPvm(ptr noundef %204, i64 noundef %208) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.023, label %209, label %215
 
-209:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
-  %.pn77 = phi { ptr, i32 } [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %202
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br i1 %.023, label %209, label %215
+
+209:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+  %.pn77 = phi { ptr, i32 } [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.thread ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60 ]
   call void @__cxa_free_exception(ptr %198) #27
   br label %215
 
@@ -915,8 +915,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %210
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %260
 
-215:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %209, %179, %177, %175
-  %.pn.pn = phi { ptr, i32 } [ %.pn77, %209 ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %176, %175 ], [ %lpad.phi, %179 ], [ %178, %177 ], [ %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61 ]
+215:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %209, %179, %177, %175
+  %.pn.pn = phi { ptr, i32 } [ %.pn77, %209 ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %176, %175 ], [ %lpad.phi, %179 ], [ %178, %177 ], [ %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60 ]
   %216 = load ptr, ptr %8, align 8
   %217 = icmp eq ptr %216, %38
   br i1 %217, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
@@ -1026,7 +1026,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not78, label %._crit_edge, label %56
 
 262:                                              ; preds = %67, %255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68, %80, %54
-  %.pn37.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %68, %67 ], [ %256, %255 ], [ %81, %80 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ]
+  %.pn37.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %256, %255 ], [ %68, %67 ], [ %81, %80 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %263
@@ -1317,7 +1317,7 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE11getRootNodeEv.exit.i: ; preds = %27, %
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit32", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit34", %80, %74, %68, %._crit_edge.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %68 ], [ %.sroa.031.1.i.i.i, %74 ], [ %39, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %80 ], [ %84, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %85, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit32" ], [ %86, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit34" ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.1.i.i.i, %74 ], [ %spec.select.i.i.i, %80 ], [ %39, %._crit_edge.i.i.i ], [ %.sroa.031.0.lcssa.i.i.i, %68 ], [ %86, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit34" ], [ %84, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit" ], [ %85, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESt6vectorIS6_SaIS6_EEEEZNS4_14D3MFOpcPackage27ReadPackageRootRelationshipB5cxx11EPNS3_8IOStreamEE3$_0ET_SG_SG_T0_.exit.loopexit.split.loop.exit32" ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
   %87 = load ptr, ptr %38, align 8
   %88 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %87
   br i1 %88, label %89, label %96
@@ -3170,7 +3170,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipE
           cleanup
   br label %169
 
-_ZNSt6vectorISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit51, %114, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %136, %_ZN6Assimp4D3MF28OpcPackageRelationshipReader12validateRelsERSt10shared_ptrINS0_22OpcPackageRelationshipEE.exit
+_ZNSt6vectorISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEESaIS4_EE9push_backERKS4_.exit: ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit51, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %136, %_ZN6Assimp4D3MF28OpcPackageRelationshipReader12validateRelsERSt10shared_ptrINS0_22OpcPackageRelationshipEE.exit
   %147 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %147, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp4D3MF22OpcPackageRelationshipELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %148
@@ -4301,7 +4301,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -4487,7 +4487,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %.lr.ph22.i.i, %._cr
   br label %_ZN4pugi4impl19get_buffer_encodingENS_12xml_encodingEPKvm.exit.i
 
 _ZN4pugi4impl19get_buffer_encodingENS_12xml_encodingEPKvm.exit.i: ; preds = %48, %47, %46, %45
-  %.0.i.i4 = phi i32 [ 5, %46 ], [ 2, %47 ], [ %49, %48 ], [ %5, %45 ]
+  %.0.i.i4 = phi i32 [ 5, %46 ], [ 2, %47 ], [ %5, %45 ], [ %49, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !68
   store ptr null, ptr %7, align 8, !noalias !68
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !68
@@ -4731,9 +4731,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl14convert_bufferERPc
   br label %51
 
 51:                                               ; preds = %48, %44, %39, %36, %28
-  %.sink.i.i = phi i64 [ -2, %48 ], [ -1, %36 ], [ -1, %28 ], [ -1, %44 ], [ -1, %39 ]
-  %.130.i.i = phi i64 [ %49, %48 ], [ %37, %36 ], [ %31, %28 ], [ %.02938.i.i, %44 ], [ %.02938.i.i, %39 ]
-  %.1.i.i = phi ptr [ %50, %48 ], [ %38, %36 ], [ %32, %28 ], [ %43, %44 ], [ %43, %39 ]
+  %.sink.i.i = phi i64 [ -2, %48 ], [ -1, %28 ], [ -1, %36 ], [ -1, %44 ], [ -1, %39 ]
+  %.130.i.i = phi i64 [ %49, %48 ], [ %31, %28 ], [ %37, %36 ], [ %.02938.i.i, %44 ], [ %.02938.i.i, %39 ]
+  %.1.i.i = phi ptr [ %50, %48 ], [ %32, %28 ], [ %38, %36 ], [ %43, %44 ], [ %43, %39 ]
   %52 = add i64 %.sink.i.i, %.02639.i.i
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZN4pugi4impl13utf16_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKtmS7_S6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !77
@@ -5132,7 +5132,7 @@ _ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit.sink.split.i: ; preds = %_ZN4p
   br label %_ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit
 
 _ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit: ; preds = %_ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit.sink.split.i, %_ZN4pugi4impl14latin1_decoder7processINS0_12utf8_counterEEENT_10value_typeEPKhmS5_S4_.exit.i, %194, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i, %56, %_ZN4pugi4impl13utf16_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKtmS7_S6_.exit.i, %.critedge.sink.split.i, %9, %183, %21
-  %.0 = phi i1 [ %22, %21 ], [ false, %183 ], [ false, %9 ], [ true, %.critedge.sink.split.i ], [ false, %_ZN4pugi4impl13utf16_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKtmS7_S6_.exit.i ], [ true, %56 ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ true, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ true, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ false, %_ZN4pugi4impl14latin1_decoder7processINS0_12utf8_counterEEENT_10value_typeEPKhmS5_S4_.exit.i ], [ false, %194 ], [ true, %_ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit.sink.split.i ]
+  %.0 = phi i1 [ false, %183 ], [ true, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ true, %.critedge.sink.split.i ], [ true, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_11utf8_writerEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ %22, %21 ], [ true, %56 ], [ false, %9 ], [ false, %_ZN4pugi4impl13utf16_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKtmS7_S6_.exit.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.thread.i ], [ false, %_ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10value_typeEPKjmS7_S6_.exit.i ], [ false, %_ZN4pugi4impl14latin1_decoder7processINS0_12utf8_counterEEENT_10value_typeEPKhmS5_S4_.exit.i ], [ false, %194 ], [ true, %_ZN4pugi4impl18get_mutable_bufferERPcRmPKvmb.exit.sink.split.i ]
   ret i1 %.0
 }
 
@@ -5198,7 +5198,7 @@ define linkonce_odr hidden void @_ZN4pugi4impl10xml_parser5parseEPcmPNS0_19xml_d
   br label %_ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit
 
 _ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit: ; preds = %21, %32, %36
-  %40 = phi ptr [ %1, %32 ], [ %1, %21 ], [ %spec.select.i, %36 ]
+  %40 = phi ptr [ %1, %21 ], [ %spec.select.i, %36 ], [ %1, %32 ]
   %41 = call noundef ptr @_ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull %40, ptr noundef nonnull %4, i32 noundef %5, i8 noundef signext %29)
   %42 = load i32, ptr %26, align 8
   %43 = load ptr, ptr %25, align 8
@@ -5269,7 +5269,7 @@ _ZN4pugi4impl10xml_parser14parse_skip_bomEPc.exit: ; preds = %21, %32, %36
   br label %_ZN4pugi4impl10xml_parser25has_element_node_siblingsEPNS_15xml_node_structE.exit
 
 _ZN4pugi4impl10xml_parser25has_element_node_siblingsEPNS_15xml_node_structE.exit: ; preds = %.lr.ph.i, %69, %54, %67
-  %.sroa.535.0 = phi i64 [ %47, %54 ], [ %47, %67 ], [ %spec.select37, %69 ], [ %47, %.lr.ph.i ]
+  %.sroa.535.0 = phi i64 [ %47, %67 ], [ %47, %54 ], [ %spec.select37, %69 ], [ %47, %.lr.ph.i ]
   store i32 %42, ptr %0, align 8
   %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.535.0, ptr %.sroa.535.0..sroa_idx, align 8
@@ -5503,7 +5503,7 @@ define linkonce_odr hidden noundef i32 @_ZN4pugi4impl21guess_buffer_encodingEPKh
   br label %120
 
 120:                                              ; preds = %37, %23, %119, %6, %18, %26, %30, %32, %34, %2
-  %.0 = phi i32 [ 1, %2 ], [ %.2, %119 ], [ 6, %6 ], [ 5, %18 ], [ %.mux, %23 ], [ 1, %26 ], [ 6, %30 ], [ 5, %32 ], [ 3, %34 ], [ %.mux128.mux, %37 ]
+  %.0 = phi i32 [ 1, %2 ], [ %.2, %119 ], [ 6, %6 ], [ 5, %18 ], [ %.mux, %23 ], [ %.mux128.mux, %37 ], [ 1, %26 ], [ 6, %30 ], [ 5, %32 ], [ 3, %34 ]
   ret i32 %.0
 }
 
@@ -5720,8 +5720,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl26parse_declaration_
   %exitcond.not = icmp eq i64 %113, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !98
 
-.critedge:                                        ; preds = %112, %.lr.ph, %79, %.preheader, %107, %40, %43, %41, %48, %46, %53, %51, %58, %56, %63, %61, %68, %66, %81, %.critedge4, %90, %4, %6, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %6 ], [ false, %4 ], [ %.not146, %107 ], [ false, %.critedge4 ], [ false, %90 ], [ false, %81 ], [ false, %66 ], [ false, %68 ], [ false, %61 ], [ false, %63 ], [ false, %56 ], [ false, %58 ], [ false, %51 ], [ false, %53 ], [ false, %46 ], [ false, %48 ], [ false, %41 ], [ false, %43 ], [ false, %40 ], [ false, %.preheader ], [ false, %79 ], [ false, %.lr.ph ], [ false, %112 ]
+.critedge:                                        ; preds = %112, %.lr.ph, %79, %.preheader, %41, %48, %46, %53, %51, %58, %56, %63, %61, %68, %66, %81, %43, %40, %107, %.critedge4, %90, %4, %6, %25
+  %.0 = phi i1 [ false, %6 ], [ false, %4 ], [ false, %25 ], [ false, %90 ], [ false, %81 ], [ false, %68 ], [ false, %63 ], [ false, %58 ], [ false, %53 ], [ false, %48 ], [ false, %43 ], [ false, %66 ], [ false, %61 ], [ false, %56 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %.critedge4 ], [ false, %40 ], [ %.not146, %107 ], [ false, %79 ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %112 ]
   ret i1 %.0
 }
 
@@ -5779,9 +5779,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4pugi4impl22convert_buffer_gen
   br label %32
 
 32:                                               ; preds = %29, %25, %20, %17, %9
-  %.sink.i = phi i64 [ -2, %29 ], [ -1, %17 ], [ -1, %9 ], [ -1, %25 ], [ -1, %20 ]
-  %.130.i = phi i64 [ %30, %29 ], [ %18, %17 ], [ %12, %9 ], [ %.02937.i, %25 ], [ %.02937.i, %20 ]
-  %.1.i = phi ptr [ %31, %29 ], [ %19, %17 ], [ %13, %9 ], [ %24, %25 ], [ %24, %20 ]
+  %.sink.i = phi i64 [ -2, %29 ], [ -1, %9 ], [ -1, %17 ], [ -1, %25 ], [ -1, %20 ]
+  %.130.i = phi i64 [ %30, %29 ], [ %12, %9 ], [ %18, %17 ], [ %.02937.i, %25 ], [ %.02937.i, %20 ]
+  %.1.i = phi ptr [ %31, %29 ], [ %13, %9 ], [ %19, %17 ], [ %24, %25 ], [ %24, %20 ]
   %33 = add i64 %.sink.i, %.02638.i
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %_ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10value_typeEPKtmS7_S6_.exit, label %.lr.ph.i, !llvm.loop !99
@@ -5929,9 +5929,9 @@ _ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i:      ; preds = %71
   br label %123
 
 123:                                              ; preds = %98, %93, %88, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i
-  %.sink.i22 = phi i64 [ -2, %98 ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ -1, %93 ], [ -1, %88 ]
-  %.130.i23 = phi ptr [ %121, %98 ], [ %86, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ %69, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ %.02937.i20, %93 ], [ %.02937.i20, %88 ]
-  %.1.i24 = phi ptr [ %122, %98 ], [ %87, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ %70, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ %92, %93 ], [ %92, %88 ]
+  %.sink.i22 = phi i64 [ -2, %98 ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ -1, %93 ], [ -1, %88 ]
+  %.130.i23 = phi ptr [ %121, %98 ], [ %69, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ %86, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ %.02937.i20, %93 ], [ %.02937.i20, %88 ]
+  %.1.i24 = phi ptr [ %122, %98 ], [ %70, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i ], [ %87, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35.i ], [ %92, %93 ], [ %92, %88 ]
   %124 = add i64 %.sink.i22, %.02638.i19
   %.not.i25 = icmp eq i64 %124, 0
   br i1 %.not.i25, label %_ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_11utf8_writerEEENT_10value_typeEPKtmS7_S6_.exit, label %.lr.ph.i17, !llvm.loop !100
@@ -6096,9 +6096,9 @@ _ZN4pugi4impl11utf8_writer3lowEPhj.exit35:        ; preds = %36
   br label %88
 
 88:                                               ; preds = %53, %58, %63, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit
-  %.sink = phi i64 [ -2, %63 ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ -1, %58 ], [ -1, %53 ]
-  %.130 = phi ptr [ %86, %63 ], [ %51, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ %34, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ %.02938, %58 ], [ %.02938, %53 ]
-  %.1 = phi ptr [ %87, %63 ], [ %52, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ %35, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ %57, %58 ], [ %57, %53 ]
+  %.sink = phi i64 [ -2, %63 ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ -1, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ -1, %58 ], [ -1, %53 ]
+  %.130 = phi ptr [ %86, %63 ], [ %34, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ %51, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ %.02938, %58 ], [ %.02938, %53 ]
+  %.1 = phi ptr [ %87, %63 ], [ %35, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit ], [ %52, %_ZN4pugi4impl11utf8_writer3lowEPhj.exit35 ], [ %57, %58 ], [ %57, %53 ]
   %89 = add i64 %.02639, %.sink
   %.not = icmp eq i64 %89, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
@@ -6251,7 +6251,7 @@ thread-pre-split:                                 ; preds = %.preheader313, %.ba
   store i32 3, ptr %70, align 8
   br label %.thread300
 
-71:                                               ; preds = %61, %66
+71:                                               ; preds = %66, %61
   store ptr %.0.i.i.ph.i.i, ptr %5, align 8
   store ptr %.2189, ptr %52, align 8
   br label %72
@@ -6310,9 +6310,9 @@ select.unfold.split.loop.exit645:                 ; preds = %92
   br label %select.unfold
 
 select.unfold:                                    ; preds = %72, %select.unfold.split.loop.exit645, %select.unfold.split.loop.exit641, %select.unfold.split.loop.exit637
-  %103 = phi i8 [ %90, %select.unfold.split.loop.exit637 ], [ %83, %select.unfold.split.loop.exit641 ], [ %97, %select.unfold.split.loop.exit645 ], [ %76, %72 ]
-  %104 = phi i8 [ %87, %select.unfold.split.loop.exit637 ], [ %80, %select.unfold.split.loop.exit641 ], [ %94, %select.unfold.split.loop.exit645 ], [ %73, %72 ]
-  %.4191.ph = phi ptr [ %100, %select.unfold.split.loop.exit637 ], [ %101, %select.unfold.split.loop.exit641 ], [ %102, %select.unfold.split.loop.exit645 ], [ %.3190, %72 ]
+  %103 = phi i8 [ %97, %select.unfold.split.loop.exit645 ], [ %83, %select.unfold.split.loop.exit641 ], [ %90, %select.unfold.split.loop.exit637 ], [ %76, %72 ]
+  %104 = phi i8 [ %94, %select.unfold.split.loop.exit645 ], [ %80, %select.unfold.split.loop.exit641 ], [ %87, %select.unfold.split.loop.exit637 ], [ %73, %72 ]
+  %.4191.ph = phi ptr [ %102, %select.unfold.split.loop.exit645 ], [ %101, %select.unfold.split.loop.exit641 ], [ %100, %select.unfold.split.loop.exit637 ], [ %.3190, %72 ]
   store i8 0, ptr %.4191.ph, align 1
   %105 = getelementptr inbounds nuw i8, ptr %.4191.ph, i64 1
   %106 = icmp eq i8 %104, 62
@@ -6423,7 +6423,7 @@ _ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.
   store i32 3, ptr %155, align 8
   br label %.thread300
 
-156:                                              ; preds = %147, %152
+156:                                              ; preds = %152, %147
   store ptr %.7, ptr %140, align 8
   br label %157
 
@@ -6481,9 +6481,9 @@ select.unfold293.split.loop.exit661:              ; preds = %177
   br label %select.unfold293
 
 select.unfold293:                                 ; preds = %157, %select.unfold293.split.loop.exit661, %select.unfold293.split.loop.exit657, %select.unfold293.split.loop.exit653
-  %188 = phi i8 [ %175, %select.unfold293.split.loop.exit653 ], [ %168, %select.unfold293.split.loop.exit657 ], [ %182, %select.unfold293.split.loop.exit661 ], [ %161, %157 ]
-  %189 = phi i8 [ %172, %select.unfold293.split.loop.exit653 ], [ %165, %select.unfold293.split.loop.exit657 ], [ %179, %select.unfold293.split.loop.exit661 ], [ %158, %157 ]
-  %.10.ph = phi ptr [ %185, %select.unfold293.split.loop.exit653 ], [ %186, %select.unfold293.split.loop.exit657 ], [ %187, %select.unfold293.split.loop.exit661 ], [ %.9, %157 ]
+  %188 = phi i8 [ %182, %select.unfold293.split.loop.exit661 ], [ %175, %select.unfold293.split.loop.exit653 ], [ %168, %select.unfold293.split.loop.exit657 ], [ %161, %157 ]
+  %189 = phi i8 [ %179, %select.unfold293.split.loop.exit661 ], [ %172, %select.unfold293.split.loop.exit653 ], [ %165, %select.unfold293.split.loop.exit657 ], [ %158, %157 ]
+  %.10.ph = phi ptr [ %187, %select.unfold293.split.loop.exit661 ], [ %185, %select.unfold293.split.loop.exit653 ], [ %186, %select.unfold293.split.loop.exit657 ], [ %.9, %157 ]
   store i8 0, ptr %.10.ph, align 1
   %190 = getelementptr inbounds nuw i8, ptr %.10.ph, i64 1
   %191 = and i8 %188, 8
@@ -6770,7 +6770,7 @@ select.unfold293:                                 ; preds = %157, %select.unfold
   ]
 
 .backedge.backedge:                               ; preds = %320, %228, %335, %330, %select.unfold, %259, %267, %232, %239, %246, %321, %352, %353, %356, %350
-  %.0187.be = phi ptr [ %.19.lcssa, %350 ], [ %.19.lcssa, %356 ], [ %.19.lcssa, %353 ], [ %.19.lcssa, %352 ], [ %105, %select.unfold ], [ %236, %232 ], [ %115, %239 ], [ %.7, %246 ], [ %266, %259 ], [ %.4191.ph, %267 ], [ %329, %330 ], [ %337, %335 ], [ %.16, %321 ], [ %115, %228 ], [ %319, %320 ]
+  %.0187.be = phi ptr [ %.19.lcssa, %352 ], [ %.19.lcssa, %350 ], [ %.19.lcssa, %356 ], [ %.19.lcssa, %353 ], [ %105, %select.unfold ], [ %236, %232 ], [ %115, %239 ], [ %115, %228 ], [ %.7, %246 ], [ %266, %259 ], [ %.4191.ph, %267 ], [ %337, %335 ], [ %329, %330 ], [ %.16, %321 ], [ %319, %320 ]
   br label %.backedge, !llvm.loop !107
 
 321:                                              ; preds = %320
@@ -6975,7 +6975,7 @@ select.unfold293:                                 ; preds = %157, %select.unfold
   store i32 3, ptr %412, align 8
   br label %.thread300
 
-413:                                              ; preds = %403, %408
+413:                                              ; preds = %408, %403
   %414 = getelementptr inbounds nuw i8, ptr %.0.i.i.ph.i.i279, i64 16
   store ptr %spec.select, ptr %414, align 8
   %415 = load ptr, ptr %400, align 8
@@ -7018,8 +7018,8 @@ select.unfold293:                                 ; preds = %157, %select.unfold
   store i32 14, ptr %425, align 8
   br label %.thread300
 
-.thread300:                                       ; preds = %335, %328, %280, %325, %322, %307, %304, %292, %_ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.exit, %225, %222, %209, %219, %.loopexit, %423, %410, %344, %343, %271, %268, %256, %248, %243, %68
-  %.1 = phi ptr [ null, %243 ], [ null, %248 ], [ null, %256 ], [ null, %268 ], [ null, %271 ], [ null, %68 ], [ null, %343 ], [ null, %344 ], [ null, %423 ], [ null, %410 ], [ %.1188, %.loopexit ], [ null, %219 ], [ null, %209 ], [ null, %222 ], [ null, %225 ], [ null, %_ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.exit ], [ null, %292 ], [ null, %304 ], [ null, %307 ], [ null, %322 ], [ null, %325 ], [ null, %280 ], [ null, %328 ], [ null, %335 ]
+.thread300:                                       ; preds = %335, %328, %325, %280, %322, %307, %304, %292, %225, %222, %209, %_ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.exit, %219, %.loopexit, %423, %410, %344, %343, %271, %268, %256, %248, %243, %68
+  %.1 = phi ptr [ %.1188, %.loopexit ], [ null, %243 ], [ null, %248 ], [ null, %256 ], [ null, %268 ], [ null, %271 ], [ null, %68 ], [ null, %225 ], [ null, %410 ], [ null, %343 ], [ null, %344 ], [ null, %423 ], [ null, %219 ], [ null, %_ZN4pugi4impl20append_new_attributeEPNS_15xml_node_structERNS0_13xml_allocatorE.exit ], [ null, %209 ], [ null, %222 ], [ null, %292 ], [ null, %304 ], [ null, %307 ], [ null, %322 ], [ null, %280 ], [ null, %325 ], [ null, %328 ], [ null, %335 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -7098,7 +7098,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl15append_new_nodeEPNS_15xml
   br label %_ZN4pugi4impl11append_nodeEPNS_15xml_node_structES2_.exit
 
 _ZN4pugi4impl11append_nodeEPNS_15xml_node_structES2_.exit: ; preds = %8, %39, %34
-  %.0 = phi ptr [ %.0.i.i.ph.i, %34 ], [ %.0.i.i.ph.i, %39 ], [ null, %8 ]
+  %.0 = phi ptr [ %.0.i.i.ph.i, %39 ], [ %.0.i.i.ph.i, %34 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -7178,27 +7178,27 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl10xml_parser14parse_questio
   %.not154 = icmp eq i8 %4, 62
   br i1 %.not154, label %.preheader.split, label %.preheader.split.us
 
-.preheader.split.us:                              ; preds = %.preheader, %.critedge119.us
-  %40 = phi i8 [ %.pre167, %.critedge119.us ], [ %14, %.preheader ]
-  %.6.us = phi ptr [ %45, %.critedge119.us ], [ %.082.ptr.le, %.preheader ]
-  switch i8 %40, label %.preheader.split.us..critedge119.us_crit_edge [
+.preheader.split.us:                              ; preds = %.preheader, %.critedge118.us
+  %40 = phi i8 [ %.pre167, %.critedge118.us ], [ %14, %.preheader ]
+  %.6.us = phi ptr [ %45, %.critedge118.us ], [ %.082.ptr.le, %.preheader ]
+  switch i8 %40, label %.preheader.split.us..critedge118.us_crit_edge [
     i8 0, label %.critedge4
     i8 63, label %41
   ]
 
-.preheader.split.us..critedge119.us_crit_edge:    ; preds = %.preheader.split.us
+.preheader.split.us..critedge118.us_crit_edge:    ; preds = %.preheader.split.us
   %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %.6.us, i64 1
   %.pre167.pre = load i8, ptr %.phi.trans.insert168, align 1
-  br label %.critedge119.us
+  br label %.critedge118.us
 
 41:                                               ; preds = %.preheader.split.us
   %42 = getelementptr inbounds nuw i8, ptr %.6.us, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 62
-  br i1 %44, label %.split151.us, label %.critedge119.us
+  br i1 %44, label %.split151.us, label %.critedge118.us
 
-.critedge119.us:                                  ; preds = %.preheader.split.us..critedge119.us_crit_edge, %41
-  %.pre167 = phi i8 [ %.pre167.pre, %.preheader.split.us..critedge119.us_crit_edge ], [ %43, %41 ]
+.critedge118.us:                                  ; preds = %.preheader.split.us..critedge118.us_crit_edge, %41
+  %.pre167 = phi i8 [ %.pre167.pre, %.preheader.split.us..critedge118.us_crit_edge ], [ %43, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %.6.us, i64 1
   br label %.preheader.split.us, !llvm.loop !111
 
@@ -7376,9 +7376,9 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   store i32 3, ptr %131, align 8
   br label %200
 
-_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit.thread: ; preds = %128, %123, %89, %84
-  %132 = phi i1 [ true, %84 ], [ true, %89 ], [ false, %123 ], [ false, %128 ]
-  %.086 = phi ptr [ %.0.i.i.ph.i.i, %84 ], [ %.0.i.i.ph.i.i, %89 ], [ %.0.i.i.ph.i.i121, %123 ], [ %.0.i.i.ph.i.i121, %128 ]
+_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit.thread: ; preds = %123, %128, %84, %89
+  %132 = phi i1 [ true, %84 ], [ true, %89 ], [ false, %128 ], [ false, %123 ]
+  %.086 = phi ptr [ %.0.i.i.ph.i.i, %84 ], [ %.0.i.i.ph.i.i, %89 ], [ %.0.i.i.ph.i.i121, %128 ], [ %.0.i.i.ph.i.i121, %123 ]
   %133 = getelementptr inbounds nuw i8, ptr %.086, i64 8
   store ptr %.ptr98, ptr %133, align 8
   %134 = load i8, ptr %.082.ptr.le, align 1
@@ -7435,53 +7435,53 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %.not153 = icmp eq i8 %4, 62
   br i1 %.not153, label %.preheader142.split, label %.preheader142.split.us
 
-.preheader142.split.us:                           ; preds = %.preheader142, %.critedge116.us
-  %162 = phi i8 [ %.pre, %.critedge116.us ], [ %156, %.preheader142 ]
-  %.284.us = phi ptr [ %167, %.critedge116.us ], [ %.183, %.preheader142 ]
-  switch i8 %162, label %.preheader142.split.us..critedge116.us_crit_edge [
+.preheader142.split.us:                           ; preds = %.preheader142, %.critedge115.us
+  %162 = phi i8 [ %.pre, %.critedge115.us ], [ %156, %.preheader142 ]
+  %.284.us = phi ptr [ %167, %.critedge115.us ], [ %.183, %.preheader142 ]
+  switch i8 %162, label %.preheader142.split.us..critedge115.us_crit_edge [
     i8 0, label %.thread137
     i8 63, label %163
   ]
 
-.preheader142.split.us..critedge116.us_crit_edge: ; preds = %.preheader142.split.us
+.preheader142.split.us..critedge115.us_crit_edge: ; preds = %.preheader142.split.us
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.284.us, i64 1
   %.pre.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %.critedge116.us
+  br label %.critedge115.us
 
 163:                                              ; preds = %.preheader142.split.us
   %164 = getelementptr inbounds nuw i8, ptr %.284.us, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = icmp eq i8 %165, 62
-  br i1 %166, label %.split.us, label %.critedge116.us
+  br i1 %166, label %.split.us, label %.critedge115.us
 
-.critedge116.us:                                  ; preds = %.preheader142.split.us..critedge116.us_crit_edge, %163
-  %.pre = phi i8 [ %.pre.pre, %.preheader142.split.us..critedge116.us_crit_edge ], [ %165, %163 ]
+.critedge115.us:                                  ; preds = %.preheader142.split.us..critedge115.us_crit_edge, %163
+  %.pre = phi i8 [ %.pre.pre, %.preheader142.split.us..critedge115.us_crit_edge ], [ %165, %163 ]
   %167 = getelementptr inbounds nuw i8, ptr %.284.us, i64 1
   br label %.preheader142.split.us, !llvm.loop !113
 
-.preheader142.split:                              ; preds = %.preheader142, %.critedge116
-  %168 = phi i8 [ %.pre164, %.critedge116 ], [ %156, %.preheader142 ]
-  %.284 = phi ptr [ %172, %.critedge116 ], [ %.183, %.preheader142 ]
-  switch i8 %168, label %.preheader142.split..critedge116_crit_edge [
+.preheader142.split:                              ; preds = %.preheader142, %.critedge115
+  %168 = phi i8 [ %.pre164, %.critedge115 ], [ %156, %.preheader142 ]
+  %.284 = phi ptr [ %172, %.critedge115 ], [ %.183, %.preheader142 ]
+  switch i8 %168, label %.preheader142.split..critedge115_crit_edge [
     i8 0, label %.thread137
     i8 63, label %169
   ]
 
-.preheader142.split..critedge116_crit_edge:       ; preds = %.preheader142.split
+.preheader142.split..critedge115_crit_edge:       ; preds = %.preheader142.split
   %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.284, i64 1
   %.pre164.pre = load i8, ptr %.phi.trans.insert165, align 1
-  br label %.critedge116
+  br label %.critedge115
 
 169:                                              ; preds = %.preheader142.split
   %170 = getelementptr inbounds nuw i8, ptr %.284, i64 1
   %171 = load i8, ptr %170, align 1
-  switch i8 %171, label %.critedge116 [
+  switch i8 %171, label %.critedge115 [
     i8 62, label %.split.us
     i8 0, label %.split.us
   ]
 
-.critedge116:                                     ; preds = %.preheader142.split..critedge116_crit_edge, %169
-  %.pre164 = phi i8 [ %.pre164.pre, %.preheader142.split..critedge116_crit_edge ], [ %171, %169 ]
+.critedge115:                                     ; preds = %.preheader142.split..critedge115_crit_edge, %169
+  %.pre164 = phi i8 [ %.pre164.pre, %.preheader142.split..critedge115_crit_edge ], [ %171, %169 ]
   %172 = getelementptr inbounds nuw i8, ptr %.284, i64 1
   br label %.preheader142.split, !llvm.loop !113
 
@@ -7495,23 +7495,23 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
 
 .split.us:                                        ; preds = %163, %169, %169
   %.us-phi148 = phi ptr [ %.284, %169 ], [ %.284, %169 ], [ %.284.us, %163 ]
-  br i1 %132, label %175, label %176
+  br i1 %132, label %184, label %175
 
 175:                                              ; preds = %.split.us
-  store i8 47, ptr %.us-phi148, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %.086, i64 16
+  store ptr %.183, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %.086, i64 24
+  %178 = load ptr, ptr %177, align 8
+  store i8 0, ptr %.us-phi148, align 1
+  %179 = getelementptr inbounds nuw i8, ptr %.us-phi148, i64 1
+  %180 = load i8, ptr %179, align 1
+  %181 = icmp eq i8 %180, 62
+  %182 = zext i1 %181 to i64
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 %182
   br label %199
 
-176:                                              ; preds = %.split.us
-  %177 = getelementptr inbounds nuw i8, ptr %.086, i64 16
-  store ptr %.183, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %.086, i64 24
-  %179 = load ptr, ptr %178, align 8
-  store i8 0, ptr %.us-phi148, align 1
-  %180 = getelementptr inbounds nuw i8, ptr %.us-phi148, i64 1
-  %181 = load i8, ptr %180, align 1
-  %182 = icmp eq i8 %181, 62
-  %183 = zext i1 %182 to i64
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %183
+184:                                              ; preds = %.split.us
+  store i8 47, ptr %.us-phi148, align 1
   br label %199
 
 185:                                              ; preds = %151
@@ -7521,29 +7521,29 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   store i32 6, ptr %187, align 8
   br label %200
 
-.preheader.split:                                 ; preds = %.preheader, %.critedge119
-  %188 = phi i8 [ %.pre170, %.critedge119 ], [ %14, %.preheader ]
-  %.6 = phi ptr [ %192, %.critedge119 ], [ %.082.ptr.le, %.preheader ]
-  switch i8 %188, label %.preheader.split..critedge119_crit_edge [
+.preheader.split:                                 ; preds = %.preheader, %.critedge118
+  %188 = phi i8 [ %.pre170, %.critedge118 ], [ %14, %.preheader ]
+  %.6 = phi ptr [ %192, %.critedge118 ], [ %.082.ptr.le, %.preheader ]
+  switch i8 %188, label %.preheader.split..critedge118_crit_edge [
     i8 0, label %.critedge4
     i8 63, label %189
   ]
 
-.preheader.split..critedge119_crit_edge:          ; preds = %.preheader.split
+.preheader.split..critedge118_crit_edge:          ; preds = %.preheader.split
   %.phi.trans.insert171 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %.pre170.pre = load i8, ptr %.phi.trans.insert171, align 1
-  br label %.critedge119
+  br label %.critedge118
 
 189:                                              ; preds = %.preheader.split
   %190 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %191 = load i8, ptr %190, align 1
-  switch i8 %191, label %.critedge119 [
+  switch i8 %191, label %.critedge118 [
     i8 62, label %.split151.us.loopexit
     i8 0, label %.split151.us.loopexit
   ]
 
-.critedge119:                                     ; preds = %.preheader.split..critedge119_crit_edge, %189
-  %.pre170 = phi i8 [ %.pre170.pre, %.preheader.split..critedge119_crit_edge ], [ %191, %189 ]
+.critedge118:                                     ; preds = %.preheader.split..critedge118_crit_edge, %189
+  %.pre170 = phi i8 [ %.pre170.pre, %.preheader.split..critedge118_crit_edge ], [ %191, %189 ]
   %192 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   br label %.preheader.split, !llvm.loop !111
 
@@ -7566,14 +7566,14 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   %198 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 %197
   br label %199
 
-199:                                              ; preds = %175, %176, %146, %.split151.us
-  %.389 = phi ptr [ %150, %146 ], [ %179, %176 ], [ %6, %.split151.us ], [ %.086, %175 ]
-  %.5 = phi ptr [ %148, %146 ], [ %184, %176 ], [ %198, %.split151.us ], [ %.183, %175 ]
+199:                                              ; preds = %175, %184, %146, %.split151.us
+  %.389 = phi ptr [ %150, %146 ], [ %.086, %184 ], [ %6, %.split151.us ], [ %178, %175 ]
+  %.5 = phi ptr [ %148, %146 ], [ %.183, %184 ], [ %198, %.split151.us ], [ %183, %175 ]
   store ptr %.389, ptr %2, align 8
   br label %200
 
 200:                                              ; preds = %.thread137, %50, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit125, %143, %185, %.critedge4, %199, %21, %11
-  %.0 = phi ptr [ null, %21 ], [ null, %11 ], [ null, %50 ], [ %.5, %199 ], [ null, %143 ], [ null, %185 ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit125 ], [ null, %.critedge4 ], [ null, %.thread137 ]
+  %.0 = phi ptr [ null, %21 ], [ null, %11 ], [ null, %50 ], [ %.5, %199 ], [ null, %143 ], [ null, %.thread137 ], [ null, %185 ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit125 ], [ null, %.critedge4 ]
   ret ptr %.0
 }
 
@@ -7678,7 +7678,7 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   store i32 3, ptr %54, align 8
   br label %331
 
-55:                                               ; preds = %46, %51
+55:                                               ; preds = %51, %46
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.ph.i.i, i64 16
   store ptr %13, ptr %56, align 8
   br label %57
@@ -7781,8 +7781,8 @@ _ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13x
   br label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %95, %.split.loop.exit.i.loopexit.split.loop.exit, %.split.loop.exit.i.loopexit.split.loop.exit272, %.split.loop.exit.i.loopexit.split.loop.exit275, %.preheader283
-  %105 = phi i8 [ %70, %.preheader283 ], [ %76, %.split.loop.exit.i.loopexit.split.loop.exit ], [ %83, %.split.loop.exit.i.loopexit.split.loop.exit272 ], [ %90, %.split.loop.exit.i.loopexit.split.loop.exit275 ], [ %97, %95 ]
-  %.2.ph.i = phi ptr [ %.026.i, %.preheader283 ], [ %102, %.split.loop.exit.i.loopexit.split.loop.exit ], [ %103, %.split.loop.exit.i.loopexit.split.loop.exit272 ], [ %104, %.split.loop.exit.i.loopexit.split.loop.exit275 ], [ %96, %95 ]
+  %105 = phi i8 [ %70, %.preheader283 ], [ %90, %.split.loop.exit.i.loopexit.split.loop.exit275 ], [ %83, %.split.loop.exit.i.loopexit.split.loop.exit272 ], [ %76, %.split.loop.exit.i.loopexit.split.loop.exit ], [ %97, %95 ]
+  %.2.ph.i = phi ptr [ %.026.i, %.preheader283 ], [ %104, %.split.loop.exit.i.loopexit.split.loop.exit275 ], [ %103, %.split.loop.exit.i.loopexit.split.loop.exit272 ], [ %102, %.split.loop.exit.i.loopexit.split.loop.exit ], [ %96, %95 ]
   switch i8 %105, label %.thread31.i [
     i8 13, label %106
     i8 45, label %119
@@ -8302,7 +8302,7 @@ _ZN4pugi4impl15strconv_commentEPcc.exit:          ; preds = %128, %130
   br label %331
 
 331:                                              ; preds = %296, %314, %317, %303, %_ZN4pugi4impl15strconv_commentEPcc.exit, %162, %253, %.thread186.thread, %326, %322, %293, %259, %.critedge4, %.critedge2, %225, %207, %164, %.critedge, %142, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit
-  %.0123 = phi ptr [ null, %142 ], [ null, %.critedge ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit ], [ null, %164 ], [ null, %225 ], [ null, %.critedge2 ], [ null, %207 ], [ null, %.critedge4 ], [ null, %259 ], [ null, %293 ], [ null, %322 ], [ null, %326 ], [ null, %.thread186.thread ], [ %141, %_ZN4pugi4impl15strconv_commentEPcc.exit ], [ %163, %162 ], [ %258, %253 ], [ null, %296 ], [ null, %314 ], [ %.7, %317 ], [ %.7, %303 ]
+  %.0123 = phi ptr [ null, %.thread186.thread ], [ null, %142 ], [ null, %.critedge ], [ null, %_ZN4pugi4impl15append_new_nodeEPNS_15xml_node_structERNS0_13xml_allocatorENS_13xml_node_typeE.exit ], [ null, %164 ], [ null, %225 ], [ null, %.critedge2 ], [ null, %207 ], [ null, %.critedge4 ], [ null, %259 ], [ null, %293 ], [ %258, %253 ], [ null, %322 ], [ null, %326 ], [ %141, %_ZN4pugi4impl15strconv_commentEPcc.exit ], [ %163, %162 ], [ null, %314 ], [ null, %296 ], [ %.7, %317 ], [ %.7, %303 ]
   ret ptr %.0123
 }
 
@@ -8318,7 +8318,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 2
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %9, label %.split.loop.exit31, !prof !116
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -8328,7 +8328,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 2
   %.not21 = icmp eq i8 %15, 0
-  br i1 %.not21, label %16, label %.split.loop.exit.split.loop.exit50, !prof !116
+  br i1 %.not21, label %16, label %.split.loop.exit31.split.loop.exit47, !prof !116
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -8338,7 +8338,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 2
   %.not22 = icmp eq i8 %22, 0
-  br i1 %.not22, label %23, label %.split.loop.exit.split.loop.exit47, !prof !116
+  br i1 %.not22, label %23, label %.split.loop.exit31.split.loop.exit44, !prof !116
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -8349,36 +8349,36 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %29 = and i8 %28, 2
   %.not23 = icmp eq i8 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not23, label %.backedge, label %.split.loop.exit.split.loop.exit44, !prof !116
+  br i1 %.not23, label %.backedge, label %.split.loop.exit31.split.loop.exit50, !prof !116
 
 .backedge:                                        ; preds = %23, %38
   %.1.be = phi ptr [ %30, %23 ], [ %39, %38 ]
   br label %3, !llvm.loop !122
 
-.split.loop.exit.split.loop.exit44:               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit31.split.loop.exit44:             ; preds = %16
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit31
 
-.split.loop.exit.split.loop.exit47:               ; preds = %16
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit31.split.loop.exit47:             ; preds = %9
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit31
 
-.split.loop.exit.split.loop.exit50:               ; preds = %9
-  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit31.split.loop.exit50:             ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit31
 
-.split.loop.exit:                                 ; preds = %3, %.split.loop.exit.split.loop.exit50, %.split.loop.exit.split.loop.exit47, %.split.loop.exit.split.loop.exit44
-  %34 = phi i8 [ %25, %.split.loop.exit.split.loop.exit44 ], [ %18, %.split.loop.exit.split.loop.exit47 ], [ %11, %.split.loop.exit.split.loop.exit50 ], [ %4, %3 ]
-  %.2.ph = phi ptr [ %31, %.split.loop.exit.split.loop.exit44 ], [ %32, %.split.loop.exit.split.loop.exit47 ], [ %33, %.split.loop.exit.split.loop.exit50 ], [ %.1, %3 ]
+.split.loop.exit31:                               ; preds = %3, %.split.loop.exit31.split.loop.exit50, %.split.loop.exit31.split.loop.exit47, %.split.loop.exit31.split.loop.exit44
+  %34 = phi i8 [ %11, %.split.loop.exit31.split.loop.exit47 ], [ %18, %.split.loop.exit31.split.loop.exit44 ], [ %25, %.split.loop.exit31.split.loop.exit50 ], [ %4, %3 ]
+  %.2.ph = phi ptr [ %32, %.split.loop.exit31.split.loop.exit47 ], [ %31, %.split.loop.exit31.split.loop.exit44 ], [ %33, %.split.loop.exit31.split.loop.exit50 ], [ %.1, %3 ]
   %35 = icmp eq i8 %34, %1
   br i1 %35, label %_ZN4pugi4impl3gap5flushEPc.exit, label %37
 
-_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit
+_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit31
   store i8 0, ptr %.2.ph, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.loopexit
 
-37:                                               ; preds = %.split.loop.exit
+37:                                               ; preds = %.split.loop.exit31
   %.not24 = icmp eq i8 %34, 0
   br i1 %.not24, label %.loopexit, label %38
 
@@ -8406,7 +8406,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 2
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %10, label %.split.loop.exit33, !prof !116
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -8416,7 +8416,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 2
   %.not24 = icmp eq i8 %16, 0
-  br i1 %.not24, label %17, label %.split.loop.exit.split.loop.exit53, !prof !116
+  br i1 %.not24, label %17, label %.split.loop.exit33.split.loop.exit50, !prof !116
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -8426,7 +8426,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 2
   %.not25 = icmp eq i8 %23, 0
-  br i1 %.not25, label %24, label %.split.loop.exit.split.loop.exit50, !prof !116
+  br i1 %.not25, label %24, label %.split.loop.exit33.split.loop.exit47, !prof !116
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -8437,31 +8437,31 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   %30 = and i8 %29, 2
   %.not26 = icmp eq i8 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not26, label %.backedge, label %.split.loop.exit.split.loop.exit47, !prof !116
+  br i1 %.not26, label %.backedge, label %.split.loop.exit33.split.loop.exit53, !prof !116
 
 .backedge:                                        ; preds = %24, %52, %54
   %.1.be = phi ptr [ %31, %24 ], [ %53, %52 ], [ %55, %54 ]
   br label %4, !llvm.loop !123
 
-.split.loop.exit.split.loop.exit47:               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit33.split.loop.exit47:             ; preds = %17
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit33
 
-.split.loop.exit.split.loop.exit50:               ; preds = %17
-  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit33.split.loop.exit50:             ; preds = %10
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit33
 
-.split.loop.exit.split.loop.exit53:               ; preds = %10
-  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit33.split.loop.exit53:             ; preds = %24
+  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit33
 
-.split.loop.exit:                                 ; preds = %4, %.split.loop.exit.split.loop.exit53, %.split.loop.exit.split.loop.exit50, %.split.loop.exit.split.loop.exit47
-  %35 = phi i8 [ %26, %.split.loop.exit.split.loop.exit47 ], [ %19, %.split.loop.exit.split.loop.exit50 ], [ %12, %.split.loop.exit.split.loop.exit53 ], [ %5, %4 ]
-  %.2.ph = phi ptr [ %32, %.split.loop.exit.split.loop.exit47 ], [ %33, %.split.loop.exit.split.loop.exit50 ], [ %34, %.split.loop.exit.split.loop.exit53 ], [ %.1, %4 ]
+.split.loop.exit33:                               ; preds = %4, %.split.loop.exit33.split.loop.exit53, %.split.loop.exit33.split.loop.exit50, %.split.loop.exit33.split.loop.exit47
+  %35 = phi i8 [ %12, %.split.loop.exit33.split.loop.exit50 ], [ %19, %.split.loop.exit33.split.loop.exit47 ], [ %26, %.split.loop.exit33.split.loop.exit53 ], [ %5, %4 ]
+  %.2.ph = phi ptr [ %33, %.split.loop.exit33.split.loop.exit50 ], [ %32, %.split.loop.exit33.split.loop.exit47 ], [ %34, %.split.loop.exit33.split.loop.exit53 ], [ %.1, %4 ]
   %36 = icmp eq i8 %35, %1
   br i1 %36, label %37, label %51
 
-37:                                               ; preds = %.split.loop.exit
+37:                                               ; preds = %.split.loop.exit33
   %38 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %_ZN4pugi4impl3gap5flushEPc.exit, label %39
@@ -8486,7 +8486,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %37, %39
   %50 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.loopexit
 
-51:                                               ; preds = %.split.loop.exit
+51:                                               ; preds = %.split.loop.exit33
   switch i8 %35, label %54 [
     i8 38, label %52
     i8 0, label %.loopexit
@@ -8580,8 +8580,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %29, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit48, %.split.loop.exit.loopexit.split.loop.exit51, %3
-  %39 = phi i8 [ %4, %3 ], [ %10, %.split.loop.exit.loopexit.split.loop.exit ], [ %17, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %24, %.split.loop.exit.loopexit.split.loop.exit51 ], [ %31, %29 ]
-  %.2.ph = phi ptr [ %.022, %3 ], [ %36, %.split.loop.exit.loopexit.split.loop.exit ], [ %37, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit51 ], [ %30, %29 ]
+  %39 = phi i8 [ %4, %3 ], [ %24, %.split.loop.exit.loopexit.split.loop.exit51 ], [ %10, %.split.loop.exit.loopexit.split.loop.exit ], [ %17, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %31, %29 ]
+  %.2.ph = phi ptr [ %.022, %3 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit51 ], [ %36, %.split.loop.exit.loopexit.split.loop.exit ], [ %37, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %30, %29 ]
   %40 = icmp eq i8 %39, %1
   br i1 %40, label %41, label %50
 
@@ -8641,7 +8641,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %55, %56
   br label %.backedge
 
 .backedge:                                        ; preds = %64, %51
-  %.022.be = phi ptr [ %65, %64 ], [ %52, %51 ]
+  %.022.be = phi ptr [ %52, %51 ], [ %65, %64 ]
   br label %3, !llvm.loop !124
 
 .loopexit:                                        ; preds = %50, %_ZN4pugi4impl3gap5flushEPc.exit
@@ -8721,8 +8721,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %31, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit40, %.split.loop.exit.loopexit.split.loop.exit43, %5
-  %41 = phi i8 [ %6, %5 ], [ %12, %.split.loop.exit.loopexit.split.loop.exit ], [ %19, %.split.loop.exit.loopexit.split.loop.exit40 ], [ %26, %.split.loop.exit.loopexit.split.loop.exit43 ], [ %33, %31 ]
-  %.2.ph = phi ptr [ %.018, %5 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit40 ], [ %40, %.split.loop.exit.loopexit.split.loop.exit43 ], [ %32, %31 ]
+  %41 = phi i8 [ %6, %5 ], [ %26, %.split.loop.exit.loopexit.split.loop.exit43 ], [ %12, %.split.loop.exit.loopexit.split.loop.exit ], [ %19, %.split.loop.exit.loopexit.split.loop.exit40 ], [ %33, %31 ]
+  %.2.ph = phi ptr [ %.018, %5 ], [ %40, %.split.loop.exit.loopexit.split.loop.exit43 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit40 ], [ %32, %31 ]
   %42 = icmp eq i8 %41, %1
   br i1 %42, label %43, label %56
 
@@ -8879,9 +8879,9 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %29, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit50, %.split.loop.exit.loopexit.split.loop.exit54, %3
-  %39 = phi i8 [ %7, %3 ], [ %13, %.split.loop.exit.loopexit.split.loop.exit ], [ %20, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %27, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %34, %29 ]
-  %40 = phi i8 [ %4, %3 ], [ %10, %.split.loop.exit.loopexit.split.loop.exit ], [ %17, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %24, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %31, %29 ]
-  %.2.ph = phi ptr [ %.023, %3 ], [ %36, %.split.loop.exit.loopexit.split.loop.exit ], [ %37, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %30, %29 ]
+  %39 = phi i8 [ %7, %3 ], [ %27, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %13, %.split.loop.exit.loopexit.split.loop.exit ], [ %20, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %34, %29 ]
+  %40 = phi i8 [ %4, %3 ], [ %24, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %10, %.split.loop.exit.loopexit.split.loop.exit ], [ %17, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %31, %29 ]
+  %.2.ph = phi ptr [ %.023, %3 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit54 ], [ %36, %.split.loop.exit.loopexit.split.loop.exit ], [ %37, %.split.loop.exit.loopexit.split.loop.exit50 ], [ %30, %29 ]
   %41 = icmp eq i8 %40, %1
   br i1 %41, label %42, label %51
 
@@ -8917,7 +8917,7 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %42, %43
   br i1 %54, label %56, label %.backedge
 
 .backedge:                                        ; preds = %53, %69, %56
-  %.023.be = phi ptr [ %70, %69 ], [ %55, %56 ], [ %55, %53 ]
+  %.023.be = phi ptr [ %55, %56 ], [ %70, %69 ], [ %55, %53 ]
   br label %3, !llvm.loop !126
 
 56:                                               ; preds = %53
@@ -9028,9 +9028,9 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl22strconv_attribute_implINS
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %31, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit42, %.split.loop.exit.loopexit.split.loop.exit46, %5
-  %41 = phi i8 [ %9, %5 ], [ %15, %.split.loop.exit.loopexit.split.loop.exit ], [ %22, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %29, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %36, %31 ]
-  %42 = phi i8 [ %6, %5 ], [ %12, %.split.loop.exit.loopexit.split.loop.exit ], [ %19, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %26, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %33, %31 ]
-  %.2.ph = phi ptr [ %.019, %5 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %40, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %32, %31 ]
+  %41 = phi i8 [ %9, %5 ], [ %29, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %15, %.split.loop.exit.loopexit.split.loop.exit ], [ %22, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %36, %31 ]
+  %42 = phi i8 [ %6, %5 ], [ %26, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %12, %.split.loop.exit.loopexit.split.loop.exit ], [ %19, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %33, %31 ]
+  %.2.ph = phi ptr [ %.019, %5 ], [ %40, %.split.loop.exit.loopexit.split.loop.exit46 ], [ %38, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit42 ], [ %32, %31 ]
   %43 = icmp eq i8 %42, %1
   br i1 %43, label %44, label %57
 
@@ -9150,9 +9150,9 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader52
   br label %.preheader119
 
 .preheader119:                                    ; preds = %_ZN4pugi4impl3gap4pushERPcm.exit, %2
-  %.1.ph = phi ptr [ %17, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %0, %2 ]
-  %.sroa.0.1.ph = phi ptr [ %17, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ null, %2 ]
-  %.sroa.8.1.ph = phi i64 [ %16, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ 0, %2 ]
+  %.1.ph = phi ptr [ %0, %2 ], [ %17, %_ZN4pugi4impl3gap4pushERPcm.exit ]
+  %.sroa.0.1.ph = phi ptr [ null, %2 ], [ %17, %_ZN4pugi4impl3gap4pushERPcm.exit ]
+  %.sroa.8.1.ph = phi i64 [ 0, %2 ], [ %16, %_ZN4pugi4impl3gap4pushERPcm.exit ]
   br label %.outer
 
 .outer:                                           ; preds = %.preheader119, %_ZN4pugi4impl3gap4pushERPcm.exit30
@@ -9225,9 +9225,9 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader52
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %44, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit78, %.split.loop.exit.loopexit.split.loop.exit82, %18
-  %54 = phi i8 [ %22, %18 ], [ %28, %.split.loop.exit.loopexit.split.loop.exit ], [ %35, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %42, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %49, %44 ]
-  %55 = phi i8 [ %19, %18 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit ], [ %32, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %46, %44 ]
-  %.3.ph = phi ptr [ %.1, %18 ], [ %51, %.split.loop.exit.loopexit.split.loop.exit ], [ %52, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %53, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %45, %44 ]
+  %54 = phi i8 [ %22, %18 ], [ %42, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %28, %.split.loop.exit.loopexit.split.loop.exit ], [ %35, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %49, %44 ]
+  %55 = phi i8 [ %19, %18 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit ], [ %32, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %46, %44 ]
+  %.3.ph = phi ptr [ %.1, %18 ], [ %53, %.split.loop.exit.loopexit.split.loop.exit82 ], [ %51, %.split.loop.exit.loopexit.split.loop.exit ], [ %52, %.split.loop.exit.loopexit.split.loop.exit78 ], [ %45, %44 ]
   %56 = icmp eq i8 %55, %1
   br i1 %56, label %57, label %73
 
@@ -9321,7 +9321,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit30:               ; preds = %87, %91
   br label %.backedge
 
 .backedge:                                        ; preds = %99, %75
-  %.1.be = phi ptr [ %100, %99 ], [ %76, %75 ]
+  %.1.be = phi ptr [ %76, %75 ], [ %100, %99 ]
   br label %18, !llvm.loop !131
 
 .loopexit:                                        ; preds = %98, %71
@@ -9432,9 +9432,9 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %.preheader46
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %48, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit68, %.split.loop.exit.loopexit.split.loop.exit72, %22
-  %58 = phi i8 [ %26, %22 ], [ %32, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %46, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %53, %48 ]
-  %59 = phi i8 [ %23, %22 ], [ %29, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %43, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %50, %48 ]
-  %.3.ph = phi ptr [ %.1, %22 ], [ %55, %.split.loop.exit.loopexit.split.loop.exit ], [ %56, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %57, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %49, %48 ]
+  %58 = phi i8 [ %26, %22 ], [ %46, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %32, %.split.loop.exit.loopexit.split.loop.exit ], [ %39, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %53, %48 ]
+  %59 = phi i8 [ %23, %22 ], [ %43, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %29, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %50, %48 ]
+  %.3.ph = phi ptr [ %.1, %22 ], [ %57, %.split.loop.exit.loopexit.split.loop.exit72 ], [ %55, %.split.loop.exit.loopexit.split.loop.exit ], [ %56, %.split.loop.exit.loopexit.split.loop.exit68 ], [ %49, %48 ]
   %60 = icmp eq i8 %59, %1
   br i1 %60, label %61, label %81
 
@@ -9907,9 +9907,9 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %_ZN4pugi4impl11utf8
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %200, %197, %173, %170, %154, %151, %135, %132, %112, %109, %_ZN4pugi4impl3gap4pushERPcm.exit
-  %.sink = phi ptr [ %97, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %110, %109 ], [ %110, %112 ], [ %133, %132 ], [ %133, %135 ], [ %152, %151 ], [ %152, %154 ], [ %171, %170 ], [ %171, %173 ], [ %198, %197 ], [ %198, %200 ]
-  %.sink143 = phi i64 [ %88, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ 4, %109 ], [ 4, %112 ], [ 5, %132 ], [ 5, %135 ], [ 3, %151 ], [ 3, %154 ], [ 3, %170 ], [ 3, %173 ], [ 5, %197 ], [ 5, %200 ]
-  %.383.ph = phi ptr [ %.276, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %110, %109 ], [ %110, %112 ], [ %133, %132 ], [ %133, %135 ], [ %152, %151 ], [ %152, %154 ], [ %171, %170 ], [ %171, %173 ], [ %198, %197 ], [ %198, %200 ]
+  %.sink = phi ptr [ %97, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %171, %173 ], [ %152, %154 ], [ %133, %135 ], [ %110, %112 ], [ %110, %109 ], [ %133, %132 ], [ %152, %151 ], [ %171, %170 ], [ %198, %197 ], [ %198, %200 ]
+  %.sink143 = phi i64 [ %88, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ 3, %173 ], [ 3, %154 ], [ 5, %135 ], [ 4, %112 ], [ 4, %109 ], [ 5, %132 ], [ 3, %151 ], [ 3, %170 ], [ 5, %197 ], [ 5, %200 ]
+  %.383.ph = phi ptr [ %.276, %_ZN4pugi4impl3gap4pushERPcm.exit ], [ %171, %173 ], [ %152, %154 ], [ %133, %135 ], [ %110, %112 ], [ %110, %109 ], [ %133, %132 ], [ %152, %151 ], [ %171, %170 ], [ %198, %197 ], [ %198, %200 ]
   store ptr %.sink, ptr %1, align 8
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %209 = load i64, ptr %208, align 8
@@ -9918,7 +9918,7 @@ _ZN4pugi4impl3gap4pushERPcm.exit:                 ; preds = %_ZN4pugi4impl11utf8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.preheader, %._crit_edge, %5, %29, %11, %128, %124, %120, %101, %105, %147, %143, %166, %162, %193, %189, %185, %181, %2, %98
-  %.383 = phi ptr [ %3, %2 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %148, %147 ], [ %144, %143 ], [ %167, %166 ], [ %163, %162 ], [ %194, %193 ], [ %190, %189 ], [ %186, %185 ], [ %182, %181 ], [ %99, %98 ], [ %.175, %29 ], [ %12, %11 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %.383.ph, %.thread.sink.split ]
+  %.383 = phi ptr [ %12, %11 ], [ %190, %189 ], [ %186, %185 ], [ %.175, %29 ], [ %37, %._crit_edge ], [ %6, %5 ], [ %6, %.preheader ], [ %182, %181 ], [ %3, %2 ], [ %106, %105 ], [ %102, %101 ], [ %129, %128 ], [ %125, %124 ], [ %121, %120 ], [ %99, %98 ], [ %148, %147 ], [ %144, %143 ], [ %167, %166 ], [ %163, %162 ], [ %194, %193 ], [ %.383.ph, %.thread.sink.split ]
   ret ptr %.383
 }
 
@@ -9934,7 +9934,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %8, label %.split.loop.exit41, !prof !116
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -9944,7 +9944,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %.not26 = icmp eq i8 %14, 0
-  br i1 %.not26, label %15, label %.split.loop.exit.split.loop.exit60, !prof !116
+  br i1 %.not26, label %15, label %.split.loop.exit41.split.loop.exit57, !prof !116
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -9954,7 +9954,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
   %.not27 = icmp eq i8 %21, 0
-  br i1 %.not27, label %22, label %.split.loop.exit.split.loop.exit57, !prof !116
+  br i1 %.not27, label %22, label %.split.loop.exit41.split.loop.exit54, !prof !116
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -9965,42 +9965,42 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %28 = and i8 %27, 1
   %.not28 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not28, label %.backedge, label %.split.loop.exit.split.loop.exit54, !prof !116
+  br i1 %.not28, label %.backedge, label %.split.loop.exit41.split.loop.exit60, !prof !116
 
 .backedge:                                        ; preds = %22, %35
   %.1.be = phi ptr [ %29, %22 ], [ %36, %35 ]
   br label %2, !llvm.loop !138
 
-.split.loop.exit.split.loop.exit54:               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit41.split.loop.exit54:             ; preds = %15
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit41
 
-.split.loop.exit.split.loop.exit57:               ; preds = %15
-  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit41.split.loop.exit57:             ; preds = %8
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit41
 
-.split.loop.exit.split.loop.exit60:               ; preds = %8
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit41.split.loop.exit60:             ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit41
 
-.split.loop.exit:                                 ; preds = %2, %.split.loop.exit.split.loop.exit60, %.split.loop.exit.split.loop.exit57, %.split.loop.exit.split.loop.exit54
-  %33 = phi i8 [ %24, %.split.loop.exit.split.loop.exit54 ], [ %17, %.split.loop.exit.split.loop.exit57 ], [ %10, %.split.loop.exit.split.loop.exit60 ], [ %3, %2 ]
-  %.2.ph = phi ptr [ %30, %.split.loop.exit.split.loop.exit54 ], [ %31, %.split.loop.exit.split.loop.exit57 ], [ %32, %.split.loop.exit.split.loop.exit60 ], [ %.1, %2 ]
+.split.loop.exit41:                               ; preds = %2, %.split.loop.exit41.split.loop.exit60, %.split.loop.exit41.split.loop.exit57, %.split.loop.exit41.split.loop.exit54
+  %33 = phi i8 [ %10, %.split.loop.exit41.split.loop.exit57 ], [ %17, %.split.loop.exit41.split.loop.exit54 ], [ %24, %.split.loop.exit41.split.loop.exit60 ], [ %3, %2 ]
+  %.2.ph = phi ptr [ %31, %.split.loop.exit41.split.loop.exit57 ], [ %30, %.split.loop.exit41.split.loop.exit54 ], [ %32, %.split.loop.exit41.split.loop.exit60 ], [ %.1, %2 ]
   switch i8 %33, label %35 [
     i8 60, label %_ZN4pugi4impl3gap5flushEPc.exit
     i8 0, label %_ZN4pugi4impl3gap5flushEPc.exit32
   ]
 
-_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit
+_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit41
   store i8 0, ptr %.2.ph, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %37
 
-_ZN4pugi4impl3gap5flushEPc.exit32:                ; preds = %.split.loop.exit
+_ZN4pugi4impl3gap5flushEPc.exit32:                ; preds = %.split.loop.exit41
   store i8 0, ptr %.2.ph, align 1
   br label %37
 
-35:                                               ; preds = %.split.loop.exit
+35:                                               ; preds = %.split.loop.exit41
   %36 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.backedge
 
@@ -10024,7 +10024,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %9, label %.split.loop.exit39, !prof !116
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -10034,7 +10034,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not28 = icmp eq i8 %15, 0
-  br i1 %.not28, label %16, label %.split.loop.exit.split.loop.exit60, !prof !116
+  br i1 %.not28, label %16, label %.split.loop.exit39.split.loop.exit57, !prof !116
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -10044,7 +10044,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not29 = icmp eq i8 %22, 0
-  br i1 %.not29, label %23, label %.split.loop.exit.split.loop.exit57, !prof !116
+  br i1 %.not29, label %23, label %.split.loop.exit39.split.loop.exit54, !prof !116
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -10055,34 +10055,34 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   %29 = and i8 %28, 1
   %.not30 = icmp eq i8 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not30, label %.backedge, label %.split.loop.exit.split.loop.exit54, !prof !116
+  br i1 %.not30, label %.backedge, label %.split.loop.exit39.split.loop.exit60, !prof !116
 
 .backedge:                                        ; preds = %23, %49, %64
   %.1.be = phi ptr [ %30, %23 ], [ %50, %49 ], [ %65, %64 ]
   br label %3, !llvm.loop !139
 
-.split.loop.exit.split.loop.exit54:               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit39.split.loop.exit54:             ; preds = %16
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit39
 
-.split.loop.exit.split.loop.exit57:               ; preds = %16
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit39.split.loop.exit57:             ; preds = %9
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit39
 
-.split.loop.exit.split.loop.exit60:               ; preds = %9
-  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit39.split.loop.exit60:             ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit39
 
-.split.loop.exit:                                 ; preds = %3, %.split.loop.exit.split.loop.exit60, %.split.loop.exit.split.loop.exit57, %.split.loop.exit.split.loop.exit54
-  %34 = phi i8 [ %25, %.split.loop.exit.split.loop.exit54 ], [ %18, %.split.loop.exit.split.loop.exit57 ], [ %11, %.split.loop.exit.split.loop.exit60 ], [ %4, %3 ]
-  %.2.ph = phi ptr [ %31, %.split.loop.exit.split.loop.exit54 ], [ %32, %.split.loop.exit.split.loop.exit57 ], [ %33, %.split.loop.exit.split.loop.exit60 ], [ %.1, %3 ]
+.split.loop.exit39:                               ; preds = %3, %.split.loop.exit39.split.loop.exit60, %.split.loop.exit39.split.loop.exit57, %.split.loop.exit39.split.loop.exit54
+  %34 = phi i8 [ %11, %.split.loop.exit39.split.loop.exit57 ], [ %18, %.split.loop.exit39.split.loop.exit54 ], [ %25, %.split.loop.exit39.split.loop.exit60 ], [ %4, %3 ]
+  %.2.ph = phi ptr [ %32, %.split.loop.exit39.split.loop.exit57 ], [ %31, %.split.loop.exit39.split.loop.exit54 ], [ %33, %.split.loop.exit39.split.loop.exit60 ], [ %.1, %3 ]
   switch i8 %34, label %64 [
     i8 60, label %35
     i8 38, label %49
     i8 0, label %51
   ]
 
-35:                                               ; preds = %.split.loop.exit
+35:                                               ; preds = %.split.loop.exit39
   %36 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZN4pugi4impl3gap5flushEPc.exit, label %37
@@ -10107,11 +10107,11 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %35, %37
   %48 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %66
 
-49:                                               ; preds = %.split.loop.exit
+49:                                               ; preds = %.split.loop.exit39
   %50 = call noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3gapE(ptr noundef nonnull %.2.ph, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %.backedge
 
-51:                                               ; preds = %.split.loop.exit
+51:                                               ; preds = %.split.loop.exit39
   %52 = load ptr, ptr %2, align 8
   %.not.i32 = icmp eq ptr %52, null
   br i1 %.not.i32, label %_ZN4pugi4impl3gap5flushEPc.exit34, label %53
@@ -10135,7 +10135,7 @@ _ZN4pugi4impl3gap5flushEPc.exit34:                ; preds = %51, %53
   store i8 0, ptr %.0.i33, align 1
   br label %66
 
-64:                                               ; preds = %.split.loop.exit
+64:                                               ; preds = %.split.loop.exit39
   %65 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.backedge
 
@@ -10219,8 +10219,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %28, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit55, %.split.loop.exit.loopexit.split.loop.exit58, %2
-  %38 = phi i8 [ %3, %2 ], [ %9, %.split.loop.exit.loopexit.split.loop.exit ], [ %16, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %23, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %30, %28 ]
-  %.2.ph = phi ptr [ %.029, %2 ], [ %35, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %29, %28 ]
+  %38 = phi i8 [ %3, %2 ], [ %23, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %9, %.split.loop.exit.loopexit.split.loop.exit ], [ %16, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %30, %28 ]
+  %.2.ph = phi ptr [ %.029, %2 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %35, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %29, %28 ]
   switch i8 %38, label %69 [
     i8 60, label %39
     i8 13, label %48
@@ -10296,7 +10296,7 @@ _ZN4pugi4impl3gap5flushEPc.exit15:                ; preds = %61, %62
   br label %.backedge
 
 .backedge:                                        ; preds = %69, %48
-  %.029.be = phi ptr [ %70, %69 ], [ %49, %48 ]
+  %.029.be = phi ptr [ %49, %48 ], [ %70, %69 ]
   br label %2, !llvm.loop !140
 
 71:                                               ; preds = %_ZN4pugi4impl3gap5flushEPc.exit15, %_ZN4pugi4impl3gap5flushEPc.exit
@@ -10376,8 +10376,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_9
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %30, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit45, %.split.loop.exit.loopexit.split.loop.exit48, %4
-  %40 = phi i8 [ %5, %4 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit45 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %32, %30 ]
-  %.2.ph = phi ptr [ %.022, %4 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit45 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %31, %30 ]
+  %40 = phi i8 [ %5, %4 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit45 ], [ %32, %30 ]
+  %.2.ph = phi ptr [ %.022, %4 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit48 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit45 ], [ %31, %30 ]
   switch i8 %40, label %84 [
     i8 60, label %41
     i8 13, label %54
@@ -10492,7 +10492,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %8, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %8, label %.split.loop.exit55, !prof !116
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -10502,7 +10502,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %.not38 = icmp eq i8 %14, 0
-  br i1 %.not38, label %15, label %.split.loop.exit.split.loop.exit74, !prof !116
+  br i1 %.not38, label %15, label %.split.loop.exit55.split.loop.exit71, !prof !116
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -10512,7 +10512,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
   %.not39 = icmp eq i8 %21, 0
-  br i1 %.not39, label %22, label %.split.loop.exit.split.loop.exit71, !prof !116
+  br i1 %.not39, label %22, label %.split.loop.exit55.split.loop.exit68, !prof !116
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -10523,34 +10523,34 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %28 = and i8 %27, 1
   %.not40 = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not40, label %.backedge, label %.split.loop.exit.split.loop.exit68, !prof !116
+  br i1 %.not40, label %.backedge, label %.split.loop.exit55.split.loop.exit74, !prof !116
 
 .backedge:                                        ; preds = %22, %51
   %.1.be = phi ptr [ %29, %22 ], [ %52, %51 ]
   br label %2, !llvm.loop !142
 
-.split.loop.exit.split.loop.exit68:               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit55.split.loop.exit68:             ; preds = %15
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit55
 
-.split.loop.exit.split.loop.exit71:               ; preds = %15
-  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit55.split.loop.exit71:             ; preds = %8
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit55
 
-.split.loop.exit.split.loop.exit74:               ; preds = %8
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit55.split.loop.exit74:             ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit55
 
-.split.loop.exit:                                 ; preds = %2, %.split.loop.exit.split.loop.exit74, %.split.loop.exit.split.loop.exit71, %.split.loop.exit.split.loop.exit68
-  %33 = phi i8 [ %24, %.split.loop.exit.split.loop.exit68 ], [ %17, %.split.loop.exit.split.loop.exit71 ], [ %10, %.split.loop.exit.split.loop.exit74 ], [ %3, %2 ]
-  %.2.ph = phi ptr [ %30, %.split.loop.exit.split.loop.exit68 ], [ %31, %.split.loop.exit.split.loop.exit71 ], [ %32, %.split.loop.exit.split.loop.exit74 ], [ %.1, %2 ]
+.split.loop.exit55:                               ; preds = %2, %.split.loop.exit55.split.loop.exit74, %.split.loop.exit55.split.loop.exit71, %.split.loop.exit55.split.loop.exit68
+  %33 = phi i8 [ %10, %.split.loop.exit55.split.loop.exit71 ], [ %17, %.split.loop.exit55.split.loop.exit68 ], [ %24, %.split.loop.exit55.split.loop.exit74 ], [ %3, %2 ]
+  %.2.ph = phi ptr [ %31, %.split.loop.exit55.split.loop.exit71 ], [ %30, %.split.loop.exit55.split.loop.exit68 ], [ %32, %.split.loop.exit55.split.loop.exit74 ], [ %.1, %2 ]
   switch i8 %33, label %51 [
     i8 60, label %_ZN4pugi4impl3gap5flushEPc.exit
     i8 0, label %_ZN4pugi4impl3gap5flushEPc.exit46
   ]
 
-_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit, %35
-  %.033 = phi ptr [ %36, %35 ], [ %.2.ph, %.split.loop.exit ]
+_ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit55, %35
+  %.033 = phi ptr [ %36, %35 ], [ %.2.ph, %.split.loop.exit55 ]
   %34 = icmp ugt ptr %.033, %0
   br i1 %34, label %35, label %.critedge
 
@@ -10569,8 +10569,8 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %.split.loop.exit, %
   %42 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %53
 
-_ZN4pugi4impl3gap5flushEPc.exit46:                ; preds = %.split.loop.exit, %44
-  %.0 = phi ptr [ %45, %44 ], [ %.2.ph, %.split.loop.exit ]
+_ZN4pugi4impl3gap5flushEPc.exit46:                ; preds = %.split.loop.exit55, %44
+  %.0 = phi ptr [ %45, %44 ], [ %.2.ph, %.split.loop.exit55 ]
   %43 = icmp ugt ptr %.0, %0
   br i1 %43, label %44, label %.critedge2
 
@@ -10588,7 +10588,7 @@ _ZN4pugi4impl3gap5flushEPc.exit46:                ; preds = %.split.loop.exit, %
   store i8 0, ptr %.0, align 1
   br label %53
 
-51:                                               ; preds = %.split.loop.exit
+51:                                               ; preds = %.split.loop.exit55
   %52 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.backedge
 
@@ -10612,7 +10612,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %.split.loop.exit, !prof !116
+  br i1 %.not, label %9, label %.split.loop.exit53, !prof !116
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -10622,7 +10622,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %.not40 = icmp eq i8 %15, 0
-  br i1 %.not40, label %16, label %.split.loop.exit.split.loop.exit74, !prof !116
+  br i1 %.not40, label %16, label %.split.loop.exit53.split.loop.exit71, !prof !116
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -10632,7 +10632,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %.not41 = icmp eq i8 %22, 0
-  br i1 %.not41, label %23, label %.split.loop.exit.split.loop.exit71, !prof !116
+  br i1 %.not41, label %23, label %.split.loop.exit53.split.loop.exit68, !prof !116
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 3
@@ -10643,34 +10643,34 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   %29 = and i8 %28, 1
   %.not42 = icmp eq i8 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  br i1 %.not42, label %.backedge, label %.split.loop.exit.split.loop.exit68, !prof !116
+  br i1 %.not42, label %.backedge, label %.split.loop.exit53.split.loop.exit74, !prof !116
 
 .backedge:                                        ; preds = %23, %57, %80
   %.1.be = phi ptr [ %30, %23 ], [ %58, %57 ], [ %81, %80 ]
   br label %3, !llvm.loop !145
 
-.split.loop.exit.split.loop.exit68:               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  br label %.split.loop.exit
+.split.loop.exit53.split.loop.exit68:             ; preds = %16
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  br label %.split.loop.exit53
 
-.split.loop.exit.split.loop.exit71:               ; preds = %16
-  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  br label %.split.loop.exit
+.split.loop.exit53.split.loop.exit71:             ; preds = %9
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.split.loop.exit53
 
-.split.loop.exit.split.loop.exit74:               ; preds = %9
-  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.split.loop.exit
+.split.loop.exit53.split.loop.exit74:             ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  br label %.split.loop.exit53
 
-.split.loop.exit:                                 ; preds = %3, %.split.loop.exit.split.loop.exit74, %.split.loop.exit.split.loop.exit71, %.split.loop.exit.split.loop.exit68
-  %34 = phi i8 [ %25, %.split.loop.exit.split.loop.exit68 ], [ %18, %.split.loop.exit.split.loop.exit71 ], [ %11, %.split.loop.exit.split.loop.exit74 ], [ %4, %3 ]
-  %.2.ph = phi ptr [ %31, %.split.loop.exit.split.loop.exit68 ], [ %32, %.split.loop.exit.split.loop.exit71 ], [ %33, %.split.loop.exit.split.loop.exit74 ], [ %.1, %3 ]
+.split.loop.exit53:                               ; preds = %3, %.split.loop.exit53.split.loop.exit74, %.split.loop.exit53.split.loop.exit71, %.split.loop.exit53.split.loop.exit68
+  %34 = phi i8 [ %11, %.split.loop.exit53.split.loop.exit71 ], [ %18, %.split.loop.exit53.split.loop.exit68 ], [ %25, %.split.loop.exit53.split.loop.exit74 ], [ %4, %3 ]
+  %.2.ph = phi ptr [ %32, %.split.loop.exit53.split.loop.exit71 ], [ %31, %.split.loop.exit53.split.loop.exit68 ], [ %33, %.split.loop.exit53.split.loop.exit74 ], [ %.1, %3 ]
   switch i8 %34, label %80 [
     i8 60, label %35
     i8 38, label %57
     i8 0, label %59
   ]
 
-35:                                               ; preds = %.split.loop.exit
+35:                                               ; preds = %.split.loop.exit53
   %36 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZN4pugi4impl3gap5flushEPc.exit.preheader, label %37
@@ -10713,11 +10713,11 @@ _ZN4pugi4impl3gap5flushEPc.exit:                  ; preds = %_ZN4pugi4impl3gap5f
   %56 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %82
 
-57:                                               ; preds = %.split.loop.exit
+57:                                               ; preds = %.split.loop.exit53
   %58 = call noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3gapE(ptr noundef nonnull %.2.ph, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %.backedge
 
-59:                                               ; preds = %.split.loop.exit
+59:                                               ; preds = %.split.loop.exit53
   %60 = load ptr, ptr %2, align 8
   %.not.i46 = icmp eq ptr %60, null
   br i1 %.not.i46, label %_ZN4pugi4impl3gap5flushEPc.exit48.preheader, label %61
@@ -10759,7 +10759,7 @@ _ZN4pugi4impl3gap5flushEPc.exit48:                ; preds = %_ZN4pugi4impl3gap5f
   store i8 0, ptr %.0, align 1
   br label %82
 
-80:                                               ; preds = %.split.loop.exit
+80:                                               ; preds = %.split.loop.exit53
   %81 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 1
   br label %.backedge
 
@@ -10843,8 +10843,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %28, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit70, %.split.loop.exit.loopexit.split.loop.exit73, %2
-  %38 = phi i8 [ %3, %2 ], [ %9, %.split.loop.exit.loopexit.split.loop.exit ], [ %16, %.split.loop.exit.loopexit.split.loop.exit70 ], [ %23, %.split.loop.exit.loopexit.split.loop.exit73 ], [ %30, %28 ]
-  %.2.ph = phi ptr [ %.044, %2 ], [ %35, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit70 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit73 ], [ %29, %28 ]
+  %38 = phi i8 [ %3, %2 ], [ %23, %.split.loop.exit.loopexit.split.loop.exit73 ], [ %9, %.split.loop.exit.loopexit.split.loop.exit ], [ %16, %.split.loop.exit.loopexit.split.loop.exit70 ], [ %30, %28 ]
+  %.2.ph = phi ptr [ %.044, %2 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit73 ], [ %35, %.split.loop.exit.loopexit.split.loop.exit ], [ %36, %.split.loop.exit.loopexit.split.loop.exit70 ], [ %29, %28 ]
   switch i8 %38, label %85 [
     i8 60, label %39
     i8 13, label %56
@@ -10956,7 +10956,7 @@ _ZN4pugi4impl3gap5flushEPc.exit29:                ; preds = %_ZN4pugi4impl3gap5f
   br label %.backedge
 
 .backedge:                                        ; preds = %85, %56
-  %.044.be = phi ptr [ %86, %85 ], [ %57, %56 ]
+  %.044.be = phi ptr [ %57, %56 ], [ %86, %85 ]
   br label %2, !llvm.loop !149
 
 87:                                               ; preds = %.critedge2, %.critedge
@@ -11036,8 +11036,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl19strconv_pcdata_implINS0_8
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %30, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit60, %.split.loop.exit.loopexit.split.loop.exit63, %4
-  %40 = phi i8 [ %5, %4 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit60 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit63 ], [ %32, %30 ]
-  %.2.ph = phi ptr [ %.037, %4 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit60 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit63 ], [ %31, %30 ]
+  %40 = phi i8 [ %5, %4 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit63 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit60 ], [ %32, %30 ]
+  %.2.ph = phi ptr [ %.037, %4 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit63 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit60 ], [ %31, %30 ]
   switch i8 %40, label %100 [
     i8 60, label %41
     i8 13, label %62
@@ -11251,8 +11251,8 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %30, %.split.loop.exit.loopexit.split.loop.exit, %.split.loop.exit.loopexit.split.loop.exit55, %.split.loop.exit.loopexit.split.loop.exit58, %4
-  %40 = phi i8 [ %5, %4 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %32, %30 ]
-  %.2.ph = phi ptr [ %.026, %4 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %31, %30 ]
+  %40 = phi i8 [ %5, %4 ], [ %25, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %11, %.split.loop.exit.loopexit.split.loop.exit ], [ %18, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %32, %30 ]
+  %.2.ph = phi ptr [ %.026, %4 ], [ %39, %.split.loop.exit.loopexit.split.loop.exit58 ], [ %37, %.split.loop.exit.loopexit.split.loop.exit ], [ %38, %.split.loop.exit.loopexit.split.loop.exit55 ], [ %31, %30 ]
   switch i8 %40, label %.thread31 [
     i8 13, label %41
     i8 93, label %54
@@ -11267,7 +11267,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13strconv_cdataEPcc(ptr nou
   br i1 %44, label %45, label %.backedge
 
 .backedge:                                        ; preds = %41, %.thread31
-  %.026.be = phi ptr [ %72, %.thread31 ], [ %42, %41 ]
+  %.026.be = phi ptr [ %42, %41 ], [ %72, %.thread31 ]
   br label %4, !llvm.loop !154
 
 45:                                               ; preds = %41
@@ -11534,7 +11534,7 @@ _ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit.outer.backedge: ; preds 
   br label %_ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit.backedge
 
 _ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit.backedge: ; preds = %35, %.critedge4.i, %.critedge2.i, %46, %82
-  %.031.be = phi ptr [ %83, %82 ], [ %56, %.critedge2.i ], [ %76, %.critedge4.i ], [ %47, %46 ], [ %36, %35 ]
+  %.031.be = phi ptr [ %56, %.critedge2.i ], [ %83, %82 ], [ %47, %46 ], [ %76, %.critedge4.i ], [ %36, %35 ]
   br label %_ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit, !llvm.loop !156
 
 77:                                               ; preds = %_ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit
@@ -11557,7 +11557,7 @@ _ZN4pugi4impl10xml_parser20parse_doctype_ignoreEPc.exit.backedge: ; preds = %35,
   br i1 %or.cond, label %_ZN4pugi4impl10xml_parser23parse_doctype_primitiveEPc.exit.thread.sink.split, label %_ZN4pugi4impl10xml_parser23parse_doctype_primitiveEPc.exit.thread
 
 _ZN4pugi4impl10xml_parser23parse_doctype_primitiveEPc.exit.thread.sink.split: ; preds = %.thread46.thread, %60, %6, %.critedge.i, %50, %14, %66, %84
-  %.042.i.lcssa.lcssa.sink = phi ptr [ %.031, %84 ], [ %.4.i, %66 ], [ %.017.i, %14 ], [ %.3.i, %50 ], [ %.042.i, %.critedge.i ], [ %.031, %6 ], [ %.031, %60 ], [ %.031, %.thread46.thread ]
+  %.042.i.lcssa.lcssa.sink = phi ptr [ %.031, %84 ], [ %.017.i, %14 ], [ %.3.i, %50 ], [ %.4.i, %66 ], [ %.042.i, %.critedge.i ], [ %.031, %.thread46.thread ], [ %.031, %6 ], [ %.031, %60 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.042.i.lcssa.lcssa.sink, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -291,7 +291,7 @@ if.end13:                                         ; preds = %land.rhs
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end13
-  %retval.0 = phi i1 [ %cmp17, %if.end13 ], [ false, %entry ], [ false, %if.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp17, %if.end13 ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -1119,7 +1119,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
 
 _ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit: ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit, %if.then4.i, %if.then8.i, %if.end10.i
-  %retval.0.i = phi i32 [ %mul.i.i, %if.then4.i ], [ %mul.i8.i, %if.then8.i ], [ %mul.i10.i, %if.end10.i ], [ 128, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
+  %retval.0.i = phi i32 [ %mul.i10.i, %if.end10.i ], [ %mul.i.i, %if.then4.i ], [ %mul.i8.i, %if.then8.i ], [ 128, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
   %20 = load ptr, ptr %ranges_27, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
@@ -1337,7 +1337,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %for.body.us154, %for.body.us, %for.body.us.us, %entry
-  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153.us155, %for.body.us154 ], [ %add153, %for.body ]
+  %i.0.lcssa = phi i64 [ 0, %entry ], [ %add153.us155, %for.body.us154 ], [ %add153.us.us, %for.body.us.us ], [ %add153.us, %for.body.us ], [ %add153, %for.body ]
   %add4 = or disjoint i64 %i.0.lcssa, 32
   %cmp5.not = icmp ugt i64 %add4, %numBits
   br i1 %cmp5.not, label %if.end, label %if.then
@@ -1362,7 +1362,7 @@ if.end3.i46:                                      ; preds = %if.then
   br label %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit
 
 _ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit: ; preds = %if.then, %if.end3.i46
-  %retval.0.i49 = phi i32 [ %or10.i, %if.end3.i46 ], [ %24, %if.then ]
+  %retval.0.i49 = phi i32 [ %24, %if.then ], [ %or10.i, %if.end3.i46 ]
   %add8 = add i64 %i.0.lcssa, %targetOffset
   %conv = zext i32 %retval.0.i49 to i64
   %27 = ptrtoint ptr %target to i64
@@ -1426,7 +1426,7 @@ if.end5.i:                                        ; preds = %if.then12
   br label %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit
 
 _ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit: ; preds = %if.then12, %if.end5.i
-  %retval.0.i72 = phi i16 [ %conv14.i71, %if.end5.i ], [ %35, %if.then12 ]
+  %retval.0.i72 = phi i16 [ %35, %if.then12 ], [ %conv14.i71, %if.end5.i ]
   %add16 = add i64 %i.1, %targetOffset
   %conv17 = zext i16 %retval.0.i72 to i64
   %39 = ptrtoint ptr %target to i64
@@ -2032,7 +2032,7 @@ if.end10:                                         ; preds = %if.end5
   br label %return
 
 return:                                           ; preds = %entry, %if.end10, %if.then8, %if.then4
-  %retval.0 = phi i32 [ %mul.i, %if.then4 ], [ %mul.i8, %if.then8 ], [ %mul.i10, %if.end10 ], [ 128, %entry ]
+  %retval.0 = phi i32 [ %mul.i10, %if.end10 ], [ %mul.i, %if.then4 ], [ %mul.i8, %if.then8 ], [ 128, %entry ]
   ret i32 %retval.0
 }
 

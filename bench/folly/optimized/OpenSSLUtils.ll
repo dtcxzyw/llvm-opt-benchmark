@@ -633,7 +633,7 @@ define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils21validatePeerCertNamesEP7
 
 14:                                               ; preds = %12
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.4, i64 noundef 54)
-          to label %.critedge79 unwind label %18
+          to label %.critedge unwind label %18
 
 16:                                               ; preds = %11
   %17 = landingpad { ptr, i32 }
@@ -649,7 +649,7 @@ define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils21validatePeerCertNamesEP7
 20:                                               ; preds = %18, %16
   %.pn75 = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.split92.us
+  br label %.split91.us
 
 21:                                               ; preds = %3
   %.not = icmp eq ptr %1, null
@@ -677,14 +677,14 @@ define noundef zeroext i1 @_ZN5folly3ssl12OpenSSLUtils21validatePeerCertNamesEP7
 
 28:                                               ; preds = %26
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.5, i64 noundef 29)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85 unwind label %35
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit84 unwind label %35
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %28
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit84: ; preds = %28
   %30 = load i16, ptr %1, align 2, !tbaa !35
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %27, i16 noundef zeroext %30)
           to label %32 unwind label %35
 
-32:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85
+32:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit84
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   unreachable
 
@@ -692,9 +692,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %28
   %34 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.split92.us
+  br label %.split91.us
 
-35:                                               ; preds = %28, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85, %26
+35:                                               ; preds = %28, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit84, %26
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
@@ -704,23 +704,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.split.us.split.us
 
-.split.us.split.us:                               ; preds = %.thread, %.critedge.us.us
-  %.056.us.us = phi i32 [ %60, %.critedge.us.us ], [ 0, %.thread ]
+.split.us.split.us:                               ; preds = %.thread, %.critedge78.us.us
+  %.056.us.us = phi i32 [ %60, %.critedge78.us.us ], [ 0, %.thread ]
   %38 = invoke i32 @OPENSSL_sk_num(ptr noundef nonnull %9)
-          to label %39 unwind label %.split92.us.split.us
+          to label %39 unwind label %.split91.us.split.us
 
 39:                                               ; preds = %.split.us.split.us
   %.not71.us.us = icmp slt i32 %.056.us.us, %38
-  br i1 %.not71.us.us, label %40, label %.critedge80
+  br i1 %.not71.us.us, label %40, label %.critedge79
 
 40:                                               ; preds = %39
   %41 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %9, i32 noundef %.056.us.us)
-          to label %42 unwind label %.split94.us.split.us
+          to label %42 unwind label %.split93.us.split.us
 
 42:                                               ; preds = %40
   %43 = load i32, ptr %41, align 8, !tbaa !38
   %44 = icmp eq i32 %43, 7
-  br i1 %44, label %45, label %.critedge.us.us
+  br i1 %44, label %45, label %.critedge78.us.us
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -729,79 +729,79 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %28
   %49 = sext i32 %48 to i64
   switch i32 %48, label %50 [
     i32 16, label %56
-    i32 4, label %.critedge.us.us
+    i32 4, label %.critedge78.us.us
   ]
 
 50:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 137, i32 noundef 1)
-          to label %51 unwind label %.split97.us.split.us
+          to label %51 unwind label %.split96.us.split.us
 
 51:                                               ; preds = %50
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %53 unwind label %.split100.us.split.us
+          to label %53 unwind label %.split99.us.split.us
 
 53:                                               ; preds = %51
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @.str.6, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us unwind label %.split100.us.split.us
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us unwind label %.split99.us.split.us
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us: ; preds = %53
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us: ; preds = %53
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef %49)
-          to label %_ZNSolsEm.exit.us.us unwind label %.split100.us.split.us
+          to label %_ZNSolsEm.exit.us.us unwind label %.split99.us.split.us
 
-_ZNSolsEm.exit.us.us:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us
+_ZNSolsEm.exit.us.us:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge.us.us
+  br label %.critedge78.us.us
 
 56:                                               ; preds = %45
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %bcmp.us.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %58, ptr noundef nonnull dereferenceable(16) %37, i64 16)
   %59 = icmp eq i32 %bcmp.us.us, 0
-  br i1 %59, label %.loopexit132, label %.critedge.us.us
+  br i1 %59, label %.loopexit131, label %.critedge78.us.us
 
-.critedge.us.us:                                  ; preds = %45, %56, %_ZNSolsEm.exit.us.us, %42
+.critedge78.us.us:                                ; preds = %45, %56, %_ZNSolsEm.exit.us.us, %42
   %60 = add nuw nsw i32 %.056.us.us, 1
   br label %.split.us.split.us, !llvm.loop !45
 
-.split92.us.split.us:                             ; preds = %.split.us.split.us
+.split91.us.split.us:                             ; preds = %.split.us.split.us
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
-.split94.us.split.us:                             ; preds = %40
+.split93.us.split.us:                             ; preds = %40
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
-.split97.us.split.us:                             ; preds = %50
+.split96.us.split.us:                             ; preds = %50
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %.split97.us
+  br label %.split96.us
 
-.split100.us.split.us:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us, %53, %51
+.split99.us.split.us:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us, %53, %51
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %.split100.us
+  br label %.split99.us
 
-.split.us.split.split.us:                         ; preds = %.split.us.split.thread, %.critedge.us.us111
-  %.056.us.us106 = phi i32 [ %87, %.critedge.us.us111 ], [ 0, %.split.us.split.thread ]
+.split.us.split.split.us:                         ; preds = %.split.us.split.thread, %.critedge78.us.us110
+  %.056.us.us105 = phi i32 [ %87, %.critedge78.us.us110 ], [ 0, %.split.us.split.thread ]
   %65 = invoke i32 @OPENSSL_sk_num(ptr noundef nonnull %9)
-          to label %66 unwind label %.split92.us.split.split.us
+          to label %66 unwind label %.split91.us.split.split.us
 
 66:                                               ; preds = %.split.us.split.split.us
-  %.not71.us.us107 = icmp slt i32 %.056.us.us106, %65
-  br i1 %.not71.us.us107, label %67, label %.critedge80
+  %.not71.us.us106 = icmp slt i32 %.056.us.us105, %65
+  br i1 %.not71.us.us106, label %67, label %.critedge79
 
 67:                                               ; preds = %66
-  %68 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %9, i32 noundef %.056.us.us106)
-          to label %69 unwind label %.split94.us.split.split.us
+  %68 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %9, i32 noundef %.056.us.us105)
+          to label %69 unwind label %.split93.us.split.split.us
 
 69:                                               ; preds = %67
   %70 = load i32, ptr %68, align 8, !tbaa !38
   %71 = icmp eq i32 %70, 7
-  br i1 %71, label %72, label %.critedge.us.us111
+  br i1 %71, label %72, label %.critedge78.us.us110
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -810,118 +810,118 @@ _ZNSolsEm.exit.us.us:                             ; preds = %_ZStlsISt11char_tra
   %76 = sext i32 %75 to i64
   switch i32 %75, label %77 [
     i32 4, label %83
-    i32 16, label %.critedge.us.us111
+    i32 16, label %.critedge78.us.us110
   ]
 
 77:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 137, i32 noundef 1)
-          to label %78 unwind label %.split97.us.split.split.us
+          to label %78 unwind label %.split96.us.split.split.us
 
 78:                                               ; preds = %77
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %80 unwind label %.split100.us.split.split.us
+          to label %80 unwind label %.split99.us.split.split.us
 
 80:                                               ; preds = %78
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.6, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us109 unwind label %.split100.us.split.split.us
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us108 unwind label %.split99.us.split.split.us
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us109: ; preds = %80
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us108: ; preds = %80
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %79, i64 noundef %76)
-          to label %_ZNSolsEm.exit.us.us110 unwind label %.split100.us.split.split.us
+          to label %_ZNSolsEm.exit.us.us109 unwind label %.split99.us.split.split.us
 
-_ZNSolsEm.exit.us.us110:                          ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us109
+_ZNSolsEm.exit.us.us109:                          ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us108
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge.us.us111
+  br label %.critedge78.us.us110
 
 83:                                               ; preds = %72
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !44
   %bcmp70.us.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %85, ptr noundef nonnull dereferenceable(4) %24, i64 4)
   %86 = icmp eq i32 %bcmp70.us.us, 0
-  br i1 %86, label %.loopexit132, label %.critedge.us.us111
+  br i1 %86, label %.loopexit131, label %.critedge78.us.us110
 
-.critedge.us.us111:                               ; preds = %72, %83, %_ZNSolsEm.exit.us.us110, %69
-  %87 = add nuw nsw i32 %.056.us.us106, 1
+.critedge78.us.us110:                             ; preds = %72, %83, %_ZNSolsEm.exit.us.us109, %69
+  %87 = add nuw nsw i32 %.056.us.us105, 1
   br label %.split.us.split.split.us, !llvm.loop !45
 
-.split92.us.split.split.us:                       ; preds = %.split.us.split.split.us
+.split91.us.split.split.us:                       ; preds = %.split.us.split.split.us
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
-.split94.us.split.split.us:                       ; preds = %67
+.split93.us.split.split.us:                       ; preds = %67
   %89 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
-.split97.us.split.split.us:                       ; preds = %77
+.split96.us.split.split.us:                       ; preds = %77
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %.split97.us
+  br label %.split96.us
 
-.split100.us.split.split.us:                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.us.us109, %80, %78
+.split99.us.split.split.us:                       ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85.us.us108, %80, %78
   %91 = landingpad { ptr, i32 }
           cleanup
-  br label %.split100.us
+  br label %.split99.us
 
-.split:                                           ; preds = %21, %.critedge
-  %.056 = phi i32 [ %97, %.critedge ], [ 0, %21 ]
+.split:                                           ; preds = %21, %.critedge78
+  %.056 = phi i32 [ %97, %.critedge78 ], [ 0, %21 ]
   %92 = invoke i32 @OPENSSL_sk_num(ptr noundef nonnull %9)
-          to label %93 unwind label %.split92
+          to label %93 unwind label %.split91
 
 93:                                               ; preds = %.split
   %.not71 = icmp slt i32 %.056, %92
-  br i1 %.not71, label %95, label %.critedge80
+  br i1 %.not71, label %95, label %.critedge79
 
-.split92:                                         ; preds = %.split
+.split91:                                         ; preds = %.split
   %94 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
 95:                                               ; preds = %93
   %96 = invoke ptr @OPENSSL_sk_value(ptr noundef nonnull %9, i32 noundef %.056)
-          to label %.critedge unwind label %.split94
+          to label %.critedge78 unwind label %.split93
 
-.critedge:                                        ; preds = %95
+.critedge78:                                      ; preds = %95
   %97 = add nuw nsw i32 %.056, 1
   br label %.split, !llvm.loop !45
 
-.split94:                                         ; preds = %95
+.split93:                                         ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %.split92.us
+  br label %.split91.us
 
-.split100.us:                                     ; preds = %.split100.us.split.us, %.split100.us.split.split.us
-  %.us-phi105 = phi { ptr, i32 } [ %64, %.split100.us.split.us ], [ %91, %.split100.us.split.split.us ]
+.split99.us:                                      ; preds = %.split99.us.split.us, %.split99.us.split.split.us
+  %.us-phi104 = phi { ptr, i32 } [ %64, %.split99.us.split.us ], [ %91, %.split99.us.split.split.us ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
-  br label %.split97.us
+  br label %.split96.us
 
-.split97.us:                                      ; preds = %.split97.us.split.split.us, %.split97.us.split.us, %.split100.us
-  %.pn = phi { ptr, i32 } [ %.us-phi105, %.split100.us ], [ %63, %.split97.us.split.us ], [ %90, %.split97.us.split.split.us ]
+.split96.us:                                      ; preds = %.split96.us.split.split.us, %.split96.us.split.us, %.split99.us
+  %.pn = phi { ptr, i32 } [ %.us-phi104, %.split99.us ], [ %63, %.split96.us.split.us ], [ %90, %.split96.us.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.split92.us
+  br label %.split91.us
 
-.critedge80:                                      ; preds = %39, %66, %93
+.critedge79:                                      ; preds = %39, %66, %93
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 142, i32 noundef 1)
           to label %99 unwind label %103
 
-99:                                               ; preds = %.critedge80
+99:                                               ; preds = %.critedge79
   %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %101 unwind label %105
 
 101:                                              ; preds = %99
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull @.str.7, i64 noundef 47)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87 unwind label %105
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86 unwind label %105
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %101
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86: ; preds = %101
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit132
+  br label %.loopexit131
 
-103:                                              ; preds = %.critedge80
+103:                                              ; preds = %.critedge79
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -935,32 +935,32 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %101
 107:                                              ; preds = %105, %103
   %.pn72 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.split92.us
+  br label %.split91.us
 
-.critedge79:                                      ; preds = %14
+.critedge:                                        ; preds = %14
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit"
 
-.loopexit132:                                     ; preds = %56, %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87
-  %.0.ph = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87 ], [ true, %83 ], [ true, %56 ]
+.loopexit131:                                     ; preds = %56, %83, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86
+  %.0.ph = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86 ], [ true, %83 ], [ true, %56 ]
   invoke void @OPENSSL_sk_pop_free(ptr noundef nonnull %9, ptr noundef nonnull @GENERAL_NAME_free)
           to label %"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit" unwind label %108
 
-108:                                              ; preds = %.loopexit132
+108:                                              ; preds = %.loopexit131
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
   call void @__clang_call_terminate(ptr %110) #25
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit": ; preds = %.critedge79, %.loopexit132
-  %.0128 = phi i1 [ false, %.critedge79 ], [ %.0.ph, %.loopexit132 ]
+"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev.exit": ; preds = %.critedge, %.loopexit131
+  %.0127 = phi i1 [ false, %.critedge ], [ %.0.ph, %.loopexit131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.0128
+  ret i1 %.0127
 
-.split92.us:                                      ; preds = %.split94, %.split94.us.split.split.us, %.split94.us.split.us, %.split92, %.split92.us.split.split.us, %.split92.us.split.us, %33, %107, %.split97.us, %20
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %20 ], [ %.pn72, %107 ], [ %34, %33 ], [ %.pn, %.split97.us ], [ %94, %.split92 ], [ %61, %.split92.us.split.us ], [ %88, %.split92.us.split.split.us ], [ %98, %.split94 ], [ %62, %.split94.us.split.us ], [ %89, %.split94.us.split.split.us ]
+.split91.us:                                      ; preds = %.split93, %.split93.us.split.split.us, %.split93.us.split.us, %.split91, %.split91.us.split.split.us, %.split91.us.split.us, %33, %107, %.split96.us, %20
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %20 ], [ %.pn72, %107 ], [ %34, %33 ], [ %88, %.split91.us.split.split.us ], [ %.pn, %.split96.us ], [ %94, %.split91 ], [ %61, %.split91.us.split.us ], [ %89, %.split93.us.split.split.us ], [ %98, %.split93 ], [ %62, %.split93.us.split.us ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_3ssl12OpenSSLUtils21validatePeerCertNamesEP7x509_stPK8sockaddrjE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn75.pn
@@ -1093,7 +1093,7 @@ _ZNSt13unordered_mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE16cipherCodeToNameB5cxx11) #24
   br label %49
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %16, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %16
   %39 = load atomic i8, ptr @_ZGVZN5folly3ssl12OpenSSLUtils13getCipherNameB5cxx11EtE5emptyB5cxx11 acquire, align 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %48, !prof !47

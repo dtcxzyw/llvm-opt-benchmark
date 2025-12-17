@@ -311,7 +311,7 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
   br label %36
 
 36:                                               ; preds = %._crit_edge, %4, %29, %20
-  %.034 = phi i32 [ 1, %20 ], [ 1, %29 ], [ 0, %4 ], [ 0, %._crit_edge ]
+  %.034 = phi i32 [ 0, %4 ], [ 1, %20 ], [ 1, %29 ], [ 0, %._crit_edge ]
   ret i32 %.034
 }
 
@@ -553,12 +553,12 @@ opj_mutex_destroy.exit61.i:                       ; preds = %75, %.loopexit69.i
   %or.cond = or i1 %.not18, %102
   br i1 %or.cond, label %opj_thread_pool_setup.exit.thread, label %103
 
-opj_thread_pool_setup.exit.thread:                ; preds = %._crit_edge.i, %opj_cond_create.exit.thread.i, %25
+opj_thread_pool_setup.exit.thread:                ; preds = %._crit_edge.i, %25, %opj_cond_create.exit.thread.i
   call void @opj_thread_pool_destroy(ptr noundef nonnull %3)
   br label %103
 
 103:                                              ; preds = %._crit_edge.i, %7, %10, %1, %opj_thread_pool_setup.exit.thread, %16
-  %.014 = phi ptr [ null, %opj_thread_pool_setup.exit.thread ], [ null, %16 ], [ null, %1 ], [ %3, %7 ], [ null, %10 ], [ %3, %._crit_edge.i ]
+  %.014 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %opj_thread_pool_setup.exit.thread ], [ null, %16 ], [ %3, %7 ], [ %3, %._crit_edge.i ]
   ret ptr %.014
 }
 
@@ -864,7 +864,7 @@ define hidden range(i32 0, 2) i32 @opj_thread_pool_submit_job(ptr noundef %0, pt
   br label %64
 
 64:                                               ; preds = %43, %61, %10, %17, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %17 ], [ 0, %10 ], [ 1, %61 ], [ 1, %43 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %10 ], [ 0, %17 ], [ 1, %61 ], [ 1, %43 ]
   ret i32 %.0
 }
 

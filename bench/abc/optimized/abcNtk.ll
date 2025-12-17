@@ -2328,7 +2328,7 @@ switch.early.test:                                ; preds = %30
   br label %.critedge4
 
 .critedge4:                                       ; preds = %switch.early.test, %switch.early.test, %30, %.lr.ph85, %.critedge4.loopexit91, %.preheader, %.lr.ph88
-  %55 = phi ptr [ %.pre, %.critedge4.loopexit91 ], [ %25, %.preheader ], [ %25, %.lr.ph88 ], [ %25, %switch.early.test ], [ %25, %.lr.ph85 ], [ %25, %30 ], [ %25, %switch.early.test ]
+  %55 = phi ptr [ %.pre, %.critedge4.loopexit91 ], [ %25, %switch.early.test ], [ %25, %.preheader ], [ %25, %.lr.ph88 ], [ %25, %.lr.ph85 ], [ %25, %30 ], [ %25, %switch.early.test ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %56 = getelementptr i8, ptr %55, i64 4
   %.val = load i32, ptr %56, align 4, !tbaa !25
@@ -2616,7 +2616,7 @@ Abc_ObjIsBarBuf.exit93:                           ; preds = %55
   br label %.critedge4
 
 .critedge4:                                       ; preds = %switch.early.test, %switch.early.test, %51, %.lr.ph104, %.critedge4.loopexit111, %.preheader, %.lr.ph107, %Abc_ObjIsBarBuf.exit93
-  %83 = phi ptr [ %.pre, %.critedge4.loopexit111 ], [ %46, %.preheader ], [ %46, %.lr.ph107 ], [ %46, %Abc_ObjIsBarBuf.exit93 ], [ %46, %switch.early.test ], [ %46, %.lr.ph104 ], [ %46, %51 ], [ %46, %switch.early.test ]
+  %83 = phi ptr [ %.pre, %.critedge4.loopexit111 ], [ %46, %switch.early.test ], [ %46, %.preheader ], [ %46, %.lr.ph107 ], [ %46, %Abc_ObjIsBarBuf.exit93 ], [ %46, %.lr.ph104 ], [ %46, %51 ], [ %46, %switch.early.test ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %84 = getelementptr i8, ptr %83, i64 4
   %.val = load i32, ptr %84, align 4, !tbaa !25
@@ -4728,7 +4728,7 @@ define noundef ptr @Abc_NtkBottom(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.lr.ph110, %.critedge6.loopexit121, %.preheader100, %.lr.ph113
-  %75 = phi ptr [ %.pre141, %.critedge6.loopexit121 ], [ %49, %.preheader100 ], [ %49, %.lr.ph113 ], [ %49, %.lr.ph110 ]
+  %75 = phi ptr [ %.pre141, %.critedge6.loopexit121 ], [ %49, %.lr.ph113 ], [ %49, %.preheader100 ], [ %49, %.lr.ph110 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %76 = getelementptr i8, ptr %75, i64 4
   %.val83 = load i32, ptr %76, align 4, !tbaa !25
@@ -4811,7 +4811,7 @@ define noundef ptr @Abc_NtkBottom(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.lr.ph116, %.critedge10.loopexit, %.preheader, %.lr.ph119
-  %112 = phi ptr [ %.pre145, %.critedge10.loopexit ], [ %79, %.preheader ], [ %79, %.lr.ph119 ], [ %79, %.lr.ph116 ]
+  %112 = phi ptr [ %79, %.lr.ph119 ], [ %.pre145, %.critedge10.loopexit ], [ %79, %.preheader ], [ %79, %.lr.ph116 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %113 = getelementptr i8, ptr %112, i64 4
   %.val = load i32, ptr %113, align 4, !tbaa !25
@@ -8635,8 +8635,8 @@ Vec_IntFree.exit:                                 ; preds = %27, %30
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %46, %48, %38, %40
-  %.sink60 = phi ptr [ %39, %38 ], [ %41, %40 ], [ %47, %46 ], [ %49, %48 ]
-  %.sink = phi i32 [ 16, %38 ], [ 16, %40 ], [ %43, %46 ], [ %43, %48 ]
+  %.sink60 = phi ptr [ %41, %40 ], [ %39, %38 ], [ %47, %46 ], [ %49, %48 ]
+  %.sink = phi i32 [ 16, %40 ], [ 16, %38 ], [ %43, %46 ], [ %43, %48 ]
   store ptr %.sink60, ptr %17, align 8, !tbaa !61
   store i32 %.sink, ptr %9, align 8, !tbaa !60
   br label %Vec_IntPush.exit
@@ -9106,8 +9106,8 @@ Vec_IntInvert.exit:                               ; preds = %.loopexit
   br i1 %.not.i257, label %Vec_IntFree.exit, label %Vec_IntInvert.exit.thread
 
 Vec_IntInvert.exit.thread:                        ; preds = %191, %Vec_IntFill.exit.i, %Vec_IntInvert.exit
-  %.val203372 = phi ptr [ %.val17.i, %Vec_IntFill.exit.i ], [ null, %Vec_IntInvert.exit ], [ %.val17.i, %191 ]
-  %.val217342370 = phi i32 [ %179, %Vec_IntFill.exit.i ], [ 0, %Vec_IntInvert.exit ], [ %179, %191 ]
+  %.val203372 = phi ptr [ null, %Vec_IntInvert.exit ], [ %.val17.i, %Vec_IntFill.exit.i ], [ %.val17.i, %191 ]
+  %.val217342370 = phi i32 [ 0, %Vec_IntInvert.exit ], [ %179, %Vec_IntFill.exit.i ], [ %179, %191 ]
   tail call void @free(ptr noundef nonnull %34) #20
   %192 = icmp sgt i32 %.val217342370, 0
   br label %Vec_IntFree.exit
@@ -9188,8 +9188,8 @@ Vec_IntInvert.exit278:                            ; preds = %Vec_IntFree.exit
   br i1 %.not.i279, label %Vec_IntFree.exit280, label %Vec_IntInvert.exit278.thread
 
 Vec_IntInvert.exit278.thread:                     ; preds = %214, %Vec_IntFill.exit.i263, %Vec_IntInvert.exit278
-  %.val202377 = phi ptr [ %.val17.i264, %Vec_IntFill.exit.i263 ], [ null, %Vec_IntInvert.exit278 ], [ %.val17.i264, %214 ]
-  %.val216345375 = phi i32 [ %202, %Vec_IntFill.exit.i263 ], [ 0, %Vec_IntInvert.exit278 ], [ %202, %214 ]
+  %.val202377 = phi ptr [ null, %Vec_IntInvert.exit278 ], [ %.val17.i264, %Vec_IntFill.exit.i263 ], [ %.val17.i264, %214 ]
+  %.val216345375 = phi i32 [ 0, %Vec_IntInvert.exit278 ], [ %202, %Vec_IntFill.exit.i263 ], [ %202, %214 ]
   tail call void @free(ptr noundef nonnull %45) #20
   br label %Vec_IntFree.exit280
 
@@ -9652,7 +9652,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareByFanoutCount(ptr noundef readonly c
   br label %16
 
 16:                                               ; preds = %15, %9, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %9 ], [ %., %15 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %2 ], [ 1, %8 ], [ %., %15 ]
   ret i32 %.0
 }
 

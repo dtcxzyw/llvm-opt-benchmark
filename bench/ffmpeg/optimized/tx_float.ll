@@ -3507,7 +3507,7 @@ define internal i32 @ff_tx_fft_pfa_init_float_c(ptr noundef %0, ptr readnone cap
   br label %.thread142
 
 .thread142:                                       ; preds = %.loopexit, %.lr.ph161, %22, %28, %37, %44, %92, %55, %.thread147, %7, %96
-  %.097 = phi i32 [ 0, %96 ], [ %10, %7 ], [ %54, %.thread147 ], [ -12, %55 ], [ -12, %92 ], [ -12, %44 ], [ -12, %37 ], [ %.2110, %.loopexit ], [ -12, %.lr.ph161 ], [ -12, %22 ], [ -12, %28 ]
+  %.097 = phi i32 [ -12, %92 ], [ %10, %7 ], [ 0, %96 ], [ -12, %55 ], [ %54, %.thread147 ], [ -12, %37 ], [ -12, %44 ], [ %.2110, %.loopexit ], [ -12, %22 ], [ -12, %28 ], [ -12, %.lr.ph161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.097
@@ -4556,7 +4556,7 @@ define internal i32 @ff_tx_mdct_pfa_init_float_c(ptr noundef initializes((140, 1
   br label %69
 
 69:                                               ; preds = %._crit_edge69, %53, %21, %7, %67
-  %.054 = phi i32 [ 0, %67 ], [ %20, %7 ], [ %25, %21 ], [ %55, %53 ], [ -12, %._crit_edge69 ]
+  %.054 = phi i32 [ %55, %53 ], [ %20, %7 ], [ %25, %21 ], [ 0, %67 ], [ -12, %._crit_edge69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.054
 }
@@ -9298,7 +9298,7 @@ define internal i32 @ff_tx_dcstI_init_float_c(ptr noundef %0, ptr noundef readon
   br label %34
 
 34:                                               ; preds = %27, %15
-  %.0 = phi i32 [ %26, %15 ], [ %., %27 ]
+  %.0 = phi i32 [ %., %27 ], [ %26, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

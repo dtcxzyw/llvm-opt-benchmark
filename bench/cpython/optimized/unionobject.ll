@@ -64,7 +64,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %7
   %or.cond = or i1 %.not13.i, %.not14.i.not
   br i1 %or.cond, label %is_unionable.exit.thread, label %_Py_NewRef.exit
 
-is_unionable.exit.thread:                         ; preds = %2, %7, %PyObject_TypeCheck.exit.i, %13
+is_unionable.exit.thread:                         ; preds = %7, %PyObject_TypeCheck.exit.i, %13, %2
   %14 = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %14, label %is_unionable.exit22.thread, label %15
 
@@ -91,7 +91,7 @@ PyObject_TypeCheck.exit.i15:                      ; preds = %15
   %or.cond44 = or i1 %.not13.i19, %.not14.i20.not
   br i1 %or.cond44, label %is_unionable.exit22.thread, label %_Py_NewRef.exit
 
-is_unionable.exit22.thread:                       ; preds = %is_unionable.exit.thread, %15, %PyObject_TypeCheck.exit.i15, %21
+is_unionable.exit22.thread:                       ; preds = %15, %PyObject_TypeCheck.exit.i15, %21, %is_unionable.exit.thread
   br i1 %6, label %22, label %23
 
 22:                                               ; preds = %is_unionable.exit22.thread
@@ -363,7 +363,7 @@ _Py_NewRef.exit39.i:                              ; preds = %112, %.loopexit.i
   %118 = icmp eq ptr %71, null
   br i1 %118, label %merge.exit.thread, label %merge.exit
 
-merge.exit.thread:                                ; preds = %95, %59, %.split.us.i, %89, %91, %94, %.thread43.i, %get_types.exit31
+merge.exit.thread:                                ; preds = %95, %59, %94, %.split.us.i, %89, %91, %.thread43.i, %get_types.exit31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
@@ -456,7 +456,7 @@ make_union.exit:                                  ; preds = %129, %_Py_NewRef.ex
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %21, %13, %121, %123, %127, %make_union.exit, %163, %166
-  %.0 = phi ptr [ null, %121 ], [ %124, %123 ], [ %124, %127 ], [ %130, %make_union.exit ], [ %130, %163 ], [ %130, %166 ], [ @_Py_NotImplementedStruct, %13 ], [ @_Py_NotImplementedStruct, %21 ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %13 ], [ @_Py_NotImplementedStruct, %21 ], [ %124, %127 ], [ null, %121 ], [ %124, %123 ], [ %130, %make_union.exit ], [ %130, %163 ], [ %130, %166 ]
   ret ptr %.0
 }
 
@@ -592,7 +592,7 @@ define internal ptr @union_repr(ptr noundef readonly captures(none) %0) #0 {
   br label %24
 
 24:                                               ; preds = %1, %.thread24, %.thread
-  %.0 = phi ptr [ %23, %.thread ], [ null, %.thread24 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %.thread24 ], [ null, %1 ], [ %23, %.thread ]
   ret ptr %.0
 }
 
@@ -754,7 +754,7 @@ Py_DECREF.exit21.sink.split:                      ; preds = %30, %19
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %Py_DECREF.exit21.sink.split, %30, %Py_DECREF.exit19, %19, %17, %7, %3
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ null, %7 ], [ null, %17 ], [ null, %19 ], [ %23, %Py_DECREF.exit19 ], [ %23, %30 ], [ %.0.ph, %Py_DECREF.exit21.sink.split ]
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ null, %7 ], [ %23, %30 ], [ null, %17 ], [ null, %19 ], [ %23, %Py_DECREF.exit19 ], [ %.0.ph, %Py_DECREF.exit21.sink.split ]
   ret ptr %.0
 }
 

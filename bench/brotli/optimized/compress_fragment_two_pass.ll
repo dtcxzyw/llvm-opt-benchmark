@@ -453,7 +453,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -813,9 +813,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -883,7 +883,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -1309,7 +1309,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -1669,9 +1669,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -1739,7 +1739,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -2165,7 +2165,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -2525,9 +2525,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -2595,7 +2595,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -3021,7 +3021,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -3381,9 +3381,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -3451,7 +3451,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -3877,7 +3877,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -4237,9 +4237,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -4307,7 +4307,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -4733,7 +4733,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -5093,9 +5093,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -5163,7 +5163,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -5589,7 +5589,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -5949,9 +5949,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -6019,7 +6019,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -6445,7 +6445,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %76, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %108, %122, %131, %137, %139
-  %.sink = phi i32 [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %140, %139 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %140, %139 ], [ %119, %108 ], [ %128, %122 ], [ %133, %131 ], [ %138, %137 ], [ %103, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.187, align 4, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %.187, i64 4
   %sext.i = shl i64 %102, 32
@@ -6805,9 +6805,9 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br i1 %354, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
-  %.086 = phi ptr [ %3, %12 ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i261, %12 ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %.0273.i, %IsMatch.exit.us ], [ %104, %EmitCopyLenLastDistance.exit ]
+  %.086 = phi ptr [ %3, %12 ], [ %.187, %IsMatch.exit.us ], [ %324, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %211, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %IsMatch.exit.us ], [ %143, %EmitCopyLen.exit ], [ %.1, %IsMatch.exit.us190 ], [ %143, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i261, %12 ], [ %.0273.i, %IsMatch.exit.us ], [ %270, %EmitCopyLen.exit ], [ %.0273.i, %IsMatch.exit.us190 ], [ %104, %EmitCopyLenLastDistance.exit ]
   %355 = icmp ult ptr %.3.i, %14
   br i1 %355, label %356, label %CreateCommands.exit
 
@@ -6875,7 +6875,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %356, %364, %378, %387, %393, %395
-  %.sink413 = phi i32 [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %396, %395 ], [ %360, %356 ]
+  %.sink413 = phi i32 [ %396, %395 ], [ %375, %364 ], [ %384, %378 ], [ %389, %387 ], [ %394, %393 ], [ %360, %356 ]
   store i32 %.sink413, ptr %.086, align 4, !tbaa !41
   %397 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %398 = and i64 %359, 4294967295
@@ -7371,7 +7371,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %116, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %148, %162, %171, %177, %179
-  %.sink = phi i32 [ %159, %148 ], [ %168, %162 ], [ %173, %171 ], [ %178, %177 ], [ %180, %179 ], [ %143, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %180, %179 ], [ %159, %148 ], [ %168, %162 ], [ %173, %171 ], [ %178, %177 ], [ %143, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.189, align 4, !tbaa !41
   %181 = getelementptr inbounds nuw i8, ptr %.189, i64 4
   %sext.i = shl i64 %142, 32
@@ -7544,10 +7544,10 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %291 = icmp eq i32 %.0.copyload.i5275, %.0.copyload.i5176
   br i1 %291, label %.lr.ph81, label %IsMatch.exit13.thread.backedge
 
-IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %387, %.lr.ph81, %.lr.ph265, %.lr.ph265.preheader, %252
-  %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %386, %387 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ]
-  %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %334, %387 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ]
-  %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %333, %387 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ]
+IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %387, %.lr.ph265, %.lr.ph81, %.lr.ph265.preheader, %252
+  %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ], [ %386, %387 ]
+  %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ], [ %334, %387 ]
+  %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ], [ %333, %387 ]
   br label %IsMatch.exit13.thread
 
 .lr.ph265:                                        ; preds = %387
@@ -7777,9 +7777,9 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.backedge.us, %.backedge.us212, %12
-  %.088 = phi ptr [ %3, %12 ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %.189, %.split ], [ %251, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %EmitCopyLen.exit ], [ %.1, %.split.us ], [ %.1, %.split ], [ %183, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %EmitCopyLen.exit ], [ %.0273.i, %.split.us ], [ %.0273.i, %.split ], [ %144, %EmitCopyLenLastDistance.exit ]
+  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %251, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %EmitCopyLen.exit ], [ %.1, %.split.us ], [ %183, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %EmitCopyLen.exit ], [ %.0273.i, %.split.us ], [ %144, %EmitCopyLenLastDistance.exit ]
   %426 = icmp ult ptr %.3.i, %14
   br i1 %426, label %427, label %CreateCommands.exit
 
@@ -7847,7 +7847,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %427, %435, %449, %458, %464, %466
-  %.sink471 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
+  %.sink471 = phi i32 [ %467, %466 ], [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %431, %427 ]
   store i32 %.sink471, ptr %.088, align 4, !tbaa !41
   %468 = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %469 = and i64 %430, 4294967295
@@ -8343,7 +8343,7 @@ FindMatchLengthWithLimit.exit33:                  ; preds = %116, %.critedge.i28
   br label %EmitInsertLen.exit
 
 EmitInsertLen.exit:                               ; preds = %FindMatchLengthWithLimit.exit33, %148, %162, %171, %177, %179
-  %.sink = phi i32 [ %159, %148 ], [ %168, %162 ], [ %173, %171 ], [ %178, %177 ], [ %180, %179 ], [ %143, %FindMatchLengthWithLimit.exit33 ]
+  %.sink = phi i32 [ %180, %179 ], [ %159, %148 ], [ %168, %162 ], [ %173, %171 ], [ %178, %177 ], [ %143, %FindMatchLengthWithLimit.exit33 ]
   store i32 %.sink, ptr %.189, align 4, !tbaa !41
   %181 = getelementptr inbounds nuw i8, ptr %.189, i64 4
   %sext.i = shl i64 %142, 32
@@ -8516,10 +8516,10 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %291 = icmp eq i32 %.0.copyload.i5275, %.0.copyload.i5176
   br i1 %291, label %.lr.ph81, label %IsMatch.exit13.thread.backedge
 
-IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %387, %.lr.ph81, %.lr.ph265, %.lr.ph265.preheader, %252
-  %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %386, %387 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ]
-  %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %334, %387 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ]
-  %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %333, %387 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ]
+IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %387, %.lr.ph265, %.lr.ph81, %.lr.ph265.preheader, %252
+  %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ], [ %386, %387 ]
+  %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ], [ %334, %387 ]
+  %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ], [ %333, %387 ]
   br label %IsMatch.exit13.thread
 
 .lr.ph265:                                        ; preds = %387
@@ -8749,9 +8749,9 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.backedge.us, %.backedge.us212, %12
-  %.088 = phi ptr [ %3, %12 ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %.189, %.split ], [ %251, %EmitCopyLenLastDistance.exit ]
-  %.0 = phi ptr [ %4, %12 ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %EmitCopyLen.exit ], [ %.1, %.split.us ], [ %.1, %.split ], [ %183, %EmitCopyLenLastDistance.exit ]
-  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %EmitCopyLen.exit ], [ %.0273.i, %.split.us ], [ %.0273.i, %.split ], [ %144, %EmitCopyLenLastDistance.exit ]
+  %.088 = phi ptr [ %3, %12 ], [ %.189, %.split ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %251, %EmitCopyLenLastDistance.exit ]
+  %.0 = phi ptr [ %4, %12 ], [ %.1, %.split ], [ %.1, %.backedge.us212 ], [ %.1, %.backedge.us ], [ %183, %EmitCopyLen.exit ], [ %.1, %.split.us ], [ %183, %EmitCopyLenLastDistance.exit ]
+  %.3.i = phi ptr [ %.0.i282, %12 ], [ %.0273.i, %.split ], [ %.0273.i, %.backedge.us212 ], [ %.0273.i, %.backedge.us ], [ %333, %EmitCopyLen.exit ], [ %.0273.i, %.split.us ], [ %144, %EmitCopyLenLastDistance.exit ]
   %426 = icmp ult ptr %.3.i, %14
   br i1 %426, label %427, label %CreateCommands.exit
 
@@ -8819,7 +8819,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   br label %EmitInsertLen.exit35
 
 EmitInsertLen.exit35:                             ; preds = %427, %435, %449, %458, %464, %466
-  %.sink471 = phi i32 [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %467, %466 ], [ %431, %427 ]
+  %.sink471 = phi i32 [ %467, %466 ], [ %446, %435 ], [ %455, %449 ], [ %460, %458 ], [ %465, %464 ], [ %431, %427 ]
   store i32 %.sink471, ptr %.088, align 4, !tbaa !41
   %468 = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %469 = and i64 %430, 4294967295

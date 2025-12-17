@@ -456,9 +456,9 @@ sk_X509_new_1.exit.i:                             ; preds = %19, %17
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %3, %10, %sk_X509_new_1.exit.i, %21, %23, %25, %27, %29, %32, %34, %36, %38, %86
-  %.035.i = phi ptr [ %.0.i.i, %38 ], [ %.0.i.i, %36 ], [ %.0.i.i, %34 ], [ %.0.i.i, %32 ], [ %.0.i.i, %29 ], [ %.0.i.i, %27 ], [ %.0.i.i, %25 ], [ %.0.i.i, %23 ], [ %.0.i.i, %21 ], [ %.0.i.i, %sk_X509_new_1.exit.i ], [ null, %10 ], [ null, %3 ], [ %.0.i.i, %86 ]
-  %.034.i = phi ptr [ %30, %38 ], [ %30, %36 ], [ %30, %34 ], [ %30, %32 ], [ %30, %29 ], [ null, %27 ], [ null, %25 ], [ null, %23 ], [ null, %21 ], [ null, %sk_X509_new_1.exit.i ], [ null, %10 ], [ null, %3 ], [ %30, %86 ]
-  %.0.i = phi i32 [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %sk_X509_new_1.exit.i ], [ 0, %10 ], [ 0, %3 ], [ %spec.select.i, %86 ]
+  %.035.i = phi ptr [ null, %3 ], [ %.0.i.i, %86 ], [ %.0.i.i, %38 ], [ %.0.i.i, %36 ], [ %.0.i.i, %34 ], [ %.0.i.i, %32 ], [ %.0.i.i, %29 ], [ %.0.i.i, %27 ], [ %.0.i.i, %25 ], [ %.0.i.i, %23 ], [ %.0.i.i, %21 ], [ %.0.i.i, %sk_X509_new_1.exit.i ], [ null, %10 ]
+  %.034.i = phi ptr [ null, %3 ], [ %30, %86 ], [ %30, %38 ], [ %30, %36 ], [ %30, %34 ], [ %30, %32 ], [ %30, %29 ], [ null, %27 ], [ null, %25 ], [ null, %23 ], [ null, %21 ], [ null, %sk_X509_new_1.exit.i ], [ null, %10 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %86 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %sk_X509_new_1.exit.i ], [ 0, %10 ]
   tail call void @X509_free(ptr noundef %5) #6
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %.035.i) #6
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %.034.i) #6
@@ -750,8 +750,8 @@ OSSL_CMP_CTX_get_log_cb.exit43.thread.i:          ; preds = %38
   br label %42
 
 OSSL_CMP_CTX_get_log_cb.exit43.i:                 ; preds = %38, %.thread19.i, %37
-  %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
-  %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_log_cb, %37 ]
+  %.818.i = phi i32 [ 0, %.thread19.i ], [ 0, %38 ], [ %.6.i, %37 ]
+  %.0.i4051116.i = phi ptr [ %35, %.thread19.i ], [ null, %38 ], [ @test_log_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   %41 = icmp eq ptr %40, null
@@ -853,7 +853,7 @@ define internal range(i32 0, 2) i32 @test_cmp_ctx_log_cb() #1 {
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %24, %29
-  %.1.i = phi i32 [ 0, %24 ], [ %spec.select15.i, %29 ]
+  %.1.i = phi i32 [ %spec.select15.i, %29 ], [ 0, %24 ]
   tail call void @OSSL_CMP_log_close() #6
   tail call void @OSSL_CMP_log_close() #6
   %38 = load ptr, ptr %4, align 8, !tbaa !4
@@ -942,7 +942,7 @@ define internal range(i32 0, 2) i32 @test_CTX_print_errors() #1 {
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %3, %28
-  %.3.i = phi i32 [ 0, %3 ], [ %spec.select27.i, %28 ]
+  %.3.i = phi i32 [ %spec.select27.i, %28 ], [ 0, %3 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !4
   tail call void @OSSL_CMP_CTX_free(ptr noundef %34) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 25) #6
@@ -2083,8 +2083,8 @@ OSSL_CMP_CTX_get_http_cb.exit43.thread.i:         ; preds = %38
   br label %42
 
 OSSL_CMP_CTX_get_http_cb.exit43.i:                ; preds = %38, %.thread19.i, %37
-  %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
-  %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_http_cb, %37 ]
+  %.818.i = phi i32 [ 0, %.thread19.i ], [ 0, %38 ], [ %.6.i, %37 ]
+  %.0.i4051116.i = phi ptr [ %35, %.thread19.i ], [ null, %38 ], [ @test_http_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %40 = load ptr, ptr %39, align 8, !tbaa !49
   %41 = icmp eq ptr %40, null
@@ -2405,8 +2405,8 @@ OSSL_CMP_CTX_get_transfer_cb.exit43.thread.i:     ; preds = %38
   br label %42
 
 OSSL_CMP_CTX_get_transfer_cb.exit43.i:            ; preds = %38, %.thread19.i, %37
-  %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
-  %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_transfer_cb, %37 ]
+  %.818.i = phi i32 [ 0, %.thread19.i ], [ 0, %38 ], [ %.6.i, %37 ]
+  %.0.i4051116.i = phi ptr [ %35, %.thread19.i ], [ null, %38 ], [ @test_transfer_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !50
   %41 = icmp eq ptr %40, null
@@ -6565,8 +6565,8 @@ OSSL_CMP_CTX_get_certConf_cb.exit43.thread.i:     ; preds = %38
   br label %42
 
 OSSL_CMP_CTX_get_certConf_cb.exit43.i:            ; preds = %38, %.thread19.i, %37
-  %.818.i = phi i32 [ 0, %38 ], [ 0, %.thread19.i ], [ %.6.i, %37 ]
-  %.0.i4051116.i = phi ptr [ null, %38 ], [ %35, %.thread19.i ], [ @test_certConf_cb, %37 ]
+  %.818.i = phi i32 [ 0, %.thread19.i ], [ 0, %38 ], [ %.6.i, %37 ]
+  %.0.i4051116.i = phi ptr [ %35, %.thread19.i ], [ null, %38 ], [ @test_certConf_cb, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 520
   %40 = load ptr, ptr %39, align 8, !tbaa !69
   %41 = icmp eq ptr %40, null

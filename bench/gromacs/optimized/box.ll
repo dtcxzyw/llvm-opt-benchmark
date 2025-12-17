@@ -579,7 +579,7 @@ _ZL18calc_pos_av_stddevN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEPfS5_PKP10tmpi_comm
   br i1 %exitcond193.not.i, label %.loopexit.i, label %.lr.ph174.i, !llvm.loop !131
 
 .loopexit.i:                                      ; preds = %.lr.ph174.i, %254, %183
-  %.0158.i = phi float [ %.1.i, %254 ], [ 1.000000e+00, %183 ], [ %.1.i, %.lr.ph174.i ]
+  %.0158.i = phi float [ 1.000000e+00, %183 ], [ %.1.i, %254 ], [ %.1.i, %.lr.ph174.i ]
   %279 = call noundef float @sqrtf(float noundef %.0158.i) #14, !tbaa !106
   %280 = fdiv float 1.000000e+00, %279
   %281 = getelementptr inbounds nuw float, ptr %128, i64 %indvar.i

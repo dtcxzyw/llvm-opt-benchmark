@@ -248,7 +248,7 @@ agxbput.exit.thread200:                           ; preds = %42
   br label %56
 
 agxbput.exit:                                     ; preds = %.thread193, %33
-  %.val.i = phi i8 [ %47, %.thread193 ], [ %.val.i.pre, %33 ]
+  %.val.i = phi i8 [ %.val.i.pre, %33 ], [ %47, %.thread193 ]
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 31
   switch i8 %.val.i, label %agxblen.exit.i.i99 [
     i8 -1, label %56

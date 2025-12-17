@@ -254,8 +254,8 @@ define double @average_edge_length(ptr noundef readonly captures(none) %0, i32 n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader45
-  %42 = phi i32 [ %.pre72, %._crit_edge.loopexit ], [ %11, %.preheader45 ]
-  %.041.lcssa = phi double [ %.1.lcssa.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.preheader45 ]
+  %42 = phi i32 [ %11, %.preheader45 ], [ %.pre72, %._crit_edge.loopexit ]
+  %.041.lcssa = phi double [ 0.000000e+00, %.preheader45 ], [ %.1.lcssa.us, %._crit_edge.loopexit ]
   %43 = sitofp i32 %42 to double
   %44 = fdiv double %.041.lcssa, %43
   br label %45
@@ -431,8 +431,8 @@ define void @spring_electrical_embedding_fast(i32 noundef %0, ptr noundef %1, pt
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %79 = phi i32 [ %.pre72.i, %._crit_edge.loopexit.i ], [ %49, %.preheader45.i ]
-  %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
+  %79 = phi i32 [ %49, %.preheader45.i ], [ %.pre72.i, %._crit_edge.loopexit.i ]
+  %.041.lcssa.i = phi double [ 0.000000e+00, %.preheader45.i ], [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ]
   %80 = sitofp i32 %79 to double
   %81 = fdiv double %.041.lcssa.i, %80
   br label %average_edge_length.exit
@@ -688,8 +688,8 @@ gv_calloc.exit:                                   ; preds = %85
   br label %oned_optimizer_train.exit
 
 oned_optimizer_train.exit:                        ; preds = %163, %183, %181, %174, %172, %165, %185, %187
-  %191 = phi i32 [ 1, %183 ], [ %106, %181 ], [ -1, %174 ], [ 1, %172 ], [ 1, %165 ], [ %106, %185 ], [ %106, %187 ], [ -1, %163 ]
-  %192 = phi i32 [ %184, %183 ], [ %182, %181 ], [ %175, %174 ], [ %173, %172 ], [ %spec.select.i, %165 ], [ %107, %185 ], [ %107, %187 ], [ 19, %163 ]
+  %191 = phi i32 [ 1, %183 ], [ %106, %181 ], [ -1, %174 ], [ 1, %172 ], [ 1, %165 ], [ %106, %187 ], [ %106, %185 ], [ -1, %163 ]
+  %192 = phi i32 [ %184, %183 ], [ %182, %181 ], [ %175, %174 ], [ %173, %172 ], [ %spec.select.i, %165 ], [ %107, %187 ], [ %107, %185 ], [ 19, %163 ]
   br i1 %.not184, label %193, label %195
 
 193:                                              ; preds = %oned_optimizer_train.exit
@@ -1281,8 +1281,8 @@ gv_calloc.exit242:                                ; preds = %50
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %108 = phi i32 [ %.pre72.i, %._crit_edge.loopexit.i ], [ %78, %.preheader45.i ]
-  %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
+  %108 = phi i32 [ %78, %.preheader45.i ], [ %.pre72.i, %._crit_edge.loopexit.i ]
+  %.041.lcssa.i = phi double [ 0.000000e+00, %.preheader45.i ], [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ]
   %109 = sitofp i32 %108 to double
   %110 = fdiv double %.041.lcssa.i, %109
   br label %average_edge_length.exit
@@ -1943,8 +1943,8 @@ gv_calloc.exit297:                                ; preds = %48
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %111 = phi i32 [ %.pre72.i, %._crit_edge.loopexit.i ], [ %81, %.preheader45.i ]
-  %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
+  %111 = phi i32 [ %81, %.preheader45.i ], [ %.pre72.i, %._crit_edge.loopexit.i ]
+  %.041.lcssa.i = phi double [ 0.000000e+00, %.preheader45.i ], [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ]
   %112 = sitofp i32 %111 to double
   %113 = fdiv double %.041.lcssa.i, %112
   br label %average_edge_length.exit
@@ -2536,7 +2536,7 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr noundef captures(non
   br i1 %exitcond167.not, label %._crit_edge, label %.preheader97.us, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %._crit_edge120.split.us.us, %.preheader100, %.preheader103.thread, %.preheader102.lr.ph, %.preheader97.lr.ph
-  %41 = phi i1 [ true, %.preheader97.lr.ph ], [ %not., %.preheader100 ], [ %13, %.preheader103.thread ], [ true, %.preheader102.lr.ph ], [ true, %._crit_edge120.split.us.us ]
+  %41 = phi i1 [ true, %.preheader102.lr.ph ], [ true, %.preheader97.lr.ph ], [ %13, %.preheader103.thread ], [ %not., %.preheader100 ], [ true, %._crit_edge120.split.us.us ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !39
   %44 = fcmp oeq double %43, 0.000000e+00
@@ -4063,8 +4063,8 @@ gv_calloc.exit:                                   ; preds = %24
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %83 = phi i32 [ %.pre72.i, %._crit_edge.loopexit.i ], [ %53, %.preheader45.i ]
-  %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
+  %83 = phi i32 [ %53, %.preheader45.i ], [ %.pre72.i, %._crit_edge.loopexit.i ]
+  %.041.lcssa.i = phi double [ 0.000000e+00, %.preheader45.i ], [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ]
   %84 = sitofp i32 %83 to double
   %85 = fdiv double %.041.lcssa.i, %84
   br label %average_edge_length.exit

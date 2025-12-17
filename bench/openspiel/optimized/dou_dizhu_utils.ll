@@ -376,13 +376,13 @@ define void @_ZN10open_spiel9dou_dizhu10RankStringB5cxx11Ei(ptr dead_on_unwind n
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc18, %.noexc14, %.noexc12
-  %.sink = phi ptr [ %3, %.noexc12 ], [ %4, %.noexc14 ], [ %5, %.noexc18 ]
+  %.sink = phi ptr [ %4, %.noexc14 ], [ %3, %.noexc12 ], [ %5, %.noexc18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #20
   ret void
 
 .body:                                            ; preds = %34, %36, %29, %27, %23, %21, %16, %14
-  %.sink22 = phi ptr [ %3, %14 ], [ %3, %16 ], [ %4, %21 ], [ %4, %23 ], [ %5, %27 ], [ %5, %29 ], [ %7, %36 ], [ %7, %34 ]
-  %.pn10 = phi { ptr, i32 } [ %15, %14 ], [ %17, %16 ], [ %22, %21 ], [ %24, %23 ], [ %28, %27 ], [ %30, %29 ], [ %37, %36 ], [ %35, %34 ]
+  %.sink22 = phi ptr [ %5, %29 ], [ %4, %23 ], [ %3, %16 ], [ %3, %14 ], [ %4, %21 ], [ %5, %27 ], [ %7, %36 ], [ %7, %34 ]
+  %.pn10 = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ], [ %17, %16 ], [ %15, %14 ], [ %22, %21 ], [ %28, %27 ], [ %37, %36 ], [ %35, %34 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22) #20
   resume { ptr, i32 } %.pn10
 }
@@ -1194,7 +1194,7 @@ define noundef range(i32 1, 5) i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRan
   resume { ptr, i32 } %.pn
 
 20:                                               ; preds = %10, %7, %5, %1
-  %.022 = phi i32 [ 1, %1 ], [ 2, %5 ], [ 3, %7 ], [ 4, %10 ]
+  %.022 = phi i32 [ 3, %7 ], [ 1, %1 ], [ 2, %5 ], [ 4, %10 ]
   ret i32 %.022
 }
 
@@ -1859,7 +1859,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit31:            ; preds = %_ZNK4absl7debian24S
   unreachable
 
 common.resume:                                    ; preds = %96, %100, %107, %110, %118
-  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %.pn.i.i, %118 ], [ %108, %107 ], [ %101, %100 ], [ %97, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %118 ], [ %111, %110 ], [ %108, %107 ], [ %101, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %common.resume.op
 
 110:                                              ; preds = %.split66.us
@@ -2456,10 +2456,10 @@ _ZNK4absl7debian24SpanIKiEixEm.exit52:            ; preds = %39
   br label %52
 
 52:                                               ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit50, %50, %_ZNK4absl7debian24SpanIKiEixEm.exit51
-  %.139 = phi i32 [ 1, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %51, %50 ], [ %.03882, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
-  %.137 = phi i32 [ %40, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.03683, %50 ], [ %.03683, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
-  %.135 = phi i32 [ %37, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.03484, %50 ], [ %.03484, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
-  %.1 = phi i32 [ %41, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.02587, %50 ], [ %.02587, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
+  %.139 = phi i32 [ %51, %50 ], [ 1, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.03882, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
+  %.137 = phi i32 [ %.03683, %50 ], [ %40, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.03683, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
+  %.135 = phi i32 [ %.03484, %50 ], [ %37, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.03484, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
+  %.1 = phi i32 [ %.02587, %50 ], [ %41, %_ZNK4absl7debian24SpanIKiEixEm.exit51 ], [ %.02587, %_ZNK4absl7debian24SpanIKiEixEm.exit50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %53, label %_ZNK4absl7debian24SpanIKiEixEm.exit50, !llvm.loop !31
@@ -3076,7 +3076,7 @@ define noundef range(i32 133, 23105) i32 @_ZN10open_spiel9dou_dizhu21GetTrioComb
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %9, %7, %5, %1
-  %.018 = phi i32 [ 133, %1 ], [ 315, %5 ], [ 516, %7 ], [ 23104, %9 ]
+  %.018 = phi i32 [ 516, %7 ], [ 133, %1 ], [ 315, %5 ], [ 23104, %9 ]
   ret i32 %.018
 }
 
@@ -3132,7 +3132,7 @@ define noundef range(i32 1, 3) i32 @_ZN10open_spiel9dou_dizhu21GetTrioCombKicker
   resume { ptr, i32 } %.pn
 
 19:                                               ; preds = %9, %7, %5, %1
-  %.018 = phi i32 [ 1, %1 ], [ 2, %5 ], [ 1, %7 ], [ 2, %9 ]
+  %.018 = phi i32 [ 1, %7 ], [ 1, %1 ], [ 2, %5 ], [ 2, %9 ]
   ret i32 %.018
 }
 
@@ -4435,7 +4435,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit66:             ; preds = %_ZNK4absl7debian24S
   br i1 %exitcond92.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZNK4absl7debian24SpanIiEixEm.exit65, %92, %_ZNK4absl7debian24SpanIiEixEm.exit65.us, %36, %_ZNK4absl7debian24SpanIiEixEm.exit57, %.preheader71, %68, %53
-  %.047 = phi i1 [ true, %53 ], [ false, %68 ], [ false, %.preheader71 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit57 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit65.us ], [ false, %36 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit65 ], [ false, %92 ]
+  %.047 = phi i1 [ false, %68 ], [ true, %53 ], [ false, %.preheader71 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit57 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit65.us ], [ false, %36 ], [ false, %92 ], [ true, %_ZNK4absl7debian24SpanIiEixEm.exit65 ]
   ret i1 %.047
 
 93:                                               ; preds = %79, %74
@@ -4824,8 +4824,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %40
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %192, %129, %63, %254, %._crit_edge.split, %207, %146, %110, %80, %45
-  %.sroa.37.1.ph.ph.ph.ph = phi ptr [ %.sroa.37.0293, %110 ], [ %.sroa.15.3286, %129 ], [ %.sroa.37.0293, %146 ], [ %.sroa.15.2280, %63 ], [ %.sroa.37.0293, %80 ], [ %.sroa.37.0293, %45 ], [ %.sroa.15.4301, %192 ], [ %.sroa.37.7, %254 ], [ %.sroa.37.7, %._crit_edge.split ], [ %.sroa.37.7, %207 ], [ %.sroa.15.0294, %.invoke ]
-  %.sroa.0.1.ph.ph.ph.ph = phi ptr [ %.sroa.0.0295, %110 ], [ %.sroa.0.5287, %129 ], [ %.sroa.0.0295, %146 ], [ %.sroa.0.4281, %63 ], [ %.sroa.0.0295, %80 ], [ %.sroa.0.0295, %45 ], [ %.sroa.0.6302, %192 ], [ %.sroa.0.7, %254 ], [ %.sroa.0.7, %._crit_edge.split ], [ %.sroa.0.7, %207 ], [ %.sroa.0.0295, %.invoke ]
+  %.sroa.37.1.ph.ph.ph.ph = phi ptr [ %.sroa.37.0293, %110 ], [ %.sroa.15.3286, %129 ], [ %.sroa.15.0294, %.invoke ], [ %.sroa.37.0293, %146 ], [ %.sroa.15.2280, %63 ], [ %.sroa.37.7, %207 ], [ %.sroa.37.0293, %80 ], [ %.sroa.37.0293, %45 ], [ %.sroa.15.4301, %192 ], [ %.sroa.37.7, %254 ], [ %.sroa.37.7, %._crit_edge.split ]
+  %.sroa.0.1.ph.ph.ph.ph = phi ptr [ %.sroa.0.0295, %110 ], [ %.sroa.0.5287, %129 ], [ %.sroa.0.0295, %.invoke ], [ %.sroa.0.0295, %146 ], [ %.sroa.0.4281, %63 ], [ %.sroa.0.7, %207 ], [ %.sroa.0.0295, %80 ], [ %.sroa.0.0295, %45 ], [ %.sroa.0.6302, %192 ], [ %.sroa.0.7, %254 ], [ %.sroa.0.7, %._crit_edge.split ]
   %lpad.loopexit.split-lp211 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5216,11 +5216,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99, %152, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74, %86, %118, %115, %_ZNK4absl7debian24SpanIKiEixEm.exit64
-  %.sroa.37.3 = phi ptr [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.37.0293, %115 ], [ %.sroa.37.0293, %118 ], [ %107, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.sroa.37.0293, %86 ], [ %173, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.sroa.37.0293, %152 ], [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.37.10, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.37.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.15.0294, %115 ], [ %.sroa.15.0294, %118 ], [ %105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %88, %86 ], [ %171, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %154, %152 ], [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.15.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.15.6, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.0.0295, %115 ], [ %.sroa.0.0295, %118 ], [ %100, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.sroa.0.0295, %86 ], [ %166, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.sroa.0.0295, %152 ], [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.0.10, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.0.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.154 = phi i1 [ %.053298, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ true, %115 ], [ true, %118 ], [ false, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ false, %86 ], [ false, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ false, %152 ], [ false, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ false, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ false, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ false, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.1 = phi i32 [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %116, %115 ], [ %119, %118 ], [ %.0299, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.0299, %86 ], [ %.0299, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.0299, %152 ], [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.0299, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.0299, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.37.3 = phi ptr [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.37.0293, %115 ], [ %.sroa.37.0293, %118 ], [ %107, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.sroa.37.0293, %86 ], [ %.sroa.37.0293, %152 ], [ %173, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.37.0293, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.37.10, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.37.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.15.0294, %115 ], [ %.sroa.15.0294, %118 ], [ %105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %88, %86 ], [ %154, %152 ], [ %171, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.15.0294, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.15.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.15.6, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %.sroa.0.0295, %115 ], [ %.sroa.0.0295, %118 ], [ %100, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.sroa.0.0295, %86 ], [ %.sroa.0.0295, %152 ], [ %166, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.sroa.0.0295, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.sroa.0.10, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.sroa.0.8, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.154 = phi i1 [ %.053298, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ true, %115 ], [ true, %118 ], [ false, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ false, %86 ], [ false, %152 ], [ false, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ false, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ false, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ false, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ false, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.1 = phi i32 [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit64 ], [ %116, %115 ], [ %119, %118 ], [ %.0299, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74 ], [ %.0299, %86 ], [ %.0299, %152 ], [ %.0299, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99 ], [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader ], [ %.0299, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader ], [ %.0299, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91 ], [ %.0299, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond344.not, label %174, label %40, !llvm.loop !50
@@ -5550,9 +5550,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %259, %261
   ret i32 %266
 
 .body:                                            ; preds = %.loopexit203, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %233, %245, %257, %222, %210, %149, %113, %83, %48
-  %.sroa.37.2 = phi ptr [ %.sroa.37.0293, %113 ], [ %.sroa.37.0293, %149 ], [ %.sroa.37.0293, %83 ], [ %.sroa.37.0293, %48 ], [ %.sroa.37.7, %222 ], [ %.sroa.37.7, %257 ], [ %.sroa.37.7, %210 ], [ %.sroa.37.7, %233 ], [ %.sroa.37.7, %245 ], [ %.sroa.15.4301, %.loopexit203 ], [ %.sroa.15.3286, %.loopexit.split-lp.loopexit ], [ %.sroa.15.2280, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.15.0294, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.37.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0295, %113 ], [ %.sroa.0.0295, %149 ], [ %.sroa.0.0295, %83 ], [ %.sroa.0.0295, %48 ], [ %.sroa.0.7, %222 ], [ %.sroa.0.7, %257 ], [ %.sroa.0.7, %210 ], [ %.sroa.0.7, %233 ], [ %.sroa.0.7, %245 ], [ %.sroa.0.6302, %.loopexit203 ], [ %.sroa.0.5287, %.loopexit.split-lp.loopexit ], [ %.sroa.0.4281, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.0295, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn62 = phi { ptr, i32 } [ %114, %113 ], [ %150, %149 ], [ %84, %83 ], [ %49, %48 ], [ %.pn, %222 ], [ %258, %257 ], [ %211, %210 ], [ %.pn.i, %233 ], [ %.pn.i110, %245 ], [ %lpad.loopexit, %.loopexit203 ], [ %lpad.loopexit204, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.37.2 = phi ptr [ %.sroa.37.0293, %113 ], [ %.sroa.37.7, %210 ], [ %.sroa.37.0293, %149 ], [ %.sroa.37.0293, %83 ], [ %.sroa.37.0293, %48 ], [ %.sroa.37.7, %222 ], [ %.sroa.37.7, %257 ], [ %.sroa.37.7, %233 ], [ %.sroa.37.7, %245 ], [ %.sroa.15.4301, %.loopexit203 ], [ %.sroa.15.3286, %.loopexit.split-lp.loopexit ], [ %.sroa.15.2280, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.15.0294, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.37.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0295, %113 ], [ %.sroa.0.7, %210 ], [ %.sroa.0.0295, %149 ], [ %.sroa.0.0295, %83 ], [ %.sroa.0.0295, %48 ], [ %.sroa.0.7, %222 ], [ %.sroa.0.7, %257 ], [ %.sroa.0.7, %233 ], [ %.sroa.0.7, %245 ], [ %.sroa.0.6302, %.loopexit203 ], [ %.sroa.0.5287, %.loopexit.split-lp.loopexit ], [ %.sroa.0.4281, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.0295, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn62 = phi { ptr, i32 } [ %114, %113 ], [ %211, %210 ], [ %150, %149 ], [ %84, %83 ], [ %49, %48 ], [ %.pn, %222 ], [ %258, %257 ], [ %.pn.i, %233 ], [ %.pn.i110, %245 ], [ %lpad.loopexit, %.loopexit203 ], [ %lpad.loopexit204, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit208, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i121 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIiSaIiEED2Ev.exit122, label %267
 

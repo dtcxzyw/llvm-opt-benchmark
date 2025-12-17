@@ -773,8 +773,8 @@ get_ue_golomb.exit.i:                             ; preds = %get_ue_golomb.exit.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %427, %424, %412, %get_ue_golomb.exit.i
-  %430 = phi i32 [ %429, %427 ], [ %spec.select.i250.i, %424 ], [ %spec.select.i250.i, %412 ], [ %spec.select.i249.i, %get_ue_golomb.exit.i ]
-  %431 = phi i1 [ false, %427 ], [ false, %424 ], [ true, %412 ], [ true, %get_ue_golomb.exit.i ]
+  %430 = phi i32 [ %spec.select.i250.i, %412 ], [ %429, %427 ], [ %spec.select.i250.i, %424 ], [ %spec.select.i249.i, %get_ue_golomb.exit.i ]
+  %431 = phi i1 [ true, %412 ], [ false, %427 ], [ false, %424 ], [ true, %get_ue_golomb.exit.i ]
   %432 = add i32 %430, 1
   %433 = call i32 @llvm.umin.i32(i32 %327, i32 %432)
   %434 = add i32 %433, 1
@@ -1804,8 +1804,8 @@ decode_pic.exit:                                  ; preds = %1026, %.loopexit.i
   call fastcc void @decode_slice_header(ptr noundef %9, ptr noundef nonnull %34)
   br label %decode_seq_header.exit
 
-decode_seq_header.exit:                           ; preds = %698, %619, %919, %.preheader333.i, %973, %932, %1019, %322, %303, %298, %261, %264, %233, %311, %608, %362, %259, %210, %199, %175, %144, %139, %104, %1042, %1044, %1041, %1037, %1040, %223, %90, %90
-  %.1 = phi i32 [ %.0123, %1044 ], [ %.0123, %1042 ], [ %220, %1037 ], [ %220, %1040 ], [ %220, %1041 ], [ %220, %223 ], [ %.0123, %90 ], [ %.0123, %90 ], [ %.0123, %104 ], [ %.0123, %139 ], [ %.0123, %144 ], [ %.0123, %175 ], [ %.0123, %199 ], [ %.0123, %210 ], [ %220, %259 ], [ %220, %362 ], [ %220, %608 ], [ %220, %311 ], [ %220, %233 ], [ %220, %264 ], [ %220, %261 ], [ %220, %298 ], [ %220, %303 ], [ %220, %322 ], [ %220, %1019 ], [ %220, %932 ], [ %220, %973 ], [ %220, %.preheader333.i ], [ %220, %919 ], [ %220, %619 ], [ %220, %698 ]
+decode_seq_header.exit:                           ; preds = %919, %698, %619, %.preheader333.i, %1019, %932, %973, %264, %233, %311, %608, %322, %362, %303, %298, %261, %259, %210, %199, %175, %144, %139, %104, %1042, %1044, %1041, %1037, %1040, %223, %90, %90
+  %.1 = phi i32 [ %.0123, %1044 ], [ %.0123, %1042 ], [ %.0123, %90 ], [ %.0123, %210 ], [ %220, %1037 ], [ %220, %1040 ], [ %220, %1041 ], [ %220, %223 ], [ %.0123, %90 ], [ %.0123, %104 ], [ %.0123, %139 ], [ %.0123, %144 ], [ %.0123, %175 ], [ %.0123, %199 ], [ %220, %259 ], [ %220, %261 ], [ %220, %298 ], [ %220, %303 ], [ %220, %362 ], [ %220, %322 ], [ %220, %608 ], [ %220, %311 ], [ %220, %233 ], [ %220, %264 ], [ %220, %.preheader333.i ], [ %220, %1019 ], [ %220, %973 ], [ %220, %932 ], [ %220, %619 ], [ %220, %698 ], [ %220, %919 ]
   %1050 = call ptr @avpriv_find_start_code(ptr noundef %92, ptr noundef nonnull %26, ptr noundef nonnull %7) #8
   %1051 = load i32, ptr %7, align 4, !tbaa !30
   %.not = icmp ugt i32 %1051, 511
@@ -1814,7 +1814,7 @@ decode_seq_header.exit:                           ; preds = %698, %619, %919, %.
   br i1 %or.cond, label %._crit_edge, label %90
 
 .loopexit:                                        ; preds = %1037, %217, %15, %18, %22, %84
-  %.061 = phi i32 [ %89, %84 ], [ 0, %22 ], [ 0, %18 ], [ 0, %15 ], [ %1038, %1037 ], [ -1094995529, %217 ]
+  %.061 = phi i32 [ 0, %18 ], [ %89, %84 ], [ 0, %15 ], [ 0, %22 ], [ %1038, %1037 ], [ -1094995529, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.061
 }
@@ -2094,7 +2094,7 @@ show_bits_long.exit:                              ; preds = %.thread, %.thread24
   br label %76
 
 76:                                               ; preds = %show_bits_long.exit, %56, %1, %75
-  %.015 = phi i32 [ 1, %75 ], [ 0, %1 ], [ 0, %56 ], [ 0, %show_bits_long.exit ]
+  %.015 = phi i32 [ 0, %56 ], [ 0, %1 ], [ 1, %75 ], [ 0, %show_bits_long.exit ]
   ret i32 %.015
 }
 
@@ -2518,7 +2518,7 @@ decode_residual_chroma.exit:                      ; preds = %256, %253
   br label %set_mv_intra.exit
 
 set_mv_intra.exit:                                ; preds = %203, %243, %256, %278, %decode_residual_chroma.exit, %get_ue_golomb.exit.thread, %68
-  %.0 = phi i32 [ -1094995529, %68 ], [ -1094995529, %get_ue_golomb.exit.thread ], [ 0, %decode_residual_chroma.exit ], [ 0, %278 ], [ %251, %243 ], [ %264, %256 ], [ %206, %203 ]
+  %.0 = phi i32 [ -1094995529, %68 ], [ -1094995529, %get_ue_golomb.exit.thread ], [ 0, %278 ], [ 0, %decode_residual_chroma.exit ], [ %251, %243 ], [ %264, %256 ], [ %206, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2960,7 +2960,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_mb_b(ptr noundef %0
   br label %296
 
 296:                                              ; preds = %.critedge, %151, %264, %269, %176, %163, %189
-  %.1 = phi i32 [ %.0162, %151 ], [ %.0162, %189 ], [ %168, %163 ], [ %.0162, %176 ], [ %.0162, %264 ], [ %.0162, %269 ], [ 5, %.critedge ]
+  %.1 = phi i32 [ %.0162, %151 ], [ %.0162, %189 ], [ %168, %163 ], [ %.0162, %269 ], [ %.0162, %176 ], [ %.0162, %264 ], [ 5, %.critedge ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
   br i1 %exitcond170.not, label %.preheader156, label %151, !llvm.loop !114
@@ -3377,8 +3377,8 @@ get_ue_golomb.exit.i:                             ; preds = %40, %30
   br label %get_ue_code.exit
 
 get_ue_code.exit:                                 ; preds = %58, %59
-  %73 = phi i32 [ %71, %59 ], [ %56, %58 ]
-  %.0.i = phi i32 [ %72, %59 ], [ %.0.i.i, %58 ]
+  %73 = phi i32 [ %56, %58 ], [ %71, %59 ]
+  %.0.i = phi i32 [ %.0.i.i, %58 ], [ %72, %59 ]
   %74 = icmp ugt i32 %.0.i, 58
   br i1 %74, label %75, label %156
 
@@ -3475,8 +3475,8 @@ get_ue_code.exit79.thread:                        ; preds = %get_ue_golomb.exit.
   br label %get_ue_code.exit79
 
 get_ue_code.exit79:                               ; preds = %118, %119
-  %130 = phi i32 [ %128, %119 ], [ %117, %118 ]
-  %.0.i76 = phi i32 [ %129, %119 ], [ %.0.i.i74, %118 ]
+  %130 = phi i32 [ %117, %118 ], [ %128, %119 ]
+  %.0.i76 = phi i32 [ %.0.i.i74, %118 ], [ %129, %119 ]
   %or.cond = icmp ugt i32 %.0.i76, 32767
   br i1 %or.cond, label %.loopexit90, label %132
 

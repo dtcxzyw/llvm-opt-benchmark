@@ -1932,8 +1932,8 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br label %91
 
 91:                                               ; preds = %89, %84, %65, %60, %50, %45
-  %92 = phi i32 [ %18, %50 ], [ %18, %45 ], [ %18, %65 ], [ %18, %60 ], [ %73, %89 ], [ %73, %84 ]
-  %93 = phi i32 [ %17, %50 ], [ %17, %45 ], [ %17, %65 ], [ %17, %60 ], [ %73, %89 ], [ %73, %84 ]
+  %92 = phi i32 [ %73, %84 ], [ %18, %50 ], [ %18, %45 ], [ %18, %65 ], [ %18, %60 ], [ %73, %89 ]
+  %93 = phi i32 [ %73, %84 ], [ %17, %50 ], [ %17, %45 ], [ %17, %65 ], [ %17, %60 ], [ %73, %89 ]
   %94 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %95 = and i32 %94, -3
   %96 = icmp eq i32 %95, 0
@@ -2935,7 +2935,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   br label %63
 
 63:                                               ; preds = %59, %.thread
-  %64 = phi i32 [ %58, %.thread ], [ %spec.select, %59 ]
+  %64 = phi i32 [ %spec.select, %59 ], [ %58, %.thread ]
   %65 = call i32 @llvm.smin.i32(i32 %64, i32 255)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = getelementptr i8, ptr %7, i64 780
@@ -3131,7 +3131,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr noundef readonly
   br label %41
 
 41:                                               ; preds = %37, %.thread
-  %42 = phi i32 [ %36, %.thread ], [ %spec.select, %37 ]
+  %42 = phi i32 [ %spec.select, %37 ], [ %36, %.thread ]
   %43 = getelementptr i8, ptr %7, i64 780
   %44 = call i32 @llvm.smin.i32(i32 %42, i32 255)
   store i32 %44, ptr %43, align 4

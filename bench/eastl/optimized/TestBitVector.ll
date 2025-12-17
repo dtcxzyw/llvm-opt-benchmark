@@ -2972,7 +2972,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -3028,7 +3028,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorImE8validateEPKmS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorImE8validateEPKmS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -5020,7 +5020,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -5076,7 +5076,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorImE8validateEPKmS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorImE8validateEPKmS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -7473,7 +7473,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -7531,7 +7531,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorIhE8validateEPKhS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorIhE8validateEPKhS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -9653,7 +9653,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -9711,7 +9711,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorIsE8validateEPKsS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorIsE8validateEPKsS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -11874,7 +11874,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -11931,7 +11931,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorIiE8validateEPKiS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorIiE8validateEPKiS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -14081,7 +14081,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.not, %if.end ]
+  %retval.0 = phi i1 [ %cmp.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -14137,7 +14137,7 @@ if.end27.i:                                       ; preds = %if.else21.i, %if.el
   br label %_ZNK5eastl24bitvector_const_iteratorIlE8validateEPKlS3_m.exit
 
 _ZNK5eastl24bitvector_const_iteratorIlE8validateEPKlS3_m.exit: ; preds = %land.lhs.true.i, %if.else.i, %if.then12.i, %if.else16.i, %if.else21.i, %if.end27.i
-  %retval.0.i = phi i32 [ 0, %if.end27.i ], [ 3, %land.lhs.true.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else16.i ], [ 7, %if.else21.i ]
+  %retval.0.i = phi i32 [ 7, %if.else16.i ], [ 3, %land.lhs.true.i ], [ 0, %if.end27.i ], [ 7, %if.else.i ], [ 3, %if.then12.i ], [ 7, %if.else21.i ]
   ret i32 %retval.0.i
 }
 
@@ -14401,7 +14401,7 @@ if.end.i:                                         ; preds = %invoke.cont38
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit: ; preds = %invoke.cont38, %if.end.i
-  %retval.0.i = phi i1 [ false, %invoke.cont38 ], [ %cmp.not.i, %if.end.i ]
+  %retval.0.i = phi i1 [ %cmp.not.i, %if.end.i ], [ false, %invoke.cont38 ]
   %call42 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @.str.4)
           to label %invoke.cont41 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14431,7 +14431,7 @@ if.end.i105:                                      ; preds = %invoke.cont44
   br label %_ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit
 
 _ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit: ; preds = %invoke.cont44, %if.end.i105
-  %retval.0.i104 = phi i1 [ false, %invoke.cont44 ], [ %cmp.not.i107, %if.end.i105 ]
+  %retval.0.i104 = phi i1 [ %cmp.not.i107, %if.end.i105 ], [ false, %invoke.cont44 ]
   %call48 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i104, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @.str.6)
           to label %invoke.cont47 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14459,7 +14459,7 @@ if.end.i116:                                      ; preds = %invoke.cont50
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit119
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit119: ; preds = %invoke.cont50, %if.end.i116
-  %retval.0.i115 = phi i1 [ false, %invoke.cont50 ], [ %cmp.not.i118, %if.end.i116 ]
+  %retval.0.i115 = phi i1 [ %cmp.not.i118, %if.end.i116 ], [ false, %invoke.cont50 ]
   %call54 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i115, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 99, ptr noundef nonnull @.str.8)
           to label %invoke.cont53 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14677,7 +14677,7 @@ if.end.i150:                                      ; preds = %for.end
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit153
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit153: ; preds = %for.end, %if.end.i150
-  %retval.0.i149 = phi i1 [ false, %for.end ], [ %cmp.not.i152, %if.end.i150 ]
+  %retval.0.i149 = phi i1 [ %cmp.not.i152, %if.end.i150 ], [ false, %for.end ]
   %call71 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i149, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @.str.11)
           to label %invoke.cont70 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14767,7 +14767,7 @@ if.end.i194:                                      ; preds = %for.end92
   br label %_ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit197
 
 _ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit197: ; preds = %for.end92, %if.end.i194
-  %retval.0.i193 = phi i1 [ false, %for.end92 ], [ %cmp.not.i196, %if.end.i194 ]
+  %retval.0.i193 = phi i1 [ %cmp.not.i196, %if.end.i194 ], [ false, %for.end92 ]
   %call95 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i193, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @.str.14)
           to label %invoke.cont94 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14851,7 +14851,7 @@ if.end.i237:                                      ; preds = %for.end116
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit240
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit240: ; preds = %for.end116, %if.end.i237
-  %retval.0.i236 = phi i1 [ false, %for.end116 ], [ %cmp.not.i239, %if.end.i237 ]
+  %retval.0.i236 = phi i1 [ %cmp.not.i239, %if.end.i237 ], [ false, %for.end116 ]
   %call119 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i236, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @.str.17)
           to label %invoke.cont118 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14997,7 +14997,7 @@ if.end.i281:                                      ; preds = %for.end137
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit284
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit284: ; preds = %for.end137, %if.end.i281
-  %retval.0.i280 = phi i1 [ false, %for.end137 ], [ %cmp.not.i283, %if.end.i281 ]
+  %retval.0.i280 = phi i1 [ %cmp.not.i283, %if.end.i281 ], [ false, %for.end137 ]
   %call140 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i280, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @.str.20)
           to label %invoke.cont139 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15092,7 +15092,7 @@ if.end.i325:                                      ; preds = %for.end162
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit328
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit328: ; preds = %for.end162, %if.end.i325
-  %retval.0.i324 = phi i1 [ false, %for.end162 ], [ %cmp.not.i327, %if.end.i325 ]
+  %retval.0.i324 = phi i1 [ %cmp.not.i327, %if.end.i325 ], [ false, %for.end162 ]
   %call165 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i324, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 124, ptr noundef nonnull @.str.23)
           to label %invoke.cont164 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15362,7 +15362,7 @@ if.end.i516:                                      ; preds = %invoke.cont222
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit519
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit519: ; preds = %invoke.cont222, %if.end.i516
-  %retval.0.i515 = phi i1 [ false, %invoke.cont222 ], [ %cmp.not.i518, %if.end.i516 ]
+  %retval.0.i515 = phi i1 [ %cmp.not.i518, %if.end.i516 ], [ false, %invoke.cont222 ]
   %call225 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i515, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 137, ptr noundef nonnull @.str.23)
           to label %invoke.cont224 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15589,7 +15589,7 @@ if.end.i662:                                      ; preds = %invoke.cont262
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit665
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit665: ; preds = %invoke.cont262, %if.end.i662
-  %retval.0.i661 = phi i1 [ false, %invoke.cont262 ], [ %cmp.not.i664, %if.end.i662 ]
+  %retval.0.i661 = phi i1 [ %cmp.not.i664, %if.end.i662 ], [ false, %invoke.cont262 ]
   %call265 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i661, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @.str.11)
           to label %invoke.cont264 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15676,7 +15676,7 @@ if.end.i706:                                      ; preds = %for.end286
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit709
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit709: ; preds = %for.end286, %if.end.i706
-  %retval.0.i705 = phi i1 [ false, %for.end286 ], [ %cmp.not.i708, %if.end.i706 ]
+  %retval.0.i705 = phi i1 [ %cmp.not.i708, %if.end.i706 ], [ false, %for.end286 ]
   %call289 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i705, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @.str.8)
           to label %invoke.cont288 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -15854,7 +15854,7 @@ if.end.i757:                                      ; preds = %invoke.cont311
   br label %_ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit760
 
 _ZNK5eastl9bitvectorINS_9allocatorEmNS_6vectorImS1_EEE8validateEv.exit760: ; preds = %invoke.cont311, %if.end.i757
-  %retval.0.i756 = phi i1 [ false, %invoke.cont311 ], [ %cmp.not.i759, %if.end.i757 ]
+  %retval.0.i756 = phi i1 [ %cmp.not.i759, %if.end.i757 ], [ false, %invoke.cont311 ]
   %call315 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i756, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 158, ptr noundef nonnull @.str.20)
           to label %invoke.cont314 unwind label %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -16464,7 +16464,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1185: ; preds = %lpad342
   br label %ehcleanup366
 
 ehcleanup366:                                     ; preds = %lpad40.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad40.loopexit.split-lp.loopexit, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1185, %lpad342, %lpad.i919, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i921
-  %.pn68 = phi { ptr, i32 } [ %275, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i921 ], [ %275, %lpad.i919 ], [ %315, %lpad342 ], [ %315, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1185 ], [ %lpad.loopexit3571, %lpad40.loopexit ], [ %lpad.loopexit3574, %lpad40.loopexit.split-lp.loopexit ], [ %lpad.loopexit3577, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3580, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3583, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3586, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3589, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3592, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3595, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3598, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3601, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3604, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3605, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn68 = phi { ptr, i32 } [ %275, %lpad.i919 ], [ %315, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1185 ], [ %275, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i921 ], [ %315, %lpad342 ], [ %lpad.loopexit3571, %lpad40.loopexit ], [ %lpad.loopexit3574, %lpad40.loopexit.split-lp.loopexit ], [ %lpad.loopexit3577, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3580, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3583, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3586, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3589, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3592, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3595, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3598, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3601, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit3604, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3605, %lpad40.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %317 = load ptr, ptr %bv7, align 8
   %tobool.not.i.i.i1188 = icmp eq ptr %317, null
   br i1 %tobool.not.i.i.i1188, label %ehcleanup367, label %ehcleanup367.sink.split
@@ -16668,7 +16668,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1288: ; preds = %lpad.i1286
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad680, %ehcleanup13, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i141, %ehcleanup373, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1209, %ehcleanup440, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1333, %lpad446, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1337, %lpad.i1286, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1288
-  %common.resume.op = phi { ptr, i32 } [ %341, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1288 ], [ %341, %lpad.i1286 ], [ %lpad.phi, %lpad680 ], [ %.pn, %ehcleanup13 ], [ %.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i141 ], [ %.pn68.pn.pn.pn.pn.pn.pn.pn, %ehcleanup373 ], [ %.pn68.pn.pn.pn.pn.pn.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1209 ], [ %.pn65.pn, %ehcleanup440 ], [ %.pn65.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1333 ], [ %lpad.phi3552, %lpad446 ], [ %lpad.phi3552, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1337 ]
+  %common.resume.op = phi { ptr, i32 } [ %341, %lpad.i1286 ], [ %341, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1288 ], [ %.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i141 ], [ %.pn68.pn.pn.pn.pn.pn.pn.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1209 ], [ %.pn65.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1333 ], [ %lpad.phi, %lpad680 ], [ %.pn, %ehcleanup13 ], [ %.pn68.pn.pn.pn.pn.pn.pn.pn, %ehcleanup373 ], [ %.pn65.pn, %ehcleanup440 ], [ %lpad.phi3552, %lpad446 ], [ %lpad.phi3552, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1337 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont447:                                   ; preds = %.noexc.i1290
@@ -16742,7 +16742,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1325: ; preds = %lpad404, %_ZN5eas
   br label %ehcleanup439
 
 ehcleanup439:                                     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1325, %ehcleanup438
-  %.pn65 = phi { ptr, i32 } [ %350, %ehcleanup438 ], [ %.pn633488, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1325 ]
+  %.pn65 = phi { ptr, i32 } [ %.pn633488, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1325 ], [ %350, %ehcleanup438 ]
   %351 = load ptr, ptr %bv2376, align 8
   %tobool.not.i.i.i1328 = icmp eq ptr %351, null
   br i1 %tobool.not.i.i.i1328, label %ehcleanup440, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1329
@@ -18513,7 +18513,7 @@ if.end.i2290:                                     ; preds = %invoke.cont908
   br label %_ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit2293
 
 _ZNK5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE8validateEv.exit2293: ; preds = %invoke.cont908, %if.end.i2290
-  %retval.0.i2289 = phi i1 [ false, %invoke.cont908 ], [ %cmp.not.i2292, %if.end.i2290 ]
+  %retval.0.i2289 = phi i1 [ %cmp.not.i2292, %if.end.i2290 ], [ false, %invoke.cont908 ]
   %call912 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2289, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @.str.4)
           to label %invoke.cont914 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18541,7 +18541,7 @@ if.end27.i.i:                                     ; preds = %if.else21.i.i, %inv
   br label %invoke.cont916
 
 invoke.cont916:                                   ; preds = %if.then3.i.i, %if.end27.i.i, %if.else21.i.i
-  %cmp918 = phi i1 [ true, %if.end27.i.i ], [ false, %if.then3.i.i ], [ false, %if.else21.i.i ]
+  %cmp918 = phi i1 [ false, %if.else21.i.i ], [ false, %if.then3.i.i ], [ true, %if.end27.i.i ]
   %call920 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp918, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 400, ptr noundef nonnull @.str.65)
           to label %invoke.cont919 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18626,7 +18626,7 @@ if.end27.i.i2342:                                 ; preds = %if.else21.i.i2340, 
   br label %invoke.cont936
 
 invoke.cont936:                                   ; preds = %if.end27.i.i2342, %if.else21.i.i2340, %if.else16.i.i2347, %if.then12.i.i2344, %if.else.i.i2351, %land.lhs.true.i.i2353
-  %cmp938 = phi i1 [ false, %if.end27.i.i2342 ], [ false, %land.lhs.true.i.i2353 ], [ true, %if.else.i.i2351 ], [ false, %if.then12.i.i2344 ], [ true, %if.else16.i.i2347 ], [ true, %if.else21.i.i2340 ]
+  %cmp938 = phi i1 [ true, %if.else16.i.i2347 ], [ false, %land.lhs.true.i.i2353 ], [ false, %if.end27.i.i2342 ], [ true, %if.else.i.i2351 ], [ false, %if.then12.i.i2344 ], [ true, %if.else21.i.i2340 ]
   %call940 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp938, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @.str.66)
           to label %for.inc941 unwind label %lpad680.loopexit.split-lp.loopexit
 
@@ -18670,7 +18670,7 @@ if.then12.i.i2375:                                ; preds = %if.else10.i.i2368
   br label %invoke.cont946
 
 invoke.cont946:                                   ; preds = %if.then12.i.i2375, %if.else10.i.i2368, %if.else.i.i2382, %for.end944, %land.lhs.true.i.i2384
-  %cmp948 = phi i1 [ true, %land.lhs.true.i.i2384 ], [ false, %if.else.i.i2382 ], [ false, %for.end944 ], [ false, %if.else10.i.i2368 ], [ %cmp14.i.i2377, %if.then12.i.i2375 ]
+  %cmp948 = phi i1 [ false, %if.else.i.i2382 ], [ true, %land.lhs.true.i.i2384 ], [ false, %if.else10.i.i2368 ], [ false, %for.end944 ], [ %cmp14.i.i2377, %if.then12.i.i2375 ]
   %call950 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp948, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @.str.67)
           to label %while.end.i2404.thread unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19713,14 +19713,14 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
+  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16

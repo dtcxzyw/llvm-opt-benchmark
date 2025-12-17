@@ -4131,7 +4131,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   br label %581
 
 581:                                              ; preds = %532, %555, %541
-  %582 = phi i1 [ false, %555 ], [ true, %541 ], [ false, %532 ]
+  %582 = phi i1 [ true, %541 ], [ false, %555 ], [ false, %532 ]
   %583 = load ptr, ptr %83, align 8
   %584 = load i64, ptr @OptoLoopAlignment, align 8
   %585 = trunc i64 %584 to i32

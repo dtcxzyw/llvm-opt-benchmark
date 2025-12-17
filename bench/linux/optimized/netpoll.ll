@@ -1195,7 +1195,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %115
 
 110:                                              ; preds = %.critedge2, %.critedge, %106, %97, %72, %68, %59, %48, %19, %10, %7
-  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %97 ], [ %103, %106 ], [ %16, %.critedge ], [ %74, %.critedge2 ]
+  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %16, %.critedge ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %.critedge2 ], [ %74, %97 ], [ %103, %106 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %113, ptr noundef %111) #17

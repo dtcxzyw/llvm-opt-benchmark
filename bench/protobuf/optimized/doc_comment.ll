@@ -275,12 +275,12 @@ sw.bb:                                            ; preds = %for.body
   br i1 %cmp4, label %if.then.invoke, label %if.else.invoke
 
 if.then.invoke:                                   ; preds = %for.body, %sw.bb8, %sw.bb, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20
-  %1 = phi ptr [ @.str.3, %sw.bb20 ], [ @.str.4, %sw.bb23 ], [ @.str.5, %sw.bb26 ], [ @.str.6, %sw.bb29 ], [ @.str, %sw.bb ], [ @.str.1, %sw.bb8 ], [ @.str.2, %for.body ]
+  %1 = phi ptr [ @.str.6, %sw.bb29 ], [ @.str, %sw.bb ], [ @.str.1, %sw.bb8 ], [ @.str.3, %sw.bb20 ], [ @.str.4, %sw.bb23 ], [ @.str.5, %sw.bb26 ], [ @.str.2, %for.body ]
   %2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %1)
           to label %sw.epilog unwind label %lpad.loopexit
 
 if.else.invoke:                                   ; preds = %for.body, %sw.bb8, %sw.bb
-  %3 = phi i8 [ 42, %sw.bb ], [ 47, %sw.bb8 ], [ %0, %for.body ]
+  %3 = phi i8 [ 47, %sw.bb8 ], [ 42, %sw.bb ], [ %0, %for.body ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %3)
           to label %sw.epilog unwind label %lpad.loopexit
 
@@ -359,7 +359,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i, %invoke.cont13.i.i.i.i, %lpad.i8
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %10, %lpad ], [ %11, %lpad6 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %5, %lpad.i8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %10, %lpad ], [ %11, %lpad6 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -607,7 +607,7 @@ if.then.invoke:                                   ; preds = %sw.bb10, %sw.bb
           to label %sw.epilog unwind label %lpad.loopexit
 
 if.else.invoke:                                   ; preds = %for.body, %sw.bb10, %sw.bb
-  %3 = phi i8 [ 42, %sw.bb ], [ 47, %sw.bb10 ], [ %0, %for.body ]
+  %3 = phi i8 [ 47, %sw.bb10 ], [ 42, %sw.bb ], [ %0, %for.body ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %3)
           to label %sw.epilog unwind label %lpad.loopexit
 
@@ -652,7 +652,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i13, %invoke.cont13.i.i.i.i16, %lpad.i, %invoke.cont13.i.i.i.i, %lpad, %lpad.i6
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i6 ], [ %12, %lpad ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %7, %invoke.cont13.i.i.i.i16 ], [ %7, %lpad.i13 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %5, %lpad.i6 ], [ %0, %lpad.i ], [ %0, %invoke.cont13.i.i.i.i ], [ %7, %invoke.cont13.i.i.i.i16 ], [ %7, %lpad.i13 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -1067,7 +1067,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !20
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %__val.lobit = lshr i32 %__val, 31
   %add2 = add i32 %retval.0.i, %__val.lobit
   %conv3 = zext i32 %add2 to i64
@@ -1447,7 +1447,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i162, %invoke.cont13.i.i.i.i165, %lpad.i146, %invoke.cont13.i.i.i.i149, %lpad.i103, %invoke.cont13.i.i.i.i106, %lpad.i78, %invoke.cont13.i.i.i.i81, %lpad.i, %invoke.cont13.i.i.i.i, %lpad, %lpad.i31
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i31 ], [ %7, %lpad ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %13, %invoke.cont13.i.i.i.i81 ], [ %13, %lpad.i78 ], [ %19, %invoke.cont13.i.i.i.i106 ], [ %19, %lpad.i103 ], [ %27, %invoke.cont13.i.i.i.i149 ], [ %27, %lpad.i146 ], [ %32, %invoke.cont13.i.i.i.i165 ], [ %32, %lpad.i162 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %lpad.i146 ], [ %5, %lpad.i31 ], [ %7, %lpad ], [ %0, %lpad.i ], [ %13, %lpad.i78 ], [ %19, %lpad.i103 ], [ %0, %invoke.cont13.i.i.i.i ], [ %13, %invoke.cont13.i.i.i.i81 ], [ %19, %invoke.cont13.i.i.i.i106 ], [ %27, %invoke.cont13.i.i.i.i149 ], [ %32, %invoke.cont13.i.i.i.i165 ], [ %32, %lpad.i162 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -1807,7 +1807,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i140, %invoke.cont13.i.i.i.i143, %lpad.i124, %invoke.cont13.i.i.i.i127, %lpad.i81, %invoke.cont13.i.i.i.i84, %lpad.i56, %invoke.cont13.i.i.i.i59, %lpad.i, %invoke.cont13.i.i.i.i, %lpad, %lpad.i27
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i27 ], [ %7, %lpad ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %11, %invoke.cont13.i.i.i.i59 ], [ %11, %lpad.i56 ], [ %17, %invoke.cont13.i.i.i.i84 ], [ %17, %lpad.i81 ], [ %25, %invoke.cont13.i.i.i.i127 ], [ %25, %lpad.i124 ], [ %30, %invoke.cont13.i.i.i.i143 ], [ %30, %lpad.i140 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i124 ], [ %5, %lpad.i27 ], [ %7, %lpad ], [ %0, %lpad.i ], [ %11, %lpad.i56 ], [ %17, %lpad.i81 ], [ %0, %invoke.cont13.i.i.i.i ], [ %11, %invoke.cont13.i.i.i.i59 ], [ %17, %invoke.cont13.i.i.i.i84 ], [ %25, %invoke.cont13.i.i.i.i127 ], [ %30, %invoke.cont13.i.i.i.i143 ], [ %30, %lpad.i140 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -2141,7 +2141,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i140, %invoke.cont13.i.i.i.i143, %lpad.i124, %invoke.cont13.i.i.i.i127, %lpad.i81, %invoke.cont13.i.i.i.i84, %lpad.i56, %invoke.cont13.i.i.i.i59, %lpad.i, %invoke.cont13.i.i.i.i, %lpad, %lpad.i27
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i27 ], [ %7, %lpad ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %11, %invoke.cont13.i.i.i.i59 ], [ %11, %lpad.i56 ], [ %17, %invoke.cont13.i.i.i.i84 ], [ %17, %lpad.i81 ], [ %25, %invoke.cont13.i.i.i.i127 ], [ %25, %lpad.i124 ], [ %30, %invoke.cont13.i.i.i.i143 ], [ %30, %lpad.i140 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad.i124 ], [ %5, %lpad.i27 ], [ %7, %lpad ], [ %0, %lpad.i ], [ %11, %lpad.i56 ], [ %17, %lpad.i81 ], [ %0, %invoke.cont13.i.i.i.i ], [ %11, %invoke.cont13.i.i.i.i59 ], [ %17, %invoke.cont13.i.i.i.i84 ], [ %25, %invoke.cont13.i.i.i.i127 ], [ %30, %invoke.cont13.i.i.i.i143 ], [ %30, %lpad.i140 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -2473,7 +2473,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i, %invoke.cont13.i.i.i.i, %lpad.i8
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ], [ %10, %lpad ], [ %11, %lpad6 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %5, %lpad.i8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %10, %lpad ], [ %11, %lpad6 ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -2607,7 +2607,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %invoke.cont13.i.i.i.i, %ehcleanup8, %lpad.i6
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i6 ], [ %.pn.pn, %ehcleanup8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %5, %lpad.i6 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -2889,7 +2889,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %invoke.cont13.i.i.i.i, %lpad, %lpad.i4
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i4 ], [ %10, %lpad ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad ], [ %5, %lpad.i4 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -3008,7 +3008,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %invoke.cont13.i.i.i.i, %ehcleanup8, %lpad.i6
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i6 ], [ %.pn.pn, %ehcleanup8 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %5, %lpad.i6 ], [ %0, %invoke.cont13.i.i.i.i ], [ %0, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -3752,8 +3752,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
@@ -4495,7 +4495,7 @@ lpad19:                                           ; preds = %if.else40.invoke, %
   br label %lpad19.body
 
 lpad19.body:                                      ; preds = %lpad.i88, %invoke.cont13.i.i.i.i91, %lpad.i70, %invoke.cont13.i.i.i.i73, %lpad.i52, %invoke.cont13.i.i.i.i55, %lpad.i26, %invoke.cont13.i.i.i.i29, %lpad19, %lpad.i20, %invoke.cont13.i.i.i.i
-  %eh.lpad-body21 = phi { ptr, i32 } [ %11, %invoke.cont13.i.i.i.i ], [ %11, %lpad.i20 ], [ %16, %lpad19 ], [ %17, %invoke.cont13.i.i.i.i29 ], [ %17, %lpad.i26 ], [ %32, %invoke.cont13.i.i.i.i55 ], [ %32, %lpad.i52 ], [ %37, %invoke.cont13.i.i.i.i73 ], [ %37, %lpad.i70 ], [ %42, %invoke.cont13.i.i.i.i91 ], [ %42, %lpad.i88 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %11, %lpad.i20 ], [ %11, %invoke.cont13.i.i.i.i ], [ %37, %lpad.i70 ], [ %17, %lpad.i26 ], [ %32, %lpad.i52 ], [ %16, %lpad19 ], [ %17, %invoke.cont13.i.i.i.i29 ], [ %32, %invoke.cont13.i.i.i.i55 ], [ %37, %invoke.cont13.i.i.i.i73 ], [ %42, %invoke.cont13.i.i.i.i91 ], [ %42, %lpad.i88 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lines) #23
   br label %ehcleanup
 

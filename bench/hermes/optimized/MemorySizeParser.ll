@@ -64,7 +64,7 @@ if.then:                                          ; preds = %entry
   store ptr %ref.tmp3, ptr %ref.tmp, align 8
   br label %return.sink.split
 
-if.then8:                                         ; preds = %sw.bb25, %sw.bb20, %sw.bb30, %sw.bb
+if.then8:                                         ; preds = %sw.bb25, %sw.bb30, %sw.bb20, %sw.bb
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i16)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i17)
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr nonnull sret(%"class.std::allocator") align 1 %ref.tmp1.i17, ptr noundef nonnull align 8 dereferenceable(32) %Arg) #5, !noalias !10
@@ -116,9 +116,9 @@ sw.bb20:                                          ; preds = %if.end15
   br i1 %cmp21, label %if.end15.backedge, label %if.then8
 
 if.end15.backedge:                                ; preds = %sw.bb20, %sw.bb25, %if.else33
-  %cmp26.be = phi i1 [ true, %sw.bb25 ], [ false, %if.else33 ], [ false, %sw.bb20 ]
-  %cmp21.be = phi i1 [ false, %sw.bb25 ], [ true, %if.else33 ], [ false, %sw.bb20 ]
-  %cmp17.be = phi i1 [ false, %sw.bb25 ], [ false, %if.else33 ], [ true, %sw.bb20 ]
+  %cmp26.be = phi i1 [ true, %sw.bb25 ], [ false, %sw.bb20 ], [ false, %if.else33 ]
+  %cmp21.be = phi i1 [ false, %sw.bb25 ], [ false, %sw.bb20 ], [ true, %if.else33 ]
+  %cmp17.be = phi i1 [ false, %sw.bb25 ], [ true, %sw.bb20 ], [ false, %if.else33 ]
   br label %if.end15, !llvm.loop !16
 
 sw.bb25:                                          ; preds = %if.end15, %if.end15

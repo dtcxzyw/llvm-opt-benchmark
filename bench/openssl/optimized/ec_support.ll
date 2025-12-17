@@ -128,7 +128,7 @@ define ptr @OSSL_EC_curve_nid2name(i32 noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %9
-  %.06 = phi ptr [ %10, %9 ], [ null, %1 ], [ null, %3 ]
+  %.06 = phi ptr [ null, %1 ], [ %10, %9 ], [ null, %3 ]
   ret ptr %.06
 }
 

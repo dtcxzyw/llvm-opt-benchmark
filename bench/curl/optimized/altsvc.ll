@@ -46,7 +46,7 @@ define hidden noundef nonnull ptr @Curl_alpnid2str(i32 noundef %0) local_unnamed
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -450,7 +450,7 @@ altsvc_out.exit.thread:                           ; preds = %31
   br label %Curl_alpnid2str.exit.i
 
 Curl_alpnid2str.exit.i:                           ; preds = %50, %49, %48, %38
-  %.0.i.i = phi ptr [ @.str.3, %50 ], [ @.str.1, %48 ], [ @.str.2, %49 ], [ @.str, %38 ]
+  %.0.i.i = phi ptr [ @.str.3, %50 ], [ @.str.2, %49 ], [ @.str.1, %48 ], [ @.str, %38 ]
   %51 = load ptr, ptr %32, align 8, !tbaa !34
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %53 = load i16, ptr %52, align 8, !tbaa !40
@@ -473,7 +473,7 @@ Curl_alpnid2str.exit.i:                           ; preds = %50, %49, %48, %38
   br label %altsvc_out.exit
 
 altsvc_out.exit:                                  ; preds = %Curl_alpnid2str.exit.i, %57, %58, %59
-  %.0.i24.i = phi ptr [ @.str.3, %59 ], [ @.str.1, %57 ], [ @.str.2, %58 ], [ @.str, %Curl_alpnid2str.exit.i ]
+  %.0.i24.i = phi ptr [ @.str.3, %59 ], [ @.str.2, %58 ], [ @.str.1, %57 ], [ @.str, %Curl_alpnid2str.exit.i ]
   %60 = load ptr, ptr %39, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %62 = load i16, ptr %61, align 8, !tbaa !42
@@ -1085,7 +1085,7 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   br label %Curl_alpnid2str.exit
 
 Curl_alpnid2str.exit:                             ; preds = %170, %172, %173, %174
-  %.0.i222 = phi ptr [ @.str.3, %174 ], [ @.str.1, %172 ], [ @.str.2, %173 ], [ @.str, %170 ]
+  %.0.i222 = phi ptr [ @.str.3, %174 ], [ @.str.2, %173 ], [ @.str.1, %172 ], [ @.str, %170 ]
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef %.2135278, i32 noundef %171, ptr noundef nonnull %.0.i222) #13
   br label %175
 
@@ -1094,8 +1094,8 @@ Curl_alpnid2str.exit:                             ; preds = %170, %172, %173, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge28
 
-175:                                              ; preds = %156, %161, %166, %Curl_alpnid2str.exit, %153, %.loopexit317
-  %.1127.ph = phi i64 [ %151, %156 ], [ %151, %161 ], [ %151, %166 ], [ %151, %Curl_alpnid2str.exit ], [ %.0126, %.loopexit317 ], [ %151, %153 ]
+175:                                              ; preds = %.loopexit317, %156, %161, %166, %Curl_alpnid2str.exit, %153
+  %.1127.ph = phi i64 [ %151, %161 ], [ %151, %166 ], [ %151, %Curl_alpnid2str.exit ], [ %151, %153 ], [ %.0126, %.loopexit317 ], [ %151, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %176 = load i8, ptr %.9, align 1, !tbaa !14

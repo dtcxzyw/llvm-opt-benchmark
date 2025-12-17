@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -800,7 +800,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %69, %78
   %85 = zext i16 %.0.i.i to i32
   %86 = call noundef ptr @_ZNK6icu_7723TransliterationRuleData13lookupMatcherEi(ptr noundef nonnull align 8 dereferenceable(1168) %84, i32 noundef %85)
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %100
+  br i1 %87, label %88, label %97
 
 88:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %89 = load i32, ptr %6, align 4, !tbaa !12
@@ -813,25 +813,25 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %69, %78
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef zeroext i16 %94(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %89)
   %96 = icmp eq i16 %.0.i.i, %95
-  br i1 %96, label %97, label %.thread
+  br i1 %96, label %103, label %.thread
 
-97:                                               ; preds = %91
-  %98 = load i32, ptr %6, align 4, !tbaa !12
-  %99 = add nsw i32 %98, -1
-  store i32 %99, ptr %6, align 4, !tbaa !12
-  br label %.backedge
-
-100:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %101 = load ptr, ptr %86, align 8, !tbaa !15
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i8 noundef signext %4)
-  %.not58 = icmp eq i32 %104, 2
+97:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %98 = load ptr, ptr %86, align 8, !tbaa !15
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i8 noundef signext %4)
+  %.not58 = icmp eq i32 %101, 2
   br i1 %.not58, label %.backedge, label %.thread
 
-.backedge:                                        ; preds = %100, %97
-  %105 = icmp samesign ugt i64 %indvars.iv89, 1
-  br i1 %105, label %69, label %._crit_edge81.loopexit, !llvm.loop !34
+.backedge:                                        ; preds = %97, %103
+  %102 = icmp samesign ugt i64 %indvars.iv89, 1
+  br i1 %102, label %69, label %._crit_edge81.loopexit, !llvm.loop !34
+
+103:                                              ; preds = %91
+  %104 = load i32, ptr %6, align 4, !tbaa !12
+  %105 = add nsw i32 %104, -1
+  store i32 %105, ptr %6, align 4, !tbaa !12
+  br label %.backedge
 
 ._crit_edge81.loopexit:                           ; preds = %.backedge
   %.pre.pre = load i32, ptr %6, align 4, !tbaa !12
@@ -929,8 +929,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit63:       ; preds = %.lr.ph.split
   store i32 %155, ptr %2, align 4, !tbaa !12
   br label %.thread
 
-.thread:                                          ; preds = %136, %.lr.ph.split, %128, %125, %39, %36, %31, %88, %91, %100, %154
-  %.4 = phi i32 [ 2, %154 ], [ 0, %88 ], [ 0, %91 ], [ %104, %100 ], [ 0, %36 ], [ 0, %39 ], [ %35, %31 ], [ 0, %125 ], [ 0, %128 ], [ 1, %.lr.ph.split ], [ %140, %136 ]
+.thread:                                          ; preds = %136, %.lr.ph.split, %125, %128, %39, %36, %31, %91, %88, %97, %154
+  %.4 = phi i32 [ %101, %97 ], [ 2, %154 ], [ %35, %31 ], [ 0, %88 ], [ 0, %91 ], [ 0, %36 ], [ 0, %39 ], [ 0, %125 ], [ 1, %.lr.ph.split ], [ %140, %136 ], [ 0, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }

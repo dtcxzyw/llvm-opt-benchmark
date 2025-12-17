@@ -131,8 +131,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not653.not, label %.lr.ph, label %.loopexit689, !llvm.loop !11
 
 .loopexit689:                                     ; preds = %.lr.ph, %.lr.ph708, %67, %48
-  %.1600 = phi double [ %37, %67 ], [ %37, %48 ], [ %66, %.lr.ph708 ], [ %85, %.lr.ph ]
-  %.1591 = phi double [ %40, %67 ], [ %40, %48 ], [ %61, %.lr.ph708 ], [ %79, %.lr.ph ]
+  %.1600 = phi double [ %37, %48 ], [ %37, %67 ], [ %66, %.lr.ph708 ], [ %85, %.lr.ph ]
+  %.1591 = phi double [ %40, %48 ], [ %40, %67 ], [ %61, %.lr.ph708 ], [ %79, %.lr.ph ]
   store double %.1591, ptr %11, align 8, !tbaa !7
   %86 = load double, ptr %6, align 8, !tbaa !7
   store double %86, ptr %8, align 8, !tbaa !7
@@ -273,8 +273,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not651.not, label %.lr.ph715, label %.loopexit685, !llvm.loop !13
 
 .loopexit685:                                     ; preds = %157, %136, %149, %127
-  %.4603 = phi double [ %37, %149 ], [ %37, %127 ], [ %148, %136 ], [ %170, %157 ]
-  %.4594 = phi double [ %40, %149 ], [ %40, %127 ], [ %144, %136 ], [ %166, %157 ]
+  %.4603 = phi double [ %37, %127 ], [ %37, %149 ], [ %148, %136 ], [ %170, %157 ]
+  %.4594 = phi double [ %40, %127 ], [ %40, %149 ], [ %144, %136 ], [ %166, %157 ]
   store double %.4594, ptr %11, align 8, !tbaa !7
   %171 = load double, ptr %6, align 8, !tbaa !7
   store double %171, ptr %8, align 8, !tbaa !7
@@ -443,8 +443,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not648.not, label %.lr.ph729, label %.loopexit683, !llvm.loop !15
 
 .loopexit683:                                     ; preds = %.lr.ph729, %.lr.ph736, %257, %236
-  %.8607 = phi double [ %225, %257 ], [ %225, %236 ], [ %256, %.lr.ph736 ], [ %277, %.lr.ph729 ]
-  %.8598 = phi double [ %228, %257 ], [ %228, %236 ], [ %.7597, %.lr.ph736 ], [ %.10, %.lr.ph729 ]
+  %.8607 = phi double [ %225, %236 ], [ %225, %257 ], [ %256, %.lr.ph736 ], [ %277, %.lr.ph729 ]
+  %.8598 = phi double [ %228, %236 ], [ %228, %257 ], [ %.7597, %.lr.ph736 ], [ %.10, %.lr.ph729 ]
   store double %.8598, ptr %11, align 8, !tbaa !7
   %278 = load double, ptr %6, align 8, !tbaa !7
   store double %278, ptr %8, align 8, !tbaa !7
@@ -589,8 +589,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not646.not, label %.lr.ph743, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %351, %328, %343, %319
-  %.11610 = phi double [ %225, %343 ], [ %225, %319 ], [ %342, %328 ], [ %366, %351 ]
-  %.13 = phi double [ %228, %343 ], [ %228, %319 ], [ %.12, %328 ], [ %.15, %351 ]
+  %.11610 = phi double [ %225, %319 ], [ %225, %343 ], [ %342, %328 ], [ %366, %351 ]
+  %.13 = phi double [ %228, %319 ], [ %228, %343 ], [ %.12, %328 ], [ %.15, %351 ]
   store double %.13, ptr %11, align 8, !tbaa !7
   %367 = load double, ptr %6, align 8, !tbaa !7
   store double %367, ptr %8, align 8, !tbaa !7

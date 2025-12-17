@@ -196,7 +196,7 @@ thread-pre-split:                                 ; preds = %20
   %.not56 = icmp eq i32 %52, 0
   br i1 %.not56, label %.thread, label %53
 
-.thread:                                          ; preds = %20, %18, %15, %39, %36, %50, %47
+.thread:                                          ; preds = %36, %15, %20, %18, %39, %50, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -218,7 +218,7 @@ thread-pre-split:                                 ; preds = %20
   br label %58
 
 58:                                               ; preds = %.thread, %54
-  %.1 = phi i32 [ %., %54 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 0, %.thread ], [ %., %54 ]
   ret i32 %.1
 }
 

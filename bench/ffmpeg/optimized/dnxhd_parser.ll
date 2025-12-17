@@ -201,7 +201,7 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
   br label %dnxhd_find_frame_end.exit
 
 dnxhd_find_frame_end.exit:                        ; preds = %35, %.thread117.i, %83, %.critedge.i
-  %.0.i = phi i32 [ -100, %.critedge.i ], [ %.pre.i, %83 ], [ 0, %35 ], [ %73, %.thread117.i ]
+  %.0.i = phi i32 [ -100, %.critedge.i ], [ %.pre.i, %83 ], [ %73, %.thread117.i ], [ 0, %35 ]
   %85 = call i32 @ff_combine_frame(ptr noundef nonnull %13, i32 noundef %.0.i, ptr noundef nonnull %7, ptr noundef nonnull %8) #2
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %dnxhd_find_frame_end.exit._crit_edge

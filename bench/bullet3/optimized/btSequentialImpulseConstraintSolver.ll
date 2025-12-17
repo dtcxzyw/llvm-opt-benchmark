@@ -1297,7 +1297,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyE
   br label %select.unfold
 
 select.unfold:                                    ; preds = %5, %4
-  %9 = phi ptr [ null, %4 ], [ %spec.select, %5 ]
+  %9 = phi ptr [ %spec.select, %5 ], [ null, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.not42 = icmp eq ptr %9, null
@@ -4331,9 +4331,9 @@ _ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisio
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
 
 _ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233: ; preds = %519, %512
-  %553 = phi float [ %516, %512 ], [ %552, %519 ]
-  %554 = phi float [ %515, %512 ], [ %549, %519 ]
-  %555 = phi float [ %514, %512 ], [ %546, %519 ]
+  %553 = phi float [ %552, %519 ], [ %516, %512 ]
+  %554 = phi float [ %549, %519 ], [ %515, %512 ]
+  %555 = phi float [ %546, %519 ], [ %514, %512 ]
   %556 = load i32, ptr %106, align 8, !tbaa !87
   %557 = and i32 %556, 1
   %.not22.i235 = icmp eq i32 %557, 0
@@ -4616,9 +4616,9 @@ _ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisio
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
 
 _ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267: ; preds = %731, %723
-  %765 = phi float [ %726, %723 ], [ %764, %731 ]
-  %766 = phi float [ %725, %723 ], [ %761, %731 ]
-  %767 = phi float [ %724, %723 ], [ %758, %731 ]
+  %765 = phi float [ %764, %731 ], [ %726, %723 ]
+  %766 = phi float [ %761, %731 ], [ %725, %723 ]
+  %767 = phi float [ %758, %731 ], [ %724, %723 ]
   %768 = load i32, ptr %106, align 8, !tbaa !87
   %769 = and i32 %768, 1
   %.not22.i269 = icmp eq i32 %769, 0
@@ -5997,7 +5997,7 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %52,
   br i1 %exitcond91.not, label %._crit_edge85, label %65, !llvm.loop !178
 
 177:                                              ; preds = %134, %154, %174, %132, %63, %61
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %133, %132 ], [ %175, %174 ], [ %155, %154 ], [ %135, %134 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %133, %132 ], [ %135, %134 ], [ %175, %174 ], [ %155, %154 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -7162,7 +7162,7 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   ret float %.2
 
 424:                                              ; preds = %334, %379, %269, %307, %271, %202, %206, %204, %421, %164
-  %.pn182 = phi { ptr, i32 } [ %165, %164 ], [ %422, %421 ], [ %203, %202 ], [ %207, %206 ], [ %205, %204 ], [ %270, %269 ], [ %308, %307 ], [ %272, %271 ], [ %335, %334 ], [ %380, %379 ]
+  %.pn182 = phi { ptr, i32 } [ %165, %164 ], [ %272, %271 ], [ %205, %204 ], [ %422, %421 ], [ %203, %202 ], [ %207, %206 ], [ %270, %269 ], [ %308, %307 ], [ %335, %334 ], [ %380, %379 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn182

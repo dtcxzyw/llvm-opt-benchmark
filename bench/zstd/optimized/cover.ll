@@ -382,7 +382,7 @@ COVER_map_destroy.exit:                           ; preds = %137, %140
   br label %COVER_ctx_destroy.exit
 
 COVER_ctx_destroy.exit:                           ; preds = %101, %98, %40, %42, %31, %33, %23, %25, %47, %COVER_map_destroy.exit
-  %.0 = phi i64 [ %116, %COVER_map_destroy.exit ], [ %48, %47 ], [ -42, %25 ], [ -42, %23 ], [ -72, %33 ], [ -72, %31 ], [ -70, %42 ], [ -70, %40 ], [ -64, %98 ], [ -64, %101 ]
+  %.0 = phi i64 [ -42, %23 ], [ -72, %31 ], [ %116, %COVER_map_destroy.exit ], [ -70, %40 ], [ %48, %47 ], [ -42, %25 ], [ -72, %33 ], [ -70, %42 ], [ -64, %98 ], [ -64, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -811,7 +811,7 @@ COVER_groupBy.exit:                               ; preds = %COVER_group.exit.i,
   br label %COVER_ctx_destroy.exit
 
 COVER_ctx_destroy.exit:                           ; preds = %117, %115, %53, %56, %43, %46, %31, %34, %COVER_groupBy.exit
-  %.087 = phi i64 [ 0, %COVER_groupBy.exit ], [ -72, %34 ], [ -72, %31 ], [ -72, %46 ], [ -72, %43 ], [ -72, %56 ], [ -72, %53 ], [ -64, %115 ], [ -64, %117 ]
+  %.087 = phi i64 [ -72, %53 ], [ -72, %31 ], [ -72, %43 ], [ 0, %COVER_groupBy.exit ], [ -72, %34 ], [ -72, %46 ], [ -72, %56 ], [ -64, %115 ], [ -64, %117 ]
   ret i64 %.087
 }
 
@@ -1225,8 +1225,8 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
   br label %select.unfold
 
 select.unfold:                                    ; preds = %COVER_selectSegment.exit.thread, %201, %194, %187
-  %.147.ph = phi i64 [ 0, %187 ], [ 0, %194 ], [ 0, %201 ], [ %181, %COVER_selectSegment.exit.thread ]
-  %.2.ph = phi i64 [ %188, %187 ], [ %188, %194 ], [ %188, %201 ], [ %.04533, %COVER_selectSegment.exit.thread ]
+  %.147.ph = phi i64 [ 0, %201 ], [ 0, %187 ], [ 0, %194 ], [ %181, %COVER_selectSegment.exit.thread ]
+  %.2.ph = phi i64 [ %188, %201 ], [ %188, %187 ], [ %188, %194 ], [ %.04533, %COVER_selectSegment.exit.thread ]
   %211 = add nsw i64 %.04831, 1
   %212 = urem i64 %211, %.sroa.0.0.insert.ext.i
   %.not = icmp eq i64 %.2.ph, 0
@@ -2262,7 +2262,7 @@ COVER_best_destroy.exit170:                       ; preds = %COVER_best_wait.exi
   br label %266
 
 266:                                              ; preds = %COVER_ctx_destroy.exit163, %COVER_best_destroy.exit170, %261, %77, %67, %70, %57, %60, %48, %50, %38, %40
-  %.0 = phi i64 [ %.3, %COVER_ctx_destroy.exit163 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %248, %COVER_best_destroy.exit170 ], [ %263, %261 ]
+  %.0 = phi i64 [ -70, %67 ], [ -42, %38 ], [ -42, %48 ], [ -72, %57 ], [ %.3, %COVER_ctx_destroy.exit163 ], [ -64, %77 ], [ -42, %40 ], [ -42, %50 ], [ -72, %60 ], [ -70, %70 ], [ %248, %COVER_best_destroy.exit170 ], [ %263, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -2386,9 +2386,9 @@ define internal void @COVER_tryParameters(ptr noundef captures(none) %0) #4 {
   br label %70
 
 70:                                               ; preds = %.sink.split, %45, %39, %30
-  %.sroa.0.0 = phi ptr [ null, %30 ], [ %.sroa.0.0.copyload, %45 ], [ null, %39 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %.sroa.7.0 = phi i64 [ 0, %30 ], [ %.sroa.7.0.copyload, %45 ], [ 0, %39 ], [ %.sroa.7.0.ph, %.sink.split ]
-  %.sroa.745.0 = phi i64 [ -1, %30 ], [ %.sroa.745.0.copyload, %45 ], [ -1, %39 ], [ %.sroa.745.0.ph, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %45 ], [ null, %30 ], [ null, %39 ], [ %.sroa.0.0.ph, %.sink.split ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.copyload, %45 ], [ 0, %30 ], [ 0, %39 ], [ %.sroa.7.0.ph, %.sink.split ]
+  %.sroa.745.0 = phi i64 [ %.sroa.745.0.copyload, %45 ], [ -1, %30 ], [ -1, %39 ], [ %.sroa.745.0.ph, %.sink.split ]
   tail call void @free(ptr noundef %9) #24
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !121

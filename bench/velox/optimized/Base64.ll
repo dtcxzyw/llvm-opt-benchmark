@@ -573,9 +573,9 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i25.i.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i: ; preds = %if.end.i.i.i.i, %if.then.i25.i.i, %if.end11.i.i
-  %it.sroa.54.12.ph.i = phi ptr [ %it.sroa.54.6561.i, %if.then.i25.i.i ], [ %it.sroa.54.6561.i, %if.end11.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i ]
-  %it.sroa.100.9.ph.i = phi ptr [ %it.sroa.54.6561.i, %if.then.i25.i.i ], [ %add.ptr10.i.i, %if.end11.i.i ], [ %10, %if.end.i.i.i.i ]
-  %it.sroa.0.8.ph.i = phi ptr [ %it.sroa.0.5570.i, %if.then.i25.i.i ], [ %it.sroa.0.5570.i, %if.end11.i.i ], [ %9, %if.end.i.i.i.i ]
+  %it.sroa.54.12.ph.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i ], [ %it.sroa.54.6561.i, %if.end11.i.i ], [ %it.sroa.54.6561.i, %if.then.i25.i.i ]
+  %it.sroa.100.9.ph.i = phi ptr [ %10, %if.end.i.i.i.i ], [ %add.ptr10.i.i, %if.end11.i.i ], [ %it.sroa.54.6561.i, %if.then.i25.i.i ]
+  %it.sroa.0.8.ph.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %it.sroa.0.5570.i, %if.end11.i.i ], [ %it.sroa.0.5570.i, %if.then.i25.i.i ]
   %.pre.i = ptrtoint ptr %it.sroa.54.12.ph.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit.i
 
@@ -642,9 +642,9 @@ if.end.i.i.i128.i:                                ; preds = %if.then.i25.i122.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i47.i: ; preds = %if.end.i.i.i128.i, %if.then.i25.i122.i, %if.end11.i117.i
-  %it.sroa.54.19.ph.i = phi ptr [ %it.sroa.54.13589.i, %if.then.i25.i122.i ], [ %it.sroa.54.13589.i, %if.end11.i117.i ], [ %add.ptr.i.i.i.i137.i, %if.end.i.i.i128.i ]
-  %it.sroa.100.13.ph.i = phi ptr [ %it.sroa.54.13589.i, %if.then.i25.i122.i ], [ %add.ptr10.i115.i, %if.end11.i117.i ], [ %19, %if.end.i.i.i128.i ]
-  %it.sroa.0.12.ph.i = phi ptr [ %it.sroa.0.9598.i, %if.then.i25.i122.i ], [ %it.sroa.0.9598.i, %if.end11.i117.i ], [ %18, %if.end.i.i.i128.i ]
+  %it.sroa.54.19.ph.i = phi ptr [ %add.ptr.i.i.i.i137.i, %if.end.i.i.i128.i ], [ %it.sroa.54.13589.i, %if.end11.i117.i ], [ %it.sroa.54.13589.i, %if.then.i25.i122.i ]
+  %it.sroa.100.13.ph.i = phi ptr [ %19, %if.end.i.i.i128.i ], [ %add.ptr10.i115.i, %if.end11.i117.i ], [ %it.sroa.54.13589.i, %if.then.i25.i122.i ]
+  %it.sroa.0.12.ph.i = phi ptr [ %18, %if.end.i.i.i128.i ], [ %it.sroa.0.9598.i, %if.end11.i117.i ], [ %it.sroa.0.9598.i, %if.then.i25.i122.i ]
   %.pre784.i = ptrtoint ptr %it.sroa.54.19.ph.i to i64
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit48.i
 
@@ -711,10 +711,10 @@ if.end.i.i.i223.i:                                ; preds = %if.then.i25.i217.i
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit62.i: ; preds = %if.end11.i212.i, %if.then.i25.i217.i, %if.end.i.i.i223.i, %if.then.i.i54.i
-  %it.sroa.54.4.i = phi ptr [ %it.sroa.54.3.i, %if.then.i.i54.i ], [ %it.sroa.54.20617.i, %if.then.i25.i217.i ], [ %it.sroa.54.20617.i, %if.end11.i212.i ], [ %add.ptr.i.i.i.i232.i, %if.end.i.i.i223.i ]
-  %it.sroa.100.4.i = phi ptr [ %add.ptr.i.i55.i, %if.then.i.i54.i ], [ %it.sroa.54.20617.i, %if.then.i25.i217.i ], [ %add.ptr10.i210.i, %if.end11.i212.i ], [ %28, %if.end.i.i.i223.i ]
-  %it.sroa.0.3.i = phi ptr [ %it.sroa.0.2.i, %if.then.i.i54.i ], [ %it.sroa.0.13626.i, %if.then.i25.i217.i ], [ %it.sroa.0.13626.i, %if.end11.i212.i ], [ %27, %if.end.i.i.i223.i ]
-  %retval.0.i.i56.i = phi i8 [ %22, %if.then.i.i54.i ], [ %26, %if.then.i25.i217.i ], [ %26, %if.end11.i212.i ], [ %26, %if.end.i.i.i223.i ]
+  %it.sroa.54.4.i = phi ptr [ %it.sroa.54.3.i, %if.then.i.i54.i ], [ %add.ptr.i.i.i.i232.i, %if.end.i.i.i223.i ], [ %it.sroa.54.20617.i, %if.end11.i212.i ], [ %it.sroa.54.20617.i, %if.then.i25.i217.i ]
+  %it.sroa.100.4.i = phi ptr [ %add.ptr.i.i55.i, %if.then.i.i54.i ], [ %28, %if.end.i.i.i223.i ], [ %add.ptr10.i210.i, %if.end11.i212.i ], [ %it.sroa.54.20617.i, %if.then.i25.i217.i ]
+  %it.sroa.0.3.i = phi ptr [ %it.sroa.0.2.i, %if.then.i.i54.i ], [ %27, %if.end.i.i.i223.i ], [ %it.sroa.0.13626.i, %if.end11.i212.i ], [ %it.sroa.0.13626.i, %if.then.i25.i217.i ]
+  %retval.0.i.i56.i = phi i8 [ %22, %if.then.i.i54.i ], [ %26, %if.end.i.i.i223.i ], [ %26, %if.end11.i212.i ], [ %26, %if.then.i25.i217.i ]
   %conv10.i = zext i8 %retval.0.i.i56.i to i32
   %30 = or disjoint i32 %shl7.i, %conv10.i
   %or11.i = or disjoint i32 %shl7.i, %shl.i
@@ -814,10 +814,10 @@ if.end.i.i.i318.i:                                ; preds = %if.then.i25.i312.i
   br label %_ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i
 
 _ZN8facebook5velox8encoding12_GLOBAL__N_112IOBufWrapper8IteratordeEv.exit79.i: ; preds = %if.end11.i307.i, %if.then.i25.i312.i, %if.end.i.i.i318.i, %if.then.i.i71.i
-  %it.sroa.54.5.i = phi ptr [ %it.sroa.54.0.lcssa827.i, %if.then.i.i71.i ], [ %it.sroa.54.27645.i, %if.then.i25.i312.i ], [ %it.sroa.54.27645.i, %if.end11.i307.i ], [ %add.ptr.i.i.i.i327.i, %if.end.i.i.i318.i ]
-  %it.sroa.100.5.i = phi ptr [ %add.ptr.i.i72.i, %if.then.i.i71.i ], [ %it.sroa.54.27645.i, %if.then.i25.i312.i ], [ %add.ptr10.i305.i, %if.end11.i307.i ], [ %43, %if.end.i.i.i318.i ]
-  %it.sroa.0.4.i = phi ptr [ %it.sroa.0.0.lcssa829.i, %if.then.i.i71.i ], [ %it.sroa.0.17654.i, %if.then.i25.i312.i ], [ %it.sroa.0.17654.i, %if.end11.i307.i ], [ %42, %if.end.i.i.i318.i ]
-  %retval.0.i.i73.i = phi i8 [ %37, %if.then.i.i71.i ], [ %41, %if.then.i25.i312.i ], [ %41, %if.end11.i307.i ], [ %41, %if.end.i.i.i318.i ]
+  %it.sroa.54.5.i = phi ptr [ %it.sroa.54.0.lcssa827.i, %if.then.i.i71.i ], [ %add.ptr.i.i.i.i327.i, %if.end.i.i.i318.i ], [ %it.sroa.54.27645.i, %if.end11.i307.i ], [ %it.sroa.54.27645.i, %if.then.i25.i312.i ]
+  %it.sroa.100.5.i = phi ptr [ %add.ptr.i.i72.i, %if.then.i.i71.i ], [ %43, %if.end.i.i.i318.i ], [ %add.ptr10.i305.i, %if.end11.i307.i ], [ %it.sroa.54.27645.i, %if.then.i25.i312.i ]
+  %it.sroa.0.4.i = phi ptr [ %it.sroa.0.0.lcssa829.i, %if.then.i.i71.i ], [ %42, %if.end.i.i.i318.i ], [ %it.sroa.0.17654.i, %if.end11.i307.i ], [ %it.sroa.0.17654.i, %if.then.i25.i312.i ]
+  %retval.0.i.i73.i = phi i8 [ %37, %if.then.i.i71.i ], [ %41, %if.end.i.i.i318.i ], [ %41, %if.end11.i307.i ], [ %41, %if.then.i25.i312.i ]
   %conv33.i = zext i8 %retval.0.i.i73.i to i32
   %shr35.i = lshr i32 %conv33.i, 2
   %conv37.i = zext nneg i32 %shr35.i to i64
@@ -1488,7 +1488,7 @@ _ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit23: ; preds = %if.end1
   br label %return
 
 return:                                           ; preds = %entry, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit23, %if.end15, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit
-  %retval.0 = phi i64 [ %sub5, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit ], [ %sub16, %if.end15 ], [ %sub21, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit23 ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %sub21, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit23 ], [ %sub5, %_ZN8facebook5velox8encoding6Base6412countPaddingEPKcm.exit ], [ %sub16, %if.end15 ], [ 0, %entry ]
   ret i64 %retval.0
 }
 

@@ -402,7 +402,7 @@ define internal range(i32 -1163346256, 1) i32 @adpcm_decode_init(ptr noundef %0)
   br label %62
 
 62:                                               ; preds = %.thread, %51, %57, %.thread40, %47, %44, %37, %40, %33, %16, %20, %31, %14
-  %.030 = phi i32 [ -22, %31 ], [ -1163346256, %14 ], [ -1094995529, %20 ], [ -1094995529, %16 ], [ -1094995529, %33 ], [ -1094995529, %40 ], [ -1094995529, %37 ], [ -1094995529, %44 ], [ -1094995529, %47 ], [ 0, %.thread40 ], [ 0, %57 ], [ 0, %51 ], [ 0, %.thread ]
+  %.030 = phi i32 [ -22, %31 ], [ -1094995529, %47 ], [ -1094995529, %16 ], [ -1094995529, %33 ], [ -1094995529, %37 ], [ -1094995529, %44 ], [ -1163346256, %14 ], [ -1094995529, %20 ], [ -1094995529, %40 ], [ 0, %.thread40 ], [ 0, %57 ], [ 0, %51 ], [ 0, %.thread ]
   ret i32 %.030
 }
 
@@ -645,9 +645,9 @@ bytestream2_get_le32.exit270.i:                   ; preds = %67, %69
   br label %bytestream2_get_le32.exit272.i
 
 bytestream2_get_le32.exit272.i:                   ; preds = %90, %85, %80, %92, %87, %82
-  %.sroa.02327.157 = phi ptr [ %93, %92 ], [ %88, %87 ], [ %83, %82 ], [ %25, %80 ], [ %25, %85 ], [ %25, %90 ]
-  %96 = phi i32 [ %95, %92 ], [ %89, %87 ], [ %84, %82 ], [ 0, %80 ], [ 0, %85 ], [ 0, %90 ]
-  %.1214.neg.in.i = phi i32 [ %.neg252.i, %92 ], [ %.neg250.i, %87 ], [ %.neg248.i, %82 ], [ %.neg248.i, %80 ], [ %.neg250.i, %85 ], [ %.neg252.i, %90 ]
+  %.sroa.02327.157 = phi ptr [ %25, %85 ], [ %93, %92 ], [ %25, %80 ], [ %88, %87 ], [ %83, %82 ], [ %25, %90 ]
+  %96 = phi i32 [ 0, %85 ], [ %95, %92 ], [ 0, %80 ], [ %89, %87 ], [ %84, %82 ], [ 0, %90 ]
+  %.1214.neg.in.i = phi i32 [ %.neg250.i, %85 ], [ %.neg252.i, %92 ], [ %.neg248.i, %80 ], [ %.neg250.i, %87 ], [ %.neg248.i, %82 ], [ %.neg252.i, %90 ]
   %97 = srem i32 %96, 28
   %98 = sub nsw i32 %96, %97
   %.1214.neg.i = add nsw i32 %17, -4
@@ -880,8 +880,8 @@ bytestream2_get_byte.exit.i:                      ; preds = %200, %204
   br label %bytestream2_get_le32.exit276.i
 
 bytestream2_get_le32.exit276.i:                   ; preds = %237, %233, %238, %234
-  %.sroa.02327.159 = phi ptr [ %235, %234 ], [ %239, %238 ], [ %25, %233 ], [ %25, %237 ]
-  %242 = phi i32 [ %236, %234 ], [ %241, %238 ], [ 0, %233 ], [ 0, %237 ]
+  %.sroa.02327.159 = phi ptr [ %239, %238 ], [ %235, %234 ], [ %25, %233 ], [ %25, %237 ]
+  %242 = phi i32 [ %241, %238 ], [ %236, %234 ], [ 0, %233 ], [ 0, %237 ]
   %.neg.i1960 = mul i32 %21, -36
   %.neg242.i = add nsw i32 %17, -8
   %243 = add i32 %.neg242.i, %.neg.i1960
@@ -942,14 +942,14 @@ bytestream2_get_le32.exit276.i:                   ; preds = %237, %233, %238, %2
   br i1 %or.cond.i, label %get_nb_samples.exit.thread, label %get_nb_samples.exit
 
 get_nb_samples.exit:                              ; preds = %275, %38, %41, %76, %104, %124, %137, %158, %174, %181, %.thread292.i, %bytestream2_get_byte.exit.i, %216, %224, %252, %256, %260, %264, %268, %273
-  %.sroa.02327.163 = phi ptr [ %.sroa.02327.158, %275 ], [ %15, %41 ], [ %15, %76 ], [ %15, %273 ], [ %15, %268 ], [ %15, %264 ], [ %15, %124 ], [ %15, %256 ], [ %15, %252 ], [ %15, %174 ], [ %15, %181 ], [ %15, %.thread292.i ], [ %.sroa.02327.160, %bytestream2_get_byte.exit.i ], [ %.sroa.02327.160, %216 ], [ %15, %224 ], [ %15, %38 ], [ %15, %104 ], [ %15, %137 ], [ %15, %158 ], [ %15, %260 ]
-  %.12582 = phi i32 [ %.02581, %275 ], [ 0, %41 ], [ 0, %76 ], [ 0, %273 ], [ 0, %268 ], [ 0, %264 ], [ 0, %124 ], [ 0, %256 ], [ 0, %252 ], [ 0, %174 ], [ 0, %181 ], [ 0, %.thread292.i ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %216 ], [ 0, %224 ], [ 0, %38 ], [ 0, %104 ], [ 0, %137 ], [ 0, %158 ], [ 0, %260 ]
-  %.1 = phi i32 [ %.02580, %275 ], [ 0, %41 ], [ 0, %76 ], [ 0, %273 ], [ 0, %268 ], [ 0, %264 ], [ 0, %124 ], [ 0, %256 ], [ 0, %252 ], [ 0, %174 ], [ 0, %181 ], [ 0, %.thread292.i ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %216 ], [ 0, %224 ], [ 0, %38 ], [ 0, %104 ], [ 0, %137 ], [ 0, %158 ], [ 0, %260 ]
-  %.0.i1959 = phi i32 [ %.1205.i, %275 ], [ %45, %41 ], [ %79, %76 ], [ %274, %273 ], [ %272, %268 ], [ %267, %264 ], [ %131, %124 ], [ %259, %256 ], [ %255, %252 ], [ %180, %174 ], [ %189, %181 ], [ %199, %.thread292.i ], [ %215, %bytestream2_get_byte.exit.i ], [ %220, %216 ], [ %227, %224 ], [ %40, %38 ], [ %112, %104 ], [ %152, %137 ], [ %173, %158 ], [ %263, %260 ]
+  %.sroa.02327.163 = phi ptr [ %15, %38 ], [ %15, %104 ], [ %15, %260 ], [ %15, %158 ], [ %.sroa.02327.158, %275 ], [ %15, %41 ], [ %15, %76 ], [ %15, %273 ], [ %15, %268 ], [ %15, %264 ], [ %15, %124 ], [ %15, %256 ], [ %15, %252 ], [ %15, %174 ], [ %15, %181 ], [ %15, %137 ], [ %15, %.thread292.i ], [ %.sroa.02327.160, %bytestream2_get_byte.exit.i ], [ %.sroa.02327.160, %216 ], [ %15, %224 ]
+  %.12582 = phi i32 [ 0, %38 ], [ 0, %104 ], [ 0, %260 ], [ 0, %158 ], [ %.02581, %275 ], [ 0, %41 ], [ 0, %76 ], [ 0, %273 ], [ 0, %268 ], [ 0, %264 ], [ 0, %124 ], [ 0, %256 ], [ 0, %252 ], [ 0, %174 ], [ 0, %181 ], [ 0, %137 ], [ 0, %.thread292.i ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %216 ], [ 0, %224 ]
+  %.1 = phi i32 [ 0, %38 ], [ 0, %104 ], [ 0, %260 ], [ 0, %158 ], [ %.02580, %275 ], [ 0, %41 ], [ 0, %76 ], [ 0, %273 ], [ 0, %268 ], [ 0, %264 ], [ 0, %124 ], [ 0, %256 ], [ 0, %252 ], [ 0, %174 ], [ 0, %181 ], [ 0, %137 ], [ 0, %.thread292.i ], [ 0, %bytestream2_get_byte.exit.i ], [ 0, %216 ], [ 0, %224 ]
+  %.0.i1959 = phi i32 [ %40, %38 ], [ %112, %104 ], [ %263, %260 ], [ %173, %158 ], [ %.1205.i, %275 ], [ %45, %41 ], [ %79, %76 ], [ %274, %273 ], [ %272, %268 ], [ %267, %264 ], [ %131, %124 ], [ %259, %256 ], [ %255, %252 ], [ %180, %174 ], [ %189, %181 ], [ %152, %137 ], [ %199, %.thread292.i ], [ %215, %bytestream2_get_byte.exit.i ], [ %220, %216 ], [ %227, %224 ]
   %278 = icmp slt i32 %.0.i1959, 1
   br i1 %278, label %get_nb_samples.exit.thread, label %get_nb_samples.exit.thread2588
 
-get_nb_samples.exit.thread:                       ; preds = %275, %27, %.thread281.i, %153, %132, %193, %113, %35, %32, %bytestream2_init.exit, %get_nb_samples.exit
+get_nb_samples.exit.thread:                       ; preds = %275, %27, %153, %bytestream2_init.exit, %132, %.thread281.i, %193, %113, %35, %32, %get_nb_samples.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.98) #13
   br label %.critedge1882
 
@@ -5171,8 +5171,8 @@ xa_decode.exit:                                   ; preds = %2388
   br label %bytestream2_get_be32.exit
 
 bytestream2_get_be32.exit:                        ; preds = %2719, %2718, %2714, %2713
-  %.sroa.02327.82 = phi ptr [ %2715, %2714 ], [ %25, %2713 ], [ %2720, %2719 ], [ %25, %2718 ]
-  %2722 = phi i32 [ %2717, %2714 ], [ 0, %2713 ], [ %2721, %2719 ], [ 0, %2718 ]
+  %.sroa.02327.82 = phi ptr [ %25, %2713 ], [ %2715, %2714 ], [ %2720, %2719 ], [ %25, %2718 ]
+  %2722 = phi i32 [ 0, %2713 ], [ %2717, %2714 ], [ %2721, %2719 ], [ 0, %2718 ]
   %2723 = add i32 %2705, %2722
   %2724 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv3811
   store i32 %2723, ptr %2724, align 4, !tbaa !112
@@ -7102,7 +7102,7 @@ bytestream2_init.exit1915:                        ; preds = %.preheader2791.spli
   br label %3716
 
 3716:                                             ; preds = %3714, %3711, %3708
-  %.01540.us.us = phi i32 [ %3715, %3714 ], [ %3713, %3711 ], [ %3710, %3708 ]
+  %.01540.us.us = phi i32 [ %3710, %3708 ], [ %3715, %3714 ], [ %3713, %3711 ]
   %.01540.us.us.fr = freeze i32 %.01540.us.us
   %3717 = add i32 %.01540.us.us.fr, 32
   %3718 = ashr i32 %3717, 6
@@ -7114,7 +7114,7 @@ bytestream2_init.exit1915:                        ; preds = %.preheader2791.spli
   br label %.thread4228
 
 .thread4228:                                      ; preds = %3716, %3705
-  %3721 = phi i32 [ 0, %3705 ], [ %spec.select4416, %3716 ]
+  %3721 = phi i32 [ %spec.select4416, %3716 ], [ 0, %3705 ]
   %3722 = getelementptr inbounds nuw i8, ptr %.sroa.02327.1282936.us.us, i64 1
   %3723 = load i8, ptr %.sroa.02327.1282936.us.us, align 1, !tbaa !46
   %3724 = zext i8 %3723 to i32
@@ -7198,7 +7198,7 @@ bytestream2_init.exit1915:                        ; preds = %.preheader2791.spli
   br label %3755
 
 3755:                                             ; preds = %3752, %3749, %3747
-  %.01540 = phi i32 [ %3748, %3747 ], [ %3751, %3749 ], [ %3754, %3752 ]
+  %.01540 = phi i32 [ %3754, %3752 ], [ %3748, %3747 ], [ %3751, %3749 ]
   %.01540.fr = freeze i32 %.01540
   %3756 = add i32 %.01540.fr, 32
   %3757 = ashr i32 %3756, 6
@@ -7210,7 +7210,7 @@ bytestream2_init.exit1915:                        ; preds = %.preheader2791.spli
   br label %.thread4240
 
 .thread4240:                                      ; preds = %3755, %3744
-  %3760 = phi i32 [ 0, %3744 ], [ %spec.select4417, %3755 ]
+  %3760 = phi i32 [ %spec.select4417, %3755 ], [ 0, %3744 ]
   %3761 = getelementptr inbounds nuw i8, ptr %.sroa.02327.1282936, i64 1
   %3762 = load i8, ptr %.sroa.02327.1282936, align 1, !tbaa !46
   %3763 = zext i8 %3762 to i32
@@ -7681,7 +7681,7 @@ ff_adpcm_argo_expand_nibble.exit:                 ; preds = %ff_adpcm_argo_expan
   unreachable
 
 .critedge1840thread-pre-split:                    ; preds = %._crit_edge, %.lr.ph2866, %.thread2654, %._crit_edge2951, %._crit_edge3016, %._crit_edge3027, %adpcm_yamaha_expand_nibble.exit2295, %adpcm_sbpro_expand_nibble.exit2254, %adpcm_sbpro_expand_nibble.exit2230, %adpcm_sbpro_expand_nibble.exit2286, %3145, %3071, %2912, %2849, %2488, %2422, %._crit_edge3231, %._crit_edge3242, %.critedge1876, %1939, %._crit_edge3279, %._crit_edge3290, %._crit_edge3301, %1676, %1610, %._crit_edge3325, %.critedge1872, %1404, %1187, %._crit_edge3393, %adpcm_ms_expand_nibble.exit2025, %._crit_edge3412, %adpcm_agm_expand_nibble.exit2010, %.critedge1852, %._crit_edge3494, %415, %3534, %2146, %3941, %.preheader2800, %.preheader2796, %3422, %3269, %3218, %3332, %3137, %.critedge1888, %.critedge1886, %2480, %.critedge1880, %.critedge1876.preheader, %1931, %1814, %1742, %1668, %1602, %.critedge1872.preheader, %.critedge1867, %._crit_edge3374, %998, %.preheader2728, %.preheader2719, %.critedge1850._crit_edge, %._crit_edge3159, %._crit_edge3136, %3421, %._crit_edge3083, %._crit_edge3365, %1382, %2271, %._crit_edge3223, %._crit_edge3207, %2397, %3050, %3044, %._crit_edge2994, %._crit_edge3487, %._crit_edge3186
-  %.sroa.02327.3.ph = phi ptr [ %.sroa.02327.122.lcssa, %._crit_edge2994 ], [ %25, %3421 ], [ %3045, %3050 ], [ %3045, %3044 ], [ %.sroa.02327.96.lcssa, %._crit_edge3083 ], [ %25, %._crit_edge3136 ], [ %25, %._crit_edge3159 ], [ %2566, %._crit_edge3186 ], [ %.sroa.02327.68.lcssa, %._crit_edge3207 ], [ %2399, %2397 ], [ %.sroa.02327.65.lcssa, %._crit_edge3223 ], [ %2273, %2271 ], [ %1385, %1382 ], [ %.sroa.02327.34.lcssa, %._crit_edge3365 ], [ %.sroa.02327.11.lcssa, %.critedge1850._crit_edge ], [ %527, %._crit_edge3487 ], [ %431, %.preheader2719 ], [ %762, %.preheader2728 ], [ %.sroa.02327.2626072612, %998 ], [ %1177, %._crit_edge3374 ], [ %1396, %.critedge1867 ], [ %1472, %.critedge1872.preheader ], [ %.sroa.02327.1632593, %1602 ], [ %.sroa.02327.1632593, %1668 ], [ %.sroa.02327.1632593, %1742 ], [ %.sroa.02327.1632593, %1814 ], [ %.sroa.02327.1632593, %1931 ], [ %2008, %.critedge1876.preheader ], [ %2414, %.critedge1880 ], [ %.sroa.02327.1632593, %2480 ], [ %2904, %.critedge1886 ], [ %3063, %.critedge1888 ], [ %.sroa.02327.1632593, %3137 ], [ %.sroa.02327.101, %3332 ], [ %.sroa.02327.101, %3218 ], [ %.sroa.02327.101, %3269 ], [ %.sroa.02327.1632593, %3422 ], [ %.sroa.02327.1632593, %.preheader2796 ], [ %.sroa.02327.1632593, %.preheader2800 ], [ %.sroa.02327.1632593, %3941 ], [ %25, %2146 ], [ %25, %3534 ], [ %353, %415 ], [ %538, %._crit_edge3494 ], [ %.sroa.02327.18.lcssa, %.critedge1852 ], [ %768, %adpcm_agm_expand_nibble.exit2010 ], [ %.sroa.02327.23.lcssa, %._crit_edge3412 ], [ %1014, %adpcm_ms_expand_nibble.exit2025 ], [ %.sroa.02327.30.lcssa, %._crit_edge3393 ], [ %1188, %1187 ], [ %1405, %1404 ], [ %1482, %.critedge1872 ], [ %.sroa.02327.47.lcssa, %._crit_edge3325 ], [ %1611, %1610 ], [ %1677, %1676 ], [ %1750, %._crit_edge3301 ], [ %1822, %._crit_edge3290 ], [ %.sroa.02327.55.lcssa, %._crit_edge3279 ], [ %1940, %1939 ], [ %.sroa.02327.60, %.critedge1876 ], [ %25, %._crit_edge3242 ], [ %25, %._crit_edge3231 ], [ %2423, %2422 ], [ %2489, %2488 ], [ %2854, %2849 ], [ %2913, %2912 ], [ %3072, %3071 ], [ %3146, %3145 ], [ %3341, %adpcm_sbpro_expand_nibble.exit2286 ], [ %3227, %adpcm_sbpro_expand_nibble.exit2230 ], [ %3276, %adpcm_sbpro_expand_nibble.exit2254 ], [ %3431, %adpcm_yamaha_expand_nibble.exit2295 ], [ %.sroa.02327.108.lcssa, %._crit_edge3027 ], [ %25, %._crit_edge3016 ], [ %spec.select2712, %._crit_edge2951 ], [ %.sroa.02327.131.lcssa, %.thread2654 ], [ %3894, %.lr.ph2866 ], [ %3949, %._crit_edge ]
+  %.sroa.02327.3.ph = phi ptr [ %.sroa.02327.122.lcssa, %._crit_edge2994 ], [ %25, %2146 ], [ %25, %3421 ], [ %3045, %3050 ], [ %3045, %3044 ], [ %.sroa.02327.96.lcssa, %._crit_edge3083 ], [ %25, %._crit_edge3136 ], [ %25, %._crit_edge3159 ], [ %2566, %._crit_edge3186 ], [ %.sroa.02327.68.lcssa, %._crit_edge3207 ], [ %2399, %2397 ], [ %.sroa.02327.65.lcssa, %._crit_edge3223 ], [ %2273, %2271 ], [ %1385, %1382 ], [ %.sroa.02327.34.lcssa, %._crit_edge3365 ], [ %.sroa.02327.11.lcssa, %.critedge1850._crit_edge ], [ %527, %._crit_edge3487 ], [ %431, %.preheader2719 ], [ %762, %.preheader2728 ], [ %.sroa.02327.2626072612, %998 ], [ %1177, %._crit_edge3374 ], [ %1396, %.critedge1867 ], [ %1472, %.critedge1872.preheader ], [ %.sroa.02327.1632593, %1602 ], [ %.sroa.02327.1632593, %1668 ], [ %.sroa.02327.1632593, %1742 ], [ %.sroa.02327.1632593, %1814 ], [ %.sroa.02327.1632593, %1931 ], [ %2008, %.critedge1876.preheader ], [ %2414, %.critedge1880 ], [ %.sroa.02327.1632593, %2480 ], [ %2904, %.critedge1886 ], [ %3063, %.critedge1888 ], [ %.sroa.02327.1632593, %3137 ], [ %.sroa.02327.101, %3332 ], [ %.sroa.02327.101, %3218 ], [ %.sroa.02327.101, %3269 ], [ %.sroa.02327.1632593, %3422 ], [ %.sroa.02327.1632593, %.preheader2796 ], [ %.sroa.02327.1632593, %.preheader2800 ], [ %.sroa.02327.1632593, %3941 ], [ %25, %3534 ], [ %3894, %.lr.ph2866 ], [ %353, %415 ], [ %538, %._crit_edge3494 ], [ %.sroa.02327.18.lcssa, %.critedge1852 ], [ %768, %adpcm_agm_expand_nibble.exit2010 ], [ %.sroa.02327.23.lcssa, %._crit_edge3412 ], [ %1014, %adpcm_ms_expand_nibble.exit2025 ], [ %.sroa.02327.30.lcssa, %._crit_edge3393 ], [ %1188, %1187 ], [ %1405, %1404 ], [ %1482, %.critedge1872 ], [ %.sroa.02327.47.lcssa, %._crit_edge3325 ], [ %1611, %1610 ], [ %1677, %1676 ], [ %1750, %._crit_edge3301 ], [ %1822, %._crit_edge3290 ], [ %.sroa.02327.55.lcssa, %._crit_edge3279 ], [ %1940, %1939 ], [ %.sroa.02327.60, %.critedge1876 ], [ %25, %._crit_edge3242 ], [ %25, %._crit_edge3231 ], [ %2423, %2422 ], [ %2489, %2488 ], [ %2854, %2849 ], [ %2913, %2912 ], [ %3072, %3071 ], [ %3146, %3145 ], [ %3341, %adpcm_sbpro_expand_nibble.exit2286 ], [ %3227, %adpcm_sbpro_expand_nibble.exit2230 ], [ %3276, %adpcm_sbpro_expand_nibble.exit2254 ], [ %3431, %adpcm_yamaha_expand_nibble.exit2295 ], [ %.sroa.02327.108.lcssa, %._crit_edge3027 ], [ %25, %._crit_edge3016 ], [ %spec.select2712, %._crit_edge2951 ], [ %.sroa.02327.131.lcssa, %.thread2654 ], [ %3949, %._crit_edge ]
   %.pr2659 = load i32, ptr %16, align 8, !tbaa !45
   br label %.critedge1840
 
@@ -7714,7 +7714,7 @@ ff_adpcm_argo_expand_nibble.exit:                 ; preds = %ff_adpcm_argo_expan
   br label %.critedge1882
 
 .critedge1882:                                    ; preds = %3785, %.critedge1878.preheader, %4007, %3060, %2901, %2406, %2005, %1469, %1393, %.thread2615, %834, %684, %604, %428, %416, %2546, %.thread2622, %.critedge1863, %927, %942, %get_nb_samples.exit.thread2588, %4011, %4006, %2981, %get_nb_samples.exit.thread
-  %.0 = phi i32 [ -1094995529, %get_nb_samples.exit.thread ], [ -1094995529, %4006 ], [ %4012, %4011 ], [ -1094995529, %416 ], [ -1094995529, %428 ], [ -1094995529, %604 ], [ -1094995529, %684 ], [ -1094995529, %1393 ], [ -1094995529, %1469 ], [ -1094995529, %2005 ], [ -1094995529, %2406 ], [ -1094995529, %2901 ], [ -1094995529, %2981 ], [ -1094995529, %3060 ], [ %280, %get_nb_samples.exit.thread2588 ], [ -1094995529, %834 ], [ -1094995529, %942 ], [ -1094995529, %927 ], [ -1094995529, %.critedge1863 ], [ -1094995529, %.thread2622 ], [ -1094995529, %2546 ], [ -1094995529, %.thread2615 ], [ %4009, %4007 ], [ -1094995529, %.critedge1878.preheader ], [ -1094995529, %3785 ]
+  %.0 = phi i32 [ -1094995529, %get_nb_samples.exit.thread ], [ -1094995529, %.thread2622 ], [ -1094995529, %4006 ], [ %4012, %4011 ], [ -1094995529, %834 ], [ -1094995529, %416 ], [ -1094995529, %2546 ], [ -1094995529, %428 ], [ -1094995529, %604 ], [ -1094995529, %684 ], [ %4009, %4007 ], [ -1094995529, %.thread2615 ], [ -1094995529, %.critedge1863 ], [ -1094995529, %1393 ], [ -1094995529, %1469 ], [ -1094995529, %2005 ], [ -1094995529, %942 ], [ -1094995529, %927 ], [ -1094995529, %2406 ], [ -1094995529, %2901 ], [ -1094995529, %2981 ], [ -1094995529, %3060 ], [ %280, %get_nb_samples.exit.thread2588 ], [ -1094995529, %.critedge1878.preheader ], [ -1094995529, %3785 ]
   ret i32 %.0
 }
 

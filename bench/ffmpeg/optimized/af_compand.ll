@@ -266,7 +266,7 @@ get_volume.exit.us.i:                             ; preds = %92, %._crit_edge.i.
   br label %compand_drain.exit
 
 compand_drain.exit:                               ; preds = %.split.us.i, %16, %13, %10, %1
-  %.0 = phi i32 [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ], [ %102, %.split.us.i ], [ -12, %16 ]
+  %.0 = phi i32 [ -541478725, %10 ], [ %8, %1 ], [ -541478725, %13 ], [ %102, %.split.us.i ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -923,7 +923,7 @@ count_items.exit376:                              ; preds = %34
   br label %.critedge
 
 .critedge:                                        ; preds = %124, %132, %97, %86, %77, %68, %324, %327, %322, %108, %63, %45
-  %.0 = phi i32 [ -22, %45 ], [ -22, %108 ], [ 0, %322 ], [ 0, %327 ], [ -12, %63 ], [ -12, %324 ], [ -22, %68 ], [ -22, %77 ], [ -22, %86 ], [ -22, %97 ], [ -22, %132 ], [ -22, %124 ]
+  %.0 = phi i32 [ -22, %45 ], [ -12, %324 ], [ -22, %77 ], [ -22, %108 ], [ -22, %97 ], [ 0, %322 ], [ 0, %327 ], [ -12, %63 ], [ -22, %68 ], [ -22, %86 ], [ -22, %132 ], [ -22, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1421,7 +1421,7 @@ get_volume.exit.us:                               ; preds = %112, %._crit_edge.i
   br label %.thread97
 
 .thread97:                                        ; preds = %.split127.us, %.split.us, %._crit_edge121, %132
-  %.4 = phi i32 [ %136, %132 ], [ 0, %._crit_edge121 ], [ -12, %.split.us ], [ %68, %.split127.us ]
+  %.4 = phi i32 [ 0, %._crit_edge121 ], [ %136, %132 ], [ -12, %.split.us ], [ %68, %.split127.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }

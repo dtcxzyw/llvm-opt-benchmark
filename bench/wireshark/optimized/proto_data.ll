@@ -182,7 +182,7 @@ define internal range(i32 -1, 2) i32 @p_compare(ptr noundef readonly captures(no
   br label %16
 
 16:                                               ; preds = %6, %14, %8, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %8 ], [ %., %14 ], [ -1, %6 ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %2 ], [ %., %14 ], [ -1, %6 ]
   ret i32 %.0
 }
 

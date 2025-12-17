@@ -417,7 +417,7 @@ define void @"_ZN88_$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$u20$a
   br label %77
 
 76:                                               ; preds = %.loopexit, %.loopexit.split-lp, %27, %79
-  %.pn83 = phi { ptr, i32 } [ %.pn87, %79 ], [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn83 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %.pn87, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$GT$17h937b5491ae287342E"(ptr nonnull align 8 %11) #7
           to label %82 unwind label %80
 
@@ -1861,7 +1861,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction17
           to label %361 unwind label %318
 
 .critedge117:                                     ; preds = %315, %.critedge116, %361
-  %.pn163.pn = phi { ptr, i32 } [ %.pn163, %361 ], [ %lpad.thr_comm.split-lp, %.critedge116 ], [ %.pn109, %315 ]
+  %.pn163.pn = phi { ptr, i32 } [ %.pn163, %361 ], [ %.pn109, %315 ], [ %lpad.thr_comm.split-lp, %.critedge116 ]
   resume { ptr, i32 } %.pn163.pn
 
 361:                                              ; preds = %355, %359

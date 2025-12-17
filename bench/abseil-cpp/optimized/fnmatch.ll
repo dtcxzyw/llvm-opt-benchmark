@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_st
   br i1 %exitcond.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit: ; preds = %.lr.ph.i, %12
-  %.05.i = phi i64 [ -1, %12 ], [ %.06.i, %.lr.ph.i ]
+  %.05.i = phi i64 [ %.06.i, %.lr.ph.i ], [ -1, %12 ]
   %14 = icmp eq i64 %.05.i, -1
   br label %.critedge
 
@@ -163,7 +163,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51: ; preds 
   %59 = icmp eq i64 %.sroa.034.1, 0
   br i1 %59, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %51, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i17, %39, %._crit_edge, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
+.critedge:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %51, %39, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i17, %._crit_edge, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
   %.1 = phi i1 [ %14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit ], [ %spec.select, %._crit_edge ], [ false, %39 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i17 ], [ false, %51 ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.thread ]
   ret i1 %.1
 }

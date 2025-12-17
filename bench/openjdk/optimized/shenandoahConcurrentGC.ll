@@ -743,7 +743,7 @@ _ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20Shena
   br label %115
 
 _ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit14: ; preds = %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17.thread, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit16.thread, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit15.thread, %54, %49, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17, %104, %_ZN29ShenandoahBreakpointMarkScopeD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN29ShenandoahBreakpointMarkScopeD2Ev.exit ], [ true, %104 ], [ true, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17 ], [ false, %49 ], [ false, %54 ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit15.thread ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit16.thread ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17.thread ]
+  %.1 = phi i1 [ true, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17 ], [ false, %54 ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit15.thread ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit16.thread ], [ false, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit17.thread ], [ false, %_ZN29ShenandoahBreakpointMarkScopeD2Ev.exit ], [ true, %104 ], [ false, %49 ]
   br i1 %16, label %115, label %_ZN27ShenandoahBreakpointGCScopeD2Ev.exit
 
 115:                                              ; preds = %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit14.thread, %_ZN22ShenandoahConcurrentGC28check_cancellation_and_abortEN12ShenandoahGC20ShenandoahDegenPointE.exit14
@@ -3780,7 +3780,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -3887,7 +3887,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -3985,7 +3985,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 

@@ -65,7 +65,7 @@ define void @dot_compoundEdges(ptr noundef %0) local_unnamed_addr #0 {
   br label %getCluster.exit.i
 
 getCluster.exit.i:                                ; preds = %20, %17, %14, %.lr.ph
-  %.0.i.i = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ null, %20 ], [ %18, %17 ]
+  %.0.i.i = phi ptr [ null, %.lr.ph ], [ null, %14 ], [ null, %20 ], [ %18, %17 ]
   %21 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str.1) #11
   %.not.i237.i = icmp eq ptr %21, null
   br i1 %.not.i237.i, label %getCluster.exit239.i, label %22
@@ -322,7 +322,7 @@ inBoxf.exit241.thread.i:                          ; preds = %109
   br label %.thread.i
 
 .sink.split.i:                                    ; preds = %109, %inBoxf.exit.i, %92, %88, %76
-  %.str.4.sink.i = phi ptr [ @.str.3, %92 ], [ @.str.3, %76 ], [ @.str.3, %88 ], [ @.str.3, %inBoxf.exit.i ], [ @.str.4, %109 ]
+  %.str.4.sink.i = phi ptr [ @.str.3, %inBoxf.exit.i ], [ @.str.3, %92 ], [ @.str.3, %76 ], [ @.str.3, %88 ], [ @.str.4, %109 ]
   %180 = call ptr @agnameof(ptr noundef %71) #11
   %181 = load i32, ptr %.018, align 8
   %182 = and i32 %181, 3
@@ -348,7 +348,7 @@ inBoxf.exit241.thread.i:                          ; preds = %109
   br label %.thread.i
 
 .thread.i:                                        ; preds = %192, %189, %178, %160, %149, %inBoxf.exit241.thread.i
-  %.6.i = phi i64 [ %191, %192 ], [ %191, %189 ], [ %179, %178 ], [ %152, %160 ], [ 3, %inBoxf.exit241.thread.i ], [ %151, %149 ]
+  %.6.i = phi i64 [ %191, %189 ], [ %191, %192 ], [ %179, %178 ], [ %152, %160 ], [ %151, %149 ], [ 3, %inBoxf.exit241.thread.i ]
   br i1 %32, label %194, label %319
 
 194:                                              ; preds = %.thread.i
@@ -539,7 +539,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   br label %.thread267.i
 
 .sink.split349.i:                                 ; preds = %228, %inBoxf.exit246.i, %210, %206, %194
-  %.str.6.sink.i = phi ptr [ @.str.5, %210 ], [ @.str.5, %194 ], [ @.str.5, %206 ], [ @.str.5, %inBoxf.exit246.i ], [ @.str.6, %228 ]
+  %.str.6.sink.i = phi ptr [ @.str.5, %inBoxf.exit246.i ], [ @.str.5, %210 ], [ @.str.5, %194 ], [ @.str.5, %206 ], [ @.str.6, %228 ]
   %304 = load i32, ptr %.018, align 8
   %305 = and i32 %304, 3
   %306 = icmp eq i32 %305, 3
@@ -569,7 +569,7 @@ inBoxf.exit248.thread.i:                          ; preds = %228
   br label %.thread267.i
 
 .thread267.i:                                     ; preds = %321, %319, %300, %297, %285, %._crit_edge285.i, %268, %inBoxf.exit248.thread.i
-  %.0198270.i = phi i64 [ 0, %319 ], [ 0, %321 ], [ 0, %._crit_edge285.i ], [ %298, %297 ], [ %303, %300 ], [ 0, %285 ], [ %245, %inBoxf.exit248.thread.i ], [ %269, %268 ]
+  %.0198270.i = phi i64 [ 0, %321 ], [ 0, %319 ], [ 0, %._crit_edge285.i ], [ %298, %297 ], [ %303, %300 ], [ 0, %285 ], [ %269, %268 ], [ %245, %inBoxf.exit248.thread.i ]
   %323 = sub i64 %.6.i, %.0198270.i
   %324 = add i64 %323, 1
   store i64 %324, ptr %10, align 8, !tbaa !37
@@ -689,7 +689,7 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond, label %19, label %59
 
 19:                                               ; preds = %8, %5
-  %.sroa.11.0 = phi double [ %16, %8 ], [ undef, %5 ]
+  %.sroa.11.0 = phi double [ undef, %5 ], [ %16, %8 ]
   %20 = fcmp ogt double %2, %.sroa.0.0.copyload
   br i1 %20, label %21, label %32
 
@@ -708,8 +708,8 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond76, label %32, label %59
 
 32:                                               ; preds = %21, %19
-  %.sroa.055.2 = phi double [ %.sroa.0.0.copyload, %21 ], [ %.sroa.09.0.copyload, %19 ]
-  %.sroa.11.2 = phi double [ %29, %21 ], [ %.sroa.11.0, %19 ]
+  %.sroa.055.2 = phi double [ %.sroa.09.0.copyload, %19 ], [ %.sroa.0.0.copyload, %21 ]
+  %.sroa.11.2 = phi double [ %.sroa.11.0, %19 ], [ %29, %21 ]
   %33 = fcmp olt double %3, %.sroa.814.0.copyload
   br i1 %33, label %34, label %45
 
@@ -728,8 +728,8 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond77, label %45, label %59
 
 45:                                               ; preds = %34, %32
-  %.sroa.055.3 = phi double [ %42, %34 ], [ %.sroa.055.2, %32 ]
-  %.sroa.11.3 = phi double [ %.sroa.814.0.copyload, %34 ], [ %.sroa.11.2, %32 ]
+  %.sroa.055.3 = phi double [ %.sroa.055.2, %32 ], [ %42, %34 ]
+  %.sroa.11.3 = phi double [ %.sroa.11.2, %32 ], [ %.sroa.814.0.copyload, %34 ]
   %46 = fcmp ogt double %3, %.sroa.8.0.copyload
   br i1 %46, label %47, label %58
 
@@ -748,8 +748,8 @@ define internal fastcc { double, double } @boxIntersectf(double %0, double %1, d
   br i1 %or.cond78, label %58, label %59
 
 58:                                               ; preds = %47, %45
-  %.sroa.055.4 = phi double [ %55, %47 ], [ %.sroa.055.3, %45 ]
-  %.sroa.11.4 = phi double [ %.sroa.8.0.copyload, %47 ], [ %.sroa.11.3, %45 ]
+  %.sroa.055.4 = phi double [ %.sroa.055.3, %45 ], [ %55, %47 ]
+  %.sroa.11.4 = phi double [ %.sroa.11.3, %45 ], [ %.sroa.8.0.copyload, %47 ]
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.8, double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %.sroa.09.0.copyload, double noundef %.sroa.814.0.copyload, double noundef %.sroa.0.0.copyload, double noundef %.sroa.8.0.copyload) #11
   br label %59
 
@@ -931,7 +931,7 @@ countVertCross.exit:                              ; preds = %15
   br label %43
 
 43:                                               ; preds = %35, %29, %countVertCross.exit, %6, %41, %34
-  %.0 = phi double [ -1.000000e+00, %34 ], [ %42, %41 ], [ %1, %6 ], [ -1.000000e+00, %countVertCross.exit ], [ %2, %29 ], [ %39, %35 ]
+  %.0 = phi double [ %42, %41 ], [ %1, %6 ], [ -1.000000e+00, %countVertCross.exit ], [ -1.000000e+00, %34 ], [ %2, %29 ], [ %39, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.0
@@ -1017,7 +1017,7 @@ countHorzCross.exit:                              ; preds = %16
   br label %45
 
 45:                                               ; preds = %37, %31, %countHorzCross.exit, %6, %43, %36
-  %.0 = phi double [ -1.000000e+00, %36 ], [ %44, %43 ], [ %1, %6 ], [ -1.000000e+00, %countHorzCross.exit ], [ %2, %31 ], [ %41, %37 ]
+  %.0 = phi double [ %44, %43 ], [ %1, %6 ], [ -1.000000e+00, %countHorzCross.exit ], [ -1.000000e+00, %36 ], [ %2, %31 ], [ %41, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.0

@@ -247,8 +247,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   br i1 %.not386, label %.invoke, label %97
 
 .invoke:                                          ; preds = %68, %93, %89, %74, %84
-  %95 = phi ptr [ @.str.5, %84 ], [ @.str.4, %74 ], [ @.str.6, %89 ], [ @.str.7, %93 ], [ @.str.3, %68 ]
-  %96 = phi i32 [ %86, %84 ], [ %.0323.lcssa729, %74 ], [ %.0325.lcssa728, %89 ], [ %.0325.lcssa728, %93 ], [ %.0323.lcssa729, %68 ]
+  %95 = phi ptr [ @.str.6, %89 ], [ @.str.4, %74 ], [ @.str.5, %84 ], [ @.str.7, %93 ], [ @.str.3, %68 ]
+  %96 = phi i32 [ %.0325.lcssa728, %89 ], [ %.0323.lcssa729, %74 ], [ %86, %84 ], [ %.0325.lcssa728, %93 ], [ %.0323.lcssa729, %68 ]
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull %95, i32 noundef %96)
           to label %_ZN14rcScopedDeleteIiED2Ev.exit435 unwind label %69
 
@@ -603,7 +603,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   br label %262
 
 262:                                              ; preds = %.lr.ph554, %238, %241
-  %.1358 = phi i32 [ %261, %241 ], [ %.0357552, %238 ], [ %.0357552, %.lr.ph554 ]
+  %.1358 = phi i32 [ %261, %241 ], [ %.0357552, %.lr.ph554 ], [ %.0357552, %238 ]
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
   br i1 %exitcond646.not, label %._crit_edge555, label %.lr.ph554, !llvm.loop !9
@@ -1300,7 +1300,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %448, %.preheader.i
   br i1 %589, label %._crit_edge692.sink.split, label %._crit_edge692
 
 ._crit_edge692.sink.split:                        ; preds = %564, %572, %580, %586
-  %.sink = phi i16 [ -32765, %586 ], [ -32766, %580 ], [ -32767, %572 ], [ -32768, %564 ]
+  %.sink = phi i16 [ -32767, %572 ], [ -32766, %580 ], [ -32765, %586 ], [ -32768, %564 ]
   store i16 %.sink, ptr %gep, align 2
   br label %._crit_edge692
 
@@ -1316,7 +1316,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %448, %.preheader.i
   br i1 %592, label %.lr.ph612.us, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge613.us, %.lr.ph617, %526, %523
-  %593 = phi i32 [ %.pre691, %526 ], [ %.pre691, %523 ], [ %.pre691, %.lr.ph617 ], [ %590, %._crit_edge613.us ]
+  %593 = phi i32 [ %.pre691, %523 ], [ %.pre691, %.lr.ph617 ], [ %.pre691, %526 ], [ %590, %._crit_edge613.us ]
   %594 = sext i32 %593 to i64
   %595 = shl nsw i64 %594, 1
   %596 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %595, i32 noundef 0)
@@ -1357,7 +1357,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %448, %.preheader.i
           to label %612 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 612:                                              ; preds = %.invoke756, %608, %611, %522, %489
-  %.6 = phi i1 [ false, %489 ], [ false, %522 ], [ true, %611 ], [ true, %608 ], [ false, %.invoke756 ]
+  %.6 = phi i1 [ true, %611 ], [ false, %489 ], [ false, %.invoke756 ], [ false, %522 ], [ true, %608 ]
   invoke void @_Z6rcFreePv(ptr noundef %137)
           to label %_ZN14rcScopedDeleteItED2Ev.exit429 unwind label %613
 
@@ -1465,7 +1465,7 @@ _ZN14rcScopedDeleteIiED2Ev.exit434:               ; preds = %_ZN14rcScopedDelete
   unreachable
 
 _ZN14rcScopedDeleteIiED2Ev.exit435:               ; preds = %.invoke, %_ZN14rcScopedDeleteIiED2Ev.exit433
-  %.1 = phi i1 [ %.2, %_ZN14rcScopedDeleteIiED2Ev.exit433 ], [ false, %.invoke ]
+  %.1 = phi i1 [ false, %.invoke ], [ %.2, %_ZN14rcScopedDeleteIiED2Ev.exit433 ]
   invoke void @_Z6rcFreePv(ptr noundef %67)
           to label %_ZN14rcScopedDeleteIhED2Ev.exit unwind label %640
 
@@ -2098,8 +2098,8 @@ define internal fastcc noundef i32 @_ZL17getPolyMergeValuePtS_PKtRiS2_i(ptr noun
   br label %_ZL14countPolyVertsPKti.exit97
 
 _ZL14countPolyVertsPKti.exit97:                   ; preds = %16, %6, %._crit_edge.loopexit.split.loop.exit13.i96
-  %.07.i114 = phi i32 [ %.07.i, %._crit_edge.loopexit.split.loop.exit13.i96 ], [ %5, %6 ], [ %.07.i, %16 ]
-  %.07.i89 = phi i32 [ %17, %._crit_edge.loopexit.split.loop.exit13.i96 ], [ %5, %6 ], [ %5, %16 ]
+  %.07.i114 = phi i32 [ %5, %6 ], [ %.07.i, %._crit_edge.loopexit.split.loop.exit13.i96 ], [ %.07.i, %16 ]
+  %.07.i89 = phi i32 [ %5, %6 ], [ %17, %._crit_edge.loopexit.split.loop.exit13.i96 ], [ %5, %16 ]
   %18 = add i32 %.07.i114, -2
   %19 = add i32 %18, %.07.i89
   %20 = icmp sgt i32 %19, %5
@@ -2292,7 +2292,7 @@ _ZL14countPolyVertsPKti.exit97:                   ; preds = %16, %6, %._crit_edg
   br label %.thread
 
 .thread:                                          ; preds = %21, %92, %50, %._crit_edge, %_ZL14countPolyVertsPKti.exit97, %134
-  %.0 = phi i32 [ %151, %134 ], [ -1, %_ZL14countPolyVertsPKti.exit97 ], [ -1, %._crit_edge ], [ -1, %50 ], [ -1, %92 ], [ -1, %21 ]
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %_ZL14countPolyVertsPKti.exit97 ], [ %151, %134 ], [ -1, %50 ], [ -1, %21 ], [ -1, %92 ]
   ret i32 %.0
 }
 
@@ -2363,8 +2363,8 @@ _ZL14countPolyVertsPKti.exit.us:                  ; preds = %20, %._crit_edge.lo
   br label %._crit_edge.us.thread
 
 ._crit_edge.us.thread:                            ; preds = %._crit_edge.us, %_ZL14countPolyVertsPKti.exit.us
-  %.174.lcssa.us217 = phi i32 [ %.073127.us, %_ZL14countPolyVertsPKti.exit.us ], [ %.2.us, %._crit_edge.us ]
-  %24 = phi i32 [ 0, %_ZL14countPolyVertsPKti.exit.us ], [ %spec.select233, %._crit_edge.us ]
+  %.174.lcssa.us217 = phi i32 [ %.2.us, %._crit_edge.us ], [ %.073127.us, %_ZL14countPolyVertsPKti.exit.us ]
+  %24 = phi i32 [ %spec.select233, %._crit_edge.us ], [ 0, %_ZL14countPolyVertsPKti.exit.us ]
   %.181.us = add nsw i32 %24, %.080126.us
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -3489,7 +3489,7 @@ _ZL9pushFrontiPiRi.exit469:                       ; preds = %.lr.ph.preheader.i4
   br label %414
 
 414:                                              ; preds = %.lr.ph702, %367, %404
-  %.1365 = phi i32 [ %413, %404 ], [ %.0364698, %367 ], [ %.0364698, %.lr.ph702 ]
+  %.1365 = phi i32 [ %413, %404 ], [ %.0364698, %.lr.ph702 ], [ %.0364698, %367 ]
   %indvars.iv.next789 = add nuw nsw i64 %indvars.iv788, 1
   %exitcond792.not = icmp eq i64 %indvars.iv.next789, %342
   br i1 %exitcond792.not, label %._crit_edge703, label %.lr.ph702, !llvm.loop !49
@@ -3791,7 +3791,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %465, %.preheader.i
           to label %.loopexit unwind label %353
 
 .loopexit:                                        ; preds = %501, %500, %358, %.loopexit629, %526, %._crit_edge703, %352
-  %.9 = phi i1 [ false, %352 ], [ true, %._crit_edge703 ], [ false, %526 ], [ true, %.loopexit629 ], [ true, %358 ], [ true, %500 ], [ true, %501 ]
+  %.9 = phi i1 [ false, %526 ], [ true, %._crit_edge703 ], [ false, %352 ], [ true, %.loopexit629 ], [ true, %358 ], [ true, %500 ], [ true, %501 ]
   invoke void @_Z6rcFreePv(ptr noundef %350)
           to label %_ZN14rcScopedDeleteIhED2Ev.exit475 unwind label %527
 
@@ -4519,8 +4519,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   br i1 %.not232, label %.invoke, label %135
 
 .invoke:                                          ; preds = %131, %127, %123, %101, %114
-  %133 = phi ptr [ @.str.21, %114 ], [ @.str.20, %101 ], [ @.str.22, %123 ], [ @.str.23, %127 ], [ @.str.24, %131 ]
-  %134 = phi i32 [ %117, %114 ], [ %102, %101 ], [ %.0214.lcssa, %123 ], [ %.0214.lcssa, %127 ], [ %.0214.lcssa, %131 ]
+  %133 = phi ptr [ @.str.23, %127 ], [ @.str.22, %123 ], [ @.str.20, %101 ], [ @.str.21, %114 ], [ @.str.24, %131 ]
+  %134 = phi i32 [ %.0214.lcssa, %127 ], [ %.0214.lcssa, %123 ], [ %102, %101 ], [ %117, %114 ], [ %.0214.lcssa, %131 ]
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull %133, i32 noundef %134)
           to label %_ZN14rcScopedDeleteIiED2Ev.exit245 unwind label %94
 
@@ -4956,7 +4956,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
           to label %360 unwind label %153
 
 360:                                              ; preds = %356, %359, %351, %152
-  %.4 = phi i1 [ false, %152 ], [ false, %351 ], [ true, %359 ], [ true, %356 ]
+  %.4 = phi i1 [ false, %351 ], [ false, %152 ], [ true, %359 ], [ true, %356 ]
   invoke void @_Z6rcFreePv(ptr noundef %147)
           to label %_ZN14rcScopedDeleteItED2Ev.exit243 unwind label %361
 
@@ -5016,7 +5016,7 @@ _ZN14rcScopedDeleteIiED2Ev.exit244:               ; preds = %_ZN14rcScopedDelete
   unreachable
 
 _ZN14rcScopedDeleteIiED2Ev.exit245:               ; preds = %.invoke, %_ZN14rcScopedDeleteIiED2Ev.exit
-  %.1 = phi i1 [ %.2, %_ZN14rcScopedDeleteIiED2Ev.exit ], [ false, %.invoke ]
+  %.1 = phi i1 [ false, %.invoke ], [ %.2, %_ZN14rcScopedDeleteIiED2Ev.exit ]
   %376 = load i8, ptr %13, align 1
   %377 = trunc i8 %376 to i1
   br i1 %377, label %378, label %_ZN13rcScopedTimerD2Ev.exit
@@ -5555,31 +5555,31 @@ _ZL13intersectPropPKiS0_S0_S0_.exit.i.i:          ; preds = %146
   br i1 %159, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit.thread13.i.i
 
 160:                                              ; preds = %_ZL6vequalPKiS0_.exit51.thread.i
-  br i1 %.not.i.i.i, label %164, label %161
+  br i1 %.not.i.i.i, label %162, label %161
 
 161:                                              ; preds = %160
   %.not31.i.i.i = icmp sgt i32 %39, %110
   %.not32.i.i.i = icmp sgt i32 %110, %54
   %or.cond.i.i.i = or i1 %.not31.i.i.i, %.not32.i.i.i
-  br i1 %or.cond.i.i.i, label %162, label %_ZL10diagonalieiiiPKiPi.exit
+  br i1 %or.cond.i.i.i, label %_ZL7betweenPKiS0_S0_.exit.i.i, label %_ZL10diagonalieiiiPKiPi.exit
 
-162:                                              ; preds = %161
-  %.not33.i.i.i = icmp sge i32 %39, %110
-  %163 = icmp sge i32 %110, %54
-  %spec.select.i.i.i = and i1 %.not33.i.i.i, %163
-  br i1 %spec.select.i.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread
-
-164:                                              ; preds = %160
+162:                                              ; preds = %160
   %.not28.i.i.i = icmp sgt i32 %51, %.val48.i
   %.not29.i.i.i = icmp sgt i32 %.val48.i, %.val46.pre.i
   %or.cond9.i.i.i = or i1 %.not28.i.i.i, %.not29.i.i.i
-  br i1 %or.cond9.i.i.i, label %_ZL7betweenPKiS0_S0_.exit.i.i, label %_ZL10diagonalieiiiPKiPi.exit
+  br i1 %or.cond9.i.i.i, label %163, label %_ZL10diagonalieiiiPKiPi.exit
 
-_ZL7betweenPKiS0_S0_.exit.i.i:                    ; preds = %164
+163:                                              ; preds = %162
   %.not30.i.i.i = icmp sge i32 %51, %.val48.i
-  %165 = icmp sge i32 %.val48.i, %.val46.pre.i
-  %spec.select10.i.i.i = and i1 %.not30.i.i.i, %165
+  %164 = icmp sge i32 %.val48.i, %.val46.pre.i
+  %spec.select10.i.i.i = and i1 %.not30.i.i.i, %164
   br i1 %spec.select10.i.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread28
+
+_ZL7betweenPKiS0_S0_.exit.i.i:                    ; preds = %161
+  %.not33.i.i.i = icmp sge i32 %39, %110
+  %165 = icmp sge i32 %110, %54
+  %spec.select.i.i.i = and i1 %.not33.i.i.i, %165
+  br i1 %spec.select.i.i.i, label %_ZL10diagonalieiiiPKiPi.exit, label %_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread
 
 _ZL7betweenPKiS0_S0_.exit.thread13.i.i:           ; preds = %_ZL13intersectPropPKiS0_S0_S0_.exit.i.i, %146, %142, %138, %132
   %166 = getelementptr i8, ptr %109, i64 8
@@ -5591,7 +5591,7 @@ _ZL7betweenPKiS0_S0_.exit.thread13.i.i:           ; preds = %_ZL13intersectPropP
   %169 = icmp eq i32 %.neg8.i.i.i54.i.i, %.neg3.i.i52.i.i
   br i1 %169, label %178, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i.i
 
-_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread28:  ; preds = %_ZL7betweenPKiS0_S0_.exit.i.i
+_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread28:  ; preds = %163
   %170 = getelementptr i8, ptr %109, i64 8
   %.val33.i.i29 = load i32, ptr %170, align 4
   %171 = sub nsw i32 %.val33.i.i29, %51
@@ -5601,7 +5601,7 @@ _ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread28:  ; preds = %_ZL7betweenPKiS0_S0
   %173 = icmp eq i32 %.neg8.i.i.i54.i.i31, %.neg3.i.i52.i.i30
   br i1 %173, label %.thread32, label %_ZL7betweenPKiS0_S0_.exit67.thread16.i.i
 
-_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread:    ; preds = %162
+_ZL7betweenPKiS0_S0_.exit.thread13.i.i.thread:    ; preds = %_ZL7betweenPKiS0_S0_.exit.i.i
   %174 = getelementptr i8, ptr %109, i64 8
   %.val33.i.i21 = load i32, ptr %174, align 4
   %175 = sub nsw i32 %.val33.i.i21, %51
@@ -5719,8 +5719,8 @@ _ZL9intersectPKiS0_S0_S0_.exit.thread53.i:        ; preds = %_ZL9intersectPKiS0_
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %85
   br i1 %exitcond.not.i, label %_ZL10diagonalieiiiPKiPi.exit, label %88, !llvm.loop !67
 
-_ZL10diagonalieiiiPKiPi.exit:                     ; preds = %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i, %_ZL9intersectPKiS0_S0_S0_.exit.i, %198, %196, %195, %_ZL7betweenPKiS0_S0_.exit84.i.i, %189, %187, %186, %_ZL7betweenPKiS0_S0_.exit67.i.i, %.thread32, %179, %.thread, %_ZL7betweenPKiS0_S0_.exit.i.i, %164, %162, %161, %_ZL13intersectPropPKiS0_S0_S0_.exit.i.i, %56, %_ZL6inConeiiiPKiPi.exit.thread, %63, %_ZL6inConeiiiPKiPi.exit
-  %200 = phi i1 [ false, %_ZL6inConeiiiPKiPi.exit ], [ false, %63 ], [ true, %_ZL6inConeiiiPKiPi.exit.thread ], [ false, %56 ], [ false, %_ZL9intersectPKiS0_S0_S0_.exit.i ], [ true, %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i ], [ false, %196 ], [ false, %_ZL13intersectPropPKiS0_S0_S0_.exit.i.i ], [ false, %_ZL7betweenPKiS0_S0_.exit84.i.i ], [ false, %_ZL7betweenPKiS0_S0_.exit67.i.i ], [ false, %_ZL7betweenPKiS0_S0_.exit.i.i ], [ false, %162 ], [ false, %179 ], [ false, %187 ], [ false, %195 ], [ false, %198 ], [ false, %161 ], [ false, %164 ], [ false, %.thread ], [ false, %.thread32 ], [ false, %186 ], [ false, %189 ]
+_ZL10diagonalieiiiPKiPi.exit:                     ; preds = %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i, %_ZL9intersectPKiS0_S0_S0_.exit.i, %198, %196, %195, %_ZL7betweenPKiS0_S0_.exit84.i.i, %189, %187, %186, %_ZL7betweenPKiS0_S0_.exit67.i.i, %.thread32, %179, %.thread, %_ZL7betweenPKiS0_S0_.exit.i.i, %163, %162, %161, %_ZL13intersectPropPKiS0_S0_S0_.exit.i.i, %56, %_ZL6inConeiiiPKiPi.exit.thread, %63, %_ZL6inConeiiiPKiPi.exit
+  %200 = phi i1 [ false, %_ZL6inConeiiiPKiPi.exit ], [ false, %63 ], [ false, %56 ], [ true, %_ZL6inConeiiiPKiPi.exit.thread ], [ true, %_ZL9intersectPKiS0_S0_S0_.exit.thread53.i ], [ false, %196 ], [ false, %_ZL7betweenPKiS0_S0_.exit.i.i ], [ false, %_ZL13intersectPropPKiS0_S0_S0_.exit.i.i ], [ false, %187 ], [ false, %_ZL7betweenPKiS0_S0_.exit84.i.i ], [ false, %_ZL7betweenPKiS0_S0_.exit67.i.i ], [ false, %198 ], [ false, %163 ], [ false, %162 ], [ false, %179 ], [ false, %.thread32 ], [ false, %195 ], [ false, %161 ], [ false, %.thread ], [ false, %186 ], [ false, %189 ], [ false, %_ZL9intersectPKiS0_S0_S0_.exit.i ]
   ret i1 %200
 }
 

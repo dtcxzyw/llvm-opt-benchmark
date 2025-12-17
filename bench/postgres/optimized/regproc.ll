@@ -165,7 +165,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %51
 
 51:                                               ; preds = %.tail.i, %18, %42, %44, %35, %37, %47, %30
-  %.0 = phi i64 [ 0, %30 ], [ %50, %47 ], [ 0, %37 ], [ 0, %35 ], [ 0, %44 ], [ 0, %42 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %42 ], [ 0, %30 ], [ %50, %47 ], [ 0, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -242,7 +242,7 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
   br label %32
 
 32:                                               ; preds = %17, %19, %6, %8, %.critedge
-  %.0 = phi ptr [ %.018.lcssa, %.critedge ], [ null, %8 ], [ null, %6 ], [ null, %19 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %6 ], [ %.018.lcssa, %.critedge ], [ null, %8 ], [ null, %19 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -514,7 +514,7 @@ parseDashOrOid.exit:                              ; preds = %17, %15, %.tail.i
   br label %53
 
 53:                                               ; preds = %.tail.i, %21, %._crit_edge, %46, %49, %32
-  %.0 = phi i64 [ %52, %49 ], [ 0, %32 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %.tail.i ], [ %24, %21 ]
+  %.0 = phi i64 [ 0, %._crit_edge ], [ 0, %32 ], [ %52, %49 ], [ 0, %46 ], [ 0, %.tail.i ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -773,7 +773,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %95, %97, %72, %74, %50, %52, %35, %37, %23, %18, %20, %106
-  %.0 = phi i1 [ true, %106 ], [ false, %20 ], [ false, %18 ], [ false, %23 ], [ false, %37 ], [ false, %35 ], [ false, %52 ], [ false, %50 ], [ false, %74 ], [ false, %72 ], [ false, %97 ], [ false, %95 ], [ false, %90 ]
+  %.0 = phi i1 [ false, %72 ], [ false, %18 ], [ false, %23 ], [ false, %35 ], [ true, %106 ], [ false, %50 ], [ false, %20 ], [ false, %37 ], [ false, %52 ], [ false, %74 ], [ false, %97 ], [ false, %95 ], [ false, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
@@ -1126,7 +1126,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr noundef captures(no
   br label %48
 
 48:                                               ; preds = %39, %41, %32, %34, %44, %27, %14
-  %.0 = phi i64 [ %17, %14 ], [ 0, %27 ], [ %47, %44 ], [ 0, %34 ], [ 0, %32 ], [ 0, %41 ], [ 0, %39 ]
+  %.0 = phi i64 [ %17, %14 ], [ 0, %27 ], [ %47, %44 ], [ 0, %32 ], [ 0, %34 ], [ 0, %41 ], [ 0, %39 ]
   ret i64 %.0
 }
 
@@ -1373,7 +1373,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr noundef capture
   br label %58
 
 58:                                               ; preds = %51, %53, %39, %41, %33, %35, %56, %29, %17
-  %.0 = phi i64 [ %20, %17 ], [ %57, %56 ], [ 0, %29 ], [ 0, %35 ], [ 0, %33 ], [ 0, %41 ], [ 0, %39 ], [ 0, %53 ], [ 0, %51 ]
+  %.0 = phi i64 [ %20, %17 ], [ 0, %29 ], [ 0, %33 ], [ %57, %56 ], [ 0, %39 ], [ 0, %35 ], [ 0, %41 ], [ 0, %53 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1719,7 +1719,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %43
 
 43:                                               ; preds = %.tail.i, %18, %35, %37, %41, %30
-  %.0 = phi i64 [ 0, %30 ], [ %42, %41 ], [ 0, %37 ], [ 0, %35 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %35 ], [ 0, %30 ], [ %42, %41 ], [ 0, %37 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -1919,7 +1919,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %43
 
 43:                                               ; preds = %.tail.i, %18, %34, %36, %41, %30
-  %.0 = phi i64 [ 0, %30 ], [ %42, %41 ], [ 0, %36 ], [ 0, %34 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %34 ], [ 0, %30 ], [ %42, %41 ], [ 0, %36 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -2316,7 +2316,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %42
 
 42:                                               ; preds = %.tail.i, %18, %34, %36, %40, %30
-  %.0 = phi i64 [ 0, %30 ], [ %41, %40 ], [ 0, %36 ], [ 0, %34 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %34 ], [ 0, %30 ], [ %41, %40 ], [ 0, %36 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -2467,7 +2467,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %42
 
 42:                                               ; preds = %.tail.i, %18, %34, %36, %40, %30
-  %.0 = phi i64 [ 0, %30 ], [ %41, %40 ], [ 0, %36 ], [ 0, %34 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %34 ], [ 0, %30 ], [ %41, %40 ], [ 0, %36 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -2642,7 +2642,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %55
 
 55:                                               ; preds = %.tail.i, %18, %45, %47, %34, %36, %53, %30
-  %.0 = phi i64 [ 0, %30 ], [ %54, %53 ], [ 0, %36 ], [ 0, %34 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %45 ], [ 0, %30 ], [ 0, %34 ], [ %54, %53 ], [ 0, %36 ], [ 0, %47 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 
@@ -2829,7 +2829,7 @@ parseDashOrOid.exit:                              ; preds = %14, %12, %.tail.i
   br label %55
 
 55:                                               ; preds = %.tail.i, %18, %45, %47, %34, %36, %53, %30
-  %.0 = phi i64 [ 0, %30 ], [ %54, %53 ], [ 0, %36 ], [ 0, %34 ], [ 0, %47 ], [ 0, %45 ], [ 0, %.tail.i ], [ %21, %18 ]
+  %.0 = phi i64 [ 0, %45 ], [ 0, %30 ], [ 0, %34 ], [ %54, %53 ], [ 0, %36 ], [ 0, %47 ], [ 0, %.tail.i ], [ %21, %18 ]
   ret i64 %.0
 }
 

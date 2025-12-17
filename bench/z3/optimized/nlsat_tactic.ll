@@ -1031,7 +1031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
           to label %82 unwind label %83
 
 82:                                               ; preds = %80, %79, %46
-  %.merged = phi { ptr, i32 } [ %.pn, %46 ], [ %.pn1621, %79 ], [ %81, %80 ]
+  %.merged = phi { ptr, i32 } [ %.pn1621, %79 ], [ %.pn, %46 ], [ %81, %80 ]
   resume { ptr, i32 } %.merged
 
 83:                                               ; preds = %80, %79
@@ -1671,7 +1671,7 @@ _Z17is_uninterp_constPK4expr.exit26.thread..thread31_crit_edge.i: ; preds = %.no
   br label %.thread31.i
 
 .thread31.i:                                      ; preds = %_Z17is_uninterp_constPK4expr.exit26.thread..thread31_crit_edge.i, %_Z17is_uninterp_constPK4expr.exit26.i, %171, %158
-  %181 = phi ptr [ %.pre.i64, %_Z17is_uninterp_constPK4expr.exit26.thread..thread31_crit_edge.i ], [ %153, %171 ], [ %153, %_Z17is_uninterp_constPK4expr.exit26.i ], [ %153, %158 ]
+  %181 = phi ptr [ %.pre.i64, %_Z17is_uninterp_constPK4expr.exit26.thread..thread31_crit_edge.i ], [ %153, %171 ], [ %153, %158 ], [ %153, %_Z17is_uninterp_constPK4expr.exit26.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %182 = icmp eq ptr %181, null
   br i1 %182, label %_ZN12nlsat_tactic3imp20contains_unsupportedER10ref_vectorI4expr11ast_managerES5_.exit, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit25.i, !llvm.loop !106
@@ -1969,7 +1969,7 @@ _ZN6vectorIPvLb0EjE3endEv.exit:                   ; preds = %280
   unreachable
 
 _ZN6vectorIPvLb0EjED2Ev.exit:                     ; preds = %280, %._crit_edge, %._crit_edge.thread165
-  %.144.lcssa164 = phi ptr [ %.0.i.i93, %._crit_edge ], [ %.144.lcssa168, %._crit_edge.thread165 ], [ null, %280 ]
+  %.144.lcssa164 = phi ptr [ %.144.lcssa168, %._crit_edge.thread165 ], [ %.0.i.i93, %._crit_edge ], [ null, %280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre129 = load ptr, ptr %1, align 8, !tbaa !33
   br label %322
@@ -2150,7 +2150,7 @@ _ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i109: ; preds = %.noexc114, %._crit_
   ret void
 
 364:                                              ; preds = %.loopexit119, %.loopexit.split-lp120, %120, %273, %321, %293
-  %.pn53.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn49, %273 ], [ %.pn.pn, %321 ], [ %294, %293 ], [ %lpad.loopexit121, %.loopexit119 ], [ %lpad.loopexit.split-lp122, %.loopexit.split-lp120 ]
+  %.pn53.pn = phi { ptr, i32 } [ %294, %293 ], [ %121, %120 ], [ %.pn49, %273 ], [ %.pn.pn, %321 ], [ %lpad.loopexit121, %.loopexit119 ], [ %lpad.loopexit.split-lp122, %.loopexit.split-lp120 ]
   call void @_ZN8expr2varD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #20
   br label %365
 
@@ -2726,7 +2726,7 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i:   ; preds = %.noexc
   br label %_ZNK17arith_recognizers6is_intEPK4expr.exit
 
 _ZNK17arith_recognizers6is_intEPK4expr.exit:      ; preds = %59, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %.noexc
-  %63 = phi i1 [ %62, %59 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %.noexc ]
+  %63 = phi i1 [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ %62, %59 ], [ false, %.noexc ]
   %64 = load ptr, ptr %17, align 8, !tbaa !196
   %.not.i.i53 = icmp eq ptr %64, null
   br i1 %.not.i.i53, label %65, label %_ZNK10arith_util6pluginEv.exit.i
@@ -2968,7 +2968,7 @@ _ZN3refI5modelED2Ev.exit:                         ; preds = %160, %164
   ret i1 %.0.lcssa
 
 .loopexit:                                        ; preds = %80, %136, %103, %94, %96, %98, %27
-  %.merged = phi { ptr, i32 } [ %28, %27 ], [ %104, %103 ], [ %97, %96 ], [ %95, %94 ], [ %99, %98 ], [ %137, %136 ], [ %69, %80 ]
+  %.merged = phi { ptr, i32 } [ %28, %27 ], [ %99, %98 ], [ %97, %96 ], [ %137, %136 ], [ %104, %103 ], [ %95, %94 ], [ %69, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

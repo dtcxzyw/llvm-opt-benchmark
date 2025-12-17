@@ -2280,7 +2280,7 @@ _ZN4llvm5ErrorD2Ev.exit121.thread:                ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %373
 
 373:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit121.thread, %_ZN4llvm5ErrorD2Ev.exit47, %.critedge45
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit47 ], [ true, %.critedge45 ], [ false, %_ZN4llvm5ErrorD2Ev.exit121.thread ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit47 ], [ false, %_ZN4llvm5ErrorD2Ev.exit121.thread ], [ true, %.critedge45 ]
   ret i1 %.1
 }
 

@@ -1428,7 +1428,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit72:               ; preds = %36, %38
   br label %_ZNK5clang19CompoundLiteralExpr11getBeginLocEv.exit
 
 _ZNK5clang19CompoundLiteralExpr11getBeginLocEv.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit72, %43, %47
-  %.sroa.0.0.i = phi i32 [ %48, %47 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit72 ], [ %45, %43 ]
+  %.sroa.0.0.i = phi i32 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit72 ], [ %48, %47 ], [ %45, %43 ]
   %49 = tail call noundef i32 @_ZNK5clang13SourceManager22getExpansionLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.0.i, ptr noundef null) #21
   %50 = zext i32 %49 to i64
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i71, i64 noundef %50) #21
@@ -3109,7 +3109,7 @@ _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i: ; preds = %34
   br label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit36.i
 
 _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit36.i: ; preds = %49, %43, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i, %34, %29, %20
-  %.0.i = phi ptr [ %22, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i ], [ %51, %49 ], [ null, %43 ], [ %22, %34 ], [ %22, %20 ], [ %22, %29 ]
+  %.0.i = phi ptr [ null, %43 ], [ %22, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i ], [ %22, %34 ], [ %51, %49 ], [ %22, %20 ], [ %22, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %52 = zext i1 %28 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEE8CallBack, i64 16), ptr %13, align 8, !tbaa !7
@@ -3852,7 +3852,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i: ; preds = %281, %.lr.ph.i51.i, %404, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %402, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i
-  %.377.i = phi i32 [ 0, %402 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ 3, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i ], [ 0, %404 ], [ 3, %.lr.ph.i51.i ], [ 3, %281 ]
+  %.377.i = phi i32 [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ 0, %402 ], [ 0, %404 ], [ 3, %_ZL13printReferrerB5cxx11PKN5clang4ento9MemRegionE.exit.i ], [ 3, %.lr.ph.i51.i ], [ 3, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %409
 
@@ -4137,7 +4137,7 @@ tailrecurse.i.i:                                  ; preds = %68, %60
   br i1 %.not30.i.i, label %_ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i, label %tailrecurse.i.i
 
 _ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %68, %64, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i, %tailrecurse.i.i
-  %.4.i.i = phi ptr [ null, %64 ], [ %61, %tailrecurse.i.i ], [ null, %68 ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ]
+  %.4.i.i = phi ptr [ %61, %tailrecurse.i.i ], [ null, %68 ], [ null, %64 ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ], [ %61, %tailrecurse.i.i ]
   %75 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion14getMemorySpaceEv(ptr noundef nonnull align 8 dereferenceable(48) %59) #21
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !48
@@ -4225,7 +4225,7 @@ _ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnS
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit
 
-126:                                              ; preds = %_ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i, %84, %80, %108, %111, %116
+126:                                              ; preds = %_ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i, %116, %80, %84, %108, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %tailrecurse.i
@@ -4309,7 +4309,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceReg
   store i32 %168, ptr %157, align 8, !tbaa !468
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit: ; preds = %130, %134, %163, %161, %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBack29checkForDanglingStackVariableEPKNS5_9MemRegionESB_.exit, %142, %144, %_ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceRegionEEEbRKT0_.exit, %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBack26recordInInvalidatedRegionsEPKNS5_9MemRegionE.exit
+_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit: ; preds = %134, %130, %163, %161, %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBack29checkForDanglingStackVariableEPKNS5_9MemRegionESB_.exit, %142, %144, %_ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceRegionEEEbRKT0_.exit, %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBack26recordInInvalidatedRegionsEPKNS5_9MemRegionE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 true
 }

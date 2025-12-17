@@ -440,7 +440,7 @@ define i32 @Cec_GiaWaitThreads(ptr noundef readonly captures(none) %0, i32 nound
   br label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %8, %18, %20, %24, %15, %11
-  %.1 = phi i32 [ %17, %18 ], [ %17, %20 ], [ %17, %24 ], [ -1, %15 ], [ -1, %11 ], [ %.02027, %8 ]
+  %.1 = phi i32 [ -1, %11 ], [ %17, %18 ], [ %17, %20 ], [ %17, %24 ], [ -1, %15 ], [ %.02027, %8 ]
   %26 = getelementptr inbounds %struct.Par_ThData_t_, ptr %0, i64 %10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !68

@@ -173,8 +173,8 @@ _ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %38, %29, %
   store i64 %44, ptr %2, align 8, !tbaa !6
   br label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
 
-_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %38, %37, %28, %19, %10, %3, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
-  %.not8 = phi i1 [ true, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ], [ false, %37 ], [ false, %38 ]
+_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %28, %19, %10, %3, %38, %37, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
+  %.not8 = phi i1 [ true, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %37 ], [ false, %38 ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ]
   ret i1 %.not8
 }
 
@@ -367,9 +367,9 @@ define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr 
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
 55:                                               ; preds = %.thread209, %19
-  %.0183 = phi i64 [ %.0.copyload.i161, %19 ], [ %.0.copyload.i163, %.thread209 ]
-  %.0133 = phi i32 [ 33, %19 ], [ 49, %.thread209 ]
-  %.1119 = phi ptr [ %20, %19 ], [ %27, %.thread209 ]
+  %.0183 = phi i64 [ %.0.copyload.i163, %.thread209 ], [ %.0.copyload.i161, %19 ]
+  %.0133 = phi i32 [ 49, %.thread209 ], [ 33, %19 ]
+  %.1119 = phi ptr [ %27, %.thread209 ], [ %20, %19 ]
   %56 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
   %57 = icmp ugt ptr %56, %11
   br i1 %57, label %.thread255, label %.lr.ph, !prof !26
@@ -745,8 +745,8 @@ _ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit:  ; preds = %222, %209, %174
   br label %19
 
 .thread255:                                       ; preds = %55, %74, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
-  %.13 = phi ptr [ %0, %5 ], [ %229, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %74 ], [ %.0118, %55 ]
-  %.11 = phi ptr [ %2, %5 ], [ %.10, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %74 ], [ %.0117, %55 ]
+  %.13 = phi ptr [ %0, %5 ], [ %.0118, %74 ], [ %229, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %55 ]
+  %.11 = phi ptr [ %2, %5 ], [ %.0117, %74 ], [ %.10, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %55 ]
   %256 = icmp ult ptr %.13, %8
   br i1 %256, label %257, label %277
 
@@ -789,7 +789,7 @@ _ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %264, %266
   br label %277
 
 277:                                              ; preds = %.thread255, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %276, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.11, %.thread255 ]
+  %.0 = phi ptr [ %.11, %.thread255 ], [ %276, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1109,10 +1109,10 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   store i16 %47, ptr %122, align 2, !tbaa !20
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
-  %.2203.ph = phi i32 [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %.127.i252, %151 ], [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2194.ph = phi ptr [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %125, %151 ], [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2178.ph = phi ptr [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+.preheader:                                       ; preds = %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151
+  %.2203.ph = phi i32 [ %.127.i252, %151 ], [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2194.ph = phi ptr [ %125, %151 ], [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2178.ph = phi ptr [ %115, %151 ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
   %152 = icmp ugt ptr %.2178.ph, %.0176588
   %153 = icmp ugt ptr %.2194.ph, %0
   %or.cond403 = select i1 %152, i1 %153, i1 false
@@ -1592,8 +1592,8 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308: ; preds = 
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 .thread355:                                       ; preds = %.loopexit.loopexit, %26, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
-  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176588, %26 ], [ %223, %.loopexit.loopexit ]
-  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175590, %26 ], [ %.4, %.loopexit.loopexit ]
+  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %.0176588, %26 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %223, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.0175590, %26 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.4, %.loopexit.loopexit ]
   %405 = icmp ult ptr %.8, %10
   br i1 %405, label %406, label %426
 
@@ -1636,7 +1636,7 @@ _ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %413, %415
   br label %426
 
 426:                                              ; preds = %.thread355, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %425, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.5, %.thread355 ]
+  %.0 = phi ptr [ %.5, %.thread355 ], [ %425, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1838,7 +1838,7 @@ _ZN13duckdb_snappy15CalculateNeededEh.exit:       ; preds = %36, %39
   br label %96
 
 96:                                               ; preds = %.critedge37, %84, %95, %79, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ false, %.critedge37 ], [ true, %84 ], [ true, %95 ], [ true, %79 ]
+  %.2 = phi i1 [ false, %.critedge ], [ true, %79 ], [ true, %95 ], [ false, %.critedge37 ], [ true, %84 ]
   ret i1 %.2
 }
 
@@ -1895,7 +1895,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy21GetUncompressedLengthEPNS_6Source
   br i1 %28, label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %4
 
 .loopexit.sink.split.i:                           ; preds = %20, %.noexc3, %.noexc
-  %.1.ph.i = phi i1 [ false, %.noexc ], [ false, %.noexc3 ], [ true, %20 ]
+  %.1.ph.i = phi i1 [ false, %.noexc3 ], [ false, %.noexc ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit
 
@@ -2189,7 +2189,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   br label %136
 
 136:                                              ; preds = %123, %130, %122
-  %.0 = phi ptr [ %125, %123 ], [ null, %122 ], [ %135, %130 ]
+  %.0 = phi ptr [ null, %122 ], [ %125, %123 ], [ %135, %130 ]
   %137 = ptrtoint ptr %.0 to i64
   %138 = ptrtoint ptr %121 to i64
   %139 = sub i64 %137, %138
@@ -2214,7 +2214,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   br i1 %.not, label %._crit_edge, label %70, !llvm.loop !54
 
 150:                                              ; preds = %.loopexit93, %.loopexit.split-lp, %128, %126, %98, %77
-  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %99, %98 ], [ %129, %128 ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %129, %128 ], [ %99, %98 ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN13duckdb_snappy8internal13WorkingMemoryD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2403,7 +2403,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit.i: ; preds = %46
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyIOVecWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyIOVecWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i: ; preds = %43, %64, %.noexc6.i, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i
-  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ false, %.noexc6.i ], [ %67, %64 ], [ false, %43 ]
+  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ %67, %64 ], [ false, %.noexc6.i ], [ false, %43 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !47
   %69 = load i32, ptr %19, align 8, !tbaa !48
   %70 = zext i32 %69 to i64
@@ -2591,7 +2591,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit.i: ; preds = %37
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i: ; preds = %34, %58, %.noexc6.i, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i
-  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ false, %.noexc6.i ], [ %61, %58 ], [ false, %34 ]
+  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ %61, %58 ], [ false, %.noexc6.i ], [ false, %34 ]
   %62 = load ptr, ptr %4, align 8, !tbaa !47
   %63 = load i32, ptr %10, align 8, !tbaa !48
   %64 = zext i32 %63 to i64
@@ -2718,8 +2718,8 @@ _ZN13duckdb_snappy13RawUncompressEPKcmPc.exit:    ; preds = %_ZN13duckdb_snappy1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
-_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %39, %38, %29, %20, %11, %3, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit
-  %.0 = phi i1 [ %55, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ], [ false, %38 ], [ false, %39 ]
+_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %29, %20, %11, %3, %39, %38, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit
+  %.0 = phi i1 [ %55, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit ], [ false, %38 ], [ false, %39 ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -2812,7 +2812,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_snappyL18InternalUncompre
   %31 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %31, label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit, label %8
 
-_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12: ; preds = %.noexc, %.noexc5
+_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12: ; preds = %.noexc5, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
@@ -2877,7 +2877,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit:  ; preds = %33
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %30, %51, %.noexc6, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12
-  %.0 = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12 ], [ false, %.noexc6 ], [ %55, %51 ], [ false, %30 ]
+  %.0 = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12 ], [ %55, %51 ], [ false, %.noexc6 ], [ false, %30 ]
   %56 = load ptr, ptr %4, align 8, !tbaa !47
   %57 = load i32, ptr %6, align 8, !tbaa !48
   %58 = zext i32 %57 to i64
@@ -3565,7 +3565,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy10UncompressEPNS_6SourceEPNS_4SinkE
   %35 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %35, label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %12
 
-_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread45: ; preds = %.noexc, %.noexc23
+_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread45: ; preds = %.noexc23, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread
 
@@ -4267,7 +4267,7 @@ _ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %4
   %170 = zext i8 %169 to i32
   br label %_ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-.thread149:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread185, %.lr.ph, %76, %.thread, %15
+.thread149:                                       ; preds = %131, %._crit_edge, %118, %137, %.thread185, %.lr.ph, %76, %.thread, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4507,10 +4507,10 @@ _ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.threa
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %121, ptr noundef nonnull readonly align 1 dereferenceable(32) %122, i64 32, i1 false)
   br label %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
 
-_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %112, %109, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131
-  %.5140 = phi i64 [ 0, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %46, %109 ], [ %46, %112 ], [ %46, %115 ], [ %46, %120 ]
-  %.5104139 = phi ptr [ %8, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %.2115182, %109 ], [ %.2115182, %112 ], [ %117, %115 ], [ %117, %120 ]
-  %.5111138 = phi i64 [ %102, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %104, %109 ], [ %104, %112 ], [ %104, %115 ], [ %104, %120 ]
+_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %109, %112, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131
+  %.5140 = phi i64 [ 0, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %46, %112 ], [ %46, %109 ], [ %46, %115 ], [ %46, %120 ]
+  %.5104139 = phi ptr [ %8, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %.2115182, %112 ], [ %.2115182, %109 ], [ %117, %115 ], [ %117, %120 ]
+  %.5111138 = phi i64 [ %102, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %104, %112 ], [ %104, %109 ], [ %104, %115 ], [ %104, %120 ]
   br i1 %23, label %22, label %123, !llvm.loop !134
 
 123:                                              ; preds = %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
@@ -4525,10 +4525,10 @@ _ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; pr
   br label %.thread152
 
 .thread:                                          ; preds = %123, %54, %108
-  %.2115181 = phi ptr [ %.2115182, %108 ], [ %.2115182, %54 ], [ %45, %123 ]
-  %.2108178 = phi i64 [ %.2108183, %108 ], [ %.2108183, %54 ], [ %.5111138, %123 ]
-  %.2101175 = phi ptr [ %.2101184, %108 ], [ %.2101184, %54 ], [ %.5104139, %123 ]
-  %.297172 = phi i64 [ %.297185, %108 ], [ %.297185, %54 ], [ %.5140, %123 ]
+  %.2115181 = phi ptr [ %.2115182, %54 ], [ %.2115182, %108 ], [ %45, %123 ]
+  %.2108178 = phi i64 [ %.2108183, %54 ], [ %.2108183, %108 ], [ %.5111138, %123 ]
+  %.2101175 = phi ptr [ %.2101184, %54 ], [ %.2101184, %108 ], [ %.5104139, %123 ]
+  %.297172 = phi i64 [ %.297185, %54 ], [ %.297185, %108 ], [ %.5140, %123 ]
   %128 = getelementptr inbounds i8, ptr %.2115181, i64 -1
   %.not51 = icmp eq i64 %.297172, 0
   br i1 %.not51, label %.thread152, label %129
@@ -4991,12 +4991,12 @@ _ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %
   br i1 %.not53, label %.lr.ph102, label %.split.us
 
 .outer:                                           ; preds = %.thread69, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
-  %.pre.i136 = phi i64 [ %.pre.i133, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.promoted86112129 = phi i64 [ %.promoted86112126, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.sroa.speculated.pn = phi i64 [ %.sroa.speculated, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %spec.select57, %.thread69 ]
-  %.342 = phi ptr [ %spec.select, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %.140.ph107, %.thread69 ]
-  %.437 = phi i64 [ %spec.select56, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %123, %.thread69 ]
-  %.1 = sub i64 %.0.ph106, %.sroa.speculated.pn
+  %.pre.i136 = phi i64 [ %122, %.thread69 ], [ %.pre.i133, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.promoted86112129 = phi i64 [ %122, %.thread69 ], [ %.promoted86112126, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %spec.select57.pn = phi i64 [ %spec.select57, %.thread69 ], [ %.sroa.speculated, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.342 = phi ptr [ %.140.ph107, %.thread69 ], [ %spec.select, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.437 = phi i64 [ %123, %.thread69 ], [ %spec.select56, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.1 = sub i64 %.0.ph106, %spec.select57.pn
   %.not52 = icmp eq i64 %.1, 0
   br i1 %.not52, label %.thread, label %.lr.ph87.split, !llvm.loop !141
 
@@ -5332,13 +5332,13 @@ define linkonce_odr void @_ZN13duckdb_snappy18SnappyDecompressor17DecompressAllT
 
 .thread133.i:                                     ; preds = %90, %88, %75
   %.pre-phi.i = phi i64 [ %84, %88 ], [ %77, %75 ], [ %92, %90 ]
-  %.2112167.i = phi ptr [ %.2112168.i, %75 ], [ %.2112168.i, %88 ], [ %66, %90 ]
+  %.2112167.i = phi ptr [ %.2112168.i, %88 ], [ %.2112168.i, %75 ], [ %66, %90 ]
   %95 = getelementptr inbounds i8, ptr %.2112167.i, i64 -1
   br label %_ZN13duckdb_snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
 
 _ZN13duckdb_snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.loopexit, %.thread133.thread.i, %.thread133.i
-  %.0110148.i = phi ptr [ %.1, %.loopexit ], [ %94, %.thread133.thread.i ], [ %95, %.thread133.i ]
-  %.7.i = phi i64 [ %30, %.loopexit ], [ %77, %.thread133.thread.i ], [ %.pre-phi.i, %.thread133.i ]
+  %.0110148.i = phi ptr [ %95, %.thread133.i ], [ %94, %.thread133.thread.i ], [ %.1, %.loopexit ]
+  %.7.i = phi i64 [ %.pre-phi.i, %.thread133.i ], [ %77, %.thread133.thread.i ], [ %30, %.loopexit ]
   %96 = add i64 %.7.i, 1
   %97 = load ptr, ptr %14, align 8, !tbaa !119
   %.not116 = icmp ult ptr %.0110148.i, %97
@@ -5547,12 +5547,12 @@ _ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134: ;
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.sink.split, %194, %162, %191
-  %.1147.be = phi i64 [ %189, %191 ], [ %160, %162 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
-  %.1.be = phi ptr [ %193, %191 ], [ %163, %162 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
+  %.1147.be = phi i64 [ %160, %162 ], [ %189, %191 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
+  %.1.be = phi ptr [ %163, %162 ], [ %193, %191 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
   br label %.loopexit
 
-.thread194:                                       ; preds = %._crit_edge, %164, %175, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
-  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %164 ], [ %160, %._crit_edge ], [ %96, %175 ], [ %189, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %96, %166 ], [ %173, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %98 ]
+.thread194:                                       ; preds = %164, %._crit_edge, %175, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
+  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %._crit_edge ], [ %160, %164 ], [ %189, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %173, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %166 ], [ %96, %98 ], [ %96, %175 ]
   store i64 %.0146, ptr %15, align 8, !tbaa !83
   ret void
 }
@@ -6757,7 +6757,7 @@ _ZN13duckdb_snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcm
   br label %40
 
 40:                                               ; preds = %._crit_edge, %.thread, %16, %3
-  %.013 = phi i1 [ false, %3 ], [ false, %16 ], [ false, %.thread ], [ true, %._crit_edge ]
+  %.013 = phi i1 [ false, %16 ], [ false, %3 ], [ false, %.thread ], [ true, %._crit_edge ]
   ret i1 %.013
 }
 

@@ -957,7 +957,7 @@ strbuf_append_char.exit:                          ; preds = %json_append_array.e
   store i8 93, ptr %99, align 1, !tbaa !25
   br label %183
 
-lua_array_length.exit.thread:                     ; preds = %69, %json_encode_exception.exit.i, %59, %lua_array_length.exit
+lua_array_length.exit.thread:                     ; preds = %json_encode_exception.exit.i, %69, %59, %lua_array_length.exit
   %100 = getelementptr i8, ptr %3, i64 8
   %.val.i.i100 = load i64, ptr %100, align 8, !tbaa !44
   %101 = getelementptr i8, ptr %3, i64 16
@@ -1885,40 +1885,40 @@ json_next_string_token.exit:                      ; preds = %42, %.loopexit.i, %
   %204 = phi i8 [ %200, %199 ], [ %.pr.i, %201 ]
   %.013.i = phi ptr [ %.lcssa80, %199 ], [ %202, %201 ]
   %205 = icmp eq i8 %204, 48
-  br i1 %205, label %206, label %212
+  br i1 %205, label %json_is_invalid_number.exit, label %206
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
-  %208 = load i8, ptr %207, align 1, !tbaa !25
-  %209 = and i8 %208, -33
-  %210 = icmp eq i8 %209, 88
-  %211 = add i8 %208, -48
-  %or.cond.i = icmp ult i8 %211, 10
-  %or.cond17.i = or i1 %210, %or.cond.i
-  br i1 %or.cond17.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit.thread69
+  %207 = icmp slt i8 %204, 58
+  br i1 %207, label %json_is_invalid_number.exit.thread69, label %208
 
-212:                                              ; preds = %203
-  %213 = icmp slt i8 %204, 58
-  br i1 %213, label %json_is_invalid_number.exit.thread69, label %214
+208:                                              ; preds = %206
+  %209 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.71, i64 noundef 3) #14
+  %.not.i = icmp eq i32 %209, 0
+  br i1 %.not.i, label %json_is_invalid_number.exit.thread, label %210
 
-214:                                              ; preds = %212
-  %215 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.71, i64 noundef 3) #14
-  %.not.i = icmp eq i32 %215, 0
-  br i1 %.not.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit
-
-json_is_invalid_number.exit:                      ; preds = %214
-  %216 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.58, i64 noundef 3) #14
-  %.not16.i = icmp eq i32 %216, 0
+210:                                              ; preds = %208
+  %211 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.58, i64 noundef 3) #14
+  %.not16.i = icmp eq i32 %211, 0
   br i1 %.not16.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit.thread69
 
-json_is_invalid_number.exit.thread:               ; preds = %206, %214, %199, %json_is_invalid_number.exit
+json_is_invalid_number.exit:                      ; preds = %203
+  %212 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
+  %213 = load i8, ptr %212, align 1, !tbaa !25
+  %214 = and i8 %213, -33
+  %215 = icmp eq i8 %214, 88
+  %216 = add i8 %213, -48
+  %or.cond.i = icmp ult i8 %216, 10
+  %or.cond17.i = or i1 %215, %or.cond.i
+  br i1 %or.cond17.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit.thread69
+
+json_is_invalid_number.exit.thread:               ; preds = %210, %208, %199, %json_is_invalid_number.exit
   store i32 12, ptr %1, align 8, !tbaa !41
   store i64 %22, ptr %23, align 8, !tbaa !43
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.67, ptr %217, align 8, !tbaa !25
   br label %252
 
-json_is_invalid_number.exit.thread69:             ; preds = %206, %212, %json_is_invalid_number.exit, %196
+json_is_invalid_number.exit.thread69:             ; preds = %210, %206, %json_is_invalid_number.exit, %196
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 5, ptr %1, align 8, !tbaa !41
   %218 = call double @fpconv_strtod(ptr noundef nonnull %.lcssa80, ptr noundef nonnull %3) #12
@@ -2318,7 +2318,7 @@ define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr readonly 
   br label %19
 
 19:                                               ; preds = %17, %15, %13, %0, %7
-  %.0.shrunk = phi i1 [ %or.cond17, %7 ], [ true, %0 ], [ false, %13 ], [ true, %15 ], [ %.not16, %17 ]
+  %.0.shrunk = phi i1 [ false, %13 ], [ %or.cond17, %7 ], [ true, %0 ], [ true, %15 ], [ %.not16, %17 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

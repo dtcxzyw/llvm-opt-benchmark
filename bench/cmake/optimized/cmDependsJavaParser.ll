@@ -4273,8 +4273,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %2
   br i1 %1493, label %.thread1517, label %.thread
 
 .thread:                                          ; preds = %1474, %1488, %1490, %27, %1492
-  %.31495 = phi ptr [ %.01544, %1492 ], [ %.01544, %27 ], [ %.01544, %1490 ], [ %.51497, %1488 ], [ %.01544, %1474 ]
-  %.6 = phi i32 [ %.3, %1492 ], [ 257, %27 ], [ -2, %1490 ], [ %.3, %1488 ], [ %.3, %1474 ]
+  %.31495 = phi ptr [ %.01544, %1492 ], [ %.01544, %1490 ], [ %.01544, %1474 ], [ %.01544, %27 ], [ %.51497, %1488 ]
+  %.6 = phi i32 [ %.3, %1492 ], [ -2, %1490 ], [ %.3, %1474 ], [ 257, %27 ], [ %.3, %1488 ]
   br label %1494
 
 1494:                                             ; preds = %1509, %.thread
@@ -4541,8 +4541,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: ; preds = %24, %.critedge.thread.i.i, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %35, %34, %33, %32
-  %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
-  %.046 = phi ptr [ @.str.12, %35 ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.11, %34 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %24 ]
+  %.1.i5 = phi i32 [ 4, %34 ], [ 5, %35 ], [ 1, %.critedge.thread.i.i ], [ 2, %32 ], [ 3, %33 ], [ %31, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %24 ]
+  %.046 = phi ptr [ @.str.11, %34 ], [ @.str.12, %35 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %24 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #16
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
@@ -4687,15 +4687,15 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit68
 
 _ZL9yytnamerrPcPKc.exit68:                        ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %89, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.thread.thread.i ], [ %68, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
+  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
   %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !28
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %59, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.041 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %59 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

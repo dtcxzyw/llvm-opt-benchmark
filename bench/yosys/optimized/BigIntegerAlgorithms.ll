@@ -516,7 +516,7 @@ _ZN10BigIntegerD2Ev.exit65:                       ; preds = %_ZN10BigIntegerD2Ev
   ret void
 
 118:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body54, %.body48, %.body40, %.body
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body54 ], [ %.pn28, %.body48 ], [ %.pn26, %.body40 ], [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn32 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn30, %.body54 ], [ %.pn28, %.body48 ], [ %.pn26, %.body40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !14
   %121 = icmp eq ptr %120, null

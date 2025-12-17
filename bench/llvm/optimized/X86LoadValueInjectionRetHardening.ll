@@ -575,7 +575,7 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
   br i1 %.not94, label %.loopexit, label %54
 
 .loopexit:                                        ; preds = %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, %36, %34, %2, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %2 ], [ false, %34 ], [ false, %36 ], [ %.141, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %27 ], [ false, %34 ], [ false, %36 ], [ %.141, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit ]
   ret i1 %.0
 }
 

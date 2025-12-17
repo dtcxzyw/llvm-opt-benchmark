@@ -490,8 +490,8 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr noundef 
   %106 = getelementptr inbounds nuw %struct.anon, ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 %indvars.iv
   br i1 %.not39, label %.critedge43.loopexit, label %77, !llvm.loop !86
 
-.loopexit.sink.split:                             ; preds = %27, %42, %34, %61, %58, %54, %2
-  %.0.ph = phi i32 [ 1, %2 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
+.loopexit.sink.split:                             ; preds = %27, %42, %34, %58, %54, %61, %2
+  %.0.ph = phi i32 [ 1, %2 ], [ 0, %61 ], [ 0, %54 ], [ 0, %58 ], [ 0, %34 ], [ 0, %42 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 

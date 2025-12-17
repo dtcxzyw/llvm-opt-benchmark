@@ -415,7 +415,7 @@ _ZNKSt3__114default_deleteINS_13basic_fstreamIcNS_11char_traitsIcEEEEEclB8ne1900
   br label %_ZNSt3__110unique_ptrINS_13basic_fstreamIcNS_11char_traitsIcEEEENS_14default_deleteIS4_EEED2B8ne190000Ev.exit
 
 _ZNSt3__110unique_ptrINS_13basic_fstreamIcNS_11char_traitsIcEEEENS_14default_deleteIS4_EEED2B8ne190000Ev.exit: ; preds = %_ZNKSt3__114default_deleteINS_13basic_fstreamIcNS_11char_traitsIcEEEEEclB8ne190000EPS4_.exit.i.i, %93, %.body, %81
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.i, %.body ], [ %82, %81 ], [ %.pn.pn, %93 ], [ %.pn.pn, %_ZNKSt3__114default_deleteINS_13basic_fstreamIcNS_11char_traitsIcEEEEEclB8ne190000EPS4_.exit.i.i ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn.i, %.body ], [ %.pn.pn, %93 ], [ %.pn.pn, %_ZNKSt3__114default_deleteINS_13basic_fstreamIcNS_11char_traitsIcEEEEEclB8ne190000EPS4_.exit.i.i ]
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #21
   br label %98
 
@@ -3562,7 +3562,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -3637,7 +3637,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -3898,7 +3898,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -4567,7 +4567,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcB8ne190000Ev.exit: ; pre
   br label %.thread
 
 .thread:                                          ; preds = %62, %57, %68, %72
-  %.1 = phi i32 [ 1, %72 ], [ %spec.select, %68 ], [ 0, %57 ], [ 4, %62 ]
+  %.1 = phi i32 [ 1, %72 ], [ %spec.select, %68 ], [ 4, %62 ], [ 0, %57 ]
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8

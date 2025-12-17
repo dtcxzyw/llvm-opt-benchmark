@@ -204,7 +204,7 @@ define dso_local range(i32 -110, 1) i32 @intel_opregion_notify_encoder(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %14, %10, %68, %65, %53, %37, %2
-  %75 = phi i32 [ -22, %37 ], [ %74, %68 ], [ 0, %2 ], [ -22, %53 ], [ -22, %65 ], [ -19, %10 ], [ -22, %14 ]
+  %75 = phi i32 [ -22, %37 ], [ %74, %68 ], [ 0, %2 ], [ -22, %65 ], [ -22, %53 ], [ -19, %10 ], [ -22, %14 ]
   ret i32 %75
 }
 
@@ -394,7 +394,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %22, %16, %4, %103, %101, %99, %89, %47
-  %105 = phi i32 [ -16, %47 ], [ -110, %89 ], [ -5, %99 ], [ 0, %103 ], [ 0, %101 ], [ -22, %22 ], [ -22, %16 ], [ -19, %4 ]
+  %105 = phi i32 [ -16, %47 ], [ -110, %89 ], [ -5, %99 ], [ 0, %101 ], [ 0, %103 ], [ -22, %22 ], [ -22, %16 ], [ -19, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %105
 }
@@ -1018,7 +1018,7 @@ define dso_local noundef range(i32 -524, 1) i32 @intel_opregion_setup(ptr nounde
   br label %301
 
 301:                                              ; preds = %.thread, %299, %292, %218, %203, %38, %24, %22
-  %302 = phi i32 [ -524, %22 ], [ -22, %38 ], [ -12, %24 ], [ 0, %292 ], [ 0, %299 ], [ 0, %218 ], [ 0, %203 ], [ 0, %.thread ]
+  %302 = phi i32 [ -524, %22 ], [ -22, %38 ], [ -12, %24 ], [ 0, %292 ], [ 0, %299 ], [ 0, %218 ], [ 0, %.thread ], [ 0, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %302

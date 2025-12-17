@@ -390,7 +390,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %17, %15, %5, %8, %33
-  %.038 = phi i32 [ 0, %33 ], [ 0, %8 ], [ 0, %5 ], [ 0, %15 ], [ 1, %17 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
+  %.038 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 0, %15 ], [ 0, %8 ], [ 1, %17 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
   ret i32 %.038
 }
 
@@ -440,7 +440,7 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly ca
   br i1 %24, label %16, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %16, %9, %1, %3, %5
-  %.012 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %1 ], [ 1, %9 ], [ 1, %16 ]
+  %.012 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %3 ], [ 1, %9 ], [ 1, %16 ]
   ret i32 %.012
 }
 

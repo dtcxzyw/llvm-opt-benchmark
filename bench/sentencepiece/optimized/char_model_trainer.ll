@@ -625,7 +625,7 @@ _ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit72:      ; preds = %._crit_edge93, %194
   ret void
 
 218:                                              ; preds = %101, %_ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit, %128, %77, %45
-  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn36, %77 ], [ %.pn, %45 ], [ %.pn38, %101 ], [ %.pn42, %_ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit ], [ %.pn40, %128 ]
+  %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn36, %77 ], [ %.pn38, %101 ], [ %.pn42, %_ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit ], [ %.pn40, %128 ]
   resume { ptr, i32 } %.pn42.pn.pn.pn.pn
 }
 

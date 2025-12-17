@@ -342,7 +342,7 @@ check_methodClass.exit:                           ; preds = %48, %54
   br label %100
 
 100:                                              ; preds = %96, %88
-  %.0.ph.i.i = phi ptr [ null, %88 ], [ %94, %96 ]
+  %.0.ph.i.i = phi ptr [ %94, %96 ], [ null, %88 ]
   %101 = load ptr, ptr %70, align 8
   call void @saveGlobalRef(ptr noundef %15, ptr noundef %101, ptr noundef nonnull %12) #5
   %102 = load ptr, ptr %12, align 8
@@ -610,8 +610,8 @@ createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.ex
   store i8 0, ptr %61, align 2
   br label %182
 
-fillInvokeRequest.exit.thread:                    ; preds = %createGlobalRefs.exit.thread3.i, %60, %63, %85
-  %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104141.i.i, %createGlobalRefs.exit.thread3.i ]
+fillInvokeRequest.exit.thread:                    ; preds = %60, %63, %createGlobalRefs.exit.thread3.i, %85
+  %.1.ph = phi i32 [ %87, %85 ], [ %.3104141.i.i, %createGlobalRefs.exit.thread3.i ], [ 190, %63 ], [ 203, %60 ]
   %181 = load ptr, ptr @invokerLock, align 8
   call void @debugMonitorExit(ptr noundef %181) #5
   br label %189
@@ -744,7 +744,7 @@ define hidden zeroext range(i8 0, 2) i8 @invoker_doInvoke(ptr noundef %0) local_
   br label %47
 
 47:                                               ; preds = %46, %43, %39
-  %48 = phi ptr [ %40, %39 ], [ %40, %43 ], [ %.pre.i, %46 ]
+  %48 = phi ptr [ %.pre.i, %46 ], [ %40, %39 ], [ %40, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 528
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 2
@@ -844,7 +844,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %84
 
 84:                                               ; preds = %83, %80, %76
-  %85 = phi ptr [ %77, %76 ], [ %77, %80 ], [ %.pre.i51, %83 ]
+  %85 = phi ptr [ %.pre.i51, %83 ], [ %77, %76 ], [ %77, %80 ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 528
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 2
@@ -1221,7 +1221,7 @@ isReferenceTag.exit.i55:                          ; preds = %277, %switch.early.
   br label %.thread.i
 
 .thread.i:                                        ; preds = %278, %288, %.thread103.i.thread90, %.thread103.i
-  %289 = phi ptr [ %.pr.pre.i, %.thread103.i ], [ %.pr106.i93, %.thread103.i.thread90 ], [ %.pre.i58, %288 ], [ %279, %278 ]
+  %289 = phi ptr [ %.pre.i58, %288 ], [ %.pr106.i93, %.thread103.i.thread90 ], [ %.pr.pre.i, %.thread103.i ], [ %279, %278 ]
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 528
   %291 = load i32, ptr %290, align 8
   %292 = and i32 %291, 2
@@ -1593,7 +1593,7 @@ isReferenceTag.exit.i62:                          ; preds = %495, %switch.early.
   br label %504
 
 504:                                              ; preds = %503, %500, %496
-  %505 = phi ptr [ %497, %496 ], [ %497, %500 ], [ %.pre.i76, %503 ]
+  %505 = phi ptr [ %.pre.i76, %503 ], [ %497, %496 ], [ %497, %500 ]
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 528
   %507 = load i32, ptr %506, align 8
   %508 = and i32 %507, 2

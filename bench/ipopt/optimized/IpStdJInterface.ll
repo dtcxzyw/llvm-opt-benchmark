@@ -377,7 +377,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc50, %_ZN7JNIE
   ret void
 
 _ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit: ; preds = %150, %145, %142, %140, %138
-  %.pn = phi { ptr, i32 } [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %143, %145 ], [ %143, %150 ]
+  %.pn = phi { ptr, i32 } [ %141, %140 ], [ %139, %138 ], [ %143, %142 ], [ %143, %145 ], [ %143, %150 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !8
   resume { ptr, i32 } %.pn
 }
@@ -1139,7 +1139,7 @@ define noundef zeroext i1 @_ZN6Jipopt31get_list_of_nonlinear_variablesEiPi(ptr n
   br label %24
 
 24:                                               ; preds = %6, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %19 ], [ %.not9, %6 ]
+  %.0 = phi i1 [ false, %3 ], [ %.not9, %6 ], [ true, %19 ]
   ret i1 %.0
 }
 

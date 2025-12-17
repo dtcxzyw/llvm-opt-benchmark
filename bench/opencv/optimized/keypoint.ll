@@ -174,7 +174,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaI
   br i1 %48, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_45KeypointResponseGreaterThanOrEqualToThresholdEET_SA_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !22
 
 _ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_45KeypointResponseGreaterThanOrEqualToThresholdEET_SA_SA_T0_.exit: ; preds = %46, %38, %.preheader.i.i, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit
-  %.sroa.010.117.i.i = phi ptr [ %28, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit ], [ %.sroa.010.119.i.i, %.preheader.i.i ], [ %.sroa.05.022.i.i, %38 ], [ %47, %46 ]
+  %.sroa.010.117.i.i = phi ptr [ %28, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_23KeypointResponseGreaterEEvT_SA_SA_T0_.exit ], [ %.sroa.05.022.i.i, %38 ], [ %.sroa.010.119.i.i, %.preheader.i.i ], [ %47, %46 ]
   %49 = load ptr, ptr %0, align 8, !tbaa !10
   %50 = ptrtoint ptr %.sroa.010.117.i.i to i64
   %51 = ptrtoint ptr %49 to i64
@@ -272,7 +272,7 @@ define void @_ZN2cv15KeyPointsFilter16runByImageBorderERSt6vectorINS_8KeyPointES
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i: ; preds = %26, %.lr.ph.i.i
-  %.sroa.013.2.i.i = phi ptr [ %27, %26 ], [ %.sroa.013.125.i.i, %.lr.ph.i.i ]
+  %.sroa.013.2.i.i = phi ptr [ %.sroa.013.125.i.i, %.lr.ph.i.i ], [ %27, %26 ]
   %.sroa.07.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.026.i.i, i64 28
   %.not.i.i18 = icmp eq ptr %.sroa.07.0.i.i, %9
   br i1 %.not.i.i18, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS2_12RoiPredicateEET_SA_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !23
@@ -810,7 +810,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3
   br label %80
 
 80:                                               ; preds = %76, %78, %74
-  %.pn23.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %79, %78 ], [ %77, %76 ]
+  %.pn23.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23.pn.pn
@@ -855,7 +855,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc52
   br label %18
 
 18:                                               ; preds = %.noexc52, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.0.i.i.i.i.i.ph = phi ptr [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %14, %.noexc52 ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %14, %.noexc52 ], [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #24
           to label %.noexc55 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.thread
 
@@ -1096,7 +1096,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %74, %72
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit64
 
 _ZNSt6vectorIiSaIiEED2Ev.exit64:                  ; preds = %112, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.pn.pn = phi { ptr, i32 } [ %111, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %.pn96, %112 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn96, %112 ], [ %111, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1670,7 +1670,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaI
   br i1 %.not13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEEvT_SD_SD_RT0_.exit, label %.lr.ph.i.i.i12, !llvm.loop !69
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEEvT_SD_SD_RT0_.exit: ; preds = %.lr.ph.i.i.i12, %87, %._crit_edge.i.i9.thread, %82
-  %.0.lcssa.i.i.i16 = phi i64 [ 0, %82 ], [ 0, %._crit_edge.i.i9.thread ], [ %.018.i.i.i13, %.lr.ph.i.i.i12 ], [ 0, %87 ]
+  %.0.lcssa.i.i.i16 = phi i64 [ 0, %82 ], [ 0, %._crit_edge.i.i9.thread ], [ 0, %87 ], [ %.018.i.i.i13, %.lr.ph.i.i.i12 ]
   %89 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i.i.i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -2014,7 +2014,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPN
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread: ; preds = %14, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit142, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit144, %76, %66, %54, %._crit_edge
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %1, %._crit_edge ], [ %.sroa.061.0.lcssa, %54 ], [ %.sroa.061.1, %66 ], [ %spec.select, %76 ], [ %84, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit142 ], [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit144 ], [ %.sroa.061.0121, %14 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.061.1, %66 ], [ %.sroa.061.0.lcssa, %54 ], [ %1, %._crit_edge ], [ %spec.select, %76 ], [ %86, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit144 ], [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit142 ], [ %84, %_ZN9__gnu_cxx5__ops10_Iter_predIN2cv12RoiPredicateEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %.sroa.061.0121, %14 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -2157,7 +2157,7 @@ define linkonce_odr hidden ptr @_ZSt11__remove_ifIN9__gnu_cxx17__normal_iterator
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit: ; preds = %11, %40, %48, %56, %.loopexit.split.loop.exit60.i.i, %.loopexit.split.loop.exit62.i.i, %.loopexit.split.loop.exit64.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i, %40 ], [ %.sroa.050.1.i.i, %48 ], [ %spec.select.i.i, %56 ], [ %62, %.loopexit.split.loop.exit60.i.i ], [ %63, %.loopexit.split.loop.exit62.i.i ], [ %64, %.loopexit.split.loop.exit64.i.i ], [ %.sroa.050.069.i.i, %11 ]
+  %.sroa.08.0.in.sroa.speculated.i.i = phi ptr [ %.sroa.050.1.i.i, %48 ], [ %spec.select.i.i, %56 ], [ %.sroa.050.0.lcssa.i.i, %40 ], [ %63, %.loopexit.split.loop.exit62.i.i ], [ %62, %.loopexit.split.loop.exit60.i.i ], [ %64, %.loopexit.split.loop.exit64.i.i ], [ %.sroa.050.069.i.i, %11 ]
   %65 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i, %1
   br i1 %65, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predINS2_13SizePredicateEEEET_SD_SD_T0_.exit.thread, label %.preheader
 
@@ -2497,7 +2497,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit62, %.loopexit.loopexit.split.loop.exit64, %125, %._crit_edge, %106, %84
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.025.0.lcssa, %84 ], [ %.sroa.025.1, %106 ], [ %1, %._crit_edge ], [ %spec.select, %125 ], [ %142, %.loopexit.loopexit.split.loop.exit ], [ %143, %.loopexit.loopexit.split.loop.exit62 ], [ %144, %.loopexit.loopexit.split.loop.exit64 ], [ %.sroa.025.044, %16 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.025.1, %106 ], [ %spec.select, %125 ], [ %1, %._crit_edge ], [ %.sroa.025.0.lcssa, %84 ], [ %144, %.loopexit.loopexit.split.loop.exit64 ], [ %142, %.loopexit.loopexit.split.loop.exit ], [ %143, %.loopexit.loopexit.split.loop.exit62 ], [ %.sroa.025.044, %16 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -2769,7 +2769,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %63, %43, %24, %164, %._crit_edge, %141, %108
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.025.0.lcssa, %108 ], [ %.sroa.025.1, %141 ], [ %1, %._crit_edge ], [ %spec.select, %164 ], [ %84, %83 ], [ %64, %63 ], [ %44, %43 ], [ %.sroa.025.035, %24 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.025.1, %141 ], [ %spec.select, %164 ], [ %1, %._crit_edge ], [ %.sroa.025.0.lcssa, %108 ], [ %84, %83 ], [ %64, %63 ], [ %44, %43 ], [ %.sroa.025.035, %24 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -2892,76 +2892,76 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !34
   %34 = fcmp une float %31, %33
-  br i1 %34, label %35, label %37
+  br i1 %34, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, label %35
 
 35:                                               ; preds = %30
-  %36 = fcmp olt float %31, %33
-  br i1 %36, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
+  %36 = load float, ptr %17, align 4, !tbaa !57
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %38 = load float, ptr %37, align 4, !tbaa !57
+  %39 = fcmp une float %36, %38
+  br i1 %39, label %40, label %42
 
-37:                                               ; preds = %30
-  %38 = load float, ptr %17, align 4, !tbaa !57
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %40 = load float, ptr %39, align 4, !tbaa !57
-  %41 = fcmp une float %38, %40
-  br i1 %41, label %42, label %44
+40:                                               ; preds = %35
+  %41 = fcmp ogt float %36, %38
+  br i1 %41, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-42:                                               ; preds = %37
-  %43 = fcmp ogt float %38, %40
-  br i1 %43, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
+42:                                               ; preds = %35
+  %43 = load float, ptr %18, align 4, !tbaa !58
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %45 = load float, ptr %44, align 4, !tbaa !58
+  %46 = fcmp une float %43, %45
+  br i1 %46, label %47, label %49
 
-44:                                               ; preds = %37
-  %45 = load float, ptr %18, align 4, !tbaa !58
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %47 = load float, ptr %46, align 4, !tbaa !58
-  %48 = fcmp une float %45, %47
-  br i1 %48, label %49, label %51
+47:                                               ; preds = %42
+  %48 = fcmp olt float %43, %45
+  br i1 %48, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-49:                                               ; preds = %44
-  %50 = fcmp olt float %45, %47
-  br i1 %50, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
+49:                                               ; preds = %42
+  %50 = load float, ptr %19, align 4, !tbaa !11
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %52 = load float, ptr %51, align 4, !tbaa !11
+  %53 = fcmp une float %50, %52
+  br i1 %53, label %54, label %56
 
-51:                                               ; preds = %44
-  %52 = load float, ptr %19, align 4, !tbaa !11
-  %53 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %54 = load float, ptr %53, align 4, !tbaa !11
-  %55 = fcmp une float %52, %54
-  br i1 %55, label %56, label %58
+54:                                               ; preds = %49
+  %55 = fcmp ogt float %50, %52
+  br i1 %55, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-56:                                               ; preds = %51
-  %57 = fcmp ogt float %52, %54
-  br i1 %57, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
+56:                                               ; preds = %49
+  %57 = load i32, ptr %20, align 4, !tbaa !75
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %59 = load i32, ptr %58, align 4, !tbaa !75
+  %.not.i.i.i.i = icmp eq i32 %57, %59
+  br i1 %.not.i.i.i.i, label %62, label %60
 
-58:                                               ; preds = %51
-  %59 = load i32, ptr %20, align 4, !tbaa !75
-  %60 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %61 = load i32, ptr %60, align 4, !tbaa !75
-  %.not.i.i.i.i = icmp eq i32 %59, %61
-  br i1 %.not.i.i.i.i, label %64, label %62
+60:                                               ; preds = %56
+  %61 = icmp sgt i32 %57, %59
+  br i1 %61, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-62:                                               ; preds = %58
-  %63 = icmp sgt i32 %59, %61
-  br i1 %63, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
+62:                                               ; preds = %56
+  %63 = load i32, ptr %21, align 4, !tbaa !76
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %65 = load i32, ptr %64, align 4, !tbaa !76
+  %.not47.i.i.i.i = icmp eq i32 %63, %65
+  br i1 %.not47.i.i.i.i, label %68, label %66
 
-64:                                               ; preds = %58
-  %65 = load i32, ptr %21, align 4, !tbaa !76
-  %66 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %67 = load i32, ptr %66, align 4, !tbaa !76
-  %.not47.i.i.i.i = icmp eq i32 %65, %67
-  br i1 %.not47.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, label %68
+66:                                               ; preds = %62
+  %67 = icmp sgt i32 %63, %65
+  br i1 %67, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-68:                                               ; preds = %64
-  %69 = icmp sgt i32 %65, %67
+68:                                               ; preds = %62
+  %69 = icmp slt i32 %12, %23
   br i1 %69, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i: ; preds = %64
-  %70 = icmp slt i32 %12, %23
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i: ; preds = %30
+  %70 = fcmp olt float %31, %33
   br i1 %70, label %71, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i
 
-71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, %68, %62, %56, %49, %42, %35, %28
+71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, %68, %66, %60, %54, %47, %40, %28
   store i32 %23, ptr %.sroa.05.0.i.i, align 4, !tbaa !21
   br label %22, !llvm.loop !99
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, %68, %62, %56, %49, %42, %35, %28
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i.i, %68, %66, %60, %54, %47, %40, %28
   store i32 %12, ptr %.sroa.05.0.i.i, align 4, !tbaa !21
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 4
   %.not.i = icmp eq ptr %72, %1
@@ -3154,79 +3154,79 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %114 = load float, ptr %113, align 4, !tbaa !34
   %115 = load float, ptr %97, align 4, !tbaa !34
   %116 = fcmp une float %114, %115
-  br i1 %116, label %117, label %119
+  br i1 %116, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, label %117
 
 117:                                              ; preds = %112
-  %118 = fcmp olt float %114, %115
-  br i1 %118, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
+  %118 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %119 = load float, ptr %118, align 4, !tbaa !57
+  %120 = load float, ptr %98, align 4, !tbaa !57
+  %121 = fcmp une float %119, %120
+  br i1 %121, label %122, label %124
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %121 = load float, ptr %120, align 4, !tbaa !57
-  %122 = load float, ptr %98, align 4, !tbaa !57
-  %123 = fcmp une float %121, %122
-  br i1 %123, label %124, label %126
+122:                                              ; preds = %117
+  %123 = fcmp ogt float %119, %120
+  br i1 %123, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-124:                                              ; preds = %119
-  %125 = fcmp ogt float %121, %122
-  br i1 %125, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
+124:                                              ; preds = %117
+  %125 = getelementptr inbounds nuw i8, ptr %107, i64 12
+  %126 = load float, ptr %125, align 4, !tbaa !58
+  %127 = load float, ptr %99, align 4, !tbaa !58
+  %128 = fcmp une float %126, %127
+  br i1 %128, label %129, label %131
 
-126:                                              ; preds = %119
-  %127 = getelementptr inbounds nuw i8, ptr %107, i64 12
-  %128 = load float, ptr %127, align 4, !tbaa !58
-  %129 = load float, ptr %99, align 4, !tbaa !58
-  %130 = fcmp une float %128, %129
-  br i1 %130, label %131, label %133
+129:                                              ; preds = %124
+  %130 = fcmp olt float %126, %127
+  br i1 %130, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-131:                                              ; preds = %126
-  %132 = fcmp olt float %128, %129
-  br i1 %132, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
+131:                                              ; preds = %124
+  %132 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %133 = load float, ptr %132, align 4, !tbaa !11
+  %134 = load float, ptr %100, align 4, !tbaa !11
+  %135 = fcmp une float %133, %134
+  br i1 %135, label %136, label %138
 
-133:                                              ; preds = %126
-  %134 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %135 = load float, ptr %134, align 4, !tbaa !11
-  %136 = load float, ptr %100, align 4, !tbaa !11
-  %137 = fcmp une float %135, %136
-  br i1 %137, label %138, label %140
+136:                                              ; preds = %131
+  %137 = fcmp ogt float %133, %134
+  br i1 %137, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-138:                                              ; preds = %133
-  %139 = fcmp ogt float %135, %136
-  br i1 %139, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
+138:                                              ; preds = %131
+  %139 = getelementptr inbounds nuw i8, ptr %107, i64 20
+  %140 = load i32, ptr %139, align 4, !tbaa !75
+  %141 = load i32, ptr %101, align 4, !tbaa !75
+  %.not.i.i.i = icmp eq i32 %140, %141
+  br i1 %.not.i.i.i, label %144, label %142
 
-140:                                              ; preds = %133
-  %141 = getelementptr inbounds nuw i8, ptr %107, i64 20
-  %142 = load i32, ptr %141, align 4, !tbaa !75
-  %143 = load i32, ptr %101, align 4, !tbaa !75
-  %.not.i.i.i = icmp eq i32 %142, %143
-  br i1 %.not.i.i.i, label %146, label %144
+142:                                              ; preds = %138
+  %143 = icmp sgt i32 %140, %141
+  br i1 %143, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-144:                                              ; preds = %140
-  %145 = icmp sgt i32 %142, %143
-  br i1 %145, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
+144:                                              ; preds = %138
+  %145 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %146 = load i32, ptr %145, align 4, !tbaa !76
+  %147 = load i32, ptr %102, align 4, !tbaa !76
+  %.not47.i.i.i = icmp eq i32 %146, %147
+  br i1 %.not47.i.i.i, label %150, label %148
 
-146:                                              ; preds = %140
-  %147 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %148 = load i32, ptr %147, align 4, !tbaa !76
-  %149 = load i32, ptr %102, align 4, !tbaa !76
-  %.not47.i.i.i = icmp eq i32 %148, %149
-  br i1 %.not47.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, label %150
+148:                                              ; preds = %144
+  %149 = icmp sgt i32 %146, %147
+  br i1 %149, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-150:                                              ; preds = %146
-  %151 = icmp sgt i32 %148, %149
+150:                                              ; preds = %144
+  %151 = icmp slt i32 %105, %3
   br i1 %151, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i: ; preds = %146
-  %152 = icmp slt i32 %105, %3
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i: ; preds = %112
+  %152 = fcmp olt float %114, %115
   br i1 %152, label %153, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit
 
-153:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, %150, %144, %138, %131, %124, %117, %110
+153:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, %150, %148, %142, %136, %129, %122, %110
   %154 = getelementptr inbounds i32, ptr %0, i64 %.019.i
   store i32 %105, ptr %154, align 4, !tbaa !21
   %155 = icmp sgt i64 %.0920.i, %1
   br i1 %155, label %103, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit, !llvm.loop !102
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit: ; preds = %110, %117, %124, %131, %138, %144, %150, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, %153, %91
-  %.0.lcssa.i = phi i64 [ %.1, %91 ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i ], [ %.0920.i, %153 ], [ %.019.i, %110 ], [ %.019.i, %117 ], [ %.019.i, %124 ], [ %.019.i, %131 ], [ %.019.i, %138 ], [ %.019.i, %144 ], [ %.019.i, %150 ]
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEEEvT_T0_SD_T1_RT2_.exit: ; preds = %110, %122, %129, %136, %142, %148, %150, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i, %153, %91
+  %.0.lcssa.i = phi i64 [ %.1, %91 ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEEbT_RT0_.exit.i ], [ %.0920.i, %153 ], [ %.019.i, %110 ], [ %.019.i, %150 ], [ %.019.i, %148 ], [ %.019.i, %142 ], [ %.019.i, %136 ], [ %.019.i, %129 ], [ %.019.i, %122 ]
   %156 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %156, align 4, !tbaa !21
   ret void
@@ -3256,77 +3256,77 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !34
   %23 = fcmp une float %20, %22
-  br i1 %23, label %24, label %26
+  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %24
 
 24:                                               ; preds = %18
-  %25 = fcmp olt float %20, %22
-  br i1 %25, label %65, label %172
-
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %26 = load float, ptr %25, align 4, !tbaa !57
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load float, ptr %27, align 4, !tbaa !57
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !57
-  %31 = fcmp une float %28, %30
-  br i1 %31, label %32, label %34
+  %29 = fcmp une float %26, %28
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %26
-  %33 = fcmp ogt float %28, %30
-  br i1 %33, label %65, label %172
+30:                                               ; preds = %24
+  %31 = fcmp ogt float %26, %28
+  br i1 %31, label %65, label %172
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 12
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %34 = load float, ptr %33, align 4, !tbaa !58
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %36 = load float, ptr %35, align 4, !tbaa !58
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %38 = load float, ptr %37, align 4, !tbaa !58
-  %39 = fcmp une float %36, %38
-  br i1 %39, label %40, label %42
+  %37 = fcmp une float %34, %36
+  br i1 %37, label %38, label %40
 
-40:                                               ; preds = %34
-  %41 = fcmp olt float %36, %38
-  br i1 %41, label %65, label %172
+38:                                               ; preds = %32
+  %39 = fcmp olt float %34, %36
+  br i1 %39, label %65, label %172
 
-42:                                               ; preds = %34
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %42 = load float, ptr %41, align 4, !tbaa !11
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %44 = load float, ptr %43, align 4, !tbaa !11
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %46 = load float, ptr %45, align 4, !tbaa !11
-  %47 = fcmp une float %44, %46
-  br i1 %47, label %48, label %50
+  %45 = fcmp une float %42, %44
+  br i1 %45, label %46, label %48
 
-48:                                               ; preds = %42
-  %49 = fcmp ogt float %44, %46
-  br i1 %49, label %65, label %172
+46:                                               ; preds = %40
+  %47 = fcmp ogt float %42, %44
+  br i1 %47, label %65, label %172
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 20
+48:                                               ; preds = %40
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %50 = load i32, ptr %49, align 4, !tbaa !75
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !75
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %52, %54
-  br i1 %.not.i.i, label %57, label %55
+  %.not.i.i = icmp eq i32 %50, %52
+  br i1 %.not.i.i, label %55, label %53
 
-55:                                               ; preds = %50
-  %56 = icmp sgt i32 %52, %54
-  br i1 %56, label %65, label %172
+53:                                               ; preds = %48
+  %54 = icmp sgt i32 %50, %52
+  br i1 %54, label %65, label %172
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 24
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %57 = load i32, ptr %56, align 4, !tbaa !76
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %59 = load i32, ptr %58, align 4, !tbaa !76
-  %60 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %61 = load i32, ptr %60, align 4, !tbaa !76
-  %.not47.i.i = icmp eq i32 %59, %61
-  br i1 %.not47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %62
+  %.not47.i.i = icmp eq i32 %57, %59
+  br i1 %.not47.i.i, label %62, label %60
 
-62:                                               ; preds = %57
-  %63 = icmp sgt i32 %59, %61
+60:                                               ; preds = %55
+  %61 = icmp sgt i32 %57, %59
+  br i1 %61, label %65, label %172
+
+62:                                               ; preds = %55
+  %63 = icmp slt i32 %6, %7
   br i1 %63, label %65, label %172
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %57
-  %64 = icmp slt i32 %6, %7
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %18
+  %64 = fcmp olt float %20, %22
   br i1 %64, label %65, label %172
 
-65:                                               ; preds = %62, %55, %48, %40, %32, %24, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+65:                                               ; preds = %30, %38, %46, %53, %60, %62, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %66 = load i32, ptr %3, align 4, !tbaa !21
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %9, i64 %67
@@ -3344,77 +3344,77 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %77 = load float, ptr %76, align 4, !tbaa !34
   %78 = fcmp une float %75, %77
-  br i1 %78, label %79, label %81
+  br i1 %78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29, label %79
 
 79:                                               ; preds = %73
-  %80 = fcmp olt float %75, %77
-  br i1 %80, label %279, label %120
-
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %81 = load float, ptr %80, align 4, !tbaa !57
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %83 = load float, ptr %82, align 4, !tbaa !57
-  %84 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %85 = load float, ptr %84, align 4, !tbaa !57
-  %86 = fcmp une float %83, %85
-  br i1 %86, label %87, label %89
+  %84 = fcmp une float %81, %83
+  br i1 %84, label %85, label %87
 
-87:                                               ; preds = %81
-  %88 = fcmp ogt float %83, %85
-  br i1 %88, label %279, label %120
+85:                                               ; preds = %79
+  %86 = fcmp ogt float %81, %83
+  br i1 %86, label %279, label %120
 
-89:                                               ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %12, i64 12
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %89 = load float, ptr %88, align 4, !tbaa !58
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %91 = load float, ptr %90, align 4, !tbaa !58
-  %92 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %93 = load float, ptr %92, align 4, !tbaa !58
-  %94 = fcmp une float %91, %93
-  br i1 %94, label %95, label %97
+  %92 = fcmp une float %89, %91
+  br i1 %92, label %93, label %95
 
-95:                                               ; preds = %89
-  %96 = fcmp olt float %91, %93
-  br i1 %96, label %279, label %120
+93:                                               ; preds = %87
+  %94 = fcmp olt float %89, %91
+  br i1 %94, label %279, label %120
 
-97:                                               ; preds = %89
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
+95:                                               ; preds = %87
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %97 = load float, ptr %96, align 4, !tbaa !11
+  %98 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %99 = load float, ptr %98, align 4, !tbaa !11
-  %100 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %101 = load float, ptr %100, align 4, !tbaa !11
-  %102 = fcmp une float %99, %101
-  br i1 %102, label %103, label %105
+  %100 = fcmp une float %97, %99
+  br i1 %100, label %101, label %103
 
-103:                                              ; preds = %97
-  %104 = fcmp ogt float %99, %101
-  br i1 %104, label %279, label %120
+101:                                              ; preds = %95
+  %102 = fcmp ogt float %97, %99
+  br i1 %102, label %279, label %120
 
-105:                                              ; preds = %97
-  %106 = getelementptr inbounds nuw i8, ptr %12, i64 20
+103:                                              ; preds = %95
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %105 = load i32, ptr %104, align 4, !tbaa !75
+  %106 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %107 = load i32, ptr %106, align 4, !tbaa !75
-  %108 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %109 = load i32, ptr %108, align 4, !tbaa !75
-  %.not.i.i26 = icmp eq i32 %107, %109
-  br i1 %.not.i.i26, label %112, label %110
+  %.not.i.i26 = icmp eq i32 %105, %107
+  br i1 %.not.i.i26, label %110, label %108
 
-110:                                              ; preds = %105
-  %111 = icmp sgt i32 %107, %109
-  br i1 %111, label %279, label %120
+108:                                              ; preds = %103
+  %109 = icmp sgt i32 %105, %107
+  br i1 %109, label %279, label %120
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %12, i64 24
+110:                                              ; preds = %103
+  %111 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %112 = load i32, ptr %111, align 4, !tbaa !76
+  %113 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %114 = load i32, ptr %113, align 4, !tbaa !76
-  %115 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %116 = load i32, ptr %115, align 4, !tbaa !76
-  %.not47.i.i28 = icmp eq i32 %114, %116
-  br i1 %.not47.i.i28, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29, label %117
+  %.not47.i.i28 = icmp eq i32 %112, %114
+  br i1 %.not47.i.i28, label %117, label %115
 
-117:                                              ; preds = %112
-  %118 = icmp sgt i32 %114, %116
+115:                                              ; preds = %110
+  %116 = icmp sgt i32 %112, %114
+  br i1 %116, label %279, label %120
+
+117:                                              ; preds = %110
+  %118 = icmp slt i32 %7, %66
   br i1 %118, label %279, label %120
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29: ; preds = %112
-  %119 = icmp slt i32 %7, %66
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29: ; preds = %73
+  %119 = fcmp olt float %75, %77
   br i1 %119, label %279, label %120
 
-120:                                              ; preds = %117, %110, %103, %95, %87, %79, %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29
+120:                                              ; preds = %85, %93, %101, %108, %115, %117, %71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29
   %121 = fcmp une float %13, %69
   br i1 %121, label %122, label %124
 
@@ -3428,80 +3428,80 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %127 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !34
   %129 = fcmp une float %126, %128
-  br i1 %129, label %130, label %132
+  br i1 %129, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33, label %130
 
 130:                                              ; preds = %124
-  %131 = fcmp olt float %126, %128
-  br i1 %131, label %279, label %171
-
-132:                                              ; preds = %124
-  %133 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %132 = load float, ptr %131, align 4, !tbaa !57
+  %133 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %134 = load float, ptr %133, align 4, !tbaa !57
-  %135 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %136 = load float, ptr %135, align 4, !tbaa !57
-  %137 = fcmp une float %134, %136
-  br i1 %137, label %138, label %140
+  %135 = fcmp une float %132, %134
+  br i1 %135, label %136, label %138
 
-138:                                              ; preds = %132
-  %139 = fcmp ogt float %134, %136
-  br i1 %139, label %279, label %171
+136:                                              ; preds = %130
+  %137 = fcmp ogt float %132, %134
+  br i1 %137, label %279, label %171
 
-140:                                              ; preds = %132
-  %141 = getelementptr inbounds nuw i8, ptr %10, i64 12
+138:                                              ; preds = %130
+  %139 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %140 = load float, ptr %139, align 4, !tbaa !58
+  %141 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %142 = load float, ptr %141, align 4, !tbaa !58
-  %143 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %144 = load float, ptr %143, align 4, !tbaa !58
-  %145 = fcmp une float %142, %144
-  br i1 %145, label %146, label %148
+  %143 = fcmp une float %140, %142
+  br i1 %143, label %144, label %146
 
-146:                                              ; preds = %140
-  %147 = fcmp olt float %142, %144
-  br i1 %147, label %279, label %171
+144:                                              ; preds = %138
+  %145 = fcmp olt float %140, %142
+  br i1 %145, label %279, label %171
 
-148:                                              ; preds = %140
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 16
+146:                                              ; preds = %138
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %148 = load float, ptr %147, align 4, !tbaa !11
+  %149 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %150 = load float, ptr %149, align 4, !tbaa !11
-  %151 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %152 = load float, ptr %151, align 4, !tbaa !11
-  %153 = fcmp une float %150, %152
-  br i1 %153, label %154, label %156
+  %151 = fcmp une float %148, %150
+  br i1 %151, label %152, label %154
 
-154:                                              ; preds = %148
-  %155 = fcmp ogt float %150, %152
-  br i1 %155, label %279, label %171
+152:                                              ; preds = %146
+  %153 = fcmp ogt float %148, %150
+  br i1 %153, label %279, label %171
 
-156:                                              ; preds = %148
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 20
+154:                                              ; preds = %146
+  %155 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %156 = load i32, ptr %155, align 4, !tbaa !75
+  %157 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %158 = load i32, ptr %157, align 4, !tbaa !75
-  %159 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %160 = load i32, ptr %159, align 4, !tbaa !75
-  %.not.i.i30 = icmp eq i32 %158, %160
-  br i1 %.not.i.i30, label %163, label %161
+  %.not.i.i30 = icmp eq i32 %156, %158
+  br i1 %.not.i.i30, label %161, label %159
 
-161:                                              ; preds = %156
-  %162 = icmp sgt i32 %158, %160
-  br i1 %162, label %279, label %171
+159:                                              ; preds = %154
+  %160 = icmp sgt i32 %156, %158
+  br i1 %160, label %279, label %171
 
-163:                                              ; preds = %156
-  %164 = getelementptr inbounds nuw i8, ptr %10, i64 24
+161:                                              ; preds = %154
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %163 = load i32, ptr %162, align 4, !tbaa !76
+  %164 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %165 = load i32, ptr %164, align 4, !tbaa !76
-  %166 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %167 = load i32, ptr %166, align 4, !tbaa !76
-  %.not47.i.i32 = icmp eq i32 %165, %167
-  br i1 %.not47.i.i32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33, label %168
+  %.not47.i.i32 = icmp eq i32 %163, %165
+  br i1 %.not47.i.i32, label %168, label %166
 
-168:                                              ; preds = %163
-  %169 = icmp sgt i32 %165, %167
+166:                                              ; preds = %161
+  %167 = icmp sgt i32 %163, %165
+  br i1 %167, label %279, label %171
+
+168:                                              ; preds = %161
+  %169 = icmp slt i32 %6, %66
   br i1 %169, label %279, label %171
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33: ; preds = %163
-  %170 = icmp slt i32 %6, %66
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33: ; preds = %124
+  %170 = fcmp olt float %126, %128
   br i1 %170, label %279, label %171
 
-171:                                              ; preds = %168, %161, %154, %146, %138, %130, %122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33
+171:                                              ; preds = %136, %144, %152, %159, %166, %168, %122, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33
   br label %279
 
-172:                                              ; preds = %62, %55, %48, %40, %32, %24, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+172:                                              ; preds = %30, %38, %46, %53, %60, %62, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %173 = load i32, ptr %3, align 4, !tbaa !21
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %9, i64 %174
@@ -3519,77 +3519,77 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %183 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %184 = load float, ptr %183, align 4, !tbaa !34
   %185 = fcmp une float %182, %184
-  br i1 %185, label %186, label %188
+  br i1 %185, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37, label %186
 
 186:                                              ; preds = %180
-  %187 = fcmp olt float %182, %184
-  br i1 %187, label %279, label %227
-
-188:                                              ; preds = %180
-  %189 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %188 = load float, ptr %187, align 4, !tbaa !57
+  %189 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %190 = load float, ptr %189, align 4, !tbaa !57
-  %191 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %192 = load float, ptr %191, align 4, !tbaa !57
-  %193 = fcmp une float %190, %192
-  br i1 %193, label %194, label %196
+  %191 = fcmp une float %188, %190
+  br i1 %191, label %192, label %194
 
-194:                                              ; preds = %188
-  %195 = fcmp ogt float %190, %192
-  br i1 %195, label %279, label %227
+192:                                              ; preds = %186
+  %193 = fcmp ogt float %188, %190
+  br i1 %193, label %279, label %227
 
-196:                                              ; preds = %188
-  %197 = getelementptr inbounds nuw i8, ptr %10, i64 12
+194:                                              ; preds = %186
+  %195 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %196 = load float, ptr %195, align 4, !tbaa !58
+  %197 = getelementptr inbounds nuw i8, ptr %175, i64 12
   %198 = load float, ptr %197, align 4, !tbaa !58
-  %199 = getelementptr inbounds nuw i8, ptr %175, i64 12
-  %200 = load float, ptr %199, align 4, !tbaa !58
-  %201 = fcmp une float %198, %200
-  br i1 %201, label %202, label %204
+  %199 = fcmp une float %196, %198
+  br i1 %199, label %200, label %202
 
-202:                                              ; preds = %196
-  %203 = fcmp olt float %198, %200
-  br i1 %203, label %279, label %227
+200:                                              ; preds = %194
+  %201 = fcmp olt float %196, %198
+  br i1 %201, label %279, label %227
 
-204:                                              ; preds = %196
-  %205 = getelementptr inbounds nuw i8, ptr %10, i64 16
+202:                                              ; preds = %194
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %204 = load float, ptr %203, align 4, !tbaa !11
+  %205 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %206 = load float, ptr %205, align 4, !tbaa !11
-  %207 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %208 = load float, ptr %207, align 4, !tbaa !11
-  %209 = fcmp une float %206, %208
-  br i1 %209, label %210, label %212
+  %207 = fcmp une float %204, %206
+  br i1 %207, label %208, label %210
 
-210:                                              ; preds = %204
-  %211 = fcmp ogt float %206, %208
-  br i1 %211, label %279, label %227
+208:                                              ; preds = %202
+  %209 = fcmp ogt float %204, %206
+  br i1 %209, label %279, label %227
 
-212:                                              ; preds = %204
-  %213 = getelementptr inbounds nuw i8, ptr %10, i64 20
+210:                                              ; preds = %202
+  %211 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %212 = load i32, ptr %211, align 4, !tbaa !75
+  %213 = getelementptr inbounds nuw i8, ptr %175, i64 20
   %214 = load i32, ptr %213, align 4, !tbaa !75
-  %215 = getelementptr inbounds nuw i8, ptr %175, i64 20
-  %216 = load i32, ptr %215, align 4, !tbaa !75
-  %.not.i.i34 = icmp eq i32 %214, %216
-  br i1 %.not.i.i34, label %219, label %217
+  %.not.i.i34 = icmp eq i32 %212, %214
+  br i1 %.not.i.i34, label %217, label %215
 
-217:                                              ; preds = %212
-  %218 = icmp sgt i32 %214, %216
-  br i1 %218, label %279, label %227
+215:                                              ; preds = %210
+  %216 = icmp sgt i32 %212, %214
+  br i1 %216, label %279, label %227
 
-219:                                              ; preds = %212
-  %220 = getelementptr inbounds nuw i8, ptr %10, i64 24
+217:                                              ; preds = %210
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %219 = load i32, ptr %218, align 4, !tbaa !76
+  %220 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %221 = load i32, ptr %220, align 4, !tbaa !76
-  %222 = getelementptr inbounds nuw i8, ptr %175, i64 24
-  %223 = load i32, ptr %222, align 4, !tbaa !76
-  %.not47.i.i36 = icmp eq i32 %221, %223
-  br i1 %.not47.i.i36, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37, label %224
+  %.not47.i.i36 = icmp eq i32 %219, %221
+  br i1 %.not47.i.i36, label %224, label %222
 
-224:                                              ; preds = %219
-  %225 = icmp sgt i32 %221, %223
+222:                                              ; preds = %217
+  %223 = icmp sgt i32 %219, %221
+  br i1 %223, label %279, label %227
+
+224:                                              ; preds = %217
+  %225 = icmp slt i32 %6, %173
   br i1 %225, label %279, label %227
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37: ; preds = %219
-  %226 = icmp slt i32 %6, %173
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37: ; preds = %180
+  %226 = fcmp olt float %182, %184
   br i1 %226, label %279, label %227
 
-227:                                              ; preds = %224, %217, %210, %202, %194, %186, %178, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37
+227:                                              ; preds = %192, %200, %208, %215, %222, %224, %178, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37
   %228 = fcmp une float %14, %176
   br i1 %228, label %229, label %231
 
@@ -3603,82 +3603,82 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %234 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %235 = load float, ptr %234, align 4, !tbaa !34
   %236 = fcmp une float %233, %235
-  br i1 %236, label %237, label %239
+  br i1 %236, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41, label %237
 
 237:                                              ; preds = %231
-  %238 = fcmp olt float %233, %235
-  br i1 %238, label %279, label %278
-
-239:                                              ; preds = %231
-  %240 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %239 = load float, ptr %238, align 4, !tbaa !57
+  %240 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %241 = load float, ptr %240, align 4, !tbaa !57
-  %242 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %243 = load float, ptr %242, align 4, !tbaa !57
-  %244 = fcmp une float %241, %243
-  br i1 %244, label %245, label %247
+  %242 = fcmp une float %239, %241
+  br i1 %242, label %243, label %245
 
-245:                                              ; preds = %239
-  %246 = fcmp ogt float %241, %243
-  br i1 %246, label %279, label %278
+243:                                              ; preds = %237
+  %244 = fcmp ogt float %239, %241
+  br i1 %244, label %279, label %278
 
-247:                                              ; preds = %239
-  %248 = getelementptr inbounds nuw i8, ptr %12, i64 12
+245:                                              ; preds = %237
+  %246 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %247 = load float, ptr %246, align 4, !tbaa !58
+  %248 = getelementptr inbounds nuw i8, ptr %175, i64 12
   %249 = load float, ptr %248, align 4, !tbaa !58
-  %250 = getelementptr inbounds nuw i8, ptr %175, i64 12
-  %251 = load float, ptr %250, align 4, !tbaa !58
-  %252 = fcmp une float %249, %251
-  br i1 %252, label %253, label %255
+  %250 = fcmp une float %247, %249
+  br i1 %250, label %251, label %253
 
-253:                                              ; preds = %247
-  %254 = fcmp olt float %249, %251
-  br i1 %254, label %279, label %278
+251:                                              ; preds = %245
+  %252 = fcmp olt float %247, %249
+  br i1 %252, label %279, label %278
 
-255:                                              ; preds = %247
-  %256 = getelementptr inbounds nuw i8, ptr %12, i64 16
+253:                                              ; preds = %245
+  %254 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %255 = load float, ptr %254, align 4, !tbaa !11
+  %256 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %257 = load float, ptr %256, align 4, !tbaa !11
-  %258 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %259 = load float, ptr %258, align 4, !tbaa !11
-  %260 = fcmp une float %257, %259
-  br i1 %260, label %261, label %263
+  %258 = fcmp une float %255, %257
+  br i1 %258, label %259, label %261
 
-261:                                              ; preds = %255
-  %262 = fcmp ogt float %257, %259
-  br i1 %262, label %279, label %278
+259:                                              ; preds = %253
+  %260 = fcmp ogt float %255, %257
+  br i1 %260, label %279, label %278
 
-263:                                              ; preds = %255
-  %264 = getelementptr inbounds nuw i8, ptr %12, i64 20
+261:                                              ; preds = %253
+  %262 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %263 = load i32, ptr %262, align 4, !tbaa !75
+  %264 = getelementptr inbounds nuw i8, ptr %175, i64 20
   %265 = load i32, ptr %264, align 4, !tbaa !75
-  %266 = getelementptr inbounds nuw i8, ptr %175, i64 20
-  %267 = load i32, ptr %266, align 4, !tbaa !75
-  %.not.i.i38 = icmp eq i32 %265, %267
-  br i1 %.not.i.i38, label %270, label %268
+  %.not.i.i38 = icmp eq i32 %263, %265
+  br i1 %.not.i.i38, label %268, label %266
 
-268:                                              ; preds = %263
-  %269 = icmp sgt i32 %265, %267
-  br i1 %269, label %279, label %278
+266:                                              ; preds = %261
+  %267 = icmp sgt i32 %263, %265
+  br i1 %267, label %279, label %278
 
-270:                                              ; preds = %263
-  %271 = getelementptr inbounds nuw i8, ptr %12, i64 24
+268:                                              ; preds = %261
+  %269 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %270 = load i32, ptr %269, align 4, !tbaa !76
+  %271 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %272 = load i32, ptr %271, align 4, !tbaa !76
-  %273 = getelementptr inbounds nuw i8, ptr %175, i64 24
-  %274 = load i32, ptr %273, align 4, !tbaa !76
-  %.not47.i.i40 = icmp eq i32 %272, %274
-  br i1 %.not47.i.i40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41, label %275
+  %.not47.i.i40 = icmp eq i32 %270, %272
+  br i1 %.not47.i.i40, label %275, label %273
 
-275:                                              ; preds = %270
-  %276 = icmp sgt i32 %272, %274
+273:                                              ; preds = %268
+  %274 = icmp sgt i32 %270, %272
+  br i1 %274, label %279, label %278
+
+275:                                              ; preds = %268
+  %276 = icmp slt i32 %7, %173
   br i1 %276, label %279, label %278
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41: ; preds = %270
-  %277 = icmp slt i32 %7, %173
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41: ; preds = %231
+  %277 = fcmp olt float %233, %235
   br i1 %277, label %279, label %278
 
-278:                                              ; preds = %275, %268, %261, %253, %245, %237, %229, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41
+278:                                              ; preds = %243, %251, %259, %266, %273, %275, %229, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41
   br label %279
 
-279:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41, %229, %237, %245, %253, %261, %268, %275, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37, %178, %186, %194, %202, %210, %217, %224, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33, %122, %130, %138, %146, %154, %161, %168, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29, %71, %79, %87, %95, %103, %110, %117, %278, %171
-  %.sink114 = phi i32 [ %7, %278 ], [ %6, %171 ], [ %7, %117 ], [ %7, %110 ], [ %7, %103 ], [ %7, %95 ], [ %7, %87 ], [ %7, %79 ], [ %7, %71 ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29 ], [ %66, %168 ], [ %66, %161 ], [ %66, %154 ], [ %66, %146 ], [ %66, %138 ], [ %66, %130 ], [ %66, %122 ], [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33 ], [ %6, %224 ], [ %6, %217 ], [ %6, %210 ], [ %6, %202 ], [ %6, %194 ], [ %6, %186 ], [ %6, %178 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37 ], [ %173, %275 ], [ %173, %268 ], [ %173, %261 ], [ %173, %253 ], [ %173, %245 ], [ %173, %237 ], [ %173, %229 ], [ %173, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41 ]
-  %.sink113 = phi ptr [ %2, %278 ], [ %1, %171 ], [ %2, %117 ], [ %2, %110 ], [ %2, %103 ], [ %2, %95 ], [ %2, %87 ], [ %2, %79 ], [ %2, %71 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29 ], [ %3, %168 ], [ %3, %161 ], [ %3, %154 ], [ %3, %146 ], [ %3, %138 ], [ %3, %130 ], [ %3, %122 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33 ], [ %1, %224 ], [ %1, %217 ], [ %1, %210 ], [ %1, %202 ], [ %1, %194 ], [ %1, %186 ], [ %1, %178 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37 ], [ %3, %275 ], [ %3, %268 ], [ %3, %261 ], [ %3, %253 ], [ %3, %245 ], [ %3, %237 ], [ %3, %229 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41 ]
+279:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41, %229, %275, %273, %266, %259, %251, %243, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37, %178, %224, %222, %215, %208, %200, %192, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33, %122, %168, %166, %159, %152, %144, %136, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29, %71, %117, %115, %108, %101, %93, %85, %278, %171
+  %.sink114 = phi i32 [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33 ], [ %7, %278 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37 ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29 ], [ %6, %171 ], [ %7, %85 ], [ %7, %93 ], [ %7, %101 ], [ %7, %108 ], [ %7, %115 ], [ %7, %117 ], [ %7, %71 ], [ %66, %136 ], [ %66, %144 ], [ %66, %152 ], [ %66, %159 ], [ %66, %166 ], [ %66, %168 ], [ %66, %122 ], [ %6, %192 ], [ %6, %200 ], [ %6, %208 ], [ %6, %215 ], [ %6, %222 ], [ %6, %224 ], [ %6, %178 ], [ %173, %243 ], [ %173, %251 ], [ %173, %259 ], [ %173, %266 ], [ %173, %273 ], [ %173, %275 ], [ %173, %229 ], [ %173, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41 ]
+  %.sink113 = phi ptr [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit33 ], [ %2, %278 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit37 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit29 ], [ %1, %171 ], [ %2, %85 ], [ %2, %93 ], [ %2, %101 ], [ %2, %108 ], [ %2, %115 ], [ %2, %117 ], [ %2, %71 ], [ %3, %136 ], [ %3, %144 ], [ %3, %152 ], [ %3, %159 ], [ %3, %166 ], [ %3, %168 ], [ %3, %122 ], [ %1, %192 ], [ %1, %200 ], [ %1, %208 ], [ %1, %215 ], [ %1, %222 ], [ %1, %224 ], [ %1, %178 ], [ %3, %243 ], [ %3, %251 ], [ %3, %259 ], [ %3, %266 ], [ %3, %273 ], [ %3, %275 ], [ %3, %229 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit41 ]
   %280 = load i32, ptr %0, align 4, !tbaa !21
   store i32 %.sink114, ptr %0, align 4, !tbaa !21
   store i32 %280, ptr %.sink113, align 4, !tbaa !21
@@ -3723,75 +3723,75 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %27 = load float, ptr %26, align 4, !tbaa !34
   %28 = load float, ptr %11, align 4, !tbaa !34
   %29 = fcmp une float %27, %28
-  br i1 %29, label %30, label %32
+  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = fcmp olt float %27, %28
-  br i1 %31, label %66, label %.preheader
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %32 = load float, ptr %31, align 4, !tbaa !57
+  %33 = load float, ptr %12, align 4, !tbaa !57
+  %34 = fcmp une float %32, %33
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %34 = load float, ptr %33, align 4, !tbaa !57
-  %35 = load float, ptr %12, align 4, !tbaa !57
-  %36 = fcmp une float %34, %35
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30
+  %36 = fcmp ogt float %32, %33
+  br i1 %36, label %66, label %.preheader
 
-37:                                               ; preds = %32
-  %38 = fcmp ogt float %34, %35
-  br i1 %38, label %66, label %.preheader
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %39 = load float, ptr %38, align 4, !tbaa !58
+  %40 = load float, ptr %13, align 4, !tbaa !58
+  %41 = fcmp une float %39, %40
+  br i1 %41, label %42, label %44
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %41 = load float, ptr %40, align 4, !tbaa !58
-  %42 = load float, ptr %13, align 4, !tbaa !58
-  %43 = fcmp une float %41, %42
-  br i1 %43, label %44, label %46
+42:                                               ; preds = %37
+  %43 = fcmp olt float %39, %40
+  br i1 %43, label %66, label %.preheader
 
-44:                                               ; preds = %39
-  %45 = fcmp olt float %41, %42
-  br i1 %45, label %66, label %.preheader
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %46 = load float, ptr %45, align 4, !tbaa !11
+  %47 = load float, ptr %14, align 4, !tbaa !11
+  %48 = fcmp une float %46, %47
+  br i1 %48, label %49, label %51
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %48 = load float, ptr %47, align 4, !tbaa !11
-  %49 = load float, ptr %14, align 4, !tbaa !11
-  %50 = fcmp une float %48, %49
-  br i1 %50, label %51, label %53
+49:                                               ; preds = %44
+  %50 = fcmp ogt float %46, %47
+  br i1 %50, label %66, label %.preheader
 
-51:                                               ; preds = %46
-  %52 = fcmp ogt float %48, %49
-  br i1 %52, label %66, label %.preheader
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %53 = load i32, ptr %52, align 4, !tbaa !75
+  %54 = load i32, ptr %15, align 4, !tbaa !75
+  %.not.i.i = icmp eq i32 %53, %54
+  br i1 %.not.i.i, label %57, label %55
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !75
-  %56 = load i32, ptr %15, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %55, %56
-  br i1 %.not.i.i, label %59, label %57
+55:                                               ; preds = %51
+  %56 = icmp sgt i32 %53, %54
+  br i1 %56, label %66, label %.preheader
 
-57:                                               ; preds = %53
-  %58 = icmp sgt i32 %55, %56
-  br i1 %58, label %66, label %.preheader
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %59 = load i32, ptr %58, align 4, !tbaa !76
+  %60 = load i32, ptr %16, align 4, !tbaa !76
+  %.not47.i.i = icmp eq i32 %59, %60
+  br i1 %.not47.i.i, label %63, label %61
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %61 = load i32, ptr %60, align 4, !tbaa !76
-  %62 = load i32, ptr %16, align 4, !tbaa !76
-  %.not47.i.i = icmp eq i32 %61, %62
-  br i1 %.not47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %63
+61:                                               ; preds = %57
+  %62 = icmp sgt i32 %59, %60
+  br i1 %62, label %66, label %.preheader
 
-63:                                               ; preds = %59
-  %64 = icmp sgt i32 %61, %62
+63:                                               ; preds = %57
+  %64 = icmp slt i32 %18, %7
   br i1 %64, label %66, label %.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %59
-  %65 = icmp slt i32 %18, %7
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %25
+  %65 = fcmp olt float %27, %28
   br i1 %65, label %66, label %.preheader
 
-.preheader:                                       ; preds = %63, %57, %51, %44, %37, %30, %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+.preheader:                                       ; preds = %35, %42, %49, %55, %61, %63, %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   br label %68
 
-66:                                               ; preds = %63, %57, %51, %44, %37, %30, %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+66:                                               ; preds = %35, %42, %49, %55, %61, %63, %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.016.1, i64 4
   br label %17, !llvm.loop !103
 
@@ -3814,75 +3814,75 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %79 = load float, ptr %78, align 4, !tbaa !34
   %80 = fcmp une float %77, %79
-  br i1 %80, label %81, label %83
+  br i1 %80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11, label %81
 
 81:                                               ; preds = %76
-  %82 = fcmp olt float %77, %79
-  br i1 %82, label %.backedge, label %117
+  %82 = load float, ptr %12, align 4, !tbaa !57
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %84 = load float, ptr %83, align 4, !tbaa !57
+  %85 = fcmp une float %82, %84
+  br i1 %85, label %86, label %88
 
-83:                                               ; preds = %76
-  %84 = load float, ptr %12, align 4, !tbaa !57
-  %85 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %86 = load float, ptr %85, align 4, !tbaa !57
-  %87 = fcmp une float %84, %86
-  br i1 %87, label %88, label %90
+86:                                               ; preds = %81
+  %87 = fcmp ogt float %82, %84
+  br i1 %87, label %.backedge, label %117
 
-88:                                               ; preds = %83
-  %89 = fcmp ogt float %84, %86
-  br i1 %89, label %.backedge, label %117
-
-90:                                               ; preds = %83
-  %91 = load float, ptr %13, align 4, !tbaa !58
-  %92 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  %93 = load float, ptr %92, align 4, !tbaa !58
-  %94 = fcmp une float %91, %93
-  br i1 %94, label %95, label %97
-
-95:                                               ; preds = %90
-  %96 = fcmp olt float %91, %93
-  br i1 %96, label %.backedge, label %117
-
-97:                                               ; preds = %90
-  %98 = load float, ptr %14, align 4, !tbaa !11
-  %99 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %100 = load float, ptr %99, align 4, !tbaa !11
-  %101 = fcmp une float %98, %100
-  br i1 %101, label %102, label %104
-
-102:                                              ; preds = %97
-  %103 = fcmp ogt float %98, %100
-  br i1 %103, label %.backedge, label %117
-
-104:                                              ; preds = %97
-  %105 = load i32, ptr %15, align 4, !tbaa !75
-  %106 = getelementptr inbounds nuw i8, ptr %71, i64 20
-  %107 = load i32, ptr %106, align 4, !tbaa !75
-  %.not.i.i8 = icmp eq i32 %105, %107
-  br i1 %.not.i.i8, label %110, label %108
-
-108:                                              ; preds = %104
-  %109 = icmp sgt i32 %105, %107
-  br i1 %109, label %.backedge, label %117
-
-110:                                              ; preds = %104
-  %111 = load i32, ptr %16, align 4, !tbaa !76
-  %112 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %113 = load i32, ptr %112, align 4, !tbaa !76
-  %.not47.i.i10 = icmp eq i32 %111, %113
-  br i1 %.not47.i.i10, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11, label %114
-
-114:                                              ; preds = %110
-  %115 = icmp sgt i32 %111, %113
-  br i1 %115, label %.backedge, label %117
-
-.backedge:                                        ; preds = %114, %108, %102, %95, %88, %81, %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11
+.backedge:                                        ; preds = %86, %93, %100, %106, %112, %114, %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11
   br label %68, !llvm.loop !104
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11: ; preds = %110
-  %116 = icmp slt i32 %7, %69
+88:                                               ; preds = %81
+  %89 = load float, ptr %13, align 4, !tbaa !58
+  %90 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  %91 = load float, ptr %90, align 4, !tbaa !58
+  %92 = fcmp une float %89, %91
+  br i1 %92, label %93, label %95
+
+93:                                               ; preds = %88
+  %94 = fcmp olt float %89, %91
+  br i1 %94, label %.backedge, label %117
+
+95:                                               ; preds = %88
+  %96 = load float, ptr %14, align 4, !tbaa !11
+  %97 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %98 = load float, ptr %97, align 4, !tbaa !11
+  %99 = fcmp une float %96, %98
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %95
+  %101 = fcmp ogt float %96, %98
+  br i1 %101, label %.backedge, label %117
+
+102:                                              ; preds = %95
+  %103 = load i32, ptr %15, align 4, !tbaa !75
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 20
+  %105 = load i32, ptr %104, align 4, !tbaa !75
+  %.not.i.i8 = icmp eq i32 %103, %105
+  br i1 %.not.i.i8, label %108, label %106
+
+106:                                              ; preds = %102
+  %107 = icmp sgt i32 %103, %105
+  br i1 %107, label %.backedge, label %117
+
+108:                                              ; preds = %102
+  %109 = load i32, ptr %16, align 4, !tbaa !76
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %111 = load i32, ptr %110, align 4, !tbaa !76
+  %.not47.i.i10 = icmp eq i32 %109, %111
+  br i1 %.not47.i.i10, label %114, label %112
+
+112:                                              ; preds = %108
+  %113 = icmp sgt i32 %109, %111
+  br i1 %113, label %.backedge, label %117
+
+114:                                              ; preds = %108
+  %115 = icmp slt i32 %7, %69
+  br i1 %115, label %.backedge, label %117
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11: ; preds = %76
+  %116 = fcmp olt float %77, %79
   br i1 %116, label %.backedge, label %117
 
-117:                                              ; preds = %114, %108, %102, %95, %88, %81, %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11
+117:                                              ; preds = %86, %93, %100, %106, %112, %114, %74, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit11
   %118 = icmp ult ptr %.sroa.016.1, %.sroa.013.1
   br i1 %118, label %120, label %119
 
@@ -3935,77 +3935,77 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %23 = load float, ptr %22, align 4, !tbaa !34
   %24 = fcmp une float %21, %23
-  br i1 %24, label %25, label %27
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %25
 
 25:                                               ; preds = %19
-  %26 = fcmp olt float %21, %23
-  br i1 %26, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
-
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %27 = load float, ptr %26, align 4, !tbaa !57
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = load float, ptr %28, align 4, !tbaa !57
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %31 = load float, ptr %30, align 4, !tbaa !57
-  %32 = fcmp une float %29, %31
-  br i1 %32, label %33, label %35
+  %30 = fcmp une float %27, %29
+  br i1 %30, label %31, label %33
 
-33:                                               ; preds = %27
-  %34 = fcmp ogt float %29, %31
-  br i1 %34, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
+31:                                               ; preds = %25
+  %32 = fcmp ogt float %27, %29
+  br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 12
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %35 = load float, ptr %34, align 4, !tbaa !58
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %37 = load float, ptr %36, align 4, !tbaa !58
-  %38 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %39 = load float, ptr %38, align 4, !tbaa !58
-  %40 = fcmp une float %37, %39
-  br i1 %40, label %41, label %43
+  %38 = fcmp une float %35, %37
+  br i1 %38, label %39, label %41
 
-41:                                               ; preds = %35
-  %42 = fcmp olt float %37, %39
-  br i1 %42, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
+39:                                               ; preds = %33
+  %40 = fcmp olt float %35, %37
+  br i1 %40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 16
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %43 = load float, ptr %42, align 4, !tbaa !11
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load float, ptr %44, align 4, !tbaa !11
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %47 = load float, ptr %46, align 4, !tbaa !11
-  %48 = fcmp une float %45, %47
-  br i1 %48, label %49, label %51
+  %46 = fcmp une float %43, %45
+  br i1 %46, label %47, label %49
 
-49:                                               ; preds = %43
-  %50 = fcmp ogt float %45, %47
-  br i1 %50, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
+47:                                               ; preds = %41
+  %48 = fcmp ogt float %43, %45
+  br i1 %48, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 20
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %51 = load i32, ptr %50, align 4, !tbaa !75
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %53 = load i32, ptr %52, align 4, !tbaa !75
-  %54 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %53, %55
-  br i1 %.not.i.i, label %58, label %56
+  %.not.i.i = icmp eq i32 %51, %53
+  br i1 %.not.i.i, label %56, label %54
 
-56:                                               ; preds = %51
-  %57 = icmp sgt i32 %53, %55
-  br i1 %57, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
+54:                                               ; preds = %49
+  %55 = icmp sgt i32 %51, %53
+  br i1 %55, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 24
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %58 = load i32, ptr %57, align 4, !tbaa !76
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %60 = load i32, ptr %59, align 4, !tbaa !76
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %62 = load i32, ptr %61, align 4, !tbaa !76
-  %.not47.i.i = icmp eq i32 %60, %62
-  br i1 %.not47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit, label %63
+  %.not47.i.i = icmp eq i32 %58, %60
+  br i1 %.not47.i.i, label %63, label %61
 
-63:                                               ; preds = %58
-  %64 = icmp sgt i32 %60, %62
+61:                                               ; preds = %56
+  %62 = icmp sgt i32 %58, %60
+  br i1 %62, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
+
+63:                                               ; preds = %56
+  %64 = icmp slt i32 %7, %8
   br i1 %64, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %58
-  %65 = icmp slt i32 %7, %8
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit: ; preds = %19
+  %65 = fcmp olt float %21, %23
   br i1 %65, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %72
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %63, %56, %49, %41, %33, %25, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %31, %39, %47, %54, %61, %63, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %66 = getelementptr inbounds nuw i8, ptr %.pn20, i64 8
   %67 = ptrtoint ptr %.sroa.0.021 to i64
   %68 = sub i64 %67, %5
@@ -4015,7 +4015,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %71, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %68, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-72:                                               ; preds = %63, %56, %49, %41, %33, %25, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
+72:                                               ; preds = %31, %39, %47, %54, %61, %63, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -4043,77 +4043,77 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %90 = load float, ptr %89, align 4, !tbaa !34
   %91 = fcmp une float %88, %90
-  br i1 %91, label %92, label %94
+  br i1 %91, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %92
 
 92:                                               ; preds = %87
-  %93 = fcmp olt float %88, %90
-  br i1 %93, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+  %93 = load float, ptr %74, align 4, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %95 = load float, ptr %94, align 4, !tbaa !57
+  %96 = fcmp une float %93, %95
+  br i1 %96, label %97, label %99
 
-94:                                               ; preds = %87
-  %95 = load float, ptr %74, align 4, !tbaa !57
-  %96 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %97 = load float, ptr %96, align 4, !tbaa !57
-  %98 = fcmp une float %95, %97
-  br i1 %98, label %99, label %101
+97:                                               ; preds = %92
+  %98 = fcmp ogt float %93, %95
+  br i1 %98, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-99:                                               ; preds = %94
-  %100 = fcmp ogt float %95, %97
-  br i1 %100, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+99:                                               ; preds = %92
+  %100 = load float, ptr %75, align 4, !tbaa !58
+  %101 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  %102 = load float, ptr %101, align 4, !tbaa !58
+  %103 = fcmp une float %100, %102
+  br i1 %103, label %104, label %106
 
-101:                                              ; preds = %94
-  %102 = load float, ptr %75, align 4, !tbaa !58
-  %103 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  %104 = load float, ptr %103, align 4, !tbaa !58
-  %105 = fcmp une float %102, %104
-  br i1 %105, label %106, label %108
+104:                                              ; preds = %99
+  %105 = fcmp olt float %100, %102
+  br i1 %105, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-106:                                              ; preds = %101
-  %107 = fcmp olt float %102, %104
-  br i1 %107, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+106:                                              ; preds = %99
+  %107 = load float, ptr %76, align 4, !tbaa !11
+  %108 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %109 = load float, ptr %108, align 4, !tbaa !11
+  %110 = fcmp une float %107, %109
+  br i1 %110, label %111, label %113
 
-108:                                              ; preds = %101
-  %109 = load float, ptr %76, align 4, !tbaa !11
-  %110 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %111 = load float, ptr %110, align 4, !tbaa !11
-  %112 = fcmp une float %109, %111
-  br i1 %112, label %113, label %115
+111:                                              ; preds = %106
+  %112 = fcmp ogt float %107, %109
+  br i1 %112, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-113:                                              ; preds = %108
-  %114 = fcmp ogt float %109, %111
-  br i1 %114, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+113:                                              ; preds = %106
+  %114 = load i32, ptr %77, align 4, !tbaa !75
+  %115 = getelementptr inbounds nuw i8, ptr %82, i64 20
+  %116 = load i32, ptr %115, align 4, !tbaa !75
+  %.not.i.i.i = icmp eq i32 %114, %116
+  br i1 %.not.i.i.i, label %119, label %117
 
-115:                                              ; preds = %108
-  %116 = load i32, ptr %77, align 4, !tbaa !75
-  %117 = getelementptr inbounds nuw i8, ptr %82, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !75
-  %.not.i.i.i = icmp eq i32 %116, %118
-  br i1 %.not.i.i.i, label %121, label %119
+117:                                              ; preds = %113
+  %118 = icmp sgt i32 %114, %116
+  br i1 %118, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-119:                                              ; preds = %115
-  %120 = icmp sgt i32 %116, %118
-  br i1 %120, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+119:                                              ; preds = %113
+  %120 = load i32, ptr %78, align 4, !tbaa !76
+  %121 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %122 = load i32, ptr %121, align 4, !tbaa !76
+  %.not47.i.i.i = icmp eq i32 %120, %122
+  br i1 %.not47.i.i.i, label %125, label %123
 
-121:                                              ; preds = %115
-  %122 = load i32, ptr %78, align 4, !tbaa !76
-  %123 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %124 = load i32, ptr %123, align 4, !tbaa !76
-  %.not47.i.i.i = icmp eq i32 %122, %124
-  br i1 %.not47.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %125
+123:                                              ; preds = %119
+  %124 = icmp sgt i32 %120, %122
+  br i1 %124, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-125:                                              ; preds = %121
-  %126 = icmp sgt i32 %122, %124
+125:                                              ; preds = %119
+  %126 = icmp slt i32 %7, %80
   br i1 %126, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %121
-  %127 = icmp slt i32 %7, %80
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %87
+  %127 = fcmp olt float %88, %90
   br i1 %127, label %128, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-128:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %125, %119, %113, %106, %99, %92, %85
+128:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %125, %123, %117, %111, %104, %97, %85
   store i32 %80, ptr %.sroa.05.0.i, align 4, !tbaa !21
   br label %79, !llvm.loop !99
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %125, %119, %113, %106, %99, %92, %85, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %85 ], [ %.sroa.05.0.i, %92 ], [ %.sroa.05.0.i, %99 ], [ %.sroa.05.0.i, %106 ], [ %.sroa.05.0.i, %113 ], [ %.sroa.05.0.i, %119 ], [ %.sroa.05.0.i, %125 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ]
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %125, %123, %117, %111, %104, %97, %85, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %85 ], [ %.sroa.05.0.i, %97 ], [ %.sroa.05.0.i, %104 ], [ %.sroa.05.0.i, %111 ], [ %.sroa.05.0.i, %117 ], [ %.sroa.05.0.i, %123 ], [ %.sroa.05.0.i, %125 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ]
   store i32 %7, ptr %.sink, align 4, !tbaa !21
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 4
   %.not = icmp eq ptr %.sroa.0.0, %1
@@ -4241,63 +4241,63 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %15 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -24
   %16 = load float, ptr %15, align 4, !tbaa !34
   %17 = fcmp une float %.sroa.5.0.copyload.i.i, %16
-  br i1 %17, label %18, label %20
+  br i1 %17, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, label %18
 
 18:                                               ; preds = %14
-  %19 = fcmp olt float %.sroa.5.0.copyload.i.i, %16
-  br i1 %19, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
+  %19 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -20
+  %20 = load float, ptr %19, align 4, !tbaa !57
+  %21 = fcmp une float %.sroa.6.0.copyload.i.i, %20
+  br i1 %21, label %22, label %24
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -20
-  %22 = load float, ptr %21, align 4, !tbaa !57
-  %23 = fcmp une float %.sroa.6.0.copyload.i.i, %22
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %18
+  %23 = fcmp ogt float %.sroa.6.0.copyload.i.i, %20
+  br i1 %23, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-24:                                               ; preds = %20
-  %25 = fcmp ogt float %.sroa.6.0.copyload.i.i, %22
-  br i1 %25, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -16
+  %26 = load float, ptr %25, align 4, !tbaa !58
+  %27 = fcmp une float %.sroa.7.0.copyload.i.i, %26
+  br i1 %27, label %28, label %30
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -16
-  %28 = load float, ptr %27, align 4, !tbaa !58
-  %29 = fcmp une float %.sroa.7.0.copyload.i.i, %28
-  br i1 %29, label %30, label %32
+28:                                               ; preds = %24
+  %29 = fcmp olt float %.sroa.7.0.copyload.i.i, %26
+  br i1 %29, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-30:                                               ; preds = %26
-  %31 = fcmp olt float %.sroa.7.0.copyload.i.i, %28
-  br i1 %31, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -12
+  %32 = load float, ptr %31, align 4, !tbaa !11
+  %33 = fcmp une float %.sroa.8.0.copyload.i.i, %32
+  br i1 %33, label %34, label %36
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -12
-  %34 = load float, ptr %33, align 4, !tbaa !11
-  %35 = fcmp une float %.sroa.8.0.copyload.i.i, %34
-  br i1 %35, label %36, label %38
+34:                                               ; preds = %30
+  %35 = fcmp ogt float %.sroa.8.0.copyload.i.i, %32
+  br i1 %35, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-36:                                               ; preds = %32
-  %37 = fcmp ogt float %.sroa.8.0.copyload.i.i, %34
-  br i1 %37, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -8
+  %38 = load i32, ptr %37, align 4, !tbaa !75
+  %.not.i.i.i.i = icmp eq i32 %.sroa.9.0.copyload.i.i, %38
+  br i1 %.not.i.i.i.i, label %41, label %39
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -8
-  %40 = load i32, ptr %39, align 4, !tbaa !75
-  %.not.i.i.i.i = icmp eq i32 %.sroa.9.0.copyload.i.i, %40
-  br i1 %.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, label %41
+39:                                               ; preds = %36
+  %40 = icmp sgt i32 %.sroa.9.0.copyload.i.i, %38
+  br i1 %40, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-41:                                               ; preds = %38
-  %42 = icmp sgt i32 %.sroa.9.0.copyload.i.i, %40
-  br i1 %42, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -4
+  %43 = load i32, ptr %42, align 4, !tbaa !76
+  %44 = icmp sgt i32 %.sroa.10.0.copyload.i.i, %43
+  br i1 %44, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i: ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 -4
-  %44 = load i32, ptr %43, align 4, !tbaa !76
-  %45 = icmp sgt i32 %.sroa.10.0.copyload.i.i, %44
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i: ; preds = %14
+  %45 = fcmp olt float %.sroa.5.0.copyload.i.i, %16
   br i1 %45, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i
 
-46:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, %41, %36, %30, %24, %18, %12
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, %41, %39, %34, %28, %22, %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.017.0.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.0.i.i, i64 28, i1 false), !tbaa.struct !19
   br label %9, !llvm.loop !110
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, %41, %36, %30, %24, %18, %12
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i, %41, %39, %34, %28, %22, %12
   store float %.sroa.03.0.copyload.i.i, ptr %.sroa.017.0.i.i, align 4, !tbaa !20
   %.sroa.5.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 4
   store float %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx5.i.i, align 4, !tbaa !20
@@ -4478,66 +4478,66 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %86 = load float, ptr %85, align 4, !tbaa !34
   %87 = fcmp une float %86, %.sroa.2.0.copyload
-  br i1 %87, label %88, label %90
+  br i1 %87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, label %88
 
 88:                                               ; preds = %84
-  %89 = fcmp olt float %86, %.sroa.2.0.copyload
-  br i1 %89, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
+  %89 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %90 = load float, ptr %89, align 4, !tbaa !57
+  %91 = fcmp une float %90, %.sroa.3.0.copyload
+  br i1 %91, label %92, label %94
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %92 = load float, ptr %91, align 4, !tbaa !57
-  %93 = fcmp une float %92, %.sroa.3.0.copyload
-  br i1 %93, label %94, label %96
+92:                                               ; preds = %88
+  %93 = fcmp ogt float %90, %.sroa.3.0.copyload
+  br i1 %93, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-94:                                               ; preds = %90
-  %95 = fcmp ogt float %92, %.sroa.3.0.copyload
-  br i1 %95, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  %96 = load float, ptr %95, align 4, !tbaa !58
+  %97 = fcmp une float %96, %.sroa.4.0.copyload
+  br i1 %97, label %98, label %100
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %98 = load float, ptr %97, align 4, !tbaa !58
-  %99 = fcmp une float %98, %.sroa.4.0.copyload
-  br i1 %99, label %100, label %102
+98:                                               ; preds = %94
+  %99 = fcmp olt float %96, %.sroa.4.0.copyload
+  br i1 %99, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-100:                                              ; preds = %96
-  %101 = fcmp olt float %98, %.sroa.4.0.copyload
-  br i1 %101, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %102 = load float, ptr %101, align 4, !tbaa !11
+  %103 = fcmp une float %102, %.sroa.549.0.copyload
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %104 = load float, ptr %103, align 4, !tbaa !11
-  %105 = fcmp une float %104, %.sroa.549.0.copyload
-  br i1 %105, label %106, label %108
+104:                                              ; preds = %100
+  %105 = fcmp ogt float %102, %.sroa.549.0.copyload
+  br i1 %105, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-106:                                              ; preds = %102
-  %107 = fcmp ogt float %104, %.sroa.549.0.copyload
-  br i1 %107, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
+106:                                              ; preds = %100
+  %107 = getelementptr inbounds nuw i8, ptr %79, i64 20
+  %108 = load i32, ptr %107, align 4, !tbaa !75
+  %.not.i.i.i = icmp eq i32 %108, %.sroa.650.0.copyload
+  br i1 %.not.i.i.i, label %111, label %109
 
-108:                                              ; preds = %102
-  %109 = getelementptr inbounds nuw i8, ptr %79, i64 20
-  %110 = load i32, ptr %109, align 4, !tbaa !75
-  %.not.i.i.i = icmp eq i32 %110, %.sroa.650.0.copyload
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, label %111
+109:                                              ; preds = %106
+  %110 = icmp sgt i32 %108, %.sroa.650.0.copyload
+  br i1 %110, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-111:                                              ; preds = %108
-  %112 = icmp sgt i32 %110, %.sroa.650.0.copyload
-  br i1 %112, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %113 = load i32, ptr %112, align 4, !tbaa !76
+  %114 = icmp sgt i32 %113, %.sroa.751.0.copyload
+  br i1 %114, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i: ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %114 = load i32, ptr %113, align 4, !tbaa !76
-  %115 = icmp sgt i32 %114, %.sroa.751.0.copyload
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i: ; preds = %84
+  %115 = fcmp olt float %86, %.sroa.2.0.copyload
   br i1 %115, label %116, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit
 
-116:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %111, %106, %100, %94, %88, %82
+116:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %111, %109, %104, %98, %92, %82
   %117 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %117, ptr noundef nonnull align 4 dereferenceable(28) %79, i64 28, i1 false), !tbaa.struct !19
   %118 = icmp sgt i64 %.0919.i, %1
   br i1 %118, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit, !llvm.loop !113
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit: ; preds = %82, %88, %94, %100, %106, %111, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %116, %77
-  %.0.lcssa.i = phi i64 [ %.1, %77 ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ], [ %.0919.i, %116 ], [ %.018.i, %82 ], [ %.018.i, %88 ], [ %.018.i, %94 ], [ %.018.i, %100 ], [ %.018.i, %106 ], [ %.018.i, %111 ]
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_19KeyPoint12_LessThanEEEEvT_T0_SE_T1_RT2_.exit: ; preds = %82, %92, %98, %104, %109, %111, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %116, %77
+  %.0.lcssa.i = phi i64 [ %.1, %77 ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ], [ %.0919.i, %116 ], [ %.018.i, %82 ], [ %.018.i, %111 ], [ %.018.i, %109 ], [ %.018.i, %104 ], [ %.018.i, %98 ], [ %.018.i, %92 ]
   %119 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i
   store float %.sroa.048.0.copyload, ptr %119, align 4, !tbaa !20
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 4
@@ -4578,69 +4578,69 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !34
   %21 = fcmp une float %18, %20
-  br i1 %21, label %22, label %24
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %22
 
 22:                                               ; preds = %16
-  %23 = fcmp olt float %18, %20
-  br i1 %23, label %60, label %160
-
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load float, ptr %23, align 4, !tbaa !57
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load float, ptr %25, align 4, !tbaa !57
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load float, ptr %27, align 4, !tbaa !57
-  %29 = fcmp une float %26, %28
-  br i1 %29, label %30, label %32
+  %27 = fcmp une float %24, %26
+  br i1 %27, label %28, label %30
 
-30:                                               ; preds = %24
-  %31 = fcmp ogt float %26, %28
-  br i1 %31, label %60, label %160
+28:                                               ; preds = %22
+  %29 = fcmp ogt float %24, %26
+  br i1 %29, label %60, label %160
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %32 = load float, ptr %31, align 4, !tbaa !58
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %34 = load float, ptr %33, align 4, !tbaa !58
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %36 = load float, ptr %35, align 4, !tbaa !58
-  %37 = fcmp une float %34, %36
-  br i1 %37, label %38, label %40
+  %35 = fcmp une float %32, %34
+  br i1 %35, label %36, label %38
 
-38:                                               ; preds = %32
-  %39 = fcmp olt float %34, %36
-  br i1 %39, label %60, label %160
+36:                                               ; preds = %30
+  %37 = fcmp olt float %32, %34
+  br i1 %37, label %60, label %160
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load float, ptr %39, align 4, !tbaa !11
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load float, ptr %41, align 4, !tbaa !11
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %44 = load float, ptr %43, align 4, !tbaa !11
-  %45 = fcmp une float %42, %44
-  br i1 %45, label %46, label %48
+  %43 = fcmp une float %40, %42
+  br i1 %43, label %44, label %46
 
-46:                                               ; preds = %40
-  %47 = fcmp ogt float %42, %44
-  br i1 %47, label %60, label %160
+44:                                               ; preds = %38
+  %45 = fcmp ogt float %40, %42
+  br i1 %45, label %60, label %160
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %48 = load i32, ptr %47, align 4, !tbaa !75
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !75
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %52 = load i32, ptr %51, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %50, %52
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %53
+  %.not.i.i = icmp eq i32 %48, %50
+  br i1 %.not.i.i, label %53, label %51
 
-53:                                               ; preds = %48
-  %54 = icmp sgt i32 %50, %52
-  br i1 %54, label %60, label %160
+51:                                               ; preds = %46
+  %52 = icmp sgt i32 %48, %50
+  br i1 %52, label %60, label %160
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %48
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load i32, ptr %55, align 4, !tbaa !76
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %58 = load i32, ptr %57, align 4, !tbaa !76
-  %59 = icmp sgt i32 %56, %58
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %55 = load i32, ptr %54, align 4, !tbaa !76
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %57 = load i32, ptr %56, align 4, !tbaa !76
+  %58 = icmp sgt i32 %55, %57
+  br i1 %58, label %60, label %160
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %16
+  %59 = fcmp olt float %18, %20
   br i1 %59, label %60, label %160
 
-60:                                               ; preds = %53, %46, %38, %30, %22, %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+60:                                               ; preds = %28, %36, %44, %51, %53, %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
   %61 = load float, ptr %3, align 4, !tbaa !35
   %62 = fcmp une float %12, %61
   br i1 %62, label %63, label %65
@@ -4655,69 +4655,69 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %69 = load float, ptr %68, align 4, !tbaa !34
   %70 = fcmp une float %67, %69
-  br i1 %70, label %71, label %73
+  br i1 %70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28, label %71
 
 71:                                               ; preds = %65
-  %72 = fcmp olt float %67, %69
-  br i1 %72, label %109, label %110
-
-73:                                               ; preds = %65
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %73 = load float, ptr %72, align 4, !tbaa !57
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %75 = load float, ptr %74, align 4, !tbaa !57
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %77 = load float, ptr %76, align 4, !tbaa !57
-  %78 = fcmp une float %75, %77
-  br i1 %78, label %79, label %81
+  %76 = fcmp une float %73, %75
+  br i1 %76, label %77, label %79
 
-79:                                               ; preds = %73
-  %80 = fcmp ogt float %75, %77
-  br i1 %80, label %109, label %110
+77:                                               ; preds = %71
+  %78 = fcmp ogt float %73, %75
+  br i1 %78, label %109, label %110
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 12
+79:                                               ; preds = %71
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %81 = load float, ptr %80, align 4, !tbaa !58
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %83 = load float, ptr %82, align 4, !tbaa !58
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %85 = load float, ptr %84, align 4, !tbaa !58
-  %86 = fcmp une float %83, %85
-  br i1 %86, label %87, label %89
+  %84 = fcmp une float %81, %83
+  br i1 %84, label %85, label %87
 
-87:                                               ; preds = %81
-  %88 = fcmp olt float %83, %85
-  br i1 %88, label %109, label %110
+85:                                               ; preds = %79
+  %86 = fcmp olt float %81, %83
+  br i1 %86, label %109, label %110
 
-89:                                               ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %89 = load float, ptr %88, align 4, !tbaa !11
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %91 = load float, ptr %90, align 4, !tbaa !11
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %93 = load float, ptr %92, align 4, !tbaa !11
-  %94 = fcmp une float %91, %93
-  br i1 %94, label %95, label %97
+  %92 = fcmp une float %89, %91
+  br i1 %92, label %93, label %95
 
-95:                                               ; preds = %89
-  %96 = fcmp ogt float %91, %93
-  br i1 %96, label %109, label %110
+93:                                               ; preds = %87
+  %94 = fcmp ogt float %89, %91
+  br i1 %94, label %109, label %110
 
-97:                                               ; preds = %89
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 20
+95:                                               ; preds = %87
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %97 = load i32, ptr %96, align 4, !tbaa !75
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %99 = load i32, ptr %98, align 4, !tbaa !75
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %101 = load i32, ptr %100, align 4, !tbaa !75
-  %.not.i.i26 = icmp eq i32 %99, %101
-  br i1 %.not.i.i26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28, label %102
+  %.not.i.i26 = icmp eq i32 %97, %99
+  br i1 %.not.i.i26, label %102, label %100
 
-102:                                              ; preds = %97
-  %103 = icmp sgt i32 %99, %101
-  br i1 %103, label %109, label %110
+100:                                              ; preds = %95
+  %101 = icmp sgt i32 %97, %99
+  br i1 %101, label %109, label %110
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28: ; preds = %97
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %105 = load i32, ptr %104, align 4, !tbaa !76
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %107 = load i32, ptr %106, align 4, !tbaa !76
-  %108 = icmp sgt i32 %105, %107
+102:                                              ; preds = %95
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %104 = load i32, ptr %103, align 4, !tbaa !76
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %106 = load i32, ptr %105, align 4, !tbaa !76
+  %107 = icmp sgt i32 %104, %106
+  br i1 %107, label %109, label %110
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28: ; preds = %65
+  %108 = fcmp olt float %67, %69
   br i1 %108, label %109, label %110
 
-109:                                              ; preds = %102, %95, %87, %79, %71, %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28
+109:                                              ; preds = %77, %85, %93, %100, %102, %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !19
@@ -4725,7 +4725,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %260
 
-110:                                              ; preds = %102, %95, %87, %79, %71, %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28
+110:                                              ; preds = %77, %85, %93, %100, %102, %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit28
   %111 = fcmp une float %11, %61
   br i1 %111, label %112, label %114
 
@@ -4739,69 +4739,69 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %118 = load float, ptr %117, align 4, !tbaa !34
   %119 = fcmp une float %116, %118
-  br i1 %119, label %120, label %122
+  br i1 %119, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31, label %120
 
 120:                                              ; preds = %114
-  %121 = fcmp olt float %116, %118
-  br i1 %121, label %158, label %159
-
-122:                                              ; preds = %114
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %122 = load float, ptr %121, align 4, !tbaa !57
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %124 = load float, ptr %123, align 4, !tbaa !57
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %126 = load float, ptr %125, align 4, !tbaa !57
-  %127 = fcmp une float %124, %126
-  br i1 %127, label %128, label %130
+  %125 = fcmp une float %122, %124
+  br i1 %125, label %126, label %128
 
-128:                                              ; preds = %122
-  %129 = fcmp ogt float %124, %126
-  br i1 %129, label %158, label %159
+126:                                              ; preds = %120
+  %127 = fcmp ogt float %122, %124
+  br i1 %127, label %158, label %159
 
-130:                                              ; preds = %122
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 12
+128:                                              ; preds = %120
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %130 = load float, ptr %129, align 4, !tbaa !58
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %132 = load float, ptr %131, align 4, !tbaa !58
-  %133 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %134 = load float, ptr %133, align 4, !tbaa !58
-  %135 = fcmp une float %132, %134
-  br i1 %135, label %136, label %138
+  %133 = fcmp une float %130, %132
+  br i1 %133, label %134, label %136
 
-136:                                              ; preds = %130
-  %137 = fcmp olt float %132, %134
-  br i1 %137, label %158, label %159
+134:                                              ; preds = %128
+  %135 = fcmp olt float %130, %132
+  br i1 %135, label %158, label %159
 
-138:                                              ; preds = %130
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
+136:                                              ; preds = %128
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %138 = load float, ptr %137, align 4, !tbaa !11
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %140 = load float, ptr %139, align 4, !tbaa !11
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %142 = load float, ptr %141, align 4, !tbaa !11
-  %143 = fcmp une float %140, %142
-  br i1 %143, label %144, label %146
+  %141 = fcmp une float %138, %140
+  br i1 %141, label %142, label %144
 
-144:                                              ; preds = %138
-  %145 = fcmp ogt float %140, %142
-  br i1 %145, label %158, label %159
+142:                                              ; preds = %136
+  %143 = fcmp ogt float %138, %140
+  br i1 %143, label %158, label %159
 
-146:                                              ; preds = %138
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 20
+144:                                              ; preds = %136
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %146 = load i32, ptr %145, align 4, !tbaa !75
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %148 = load i32, ptr %147, align 4, !tbaa !75
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %150 = load i32, ptr %149, align 4, !tbaa !75
-  %.not.i.i29 = icmp eq i32 %148, %150
-  br i1 %.not.i.i29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31, label %151
+  %.not.i.i29 = icmp eq i32 %146, %148
+  br i1 %.not.i.i29, label %151, label %149
 
-151:                                              ; preds = %146
-  %152 = icmp sgt i32 %148, %150
-  br i1 %152, label %158, label %159
+149:                                              ; preds = %144
+  %150 = icmp sgt i32 %146, %148
+  br i1 %150, label %158, label %159
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31: ; preds = %146
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %154 = load i32, ptr %153, align 4, !tbaa !76
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %156 = load i32, ptr %155, align 4, !tbaa !76
-  %157 = icmp sgt i32 %154, %156
+151:                                              ; preds = %144
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %153 = load i32, ptr %152, align 4, !tbaa !76
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %155 = load i32, ptr %154, align 4, !tbaa !76
+  %156 = icmp sgt i32 %153, %155
+  br i1 %156, label %158, label %159
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31: ; preds = %114
+  %157 = fcmp olt float %116, %118
   br i1 %157, label %158, label %159
 
-158:                                              ; preds = %151, %144, %136, %128, %120, %112, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31
+158:                                              ; preds = %126, %134, %142, %149, %151, %112, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !19
@@ -4809,7 +4809,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %260
 
-159:                                              ; preds = %151, %144, %136, %128, %120, %112, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31
+159:                                              ; preds = %126, %134, %142, %149, %151, %112, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit31
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !19
@@ -4817,7 +4817,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %260
 
-160:                                              ; preds = %53, %46, %38, %30, %22, %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+160:                                              ; preds = %28, %36, %44, %51, %53, %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
   %161 = load float, ptr %3, align 4, !tbaa !35
   %162 = fcmp une float %11, %161
   br i1 %162, label %163, label %165
@@ -4832,69 +4832,69 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %169 = load float, ptr %168, align 4, !tbaa !34
   %170 = fcmp une float %167, %169
-  br i1 %170, label %171, label %173
+  br i1 %170, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34, label %171
 
 171:                                              ; preds = %165
-  %172 = fcmp olt float %167, %169
-  br i1 %172, label %209, label %210
-
-173:                                              ; preds = %165
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %173 = load float, ptr %172, align 4, !tbaa !57
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %175 = load float, ptr %174, align 4, !tbaa !57
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %177 = load float, ptr %176, align 4, !tbaa !57
-  %178 = fcmp une float %175, %177
-  br i1 %178, label %179, label %181
+  %176 = fcmp une float %173, %175
+  br i1 %176, label %177, label %179
 
-179:                                              ; preds = %173
-  %180 = fcmp ogt float %175, %177
-  br i1 %180, label %209, label %210
+177:                                              ; preds = %171
+  %178 = fcmp ogt float %173, %175
+  br i1 %178, label %209, label %210
 
-181:                                              ; preds = %173
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 12
+179:                                              ; preds = %171
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %181 = load float, ptr %180, align 4, !tbaa !58
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %183 = load float, ptr %182, align 4, !tbaa !58
-  %184 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %185 = load float, ptr %184, align 4, !tbaa !58
-  %186 = fcmp une float %183, %185
-  br i1 %186, label %187, label %189
+  %184 = fcmp une float %181, %183
+  br i1 %184, label %185, label %187
 
-187:                                              ; preds = %181
-  %188 = fcmp olt float %183, %185
-  br i1 %188, label %209, label %210
+185:                                              ; preds = %179
+  %186 = fcmp olt float %181, %183
+  br i1 %186, label %209, label %210
 
-189:                                              ; preds = %181
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
+187:                                              ; preds = %179
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %189 = load float, ptr %188, align 4, !tbaa !11
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %191 = load float, ptr %190, align 4, !tbaa !11
-  %192 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %193 = load float, ptr %192, align 4, !tbaa !11
-  %194 = fcmp une float %191, %193
-  br i1 %194, label %195, label %197
+  %192 = fcmp une float %189, %191
+  br i1 %192, label %193, label %195
 
-195:                                              ; preds = %189
-  %196 = fcmp ogt float %191, %193
-  br i1 %196, label %209, label %210
+193:                                              ; preds = %187
+  %194 = fcmp ogt float %189, %191
+  br i1 %194, label %209, label %210
 
-197:                                              ; preds = %189
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 20
+195:                                              ; preds = %187
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %197 = load i32, ptr %196, align 4, !tbaa !75
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %199 = load i32, ptr %198, align 4, !tbaa !75
-  %200 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %201 = load i32, ptr %200, align 4, !tbaa !75
-  %.not.i.i32 = icmp eq i32 %199, %201
-  br i1 %.not.i.i32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34, label %202
+  %.not.i.i32 = icmp eq i32 %197, %199
+  br i1 %.not.i.i32, label %202, label %200
 
-202:                                              ; preds = %197
-  %203 = icmp sgt i32 %199, %201
-  br i1 %203, label %209, label %210
+200:                                              ; preds = %195
+  %201 = icmp sgt i32 %197, %199
+  br i1 %201, label %209, label %210
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34: ; preds = %197
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %205 = load i32, ptr %204, align 4, !tbaa !76
-  %206 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %207 = load i32, ptr %206, align 4, !tbaa !76
-  %208 = icmp sgt i32 %205, %207
+202:                                              ; preds = %195
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %204 = load i32, ptr %203, align 4, !tbaa !76
+  %205 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %206 = load i32, ptr %205, align 4, !tbaa !76
+  %207 = icmp sgt i32 %204, %206
+  br i1 %207, label %209, label %210
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34: ; preds = %165
+  %208 = fcmp olt float %167, %169
   br i1 %208, label %209, label %210
 
-209:                                              ; preds = %202, %195, %187, %179, %171, %163, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34
+209:                                              ; preds = %177, %185, %193, %200, %202, %163, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !19
@@ -4902,7 +4902,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %260
 
-210:                                              ; preds = %202, %195, %187, %179, %171, %163, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34
+210:                                              ; preds = %177, %185, %193, %200, %202, %163, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit34
   %211 = fcmp une float %12, %161
   br i1 %211, label %212, label %214
 
@@ -4916,69 +4916,69 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %218 = load float, ptr %217, align 4, !tbaa !34
   %219 = fcmp une float %216, %218
-  br i1 %219, label %220, label %222
+  br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37, label %220
 
 220:                                              ; preds = %214
-  %221 = fcmp olt float %216, %218
-  br i1 %221, label %258, label %259
-
-222:                                              ; preds = %214
-  %223 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %222 = load float, ptr %221, align 4, !tbaa !57
+  %223 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %224 = load float, ptr %223, align 4, !tbaa !57
-  %225 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %226 = load float, ptr %225, align 4, !tbaa !57
-  %227 = fcmp une float %224, %226
-  br i1 %227, label %228, label %230
+  %225 = fcmp une float %222, %224
+  br i1 %225, label %226, label %228
 
-228:                                              ; preds = %222
-  %229 = fcmp ogt float %224, %226
-  br i1 %229, label %258, label %259
+226:                                              ; preds = %220
+  %227 = fcmp ogt float %222, %224
+  br i1 %227, label %258, label %259
 
-230:                                              ; preds = %222
-  %231 = getelementptr inbounds nuw i8, ptr %2, i64 12
+228:                                              ; preds = %220
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %230 = load float, ptr %229, align 4, !tbaa !58
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %232 = load float, ptr %231, align 4, !tbaa !58
-  %233 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %234 = load float, ptr %233, align 4, !tbaa !58
-  %235 = fcmp une float %232, %234
-  br i1 %235, label %236, label %238
+  %233 = fcmp une float %230, %232
+  br i1 %233, label %234, label %236
 
-236:                                              ; preds = %230
-  %237 = fcmp olt float %232, %234
-  br i1 %237, label %258, label %259
+234:                                              ; preds = %228
+  %235 = fcmp olt float %230, %232
+  br i1 %235, label %258, label %259
 
-238:                                              ; preds = %230
-  %239 = getelementptr inbounds nuw i8, ptr %2, i64 16
+236:                                              ; preds = %228
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %238 = load float, ptr %237, align 4, !tbaa !11
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %240 = load float, ptr %239, align 4, !tbaa !11
-  %241 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %242 = load float, ptr %241, align 4, !tbaa !11
-  %243 = fcmp une float %240, %242
-  br i1 %243, label %244, label %246
+  %241 = fcmp une float %238, %240
+  br i1 %241, label %242, label %244
 
-244:                                              ; preds = %238
-  %245 = fcmp ogt float %240, %242
-  br i1 %245, label %258, label %259
+242:                                              ; preds = %236
+  %243 = fcmp ogt float %238, %240
+  br i1 %243, label %258, label %259
 
-246:                                              ; preds = %238
-  %247 = getelementptr inbounds nuw i8, ptr %2, i64 20
+244:                                              ; preds = %236
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %246 = load i32, ptr %245, align 4, !tbaa !75
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %248 = load i32, ptr %247, align 4, !tbaa !75
-  %249 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %250 = load i32, ptr %249, align 4, !tbaa !75
-  %.not.i.i35 = icmp eq i32 %248, %250
-  br i1 %.not.i.i35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37, label %251
+  %.not.i.i35 = icmp eq i32 %246, %248
+  br i1 %.not.i.i35, label %251, label %249
 
-251:                                              ; preds = %246
-  %252 = icmp sgt i32 %248, %250
-  br i1 %252, label %258, label %259
+249:                                              ; preds = %244
+  %250 = icmp sgt i32 %246, %248
+  br i1 %250, label %258, label %259
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37: ; preds = %246
-  %253 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %254 = load i32, ptr %253, align 4, !tbaa !76
-  %255 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %256 = load i32, ptr %255, align 4, !tbaa !76
-  %257 = icmp sgt i32 %254, %256
+251:                                              ; preds = %244
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %253 = load i32, ptr %252, align 4, !tbaa !76
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %255 = load i32, ptr %254, align 4, !tbaa !76
+  %256 = icmp sgt i32 %253, %255
+  br i1 %256, label %258, label %259
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37: ; preds = %214
+  %257 = fcmp olt float %216, %218
   br i1 %257, label %258, label %259
 
-258:                                              ; preds = %251, %244, %236, %228, %220, %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37
+258:                                              ; preds = %226, %234, %242, %249, %251, %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !19
@@ -4986,7 +4986,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %260
 
-259:                                              ; preds = %251, %244, %236, %228, %220, %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37
+259:                                              ; preds = %226, %234, %242, %249, %251, %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %0, i64 28, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !19
@@ -5030,67 +5030,67 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %20 = load float, ptr %19, align 4, !tbaa !34
   %21 = load float, ptr %5, align 4, !tbaa !34
   %22 = fcmp une float %20, %21
-  br i1 %22, label %23, label %25
+  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = fcmp olt float %20, %21
-  br i1 %24, label %56, label %.preheader
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 8
+  %25 = load float, ptr %24, align 4, !tbaa !57
+  %26 = load float, ptr %6, align 4, !tbaa !57
+  %27 = fcmp une float %25, %26
+  br i1 %27, label %28, label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 8
-  %27 = load float, ptr %26, align 4, !tbaa !57
-  %28 = load float, ptr %6, align 4, !tbaa !57
-  %29 = fcmp une float %27, %28
-  br i1 %29, label %30, label %32
+28:                                               ; preds = %23
+  %29 = fcmp ogt float %25, %26
+  br i1 %29, label %56, label %.preheader
 
-30:                                               ; preds = %25
-  %31 = fcmp ogt float %27, %28
-  br i1 %31, label %56, label %.preheader
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 12
+  %32 = load float, ptr %31, align 4, !tbaa !58
+  %33 = load float, ptr %7, align 4, !tbaa !58
+  %34 = fcmp une float %32, %33
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 12
-  %34 = load float, ptr %33, align 4, !tbaa !58
-  %35 = load float, ptr %7, align 4, !tbaa !58
-  %36 = fcmp une float %34, %35
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30
+  %36 = fcmp olt float %32, %33
+  br i1 %36, label %56, label %.preheader
 
-37:                                               ; preds = %32
-  %38 = fcmp olt float %34, %35
-  br i1 %38, label %56, label %.preheader
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 16
+  %39 = load float, ptr %38, align 4, !tbaa !11
+  %40 = load float, ptr %8, align 4, !tbaa !11
+  %41 = fcmp une float %39, %40
+  br i1 %41, label %42, label %44
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 16
-  %41 = load float, ptr %40, align 4, !tbaa !11
-  %42 = load float, ptr %8, align 4, !tbaa !11
-  %43 = fcmp une float %41, %42
-  br i1 %43, label %44, label %46
+42:                                               ; preds = %37
+  %43 = fcmp ogt float %39, %40
+  br i1 %43, label %56, label %.preheader
 
-44:                                               ; preds = %39
-  %45 = fcmp ogt float %41, %42
-  br i1 %45, label %56, label %.preheader
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 20
+  %46 = load i32, ptr %45, align 4, !tbaa !75
+  %47 = load i32, ptr %9, align 4, !tbaa !75
+  %.not.i.i = icmp eq i32 %46, %47
+  br i1 %.not.i.i, label %50, label %48
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 20
-  %48 = load i32, ptr %47, align 4, !tbaa !75
-  %49 = load i32, ptr %9, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %48, %49
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %50
+48:                                               ; preds = %44
+  %49 = icmp sgt i32 %46, %47
+  br i1 %49, label %56, label %.preheader
 
-50:                                               ; preds = %46
-  %51 = icmp sgt i32 %48, %49
-  br i1 %51, label %56, label %.preheader
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 24
+  %52 = load i32, ptr %51, align 4, !tbaa !76
+  %53 = load i32, ptr %10, align 4, !tbaa !76
+  %54 = icmp sgt i32 %52, %53
+  br i1 %54, label %56, label %.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 24
-  %53 = load i32, ptr %52, align 4, !tbaa !76
-  %54 = load i32, ptr %10, align 4, !tbaa !76
-  %55 = icmp sgt i32 %53, %54
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %18
+  %55 = fcmp olt float %20, %21
   br i1 %55, label %56, label %.preheader
 
-.preheader:                                       ; preds = %50, %44, %37, %30, %23, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+.preheader:                                       ; preds = %28, %35, %42, %48, %50, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
   br label %58
 
-56:                                               ; preds = %50, %44, %37, %30, %23, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+56:                                               ; preds = %28, %35, %42, %48, %50, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 28
   br label %13, !llvm.loop !114
 
@@ -5110,67 +5110,67 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal
   %65 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -24
   %66 = load float, ptr %65, align 4, !tbaa !34
   %67 = fcmp une float %64, %66
-  br i1 %67, label %68, label %70
+  br i1 %67, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10, label %68
 
 68:                                               ; preds = %63
-  %69 = fcmp olt float %64, %66
-  br i1 %69, label %.backedge, label %101
+  %69 = load float, ptr %6, align 4, !tbaa !57
+  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -20
+  %71 = load float, ptr %70, align 4, !tbaa !57
+  %72 = fcmp une float %69, %71
+  br i1 %72, label %73, label %75
 
-70:                                               ; preds = %63
-  %71 = load float, ptr %6, align 4, !tbaa !57
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -20
-  %73 = load float, ptr %72, align 4, !tbaa !57
-  %74 = fcmp une float %71, %73
-  br i1 %74, label %75, label %77
+73:                                               ; preds = %68
+  %74 = fcmp ogt float %69, %71
+  br i1 %74, label %.backedge, label %101
 
-75:                                               ; preds = %70
-  %76 = fcmp ogt float %71, %73
-  br i1 %76, label %.backedge, label %101
-
-77:                                               ; preds = %70
-  %78 = load float, ptr %7, align 4, !tbaa !58
-  %79 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -16
-  %80 = load float, ptr %79, align 4, !tbaa !58
-  %81 = fcmp une float %78, %80
-  br i1 %81, label %82, label %84
-
-82:                                               ; preds = %77
-  %83 = fcmp olt float %78, %80
-  br i1 %83, label %.backedge, label %101
-
-84:                                               ; preds = %77
-  %85 = load float, ptr %8, align 4, !tbaa !11
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -12
-  %87 = load float, ptr %86, align 4, !tbaa !11
-  %88 = fcmp une float %85, %87
-  br i1 %88, label %89, label %91
-
-89:                                               ; preds = %84
-  %90 = fcmp ogt float %85, %87
-  br i1 %90, label %.backedge, label %101
-
-91:                                               ; preds = %84
-  %92 = load i32, ptr %9, align 4, !tbaa !75
-  %93 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
-  %94 = load i32, ptr %93, align 4, !tbaa !75
-  %.not.i.i8 = icmp eq i32 %92, %94
-  br i1 %.not.i.i8, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10, label %95
-
-95:                                               ; preds = %91
-  %96 = icmp sgt i32 %92, %94
-  br i1 %96, label %.backedge, label %101
-
-.backedge:                                        ; preds = %95, %89, %82, %75, %68, %61, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10
+.backedge:                                        ; preds = %73, %80, %87, %93, %95, %61, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10
   br label %58, !llvm.loop !115
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10: ; preds = %91
-  %97 = load i32, ptr %10, align 4, !tbaa !76
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -4
-  %99 = load i32, ptr %98, align 4, !tbaa !76
-  %100 = icmp sgt i32 %97, %99
+75:                                               ; preds = %68
+  %76 = load float, ptr %7, align 4, !tbaa !58
+  %77 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -16
+  %78 = load float, ptr %77, align 4, !tbaa !58
+  %79 = fcmp une float %76, %78
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %75
+  %81 = fcmp olt float %76, %78
+  br i1 %81, label %.backedge, label %101
+
+82:                                               ; preds = %75
+  %83 = load float, ptr %8, align 4, !tbaa !11
+  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -12
+  %85 = load float, ptr %84, align 4, !tbaa !11
+  %86 = fcmp une float %83, %85
+  br i1 %86, label %87, label %89
+
+87:                                               ; preds = %82
+  %88 = fcmp ogt float %83, %85
+  br i1 %88, label %.backedge, label %101
+
+89:                                               ; preds = %82
+  %90 = load i32, ptr %9, align 4, !tbaa !75
+  %91 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
+  %92 = load i32, ptr %91, align 4, !tbaa !75
+  %.not.i.i8 = icmp eq i32 %90, %92
+  br i1 %.not.i.i8, label %95, label %93
+
+93:                                               ; preds = %89
+  %94 = icmp sgt i32 %90, %92
+  br i1 %94, label %.backedge, label %101
+
+95:                                               ; preds = %89
+  %96 = load i32, ptr %10, align 4, !tbaa !76
+  %97 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -4
+  %98 = load i32, ptr %97, align 4, !tbaa !76
+  %99 = icmp sgt i32 %96, %98
+  br i1 %99, label %.backedge, label %101
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10: ; preds = %63
+  %100 = fcmp olt float %64, %66
   br i1 %100, label %.backedge, label %101
 
-101:                                              ; preds = %95, %89, %82, %75, %68, %61, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10
+101:                                              ; preds = %73, %80, %87, %93, %95, %61, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit10
   %102 = icmp ult ptr %.sroa.013.1, %.sroa.0.1
   br i1 %102, label %104, label %103
 
@@ -5230,64 +5230,64 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %20 = load float, ptr %19, align 4, !tbaa !34
   %21 = load float, ptr %5, align 4, !tbaa !34
   %22 = fcmp une float %20, %21
-  br i1 %22, label %23, label %25
+  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = fcmp olt float %20, %21
-  br i1 %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
+  %24 = getelementptr inbounds nuw i8, ptr %.pn18, i64 36
+  %25 = load float, ptr %24, align 4, !tbaa !57
+  %26 = load float, ptr %6, align 4, !tbaa !57
+  %27 = fcmp une float %25, %26
+  br i1 %27, label %28, label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %.pn18, i64 36
-  %27 = load float, ptr %26, align 4, !tbaa !57
-  %28 = load float, ptr %6, align 4, !tbaa !57
-  %29 = fcmp une float %27, %28
-  br i1 %29, label %30, label %32
+28:                                               ; preds = %23
+  %29 = fcmp ogt float %25, %26
+  br i1 %29, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-30:                                               ; preds = %25
-  %31 = fcmp ogt float %27, %28
-  br i1 %31, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %.pn18, i64 40
+  %32 = load float, ptr %31, align 4, !tbaa !58
+  %33 = load float, ptr %7, align 4, !tbaa !58
+  %34 = fcmp une float %32, %33
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %.pn18, i64 40
-  %34 = load float, ptr %33, align 4, !tbaa !58
-  %35 = load float, ptr %7, align 4, !tbaa !58
-  %36 = fcmp une float %34, %35
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %30
+  %36 = fcmp olt float %32, %33
+  br i1 %36, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-37:                                               ; preds = %32
-  %38 = fcmp olt float %34, %35
-  br i1 %38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %.pn18, i64 44
+  %39 = load float, ptr %38, align 4, !tbaa !11
+  %40 = load float, ptr %8, align 4, !tbaa !11
+  %41 = fcmp une float %39, %40
+  br i1 %41, label %42, label %44
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %.pn18, i64 44
-  %41 = load float, ptr %40, align 4, !tbaa !11
-  %42 = load float, ptr %8, align 4, !tbaa !11
-  %43 = fcmp une float %41, %42
-  br i1 %43, label %44, label %46
+42:                                               ; preds = %37
+  %43 = fcmp ogt float %39, %40
+  br i1 %43, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-44:                                               ; preds = %39
-  %45 = fcmp ogt float %41, %42
-  br i1 %45, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %.pn18, i64 48
+  %46 = load i32, ptr %45, align 4, !tbaa !75
+  %47 = load i32, ptr %9, align 4, !tbaa !75
+  %.not.i.i = icmp eq i32 %46, %47
+  br i1 %.not.i.i, label %50, label %48
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %.pn18, i64 48
-  %48 = load i32, ptr %47, align 4, !tbaa !75
-  %49 = load i32, ptr %9, align 4, !tbaa !75
-  %.not.i.i = icmp eq i32 %48, %49
-  br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %50
+48:                                               ; preds = %44
+  %49 = icmp sgt i32 %46, %47
+  br i1 %49, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-50:                                               ; preds = %46
-  %51 = icmp sgt i32 %48, %49
-  br i1 %51, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds nuw i8, ptr %.pn18, i64 52
+  %52 = load i32, ptr %51, align 4, !tbaa !76
+  %53 = load i32, ptr %10, align 4, !tbaa !76
+  %54 = icmp sgt i32 %52, %53
+  br i1 %54, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %.pn18, i64 52
-  %53 = load i32, ptr %52, align 4, !tbaa !76
-  %54 = load i32, ptr %10, align 4, !tbaa !76
-  %55 = icmp sgt i32 %53, %54
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %18
+  %55 = fcmp olt float %20, %21
   br i1 %55, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %60
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %50, %44, %37, %30, %23, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %28, %35, %42, %48, %50, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.019, i64 28, i1 false), !tbaa.struct !19
   %56 = getelementptr inbounds nuw i8, ptr %.pn18, i64 56
@@ -5300,8 +5300,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
-60:                                               ; preds = %._crit_edge, %50, %44, %37, %30, %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
-  %.sroa.5.0.copyload.i = phi float [ %.sroa.5.0.copyload.i.pre, %._crit_edge ], [ %20, %50 ], [ %20, %44 ], [ %20, %37 ], [ %20, %30 ], [ %20, %23 ], [ %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit ]
+60:                                               ; preds = %._crit_edge, %28, %35, %42, %48, %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+  %.sroa.5.0.copyload.i = phi float [ %.sroa.5.0.copyload.i.pre, %._crit_edge ], [ %20, %28 ], [ %20, %35 ], [ %20, %42 ], [ %20, %48 ], [ %20, %50 ], [ %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv19KeyPoint12_LessThanEEclINS_17__normal_iteratorIPNS2_8KeyPointESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit ]
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pn18, i64 36
   %.sroa.6.0.copyload.i = load float, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !20
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pn18, i64 40
@@ -5329,63 +5329,63 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
   %67 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -24
   %68 = load float, ptr %67, align 4, !tbaa !34
   %69 = fcmp une float %.sroa.5.0.copyload.i, %68
-  br i1 %69, label %70, label %72
+  br i1 %69, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, label %70
 
 70:                                               ; preds = %66
-  %71 = fcmp olt float %.sroa.5.0.copyload.i, %68
-  br i1 %71, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
+  %71 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -20
+  %72 = load float, ptr %71, align 4, !tbaa !57
+  %73 = fcmp une float %.sroa.6.0.copyload.i, %72
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -20
-  %74 = load float, ptr %73, align 4, !tbaa !57
-  %75 = fcmp une float %.sroa.6.0.copyload.i, %74
-  br i1 %75, label %76, label %78
+74:                                               ; preds = %70
+  %75 = fcmp ogt float %.sroa.6.0.copyload.i, %72
+  br i1 %75, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-76:                                               ; preds = %72
-  %77 = fcmp ogt float %.sroa.6.0.copyload.i, %74
-  br i1 %77, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -16
+  %78 = load float, ptr %77, align 4, !tbaa !58
+  %79 = fcmp une float %.sroa.7.0.copyload.i, %78
+  br i1 %79, label %80, label %82
 
-78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -16
-  %80 = load float, ptr %79, align 4, !tbaa !58
-  %81 = fcmp une float %.sroa.7.0.copyload.i, %80
-  br i1 %81, label %82, label %84
+80:                                               ; preds = %76
+  %81 = fcmp olt float %.sroa.7.0.copyload.i, %78
+  br i1 %81, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-82:                                               ; preds = %78
-  %83 = fcmp olt float %.sroa.7.0.copyload.i, %80
-  br i1 %83, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -12
+  %84 = load float, ptr %83, align 4, !tbaa !11
+  %85 = fcmp une float %.sroa.8.0.copyload.i, %84
+  br i1 %85, label %86, label %88
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -12
-  %86 = load float, ptr %85, align 4, !tbaa !11
-  %87 = fcmp une float %.sroa.8.0.copyload.i, %86
-  br i1 %87, label %88, label %90
+86:                                               ; preds = %82
+  %87 = fcmp ogt float %.sroa.8.0.copyload.i, %84
+  br i1 %87, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-88:                                               ; preds = %84
-  %89 = fcmp ogt float %.sroa.8.0.copyload.i, %86
-  br i1 %89, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -8
+  %90 = load i32, ptr %89, align 4, !tbaa !75
+  %.not.i.i.i = icmp eq i32 %.sroa.9.0.copyload.i, %90
+  br i1 %.not.i.i.i, label %93, label %91
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -8
-  %92 = load i32, ptr %91, align 4, !tbaa !75
-  %.not.i.i.i = icmp eq i32 %.sroa.9.0.copyload.i, %92
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, label %93
+91:                                               ; preds = %88
+  %92 = icmp sgt i32 %.sroa.9.0.copyload.i, %90
+  br i1 %92, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-93:                                               ; preds = %90
-  %94 = icmp sgt i32 %.sroa.9.0.copyload.i, %92
-  br i1 %94, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -4
+  %95 = load i32, ptr %94, align 4, !tbaa !76
+  %96 = icmp sgt i32 %.sroa.10.0.copyload.i, %95
+  br i1 %96, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %.sroa.017.0.i, i64 -4
-  %96 = load i32, ptr %95, align 4, !tbaa !76
-  %97 = icmp sgt i32 %.sroa.10.0.copyload.i, %96
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %66
+  %97 = fcmp olt float %.sroa.5.0.copyload.i, %68
   br i1 %97, label %98, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit
 
-98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %93, %88, %82, %76, %70, %64
+98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %93, %91, %86, %80, %74, %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.017.0.i, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.0.0.i, i64 28, i1 false), !tbaa.struct !19
   br label %61, !llvm.loop !110
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit: ; preds = %64, %70, %76, %82, %88, %93, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS2_19KeyPoint12_LessThanEEEEvT_T0_.exit: ; preds = %64, %74, %80, %86, %91, %93, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv19KeyPoint12_LessThanEEclINS2_8KeyPointENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
   store float %13, ptr %.sroa.017.0.i, align 4, !tbaa !20
   %.sroa.5.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i, i64 4
   store float %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx5.i, align 4, !tbaa !20

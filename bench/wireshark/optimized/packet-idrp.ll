@@ -850,7 +850,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   br label %.loopexit276.i
 
 .loopexit276.i:                                   ; preds = %.lr.ph285.i, %.lr.ph290.i, %.loopexit275.i, %.loopexit.i, %283, %279, %266, %262, %258, %239, %235, %231, %227, %223, %209, %195, %157, %136, %129, %.preheader.i, %.lr.ph310.i
-  %.2273.i = phi i32 [ %125, %.lr.ph310.i ], [ %135, %129 ], [ %125, %136 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %238, %235 ], [ %257, %239 ], [ %261, %258 ], [ %265, %262 ], [ %278, %266 ], [ %282, %279 ], [ %286, %283 ], [ %125, %.preheader.i ], [ %160, %157 ], [ %199, %195 ], [ %213, %209 ], [ %.4.lcssa.i, %.loopexit.i ], [ %.6.lcssa.i, %.loopexit275.i ], [ %206, %.lr.ph290.i ], [ %220, %.lr.ph285.i ]
+  %.2273.i = phi i32 [ %125, %.lr.ph310.i ], [ %135, %129 ], [ %125, %136 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %238, %235 ], [ %257, %239 ], [ %261, %258 ], [ %265, %262 ], [ %278, %266 ], [ %282, %279 ], [ %286, %283 ], [ %125, %.preheader.i ], [ %160, %157 ], [ %199, %195 ], [ %213, %209 ], [ %206, %.lr.ph290.i ], [ %.4.lcssa.i, %.loopexit.i ], [ %.6.lcssa.i, %.loopexit275.i ], [ %220, %.lr.ph285.i ]
   %287 = icmp slt i32 %.2273.i, %113
   br i1 %287, label %.lr.ph310.i, label %._crit_edge311.i, !llvm.loop !17
 
@@ -1011,7 +1011,7 @@ dissect_BISPDU_RIB_REFRESH.exit:                  ; preds = %._crit_edge.i68, %.
   br label %dissect_BISPDU_UPDATE.exit
 
 dissect_BISPDU_UPDATE.exit:                       ; preds = %.lr.ph315.i, %325, %322, %._crit_edge311.i, %7, %dissect_BISPDU_RIB_REFRESH.exit, %329, %dissect_BISPDU_OPEN.exit
-  %.0 = phi i32 [ 30, %7 ], [ %99, %dissect_BISPDU_OPEN.exit ], [ 60, %329 ], [ %.072.lcssa.i, %dissect_BISPDU_RIB_REFRESH.exit ], [ %300, %._crit_edge311.i ], [ %328, %325 ], [ 32, %322 ], [ %312, %.lr.ph315.i ]
+  %.0 = phi i32 [ 30, %7 ], [ %99, %dissect_BISPDU_OPEN.exit ], [ %.072.lcssa.i, %dissect_BISPDU_RIB_REFRESH.exit ], [ 60, %329 ], [ %300, %._crit_edge311.i ], [ %328, %325 ], [ 32, %322 ], [ %312, %.lr.ph315.i ]
   %372 = load ptr, ptr %8, align 8
   %373 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @idrp_pdu_types, ptr noundef nonnull @.str.255)
   call void @col_append_str(ptr noundef %372, i32 noundef 25, ptr noundef %373)

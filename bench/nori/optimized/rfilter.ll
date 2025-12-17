@@ -339,8 +339,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; 
   br label %.body
 
 .body:                                            ; preds = %27, %16, %25, %23, %10, %21
-  %.sink = phi ptr [ %4, %21 ], [ %4, %10 ], [ %4, %23 ], [ %7, %25 ], [ %7, %16 ], [ %7, %27 ]
-  %.pn8.pn = phi { ptr, i32 } [ %22, %21 ], [ %11, %10 ], [ %24, %23 ], [ %26, %25 ], [ %17, %16 ], [ %28, %27 ]
+  %.sink = phi ptr [ %4, %23 ], [ %4, %21 ], [ %4, %10 ], [ %7, %25 ], [ %7, %16 ], [ %7, %27 ]
+  %.pn8.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ], [ %11, %10 ], [ %26, %25 ], [ %17, %16 ], [ %28, %27 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #16
   resume { ptr, i32 } %.pn8.pn
 }
@@ -586,8 +586,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25: ; 
   br label %.body
 
 .body:                                            ; preds = %40, %25, %38, %36, %19, %34, %32, %13, %30
-  %.sink = phi ptr [ %4, %30 ], [ %4, %13 ], [ %4, %32 ], [ %7, %34 ], [ %7, %19 ], [ %7, %36 ], [ %10, %38 ], [ %10, %25 ], [ %10, %40 ]
-  %.pn12.pn = phi { ptr, i32 } [ %31, %30 ], [ %14, %13 ], [ %33, %32 ], [ %35, %34 ], [ %20, %19 ], [ %37, %36 ], [ %39, %38 ], [ %26, %25 ], [ %41, %40 ]
+  %.sink = phi ptr [ %7, %36 ], [ %4, %32 ], [ %4, %30 ], [ %4, %13 ], [ %7, %34 ], [ %7, %19 ], [ %10, %38 ], [ %10, %25 ], [ %10, %40 ]
+  %.pn12.pn = phi { ptr, i32 } [ %37, %36 ], [ %33, %32 ], [ %31, %30 ], [ %14, %13 ], [ %35, %34 ], [ %20, %19 ], [ %39, %38 ], [ %26, %25 ], [ %41, %40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #16
   resume { ptr, i32 } %.pn12.pn
 }
@@ -1802,7 +1802,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit85: ; preds = %.lr.ph.i89, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %193, %190, %190, %.loopexit222, %.loopexit197
-  %.sink193 = phi i32 [ 2, %.loopexit197 ], [ 64, %.loopexit222 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
+  %.sink193 = phi i32 [ 64, %.loopexit222 ], [ 2, %.loopexit197 ], [ 8, %190 ], [ 8, %190 ], [ 8, %193 ]
   %280 = load ptr, ptr %0, align 8
   %281 = getelementptr i8, ptr %280, i64 -24
   %282 = load i64, ptr %281, align 8
@@ -1846,7 +1846,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit85: ; preds = %.lr.ph.i89, %
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %190, %7, %.thread104
-  %.069 = phi ptr [ %310, %.thread104 ], [ %3, %7 ], [ %.4, %190 ]
+  %.069 = phi ptr [ %3, %7 ], [ %310, %.thread104 ], [ %.4, %190 ]
   ret ptr %.069
 }
 

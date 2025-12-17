@@ -1293,7 +1293,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef %1, ptr noundef %.0155185)
   br label %.thread190
 
-.thread190:                                       ; preds = %169, %152, %140, %86, %177, %209, %210, %._crit_edge
+.thread190:                                       ; preds = %140, %169, %152, %86, %177, %209, %210, %._crit_edge
   %211 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %211
 }
@@ -1516,7 +1516,7 @@ define internal ptr @dissect_fields_ceid(ptr noundef %0, ptr noundef %1, ptr nou
   br label %31
 
 31:                                               ; preds = %9, %29, %27, %7
-  %.0 = phi ptr [ null, %7 ], [ %28, %27 ], [ %30, %29 ], [ @.str.412, %9 ]
+  %.0 = phi ptr [ null, %7 ], [ %30, %29 ], [ %28, %27 ], [ @.str.412, %9 ]
   ret ptr %.0
 }
 

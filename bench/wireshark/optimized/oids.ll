@@ -452,7 +452,7 @@ define i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr noundef capture
   br i1 %.not15.i, label %check_num_oid.exit, label %.preheader.split.i, !llvm.loop !10
 
 check_num_oid.exit:                               ; preds = %.preheader.split.us.i, %14, %17, %28, %31, %34, %11
-  %36 = phi i32 [ %.pre, %11 ], [ %29, %34 ], [ %29, %31 ], [ %29, %28 ], [ %.pre, %17 ], [ %.pre, %14 ], [ %.pre, %.preheader.split.us.i ]
+  %36 = phi i32 [ %.pre, %11 ], [ %29, %28 ], [ %29, %34 ], [ %29, %31 ], [ %.pre, %17 ], [ %.pre, %14 ], [ %.pre, %.preheader.split.us.i ]
   %.012.i = phi i32 [ 0, %11 ], [ 0, %28 ], [ 0, %31 ], [ %.1.i, %34 ], [ 0, %.preheader.split.us.i ], [ 0, %14 ], [ %.1.us.i, %17 ]
   %37 = icmp sgt i32 %36, 5
   br i1 %37, label %38, label %43
@@ -480,70 +480,70 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %49 = getelementptr i32, ptr %48, i64 %46
   br label %.outer
 
-.outer:                                           ; preds = %70, %45
-  %.031.ph = phi ptr [ %71, %70 ], [ %48, %45 ]
-  %.030.ph = phi ptr [ %72, %70 ], [ %1, %45 ]
+.outer:                                           ; preds = %53, %45
+  %.031.ph = phi ptr [ %54, %53 ], [ %48, %45 ]
+  %.030.ph = phi ptr [ %55, %53 ], [ %1, %45 ]
   %50 = icmp uge ptr %.031.ph, %49
   br label %51
 
-51:                                               ; preds = %.outer, %61
-  %.030 = phi ptr [ %69, %61 ], [ %.030.ph, %.outer ]
-  %.0 = phi i64 [ %57, %61 ], [ 0, %.outer ]
+51:                                               ; preds = %.outer, %64
+  %.030 = phi ptr [ %72, %64 ], [ %.030.ph, %.outer ]
+  %.0 = phi i64 [ %60, %64 ], [ 0, %.outer ]
   %52 = load i8, ptr %.030, align 1
   switch i8 %52, label %.thread.loopexit61 [
-    i8 46, label %70
-    i8 49, label %53
-    i8 50, label %53
-    i8 51, label %53
-    i8 52, label %53
-    i8 53, label %53
-    i8 54, label %53
-    i8 55, label %53
-    i8 56, label %53
-    i8 57, label %53
-    i8 48, label %53
+    i8 46, label %53
+    i8 49, label %56
+    i8 50, label %56
+    i8 51, label %56
+    i8 52, label %56
+    i8 53, label %56
+    i8 54, label %56
+    i8 55, label %56
+    i8 56, label %56
+    i8 57, label %56
+    i8 48, label %56
     i8 0, label %.thread
   ]
 
-53:                                               ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %51, %51
-  %54 = mul i64 %.0, 10
-  %55 = zext nneg i8 %52 to i64
-  %56 = add i64 %54, -48
-  %57 = add i64 %56, %55
-  %58 = icmp ugt i64 %57, 4294967295
-  %or.cond = select i1 %50, i1 true, i1 %58
-  br i1 %or.cond, label %59, label %61
+53:                                               ; preds = %51
+  %54 = getelementptr i8, ptr %.031.ph, i64 4
+  %55 = getelementptr i8, ptr %.030, i64 1
+  br label %.outer, !llvm.loop !12
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %2, align 8
-  tail call void @wmem_free(ptr noundef %0, ptr noundef %60)
+56:                                               ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %51, %51
+  %57 = mul i64 %.0, 10
+  %58 = zext nneg i8 %52 to i64
+  %59 = add i64 %57, -48
+  %60 = add i64 %59, %58
+  %61 = icmp ugt i64 %60, 4294967295
+  %or.cond = select i1 %50, i1 true, i1 %61
+  br i1 %or.cond, label %62, label %64
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %2, align 8
+  tail call void @wmem_free(ptr noundef %0, ptr noundef %63)
   store ptr null, ptr %2, align 8
   br label %.thread
 
-61:                                               ; preds = %53
-  %62 = load i32, ptr %.031.ph, align 4
-  %63 = mul i32 %62, 10
-  store i32 %63, ptr %.031.ph, align 4
-  %64 = load i8, ptr %.030, align 1
-  %65 = sext i8 %64 to i32
-  %66 = add i32 %63, -48
-  %67 = add i32 %66, %65
-  store i32 %67, ptr %.031.ph, align 4
+64:                                               ; preds = %56
+  %65 = load i32, ptr %.031.ph, align 4
+  %66 = mul i32 %65, 10
+  store i32 %66, ptr %.031.ph, align 4
+  %67 = load i8, ptr %.030, align 1
+  %68 = sext i8 %67 to i32
+  %69 = add i32 %66, -48
+  %70 = add i32 %69, %68
+  store i32 %70, ptr %.031.ph, align 4
   %.pr = load i8, ptr %.030, align 1
-  %68 = icmp eq i8 %.pr, 0
-  %69 = getelementptr i8, ptr %.030, i64 1
-  br i1 %68, label %.thread, label %51, !llvm.loop !12
-
-70:                                               ; preds = %51
-  %71 = getelementptr i8, ptr %.031.ph, i64 4
+  %71 = icmp eq i8 %.pr, 0
   %72 = getelementptr i8, ptr %.030, i64 1
-  br label %.outer, !llvm.loop !12
+  br i1 %71, label %.thread, label %51, !llvm.loop !12
 
 .thread.loopexit61:                               ; preds = %51
   br label %.thread
 
-.thread:                                          ; preds = %51, %61, %.thread.loopexit61, %59, %44
-  %.029 = phi i32 [ 0, %59 ], [ 0, %44 ], [ 0, %.thread.loopexit61 ], [ %.012.i, %61 ], [ %.012.i, %51 ]
+.thread:                                          ; preds = %64, %51, %.thread.loopexit61, %62, %44
+  %.029 = phi i32 [ 0, %44 ], [ 0, %62 ], [ 0, %.thread.loopexit61 ], [ %.012.i, %51 ], [ %.012.i, %64 ]
   ret i32 %.029
 }
 
@@ -820,7 +820,7 @@ define i32 @oid_encoded2subid(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %exitcond94.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph89.i, !llvm.loop !14
 
 oid_encoded2subid_sub.exit:                       ; preds = %38, %14, %15, %36
-  %.052.i = phi i32 [ 1, %14 ], [ 0, %36 ], [ %.064.lcssa.i, %15 ], [ %.064.lcssa.i, %38 ]
+  %.052.i = phi i32 [ 1, %14 ], [ %.064.lcssa.i, %15 ], [ 0, %36 ], [ %.064.lcssa.i, %38 ]
   ret i32 %.052.i
 }
 
@@ -1085,7 +1085,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly captures(
   br i1 %exitcond94.not, label %.loopexit, label %.lr.ph89, !llvm.loop !14
 
 .loopexit:                                        ; preds = %41, %17, %39, %16
-  %.052 = phi i32 [ 1, %16 ], [ 0, %39 ], [ %.064.lcssa, %17 ], [ %.064.lcssa, %41 ]
+  %.052 = phi i32 [ 1, %16 ], [ %.064.lcssa, %17 ], [ 0, %39 ], [ %.064.lcssa, %41 ]
   ret i32 %.052
 }
 
@@ -1651,7 +1651,7 @@ oid_subid2string.exit45:                          ; preds = %57, %65
   br label %oid_subid2string.exit
 
 oid_subid2string.exit:                            ; preds = %30, %22, %71, %oid_subid2string.exit45, %7
-  %.0 = phi ptr [ %70, %oid_subid2string.exit45 ], [ %72, %71 ], [ %8, %7 ], [ %23, %22 ], [ %33, %30 ]
+  %.0 = phi ptr [ %8, %7 ], [ %70, %oid_subid2string.exit45 ], [ %72, %71 ], [ %23, %22 ], [ %33, %30 ]
   ret ptr %.0
 }
 
@@ -2229,8 +2229,8 @@ oid_subid2encoded.exit:                           ; preds = %56
   br label %60
 
 60:                                               ; preds = %oid_subid2encoded.exit, %3, %oid_subid2encoded.exit.thread
-  %.sink = phi ptr [ %.pre10, %oid_subid2encoded.exit.thread ], [ %.pre10, %3 ], [ %.pre, %oid_subid2encoded.exit ]
-  %.0 = phi i32 [ 0, %oid_subid2encoded.exit.thread ], [ 0, %3 ], [ %24, %oid_subid2encoded.exit ]
+  %.sink = phi ptr [ %.pre, %oid_subid2encoded.exit ], [ %.pre10, %oid_subid2encoded.exit.thread ], [ %.pre10, %3 ]
+  %.0 = phi i32 [ %24, %oid_subid2encoded.exit ], [ 0, %oid_subid2encoded.exit.thread ], [ 0, %3 ]
   tail call void @wmem_free(ptr noundef null, ptr noundef %.sink)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

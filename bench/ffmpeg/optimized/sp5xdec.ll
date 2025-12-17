@@ -159,7 +159,7 @@ define internal i32 @sp5x_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %74
 
 74:                                               ; preds = %72, %.critedge, %14, %4, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %14 ], [ %73, %72 ], [ %70, %.critedge ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %73, %72 ], [ %70, %.critedge ]
   ret i32 %.0
 }
 

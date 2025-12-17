@@ -372,7 +372,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %118
   br label %_ZN3mbp9mbp_dt_tg4impl7is_seenEP4expr.exit
 
 _ZN3mbp9mbp_dt_tg4impl7is_seenEP4expr.exit:       ; preds = %59, %70, %118, %114, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %129, %111, %133, %.loopexit, %137, %107, %104
-  %.1 = phi i1 [ %.01524, %.loopexit ], [ true, %104 ], [ true, %107 ], [ true, %137 ], [ %.01524, %133 ], [ %.01524, %111 ], [ %.01524, %129 ], [ %.01524, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %.01524, %114 ], [ %.01524, %118 ], [ %.01524, %70 ], [ %.01524, %59 ]
+  %.1 = phi i1 [ %.01524, %111 ], [ %.01524, %.loopexit ], [ true, %104 ], [ true, %107 ], [ true, %137 ], [ %.01524, %133 ], [ %.01524, %129 ], [ %.01524, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %.01524, %114 ], [ %.01524, %118 ], [ %.01524, %70 ], [ %.01524, %59 ]
   %141 = load ptr, ptr %31, align 8, !tbaa !43
   %142 = icmp eq ptr %141, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1074,7 +1074,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit61:       ; preds = %_ZN7obj_refI3app11a
   br label %245
 
 245:                                              ; preds = %46, %244, %176, %170, %99, %44
-  %.pn25.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %244 ], [ %47, %46 ], [ %100, %99 ], [ %.pn23, %176 ], [ %171, %170 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %.pn, %244 ], [ %100, %99 ], [ %.pn23, %176 ], [ %171, %170 ]
   call void @_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
@@ -1201,7 +1201,7 @@ _ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit13: ; preds = %_ZNK8datatype4u
   br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %56, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i11, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit.thread, %_ZNK8datatype4util14is_constructorEP9func_decl.exit.i12, %9, %4, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %20, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit13, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit, %73
-  %.0 = phi i1 [ true, %73 ], [ true, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit ], [ false, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit13 ], [ false, %20 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %4 ], [ false, %9 ], [ false, %_ZNK8datatype4util14is_constructorEP9func_decl.exit.i12 ], [ false, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit.thread ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i11 ], [ false, %56 ]
+  %.0 = phi i1 [ false, %9 ], [ true, %73 ], [ true, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit ], [ false, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit13 ], [ false, %20 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %4 ], [ false, %_ZNK8datatype4util14is_constructorEP9func_decl.exit.i12 ], [ false, %_ZN3mbp9mbp_dt_tg4impl14is_constructorEP4expr.exit.thread ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i11 ], [ false, %56 ]
   ret i1 %.0
 }
 
@@ -1748,7 +1748,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !106
@@ -1795,7 +1795,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !107

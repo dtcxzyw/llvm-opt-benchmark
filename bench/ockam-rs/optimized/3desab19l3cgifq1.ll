@@ -501,7 +501,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN82_$LT$tokio..s
   unreachable
 
 common.resume:                                    ; preds = %176, %.body.i, %91, %143, %157
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn8.i, %143 ], [ %158, %157 ], [ %177, %176 ]
+  %common.resume.op = phi { ptr, i32 } [ %158, %157 ], [ %eh.lpad-body.i, %.body.i ], [ %92, %91 ], [ %.pn8.i, %143 ], [ %177, %176 ]
   resume { ptr, i32 } %common.resume.op
 
 98:                                               ; preds = %143, %137, %131, %.body12.i, %.body14.i, %.body.i
@@ -574,7 +574,7 @@ common.resume:                                    ; preds = %176, %.body.i, %91,
   br label %135
 
 .body12.i:                                        ; preds = %.body24.i, %121, %107, %.body14.i, %100, %21
-  %.pn2.i = phi { ptr, i32 } [ %eh.lpad-body15.i, %.body14.i ], [ %122, %121 ], [ %.pn.i, %.body24.i ], [ %101, %100 ], [ %22, %21 ], [ %108, %107 ]
+  %.pn2.i = phi { ptr, i32 } [ %.pn.i, %.body24.i ], [ %22, %21 ], [ %eh.lpad-body15.i, %.body14.i ], [ %122, %121 ], [ %101, %100 ], [ %108, %107 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h9ab3e8b890c03630E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %120) #12
           to label %131 unwind label %98
@@ -1252,7 +1252,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   unreachable
 
 common.resume:                                    ; preds = %209, %140, %175, %181, %201, %221, %226, %231, %236, %241, %246, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %242, %241 ], [ %210, %209 ]
+  %common.resume.op = phi { ptr, i32 } [ %242, %241 ], [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17hbf646732c61773f2E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b3c0d111f9de198E.llvm.14529172514207159973.exit.i", %152, %156

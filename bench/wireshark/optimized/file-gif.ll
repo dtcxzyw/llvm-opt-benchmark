@@ -445,7 +445,7 @@ dissect_gif_data_block_seq.exit190:               ; preds = %158
   br label %174
 
 174:                                              ; preds = %dissect_gif_data_block_seq.exit190, %171, %dissect_gif_data_block_seq.exit
-  %.4 = phi i32 [ %164, %dissect_gif_data_block_seq.exit190 ], [ %173, %171 ], [ %100, %dissect_gif_data_block_seq.exit ]
+  %.4 = phi i32 [ %173, %171 ], [ %164, %dissect_gif_data_block_seq.exit190 ], [ %100, %dissect_gif_data_block_seq.exit ]
   %175 = load ptr, ptr %5, align 8
   %176 = sub i32 %.4, %.1205
   call void @proto_item_set_len(ptr noundef %175, i32 noundef %176)

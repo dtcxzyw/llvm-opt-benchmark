@@ -219,9 +219,9 @@ isAnyRGB.exit1068:                                ; preds = %28
   br i1 %or.cond984, label %.thread1198.sink.split, label %.thread1198
 
 .thread1198.sink.split:                           ; preds = %51, %48, %47, %45
-  %nv12ToPlanarWrapper.sink = phi ptr [ @planarToNv24Wrapper, %45 ], [ @planarToNv24Wrapper, %47 ], [ @nv12ToPlanarWrapper, %48 ], [ @nv24ToPlanarWrapper, %51 ]
-  %or.cond111201.ph = phi i1 [ false, %45 ], [ false, %47 ], [ false, %48 ], [ true, %51 ]
-  %.ph = phi i1 [ false, %45 ], [ false, %47 ], [ true, %48 ], [ false, %51 ]
+  %nv12ToPlanarWrapper.sink = phi ptr [ @planarToNv24Wrapper, %47 ], [ @nv12ToPlanarWrapper, %48 ], [ @planarToNv24Wrapper, %45 ], [ @nv24ToPlanarWrapper, %51 ]
+  %or.cond111201.ph = phi i1 [ false, %47 ], [ false, %48 ], [ false, %45 ], [ true, %51 ]
+  %.ph = phi i1 [ false, %47 ], [ true, %48 ], [ false, %45 ], [ false, %51 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %nv12ToPlanarWrapper.sink, ptr %54, align 16, !tbaa !37
   br label %.thread1198
@@ -1493,7 +1493,7 @@ usePal.exit:                                      ; preds = %570, %570, %570, %5
   br i1 %or.cond413, label %.thread1234.sink.split, label %.thread1234
 
 .thread1234.sink.split:                           ; preds = %576, %.thread1229, %572, %usePal.exit, %usePal.exit, %573, %571
-  %palToRgbWrapper.sink = phi ptr [ @palToRgbWrapper, %571 ], [ @yuv422pToUyvyWrapper, %573 ], [ @palToGbrpWrapper, %usePal.exit ], [ @palToGbrpWrapper, %usePal.exit ], [ @yuv422pToYuy2Wrapper, %572 ], [ @uint_y_to_float_y_wrapper, %.thread1229 ], [ @float_y_to_uint_y_wrapper, %576 ]
+  %palToRgbWrapper.sink = phi ptr [ @palToRgbWrapper, %571 ], [ @uint_y_to_float_y_wrapper, %.thread1229 ], [ @yuv422pToUyvyWrapper, %573 ], [ @palToGbrpWrapper, %usePal.exit ], [ @yuv422pToYuy2Wrapper, %572 ], [ @palToGbrpWrapper, %usePal.exit ], [ @float_y_to_uint_y_wrapper, %576 ]
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %palToRgbWrapper.sink, ptr %579, align 16, !tbaa !37
   br label %.thread1234
@@ -1560,7 +1560,7 @@ usePal.exit:                                      ; preds = %570, %570, %570, %5
   br i1 %593, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %591, %.thread1239, %588, %587
-  %yuyvToYuv422Wrapper.sink = phi ptr [ @yuyvToYuv422Wrapper, %587 ], [ @yuyvToYuv422Wrapper, %588 ], [ @uyvyToYuv422Wrapper, %.thread1239 ], [ @uyvyToYuv422Wrapper, %591 ]
+  %yuyvToYuv422Wrapper.sink = phi ptr [ @yuyvToYuv422Wrapper, %588 ], [ @yuyvToYuv422Wrapper, %587 ], [ @uyvyToYuv422Wrapper, %.thread1239 ], [ @uyvyToYuv422Wrapper, %591 ]
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %yuyvToYuv422Wrapper.sink, ptr %594, align 16, !tbaa !37
   br label %.critedge
@@ -3037,7 +3037,7 @@ define internal noundef i32 @planarToP01xWrapper(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge95, label %.lr.ph94.split.split, !llvm.loop !55
 
 ._crit_edge95:                                    ; preds = %146, %127, %89
-  %.us-phi = phi ptr [ %115, %89 ], [ %134, %127 ], [ %139, %146 ]
+  %.us-phi = phi ptr [ %134, %127 ], [ %115, %89 ], [ %139, %146 ]
   store ptr %.us-phi, ptr %1, align 8, !tbaa !54
   br label %148
 
@@ -3517,7 +3517,7 @@ define internal fastcc ptr @findRgbConvFn(ptr noundef readonly captures(none) %0
   br label %56
 
 56:                                               ; preds = %55, %54
-  %.1 = phi ptr [ @rgb48tobgr64_nobswap, %54 ], [ %spec.select541, %55 ]
+  %.1 = phi ptr [ %spec.select541, %55 ], [ @rgb48tobgr64_nobswap, %54 ]
   %or.cond93 = select i1 %36, i1 %49, i1 false
   %or.cond95 = select i1 %38, i1 %51, i1 false
   %or.cond511 = select i1 %or.cond93, i1 true, i1 %or.cond95
@@ -4033,7 +4033,7 @@ define internal fastcc ptr @findRgbConvFn(ptr noundef readonly captures(none) %0
   br label %248
 
 248:                                              ; preds = %117, %95, %84, %72, %57, %46, %33, %94, %93, %92, %83, %82, %81, %71, %70, %69, %56, %45, %191, %189, %187, %186, %185, %184, %182, %180, %178, %176, %174, %172, %171, %168, %220, %223, %224, %225, %226, %228, %230, %231, %232, %234, %236, %238, %240, %242, %244, %245, %246, %207, %206, %106, %112, %115, %109, %22, %28, %31, %25
-  %.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %107, %106 ], [ %110, %109 ], [ %113, %112 ], [ %116, %115 ], [ null, %168 ], [ @rgb12to15, %171 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ @rgb15to24, %184 ], [ @rgb16to24, %185 ], [ @rgb32to24, %186 ], [ %188, %187 ], [ %190, %189 ], [ @rgb24to32, %191 ], [ null, %220 ], [ @rgb12tobgr12, %223 ], [ @rgb15tobgr15, %224 ], [ @rgb16tobgr15, %225 ], [ %227, %226 ], [ %229, %228 ], [ @rgb15tobgr16, %230 ], [ @rgb16tobgr16, %231 ], [ %233, %232 ], [ %235, %234 ], [ %237, %236 ], [ %239, %238 ], [ %241, %240 ], [ %243, %242 ], [ @rgb15tobgr32, %244 ], [ @rgb16tobgr32, %245 ], [ %247, %246 ], [ null, %207 ], [ null, %206 ], [ @rgb48tobgr48_nobswap, %45 ], [ @rgb48to64_nobswap, %56 ], [ @rgb64tobgr48_nobswap, %69 ], [ @rgb64tobgr48_bswap, %70 ], [ @rgb64to48_nobswap, %71 ], [ @x2rgb10to48_nobswap, %81 ], [ @x2rgb10to48_bswap, %82 ], [ @x2rgb10tobgr48_nobswap, %83 ], [ @x2rgb10to64_nobswap, %92 ], [ @x2rgb10to64_bswap, %93 ], [ @x2rgb10tobgr64_nobswap, %94 ], [ %spec.select, %33 ], [ %spec.select540, %46 ], [ %spec.select542, %57 ], [ %spec.select543, %72 ], [ %spec.select544, %84 ], [ %spec.select545, %95 ], [ %spec.select546, %117 ]
+  %.0 = phi ptr [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ @x2rgb10tobgr64_nobswap, %94 ], [ %241, %240 ], [ null, %206 ], [ %spec.select, %33 ], [ null, %207 ], [ @rgb48tobgr48_nobswap, %45 ], [ %spec.select540, %46 ], [ %247, %246 ], [ @rgb48to64_nobswap, %56 ], [ @rgb64tobgr48_nobswap, %69 ], [ @rgb64tobgr48_bswap, %70 ], [ %spec.select542, %57 ], [ @rgb16tobgr32, %245 ], [ @rgb64to48_nobswap, %71 ], [ @x2rgb10to48_nobswap, %81 ], [ @x2rgb10to48_bswap, %82 ], [ %spec.select543, %72 ], [ @rgb15tobgr32, %244 ], [ @x2rgb10tobgr48_nobswap, %83 ], [ @x2rgb10to64_nobswap, %92 ], [ @x2rgb10to64_bswap, %93 ], [ %spec.select544, %84 ], [ %243, %242 ], [ %107, %106 ], [ %110, %109 ], [ %113, %112 ], [ %116, %115 ], [ %spec.select545, %95 ], [ %spec.select546, %117 ], [ null, %168 ], [ @rgb12to15, %171 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ @rgb15to24, %184 ], [ @rgb16to24, %185 ], [ @rgb32to24, %186 ], [ %188, %187 ], [ %190, %189 ], [ @rgb24to32, %191 ], [ null, %220 ], [ @rgb12tobgr12, %223 ], [ @rgb15tobgr15, %224 ], [ @rgb16tobgr15, %225 ], [ %227, %226 ], [ %229, %228 ], [ @rgb15tobgr16, %230 ], [ @rgb16tobgr16, %231 ], [ %233, %232 ], [ %235, %234 ], [ %237, %236 ], [ %239, %238 ]
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %250 = load i32, ptr %249, align 16, !tbaa !30
   %251 = and i32 %250, 524288
@@ -6810,7 +6810,7 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   br label %.loopexit
 
 24:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %20, %19, %21
-  %.028 = phi ptr [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked24, %20 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
+  %.028 = phi ptr [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
   %25 = icmp sgt i32 %4, 0
   br i1 %25, label %.lr.ph, label %.loopexit
 
@@ -7610,7 +7610,7 @@ define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(non
   br label %43
 
 43:                                               ; preds = %37, %37, %39
-  %44 = phi i32 [ %42, %39 ], [ %3, %37 ], [ %3, %37 ]
+  %44 = phi i32 [ %3, %37 ], [ %42, %39 ], [ %3, %37 ]
   switch i32 %30, label %45 [
     i32 3, label %49
     i32 0, label %49
@@ -7623,7 +7623,7 @@ define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(non
   br label %49
 
 49:                                               ; preds = %43, %43, %45
-  %50 = phi i32 [ %48, %45 ], [ %4, %43 ], [ %4, %43 ]
+  %50 = phi i32 [ %4, %43 ], [ %48, %45 ], [ %4, %43 ]
   %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv3315
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv3315
@@ -7644,7 +7644,7 @@ define internal noundef i32 @planarCopyWrapper(ptr noundef readonly captures(non
   br label %65
 
 65:                                               ; preds = %61, %49
-  %66 = phi i1 [ true, %49 ], [ %64, %61 ]
+  %66 = phi i1 [ %64, %61 ], [ true, %49 ]
   br i1 %58, label %67, label %.thread2620
 
 67:                                               ; preds = %65
@@ -7857,7 +7857,7 @@ isBE.exit:                                        ; preds = %114
   br i1 %exitcond.not.i2613, label %fillPlane16.exit, label %155, !llvm.loop !64
 
 .thread2625:                                      ; preds = %.thread2620, %98
-  %.02485261826232627 = phi i32 [ %.02485.ph, %98 ], [ %38, %.thread2620 ]
+  %.02485261826232627 = phi i32 [ %38, %.thread2620 ], [ %.02485.ph, %98 ]
   %158 = load i32, ptr %8, align 8, !tbaa !6
   %159 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %158) #14
   %.not.i2579 = icmp eq ptr %159, null

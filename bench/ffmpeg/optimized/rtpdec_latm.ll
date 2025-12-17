@@ -36,7 +36,7 @@ define internal i32 @latm_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   br label %17
 
 17:                                               ; preds = %7, %4, %9
-  %.0 = phi i32 [ %16, %9 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %16, %9 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -177,7 +177,7 @@ define internal range(i32 -2147483648, 2) i32 @latm_parse_packet(ptr noundef %0,
   br label %68
 
 68:                                               ; preds = %49, %22, %16, %52, %48, %38
-  %.0 = phi i32 [ -5, %48 ], [ %67, %52 ], [ -5, %38 ], [ %20, %16 ], [ -11, %22 ], [ %50, %49 ]
+  %.0 = phi i32 [ %20, %16 ], [ -5, %48 ], [ -11, %22 ], [ %67, %52 ], [ -5, %38 ], [ %50, %49 ]
   ret i32 %.0
 }
 
@@ -305,7 +305,7 @@ parse_fmtp_config.exit:                           ; preds = %.lr.ph.i, %.prehead
   br label %parse_fmtp_config.exit.thread
 
 parse_fmtp_config.exit.thread:                    ; preds = %12, %7, %70, %75, %72, %parse_fmtp_config.exit, %parse_fmtp_config.exit.thread14
-  %.0 = phi i32 [ %.032.i.ph, %parse_fmtp_config.exit.thread14 ], [ 0, %parse_fmtp_config.exit ], [ 0, %72 ], [ 0, %75 ], [ 0, %70 ], [ -1094995529, %12 ], [ -12, %7 ]
+  %.0 = phi i32 [ 0, %70 ], [ %.032.i.ph, %parse_fmtp_config.exit.thread14 ], [ 0, %parse_fmtp_config.exit ], [ 0, %72 ], [ 0, %75 ], [ -1094995529, %12 ], [ -12, %7 ]
   ret i32 %.0
 }
 

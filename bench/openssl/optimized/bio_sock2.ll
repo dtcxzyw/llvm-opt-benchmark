@@ -45,7 +45,7 @@ define i32 @BIO_socket(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
   br label %12
 
 12:                                               ; preds = %6, %4, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %4 ], [ %7, %6 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %9 ], [ %7, %6 ]
   ret i32 %.0
 }
 
@@ -150,7 +150,7 @@ define range(i32 0, 2) i32 @BIO_connect(i32 noundef %0, ptr noundef %1, i32 noun
   br label %34
 
 34:                                               ; preds = %24, %29, %31, %7, %21, %14, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %14 ], [ 0, %21 ], [ 0, %7 ], [ 0, %31 ], [ 0, %29 ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %14 ], [ 0, %21 ], [ 0, %7 ], [ 0, %29 ], [ 0, %31 ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -368,7 +368,7 @@ define range(i32 0, 2) i32 @BIO_listen(i32 noundef %0, ptr noundef %1, i32 nound
   br label %53
 
 53:                                               ; preds = %45, %47, %43, %17, %50, %40, %31, %24, %14, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %14 ], [ 0, %24 ], [ 0, %31 ], [ 0, %40 ], [ 0, %50 ], [ 0, %17 ], [ 0, %43 ], [ 1, %47 ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %14 ], [ 0, %24 ], [ 0, %31 ], [ 0, %40 ], [ 0, %50 ], [ 0, %43 ], [ 0, %17 ], [ 1, %47 ], [ 1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -425,7 +425,7 @@ define i32 @BIO_accept_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %21
 
 21:                                               ; preds = %16, %11, %13, %19
-  %.0 = phi i32 [ -1, %19 ], [ -1, %13 ], [ -1, %11 ], [ %9, %16 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %11 ], [ -1, %13 ], [ %9, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

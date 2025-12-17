@@ -413,7 +413,7 @@ get_word_sep.exit26:                              ; preds = %.critedge.i.i23, %6
   br label %66
 
 66:                                               ; preds = %5, %get_word_sep.exit26, %64
-  %.0 = phi i32 [ 1, %64 ], [ 1, %get_word_sep.exit26 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %get_word_sep.exit26 ], [ 1, %64 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -889,8 +889,8 @@ get_word.exit315.i:                               ; preds = %192, %179
   br i1 %.not256.not.i, label %.thread.i, label %210
 
 .thread.i:                                        ; preds = %200, %199, %198, %get_word.exit315.i
-  %.0317.i = phi i32 [ 3, %200 ], [ 2, %199 ], [ 0, %198 ], [ 1, %get_word.exit315.i ]
-  %201 = phi i1 [ false, %200 ], [ true, %199 ], [ false, %198 ], [ false, %get_word.exit315.i ]
+  %.0317.i = phi i32 [ 3, %200 ], [ 1, %get_word.exit315.i ], [ 0, %198 ], [ 2, %199 ]
+  %201 = phi i1 [ false, %200 ], [ false, %get_word.exit315.i ], [ false, %198 ], [ true, %199 ]
   %202 = getelementptr inbounds nuw i8, ptr %60, i64 8952
   %203 = load i32, ptr %202, align 8, !tbaa !65
   %204 = shl nuw nsw i32 1, %.0317.i
@@ -2976,7 +2976,7 @@ define range(i32 -2147483648, 1) i32 @ff_rtsp_open_transport_ctx(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %74, %70, %89, %86, %67, %46
-  %.1 = phi i32 [ 0, %46 ], [ -12, %67 ], [ 0, %86 ], [ 0, %89 ], [ 0, %70 ], [ 0, %74 ], [ %36, %31 ]
+  %.1 = phi i32 [ -12, %67 ], [ 0, %46 ], [ %36, %31 ], [ 0, %74 ], [ 0, %86 ], [ 0, %89 ], [ 0, %70 ]
   ret i32 %.1
 }
 
@@ -3450,8 +3450,8 @@ get_word_sep.exit120.i:                           ; preds = %199, %185
   br label %205
 
 205:                                              ; preds = %get_word_sep.exit120.i, %get_word_sep.exit107.i, %get_word_sep.exit94.i, %get_word_sep.exit81.i, %get_word_sep.exit68.i
-  %.sink325.i = phi i32 [ 1, %get_word_sep.exit94.i ], [ 0, %get_word_sep.exit81.i ], [ 0, %get_word_sep.exit68.i ], [ 2, %get_word_sep.exit120.i ], [ 2, %get_word_sep.exit107.i ]
-  %.2.i = phi ptr [ %.016.lcssa.i.i92.i, %get_word_sep.exit94.i ], [ %.016.lcssa.i.i79.i, %get_word_sep.exit81.i ], [ %.016.lcssa.i.i66.i, %get_word_sep.exit68.i ], [ %.016.lcssa.i.i118.i, %get_word_sep.exit120.i ], [ %.016.lcssa.i.i105.i, %get_word_sep.exit107.i ]
+  %.sink325.i = phi i32 [ 1, %get_word_sep.exit94.i ], [ 0, %get_word_sep.exit68.i ], [ 0, %get_word_sep.exit81.i ], [ 2, %get_word_sep.exit120.i ], [ 2, %get_word_sep.exit107.i ]
+  %.2.i = phi ptr [ %.016.lcssa.i.i92.i, %get_word_sep.exit94.i ], [ %.016.lcssa.i.i66.i, %get_word_sep.exit68.i ], [ %.016.lcssa.i.i79.i, %get_word_sep.exit81.i ], [ %.016.lcssa.i.i118.i, %get_word_sep.exit120.i ], [ %.016.lcssa.i.i105.i, %get_word_sep.exit107.i ]
   %206 = getelementptr inbounds nuw i8, ptr %77, i64 216
   store i32 %.sink325.i, ptr %206, align 8, !tbaa !163
   %207 = call i32 @av_strcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.19) #15
@@ -4787,7 +4787,7 @@ define i32 @ff_rtsp_read_reply(ptr noundef %0, ptr noundef initializes((0, 6960)
   br label %35
 
 ._crit_edge:                                      ; preds = %28, %137, %63
-  %.lcssa162 = phi i32 [ %65, %63 ], [ %140, %137 ], [ %30, %28 ]
+  %.lcssa162 = phi i32 [ %140, %137 ], [ %65, %63 ], [ %30, %28 ]
   %33 = icmp slt i32 %.lcssa162, 0
   %34 = select i1 %33, i32 %.lcssa162, i32 -5
   br label %.loopexit
@@ -5220,7 +5220,7 @@ get_word.exit151:                                 ; preds = %128, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %155, %202, %41, %ff_rtsp_skip_packet.exit.thread, %215, %213, %218, %162, %._crit_edge
-  %.183 = phi i32 [ %34, %._crit_edge ], [ %164, %162 ], [ 0, %218 ], [ -5, %213 ], [ -1, %215 ], [ %spec.select158, %ff_rtsp_skip_packet.exit.thread ], [ 1, %41 ], [ -12, %155 ], [ 0, %202 ]
+  %.183 = phi i32 [ %34, %._crit_edge ], [ %164, %162 ], [ -1, %215 ], [ 0, %218 ], [ -5, %213 ], [ %spec.select158, %ff_rtsp_skip_packet.exit.thread ], [ 1, %41 ], [ -12, %155 ], [ 0, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5499,7 +5499,7 @@ define range(i32 -2147483648, 1) i32 @ff_rtsp_send_cmd_with_content(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %15, %32, %.thread
-  %.028 = phi i32 [ 0, %.thread ], [ 0, %32 ], [ %21, %20 ], [ %18, %15 ]
+  %.028 = phi i32 [ 0, %.thread ], [ 0, %32 ], [ %18, %15 ], [ %21, %20 ]
   ret i32 %.028
 }
 
@@ -5786,7 +5786,7 @@ map_to_opts.exit:                                 ; preds = %127, %135, %137
   %167 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %10, i64 noundef 4096, ptr noundef nonnull @.str.114, i32 noundef %166) #15
   br label %.thread242
 
-.thread242:                                       ; preds = %161, %165, %157
+.thread242:                                       ; preds = %157, %161, %165
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %197
 
@@ -5844,10 +5844,10 @@ map_to_opts.exit:                                 ; preds = %127, %135, %137
   br label %197
 
 197:                                              ; preds = %.thread242, %191, %195
-  %.0171239 = phi ptr [ %.0171, %191 ], [ %.0171, %195 ], [ %.0171240, %.thread242 ]
-  %.3192237 = phi i32 [ %.3192, %191 ], [ %.3192, %195 ], [ %.3192238, %.thread242 ]
-  %.5188 = phi i32 [ %.0183288, %191 ], [ %.0183288, %195 ], [ %.2185, %.thread242 ]
-  %.2175 = phi i32 [ %194, %191 ], [ %.0173292, %195 ], [ %.0173292, %.thread242 ]
+  %.0171239 = phi ptr [ %.0171240, %.thread242 ], [ %.0171, %191 ], [ %.0171, %195 ]
+  %.3192237 = phi i32 [ %.3192238, %.thread242 ], [ %.3192, %191 ], [ %.3192, %195 ]
+  %.5188 = phi i32 [ %.2185, %.thread242 ], [ %.0183288, %191 ], [ %.0183288, %195 ]
+  %.2175 = phi i32 [ %.0173292, %.thread242 ], [ %194, %191 ], [ %.0173292, %195 ]
   %198 = load ptr, ptr %63, align 8, !tbaa !134
   %.not209 = icmp eq ptr %198, null
   br i1 %.not209, label %199, label %.sink.split
@@ -6109,7 +6109,7 @@ map_to_opts.exit231:                              ; preds = %264, %272, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %314
 
-select.unfold:                                    ; preds = %.select.unfold_crit_edge, %177, %173
+select.unfold:                                    ; preds = %.select.unfold_crit_edge, %173, %177
   %300 = phi i32 [ %82, %173 ], [ %82, %177 ], [ %.pre307, %.select.unfold_crit_edge ]
   %.2191.ph = phi i32 [ %.3192, %173 ], [ %.3192, %177 ], [ %.3192237, %.select.unfold_crit_edge ]
   %.1184.ph = phi i32 [ %.0183288, %173 ], [ %.0183288, %177 ], [ %.5188, %.select.unfold_crit_edge ]
@@ -6146,8 +6146,8 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   store i32 1, ptr %313, align 8, !tbaa !206
   br label %314
 
-.loopexit:                                        ; preds = %291, %169, %214, %234, %232, %298, %221, %240, %263, %168
-  %.1177.ph = phi i32 [ -5, %168 ], [ -1094995529, %263 ], [ -1094995529, %240 ], [ %222, %221 ], [ -1094995529, %291 ], [ -22, %169 ], [ 1, %214 ], [ -1094995529, %234 ], [ -1094995529, %232 ], [ %299, %298 ]
+.loopexit:                                        ; preds = %169, %214, %298, %232, %291, %234, %221, %240, %263, %168
+  %.1177.ph = phi i32 [ -1094995529, %240 ], [ -5, %168 ], [ %222, %221 ], [ -1094995529, %263 ], [ -22, %169 ], [ 1, %214 ], [ %299, %298 ], [ -1094995529, %232 ], [ -1094995529, %291 ], [ -1094995529, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @ff_rtsp_undo_setup(ptr noundef %0, i32 noundef 0)
   br label %314
@@ -6459,8 +6459,8 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
   call void @av_dict_free(ptr noundef nonnull %16) #15
   br i1 %.not162, label %146, label %.thread
 
-.thread:                                          ; preds = %124, %96, %117, %125, %128
-  %.2133.ph = phi i32 [ -5, %128 ], [ -5, %125 ], [ -12, %117 ], [ -5, %96 ], [ -5, %124 ]
+.thread:                                          ; preds = %96, %124, %117, %128, %125
+  %.2133.ph = phi i32 [ -5, %125 ], [ -5, %128 ], [ -12, %117 ], [ -5, %124 ], [ -5, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6686,7 +6686,7 @@ init_rtp_handler.exit.thread31.i:                 ; preds = %init_rtp_handler.ex
   br label %init_satip_stream.exit
 
 init_satip_stream.exit:                           ; preds = %238, %240
-  %.4 = phi i32 [ %239, %238 ], [ %241, %240 ]
+  %.4 = phi i32 [ %241, %240 ], [ %239, %238 ]
   %.not170 = icmp eq i32 %.4, 0
   br i1 %.not170, label %.preheader.preheader, label %init_satip_stream.exit.thread
 
@@ -6745,7 +6745,7 @@ init_satip_stream.exit:                           ; preds = %238, %240
   br label %286
 
 init_satip_stream.exit.thread:                    ; preds = %257, %251, %202, %189, %147, %.thread, %156, %init_satip_stream.exit, %171, %91
-  %.1132 = phi i32 [ -22, %91 ], [ %172, %171 ], [ %.4, %init_satip_stream.exit ], [ %158, %156 ], [ %.2133.ph, %.thread ], [ %153, %147 ], [ -12, %189 ], [ -12, %202 ], [ -93, %257 ], [ %255, %251 ]
+  %.1132 = phi i32 [ -22, %91 ], [ %158, %156 ], [ %172, %171 ], [ %.4, %init_satip_stream.exit ], [ -12, %202 ], [ %.2133.ph, %.thread ], [ %153, %147 ], [ -12, %189 ], [ -93, %257 ], [ %255, %251 ]
   call void @ff_rtsp_close_streams(ptr noundef %0)
   %269 = load ptr, ptr %17, align 8, !tbaa !20
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8880
@@ -6786,12 +6786,12 @@ ff_rtsp_close_connections.exit:                   ; preds = %init_satip_stream.e
   br label %68
 
 .thread203:                                       ; preds = %281, %ff_rtsp_close_connections.exit, %279
-  %.7 = phi i32 [ %.1132, %279 ], [ %.1132, %ff_rtsp_close_connections.exit ], [ -12, %281 ]
+  %.7 = phi i32 [ %.1132, %ff_rtsp_close_connections.exit ], [ %.1132, %279 ], [ -12, %281 ]
   call void @ff_network_close() #15
   br label %286
 
 286:                                              ; preds = %25, %.thread203, %264, %24
-  %.0 = phi i32 [ -22, %24 ], [ %.7, %.thread203 ], [ 0, %264 ], [ -5, %25 ]
+  %.0 = phi i32 [ -22, %24 ], [ 0, %264 ], [ %.7, %.thread203 ], [ -5, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7306,13 +7306,13 @@ parse_rtsp_message.exit.i.i:                      ; preds = %212, %210
   br label %udp_read_packet.exit.i
 
 .thread104.i.i:                                   ; preds = %223, %220, %217, %parse_rtsp_message.exit.i.i, %198, %._crit_edge119.i.i
-  %.166.i.i = phi i64 [ %.065121.i.i, %223 ], [ %.065121.i.i, %._crit_edge119.i.i ], [ %.065121.i.i, %198 ], [ %.065121.i.i, %parse_rtsp_message.exit.i.i ], [ %.065121.i.i, %217 ], [ %221, %220 ]
+  %.166.i.i = phi i64 [ %.065121.i.i, %parse_rtsp_message.exit.i.i ], [ %.065121.i.i, %223 ], [ %.065121.i.i, %._crit_edge119.i.i ], [ %.065121.i.i, %198 ], [ %.065121.i.i, %217 ], [ %221, %220 ]
   %228 = call i32 @ff_check_interrupt(ptr noundef nonnull %51) #15
   %.not91.i.i = icmp eq i32 %228, 0
   br i1 %.not91.i.i, label %159, label %udp_read_packet.exit.thread.i
 
 udp_read_packet.exit.thread.i:                    ; preds = %.thread104.i.i, %220, %parse_rtsp_message.exit.i.i, %206, %160, %.loopexit.i.i, %139, %103
-  %.071.i.ph.i = phi i32 [ -1414092869, %.loopexit.i.i ], [ -12, %103 ], [ -1094995529, %139 ], [ -541478725, %206 ], [ %.09.i.i.i, %parse_rtsp_message.exit.i.i ], [ -110, %220 ], [ -11, %160 ], [ -1414092869, %.thread104.i.i ]
+  %.071.i.ph.i = phi i32 [ -1094995529, %139 ], [ -12, %103 ], [ -1414092869, %.loopexit.i.i ], [ -541478725, %206 ], [ -11, %160 ], [ -1414092869, %.thread104.i.i ], [ -110, %220 ], [ %.09.i.i.i, %parse_rtsp_message.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %read_packet.exit
@@ -7511,14 +7511,14 @@ pick_stream.exit.i:                               ; preds = %305, %294, %262
   br label %read_packet.exit
 
 pick_stream.exit.thread.i:                        ; preds = %pick_stream.exit.i, %udp_read_packet.exit.i, %91
-  %.0.i = phi i32 [ %94, %91 ], [ 0, %pick_stream.exit.i ], [ %.071.i.i, %udp_read_packet.exit.i ]
+  %.0.i = phi i32 [ %94, %91 ], [ %.071.i.i, %udp_read_packet.exit.i ], [ 0, %pick_stream.exit.i ]
   %.0.fr.i = freeze i32 %.0.i
   %321 = icmp eq i32 %.0.fr.i, 0
   %spec.select.i = select i1 %321, i32 -541478725, i32 %.0.fr.i
   br label %read_packet.exit
 
 read_packet.exit:                                 ; preds = %udp_read_packet.exit.thread.i, %247, %250, %303, %.loopexit.i44.i, %311, %314, %318, %pick_stream.exit.thread.i
-  %322 = phi i32 [ -11, %247 ], [ -11, %.loopexit.i44.i ], [ %254, %250 ], [ -11, %303 ], [ %.071.i.ph.i, %udp_read_packet.exit.thread.i ], [ %254, %311 ], [ %254, %314 ], [ %254, %318 ], [ %spec.select.i, %pick_stream.exit.thread.i ]
+  %322 = phi i32 [ %254, %318 ], [ %spec.select.i, %pick_stream.exit.thread.i ], [ -11, %247 ], [ %254, %250 ], [ -11, %303 ], [ -11, %.loopexit.i44.i ], [ %.071.i.ph.i, %udp_read_packet.exit.thread.i ], [ %254, %311 ], [ %254, %314 ]
   %323 = icmp eq i32 %322, -11
   %324 = icmp ne ptr %.1136, null
   %or.cond3 = select i1 %323, i1 %324, i1 false
@@ -7734,7 +7734,7 @@ read_packet.exit:                                 ; preds = %udp_read_packet.exi
   br label %.thread181.sink.split
 
 .critedge:                                        ; preds = %423, %425, %336, %437, %328
-  %.1133 = phi i32 [ %331, %328 ], [ %340, %336 ], [ %439, %437 ], [ -203, %425 ], [ %345, %423 ]
+  %.1133 = phi i32 [ %331, %328 ], [ %340, %336 ], [ -203, %425 ], [ %345, %423 ], [ %439, %437 ]
   %447 = icmp slt i32 %.1133, 0
   br i1 %447, label %57, label %.critedge.thread
 
@@ -7756,7 +7756,7 @@ read_packet.exit:                                 ; preds = %udp_read_packet.exi
   br label %.thread181
 
 .thread181:                                       ; preds = %325, %435, %425, %332, %85, %.thread181.sink.split, %441, %.critedge.thread, %45, %2
-  %.0 = phi i32 [ -541478725, %2 ], [ 0, %45 ], [ %.1133188, %.critedge.thread ], [ 0, %441 ], [ %.0.ph, %.thread181.sink.split ], [ -11, %325 ], [ -1094995529, %435 ], [ -541478725, %425 ], [ %322, %332 ], [ -12, %85 ]
+  %.0 = phi i32 [ 0, %45 ], [ %.1133188, %.critedge.thread ], [ -541478725, %2 ], [ 0, %441 ], [ %.0.ph, %.thread181.sink.split ], [ %322, %332 ], [ -12, %85 ], [ -1094995529, %435 ], [ -11, %325 ], [ -541478725, %425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -7839,7 +7839,7 @@ define internal range(i32 0, 51) i32 @sdp_probe(ptr noundef readonly captures(no
   br i1 %30, label %11, label %.critedge, !llvm.loop !243
 
 .critedge:                                        ; preds = %17, %26, %.critedge2, %11, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 0, %.critedge2 ], [ 0, %26 ], [ 50, %17 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %26 ], [ 0, %.critedge2 ], [ 0, %11 ], [ 50, %17 ]
   ret i32 %.0
 }
 

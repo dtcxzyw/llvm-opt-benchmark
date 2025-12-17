@@ -105,7 +105,7 @@ define hidden noundef i32 @evutil_open_closeonexec_(ptr noundef readonly capture
   br label %19
 
 19:                                               ; preds = %14, %11, %3, %7, %17
-  %.0 = phi i32 [ -1, %17 ], [ %5, %7 ], [ %5, %3 ], [ -1, %11 ], [ %12, %14 ]
+  %.0 = phi i32 [ -1, %11 ], [ %5, %3 ], [ -1, %17 ], [ %5, %7 ], [ %12, %14 ]
   ret i32 %.0
 }
 
@@ -165,7 +165,7 @@ define range(i32 -2, 1) i32 @evutil_read_file_(ptr noundef readonly captures(non
   br label %evutil_open_closeonexec_.exit.thread
 
 evutil_open_closeonexec_.exit:                    ; preds = %15, %4
-  %.0.i = phi i32 [ %6, %4 ], [ %13, %15 ]
+  %.0.i = phi i32 [ %13, %15 ], [ %6, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i32 @fstat(i32 noundef %.0.i, ptr noundef nonnull %5) #30
   %21 = icmp slt i32 %20, 0
@@ -224,8 +224,8 @@ evutil_open_closeonexec_.exit:                    ; preds = %15, %4
   store ptr %28, ptr %1, align 8
   br label %evutil_open_closeonexec_.exit.thread
 
-evutil_open_closeonexec_.exit.thread:             ; preds = %12, %8, %18, %42, %41, %29, %24
-  %.0 = phi i32 [ -2, %24 ], [ -2, %41 ], [ 0, %42 ], [ -2, %29 ], [ -1, %18 ], [ -1, %8 ], [ -1, %12 ]
+evutil_open_closeonexec_.exit.thread:             ; preds = %8, %18, %12, %42, %41, %29, %24
+  %.0 = phi i32 [ -2, %29 ], [ -2, %24 ], [ -2, %41 ], [ 0, %42 ], [ -1, %12 ], [ -1, %18 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -423,7 +423,7 @@ evutil_make_socket_nonblocking.exit.thread:       ; preds = %14, %16, %3
   br label %.thread22
 
 .thread22:                                        ; preds = %23, %23, %26, %6, %27, %28, %evutil_make_socket_nonblocking.exit.thread
-  %.1 = phi i32 [ 1, %evutil_make_socket_nonblocking.exit.thread ], [ -1, %28 ], [ -1, %27 ], [ -1, %6 ], [ 0, %23 ], [ 0, %23 ], [ 2, %26 ]
+  %.1 = phi i32 [ 1, %evutil_make_socket_nonblocking.exit.thread ], [ -1, %6 ], [ -1, %28 ], [ -1, %27 ], [ 0, %23 ], [ 0, %23 ], [ 2, %26 ]
   ret i32 %.1
 }
 
@@ -460,7 +460,7 @@ define range(i32 -1, 2) i32 @evutil_socket_finished_connecting_(i32 noundef %0) 
   br label %10
 
 10:                                               ; preds = %6, %.fold.split, %1, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %1 ], [ 1, %6 ], [ 0, %.fold.split ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %8 ], [ 1, %6 ], [ 0, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @evutil_v6addr_is_local_(ptr noundef readonly capture
   br label %14
 
 14:                                               ; preds = %11, %8, %2, %1
-  %15 = phi i32 [ 1, %8 ], [ 1, %2 ], [ 1, %1 ], [ %13, %11 ]
+  %15 = phi i32 [ %13, %11 ], [ 1, %8 ], [ 1, %2 ], [ 1, %1 ]
   ret i32 %15
 }
 
@@ -584,8 +584,8 @@ define ptr @evutil_new_addrinfo_(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %29
 
 29:                                               ; preds = %27, %25, %.lr.ph.i
-  %.117.i = phi ptr [ %.01623.i, %27 ], [ null, %25 ], [ %.01524.i, %.lr.ph.i ]
-  %.1.i = phi ptr [ %.025.i, %27 ], [ %19, %25 ], [ %.025.i, %.lr.ph.i ]
+  %.117.i = phi ptr [ null, %25 ], [ %.01623.i, %27 ], [ %.01524.i, %.lr.ph.i ]
+  %.1.i = phi ptr [ %19, %25 ], [ %.025.i, %27 ], [ %.025.i, %.lr.ph.i ]
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
@@ -679,8 +679,8 @@ define void @evutil_freeaddrinfo(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %.lr.ph, %9, %11
-  %.117 = phi ptr [ %.01623, %11 ], [ null, %9 ], [ %.01524, %.lr.ph ]
-  %.1 = phi ptr [ %.025, %11 ], [ %3, %9 ], [ %.025, %.lr.ph ]
+  %.117 = phi ptr [ null, %9 ], [ %.01623, %11 ], [ %.01524, %.lr.ph ]
+  %.1 = phi ptr [ %3, %9 ], [ %.025, %11 ], [ %.025, %.lr.ph ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -816,7 +816,7 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %._crit_edge.i
   br label %evutil_unparse_protoname.exit
 
 evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread, %evutil_getaddrinfo_infer_protocols.exit.thread124, %27, %29, %30, %31, %33
-  %.05.i = phi ptr [ @.str.28, %29 ], [ @.str.29, %30 ], [ %34, %33 ], [ null, %31 ], [ null, %27 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread124 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
+  %.05.i = phi ptr [ null, %27 ], [ @.str.28, %29 ], [ @.str.29, %30 ], [ null, %31 ], [ %34, %33 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread124 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
   br i1 %18, label %evutil_parse_servname.exit, label %35
 
 35:                                               ; preds = %evutil_unparse_protoname.exit
@@ -1088,7 +1088,7 @@ evutil_addrinfo_append_.exit:                     ; preds = %67, %82
   br label %evutil_parse_servname.exit.thread
 
 evutil_parse_servname.exit.thread:                ; preds = %48, %45, %.thread107, %.thread101, %78, %124, %evutil_addrinfo_append_.exit, %65, %19, %5, %127
-  %.055 = phi i32 [ -90002, %127 ], [ -2, %5 ], [ -6, %19 ], [ 0, %evutil_addrinfo_append_.exit ], [ -10, %78 ], [ -10, %65 ], [ -2, %124 ], [ %., %.thread101 ], [ %.81, %.thread107 ], [ -2, %45 ], [ -2, %48 ]
+  %.055 = phi i32 [ %., %.thread101 ], [ -2, %5 ], [ -6, %19 ], [ -2, %124 ], [ -10, %65 ], [ -90002, %127 ], [ %.81, %.thread107 ], [ 0, %evutil_addrinfo_append_.exit ], [ -10, %78 ], [ -2, %45 ], [ -2, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.055
 }
@@ -1146,7 +1146,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton_scope(i32 noundef %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %17, %24, %11, %6
-  %.0 = phi i32 [ %7, %6 ], [ %12, %11 ], [ %26, %24 ], [ 0, %17 ], [ -1, %22 ]
+  %.0 = phi i32 [ %7, %6 ], [ %12, %11 ], [ 0, %17 ], [ %26, %24 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1466,7 +1466,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %111, %113, %.lr.ph, %144, %77, %130, %._crit_edge, %122, %125, %.critedge139, %.critedge136, %39
-  %.2 = phi i32 [ 0, %39 ], [ 0, %.critedge136 ], [ 0, %.critedge139 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ -1, %130 ], [ 0, %77 ], [ 1, %144 ], [ 0, %.lr.ph ], [ 0, %113 ], [ 0, %111 ]
+  %.2 = phi i32 [ 0, %.critedge136 ], [ 0, %39 ], [ 0, %.critedge139 ], [ 0, %._crit_edge ], [ 0, %125 ], [ 0, %122 ], [ -1, %130 ], [ 0, %77 ], [ 1, %144 ], [ 0, %.lr.ph ], [ 0, %113 ], [ 0, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %153
 
@@ -2207,8 +2207,8 @@ evutil_getaddrinfo_infer_protocols.exit.thread.i: ; preds = %92, %80, %79, %78, 
   br label %110
 
 110:                                              ; preds = %108, %106, %.lr.ph.i40
-  %.117.i = phi ptr [ %.01623.i, %108 ], [ null, %106 ], [ %.01524.i, %.lr.ph.i40 ]
-  %.1.i = phi ptr [ %.025.i, %108 ], [ %100, %106 ], [ %.025.i, %.lr.ph.i40 ]
+  %.117.i = phi ptr [ null, %106 ], [ %.01623.i, %108 ], [ %.01524.i, %.lr.ph.i40 ]
+  %.1.i = phi ptr [ %100, %106 ], [ %.025.i, %108 ], [ %.025.i, %.lr.ph.i40 ]
   %.not.i42 = icmp eq ptr %100, null
   br i1 %.not.i42, label %._crit_edge.i43, label %.lr.ph.i40, !llvm.loop !5
 
@@ -2432,7 +2432,7 @@ define ptr @evutil_gai_strerror(i32 noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ %15, %14 ], [ @.str.6, %2 ], [ @.str.7, %3 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.12, %8 ], [ @.str.13, %9 ], [ @.str.14, %10 ], [ @.str.15, %11 ], [ @.str.16, %12 ], [ @.str.17, %13 ], [ @.str.5, %1 ]
+  %.0 = phi ptr [ %15, %14 ], [ @.str.17, %13 ], [ @.str.6, %2 ], [ @.str.7, %3 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.12, %8 ], [ @.str.13, %9 ], [ @.str.14, %10 ], [ @.str.15, %11 ], [ @.str.16, %12 ], [ @.str.5, %1 ]
   ret ptr %.0
 }
 
@@ -2886,8 +2886,8 @@ define range(i32 -1, 1) i32 @evutil_parse_sockaddr_port(ptr noundef %0, ptr noun
   br label %.critedge63.thread.thread79
 
 .critedge63.thread.thread79:                      ; preds = %44, %28, %22
-  %.05072 = phi i16 [ %46, %44 ], [ 0, %22 ], [ 0, %28 ]
-  %.1496870 = phi ptr [ %10, %44 ], [ %10, %22 ], [ %0, %28 ]
+  %.05072 = phi i16 [ 0, %22 ], [ %46, %44 ], [ 0, %28 ]
+  %.1496870 = phi ptr [ %10, %22 ], [ %10, %44 ], [ %0, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, i8 0, i64 20, i1 false)
@@ -2988,7 +2988,7 @@ evutil_inet_pton.exit.thread:                     ; preds = %.critedge63.thread.
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge63.thread, %75, %72, %evutil_inet_pton.exit.thread, %14, %16, %.critedge63, %31, %57
-  %.1 = phi i32 [ %.2, %57 ], [ -1, %31 ], [ -1, %.critedge63 ], [ -1, %16 ], [ -1, %14 ], [ 0, %75 ], [ -1, %72 ], [ -1, %evutil_inet_pton.exit.thread ], [ -1, %.critedge63.thread ]
+  %.1 = phi i32 [ %.2, %57 ], [ -1, %14 ], [ -1, %.critedge63 ], [ -1, %31 ], [ -1, %16 ], [ 0, %75 ], [ -1, %evutil_inet_pton.exit.thread ], [ -1, %72 ], [ -1, %.critedge63.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.1
@@ -3123,7 +3123,7 @@ define i32 @evutil_sockaddr_cmp(ptr noundef readonly captures(none) %0, ptr noun
   br label %42
 
 42:                                               ; preds = %9, %41, %28, %33, %27, %10, %16, %19, %3
-  %.0 = phi i32 [ %8, %3 ], [ 0, %27 ], [ -1, %10 ], [ 1, %16 ], [ %26, %19 ], [ 0, %41 ], [ %31, %28 ], [ %40, %33 ], [ 1, %9 ]
+  %.0 = phi i32 [ %40, %33 ], [ %8, %3 ], [ %26, %19 ], [ 0, %27 ], [ -1, %10 ], [ 1, %16 ], [ 0, %41 ], [ %31, %28 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -3250,7 +3250,7 @@ define range(i32 -1, 2) i32 @evutil_ascii_strcasecmp(ptr noundef readonly captur
   br i1 %18, label %19, label %3
 
 19:                                               ; preds = %17, %15, %3
-  %.0 = phi i32 [ -1, %3 ], [ 1, %15 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %15 ], [ -1, %3 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -3289,7 +3289,7 @@ define range(i32 -1, 2) i32 @evutil_ascii_strncasecmp(ptr noundef readonly captu
   br i1 %21, label %22, label %4, !llvm.loop !19
 
 22:                                               ; preds = %4, %20, %18, %6
-  %.0 = phi i32 [ -1, %6 ], [ 1, %18 ], [ 0, %20 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %20 ], [ -1, %6 ], [ 1, %18 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3351,7 +3351,7 @@ evutil_ascii_strncasecmp.exit.backedge:           ; preds = %18, %12
   br i1 %30, label %evutil_ascii_strncasecmp.exit.thread, label %.preheader, !llvm.loop !19
 
 evutil_ascii_strncasecmp.exit.thread:             ; preds = %evutil_ascii_strncasecmp.exit, %.preheader, %27, %2
-  %.0 = phi ptr [ %0, %2 ], [ %.2, %27 ], [ %.2, %.preheader ], [ null, %evutil_ascii_strncasecmp.exit ]
+  %.0 = phi ptr [ %0, %2 ], [ %.2, %.preheader ], [ %.2, %27 ], [ null, %evutil_ascii_strncasecmp.exit ]
   ret ptr %.0
 }
 
@@ -3572,7 +3572,7 @@ evutil_fast_socket_closeonexec.exit.sink.split:   ; preds = %19, %15
   br label %evutil_fast_socket_closeonexec.exit
 
 evutil_fast_socket_closeonexec.exit:              ; preds = %evutil_fast_socket_closeonexec.exit.sink.split, %19, %evutil_fast_socket_nonblocking.exit, %9, %6, %3
-  %.0 = phi i32 [ %4, %3 ], [ -1, %6 ], [ -1, %9 ], [ %11, %evutil_fast_socket_nonblocking.exit ], [ %11, %19 ], [ -1, %evutil_fast_socket_closeonexec.exit.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ %4, %3 ], [ -1, %6 ], [ %11, %evutil_fast_socket_nonblocking.exit ], [ %11, %19 ], [ -1, %evutil_fast_socket_closeonexec.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -3756,16 +3756,16 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   br label %88
 
 .thread:                                          ; preds = %52, %.split.us, %43, %40, %19, %25, %28, %31, %59
-  %.044.ph = phi i32 [ %.us-phi, %59 ], [ -1, %31 ], [ -1, %28 ], [ -1, %25 ], [ -1, %19 ], [ -1, %40 ], [ -1, %43 ], [ %47, %.split.us ], [ %53, %52 ]
-  %.043.ph = phi i32 [ %29, %59 ], [ %29, %31 ], [ %29, %28 ], [ -1, %25 ], [ -1, %19 ], [ %29, %40 ], [ %29, %43 ], [ %29, %.split.us ], [ %29, %52 ]
+  %.044.ph = phi i32 [ %.us-phi, %59 ], [ -1, %19 ], [ -1, %31 ], [ -1, %28 ], [ -1, %25 ], [ -1, %40 ], [ -1, %43 ], [ %47, %.split.us ], [ %53, %52 ]
+  %.043.ph = phi i32 [ %29, %59 ], [ -1, %19 ], [ %29, %31 ], [ %29, %28 ], [ -1, %25 ], [ %29, %40 ], [ %29, %43 ], [ %29, %.split.us ], [ %29, %52 ]
   %78 = tail call ptr @__errno_location() #31
   %79 = load i32, ptr %78, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %62, %64, %67, %71, %.critedge66, %.thread
-  %.04373 = phi i32 [ %.043.ph, %.thread ], [ %29, %62 ], [ %29, %64 ], [ %29, %67 ], [ %29, %71 ], [ %29, %.critedge66 ]
-  %.04471 = phi i32 [ %.044.ph, %.thread ], [ %.us-phi, %62 ], [ %.us-phi, %64 ], [ %.us-phi, %67 ], [ %.us-phi, %71 ], [ %.us-phi, %.critedge66 ]
-  %.146 = phi i32 [ %79, %.thread ], [ 103, %62 ], [ 103, %64 ], [ 103, %67 ], [ 103, %71 ], [ 103, %.critedge66 ]
+  %.04373 = phi i32 [ %.043.ph, %.thread ], [ %29, %.critedge66 ], [ %29, %62 ], [ %29, %64 ], [ %29, %67 ], [ %29, %71 ]
+  %.04471 = phi i32 [ %.044.ph, %.thread ], [ %.us-phi, %.critedge66 ], [ %.us-phi, %62 ], [ %.us-phi, %64 ], [ %.us-phi, %67 ], [ %.us-phi, %71 ]
+  %.146 = phi i32 [ %79, %.thread ], [ 103, %.critedge66 ], [ 103, %62 ], [ 103, %64 ], [ 103, %67 ], [ 103, %71 ]
   %80 = call i32 @close(i32 noundef %17) #30
   %.not63 = icmp eq i32 %.04373, -1
   br i1 %.not63, label %83, label %81
@@ -3793,7 +3793,7 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   br label %88
 
 88:                                               ; preds = %16, %86, %75, %14, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %86 ], [ 0, %75 ], [ -1, %14 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %14 ], [ -1, %86 ], [ -1, %16 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3857,7 +3857,7 @@ evutil_fast_socket_nonblocking.exit.sink.split:   ; preds = %19, %15
   br label %evutil_fast_socket_nonblocking.exit
 
 evutil_fast_socket_nonblocking.exit:              ; preds = %evutil_fast_socket_nonblocking.exit.sink.split, %19, %evutil_fast_socket_closeonexec.exit, %10, %4, %7
-  %.0 = phi i32 [ %5, %7 ], [ %5, %4 ], [ %11, %10 ], [ %11, %evutil_fast_socket_closeonexec.exit ], [ %11, %19 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
+  %.0 = phi i32 [ %11, %10 ], [ %5, %4 ], [ %5, %7 ], [ %11, %evutil_fast_socket_closeonexec.exit ], [ %11, %19 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -3940,7 +3940,7 @@ evutil_fast_socket_closeonexec.exit17.sink.split: ; preds = %21, %29
   br label %evutil_fast_socket_closeonexec.exit17
 
 evutil_fast_socket_closeonexec.exit17:            ; preds = %evutil_fast_socket_closeonexec.exit17.sink.split, %evutil_fast_socket_closeonexec.exit, %27, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %27 ], [ 0, %evutil_fast_socket_closeonexec.exit ], [ -1, %evutil_fast_socket_closeonexec.exit17.sink.split ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %1 ], [ 0, %evutil_fast_socket_closeonexec.exit ], [ -1, %evutil_fast_socket_closeonexec.exit17.sink.split ]
   ret i32 %.0
 }
 
@@ -3990,7 +3990,7 @@ evutil_fast_socket_nonblocking.exit.sink.split:   ; preds = %15, %11
   br label %evutil_fast_socket_nonblocking.exit
 
 evutil_fast_socket_nonblocking.exit:              ; preds = %evutil_fast_socket_nonblocking.exit.sink.split, %15, %evutil_fast_socket_closeonexec.exit, %6, %2
-  %.0 = phi i32 [ %3, %2 ], [ %7, %6 ], [ %7, %evutil_fast_socket_closeonexec.exit ], [ %7, %15 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
+  %.0 = phi i32 [ %7, %6 ], [ %3, %2 ], [ %7, %evutil_fast_socket_closeonexec.exit ], [ %7, %15 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4051,7 +4051,7 @@ define range(i32 -1, 1) i32 @evutil_set_tcp_keepalive(i32 noundef %0, i32 nounde
   br label %21
 
 21:                                               ; preds = %19, %15, %13, %11, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %9 ], [ 0, %11 ], [ -1, %13 ], [ -1, %15 ], [ %., %19 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %3 ], [ 0, %11 ], [ -1, %13 ], [ %., %19 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

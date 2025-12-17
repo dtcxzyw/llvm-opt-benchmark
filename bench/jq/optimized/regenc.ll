@@ -163,7 +163,7 @@ enc_is_inited.exit.thread:                        ; preds = %11, %8, %enc_is_ini
   store i32 %32, ptr @InitedListNum, align 4, !tbaa !4
   br label %enc_inited_entry.exit.thread
 
-enc_inited_entry.exit.thread:                     ; preds = %._crit_edge.thread.i, %._crit_edge.i, %25, %6, %enc_is_inited.exit, %2, %1
+enc_inited_entry.exit.thread:                     ; preds = %._crit_edge.thread.i, %._crit_edge.i, %25, %enc_is_inited.exit, %6, %2, %1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %.not21 = icmp eq ptr %34, null
@@ -242,7 +242,7 @@ enc_is_inited.exit35.thread:                      ; preds = %38, %35, %enc_is_in
   br label %enc_inited_entry.exit
 
 enc_inited_entry.exit:                            ; preds = %._crit_edge.thread.i36, %._crit_edge.i44, %53, %enc_is_inited.exit.thread, %enc_inited_entry.exit.thread, %enc_is_inited.exit35, %enc_is_inited.exit35.thread
-  %.1 = phi i32 [ %45, %enc_is_inited.exit35.thread ], [ 0, %enc_is_inited.exit35 ], [ 0, %enc_inited_entry.exit.thread ], [ %18, %enc_is_inited.exit.thread ], [ 0, %53 ], [ 0, %._crit_edge.i44 ], [ 0, %._crit_edge.thread.i36 ]
+  %.1 = phi i32 [ 0, %enc_inited_entry.exit.thread ], [ %45, %enc_is_inited.exit35.thread ], [ %18, %enc_is_inited.exit.thread ], [ 0, %enc_is_inited.exit35 ], [ 0, %53 ], [ 0, %._crit_edge.i44 ], [ 0, %._crit_edge.thread.i36 ]
   ret i32 %.1
 }
 
@@ -415,7 +415,7 @@ define dso_local ptr @onigenc_step_back(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %.critedge, label %6, !llvm.loop !28
 
 .critedge:                                        ; preds = %9, %10, %6, %4
-  %.09 = phi ptr [ null, %4 ], [ %.0813, %6 ], [ null, %10 ], [ null, %9 ]
+  %.09 = phi ptr [ null, %4 ], [ null, %10 ], [ %.0813, %6 ], [ null, %9 ]
   ret ptr %.09
 }
 
@@ -599,7 +599,7 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noun
   br i1 %.not17, label %5, label %14
 
 14:                                               ; preds = %5, %12, %6
-  %.014 = phi i32 [ %11, %6 ], [ %13, %12 ], [ 0, %5 ]
+  %.014 = phi i32 [ %13, %12 ], [ %11, %6 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.014
 }
@@ -663,8 +663,8 @@ define dso_local i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr n
   %.not17.i = icmp eq i32 %17, 0
   br i1 %.not17.i, label %9, label %onigenc_ascii_apply_all_case_fold.exit.thread
 
-onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %10, %16
-  %.014.i.ph = phi i32 [ %17, %16 ], [ %15, %10 ]
+onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %16, %10
+  %.014.i.ph = phi i32 [ %15, %10 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -715,7 +715,7 @@ onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %10, %16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.lr.ph, %onigenc_ascii_apply_all_case_fold.exit.thread, %._crit_edge, %18, %31
-  %.029 = phi i32 [ %32, %31 ], [ 0, %18 ], [ 0, %._crit_edge ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ %30, %27 ], [ %26, %.lr.ph ]
+  %.029 = phi i32 [ %32, %31 ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ 0, %18 ], [ 0, %._crit_edge ], [ %26, %.lr.ph ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.029
 }

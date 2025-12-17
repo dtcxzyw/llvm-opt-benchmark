@@ -530,22 +530,22 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %227
   %236 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %237 = icmp eq i32 %236, 1
   %238 = or i1 %spec.select.i.i, %237
-  br i1 %238, label %_ZN14CompilerConfig15is_c1_profilingEv.exit, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i
+  br i1 %238, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %239 = icmp ne i32 %236, 2
-  %240 = and i1 %239, %234
-  br i1 %240, label %246, label %.thread59
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+  %239 = icmp eq i64 %230, 1
+  %240 = select i1 %234, i1 %239, i1 false
+  %241 = xor i1 %234, true
+  %242 = or i1 %240, %241
+  %243 = or i1 %237, %242
+  br i1 %243, label %.thread59, label %246
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %241 = icmp eq i64 %230, 1
-  %242 = select i1 %234, i1 %241, i1 false
-  %243 = xor i1 %234, true
-  %244 = or i1 %242, %243
-  %245 = or i1 %237, %244
-  br i1 %245, label %.thread59, label %246
+  %244 = icmp ne i32 %236, 2
+  %245 = and i1 %244, %234
+  br i1 %245, label %246, label %.thread59
 
-246:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit, %222
+246:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit, %222
   %247 = load ptr, ptr %1, align 8
   %248 = call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %247) #14
   %249 = call i32 @llvm.umin.i32(i32 %248, i32 2147483647)
@@ -563,7 +563,7 @@ _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig
   %258 = zext i16 %257 to i32
   br label %260
 
-.thread59:                                        ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %227
+.thread59:                                        ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, %227
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %259, align 8
   br label %263
@@ -2014,7 +2014,7 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %117, %.critedge.i, 
   br i1 %or.cond, label %131, label %.thread
 
 129:                                              ; preds = %._crit_edge70, %124
-  %or.cond8893 = phi i1 [ %or.cond, %._crit_edge70 ], [ false, %124 ]
+  %or.cond8893 = phi i1 [ false, %124 ], [ %or.cond, %._crit_edge70 ]
   %130 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
   %cond.fr = freeze i1 %or.cond8893
   br i1 %cond.fr, label %131, label %.thread
@@ -2386,7 +2386,7 @@ define hidden noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKl
   br label %82
 
 82:                                               ; preds = %.sink.split, %5, %7, %9, %38, %14, %42, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %42 ], [ false, %14 ], [ false, %38 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %42 ], [ false, %23 ], [ false, %14 ], [ false, %38 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2757,7 +2757,7 @@ _ZN5ciEnv10get_methodEP6Method.exit:              ; preds = %87
   br label %95
 
 95:                                               ; preds = %87, %84, %_ZN11MutexLockerD2Ev.exit, %_ZN5ciEnv10get_methodEP6Method.exit
-  %.1 = phi ptr [ %94, %_ZN5ciEnv10get_methodEP6Method.exit ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ %13, %84 ], [ null, %87 ]
+  %.1 = phi ptr [ %13, %84 ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ %94, %_ZN5ciEnv10get_methodEP6Method.exit ], [ null, %87 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %96 = getelementptr inbounds nuw i8, ptr %33, i64 408
   %97 = load ptr, ptr %96, align 8
@@ -2795,7 +2795,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %95, %101
   br label %115
 
 115:                                              ; preds = %28, %15, %12, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %5 ], [ null, %12 ], [ %13, %15 ], [ %., %28 ]
+  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %5 ], [ null, %12 ], [ %., %28 ], [ %13, %15 ]
   ret ptr %.0
 }
 
@@ -2941,7 +2941,7 @@ _ZN5ciEnv10get_methodEP6Method.exit:              ; preds = %71
   br label %.thread
 
 .thread:                                          ; preds = %50, %54, %79, %69
-  %.026 = phi ptr [ null, %69 ], [ %.0., %79 ], [ null, %54 ], [ null, %50 ]
+  %.026 = phi ptr [ %.0., %79 ], [ null, %69 ], [ null, %54 ], [ null, %50 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #14
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %83 = load ptr, ptr %82, align 8
@@ -3462,7 +3462,7 @@ define hidden noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull alig
   br label %25
 
 25:                                               ; preds = %7, %12, %5, %3
-  %.012 = phi i32 [ %24, %12 ], [ %1, %5 ], [ %1, %3 ], [ 1, %7 ]
+  %.012 = phi i32 [ %24, %12 ], [ %1, %3 ], [ %1, %5 ], [ 1, %7 ]
   ret i32 %.012
 }
 
@@ -3687,7 +3687,7 @@ _ZN5ciEnv15get_method_dataEP10MethodData.exit:    ; preds = %19
   br label %33
 
 33:                                               ; preds = %2, %7, %31, %_ZN5ciEnv15get_method_dataEP10MethodData.exit
-  %.0 = phi i1 [ %30, %_ZN5ciEnv15get_method_dataEP10MethodData.exit ], [ false, %31 ], [ true, %7 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %31 ], [ %30, %_ZN5ciEnv15get_method_dataEP10MethodData.exit ], [ true, %7 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -6644,8 +6644,8 @@ define hidden noundef zeroext i1 @_ZN8ciMethod18is_consistent_infoEPS_S0_(ptr no
   br i1 %or.cond.i.i53.not, label %84, label %.loopexit
 
 84:                                               ; preds = %77, %68, %66, %76, %75
-  %.044 = phi i64 [ 0, %66 ], [ 0, %75 ], [ 0, %76 ], [ 1, %68 ], [ 0, %77 ]
-  %.043 = phi i32 [ 0, %66 ], [ 0, %75 ], [ 0, %76 ], [ 0, %68 ], [ 1, %77 ]
+  %.044 = phi i64 [ 0, %66 ], [ 0, %76 ], [ 0, %75 ], [ 1, %68 ], [ 0, %77 ]
+  %.043 = phi i32 [ 0, %66 ], [ 0, %76 ], [ 0, %75 ], [ 0, %68 ], [ 1, %77 ]
   %85 = sub nsw i32 %61, %.043
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph, label %._crit_edge
@@ -6715,7 +6715,7 @@ _ZL17basic_types_matchP6ciTypeS0_.exit.thread:    ; preds = %92, %_ZL17basic_typ
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL17basic_types_matchP6ciTypeS0_.exit, %110, %77, %75, %68, %67, %54, %31, %.critedge, %19, %114
-  %.042 = phi i1 [ true, %114 ], [ false, %.critedge ], [ %30, %19 ], [ false, %31 ], [ false, %54 ], [ false, %67 ], [ false, %68 ], [ false, %75 ], [ false, %77 ], [ false, %110 ], [ false, %_ZL17basic_types_matchP6ciTypeS0_.exit ]
+  %.042 = phi i1 [ %30, %19 ], [ false, %31 ], [ false, %77 ], [ true, %114 ], [ false, %54 ], [ false, %67 ], [ false, %68 ], [ false, %75 ], [ false, %.critedge ], [ false, %110 ], [ false, %_ZL17basic_types_matchP6ciTypeS0_.exit ]
   ret i1 %.042
 }
 

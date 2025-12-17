@@ -1457,7 +1457,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_9Transpose
   br label %237
 
 237:                                              ; preds = %231, %._crit_edge.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
-  %.072.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %236, %231 ], [ %230, %._crit_edge.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i ]
+  %.072.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %230, %._crit_edge.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i ], [ %236, %231 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i, %shift
   %238 = extractelement <2 x double> %foldExtExtBinop, i64 0
@@ -3042,8 +3042,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %4
   unreachable
 
 26:                                               ; preds = %18, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit, %21
-  %27 = phi ptr [ %20, %18 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %22, %21 ]
-  %28 = phi ptr [ %20, %18 ], [ %14, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %22, %21 ]
+  %27 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %20, %18 ], [ %22, %21 ]
+  %28 = phi ptr [ %14, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %20, %18 ], [ %22, %21 ]
   %29 = icmp samesign ugt i64 %10, 16384
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !64
@@ -4487,7 +4487,7 @@ _ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddE
   br label %183
 
 183:                                              ; preds = %177, %._crit_edge.i.i.i.i.i.i.us
-  %.072.i.i.i.i.i.i.us = phi <2 x double> [ %182, %177 ], [ %176, %._crit_edge.i.i.i.i.i.i.us ]
+  %.072.i.i.i.i.i.i.us = phi <2 x double> [ %176, %._crit_edge.i.i.i.i.i.i.us ], [ %182, %177 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.i.i.us, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.i.i.us, %shift
   %184 = extractelement <2 x double> %foldExtExtBinop, i64 0

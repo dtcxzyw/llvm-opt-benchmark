@@ -643,7 +643,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit295.sink.split: ; preds = %.thread461, %2
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit295
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit295:       ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit295.sink.split, %.thread461, %292
-  %.sroa.048.0 = phi i64 [ 0, %292 ], [ 0, %.thread461 ], [ %304, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit295.sink.split ]
+  %.sroa.048.0 = phi i64 [ 0, %.thread461 ], [ 0, %292 ], [ %304, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit295.sink.split ]
   %sext = shl i64 %.sroa.048.0, 32
   %305 = ashr exact i64 %sext, 32
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1043,7 +1043,7 @@ define noundef i64 @_Z17fast_rv64i_fmax_dP11processor_t6insn_tm(ptr noundef capt
   br label %132
 
 132:                                              ; preds = %124, %.critedge
-  %.sroa.024.0.in = phi ptr [ %84, %.critedge ], [ %spec.select, %124 ]
+  %.sroa.024.0.in = phi ptr [ %spec.select, %124 ], [ %84, %.critedge ]
   %133 = lshr i64 %1, 7
   %134 = and i64 %133, 31
   %.not.i168 = icmp eq i64 %134, 0
@@ -1763,7 +1763,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit312.sink.split: ; preds = %.thread484, %3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit312
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit312:       ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit312.sink.split, %.thread484, %307
-  %.sroa.053.0 = phi i64 [ 0, %307 ], [ 0, %.thread484 ], [ %319, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit312.sink.split ]
+  %.sroa.053.0 = phi i64 [ 0, %.thread484 ], [ 0, %307 ], [ %319, %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit312.sink.split ]
   %sext = shl i64 %.sroa.053.0, 32
   %320 = ashr exact i64 %sext, 32
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -1973,7 +1973,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !44
@@ -2273,7 +2273,7 @@ define noundef i64 @_Z19logged_rv64i_fmax_dP11processor_t6insn_tm(ptr noundef %0
   br label %143
 
 143:                                              ; preds = %135, %.critedge
-  %.sroa.025.0 = phi i64 [ %89, %.critedge ], [ %spec.select, %135 ]
+  %.sroa.025.0 = phi i64 [ %spec.select, %135 ], [ %89, %.critedge ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %145 = lshr i64 %1, 7
@@ -3217,7 +3217,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %318
   br label %416
 
 416:                                              ; preds = %.sink.split, %.thread624, %387
-  %.sroa.084.0 = phi i64 [ 0, %387 ], [ 0, %.thread624 ], [ %415, %.sink.split ]
+  %.sroa.084.0 = phi i64 [ 0, %.thread624 ], [ 0, %387 ], [ %415, %.sink.split ]
   %417 = icmp samesign ugt i64 %333, 15
   br i1 %417, label %418, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit382, !prof !7
 
@@ -3641,7 +3641,7 @@ define noundef i64 @_Z17fast_rv64e_fmax_dP11processor_t6insn_tm(ptr noundef capt
   br label %148
 
 148:                                              ; preds = %140, %139
-  %.sroa.024.0.in = phi ptr [ %84, %139 ], [ %spec.select, %140 ]
+  %.sroa.024.0.in = phi ptr [ %spec.select, %140 ], [ %84, %139 ]
   %.not.i177 = icmp eq i64 %132, 0
   br i1 %.not.i177, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %149
 
@@ -4596,7 +4596,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %324
   br label %431
 
 431:                                              ; preds = %.sink.split, %.thread647, %402
-  %.sroa.089.0 = phi i64 [ 0, %402 ], [ 0, %.thread647 ], [ %430, %.sink.split ]
+  %.sroa.089.0 = phi i64 [ 0, %.thread647 ], [ 0, %402 ], [ %430, %.sink.split ]
   %432 = icmp samesign ugt i64 %348, 15
   br i1 %432, label %433, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit399, !prof !7
 
@@ -5070,7 +5070,7 @@ define noundef i64 @_Z19logged_rv64e_fmax_dP11processor_t6insn_tm(ptr noundef %0
   br label %159
 
 159:                                              ; preds = %151, %150
-  %.sroa.025.0 = phi i64 [ %89, %150 ], [ %spec.select, %151 ]
+  %.sroa.025.0 = phi i64 [ %spec.select, %151 ], [ %89, %150 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %161 = shl nuw nsw i64 %143, 4
@@ -5477,8 +5477,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

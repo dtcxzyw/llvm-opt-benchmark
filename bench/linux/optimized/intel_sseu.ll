@@ -267,9 +267,9 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
   br i1 %87, label %.split6.split, label %.loopexit4, !llvm.loop !20
 
 .loopexit4:                                       ; preds = %.loopexit, %.loopexit.us, %34, %.split6.us, %.split10
-  %88 = phi i8 [ %20, %.split10 ], [ %20, %.split6.us ], [ %35, %34 ], [ %20, %.loopexit.us ], [ %85, %.loopexit ]
-  %89 = phi i8 [ %21, %.split10 ], [ %21, %.split6.us ], [ %35, %34 ], [ %21, %.loopexit.us ], [ %85, %.loopexit ]
-  %90 = phi i8 [ 0, %.split10 ], [ %22, %.split6.us ], [ %35, %34 ], [ %21, %.loopexit.us ], [ %85, %.loopexit ]
+  %88 = phi i8 [ %20, %.split10 ], [ %20, %.split6.us ], [ %20, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
+  %89 = phi i8 [ %21, %.split10 ], [ %21, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
+  %90 = phi i8 [ 0, %.split10 ], [ %22, %.split6.us ], [ %21, %.loopexit.us ], [ %35, %34 ], [ %85, %.loopexit ]
   %91 = add nuw nsw i64 %23, 1
   %92 = load i8, ptr %9, align 8
   %93 = zext i8 %92 to i64
@@ -964,7 +964,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   br i1 %370, label %319, label %.loopexit50, !llvm.loop !43
 
 .loopexit50:                                      ; preds = %366, %308, %300
-  %371 = phi i8 [ 0, %308 ], [ %301, %300 ], [ %368, %366 ]
+  %371 = phi i8 [ %301, %300 ], [ 0, %308 ], [ %368, %366 ]
   %372 = add nuw nsw i64 %302, 1
   %373 = load i8, ptr %286, align 8
   %374 = zext i8 %373 to i64
@@ -1834,8 +1834,8 @@ switch.lookup:                                    ; preds = %1
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9
-  %17 = phi i8 [ 1, %9 ], [ %switch.masked, %switch.lookup ]
-  %18 = phi i8 [ 1, %9 ], [ %switch.masked40, %switch.lookup ]
+  %17 = phi i8 [ %switch.masked, %switch.lookup ], [ 1, %9 ]
+  %18 = phi i8 [ %switch.masked40, %switch.lookup ], [ 1, %9 ]
   store i8 %17, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8

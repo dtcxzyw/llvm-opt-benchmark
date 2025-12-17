@@ -2154,7 +2154,7 @@ define dso_local void @quiet_vmstat() local_unnamed_addr #0 align 16 {
   br i1 %.not8.i, label %.thread7.i, label %45
 
 .thread7.i:                                       ; preds = %34, %30, %15
-  %43 = phi ptr [ %32, %34 ], [ %16, %15 ], [ %16, %30 ]
+  %43 = phi ptr [ %16, %30 ], [ %32, %34 ], [ %16, %15 ]
   %44 = tail call ptr @next_zone(ptr noundef nonnull %17) #19
   %.not6.i = icmp eq ptr %44, null
   br i1 %.not6.i, label %need_update.exit, label %15, !llvm.loop !77
@@ -2723,7 +2723,7 @@ define internal void @vmstat_shepherd(ptr readnone captures(none) %0) #0 align 1
   br i1 %.not8.i, label %.thread7.i, label %58
 
 .thread7.i:                                       ; preds = %47, %43, %.preheader
-  %56 = phi ptr [ %45, %47 ], [ %29, %.preheader ], [ %29, %43 ]
+  %56 = phi ptr [ %29, %43 ], [ %45, %47 ], [ %29, %.preheader ]
   %57 = tail call ptr @next_zone(ptr noundef nonnull %30) #19
   %.not6.i = icmp eq ptr %57, null
   br i1 %.not6.i, label %need_update.exit, label %.preheader, !llvm.loop !77

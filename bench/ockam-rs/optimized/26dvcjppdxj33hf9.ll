@@ -57,12 +57,12 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
-.thread.loopexit:                                 ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h3d28e0cff868f13bE.llvm.1799741712541865863.exit.sink.split.i21", %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i.i19, %31
+.thread.loopexit:                                 ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.i.i.i.i.i19, %31, %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h3d28e0cff868f13bE.llvm.1799741712541865863.exit.sink.split.i21"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-.thread.loopexit.split-lp:                        ; preds = %29, %11, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i, %21
+.thread.loopexit.split-lp:                        ; preds = %11, %_ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i, %29, %21
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -465,7 +465,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$regex_automata..dense_imp..
   ]
 
 "_ZN4core3ptr100drop_in_place$LT$regex_automata..dense_imp..Standard$LT$alloc..vec..Vec$LT$usize$GT$$C$usize$GT$$GT$17h0b13d94f6da9bef7E.llvm.1799741712541865863.exit.sink.split": ; preds = %14, %11, %8, %5
-  %.val3.i.i.i5.sink = phi i64 [ %.val3.i.i.i, %5 ], [ %.val3.i.i.i1, %8 ], [ %.val3.i.i.i3, %11 ], [ %.val3.i.i.i5, %14 ]
+  %.val3.i.i.i5.sink = phi i64 [ %.val3.i.i.i3, %11 ], [ %.val3.i.i.i1, %8 ], [ %.val3.i.i.i, %5 ], [ %.val3.i.i.i5, %14 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.val2.i.i.i6 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10
   %4 = shl nuw i64 %.val3.i.i.i5.sink, 3
@@ -6376,7 +6376,7 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$matchers..Pattern$GT$17h5e17
   ]
 
 "_ZN4core3ptr100drop_in_place$LT$regex_automata..dense_imp..Standard$LT$alloc..vec..Vec$LT$usize$GT$$C$usize$GT$$GT$17h0b13d94f6da9bef7E.llvm.1799741712541865863.exit.sink.split.i": ; preds = %14, %11, %8, %5
-  %.val3.i.i.i5.sink.i = phi i64 [ %.val3.i.i.i.i, %5 ], [ %.val3.i.i.i1.i, %8 ], [ %.val3.i.i.i3.i, %11 ], [ %.val3.i.i.i5.i, %14 ]
+  %.val3.i.i.i5.sink.i = phi i64 [ %.val3.i.i.i3.i, %11 ], [ %.val3.i.i.i1.i, %8 ], [ %.val3.i.i.i.i, %5 ], [ %.val3.i.i.i5.i, %14 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.val2.i.i.i6.i = load ptr, ptr %3, align 8, !alias.scope !2197, !nonnull !10, !noundef !10
   %4 = shl nuw i64 %.val3.i.i.i5.sink.i, 3
@@ -6918,7 +6918,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$
   unreachable
 
 .body:                                            ; preds = %6, %11
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %7, %6 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17ha33e0d27ad5162c0E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #24
           to label %24 unwind label %22
@@ -8603,7 +8603,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$tracing_subscriber..filter..
   br label %"_ZN4core3ptr133drop_in_place$LT$tracing_subscriber..filter..directive..DirectiveSet$LT$tracing_subscriber..filter..env..directive..Directive$GT$$GT$17hdaf03f5a412bf61aE.llvm.1799741712541865863.exit"
 
 .body:                                            ; preds = %18, %14
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %15, %14 ]
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %19, %18 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   invoke void @"_ZN4core3ptr232drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h4f67f5ae7588ad22E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17) #24
           to label %38 unwind label %87
@@ -9956,7 +9956,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$tracing_subscriber..filter..
   ]
 
 "_ZN4core3ptr100drop_in_place$LT$regex_automata..dense_imp..Standard$LT$alloc..vec..Vec$LT$usize$GT$$C$usize$GT$$GT$17h0b13d94f6da9bef7E.llvm.1799741712541865863.exit.sink.split.i.i": ; preds = %14, %11, %8, %5
-  %.val3.i.i.i5.sink.i.i = phi i64 [ %.val3.i.i.i.i.i, %5 ], [ %.val3.i.i.i1.i.i, %8 ], [ %.val3.i.i.i3.i.i, %11 ], [ %.val3.i.i.i5.i.i, %14 ]
+  %.val3.i.i.i5.sink.i.i = phi i64 [ %.val3.i.i.i3.i.i, %11 ], [ %.val3.i.i.i1.i.i, %8 ], [ %.val3.i.i.i.i.i, %5 ], [ %.val3.i.i.i5.i.i, %14 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.val2.i.i.i6.i.i = load ptr, ptr %3, align 8, !alias.scope !3861, !nonnull !10, !noundef !10
   %4 = shl nuw i64 %.val3.i.i.i5.sink.i.i, 3
@@ -12023,7 +12023,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..option..Optio
   ]
 
 "_ZN4core3ptr100drop_in_place$LT$regex_automata..dense_imp..Standard$LT$alloc..vec..Vec$LT$usize$GT$$C$usize$GT$$GT$17h0b13d94f6da9bef7E.llvm.1799741712541865863.exit.sink.split.i.i.i.i.i": ; preds = %20, %17, %14, %11
-  %.val3.i.i.i5.sink.i.i.i.i.i = phi i64 [ %.val3.i.i.i.i.i.i.i.i, %11 ], [ %.val3.i.i.i1.i.i.i.i.i, %14 ], [ %.val3.i.i.i3.i.i.i.i.i, %17 ], [ %.val3.i.i.i5.i.i.i.i.i, %20 ]
+  %.val3.i.i.i5.sink.i.i.i.i.i = phi i64 [ %.val3.i.i.i3.i.i.i.i.i, %17 ], [ %.val3.i.i.i1.i.i.i.i.i, %14 ], [ %.val3.i.i.i.i.i.i.i.i, %11 ], [ %.val3.i.i.i5.i.i.i.i.i, %20 ]
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %.val2.i.i.i6.i.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !4722, !noalias !4712, !nonnull !10, !noundef !10
   %10 = shl nuw i64 %.val3.i.i.i5.sink.i.i.i.i.i, 3

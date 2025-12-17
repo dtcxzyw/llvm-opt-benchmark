@@ -282,8 +282,8 @@ sub_1189:                                         ; preds = %sub_0188
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %35, %.lr.ph.i, %sub_1189, %sub_0188, %sub_1184, %sub_0183, %sub_1179, %sub_0178, %sub_1, %sub_0, %.tail, %30, %._crit_edge.i, %46, %118, %114, %.critedge173, %.critedge171, %.critedge169, %.critedge167, %.critedge165, %49, %3, %17, %103, %90, %.tail187, %.tail182, %.tail177, %20
-  %.1 = phi i32 [ -32, %103 ], [ -32, %90 ], [ -32, %.tail187 ], [ -32, %.tail182 ], [ -32, %.tail177 ], [ -32, %17 ], [ -32, %20 ], [ -26, %3 ], [ -26, %49 ], [ -32, %.critedge165 ], [ -32, %.critedge167 ], [ -32, %.critedge169 ], [ -32, %.critedge171 ], [ -32, %.critedge173 ], [ %117, %114 ], [ %., %118 ], [ -32, %46 ], [ -32, %._crit_edge.i ], [ -32, %30 ], [ -32, %.tail ], [ -32, %sub_0 ], [ -32, %sub_1 ], [ -32, %sub_0178 ], [ -32, %sub_1179 ], [ -32, %sub_0183 ], [ -32, %sub_1184 ], [ -32, %sub_0188 ], [ -32, %sub_1189 ], [ -32, %.lr.ph.i ], [ -32, %35 ]
+.critedge:                                        ; preds = %35, %.lr.ph.i, %sub_1189, %sub_0188, %sub_1184, %sub_0183, %sub_1179, %sub_0178, %sub_1, %sub_0, %.tail, %30, %46, %._crit_edge.i, %118, %114, %.critedge173, %.critedge171, %.critedge169, %.critedge167, %.critedge165, %49, %3, %17, %103, %90, %.tail187, %.tail182, %.tail177, %20
+  %.1 = phi i32 [ -32, %.critedge171 ], [ -32, %20 ], [ -32, %17 ], [ -32, %.critedge173 ], [ %., %118 ], [ %117, %114 ], [ -26, %3 ], [ -32, %103 ], [ -26, %49 ], [ -32, %90 ], [ -32, %.critedge165 ], [ -32, %.tail187 ], [ -32, %.critedge167 ], [ -32, %.tail182 ], [ -32, %.critedge169 ], [ -32, %.tail177 ], [ -32, %._crit_edge.i ], [ -32, %46 ], [ -32, %30 ], [ -32, %sub_1184 ], [ -32, %sub_1 ], [ -32, %sub_1179 ], [ -32, %.tail ], [ -32, %sub_0 ], [ -32, %sub_0178 ], [ -32, %sub_0183 ], [ -32, %sub_0188 ], [ -32, %sub_1189 ], [ -32, %.lr.ph.i ], [ -32, %35 ]
   ret i32 %.1
 }
 
@@ -335,7 +335,7 @@ define internal fastcc noundef ptr @decode_decimal(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %7, %.lr.ph, %2, %._crit_edge, %18, %20
-  %.2 = phi ptr [ %14, %20 ], [ null, %18 ], [ null, %._crit_edge ], [ null, %2 ], [ null, %.lr.ph ], [ null, %7 ]
+  %.2 = phi ptr [ null, %._crit_edge ], [ %14, %20 ], [ null, %18 ], [ null, %2 ], [ null, %.lr.ph ], [ null, %7 ]
   ret ptr %.2
 }
 
@@ -559,7 +559,7 @@ u32_to_string.exit224:                            ; preds = %42
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %95, %85, %80, %69, %59, %34, %14, %11, %.critedge215, %.critedge211, %.critedge207, %.critedge203, %17, %4
-  %.1 = phi i32 [ -31, %4 ], [ %20, %17 ], [ -31, %.critedge203 ], [ -31, %.critedge207 ], [ -31, %.critedge211 ], [ -31, %.critedge215 ], [ -31, %11 ], [ -31, %14 ], [ -31, %34 ], [ -31, %59 ], [ -31, %69 ], [ -31, %80 ], [ -31, %85 ], [ -31, %95 ], [ %spec.select, %99 ]
+  %.1 = phi i32 [ -31, %11 ], [ -31, %4 ], [ -31, %80 ], [ %spec.select, %99 ], [ -31, %85 ], [ %20, %17 ], [ -31, %.critedge203 ], [ -31, %14 ], [ -31, %.critedge207 ], [ -31, %34 ], [ -31, %.critedge211 ], [ -31, %59 ], [ -31, %.critedge215 ], [ -31, %69 ], [ -31, %95 ]
   ret i32 %.1
 }
 

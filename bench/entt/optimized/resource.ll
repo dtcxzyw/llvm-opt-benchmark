@@ -4115,7 +4115,7 @@ _ZN4entt8resourceIiED2Ev.exit323:                 ; preds = %_ZN4entt8resourceIi
   br label %150
 
 150:                                              ; preds = %149, %62, %14
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %149 ], [ %.pn80.pn.pn, %62 ], [ %15, %14 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %149 ], [ %15, %14 ], [ %.pn80.pn.pn, %62 ]
   call void @_ZN4entt8resourceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt8resourceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
@@ -9023,7 +9023,7 @@ _Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit.
   br label %225
 
 _Z21dynamic_resource_castIK7derivedK4baseEN4entt8resourceIT_EERKNS5_IT0_EE.exit: ; preds = %214, %217, %207
-  %220 = phi ptr [ %208, %207 ], [ %.pr300.pre, %217 ], [ %208, %214 ]
+  %220 = phi ptr [ %208, %214 ], [ %208, %207 ], [ %.pr300.pre, %217 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %221 = icmp ne ptr %220, null
   %222 = zext i1 %221 to i8

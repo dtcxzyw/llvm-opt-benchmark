@@ -454,7 +454,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %122
   br label %182
 
 182:                                              ; preds = %148, %175
-  %.pn = phi i64 [ %152, %148 ], [ %179, %175 ]
+  %.pn = phi i64 [ %179, %175 ], [ %152, %148 ]
   %.3127 = getelementptr inbounds nuw i8, ptr %.1125, i64 %.pn
   %.3140 = sub i64 %.1138, %.pn
   %183 = load i32, ptr %8, align 4, !tbaa !13
@@ -475,7 +475,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %122
   br label %.thread187
 
 .thread187:                                       ; preds = %173, %146, %86, %._crit_edge233, %187, %172, %167, %142, %136, %112, %.loopexit, %110, %85
-  %.9 = phi i32 [ 1, %112 ], [ 0, %.loopexit ], [ 0, %110 ], [ 0, %85 ], [ 1, %142 ], [ 0, %136 ], [ 1, %172 ], [ 0, %167 ], [ %189, %187 ], [ 1, %._crit_edge233 ], [ 1, %86 ], [ 1, %146 ], [ 1, %173 ]
+  %.9 = phi i32 [ 1, %._crit_edge233 ], [ 0, %85 ], [ 1, %112 ], [ 0, %.loopexit ], [ 0, %110 ], [ 0, %136 ], [ 1, %142 ], [ 1, %172 ], [ 0, %167 ], [ %189, %187 ], [ 1, %86 ], [ 1, %146 ], [ 1, %173 ]
   ret i32 %.9
 }
 
@@ -1233,17 +1233,17 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonl
   br i1 %.not547, label %.thread, label %413
 
 .thread:                                          ; preds = %438, %150, %97, %339, %375
-  %.0444.ph = phi i32 [ %.3447, %375 ], [ %.3447, %339 ], [ 1, %97 ], [ 1, %150 ], [ %.3447, %438 ]
-  %.1405.ph = phi i32 [ %.32436, %375 ], [ %.27431, %339 ], [ %.5409, %97 ], [ %.9413.ph, %150 ], [ %.41, %438 ]
-  %.1373.ph = phi ptr [ %.27, %375 ], [ %.24, %339 ], [ %.3375, %97 ], [ %.7379, %150 ], [ %.35, %438 ]
+  %.0444.ph = phi i32 [ %.3447, %339 ], [ %.3447, %375 ], [ 1, %150 ], [ 1, %97 ], [ %.3447, %438 ]
+  %.1405.ph = phi i32 [ %.27431, %339 ], [ %.32436, %375 ], [ %.9413.ph, %150 ], [ %.5409, %97 ], [ %.41, %438 ]
+  %.1373.ph = phi ptr [ %.24, %339 ], [ %.27, %375 ], [ %.7379, %150 ], [ %.3375, %97 ], [ %.35, %438 ]
   %440 = icmp ugt i32 %.1405.ph, 16777215
   %.not553591 = icmp ult ptr %.1373.ph, %8
   %or.cond592 = select i1 %440, i1 true, i1 %.not553591
   %spec.select555593 = select i1 %or.cond592, i32 %.0444.ph, i32 0
   br label %.critedge
 
-.critedge:                                        ; preds = %318, %354, %396, %419, %130, %78, %214, %27, %161, %181, %200, %212, %226, %246, %266, %290, %.thread
-  %441 = phi i32 [ %spec.select555593, %.thread ], [ 0, %27 ], [ 0, %246 ], [ 0, %226 ], [ 3, %212 ], [ 0, %200 ], [ 0, %181 ], [ 0, %161 ], [ 0, %266 ], [ 0, %290 ], [ %spec.select, %214 ], [ 0, %78 ], [ 0, %130 ], [ 0, %419 ], [ 0, %396 ], [ 0, %354 ], [ 0, %318 ]
+.critedge:                                        ; preds = %318, %354, %396, %419, %130, %78, %214, %27, %226, %246, %161, %181, %200, %212, %266, %290, %.thread
+  %441 = phi i32 [ %spec.select555593, %.thread ], [ 0, %27 ], [ 3, %212 ], [ %spec.select, %214 ], [ 0, %200 ], [ 0, %181 ], [ 0, %161 ], [ 0, %226 ], [ 0, %246 ], [ 0, %266 ], [ 0, %290 ], [ 0, %354 ], [ 0, %78 ], [ 0, %130 ], [ 0, %419 ], [ 0, %396 ], [ 0, %318 ]
   ret i32 %441
 }
 
@@ -1274,7 +1274,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %22
 
 22:                                               ; preds = %877, %3
-  %.pre = phi i64 [ %.pre.pre, %3 ], [ %875, %877 ]
+  %.pre = phi i64 [ %875, %877 ], [ %.pre.pre, %3 ]
   %23 = load i32, ptr %4, align 4, !tbaa !16
   %24 = icmp eq i32 %23, 0
   %.pre67 = load i32, ptr %16, align 8, !tbaa !15
@@ -2784,7 +2784,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br label %LzmaDec_WriteRem.exit
 
 LzmaDec_WriteRem.exit:                            ; preds = %794, %795, %799, %215, %.critedge, %883
-  %.2 = phi i32 [ 0, %883 ], [ 0, %.critedge ], [ 1, %215 ], [ 1, %799 ], [ 1, %795 ], [ 1, %794 ]
+  %.2 = phi i32 [ 0, %.critedge ], [ 0, %883 ], [ 1, %215 ], [ 1, %799 ], [ 1, %795 ], [ 1, %794 ]
   ret i32 %.2
 }
 
@@ -2982,7 +2982,7 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr noundef captures(none) %0,
   br label %LzmaProps_Decode.exit.thread
 
 LzmaProps_Decode.exit.thread:                     ; preds = %26, %6, %4, %35
-  %.1 = phi i32 [ 0, %35 ], [ 4, %4 ], [ 4, %6 ], [ 2, %26 ]
+  %.1 = phi i32 [ 0, %35 ], [ 4, %6 ], [ 4, %4 ], [ 2, %26 ]
   ret i32 %.1
 }
 
@@ -3080,7 +3080,7 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr noundef captures(none) %0, ptr 
   br label %LzmaProps_Decode.exit.thread
 
 LzmaProps_Decode.exit.thread:                     ; preds = %26, %6, %4, %52, %49
-  %.1 = phi i32 [ 2, %49 ], [ 0, %52 ], [ 4, %4 ], [ 4, %6 ], [ 2, %26 ]
+  %.1 = phi i32 [ 2, %49 ], [ 0, %52 ], [ 4, %6 ], [ 4, %4 ], [ 2, %26 ]
   ret i32 %.1
 }
 
@@ -3178,8 +3178,8 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr noundef captures(none
   call void %56(ptr noundef nonnull %8, ptr noundef %57) #8
   br label %LzmaDec_AllocateProbs.exit.thread
 
-LzmaDec_AllocateProbs.exit.thread:                ; preds = %23, %18, %14, %9, %54
-  %.0 = phi i32 [ %.024, %54 ], [ 6, %9 ], [ 2, %23 ], [ 4, %18 ], [ 4, %14 ]
+LzmaDec_AllocateProbs.exit.thread:                ; preds = %23, %14, %18, %9, %54
+  %.0 = phi i32 [ %.024, %54 ], [ 6, %9 ], [ 2, %23 ], [ 4, %14 ], [ 4, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }

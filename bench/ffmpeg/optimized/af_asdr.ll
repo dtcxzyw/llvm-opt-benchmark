@@ -320,7 +320,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %.not96, label %71, label %.critedge82, !llvm.loop !62
 
 .critedge82:                                      ; preds = %13, %84, %.preheader86, %.critedge80, %80, %66, %41, %53
-  %.1 = phi i32 [ 0, %80 ], [ 0, %66 ], [ %60, %53 ], [ %39, %41 ], [ -1497649742, %.critedge80 ], [ 0, %.preheader86 ], [ -1497649742, %84 ], [ 0, %13 ]
+  %.1 = phi i32 [ -1497649742, %.critedge80 ], [ %39, %41 ], [ 0, %80 ], [ 0, %66 ], [ %60, %53 ], [ 0, %.preheader86 ], [ -1497649742, %84 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

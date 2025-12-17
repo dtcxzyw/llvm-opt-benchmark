@@ -89,7 +89,7 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %48, label %.thread208
 
 .thread208.sink.split:                            ; preds = %41, %31, %27, %25, %9
-  %.sink = phi i32 [ -1, %9 ], [ -2, %25 ], [ -3, %27 ], [ -5, %31 ], [ -8, %41 ]
+  %.sink = phi i32 [ -1, %9 ], [ -3, %27 ], [ -2, %25 ], [ -5, %31 ], [ -8, %41 ]
   store i32 %.sink, ptr %8, align 4, !tbaa !3
   br label %.thread208
 

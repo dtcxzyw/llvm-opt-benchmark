@@ -35,7 +35,7 @@ define hidden range(i32 -114, 1) i32 @psa_generic_status_to_mbedtls(i32 noundef 
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ -114, %2 ], [ -110, %3 ], [ -112, %4 ], [ %0, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ -112, %4 ], [ -114, %2 ], [ -110, %3 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -126,7 +126,7 @@ psa_generic_status_to_mbedtls.exit.fold.split:    ; preds = %1
   br label %psa_generic_status_to_mbedtls.exit
 
 psa_generic_status_to_mbedtls.exit:               ; preds = %1, %psa_generic_status_to_mbedtls.exit.fold.split, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -14464, %2 ], [ -14720, %3 ], [ -14976, %4 ], [ -16128, %5 ], [ -16256, %6 ], [ -16000, %7 ], [ -15872, %8 ], [ -15616, %1 ], [ -1, %11 ], [ -110, %9 ], [ -112, %10 ], [ 0, %psa_generic_status_to_mbedtls.exit.fold.split ]
+  %.0 = phi i32 [ -15616, %1 ], [ -15872, %8 ], [ -14464, %2 ], [ -14720, %3 ], [ -14976, %4 ], [ -16128, %5 ], [ -16256, %6 ], [ -16000, %7 ], [ -1, %11 ], [ -112, %10 ], [ -110, %9 ], [ 0, %psa_generic_status_to_mbedtls.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -213,7 +213,7 @@ define hidden range(i32 0, 14) i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroex
   br label %14
 
 14:                                               ; preds = %12, %11, %8, %3, %13, %10, %9, %7, %6, %5, %4
-  %.0 = phi i32 [ 0, %13 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 7, %9 ], [ 8, %10 ], [ 1, %3 ], [ 6, %8 ], [ %switch.select7, %11 ], [ %switch.select11, %12 ]
+  %.0 = phi i32 [ 0, %13 ], [ %switch.select11, %12 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 1, %3 ], [ 7, %9 ], [ 8, %10 ], [ %switch.select7, %11 ], [ 6, %8 ]
   ret i32 %.0
 }
 
@@ -504,8 +504,8 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   br i1 %40, label %convert_der_to_raw_single_int.exit.thread, label %41
 
 41:                                               ; preds = %38, %33
-  %42 = phi ptr [ %36, %38 ], [ %31, %33 ]
-  %43 = phi i64 [ %37, %38 ], [ %28, %33 ]
+  %42 = phi ptr [ %31, %33 ], [ %36, %38 ]
+  %43 = phi i64 [ %28, %33 ], [ %37, %38 ]
   %44 = icmp ugt i64 %43, %15
   br i1 %44, label %convert_der_to_raw_single_int.exit.thread, label %.thread.i
 
@@ -522,7 +522,7 @@ define hidden i32 @mbedtls_ecdsa_der_to_raw(i64 noundef %0, ptr noundef %1, i64 
   %53 = trunc i64 %52 to i32
   br label %convert_der_to_raw_single_int.exit
 
-convert_der_to_raw_single_int.exit.thread:        ; preds = %30, %27, %38, %41
+convert_der_to_raw_single_int.exit.thread:        ; preds = %27, %38, %30, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %100
@@ -580,8 +580,8 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   br i1 %77, label %convert_der_to_raw_single_int.exit38.thread, label %78
 
 78:                                               ; preds = %75, %70
-  %79 = phi ptr [ %73, %75 ], [ %68, %70 ]
-  %80 = phi i64 [ %74, %75 ], [ %65, %70 ]
+  %79 = phi ptr [ %68, %70 ], [ %73, %75 ]
+  %80 = phi i64 [ %65, %70 ], [ %74, %75 ]
   %81 = icmp ugt i64 %80, %15
   br i1 %81, label %convert_der_to_raw_single_int.exit38.thread, label %.thread.i36
 
@@ -598,7 +598,7 @@ convert_der_to_raw_single_int.exit:               ; preds = %22, %.thread.i
   %90 = trunc i64 %89 to i32
   br label %convert_der_to_raw_single_int.exit38
 
-convert_der_to_raw_single_int.exit38.thread:      ; preds = %67, %64, %75, %78
+convert_der_to_raw_single_int.exit38.thread:      ; preds = %64, %75, %67, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %100
@@ -626,7 +626,7 @@ convert_der_to_raw_single_int.exit38:             ; preds = %55, %.thread.i36
   br label %100
 
 100:                                              ; preds = %convert_der_to_raw_single_int.exit38.thread, %convert_der_to_raw_single_int.exit.thread, %92, %convert_der_to_raw_single_int.exit38, %convert_der_to_raw_single_int.exit, %19, %6, %99
-  %.0 = phi i32 [ 0, %99 ], [ -108, %6 ], [ %21, %19 ], [ %.0.i, %convert_der_to_raw_single_int.exit ], [ %.0.i34, %convert_der_to_raw_single_int.exit38 ], [ -102, %92 ], [ -104, %convert_der_to_raw_single_int.exit.thread ], [ -104, %convert_der_to_raw_single_int.exit38.thread ]
+  %.0 = phi i32 [ 0, %99 ], [ -108, %6 ], [ -102, %92 ], [ %21, %19 ], [ %.0.i, %convert_der_to_raw_single_int.exit ], [ %.0.i34, %convert_der_to_raw_single_int.exit38 ], [ -104, %convert_der_to_raw_single_int.exit.thread ], [ -104, %convert_der_to_raw_single_int.exit38.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

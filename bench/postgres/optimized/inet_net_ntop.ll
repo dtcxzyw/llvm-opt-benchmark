@@ -143,10 +143,10 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   br label %62
 
 62:                                               ; preds = %59, %58, %55
-  %.sroa.16.2.i = phi i32 [ %.sroa.16.1.i, %59 ], [ %.sroa.16.0121.i, %58 ], [ %.sroa.16.0121.i, %55 ]
-  %.sroa.041.2.i = phi i32 [ %.sroa.041.1.i, %59 ], [ %.sroa.041.0122.i, %58 ], [ %.sroa.041.0122.i, %55 ]
-  %.sroa.10.1.i = phi i32 [ %.sroa.10.0123.i, %59 ], [ %.sroa.10.0123.i, %58 ], [ %spec.select101.i, %55 ]
-  %.sroa.0.1.i = phi i32 [ -1, %59 ], [ -1, %58 ], [ %spec.select102.i, %55 ]
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.0121.i, %58 ], [ %.sroa.16.0121.i, %55 ], [ %.sroa.16.1.i, %59 ]
+  %.sroa.041.2.i = phi i32 [ %.sroa.041.0122.i, %58 ], [ %.sroa.041.0122.i, %55 ], [ %.sroa.041.1.i, %59 ]
+  %.sroa.10.1.i = phi i32 [ %.sroa.10.0123.i, %58 ], [ %spec.select101.i, %55 ], [ %.sroa.10.0123.i, %59 ]
+  %.sroa.0.1.i = phi i32 [ -1, %58 ], [ %spec.select102.i, %55 ], [ -1, %59 ]
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next157.i, 8
   br i1 %exitcond159.not.i, label %63, label %.preheader.i10, !llvm.loop !7
@@ -371,7 +371,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
   br label %.loopexit.i12
 
 .thread.i:                                        ; preds = %123, %117, %116
-  %.3107.i = phi ptr [ %118, %123 ], [ %118, %117 ], [ %.084126.i, %116 ]
+  %.3107.i = phi ptr [ %118, %117 ], [ %118, %123 ], [ %.084126.i, %116 ]
   %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv164.i
   %152 = load i32, ptr %151, align 4
   %153 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3107.i, ptr noundef nonnull @.str.2, i32 noundef %152) #8
@@ -386,7 +386,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
   br i1 %exitcond167.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !8
 
 .loopexit.i12:                                    ; preds = %92, %156, %110, %148
-  %.185.i = phi ptr [ %150, %148 ], [ %.286.us136.i, %110 ], [ %.286.i, %156 ], [ %.286.us.i, %92 ]
+  %.185.i = phi ptr [ %150, %148 ], [ %.286.i, %156 ], [ %.286.us136.i, %110 ], [ %.286.us.i, %92 ]
   %157 = icmp eq i32 %69, 8
   %or.cond100.i = and i1 %.not88.i, %157
   br i1 %or.cond100.i, label %158, label %160

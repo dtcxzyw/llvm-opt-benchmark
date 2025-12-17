@@ -988,7 +988,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit98
 
 _ZNSt6vectorIfSaIfEED2Ev.exit98:                  ; preds = %.thread, %194
-  %.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn107, %.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn107, %.thread ], [ %195, %194 ]
   resume { ptr, i32 } %.pn.pn
 
 196:                                              ; preds = %2
@@ -4211,7 +4211,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %236
 
 236:                                              ; preds = %180, %182, %194, %200, %234, %141, %153, %178
-  %.pn72.pn = phi { ptr, i32 } [ %179, %178 ], [ %154, %153 ], [ %142, %141 ], [ %201, %200 ], [ %235, %234 ], [ %195, %194 ], [ %183, %182 ], [ %181, %180 ]
+  %.pn72.pn = phi { ptr, i32 } [ %179, %178 ], [ %142, %141 ], [ %154, %153 ], [ %201, %200 ], [ %235, %234 ], [ %195, %194 ], [ %183, %182 ], [ %181, %180 ]
   call void @_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
   br label %237
 
@@ -5258,7 +5258,7 @@ _ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPPN2cv3MatEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN2cv3MatEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !130
   br label %40
 

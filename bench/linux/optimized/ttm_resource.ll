@@ -936,7 +936,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr nou
   br i1 %107, label %.loopexit, label %.split13, !llvm.loop !14
 
 .loopexit:                                        ; preds = %41, %46, %105, %101, %96, %67, %.loopexit12._crit_edge, %59
-  %108 = phi i1 [ false, %59 ], [ false, %.loopexit12._crit_edge ], [ false, %67 ], [ true, %96 ], [ true, %101 ], [ false, %105 ], [ true, %46 ], [ true, %41 ]
+  %108 = phi i1 [ false, %59 ], [ false, %.loopexit12._crit_edge ], [ false, %67 ], [ false, %105 ], [ true, %96 ], [ true, %101 ], [ true, %46 ], [ true, %41 ]
   ret i1 %108
 }
 

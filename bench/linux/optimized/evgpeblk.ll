@@ -290,13 +290,13 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   br i1 %102, label %.preheader19, label %.loopexit, !llvm.loop !10
 
 103:                                              ; preds = %94, %91
-  %104 = phi i32 [ %92, %91 ], [ %95, %94 ]
+  %104 = phi i32 [ %95, %94 ], [ %92, %91 ]
   call void @kfree(ptr noundef nonnull %46) #6
   call void @kfree(ptr noundef nonnull %56) #6
   br label %105
 
 105:                                              ; preds = %48, %103, %.thread
-  %.ph = phi i32 [ 4, %.thread ], [ %104, %103 ], [ 4, %48 ]
+  %.ph = phi i32 [ 4, %.thread ], [ 4, %48 ], [ %104, %103 ]
   call void @kfree(ptr noundef nonnull %29) #6
   br label %145
 

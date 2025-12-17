@@ -45,7 +45,7 @@ get_default_context.exit.i:                       ; preds = %8, %3
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %1
-  %.0.i4 = phi ptr [ %0, %1 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i4 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %1 ]
   %11 = load ptr, ptr %.0.i4, align 8, !tbaa !3
   %12 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %11) #3
   br label %13
@@ -115,7 +115,7 @@ get_default_context.exit.i:                       ; preds = %8, %3
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %1
-  %.0.i4 = phi ptr [ %0, %1 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i4 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %1 ]
   %11 = load ptr, ptr %.0.i4, align 8, !tbaa !3
   %12 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %11) #3
   br label %13
@@ -155,7 +155,7 @@ get_default_context.exit.i:                       ; preds = %8, %3
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %1
-  %.0.i4 = phi ptr [ %0, %1 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i4 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %1 ]
   %11 = load ptr, ptr %.0.i4, align 8, !tbaa !3
   %12 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %11) #3
   br label %13
@@ -195,7 +195,7 @@ get_default_context.exit.i:                       ; preds = %8, %3
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %1
-  %.0.i5 = phi ptr [ %0, %1 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i5 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 320
   %12 = load i32, ptr %11, align 8, !tbaa !12
   br label %13
@@ -550,7 +550,7 @@ OSSL_LIB_CTX_new_from_dispatch.exit:              ; preds = %OSSL_LIB_CTX_new.ex
   br label %OSSL_LIB_CTX_new_from_dispatch.exit.thread
 
 OSSL_LIB_CTX_new_from_dispatch.exit.thread:       ; preds = %2, %6, %8, %11, %10
-  %.0 = phi ptr [ %3, %11 ], [ null, %10 ], [ null, %8 ], [ null, %6 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %10 ], [ %3, %11 ], [ null, %8 ], [ null, %6 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -749,7 +749,7 @@ get_default_context.exit.i:                       ; preds = %9, %4
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %68
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %2
-  %.0.i24 = phi ptr [ %0, %2 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i24 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %2 ]
   switch i32 %1, label %68 [
     i32 3, label %12
     i32 0, label %15
@@ -867,7 +867,7 @@ ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context
   br label %68
 
 68:                                               ; preds = %get_default_context.exit.i, %ossl_lib_ctx_get_concrete.exit.thread, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12
-  %.0 = phi ptr [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ %67, %66 ], [ null, %ossl_lib_ctx_get_concrete.exit.thread ], [ null, %get_default_context.exit.i ]
+  %.0 = phi ptr [ %67, %66 ], [ null, %get_default_context.exit.i ], [ %14, %12 ], [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %65, %63 ], [ null, %ossl_lib_ctx_get_concrete.exit.thread ]
   ret ptr %.0
 }
 
@@ -1031,7 +1031,7 @@ get_default_context.exit.i:                       ; preds = %8, %3
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %1
-  %.0.i5 = phi ptr [ %0, %1 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i5 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %.0.i5, i64 324
   %12 = load i32, ptr %11, align 4, !tbaa !33
   br label %13
@@ -1069,7 +1069,7 @@ get_default_context.exit.i:                       ; preds = %9, %4
   br i1 %brmerge, label %ossl_lib_ctx_get_concrete.exit.thread, label %13
 
 ossl_lib_ctx_get_concrete.exit.thread:            ; preds = %get_default_context.exit.i, %2
-  %.0.i4 = phi ptr [ %0, %2 ], [ %default_context_int.mux, %get_default_context.exit.i ]
+  %.0.i4 = phi ptr [ %default_context_int.mux, %get_default_context.exit.i ], [ %0, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 324
   store i32 %1, ptr %12, align 4, !tbaa !33
   br label %13

@@ -134,7 +134,7 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   br i1 %49, label %.thread72, label %23
 
 .thread72:                                        ; preds = %23, %.loopexit, %46, %11
-  %.150 = phi i32 [ 0, %11 ], [ %44, %46 ], [ 8, %.loopexit ], [ %44, %23 ]
+  %.150 = phi i32 [ 0, %11 ], [ 8, %.loopexit ], [ %44, %46 ], [ %44, %23 ]
   %50 = load ptr, ptr @main_auth_data, align 8, !tbaa !21
   %.not68 = icmp eq ptr %50, null
   br i1 %.not68, label %52, label %51
@@ -151,7 +151,7 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   br label %54
 
 54:                                               ; preds = %.thread77, %52, %1, %9
-  %.053 = phi i32 [ 2, %9 ], [ 3, %1 ], [ 0, %52 ], [ 4, %.thread77 ]
+  %.053 = phi i32 [ 3, %1 ], [ 2, %9 ], [ 4, %.thread77 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.053

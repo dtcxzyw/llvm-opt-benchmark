@@ -436,7 +436,7 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread17
 
 .thread17:                                        ; preds = %.loopexit18, %193, %200, %.loopexit, %203, %.thread
-  %264 = phi i32 [ %59, %.thread ], [ %209, %203 ], [ %233, %.loopexit ], [ %183, %200 ], [ %183, %193 ], [ %183, %.loopexit18 ]
+  %264 = phi i32 [ %233, %.loopexit ], [ %59, %.thread ], [ %209, %203 ], [ %183, %200 ], [ %183, %193 ], [ %183, %.loopexit18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %264
 }
@@ -1105,7 +1105,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
   br label %371
 
 371:                                              ; preds = %.thread10, %265, %30
-  %372 = phi i32 [ %370, %.thread10 ], [ %288, %265 ], [ -12, %30 ]
+  %372 = phi i32 [ -12, %30 ], [ %370, %.thread10 ], [ %288, %265 ]
   ret i32 %372
 }
 
@@ -1201,8 +1201,8 @@ define internal void @esp_output_done(ptr noundef %0, i32 noundef %1) #0 align 1
   br label %44
 
 .thread5:                                         ; preds = %2, %7, %16, %20, %29, %23
-  %37 = phi i1 [ false, %29 ], [ true, %23 ], [ true, %20 ], [ true, %16 ], [ true, %7 ], [ true, %2 ]
-  %38 = phi ptr [ %27, %29 ], [ null, %23 ], [ null, %20 ], [ null, %16 ], [ null, %7 ], [ null, %2 ]
+  %37 = phi i1 [ true, %23 ], [ false, %29 ], [ true, %20 ], [ true, %16 ], [ true, %7 ], [ true, %2 ]
+  %38 = phi ptr [ null, %23 ], [ %27, %29 ], [ null, %20 ], [ null, %16 ], [ null, %7 ], [ null, %2 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, -2
@@ -1510,8 +1510,8 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
   br label %39
 
 39:                                               ; preds = %.thread9, %36, %31, %16
-  %40 = phi ptr [ %29, %36 ], [ %29, %31 ], [ %29, %16 ], [ %15, %.thread9 ]
-  %41 = phi ptr [ %38, %36 ], [ null, %31 ], [ null, %16 ], [ null, %.thread9 ]
+  %40 = phi ptr [ %29, %36 ], [ %15, %.thread9 ], [ %29, %31 ], [ %29, %16 ]
+  %41 = phi ptr [ %38, %36 ], [ null, %.thread9 ], [ null, %31 ], [ null, %16 ]
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 736
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -1777,7 +1777,7 @@ define dso_local i32 @esp6_input_done2(ptr noundef %0, i32 noundef %1) #0 align 
   br label %263
 
 212:                                              ; preds = %.thread14, %154
-  %213 = phi i32 [ %55, %154 ], [ %177, %.thread14 ]
+  %213 = phi i32 [ %177, %.thread14 ], [ %55, %154 ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %215 = load ptr, ptr %214, align 8
   %216 = load i8, ptr %110, align 8
@@ -2296,7 +2296,7 @@ define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736
   br label %156
 
 156:                                              ; preds = %.thread, %92, %82, %80, %74, %72, %68, %66
-  %157 = phi i32 [ %155, %.thread ], [ -12, %92 ], [ -36, %68 ], [ -36, %66 ], [ -36, %74 ], [ -36, %72 ], [ %78, %82 ], [ %78, %80 ]
+  %157 = phi i32 [ %78, %80 ], [ %155, %.thread ], [ -12, %92 ], [ -36, %68 ], [ -36, %66 ], [ -36, %74 ], [ -36, %72 ], [ %78, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %161
 
@@ -2388,7 +2388,7 @@ define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736
   br label %.thread16
 
 .thread16:                                        ; preds = %188, %190, %158, %160, %195, %161
-  %205 = phi i32 [ %162, %161 ], [ 0, %195 ], [ -22, %160 ], [ -22, %158 ], [ -22, %190 ], [ -22, %188 ]
+  %205 = phi i32 [ %162, %161 ], [ -22, %158 ], [ 0, %195 ], [ -22, %160 ], [ -22, %190 ], [ -22, %188 ]
   ret i32 %205
 }
 

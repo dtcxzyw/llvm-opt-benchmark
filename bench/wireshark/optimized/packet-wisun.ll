@@ -1793,7 +1793,7 @@ dissect_wisun_nrie.exit:                          ; preds = %322, %332
   br label %dissect_wisun_rslie.exit
 
 dissect_wisun_rslie.exit:                         ; preds = %266, %263, %260, %206, %203, %425, %415, %405, %397, %387, %371, %357, %347, %337, %dissect_wisun_nrie.exit, %301, %283, %275, %239, %dissect_wisun_vhie.exit, %dissect_wisun_fcie.exit, %25, %9
-  %.0 = phi i32 [ %434, %425 ], [ 7, %9 ], [ 8, %25 ], [ 5, %dissect_wisun_fcie.exit ], [ %238, %dissect_wisun_vhie.exit ], [ 4, %239 ], [ 11, %275 ], [ 9, %283 ], [ 8, %301 ], [ %.0.i, %dissect_wisun_nrie.exit ], [ 7, %337 ], [ 5, %347 ], [ 10, %357 ], [ 11, %371 ], [ 9, %387 ], [ 5, %397 ], [ 7, %405 ], [ 7, %415 ], [ 4, %203 ], [ 4, %206 ], [ 4, %260 ], [ 4, %263 ], [ 4, %266 ]
+  %.0 = phi i32 [ %434, %425 ], [ 7, %9 ], [ 8, %25 ], [ 5, %dissect_wisun_fcie.exit ], [ 7, %415 ], [ %238, %dissect_wisun_vhie.exit ], [ 4, %239 ], [ 4, %206 ], [ 11, %275 ], [ 9, %283 ], [ 8, %301 ], [ %.0.i, %dissect_wisun_nrie.exit ], [ 7, %337 ], [ 5, %347 ], [ 10, %357 ], [ 11, %371 ], [ 9, %387 ], [ 5, %397 ], [ 7, %405 ], [ 4, %203 ], [ 4, %260 ], [ 4, %263 ], [ 4, %266 ]
   ret i32 %.0
 }
 
@@ -2261,7 +2261,7 @@ dissect_wisun_pomie.exit:                         ; preds = %207, %192
   br label %dissect_wisun_lgtkhashie.exit
 
 dissect_wisun_lgtkhashie.exit:                    ; preds = %314, %272, %256, %254, %125, %143, %160, %175, %dissect_wisun_pomie.exit, %215, %259, %318, %28, %47, %dissect_wisun_vpie.exit, %97, %108
-  %.093 = phi ptr [ %25, %108 ], [ %25, %28 ], [ %25, %47 ], [ %25, %dissect_wisun_vpie.exit ], [ %25, %97 ], [ %123, %318 ], [ %123, %125 ], [ %123, %143 ], [ %123, %160 ], [ %123, %175 ], [ %123, %dissect_wisun_pomie.exit ], [ %123, %215 ], [ %123, %259 ], [ %123, %254 ], [ %123, %256 ], [ %123, %272 ], [ %123, %314 ]
+  %.093 = phi ptr [ %25, %108 ], [ %25, %28 ], [ %25, %47 ], [ %25, %dissect_wisun_vpie.exit ], [ %25, %97 ], [ %123, %318 ], [ %123, %125 ], [ %123, %143 ], [ %123, %160 ], [ %123, %175 ], [ %123, %dissect_wisun_pomie.exit ], [ %123, %215 ], [ %123, %256 ], [ %123, %259 ], [ %123, %254 ], [ %123, %272 ], [ %123, %314 ]
   %330 = call i32 @tvb_reported_length(ptr noundef %.093)
   %331 = add i32 %330, %.099
   %332 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %331)

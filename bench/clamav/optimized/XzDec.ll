@@ -119,7 +119,7 @@ define range(i32 0, 5) i32 @BraState_SetProps(ptr noundef captures(none) initial
   br label %26
 
 26:                                               ; preds = %16, %19, %21, %23, %10, %25
-  %.0 = phi i32 [ 0, %25 ], [ 4, %10 ], [ 4, %23 ], [ 4, %21 ], [ 4, %19 ], [ 4, %16 ]
+  %.0 = phi i32 [ 4, %19 ], [ 0, %25 ], [ 4, %10 ], [ 4, %23 ], [ 4, %21 ], [ 4, %16 ]
   ret i32 %.0
 }
 
@@ -561,7 +561,7 @@ define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr noundef captures(none) %0
   br label %Lzma2State_SetFromMethod.exit
 
 Lzma2State_SetFromMethod.exit:                    ; preds = %28, %23, %14, %9, %20
-  %.0 = phi i32 [ 4, %20 ], [ 0, %14 ], [ 2, %9 ], [ 0, %28 ], [ 2, %23 ]
+  %.0 = phi i32 [ 4, %20 ], [ 2, %9 ], [ 0, %14 ], [ 0, %28 ], [ 2, %23 ]
   ret i32 %.0
 }
 
@@ -743,12 +743,12 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %107
 
-101:                                              ; preds = %98, %58
-  %102 = phi i32 [ %32, %58 ], [ %84, %98 ]
-  %.292.ph = phi ptr [ %.191132, %58 ], [ %.393, %98 ]
-  %.287.ph = phi i32 [ %.186133, %58 ], [ %spec.select102, %98 ]
-  %.181.ph = phi i32 [ %.080134, %58 ], [ %spec.select103, %98 ]
-  %.276.ph = phi ptr [ %.175136, %58 ], [ %.377, %98 ]
+101:                                              ; preds = %58, %98
+  %102 = phi i32 [ %84, %98 ], [ %32, %58 ]
+  %.292.ph = phi ptr [ %.393, %98 ], [ %.191132, %58 ]
+  %.287.ph = phi i32 [ %spec.select102, %98 ], [ %.186133, %58 ]
+  %.181.ph = phi i32 [ %spec.select103, %98 ], [ %.080134, %58 ]
+  %.276.ph = phi ptr [ %.377, %98 ], [ %.175136, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -771,7 +771,7 @@ define i32 @MixCoder_Code(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
   br label %107
 
 107:                                              ; preds = %.thread115, %.split141.us, %.split141.us.thread, %17
-  %.073 = phi i32 [ 2, %17 ], [ 0, %.split141.us.thread ], [ 0, %.split141.us ], [ %71, %.thread115 ]
+  %.073 = phi i32 [ 2, %17 ], [ %71, %.thread115 ], [ 0, %.split141.us.thread ], [ 0, %.split141.us ]
   ret i32 %.073
 }
 
@@ -869,7 +869,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr noundef writeonly captures(none) 
   br i1 %or.cond102, label %.critedge, label %39
 
 39:                                               ; preds = %33, %10
-  %.073 = phi i32 [ 2, %10 ], [ %35, %33 ]
+  %.073 = phi i32 [ %35, %33 ], [ 2, %10 ]
   %.not96 = icmp sgt i8 %12, -1
   br i1 %.not96, label %62, label %40
 
@@ -1038,7 +1038,7 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br i1 %.not98, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %20, %47, %.split.loop.exit18.i120, %.split.loop.exit18.i113, %107, %73, %94, %.preheader, %124, %.split.loop.exit18.i106, %.split.loop.exit18.i, %33, %2
-  %.0 = phi i32 [ 16, %2 ], [ 16, %33 ], [ 16, %.split.loop.exit18.i ], [ 16, %.split.loop.exit18.i106 ], [ 0, %.preheader ], [ 16, %124 ], [ 16, %94 ], [ 16, %73 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %47 ], [ 16, %20 ]
+  %.0 = phi i32 [ 16, %.split.loop.exit18.i ], [ 16, %2 ], [ 16, %33 ], [ 16, %.split.loop.exit18.i106 ], [ 16, %47 ], [ 0, %.preheader ], [ 16, %94 ], [ 16, %73 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %124 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %20 ]
   ret i32 %.0
 }
 
@@ -1991,8 +1991,8 @@ Xz_CheckFooter.exit:                              ; preds = %290
   %.pre = load i64, ptr %4, align 8, !tbaa !26
   br label %41
 
-.thread336:                                       ; preds = %286, %290, %276, %Xz_CheckFooter.exit, %112, %121, %301, %261, %204, %178, %104, %250, %231, %165, %167, %.thread385, %199, %96
-  %.3341 = phi i32 [ 3, %199 ], [ 0, %96 ], [ %.1.ph, %.thread385 ], [ 3, %286 ], [ 3, %290 ], [ 3, %276 ], [ 3, %Xz_CheckFooter.exit ], [ 4, %121 ], [ 17, %112 ], [ %171, %167 ], [ %166, %165 ], [ 3, %231 ], [ 3, %250 ], [ 17, %104 ], [ 3, %178 ], [ 3, %204 ], [ 3, %261 ], [ 17, %301 ]
+.thread336:                                       ; preds = %286, %290, %276, %Xz_CheckFooter.exit, %112, %121, %301, %204, %250, %231, %178, %104, %165, %167, %261, %.thread385, %199, %96
+  %.3341 = phi i32 [ 0, %96 ], [ 3, %199 ], [ %.1.ph, %.thread385 ], [ 3, %286 ], [ 3, %290 ], [ 3, %276 ], [ 3, %Xz_CheckFooter.exit ], [ 17, %112 ], [ 3, %261 ], [ %171, %167 ], [ %166, %165 ], [ 17, %104 ], [ 3, %178 ], [ 3, %231 ], [ 3, %250 ], [ 3, %204 ], [ 4, %121 ], [ 17, %301 ]
   ret i32 %.3341
 }
 

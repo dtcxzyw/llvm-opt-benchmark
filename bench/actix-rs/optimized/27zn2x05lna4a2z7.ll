@@ -1235,8 +1235,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.i.i.i: ; pr
   unreachable
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e5c2224201b0165E.exit.i.i.i.i.i.i": ; preds = %159, %.split.us.i.i.i.i.loopexit1.i.i.i, %.lr.ph.split.split.i.i.i.i
-  %164 = phi i64 [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %136, %.lr.ph.split.split.i.i.i.i ], [ %157, %159 ]
-  %.promoted.i.i.i53.i.i.i.i = phi i64 [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.split.split.i.i.i.i ], [ %157, %159 ]
+  %164 = phi i64 [ %136, %.lr.ph.split.split.i.i.i.i ], [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %157, %159 ]
+  %.promoted.i.i.i53.i.i.i.i = phi i64 [ %.promoted.i.i.i.i.i.i.i, %.lr.ph.split.split.i.i.i.i ], [ %12, %.split.us.i.i.i.i.loopexit1.i.i.i ], [ %157, %159 ]
   store i8 1, ptr %6, align 1, !alias.scope !137, !noalias !118
   %.not.i6.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.fr.i.i.i, %.lcssa222829.i.i.i.i
   %or.cond.not.i.i.i.i.i.i.i = select i1 %22, i1 true, i1 %.not.i6.i.i.i.i.i.i
@@ -1311,10 +1311,10 @@ select.unfold.i.i.i.i:                            ; preds = %165, %"_ZN4core3str
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %123, %83
-  %189 = phi i64 [ %48, %123 ], [ %78, %83 ], [ %166, %.loopexit.loopexit ]
-  %.lcssa6105 = phi i64 [ %.lcssa6108111, %123 ], [ %.lcssa6108111, %83 ], [ %169, %.loopexit.loopexit ]
-  %190 = phi i1 [ true, %123 ], [ true, %83 ], [ %188, %.loopexit.loopexit ]
-  %.us-phi.i.i.i.i = phi i64 [ %127, %123 ], [ %87, %83 ], [ %178, %.loopexit.loopexit ]
+  %189 = phi i64 [ %78, %83 ], [ %48, %123 ], [ %166, %.loopexit.loopexit ]
+  %.lcssa6105 = phi i64 [ %.lcssa6108111, %83 ], [ %.lcssa6108111, %123 ], [ %169, %.loopexit.loopexit ]
+  %190 = phi i1 [ true, %83 ], [ true, %123 ], [ %188, %.loopexit.loopexit ]
+  %.us-phi.i.i.i.i = phi i64 [ %87, %83 ], [ %127, %123 ], [ %178, %.loopexit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.510.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.510.i.i, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !157
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !143

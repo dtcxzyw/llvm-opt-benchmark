@@ -473,7 +473,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
           to label %.lr.ph125 unwind label %208
 
 .lr.ph125:                                        ; preds = %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.noexc89, %._crit_edge
-  %.sroa.095.0144151 = phi ptr [ %105, %._crit_edge ], [ %105, %.noexc89 ], [ null, %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
+  %.sroa.095.0144151 = phi ptr [ %105, %.noexc89 ], [ %105, %._crit_edge ], [ null, %_ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.sroa.speculated108 = call i32 @llvm.smin.i32(i32 %2, i32 %0)
   %153 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %154 = getelementptr inbounds nuw i8, ptr %14, i64 12

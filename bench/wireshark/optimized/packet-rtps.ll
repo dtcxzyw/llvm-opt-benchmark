@@ -2874,7 +2874,7 @@ define hidden void @dissect_rtps_submessages(ptr noundef %0, i32 noundef %1, ptr
   br i1 %or.cond101.i.i, label %.sink.split.i.i, label %189
 
 .sink.split.i.i:                                  ; preds = %186, %184, %182, %180, %178, %176, %174, %156
-  %.str.1104.sink.i.i = phi ptr [ @.str.1103, %156 ], [ @.str.1104, %174 ], [ @.str.1105, %176 ], [ @.str.1106, %178 ], [ @.str.1107, %180 ], [ @.str.1108, %182 ], [ @.str.1109, %184 ], [ @.str.1110, %186 ]
+  %.str.1104.sink.i.i = phi ptr [ @.str.1103, %156 ], [ @.str.1105, %176 ], [ @.str.1107, %180 ], [ @.str.1109, %184 ], [ @.str.1108, %182 ], [ @.str.1106, %178 ], [ @.str.1104, %174 ], [ @.str.1110, %186 ]
   %188 = load ptr, ptr %72, align 8
   call void @col_append_str(ptr noundef %188, i32 noundef 25, ptr noundef nonnull %.str.1104.sink.i.i)
   br label %189
@@ -5885,8 +5885,8 @@ rtps_decrypt_secure_payload.exit.i:               ; preds = %1897, %1903, %1910,
     i16 10, label %1943
   ]
 
-rtps_decrypt_secure_payload.exit.i.thread:        ; preds = %rtps_util_decrypt_data.exit.i.i.thread, %rtps_psk_generate_session_key.exit.i.i, %1888, %rtps_psk_generate_session_key.exit.thread.i.i, %rtps_decrypt_secure_payload.exit.i
-  %.023.i117.i166 = phi ptr [ null, %rtps_decrypt_secure_payload.exit.i ], [ %1889, %rtps_util_decrypt_data.exit.i.i.thread ], [ null, %rtps_psk_generate_session_key.exit.thread.i.i ], [ null, %1888 ], [ null, %rtps_psk_generate_session_key.exit.i.i ]
+rtps_decrypt_secure_payload.exit.i.thread:        ; preds = %rtps_psk_generate_session_key.exit.i.i, %rtps_util_decrypt_data.exit.i.i.thread, %1888, %rtps_psk_generate_session_key.exit.thread.i.i, %rtps_decrypt_secure_payload.exit.i
+  %.023.i117.i166 = phi ptr [ null, %rtps_decrypt_secure_payload.exit.i ], [ null, %rtps_psk_generate_session_key.exit.thread.i.i ], [ %1889, %rtps_util_decrypt_data.exit.i.i.thread ], [ null, %1888 ], [ null, %rtps_psk_generate_session_key.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %1782, i64 12, i1 false)
@@ -6122,7 +6122,7 @@ dissect_rtps_submessage_v2.exit:                  ; preds = %612, %dissect_rtps_
   %2074 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %2073, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef %.0)
   br label %dissect_rtps_submessage_v1.exit.thread
 
-dissect_rtps_submessage_v1.exit.thread:           ; preds = %2046, %1955, %.preheader, %2027, %1786, %1764, %1954, %1757, %1755, %957, %rtps_util_add_fragment_number_set.exit.i, %rtps_util_add_fragment_number_set.exit.thread.i, %851, %dissect_HEADER_EXTENSION.exit, %dissect_DATA_FRAG.exit, %dissect_NOKEY_DATA_FRAG.exit, %960, %dissect_APP_ACK.exit, %dissect_APP_ACK_CONF.exit, %dissect_HEARTBEAT_BATCH.exit, %dissect_HEARTBEAT_FRAG.exit, %dissect_HEARTBEAT_VIRTUAL.exit, %dissect_RTPS_DATA_SESSION.exit, %1385, %dissect_RTPS_DATA_FRAG_kind.exit, %dissect_RTPS_DATA_BATCH.exit, %dissect_SECURE_PREFIX.exit, %2057, %1747, %611, %600, %rtps_util_add_locator_list.exit.i.i, %585, %562, %555, %553, %550, %540, %538, %536, %522, %516, %480, %477, %464, %463, %461, %138, %131, %dissect_NOKEY_DATA.exit.i, %359, %dissect_HEARTBEAT.exit.i, %dissect_GAP.exit.i, %dissect_DATA_v2.exit.i, %dissect_DATA_v1.exit.i, %dissect_rtps_submessage_v2.exit
+dissect_rtps_submessage_v1.exit.thread:           ; preds = %2046, %1955, %.preheader, %2027, %1786, %1764, %1954, %1755, %rtps_util_add_fragment_number_set.exit.i, %rtps_util_add_fragment_number_set.exit.thread.i, %851, %dissect_DATA_FRAG.exit, %dissect_NOKEY_DATA_FRAG.exit, %dissect_HEADER_EXTENSION.exit, %960, %dissect_APP_ACK.exit, %dissect_APP_ACK_CONF.exit, %dissect_HEARTBEAT_BATCH.exit, %dissect_HEARTBEAT_FRAG.exit, %dissect_HEARTBEAT_VIRTUAL.exit, %dissect_RTPS_DATA_SESSION.exit, %1385, %dissect_RTPS_DATA_FRAG_kind.exit, %dissect_RTPS_DATA_BATCH.exit, %1757, %dissect_SECURE_PREFIX.exit, %2057, %957, %1747, %611, %600, %rtps_util_add_locator_list.exit.i.i, %585, %555, %553, %550, %538, %536, %516, %480, %477, %463, %461, %131, %dissect_NOKEY_DATA.exit.i, %359, %dissect_HEARTBEAT.exit.i, %dissect_GAP.exit.i, %138, %464, %522, %540, %562, %dissect_DATA_v2.exit.i, %dissect_DATA_v1.exit.i, %dissect_rtps_submessage_v2.exit
   %2075 = load ptr, ptr %67, align 8
   %.not.i = icmp eq ptr %2075, null
   br i1 %.not.i, label %2078, label %2076
@@ -6733,7 +6733,7 @@ rtps_psk_options_entry_uint32_string_validate.exit31: ; preds = %49
   br label %rtps_psk_options_entry_uint32_string_validate.exit34
 
 rtps_psk_options_entry_uint32_string_validate.exit34: ; preds = %62, %60, %58, %rtps_psk_options_entry_uint32_string_validate.exit31, %rtps_psk_options_entry_uint32_string_validate.exit28, %rtps_psk_options_entry_uint32_string_validate.exit, %28, %24, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %24 ], [ false, %28 ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit28 ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit31 ], [ false, %62 ], [ true, %60 ], [ true, %58 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %24 ], [ false, %28 ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit31 ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit ], [ false, %rtps_psk_options_entry_uint32_string_validate.exit28 ], [ false, %62 ], [ true, %60 ], [ true, %58 ]
   ret i1 %.0
 }
 
@@ -7066,7 +7066,7 @@ switch.early.test:                                ; preds = %28
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %28, %31
-  %32 = phi i1 [ true, %switch.early.test ], [ false, %31 ], [ true, %28 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+  %32 = phi i1 [ false, %31 ], [ true, %switch.early.test ], [ true, %28 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
   ret i1 %32
 }
 
@@ -7261,9 +7261,9 @@ define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr nound
   br label %108
 
 108:                                              ; preds = %105, %103, %101, %99, %96, %107
-  %parameter_id_rti_vals.sink = phi ptr [ @parameter_id_v2_vals, %107 ], [ @parameter_id_vals, %96 ], [ @parameter_id_inline_qos_rti, %99 ], [ @parameter_id_rti_vals, %101 ], [ @parameter_id_toc_vals, %103 ], [ @parameter_id_adl_vals, %105 ]
-  %hf_rtps_parameter_id_rti.sink = phi ptr [ @hf_rtps_parameter_id_v2, %107 ], [ @hf_rtps_parameter_id, %96 ], [ @hf_rtps_parameter_id_inline_rti, %99 ], [ @hf_rtps_parameter_id_rti, %101 ], [ @hf_rtps_parameter_id_toc, %103 ], [ @hf_rtps_parameter_id_adl, %105 ]
-  %.1.sink = phi i32 [ %.1, %107 ], [ 2, %96 ], [ %.1, %99 ], [ %.1, %101 ], [ %.1, %103 ], [ %.1, %105 ]
+  %parameter_id_rti_vals.sink = phi ptr [ @parameter_id_inline_qos_rti, %99 ], [ @parameter_id_vals, %96 ], [ @parameter_id_rti_vals, %101 ], [ @parameter_id_toc_vals, %103 ], [ @parameter_id_v2_vals, %107 ], [ @parameter_id_adl_vals, %105 ]
+  %hf_rtps_parameter_id_rti.sink = phi ptr [ @hf_rtps_parameter_id_inline_rti, %99 ], [ @hf_rtps_parameter_id, %96 ], [ @hf_rtps_parameter_id_rti, %101 ], [ @hf_rtps_parameter_id_toc, %103 ], [ @hf_rtps_parameter_id_v2, %107 ], [ @hf_rtps_parameter_id_adl, %105 ]
+  %.1.sink = phi i32 [ %.1, %99 ], [ 2, %96 ], [ %.1, %101 ], [ %.1, %103 ], [ %.1, %107 ], [ %.1, %105 ]
   %109 = load i32, ptr @ett_rtps_parameter, align 4
   %110 = call ptr @val_to_str(i32 noundef %.0194, ptr noundef nonnull %parameter_id_rti_vals.sink, ptr noundef nonnull @.str.1122)
   %111 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %2, i32 noundef %.1198, i32 noundef -1, i32 noundef %109, ptr noundef nonnull %40, ptr noundef %110)
@@ -11042,8 +11042,8 @@ rtps_util_typecode_id_to_string.exit437.thread464: ; preds = %check_offset_addit
   br label %rtps_util_typecode_id_to_string.exit437.thread
 
 rtps_util_typecode_id_to_string.exit437.thread:   ; preds = %rtps_util_typecode_id_to_string.exit437, %check_offset_addition.exit, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %rtps_util_typecode_id_to_string.exit437.thread464
-  %.0.i436463 = phi ptr [ @.str.1182, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ @.str.1213, %rtps_util_typecode_id_to_string.exit437 ], [ @.str.1189, %130 ], [ @.str.1212, %129 ], [ @.str.436, %128 ], [ @.str.434, %127 ], [ @.str.1187, %126 ], [ @.str.1188, %125 ], [ @.str.1211, %124 ], [ @.str.1210, %123 ], [ @.str.1209, %122 ], [ @.str.1208, %121 ], [ @.str.1207, %120 ], [ @.str.1206, %119 ], [ @.str.1205, %118 ], [ @.str.1204, %117 ], [ @.str.1203, %116 ], [ @.str.1202, %115 ], [ @.str.1201, %114 ], [ @.str.1200, %113 ], [ @.str.1199, %112 ], [ @.str.430, %111 ], [ @.str.426, %check_offset_addition.exit ]
-  %.0412 = phi ptr [ %136, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ null, %rtps_util_typecode_id_to_string.exit437 ], [ null, %130 ], [ null, %129 ], [ null, %128 ], [ null, %127 ], [ null, %126 ], [ null, %125 ], [ null, %124 ], [ null, %123 ], [ null, %122 ], [ null, %121 ], [ null, %120 ], [ null, %119 ], [ null, %118 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %112 ], [ null, %111 ], [ null, %check_offset_addition.exit ]
+  %.0.i436463 = phi ptr [ @.str.1182, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ @.str.1213, %rtps_util_typecode_id_to_string.exit437 ], [ @.str.1212, %129 ], [ @.str.436, %128 ], [ @.str.434, %127 ], [ @.str.1187, %126 ], [ @.str.1188, %125 ], [ @.str.1211, %124 ], [ @.str.1210, %123 ], [ @.str.1209, %122 ], [ @.str.1208, %121 ], [ @.str.1207, %120 ], [ @.str.1206, %119 ], [ @.str.1205, %118 ], [ @.str.1204, %117 ], [ @.str.1203, %116 ], [ @.str.1202, %115 ], [ @.str.1201, %114 ], [ @.str.1200, %113 ], [ @.str.1199, %112 ], [ @.str.430, %111 ], [ @.str.1189, %130 ], [ @.str.426, %check_offset_addition.exit ]
+  %.0412 = phi ptr [ %136, %rtps_util_typecode_id_to_string.exit437.thread464 ], [ null, %rtps_util_typecode_id_to_string.exit437 ], [ null, %129 ], [ null, %128 ], [ null, %127 ], [ null, %126 ], [ null, %125 ], [ null, %124 ], [ null, %123 ], [ null, %122 ], [ null, %121 ], [ null, %120 ], [ null, %119 ], [ null, %118 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %112 ], [ null, %111 ], [ null, %130 ], [ null, %check_offset_addition.exit ]
   %137 = zext i16 %108 to i32
   %138 = add i32 %109, %137
   %139 = load i32, ptr @hf_rtps_union, align 4
@@ -11269,7 +11269,7 @@ check_offset_addition.exit442:                    ; preds = %238
   br label %252
 
 252:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread, %._crit_edge492, %182, %check_offset_addition.exit442, %check_offset_addition.exit441, %rtps_util_typecode_id_to_string.exit.thread450
-  %.0404 = phi i32 [ %30, %rtps_util_typecode_id_to_string.exit ], [ %96, %rtps_util_typecode_id_to_string.exit.thread450 ], [ %78, %check_offset_addition.exit441 ], [ %246, %check_offset_addition.exit442 ], [ %.2.lcssa, %182 ], [ %.6.lcssa, %._crit_edge492 ], [ %30, %rtps_util_typecode_id_to_string.exit.thread ]
+  %.0404 = phi i32 [ %30, %rtps_util_typecode_id_to_string.exit ], [ %246, %check_offset_addition.exit442 ], [ %.2.lcssa, %182 ], [ %96, %rtps_util_typecode_id_to_string.exit.thread450 ], [ %78, %check_offset_addition.exit441 ], [ %.6.lcssa, %._crit_edge492 ], [ %30, %rtps_util_typecode_id_to_string.exit.thread ]
   %.not424 = icmp eq i32 %11, -1
   br i1 %.not424, label %260, label %.thread
 
@@ -12511,7 +12511,7 @@ rtps_util_add_type_element_struct.exit:           ; preds = %._crit_edge.i, %._c
   br label %rtps_util_add_type_element_array.exit
 
 rtps_util_add_type_element_array.exit:            ; preds = %.critedge.i, %.critedge.us.i, %rtps_util_dissect_parameter_header.exit27.i, %241, %rtps_util_dissect_parameter_header.exit30.i, %rtps_util_dissect_parameter_header.exit51.i, %461, %447, %rtps_util_add_type_element_struct.exit, %rtps_util_add_type_element_union.exit, %rtps_util_add_type_element_alias.exit, %rtps_util_add_type_element_enumeration.exit
-  %.0.i = phi i1 [ false, %461 ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_struct.exit ], [ false, %447 ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %241 ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
+  %.0.i = phi i1 [ false, %461 ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ false, %447 ], [ true, %241 ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_struct.exit ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
   %464 = icmp slt i32 %54, %.087
   br i1 %464, label %465, label %check_offset_addition.exit
 
@@ -12693,7 +12693,7 @@ rtps_util_dissect_parameter_header.exit:          ; preds = %5, %14
   br label %34
 
 34:                                               ; preds = %rtps_util_dissect_parameter_header.exit, %32, %33, %27
-  %.sink102 = phi ptr [ %4, %27 ], [ %4, %33 ], [ %4, %32 ], [ null, %rtps_util_dissect_parameter_header.exit ]
+  %.sink102 = phi ptr [ %4, %32 ], [ %4, %27 ], [ %4, %33 ], [ null, %rtps_util_dissect_parameter_header.exit ]
   %35 = add i32 %.093, 2
   %36 = tail call fastcc i32 @rtps_util_add_type_id(ptr noundef %0, ptr noundef %1, i32 noundef %35, i32 noundef %3, i32 noundef %.093, i32 noundef -1, ptr noundef %0, ptr noundef %.sink102)
   %37 = load i32, ptr @hf_rtps_type_object_type_property_name, align 4
@@ -13045,10 +13045,10 @@ rtps_util_get_topic_info.exit:                    ; preds = %12
   br label %.thread
 
 .thread:                                          ; preds = %17, %8
-  %19 = phi ptr [ getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 276), %8 ], [ %18, %17 ]
-  %.0.i5158 = phi ptr [ @builtin_types_dissection_data, %8 ], [ %.fr, %17 ]
-  %.not355256 = phi i1 [ true, %8 ], [ %.not35, %17 ]
-  %20 = phi ptr [ @.str.1281, %8 ], [ %spec.select, %17 ]
+  %19 = phi ptr [ %18, %17 ], [ getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 276), %8 ]
+  %.0.i5158 = phi ptr [ %.fr, %17 ], [ @builtin_types_dissection_data, %8 ]
+  %.not355256 = phi i1 [ %.not35, %17 ], [ true, %8 ]
+  %20 = phi ptr [ %spec.select, %17 ], [ @.str.1281, %8 ]
   %21 = load i32, ptr @ett_rtps_topic_info, align 4
   %22 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %21, ptr noundef null, ptr noundef nonnull %20)
   %23 = load i32, ptr @hf_rtps_param_type_name, align 4
@@ -13988,33 +13988,33 @@ get_native_type_cdr_alignment.exit:               ; preds = %87, %87, %89, %102
 105:                                              ; preds = %get_native_type_cdr_alignment.exit.thread730, %get_native_type_cdr_alignment.exit
   %106 = phi i32 [ %92, %get_native_type_cdr_alignment.exit.thread730 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %107 = icmp eq i32 %5, 1
-  %.neg779 = select i1 %107, i32 -8, i32 -4
+  %.neg782 = select i1 %107, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit561
 
 108:                                              ; preds = %get_native_type_cdr_alignment.exit, %get_native_type_cdr_alignment.exit.thread732
   %109 = phi i32 [ %95, %get_native_type_cdr_alignment.exit.thread732 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %110 = icmp eq i32 %5, 1
-  %.neg780 = select i1 %110, i32 -8, i32 -4
+  %.neg781 = select i1 %110, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit561
 
 111:                                              ; preds = %get_native_type_cdr_alignment.exit.thread728, %get_native_type_cdr_alignment.exit
   %112 = phi i32 [ %98, %get_native_type_cdr_alignment.exit.thread728 ], [ %103, %get_native_type_cdr_alignment.exit ]
   %113 = icmp eq i32 %5, 1
-  %.neg781 = select i1 %113, i32 -8, i32 -4
+  %.neg780 = select i1 %113, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit561
 
 114:                                              ; preds = %get_native_type_cdr_alignment.exit.thread, %get_native_type_cdr_alignment.exit
   %115 = phi i32 [ %101, %get_native_type_cdr_alignment.exit.thread ], [ %103, %get_native_type_cdr_alignment.exit ]
   %116 = icmp eq i32 %5, 1
-  %.neg782 = select i1 %116, i32 -8, i32 -4
+  %.neg779 = select i1 %116, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit561
 
 117:                                              ; preds = %get_native_type_cdr_alignment.exit
   br label %get_native_type_cdr_alignment.exit561
 
 get_native_type_cdr_alignment.exit561:            ; preds = %get_native_type_cdr_alignment.exit, %get_native_type_cdr_alignment.exit, %104, %105, %108, %111, %114, %117
-  %118 = phi i32 [ %103, %117 ], [ %103, %104 ], [ %106, %105 ], [ %109, %108 ], [ %112, %111 ], [ %115, %114 ], [ %103, %get_native_type_cdr_alignment.exit ], [ %103, %get_native_type_cdr_alignment.exit ]
-  %.0.i560.neg = phi i32 [ -1, %117 ], [ -4, %104 ], [ %.neg779, %105 ], [ %.neg780, %108 ], [ %.neg781, %111 ], [ %.neg782, %114 ], [ -2, %get_native_type_cdr_alignment.exit ], [ -2, %get_native_type_cdr_alignment.exit ]
+  %118 = phi i32 [ %103, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %108 ], [ %103, %get_native_type_cdr_alignment.exit ], [ %103, %104 ], [ %103, %get_native_type_cdr_alignment.exit ], [ %106, %105 ]
+  %.0.i560.neg = phi i32 [ -1, %117 ], [ %.neg779, %114 ], [ %.neg780, %111 ], [ %.neg781, %108 ], [ -2, %get_native_type_cdr_alignment.exit ], [ -4, %104 ], [ -2, %get_native_type_cdr_alignment.exit ], [ %.neg782, %105 ]
   %119 = and i32 %.0.i560.neg, %118
   %120 = add i32 %119, %.0481
   %121 = call signext i8 @tvb_get_int8(ptr noundef %1, i32 noundef %120)
@@ -14126,33 +14126,33 @@ get_native_type_cdr_alignment.exit571:            ; preds = %151, %151, %151, %1
 167:                                              ; preds = %get_native_type_cdr_alignment.exit571, %get_native_type_cdr_alignment.exit571.thread737
   %168 = phi i32 [ %155, %get_native_type_cdr_alignment.exit571.thread737 ], [ %166, %get_native_type_cdr_alignment.exit571 ]
   %169 = icmp eq i32 %5, 1
-  %.neg = select i1 %169, i32 -8, i32 -4
+  %.neg774 = select i1 %169, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit573
 
 170:                                              ; preds = %get_native_type_cdr_alignment.exit571, %get_native_type_cdr_alignment.exit571.thread739
   %171 = phi i32 [ %158, %get_native_type_cdr_alignment.exit571.thread739 ], [ %166, %get_native_type_cdr_alignment.exit571 ]
   %172 = icmp eq i32 %5, 1
-  %.neg772 = select i1 %172, i32 -8, i32 -4
+  %.neg773 = select i1 %172, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit573
 
 173:                                              ; preds = %get_native_type_cdr_alignment.exit571.thread735, %get_native_type_cdr_alignment.exit571
   %174 = phi i32 [ %161, %get_native_type_cdr_alignment.exit571.thread735 ], [ %166, %get_native_type_cdr_alignment.exit571 ]
   %175 = icmp eq i32 %5, 1
-  %.neg773 = select i1 %175, i32 -8, i32 -4
+  %.neg772 = select i1 %175, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit573
 
 176:                                              ; preds = %get_native_type_cdr_alignment.exit571.thread, %get_native_type_cdr_alignment.exit571
   %177 = phi i32 [ %164, %get_native_type_cdr_alignment.exit571.thread ], [ %166, %get_native_type_cdr_alignment.exit571 ]
   %178 = icmp eq i32 %5, 1
-  %.neg774 = select i1 %178, i32 -8, i32 -4
+  %.neg = select i1 %178, i32 -8, i32 -4
   br label %get_native_type_cdr_alignment.exit573
 
 179:                                              ; preds = %get_native_type_cdr_alignment.exit571
   br label %get_native_type_cdr_alignment.exit573
 
 get_native_type_cdr_alignment.exit573:            ; preds = %get_native_type_cdr_alignment.exit571, %get_native_type_cdr_alignment.exit571, %get_native_type_cdr_alignment.exit571, %get_native_type_cdr_alignment.exit571, %167, %170, %173, %176, %179
-  %180 = phi i32 [ %166, %179 ], [ %168, %167 ], [ %171, %170 ], [ %174, %173 ], [ %177, %176 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ]
-  %.0.i572.neg = phi i32 [ -1, %179 ], [ %.neg, %167 ], [ %.neg772, %170 ], [ %.neg773, %173 ], [ %.neg774, %176 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ]
+  %180 = phi i32 [ %166, %179 ], [ %177, %176 ], [ %174, %173 ], [ %171, %170 ], [ %168, %167 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ], [ %166, %get_native_type_cdr_alignment.exit571 ]
+  %.0.i572.neg = phi i32 [ -1, %179 ], [ %.neg, %176 ], [ %.neg772, %173 ], [ %.neg773, %170 ], [ %.neg774, %167 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ], [ -4, %get_native_type_cdr_alignment.exit571 ]
   %181 = and i32 %.0.i572.neg, %180
   %182 = add i32 %181, %.0481
   %183 = call i32 @tvb_get_int32(ptr noundef %1, i32 noundef %182, i32 noundef %4)
@@ -14353,7 +14353,7 @@ get_native_type_cdr_alignment.exit573:            ; preds = %get_native_type_cdr
   br label %.thread749
 
 .thread749:                                       ; preds = %283, %270, %294, %288
-  %.16755 = phi i32 [ %291, %294 ], [ %291, %288 ], [ %.2715, %270 ], [ %286, %283 ]
+  %.16755 = phi i32 [ %291, %288 ], [ %291, %294 ], [ %.2715, %270 ], [ %286, %283 ]
   %297 = sub i32 %.16755, %.2715
   call void @proto_item_set_len(ptr noundef %272, i32 noundef %297)
   br label %.loopexit.thread
@@ -14452,7 +14452,7 @@ get_native_type_cdr_alignment.exit573:            ; preds = %get_native_type_cdr
   br label %.thread764
 
 .thread764:                                       ; preds = %331, %319, %309, %338, %.split.us
-  %.18770 = phi i32 [ %335, %338 ], [ %335, %.split.us ], [ %312, %309 ], [ %312, %319 ], [ %.19.ph, %331 ]
+  %.18770 = phi i32 [ %335, %.split.us ], [ %335, %338 ], [ %312, %309 ], [ %312, %319 ], [ %.19.ph, %331 ]
   %341 = sub i32 %.18770, %.2715
   call void @proto_item_set_len(ptr noundef %311, i32 noundef %341)
   br label %.loopexit.thread
@@ -14748,7 +14748,7 @@ proto_item_set_hidden.exit:                       ; preds = %476, %477, %480
   unreachable
 
 dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit598, %rtps_util_dissect_parameter_header.exit599
-  %.0.i593 = phi i32 [ %.0721, %rtps_util_dissect_parameter_header.exit599 ], [ %456, %proto_item_set_hidden.exit598 ], [ %484, %proto_item_set_hidden.exit ]
+  %.0.i593 = phi i32 [ %484, %proto_item_set_hidden.exit ], [ %.0721, %rtps_util_dissect_parameter_header.exit599 ], [ %456, %proto_item_set_hidden.exit598 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %488 = add i32 %.0465823, 1
   %489 = zext nneg i8 %.1468 to i32
@@ -15012,7 +15012,7 @@ proto_item_set_generated.exit103.sink.split:      ; preds = %43, %34
   br label %proto_item_set_generated.exit103
 
 proto_item_set_generated.exit103:                 ; preds = %proto_item_set_generated.exit103.sink.split, %31, %34, %43, %40, %proto_item_set_generated.exit
-  %.192 = phi ptr [ null, %proto_item_set_generated.exit ], [ null, %40 ], [ %42, %43 ], [ %33, %34 ], [ null, %31 ], [ %.192.ph, %proto_item_set_generated.exit103.sink.split ]
+  %.192 = phi ptr [ %33, %34 ], [ null, %proto_item_set_generated.exit ], [ null, %40 ], [ %42, %43 ], [ null, %31 ], [ %.192.ph, %proto_item_set_generated.exit103.sink.split ]
   %49 = load i32, ptr %8, align 4
   %50 = icmp sgt i32 %49, 0
   %or.cond7 = and i1 %6, %50
@@ -17007,8 +17007,8 @@ get_domain_id_from_tcp_discovered_participants.exit162._crit_edge: ; preds = %ge
   br label %144
 
 144:                                              ; preds = %139, %get_domain_id_from_tcp_discovered_participants.exit162._crit_edge, %138
-  %.1143 = phi i32 [ 0, %138 ], [ %137, %get_domain_id_from_tcp_discovered_participants.exit162._crit_edge ], [ %141, %139 ]
-  %.1 = phi i32 [ 1, %138 ], [ 2, %get_domain_id_from_tcp_discovered_participants.exit162._crit_edge ], [ %., %139 ]
+  %.1143 = phi i32 [ %137, %get_domain_id_from_tcp_discovered_participants.exit162._crit_edge ], [ 0, %138 ], [ %141, %139 ]
+  %.1 = phi i32 [ 2, %get_domain_id_from_tcp_discovered_participants.exit162._crit_edge ], [ 1, %138 ], [ %., %139 ]
   %or.cond10 = icmp ugt i32 %.2, 232
   br i1 %or.cond10, label %switch.early.test, label %149
 
@@ -17038,10 +17038,10 @@ switch.early.test:                                ; preds = %144, %149
   ]
 
 .thread191:                                       ; preds = %145, %.thread212, %switch.early.test, %switch.early.test
-  %.0149202 = phi ptr [ %.0149211, %switch.early.test ], [ %.0149211, %switch.early.test ], [ %spec.select217, %.thread212 ], [ @.str.1179, %145 ]
-  %.1147175201 = phi i32 [ %.1147175210, %switch.early.test ], [ %.1147175210, %switch.early.test ], [ %.1147185.ph, %.thread212 ], [ -1, %145 ]
-  %.0142176198 = phi i32 [ %.1143, %switch.early.test ], [ %.1143, %switch.early.test ], [ %.0142186.ph, %.thread212 ], [ %146, %145 ]
-  %.0141177196 = phi i32 [ %.1, %switch.early.test ], [ %.1, %switch.early.test ], [ %.0141187.ph, %.thread212 ], [ %147, %145 ]
+  %.0149202 = phi ptr [ %spec.select217, %.thread212 ], [ %.0149211, %switch.early.test ], [ %.0149211, %switch.early.test ], [ @.str.1179, %145 ]
+  %.1147175201 = phi i32 [ %.1147185.ph, %.thread212 ], [ %.1147175210, %switch.early.test ], [ %.1147175210, %switch.early.test ], [ -1, %145 ]
+  %.0142176198 = phi i32 [ %.0142186.ph, %.thread212 ], [ %.1143, %switch.early.test ], [ %.1143, %switch.early.test ], [ %146, %145 ]
+  %.0141177196 = phi i32 [ %.0141187.ph, %.thread212 ], [ %.1, %switch.early.test ], [ %.1, %switch.early.test ], [ %147, %145 ]
   %151 = load i32, ptr @ett_rtps_default_mapping, align 4
   %152 = call ptr @val_to_str(i32 noundef %.0141177196, ptr noundef nonnull @nature_type_vals, ptr noundef nonnull @.str.1118)
   %153 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %151, ptr noundef null, ptr noundef nonnull @.str.1829, ptr noundef nonnull %.0149202, ptr noundef nonnull %6, i32 noundef %.0142176198, ptr noundef %152)
@@ -17130,7 +17130,7 @@ proto_item_set_generated.exit169:                 ; preds = %proto_item_set_gene
   br label %.critedge
 
 .critedge:                                        ; preds = %87, %12, %10, %4, %proto_item_set_generated.exit169
-  %.0144 = phi i1 [ true, %proto_item_set_generated.exit169 ], [ false, %4 ], [ false, %10 ], [ false, %12 ], [ false, %87 ]
+  %.0144 = phi i1 [ false, %87 ], [ false, %4 ], [ false, %10 ], [ true, %proto_item_set_generated.exit169 ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -178,7 +178,7 @@ define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr noundef readonly captures
   tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.73) #6
   br label %.thread
 
-.loopexit:                                        ; preds = %30, %23, %.lr.ph.i
+.loopexit:                                        ; preds = %30, %.lr.ph.i, %23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %40 = call fastcc i32 @validate_expr(ptr noundef %2, ptr noundef %39, i32 noundef 1)
@@ -408,7 +408,7 @@ validate_body.exit81:                             ; preds = %57
   tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.73) #6
   br label %validate_stmt.exit.thread127
 
-.loopexit:                                        ; preds = %78, %71, %.lr.ph.i
+.loopexit:                                        ; preds = %78, %.lr.ph.i, %71
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !26
   %.not423.i = icmp eq ptr %87, null
@@ -481,7 +481,7 @@ validate_body.exit76:                             ; preds = %94
   tail call void @PyErr_SetString(ptr noundef %118, ptr noundef nonnull @.str.73) #6
   br label %validate_stmt.exit.thread127
 
-.loopexit882:                                     ; preds = %111, %104, %.lr.ph.i841
+.loopexit882:                                     ; preds = %111, %.lr.ph.i841, %104
   %119 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !26
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -509,7 +509,7 @@ validate_body.exit76:                             ; preds = %94
   %.not.i850 = icmp eq i32 %133, 0
   br i1 %.not.i850, label %validate_stmt.exit.thread127, label %125
 
-.loopexit880:                                     ; preds = %125, %.loopexit882, %.lr.ph.split.i
+.loopexit880:                                     ; preds = %125, %.lr.ph.split.i, %.loopexit882
   %134 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %135 = load ptr, ptr %134, align 8, !tbaa !26
   %136 = icmp eq ptr %135, null
@@ -1584,7 +1584,7 @@ validate_body.exit:                               ; preds = %643
   tail call void @PyErr_SetString(ptr noundef %671, ptr noundef nonnull @.str.73) #6
   br label %validate_stmt.exit.thread127
 
-.loopexit891:                                     ; preds = %664, %657, %.lr.ph.i859
+.loopexit891:                                     ; preds = %664, %.lr.ph.i859, %657
   %672 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %673 = load ptr, ptr %672, align 8, !tbaa !26
   %.not344.i = icmp eq ptr %673, null
@@ -1602,7 +1602,7 @@ validate_stmt.exit.thread122:                     ; preds = %51
   store i32 %678, ptr %0, align 4, !tbaa !21
   br label %.thread138
 
-validate_stmt.exit.thread127:                     ; preds = %validate_body.exit, %649, %653, %584, %574, %500, %395, %282, %286, %270, %274, %254, %258, %262, %238, %242, %246, %228, %230, %211, %216, %194, %validate_body.exit76, %100, %validate_body.exit81, %63, %67, %.critedge.us.i863, %.critedge.us.i.i, %.critedge.us.i.i67, %.critedge.us.i845, %.lr.ph20.i, %.critedge.us.i, %.split.us.i865, %.split.us.i847, %.split.us.i, %validate_body.exit.thread, %.critedge.i19, %.critedge.i21, %.critedge.i24, %.critedge.i27, %.split.us.i.i69, %_validate_nonempty_seq.exit.thread.i70, %validate_body.exit76.thread, %validate_body.exit81.thread, %_validate_nonempty_seq.exit.thread.i, %.split.us.i.i
+validate_stmt.exit.thread127:                     ; preds = %validate_body.exit, %649, %653, %584, %574, %500, %395, %282, %286, %270, %274, %254, %258, %262, %238, %242, %246, %228, %230, %211, %216, %194, %validate_body.exit76, %100, %validate_body.exit81, %63, %67, %.critedge.us.i863, %.critedge.us.i.i, %.critedge.us.i.i67, %.critedge.us.i845, %.lr.ph20.i, %.critedge.us.i, %.split.us.i865, %.split.us.i847, %.split.us.i, %validate_body.exit.thread, %.critedge.i19, %.critedge.i21, %.critedge.i24, %.critedge.i27, %.split.us.i.i69, %_validate_nonempty_seq.exit.thread.i70, %validate_body.exit81.thread, %validate_body.exit76.thread, %_validate_nonempty_seq.exit.thread.i, %.split.us.i.i
   %679 = load i32, ptr %0, align 4, !tbaa !21
   %680 = add i32 %679, -1
   store i32 %680, ptr %0, align 4, !tbaa !21
@@ -1614,8 +1614,8 @@ validate_stmt.exit.thread875:                     ; preds = %.critedge.us.i855, 
   store i32 %682, ptr %0, align 4, !tbaa !21
   br label %.thread138
 
-validate_stmt.exit:                               ; preds = %.critedge425.i, %.critedge429.i, %635, %88, %151, %validate_assignlist.exit, %198, %218, %234, %250, %266, %278, %290, %400, %508, %582, %591, %674
-  %.0278.i.ph = phi i32 [ %675, %674 ], [ %592, %591 ], [ %583, %582 ], [ %509, %508 ], [ %401, %400 ], [ %293, %290 ], [ %281, %278 ], [ %269, %266 ], [ %253, %250 ], [ %237, %234 ], [ %221, %218 ], [ %201, %198 ], [ %193, %validate_assignlist.exit ], [ %152, %151 ], [ %89, %88 ], [ %638, %635 ], [ %351, %.critedge429.i ], [ %322, %.critedge425.i ]
+validate_stmt.exit:                               ; preds = %88, %151, %validate_assignlist.exit, %198, %218, %234, %250, %266, %278, %.critedge425.i, %.critedge429.i, %290, %400, %635, %591, %674, %508, %582
+  %.0278.i.ph = phi i32 [ %583, %582 ], [ %509, %508 ], [ %675, %674 ], [ %592, %591 ], [ %638, %635 ], [ %401, %400 ], [ %293, %290 ], [ %351, %.critedge429.i ], [ %322, %.critedge425.i ], [ %281, %278 ], [ %269, %266 ], [ %253, %250 ], [ %237, %234 ], [ %221, %218 ], [ %201, %198 ], [ %193, %validate_assignlist.exit ], [ %152, %151 ], [ %89, %88 ]
   %683 = load i32, ptr %0, align 4, !tbaa !21
   %684 = add i32 %683, -1
   store i32 %684, ptr %0, align 4, !tbaa !21
@@ -1628,7 +1628,7 @@ validate_stmt.exit:                               ; preds = %.critedge425.i, %.c
   tail call void @PyErr_SetString(ptr noundef %685, ptr noundef nonnull @.str.2) #6
   br label %.thread138
 
-.sink.split:                                      ; preds = %_validate_nonempty_seq.exit56, %.lr.ph349, %164, %140, %.lr.ph.i851, %.loopexit880, %51, %51, %51, %.loopexit, %148, %397, %402, %505, %.critedge447.i, %579, %.critedge463.i, %588, %.loopexit891, %.lr.ph.i.i63, %597, %612, %621, %630
+.sink.split:                                      ; preds = %_validate_nonempty_seq.exit56, %.lr.ph349, %164, %140, %.loopexit880, %.lr.ph.i851, %51, %51, %51, %402, %.critedge447.i, %.critedge463.i, %597, %612, %621, %.loopexit, %148, %397, %505, %579, %588, %.loopexit891, %.lr.ph.i.i63, %630
   %686 = load i32, ptr %0, align 4, !tbaa !21
   %687 = add i32 %686, -1
   store i32 %687, ptr %0, align 4, !tbaa !21
@@ -1638,8 +1638,8 @@ validate_stmt.exit:                               ; preds = %.critedge425.i, %.c
   %689 = add nuw i64 %.013, 1
   br label %6, !llvm.loop !73
 
-.thread138:                                       ; preds = %validate_body.exit38, %validate_body.exit48, %352, %validate_stmt.exit, %9, %558, %validate_body.exit33, %484, %validate_body.exit43, %371, %380, %validate_body.exit53, %335, %344, %306, %315, %validate_stmt.exit.thread875, %validate_body.exit33.thread, %validate_body.exit38.thread, %458, %split555, %478, %validate_body.exit43.thread, %validate_body.exit48.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %606, %.critedge453.i, %543, %.critedge437.i, %440, %405, %226, %209, %49, %41, %split, %21, %validate_stmt.exit.thread127, %validate_stmt.exit.thread122, %.critedge
-  %690 = phi i32 [ 0, %.critedge ], [ 0, %validate_stmt.exit.thread122 ], [ 0, %validate_stmt.exit.thread127 ], [ 0, %21 ], [ 0, %split ], [ 0, %41 ], [ 0, %49 ], [ 0, %209 ], [ 0, %226 ], [ 0, %405 ], [ 0, %440 ], [ 0, %.critedge437.i ], [ 0, %543 ], [ 0, %.critedge453.i ], [ 0, %606 ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %validate_body.exit48.thread ], [ 0, %validate_body.exit43.thread ], [ 0, %478 ], [ 0, %split555 ], [ 0, %458 ], [ 0, %validate_body.exit38.thread ], [ 0, %validate_body.exit33.thread ], [ 0, %validate_stmt.exit.thread875 ], [ 0, %315 ], [ 0, %306 ], [ 0, %344 ], [ 0, %335 ], [ 0, %validate_body.exit53 ], [ 0, %380 ], [ 0, %371 ], [ 0, %validate_body.exit43 ], [ 0, %484 ], [ 0, %validate_body.exit33 ], [ 0, %558 ], [ 1, %9 ], [ 0, %validate_stmt.exit ], [ 0, %352 ], [ 0, %validate_body.exit48 ], [ 0, %validate_body.exit38 ]
+.thread138:                                       ; preds = %validate_body.exit48, %352, %validate_body.exit38, %validate_stmt.exit, %9, %558, %validate_body.exit33, %484, %validate_body.exit43, %371, %380, %validate_body.exit53, %344, %335, %315, %306, %validate_stmt.exit.thread875, %validate_body.exit33.thread, %458, %split555, %478, %validate_body.exit43.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %.critedge453.i, %543, %validate_body.exit38.thread, %.critedge437.i, %440, %validate_body.exit48.thread, %405, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %606, %226, %209, %49, %41, %split, %21, %validate_stmt.exit.thread127, %validate_stmt.exit.thread122, %.critedge
+  %690 = phi i32 [ 0, %.critedge ], [ 0, %validate_stmt.exit.thread122 ], [ 0, %validate_stmt.exit.thread127 ], [ 0, %21 ], [ 0, %split ], [ 0, %41 ], [ 0, %49 ], [ 0, %209 ], [ 0, %226 ], [ 0, %606 ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %405 ], [ 0, %validate_body.exit48.thread ], [ 0, %440 ], [ 0, %.critedge437.i ], [ 0, %validate_body.exit38.thread ], [ 0, %543 ], [ 0, %.critedge453.i ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %validate_body.exit43.thread ], [ 0, %478 ], [ 0, %split555 ], [ 0, %458 ], [ 0, %validate_body.exit33.thread ], [ 0, %validate_stmt.exit.thread875 ], [ 0, %558 ], [ 0, %315 ], [ 0, %344 ], [ 0, %371 ], [ 0, %484 ], [ 0, %306 ], [ 0, %335 ], [ 0, %validate_body.exit53 ], [ 0, %380 ], [ 0, %validate_body.exit43 ], [ 0, %validate_body.exit33 ], [ 1, %9 ], [ 0, %validate_stmt.exit ], [ 0, %validate_body.exit38 ], [ 0, %352 ], [ 0, %validate_body.exit48 ]
   ret i32 %690
 }
 
@@ -1747,7 +1747,7 @@ expr_context_name.exit:                           ; preds = %48
   br label %282
 
 52:                                               ; preds = %44, %41, %41, %43
-  %.sink = phi i64 [ 16, %43 ], [ 24, %41 ], [ 24, %41 ], [ 16, %44 ]
+  %.sink = phi i64 [ 16, %44 ], [ 24, %41 ], [ 16, %43 ], [ 24, %41 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load i32, ptr %53, align 8, !tbaa !26
   %.not178 = icmp eq i32 %.0, %2
@@ -2187,15 +2187,15 @@ switch.lookup:                                    ; preds = %52
   tail call void @PyErr_SetString(ptr noundef %279, ptr noundef nonnull @.str.67) #6
   br label %.thread214
 
-.thread214:                                       ; preds = %.critedge, %258, %255, %248, %253, %237, %233, %224, %211, %207, %199, %203, %196, %194, %168, %165, %161, %153, %157, %149, %145, %141, %137, %133, %129, %122, %120, %99, %91, %95, %87, %83, %75, %71, %274, %264, %260, %241, %229, %227, %215, %174, %170, %125, %79, %69, %278
-  %.1 = phi i32 [ 0, %278 ], [ %259, %258 ], [ 1, %255 ], [ 0, %248 ], [ 0, %253 ], [ %240, %237 ], [ 0, %233 ], [ 1, %224 ], [ 1, %211 ], [ %210, %207 ], [ 0, %199 ], [ 0, %203 ], [ %198, %196 ], [ 0, %194 ], [ %169, %168 ], [ 1, %165 ], [ %164, %161 ], [ 0, %153 ], [ 0, %157 ], [ %152, %149 ], [ 0, %145 ], [ %144, %141 ], [ 0, %137 ], [ %136, %133 ], [ 0, %129 ], [ %124, %122 ], [ 0, %120 ], [ %102, %99 ], [ 0, %91 ], [ 0, %95 ], [ %90, %87 ], [ 0, %83 ], [ %78, %75 ], [ 0, %71 ], [ %277, %274 ], [ %267, %264 ], [ %263, %260 ], [ %244, %241 ], [ %232, %229 ], [ %228, %227 ], [ %218, %215 ], [ %177, %174 ], [ %173, %170 ], [ %128, %125 ], [ %82, %79 ], [ %70, %69 ], [ 1, %.critedge ]
+.thread214:                                       ; preds = %.critedge, %258, %255, %248, %253, %233, %199, %203, %194, %165, %153, %157, %145, %137, %129, %120, %91, %95, %83, %71, %274, %264, %260, %237, %241, %224, %229, %211, %227, %215, %207, %196, %168, %174, %170, %161, %149, %141, %133, %122, %125, %99, %87, %75, %79, %69, %278
+  %.1 = phi i32 [ 0, %278 ], [ %259, %258 ], [ 1, %255 ], [ 0, %248 ], [ 0, %253 ], [ 0, %233 ], [ 0, %199 ], [ 0, %203 ], [ 0, %194 ], [ 1, %165 ], [ 0, %153 ], [ 0, %157 ], [ 0, %145 ], [ 0, %137 ], [ 0, %129 ], [ 0, %120 ], [ 0, %91 ], [ 0, %95 ], [ 0, %83 ], [ 0, %71 ], [ %277, %274 ], [ %267, %264 ], [ %263, %260 ], [ %240, %237 ], [ %244, %241 ], [ 1, %224 ], [ %232, %229 ], [ 1, %211 ], [ %228, %227 ], [ %218, %215 ], [ %210, %207 ], [ %198, %196 ], [ %169, %168 ], [ %177, %174 ], [ %173, %170 ], [ %164, %161 ], [ %152, %149 ], [ %144, %141 ], [ %136, %133 ], [ %124, %122 ], [ %128, %125 ], [ %102, %99 ], [ %90, %87 ], [ %78, %75 ], [ %82, %79 ], [ %70, %69 ], [ 1, %.critedge ]
   %280 = load i32, ptr %0, align 4, !tbaa !21
   %281 = add i32 %280, -1
   store i32 %281, ptr %0, align 4, !tbaa !21
   br label %282
 
 282:                                              ; preds = %39, %219, %211, %44, %.thread214, %272, %.thread, %.critedge208, %118, %.critedge206, %switch.lookup, %expr_context_name.exit, %30, %21, %9
-  %.0151 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ 0, %expr_context_name.exit ], [ 0, %switch.lookup ], [ %.1, %.thread214 ], [ 0, %.critedge206 ], [ 0, %118 ], [ 0, %.thread ], [ 0, %.critedge208 ], [ 0, %272 ], [ 0, %44 ], [ 0, %211 ], [ 0, %219 ]
+  %.0151 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ 0, %expr_context_name.exit ], [ 0, %switch.lookup ], [ %.1, %.thread214 ], [ 0, %.critedge206 ], [ 0, %118 ], [ 0, %.thread ], [ 0, %.critedge208 ], [ 0, %44 ], [ 0, %211 ], [ 0, %272 ], [ 0, %219 ]
   ret i32 %.0151
 }
 
@@ -2264,7 +2264,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_exprs(ptr noundef n
   br i1 %24, label %.lr.ph40, label %.thread
 
 .thread:                                          ; preds = %.critedge, %19, %9, %.critedge.us, %4, %.lr.ph.split.split, %.lr.ph.split.us.split, %.split.us
-  %25 = phi i32 [ 0, %.split.us ], [ 1, %4 ], [ 1, %.lr.ph.split.us.split ], [ 1, %.lr.ph.split.split ], [ 1, %9 ], [ 0, %.critedge.us ], [ 1, %.critedge ], [ 0, %19 ]
+  %25 = phi i32 [ 0, %.split.us ], [ 1, %.lr.ph.split.us.split ], [ 1, %9 ], [ 1, %4 ], [ 1, %.lr.ph.split.split ], [ 0, %.critedge.us ], [ 0, %19 ], [ 1, %.critedge ]
   ret i32 %25
 }
 
@@ -2306,7 +2306,7 @@ define hidden ptr @_PyAST_GetDocString(ptr noundef readonly captures(address_is_
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %1, %6, %10, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %10 ], [ null, %1 ], [ %spec.select, %15 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ null, %6 ], [ null, %1 ], [ %spec.select, %15 ]
   ret ptr %.0
 }
 
@@ -2333,7 +2333,7 @@ _validate_nonempty_seq.exit:                      ; preds = %5
   br label %11
 
 11:                                               ; preds = %_validate_nonempty_seq.exit.thread, %_validate_nonempty_seq.exit
-  %12 = phi i32 [ %10, %_validate_nonempty_seq.exit ], [ 0, %_validate_nonempty_seq.exit.thread ]
+  %12 = phi i32 [ 0, %_validate_nonempty_seq.exit.thread ], [ %10, %_validate_nonempty_seq.exit ]
   ret i32 %12
 }
 
@@ -2525,7 +2525,7 @@ validate_name.exit68.i:                           ; preds = %77
   br i1 %.not52.i, label %.critedge, label %validate_typeparam.exit
 
 validate_typeparam.exit:                          ; preds = %validate_name.exit68.i, %validate_name.exit63.i, %59
-  %.sink = phi ptr [ %61, %59 ], [ %73, %validate_name.exit63.i ], [ %85, %validate_name.exit68.i ]
+  %.sink = phi ptr [ %73, %validate_name.exit63.i ], [ %61, %59 ], [ %85, %validate_name.exit68.i ]
   %86 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %.sink, i32 noundef 1)
   %.not14 = icmp eq i32 %86, 0
   br i1 %.not14, label %validate_typeparam.exit.thread, label %.critedge
@@ -2535,7 +2535,7 @@ validate_typeparam.exit:                          ; preds = %validate_name.exit6
   br label %5, !llvm.loop !92
 
 validate_typeparam.exit.thread:                   ; preds = %57, %8, %validate_typeparam.exit, %validate_name.exit68.thread.i, %validate_name.exit63.thread.i, %validate_name.exit.thread.i, %40, %.loopexit, %20
-  %.2 = phi i32 [ 0, %20 ], [ 0, %.loopexit ], [ 0, %40 ], [ 0, %validate_name.exit.thread.i ], [ 0, %validate_name.exit63.thread.i ], [ 0, %validate_name.exit68.thread.i ], [ 0, %57 ], [ 1, %8 ], [ 0, %validate_typeparam.exit ]
+  %.2 = phi i32 [ 0, %validate_name.exit.thread.i ], [ 0, %validate_name.exit63.thread.i ], [ 0, %20 ], [ 0, %.loopexit ], [ 0, %40 ], [ 0, %validate_name.exit68.thread.i ], [ 0, %57 ], [ 1, %8 ], [ 0, %validate_typeparam.exit ]
   ret i32 %.2
 }
 
@@ -2721,13 +2721,13 @@ validate_exprs.exit.split:                        ; preds = %validate_exprs.exit
   br i1 %87, label %.lr.ph62, label %validate_exprs.exit.thread55, !llvm.loop !104
 
 validate_exprs.exit.thread55.sink.split:          ; preds = %.lr.ph60, %63, %47
-  %.str.73.sink = phi ptr [ @.str.42, %47 ], [ @.str.43, %63 ], [ @.str.73, %.lr.ph60 ]
+  %.str.73.sink = phi ptr [ @.str.43, %63 ], [ @.str.42, %47 ], [ @.str.73, %.lr.ph60 ]
   %88 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !31
   tail call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull %.str.73.sink) #6
   br label %validate_exprs.exit.thread55
 
 validate_exprs.exit.thread55:                     ; preds = %.critedge.i, %83, %.critedge.i52, %validate_exprs.exit.thread55.sink.split, %validate_exprs.exit, %validate_exprs.exit.split, %27, %17, %15, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %15 ], [ 0, %17 ], [ 0, %27 ], [ 1, %validate_exprs.exit ], [ 1, %validate_exprs.exit.split ], [ 0, %validate_exprs.exit.thread55.sink.split ], [ 1, %.critedge.i52 ], [ 0, %83 ], [ 0, %.critedge.i ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %17 ], [ 0, %15 ], [ 0, %2 ], [ 0, %5 ], [ 1, %validate_exprs.exit ], [ 1, %validate_exprs.exit.split ], [ 0, %validate_exprs.exit.thread55.sink.split ], [ 1, %.critedge.i52 ], [ 0, %83 ], [ 0, %.critedge.i ]
   ret i32 %.0
 }
 
@@ -2759,7 +2759,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_keywords(ptr nounde
   br i1 %.not, label %.critedge, label %7
 
 .critedge:                                        ; preds = %.lr.ph20, %7, %.lr.ph.split, %2
-  %16 = phi i32 [ 1, %2 ], [ 1, %.lr.ph.split ], [ 1, %7 ], [ 0, %.lr.ph20 ]
+  %16 = phi i32 [ 1, %.lr.ph.split ], [ 1, %2 ], [ 1, %7 ], [ 0, %.lr.ph20 ]
   ret i32 %16
 }
 
@@ -3159,8 +3159,8 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   tail call void @PyErr_SetString(ptr noundef %192, ptr noundef nonnull @.str.55) #6
   br label %.thread159
 
-.thread159:                                       ; preds = %99, %56, %.critedge164, %154, %190, %47, %.thread156, %172, %170, %164, %160, %.thread, %124, %80, %.critedge141, %180, %178, %158, %132, %122, %75, %54, %51, %43, %.thread161
-  %.8 = phi i32 [ 0, %.thread161 ], [ 0, %.thread156 ], [ 1, %172 ], [ 0, %170 ], [ %165, %164 ], [ 1, %160 ], [ 0, %.thread ], [ 0, %124 ], [ 0, %80 ], [ 0, %.critedge141 ], [ %181, %180 ], [ 0, %178 ], [ 0, %158 ], [ 0, %132 ], [ 0, %122 ], [ 0, %75 ], [ 0, %54 ], [ 1, %51 ], [ %46, %43 ], [ 1, %47 ], [ %59, %56 ], [ %105, %.critedge164 ], [ %156, %154 ], [ %191, %190 ], [ 0, %99 ]
+.thread159:                                       ; preds = %99, %56, %.critedge164, %154, %190, %47, %.thread156, %172, %160, %.critedge141, %164, %180, %178, %170, %158, %.thread, %80, %124, %132, %122, %75, %54, %51, %43, %.thread161
+  %.8 = phi i32 [ 0, %.thread161 ], [ %105, %.critedge164 ], [ 0, %.thread156 ], [ %46, %43 ], [ 1, %172 ], [ 1, %160 ], [ 0, %.critedge141 ], [ %165, %164 ], [ %181, %180 ], [ 0, %178 ], [ 0, %170 ], [ 0, %158 ], [ 0, %.thread ], [ 0, %80 ], [ 0, %124 ], [ 1, %47 ], [ 0, %132 ], [ 0, %122 ], [ 1, %51 ], [ 0, %75 ], [ 0, %54 ], [ %59, %56 ], [ %191, %190 ], [ %156, %154 ], [ 0, %99 ]
   %193 = load i32, ptr %0, align 4, !tbaa !21
   %194 = add i32 %193, -1
   store i32 %194, ptr %0, align 4, !tbaa !21
@@ -3293,7 +3293,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_args(ptr noundef no
   br i1 %44, label %.lr.ph80, label %.critedge
 
 .critedge:                                        ; preds = %41, %39, %2, %.lr.ph, %.split, %.split68, %.split73
-  %45 = phi i32 [ 0, %.split73 ], [ 0, %.split68 ], [ 0, %.split ], [ 1, %2 ], [ 1, %.lr.ph ], [ 1, %41 ], [ 0, %39 ]
+  %45 = phi i32 [ 0, %.split68 ], [ 0, %.split ], [ 0, %.split73 ], [ 1, %2 ], [ 1, %.lr.ph ], [ 0, %39 ], [ 1, %41 ]
   ret i32 %45
 }
 
@@ -3425,14 +3425,14 @@ ensure_literal_complex.exit:                      ; preds = %ensure_literal_numb
   %.not.i26.not = icmp eq ptr %.val.pre.i.i, @PyComplex_Type
   br i1 %.not.i26.not, label %ensure_literal_negative.exit.thread32, label %ensure_literal_negative.exit.thread32.sink.split
 
-ensure_literal_negative.exit.thread32.sink.split: ; preds = %ensure_literal_negative.exit, %ensure_literal_complex.exit, %4, %12, %15, %23, %30, %ensure_literal_number.exit.thread.i, %35, %38, %32, %42, %8
-  %.str.57.sink = phi ptr [ @.str.56, %8 ], [ @.str.57, %42 ], [ @.str.57, %32 ], [ @.str.57, %38 ], [ @.str.57, %35 ], [ @.str.57, %ensure_literal_number.exit.thread.i ], [ @.str.57, %30 ], [ @.str.57, %23 ], [ @.str.57, %15 ], [ @.str.57, %12 ], [ @.str.57, %4 ], [ @.str.57, %ensure_literal_complex.exit ], [ @.str.57, %ensure_literal_negative.exit ]
+ensure_literal_negative.exit.thread32.sink.split: ; preds = %ensure_literal_negative.exit, %ensure_literal_complex.exit, %4, %12, %15, %32, %42, %ensure_literal_number.exit.thread.i, %30, %23, %35, %38, %8
+  %.str.57.sink = phi ptr [ @.str.56, %8 ], [ @.str.57, %38 ], [ @.str.57, %35 ], [ @.str.57, %23 ], [ @.str.57, %30 ], [ @.str.57, %ensure_literal_number.exit.thread.i ], [ @.str.57, %42 ], [ @.str.57, %32 ], [ @.str.57, %15 ], [ @.str.57, %12 ], [ @.str.57, %4 ], [ @.str.57, %ensure_literal_complex.exit ], [ @.str.57, %ensure_literal_negative.exit ]
   %47 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !31
   tail call void @PyErr_SetString(ptr noundef %47, ptr noundef nonnull %.str.57.sink) #6
   br label %ensure_literal_negative.exit.thread32
 
 ensure_literal_negative.exit.thread32:            ; preds = %ensure_literal_negative.exit.thread32.sink.split, %19, %ensure_literal_complex.exit, %ensure_literal_negative.exit, %4, %4, %8, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %19 ], [ 0, %ensure_literal_negative.exit.thread32.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 1, %8 ], [ 1, %4 ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %4 ], [ 1, %19 ], [ 0, %ensure_literal_negative.exit.thread32.sink.split ]
   ret i32 %.0
 }
 
@@ -3462,7 +3462,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_patterns(ptr nounde
   br i1 %.not.not, label %.critedge, label %8
 
 .critedge:                                        ; preds = %.lr.ph24, %8, %.lr.ph.split, %3
-  %15 = phi i32 [ 1, %3 ], [ 1, %.lr.ph.split ], [ 1, %8 ], [ 0, %.lr.ph24 ]
+  %15 = phi i32 [ 1, %.lr.ph.split ], [ 1, %3 ], [ 1, %8 ], [ 0, %.lr.ph24 ]
   ret i32 %15
 }
 
@@ -3571,13 +3571,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
   br i1 %34, label %9, label %.thread, !llvm.loop !124
 
 .thread.sink.split:                               ; preds = %.lr.ph35, %4, %2
-  %.str.73.sink = phi ptr [ @.str.71, %2 ], [ @.str.71, %4 ], [ @.str.73, %.lr.ph35 ]
+  %.str.73.sink = phi ptr [ @.str.71, %4 ], [ @.str.71, %2 ], [ @.str.73, %.lr.ph35 ]
   %35 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !31
   tail call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull %.str.73.sink) #6
   br label %.thread
 
 .thread:                                          ; preds = %.critedge25, %9, %14, %.critedge.i, %.thread.sink.split, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %.critedge.i ], [ 1, %.critedge25 ], [ 0, %9 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %.critedge.i ], [ 0, %9 ], [ 1, %.critedge25 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -3741,8 +3741,8 @@ Py_DECREF.exit47:                                 ; preds = %49, %50, %53
   %61 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %59, ptr noundef nonnull @.str.72, ptr noundef %60) #6
   br label %Py_DECREF.exit.thread
 
-Py_DECREF.exit.thread:                            ; preds = %40, %37, %Py_DECREF.exit41, %27, %24, %23, %56, %58, %Py_DECREF.exit47, %16, %5, %2, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %2 ], [ 1, %5 ], [ 1, %Py_DECREF.exit47 ], [ 0, %16 ], [ 0, %58 ], [ 0, %56 ], [ 0, %23 ], [ 0, %24 ], [ 0, %27 ], [ 0, %Py_DECREF.exit41 ], [ 0, %37 ], [ 0, %40 ]
+Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit41, %24, %23, %40, %27, %56, %58, %Py_DECREF.exit47, %16, %5, %2, %14
+  %.0 = phi i32 [ 0, %16 ], [ 1, %2 ], [ 0, %14 ], [ 1, %5 ], [ 0, %40 ], [ 0, %23 ], [ 0, %24 ], [ 0, %Py_DECREF.exit41 ], [ 0, %37 ], [ 1, %Py_DECREF.exit47 ], [ 0, %56 ], [ 0, %58 ], [ 0, %27 ]
   ret i32 %.0
 }
 

@@ -808,7 +808,7 @@ _ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elem
   br label %95
 
 95:                                               ; preds = %33, %40, %72, %70, %56, %93, %31
-  %.pn24.pn = phi { ptr, i32 } [ %94, %93 ], [ %32, %31 ], [ %41, %40 ], [ %34, %33 ], [ %57, %56 ], [ %73, %72 ], [ %71, %70 ]
+  %.pn24.pn = phi { ptr, i32 } [ %32, %31 ], [ %94, %93 ], [ %41, %40 ], [ %34, %33 ], [ %57, %56 ], [ %71, %70 ], [ %73, %72 ]
   %96 = load ptr, ptr %4, align 8, !tbaa !137
   %.not.i.i.i32 = icmp eq ptr %96, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18SharedTermsVisitorEE13stack_elementESaIS5_EED2Ev.exit33, label %97
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elem
   ret void
 
 89:                                               ; preds = %32, %39, %71, %69, %55, %30
-  %.pn24.pn = phi { ptr, i32 } [ %31, %30 ], [ %40, %39 ], [ %33, %32 ], [ %56, %55 ], [ %72, %71 ], [ %70, %69 ]
+  %.pn24.pn = phi { ptr, i32 } [ %31, %30 ], [ %40, %39 ], [ %33, %32 ], [ %56, %55 ], [ %70, %69 ], [ %72, %71 ]
   %90 = load ptr, ptr %4, align 8, !tbaa !150
   %.not.i.i.i32 = icmp eq ptr %90, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIN4cvc58internal11NodeVisitorINS1_18PreRegisterVisitorEE13stack_elementESaIS5_EED2Ev.exit33, label %91
@@ -1683,7 +1683,7 @@ _ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash
   br label %_ZNK4cvc58internal19SharedTermsDatabase8isSharedENS0_12NodeTemplateILb0EEE.exit
 
 _ZNK4cvc58internal19SharedTermsDatabase8isSharedENS0_12NodeTemplateILb0EEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %9, %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash_mapIS3_jSt4hashIS3_EEES7_St8equal_toIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %.noexc
-  %storemerge.i.i = phi i1 [ %45, %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash_mapIS3_jSt4hashIS3_EEES7_St8equal_toIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i.i ], [ false, %.noexc ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %9 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %storemerge.i.i = phi i1 [ %45, %_ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEPNS0_7context11CDOhash_mapIS3_jSt4hashIS3_EEES7_St8equal_toIS3_ESaISt4pairIKS3_S9_EEE4findERSD_.exit.i.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %.noexc ], [ false, %9 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %storemerge.i.i
 }
 

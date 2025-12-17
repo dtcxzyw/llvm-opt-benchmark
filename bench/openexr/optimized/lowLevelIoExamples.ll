@@ -1021,7 +1021,7 @@ _ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit:          ; preds = %246, %249
   ret void
 
 250:                                              ; preds = %235, %242, %138, %146, %125
-  %.pn32.pn.pn.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn.pn.pn, %138 ], [ %147, %146 ], [ %.pn32.pn.pn, %235 ], [ %243, %242 ]
+  %.pn32.pn.pn.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %126, %125 ], [ %.pn.pn.pn, %138 ], [ %.pn32.pn.pn, %235 ], [ %243, %242 ]
   %251 = load ptr, ptr %50, align 8, !tbaa !29
   %252 = icmp eq ptr %251, null
   br i1 %252, label %_ZN7Imf_3_47Array2DINS_4RgbaEED2Ev.exit68, label %253

@@ -830,7 +830,7 @@ test_do_irp.exit:                                 ; preds = %9
   br label %78
 
 78:                                               ; preds = %54, %58, %69, %73
-  %.2 = phi i32 [ %77, %73 ], [ %72, %69 ], [ %.072, %54 ], [ %64, %58 ]
+  %.2 = phi i32 [ %72, %69 ], [ %77, %73 ], [ %.072, %54 ], [ %64, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %test_do_irp.exit.thread
@@ -1130,7 +1130,7 @@ switch.lookup:                                    ; preds = %51
   br i1 %exitcond606.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !11
 
 104:                                              ; preds = %84, %._crit_edge567
-  %.5 = phi i32 [ %.6.lcssa, %._crit_edge567 ], [ %.1512545, %84 ]
+  %.5 = phi i32 [ %.1512545, %84 ], [ %.6.lcssa, %._crit_edge567 ]
   %105 = icmp eq i32 %15, 103
   %or.cond15 = select i1 %105, i1 %85, i1 false
   br i1 %or.cond15, label %106, label %118
@@ -1468,7 +1468,7 @@ switch.lookup:                                    ; preds = %51
   br label %proto_item_set_generated.exit
 
 .thread547:                                       ; preds = %.lr.ph573, %.lr.ph578, %286, %240, %._crit_edge590, %138, %192, %215, %232, %251, %293, %283, %267, %220, %207, %147, %.loopexit, %4
-  %.0511 = phi i32 [ 24, %4 ], [ %.neg, %293 ], [ %.12, %283 ], [ %272, %267 ], [ %265, %251 ], [ %235, %232 ], [ %222, %220 ], [ %218, %215 ], [ %210, %207 ], [ %204, %192 ], [ %189, %147 ], [ %141, %138 ], [ %.9, %.loopexit ], [ %.7.lcssa, %._crit_edge590 ], [ %244, %240 ], [ %.13569, %286 ], [ %247, %.lr.ph578 ], [ %.13, %.lr.ph573 ]
+  %.0511 = phi i32 [ 24, %4 ], [ %.12, %283 ], [ %272, %267 ], [ %265, %251 ], [ %.neg, %293 ], [ %235, %232 ], [ %222, %220 ], [ %218, %215 ], [ %210, %207 ], [ %204, %192 ], [ %189, %147 ], [ %141, %138 ], [ %.9, %.loopexit ], [ %.7.lcssa, %._crit_edge590 ], [ %244, %240 ], [ %.13569, %286 ], [ %247, %.lr.ph578 ], [ %.13, %.lr.ph573 ]
   %302 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0511)
   %303 = icmp sgt i32 %302, 3
   br i1 %303, label %304, label %348
@@ -1620,7 +1620,7 @@ switch.lookup:                                    ; preds = %51
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %395, %392, %385, %380, %377, %374, %297, %357, %384, %371
-  %.1 = phi i32 [ %301, %297 ], [ %.14, %371 ], [ %.14, %384 ], [ %.14, %357 ], [ %.14, %374 ], [ %.14, %377 ], [ %.14, %380 ], [ %.14, %385 ], [ %.14, %392 ], [ %.14, %395 ]
+  %.1 = phi i32 [ %301, %297 ], [ %.14, %357 ], [ %.14, %371 ], [ %.14, %380 ], [ %.14, %384 ], [ %.14, %374 ], [ %.14, %377 ], [ %.14, %385 ], [ %.14, %392 ], [ %.14, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -1955,7 +1955,7 @@ proto_item_set_generated.exit162:                 ; preds = %39, %36, %33, %prot
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %100, %79, %94, %113, %127, %145, %150, %134, %120, %87, %53
-  %.0145 = phi i32 [ %154, %150 ], [ %149, %145 ], [ %138, %134 ], [ %131, %127 ], [ %124, %120 ], [ %117, %113 ], [ %97, %94 ], [ %91, %87 ], [ %82, %79 ], [ %74, %53 ], [ %105, %100 ], [ %109, %.lr.ph ]
+  %.0145 = phi i32 [ %154, %150 ], [ %149, %145 ], [ %138, %134 ], [ %131, %127 ], [ %124, %120 ], [ %117, %113 ], [ %74, %53 ], [ %97, %94 ], [ %91, %87 ], [ %82, %79 ], [ %105, %100 ], [ %109, %.lr.ph ]
   %155 = add i32 %.0145, %3
   %156 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %155, i32 noundef 0)
   %157 = load i32, ptr @hf_do_irp_identrecord_refcount, align 4

@@ -461,7 +461,7 @@ _ZL18stack_has_headroomm.exit:                    ; preds = %1
   br i1 %19, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %17, %_ZL18stack_has_headroomm.exit, %_ZL18stack_has_headroomm.exit.thread
-  %.str.4.sink = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.thread ], [ @.str, %_ZL18stack_has_headroomm.exit ], [ @.str.4, %17 ]
+  %.str.4.sink = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit ], [ @.str, %_ZL18stack_has_headroomm.exit.thread ], [ @.str.4, %17 ]
   store ptr %.str.4.sink, ptr %0, align 8
   br label %20
 
@@ -3096,7 +3096,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6se
   br label %834
 
 834:                                              ; preds = %831, %827
-  %.str.103.sink = phi ptr [ @.str.102, %827 ], [ %.str.103..str.104, %831 ]
+  %.str.103.sink = phi ptr [ %.str.103..str.104, %831 ], [ @.str.102, %827 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.103.sink) #21
   %835 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
   %836 = trunc i8 %835 to i1
@@ -3109,7 +3109,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6se
   br label %840
 
 840:                                              ; preds = %837, %834
-  %.str.106.sink = phi ptr [ @.str.105, %834 ], [ %.str.106..str.107, %837 ]
+  %.str.106.sink = phi ptr [ %.str.106..str.107, %837 ], [ @.str.105, %834 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.106.sink) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
@@ -4100,7 +4100,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %5
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
   br i1 %exitcond.not.i, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader61, !llvm.loop !22
 
-28:                                               ; preds = %25, %23
+28:                                               ; preds = %23, %25
   tail call void @_ZNK18InterpreterCodelet8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %0) #21
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load i64, ptr @CodeEntryAlignment, align 8
@@ -4155,7 +4155,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 10
   br i1 %exitcond.not.i43, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader59, !llvm.loop !22
 
-54:                                               ; preds = %51, %49
+54:                                               ; preds = %49, %51
   tail call void @_ZNK12StubCodeDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(44) %42, ptr noundef %0) #21
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %56 = load ptr, ptr %55, align 8
@@ -4200,7 +4200,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 10
   br i1 %exitcond.not.i49, label %_ZL13add_if_absentPhPS_i.exit, label %.preheader, !llvm.loop !22
 
-72:                                               ; preds = %69, %67
+72:                                               ; preds = %67, %69
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
@@ -4234,7 +4234,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   br label %_ZL13add_if_absentPhPS_i.exit
 
 _ZL13add_if_absentPhPS_i.exit:                    ; preds = %27, %.preheader61, %53, %.preheader59, %71, %.preheader, %87, %85, %16, %15, %59, %60, %43, %54, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %54 ], [ false, %43 ], [ false, %60 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ true, %87 ], [ false, %.preheader ], [ false, %71 ], [ false, %.preheader59 ], [ false, %53 ], [ false, %.preheader61 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %28 ], [ true, %54 ], [ false, %43 ], [ false, %60 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ true, %87 ], [ false, %53 ], [ false, %71 ], [ false, %.preheader ], [ false, %.preheader59 ], [ false, %.preheader61 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -4513,7 +4513,7 @@ _ZL15expand_and_openPKcbPcmm.exit43.thread:       ; preds = %19, %_ZL15expand_an
   br label %_ZL15expand_and_openPKcbPcmm.exit46
 
 _ZL15expand_and_openPKcbPcmm.exit46:              ; preds = %_ZL15expand_and_openPKcbPcmm.exit, %40, %34, %_ZL15expand_and_openPKcbPcmm.exit43.thread, %29, %30, %_ZL15expand_and_openPKcbPcmm.exit43
-  %.2 = phi i32 [ -1, %30 ], [ -1, %29 ], [ -1, %_ZL15expand_and_openPKcbPcmm.exit43.thread ], [ %26, %_ZL15expand_and_openPKcbPcmm.exit43 ], [ %41, %40 ], [ -1, %34 ], [ %9, %_ZL15expand_and_openPKcbPcmm.exit ]
+  %.2 = phi i32 [ -1, %34 ], [ -1, %30 ], [ -1, %29 ], [ -1, %_ZL15expand_and_openPKcbPcmm.exit43.thread ], [ %26, %_ZL15expand_and_openPKcbPcmm.exit43 ], [ %41, %40 ], [ %9, %_ZL15expand_and_openPKcbPcmm.exit ]
   ret i32 %.2
 }
 
@@ -5431,7 +5431,7 @@ define hidden noundef zeroext i1 @_ZN7VMError13check_timeoutEv() local_unnamed_a
   br label %36
 
 36:                                               ; preds = %.sink.split, %24, %33, %28, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %28 ], [ false, %33 ], [ false, %24 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ false, %33 ], [ false, %0 ], [ false, %24 ], [ false, %28 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

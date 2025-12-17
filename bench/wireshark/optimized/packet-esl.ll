@@ -148,7 +148,7 @@ define internal i32 @dissect_esl_header(ptr noundef %0, ptr readnone captures(no
   br label %flags_to_port.exit
 
 flags_to_port.exit:                               ; preds = %8, %17, %19, %21, %23, %25, %27, %29, %31, %32, %33, %35
-  %.0.i = phi i32 [ 0, %8 ], [ 1, %17 ], [ 2, %19 ], [ 3, %21 ], [ 4, %23 ], [ 5, %25 ], [ 6, %27 ], [ 7, %29 ], [ 8, %31 ], [ 9, %32 ], [ 10, %33 ], [ %37, %35 ]
+  %.0.i = phi i32 [ 10, %33 ], [ 0, %8 ], [ 1, %17 ], [ 2, %19 ], [ 3, %21 ], [ 4, %23 ], [ 5, %25 ], [ 6, %27 ], [ 7, %29 ], [ 8, %31 ], [ 9, %32 ], [ %37, %35 ]
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %14, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %.0.i)
   %39 = load i32, ptr @hf_esl_alignerror, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %39, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)

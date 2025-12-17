@@ -256,7 +256,7 @@ define void @_ZN3gmx27createTrajectoryFrameWriterEPK10gmx_mtop_tRKNS_9SelectionE
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZN3gmx22OutputAdapterContainerD2Ev.exit50, %74, %72, %57, %59, %40, %42
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn4.i, %42 ], [ %41, %40 ], [ %.pn.pn20.i, %59 ], [ %58, %57 ], [ %.pn26.pn55, %74 ], [ %73, %72 ], [ %.pn.pn, %_ZN3gmx22OutputAdapterContainerD2Ev.exit50 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %41, %40 ], [ %.pn.pn4.i, %42 ], [ %.pn.pn20.i, %59 ], [ %.pn26.pn55, %74 ], [ %73, %72 ], [ %.pn.pn, %_ZN3gmx22OutputAdapterContainerD2Ev.exit50 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %37
@@ -906,8 +906,8 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   br label %.body.i
 
 .sink.split.sink.split.i:                         ; preds = %229, %199, %181
-  %.sink228.i = phi ptr [ %182, %181 ], [ %200, %199 ], [ %230, %229 ]
-  %.sink.ph.i = phi ptr [ %12, %181 ], [ %13, %199 ], [ %15, %229 ]
+  %.sink228.i = phi ptr [ %200, %199 ], [ %182, %181 ], [ %230, %229 ]
+  %.sink.ph.i = phi ptr [ %13, %199 ], [ %12, %181 ], [ %15, %229 ]
   %247 = load ptr, ptr %.sink228.i, align 8, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
@@ -915,7 +915,7 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   br label %.sink.split.i36
 
 .sink.split.i36:                                  ; preds = %.sink.split.sink.split.i, %229, %199, %181
-  %.sink.i = phi ptr [ %12, %181 ], [ %13, %199 ], [ %15, %229 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %13, %199 ], [ %12, %181 ], [ %15, %229 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
   store ptr null, ptr %.sink.i, align 8, !tbaa !44, !noalias !26
   br label %250
 
@@ -1070,7 +1070,7 @@ _ZNSt10unique_ptrIN3gmx14OutputSelectorESt14default_deleteIS1_EED2Ev.exit169.i: 
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt10unique_ptrIN3gmx14OutputSelectorESt14default_deleteIS1_EED2Ev.exit169.i, %307, %300, %_ZNSt10unique_ptrIN3gmx6SetBoxESt14default_deleteIS1_EED2Ev.exit158.i, %288, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i, %239, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit141.i, %231, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit119.i, %201, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit108.i, %183, %_ZNSt10unique_ptrIN3gmx8SetAtomsESt14default_deleteIS1_EED2Ev.exit97.i, %162, %_ZNSt10unique_ptrIN3gmx12SetPrecisionESt14default_deleteIS1_EED2Ev.exit86.i, %137, %_ZNSt10unique_ptrIN3gmx9SetForcesESt14default_deleteIS1_EED2Ev.exit75.i, %113, %_ZNSt10unique_ptrIN3gmx13SetVelocitiesESt14default_deleteIS1_EED2Ev.exit64.i, %91
-  %.pn55.pn.i = phi { ptr, i32 } [ %94, %_ZNSt10unique_ptrIN3gmx13SetVelocitiesESt14default_deleteIS1_EED2Ev.exit64.i ], [ %92, %91 ], [ %116, %_ZNSt10unique_ptrIN3gmx9SetForcesESt14default_deleteIS1_EED2Ev.exit75.i ], [ %114, %113 ], [ %140, %_ZNSt10unique_ptrIN3gmx12SetPrecisionESt14default_deleteIS1_EED2Ev.exit86.i ], [ %138, %137 ], [ %165, %_ZNSt10unique_ptrIN3gmx8SetAtomsESt14default_deleteIS1_EED2Ev.exit97.i ], [ %163, %162 ], [ %186, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit108.i ], [ %184, %183 ], [ %204, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit119.i ], [ %202, %201 ], [ %234, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit141.i ], [ %232, %231 ], [ %242, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i ], [ %240, %239 ], [ %291, %_ZNSt10unique_ptrIN3gmx6SetBoxESt14default_deleteIS1_EED2Ev.exit158.i ], [ %289, %288 ], [ %310, %_ZNSt10unique_ptrIN3gmx14OutputSelectorESt14default_deleteIS1_EED2Ev.exit169.i ], [ %308, %307 ], [ %301, %300 ]
+  %.pn55.pn.i = phi { ptr, i32 } [ %289, %288 ], [ %240, %239 ], [ %163, %162 ], [ %184, %183 ], [ %232, %231 ], [ %202, %201 ], [ %138, %137 ], [ %114, %113 ], [ %92, %91 ], [ %94, %_ZNSt10unique_ptrIN3gmx13SetVelocitiesESt14default_deleteIS1_EED2Ev.exit64.i ], [ %116, %_ZNSt10unique_ptrIN3gmx9SetForcesESt14default_deleteIS1_EED2Ev.exit75.i ], [ %140, %_ZNSt10unique_ptrIN3gmx12SetPrecisionESt14default_deleteIS1_EED2Ev.exit86.i ], [ %165, %_ZNSt10unique_ptrIN3gmx8SetAtomsESt14default_deleteIS1_EED2Ev.exit97.i ], [ %186, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit108.i ], [ %204, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit119.i ], [ %234, %_ZNSt10unique_ptrIN3gmx12SetStartTimeESt14default_deleteIS1_EED2Ev.exit141.i ], [ %242, %_ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i ], [ %291, %_ZNSt10unique_ptrIN3gmx6SetBoxESt14default_deleteIS1_EED2Ev.exit158.i ], [ %310, %_ZNSt10unique_ptrIN3gmx14OutputSelectorESt14default_deleteIS1_EED2Ev.exit169.i ], [ %308, %307 ], [ %301, %300 ]
   br label %315
 
 315:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i.i, %.body.i
@@ -2206,7 +2206,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit38.i:                ; preds = %107, %104, %102
   br label %common.resume
 
 common.resume:                                    ; preds = %125, %137, %135, %59, %_ZNSt6vectorIiSaIiEED2Ev.exit38.i
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit38.i ], [ %.pn.pn16, %137 ], [ %136, %135 ], [ %126, %125 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit38.i ], [ %60, %59 ], [ %.pn.pn16, %137 ], [ %136, %135 ], [ %126, %125 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3gmxL7openTNGERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9SelectionEPK10gmx_mtop_t.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit24.i, %_ZNSt10filesystem7__cxx114pathD2Ev.exit36.i
@@ -3195,7 +3195,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !233
   br label %41
 

@@ -165,7 +165,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %30
   br label %59
 
 59:                                               ; preds = %52, %46, %44, %.thread52
-  %.032 = phi i32 [ %58, %.thread52 ], [ 1, %44 ], [ 1, %46 ], [ 1, %52 ]
+  %.032 = phi i32 [ 1, %46 ], [ 1, %44 ], [ %58, %.thread52 ], [ 1, %52 ]
   br i1 %2, label %60, label %67
 
 60:                                               ; preds = %59
@@ -304,7 +304,7 @@ define hidden i32 @Curl_pp_vsendf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %32
 
 32:                                               ; preds = %23, %27, %13, %11, %8, %4
-  %.0 = phi i32 [ 55, %4 ], [ %10, %8 ], [ %12, %11 ], [ %17, %13 ], [ 0, %27 ], [ 0, %23 ]
+  %.0 = phi i32 [ 55, %4 ], [ %10, %8 ], [ %17, %13 ], [ %12, %11 ], [ 0, %27 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -490,7 +490,7 @@ define hidden i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread87
 
 .thread87:                                        ; preds = %32, %.lr.ph, %24, %.thread87.loopexit143, %.loopexit, %29
-  %.1 = phi i32 [ 0, %.loopexit ], [ 56, %29 ], [ %25, %24 ], [ %51, %.lr.ph ], [ %33, %32 ], [ 0, %.thread87.loopexit143 ]
+  %.1 = phi i32 [ 56, %29 ], [ 0, %.loopexit ], [ %51, %.lr.ph ], [ %25, %24 ], [ %33, %32 ], [ 0, %.thread87.loopexit143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
@@ -582,7 +582,7 @@ define hidden range(i32 82, 81) i32 @Curl_pp_flushsend(ptr noundef %0, ptr nound
   br label %25
 
 25:                                               ; preds = %6, %18, %20, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %20 ], [ 0, %18 ], [ %14, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ %14, %6 ], [ 0, %20 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

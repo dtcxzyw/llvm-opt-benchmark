@@ -182,7 +182,7 @@ define dso_local i32 @sidtab_set_initial(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread8
 
 .thread8:                                         ; preds = %21, %49, %69, %52, %3
-  %71 = phi i32 [ -22, %3 ], [ 0, %69 ], [ 0, %52 ], [ -12, %21 ], [ %.ph, %49 ]
+  %71 = phi i32 [ -22, %3 ], [ 0, %52 ], [ 0, %69 ], [ -12, %21 ], [ %.ph, %49 ]
   ret i32 %71
 }
 
@@ -813,7 +813,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread15
 
 .thread15:                                        ; preds = %37, %65, %77, %83, %119, %107, %20, %16, %12, %7
-  %121 = phi i32 [ 0, %7 ], [ -75, %16 ], [ -12, %20 ], [ -116, %12 ], [ 0, %107 ], [ 0, %119 ], [ %81, %83 ], [ -12, %77 ], [ -12, %37 ], [ %.ph, %65 ]
+  %121 = phi i32 [ 0, %7 ], [ -75, %16 ], [ -12, %77 ], [ 0, %119 ], [ -12, %20 ], [ -116, %12 ], [ 0, %107 ], [ %81, %83 ], [ -12, %37 ], [ %.ph, %65 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #13
   br label %122
 

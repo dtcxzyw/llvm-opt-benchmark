@@ -1918,7 +1918,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit746:          ; preds = %781, %784
   unreachable
 
 .loopexit.split-lp1178:                           ; preds = %.loopexit1177, %.loopexit.split-lp1178.loopexit.split-lp, %.loopexit.split-lp1178.loopexit, %796, %756, %723, %669, %635, %586, %544, %495, %449, %407, %373
-  %.pn664 = phi { ptr, i32 } [ %.pn662, %756 ], [ %.pn659, %796 ], [ %.pn467, %723 ], [ %.pn464, %669 ], [ %.pn461, %635 ], [ %.pn458, %586 ], [ %.pn455, %544 ], [ %.pn452, %495 ], [ %.pn449, %449 ], [ %.pn446, %407 ], [ %.pn443, %373 ], [ %lpad.loopexit1179, %.loopexit1177 ], [ %lpad.loopexit1182, %.loopexit.split-lp1178.loopexit ], [ %lpad.loopexit.split-lp1183, %.loopexit.split-lp1178.loopexit.split-lp ]
+  %.pn664 = phi { ptr, i32 } [ %.pn443, %373 ], [ %.pn662, %756 ], [ %.pn659, %796 ], [ %.pn467, %723 ], [ %.pn464, %669 ], [ %.pn461, %635 ], [ %.pn458, %586 ], [ %.pn455, %544 ], [ %.pn452, %495 ], [ %.pn449, %449 ], [ %.pn446, %407 ], [ %lpad.loopexit1179, %.loopexit1177 ], [ %lpad.loopexit1182, %.loopexit.split-lp1178.loopexit ], [ %lpad.loopexit.split-lp1183, %.loopexit.split-lp1178.loopexit.split-lp ]
   %802 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %803 = load ptr, ptr %802, align 8
   invoke void @_Z6rcFreePv(ptr noundef %803)
@@ -3666,7 +3666,7 @@ _ZN12rcVectorBaseI11IncrementorL11rcAllocHint1EE13destroy_rangeEll.exit.i.i: ; p
   br label %1476
 
 1476:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1475, %1443, %1409, %1372, %1371, %1335, %1301, %1267, %1230, %1196, %1150, %1114, %1077, %1043, %1009, %971, %934, %933, %894, %860
-  %.pn655 = phi { ptr, i32 } [ %.pn653, %1150 ], [ %.pn518, %1475 ], [ %.pn515, %1443 ], [ %.pn512, %1409 ], [ %1373, %1372 ], [ %.pn509, %1371 ], [ %.pn506, %1335 ], [ %.pn503, %1301 ], [ %.pn500, %1267 ], [ %.pn497, %1230 ], [ %.pn494, %1196 ], [ %.pn491, %1114 ], [ %.pn488, %1077 ], [ %.pn485, %1043 ], [ %.pn482, %1009 ], [ %.pn479, %971 ], [ %935, %934 ], [ %.pn476, %933 ], [ %.pn473, %894 ], [ %.pn470, %860 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn655 = phi { ptr, i32 } [ %.pn470, %860 ], [ %.pn653, %1150 ], [ %.pn518, %1475 ], [ %.pn515, %1443 ], [ %.pn512, %1409 ], [ %1373, %1372 ], [ %.pn509, %1371 ], [ %.pn506, %1335 ], [ %.pn503, %1301 ], [ %.pn500, %1267 ], [ %.pn497, %1230 ], [ %.pn494, %1196 ], [ %.pn491, %1114 ], [ %.pn488, %1077 ], [ %.pn485, %1043 ], [ %.pn482, %1009 ], [ %.pn479, %971 ], [ %935, %934 ], [ %.pn476, %933 ], [ %.pn473, %894 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN12rcTempVectorI11IncrementorED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #15
   br label %_ZN12rcTempVectorIiED2Ev.exit747
 
@@ -6451,7 +6451,7 @@ _ZN12rcTempVectorIiED2Ev.exit915:                 ; preds = %_ZN5Catch16Assertio
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit917:                 ; preds = %2541, %2459, %2412, %2366, %2324, %2287, %2241, %2198
-  %.pn602.pn.pn = phi { ptr, i32 } [ %2199, %2198 ], [ %.pn596, %2459 ], [ %.pn593, %2412 ], [ %.pn590, %2366 ], [ %.pn587, %2324 ], [ %.pn584, %2287 ], [ %.pn581, %2241 ], [ %.pn602.pn, %2541 ]
+  %.pn602.pn.pn = phi { ptr, i32 } [ %.pn581, %2241 ], [ %2199, %2198 ], [ %.pn596, %2459 ], [ %.pn593, %2412 ], [ %.pn590, %2366 ], [ %.pn587, %2324 ], [ %.pn584, %2287 ], [ %.pn602.pn, %2541 ]
   %2545 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %2546 = load ptr, ptr %2545, align 8
   invoke void @_Z6rcFreePv(ptr noundef %2546)
@@ -7934,7 +7934,7 @@ _ZN12rcTempVectorIiED2Ev.exit1016:                ; preds = %_ZN12rcTempVectorIi
   unreachable
 
 _ZN12rcTempVectorIiED2Ev.exit1018:                ; preds = %3080, %2743, %2700, %2663, %2617, %2582
-  %.pn641.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2583, %2582 ], [ %.pn617, %2743 ], [ %.pn614, %2700 ], [ %.pn611, %2663 ], [ %.pn608, %2617 ], [ %.pn641.pn.pn.pn.pn, %3080 ]
+  %.pn641.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn608, %2617 ], [ %2583, %2582 ], [ %.pn617, %2743 ], [ %.pn614, %2700 ], [ %.pn611, %2663 ], [ %.pn641.pn.pn.pn.pn, %3080 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.71047.1)
           to label %_ZN12rcTempVectorIiED2Ev.exit1019 unwind label %3084
 
@@ -7995,8 +7995,8 @@ _ZN12rcTempVectorI23NotDefaultConstructibleED2Ev.exit: ; preds = %3097, %3096
   ret void
 
 _ZN12rcTempVectorIiED2Ev.exit747:                 ; preds = %2578, %_ZN12rcTempVectorIiED2Ev.exit1019, %2196, %_ZN12rcTempVectorIiED2Ev.exit917, %2151, %2153, %2177, %2009, %2124, %1759, %_ZN12rcTempVectorIiED2Ev.exit844, %1495, %1737, %825, %1476, %269, %.loopexit.split-lp1178, %3101
-  %.sink = phi ptr [ %248, %3101 ], [ %1, %.loopexit.split-lp1178 ], [ %1, %269 ], [ %39, %1476 ], [ %39, %825 ], [ %99, %1737 ], [ %99, %1495 ], [ %124, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %124, %1759 ], [ %151, %2124 ], [ %151, %2009 ], [ %164, %2177 ], [ %164, %2153 ], [ %164, %2151 ], [ %171, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %171, %2196 ], [ %202, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %202, %2578 ]
-  %.pn664.pn.pn = phi { ptr, i32 } [ %3102, %3101 ], [ %.pn664, %.loopexit.split-lp1178 ], [ %270, %269 ], [ %.pn655, %1476 ], [ %826, %825 ], [ %.pn539.pn, %1737 ], [ %1496, %1495 ], [ %.pn559.pn, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %1760, %1759 ], [ %.pn573, %2124 ], [ %2010, %2009 ], [ %.pn577, %2177 ], [ %2154, %2153 ], [ %2152, %2151 ], [ %.pn602.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %2197, %2196 ], [ %.pn641.pn.pn.pn.pn.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %2579, %2578 ]
+  %.sink = phi ptr [ %248, %3101 ], [ %171, %2196 ], [ %164, %2151 ], [ %151, %2009 ], [ %124, %1759 ], [ %99, %1495 ], [ %39, %825 ], [ %1, %269 ], [ %1, %.loopexit.split-lp1178 ], [ %39, %1476 ], [ %99, %1737 ], [ %124, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %151, %2124 ], [ %164, %2177 ], [ %164, %2153 ], [ %171, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %202, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %202, %2578 ]
+  %.pn664.pn.pn = phi { ptr, i32 } [ %3102, %3101 ], [ %2197, %2196 ], [ %2152, %2151 ], [ %2010, %2009 ], [ %1760, %1759 ], [ %1496, %1495 ], [ %826, %825 ], [ %270, %269 ], [ %.pn664, %.loopexit.split-lp1178 ], [ %.pn655, %1476 ], [ %.pn539.pn, %1737 ], [ %.pn559.pn, %_ZN12rcTempVectorIiED2Ev.exit844 ], [ %.pn573, %2124 ], [ %.pn577, %2177 ], [ %2154, %2153 ], [ %.pn602.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit917 ], [ %.pn641.pn.pn.pn.pn.pn.pn, %_ZN12rcTempVectorIiED2Ev.exit1019 ], [ %2579, %2578 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #15
   resume { ptr, i32 } %.pn664.pn.pn
 

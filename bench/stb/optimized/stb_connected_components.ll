@@ -517,7 +517,7 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   br label %91
 
 91:                                               ; preds = %65, %84, %52, %38
-  %.3106 = phi i32 [ %.2105128, %52 ], [ %.2105128, %38 ], [ %90, %84 ], [ %.2105128, %65 ]
+  %.3106 = phi i32 [ %.2105128, %38 ], [ %.2105128, %52 ], [ %90, %84 ], [ %.2105128, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %switch.load157
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, %switch.load155
   %92 = add nuw nsw i32 %.0115127, 1
@@ -552,7 +552,7 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   br label %108
 
 108:                                              ; preds = %105, %101, %94
-  %.0102 = phi i32 [ 4, %94 ], [ 2, %101 ], [ %., %105 ]
+  %.0102 = phi i32 [ 2, %101 ], [ 4, %94 ], [ %., %105 ]
   %.not134 = icmp eq i8 %96, 0
   br i1 %.not134, label %._crit_edge, label %.lr.ph
 
@@ -663,10 +663,10 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
   br label %35
 
 35:                                               ; preds = %33, %31, %32, %34
-  %.087 = phi i64 [ 0, %32 ], [ 0, %34 ], [ 31, %31 ], [ 0, %33 ]
-  %.086 = phi i64 [ 0, %32 ], [ 31, %34 ], [ 0, %31 ], [ 0, %33 ]
-  %.082 = phi i64 [ 1, %32 ], [ 0, %34 ], [ 1, %31 ], [ 0, %33 ]
-  %.0 = phi i64 [ 0, %32 ], [ 1, %34 ], [ 0, %31 ], [ 1, %33 ]
+  %.087 = phi i64 [ 0, %34 ], [ 0, %32 ], [ 31, %31 ], [ 0, %33 ]
+  %.086 = phi i64 [ 31, %34 ], [ 0, %32 ], [ 0, %31 ], [ 0, %33 ]
+  %.082 = phi i64 [ 0, %34 ], [ 1, %32 ], [ 1, %31 ], [ 0, %33 ]
+  %.0 = phi i64 [ 1, %34 ], [ 0, %32 ], [ 0, %31 ], [ 1, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 131092
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2228244
@@ -1074,10 +1074,10 @@ define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(
   br label %28
 
 28:                                               ; preds = %26, %24, %25, %27
-  %.079 = phi i64 [ 0, %25 ], [ 0, %27 ], [ 31, %24 ], [ 0, %26 ]
-  %.078 = phi i64 [ 0, %25 ], [ 31, %27 ], [ 0, %24 ], [ 0, %26 ]
-  %.075 = phi i64 [ 1, %25 ], [ 0, %27 ], [ 1, %24 ], [ 0, %26 ]
-  %.0 = phi i64 [ 0, %25 ], [ 1, %27 ], [ 0, %24 ], [ 1, %26 ]
+  %.079 = phi i64 [ 0, %27 ], [ 0, %25 ], [ 31, %24 ], [ 0, %26 ]
+  %.078 = phi i64 [ 31, %27 ], [ 0, %25 ], [ 0, %24 ], [ 0, %26 ]
+  %.075 = phi i64 [ 0, %27 ], [ 1, %25 ], [ 1, %24 ], [ 0, %26 ]
+  %.0 = phi i64 [ 1, %27 ], [ 0, %25 ], [ 0, %24 ], [ 1, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 131092
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2228244

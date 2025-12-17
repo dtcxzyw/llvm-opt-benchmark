@@ -280,8 +280,8 @@ check_attrmap_match.exit:                         ; preds = %121, %.preheader.i
   tail call void @pfree(ptr noundef nonnull %5) #4
   br label %check_attrmap_match.exit.thread
 
-check_attrmap_match.exit.thread:                  ; preds = %102, %105, %109, %115, %.lr.ph.i, %87, %check_attrmap_match.exit
-  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %87 ], [ %5, %.lr.ph.i ], [ %5, %115 ], [ %5, %109 ], [ %5, %105 ], [ %5, %102 ]
+check_attrmap_match.exit.thread:                  ; preds = %102, %.lr.ph.i, %115, %109, %105, %87, %check_attrmap_match.exit
+  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %87 ], [ %5, %105 ], [ %5, %109 ], [ %5, %115 ], [ %5, %.lr.ph.i ], [ %5, %102 ]
   ret ptr %.0
 }
 
@@ -513,7 +513,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   br i1 %.not, label %.split57, label %138
 
 .split.us:                                        ; preds = %91, %88, %46, %43
-  %.us-phi = phi ptr [ %22, %43 ], [ %22, %46 ], [ %67, %88 ], [ %67, %91 ]
+  %.us-phi = phi ptr [ %22, %46 ], [ %22, %43 ], [ %67, %88 ], [ %67, %91 ]
   %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %118 = tail call i32 @errcode(i32 noundef 67141764) #4
   %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #4
@@ -640,8 +640,8 @@ check_attrmap_match.exit:                         ; preds = %41, %.preheader.i.c
   tail call void @pfree(ptr noundef nonnull %4) #4
   br label %check_attrmap_match.exit.thread
 
-check_attrmap_match.exit.thread:                  ; preds = %22, %25, %29, %35, %.lr.ph.i, %3, %check_attrmap_match.exit
-  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %4, %3 ], [ %4, %.lr.ph.i ], [ %4, %35 ], [ %4, %29 ], [ %4, %25 ], [ %4, %22 ]
+check_attrmap_match.exit.thread:                  ; preds = %22, %.lr.ph.i, %35, %29, %25, %3, %check_attrmap_match.exit
+  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %4, %3 ], [ %4, %25 ], [ %4, %29 ], [ %4, %35 ], [ %4, %.lr.ph.i ], [ %4, %22 ]
   ret ptr %.0
 }
 

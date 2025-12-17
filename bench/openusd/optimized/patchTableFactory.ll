@@ -606,7 +606,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -1211,7 +1211,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj64ELb1EEC2Ej.exit: ; preds =
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113offsetIndicesEPiii.exit
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113offsetIndicesEPiii.exit: ; preds = %.lr.ph.i, %44, %55, %97, %42
-  %.0 = phi i32 [ 0, %42 ], [ %.1, %97 ], [ 0, %55 ], [ %50, %44 ], [ %50, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %42 ], [ 0, %55 ], [ %.1, %97 ], [ %50, %44 ], [ %50, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -1271,8 +1271,8 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeE.exit
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeE.exit: ; preds = %28, %27, %26, %25, %24, %23, %8
-  %.not167 = phi i1 [ true, %8 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ true, %28 ], [ false, %23 ]
-  %.0154 = phi ptr [ null, %8 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE17gregoryTriIndices, %24 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14bsplineIndices, %25 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE16boxsplineIndices, %26 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE13linearIndices, %27 ], [ null, %28 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14gregoryIndices, %23 ]
+  %.not167 = phi i1 [ true, %8 ], [ true, %28 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %23 ]
+  %.0154 = phi ptr [ null, %8 ], [ null, %28 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE17gregoryTriIndices, %24 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14bsplineIndices, %25 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE16boxsplineIndices, %26 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE13linearIndices, %27 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14gregoryIndices, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %.not166 = icmp eq ptr %30, null
@@ -1595,7 +1595,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDe
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i:  ; preds = %207, %197, %184
-  %209 = phi ptr [ %.pre.i, %207 ], [ %194, %184 ], [ %194, %197 ]
+  %209 = phi ptr [ %194, %184 ], [ %.pre.i, %207 ], [ %194, %197 ]
   %210 = getelementptr inbounds %"class.std::vector", ptr %209, i64 %74
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -1622,7 +1622,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i:  ; preds = %207, %197, %184
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %223, %215, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i
-  %226 = phi ptr [ %.pre12.i, %223 ], [ %211, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i ], [ %211, %215 ]
+  %226 = phi ptr [ %211, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i ], [ %.pre12.i, %223 ], [ %211, %215 ]
   %227 = shl nsw i32 %193, 1
   %228 = or disjoint i32 %227, %191
   %229 = sext i32 %228 to i64
@@ -1666,7 +1666,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19findSharedEdgeP
   br i1 %exitcond231.not, label %.loopexit, label %149, !llvm.loop !13
 
 .loopexit:                                        ; preds = %239, %69, %.lr.ph221, %.loopexit207, %.preheader204, %.loopexit203
-  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %41, %.lr.ph221 ], [ %.2, %69 ], [ %.5, %239 ]
+  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.2, %69 ], [ %41, %.lr.ph221 ], [ %.5, %239 ]
   %241 = sub nsw i32 %.3, %17
   %242 = load i32, ptr %15, align 8
   %243 = add nsw i32 %242, %241
@@ -1726,8 +1726,8 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeE.exit
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeE.exit: ; preds = %28, %27, %26, %25, %24, %23, %8
-  %.not167 = phi i1 [ true, %8 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ true, %28 ], [ false, %23 ]
-  %.0154 = phi ptr [ null, %8 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE17gregoryTriIndices, %24 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14bsplineIndices, %25 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE16boxsplineIndices, %26 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE13linearIndices, %27 ], [ null, %28 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14gregoryIndices, %23 ]
+  %.not167 = phi i1 [ true, %8 ], [ true, %28 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %23 ]
+  %.0154 = phi ptr [ null, %8 ], [ null, %28 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE17gregoryTriIndices, %24 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14bsplineIndices, %25 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE16boxsplineIndices, %26 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE13linearIndices, %27 ], [ @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDescriptor4TypeEE14gregoryIndices, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %.not166 = icmp eq ptr %30, null
@@ -2050,7 +2050,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124GetVaryingIndicesPerTypeENS1_15PatchDe
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i:  ; preds = %207, %197, %184
-  %209 = phi ptr [ %.pre.i, %207 ], [ %194, %184 ], [ %194, %197 ]
+  %209 = phi ptr [ %194, %184 ], [ %.pre.i, %207 ], [ %194, %197 ]
   %210 = getelementptr inbounds %"class.std::vector", ptr %209, i64 %74
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -2077,7 +2077,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i:  ; preds = %207, %197, %184
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %223, %215, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i
-  %226 = phi ptr [ %.pre12.i, %223 ], [ %211, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i ], [ %211, %215 ]
+  %226 = phi ptr [ %211, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i ], [ %.pre12.i, %223 ], [ %211, %215 ]
   %227 = shl nsw i32 %193, 1
   %228 = or disjoint i32 %227, %191
   %229 = sext i32 %228 to i64
@@ -2121,7 +2121,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19findSharedEdgeP
   br i1 %exitcond231.not, label %.loopexit, label %149, !llvm.loop !18
 
 .loopexit:                                        ; preds = %239, %69, %.lr.ph221, %.loopexit207, %.preheader204, %.loopexit203
-  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %41, %.lr.ph221 ], [ %.2, %69 ], [ %.5, %239 ]
+  %.3 = phi i32 [ %17, %.loopexit203 ], [ %17, %.preheader204 ], [ %17, %.loopexit207 ], [ %.2, %69 ], [ %41, %.lr.ph221 ], [ %.5, %239 ]
   %241 = sub nsw i32 %.3, %17
   %242 = load i32, ptr %15, align 8
   %243 = add nsw i32 %242, %241
@@ -2775,7 +2775,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHel
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %10, %20, %4
-  %22 = phi ptr [ %.pre, %20 ], [ %6, %4 ], [ %6, %10 ]
+  %22 = phi ptr [ %6, %4 ], [ %.pre, %20 ], [ %6, %10 ]
   %23 = sext i32 %1 to i64
   %24 = getelementptr inbounds %"class.std::vector", ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
@@ -2883,7 +2883,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHel
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %11, %21, %5
-  %23 = phi ptr [ %.pre, %21 ], [ %7, %5 ], [ %7, %11 ]
+  %23 = phi ptr [ %7, %5 ], [ %.pre, %21 ], [ %7, %11 ]
   %24 = sext i32 %1 to i64
   %25 = getelementptr inbounds %"class.std::vector", ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
@@ -2911,7 +2911,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %11, %21, %5
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %30, %38, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
-  %41 = phi ptr [ %.pre12, %38 ], [ %26, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %26, %30 ]
+  %41 = phi ptr [ %26, %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit ], [ %.pre12, %38 ], [ %26, %30 ]
   %42 = shl nsw i32 %2, 1
   %43 = add nsw i32 %42, %3
   %44 = sext i32 %43 to i64
@@ -2969,7 +2969,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3680,7 +3680,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -4386,8 +4386,8 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit: ; pr
   br label %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit.thread
 
 _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit.thread: ; preds = %47, %45, %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit, %59
-  %.013 = phi i32 [ %42, %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit ], [ %62, %59 ], [ %spec.select, %45 ], [ %42, %47 ]
-  %.0 = phi i32 [ %42, %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit ], [ %64, %59 ], [ %spec.select, %45 ], [ %42, %47 ]
+  %.013 = phi i32 [ %62, %59 ], [ %spec.select, %45 ], [ %42, %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit ], [ %42, %47 ]
+  %.0 = phi i32 [ %64, %59 ], [ %spec.select, %45 ], [ %42, %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit ], [ %42, %47 ]
   %65 = load ptr, ptr %4, align 8
   store i32 %.013, ptr %2, align 4
   store i32 %.0, ptr %3, align 4
@@ -7052,7 +7052,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19AcquireStencilT
   ret void
 
 777:                                              ; preds = %.loopexit271, %.loopexit.split-lp272, %.loopexit.split-lp, %329, %327
-  %.pn179 = phi { ptr, i32 } [ %330, %329 ], [ %lpad.phi, %.loopexit.split-lp ], [ %328, %327 ], [ %lpad.loopexit273, %.loopexit271 ], [ %lpad.loopexit.split-lp274, %.loopexit.split-lp272 ]
+  %.pn179 = phi { ptr, i32 } [ %330, %329 ], [ %328, %327 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit273, %.loopexit271 ], [ %lpad.loopexit.split-lp274, %.loopexit.split-lp272 ]
   %778 = load ptr, ptr %222, align 8
   call void @_ZdlPv(ptr noundef %778) #18
   store ptr %219, ptr %7, align 8
@@ -8346,7 +8346,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %37, %35, %33, %31
   br label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE8finalizeEv.exit
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE8finalizeEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %53, %2
-  %.0 = phi ptr [ null, %53 ], [ null, %2 ], [ %3, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i ], [ %3, %.lr.ph.i.i ]
+  %.0 = phi ptr [ null, %2 ], [ null, %53 ], [ %3, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i ], [ %3, %.lr.ph.i.i ]
   store ptr null, ptr %1, align 8
   ret ptr %.0
 }
@@ -8448,7 +8448,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %37, %35, %33, %31
   br label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE8finalizeEv.exit
 
 _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE8finalizeEv.exit: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %53, %2
-  %.0 = phi ptr [ null, %53 ], [ null, %2 ], [ %3, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i ], [ %3, %.lr.ph.i.i ]
+  %.0 = phi ptr [ null, %2 ], [ null, %53 ], [ %3, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i ], [ %3, %.lr.ph.i.i ]
   store ptr null, ptr %1, align 8
   ret ptr %.0
 }
@@ -8887,8 +8887,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelperC2ER
           to label %.sink.split unwind label %43
 
 .sink.split:                                      ; preds = %.noexc17, %55, %61, %.noexc9, %36, %42
-  %.sink22 = phi ptr [ %28, %42 ], [ %28, %36 ], [ %28, %.noexc9 ], [ %47, %61 ], [ %47, %55 ], [ %47, %.noexc17 ]
-  %.sink = phi ptr [ %37, %42 ], [ %37, %36 ], [ %37, %.noexc9 ], [ %56, %61 ], [ %56, %55 ], [ %56, %.noexc17 ]
+  %.sink22 = phi ptr [ %28, %.noexc9 ], [ %28, %42 ], [ %28, %36 ], [ %47, %61 ], [ %47, %55 ], [ %47, %.noexc17 ]
+  %.sink = phi ptr [ %37, %.noexc9 ], [ %37, %42 ], [ %37, %36 ], [ %56, %61 ], [ %56, %55 ], [ %56, %.noexc17 ]
   store ptr %.sink22, ptr %11, align 8
   store ptr %.sink, ptr %12, align 8
   br label %62
@@ -9650,7 +9650,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

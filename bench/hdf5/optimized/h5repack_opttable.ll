@@ -167,7 +167,7 @@ init_packobject.exit:                             ; preds = %43
   br label %53
 
 53:                                               ; preds = %33, %37, %25, %12, %16, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %4 ], [ -1, %16 ], [ -1, %12 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ -1, %4 ], [ -1, %16 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ aux_tblinsert_layout.exit:                        ; preds = %66, %.preheader103
   br i1 %exitcond.not.i85, label %aux_tblinsert_layout.exit86, label %87, !llvm.loop !30
 
 aux_tblinsert_layout.exit.thread:                 ; preds = %62, %58, %57, %50, %aux_tblinsert_layout.exit
-  %.073108 = phi i32 [ %29, %58 ], [ %29, %57 ], [ %29, %50 ], [ %22, %aux_tblinsert_layout.exit ], [ %29, %62 ]
+  %.073108 = phi i32 [ %22, %aux_tblinsert_layout.exit ], [ %29, %58 ], [ %29, %57 ], [ %29, %50 ], [ %29, %62 ]
   %91 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv135
   %92 = zext i32 %.073108 to i64
   %93 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %92
@@ -851,8 +851,8 @@ thread-pre-split:                                 ; preds = %9
   br label %aux_tblinsert_filter.exit69
 
 aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %98, %77, %73, %65, %60, %81
-  %.177 = phi i1 [ true, %81 ], [ false, %60 ], [ false, %65 ], [ false, %73 ], [ false, %77 ], [ true, %98 ], [ true, %103 ], [ true, %111 ], [ true, %115 ]
-  %.157 = phi i32 [ %.05688, %81 ], [ %51, %60 ], [ %51, %65 ], [ %51, %73 ], [ %51, %77 ], [ %90, %98 ], [ %90, %103 ], [ %90, %111 ], [ %90, %115 ]
+  %.177 = phi i1 [ false, %77 ], [ true, %81 ], [ false, %60 ], [ false, %65 ], [ false, %73 ], [ true, %98 ], [ true, %103 ], [ true, %111 ], [ true, %115 ]
+  %.157 = phi i32 [ %51, %77 ], [ %.05688, %81 ], [ %51, %60 ], [ %51, %65 ], [ %51, %73 ], [ %90, %98 ], [ %90, %103 ], [ %90, %111 ], [ %90, %115 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count106
   br i1 %exitcond107.not, label %.loopexit, label %.preheader79, !llvm.loop !36

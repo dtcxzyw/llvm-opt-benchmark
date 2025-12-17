@@ -124,7 +124,7 @@ define internal i32 @mpeg4video_parse(ptr noundef captures(none) %0, ptr noundef
   br label %mpeg4_find_frame_end.exit
 
 mpeg4_find_frame_end.exit:                        ; preds = %30, %41, %.loopexit.i
-  %.034.i = phi i32 [ %43, %41 ], [ -100, %.loopexit.i ], [ 0, %30 ]
+  %.034.i = phi i32 [ -100, %.loopexit.i ], [ %43, %41 ], [ 0, %30 ]
   %45 = call i32 @ff_combine_frame(ptr noundef %14, i32 noundef %.034.i, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %mpeg4_find_frame_end.exit._crit_edge

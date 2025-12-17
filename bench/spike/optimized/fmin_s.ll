@@ -346,7 +346,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_fmin_sP11p
   br label %152
 
 152:                                              ; preds = %144, %.critedge
-  %.sroa.024.0.in.in = phi ptr [ %98, %.critedge ], [ %spec.select, %144 ]
+  %.sroa.024.0.in.in = phi ptr [ %spec.select, %144 ], [ %98, %.critedge ]
   %153 = lshr i64 %1, 7
   %154 = and i64 %153, 31
   %.not.i180 = icmp eq i64 %154, 0
@@ -777,7 +777,7 @@ define noundef i64 @_Z17fast_rv64i_fmin_sP11processor_t6insn_tm(ptr noundef capt
   br label %152
 
 152:                                              ; preds = %144, %.critedge
-  %.sroa.024.0.in.in = phi ptr [ %98, %.critedge ], [ %spec.select, %144 ]
+  %.sroa.024.0.in.in = phi ptr [ %spec.select, %144 ], [ %98, %.critedge ]
   %153 = lshr i64 %1, 7
   %154 = and i64 %153, 31
   %.not.i180 = icmp eq i64 %154, 0
@@ -1198,7 +1198,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_fmin_sP1
   br label %163
 
 163:                                              ; preds = %155, %.critedge
-  %.sroa.025.0.in = phi i64 [ %103, %.critedge ], [ %spec.select, %155 ]
+  %.sroa.025.0.in = phi i64 [ %spec.select, %155 ], [ %103, %.critedge ]
   %sext = shl i64 %.sroa.025.0.in, 32
   %164 = ashr exact i64 %sext, 32
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -1407,7 +1407,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !43
@@ -1730,7 +1730,7 @@ define noundef i64 @_Z19logged_rv64i_fmin_sP11processor_t6insn_tm(ptr noundef %0
   br label %163
 
 163:                                              ; preds = %155, %.critedge
-  %.sroa.025.0.in = phi i64 [ %103, %.critedge ], [ %spec.select, %155 ]
+  %.sroa.025.0.in = phi i64 [ %spec.select, %155 ], [ %103, %.critedge ]
   %164 = and i64 %.sroa.025.0.in, 4294967295
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2180,7 +2180,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_fmin_sP11p
   br label %168
 
 168:                                              ; preds = %160, %159
-  %.sroa.024.0.in.in = phi ptr [ %98, %159 ], [ %spec.select, %160 ]
+  %.sroa.024.0.in.in = phi ptr [ %spec.select, %160 ], [ %98, %159 ]
   %.not.i189 = icmp eq i64 %152, 0
   br i1 %.not.i189, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %169
 
@@ -2617,7 +2617,7 @@ define noundef i64 @_Z17fast_rv64e_fmin_sP11processor_t6insn_tm(ptr noundef capt
   br label %168
 
 168:                                              ; preds = %160, %159
-  %.sroa.024.0.in.in = phi ptr [ %98, %159 ], [ %spec.select, %160 ]
+  %.sroa.024.0.in.in = phi ptr [ %spec.select, %160 ], [ %98, %159 ]
   %.not.i189 = icmp eq i64 %152, 0
   br i1 %.not.i189, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %169
 
@@ -3070,7 +3070,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_fmin_sP1
   br label %179
 
 179:                                              ; preds = %171, %170
-  %.sroa.025.0.in = phi i64 [ %103, %170 ], [ %spec.select, %171 ]
+  %.sroa.025.0.in = phi i64 [ %spec.select, %171 ], [ %103, %170 ]
   %sext = shl i64 %.sroa.025.0.in, 32
   %180 = ashr exact i64 %sext, 32
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -3548,7 +3548,7 @@ define noundef i64 @_Z19logged_rv64e_fmin_sP11processor_t6insn_tm(ptr noundef %0
   br label %179
 
 179:                                              ; preds = %171, %170
-  %.sroa.025.0.in = phi i64 [ %103, %170 ], [ %spec.select, %171 ]
+  %.sroa.025.0.in = phi i64 [ %spec.select, %171 ], [ %103, %170 ]
   %180 = and i64 %.sroa.025.0.in, 4294967295
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3961,8 +3961,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

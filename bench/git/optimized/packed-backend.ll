@@ -784,7 +784,7 @@ cmp_packed_ref_records.exit.i.i:                  ; preds = %238
   br i1 %.not117.i.i, label %cmp_packed_ref_records.exit.thread113.thread.i.i, label %cmp_packed_ref_records.exit.thread113.i.i
 
 cmp_packed_ref_records.exit.thread113.i.i:        ; preds = %cmp_packed_ref_records.exit.i.i, %243, %223
-  %.194.i.i = phi i32 [ %.093143.i127.i47, %223 ], [ 1, %cmp_packed_ref_records.exit.i.i ], [ 1, %243 ]
+  %.194.i.i = phi i32 [ %.093143.i127.i47, %223 ], [ 1, %243 ], [ 1, %cmp_packed_ref_records.exit.i.i ]
   %246 = icmp ult ptr %.092.i.i, %169
   br i1 %246, label %.lr.ph.backedge.i.i, label %._crit_edge.i.i
 
@@ -869,7 +869,7 @@ clear_snapshot_buffer.exit.i.i:                   ; preds = %275, %274
   br label %sort_snapshot.exit.i
 
 sort_snapshot.exit.i:                             ; preds = %clear_snapshot_buffer.exit.i.i, %._crit_edge.i.i, %st_mult.exit.i.i
-  %.1.lcssa181.i.i = phi ptr [ %.2.i.i, %._crit_edge.i.i ], [ %.2.i.i, %clear_snapshot_buffer.exit.i.i ], [ %179, %st_mult.exit.i.i ]
+  %.1.lcssa181.i.i = phi ptr [ %.2.i.i, %clear_snapshot_buffer.exit.i.i ], [ %.2.i.i, %._crit_edge.i.i ], [ %179, %st_mult.exit.i.i ]
   call void @free(ptr noundef %.1.lcssa181.i.i) #18
   %.pre.i = load ptr, ptr %88, align 8, !tbaa !39
   %.pre160.i = load ptr, ptr %90, align 8, !tbaa !32
@@ -1115,84 +1115,84 @@ packed_downcast.exit:                             ; preds = %10
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 1521, ptr noundef nonnull @.str.11) #19
   unreachable
 
-.lr.ph43:                                         ; preds = %.critedge
+.lr.ph42:                                         ; preds = %31
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %32
+  br label %33
 
-22:                                               ; preds = %.lr.ph, %.critedge
-  %.02441 = phi i64 [ 0, %.lr.ph ], [ %31, %.critedge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02441
+22:                                               ; preds = %.lr.ph, %31
+  %.02440 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02440
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load i32, ptr %25, align 8, !tbaa !22
   %27 = and i32 %26, 8
   %.not30 = icmp eq i32 %27, 0
-  br i1 %.not30, label %28, label %.loopexit39
+  br i1 %.not30, label %28, label %.critedge
 
 28:                                               ; preds = %22
   %29 = and i32 %26, 4
   %.not31 = icmp eq i32 %29, 0
-  br i1 %.not31, label %.critedge, label %30
+  br i1 %.not31, label %31, label %30
 
 30:                                               ; preds = %28
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %24, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i33.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i33.not, label %.critedge, label %.loopexit39
+  br i1 %.not.i33.not, label %31, label %.critedge
 
-.critedge:                                        ; preds = %30, %28
-  %31 = add nuw i64 %.02441, 1
-  %exitcond.not = icmp eq i64 %31, %17
-  br i1 %exitcond.not, label %.lr.ph43, label %22, !llvm.loop !78
+31:                                               ; preds = %30, %28
+  %32 = add nuw i64 %.02440, 1
+  %exitcond.not = icmp eq i64 %32, %17
+  br i1 %exitcond.not, label %.lr.ph42, label %22, !llvm.loop !78
 
-32:                                               ; preds = %.lr.ph43, %47
-  %33 = phi i64 [ %17, %.lr.ph43 ], [ %48, %47 ]
-  %.12542 = phi i64 [ 0, %.lr.ph43 ], [ %49, %47 ]
-  %34 = load ptr, ptr %21, align 8, !tbaa !75
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.12542
-  %36 = load ptr, ptr %35, align 8, !tbaa !76
+33:                                               ; preds = %.lr.ph42, %48
+  %34 = phi i64 [ %17, %.lr.ph42 ], [ %49, %48 ]
+  %.12541 = phi i64 [ 0, %.lr.ph42 ], [ %50, %48 ]
+  %35 = load ptr, ptr %21, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.12541
+  %37 = load ptr, ptr %36, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
-  %38 = load i32, ptr %37, align 8, !tbaa !22
-  %39 = and i32 %38, 4
-  %.not29 = icmp eq i32 %39, 0
-  br i1 %.not29, label %47, label %40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  %39 = load i32, ptr %38, align 8, !tbaa !22
+  %40 = and i32 %39, 4
+  %.not29 = icmp eq i32 %40, 0
+  br i1 %.not29, label %48, label %41
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 144
-  %42 = call i32 @refs_read_raw_ref(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4) #18
-  %43 = icmp eq i32 %42, 0
-  %44 = load i32, ptr %4, align 4
-  %45 = icmp ne i32 %44, 2
-  %or.cond = select i1 %43, i1 true, i1 %45
-  br i1 %or.cond, label %46, label %._crit_edge
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 144
+  %43 = call i32 @refs_read_raw_ref(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4) #18
+  %44 = icmp eq i32 %43, 0
+  %45 = load i32, ptr %4, align 4
+  %46 = icmp ne i32 %45, 2
+  %or.cond = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond, label %47, label %._crit_edge
 
-._crit_edge:                                      ; preds = %40
+._crit_edge:                                      ; preds = %41
   %.pre = load i64, ptr %16, align 8, !tbaa !72
-  br label %47
+  br label %48
 
-46:                                               ; preds = %40
+47:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-47:                                               ; preds = %._crit_edge, %32
-  %48 = phi i64 [ %.pre, %._crit_edge ], [ %33, %32 ]
+48:                                               ; preds = %._crit_edge, %33
+  %49 = phi i64 [ %.pre, %._crit_edge ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %49 = add nuw i64 %.12542, 1
-  %50 = icmp ult i64 %49, %48
-  br i1 %50, label %32, label %.loopexit, !llvm.loop !79
+  %50 = add nuw i64 %.12541, 1
+  %51 = icmp ult i64 %50, %49
+  br i1 %51, label %33, label %.loopexit, !llvm.loop !79
 
-.loopexit:                                        ; preds = %47, %.preheader38, %46
-  %.127 = phi i32 [ 1, %46 ], [ 0, %.preheader38 ], [ 0, %47 ]
+.loopexit:                                        ; preds = %48, %.preheader38, %47
+  %.127 = phi i32 [ 1, %47 ], [ 0, %.preheader38 ], [ 0, %48 ]
   call void @strbuf_release(ptr noundef nonnull %3) #18
-  br label %.loopexit39
+  br label %.critedge
 
-.loopexit39:                                      ; preds = %22, %30, %.loopexit
+.critedge:                                        ; preds = %22, %30, %.loopexit
   %.2 = phi i32 [ %.127, %.loopexit ], [ 1, %30 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
@@ -1581,9 +1581,9 @@ select.unfold.i:                                  ; preds = %select.unfold.i.bac
   br label %.thread179.i
 
 .thread141.i:                                     ; preds = %103, %99, %95
-  %.6150.i = phi ptr [ %spec.select120.i, %95 ], [ %.3.i, %99 ], [ %.3.i, %103 ]
-  %.292148.i = phi i32 [ %96, %95 ], [ %.090.i, %99 ], [ %.090.i, %103 ]
-  %.081137147.i = phi ptr [ %75, %95 ], [ %.081138193.i, %99 ], [ %.081138193.i, %103 ]
+  %.6150.i = phi ptr [ %.3.i, %103 ], [ %spec.select120.i, %95 ], [ %.3.i, %99 ]
+  %.292148.i = phi i32 [ %.090.i, %103 ], [ %96, %95 ], [ %.090.i, %99 ]
+  %.081137147.i = phi ptr [ %.081138193.i, %103 ], [ %75, %95 ], [ %.081138193.i, %99 ]
   %bcmp.i127.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.081137147.i, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i128.not.i = icmp eq i32 %bcmp.i127.i, 0
   br i1 %.not.i128.not.i, label %123, label %125
@@ -1680,7 +1680,7 @@ select.unfold.i.backedge:                         ; preds = %write_packed_entry.
   br i1 %.not119.i, label %.thread185.i, label %.thread173.thread.i
 
 .thread173.thread.i:                              ; preds = %.thread173.i, %90, %86
-  %.077196.i = phi ptr [ %.077.i, %.thread173.i ], [ %.3.i, %86 ], [ %.3.i, %90 ]
+  %.077196.i = phi ptr [ %.077.i, %.thread173.i ], [ %.3.i, %90 ], [ %.3.i, %86 ]
   %161 = call i32 @ref_iterator_abort(ptr noundef nonnull %.077196.i) #18
   br label %.thread185.i
 
@@ -1688,7 +1688,7 @@ select.unfold.i.backedge:                         ; preds = %write_packed_entry.
   %162 = call i32 @delete_tempfile(ptr noundef nonnull %44) #18
   br label %write_with_updates.exit.thread
 
-write_with_updates.exit.thread:                   ; preds = %.thread185.i, %149, %45
+write_with_updates.exit.thread:                   ; preds = %.thread185.i, %45, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %165
 
@@ -2002,8 +2002,8 @@ cmp_record_to_refname.exit.thread.i.i:            ; preds = %cmp_record_to_refna
   br i1 %68, label %.lr.ph.i37.i.i, label %find_end_of_record.exit.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i:                      ; preds = %.lr.ph.i32.i.i, %.critedge2.i40.i.i, %64, %cmp_record_to_refname.exit.thread.i.i, %51
-  %.228.i.i = phi ptr [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.0.lcssa.i.i.i, %51 ], [ %.02661.i.i, %64 ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
-  %.225.i.i = phi ptr [ %58, %cmp_record_to_refname.exit.thread.i.i ], [ %.02362.i.i, %51 ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %62, %64 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
+  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %51 ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %64 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
+  %.225.i.i = phi ptr [ %.02362.i.i, %51 ], [ %58, %cmp_record_to_refname.exit.thread.i.i ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %62, %64 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
   %.not.i.i = icmp eq ptr %.225.i.i, %.228.i.i
   br i1 %.not.i.i, label %find_reference_location.exit, label %32, !llvm.loop !99
 
@@ -2175,8 +2175,8 @@ cmp_record_to_refname.exit.thread.i.i.i:          ; preds = %cmp_record_to_refna
   br i1 %136, label %.lr.ph.i37.i.i.i, label %find_end_of_record.exit.i.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i.i:                    ; preds = %.lr.ph.i32.i.i.i, %.critedge2.i40.i.i.i, %132, %cmp_record_to_refname.exit.thread.i.i.i, %119
-  %.228.i.i.i = phi ptr [ %.02661.i.i.i, %cmp_record_to_refname.exit.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %119 ], [ %.02661.i.i.i, %132 ], [ %.02661.i.i.i, %.critedge2.i40.i.i.i ], [ %.0.lcssa.i.i.i.i, %.lr.ph.i32.i.i.i ]
-  %.225.i.i.i = phi ptr [ %126, %cmp_record_to_refname.exit.thread.i.i.i ], [ %.02362.i.i.i, %119 ], [ %scevgep.i.i.i.i, %.critedge2.i40.i.i.i ], [ %130, %132 ], [ %.02362.i.i.i, %.lr.ph.i32.i.i.i ]
+  %.228.i.i.i = phi ptr [ %.0.lcssa.i.i.i.i, %119 ], [ %.02661.i.i.i, %cmp_record_to_refname.exit.thread.i.i.i ], [ %.02661.i.i.i, %.critedge2.i40.i.i.i ], [ %.02661.i.i.i, %132 ], [ %.0.lcssa.i.i.i.i, %.lr.ph.i32.i.i.i ]
+  %.225.i.i.i = phi ptr [ %.02362.i.i.i, %119 ], [ %126, %cmp_record_to_refname.exit.thread.i.i.i ], [ %scevgep.i.i.i.i, %.critedge2.i40.i.i.i ], [ %130, %132 ], [ %.02362.i.i.i, %.lr.ph.i32.i.i.i ]
   %.not.i.i.i53 = icmp eq ptr %.225.i.i.i, %.228.i.i.i
   br i1 %.not.i.i.i53, label %.lr.ph.i.i69.i, label %100, !llvm.loop !99
 
@@ -2277,13 +2277,13 @@ cmp_record_to_refname.exit.thread.i.i89.i:        ; preds = %.lr.ph.i32.i.i79.i,
   br i1 %173, label %.lr.ph.i37.i.i92.i, label %find_end_of_record.exit.i.i84.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i84.i:                  ; preds = %.critedge2.i40.i.i95.i, %169, %cmp_record_to_refname.exit.thread.i.i89.i, %156
-  %.228.i.i85.i = phi ptr [ %.02661.i.i75.i, %cmp_record_to_refname.exit.thread.i.i89.i ], [ %.0.lcssa.i.i.i77.i, %156 ], [ %.02661.i.i75.i, %169 ], [ %.02661.i.i75.i, %.critedge2.i40.i.i95.i ]
-  %.225.i.i86.i = phi ptr [ %163, %cmp_record_to_refname.exit.thread.i.i89.i ], [ %.02362.i.i74.i, %156 ], [ %scevgep.i.i.i91.i, %.critedge2.i40.i.i95.i ], [ %167, %169 ]
+  %.228.i.i85.i = phi ptr [ %.0.lcssa.i.i.i77.i, %156 ], [ %.02661.i.i75.i, %cmp_record_to_refname.exit.thread.i.i89.i ], [ %.02661.i.i75.i, %169 ], [ %.02661.i.i75.i, %.critedge2.i40.i.i95.i ]
+  %.225.i.i86.i = phi ptr [ %.02362.i.i74.i, %156 ], [ %163, %cmp_record_to_refname.exit.thread.i.i89.i ], [ %scevgep.i.i.i91.i, %.critedge2.i40.i.i95.i ], [ %167, %169 ]
   %.not.i.i87.i = icmp eq ptr %.225.i.i86.i, %.228.i.i85.i
   br i1 %.not.i.i87.i, label %find_reference_location_end.exit.i, label %137, !llvm.loop !99
 
 find_reference_location_end.exit.i:               ; preds = %find_end_of_record.exit.i.i84.i, %cmp_record_to_refname.exit.i.i97.i
-  %.2.i.i88.i = phi ptr [ %.225.i.i86.i, %find_end_of_record.exit.i.i84.i ], [ %.0.lcssa.i.i.i77.i, %cmp_record_to_refname.exit.i.i97.i ]
+  %.2.i.i88.i = phi ptr [ %.0.lcssa.i.i.i77.i, %cmp_record_to_refname.exit.i.i97.i ], [ %.225.i.i86.i, %find_end_of_record.exit.i.i84.i ]
   %174 = icmp eq ptr %.2.i.i.i, %.2.i.i88.i
   br i1 %174, label %has_glob_special.exit.i, label %175
 
@@ -2576,8 +2576,8 @@ cmp_record_to_refname.exit.thread.i.i:            ; preds = %cmp_record_to_refna
   br i1 %59, label %.lr.ph.i37.i.i, label %find_end_of_record.exit.i.i, !llvm.loop !98
 
 find_end_of_record.exit.i.i:                      ; preds = %.lr.ph.i32.i.i, %.critedge2.i40.i.i, %55, %cmp_record_to_refname.exit.thread.i.i, %42
-  %.228.i.i = phi ptr [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.0.lcssa.i.i.i, %42 ], [ %.02661.i.i, %55 ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
-  %.225.i.i = phi ptr [ %49, %cmp_record_to_refname.exit.thread.i.i ], [ %.02362.i.i, %42 ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %53, %55 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
+  %.228.i.i = phi ptr [ %.0.lcssa.i.i.i, %42 ], [ %.02661.i.i, %cmp_record_to_refname.exit.thread.i.i ], [ %.02661.i.i, %.critedge2.i40.i.i ], [ %.02661.i.i, %55 ], [ %.0.lcssa.i.i.i, %.lr.ph.i32.i.i ]
+  %.225.i.i = phi ptr [ %.02362.i.i, %42 ], [ %49, %cmp_record_to_refname.exit.thread.i.i ], [ %scevgep.i.i.i, %.critedge2.i40.i.i ], [ %53, %55 ], [ %.02362.i.i, %.lr.ph.i32.i.i ]
   %.not.i.i = icmp eq ptr %.225.i.i, %.228.i.i
   br i1 %.not.i.i, label %find_reference_location.exit.thread, label %23, !llvm.loop !99
 
@@ -2605,8 +2605,8 @@ find_reference_location.exit:                     ; preds = %cmp_record_to_refna
   unreachable
 
 find_reference_location.exit.thread:              ; preds = %find_end_of_record.exit.i.i, %60, %find_reference_location.exit, %packed_downcast.exit
-  %.sink = phi ptr [ %5, %packed_downcast.exit ], [ %5, %find_reference_location.exit ], [ %4, %60 ], [ %5, %find_end_of_record.exit.i.i ]
-  %.0 = phi i32 [ -1, %packed_downcast.exit ], [ -1, %find_reference_location.exit ], [ 0, %60 ], [ -1, %find_end_of_record.exit.i.i ]
+  %.sink = phi ptr [ %5, %find_reference_location.exit ], [ %5, %packed_downcast.exit ], [ %4, %60 ], [ %5, %find_end_of_record.exit.i.i ]
+  %.0 = phi i32 [ -1, %find_reference_location.exit ], [ -1, %packed_downcast.exit ], [ 0, %60 ], [ -1, %find_end_of_record.exit.i.i ]
   store i32 2, ptr %.sink, align 4, !tbaa !22
   ret i32 %.0
 }

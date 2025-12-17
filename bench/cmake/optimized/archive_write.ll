@@ -54,7 +54,7 @@ define dso_local noalias noundef ptr @archive_write_new() local_unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %0, %12, %11
-  %.0 = phi ptr [ null, %11 ], [ %1, %12 ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %12 ], [ null, %11 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -80,7 +80,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_bytes_per_block(ptr no
   br label %8
 
 8:                                                ; preds = %4, %2, %6
-  %.1 = phi i32 [ 0, %6 ], [ -30, %2 ], [ 0, %4 ]
+  %.1 = phi i32 [ -30, %2 ], [ 0, %6 ], [ 0, %4 ]
   ret i32 %.1
 }
 
@@ -100,7 +100,7 @@ define dso_local range(i32 -30, -2147483648) i32 @archive_write_get_bytes_per_bl
   br label %7
 
 7:                                                ; preds = %3, %1
-  %.1 = phi i32 [ -30, %1 ], [ %., %3 ]
+  %.1 = phi i32 [ %., %3 ], [ -30, %1 ]
   ret i32 %.1
 }
 
@@ -449,7 +449,7 @@ __archive_write_filters_free.exit:                ; preds = %54, %35, %__archive
   br label %__archive_write_allocate_filter.exit.thread
 
 __archive_write_allocate_filter.exit.thread:      ; preds = %8, %57, %61, %6, %__archive_write_filters_free.exit
-  %.1 = phi i32 [ %56, %__archive_write_filters_free.exit ], [ -30, %6 ], [ %62, %61 ], [ %33, %57 ], [ -30, %8 ]
+  %.1 = phi i32 [ -30, %6 ], [ %56, %__archive_write_filters_free.exit ], [ %33, %57 ], [ %62, %61 ], [ -30, %8 ]
   ret i32 %.1
 }
 
@@ -471,7 +471,7 @@ define internal i32 @archive_write_client_open(ptr noundef captures(none) initia
   br label %archive_write_get_bytes_per_block.exit
 
 archive_write_get_bytes_per_block.exit:           ; preds = %1, %5
-  %.1.i = phi i32 [ -30, %1 ], [ %..i, %5 ]
+  %.1.i = phi i32 [ %..i, %5 ], [ -30, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.1.i, ptr %9, align 4, !tbaa !48
   %10 = load ptr, ptr %2, align 8, !tbaa !26
@@ -689,7 +689,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_write(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %41, %58, %13, %18, %.preheader, %48, %._crit_edge103, %69
-  %.077 = phi i32 [ 0, %69 ], [ 0, %._crit_edge103 ], [ -30, %48 ], [ 0, %.preheader ], [ -30, %13 ], [ 0, %18 ], [ -30, %58 ], [ -30, %41 ]
+  %.077 = phi i32 [ 0, %._crit_edge103 ], [ -30, %48 ], [ 0, %69 ], [ 0, %.preheader ], [ -30, %58 ], [ 0, %18 ], [ -30, %13 ], [ -30, %41 ]
   ret i32 %.077
 }
 
@@ -782,7 +782,7 @@ define internal range(i32 -30, 1) i32 @archive_write_client_close(ptr noundef ca
   br i1 %.not57, label %.loopexit, label %37, !llvm.loop !59
 
 .loopexit:                                        ; preds = %45, %37, %33, %44, %1
-  %.0 = phi i32 [ -30, %44 ], [ 0, %1 ], [ 0, %33 ], [ 0, %45 ], [ -30, %37 ]
+  %.0 = phi i32 [ 0, %1 ], [ -30, %44 ], [ 0, %33 ], [ 0, %45 ], [ -30, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %49 = load ptr, ptr %48, align 8, !tbaa !37
   %.not58 = icmp eq ptr %49, null
@@ -1064,7 +1064,7 @@ __archive_write_filters_free.exit:                ; preds = %25, %15
   br label %38
 
 38:                                               ; preds = %1, %3, %36
-  %.0 = phi i32 [ %.126, %36 ], [ -30, %3 ], [ 0, %1 ]
+  %.0 = phi i32 [ -30, %3 ], [ %.126, %36 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1207,7 +1207,7 @@ __archive_write_filters_flush.exit.thread:        ; preds = %36, %__archive_writ
   br label %58
 
 58:                                               ; preds = %__archive_write_filters_flush.exit.thread, %__archive_write_filters_flush.exit, %15, %2, %56, %54, %50, %35, %13, %8
-  %.1 = phi i32 [ -30, %8 ], [ -30, %13 ], [ -25, %35 ], [ -30, %50 ], [ -30, %54 ], [ %spec.select50, %56 ], [ -30, %2 ], [ %11, %15 ], [ %.2.i, %__archive_write_filters_flush.exit ], [ %53, %__archive_write_filters_flush.exit.thread ]
+  %.1 = phi i32 [ -30, %8 ], [ -30, %13 ], [ -30, %2 ], [ -25, %35 ], [ %11, %15 ], [ -30, %50 ], [ %.2.i, %__archive_write_filters_flush.exit ], [ -30, %54 ], [ %spec.select50, %56 ], [ %53, %__archive_write_filters_flush.exit.thread ]
   ret i32 %.1
 }
 
@@ -1494,7 +1494,7 @@ define internal fastcc i32 @__archive_write_open_filter(ptr noundef %0) unnamed_
   br label %15
 
 15:                                               ; preds = %.sink.split, %.thread, %4
-  %.013 = phi i32 [ %5, %4 ], [ -30, %.thread ], [ %.013.ph, %.sink.split ]
+  %.013 = phi i32 [ -30, %.thread ], [ %5, %4 ], [ %.013.ph, %.sink.split ]
   ret i32 %.013
 }
 

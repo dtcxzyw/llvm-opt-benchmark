@@ -115,7 +115,7 @@ define internal range(i32 -1094995529, 1) i32 @nsp_read_header(ptr noundef %0) #
   br label %.thread49
 
 .thread49:                                        ; preds = %10, %10, %.thread49.loopexit, %37
-  %.3.ph = phi i32 [ 1, %37 ], [ 2, %.thread49.loopexit ], [ 1, %10 ], [ 1, %10 ]
+  %.3.ph = phi i32 [ 2, %.thread49.loopexit ], [ 1, %37 ], [ 1, %10 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -145,7 +145,7 @@ define internal range(i32 -1094995529, 1) i32 @nsp_read_header(ptr noundef %0) #
   br label %48
 
 48:                                               ; preds = %.thread53, %1, %.loopexit
-  %.031 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -1094995529, %.thread53 ]
+  %.031 = phi i32 [ -1094995529, %.thread53 ], [ 0, %.loopexit ], [ -12, %1 ]
   ret i32 %.031
 }
 

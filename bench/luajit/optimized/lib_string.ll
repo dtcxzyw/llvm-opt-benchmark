@@ -449,7 +449,7 @@ define internal noundef i32 @lj_cf_string_gsub(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %133, %17
-  %.040 = phi i32 [ 0, %17 ], [ %.24253, %133 ]
+  %.040 = phi i32 [ 0, %17 ], [ %.24252, %133 ]
   %.039 = phi ptr [ %6, %17 ], [ %.2, %133 ]
   %28 = icmp slt i32 %.040, %13
   br i1 %28, label %29, label %.thread
@@ -668,7 +668,7 @@ add_value.exit:                                   ; preds = %119, %add_s.exit.i
   br i1 %120, label %133, label %add_value.exit.thread
 
 add_value.exit.thread:                            ; preds = %29, %add_value.exit
-  %.24252 = phi i32 [ %32, %add_value.exit ], [ %.040, %29 ]
+  %.24253 = phi i32 [ %32, %add_value.exit ], [ %.040, %29 ]
   %121 = load ptr, ptr %21, align 8, !tbaa !47
   %122 = icmp ult ptr %.039, %121
   br i1 %122, label %123, label %.thread
@@ -693,12 +693,12 @@ add_value.exit.thread:                            ; preds = %29, %add_value.exit
   br label %133
 
 133:                                              ; preds = %add_value.exit, %128
-  %.24253 = phi i32 [ %.24252, %128 ], [ %32, %add_value.exit ]
+  %.24252 = phi i32 [ %.24253, %128 ], [ %32, %add_value.exit ]
   %.2 = phi ptr [ %130, %128 ], [ %30, %add_value.exit ]
   br i1 %.not47, label %.thread, label %27
 
 .thread:                                          ; preds = %133, %add_value.exit.thread, %27
-  %.141 = phi i32 [ %.040, %27 ], [ %.24252, %add_value.exit.thread ], [ %.24253, %133 ]
+  %.141 = phi i32 [ %.040, %27 ], [ %.24253, %add_value.exit.thread ], [ %.24252, %133 ]
   %.1 = phi ptr [ %.039, %27 ], [ %.039, %add_value.exit.thread ], [ %.2, %133 ]
   %134 = load ptr, ptr %21, align 8, !tbaa !47
   %135 = ptrtoint ptr %134 to i64
@@ -1046,7 +1046,7 @@ push_captures.exit83.thread86:                    ; preds = %.split
   br label %118
 
 .critedge79:                                      ; preds = %.lr.ph.i80, %push_captures.exit83, %106, %push_captures.exit83.thread89
-  %.385 = phi i32 [ %111, %push_captures.exit83 ], [ %83, %push_captures.exit83.thread89 ], [ %107, %106 ], [ %spec.select.i, %.lr.ph.i80 ]
+  %.385 = phi i32 [ %83, %push_captures.exit83.thread89 ], [ %111, %push_captures.exit83 ], [ %107, %106 ], [ %spec.select.i, %.lr.ph.i80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
@@ -1430,7 +1430,7 @@ match_class.exit.i:                               ; preds = %172
   br i1 %189, label %147, label %matchbracketclass.exit, !llvm.loop !62
 
 matchbracketclass.exit:                           ; preds = %162, %173, %174, %match_class.exit.i, %182, %184, %187
-  %.022.in.i = phi i1 [ %not..i, %162 ], [ %not..i, %173 ], [ %not..i, %174 ], [ %118, %187 ], [ %not..i, %184 ], [ %not..i, %182 ], [ %not..i, %match_class.exit.i ]
+  %.022.in.i = phi i1 [ %not..i, %match_class.exit.i ], [ %not..i, %162 ], [ %not..i, %173 ], [ %not..i, %174 ], [ %118, %187 ], [ %not..i, %182 ], [ %not..i, %184 ]
   br i1 %.022.in.i, label %start_capture.exit, label %.lr.ph.i109
 
 .lr.ph.i109:                                      ; preds = %matchbracketclass.exit
@@ -1522,7 +1522,7 @@ match_class.exit.i118:                            ; preds = %218
   br i1 %233, label %193, label %matchbracketclass.exit121, !llvm.loop !62
 
 matchbracketclass.exit121:                        ; preds = %208, %219, %220, %match_class.exit.i118, %227, %229, %231
-  %.022.in.i107 = phi i1 [ %not..i, %208 ], [ %not..i, %219 ], [ %not..i, %220 ], [ %118, %231 ], [ %not..i, %229 ], [ %not..i, %227 ], [ %not..i, %match_class.exit.i118 ]
+  %.022.in.i107 = phi i1 [ %not..i, %208 ], [ %not..i, %219 ], [ %not..i, %220 ], [ %118, %231 ], [ %not..i, %227 ], [ %not..i, %229 ], [ %not..i, %match_class.exit.i118 ]
   br i1 %.022.in.i107, label %14, label %start_capture.exit
 
 234:                                              ; preds = %77
@@ -1665,7 +1665,7 @@ check_capture.exit.i:                             ; preds = %246
   br label %classend.exit133
 
 classend.exit133:                                 ; preds = %269, %274, %279, %299
-  %.015.i130 = phi ptr [ %280, %279 ], [ %300, %299 ], [ %275, %274 ], [ %270, %269 ]
+  %.015.i130 = phi ptr [ %300, %299 ], [ %280, %279 ], [ %275, %274 ], [ %270, %269 ]
   %301 = load ptr, ptr %8, align 8, !tbaa !47
   %302 = icmp ult ptr %.0.ph.ph, %301
   br i1 %302, label %303, label %308
@@ -1818,8 +1818,8 @@ classend.exit133:                                 ; preds = %269, %274, %279, %2
   %363 = getelementptr inbounds nuw i8, ptr %.0.ph.ph, i64 1
   br label %.outer.outer.backedge
 
-start_capture.exit:                               ; preds = %315, %361, %259, %check_capture.exit.i, %.preheader.i, %91, %140, %matchbracketclass.exit, %matchbracketclass.exit121, %14, %104, %352, %357, %.lr.ph, %348, %346, %329, %327, %.preheader182, %333, %76, %capture_to_close.exit, %48, %41, %34, %26, %272
-  %.1 = phi ptr [ %spec.store.select, %272 ], [ %32, %26 ], [ null, %34 ], [ %46, %41 ], [ null, %48 ], [ %74, %capture_to_close.exit ], [ null, %76 ], [ null, %333 ], [ %312, %.preheader182 ], [ %331, %329 ], [ null, %327 ], [ %350, %348 ], [ null, %346 ], [ %354, %352 ], [ null, %357 ], [ null, %.lr.ph ], [ null, %104 ], [ %.0.ph.ph, %14 ], [ null, %matchbracketclass.exit121 ], [ null, %matchbracketclass.exit ], [ null, %140 ], [ %317, %315 ], [ null, %361 ], [ null, %259 ], [ null, %check_capture.exit.i ], [ null, %.preheader.i ], [ null, %91 ]
+start_capture.exit:                               ; preds = %315, %361, %259, %check_capture.exit.i, %.preheader.i, %91, %140, %matchbracketclass.exit, %matchbracketclass.exit121, %14, %104, %352, %357, %.lr.ph, %346, %348, %327, %329, %.preheader182, %333, %76, %capture_to_close.exit, %48, %41, %34, %26, %272
+  %.1 = phi ptr [ null, %140 ], [ %spec.store.select, %272 ], [ null, %34 ], [ null, %48 ], [ %312, %.preheader182 ], [ null, %333 ], [ null, %.lr.ph ], [ %32, %26 ], [ %46, %41 ], [ %74, %capture_to_close.exit ], [ null, %76 ], [ %350, %348 ], [ %331, %329 ], [ null, %104 ], [ null, %327 ], [ null, %346 ], [ null, %357 ], [ %354, %352 ], [ %.0.ph.ph, %14 ], [ null, %matchbracketclass.exit121 ], [ null, %matchbracketclass.exit ], [ %317, %315 ], [ null, %361 ], [ null, %259 ], [ null, %check_capture.exit.i ], [ null, %.preheader.i ], [ null, %91 ]
   %364 = load i32, ptr %4, align 4, !tbaa !48
   %365 = add nsw i32 %364, -1
   store i32 %365, ptr %4, align 4, !tbaa !48
@@ -1975,7 +1975,7 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   br i1 %82, label %83, label %matchbracketclass.exit
 
 83:                                               ; preds = %71, %73, %72, %60, %59, %57
-  %.2.i.us = phi ptr [ %55, %60 ], [ %55, %59 ], [ %47, %57 ], [ %50, %72 ], [ %50, %73 ], [ %50, %71 ]
+  %.2.i.us = phi ptr [ %50, %73 ], [ %55, %60 ], [ %55, %59 ], [ %47, %57 ], [ %50, %72 ], [ %50, %71 ]
   %84 = getelementptr inbounds nuw i8, ptr %.2.i.us, i64 1
   %85 = icmp ult ptr %84, %38
   br i1 %85, label %.lr.ph.i.split.us, label %matchbracketclass.exit, !llvm.loop !62
@@ -2052,13 +2052,13 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   br i1 %123, label %matchbracketclass.exit, label %match_class.exit.i
 
 match_class.exit.i:                               ; preds = %110, %121, %119, %117, %111, %100
-  %.2.i = phi ptr [ %115, %119 ], [ %115, %117 ], [ %86, %121 ], [ %89, %111 ], [ %89, %100 ], [ %89, %110 ]
+  %.2.i = phi ptr [ %89, %100 ], [ %115, %119 ], [ %115, %117 ], [ %86, %121 ], [ %89, %111 ], [ %89, %110 ]
   %124 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %125 = icmp ult ptr %124, %38
   br i1 %125, label %.lr.ph.i.split, label %matchbracketclass.exit, !llvm.loop !62
 
 matchbracketclass.exit:                           ; preds = %match_class.exit.i, %121, %119, %111, %100, %110, %71, %71, %83, %73, %72, %60, %57, %37
-  %.022.in.i = phi i1 [ %41, %37 ], [ %not..i, %60 ], [ %not..i, %57 ], [ %41, %83 ], [ %not..i, %72 ], [ %not..i, %73 ], [ %not..i, %71 ], [ %not..i, %71 ], [ %not..i, %110 ], [ %not..i, %100 ], [ %not..i, %111 ], [ %41, %match_class.exit.i ], [ %not..i, %121 ], [ %not..i, %119 ]
+  %.022.in.i = phi i1 [ %41, %37 ], [ %not..i, %71 ], [ %not..i, %73 ], [ %not..i, %57 ], [ %not..i, %60 ], [ %41, %83 ], [ %not..i, %72 ], [ %not..i, %71 ], [ %not..i, %110 ], [ %not..i, %100 ], [ %not..i, %111 ], [ %41, %match_class.exit.i ], [ %not..i, %119 ], [ %not..i, %121 ]
   %.022.i = zext i1 %.022.in.i to i32
   br label %match_class.exit
 

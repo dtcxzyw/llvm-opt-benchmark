@@ -251,7 +251,7 @@ list_config.exit:                                 ; preds = %60, %63, %64
   br label %73
 
 73:                                               ; preds = %66, %51, %69, %list_config.exit, %45, %28, %20, %18, %16
-  %.041 = phi i32 [ 1, %16 ], [ 1, %45 ], [ 0, %18 ], [ 0, %20 ], [ 1, %28 ], [ %.0.i, %list_config.exit ], [ %72, %69 ], [ 0, %51 ], [ 1, %66 ]
+  %.041 = phi i32 [ 1, %16 ], [ 1, %45 ], [ 0, %18 ], [ 0, %20 ], [ 1, %28 ], [ 0, %51 ], [ %.0.i, %list_config.exit ], [ %72, %69 ], [ 1, %66 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -504,20 +504,20 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %._crit_edge, label %.lr.ph
 
-sdj_dump_entries.exit.thread:                     ; preds = %243
+sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
   call void @g_free(ptr noundef %94)
   br label %252
 
 ._crit_edge:                                      ; preds = %.backedge, %92
-  %.lcssa = phi i32 [ %99, %92 ], [ %246, %.backedge ]
+  %.lcssa = phi i32 [ %99, %92 ], [ %247, %.backedge ]
   %101 = call ptr @g_strerror(i32 noundef %.lcssa) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 96, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.50, ptr noundef %101)
   br label %sdj_dump_entries.exit.thread50
 
 .lr.ph:                                           ; preds = %92, %.backedge
-  %102 = phi i32 [ %246, %.backedge ], [ %99, %92 ]
+  %102 = phi i32 [ %247, %.backedge ], [ %99, %92 ]
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.backedge.i, label %104
+  br i1 %103, label %243, label %104
 
 104:                                              ; preds = %.lr.ph
   %105 = call i32 @sd_journal_get_cursor(ptr noundef %93, ptr noundef nonnull %4)
@@ -684,13 +684,13 @@ sdj_dump_entries.exit.thread:                     ; preds = %243
   br label %218
 
 218:                                              ; preds = %179, %161
-  %.2101.i = phi i32 [ %174, %161 ], [ %217, %179 ]
+  %.2101.i = phi i32 [ %217, %179 ], [ %174, %161 ]
   %219 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %220 = icmp sgt i32 %219, 0
   br i1 %220, label %.lr.ph.i, label %.thread.i
 
 .thread.i:                                        ; preds = %218, %175, %157, %133
-  %.099.lcssa.i = phi i32 [ %148, %133 ], [ %.2101.i, %218 ], [ %.099147.i, %157 ], [ %.099147.i, %175 ]
+  %.099.lcssa.i = phi i32 [ %148, %133 ], [ %.2101.i, %218 ], [ %.099147.i, %175 ], [ %.099147.i, %157 ]
   %221 = and i32 %.099.lcssa.i, 3
   %.not115.i = icmp eq i32 %221, 0
   br i1 %.not115.i, label %233, label %222
@@ -724,12 +724,10 @@ sdj_dump_entries.exit.thread:                     ; preds = %243
   call void @llvm.assume(i1 %240)
   %241 = call ptr @__memcpy_chk(ptr noundef %236, ptr noundef nonnull %14, i64 noundef 4, i64 noundef %239) #15, !alias.scope !25
   %242 = call zeroext i1 @pcapng_write_block(ptr noundef nonnull %.033, ptr noundef %94, i32 noundef %234, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  br i1 %242, label %243, label %249
+  br i1 %242, label %.backedge.i, label %249
 
-243:                                              ; preds = %233
-  %244 = call zeroext i1 @writecap_flush(ptr noundef nonnull %.033, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %245 = icmp eq i32 %129, 0
+243:                                              ; preds = %.lr.ph
+  %244 = call i32 @sd_journal_wait(ptr noundef %93, i64 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -739,9 +737,24 @@ sdj_dump_entries.exit.thread:                     ; preds = %243
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %245, label %.backedge, label %sdj_dump_entries.exit.thread
+  br label %.backedge
 
-.backedge:                                        ; preds = %243, %.backedge.i
+.backedge.i:                                      ; preds = %233
+  %245 = call zeroext i1 @writecap_flush(ptr noundef nonnull %.033, ptr noundef nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %246 = icmp eq i32 %129, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br i1 %246, label %.backedge, label %sdj_dump_entries.exit.thread
+
+.backedge:                                        ; preds = %.backedge.i, %243
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -754,22 +767,9 @@ sdj_dump_entries.exit.thread:                     ; preds = %243
   store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 9, ptr %94, align 1
-  %246 = call i32 @sd_journal_next(ptr noundef %93)
-  %247 = icmp slt i32 %246, 0
-  br i1 %247, label %._crit_edge, label %.lr.ph
-
-.backedge.i:                                      ; preds = %.lr.ph
-  %248 = call i32 @sd_journal_wait(ptr noundef %93, i64 noundef -1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.backedge
+  %247 = call i32 @sd_journal_next(ptr noundef %93)
+  %248 = icmp slt i32 %247, 0
+  br i1 %248, label %._crit_edge, label %.lr.ph
 
 sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %107, %115, %131, %.thread118.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -803,7 +803,7 @@ sdj_dump_entries.exit.thread50:                   ; preds = %._crit_edge, %107, 
   br label %252
 
 252:                                              ; preds = %sdj_dump_entries.exit.thread50, %sdj_dump_entries.exit.thread, %249, %90, %81, %76, %68, %59, %47, %42, %38
-  %.034 = phi i32 [ 1, %42 ], [ 1, %47 ], [ 1, %59 ], [ 1, %68 ], [ 1, %76 ], [ 1, %249 ], [ 1, %81 ], [ 1, %90 ], [ 1, %38 ], [ 0, %sdj_dump_entries.exit.thread ], [ 0, %sdj_dump_entries.exit.thread50 ]
+  %.034 = phi i32 [ 1, %42 ], [ 1, %47 ], [ 1, %59 ], [ 1, %68 ], [ 1, %76 ], [ 1, %249 ], [ 1, %38 ], [ 1, %81 ], [ 1, %90 ], [ 0, %sdj_dump_entries.exit.thread50 ], [ 0, %sdj_dump_entries.exit.thread ]
   %253 = load ptr, ptr %17, align 8
   %.not47 = icmp eq ptr %253, null
   br i1 %.not47, label %255, label %254

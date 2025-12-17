@@ -337,8 +337,8 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %34
   br label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE5clearEv.exit: ; preds = %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit, %._crit_edge, %40
-  %.lcssa5769132 = phi ptr [ %79, %._crit_edge ], [ %79, %40 ], [ %.lcssa5770, %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit ]
-  %.lcssa6374131 = phi ptr [ %78, %._crit_edge ], [ %78, %40 ], [ %.lcssa6375, %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit ]
+  %.lcssa5769132 = phi ptr [ %79, %40 ], [ %79, %._crit_edge ], [ %.lcssa5770, %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit ]
+  %.lcssa6374131 = phi ptr [ %78, %40 ], [ %78, %._crit_edge ], [ %.lcssa6375, %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %.065)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %41
 
@@ -479,7 +479,7 @@ _ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EE9push_backERKS2_.exit: ; preds =
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit27:      ; preds = %30, %45, %74
-  %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %lpad.phi, %74 ], [ %31, %30 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %74 ], [ %46, %45 ], [ %31, %30 ]
   %81 = load ptr, ptr %0, align 8, !tbaa !9
   %.not.i.i.i28 = icmp eq ptr %81, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIN9grpc_core8EventLog5EntryESaIS2_EED2Ev.exit, label %82
@@ -1317,7 +1317,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcE
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit133, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit135, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit137, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit139, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit141, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit89.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i86, %54, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i76, %47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66, %40
-  %.028 = phi ptr [ %.029.lcssa, %40 ], [ %.029.lcssa, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66 ], [ %.1, %47 ], [ %.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i76 ], [ %.2, %54 ], [ %.2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i86 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit89.thread ], [ %1, %._crit_edge ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit ], [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit133 ], [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit135 ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit137 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit139 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit141 ], [ %.029117, %16 ], [ %.029117, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %.028 = phi ptr [ %.029.lcssa, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i66 ], [ %.1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i76 ], [ %.2, %54 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit89.thread ], [ %.2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i86 ], [ %1, %._crit_edge ], [ %.029.lcssa, %40 ], [ %.1, %47 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit141 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit139 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit ], [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit135 ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit137 ], [ %58, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt17basic_string_viewIcSt11char_traitsIcEEEclIPS6_EEbT_.exit.loopexit.split.loop.exit133 ], [ %.029117, %16 ], [ %.029117, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret ptr %.028
 }
 
@@ -1677,7 +1677,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vecto
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge67.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %51, %53
-  %.sroa.015.0.i.i = phi ptr [ %.sroa.0.0, %51 ], [ %.sroa.065.0, %53 ], [ %.tr7080, %.lr.ph.i.i.i ], [ %69, %._crit_edge.i.i ], [ %69, %._crit_edge67.i.i ]
+  %.sroa.015.0.i.i = phi ptr [ %.sroa.065.0, %53 ], [ %.sroa.0.0, %51 ], [ %.tr7080, %.lr.ph.i.i.i ], [ %69, %._crit_edge.i.i ], [ %69, %._crit_edge67.i.i ]
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202407224SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_SN_T0_SO_T1_"(ptr %.tr78, ptr %.sroa.065.0, ptr %.sroa.015.0.i.i, i64 noundef %.0, i64 noundef %.047)
   %91 = sub nsw i64 %.tr7282, %.0
   %92 = sub nsw i64 %.tr7383, %.047
@@ -2597,7 +2597,7 @@ _ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !94
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %43, %41, %27, %12, %_ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %.sroa.032.0 = phi ptr [ %25, %_ZSt4moveIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %40, %_ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %2, %27 ], [ %2, %41 ], [ %0, %43 ], [ %1, %.lr.ph.i.i.i ], [ %59, %._crit_edge67.i.i ], [ %59, %._crit_edge.i.i ]
+  %.sroa.032.0 = phi ptr [ %25, %_ZSt4moveIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %2, %27 ], [ %40, %_ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %0, %43 ], [ %2, %41 ], [ %1, %.lr.ph.i.i.i ], [ %59, %._crit_edge67.i.i ], [ %59, %._crit_edge.i.i ]
   ret ptr %.sroa.032.0
 }
 

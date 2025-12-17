@@ -818,7 +818,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %148, label %.lr.ph259, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %140, %24, %30, %35, %60, %.split, %50, %.split.us, %145, %.lr.ph259, %.preheader209, %.preheader, %.loopexit, %132, %131, %135, %136, %._crit_edge, %113, %7
-  %.0 = phi i32 [ 1, %7 ], [ %., %113 ], [ 0, %._crit_edge ], [ 0, %135 ], [ 0, %136 ], [ 1, %131 ], [ 1, %132 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader209 ], [ 1, %145 ], [ -1, %.lr.ph259 ], [ -1, %50 ], [ %49, %.split.us ], [ -1, %60 ], [ %59, %.split ], [ -1, %30 ], [ 1, %35 ], [ 0, %24 ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %136 ], [ 1, %131 ], [ 1, %35 ], [ %., %113 ], [ 1, %.preheader ], [ 1, %132 ], [ 0, %135 ], [ -1, %50 ], [ -1, %.loopexit ], [ 1, %.preheader209 ], [ 1, %145 ], [ %59, %.split ], [ -1, %.lr.ph259 ], [ %49, %.split.us ], [ -1, %60 ], [ -1, %30 ], [ 0, %24 ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -1281,7 +1281,7 @@ define dso_local i64 @like_escape(ptr noundef readonly captures(none) %0) local_
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %45, %55, %52
-  %59 = phi i32 [ %54, %52 ], [ %58, %55 ], [ %spec.select, %45 ]
+  %59 = phi i32 [ %spec.select, %45 ], [ %54, %52 ], [ %58, %55 ]
   %60 = shl nsw i32 %37, 1
   %61 = add nsw i32 %60, 4
   %62 = sext i32 %61 to i64
@@ -1719,7 +1719,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   br label %114
 
 114:                                              ; preds = %110, %111, %113, %105
-  %.4 = phi ptr [ %109, %113 ], [ %106, %105 ], [ %109, %110 ], [ %112, %111 ]
+  %.4 = phi ptr [ %106, %105 ], [ %109, %113 ], [ %109, %110 ], [ %112, %111 ]
   %.2 = add nsw i32 %.16897, -1
   %.274 = getelementptr inbounds nuw i8, ptr %.17395, i64 1
   %115 = icmp sgt i32 %.16897, 1
@@ -1897,24 +1897,24 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %52, label %.split, label %53
 
 53:                                               ; preds = %.lr.ph314
-  br i1 %.not, label %.preheader515, label %54
+  br i1 %.not, label %.preheader516, label %54
 
 54:                                               ; preds = %53
   %55 = load i8, ptr %14, align 1, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %.preheader515, label %.split
+  br i1 %56, label %.preheader516, label %.split
 
 .split:                                           ; preds = %54, %.lr.ph314
   %57 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.4145311, i32 noundef %.4152310, ptr noundef nonnull %.2175304, i32 noundef %.2184305, ptr noundef %4)
   %.not209 = icmp eq i32 %57, 0
-  br i1 %.not209, label %.preheader515, label %.thread
+  br i1 %.not209, label %.preheader516, label %.thread
 
-.preheader515:                                    ; preds = %.split, %54, %53
+.preheader516:                                    ; preds = %.split, %54, %53
   br label %58
 
-58:                                               ; preds = %.preheader515, %60
-  %.5153 = phi i32 [ %62, %60 ], [ %.4152310, %.preheader515 ]
-  %.5146 = phi ptr [ %61, %60 ], [ %.4145311, %.preheader515 ]
+58:                                               ; preds = %.preheader516, %60
+  %.5153 = phi i32 [ %62, %60 ], [ %.4152310, %.preheader516 ]
+  %.5146 = phi ptr [ %61, %60 ], [ %.4145311, %.preheader516 ]
   %59 = icmp samesign ugt i32 %.5153, 1
   br i1 %59, label %60, label %.thread
 
@@ -1931,12 +1931,12 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 .preheader239:                                    ; preds = %15, %66
   %.6154 = phi i32 [ %68, %66 ], [ %.0148288, %15 ]
   %.6147 = phi ptr [ %67, %66 ], [ %.0141290, %15 ]
-  %65 = icmp sgt i32 %.6154, 1
+  %65 = icmp samesign ugt i32 %.6154, 1
   br i1 %65, label %66, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader239
-  %.0173.be400 = getelementptr inbounds nuw i8, ptr %.0173287, i64 1
-  %.0182.be401 = add nsw i32 %.0182286, -1
+  %.0173.be401 = getelementptr inbounds nuw i8, ptr %.0173287, i64 1
+  %.0182.be402 = add nsw i32 %.0182286, -1
   br label %.preheader238
 
 66:                                               ; preds = %.preheader239
@@ -1953,7 +1953,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.0141.be = phi ptr [ %151, %150 ], [ %67, %66 ]
   %.0173.be = getelementptr inbounds nuw i8, ptr %.1174.pn, i64 1
   %.0182.be = add nsw i32 %.0182.be.in, -1
-  %71 = icmp ne i32 %.0148.be, 0
+  %71 = icmp sgt i32 %.0148.be, 0
   %72 = icmp sgt i32 %.0182.be.in, 1
   %73 = select i1 %71, i1 %72, i1 false
   br i1 %73, label %15, label %._crit_edge, !llvm.loop !26
@@ -1967,7 +1967,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %77, label %148, label %78
 
 78:                                               ; preds = %75
-  %.0173287.lcssa378381 = ptrtoint ptr %.0173287 to i64
+  %.0173287.lcssa379382 = ptrtoint ptr %.0173287 to i64
   %.not200318 = icmp eq i32 %.0182286, 0
   br i1 %.not200318, label %.thread212.thread, label %.lr.ph324.preheader
 
@@ -2017,9 +2017,9 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %94, label %99, label %.thread212.thread
 
 .thread212.thread:                                ; preds = %78, %.thread233
-  %.0171.lcssa407 = phi ptr [ %90, %.thread233 ], [ %.0173287, %78 ]
-  %95 = ptrtoint ptr %.0171.lcssa407 to i64
-  %96 = sub i64 %95, %.0173287.lcssa378381
+  %.0171.lcssa408 = phi ptr [ %90, %.thread233 ], [ %.0173287, %78 ]
+  %95 = ptrtoint ptr %.0171.lcssa408 to i64
+  %96 = sub i64 %95, %.0173287.lcssa379382
   %97 = zext nneg i32 %.0148288 to i64
   %98 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0173287, i64 noundef %96, ptr noundef %.0141290, i64 noundef %97, ptr noundef nonnull %4) #6
   br label %120
@@ -2029,15 +2029,15 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.0169249 = phi i64 [ 0, %.thread233 ], [ %.0169320, %92 ]
   %.not200243 = phi i1 [ true, %.thread233 ], [ false, %92 ]
   %100 = ptrtoint ptr %.0171253 to i64
-  %101 = sub i64 %100, %.0173287.lcssa378381
+  %101 = sub i64 %100, %.0173287.lcssa379382
   %102 = tail call ptr @palloc(i64 noundef %101) #6
   %103 = icmp ult ptr %.0173287, %.0171253
   br i1 %103, label %.lr.ph332.preheader, label %._crit_edge333
 
 .lr.ph332.preheader:                              ; preds = %99
-  %scevgep380 = getelementptr i8, ptr %.0173287, i64 %100
-  %104 = sub i64 0, %.0173287.lcssa378381
-  %scevgep382 = getelementptr i8, ptr %scevgep380, i64 %104
+  %scevgep381 = getelementptr i8, ptr %.0173287, i64 %100
+  %104 = sub i64 0, %.0173287.lcssa379382
+  %scevgep383 = getelementptr i8, ptr %scevgep381, i64 %104
   br label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %109
@@ -2055,7 +2055,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 109:                                              ; preds = %107, %.lr.ph332
   %.1157 = phi ptr [ %.0156329, %.lr.ph332 ], [ %108, %107 ]
   %110 = getelementptr inbounds nuw i8, ptr %.0155330, i64 1
-  %exitcond.not = icmp eq ptr %110, %scevgep382
+  %exitcond.not = icmp eq ptr %110, %scevgep383
   br i1 %exitcond.not, label %._crit_edge333, label %.lr.ph332, !llvm.loop !28
 
 ._crit_edge333:                                   ; preds = %109, %99
@@ -2067,7 +2067,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 
 .thread212:                                       ; preds = %92
   %114 = ptrtoint ptr %.0171319 to i64
-  %115 = sub i64 %114, %.0173287.lcssa378381
+  %115 = sub i64 %114, %.0173287.lcssa379382
   br label %123
 
 116:                                              ; preds = %._crit_edge333
@@ -2098,7 +2098,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br label %.critedge8
 
 .critedge8.loopexit:                              ; preds = %144, %.preheader
-  %.0166.ph = phi ptr [ %scevgep383, %.preheader ], [ %145, %144 ]
+  %.0166.ph = phi ptr [ %scevgep384, %.preheader ], [ %145, %144 ]
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %123
@@ -2138,7 +2138,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %140, label %141, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %139
-  %scevgep383 = getelementptr i8, ptr %.0166, i64 %.0163
+  %scevgep384 = getelementptr i8, ptr %.0166, i64 %.0163
   br label %.preheader
 
 141:                                              ; preds = %139
@@ -2181,14 +2181,14 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %.lcssa264, label %.thread, label %.preheader238
 
 .preheader238:                                    ; preds = %._crit_edge.thread, %._crit_edge
-  %.0173.lcssa412 = phi ptr [ %.0173.be400, %._crit_edge.thread ], [ %.0173.lcssa, %._crit_edge ]
-  %.0182.lcssa411 = phi i32 [ %.0182.be401, %._crit_edge.thread ], [ %.0182.lcssa, %._crit_edge ]
-  %153 = icmp sgt i32 %.0182.lcssa411, 0
+  %.0173.lcssa413 = phi ptr [ %.0173.be401, %._crit_edge.thread ], [ %.0173.lcssa, %._crit_edge ]
+  %.0182.lcssa412 = phi i32 [ %.0182.be402, %._crit_edge.thread ], [ %.0182.lcssa, %._crit_edge ]
+  %153 = icmp sgt i32 %.0182.lcssa412, 0
   br i1 %153, label %.lr.ph295, label %.thread
 
 .lr.ph295:                                        ; preds = %.preheader238, %156
-  %.4177294 = phi ptr [ %157, %156 ], [ %.0173.lcssa412, %.preheader238 ]
-  %.4186293 = phi i32 [ %158, %156 ], [ %.0182.lcssa411, %.preheader238 ]
+  %.4177294 = phi ptr [ %157, %156 ], [ %.0173.lcssa413, %.preheader238 ]
+  %.4186293 = phi i32 [ %158, %156 ], [ %.0182.lcssa412, %.preheader238 ]
   %154 = load i8, ptr %.4177294, align 1
   %155 = icmp eq i8 %154, 37
   br i1 %155, label %156, label %.thread
@@ -2199,8 +2199,8 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %159 = icmp sgt i32 %.4186293, 1
   br i1 %159, label %.lr.ph295, label %.thread, !llvm.loop !30
 
-.thread:                                          ; preds = %148, %24, %30, %.critedge, %.split, %58, %156, %.lr.ph295, %.preheader238, %.preheader235, %.loopexit, %138, %137, %141, %142, %._crit_edge, %120, %7
-  %.0 = phi i32 [ 1, %7 ], [ %., %120 ], [ 0, %._crit_edge ], [ 0, %141 ], [ 0, %142 ], [ 1, %137 ], [ 1, %138 ], [ -1, %.loopexit ], [ 1, %.preheader235 ], [ 1, %.preheader238 ], [ 1, %156 ], [ -1, %.lr.ph295 ], [ -1, %58 ], [ %57, %.split ], [ -1, %30 ], [ 1, %.critedge ], [ 0, %24 ], [ 0, %148 ]
+.thread:                                          ; preds = %148, %24, %30, %.critedge, %.split, %58, %156, %.lr.ph295, %.preheader238, %.preheader235, %.loopexit, %138, %137, %142, %141, %._crit_edge, %120, %7
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %141 ], [ 1, %137 ], [ %., %120 ], [ 1, %138 ], [ 0, %142 ], [ -1, %.loopexit ], [ 1, %.preheader235 ], [ 1, %.preheader238 ], [ 1, %156 ], [ -1, %58 ], [ 1, %.critedge ], [ %57, %.split ], [ -1, %.lr.ph295 ], [ -1, %30 ], [ 0, %24 ], [ 0, %148 ]
   ret i32 %.0
 }
 
@@ -2586,7 +2586,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %156, label %.lr.ph271, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %145, %24, %30, %37, %56, %.split, %153, %.lr.ph271, %.preheader221, %.preheader, %.loopexit, %135, %134, %138, %139, %._crit_edge, %116, %7
-  %.0 = phi i32 [ 1, %7 ], [ %., %116 ], [ 0, %._crit_edge ], [ 0, %138 ], [ 0, %139 ], [ 1, %134 ], [ 1, %135 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader221 ], [ 1, %153 ], [ -1, %.lr.ph271 ], [ -1, %56 ], [ %55, %.split ], [ -1, %30 ], [ 1, %37 ], [ 0, %24 ], [ 0, %145 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %139 ], [ 1, %134 ], [ 1, %37 ], [ %., %116 ], [ 1, %135 ], [ 0, %138 ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader221 ], [ 1, %153 ], [ %55, %.split ], [ -1, %.lr.ph271 ], [ -1, %56 ], [ -1, %30 ], [ 0, %24 ], [ 0, %145 ]
   ret i32 %.0
 }
 
@@ -2821,7 +2821,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br label %SB_lower_char.exit197
 
 SB_lower_char.exit197:                            ; preds = %110, %108, %103, %92, %90, %85
-  %.0164 = phi i8 [ %86, %85 ], [ %91, %90 ], [ %99, %92 ], [ %104, %103 ], [ %109, %108 ], [ %117, %110 ]
+  %.0164 = phi i8 [ %99, %92 ], [ %86, %85 ], [ %91, %90 ], [ %104, %103 ], [ %109, %108 ], [ %117, %110 ]
   %118 = icmp sgt i32 %.1137294, 0
   br i1 %118, label %.lr.ph305, label %.thread
 
@@ -3194,8 +3194,8 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br label %272
 
 SB_lower_char.exit205:                            ; preds = %215, %213, %208, %177, %175, %170
-  %.in = phi i8 [ %.0.i202, %170 ], [ %.0.i202, %175 ], [ %.0.i202, %177 ], [ %.0.i206, %208 ], [ %.0.i206, %213 ], [ %.0.i206, %215 ]
-  %phi.call174 = phi i8 [ %171, %170 ], [ %176, %175 ], [ %184, %177 ], [ %209, %208 ], [ %214, %213 ], [ %222, %215 ]
+  %.in = phi i8 [ %.0.i202, %177 ], [ %.0.i202, %170 ], [ %.0.i202, %175 ], [ %.0.i206, %208 ], [ %.0.i206, %213 ], [ %.0.i206, %215 ]
+  %phi.call174 = phi i8 [ %184, %177 ], [ %171, %170 ], [ %176, %175 ], [ %209, %208 ], [ %214, %213 ], [ %222, %215 ]
   %.not189 = icmp eq i8 %.in, %phi.call174
   br i1 %.not189, label %.backedge, label %.thread
 
@@ -3223,7 +3223,7 @@ SB_lower_char.exit205:                            ; preds = %215, %213, %208, %1
   br i1 %298, label %.lr.ph287, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %SB_lower_char.exit205, %SB_lower_char.exit195, %67, %72, %142, %.split, %295, %.lr.ph287, %.preheader236, %.preheader, %SB_lower_char.exit197, %284, %283, %287, %288, %._crit_edge, %265, %7
-  %.0 = phi i32 [ 1, %7 ], [ %., %265 ], [ 0, %._crit_edge ], [ 0, %287 ], [ 0, %288 ], [ 1, %283 ], [ 1, %284 ], [ -1, %SB_lower_char.exit197 ], [ 1, %.preheader ], [ 1, %.preheader236 ], [ 1, %295 ], [ -1, %.lr.ph287 ], [ -1, %142 ], [ %141, %.split ], [ -1, %67 ], [ 1, %72 ], [ 0, %SB_lower_char.exit195 ], [ 0, %SB_lower_char.exit205 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %7 ], [ 0, %288 ], [ 1, %283 ], [ 1, %72 ], [ %., %265 ], [ 1, %284 ], [ 0, %287 ], [ -1, %SB_lower_char.exit197 ], [ 1, %.preheader ], [ 1, %.preheader236 ], [ 1, %295 ], [ %141, %.split ], [ -1, %.lr.ph287 ], [ -1, %142 ], [ -1, %67 ], [ 0, %SB_lower_char.exit195 ], [ 0, %SB_lower_char.exit205 ]
   ret i32 %.0
 }
 

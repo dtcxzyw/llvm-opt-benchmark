@@ -263,7 +263,7 @@ thread-pre-split:                                 ; preds = %100
   store i32 %127, ptr %128, align 4, !tbaa !57
   br label %129
 
-.thread138:                                       ; preds = %thread-pre-split, %.lr.ph237, %.lr.ph180, %75, %102
+.thread138:                                       ; preds = %.lr.ph237, %thread-pre-split, %.lr.ph180, %75, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread148
@@ -383,7 +383,7 @@ thread-pre-split:                                 ; preds = %100
   br label %.thread148
 
 .thread148:                                       ; preds = %183, %188, %67, %.thread138, %.thread143, %63
-  %.0 = phi i32 [ %65, %63 ], [ %.092124, %.thread138 ], [ %.092124, %.thread143 ], [ %.193, %67 ], [ %.092124, %188 ], [ %.092124, %183 ]
+  %.0 = phi i32 [ %.092124, %.thread138 ], [ %65, %63 ], [ %.092124, %.thread143 ], [ %.193, %67 ], [ %.092124, %188 ], [ %.092124, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

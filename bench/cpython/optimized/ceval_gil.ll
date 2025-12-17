@@ -2180,7 +2180,7 @@ handle_signals.exit.thread.i:                     ; preds = %23, %15, %12, %9
   br label %_PyEval_MakePendingCalls.exit
 
 _PyEval_MakePendingCalls.exit:                    ; preds = %handle_signals.exit.thread.i, %handle_signals.exit.i, %0, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ -1, %handle_signals.exit.i ], [ %27, %handle_signals.exit.thread.i ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ -1, %handle_signals.exit.i ], [ %27, %handle_signals.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -2306,7 +2306,7 @@ handle_signals.exit.thread:                       ; preds = %17, %9, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %50, %47, %45, %handle_signals.exit, %38, %40, %22
-  %.0 = phi i32 [ -1, %handle_signals.exit ], [ -1, %22 ], [ 0, %40 ], [ 0, %38 ], [ -1, %45 ], [ -1, %47 ], [ -1, %50 ]
+  %.0 = phi i32 [ 0, %38 ], [ -1, %handle_signals.exit ], [ -1, %22 ], [ 0, %40 ], [ -1, %45 ], [ -1, %47 ], [ -1, %50 ]
   ret i32 %.0
 }
 

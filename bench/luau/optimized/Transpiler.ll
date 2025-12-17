@@ -6445,7 +6445,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit577:     ; preds = %479, %480
   br label %_ZN4Luau7Printer13lookupCstNodeINS_13CstTypeTypeofEEEPT_PNS_7AstNodeE.exit
 
 _ZN4Luau7Printer13lookupCstNodeINS_13CstTypeTypeofEEEPT_PNS_7AstNodeE.exit: ; preds = %522, %518
-  %spec.select.i337 = phi ptr [ null, %518 ], [ %spec.select, %522 ]
+  %spec.select.i337 = phi ptr [ %spec.select, %522 ], [ null, %518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %526 = load ptr, ptr %9, align 8, !tbaa !46
   %527 = load ptr, ptr %526, align 8, !tbaa !22
@@ -10030,7 +10030,7 @@ _ZN4Luau12DenseHashMapIPNS_7AstNodeEPNS_7CstNodeENS_16DenseHashPointerESt8equal_
   br label %_ZN4Luau12DenseHashMapIPNS_7AstNodeEPNS_7CstNodeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit17
 
 _ZN4Luau12DenseHashMapIPNS_7AstNodeEPNS_7CstNodeENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit17: ; preds = %54, %52, %50
-  %.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %lpad.phi, %52 ], [ %lpad.phi, %54 ]
+  %.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %lpad.phi, %54 ], [ %lpad.phi, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
@@ -10374,7 +10374,7 @@ _ZN4Luau7PrinterD2Ev.exit:                        ; preds = %_ZN4Luau7Printer14v
   br label %_ZN4Luau7PrinterD2Ev.exit15
 
 _ZN4Luau7PrinterD2Ev.exit15:                      ; preds = %54, %52, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %lpad.phi, %52 ], [ %lpad.phi, %54 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %lpad.phi, %54 ], [ %lpad.phi, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
@@ -11026,7 +11026,7 @@ _ZN4Luau12AstNameTableD2Ev.exit:                  ; preds = %_ZN4Luau11ParseResu
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %145, %128, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %159
-  %.pn19 = phi { ptr, i32 } [ %160, %159 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37 ], [ %.pn, %128 ], [ %146, %145 ]
+  %.pn19 = phi { ptr, i32 } [ %146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37 ], [ %160, %159 ], [ %.pn, %128 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %146, %145 ]
   call void @_ZN4Luau11ParseResultD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %10) #23
   br label %.body
 
@@ -12090,7 +12090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %103
   br label %111
 
 111:                                              ; preds = %5, %110, %109
-  %.016 = phi i8 [ 39, %109 ], [ 96, %110 ], [ 34, %5 ]
+  %.016 = phi i8 [ 34, %5 ], [ 96, %110 ], [ 39, %109 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load i64, ptr %113, align 8, !tbaa !25
@@ -13112,7 +13112,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %_ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit
 
 _ZN4Luau6detail14DenseHashTableIPNS_7AstNodeESt4pairIS3_PNS_7CstNodeEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit: ; preds = %23, %2, %.loopexit.i
-  %32 = phi i64 [ %6, %2 ], [ %.pre, %.loopexit.i ], [ %6, %23 ]
+  %32 = phi i64 [ %.pre, %.loopexit.i ], [ %6, %2 ], [ %6, %23 ]
   %33 = add i64 %32, -1
   %34 = load ptr, ptr %1, align 8, !tbaa !56
   %35 = ptrtoint ptr %34 to i64
@@ -13470,7 +13470,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !439
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i32 %1, 31
   %20 = add i32 %.0.i, %.lobit
   %21 = zext i32 %20 to i64

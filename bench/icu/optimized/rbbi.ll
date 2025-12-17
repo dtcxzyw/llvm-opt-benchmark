@@ -952,7 +952,7 @@ _ZNKSt9type_infoneERKS_.exit.thread19:            ; preds = %2, %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %14, %52, %21, %37, %31, %25, %50, %43, %_ZNKSt9type_infoneERKS_.exit.thread19, %_ZNKSt9type_infoneERKS_.exit
-  %.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %_ZNKSt9type_infoneERKS_.exit.thread19 ], [ false, %52 ], [ false, %21 ], [ false, %37 ], [ false, %31 ], [ false, %25 ], [ true, %50 ], [ true, %43 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %_ZNKSt9type_infoneERKS_.exit.thread19 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %25 ], [ false, %52 ], [ false, %21 ], [ false, %37 ], [ false, %31 ], [ true, %50 ], [ true, %43 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1145,7 +1145,7 @@ define void @_ZN6icu_7722RuleBasedBreakIterator7setTextERKNS_13UnicodeStringE(pt
   br label %22
 
 22:                                               ; preds = %19, %17, %2
-  %.0.i = phi ptr [ %18, %17 ], [ %21, %19 ], [ null, %2 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %18, %17 ], [ null, %2 ]
   store ptr %.0.i, ptr %4, align 8, !tbaa !50
   %23 = icmp slt i16 %13, 0
   %24 = ashr i16 %13, 5
@@ -2855,7 +2855,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
   br label %_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv.exit
 
 _ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv.exit: ; preds = %730, %.thread96.i89, %587, %557, %.thread96.i59, %413, %382, %.thread96.i30, %239, %209, %.thread96.i, %65
-  %.0 = phi i32 [ -1, %65 ], [ %.573.i, %209 ], [ %159, %.thread96.i ], [ -1, %239 ], [ %.573.i24, %382 ], [ %332, %.thread96.i30 ], [ -1, %413 ], [ %.573.i53, %557 ], [ %507, %.thread96.i59 ], [ -1, %587 ], [ %.573.i83, %730 ], [ %680, %.thread96.i89 ]
+  %.0 = phi i32 [ %507, %.thread96.i59 ], [ %159, %.thread96.i ], [ %332, %.thread96.i30 ], [ -1, %65 ], [ %.573.i, %209 ], [ -1, %239 ], [ %.573.i24, %382 ], [ -1, %413 ], [ %.573.i53, %557 ], [ -1, %587 ], [ %.573.i83, %730 ], [ %680, %.thread96.i89 ]
   ret i32 %.0
 }
 
@@ -3750,7 +3750,7 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i51: ; preds = %524, %_ZN6ic
   br label %_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii.exit
 
 _ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii.exit: ; preds = %538, %438, %422, %410, %310, %294, %281, %181, %165, %153, %53, %37
-  %.0 = phi i32 [ %155, %153 ], [ -1, %53 ], [ -1, %37 ], [ %283, %281 ], [ -1, %181 ], [ -1, %165 ], [ %412, %410 ], [ -1, %310 ], [ -1, %294 ], [ %540, %538 ], [ -1, %438 ], [ -1, %422 ]
+  %.0 = phi i32 [ -1, %294 ], [ -1, %37 ], [ -1, %165 ], [ %155, %153 ], [ -1, %53 ], [ %283, %281 ], [ -1, %181 ], [ %412, %410 ], [ -1, %310 ], [ %540, %538 ], [ -1, %438 ], [ -1, %422 ]
   ret i32 %.0
 }
 
@@ -3870,7 +3870,7 @@ define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator17createBufferCloneEPvRiR1
   br label %17
 
 17:                                               ; preds = %4, %11, %10
-  %.0 = phi ptr [ null, %10 ], [ %15, %11 ], [ null, %4 ]
+  %.0 = phi ptr [ %15, %11 ], [ null, %10 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -4202,7 +4202,7 @@ define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator22getLanguageBreakEngineEi
   br label %_ZN6icu_776UStack4pushEPvR10UErrorCode.exit
 
 _ZN6icu_776UStack4pushEPvR10UErrorCode.exit:      ; preds = %29, %67, %59, %58, %82, %83, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %82 ], [ %88, %83 ], [ %53, %58 ], [ %53, %59 ], [ null, %67 ], [ %32, %29 ]
+  %.0 = phi ptr [ null, %20 ], [ %88, %83 ], [ null, %67 ], [ null, %82 ], [ %53, %58 ], [ %53, %59 ], [ %32, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 

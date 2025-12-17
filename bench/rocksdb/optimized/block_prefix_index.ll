@@ -564,7 +564,7 @@ _ZN7rocksdb16BlockPrefixIndex7BuilderD2Ev.exit:   ; preds = %.thread84, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-.body.thread:                                     ; preds = %28, %25
+.body.thread:                                     ; preds = %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN7rocksdb6StatusD2Ev.exit62
 
@@ -977,7 +977,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115:                 ; preds = %129, %128
   br label %_ZNSt6vectorIPN7rocksdb12PrefixRecordESaIS2_EED2Ev.exit117
 
 _ZNSt6vectorIPN7rocksdb12PrefixRecordESaIS2_EED2Ev.exit117: ; preds = %132, %_ZNSt6vectorIjSaIjEED2Ev.exit115
-  %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102, %_ZNSt6vectorIjSaIjEED2Ev.exit115 ], [ %.pn102.pn161, %132 ]
+  %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102.pn161, %132 ], [ %.pn102, %_ZNSt6vectorIjSaIjEED2Ev.exit115 ]
   resume { ptr, i32 } %.pn102.pn.pn
 }
 
@@ -1057,7 +1057,7 @@ define noundef i32 @_ZN7rocksdb16BlockPrefixIndex9GetBlocksERKNS_5SliceEPPj(ptr 
   br label %42
 
 42:                                               ; preds = %3, %31, %30
-  %.0 = phi i32 [ 1, %30 ], [ %41, %31 ], [ 0, %3 ]
+  %.0 = phi i32 [ %41, %31 ], [ 1, %30 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1373,7 +1373,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 

@@ -79,7 +79,7 @@ define internal i32 @config_alias_cb(ptr noundef %0, ptr noundef %1, ptr readnon
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %6, %13, %22, %19, %15
-  %.0 = phi i32 [ %18, %15 ], [ 0, %19 ], [ 0, %22 ], [ 0, %13 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %13 ], [ %18, %15 ], [ 0, %19 ], [ 0, %22 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -473,7 +473,7 @@ st_mult.exit116:                                  ; preds = %67
   br label %78
 
 78:                                               ; preds = %.critedge114, %74, %65, %61
-  %.294 = phi i32 [ -2, %61 ], [ -3, %65 ], [ %77, %74 ], [ -1, %.critedge114 ]
+  %.294 = phi i32 [ -1, %.critedge114 ], [ -2, %61 ], [ -3, %65 ], [ %77, %74 ]
   ret i32 %.294
 }
 

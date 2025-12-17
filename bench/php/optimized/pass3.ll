@@ -414,7 +414,7 @@ in_hitlist.exit304:                               ; preds = %162, %157
   br label %129
 
 in_hitlist.exit302.thread:                        ; preds = %183, %.lr.ph336, %.lr.ph338
-  %.6.idx = phi i64 [ %.5.add286, %.lr.ph338 ], [ %.5.add, %.lr.ph336 ], [ %.5.idx, %183 ]
+  %.6.idx = phi i64 [ %.5.add, %.lr.ph336 ], [ %.5.add286, %.lr.ph338 ], [ %.5.idx, %183 ]
   %188 = icmp eq i64 %.6.idx, 32
   br i1 %188, label %189, label %in_hitlist.exit300.thread
 
@@ -759,7 +759,7 @@ in_hitlist.exit312:                               ; preds = %357, %353
   br label %203
 
 in_hitlist.exit306.thread:                        ; preds = %334, %345, %348, %.lr.ph, %.lr.ph330, %.lr.ph332, %.lr.ph334
-  %.9.idx = phi i64 [ %.8.add275, %.lr.ph334 ], [ %.8.add274, %.lr.ph332 ], [ %.8.add273, %.lr.ph330 ], [ %.8.add, %.lr.ph ], [ %.8.idx, %348 ], [ %.8.idx, %345 ], [ %.8.idx, %334 ]
+  %.9.idx = phi i64 [ %.8.add, %.lr.ph ], [ %.8.add275, %.lr.ph334 ], [ %.8.add274, %.lr.ph332 ], [ %.8.add273, %.lr.ph330 ], [ %.8.idx, %348 ], [ %.8.idx, %345 ], [ %.8.idx, %334 ]
   %367 = icmp eq i64 %.9.idx, 32
   br i1 %367, label %368, label %in_hitlist.exit300.thread
 

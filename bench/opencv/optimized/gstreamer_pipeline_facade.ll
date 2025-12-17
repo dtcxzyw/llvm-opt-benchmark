@@ -847,8 +847,8 @@ _ZNSt10unique_ptrI12_GstIteratorPFvPS0_EED2Ev.exit: ; preds = %71, %70
   ret void
 
 75:                                               ; preds = %.loopexit34, %.loopexit.split-lp35, %.loopexit29, %.loopexit.split-lp30, %.loopexit, %.loopexit.split-lp
-  %76 = phi ptr [ %59, %.loopexit ], [ null, %.loopexit.split-lp ], [ %60, %.loopexit29 ], [ %19, %.loopexit.split-lp30 ], [ %19, %.loopexit34 ], [ %19, %.loopexit.split-lp35 ]
-  %.pn14 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit31, %.loopexit29 ], [ %lpad.loopexit.split-lp32, %.loopexit.split-lp30 ], [ %lpad.loopexit36, %.loopexit34 ], [ %lpad.loopexit.split-lp37, %.loopexit.split-lp35 ]
+  %76 = phi ptr [ %19, %.loopexit.split-lp30 ], [ null, %.loopexit.split-lp ], [ %59, %.loopexit ], [ %60, %.loopexit29 ], [ %19, %.loopexit34 ], [ %19, %.loopexit.split-lp35 ]
+  %.pn14 = phi { ptr, i32 } [ %lpad.loopexit.split-lp32, %.loopexit.split-lp30 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit31, %.loopexit29 ], [ %lpad.loopexit36, %.loopexit34 ], [ %lpad.loopexit.split-lp37, %.loopexit.split-lp35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i21 = icmp eq ptr %10, null
   br i1 %.not.i21, label %_ZNSt10unique_ptrI12_GstIteratorPFvPS0_EED2Ev.exit22, label %77
@@ -1002,7 +1002,7 @@ _ZNSt6vectorIP11_GstElementSaIS1_EED2Ev.exit12:   ; preds = %47, %48
   ret ptr %.0616
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %25, %22
-  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %23, %25 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %45 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 }
@@ -2159,9 +2159,9 @@ _ZNSt10unique_ptrI7_GErrorPFvPS0_EED2Ev.exit:     ; preds = %368, %_ZNSt10unique
   br label %388
 
 372:                                              ; preds = %298, %357, %221, %294
-  %373 = phi ptr [ %211, %294 ], [ %211, %221 ], [ %358, %357 ], [ %211, %298 ]
-  %374 = phi ptr [ %295, %294 ], [ %214, %221 ], [ %214, %357 ], [ %214, %298 ]
-  %.pn61.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %294 ], [ %222, %221 ], [ %.pn61.pn.pn, %357 ], [ %299, %298 ]
+  %373 = phi ptr [ %211, %221 ], [ %211, %294 ], [ %358, %357 ], [ %211, %298 ]
+  %374 = phi ptr [ %214, %221 ], [ %295, %294 ], [ %214, %357 ], [ %214, %298 ]
+  %.pn61.pn.pn.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %.pn.pn.pn, %294 ], [ %.pn61.pn.pn, %357 ], [ %299, %298 ]
   %.not.i165 = icmp eq ptr %374, null
   br i1 %.not.i165, label %_ZNSt10unique_ptrIcPFvPcEED2Ev.exit166, label %375
 
@@ -2229,7 +2229,7 @@ _ZNSt10unique_ptrI11_GstMessagePFvPS0_EED2Ev.exit.backedge: ; preds = %388, %66
   unreachable
 
 _ZNSt10unique_ptrIcPFvPcEED2Ev.exit:              ; preds = %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, %_ZNSt10unique_ptrI7_GErrorPFvPS0_EED2Ev.exit170, %207, %85, %104
-  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn.pn, %207 ], [ %86, %85 ], [ %.pn61.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrI7_GErrorPFvPS0_EED2Ev.exit170 ], [ %88, %87 ], [ %.pn78.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %.pn78.pn.pn, %104 ]
+  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn61.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrI7_GErrorPFvPS0_EED2Ev.exit170 ], [ %.pn70.pn.pn.pn.pn.pn.pn, %207 ], [ %86, %85 ], [ %88, %87 ], [ %.pn78.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %.pn78.pn.pn, %104 ]
   invoke void @gst_mini_object_unref(ptr noundef nonnull %65)
           to label %_ZNSt10unique_ptrI11_GstMessagePFvPS0_EED2Ev.exit173 unwind label %392
 

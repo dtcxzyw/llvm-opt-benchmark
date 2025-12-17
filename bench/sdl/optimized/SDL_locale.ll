@@ -171,7 +171,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   br label %.backedge
 
 .backedge:                                        ; preds = %66, %57, %52
-  %.3.i.be = phi ptr [ %58, %57 ], [ %67, %66 ], [ %53, %52 ]
+  %.3.i.be = phi ptr [ %67, %66 ], [ %53, %52 ], [ %58, %57 ]
   br label %49
 
 68:                                               ; preds = %45
@@ -182,7 +182,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   br label %build_locales_from_csv_string.exit
 
 build_locales_from_csv_string.exit:               ; preds = %15, %10, %.critedge.i, %23, %68, %69
-  %.0.i = phi ptr [ null, %.critedge.i ], [ null, %23 ], [ %35, %69 ], [ %35, %68 ], [ null, %10 ], [ null, %15 ]
+  %.0.i = phi ptr [ null, %23 ], [ null, %.critedge.i ], [ %35, %69 ], [ %35, %68 ], [ null, %10 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i
 }

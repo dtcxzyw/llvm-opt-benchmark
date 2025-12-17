@@ -899,7 +899,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %.thread, %21, %20, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm.split-lp, %20 ], [ %lpad.thr_comm, %.thread ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.thr_comm.split-lp, %20 ], [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5boost10function_nISt6vectorINS_15program_options12basic_optionIcEESaIS4_EEJRS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZN5boost10function_nISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EJRKS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
@@ -1237,7 +1237,7 @@ define noundef range(i32 0, 4097) i32 @_ZN5boost15program_options6detail7cmdline
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %1
-  %.0 = phi i32 [ 1, %1 ], [ 4096, %5 ], [ 4, %7 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ %spec.select, %9 ], [ 1, %1 ], [ 4096, %5 ], [ 4, %7 ]
   ret i32 %.0
 }
 
@@ -2484,7 +2484,7 @@ _ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE9push_backERKS3_.
   br label %_ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit
 
 _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ; preds = %472, %479, %481, %483
-  %.0.i = phi i32 [ 1, %472 ], [ 4096, %479 ], [ 4, %481 ], [ %spec.select.i, %483 ]
+  %.0.i = phi i32 [ %spec.select.i, %483 ], [ 1, %472 ], [ 4096, %479 ], [ 4, %481 ]
   invoke void @_ZN5boost15program_options22error_with_option_name11add_contextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_i(ptr noundef nonnull align 8 dereferenceable(184) %474, ptr noundef nonnull align 8 dereferenceable(32) %456, ptr noundef nonnull align 8 dereferenceable(32) %476, i32 noundef %.0.i)
           to label %485 unwind label %486
 
@@ -2826,7 +2826,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %748
 
 .critedge:                                        ; preds = %635, %560, %584, %569, %553, %466, %542, %_ZN5boost10shared_ptrIKNS_15program_options14value_semanticEED2Ev.exit279, %_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE9push_backERKS3_.exit274
-  %.1126 = phi i32 [ %.0125429, %_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE9push_backERKS3_.exit274 ], [ %.0125429, %466 ], [ %.0125429, %542 ], [ %.0125429, %_ZN5boost10shared_ptrIKNS_15program_options14value_semanticEED2Ev.exit279 ], [ %.0125429, %553 ], [ %.0116419, %635 ], [ %.0116.in418, %560 ], [ %.0116.in418, %584 ], [ %.0116.in418, %569 ]
+  %.1126 = phi i32 [ %.0125429, %_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE9push_backERKS3_.exit274 ], [ %.0125429, %466 ], [ %.0125429, %_ZN5boost10shared_ptrIKNS_15program_options14value_semanticEED2Ev.exit279 ], [ %.0125429, %542 ], [ %.0125429, %553 ], [ %.0116419, %635 ], [ %.0116.in418, %560 ], [ %.0116.in418, %584 ], [ %.0116.in418, %569 ]
   %639 = add i32 %.1126, 1
   %640 = zext i32 %639 to i64
   %641 = load ptr, ptr %421, align 8, !tbaa !54
@@ -3096,7 +3096,7 @@ _ZNSt6vectorIN5boost10function_nIS_INS0_15program_options12basic_optionIcEESaIS4
   br i1 %747, label %731, label %._crit_edge447, !llvm.loop !75
 
 748:                                              ; preds = %675, %681, %453, %578, %637, %583, %486, %467
-  %.merged181 = phi { ptr, i32 } [ %454, %453 ], [ %468, %467 ], [ %487, %486 ], [ %.pn165, %578 ], [ %638, %637 ], [ %.pn167, %583 ], [ %.pn161, %681 ], [ %676, %675 ]
+  %.merged181 = phi { ptr, i32 } [ %.pn167, %583 ], [ %454, %453 ], [ %487, %486 ], [ %468, %467 ], [ %.pn165, %578 ], [ %638, %637 ], [ %.pn161, %681 ], [ %676, %675 ]
   call void @_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %749
@@ -3802,7 +3802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   br label %_ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit
 
 _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ; preds = %126, %130, %132, %134
-  %.0.i = phi i32 [ 1, %126 ], [ 4096, %130 ], [ 4, %132 ], [ %spec.select.i, %134 ]
+  %.0.i = phi i32 [ %spec.select.i, %134 ], [ 1, %126 ], [ 4096, %130 ], [ 4, %132 ]
   invoke void @_ZN5boost15program_options14invalid_syntaxC2ENS1_6kind_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i(ptr noundef nonnull align 8 dereferenceable(188) %13, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %.0.i)
           to label %136 unwind label %142
 
@@ -4532,7 +4532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %71,
   br label %_ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit
 
 _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ; preds = %82, %87, %89, %91
-  %.0.i = phi i32 [ 1, %82 ], [ 4096, %87 ], [ 4, %89 ], [ %spec.select.i, %91 ]
+  %.0.i = phi i32 [ %spec.select.i, %91 ], [ 1, %82 ], [ 4096, %87 ], [ 4, %89 ]
   invoke void @_ZN5boost15program_options22error_with_option_name11add_contextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_i(ptr noundef nonnull align 8 dereferenceable(184) %83, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.0.i)
           to label %93 unwind label %95
 
@@ -4730,7 +4730,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit53: ; preds
   br label %_ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit
 
 _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ; preds = %76, %81, %83, %85
-  %.0.i = phi i32 [ 1, %76 ], [ 4096, %81 ], [ 4, %83 ], [ %spec.select.i, %85 ]
+  %.0.i = phi i32 [ %spec.select.i, %85 ], [ 1, %76 ], [ 4096, %81 ], [ 4, %83 ]
   invoke void @_ZN5boost15program_options22error_with_option_name11add_contextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_i(ptr noundef nonnull align 8 dereferenceable(184) %78, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %.0.i)
           to label %87 unwind label %88
 
@@ -7545,7 +7545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %.c
   br label %511
 
 495:                                              ; preds = %175, %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171, %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121, %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %75
-  %.pn103.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %76, %75 ], [ %176, %175 ], [ %.pn83, %181 ], [ %.pn85, %186 ], [ %.pn103.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ %.pn100.pn, %.body ], [ %.pn88.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ]
+  %.pn103.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %176, %175 ], [ %.pn83, %181 ], [ %.pn85, %186 ], [ %.pn103.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121 ], [ %.pn100.pn, %.body ], [ %.pn88.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ]
   %.151 = extractvalue { ptr, i32 } %.pn103.pn.pn.pn.pn.pn.pn.pn, 1
   %496 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost15program_options22error_with_option_nameE) #28
   %497 = icmp eq i32 %.151, %496
@@ -7576,7 +7576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %.c
   br label %_ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit
 
 _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ; preds = %498, %502, %504, %506
-  %.0.i = phi i32 [ 1, %498 ], [ 4096, %502 ], [ 4, %504 ], [ %spec.select.i, %506 ]
+  %.0.i = phi i32 [ %spec.select.i, %506 ], [ 1, %498 ], [ 4096, %502 ], [ 4, %504 ]
   invoke void @_ZN5boost15program_options22error_with_option_name11add_contextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_i(ptr noundef nonnull align 8 dereferenceable(184) %499, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %.0.i)
           to label %508 unwind label %509
 
@@ -7594,7 +7594,7 @@ _ZN5boost15program_options6detail7cmdline27get_canonical_option_prefixEv.exit: ;
   ret void
 
 512:                                              ; preds = %509, %495, %55
-  %.merged = phi { ptr, i32 } [ %.pn103.pn.pn.pn.pn.pn.pn.pn, %495 ], [ %56, %55 ], [ %510, %509 ]
+  %.merged = phi { ptr, i32 } [ %56, %55 ], [ %.pn103.pn.pn.pn.pn.pn.pn.pn, %495 ], [ %510, %509 ]
   %513 = load ptr, ptr %9, align 8, !tbaa !10
   %514 = icmp eq ptr %513, %37
   br i1 %514, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i176
@@ -8618,7 +8618,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %29 = phi i1 [ true, %14 ], [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %29 = phi i1 [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %14 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !140
@@ -8868,8 +8868,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %87, %68, %61, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %89, %87 ], [ null, %68 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %90, %87 ], [ %70, %68 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -9105,8 +9105,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -11218,7 +11218,7 @@ define linkonce_odr hidden void @_ZN5boost10function_nISt6vectorINS_15program_op
           to label %30 unwind label %31
 
 _ZN5boost10function_nISt6vectorINS_15program_options12basic_optionIcEESaIS4_EEJRS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEE5clearEv.exit.sink.split: ; preds = %21, %24, %26, %10, %12
-  %.sink = phi ptr [ %1, %12 ], [ %1, %10 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
+  %.sink = phi ptr [ %1, %10 ], [ %1, %12 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
   store ptr null, ptr %.sink, align 8, !tbaa !14
   br label %_ZN5boost10function_nISt6vectorINS_15program_options12basic_optionIcEESaIS4_EEJRS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEE5clearEv.exit
 

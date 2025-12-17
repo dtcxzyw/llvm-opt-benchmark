@@ -1087,7 +1087,7 @@ _ZNK6icu_7710NFRuleListixEj.exit:                 ; preds = %.preheader, %60
   br i1 %69, label %60, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %58, %57, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit, %_ZNK6icu_7710NFRuleListixEj.exit, %60, %.preheader, %25, %21, %2, %10, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.119 = phi i1 [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %10 ], [ false, %2 ], [ false, %21 ], [ false, %25 ], [ true, %.preheader ], [ %69, %60 ], [ %69, %_ZNK6icu_7710NFRuleListixEj.exit ], [ false, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit ], [ false, %57 ], [ false, %58 ]
+  %.119 = phi i1 [ false, %2 ], [ false, %25 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %10 ], [ false, %21 ], [ true, %.preheader ], [ %69, %_ZNK6icu_7710NFRuleListixEj.exit ], [ %69, %60 ], [ false, %_ZN6icu_77L15util_equalRulesEPKNS_6NFRuleES2_.exit ], [ false, %57 ], [ false, %58 ]
   ret i1 %.119
 }
 
@@ -1327,7 +1327,7 @@ _ZNK6icu_7710NFRuleListixEj.exit45.i:             ; preds = %37
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit
 
 _ZNK6icu_779NFRuleSet14findNormalRuleEl.exit:     ; preds = %12, %48, %52
-  %.025.i = phi ptr [ %14, %12 ], [ %54, %52 ], [ %51, %48 ]
+  %.025.i = phi ptr [ %14, %12 ], [ %51, %48 ], [ %54, %52 ]
   %.not = icmp eq ptr %.025.i, null
   br i1 %.not, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14
 
@@ -1337,7 +1337,7 @@ _ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14: ; preds = %_ZNK6icu_7710N
   tail call void @_ZNK6icu_776NFRule8doFormatElRNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.025.i17, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, i32 noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread
 
-_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread: ; preds = %46, %44, %37, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14, %8
+_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread: ; preds = %44, %37, %46, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14, %8
   ret void
 }
 
@@ -1434,7 +1434,7 @@ _ZNK6icu_7710NFRuleListixEj.exit45:               ; preds = %30
   br label %_ZNK6icu_7710NFRuleListixEj.exit47
 
 _ZNK6icu_7710NFRuleListixEj.exit47:               ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.thread, %41, %39, %46, %37, %_ZNK6icu_7710NFRuleListixEj.exit45, %30, %10, %5
-  %.025 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %48, %46 ], [ null, %30 ], [ null, %37 ], [ %35, %_ZNK6icu_7710NFRuleListixEj.exit45 ], [ %45, %41 ], [ null, %39 ], [ %25, %_ZNK6icu_7710NFRuleListixEj.exit.thread ]
+  %.025 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %48, %46 ], [ null, %39 ], [ null, %30 ], [ null, %37 ], [ %35, %_ZNK6icu_7710NFRuleListixEj.exit45 ], [ %45, %41 ], [ %25, %_ZNK6icu_7710NFRuleListixEj.exit.thread ]
   ret ptr %.025
 }
 
@@ -1555,7 +1555,7 @@ define noundef ptr @_ZNK6icu_779NFRuleSet14findDoubleRuleEd(ptr noundef nonnull 
   br label %49
 
 49:                                               ; preds = %35, %42, %39, %25, %28, %18, %9, %12, %45, %5
-  %.0 = phi ptr [ %6, %5 ], [ %48, %45 ], [ %11, %9 ], [ %15, %12 ], [ %20, %18 ], [ %27, %25 ], [ %31, %28 ], [ %41, %39 ], [ %44, %42 ], [ %38, %35 ]
+  %.0 = phi ptr [ %6, %5 ], [ %48, %45 ], [ %15, %12 ], [ %20, %18 ], [ %31, %28 ], [ %38, %35 ], [ %41, %39 ], [ %11, %9 ], [ %27, %25 ], [ %44, %42 ]
   ret ptr %.0
 }
 
@@ -1599,7 +1599,7 @@ _ZNK6icu_7710NFRuleListixEj.exit49.preheader:     ; preds = %_ZNK6icu_7710NFRule
   br label %19
 
 19:                                               ; preds = %18, %16, %12
-  %.0.i = phi double [ %13, %18 ], [ %10, %16 ], [ %14, %12 ]
+  %.0.i = phi double [ %10, %16 ], [ %13, %18 ], [ %14, %12 ]
   %20 = fcmp olt double %.0.i, 0.000000e+00
   %21 = fneg double %.0.i
   %.1.i = select i1 %20, double %21, double %.0.i
@@ -1630,7 +1630,7 @@ _ZN6icu_7717util64_fromDoubleEd.exit:             ; preds = %._crit_edge, %19
   br label %34
 
 34:                                               ; preds = %33, %31, %27
-  %.0.i44 = phi double [ %28, %33 ], [ %25, %31 ], [ %29, %27 ]
+  %.0.i44 = phi double [ %25, %31 ], [ %28, %33 ], [ %29, %27 ]
   %35 = fcmp olt double %.0.i44, 0.000000e+00
   %36 = fneg double %.0.i44
   %.1.i45 = select i1 %35, double %36, double %.0.i44
@@ -1822,7 +1822,7 @@ define noundef i64 @_ZN6icu_7717util64_fromDoubleEd(double noundef %0) local_unn
   br label %10
 
 10:                                               ; preds = %3, %7, %9
-  %.0 = phi double [ %4, %9 ], [ %0, %7 ], [ %5, %3 ]
+  %.0 = phi double [ %0, %7 ], [ %4, %9 ], [ %5, %3 ]
   %11 = fcmp olt double %.0, 0.000000e+00
   %12 = fneg double %.0
   %.1 = select i1 %11, double %12, double %.0
@@ -1912,7 +1912,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779NFRuleSet5parseERKNS_13Uni
   br label %43
 
 43:                                               ; preds = %42, %40, %.noexc58
-  %.0.i = phi double [ %37, %42 ], [ %3, %40 ], [ %38, %.noexc58 ]
+  %.0.i = phi double [ %3, %40 ], [ %37, %42 ], [ %38, %.noexc58 ]
   %44 = fcmp olt double %.0.i, 0.000000e+00
   %45 = fneg double %.0.i
   %.1.i = select i1 %44, double %45, double %.0.i
@@ -2334,9 +2334,9 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   br i1 %.not, label %44, label %43
 
 20:                                               ; preds = %16, %12
-  %.056 = phi ptr [ %1, %16 ], [ %14, %12 ]
-  %.053 = phi i32 [ %2, %16 ], [ %15, %12 ]
-  %.0 = phi i64 [ %0, %16 ], [ %13, %12 ]
+  %.056 = phi ptr [ %14, %12 ], [ %1, %16 ]
+  %.053 = phi i32 [ %15, %12 ], [ %2, %16 ]
+  %.0 = phi i64 [ %13, %12 ], [ %0, %16 ]
   %21 = icmp ne i32 %.053, 0
   %22 = icmp ne i64 %.0, 0
   %23 = select i1 %21, i1 %22, i1 false

@@ -221,7 +221,7 @@ define hidden align 8 ptr @_ZN19pyo3_macros_backend6method5FnArg12from_py_with17
   br label %8
 
 8:                                                ; preds = %1, %4
-  %.sroa.0.0 = phi ptr [ %., %4 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %., %4 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2544,7 +2544,7 @@ define hidden range(i8 0, 3) i8 @_ZN19pyo3_macros_backend6method17CallingConvent
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %.sroa.0.0 = phi i8 [ 0, %1 ], [ 1, %4 ], [ %., %7 ]
+  %.sroa.0.0 = phi i8 [ %., %7 ], [ 0, %1 ], [ 1, %4 ]
   ret i8 %.sroa.0.0
 }
 
@@ -2721,11 +2721,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %96 = icmp eq i8 %.sroa.2.0.copyload, 3
   %.sink226.sroa.gep = getelementptr inbounds nuw i8, ptr %83, i64 32
   %.sink226.sroa.gep245 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %.sink224.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink224.sroa.gep248 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink224.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink224.sroa.gep248 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sink224.sroa.gep249 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink224.sroa.gep250 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink224.sroa.gep251 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink224.sroa.gep250 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink224.sroa.gep251 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sink224.sroa.gep252 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %96, label %99, label %97
 
@@ -3119,7 +3119,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %.loopexit.i.i
 
 180:                                              ; preds = %.noexc32.i.i, %.noexc31.i.i, %.noexc29.i.i, %.noexc27.i.i, %.noexc25.i.i, %.noexc23.i.i, %.noexc18.i.i
-  %.sink.i.i = phi ptr [ %113, %.noexc32.i.i ], [ %114, %.noexc31.i.i ], [ %29, %.noexc29.i.i ], [ %30, %.noexc27.i.i ], [ %31, %.noexc25.i.i ], [ %32, %.noexc23.i.i ], [ %33, %.noexc18.i.i ]
+  %.sink.i.i = phi ptr [ %32, %.noexc23.i.i ], [ %113, %.noexc32.i.i ], [ %114, %.noexc31.i.i ], [ %29, %.noexc29.i.i ], [ %30, %.noexc27.i.i ], [ %31, %.noexc25.i.i ], [ %33, %.noexc18.i.i ]
   %.sroa.24.i.i.sroa.0.0.copyload = load i64, ptr %.sink.i.i, align 8, !noalias !9
   %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx, i64 16, i1 false), !noalias !9
@@ -3221,7 +3221,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %190
 
 .body.thread.i.i:                                 ; preds = %.body.thread46.i.i.loopexit, %.body.thread46.i.i.loopexit.split-lp, %165, %158
-  %eh.lpad-body44.i.i = phi { ptr, i32 } [ %159, %158 ], [ %166, %165 ], [ %lpad.loopexit230, %.body.thread46.i.i.loopexit ], [ %lpad.loopexit.split-lp231, %.body.thread46.i.i.loopexit.split-lp ]
+  %eh.lpad-body44.i.i = phi { ptr, i32 } [ %166, %165 ], [ %159, %158 ], [ %lpad.loopexit230, %.body.thread46.i.i.loopexit ], [ %lpad.loopexit.split-lp231, %.body.thread46.i.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h4e91fc2553556607E"(ptr nonnull align 8 %37) #9
           to label %.loopexit.i.i unwind label %188, !noalias !9
 
@@ -3312,8 +3312,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %207
 
 206:                                              ; preds = %332, %311, %275, %246, %226, %225, %208, %201
-  %.sroa.068.0.i = phi i32 [ 5, %246 ], [ 8, %225 ], [ 4, %332 ], [ 6, %208 ], [ 3, %226 ], [ 2, %201 ], [ 0, %275 ], [ 1, %311 ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.4.insert.ext.i, %246 ], [ undef, %225 ], [ %.sroa.9.4.insert.ext70.i, %332 ], [ undef, %208 ], [ undef, %226 ], [ %.sroa.081.0.copyload.i, %201 ], [ %.sroa.094.0.copyload.i, %275 ], [ %.sroa.0107.0.copyload.i, %311 ]
+  %.sroa.068.0.i = phi i32 [ 3, %226 ], [ 6, %208 ], [ 5, %246 ], [ 4, %332 ], [ 2, %201 ], [ 0, %275 ], [ 8, %225 ], [ 1, %311 ]
+  %.sroa.9.0.i = phi i64 [ undef, %226 ], [ undef, %208 ], [ %.sroa.9.4.insert.ext.i, %246 ], [ %.sroa.9.4.insert.ext70.i, %332 ], [ %.sroa.081.0.copyload.i, %201 ], [ %.sroa.094.0.copyload.i, %275 ], [ undef, %225 ], [ %.sroa.0107.0.copyload.i, %311 ]
   store i32 %.sroa.068.0.i, ptr %.sroa.12, align 8, !alias.scope !6
   %.sroa.12.4..sroa_idx241 = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 4
   store i64 %.sroa.9.0.i, ptr %.sroa.12.4..sroa_idx241, align 4, !alias.scope !6
@@ -3895,7 +3895,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %.backedge.i
 
 .thread.i:                                        ; preds = %389, %381, %.thread157.loopexit.split-lp.i, %.thread157.loopexit.i
-  %.pn147155.i = phi { ptr, i32 } [ %390, %389 ], [ %382, %381 ], [ %lpad.loopexit.i, %.thread157.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread157.loopexit.split-lp.i ]
+  %.pn147155.i = phi { ptr, i32 } [ %382, %381 ], [ %390, %389 ], [ %lpad.loopexit.i, %.thread157.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread157.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %60) #9
           to label %198 unwind label %281, !noalias !6
 
@@ -3906,13 +3906,13 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %101 unwind label %487
 
 394:                                              ; preds = %.noexc107, %.noexc106, %416, %.noexc104, %.noexc103, %414, %.noexc101, %.noexc100, %412, %.noexc98, %.noexc97, %409, %.noexc95, %.noexc94, %407, %.noexc92, %.noexc91, %405, %207, %206, %196, %448, %421
-  %.sroa.049.3 = phi i8 [ %.sroa.049.8, %448 ], [ 1, %421 ], [ 1, %196 ], [ 1, %206 ], [ 1, %207 ], [ 1, %405 ], [ 1, %.noexc91 ], [ 1, %.noexc92 ], [ 1, %407 ], [ 1, %.noexc94 ], [ 1, %.noexc95 ], [ 1, %409 ], [ 1, %.noexc97 ], [ 1, %.noexc98 ], [ 1, %412 ], [ 1, %.noexc100 ], [ 1, %.noexc101 ], [ 1, %414 ], [ 1, %.noexc103 ], [ 1, %.noexc104 ], [ 1, %416 ], [ 1, %.noexc106 ], [ 1, %.noexc107 ]
+  %.sroa.049.3 = phi i8 [ %.sroa.049.8, %448 ], [ 1, %421 ], [ 1, %.noexc107 ], [ 1, %207 ], [ 1, %196 ], [ 1, %206 ], [ 1, %405 ], [ 1, %.noexc91 ], [ 1, %.noexc92 ], [ 1, %407 ], [ 1, %.noexc94 ], [ 1, %.noexc95 ], [ 1, %409 ], [ 1, %.noexc97 ], [ 1, %.noexc98 ], [ 1, %412 ], [ 1, %.noexc100 ], [ 1, %.noexc101 ], [ 1, %414 ], [ 1, %.noexc103 ], [ 1, %.noexc104 ], [ 1, %416 ], [ 1, %.noexc106 ]
   %395 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 396:                                              ; preds = %.noexc, %207
-  %.sroa.0127.1 = phi i64 [ %.sroa.24.i.i.sroa.0.0.copyload, %.noexc ], [ %.sroa.0127.0, %207 ]
+  %.sroa.0127.1 = phi i64 [ %.sroa.0127.0, %207 ], [ %.sroa.24.i.i.sroa.0.0.copyload, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
@@ -4107,8 +4107,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %421
 
 .noexc93:                                         ; preds = %.noexc107, %.noexc104, %.noexc101, %.noexc98, %.noexc95, %.noexc92
-  %.sink224.sroa.phi = phi ptr [ %.sink224.sroa.gep, %.noexc92 ], [ %.sink224.sroa.gep248, %.noexc95 ], [ %.sink224.sroa.gep249, %.noexc98 ], [ %.sink224.sroa.gep250, %.noexc101 ], [ %.sink224.sroa.gep251, %.noexc104 ], [ %.sink224.sroa.gep252, %.noexc107 ]
-  %.sink224 = phi ptr [ %17, %.noexc92 ], [ %16, %.noexc95 ], [ %15, %.noexc98 ], [ %14, %.noexc101 ], [ %13, %.noexc104 ], [ %12, %.noexc107 ]
+  %.sink224.sroa.phi = phi ptr [ %.sink224.sroa.gep, %.noexc104 ], [ %.sink224.sroa.gep248, %.noexc101 ], [ %.sink224.sroa.gep249, %.noexc98 ], [ %.sink224.sroa.gep250, %.noexc95 ], [ %.sink224.sroa.gep251, %.noexc92 ], [ %.sink224.sroa.gep252, %.noexc107 ]
+  %.sink224 = phi ptr [ %13, %.noexc104 ], [ %14, %.noexc101 ], [ %15, %.noexc98 ], [ %16, %.noexc95 ], [ %17, %.noexc92 ], [ %12, %.noexc107 ]
   %.sroa.0150.0.copyload154 = load i64, ptr %.sink224, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sink224.sroa.phi, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4251,7 +4251,7 @@ switch.lookup:                                    ; preds = %427
   br label %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit
 
 _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit: ; preds = %.noexc112, %456, %.noexc111, %447
-  %.sroa.048.0 = phi i8 [ 3, %447 ], [ 0, %.noexc111 ], [ 1, %456 ], [ %..i, %.noexc112 ]
+  %.sroa.048.0 = phi i8 [ 3, %447 ], [ %..i, %.noexc112 ], [ 0, %.noexc111 ], [ 1, %456 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.045, ptr noundef nonnull align 8 dereferenceable(192) %86, i64 192, i1 false)
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %462 = load i32, ptr %461, align 8
@@ -4389,7 +4389,7 @@ _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9
           to label %482 unwind label %487
 
 503:                                              ; preds = %.thread204, %482
-  %.pn84203 = phi { ptr, i32 } [ %.pn82, %482 ], [ %497, %.thread204 ]
+  %.pn84203 = phi { ptr, i32 } [ %497, %.thread204 ], [ %.pn82, %482 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..text_signature$C$pyo3_macros_backend..attributes..TextSignatureAttributeValue$GT$$GT$$GT$17h00dba8eaf4ad99a3E"(ptr nonnull align 8 %94) #9
           to label %498 unwind label %487
 
@@ -6734,7 +6734,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_function
           to label %.invoke unwind label %502
 
 .invoke:                                          ; preds = %695, %498, %365, %242
-  %696 = phi ptr [ %64, %242 ], [ %41, %365 ], [ %53, %498 ], [ %29, %695 ]
+  %696 = phi ptr [ %53, %498 ], [ %41, %365 ], [ %64, %242 ], [ %29, %695 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$pyo3_macros_backend..params..Holders$GT$17h0b4d5360dbd153b4E"(ptr nonnull align 8 %696)
           to label %243 unwind label %147
 
@@ -6791,8 +6791,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec7get_doc17hd5a44ce2b66
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %5
-  %.sroa.03.0.i = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %15 ], [ null, %14 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %16 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %5 ]
-  %.sroa.5.0.i = phi i64 [ 3, %15 ], [ undef, %14 ], [ 6, %16 ], [ 4, %5 ]
+  %.sroa.03.0.i = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %16 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %15 ], [ null, %14 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %5 ]
+  %.sroa.5.0.i = phi i64 [ 6, %16 ], [ 3, %15 ], [ undef, %14 ], [ 4, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %19 = load i8, ptr %18, align 8
   switch i8 %19, label %_ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_signature17hc46bcdbfc0fc5baeE.exit.thread [
@@ -6876,8 +6876,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec29text_signature_call_
   br label %12
 
 12:                                               ; preds = %2, %11, %10, %9
-  %.sroa.03.0 = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %10 ], [ null, %9 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %11 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %2 ]
-  %.sroa.5.0 = phi i64 [ 3, %10 ], [ undef, %9 ], [ 6, %11 ], [ 4, %2 ]
+  %.sroa.03.0 = phi ptr [ @anon.9cdb0f1de315f2edc7144e26a729bf42.105, %11 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.104, %10 ], [ null, %9 ], [ @anon.9cdb0f1de315f2edc7144e26a729bf42.103, %2 ]
+  %.sroa.5.0 = phi i64 [ 6, %11 ], [ 3, %10 ], [ undef, %9 ], [ 4, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %14 = load i8, ptr %13, align 8
   switch i8 %14, label %19 [

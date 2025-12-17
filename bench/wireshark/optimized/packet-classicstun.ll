@@ -786,7 +786,7 @@ proto_item_set_generated.exit282:                 ; preds = %250, %.preheader, %
   br label %328
 
 328:                                              ; preds = %23, %20, %11, %14, %17, %4, %.loopexit
-  %.0 = phi i32 [ %327, %.loopexit ], [ 0, %4 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ]
+  %.0 = phi i32 [ %327, %.loopexit ], [ 0, %4 ], [ 0, %11 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

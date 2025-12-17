@@ -68,7 +68,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8Nullable
   br label %27
 
 27:                                               ; preds = %..thread21_crit_edge, %15, %10, %21
-  %.0 = phi i1 [ true, %21 ], [ false, %10 ], [ false, %15 ], [ false, %..thread21_crit_edge ]
+  %.0 = phi i1 [ true, %21 ], [ false, %..thread21_crit_edge ], [ false, %10 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -371,8 +371,8 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %103, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %28, %23, %70
-  %.0.i17 = phi i1 [ true, %70 ], [ false, %23 ], [ false, %28 ], [ false, %..thread21_crit_edge.i ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %28, %23, %..thread21_crit_edge.i, %70
+  %.0.i17 = phi i1 [ true, %70 ], [ false, %..thread21_crit_edge.i ], [ false, %23 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %104
 
@@ -548,7 +548,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
 _ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %40, %42, %47
-  %.0.i = phi i1 [ true, %47 ], [ false, %40 ], [ false, %42 ]
+  %.0.i = phi i1 [ true, %47 ], [ false, %42 ], [ false, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.750)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)

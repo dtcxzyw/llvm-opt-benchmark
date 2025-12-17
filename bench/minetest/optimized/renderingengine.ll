@@ -2531,7 +2531,7 @@ lpad272:                                          ; preds = %invoke.cont281, %in
   br label %ehcleanup290
 
 ehcleanup290:                                     ; preds = %lpad242.body, %lpad.i81, %lpad237, %if.then.i.i.i.i, %lpad272, %if.then.i.i.i.i867, %ehcleanup234, %lpad.i787
-  %.pn329 = phi { ptr, i32 } [ %.pn325.pn.pn, %ehcleanup234 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %243, %lpad272 ], [ %213, %lpad.i787 ], [ %240, %lpad237 ], [ %168, %if.then.i.i.i.i ], [ %168, %lpad.i81 ], [ %eh.lpad-body756, %lpad242.body ]
+  %.pn329 = phi { ptr, i32 } [ %213, %lpad.i787 ], [ %.pn325.pn.pn, %ehcleanup234 ], [ %168, %lpad.i81 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %243, %lpad272 ], [ %240, %lpad237 ], [ %168, %if.then.i.i.i.i ], [ %eh.lpad-body756, %lpad242.body ]
   %244 = load ptr, ptr %rel_path, align 8, !tbaa !11
   %cmp.i.i.i872 = icmp eq ptr %244, %103
   br i1 %cmp.i.i.i872, label %ehcleanup291, label %if.then.i.i873
@@ -3417,7 +3417,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %delete.notnull.i.i.i, %if.then.i.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i5.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %lpad.thr_comm.split-lp, %if.then.i.i50 ], [ %lpad.thr_comm.split-lp, %delete.notnull.i.i.i ], [ %11, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i5.i ], [ %lpad.thr_comm.split-lp, %delete.notnull.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %lpad.thr_comm.split-lp, %if.then.i.i50 ], [ %11, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i

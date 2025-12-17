@@ -290,7 +290,7 @@ define hidden range(i32 -29, 1) i32 @_sodium_argon2_validate_inputs(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %23, %60, %56, %52, %46, %44, %40, %37, %30, %24, %14, %6, %3, %1
-  %.0 = phi i32 [ -25, %1 ], [ -1, %3 ], [ -2, %6 ], [ -18, %14 ], [ -6, %24 ], [ -20, %30 ], [ -21, %37 ], [ -16, %40 ], [ -17, %44 ], [ -14, %46 ], [ -12, %52 ], [ -28, %56 ], [ %., %60 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ -17, %44 ], [ -25, %1 ], [ -1, %3 ], [ %., %60 ], [ -2, %6 ], [ -28, %56 ], [ -14, %46 ], [ -18, %14 ], [ %spec.select, %23 ], [ -12, %52 ], [ -6, %24 ], [ -20, %30 ], [ -21, %37 ], [ -16, %40 ]
   ret i32 %.0
 }
 
@@ -573,7 +573,7 @@ argon2_fill_first_blocks.exit:                    ; preds = %load_block.exit17.i
   br label %152
 
 152:                                              ; preds = %9, %2, %argon2_fill_first_blocks.exit, %argon2_free_instance.exit
-  %.0 = phi i32 [ -22, %argon2_free_instance.exit ], [ 0, %argon2_fill_first_blocks.exit ], [ -25, %2 ], [ -22, %9 ]
+  %.0 = phi i32 [ 0, %argon2_fill_first_blocks.exit ], [ -25, %2 ], [ -22, %argon2_free_instance.exit ], [ -22, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -599,7 +599,7 @@ define hidden noundef i32 @_crypto_pwhash_argon2_pick_best_implementation() loca
   br label %argon2_pick_best_implementation.exit
 
 argon2_pick_best_implementation.exit:             ; preds = %0, %2, %4
-  %_sodium_argon2_fill_segment_ref.sink.i = phi ptr [ @_sodium_argon2_fill_segment_avx512f, %0 ], [ @_sodium_argon2_fill_segment_avx2, %2 ], [ %_sodium_argon2_fill_segment_ref._sodium_argon2_fill_segment_ssse3.i, %4 ]
+  %_sodium_argon2_fill_segment_ref.sink.i = phi ptr [ @_sodium_argon2_fill_segment_avx2, %2 ], [ %_sodium_argon2_fill_segment_ref._sodium_argon2_fill_segment_ssse3.i, %4 ], [ @_sodium_argon2_fill_segment_avx512f, %0 ]
   store ptr %_sodium_argon2_fill_segment_ref.sink.i, ptr @fill_segment, align 8
   ret i32 0
 }

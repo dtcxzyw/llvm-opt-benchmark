@@ -604,8 +604,8 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i:   ; preds = %104, %101
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.lr.ph6.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i, %98, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i, %65, %62
-  %indvars.iv.next23.pre-phi.i.i = phi i64 [ %63, %62 ], [ %63, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %63, %65 ], [ %100, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %100, %98 ], [ %63, %.lr.ph6.i.i ]
-  %.1.i.i = phi i32 [ %.0727.i.i, %62 ], [ 2, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %66, %65 ], [ %.0727.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %.0727.i.i, %98 ], [ 2, %.lr.ph6.i.i ]
+  %indvars.iv.next23.pre-phi.i.i = phi i64 [ %100, %98 ], [ %100, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %63, %62 ], [ %63, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %63, %65 ], [ %63, %.lr.ph6.i.i ]
+  %.1.i.i = phi i32 [ %.0727.i.i, %98 ], [ %.0727.i.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit76.i.i ], [ %.0727.i.i, %62 ], [ 2, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i.i ], [ %66, %65 ], [ 2, %.lr.ph6.i.i ]
   %indvars.iv.next16.i.i = add i32 %indvars.iv15.i.i, 1
   %lftr.wideiv25.i.i = trunc i64 %indvars.iv.next23.pre-phi.i.i to i32
   %exitcond26.not.i.i = icmp eq i32 %.030, %lftr.wideiv25.i.i
@@ -693,13 +693,13 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %7, %1
-  %12 = phi i64 [ 21, %1 ], [ %8, %7 ]
-  %.1191 = phi i32 [ 0, %1 ], [ %149, %7 ]
-  %.1142189 = phi i32 [ 0, %1 ], [ %.3144, %7 ]
-  %.1146187 = phi i32 [ 1, %1 ], [ %.3148, %7 ]
-  %.1150185 = phi i32 [ 0, %1 ], [ %.3152, %7 ]
-  %.1154183 = phi i64 [ 42, %1 ], [ %11, %7 ]
-  %13 = phi i32 [ 0, %1 ], [ %spec.select, %7 ]
+  %12 = phi i64 [ %8, %7 ], [ 21, %1 ]
+  %.1191 = phi i32 [ %149, %7 ], [ 0, %1 ]
+  %.1142189 = phi i32 [ %.3144, %7 ], [ 0, %1 ]
+  %.1146187 = phi i32 [ %.3148, %7 ], [ 1, %1 ]
+  %.1150185 = phi i32 [ %.3152, %7 ], [ 0, %1 ]
+  %.1154183 = phi i64 [ %11, %7 ], [ 42, %1 ]
+  %13 = phi i32 [ %spec.select, %7 ], [ 0, %1 ]
   %14 = getelementptr inbounds i8, ptr @_ZL34_khmer_syllable_machine_trans_keys, i64 %.1154183
   %15 = getelementptr inbounds i16, ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 %12
   %16 = load i16, ptr %15, align 2
@@ -1489,7 +1489,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !30
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated

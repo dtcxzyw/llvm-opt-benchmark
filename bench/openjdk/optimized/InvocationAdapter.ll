@@ -343,7 +343,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   br label %87
 
 87:                                               ; preds = %72, %75, %78, %81, %84, %71, %18, %22, %57, %43, %31, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %31 ], [ -1, %43 ], [ -1, %57 ], [ -1, %22 ], [ -1, %18 ], [ -1, %84 ], [ -1, %72 ], [ -1, %75 ], [ -1, %78 ], [ -1, %81 ], [ %.03970, %71 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %18 ], [ -1, %31 ], [ -1, %43 ], [ -1, %57 ], [ -1, %22 ], [ -1, %84 ], [ -1, %81 ], [ -1, %72 ], [ -1, %75 ], [ -1, %78 ], [ %.03970, %71 ]
   ret i32 %.0
 }
 
@@ -404,7 +404,7 @@ define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, p
   br label %31
 
 31:                                               ; preds = %12, %30, %27
-  %.0 = phi i32 [ 0, %30 ], [ -1, %27 ], [ -1, %12 ]
+  %.0 = phi i32 [ -1, %27 ], [ 0, %30 ], [ -1, %12 ]
   ret i32 %.0
 }
 
@@ -617,7 +617,7 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   br label %decodeNibble.exit.i.i
 
 decodeNibble.exit.i.i:                            ; preds = %76, %74, %.preheader.i87
-  %.0.i.i.i = phi i8 [ %75, %74 ], [ %spec.select.i.i.i, %76 ], [ %71, %.preheader.i87 ]
+  %.0.i.i.i = phi i8 [ %spec.select.i.i.i, %76 ], [ %75, %74 ], [ %71, %.preheader.i87 ]
   %79 = add i8 %70, -48
   %or.cond.i2.i.i = icmp ult i8 %79, 10
   br i1 %or.cond.i2.i.i, label %decodeByte.exit.i, label %80
@@ -639,7 +639,7 @@ decodeNibble.exit.i.i:                            ; preds = %76, %74, %.preheade
   br label %decodeByte.exit.i
 
 decodeByte.exit.i:                                ; preds = %84, %82, %decodeNibble.exit.i.i
-  %.0.i6.i.i = phi i8 [ %83, %82 ], [ %spec.select.i5.i.i, %84 ], [ %79, %decodeNibble.exit.i.i ]
+  %.0.i6.i.i = phi i8 [ %spec.select.i5.i.i, %84 ], [ %83, %82 ], [ %79, %decodeNibble.exit.i.i ]
   %87 = shl i8 %.0.i.i.i, 4
   %88 = and i8 %.0.i6.i.i, 15
   %89 = or disjoint i8 %88, %87
@@ -677,9 +677,9 @@ decodePath.exit:                                  ; preds = %44, %._crit_edge.i
   call void @free(ptr noundef %27) #15
   br label %decodePath.exit.thread
 
-decodePath.exit.thread:                           ; preds = %41, %37, %100, %decodePath.exit
-  %.sink.i6 = phi i32 [ %.sink.i, %100 ], [ %.sink.i, %decodePath.exit ], [ %39, %41 ], [ 0, %37 ]
-  %.066 = phi ptr [ %47, %100 ], [ %27, %decodePath.exit ], [ %27, %41 ], [ %27, %37 ]
+decodePath.exit.thread:                           ; preds = %37, %41, %100, %decodePath.exit
+  %.sink.i6 = phi i32 [ %.sink.i, %100 ], [ %.sink.i, %decodePath.exit ], [ 0, %37 ], [ %39, %41 ]
+  %.066 = phi ptr [ %47, %100 ], [ %27, %decodePath.exit ], [ %27, %37 ], [ %27, %41 ]
   %101 = icmp ne ptr %.066, null
   %102 = zext i1 %101 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %102, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.18, i32 noundef 900) #15
@@ -786,9 +786,9 @@ decodePath.exit.thread:                           ; preds = %41, %37, %100, %dec
   br label %.sink.split
 
 .sink.split:                                      ; preds = %148, %146, %141, %34, %128
-  %.268.sink = phi ptr [ %.268, %128 ], [ %27, %34 ], [ %.268, %141 ], [ %.268, %146 ], [ %.268, %148 ]
-  %.161.ph = phi i32 [ 0, %128 ], [ %.06021, %34 ], [ %.262, %141 ], [ %.262, %146 ], [ %.262, %148 ]
-  %.1.ph = phi ptr [ %.022, %128 ], [ %.022, %34 ], [ %.2, %141 ], [ %.2, %146 ], [ %.2, %148 ]
+  %.268.sink = phi ptr [ %27, %34 ], [ %.268, %128 ], [ %.268, %141 ], [ %.268, %146 ], [ %.268, %148 ]
+  %.161.ph = phi i32 [ %.06021, %34 ], [ 0, %128 ], [ %.262, %141 ], [ %.262, %146 ], [ %.262, %148 ]
+  %.1.ph = phi ptr [ %.022, %34 ], [ %.022, %128 ], [ %.2, %141 ], [ %.2, %146 ], [ %.2, %148 ]
   call void @free(ptr noundef %.268.sink) #15
   br label %150
 
@@ -810,7 +810,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %100, %dec
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %141, %._crit_edge, %153, %splitPathList.exit, %15, %2
-  %.123.i5560.sink = phi ptr [ %.123.i, %153 ], [ %.123.i, %._crit_edge ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %141 ]
+  %.123.i5560.sink = phi ptr [ %.123.i, %._crit_edge ], [ %.123.i, %153 ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ null, %2 ], [ %.268, %141 ]
   call void @free(ptr noundef %.123.i5560.sink) #15
   ret void
 }
@@ -1053,7 +1053,7 @@ appendClassPath.exit:                             ; preds = %37
   br label %109
 
 109:                                              ; preds = %106, %108, %23, %27, %3, %78, %66, %55, %36
-  %.0 = phi i32 [ 100, %36 ], [ 101, %55 ], [ 100, %66 ], [ -4, %78 ], [ -4, %3 ], [ 100, %27 ], [ 100, %23 ], [ %.054, %108 ], [ %.054, %106 ]
+  %.0 = phi i32 [ 100, %23 ], [ -4, %3 ], [ 100, %36 ], [ 101, %55 ], [ 100, %66 ], [ -4, %78 ], [ 100, %27 ], [ %.054, %108 ], [ %.054, %106 ]
   ret i32 %.0
 }
 
@@ -1192,15 +1192,15 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   br label %.sink.split
 
 63:                                               ; preds = %58, %55, %51, %25
-  %.062 = phi ptr [ %23, %25 ], [ %.186, %55 ], [ %.186, %51 ], [ %.186, %58 ]
-  %.not81 = phi i1 [ false, %25 ], [ false, %55 ], [ false, %51 ], [ %.not77, %58 ]
-  %.061 = phi i32 [ -1, %25 ], [ -1, %55 ], [ -1, %51 ], [ %spec.select82, %58 ]
+  %.062 = phi ptr [ %23, %25 ], [ %.186, %51 ], [ %.186, %58 ], [ %.186, %55 ]
+  %.not81 = phi i1 [ false, %25 ], [ false, %51 ], [ %.not77, %58 ], [ false, %55 ]
+  %.061 = phi i32 [ -1, %25 ], [ -1, %51 ], [ %spec.select82, %58 ], [ -1, %55 ]
   call void @free(ptr noundef nonnull %.062) #15
   call void @freeAttributes(ptr noundef nonnull %20) #15
   br i1 %.not81, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %63, %.thread107, %19, %16
-  %.0.ph = phi i32 [ -1, %16 ], [ %.061, %63 ], [ -1, %.thread107 ], [ -1, %19 ]
+  %.0.ph = phi i32 [ -1, %16 ], [ -1, %.thread107 ], [ %.061, %63 ], [ -1, %19 ]
   %64 = load ptr, ptr %0, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1360
   %66 = load ptr, ptr %65, align 8
@@ -1208,7 +1208,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   br label %67
 
 67:                                               ; preds = %.sink.split, %63, %10, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %.061, %63 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ %.061, %63 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

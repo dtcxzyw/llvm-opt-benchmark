@@ -1164,7 +1164,7 @@ define noundef i32 @_ZNK6icu_7713OlsonTimeZone9getOffsetEhiiihiiR10UErrorCode(pt
   br label %46
 
 46:                                               ; preds = %9, %37, %32, %24
-  %.0 = phi i32 [ 0, %24 ], [ %36, %32 ], [ %45, %37 ], [ 0, %9 ]
+  %.0 = phi i32 [ %45, %37 ], [ 0, %24 ], [ %36, %32 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1476,7 +1476,7 @@ _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94: ; preds = %_ZNK6icu_7713OlsonT
   br label %205
 
 205:                                              ; preds = %203, %201, %202, %200
-  %.pn.in = phi i32 [ %183, %200 ], [ %195, %202 ], [ %spec.select, %201 ], [ %spec.select107, %203 ]
+  %.pn.in = phi i32 [ %spec.select, %201 ], [ %183, %200 ], [ %195, %202 ], [ %spec.select107, %203 ]
   %.pn = sext i32 %.pn.in to i64
   %.1 = add nsw i64 %.0.i91, %.pn
   br label %206
@@ -1838,7 +1838,7 @@ _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30: ; preds = %93, %94
   br i1 %exitcond.not, label %.thread33, label %46, !llvm.loop !62
 
 .thread33:                                        ; preds = %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit, %104, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30, %18, %14
-  %.1 = phi i8 [ 0, %14 ], [ 0, %18 ], [ 0, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit ], [ 0, %104 ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30 ]
+  %.1 = phi i8 [ 0, %14 ], [ 0, %18 ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit ], [ 0, %104 ], [ 0, %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit ], [ 1, %_ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %105
 
@@ -2039,7 +2039,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713OlsonTimeZone12hasSameRul
   br label %96
 
 96:                                               ; preds = %4, %7, %21, %20, %19, %32, %27, %52, %47, %42, %.thread38.thread, %89, %81, %73, %65, %57, %2
-  %.0 = phi i8 [ 1, %2 ], [ 0, %4 ], [ 1, %7 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %32 ], [ 0, %27 ], [ 0, %52 ], [ 0, %47 ], [ 0, %42 ], [ 0, %.thread38.thread ], [ 0, %81 ], [ 0, %73 ], [ 0, %65 ], [ 0, %57 ], [ %95, %89 ]
+  %.0 = phi i8 [ 1, %2 ], [ 0, %.thread38.thread ], [ 0, %4 ], [ 1, %7 ], [ 0, %19 ], [ 0, %27 ], [ 0, %21 ], [ 0, %20 ], [ 0, %32 ], [ 0, %52 ], [ 0, %47 ], [ 0, %42 ], [ 0, %81 ], [ 0, %73 ], [ 0, %65 ], [ 0, %57 ], [ %95, %89 ]
   ret i8 %.0
 }
 
@@ -2790,7 +2790,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit149: ; preds = %277
           to label %.critedge.sink.split unwind label %314
 
 328:                                              ; preds = %314, %312, %290, %271, %243
-  %.pn136 = phi { ptr, i32 } [ %244, %243 ], [ %.pn131, %271 ], [ %291, %290 ], [ %315, %314 ], [ %313, %312 ]
+  %.pn136 = phi { ptr, i32 } [ %244, %243 ], [ %291, %290 ], [ %.pn131, %271 ], [ %315, %314 ], [ %313, %312 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %330
 
@@ -2798,7 +2798,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit149: ; preds = %277
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %.invoke, %192, %184, %.critedge147, %35
+.critedge:                                        ; preds = %.critedge.sink.split, %.invoke, %184, %192, %.critedge147, %35
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
@@ -3335,7 +3335,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %192, %189, %225, %2
   br label %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread
 
 _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread: ; preds = %15, %51, %122, %124, %246, %119, %38, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %44, %30
-  %.043 = phi i8 [ 1, %30 ], [ %50, %44 ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %38 ], [ 1, %122 ], [ 1, %124 ], [ %.2, %246 ], [ 0, %119 ], [ 0, %51 ], [ 0, %15 ]
+  %.043 = phi i8 [ 0, %119 ], [ 1, %30 ], [ %50, %44 ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %38 ], [ 1, %122 ], [ %.2, %246 ], [ 1, %124 ], [ 0, %51 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %.043
 }
@@ -3735,7 +3735,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %181, %178, %214, %2
   br label %.thread
 
 .thread:                                          ; preds = %74, %15, %54, %116, %235, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %51, %44, %30
-  %.041 = phi i8 [ 1, %30 ], [ %50, %44 ], [ 1, %51 ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 1, %116 ], [ %.2, %235 ], [ 0, %54 ], [ 0, %15 ], [ 0, %74 ]
+  %.041 = phi i8 [ 0, %54 ], [ 1, %30 ], [ %50, %44 ], [ 1, %51 ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ %.2, %235 ], [ 1, %116 ], [ 0, %15 ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %.041
 }
@@ -3832,7 +3832,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   br label %38
 
 38:                                               ; preds = %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread, %.loopexit, %36, %34, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %2
-  %.012 = phi i32 [ 0, %2 ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ %35, %34 ], [ %37, %36 ], [ %.011, %.loopexit ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread ]
+  %.012 = phi i32 [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %2 ], [ %35, %34 ], [ %37, %36 ], [ %.011, %.loopexit ], [ 0, %_ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread ]
   ret i32 %.012
 }
 

@@ -1104,7 +1104,7 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
   br label %444
 
 444:                                              ; preds = %dissect_ctrl_msc.exit, %371, %323
-  %.0276 = phi i8 [ %328, %323 ], [ %374, %371 ], [ %393, %dissect_ctrl_msc.exit ]
+  %.0276 = phi i8 [ %393, %dissect_ctrl_msc.exit ], [ %328, %323 ], [ %374, %371 ]
   %.not232 = icmp eq i8 %.0276, 0
   br i1 %.not232, label %.thread293, label %.thread289
 
@@ -1136,9 +1136,9 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
   br label %527
 
 454:                                              ; preds = %.thread286, %263
-  %455 = phi i1 [ %265, %263 ], [ %262, %.thread286 ]
-  %456 = phi i32 [ %264, %263 ], [ %261, %.thread286 ]
-  %.1211 = phi i32 [ %.0.i, %263 ], [ %.0210.ph, %.thread286 ]
+  %455 = phi i1 [ %262, %.thread286 ], [ %265, %263 ]
+  %456 = phi i32 [ %261, %.thread286 ], [ %264, %263 ]
+  %.1211 = phi i32 [ %.0210.ph, %.thread286 ], [ %.0.i, %263 ]
   %or.cond25 = and i1 %236, %455
   br i1 %or.cond25, label %457, label %527
 
@@ -1270,7 +1270,7 @@ find_proto_by_channel.exit.thread:                ; preds = %514, %511, %find_pr
   br label %532
 
 532:                                              ; preds = %.thread295, %4, %527
-  %.0 = phi i32 [ %531, %527 ], [ 0, %4 ], [ %305, %.thread295 ]
+  %.0 = phi i32 [ %305, %.thread295 ], [ %531, %527 ], [ 0, %4 ]
   ret i32 %.0
 }
 

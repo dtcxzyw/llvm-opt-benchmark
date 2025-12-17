@@ -178,7 +178,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1475,7 +1475,7 @@ define signext i8 @uloc_isRightToLeft_77(ptr noundef %0) local_unnamed_addr #1 p
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #18
   br label %.body
 
-.thread40:                                        ; preds = %46, %55
+.thread40:                                        ; preds = %55, %46
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
@@ -1507,7 +1507,7 @@ define signext i8 @uloc_isRightToLeft_77(ptr noundef %0) local_unnamed_addr #1 p
   br label %69
 
 .thread:                                          ; preds = %27, %35, %.thread40, %65, %60
-  %.2 = phi i8 [ 0, %60 ], [ %66, %65 ], [ 0, %.thread40 ], [ 0, %27 ], [ 1, %35 ]
+  %.2 = phi i8 [ 0, %.thread40 ], [ 0, %60 ], [ %66, %65 ], [ 0, %27 ], [ 1, %35 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #18
@@ -1849,7 +1849,7 @@ _ZNK6icu_7717RegionValidateMap5isSetEPKc.exit:    ; preds = %.noexc22
           cleanup
   br label %81
 
-_ZNK6icu_7717RegionValidateMap5isSetEPKc.exit.thread: ; preds = %.noexc, %.noexc20, %.noexc22, %_ZNK6icu_7717RegionValidateMap5isSetEPKc.exit, %71, %26, %20, %9
+_ZNK6icu_7717RegionValidateMap5isSetEPKc.exit.thread: ; preds = %.noexc20, %.noexc, %.noexc22, %_ZNK6icu_7717RegionValidateMap5isSetEPKc.exit, %71, %26, %20, %9
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

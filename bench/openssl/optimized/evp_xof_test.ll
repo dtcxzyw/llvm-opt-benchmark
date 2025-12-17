@@ -128,7 +128,7 @@ define internal range(i32 0, 2) i32 @shake_kat_test() #0 {
   br label %26
 
 26:                                               ; preds = %21, %4, %9, %14, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %14 ], [ 0, %9 ], [ 0, %4 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %21 ], [ 0, %16 ], [ 0, %14 ], [ 0, %9 ]
   call void @EVP_MD_CTX_free(ptr noundef %2) #5
   br label %27
 
@@ -210,12 +210,12 @@ define internal range(i32 0, 2) i32 @shake_kat_digestfinal_test() #0 {
   br label %39
 
 39:                                               ; preds = %34, %27, %32
-  %.0 = phi i32 [ 0, %32 ], [ 0, %27 ], [ %spec.select, %34 ]
+  %.0 = phi i32 [ 0, %27 ], [ %spec.select, %34 ], [ 0, %32 ]
   call void @EVP_MD_CTX_free(ptr noundef %20) #5
   br label %40
 
 40:                                               ; preds = %22, %18, %5, %0, %39, %16
-  %.08 = phi i32 [ %.0, %39 ], [ 0, %16 ], [ 0, %0 ], [ 0, %5 ], [ 0, %18 ], [ 0, %22 ]
+  %.08 = phi i32 [ %.0, %39 ], [ 0, %18 ], [ 0, %5 ], [ 0, %16 ], [ 0, %0 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.08
@@ -323,7 +323,7 @@ define internal range(i32 0, 2) i32 @shake_kat_digestfinal_xoflen_test() #0 {
   br label %54
 
 54:                                               ; preds = %48, %8, %13, %16, %21, %24, %29, %34, %39, %44
-  %.010 = phi i32 [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %21 ], [ 0, %16 ], [ 0, %13 ], [ 0, %8 ], [ %spec.select, %48 ]
+  %.010 = phi i32 [ 0, %8 ], [ %spec.select, %48 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %21 ], [ 0, %16 ], [ 0, %13 ]
   call void @EVP_MD_CTX_free(ptr noundef %6) #5
   br label %55
 
@@ -550,8 +550,8 @@ define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %0) #0 {
   br i1 %.not47.i, label %.loopexit.i, label %48
 
 48:                                               ; preds = %45, %44, %41
-  %.138.i = phi ptr [ %.0372.i, %44 ], [ %.0372.i, %41 ], [ %46, %45 ]
-  %.2.i = phi ptr [ null, %44 ], [ %.1363.i, %41 ], [ %46, %45 ]
+  %.138.i = phi ptr [ %.0372.i, %41 ], [ %.0372.i, %44 ], [ %46, %45 ]
+  %.2.i = phi ptr [ %.1363.i, %41 ], [ null, %44 ], [ %46, %45 ]
   %49 = icmp samesign ult i64 %42, 1000
   br i1 %49, label %.preheader.i, label %50, !llvm.loop !19
 
@@ -562,16 +562,16 @@ define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %0) #0 {
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %45, %.preheader.i, %50, %28, %25
-  %.039.i = phi i32 [ 0, %28 ], [ 0, %25 ], [ %spec.select48.i, %50 ], [ 0, %.preheader.i ], [ 0, %45 ]
-  %.035.i = phi ptr [ null, %28 ], [ null, %25 ], [ %.2.i, %50 ], [ %46, %45 ], [ %.1363.i, %.preheader.i ]
+  %.039.i = phi i32 [ 0, %25 ], [ %spec.select48.i, %50 ], [ 0, %28 ], [ 0, %.preheader.i ], [ 0, %45 ]
+  %.035.i = phi ptr [ null, %25 ], [ %.2.i, %50 ], [ null, %28 ], [ %46, %45 ], [ %.1363.i, %.preheader.i ]
   call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str.9, i32 noundef 475) #5
   call void @EVP_MD_CTX_free(ptr noundef %23) #5
   call void @EVP_MD_CTX_free(ptr noundef %.035.i) #5
   br label %do_shake_squeeze_dup_test.exit
 
 do_shake_squeeze_dup_test.exit:                   ; preds = %.loopexit.i, %19, %1, %6, %9, %14
-  %.06 = phi ptr [ %7, %14 ], [ %7, %9 ], [ %7, %6 ], [ null, %1 ], [ %7, %19 ], [ %7, %.loopexit.i ]
-  %.0 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 0, %1 ], [ 0, %19 ], [ %.039.i, %.loopexit.i ]
+  %.06 = phi ptr [ null, %1 ], [ %7, %14 ], [ %7, %9 ], [ %7, %6 ], [ %7, %19 ], [ %7, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 0, %19 ], [ %.039.i, %.loopexit.i ]
   call void @EVP_MD_CTX_free(ptr noundef %.06) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -651,7 +651,7 @@ define internal range(i32 0, 2) i32 @shake_squeeze_no_absorb_test() #0 {
   br label %28
 
 28:                                               ; preds = %26, %10, %15, %20, %0, %5
-  %.0 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %10 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %20 ], [ 0, %15 ], [ 0, %10 ], [ 0, %5 ]
   call void @EVP_MD_CTX_free(ptr noundef %3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -807,7 +807,7 @@ define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %33, %14, %11
-  %.027 = phi i32 [ 0, %14 ], [ 0, %11 ], [ %spec.select34, %33 ], [ 0, %20 ]
+  %.027 = phi i32 [ 0, %11 ], [ %spec.select34, %33 ], [ 0, %14 ], [ 0, %20 ]
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.9, i32 noundef 398) #5
   tail call void @EVP_MD_CTX_free(ptr noundef %9) #5
   br label %35

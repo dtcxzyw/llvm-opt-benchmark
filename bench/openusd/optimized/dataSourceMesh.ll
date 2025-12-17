@@ -1203,13 +1203,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %204, %210
 215:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   ret void
 
-.body.thread96:                                   ; preds = %27, %50, %73, %96, %119, %142, %165
-  %.03.ph = phi ptr [ %162, %165 ], [ %139, %142 ], [ %116, %119 ], [ %93, %96 ], [ %70, %73 ], [ %47, %50 ], [ %24, %27 ]
+.body.thread96:                                   ; preds = %165, %142, %119, %96, %73, %50, %27
+  %.03.ph = phi ptr [ %24, %27 ], [ %47, %50 ], [ %70, %73 ], [ %93, %96 ], [ %116, %119 ], [ %139, %142 ], [ %162, %165 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %167, %144, %121, %98, %75, %52, %29, %.body.thread96
+.preheader.preheader:                             ; preds = %144, %121, %98, %75, %52, %29, %167, %.body.thread96
   %eh.lpad-body94 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread96 ], [ %168, %167 ], [ %145, %144 ], [ %122, %121 ], [ %99, %98 ], [ %76, %75 ], [ %53, %52 ], [ %30, %29 ]
   %.03.lpad-body93 = phi ptr [ %.03.ph, %.body.thread96 ], [ %162, %167 ], [ %139, %144 ], [ %116, %121 ], [ %93, %98 ], [ %70, %75 ], [ %47, %52 ], [ %24, %29 ]
   br label %.preheader
@@ -2981,13 +2981,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %112, %118
 123:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   ret void
 
-.body.thread56:                                   ; preds = %27, %50, %73
-  %.03.ph = phi ptr [ %70, %73 ], [ %47, %50 ], [ %24, %27 ]
+.body.thread56:                                   ; preds = %73, %50, %27
+  %.03.ph = phi ptr [ %24, %27 ], [ %47, %50 ], [ %70, %73 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %75, %52, %29, %.body.thread56
+.preheader.preheader:                             ; preds = %52, %29, %75, %.body.thread56
   %eh.lpad-body54 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread56 ], [ %76, %75 ], [ %53, %52 ], [ %30, %29 ]
   %.03.lpad-body53 = phi ptr [ %.03.ph, %.body.thread56 ], [ %70, %75 ], [ %47, %52 ], [ %24, %29 ]
   br label %.preheader
@@ -4147,13 +4147,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %112, %118
 123:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   ret void
 
-.body.thread56:                                   ; preds = %27, %50, %73
-  %.03.ph = phi ptr [ %70, %73 ], [ %47, %50 ], [ %24, %27 ]
+.body.thread56:                                   ; preds = %73, %50, %27
+  %.03.ph = phi ptr [ %24, %27 ], [ %47, %50 ], [ %70, %73 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %75, %52, %29, %.body.thread56
+.preheader.preheader:                             ; preds = %52, %29, %75, %.body.thread56
   %eh.lpad-body54 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread56 ], [ %76, %75 ], [ %53, %52 ], [ %30, %29 ]
   %.03.lpad-body53 = phi ptr [ %.03.ph, %.body.thread56 ], [ %70, %75 ], [ %47, %52 ], [ %24, %29 ]
   br label %.preheader
@@ -7588,7 +7588,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 
@@ -7895,7 +7895,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -8612,7 +8612,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 
@@ -9578,7 +9578,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 
@@ -10579,7 +10579,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 

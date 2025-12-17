@@ -216,7 +216,7 @@ define noundef i32 @_Z13gmx_mk_angndxiPPc(i32 noundef %0, ptr noundef %1) local_
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %50, %49, %.noexc42
-  %.sink.i = phi i32 [ 24, %49 ], [ 20, %50 ], [ 19, %.noexc42 ]
+  %.sink.i = phi i32 [ 20, %50 ], [ 24, %49 ], [ 19, %.noexc42 ]
   store i32 %.sink.i, ptr %47, align 4, !tbaa !4
   br label %_ZL12select_ftypePKcPiS1_.exit
 
@@ -954,7 +954,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %340, %335, %329
-  %.pn38 = phi { ptr, i32 } [ %.pn36, %340 ], [ %.pn, %335 ], [ %330, %329 ], [ %204, %203 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn38 = phi { ptr, i32 } [ %330, %329 ], [ %.pn36, %340 ], [ %.pn, %335 ], [ %204, %203 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit96, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %372 = getelementptr inbounds nuw i8, ptr %11, i64 112
   br label %373
 

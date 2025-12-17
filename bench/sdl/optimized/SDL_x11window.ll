@@ -768,7 +768,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   br label %219
 
 219:                                              ; preds = %214, %210, %206
-  %.0256 = phi i1 [ false, %210 ], [ false, %206 ], [ %218, %214 ]
+  %.0256 = phi i1 [ false, %206 ], [ %218, %214 ], [ false, %210 ]
   %220 = load i64, ptr %62, align 8
   %221 = and i64 %220, 786432
   %.not290 = icmp eq i64 %221, 0
@@ -1185,7 +1185,7 @@ SetupWindowInput.exit314:                         ; preds = %426, %431, %434
   br label %.critedge309
 
 .critedge309:                                     ; preds = %139, %137, %105, %409, %.critedge, %SetupWindowInput.exit314, %416, %364, %242
-  %.3 = phi i1 [ %417, %416 ], [ true, %SetupWindowInput.exit314 ], [ false, %364 ], [ %243, %242 ], [ false, %.critedge ], [ false, %409 ], [ false, %105 ], [ false, %139 ], [ %138, %137 ]
+  %.3 = phi i1 [ %417, %416 ], [ true, %SetupWindowInput.exit314 ], [ false, %409 ], [ false, %364 ], [ %243, %242 ], [ false, %.critedge ], [ false, %105 ], [ false, %139 ], [ %138, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1194,7 +1194,7 @@ SetupWindowInput.exit314:                         ; preds = %426, %431, %434
   br label %461
 
 461:                                              ; preds = %58, %.critedge309, %24, %SetupWindowInput.exit, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %SetupWindowInput.exit ], [ true, %24 ], [ %.3, %.critedge309 ], [ %59, %58 ]
+  %.0 = phi i1 [ false, %19 ], [ true, %24 ], [ true, %SetupWindowInput.exit ], [ %.3, %.critedge309 ], [ %59, %58 ]
   ret i1 %.0
 }
 
@@ -1403,7 +1403,7 @@ define internal fastcc noundef zeroext i1 @SetupWindowData(ptr noundef readonly 
   br label %118
 
 118:                                              ; preds = %.thread, %3, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %3 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %109 ], [ false, %.thread ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1835,7 +1835,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   br label %63
 
 63:                                               ; preds = %61, %._crit_edge60
-  %.044 = phi i1 [ %62, %61 ], [ true, %._crit_edge60 ]
+  %.044 = phi i1 [ true, %._crit_edge60 ], [ %62, %61 ]
   %64 = load ptr, ptr @X11_XFlush, align 8
   %65 = tail call i32 %64(ptr noundef %8) #12
   %.not49 = icmp eq ptr %27, null
@@ -1848,7 +1848,7 @@ define hidden zeroext i1 @X11_SetWindowIcon(ptr noundef readnone captures(none) 
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %13, %63, %66
-  %.139 = phi i1 [ %.044, %66 ], [ %.044, %63 ], [ false, %13 ], [ true, %.thread ]
+  %.139 = phi i1 [ %.044, %63 ], [ false, %13 ], [ %.044, %66 ], [ true, %.thread ]
   ret i1 %.139
 }
 
@@ -2345,7 +2345,7 @@ define hidden noundef zeroext i1 @X11_SyncWindow(ptr noundef %0, ptr noundef %1)
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %93, %83
-  %95 = phi i32 [ %94, %93 ], [ %.pr.i, %83 ]
+  %95 = phi i32 [ %.pr.i, %83 ], [ %94, %93 ]
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.loopexit.thread.i, label %thread-pre-split.thread.i
 
@@ -2511,7 +2511,7 @@ X11_ExternalResizeMoveSync.exit:                  ; preds = %.loopexit.i, %109, 
   br label %thread-pre-split.i36
 
 thread-pre-split.i36:                             ; preds = %179, %169
-  %181 = phi i32 [ %180, %179 ], [ %.pr.i33, %169 ]
+  %181 = phi i32 [ %.pr.i33, %169 ], [ %180, %179 ]
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %thread-pre-split.thread.i34
 
@@ -4454,7 +4454,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   br label %X11_SetWindowFullscreenViaWM.exit
 
 X11_SetWindowFullscreenViaWM.exit:                ; preds = %8, %14, %18, %24, %27, %156, %163, %172, %175
-  %.090.i = phi i32 [ %26, %24 ], [ %20, %18 ], [ %16, %14 ], [ %10, %8 ], [ %.mux.i, %156 ], [ 1, %27 ], [ 2, %172 ], [ 2, %175 ], [ 2, %163 ]
+  %.090.i = phi i32 [ %10, %8 ], [ %26, %24 ], [ %20, %18 ], [ %16, %14 ], [ %.mux.i, %156 ], [ 1, %27 ], [ 2, %172 ], [ 2, %175 ], [ 2, %163 ]
   ret i32 %.090.i
 }
 
@@ -4793,7 +4793,7 @@ define hidden zeroext i1 @X11_SetWindowKeyboardGrab(ptr noundef readonly capture
   br label %57
 
 57:                                               ; preds = %13, %54, %7
-  %.0 = phi i1 [ true, %54 ], [ %8, %7 ], [ true, %13 ]
+  %.0 = phi i1 [ %8, %7 ], [ true, %54 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -5191,7 +5191,7 @@ X11_SetKeyboardFocus.exit:                        ; preds = %._crit_edge.i, %44,
   br label %58
 
 58:                                               ; preds = %28, %.thread, %26, %54, %57, %55, %X11_SetKeyboardFocus.exit
-  %.1 = phi i1 [ %27, %26 ], [ true, %X11_SetKeyboardFocus.exit ], [ true, %55 ], [ true, %57 ], [ true, %54 ], [ true, %.thread ], [ true, %28 ]
+  %.1 = phi i1 [ %27, %26 ], [ true, %28 ], [ true, %X11_SetKeyboardFocus.exit ], [ true, %55 ], [ true, %57 ], [ true, %54 ], [ true, %.thread ]
   ret i1 %.1
 }
 

@@ -1077,7 +1077,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit159:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit161
 
 _ZNSt6vectorIfSaIfEED2Ev.exit161:                 ; preds = %307, %_ZNSt6vectorIlSaIlEED2Ev.exit159
-  %.pn82 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit159 ], [ %308, %307 ]
+  %.pn82 = phi { ptr, i32 } [ %308, %307 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit159 ]
   call void @_ZdlPvm(ptr noundef nonnull %206, i64 noundef 51200) #20
   br label %433
 
@@ -1087,7 +1087,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit161:                 ; preds = %307, %_ZNSt6vectorI
   br label %434
 
 434:                                              ; preds = %433, %_ZNSt6vectorIfSaIfEED2Ev.exit98, %41, %_ZNSt6vectorIfSaIfEED2Ev.exit114, %125
-  %.pn88.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %433 ], [ %124, %_ZNSt6vectorIfSaIfEED2Ev.exit98 ], [ %42, %41 ], [ %210, %_ZNSt6vectorIfSaIfEED2Ev.exit114 ], [ %126, %125 ]
+  %.pn88.pn.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %210, %_ZNSt6vectorIfSaIfEED2Ev.exit114 ], [ %42, %41 ], [ %.pn82.pn, %433 ], [ %124, %_ZNSt6vectorIfSaIfEED2Ev.exit98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   br label %435

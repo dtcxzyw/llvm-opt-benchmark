@@ -170,7 +170,7 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph51.split.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %59, %56, %53, %50, %.critedge.i.i, %37
-  %.031.i.i = phi i32 [ 0, %37 ], [ -1, %50 ], [ -1, %53 ], [ -1, %56 ], [ -1, %.critedge.i.i ], [ 0, %59 ]
+  %.031.i.i = phi i32 [ 0, %37 ], [ -1, %.critedge.i.i ], [ -1, %56 ], [ -1, %53 ], [ -1, %50 ], [ 0, %59 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #7
   br label %_valid_num_list.exit.i
 
@@ -311,13 +311,13 @@ _valid_gres_bind.exit:                            ; preds = %_valid_num_list.exi
   %.not19 = icmp eq i32 %.014.i, 0
   br i1 %.not19, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
 
-_valid_shared_gres_bind.exit.thread:              ; preds = %90, %31, %25, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit
+_valid_shared_gres_bind.exit.thread:              ; preds = %31, %90, %25, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit
   %102 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %8) #7
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !13
 
 _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_bind.exit.thread, %.lr.ph, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit, %18, %27, %97, %14
-  %.0 = phi i32 [ 0, %14 ], [ -1, %97 ], [ -1, %27 ], [ -1, %18 ], [ -1, %_valid_gres_bind.exit ], [ -1, %_valid_shared_gres_bind.exit ], [ -1, %.lr.ph ], [ 0, %_valid_shared_gres_bind.exit.thread ]
+  %.0 = phi i32 [ 0, %14 ], [ -1, %18 ], [ -1, %_valid_shared_gres_bind.exit ], [ -1, %_valid_gres_bind.exit ], [ -1, %.lr.ph ], [ -1, %27 ], [ -1, %97 ], [ 0, %_valid_shared_gres_bind.exit.thread ]
   call void @slurm_xfree(ptr noundef nonnull %9) #7
   br label %103
 

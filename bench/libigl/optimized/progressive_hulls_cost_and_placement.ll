@@ -403,8 +403,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   br label %._crit_edge.i150
 
 ._crit_edge.i150:                                 ; preds = %183, %._crit_edge.i.thread
-  %.sroa.7351.1 = phi i64 [ %184, %183 ], [ %.sroa.7351.0490, %._crit_edge.i.thread ]
-  %185 = phi i64 [ 0, %183 ], [ %180, %._crit_edge.i.thread ]
+  %.sroa.7351.1 = phi i64 [ %.sroa.7351.0490, %._crit_edge.i.thread ], [ %184, %183 ]
+  %185 = phi i64 [ %180, %._crit_edge.i.thread ], [ 0, %183 ]
   %186 = getelementptr inbounds nuw double, ptr %17, i64 %.sroa.7351.1
   %.idx.i.i.i.i.i151 = mul nsw i64 %185, 24
   %187 = getelementptr inbounds i8, ptr %186, i64 %.idx.i.i.i.i.i151

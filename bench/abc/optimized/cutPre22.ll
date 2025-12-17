@@ -378,7 +378,7 @@ Extra_TruthIsEqual.exit.thread:                   ; preds = %32, %25
   br i1 %.not21, label %._crit_edge, label %25, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %Extra_TruthIsEqual.exit.thread, %2, %18
-  %37 = phi ptr [ null, %18 ], [ null, %2 ], [ %.01926.pre, %Extra_TruthIsEqual.exit.thread ]
+  %37 = phi ptr [ null, %2 ], [ null, %18 ], [ %.01926.pre, %Extra_TruthIsEqual.exit.thread ]
   store ptr %37, ptr %1, align 8, !tbaa !34
   store ptr %1, ptr %.pre, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -755,7 +755,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %158, %151
   br label %.loopexit312
 
 .loopexit313:                                     ; preds = %Extra_TruthIsEqual.exit.thread.i, %Cut_CellSuppMin.exit, %144
-  %165 = phi ptr [ null, %144 ], [ null, %Cut_CellSuppMin.exit ], [ %.01926.pre.i, %Extra_TruthIsEqual.exit.thread.i ]
+  %165 = phi ptr [ null, %Cut_CellSuppMin.exit ], [ null, %144 ], [ %.01926.pre.i, %Extra_TruthIsEqual.exit.thread.i ]
   store ptr %165, ptr %68, align 8, !tbaa !34
   store ptr %68, ptr %.pre.i240, align 8, !tbaa !31
   %166 = load i32, ptr %69, align 8
@@ -1306,7 +1306,7 @@ Extra_TruthIsEqual.exit.thread.i290.us:           ; preds = %439, %430
   br i1 %.not21.i292.us, label %.loopexit306.us, label %430, !llvm.loop !33
 
 .loopexit306.us:                                  ; preds = %Extra_TruthIsEqual.exit.thread.i290.us, %423, %Cut_CellSuppMin.exit281.us
-  %444 = phi ptr [ null, %423 ], [ null, %Cut_CellSuppMin.exit281.us ], [ %.01926.pre.i284.us, %Extra_TruthIsEqual.exit.thread.i290.us ]
+  %444 = phi ptr [ null, %Cut_CellSuppMin.exit281.us ], [ null, %423 ], [ %.01926.pre.i284.us, %Extra_TruthIsEqual.exit.thread.i290.us ]
   store ptr %444, ptr %268, align 8, !tbaa !34
   store ptr %268, ptr %.pre.i283.us, align 8, !tbaa !31
   %445 = load i32, ptr %271, align 8

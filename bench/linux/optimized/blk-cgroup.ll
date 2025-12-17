@@ -491,7 +491,7 @@ define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly captur
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.backedge, label %.thread22
 
-.backedge:                                        ; preds = %76, %70, %57
+.backedge:                                        ; preds = %70, %76, %57
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 192
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -647,7 +647,7 @@ define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly captur
   br i1 %147, label %.thread18, label %51
 
 .thread18:                                        ; preds = %146, %41, %31, %44
-  %148 = phi ptr [ %46, %44 ], [ %29, %31 ], [ %39, %41 ], [ %138, %146 ]
+  %148 = phi ptr [ %46, %44 ], [ %39, %41 ], [ %29, %31 ], [ %138, %146 ]
   tail call void @blk_queue_exit(ptr noundef %12) #16
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %148, ptr %149, align 8
@@ -1194,8 +1194,8 @@ define internal fastcc ptr @blkg_create(ptr noundef %0, ptr noundef %1, ptr noun
   br label %175
 
 175:                                              ; preds = %.thread17, %174, %171, %3
-  %176 = phi i64 [ %172, %171 ], [ -19, %3 ], [ -19, %174 ], [ -19, %.thread17 ]
-  %177 = phi ptr [ %173, %171 ], [ %2, %3 ], [ %2, %174 ], [ %2, %.thread17 ]
+  %176 = phi i64 [ %172, %171 ], [ -19, %3 ], [ -19, %.thread17 ], [ -19, %174 ]
+  %177 = phi ptr [ %173, %171 ], [ %2, %3 ], [ %2, %.thread17 ], [ %2, %174 ]
   %178 = icmp eq ptr %177, null
   br i1 %178, label %186, label %179
 
@@ -1665,7 +1665,7 @@ blkg_destroy.exit:                                ; preds = %16, %67
   br i1 %70, label %5, label %71
 
 71:                                               ; preds = %blkg_destroy.exit, %.lr.ph
-  %72 = phi i32 [ %11, %.lr.ph ], [ %69, %blkg_destroy.exit ]
+  %72 = phi i32 [ %69, %blkg_destroy.exit ], [ %11, %.lr.ph ]
   %73 = load ptr, ptr %10, align 8
   %74 = icmp eq ptr %73, %2
   br i1 %74, label %._crit_edge, label %.lr.ph.backedge
@@ -3287,7 +3287,7 @@ select.unfold18:                                  ; preds = %72, %64
   br i1 %113, label %.thread28, label %114
 
 114:                                              ; preds = %111, %105, %96
-  %115 = phi ptr [ %97, %96 ], [ null, %111 ], [ null, %105 ]
+  %115 = phi ptr [ %97, %96 ], [ null, %105 ], [ null, %111 ]
   %116 = icmp eq ptr %115, null
   br i1 %116, label %89, label %.thread28, !llvm.loop !81
 
@@ -3313,7 +3313,7 @@ select.unfold18:                                  ; preds = %72, %64
   br i1 %123, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %52, %42, %55, %.thread16.thread68, %.thread16
-  %.ph = phi ptr [ %57, %55 ], [ %40, %42 ], [ %50, %52 ], [ %.ph67, %.thread16.thread68 ], [ %122, %.thread16 ]
+  %.ph = phi ptr [ %57, %55 ], [ %40, %42 ], [ %50, %52 ], [ %122, %.thread16 ], [ %.ph67, %.thread16.thread68 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge

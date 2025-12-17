@@ -108,8 +108,8 @@ define hidden void @_ZN20BytecodeConstantPool4initEv(ptr noundef nonnull align 8
   br label %50
 
 50:                                               ; preds = %19, %26, %31, %38, %45
-  %.sroa.035.0 = phi i8 [ 2, %19 ], [ 1, %26 ], [ 4, %31 ], [ 5, %38 ], [ 3, %45 ]
-  %.sroa.1039.0 = phi ptr [ %25, %19 ], [ %30, %26 ], [ %37, %31 ], [ %44, %38 ], [ %49, %45 ]
+  %.sroa.035.0 = phi i8 [ 3, %45 ], [ 2, %19 ], [ 1, %26 ], [ 4, %31 ], [ 5, %38 ]
+  %.sroa.1039.0 = phi ptr [ %49, %45 ], [ %25, %19 ], [ %30, %26 ], [ %37, %31 ], [ %44, %38 ]
   %51 = trunc i64 %indvars.iv to i16
   %52 = zext nneg i8 %.sroa.035.0 to i64
   %53 = ptrtoint ptr %.sroa.1039.0 to i64
@@ -600,7 +600,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256E15BytecodeCPEn
   br label %152
 
 152:                                              ; preds = %2, %9, %151
-  %.0 = phi ptr [ %.1, %151 ], [ null, %9 ], [ %8, %2 ]
+  %.0 = phi ptr [ null, %9 ], [ %.1, %151 ], [ %8, %2 ]
   ret ptr %.0
 }
 

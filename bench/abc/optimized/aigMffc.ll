@@ -62,7 +62,7 @@ define i32 @Aig_NodeDeref_rec(ptr noundef readonly captures(none) %0, i32 nounde
   br label %34
 
 34:                                               ; preds = %.sink.split, %28, %11
-  %.0 = phi i32 [ 0, %28 ], [ 0, %11 ], [ %33, %.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %28 ], [ %33, %.sink.split ]
   br i1 %.not, label %51, label %35
 
 35:                                               ; preds = %34
@@ -206,7 +206,7 @@ define i32 @Aig_NodeRef_rec(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %5
-  %.0 = phi i32 [ 0, %19 ], [ 0, %5 ], [ %24, %.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %19 ], [ %24, %.sink.split ]
   %.val30 = load i64, ptr %3, align 8
   %26 = and i64 %.val30, 7
   %.not32 = icmp eq i64 %26, 4
@@ -302,7 +302,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr noundef captures(none) %1, 
   br label %28
 
 28:                                               ; preds = %.sink.split, %22, %6
-  %.0 = phi i32 [ 0, %22 ], [ 0, %6 ], [ %27, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %22 ], [ %27, %.sink.split ]
   %.val34 = load i64, ptr %4, align 8
   %29 = and i64 %.val34, 7
   %.not37 = icmp eq i64 %29, 4

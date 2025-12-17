@@ -366,7 +366,7 @@ _ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE6spliceENS_14ilist_iteratorINS_
   br i1 %53, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i, label %.lr.ph.i.i.i.i, !prof !44, !llvm.loop !45
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i, %47, %35
-  %.sroa.0.1.i14.i.i = phi ptr [ %42, %35 ], [ %33, %.lr.ph.i.i.i.i ], [ %51, %47 ]
+  %.sroa.0.1.i14.i.i = phi ptr [ %42, %35 ], [ %51, %47 ], [ %33, %.lr.ph.i.i.i.i ]
   %54 = ptrtoint ptr %.sroa.026.039.i to i64
   %55 = trunc i64 %54 to i32
   %56 = lshr i32 %55, 4

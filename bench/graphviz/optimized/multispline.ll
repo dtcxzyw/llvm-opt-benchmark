@@ -731,8 +731,8 @@ gv_calloc.exit.i:                                 ; preds = %223
   br label %sharedEdge.exit.i
 
 sharedEdge.exit.i:                                ; preds = %303, %300, %299, %292, %289, %288, %283, %280, %279
-  %.031.i.i = phi i32 [ %285, %283 ], [ %274, %280 ], [ %274, %279 ], [ %294, %292 ], [ %274, %289 ], [ %274, %288 ], [ %302, %300 ], [ %274, %299 ], [ %274, %303 ]
-  %.0.i.i = phi i32 [ %272, %283 ], [ %272, %280 ], [ %272, %279 ], [ %272, %292 ], [ %272, %289 ], [ %272, %288 ], [ %272, %300 ], [ %272, %299 ], [ %305, %303 ]
+  %.031.i.i = phi i32 [ %285, %283 ], [ %274, %280 ], [ %274, %279 ], [ %294, %292 ], [ %274, %289 ], [ %274, %288 ], [ %302, %300 ], [ %274, %303 ], [ %274, %299 ]
+  %.0.i.i = phi i32 [ %272, %283 ], [ %272, %280 ], [ %272, %279 ], [ %272, %292 ], [ %272, %289 ], [ %272, %288 ], [ %272, %300 ], [ %305, %303 ], [ %272, %299 ]
   %spec.select.i.i121 = call i32 @llvm.smax.i32(i32 %.0.i.i, i32 %.031.i.i)
   %spec.select44.i.i = call i32 @llvm.smin.i32(i32 %.0.i.i, i32 %.031.i.i)
   %.sroa.2.0.insert.ext.i.i = zext i32 %spec.select.i.i121 to i64
@@ -1058,9 +1058,9 @@ PQinsert.exit.i:                                  ; preds = %.lr.ph.i.i.i, %113
   br label %._crit_edge44.i.i.i
 
 ._crit_edge44.i.i.i:                              ; preds = %161, %150, %.lr.ph.i.i69.i
-  %.pre-phi.i.i70.i = phi i64 [ %149, %150 ], [ %157, %161 ], [ %149, %.lr.ph.i.i69.i ]
-  %.037.i.i.i = phi i32 [ %147, %150 ], [ %156, %161 ], [ %147, %.lr.ph.i.i69.i ]
-  %.0.i.i.i = phi i32 [ %144, %150 ], [ %153, %161 ], [ %144, %.lr.ph.i.i69.i ]
+  %.pre-phi.i.i70.i = phi i64 [ %157, %161 ], [ %149, %150 ], [ %149, %.lr.ph.i.i69.i ]
+  %.037.i.i.i = phi i32 [ %156, %161 ], [ %147, %150 ], [ %147, %.lr.ph.i.i69.i ]
+  %.0.i.i.i = phi i32 [ %153, %161 ], [ %144, %150 ], [ %144, %.lr.ph.i.i69.i ]
   %162 = getelementptr inbounds float, ptr %94, i64 %.pre-phi.i.i70.i
   %163 = load float, ptr %162, align 4, !tbaa !95
   %164 = fcmp ult float %142, %163
@@ -2758,7 +2758,7 @@ gv_calloc.exit170.thread.i:                       ; preds = %929
   br i1 %997, label %.lr.ph224.i, label %._crit_edge225.i, !llvm.loop !147
 
 .thread181.i:                                     ; preds = %._crit_edge225.i, %.thread.i104, %654, %636
-  %.0134185.i = phi i32 [ %.0134.i, %._crit_edge225.i ], [ 1, %.thread.i104 ], [ 0, %654 ], [ 1, %636 ]
+  %.0134185.i = phi i32 [ 1, %636 ], [ %.0134.i, %._crit_edge225.i ], [ 1, %.thread.i104 ], [ 0, %654 ]
   %998 = load ptr, ptr %7, align 8, !tbaa !36
   br label %genroute.exit
 
@@ -3127,7 +3127,7 @@ define internal range(i32 -1, 2) i32 @cmpItem(ptr noundef readonly captures(none
   br label %16
 
 16:                                               ; preds = %14, %8, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ %., %14 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ 1, %6 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -3355,7 +3355,7 @@ define internal fastcc range(i32 0, 2) i32 @raySeg(double %0, double %1, double 
   br label %24
 
 24:                                               ; preds = %8, %19, %14
-  %.0.shrunk = phi i1 [ %18, %14 ], [ %23, %19 ], [ false, %8 ]
+  %.0.shrunk = phi i1 [ %23, %19 ], [ %18, %14 ], [ false, %8 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

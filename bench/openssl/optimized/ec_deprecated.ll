@@ -75,8 +75,8 @@ define noundef ptr @EC_POINT_bn2point(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %21, %22, %16, %11
-  %.sink = phi i32 [ 54, %11 ], [ 60, %16 ], [ 69, %22 ], [ 69, %21 ], [ 73, %19 ]
-  %.021.ph = phi ptr [ null, %11 ], [ null, %16 ], [ null, %22 ], [ null, %21 ], [ %.0, %19 ]
+  %.sink = phi i32 [ 69, %21 ], [ 60, %16 ], [ 54, %11 ], [ 69, %22 ], [ 73, %19 ]
+  %.021.ph = phi ptr [ null, %21 ], [ null, %16 ], [ null, %11 ], [ null, %22 ], [ %.0, %19 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef %.sink) #3
   br label %23
 

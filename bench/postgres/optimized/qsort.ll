@@ -273,8 +273,8 @@ pg_qsort_swapn.exit228:                           ; preds = %.lr.ph.i225, %.crit
   br label %67
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %96, %pg_qsort_swapn.exit223.us
-  %.1185.lcssa = phi ptr [ %85, %pg_qsort_swapn.exit223.us ], [ %97, %96 ], [ %.0184, %.critedge2 ]
-  %.1182.lcssa = phi ptr [ %spec.select307, %pg_qsort_swapn.exit223.us ], [ %.2183, %96 ], [ %.0181, %.critedge2 ]
+  %.1185.lcssa = phi ptr [ %97, %96 ], [ %85, %pg_qsort_swapn.exit223.us ], [ %.0184, %.critedge2 ]
+  %.1182.lcssa = phi ptr [ %.2183, %96 ], [ %spec.select307, %pg_qsort_swapn.exit223.us ], [ %.0181, %.critedge2 ]
   %105 = ptrtoint ptr %.1189.lcssa to i64
   %106 = sub i64 %105, %8
   %107 = ptrtoint ptr %.1187.lcssa to i64

@@ -277,7 +277,7 @@ _reset_counters.exit:                             ; preds = %53, %26, %27
   unreachable
 
 101:                                              ; preds = %._crit_edge, %80, %72, %_get_config.exit
-  %.0 = phi i32 [ 0, %_get_config.exit ], [ 0, %72 ], [ 2050, %80 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 2050, %80 ], [ 0, %_get_config.exit ], [ 0, %72 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

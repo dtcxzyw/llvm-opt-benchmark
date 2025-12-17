@@ -237,7 +237,7 @@ needs_toast_table.exit:                           ; preds = %37
   br label %92
 
 92:                                               ; preds = %81, %88
-  %93 = phi i1 [ %91, %88 ], [ false, %81 ]
+  %93 = phi i1 [ false, %81 ], [ %91, %88 ]
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 92
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %82, i64 80
@@ -388,7 +388,7 @@ needs_toast_table.exit:                           ; preds = %37
   br label %needs_toast_table.exit.thread
 
 needs_toast_table.exit.thread:                    ; preds = %37, %31, %27, %46, %needs_toast_table.exit, %7, %172
-  %.0 = phi i1 [ true, %172 ], [ false, %7 ], [ false, %needs_toast_table.exit ], [ false, %46 ], [ false, %27 ], [ false, %31 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %172 ], [ false, %needs_toast_table.exit ], [ false, %46 ], [ false, %27 ], [ false, %31 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

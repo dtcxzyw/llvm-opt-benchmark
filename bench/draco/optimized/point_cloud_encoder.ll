@@ -1207,7 +1207,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %7, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph51, %.lr.ph56, %._crit_edge57, %._crit_edge, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %._crit_edge ], [ %71, %._crit_edge57 ], [ false, %.lr.ph56 ], [ false, %.lr.ph51 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ %71, %._crit_edge57 ], [ false, %1 ], [ false, %.lr.ph51 ], [ false, %.lr.ph56 ], [ false, %36 ]
   ret i1 %.0
 }
 
@@ -1617,9 +1617,9 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %210, %_ZNSt6
   br label %.critedge145.us.preheader
 
 .critedge145.us.preheader:                        ; preds = %214, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %196, %216
-  %.sroa.17.6 = phi ptr [ %.sroa.17.0388, %214 ], [ %213, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %.sroa.17.0388, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.17.0388, %196 ], [ %.sroa.17.0388, %216 ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.0389, %214 ], [ %212, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %200, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %197, %196 ], [ %spec.select, %216 ]
-  %.sroa.0228.6 = phi ptr [ %.sroa.0228.0390, %214 ], [ %203, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ], [ %.sroa.0228.0390, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.0228.0390, %196 ], [ %.sroa.0228.0390, %216 ]
+  %.sroa.17.6 = phi ptr [ %.sroa.17.0388, %214 ], [ %.sroa.17.0388, %216 ], [ %.sroa.17.0388, %196 ], [ %.sroa.17.0388, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %213, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.0389, %214 ], [ %spec.select, %216 ], [ %197, %196 ], [ %200, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %212, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
+  %.sroa.0228.6 = phi ptr [ %.sroa.0228.0390, %214 ], [ %.sroa.0228.0390, %216 ], [ %.sroa.0228.0390, %196 ], [ %.sroa.0228.0390, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %203, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i ]
   %wide.trip.count = and i64 %179, 2147483647
   br label %.critedge145.us
 
@@ -1786,9 +1786,9 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit5.i:             ; preds = %280, %_ZNSt6vectorI
   br i1 %.not.not, label %.lr.ph393, label %.critedge147, !llvm.loop !90
 
 291:                                              ; preds = %.loopexit, %.loopexit.split-lp
-  %.sroa.17.4 = phi ptr [ %.sroa.17.6, %.loopexit ], [ %.sroa.17.0388, %.loopexit.split-lp ]
-  %.sroa.0228.4 = phi ptr [ %.sroa.0228.6, %.loopexit ], [ %.sroa.0228.0390, %.loopexit.split-lp ]
-  %.pn128.pn.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.17.4 = phi ptr [ %.sroa.17.0388, %.loopexit.split-lp ], [ %.sroa.17.6, %.loopexit ]
+  %.sroa.0228.4 = phi ptr [ %.sroa.0228.0390, %.loopexit.split-lp ], [ %.sroa.0228.6, %.loopexit ]
+  %.pn128.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i181 = icmp eq ptr %.sroa.0218.0, null
   br i1 %.not.i.i181, label %.body163, label %292
 
@@ -1871,7 +1871,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit194:          ; preds = %_ZNSt6vectorIiSaIiE
   ret i1 %.2
 
 _ZNSt6vectorIiSaIiEED2Ev.exit189:                 ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit209, %309, %.body163, %83, %108
-  %.pn134.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %109, %108 ], [ %.pn128.pn.pn.pn, %.body163 ], [ %.pn128.pn.pn.pn, %309 ], [ %163, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit209 ]
+  %.pn134.pn.pn.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %163, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit209 ], [ %.pn128.pn.pn.pn, %.body163 ], [ %84, %83 ], [ %.pn128.pn.pn.pn, %309 ]
   %.not.i.i195 = icmp eq ptr %.sroa.0245.0, null
   br i1 %.not.i.i195, label %.body, label %320
 
@@ -2842,7 +2842,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !34
   br label %41
 

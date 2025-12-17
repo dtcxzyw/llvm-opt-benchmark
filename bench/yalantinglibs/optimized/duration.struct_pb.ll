@@ -339,8 +339,8 @@ if.end104.i194:                                   ; preds = %land.rhs.i212
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i286, %if.then.i311, %if.end12.i222, %if.end19.i230, %if.end28.i238, %if.end37.i246, %if.end46.i254, %if.end55.i262, %if.end64.i270, %if.end73.i278, %if.end104.i194
-  %inc96.i259.lcssa260268 = phi i64 [ %inc.i314, %if.then.i311 ], [ %inc13.i223, %if.end12.i222 ], [ %inc20.i231, %if.end19.i230 ], [ %inc29.i239, %if.end28.i238 ], [ %inc38.i247, %if.end37.i246 ], [ %inc47.i255, %if.end46.i254 ], [ %inc56.i263, %if.end55.i262 ], [ %inc65.i271, %if.end64.i270 ], [ %inc74.i279, %if.end73.i278 ], [ %inc96.i204, %if.end104.i194 ], [ %inc83.i287, %if.end82.i286 ]
-  %tag.0 = phi i64 [ %conv.i308, %if.then.i311 ], [ %or.i228, %if.end12.i222 ], [ %or25.i236, %if.end19.i230 ], [ %or34.i244, %if.end28.i238 ], [ %or43.i252, %if.end37.i246 ], [ %or52.i260, %if.end46.i254 ], [ %or61.i268, %if.end55.i262 ], [ %or70.i276, %if.end64.i270 ], [ %or79.i284, %if.end73.i278 ], [ %or110.i200, %if.end104.i194 ], [ %or88.i292, %if.end82.i286 ]
+  %inc96.i259.lcssa260268 = phi i64 [ %inc.i314, %if.then.i311 ], [ %inc83.i287, %if.end82.i286 ], [ %inc13.i223, %if.end12.i222 ], [ %inc20.i231, %if.end19.i230 ], [ %inc29.i239, %if.end28.i238 ], [ %inc38.i247, %if.end37.i246 ], [ %inc47.i255, %if.end46.i254 ], [ %inc56.i263, %if.end55.i262 ], [ %inc65.i271, %if.end64.i270 ], [ %inc74.i279, %if.end73.i278 ], [ %inc96.i204, %if.end104.i194 ]
+  %tag.0 = phi i64 [ %conv.i308, %if.then.i311 ], [ %or88.i292, %if.end82.i286 ], [ %or.i228, %if.end12.i222 ], [ %or25.i236, %if.end19.i230 ], [ %or34.i244, %if.end28.i238 ], [ %or43.i252, %if.end37.i246 ], [ %or52.i260, %if.end46.i254 ], [ %or61.i268, %if.end55.i262 ], [ %or70.i276, %if.end64.i270 ], [ %or79.i284, %if.end73.i278 ], [ %or110.i200, %if.end104.i194 ]
   switch i64 %tag.0, label %sw.default [
     i64 8, label %sw.bb
     i64 16, label %sw.bb6
@@ -668,7 +668,7 @@ sw.epilog:                                        ; preds = %if.end12, %if.end5
   br i1 %cmp, label %land.lhs.true.i306, label %return, !llvm.loop !9
 
 return:                                           ; preds = %sw.epilog, %if.end82.i286, %if.end82.i, %if.end82.i144, %while.cond.i189.preheader, %while.cond.i47.preheader, %while.cond.i.preheader, %while.body.i203, %while.body.i61, %while.body.i, %entry, %sw.default
-  %retval.0 = phi i1 [ %call14, %sw.default ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i61 ], [ false, %while.body.i203 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i47.preheader ], [ false, %while.cond.i189.preheader ], [ true, %sw.epilog ], [ false, %if.end82.i286 ], [ false, %if.end82.i ], [ false, %if.end82.i144 ]
+  %retval.0 = phi i1 [ %call14, %sw.default ], [ true, %entry ], [ false, %while.body.i61 ], [ false, %while.body.i203 ], [ false, %while.body.i ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i47.preheader ], [ false, %while.cond.i189.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i286 ], [ true, %sw.epilog ], [ false, %if.end82.i144 ]
   ret i1 %retval.0
 }
 
@@ -820,7 +820,7 @@ if.end3.sink.split:                               ; preds = %land.rhs.i, %land.l
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %if.end82.i, %if.end73.i, %if.end64.i, %if.end55.i, %if.end46.i, %if.end37.i, %if.end28.i, %if.end19.i, %if.end12.i, %if.then5.i
-  %14 = phi i64 [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc6.i, %if.then5.i ], [ %inc105.i, %if.end3.sink.split ]
+  %14 = phi i64 [ %inc6.i, %if.then5.i ], [ %inc83.i, %if.end82.i ], [ %inc74.i, %if.end73.i ], [ %inc65.i, %if.end64.i ], [ %inc56.i, %if.end55.i ], [ %inc47.i, %if.end46.i ], [ %inc38.i, %if.end37.i ], [ %inc29.i, %if.end28.i ], [ %inc20.i, %if.end19.i ], [ %inc13.i, %if.end12.i ], [ %inc105.i, %if.end3.sink.split ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %sub
   %sub.i175 = sub i64 %14, %sub
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %unknown_fields, i64 8
@@ -1288,7 +1288,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EE
   br label %return
 
 return:                                           ; preds = %while.body.i67, %while.body.i, %while.cond.i53.preheader, %while.cond.i.preheader, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273, %if.then.i.i.i249, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239, %if.then.i.i.i215, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205, %if.then.i.i.i181, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.end82.i151, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %sw.bb21, %if.end15, %sw.bb4, %if.end82.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end82.i ], [ false, %sw.bb4 ], [ false, %if.end15 ], [ false, %sw.bb21 ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %if.then.i.i.i215 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %if.then.i.i.i249 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
+  %retval.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb21 ], [ false, %entry ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %sw.bb4 ], [ false, %if.end82.i ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %if.then.i.i.i215 ], [ true, %if.then.i.i.i249 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
   ret i1 %retval.0
 }
 

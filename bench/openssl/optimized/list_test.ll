@@ -329,7 +329,7 @@ ossl_list_buzz_remove.exit:                       ; preds = %75, %76
   br label %107
 
 107:                                              ; preds = %104, %ossl_list_buzz_remove.exit, %81, %86, %88, %90, %93, %96, %99, %101, %27, %31, %34, %37, %39, %41, %43, %45, %48, %52, %56, %0
-  %.022 = phi i32 [ 0, %0 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %27 ], [ 0, %101 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ], [ 0, %81 ], [ 0, %ossl_list_buzz_remove.exit ], [ %spec.select, %104 ]
+  %.022 = phi i32 [ 0, %ossl_list_buzz_remove.exit ], [ 0, %27 ], [ 0, %0 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ %spec.select, %104 ], [ 0, %101 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
@@ -725,7 +725,7 @@ ossl_list_int_remove.exit111:                     ; preds = %150, %151
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %33, %.lr.ph, %76, %154, %ossl_list_int_remove.exit111, %ossl_list_int_remove.exit106, %137, %139, %142, %ossl_list_int_remove.exit99, %118, %120, %123, %._crit_edge, %88, %44, %46, %ossl_list_int_insert_after.exit73
-  %.032 = phi i32 [ 0, %ossl_list_int_insert_after.exit73 ], [ 0, %46 ], [ 0, %44 ], [ 0, %88 ], [ 0, %._crit_edge ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %ossl_list_int_remove.exit99 ], [ 0, %142 ], [ 0, %139 ], [ 0, %137 ], [ 0, %ossl_list_int_remove.exit106 ], [ 0, %ossl_list_int_remove.exit111 ], [ %spec.select, %154 ], [ 0, %76 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %.preheader ]
+  %.032 = phi i32 [ 0, %ossl_list_int_insert_after.exit73 ], [ 0, %44 ], [ 0, %ossl_list_int_remove.exit111 ], [ 0, %ossl_list_int_remove.exit106 ], [ 0, %ossl_list_int_remove.exit99 ], [ 0, %._crit_edge ], [ 0, %46 ], [ 0, %88 ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %142 ], [ 0, %139 ], [ 0, %137 ], [ %spec.select, %154 ], [ 0, %.lr.ph ], [ 0, %76 ], [ 0, %33 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.032
 }

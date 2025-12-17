@@ -1873,7 +1873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt8optionalISt4pairIllEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalISt4pairIllEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %145, %152, %103, %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.229 = phi i8 [ %.027.ph, %96 ], [ %.027.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %103 ], [ %.027.ph, %152 ], [ %.027.ph, %145 ]
+  %.229 = phi i8 [ %.027.ph, %96 ], [ 1, %103 ], [ %.027.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.027.ph, %152 ], [ %.027.ph, %145 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN4llvm15BitstreamCursor7advanceEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %24, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 0)
   %153 = load i8, ptr %31, align 8
@@ -1970,7 +1970,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %178, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %55, %_ZN4llvm5ErrorD2Ev.exit34.thread, %_ZN4llvm5ErrorD2Ev.exit41, %183, %_ZN4llvm5ErrorD2Ev.exit33
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit33 ], [ false, %_ZN4llvm5ErrorD2Ev.exit41 ], [ %185, %183 ], [ true, %_ZN4llvm5ErrorD2Ev.exit34.thread ], [ true, %55 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit33 ], [ %185, %183 ], [ true, %_ZN4llvm5ErrorD2Ev.exit34.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit41 ], [ true, %55 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %186 = load i8, ptr %31, align 8
   %187 = trunc i8 %186 to i1
   br i1 %187, label %188, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit71
@@ -2691,10 +2691,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -2720,7 +2720,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -3122,7 +3122,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %144, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %47, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit31.thread, %_ZN4llvm5ErrorD2Ev.exit38, %_ZN4llvm5ErrorD2Ev.exit30
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit30 ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ], [ true, %_ZN4llvm5ErrorD2Ev.exit31.thread ], [ true, %.loopexit.loopexit ], [ false, %47 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit30 ], [ true, %_ZN4llvm5ErrorD2Ev.exit31.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ], [ false, %47 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %149 = load i8, ptr %29, align 8
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit71
@@ -3461,10 +3461,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -3490,7 +3490,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -3829,10 +3829,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -3858,7 +3858,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4197,10 +4197,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -4226,7 +4226,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4565,10 +4565,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -4594,7 +4594,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -4933,10 +4933,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -4962,7 +4962,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -5301,10 +5301,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -5330,7 +5330,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -5669,10 +5669,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -5698,7 +5698,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6037,10 +6037,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -6066,7 +6066,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6405,10 +6405,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -6434,7 +6434,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -6773,10 +6773,10 @@ _ZN4llvm5ErrorD2Ev.exit57:                        ; preds = %121, %_ZNSt10unique
   br label %126
 
 126:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit57, %125, %89, %_ZN4llvm5ErrorD2Ev.exit39
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0, %89 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0, %89 ]
-  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ true, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ false, %89 ]
-  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.2.ph, %125 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %89 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.8.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.8.0.copyload11, %125 ], [ %.sroa.8.0, %89 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.sroa.0.0, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.sroa.0.0.copyload7, %125 ], [ %.sroa.0.0, %89 ]
+  %.024 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ true, %125 ], [ false, %89 ]
+  %.4 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit39 ], [ false, %_ZN4llvm5ErrorD2Ev.exit57 ], [ %.2.ph, %125 ], [ true, %89 ]
   %127 = load i8, ptr %43, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %_ZN4llvm8ExpectedIjED2Ev.exit
@@ -6802,7 +6802,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %129, %_ZNKSt14defau
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %46, %.loopexit.loopexit, %_ZN4llvm5ErrorD2Ev.exit27.thread, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit26
-  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ true, %.loopexit.loopexit ], [ false, %46 ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.1 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit26 ], [ true, %_ZN4llvm5ErrorD2Ev.exit27.thread ], [ false, %_ZN4llvm5ErrorD2Ev.exit34 ], [ false, %46 ], [ true, %.loopexit.loopexit ], [ %.4, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %134 = load i8, ptr %29, align 8
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit64
@@ -7309,8 +7309,8 @@ _ZN4llvm5ErrorD2Ev.exit71:                        ; preds = %193
   br label %200
 
 200:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit71, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread, %120, %126, %132, %138, %144, %150, %156, %162, %168, %174, %180, %186, %192, %196, %91, %117, %189, %183, %177, %171, %165, %159, %153, %147, %141, %135, %129, %123, %114, %_ZN4llvm5ErrorD2Ev.exit67
-  %.149 = phi i8 [ %.048, %_ZN4llvm5ErrorD2Ev.exit67 ], [ %.048, %196 ], [ %.048, %120 ], [ %.048, %126 ], [ %.048, %132 ], [ %.048, %138 ], [ %.048, %144 ], [ %.048, %150 ], [ %.048, %156 ], [ %.048, %162 ], [ %.048, %168 ], [ %.048, %174 ], [ %.048, %180 ], [ %.048, %186 ], [ %.048, %192 ], [ %.048, %91 ], [ %.048, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %.048, %114 ], [ 1, %123 ], [ 1, %129 ], [ 1, %135 ], [ 1, %141 ], [ 1, %147 ], [ 1, %153 ], [ 1, %159 ], [ 1, %165 ], [ 1, %171 ], [ 1, %177 ], [ 1, %183 ], [ 1, %189 ], [ 1, %117 ], [ %.048, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
-  %.3 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit67 ], [ 1, %196 ], [ 1, %120 ], [ 1, %126 ], [ 1, %132 ], [ 1, %138 ], [ 1, %144 ], [ 1, %150 ], [ 1, %156 ], [ 1, %162 ], [ 1, %168 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 1, %192 ], [ 5, %91 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit71 ], [ 0, %114 ], [ 0, %123 ], [ 0, %129 ], [ 0, %135 ], [ 0, %141 ], [ 0, %147 ], [ 0, %153 ], [ 0, %159 ], [ 0, %165 ], [ 0, %171 ], [ 0, %177 ], [ 0, %183 ], [ 0, %189 ], [ 0, %117 ], [ 0, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ]
+  %.149 = phi i8 [ %.048, %_ZN4llvm5ErrorD2Ev.exit67 ], [ %.048, %192 ], [ %.048, %196 ], [ %.048, %91 ], [ %.048, %120 ], [ %.048, %126 ], [ %.048, %132 ], [ %.048, %138 ], [ %.048, %144 ], [ %.048, %150 ], [ %.048, %156 ], [ %.048, %162 ], [ %.048, %168 ], [ %.048, %174 ], [ %.048, %180 ], [ %.048, %186 ], [ %.048, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %.048, %114 ], [ %.048, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ], [ 1, %189 ], [ 1, %123 ], [ 1, %129 ], [ 1, %135 ], [ 1, %141 ], [ 1, %147 ], [ 1, %153 ], [ 1, %159 ], [ 1, %165 ], [ 1, %171 ], [ 1, %177 ], [ 1, %183 ], [ 1, %117 ]
+  %.3 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit67 ], [ 1, %192 ], [ 1, %196 ], [ 5, %91 ], [ 1, %120 ], [ 1, %126 ], [ 1, %132 ], [ 1, %138 ], [ 1, %144 ], [ 1, %150 ], [ 1, %156 ], [ 1, %162 ], [ 1, %168 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit71 ], [ 0, %114 ], [ 0, %_ZN4llvm8ExpectedISt8optionalINS_18BitstreamBlockInfoEEED2Ev.exit.thread ], [ 0, %189 ], [ 0, %123 ], [ 0, %129 ], [ 0, %135 ], [ 0, %141 ], [ 0, %147 ], [ 0, %153 ], [ 0, %159 ], [ 0, %165 ], [ 0, %171 ], [ 0, %177 ], [ 0, %183 ], [ 0, %117 ]
   %201 = load i8, ptr %68, align 8
   %202 = trunc i8 %201 to i1
   br i1 %202, label %203, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit
@@ -8627,9 +8627,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -9662,9 +9662,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -10309,9 +10309,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -10948,9 +10948,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -11640,9 +11640,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -12281,9 +12281,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -13104,9 +13104,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -13691,9 +13691,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -15214,9 +15214,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -15937,9 +15937,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
 
-.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %.lr.ph
-  %.ph = phi ptr [ %14, %.lr.ph ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %.ph29 = phi ptr [ %13, %.lr.ph ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+.loopexit30:                                      ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread, %.lr.ph, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread, %_ZNSt8optionalIjEaSESt9nullopt_t.exit
+  %.ph = phi ptr [ %14, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %11, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %14, %.lr.ph ], [ %14, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
+  %.ph29 = phi ptr [ %13, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %10, %_ZNSt8optionalIjEaSESt9nullopt_t.exit.thread ], [ %13, %.lr.ph ], [ %13, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load i64, ptr %53, align 4
   %55 = and i64 %54, 9223372036854775807
@@ -16590,8 +16590,8 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.thread:          ; preds = %_ZN4llvm8ExpectedIm
   br label %_ZN4llvm8ExpectedIjED2Ev.exit24
 
 _ZN4llvm8ExpectedIjEC2EOS1_.exit:                 ; preds = %26, %_ZN4llvm5ErrorD2Ev.exit, %._crit_edge
-  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.ext, %26 ], [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ]
-  %.sroa.18.0 = phi i8 [ %10, %26 ], [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.032.0.insert.ext, %26 ]
+  %.sroa.18.0 = phi i8 [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ], [ %10, %26 ]
   %80 = trunc i8 %.sroa.18.0 to i1
   %.not.i.i21 = icmp ne i64 %.sroa.032.0, 0
   %or.cond.not = select i1 %80, i1 %.not.i.i21, i1 false

@@ -508,7 +508,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !5
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %__val.lobit = lshr i32 %__val, 31
   %add2 = add i32 %retval.0.i, %__val.lobit
   %conv3 = zext i32 %add2 to i64
@@ -2171,8 +2171,8 @@ cleanup206.thread.i.i:                            ; preds = %sw.epilog204.invoke
   br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i.i.i
 
 cleanup206.sink.split.i.i.sink.split:             ; preds = %_ZN6google8protobuf4util6StatusD2Ev.exit180.i.i, %invoke.cont202.i.i, %invoke.cont86.i.i
-  %.sink = phi ptr [ %92, %invoke.cont86.i.i ], [ %153, %invoke.cont202.i.i ], [ %156, %_ZN6google8protobuf4util6StatusD2Ev.exit180.i.i ]
-  %proto_binary.sink.i.i.ph = phi ptr [ %ref.tmp78.i.i, %invoke.cont86.i.i ], [ %ref.tmp194.i.i, %invoke.cont202.i.i ], [ %proto_binary.i.i, %_ZN6google8protobuf4util6StatusD2Ev.exit180.i.i ]
+  %.sink = phi ptr [ %153, %invoke.cont202.i.i ], [ %92, %invoke.cont86.i.i ], [ %156, %_ZN6google8protobuf4util6StatusD2Ev.exit180.i.i ]
+  %proto_binary.sink.i.i.ph = phi ptr [ %ref.tmp194.i.i, %invoke.cont202.i.i ], [ %ref.tmp78.i.i, %invoke.cont86.i.i ], [ %proto_binary.i.i, %_ZN6google8protobuf4util6StatusD2Ev.exit180.i.i ]
   call void @_ZdlPv(ptr noundef %.sink) #26, !noalias !8
   br label %cleanup206.sink.split.i.i
 
@@ -2194,7 +2194,7 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i.i.i: ; preds = 
   br label %do.body28.i
 
 ehcleanup207.i.i:                                 ; preds = %lpad200.i.i, %ehcleanup190.i.i, %ehcleanup159.i.i, %lpad103.i.i, %lpad.i.i.i.i.i, %lpad84.i.i, %ehcleanup60.i.i, %lpad15.i.i
-  %.pn19.i.i = phi { ptr, i32 } [ %93, %lpad84.i.i ], [ %154, %lpad200.i.i ], [ %104, %lpad103.i.i ], [ %.pn16.pn.i.i, %ehcleanup159.i.i ], [ %.pn14.i.i, %ehcleanup190.i.i ], [ %.pn.pn.i.i, %ehcleanup60.i.i ], [ %66, %lpad15.i.i ], [ %101, %lpad.i.i.i.i.i ]
+  %.pn19.i.i = phi { ptr, i32 } [ %93, %lpad84.i.i ], [ %.pn14.i.i, %ehcleanup190.i.i ], [ %154, %lpad200.i.i ], [ %104, %lpad103.i.i ], [ %.pn.pn.i.i, %ehcleanup60.i.i ], [ %.pn16.pn.i.i, %ehcleanup159.i.i ], [ %66, %lpad15.i.i ], [ %101, %lpad.i.i.i.i.i ]
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response.i.i) #25, !noalias !8
   br label %ehcleanup209.i.i
 
@@ -2396,9 +2396,9 @@ ehcleanup99.i:                                    ; preds = %ehcleanup.i17, %lpa
   br label %ehcleanup103.i
 
 cleanup.i:                                        ; preds = %do.end76.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %if.then71.i, %if.then56.i
-  %is_done.sroa.12.3 = phi ptr [ %is_done.sroa.12.0.copyload70, %if.then71.i ], [ %is_done.sroa.12.0.copyload69, %if.then56.i ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ null, %do.end76.i ]
-  %is_done.sroa.9.3 = phi i64 [ %is_done.sroa.9.0.copyload68, %if.then71.i ], [ %is_done.sroa.9.0.copyload67, %if.then56.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
-  %is_done.sroa.0.sroa.0.2 = phi i32 [ %is_done.sroa.0.sroa.0.0.extract.trunc74, %if.then71.i ], [ %is_done.sroa.0.sroa.0.0.extract.trunc73, %if.then56.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
+  %is_done.sroa.12.3 = phi ptr [ %is_done.sroa.12.0.copyload69, %if.then56.i ], [ %is_done.sroa.12.0.copyload70, %if.then71.i ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ null, %do.end76.i ]
+  %is_done.sroa.9.3 = phi i64 [ %is_done.sroa.9.0.copyload67, %if.then56.i ], [ %is_done.sroa.9.0.copyload68, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
+  %is_done.sroa.0.sroa.0.2 = phi i32 [ %is_done.sroa.0.sroa.0.0.extract.trunc73, %if.then56.i ], [ %is_done.sroa.0.sroa.0.0.extract.trunc74, %if.then71.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 0, %do.end76.i ]
   %173 = load ptr, ptr %serialized_output.i, align 8, !noalias !8
   %cmp.i.i.i41.i = icmp eq ptr %173, %40
   br i1 %cmp.i.i.i41.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i14, label %if.then.i.i42.i

@@ -359,7 +359,7 @@ x509_name_ex_free.exit:                           ; preds = %17, %23
   br label %68
 
 68:                                               ; preds = %8, %67, %64
-  %.0 = phi i32 [ 0, %67 ], [ 1, %64 ], [ %13, %8 ]
+  %.0 = phi i32 [ 1, %64 ], [ 0, %67 ], [ %13, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -856,7 +856,7 @@ asn1_string_canon.exit.thread:                    ; preds = %48, %asn1_string_ca
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %34, %27, %asn1_string_canon.exit.thread, %31, %i2d_name_canon.exit67, %i2d_name_canon.exit
-  %.0357678 = phi i32 [ 0, %31 ], [ 1, %i2d_name_canon.exit67 ], [ 0, %i2d_name_canon.exit ], [ 0, %asn1_string_canon.exit.thread ], [ 0, %27 ], [ 0, %34 ]
+  %.0357678 = phi i32 [ 0, %i2d_name_canon.exit ], [ 0, %31 ], [ 1, %i2d_name_canon.exit67 ], [ 0, %asn1_string_canon.exit.thread ], [ 0, %27 ], [ 0, %34 ]
   call void @sk_pop_free(ptr noundef nonnull %15, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_pop_free) #7
   br label %.thread.thread79
 

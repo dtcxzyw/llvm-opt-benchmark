@@ -13307,7 +13307,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EED2Ev.exit: ; preds = 
   br label %405
 
 405:                                              ; preds = %404, %388, %386, %384
-  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %404 ], [ %389, %388 ], [ %387, %386 ], [ %385, %384 ]
+  %.pn22.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn, %404 ], [ %385, %384 ], [ %389, %388 ], [ %387, %386 ]
   call void @_ZNSt12__shared_ptrIN5arrow12ArrayBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #19
   call void @_ZNSt12__shared_ptrIN5arrow12ArrayBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #19
   call void @_ZNSt12__shared_ptrIN5arrow11ListBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #19
@@ -14374,7 +14374,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %311
 
 311:                                              ; preds = %310, %304, %302, %300
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %310 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %310 ], [ %301, %300 ], [ %305, %304 ], [ %303, %302 ]
   call void @_ZNSt12__shared_ptrIN5arrow12ArrayBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
   call void @_ZNSt12__shared_ptrIN5arrow12ArrayBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
   call void @_ZNSt12__shared_ptrIN5arrow11ListBuilderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #19
@@ -14560,7 +14560,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %62
 
-_ZN5arrow6StatusD2Ev.exit21:                      ; preds = %.critedge16, %_ZN5arrow6StatusD2Ev.exit10.i
+_ZN5arrow6StatusD2Ev.exit21:                      ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %.critedge16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = load ptr, ptr %24, align 8, !tbaa !789
   %64 = load ptr, ptr %63, align 8, !tbaa !53
@@ -14809,7 +14809,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %11, i64 noundef %33), !noalias !816
   br label %_ZN5arrow6StatusD2Ev.exit13
 
-_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %5, %_ZN5arrow6StatusD2Ev.exit10.i
+_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = load ptr, ptr %8, align 8, !tbaa !789
   call void @_ZN5arrow15BaseListBuilderINS_8ListTypeEE12AppendValuesEPKilPKh(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(232) %46, ptr noundef %2, i64 noundef %3, ptr noundef %4)
@@ -14907,7 +14907,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %8, i64 noundef %30), !noalias !831
   br label %43
 
-43:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %2
+43:                                               ; preds = %2, %_ZN5arrow6StatusD2Ev.exit10.i
   %44 = load ptr, ptr %5, align 8, !tbaa !789
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !840
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
@@ -14976,7 +14976,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i9:                   ; preds = %43
   br label %88
 
 88:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i9, %_ZN5arrow6StatusD2Ev.exit.i.i, %57
-  %.pr.i.i11.sink = phi ptr [ null, %57 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
+  %.pr.i.i11.sink = phi ptr [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %57 ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
   store ptr %.pr.i.i11.sink, ptr %0, align 8, !tbaa !93
   ret void
 }
@@ -15044,7 +15044,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %8, i64 noundef %30), !noalias !854
   br label %43
 
-43:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %2
+43:                                               ; preds = %2, %_ZN5arrow6StatusD2Ev.exit10.i
   %44 = load ptr, ptr %5, align 8, !tbaa !789
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !863
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
@@ -15127,7 +15127,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i9:                   ; preds = %43
   br label %99
 
 99:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i9, %_ZN5arrow6StatusD2Ev.exit.i.i, %57
-  %.pr.i.i11.sink = phi ptr [ null, %57 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
+  %.pr.i.i11.sink = phi ptr [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %57 ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
   store ptr %.pr.i.i11.sink, ptr %0, align 8, !tbaa !93
   ret void
 }
@@ -15195,7 +15195,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %9, i64 noundef %31), !noalias !877
   br label %44
 
-44:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %3
+44:                                               ; preds = %3, %_ZN5arrow6StatusD2Ev.exit10.i
   %45 = load ptr, ptr %6, align 8, !tbaa !789
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !886
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
@@ -15245,7 +15245,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %44
   br label %72
 
 72:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %58
-  %.pr.i.sink = phi ptr [ null, %58 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.pr.i.sink = phi ptr [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %58 ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ]
   store ptr %.pr.i.sink, ptr %0, align 8, !tbaa !93
   ret void
 }
@@ -15313,7 +15313,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %8, i64 noundef %30), !noalias !898
   br label %43
 
-43:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %2
+43:                                               ; preds = %2, %_ZN5arrow6StatusD2Ev.exit10.i
   %44 = load ptr, ptr %5, align 8, !tbaa !789
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !907
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
@@ -15387,7 +15387,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i9:                   ; preds = %43
   br label %92
 
 92:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i9, %_ZN5arrow6StatusD2Ev.exit.i.i, %57
-  %.pr.i.i11.sink = phi ptr [ null, %57 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
+  %.pr.i.i11.sink = phi ptr [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %57 ], [ %.pr.i.i11, %_ZN5arrow6StatusD2Ev.exit.i.i9 ]
   store ptr %.pr.i.i11.sink, ptr %0, align 8, !tbaa !93
   ret void
 }
@@ -15455,7 +15455,7 @@ _ZN5arrow6StatusD2Ev.exit10.i:                    ; preds = %_ZN5arrow6StatusD2E
   call void @_ZN5arrow12ArrayBuilder16UnsafeSetNotNullEl(ptr noundef nonnull align 8 dereferenceable(160) %9, i64 noundef %31), !noalias !921
   br label %44
 
-44:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.i, %3
+44:                                               ; preds = %3, %_ZN5arrow6StatusD2Ev.exit10.i
   %45 = load ptr, ptr %6, align 8, !tbaa !789
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !930
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
@@ -15505,7 +15505,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %44
   br label %72
 
 72:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit.i.i, %58
-  %.pr.i.sink = phi ptr [ null, %58 ], [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.pr.i.sink = phi ptr [ %.pr.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %58 ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ]
   store ptr %.pr.i.sink, ptr %0, align 8, !tbaa !93
   ret void
 }
@@ -19743,7 +19743,7 @@ _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %.lr.ph.split
   br i1 %.not49, label %.lr.ph.split, label %.critedge51, !llvm.loop !1061
 
 .critedge51:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit64, %_ZN5arrow6StatusD2Ev.exit68, %_ZN5arrow6StatusD2Ev.exit72, %.critedge58, %_ZN5arrow6StatusD2Ev.exit68.us, %_ZN5arrow6StatusD2Ev.exit64.us, %_ZN5arrow6StatusD2Ev.exit.us, %.critedge58.us, %5
-  %storemerge = phi ptr [ null, %5 ], [ %23, %_ZN5arrow6StatusD2Ev.exit.us ], [ %42, %_ZN5arrow6StatusD2Ev.exit64.us ], [ %52, %_ZN5arrow6StatusD2Ev.exit68.us ], [ null, %.critedge58.us ], [ %65, %_ZN5arrow6StatusD2Ev.exit ], [ %84, %_ZN5arrow6StatusD2Ev.exit64 ], [ %94, %_ZN5arrow6StatusD2Ev.exit68 ], [ %96, %_ZN5arrow6StatusD2Ev.exit72 ], [ null, %.critedge58 ]
+  %storemerge = phi ptr [ null, %5 ], [ null, %.critedge58.us ], [ %23, %_ZN5arrow6StatusD2Ev.exit.us ], [ %42, %_ZN5arrow6StatusD2Ev.exit64.us ], [ %52, %_ZN5arrow6StatusD2Ev.exit68.us ], [ %84, %_ZN5arrow6StatusD2Ev.exit64 ], [ %94, %_ZN5arrow6StatusD2Ev.exit68 ], [ %96, %_ZN5arrow6StatusD2Ev.exit72 ], [ %65, %_ZN5arrow6StatusD2Ev.exit ], [ null, %.critedge58 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 }
@@ -20615,7 +20615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.thread: ; preds
   br label %403
 
 376:                                              ; preds = %.noexc.i34, %56
-  %.018 = phi ptr [ %10, %56 ], [ %58, %.noexc.i34 ]
+  %.018 = phi ptr [ %58, %.noexc.i34 ], [ %10, %56 ]
   %377 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
@@ -21894,7 +21894,7 @@ _ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhll.exit.i: ; preds = %58, %._
   br label %.critedge26.sink.split
 
 .critedge26.sink.split:                           ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhll.exit.i, %55
-  %.sink = phi ptr [ null, %55 ], [ null, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhll.exit.i ], [ %32, %_ZN5arrow6StatusD2Ev.exit ]
+  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhll.exit.i ], [ null, %55 ], [ %32, %_ZN5arrow6StatusD2Ev.exit ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge26
 

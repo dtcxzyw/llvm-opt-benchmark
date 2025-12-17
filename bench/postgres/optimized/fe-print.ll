@@ -276,9 +276,9 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %120
 
 120:                                              ; preds = %95, %115, %82, %86, %89, %99, %118, %67, %63, %._crit_edge
-  %.1216 = phi i1 [ false, %89 ], [ false, %118 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %63 ], [ false, %._crit_edge ], [ true, %115 ], [ false, %95 ]
-  %.1211 = phi i1 [ false, %89 ], [ false, %118 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %63 ], [ false, %._crit_edge ], [ %117, %115 ], [ false, %95 ]
-  %.2 = phi ptr [ %spec.select293, %89 ], [ %119, %118 ], [ %spec.select293, %99 ], [ %spec.select293, %86 ], [ %spec.select293, %82 ], [ %spec.select293, %67 ], [ %spec.select293, %63 ], [ %spec.select293, %._crit_edge ], [ %114, %115 ], [ %spec.select293, %95 ]
+  %.1216 = phi i1 [ false, %89 ], [ false, %._crit_edge ], [ true, %115 ], [ false, %118 ], [ false, %63 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %95 ]
+  %.1211 = phi i1 [ false, %89 ], [ false, %._crit_edge ], [ %117, %115 ], [ false, %118 ], [ false, %63 ], [ false, %99 ], [ false, %86 ], [ false, %82 ], [ false, %67 ], [ false, %95 ]
+  %.2 = phi ptr [ %spec.select293, %89 ], [ %spec.select293, %._crit_edge ], [ %114, %115 ], [ %119, %118 ], [ %spec.select293, %63 ], [ %spec.select293, %99 ], [ %spec.select293, %86 ], [ %spec.select293, %82 ], [ %spec.select293, %67 ], [ %spec.select293, %95 ]
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %122 = load i8, ptr %121, align 4
   %.not258 = icmp eq i8 %122, 0
@@ -618,7 +618,7 @@ do_field.exit:                                    ; preds = %232
   %272 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %271, ptr noundef nonnull @.str) #14
   br label %381
 
-273:                                              ; preds = %211, %209, %241, %269, %266, %245, %259, %257
+273:                                              ; preds = %209, %211, %241, %257, %269, %266, %245, %259
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count364
   br i1 %exitcond365.not, label %._crit_edge335, label %201, !llvm.loop !8
@@ -1178,7 +1178,7 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr noundef readon
   br label %109
 
 109:                                              ; preds = %.thread, %105, %107
-  %.1 = phi ptr [ %.094, %107 ], [ %.094, %105 ], [ null, %.thread ]
+  %.1 = phi ptr [ null, %.thread ], [ %.094, %107 ], [ %.094, %105 ]
   ret ptr %.1
 }
 

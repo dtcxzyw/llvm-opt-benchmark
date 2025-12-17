@@ -49,7 +49,7 @@ define range(i32 0, 2) i32 @X509_set_version(ptr noundef captures(address_is_nul
   br label %21
 
 21:                                               ; preds = %.sink.split, %17, %14, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %4 ], [ 0, %14 ], [ 0, %17 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ 1, %4 ], [ 0, %17 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -86,7 +86,7 @@ define i32 @X509_set_serialNumber(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %10
 
 10:                                               ; preds = %2, %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ 1, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %8 ], [ %7, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly captures(a
   br label %13
 
 13:                                               ; preds = %10, %12, %6, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %6 ], [ 1, %12 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 1, %12 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -196,7 +196,7 @@ define range(i32 0, 2) i32 @X509_set1_notBefore(ptr noundef captures(address_is_
   br label %ossl_x509_set1_time.exit
 
 ossl_x509_set1_time.exit:                         ; preds = %13, %10, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 0, %10 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %5 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -227,7 +227,7 @@ define range(i32 0, 2) i32 @X509_set1_notAfter(ptr noundef captures(address_is_n
   br label %ossl_x509_set1_time.exit
 
 ossl_x509_set1_time.exit:                         ; preds = %13, %10, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 0, %10 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %5 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -248,7 +248,7 @@ define range(i32 0, 2) i32 @X509_set_pubkey(ptr noundef %0, ptr noundef %1) loca
   br label %9
 
 9:                                                ; preds = %4, %2, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -593,7 +593,7 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
   br label %x509_sig_info_init.exit
 
 x509_sig_info_init.exit:                          ; preds = %19, %.thread.i, %38, %39, %.thread41.i
-  %.0.i = phi i32 [ 0, %19 ], [ 0, %38 ], [ 1, %.thread41.i ], [ 0, %.thread.i ], [ 0, %39 ]
+  %.0.i = phi i32 [ 0, %19 ], [ 0, %38 ], [ 0, %.thread.i ], [ 1, %.thread41.i ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i

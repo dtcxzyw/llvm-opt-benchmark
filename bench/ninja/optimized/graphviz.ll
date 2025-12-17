@@ -55,7 +55,7 @@ _ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %_ZNSt8_Rb_treeI
   %15 = icmp ult ptr %1, %14
   br i1 %15, label %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread, label %210
 
-_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit
+_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread: ; preds = %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i, %2, %_ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE4findERKS1_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %4, align 8, !tbaa !18
@@ -175,7 +175,7 @@ select.unfold.i.i:                                ; preds = %49, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %53, %select.unfold.i.i
-  %57 = phi i1 [ true, %select.unfold.i.i ], [ %56, %53 ]
+  %57 = phi i1 [ %56, %53 ], [ true, %select.unfold.i.i ]
   %58 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
           to label %.noexc unwind label %66
 
@@ -303,7 +303,7 @@ select.unfold.i.i43:                              ; preds = %98, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_E7EdgeCmpSaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP4EdgeS1_St9_IdentityIS1_E7EdgeCmpSaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %103, %select.unfold.i.i43
-  %111 = phi i1 [ true, %select.unfold.i.i43 ], [ %110, %103 ]
+  %111 = phi i1 [ %110, %103 ], [ true, %select.unfold.i.i43 ]
   %112 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
           to label %.noexc49 unwind label %68
 
@@ -464,7 +464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %137
   br i1 %.not104, label %.loopexit107, label %181, !llvm.loop !66
 
 .loopexit107:                                     ; preds = %181, %._crit_edge, %160
-  %198 = phi ptr [ %174, %._crit_edge ], [ %.pre124, %160 ], [ %196, %181 ]
+  %198 = phi ptr [ %.pre124, %160 ], [ %174, %._crit_edge ], [ %196, %181 ]
   %199 = load ptr, ptr %143, align 8, !tbaa !63
   %.not106117 = icmp eq ptr %199, %198
   br i1 %.not106117, label %.loopexit, label %.lr.ph120

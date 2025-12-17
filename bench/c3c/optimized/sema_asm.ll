@@ -344,7 +344,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br label %sema_check_asm_arg_reg.exit
 
 100:                                              ; preds = %89, %85, %83, %81, %79, %77, %71
-  %.082.i = phi i32 [ %95, %89 ], [ 128, %71 ], [ 80, %77 ], [ 64, %79 ], [ 32, %81 ], [ 16, %83 ], [ %..i, %85 ]
+  %.082.i = phi i32 [ %95, %89 ], [ 16, %83 ], [ 128, %71 ], [ 80, %77 ], [ 64, %79 ], [ 32, %81 ], [ %..i, %85 ]
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %102 = load i32, ptr %101, align 4
   %.not.i66 = icmp eq i32 %102, 0
@@ -422,7 +422,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br label %sema_check_asm_arg_reg.exit
 
 140:                                              ; preds = %130, %126, %124, %122, %120, %118, %112
-  %.081.i = phi i32 [ %136, %130 ], [ 128, %112 ], [ 80, %118 ], [ 64, %120 ], [ 32, %122 ], [ 16, %124 ], [ %.98.i, %126 ]
+  %.081.i = phi i32 [ %136, %130 ], [ 16, %124 ], [ 128, %112 ], [ 80, %118 ], [ 64, %120 ], [ 32, %122 ], [ %.98.i, %126 ]
   %.not97.i = icmp eq i32 %.082.i, %.081.i
   br i1 %.not97.i, label %sema_check_asm_arg_reg.exit, label %141
 
@@ -485,7 +485,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.not45.i.i.i, label %max_supported_imm_int.exit.thread.i.i, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %174, %172, %170, %166
-  %.052.i.i.i = phi i64 [ 8, %174 ], [ 16, %172 ], [ 32, %170 ], [ 64, %166 ]
+  %.052.i.i.i = phi i64 [ 8, %174 ], [ 64, %166 ], [ 32, %170 ], [ 16, %172 ]
   %176 = tail call ptr @type_int_signed_by_bitsize(i64 noundef %.052.i.i.i) #4
   br label %max_supported_imm_int.exit.i.i
 
@@ -511,7 +511,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.not40.i.i.i, label %max_supported_imm_int.exit.thread.i.i, label %.thread54.i.i.i
 
 .thread54.i.i.i:                                  ; preds = %184, %182, %180, %177
-  %.03657.i.i.i = phi i64 [ 8, %184 ], [ 16, %182 ], [ 32, %180 ], [ 64, %177 ]
+  %.03657.i.i.i = phi i64 [ 8, %184 ], [ 64, %177 ], [ 32, %180 ], [ 16, %182 ]
   %186 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef %.03657.i.i.i) #4
   br label %max_supported_imm_int.exit.i.i
 
@@ -686,7 +686,7 @@ switch.lookup:                                    ; preds = %200
   br label %sema_reg_int_suported_type.exit.i
 
 sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %249, %246, %238
-  %.0.i65.i = phi i32 [ 128, %238 ], [ 80, %246 ], [ 64, %249 ], [ 32, %252 ], [ 16, %255 ], [ %spec.select.i.i, %258 ]
+  %.0.i65.i = phi i32 [ %spec.select.i.i, %258 ], [ 128, %238 ], [ 80, %246 ], [ 64, %249 ], [ 32, %252 ], [ 16, %255 ]
   %261 = icmp eq i32 %.0.i65.i, %240
   br i1 %261, label %267, label %262
 
@@ -750,7 +750,7 @@ sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %2
   br label %sema_reg_float_suported_type.exit.i
 
 sema_reg_float_suported_type.exit.i:              ; preds = %286, %284, %282, %280, %278, %273
-  %.0.i68.i = phi i64 [ 128, %273 ], [ 80, %278 ], [ 64, %280 ], [ 32, %282 ], [ 16, %284 ], [ %..i.i, %286 ]
+  %.0.i68.i = phi i64 [ 16, %284 ], [ 128, %273 ], [ 80, %278 ], [ 64, %280 ], [ 32, %282 ], [ %..i.i, %286 ]
   %289 = icmp eq i64 %.0.i68.i, %276
   br i1 %289, label %294, label %sema_reg_float_suported_type.exit.thread.i
 
@@ -1000,7 +1000,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br label %sema_reg_int_suported_type.exit.i49
 
 sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %392, %389, %383
-  %.0.i121.i = phi i32 [ 128, %383 ], [ 80, %389 ], [ 64, %392 ], [ 32, %395 ], [ 16, %398 ], [ %spec.select.i.i61, %401 ]
+  %.0.i121.i = phi i32 [ %spec.select.i.i61, %401 ], [ 128, %383 ], [ 80, %389 ], [ 64, %392 ], [ 32, %395 ], [ 16, %398 ]
   %404 = icmp eq i32 %.0.i121.i, %385
   br i1 %404, label %sema_check_asm_arg_reg.exit, label %405
 
@@ -1033,7 +1033,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %3
   br label %416
 
 416:                                              ; preds = %414, %412, %410, %408, %406, %405
-  %.097.i = phi i64 [ 128, %405 ], [ 80, %406 ], [ 64, %408 ], [ 32, %410 ], [ 16, %412 ], [ %..i50, %414 ]
+  %.097.i = phi i64 [ 16, %412 ], [ 128, %405 ], [ 80, %406 ], [ 64, %408 ], [ 32, %410 ], [ %..i50, %414 ]
   %417 = load ptr, ptr %309, align 8
   %418 = tail call ptr @type_quoted_error_string(ptr noundef %417) #4
   %419 = tail call ptr @type_int_signed_by_bitsize(i64 noundef %.097.i) #4
@@ -1171,7 +1171,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %3
   br i1 %.not47.i, label %.sink.split.i, label %sema_check_asm_arg_reg.exit
 
 .sink.split.i:                                    ; preds = %483, %477, %470, %461, %447
-  %.str.31.sink.i = phi ptr [ @.str.20, %447 ], [ @.str.21, %461 ], [ @.str.22, %470 ], [ @.str.23, %477 ], [ @.str.31, %483 ]
+  %.str.31.sink.i = phi ptr [ @.str.23, %477 ], [ @.str.22, %470 ], [ @.str.21, %461 ], [ @.str.20, %447 ], [ @.str.31, %483 ]
   %485 = load i64, ptr %444, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %485, ptr noundef nonnull %.str.31.sink.i) #4
   br label %sema_check_asm_arg_reg.exit
@@ -1185,7 +1185,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %3
   unreachable
 
 sema_check_asm_arg_reg.exit:                      ; preds = %.sink.split.i, %483, %441, %438, %434, %432, %431, %430, %416, %sema_reg_int_suported_type.exit.i49, %382, %381, %343, %334, %320, %306, %296, %294, %sema_reg_float_suported_type.exit.thread.i, %267, %262, %210, %205, %194, %max_supported_imm_int.exit.thread.i.i, %144, %141, %140, %137, %128, %110, %100, %97, %87, %69, %57, %44, %42, %38, %14, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %38 ], [ false, %14 ], [ true, %44 ], [ true, %42 ], [ false, %97 ], [ false, %137 ], [ false, %141 ], [ false, %57 ], [ false, %69 ], [ false, %87 ], [ false, %110 ], [ false, %128 ], [ true, %140 ], [ true, %100 ], [ false, %210 ], [ true, %267 ], [ false, %262 ], [ true, %294 ], [ false, %sema_reg_float_suported_type.exit.thread.i ], [ false, %144 ], [ true, %205 ], [ false, %194 ], [ false, %max_supported_imm_int.exit.thread.i.i ], [ false, %306 ], [ false, %320 ], [ false, %334 ], [ false, %343 ], [ false, %416 ], [ false, %381 ], [ false, %382 ], [ false, %434 ], [ false, %430 ], [ false, %431 ], [ false, %438 ], [ false, %296 ], [ true, %sema_reg_int_suported_type.exit.i49 ], [ true, %432 ], [ false, %441 ], [ true, %483 ], [ false, %.sink.split.i ]
+  %.0 = phi i1 [ true, %432 ], [ true, %6 ], [ true, %42 ], [ true, %100 ], [ false, %max_supported_imm_int.exit.thread.i.i ], [ false, %14 ], [ false, %38 ], [ true, %44 ], [ false, %97 ], [ false, %137 ], [ false, %141 ], [ false, %128 ], [ false, %87 ], [ false, %110 ], [ false, %57 ], [ false, %69 ], [ true, %140 ], [ false, %144 ], [ false, %210 ], [ true, %267 ], [ false, %262 ], [ true, %294 ], [ false, %sema_reg_float_suported_type.exit.thread.i ], [ true, %205 ], [ false, %194 ], [ false, %306 ], [ false, %320 ], [ false, %334 ], [ false, %343 ], [ false, %296 ], [ false, %416 ], [ false, %381 ], [ false, %382 ], [ true, %sema_reg_int_suported_type.exit.i49 ], [ false, %434 ], [ false, %430 ], [ false, %431 ], [ false, %438 ], [ false, %441 ], [ true, %483 ], [ false, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -1456,7 +1456,7 @@ define internal fastcc zeroext i1 @sema_reg_float_suported_type(i32 %0, ptr noun
   br label %20
 
 20:                                               ; preds = %17, %15, %13, %11, %9, %4
-  %.0 = phi i64 [ 128, %4 ], [ 80, %9 ], [ 64, %11 ], [ 32, %13 ], [ 16, %15 ], [ %., %17 ]
+  %.0 = phi i64 [ 16, %15 ], [ 128, %4 ], [ 80, %9 ], [ 64, %11 ], [ 32, %13 ], [ %., %17 ]
   %21 = icmp eq i64 %.0, %7
   br label %22
 

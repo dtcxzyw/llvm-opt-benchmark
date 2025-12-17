@@ -209,7 +209,7 @@ define range(i32 0, 2) i32 @engine_table_register(ptr noundef captures(none) %0,
   br i1 %.not50, label %int_table_check.exit, label %.lr.ph.split, !llvm.loop !18
 
 int_table_check.exit:                             ; preds = %54, %70, %85, %26, %40, %46, %20, %12, %79, %.split72.us, %.split.us, %18
-  %.039 = phi i32 [ 0, %79 ], [ 0, %.split72.us ], [ 0, %.split.us ], [ 0, %18 ], [ 0, %12 ], [ 1, %20 ], [ 0, %26 ], [ 0, %40 ], [ 1, %46 ], [ 0, %54 ], [ 0, %70 ], [ 1, %85 ]
+  %.039 = phi i32 [ 0, %79 ], [ 0, %12 ], [ 0, %18 ], [ 0, %.split72.us ], [ 0, %.split.us ], [ 0, %26 ], [ 1, %20 ], [ 0, %40 ], [ 1, %46 ], [ 0, %70 ], [ 0, %54 ], [ 1, %85 ]
   %88 = load ptr, ptr @global_engine_lock, align 8, !tbaa !7
   %89 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %88) #7
   br label %90

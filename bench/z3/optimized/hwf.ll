@@ -343,7 +343,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i31:     ; preds = %_ZNSt11char_traitsI
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit34
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit34: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i31, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %27
-  %.015 = phi i64 [ -1, %27 ], [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i31 ]
+  %.015 = phi i64 [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i31 ], [ -1, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %40, ptr %6, align 8, !tbaa !16
@@ -993,11 +993,11 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %35, %39
   %67 = load i8, ptr %18, align 4
   %68 = and i8 %67, 1
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  br i1 %69, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = load i32, ptr %6, align 8, !tbaa !3
-  %72 = icmp slt i32 %71, 1
+  %71 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %72 = icmp slt i32 %71, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %72, label %77, label %93
 
@@ -1007,8 +1007,8 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %35, %39
   br i1 %74, label %77, label %93
 
 _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %66
-  %75 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %76 = icmp slt i32 %75, 0
+  %75 = load i32, ptr %6, align 8, !tbaa !3
+  %76 = icmp slt i32 %75, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %76, label %77, label %93
 
@@ -2527,7 +2527,7 @@ define hidden noundef zeroext i1 @_ZN11hwf_manager6is_intERK3hwf(ptr noundef non
   br label %19
 
 19:                                               ; preds = %2, %12, %5, %10
-  %.0 = phi i1 [ %18, %12 ], [ true, %5 ], [ false, %10 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ %18, %12 ], [ true, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 

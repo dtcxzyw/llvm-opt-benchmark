@@ -1873,7 +1873,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %145, label %_ZN7testing8internal14TrueWithStringD2Ev.exit193, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i191
 
 146:                                              ; preds = %98, %100, %85, %_ZN7testing7MessageD2Ev.exit163, %49
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %50, %49 ], [ %86, %85 ], [ %99, %98 ], [ %.pn92, %100 ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %86, %85 ], [ %50, %49 ], [ %99, %98 ], [ %.pn92, %100 ]
   %147 = load ptr, ptr %2, align 8, !tbaa !33
   %148 = icmp eq ptr %147, %43
   br i1 %148, label %_ZN7testing8internal14TrueWithStringD2Ev.exit169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i167
@@ -2156,7 +2156,7 @@ _ZN7testing8internal8EqHelper7CompareIN9__gnu_cxx17__normal_iteratorIPiSt6vector
   br i1 %245, label %.critedge141, label %253
 
 246:                                              ; preds = %200, %202, %187, %_ZN7testing7MessageD2Ev.exit190, %151
-  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn107.pn.pn, %_ZN7testing7MessageD2Ev.exit190 ], [ %152, %151 ], [ %188, %187 ], [ %201, %200 ], [ %.pn103, %202 ]
+  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn107.pn.pn, %_ZN7testing7MessageD2Ev.exit190 ], [ %188, %187 ], [ %152, %151 ], [ %201, %200 ], [ %.pn103, %202 ]
   %247 = load ptr, ptr %7, align 8, !tbaa !33
   %248 = icmp eq ptr %247, %140
   br i1 %248, label %_ZN7testing8internal14TrueWithStringD2Ev.exit197, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i195

@@ -671,7 +671,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   ret void
 
 174:                                              ; preds = %.loopexit, %.loopexit.split-lp, %85, %79, %56, %48
-  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %86, %85 ], [ %80, %79 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn45.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %80, %79 ], [ %57, %56 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn45.pn.pn.pn
@@ -2457,8 +2457,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !19
   %38 = add i64 %37, 2
@@ -2961,8 +2961,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !19
   %38 = add i64 %37, 2
@@ -3279,8 +3279,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !19
   %38 = add i64 %37, 2

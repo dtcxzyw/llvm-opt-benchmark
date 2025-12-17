@@ -100,7 +100,7 @@ _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit.loopexit.i39: ; preds = %if.end.i.i33
   br label %_ZN5eastl7is_heapIPjEEbT_S2_.exit41
 
 _ZN5eastl7is_heapIPjEEbT_S2_.exit41:              ; preds = %_ZN5eastl7is_heapIPjEEbT_S2_.exit.thread, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit.loopexit.i39
-  %retval.0.i.i27 = phi i1 [ %5, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit.loopexit.i39 ], [ true, %_ZN5eastl7is_heapIPjEEbT_S2_.exit.thread ]
+  %retval.0.i.i27 = phi i1 [ true, %_ZN5eastl7is_heapIPjEEbT_S2_.exit.thread ], [ %5, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit.loopexit.i39 ]
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i27, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 41, ptr noundef nonnull @.str.1)
   %call8 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add.ptr.idx) #11
   %call10 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add.ptr.idx) #11
@@ -471,7 +471,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp.i184, label %for.body.i, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit, !llvm.loop !5
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit:       ; preds = %for.body.i, %if.end.i
-  %retval.0.i = phi ptr [ %add.ptr25, %if.end.i ], [ %child.012.i, %for.body.i ]
+  %retval.0.i = phi ptr [ %child.012.i, %for.body.i ], [ %add.ptr25, %if.end.i ]
   %cmp29 = icmp eq ptr %retval.0.i, %add.ptr19
   %call30 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 115, ptr noundef nonnull @.str.3, i32 noundef %add.i)
   %cond.i = call noundef i32 @llvm.umin.i32(i32 %add.i, i32 200)
@@ -716,7 +716,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.i.not.i, label %_ZSt9push_heapIPjEvT_S1_.exit, label %land.rhs.i.i, !llvm.loop !8
 
 _ZSt9push_heapIPjEvT_S1_.exit:                    ; preds = %land.rhs.i.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ], [ 0, %while.body.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ]
   %add.ptr5.i.i = getelementptr inbounds nuw i32, ptr %call6, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %conv3.i.i250, ptr %add.ptr5.i.i, align 4
   %arrayidx65 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom59
@@ -739,7 +739,7 @@ for.body.i.i.i267:                                ; preds = %land.rhs.i.i.i
   br i1 %cmp.i.i.not.i, label %_ZN5eastl9push_heapIPjEEvT_S2_.exit, label %land.rhs.i.i.i, !llvm.loop !15
 
 _ZN5eastl9push_heapIPjEEvT_S2_.exit:              ; preds = %land.rhs.i.i.i, %for.body.i.i.i267, %_ZSt9push_heapIPjEvT_S1_.exit.thread
-  %position.addr.0.lcssa.i.i.i265 = phi i64 [ 0, %_ZSt9push_heapIPjEvT_S1_.exit.thread ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ], [ 0, %for.body.i.i.i267 ]
+  %position.addr.0.lcssa.i.i.i265 = phi i64 [ 0, %_ZSt9push_heapIPjEvT_S1_.exit.thread ], [ 0, %for.body.i.i.i267 ], [ %position.addr.014.i.i.i, %land.rhs.i.i.i ]
   %add.ptr7.i.i.i = getelementptr inbounds nuw i32, ptr %call9, i64 %position.addr.0.lcssa.i.i.i265
   store i32 %conv3.i.i250, ptr %add.ptr7.i.i.i, align 4
   %add69 = add nsw i32 %nArraySize.11150, 1
@@ -942,7 +942,7 @@ if.end.i382:                                      ; preds = %for.body.i377
   br i1 %cmp.i387, label %for.body.i377, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit388, !llvm.loop !5
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit388:    ; preds = %for.body.i377, %if.end.i382
-  %retval.0.i376 = phi ptr [ %add.ptr.i283, %if.end.i382 ], [ %child.012.i378, %for.body.i377 ]
+  %retval.0.i376 = phi ptr [ %child.012.i378, %for.body.i377 ], [ %add.ptr.i283, %if.end.i382 ]
   %cmp96 = icmp eq ptr %retval.0.i376, %add.ptr1.i
   %call97 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp96, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @.str.4, i32 noundef %nArraySize.21156)
   br label %for.body.i392
@@ -965,7 +965,7 @@ if.end.i397:                                      ; preds = %for.body.i392
   br i1 %cmp.i402, label %for.body.i392, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit403, !llvm.loop !5
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit403:    ; preds = %for.body.i392, %if.end.i397
-  %retval.0.i391 = phi ptr [ %add.ptr.i326, %if.end.i397 ], [ %child.012.i393, %for.body.i392 ]
+  %retval.0.i391 = phi ptr [ %child.012.i393, %for.body.i392 ], [ %add.ptr.i326, %if.end.i397 ]
   %cmp104 = icmp eq ptr %retval.0.i391, %add.ptr1.i327
   %call105 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp104, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 171, ptr noundef nonnull @.str.5, i32 noundef %nArraySize.21156)
   %.pre = load i32, ptr %nErrorCount, align 4
@@ -1023,7 +1023,7 @@ while.body.i.i431:                                ; preds = %land.rhs.i.i425
   br i1 %cmp.i.not.i433, label %_ZSt9push_heapIPjEvT_S1_.exit434, label %land.rhs.i.i425, !llvm.loop !8
 
 _ZSt9push_heapIPjEvT_S1_.exit434:                 ; preds = %land.rhs.i.i425, %while.body.i.i431
-  %__holeIndex.addr.0.lcssa.i.i423 = phi i64 [ %__holeIndex.addr.014.i.i426, %land.rhs.i.i425 ], [ 0, %while.body.i.i431 ]
+  %__holeIndex.addr.0.lcssa.i.i423 = phi i64 [ 0, %while.body.i.i431 ], [ %__holeIndex.addr.014.i.i426, %land.rhs.i.i425 ]
   %add.ptr5.i.i424 = getelementptr inbounds nuw i32, ptr %call6, i64 %__holeIndex.addr.0.lcssa.i.i423
   store i32 %conv3.i.i414, ptr %add.ptr5.i.i424, align 4
   %arrayidx125 = getelementptr inbounds nuw i32, ptr %call9, i64 %idxprom119
@@ -1046,7 +1046,7 @@ for.body.i.i.i450:                                ; preds = %land.rhs.i.i.i444
   br i1 %cmp.i.i.not.i452, label %_ZN5eastl9push_heapIPjEEvT_S2_.exit453, label %land.rhs.i.i.i444, !llvm.loop !15
 
 _ZN5eastl9push_heapIPjEEvT_S2_.exit453:           ; preds = %land.rhs.i.i.i444, %for.body.i.i.i450, %_ZSt9push_heapIPjEvT_S1_.exit434.thread
-  %position.addr.0.lcssa.i.i.i442 = phi i64 [ 0, %_ZSt9push_heapIPjEvT_S1_.exit434.thread ], [ %position.addr.014.i.i.i445, %land.rhs.i.i.i444 ], [ 0, %for.body.i.i.i450 ]
+  %position.addr.0.lcssa.i.i.i442 = phi i64 [ 0, %_ZSt9push_heapIPjEvT_S1_.exit434.thread ], [ 0, %for.body.i.i.i450 ], [ %position.addr.014.i.i.i445, %land.rhs.i.i.i444 ]
   %add.ptr7.i.i.i443 = getelementptr inbounds nuw i32, ptr %call9, i64 %position.addr.0.lcssa.i.i.i442
   store i32 %conv3.i.i414, ptr %add.ptr7.i.i.i443, align 4
   %inc130 = add nuw nsw i32 %m110.01161, 1
@@ -1118,7 +1118,7 @@ _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483.loopexit: ; preds = %if.end.i477, 
   br label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483:    ; preds = %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit468.thread, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483.loopexit
-  %retval.0.i471 = phi i1 [ %70, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483.loopexit ], [ true, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit468.thread ]
+  %retval.0.i471 = phi i1 [ true, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit468.thread ], [ %70, %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit483.loopexit ]
   %call149 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %retval.0.i471, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @.str.5, i32 noundef %nArraySize.3.lcssa)
   %71 = load i32, ptr %nErrorCount, align 4
   %cmp1531166 = icmp eq i32 %71, 0
@@ -1382,7 +1382,7 @@ for.body.i.i.i570:                                ; preds = %land.rhs.i.i.i562
   br i1 %cmp.i.i.not.i572, label %_ZN5eastl11change_heapIPjjEEvT_T0_S3_.exit602, label %land.rhs.i.i.i562, !llvm.loop !15
 
 _ZN5eastl11change_heapIPjjEEvT_T0_S3_.exit602:    ; preds = %land.rhs.i.i.i562, %for.body.i.i.i570
-  %position.addr.0.lcssa.i.i.i568 = phi i64 [ 0, %for.body.i.i.i570 ], [ %position.addr.014.i.i.i563, %land.rhs.i.i.i562 ]
+  %position.addr.0.lcssa.i.i.i568 = phi i64 [ %position.addr.014.i.i.i563, %land.rhs.i.i.i562 ], [ 0, %for.body.i.i.i570 ]
   %add.ptr7.i.i.i569 = getelementptr inbounds nuw i32, ptr %call9, i64 %position.addr.0.lcssa.i.i.i568
   store i32 %104, ptr %add.ptr7.i.i.i569, align 4
   %arrayidx176 = getelementptr inbounds nuw i32, ptr %call9, i64 %conv.i.i527
@@ -1408,7 +1408,7 @@ if.end.i611:                                      ; preds = %for.body.i606
   br i1 %cmp.i616, label %for.body.i606, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit617, !llvm.loop !5
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit617:    ; preds = %for.body.i606, %if.end.i611
-  %retval.0.i605 = phi ptr [ %add.ptr.i.i526, %if.end.i611 ], [ %child.012.i607, %for.body.i606 ]
+  %retval.0.i605 = phi ptr [ %child.012.i607, %for.body.i606 ], [ %add.ptr.i.i526, %if.end.i611 ]
   %cmp185 = icmp eq ptr %retval.0.i605, %add.ptr1.i.i
   %call186 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp185, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 217, ptr noundef nonnull @.str.7, i32 noundef %nArraySize.41169)
   br label %for.body.i621
@@ -1431,7 +1431,7 @@ if.end.i626:                                      ; preds = %for.body.i621
   br i1 %cmp.i631, label %for.body.i621, label %_ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit632, !llvm.loop !5
 
 _ZN5eastl13is_heap_untilIPjEET_S2_S2_.exit632:    ; preds = %for.body.i621, %if.end.i626
-  %retval.0.i620 = phi ptr [ %add.ptr.i.i542, %if.end.i626 ], [ %child.012.i622, %for.body.i621 ]
+  %retval.0.i620 = phi ptr [ %child.012.i622, %for.body.i621 ], [ %add.ptr.i.i542, %if.end.i626 ]
   %cmp193 = icmp eq ptr %retval.0.i620, %add.ptr1.i.i543
   %call194 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp193, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.5, i32 noundef %nArraySize.41169)
   %.pre1189 = load i32, ptr %nErrorCount, align 4
@@ -2991,7 +2991,7 @@ while.body.i.i30.us:                              ; preds = %land.rhs.i.i24.us
   br i1 %cmp.i23.i32.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %land.rhs.i.i24.us, !llvm.loop !8
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us: ; preds = %land.rhs.i.i24.us, %while.body.i.i30.us, %if.end7.split.us, %while.end.i15.us
-  %__holeIndex.addr.0.lcssa.i.i22.us = phi i64 [ %spec.select.i50.us, %while.end.i15.us ], [ %dec.us, %if.end7.split.us ], [ %__parent.015.i.i27.us64, %while.body.i.i30.us ], [ %__holeIndex.addr.014.i.i25.us, %land.rhs.i.i24.us ]
+  %__holeIndex.addr.0.lcssa.i.i22.us = phi i64 [ %spec.select.i50.us, %while.end.i15.us ], [ %dec.us, %if.end7.split.us ], [ %__holeIndex.addr.014.i.i25.us, %land.rhs.i.i24.us ], [ %__parent.015.i.i27.us64, %while.body.i.i30.us ]
   %add.ptr5.i.i23.us = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22.us
   store i32 %8, ptr %add.ptr5.i.i23.us, align 4
   %cmp5.us = icmp eq i64 %dec.us, 0

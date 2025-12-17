@@ -240,7 +240,7 @@ jt_read_integer.exit51:                           ; preds = %.lr.ph.i45
   br label %109
 
 109:                                              ; preds = %jt_read_integer.exit51.thread, %jt_read_integer.exit43.thread, %jt_read_integer.exit35.thread, %106, %108
-  %.0 = phi i32 [ 1, %108 ], [ 0, %106 ], [ 0, %jt_read_integer.exit35.thread ], [ 0, %jt_read_integer.exit43.thread ], [ 0, %jt_read_integer.exit51.thread ]
+  %.0 = phi i32 [ 0, %jt_read_integer.exit51.thread ], [ 1, %108 ], [ 0, %jt_read_integer.exit43.thread ], [ 0, %jt_read_integer.exit35.thread ], [ 0, %106 ]
   ret i32 %.0
 }
 
@@ -345,7 +345,7 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef i
   br label %jtransform_perfect_transform.exit
 
 jtransform_perfect_transform.exit:                ; preds = %48, %50, %52
-  %.0.shrunk.i.in = phi i32 [ %49, %48 ], [ %51, %50 ], [ %55, %52 ]
+  %.0.shrunk.i.in = phi i32 [ %49, %48 ], [ %55, %52 ], [ %51, %50 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %jtransform_perfect_transform.exit.thread, label %661
 
@@ -383,17 +383,17 @@ jtransform_perfect_transform.exit:                ; preds = %48, %50, %52
   br label %jtransform_perfect_transform.exit419
 
 jtransform_perfect_transform.exit419:             ; preds = %66, %68, %70
-  %.0.shrunk.i415.in = phi i32 [ %67, %66 ], [ %69, %68 ], [ %73, %70 ]
+  %.0.shrunk.i415.in = phi i32 [ %67, %66 ], [ %73, %70 ], [ %69, %68 ]
   %.0.shrunk.i415.not = icmp eq i32 %.0.shrunk.i415.in, 0
   br i1 %.0.shrunk.i415.not, label %jtransform_perfect_transform.exit.thread, label %661
 
 jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_transform.exit, %jtransform_perfect_transform.exit419, %.thread-pre-split_crit_edge, %56, %.thread513
-  %74 = phi ptr [ %44, %.thread513 ], [ %23, %56 ], [ %35, %.thread-pre-split_crit_edge ], [ %23, %jtransform_perfect_transform.exit419 ], [ %44, %jtransform_perfect_transform.exit ]
-  %75 = phi i32 [ %43, %.thread513 ], [ %22, %56 ], [ %36, %.thread-pre-split_crit_edge ], [ %22, %jtransform_perfect_transform.exit419 ], [ %43, %jtransform_perfect_transform.exit ]
-  %76 = phi ptr [ %42, %.thread513 ], [ %20, %56 ], [ %37, %.thread-pre-split_crit_edge ], [ %20, %jtransform_perfect_transform.exit419 ], [ %42, %jtransform_perfect_transform.exit ]
-  %77 = phi i32 [ %41, %.thread513 ], [ %19, %56 ], [ %38, %.thread-pre-split_crit_edge ], [ %19, %jtransform_perfect_transform.exit419 ], [ %41, %jtransform_perfect_transform.exit ]
-  %78 = phi i1 [ true, %.thread513 ], [ false, %56 ], [ %39, %.thread-pre-split_crit_edge ], [ false, %jtransform_perfect_transform.exit419 ], [ true, %jtransform_perfect_transform.exit ]
-  %79 = phi i32 [ %47, %.thread513 ], [ %65, %56 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %65, %jtransform_perfect_transform.exit419 ], [ %47, %jtransform_perfect_transform.exit ]
+  %74 = phi ptr [ %23, %56 ], [ %44, %.thread513 ], [ %35, %.thread-pre-split_crit_edge ], [ %23, %jtransform_perfect_transform.exit419 ], [ %44, %jtransform_perfect_transform.exit ]
+  %75 = phi i32 [ %22, %56 ], [ %43, %.thread513 ], [ %36, %.thread-pre-split_crit_edge ], [ %22, %jtransform_perfect_transform.exit419 ], [ %43, %jtransform_perfect_transform.exit ]
+  %76 = phi ptr [ %20, %56 ], [ %42, %.thread513 ], [ %37, %.thread-pre-split_crit_edge ], [ %20, %jtransform_perfect_transform.exit419 ], [ %42, %jtransform_perfect_transform.exit ]
+  %77 = phi i32 [ %19, %56 ], [ %41, %.thread513 ], [ %38, %.thread-pre-split_crit_edge ], [ %19, %jtransform_perfect_transform.exit419 ], [ %41, %jtransform_perfect_transform.exit ]
+  %78 = phi i1 [ false, %56 ], [ true, %.thread513 ], [ %39, %.thread-pre-split_crit_edge ], [ false, %jtransform_perfect_transform.exit419 ], [ true, %jtransform_perfect_transform.exit ]
+  %79 = phi i32 [ %65, %56 ], [ %47, %.thread513 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %65, %jtransform_perfect_transform.exit419 ], [ %47, %jtransform_perfect_transform.exit ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 92
   switch i32 %79, label %97 [
@@ -1017,8 +1017,8 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   br label %.critedge
 
 .critedge:                                        ; preds = %307, %405, %.thread514, %.preheader, %._crit_edge474, %453, %291, %409
-  %.1344 = phi i32 [ %.0343, %._crit_edge474 ], [ %.0343, %453 ], [ %288, %291 ], [ %.0343, %409 ], [ %288, %.preheader ], [ %288, %.thread514 ], [ %288, %405 ], [ %288, %307 ]
-  %.1342 = phi i32 [ %.0341, %._crit_edge474 ], [ %.0341, %453 ], [ %262, %291 ], [ %.0341, %409 ], [ %262, %.preheader ], [ %262, %.thread514 ], [ %262, %405 ], [ %262, %307 ]
+  %.1344 = phi i32 [ %.0343, %._crit_edge474 ], [ %.0343, %453 ], [ %288, %.thread514 ], [ %288, %291 ], [ %.0343, %409 ], [ %288, %.preheader ], [ %288, %405 ], [ %288, %307 ]
+  %.1342 = phi i32 [ %.0341, %._crit_edge474 ], [ %.0341, %453 ], [ %262, %.thread514 ], [ %262, %291 ], [ %.0341, %409 ], [ %262, %.preheader ], [ %262, %405 ], [ %262, %307 ]
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %459 = load i32, ptr %458, align 8, !tbaa !60
   %460 = udiv i32 %.1342, %459
@@ -1275,7 +1275,7 @@ trim_right_edge.exit428:                          ; preds = %558, %562, %567
   br label %trim_bottom_edge.exit
 
 trim_bottom_edge.exit:                            ; preds = %591, %586, %582, %577, %572, %trim_right_edge.exit428, %553, %548, %544, %539, %534, %trim_right_edge.exit422, %515, %510, %506, %469, %trim_right_edge.exit, %500, %475, %476, %481, %503, %517, %541, %555, %579
-  %.not402 = phi i1 [ true, %503 ], [ false, %517 ], [ false, %541 ], [ true, %555 ], [ false, %579 ], [ true, %481 ], [ true, %476 ], [ true, %475 ], [ true, %500 ], [ true, %trim_right_edge.exit ], [ false, %469 ], [ true, %506 ], [ true, %510 ], [ true, %515 ], [ false, %trim_right_edge.exit422 ], [ false, %534 ], [ false, %539 ], [ false, %544 ], [ false, %548 ], [ false, %553 ], [ true, %trim_right_edge.exit428 ], [ true, %572 ], [ true, %577 ], [ false, %582 ], [ false, %586 ], [ false, %591 ]
+  %.not402 = phi i1 [ false, %579 ], [ true, %475 ], [ true, %555 ], [ true, %trim_right_edge.exit ], [ true, %503 ], [ false, %517 ], [ false, %541 ], [ false, %469 ], [ true, %515 ], [ false, %539 ], [ false, %553 ], [ true, %577 ], [ true, %481 ], [ true, %476 ], [ false, %591 ], [ true, %500 ], [ true, %506 ], [ true, %510 ], [ false, %trim_right_edge.exit422 ], [ false, %534 ], [ false, %544 ], [ false, %548 ], [ true, %trim_right_edge.exit428 ], [ true, %572 ], [ false, %582 ], [ false, %586 ]
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %594 = load ptr, ptr %593, align 8, !tbaa !83
   %595 = load ptr, ptr %594, align 8, !tbaa !84
@@ -1357,8 +1357,8 @@ trim_bottom_edge.exit:                            ; preds = %591, %586, %582, %5
   br label %650
 
 650:                                              ; preds = %.lr.ph455.split, %642
-  %.0336 = phi i32 [ %649, %642 ], [ %608, %.lr.ph455.split ]
-  %.0 = phi i32 [ %648, %642 ], [ 1, %.lr.ph455.split ]
+  %.0336 = phi i32 [ %608, %.lr.ph455.split ], [ %649, %642 ]
+  %.0 = phi i32 [ 1, %.lr.ph455.split ], [ %648, %642 ]
   %651 = mul i32 %.0, %616
   %652 = load ptr, ptr %593, align 8, !tbaa !83
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 40
@@ -1379,7 +1379,7 @@ trim_bottom_edge.exit:                            ; preds = %591, %586, %582, %5
   br label %661
 
 661:                                              ; preds = %.sink.split, %jtransform_perfect_transform.exit419, %jtransform_perfect_transform.exit
-  %.0338 = phi i32 [ 0, %jtransform_perfect_transform.exit ], [ 0, %jtransform_perfect_transform.exit419 ], [ 1, %.sink.split ]
+  %.0338 = phi i32 [ 0, %jtransform_perfect_transform.exit419 ], [ 0, %jtransform_perfect_transform.exit ], [ 1, %.sink.split ]
   ret i32 %.0338
 }
 
@@ -1412,7 +1412,7 @@ define dso_local range(i32 0, 2) i32 @jtransform_perfect_transform(i32 noundef %
   br label %14
 
 14:                                               ; preds = %10, %8, %6, %5
-  %.0.shrunk = phi i1 [ true, %5 ], [ %.not12, %6 ], [ %.not11, %8 ], [ %narrow, %10 ]
+  %.0.shrunk = phi i1 [ true, %5 ], [ %narrow, %10 ], [ %.not11, %8 ], [ %.not12, %6 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -2837,7 +2837,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   br i1 %151, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !141
 
 .loopexit.i:                                      ; preds = %.lr.ph94.i, %148, %116, %89
-  %152 = phi i32 [ %117, %116 ], [ %90, %89 ], [ %149, %148 ], [ %97, %.lr.ph94.i ]
+  %152 = phi i32 [ %90, %89 ], [ %117, %116 ], [ %149, %148 ], [ %97, %.lr.ph94.i ]
   %153 = add i32 %152, %.095.i
   %154 = load i32, ptr %66, align 8, !tbaa !117
   %155 = icmp ult i32 %153, %154
@@ -4393,7 +4393,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
   br i1 %907, label %.lr.ph181.split.split.i, label %._crit_edge.i185, !llvm.loop !199
 
 ._crit_edge.i185:                                 ; preds = %.loopexit155.i, %..loopexit154_crit_edge.us.us.i, %.lr.ph181.split.i, %.lr.ph181.split.us.i, %.thread.i184, %803
-  %908 = phi i32 [ %807, %803 ], [ %810, %.thread.i184 ], [ %807, %.lr.ph181.split.us.i ], [ %810, %.lr.ph181.split.i ], [ %807, %..loopexit154_crit_edge.us.us.i ], [ %903, %.loopexit155.i ]
+  %908 = phi i32 [ %807, %803 ], [ %810, %.thread.i184 ], [ %810, %.lr.ph181.split.i ], [ %807, %.lr.ph181.split.us.i ], [ %807, %..loopexit154_crit_edge.us.us.i ], [ %903, %.loopexit155.i ]
   %909 = add i32 %908, %.0129186.i
   %910 = load i32, ptr %783, align 8, !tbaa !117
   %911 = icmp ult i32 %909, %910
@@ -5178,7 +5178,7 @@ thread-pre-split:                                 ; preds = %1044, %1048, %1064
   br i1 %1333, label %.lr.ph.i241, label %.loopexit.i237, !llvm.loop !219
 
 .loopexit.i237:                                   ; preds = %.lr.ph.i241, %.lr.ph52.i, %1311, %.preheader.i236
-  %1334 = phi i32 [ %1309, %.preheader.i236 ], [ %1318, %1311 ], [ %1325, %.lr.ph52.i ], [ %1331, %.lr.ph.i241 ]
+  %1334 = phi i32 [ %1318, %1311 ], [ %1309, %.preheader.i236 ], [ %1325, %.lr.ph52.i ], [ %1331, %.lr.ph.i241 ]
   %1335 = add i32 %1334, %.053.i
   %1336 = icmp ult i32 %1335, %1290
   br i1 %1336, label %1298, label %._crit_edge.loopexit.i238, !llvm.loop !220
@@ -5454,7 +5454,7 @@ define internal fastcc void @do_crop_ext_reflect(ptr noundef %0, ptr noundef rea
   br i1 %141, label %.lr.ph, label %.loopexit136, !llvm.loop !227
 
 .loopexit136:                                     ; preds = %.lr.ph162, %.loopexit134, %85, %58
-  %142 = phi i32 [ %86, %85 ], [ %59, %58 ], [ %139, %.loopexit134 ], [ %66, %.lr.ph162 ]
+  %142 = phi i32 [ %59, %58 ], [ %86, %85 ], [ %139, %.loopexit134 ], [ %66, %.lr.ph162 ]
   %143 = add i32 %142, %.0125163
   %144 = load i32, ptr %37, align 8, !tbaa !117
   %145 = icmp ult i32 %143, %144
@@ -5673,7 +5673,7 @@ define internal fastcc void @do_crop_ext_flat(ptr noundef %0, ptr noundef readon
   br i1 %127, label %.lr.ph113, label %.loopexit108, !llvm.loop !233
 
 .loopexit108:                                     ; preds = %.lr.ph115, %.loopexit, %89, %62
-  %128 = phi i32 [ %90, %89 ], [ %63, %62 ], [ %125, %.loopexit ], [ %70, %.lr.ph115 ]
+  %128 = phi i32 [ %63, %62 ], [ %90, %89 ], [ %125, %.loopexit ], [ %70, %.lr.ph115 ]
   %129 = add i32 %128, %.097116
   %130 = load i32, ptr %36, align 8, !tbaa !117
   %131 = icmp ult i32 %129, %130
@@ -6528,7 +6528,7 @@ define dso_local void @jcopy_markers_execute(ptr noundef readonly captures(none)
   br i1 %76, label %83, label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %49, %73, %69, %65, %61, %56, %52
-  %77 = phi i8 [ -18, %73 ], [ -18, %69 ], [ -18, %65 ], [ -18, %61 ], [ -18, %56 ], [ -18, %52 ], [ %.pre, %49 ]
+  %77 = phi i8 [ %.pre, %49 ], [ -18, %73 ], [ -18, %69 ], [ -18, %65 ], [ -18, %61 ], [ -18, %56 ], [ -18, %52 ]
   %78 = zext i8 %77 to i32
   %79 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !135

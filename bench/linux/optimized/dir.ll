@@ -1475,7 +1475,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %638, label %.loopexit53, label %626
 
 .loopexit53:                                      ; preds = %626, %632, %615, %.split.us, %601
-  %639 = phi i32 [ 0, %601 ], [ %611, %.split.us ], [ %617, %615 ], [ %634, %632 ], [ %627, %626 ]
+  %639 = phi i32 [ 0, %601 ], [ %617, %615 ], [ %611, %.split.us ], [ %634, %632 ], [ %627, %626 ]
   %640 = load i64, ptr %484, align 8
   %641 = sub i64 0, %602
   %642 = and i64 %640, %641
@@ -1619,9 +1619,9 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread37
 
-.loopexit56:                                      ; preds = %517, %.critedge196, %.thread146, %682, %708
-  %729 = phi i32 [ 0, %708 ], [ -95, %682 ], [ 0, %.thread146 ], [ 0, %.critedge196 ], [ -512, %517 ]
-  %730 = phi ptr [ %563, %708 ], [ %563, %682 ], [ null, %.thread146 ], [ %563, %.critedge196 ], [ null, %517 ]
+.loopexit56:                                      ; preds = %517, %.thread146, %.critedge196, %682, %708
+  %729 = phi i32 [ 0, %708 ], [ -95, %682 ], [ 0, %.thread146 ], [ -512, %517 ], [ 0, %.critedge196 ]
+  %730 = phi ptr [ %563, %682 ], [ %563, %708 ], [ null, %.thread146 ], [ null, %517 ], [ %563, %.critedge196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %731 = icmp eq ptr %730, null
   br i1 %731, label %.thread37, label %732
@@ -1631,7 +1631,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %.thread37
 
 .thread37:                                        ; preds = %.thread42, %726, %.thread141, %483, %48, %114, %732, %.loopexit56, %479, %475, %442, %2
-  %733 = phi i32 [ %476, %475 ], [ -95, %2 ], [ %445, %442 ], [ -95, %479 ], [ %729, %.loopexit56 ], [ %729, %732 ], [ 0, %114 ], [ -12, %48 ], [ 0, %483 ], [ 0, %.thread141 ], [ %728, %726 ], [ 0, %.thread42 ]
+  %733 = phi i32 [ %476, %475 ], [ -95, %2 ], [ %445, %442 ], [ -95, %479 ], [ %729, %.loopexit56 ], [ %729, %732 ], [ 0, %483 ], [ -12, %48 ], [ 0, %114 ], [ 0, %.thread141 ], [ %728, %726 ], [ 0, %.thread42 ]
   ret i32 %733
 }
 

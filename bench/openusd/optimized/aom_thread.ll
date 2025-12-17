@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @reset(ptr noundef initializes((48, 52)) %0)
   br label %sync.exit
 
 sync.exit:                                        ; preds = %._crit_edge.i.i, %34, %22, %1, %5, %32
-  %.021 = phi i32 [ 0, %32 ], [ 0, %5 ], [ 1, %22 ], [ %4, %1 ], [ 1, %34 ], [ %46, %._crit_edge.i.i ]
+  %.021 = phi i32 [ 0, %5 ], [ 0, %32 ], [ 1, %22 ], [ %4, %1 ], [ 1, %34 ], [ %46, %._crit_edge.i.i ]
   ret i32 %.021
 }
 

@@ -1228,8 +1228,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %111
   br label %281
 
 281:                                              ; preds = %279, %276, %268
-  %.1326.us = phi i32 [ %280, %279 ], [ %.0325499.us, %276 ], [ %indvars544, %268 ]
-  %.1324.us = phi double [ %277, %279 ], [ %.0323500.us, %276 ], [ %274, %268 ]
+  %.1326.us = phi i32 [ %.0325499.us, %276 ], [ %280, %279 ], [ %indvars544, %268 ]
+  %.1324.us = phi double [ %.0323500.us, %276 ], [ %277, %279 ], [ %274, %268 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %211, label %268, !llvm.loop !88
@@ -2232,7 +2232,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !20
   br label %40
 

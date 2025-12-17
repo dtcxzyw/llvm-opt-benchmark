@@ -824,7 +824,7 @@ _ZL18find_partition_binP9partitionf.exit98.i:     ; preds = %254, %248
   br label %_ZL18find_partition_binP9partitionf.exit91.i
 
 _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %238, %_ZL18find_partition_binP9partitionf.exit98.i, %234
-  %.064.i24 = phi i32 [ 0, %234 ], [ %264, %_ZL18find_partition_binP9partitionf.exit98.i ], [ %.012..i89.i, %238 ]
+  %.064.i24 = phi i32 [ %264, %_ZL18find_partition_binP9partitionf.exit98.i ], [ 0, %234 ], [ %.012..i89.i, %238 ]
   %265 = add nsw i32 %.064.i24, 1
   %266 = sub nsw i32 %265, %.066.i23
   %267 = icmp sgt i32 %266, %230
@@ -1606,8 +1606,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
   resume { ptr, i32 } %44
 
 45:                                               ; preds = %38, %32, %42, %34
-  %.112 = phi i1 [ %.01122, %34 ], [ %.01122, %42 ], [ false, %32 ], [ true, %38 ]
-  %.110 = phi i8 [ %.0923, %34 ], [ %.0923, %42 ], [ 1, %32 ], [ 0, %38 ]
+  %.112 = phi i1 [ %.01122, %42 ], [ false, %32 ], [ %.01122, %34 ], [ true, %38 ]
+  %.110 = phi i8 [ %.0923, %42 ], [ 1, %32 ], [ %.0923, %34 ], [ 0, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %47 = load ptr, ptr %46, align 8, !tbaa !115
   store ptr %47, ptr %2, align 8, !tbaa !115
@@ -2142,7 +2142,7 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2
   br label %161
 
 161:                                              ; preds = %11, %_ZL25estimate_covered_fractionP23methoddata_insolidangle.exit, %74, %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %79
-  %.0 = phi float [ %80, %79 ], [ %.1, %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 1.000000e+00, %74 ], [ %68, %_ZL25estimate_covered_fractionP23methoddata_insolidangle.exit ], [ %15, %11 ]
+  %.0 = phi float [ 1.000000e+00, %74 ], [ %80, %79 ], [ %.1, %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %68, %_ZL25estimate_covered_fractionP23methoddata_insolidangle.exit ], [ %15, %11 ]
   ret float %.0
 }
 

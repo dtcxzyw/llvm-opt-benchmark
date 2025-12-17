@@ -946,7 +946,7 @@ define internal fastcc noundef zeroext i1 @icmpv6_xrlim_allow(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %31, %53, %63, %54
-  %67 = phi i1 [ false, %63 ], [ true, %54 ], [ true, %53 ], [ true, %31 ]
+  %67 = phi i1 [ true, %53 ], [ false, %63 ], [ true, %54 ], [ true, %31 ]
   call void @dst_release(ptr noundef %13) #13
   br label %68
 
@@ -1086,7 +1086,7 @@ thread-pre-split:                                 ; preds = %50, %53, %62
   br label %75
 
 75:                                               ; preds = %71, %66, %47, %45, %41, %10
-  %76 = phi ptr [ %12, %10 ], [ %68, %66 ], [ inttoptr (i64 -22 to ptr), %41 ], [ %43, %45 ], [ %43, %47 ], [ %spec.select, %71 ]
+  %76 = phi ptr [ %12, %10 ], [ %43, %47 ], [ %68, %66 ], [ inttoptr (i64 -22 to ptr), %41 ], [ %43, %45 ], [ %spec.select, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1453,7 +1453,7 @@ define dso_local range(i32 1, 77) i32 @icmpv6_notify(ptr noundef %0, i8 noundef 
   br label %74
 
 select.unfold:                                    ; preds = %42, %20, %40, %18, %30
-  %61 = phi i32 [ 76, %30 ], [ 4, %18 ], [ 4, %40 ], [ 63, %20 ], [ 63, %42 ]
+  %61 = phi i32 [ 76, %30 ], [ 63, %20 ], [ 4, %18 ], [ 4, %40 ], [ 63, %42 ]
   %62 = load ptr, ptr %8, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 184
   %64 = load volatile ptr, ptr %63, align 8
@@ -2327,7 +2327,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   br label %.thread47
 
 367:                                              ; preds = %355, %339, %337
-  %368 = phi i32 [ %356, %355 ], [ %340, %339 ], [ %338, %337 ]
+  %368 = phi i32 [ %340, %339 ], [ %356, %355 ], [ %338, %337 ]
   %369 = icmp eq i32 %368, 0
   br i1 %369, label %371, label %.thread47
 
@@ -2378,7 +2378,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   br label %.critedge23.thread
 
 .critedge23.thread:                               ; preds = %.critedge19, %180, %175, %119, %202, %121, %.critedge19.thread, %101, %388
-  %393 = phi i32 [ %383, %388 ], [ 14, %180 ], [ 14, %175 ], [ 2, %119 ], [ 14, %202 ], [ 2, %121 ], [ 14, %.critedge19.thread ], [ 14, %101 ], [ 14, %.critedge19 ]
+  %393 = phi i32 [ %383, %388 ], [ 14, %180 ], [ 14, %101 ], [ 14, %175 ], [ 2, %119 ], [ 14, %202 ], [ 2, %121 ], [ 14, %.critedge19.thread ], [ 14, %.critedge19 ]
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef %393) #13
   br label %394
 

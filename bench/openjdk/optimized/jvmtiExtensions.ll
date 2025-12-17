@@ -542,7 +542,7 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread: ; preds = %_ZN
   br label %95
 
 95:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit, %75, %78, %73, %69, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread
-  %.1 = phi i32 [ 0, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread ], [ %72, %69 ], [ 100, %73 ], [ 10, %78 ], [ 10, %75 ], [ 15, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ]
+  %.1 = phi i32 [ %72, %69 ], [ 100, %73 ], [ 10, %75 ], [ 0, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread ], [ 10, %78 ], [ 15, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #12
   call void @_ZN27JvmtiVTMSTransitionDisablerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 928
@@ -722,7 +722,7 @@ _ZN12JvmtiEnvBase25get_vthread_or_thread_oopEP10JavaThread.exit: ; preds = %60, 
   br label %79
 
 79:                                               ; preds = %73, %66, %75
-  %.2 = phi i32 [ 0, %75 ], [ %69, %66 ], [ 10, %73 ]
+  %.2 = phi i32 [ %69, %66 ], [ 0, %75 ], [ 10, %73 ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
   call void @_ZN27JvmtiVTMSTransitionDisablerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 928
@@ -1380,8 +1380,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br i1 %19, label %39, label %.thread
 
 .thread:                                          ; preds = %2, %16, %13, %4
-  %20 = phi i1 [ true, %16 ], [ true, %13 ], [ false, %4 ], [ true, %2 ]
-  %21 = phi ptr [ null, %16 ], [ null, %13 ], [ %6, %4 ], [ null, %2 ]
+  %20 = phi i1 [ false, %4 ], [ true, %16 ], [ true, %13 ], [ true, %2 ]
+  %21 = phi ptr [ %6, %4 ], [ null, %16 ], [ null, %13 ], [ null, %2 ]
   %22 = icmp eq ptr %1, null
   br i1 %22, label %23, label %29
 
@@ -1426,7 +1426,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %8 ], [ null, %16 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 

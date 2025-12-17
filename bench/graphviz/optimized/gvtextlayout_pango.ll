@@ -447,7 +447,7 @@ agxblen.exit.i.i111:                              ; preds = %agxbput.exit
   br label %agxbput.exit117
 
 agxbput.exit117:                                  ; preds = %agxblen.exit.i.i111, %agxbput.exit
-  %.val.i.i.i118 = phi i8 [ %164, %agxblen.exit.i.i111 ], [ 5, %agxbput.exit ]
+  %.val.i.i.i118 = phi i8 [ 5, %agxbput.exit ], [ %164, %agxblen.exit.i.i111 ]
   %165 = and i32 %157, 2
   %.not93 = icmp eq i32 %165, 0
   br i1 %.not93, label %agxbput.exit127, label %agxblen.exit.i.i121

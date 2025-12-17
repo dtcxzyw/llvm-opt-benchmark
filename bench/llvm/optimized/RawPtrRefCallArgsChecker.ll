@@ -3140,7 +3140,7 @@ _ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_t
   br label %313
 
 313:                                              ; preds = %310, %307, %304, %301, %298, %295, %292, %289, %286, %283, %280, %277, %274, %271, %268, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i
-  %.8.i.i = phi i1 [ true, %307 ], [ true, %304 ], [ true, %301 ], [ true, %298 ], [ true, %295 ], [ true, %292 ], [ true, %289 ], [ true, %286 ], [ true, %283 ], [ true, %280 ], [ true, %277 ], [ true, %274 ], [ true, %271 ], [ true, %268 ], [ true, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i ], [ %312, %310 ]
+  %.8.i.i = phi i1 [ true, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i ], [ %312, %310 ], [ true, %307 ], [ true, %304 ], [ true, %301 ], [ true, %298 ], [ true, %295 ], [ true, %292 ], [ true, %289 ], [ true, %286 ], [ true, %283 ], [ true, %280 ], [ true, %277 ], [ true, %274 ], [ true, %271 ], [ true, %268 ]
   %314 = load ptr, ptr %19, align 8, !tbaa !14
   %315 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %316 = icmp eq ptr %314, %315
@@ -5516,7 +5516,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbE
   br label %_ZSt10__invoke_rIbRZNK12_GLOBAL__N_124RawPtrRefCallArgsChecker15isPtrOriginSafeEPKN5clang4ExprEEUlS5_bE_JS5_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit
 
 _ZSt10__invoke_rIbRZNK12_GLOBAL__N_124RawPtrRefCallArgsChecker15isPtrOriginSafeEPKN5clang4ExprEEUlS5_bE_JS5_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit: ; preds = %3, %5, %5, %8, %10
-  %.0.i.i.i = phi i1 [ true, %3 ], [ true, %5 ], [ true, %8 ], [ %12, %10 ], [ true, %5 ]
+  %.0.i.i.i = phi i1 [ true, %8 ], [ true, %3 ], [ true, %5 ], [ true, %5 ], [ %12, %10 ]
   ret i1 %.0.i.i.i
 }
 

@@ -178,7 +178,7 @@ kwsysTerminalStreamIsVT100.exit:                  ; preds = %26, %.critedge.i
   %.not47.i.not = icmp eq i32 %36, 0
   br i1 %.not47.i.not, label %.critedge, label %kwsysTerminalStreamIsVT100.exit.thread15
 
-kwsysTerminalStreamIsVT100.exit.thread15:         ; preds = %7, %19, %.tail.i, %kwsysTerminalStreamIsVT100.exit
+kwsysTerminalStreamIsVT100.exit.thread15:         ; preds = %7, %.tail.i, %19, %kwsysTerminalStreamIsVT100.exit
   tail call fastcc void @kwsysTerminalSetVT100Color(ptr noundef %1, i32 noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)

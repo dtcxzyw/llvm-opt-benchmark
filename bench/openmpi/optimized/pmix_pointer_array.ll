@@ -165,7 +165,7 @@ pmix_tma_free.exit:                               ; preds = %37, %41
   br label %46
 
 46:                                               ; preds = %pmix_tma_calloc.exit.thread, %pmix_tma_free.exit, %43, %pmix_tma_calloc.exit, %4
-  %.0 = phi i32 [ -27, %4 ], [ -29, %pmix_tma_free.exit ], [ 0, %43 ], [ -29, %pmix_tma_calloc.exit ], [ -29, %pmix_tma_calloc.exit.thread ]
+  %.0 = phi i32 [ -27, %4 ], [ 0, %43 ], [ -29, %pmix_tma_free.exit ], [ -29, %pmix_tma_calloc.exit ], [ -29, %pmix_tma_calloc.exit.thread ]
   ret i32 %.0
 }
 
@@ -545,7 +545,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %91
 
 91:                                               ; preds = %8, %3, %89
-  %.064 = phi i32 [ 0, %89 ], [ -1, %3 ], [ -1, %8 ]
+  %.064 = phi i32 [ -1, %3 ], [ 0, %89 ], [ -1, %8 ]
   ret i32 %.064
 }
 

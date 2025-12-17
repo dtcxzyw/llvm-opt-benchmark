@@ -649,7 +649,7 @@ define internal fastcc noundef ptr @cacheset_add(ptr noundef captures(none) %0, 
   br i1 %.not86, label %83, label %.thread95
 
 .thread95:                                        ; preds = %73, %.thread97, %77
-  %81 = phi ptr [ %.pr94.pr, %77 ], [ %56, %.thread97 ], [ %56, %73 ]
+  %81 = phi ptr [ %56, %.thread97 ], [ %.pr94.pr, %77 ], [ %56, %73 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %.0, ptr %82, align 8, !tbaa !71
   br label %83
@@ -668,7 +668,7 @@ define internal fastcc noundef ptr @cacheset_add(ptr noundef captures(none) %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %23, %26, %6, %12, %83
-  %.069 = phi ptr [ null, %83 ], [ null, %12 ], [ null, %6 ], [ @.str.21, %16 ], [ @.str.20, %23 ], [ @.str.19, %26 ]
+  %.069 = phi ptr [ null, %83 ], [ null, %6 ], [ null, %12 ], [ @.str.21, %16 ], [ @.str.19, %26 ], [ @.str.20, %23 ]
   ret ptr %.069
 }
 
@@ -1112,7 +1112,7 @@ define internal fastcc range(i32 0, 2) i32 @splay(i64 %.0.val, i64 %.8.val, i64 
   %20 = icmp slt i64 %0, %8
   br i1 %20, label %21, label %cmp.exit
 
-21:                                               ; preds = %.preheader, %14, %19
+21:                                               ; preds = %19, %.preheader, %14
   %22 = getelementptr inbounds nuw i8, ptr %.073, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !70
   %.not92 = icmp eq ptr %23, null
@@ -1231,8 +1231,8 @@ cmp.exit104.thread9:                              ; preds = %67, %65, %60
   %.not91 = icmp eq ptr %77, null
   br i1 %.not91, label %82, label %cmp.exit104.thread
 
-cmp.exit104.thread:                               ; preds = %67, %62, %53, %74
-  %.4 = phi ptr [ %52, %74 ], [ %.073, %53 ], [ %.073, %62 ], [ %.073, %67 ]
+cmp.exit104.thread:                               ; preds = %62, %53, %67, %74
+  %.4 = phi ptr [ %52, %74 ], [ %.073, %62 ], [ %.073, %67 ], [ %.073, %53 ]
   %78 = getelementptr inbounds nuw i8, ptr %.074, i64 24
   store ptr %.4, ptr %78, align 8, !tbaa !69
   %79 = getelementptr inbounds nuw i8, ptr %.4, i64 32

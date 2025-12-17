@@ -272,7 +272,7 @@ define dso_local void @heap_vacuum_rel(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %84, %81, %.thread254
-  %.0223 = phi ptr [ null, %81 ], [ null, %.thread254 ], [ %87, %84 ], [ %87, %.lr.ph ]
+  %.0223 = phi ptr [ null, %.thread254 ], [ null, %81 ], [ %87, %84 ], [ %87, %.lr.ph ]
   store i8 0, ptr @VacuumFailsafeActive, align 1
   %101 = getelementptr inbounds nuw i8, ptr %58, i64 42
   store i8 1, ptr %101, align 2
@@ -1026,11 +1026,11 @@ default.unreachable:                              ; preds = %424
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %475, %473, %470, %._crit_edge.thread.i.i
-  %.068.lcssa141.i.i = phi i64 [ %465, %475 ], [ %465, %473 ], [ %.068.lcssa143.i.i, %470 ], [ 0, %._crit_edge.thread.i.i ]
-  %.071.lcssa138.i.i = phi i64 [ %464, %475 ], [ %464, %473 ], [ %.071.lcssa140.i.i, %470 ], [ 0, %._crit_edge.thread.i.i ]
-  %.074.lcssa137.i.i = phi i1 [ true, %475 ], [ false, %473 ], [ %471, %470 ], [ false, %._crit_edge.thread.i.i ]
-  %.3.i.i = phi i32 [ %.166.ph.i.i, %475 ], [ %.166.ph.i.i, %473 ], [ %spec.select.i.i, %470 ], [ 0, %._crit_edge.thread.i.i ]
-  %.264.i.i = phi i1 [ %.163.ph.i.i, %475 ], [ %.163.ph.i.i, %473 ], [ %spec.select79.i.i, %470 ], [ false, %._crit_edge.thread.i.i ]
+  %.068.lcssa141.i.i = phi i64 [ %465, %473 ], [ %.068.lcssa143.i.i, %470 ], [ %465, %475 ], [ 0, %._crit_edge.thread.i.i ]
+  %.071.lcssa138.i.i = phi i64 [ %464, %473 ], [ %.071.lcssa140.i.i, %470 ], [ %464, %475 ], [ 0, %._crit_edge.thread.i.i ]
+  %.074.lcssa137.i.i = phi i1 [ false, %473 ], [ %471, %470 ], [ true, %475 ], [ false, %._crit_edge.thread.i.i ]
+  %.3.i.i = phi i32 [ %.166.ph.i.i, %473 ], [ %spec.select.i.i, %470 ], [ %.166.ph.i.i, %475 ], [ 0, %._crit_edge.thread.i.i ]
+  %.264.i.i = phi i1 [ %.163.ph.i.i, %473 ], [ %spec.select79.i.i, %470 ], [ %.163.ph.i.i, %475 ], [ false, %._crit_edge.thread.i.i ]
   %491 = load i64, ptr %132, align 8
   %492 = add i64 %491, %.071.lcssa138.i.i
   store i64 %492, ptr %132, align 8
@@ -1344,7 +1344,7 @@ default.unreachable:                              ; preds = %424
   br label %lazy_scan_prune.exit.i
 
 lazy_scan_prune.exit.i:                           ; preds = %653, %648, %633, %628, %622, %607, %592, %587, %584, %579
-  %.0141.i = phi i1 [ true, %584 ], [ false, %579 ], [ true, %592 ], [ false, %587 ], [ false, %633 ], [ false, %628 ], [ false, %622 ], [ false, %607 ], [ true, %653 ], [ true, %648 ]
+  %.0141.i = phi i1 [ true, %584 ], [ false, %579 ], [ true, %592 ], [ false, %587 ], [ false, %607 ], [ false, %633 ], [ false, %628 ], [ false, %622 ], [ true, %653 ], [ true, %648 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not125.i, label %.critedge.i, label %656
@@ -1422,7 +1422,7 @@ lazy_scan_prune.exit.i:                           ; preds = %653, %648, %633, %6
   br label %lazy_scan_new_or_empty.exit.thread.i.backedge
 
 lazy_scan_new_or_empty.exit.thread.i.backedge:    ; preds = %689, %687, %682, %679, %.sink.split.i.i, %352
-  %.0120.i.be = phi i32 [ %.1121.i, %689 ], [ %335, %687 ], [ %.1121.i, %682 ], [ %.1121.i, %679 ], [ %.1121.i, %352 ], [ %.1121.i, %.sink.split.i.i ]
+  %.0120.i.be = phi i32 [ %.1121.i, %682 ], [ %.1121.i, %679 ], [ %.1121.i, %689 ], [ %335, %687 ], [ %.1121.i, %352 ], [ %.1121.i, %.sink.split.i.i ]
   br label %lazy_scan_new_or_empty.exit.thread.i
 
 690:                                              ; preds = %317
@@ -1902,8 +1902,8 @@ BufferGetPage.exit.i.i:                           ; preds = %886, %880
   br i1 %911, label %840, label %count_nondeletable_pages.exit.i
 
 count_nondeletable_pages.exit.i:                  ; preds = %.critedge.i.i, %..thread80.loopexit_crit_edge94.i.i, %859, %854, %831
-  %.046.i = phi i1 [ false, %..thread80.loopexit_crit_edge94.i.i ], [ false, %831 ], [ true, %859 ], [ true, %854 ], [ false, %.critedge.i.i ]
-  %.4.i.i = phi i32 [ %.05392.i.i, %..thread80.loopexit_crit_edge94.i.i ], [ %836, %831 ], [ %.05392.i.i, %859 ], [ %.05392.i.i, %854 ], [ %910, %.critedge.i.i ]
+  %.046.i = phi i1 [ false, %831 ], [ false, %..thread80.loopexit_crit_edge94.i.i ], [ true, %859 ], [ true, %854 ], [ false, %.critedge.i.i ]
+  %.4.i.i = phi i32 [ %836, %831 ], [ %.05392.i.i, %..thread80.loopexit_crit_edge94.i.i ], [ %.05392.i.i, %859 ], [ %.05392.i.i, %854 ], [ %910, %.critedge.i.i ]
   store i32 %.4.i.i, ptr %282, align 8
   %.not45.i = icmp ult i32 %.4.i.i, %.041.i
   %912 = load ptr, ptr %58, align 8
@@ -2047,7 +2047,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   br label %989
 
 989:                                              ; preds = %988, %987, %966
-  %.0227 = phi ptr [ @.str.3, %966 ], [ %.str.4..str.5, %987 ], [ %.str.6..str.7, %988 ]
+  %.0227 = phi ptr [ %.str.6..str.7, %988 ], [ %.str.4..str.5, %987 ], [ @.str.3, %966 ]
   %990 = load ptr, ptr %61, align 8
   %991 = load ptr, ptr %67, align 8
   %992 = load ptr, ptr %71, align 8
@@ -2142,8 +2142,8 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   br label %1052
 
 1052:                                             ; preds = %1046, %1049, %1043
-  %.str.19.sink = phi ptr [ @.str.16, %1043 ], [ %.str.20..str.19, %1049 ], [ %spec.select, %1046 ]
-  %.1 = phi ptr [ @.str.18, %1043 ], [ @.str.21, %1049 ], [ @.str.18, %1046 ]
+  %.str.19.sink = phi ptr [ %.str.20..str.19, %1049 ], [ @.str.16, %1043 ], [ %spec.select, %1046 ]
+  %.1 = phi ptr [ @.str.21, %1049 ], [ @.str.18, %1043 ], [ @.str.18, %1046 ]
   call void @appendStringInfoString(ptr noundef nonnull %38, ptr noundef nonnull %.str.19.sink) #9
   %1053 = load i32, ptr %118, align 8
   %1054 = uitofp i32 %1053 to double
@@ -2572,7 +2572,7 @@ define internal fastcc noundef zeroext i1 @lazy_check_wraparound_failsafe(ptr no
   br label %28
 
 28:                                               ; preds = %6, %1, %27
-  %.0 = phi i1 [ true, %27 ], [ true, %1 ], [ false, %6 ]
+  %.0 = phi i1 [ true, %1 ], [ true, %27 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -2716,7 +2716,7 @@ define internal i32 @heap_vac_scan_next_block(ptr readnone captures(none) %0, pt
   br i1 %.not32.i, label %.outer, label %find_next_unskippable_block.exit
 
 find_next_unskippable_block.exit:                 ; preds = %44, %47, %37, %39
-  %.1.ph.i = phi i8 [ 0, %39 ], [ 0, %37 ], [ 0, %44 ], [ 1, %47 ]
+  %.1.ph.i = phi i8 [ 0, %37 ], [ 0, %39 ], [ 0, %44 ], [ 1, %47 ]
   %49 = trunc nuw nsw i32 %32 to i8
   store i32 %.028.i, ptr %15, align 4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -2763,7 +2763,7 @@ find_next_unskippable_block.exit:                 ; preds = %44, %47, %37, %39
   br label %67
 
 67:                                               ; preds = %10, %13, %61, %59
-  %.032 = phi i32 [ %60, %59 ], [ %66, %61 ], [ -1, %13 ], [ -1, %10 ]
+  %.032 = phi i32 [ %66, %61 ], [ %60, %59 ], [ -1, %13 ], [ -1, %10 ]
   ret i32 %.032
 }
 
@@ -2846,7 +2846,7 @@ define internal fastcc void @lazy_vacuum(ptr noundef %0) unnamed_addr #0 {
   store i8 0, ptr %12, align 1
   br label %310
 
-.critedge:                                        ; preds = %32, %28, %35, %42
+.critedge:                                        ; preds = %28, %32, %35, %42
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
@@ -3256,8 +3256,8 @@ HeapTupleHeaderGetXmin.exit.i.i.i:                ; preds = %242, %239
   unreachable
 
 256:                                              ; preds = %250, %246, %216, %216
-  %.148.i.i = phi i8 [ 0, %246 ], [ %.047.i.i, %216 ], [ %.047.i.i, %216 ], [ %spec.select56.i.i, %250 ]
-  %.1.i.i = phi i32 [ %spec.select55.i.i, %246 ], [ %.0.i.i, %216 ], [ %.0.i.i, %216 ], [ %spec.select55.i.i, %250 ]
+  %.148.i.i = phi i8 [ %.047.i.i, %216 ], [ %spec.select56.i.i, %250 ], [ 0, %246 ], [ %.047.i.i, %216 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %216 ], [ %spec.select55.i.i, %250 ], [ %spec.select55.i.i, %246 ], [ %.0.i.i, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %257 = add i16 %.053.i.i.i, 1
   %.not62.i.i.i = icmp ugt i16 %257, %211
@@ -3274,9 +3274,9 @@ heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetX
   br label %259
 
 259:                                              ; preds = %.loopexit.i.i, %.loopexit.thread.i.i
-  %.3.ph72.i.i = phi i32 [ 0, %.loopexit.thread.i.i ], [ %.1.i.i, %.loopexit.i.i ]
-  %.249.ph70.i.i = phi i1 [ true, %.loopexit.thread.i.i ], [ %258, %.loopexit.i.i ]
-  %260 = phi i8 [ 3, %.loopexit.thread.i.i ], [ %spec.select.i.i, %.loopexit.i.i ]
+  %.3.ph72.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %.loopexit.thread.i.i ]
+  %.249.ph70.i.i = phi i1 [ %258, %.loopexit.i.i ], [ true, %.loopexit.thread.i.i ]
+  %260 = phi i8 [ %spec.select.i.i, %.loopexit.i.i ], [ 3, %.loopexit.thread.i.i ]
   %261 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 10
   %262 = load i16, ptr %261, align 2
   %263 = or i16 %262, 4

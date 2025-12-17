@@ -432,8 +432,8 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   br i1 %159, label %.preheader, label %.split9.us, !llvm.loop !11
 
 .split9.us:                                       ; preds = %.thread4.i.loopexit, %.thread4.i.loopexit.us, %.thread4.i.us
-  %.us-phi = phi ptr [ %111, %.thread4.i.us ], [ %134, %.thread4.i.loopexit.us ], [ %155, %.thread4.i.loopexit ]
-  %.us-phi10 = phi i32 [ %113, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us ], [ %157, %.thread4.i.loopexit ]
+  %.us-phi = phi ptr [ %134, %.thread4.i.loopexit.us ], [ %111, %.thread4.i.us ], [ %155, %.thread4.i.loopexit ]
+  %.us-phi10 = phi i32 [ %136, %.thread4.i.loopexit.us ], [ %113, %.thread4.i.us ], [ %157, %.thread4.i.loopexit ]
   %160 = icmp ne i32 %.us-phi10, 0
   %161 = sext i1 %160 to i64
   br label %162
@@ -736,11 +736,11 @@ acpi_ex_convert_to_integer.exit:                  ; preds = %17
   %97 = icmp eq i32 %96, 8
   br i1 %97, label %acpi_ex_convert_to_integer.exit.thread5, label %acpi_ex_convert_to_integer.exit.thread
 
-acpi_ex_convert_to_integer.exit.thread5:          ; preds = %18, %56, %12, %acpi_ex_convert_to_integer.exit
+acpi_ex_convert_to_integer.exit.thread5:          ; preds = %12, %18, %56, %acpi_ex_convert_to_integer.exit
   br label %acpi_ex_convert_to_integer.exit.thread
 
 acpi_ex_convert_to_integer.exit.thread:           ; preds = %56, %12, %54, %.loopexit.i, %29, %70, %59, %85, %10, %90, %4, %91, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
-  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 12303, %91 ], [ 0, %12 ], [ 0, %56 ]
+  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 12303, %91 ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %12 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 0, %56 ]
   ret i32 %98
 }
 

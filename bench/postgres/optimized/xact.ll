@@ -549,7 +549,7 @@ define dso_local zeroext i1 @IsSubxactTopXidLogPending() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %15, %11, %7, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %7 ], [ false, %11 ], [ %.not, %15 ]
+  %.0 = phi i1 [ false, %0 ], [ false, %11 ], [ %.not, %15 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -840,7 +840,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   br i1 %.not, label %.critedge, label %.lr.ph77, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %29, %36, %12, %19, %.preheader, %3, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ %.not63, %19 ], [ %.not63, %12 ], [ true, %36 ], [ false, %.loopexit ], [ true, %29 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ true, %36 ], [ %.not63, %12 ], [ %.not63, %19 ], [ false, %.loopexit ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -1647,7 +1647,7 @@ define dso_local zeroext i1 @IsInTransactionBlock(i1 noundef zeroext %0) local_u
   br label %9
 
 9:                                                ; preds = %5, %1
-  %.0 = phi i1 [ true, %1 ], [ %brmerge, %5 ]
+  %.0 = phi i1 [ %brmerge, %5 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -6127,7 +6127,7 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
   br label %57
 
 57:                                               ; preds = %54, %55, %7, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %7 ], [ %49, %55 ], [ %49, %54 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ %49, %55 ], [ %49, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

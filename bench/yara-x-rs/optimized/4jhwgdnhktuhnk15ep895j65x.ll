@@ -1676,7 +1676,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   unreachable
 
 166:                                              ; preds = %162, %142, %129, %116, %103, %90, %77, %70
-  %.pn.ph.i.i = phi { ptr, i32 } [ %163, %162 ], [ %71, %70 ], [ %78, %77 ], [ %91, %90 ], [ %104, %103 ], [ %117, %116 ], [ %130, %129 ], [ %143, %142 ]
+  %.pn.ph.i.i = phi { ptr, i32 } [ %163, %162 ], [ %130, %129 ], [ %78, %77 ], [ %91, %90 ], [ %104, %103 ], [ %117, %116 ], [ %71, %70 ], [ %143, %142 ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..message..generated..GeneratedMessageDescriptorData$GT$$GT$17hb34842d64781ecdbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #15
           to label %167 unwind label %164, !noalias !205
 
@@ -1965,7 +1965,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   unreachable
 
 97:                                               ; preds = %93, %73, %65
-  %.pn.ph.i.i = phi { ptr, i32 } [ %94, %93 ], [ %66, %65 ], [ %74, %73 ]
+  %.pn.ph.i.i = phi { ptr, i32 } [ %94, %93 ], [ %74, %73 ], [ %66, %65 ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..message..generated..GeneratedMessageDescriptorData$GT$$GT$17hb34842d64781ecdbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #15
           to label %98 unwind label %95, !noalias !272
 

@@ -234,7 +234,7 @@ define ptr @ossl_x509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr 
   br label %25
 
 25:                                               ; preds = %21, %24, %17, %20, %5
-  %.017 = phi ptr [ null, %5 ], [ %.1, %20 ], [ %.1, %17 ], [ null, %24 ], [ null, %21 ]
+  %.017 = phi ptr [ null, %5 ], [ %.1, %17 ], [ %.1, %20 ], [ null, %24 ], [ null, %21 ]
   ret ptr %.017
 }
 
@@ -398,7 +398,7 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %14
   br label %29
 
 29:                                               ; preds = %26, %28, %20, %21, %24, %13
-  %.018 = phi ptr [ null, %13 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %20 ], [ null, %28 ], [ null, %26 ]
+  %.018 = phi ptr [ null, %13 ], [ %.0, %20 ], [ %.0, %24 ], [ %.0, %21 ], [ null, %28 ], [ null, %26 ]
   ret ptr %.018
 }
 
@@ -732,7 +732,7 @@ X509_ATTRIBUTE_count.exit:                        ; preds = %29
   br label %X509at_get_attr_by_OBJ.exit.thread
 
 X509at_get_attr_by_OBJ.exit.thread:               ; preds = %9, %23, %29, %4, %X509_ATTRIBUTE_count.exit, %34
-  %.0 = phi ptr [ %36, %34 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %4 ], [ null, %29 ], [ null, %23 ], [ null, %9 ]
+  %.0 = phi ptr [ %36, %34 ], [ null, %29 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %4 ], [ null, %23 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -792,7 +792,7 @@ X509_ATTRIBUTE_get0_type.exit:                    ; preds = %4
   br label %18
 
 18:                                               ; preds = %X509_ATTRIBUTE_get0_type.exit.thread, %X509_ATTRIBUTE_get0_type.exit, %15, %14
-  %.0 = phi ptr [ null, %14 ], [ %17, %15 ], [ null, %X509_ATTRIBUTE_get0_type.exit ], [ null, %X509_ATTRIBUTE_get0_type.exit.thread ]
+  %.0 = phi ptr [ %17, %15 ], [ null, %14 ], [ null, %X509_ATTRIBUTE_get0_type.exit ], [ null, %X509_ATTRIBUTE_get0_type.exit.thread ]
   ret ptr %.0
 }
 
@@ -914,8 +914,8 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captur
   br i1 %.not39, label %38, label %23
 
 23:                                               ; preds = %21, %17
-  %.028 = phi ptr [ null, %17 ], [ %19, %21 ]
-  %.0 = phi i32 [ 0, %17 ], [ %1, %21 ]
+  %.028 = phi ptr [ %19, %21 ], [ null, %17 ]
+  %.0 = phi i32 [ %1, %21 ], [ 0, %17 ]
   %24 = icmp eq i32 %1, 0
   br i1 %24, label %25, label %26
 
@@ -953,10 +953,10 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captur
   br i1 %.not41, label %38, label %39
 
 38:                                               ; preds = %34, %31, %26, %18, %21
-  %.sink51 = phi i32 [ 366, %21 ], [ 366, %18 ], [ 381, %26 ], [ 386, %31 ], [ 394, %34 ]
-  %.sink = phi i32 [ 524301, %21 ], [ 524301, %18 ], [ 524301, %26 ], [ 524301, %31 ], [ 524303, %34 ]
-  %.029 = phi ptr [ null, %21 ], [ null, %18 ], [ null, %26 ], [ %27, %31 ], [ %27, %34 ]
-  %.1 = phi ptr [ %19, %21 ], [ %19, %18 ], [ %.02844, %26 ], [ %.02844, %31 ], [ %.2, %34 ]
+  %.sink51 = phi i32 [ 386, %31 ], [ 381, %26 ], [ 366, %18 ], [ 366, %21 ], [ 394, %34 ]
+  %.sink = phi i32 [ 524301, %31 ], [ 524301, %26 ], [ 524301, %18 ], [ 524301, %21 ], [ 524303, %34 ]
+  %.029 = phi ptr [ %27, %31 ], [ null, %26 ], [ null, %18 ], [ null, %21 ], [ %27, %34 ]
+  %.1 = phi ptr [ %.02844, %31 ], [ %.02844, %26 ], [ %19, %18 ], [ %19, %21 ], [ %.2, %34 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink51, ptr noundef nonnull @__func__.X509_ATTRIBUTE_set1_data) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #4

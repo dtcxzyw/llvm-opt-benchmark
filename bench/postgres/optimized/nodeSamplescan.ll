@@ -444,7 +444,7 @@ table_scan_sample_next_tuple.exit.i:              ; preds = %140
   br label %tablesample_getnext.exit
 
 tablesample_getnext.exit:                         ; preds = %110, %138, %154
-  %.0.i3 = phi ptr [ %114, %154 ], [ null, %138 ], [ null, %110 ]
+  %.0.i3 = phi ptr [ null, %138 ], [ %114, %154 ], [ null, %110 ]
   ret ptr %.0.i3
 }
 

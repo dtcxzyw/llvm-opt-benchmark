@@ -455,7 +455,7 @@ define hidden noundef i64 @cdf_read_short_sector(ptr noundef readonly captures(n
   br label %31
 
 31:                                               ; preds = %6, %29, %25
-  %.0 = phi i64 [ -1, %29 ], [ %3, %25 ], [ -1, %6 ]
+  %.0 = phi i64 [ %3, %25 ], [ -1, %29 ], [ -1, %6 ]
   ret i64 %.0
 }
 
@@ -766,7 +766,7 @@ cdf_read_sector.exit.thread:                      ; preds = %66, %46, %cdf_read_
   br label %149
 
 149:                                              ; preds = %31, %cdf_read_sector.exit.thread, %.loopexit, %29
-  %.0 = phi i32 [ -1, %29 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %31 ]
+  %.0 = phi i32 [ -1, %29 ], [ 0, %.loopexit ], [ -1, %cdf_read_sector.exit.thread ], [ -1, %31 ]
   ret i32 %.0
 }
 
@@ -810,7 +810,7 @@ define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr noundef readonly cap
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %3, %.loopexit
-  %.0 = phi i64 [ -1, %.loopexit ], [ 0, %3 ], [ %17, %12 ]
+  %.0 = phi i64 [ 0, %3 ], [ -1, %.loopexit ], [ %17, %12 ]
   ret i64 %.0
 }
 
@@ -857,7 +857,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr noundef reado
   br label %cdf_count_chain.exit
 
 cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.i
-  %.0.i = phi i64 [ -1, %.loopexit.i ], [ 0, %6 ], [ %25, %20 ]
+  %.0.i = phi i64 [ 0, %6 ], [ -1, %.loopexit.i ], [ %25, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0.i, ptr %28, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1377,7 +1377,7 @@ cdf_read_sector.exit.thread:                      ; preds = %61, %43, %cdf_read_
   br label %119
 
 119:                                              ; preds = %cdf_count_chain.exit, %.loopexit96, %cdf_read_sector.exit.thread, %.loopexit, %39
-  %.081 = phi i32 [ -1, %39 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %.loopexit96 ]
+  %.081 = phi i32 [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %39 ], [ -1, %cdf_read_sector.exit.thread ], [ -1, %.loopexit96 ]
   ret i32 %.081
 }
 
@@ -1790,7 +1790,7 @@ cdf_namecmp.exit.loopexit15:                      ; preds = %.thread.i
   br i1 %.not, label %.critedge, label %.lr.ph.split.split
 
 cdf_namecmp.exit.thread:                          ; preds = %cdf_namecmp.exit.loopexit15, %26, %.lr.ph.split.us
-  %.01328 = phi i64 [ %.01330.us, %.lr.ph.split.us ], [ %.01330, %26 ], [ %.01330, %cdf_namecmp.exit.loopexit15 ]
+  %.01328 = phi i64 [ %.01330, %26 ], [ %.01330.us, %.lr.ph.split.us ], [ %.01330, %cdf_namecmp.exit.loopexit15 ]
   %34 = trunc i64 %.01328 to i32
   br label %36
 
@@ -2245,7 +2245,7 @@ cdf_check_stream_offset.exit37:                   ; preds = %13
   br label %31
 
 31:                                               ; preds = %cdf_check_stream_offset.exit37.thread, %cdf_check_stream_offset.exit.thread, %cdf_check_stream_offset.exit37
-  %.0 = phi i32 [ %., %cdf_check_stream_offset.exit37 ], [ -1, %cdf_check_stream_offset.exit.thread ], [ -1, %cdf_check_stream_offset.exit37.thread ]
+  %.0 = phi i32 [ -1, %cdf_check_stream_offset.exit.thread ], [ %., %cdf_check_stream_offset.exit37 ], [ -1, %cdf_check_stream_offset.exit37.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2279,7 +2279,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr noundef readnone capt
   br i1 %16, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph.split
-  %.0122.lcssa.ph276 = phi i64 [ %15, %14 ], [ %.0122163, %.lr.ph.split ]
+  %.0122.lcssa.ph276 = phi i64 [ %.0122163, %.lr.ph.split ], [ %15, %14 ]
   %17 = icmp eq i64 %.0122.lcssa.ph276, 0
   br i1 %17, label %._crit_edge.thread, label %18
 

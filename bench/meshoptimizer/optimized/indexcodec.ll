@@ -103,7 +103,7 @@ define dso_local i64 @meshopt_encodeIndexBuffer(ptr noundef %0, i64 noundef %1, 
   br i1 %exitcond.not.i, label %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit.thread, label %28, !llvm.loop !9
 
 _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit:         ; preds = %38, %44, %51
-  %56 = phi i32 [ %54, %51 ], [ %47, %44 ], [ %40, %38 ]
+  %56 = phi i32 [ %40, %38 ], [ %54, %51 ], [ %47, %44 ]
   %57 = icmp ult i32 %56, 60
   br i1 %57, label %58, label %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit.thread
 
@@ -210,8 +210,8 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit:            ; preds = %82, %.split.loop.ex
   br i1 %.not.i.i, label %_ZN7meshoptL11encodeIndexERPhjj.exit.thread, label %108, !llvm.loop !12
 
 _ZN7meshoptL11encodeIndexERPhjj.exit:             ; preds = %.thread, %97
-  %.0191284 = phi i32 [ %.0191, %97 ], [ 14, %.thread ]
-  %.3182 = phi i32 [ %.1180, %97 ], [ %75, %.thread ]
+  %.0191284 = phi i32 [ 14, %.thread ], [ %.0191, %97 ]
+  %.3182 = phi i32 [ %75, %.thread ], [ %.1180, %97 ]
   %115 = icmp ne i32 %.0191284, 0
   %.not = icmp slt i32 %.0191284, %19
   %or.cond208 = select i1 %115, i1 %.not, i1 false
@@ -555,7 +555,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL1
   br i1 %exitcond.not, label %256, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %256
-  %.2 = phi i64 [ %259, %256 ], [ 0, %.critedge ], [ 0, %.lr.ph ]
+  %.2 = phi i64 [ 0, %.critedge ], [ %259, %256 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %264
@@ -1179,7 +1179,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit185:      ; preds = %275, %282
   br label %311
 
 311:                                              ; preds = %.loopexit, %15, %11, %5
-  %.0137 = phi i32 [ -2, %5 ], [ -1, %11 ], [ %.3, %.loopexit ], [ -1, %15 ]
+  %.0137 = phi i32 [ -1, %11 ], [ -2, %5 ], [ %.3, %.loopexit ], [ -1, %15 ]
   ret i32 %.0137
 }
 
@@ -1264,7 +1264,7 @@ _ZN7meshoptL11encodeVByteERPhj.exit:              ; preds = %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %.preheader.preheader
-  %.2 = phi i64 [ %43, %.preheader.preheader ], [ 0, %.critedge ], [ 0, %.lr.ph ]
+  %.2 = phi i64 [ 0, %.critedge ], [ %43, %.preheader.preheader ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
@@ -1449,7 +1449,7 @@ _ZN7meshoptL11decodeVByteERPKh.exit:              ; preds = %55, %64, %48
   br label %78
 
 78:                                               ; preds = %.loopexit, %9, %5
-  %.0 = phi i32 [ -2, %5 ], [ -1, %9 ], [ %.3, %.loopexit ]
+  %.0 = phi i32 [ -1, %9 ], [ -2, %5 ], [ %.3, %.loopexit ]
   ret i32 %.0
 }
 

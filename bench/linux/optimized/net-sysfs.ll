@@ -886,7 +886,7 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %66, label %55, label %.thread14
 
 .thread14:                                        ; preds = %39, %48, %58, %64, %55, %3, %.loopexit, %23, %13
-  %67 = phi i32 [ %15, %13 ], [ %25, %23 ], [ 0, %.loopexit ], [ 0, %3 ], [ %62, %58 ], [ %65, %64 ], [ 0, %55 ], [ %43, %39 ], [ %49, %48 ]
+  %67 = phi i32 [ 0, %3 ], [ %15, %13 ], [ %25, %23 ], [ %65, %64 ], [ 0, %.loopexit ], [ %62, %58 ], [ 0, %55 ], [ %43, %39 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

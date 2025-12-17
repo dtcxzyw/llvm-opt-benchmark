@@ -439,7 +439,7 @@ printTypmod.exit:                                 ; preds = %169, %167, %160, %1
   br label %177
 
 177:                                              ; preds = %42, %14, %6, %176, %47, %19, %11
-  %.0 = phi ptr [ %12, %11 ], [ %.3, %176 ], [ %48, %47 ], [ %20, %19 ], [ null, %6 ], [ null, %14 ], [ null, %42 ]
+  %.0 = phi ptr [ %20, %19 ], [ %12, %11 ], [ %.3, %176 ], [ null, %14 ], [ %48, %47 ], [ null, %6 ], [ null, %42 ]
   ret ptr %.0
 }
 
@@ -538,7 +538,7 @@ define dso_local i32 @type_maximum_size(i32 noundef %0, i32 noundef %1) local_un
   br label %16
 
 16:                                               ; preds = %4, %2, %13, %11, %5
-  %.0 = phi i32 [ %10, %5 ], [ %12, %11 ], [ %narrow, %13 ], [ -1, %2 ], [ -1, %4 ]
+  %.0 = phi i32 [ %narrow, %13 ], [ -1, %2 ], [ %10, %5 ], [ %12, %11 ], [ -1, %4 ]
   ret i32 %.0
 }
 

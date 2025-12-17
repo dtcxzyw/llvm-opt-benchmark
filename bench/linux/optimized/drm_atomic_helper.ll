@@ -1388,7 +1388,7 @@ thread-pre-split65:                               ; preds = %464, %454, %392
   br i1 %777, label %696, label %.thread74, !llvm.loop !30
 
 .thread74:                                        ; preds = %.thread81, %.loopexit, %692, %632
-  %778 = phi i32 [ %583, %.loopexit ], [ %688, %692 ], [ %663, %632 ], [ %774, %.thread81 ]
+  %778 = phi i32 [ %663, %632 ], [ %583, %.loopexit ], [ %688, %692 ], [ %774, %.thread81 ]
   %779 = load ptr, ptr %12, align 8
   %780 = getelementptr inbounds nuw i8, ptr %779, i64 728
   %781 = load i32, ptr %780, align 8
@@ -1681,7 +1681,7 @@ thread-pre-split65:                               ; preds = %464, %454, %392
   br i1 %960, label %913, label %mode_fixup.exit, !llvm.loop !36
 
 mode_fixup.exit:                                  ; preds = %622, %606, %673, %682, %.thread18.i, %274, %302, %321, %571, %949, %903, %883, %866, %.loopexit19.i, %768, %757, %736, %657, %113, %.loopexit87
-  %961 = phi i32 [ %125, %.loopexit87 ], [ %652, %657 ], [ -22, %113 ], [ -22, %768 ], [ -22, %757 ], [ -22, %736 ], [ 0, %.loopexit19.i ], [ -22, %949 ], [ %858, %866 ], [ %875, %883 ], [ -22, %903 ], [ -22, %274 ], [ -22, %302 ], [ -22, %321 ], [ %566, %571 ], [ 0, %.thread18.i ], [ %680, %673 ], [ %685, %682 ], [ %623, %622 ], [ %620, %606 ]
+  %961 = phi i32 [ -22, %736 ], [ %125, %.loopexit87 ], [ %566, %571 ], [ %652, %657 ], [ -22, %321 ], [ -22, %113 ], [ -22, %768 ], [ -22, %757 ], [ 0, %.loopexit19.i ], [ -22, %949 ], [ %858, %866 ], [ %875, %883 ], [ -22, %903 ], [ -22, %274 ], [ -22, %302 ], [ 0, %.thread18.i ], [ %685, %682 ], [ %680, %673 ], [ %623, %622 ], [ %620, %606 ]
   ret i32 %961
 }
 
@@ -1988,7 +1988,7 @@ define internal fastcc i32 @handle_conflicting_encoders(ptr noundef %0, i1 nound
   br i1 %196, label %.loopexit, label %.split36, !llvm.loop !39
 
 .loopexit:                                        ; preds = %194, %145, %140, %111, %176, %.split38.us, %72
-  %197 = phi i32 [ 0, %72 ], [ %193, %.split38.us ], [ -22, %176 ], [ %141, %140 ], [ %134, %111 ], [ %.ph22.us, %145 ], [ 0, %194 ]
+  %197 = phi i32 [ 0, %72 ], [ -22, %176 ], [ %193, %.split38.us ], [ %.ph22.us, %145 ], [ %134, %111 ], [ %141, %140 ], [ 0, %194 ]
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #9
   br label %.thread20
 
@@ -4225,7 +4225,7 @@ define dso_local i32 @drm_atomic_helper_wait_for_fences(ptr readnone captures(no
   br i1 %77, label %57, label %.thread, !llvm.loop !95
 
 .thread:                                          ; preds = %71, %3, %51, %49
-  %78 = phi ptr [ %6, %3 ], [ %42, %51 ], [ %42, %49 ], [ %72, %71 ]
+  %78 = phi ptr [ %42, %49 ], [ %6, %3 ], [ %42, %51 ], [ %72, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 704
   %80 = load i32, ptr %79, align 8
   %81 = icmp sgt i32 %80, 0
@@ -6108,7 +6108,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr noundef readonly capt
   br i1 %167, label %143, label %.loopexit, !llvm.loop !157
 
 .loopexit:                                        ; preds = %30, %.thread19, %161, %98, %.loopexit24, %.thread, %.loopexit22
-  %168 = phi i32 [ %137, %.thread ], [ 0, %.loopexit22 ], [ 0, %.loopexit24 ], [ %96, %98 ], [ %137, %161 ], [ 0, %.thread19 ], [ %31, %30 ]
+  %168 = phi i32 [ %137, %.thread ], [ 0, %.loopexit22 ], [ 0, %.loopexit24 ], [ %96, %98 ], [ 0, %.thread19 ], [ %137, %161 ], [ %31, %30 ]
   ret i32 %168
 }
 
@@ -6832,7 +6832,7 @@ crtc_or_fake_commit.exit31.thread42:              ; preds = %308, %crtc_or_fake_
   br label %crtc_or_fake_commit.exit.thread
 
 crtc_or_fake_commit.exit.thread:                  ; preds = %134, %.thread33, %27, %229, %crtc_or_fake_commit.exit, %311, %crtc_or_fake_commit.exit31, %.thread36, %350, %346, %.loopexit, %286, %204
-  %352 = phi i32 [ -16, %204 ], [ -16, %286 ], [ %351, %350 ], [ 0, %346 ], [ 0, %.loopexit ], [ -16, %.thread36 ], [ -12, %crtc_or_fake_commit.exit31 ], [ -12, %311 ], [ -12, %crtc_or_fake_commit.exit ], [ -12, %229 ], [ -12, %134 ], [ %115, %.thread33 ], [ -12, %27 ]
+  %352 = phi i32 [ -16, %204 ], [ -16, %286 ], [ %351, %350 ], [ 0, %346 ], [ 0, %.loopexit ], [ -16, %.thread36 ], [ -12, %311 ], [ -12, %229 ], [ -12, %crtc_or_fake_commit.exit31 ], [ -12, %crtc_or_fake_commit.exit ], [ -12, %134 ], [ %115, %.thread33 ], [ -12, %27 ]
   ret i32 %352
 }
 
@@ -7228,7 +7228,7 @@ define dso_local i32 @drm_atomic_helper_swap_state(ptr noundef %0, i1 noundef ze
   br i1 %229, label %210, label %.loopexit, !llvm.loop !180
 
 .loopexit:                                        ; preds = %30, %60, %82, %223, %.loopexit19
-  %230 = phi i32 [ 0, %.loopexit19 ], [ 0, %223 ], [ %84, %82 ], [ %62, %60 ], [ %32, %30 ]
+  %230 = phi i32 [ 0, %.loopexit19 ], [ %62, %60 ], [ 0, %223 ], [ %84, %82 ], [ %32, %30 ]
   ret i32 %230
 }
 

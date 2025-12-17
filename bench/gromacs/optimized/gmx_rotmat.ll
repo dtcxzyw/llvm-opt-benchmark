@@ -645,9 +645,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
           to label %.noexc120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc120:                                        ; preds = %.noexc119, %.noexc118, %197
-  %.1162.i = phi ptr [ %.0161.i, %.noexc118 ], [ %.0161.i, %197 ], [ %226, %.noexc119 ]
-  %.1160.i = phi ptr [ %.0.i, %.noexc118 ], [ %.0.i, %197 ], [ %225, %.noexc119 ]
-  %.1131.i = phi i32 [ %219, %.noexc118 ], [ %.0130.i, %197 ], [ %219, %.noexc119 ]
+  %.1162.i = phi ptr [ %.0161.i, %197 ], [ %.0161.i, %.noexc118 ], [ %226, %.noexc119 ]
+  %.1160.i = phi ptr [ %.0.i, %197 ], [ %.0.i, %.noexc118 ], [ %225, %.noexc119 ]
+  %.1131.i = phi i32 [ %.0130.i, %197 ], [ %219, %.noexc118 ], [ %219, %.noexc119 ]
   %227 = load ptr, ptr %3, align 8, !tbaa !71
   %228 = sext i32 %.1131.i to i64
   %229 = getelementptr inbounds float, ptr %.1160.i, i64 %228
@@ -1402,7 +1402,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm9EED2Ev.exit: 
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %325, %451, %376, %371, %331, %330
-  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %376 ], [ %.pn68.pn.pn, %451 ], [ %.pn66, %371 ], [ %332, %331 ], [ %.pn63, %330 ], [ %.pn.i, %325 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit189, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit195, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %376 ], [ %.pn63, %330 ], [ %.pn68.pn.pn, %451 ], [ %.pn66, %371 ], [ %332, %331 ], [ %.pn.i, %325 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit189, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit195, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit198, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %524 = getelementptr inbounds nuw i8, ptr %26, i64 224
   br label %525
 

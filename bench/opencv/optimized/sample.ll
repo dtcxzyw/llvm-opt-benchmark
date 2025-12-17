@@ -898,7 +898,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230.i: ; preds = %_Z
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit232.i unwind label %250
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit232.i: ; preds = %.invoke, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230.i
-  %.3 = phi i32 [ %.1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230.i ], [ 0, %.invoke ]
+  %.3 = phi i32 [ 0, %.invoke ], [ %.1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230.i ]
   %262 = icmp slt i32 %136, 10
   br i1 %262, label %263, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit234.i
 
@@ -1874,7 +1874,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %295, %6
   br label %641
 
 640:                                              ; preds = %482, %639, %307, %306, %301
-  %.pn73 = phi { ptr, i32 } [ %308, %307 ], [ %.pn40, %306 ], [ %.pn, %301 ], [ %.pn68.pn.pn, %639 ], [ %483, %482 ]
+  %.pn73 = phi { ptr, i32 } [ %308, %307 ], [ %.pn, %301 ], [ %.pn40, %306 ], [ %.pn68.pn.pn, %639 ], [ %483, %482 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #13

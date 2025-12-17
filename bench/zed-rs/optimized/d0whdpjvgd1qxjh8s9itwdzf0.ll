@@ -503,7 +503,7 @@ define internal void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$
   unreachable
 
 common.resume:                                    ; preds = %100, %95, %67, %35, %39, %117
-  %common.resume.op = phi { ptr, i32 } [ %118, %117 ], [ %36, %39 ], [ %36, %35 ], [ %68, %67 ], [ %96, %95 ], [ %96, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %118, %117 ], [ %36, %35 ], [ %68, %67 ], [ %36, %39 ], [ %96, %95 ], [ %96, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN54_$LT$worktree..Entry$u20$as$u20$core..clone..Clone$GT$5clone17h1d4d461630adc76fE.exit": ; preds = %21, %42
@@ -2296,7 +2296,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h0ce
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -2415,7 +2415,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h15a
   br i1 %.sroa.18.0.in.i20, label %29, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %24, %12, %23
-  %.sroa.05.0.be = phi i64 [ %13, %23 ], [ %.sroa.08.0.i27, %12 ], [ %.sroa.08.0.i23, %24 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %12 ], [ %13, %23 ], [ %.sroa.08.0.i23, %24 ]
   br label %.preheader
 
 29:                                               ; preds = %24
@@ -2533,7 +2533,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h447
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -2703,7 +2703,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h508
   br i1 %.sroa.18.0.in.i28, label %56, label %.backedge
 
 .backedge:                                        ; preds = %51, %13, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h271d67c2a3b5273aE.llvm.1198603800146016543.exit"
-  %.sroa.012.0.be = phi i64 [ %14, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h271d67c2a3b5273aE.llvm.1198603800146016543.exit" ], [ %.sroa.08.0.i35, %13 ], [ %.sroa.08.0.i31, %51 ]
+  %.sroa.012.0.be = phi i64 [ %.sroa.08.0.i35, %13 ], [ %14, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h271d67c2a3b5273aE.llvm.1198603800146016543.exit" ], [ %.sroa.08.0.i31, %51 ]
   br label %11
 
 56:                                               ; preds = %51
@@ -2821,7 +2821,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h9a9
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -3005,7 +3005,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17haeb
   br i1 %.sroa.18.0.in.i24, label %59, label %.backedge
 
 .backedge:                                        ; preds = %54, %13, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h755607c8e4d0850dE.llvm.1198603800146016543.exit"
-  %.sroa.09.0.be = phi i64 [ %14, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h755607c8e4d0850dE.llvm.1198603800146016543.exit" ], [ %.sroa.08.0.i31, %13 ], [ %.sroa.08.0.i27, %54 ]
+  %.sroa.09.0.be = phi i64 [ %.sroa.08.0.i31, %13 ], [ %14, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h755607c8e4d0850dE.llvm.1198603800146016543.exit" ], [ %.sroa.08.0.i27, %54 ]
   br label %11
 
 59:                                               ; preds = %54
@@ -3124,7 +3124,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hb40
   br i1 %.sroa.18.0.in.i20, label %29, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %24, %12, %23
-  %.sroa.05.0.be = phi i64 [ %13, %23 ], [ %.sroa.08.0.i27, %12 ], [ %.sroa.08.0.i23, %24 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %12 ], [ %13, %23 ], [ %.sroa.08.0.i23, %24 ]
   br label %.preheader
 
 29:                                               ; preds = %24
@@ -3242,7 +3242,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hc41
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -3411,7 +3411,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hdd0
   br i1 %.sroa.18.0.in.i24, label %52, label %.backedge
 
 .backedge:                                        ; preds = %47, %13, %"_ZN4core3ptr186drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hf070d380d52b20a8E.exit"
-  %.sroa.09.0.be = phi i64 [ %14, %"_ZN4core3ptr186drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hf070d380d52b20a8E.exit" ], [ %.sroa.08.0.i31, %13 ], [ %.sroa.08.0.i27, %47 ]
+  %.sroa.09.0.be = phi i64 [ %.sroa.08.0.i31, %13 ], [ %14, %"_ZN4core3ptr186drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..option..Option$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17hf070d380d52b20a8E.exit" ], [ %.sroa.08.0.i27, %47 ]
   br label %11
 
 52:                                               ; preds = %47
@@ -3529,7 +3529,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17heed
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -3647,7 +3647,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17hf21
   br i1 %.sroa.18.0.in.i20, label %28, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %23, %11, %22
-  %.sroa.05.0.be = phi i64 [ %12, %22 ], [ %.sroa.08.0.i27, %11 ], [ %.sroa.08.0.i23, %23 ]
+  %.sroa.05.0.be = phi i64 [ %.sroa.08.0.i27, %11 ], [ %12, %22 ], [ %.sroa.08.0.i23, %23 ]
   br label %.preheader
 
 28:                                               ; preds = %23
@@ -3752,7 +3752,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17hc7eea11ed9
   ret void
 
 .body:                                            ; preds = %33, %32, %24
-  %eh.lpad-body4 = phi { ptr, i32 } [ %25, %24 ], [ %25, %32 ], [ %34, %33 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %25, %32 ], [ %25, %24 ], [ %34, %33 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 33:                                               ; preds = %1
@@ -3849,7 +3849,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17hdfd762488b
   ret void
 
 .body.thread:                                     ; preds = %38, %37, %29
-  %eh.lpad-body5 = phi { ptr, i32 } [ %30, %29 ], [ %30, %37 ], [ %39, %38 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %39, %38 ], [ %30, %37 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 38:                                               ; preds = %1
@@ -3975,7 +3975,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h0102329
   unreachable
 
 common.resume:                                    ; preds = %97, %104, %52, %59
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ], [ %98, %97 ], [ %105, %104 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %53, %52 ], [ %98, %97 ], [ %105, %104 ]
   resume { ptr, i32 } %common.resume.op
 
 56:                                               ; preds = %44
@@ -4218,7 +4218,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h112c6a0
   unreachable
 
 common.resume:                                    ; preds = %97, %104, %52, %59
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ], [ %98, %97 ], [ %105, %104 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %53, %52 ], [ %98, %97 ], [ %105, %104 ]
   resume { ptr, i32 } %common.resume.op
 
 56:                                               ; preds = %44
@@ -4462,7 +4462,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h2ab5252
   unreachable
 
 common.resume:                                    ; preds = %98, %105, %53, %60
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %61, %60 ], [ %99, %98 ], [ %106, %105 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %54, %53 ], [ %99, %98 ], [ %106, %105 ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %45
@@ -4718,7 +4718,7 @@ define hidden { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17
   unreachable
 
 common.resume:                                    ; preds = %94, %101, %51, %58
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %59, %58 ], [ %95, %94 ], [ %102, %101 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %52, %51 ], [ %95, %94 ], [ %102, %101 ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %43
@@ -4938,7 +4938,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN10async_task4task17Task$LT$T$C$M$GT
   unreachable
 
 common.resume:                                    ; preds = %94, %101, %49, %56
-  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %57, %56 ], [ %95, %94 ], [ %102, %101 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %50, %49 ], [ %95, %94 ], [ %102, %101 ]
   resume { ptr, i32 } %common.resume.op
 
 53:                                               ; preds = %41
@@ -5130,8 +5130,8 @@ define hidden { ptr, ptr } @"_ZN10async_task6header15Header$LT$M$GT$4take17h62be
   resume { ptr, i32 } %26
 
 _ZN10async_task5utils14abort_on_panic17h0f8e3e401e5c1047E.exit: ; preds = %8, %23, %15, %17, %2
-  %.sroa.4.1 = phi ptr [ undef, %2 ], [ %12, %17 ], [ %12, %15 ], [ undef, %23 ], [ undef, %8 ]
-  %.sroa.04.1 = phi ptr [ null, %2 ], [ %10, %17 ], [ %10, %15 ], [ null, %23 ], [ null, %8 ]
+  %.sroa.4.1 = phi ptr [ %12, %15 ], [ undef, %2 ], [ %12, %17 ], [ undef, %23 ], [ undef, %8 ]
+  %.sroa.04.1 = phi ptr [ %10, %15 ], [ null, %2 ], [ %10, %17 ], [ null, %23 ], [ null, %8 ]
   %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.04.1, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %30
@@ -5265,7 +5265,7 @@ define internal fastcc void @"_ZN10async_task6header15Header$LT$M$GT$8register17
   unreachable
 
 common.resume:                                    ; preds = %.body, %62, %.body.i, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %eh.lpad-body.i, %.body.i ], [ %51, %.body ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %17, %16 ], [ %51, %.body ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %9
@@ -5580,9 +5580,9 @@ common.resume:                                    ; preds = %24, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h12cc4399a9665413E.exit.backedge"
 
 .body:                                            ; preds = %82, %74, %69, %62, %50, %45
-  %storemerge12 = phi ptr [ %40, %45 ], [ %40, %50 ], [ %40, %62 ], [ %60, %69 ], [ %60, %74 ], [ %60, %82 ]
-  %storemerge = phi ptr [ %41, %45 ], [ %41, %50 ], [ %41, %62 ], [ %65, %69 ], [ %65, %74 ], [ %65, %82 ]
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %46, %50 ], [ %63, %62 ], [ %70, %69 ], [ %70, %74 ], [ %83, %82 ]
+  %storemerge12 = phi ptr [ %40, %62 ], [ %40, %45 ], [ %40, %50 ], [ %60, %69 ], [ %60, %74 ], [ %60, %82 ]
+  %storemerge = phi ptr [ %41, %62 ], [ %41, %45 ], [ %41, %50 ], [ %65, %69 ], [ %65, %74 ], [ %65, %82 ]
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %46, %45 ], [ %46, %50 ], [ %70, %69 ], [ %70, %74 ], [ %83, %82 ]
   store ptr %storemerge12, ptr %7, align 8
   store ptr %storemerge, ptr %8, align 8
   br label %common.resume
@@ -5761,9 +5761,9 @@ define hidden void @"_ZN13async_channel13Recv$LT$T$GT$17run_with_strategy17h410e
   br i1 %50, label %11, label %._crit_edge
 
 .body:                                            ; preds = %69, %61, %56, %46, %34, %29
-  %storemerge12 = phi ptr [ %24, %29 ], [ %24, %34 ], [ %24, %46 ], [ %44, %56 ], [ %44, %61 ], [ %44, %69 ]
-  %storemerge = phi ptr [ %25, %29 ], [ %25, %34 ], [ %25, %46 ], [ %52, %56 ], [ %52, %61 ], [ %52, %69 ]
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %30, %34 ], [ %47, %46 ], [ %57, %56 ], [ %57, %61 ], [ %70, %69 ]
+  %storemerge12 = phi ptr [ %24, %46 ], [ %24, %29 ], [ %24, %34 ], [ %44, %56 ], [ %44, %61 ], [ %44, %69 ]
+  %storemerge = phi ptr [ %25, %46 ], [ %25, %29 ], [ %25, %34 ], [ %52, %56 ], [ %52, %61 ], [ %52, %69 ]
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %30, %29 ], [ %30, %34 ], [ %57, %56 ], [ %57, %61 ], [ %70, %69 ]
   store ptr %storemerge12, ptr %9, align 8
   store ptr %storemerge, ptr %10, align 8
   resume { ptr, i32 } %.pn
@@ -5999,9 +5999,9 @@ common.resume:                                    ; preds = %26, %30, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h12cc4399a9665413E.exit.backedge"
 
 .body:                                            ; preds = %89, %81, %76, %69, %57, %52
-  %storemerge14 = phi ptr [ %47, %52 ], [ %47, %57 ], [ %47, %69 ], [ %67, %76 ], [ %67, %81 ], [ %67, %89 ]
-  %storemerge = phi ptr [ %48, %52 ], [ %48, %57 ], [ %48, %69 ], [ %72, %76 ], [ %72, %81 ], [ %72, %89 ]
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %53, %57 ], [ %70, %69 ], [ %77, %76 ], [ %77, %81 ], [ %90, %89 ]
+  %storemerge14 = phi ptr [ %47, %69 ], [ %47, %52 ], [ %47, %57 ], [ %67, %76 ], [ %67, %81 ], [ %67, %89 ]
+  %storemerge = phi ptr [ %48, %69 ], [ %48, %52 ], [ %48, %57 ], [ %72, %76 ], [ %72, %81 ], [ %72, %89 ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %53, %52 ], [ %53, %57 ], [ %77, %76 ], [ %77, %81 ], [ %90, %89 ]
   store ptr %storemerge14, ptr %7, align 8
   store ptr %storemerge, ptr %8, align 8
   br label %common.resume
@@ -6184,9 +6184,9 @@ define hidden void @"_ZN13async_channel13Recv$LT$T$GT$17run_with_strategy17h977c
   br i1 %50, label %11, label %._crit_edge
 
 .body:                                            ; preds = %69, %61, %56, %46, %34, %29
-  %storemerge12 = phi ptr [ %24, %29 ], [ %24, %34 ], [ %24, %46 ], [ %44, %56 ], [ %44, %61 ], [ %44, %69 ]
-  %storemerge = phi ptr [ %25, %29 ], [ %25, %34 ], [ %25, %46 ], [ %52, %56 ], [ %52, %61 ], [ %52, %69 ]
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %30, %34 ], [ %47, %46 ], [ %57, %56 ], [ %57, %61 ], [ %70, %69 ]
+  %storemerge12 = phi ptr [ %24, %46 ], [ %24, %29 ], [ %24, %34 ], [ %44, %56 ], [ %44, %61 ], [ %44, %69 ]
+  %storemerge = phi ptr [ %25, %46 ], [ %25, %29 ], [ %25, %34 ], [ %52, %56 ], [ %52, %61 ], [ %52, %69 ]
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %30, %29 ], [ %30, %34 ], [ %57, %56 ], [ %57, %61 ], [ %70, %69 ]
   store ptr %storemerge12, ptr %9, align 8
   store ptr %storemerge, ptr %10, align 8
   resume { ptr, i32 } %.pn
@@ -7079,8 +7079,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !818, !noundef !5
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %8
-    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h35d272cde9e7827aE.exit"
+    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h35d272cde9e7827aE.exit"
+    i64 2, label %8
   ]
 
 default.unreachable:                              ; preds = %1
@@ -7094,20 +7094,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
-  %13 = load i64, ptr %9, align 8, !noundef !5
-  %14 = and i64 %13, %12
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %19, label %23
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %23, label %19
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h35d272cde9e7827aE.exit": ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %23, label %19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %13 = load i64, ptr %12, align 8, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
+  %16 = load i64, ptr %12, align 8, !noundef !5
+  %17 = and i64 %16, %15
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h35d272cde9e7827aE.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -7128,8 +7128,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !818, !noundef !5
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %8
-    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h16725ba2737d1843E.exit"
+    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h16725ba2737d1843E.exit"
+    i64 2, label %8
   ]
 
 default.unreachable:                              ; preds = %1
@@ -7143,20 +7143,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
-  %13 = load i64, ptr %9, align 8, !noundef !5
-  %14 = and i64 %13, %12
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %19, label %23
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %23, label %19
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h16725ba2737d1843E.exit": ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %23, label %19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %13 = load i64, ptr %12, align 8, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
+  %16 = load i64, ptr %12, align 8, !noundef !5
+  %17 = and i64 %16, %15
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h16725ba2737d1843E.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -7177,8 +7177,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !818, !noundef !5
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %8
-    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hc318a9f07f56d57aE.exit"
+    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hc318a9f07f56d57aE.exit"
+    i64 2, label %8
   ]
 
 default.unreachable:                              ; preds = %1
@@ -7192,20 +7192,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
-  %13 = load i64, ptr %9, align 8, !noundef !5
-  %14 = and i64 %13, %12
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %19, label %23
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %23, label %19
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hc318a9f07f56d57aE.exit": ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %23, label %19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %13 = load i64, ptr %12, align 8, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
+  %16 = load i64, ptr %12, align 8, !noundef !5
+  %17 = and i64 %16, %15
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hc318a9f07f56d57aE.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -7226,8 +7226,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !818, !noundef !5
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %8
-    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h3c11f120dfe789dcE.exit"
+    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h3c11f120dfe789dcE.exit"
+    i64 2, label %8
   ]
 
 default.unreachable:                              ; preds = %1
@@ -7241,20 +7241,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
-  %13 = load i64, ptr %9, align 8, !noundef !5
-  %14 = and i64 %13, %12
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %19, label %23
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %23, label %19
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h3c11f120dfe789dcE.exit": ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %23, label %19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %13 = load i64, ptr %12, align 8, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
+  %16 = load i64, ptr %12, align 8, !noundef !5
+  %17 = and i64 %16, %15
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h3c11f120dfe789dcE.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8405,7 +8405,7 @@ define internal fastcc void @"_ZN4core3ptr209drop_in_place$LT$core..option..Opti
   unreachable
 
 common.resume.i:                                  ; preds = %48, %40, %18, %13
-  %common.resume.op.i = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %41, %48 ], [ %41, %40 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %14, %13 ], [ %14, %18 ], [ %41, %48 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op.i
 
 25:                                               ; preds = %6
@@ -8866,7 +8866,7 @@ define internal fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..option..Opti
   unreachable
 
 common.resume.i:                                  ; preds = %50, %42, %20, %15
-  %common.resume.op.i = phi { ptr, i32 } [ %16, %20 ], [ %16, %15 ], [ %43, %50 ], [ %43, %42 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %16, %15 ], [ %16, %20 ], [ %43, %50 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op.i
 
 27:                                               ; preds = %6
@@ -11890,7 +11890,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN8sum_tree6cur
   br i1 %23, label %32, label %25
 
 24:                                               ; preds = %25, %12, %35
-  %.sroa.0.0 = phi ptr [ %37, %35 ], [ null, %12 ], [ null, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %37, %35 ], [ null, %25 ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %15
@@ -11959,7 +11959,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN8sum_tree6cur
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -12028,7 +12028,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN8sum_tree6cur
   br i1 %22, label %31, label %24
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %14
@@ -12152,7 +12152,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   unreachable
 
 common.resume:                                    ; preds = %118, %228, %.thread147, %.thread166, %284, %.thread174, %320, %.body88, %202, %190, %45, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %41, %45 ], [ %119, %118 ], [ %eh.lpad-body150, %228 ], [ %eh.lpad-body150, %.thread147 ], [ %273, %.thread166 ], [ %eh.lpad-body75172, %284 ], [ %eh.lpad-body75172, %.thread174 ], [ %eh.lpad-body89, %320 ], [ %eh.lpad-body89, %.body88 ], [ %191, %190 ], [ %203, %202 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %45 ], [ %41, %40 ], [ %eh.lpad-body75172, %.thread174 ], [ %eh.lpad-body89, %.body88 ], [ %203, %202 ], [ %119, %118 ], [ %273, %.thread166 ], [ %191, %190 ], [ %eh.lpad-body150, %228 ], [ %eh.lpad-body150, %.thread147 ], [ %eh.lpad-body75172, %284 ], [ %eh.lpad-body89, %320 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1adb817b8da953f7E.exit38": ; preds = %30
@@ -12209,7 +12209,7 @@ common.resume:                                    ; preds = %118, %228, %.thread
   br i1 %81, label %91, label %92
 
 .loopexit182:                                     ; preds = %.backedge, %53, %"_ZN4core3ptr38drop_in_place$LT$worktree..PathKey$GT$17hafac67ab36fd4968E.exit79"
-  %82 = phi i32 [ %54, %53 ], [ %.pre508, %"_ZN4core3ptr38drop_in_place$LT$worktree..PathKey$GT$17hafac67ab36fd4968E.exit79" ], [ %168, %.backedge ]
+  %82 = phi i32 [ %.pre508, %"_ZN4core3ptr38drop_in_place$LT$worktree..PathKey$GT$17hafac67ab36fd4968E.exit79" ], [ %54, %53 ], [ %168, %.backedge ]
   %83 = icmp eq i32 %82, 0
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %85 = zext i1 %83 to i8
@@ -13073,7 +13073,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %79, label %100, label %103
 
 .loopexit139:                                     ; preds = %.loopexit, %.backedge, %40, %243
-  %80 = phi i32 [ %41, %40 ], [ %.pre212, %243 ], [ 0, %.loopexit ], [ %171, %.backedge ]
+  %80 = phi i32 [ %.pre212, %243 ], [ %41, %40 ], [ 0, %.loopexit ], [ %171, %.backedge ]
   %81 = icmp eq i32 %80, 0
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1089
   %83 = zext i1 %81 to i8
@@ -13659,7 +13659,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %84, label %107, label %110
 
 .loopexit154:                                     ; preds = %.loopexit, %.backedge, %39, %264
-  %85 = phi i32 [ %40, %39 ], [ %.pre219, %264 ], [ 0, %.loopexit ], [ %185, %.backedge ]
+  %85 = phi i32 [ %.pre219, %264 ], [ %40, %39 ], [ 0, %.loopexit ], [ %185, %.backedge ]
   %86 = icmp eq i32 %85, 0
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1497
   %88 = zext i1 %86 to i8
@@ -14303,7 +14303,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %70, label %67
 
 .loopexit103:                                     ; preds = %.loopexit, %.backedge, %39, %159
-  %62 = phi i32 [ %40, %39 ], [ %.pre152, %159 ], [ 0, %.loopexit ], [ %114, %.backedge ]
+  %62 = phi i32 [ %.pre152, %159 ], [ %40, %39 ], [ 0, %.loopexit ], [ %114, %.backedge ]
   %63 = icmp eq i32 %62, 0
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %65 = zext i1 %63 to i8
@@ -14706,7 +14706,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %62, label %68, label %71
 
 .loopexit105:                                     ; preds = %.loopexit, %.backedge, %39, %160
-  %63 = phi i32 [ %40, %39 ], [ %.pre155, %160 ], [ 0, %.loopexit ], [ %115, %.backedge ]
+  %63 = phi i32 [ %.pre155, %160 ], [ %40, %39 ], [ 0, %.loopexit ], [ %115, %.backedge ]
   %64 = icmp eq i32 %63, 0
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %66 = zext i1 %64 to i8
@@ -15124,7 +15124,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   br i1 %64, label %72, label %71
 
 .loopexit67:                                      ; preds = %.loopexit, %.backedge, %38, %182
-  %65 = phi i32 [ %39, %38 ], [ %.pre149, %182 ], [ 0, %.loopexit ], [ %118, %.backedge ]
+  %65 = phi i32 [ %.pre149, %182 ], [ %39, %38 ], [ 0, %.loopexit ], [ %118, %.backedge ]
   %66 = icmp eq i32 %65, 0
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %68 = zext i1 %66 to i8
@@ -15628,7 +15628,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %62, label %70, label %67
 
 .loopexit108:                                     ; preds = %.loopexit, %.backedge, %39, %155
-  %63 = phi i32 [ %40, %39 ], [ %.pre155, %155 ], [ 0, %.loopexit ], [ %112, %.backedge ]
+  %63 = phi i32 [ %.pre155, %155 ], [ %40, %39 ], [ 0, %.loopexit ], [ %112, %.backedge ]
   %64 = icmp eq i32 %63, 0
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %66 = zext i1 %64 to i8
@@ -16049,7 +16049,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   br i1 %64, label %71, label %72
 
 .loopexit69:                                      ; preds = %.loopexit, %.backedge, %38, %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17h049ac7d5cdf1ad9bE.exit73"
-  %65 = phi i32 [ %39, %38 ], [ %.pre140, %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17h049ac7d5cdf1ad9bE.exit73" ], [ 0, %.loopexit ], [ %118, %.backedge ]
+  %65 = phi i32 [ %.pre140, %"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$8end_leaf17h049ac7d5cdf1ad9bE.exit73" ], [ %39, %38 ], [ 0, %.loopexit ], [ %118, %.backedge ]
   %66 = icmp eq i32 %65, 0
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %68 = zext i1 %66 to i8
@@ -16588,7 +16588,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   unreachable
 
 common.resume:                                    ; preds = %110, %245, %.thread54, %242, %.thread74, %313, %307, %310, %350, %.body99, %347, %213, %193, %40, %33, %37
-  %common.resume.op = phi { ptr, i32 } [ %34, %37 ], [ %34, %33 ], [ %34, %40 ], [ %111, %110 ], [ %eh.lpad-body57, %245 ], [ %eh.lpad-body57, %.thread54 ], [ %eh.lpad-body57, %242 ], [ %297, %.thread74 ], [ %eh.lpad-body8480, %313 ], [ %eh.lpad-body8480, %307 ], [ %eh.lpad-body8480, %310 ], [ %eh.lpad-body100, %350 ], [ %eh.lpad-body100, %.body99 ], [ %eh.lpad-body100, %347 ], [ %194, %193 ], [ %214, %213 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %40 ], [ %34, %37 ], [ %34, %33 ], [ %eh.lpad-body8480, %310 ], [ %eh.lpad-body100, %347 ], [ %214, %213 ], [ %111, %110 ], [ %297, %.thread74 ], [ %194, %193 ], [ %eh.lpad-body57, %245 ], [ %eh.lpad-body57, %.thread54 ], [ %eh.lpad-body57, %242 ], [ %eh.lpad-body8480, %313 ], [ %eh.lpad-body8480, %307 ], [ %eh.lpad-body100, %350 ], [ %eh.lpad-body100, %.body99 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he453673409ba32ceE.exit39": ; preds = %26
@@ -16633,7 +16633,7 @@ common.resume:                                    ; preds = %110, %245, %.thread
   br i1 %trunc, label %80, label %79
 
 .loopexit92:                                      ; preds = %.backedge, %48, %"_ZN4core3ptr88drop_in_place$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$17h54d537d5164adbcbE.exit88"
-  %68 = phi i32 [ %49, %48 ], [ %.pre425, %"_ZN4core3ptr88drop_in_place$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$17h54d537d5164adbcbE.exit88" ], [ %167, %.backedge ]
+  %68 = phi i32 [ %.pre425, %"_ZN4core3ptr88drop_in_place$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$GT$17h54d537d5164adbcbE.exit88" ], [ %49, %48 ], [ %167, %.backedge ]
   %69 = icmp eq i32 %68, 0
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %71 = zext i1 %69 to i8
@@ -17600,7 +17600,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %69, label %66
 
 .loopexit106:                                     ; preds = %.loopexit, %.backedge, %39, %.split.us
-  %62 = phi i32 [ %40, %39 ], [ %.pre159, %.split.us ], [ 0, %.loopexit ], [ %110, %.backedge ]
+  %62 = phi i32 [ %.pre159, %.split.us ], [ %40, %39 ], [ 0, %.loopexit ], [ %110, %.backedge ]
   %63 = icmp eq i32 %62, 0
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %65 = zext i1 %63 to i8
@@ -19352,7 +19352,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   unreachable
 
 common.resume:                                    ; preds = %142, %137, %29, %24, %125, %111, %78
-  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %112, %111 ], [ %126, %125 ], [ %25, %24 ], [ %25, %29 ], [ %138, %137 ], [ %138, %142 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %29 ], [ %79, %78 ], [ %112, %111 ], [ %126, %125 ], [ %25, %24 ], [ %138, %137 ], [ %138, %142 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %15
@@ -20658,7 +20658,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN8sum_tree6cur
   br i1 %22, label %31, label %24
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %14
@@ -20728,7 +20728,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN8sum_tree6cur
   br i1 %23, label %32, label %25
 
 24:                                               ; preds = %25, %12, %35
-  %.sroa.0.0 = phi ptr [ %37, %35 ], [ null, %12 ], [ null, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %37, %35 ], [ null, %25 ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %15
@@ -20798,7 +20798,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN8sum_tree6cur
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -20868,7 +20868,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree6curs
   br i1 %23, label %25, label %32
 
 24:                                               ; preds = %25, %12, %35
-  %.sroa.0.0 = phi ptr [ %37, %35 ], [ null, %12 ], [ null, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %37, %35 ], [ null, %25 ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %15
@@ -20938,7 +20938,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN8sum_tree6cur
   br i1 %23, label %32, label %25
 
 24:                                               ; preds = %25, %12, %35
-  %.sroa.0.0 = phi ptr [ %37, %35 ], [ null, %12 ], [ null, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %37, %35 ], [ null, %25 ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %15
@@ -21007,7 +21007,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8sum_tree6cur
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -21076,7 +21076,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree6curs
   br i1 %22, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %14
@@ -21145,7 +21145,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN8sum_tree6cur
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -21214,7 +21214,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN8sum_tree6cur
   br i1 %22, label %31, label %24
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %14
@@ -21284,7 +21284,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN8sum_tree6cur
   br i1 %23, label %32, label %25
 
 24:                                               ; preds = %25, %12, %35
-  %.sroa.0.0 = phi ptr [ %37, %35 ], [ null, %12 ], [ null, %25 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %37, %35 ], [ null, %25 ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %15
@@ -21884,7 +21884,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %22, %45, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7", %42, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %23, %22 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ], [ %.pn, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn, %42 ], [ %23, %22 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %.noexc.i
@@ -22211,7 +22211,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %22, %45, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7", %42, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %23, %22 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ], [ %.pn, %42 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn, %42 ], [ %23, %22 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %.noexc.i
@@ -22369,7 +22369,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %24, %45, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7", %57, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15", %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %25, %24 ], [ %.pn, %45 ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h6d9f450c46c5348eE.exit": ; preds = %.noexc.i
@@ -22541,7 +22541,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %24, %45, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7", %57, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15", %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %25, %24 ], [ %.pn, %45 ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h6d9f450c46c5348eE.exit": ; preds = %.noexc.i
@@ -22801,7 +22801,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %23, %46, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7", %43, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %24, %23 ], [ %.pn, %46 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ], [ %.pn, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn, %43 ], [ %24, %23 ], [ %.pn, %46 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %.noexc.i
@@ -23047,7 +23047,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %23, %46, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7", %43, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %24, %23 ], [ %.pn, %46 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ], [ %.pn, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %.pn, %43 ], [ %24, %23 ], [ %.pn, %46 ], [ %.pn, %"_ZN4core3ptr135drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..tree_map..MapKey$LT$worktree..RepositoryWorkDirectory$GT$$C$12_usize$GT$$GT$17h2c3c4d670c50e454E.exit7" ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %.noexc.i
@@ -23205,7 +23205,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %24, %45, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7", %57, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15", %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %25, %24 ], [ %.pn, %45 ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h6d9f450c46c5348eE.exit": ; preds = %.noexc.i
@@ -23545,7 +23545,7 @@ define hidden noundef nonnull ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5sli
   unreachable
 
 common.resume:                                    ; preds = %24, %45, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7", %57, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15", %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %.pn, %"_ZN4core3ptr90drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..EntrySummary$C$12_usize$GT$$GT$17h5a71d5cd2410eb26E.exit7" ], [ %25, %24 ], [ %.pn, %45 ], [ %54, %57 ], [ %54, %"_ZN4core3ptr83drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$worktree..Entry$C$12_usize$GT$$GT$17ha8ccda7031b0b28eE.exit15" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN8sum_tree16SumTree$LT$T$GT$3new17h6d9f450c46c5348eE.exit": ; preds = %.noexc.i

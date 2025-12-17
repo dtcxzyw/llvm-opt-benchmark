@@ -59,7 +59,7 @@ define hidden range(i32 -1, 2) i32 @mplog_open(ptr noundef %0, ptr noundef %1, p
   br label %23
 
 23:                                               ; preds = %10, %9, %7, %22
-  %.0 = phi i32 [ 1, %22 ], [ %., %7 ], [ 0, %9 ], [ -1, %10 ]
+  %.0 = phi i32 [ %., %7 ], [ 0, %9 ], [ 1, %22 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -100,7 +100,7 @@ define internal noundef zeroext i1 @mplog_seek_read(ptr noundef readonly capture
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 

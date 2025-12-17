@@ -71,7 +71,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @init(ptr noundef %0) #0
   br label %17
 
 17:                                               ; preds = %8, %11, %7
-  %.0 = phi i32 [ %14, %11 ], [ -22, %7 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %7 ], [ %14, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -457,7 +457,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %180
 
 180:                                              ; preds = %83, %45, %22, %2, %._crit_edge, %122, %108, %80, %70, %59, %43
-  %.0103 = phi i32 [ -1094995529, %59 ], [ -22, %108 ], [ -22, %122 ], [ %179, %._crit_edge ], [ -1094995529, %70 ], [ -1094995529, %43 ], [ -1094995529, %80 ], [ 0, %2 ], [ -12, %22 ], [ -558323010, %45 ], [ -12, %83 ]
+  %.0103 = phi i32 [ -12, %22 ], [ -1094995529, %59 ], [ -22, %108 ], [ -22, %122 ], [ %179, %._crit_edge ], [ -558323010, %45 ], [ -1094995529, %70 ], [ -1094995529, %43 ], [ -1094995529, %80 ], [ 0, %2 ], [ -12, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -586,7 +586,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %7, %13, %1, %18
-  %.0 = phi i32 [ -541478725, %1 ], [ -541478725, %13 ], [ %11, %7 ], [ %21, %18 ], [ -12, %16 ]
+  %.0 = phi i32 [ -12, %16 ], [ %21, %18 ], [ -541478725, %1 ], [ -541478725, %13 ], [ %11, %7 ]
   ret i32 %.0
 }
 

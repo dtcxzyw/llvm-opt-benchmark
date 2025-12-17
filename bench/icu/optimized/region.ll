@@ -205,7 +205,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1124,7 +1124,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit646: ; preds = %_ZN6icu_77
   br i1 %261, label %.critedge14, label %164, !llvm.loop !41
 
 262:                                              ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit646, %257, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit642, %.body639, %244
-  %.pn596.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %247, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit642 ], [ %233, %.body639 ], [ %259, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit646 ], [ %258, %257 ]
+  %.pn596.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %233, %.body639 ], [ %258, %257 ], [ %247, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit642 ], [ %259, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit646 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.body
 
@@ -1380,7 +1380,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit666: ; preds = %_ZN6icu_77
   br i1 %363, label %.critedge14, label %268, !llvm.loop !46
 
 364:                                              ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit666, %359, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit662, %.body656, %346
-  %.pn586.pn.pn = phi { ptr, i32 } [ %347, %346 ], [ %349, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit662 ], [ %335, %.body656 ], [ %361, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit666 ], [ %360, %359 ]
+  %.pn586.pn.pn = phi { ptr, i32 } [ %347, %346 ], [ %335, %.body656 ], [ %360, %359 ], [ %349, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit662 ], [ %361, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit666 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.body648
 
@@ -2002,7 +2002,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit689: ; preds = %_ZN6icu_77
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691thread-pre-split
 
 .body683:                                         ; preds = %568, %579, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit690, %552
-  %.pn488.pn.pn = phi { ptr, i32 } [ %.pn10.i682, %552 ], [ %569, %568 ], [ %581, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit690 ], [ %580, %579 ]
+  %.pn488.pn.pn = phi { ptr, i32 } [ %.pn10.i682, %552 ], [ %569, %568 ], [ %580, %579 ], [ %581, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit690 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678
@@ -2017,7 +2017,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691: ; preds = %526, %_ZN6
   br i1 %584, label %.critedge22, label %494
 
 .critedge22:                                      ; preds = %496, %499, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691, %512, %.critedge628.preheader
-  %.1422 = phi ptr [ null, %.critedge628.preheader ], [ %498, %512 ], [ %498, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691 ], [ %498, %499 ], [ %.04211096, %496 ]
+  %.1422 = phi ptr [ null, %.critedge628.preheader ], [ %498, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit691 ], [ %498, %512 ], [ %498, %499 ], [ %.04211096, %496 ]
   invoke void @ures_close_77(ptr noundef %.1422)
           to label %.preheader986 unwind label %.loopexit.split-lp982.loopexit.split-lp.loopexit.split-lp
 
@@ -2510,8 +2510,8 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br i1 %785, label %.critedge26, label %592, !llvm.loop !77
 
 .body696:                                         ; preds = %644, %648, %780, %646, %689, %665, %663, %710, %624
-  %.sroa.0834.1 = phi ptr [ %600, %624 ], [ %.sroa.0834.0, %648 ], [ %600, %780 ], [ %600, %646 ], [ %600, %644 ], [ %600, %663 ], [ %600, %689 ], [ %600, %665 ], [ %600, %710 ]
-  %.pn566.pn.pn.pn = phi { ptr, i32 } [ %.pn10.i695, %624 ], [ %649, %648 ], [ %.pn562.pn, %780 ], [ %647, %646 ], [ %645, %644 ], [ %664, %663 ], [ %690, %689 ], [ %666, %665 ], [ %711, %710 ]
+  %.sroa.0834.1 = phi ptr [ %600, %624 ], [ %.sroa.0834.0, %648 ], [ %600, %780 ], [ %600, %665 ], [ %600, %644 ], [ %600, %646 ], [ %600, %663 ], [ %600, %710 ], [ %600, %689 ]
+  %.pn566.pn.pn.pn = phi { ptr, i32 } [ %.pn10.i695, %624 ], [ %649, %648 ], [ %.pn562.pn, %780 ], [ %666, %665 ], [ %645, %644 ], [ %647, %646 ], [ %664, %663 ], [ %711, %710 ], [ %690, %689 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %49) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %786 = icmp eq ptr %.sroa.0834.1, null
@@ -2525,7 +2525,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit723
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit723: ; preds = %642, %.body696, %787, %640
-  %.pn566.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %641, %640 ], [ %643, %642 ], [ %.pn566.pn.pn.pn, %.body696 ], [ %.pn566.pn.pn.pn, %787 ]
+  %.pn566.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %641, %640 ], [ %643, %642 ], [ %.pn566.pn.pn.pn, %787 ], [ %.pn566.pn.pn.pn, %.body696 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #19
   br label %791
 
@@ -3256,7 +3256,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit761.us: ; preds = %1006
           to label %1038 unwind label %.split1120
 
 1037:                                             ; preds = %.split1120, %.split1120.us, %.split1114, %.split1114.us, %1034
-  %.pn10.i751 = phi { ptr, i32 } [ %.us-phi1118, %1034 ], [ %1031, %.split1114 ], [ %1010, %.split1114.us ], [ %1032, %.split1120 ], [ %1012, %.split1120.us ]
+  %.pn10.i751 = phi { ptr, i32 } [ %.us-phi1118, %1034 ], [ %1010, %.split1114.us ], [ %1031, %.split1114 ], [ %1032, %.split1120 ], [ %1012, %.split1120.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !91
   br label %.body752
 
@@ -3564,7 +3564,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit770: ; preds = %1136
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit771.thread
 
 1145:                                             ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit770, %1133, %1121, %1099
-  %.pn509.pn.pn = phi { ptr, i32 } [ %1100, %1099 ], [ %1122, %1121 ], [ %1135, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit770 ], [ %1134, %1133 ]
+  %.pn509.pn.pn = phi { ptr, i32 } [ %1100, %1099 ], [ %1122, %1121 ], [ %1134, %1133 ], [ %1135, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit770 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %1241
 
@@ -3934,7 +3934,7 @@ _ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev.
   br label %_ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678
 
 _ZN6icu_7712LocalPointerINS_6RegionEED2Ev.exit678: ; preds = %.thread1313, %.loopexit981, %.loopexit.split-lp982.loopexit.split-lp.loopexit, %.loopexit.split-lp982.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp982.loopexit, %.loopexit995, %.loopexit.split-lp996.loopexit.split-lp.loopexit, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp996.loopexit, %517, %532, %.body683, %530, %444, %487, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672, %.body668, %791, %.body741, %515, %.body725, %885, %428, %.body674, %.body648, %.body
-  %.pn596.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn, %.body ], [ %.pn586.pn.pn.pn.pn, %.body648 ], [ %429, %428 ], [ %.pn10.i673, %.body674 ], [ %.pn566.pn.pn.pn.pn.pn.pn, %791 ], [ %.pn533.pn.pn.pn, %.body741 ], [ %516, %515 ], [ %886, %885 ], [ %.pn541.pn.pn.pn.pn.pn, %.body725 ], [ %398, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672 ], [ %.pn577, %.body668 ], [ %445, %444 ], [ %.pn.pn1312, %487 ], [ %518, %517 ], [ %531, %530 ], [ %.pn488.pn.pn, %.body683 ], [ %533, %532 ], [ %lpad.loopexit997, %.loopexit995 ], [ %lpad.loopexit1000, %.loopexit.split-lp996.loopexit ], [ %lpad.loopexit1003, %.loopexit.split-lp996.loopexit.split-lp.loopexit ], [ %lpad.loopexit1007, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit983, %.loopexit981 ], [ %lpad.loopexit987, %.loopexit.split-lp982.loopexit ], [ %lpad.loopexit991, %.loopexit.split-lp982.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp992, %.loopexit.split-lp982.loopexit.split-lp.loopexit.split-lp ], [ %484, %.thread1313 ]
+  %.pn596.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn596.pn.pn.pn.pn, %.body ], [ %.pn586.pn.pn.pn.pn, %.body648 ], [ %.pn541.pn.pn.pn.pn.pn, %.body725 ], [ %531, %530 ], [ %.pn10.i673, %.body674 ], [ %.pn577, %.body668 ], [ %429, %428 ], [ %.pn566.pn.pn.pn.pn.pn.pn, %791 ], [ %516, %515 ], [ %.pn533.pn.pn.pn, %.body741 ], [ %lpad.loopexit.split-lp1008, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn.pn1312, %487 ], [ %886, %885 ], [ %398, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit672 ], [ %445, %444 ], [ %533, %532 ], [ %484, %.thread1313 ], [ %.pn488.pn.pn, %.body683 ], [ %518, %517 ], [ %lpad.loopexit997, %.loopexit995 ], [ %lpad.loopexit1000, %.loopexit.split-lp996.loopexit ], [ %lpad.loopexit1003, %.loopexit.split-lp996.loopexit.split-lp.loopexit ], [ %lpad.loopexit1007, %.loopexit.split-lp996.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit983, %.loopexit981 ], [ %lpad.loopexit987, %.loopexit.split-lp982.loopexit ], [ %lpad.loopexit991, %.loopexit.split-lp982.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp992, %.loopexit.split-lp982.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #19
   br label %1244
 
@@ -4027,7 +4027,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit809: ; preds = %128, %1255
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810: ; preds = %.thread960, %1256, %124
-  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1256 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread960 ]
+  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread960 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1256 ]
   br i1 %69, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810
@@ -4038,7 +4038,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread: ; preds = %_ZN6icu_77
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit811: ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810, %122
-  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread ]
+  %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810.thread ], [ %.pn596.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit810 ]
   call void @_ZN6icu_778internal16LocalOpenPointerI10UHashtableXadL_Z14uhash_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
   br label %1263
 
@@ -4430,7 +4430,7 @@ define noundef zeroext i1 @_ZNK6icu_776RegioneqERKS0_(ptr noundef nonnull align 
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %7, %12, %29
-  %.0.i = phi i1 [ %11, %7 ], [ false, %12 ], [ %36, %29 ]
+  %.0.i = phi i1 [ %11, %7 ], [ %36, %29 ], [ false, %12 ]
   ret i1 %.0.i
 }
 
@@ -4483,7 +4483,7 @@ define noundef zeroext i1 @_ZNK6icu_776RegionneERKS0_(ptr noundef nonnull align 
   br label %_ZNK6icu_7713UnicodeStringneERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %7, %12, %29
-  %.0.i.i = phi i1 [ %11, %7 ], [ false, %12 ], [ %36, %29 ]
+  %.0.i.i = phi i1 [ %11, %7 ], [ %36, %29 ], [ false, %12 ]
   %37 = xor i1 %.0.i.i, true
   ret i1 %37
 }
@@ -4631,7 +4631,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   resume { ptr, i32 } %.pn.pn
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %15, %2, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, %61, %18
-  %.0 = phi ptr [ %.1, %61 ], [ null, %18 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %2 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %18 ], [ %.1, %61 ], [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %2 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -5222,7 +5222,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit58: ; 
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit60
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit60: ; preds = %83, %58, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit56, %42, %40
-  %.pn52.pn = phi { ptr, i32 } [ %41, %40 ], [ %43, %42 ], [ %.pn49, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit56 ], [ %59, %58 ], [ %84, %83 ]
+  %.pn52.pn = phi { ptr, i32 } [ %41, %40 ], [ %59, %58 ], [ %43, %42 ], [ %.pn49, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit56 ], [ %84, %83 ]
   %85 = load ptr, ptr %17, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -5522,7 +5522,7 @@ define noundef ptr @_ZN6icu_7721RegionNameEnumeration5snextER10UErrorCode(ptr no
   br label %16
 
 16:                                               ; preds = %9, %13, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ %12, %13 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ %12, %13 ], [ null, %9 ]
   ret ptr %.0
 }
 

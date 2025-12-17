@@ -6329,7 +6329,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %._crit_edge635
   ret float 0.000000e+00
 
 816:                                              ; preds = %317, %319, %418, %478, %416, %739, %674, %230, %228, %226, %224, %222, %220, %218, %216, %214
-  %.pn275.pn = phi { ptr, i32 } [ %675, %674 ], [ %740, %739 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %320, %319 ], [ %318, %317 ], [ %417, %416 ], [ %479, %478 ], [ %419, %418 ]
+  %.pn275.pn = phi { ptr, i32 } [ %215, %214 ], [ %675, %674 ], [ %740, %739 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %320, %319 ], [ %318, %317 ], [ %417, %416 ], [ %479, %478 ], [ %419, %418 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit551 unwind label %817
 
@@ -7589,7 +7589,7 @@ _ZNK9b3Vector36isZeroEv.exit84.thread:            ; preds = %169, %_ZNK9b3Vector
   br i1 %217, label %169, label %._crit_edge, !llvm.loop !186
 
 218:                                              ; preds = %110, %108, %106, %104
-  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ]
+  %.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit90 unwind label %219
 
@@ -8547,7 +8547,7 @@ _ZN13b3ProfileZoneD2Ev.exit195:                   ; preds = %424
   ret float 0.000000e+00
 
 _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %240, %346, %201
-  %.pn92.pn = phi { ptr, i32 } [ %202, %201 ], [ %241, %240 ], [ %.pn87.pn, %346 ]
+  %.pn92.pn = phi { ptr, i32 } [ %202, %201 ], [ %.pn87.pn, %346 ], [ %241, %240 ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit196 unwind label %428
 

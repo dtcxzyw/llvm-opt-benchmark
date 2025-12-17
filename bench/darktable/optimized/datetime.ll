@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers(ptr noundef writeonly ca
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %25, %20, %20, %30, %16
-  %.031 = phi i32 [ %17, %16 ], [ %26, %30 ], [ %21, %20 ], [ %21, %20 ], [ %10, %25 ], [ %10, %18 ]
+  %.031 = phi i32 [ %17, %16 ], [ %10, %18 ], [ %26, %30 ], [ %10, %25 ], [ %21, %20 ], [ %21, %20 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.031, i32 23)
   %32 = zext nneg i32 %31 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %1, i64 %32, i1 false)
@@ -612,7 +612,7 @@ dt_datetime_exif_to_gdatetime.exit.thread:        ; preds = %4
   br label %dt_datetime_exif_to_gdatetime.exit
 
 dt_datetime_exif_to_gdatetime.exit:               ; preds = %7, %25
-  %.1.i = phi ptr [ %28, %25 ], [ %20, %7 ]
+  %.1.i = phi ptr [ %20, %7 ], [ %28, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not8 = icmp eq ptr %.1.i, null
   br i1 %.not8, label %33, label %29
@@ -671,7 +671,7 @@ define ptr @dt_datetime_exif_to_gdatetime(ptr noundef readonly captures(address_
   br label %27
 
 27:                                               ; preds = %2, %23, %5
-  %.1 = phi ptr [ %26, %23 ], [ %18, %5 ], [ null, %2 ]
+  %.1 = phi ptr [ %18, %5 ], [ %26, %23 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
@@ -728,12 +728,12 @@ define range(i32 0, 2) i32 @dt_datetime_gtimespan_to_exif(ptr noundef %0, i64 no
   br label %dt_datetime_gdatetime_to_exif.exit
 
 dt_datetime_gdatetime_to_exif.exit:               ; preds = %10, %20
-  %.0.i = phi i32 [ 1, %20 ], [ 0, %10 ]
+  %.0.i = phi i32 [ 0, %10 ], [ 1, %20 ]
   tail call void @g_date_time_unref(ptr noundef nonnull %9) #7
   br label %22
 
 22:                                               ; preds = %dt_datetime_gdatetime_to_exif.exit, %7, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ %.0.i, %dt_datetime_gdatetime_to_exif.exit ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %.0.i, %dt_datetime_gdatetime_to_exif.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -849,7 +849,7 @@ dt_datetime_gdatetime_to_exif.exit.i:             ; preds = %14, %12
   br label %dt_datetime_gdatetime_to_exif.exit
 
 dt_datetime_gdatetime_to_exif.exit:               ; preds = %26, %36
-  %.0.i = phi i32 [ 1, %36 ], [ 0, %26 ]
+  %.0.i = phi i32 [ 0, %26 ], [ 1, %36 ]
   call void @g_date_time_unref(ptr noundef nonnull %25) #7
   br label %38
 
@@ -859,7 +859,7 @@ dt_datetime_gdatetime_to_exif.exit:               ; preds = %26, %36
   br label %dt_datetime_now_to_exif.exit
 
 dt_datetime_now_to_exif.exit:                     ; preds = %dt_datetime_gdatetime_to_exif.exit.i, %10, %16, %3, %38
-  %.0 = phi i32 [ %.1, %38 ], [ 0, %3 ], [ 0, %16 ], [ 1, %10 ], [ 1, %dt_datetime_gdatetime_to_exif.exit.i ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ %.1, %38 ], [ 1, %10 ], [ 1, %dt_datetime_gdatetime_to_exif.exit.i ]
   ret i32 %.0
 }
 
@@ -1010,7 +1010,7 @@ dt_datetime_gdatetime_to_exif.exit.i:             ; preds = %14, %12
   br label %67
 
 67:                                               ; preds = %65, %55
-  %.0.i = phi i32 [ 1, %65 ], [ 0, %55 ]
+  %.0.i = phi i32 [ 0, %55 ], [ 1, %65 ]
   call void @g_date_time_unref(ptr noundef nonnull %54) #7
   br label %.thread
 
@@ -1020,7 +1020,7 @@ dt_datetime_gdatetime_to_exif.exit.i:             ; preds = %14, %12
   br label %dt_datetime_now_to_exif.exit
 
 dt_datetime_now_to_exif.exit:                     ; preds = %dt_datetime_gdatetime_to_exif.exit.i, %10, %.thread, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.5, %.thread ], [ 0, %16 ], [ 1, %10 ], [ 1, %dt_datetime_gdatetime_to_exif.exit.i ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ %.5, %.thread ], [ 1, %10 ], [ 1, %dt_datetime_gdatetime_to_exif.exit.i ]
   ret i32 %.0
 }
 
@@ -1123,7 +1123,7 @@ dt_datetime_exif_to_gdatetime.exit.thread:        ; preds = %3
   br label %dt_datetime_exif_to_gdatetime.exit
 
 dt_datetime_exif_to_gdatetime.exit:               ; preds = %6, %24
-  %.1.i = phi ptr [ %27, %24 ], [ %19, %6 ]
+  %.1.i = phi ptr [ %19, %6 ], [ %27, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not10 = icmp eq ptr %.1.i, null
   br i1 %.not10, label %31, label %28
@@ -1333,7 +1333,7 @@ dt_datetime_exif_to_gdatetime.exit.thread:        ; preds = %4
   br label %dt_datetime_exif_to_gdatetime.exit
 
 dt_datetime_exif_to_gdatetime.exit:               ; preds = %9, %27
-  %.1.i = phi ptr [ %30, %27 ], [ %22, %9 ]
+  %.1.i = phi ptr [ %22, %9 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %38, label %31

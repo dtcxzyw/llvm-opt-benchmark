@@ -193,7 +193,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %28, %32, %37
   resume { ptr, i32 } %66
 
 .loopexit65:                                      ; preds = %..loopexit_crit_edge.us, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit, %11, %8
-  %.045 = phi i32 [ -1, %8 ], [ -1, %11 ], [ 0, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit ], [ 0, %..loopexit_crit_edge.us ]
+  %.045 = phi i32 [ -1, %11 ], [ -1, %8 ], [ 0, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit ], [ 0, %..loopexit_crit_edge.us ]
   ret i32 %.045
 }
 
@@ -373,7 +373,7 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %46, %50, %55
   br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !37
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit, %29, %3
-  %.045 = phi i32 [ -1, %3 ], [ -1, %29 ], [ 0, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit ], [ 0, %._crit_edge ]
+  %.045 = phi i32 [ -1, %29 ], [ -1, %3 ], [ 0, %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit ], [ 0, %._crit_edge ]
   ret i32 %.045
 }
 

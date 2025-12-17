@@ -1480,7 +1480,7 @@ SummarizeDbaseRecord.exit:                        ; preds = %137, %121
   %235 = trunc nuw i8 %.4 to i1
   br i1 %235, label %SummarizeDbaseRecord.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge.i122, %._crit_edge6.i, %200, %197, %194, %184, %179, %175, %._crit_edge.i, %155, %149, %145, %144, %SummarizeDbaseRecord.exit
+.preheader:                                       ; preds = %200, %194, %184, %179, %175, %155, %149, %145, %._crit_edge.i, %197, %144, %._crit_edge.i122, %._crit_edge6.i, %SummarizeDbaseRecord.exit
   %236 = load ptr, ptr %69, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 84
   %238 = load i32, ptr %237, align 4
@@ -1926,7 +1926,7 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %35, %29
-  %.sink.i = phi i64 [ %32, %29 ], [ %spec.select.i, %35 ]
+  %.sink.i = phi i64 [ %spec.select.i, %35 ], [ %32, %29 ]
   store i64 %.sink.i, ptr @sleep_quanta, align 8
   br label %summarizer_wait_for_wal.exit
 

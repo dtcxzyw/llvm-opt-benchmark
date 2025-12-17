@@ -452,7 +452,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   br label %89
 
 89:                                               ; preds = %66, %15, %18, %21, %27, %68, %53, %41
-  %.0 = phi i32 [ -22, %53 ], [ 0, %68 ], [ -22, %41 ], [ -22, %27 ], [ -22, %21 ], [ -22, %18 ], [ -22, %15 ], [ -12, %66 ]
+  %.0 = phi i32 [ -22, %41 ], [ -22, %53 ], [ 0, %68 ], [ -22, %15 ], [ -22, %27 ], [ -22, %21 ], [ -22, %18 ], [ -12, %66 ]
   ret i32 %.0
 }
 
@@ -1058,8 +1058,8 @@ define range(i32 -2147483648, 1) i32 @ff_filter_config_links(ptr noundef %0) loc
   %174 = icmp samesign ult i64 %indvars.iv.next228, %173
   br i1 %174, label %5, label %.thread161, !llvm.loop !98
 
-.thread161:                                       ; preds = %171, %30, %156, %1, %.thread153, %15, %42, %119, %165, %64, %29
-  %.7 = phi i32 [ %59, %.thread153 ], [ -22, %15 ], [ -22, %42 ], [ -22, %119 ], [ %163, %165 ], [ %62, %64 ], [ 0, %29 ], [ 0, %1 ], [ 0, %171 ], [ %31, %30 ], [ -12, %156 ]
+.thread161:                                       ; preds = %171, %30, %156, %1, %15, %42, %.thread153, %119, %165, %64, %29
+  %.7 = phi i32 [ %62, %64 ], [ 0, %29 ], [ -22, %15 ], [ -22, %42 ], [ %59, %.thread153 ], [ -22, %119 ], [ %163, %165 ], [ 0, %1 ], [ 0, %171 ], [ %31, %30 ], [ -12, %156 ]
   ret i32 %.7
 }
 
@@ -1109,7 +1109,7 @@ define i32 @ff_request_frame(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %7, %1, %13, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %13 ], [ %3, %1 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %13 ], [ %3, %1 ], [ %12, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1250,7 +1250,7 @@ define i32 @avfilter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %32
 
 32:                                               ; preds = %25, %30, %23, %20
-  %.0 = phi i32 [ %31, %30 ], [ %24, %23 ], [ 0, %20 ], [ -38, %25 ]
+  %.0 = phi i32 [ %31, %30 ], [ 0, %20 ], [ %24, %23 ], [ -38, %25 ]
   ret i32 %.0
 }
 
@@ -1487,7 +1487,7 @@ define ptr @ff_filter_alloc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %76
 
 76:                                               ; preds = %48, %60, %3, %2, %.thread
-  %.055 = phi ptr [ null, %.thread ], [ null, %2 ], [ null, %3 ], [ %4, %60 ], [ %4, %48 ]
+  %.055 = phi ptr [ null, %.thread ], [ null, %3 ], [ null, %2 ], [ %4, %60 ], [ %4, %48 ]
   ret ptr %.055
 }
 
@@ -1914,8 +1914,8 @@ define range(i32 -2147483648, 1) i32 @ff_filter_opt_parse(ptr noundef %0, ptr no
   br label %.loopexit
 
 46:                                               ; preds = %14, %18, %42
-  %.229 = phi ptr [ %.128, %42 ], [ %13, %18 ], [ %13, %14 ]
-  %.2 = phi i32 [ %.1, %42 ], [ %.02347, %18 ], [ %.02347, %14 ]
+  %.229 = phi ptr [ %.128, %42 ], [ %13, %14 ], [ %13, %18 ]
+  %.2 = phi i32 [ %.1, %42 ], [ %.02347, %14 ], [ %.02347, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = load ptr, ptr %6, align 8, !tbaa !133
@@ -1924,7 +1924,7 @@ define range(i32 -2147483648, 1) i32 @ff_filter_opt_parse(ptr noundef %0, ptr no
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %46, %.preheader, %.thread, %4
-  %.024 = phi i32 [ 0, %4 ], [ %26, %.thread ], [ 0, %.preheader ], [ 0, %46 ]
+  %.024 = phi i32 [ %26, %.thread ], [ 0, %4 ], [ 0, %.preheader ], [ 0, %46 ]
   ret i32 %.024
 }
 
@@ -2252,7 +2252,7 @@ filter_unblock.exit:                              ; preds = %48, %33
   br label %63
 
 60:                                               ; preds = %20, %16, %11
-  %.str.37.sink = phi ptr [ @.str.35, %11 ], [ @.str.36, %16 ], [ @.str.37, %20 ]
+  %.str.37.sink = phi ptr [ @.str.36, %16 ], [ @.str.35, %11 ], [ @.str.37, %20 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !47
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %62, i32 noundef 16, ptr noundef nonnull %.str.37.sink) #15
@@ -2826,8 +2826,8 @@ filter_activate_default.exit:                     ; preds = %213, %237, %191, %1
 filter_activate_default.exit.thread10:            ; preds = %239, %.preheader95.i, %filter_activate_default.exit
   br label %filter_activate_default.exit.thread
 
-filter_activate_default.exit.thread:              ; preds = %ff_inlink_set_status.exit.i, %.preheader.i, %._crit_edge.i75.i, %201, %222, %filter_activate_default.exit, %filter_activate_default.exit.thread10
-  %242 = phi i32 [ 0, %filter_activate_default.exit.thread10 ], [ %.fr, %filter_activate_default.exit ], [ 0, %222 ], [ 0, %201 ], [ 0, %._crit_edge.i75.i ], [ 0, %.preheader.i ], [ 0, %ff_inlink_set_status.exit.i ]
+filter_activate_default.exit.thread:              ; preds = %ff_inlink_set_status.exit.i, %.preheader.i, %._crit_edge.i75.i, %222, %201, %filter_activate_default.exit, %filter_activate_default.exit.thread10
+  %242 = phi i32 [ 0, %filter_activate_default.exit.thread10 ], [ %.fr, %filter_activate_default.exit ], [ 0, %201 ], [ 0, %222 ], [ 0, %._crit_edge.i75.i ], [ 0, %.preheader.i ], [ 0, %ff_inlink_set_status.exit.i ]
   ret i32 %242
 }
 
@@ -3178,7 +3178,7 @@ take_samples.exit:                                ; preds = %41, %49
   br label %82
 
 82:                                               ; preds = %take_samples.exit, %ff_inlink_check_available_samples.exit, %81
-  %.0 = phi i32 [ 1, %81 ], [ 0, %ff_inlink_check_available_samples.exit ], [ %.0.i, %take_samples.exit ]
+  %.0 = phi i32 [ 0, %ff_inlink_check_available_samples.exit ], [ 1, %81 ], [ %.0.i, %take_samples.exit ]
   ret i32 %.0
 }
 
@@ -3374,7 +3374,7 @@ define range(i32 -2147483648, 1) i32 @ff_inlink_make_frame_writable(ptr noundef 
   br label %34
 
 34:                                               ; preds = %22, %7, %2, %32, %31, %27
-  %.0 = phi i32 [ %25, %27 ], [ %29, %31 ], [ 0, %32 ], [ 0, %2 ], [ -22, %7 ], [ -12, %22 ]
+  %.0 = phi i32 [ -22, %7 ], [ 0, %2 ], [ %25, %27 ], [ %29, %31 ], [ 0, %32 ], [ -12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -3924,7 +3924,7 @@ ff_avfilter_link_set_in_status.exit:              ; preds = %filter_unblock.exit
   br label %ff_request_frame.exit.thread
 
 ff_request_frame.exit.thread:                     ; preds = %ff_avfilter_link_set_in_status.exit, %32, %20, %26, %ff_request_frame.exit
-  %.1 = phi i32 [ %.0, %ff_request_frame.exit ], [ 0, %26 ], [ 0, %20 ], [ -11, %32 ], [ %spec.select, %ff_avfilter_link_set_in_status.exit ]
+  %.1 = phi i32 [ 0, %20 ], [ %.0, %ff_request_frame.exit ], [ 0, %26 ], [ -11, %32 ], [ %spec.select, %ff_avfilter_link_set_in_status.exit ]
   ret i32 %.1
 }
 

@@ -664,7 +664,7 @@ proto_item_set_hidden.exit.i17:                   ; preds = %166, %163, %158
   br label %dissect_msmms_command.exit
 
 dissect_msmms_command.exit:                       ; preds = %202, %153, %147, %.thread, %105, %.tail.i, %sub_1.i, %proto_item_set_hidden.exit.i, %20, %13, %139, %4, %dissect_msmms_data_udp_command.exit
-  %.0 = phi i32 [ %138, %dissect_msmms_data_udp_command.exit ], [ 0, %4 ], [ 0, %139 ], [ -1, %13 ], [ -1, %20 ], [ %106, %105 ], [ 12, %.tail.i ], [ 12, %proto_item_set_hidden.exit.i ], [ 12, %sub_1.i ], [ -1, %147 ], [ %204, %202 ], [ 0, %.thread ], [ 0, %153 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %139 ], [ %138, %dissect_msmms_data_udp_command.exit ], [ 12, %sub_1.i ], [ -1, %13 ], [ -1, %20 ], [ %106, %105 ], [ 12, %.tail.i ], [ 12, %proto_item_set_hidden.exit.i ], [ %204, %202 ], [ -1, %147 ], [ 0, %.thread ], [ 0, %153 ]
   ret i32 %.0
 }
 

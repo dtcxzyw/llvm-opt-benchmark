@@ -434,7 +434,7 @@ define internal ptr @call_state_registration_func(ptr noundef %0, ptr noundef %1
   br label %18
 
 18:                                               ; preds = %15, %13, %10, %6, %2, %17
-  %.0 = phi ptr [ @_Py_NoneStruct, %17 ], [ null, %2 ], [ null, %6 ], [ %_Py_NoneStruct., %10 ], [ null, %13 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %17 ], [ %_Py_NoneStruct., %10 ], [ null, %6 ], [ null, %13 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -673,7 +673,7 @@ define internal ptr @Example_demo(ptr readnone captures(none) %0, ptr noundef %1
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %14, %11, %5, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %7 ], [ @_Py_NoneStruct, %5 ], [ %6, %11 ], [ %6, %14 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ null, %2 ], [ @_Py_NoneStruct, %7 ], [ %6, %11 ], [ %6, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -748,7 +748,7 @@ Py_DECREF.exit16:                                 ; preds = %19, %22, %25
   br label %Py_DECREF.exit18
 
 Py_DECREF.exit18:                                 ; preds = %31, %28, %Py_DECREF.exit16, %18, %15, %13, %7, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %13 ], [ null, %15 ], [ null, %18 ], [ %26, %Py_DECREF.exit16 ], [ %26, %28 ], [ %26, %31 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %18 ], [ null, %7 ], [ null, %13 ], [ null, %15 ], [ %26, %Py_DECREF.exit16 ], [ %26, %28 ], [ %26, %31 ]
   ret ptr %.0
 }
 
@@ -1092,7 +1092,7 @@ define internal noundef ptr @_StateAccessType_increment_count_noclinic(ptr readn
   br label %33
 
 33:                                               ; preds = %24, %28, %.thread, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %24 ], [ @_Py_NoneStruct, %28 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %28 ], [ null, %24 ], [ null, %.thread ]
   ret ptr %.0
 }
 

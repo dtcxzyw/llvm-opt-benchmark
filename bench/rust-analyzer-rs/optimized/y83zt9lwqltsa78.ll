@@ -571,8 +571,8 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   br i1 %22, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %13, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit", %2
-  %.sroa.3.0 = phi i32 [ %1, %2 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ undef, %13 ], [ %.01629, %.lr.ph ]
-  %.sroa.0.0 = phi i32 [ 1, %2 ], [ 1, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ 0, %13 ], [ 1, %.lr.ph ]
+  %.sroa.3.0 = phi i32 [ %1, %2 ], [ undef, %13 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.01629, %.lr.ph ]
+  %.sroa.0.0 = phi i32 [ 1, %2 ], [ 0, %13 ], [ 1, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ 1, %.lr.ph ]
   %23 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %24 = insertvalue { i32, i32 } %23, i32 %.sroa.3.0, 1
   ret { i32, i32 } %24
@@ -738,7 +738,7 @@ _ZN9text_edit24assert_disjoint_or_equal17h7bd35a41777e2f70E.exit: ; preds = %.no
 22:                                               ; preds = %23
   resume { ptr, i32 } %lpad.thr_comm
 
-23:                                               ; preds = %2, %.noexc, %20
+23:                                               ; preds = %20, %2, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17hd08795472a68013aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #19

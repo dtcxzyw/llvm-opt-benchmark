@@ -5476,7 +5476,7 @@ lpad103:                                          ; preds = %invoke.cont99
   br label %ehcleanup110
 
 ehcleanup110:                                     ; preds = %lpad103, %lpad92.loopexit.split-lp, %lpad92.loopexit, %lpad86, %lpad79.loopexit.split-lp, %lpad79.loopexit.split.us, %lpad71.split.us, %lpad39
-  %.pn.pn.pn = phi { ptr, i32 } [ %29, %lpad39 ], [ %83, %lpad103 ], [ %78, %lpad86 ], [ %58, %lpad71.split.us ], [ %lpad.loopexit412.us, %lpad79.loopexit.split.us ], [ %lpad.loopexit.split-lp413, %lpad79.loopexit.split-lp ], [ %lpad.loopexit, %lpad92.loopexit ], [ %lpad.loopexit.split-lp, %lpad92.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %29, %lpad39 ], [ %83, %lpad103 ], [ %78, %lpad86 ], [ %lpad.loopexit.split-lp, %lpad92.loopexit.split-lp ], [ %58, %lpad71.split.us ], [ %lpad.loopexit412.us, %lpad79.loopexit.split.us ], [ %lpad.loopexit.split-lp413, %lpad79.loopexit.split-lp ], [ %lpad.loopexit, %lpad92.loopexit ]
   %84 = load ptr, ptr %new_palette, align 8, !tbaa !88
   %tobool.not.i.i.i298 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i.i298, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EED2Ev.exit300, label %if.then.i.i.i299
@@ -5717,8 +5717,8 @@ middle.block:                                     ; preds = %vector.body
   br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader7
 
 for.body.i.i.i.i.preheader7:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
-  %__cur.013.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %11, %for.body.i.i.i.i.preheader ]
-  %__first.addr.012.i.i.i.i.ph = phi ptr [ %ind.end123, %middle.block ], [ %add.ptr62, %for.body.i.i.i.i.preheader ]
+  %__cur.013.i.i.i.i.ph = phi ptr [ %11, %for.body.i.i.i.i.preheader ], [ %ind.end, %middle.block ]
+  %__first.addr.012.i.i.i.i.ph = phi ptr [ %add.ptr62, %for.body.i.i.i.i.preheader ], [ %ind.end123, %middle.block ]
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader7, %for.body.i.i.i.i
@@ -8641,7 +8641,7 @@ if.then.i.i.i3416:                                ; preds = %lpad.i
   br label %common.resume575
 
 common.resume575:                                 ; preds = %lpad.i472, %lpad.i4051, %lpad.i3607, %lpad.i, %if.then.i.i.i, %ehcleanup103, %if.then.i.i.i3416, %_ZN11BasicStrfndIcED2Ev.exit3594, %if.then.i.i.i3609, %_ZN11BasicStrfndIcED2Ev.exit4038, %if.then.i.i.i4053, %_ZN11BasicStrfndIcED2Ev.exit4288, %_ZN11BasicStrfndIcED2Ev.exit4422, %ehcleanup1058, %_ZN11BasicStrfndIcED2Ev.exit4734, %_ZN11BasicStrfndIcED2Ev.exit4854, %_ZN11BasicStrfndIcED2Ev.exit4961, %_ZN11BasicStrfndIcED2Ev.exit5039, %_ZN11BasicStrfndIcED2Ev.exit5148, %cleanup.action1641, %_ZN11BasicStrfndIcED2Ev.exit5289, %_ZN11BasicStrfndIcED2Ev.exit5360, %_ZN11BasicStrfndIcED2Ev.exit5429, %_ZN11BasicStrfndIcED2Ev.exit5615, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5684, %_ZN11BasicStrfndIcED2Ev.exit5804, %_ZN11BasicStrfndIcED2Ev.exit5911, %_ZN11BasicStrfndIcED2Ev.exit6006
-  %common.resume575.op = phi { ptr, i32 } [ %82, %if.then.i.i.i3416 ], [ %132, %if.then.i.i.i3609 ], [ %251, %if.then.i.i.i4053 ], [ %.pn3272.pn.pn.pn, %ehcleanup103 ], [ %.pn3264.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit3594 ], [ %.pn3247.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4038 ], [ %.pn3225.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4288 ], [ %.pn3206.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4422 ], [ %.pn3189.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1058 ], [ %.pn3173.pn.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4734 ], [ %.pn3160.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4854 ], [ %.pn3151.pn, %_ZN11BasicStrfndIcED2Ev.exit4961 ], [ %.pn3142.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5039 ], [ %.pn3133.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5148 ], [ %.pn3125, %cleanup.action1641 ], [ %.pn3120.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5289 ], [ %.pn3109.pn, %_ZN11BasicStrfndIcED2Ev.exit5360 ], [ %.pn3102.pn, %_ZN11BasicStrfndIcED2Ev.exit5429 ], [ %.pn3092.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5615 ], [ %.pn3071.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5684 ], [ %.pn3060.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5804 ], [ %.pn3048.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5911 ], [ %.pn3039.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit6006 ], [ %342, %if.then.i.i.i ], [ %82, %lpad.i ], [ %132, %lpad.i3607 ], [ %251, %lpad.i4051 ], [ %342, %lpad.i472 ]
+  %common.resume575.op = phi { ptr, i32 } [ %.pn3039.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit6006 ], [ %82, %if.then.i.i.i3416 ], [ %251, %lpad.i4051 ], [ %132, %if.then.i.i.i3609 ], [ %82, %lpad.i ], [ %251, %if.then.i.i.i4053 ], [ %132, %lpad.i3607 ], [ %.pn3272.pn.pn.pn, %ehcleanup103 ], [ %.pn3264.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit3594 ], [ %.pn3247.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4038 ], [ %.pn3225.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4288 ], [ %.pn3206.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4422 ], [ %.pn3189.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1058 ], [ %.pn3173.pn.pn.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4734 ], [ %.pn3160.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit4854 ], [ %.pn3151.pn, %_ZN11BasicStrfndIcED2Ev.exit4961 ], [ %.pn3142.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5039 ], [ %.pn3133.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5148 ], [ %.pn3125, %cleanup.action1641 ], [ %.pn3120.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5289 ], [ %.pn3109.pn, %_ZN11BasicStrfndIcED2Ev.exit5360 ], [ %.pn3102.pn, %_ZN11BasicStrfndIcED2Ev.exit5429 ], [ %.pn3092.pn.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5615 ], [ %.pn3071.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5684 ], [ %.pn3060.pn.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5804 ], [ %.pn3048.pn.pn, %_ZN11BasicStrfndIcED2Ev.exit5911 ], [ %342, %if.then.i.i.i ], [ %342, %lpad.i472 ]
   resume { ptr, i32 } %common.resume575.op
 
 _ZN11BasicStrfndIcEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %do.end
@@ -18044,7 +18044,7 @@ if.then.i.i106:                                   ; preds = %ehcleanup18
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %if.then.i.i106, %lpad9.loopexit.split-lp, %lpad9.loopexit
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i106 ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %.pn, %ehcleanup18 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %.pn, %if.then.i.i106 ], [ %lpad.loopexit, %lpad9.loopexit ], [ %.pn, %ehcleanup18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   br label %ehcleanup22
@@ -26302,7 +26302,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !427
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIN3irr5video6SColorESaISC_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIN3irr5video6SColorESaISC_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorIN3irr5video6SColorESaISC_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

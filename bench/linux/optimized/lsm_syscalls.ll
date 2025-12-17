@@ -209,7 +209,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__x64_sys_lsm_list_modules(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %34, %.loopexit3.loopexit, %32, %24, %15, %1
-  %57 = phi i64 [ -22, %1 ], [ -14, %15 ], [ -14, %24 ], [ -7, %32 ], [ 0, %34 ], [ %56, %.loopexit3.loopexit ], [ -14, %.preheader ]
+  %57 = phi i64 [ %56, %.loopexit3.loopexit ], [ -22, %1 ], [ -14, %15 ], [ -14, %24 ], [ -7, %32 ], [ 0, %34 ], [ -14, %.preheader ]
   ret i64 %57
 }
 
@@ -294,7 +294,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__ia32_sys_lsm_list_modules(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %36, %.loopexit3.loopexit, %34, %26, %17, %1
-  %59 = phi i64 [ -22, %1 ], [ -14, %17 ], [ -14, %26 ], [ -7, %34 ], [ 0, %36 ], [ %58, %.loopexit3.loopexit ], [ -14, %.preheader ]
+  %59 = phi i64 [ %58, %.loopexit3.loopexit ], [ -22, %1 ], [ -14, %17 ], [ -14, %26 ], [ -7, %34 ], [ 0, %36 ], [ -14, %.preheader ]
   ret i64 %59
 }
 

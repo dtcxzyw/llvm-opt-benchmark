@@ -993,7 +993,7 @@ free_desc.exit:                                   ; preds = %121, %130
   br i1 %134, label %121, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader11, %118, %free_desc.exit, %37, %89, %17
-  %135 = phi i32 [ -17, %17 ], [ -12, %89 ], [ -12, %37 ], [ -12, %free_desc.exit ], [ %30, %118 ], [ -22, %.preheader11 ]
+  %135 = phi i32 [ -17, %17 ], [ -12, %89 ], [ -12, %37 ], [ %30, %118 ], [ -12, %free_desc.exit ], [ -22, %.preheader11 ]
   call void @mutex_unlock(ptr noundef nonnull @sparse_irq_lock) #11
   br label %136
 

@@ -198,7 +198,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hb7567fcb2038c051E.exit50"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hb7567fcb2038c051E.exit50": ; preds = %35, %33, %28
-  %.sroa.0.1 = phi i64 [ %.sroa.06.0.copyload, %33 ], [ -9223372036854775807, %28 ], [ -9223372036854775807, %35 ]
+  %.sroa.0.1 = phi i64 [ -9223372036854775807, %28 ], [ %.sroa.06.0.copyload, %33 ], [ -9223372036854775807, %35 ]
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
@@ -312,8 +312,8 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   br label %22
 
 22:                                               ; preds = %16, %2
-  %.sroa.01.0 = phi i64 [ 0, %2 ], [ %spec.select, %16 ]
-  %.sroa.42.0 = phi i64 [ undef, %2 ], [ %21, %16 ]
+  %.sroa.01.0 = phi i64 [ %spec.select, %16 ], [ 0, %2 ]
+  %.sroa.42.0 = phi i64 [ %21, %16 ], [ undef, %2 ]
   store i64 0, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.01.0, ptr %23, align 8

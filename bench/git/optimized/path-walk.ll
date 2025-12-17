@@ -296,7 +296,7 @@ push_to_stack.exit:                               ; preds = %31, %36
   br i1 %139, label %.lr.ph.split.i, label %.thread123.i
 
 .thread123.i:                                     ; preds = %133, %130, %115, %112, %99
-  %.089.lcssa.i = phi ptr [ %104, %99 ], [ %118, %115 ], [ %.089129.us.i, %112 ], [ %136, %133 ], [ %.089129.i, %130 ]
+  %.089.lcssa.i = phi ptr [ %104, %99 ], [ %.089129.us.i, %112 ], [ %118, %115 ], [ %136, %133 ], [ %.089129.i, %130 ]
   %140 = load i32, ptr %.089.lcssa.i, align 4
   %141 = and i32 %140, 14
   %142 = icmp ne i32 %141, 8
@@ -771,7 +771,7 @@ define internal i32 @compare_by_type(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15, %13
-  %.0 = phi i32 [ %14, %13 ], [ -1, %15 ], [ 1, %17 ], [ -1, %19 ], [ %., %21 ]
+  %.0 = phi i32 [ %14, %13 ], [ -1, %19 ], [ -1, %15 ], [ 1, %17 ], [ %., %21 ]
   ret i32 %.0
 }
 
@@ -1243,7 +1243,7 @@ push_to_stack.exit.i:                             ; preds = %156, %153
   br label %add_tree_entries.exit
 
 add_tree_entries.exit:                            ; preds = %_.exit.i, %87, %.thread.i, %._crit_edge.i
-  %.0.i = phi i32 [ -1, %87 ], [ %.274, %._crit_edge.i ], [ -1, %_.exit.i ], [ -1, %.thread.i ]
+  %.0.i = phi i32 [ -1, %87 ], [ -1, %.thread.i ], [ %.274, %._crit_edge.i ], [ -1, %_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1252,14 +1252,14 @@ add_tree_entries.exit:                            ; preds = %_.exit.i, %87, %.th
   %169 = icmp ult i64 %167, %168
   br i1 %169, label %74, label %.loopexit, !llvm.loop !129
 
-.loopexit:                                        ; preds = %add_tree_entries.exit, %.critedge, %51, %55, %.preheader, %.thread71
-  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %51 ], [ 0, %.critedge ], [ %.0.i, %add_tree_entries.exit ]
+.loopexit:                                        ; preds = %add_tree_entries.exit, %51, %.critedge, %55, %.preheader, %.thread71
+  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %.critedge ], [ 0, %51 ], [ %.0.i, %add_tree_entries.exit ]
   call void @oid_array_clear(ptr noundef nonnull %10) #13
   call void @strmap_remove(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1) #13
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %22, %18, %9, %.loopexit
-  %.052 = phi i32 [ %.1, %.loopexit ], [ 0, %9 ], [ 0, %18 ], [ 0, %22 ]
+  %.052 = phi i32 [ %.1, %.loopexit ], [ 0, %18 ], [ 0, %9 ], [ 0, %22 ]
   ret i32 %.052
 }
 

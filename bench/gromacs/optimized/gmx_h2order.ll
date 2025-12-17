@@ -763,7 +763,7 @@ switch.lookup:                                    ; preds = %108, %110
   br label %.split46.us.i
 
 .split46.us.i:                                    ; preds = %.noexc26, %.split46.us.i.loopexit45, %.split46.us.i.loopexit42
-  %.0 = phi float [ %342, %.split46.us.i.loopexit42 ], [ %344, %.split46.us.i.loopexit45 ], [ %154, %.noexc26 ]
+  %.0 = phi float [ %344, %.split46.us.i.loopexit45 ], [ %342, %.split46.us.i.loopexit42 ], [ %154, %.noexc26 ]
   %345 = load ptr, ptr @stderr, align 8, !tbaa !36
   %346 = call i64 @fwrite(ptr nonnull @.str.32, i64 46, i64 1, ptr %345) #20
   invoke void @_Z14gmx_rmpbc_doneP9gmx_rmpbc(ptr noundef %145)

@@ -421,7 +421,7 @@ adjust_pos.exit:                                  ; preds = %20, %29
   br label %207
 
 207:                                              ; preds = %.thread198, %61, %.loopexit208
-  %.4 = phi i32 [ %206, %.loopexit208 ], [ -558323010, %61 ], [ %.5.ph, %.thread198 ]
+  %.4 = phi i32 [ %206, %.loopexit208 ], [ %.5.ph, %.thread198 ], [ -558323010, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -561,8 +561,8 @@ adjust_pos.exit:                                  ; preds = %20, %29
   %293 = call i32 @ff_filter_frame(ptr noundef %292, ptr noundef nonnull %234) #6
   br label %.critedge196.thread
 
-.critedge196.thread:                              ; preds = %220, %.thread203, %232, %288, %231
-  %.6.ph = phi i32 [ -12, %232 ], [ %293, %288 ], [ %229, %231 ], [ %214, %.thread203 ], [ %225, %220 ]
+.critedge196.thread:                              ; preds = %231, %220, %.thread203, %232, %288
+  %.6.ph = phi i32 [ %293, %288 ], [ %229, %231 ], [ %214, %.thread203 ], [ %225, %220 ], [ -12, %232 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -651,7 +651,7 @@ adjust_pos.exit:                                  ; preds = %20, %29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph223, %.preheader, %.critedge196.thread, %327, %330, %335, %340, %51, %314, %298, %207
-  %.3 = phi i32 [ %.4, %207 ], [ 0, %298 ], [ 0, %314 ], [ %55, %51 ], [ 0, %340 ], [ 0, %335 ], [ -1497649742, %330 ], [ -1497649742, %327 ], [ %.6.ph, %.critedge196.thread ], [ 0, %.preheader ], [ 0, %.lr.ph223 ]
+  %.3 = phi i32 [ %.4, %207 ], [ 0, %298 ], [ 0, %314 ], [ %55, %51 ], [ 0, %335 ], [ %.6.ph, %.critedge196.thread ], [ -1497649742, %327 ], [ 0, %340 ], [ -1497649742, %330 ], [ 0, %.preheader ], [ 0, %.lr.ph223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3

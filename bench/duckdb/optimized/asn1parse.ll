@@ -129,7 +129,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr noundef captures(
   br label %82
 
 82:                                               ; preds = %76, %16, %54, %37, %25, %18, %3
-  %.0 = phi i32 [ -96, %3 ], [ -96, %18 ], [ -96, %25 ], [ -96, %37 ], [ -96, %54 ], [ -100, %16 ], [ %., %76 ]
+  %.0 = phi i32 [ -96, %37 ], [ %., %76 ], [ -100, %16 ], [ -96, %54 ], [ -96, %3 ], [ -96, %18 ], [ -96, %25 ]
   ret i32 %.0
 }
 
@@ -301,8 +301,8 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %83
   store ptr %91, ptr %0, align 8, !tbaa !3
   br label %mbedtls_asn1_get_tag.exit.thread
 
-mbedtls_asn1_get_tag.exit.thread:                 ; preds = %83, %23, %61, %44, %32, %25, %11, %9, %3, %mbedtls_asn1_get_tag.exit, %88
-  %.0 = phi i32 [ 0, %88 ], [ -100, %mbedtls_asn1_get_tag.exit ], [ -100, %23 ], [ -96, %61 ], [ -96, %44 ], [ -96, %32 ], [ -96, %25 ], [ -96, %11 ], [ -98, %9 ], [ -96, %3 ], [ -96, %83 ]
+mbedtls_asn1_get_tag.exit.thread:                 ; preds = %83, %32, %25, %11, %61, %23, %44, %3, %9, %mbedtls_asn1_get_tag.exit, %88
+  %.0 = phi i32 [ 0, %88 ], [ -100, %mbedtls_asn1_get_tag.exit ], [ -98, %9 ], [ -96, %32 ], [ -96, %25 ], [ -96, %11 ], [ -96, %61 ], [ -100, %23 ], [ -96, %44 ], [ -96, %3 ], [ -96, %83 ]
   ret i32 %.0
 }
 
@@ -506,8 +506,8 @@ thread-pre-split:                                 ; preds = %.lr.ph59
   %.not18 = icmp eq i64 %103, 0
   br i1 %.not18, label %mbedtls_asn1_get_tag.exit.thread, label %100, !llvm.loop !15
 
-mbedtls_asn1_get_tag.exit.thread:                 ; preds = %100, %.thread.thread, %85, %25, %63, %46, %34, %27, %13, %10, %4, %.critedge, %90, %mbedtls_asn1_get_tag.exit
-  %.0 = phi i32 [ -100, %mbedtls_asn1_get_tag.exit ], [ -100, %90 ], [ -100, %.critedge ], [ -100, %25 ], [ -96, %63 ], [ -96, %46 ], [ -96, %34 ], [ -96, %27 ], [ -96, %13 ], [ -98, %10 ], [ -96, %4 ], [ -96, %85 ], [ 0, %.thread.thread ], [ 0, %100 ]
+mbedtls_asn1_get_tag.exit.thread:                 ; preds = %100, %.thread.thread, %85, %34, %27, %13, %63, %25, %46, %4, %10, %.critedge, %90, %mbedtls_asn1_get_tag.exit
+  %.0 = phi i32 [ 0, %.thread.thread ], [ -100, %mbedtls_asn1_get_tag.exit ], [ -100, %90 ], [ -100, %.critedge ], [ -98, %10 ], [ -96, %34 ], [ -96, %27 ], [ -96, %13 ], [ -96, %63 ], [ -100, %25 ], [ -96, %46 ], [ -96, %4 ], [ -96, %85 ], [ 0, %100 ]
   ret i32 %.0
 }
 
@@ -653,8 +653,8 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %83
   store ptr %90, ptr %0, align 8, !tbaa !3
   br label %mbedtls_asn1_get_tag.exit.thread
 
-mbedtls_asn1_get_tag.exit.thread:                 ; preds = %83, %23, %61, %44, %32, %25, %11, %9, %3, %mbedtls_asn1_get_tag.exit
-  %.0 = phi i32 [ %88, %mbedtls_asn1_get_tag.exit ], [ -100, %23 ], [ -96, %61 ], [ -96, %44 ], [ -96, %32 ], [ -96, %25 ], [ -96, %11 ], [ -98, %9 ], [ -96, %3 ], [ -96, %83 ]
+mbedtls_asn1_get_tag.exit.thread:                 ; preds = %83, %32, %25, %11, %61, %23, %44, %3, %9, %mbedtls_asn1_get_tag.exit
+  %.0 = phi i32 [ %88, %mbedtls_asn1_get_tag.exit ], [ -98, %9 ], [ -96, %32 ], [ -96, %25 ], [ -96, %11 ], [ -96, %61 ], [ -100, %23 ], [ -96, %44 ], [ -96, %3 ], [ -96, %83 ]
   ret i32 %.0
 }
 
@@ -709,7 +709,7 @@ mbedtls_asn1_get_tag.exit:                        ; preds = %9
   br label %mbedtls_asn1_get_tag.exit.thread
 
 mbedtls_asn1_get_tag.exit.thread:                 ; preds = %9, %3, %22, %16, %13, %mbedtls_asn1_get_tag.exit
-  %.0 = phi i32 [ %12, %mbedtls_asn1_get_tag.exit ], [ -96, %13 ], [ -100, %16 ], [ %., %22 ], [ -98, %9 ], [ -96, %3 ]
+  %.0 = phi i32 [ -100, %16 ], [ %12, %mbedtls_asn1_get_tag.exit ], [ -96, %13 ], [ %., %22 ], [ -98, %9 ], [ -96, %3 ]
   ret i32 %.0
 }
 
@@ -1000,8 +1000,8 @@ mbedtls_asn1_get_len.exit:                        ; preds = %173
   %185 = icmp ult ptr %184, %1
   br i1 %185, label %96, label %mbedtls_asn1_get_tag.exit.thread, !llvm.loop !20
 
-mbedtls_asn1_get_tag.exit.thread:                 ; preds = %182, %96, %180, %102, %115, %122, %134, %151, %113, %173, %.preheader, %88, %28, %66, %49, %37, %30, %16, %14, %8, %mbedtls_asn1_get_tag.exit
-  %.0 = phi i32 [ -102, %mbedtls_asn1_get_tag.exit ], [ -100, %28 ], [ -96, %66 ], [ -96, %49 ], [ -96, %37 ], [ -96, %30 ], [ -96, %16 ], [ -98, %14 ], [ -96, %8 ], [ -96, %88 ], [ 0, %.preheader ], [ 0, %182 ], [ -98, %96 ], [ %181, %180 ], [ -96, %102 ], [ -96, %115 ], [ -96, %122 ], [ -96, %134 ], [ -96, %151 ], [ -100, %113 ], [ -96, %173 ]
+mbedtls_asn1_get_tag.exit.thread:                 ; preds = %182, %96, %180, %134, %113, %151, %102, %115, %122, %173, %.preheader, %88, %37, %30, %16, %66, %28, %49, %8, %14, %mbedtls_asn1_get_tag.exit
+  %.0 = phi i32 [ -102, %mbedtls_asn1_get_tag.exit ], [ -96, %8 ], [ -96, %88 ], [ -98, %14 ], [ -96, %37 ], [ -96, %30 ], [ -96, %16 ], [ -96, %66 ], [ -100, %28 ], [ -96, %49 ], [ 0, %.preheader ], [ -96, %122 ], [ -96, %134 ], [ -100, %113 ], [ -96, %151 ], [ -96, %102 ], [ -96, %115 ], [ %181, %180 ], [ 0, %182 ], [ -98, %96 ], [ -96, %173 ]
   ret i32 %.0
 }
 
@@ -1308,8 +1308,8 @@ mbedtls_asn1_get_tag.exit42:                      ; preds = %96
   %. = select i1 %.not39, i32 0, i32 -102
   br label %mbedtls_asn1_get_tag.exit.thread
 
-mbedtls_asn1_get_tag.exit.thread:                 ; preds = %96, %90, %84, %24, %62, %45, %33, %26, %12, %10, %4, %113, %107, %mbedtls_asn1_get_tag.exit42, %106
-  %.0 = phi i32 [ 0, %106 ], [ %99, %mbedtls_asn1_get_tag.exit42 ], [ %112, %107 ], [ %., %113 ], [ -100, %24 ], [ -96, %62 ], [ -96, %45 ], [ -96, %33 ], [ -96, %26 ], [ -96, %12 ], [ -98, %10 ], [ -96, %4 ], [ -96, %84 ], [ -98, %96 ], [ -96, %90 ]
+mbedtls_asn1_get_tag.exit.thread:                 ; preds = %96, %90, %84, %33, %26, %12, %62, %24, %45, %4, %10, %113, %107, %mbedtls_asn1_get_tag.exit42, %106
+  %.0 = phi i32 [ %112, %107 ], [ -96, %84 ], [ -96, %90 ], [ 0, %106 ], [ %99, %mbedtls_asn1_get_tag.exit42 ], [ %., %113 ], [ -98, %10 ], [ -96, %33 ], [ -96, %26 ], [ -96, %12 ], [ -96, %62 ], [ -100, %24 ], [ -96, %45 ], [ -96, %4 ], [ -98, %96 ]
   ret i32 %.0
 }
 

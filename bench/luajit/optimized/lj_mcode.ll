@@ -333,7 +333,7 @@ define hidden ptr @lj_mcode_patch(ptr noundef captures(none) %0, ptr noundef %1,
   unreachable
 
 mcode_protect.exit:                               ; preds = %34, %28, %16, %8, %42, %17
-  %.025 = phi ptr [ null, %17 ], [ %36, %42 ], [ null, %8 ], [ null, %16 ], [ %5, %28 ], [ %5, %34 ]
+  %.025 = phi ptr [ %36, %42 ], [ null, %17 ], [ null, %16 ], [ null, %8 ], [ %5, %28 ], [ %5, %34 ]
   ret ptr %.025
 }
 

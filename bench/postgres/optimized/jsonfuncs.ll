@@ -1227,7 +1227,7 @@ define internal fastcc ptr @JsonbValueAsText(ptr noundef readonly captures(none)
   unreachable
 
 39:                                               ; preds = %8, %10, %1, %25, %18, %12
-  %.0 = phi ptr [ %17, %12 ], [ %24, %18 ], [ %34, %25 ], [ null, %1 ], [ %9, %8 ], [ %11, %10 ]
+  %.0 = phi ptr [ %34, %25 ], [ null, %1 ], [ %17, %12 ], [ %24, %18 ], [ %9, %8 ], [ %11, %10 ]
   ret ptr %.0
 }
 
@@ -1318,7 +1318,7 @@ define dso_local i64 @jsonb_array_element(ptr noundef captures(none) %0) local_u
   br label %29
 
 29:                                               ; preds = %.thread, %27, %24, %12
-  %.0 = phi i64 [ %26, %24 ], [ 0, %27 ], [ 0, %12 ], [ 0, %.thread ]
+  %.0 = phi i64 [ %26, %24 ], [ 0, %27 ], [ 0, %.thread ], [ 0, %12 ]
   ret i64 %.0
 }
 
@@ -1416,7 +1416,7 @@ define dso_local i64 @jsonb_array_element_text(ptr noundef captures(none) %0) lo
   br label %31
 
 31:                                               ; preds = %.thread, %29, %26, %12
-  %.0 = phi i64 [ %28, %26 ], [ 0, %29 ], [ 0, %12 ], [ 0, %.thread ]
+  %.0 = phi i64 [ %28, %26 ], [ 0, %29 ], [ 0, %.thread ], [ 0, %12 ]
   ret i64 %.0
 }
 
@@ -1501,7 +1501,7 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
   br label %47
 
 47:                                               ; preds = %45, %36, %43
-  %.sink = phi i32 [ -2147483648, %43 ], [ -2147483648, %36 ], [ %spec.select, %45 ]
+  %.sink = phi i32 [ -2147483648, %36 ], [ %spec.select, %45 ], [ -2147483648, %43 ]
   %48 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %.sink, ptr %48, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1660,8 +1660,8 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br label %16
 
 16:                                               ; preds = %10, %5, %14
-  %.085 = phi i1 [ false, %14 ], [ false, %5 ], [ true, %10 ]
-  %.069 = phi ptr [ %15, %14 ], [ null, %5 ], [ null, %10 ]
+  %.085 = phi i1 [ false, %5 ], [ false, %14 ], [ true, %10 ]
+  %.069 = phi ptr [ null, %5 ], [ %15, %14 ], [ null, %10 ]
   %17 = icmp slt i32 %2, 1
   %18 = icmp eq ptr %.069, null
   %or.cond = select i1 %17, i1 %18, i1 false
@@ -1802,7 +1802,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br label %119
 
 89:                                               ; preds = %75, %.thread
-  %.377 = phi i32 [ %68, %75 ], [ %88, %.thread ]
+  %.377 = phi i32 [ %88, %.thread ], [ %68, %75 ]
   %90 = call ptr @getIthJsonbValueFromContainer(ptr noundef %.067117, i32 noundef %.377) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %92
@@ -1870,7 +1870,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   br label %119
 
 119:                                              ; preds = %.thread109, %116, %113, %112, %94, %91, %29, %23
-  %.0 = phi i64 [ %28, %23 ], [ %30, %29 ], [ 0, %94 ], [ 0, %112 ], [ %115, %113 ], [ %118, %116 ], [ 0, %91 ], [ 0, %.thread109 ]
+  %.0 = phi i64 [ %28, %23 ], [ %30, %29 ], [ 0, %94 ], [ 0, %112 ], [ %115, %113 ], [ %118, %116 ], [ 0, %.thread109 ], [ 0, %91 ]
   ret i64 %.0
 }
 
@@ -2054,7 +2054,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br label %84
 
 84:                                               ; preds = %82, %76, %71
-  %.1122.i = phi i32 [ %83, %82 ], [ %.0121.i, %71 ], [ -2147483648, %76 ]
+  %.1122.i = phi i32 [ %.0121.i, %71 ], [ %83, %82 ], [ -2147483648, %76 ]
   %85 = icmp sgt i32 %.1122.i, 0
   %86 = icmp ugt i32 %.1122.i, %47
   %87 = and i1 %85, %86
@@ -2519,7 +2519,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   br i1 %.not151.i, label %.loopexit84, label %.preheader83, !llvm.loop !13
 
 .loopexit84:                                      ; preds = %.preheader83, %.thread76, %262, %259, %257
-  %.2124.i = phi i8 [ %.1123.i88, %.thread76 ], [ 1, %257 ], [ 1, %259 ], [ 1, %262 ], [ %.1123.i88, %.preheader83 ]
+  %.2124.i = phi i8 [ 1, %262 ], [ %.1123.i88, %.thread76 ], [ 1, %257 ], [ 1, %259 ], [ %.1123.i88, %.preheader83 ]
   %304 = add nuw i32 %.0125.i87, 1
   %exitcond.not = icmp eq i32 %304, %162
   br i1 %exitcond.not, label %._crit_edge, label %216, !llvm.loop !14
@@ -3695,7 +3695,7 @@ define internal fastcc i64 @populate_record_field(ptr noundef %0, i32 noundef %1
   br label %35
 
 35:                                               ; preds = %31, %32, %26, %27
-  %.shrunk = phi i1 [ true, %26 ], [ %30, %27 ], [ true, %31 ], [ %34, %32 ]
+  %.shrunk = phi i1 [ %30, %27 ], [ true, %26 ], [ true, %31 ], [ %34, %32 ]
   %36 = freeze i1 %.shrunk
   %37 = zext i1 %36 to i8
   store i8 %37, ptr %7, align 1
@@ -3891,8 +3891,8 @@ switch.early.test:                                ; preds = %55
   br label %populate_scalar.exit
 
 .thread64.i:                                      ; preds = %.thread.i, %115, %109, %102, %95, %86, %76, %74, %72
-  %.058.i = phi ptr [ %63, %74 ], [ %63, %76 ], [ %63, %72 ], [ null, %102 ], [ null, %115 ], [ null, %.thread.i ], [ null, %109 ], [ null, %95 ], [ null, %86 ]
-  %.157.i = phi ptr [ %63, %74 ], [ %79, %76 ], [ %73, %72 ], [ %108, %102 ], [ %120, %115 ], [ %125, %.thread.i ], [ %114, %109 ], [ %100, %95 ], [ %92, %86 ]
+  %.058.i = phi ptr [ %63, %72 ], [ %63, %74 ], [ %63, %76 ], [ null, %102 ], [ null, %115 ], [ null, %.thread.i ], [ null, %109 ], [ null, %95 ], [ null, %86 ]
+  %.157.i = phi ptr [ %73, %72 ], [ %63, %74 ], [ %79, %76 ], [ %108, %102 ], [ %120, %115 ], [ %125, %.thread.i ], [ %114, %109 ], [ %100, %95 ], [ %92, %86 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load i32, ptr %58, align 8
   %135 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %133, ptr noundef %.157.i, i32 noundef %134, i32 noundef %2, ptr noundef %8, ptr noundef nonnull %14) #14
@@ -4110,7 +4110,7 @@ populate_array.exit:                              ; preds = %188, %populate_arra
   unreachable
 
 populate_domain.exit:                             ; preds = %231, %.thread, %switch.early.test, %216, %populate_array.exit, %populate_scalar.exit
-  %.064 = phi i64 [ %.1.i, %populate_scalar.exit ], [ %.021.i, %populate_array.exit ], [ %218, %216 ], [ 0, %switch.early.test ], [ 0, %231 ], [ %.0.i72, %.thread ]
+  %.064 = phi i64 [ 0, %switch.early.test ], [ %.1.i, %populate_scalar.exit ], [ %.021.i, %populate_array.exit ], [ %218, %216 ], [ 0, %231 ], [ %.0.i72, %.thread ]
   ret i64 %.064
 }
 
@@ -5718,7 +5718,7 @@ define dso_local i64 @jsonb_set(ptr noundef readonly captures(none) %0) local_un
   br label %52
 
 52:                                               ; preds = %41, %38, %44
-  %.0.in = phi ptr [ %51, %44 ], [ %11, %38 ], [ %11, %41 ]
+  %.0.in = phi ptr [ %11, %38 ], [ %51, %44 ], [ %11, %41 ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6078,7 +6078,7 @@ define dso_local range(i32 0, 16) i32 @parse_jsonb_index_flags(ptr noundef %0) l
   br i1 %28, label %.backedge, label %29
 
 .backedge:                                        ; preds = %25, %35, %52, %60, %43
-  %.0.be = phi i32 [ %36, %35 ], [ %44, %43 ], [ %53, %52 ], [ %61, %60 ], [ 15, %25 ]
+  %.0.be = phi i32 [ %61, %60 ], [ %36, %35 ], [ %44, %43 ], [ %53, %52 ], [ 15, %25 ]
   br label %13, !llvm.loop !32
 
 29:                                               ; preds = %25
@@ -7587,7 +7587,7 @@ define internal noundef i32 @get_object_field_start(ptr noundef captures(none) %
   store ptr %45, ptr %33, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %23, %20, %17, %9, %3, %41, %43
+.critedge:                                        ; preds = %28, %3, %23, %20, %17, %9, %41, %43
   ret i32 0
 }
 
@@ -7670,7 +7670,7 @@ define internal noundef i32 @get_object_field_end(ptr noundef captures(none) %0,
   store ptr null, ptr %32, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %23, %20, %17, %9, %3, %47, %31
+.critedge:                                        ; preds = %28, %3, %23, %20, %17, %9, %47, %31
   ret i32 0
 }
 
@@ -7764,7 +7764,7 @@ define internal noundef i32 @get_array_element_start(ptr noundef captures(none) 
   store ptr %56, ptr %44, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %29, %26, %18, %16, %52, %54
+.critedge:                                        ; preds = %39, %16, %29, %26, %18, %52, %54
   ret i32 0
 }
 
@@ -7846,7 +7846,7 @@ define internal noundef i32 @get_array_element_end(ptr noundef captures(none) %0
   store ptr null, ptr %33, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %19, %16, %8, %2, %48, %32
+.critedge:                                        ; preds = %29, %2, %19, %16, %8, %48, %32
   ret i32 0
 }
 
@@ -8512,7 +8512,7 @@ get_json_object_as_hash.exit.i:                   ; preds = %70, %50
   br label %85
 
 85:                                               ; preds = %.fold.split.i, %.thread28.i, %74, %74, %74, %74, %74
-  %.str..str.3.i = phi ptr [ %84, %.thread28.i ], [ @.str.3, %.fold.split.i ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ]
+  %.str..str.3.i = phi ptr [ @.str.3, %.fold.split.i ], [ @.str, %74 ], [ %84, %.thread28.i ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ], [ @.str, %74 ]
   %86 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #14
   br i1 %86, label %87, label %90
 
@@ -8595,7 +8595,7 @@ JsValueToJsObject.exit:                           ; preds = %94
   br label %124
 
 124:                                              ; preds = %113, %118, %.critedge, %123
-  %.1 = phi i64 [ 0, %123 ], [ 0, %.critedge ], [ %.030, %118 ], [ %.030, %113 ]
+  %.1 = phi i64 [ 0, %.critedge ], [ 0, %123 ], [ %.030, %118 ], [ %.030, %113 ]
   ret i64 %.1
 }
 
@@ -8800,7 +8800,7 @@ populate_array_element.exit:                      ; preds = %71
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %87, %populate_array_element.exit, %populate_array_assign_ndims.exit, %._crit_edge, %14
-  %.022 = phi i1 [ false, %14 ], [ true, %._crit_edge ], [ false, %populate_array_assign_ndims.exit ], [ false, %populate_array_element.exit ], [ false, %87 ], [ false, %89 ]
+  %.022 = phi i1 [ false, %14 ], [ false, %populate_array_assign_ndims.exit ], [ true, %._crit_edge ], [ false, %populate_array_element.exit ], [ false, %87 ], [ false, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9132,7 +9132,7 @@ populate_array_assign_ndims.exit.thread:          ; preds = %populate_array_assi
   br label %31
 
 31:                                               ; preds = %populate_array_assign_ndims.exit, %populate_array_assign_ndims.exit.thread, %29, %26
-  %.0 = phi i32 [ 23, %26 ], [ 23, %populate_array_assign_ndims.exit ], [ 0, %29 ], [ 0, %populate_array_assign_ndims.exit.thread ]
+  %.0 = phi i32 [ 23, %populate_array_assign_ndims.exit ], [ 23, %26 ], [ 0, %29 ], [ 0, %populate_array_assign_ndims.exit.thread ]
   ret i32 %.0
 }
 
@@ -9287,7 +9287,7 @@ define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr no
   br label %34
 
 34:                                               ; preds = %23, %27, %15, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %15 ], [ true, %27 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %19 ], [ true, %27 ], [ true, %23 ]
   ret i1 %.0
 }
 

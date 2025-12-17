@@ -702,8 +702,8 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   br label %.thread
 
 .thread:                                          ; preds = %69, %71, %24, %26, %163, %159, %91, %75, %45, %41, %35, %32, %2
-  %165 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %159 ], [ 0, %163 ], [ 1, %26 ], [ 1, %24 ], [ 1, %71 ], [ 1, %69 ]
-  %166 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %159 ], [ %164, %163 ], [ null, %26 ], [ null, %24 ], [ null, %71 ], [ null, %69 ]
+  %165 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %159 ], [ 0, %163 ], [ 1, %24 ], [ 1, %26 ], [ 1, %71 ], [ 1, %69 ]
+  %166 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %159 ], [ %164, %163 ], [ null, %24 ], [ null, %26 ], [ null, %71 ], [ null, %69 ]
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %168 = load i16, ptr %167, align 4
   %169 = or i16 %168, %165

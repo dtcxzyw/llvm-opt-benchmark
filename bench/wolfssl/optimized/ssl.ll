@@ -404,7 +404,7 @@ wolfSSL_CTX_free.exit:                            ; preds = %24
   br label %28
 
 28:                                               ; preds = %21, %20, %27, %wolfSSL_CTX_free.exit, %24, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ null, %27 ], [ null, %wolfSSL_CTX_free.exit ], [ %23, %24 ], [ null, %20 ], [ null, %21 ]
+  %.1 = phi ptr [ %23, %24 ], [ null, %.critedge ], [ null, %27 ], [ null, %wolfSSL_CTX_free.exit ], [ null, %20 ], [ null, %21 ]
   ret ptr %.1
 }
 
@@ -537,7 +537,7 @@ define i32 @wolfSSL_CTX_load_verify_buffer_ex(ptr noundef %0, ptr noundef %1, i6
   br label %ProcessChainBuffer.exit
 
 ProcessChainBuffer.exit:                          ; preds = %._crit_edge.loopexit.i, %._crit_edge.loopexit.thread.i, %17, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %17 ], [ -125, %._crit_edge.loopexit.thread.i ], [ %spec.select.i, %._crit_edge.loopexit.i ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %17 ], [ %spec.select.i, %._crit_edge.loopexit.i ], [ -125, %._crit_edge.loopexit.thread.i ]
   ret i32 %.0
 }
 
@@ -602,9 +602,9 @@ define range(i32 1, 0) i32 @CM_VerifyBuffer_ex(ptr noundef %0, ptr noundef %1, i
   %20 = zext i32 %19 to i64
   br label %21
 
-21:                                               ; preds = %5, %15
-  %.021.ph = phi i64 [ %2, %5 ], [ %20, %15 ]
-  %.020.ph = phi ptr [ %1, %5 ], [ %17, %15 ]
+21:                                               ; preds = %15, %5
+  %.021.ph = phi i64 [ %20, %15 ], [ %2, %5 ]
+  %.020.ph = phi ptr [ %17, %15 ], [ %1, %5 ]
   %22 = trunc i64 %.021.ph to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load ptr, ptr %23, align 8, !tbaa !16
@@ -637,7 +637,7 @@ define range(i32 1, 0) i32 @CM_VerifyBuffer_ex(ptr noundef %0, ptr noundef %1, i
   br label %34
 
 34:                                               ; preds = %11, %28, %21
-  %.2 = phi i32 [ %33, %28 ], [ %25, %21 ], [ %14, %11 ]
+  %.2 = phi i32 [ %25, %21 ], [ %33, %28 ], [ %14, %11 ]
   call void @FreeDecodedCert(ptr noundef nonnull %7) #22
   call void @FreeDer(ptr noundef nonnull %6) #22
   %35 = call i32 @llvm.umax.i32(i32 %.2, i32 1)
@@ -750,8 +750,8 @@ define range(i32 1, 0) i32 @wolfSSL_CertManagerVerify(ptr noundef %0, ptr nounde
   br label %wolfSSL_CertManagerVerifyBuffer.exit
 
 wolfSSL_CertManagerVerifyBuffer.exit:             ; preds = %32, %30, %.thread118, %27
-  %.0298189116 = phi ptr [ %.029, %27 ], [ %.0298188.ph, %.thread118 ], [ %.029, %30 ], [ %.029, %32 ]
-  %.5 = phi i32 [ -463, %27 ], [ -463, %.thread118 ], [ -462, %30 ], [ %33, %32 ]
+  %.0298189116 = phi ptr [ %.0298188.ph, %.thread118 ], [ %.029, %27 ], [ %.029, %32 ], [ %.029, %30 ]
+  %.5 = phi i32 [ -463, %.thread118 ], [ -463, %27 ], [ %33, %32 ], [ -462, %30 ]
   %34 = icmp ne ptr %.0298189116, %4
   %.not37 = icmp ne ptr %.0298189116, null
   %35 = and i1 %34, %.not37
@@ -762,7 +762,7 @@ wolfSSL_CertManagerVerifyBuffer.exit:             ; preds = %32, %30, %.thread11
   br label %wolfSSL_CertManagerVerifyBuffer.exit.thread
 
 wolfSSL_CertManagerVerifyBuffer.exit.thread:      ; preds = %3, %7, %36, %wolfSSL_CertManagerVerifyBuffer.exit
-  %.5129 = phi i32 [ %.5, %36 ], [ %.5, %wolfSSL_CertManagerVerifyBuffer.exit ], [ -463, %7 ], [ -173, %3 ]
+  %.5129 = phi i32 [ %.5, %wolfSSL_CertManagerVerifyBuffer.exit ], [ %.5, %36 ], [ -463, %7 ], [ -173, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.5129
 }
@@ -1022,7 +1022,7 @@ define ptr @wolfSSL_get_session(ptr noundef captures(address_is_null) %0) local_
   br label %.thread
 
 .thread:                                          ; preds = %10, %1, %23, %7, %25
-  %.020 = phi ptr [ %24, %23 ], [ %27, %25 ], [ %9, %7 ], [ null, %1 ], [ null, %10 ]
+  %.020 = phi ptr [ %27, %25 ], [ %9, %7 ], [ %24, %23 ], [ null, %1 ], [ null, %10 ]
   ret ptr %.020
 }
 
@@ -1111,7 +1111,7 @@ HashObject.exit:                                  ; preds = %14
   %55 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %41, i64 %54
   br label %74
 
-56:                                               ; preds = %52, %42
+56:                                               ; preds = %42, %52
   %57 = load i32, ptr %37, align 16, !tbaa !83
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct.WOLFSSL_SESSION, ptr %41, i64 %58
@@ -1245,7 +1245,7 @@ wolfSSL_DupSession.exit:                          ; preds = %100, %102
   br label %112
 
 112:                                              ; preds = %wolfSSL_DupSession.exit.thread, %wolfSSL_DupSession.exit, %111, %106, %HashObject.exit, %17, %11, %8
-  %.0 = phi i32 [ -173, %8 ], [ -125, %11 ], [ %15, %HashObject.exit ], [ -106, %17 ], [ 0, %106 ], [ 0, %111 ], [ 0, %wolfSSL_DupSession.exit ], [ 1, %wolfSSL_DupSession.exit.thread ]
+  %.0 = phi i32 [ -106, %17 ], [ -173, %8 ], [ -125, %11 ], [ %15, %HashObject.exit ], [ 0, %106 ], [ 0, %111 ], [ 0, %wolfSSL_DupSession.exit ], [ 1, %wolfSSL_DupSession.exit.thread ]
   ret i32 %.0
 }
 
@@ -1277,7 +1277,7 @@ define ptr @wolfSSL_get1_session(ptr noundef readonly captures(address_is_null) 
   %.not.i = icmp eq i32 %13, 3
   br i1 %.not.i, label %wolfSSL_SESSION_up_ref.exit, label %wolfSSL_SESSION_up_ref.exit.thread
 
-wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %12, %9
+wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %9, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %16
 
@@ -1294,7 +1294,7 @@ wolfSSL_SESSION_up_ref.exit:                      ; preds = %12
   br label %17
 
 17:                                               ; preds = %16, %wolfSSL_SESSION_up_ref.exit, %3, %6, %1
-  %.0 = phi ptr [ %5, %6 ], [ null, %3 ], [ null, %1 ], [ null, %16 ], [ %5, %wolfSSL_SESSION_up_ref.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %5, %6 ], [ null, %16 ], [ %5, %wolfSSL_SESSION_up_ref.exit ]
   ret ptr %.0
 }
 
@@ -1320,7 +1320,7 @@ define range(i32 0, 2) i32 @wolfSSL_SESSION_up_ref(ptr noundef %0) local_unnamed
   br label %10
 
 10:                                               ; preds = %7, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %7 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1427,7 +1427,7 @@ define range(i32 0, 2) i32 @wolfSSL_SetSession(ptr noundef captures(address_is_n
   %.not.i = icmp eq i32 %39, 3
   br i1 %.not.i, label %wolfSSL_SESSION_up_ref.exit, label %wolfSSL_SESSION_up_ref.exit.thread
 
-wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %38, %35
+wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %35, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
@@ -1492,7 +1492,7 @@ wolfSSL_SESSION_up_ref.exit:                      ; preds = %38
   br label %.thread
 
 .thread:                                          ; preds = %wolfSSL_SESSION_up_ref.exit.thread, %wolfSSL_SESSION_up_ref.exit, %26, %44, %61, %59, %.thread66
-  %.164 = phi i1 [ false, %61 ], [ false, %59 ], [ false, %.thread66 ], [ true, %44 ], [ true, %26 ], [ true, %wolfSSL_SESSION_up_ref.exit ], [ true, %wolfSSL_SESSION_up_ref.exit.thread ]
+  %.164 = phi i1 [ true, %44 ], [ false, %61 ], [ false, %59 ], [ false, %.thread66 ], [ true, %26 ], [ true, %wolfSSL_SESSION_up_ref.exit ], [ true, %wolfSSL_SESSION_up_ref.exit.thread ]
   br i1 %.043, label %70, label %68
 
 68:                                               ; preds = %.thread
@@ -1537,7 +1537,7 @@ wolfSSL_SESSION_up_ref.exit:                      ; preds = %38
   br label %96
 
 96:                                               ; preds = %71, %70, %18, %7, %2, %80
-  %.044 = phi i32 [ 1, %80 ], [ 0, %2 ], [ 0, %7 ], [ 0, %18 ], [ 0, %70 ], [ 0, %71 ]
+  %.044 = phi i32 [ 1, %80 ], [ 0, %7 ], [ 0, %18 ], [ 0, %70 ], [ 0, %2 ], [ 0, %71 ]
   ret i32 %.044
 }
 
@@ -1577,7 +1577,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetServerID(ptr noundef captures(address_
   %.not30.not = icmp eq i32 %18, 0
   br i1 %.not30.not, label %.critedge, label %25
 
-.critedge:                                        ; preds = %15, %13, %17
+.critedge:                                        ; preds = %13, %15, %17
   %19 = trunc nuw nsw i32 %.023 to i16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %21 = load ptr, ptr %20, align 16, !tbaa !76
@@ -1589,7 +1589,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetServerID(ptr noundef captures(address_
   br label %25
 
 25:                                               ; preds = %17, %.critedge, %11, %4
-  %.022 = phi i32 [ -173, %4 ], [ 0, %11 ], [ 1, %.critedge ], [ 1, %17 ]
+  %.022 = phi i32 [ 0, %11 ], [ -173, %4 ], [ 1, %.critedge ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }
@@ -2060,7 +2060,7 @@ HashObject.exit:                                  ; preds = %5
   br label %66
 
 66:                                               ; preds = %HashObject.exit, %63, %65, %34
-  %.027 = phi i32 [ %7, %HashObject.exit ], [ -313, %34 ], [ 0, %65 ], [ 0, %63 ]
+  %.027 = phi i32 [ -313, %34 ], [ %7, %HashObject.exit ], [ 0, %65 ], [ 0, %63 ]
   ret i32 %.027
 }
 
@@ -2236,7 +2236,7 @@ wolfSSL_DupSession.exit:                          ; preds = %76, %82, %86
   %88 = tail call i32 @wc_UnLockRwLock(ptr noundef nonnull @session_lock) #22
   br label %.thread
 
-.thread:                                          ; preds = %47, %75, %wolfSSL_DupSession.exit
+.thread:                                          ; preds = %75, %47, %wolfSSL_DupSession.exit
   %.2 = phi i32 [ %.0.i.i, %wolfSSL_DupSession.exit ], [ 0, %75 ], [ 0, %47 ]
   %89 = load ptr, ptr %9, align 16, !tbaa !76
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
@@ -2256,7 +2256,7 @@ wolfSSL_DupSession.exit:                          ; preds = %76, %82, %86
   br label %98
 
 98:                                               ; preds = %.thread, %94, %15, %8, %2
-  %.038 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %15 ], [ %.2, %94 ], [ %.2, %.thread ]
+  %.038 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %15 ], [ %.2, %94 ], [ %.2, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2315,7 +2315,7 @@ define ptr @wolfSSL_GetSession(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %3, %11, %7
-  %.012 = phi ptr [ %8, %11 ], [ %8, %7 ], [ null, %3 ]
+  %.012 = phi ptr [ %8, %7 ], [ %8, %11 ], [ null, %3 ]
   ret ptr %.012
 }
 
@@ -2408,7 +2408,7 @@ define ptr @ClientSessionToSession(ptr noundef readonly captures(address, ret: a
   br label %.thread62
 
 .thread62:                                        ; preds = %16, %12, %9, %.thread66
-  %spec.select2661 = phi ptr [ %spec.select2660, %.thread66 ], [ null, %9 ], [ null, %12 ], [ null, %16 ]
+  %spec.select2661 = phi ptr [ %spec.select2660, %.thread66 ], [ null, %12 ], [ null, %9 ], [ null, %16 ]
   %56 = call i32 @wc_UnLockMutex(ptr noundef nonnull @clisession_mutex) #22
   br label %57
 
@@ -3101,7 +3101,7 @@ wolfSSL_DupSession.exit:                          ; preds = %12
   br label %wolfSSL_NewSession.exit.thread
 
 wolfSSL_NewSession.exit.thread:                   ; preds = %20, %24, %5, %wolfSSL_NewSession.exit.thread15, %wolfSSL_DupSession.exit, %1
-  %.09 = phi ptr [ null, %1 ], [ null, %wolfSSL_DupSession.exit ], [ null, %wolfSSL_NewSession.exit.thread15 ], [ null, %5 ], [ %8, %24 ], [ %8, %20 ]
+  %.09 = phi ptr [ null, %1 ], [ null, %wolfSSL_DupSession.exit ], [ null, %5 ], [ null, %wolfSSL_NewSession.exit.thread15 ], [ %8, %24 ], [ %8, %20 ]
   ret ptr %.09
 }
 
@@ -3202,7 +3202,7 @@ define range(i32 -228, 2) i32 @wolfSSL_Init() local_unnamed_addr #0 {
   store i1 true, ptr @session_lock_valid, align 4
   br label %.thread16
 
-.thread16:                                        ; preds = %9, %2
+.thread16:                                        ; preds = %2, %9
   %10 = load volatile i32, ptr @initRefCount, align 4, !tbaa !3
   %11 = add nsw i32 %10, 1
   store volatile i32 %11, ptr @initRefCount, align 4, !tbaa !3
@@ -4225,7 +4225,7 @@ define i32 @wolfSSL_accept(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit165
 
 .loopexit165:                                     ; preds = %64, %133, %161, %172, %56, %149, %145, %142, %121, %112, %103, %92, %85, %74, %9, %1, %177, %99, %81, %71, %54, %50, %30, %23, %16, %7
-  %.0 = phi i32 [ %8, %7 ], [ -1, %16 ], [ -1, %54 ], [ %72, %71 ], [ %82, %81 ], [ %100, %99 ], [ 1, %177 ], [ -1, %172 ], [ -1, %50 ], [ -1, %30 ], [ -1, %23 ], [ -1, %1 ], [ %11, %9 ], [ -1, %74 ], [ -1, %85 ], [ -1, %92 ], [ -1, %103 ], [ -1, %112 ], [ -1, %121 ], [ -1, %142 ], [ -1, %145 ], [ -1, %149 ], [ -1, %56 ], [ -1, %161 ], [ -1, %133 ], [ -1, %64 ]
+  %.0 = phi i32 [ -1, %23 ], [ %8, %7 ], [ -1, %1 ], [ -1, %16 ], [ -1, %54 ], [ %11, %9 ], [ %72, %71 ], [ %82, %81 ], [ %100, %99 ], [ -1, %142 ], [ -1, %145 ], [ -1, %149 ], [ 1, %177 ], [ -1, %172 ], [ -1, %121 ], [ -1, %112 ], [ -1, %103 ], [ -1, %92 ], [ -1, %85 ], [ -1, %74 ], [ -1, %50 ], [ -1, %30 ], [ -1, %56 ], [ -1, %133 ], [ -1, %161 ], [ -1, %64 ]
   ret i32 %.0
 }
 
@@ -4404,7 +4404,7 @@ define i32 @wolfSSL_connect(ptr noundef %0) local_unnamed_addr #0 {
   br label %80
 
 80:                                               ; preds = %77, %75
-  %.190 = phi i32 [ %.089125, %75 ], [ %spec.select122, %77 ]
+  %.190 = phi i32 [ %spec.select122, %77 ], [ %.089125, %75 ]
   %81 = load i8, ptr %62, align 1, !tbaa !144
   %82 = zext i8 %81 to i32
   %83 = icmp samesign ugt i32 %.190, %82
@@ -4589,7 +4589,7 @@ define i32 @wolfSSL_connect(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %139, %151, %51, %129, %125, %121, %110, %99, %90, %54, %10, %1, %156, %117, %106, %95, %87, %70, %49, %45, %16, %8
-  %.0 = phi i32 [ %9, %8 ], [ -1, %16 ], [ -1, %49 ], [ %71, %70 ], [ %88, %87 ], [ %96, %95 ], [ %107, %106 ], [ 1, %156 ], [ -1, %151 ], [ -1, %117 ], [ -1, %45 ], [ -173, %1 ], [ %12, %10 ], [ -1, %54 ], [ 1, %90 ], [ -1, %99 ], [ -1, %110 ], [ -1, %121 ], [ -1, %125 ], [ -1, %129 ], [ -1, %51 ], [ -1, %139 ], [ -1, %72 ]
+  %.0 = phi i32 [ -1, %45 ], [ %9, %8 ], [ -173, %1 ], [ -1, %16 ], [ -1, %49 ], [ %12, %10 ], [ %71, %70 ], [ -1, %54 ], [ %88, %87 ], [ %96, %95 ], [ 1, %90 ], [ %107, %106 ], [ -1, %110 ], [ -1, %121 ], [ -1, %125 ], [ -1, %129 ], [ 1, %156 ], [ -1, %151 ], [ -1, %117 ], [ -1, %99 ], [ -1, %51 ], [ -1, %139 ], [ -1, %72 ]
   ret i32 %.0
 }
 
@@ -4957,7 +4957,7 @@ define range(i32 -2147483648, 2) i32 @wolfSSL_inject(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %17, %3, %20, %23
-  %.0 = phi i32 [ 1, %23 ], [ %21, %20 ], [ -173, %3 ], [ -441, %17 ]
+  %.0 = phi i32 [ %21, %20 ], [ 1, %23 ], [ -173, %3 ], [ -441, %17 ]
   ret i32 %.0
 }
 
@@ -5021,7 +5021,7 @@ wolfSSL_write_internal.exit:                      ; preds = %6
   br label %wolfSSL_write_internal.exit.thread
 
 wolfSSL_write_internal.exit.thread:               ; preds = %6, %wolfSSL_write_internal.exit, %24, %17, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %17 ], [ 0, %24 ], [ 0, %wolfSSL_write_internal.exit ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ 1, %28 ], [ 0, %17 ], [ 0, %wolfSSL_write_internal.exit ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5096,7 +5096,7 @@ wolfSSL_read_internal.exit:                       ; preds = %4
   br label %wolfSSL_read_internal.exit.thread
 
 wolfSSL_read_internal.exit.thread:                ; preds = %4, %11, %wolfSSL_read_internal.exit
-  %.0.i12 = phi i32 [ %..i, %11 ], [ %..i, %wolfSSL_read_internal.exit ], [ -173, %4 ]
+  %.0.i12 = phi i32 [ %..i, %wolfSSL_read_internal.exit ], [ %..i, %11 ], [ -173, %4 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.0.i12, i32 0)
   ret i32 %spec.store.select
 }
@@ -5577,7 +5577,7 @@ define range(i32 -1, 3) i32 @wolfSSL_SendUserCanceled(ptr noundef %0) local_unna
   br label %wolfSSL_shutdown.exit
 
 wolfSSL_shutdown.exit:                            ; preds = %28, %26, %24, %21, %15, %12, %6, %1, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %1 ], [ -1, %12 ], [ 2, %15 ], [ 1, %26 ], [ %.0.i, %21 ], [ 1, %6 ], [ -1, %24 ], [ %..i, %28 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %1 ], [ -1, %12 ], [ 2, %15 ], [ %..i, %28 ], [ %.0.i, %21 ], [ 1, %6 ], [ 1, %26 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -5650,7 +5650,7 @@ define range(i32 -1, 3) i32 @wolfSSL_shutdown(ptr noundef %0) local_unnamed_addr
   br label %31
 
 31:                                               ; preds = %19, %24, %3, %22, %27, %13, %9, %1
-  %.023 = phi i32 [ -1, %1 ], [ -1, %9 ], [ 2, %13 ], [ 1, %24 ], [ %.0, %19 ], [ 1, %3 ], [ -1, %22 ], [ %., %27 ]
+  %.023 = phi i32 [ -1, %9 ], [ 2, %13 ], [ -1, %1 ], [ %.0, %19 ], [ 1, %3 ], [ 1, %24 ], [ -1, %22 ], [ %., %27 ]
   ret i32 %.023
 }
 
@@ -5702,7 +5702,7 @@ define range(i32 -322, -323) i32 @wolfSSL_get_error(ptr noundef readonly capture
   br label %14
 
 14:                                               ; preds = %10, %6, %4, %2, %13, %9
-  %.0 = phi i32 [ 3, %9 ], [ 6, %13 ], [ 0, %2 ], [ -173, %4 ], [ 2, %6 ], [ %8, %10 ]
+  %.0 = phi i32 [ 2, %6 ], [ 0, %2 ], [ -173, %4 ], [ 3, %9 ], [ 6, %13 ], [ %8, %10 ]
   ret i32 %.0
 }
 
@@ -5916,7 +5916,7 @@ define ptr @wolfSSL_GetMacSecret(ptr noundef readonly captures(address_is_null, 
   br label %15
 
 15:                                               ; preds = %2, %13, %11
-  %.0 = phi ptr [ %12, %11 ], [ %14, %13 ], [ null, %2 ]
+  %.0 = phi ptr [ %14, %13 ], [ %12, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -6114,7 +6114,7 @@ define range(i32 -326, 5) i32 @wolfSSL_GetVersion(ptr noundef readonly captures(
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %7, %3, %1
-  %.0 = phi i32 [ -173, %1 ], [ -326, %3 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ -326, %3 ], [ -173, %1 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -6462,7 +6462,7 @@ AlreadySigner.exit.thread:                        ; preds = %5, %AlreadySigner.e
   br label %61
 
 61:                                               ; preds = %AlreadySigner.exit.thread, %2, %44, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %44 ], [ -173, %2 ], [ -106, %AlreadySigner.exit.thread ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %35 ], [ -173, %2 ], [ -106, %AlreadySigner.exit.thread ]
   ret i32 %.0
 }
 
@@ -6523,7 +6523,7 @@ define range(i32 1, 0) i32 @AddCA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %or.cond82 = select i1 %31, i1 true, i1 %35
   br i1 %or.cond82, label %.thread102, label %36
 
-36:                                               ; preds = %28, %20, %17, %9
+36:                                               ; preds = %20, %28, %17, %9
   %37 = icmp eq i32 %15, 0
   br i1 %37, label %38, label %.thread102
 
@@ -6656,8 +6656,8 @@ AlreadySigner.exit:                               ; preds = %.lr.ph.i
   call void %116(ptr noundef %118, i32 noundef %119, i32 noundef %2) #22
   br label %.thread102
 
-.thread102:                                       ; preds = %117, %109, %36, %AlreadySigner.exit, %38, %48, %20, %28
-  %.2.ph = phi i32 [ 0, %109 ], [ 0, %117 ], [ %15, %36 ], [ -357, %48 ], [ -357, %38 ], [ 0, %AlreadySigner.exit ], [ -409, %20 ], [ -410, %28 ]
+.thread102:                                       ; preds = %117, %109, %36, %38, %AlreadySigner.exit, %48, %28, %20
+  %.2.ph = phi i32 [ 0, %117 ], [ 0, %109 ], [ %15, %36 ], [ -357, %48 ], [ 0, %AlreadySigner.exit ], [ -357, %38 ], [ -410, %28 ], [ -409, %20 ]
   call void @FreeDecodedCert(ptr noundef nonnull %5) #22
   %120 = call i32 @llvm.umax.i32(i32 %.2.ph, i32 1)
   br label %124
@@ -6802,7 +6802,7 @@ EvictSessionFromCache.exit:                       ; preds = %.lr.ph35.i.i
   br label %36
 
 36:                                               ; preds = %5, %.critedge, %0, %34
-  %.016 = phi i32 [ %spec.select22, %34 ], [ -106, %0 ], [ 1, %.critedge ], [ 1, %5 ]
+  %.016 = phi i32 [ -106, %0 ], [ %spec.select22, %34 ], [ 1, %.critedge ], [ 1, %5 ]
   ret i32 %.016
 }
 
@@ -7112,14 +7112,14 @@ wolfSSL_CTX_GetDevId.exit.i.i:                    ; preds = %94, %ProcessBufferP
   br label %ProcessBufferPrivateKey.exit
 
 .thread80.i.i:                                    ; preds = %.thread82.i.i, %98
-  %.2.i = phi i32 [ %.1.i, %.thread82.i.i ], [ %71, %98 ]
+  %.2.i = phi i32 [ %71, %98 ], [ %.1.i, %.thread82.i.i ]
   %148 = icmp eq i32 %.2.i, 0
   %spec.select16.i = select i1 %148, i32 -463, i32 0
   br label %ProcessBufferPrivateKey.exit
 
 ProcessBufferPrivateKey.exit:                     ; preds = %wolfSSL_CTX_GetDevId.exit.i.i, %119, %121, %144, %146, %.thread80.i.thread.i, %.thread80.i.i
-  %.3.i = phi i32 [ %71, %wolfSSL_CTX_GetDevId.exit.i.i ], [ 518, %146 ], [ 518, %121 ], [ %71, %119 ], [ 518, %.thread80.i.thread.i ], [ %.1.i, %144 ], [ %.2.i, %.thread80.i.i ]
-  %.3.i.i = phi i32 [ -173, %wolfSSL_CTX_GetDevId.exit.i.i ], [ -410, %146 ], [ -409, %121 ], [ %105, %119 ], [ 0, %.thread80.i.thread.i ], [ %spec.select14.i, %144 ], [ %spec.select16.i, %.thread80.i.i ]
+  %.3.i = phi i32 [ %71, %wolfSSL_CTX_GetDevId.exit.i.i ], [ %71, %119 ], [ 518, %146 ], [ %.1.i, %144 ], [ 518, %121 ], [ 518, %.thread80.i.thread.i ], [ %.2.i, %.thread80.i.i ]
+  %.3.i.i = phi i32 [ -173, %wolfSSL_CTX_GetDevId.exit.i.i ], [ %105, %119 ], [ -410, %146 ], [ %spec.select14.i, %144 ], [ -409, %121 ], [ 0, %.thread80.i.thread.i ], [ %spec.select16.i, %.thread80.i.i ]
   %149 = or i32 %.3.i.i, %.3.i
   %or.cond.i = icmp eq i32 %149, 0
   br i1 %or.cond.i, label %.thread134, label %ProcessBufferCertTypes.exit
@@ -7335,8 +7335,8 @@ ProcessUserCert.exit.thread.thread102.i:          ; preds = %232
   br label %ProcessUserCert.exit.i
 
 ProcessUserCert.exit.i:                           ; preds = %249, %DataToDerBuffer.exit.i
-  %.280.i = phi i32 [ %.078114.i, %DataToDerBuffer.exit.i ], [ %248, %249 ]
-  %.2.i84 = phi i32 [ %224, %DataToDerBuffer.exit.i ], [ %spec.store.select.i.i, %249 ]
+  %.280.i = phi i32 [ %248, %249 ], [ %.078114.i, %DataToDerBuffer.exit.i ]
+  %.2.i84 = phi i32 [ %spec.store.select.i.i, %249 ], [ %224, %DataToDerBuffer.exit.i ]
   %252 = icmp eq i32 %.2.i84, -162
   %or.cond.i85 = and i1 %.054116.i, %252
   br i1 %or.cond.i85, label %.loopexit.sink.split.i, label %ProcessUserCert.exit.thread.i
@@ -7364,10 +7364,10 @@ ProcessUserCert.exit.thread.i:                    ; preds = %ProcessUserCert.exi
   br i1 %258, label %.lr.ph.i.split, label %.loopexit.i
 
 .loopexit.sink.split.i:                           ; preds = %ProcessUserCert.exit.i, %ProcessUserCert.exit.thread.i, %ProcessUserCert.exit.thread.i.us, %ProcessUserCert.exit.i.us, %ProcessUserCert.exit.thread.thread.i
-  %.050117.i152 = phi i32 [ %.us-phi, %ProcessUserCert.exit.thread.thread.i ], [ %.050117.i.us, %ProcessUserCert.exit.i.us ], [ %.050117.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.050117.i, %ProcessUserCert.exit.thread.i ], [ %.050117.i, %ProcessUserCert.exit.i ]
-  %.057115.i149 = phi i64 [ %.us-phi154, %ProcessUserCert.exit.thread.thread.i ], [ %.057115.i.us, %ProcessUserCert.exit.i.us ], [ %.057115.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.057115.i, %ProcessUserCert.exit.thread.i ], [ %.057115.i, %ProcessUserCert.exit.i ]
+  %.050117.i152 = phi i32 [ %.us-phi, %ProcessUserCert.exit.thread.thread.i ], [ %.050117.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.050117.i.us, %ProcessUserCert.exit.i.us ], [ %.050117.i, %ProcessUserCert.exit.thread.i ], [ %.050117.i, %ProcessUserCert.exit.i ]
+  %.057115.i149 = phi i64 [ %.us-phi154, %ProcessUserCert.exit.thread.thread.i ], [ %.057115.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.057115.i.us, %ProcessUserCert.exit.i.us ], [ %.057115.i, %ProcessUserCert.exit.thread.i ], [ %.057115.i, %ProcessUserCert.exit.i ]
   %.049108.ph.i = phi i32 [ %.us-phi156, %ProcessUserCert.exit.thread.thread.i ], [ %.2.i84.us, %ProcessUserCert.exit.thread.i.us ], [ 0, %ProcessUserCert.exit.i.us ], [ 0, %ProcessUserCert.exit.i ], [ %.2.i84, %ProcessUserCert.exit.thread.i ]
-  %.179.ph.i = phi i32 [ %.us-phi155, %ProcessUserCert.exit.thread.thread.i ], [ %.280.i.us, %ProcessUserCert.exit.i.us ], [ %.280.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.280.i, %ProcessUserCert.exit.thread.i ], [ %.280.i, %ProcessUserCert.exit.i ]
+  %.179.ph.i = phi i32 [ %.us-phi155, %ProcessUserCert.exit.thread.thread.i ], [ %.280.i.us, %ProcessUserCert.exit.thread.i.us ], [ %.280.i.us, %ProcessUserCert.exit.i.us ], [ %.280.i, %ProcessUserCert.exit.thread.i ], [ %.280.i, %ProcessUserCert.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.i
 
@@ -7676,7 +7676,7 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
   br label %373
 
 373:                                              ; preds = %369, %365, %.thread.i.i
-  %.0.in.i.i = phi i1 [ %.not26.i.i, %365 ], [ %.not27.i.i, %369 ], [ %.not2650.i.i, %.thread.i.i ]
+  %.0.in.i.i = phi i1 [ %.not27.i.i, %369 ], [ %.not26.i.i, %365 ], [ %.not2650.i.i, %.thread.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -7742,8 +7742,8 @@ ProcessBufferCertSetHave.exit.i.i:                ; preds = %ProcessBufferCertSe
   br label %407
 
 407:                                              ; preds = %404, %398, %393, %390, %386, %382, %376, %373
-  %.027.i.i.i = phi i32 [ 0, %373 ], [ %380, %376 ], [ 0, %393 ], [ -409, %386 ], [ -409, %382 ], [ %392, %390 ], [ -410, %398 ], [ %406, %404 ]
-  %.0.i31.i.i = phi i8 [ 0, %373 ], [ 1, %376 ], [ 3, %393 ], [ 1, %386 ], [ 1, %382 ], [ 1, %390 ], [ 3, %398 ], [ 3, %404 ]
+  %.027.i.i.i = phi i32 [ 0, %373 ], [ 0, %393 ], [ %380, %376 ], [ %392, %390 ], [ -409, %386 ], [ -409, %382 ], [ %406, %404 ], [ -410, %398 ]
+  %.0.i31.i.i = phi i8 [ 0, %373 ], [ 3, %393 ], [ 1, %376 ], [ 1, %390 ], [ 1, %386 ], [ 1, %382 ], [ 3, %404 ], [ 3, %398 ]
   br i1 %.not.i3543.i.i, label %412, label %408
 
 408:                                              ; preds = %407
@@ -7899,14 +7899,14 @@ ProcessBufferCertTypes.exit.thread122:            ; preds = %427, %ProcessBuffer
   br label %.thread134
 
 ProcessBufferResetSuites.exit:                    ; preds = %150, %419, %421, %424, %427, %430, %ProcessBufferCertTypes.exit
-  %.4 = phi i32 [ %.2, %ProcessBufferCertTypes.exit ], [ %.0.i90, %419 ], [ %.0.i90, %421 ], [ %.0.i90, %424 ], [ %428, %427 ], [ %.4.i.fr, %430 ], [ %.0.i, %150 ]
+  %.4 = phi i32 [ %.2, %ProcessBufferCertTypes.exit ], [ %.4.i.fr, %430 ], [ %.0.i90, %419 ], [ %.0.i90, %421 ], [ %.0.i90, %424 ], [ %428, %427 ], [ %.0.i, %150 ]
   %.4.fr = freeze i32 %.4
   %495 = icmp eq i32 %.4.fr, -1
   %spec.select144 = select i1 %495, i32 0, i32 %.4.fr
   br label %.thread134
 
-.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %466, %468, %475, %433, %440, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %438, %473
-  %496 = phi i32 [ 0, %473 ], [ 0, %438 ], [ -463, %ProcessBufferPrivateKey.exit ], [ %spec.store.select17, %34 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ], [ 1, %468 ], [ 1, %466 ]
+.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %468, %475, %433, %440, %466, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %438, %473
+  %496 = phi i32 [ 1, %468 ], [ %spec.store.select17, %34 ], [ 0, %438 ], [ 0, %473 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ -463, %ProcessBufferPrivateKey.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %466 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -8058,8 +8058,8 @@ define i32 @ProcessFile(ptr noundef %0, ptr noundef readonly captures(address_is
   br label %ProcessChainBuffer.exit
 
 ProcessChainBuffer.exit:                          ; preds = %.ProcessChainBuffer.exit_crit_edge, %._crit_edge.loopexit.i, %._crit_edge.loopexit.thread.i, %51, %68
-  %.val = phi ptr [ %49, %68 ], [ %.val.pre, %.ProcessChainBuffer.exit_crit_edge ], [ %49, %51 ], [ %49, %._crit_edge.loopexit.thread.i ], [ %49, %._crit_edge.loopexit.i ]
-  %.2 = phi i32 [ %69, %68 ], [ %.035, %.ProcessChainBuffer.exit_crit_edge ], [ 0, %51 ], [ -125, %._crit_edge.loopexit.thread.i ], [ %spec.select.i, %._crit_edge.loopexit.i ]
+  %.val = phi ptr [ %.val.pre, %.ProcessChainBuffer.exit_crit_edge ], [ %49, %68 ], [ %49, %51 ], [ %49, %._crit_edge.loopexit.i ], [ %49, %._crit_edge.loopexit.thread.i ]
+  %.2 = phi i32 [ %.035, %.ProcessChainBuffer.exit_crit_edge ], [ %69, %68 ], [ 0, %51 ], [ %spec.select.i, %._crit_edge.loopexit.i ], [ -125, %._crit_edge.loopexit.thread.i ]
   %.val43 = load i32, ptr %16, align 4, !tbaa !217
   %.not.i = icmp eq i32 %.val43, 0
   %.not4.i = icmp eq ptr %.val, null
@@ -8142,8 +8142,8 @@ wolfssl_file_len.exit._crit_edge:                 ; preds = %wolfssl_file_len.ex
   br label %static_buffer_set_size.exit.thread30
 
 static_buffer_set_size.exit.thread30:             ; preds = %7, %11, %15, %.thread.i, %22, %27
-  %.438 = phi i32 [ -125, %22 ], [ %spec.select22, %27 ], [ -463, %.thread.i ], [ -463, %15 ], [ -463, %11 ], [ -463, %7 ]
-  %.15212636 = phi i64 [ %13, %22 ], [ %13, %27 ], [ 0, %.thread.i ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
+  %.438 = phi i32 [ %spec.select22, %27 ], [ -125, %22 ], [ -463, %.thread.i ], [ -463, %15 ], [ -463, %11 ], [ -463, %7 ]
+  %.15212636 = phi i64 [ %13, %27 ], [ %13, %22 ], [ 0, %.thread.i ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
   %30 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %static_buffer_set_size.exit
 
@@ -8191,8 +8191,8 @@ define i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %0, ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %13
-  %.1 = phi i32 [ 1, %13 ], [ %21, %20 ]
-  %.023 = phi i32 [ 0, %13 ], [ %spec.select32, %20 ]
+  %.1 = phi i32 [ %21, %20 ], [ 1, %13 ]
+  %.023 = phi i32 [ %spec.select32, %20 ], [ 0, %13 ]
   %23 = icmp eq i32 %.1, 1
   %24 = icmp ne ptr %2, null
   %or.cond3 = and i1 %24, %23
@@ -8305,8 +8305,8 @@ wolfssl_ctx_load_path.exit:                       ; preds = %._crit_edge.i, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %4, %10, %wolfssl_ctx_load_path.exit, %.critedge
-  %.2 = phi i32 [ %.010.i, %wolfssl_ctx_load_path.exit ], [ %.1, %.critedge ], [ 0, %10 ], [ 0, %4 ]
+.critedge.thread:                                 ; preds = %10, %4, %wolfssl_ctx_load_path.exit, %.critedge
+  %.2 = phi i32 [ %.010.i, %wolfssl_ctx_load_path.exit ], [ %.1, %.critedge ], [ 0, %4 ], [ 0, %10 ]
   ret i32 %.2
 }
 
@@ -8434,8 +8434,8 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   br label %ProcessChainBuffer.exit.i10
 
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
-  %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
+  %.val.i11 = phi ptr [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %28, %25 ]
+  %.2.i12 = phi i32 [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %30, %25 ]
   %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
@@ -8536,8 +8536,8 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   br label %ProcessChainBuffer.exit.i10
 
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
-  %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
+  %.val.i11 = phi ptr [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %28, %25 ]
+  %.2.i12 = phi i32 [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %30, %25 ]
   %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
@@ -8638,8 +8638,8 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   br label %ProcessChainBuffer.exit.i9
 
 ProcessChainBuffer.exit.i9:                       ; preds = %24, %.ProcessChainBuffer.exit_crit_edge.i7
-  %.val.i10 = phi ptr [ %27, %24 ], [ %.val.pre.i8, %.ProcessChainBuffer.exit_crit_edge.i7 ]
-  %.2.i11 = phi i32 [ %29, %24 ], [ %22, %.ProcessChainBuffer.exit_crit_edge.i7 ]
+  %.val.i10 = phi ptr [ %.val.pre.i8, %.ProcessChainBuffer.exit_crit_edge.i7 ], [ %27, %24 ]
+  %.2.i11 = phi i32 [ %22, %.ProcessChainBuffer.exit_crit_edge.i7 ], [ %29, %24 ]
   %.val43.i12 = load i32, ptr %21, align 4, !tbaa !217
   %.not.i.i13 = icmp eq i32 %.val43.i12, 0
   %.not4.i.i14 = icmp eq ptr %.val.i10, null
@@ -8740,8 +8740,8 @@ ProcessFile.exit:                                 ; preds = %ProcessChainBuffer.
   br label %ProcessChainBuffer.exit.i10
 
 ProcessChainBuffer.exit.i10:                      ; preds = %25, %.ProcessChainBuffer.exit_crit_edge.i8
-  %.val.i11 = phi ptr [ %28, %25 ], [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ]
-  %.2.i12 = phi i32 [ %30, %25 ], [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ]
+  %.val.i11 = phi ptr [ %.val.pre.i9, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %28, %25 ]
+  %.2.i12 = phi i32 [ %23, %.ProcessChainBuffer.exit_crit_edge.i8 ], [ %30, %25 ]
   %.val43.i13 = load i32, ptr %22, align 4, !tbaa !217
   %.not.i.i14 = icmp eq i32 %.val43.i13, 0
   %.not4.i.i15 = icmp eq ptr %.val.i11, null
@@ -8832,8 +8832,8 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_file(ptr noundef %0, ptr 
   br label %ProcessChainBuffer.exit.i
 
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
-  %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ], [ %19, %16 ]
+  %.2.i = phi i32 [ 0, %.ProcessChainBuffer.exit_crit_edge.i ], [ %23, %16 ]
   %.val43.i = load i32, ptr %13, align 4, !tbaa !217
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
@@ -8895,8 +8895,8 @@ define range(i32 -173, 2) i32 @wolfSSL_use_PrivateKey_file(ptr noundef %0, ptr n
   br label %ProcessChainBuffer.exit.i
 
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
-  %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ], [ %19, %16 ]
+  %.2.i = phi i32 [ 0, %.ProcessChainBuffer.exit_crit_edge.i ], [ %23, %16 ]
   %.val43.i = load i32, ptr %13, align 4, !tbaa !217
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
@@ -8958,8 +8958,8 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file(ptr noundef %0
   br label %ProcessChainBuffer.exit.i
 
 ProcessChainBuffer.exit.i:                        ; preds = %15, %.ProcessChainBuffer.exit_crit_edge.i
-  %.val.i = phi ptr [ %18, %15 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.2.i = phi i32 [ %22, %15 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ], [ %18, %15 ]
+  %.2.i = phi i32 [ 0, %.ProcessChainBuffer.exit_crit_edge.i ], [ %22, %15 ]
   %.val43.i = load i32, ptr %12, align 4, !tbaa !217
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
@@ -9021,8 +9021,8 @@ define range(i32 -173, 2) i32 @wolfSSL_use_certificate_chain_file_format(ptr nou
   br label %ProcessChainBuffer.exit.i
 
 ProcessChainBuffer.exit.i:                        ; preds = %16, %.ProcessChainBuffer.exit_crit_edge.i
-  %.val.i = phi ptr [ %19, %16 ], [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ]
-  %.2.i = phi i32 [ %23, %16 ], [ 0, %.ProcessChainBuffer.exit_crit_edge.i ]
+  %.val.i = phi ptr [ %.val.pre.i, %.ProcessChainBuffer.exit_crit_edge.i ], [ %19, %16 ]
+  %.2.i = phi i32 [ 0, %.ProcessChainBuffer.exit_crit_edge.i ], [ %23, %16 ]
   %.val43.i = load i32, ptr %13, align 4, !tbaa !217
   %.not.i.i = icmp eq i32 %.val43.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
@@ -9119,7 +9119,7 @@ define i32 @wolfSSL_CTX_load_verify_buffer(ptr noundef %0, ptr noundef %1, i64 n
   br label %wolfSSL_CTX_load_verify_buffer_ex.exit
 
 wolfSSL_CTX_load_verify_buffer_ex.exit:           ; preds = %14, %._crit_edge.loopexit.thread.i.i, %._crit_edge.loopexit.i.i, %31
-  %.0.i = phi i32 [ %32, %31 ], [ 0, %14 ], [ -125, %._crit_edge.loopexit.thread.i.i ], [ %spec.select.i.i, %._crit_edge.loopexit.i.i ]
+  %.0.i = phi i32 [ %32, %31 ], [ 0, %14 ], [ %spec.select.i.i, %._crit_edge.loopexit.i.i ], [ -125, %._crit_edge.loopexit.thread.i.i ]
   ret i32 %.0.i
 }
 
@@ -9198,7 +9198,7 @@ define i32 @wolfSSL_CTX_load_verify_chain_buffer_format(ptr noundef %0, ptr noun
   br label %wolfSSL_CTX_load_verify_buffer_ex.exit
 
 wolfSSL_CTX_load_verify_buffer_ex.exit:           ; preds = %14, %._crit_edge.loopexit.thread.i.i, %._crit_edge.loopexit.i.i, %31
-  %.0.i = phi i32 [ %32, %31 ], [ 0, %14 ], [ -125, %._crit_edge.loopexit.thread.i.i ], [ %spec.select.i.i, %._crit_edge.loopexit.i.i ]
+  %.0.i = phi i32 [ %32, %31 ], [ 0, %14 ], [ %spec.select.i.i, %._crit_edge.loopexit.i.i ], [ -125, %._crit_edge.loopexit.thread.i.i ]
   ret i32 %.0.i
 }
 
@@ -9427,7 +9427,7 @@ define range(i32 -401, 2) i32 @wolfSSL_SetTmpDH(ptr noundef %0, ptr noundef read
   br label %.thread65
 
 .thread65:                                        ; preds = %5, %22, %23, %19
-  %.256 = phi i32 [ %.2, %22 ], [ %.2, %23 ], [ 1, %19 ], [ 0, %5 ]
+  %.256 = phi i32 [ 1, %19 ], [ %.2, %22 ], [ %.2, %23 ], [ 0, %5 ]
   ret i32 %.256
 }
 
@@ -9535,7 +9535,7 @@ define internal fastcc range(i32 -401, 2) i32 @wolfssl_set_tmp_dh(ptr noundef %0
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %16, %11, %5, %42, %.critedge
-  %.250 = phi i32 [ 1, %.critedge ], [ 0, %42 ], [ -401, %11 ], [ -401, %5 ], [ -344, %16 ]
+  %.250 = phi i32 [ 1, %.critedge ], [ 0, %42 ], [ -401, %5 ], [ -401, %11 ], [ -344, %16 ]
   ret i32 %.250
 }
 
@@ -9587,7 +9587,7 @@ define range(i32 1, 0) i32 @wolfSSL_CTX_SetTmpDH(ptr noundef captures(address_is
   br label %.thread74
 
 .thread74:                                        ; preds = %5, %21, %22, %.thread51
-  %.265 = phi i32 [ %.2, %21 ], [ %.2, %22 ], [ %.2, %.thread51 ], [ -173, %5 ]
+  %.265 = phi i32 [ %.2, %.thread51 ], [ %.2, %21 ], [ %.2, %22 ], [ -173, %5 ]
   ret i32 %.265
 }
 
@@ -9678,7 +9678,7 @@ define internal fastcc range(i32 1, 0) i32 @wolfssl_ctx_set_tmp_dh(ptr noundef c
   br label %.thread32
 
 .thread32:                                        ; preds = %13, %5, %29, %44
-  %.134 = phi i32 [ %.0.i, %29 ], [ 1, %44 ], [ -401, %5 ], [ -401, %13 ]
+  %.134 = phi i32 [ 1, %44 ], [ %.0.i, %29 ], [ -401, %5 ], [ -401, %13 ]
   ret i32 %.134
 }
 
@@ -9746,7 +9746,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   br label %33
 
 31:                                               ; preds = %25, %16
-  %.1 = phi i32 [ %spec.store.select, %16 ], [ %26, %25 ]
+  %.1 = phi i32 [ %26, %25 ], [ %spec.store.select, %16 ]
   %32 = icmp eq i32 %.1, 1
   br i1 %32, label %33, label %.thread142
 
@@ -9801,7 +9801,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   br label %59
 
 59:                                               ; preds = %57, %55
-  %.4 = phi i32 [ %56, %55 ], [ %58, %57 ]
+  %.4 = phi i32 [ %58, %57 ], [ %56, %55 ]
   call void @FreeDer(ptr noundef nonnull %6) #22
   %.not77 = icmp eq i32 %.4, 1
   br i1 %.not77, label %63, label %.thread122
@@ -9817,7 +9817,7 @@ define internal fastcc i32 @ws_ctx_ssl_set_tmp_dh(ptr noundef captures(address_i
   br i1 %.not78, label %61, label %.thread122
 
 .thread122:                                       ; preds = %59, %.thread132, %60
-  %.4110127 = phi i32 [ -125, %60 ], [ %.4.ph.ph, %.thread132 ], [ %.4, %59 ]
+  %.4110127 = phi i32 [ %.4.ph.ph, %.thread132 ], [ -125, %60 ], [ %.4, %59 ]
   call void @wolfSSL_Free(ptr noundef nonnull %34) #22
   br label %61
 
@@ -9943,8 +9943,8 @@ define i32 @wolfSSL_CTX_SetTmpDH_file(ptr noundef captures(address_is_null) %0, 
   br label %.thread36.i
 
 .thread36.i:                                      ; preds = %11, %.thread.i, %3
-  %.val.i = phi ptr [ %13, %.thread.i ], [ %4, %3 ], [ %13, %11 ]
-  %.2.i = phi i32 [ %15, %.thread.i ], [ -173, %3 ], [ %12, %11 ]
+  %.val.i = phi ptr [ %4, %3 ], [ %13, %.thread.i ], [ %13, %11 ]
+  %.2.i = phi i32 [ -173, %3 ], [ %15, %.thread.i ], [ %12, %11 ]
   %.val34.i = load i32, ptr %8, align 4, !tbaa !217
   %.not.i.i = icmp eq i32 %.val34.i, 0
   %.not4.i.i = icmp eq ptr %.val.i, null
@@ -10308,7 +10308,7 @@ define range(i32 0, 2) i32 @wolfSSL_set_cipher_list(ptr noundef %0, ptr noundef 
   br label %14
 
 14:                                               ; preds = %7, %2, %4, %9
-  %.0 = phi i32 [ %13, %9 ], [ 0, %4 ], [ 0, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ %13, %9 ], [ 0, %2 ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -10497,7 +10497,7 @@ define range(i32 0, 2) i32 @wolfSSL_check_domain_name(ptr noundef captures(addre
   br label %24
 
 24:                                               ; preds = %2, %22, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %22 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %22 ], [ 1, %16 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -10903,7 +10903,7 @@ switch.lookup:                                    ; preds = %7
   br label %wolfSSL_internal_get_version.exit
 
 wolfSSL_internal_get_version.exit:                ; preds = %7, %switch.lookup, %3, %1
-  %.0 = phi ptr [ @.str.2, %1 ], [ @.str.2, %3 ], [ %switch.load, %switch.lookup ], [ @.str.2, %7 ]
+  %.0 = phi ptr [ @.str.2, %1 ], [ %switch.load, %switch.lookup ], [ @.str.2, %3 ], [ @.str.2, %7 ]
   ret ptr %.0
 }
 
@@ -11006,7 +11006,7 @@ switch.lookup:                                    ; preds = %11
   br label %wolfSSL_get_version.exit
 
 wolfSSL_get_version.exit:                         ; preds = %11, %switch.lookup, %7, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ @.str.2, %7 ], [ %switch.load, %switch.lookup ], [ @.str.2, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ @.str.2, %7 ], [ %switch.load, %switch.lookup ], [ @.str.2, %11 ]
   ret ptr %.0
 }
 
@@ -11508,7 +11508,7 @@ switch.lookup5:                                   ; preds = %8
   br label %13
 
 13:                                               ; preds = %8, %switch.lookup5, %4, %switch.lookup, %1
-  %.0 = phi i32 [ 0, %1 ], [ %switch.offset, %switch.lookup ], [ 0, %4 ], [ %switch.load, %switch.lookup5 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup5 ], [ 0, %1 ], [ %switch.offset, %switch.lookup ], [ 0, %8 ]
   ret i32 %.0
 }
 

@@ -540,7 +540,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   br label %126
 
 .thread:                                          ; preds = %118, %115, %112, %109, %106
-  %.ph = phi i32 [ 15, %106 ], [ 143, %109 ], [ 5, %112 ], [ 1, %115 ], [ 0, %118 ]
+  %.ph = phi i32 [ 1, %115 ], [ 15, %106 ], [ 143, %109 ], [ 5, %112 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %128
 
@@ -631,7 +631,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   br label %165
 
 165:                                              ; preds = %.thread22, %163
-  %166 = phi i32 [ %55, %163 ], [ %.ph21, %.thread22 ]
+  %166 = phi i32 [ %.ph21, %.thread22 ], [ %55, %163 ]
   call void @kfree(ptr noundef nonnull %133) #7
   br label %176
 
@@ -652,12 +652,12 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   br label %176
 
 176:                                              ; preds = %60, %63, %69, %76, %80, %83, %85, %89, %93, %94, %97, %100, %130, %165, %173, %161, %53, %66, %73, %167, %170, %58
-  %.ph25 = phi i32 [ -22, %170 ], [ %168, %167 ], [ %74, %73 ], [ %67, %66 ], [ %55, %53 ], [ %154, %161 ], [ %55, %173 ], [ %166, %165 ], [ %131, %130 ], [ %55, %100 ], [ %55, %97 ], [ %55, %94 ], [ %55, %93 ], [ %55, %89 ], [ %55, %85 ], [ %55, %83 ], [ %55, %63 ], [ %61, %60 ], [ %72, %69 ], [ %79, %76 ], [ %81, %80 ], [ %55, %58 ]
+  %.ph25 = phi i32 [ %81, %80 ], [ -22, %170 ], [ %168, %167 ], [ %74, %73 ], [ %67, %66 ], [ %55, %53 ], [ %154, %161 ], [ %55, %173 ], [ %166, %165 ], [ %131, %130 ], [ %55, %58 ], [ %55, %100 ], [ %55, %97 ], [ %55, %94 ], [ %55, %93 ], [ %55, %89 ], [ %55, %85 ], [ %55, %83 ], [ %55, %63 ], [ %61, %60 ], [ %72, %69 ], [ %79, %76 ]
   %177 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #7
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %53, !llvm.loop !6
 
-.thread30:                                        ; preds = %85, %89, %103, %132
+.thread30:                                        ; preds = %132, %85, %89, %103
   call void @kfree(ptr noundef nonnull %46) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

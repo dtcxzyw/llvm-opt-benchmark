@@ -197,7 +197,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 .sink.split:                                      ; preds = %63, %72, %77, %59, %54, %50
-  %.sink = phi i32 [ 6, %50 ], [ 4, %54 ], [ 8, %59 ], [ 1, %77 ], [ 1, %72 ], [ 1, %63 ]
+  %.sink = phi i32 [ 6, %50 ], [ 8, %59 ], [ 4, %54 ], [ 1, %77 ], [ 1, %72 ], [ 1, %63 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !37
   br label %82
 
@@ -233,8 +233,8 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 100:                                              ; preds = %._crit_edge119, %82, %87
-  %.pr.pre117 = phi i32 [ %85, %87 ], [ %85, %82 ], [ %.pr.pre117.pre, %._crit_edge119 ]
-  %.089 = phi i1 [ false, %87 ], [ false, %82 ], [ true, %._crit_edge119 ]
+  %.pr.pre117 = phi i32 [ %85, %82 ], [ %85, %87 ], [ %.pr.pre117.pre, %._crit_edge119 ]
+  %.089 = phi i1 [ false, %82 ], [ false, %87 ], [ true, %._crit_edge119 ]
   br i1 %83, label %101, label %160
 
 101:                                              ; preds = %100
@@ -471,12 +471,12 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 230:                                              ; preds = %223, %226, %213, %203, %168, %156, %152, %96, %78, %41, %30, %24
-  %.1.ph = phi i32 [ -1, %24 ], [ -1, %152 ], [ -1, %168 ], [ 0, %223 ], [ -1, %226 ], [ -1, %203 ], [ -1, %213 ], [ -1, %156 ], [ -1, %96 ], [ -1, %41 ], [ -1, %78 ], [ -1, %30 ]
+  %.1.ph = phi i32 [ -1, %152 ], [ -1, %168 ], [ 0, %223 ], [ -1, %226 ], [ -1, %203 ], [ -1, %213 ], [ -1, %156 ], [ -1, %96 ], [ -1, %41 ], [ -1, %78 ], [ -1, %30 ], [ -1, %24 ]
   store i8 0, ptr %17, align 4, !tbaa !42
   br label %231
 
 231:                                              ; preds = %16, %230, %2
-  %.0 = phi i32 [ %.1.ph, %230 ], [ 0, %2 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1.ph, %230 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -780,7 +780,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   br label %158
 
 114:                                              ; preds = %104, %97
-  %.277.i = phi i64 [ %.075102.i, %97 ], [ %107, %104 ]
+  %.277.i = phi i64 [ %107, %104 ], [ %.075102.i, %97 ]
   br i1 %.not86.i, label %.critedge.i, label %115
 
 .thread119.i:                                     ; preds = %97, %94
@@ -811,13 +811,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   br i1 %128, label %.thread126.i, label %.thread113.i
 
 .thread126.i:                                     ; preds = %125, %121, %118, %115, %.thread119.i
-  %.277124129.i = phi i64 [ %.277.i, %125 ], [ %.277.i, %121 ], [ %.277.i, %118 ], [ %.277.i, %115 ], [ %.075102.i, %.thread119.i ]
+  %.277124129.i = phi i64 [ %.075102.i, %.thread119.i ], [ %.277.i, %125 ], [ %.277.i, %121 ], [ %.277.i, %118 ], [ %.277.i, %115 ]
   %129 = load ptr, ptr %58, align 8, !tbaa !84
   br label %.thread113.i
 
 .thread113.i:                                     ; preds = %.thread126.i, %125, %100, %83
-  %.277118.i = phi i64 [ %.277124129.i, %.thread126.i ], [ %.277.i, %125 ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
-  %.166.i = phi ptr [ %129, %.thread126.i ], [ %72, %125 ], [ %72, %83 ], [ %72, %100 ]
+  %.277118.i = phi i64 [ %.277.i, %125 ], [ %.277124129.i, %.thread126.i ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
+  %.166.i = phi ptr [ %72, %125 ], [ %129, %.thread126.i ], [ %72, %83 ], [ %72, %100 ]
   %.not84.i = icmp eq ptr %.166.i, null
   br i1 %.not84.i, label %.critedge.i, label %63
 
@@ -875,7 +875,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   store i8 0, ptr %157, align 2, !tbaa !58
   br label %H5C__autoadjust__ageout__evict_aged_out_entries.exit
 
-158:                                              ; preds = %147, %90, %110
+158:                                              ; preds = %147, %110, %90
   %159 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !36
   %160 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !36
   %161 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__autoadjust__ageout, i32 noundef 364, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.26) #5
@@ -958,7 +958,7 @@ H5C__autoadjust__ageout__evict_aged_out_entries.exit: ; preds = %156, %.critedge
   br label %200
 
 200:                                              ; preds = %29, %25, %158, %199, %180, %197, %191, %186, %H5C__autoadjust__ageout__evict_aged_out_entries.exit, %32, %5
-  %.0 = phi i32 [ -1, %25 ], [ -1, %158 ], [ 0, %197 ], [ 0, %191 ], [ 0, %186 ], [ 0, %180 ], [ 0, %H5C__autoadjust__ageout__evict_aged_out_entries.exit ], [ 0, %199 ], [ 0, %32 ], [ 0, %5 ], [ 0, %29 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %158 ], [ 0, %197 ], [ 0, %191 ], [ 0, %186 ], [ 0, %180 ], [ 0, %H5C__autoadjust__ageout__evict_aged_out_entries.exit ], [ 0, %199 ], [ 0, %32 ], [ 0, %29 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1524,7 +1524,7 @@ define range(i32 -1, 1) i32 @H5C__flash_increase_cache_size(ptr noundef %0, i64 
   br label %77
 
 77:                                               ; preds = %12, %31, %35, %63, %73, %70, %24, %16, %3
-  %.0 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %31 ], [ -1, %63 ], [ -1, %73 ], [ 0, %70 ], [ 0, %24 ], [ 0, %16 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %31 ], [ 0, %16 ], [ 0, %3 ], [ -1, %63 ], [ -1, %73 ], [ 0, %70 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2098,10 +2098,10 @@ define range(i32 -1, 1) i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %1, i32
   br label %82
 
 82:                                               ; preds = %78, %81, %69, %61, %57, %50
-  %.269 = phi i1 [ %.16894, %69 ], [ %.16894, %61 ], [ %.16894, %57 ], [ %.16894, %50 ], [ true, %81 ], [ true, %78 ]
-  %.266 = phi i1 [ true, %69 ], [ %.16595, %61 ], [ %.16595, %57 ], [ %.16595, %50 ], [ %.16595, %81 ], [ %.16595, %78 ]
-  %.262 = phi i1 [ false, %69 ], [ false, %61 ], [ false, %57 ], [ false, %50 ], [ true, %81 ], [ false, %78 ]
-  %.259 = phi i32 [ %70, %69 ], [ %.15897, %61 ], [ %.15897, %57 ], [ %.15897, %50 ], [ %.15897, %81 ], [ %.15897, %78 ]
+  %.269 = phi i1 [ %.16894, %69 ], [ %.16894, %50 ], [ %.16894, %61 ], [ %.16894, %57 ], [ true, %81 ], [ true, %78 ]
+  %.266 = phi i1 [ true, %69 ], [ %.16595, %50 ], [ %.16595, %61 ], [ %.16595, %57 ], [ %.16595, %81 ], [ %.16595, %78 ]
+  %.262 = phi i1 [ false, %69 ], [ false, %50 ], [ false, %61 ], [ false, %57 ], [ true, %81 ], [ false, %78 ]
+  %.259 = phi i32 [ %70, %69 ], [ %.15897, %50 ], [ %.15897, %61 ], [ %.15897, %57 ], [ %.15897, %81 ], [ %.15897, %78 ]
   %83 = icmp ne ptr %38, null
   %84 = or i1 %.262, %83
   br i1 %84, label %.preheader.backedge, label %85
@@ -2337,8 +2337,8 @@ define range(i32 -1, 1) i32 @H5C__make_space_in_cache(ptr noundef %0, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %.thread98, %65, %69, %73, %87, %61, %91, %103, %.thread101
-  %.271 = phi i1 [ false, %.thread101 ], [ false, %103 ], [ %.069, %91 ], [ %.069, %61 ], [ %.069, %87 ], [ %.069, %73 ], [ %.069, %69 ], [ %.069, %65 ], [ true, %.thread98 ]
-  %.168 = phi ptr [ %107, %.thread101 ], [ %50, %103 ], [ null, %91 ], [ %50, %61 ], [ %50, %87 ], [ %50, %73 ], [ %50, %69 ], [ %50, %65 ], [ null, %.thread98 ]
+  %.271 = phi i1 [ false, %103 ], [ false, %.thread101 ], [ %.069, %91 ], [ %.069, %61 ], [ %.069, %87 ], [ %.069, %73 ], [ %.069, %69 ], [ %.069, %65 ], [ true, %.thread98 ]
+  %.168 = phi ptr [ %50, %103 ], [ %107, %.thread101 ], [ null, %91 ], [ %50, %61 ], [ %50, %87 ], [ %50, %73 ], [ %50, %69 ], [ %50, %65 ], [ null, %.thread98 ]
   %108 = add nuw i32 %.064, 1
   %109 = load i64, ptr %24, align 8, !tbaa !110
   %110 = load i64, ptr %26, align 8, !tbaa !56
@@ -2358,7 +2358,7 @@ define range(i32 -1, 1) i32 @H5C__make_space_in_cache(ptr noundef %0, i64 nounde
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %.critedge.thread93, %3
-  %.0 = phi i32 [ %.195, %.critedge.thread93 ], [ 0, %3 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %14 ], [ %.195, %.critedge.thread93 ], [ 0, %3 ]
   ret i32 %.0
 }
 

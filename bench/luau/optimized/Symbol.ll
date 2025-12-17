@@ -1356,7 +1356,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %10
   br label %25
 
 25:                                               ; preds = %15, %10, %_ZNK4Luau7AstNameeqEPKc.exit, %20, %4
-  %.0 = phi i1 [ %6, %4 ], [ %24, %20 ], [ false, %10 ], [ %14, %_ZNK4Luau7AstNameeqEPKc.exit ], [ false, %15 ]
+  %.0 = phi i1 [ %6, %4 ], [ %14, %_ZNK4Luau7AstNameeqEPKc.exit ], [ %24, %20 ], [ false, %10 ], [ false, %15 ]
   ret i1 %.0
 }
 

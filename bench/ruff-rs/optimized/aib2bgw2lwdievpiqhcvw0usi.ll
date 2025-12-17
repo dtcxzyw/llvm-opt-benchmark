@@ -204,7 +204,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.pr
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %75, label %76
 
-._crit_edge:                                      ; preds = %63, %.loopexit.i, %106
+._crit_edge:                                      ; preds = %.loopexit.i, %63, %106
   %.pre = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8

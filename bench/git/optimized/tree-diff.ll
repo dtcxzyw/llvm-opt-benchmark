@@ -966,7 +966,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   br i1 %exitcond141.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !116
 
 ._crit_edge127:                                   ; preds = %.lr.ph126.split, %.thread120.us.preheader, %86
-  %.081159 = phi ptr [ %.081158, %.thread120.us.preheader ], [ %89, %86 ], [ %.081158, %.lr.ph126.split ]
+  %.081159 = phi ptr [ %89, %86 ], [ %.081158, %.thread120.us.preheader ], [ %.081158, %.lr.ph126.split ]
   %98 = sext i32 %.084 to i64
   tail call void @strbuf_add(ptr noundef %1, ptr noundef %.0116, i64 noundef %98) #11
   %99 = load i64, ptr %1, align 8, !tbaa !110

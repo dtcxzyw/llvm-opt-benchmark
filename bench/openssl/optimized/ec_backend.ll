@@ -66,7 +66,7 @@ define i32 @ossl_ec_encoding_name2id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %10
-  %.0 = phi i32 [ %11, %10 ], [ 1, %1 ], [ -1, %3 ]
+  %.0 = phi i32 [ 1, %1 ], [ %11, %10 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -160,7 +160,7 @@ define i32 @ossl_ec_pt_format_name2id(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %1, %10
-  %.0 = phi i32 [ %11, %10 ], [ 4, %1 ], [ -1, %3 ]
+  %.0 = phi i32 [ 4, %1 ], [ %11, %10 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -407,8 +407,8 @@ ec_param_encoding_id2name.exit.thread:            ; preds = %24, %ec_param_encod
   br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %107
 
 ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, %61, %63, %68, %71, %76, %81, %85, %88, %96, %105
-  %.sink149.i = phi i32 [ 180, %41 ], [ 193, %52 ], [ 198, %57 ], [ 204, %63 ], [ 204, %61 ], [ 204, %59 ], [ 214, %68 ], [ 219, %71 ], [ 229, %76 ], [ 241, %81 ], [ 246, %85 ], [ 252, %88 ], [ 264, %96 ], [ 279, %105 ]
-  %.sink.i = phi i32 [ 103, %41 ], [ 524291, %52 ], [ 141, %57 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %59 ], [ 122, %68 ], [ 524303, %71 ], [ 524303, %76 ], [ 173, %81 ], [ 173, %85 ], [ 524303, %88 ], [ 524303, %96 ], [ 524303, %105 ]
+  %.sink149.i = phi i32 [ 246, %85 ], [ 241, %81 ], [ 229, %76 ], [ 214, %68 ], [ 204, %59 ], [ 198, %57 ], [ 193, %52 ], [ 180, %41 ], [ 264, %96 ], [ 252, %88 ], [ 219, %71 ], [ 204, %63 ], [ 204, %61 ], [ 279, %105 ]
+  %.sink.i = phi i32 [ 173, %85 ], [ 173, %81 ], [ 524303, %76 ], [ 122, %68 ], [ 524303, %59 ], [ 141, %57 ], [ 524291, %52 ], [ 103, %41 ], [ 524303, %96 ], [ 524303, %88 ], [ 524303, %71 ], [ 524303, %63 ], [ 524303, %61 ], [ 524303, %105 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink149.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
@@ -488,7 +488,7 @@ define range(i32 0, 2) i32 @ossl_ec_set_ecdh_cofactor_mode(ptr noundef %0, i32 n
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %7 ], [ 1, %12 ], [ 1, %11 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ], [ 0, %4 ], [ 1, %12 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -606,9 +606,9 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
 50:                                               ; preds = %48, %.thread59
   br label %.thread
 
-.thread:                                          ; preds = %43, %39, %35, %30, %33, %48, %46, %19, %21, %24, %14, %50
-  %.033 = phi ptr [ null, %14 ], [ null, %21 ], [ %.1, %50 ], [ %.1, %48 ], [ %.1, %46 ], [ %22, %24 ], [ null, %19 ], [ %.1, %33 ], [ %.1, %30 ], [ %.1, %35 ], [ %.1, %39 ], [ %.1, %43 ]
-  %.032 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %24 ], [ 0, %19 ], [ 0, %33 ], [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 0, %43 ]
+.thread:                                          ; preds = %43, %33, %39, %35, %30, %48, %46, %19, %21, %24, %14, %50
+  %.033 = phi ptr [ null, %14 ], [ null, %21 ], [ %.1, %50 ], [ %.1, %48 ], [ %.1, %46 ], [ null, %19 ], [ %22, %24 ], [ %.1, %30 ], [ %.1, %35 ], [ %.1, %39 ], [ %.1, %33 ], [ %.1, %43 ]
+  %.032 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %19 ], [ 0, %24 ], [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 0, %33 ], [ 0, %43 ]
   call void @BN_CTX_free(ptr noundef %16) #4
   %51 = load ptr, ptr %4, align 8, !tbaa !27
   call void @BN_clear_free(ptr noundef %51) #4
@@ -618,7 +618,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
   br label %53
 
 53:                                               ; preds = %3, %.thread
-  %.0 = phi i32 [ %.032, %.thread ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.032, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -898,7 +898,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
-.loopexit:                                        ; preds = %69, %57, %63, %60
+.loopexit:                                        ; preds = %69, %60, %57, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ec_key_group_check_fromdata.exit.thread
 
@@ -907,7 +907,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %66, %ec_check_group
   br label %ec_key_group_check_fromdata.exit.thread
 
 ec_key_group_check_fromdata.exit.thread:          ; preds = %55, %.loopexit, %ec_key_group_check_fromdata.exit, %ec_key_point_format_fromdata.exit, %.critedge28, %ossl_ec_set_ecdh_cofactor_mode.exit, %2
-  %.016 = phi i32 [ 0, %ossl_ec_set_ecdh_cofactor_mode.exit ], [ 0, %2 ], [ 0, %.critedge28 ], [ 0, %ec_key_point_format_fromdata.exit ], [ 0, %.loopexit ], [ 1, %ec_key_group_check_fromdata.exit ], [ 1, %55 ]
+  %.016 = phi i32 [ 0, %ossl_ec_set_ecdh_cofactor_mode.exit ], [ 0, %ec_key_point_format_fromdata.exit ], [ 0, %2 ], [ 0, %.critedge28 ], [ 0, %.loopexit ], [ 1, %ec_key_group_check_fromdata.exit ], [ 1, %55 ]
   ret i32 %.016
 }
 
@@ -1118,7 +1118,7 @@ define ptr @ossl_ec_key_dup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %99
 
 99:                                               ; preds = %88, %90, %95, %5, %98, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %98 ], [ null, %5 ], [ %12, %95 ], [ %12, %90 ], [ %12, %88 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %98 ], [ %12, %95 ], [ %12, %90 ], [ %12, %88 ]
   ret ptr %.0
 }
 

@@ -153,7 +153,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1106,7 +1106,7 @@ define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %27
 
 27:                                               ; preds = %4, %26, %10
-  %.0 = phi i32 [ 0, %10 ], [ %.1, %26 ], [ 0, %4 ]
+  %.0 = phi i32 [ %.1, %26 ], [ 0, %10 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1208,7 +1208,7 @@ define i32 @ulocbld_buildLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noun
   resume { ptr, i32 } %eh.lpad-body
 
 34:                                               ; preds = %4, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit", %11
-  %.0 = phi i32 [ 0, %11 ], [ %.0.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit" ], [ 0, %4 ]
+  %.0 = phi i32 [ %.0.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit" ], [ 0, %11 ], [ 0, %4 ]
   ret i32 %.0
 }
 

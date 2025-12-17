@@ -304,7 +304,7 @@ define internal fastcc noundef ptr @get_genm_itav(ptr noundef %0, ptr noundef no
   br label %42
 
 42:                                               ; preds = %._crit_edge61, %16, %18, %41, %22
-  %.0 = phi ptr [ null, %41 ], [ null, %22 ], [ %26, %._crit_edge61 ], [ null, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %41 ], [ %26, %._crit_edge61 ], [ null, %22 ], [ null, %18 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -446,8 +446,8 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_rootCaKeyUpdate(ptr noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %45, %47, %50, %18, %37, %21, %16, %55, %36, %29
-  %.035 = phi ptr [ null, %21 ], [ %22, %55 ], [ %22, %37 ], [ %22, %36 ], [ %22, %29 ], [ null, %16 ], [ null, %18 ], [ %22, %50 ], [ %22, %47 ], [ %22, %45 ]
-  %.0 = phi i32 [ 0, %21 ], [ 0, %55 ], [ 0, %37 ], [ 0, %36 ], [ 0, %29 ], [ 0, %16 ], [ 1, %18 ], [ 1, %50 ], [ 1, %47 ], [ 1, %45 ]
+  %.035 = phi ptr [ null, %16 ], [ null, %21 ], [ null, %18 ], [ %22, %55 ], [ %22, %37 ], [ %22, %36 ], [ %22, %29 ], [ %22, %50 ], [ %22, %47 ], [ %22, %45 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %21 ], [ 1, %18 ], [ 0, %55 ], [ 0, %37 ], [ 0, %36 ], [ 0, %29 ], [ 1, %50 ], [ 1, %47 ], [ 1, %45 ]
   call void @OSSL_CMP_ITAV_free(ptr noundef nonnull %14) #5
   call void @X509_free(ptr noundef %.035) #5
   br label %58
@@ -560,7 +560,7 @@ verify_ss_cert.exit:                              ; preds = %28
   br label %.thread35
 
 .thread35:                                        ; preds = %8, %34, %36
-  %.1 = phi i32 [ %.02146, %36 ], [ %.021, %34 ], [ 0, %8 ]
+  %.1 = phi i32 [ %.021, %34 ], [ %.02146, %36 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -655,10 +655,10 @@ define range(i32 0, 2) i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef 
   br label %40
 
 40:                                               ; preds = %37, %25, %23, %20, %16, %39, %30, %15, %11
-  %.019 = phi ptr [ null, %11 ], [ %9, %15 ], [ %9, %16 ], [ null, %20 ], [ null, %30 ], [ null, %39 ], [ null, %23 ], [ null, %25 ], [ null, %37 ]
-  %.018 = phi ptr [ null, %11 ], [ null, %15 ], [ %13, %16 ], [ null, %20 ], [ null, %30 ], [ null, %39 ], [ null, %23 ], [ null, %25 ], [ null, %37 ]
-  %.017 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %16 ], [ null, %20 ], [ %21, %30 ], [ %21, %39 ], [ %21, %23 ], [ %21, %25 ], [ %21, %37 ]
-  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ 0, %20 ], [ 0, %30 ], [ 0, %39 ], [ 0, %23 ], [ 1, %25 ], [ 1, %37 ]
+  %.019 = phi ptr [ null, %11 ], [ %9, %15 ], [ %9, %16 ], [ null, %20 ], [ null, %23 ], [ null, %30 ], [ null, %39 ], [ null, %25 ], [ null, %37 ]
+  %.018 = phi ptr [ null, %11 ], [ null, %15 ], [ %13, %16 ], [ null, %20 ], [ null, %23 ], [ null, %30 ], [ null, %39 ], [ null, %25 ], [ null, %37 ]
+  %.017 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %16 ], [ null, %20 ], [ %21, %23 ], [ %21, %30 ], [ %21, %39 ], [ %21, %25 ], [ %21, %37 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ], [ 0, %30 ], [ 0, %39 ], [ 1, %25 ], [ 1, %37 ]
   call void @OSSL_CMP_CRLSTATUS_free(ptr noundef %.019) #5
   call void @OPENSSL_sk_free(ptr noundef %.018) #5
   call void @OSSL_CMP_ITAV_free(ptr noundef %.017) #5

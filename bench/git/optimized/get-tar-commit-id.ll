@@ -120,7 +120,7 @@ define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %0, ptr 
   unreachable
 
 skip_prefix.exit:                                 ; preds = %31, %48, %36, %42, %20, %25, %17
-  %.0 = phi i32 [ 1, %17 ], [ 1, %25 ], [ 1, %20 ], [ 1, %42 ], [ 1, %36 ], [ 0, %48 ], [ 1, %31 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %17 ], [ 0, %48 ], [ 1, %36 ], [ 1, %25 ], [ 1, %42 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

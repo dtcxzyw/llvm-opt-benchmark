@@ -3906,8 +3906,8 @@ _ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit: ; preds = %._crit_edge78.us
   %305 = load i8, ptr %59, align 1, !tbaa !82
   br label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread
 
-_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %291, %._crit_edge.us.i, %272, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit, %269, %.loopexit246
-  %306 = phi i8 [ 0, %.loopexit246 ], [ %305, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit ], [ -1, %269 ], [ -1, %272 ], [ -1, %._crit_edge.us.i ], [ -1, %291 ]
+_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %._crit_edge.us.i, %291, %272, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit, %269, %.loopexit246
+  %306 = phi i8 [ 0, %.loopexit246 ], [ %305, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit ], [ -1, %269 ], [ -1, %272 ], [ -1, %291 ], [ -1, %._crit_edge.us.i ]
   %307 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv343
   store i8 %306, ptr %307, align 1, !tbaa !93
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1

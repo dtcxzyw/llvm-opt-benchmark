@@ -256,15 +256,15 @@ define ptr @o2i_SCT(ptr noundef captures(address_is_null) %0, ptr noundef captur
   br label %99
 
 .thread.sink.split:                               ; preds = %78, %22, %14, %3
-  %.sink = phi i32 [ 76, %3 ], [ 99, %14 ], [ 114, %22 ], [ 128, %78 ]
-  %.052.ph = phi ptr [ null, %3 ], [ %7, %14 ], [ %7, %22 ], [ %7, %78 ]
+  %.sink = phi i32 [ 114, %22 ], [ 99, %14 ], [ 76, %3 ], [ 128, %78 ]
+  %.052.ph = phi ptr [ %7, %22 ], [ %7, %14 ], [ null, %3 ], [ %7, %78 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.o2i_SCT) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef 104, ptr noundef null) #4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %74, %16, %89, %6
-  %.052 = phi ptr [ null, %6 ], [ %7, %89 ], [ %7, %16 ], [ %7, %74 ], [ %.052.ph, %.thread.sink.split ]
+  %.052 = phi ptr [ %7, %74 ], [ null, %6 ], [ %7, %89 ], [ %7, %16 ], [ %.052.ph, %.thread.sink.split ]
   tail call void @SCT_free(ptr noundef %.052) #4
   br label %99
 
@@ -677,7 +677,7 @@ define ptr @o2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef c
   br label %60
 
 60:                                               ; preds = %56, %59, %51, %52, %55, %24, %17, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %17 ], [ null, %24 ], [ %.039, %55 ], [ %.039, %52 ], [ %.039, %51 ], [ null, %59 ], [ null, %56 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %17 ], [ %.039, %51 ], [ null, %24 ], [ %.039, %55 ], [ %.039, %52 ], [ null, %59 ], [ null, %56 ]
   ret ptr %.0
 }
 
@@ -891,7 +891,7 @@ i2o_SCT.exit.thread:                              ; preds = %.lr.ph63.split.us
   br label %._crit_edge64.thread.thread
 
 ._crit_edge64.thread.thread:                      ; preds = %.thread, %._crit_edge64.thread.thread92, %90, %._crit_edge64.thread
-  %.0.lcssa8891 = phi i64 [ %.0.lcssa8895, %._crit_edge64.thread.thread92 ], [ %.0.lcssa8895, %90 ], [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %.thread ]
+  %.0.lcssa8891 = phi i64 [ %.0.lcssa, %._crit_edge64.thread ], [ %.0.lcssa8895, %._crit_edge64.thread.thread92 ], [ %.0.lcssa8895, %90 ], [ 2, %.thread ]
   %93 = trunc nuw nsw i64 %.0.lcssa8891 to i32
   br label %.loopexit.thread
 

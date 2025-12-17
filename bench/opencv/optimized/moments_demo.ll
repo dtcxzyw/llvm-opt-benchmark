@@ -631,7 +631,7 @@ _ZNSolsEPFRSoS_E.exit76:                          ; preds = %.noexc142, %156
   ret i32 %.0
 
 178:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %160, %158, %115
-  %.pn49 = phi { ptr, i32 } [ %116, %115 ], [ %161, %160 ], [ %159, %158 ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119 ], [ %177, %176 ], [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ]
+  %.pn49 = phi { ptr, i32 } [ %116, %115 ], [ %159, %158 ], [ %161, %160 ], [ %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119 ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %177, %176 ], [ %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   br label %179
 
@@ -1426,12 +1426,12 @@ _ZNSolsEPFRSoS_E.exit127:                         ; preds = %.noexc146
   br label %311
 
 311:                                              ; preds = %308, %310
-  %.pn64.pn.pn = phi { ptr, i32 } [ %lpad.phi, %310 ], [ %309, %308 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %309, %308 ], [ %lpad.phi, %310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %312
 
 312:                                              ; preds = %306, %311, %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %216
-  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %216 ], [ %244, %243 ], [ %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %.pn64.pn.pn, %311 ], [ %307, %306 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %216 ], [ %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %244, %243 ], [ %.pn64.pn.pn, %311 ], [ %307, %306 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #20
   br label %313
 

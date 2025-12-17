@@ -389,7 +389,7 @@ _ZN16SymbolHandleBaseILb0EED2Ev.exit:             ; preds = %31
   br i1 %71, label %.lr.ph29, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %59, %62, %_ZN16SymbolHandleBaseILb0EED2Ev.exit, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread
-  %.016 = phi ptr [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ], [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit ], [ %47, %62 ], [ %47, %59 ], [ null, %._crit_edge ]
+  %.016 = phi ptr [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ], [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit ], [ %47, %59 ], [ %47, %62 ], [ null, %._crit_edge ]
   ret ptr %.016
 }
 
@@ -842,7 +842,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   br label %_ZN12ResourceMarkD2Ev.exit
 
 20:                                               ; preds = %17, %18, %15
-  %.066 = phi ptr [ %13, %18 ], [ %13, %15 ], [ %16, %17 ]
+  %.066 = phi ptr [ %13, %18 ], [ %16, %17 ], [ %13, %15 ]
   %21 = tail call noundef ptr @_ZN21LoaderConstraintTable22find_loader_constraintEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef %4)
   %.not77 = icmp eq ptr %21, null
   br i1 %.not77, label %.thread.thread, label %23
@@ -915,7 +915,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   br label %_ZN12ResourceMarkD2Ev.exit
 
 .thread:                                          ; preds = %23, %27, %26
-  %.186 = phi ptr [ %25, %26 ], [ %.066100, %23 ], [ %.066100, %27 ]
+  %.186 = phi ptr [ %.066100, %27 ], [ %25, %26 ], [ %.066100, %23 ]
   %51 = icmp eq ptr %14, %24
   br i1 %51, label %52, label %76
 
@@ -974,7 +974,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %.thread105, %77, %78, %.thread.thread, %57, %55, %52, %9, %28, %19, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %19 ], [ false, %28 ], [ true, %9 ], [ true, %52 ], [ true, %55 ], [ true, %57 ], [ true, %.thread.thread ], [ true, %78 ], [ true, %77 ], [ true, %.thread105 ], [ true, %48 ], [ true, %50 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %11 ], [ false, %19 ], [ false, %28 ], [ true, %52 ], [ true, %55 ], [ true, %57 ], [ true, %.thread.thread ], [ true, %78 ], [ true, %77 ], [ true, %.thread105 ], [ true, %48 ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -1334,7 +1334,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable15check_or_updateEP1
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %49, %7, %29, %27, %30, %3, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ true, %30 ], [ false, %27 ], [ false, %29 ], [ true, %7 ], [ true, %49 ], [ true, %51 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %29 ], [ true, %3 ], [ true, %30 ], [ true, %7 ], [ false, %27 ], [ true, %49 ], [ true, %51 ]
   ret i1 %.0
 }
 
@@ -1357,7 +1357,7 @@ define hidden noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6
   br label %9
 
 9:                                                ; preds = %6, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %spec.select, %6 ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 

@@ -976,7 +976,7 @@ _ZNSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_de
   ret void
 
 130:                                              ; preds = %128, %93, %87, %81, %71
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %81 ], [ %.pn7, %128 ], [ %94, %93 ], [ %88, %87 ], [ %.pn, %71 ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %81 ], [ %.pn, %71 ], [ %.pn7, %128 ], [ %94, %93 ], [ %88, %87 ]
   resume { ptr, i32 } %.pn9.pn
 }
 
@@ -2759,13 +2759,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %168, %._crit_edge, 
   ret void
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68:      ; preds = %219, %.body74, %143, %.body, %156, %67, %58
-  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %67 ], [ %157, %156 ], [ %59, %58 ], [ %.pn41.pn.pn, %.body ], [ %.pn41.pn.pn, %143 ], [ %.pn.pn, %.body74 ], [ %.pn.pn, %219 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %143 ], [ %.pn45, %67 ], [ %59, %58 ], [ %157, %156 ], [ %.pn41.pn.pn, %.body ], [ %.pn.pn, %.body74 ], [ %.pn.pn, %219 ]
   call void @_ZNSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   br label %225
 
 225:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68
-  %.pn45.pn.pn = phi { ptr, i32 } [ %.pn45.pn, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68 ], [ %45, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52 ]
-  resume { ptr, i32 } %.pn45.pn.pn
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit68 ], [ %45, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit52 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3147,7 +3147,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split: ; preds = %_ZNSt6vectorIlS
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split, %101, %_ZNSt6vectorIlSaIlEED2Ev.exit25
-  %.pn20.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt6vectorIlSaIlEED2Ev.exit25 ], [ %.pn.pn, %101 ], [ %.pn20.pn.ph, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %lpad.phi, %_ZNSt6vectorIlSaIlEED2Ev.exit25 ], [ %.pn20.pn.ph, %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit.sink.split ]
   resume { ptr, i32 } %.pn20.pn
 }
 
@@ -3652,7 +3652,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit63: ; pre
   br i1 %.not, label %._crit_edge106.loopexit, label %95
 
 _ZNSt4pairISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEdED2Ev.exit59: ; preds = %.loopexit89, %.loopexit.split-lp90, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i57, %173, %129, %122
-  %.pn = phi { ptr, i32 } [ %130, %129 ], [ %123, %122 ], [ %lpad.phi, %173 ], [ %lpad.phi, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i57 ], [ %lpad.loopexit91, %.loopexit89 ], [ %lpad.loopexit.split-lp92, %.loopexit.split-lp90 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i57 ], [ %lpad.phi, %173 ], [ %123, %122 ], [ %130, %129 ], [ %lpad.loopexit91, %.loopexit89 ], [ %lpad.loopexit.split-lp92, %.loopexit.split-lp90 ]
   call void @_ZNSt6vectorISt4pairISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS3_EEdESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #24
   br label %194
 
@@ -3704,7 +3704,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit68:                  ; preds = %200, %.body, %93
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit70
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit70:      ; preds = %207, %_ZNSt6vectorIlSaIlEED2Ev.exit68, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit44, %54
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit44 ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit68 ], [ %.pn.pn.pn.pn, %207 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit44 ], [ %55, %54 ], [ %.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit68 ], [ %.pn.pn.pn.pn, %207 ]
   call void @_ZNSt6vectorISt4pairISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS3_EEdESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
@@ -6928,7 +6928,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   br label %13
 
 13:                                               ; preds = %4, %9, %5
-  %.sink = phi i8 [ %12, %9 ], [ %8, %5 ], [ 0, %4 ]
+  %.sink = phi i8 [ %8, %5 ], [ %12, %9 ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %.sink, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10

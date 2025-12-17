@@ -143,11 +143,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %27
   %34 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 3) #10
   br i1 %34, label %.critedge, label %.thread, !prof !21
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_string.exit, %9
-  %.05995 = phi i32 [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_string.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.06094 = phi i32 [ 2, %zend_parse_arg_bool_ex.exit ], [ 1, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_long_ex.exit ]
-  %.06193 = phi i32 [ 2, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.06292 = phi ptr [ %24, %zend_parse_arg_bool_ex.exit ], [ %11, %zend_parse_arg_string.exit ], [ null, %9 ], [ %28, %zend_parse_arg_long_ex.exit ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_string.exit, %zend_parse_arg_bool_ex.exit, %9
+  %.05995 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.06094 = phi i32 [ 3, %zend_parse_arg_long_ex.exit ], [ 0, %9 ], [ 1, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.06193 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %9 ], [ 4, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.06292 = phi ptr [ %28, %zend_parse_arg_long_ex.exit ], [ null, %9 ], [ %11, %zend_parse_arg_string.exit ], [ %24, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05995, i32 noundef %.06094, ptr noundef null, i32 noundef %.06193, ptr noundef %.06292) #10
   br label %39
 
@@ -250,8 +250,8 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %14, %10, %thread-pr
   br label %28
 
 .critedge:                                        ; preds = %.thread57, %8
-  %.141 = phi ptr [ null, %8 ], [ %.3.ph, %.thread57 ]
-  %.1 = phi i64 [ 0, %8 ], [ %.2.ph, %.thread57 ]
+  %.141 = phi ptr [ %.3.ph, %.thread57 ], [ null, %8 ]
+  %.1 = phi i64 [ %.2.ph, %.thread57 ], [ 0, %8 ]
   store ptr %.141, ptr %4, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.1, ptr %24, align 8, !tbaa !26
@@ -571,9 +571,9 @@ smart_str_appendc_ex.exit:                        ; preds = %117, %126
   br label %smart_str_append_ex.exit142
 
 smart_str_append_ex.exit142:                      ; preds = %140, %145
-  %146 = phi i64 [ %.pre182, %145 ], [ %142, %140 ]
-  %147 = phi ptr [ %.pre180, %145 ], [ %139, %140 ]
-  %.1.i.i141 = phi i64 [ %.0.i.i140, %145 ], [ %143, %140 ]
+  %146 = phi i64 [ %142, %140 ], [ %.pre182, %145 ]
+  %147 = phi ptr [ %139, %140 ], [ %.pre180, %145 ]
+  %.1.i.i141 = phi i64 [ %143, %140 ], [ %.0.i.i140, %145 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 %146
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %136, i64 %138, i1 false)
@@ -649,9 +649,9 @@ zend_string_release_ex.exit:                      ; preds = %160, %155, %smart_s
   br label %smart_str_alloc.exit87
 
 smart_str_alloc.exit87:                           ; preds = %174, %179
-  %180 = phi i64 [ %.pre185, %179 ], [ %176, %174 ]
-  %181 = phi ptr [ %.pre183, %179 ], [ %173, %174 ]
-  %.1.i86 = phi i64 [ %.0.i85, %179 ], [ %177, %174 ]
+  %180 = phi i64 [ %176, %174 ], [ %.pre185, %179 ]
+  %181 = phi ptr [ %173, %174 ], [ %.pre183, %179 ]
+  %.1.i86 = phi i64 [ %177, %174 ], [ %.0.i85, %179 ]
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 %180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %183, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 10, i1 false)
@@ -683,9 +683,9 @@ smart_str_alloc.exit87:                           ; preds = %174, %179
   br label %smart_str_append_ex.exit132
 
 smart_str_append_ex.exit132:                      ; preds = %191, %196
-  %197 = phi i64 [ %.pre188, %196 ], [ %193, %191 ]
-  %198 = phi ptr [ %.pre186, %196 ], [ %190, %191 ]
-  %.1.i.i131 = phi i64 [ %.0.i.i130, %196 ], [ %194, %191 ]
+  %197 = phi i64 [ %193, %191 ], [ %.pre188, %196 ]
+  %198 = phi ptr [ %190, %191 ], [ %.pre186, %196 ]
+  %.1.i.i131 = phi i64 [ %194, %191 ], [ %.0.i.i130, %196 ]
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 %197
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %200, ptr nonnull align 1 %187, i64 %189, i1 false)
@@ -737,9 +737,9 @@ zend_string_free.exit64:                          ; preds = %smart_str_append_ex
   br label %smart_str_alloc.exit92
 
 smart_str_alloc.exit92:                           ; preds = %214, %219
-  %220 = phi i64 [ %.pre191, %219 ], [ %216, %214 ]
-  %221 = phi ptr [ %.pre189, %219 ], [ %213, %214 ]
-  %.1.i91 = phi i64 [ %.0.i90, %219 ], [ %217, %214 ]
+  %220 = phi i64 [ %216, %214 ], [ %.pre191, %219 ]
+  %221 = phi ptr [ %213, %214 ], [ %.pre189, %219 ]
+  %.1.i91 = phi i64 [ %217, %214 ], [ %.0.i90, %219 ]
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %223, ptr noundef nonnull align 1 dereferenceable(10) @.str.12, i64 10, i1 false)
@@ -852,9 +852,9 @@ zend_string_free.exit:                            ; preds = %104, %103, %smart_s
   br label %270
 
 270:                                              ; preds = %269, %263
-  %271 = phi i64 [ %.pre213, %269 ], [ %265, %263 ]
-  %272 = phi ptr [ %.pre211, %269 ], [ %262, %263 ]
-  %.1.i96 = phi i64 [ %.0.i95, %269 ], [ %266, %263 ]
+  %271 = phi i64 [ %265, %263 ], [ %.pre213, %269 ]
+  %272 = phi ptr [ %262, %263 ], [ %.pre211, %269 ]
+  %.1.i96 = phi i64 [ %266, %263 ], [ %.0.i95, %269 ]
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 24
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 %271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %274, ptr noundef nonnull align 1 dereferenceable(7) @.str.13, i64 7, i1 false)
@@ -919,9 +919,9 @@ smart_str_append_ex.exit127:                      ; preds = %270, %282
   br label %302
 
 302:                                              ; preds = %301, %295
-  %303 = phi i64 [ %.pre219, %301 ], [ %297, %295 ]
-  %304 = phi ptr [ %.pre217, %301 ], [ %294, %295 ]
-  %.1.i101 = phi i64 [ %.0.i100, %301 ], [ %298, %295 ]
+  %303 = phi i64 [ %297, %295 ], [ %.pre219, %301 ]
+  %304 = phi ptr [ %294, %295 ], [ %.pre217, %301 ]
+  %.1.i101 = phi i64 [ %298, %295 ], [ %.0.i100, %301 ]
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 %303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %306, ptr noundef nonnull align 1 dereferenceable(9) @.str.14, i64 9, i1 false)
@@ -980,9 +980,9 @@ smart_str_append_ex.exit122:                      ; preds = %302, %314
   br label %smart_str_alloc.exit107
 
 smart_str_alloc.exit107:                          ; preds = %324, %330
-  %331 = phi i64 [ %.pre225, %330 ], [ %326, %324 ]
-  %332 = phi ptr [ %.pre223, %330 ], [ %323, %324 ]
-  %.1.i106 = phi i64 [ %.0.i105, %330 ], [ %327, %324 ]
+  %331 = phi i64 [ %326, %324 ], [ %.pre225, %330 ]
+  %332 = phi ptr [ %323, %324 ], [ %.pre223, %330 ]
+  %.1.i106 = phi i64 [ %327, %324 ], [ %.0.i105, %330 ]
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 %331
   store i64 7310034214939992123, ptr %334, align 1
@@ -1017,9 +1017,9 @@ smart_str_alloc.exit107:                          ; preds = %324, %330
   br label %smart_str_alloc.exit112
 
 smart_str_alloc.exit112:                          ; preds = %340, %346
-  %347 = phi i64 [ %.pre228, %346 ], [ %342, %340 ]
-  %348 = phi ptr [ %.pre226, %346 ], [ %339, %340 ]
-  %.1.i111 = phi i64 [ %.0.i110, %346 ], [ %343, %340 ]
+  %347 = phi i64 [ %342, %340 ], [ %.pre228, %346 ]
+  %348 = phi ptr [ %339, %340 ], [ %.pre226, %346 ]
+  %.1.i111 = phi i64 [ %343, %340 ], [ %.0.i110, %346 ]
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 24
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 %347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %350, ptr noundef nonnull align 1 dereferenceable(10) @.str.16, i64 10, i1 false)
@@ -1065,9 +1065,9 @@ smart_str_alloc.exit112:                          ; preds = %340, %346
   br label %365
 
 365:                                              ; preds = %364, %358
-  %366 = phi i64 [ %.pre231, %364 ], [ %360, %358 ]
-  %367 = phi ptr [ %.pre229, %364 ], [ %.pre237, %358 ]
-  %.1.i116 = phi i64 [ %.0.i115, %364 ], [ %361, %358 ]
+  %366 = phi i64 [ %360, %358 ], [ %.pre231, %364 ]
+  %367 = phi ptr [ %.pre237, %358 ], [ %.pre229, %364 ]
+  %.1.i116 = phi i64 [ %361, %358 ], [ %.0.i115, %364 ]
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 %366
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %369, ptr noundef nonnull align 1 dereferenceable(11) @.str.17, i64 11, i1 false)
@@ -1358,11 +1358,11 @@ zend_parse_arg_bool_ex.exit152:                   ; preds = %67
   %cond.fr169 = freeze i1 %71
   br i1 %cond.fr169, label %.critedge, label %.thread179, !prof !19
 
-.thread179:                                       ; preds = %zend_parse_arg_bool_ex.exit152, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_ex.exit144, %zend_parse_arg_array_ht_or_long.exit, %zend_parse_arg_str_ex.exit146, %zend_parse_arg_str_ex.exit148, %14
-  %.0119189 = phi i32 [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit144 ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit146 ], [ 9, %zend_parse_arg_str_ex.exit148 ], [ 1, %14 ], [ 9, %zend_parse_arg_bool_ex.exit152 ]
-  %.0120188 = phi i32 [ 6, %zend_parse_arg_bool_ex.exit ], [ 5, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 3, %zend_parse_arg_array_ht_or_long.exit ], [ 2, %zend_parse_arg_str_ex.exit146 ], [ 1, %zend_parse_arg_str_ex.exit148 ], [ 0, %14 ], [ 7, %zend_parse_arg_bool_ex.exit152 ]
-  %.0121187 = phi i32 [ 2, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit146 ], [ 4, %zend_parse_arg_str_ex.exit148 ], [ 0, %14 ], [ 2, %zend_parse_arg_bool_ex.exit152 ]
-  %.0122186 = phi ptr [ %64, %zend_parse_arg_bool_ex.exit ], [ %53, %zend_parse_arg_str_ex.exit ], [ %44, %zend_parse_arg_str_ex.exit144 ], [ %34, %zend_parse_arg_array_ht_or_long.exit ], [ %25, %zend_parse_arg_str_ex.exit146 ], [ %16, %zend_parse_arg_str_ex.exit148 ], [ null, %14 ], [ %70, %zend_parse_arg_bool_ex.exit152 ]
+.thread179:                                       ; preds = %zend_parse_arg_bool_ex.exit152, %zend_parse_arg_str_ex.exit144, %zend_parse_arg_array_ht_or_long.exit, %zend_parse_arg_str_ex.exit146, %zend_parse_arg_str_ex.exit148, %zend_parse_arg_str_ex.exit, %zend_parse_arg_bool_ex.exit, %14
+  %.0119189 = phi i32 [ 1, %14 ], [ 9, %zend_parse_arg_bool_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit144 ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit146 ], [ 9, %zend_parse_arg_str_ex.exit148 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit152 ]
+  %.0120188 = phi i32 [ 0, %14 ], [ 6, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 3, %zend_parse_arg_array_ht_or_long.exit ], [ 2, %zend_parse_arg_str_ex.exit146 ], [ 1, %zend_parse_arg_str_ex.exit148 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 7, %zend_parse_arg_bool_ex.exit152 ]
+  %.0121187 = phi i32 [ 0, %14 ], [ 2, %zend_parse_arg_bool_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit144 ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit146 ], [ 4, %zend_parse_arg_str_ex.exit148 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit152 ]
+  %.0122186 = phi ptr [ null, %14 ], [ %64, %zend_parse_arg_bool_ex.exit ], [ %44, %zend_parse_arg_str_ex.exit144 ], [ %34, %zend_parse_arg_array_ht_or_long.exit ], [ %25, %zend_parse_arg_str_ex.exit146 ], [ %16, %zend_parse_arg_str_ex.exit148 ], [ %53, %zend_parse_arg_str_ex.exit ], [ %70, %zend_parse_arg_bool_ex.exit152 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0119189, i32 noundef %.0120188, ptr noundef null, i32 noundef %.0121187, ptr noundef %.0122186) #10
   br label %zend_string_release.exit
 

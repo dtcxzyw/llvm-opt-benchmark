@@ -29,7 +29,7 @@ define internal range(i32 0, 101) i32 @aix_probe(ptr noundef readonly captures(n
   br label %11
 
 11:                                               ; preds = %8, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -136,7 +136,7 @@ define internal range(i32 -1094995529, 1) i32 @aix_read_header(ptr noundef %0) #
   br i1 %exitcond60.not, label %.critedge, label %50, !llvm.loop !45
 
 .critedge:                                        ; preds = %26, %57, %53, %50, %16, %13, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ -1094995529, %13 ], [ -1094995529, %16 ], [ 0, %57 ], [ -1094995529, %53 ], [ -1094995529, %50 ], [ -12, %26 ]
+  %.0 = phi i32 [ -1094995529, %16 ], [ -1094995529, %1 ], [ -1094995529, %13 ], [ -1094995529, %53 ], [ -1094995529, %50 ], [ 0, %57 ], [ -12, %26 ]
   ret i32 %.0
 }
 
@@ -244,7 +244,7 @@ define internal i32 @aix_read_packet(ptr noundef readonly captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %39, %2, %59, %56
-  %.040 = phi i32 [ 0, %56 ], [ %60, %59 ], [ -541478725, %2 ], [ -1094995529, %39 ], [ -1094995529, %41 ], [ -541478725, %.lr.ph ]
+  %.040 = phi i32 [ %60, %59 ], [ -541478725, %2 ], [ -1094995529, %39 ], [ -1094995529, %41 ], [ 0, %56 ], [ -541478725, %.lr.ph ]
   ret i32 %.040
 }
 

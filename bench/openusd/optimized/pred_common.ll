@@ -515,7 +515,7 @@ is_inter_block.exit50:                            ; preds = %34
   br label %53
 
 53:                                               ; preds = %43, %44, %33, %is_inter_block.exit50, %34, %is_inter_block.exit, %27, %48, %21
-  %.0 = phi i32 [ %26, %21 ], [ %52, %48 ], [ %32, %is_inter_block.exit ], [ 3, %27 ], [ %42, %is_inter_block.exit50 ], [ 3, %34 ], [ 4, %33 ], [ 3, %44 ], [ 1, %43 ]
+  %.0 = phi i32 [ %42, %is_inter_block.exit50 ], [ %32, %is_inter_block.exit ], [ 3, %44 ], [ %26, %21 ], [ 4, %33 ], [ %52, %48 ], [ 3, %27 ], [ 3, %34 ], [ 1, %43 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ has_uni_comp_refs.exit94:                         ; preds = %is_inter_block.exit
   br label %has_uni_comp_refs.exit83.thread
 
 has_uni_comp_refs.exit83.thread:                  ; preds = %53, %52, %79, %is_inter_block.exit92.thread, %is_inter_block.exit92, %73, %has_uni_comp_refs.exit87, %has_uni_comp_refs.exit83, %24, %is_inter_block.exit80, %has_uni_comp_refs.exit94, %43, %74, %60, %has_uni_comp_refs.exit
-  %.0 = phi i32 [ %33, %has_uni_comp_refs.exit ], [ %49, %43 ], [ %66, %60 ], [ %78, %74 ], [ %94, %has_uni_comp_refs.exit94 ], [ 2, %is_inter_block.exit80 ], [ 2, %24 ], [ 1, %has_uni_comp_refs.exit83 ], [ 0, %has_uni_comp_refs.exit87 ], [ 2, %73 ], [ 2, %is_inter_block.exit92 ], [ 2, %is_inter_block.exit92.thread ], [ 2, %79 ], [ 1, %52 ], [ 1, %53 ]
+  %.0 = phi i32 [ 2, %is_inter_block.exit92.thread ], [ %33, %has_uni_comp_refs.exit ], [ 2, %is_inter_block.exit80 ], [ %49, %43 ], [ %66, %60 ], [ 2, %24 ], [ %78, %74 ], [ 0, %has_uni_comp_refs.exit87 ], [ 1, %has_uni_comp_refs.exit83 ], [ %94, %has_uni_comp_refs.exit94 ], [ 2, %is_inter_block.exit92 ], [ 2, %73 ], [ 2, %79 ], [ 1, %52 ], [ 1, %53 ]
   ret i32 %.0
 }
 

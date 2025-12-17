@@ -1083,7 +1083,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br label %.thread59
 
 .thread59:                                        ; preds = %301, %380, %.thread55.thread, %.thread55.thread175, %405, %.thread61, %307
-  %409 = phi i64 [ %198, %.thread55.thread175 ], [ %.pre131, %405 ], [ %198, %.thread61 ], [ %198, %307 ], [ %198, %.thread55.thread ], [ %198, %380 ], [ %198, %301 ]
+  %409 = phi i64 [ %198, %.thread55.thread ], [ %198, %.thread55.thread175 ], [ %.pre131, %405 ], [ %198, %.thread61 ], [ %198, %307 ], [ %198, %380 ], [ %198, %301 ]
   store i8 1, ptr %14, align 8
   %410 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %199, ptr %410, align 8
@@ -2661,8 +2661,8 @@ default.unreachable161:                           ; preds = %388
   br i1 %546, label %.critedge, label %.preheader52, !llvm.loop !33
 
 .critedge:                                        ; preds = %544, %164, %383, %362
-  %547 = phi i32 [ -5, %164 ], [ -5, %362 ], [ %384, %383 ], [ %545, %544 ]
-  %548 = phi ptr [ %157, %362 ], [ %157, %383 ], [ %157, %164 ], [ %510, %544 ]
+  %547 = phi i32 [ -5, %362 ], [ -5, %164 ], [ %384, %383 ], [ %545, %544 ]
+  %548 = phi ptr [ %157, %164 ], [ %157, %362 ], [ %157, %383 ], [ %510, %544 ]
   %549 = icmp eq ptr %548, null
   br i1 %549, label %.critedge.thread, label %.preheader51
 
@@ -2698,7 +2698,7 @@ default.unreachable161:                           ; preds = %388
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %149, %.critedge
-  %564 = phi i32 [ %547, %.critedge ], [ 0, %149 ], [ %547, %.critedge.thread.sink.split ]
+  %564 = phi i32 [ 0, %149 ], [ %547, %.critedge ], [ %547, %.critedge.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %565 = icmp sgt i32 %564, -1
   br i1 %565, label %56, label %.loopexit59, !llvm.loop !37

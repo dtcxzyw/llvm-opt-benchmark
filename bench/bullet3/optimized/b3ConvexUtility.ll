@@ -1368,11 +1368,11 @@ _ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i: ; preds = %428
   br label %809
 
 _ZN20b3AlignedObjectArrayIiE6removeERKi.exit:     ; preds = %432, %435, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i, %418, %.lr.ph575
-  %445 = phi i32 [ %442, %435 ], [ %426, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %426, %418 ], [ %382, %.lr.ph575 ], [ %426, %432 ]
-  %446 = phi ptr [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %383, %.lr.ph575 ], [ %419, %432 ]
-  %447 = phi ptr [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %384, %.lr.ph575 ], [ %419, %432 ]
-  %448 = phi i32 [ %420, %435 ], [ %420, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %420, %418 ], [ %385, %.lr.ph575 ], [ %420, %432 ]
-  %449 = phi i32 [ %425, %435 ], [ %425, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %425, %418 ], [ %386, %.lr.ph575 ], [ %425, %432 ]
+  %445 = phi i32 [ %382, %.lr.ph575 ], [ %442, %435 ], [ %426, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %426, %418 ], [ %426, %432 ]
+  %446 = phi ptr [ %383, %.lr.ph575 ], [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %419, %432 ]
+  %447 = phi ptr [ %384, %.lr.ph575 ], [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %419, %432 ]
+  %448 = phi i32 [ %385, %.lr.ph575 ], [ %420, %435 ], [ %420, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %420, %418 ], [ %420, %432 ]
+  %449 = phi i32 [ %386, %.lr.ph575 ], [ %425, %435 ], [ %425, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %425, %418 ], [ %425, %432 ]
   %indvars.iv.next630 = add nsw i64 %indvars.iv629, -1
   %450 = icmp sgt i64 %indvars.iv629, 0
   br i1 %450, label %.lr.ph575, label %._crit_edge576, !llvm.loop !62
@@ -1959,7 +1959,7 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395: ; preds = %_ZN8b3MyFac
   br label %671
 
 671:                                              ; preds = %526, %670
-  %.pn185.pn = phi { ptr, i32 } [ %.pn181, %670 ], [ %527, %526 ]
+  %.pn185.pn = phi { ptr, i32 } [ %527, %526 ], [ %.pn181, %670 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2407,8 +2407,8 @@ _ZN8b3MyFaceD2Ev.exit404:                         ; preds = %.loopexit537, %793
   br label %809
 
 .loopexit542:                                     ; preds = %_ZN8b3MyFaceD2Ev.exit404, %.critedge212, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395
-  %802 = phi i32 [ %445, %.critedge212 ], [ %445, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %673, %_ZN8b3MyFaceD2Ev.exit404 ]
-  %803 = phi ptr [ %446, %.critedge212 ], [ %648, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %.pre709, %_ZN8b3MyFaceD2Ev.exit404 ]
+  %802 = phi i32 [ %445, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %445, %.critedge212 ], [ %673, %_ZN8b3MyFaceD2Ev.exit404 ]
+  %803 = phi ptr [ %648, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %446, %.critedge212 ], [ %.pre709, %_ZN8b3MyFaceD2Ev.exit404 ]
   %.not.i.i.i405.not = icmp eq ptr %803, null
   br i1 %.not.i.i.i405.not, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %804
 
@@ -2434,7 +2434,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %._ZN20b3AlignedObje
   br i1 %.not, label %._crit_edge608, label %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i292, !llvm.loop !87
 
 809:                                              ; preds = %443, %801, %671, %380
-  %.pn190.pn = phi { ptr, i32 } [ %381, %380 ], [ %444, %443 ], [ %.pn185.pn, %671 ], [ %.pn179, %801 ]
+  %.pn190.pn = phi { ptr, i32 } [ %381, %380 ], [ %444, %443 ], [ %.pn179, %801 ], [ %.pn185.pn, %671 ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %870

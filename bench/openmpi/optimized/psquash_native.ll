@@ -158,9 +158,9 @@ switch.lookup:                                    ; preds = %4
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %19, ptr noundef nonnull @.str.4, i32 noundef 145) #6
   br label %21
 
-20:                                               ; preds = %10, %13, %17
-  %.sink = phi i64 [ %12, %10 ], [ %16, %13 ], [ %.sroa.0.0.insert.insert.i, %17 ]
-  store i64 %.sink, ptr %5, align 8, !tbaa !35
+20:                                               ; preds = %17, %10, %13
+  %.sroa.0.0.insert.insert.i.sink = phi i64 [ %.sroa.0.0.insert.insert.i, %17 ], [ %12, %10 ], [ %16, %13 ]
+  store i64 %.sroa.0.0.insert.insert.i.sink, ptr %5, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %switch.load, i1 false)
   store i64 %switch.load, ptr %3, align 8, !tbaa !35
   br label %21
@@ -229,9 +229,9 @@ switch.lookup:                                    ; preds = %5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %20, ptr noundef nonnull @.str.4, i32 noundef 174) #6
   br label %22
 
-21:                                               ; preds = %11, %14, %18
-  %.sink = phi i64 [ %13, %11 ], [ %17, %14 ], [ %.sroa.0.0.insert.insert.i, %18 ]
-  store i64 %.sink, ptr %6, align 8, !tbaa !35
+21:                                               ; preds = %18, %11, %14
+  %.sroa.0.0.insert.insert.i.sink = phi i64 [ %.sroa.0.0.insert.insert.i, %18 ], [ %13, %11 ], [ %17, %14 ]
+  store i64 %.sroa.0.0.insert.insert.i.sink, ptr %6, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %switch.load, i1 false)
   store i64 %switch.load, ptr %4, align 8, !tbaa !35
   br label %22

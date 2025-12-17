@@ -504,7 +504,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   unreachable
 
 CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %175, %173, %158
-  %.0115132.i = phi ptr [ null, %173 ], [ %174, %175 ], [ %174, %175 ], [ %174, %201 ], [ %174, %210 ], [ null, %158 ]
+  %.0115132.i = phi ptr [ %174, %210 ], [ null, %173 ], [ %174, %175 ], [ %174, %175 ], [ %174, %201 ], [ null, %158 ]
   %229 = tail call ptr @palloc(i64 noundef 56) #8
   store ptr %.0115132.i, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
@@ -1501,8 +1501,8 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %.lr.ph.i, label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %34, %.critedge.i
-  %38 = phi i32 [ %47, %.critedge.i ], [ %36, %34 ]
+.lr.ph.i:                                         ; preds = %34, %46
+  %38 = phi i32 [ %48, %46 ], [ %36, %34 ]
   %39 = trunc i32 %38 to i16
   %40 = add i16 %39, -7
   %41 = icmp eq i16 %40, 0
@@ -1511,71 +1511,71 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
 42:                                               ; preds = %.lr.ph.i
   %43 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 0) #8
   %.not47.i = icmp eq i32 %43, 0
-  br i1 %.not47.i, label %.critedge.i, label %.loopexit, !llvm.loop !8
+  br i1 %.not47.i, label %46, label %.loopexit
 
 44:                                               ; preds = %.lr.ph.i
   %45 = tail call i32 @pg_attribute_aclcheck(i32 noundef %12, i16 noundef signext %40, i32 noundef %20, i64 noundef 2) #8
   %.not46.i = icmp eq i32 %45, 0
-  br i1 %.not46.i, label %.critedge.i, label %.loopexit, !llvm.loop !8
+  br i1 %.not46.i, label %46, label %.loopexit
 
-.critedge.i:                                      ; preds = %44, %42
-  %46 = load ptr, ptr %29, align 8
-  %47 = tail call i32 @bms_next_member(ptr noundef %46, i32 noundef %38) #8
-  %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.lr.ph.i, label %.loopexit.i
+46:                                               ; preds = %44, %42
+  %47 = load ptr, ptr %29, align 8
+  %48 = tail call i32 @bms_next_member(ptr noundef %47, i32 noundef %38) #8
+  %49 = icmp sgt i32 %48, -1
+  br i1 %49, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
 
-.loopexit.i:                                      ; preds = %.critedge.i, %34, %26
-  %49 = and i64 %23, 1
-  %.not44.i = icmp eq i64 %49, 0
-  br i1 %.not44.i, label %54, label %50
+.loopexit.i:                                      ; preds = %46, %34, %26
+  %50 = and i64 %23, 1
+  %.not44.i = icmp eq i64 %50, 0
+  br i1 %.not44.i, label %55, label %51
 
-50:                                               ; preds = %.loopexit.i
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %52, i64 noundef 1)
-  br i1 %53, label %54, label %.loopexit
+51:                                               ; preds = %.loopexit.i
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %53, i64 noundef 1)
+  br i1 %54, label %55, label %.loopexit
 
-54:                                               ; preds = %50, %.loopexit.i
+55:                                               ; preds = %51, %.loopexit.i
   %.not45.i = icmp ult i64 %23, 4
-  br i1 %.not45.i, label %.critedge, label %55
+  br i1 %.not45.i, label %.critedge, label %56
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %57, i64 noundef 4)
-  br i1 %58, label %.critedge, label %.loopexit
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %58, i64 noundef 4)
+  br i1 %59, label %.critedge, label %.loopexit
 
-.loopexit:                                        ; preds = %55, %50, %32, %24, %42, %44
-  br i1 %2, label %59, label %.thread35
+.loopexit:                                        ; preds = %51, %56, %24, %32, %42, %44
+  br i1 %2, label %60, label %.thread35
 
-59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = tail call signext i8 @get_rel_relkind(i32 noundef %61) #8
-  %63 = tail call i32 @get_relkind_objtype(i8 noundef signext %62) #8
-  %64 = load i32, ptr %60, align 4
-  %65 = tail call ptr @get_rel_name(i32 noundef %64) #8
-  tail call void @aclcheck_error(i32 noundef 1, i32 noundef %63, ptr noundef %65) #8
+60:                                               ; preds = %.loopexit
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call signext i8 @get_rel_relkind(i32 noundef %62) #8
+  %64 = tail call i32 @get_relkind_objtype(i8 noundef signext %63) #8
+  %65 = load i32, ptr %61, align 4
+  %66 = tail call ptr @get_rel_name(i32 noundef %65) #8
+  tail call void @aclcheck_error(i32 noundef 1, i32 noundef %64, ptr noundef %66) #8
   br label %.thread35
 
-.critedge:                                        ; preds = %54, %55, %19
+.critedge:                                        ; preds = %55, %56, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
-  %66 = load i32, ptr %4, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph60, label %._crit_edge
+  %67 = load i32, ptr %4, align 4
+  %68 = sext i32 %67 to i64
+  %69 = icmp slt i64 %indvars.iv.next, %68
+  br i1 %69, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %.lr.ph, %3
-  %69 = load ptr, ptr @ExecutorCheckPerms_hook, align 8
-  %.not27 = icmp eq ptr %69, null
-  br i1 %.not27, label %.thread35, label %70
+  %70 = load ptr, ptr @ExecutorCheckPerms_hook, align 8
+  %.not27 = icmp eq ptr %70, null
+  br i1 %.not27, label %.thread35, label %71
 
-70:                                               ; preds = %._crit_edge
-  %71 = tail call zeroext i1 %69(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #8
+71:                                               ; preds = %._crit_edge
+  %72 = tail call zeroext i1 %70(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #8
   br label %.thread35
 
-.thread35:                                        ; preds = %59, %.loopexit, %._crit_edge, %70
-  %.3 = phi i1 [ %71, %70 ], [ true, %._crit_edge ], [ false, %.loopexit ], [ false, %59 ]
+.thread35:                                        ; preds = %60, %.loopexit, %._crit_edge, %71
+  %.3 = phi i1 [ true, %._crit_edge ], [ %72, %71 ], [ false, %.loopexit ], [ false, %60 ]
   ret i1 %.3
 }
 
@@ -2040,7 +2040,7 @@ define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %28, %44, %._crit_edge106
-  %.1 = phi ptr [ %56, %._crit_edge106 ], [ %46, %44 ], [ %30, %28 ], [ %14, %12 ]
+  %.1 = phi ptr [ %56, %._crit_edge106 ], [ %30, %28 ], [ %46, %44 ], [ %14, %12 ]
   ret ptr %.1
 }
 
@@ -2580,7 +2580,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br label %94
 
 94:                                               ; preds = %._crit_edge, %5, %92, %87
-  %.0 = phi ptr [ %93, %92 ], [ %91, %87 ], [ null, %5 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %5 ], [ %93, %92 ], [ %91, %87 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -4152,7 +4152,7 @@ ExecGetJunkAttribute.exit40:                      ; preds = %119, %slot_getsomea
   br label %.critedge
 
 .critedge:                                        ; preds = %ExecGetJunkAttribute.exit, %ExecGetJunkAttribute.exit40, %table_tuple_fetch_row_version.exit, %ExecGetJunkAttribute.exit38, %39, %131, %101
-  %.1 = phi i1 [ true, %101 ], [ true, %131 ], [ false, %39 ], [ false, %ExecGetJunkAttribute.exit38 ], [ true, %table_tuple_fetch_row_version.exit ], [ false, %ExecGetJunkAttribute.exit40 ], [ false, %ExecGetJunkAttribute.exit ]
+  %.1 = phi i1 [ false, %ExecGetJunkAttribute.exit40 ], [ true, %101 ], [ false, %ExecGetJunkAttribute.exit38 ], [ true, %table_tuple_fetch_row_version.exit ], [ true, %131 ], [ false, %39 ], [ false, %ExecGetJunkAttribute.exit ]
   ret i1 %.1
 }
 

@@ -225,7 +225,7 @@ sub_026:                                          ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %sub_026, %sub_1, %sub_0, %.tail, %.tail25, %34, %22, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %34 ], [ true, %.tail25 ], [ true, %.tail ], [ true, %sub_0 ], [ true, %sub_1 ], [ true, %sub_026 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %34 ], [ false, %3 ], [ false, %22 ], [ true, %.tail25 ], [ true, %.tail ], [ true, %sub_1 ], [ true, %sub_0 ], [ true, %sub_026 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -489,8 +489,8 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %.thread400
 
 95:                                               ; preds = %66, %64, %77, %75
-  %.3323 = phi ptr [ null, %66 ], [ null, %64 ], [ %78, %77 ], [ null, %75 ]
-  %.7302 = phi i32 [ %.3298, %66 ], [ %.3298, %64 ], [ %79, %77 ], [ %.3298, %75 ]
+  %.3323 = phi ptr [ null, %64 ], [ %78, %77 ], [ null, %75 ], [ null, %66 ]
+  %.7302 = phi i32 [ %.3298, %64 ], [ %79, %77 ], [ %.3298, %75 ], [ %.3298, %66 ]
   %.not361 = icmp eq ptr %.1307, null
   br i1 %.not361, label %.thread400, label %.preheader417
 
@@ -514,13 +514,13 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   %102 = add i32 %.0291, 1
   br label %.preheader417, !llvm.loop !7
 
-.thread400:                                       ; preds = %.preheader417, %31, %91, %.thread, %92, %95
-  %.not361411 = phi i1 [ true, %95 ], [ true, %92 ], [ true, %.thread ], [ true, %91 ], [ true, %31 ], [ false, %.preheader417 ]
-  %.3309410 = phi ptr [ null, %95 ], [ null, %92 ], [ null, %.thread ], [ null, %91 ], [ null, %31 ], [ %.1307, %.preheader417 ]
-  %.4314409 = phi ptr [ %.1311, %95 ], [ %93, %92 ], [ null, %.thread ], [ null, %91 ], [ null, %31 ], [ %.1311, %.preheader417 ]
-  %.4319408 = phi ptr [ %.1316, %95 ], [ %.3318, %92 ], [ null, %.thread ], [ %.3318, %91 ], [ null, %31 ], [ %.1316, %.preheader417 ]
-  %.3323407 = phi ptr [ %.3323, %95 ], [ %.2322, %92 ], [ null, %.thread ], [ %.2322, %91 ], [ null, %31 ], [ %.3323, %.preheader417 ]
-  %.8303 = phi i32 [ %.7302, %95 ], [ %94, %92 ], [ 0, %.thread ], [ %.6301, %91 ], [ 0, %31 ], [ %.9, %.preheader417 ]
+.thread400:                                       ; preds = %.preheader417, %31, %.thread, %92, %91, %95
+  %.not361411 = phi i1 [ true, %95 ], [ true, %91 ], [ true, %92 ], [ true, %.thread ], [ true, %31 ], [ false, %.preheader417 ]
+  %.3309410 = phi ptr [ null, %95 ], [ null, %91 ], [ null, %92 ], [ null, %.thread ], [ null, %31 ], [ %.1307, %.preheader417 ]
+  %.4314409 = phi ptr [ %.1311, %95 ], [ null, %91 ], [ %93, %92 ], [ null, %.thread ], [ null, %31 ], [ %.1311, %.preheader417 ]
+  %.4319408 = phi ptr [ %.1316, %95 ], [ %.3318, %91 ], [ %.3318, %92 ], [ null, %.thread ], [ null, %31 ], [ %.1316, %.preheader417 ]
+  %.3323407 = phi ptr [ %.3323, %95 ], [ %.2322, %91 ], [ %.2322, %92 ], [ null, %.thread ], [ null, %31 ], [ %.3323, %.preheader417 ]
+  %.8303 = phi i32 [ %.7302, %95 ], [ %.6301, %91 ], [ %94, %92 ], [ 0, %.thread ], [ 0, %31 ], [ %.9, %.preheader417 ]
   %.not363 = icmp eq ptr %3, null
   br i1 %.not363, label %105, label %103
 
@@ -947,7 +947,7 @@ define noundef zeroext i1 @ECPGconnect(i32 noundef %0, i32 noundef %1, ptr nound
   br label %257
 
 257:                                              ; preds = %243, %247, %.critedge397, %250, %149, %132, %30, %26, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %26 ], [ false, %30 ], [ false, %132 ], [ true, %250 ], [ false, %149 ], [ false, %.critedge397 ], [ false, %247 ], [ false, %243 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %26 ], [ false, %30 ], [ false, %132 ], [ false, %.critedge397 ], [ true, %250 ], [ false, %149 ], [ false, %247 ], [ false, %243 ]
   ret i1 %.0
 }
 
@@ -1147,7 +1147,7 @@ sub_0:                                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %22, %19, %16, %.tail.thread
-  %.0 = phi i32 [ -602, %.tail.thread ], [ -603, %16 ], [ -604, %19 ], [ %., %22 ]
+  %.0 = phi i32 [ -604, %19 ], [ -602, %.tail.thread ], [ -603, %16 ], [ %., %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %27 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef 5) #8
   %28 = sext i32 %.0 to i64

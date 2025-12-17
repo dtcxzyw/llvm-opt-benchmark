@@ -475,7 +475,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hfb44505a3612bdc5E.ll
   br label %66
 
 .body:                                            ; preds = %64, %56, %42, %23, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %65, %64 ], [ %24, %23 ], [ %43, %42 ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %65, %64 ], [ %43, %42 ], [ %24, %23 ], [ %57, %56 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..SeqDeserializer$GT$17hde699a7c22f74485E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #36
           to label %common.resume unwind label %95
 
@@ -515,7 +515,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hfb44505a3612bdc5E.ll
   unreachable
 
 common.resume:                                    ; preds = %.body, %87, %70
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %88, %87 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %88, %87 ], [ %71, %70 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..SeqDeserializer$GT$17hde699a7c22f74485E.exit": ; preds = %72
@@ -714,7 +714,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17hf3480e2c43316f39E.l
   br label %.noexc6.i.i.i.i
 
 .noexc6.i.i.i.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.thread.i.i3.i.i.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.i.i1.i.i.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit4.i.i5.i.i.i.i.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit.i.i7.i.i.i.i.i.i.i.i"
-  %.sink.i.i4.i.i.i.i.i.i.i.i = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.thread.i.i3.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit.i.i7.i.i.i.i.i.i.i.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit4.i.i5.i.i.i.i.i.i.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.i.i1.i.i.i.i.i.i.i.i" ]
+  %.sink.i.i4.i.i.i.i.i.i.i.i = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit4.i.i5.i.i.i.i.i.i.i.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.thread.i.i3.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit.i.i7.i.i.i.i.i.i.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1bd3e6d4721f7d85E.exit8.i.i1.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !203
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc16e2274e27a15ffE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %.loopexit
@@ -813,8 +813,8 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   br label %74
 
 .invoke:                                          ; preds = %54, %52, %50
-  %58 = phi ptr [ @anon.cfae85451d85cf72f2eced67e2a83e68.190, %50 ], [ @anon.cfae85451d85cf72f2eced67e2a83e68.191, %52 ], [ @anon.cfae85451d85cf72f2eced67e2a83e68.192, %54 ]
-  %59 = phi i64 [ 5, %50 ], [ 15, %52 ], [ 24, %54 ]
+  %58 = phi ptr [ @anon.cfae85451d85cf72f2eced67e2a83e68.191, %52 ], [ @anon.cfae85451d85cf72f2eced67e2a83e68.190, %50 ], [ @anon.cfae85451d85cf72f2eced67e2a83e68.192, %54 ]
+  %59 = phi i64 [ 15, %52 ], [ 5, %50 ], [ 24, %54 ]
   %60 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17hcc1c690969898f17E(ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %59)
           to label %109 unwind label %.loopexit.split-lp
 
@@ -1006,7 +1006,7 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   br label %123
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %98, %85, %68, %42, %121
-  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %43, %42 ], [ %69, %68 ], [ %86, %85 ], [ %99, %98 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %99, %98 ], [ %86, %85 ], [ %43, %42 ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17hb201665525dc13b7E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %12) #36
           to label %common.resume unwind label %143
 
@@ -1021,7 +1021,7 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   br label %.body
 
 109:                                              ; preds = %.invoke, %.noexc16, %.noexc12, %.noexc8, %104
-  %.sroa.924.0.ph = phi ptr [ %105, %104 ], [ %.sroa.881.3112.i, %.noexc16 ], [ %.sroa.877.3100.i, %.noexc12 ], [ %.sroa.873.388.i, %.noexc8 ], [ %60, %.invoke ]
+  %.sroa.924.0.ph = phi ptr [ %105, %104 ], [ %.sroa.881.3112.i, %.noexc16 ], [ %60, %.invoke ], [ %.sroa.877.3100.i, %.noexc12 ], [ %.sroa.873.388.i, %.noexc8 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.924.0.ph, ptr %110, align 8
   store i8 1, ptr %0, align 8
@@ -1052,7 +1052,7 @@ default.unreachable:                              ; preds = %"_ZN54_$LT$$RF$mut$
   unreachable
 
 common.resume:                                    ; preds = %.body, %132, %136, %112, %116
-  %common.resume.op = phi { ptr, i32 } [ %113, %116 ], [ %113, %112 ], [ %133, %136 ], [ %133, %132 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %133, %132 ], [ %113, %112 ], [ %113, %116 ], [ %133, %136 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 121:                                              ; preds = %129
@@ -1295,7 +1295,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h7648b0f1e31e250dE.exit"
 
 common.resume:                                    ; preds = %49, %50, %51, %52, %56, %38, %42
-  %common.resume.op = phi { ptr, i32 } [ %39, %42 ], [ %39, %38 ], [ %19, %56 ], [ %19, %52 ], [ %19, %51 ], [ %19, %50 ], [ %19, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %39, %42 ], [ %19, %56 ], [ %19, %52 ], [ %19, %51 ], [ %19, %50 ], [ %19, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %31
@@ -3955,7 +3955,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -4070,7 +4070,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -4221,7 +4221,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -4443,7 +4443,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -4527,7 +4527,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -4770,7 +4770,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -5079,7 +5079,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -5334,7 +5334,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -5449,7 +5449,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -5782,7 +5782,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -5901,7 +5901,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -6248,7 +6248,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -6438,7 +6438,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -6563,7 +6563,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -6829,7 +6829,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -7056,7 +7056,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %18
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %19, %18 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op.i
 
 37:                                               ; preds = %18
@@ -7140,7 +7140,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -7631,7 +7631,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -7740,7 +7740,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -7824,7 +7824,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -7973,7 +7973,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -8119,7 +8119,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -8295,7 +8295,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -8419,7 +8419,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -8715,7 +8715,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9065,7 +9065,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9256,7 +9256,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -9365,7 +9365,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9608,7 +9608,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9717,7 +9717,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -9881,7 +9881,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -10385,7 +10385,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %20, %14, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %20 ], [ %15, %14 ], [ %11, %10 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %15, %20 ], [ %11, %10 ]
   resume { ptr, i32 } %common.resume.op.i
 
 29:                                               ; preds = %10
@@ -10534,7 +10534,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -10683,7 +10683,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %28, %22, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %28 ], [ %23, %22 ], [ %20, %19 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %23, %28 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op.i
 
 36:                                               ; preds = %19
@@ -12983,7 +12983,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -13089,7 +13089,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -13195,7 +13195,7 @@ define hidden void @"_ZN4core3ptr360drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -13693,7 +13693,7 @@ define hidden void @"_ZN4core3ptr389drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -13762,7 +13762,7 @@ define hidden void @"_ZN4core3ptr38drop_in_place$LT$gpui..app..Effect$GT$17h959c
   br label %common.resume
 
 common.resume:                                    ; preds = %40, %48, %17, %25
-  %common.resume.op = phi { ptr, i32 } [ %18, %25 ], [ %18, %17 ], [ %41, %48 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %25 ], [ %41, %48 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..app..AppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h3e2e20ed7e7dd369E.llvm.1856919498638270738.exit": ; preds = %39, %32, %16, %9, %1, %1, %1
@@ -14144,7 +14144,7 @@ define hidden void @"_ZN4core3ptr414drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -14250,7 +14250,7 @@ define hidden void @"_ZN4core3ptr414drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -14356,7 +14356,7 @@ define hidden void @"_ZN4core3ptr414drop_in_place$LT$search..SearchOptions..as_b
   unreachable
 
 common.resume:                                    ; preds = %.body, %26, %32
-  %common.resume.op = phi { ptr, i32 } [ %27, %32 ], [ %27, %26 ], [ %16, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %27, %32 ], [ %16, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7d45e19b62f3d10fE.exit": ; preds = %33, %38
@@ -28998,7 +28998,7 @@ define hidden void @_ZN4gpui8elements3div26StatefulInteractiveElement12track_scr
   unreachable
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$gpui..elements..div..ScrollHandle$GT$$GT$17h76305c87264b73c5E.llvm.1856919498638270738.exit5": ; preds = %18, %12
-  %.pn.pn = phi { ptr, i32 } [ %13, %12 ], [ %19, %18 ]
+  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %13, %12 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h583a6ad5bb48bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1)
           to label %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h650ba5335d85c3ecE.exit" unwind label %20
 

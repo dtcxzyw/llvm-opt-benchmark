@@ -439,7 +439,7 @@ bitstring_skip.exit.i:                            ; preds = %188, %bitstring_loo
   br label %do_uncompress.exit
 
 do_uncompress.exit:                               ; preds = %152, %167, %176, %bitstring_skip.exit.i.i, %28, %PrefixCodeTreeRebuild.exit.thread.i, %.critedge.i
-  %.0.i = phi i8 [ 0, %28 ], [ 0, %.critedge.i ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %bitstring_skip.exit.i.i ], [ 1, %152 ], [ 0, %167 ], [ 0, %176 ]
+  %.0.i = phi i8 [ 0, %28 ], [ 0, %PrefixCodeTreeRebuild.exit.thread.i ], [ 0, %.critedge.i ], [ 0, %bitstring_skip.exit.i.i ], [ 0, %167 ], [ 0, %176 ], [ 1, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store volatile i8 %.0.i, ptr %8, align 1
   br label %204
@@ -609,7 +609,7 @@ define internal range(i32 -1, 2) i32 @compare_symbols(ptr noundef readonly captu
   br label %16
 
 16:                                               ; preds = %14, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %14 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %14 ]
   ret i32 %.0
 }
 

@@ -399,8 +399,8 @@ define range(i32 -3, 2) i32 @adc_decompress(ptr noundef captures(address_is_null
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %162) #8
   br label %.thread
 
-.thread:                                          ; preds = %.critedge2, %157, %.thread143, %14, %127, %123, %118, %155, %158, %10, %1, %3, %6, %161
-  %.0114 = phi i32 [ -2, %161 ], [ -3, %6 ], [ -3, %3 ], [ -3, %1 ], [ -2, %10 ], [ 1, %158 ], [ 0, %.thread143 ], [ -2, %155 ], [ -2, %118 ], [ -2, %123 ], [ -2, %127 ], [ 0, %14 ], [ 0, %157 ], [ 0, %.critedge2 ]
+.thread:                                          ; preds = %.critedge2, %157, %.thread143, %14, %123, %118, %155, %127, %158, %10, %1, %3, %6, %161
+  %.0114 = phi i32 [ 1, %158 ], [ -3, %1 ], [ 0, %.thread143 ], [ -2, %10 ], [ -2, %161 ], [ -3, %6 ], [ -3, %3 ], [ 0, %14 ], [ -2, %127 ], [ -2, %155 ], [ -2, %118 ], [ -2, %123 ], [ 0, %157 ], [ 0, %.critedge2 ]
   ret i32 %.0114
 }
 

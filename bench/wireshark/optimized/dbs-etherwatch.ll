@@ -735,7 +735,7 @@ parse_hex_dump.exit156.thread:                    ; preds = %89, %.lr.ph.i143, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %230, %250, %244, %236, %223, %186, %177, %168, %163, %158, %149, %144, %135, %129, %parse_hex_dump.exit156.thread, %parse_hex_dump.exit.thread, %20, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %parse_hex_dump.exit.thread ], [ false, %parse_hex_dump.exit156.thread ], [ false, %129 ], [ false, %135 ], [ false, %144 ], [ false, %149 ], [ false, %158 ], [ false, %223 ], [ false, %236 ], [ false, %250 ], [ false, %244 ], [ false, %163 ], [ false, %168 ], [ false, %177 ], [ false, %186 ], [ false, %20 ], [ true, %230 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %parse_hex_dump.exit.thread ], [ false, %parse_hex_dump.exit156.thread ], [ false, %129 ], [ false, %135 ], [ false, %144 ], [ false, %149 ], [ false, %158 ], [ false, %223 ], [ false, %236 ], [ false, %250 ], [ false, %244 ], [ false, %20 ], [ false, %163 ], [ false, %168 ], [ false, %177 ], [ false, %186 ], [ true, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1052,7 +1052,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   br i1 %93, label %89, label %.loopexit.i, !llvm.loop !11
 
 parse_hex_dump.exit:                              ; preds = %5, %.lr.ph, %29, %.preheader, %56, %.lr.ph.i, %.loopexit.i, %44, %38
-  %.037 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %.lr.ph.i ], [ %49, %.loopexit.i ], [ 0, %.preheader ], [ 0, %29 ], [ 0, %.lr.ph ], [ 0, %5 ]
+  %.037 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %.lr.ph ], [ %49, %.loopexit.i ], [ 0, %.preheader ], [ 0, %29 ], [ 0, %56 ], [ 0, %.lr.ph.i ], [ 0, %5 ]
   ret i32 %.037
 }
 

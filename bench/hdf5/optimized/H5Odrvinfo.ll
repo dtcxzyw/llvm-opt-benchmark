@@ -159,7 +159,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr readnone captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %31, %24, %17, %83, %84, %6
-  %.0 = phi ptr [ null, %84 ], [ null, %6 ], [ %29, %83 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %84 ], [ null, %17 ], [ null, %6 ], [ %29, %83 ], [ null, %31 ], [ null, %24 ]
   ret ptr %.0
 }
 

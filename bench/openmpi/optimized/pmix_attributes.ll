@@ -641,7 +641,7 @@ define internal fastcc range(i32 -171, 1) i32 @process_reg(ptr noundef readonly 
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %12, %9, %6, %3
-  %.0 = phi ptr [ @client_attrs, %3 ], [ @server_attrs, %6 ], [ @host_attrs, %9 ], [ @tool_attrs, %12 ]
+  %.0 = phi ptr [ @host_attrs, %9 ], [ @client_attrs, %3 ], [ @server_attrs, %6 ], [ @tool_attrs, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 120
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 240
   %.01721 = load ptr, ptr %17, align 8, !tbaa !58
@@ -2931,7 +2931,7 @@ pmix_pointer_array_get_item.exit.i73:             ; preds = %107, %pmix_pointer_
   %.not.i75 = icmp eq i32 %114, 0
   br i1 %.not.i75, label %pmix_attributes_lookup_term.exit, label %107
 
-.loopexit:                                        ; preds = %pmix_attributes_lookup.exit, %pmix_pointer_array_get_item.exit.i73, %107
+.loopexit:                                        ; preds = %pmix_attributes_lookup.exit, %107, %pmix_pointer_array_get_item.exit.i73
   %115 = tail call i32 @pthread_mutex_lock(ptr noundef %31) #18
   %116 = icmp eq i32 %115, 35
   br i1 %116, label %117, label %pmix_obj_update.exit
@@ -3685,7 +3685,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %.not, label %.thread, label %8
 
 .thread:                                          ; preds = %12, %8, %pmix_pointer_array_get_item.exit, %1
-  %16 = phi ptr [ null, %1 ], [ null, %pmix_pointer_array_get_item.exit ], [ null, %8 ], [ %10, %12 ]
+  %16 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %pmix_pointer_array_get_item.exit ], [ %10, %12 ]
   ret ptr %16
 }
 
@@ -3714,8 +3714,8 @@ define ptr @pmix_attributes_print_functions(ptr noundef readonly captures(none) 
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %11, %8, %5, %1
-  %.str.14.sink = phi ptr [ @.str.13, %1 ], [ @.str.14, %5 ], [ @.str.15, %8 ], [ @.str.16, %11 ]
-  %.014 = phi ptr [ @client_attrs, %1 ], [ @server_attrs, %5 ], [ @host_attrs, %8 ], [ @tool_attrs, %11 ]
+  %.str.14.sink = phi ptr [ @.str.13, %1 ], [ @.str.15, %8 ], [ @.str.14, %5 ], [ @.str.16, %11 ]
+  %.014 = phi ptr [ @client_attrs, %1 ], [ @host_attrs, %8 ], [ @server_attrs, %5 ], [ @tool_attrs, %11 ]
   %15 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %2, ptr noundef nonnull %.str.14.sink) #18
   %16 = getelementptr inbounds nuw i8, ptr %.014, i64 120
   %17 = getelementptr inbounds nuw i8, ptr %.014, i64 240
@@ -3864,7 +3864,7 @@ define void @pmix_attributes_print_headers(ptr noundef %0, ptr noundef readonly 
   br i1 %14, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %12, %9, %6, %2
-  %.str.18.sink = phi ptr [ @.str.17, %2 ], [ @.str.18, %6 ], [ @.str.19, %9 ], [ @.str.20, %12 ]
+  %.str.18.sink = phi ptr [ @.str.17, %2 ], [ @.str.19, %9 ], [ @.str.18, %6 ], [ @.str.20, %12 ]
   %15 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef nonnull %.str.18.sink) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %3, i8 32, i64 141, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 140
@@ -3925,7 +3925,7 @@ define ptr @pmix_attributes_print_attr(ptr noundef readonly captures(none) %0, p
   br i1 %15, label %16, label %118
 
 16:                                               ; preds = %13, %10, %7, %2
-  %.060 = phi ptr [ @client_attrs, %2 ], [ @server_attrs, %7 ], [ @host_attrs, %10 ], [ @tool_attrs, %13 ]
+  %.060 = phi ptr [ @host_attrs, %10 ], [ @client_attrs, %2 ], [ @server_attrs, %7 ], [ @tool_attrs, %13 ]
   call void @pmix_attributes_print_headers(ptr noundef nonnull %3, ptr noundef nonnull %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %4, i8 61, i64 141, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 140
@@ -4078,7 +4078,7 @@ pmix_pointer_array_get_item.exit.i69:             ; preds = %85, %pmix_pointer_a
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %pmix_attributes_lookup_term.exit, label %85
 
-.loopexit:                                        ; preds = %pmix_attributes_lookup.exit, %pmix_pointer_array_get_item.exit.i69, %85
+.loopexit:                                        ; preds = %pmix_attributes_lookup.exit, %85, %pmix_pointer_array_get_item.exit.i69
   call void @PMIx_Argv_free(ptr noundef nonnull %18) #18
   %93 = load ptr, ptr %3, align 8, !tbaa !164
   call void @PMIx_Argv_free(ptr noundef %93) #18

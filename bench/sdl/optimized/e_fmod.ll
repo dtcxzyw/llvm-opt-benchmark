@@ -330,7 +330,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   br label %161
 
 161:                                              ; preds = %20, %160, %125, %109, %25, %16
-  %.0 = phi double [ %18, %16 ], [ %28, %25 ], [ %112, %109 ], [ %128, %125 ], [ %.0148, %160 ], [ %0, %20 ]
+  %.0 = phi double [ %18, %16 ], [ %.0148, %160 ], [ %28, %25 ], [ %112, %109 ], [ %128, %125 ], [ %0, %20 ]
   ret double %.0
 }
 

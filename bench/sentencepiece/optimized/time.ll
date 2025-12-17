@@ -282,13 +282,13 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
 
 19:                                               ; preds = %9
   %20 = icmp eq i32 %7, 2
-  br i1 %20, label %21, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
+  br i1 %20, label %21, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i
 
 21:                                               ; preds = %19
   %.lhs.trunc.i = trunc nuw nsw i32 %.fr.i to i16
   %22 = urem i16 %.lhs.trunc.i, 400
   %23 = icmp eq i16 %22, 0
-  br i1 %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i, label %24
+  br i1 %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit, label %24
 
 24:                                               ; preds = %21
   %25 = and i32 %.fr.i, 3
@@ -296,20 +296,20 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
   %27 = urem i16 %.lhs.trunc.i, 100
   %.not.i = icmp eq i16 %27, 0
   %or.cond39.i = or i1 %26, %.not.i
-  br i1 %or.cond39.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i
+  br i1 %or.cond39.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
 
-_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i: ; preds = %24, %21
-  %28 = icmp samesign ult i32 %11, 30
-  br i1 %28, label %32, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread
-
-_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit: ; preds = %19, %24
-  %29 = zext nneg i32 %7 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !7
-  %.not = icmp sgt i32 %11, %31
+_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i: ; preds = %24, %19
+  %28 = zext nneg i32 %7 to i64
+  %29 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !7
+  %.not = icmp sgt i32 %11, %30
   br i1 %.not, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %32
 
-32:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
+_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit: ; preds = %21, %24
+  %31 = icmp samesign ult i32 %11, 30
+  br i1 %31, label %32, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread
+
+32:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
   %33 = icmp samesign ugt i32 %.fr.i, 400
   br i1 %33, label %34, label %41
 
@@ -444,7 +444,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.i: ; preds = %86
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit
 
 _ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit: ; preds = %._crit_edge.i, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i6, %86, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.i
-  %.4.i = phi i64 [ %80, %._crit_edge.i ], [ %85, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i6 ], [ %80, %86 ], [ %spec.select.i, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.i ]
+  %.4.i = phi i64 [ %80, %._crit_edge.i ], [ %80, %86 ], [ %spec.select.i, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.i ], [ %85, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i6 ]
   %91 = mul nuw nsw i32 %11, 86400
   %narrow = add nsw i32 %91, -86400
   %92 = sext i32 %narrow to i64
@@ -461,8 +461,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTim
   store i64 %100, ptr %1, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread: ; preds = %2, %5, %9, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit
-  %.0.i8 = phi i1 [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit ], [ true, %_ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i ], [ false, %9 ], [ false, %5 ], [ false, %2 ]
+_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread: ; preds = %2, %5, %9, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit
+  %.0.i8 = phi i1 [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit ], [ true, %_ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTimeE.exit ], [ false, %9 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0.i8
 }
 
@@ -536,8 +536,8 @@ define void @_ZN6google8protobuf8internal10FormatTimeB5cxx11Eli(ptr dead_on_unwi
   br label %.invoke
 
 .invoke:                                          ; preds = %30, %26
-  %34 = phi ptr [ @.str.4, %26 ], [ %spec.select, %30 ]
-  %35 = phi i32 [ %28, %26 ], [ %spec.select59, %30 ]
+  %34 = phi ptr [ %spec.select, %30 ], [ @.str.4, %26 ]
+  %35 = phi i32 [ %spec.select59, %30 ], [ %28, %26 ]
   invoke void (ptr, ptr, ...) @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull %34, i32 noundef %35)
           to label %_ZN6google8protobuf8internal12_GLOBAL__N_111FormatNanosB5cxx11Ei.exit unwind label %68
 
@@ -1140,7 +1140,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121: ; preds = 
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %119, %104, %100, %85, %81, %66, %61, %46, %41, %26, %21, %3, %131, %.critedge51, %.critedge, %126, %121, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121, %102, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107, %83, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93, %64, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79, %44, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65, %24, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit, %149
-  %.034 = phi i1 [ %151, %149 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %24 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65 ], [ false, %44 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79 ], [ false, %64 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93 ], [ false, %83 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107 ], [ false, %102 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121 ], [ false, %121 ], [ false, %126 ], [ false, %.critedge ], [ false, %.critedge51 ], [ false, %131 ], [ false, %3 ], [ false, %21 ], [ false, %26 ], [ false, %41 ], [ false, %46 ], [ false, %61 ], [ false, %66 ], [ false, %81 ], [ false, %85 ], [ false, %100 ], [ false, %104 ], [ false, %119 ]
+  %.034 = phi i1 [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %24 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65 ], [ false, %44 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79 ], [ false, %64 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93 ], [ false, %83 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107 ], [ false, %102 ], [ false, %121 ], [ %151, %149 ], [ false, %131 ], [ false, %.critedge ], [ false, %.critedge51 ], [ false, %126 ], [ false, %100 ], [ false, %21 ], [ false, %41 ], [ false, %61 ], [ false, %81 ], [ false, %3 ], [ false, %26 ], [ false, %46 ], [ false, %66 ], [ false, %85 ], [ false, %104 ], [ false, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.034
 }
@@ -1278,7 +1278,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %33, %19, %15, %2, %35, %17
-  %.0 = phi ptr [ null, %17 ], [ %.017.lcssa.i15, %35 ], [ null, %2 ], [ null, %15 ], [ null, %19 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %33 ], [ null, %17 ], [ %.017.lcssa.i15, %35 ], [ null, %19 ], [ null, %2 ]
   ret ptr %.0
 }
 

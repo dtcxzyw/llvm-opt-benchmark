@@ -193,7 +193,7 @@ define i32 @ff_dirac_golomb_read_16bit(ptr noundef readonly captures(none) %0, i
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge, %65
-  %.1101 = phi i32 [ %71, %65 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
+  %.1101 = phi i32 [ %3, %._crit_edge ], [ %71, %65 ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 
@@ -386,7 +386,7 @@ define i32 @ff_dirac_golomb_read_32bit(ptr noundef readonly captures(none) %0, i
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge, %71
-  %.1101 = phi i32 [ %77, %71 ], [ %3, %._crit_edge ], [ %3, %.lr.ph ]
+  %.1101 = phi i32 [ %3, %._crit_edge ], [ %77, %71 ], [ %3, %.lr.ph ]
   ret i32 %.1101
 }
 

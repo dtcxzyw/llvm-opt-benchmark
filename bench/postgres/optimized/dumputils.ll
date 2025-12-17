@@ -558,7 +558,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   br label %198
 
 198:                                              ; preds = %.sink.split, %10, %16
-  %.0147 = phi i1 [ true, %16 ], [ true, %10 ], [ %.0147.ph, %.sink.split ]
+  %.0147 = phi i1 [ true, %10 ], [ true, %16 ], [ %.0147.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -744,8 +744,8 @@ AddAcl.exit.sink.split:                           ; preds = %57, %52
   br label %AddAcl.exit
 
 AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.split, %57, %52, %41
-  %.0285 = phi i1 [ false, %41 ], [ true, %52 ], [ false, %57 ], [ %or.cond, %AddAcl.exit.sink.split ]
-  %.0284 = phi i1 [ false, %41 ], [ false, %52 ], [ true, %57 ], [ %.0284.ph, %AddAcl.exit.sink.split ]
+  %.0285 = phi i1 [ false, %41 ], [ false, %57 ], [ true, %52 ], [ %or.cond, %AddAcl.exit.sink.split ]
+  %.0284 = phi i1 [ false, %41 ], [ true, %57 ], [ false, %52 ], [ %.0284.ph, %AddAcl.exit.sink.split ]
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.32) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %63, label %60
@@ -902,8 +902,8 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
   br label %113
 
 113:                                              ; preds = %104, %63, %70, %71, %112, %111, %84
-  %.6291 = phi i1 [ %.0285, %70 ], [ false, %71 ], [ %.5290, %111 ], [ false, %112 ], [ %.2287, %84 ], [ false, %63 ], [ false, %104 ]
-  %.6 = phi i1 [ false, %70 ], [ %.0284, %71 ], [ false, %111 ], [ %.5, %112 ], [ %.2, %84 ], [ false, %63 ], [ false, %104 ]
+  %.6291 = phi i1 [ %.0285, %70 ], [ false, %71 ], [ %.2287, %84 ], [ %.5290, %111 ], [ false, %112 ], [ false, %63 ], [ false, %104 ]
+  %.6 = phi i1 [ false, %70 ], [ %.0284, %71 ], [ %.2, %84 ], [ false, %111 ], [ %.5, %112 ], [ false, %63 ], [ false, %104 ]
   %114 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #9
   %.not368 = icmp eq ptr %114, null
   br i1 %.not368, label %dequoteAclUserName.exit.thread, label %115
@@ -1322,11 +1322,11 @@ AddAcl.exit386:                                   ; preds = %124
   br i1 %.6291, label %.critedge, label %dequoteAclUserName.exit.thread
 
 .critedge.sink.split:                             ; preds = %261, %251, %241, %231, %218, %163, %153, %140
-  %.str.46.sink = phi ptr [ @.str.46, %140 ], [ @.str.46, %153 ], [ @.str.36, %163 ], [ @.str.52, %218 ], [ @.str.36, %231 ], [ @.str.36, %241 ], [ @.str.36, %251 ], [ @.str.35, %261 ]
+  %.str.46.sink = phi ptr [ @.str.36, %251 ], [ @.str.46, %140 ], [ @.str.46, %153 ], [ @.str.36, %163 ], [ @.str.52, %218 ], [ @.str.36, %231 ], [ @.str.36, %241 ], [ @.str.35, %261 ]
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull %.str.46.sink, ptr noundef %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %125, %300, %282, %211, %187, %AddAcl.exit386
+.critedge:                                        ; preds = %.critedge.sink.split, %211, %282, %300, %187, %125, %AddAcl.exit386
   tail call void @resetPQExpBuffer(ptr noundef %5) #8
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.66) #8
   %.not370 = icmp eq ptr %2, null
@@ -1336,11 +1336,11 @@ AddAcl.exit386:                                   ; preds = %124
   br i1 %.6, label %.thread13, label %dequoteAclUserName.exit.thread
 
 .thread13.sink.split:                             ; preds = %261, %251, %241, %231, %218, %163, %153, %140
-  %.str.46.sink94 = phi ptr [ @.str.46, %140 ], [ @.str.46, %153 ], [ @.str.36, %163 ], [ @.str.52, %218 ], [ @.str.36, %231 ], [ @.str.36, %241 ], [ @.str.36, %251 ], [ @.str.35, %261 ]
+  %.str.46.sink94 = phi ptr [ @.str.36, %251 ], [ @.str.46, %140 ], [ @.str.46, %153 ], [ @.str.36, %163 ], [ @.str.52, %218 ], [ @.str.36, %231 ], [ @.str.36, %241 ], [ @.str.35, %261 ]
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull %.str.46.sink94, ptr noundef %2)
   br label %.thread13
 
-.thread13:                                        ; preds = %.thread13.sink.split, %188, %212, %283, %301, %131, %303
+.thread13:                                        ; preds = %.thread13.sink.split, %301, %283, %212, %188, %131, %303
   tail call void @resetPQExpBuffer(ptr noundef %6) #8
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %5, ptr noundef nonnull @.str.66) #8
   %.not369 = icmp eq ptr %2, null
@@ -1351,8 +1351,8 @@ AddAcl.exit386:                                   ; preds = %124
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %.sink95, ptr noundef nonnull @.str.67, ptr noundef nonnull %2) #8
   br label %dequoteAclUserName.exit.thread
 
-dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i376, %.critedge, %.thread13, %303, %131, %301, %283, %212, %188, %AddAcl.exit386, %187, %211, %282, %300, %125, %293, %275, %259, %249, %239, %229, %216, %204, %180, %161, %151, %138, %113, %.thread.sink.split, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %.thread.sink.split ], [ true, %113 ], [ true, %138 ], [ true, %151 ], [ true, %161 ], [ true, %180 ], [ true, %204 ], [ true, %216 ], [ true, %229 ], [ true, %239 ], [ true, %249 ], [ true, %259 ], [ true, %275 ], [ true, %293 ], [ true, %125 ], [ true, %300 ], [ true, %282 ], [ true, %211 ], [ true, %187 ], [ true, %AddAcl.exit386 ], [ true, %188 ], [ true, %212 ], [ true, %283 ], [ true, %301 ], [ true, %131 ], [ true, %303 ], [ true, %.thread13 ], [ true, %.critedge ], [ false, %.loopexit.i376 ], [ false, %.preheader.i ], [ false, %.loopexit.i ]
+dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i376, %.critedge, %.thread13, %303, %131, %188, %212, %283, %301, %AddAcl.exit386, %125, %187, %300, %282, %211, %259, %249, %239, %229, %216, %204, %180, %161, %151, %138, %113, %275, %293, %.thread.sink.split, %17
+  %.0 = phi i1 [ false, %17 ], [ true, %.thread.sink.split ], [ true, %293 ], [ true, %275 ], [ true, %113 ], [ true, %138 ], [ true, %151 ], [ true, %161 ], [ true, %180 ], [ true, %204 ], [ true, %216 ], [ true, %229 ], [ true, %239 ], [ true, %249 ], [ true, %259 ], [ true, %211 ], [ true, %282 ], [ true, %300 ], [ true, %187 ], [ true, %125 ], [ true, %AddAcl.exit386 ], [ true, %301 ], [ true, %283 ], [ true, %212 ], [ true, %188 ], [ true, %131 ], [ true, %303 ], [ true, %.thread13 ], [ true, %.critedge ], [ false, %.preheader.i ], [ false, %.loopexit.i376 ], [ false, %.loopexit.i ]
   tail call void @pg_free(ptr noundef %8) #8
   ret i1 %.0
 }
@@ -1528,7 +1528,7 @@ define dso_local zeroext i1 @variable_is_guc_list_quote(ptr noundef %0) local_un
   br label %19
 
 19:                                               ; preds = %16, %1, %4, %7, %10, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %10 ], [ true, %7 ], [ true, %4 ], [ true, %1 ], [ %18, %16 ]
+  %.0 = phi i1 [ true, %1 ], [ %18, %16 ], [ true, %13 ], [ true, %10 ], [ true, %7 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -1674,7 +1674,7 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   br label %.preheader65, !llvm.loop !20
 
 .critedge61:                                      ; preds = %.critedge, %23, %30, %59, %18, %.thread
-  %.048 = phi i1 [ true, %.thread ], [ true, %18 ], [ false, %59 ], [ false, %30 ], [ false, %23 ], [ false, %.critedge ]
+  %.048 = phi i1 [ true, %18 ], [ true, %.thread ], [ false, %59 ], [ false, %30 ], [ false, %23 ], [ false, %.critedge ]
   ret i1 %.048
 }
 

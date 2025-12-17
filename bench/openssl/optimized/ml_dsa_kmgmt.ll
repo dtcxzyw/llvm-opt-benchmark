@@ -96,7 +96,7 @@ define internal i32 @ml_dsa_match(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %10
 
 10:                                               ; preds = %5, %3, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %3 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ %9, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -315,7 +315,7 @@ thread-pre-split.i:                               ; preds = %43, %41, %.thread70
   br label %ml_dsa_key_fromdata.exit
 
 ml_dsa_key_fromdata.exit:                         ; preds = %19, %27, %31, %37, %39, %46, %54, %59, %65, %68, %71, %73, %76, %78, %83
-  %.0.i = phi i32 [ 0, %27 ], [ 0, %37 ], [ 0, %46 ], [ 0, %54 ], [ 0, %65 ], [ 0, %19 ], [ 0, %31 ], [ 0, %39 ], [ 0, %59 ], [ 0, %68 ], [ 0, %73 ], [ 1, %78 ], [ 1, %76 ], [ %88, %83 ], [ 1, %71 ]
+  %.0.i = phi i32 [ 0, %27 ], [ 0, %37 ], [ 0, %46 ], [ 0, %54 ], [ 0, %73 ], [ 0, %65 ], [ 0, %39 ], [ 0, %59 ], [ 0, %68 ], [ 0, %31 ], [ 0, %19 ], [ 1, %78 ], [ 1, %76 ], [ %88, %83 ], [ 1, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -461,13 +461,13 @@ define internal ptr @ml_dsa_load(ptr noundef captures(none) %0, i64 noundef %1) 
   %.not29 = icmp eq i32 %21, 0
   br i1 %.not29, label %select.unfold, label %22
 
-select.unfold:                                    ; preds = %.thread, %17, %19, %2
-  %.023.ph = phi ptr [ null, %2 ], [ %7, %19 ], [ %7, %17 ], [ %7, %.thread ]
+select.unfold:                                    ; preds = %.thread, %17, %2, %19
+  %.023.ph = phi ptr [ %7, %17 ], [ null, %2 ], [ %7, %19 ], [ %7, %.thread ]
   tail call void @ossl_ml_dsa_key_free(ptr noundef %.023.ph) #6
   br label %22
 
 22:                                               ; preds = %17, %.thread, %select.unfold, %6, %9
-  %.0 = phi ptr [ %7, %9 ], [ null, %6 ], [ null, %select.unfold ], [ %7, %17 ], [ %7, %.thread ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %9 ], [ null, %select.unfold ], [ %7, %17 ], [ %7, %.thread ]
   ret ptr %.0
 }
 
@@ -571,7 +571,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_get_params(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %42, %37, %31, %26, %16, %10, %4, %44
-  %.0 = phi i32 [ 1, %44 ], [ 0, %4 ], [ 0, %10 ], [ 0, %16 ], [ 0, %26 ], [ 0, %31 ], [ 0, %37 ], [ 0, %42 ]
+  %.0 = phi i32 [ 1, %44 ], [ 0, %37 ], [ 0, %31 ], [ 0, %26 ], [ 0, %16 ], [ 0, %10 ], [ 0, %4 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -666,7 +666,7 @@ define internal ptr @ml_dsa_gen_init(ptr noundef %0, i32 %1, ptr noundef %2) #0 
   br label %ml_dsa_gen_set_params.exit
 
 ml_dsa_gen_set_params.exit:                       ; preds = %17, %15, %6, %21, %3
-  %.07 = phi ptr [ null, %3 ], [ null, %21 ], [ null, %6 ], [ %7, %15 ], [ %7, %17 ]
+  %.07 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %21 ], [ %7, %15 ], [ %7, %17 ]
   ret ptr %.07
 }
 
@@ -736,7 +736,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_gen_set_params(ptr noundef %0, ptr n
   br label %19
 
 19:                                               ; preds = %11, %14, %2, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 0, %2 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %18 ], [ 0, %2 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -940,7 +940,7 @@ define internal fastcc ptr @ml_dsa_gen(ptr noundef %0, i32 noundef range(i32 145
   br label %ml_dsa_new_key.exit.thread
 
 ml_dsa_new_key.exit.thread:                       ; preds = %9, %4, %21, %2, %24
-  %.0 = phi ptr [ null, %24 ], [ null, %2 ], [ %11, %21 ], [ null, %4 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ %11, %21 ], [ null, %24 ], [ null, %4 ], [ null, %9 ]
   ret ptr %.0
 }
 

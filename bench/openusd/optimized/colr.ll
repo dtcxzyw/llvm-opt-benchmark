@@ -229,7 +229,7 @@ define hidden zeroext range(i16 0, 9) i16 @avifTransferCharacteristicsFindByGamm
   br label %13
 
 13:                                               ; preds = %9, %5, %1
-  %.0 = phi i16 [ 4, %1 ], [ 8, %5 ], [ %., %9 ]
+  %.0 = phi i16 [ 8, %5 ], [ 4, %1 ], [ %., %9 ]
   ret i16 %.0
 }
 
@@ -273,10 +273,10 @@ define hidden void @avifCalcYUVCoefficients(ptr noundef readonly captures(none) 
   %22 = fsub float %21, %20
   br label %calcYUVInfoFromCICP.exit
 
-calcYUVInfoFromCICP.exit:                         ; preds = %12, %16, %9
-  %23 = phi float [ %.pre15, %9 ], [ %20, %16 ], [ 0x3FBD2F1AA0000000, %12 ]
-  %24 = phi float [ %.pre, %9 ], [ %18, %16 ], [ 0x3FD322D0E0000000, %12 ]
-  %25 = phi float [ %.pre13, %9 ], [ %22, %16 ], [ 0x3FE2C8B420000000, %12 ]
+calcYUVInfoFromCICP.exit:                         ; preds = %12, %9, %16
+  %23 = phi float [ %20, %16 ], [ %.pre15, %9 ], [ 0x3FBD2F1AA0000000, %12 ]
+  %24 = phi float [ %18, %16 ], [ %.pre, %9 ], [ 0x3FD322D0E0000000, %12 ]
+  %25 = phi float [ %22, %16 ], [ %.pre13, %9 ], [ 0x3FE2C8B420000000, %12 ]
   store float %24, ptr %1, align 4
   store float %25, ptr %2, align 4
   store float %23, ptr %3, align 4
@@ -333,7 +333,7 @@ define internal float @avifToLinear709(float noundef %0) #5 {
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %12, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %12, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -386,7 +386,7 @@ define internal float @avifToGamma709(float noundef %0) #5 {
   br label %12
 
 12:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %11, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %11, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -555,7 +555,7 @@ define internal float @avifToLinearSMPTE240(float noundef %0) #5 {
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %12, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %12, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -582,7 +582,7 @@ define internal float @avifToGammaSMPTE240(float noundef %0) #5 {
   br label %12
 
 12:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %11, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %11, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -761,7 +761,7 @@ define internal float @avifToLinearBT1361(float noundef %0) #5 {
   br label %20
 
 20:                                               ; preds = %14, %1, %16, %12, %5
-  %.0 = phi float [ %9, %5 ], [ %13, %12 ], [ %19, %16 ], [ -2.500000e-01, %1 ], [ 1.000000e+00, %14 ]
+  %.0 = phi float [ -2.500000e-01, %1 ], [ %9, %5 ], [ %13, %12 ], [ %19, %16 ], [ 1.000000e+00, %14 ]
   ret float %.0
 }
 
@@ -798,7 +798,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
   br label %18
 
 18:                                               ; preds = %13, %1, %15, %11, %5
-  %.0 = phi float [ %8, %5 ], [ %12, %11 ], [ %17, %15 ], [ -2.500000e-01, %1 ], [ 1.000000e+00, %13 ]
+  %.0 = phi float [ -2.500000e-01, %1 ], [ %8, %5 ], [ %12, %11 ], [ %17, %15 ], [ 1.000000e+00, %13 ]
   ret float %.0
 }
 
@@ -826,7 +826,7 @@ define internal float @avifToLinearSRGB(float noundef %0) #5 {
   br label %13
 
 13:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %12, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %12, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -853,7 +853,7 @@ define internal float @avifToGammaSRGB(float noundef %0) #5 {
   br label %12
 
 12:                                               ; preds = %7, %1, %9, %5
-  %.0 = phi float [ %6, %5 ], [ %11, %9 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %7 ]
+  %.0 = phi float [ 0.000000e+00, %1 ], [ %6, %5 ], [ %11, %9 ], [ 1.000000e+00, %7 ]
   ret float %.0
 }
 
@@ -984,7 +984,7 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
   br label %19
 
 19:                                               ; preds = %1, %15, %12
-  %.0 = phi float [ %14, %12 ], [ %18, %15 ], [ 0.000000e+00, %1 ]
+  %.0 = phi float [ %18, %15 ], [ %14, %12 ], [ 0.000000e+00, %1 ]
   ret float %.0
 }
 

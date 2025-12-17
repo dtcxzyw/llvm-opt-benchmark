@@ -957,7 +957,7 @@ opensafety_udp_transport_dissector.exit.thread:   ; preds = %60, %38, %opensafet
   br label %dissect_opensafety_siii.exit
 
 dissect_opensafety_siii.exit:                     ; preds = %14, %13, %10, %opensafety_udp_transport_dissector.exit, %opensafety_udp_transport_dissector.exit.thread, %20, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %20 ], [ 1, %opensafety_udp_transport_dissector.exit.thread ], [ 0, %opensafety_udp_transport_dissector.exit ], [ 0, %10 ], [ %16, %14 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %opensafety_udp_transport_dissector.exit ], [ 0, %17 ], [ 0, %20 ], [ 1, %opensafety_udp_transport_dissector.exit.thread ], [ 0, %10 ], [ %16, %14 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1471,10 +1471,10 @@ define internal fastcc noundef zeroext i1 @findSafetyFrame(ptr noundef readonly 
   br label %61
 
 61:                                               ; preds = %54, %57
-  %.0151 = phi i16 [ %40, %57 ], [ %51, %54 ]
-  %.3148 = phi i16 [ %60, %57 ], [ %55, %54 ]
-  %.0140 = phi i32 [ 0, %57 ], [ 1, %54 ]
-  %.3 = phi i8 [ 1, %57 ], [ %., %54 ]
+  %.0151 = phi i16 [ %51, %54 ], [ %40, %57 ]
+  %.3148 = phi i16 [ %55, %54 ], [ %60, %57 ]
+  %.0140 = phi i32 [ 1, %54 ], [ 0, %57 ]
+  %.3 = phi i8 [ %., %54 ], [ 1, %57 ]
   %62 = icmp eq i16 %.0151, %.3148
   br i1 %62, label %.thread, label %104
 
@@ -1598,7 +1598,7 @@ define internal fastcc noundef zeroext i1 @findSafetyFrame(ptr noundef readonly 
   br label %.thread184
 
 .thread184:                                       ; preds = %.backedge, %7, %117, %116
-  %118 = phi i1 [ true, %117 ], [ true, %116 ], [ false, %7 ], [ false, %.backedge ]
+  %118 = phi i1 [ true, %116 ], [ true, %117 ], [ false, %7 ], [ false, %.backedge ]
   ret i1 %118
 }
 
@@ -1764,13 +1764,13 @@ findFrame1Position.exit.thread290:                ; preds = %79
   br label %.backedge
 
 .backedge:                                        ; preds = %294, %301, %findFrame1Position.exit.thread290, %170, %172, %181, %226, %200, %290
-  %95 = phi i32 [ %62, %findFrame1Position.exit.thread290 ], [ %182, %181 ], [ %227, %226 ], [ %293, %290 ], [ %storemerge, %200 ], [ %171, %170 ], [ %173, %172 ], [ %302, %301 ], [ %298, %294 ]
-  %.0250.be = phi i8 [ %.0250321, %findFrame1Position.exit.thread290 ], [ %.0250321, %181 ], [ %.0250321, %226 ], [ %.0250321, %290 ], [ %.0250321, %200 ], [ %.0250321, %170 ], [ %.0250321, %172 ], [ 1, %301 ], [ 1, %294 ]
-  %.0246.be = phi i1 [ %.0246323, %findFrame1Position.exit.thread290 ], [ %.0246323, %181 ], [ %.0246323, %226 ], [ %.0246323, %290 ], [ %.0246323, %200 ], [ %.0246323, %170 ], [ %.0246323, %172 ], [ true, %301 ], [ true, %294 ]
-  %.0240.be = phi i1 [ %.0240325, %findFrame1Position.exit.thread290 ], [ %.0240325, %181 ], [ %spec.select277, %226 ], [ %.1241, %290 ], [ %.0240325, %200 ], [ %.0240325, %170 ], [ %.0240325, %172 ], [ %.1241, %301 ], [ %.1241, %294 ]
-  %.0236.be = phi i8 [ %.0236327, %findFrame1Position.exit.thread290 ], [ %.0236327, %181 ], [ %.0236327, %226 ], [ %.0236327, %290 ], [ %.0236327, %200 ], [ %.0236327, %170 ], [ %.0236327, %172 ], [ %.6302, %301 ], [ %.6302, %294 ]
-  %.0233.be = phi i32 [ %.0233329, %findFrame1Position.exit.thread290 ], [ %.0233329, %181 ], [ %.0233329, %226 ], [ %.0233329, %290 ], [ %.0233329, %200 ], [ %.0233329, %170 ], [ %.0233329, %172 ], [ %62, %301 ], [ %62, %294 ]
-  %.0231.be = phi i8 [ %.0231331, %findFrame1Position.exit.thread290 ], [ %.0231331, %181 ], [ %.0231331, %226 ], [ %.0231331, %290 ], [ %.0231331, %200 ], [ %.0231331, %170 ], [ %.0231331, %172 ], [ %286, %301 ], [ %286, %294 ]
+  %95 = phi i32 [ %62, %findFrame1Position.exit.thread290 ], [ %182, %181 ], [ %227, %226 ], [ %173, %172 ], [ %293, %290 ], [ %storemerge, %200 ], [ %171, %170 ], [ %302, %301 ], [ %298, %294 ]
+  %.0250.be = phi i8 [ %.0250321, %findFrame1Position.exit.thread290 ], [ %.0250321, %181 ], [ %.0250321, %226 ], [ %.0250321, %172 ], [ %.0250321, %290 ], [ %.0250321, %200 ], [ %.0250321, %170 ], [ 1, %301 ], [ 1, %294 ]
+  %.0246.be = phi i1 [ %.0246323, %findFrame1Position.exit.thread290 ], [ %.0246323, %181 ], [ %.0246323, %226 ], [ %.0246323, %172 ], [ %.0246323, %290 ], [ %.0246323, %200 ], [ %.0246323, %170 ], [ true, %301 ], [ true, %294 ]
+  %.0240.be = phi i1 [ %.0240325, %findFrame1Position.exit.thread290 ], [ %.0240325, %181 ], [ %spec.select277, %226 ], [ %.0240325, %172 ], [ %.1241, %290 ], [ %.0240325, %200 ], [ %.0240325, %170 ], [ %.1241, %301 ], [ %.1241, %294 ]
+  %.0236.be = phi i8 [ %.0236327, %findFrame1Position.exit.thread290 ], [ %.0236327, %181 ], [ %.0236327, %226 ], [ %.0236327, %172 ], [ %.0236327, %290 ], [ %.0236327, %200 ], [ %.0236327, %170 ], [ %.6302, %301 ], [ %.6302, %294 ]
+  %.0233.be = phi i32 [ %.0233329, %findFrame1Position.exit.thread290 ], [ %.0233329, %181 ], [ %.0233329, %226 ], [ %.0233329, %172 ], [ %.0233329, %290 ], [ %.0233329, %200 ], [ %.0233329, %170 ], [ %62, %301 ], [ %62, %294 ]
+  %.0231.be = phi i8 [ %.0231331, %findFrame1Position.exit.thread290 ], [ %.0231331, %181 ], [ %.0231331, %226 ], [ %.0231331, %172 ], [ %.0231331, %290 ], [ %.0231331, %200 ], [ %.0231331, %170 ], [ %286, %301 ], [ %286, %294 ]
   %96 = icmp ult i32 %95, %13
   br i1 %96, label %47, label %._crit_edge335, !llvm.loop !13
 
@@ -1871,7 +1871,7 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
   br label %findFrame1Position.exit285
 
 findFrame1Position.exit285:                       ; preds = %._crit_edge.i, %147, %153
-  %.045.i284 = phi i16 [ %149, %153 ], [ %122, %._crit_edge.i ], [ 0, %147 ]
+  %.045.i284 = phi i16 [ %149, %153 ], [ 0, %147 ], [ %122, %._crit_edge.i ]
   %154 = zext nneg i16 %.045.i284 to i32
   %155 = add nuw nsw i32 %100, %154
   %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %155)
@@ -1908,12 +1908,12 @@ findFrame1Position.exit285:                       ; preds = %._crit_edge.i, %147
   br label %.backedge
 
 174:                                              ; preds = %167, %164, %161, %findFrame1Position.exit285, %113, %110, %107, %findFrame1Position.exit.thread
-  %175 = phi i1 [ false, %findFrame1Position.exit.thread ], [ false, %107 ], [ true, %110 ], [ false, %113 ], [ false, %findFrame1Position.exit285 ], [ false, %161 ], [ true, %164 ], [ false, %167 ]
-  %176 = phi i1 [ true, %findFrame1Position.exit.thread ], [ true, %107 ], [ false, %110 ], [ true, %113 ], [ true, %findFrame1Position.exit285 ], [ true, %161 ], [ false, %164 ], [ true, %167 ]
-  %177 = phi i1 [ false, %findFrame1Position.exit.thread ], [ false, %107 ], [ false, %110 ], [ true, %113 ], [ false, %findFrame1Position.exit285 ], [ false, %161 ], [ false, %164 ], [ true, %167 ]
-  %.0239 = phi i8 [ -24, %findFrame1Position.exit.thread ], [ -32, %107 ], [ -64, %110 ], [ -96, %113 ], [ -24, %findFrame1Position.exit285 ], [ -32, %161 ], [ -64, %164 ], [ -96, %167 ]
-  %.1230 = phi i16 [ %.0229288, %findFrame1Position.exit.thread ], [ %.0229288, %107 ], [ %.0229288, %110 ], [ %.0229288, %113 ], [ %.045.i284, %findFrame1Position.exit285 ], [ %.045.i284, %161 ], [ %.045.i284, %164 ], [ %.045.i284, %167 ]
-  %.1228 = phi i16 [ %.0227289, %findFrame1Position.exit.thread ], [ %.0227289, %107 ], [ %.0227289, %110 ], [ %.0227289, %113 ], [ 0, %findFrame1Position.exit285 ], [ 0, %161 ], [ 0, %164 ], [ 0, %167 ]
+  %175 = phi i1 [ true, %164 ], [ false, %findFrame1Position.exit.thread ], [ false, %107 ], [ true, %110 ], [ false, %113 ], [ false, %findFrame1Position.exit285 ], [ false, %161 ], [ false, %167 ]
+  %176 = phi i1 [ false, %164 ], [ true, %findFrame1Position.exit.thread ], [ true, %107 ], [ false, %110 ], [ true, %113 ], [ true, %findFrame1Position.exit285 ], [ true, %161 ], [ true, %167 ]
+  %177 = phi i1 [ false, %164 ], [ false, %findFrame1Position.exit.thread ], [ false, %107 ], [ false, %110 ], [ true, %113 ], [ false, %findFrame1Position.exit285 ], [ false, %161 ], [ true, %167 ]
+  %.0239 = phi i8 [ -64, %164 ], [ -24, %findFrame1Position.exit.thread ], [ -32, %107 ], [ -64, %110 ], [ -96, %113 ], [ -24, %findFrame1Position.exit285 ], [ -32, %161 ], [ -96, %167 ]
+  %.1230 = phi i16 [ %.045.i284, %164 ], [ %.0229288, %findFrame1Position.exit.thread ], [ %.0229288, %107 ], [ %.0229288, %110 ], [ %.0229288, %113 ], [ %.045.i284, %findFrame1Position.exit285 ], [ %.045.i284, %161 ], [ %.045.i284, %167 ]
+  %.1228 = phi i16 [ 0, %164 ], [ %.0227289, %findFrame1Position.exit.thread ], [ %.0227289, %107 ], [ %.0227289, %110 ], [ %.0227289, %113 ], [ 0, %findFrame1Position.exit285 ], [ 0, %161 ], [ 0, %167 ]
   %178 = load i8, ptr @global_classify_transport, align 1, !range !6, !noundef !7
   %179 = trunc nuw i8 %178 to i1
   %or.cond = and i1 %43, %179
@@ -2191,7 +2191,7 @@ findFrame1Position.exit285:                       ; preds = %._crit_edge.i, %147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %201, %.thread370, %24, %9, %314
-  %.0 = phi i32 [ %315, %314 ], [ 0, %9 ], [ 0, %24 ], [ 0, %.thread370 ], [ 0, %201 ]
+  %.0 = phi i32 [ 0, %9 ], [ %315, %314 ], [ 0, %24 ], [ 0, %.thread370 ], [ 0, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -3474,8 +3474,8 @@ opensafety_packet_receiver.exit.i113:             ; preds = %786, %785
   br label %886
 
 886:                                              ; preds = %881, %854, %847, %818
-  %.0365.i = phi i16 [ %844, %847 ], [ %844, %818 ], [ %.0360.i, %881 ], [ 0, %854 ]
-  %.0362.i = phi i16 [ %.0360.i, %847 ], [ 0, %818 ], [ %878, %881 ], [ %878, %854 ]
+  %.0365.i = phi i16 [ %844, %847 ], [ %844, %818 ], [ 0, %854 ], [ %.0360.i, %881 ]
+  %.0362.i = phi i16 [ %.0360.i, %847 ], [ 0, %818 ], [ %878, %854 ], [ %878, %881 ]
   %887 = load ptr, ptr %794, align 8
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 3
   %889 = load i8, ptr %888, align 1, !range !6, !noundef !7
@@ -3998,7 +3998,7 @@ proto_item_set_generated.exit208.i.i:             ; preds = %1193, %1190, %proto
   br label %1217
 
 1217:                                             ; preds = %1215, %1213, %1211, %.lr.ph217.i.i
-  %.0.i.i = phi i16 [ 5120, %.lr.ph217.i.i ], [ 6144, %1211 ], [ 7168, %1213 ], [ %spec.select.i.i, %1215 ]
+  %.0.i.i = phi i16 [ %spec.select.i.i, %1215 ], [ 5120, %.lr.ph217.i.i ], [ 6144, %1211 ], [ 7168, %1213 ]
   %1218 = load i32, ptr @hf_oss_ssdo_sod_index, align 4
   %1219 = zext i16 %.0.i.i to i32
   %1220 = shl nuw i32 %1219, 16
@@ -4920,7 +4920,7 @@ proto_item_set_generated.exit.i123:               ; preds = %1745, %1742, %1735
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1835, %1834, %1782
-  %.2.i = phi i16 [ %1837, %1835 ], [ %.3.i, %1834 ], [ %.0161.i, %1782 ]
+  %.2.i = phi i16 [ %.0161.i, %1782 ], [ %1837, %1835 ], [ %.3.i, %1834 ]
   %1838 = load i32, ptr @hf_oss_crc, align 4
   %1839 = zext i16 %.2.i to i32
   %1840 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %4, i32 noundef %1838, ptr noundef %1, i32 noundef %1758, i32 noundef %1715, i32 noundef %1839, ptr noundef nonnull @.str.516, i32 noundef %1839)

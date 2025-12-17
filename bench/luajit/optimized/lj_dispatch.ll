@@ -619,7 +619,7 @@ lightudV.exit:                                    ; preds = %124, %128
   br label %.critedge
 
 .critedge:                                        ; preds = %120, %80, %103, %21, %19, %141, %lightudV.exit, %setptmode.exit, %100, %16, %106, %101
-  %.1 = phi i32 [ 0, %101 ], [ 0, %106 ], [ 0, %16 ], [ 1, %100 ], [ 1, %setptmode.exit ], [ 1, %lightudV.exit ], [ 1, %141 ], [ 1, %19 ], [ 1, %21 ], [ 1, %103 ], [ 0, %80 ], [ 0, %120 ]
+  %.1 = phi i32 [ 0, %106 ], [ 0, %16 ], [ 1, %103 ], [ 0, %80 ], [ 0, %120 ], [ 0, %101 ], [ 1, %100 ], [ 1, %setptmode.exit ], [ 1, %lightudV.exit ], [ 1, %141 ], [ 1, %19 ], [ 1, %21 ]
   ret i32 %.1
 }
 

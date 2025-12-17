@@ -997,7 +997,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %bytestream2_get_le3
   br i1 %401, label %.thread425.thread.sink.split.i, label %.thread425.thread.i
 
 .thread425.thread.sink.split.i:                   ; preds = %.thread425.i, %.thread420.thread.i, %.thread420.i, %397
-  %.sink.i = phi i32 [ 1, %397 ], [ 2, %.thread420.thread.i ], [ 2, %.thread420.i ], [ 3, %.thread425.i ]
+  %.sink.i = phi i32 [ 1, %397 ], [ 2, %.thread420.i ], [ 2, %.thread420.thread.i ], [ 3, %.thread425.i ]
   %402 = getelementptr inbounds nuw i8, ptr %65, i64 156
   store i32 %.sink.i, ptr %402, align 4, !tbaa !56
   br label %.thread425.thread.i
@@ -1353,7 +1353,7 @@ bytestream2_get_byte.exit:                        ; preds = %519, %520
   br label %598
 
 598:                                              ; preds = %.thread188, %.thread187, %.thread, %parse_pixel_format.exit, %411, %596, %37, %27, %22
-  %.0144 = phi i32 [ -1094995529, %22 ], [ -1094995529, %27 ], [ %33, %37 ], [ %597, %596 ], [ -1094995529, %parse_pixel_format.exit ], [ %412, %411 ], [ -1094995529, %.thread ], [ -1094995529, %.thread187 ], [ -1094995529, %.thread188 ]
+  %.0144 = phi i32 [ -1094995529, %22 ], [ -1094995529, %27 ], [ %33, %37 ], [ -1094995529, %.thread187 ], [ -1094995529, %parse_pixel_format.exit ], [ %597, %596 ], [ -1094995529, %.thread ], [ -1094995529, %.thread188 ], [ %412, %411 ]
   ret i32 %.0144
 }
 

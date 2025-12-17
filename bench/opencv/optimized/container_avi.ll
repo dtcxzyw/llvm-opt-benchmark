@@ -1142,8 +1142,8 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit: ; preds = %_ZN2cvrs
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.21, i32 noundef %61, i32 noundef %62) #34
   br label %.sink.split
 
-.sink.split:                                      ; preds = %59, %45, %28, %32, %_ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit
-  %.1.ph = phi i1 [ false, %_ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit ], [ false, %32 ], [ false, %28 ], [ true, %45 ], [ true, %59 ]
+.sink.split:                                      ; preds = %45, %59, %28, %32, %_ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit
+  %.1.ph = phi i1 [ false, %28 ], [ false, %_ZN2cvrsERNS_16VideoInputStreamERNS_15AviStreamHeaderE.exit ], [ false, %32 ], [ true, %59 ], [ true, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
@@ -2194,7 +2194,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !119
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -2421,7 +2421,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !131
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -8681,7 +8681,7 @@ _ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit26:    ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !111
   %57 = load ptr, ptr %.0, align 8, !tbaa !62
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

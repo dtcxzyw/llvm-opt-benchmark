@@ -231,7 +231,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   br label %.critedge
 
 .critedge:                                        ; preds = %46, %41, %39, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit
-  %.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit ], [ true, %39 ], [ true, %41 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %46 ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit ], [ true, %39 ], [ true, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -326,7 +326,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   br label %.critedge
 
 .critedge:                                        ; preds = %46, %41, %39, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit
-  %.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit ], [ true, %39 ], [ true, %41 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %46 ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit ], [ true, %39 ], [ true, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -375,7 +375,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFr
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %21, %19, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %19 ], [ true, %21 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %26 ], [ false, %3 ], [ true, %19 ], [ true, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -427,7 +427,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFr
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %22, %20, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %20 ], [ true, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %3 ], [ true, %20 ], [ true, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1122,7 +1122,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thre
   br label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit
 
 _ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit: ; preds = %86, %64, %.noexc14, %80, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
-  %.011 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ true, %80 ], [ true, %.noexc14 ], [ false, %86 ], [ false, %64 ]
+  %.011 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ false, %86 ], [ true, %80 ], [ true, %.noexc14 ], [ false, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.011
@@ -1210,7 +1210,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZer
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit: ; preds = %2, %21, %26
-  %.0.i.i = phi i1 [ false, %2 ], [ true, %21 ], [ false, %26 ]
+  %.0.i.i = phi i1 [ false, %26 ], [ false, %2 ], [ true, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i.i
 }
@@ -1317,7 +1317,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFil
   br label %32
 
 32:                                               ; preds = %.thread, %28
-  %33 = phi i1 [ %31, %28 ], [ false, %.thread ]
+  %33 = phi i1 [ false, %.thread ], [ %31, %28 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %34) #22
@@ -1486,7 +1486,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIst
   br label %37
 
 37:                                               ; preds = %.thread, %28
-  %38 = phi i1 [ %36, %28 ], [ false, %.thread ]
+  %38 = phi i1 [ false, %.thread ], [ %36, %28 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8, !tbaa !25
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %39) #22
@@ -1703,7 +1703,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i, %43, %48
-  %.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %43 ], [ false, %48 ]
+  %.0.i.i = phi i1 [ false, %48 ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i.i
 }
@@ -1866,7 +1866,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENS0_20stringpiece_internal11StringPieceEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENS0_20stringpiece_internal11StringPieceEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i, %42, %47
-  %.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %42 ], [ false, %47 ]
+  %.0.i.i = phi i1 [ false, %47 ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i.i
 }
@@ -2025,7 +2025,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11Strin
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i, %40, %45
-  %.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %40 ], [ false, %45 ]
+  %.0.i.i = phi i1 [ false, %45 ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_20stringpiece_internal11StringPieceEEEEibPPKcDpOT_.exit.i.i ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i.i
 }

@@ -63,7 +63,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit22.thread44:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit18.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread44, %_ZN4llvmeqENS_9StringRefES0_.exit22, %2
-  %.0 = phi i1 [ false, %2 ], [ %17, %_ZN4llvmeqENS_9StringRefES0_.exit18.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread44 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %17, %_ZN4llvmeqENS_9StringRefES0_.exit18.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread44 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22 ]
   ret i1 %.0
 }
 
@@ -112,7 +112,7 @@ _ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_b.exit: ; preds = %_ZN
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit: ; preds = %_ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_b.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_b.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %6 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZN4llvm12StringSwitchIbbE5CasesENS_13StringLiteralES2_S2_b.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -143,7 +143,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13TargetOptions26ShouldEmitDebugEn
   br label %10
 
 10:                                               ; preds = %1, %7
-  %11 = phi i1 [ %9, %7 ], [ true, %1 ]
+  %11 = phi i1 [ true, %1 ], [ %9, %7 ]
   ret i1 %11
 }
 

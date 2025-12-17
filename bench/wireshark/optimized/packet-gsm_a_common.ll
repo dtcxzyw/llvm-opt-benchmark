@@ -1736,7 +1736,7 @@ proto_item_set_generated.exit275:                 ; preds = %184, %146, %187, %1
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %247, %130, %254, %250, %242, %137, %133, %125, %._crit_edge, %13, %321, %309, %46, %17, %15, %3
-  %.0 = phi i32 [ %9, %3 ], [ %9, %15 ], [ 4, %17 ], [ 7, %46 ], [ 1, %13 ], [ %.2.lcssa, %._crit_edge ], [ 18, %321 ], [ 18, %309 ], [ %.0256, %125 ], [ %.0256, %133 ], [ %.0256, %137 ], [ 13, %242 ], [ 13, %250 ], [ 13, %254 ], [ %.0256, %130 ], [ 13, %247 ]
+  %.0 = phi i32 [ 4, %17 ], [ 7, %46 ], [ %9, %3 ], [ %9, %15 ], [ 1, %13 ], [ 18, %309 ], [ %.2.lcssa, %._crit_edge ], [ %.0256, %137 ], [ 18, %321 ], [ %.0256, %125 ], [ %.0256, %133 ], [ 13, %242 ], [ 13, %250 ], [ 13, %254 ], [ %.0256, %130 ], [ 13, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

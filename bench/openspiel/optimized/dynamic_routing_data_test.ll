@@ -1767,8 +1767,8 @@ _ZNKSt14default_deleteIN10open_spiel15dynamic_routing18DynamicRoutingDataEEclEPS
   br label %common.resume
 
 common.resume:                                    ; preds = %564, %579, %1112, %176, %191, %553
-  %.sink = phi ptr [ %108, %553 ], [ %108, %191 ], [ %108, %176 ], [ %14, %1112 ], [ %14, %579 ], [ %14, %564 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn81.i, %553 ], [ %192, %191 ], [ %177, %176 ], [ %.pn113.i, %1112 ], [ %580, %579 ], [ %565, %564 ]
+  %.sink = phi ptr [ %108, %176 ], [ %108, %553 ], [ %108, %191 ], [ %14, %1112 ], [ %14, %579 ], [ %14, %564 ]
+  %common.resume.op = phi { ptr, i32 } [ %177, %176 ], [ %.pn81.i, %553 ], [ %192, %191 ], [ %.pn113.i, %1112 ], [ %580, %579 ], [ %565, %564 ]
   call void @_ZNSt10unique_ptrIN10open_spiel15dynamic_routing18DynamicRoutingDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   resume { ptr, i32 } %common.resume.op
 

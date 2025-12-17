@@ -188,7 +188,7 @@ my_get_line.exit:                                 ; preds = %21
   br label %.split, !llvm.loop !24
 
 .critedge6.thread:                                ; preds = %42, %.split, %.split, %44, %44, %.split.us, %.split.us, %38
-  %.us-phi302 = phi ptr [ %.1157.us, %38 ], [ %.1157.us, %.split.us ], [ %.1157.us, %.split.us ], [ %.1157, %44 ], [ %.1157, %44 ], [ %.1157, %.split ], [ %.1157, %.split ], [ %.1157, %42 ]
+  %.us-phi302 = phi ptr [ %.1157.us, %.split.us ], [ %.1157.us, %38 ], [ %.1157.us, %.split.us ], [ %.1157, %44 ], [ %.1157, %44 ], [ %.1157, %.split ], [ %.1157, %.split ], [ %.1157, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %.us-phi302, i64 1
   store i8 0, ptr %.us-phi302, align 1, !tbaa !21
   br label %.loopexit270.preheader
@@ -290,7 +290,7 @@ my_get_line.exit:                                 ; preds = %21
   br label %66
 
 66:                                               ; preds = %64, %.thread.i
-  %.216.i = phi ptr [ %65, %64 ], [ %63, %.thread.i ]
+  %.216.i = phi ptr [ %63, %.thread.i ], [ %65, %64 ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.013.ph.i, i64 1
   br label %.outer.i, !llvm.loop !26
 

@@ -751,7 +751,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit109.thread:   ; preds = %40
   br i1 %exitcond189.not, label %.loopexit129, label %.lr.ph153, !llvm.loop !69
 
 .loopexit129:                                     ; preds = %95, %86, %104, %77, %68
-  %.291 = phi i32 [ %.190, %68 ], [ %.493, %77 ], [ %.10, %104 ], [ %.6, %86 ], [ %.8, %95 ]
+  %.291 = phi i32 [ %.6, %86 ], [ %.190, %68 ], [ %.493, %77 ], [ %.10, %104 ], [ %.8, %95 ]
   %105 = icmp sgt i32 %.291, 0
   br i1 %105, label %106, label %.loopexit
 
@@ -845,9 +845,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %137, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i, %139
-  %.sroa.21.2 = phi ptr [ %136, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.21.0165, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %.sroa.21.0165, %137 ], [ %.sroa.21.0165, %139 ]
-  %.sroa.13.2 = phi ptr [ %135, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %.sroa.13.0166, %137 ], [ %spec.select, %139 ]
-  %.sroa.0112.3 = phi ptr [ %128, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.0112.0167, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %.sroa.0112.0167, %137 ], [ %.sroa.0112.0167, %139 ]
+  %.sroa.21.2 = phi ptr [ %136, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.21.0165, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %.sroa.21.0165, %139 ], [ %.sroa.21.0165, %137 ]
+  %.sroa.13.2 = phi ptr [ %135, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %spec.select, %139 ], [ %.sroa.13.0166, %137 ]
+  %.sroa.0112.3 = phi ptr [ %128, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ %.sroa.0112.0167, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i ], [ %.sroa.0112.0167, %139 ], [ %.sroa.0112.0167, %137 ]
   %141 = getelementptr i8, ptr %.sroa.0112.3, i64 %109
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %indvars.iv205, 32
   %wide.trip.count203 = zext nneg i32 %.291 to i64
@@ -902,9 +902,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br i1 %.not128, label %._crit_edge.thread, label %.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN2cv10AutoBufferIiLm264EEC2Em.exit, %152, %._crit_edge
-  %155 = phi i1 [ false, %152 ], [ true, %._crit_edge ], [ true, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
-  %.sroa.0112.0.lcssa227 = phi ptr [ %.sroa.0112.2, %152 ], [ %.sroa.0112.2, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
-  %.sroa.13.0.lcssa225 = phi ptr [ %.sroa.13.1, %152 ], [ %.sroa.13.1, %._crit_edge ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
+  %155 = phi i1 [ true, %._crit_edge ], [ false, %152 ], [ true, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
+  %.sroa.0112.0.lcssa227 = phi ptr [ %.sroa.0112.2, %._crit_edge ], [ %.sroa.0112.2, %152 ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
+  %.sroa.13.0.lcssa225 = phi ptr [ %.sroa.13.1, %._crit_edge ], [ %.sroa.13.1, %152 ], [ null, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit ]
   invoke void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %156 unwind label %53
 
@@ -991,8 +991,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZN2cv10AutoBufferI
   ret void
 
 185:                                              ; preds = %.loopexit138, %.loopexit.split-lp, %178, %53
-  %.sroa.0112.0141 = phi ptr [ %.sroa.0112.0.lcssa226, %178 ], [ %.sroa.0112.0.lcssa229, %53 ], [ %.sroa.0112.0167, %.loopexit138 ], [ %.sroa.0112.0167, %.loopexit.split-lp ]
-  %.pn100 = phi { ptr, i32 } [ %179, %178 ], [ %54, %53 ], [ %lpad.loopexit, %.loopexit138 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0112.0141 = phi ptr [ %.sroa.0112.0.lcssa229, %53 ], [ %.sroa.0112.0.lcssa226, %178 ], [ %.sroa.0112.0167, %.loopexit138 ], [ %.sroa.0112.0167, %.loopexit.split-lp ]
+  %.pn100 = phi { ptr, i32 } [ %54, %53 ], [ %179, %178 ], [ %lpad.loopexit, %.loopexit138 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %186 = load ptr, ptr %6, align 8, !tbaa !59
   %.not.i.i108 = icmp eq ptr %186, %38
   %187 = icmp eq ptr %186, null

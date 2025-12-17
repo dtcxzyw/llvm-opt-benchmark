@@ -175,8 +175,8 @@ define internal i32 @h264_metadata_init(ptr noundef %0) #0 {
   %38 = add nsw i32 %.03959, 1
   br label %39
 
-39:                                               ; preds = %37, %8
-  %.2.ph = phi i32 [ %.03959, %8 ], [ %38, %37 ]
+39:                                               ; preds = %8, %37
+  %.2.ph = phi i32 [ %38, %37 ], [ %.03959, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp slt i32 %.2.ph, 32
   %41 = icmp samesign ult i64 %indvars.iv, 63
@@ -899,7 +899,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br label %365
 
 356:                                              ; preds = %352, %285
-  %.1151.i = phi i32 [ %355, %352 ], [ %287, %285 ]
+  %.1151.i = phi i32 [ %287, %285 ], [ %355, %352 ]
   %357 = icmp eq i32 %.1151.i, 9
   br i1 %357, label %358, label %365
 
@@ -991,7 +991,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   br label %.critedge
 
 .thread:                                          ; preds = %._crit_edge, %388, %383
-  %.090 = phi i32 [ 1, %388 ], [ %.0, %383 ], [ 0, %._crit_edge ]
+  %.090 = phi i32 [ %.0, %383 ], [ 1, %388 ], [ 0, %._crit_edge ]
   %395 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %396 = load i32, ptr %395, align 8, !tbaa !123
   %.not73 = icmp eq i32 %396, 0
@@ -1260,7 +1260,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   br label %543
 
 542:                                              ; preds = %533, %519
-  %.283.i = phi i32 [ %.384.i, %533 ], [ %.081.i, %519 ]
+  %.283.i = phi i32 [ %.081.i, %519 ], [ %.384.i, %533 ]
   %.not100.i = icmp eq i32 %.283.i, 0
   br i1 %.not100.i, label %.thread115.i, label %543
 
@@ -1296,7 +1296,7 @@ h264_metadata_handle_display_orientation.exit:    ; preds = %450, %453, %.thread
   br label %.critedge
 
 .critedge:                                        ; preds = %280, %268, %254, %240, %h264_metadata_handle_display_orientation.exit.thread, %h264_metadata_insert_aud.exit.thread, %549, %413, %394
-  %.065 = phi i32 [ %392, %394 ], [ 0, %413 ], [ 0, %549 ], [ %.0.ph.i, %h264_metadata_insert_aud.exit.thread ], [ %.2.i81.ph, %h264_metadata_handle_display_orientation.exit.thread ], [ -22, %240 ], [ -22, %254 ], [ -22, %268 ], [ -22, %280 ]
+  %.065 = phi i32 [ %.0.ph.i, %h264_metadata_insert_aud.exit.thread ], [ %392, %394 ], [ 0, %549 ], [ %.2.i81.ph, %h264_metadata_handle_display_orientation.exit.thread ], [ 0, %413 ], [ -22, %240 ], [ -22, %254 ], [ -22, %268 ], [ -22, %280 ]
   ret i32 %.065
 }
 

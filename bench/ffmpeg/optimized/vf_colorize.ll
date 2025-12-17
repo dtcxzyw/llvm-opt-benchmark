@@ -95,7 +95,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %hue2rgb.exit.i
 
 hue2rgb.exit.i:                                   ; preds = %42, %40, %38, %34
-  %.018.i.i = phi nsz float [ %37, %34 ], [ %46, %42 ], [ %25, %38 ], [ %27, %40 ]
+  %.018.i.i = phi nsz float [ %37, %34 ], [ %25, %38 ], [ %46, %42 ], [ %27, %40 ]
   %47 = fcmp nsz olt float %13, 0.000000e+00
   %48 = fadd nsz float %13, 1.000000e+00
   %.0.i28.i = select nsz i1 %47, float %48, float %13
@@ -127,7 +127,7 @@ hue2rgb.exit.i:                                   ; preds = %42, %40, %38, %34
   br label %hue2rgb.exit31.i
 
 hue2rgb.exit31.i:                                 ; preds = %60, %58, %56, %52
-  %.018.i30.i = phi nsz float [ %55, %52 ], [ %64, %60 ], [ %25, %56 ], [ %27, %58 ]
+  %.018.i30.i = phi nsz float [ %55, %52 ], [ %25, %56 ], [ %64, %60 ], [ %27, %58 ]
   %65 = fadd nsz float %13, 0xBFD5555560000000
   %66 = fcmp nsz olt float %65, 0.000000e+00
   %67 = fadd nsz float %65, 1.000000e+00
@@ -160,9 +160,9 @@ hue2rgb.exit31.i:                                 ; preds = %60, %58, %56, %52
   br label %hsl2rgb.exit
 
 hsl2rgb.exit:                                     ; preds = %71, %75, %77, %79, %2
-  %.sroa.8.0 = phi nsz float [ %12, %2 ], [ %74, %71 ], [ %83, %79 ], [ %25, %75 ], [ %27, %77 ]
-  %.sroa.5.0 = phi nsz float [ %12, %2 ], [ %.018.i30.i, %71 ], [ %.018.i30.i, %79 ], [ %.018.i30.i, %75 ], [ %.018.i30.i, %77 ]
-  %.sroa.0.0 = phi nsz float [ %12, %2 ], [ %.018.i.i, %71 ], [ %.018.i.i, %79 ], [ %.018.i.i, %75 ], [ %.018.i.i, %77 ]
+  %.sroa.8.0 = phi nsz float [ %12, %2 ], [ %74, %71 ], [ %25, %75 ], [ %83, %79 ], [ %27, %77 ]
+  %.sroa.5.0 = phi nsz float [ %12, %2 ], [ %.018.i30.i, %71 ], [ %.018.i30.i, %75 ], [ %.018.i30.i, %79 ], [ %.018.i30.i, %77 ]
+  %.sroa.0.0 = phi nsz float [ %12, %2 ], [ %.018.i.i, %71 ], [ %.018.i.i, %75 ], [ %.018.i.i, %79 ], [ %.018.i.i, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 36

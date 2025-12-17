@@ -104,7 +104,7 @@ define i32 @MOZ_Z_gzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %26, !llvm.loop !22
 
-gz_skip.exit.thread:                              ; preds = %41, %47, %19, %16
+gz_skip.exit.thread:                              ; preds = %47, %41, %19, %16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -217,7 +217,7 @@ gz_load.exit:                                     ; preds = %96
   br label %gz_load.exit.thread
 
 gz_load.exit.thread:                              ; preds = %93, %98, %105, %59
-  %.065 = phi i32 [ %106, %105 ], [ %.049., %59 ], [ %.166, %98 ], [ %94, %93 ]
+  %.065 = phi i32 [ %.049., %59 ], [ %106, %105 ], [ %.166, %98 ], [ %94, %93 ]
   %107 = sub i32 %.049, %.065
   %108 = zext i32 %.065 to i64
   %109 = getelementptr inbounds nuw i8, ptr %.046, i64 %108
@@ -235,7 +235,7 @@ gz_load.exit.thread:                              ; preds = %93, %98, %105, %59
   br i1 %.not61, label %gz_skip.exit, label %57, !llvm.loop !33
 
 gz_skip.exit:                                     ; preds = %44, %113, %102, %80, %gz_load.exit, %71, %14, %5, %8, %3, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %3 ], [ -1, %8 ], [ -1, %5 ], [ 0, %14 ], [ -1, %gz_load.exit ], [ %.047, %71 ], [ %.2, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %3 ], [ -1, %13 ], [ -1, %5 ], [ 0, %14 ], [ -1, %8 ], [ %.047, %71 ], [ -1, %102 ], [ %.2, %113 ], [ -1, %80 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -350,7 +350,7 @@ gz_load.exit:                                     ; preds = %35
   br label %.critedge2, !llvm.loop !35
 
 .critedge:                                        ; preds = %54, %49, %43, %13, %10, %gz_load.exit, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %gz_load.exit ], [ 0, %54 ], [ 0, %49 ], [ -1, %43 ], [ 0, %13 ], [ -1, %10 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %gz_load.exit ], [ 0, %54 ], [ 0, %49 ], [ 0, %13 ], [ -1, %10 ], [ -1, %43 ]
   ret i32 %.0
 }
 
@@ -436,7 +436,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef nonnull %0) u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.loopexit30, %36, %18, %17, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %17 ], [ -1, %18 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %16 ], [ -1, %17 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -490,7 +490,7 @@ define range(i32 -1, 256) i32 @MOZ_Z_gzgetc(ptr noundef %0) local_unnamed_addr #
   br label %28
 
 28:                                               ; preds = %4, %7, %1, %22, %12
-  %.0 = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %7 ], [ -1, %4 ]
+  %.0 = phi i32 [ %27, %22 ], [ -1, %1 ], [ %21, %12 ], [ -1, %7 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -545,7 +545,7 @@ define range(i32 -1, 256) i32 @MOZ_Z_gzgetc_(ptr noundef %0) local_unnamed_addr 
   br label %MOZ_Z_gzgetc.exit
 
 MOZ_Z_gzgetc.exit:                                ; preds = %1, %4, %7, %12, %22
-  %.0.i = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %7 ], [ -1, %4 ]
+  %.0.i = phi i32 [ %27, %22 ], [ -1, %1 ], [ %21, %12 ], [ -1, %7 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }
@@ -726,7 +726,7 @@ gz_skip.exit:                                     ; preds = %35, %41, %13
   br label %gz_skip.exit.thread
 
 gz_skip.exit.thread:                              ; preds = %38, %43, %gz_skip.exit, %4, %7, %2, %._crit_edge, %67, %47
-  %.043 = phi i32 [ %0, %47 ], [ -1, %67 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ -1, %43 ], [ -1, %38 ]
+  %.043 = phi i32 [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ %0, %47 ], [ -1, %67 ], [ -1, %7 ], [ -1, %43 ], [ -1, %38 ]
   ret i32 %.043
 }
 
@@ -815,7 +815,7 @@ define noundef ptr @MOZ_Z_gzgets(ptr noundef %0, ptr noundef writeonly captures(
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %23, !llvm.loop !22
 
-gz_skip.exit.thread:                              ; preds = %38, %44, %16, %13
+gz_skip.exit.thread:                              ; preds = %44, %38, %16, %13
   %45 = add nsw i32 %2, -1
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %gz_skip.exit, label %.preheader
@@ -888,7 +888,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %16, %13
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %51, %gz_skip.exit.thread, %.loopexit, %7, %10, %3, %79
-  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %10 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %51 ], [ null, %41 ]
+  %.0 = phi ptr [ %1, %79 ], [ null, %3 ], [ null, %7 ], [ null, %.loopexit ], [ null, %10 ], [ null, %gz_skip.exit.thread ], [ null, %51 ], [ null, %41 ]
   ret ptr %.0
 }
 
@@ -1013,7 +1013,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   ]
 
 .thread:                                          ; preds = %37, %30
-  %39 = phi i32 [ %32, %30 ], [ %38, %37 ]
+  %39 = phi i32 [ %38, %37 ], [ %32, %30 ]
   %40 = load ptr, ptr %2, align 8, !tbaa !45
   %41 = load i8, ptr %40, align 1, !tbaa !38
   %42 = icmp eq i8 %41, 31
@@ -1064,7 +1064,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   br label %66
 
 66:                                               ; preds = %37, %34, %58, %56, %47, %27, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %27 ], [ 0, %47 ], [ 0, %56 ], [ 0, %58 ], [ -1, %34 ], [ %38, %37 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %27 ], [ 0, %58 ], [ -1, %34 ], [ 0, %47 ], [ 0, %56 ], [ %38, %37 ]
   ret i32 %.0
 }
 
@@ -1232,7 +1232,7 @@ gz_load.exit:                                     ; preds = %42
   br label %51
 
 51:                                               ; preds = %gz_load.exit, %5, %.loopexit, %1
-  %.021 = phi i32 [ -1, %1 ], [ -1, %gz_load.exit ], [ 0, %.loopexit ], [ 0, %5 ]
+  %.021 = phi i32 [ -1, %gz_load.exit ], [ -1, %1 ], [ 0, %.loopexit ], [ 0, %5 ]
   ret i32 %.021
 }
 

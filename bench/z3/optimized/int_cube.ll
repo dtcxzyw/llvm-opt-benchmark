@@ -184,7 +184,7 @@ _ZNK2lp10lar_solver19column_value_is_intEj.exit.i: ; preds = %45
   br label %_ZNK2lp10lar_solver19r_basis_has_inf_intEv.exit
 
 _ZNK2lp10lar_solver19r_basis_has_inf_intEv.exit:  ; preds = %.critedge.i, %_ZNK2lp10lar_solver19column_value_is_intEj.exit.i, %45, %31, %_ZNK6vectorIjLb1EjE3endEv.exit.i, %61, %_ZN2lp8int_cube22tighten_terms_for_cubeEv.exit
-  %.0 = phi i32 [ 5, %_ZN2lp8int_cube22tighten_terms_for_cubeEv.exit ], [ 0, %61 ], [ 0, %_ZNK6vectorIjLb1EjE3endEv.exit.i ], [ 0, %31 ], [ 0, %.critedge.i ], [ 5, %45 ], [ 5, %_ZNK2lp10lar_solver19column_value_is_intEj.exit.i ]
+  %.0 = phi i32 [ 5, %_ZN2lp8int_cube22tighten_terms_for_cubeEv.exit ], [ 0, %61 ], [ 0, %_ZNK6vectorIjLb1EjE3endEv.exit.i ], [ 0, %31 ], [ 0, %.critedge.i ], [ 5, %_ZNK2lp10lar_solver19column_value_is_intEj.exit.i ], [ 5, %45 ]
   ret i32 %.0
 }
 
@@ -1214,7 +1214,7 @@ _ZN8rationalD2Ev.exit115:                         ; preds = %.noexc.i114
   br label %372
 
 372:                                              ; preds = %324, %.body95, %370, %369
-  %.pn52.pn.pn = phi { ptr, i32 } [ %371, %370 ], [ %.pn47, %369 ], [ %.pn49, %.body95 ], [ %325, %324 ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn47, %369 ], [ %371, %370 ], [ %325, %324 ], [ %.pn49, %.body95 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume

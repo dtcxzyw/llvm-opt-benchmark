@@ -642,7 +642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
   ret void
 
 156:                                              ; preds = %145, %.body, %143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.pn17.pn = phi { ptr, i32 } [ %144, %143 ], [ %.pn13.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %eh.lpad-body, %.body ], [ %146, %145 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn13.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %144, %143 ], [ %eh.lpad-body, %.body ], [ %146, %145 ]
   %157 = load ptr, ptr %6, align 8, !tbaa !15
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %159 = icmp eq ptr %157, %158

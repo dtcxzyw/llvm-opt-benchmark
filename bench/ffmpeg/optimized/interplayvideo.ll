@@ -408,7 +408,7 @@ bytestream2_init.exit:                            ; preds = %61
   br label %156
 
 156:                                              ; preds = %149, %136, %114, %94, %61, %35, %25, %135, %113, %111, %93, %89, %87, %60, %56, %54, %33
-  %.0 = phi i32 [ -1094995529, %135 ], [ -1094995529, %54 ], [ -1094995529, %56 ], [ -1094995529, %60 ], [ -1094995529, %93 ], [ -1094995529, %89 ], [ -1094995529, %87 ], [ -1094995529, %113 ], [ -1094995529, %111 ], [ %31, %33 ], [ %26, %25 ], [ -1094995529, %35 ], [ -1094995529, %61 ], [ -1094995529, %94 ], [ -1094995529, %114 ], [ %137, %136 ], [ %., %149 ]
+  %.0 = phi i32 [ %26, %25 ], [ -1094995529, %135 ], [ -1094995529, %114 ], [ %., %149 ], [ %137, %136 ], [ -1094995529, %54 ], [ -1094995529, %56 ], [ -1094995529, %60 ], [ -1094995529, %35 ], [ -1094995529, %61 ], [ -1094995529, %93 ], [ %31, %33 ], [ -1094995529, %89 ], [ -1094995529, %87 ], [ -1094995529, %113 ], [ -1094995529, %94 ], [ -1094995529, %111 ]
   ret i32 %.0
 }
 
@@ -1636,7 +1636,7 @@ define internal range(i32 -1094995529, 1) i32 @ipvideo_decode_block_opcode_0x4(p
   br label %bytestream2_get_byte.exit
 
 bytestream2_get_byte.exit:                        ; preds = %28, %27, %15, %14
-  %.0.in.shrunk = phi i8 [ 0, %14 ], [ %17, %15 ], [ 0, %27 ], [ %30, %28 ]
+  %.0.in.shrunk = phi i8 [ %17, %15 ], [ 0, %14 ], [ 0, %27 ], [ %30, %28 ]
   %.0.in = zext i8 %.0.in.shrunk to i32
   %31 = and i32 %.0.in, 15
   %32 = lshr i32 %.0.in, 4
@@ -2254,7 +2254,7 @@ bytestream2_get_le32.exit74:                      ; preds = %bytestream2_get_le3
   br i1 %exitcond101.not, label %.loopexit, label %137, !llvm.loop !96
 
 .loopexit:                                        ; preds = %69, %bytestream2_get_le32.exit72, %158, %13
-  %.054 = phi i32 [ -1094995529, %13 ], [ 0, %158 ], [ 0, %bytestream2_get_le32.exit72 ], [ 0, %69 ]
+  %.054 = phi i32 [ -1094995529, %13 ], [ 0, %bytestream2_get_le32.exit72 ], [ 0, %158 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.054
 }
@@ -2524,7 +2524,7 @@ bytestream2_get_le64.exit:                        ; preds = %101, %102
   br i1 %148, label %.preheader, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %49, %89, %122, %141, %13
-  %.069 = phi i32 [ -1094995529, %13 ], [ 0, %141 ], [ 0, %122 ], [ 0, %89 ], [ 0, %49 ]
+  %.069 = phi i32 [ -1094995529, %13 ], [ 0, %89 ], [ 0, %141 ], [ 0, %122 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.069
 }
@@ -2724,7 +2724,7 @@ bytestream2_get_le64.exit:                        ; preds = %62, %63
   br label %bytestream2_get_le64.exit54.us
 
 bytestream2_get_le64.exit54.us:                   ; preds = %98, %95, %86
-  %.2.us = phi i64 [ %107, %86 ], [ 0, %98 ], [ %97, %95 ]
+  %.2.us = phi i64 [ %97, %95 ], [ %107, %86 ], [ 0, %98 ]
   %99 = add nuw nsw i32 %.14463.us, 1
   %exitcond75.not = icmp eq i32 %99, 16
   br i1 %exitcond75.not, label %.loopexit, label %.preheader.us, !llvm.loop !107
@@ -2800,13 +2800,13 @@ bytestream2_get_le64.exit54.us:                   ; preds = %98, %95, %86
   br label %bytestream2_get_le64.exit54
 
 bytestream2_get_le64.exit54:                      ; preds = %132, %131, %116
-  %.2 = phi i64 [ %115, %116 ], [ 0, %131 ], [ %134, %132 ]
+  %.2 = phi i64 [ %115, %116 ], [ %134, %132 ], [ 0, %131 ]
   %135 = add nuw nsw i32 %.14463, 1
   %exitcond73.not = icmp eq i32 %135, 16
   br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !107
 
 .loopexit:                                        ; preds = %49, %bytestream2_get_le64.exit54, %bytestream2_get_le64.exit54.us, %13
-  %.039 = phi i32 [ -1094995529, %13 ], [ 0, %bytestream2_get_le64.exit54.us ], [ 0, %bytestream2_get_le64.exit54 ], [ 0, %49 ]
+  %.039 = phi i32 [ -1094995529, %13 ], [ 0, %bytestream2_get_le64.exit54 ], [ 0, %bytestream2_get_le64.exit54.us ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.039
 }
@@ -4193,9 +4193,9 @@ bytestream2_get_le16.exit:                        ; preds = %74, %75
   br label %bytestream2_get_le64.exit.us
 
 bytestream2_get_le64.exit.us:                     ; preds = %102, %99, %90
-  %103 = phi ptr [ %8, %102 ], [ %100, %99 ], [ %89, %90 ]
-  %.573.us = phi ptr [ %94, %102 ], [ %94, %99 ], [ %92, %90 ]
-  %.2.us = phi i64 [ 0, %102 ], [ %101, %99 ], [ %111, %90 ]
+  %103 = phi ptr [ %100, %99 ], [ %89, %90 ], [ %8, %102 ]
+  %.573.us = phi ptr [ %94, %99 ], [ %92, %90 ], [ %94, %102 ]
+  %.2.us = phi i64 [ %101, %99 ], [ %111, %90 ], [ 0, %102 ]
   %104 = add nuw nsw i32 %.15888.us, 1
   %exitcond115.not = icmp eq i32 %104, 16
   br i1 %exitcond115.not, label %.loopexit79, label %.preheader80.us, !llvm.loop !142
@@ -4247,7 +4247,7 @@ bytestream2_get_le64.exit.us:                     ; preds = %102, %99, %90
   br label %126
 
 126:                                              ; preds = %120, %122
-  %.5 = phi ptr [ %125, %122 ], [ %117, %120 ]
+  %.5 = phi ptr [ %117, %120 ], [ %125, %122 ]
   %127 = icmp eq i32 %.15888, 7
   br i1 %127, label %128, label %bytestream2_get_le64.exit
 
@@ -4270,8 +4270,8 @@ bytestream2_get_le64.exit.us:                     ; preds = %102, %99, %90
   br label %bytestream2_get_le64.exit
 
 bytestream2_get_le64.exit:                        ; preds = %134, %133, %126
-  %137 = phi ptr [ %112, %126 ], [ %8, %133 ], [ %135, %134 ]
-  %.2 = phi i64 [ %119, %126 ], [ 0, %133 ], [ %136, %134 ]
+  %137 = phi ptr [ %135, %134 ], [ %112, %126 ], [ %8, %133 ]
+  %.2 = phi i64 [ %136, %134 ], [ %119, %126 ], [ 0, %133 ]
   %138 = add nuw nsw i32 %.15888, 1
   %exitcond113.not = icmp eq i32 %138, 16
   br i1 %exitcond113.not, label %.loopexit79, label %.preheader80, !llvm.loop !142

@@ -3975,7 +3975,7 @@ proto_item_set_hidden.exit:                       ; preds = %181, %178, %175, %.
   br label %247
 
 247:                                              ; preds = %74, %204, %245, %18, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %18 ], [ %.0249294, %74 ], [ %.2302, %204 ], [ %246, %245 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %20 ], [ %.0249294, %74 ], [ %.2302, %204 ], [ %246, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4412,7 +4412,7 @@ test_encapsulated_vendor_options.exit:            ; preds = %.lr.ph.split.us.i, 
   br label %dissect_option43_generic_suboption.exit
 
 dissect_option43_generic_suboption.exit:          ; preds = %.lr.ph, %29, %32, %42, %44
-  %.0.i = phi i32 [ %24, %29 ], [ %24, %32 ], [ %24, %42 ], [ %48, %44 ], [ 1, %.lr.ph ]
+  %.0.i = phi i32 [ %48, %44 ], [ %24, %29 ], [ %24, %32 ], [ %24, %42 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = add i32 %.0.i, %.021
   %50 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %49)
@@ -5784,7 +5784,7 @@ define internal i32 @dissect_dhcpopt_civic_location(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 32:                                               ; preds = %.lr.ph, %26
-  %.1 = phi i32 [ %30, %26 ], [ %20, %.lr.ph ]
+  %.1 = phi i32 [ %20, %.lr.ph ], [ %30, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %34 = icmp sgt i32 %33, 1
@@ -6598,7 +6598,7 @@ define internal i32 @dissect_dhcpopt_packetcable_ccc(ptr noundef %0, ptr noundef
   br label %dissect_packetcable_ietf_ccc.exit
 
 dissect_packetcable_ietf_ccc.exit:                ; preds = %113, %127, %129, %139, %156, %168, %173, %190, %207, %209, %222, %224, %233, %235, %248, %264, %266
-  %.0175.i = phi i32 [ %109, %113 ], [ %109, %127 ], [ %109, %139 ], [ %109, %156 ], [ %109, %173 ], [ %109, %222 ], [ %109, %233 ], [ %109, %248 ], [ %267, %266 ], [ %135, %129 ], [ %169, %168 ], [ %191, %190 ], [ %208, %207 ], [ %218, %209 ], [ %220, %224 ], [ %231, %235 ], [ %265, %264 ]
+  %.0175.i = phi i32 [ %109, %113 ], [ %109, %248 ], [ %109, %127 ], [ %109, %139 ], [ %109, %156 ], [ %109, %173 ], [ %109, %222 ], [ %109, %233 ], [ %267, %266 ], [ %135, %129 ], [ %169, %168 ], [ %191, %190 ], [ %208, %207 ], [ %218, %209 ], [ %220, %224 ], [ %231, %235 ], [ %265, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_packetcable_i05_ccc.exit
@@ -6917,8 +6917,8 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
   %or.cond58.i = icmp ult i8 %224, -3
   br i1 %or.cond58.i, label %225, label %228
 
-225:                                              ; preds = %rfc3825_lci_to_fixpoint.exit, %160, %176, %180, %198, %203, %219, %196, %223
-  %.0.i.ph = phi i32 [ 8, %223 ], [ 7, %196 ], [ 6, %219 ], [ 6, %203 ], [ 5, %198 ], [ 4, %180 ], [ 3, %176 ], [ 2, %160 ], [ 1, %rfc3825_lci_to_fixpoint.exit ]
+225:                                              ; preds = %219, %rfc3825_lci_to_fixpoint.exit, %160, %176, %196, %180, %198, %203, %223
+  %.0.i.ph = phi i32 [ 8, %223 ], [ 6, %203 ], [ 5, %198 ], [ 4, %180 ], [ 7, %196 ], [ 3, %176 ], [ 2, %160 ], [ 1, %rfc3825_lci_to_fixpoint.exit ], [ 6, %219 ]
   %226 = load i32, ptr @hf_dhcp_option_rfc3825_error, align 4
   %227 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %226, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.0.i.ph)
   call void @proto_item_set_len(ptr noundef %227, i32 noundef 16)
@@ -7070,7 +7070,7 @@ define internal i32 @dissect_dhcpopt_vi_vendor_class(ptr noundef %0, ptr noundef
   br label %53
 
 53:                                               ; preds = %44, %51
-  %.4 = phi i32 [ %50, %44 ], [ %52, %51 ]
+  %.4 = phi i32 [ %52, %51 ], [ %50, %44 ]
   %54 = icmp slt i32 %.4, %23
   br i1 %54, label %.lr.ph, label %.loopexit
 
@@ -7431,7 +7431,7 @@ define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, 
   br i1 %31, label %.lr.ph38, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph38, %25, %.lr.ph41
-  %.1.lcssa = phi i32 [ %18, %.lr.ph41 ], [ %28, %25 ], [ %.130.us37, %.lr.ph38 ]
+  %.1.lcssa = phi i32 [ %18, %.lr.ph41 ], [ %.130.us37, %.lr.ph38 ], [ %28, %25 ]
   %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa)
   %33 = icmp sgt i32 %32, 4
   br i1 %33, label %.lr.ph41, label %._crit_edge, !llvm.loop !48
@@ -7857,7 +7857,7 @@ define internal noundef zeroext i1 @dissect_packetcable_mta_vendor_id_heur(ptr n
   br label %.loopexit180.i
 
 .loopexit180.i:                                   ; preds = %89, %122, %115, %108, %86, %79, %75, %68
-  %.1.i = phi i16 [ %42, %122 ], [ %70, %68 ], [ %42, %75 ], [ %81, %79 ], [ %110, %108 ], [ %117, %115 ], [ %42, %86 ], [ %92, %89 ]
+  %.1.i = phi i16 [ %42, %122 ], [ %70, %68 ], [ %42, %75 ], [ %81, %79 ], [ %117, %115 ], [ %110, %108 ], [ %42, %86 ], [ %92, %89 ]
   %128 = load i32, ptr @ett_dhcp_option, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %128)
   switch i16 %.1.i, label %.loopexit180..loopexit_crit_edge.i [
@@ -7962,8 +7962,8 @@ switch.lookup:                                    ; preds = %172
   br i1 %179, label %141, label %.loopexit.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %177, %133, %130, %.loopexit180..loopexit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit180..loopexit_crit_edge.i ], [ %135, %133 ], [ %.pre-phi216.i, %130 ], [ %135, %177 ]
-  %.1164175.i = phi i32 [ %.0163197.i, %.loopexit180..loopexit_crit_edge.i ], [ %.0163197.i, %133 ], [ %.1164174.i, %130 ], [ %.0163197.i, %177 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit180..loopexit_crit_edge.i ], [ %.pre-phi216.i, %130 ], [ %135, %133 ], [ %135, %177 ]
+  %.1164175.i = phi i32 [ %.0163197.i, %.loopexit180..loopexit_crit_edge.i ], [ %.1164174.i, %130 ], [ %.0163197.i, %133 ], [ %.0163197.i, %177 ]
   %180 = load i32, ptr %5, align 4
   %181 = shl i32 %180, 1
   %182 = add i32 %181, %.pre-phi.i
@@ -7978,7 +7978,7 @@ dissect_packetcable_mta_cap.exit:                 ; preds = %.loopexit.i, %31, %
   br label %184
 
 184:                                              ; preds = %20, %4, %dissect_packetcable_mta_cap.exit
-  %.0 = phi i1 [ true, %dissect_packetcable_mta_cap.exit ], [ false, %4 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %dissect_packetcable_mta_cap.exit ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -8018,7 +8018,7 @@ define internal noundef zeroext i1 @dissect_packetcable_cm_vendor_id_heur(ptr no
   br label %25
 
 25:                                               ; preds = %18, %4, %21, %16
-  %.0 = phi i1 [ true, %16 ], [ true, %21 ], [ false, %4 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %16 ], [ true, %21 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -8040,7 +8040,7 @@ define internal noundef zeroext i1 @dissect_apple_bsdp_vendor_id_heur(ptr nounde
   br label %14
 
 14:                                               ; preds = %7, %4, %10
-  %.0 = phi i1 [ true, %10 ], [ false, %4 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %10 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -8112,7 +8112,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = icmp sgt i32 %27, %13
   br i1 %28, label %test_encapsulated_vendor_options.exit, label %.backedge.i
 
-.loopexit:                                        ; preds = %.backedge.i, %.lr.ph.split.i, %12
+.loopexit:                                        ; preds = %.lr.ph.split.i, %.backedge.i, %12
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279)
   %29 = load i32, ptr @ett_dhcp_option, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %29)
@@ -8185,7 +8185,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %get_alcatel_suboption_len.exit.i
 
 get_alcatel_suboption_len.exit.i:                 ; preds = %64, %63, %62
-  %.0.i.i = phi i32 [ 4, %63 ], [ 1, %64 ], [ 2, %62 ]
+  %.0.i.i = phi i32 [ 2, %62 ], [ 1, %64 ], [ 4, %63 ]
   %.not79.i = icmp eq i32 %.0.i.i, %49
   br i1 %.not79.i, label %get_alcatel_suboption_len.exit.thread.i, label %65
 
@@ -8218,8 +8218,8 @@ switch.lookup53:                                  ; preds = %switch.hole_check52
   br label %72
 
 72:                                               ; preds = %switch.lookup53, %62
-  %hf_dhcp_option43_alcatel_sip_url.sink.i = phi ptr [ @hf_dhcp_option43_alcatel_sip_url, %62 ], [ %switch.load58, %switch.lookup53 ]
-  %.sink86.i = phi i32 [ %49, %62 ], [ %switch.load60, %switch.lookup53 ]
+  %hf_dhcp_option43_alcatel_sip_url.sink.i = phi ptr [ %switch.load58, %switch.lookup53 ], [ @hf_dhcp_option43_alcatel_sip_url, %62 ]
+  %.sink86.i = phi i32 [ %switch.load60, %switch.lookup53 ], [ %49, %62 ]
   %73 = load i32, ptr %hf_dhcp_option43_alcatel_sip_url.sink.i, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %73, ptr noundef %0, i32 noundef %57, i32 noundef %.sink86.i, i32 noundef 0)
   %75 = add i32 %50, %.03241
@@ -8477,7 +8477,7 @@ dissect_vendor_pxeclient_suboption.exit:          ; preds = %21, %24, %28, %.loo
   br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %dissect_vendor_pxeclient_suboption.exit, %12, %4, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %12 ], [ true, %dissect_vendor_pxeclient_suboption.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ true, %12 ], [ true, %dissect_vendor_pxeclient_suboption.exit ]
   ret i1 %.0
 }
 
@@ -9042,13 +9042,13 @@ define internal noundef zeroext i1 @dissect_apple_bsdp_vendor_info_heur(ptr noun
   br label %dissect_vendor_bsdp_suboption.exit
 
 dissect_vendor_bsdp_suboption.exit:               ; preds = %21, %27, %41, %.loopexit.i
-  %.0.i = phi i32 [ %15, %41 ], [ %134, %.loopexit.i ], [ %15, %21 ], [ %17, %27 ]
+  %.0.i = phi i32 [ %15, %21 ], [ %15, %41 ], [ %134, %.loopexit.i ], [ %17, %27 ]
   %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %dissect_vendor_bsdp_suboption.exit, %10, %4, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ true, %10 ], [ true, %dissect_vendor_bsdp_suboption.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %10 ], [ true, %dissect_vendor_bsdp_suboption.exit ]
   ret i1 %.0
 }
 
@@ -9125,7 +9125,7 @@ dissect_vendor_aerohive_suboption.exit:           ; preds = %18, %36, %38
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %dissect_vendor_aerohive_suboption.exit, %10, %4, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ true, %10 ], [ true, %dissect_vendor_aerohive_suboption.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %10 ], [ true, %dissect_vendor_aerohive_suboption.exit ]
   ret i1 %.0
 }
 
@@ -9208,7 +9208,7 @@ dissect_vendor_cisco_suboption.exit:              ; preds = %18, %36, %41
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %dissect_vendor_cisco_suboption.exit, %10, %4, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ true, %10 ], [ true, %dissect_vendor_cisco_suboption.exit ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ true, %10 ], [ true, %dissect_vendor_cisco_suboption.exit ]
   ret i1 %.0
 }
 
@@ -9763,7 +9763,7 @@ proto_item_set_hidden.exit:                       ; preds = %76, %87, %90
   br label %proto_item_set_visible.exit
 
 proto_item_set_visible.exit:                      ; preds = %102, %108, %105, %70, %73, %132, %137, %142, %147, %40, %18, %21, %37
-  %.0 = phi i32 [ 1, %37 ], [ %19, %21 ], [ %19, %18 ], [ 1, %40 ], [ %44, %102 ], [ %44, %147 ], [ %44, %142 ], [ %44, %137 ], [ %44, %132 ], [ %44, %73 ], [ %44, %70 ], [ %44, %105 ], [ %44, %108 ]
+  %.0 = phi i32 [ 1, %40 ], [ %19, %18 ], [ 1, %37 ], [ %19, %21 ], [ %44, %70 ], [ %44, %102 ], [ %44, %147 ], [ %44, %142 ], [ %44, %137 ], [ %44, %132 ], [ %44, %73 ], [ %44, %108 ], [ %44, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -10250,7 +10250,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %129, %18, %59, %31, %.preheader223, %.preheader, %166, %172, %169, %153, %159, %156, %140, %146, %143, %118, %124, %121, %105, %111, %108, %92, %98, %95, %79, %85, %82, %66, %72, %69, %36, %41, %39, %9, %.split.us, %.split237.us, %163, %150, %137, %115, %102, %89, %76, %53, %45
-  %.0 = phi i32 [ 0, %9 ], [ 0, %45 ], [ 4, %53 ], [ %.us-phi238, %.split237.us ], [ 0, %76 ], [ 0, %89 ], [ 0, %102 ], [ 0, %115 ], [ %.us-phi, %.split.us ], [ 0, %137 ], [ 0, %150 ], [ 0, %163 ], [ %6, %39 ], [ %6, %41 ], [ %6, %36 ], [ %6, %69 ], [ %6, %72 ], [ %6, %66 ], [ 1, %82 ], [ 1, %85 ], [ 1, %79 ], [ 1, %95 ], [ 1, %98 ], [ 1, %92 ], [ 2, %108 ], [ 2, %111 ], [ 2, %105 ], [ 2, %121 ], [ 2, %124 ], [ 2, %118 ], [ 4, %143 ], [ 4, %146 ], [ 4, %140 ], [ 4, %156 ], [ 4, %159 ], [ 4, %153 ], [ 4, %169 ], [ 4, %172 ], [ 4, %166 ], [ 0, %.preheader ], [ 0, %.preheader223 ], [ %32, %31 ], [ %62, %59 ], [ %19, %18 ], [ %132, %129 ]
+  %.0 = phi i32 [ 0, %9 ], [ 4, %153 ], [ 0, %45 ], [ 4, %53 ], [ %.us-phi238, %.split237.us ], [ %6, %36 ], [ 0, %76 ], [ %6, %66 ], [ 0, %89 ], [ 1, %79 ], [ 0, %102 ], [ 1, %92 ], [ 0, %115 ], [ 2, %105 ], [ %.us-phi, %.split.us ], [ 0, %137 ], [ 2, %118 ], [ 0, %150 ], [ 4, %140 ], [ 0, %163 ], [ %6, %39 ], [ %6, %41 ], [ %6, %69 ], [ %6, %72 ], [ 1, %82 ], [ 1, %85 ], [ 1, %95 ], [ 1, %98 ], [ 2, %108 ], [ 2, %111 ], [ 2, %121 ], [ 2, %124 ], [ 4, %143 ], [ 4, %146 ], [ 4, %156 ], [ 4, %159 ], [ 4, %169 ], [ 4, %172 ], [ 4, %166 ], [ 0, %.preheader ], [ 0, %.preheader223 ], [ %19, %18 ], [ %32, %31 ], [ %62, %59 ], [ %132, %129 ]
   ret i32 %.0
 }
 

@@ -254,7 +254,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br label %108
 
 108:                                              ; preds = %102, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150
-  %.sink = phi i8 [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ %., %102 ]
+  %.sink = phi i8 [ %., %102 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ]
   store i8 %.sink, ptr %.1102148, align 1, !tbaa !54
   %109 = add nuw nsw i32 %.0100149, 1
   %110 = getelementptr inbounds nuw i8, ptr %.0104147, i64 1
@@ -360,7 +360,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %127, %99, %7, %4, %144, %44, %23, %12
-  %.0110 = phi i32 [ 8, %12 ], [ %22, %23 ], [ 20, %44 ], [ 0, %144 ], [ 2, %4 ], [ 3, %7 ], [ 20, %99 ], [ 20, %127 ]
+  %.0110 = phi i32 [ 0, %144 ], [ 2, %4 ], [ 8, %12 ], [ %22, %23 ], [ 20, %44 ], [ 3, %7 ], [ 20, %99 ], [ 20, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0110
 }
@@ -587,7 +587,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %92, label %openioc_parse_indicatoritem.exit.thread, label %openioc_is_context_hash.exit.i
 
 openioc_is_context_hash.exit.i:                   ; preds = %90, %88, %87, %86, %82, %67, %60, %48, %47
-  %.1.i = phi i32 [ %.027.i, %90 ], [ %.027.i, %88 ], [ %.020.i.i, %47 ], [ %.020.i.i, %48 ], [ %.027.i, %82 ], [ %.027.i, %86 ], [ %.027.i, %87 ], [ 0, %67 ], [ 0, %60 ]
+  %.1.i = phi i32 [ %.027.i, %88 ], [ %.020.i.i, %48 ], [ %.027.i, %90 ], [ %.020.i.i, %47 ], [ %.027.i, %87 ], [ %.027.i, %82 ], [ %.027.i, %86 ], [ 0, %67 ], [ 0, %60 ]
   %93 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #7
   %.not.i.i = icmp eq i32 %93, 1
   br i1 %.not.i.i, label %.lr.ph.i, label %openioc_parse_indicatoritem.exit.thread

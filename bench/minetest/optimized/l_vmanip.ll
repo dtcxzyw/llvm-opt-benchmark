@@ -1654,7 +1654,7 @@ cleanup:                                          ; preds = %invoke.cont2, %if.e
   ret i32 %retval.0
 
 ehcleanup50:                                      ; preds = %lpad1, %cleanup.action, %ehcleanup36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110, %if.then.i.i72
-  %.pn66.pn = phi { ptr, i32 } [ %5, %if.then.i.i72 ], [ %.pn66127, %cleanup.action ], [ %24, %ehcleanup36 ], [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110 ], [ %5, %lpad1 ]
+  %.pn66.pn = phi { ptr, i32 } [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110 ], [ %5, %if.then.i.i72 ], [ %.pn66127, %cleanup.action ], [ %24, %ehcleanup36 ], [ %5, %lpad1 ]
   resume { ptr, i32 } %.pn66.pn
 
 unreachable:                                      ; preds = %invoke.cont34
@@ -1893,7 +1893,7 @@ cleanup:                                          ; preds = %invoke.cont2, %if.e
   ret i32 %retval.0
 
 ehcleanup51:                                      ; preds = %lpad1, %cleanup.action, %ehcleanup38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113, %if.then.i.i75
-  %.pn69.pn = phi { ptr, i32 } [ %5, %if.then.i.i75 ], [ %.pn69130, %cleanup.action ], [ %23, %ehcleanup38 ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113 ], [ %5, %lpad1 ]
+  %.pn69.pn = phi { ptr, i32 } [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113 ], [ %5, %if.then.i.i75 ], [ %.pn69130, %cleanup.action ], [ %23, %ehcleanup38 ], [ %5, %lpad1 ]
   resume { ptr, i32 } %.pn69.pn
 
 unreachable:                                      ; preds = %invoke.cont36

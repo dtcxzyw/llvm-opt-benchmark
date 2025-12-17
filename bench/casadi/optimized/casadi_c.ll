@@ -1120,7 +1120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   br label %196
 
 176:                                              ; preds = %71, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72, %57, %51
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %57 ], [ %.pn26.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %52, %51 ], [ %82, %81 ], [ %72, %71 ]
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %57 ], [ %52, %51 ], [ %.pn26.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %82, %81 ], [ %72, %71 ]
   call void @_ZN6casadi16FileDeserializerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %177
 
@@ -1492,7 +1492,7 @@ _ZNSolsEPFRSoS_E.exit14:                          ; preds = %_ZStlsISt11char_tra
           to label %40 unwind label %41
 
 39:                                               ; preds = %1, %_ZNSolsEPFRSoS_E.exit14, %_ZNSolsEPFRSoS_E.exit, %15
-  %.0 = phi i32 [ %16, %15 ], [ -2, %_ZNSolsEPFRSoS_E.exit ], [ -3, %_ZNSolsEPFRSoS_E.exit14 ], [ -1, %1 ]
+  %.0 = phi i32 [ -3, %_ZNSolsEPFRSoS_E.exit14 ], [ %16, %15 ], [ -2, %_ZNSolsEPFRSoS_E.exit ], [ -1, %1 ]
   ret i32 %.0
 
 40:                                               ; preds = %37, %35
@@ -1707,7 +1707,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %31
   br label %38
 
 38:                                               ; preds = %.sink.split, %13, %2
-  %.0 = phi double [ -1.000000e+00, %2 ], [ %15, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi double [ %15, %13 ], [ -1.000000e+00, %2 ], [ %.0.ph, %.sink.split ]
   ret double %.0
 
 39:                                               ; preds = %36, %34
@@ -1809,7 +1809,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %30
   br label %37
 
 37:                                               ; preds = %.sink.split, %12, %1
-  %.0 = phi i64 [ -1, %1 ], [ %14, %12 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ %14, %12 ], [ -1, %1 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 
 38:                                               ; preds = %35, %33
@@ -1911,7 +1911,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %30
   br label %37
 
 37:                                               ; preds = %.sink.split, %12, %1
-  %.0 = phi i64 [ -1, %1 ], [ %14, %12 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ %14, %12 ], [ -1, %1 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 
 38:                                               ; preds = %35, %33
@@ -2084,7 +2084,7 @@ _ZNSolsEPFRSoS_E.exit15:                          ; preds = %_ZStlsISt11char_tra
           to label %41 unwind label %42
 
 40:                                               ; preds = %2, %_ZNSolsEPFRSoS_E.exit15, %_ZNSolsEPFRSoS_E.exit, %16
-  %.0 = phi ptr [ %17, %16 ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit15 ], [ @.str.9, %2 ]
+  %.0 = phi ptr [ @.str.9, %_ZNSolsEPFRSoS_E.exit15 ], [ %17, %16 ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit ], [ @.str.9, %2 ]
   ret ptr %.0
 
 41:                                               ; preds = %38, %36
@@ -2193,7 +2193,7 @@ _ZNSolsEPFRSoS_E.exit15:                          ; preds = %_ZStlsISt11char_tra
           to label %41 unwind label %42
 
 40:                                               ; preds = %2, %_ZNSolsEPFRSoS_E.exit15, %_ZNSolsEPFRSoS_E.exit, %16
-  %.0 = phi ptr [ %17, %16 ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit15 ], [ @.str.9, %2 ]
+  %.0 = phi ptr [ @.str.9, %_ZNSolsEPFRSoS_E.exit15 ], [ %17, %16 ], [ @.str.9, %_ZNSolsEPFRSoS_E.exit ], [ @.str.9, %2 ]
   ret ptr %.0
 
 41:                                               ; preds = %38, %36
@@ -2495,7 +2495,7 @@ define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr noundef writeo
   br i1 %.not.i.i24, label %46, label %.invoke
 
 .invoke:                                          ; preds = %38, %28, %18, %7
-  %45 = phi i64 [ %14, %7 ], [ %24, %18 ], [ %34, %28 ], [ %44, %38 ]
+  %45 = phi i64 [ %34, %28 ], [ %24, %18 ], [ %14, %7 ], [ %44, %38 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.20, i64 noundef %8, i64 noundef %45) #25
           to label %.cont unwind label %50
 
@@ -2563,7 +2563,7 @@ _ZNSolsEPFRSoS_E.exit30:                          ; preds = %_ZStlsISt11char_tra
           to label %73 unwind label %74
 
 72:                                               ; preds = %5, %49, %_ZNSolsEPFRSoS_E.exit30, %_ZNSolsEPFRSoS_E.exit
-  %.0 = phi i32 [ 0, %49 ], [ -2, %_ZNSolsEPFRSoS_E.exit ], [ -3, %_ZNSolsEPFRSoS_E.exit30 ], [ -1, %5 ]
+  %.0 = phi i32 [ -3, %_ZNSolsEPFRSoS_E.exit30 ], [ 0, %49 ], [ -2, %_ZNSolsEPFRSoS_E.exit ], [ -1, %5 ]
   ret i32 %.0
 
 73:                                               ; preds = %70, %68
@@ -2671,7 +2671,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %35
   br label %42
 
 42:                                               ; preds = %.sink.split, %17, %6
-  %.0 = phi i32 [ -1, %6 ], [ %19, %17 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %19, %17 ], [ -1, %6 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 
 43:                                               ; preds = %40, %38
@@ -3528,7 +3528,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !76
   %58 = load ptr, ptr %.0, align 8, !tbaa !21
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

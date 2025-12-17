@@ -1114,7 +1114,7 @@ define hidden ptr @_PyPegen_seq_append_to_end(ptr noundef readonly captures(none
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !23
 
 _PyPegen_singleton_seq.exit:                      ; preds = %8, %4, %._crit_edge, %11
-  %.0 = phi ptr [ %16, %._crit_edge ], [ null, %11 ], [ null, %4 ], [ %7, %8 ]
+  %.0 = phi ptr [ null, %11 ], [ %16, %._crit_edge ], [ null, %4 ], [ %7, %8 ]
   ret ptr %.0
 }
 
@@ -1389,7 +1389,7 @@ define hidden ptr @_PyPegen_alias_for_star(ptr noundef readonly captures(none) %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %18, %15, %13, %6, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %6 ], [ null, %13 ], [ null, %15 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %6 ], [ %20, %19 ], [ null, %13 ], [ null, %15 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -1715,7 +1715,7 @@ _set_seq_context.exit25:                          ; preds = %63, %.preheader27, 
   br label %common.ret37
 
 common.ret37:                                     ; preds = %3, %95, %80, %_set_seq_context.exit25, %_set_seq_context.exit, %5, %110
-  %common.ret37.op = phi ptr [ %124, %110 ], [ %17, %5 ], [ %48, %_set_seq_context.exit ], [ %79, %_set_seq_context.exit25 ], [ %94, %80 ], [ %109, %95 ], [ %1, %3 ]
+  %common.ret37.op = phi ptr [ %124, %110 ], [ %109, %95 ], [ %1, %3 ], [ %17, %5 ], [ %48, %_set_seq_context.exit ], [ %79, %_set_seq_context.exit25 ], [ %94, %80 ]
   ret ptr %common.ret37.op
 
 110:                                              ; preds = %3
@@ -2628,14 +2628,14 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   br label %_make_posdefaults.exit
 
 _make_posdefaults.exit:                           ; preds = %195, %219, %235
-  %.sink.i37102158213 = phi ptr [ %.sink.i37102158214, %235 ], [ %.sink.i37102, %195 ], [ %.sink.i37102158214, %219 ]
-  %.sink.i51 = phi ptr [ %238, %235 ], [ %199, %195 ], [ %223, %219 ]
+  %.sink.i37102158213 = phi ptr [ %.sink.i37102, %195 ], [ %.sink.i37102158214, %219 ], [ %.sink.i37102158214, %235 ]
+  %.sink.i51 = phi ptr [ %199, %195 ], [ %223, %219 ], [ %238, %235 ]
   %239 = icmp eq ptr %.sink.i51, null
   br i1 %239, label %_make_posonlyargs.exit.thread, label %_make_posdefaults.exit.thread108
 
 _make_posdefaults.exit.thread108:                 ; preds = %228, %204, %184, %.preheader.i.i56, %_make_posdefaults.exit
-  %.sink.i37102156 = phi ptr [ %.sink.i37102158213, %_make_posdefaults.exit ], [ %.sink.i37102, %.preheader.i.i56 ], [ %.sink.i37102, %184 ], [ %.sink.i37102, %204 ], [ %.sink.i37102158214, %228 ]
-  %.sink.i51110 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %.preheader.i.i56 ], [ %169, %184 ], [ %199, %204 ], [ %223, %228 ]
+  %.sink.i37102156 = phi ptr [ %.sink.i37102158213, %_make_posdefaults.exit ], [ %.sink.i37102, %.preheader.i.i56 ], [ %.sink.i37102, %204 ], [ %.sink.i37102, %184 ], [ %.sink.i37102158214, %228 ]
+  %.sink.i51110 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %.preheader.i.i56 ], [ %199, %204 ], [ %169, %184 ], [ %223, %228 ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_get_names.exit.i78, label %240
 
@@ -2692,7 +2692,7 @@ _get_names.exit.thread28.i:                       ; preds = %244
   br i1 %267, label %_make_posonlyargs.exit.thread, label %.thread30.i
 
 .thread30.i:                                      ; preds = %253, %_get_names.exit.i78.thread, %_get_names.exit.thread28.i
-  %.084 = phi ptr [ %248, %_get_names.exit.thread28.i ], [ %265, %_get_names.exit.i78.thread ], [ %248, %253 ]
+  %.084 = phi ptr [ %265, %_get_names.exit.i78.thread ], [ %248, %_get_names.exit.thread28.i ], [ %248, %253 ]
   %268 = load ptr, ptr %242, align 8, !tbaa !91
   %.not20.i73 = icmp eq ptr %268, null
   br i1 %.not20.i73, label %_make_kwargs.exit.thread, label %269
@@ -2760,7 +2760,7 @@ _make_kwargs.exit.thread145:                      ; preds = %269
   br label %_make_posonlyargs.exit.thread
 
 _make_posonlyargs.exit.thread:                    ; preds = %_make_kwargs.exit.thread, %_get_names.exit.i78.thread, %_get_names.exit.thread28.i, %_get_names.exit.i78, %_get_defaults.exit43.i, %_get_defaults.exit.i, %_get_defaults.exit43.thread.i, %_get_names.exit.thread.i32, %_get_names.exit.i31, %33, %_get_names.exit.i, %_make_posargs.exit, %296, %_make_kwargs.exit, %_make_kwargs.exit.thread145, %_make_posdefaults.exit, %_make_posonlyargs.exit
-  %.022 = phi ptr [ null, %_make_posonlyargs.exit ], [ null, %_make_posargs.exit ], [ null, %_make_posdefaults.exit ], [ %299, %296 ], [ null, %_make_kwargs.exit ], [ null, %_make_kwargs.exit.thread145 ], [ null, %_get_names.exit.i ], [ null, %33 ], [ null, %_get_names.exit.i31 ], [ null, %_get_names.exit.thread.i32 ], [ null, %_get_defaults.exit43.thread.i ], [ null, %_get_defaults.exit.i ], [ null, %_get_defaults.exit43.i ], [ null, %_get_names.exit.i78 ], [ null, %_get_names.exit.thread28.i ], [ null, %_get_names.exit.i78.thread ], [ null, %_make_kwargs.exit.thread ]
+  %.022 = phi ptr [ null, %_get_names.exit.i ], [ null, %_make_posonlyargs.exit ], [ null, %_make_kwargs.exit.thread145 ], [ null, %_get_names.exit.i31 ], [ null, %_make_posargs.exit ], [ null, %33 ], [ null, %_get_names.exit.thread.i32 ], [ null, %_make_posdefaults.exit ], [ null, %_get_defaults.exit43.thread.i ], [ %299, %296 ], [ null, %_make_kwargs.exit ], [ null, %_get_defaults.exit43.i ], [ null, %_get_defaults.exit.i ], [ null, %_get_names.exit.i78 ], [ null, %_get_names.exit.thread28.i ], [ null, %_get_names.exit.i78.thread ], [ null, %_make_kwargs.exit.thread ]
   ret ptr %.022
 }
 
@@ -3031,7 +3031,7 @@ define hidden ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef readonly captur
   br label %.split21
 
 .split21:                                         ; preds = %.split21.loopexit, %4
-  %phi.call = phi i64 [ 0, %4 ], [ %16, %.split21.loopexit ]
+  %phi.call = phi i64 [ %16, %.split21.loopexit ], [ 0, %4 ]
   %17 = icmp eq i64 %5, %phi.call
   br i1 %17, label %.loopexit, label %18
 
@@ -3248,7 +3248,7 @@ _PyPegen_new_type_comment.exit:                   ; preds = %21
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %_PyPegen_new_type_comment.exit, %30, %27, %25, %7, %.critedge37
-  %.0 = phi ptr [ %41, %.critedge37 ], [ null, %7 ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ %41, %.critedge37 ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -3578,7 +3578,7 @@ define hidden ptr @_PyPegen_setup_full_format_spec(ptr noundef %0, ptr noundef r
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %66, %65, %30, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %65 ], [ null, %30 ], [ null, %66 ], [ %70, %72 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %65 ], [ %70, %72 ], [ null, %30 ], [ null, %66 ]
   ret ptr %.0
 }
 
@@ -3726,7 +3726,7 @@ define hidden ptr @_PyPegen_concatenate_strings(ptr noundef %0, ptr noundef read
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loopexit, %63, %60, %58, %57, %64
-  %.1 = phi ptr [ %67, %64 ], [ null, %57 ], [ null, %58 ], [ null, %60 ], [ null, %63 ], [ null, %._crit_edge290.loopexit ]
+  %.1 = phi ptr [ %67, %64 ], [ null, %63 ], [ null, %57 ], [ null, %58 ], [ null, %60 ], [ null, %._crit_edge290.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
@@ -4018,8 +4018,8 @@ Py_XDECREF.exit:                                  ; preds = %._crit_edge290.loop
   br i1 %202, label %.critedge, label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %191, %154, %151
-  %.1165 = phi ptr [ %148, %154 ], [ %148, %151 ], [ %201, %191 ]
-  %.6158 = phi i64 [ %.4156284, %154 ], [ %.4156284, %151 ], [ %178, %191 ]
+  %.1165 = phi ptr [ %148, %151 ], [ %148, %154 ], [ %201, %191 ]
+  %.6158 = phi i64 [ %.4156284, %151 ], [ %.4156284, %154 ], [ %178, %191 ]
   br i1 %74, label %203, label %210
 
 203:                                              ; preds = %Py_DECREF.exit
@@ -4068,7 +4068,7 @@ Py_DECREF.exit:                                   ; preds = %191, %154, %151
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %191, %._crit_edge277, %159, %.thread340.thread, %._crit_edge272.thread, %190, %187, %185, %.thread218, %.thread340, %219, %222, %._crit_edge272, %71, %Py_XDECREF.exit, %39
-  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ %224, %222 ], [ %221, %219 ], [ null, %._crit_edge272 ], [ null, %.thread218 ], [ null, %185 ], [ null, %187 ], [ null, %190 ], [ null, %._crit_edge272.thread ], [ null, %.thread340.thread ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %191 ], [ null, %114 ]
+  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ null, %._crit_edge272 ], [ %221, %219 ], [ %224, %222 ], [ null, %.thread218 ], [ null, %185 ], [ null, %187 ], [ null, %190 ], [ null, %._crit_edge272.thread ], [ null, %.thread340.thread ], [ null, %191 ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %114 ]
   ret ptr %.0
 }
 
@@ -4191,7 +4191,7 @@ define hidden ptr @_PyPegen_get_expr_name(ptr noundef readonly captures(none) %0
   br label %38
 
 38:                                               ; preds = %20, %24, %26, %28, %1, %33, %32, %31, %30, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %33 ], [ @.str.11, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.20, %12 ], [ @.str.21, %13 ], [ @.str.22, %14 ], [ @.str.23, %15 ], [ @.str.24, %16 ], [ @.str.25, %17 ], [ @.str.26, %18 ], [ @.str.27, %19 ], [ @.str.33, %30 ], [ @.str.34, %31 ], [ @.str.35, %32 ], [ @.str.10, %1 ], [ @.str.28, %20 ], [ @.str.29, %24 ], [ @.str.30, %26 ], [ %.str.31..str.32, %28 ]
+  %.0 = phi ptr [ null, %33 ], [ @.str.35, %32 ], [ @.str.11, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.20, %12 ], [ @.str.21, %13 ], [ @.str.22, %14 ], [ @.str.23, %15 ], [ @.str.24, %16 ], [ @.str.25, %17 ], [ @.str.26, %18 ], [ @.str.27, %19 ], [ @.str.10, %1 ], [ @.str.33, %30 ], [ @.str.34, %31 ], [ @.str.30, %26 ], [ @.str.28, %20 ], [ @.str.29, %24 ], [ %.str.31..str.32, %28 ]
   ret ptr %.0
 }
 
@@ -4343,10 +4343,10 @@ _PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30
   br label %.split21.i
 
 .split21.i:                                       ; preds = %17, %35, %.split21.loopexit.i, %_PyPegen_seq_extract_starred_exprs.exit
-  %.not65 = phi i1 [ true, %_PyPegen_seq_extract_starred_exprs.exit ], [ false, %.split21.loopexit.i ], [ true, %35 ], [ true, %17 ]
-  %.0.i64 = phi ptr [ %34, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.0.i.ph85, %.split21.loopexit.i ], [ %34, %35 ], [ null, %17 ]
-  %61 = phi i64 [ %.pr.pre, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.pr84, %.split21.loopexit.i ], [ %.pr.pre, %35 ], [ %18, %17 ]
-  %phi.call.i = phi i64 [ 0, %_PyPegen_seq_extract_starred_exprs.exit ], [ %60, %.split21.loopexit.i ], [ 0, %35 ], [ 0, %17 ]
+  %.not65 = phi i1 [ false, %.split21.loopexit.i ], [ true, %_PyPegen_seq_extract_starred_exprs.exit ], [ true, %35 ], [ true, %17 ]
+  %.0.i64 = phi ptr [ %.0.i.ph85, %.split21.loopexit.i ], [ %34, %_PyPegen_seq_extract_starred_exprs.exit ], [ %34, %35 ], [ null, %17 ]
+  %61 = phi i64 [ %.pr84, %.split21.loopexit.i ], [ %.pr.pre, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.pr.pre, %35 ], [ %18, %17 ]
+  %phi.call.i = phi i64 [ %60, %.split21.loopexit.i ], [ 0, %_PyPegen_seq_extract_starred_exprs.exit ], [ 0, %35 ], [ 0, %17 ]
   %62 = icmp eq i64 %61, %phi.call.i
   br i1 %62, label %_PyPegen_seq_delete_starred_exprs.exit, label %63
 
@@ -4573,7 +4573,7 @@ tailrecurse.outer:                                ; preds = %33
   br label %.split.us
 
 .split.us:                                        ; preds = %tailrecurse.outer, %.split96.us, %33, %24, %.lr.ph113, %13, %.lr.ph119, %.lr.ph.split, %.split.us.loopexit212, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %.loopexit66.loopexit129, %21, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %21 ], [ null, %2 ], [ null, %.loopexit66.loopexit129 ], [ %.tr.ph108, %.lr.ph.split.us ], [ null, %.split88.us ], [ null, %.split92.us ], [ null, %.split.us.loopexit212 ], [ %.tr78, %.lr.ph.split ], [ null, %13 ], [ %17, %.lr.ph119 ], [ null, %24 ], [ %28, %.lr.ph113 ], [ null, %tailrecurse.outer ], [ null, %33 ], [ %.tr78, %.split96.us ]
+  %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.loopexit66.loopexit129 ], [ null, %10 ], [ null, %.split92.us ], [ %.tr78, %.lr.ph.split ], [ %17, %.lr.ph119 ], [ null, %2 ], [ %.tr.ph108, %.lr.ph.split.us ], [ %28, %.lr.ph113 ], [ null, %.split.us.loopexit212 ], [ null, %13 ], [ null, %24 ], [ null, %33 ], [ %.tr78, %.split96.us ], [ null, %tailrecurse.outer ]
   ret ptr %.0
 }
 
@@ -4978,7 +4978,7 @@ _PyPegen_decode_fstring_part.exit:                ; preds = %92
   br label %.thread98
 
 .thread98:                                        ; preds = %_PyPegen_decode_fstring_part.exit, %64, %.critedge, %90, %96, %98, %101, %33, %.loopexit, %125, %._crit_edge
-  %.069 = phi ptr [ null, %._crit_edge ], [ null, %33 ], [ %146, %.loopexit ], [ null, %125 ], [ null, %101 ], [ null, %98 ], [ null, %96 ], [ null, %90 ], [ null, %.critedge ], [ null, %64 ], [ null, %_PyPegen_decode_fstring_part.exit ]
+  %.069 = phi ptr [ null, %._crit_edge ], [ null, %33 ], [ null, %125 ], [ %146, %.loopexit ], [ null, %101 ], [ null, %98 ], [ null, %96 ], [ null, %90 ], [ null, %.critedge ], [ null, %64 ], [ null, %_PyPegen_decode_fstring_part.exit ]
   ret ptr %.069
 }
 
@@ -5171,7 +5171,7 @@ define hidden ptr @_PyPegen_constant_from_string(ptr noundef %0, ptr noundef %1)
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %22, %19, %17, %10, %26, %29, %2
-  %.021 = phi ptr [ null, %2 ], [ null, %10 ], [ %39, %29 ], [ null, %26 ], [ null, %17 ], [ null, %19 ], [ null, %22 ]
+  %.021 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %26 ], [ %39, %29 ], [ null, %17 ], [ null, %19 ], [ null, %22 ]
   ret ptr %.021
 }
 
@@ -5301,7 +5301,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   br label %59
 
 59:                                               ; preds = %56, %42, %42, %42
-  %.164 = phi i32 [ %.0.i, %42 ], [ %.0.i, %42 ], [ %.0.i, %42 ], [ %spec.select, %56 ]
+  %.164 = phi i32 [ %.0.i, %42 ], [ %spec.select, %56 ], [ %.0.i, %42 ], [ %.0.i, %42 ]
   %.not74 = icmp eq ptr %4, null
   br i1 %.not74, label %62, label %60
 
@@ -5372,7 +5372,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
   br label %98
 
 98:                                               ; preds = %93, %90, %84, %62, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ null, %84 ], [ %97, %93 ], [ null, %90 ], [ %64, %62 ]
+  %.1 = phi ptr [ null, %.critedge ], [ null, %90 ], [ null, %84 ], [ %97, %93 ], [ %64, %62 ]
   ret ptr %.1
 }
 

@@ -477,7 +477,7 @@ convolve_sobel.exit.thread89..preheader74.lr.ph.i_crit_edge: ; preds = %convolve
   br label %.preheader74.lr.ph.i
 
 convolve_sobel.exit:                              ; preds = %._crit_edge.split.us115.i, %._crit_edge.split.us.us.us.i, %._crit_edge.split.us129.i, %._crit_edge.split.us.us.us132.i
-  %213 = phi i32 [ %123, %._crit_edge.split.us.us.us132.i ], [ %123, %._crit_edge.split.us129.i ], [ %37, %._crit_edge.split.us.us.us.i ], [ %37, %._crit_edge.split.us115.i ]
+  %213 = phi i32 [ %37, %._crit_edge.split.us.us.us.i ], [ %123, %._crit_edge.split.us.us.us132.i ], [ %123, %._crit_edge.split.us129.i ], [ %37, %._crit_edge.split.us115.i ]
   %214 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %215 = load ptr, ptr %214, align 8, !tbaa !54
   %216 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -755,9 +755,9 @@ calculate_motion.exit.thread:                     ; preds = %219, %284, %convolv
   br label %._crit_edge45.thread78.i
 
 calculate_motion.exit:                            ; preds = %._crit_edge80.split.split.us85.i, %._crit_edge80.split.split.us.us.us.i, %._crit_edge80.split.us.us.us.split.i, %._crit_edge80.split.us.us.us.split.us.us.i, %calculate_motion.exit.loopexit112, %.preheader.lr.ph.i, %.preheader74.lr.ph.i
-  %349 = phi i32 [ %33, %.preheader.lr.ph.i ], [ %33, %.preheader74.lr.ph.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %33, %._crit_edge80.split.split.us85.i ]
-  %350 = phi ptr [ %23, %.preheader.lr.ph.i ], [ %23, %.preheader74.lr.ph.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %23, %._crit_edge80.split.split.us85.i ]
-  %351 = phi ptr [ %221, %.preheader.lr.ph.i ], [ %286, %.preheader74.lr.ph.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %221, %._crit_edge80.split.split.us85.i ]
+  %349 = phi i32 [ %33, %.preheader.lr.ph.i ], [ %33, %.preheader74.lr.ph.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us85.i ]
+  %350 = phi ptr [ %23, %.preheader.lr.ph.i ], [ %23, %.preheader74.lr.ph.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us85.i ]
+  %351 = phi ptr [ %221, %.preheader.lr.ph.i ], [ %286, %.preheader74.lr.ph.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us85.i ]
   %352 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %353 = load i32, ptr %352, align 4, !tbaa !53
   %354 = add nsw i32 %353, -2
@@ -843,11 +843,11 @@ calculate_motion.exit:                            ; preds = %._crit_edge80.split
   br i1 %exitcond74.not.i, label %std_deviation.exit, label %.preheader.us.i54, !llvm.loop !75
 
 std_deviation.exit:                               ; preds = %._crit_edge.us53.i, %._crit_edge45.thread78.i, %.preheader.lr.ph.thread.i
-  %382 = phi i32 [ %359, %._crit_edge45.thread78.i ], [ %353, %.preheader.lr.ph.thread.i ], [ %353, %._crit_edge.us53.i ]
-  %383 = phi ptr [ %360, %._crit_edge45.thread78.i ], [ %351, %.preheader.lr.ph.thread.i ], [ %351, %._crit_edge.us53.i ]
-  %384 = phi i32 [ %361, %._crit_edge45.thread78.i ], [ %349, %.preheader.lr.ph.thread.i ], [ %349, %._crit_edge.us53.i ]
-  %385 = phi double [ %362, %._crit_edge45.thread78.i ], [ %364, %.preheader.lr.ph.thread.i ], [ %371, %._crit_edge.us53.i ]
-  %.035.lcssa.i = phi double [ 0.000000e+00, %._crit_edge45.thread78.i ], [ 0.000000e+00, %.preheader.lr.ph.thread.i ], [ %381, %._crit_edge.us53.i ]
+  %382 = phi i32 [ %353, %.preheader.lr.ph.thread.i ], [ %359, %._crit_edge45.thread78.i ], [ %353, %._crit_edge.us53.i ]
+  %383 = phi ptr [ %351, %.preheader.lr.ph.thread.i ], [ %360, %._crit_edge45.thread78.i ], [ %351, %._crit_edge.us53.i ]
+  %384 = phi i32 [ %349, %.preheader.lr.ph.thread.i ], [ %361, %._crit_edge45.thread78.i ], [ %349, %._crit_edge.us53.i ]
+  %385 = phi double [ %364, %.preheader.lr.ph.thread.i ], [ %362, %._crit_edge45.thread78.i ], [ %371, %._crit_edge.us53.i ]
+  %.035.lcssa.i = phi double [ 0.000000e+00, %.preheader.lr.ph.thread.i ], [ 0.000000e+00, %._crit_edge45.thread78.i ], [ %381, %._crit_edge.us53.i ]
   %386 = fdiv nsz double %.035.lcssa.i, %385
   %387 = tail call nsz double @llvm.sqrt.f64(double %386)
   %388 = fptrunc nsz double %387 to float
@@ -929,8 +929,8 @@ std_deviation.exit:                               ; preds = %._crit_edge.us53.i,
   br i1 %exitcond74.not.i86, label %std_deviation.exit87, label %.preheader.us.i75, !llvm.loop !75
 
 std_deviation.exit87:                             ; preds = %._crit_edge.us53.i84, %._crit_edge45.thread78.i55, %.preheader.lr.ph.thread.i58
-  %412 = phi double [ %392, %._crit_edge45.thread78.i55 ], [ %394, %.preheader.lr.ph.thread.i58 ], [ %401, %._crit_edge.us53.i84 ]
-  %.035.lcssa.i56 = phi double [ 0.000000e+00, %._crit_edge45.thread78.i55 ], [ 0.000000e+00, %.preheader.lr.ph.thread.i58 ], [ %411, %._crit_edge.us53.i84 ]
+  %412 = phi double [ %394, %.preheader.lr.ph.thread.i58 ], [ %392, %._crit_edge45.thread78.i55 ], [ %401, %._crit_edge.us53.i84 ]
+  %.035.lcssa.i56 = phi double [ 0.000000e+00, %.preheader.lr.ph.thread.i58 ], [ 0.000000e+00, %._crit_edge45.thread78.i55 ], [ %411, %._crit_edge.us53.i84 ]
   %413 = fdiv nsz double %.035.lcssa.i56, %412
   %414 = tail call nsz double @llvm.sqrt.f64(double %413)
   %415 = fptrunc nsz double %414 to float

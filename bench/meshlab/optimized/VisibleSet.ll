@@ -919,7 +919,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
   br label %266
 
 266:                                              ; preds = %251, %264, %156
-  %.3 = phi float [ %265, %264 ], [ %.2, %156 ], [ -1.000000e+00, %251 ]
+  %.3 = phi float [ %.2, %156 ], [ %265, %264 ], [ -1.000000e+00, %251 ]
   ret float %.3
 }
 

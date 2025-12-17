@@ -29,8 +29,8 @@ define weak_odr dso_local void @_ZN3igl3minIN5Eigen5ArrayIbLin1ELi3ELi0ELin1ELi3
   br label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; preds = %6, %4
-  %11 = phi i64 [ %10, %6 ], [ 3, %4 ]
-  %12 = phi i32 [ %9, %6 ], [ 3, %4 ]
+  %11 = phi i64 [ 3, %4 ], [ %10, %6 ]
+  %12 = phi i32 [ 3, %4 ], [ %9, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !11
   %.not.i.i = icmp eq i64 %11, %14

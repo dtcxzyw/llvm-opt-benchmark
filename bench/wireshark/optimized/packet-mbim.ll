@@ -4707,7 +4707,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %66, %69
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %180, %183, %170
-  %.01671 = phi ptr [ %182, %183 ], [ null, %180 ], [ %175, %170 ], [ %182, %186 ], [ %182, %189 ], [ %182, %192 ]
+  %.01671 = phi ptr [ %175, %170 ], [ %182, %183 ], [ null, %180 ], [ %182, %186 ], [ %182, %189 ], [ %182, %192 ]
   %196 = load i32, ptr @hf_mbim_device_service_id, align 4
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %198 = load ptr, ptr %197, align 8
@@ -7238,7 +7238,7 @@ proto_item_set_generated.exit1934:                ; preds = %1408, %1405, %1402,
   br label %proto_item_set_generated.exit1937
 
 proto_item_set_generated.exit1937:                ; preds = %1486, %1483, %1480, %1474, %1473, %1478, %1477, %1452
-  %.11672 = phi ptr [ %1467, %1478 ], [ null, %1477 ], [ %1467, %1474 ], [ null, %1473 ], [ null, %1452 ], [ %1467, %1480 ], [ %1467, %1483 ], [ %1467, %1486 ]
+  %.11672 = phi ptr [ null, %1452 ], [ %1467, %1478 ], [ null, %1477 ], [ %1467, %1474 ], [ null, %1473 ], [ %1467, %1480 ], [ %1467, %1483 ], [ %1467, %1486 ]
   %1490 = load i32, ptr @hf_mbim_device_service_id, align 4
   %1491 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %1492 = load ptr, ptr %1491, align 8
@@ -9426,7 +9426,7 @@ proto_item_set_hidden.exit:                       ; preds = %14, %17, %20
   br label %45
 
 45:                                               ; preds = %24, %38, %4, %11
-  %.0.shrunk = phi i8 [ 0, %11 ], [ 0, %4 ], [ %5, %38 ], [ %5, %24 ]
+  %.0.shrunk = phi i8 [ 0, %4 ], [ 0, %11 ], [ %5, %38 ], [ %5, %24 ]
   %.0 = zext nneg i8 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -9865,7 +9865,7 @@ sub_1356:                                         ; preds = %.critedge312.tail, 
   br label %262
 
 262:                                              ; preds = %166, %126, %210, %250, %256, %242, %86
-  %.0268 = phi ptr [ %261, %256 ], [ %255, %250 ], [ %247, %242 ], [ %239, %210 ], [ %155, %126 ], [ %115, %86 ], [ %spec.select, %166 ]
+  %.0268 = phi ptr [ %261, %256 ], [ %255, %250 ], [ %247, %242 ], [ %239, %210 ], [ %115, %86 ], [ %spec.select, %166 ], [ %155, %126 ]
   %263 = add i32 %70, 4
   %264 = load i32, ptr @hf_mbim_bulk_ndp_length, align 4
   %265 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5)
@@ -10240,7 +10240,7 @@ define internal i32 @dissect_mbim_decode_as(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %16, %19, %26, %8, %4, %5, %31, %29, %23, %14
-  %.0 = phi i32 [ %25, %23 ], [ %30, %29 ], [ %15, %14 ], [ %32, %31 ], [ 0, %5 ], [ 0, %4 ], [ 0, %8 ], [ 0, %26 ], [ 0, %19 ], [ 0, %16 ]
+  %.0 = phi i32 [ %32, %31 ], [ 0, %4 ], [ %25, %23 ], [ %30, %29 ], [ %15, %14 ], [ 0, %5 ], [ 0, %8 ], [ 0, %16 ], [ 0, %26 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -10354,7 +10354,7 @@ define internal zeroext i1 @dissect_mbim_bulk_heur(ptr noundef %0, ptr noundef %
   br label %15
 
 15:                                               ; preds = %13, %4, %6, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %6 ], [ false, %4 ], [ %.not14, %13 ]
+  %.0 = phi i1 [ false, %4 ], [ %.not14, %13 ], [ false, %10 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -10540,7 +10540,7 @@ define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %22, %18
-  %.044 = phi i32 [ 25, %22 ], [ 25, %18 ], [ %49, %.thread.loopexit ]
+  %.044 = phi i32 [ 25, %18 ], [ 25, %22 ], [ %49, %.thread.loopexit ]
   %50 = load i32, ptr %4, align 4
   %51 = call ptr @val_to_str_ext_const(i32 noundef %.044, ptr noundef nonnull @mbim_service_id_vals_ext, ptr noundef nonnull @.str.2003)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -14396,7 +14396,7 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
   br label %27
 
 27:                                               ; preds = %23, %15
-  %hf_mbim_packet_service_info_highest_available_data_class.sink = phi ptr [ @hf_mbim_packet_service_info_current_data_class, %15 ], [ %spec.select, %23 ]
+  %hf_mbim_packet_service_info_highest_available_data_class.sink = phi ptr [ %spec.select, %23 ], [ @hf_mbim_packet_service_info_current_data_class, %15 ]
   %28 = load i32, ptr %hf_mbim_packet_service_info_highest_available_data_class.sink, align 4
   %29 = load i32, ptr @ett_mbim_bitmap, align 4
   %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @mbim_data_class_fields, i32 noundef -2147483648)
@@ -19404,7 +19404,7 @@ define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %95, %.lr.ph140
-  %134 = phi i32 [ %99, %95 ], [ %17, %.lr.ph140 ], [ %133, %.loopexit.sink.split ], [ %107, %.lr.ph ]
+  %134 = phi i32 [ %17, %.lr.ph140 ], [ %99, %95 ], [ %133, %.loopexit.sink.split ], [ %107, %.lr.ph ]
   %135 = add i32 %.0133139, 1
   %136 = sub i32 %134, %8
   %137 = icmp slt i32 %136, %4

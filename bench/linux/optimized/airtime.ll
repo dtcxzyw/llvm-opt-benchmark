@@ -286,7 +286,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr noundef readonly captures(no
   br label %33
 
 33:                                               ; preds = %30, %28, %26
-  %34 = phi i8 [ 40, %26 ], [ 32, %28 ], [ %., %30 ]
+  %34 = phi i8 [ 32, %28 ], [ %., %30 ], [ 40, %26 ]
   %35 = and i16 %23, 128
   %36 = icmp ne i16 %35, 0
   %37 = zext i1 %36 to i8
@@ -514,7 +514,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
   br label %107
 
 107:                                              ; preds = %104, %102, %100
-  %108 = phi i8 [ 40, %100 ], [ 32, %102 ], [ %., %104 ]
+  %108 = phi i8 [ 32, %102 ], [ %., %104 ], [ 40, %100 ]
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 30
   %110 = and i16 %97, 128
   %111 = icmp ne i16 %110, 0

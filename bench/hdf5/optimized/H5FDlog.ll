@@ -399,7 +399,7 @@ define internal noalias noundef ptr @H5FD__log_fapl_copy(ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %11, %15, %17, %20, %1
-  %.0 = phi ptr [ null, %20 ], [ null, %1 ], [ %9, %15 ], [ %9, %17 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %20 ], [ null, %11 ], [ null, %1 ], [ %9, %15 ], [ %9, %17 ]
   ret ptr %.0
 }
 
@@ -777,8 +777,8 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
   %198 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_log_t_reg_free_list, ptr noundef nonnull %97) #19
   br label %.thread135
 
-.thread135:                                       ; preds = %19, %64, %49, %31, %25, %.thread139, %184, %187, %182, %4, %196
-  %.092 = phi ptr [ null, %196 ], [ null, %4 ], [ %97, %184 ], [ %97, %187 ], [ %97, %182 ], [ null, %.thread139 ], [ null, %25 ], [ null, %31 ], [ null, %49 ], [ null, %64 ], [ null, %19 ]
+.thread135:                                       ; preds = %64, %19, %49, %31, %25, %.thread139, %184, %187, %182, %4, %196
+  %.092 = phi ptr [ null, %196 ], [ null, %.thread139 ], [ null, %4 ], [ %97, %184 ], [ %97, %187 ], [ %97, %182 ], [ null, %25 ], [ null, %31 ], [ null, %49 ], [ null, %19 ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1796,7 +1796,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   br label %119
 
 119:                                              ; preds = %.thread126, %6, %98, %118, %112, %27, %18
-  %.086 = phi i32 [ -1, %27 ], [ 0, %112 ], [ 0, %118 ], [ 0, %98 ], [ -1, %18 ], [ 0, %6 ], [ -1, %.thread126 ]
+  %.086 = phi i32 [ -1, %27 ], [ 0, %112 ], [ 0, %118 ], [ 0, %98 ], [ -1, %.thread126 ], [ -1, %18 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.086
@@ -2057,7 +2057,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   br label %139
 
 139:                                              ; preds = %.thread, %6, %134, %138, %28, %19
-  %.095 = phi i32 [ -1, %28 ], [ 0, %138 ], [ 0, %134 ], [ -1, %19 ], [ 0, %6 ], [ -1, %.thread ]
+  %.095 = phi i32 [ -1, %28 ], [ -1, %.thread ], [ 0, %138 ], [ 0, %134 ], [ -1, %19 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.095
@@ -2200,7 +2200,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_truncate(ptr noundef captures(no
   br label %82
 
 82:                                               ; preds = %3, %15, %81
-  %.027 = phi i32 [ 0, %15 ], [ %.2, %81 ], [ 0, %3 ]
+  %.027 = phi i32 [ 0, %15 ], [ 0, %3 ], [ %.2, %81 ]
   ret i32 %.027
 }
 
@@ -2247,7 +2247,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_lock(ptr noundef readonly captur
   br label %29
 
 29:                                               ; preds = %2, %9, %23, %._crit_edge
-  %.010 = phi i32 [ 0, %23 ], [ -1, %._crit_edge ], [ 0, %9 ], [ 0, %2 ]
+  %.010 = phi i32 [ 0, %23 ], [ 0, %2 ], [ -1, %._crit_edge ], [ 0, %9 ]
   ret i32 %.010
 }
 
@@ -2293,7 +2293,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_unlock(ptr noundef readonly capt
   br label %27
 
 27:                                               ; preds = %1, %8, %21, %._crit_edge
-  %.08 = phi i32 [ 0, %21 ], [ -1, %._crit_edge ], [ 0, %8 ], [ 0, %1 ]
+  %.08 = phi i32 [ 0, %21 ], [ 0, %1 ], [ -1, %._crit_edge ], [ 0, %8 ]
   ret i32 %.08
 }
 
@@ -2322,7 +2322,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_delete(ptr noundef readonly capt
   br label %19
 
 19:                                               ; preds = %2, %9, %12
-  %.06 = phi i32 [ -1, %12 ], [ 0, %9 ], [ 0, %2 ]
+  %.06 = phi i32 [ 0, %2 ], [ -1, %12 ], [ 0, %9 ]
   ret i32 %.06
 }
 

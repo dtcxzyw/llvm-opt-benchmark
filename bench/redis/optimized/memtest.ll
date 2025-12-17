@@ -240,7 +240,7 @@ memtest_progress_step.exit41:                     ; preds = %.lr.ph.i38, %39
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %51, %.lr.ph47.split.us, %12, %3
-  %.032 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 1, %.lr.ph47.split.us ], [ 0, %51 ]
+  %.032 = phi i32 [ 0, %3 ], [ 1, %.lr.ph47.split.us ], [ 0, %12 ], [ 0, %51 ]
   ret i32 %.032
 }
 
@@ -631,7 +631,7 @@ define dso_local i32 @memtest_compare_times(ptr noundef %0, i64 noundef %1, i32 
   br i1 %exitcond53.not.i.us, label %memtest_compare.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !26
 
 memtest_compare.exit.us:                          ; preds = %13, %.lr.ph.split.us.i.us
-  %phi.call.us = phi i32 [ 0, %13 ], [ 1, %.lr.ph.split.us.i.us ]
+  %phi.call.us = phi i32 [ 1, %.lr.ph.split.us.i.us ], [ 0, %13 ]
   %17 = add nuw nsw i32 %phi.call.us, %.019.us
   %18 = add nuw nsw i32 %.01018.us, 1
   %exitcond26.not = icmp eq i32 %18, %3
@@ -711,7 +711,7 @@ define dso_local i32 @memtest_test(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %exitcond63.not.i.us.us, label %memtest_addressing.exit.us.us, label %.lr.ph47.split.us.i.us.us, !llvm.loop !20
 
 memtest_addressing.exit.us.us:                    ; preds = %18, %.lr.ph47.split.us.i.us.us
-  %phi.call.us.us = phi i32 [ 0, %18 ], [ 1, %.lr.ph47.split.us.i.us.us ]
+  %phi.call.us.us = phi i32 [ 1, %.lr.ph47.split.us.i.us.us ], [ 0, %18 ]
   %21 = add nsw i32 %phi.call.us.us, %.0149.us.us
   br label %.split46.us.us
 
@@ -776,7 +776,7 @@ memtest_addressing.exit.us.us:                    ; preds = %18, %.lr.ph47.split
   br i1 %exitcond53.not.i.us.i.us.us, label %memtest_compare.exit.us.i.us.us, label %.lr.ph.split.us.i.us.i.us.us, !llvm.loop !26
 
 memtest_compare.exit.us.i.us.us:                  ; preds = %39, %.lr.ph.split.us.i.us.i.us.us
-  %phi.call.us.i.us.us = phi i32 [ 0, %39 ], [ 1, %.lr.ph.split.us.i.us.i.us.us ]
+  %phi.call.us.i.us.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i.us.us ], [ 0, %39 ]
   %43 = add nuw nsw i32 %phi.call.us.i.us.us, %.019.us.i.us.us
   %44 = add nuw nsw i32 %.01018.us.i.us.us, 1
   %exitcond26.not.i.us.us = icmp eq i32 %44, 4
@@ -842,7 +842,7 @@ memtest_compare.exit.us.i.us.us:                  ; preds = %39, %.lr.ph.split.u
   br i1 %exitcond53.not.i.us.i96.us.us, label %memtest_compare.exit.us.i92.us.us, label %.lr.ph.split.us.i.us.i87.us.us, !llvm.loop !26
 
 memtest_compare.exit.us.i92.us.us:                ; preds = %62, %.lr.ph.split.us.i.us.i87.us.us
-  %phi.call.us.i93.us.us = phi i32 [ 0, %62 ], [ 1, %.lr.ph.split.us.i.us.i87.us.us ]
+  %phi.call.us.i93.us.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i87.us.us ], [ 0, %62 ]
   %66 = add nuw nsw i32 %phi.call.us.i93.us.us, %.019.us.i85.us.us
   %67 = add nuw nsw i32 %.01018.us.i86.us.us, 1
   %exitcond26.not.i94.us.us = icmp eq i32 %67, 4
@@ -909,7 +909,7 @@ memtest_compare.exit.us.i92.us.us:                ; preds = %62, %.lr.ph.split.u
   br i1 %exitcond53.not.i.us.i129.us.us, label %memtest_compare.exit.us.i125.us.us, label %.lr.ph.split.us.i.us.i120.us.us, !llvm.loop !26
 
 memtest_compare.exit.us.i125.us.us:               ; preds = %86, %.lr.ph.split.us.i.us.i120.us.us
-  %phi.call.us.i126.us.us = phi i32 [ 0, %86 ], [ 1, %.lr.ph.split.us.i.us.i120.us.us ]
+  %phi.call.us.i126.us.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i120.us.us ], [ 0, %86 ]
   %90 = add nuw nsw i32 %phi.call.us.i126.us.us, %.019.us.i118.us.us
   %91 = add nuw nsw i32 %.01018.us.i119.us.us, 1
   %exitcond26.not.i127.us.us = icmp eq i32 %91, 4
@@ -1136,7 +1136,7 @@ memtest_fill_random.exit.us:                      ; preds = %._crit_edge.split.u
   br i1 %exitcond53.not.i.us.i104.us, label %memtest_compare.exit.us.i101.us, label %.lr.ph.split.us.i.us.i96.us, !llvm.loop !26
 
 memtest_compare.exit.us.i101.us:                  ; preds = %53, %.lr.ph.split.us.i.us.i96.us
-  %phi.call.us.i102.us = phi i32 [ 0, %53 ], [ 1, %.lr.ph.split.us.i.us.i96.us ]
+  %phi.call.us.i102.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i96.us ], [ 0, %53 ]
   %57 = add nuw nsw i32 %phi.call.us.i102.us, %.019.us.i94.us
   %58 = add nuw nsw i32 %.01018.us.i95.us, 1
   %exitcond26.not.i103.us = icmp eq i32 %58, 4
@@ -1203,7 +1203,7 @@ memtest_fill_value.exit.us:                       ; preds = %._crit_edge.split.u
   br i1 %exitcond53.not.i.us.i164.us, label %memtest_compare.exit.us.i160.us, label %.lr.ph.split.us.i.us.i155.us, !llvm.loop !26
 
 memtest_compare.exit.us.i160.us:                  ; preds = %76, %.lr.ph.split.us.i.us.i155.us
-  %phi.call.us.i161.us = phi i32 [ 0, %76 ], [ 1, %.lr.ph.split.us.i.us.i155.us ]
+  %phi.call.us.i161.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i155.us ], [ 0, %76 ]
   %80 = add nuw nsw i32 %phi.call.us.i161.us, %.019.us.i153.us
   %81 = add nuw nsw i32 %.01018.us.i154.us, 1
   %exitcond26.not.i162.us = icmp eq i32 %81, 4
@@ -1271,7 +1271,7 @@ memtest_fill_value.exit179.us:                    ; preds = %._crit_edge.split.u
   br i1 %exitcond53.not.i.us.i231.us, label %memtest_compare.exit.us.i227.us, label %.lr.ph.split.us.i.us.i222.us, !llvm.loop !26
 
 memtest_compare.exit.us.i227.us:                  ; preds = %100, %.lr.ph.split.us.i.us.i222.us
-  %phi.call.us.i228.us = phi i32 [ 0, %100 ], [ 1, %.lr.ph.split.us.i.us.i222.us ]
+  %phi.call.us.i228.us = phi i32 [ 1, %.lr.ph.split.us.i.us.i222.us ], [ 0, %100 ]
   %104 = add nuw nsw i32 %phi.call.us.i228.us, %.019.us.i220.us
   %105 = add nuw nsw i32 %.01018.us.i221.us, 1
   %exitcond26.not.i229.us = icmp eq i32 %105, 4

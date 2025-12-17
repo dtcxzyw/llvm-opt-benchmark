@@ -311,8 +311,8 @@ define dso_local i32 @acpi_hw_read(ptr noundef captures(none) %0, ptr noundef re
   br i1 %77, label %acpi_hw_get_access_bit_width.exit, label %71, !llvm.loop !5
 
 acpi_hw_get_access_bit_width.exit:                ; preds = %71, %17, %27, %64
-  %.pre-phi = phi i32 [ %18, %17 ], [ %.pre7, %27 ], [ %35, %64 ], [ %35, %71 ]
-  %79 = phi i8 [ %15, %17 ], [ %30, %27 ], [ 8, %64 ], [ %72, %71 ]
+  %.pre-phi = phi i32 [ %35, %64 ], [ %18, %17 ], [ %.pre7, %27 ], [ %35, %71 ]
+  %79 = phi i8 [ 8, %64 ], [ %15, %17 ], [ %30, %27 ], [ %72, %71 ]
   %80 = load i8, ptr %1, align 1
   %81 = icmp eq i8 %80, 1
   %82 = select i1 %81, i8 32, i8 64
@@ -512,8 +512,8 @@ define dso_local i32 @acpi_hw_write(i64 noundef %0, ptr noundef readonly capture
   br i1 %75, label %acpi_hw_get_access_bit_width.exit, label %69, !llvm.loop !5
 
 acpi_hw_get_access_bit_width.exit:                ; preds = %69, %15, %25, %62
-  %.pre-phi = phi i32 [ %16, %15 ], [ %.pre6, %25 ], [ %33, %62 ], [ %33, %69 ]
-  %77 = phi i8 [ %13, %15 ], [ %28, %25 ], [ 8, %62 ], [ %70, %69 ]
+  %.pre-phi = phi i32 [ %33, %62 ], [ %16, %15 ], [ %.pre6, %25 ], [ %33, %69 ]
+  %77 = phi i8 [ 8, %62 ], [ %13, %15 ], [ %28, %25 ], [ %70, %69 ]
   %78 = load i8, ptr %1, align 1
   %79 = icmp eq i8 %78, 1
   %80 = select i1 %79, i8 32, i8 64
@@ -752,7 +752,7 @@ define dso_local i32 @acpi_hw_register_write(i32 noundef %0, i32 noundef %1) loc
   br label %69
 
 69:                                               ; preds = %.thread, %68, %64, %61, %53, %50, %48, %45, %37, %22, %19, %15, %13, %10, %5
-  %70 = phi i32 [ 4097, %68 ], [ %67, %64 ], [ %63, %61 ], [ %51, %50 ], [ %60, %53 ], [ %8, %5 ], [ %14, %13 ], [ 0, %10 ], [ %17, %15 ], [ %23, %22 ], [ 0, %19 ], [ %43, %37 ], [ %49, %48 ], [ 0, %45 ], [ %.ph, %.thread ]
+  %70 = phi i32 [ 4097, %68 ], [ %67, %64 ], [ %63, %61 ], [ %51, %50 ], [ %60, %53 ], [ %.ph, %.thread ], [ %8, %5 ], [ %14, %13 ], [ 0, %10 ], [ %17, %15 ], [ %23, %22 ], [ 0, %19 ], [ %43, %37 ], [ %49, %48 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %70
 }
@@ -959,7 +959,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
   br label %.thread
 
 78:                                               ; preds = %73, %58, %40, %23
-  %79 = phi i32 [ %76, %73 ], [ %60, %58 ], [ %41, %40 ], [ %24, %23 ]
+  %79 = phi i32 [ %60, %58 ], [ %76, %73 ], [ %41, %40 ], [ %24, %23 ]
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %..thread11_crit_edge, label %.thread
 
@@ -973,7 +973,7 @@ define dso_local i32 @acpi_hw_register_read(i32 noundef %0, ptr noundef writeonl
   br label %.thread
 
 .thread:                                          ; preds = %61, %67, %77, %.thread11, %78
-  %82 = phi i32 [ 0, %.thread11 ], [ %79, %78 ], [ %62, %61 ], [ %68, %67 ], [ 4097, %77 ]
+  %82 = phi i32 [ %79, %78 ], [ 0, %.thread11 ], [ %62, %61 ], [ %68, %67 ], [ 4097, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %82

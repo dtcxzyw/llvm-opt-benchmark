@@ -318,7 +318,7 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   br label %.thread
 
 ._crit_edge344:                                   ; preds = %24, %33
-  %42 = phi i8 [ 0, %33 ], [ %31, %24 ]
+  %42 = phi i8 [ %31, %24 ], [ 0, %33 ]
   %43 = load ptr, ptr @hash, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %.0127287, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %.0127287, i64 38
@@ -1060,12 +1060,12 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   %472 = add nsw i32 %.0131285, 1
   br label %479
 
-.thread191.thread:                                ; preds = %105, %292, %407, %405, %395, %400, %359
-  %.4135206.ph = phi i32 [ %.0131285, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131285, %405 ], [ %.0131285, %407 ], [ %.0131285, %292 ], [ %.0131285, %105 ]
+.thread191.thread:                                ; preds = %105, %407, %405, %395, %400, %359, %292
+  %.4135206.ph = phi i32 [ %.0131285, %292 ], [ %.0131285, %359 ], [ %397, %400 ], [ %397, %395 ], [ %.0131285, %405 ], [ %.0131285, %407 ], [ %.0131285, %105 ]
   %473 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #19
   br label %485
 
-.thread:                                          ; preds = %105, %do_item_remove.exit155, %._crit_edge344, %do_item_remove.exit, %70, %40
+.thread:                                          ; preds = %105, %do_item_remove.exit155, %do_item_remove.exit, %70, %._crit_edge344, %40
   %.2133 = phi i32 [ %.0131285, %40 ], [ %.0131285, %._crit_edge344 ], [ %104, %do_item_remove.exit ], [ %.0131285, %70 ], [ %.0131285, %105 ], [ %123, %do_item_remove.exit155 ]
   %.1129 = phi i32 [ %41, %40 ], [ %.0128286, %._crit_edge344 ], [ %.0128286, %do_item_remove.exit ], [ %.0128286, %70 ], [ %.0128286, %105 ], [ %.0128286, %do_item_remove.exit155 ]
   %.1113 = phi i64 [ %.0112288, %40 ], [ %.0112288, %._crit_edge344 ], [ %.0112288, %do_item_remove.exit ], [ %.0112288, %70 ], [ %.0112288, %105 ], [ %.5, %do_item_remove.exit155 ]
@@ -1357,7 +1357,7 @@ define dso_local ptr @do_item_alloc(ptr noundef readonly captures(none) %0, i64 
   br label %110
 
 110:                                              ; preds = %42, %108, %7, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %42 ], [ %.063, %108 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %5 ], [ %.063, %108 ], [ null, %42 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -2414,7 +2414,7 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
   br i1 %17, label %51, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %14
-  %18 = phi i8 [ 0, %14 ], [ %12, %.lr.ph ]
+  %18 = phi i8 [ %12, %.lr.ph ], [ 0, %14 ]
   %19 = load ptr, ptr @hash, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %.02533, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %.02533, i64 38
@@ -2668,7 +2668,7 @@ define dso_local void @fill_item_stats_automove(ptr noundef writeonly captures(n
   br label %37
 
 37:                                               ; preds = %.sink.split, %30, %2
-  %.sink = phi i32 [ 0, %2 ], [ 0, %30 ], [ %36, %.sink.split ]
+  %.sink = phi i32 [ 0, %30 ], [ 0, %2 ], [ %36, %.sink.split ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.sink, ptr %38, align 8, !tbaa !81
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #19
@@ -2977,16 +2977,16 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread272:                                       ; preds = %75, %72
-  %.1259276 = phi i32 [ %.0258301, %72 ], [ %79, %75 ]
+  %.1259276 = phi i32 [ %79, %75 ], [ %.0258301, %72 ]
   %96 = getelementptr inbounds nuw i8, ptr %19, i64 160
   %97 = load i32, ptr %96, align 8, !tbaa !45
   br label %.thread
 
 .thread:                                          ; preds = %12, %88, %91, %83, %80, %.thread272
-  %.1270 = phi i32 [ %.0303, %.thread272 ], [ %.0303, %80 ], [ %.0303, %88 ], [ %95, %91 ], [ %.0303, %83 ], [ %.0303, %12 ]
-  %.1257269 = phi i32 [ %.0256302, %.thread272 ], [ %.0256302, %80 ], [ %.0256302, %88 ], [ %.0256302, %91 ], [ %87, %83 ], [ %.0256302, %12 ]
-  %.1259268 = phi i32 [ %.1259276, %.thread272 ], [ %.0258301, %80 ], [ %.0258301, %88 ], [ %.0258301, %91 ], [ %.0258301, %83 ], [ %.0258301, %12 ]
-  %.sroa.59.2 = phi i32 [ %97, %.thread272 ], [ %.sroa.59.1296, %80 ], [ %.sroa.59.1296, %88 ], [ %.sroa.59.1296, %91 ], [ %.sroa.59.1296, %83 ], [ %.sroa.59.1296, %12 ]
+  %.1270 = phi i32 [ %.0303, %.thread272 ], [ %.0303, %83 ], [ %.0303, %80 ], [ %.0303, %88 ], [ %95, %91 ], [ %.0303, %12 ]
+  %.1257269 = phi i32 [ %.0256302, %.thread272 ], [ %87, %83 ], [ %.0256302, %80 ], [ %.0256302, %88 ], [ %.0256302, %91 ], [ %.0256302, %12 ]
+  %.1259268 = phi i32 [ %.1259276, %.thread272 ], [ %.0258301, %83 ], [ %.0258301, %80 ], [ %.0258301, %88 ], [ %.0258301, %91 ], [ %.0258301, %12 ]
+  %.sroa.59.2 = phi i32 [ %97, %.thread272 ], [ %.sroa.59.1296, %83 ], [ %.sroa.59.1296, %80 ], [ %.sroa.59.1296, %88 ], [ %.sroa.59.1296, %91 ], [ %.sroa.59.1296, %12 ]
   %98 = call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 26)
   switch i32 %98, label %111 [
     i32 0, label %99
@@ -3427,8 +3427,8 @@ do_item_remove.exit61:                            ; preds = %54, %61
   br label %79
 
 79:                                               ; preds = %74, %46, %77, %78, %.loopexit
-  %.050.ph.ph = phi ptr [ %6, %78 ], [ %6, %77 ], [ null, %.loopexit ], [ null, %46 ], [ null, %74 ]
-  %.049.ph.ph = phi i32 [ 1, %78 ], [ 1, %77 ], [ 0, %.loopexit ], [ 2, %46 ], [ 3, %74 ]
+  %.050.ph.ph = phi ptr [ null, %.loopexit ], [ %6, %78 ], [ %6, %77 ], [ null, %46 ], [ null, %74 ]
+  %.049.ph.ph = phi i32 [ 0, %.loopexit ], [ 1, %78 ], [ 1, %77 ], [ 2, %46 ], [ 3, %74 ]
   %.pr.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !95
   %80 = icmp sgt i32 %.pr.pr, 2
   br i1 %80, label %81, label %.thread67
@@ -3439,8 +3439,8 @@ do_item_remove.exit61:                            ; preds = %54, %61
   br label %.thread67
 
 .thread67:                                        ; preds = %7, %do_item_remove.exit, %do_item_remove.exit61, %79, %81
-  %.04971 = phi i32 [ %.049.ph.ph, %79 ], [ %.049.ph.ph, %81 ], [ 3, %do_item_remove.exit61 ], [ 2, %do_item_remove.exit ], [ 0, %7 ]
-  %.05070 = phi ptr [ %.050.ph.ph, %79 ], [ %.050.ph.ph, %81 ], [ null, %do_item_remove.exit61 ], [ null, %do_item_remove.exit ], [ null, %7 ]
+  %.04971 = phi i32 [ %.049.ph.ph, %81 ], [ %.049.ph.ph, %79 ], [ 2, %do_item_remove.exit ], [ 3, %do_item_remove.exit61 ], [ 0, %7 ]
+  %.05070 = phi ptr [ %.050.ph.ph, %81 ], [ %.050.ph.ph, %79 ], [ null, %do_item_remove.exit ], [ null, %do_item_remove.exit61 ], [ null, %7 ]
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 6968
   %84 = load ptr, ptr %83, align 8, !tbaa !116
   %85 = icmp eq ptr %84, null
@@ -3648,7 +3648,7 @@ lru_bump_buf_link_q.exit:                         ; preds = %15, %18
   br label %20
 
 20:                                               ; preds = %0, %lru_bump_buf_link_q.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ %1, %lru_bump_buf_link_q.exit ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %lru_bump_buf_link_q.exit ], [ null, %7 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -4143,7 +4143,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   br label %.thread.i
 
 .thread.i:                                        ; preds = %208, %204, %201, %197
-  %210 = phi i32 [ %209, %208 ], [ %198, %197 ], [ %202, %201 ], [ %207, %204 ]
+  %210 = phi i32 [ %202, %201 ], [ %209, %208 ], [ %198, %197 ], [ %207, %204 ]
   %211 = icmp ugt i32 %210, 3600
   br i1 %211, label %212, label %.thread.thread.i
 

@@ -1543,7 +1543,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   store ptr %205, ptr %206, align 8, !tbaa !227, !alias.scope !269
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit.i37, %137, %130, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit42, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit.i, %72, %65, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit31, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit45, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit
+.critedge.thread:                                 ; preds = %137, %130, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit.i37, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit42, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit.i, %72, %65, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit31, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit45, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE17getOverdefinedValEv.exit, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit
   ret void
 }
 
@@ -1670,7 +1670,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %57, %56, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit
-  %61 = phi i1 [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit ], [ %.ph, %56 ], [ %.ph, %57 ], [ true, %35 ]
+  %61 = phi i1 [ %.ph, %57 ], [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit ], [ %.ph, %56 ], [ true, %35 ]
   %.not.i.i.i.i29 = icmp eq ptr %.sroa.498.0, null
   br i1 %.not.i.i.i.i29, label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit30, label %62
 
@@ -1845,7 +1845,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %.critedge14
 
 .critedge14:                                      ; preds = %104, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit, %138, %137, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit39
-  %142 = phi i1 [ false, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit39 ], [ %.ph109, %137 ], [ %.ph109, %138 ], [ false, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit ], [ false, %104 ]
+  %142 = phi i1 [ false, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit39 ], [ %.ph109, %138 ], [ %.ph109, %137 ], [ false, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE11getUndefValEv.exit ], [ false, %104 ]
   %.not.i.i.i.i49 = icmp eq ptr %.sroa.484.0, null
   br i1 %.not.i.i.i.i49, label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit50, label %143
 
@@ -4929,7 +4929,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14Poin
   br label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit.i
 
 _ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit.i:      ; preds = %28, %27, %27
-  %.1.i = phi ptr [ %.02542.i, %27 ], [ %41, %28 ], [ %.02542.i, %27 ]
+  %.1.i = phi ptr [ %.02542.i, %27 ], [ %.02542.i, %27 ], [ %41, %28 ]
   %.026.add.i = add nuw nsw i64 %.026.idx41.i, 40
   %.not29.i = icmp eq i64 %.026.add.i, 640
   br i1 %.not29.i, label %25, label %27, !llvm.loop !393
@@ -5540,11 +5540,11 @@ _ZN4llvm13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOG
   br i1 %.not.i.i.i2.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEENS5_13CVPLatticeValELj16ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SC_EEEESB_SC_SE_SH_E5beginEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !401
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEENS5_13CVPLatticeValELj16ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SC_EEEESB_SC_SE_SH_E5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %.critedge2.i.i.i.i, %17, %24
-  %.pre-phi = phi i32 [ %.val.i, %17 ], [ %25, %24 ], [ %25, %.critedge2.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
-  %.val1.i.i19 = phi i32 [ %.val1.i.i.i, %17 ], [ %.val1.i.i, %24 ], [ %.val1.i.i, %.critedge2.i.i.i.i ], [ %.val1.i.i, %.lr.ph.i.i.i.i ]
-  %33 = phi ptr [ %19, %17 ], [ %27, %24 ], [ %27, %.critedge2.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i ]
-  %.pn5.i = phi ptr [ %23, %17 ], [ %28, %24 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %32, %.critedge2.i.i.i.i ]
-  %.pn3.i = phi ptr [ %23, %17 ], [ %31, %24 ], [ %31, %.critedge2.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i32 [ %25, %24 ], [ %.val.i, %17 ], [ %25, %.critedge2.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
+  %.val1.i.i19 = phi i32 [ %.val1.i.i, %24 ], [ %.val1.i.i.i, %17 ], [ %.val1.i.i, %.critedge2.i.i.i.i ], [ %.val1.i.i, %.lr.ph.i.i.i.i ]
+  %33 = phi ptr [ %27, %24 ], [ %19, %17 ], [ %27, %.critedge2.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i ]
+  %.pn5.i = phi ptr [ %28, %24 ], [ %23, %17 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %32, %.critedge2.i.i.i.i ]
+  %.pn3.i = phi ptr [ %31, %24 ], [ %23, %17 ], [ %31, %.critedge2.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = select i1 %.not.i.i.i.i.i, ptr %33, ptr %34
@@ -6078,11 +6078,11 @@ _ZN4llvm13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOG
   br i1 %.not.i.i.i2.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEENS5_13CVPLatticeValELj16ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SC_EEEESB_SC_SE_SH_E5beginEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !401
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEENS5_13CVPLatticeValELj16ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SC_EEEESB_SC_SE_SH_E5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %.critedge2.i.i.i.i, %25, %32
-  %.pre-phi = phi i32 [ %.val.i, %25 ], [ %33, %32 ], [ %33, %.critedge2.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i ]
-  %.val1.i.i55 = phi i32 [ %.val1.i.i.i, %25 ], [ %.val1.i.i, %32 ], [ %.val1.i.i, %.critedge2.i.i.i.i ], [ %.val1.i.i, %.lr.ph.i.i.i.i ]
-  %41 = phi ptr [ %27, %25 ], [ %35, %32 ], [ %35, %.critedge2.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i ]
-  %.pn5.i = phi ptr [ %31, %25 ], [ %36, %32 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %40, %.critedge2.i.i.i.i ]
-  %.pn3.i = phi ptr [ %31, %25 ], [ %39, %32 ], [ %39, %.critedge2.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i32 [ %33, %32 ], [ %.val.i, %25 ], [ %33, %.critedge2.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i ]
+  %.val1.i.i55 = phi i32 [ %.val1.i.i, %32 ], [ %.val1.i.i.i, %25 ], [ %.val1.i.i, %.critedge2.i.i.i.i ], [ %.val1.i.i, %.lr.ph.i.i.i.i ]
+  %41 = phi ptr [ %35, %32 ], [ %27, %25 ], [ %35, %.critedge2.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i ]
+  %.pn5.i = phi ptr [ %36, %32 ], [ %31, %25 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %40, %.critedge2.i.i.i.i ]
+  %.pn3.i = phi ptr [ %39, %32 ], [ %31, %25 ], [ %39, %.critedge2.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.pre-phi, 0
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = select i1 %.not.i.i.i.i.i, ptr %41, ptr %42
@@ -6427,7 +6427,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %188
 
 188:                                              ; preds = %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE15getUntrackedValEv.exit69, %174, %187
-  %.ph = phi i1 [ %.not9.i.i.i.i.i.i72, %187 ], [ false, %174 ], [ false, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE15getUntrackedValEv.exit69 ]
+  %.ph = phi i1 [ false, %_ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL__N_111IPOGroupingENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES7_EEEENS4_13CVPLatticeValEE15getUntrackedValEv.exit69 ], [ %.not9.i.i.i.i.i.i72, %187 ], [ false, %174 ]
   %.not.i.i.i.i74 = icmp eq ptr %.sroa.4119.1, null
   br i1 %.not.i.i.i.i74, label %.critedge, label %189
 
@@ -6807,7 +6807,7 @@ _ZNK12_GLOBAL__N_113CVPLatticeValneERKS0_.exit84.thread149: ; preds = %291, %_ZN
   br label %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit105
 
 _ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit105: ; preds = %_ZNK12_GLOBAL__N_113CVPLatticeValneERKS0_.exit84.thread149, %344, %345
-  %346 = phi i1 [ false, %_ZNK12_GLOBAL__N_113CVPLatticeValneERKS0_.exit84.thread149 ], [ %.not9.i.i.i.i.i.i104, %345 ], [ true, %344 ]
+  %346 = phi i1 [ false, %_ZNK12_GLOBAL__N_113CVPLatticeValneERKS0_.exit84.thread149 ], [ true, %344 ], [ %.not9.i.i.i.i.i.i104, %345 ]
   %.val36 = load ptr, ptr %204, align 8, !tbaa !218
   %.not.i.i.i.i106 = icmp eq ptr %.val36, null
   br i1 %.not.i.i.i.i106, label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit107, label %347
@@ -7299,7 +7299,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %102, %101, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit
-  %106 = phi i1 [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit ], [ %.ph, %101 ], [ %.ph, %102 ], [ true, %73 ]
+  %106 = phi i1 [ %.ph, %102 ], [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit ], [ %.ph, %101 ], [ true, %73 ]
   %.not.i.i.i.i79 = icmp eq ptr %.sroa.4201.0, null
   br i1 %.not.i.i.i.i79, label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit80, label %107
 
@@ -7631,7 +7631,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %.critedge46
 
 .critedge46:                                      ; preds = %230, %259, %258, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit103
-  %263 = phi i1 [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit103 ], [ %.ph234, %258 ], [ %.ph234, %259 ], [ true, %230 ]
+  %263 = phi i1 [ %.ph234, %259 ], [ true, %_ZNK12_GLOBAL__N_113CVPLatticeValeqERKS0_.exit103 ], [ %.ph234, %258 ], [ true, %230 ]
   %.not.i.i.i.i113 = icmp eq ptr %.sroa.4162.0, null
   br i1 %.not.i.i.i.i113, label %_ZN12_GLOBAL__N_113CVPLatticeValD2Ev.exit114, label %264
 
@@ -8035,8 +8035,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %2, %78 ], [ %0, %49 ], [ %0, %60 ], [ %0, %70 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %3, %78 ], [ %.sroa.15.0.lcssa, %49 ], [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %49 ], [ %0, %70 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.0.lcssa, %49 ], [ %.sroa.15.2, %70 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8148,7 +8148,7 @@ _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit5.i: ; preds = %26
   br label %_ZNSt8_Rb_treeISt4pairIPN4llvm10BasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit
 
 _ZNSt8_Rb_treeISt4pairIPN4llvm10BasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit: ; preds = %33, %35, %40, %42
-  %48 = phi i1 [ true, %33 ], [ true, %35 ], [ false, %40 ], [ %47, %42 ]
+  %48 = phi i1 [ %47, %42 ], [ true, %33 ], [ true, %35 ], [ false, %40 ]
   %49 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)

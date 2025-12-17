@@ -436,7 +436,7 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %9
   br i1 %30, label %.lr.ph, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, !llvm.loop !9
 
 _ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread: ; preds = %16, %25, %29, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit, %4
-  %.012 = phi ptr [ null, %4 ], [ null, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ], [ %22, %25 ], [ null, %29 ], [ null, %16 ]
+  %.012 = phi ptr [ null, %4 ], [ null, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ], [ null, %29 ], [ %22, %25 ], [ null, %16 ]
   ret ptr %.012
 }
 

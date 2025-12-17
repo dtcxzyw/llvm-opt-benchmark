@@ -61,7 +61,7 @@ define i32 @Sfm_ObjRef_rec(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader, %4, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %.preheader ], [ %22, %.lr.ph ]
+  %.016 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 1, %.preheader ], [ %22, %.lr.ph ]
   ret i32 %.016
 }
 
@@ -150,7 +150,7 @@ define i32 @Sfm_ObjDeref_rec(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader, %4, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %.preheader ], [ %22, %.lr.ph ]
+  %.016 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 1, %.preheader ], [ %22, %.lr.ph ]
   ret i32 %.016
 }
 
@@ -259,7 +259,7 @@ Sfm_ObjDeref.exit:                                ; preds = %.lr.ph.i
   br i1 %35, label %.lr.ph.i14, label %Sfm_ObjRef.exit, !llvm.loop !25
 
 Sfm_ObjRef.exit:                                  ; preds = %.lr.ph.i14, %9, %Sfm_ObjDeref.exit, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %20, %Sfm_ObjDeref.exit ], [ 1, %9 ], [ %20, %.lr.ph.i14 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %20, %Sfm_ObjDeref.exit ], [ 1, %9 ], [ %20, %.lr.ph.i14 ]
   ret i32 %.0
 }
 
@@ -774,7 +774,7 @@ define range(i32 0, 2) i32 @Sfm_NtkCheckOverlap_rec(ptr noundef readonly capture
   br i1 %.not22, label %22, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %17, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %17 ], [ 1, %.lr.ph ], [ 0, %22 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %3 ], [ 0, %17 ], [ 1, %.lr.ph ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -928,7 +928,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %70 = icmp sgt i32 %69, %2
   br i1 %70, label %.loopexit, label %61
 
-.loopexit:                                        ; preds = %66, %62, %51, %46
+.loopexit:                                        ; preds = %62, %66, %51, %46
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !20
   %73 = load i32, ptr %3, align 8, !tbaa !32
@@ -2046,7 +2046,7 @@ Sfm_NtkCheckRoot.exit:                            ; preds = %234, %.preheader.i2
   store i32 0, ptr %319, align 4, !tbaa !20
   br label %.critedge10
 
-.critedge10:                                      ; preds = %235, %239, %302, %.preheader, %217, %226, %.critedge8, %313, %Abc_Clock.exit221
+.critedge10:                                      ; preds = %239, %235, %302, %.preheader, %217, %226, %.critedge8, %313, %Abc_Clock.exit221
   %320 = load ptr, ptr %28, align 8, !tbaa !58
   %321 = getelementptr i8, ptr %320, i64 4
   %.val180 = load i32, ptr %321, align 4, !tbaa !20

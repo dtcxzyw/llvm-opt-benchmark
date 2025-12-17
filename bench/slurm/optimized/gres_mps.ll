@@ -481,7 +481,7 @@ define dso_local void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 n
   br label %_get_dev_count.exit.thread
 
 _get_dev_count.exit.thread:                       ; preds = %47, %37, %49
-  %.08.i51 = phi i64 [ 100, %49 ], [ 100, %37 ], [ %48, %47 ]
+  %.08.i51 = phi i64 [ %48, %47 ], [ 100, %49 ], [ 100, %37 ]
   %51 = mul i64 %34, 100
   %52 = udiv i64 %51, %.08.i51
   %53 = tail call i64 @llvm.umax.i64(i64 %52, i64 1)

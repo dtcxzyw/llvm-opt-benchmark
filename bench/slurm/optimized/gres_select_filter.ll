@@ -176,7 +176,7 @@ define dso_local range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr no
   br label %66
 
 66:                                               ; preds = %61, %63
-  %.0163 = phi i16 [ %62, %61 ], [ %65, %63 ]
+  %.0163 = phi i16 [ %65, %63 ], [ %62, %61 ]
   %.not199 = icmp eq i16 %.0163, 0
   br i1 %.not199, label %85, label %.thread
 
@@ -215,8 +215,8 @@ define dso_local range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr no
   br label %.thread229
 
 85:                                               ; preds = %70, %66
-  %.not199223 = phi i1 [ true, %66 ], [ false, %70 ]
-  %.0163221 = phi i16 [ 0, %66 ], [ %.0163220, %70 ]
+  %.not199223 = phi i1 [ false, %70 ], [ true, %66 ]
+  %.0163221 = phi i16 [ %.0163220, %70 ], [ 0, %66 ]
   %86 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %87 = load i64, ptr %86, align 8
   %.not200 = icmp eq i64 %87, 0
@@ -547,8 +547,8 @@ _set_max_node_gres.exit217:                       ; preds = %170, %166, %163, %_
   %.not = icmp eq ptr %231, null
   br i1 %.not, label %.thread229, label %30
 
-.thread229:                                       ; preds = %230, %21, %184, %187, %181, %206, %212, %209, %97, %103, %100, %76, %84, %81
-  %.1159 = phi i32 [ -1, %81 ], [ -1, %84 ], [ -1, %76 ], [ -1, %100 ], [ -1, %103 ], [ -1, %97 ], [ -1, %209 ], [ -1, %212 ], [ -1, %206 ], [ -1, %181 ], [ -1, %187 ], [ -1, %184 ], [ 0, %21 ], [ 0, %230 ]
+.thread229:                                       ; preds = %230, %21, %184, %187, %181, %212, %209, %103, %100, %84, %81, %206, %97, %76
+  %.1159 = phi i32 [ -1, %76 ], [ -1, %97 ], [ -1, %206 ], [ -1, %81 ], [ -1, %84 ], [ -1, %100 ], [ -1, %103 ], [ -1, %209 ], [ -1, %212 ], [ -1, %181 ], [ -1, %187 ], [ -1, %184 ], [ 0, %21 ], [ 0, %230 ]
   tail call void @slurm_list_iterator_destroy(ptr noundef %22) #8
   call void @slurm_xfree(ptr noundef nonnull %15) #8
   br label %232
@@ -886,7 +886,7 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   br label %_set_job_bits2.exit
 
 _set_job_bits2.exit:                              ; preds = %74, %87, %155
-  %.063.i = phi i32 [ %.not75.i, %155 ], [ 1, %87 ], [ 1, %74 ]
+  %.063.i = phi i32 [ 1, %87 ], [ %.not75.i, %155 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %156 = load i32, ptr %8, align 4
@@ -1296,8 +1296,8 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
   br label %198
 
 198:                                              ; preds = %194, %181, %176, %166, %156
-  %.0135.i = phi i32 [ %196, %194 ], [ %168, %166 ], [ 1, %156 ], [ %183, %181 ], [ 1, %176 ]
-  %.0133.i = phi i32 [ %197, %194 ], [ %157, %166 ], [ %157, %156 ], [ %175, %181 ], [ %175, %176 ]
+  %.0135.i = phi i32 [ %196, %194 ], [ 1, %156 ], [ %168, %166 ], [ %183, %181 ], [ 1, %176 ]
+  %.0133.i = phi i32 [ %197, %194 ], [ %157, %156 ], [ %157, %166 ], [ %175, %181 ], [ %175, %176 ]
   %199 = add nsw i32 %.0136196.i, 1
   %200 = call i32 @get_job_resources_offset(ptr noundef nonnull %33, i32 noundef %.0136196.i, i16 noundef zeroext 0, i16 noundef zeroext 0) #8
   %201 = load i16, ptr %133, align 4
@@ -2045,8 +2045,8 @@ _get_node_sock_specs.exit.i210:                   ; preds = %488, %471
   br i1 %exitcond.not.i219, label %.loopexit.i216, label %.lr.ph96.i, !llvm.loop !36
 
 .loopexit.i216:                                   ; preds = %.lr.ph96.i, %554, %550
-  %561 = phi ptr [ %556, %554 ], [ null, %550 ], [ %556, %.lr.ph96.i ]
-  %562 = phi ptr [ %557, %554 ], [ null, %550 ], [ %557, %.lr.ph96.i ]
+  %561 = phi ptr [ null, %550 ], [ %556, %554 ], [ %556, %.lr.ph96.i ]
+  %562 = phi ptr [ null, %550 ], [ %557, %554 ], [ %557, %.lr.ph96.i ]
   %563 = load i16, ptr %10, align 2
   %.not103.i = icmp eq i16 %563, 0
   br i1 %.not103.i, label %._crit_edge100.i, label %.lr.ph99.i
@@ -2089,7 +2089,7 @@ _get_node_sock_specs.exit.i210:                   ; preds = %488, %471
   call void @slurm_xfree(ptr noundef nonnull %8) #8
   br label %_set_res_core_bits.exit.thread
 
-_set_res_core_bits.exit.thread:                   ; preds = %._crit_edge100.i, %470, %545
+_set_res_core_bits.exit.thread:                   ; preds = %470, %._crit_edge100.i, %545
   %.3253.ph = phi i32 [ %.2252, %._crit_edge100.i ], [ %.2252, %545 ], [ 0, %470 ]
   %.4.ph = phi i32 [ %.3, %._crit_edge100.i ], [ %.3, %545 ], [ 0, %470 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2100,7 +2100,7 @@ _set_res_core_bits.exit.thread:                   ; preds = %._crit_edge100.i, %
   br label %585
 
 _set_res_core_bits.exit:                          ; preds = %_get_node_sock_specs.exit.i210, %548
-  %.068.i = phi i32 [ 2072, %548 ], [ -1, %_get_node_sock_specs.exit.i210 ]
+  %.068.i = phi i32 [ -1, %_get_node_sock_specs.exit.i210 ], [ 2072, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2281,8 +2281,8 @@ _set_shared_node_bits.exit:                       ; preds = %621, %.sink.split.i
   br i1 %exitcond.not.i238, label %.loopexit78.i, label %.lr.ph.i235, !llvm.loop !38
 
 .loopexit78.i:                                    ; preds = %.lr.ph.i235, %668, %664
-  %675 = phi ptr [ %670, %668 ], [ null, %664 ], [ %670, %.lr.ph.i235 ]
-  %676 = phi ptr [ %671, %668 ], [ null, %664 ], [ %671, %.lr.ph.i235 ]
+  %675 = phi ptr [ null, %664 ], [ %670, %668 ], [ %670, %.lr.ph.i235 ]
+  %676 = phi ptr [ null, %664 ], [ %671, %668 ], [ %671, %.lr.ph.i235 ]
   %677 = and i32 %650, 65535
   %.not96.i = icmp eq i32 %677, 0
   br i1 %.not96.i, label %._crit_edge.thread.i, label %.lr.ph83.i
@@ -2474,7 +2474,7 @@ _set_node_bits.exit:                              ; preds = %638, %.loopexit.i22
   br label %765
 
 765:                                              ; preds = %_set_res_core_bits.exit, %_build_tasks_per_node_sock.exit, %_set_used_cnts.exit, %2, %.thread, %405
-  %.0 = phi i32 [ 0, %405 ], [ 0, %.thread ], [ 0, %2 ], [ -1, %_set_used_cnts.exit ], [ -1, %_build_tasks_per_node_sock.exit ], [ -1, %_set_res_core_bits.exit ]
+  %.0 = phi i32 [ 0, %405 ], [ -1, %_build_tasks_per_node_sock.exit ], [ 0, %.thread ], [ -1, %_set_used_cnts.exit ], [ 0, %2 ], [ -1, %_set_res_core_bits.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
 }
@@ -2999,16 +2999,16 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
   br label %141
 
 141:                                              ; preds = %128, %.lr.ph, %124
-  %142 = phi ptr [ %121, %124 ], [ %121, %.lr.ph ], [ %136, %128 ]
-  %.4146 = phi i32 [ %.3145208, %124 ], [ %.3145208, %.lr.ph ], [ %spec.select, %128 ]
+  %142 = phi ptr [ %121, %.lr.ph ], [ %136, %128 ], [ %121, %124 ]
+  %.4146 = phi i32 [ %.3145208, %.lr.ph ], [ %spec.select, %128 ], [ %.3145208, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader204, label %.lr.ph, !llvm.loop !47
 
 .thread:                                          ; preds = %98, %._crit_edge.us, %84, %79, %.preheader204, %92, %50, %37, %34, %30, %9
-  %143 = phi ptr [ %4, %37 ], [ %4, %34 ], [ %4, %30 ], [ %4, %9 ], [ %43, %50 ], [ %142, %.preheader204 ], [ %43, %92 ], [ %85, %84 ], [ %70, %79 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
-  %.0142 = phi i32 [ %7, %37 ], [ %7, %34 ], [ %7, %30 ], [ %7, %9 ], [ %7, %50 ], [ %.4146, %.preheader204 ], [ %7, %92 ], [ %.2144, %84 ], [ %80, %79 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
-  %.0138 = phi i1 [ false, %37 ], [ false, %34 ], [ false, %30 ], [ false, %9 ], [ true, %50 ], [ true, %.preheader204 ], [ true, %92 ], [ true, %79 ], [ true, %84 ], [ true, %._crit_edge.us ], [ true, %98 ]
+  %143 = phi ptr [ %4, %9 ], [ %4, %30 ], [ %4, %37 ], [ %4, %34 ], [ %43, %50 ], [ %43, %92 ], [ %142, %.preheader204 ], [ %70, %79 ], [ %85, %84 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
+  %.0142 = phi i32 [ %7, %9 ], [ %7, %30 ], [ %7, %37 ], [ %7, %34 ], [ %7, %50 ], [ %7, %92 ], [ %.4146, %.preheader204 ], [ %80, %79 ], [ %.2144, %84 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
+  %.0138 = phi i1 [ false, %9 ], [ false, %30 ], [ false, %37 ], [ false, %34 ], [ true, %50 ], [ true, %92 ], [ true, %.preheader204 ], [ true, %84 ], [ true, %79 ], [ true, %._crit_edge.us ], [ true, %98 ]
   %144 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %29
@@ -3268,8 +3268,8 @@ define internal fastcc void @_set_task_bits(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.preheader.i, label %.lr.ph, !llvm.loop !52
 
 .preheader.i:                                     ; preds = %.lr.ph, %37, %33
-  %44 = phi ptr [ %39, %37 ], [ null, %33 ], [ %39, %.lr.ph ]
-  %45 = phi ptr [ %40, %37 ], [ null, %33 ], [ %40, %.lr.ph ]
+  %44 = phi ptr [ null, %33 ], [ %39, %37 ], [ %39, %.lr.ph ]
+  %45 = phi ptr [ null, %33 ], [ %40, %37 ], [ %40, %.lr.ph ]
   %46 = and i32 %18, 65535
   %.not88 = icmp eq i32 %46, 0
   br i1 %.not88, label %_get_task_cnt_node.exit.thread, label %.lr.ph.preheader.i
@@ -3708,8 +3708,8 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br label %166
 
 166:                                              ; preds = %159, %154, %152
-  %.1166.us = phi i32 [ %.0165278.us, %152 ], [ %.0165278.us, %154 ], [ %spec.select228.us, %159 ]
-  %.1.us = phi i32 [ %.0279.us, %152 ], [ %.0279.us, %154 ], [ %spec.select229.us, %159 ]
+  %.1166.us = phi i32 [ %.0165278.us, %152 ], [ %spec.select228.us, %159 ], [ %.0165278.us, %154 ]
+  %.1.us = phi i32 [ %.0279.us, %152 ], [ %spec.select229.us, %159 ], [ %.0279.us, %154 ]
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next324, %wide.trip.count326
   br i1 %exitcond327.not, label %._crit_edge281.us, label %152, !llvm.loop !58
@@ -3760,8 +3760,8 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br label %185
 
 185:                                              ; preds = %179, %.lr.ph267
-  %.3172 = phi i32 [ %.2171264, %.lr.ph267 ], [ %spec.select226, %179 ]
-  %.3 = phi i32 [ %.2265, %.lr.ph267 ], [ %spec.select227, %179 ]
+  %.3172 = phi i32 [ %spec.select226, %179 ], [ %.2171264, %.lr.ph267 ]
+  %.3 = phi i32 [ %spec.select227, %179 ], [ %.2265, %.lr.ph267 ]
   %186 = freeze i32 %.3172
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count316
@@ -3946,8 +3946,8 @@ _update_and_sort_by_links.exit.us:                ; preds = %85, %61
   br label %86
 
 86:                                               ; preds = %_update_and_sort_by_links.exit.us, %58, %50, %.lr.ph.split.us.preheader
-  %.148.us = phi i64 [ %.04763.us, %.lr.ph.split.us.preheader ], [ %.04763.us, %50 ], [ %.04763.us, %58 ], [ %69, %_update_and_sort_by_links.exit.us ]
-  %.1.us = phi i32 [ %.04564.us, %.lr.ph.split.us.preheader ], [ %.04564.us, %50 ], [ %.04564.us, %58 ], [ 0, %_update_and_sort_by_links.exit.us ]
+  %.148.us = phi i64 [ %.04763.us, %.lr.ph.split.us.preheader ], [ %.04763.us, %58 ], [ %.04763.us, %50 ], [ %69, %_update_and_sort_by_links.exit.us ]
+  %.1.us = phi i32 [ %.04564.us, %.lr.ph.split.us.preheader ], [ %.04564.us, %58 ], [ %.04564.us, %50 ], [ 0, %_update_and_sort_by_links.exit.us ]
   %87 = add nsw i32 %.1.us, 1
   %88 = sext i32 %87 to i64
   %89 = icmp ugt i64 %32, %88
@@ -4001,7 +4001,7 @@ _update_and_sort_by_links.exit.us:                ; preds = %85, %61
   br label %116
 
 116:                                              ; preds = %107, %104, %96, %.lr.ph.split.split.us
-  %.148.us70 = phi i64 [ %.04763.us66, %.lr.ph.split.split.us ], [ %.04763.us66, %96 ], [ %.04763.us66, %104 ], [ %115, %107 ]
+  %.148.us70 = phi i64 [ %.04763.us66, %.lr.ph.split.split.us ], [ %.04763.us66, %104 ], [ %.04763.us66, %96 ], [ %115, %107 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %117 = icmp ugt i64 %32, %indvars.iv.next77
   %118 = icmp ne i64 %.148.us70, 0
@@ -4009,7 +4009,7 @@ _update_and_sort_by_links.exit.us:                ; preds = %85, %61
   br i1 %119, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %142, %116, %86, %25
-  %.047.lcssa = phi i64 [ %26, %25 ], [ %.148.us, %86 ], [ %.148.us70, %116 ], [ %.148, %142 ]
+  %.047.lcssa = phi i64 [ %26, %25 ], [ %.148.us70, %116 ], [ %.148.us, %86 ], [ %.148, %142 ]
   %120 = sub i64 %26, %.047.lcssa
   br label %146
 
@@ -4053,7 +4053,7 @@ _update_and_sort_by_links.exit.us:                ; preds = %85, %61
   br label %142
 
 142:                                              ; preds = %133, %130, %122, %.lr.ph.split.split
-  %.148 = phi i64 [ %.04763, %.lr.ph.split.split ], [ %.04763, %122 ], [ %.04763, %130 ], [ %141, %133 ]
+  %.148 = phi i64 [ %.04763, %.lr.ph.split.split ], [ %.04763, %130 ], [ %.04763, %122 ], [ %141, %133 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = icmp ugt i64 %32, %indvars.iv.next
   %144 = icmp ne i64 %.148, 0

@@ -349,7 +349,7 @@ malloc_mutex_lock.exit43:                         ; preds = %86, %90
   br label %97
 
 97:                                               ; preds = %malloc_mutex_lock.exit43, %post_reentrancy.exit, %.critedge, %malloc_mutex_lock.exit37
-  %.0 = phi i1 [ false, %malloc_mutex_lock.exit37 ], [ false, %.critedge ], [ false, %post_reentrancy.exit ], [ true, %malloc_mutex_lock.exit43 ]
+  %.0 = phi i1 [ false, %malloc_mutex_lock.exit37 ], [ true, %malloc_mutex_lock.exit43 ], [ false, %.critedge ], [ false, %post_reentrancy.exit ]
   ret i1 %.0
 }
 
@@ -1216,7 +1216,7 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   br i1 %46, label %.lr.ph, label %.thread, !llvm.loop !51
 
 .thread:                                          ; preds = %malloc_mutex_lock.exit, %20, %.lr.ph, %.preheader, %9, %atomic_store_b.exit
-  %.0 = phi i1 [ true, %atomic_store_b.exit ], [ true, %9 ], [ false, %.preheader ], [ false, %malloc_mutex_lock.exit ], [ true, %20 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %9 ], [ true, %atomic_store_b.exit ], [ false, %.preheader ], [ true, %20 ], [ false, %malloc_mutex_lock.exit ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1731,7 +1731,7 @@ define internal fastcc void @background_work_sleep_once(ptr noundef %0, ptr noun
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph.split.us
-  %.1.us = phi i64 [ %spec.select.us, %19 ], [ %.02227.us, %.lr.ph.split.us ]
+  %.1.us = phi i64 [ %.02227.us, %.lr.ph.split.us ], [ %spec.select.us, %19 ]
   %23 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
   %25 = add i32 %.02326.us, %24
@@ -1839,7 +1839,7 @@ background_thread_sleep.exit:                     ; preds = %54, %61
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph.split, %68
-  %.1 = phi i64 [ %spec.select, %68 ], [ %.02227, %.lr.ph.split ], [ %.02227, %66 ]
+  %.1 = phi i64 [ %.02227, %.lr.ph.split ], [ %spec.select, %68 ], [ %.02227, %66 ]
   %72 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %73 = trunc i64 %72 to i32
   %74 = add i32 %.02326, %73

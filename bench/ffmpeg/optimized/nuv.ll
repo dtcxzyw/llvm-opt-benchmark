@@ -103,7 +103,7 @@ get_quant.exit:                                   ; preds = %29, %23, %5
   br label %39
 
 39:                                               ; preds = %get_quant.exit, %1
-  %.0 = phi i32 [ -12, %1 ], [ %., %get_quant.exit ]
+  %.0 = phi i32 [ %., %get_quant.exit ], [ -12, %1 ]
   ret i32 %.0
 }
 
@@ -434,8 +434,8 @@ get_quant.exit:                                   ; preds = %32
   br i1 %155, label %.thread178, label %160
 
 .thread190:                                       ; preds = %146, %.thread184, %.loopexit
-  %.3136289 = phi ptr [ %.3136, %.loopexit ], [ %144, %.thread184 ], [ %149, %146 ]
-  %.3141286 = phi i32 [ %.3141, %.loopexit ], [ %145, %.thread184 ], [ %150, %146 ]
+  %.3136289 = phi ptr [ %144, %.thread184 ], [ %.3136, %.loopexit ], [ %149, %146 ]
+  %.3141286 = phi i32 [ %145, %.thread184 ], [ %.3141, %.loopexit ], [ %150, %146 ]
   %156 = load ptr, ptr %12, align 16, !tbaa !27
   call void @av_frame_unref(ptr noundef %156) #6
   %157 = load ptr, ptr %12, align 16, !tbaa !27
@@ -577,7 +577,7 @@ get_quant.exit:                                   ; preds = %32
   br label %.thread178
 
 .thread178:                                       ; preds = %131, %100, %.split216.us, %.split214.us, %.thread190, %.split.us, %get_quant.exit.thread, %241, %213, %152, %.thread169, %44, %48, %get_quant.exit, %245, %72, %.thread, %16
-  %.0132 = phi i32 [ -1094995529, %16 ], [ -1094995529, %.thread ], [ -1094995529, %72 ], [ %10, %245 ], [ -1094995529, %.split.us ], [ %10, %get_quant.exit ], [ -1094995529, %48 ], [ -1094995529, %44 ], [ -1094995529, %.thread169 ], [ %154, %152 ], [ %215, %213 ], [ %243, %241 ], [ -1094995529, %get_quant.exit.thread ], [ %158, %.thread190 ], [ -1094995529, %.split216.us ], [ -1094995529, %.split214.us ], [ %110, %100 ], [ %141, %131 ]
+  %.0132 = phi i32 [ -1094995529, %16 ], [ -1094995529, %get_quant.exit.thread ], [ -1094995529, %.thread ], [ -1094995529, %72 ], [ -1094995529, %44 ], [ %158, %.thread190 ], [ -1094995529, %.thread169 ], [ %215, %213 ], [ %10, %245 ], [ %154, %152 ], [ -1094995529, %.split.us ], [ %10, %get_quant.exit ], [ -1094995529, %48 ], [ %243, %241 ], [ -1094995529, %.split216.us ], [ -1094995529, %.split214.us ], [ %110, %100 ], [ %141, %131 ]
   ret i32 %.0132
 }
 
@@ -702,7 +702,7 @@ get_quant_quality.exit:                           ; preds = %16, %4
   br label %63
 
 63:                                               ; preds = %59, %56, %48, %49, %32, %40
-  %.1 = phi i32 [ 1, %49 ], [ -12, %48 ], [ -1, %32 ], [ %41, %40 ], [ 0, %56 ], [ 0, %59 ]
+  %.1 = phi i32 [ %41, %40 ], [ -12, %48 ], [ -1, %32 ], [ 1, %49 ], [ 0, %56 ], [ 0, %59 ]
   ret i32 %.1
 }
 

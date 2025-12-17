@@ -475,7 +475,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body:                                            ; preds = %72, %70, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %35
-  %.pn34 = phi { ptr, i32 } [ %71, %70 ], [ %36, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %36, %35 ], [ %lpad.phi, %72 ]
+  %.pn34 = phi { ptr, i32 } [ %36, %35 ], [ %71, %70 ], [ %36, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %lpad.phi, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN4absl9MutexLockD2Ev.exit69
 
@@ -805,7 +805,7 @@ _ZNSt6threadD2Ev.exit66:                          ; preds = %_ZNSt6vectorISt6thr
   unreachable
 
 .body58:                                          ; preds = %169, %167, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i53, %129
-  %.pn27 = phi { ptr, i32 } [ %168, %167 ], [ %130, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i53 ], [ %130, %129 ], [ %170, %169 ]
+  %.pn27 = phi { ptr, i32 } [ %130, %129 ], [ %168, %167 ], [ %130, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i53 ], [ %170, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN4absl9MutexLockD2Ev.exit69
 
@@ -1018,7 +1018,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt6t
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit69:                    ; preds = %183, %230, %82, %163, %174, %.body58, %80, %.body
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body ], [ %175, %174 ], [ %.pn27, %.body58 ], [ %81, %80 ], [ %83, %82 ], [ %.pn.pn.pn, %163 ], [ %184, %183 ], [ %.pn29.pn.pn, %230 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body ], [ %175, %174 ], [ %.pn.pn.pn, %163 ], [ %.pn27, %.body58 ], [ %81, %80 ], [ %83, %82 ], [ %184, %183 ], [ %.pn29.pn.pn, %230 ]
   call void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -279,8 +279,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; pr
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.loopexit, %40, %47, %50
-  %.sroa.0.0 = phi ptr [ %41, %40 ], [ %41, %50 ], [ %41, %47 ], [ null, %.loopexit ]
-  %.sroa.6.0 = phi ptr [ null, %40 ], [ %43, %50 ], [ %43, %47 ], [ null, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %41, %47 ], [ %41, %40 ], [ %41, %50 ], [ null, %.loopexit ]
+  %.sroa.6.0 = phi ptr [ %43, %47 ], [ null, %40 ], [ %43, %50 ], [ null, %.loopexit ]
   store ptr %.sroa.0.0, ptr %37, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %.sroa.6.0, ptr %52, align 8, !tbaa !47

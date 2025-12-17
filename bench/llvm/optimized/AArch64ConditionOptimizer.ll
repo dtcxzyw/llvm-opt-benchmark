@@ -826,7 +826,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_20MachineDominatorTreeENS_23df_ite
   br label %_ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit
 
 _ZL9parseCondN4llvm8ArrayRefINS_14MachineOperandEEERNS_9AArch64CC8CondCodeE.exit: ; preds = %246, %204, %211, %245, %249, %258, %255, %208, %198, %200, %192
-  %.2 = phi i1 [ %.044, %192 ], [ %.044, %198 ], [ %.044, %200 ], [ %.044, %204 ], [ %.044, %208 ], [ %.7, %245 ], [ %.044, %249 ], [ %257, %255 ], [ %260, %258 ], [ %.044, %211 ], [ %.044, %246 ]
+  %.2 = phi i1 [ %.044, %192 ], [ %.044, %198 ], [ %.044, %200 ], [ %.044, %204 ], [ %.044, %211 ], [ %.044, %208 ], [ %260, %258 ], [ %.7, %245 ], [ %.044, %246 ], [ %.044, %249 ], [ %257, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %261 = load ptr, ptr %9, align 8, !tbaa !198
@@ -986,7 +986,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.s
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit: ; preds = %11, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22, %31, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %31 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.02946.i.i.i.i, %11 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %31 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %11 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %8
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, label %55
 
@@ -1327,8 +1327,8 @@ _ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET
   %or.cond.not.i.i.i.i = icmp eq i32 %87, 0
   br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %.critedge2.i.i.i.i, !llvm.loop !266
 
-_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48: ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %.critedge2.i.i.i.i, %85, %58, %51, %66, %82, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %82 ], [ null, %58 ], [ null, %51 ], [ null, %85 ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ null, %.lr.ph ]
+_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48: ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %.critedge2.i.i.i.i, %85, %51, %58, %66, %82, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %82 ], [ null, %58 ], [ null, %51 ], [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %85 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1395,7 +1395,7 @@ switch.early.test:                                ; preds = %21
   unreachable
 
 _ZL16getComplementOpci.exit:                      ; preds = %22, %switch.early.test, %switch.early.test, %25, %24, %21, %12
-  %.04.shrunk = phi i16 [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ %5, %12 ], [ 1491, %24 ], [ 1494, %25 ], [ %spec.select, %22 ]
+  %.04.shrunk = phi i16 [ %5, %12 ], [ %5, %21 ], [ %5, %switch.early.test ], [ %5, %switch.early.test ], [ 1494, %25 ], [ %spec.select, %22 ], [ 1491, %24 ]
   %27 = sext i32 %2 to i64
   %28 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %27
   %switch.gep = getelementptr i8, ptr %28, i64 -40
@@ -1632,7 +1632,7 @@ switch.early.test.i:                              ; preds = %24
   unreachable
 
 _ZL16getComplementOpci.exit.i:                    ; preds = %27, %26, %25, %switch.early.test.i, %switch.early.test.i, %24, %15
-  %.04.shrunk.i = phi i16 [ %8, %24 ], [ %8, %switch.early.test.i ], [ %8, %switch.early.test.i ], [ %8, %15 ], [ 1491, %26 ], [ 1494, %27 ], [ %spec.select.i, %25 ]
+  %.04.shrunk.i = phi i16 [ %8, %15 ], [ %8, %24 ], [ %8, %switch.early.test.i ], [ %8, %switch.early.test.i ], [ 1494, %27 ], [ %spec.select.i, %25 ], [ 1491, %26 ]
   %29 = sext i32 %2 to i64
   %30 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_125AArch64ConditionOptimizer8adjustToEPN4llvm12MachineInstrENS1_9AArch64CC8CondCodeES3_i, i64 %29
   %switch.gep = getelementptr i8, ptr %30, i64 -40

@@ -144,12 +144,12 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %49
 
 49:                                               ; preds = %22, %19, %38, %18, %9
-  %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %18 ], [ 0, %38 ], [ %20, %19 ], [ -12, %22 ]
+  %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %18 ], [ %20, %19 ], [ 0, %38 ], [ -12, %22 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 20, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -627,8 +627,8 @@ init_mv.exit.preheader.i:                         ; preds = %243
   %260 = icmp slt i32 %259, %136
   br i1 %260, label %.preheader.us.i, label %decode_p_frame.exit, !llvm.loop !74
 
-.loopexit:                                        ; preds = %252, %._crit_edge.i, %144, %174
-  %.0.i.ph = phi i32 [ -12, %174 ], [ -1094995529, %144 ], [ -1094995529, %._crit_edge.i ], [ %255, %252 ]
+.loopexit:                                        ; preds = %252, %144, %._crit_edge.i, %174
+  %.0.i.ph = phi i32 [ -12, %174 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %144 ], [ %255, %252 ]
   %261 = load ptr, ptr %10, align 16, !tbaa !43
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %261, i32 noundef 16, ptr noundef nonnull @.str.20) #9
   br label %.thread160
@@ -669,7 +669,7 @@ decode_p_frame.exit:                              ; preds = %._crit_edge.us.i, %
   br label %.thread160
 
 .thread160:                                       ; preds = %91, %105, %.loopexit177, %71, %89, %47, %38, %112, %4, %decode_p_frame.exit, %263, %262, %.loopexit, %128, %122, %28
-  %.0 = phi i32 [ -1094995529, %28 ], [ %120, %122 ], [ %8, %decode_p_frame.exit ], [ %126, %128 ], [ %.0.i.ph, %.loopexit ], [ -1094995529, %262 ], [ -1094995529, %263 ], [ -1094995529, %4 ], [ %113, %112 ], [ %8, %91 ], [ -1094995529, %105 ], [ -1094995529, %.loopexit177 ], [ -1094995529, %71 ], [ -12, %89 ], [ -1094995529, %47 ], [ -1094995529, %38 ]
+  %.0 = phi i32 [ %113, %112 ], [ -1094995529, %28 ], [ -1094995529, %4 ], [ %120, %122 ], [ %8, %decode_p_frame.exit ], [ %126, %128 ], [ %.0.i.ph, %.loopexit ], [ -1094995529, %262 ], [ -1094995529, %263 ], [ %8, %91 ], [ -1094995529, %105 ], [ -1094995529, %.loopexit177 ], [ -1094995529, %71 ], [ -12, %89 ], [ -1094995529, %47 ], [ -1094995529, %38 ]
   ret i32 %.0
 }
 
@@ -948,7 +948,7 @@ bytestream2_init.exit.preheader:                  ; preds = %20
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge.split.us.us, %.preheader58.lr.ph.split.us, %.preheader58.lr.ph, %bytestream2_init.exit.preheader, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ 0, %bytestream2_init.exit.preheader ], [ 0, %.preheader58.lr.ph ], [ -1094995529, %.preheader58.lr.ph.split.us ], [ 0, %._crit_edge.split.us.us ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %.preheader58.lr.ph.split.us ], [ 0, %bytestream2_init.exit.preheader ], [ 0, %.preheader58.lr.ph ], [ 0, %._crit_edge.split.us.us ]
   ret i32 %.0
 }
 
@@ -1188,8 +1188,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i_frame(ptr noundef
   br i1 %.not94.i, label %read_huffman_tables.exit, label %read_huffman_tables.exit.thread
 
 read_huffman_tables.exit.thread.sink.split:       ; preds = %37, %54
-  %.str.34.sink = phi ptr [ @.str.34, %54 ], [ @.str.33, %37 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %9, i32 noundef 16, ptr noundef nonnull %.str.34.sink) #9
+  %.str.33.sink = phi ptr [ @.str.34, %54 ], [ @.str.33, %37 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %9, i32 noundef 16, ptr noundef nonnull %.str.33.sink) #9
   br label %read_huffman_tables.exit.thread
 
 read_huffman_tables.exit.thread:                  ; preds = %read_huffman_tables.exit.thread.sink.split, %104
@@ -1755,9 +1755,9 @@ idct_put.exit.us:                                 ; preds = %456
   br label %._crit_edge99
 
 ._crit_edge99:                                    ; preds = %.preheader.lr.ph, %._crit_edge99.loopexit, %130
-  %466 = phi ptr [ %.pre115, %._crit_edge99.loopexit ], [ %.017.i76, %130 ], [ %.017.i76, %.preheader.lr.ph ]
-  %467 = phi i32 [ %.pre114, %._crit_edge99.loopexit ], [ %141, %130 ], [ %141, %.preheader.lr.ph ]
-  %468 = phi i32 [ %.pre, %._crit_edge99.loopexit ], [ 0, %130 ], [ 0, %.preheader.lr.ph ]
+  %466 = phi ptr [ %.017.i76, %130 ], [ %.pre115, %._crit_edge99.loopexit ], [ %.017.i76, %.preheader.lr.ph ]
+  %467 = phi i32 [ %141, %130 ], [ %.pre114, %._crit_edge99.loopexit ], [ %141, %.preheader.lr.ph ]
+  %468 = phi i32 [ 0, %130 ], [ %.pre, %._crit_edge99.loopexit ], [ 0, %.preheader.lr.ph ]
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %470 = load ptr, ptr %469, align 8, !tbaa !95
   %471 = lshr i32 %468, 3
@@ -1839,7 +1839,7 @@ get_vlc2.exit:                                    ; preds = %._crit_edge99, %487
   br label %decode_i_mb.exit.thread
 
 decode_i_mb.exit.thread:                          ; preds = %.split103.us, %.split101.us, %.split.us, %get_vlc2.exit, %530, %113, %3, %107, %29, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %29 ], [ -1094995529, %107 ], [ -1094995529, %3 ], [ -12, %113 ], [ 0, %530 ], [ 0, %get_vlc2.exit ], [ -1094995529, %.split.us ], [ -1094995529, %.split101.us ], [ -1094995529, %.split103.us ]
+  %.0 = phi i32 [ -1094995529, %107 ], [ -1094995529, %19 ], [ -1094995529, %29 ], [ -12, %113 ], [ 0, %get_vlc2.exit ], [ -1094995529, %3 ], [ 0, %530 ], [ -1094995529, %.split.us ], [ -1094995529, %.split101.us ], [ -1094995529, %.split103.us ]
   ret i32 %.0
 }
 
@@ -2385,10 +2385,10 @@ bytestream2_get_byte.exit120:                     ; preds = %143, %144
   br label %bytestream2_get_le16.exit
 
 bytestream2_get_le16.exit:                        ; preds = %184, %183, %165, %164, %131, %111, %bytestream2_get_byte.exit
-  %.not82.i = phi i1 [ false, %bytestream2_get_byte.exit ], [ false, %111 ], [ false, %131 ], [ false, %164 ], [ false, %165 ], [ true, %183 ], [ true, %184 ]
-  %.0108 = phi i32 [ 1, %bytestream2_get_byte.exit ], [ 1, %111 ], [ 1, %131 ], [ 1, %164 ], [ 1, %165 ], [ 0, %183 ], [ 0, %184 ]
-  %.0107 = phi ptr [ %130, %bytestream2_get_byte.exit ], [ %.tr127189, %111 ], [ %.tr127189, %131 ], [ %162, %164 ], [ %162, %165 ], [ %.tr127189, %183 ], [ %.tr127189, %184 ]
-  %.0.shrunk = phi i16 [ 0, %bytestream2_get_byte.exit ], [ 0, %111 ], [ 0, %131 ], [ 0, %164 ], [ %167, %165 ], [ 0, %183 ], [ %186, %184 ]
+  %.not82.i = phi i1 [ false, %bytestream2_get_byte.exit ], [ false, %131 ], [ false, %165 ], [ false, %111 ], [ false, %164 ], [ true, %183 ], [ true, %184 ]
+  %.0108 = phi i32 [ 1, %bytestream2_get_byte.exit ], [ 1, %131 ], [ 1, %165 ], [ 1, %111 ], [ 1, %164 ], [ 0, %183 ], [ 0, %184 ]
+  %.0107 = phi ptr [ %130, %bytestream2_get_byte.exit ], [ %.tr127189, %131 ], [ %162, %165 ], [ %.tr127189, %111 ], [ %162, %164 ], [ %.tr127189, %183 ], [ %.tr127189, %184 ]
+  %.0.shrunk = phi i16 [ 0, %bytestream2_get_byte.exit ], [ 0, %131 ], [ %167, %165 ], [ 0, %111 ], [ 0, %164 ], [ 0, %183 ], [ %186, %184 ]
   %187 = icmp ugt ptr %45, %.0107
   %188 = icmp ugt ptr %.0107, %97
   %or.cond118 = select i1 %187, i1 true, i1 %188
@@ -2496,7 +2496,7 @@ default.unreachable107.i:                         ; preds = %190
   unreachable
 
 mcdc.exit:                                        ; preds = %56, %47, %15, %.preheader87.i, %.preheader85.i, %.preheader83.i, %.preheader.i, %131, %81, %83, %189, %178, %157, %110, %75
-  %.0106 = phi i32 [ -1094995529, %75 ], [ -1094995529, %110 ], [ -1094995529, %189 ], [ -1094995529, %157 ], [ -1094995529, %178 ], [ 0, %83 ], [ 0, %81 ], [ 0, %131 ], [ 0, %.preheader.i ], [ 0, %.preheader83.i ], [ 0, %.preheader85.i ], [ 0, %.preheader87.i ], [ -1094995529, %15 ], [ %49, %47 ], [ %58, %56 ]
+  %.0106 = phi i32 [ -1094995529, %178 ], [ -1094995529, %75 ], [ -1094995529, %110 ], [ -1094995529, %189 ], [ 0, %131 ], [ 0, %81 ], [ -1094995529, %157 ], [ 0, %83 ], [ 0, %.preheader83.i ], [ 0, %.preheader85.i ], [ %49, %47 ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ -1094995529, %15 ], [ %58, %56 ]
   ret i32 %.0106
 }
 

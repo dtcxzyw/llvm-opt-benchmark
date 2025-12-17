@@ -552,7 +552,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
-  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
+  %.0 = phi i8 [ %52, %50 ], [ %spec.select.i.i, %43 ], [ %49, %47 ], [ 13, %42 ], [ 40, %41 ], [ 1, %40 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -1329,7 +1329,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr40drop
   br i1 %58, label %common.ret.sink.split.i, label %"_ZN4core3ptr102drop_in_place$LT$wasmtime_wasi..tcp..TcpWriteStream..background_write..$u7b$$u7b$closure$u7d$$u7d$$GT$17he29ac82760629bb9E.exit"
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit.i": ; preds = %94, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.llvm.6128706887224790261.exit5.i", %85, %79, %54, %48
-  %.pn.i = phi { ptr, i32 } [ %49, %54 ], [ %49, %48 ], [ %80, %85 ], [ %80, %79 ], [ %eh.lpad-body.i, %94 ], [ %eh.lpad-body.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.llvm.6128706887224790261.exit5.i" ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %49, %48 ], [ %49, %54 ], [ %80, %85 ], [ %eh.lpad-body.i, %94 ], [ %eh.lpad-body.i, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.llvm.6128706887224790261.exit5.i" ]
   resume { ptr, i32 } %.pn.i
 
 59:                                               ; preds = %94, %85, %.body.i, %54
@@ -5506,7 +5506,7 @@ default.unreachable:                              ; preds = %5
   resume { ptr, i32 } %17
 
 "_ZN13wasmtime_wasi3tcp9TcpSocket10start_bind28_$u7b$$u7b$closure$u7d$$u7d$17h1fba4ed661e11c5bE.exit": ; preds = %5, %5, %8, %10, %18, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i"
-  %.014.i = phi ptr [ %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i" ], [ %0, %5 ], [ %0, %5 ], [ %0, %8 ], [ %0, %10 ], [ %0, %18 ]
+  %.014.i = phi ptr [ %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i" ], [ %0, %8 ], [ %0, %5 ], [ %0, %5 ], [ %0, %10 ], [ %0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -6132,7 +6132,7 @@ common.ret:                                       ; preds = %137, %39
   unreachable
 
 42:                                               ; preds = %33, %16
-  %.pn11 = phi { ptr, i32 } [ %34, %33 ], [ %17, %16 ]
+  %.pn11 = phi { ptr, i32 } [ %17, %16 ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
@@ -6144,7 +6144,7 @@ common.ret:                                       ; preds = %137, %39
           to label %.thread60 unwind label %50, !range !1460
 
 46:                                               ; preds = %138, %.body, %50, %42
-  %.pn15.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn11, %42 ], [ %139, %138 ], [ %.pn13, %.body ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn11, %42 ], [ %51, %50 ], [ %139, %138 ], [ %.pn13, %.body ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 89
   %48 = load i8, ptr %47, align 1, !range !1488, !noundef !5
   %49 = trunc nuw i8 %48 to i1
@@ -6374,7 +6374,7 @@ common.ret:                                       ; preds = %137, %39
           to label %.thread48 unwind label %125, !noalias !1510
 
 124:                                              ; preds = %98, %95, %83
-  %.pn8.pn.i = phi { ptr, i32 } [ %84, %83 ], [ %99, %98 ], [ %96, %95 ]
+  %.pn8.pn.i = phi { ptr, i32 } [ %84, %83 ], [ %96, %95 ], [ %99, %98 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h1e751f2a320b3835E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81) #37
           to label %.body.i unwind label %127, !noalias !1510
 
@@ -6436,8 +6436,8 @@ common.ret:                                       ; preds = %137, %39
   br label %39
 
 .body:                                            ; preds = %129, %.body.i
-  %142 = phi ptr [ %57, %129 ], [ %75, %.body.i ]
-  %.pn13 = phi { ptr, i32 } [ %130, %129 ], [ %.pn11.pn.i, %.body.i ]
+  %142 = phi ptr [ %75, %.body.i ], [ %57, %129 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11.pn.i, %.body.i ], [ %130, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.938)
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$tokio..net..tcp..stream..TcpStream..connect_mio..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5adb29ee39a237f0E"(ptr noundef nonnull align 8 %142) #37
           to label %46 unwind label %40
@@ -6563,7 +6563,7 @@ default.unreachable40:                            ; preds = %26, %15, %3
   br label %35
 
 .body.i.i:                                        ; preds = %66, %50, %45, %38
-  %.pn2.i.i = phi { ptr, i32 } [ %39, %38 ], [ %67, %66 ], [ %46, %50 ], [ %46, %45 ]
+  %.pn2.i.i = phi { ptr, i32 } [ %46, %45 ], [ %39, %38 ], [ %67, %66 ], [ %46, %50 ]
   store i8 2, ptr %37, align 1, !noalias !1544
   br label %.body.i
 
@@ -6684,8 +6684,8 @@ default.unreachable40:                            ; preds = %26, %15, %3
   br label %.body
 
 .body.i:                                          ; preds = %70, %.body.i.i
-  %80 = phi ptr [ %16, %70 ], [ %36, %.body.i.i ]
-  %.pn10.i = phi { ptr, i32 } [ %71, %70 ], [ %.pn2.i.i, %.body.i.i ]
+  %80 = phi ptr [ %36, %.body.i.i ], [ %16, %70 ]
+  %.pn10.i = phi { ptr, i32 } [ %.pn2.i.i, %.body.i.i ], [ %71, %70 ]
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$tokio..runtime..io..scheduled_io..ScheduledIo..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17h74c4afcd3bd896acE"(ptr noundef nonnull align 8 %1) #37
           to label %78 unwind label %81, !noalias !1571
 
@@ -6723,7 +6723,7 @@ common.ret:                                       ; preds = %86, %85
   br label %common.ret
 
 .body:                                            ; preds = %83, %78
-  %.pn3 = phi { ptr, i32 } [ %84, %83 ], [ %.pn14.i, %78 ]
+  %.pn3 = phi { ptr, i32 } [ %.pn14.i, %78 ], [ %84, %83 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$tokio..runtime..io..registration..Registration..readiness..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha23583b1bdf89728E"(ptr noundef nonnull align 8 %1) #37
           to label %12 unwind label %88
 
@@ -6760,7 +6760,7 @@ default.unreachable13:                            ; preds = %2
   br label %10
 
 .body:                                            ; preds = %49, %32, %27, %12
-  %.pn5 = phi { ptr, i32 } [ %13, %12 ], [ %50, %49 ], [ %28, %32 ], [ %28, %27 ]
+  %.pn5 = phi { ptr, i32 } [ %28, %27 ], [ %13, %12 ], [ %50, %49 ], [ %28, %32 ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn5
 
@@ -7539,7 +7539,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime9scheduler6Handle5spawn17h7e
           to label %_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit unwind label %18, !noalias !1694
 
 common.resume:                                    ; preds = %.noexc9.i2, %40, %.noexc9.i, %22
-  %common.resume.op = phi { ptr, i32 } [ %19, %22 ], [ %19, %.noexc9.i ], [ %37, %40 ], [ %37, %.noexc9.i2 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %.noexc9.i ], [ %19, %22 ], [ %37, %40 ], [ %37, %.noexc9.i2 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %17
@@ -7612,7 +7612,7 @@ common.resume:                                    ; preds = %.noexc9.i2, %40, %.
   unreachable
 
 _ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17hcb03f38d77fe2697E.exit: ; preds = %35, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9c0805615a465fc2E.llvm.3320867604257097217.exit.i", %17, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h03c922a38122f5e7E.llvm.3320867604257097217.exit.i"
-  %.sink6 = phi ptr [ %15, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h03c922a38122f5e7E.llvm.3320867604257097217.exit.i" ], [ %15, %17 ], [ %33, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9c0805615a465fc2E.llvm.3320867604257097217.exit.i" ], [ %33, %35 ]
+  %.sink6 = phi ptr [ %15, %17 ], [ %15, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h03c922a38122f5e7E.llvm.3320867604257097217.exit.i" ], [ %33, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9c0805615a465fc2E.llvm.3320867604257097217.exit.i" ], [ %33, %35 ]
   %43 = icmp ne ptr %.sink6, null
   tail call void @llvm.assume(i1 %43)
   ret ptr %.sink6
@@ -8874,7 +8874,7 @@ define hidden noundef range(i8 0, 38) i8 @_ZN13wasmtime_wasi4host10filesystem17f
   br label %30
 
 30:                                               ; preds = %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %3, %2, %29
-  %.04 = phi i8 [ 37, %2 ], [ 37, %3 ], [ 31, %5 ], [ 20, %6 ], [ 22, %7 ], [ 13, %8 ], [ 3, %9 ], [ 4, %10 ], [ 0, %11 ], [ 24, %12 ], [ 14, %13 ], [ 12, %14 ], [ 7, %15 ], [ 8, %16 ], [ 23, %17 ], [ 34, %18 ], [ 16, %19 ], [ 18, %20 ], [ 25, %21 ], [ 15, %22 ], [ 30, %23 ], [ 9, %24 ], [ 27, %25 ], [ 2, %26 ], [ 10, %27 ], [ 11, %28 ], [ 32, %29 ]
+  %.04 = phi i8 [ 37, %3 ], [ 37, %2 ], [ 11, %28 ], [ 31, %5 ], [ 20, %6 ], [ 22, %7 ], [ 13, %8 ], [ 3, %9 ], [ 4, %10 ], [ 0, %11 ], [ 24, %12 ], [ 14, %13 ], [ 12, %14 ], [ 7, %15 ], [ 8, %16 ], [ 23, %17 ], [ 34, %18 ], [ 16, %19 ], [ 18, %20 ], [ 25, %21 ], [ 15, %22 ], [ 30, %23 ], [ 9, %24 ], [ 27, %25 ], [ 2, %26 ], [ 10, %27 ], [ 32, %29 ]
   ret i8 %.04
 }
 
@@ -9078,7 +9078,7 @@ switch.lookup:
   unreachable
 
 common.resume:                                    ; preds = %85, %59, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %60, %59 ], [ %86, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %35, %34 ], [ %86, %85 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hb37f2cbb3ec117ccE.exit.thread": ; preds = %23
@@ -9340,7 +9340,7 @@ default.unreachable:                              ; preds = %1
   %30 = invoke noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %26)
           to label %33 unwind label %27, !range !1870
 
-31:                                               ; preds = %21, %19, %1, %1
+31:                                               ; preds = %21, %1, %1, %19
   %32 = tail call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %0)
   switch i8 %32, label %57 [
     i8 1, label %51
@@ -9416,7 +9416,7 @@ default.unreachable:                              ; preds = %1
   br label %51
 
 51:                                               ; preds = %132, %83, %86, %116, %31, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40
-  %.1 = phi i8 [ 14, %40 ], [ 15, %41 ], [ 16, %42 ], [ 9, %43 ], [ 12, %44 ], [ 11, %45 ], [ 8, %46 ], [ 3, %47 ], [ 5, %48 ], [ 2, %49 ], [ 4, %50 ], [ %32, %31 ], [ 0, %116 ], [ 0, %86 ], [ 0, %83 ], [ 0, %132 ]
+  %.1 = phi i8 [ 2, %49 ], [ 4, %50 ], [ 14, %40 ], [ 15, %41 ], [ 16, %42 ], [ 9, %43 ], [ 12, %44 ], [ 11, %45 ], [ 8, %46 ], [ 3, %47 ], [ 5, %48 ], [ %32, %31 ], [ 0, %116 ], [ 0, %86 ], [ 0, %83 ], [ 0, %132 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1884)
   call void @llvm.experimental.noalias.scope.decl(metadata !1887)
   call void @llvm.experimental.noalias.scope.decl(metadata !1890)
@@ -9755,7 +9755,7 @@ define noundef range(i8 0, 18) i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$
   br label %33
 
 33:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d44d4fee4459b6bE.exit", %.critedge54, %58, %86, %1, %1, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18
-  %.0 = phi i8 [ 1, %18 ], [ 12, %19 ], [ 11, %20 ], [ 6, %21 ], [ 5, %22 ], [ 14, %23 ], [ 15, %24 ], [ 16, %25 ], [ 3, %26 ], [ 13, %27 ], [ 9, %28 ], [ 10, %29 ], [ 17, %30 ], [ 4, %31 ], [ 2, %32 ], [ 8, %1 ], [ 8, %1 ], [ 0, %86 ], [ 0, %58 ], [ 0, %.critedge54 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d44d4fee4459b6bE.exit" ]
+  %.0 = phi i8 [ 4, %31 ], [ 9, %28 ], [ 8, %1 ], [ 1, %18 ], [ 8, %1 ], [ 12, %19 ], [ 11, %20 ], [ 6, %21 ], [ 5, %22 ], [ 14, %23 ], [ 15, %24 ], [ 16, %25 ], [ 3, %26 ], [ 13, %27 ], [ 17, %30 ], [ 2, %32 ], [ 10, %29 ], [ 0, %86 ], [ 0, %58 ], [ 0, %.critedge54 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d44d4fee4459b6bE.exit" ]
   ret i8 %.0
 
 34:                                               ; preds = %15
@@ -11211,7 +11211,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11285,7 +11285,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -11296,7 +11296,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr632drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h589394227b6bed26E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -11344,7 +11344,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11411,7 +11411,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb6516511f3892b29E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -11422,7 +11422,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr629drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h93e035d2de43be6fE.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -11478,7 +11478,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11552,7 +11552,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -11563,7 +11563,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr641drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2dc2f43605b0b5d8E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -11613,7 +11613,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11687,7 +11687,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -11698,7 +11698,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr481drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..filesystem..FileInputStream..read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75f971edd7b34868E.llvm.6128706887224790261.exit": ; preds = %38, %42, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %42 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ], [ %.pn316, %42 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -11757,7 +11757,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11824,7 +11824,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hf5a96f9d8f6a4ee4E.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -11835,7 +11835,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr542drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b222cbf4935b406E.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -11889,7 +11889,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -11956,7 +11956,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hee701ef32f9c96edE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -11967,7 +11967,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr758drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab308333c303ea8dE.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -12021,7 +12021,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12088,7 +12088,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hce26101bcf355dd1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -12099,7 +12099,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr1213drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bind": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -12155,7 +12155,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12229,7 +12229,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -12240,7 +12240,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 38:                                               ; preds = %39, %6
-  %.pn314 = phi { ptr, i32 } [ %.pn315, %39 ], [ %.pn, %6 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn315, %39 ]
   resume { ptr, i32 } %.pn314
 
 39:                                               ; preds = %7, %6
@@ -12290,7 +12290,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12364,7 +12364,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -12375,7 +12375,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 38:                                               ; preds = %39, %6
-  %.pn314 = phi { ptr, i32 } [ %.pn315, %39 ], [ %.pn, %6 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn315, %39 ]
   resume { ptr, i32 } %.pn314
 
 39:                                               ; preds = %7, %6
@@ -12421,7 +12421,7 @@ define hidden void @_ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17h304
           to label %5 unwind label %30
 
 13:                                               ; preds = %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit8", %11, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %11 ], [ false, %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit8" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit8" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %11 ], [ false, %10 ]
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12487,7 +12487,7 @@ define hidden void @_ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17h304
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc5, %.noexc, %23, %19, %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc5, %23, %19, %"_ZN13wasmtime_wasi3udp9UdpSocket22setup_tokio_udp_socket28_$u7b$$u7b$closure$u7d$$u7d$17h0692f46aa017edcfE.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -12498,7 +12498,7 @@ define hidden void @_ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17h304
   unreachable
 
 "_ZN4core3ptr103drop_in_place$LT$wasmtime_wasi..udp..UdpSocket..setup_tokio_udp_socket..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc45c3a7934ab929E.llvm.6128706887224790261.exit": ; preds = %32, %5
-  %.pn215 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn216, %32 ]
+  %.pn215 = phi { ptr, i32 } [ %.pn216, %32 ], [ %.pn, %5 ]
   resume { ptr, i32 } %.pn215
 
 32:                                               ; preds = %6, %5
@@ -12546,7 +12546,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12613,7 +12613,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17he6bb99876944d889E.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -12624,7 +12624,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr602drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc4449a9419a641a8E.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -12680,7 +12680,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %7 unwind label %34
 
 16:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit9", %14, %12, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %12 ], [ true, %14 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %14 ], [ false, %12 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12747,7 +12747,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %26, %22, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %26, %22, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h64ce38308eb90f6cE.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 
@@ -12758,7 +12758,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr546drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_size..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc53303dcef9d1ebbE.llvm.6128706887224790261.exit": ; preds = %36, %39, %7
-  %.pn314 = phi { ptr, i32 } [ %.pn, %7 ], [ %.pn315, %39 ], [ %.pn315, %36 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %36 ], [ %.pn, %7 ], [ %.pn315, %39 ]
   resume { ptr, i32 } %.pn314
 
 36:                                               ; preds = %8, %7
@@ -12814,7 +12814,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -12888,7 +12888,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -12899,7 +12899,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr574drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7da2aa31d55c29e4E.exit": ; preds = %38, %42, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %42 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ], [ %.pn316, %42 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -12960,7 +12960,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13034,7 +13034,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13045,7 +13045,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr932drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h718fe33c97fa6708E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -13095,7 +13095,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13169,7 +13169,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13180,7 +13180,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 38:                                               ; preds = %39, %6
-  %.pn314 = phi { ptr, i32 } [ %.pn315, %39 ], [ %.pn, %6 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn315, %39 ]
   resume { ptr, i32 } %.pn314
 
 39:                                               ; preds = %7, %6
@@ -13228,7 +13228,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13295,7 +13295,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hb49f9925a2ef6f8dE.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -13306,7 +13306,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr481drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..get_descriptor_metadata..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04eb8babc4594d18E.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -13362,7 +13362,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13436,7 +13436,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13447,7 +13447,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr577drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3331a88784c175a3E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -13497,7 +13497,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13571,7 +13571,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13582,7 +13582,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr544drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..advise..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h477c1b4c9411d30aE.llvm.6128706887224790261.exit": ; preds = %38, %42, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %42 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ], [ %.pn316, %42 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -13641,7 +13641,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13708,7 +13708,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hbe67da14518a1b4aE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -13719,7 +13719,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr636drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h837adaaf9d640d36E.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -13775,7 +13775,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13849,7 +13849,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13860,7 +13860,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr577drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h47e694092f8f817eE.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -13910,7 +13910,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -13984,7 +13984,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -13995,7 +13995,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr592drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f4d27cb7cdefeb6E.llvm.6128706887224790261.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14043,7 +14043,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14110,7 +14110,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hcc3c11329558ac5fE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -14121,7 +14121,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr508drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..get_descriptor_metadata..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7e4123a05c1a4114E.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -14175,7 +14175,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14242,7 +14242,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17hd832655c5a1b74a3E.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -14253,7 +14253,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr606drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_type..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc89e28a3e7c10d55E.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -14309,7 +14309,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14383,7 +14383,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -14394,7 +14394,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr596drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb48c6db270a3d65E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14444,7 +14444,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14518,7 +14518,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -14529,7 +14529,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr632drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf08eae350be8df97E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14579,7 +14579,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14653,7 +14653,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -14664,7 +14664,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr547drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4d3521a4b7f1ce49E.llvm.6128706887224790261.exit": ; preds = %38, %42, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %42 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ], [ %.pn316, %42 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14725,7 +14725,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14799,7 +14799,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -14810,7 +14810,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr584drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he2134d774d4eb4a0E.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14860,7 +14860,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -14934,7 +14934,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -14945,7 +14945,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr584drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h574f05e878249a0dE.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -14993,7 +14993,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15060,7 +15060,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h723a7b36a3460d40E.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -15071,7 +15071,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr547drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync_data..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba2c373ecda2bd88E.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -15127,7 +15127,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15201,7 +15201,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -15212,7 +15212,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr521drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_write..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he50bb8272ba9c0a5E.llvm.6128706887224790261.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -15260,7 +15260,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15327,7 +15327,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h9510955d4a46a62dE.llvm.6128706887224790261.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -15338,7 +15338,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr609drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..File.._spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d00412a34607fcaE.llvm.6128706887224790261.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -15394,7 +15394,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15468,7 +15468,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -15479,7 +15479,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr579drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdc13d77b724fe0dE.exit": ; preds = %38, %6
-  %.pn315 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn316, %38 ]
+  %.pn315 = phi { ptr, i32 } [ %.pn316, %38 ], [ %.pn, %6 ]
   resume { ptr, i32 } %.pn315
 
 38:                                               ; preds = %7, %6
@@ -15527,7 +15527,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %5 unwind label %32
 
 14:                                               ; preds = %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit9", %12, %10, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %10 ], [ true, %12 ], [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit9" ]
+  %.2 = phi i1 [ false, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit9" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %12 ], [ false, %10 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15594,7 +15594,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit"
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %24, %20, %"_ZN13wasmtime_wasi7runtime14spawn_blocking28_$u7b$$u7b$closure$u7d$$u7d$17h766b677b49bd30a0E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 
@@ -15605,7 +15605,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 "_ZN4core3ptr753drop_in_place$LT$wasmtime_wasi..runtime..spawn_blocking$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..sync..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h956d052954186d3fE.exit": ; preds = %34, %37, %5
-  %.pn314 = phi { ptr, i32 } [ %.pn, %5 ], [ %.pn315, %37 ], [ %.pn315, %34 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn315, %34 ], [ %.pn, %5 ], [ %.pn315, %37 ]
   resume { ptr, i32 } %.pn314
 
 34:                                               ; preds = %6, %5
@@ -15661,7 +15661,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
           to label %6 unwind label %36
 
 15:                                               ; preds = %35, %13, %11, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit"
-  %.2 = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ false, %11 ], [ true, %13 ], [ false, %35 ]
+  %.2 = phi i1 [ false, %35 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit" ], [ true, %13 ], [ false, %11 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit"
@@ -15735,7 +15735,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
-"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc6, %.noexc, %27, %23, %18
+"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261.exit": ; preds = %.noexc, %.noexc6, %27, %23, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 
@@ -15746,7 +15746,7 @@ define hidden noundef nonnull ptr @_ZN13wasmtime_wasi7runtime26with_ambient_toki
   unreachable
 
 38:                                               ; preds = %39, %6
-  %.pn314 = phi { ptr, i32 } [ %.pn315, %39 ], [ %.pn, %6 ]
+  %.pn314 = phi { ptr, i32 } [ %.pn, %6 ], [ %.pn315, %39 ]
   resume { ptr, i32 } %.pn314
 
 39:                                               ; preds = %7, %6
@@ -16238,7 +16238,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
   br label %56
 
 58:                                               ; preds = %12, %42, %2, %8, %38, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread51, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread53, %56
-  %.1 = phi ptr [ null, %56 ], [ %46, %42 ], [ inttoptr (i64 489626271746 to ptr), %12 ], [ inttoptr (i64 455266533378 to ptr), %2 ], [ %10, %8 ], [ %40, %38 ], [ %18, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread51 ], [ %.1.i.ph, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread53 ]
+  %.1 = phi ptr [ null, %56 ], [ inttoptr (i64 489626271746 to ptr), %12 ], [ %.1.i.ph, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread53 ], [ %46, %42 ], [ %10, %8 ], [ inttoptr (i64 455266533378 to ptr), %2 ], [ %40, %38 ], [ %18, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread51 ]
   ret ptr %.1
 
 59:                                               ; preds = %49
@@ -16266,7 +16266,7 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
           to label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17haab2257ddd026130E.exit" unwind label %71
 
 "_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17haab2257ddd026130E.exit": ; preds = %59, %.thread59, %67
-  %.pn56 = phi { ptr, i32 } [ %.pn57, %67 ], [ %63, %.thread59 ], [ %60, %59 ]
+  %.pn56 = phi { ptr, i32 } [ %63, %.thread59 ], [ %.pn57, %67 ], [ %60, %59 ]
   resume { ptr, i32 } %.pn56
 
 .thread59:                                        ; preds = %.thread
@@ -16728,7 +16728,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   br label %73
 
-.thread94:                                        ; preds = %18, %41, %.noexc69, %46, %.noexc71
+.thread94:                                        ; preds = %.noexc71, %18, %41, %.noexc69, %46
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread90
@@ -17074,7 +17074,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket14finish_connect17h63354e123793f82a
   resume { ptr, i32 } %.pn56101
 
 .thread106:                                       ; preds = %140, %133, %136, %.body, %.thread, %145, %57, %.thread90, %65, %91, %.thread112
-  %.pn56102 = phi { ptr, i32 } [ %69, %.thread112 ], [ %92, %91 ], [ %66, %65 ], [ %76, %.thread ], [ %141, %140 ], [ %146, %145 ], [ %lpad.thr_comm.split-lp, %57 ], [ %eh.lpad-body7493, %.thread90 ], [ %127, %.body ], [ %.pn.ph, %136 ], [ %.pn.ph, %133 ]
+  %.pn56102 = phi { ptr, i32 } [ %66, %65 ], [ %69, %.thread112 ], [ %92, %91 ], [ %76, %.thread ], [ %eh.lpad-body7493, %.thread90 ], [ %127, %.body ], [ %141, %140 ], [ %146, %145 ], [ %lpad.thr_comm.split-lp, %57 ], [ %.pn.ph, %136 ], [ %.pn.ph, %133 ]
   %152 = load i64, ptr %15, align 8, !range !921, !noundef !5
   %.off58 = add nsw i64 %152, -7
   %switch59 = icmp ult i64 %.off58, 2
@@ -17162,8 +17162,8 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket12start_listen17h7f8f3cb0b52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.023
 
-24:                                               ; preds = %14, %17
-  %.0.ph = phi ptr [ %18, %17 ], [ null, %14 ]
+24:                                               ; preds = %17, %14
+  %.0.ph = phi ptr [ null, %14 ], [ %18, %17 ]
   %25 = load i64, ptr %3, align 8, !range !921, !noundef !5
   %26 = and i64 %25, 14
   %switch = icmp eq i64 %26, 4
@@ -17252,7 +17252,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
           to label %10 unwind label %35, !noalias !3257
 
 18:                                               ; preds = %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit10.i", %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i", %16, %15
-  %.2.i = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i" ], [ false, %15 ], [ true, %16 ], [ false, %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit10.i" ]
+  %.2.i = phi i1 [ false, %"_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen28_$u7b$$u7b$closure$u7d$$u7d$17hfdd697ea7d67e51fE.exit10.i" ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i" ], [ true, %16 ], [ false, %15 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit.i"
@@ -17363,7 +17363,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13finish_listen17hdadb665416
   br label %64
 
 .body:                                            ; preds = %37, %10, %68, %65, %46
-  %.pn.pn = phi { ptr, i32 } [ %.pn33, %65 ], [ %47, %46 ], [ %69, %68 ], [ %.pn.i, %10 ], [ %.pn219.i, %37 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn33, %65 ], [ %.pn.i, %10 ], [ %47, %46 ], [ %69, %68 ], [ %.pn219.i, %37 ]
   resume { ptr, i32 } %.pn.pn
 
 .thread:                                          ; preds = %43
@@ -17580,7 +17580,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket6accept17h08019ae7ebb90fb1E(ptr noa
   unreachable
 
 common.resume:                                    ; preds = %137, %.body67, %91, %74, %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit.i" ], [ %75, %74 ], [ %92, %91 ], [ %.pn65121, %.body67 ], [ %.pn65121, %137 ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %.pn.i, %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17h9c34d7aa4cb62c79E.exit.i" ], [ %75, %74 ], [ %.pn65121, %.body67 ], [ %.pn65121, %137 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN13wasmtime_wasi7runtime26with_ambient_tokio_runtime17h63e36aff2b761837E.exit: ; preds = %"_ZN13wasmtime_wasi3tcp9TcpSocket6accept28_$u7b$$u7b$closure$u7d$$u7d$17h5e8704dbf865fa93E.exit.i", %37, %41, %42, %46
@@ -17862,7 +17862,7 @@ default.unreachable:                              ; preds = %62
   ret void
 
 129:                                              ; preds = %62, %62, %66, %68, %76, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i.i"
-  %.012.i.i = phi ptr [ inttoptr (i64 442381631490 to ptr), %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i.i" ], [ %.sroa.7.0, %62 ], [ %.sroa.7.0, %62 ], [ %.sroa.7.0, %66 ], [ %.sroa.7.0, %68 ], [ %.sroa.7.0, %76 ]
+  %.012.i.i = phi ptr [ inttoptr (i64 442381631490 to ptr), %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i.i" ], [ %.sroa.7.0, %66 ], [ %.sroa.7.0, %62 ], [ %.sroa.7.0, %62 ], [ %.sroa.7.0, %68 ], [ %.sroa.7.0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3322
   %130 = call noundef i8 @"_ZN13wasmtime_wasi4host7network147_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17h1be8dabfd56348bcE"(ptr noundef nonnull %.012.i.i), !range !1870
   %131 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %130)
@@ -17942,7 +17942,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket13local_address17hc7dd2f3c5330312bE
   br label %20
 
 20:                                               ; preds = %2, %6, %6, %6, %6, %6, %19
-  %.sink40 = phi i8 [ 6, %19 ], [ 9, %6 ], [ 9, %6 ], [ 9, %6 ], [ 9, %6 ], [ 9, %6 ], [ 9, %2 ]
+  %.sink40 = phi i8 [ 9, %6 ], [ 6, %19 ], [ 9, %6 ], [ 9, %6 ], [ 9, %6 ], [ 9, %6 ], [ 9, %2 ]
   %21 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %.sink40)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
@@ -18311,7 +18311,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket22set_keep_alive_enabled17hf
   br label %31
 
 31:                                               ; preds = %18, %.noexc, %25
-  %.0 = phi ptr [ %30, %.noexc ], [ %26, %25 ], [ null, %18 ]
+  %.0 = phi ptr [ %26, %25 ], [ %30, %.noexc ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -18514,7 +18514,7 @@ _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %21, %"_ZN62_$LT$co
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 "_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i, %32, %.thread
-  %.1 = phi ptr [ %33, %32 ], [ %35, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
+  %.1 = phi ptr [ %35, %.thread ], [ %33, %32 ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -18717,7 +18717,7 @@ _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %21, %"_ZN62_$LT$co
   br label %36
 
 36:                                               ; preds = %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i, %.thread, %32
-  %.0 = phi ptr [ %35, %.thread ], [ %33, %32 ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
+  %.0 = phi ptr [ %33, %32 ], [ %35, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -18906,7 +18906,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_keep_alive_count17h950
   br label %32
 
 32:                                               ; preds = %20, %.thread, %28
-  %.0 = phi ptr [ %31, %.thread ], [ %29, %28 ], [ null, %20 ]
+  %.0 = phi ptr [ %29, %28 ], [ %31, %.thread ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -19203,7 +19203,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket13set_hop_limit17h6b5b5da77f
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 "_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %26, %36, %23, %.thread, %.thread46
-  %.1 = phi ptr [ %24, %23 ], [ %46, %.thread ], [ %48, %.thread46 ], [ null, %36 ], [ null, %26 ]
+  %.1 = phi ptr [ %48, %.thread46 ], [ %24, %23 ], [ %46, %.thread ], [ null, %36 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -19407,13 +19407,13 @@ _ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i: 
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 .thread30:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %18
-  %.sroa.63.034 = phi i16 [ -22, %18 ], [ %32, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
+  %.sroa.63.034 = phi i16 [ %32, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ], [ -22, %18 ]
   %38 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.034)
   %39 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %38)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 "_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %36, %.thread30
-  %.1 = phi ptr [ %37, %36 ], [ %39, %.thread30 ], [ null, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
+  %.1 = phi ptr [ %39, %.thread30 ], [ %37, %36 ], [ null, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -19617,13 +19617,13 @@ _ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i: 
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 .thread30:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %18
-  %.sroa.63.034 = phi i16 [ -22, %18 ], [ %32, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
+  %.sroa.63.034 = phi i16 [ %32, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ], [ -22, %18 ]
   %38 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.034)
   %39 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %38)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 "_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %36, %.thread30
-  %.1 = phi ptr [ %37, %36 ], [ %39, %.thread30 ], [ null, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
+  %.1 = phi ptr [ %39, %.thread30 ], [ %37, %36 ], [ null, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -19651,7 +19651,7 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket8shutdown17he69b3ffcaf87d369
   br label %13
 
 13:                                               ; preds = %6, %11
-  %.0 = phi ptr [ %12, %11 ], [ %10, %6 ]
+  %.0 = phi ptr [ %10, %6 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -19893,13 +19893,13 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
           to label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i.i" unwind label %88, !noalias !3560
 
 .body.i.i:                                        ; preds = %.body17.i.i, %88, %83
-  %.pn.i.i = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %83 ], [ %eh.lpad-body18.i.i, %.body17.i.i ]
-  %.3.i.i = phi i1 [ %.2.i.i, %88 ], [ false, %83 ], [ false, %.body17.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i, %83 ], [ %89, %88 ], [ %eh.lpad-body18.i.i, %.body17.i.i ]
+  %.3.i.i = phi i1 [ false, %83 ], [ %.2.i.i, %88 ], [ false, %.body17.i.i ]
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$tokio..runtime..handle..Handle$C$tokio..runtime..handle..TryCurrentError$GT$$GT$17h91bb80b1705afa90E.llvm.6128706887224790261"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #37
           to label %69 unwind label %119, !noalias !3560
 
 88:                                               ; preds = %118, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i.i", %86, %82, %.noexc.i.i.i.i
-  %.2.i.i = phi i1 [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i.i" ], [ false, %.noexc.i.i.i.i ], [ false, %82 ], [ true, %86 ], [ false, %118 ]
+  %.2.i.i = phi i1 [ false, %118 ], [ true, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4887bb0eba9f5a2eE.exit.i.i" ], [ true, %86 ], [ false, %82 ], [ false, %.noexc.i.i.i.i ]
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -20155,11 +20155,11 @@ define { i64, ptr } @"_ZN94_$LT$wasmtime_wasi..tcp..TcpWriteStream$u20$as$u20$wa
   br label %47
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.llvm.6128706887224790261.exit25": ; preds = %.body, %.thread39.thread
-  %.pn1628 = phi { ptr, i32 } [ %.pn1629, %.thread39.thread ], [ %eh.lpad-body, %.body ]
+  %.pn1628 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn1629, %.thread39.thread ]
   resume { ptr, i32 } %.pn1628
 
 .thread39.thread:                                 ; preds = %56, %.thread.loopexit, %.thread.loopexit.split-lp, %.thread39
-  %.pn1629 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp56, %.thread39 ], [ %lpad.thr_comm.split-lp, %56 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  %.pn1629 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ], [ %lpad.thr_comm.split-lp56, %.thread39 ], [ %lpad.thr_comm.split-lp, %56 ], [ %lpad.loopexit, %.thread.loopexit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3638)
   call void @llvm.experimental.noalias.scope.decl(metadata !3641)
   %158 = load ptr, ptr %1, align 8, !alias.scope !3644, !nonnull !5, !align !7, !noundef !5
@@ -20228,7 +20228,7 @@ default.unreachable44:                            ; preds = %2
   br label %20
 
 common.resume:                                    ; preds = %78, %83, %45, %50, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %46, %50 ], [ %46, %45 ], [ %79, %83 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %22, %21 ], [ %46, %50 ], [ %79, %83 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %9, %17, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit31", %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit"
@@ -21248,7 +21248,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
 90:                                               ; preds = %147, %146, %25, %24
   ret void
 
-.thread60:                                        ; preds = %26, %50, %57, %"_ZN89_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17haec9c7e1624ee54cE.exit.i.i", %67, %82, %86
+.thread60:                                        ; preds = %86, %26, %50, %57, %"_ZN89_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17haec9c7e1624ee54cE.exit.i.i", %67, %82
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread53
@@ -21260,8 +21260,8 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   %92 = icmp eq i64 %62, 0
   br i1 %92, label %97, label %98
 
-93:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h57d4b45c1765c497E.exit.i", %.noexc, %75
-  %.sroa.8.0.ph = phi i64 [ %62, %75 ], [ 55834574851, %.noexc ], [ 55834574851, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h57d4b45c1765c497E.exit.i" ]
+93:                                               ; preds = %.noexc, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h57d4b45c1765c497E.exit.i", %75
+  %.sroa.8.0.ph = phi i64 [ %62, %75 ], [ 55834574851, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h57d4b45c1765c497E.exit.i" ], [ 55834574851, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %94 = inttoptr i64 %.sroa.8.0.ph to ptr
   %95 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %94)
@@ -21277,7 +21277,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   %.not = icmp ugt i64 %62, %99
   br i1 %.not, label %108, label %.thread64
 
-.thread72:                                        ; preds = %105, %100, %103
+.thread72:                                        ; preds = %103, %105, %100
   %lpad.thr_comm70 = landingpad { ptr, i32 }
           cleanup
   br label %.thread53
@@ -21446,7 +21446,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   resume { ptr, i32 } %.pn51
 
 .thread53:                                        ; preds = %.thread72, %79, %.thread60
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread60 ], [ %80, %79 ], [ %lpad.thr_comm70, %.thread72 ]
+  %.pn52 = phi { ptr, i32 } [ %80, %79 ], [ %lpad.thr_comm, %.thread60 ], [ %lpad.thr_comm70, %.thread72 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84c650f38d3bb13cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
           to label %.thread56 unwind label %150
 }
@@ -21528,13 +21528,13 @@ default.unreachable24:                            ; preds = %18, %2
   br label %21
 
 .body:                                            ; preds = %76, %.body8
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %.body8 ], [ %77, %76 ]
+  %.pn6 = phi { ptr, i32 } [ %77, %76 ], [ %.pn4, %.body8 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn6
 
 common.ret:                                       ; preds = %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit", %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit.thread", %7
-  %storemerge = phi i8 [ 1, %7 ], [ 3, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit" ], [ 1, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit.thread" ]
-  %common.ret.op = phi i1 [ false, %7 ], [ true, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit" ], [ false, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit.thread" ]
+  %storemerge = phi i8 [ 3, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit" ], [ 1, %7 ], [ 1, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit.thread" ]
+  %common.ret.op = phi i1 [ true, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit" ], [ false, %7 ], [ false, %"_ZN5tokio3net3tcp6stream9TcpStream8readable28_$u7b$$u7b$closure$u7d$$u7d$17h5e38ab6c7aa93b6bE.exit.thread" ]
   store i8 %storemerge, ptr %5, align 8
   ret i1 %common.ret.op
 
@@ -21571,7 +21571,7 @@ common.ret:                                       ; preds = %"_ZN5tokio3net3tcp6
   br label %28
 
 .body.i:                                          ; preds = %68, %52, %47, %32
-  %.pn5.i = phi { ptr, i32 } [ %33, %32 ], [ %69, %68 ], [ %48, %52 ], [ %48, %47 ]
+  %.pn5.i = phi { ptr, i32 } [ %48, %47 ], [ %33, %32 ], [ %69, %68 ], [ %48, %52 ]
   store i8 2, ptr %29, align 8, !noalias !3830
   br label %.body8
 
@@ -21724,8 +21724,8 @@ common.ret:                                       ; preds = %"_ZN5tokio3net3tcp6
   unreachable
 
 .body8:                                           ; preds = %72, %.body.i
-  %81 = phi ptr [ %19, %72 ], [ %30, %.body.i ]
-  %.pn4 = phi { ptr, i32 } [ %73, %72 ], [ %.pn5.i, %.body.i ]
+  %81 = phi ptr [ %30, %.body.i ], [ %19, %72 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn5.i, %.body.i ], [ %73, %72 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..readable..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9499371a1d5f5bc2E"(ptr noundef nonnull align 8 %81) #37
           to label %.body unwind label %82
 
@@ -21922,8 +21922,8 @@ default.unreachable44:                            ; preds = %2
           to label %"_ZN4core3ptr50drop_in_place$LT$wasmtime_wasi..tcp..LastWrite$GT$17h7f6b474fabdcff33E.exit" unwind label %51
 
 common.ret:                                       ; preds = %66, %13, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit", %50
-  %.sink = phi i8 [ 3, %50 ], [ 1, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit" ], [ 1, %13 ], [ 4, %66 ]
-  %common.ret.op = phi i1 [ true, %50 ], [ false, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit" ], [ false, %13 ], [ true, %66 ]
+  %.sink = phi i8 [ 1, %13 ], [ 3, %50 ], [ 1, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit" ], [ 4, %66 ]
+  %common.ret.op = phi i1 [ false, %13 ], [ true, %50 ], [ false, %"_ZN4core3ptr94drop_in_place$LT$tokio..net..tcp..stream..TcpStream..writable..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc5cdc6c11891048fE.llvm.6128706887224790261.exit" ], [ true, %66 ]
   store i8 %.sink, ptr %6, align 8
   ret i1 %common.ret.op
 
@@ -21964,7 +21964,7 @@ common.ret:                                       ; preds = %66, %13, %"_ZN4core
   br label %61
 
 .body21:                                          ; preds = %64, %105, %89, %84, %109, %32, %27, %.body25
-  %.pn16.pn = phi { ptr, i32 } [ %eh.lpad-body26, %.body25 ], [ %33, %32 ], [ %28, %27 ], [ %65, %64 ], [ %106, %105 ], [ %85, %89 ], [ %85, %84 ], [ %110, %109 ]
+  %.pn16.pn = phi { ptr, i32 } [ %33, %32 ], [ %eh.lpad-body26, %.body25 ], [ %28, %27 ], [ %110, %109 ], [ %65, %64 ], [ %85, %84 ], [ %106, %105 ], [ %85, %89 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn16.pn
 

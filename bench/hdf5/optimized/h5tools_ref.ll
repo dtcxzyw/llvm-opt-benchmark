@@ -95,7 +95,7 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr noundef w
   br label %22
 
 22:                                               ; preds = %6, %16, %.critedge, %2, %13, %20
-  %.07 = phi i32 [ 0, %20 ], [ -1, %13 ], [ -1, %6 ], [ -1, %2 ], [ -1, %.critedge ], [ -1, %16 ]
+  %.07 = phi i32 [ -1, %13 ], [ -1, %.critedge ], [ 0, %20 ], [ -1, %6 ], [ -1, %2 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.07
 }
@@ -335,7 +335,7 @@ init_ref_path_table.exit:                         ; preds = %25, %21, %18, %13
   br label %32
 
 32:                                               ; preds = %29, %init_ref_path_table.exit, %10, %5, %7, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ null, %5 ], [ null, %10 ], [ %31, %29 ], [ null, %init_ref_path_table.exit ]
+  %.0 = phi ptr [ null, %10 ], [ null, %1 ], [ null, %7 ], [ null, %init_ref_path_table.exit ], [ null, %5 ], [ %31, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

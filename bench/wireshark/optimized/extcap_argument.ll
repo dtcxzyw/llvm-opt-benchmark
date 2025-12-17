@@ -894,7 +894,7 @@ _ZN7QStringD2Ev.exit.sink.split:                  ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2, %.critedge, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZN14ExtcapArgument10isRequiredEv.exit
-  %.0 = phi i1 [ %.0.i, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %.0.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ true, %.critedge ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2 ], [ %.0.ph, %_ZN7QStringD2Ev.exit.sink.split ]
+  %.0 = phi i1 [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2 ], [ %.0.i, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %.0.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ true, %.critedge ], [ %.0.ph, %_ZN7QStringD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -1921,7 +1921,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %126
 
 126:                                              ; preds = %121, %_ZN7QStringD2Ev.exit39
-  %.1 = phi i32 [ %.077, %_ZN7QStringD2Ev.exit39 ], [ %spec.select28, %121 ]
+  %.1 = phi i32 [ %spec.select28, %121 ], [ %.077, %_ZN7QStringD2Ev.exit39 ]
   %127 = add i32 %.077, 1
   %128 = getelementptr i8, ptr %.sroa.0.075, i64 88
   %129 = load ptr, ptr %53, align 8
@@ -2333,7 +2333,7 @@ _ZN7QStringD2Ev.exit.sink.split:                  ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14, %.critedge, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZN14ExtcapArgument10isRequiredEv.exit
-  %.0 = phi i1 [ %.0.i, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %.0.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ true, %.critedge ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14 ], [ %.0.ph, %_ZN7QStringD2Ev.exit.sink.split ]
+  %.0 = phi i1 [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i14 ], [ %.0.i, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %.0.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ true, %.critedge ], [ %.0.ph, %_ZN7QStringD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load ptr, ptr %29, align 8
@@ -3665,7 +3665,7 @@ _ZN14ExtcapArgument10isRequiredEv.exit:           ; preds = %1
   br label %_ZN14ExtcapArgument10isRequiredEv.exit.thread
 
 _ZN14ExtcapArgument10isRequiredEv.exit.thread:    ; preds = %1, %12, %16, %28, %23, %_ZN14ExtcapArgument10isRequiredEv.exit
-  %.010 = phi i1 [ false, %28 ], [ true, %23 ], [ true, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ false, %16 ], [ false, %12 ], [ true, %1 ]
+  %.010 = phi i1 [ true, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ false, %28 ], [ true, %23 ], [ false, %16 ], [ false, %12 ], [ true, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.02.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 42), align 2
@@ -4375,7 +4375,7 @@ _ZN7QStringD2Ev.exit84:                           ; preds = %100, %_ZN17QArrayDa
   br label %113
 
 .thread:                                          ; preds = %62, %58, %86
-  %.0 = phi i1 [ %spec.select35, %86 ], [ %.0.i, %58 ], [ %.0.i, %62 ]
+  %.0 = phi i1 [ %spec.select35, %86 ], [ %.0.i, %62 ], [ %.0.i, %58 ]
   %106 = load ptr, ptr %26, align 8
   %107 = select i1 %.0, i32 2, i32 0
   call void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef align 8 dereferenceable_or_null(40) %106, i32 noundef %107)
@@ -4696,8 +4696,8 @@ _ZN10ExtArgBool11defaultBoolEv.exit:              ; preds = %2
   br label %.critedge10
 
 .critedge10:                                      ; preds = %_ZN10ExtArgBool11defaultBoolEv.exit, %2
-  %.str.6.sink = phi ptr [ @.str.6, %2 ], [ %spec.select, %_ZN10ExtArgBool11defaultBoolEv.exit ]
-  %.sink = phi i64 [ 5, %2 ], [ %spec.select30, %_ZN10ExtArgBool11defaultBoolEv.exit ]
+  %.str.6.sink = phi ptr [ %spec.select, %_ZN10ExtArgBool11defaultBoolEv.exit ], [ @.str.6, %2 ]
+  %.sink = phi i64 [ %spec.select30, %_ZN10ExtArgBool11defaultBoolEv.exit ], [ 5, %2 ]
   store ptr null, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.str.6.sink, ptr %8, align 8
@@ -5203,7 +5203,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %20
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %_ZN14ExtcapArgument10isRequiredEv.exit, %1
-  %31 = phi i1 [ true, %1 ], [ true, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %26, %.critedge ]
+  %31 = phi i1 [ true, %_ZN14ExtcapArgument10isRequiredEv.exit ], [ %26, %.critedge ], [ true, %1 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef zeroext i1 @_ZNK9QLineEdit18hasAcceptableInputEv(ptr noundef align 8 dereferenceable_or_null(40) %33)
@@ -5911,7 +5911,7 @@ _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %38
   br label %160
 
 74:                                               ; preds = %68, %66, %51, %54
-  %.027 = phi i32 [ %55, %54 ], [ 0, %51 ], [ 2147483647, %68 ], [ %65, %66 ]
+  %.027 = phi i32 [ 0, %51 ], [ %55, %54 ], [ 2147483647, %68 ], [ %65, %66 ]
   invoke void @_ZN13QIntValidator9setBottomEi(ptr noundef align 8 dereferenceable_or_null(24) %45, i32 noundef %.027)
           to label %._crit_edge77 unwind label %62
 
@@ -5991,7 +5991,7 @@ _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %38
   br label %160
 
 109:                                              ; preds = %103, %101, %92, %95
-  %.029 = phi i32 [ %96, %95 ], [ 0, %92 ], [ 2147483647, %103 ], [ %100, %101 ]
+  %.029 = phi i32 [ 0, %92 ], [ %96, %95 ], [ 2147483647, %103 ], [ %100, %101 ]
   invoke void @_ZN13QIntValidator6setTopEi(ptr noundef align 8 dereferenceable_or_null(24) %45, i32 noundef %.029)
           to label %110 unwind label %97
 
@@ -6159,7 +6159,7 @@ _ZN7QStringD2Ev.exit70:                           ; preds = %158, %_ZN17QArrayDa
   br label %160
 
 160:                                              ; preds = %122, %124, %58, %60, %72, %62, %107, %97, %_ZN7QStringD2Ev.exit70, %56, %34
-  %.pn55 = phi { ptr, i32 } [ %57, %56 ], [ %.pn53, %_ZN7QStringD2Ev.exit70 ], [ %35, %34 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %73, %72 ], [ %98, %97 ], [ %108, %107 ], [ %123, %122 ], [ %125, %124 ]
+  %.pn55 = phi { ptr, i32 } [ %57, %56 ], [ %.pn53, %_ZN7QStringD2Ev.exit70 ], [ %35, %34 ], [ %108, %107 ], [ %59, %58 ], [ %73, %72 ], [ %61, %60 ], [ %63, %62 ], [ %98, %97 ], [ %123, %122 ], [ %125, %124 ]
   %161 = load ptr, ptr %6, align 8
   %.not.i.i.i71 = icmp eq ptr %161, null
   br i1 %.not.i.i.i71, label %_ZN7QStringD2Ev.exit74, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72
@@ -8536,7 +8536,7 @@ define noundef ptr @_ZN14ExtcapArgument6createEP11_extcap_argP7QObject(ptr nound
   resume { ptr, i32 } %.pn
 
 52:                                               ; preds = %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %2, %4
-  %.041 = phi ptr [ null, %4 ], [ null, %2 ], [ %12, %11 ], [ %16, %15 ], [ %20, %19 ], [ %24, %23 ], [ %28, %27 ], [ %32, %31 ], [ %36, %35 ], [ %40, %39 ], [ %44, %43 ], [ %48, %47 ]
+  %.041 = phi ptr [ null, %2 ], [ null, %4 ], [ %44, %43 ], [ %12, %11 ], [ %16, %15 ], [ %20, %19 ], [ %24, %23 ], [ %28, %27 ], [ %32, %31 ], [ %36, %35 ], [ %40, %39 ], [ %48, %47 ]
   ret ptr %.041
 }
 
@@ -10413,7 +10413,7 @@ _ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i10: ; preds = %36
   br i1 %49, label %_ZN17QArrayDataPointerI11ExtcapValueE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit, label %.critedge.i15.invoke
 
 .critedge.i15.invoke:                             ; preds = %20, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i, %.noexc, %36, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i10, %.noexc16
-  %50 = phi ptr [ null, %.noexc16 ], [ null, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i10 ], [ null, %36 ], [ %5, %.noexc ], [ %5, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i ], [ %5, %20 ]
+  %50 = phi ptr [ null, %36 ], [ null, %.noexc16 ], [ null, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i10 ], [ %5, %.noexc ], [ %5, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.i ], [ %5, %20 ]
   invoke void @_ZN17QArrayDataPointerI11ExtcapValueE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef 0, i64 noundef %11, ptr noundef %50)
           to label %_ZN17QArrayDataPointerI11ExtcapValueE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_.exit unwind label %34
 

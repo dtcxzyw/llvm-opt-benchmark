@@ -563,7 +563,7 @@ define internal fastcc range(i32 -1, 53) i32 @get_opsi_attribute_index(ptr nound
   br label %24
 
 24:                                               ; preds = %21, %19, %16, %14
-  %.0 = phi i32 [ %18, %16 ], [ -1, %14 ], [ %23, %21 ], [ -1, %19 ]
+  %.0 = phi i32 [ -1, %14 ], [ %18, %16 ], [ %23, %21 ], [ -1, %19 ]
   tail call void @decrement_dissection_depth(ptr noundef %0)
   br label %25
 

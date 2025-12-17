@@ -106,8 +106,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_kr_to_mic(ptr noundef readonl
   br i1 %40, label %.lr.ph.i, label %euc_kr2mic.exit, !llvm.loop !3
 
 euc_kr2mic.exit:                                  ; preds = %37, %1, %23, %33
-  %.02737.i = phi ptr [ %.02741.i, %33 ], [ %.02741.i, %23 ], [ %8, %1 ], [ %.128.i, %37 ]
-  %.034.i = phi ptr [ %.042.i, %33 ], [ %.042.i, %23 ], [ %5, %1 ], [ %38, %37 ]
+  %.02737.i = phi ptr [ %.02741.i, %23 ], [ %.02741.i, %33 ], [ %8, %1 ], [ %.128.i, %37 ]
+  %.034.i = phi ptr [ %.042.i, %23 ], [ %.042.i, %33 ], [ %5, %1 ], [ %38, %37 ]
   store i8 0, ptr %.02737.i, align 1
   %41 = ptrtoint ptr %.034.i to i64
   %42 = sub i64 %41, %4
@@ -213,8 +213,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr noundef readonl
   unreachable
 
 mic2euc_kr.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %47
-  %.03242.i = phi ptr [ %.03247.i, %47 ], [ %.03247.i, %33 ], [ %.03247.i, %23 ], [ %8, %1 ], [ %.032.be.i, %.backedge.i ]
-  %.038.i = phi ptr [ %.048.i, %47 ], [ %.048.i, %33 ], [ %.048.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+  %.03242.i = phi ptr [ %.03247.i, %23 ], [ %.03247.i, %47 ], [ %.03247.i, %33 ], [ %8, %1 ], [ %.032.be.i, %.backedge.i ]
+  %.038.i = phi ptr [ %.048.i, %23 ], [ %.048.i, %47 ], [ %.048.i, %33 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.03242.i, align 1
   %49 = ptrtoint ptr %.038.i to i64
   %50 = sub i64 %49, %4

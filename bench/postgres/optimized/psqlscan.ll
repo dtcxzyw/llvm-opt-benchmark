@@ -4912,7 +4912,7 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   br i1 %2362, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !16
 
 .critedge2.i:                                     ; preds = %2350, %.lr.ph172.i, %2330, %2329
-  %2363 = phi i32 [ %2343, %2330 ], [ %.1156.i, %2329 ], [ 0, %.lr.ph172.i ], [ %2361, %2350 ]
+  %2363 = phi i32 [ %.1156.i, %2329 ], [ %2343, %2330 ], [ 0, %.lr.ph172.i ], [ %2361, %2350 ]
   %2364 = load ptr, ptr %83, align 8
   %2365 = load i64, ptr %84, align 8
   %2366 = getelementptr inbounds nuw ptr, ptr %2364, i64 %2365
@@ -6110,7 +6110,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   br label %50
 
 50:                                               ; preds = %32, %31
-  %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
+  %51 = phi ptr [ %25, %31 ], [ %.pre, %32 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
@@ -7497,8 +7497,8 @@ default.unreachable31:                            ; preds = %3
   unreachable
 
 32:                                               ; preds = %3, %11, %11, %11, %11, %11, %22, %18, %14, %25, %26, %27, %31
-  %.sink33 = phi i32 [ 2, %25 ], [ 4, %26 ], [ 5, %27 ], [ 0, %31 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 0, %3 ]
-  %.0 = phi i32 [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 1, %31 ], [ 2, %14 ], [ 2, %18 ], [ %.34, %22 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 0, %3 ]
+  %.sink33 = phi i32 [ 0, %31 ], [ 2, %25 ], [ 4, %26 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 5, %27 ], [ 3, %11 ], [ 3, %11 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %31 ], [ 2, %25 ], [ 2, %26 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %27 ], [ 2, %11 ], [ 2, %11 ], [ 2, %14 ], [ 2, %18 ], [ %.34, %22 ], [ 0, %3 ]
   store i32 %.sink33, ptr %2, align 4
   ret i32 %.0
 }

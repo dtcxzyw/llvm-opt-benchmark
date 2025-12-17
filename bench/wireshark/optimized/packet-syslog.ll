@@ -544,7 +544,7 @@ mtp3_msu_present.exit:                            ; preds = %70
   br label %dissect_rfc5424_syslog_message.exit
 
 dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %133, %139, %145, %151, %174
-  %.0.i129 = phi i32 [ %175, %174 ], [ %121, %118 ], [ %.1115, %115 ], [ %130, %129 ], [ %136, %133 ], [ %142, %139 ], [ %148, %145 ], [ %156, %151 ]
+  %.0.i129 = phi i32 [ %121, %118 ], [ %175, %174 ], [ %148, %145 ], [ %142, %139 ], [ %136, %133 ], [ %130, %129 ], [ %.1115, %115 ], [ %156, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_rfc3164_syslog_message.exit
 
@@ -634,7 +634,7 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
   br label %dissect_rfc3164_syslog_message.exit
 
 dissect_rfc3164_syslog_message.exit:              ; preds = %110, %.loopexit.i, %198, %194, %190, %186, %182, %178, %176, %dissect_rfc5424_syslog_message.exit
-  %.0111 = phi i32 [ %.0.i129, %dissect_rfc5424_syslog_message.exit ], [ %.1115, %176 ], [ %227, %.loopexit.i ], [ %.1115, %194 ], [ %.1115, %190 ], [ %.1115, %186 ], [ %.1115, %182 ], [ %.1115, %178 ], [ %201, %198 ], [ %.1115, %110 ]
+  %.0111 = phi i32 [ %.0.i129, %dissect_rfc5424_syslog_message.exit ], [ %201, %198 ], [ %.1115, %176 ], [ %227, %.loopexit.i ], [ %.1115, %178 ], [ %.1115, %194 ], [ %.1115, %190 ], [ %.1115, %186 ], [ %.1115, %182 ], [ %.1115, %110 ]
   %228 = call i32 @tvb_reported_length(ptr noundef %0)
   %229 = icmp ult i32 %.0111, %228
   br i1 %229, label %230, label %235
@@ -807,7 +807,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   br label %.thread47
 
 .thread47:                                        ; preds = %17, %39, %.thread, %35, %36
-  %.036 = phi i32 [ 0, %36 ], [ 0, %35 ], [ 0, %.thread ], [ %spec.select, %39 ], [ 0, %17 ]
+  %.036 = phi i32 [ %spec.select, %39 ], [ 0, %36 ], [ 0, %35 ], [ 0, %.thread ], [ 0, %17 ]
   ret i32 %.036
 }
 

@@ -127,8 +127,8 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %49
 
 49:                                               ; preds = %47, %46, %.fold.split, %48, %41
-  %.4131 = phi i64 [ %38, %41 ], [ %38, %46 ], [ %38, %.fold.split ], [ %.2129182, %47 ], [ %38, %48 ]
-  %.4124 = phi i32 [ %43, %41 ], [ 3, %46 ], [ 2, %.fold.split ], [ 0, %47 ], [ 0, %48 ]
+  %.4131 = phi i64 [ %38, %41 ], [ %38, %.fold.split ], [ %38, %46 ], [ %.2129182, %47 ], [ %38, %48 ]
+  %.4124 = phi i32 [ %43, %41 ], [ 2, %.fold.split ], [ 3, %46 ], [ 0, %47 ], [ 0, %48 ]
   %50 = icmp slt i64 %indvars.iv.next, %31
   %51 = icmp ult i64 %.4131, 37
   %52 = select i1 %50, i1 %51, i1 false
@@ -257,11 +257,11 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %.thread160
 
 100:                                              ; preds = %.loopexit, %93, %.thread, %90
-  %.2138 = phi i32 [ %.0136202, %.thread ], [ %.0136202, %93 ], [ %.0136202, %.loopexit ], [ 1, %90 ]
-  %.6133 = phi i64 [ 0, %.thread ], [ 0, %93 ], [ %.3130, %.loopexit ], [ 0, %90 ]
-  %.5125 = phi i32 [ %.6126157, %.thread ], [ %.6126157, %93 ], [ %.6126, %.loopexit ], [ %.6126157, %90 ]
-  %.3109 = phi i32 [ %.4110158, %.thread ], [ %.4110158, %93 ], [ %.4110, %.loopexit ], [ %.4110158, %90 ]
-  %.3 = phi i8 [ %.4159, %.thread ], [ %.4159, %93 ], [ %.4, %.loopexit ], [ %.4159, %90 ]
+  %.2138 = phi i32 [ %.0136202, %.loopexit ], [ 1, %90 ], [ %.0136202, %.thread ], [ %.0136202, %93 ]
+  %.6133 = phi i64 [ %.3130, %.loopexit ], [ 0, %90 ], [ 0, %.thread ], [ 0, %93 ]
+  %.5125 = phi i32 [ %.6126, %.loopexit ], [ %.6126157, %90 ], [ %.6126157, %.thread ], [ %.6126157, %93 ]
+  %.3109 = phi i32 [ %.4110, %.loopexit ], [ %.4110158, %90 ], [ %.4110158, %.thread ], [ %.4110158, %93 ]
+  %.3 = phi i8 [ %.4, %.loopexit ], [ %.4159, %90 ], [ %.4159, %.thread ], [ %.4159, %93 ]
   %101 = icmp slt i32 %.3109, %5
   br i1 %101, label %.preheader168, label %.thread160
 

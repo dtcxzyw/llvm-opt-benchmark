@@ -717,7 +717,7 @@ define void @_ZN2cv10GCPUKernelC2ERKSt8functionIFvRNS_11GCPUContextEEERKS1_IFvRK
   unreachable
 
 common.resume:                                    ; preds = %45, %.body, %14, %17
-  %common.resume.op = phi { ptr, i32 } [ %15, %17 ], [ %15, %14 ], [ %36, %.body ], [ %36, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %17 ], [ %36, %.body ], [ %36, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit: ; preds = %3, %10

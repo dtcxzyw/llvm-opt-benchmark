@@ -1985,7 +1985,7 @@ dvbci_set_addrs.exit:                             ; preds = %18
   br label %76
 
 76:                                               ; preds = %46, %45, %68, %69, %62, %47, %13, %9, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ], [ %14, %47 ], [ %14, %62 ], [ %14, %69 ], [ %14, %68 ], [ %14, %45 ], [ %14, %46 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %9 ], [ 0, %13 ], [ %14, %47 ], [ %14, %62 ], [ %14, %69 ], [ %14, %68 ], [ %14, %45 ], [ %14, %46 ]
   ret i32 %.0
 }
 
@@ -3505,7 +3505,7 @@ store_lsc_msg_dissector.exit145.i:                ; preds = %118, %112
   br label %dissect_conn_desc.exit
 
 dissect_conn_desc.exit:                           ; preds = %73, %79, %store_lsc_msg_dissector.exit145.i, %123
-  %.pn.i = phi i32 [ %119, %store_lsc_msg_dissector.exit145.i ], [ %128, %123 ], [ 23, %73 ], [ 23, %79 ]
+  %.pn.i = phi i32 [ %128, %123 ], [ %119, %store_lsc_msg_dissector.exit145.i ], [ 23, %73 ], [ 23, %79 ]
   %129 = load ptr, ptr %8, align 8
   %.1.i = sub i32 %29, %20
   %130 = add i32 %.pn.i, %.1.i
@@ -4422,7 +4422,7 @@ define internal fastcc noundef i32 @dissect_dvbci_text(ptr noundef %0, ptr nound
   br label %24
 
 24:                                               ; preds = %9, %6, %12
-  %.0 = phi i32 [ %23, %12 ], [ 0, %6 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %6 ], [ %23, %12 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -4717,8 +4717,8 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br i1 %exitcond95.not, label %.critedge3, label %.lr.ph87, !llvm.loop !25
 
 .critedge3:                                       ; preds = %138, %.lr.ph87
-  %.1.lcssa = phi i64 [ %142, %138 ], [ %.185, %.lr.ph87 ]
-  %.2.lcssa = phi i32 [ %.2, %138 ], [ %.286, %.lr.ph87 ]
+  %.1.lcssa = phi i64 [ %.185, %.lr.ph87 ], [ %142, %138 ]
+  %.2.lcssa = phi i32 [ %.286, %.lr.ph87 ], [ %.2, %138 ]
   switch i64 %.1.lcssa, label %.critedge3.thread [
     i64 219221767, label %.critedge.sink.split.i
     i64 30, label %146
@@ -4834,11 +4834,11 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %.critedge3.thread, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %.critedge3
-  %.16271 = phi i32 [ %.2.lcssa, %146 ], [ %.2.lcssa, %147 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %158 ], [ %.16272, %159 ], [ %.16272, %160 ], [ %.16272, %161 ], [ %.16272, %162 ], [ %.16272, %163 ], [ %.16272, %164 ], [ %.16272, %165 ], [ %.16272, %166 ], [ %.16272, %167 ], [ %.16272, %168 ], [ %.16272, %169 ], [ %.16272, %170 ], [ %.16272, %171 ], [ %.2.lcssa, %.critedge3 ], [ %.16272, %.critedge3.thread ]
-  %.str.1035.sink.i = phi ptr [ @.str.1036, %146 ], [ @.str.1037, %147 ], [ @.str.1038, %148 ], [ @.str.1039, %149 ], [ @.str.1040, %150 ], [ @.str.1041, %151 ], [ @.str.1042, %152 ], [ @.str.1043, %153 ], [ @.str.1044, %154 ], [ @.str.1045, %155 ], [ @.str.1046, %156 ], [ @.str.1047, %157 ], [ @.str.1048, %158 ], [ @.str.1050, %159 ], [ @.str.1051, %160 ], [ @.str.1052, %161 ], [ @.str.1053, %162 ], [ @.str.1054, %163 ], [ @.str.1055, %164 ], [ @.str.1056, %165 ], [ @.str.1057, %166 ], [ @.str.1058, %167 ], [ @.str.1059, %168 ], [ @.str.1060, %169 ], [ @.str.1061, %170 ], [ @.str.1062, %171 ], [ @.str.1035, %.critedge3 ], [ @.str.1049, %.critedge3.thread ]
+  %.16271 = phi i32 [ %.2.lcssa, %158 ], [ %.16272, %171 ], [ %.2.lcssa, %146 ], [ %.2.lcssa, %147 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %.critedge3 ], [ %.16272, %159 ], [ %.16272, %160 ], [ %.16272, %161 ], [ %.16272, %162 ], [ %.16272, %163 ], [ %.16272, %164 ], [ %.16272, %165 ], [ %.16272, %166 ], [ %.16272, %167 ], [ %.16272, %168 ], [ %.16272, %169 ], [ %.16272, %170 ], [ %.16272, %.critedge3.thread ]
+  %.str.1048.sink.i = phi ptr [ @.str.1048, %158 ], [ @.str.1062, %171 ], [ @.str.1036, %146 ], [ @.str.1037, %147 ], [ @.str.1038, %148 ], [ @.str.1039, %149 ], [ @.str.1040, %150 ], [ @.str.1041, %151 ], [ @.str.1042, %152 ], [ @.str.1043, %153 ], [ @.str.1044, %154 ], [ @.str.1045, %155 ], [ @.str.1046, %156 ], [ @.str.1047, %157 ], [ @.str.1035, %.critedge3 ], [ @.str.1050, %159 ], [ @.str.1051, %160 ], [ @.str.1052, %161 ], [ @.str.1053, %162 ], [ @.str.1054, %163 ], [ @.str.1055, %164 ], [ @.str.1056, %165 ], [ @.str.1057, %166 ], [ @.str.1058, %167 ], [ @.str.1059, %168 ], [ @.str.1060, %169 ], [ @.str.1061, %170 ], [ @.str.1049, %.critedge3.thread ]
   %172 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %173 = load ptr, ptr %172, align 8
-  call void @col_append_sep_str(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.str.1035.sink.i)
+  call void @col_append_sep_str(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.str.1048.sink.i)
   br label %174
 
 174:                                              ; preds = %.critedge.sink.split.i, %.critedge3.thread
@@ -4965,7 +4965,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %.not110113 = icmp eq ptr %73, null
   br i1 %.not110113, label %75, label %.thread115
 
-.sink.split:                                      ; preds = %42, %47, %39, %.thread.thread125
+.sink.split:                                      ; preds = %47, %42, %39, %.thread.thread125
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
@@ -5006,8 +5006,8 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %116, label %.thread119
 
-.thread119:                                       ; preds = %85, %86, %89
-  %.0106121 = phi i32 [ %90, %89 ], [ 0, %85 ], [ 1, %86 ]
+.thread119:                                       ; preds = %86, %85, %89
+  %.0106121 = phi i32 [ %90, %89 ], [ 1, %86 ], [ 0, %85 ]
   %92 = icmp samesign ult i32 %.0106121, %80
   br i1 %92, label %93, label %97
 
@@ -5223,7 +5223,7 @@ define internal fastcc zeroext range(i8 -2, 1) i8 @dvbci_get_evt_from_addrs(ptr 
   br label %addresses_equal.exit9
 
 addresses_equal.exit9:                            ; preds = %5, %.thread, %36, %20, %24, %1, %28, %32
-  %.0 = phi i8 [ 0, %32 ], [ 0, %28 ], [ 0, %1 ], [ 0, %24 ], [ -1, %20 ], [ %spec.select, %36 ], [ 0, %.thread ], [ 0, %5 ]
+  %.0 = phi i8 [ -1, %20 ], [ 0, %5 ], [ %spec.select, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %1 ], [ 0, %24 ], [ 0, %.thread ]
   ret i8 %.0
 }
 
@@ -6018,10 +6018,10 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %156, %154
   br label %284
 
 284:                                              ; preds = %278, %258, %254, %244, %243, %207
-  %.0127.i.i = phi ptr [ null, %207 ], [ null, %243 ], [ %250, %244 ], [ null, %254 ], [ null, %258 ], [ null, %278 ]
-  %.0126.i.i = phi ptr [ %217, %207 ], [ %237, %243 ], [ %237, %244 ], [ null, %254 ], [ null, %258 ], [ null, %278 ]
-  %.0125.i.i = phi i16 [ %219, %207 ], [ %239, %243 ], [ %239, %244 ], [ %255, %254 ], [ %266, %258 ], [ %279, %278 ]
-  %.0.i59.i = phi ptr [ null, %207 ], [ null, %243 ], [ null, %244 ], [ null, %254 ], [ null, %258 ], [ %283, %278 ]
+  %.0127.i.i = phi ptr [ null, %278 ], [ null, %258 ], [ null, %207 ], [ null, %243 ], [ %250, %244 ], [ null, %254 ]
+  %.0126.i.i = phi ptr [ null, %278 ], [ null, %258 ], [ %217, %207 ], [ %237, %243 ], [ %237, %244 ], [ null, %254 ]
+  %.0125.i.i = phi i16 [ %279, %278 ], [ %266, %258 ], [ %219, %207 ], [ %239, %243 ], [ %239, %244 ], [ %255, %254 ]
+  %.0.i59.i = phi ptr [ %283, %278 ], [ null, %258 ], [ null, %207 ], [ null, %243 ], [ null, %244 ], [ null, %254 ]
   %285 = icmp eq i16 %.0125.i.i, 0
   %286 = icmp ne ptr %.0127.i.i, null
   %or.cond.i60.i = or i1 %286, %285

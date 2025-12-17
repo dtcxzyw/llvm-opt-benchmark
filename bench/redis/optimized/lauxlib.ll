@@ -285,7 +285,7 @@ define dso_local ptr @luaL_optlstring(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %luaL_checklstring.exit
 
 luaL_checklstring.exit:                           ; preds = %15, %13, %7, %11
-  %.0 = phi ptr [ %2, %11 ], [ %2, %7 ], [ %14, %13 ], [ null, %15 ]
+  %.0 = phi ptr [ %2, %7 ], [ %2, %11 ], [ %14, %13 ], [ null, %15 ]
   ret ptr %.0
 }
 

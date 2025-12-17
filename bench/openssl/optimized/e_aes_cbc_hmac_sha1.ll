@@ -117,8 +117,8 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha1_cipher(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %22, %17
-  %.0344 = phi i64 [ 0, %17 ], [ %spec.select, %22 ]
-  %.0342 = phi i64 [ %3, %17 ], [ %8, %22 ]
+  %.0344 = phi i64 [ %spec.select, %22 ], [ 0, %17 ]
+  %.0342 = phi i64 [ %8, %22 ], [ %3, %17 ]
   %27 = add nuw nsw i64 %.0344, %13
   %28 = icmp ugt i64 %.0342, %27
   br i1 %28, label %29, label %78
@@ -892,7 +892,7 @@ sha1_update.exit438:                              ; preds = %423
   br label %478
 
 478:                                              ; preds = %138, %._crit_edge, %sha1_update.exit438.thread, %sha1_update.exit438, %sha1_update.exit438.thread456, %19, %4
-  %.0 = phi i32 [ %477, %sha1_update.exit438 ], [ 0, %4 ], [ 0, %19 ], [ 0, %sha1_update.exit438.thread456 ], [ 1, %sha1_update.exit438.thread ], [ 1, %._crit_edge ], [ 1, %138 ]
+  %.0 = phi i32 [ %477, %sha1_update.exit438 ], [ 0, %sha1_update.exit438.thread456 ], [ 0, %4 ], [ 0, %19 ], [ 1, %sha1_update.exit438.thread ], [ 1, %._crit_edge ], [ 1, %138 ]
   ret i32 %.0
 }
 
@@ -1285,8 +1285,8 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   br label %212
 
 212:                                              ; preds = %199, %197, %208
-  %.0108 = phi i32 [ 1, %197 ], [ %205, %208 ], [ %spec.select, %199 ]
-  %.0103 = phi i32 [ %181, %197 ], [ %211, %208 ], [ %181, %199 ]
+  %.0108 = phi i32 [ %205, %208 ], [ %spec.select, %199 ], [ 1, %197 ]
+  %.0103 = phi i32 [ %211, %208 ], [ %181, %199 ], [ %181, %197 ]
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 436
   %214 = getelementptr inbounds nuw i8, ptr %11, i64 244
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %213, ptr noundef nonnull align 4 dereferenceable(96) %214, i64 96, i1 false), !tbaa.struct !7
@@ -1817,7 +1817,7 @@ tls1_1_multi_block_encrypt.exit:                  ; preds = %241, %._crit_edge34
   br label %510
 
 510:                                              ; preds = %4, %231, %169, %183, %195, %202, %171, %sha1_update.exit153, %162, %115, %139, %tls1_1_multi_block_encrypt.exit, %165, %sha1_update.exit144
-  %.0 = phi i32 [ 1, %sha1_update.exit144 ], [ %168, %165 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %161, %sha1_update.exit153 ], [ 20, %162 ], [ -1, %115 ], [ 0, %139 ], [ %239, %231 ], [ -1, %169 ], [ -1, %183 ], [ 0, %195 ], [ -1, %202 ], [ -1, %171 ], [ -1, %4 ]
+  %.0 = phi i32 [ -1, %171 ], [ 1, %sha1_update.exit144 ], [ %.0.i, %tls1_1_multi_block_encrypt.exit ], [ %168, %165 ], [ 0, %139 ], [ 20, %162 ], [ -1, %115 ], [ %161, %sha1_update.exit153 ], [ -1, %202 ], [ -1, %169 ], [ -1, %183 ], [ %239, %231 ], [ 0, %195 ], [ -1, %4 ]
   ret i32 %.0
 }
 

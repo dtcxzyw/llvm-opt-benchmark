@@ -223,7 +223,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   br label %62
 
 62:                                               ; preds = %4, %2, %55, %._crit_edge139, %._crit_edge144, %._crit_edge149, %._crit_edge154, %._crit_edge158, %._crit_edge134, %15
-  %.0113 = phi ptr [ null, %15 ], [ null, %._crit_edge134 ], [ null, %._crit_edge158 ], [ null, %._crit_edge154 ], [ null, %._crit_edge149 ], [ null, %._crit_edge144 ], [ null, %._crit_edge139 ], [ %50, %55 ], [ null, %2 ], [ null, %4 ]
+  %.0113 = phi ptr [ %50, %55 ], [ null, %2 ], [ null, %15 ], [ null, %._crit_edge134 ], [ null, %._crit_edge158 ], [ null, %._crit_edge154 ], [ null, %._crit_edge149 ], [ null, %._crit_edge144 ], [ null, %._crit_edge139 ], [ null, %4 ]
   ret ptr %.0113
 }
 
@@ -696,7 +696,7 @@ split:                                            ; preds = %159
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge346, %121, %119, %117, %split, %58, %16, %200, %196, %158, %154, %105, %96, %89, %50, %39
-  %.0259 = phi i32 [ %52, %50 ], [ %91, %89 ], [ %98, %96 ], [ %107, %105 ], [ %156, %154 ], [ 0, %158 ], [ %198, %196 ], [ 1, %200 ], [ %41, %39 ], [ -1, %16 ], [ 0, %58 ], [ 2, %split ], [ 3, %121 ], [ -4, %119 ], [ -4, %117 ], [ -5, %._crit_edge346 ]
+  %.0259 = phi i32 [ %41, %39 ], [ %52, %50 ], [ -1, %16 ], [ %91, %89 ], [ %98, %96 ], [ %107, %105 ], [ 0, %58 ], [ 2, %split ], [ %156, %154 ], [ 0, %158 ], [ %198, %196 ], [ 1, %200 ], [ -4, %119 ], [ -4, %117 ], [ 3, %121 ], [ -5, %._crit_edge346 ]
   ret i32 %.0259
 }
 

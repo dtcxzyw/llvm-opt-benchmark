@@ -2305,7 +2305,7 @@ _ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit: ; preds 
   br label %112
 
 112:                                              ; preds = %59, %86, %80, %79, %110, %108
-  %.0 = phi i1 [ true, %108 ], [ %111, %110 ], [ true, %79 ], [ true, %80 ], [ true, %86 ], [ true, %59 ]
+  %.0 = phi i1 [ %111, %110 ], [ true, %108 ], [ true, %79 ], [ true, %80 ], [ true, %86 ], [ true, %59 ]
   ret i1 %.0
 }
 
@@ -2508,7 +2508,7 @@ _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_
   store i8 1, ptr %64, align 8
   br label %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %36, %..loopexit_crit_edge21.i.i.i.i, %41, %1, %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit
+_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %36, %41, %..loopexit_crit_edge21.i.i.i.i, %1, %_ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE4findERS8_.exit
   ret void
 }
 

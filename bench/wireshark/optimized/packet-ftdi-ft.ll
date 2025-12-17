@@ -523,7 +523,7 @@ define internal i32 @dissect_ftdi_ft(ptr noundef %0, ptr noundef %1, ptr noundef
   %73 = call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_undecoded, ptr noundef %0, i32 noundef 1, i32 noundef 4)
   br label %.thread
 
-.thread:                                          ; preds = %71, %70, %69, %68, %67, %66, %65, %61, %60, %59, %58, %72
+.thread:                                          ; preds = %70, %69, %68, %67, %66, %65, %61, %60, %59, %58, %71, %72
   %74 = load i32, ptr @hf_setup_wlength, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %74, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %76 = call ptr @wmem_file_scope()
@@ -645,10 +645,10 @@ endpoint_to_interface.exit:                       ; preds = %124, %124
   br label %127
 
 127:                                              ; preds = %124, %124, %endpoint_to_interface.exit.thread217, %endpoint_to_interface.exit, %126
-  %.0.i211219 = phi i32 [ 3, %126 ], [ 4, %endpoint_to_interface.exit ], [ 1, %endpoint_to_interface.exit.thread217 ], [ 2, %124 ], [ 2, %124 ]
-  %.0202 = phi ptr [ @.str.191, %126 ], [ @.str.192, %endpoint_to_interface.exit ], [ @.str.189, %endpoint_to_interface.exit.thread217 ], [ @.str.190, %124 ], [ @.str.190, %124 ]
-  %.0200.in = phi ptr [ @hf_if_c_rx_payload, %126 ], [ @hf_if_d_rx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_rx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_rx_payload, %124 ], [ @hf_if_b_rx_payload, %124 ]
-  %.0199.in = phi ptr [ @hf_if_c_tx_payload, %126 ], [ @hf_if_d_tx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_tx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_b_tx_payload, %124 ], [ @hf_if_b_tx_payload, %124 ]
+  %.0.i211219 = phi i32 [ 4, %endpoint_to_interface.exit ], [ 1, %endpoint_to_interface.exit.thread217 ], [ 3, %126 ], [ 2, %124 ], [ 2, %124 ]
+  %.0202 = phi ptr [ @.str.192, %endpoint_to_interface.exit ], [ @.str.189, %endpoint_to_interface.exit.thread217 ], [ @.str.191, %126 ], [ @.str.190, %124 ], [ @.str.190, %124 ]
+  %.0200.in = phi ptr [ @hf_if_d_rx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_rx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_c_rx_payload, %126 ], [ @hf_if_b_rx_payload, %124 ], [ @hf_if_b_rx_payload, %124 ]
+  %.0199.in = phi ptr [ @hf_if_d_tx_payload, %endpoint_to_interface.exit ], [ @hf_if_a_tx_payload, %endpoint_to_interface.exit.thread217 ], [ @hf_if_c_tx_payload, %126 ], [ @hf_if_b_tx_payload, %124 ], [ @hf_if_b_tx_payload, %124 ]
   %.0199 = load i32, ptr %.0199.in, align 4
   %.0200 = load i32, ptr %.0200.in, align 4
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -749,7 +749,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %148, %151, %149
   br label %174
 
 174:                                              ; preds = %124, %166, %170, %165, %163, %119, %122, %.thread, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 7, %.thread ], [ %.1196, %122 ], [ %.1196, %119 ], [ 0, %124 ], [ %.5, %163 ], [ %.5, %165 ], [ 0, %166 ], [ %168, %170 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %.1196, %119 ], [ 7, %.thread ], [ %.1196, %122 ], [ 0, %124 ], [ %.5, %163 ], [ %.5, %165 ], [ %168, %170 ], [ 0, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -908,7 +908,7 @@ define internal fastcc range(i32 0, 9) i32 @identify_chip(ptr noundef readonly c
   br label %14
 
 14:                                               ; preds = %3, %3, %3, %3, %3, %3, %9, %1, %13, %12
-  %.0 = phi i32 [ 0, %13 ], [ 8, %12 ], [ 0, %1 ], [ %., %9 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ]
+  %.0 = phi i32 [ 8, %12 ], [ 0, %13 ], [ %., %9 ], [ 0, %1 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ], [ %8, %3 ]
   ret i32 %.0
 }
 
@@ -1447,8 +1447,8 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   unreachable
 
 133:                                              ; preds = %128, %123, %120
-  %.0147 = phi ptr [ null, %123 ], [ null, %120 ], [ %91, %128 ]
-  %.0 = phi ptr [ %91, %123 ], [ %91, %120 ], [ %122, %128 ]
+  %.0147 = phi ptr [ null, %120 ], [ null, %123 ], [ %91, %128 ]
+  %.0 = phi ptr [ %91, %120 ], [ %91, %123 ], [ %122, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 57
@@ -1551,9 +1551,9 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   br label %182
 
 182:                                              ; preds = %get_recorded_desegment_data.exit, %171, %176, %180
-  %.2146 = phi i32 [ %.1145, %180 ], [ %.1145, %176 ], [ %.1145, %171 ], [ 0, %get_recorded_desegment_data.exit ]
-  %.2 = phi ptr [ %181, %180 ], [ %.0142, %176 ], [ %.0142, %171 ], [ %0, %get_recorded_desegment_data.exit ]
-  %.1 = phi ptr [ %.0, %180 ], [ %.0, %176 ], [ %.0, %171 ], [ null, %get_recorded_desegment_data.exit ]
+  %.2146 = phi i32 [ %.1145, %171 ], [ %.1145, %180 ], [ %.1145, %176 ], [ 0, %get_recorded_desegment_data.exit ]
+  %.2 = phi ptr [ %.0142, %171 ], [ %181, %180 ], [ %.0142, %176 ], [ %0, %get_recorded_desegment_data.exit ]
+  %.1 = phi ptr [ %.0, %171 ], [ %.0, %180 ], [ %.0, %176 ], [ null, %get_recorded_desegment_data.exit ]
   %183 = load i16, ptr %4, align 8
   %184 = zext i16 %183 to i32
   %185 = load i16, ptr %37, align 2
@@ -1610,7 +1610,7 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   br label %identify_chip.exit.i
 
 identify_chip.exit.i:                             ; preds = %195, %195, %195, %195, %195, %205, %204, %201, %195, %189
-  %.0.i.i = phi i32 [ 0, %205 ], [ 8, %204 ], [ 0, %189 ], [ %..i.i, %201 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ]
+  %.0.i.i = phi i32 [ 8, %204 ], [ 0, %205 ], [ %..i.i, %201 ], [ 0, %189 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ], [ %200, %195 ]
   store i32 %.0.i.i, ptr %191, align 4
   %206 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %5, ptr %206, align 4

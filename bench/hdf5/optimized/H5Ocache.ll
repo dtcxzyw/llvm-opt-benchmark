@@ -245,7 +245,7 @@ define internal range(i32 -1, 2) i32 @H5O__cache_verify_chksum(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %3, %12, %25
-  %.08 = phi i32 [ %.1, %25 ], [ 1, %12 ], [ 1, %3 ]
+  %.08 = phi i32 [ 1, %3 ], [ %.1, %25 ], [ 1, %12 ]
   ret i32 %.08
 }
 
@@ -354,7 +354,7 @@ define internal ptr @H5O__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %14, %63, %67, %64, %4
-  %.0 = phi ptr [ null, %67 ], [ null, %64 ], [ null, %4 ], [ %20, %63 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %67 ], [ null, %64 ], [ null, %14 ], [ null, %4 ], [ %20, %63 ]
   ret ptr %.0
 }
 
@@ -885,7 +885,7 @@ define internal range(i32 -1, 1) i32 @H5O__cache_notify(i32 noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %23, %48, %52, %39, %43, %9, %9, %9, %9, %9, %9, %14, %18, %2
-  %.018 = phi i32 [ -1, %52 ], [ -1, %23 ], [ 0, %18 ], [ 0, %14 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %48 ], [ 0, %43 ], [ 0, %39 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %35 ]
+  %.018 = phi i32 [ -1, %52 ], [ -1, %23 ], [ 0, %18 ], [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %48 ], [ 0, %43 ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %35 ]
   ret i32 %.018
 }
 
@@ -982,7 +982,7 @@ define internal range(i32 -1, 2) i32 @H5O__cache_chk_verify_chksum(ptr noundef %
   br label %28
 
 28:                                               ; preds = %3, %12, %27
-  %.08 = phi i32 [ %.1, %27 ], [ 1, %12 ], [ 1, %3 ]
+  %.08 = phi i32 [ 1, %3 ], [ %.1, %27 ], [ 1, %12 ]
   ret i32 %.08
 }
 
@@ -1080,7 +1080,7 @@ define internal ptr @H5O__cache_chk_deserialize(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %14, %54, %61, %58, %4
-  %.0 = phi ptr [ null, %61 ], [ null, %58 ], [ null, %4 ], [ %12, %54 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %61 ], [ null, %58 ], [ null, %14 ], [ null, %4 ], [ %12, %54 ]
   ret ptr %.0
 }
 
@@ -1343,7 +1343,7 @@ define internal range(i32 -1, 1) i32 @H5O__cache_chk_notify(i32 noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.preheader, %30, %38, %48, %76, %85, %95, %99, %64, %89, %9, %9, %9, %9, %9, %9, %18, %42, %2
-  %.034 = phi i32 [ -1, %99 ], [ -1, %30 ], [ -1, %38 ], [ -1, %48 ], [ 0, %42 ], [ 0, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %76 ], [ -1, %85 ], [ -1, %95 ], [ 0, %89 ], [ 0, %64 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %60 ]
+  %.034 = phi i32 [ -1, %99 ], [ -1, %30 ], [ -1, %38 ], [ -1, %48 ], [ 0, %42 ], [ 0, %18 ], [ 0, %2 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ -1, %76 ], [ -1, %85 ], [ -1, %95 ], [ 0, %89 ], [ 0, %64 ], [ 0, %.preheader ], [ 0, %60 ]
   ret i32 %.034
 }
 
@@ -1528,7 +1528,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   br label %98
 
 98:                                               ; preds = %.thread, %96
-  %.1275 = phi ptr [ %63, %96 ], [ %90, %.thread ]
+  %.1275 = phi ptr [ %90, %.thread ], [ %63, %96 ]
   %99 = and i8 %64, 16
   %.not295 = icmp eq i8 %99, 0
   br i1 %.not295, label %135, label %100
@@ -1943,7 +1943,7 @@ default.unreachable346:                           ; preds = %138
   br label %.thread325
 
 .thread325:                                       ; preds = %15, %.critedge, %3, %360, %363
-  %.0272 = phi i32 [ -1, %363 ], [ -1, %360 ], [ 0, %3 ], [ 0, %.critedge ], [ -1, %15 ]
+  %.0272 = phi i32 [ -1, %363 ], [ -1, %360 ], [ -1, %15 ], [ 0, %3 ], [ 0, %.critedge ]
   ret i32 %.0272
 }
 
@@ -2168,7 +2168,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   br label %132
 
 132:                                              ; preds = %.thread428, %118, %130
-  %.1 = phi ptr [ %131, %130 ], [ %86, %118 ], [ %113, %.thread428 ]
+  %.1 = phi ptr [ %113, %.thread428 ], [ %131, %130 ], [ %86, %118 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %134 = icmp eq i8 %91, 1
   %.neg378 = select i1 %134, i64 0, i64 -4
@@ -2666,7 +2666,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   br label %.thread468
 
 415:                                              ; preds = %408, %411, %414
-  %.3323 = phi i1 [ true, %414 ], [ %.6326, %411 ], [ %.6326, %408 ]
+  %.3323 = phi i1 [ %.6326, %411 ], [ %.6326, %408 ], [ true, %414 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %416
 
@@ -2721,8 +2721,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   br label %445
 
 445:                                              ; preds = %.thread453, %416, %423, %440
-  %.1318 = phi i32 [ 0, %440 ], [ %spec.select418, %423 ], [ %spec.select418, %416 ], [ %spec.select418, %.thread453 ]
-  %.3 = phi ptr [ %444, %440 ], [ %266, %423 ], [ %266, %416 ], [ %266, %.thread453 ]
+  %.1318 = phi i32 [ %spec.select418, %416 ], [ %spec.select418, %.thread453 ], [ 0, %440 ], [ %spec.select418, %423 ]
+  %.3 = phi ptr [ %266, %416 ], [ %266, %.thread453 ], [ %444, %440 ], [ %266, %423 ]
   %446 = icmp ult ptr %.3, %136
   br i1 %446, label %154, label %._crit_edge.loopexit
 
@@ -2761,7 +2761,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   br label %.thread468
 
 462:                                              ; preds = %.thread463, %._crit_edge
-  %.7 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %457, %.thread463 ]
+  %.7 = phi ptr [ %457, %.thread463 ], [ %.2.lcssa, %._crit_edge ]
   %463 = load ptr, ptr %36, align 8, !tbaa !43
   %464 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %463, i64 %37
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
@@ -2797,7 +2797,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   store i8 1, ptr %6, align 1, !tbaa !3
   br label %490
 
-.thread468:                                       ; preds = %.thread448, %173, %233, %257, %436, %431, %268, %243, %227, %220, %211, %202, %186, %162, %27, %126, %121, %114, %458, %470, %81, %72
+.thread468:                                       ; preds = %257, %.thread448, %233, %436, %431, %268, %243, %227, %220, %173, %211, %202, %186, %162, %27, %126, %121, %114, %458, %470, %81, %72
   %481 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %482 = load ptr, ptr %481, align 8, !tbaa !97
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 16

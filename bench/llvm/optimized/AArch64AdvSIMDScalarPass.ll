@@ -646,11 +646,11 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i: ; preds 
   br label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i: ; preds = %108, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i, %100, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
-  %110 = phi ptr [ %95, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %95, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre108.i.i, %108 ], [ %95, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %95, %100 ]
-  %111 = phi ptr [ %90, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %90, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre106.i.i, %108 ], [ %90, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %90, %100 ]
-  %112 = phi ptr [ %85, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %85, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre.i.i, %108 ], [ %85, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %85, %100 ]
-  %.035.i.i = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 0, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %spec.select43.i.i, %108 ], [ 0, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 0, %100 ]
-  %.033.i.i = phi i32 [ 3, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 3, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ 2, %108 ], [ 3, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 3, %100 ]
+  %110 = phi ptr [ %95, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %.pre108.i.i, %108 ], [ %95, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %95, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %95, %100 ]
+  %111 = phi ptr [ %90, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %.pre106.i.i, %108 ], [ %90, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %90, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %90, %100 ]
+  %112 = phi ptr [ %85, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %.pre.i.i, %108 ], [ %85, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %85, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %85, %100 ]
+  %.035.i.i = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %spec.select43.i.i, %108 ], [ 0, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ 0, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 0, %100 ]
+  %.033.i.i = phi i32 [ 3, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 2, %108 ], [ 3, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ 3, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 3, %100 ]
   %113 = icmp slt i32 %84, 0
   %114 = and i32 %84, 2147483647
   %115 = zext nneg i32 %114 to i64
@@ -702,11 +702,11 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i: ; pred
   br label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.thread.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.thread.i.i: ; preds = %131, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i, %123, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i
-  %135 = phi ptr [ %110, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %110, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %.pre113.i.i, %131 ], [ %110, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %110, %123 ]
-  %136 = phi ptr [ %111, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %111, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %.pre111.i.i, %131 ], [ %111, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %111, %123 ]
-  %137 = phi ptr [ %112, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %112, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %.pre109.i.i, %131 ], [ %112, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %112, %123 ]
-  %.237.i.i = phi i32 [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %spec.select45.i.i, %131 ], [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %.035.i.i, %123 ]
-  %.2.i.i = phi i32 [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %132, %131 ], [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %.033.i.i, %123 ]
+  %135 = phi ptr [ %110, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %.pre113.i.i, %131 ], [ %110, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %110, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %110, %123 ]
+  %136 = phi ptr [ %111, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %.pre111.i.i, %131 ], [ %111, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %111, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %111, %123 ]
+  %137 = phi ptr [ %112, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %.pre109.i.i, %131 ], [ %112, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %112, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %112, %123 ]
+  %.237.i.i = phi i32 [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %spec.select45.i.i, %131 ], [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %.035.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %.035.i.i, %123 ]
+  %.2.i.i = phi i32 [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.i.i ], [ %132, %131 ], [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit68.i.i ], [ %.033.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i ], [ %.033.i.i, %123 ]
   %138 = load ptr, ptr %79, align 8, !tbaa !215
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4, !tbaa !216
@@ -783,8 +783,8 @@ _ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i: ; preds = %157, %157, %1
   br label %162
 
 162:                                              ; preds = %160, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i, %157
-  %.5.i.i = phi i32 [ %159, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i ], [ %.439100.i.i, %160 ], [ %.439100.i.i, %157 ]
-  %.132.i.i = phi i8 [ %.031101.i.i, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i ], [ %spec.select47.i.i, %160 ], [ %.031101.i.i, %157 ]
+  %.5.i.i = phi i32 [ %159, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i ], [ %.439100.i.i, %157 ], [ %.439100.i.i, %160 ]
+  %.132.i.i = phi i8 [ %.031101.i.i, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit75.i.i ], [ %.031101.i.i, %157 ], [ %spec.select47.i.i, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge2.i.i.i.i
 
@@ -852,7 +852,7 @@ _ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12Mach
   br label %_ZL18getTransformOpcodej.exit.i.i
 
 _ZL18getTransformOpcodej.exit.i.i:                ; preds = %179, %178, %177, %176, %175, %171
-  %.0.i.i.i = phi i64 [ %180, %179 ], [ 7463, %175 ], [ 1614, %176 ], [ 2480, %177 ], [ 5350, %178 ], [ 1548, %171 ]
+  %.0.i.i.i = phi i64 [ %180, %179 ], [ 5350, %178 ], [ 7463, %175 ], [ 1614, %176 ], [ 2480, %177 ], [ 1548, %171 ]
   %181 = getelementptr inbounds nuw i8, ptr %138, i64 36
   %182 = load i32, ptr %181, align 4, !tbaa !216
   %183 = getelementptr inbounds nuw i8, ptr %138, i64 68
@@ -1852,7 +1852,7 @@ _ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread: ; preds = %_ZNK4llvm1
   br label %.critedge2
 
 .critedge2:                                       ; preds = %3, %211, %.thread23.i42, %.critedge.thread, %158, %155, %.critedge, %10, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37, %.thread58, %203, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit, %100, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread, %16, %6
-  %.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %174, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread ], [ null, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48 ], [ %93, %100 ], [ %93, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit ], [ null, %203 ], [ null, %.thread58 ], [ null, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37 ], [ null, %10 ], [ null, %.critedge ], [ null, %155 ], [ null, %158 ], [ null, %.critedge.thread ], [ null, %.thread23.i42 ], [ null, %211 ], [ null, %3 ]
+  %.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ null, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit37 ], [ %174, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48.thread ], [ null, %_ZL7isFPR64jjPKN4llvm19MachineRegisterInfoE.exit48 ], [ null, %.critedge.thread ], [ null, %3 ], [ %93, %100 ], [ %93, %_ZL7isGPR64jjPKN4llvm19MachineRegisterInfoE.exit ], [ null, %203 ], [ null, %.thread58 ], [ null, %10 ], [ null, %.critedge ], [ null, %155 ], [ null, %158 ], [ null, %.thread23.i42 ], [ null, %211 ]
   ret ptr %.0
 }
 

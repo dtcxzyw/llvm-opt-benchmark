@@ -423,7 +423,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %234
 
 234:                                              ; preds = %4, %233, %230
-  %.0 = phi i32 [ -22, %233 ], [ %232, %230 ], [ %11, %4 ]
+  %.0 = phi i32 [ %232, %230 ], [ -22, %233 ], [ %11, %4 ]
   ret i32 %.0
 }
 
@@ -589,7 +589,7 @@ define internal fastcc range(i32 -1094995529, 268435456) i32 @loco_decode_plane(
   br label %loco_predict.exit.us
 
 loco_predict.exit.us:                             ; preds = %84, %82, %81, %79
-  %.0.i.i49.us = phi i32 [ %77, %82 ], [ %77, %79 ], [ %..i.i.us, %84 ], [ %.20.i.i.us, %81 ]
+  %.0.i.i49.us = phi i32 [ %..i.i.us, %84 ], [ %77, %79 ], [ %77, %82 ], [ %.20.i.i.us, %81 ]
   %85 = add i32 %.0.i.i49.us, %63
   %86 = trunc i32 %85 to i8
   store i8 %86, ptr %66, align 1, !tbaa !32
@@ -627,7 +627,7 @@ loco_predict.exit.us:                             ; preds = %84, %82, %81, %79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph61.split, %.lr.ph, %.lr.ph61.split.us, %62, %23, %10, %7, %._crit_edge62
-  %.040 = phi i32 [ %97, %._crit_edge62 ], [ -1, %7 ], [ -1094995529, %10 ], [ -1094995529, %23 ], [ -1, %62 ], [ -1094995529, %.lr.ph61.split.us ], [ -1094995529, %.lr.ph ], [ -1094995529, %.lr.ph61.split ]
+  %.040 = phi i32 [ %97, %._crit_edge62 ], [ -1, %7 ], [ -1094995529, %10 ], [ -1094995529, %23 ], [ -1094995529, %.lr.ph ], [ -1, %62 ], [ -1094995529, %.lr.ph61.split.us ], [ -1094995529, %.lr.ph61.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.040
 }
@@ -952,7 +952,7 @@ get_ur_golomb_jpegls.exit:                        ; preds = %68, %102
   br label %.critedge
 
 .critedge:                                        ; preds = %get_ur_golomb_jpegls.exit.thread, %13, %5, %122, %get_ur_golomb_jpegls.exit, %123, %138, %127, %loco_get_rice_param.exit, %15
-  %.0 = phi i32 [ -2147483648, %15 ], [ -2147483648, %loco_get_rice_param.exit ], [ %134, %138 ], [ %134, %127 ], [ 0, %123 ], [ -2147483648, %get_ur_golomb_jpegls.exit ], [ 0, %122 ], [ 0, %5 ], [ 0, %13 ], [ -2147483648, %get_ur_golomb_jpegls.exit.thread ]
+  %.0 = phi i32 [ 0, %123 ], [ 0, %122 ], [ -2147483648, %15 ], [ -2147483648, %get_ur_golomb_jpegls.exit ], [ -2147483648, %loco_get_rice_param.exit ], [ %134, %138 ], [ %134, %127 ], [ 0, %5 ], [ 0, %13 ], [ -2147483648, %get_ur_golomb_jpegls.exit.thread ]
   ret i32 %.0
 }
 

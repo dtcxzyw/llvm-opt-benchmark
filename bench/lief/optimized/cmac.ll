@@ -87,7 +87,7 @@ mbedtls_cipher_info_get_type.exit:                ; preds = %12
   br label %mbedtls_cipher_info_get_type.exit.thread
 
 mbedtls_cipher_info_get_type.exit.thread:         ; preds = %12, %18, %mbedtls_cipher_info_get_type.exit, %9, %3, %5, %21
-  %.0 = phi i32 [ 0, %21 ], [ -24832, %5 ], [ -24832, %3 ], [ %11, %9 ], [ -24832, %mbedtls_cipher_info_get_type.exit ], [ -24960, %18 ], [ -24832, %12 ]
+  %.0 = phi i32 [ 0, %21 ], [ -24832, %3 ], [ %11, %9 ], [ -24832, %mbedtls_cipher_info_get_type.exit ], [ -24832, %5 ], [ -24960, %18 ], [ -24832, %12 ]
   ret i32 %.0
 }
 
@@ -292,7 +292,7 @@ mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..prehe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_xor_no_simd.exit83, %.mbedtls_xor_no_simd.exit83_crit_edge.us, %mbedtls_xor_no_simd.exit, %83, %._crit_edge, %3, %6, %10
-  %.0 = phi i32 [ -24832, %10 ], [ -24832, %6 ], [ -24832, %3 ], [ %39, %mbedtls_xor_no_simd.exit ], [ 0, %83 ], [ 0, %._crit_edge ], [ %62, %.mbedtls_xor_no_simd.exit83_crit_edge.us ], [ %77, %mbedtls_xor_no_simd.exit83 ]
+  %.0 = phi i32 [ -24832, %3 ], [ -24832, %10 ], [ -24832, %6 ], [ %39, %mbedtls_xor_no_simd.exit ], [ 0, %83 ], [ 0, %._crit_edge ], [ %62, %.mbedtls_xor_no_simd.exit83_crit_edge.us ], [ %77, %mbedtls_xor_no_simd.exit83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -721,8 +721,8 @@ mbedtls_cipher_info_get_type.exit.i:              ; preds = %20
   %33 = call i32 @mbedtls_cipher_cmac_finish(ptr noundef nonnull %7, ptr noundef nonnull %5)
   br label %mbedtls_cipher_cmac_starts.exit.thread
 
-mbedtls_cipher_cmac_starts.exit.thread:           ; preds = %20, %26, %mbedtls_cipher_info_get_type.exit.i, %17, %14, %29, %12, %32
-  %.0 = phi i32 [ %13, %12 ], [ %31, %29 ], [ %33, %32 ], [ -24832, %20 ], [ -24960, %26 ], [ -24832, %mbedtls_cipher_info_get_type.exit.i ], [ %19, %17 ], [ -24832, %14 ]
+mbedtls_cipher_cmac_starts.exit.thread:           ; preds = %26, %14, %mbedtls_cipher_info_get_type.exit.i, %17, %20, %29, %12, %32
+  %.0 = phi i32 [ %13, %12 ], [ %33, %32 ], [ %31, %29 ], [ -24960, %26 ], [ -24832, %14 ], [ -24832, %mbedtls_cipher_info_get_type.exit.i ], [ %19, %17 ], [ -24832, %20 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %7) #12
   br label %34
 
@@ -775,7 +775,7 @@ define hidden i32 @mbedtls_aes_cmac_prf_128(ptr noundef readonly captures(addres
   br label %21
 
 21:                                               ; preds = %11, %17, %19
-  %.018 = phi i32 [ %20, %19 ], [ %18, %17 ], [ -24704, %11 ]
+  %.018 = phi i32 [ %18, %17 ], [ %20, %19 ], [ -24704, %11 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #12
   br label %22
 
@@ -856,7 +856,7 @@ define hidden i32 @mbedtls_cmac_self_test(i32 noundef %0) local_unnamed_addr #0 
   br label %25
 
 25:                                               ; preds = %23, %24, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi i32 [ %2, %1 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ 0, %24 ], [ 0, %23 ]
+  %.0 = phi i32 [ %22, %21 ], [ %2, %1 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ 0, %24 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -952,13 +952,13 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !25
 
 .sink.split87:                                    ; preds = %37, %32, %29, %22
-  %str.1.sink = phi ptr [ @str.5, %22 ], [ @str.5, %29 ], [ @str.11, %32 ], [ @str.11, %37 ]
-  %.030.ph = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ]
+  %str.1.sink = phi ptr [ @str.11, %32 ], [ @str.5, %29 ], [ @str.5, %22 ], [ @str.11, %37 ]
+  %.030.ph = phi i32 [ %31, %32 ], [ %24, %29 ], [ %21, %22 ], [ %.1, %37 ]
   %puts43 = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %41
 
 41:                                               ; preds = %.sink.split87, %37, %32, %29, %22
-  %.030 = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ], [ %.030.ph, %.sink.split87 ]
+  %.030 = phi i32 [ %.1, %37 ], [ %21, %22 ], [ %31, %32 ], [ %24, %29 ], [ %.030.ph, %.sink.split87 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %8) #12
   br label %.loopexit
 
@@ -1088,7 +1088,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br i1 %cond34, label %49, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split.us, %.preheader.split.split, %.preheader.split.us.split.us, %.preheader.split.us.split
-  %.us-phi = phi i32 [ %26, %.preheader.split.us.split ], [ %17, %.preheader.split.us.split.us ], [ %48, %.preheader.split.split ], [ %37, %.preheader.split.split.us ]
+  %.us-phi = phi i32 [ %48, %.preheader.split.split ], [ %26, %.preheader.split.us.split ], [ %17, %.preheader.split.us.split.us ], [ %37, %.preheader.split.split.us ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
 49:                                               ; preds = %.preheader.split.split
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br i1 %.not34, label %53, label %.split7.us
 
 .split7.us:                                       ; preds = %38, %49, %18, %27
-  %.us-phi8 = phi i32 [ %30, %27 ], [ %21, %18 ], [ %52, %49 ], [ %41, %38 ]
+  %.us-phi8 = phi i32 [ %52, %49 ], [ %30, %27 ], [ %21, %18 ], [ %41, %38 ]
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
 53:                                               ; preds = %49
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %53, %22, %31, %.loopexit.sink.split, %8, %.split7.us, %.split.us
-  %.0 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi8, %.split7.us ], [ -24704, %8 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %31 ], [ 0, %22 ], [ 0, %53 ], [ 0, %42 ]
+  %.0 = phi i32 [ -24704, %8 ], [ %.us-phi, %.split.us ], [ %.us-phi8, %.split7.us ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %53 ], [ 0, %31 ], [ 0, %22 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1200,7 +1200,7 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
   br i1 %.not.i, label %mbedtls_aes_cmac_prf_128.exit, label %mbedtls_aes_cmac_prf_128.exit.thread
 
 mbedtls_aes_cmac_prf_128.exit.thread:             ; preds = %.split, %29, %.split.us, %13
-  %.us-phi = phi i32 [ -24704, %.split.us ], [ %14, %13 ], [ -24704, %.split ], [ %30, %29 ]
+  %.us-phi = phi i32 [ %14, %13 ], [ -24704, %.split.us ], [ -24704, %.split ], [ %30, %29 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 16) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1221,7 +1221,7 @@ mbedtls_aes_cmac_prf_128.exit:                    ; preds = %28, %29
   br i1 %.not14, label %35, label %.loopexit21
 
 .loopexit21:                                      ; preds = %mbedtls_aes_cmac_prf_128.exit, %32, %17, %mbedtls_aes_cmac_prf_128.exit.us, %mbedtls_aes_cmac_prf_128.exit.thread
-  %.018.i20 = phi i32 [ %.us-phi, %mbedtls_aes_cmac_prf_128.exit.thread ], [ %16, %mbedtls_aes_cmac_prf_128.exit.us ], [ 0, %17 ], [ %31, %mbedtls_aes_cmac_prf_128.exit ], [ 0, %32 ]
+  %.018.i20 = phi i32 [ %.us-phi, %mbedtls_aes_cmac_prf_128.exit.thread ], [ 0, %17 ], [ %16, %mbedtls_aes_cmac_prf_128.exit.us ], [ %31, %mbedtls_aes_cmac_prf_128.exit ], [ 0, %32 ]
   br i1 %.not15, label %.loopexit, label %34
 
 34:                                               ; preds = %.loopexit21
@@ -1235,7 +1235,7 @@ mbedtls_aes_cmac_prf_128.exit:                    ; preds = %28, %29
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %35, %19, %.loopexit21, %34
-  %.012 = phi i32 [ %.018.i20, %34 ], [ %.018.i20, %.loopexit21 ], [ 0, %19 ], [ 0, %35 ]
+  %.012 = phi i32 [ %.018.i20, %.loopexit21 ], [ %.018.i20, %34 ], [ 0, %19 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.012
 }

@@ -268,7 +268,7 @@ define dso_local range(i32 0, 2) i32 @phpdbg_is_class_method(ptr noundef %0, i64
   br label %31
 
 31:                                               ; preds = %24, %25, %6, %9, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %9 ], [ 0, %6 ], [ 1, %25 ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %5 ], [ 0, %9 ], [ 1, %25 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -458,7 +458,7 @@ zend_hash_find_ptr.exit.sink.split:               ; preds = %60, %57
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %zend_hash_find_ptr.exit.sink.split, %60, %57, %zend_string_release.exit27
-  %.1 = phi ptr [ null, %zend_string_release.exit27 ], [ null, %57 ], [ null, %60 ], [ %63, %zend_hash_find_ptr.exit.sink.split ]
+  %.1 = phi ptr [ null, %57 ], [ null, %zend_string_release.exit27 ], [ null, %60 ], [ %63, %zend_hash_find_ptr.exit.sink.split ]
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = and i32 %65, 64
@@ -796,7 +796,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_rebuild_symtable() local_unnamed_addr
   br i1 %.not3, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %5, %0, %2
-  %.str.10.sink = phi ptr [ @.str.9, %2 ], [ @.str.9, %0 ], [ @.str.10, %5 ]
+  %.str.10.sink = phi ptr [ @.str.9, %0 ], [ @.str.9, %2 ], [ @.str.10, %5 ]
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !87
   %8 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %7, ptr noundef nonnull %.str.10.sink) #26
   br label %9
@@ -1061,8 +1061,8 @@ define dso_local range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr nounde
   br label %246
 
 35:                                               ; preds = %23, %15, %18, %21
-  %.1285 = phi i64 [ %.0284409, %21 ], [ %.0284409, %18 ], [ %.0284409, %15 ], [ %spec.select, %23 ]
-  %.1279 = phi i8 [ 1, %21 ], [ %.0278411, %18 ], [ 1, %15 ], [ %spec.select355, %23 ]
+  %.1285 = phi i64 [ %spec.select, %23 ], [ %.0284409, %15 ], [ %.0284409, %21 ], [ %.0284409, %18 ]
+  %.1279 = phi i8 [ %spec.select355, %23 ], [ 1, %15 ], [ 1, %21 ], [ %.0278411, %18 ]
   %36 = trunc nuw i8 %.1279 to i1
   %37 = icmp eq i64 %.1285, 0
   %or.cond = select i1 %36, i1 %37, i1 false
@@ -1520,8 +1520,8 @@ zend_symtable_str_find.exit:                      ; preds = %169, %_zend_handle_
   %248 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %247, ptr noundef nonnull @.str.17) #26
   br label %.critedge
 
-.critedge:                                        ; preds = %246, %.loopexit, %.preheader364, %38, %.split399.us, %177, %176, %.loopexit366
-  %.1 = phi i32 [ -1, %.loopexit366 ], [ -1, %176 ], [ -1, %177 ], [ -1, %.split399.us ], [ %.0274412, %38 ], [ -1, %.preheader364 ], [ %.2276, %.loopexit ], [ %.14, %246 ]
+.critedge:                                        ; preds = %246, %.loopexit, %.preheader364, %38, %176, %.split399.us, %177, %.loopexit366
+  %.1 = phi i32 [ -1, %.loopexit366 ], [ -1, %177 ], [ -1, %.split399.us ], [ -1, %176 ], [ %.0274412, %38 ], [ -1, %.preheader364 ], [ %.2276, %.loopexit ], [ %.14, %246 ]
   ret i32 %.1
 }
 
@@ -1683,8 +1683,8 @@ instanceof_function.exit._crit_edge:              ; preds = %instanceof_function
   %76 = icmp eq i8 %75, 107
   br label %.thread69
 
-.thread69:                                        ; preds = %66, %60, %instanceof_function.exit, %32, %.critedge
-  %.4 = phi i1 [ %76, %.critedge ], [ true, %32 ], [ true, %instanceof_function.exit ], [ true, %60 ], [ false, %66 ]
+.thread69:                                        ; preds = %66, %instanceof_function.exit, %60, %32, %.critedge
+  %.4 = phi i1 [ %76, %.critedge ], [ true, %32 ], [ true, %60 ], [ true, %instanceof_function.exit ], [ false, %66 ]
   ret i1 %.4
 }
 

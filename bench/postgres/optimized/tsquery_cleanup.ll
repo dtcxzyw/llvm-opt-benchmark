@@ -156,7 +156,7 @@ define internal fastcc ptr @clean_NOT_intree(ptr noundef %0) unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %14, %29, %32, %33, %31, %1, %19, %9
-  %.027 = phi ptr [ null, %9 ], [ null, %19 ], [ %0, %1 ], [ null, %29 ], [ %25, %31 ], [ %26, %33 ], [ %0, %32 ], [ %0, %14 ]
+  %.027 = phi ptr [ %0, %1 ], [ null, %9 ], [ null, %19 ], [ %0, %32 ], [ null, %29 ], [ %25, %31 ], [ %26, %33 ], [ %0, %14 ]
   ret ptr %.027
 }
 
@@ -302,7 +302,7 @@ plaintree.exit:                                   ; preds = %22, %29
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %79, %plaintree.exit, %2, %19
-  %.0 = phi ptr [ %20, %19 ], [ %0, %2 ], [ %37, %plaintree.exit ], [ %37, %79 ]
+  %.0 = phi ptr [ %0, %2 ], [ %20, %19 ], [ %37, %plaintree.exit ], [ %37, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -469,7 +469,7 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr noundef no
   br label %80
 
 80:                                               ; preds = %16, %3, %79, %20, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %20 ], [ %.1, %79 ], [ %0, %3 ], [ %0, %16 ]
+  %.0 = phi ptr [ %.1, %79 ], [ null, %11 ], [ %0, %3 ], [ null, %20 ], [ %0, %16 ]
   ret ptr %.0
 }
 

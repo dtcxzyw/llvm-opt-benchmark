@@ -527,7 +527,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
   br label %68
 
 68:                                               ; preds = %58, %40, %31
-  %69 = phi reassoc nsz arcp contract afn float [ %57, %40 ], [ %67, %58 ], [ %37, %31 ]
+  %69 = phi reassoc nsz arcp contract afn float [ %67, %58 ], [ %57, %40 ], [ %37, %31 ]
   %70 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   store float %69, ptr %70, align 4, !tbaa !30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -654,7 +654,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
   br label %77
 
 77:                                               ; preds = %67, %49, %40
-  %78 = phi reassoc nsz arcp contract afn float [ %66, %49 ], [ %76, %67 ], [ %46, %40 ]
+  %78 = phi reassoc nsz arcp contract afn float [ %76, %67 ], [ %66, %49 ], [ %46, %40 ]
   %79 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i
   store float %78, ptr %79, align 4, !tbaa !30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1005,7 +1005,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %31
 
 31:                                               ; preds = %28, %2, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %28 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %28 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -1055,7 +1055,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

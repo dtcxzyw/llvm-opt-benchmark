@@ -589,7 +589,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br label %.thread
 
 292:                                              ; preds = %246, %257
-  %.3 = phi i64 [ %247, %246 ], [ %258, %257 ]
+  %.3 = phi i64 [ %258, %257 ], [ %247, %246 ]
   %293 = icmp sgt i64 %.3, 64
   br i1 %293, label %294, label %.backedge
 
@@ -877,7 +877,7 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   br label %.thread
 
 .thread:                                          ; preds = %291, %243, %438, %442, %331
-  %.0161201 = phi ptr [ %.0161, %438 ], [ %.0161, %442 ], [ %.0161, %331 ], [ %.1162, %243 ], [ %.1162, %291 ]
+  %.0161201 = phi ptr [ %.0161, %331 ], [ %.0161, %438 ], [ %.0161, %442 ], [ %.1162, %243 ], [ %.1162, %291 ]
   store i32 %14, ptr %13, align 4
   %448 = load i32, ptr %17, align 8
   %449 = icmp eq i32 %448, 2

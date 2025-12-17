@@ -1060,7 +1060,7 @@ rb_num2long_inline.exit:                          ; preds = %19, %21
   br label %rb_num2long_inline.exit22
 
 rb_num2long_inline.exit22:                        ; preds = %40, %38
-  %42 = phi i64 [ %39, %38 ], [ %41, %40 ]
+  %42 = phi i64 [ %41, %40 ], [ %39, %38 ]
   switch i64 %42, label %46 [
     i64 0, label %rb_num2long_inline.exit22.thread
     i64 1, label %rb_num2long_inline.exit22.thread.sink.split
@@ -1395,7 +1395,7 @@ readable.exit:                                    ; preds = %16
   br label %31
 
 31:                                               ; preds = %readable.exit, %29, %26
-  %32 = phi ptr [ %30, %29 ], [ null, %26 ], [ %25, %readable.exit ]
+  %32 = phi ptr [ null, %26 ], [ %30, %29 ], [ %25, %readable.exit ]
   %33 = tail call i64 @rb_io_taint_check(i64 noundef %0) #16
   %34 = tail call ptr @rb_check_typeddata(i64 noundef %33, ptr noundef nonnull @strio_data_type) #16
   %.not.i.i.i24 = icmp eq ptr %34, null
@@ -2043,7 +2043,7 @@ readable.exit:                                    ; preds = %12
   br label %37
 
 37:                                               ; preds = %24, %35, %32
-  %.0 = phi i64 [ %34, %32 ], [ %36, %35 ], [ 4, %24 ]
+  %.0 = phi i64 [ %36, %35 ], [ %34, %32 ], [ 4, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -2311,8 +2311,8 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
   br label %95
 
 95:                                               ; preds = %90, %93, %88
-  %.0447377 = phi i64 [ %.0.i, %88 ], [ %85, %93 ], [ %85, %90 ]
-  %96 = phi ptr [ %89, %88 ], [ %94, %93 ], [ %92, %90 ]
+  %.0447377 = phi i64 [ %.0.i, %88 ], [ %85, %90 ], [ %85, %93 ]
+  %96 = phi ptr [ %89, %88 ], [ %92, %90 ], [ %94, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = load i64, ptr %97, align 8, !tbaa !23
   %.val = load i64, ptr %6, align 8, !tbaa !10
@@ -2399,7 +2399,7 @@ strio_substr.exit:                                ; preds = %106, %104, %ruby_no
   br label %137
 
 137:                                              ; preds = %54, %49, %52, %strio_substr.exit, %76
-  %.0 = phi i64 [ %79, %76 ], [ %130, %strio_substr.exit ], [ 4, %52 ], [ 4, %49 ], [ 4, %54 ]
+  %.0 = phi i64 [ 4, %49 ], [ %79, %76 ], [ %130, %strio_substr.exit ], [ 4, %52 ], [ 4, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -2949,7 +2949,7 @@ get_strio.exit:                                   ; preds = %1
   br label %13
 
 13:                                               ; preds = %get_strio.exit, %11, %8
-  %14 = phi ptr [ %12, %11 ], [ null, %8 ], [ %7, %get_strio.exit ]
+  %14 = phi ptr [ null, %8 ], [ %12, %11 ], [ %7, %get_strio.exit ]
   %15 = tail call i64 @rb_enc_from_encoding(ptr noundef %14) #16
   ret i64 %15
 }
@@ -3003,7 +3003,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
   br i1 %25, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.preheader, %19
-  %.0.i17 = phi i32 [ %.0.i33, %.preheader ], [ 0, %19 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i17 = phi i32 [ 0, %19 ], [ %.0.i33, %.preheader ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i17, i32 noundef 1, i32 noundef 2) #19
   unreachable
 
@@ -3239,7 +3239,7 @@ rb_scan_args_n_opt.exit:
   br i1 %15, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.preheader, %10
-  %.0.i11 = phi i32 [ %.0.i22, %.preheader ], [ 0, %10 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i11 = phi i32 [ 0, %10 ], [ %.0.i22, %.preheader ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 2) #19
   unreachable
 
@@ -3306,7 +3306,7 @@ rb_scan_args_n_opt.exit:
   br i1 %14, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread7, %10
-  %.0.i4 = phi i32 [ %.0.i9, %.thread7 ], [ 0, %10 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i4 = phi i32 [ 0, %10 ], [ %.0.i9, %.thread7 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i4, i32 noundef 1, i32 noundef 1) #19
   unreachable
 
@@ -3514,7 +3514,7 @@ rb_scan_args_set.exit:                            ; preds = %28
   br label %40
 
 40:                                               ; preds = %37, %34
-  %41 = phi i64 [ %39, %37 ], [ %.pr, %34 ]
+  %41 = phi i64 [ %.pr, %34 ], [ %39, %37 ]
   %42 = icmp eq i64 %41, 4
   br i1 %42, label %.thread, label %43
 
@@ -3558,7 +3558,7 @@ rb_scan_args_set.exit:                            ; preds = %28
   br label %.thread46
 
 .thread21:                                        ; preds = %.thread.thread, %.thread43, %47
-  %60 = phi i32 [ %48, %47 ], [ %56, %.thread43 ], [ %55, %.thread.thread ]
+  %60 = phi i32 [ %56, %.thread43 ], [ %48, %47 ], [ %55, %.thread.thread ]
   %61 = and i32 %60, 2048
   %.not19 = icmp eq i32 %61, 0
   br i1 %.not19, label %64, label %62
@@ -3573,7 +3573,7 @@ rb_scan_args_set.exit:                            ; preds = %28
   br label %rb_obj_write.exit
 
 64:                                               ; preds = %62, %.thread21
-  %65 = phi i64 [ %.pre30, %62 ], [ %41, %.thread21 ]
+  %65 = phi i64 [ %41, %.thread21 ], [ %.pre30, %62 ]
   store i64 %65, ptr %2, align 8, !tbaa !6
   %66 = icmp eq i64 %65, 0
   %67 = and i64 %65, 7
@@ -4029,7 +4029,7 @@ rb_num2long_inline.exit37:                        ; preds = %rb_num2long_inline.
   br label %84
 
 84:                                               ; preds = %75, %82, %79
-  %85 = phi ptr [ %83, %82 ], [ null, %79 ], [ %78, %75 ]
+  %85 = phi ptr [ null, %79 ], [ %83, %82 ], [ %78, %75 ]
   %.not27 = icmp eq ptr %76, %85
   %.pre50 = load i64, ptr %4, align 8, !tbaa !6
   br i1 %.not27, label %105, label %86
@@ -4196,7 +4196,7 @@ RSTRING_PTR.exit:                                 ; preds = %22, %26
   br label %36
 
 36:                                               ; preds = %31, %34
-  %37 = phi ptr [ %35, %34 ], [ %33, %31 ]
+  %37 = phi ptr [ %33, %31 ], [ %35, %34 ]
   %38 = tail call ptr @onigenc_get_right_adjust_char_head(ptr noundef %37, ptr noundef %28, ptr noundef nonnull %32, ptr noundef %27) #16
   br label %39
 
@@ -4234,7 +4234,7 @@ RSTRING_PTR.exit:                                 ; preds = %22, %26
   br label %chomp_newline_width.exit
 
 chomp_newline_width.exit:                         ; preds = %56, %52, %46, %41
-  %.0148.neg245 = phi i64 [ 0, %41 ], [ -1, %56 ], [ -2, %52 ], [ 0, %46 ]
+  %.0148.neg245 = phi i64 [ 0, %41 ], [ -2, %52 ], [ -1, %56 ], [ 0, %46 ]
   %57 = load i64, ptr %17, align 8, !tbaa !23
   %58 = ptrtoint ptr %.0152 to i64
   %59 = ptrtoint ptr %28 to i64
@@ -4366,9 +4366,9 @@ chomp_newline_width.exit:                         ; preds = %56, %52, %46, %41
   br label %.critedge2
 
 .critedge2:                                       ; preds = %101, %.critedge2.loopexit, %.preheader230
-  %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit ], [ %76, %.preheader230 ], [ %76, %101 ]
-  %.3155 = phi ptr [ %.2158, %.critedge2.loopexit ], [ %.0152, %.preheader230 ], [ %.0152, %101 ]
-  %.0146 = phi ptr [ %112, %.critedge2.loopexit ], [ null, %.preheader230 ], [ null, %101 ]
+  %.pre-phi = phi i64 [ %76, %.preheader230 ], [ %.pre, %.critedge2.loopexit ], [ %76, %101 ]
+  %.3155 = phi ptr [ %.0152, %.preheader230 ], [ %.2158, %.critedge2.loopexit ], [ %.0152, %101 ]
+  %.0146 = phi ptr [ null, %.preheader230 ], [ %112, %.critedge2.loopexit ], [ null, %101 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i8, ptr %129, align 8
   %131 = and i8 %130, 1
@@ -4626,8 +4626,8 @@ bm_init_skip.exit:                                ; preds = %.lr.ph.i
   br label %strio_substr.exit
 
 strio_substr.exit:                                ; preds = %149, %151, %247, %245, %188, %186, %68, %66
-  %.1153 = phi ptr [ %.0152, %66 ], [ %.0152, %68 ], [ %.4, %186 ], [ %.4, %188 ], [ %.5, %245 ], [ %.5, %247 ], [ %.3155, %151 ], [ %.3155, %149 ]
-  %.0150 = phi i64 [ %67, %66 ], [ %69, %68 ], [ %187, %186 ], [ %189, %188 ], [ %246, %245 ], [ %248, %247 ], [ %152, %151 ], [ %150, %149 ]
+  %.1153 = phi ptr [ %.4, %188 ], [ %.5, %247 ], [ %.0152, %68 ], [ %.0152, %66 ], [ %.4, %186 ], [ %.5, %245 ], [ %.3155, %151 ], [ %.3155, %149 ]
+  %.0150 = phi i64 [ %189, %188 ], [ %248, %247 ], [ %69, %68 ], [ %67, %66 ], [ %187, %186 ], [ %246, %245 ], [ %152, %151 ], [ %150, %149 ]
   %250 = load i64, ptr %1, align 8, !tbaa !10
   %251 = inttoptr i64 %250 to ptr
   %252 = load i64, ptr %251, align 8, !tbaa !19, !noalias !109
@@ -5134,7 +5134,7 @@ RSTRING_PTR.exit74:                               ; preds = %RSTRING_PTR.exit70,
   br label %.thread
 
 .thread:                                          ; preds = %34, %50, %37, %121
-  %.0 = phi i64 [ %54, %121 ], [ 0, %37 ], [ 0, %50 ], [ 0, %34 ]
+  %.0 = phi i64 [ 0, %37 ], [ %54, %121 ], [ 0, %50 ], [ 0, %34 ]
   ret i64 %.0
 }
 

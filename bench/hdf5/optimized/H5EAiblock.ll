@@ -181,7 +181,7 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %11, %68, %69, %80, %77, %1
-  %.0 = phi ptr [ null, %80 ], [ null, %77 ], [ null, %1 ], [ %9, %68 ], [ %9, %69 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %80 ], [ null, %77 ], [ null, %11 ], [ null, %1 ], [ %9, %68 ], [ %9, %69 ]
   ret ptr %.0
 }
 
@@ -475,7 +475,7 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr noundef writeonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %14, %94, %125, %128, %2
-  %.0 = phi i64 [ -1, %128 ], [ -1, %125 ], [ -1, %2 ], [ %40, %94 ], [ -1, %14 ]
+  %.0 = phi i64 [ -1, %128 ], [ -1, %125 ], [ -1, %14 ], [ -1, %2 ], [ %40, %94 ]
   ret i64 %.0
 }
 
@@ -559,7 +559,7 @@ define ptr @H5EA__iblock_protect(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %16, %21, %24, %32, %43, %34, %2
-  %.0 = phi ptr [ null, %43 ], [ null, %34 ], [ null, %2 ], [ %14, %21 ], [ %14, %24 ], [ %14, %32 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %43 ], [ null, %34 ], [ null, %16 ], [ null, %2 ], [ %14, %21 ], [ %14, %24 ], [ %14, %32 ]
   ret ptr %.0
 }
 
@@ -737,7 +737,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br label %H5EA__iblock_unprotect.exit.thread
 
 .loopexit:                                        ; preds = %65, %39, %58, %.thread
-  %.151.ph = phi i32 [ -1, %58 ], [ -1, %39 ], [ 0, %.thread ], [ 0, %65 ]
+  %.151.ph = phi i32 [ -1, %58 ], [ 0, %.thread ], [ -1, %39 ], [ 0, %65 ]
   %76 = load i8, ptr @H5EA_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %77 = trunc nuw i8 %76 to i1
   %78 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -768,7 +768,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br label %H5EA__iblock_unprotect.exit.thread
 
 H5EA__iblock_unprotect.exit.thread:               ; preds = %.loopexit, %82, %70, %1, %91
-  %.050 = phi i32 [ -1, %91 ], [ -1, %70 ], [ 0, %1 ], [ %.151.ph, %82 ], [ %.151.ph, %.loopexit ]
+  %.050 = phi i32 [ -1, %91 ], [ 0, %1 ], [ -1, %70 ], [ %.151.ph, %82 ], [ %.151.ph, %.loopexit ]
   ret i32 %.050
 }
 

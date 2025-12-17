@@ -32,7 +32,7 @@ define internal noalias ptr @kdf_pbkdf1_new(ptr noundef %0) #0 {
   br label %7
 
 7:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -379,7 +379,7 @@ kdf_pbkdf1_set_membuf.exit28:                     ; preds = %40, %37, %34, %kdf_
   br label %kdf_pbkdf1_set_membuf.exit.thread
 
 kdf_pbkdf1_set_membuf.exit.thread:                ; preds = %40, %34, %23, %17, %43, %2, %46
-  %.0 = phi i32 [ 1, %46 ], [ 0, %2 ], [ 0, %43 ], [ 0, %17 ], [ 0, %23 ], [ 0, %34 ], [ 0, %40 ]
+  %.0 = phi i32 [ 1, %46 ], [ 0, %23 ], [ 0, %43 ], [ 0, %2 ], [ 0, %17 ], [ 0, %34 ], [ 0, %40 ]
   ret i32 %.0
 }
 

@@ -135,7 +135,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
   %.not77 = icmp eq ptr %54, null
   br i1 %.not77, label %.critedge79.thread, label %.critedge79.thread92
 
-.critedge79.thread:                               ; preds = %.critedge, %.thread88, %52, %.critedge79
+.critedge79.thread:                               ; preds = %.critedge, %52, %.thread88, %.critedge79
   %55 = tail call ptr @__errno_location() #11
   %56 = load i32, ptr %55, align 4, !tbaa !30
   %57 = tail call ptr @strerror(i32 noundef %56) #10
@@ -297,7 +297,7 @@ define dso_local noundef i64 @tool_write_cb(ptr noundef readonly %0, i64 noundef
   br label %62
 
 62:                                               ; preds = %35, %15, %58, %61, %29
-  %.0 = phi i64 [ %40, %61 ], [ 4294967295, %58 ], [ 4294967295, %29 ], [ 4294967295, %15 ], [ 4294967295, %35 ]
+  %.0 = phi i64 [ 4294967295, %15 ], [ %40, %61 ], [ 4294967295, %58 ], [ 4294967295, %29 ], [ 4294967295, %35 ]
   ret i64 %.0
 }
 

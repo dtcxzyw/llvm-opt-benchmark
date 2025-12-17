@@ -2463,7 +2463,7 @@ _ZN4llvm6object6Parser5ungetEv.exit28:            ; preds = %133, %_ZNSt6vectorI
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit14, %_ZN4llvm6object6Parser5ungetEv.exit28, %91, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %122
-  %.sink = phi ptr [ %126, %122 ], [ null, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ null, %91 ], [ null, %_ZN4llvm6object6Parser5ungetEv.exit28 ], [ null, %_ZN4llvm5ErrorD2Ev.exit14 ]
+  %.sink = phi ptr [ %126, %122 ], [ null, %91 ], [ null, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ null, %_ZN4llvm6object6Parser5ungetEv.exit28 ], [ null, %_ZN4llvm5ErrorD2Ev.exit14 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !40
   br label %156
 
@@ -2903,7 +2903,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i118:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchINS_6object4KindES2_E4CaseENS_13StringLiteralES2_.exit121
 
 _ZN4llvm12StringSwitchINS_6object4KindES2_E4CaseENS_13StringLiteralES2_.exit121: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %63, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i118, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i110, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i94, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i86, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i70, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i62, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i78, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i102
-  %.sroa.28.11 = phi i64 [ 4294967311, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i102 ], [ 4294967308, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i78 ], [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i62 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i54 ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i70 ], [ %spec.select539, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i86 ], [ %spec.select540, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i94 ], [ %spec.select541, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i110 ], [ %spec.select544, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i118 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 0, %63 ]
+  %.sroa.28.11 = phi i64 [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i70 ], [ 4294967308, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i78 ], [ %spec.select544, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i118 ], [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i62 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i54 ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i46 ], [ %spec.select541, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i110 ], [ %spec.select539, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i86 ], [ %spec.select540, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i94 ], [ 4294967311, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i102 ], [ 0, %63 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %.not546 = icmp samesign ult i64 %.sroa.28.11, 4294967296
   %.sroa.28.16.extract.trunc = trunc i64 %.sroa.28.11 to i32
   %spec.select.i = select i1 %.not546, i32 2, i32 %.sroa.28.16.extract.trunc

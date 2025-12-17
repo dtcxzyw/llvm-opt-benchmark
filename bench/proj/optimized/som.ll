@@ -770,7 +770,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br label %10
 
 10:                                               ; preds = %3, %7, %9
-  %.sroa.3.0 = phi double [ 0xBFF921FB54442D18, %9 ], [ %1, %7 ], [ 0x3FF921FB54442D18, %3 ]
+  %.sroa.3.0 = phi double [ %1, %7 ], [ 0xBFF921FB54442D18, %9 ], [ 0x3FF921FB54442D18, %3 ]
   %11 = fcmp ult double %.sroa.3.0, 0.000000e+00
   %. = select i1 %11, double 0x4012D97C7F3321D2, double 0x3FF921FB54442D18
   %12 = tail call double @tan(double noundef %.sroa.3.0) #9, !tbaa !48

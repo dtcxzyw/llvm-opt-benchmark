@@ -661,7 +661,7 @@ sockopt_data.exit:                                ; preds = %.lr.ph.i.i188, %soc
   br label %optname_to_sym.exit
 
 optname_to_sym.exit:                              ; preds = %81, %83, %88, %90, %95, %97, %102, %104, %107
-  %.0.i190 = phi i64 [ %109, %107 ], [ %82, %81 ], [ %85, %83 ], [ %89, %88 ], [ %92, %90 ], [ %96, %95 ], [ %99, %97 ], [ %103, %102 ], [ %106, %104 ]
+  %.0.i190 = phi i64 [ %109, %107 ], [ %99, %97 ], [ %92, %90 ], [ %85, %83 ], [ %82, %81 ], [ %89, %88 ], [ %96, %95 ], [ %103, %102 ], [ %106, %104 ]
   %110 = and i64 %.0.i190, 255
   %111 = icmp eq i64 %110, 12
   br i1 %111, label %RB_SYMBOL_P.exit.thread, label %112
@@ -1631,7 +1631,7 @@ inspect_int.exit:                                 ; preds = %310, %315, %312, %3
   %.not171 = icmp eq i32 %.0, 0
   br i1 %.not171, label %inspect_int.exit.thread, label %inspect_int.exit.thread313
 
-inspect_int.exit.thread:                          ; preds = %64, %67, %420, %407, %393, %380, %361, %345, %331, %318, %292, %265, %252, %239, %226, %213, %200, %187, %174, %161, %148, %129, %127, %406, %344, %291, %290, %128, %inspect_int.exit
+inspect_int.exit.thread:                          ; preds = %64, %67, %420, %393, %406, %380, %361, %345, %331, %344, %318, %292, %265, %291, %290, %407, %252, %239, %226, %213, %200, %187, %174, %161, %148, %129, %128, %127, %inspect_int.exit
   %559 = call i64 @rb_str_cat(i64 noundef %42, ptr noundef nonnull @.str.25, i64 noundef 1) #6
   %560 = load i64, ptr %5, align 8, !tbaa !6
   %561 = call i64 @rb_str_dump(i64 noundef %560) #6

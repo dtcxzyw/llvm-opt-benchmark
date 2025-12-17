@@ -638,7 +638,7 @@ terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
   unreachable
 
 ehcleanup34:                                      ; preds = %if.then.i.i71, %lpad30, %lpad28, %if.then.i.i, %lpad.body.i
-  %.pn4 = phi { ptr, i32 } [ %59, %lpad28 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %60, %lpad30 ], [ %60, %if.then.i.i71 ]
+  %.pn4 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %59, %lpad28 ], [ %21, %if.then.i.i ], [ %60, %lpad30 ], [ %60, %if.then.i.i71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #17
   br label %ehcleanup35
 
@@ -1365,7 +1365,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #17
   br label %lpad.body
 

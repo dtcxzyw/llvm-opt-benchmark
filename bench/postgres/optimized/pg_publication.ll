@@ -64,7 +64,7 @@ define dso_local zeroext i1 @is_publishable_relation(ptr noundef readonly captur
   br label %is_publishable_class.exit
 
 is_publishable_class.exit:                        ; preds = %1, %8, %10
-  %15 = phi i1 [ false, %8 ], [ false, %1 ], [ %spec.select.i, %10 ]
+  %15 = phi i1 [ %spec.select.i, %10 ], [ false, %8 ], [ false, %1 ]
   ret i1 %15
 }
 
@@ -111,7 +111,7 @@ define dso_local range(i64 0, 2) i64 @pg_relation_is_publishable(ptr noundef cap
   br label %is_publishable_class.exit
 
 is_publishable_class.exit:                        ; preds = %9, %17, %19
-  %25 = phi i64 [ 0, %17 ], [ 0, %9 ], [ %24, %19 ]
+  %25 = phi i64 [ %24, %19 ], [ 0, %17 ], [ 0, %9 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #5
   br label %26
 
@@ -1465,7 +1465,7 @@ is_publishable_class.exit.us:                     ; preds = %15
   br label %is_publishable_class.exit.thread.us
 
 is_publishable_class.exit.thread.us:              ; preds = %21, %is_publishable_class.exit.us, %15, %.lr.ph.split.us
-  %.1.us = phi ptr [ %22, %21 ], [ %.031.us, %is_publishable_class.exit.us ], [ %.031.us, %15 ], [ %.031.us, %.lr.ph.split.us ]
+  %.1.us = phi ptr [ %.031.us, %.lr.ph.split.us ], [ %22, %21 ], [ %.031.us, %is_publishable_class.exit.us ], [ %.031.us, %15 ]
   %23 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #5
   %.not.us = icmp eq ptr %23, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
@@ -1920,9 +1920,9 @@ is_ancestor_member_tableinfos.exit.loopexit.us48.i: ; preds = %113
   br label %.critedge30.i
 
 .critedge30.i:                                    ; preds = %is_ancestor_member_tableinfos.exit.loopexit.us48.i, %.critedge30.thread.i, %.lr.ph.i.lr.ph.i, %.lr.ph.split.split.i, %.lr.ph.i110, %93, %85
-  %.sroa.010.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.sroa.010.050.i, %.lr.ph.split.split.i ], [ %.sroa.010.050.i, %93 ], [ %.sroa.010.050.i, %.lr.ph.i110 ], [ %.sroa.010.050.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.050.i, %85 ], [ %.sroa.010.050.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
-  %.sroa.7.1.i = phi i32 [ %114, %.critedge30.thread.i ], [ %.sroa.7.051.i, %.lr.ph.split.split.i ], [ %.sroa.7.051.i, %93 ], [ %.sroa.7.051.i, %.lr.ph.i110 ], [ %.sroa.7.051.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.051.i, %85 ], [ %.sroa.7.051.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
-  %.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.052.fr.i, %.lr.ph.split.split.i ], [ %.052.fr.i, %93 ], [ null, %.lr.ph.i110 ], [ %.052.fr.i, %.lr.ph.i.lr.ph.i ], [ %.052.fr.i, %85 ], [ %.052.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.sroa.010.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.sroa.010.050.i, %93 ], [ %.sroa.010.050.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.010.050.i, %.lr.ph.split.split.i ], [ %.sroa.010.050.i, %.lr.ph.i110 ], [ %.sroa.010.050.i, %85 ], [ %.sroa.010.050.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.sroa.7.1.i = phi i32 [ %114, %.critedge30.thread.i ], [ %.sroa.7.051.i, %93 ], [ %.sroa.7.051.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.7.051.i, %.lr.ph.split.split.i ], [ %.sroa.7.051.i, %.lr.ph.i110 ], [ %.sroa.7.051.i, %85 ], [ %.sroa.7.051.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
+  %.1.i = phi ptr [ %115, %.critedge30.thread.i ], [ %.052.fr.i, %93 ], [ %.052.fr.i, %.lr.ph.i.lr.ph.i ], [ %.052.fr.i, %.lr.ph.split.split.i ], [ null, %.lr.ph.i110 ], [ %.052.fr.i, %85 ], [ %.052.fr.i, %is_ancestor_member_tableinfos.exit.loopexit.us48.i ]
   %116 = add i32 %.sroa.7.1.i, 1
   %.not.i109 = icmp eq ptr %.sroa.010.1.i, null
   br i1 %.not.i109, label %filter_partitions.exit, label %.lr.ph53.i, !llvm.loop !20

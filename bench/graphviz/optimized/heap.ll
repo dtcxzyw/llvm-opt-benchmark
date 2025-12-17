@@ -48,7 +48,7 @@ define void @PQinsert(ptr noundef captures(none) %0, ptr noundef initializes((32
   br label %27
 
 27:                                               ; preds = %25, %23, %4
-  %.0.i = phi i32 [ %24, %23 ], [ %26, %25 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %26, %25 ], [ %24, %23 ], [ 0, %4 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !22
   %30 = icmp slt i32 %.0.i, %29
@@ -142,7 +142,7 @@ define void @PQdelete(ptr noundef captures(none) %0, ptr noundef captures(addres
   br label %24
 
 24:                                               ; preds = %22, %20, %5
-  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ 0, %5 ]
+  %.0.i = phi i32 [ %23, %22 ], [ %21, %20 ], [ 0, %5 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !22
   %27 = icmp slt i32 %.0.i, %26

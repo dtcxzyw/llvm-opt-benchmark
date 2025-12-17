@@ -415,7 +415,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond304.not, label %.critedge, label %186, !llvm.loop !42
 
 .critedge:                                        ; preds = %186, %190, %183, %149
-  %.2208 = phi ptr [ %145, %149 ], [ %.1207, %183 ], [ %.3209270, %186 ], [ %192, %190 ]
+  %.2208 = phi ptr [ %145, %149 ], [ %.1207, %183 ], [ %192, %190 ], [ %.3209270, %186 ]
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %195 = load i32, ptr %194, align 8, !tbaa !17
   %196 = icmp eq i32 %195, 11
@@ -576,7 +576,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond312.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !44
 
 ._crit_edge291:                                   ; preds = %._crit_edge285.split.us293, %._crit_edge285.split.us.us.us, %.preheader.lr.ph, %.thread344, %200
-  %.2208343347 = phi ptr [ %145, %.thread344 ], [ %.2208, %200 ], [ %.2208, %.preheader.lr.ph ], [ %.2208, %._crit_edge285.split.us.us.us ], [ %.2208, %._crit_edge285.split.us293 ]
+  %.2208343347 = phi ptr [ %145, %.thread344 ], [ %.2208, %.preheader.lr.ph ], [ %.2208, %200 ], [ %.2208, %._crit_edge285.split.us.us.us ], [ %.2208, %._crit_edge285.split.us293 ]
   call void @av_freep(ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %280
@@ -591,7 +591,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph281, %.thread, %127, %91, %83, %67, %4, %280, %66, %52, %49, %46, %43, %40, %37, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ -1163346256, %37 ], [ -1094995529, %40 ], [ -1163346256, %43 ], [ -1094995529, %46 ], [ -1163346256, %49 ], [ -1094995529, %52 ], [ -1094995529, %66 ], [ %284, %280 ], [ -1094995529, %4 ], [ %69, %67 ], [ -1094995529, %83 ], [ %92, %91 ], [ -12, %127 ], [ -1094995529, %.thread ], [ -1094995529, %.lr.ph281 ]
+  %.0 = phi i32 [ -1094995529, %15 ], [ -1163346256, %37 ], [ -1094995529, %40 ], [ -1163346256, %43 ], [ -1094995529, %46 ], [ -1163346256, %49 ], [ -1094995529, %52 ], [ -1094995529, %66 ], [ -1094995529, %4 ], [ %69, %67 ], [ -1094995529, %83 ], [ %284, %280 ], [ -1094995529, %.thread ], [ %92, %91 ], [ -12, %127 ], [ -1094995529, %.lr.ph281 ]
   ret i32 %.0
 }
 

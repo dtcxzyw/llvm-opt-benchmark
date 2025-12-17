@@ -172,7 +172,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr noundef nonnull readonly 
   br label %12
 
 12:                                               ; preds = %.lr.ph, %8, %9, %10, %11
-  %.0 = phi ptr [ @.str.4, %8 ], [ @.str.5, %9 ], [ @.str.6, %10 ], [ @.str.7, %11 ], [ @.str, %.lr.ph ]
+  %.0 = phi ptr [ @.str.7, %11 ], [ @.str.4, %8 ], [ @.str.5, %9 ], [ @.str.6, %10 ], [ @.str, %.lr.ph ]
   %13 = icmp ult i64 %.02227, %.02325
   %.pre29 = load ptr, ptr %4, align 8
   br i1 %13, label %14, label %20

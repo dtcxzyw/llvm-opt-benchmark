@@ -231,8 +231,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 _ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %3, %.outer._crit_edge, %44, %47, %49, %54, %56, %60, %65
-  %.0.lcssa74 = phi i64 [ %.0.lcssa, %.outer._crit_edge ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %65 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %54 ], [ 0, %3 ]
-  %.0.i = phi i64 [ %2, %.outer._crit_edge ], [ %..i, %44 ], [ %.113.ph.lcssa39, %56 ], [ %spec.select.i, %49 ], [ %spec.select8.i, %60 ], [ %spec.select9.i, %65 ], [ %.113.ph.lcssa39, %47 ], [ %.113.ph.lcssa39, %54 ], [ 0, %3 ]
+  %.0.lcssa74 = phi i64 [ %.0.lcssa, %60 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %54 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %.outer._crit_edge ], [ %.0.lcssa, %65 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %spec.select8.i, %60 ], [ %spec.select.i, %49 ], [ %.113.ph.lcssa39, %54 ], [ %.113.ph.lcssa39, %56 ], [ %.113.ph.lcssa39, %47 ], [ %..i, %44 ], [ %2, %.outer._crit_edge ], [ %spec.select9.i, %65 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost4urls6detail8path_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %1, i64 %2, i64 noundef %.0.lcssa74, i64 noundef %.0.i) #7
   call void @_ZN5boost4urls21segments_encoded_viewC1ERKNS0_6detail8path_refE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7) #7

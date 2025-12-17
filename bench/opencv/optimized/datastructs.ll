@@ -2375,7 +2375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %53
   br label %.loopexit147
 
 .loopexit147:                                     ; preds = %.preheader148, %..loopexit149_crit_edge, %.preheader146, %..loopexit147_crit_edge
-  %storemerge = phi ptr [ %138, %..loopexit147_crit_edge ], [ %105, %.preheader146 ], [ %140, %..loopexit149_crit_edge ], [ %101, %.preheader148 ]
+  %storemerge = phi ptr [ %105, %.preheader146 ], [ %138, %..loopexit147_crit_edge ], [ %140, %..loopexit149_crit_edge ], [ %101, %.preheader148 ]
   store ptr %storemerge, ptr %93, align 8, !tbaa !57
   br label %141
 
@@ -4967,7 +4967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %19
   ret ptr %.0132
 
 211:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn160.pn = phi { ptr, i32 } [ %.pn160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %.pn150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ %.pn153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ]
+  %.pn160.pn = phi { ptr, i32 } [ %.pn160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %.pn157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171 ], [ %.pn153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168 ]
   resume { ptr, i32 } %.pn160.pn
 }
 
@@ -8886,8 +8886,8 @@ cvSetSeqReaderPos.exit520:                        ; preds = %..loopexit149_crit_
   br label %cvSetSeqReaderPos.exit572
 
 cvSetSeqReaderPos.exit572:                        ; preds = %.preheader148.i549, %.preheader146.i557, %..loopexit147_crit_edge.i567, %..loopexit149_crit_edge.i556
-  %storemerge.i5251066 = phi ptr [ %storemerge.i525.ph, %..loopexit147_crit_edge.i567 ], [ %storemerge.i525.ph, %.preheader146.i557 ], [ %storemerge.i525, %..loopexit149_crit_edge.i556 ], [ %storemerge.i525, %.preheader148.i549 ]
-  %storemerge.i551 = phi ptr [ %690, %..loopexit147_crit_edge.i567 ], [ %658, %.preheader146.i557 ], [ %691, %..loopexit149_crit_edge.i556 ], [ %656, %.preheader148.i549 ]
+  %storemerge.i5251066 = phi ptr [ %storemerge.i525.ph, %.preheader146.i557 ], [ %storemerge.i525.ph, %..loopexit147_crit_edge.i567 ], [ %storemerge.i525, %..loopexit149_crit_edge.i556 ], [ %storemerge.i525, %.preheader148.i549 ]
+  %storemerge.i551 = phi ptr [ %658, %.preheader146.i557 ], [ %690, %..loopexit147_crit_edge.i567 ], [ %691, %..loopexit149_crit_edge.i556 ], [ %656, %.preheader148.i549 ]
   %692 = call noundef i32 %1(ptr noundef %storemerge.i499, ptr noundef %storemerge.i5251066, ptr noundef %2)
   %693 = icmp slt i32 %692, 0
   %694 = call noundef i32 %1(ptr noundef %storemerge.i5251066, ptr noundef %storemerge.i551, ptr noundef %2)
@@ -9104,9 +9104,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i595: ; preds = %
   br label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit573
 
 _Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit573:          ; preds = %..loopexit149_crit_edge.i609, %..loopexit147_crit_edge.i620, %.preheader146.i610, %.preheader148.i602, %703, %701, %697, %695
-  %.0265 = phi ptr [ %700, %697 ], [ %706, %703 ], [ %storemerge.i5251066, %695 ], [ %storemerge.i5251066, %701 ], [ %803, %..loopexit147_crit_edge.i620 ], [ %771, %.preheader146.i610 ], [ %804, %..loopexit149_crit_edge.i609 ], [ %768, %.preheader148.i602 ]
-  %.0264 = phi ptr [ %571, %697 ], [ %571, %703 ], [ %571, %695 ], [ %571, %701 ], [ %storemerge.i578, %..loopexit147_crit_edge.i620 ], [ %storemerge.i578, %.preheader146.i610 ], [ %storemerge.i578, %..loopexit149_crit_edge.i609 ], [ %storemerge.i578, %.preheader148.i602 ]
-  %.0262 = phi ptr [ %434, %697 ], [ %434, %703 ], [ %434, %695 ], [ %434, %701 ], [ %.sroa.52.0.copyload, %..loopexit147_crit_edge.i620 ], [ %.sroa.52.0.copyload, %.preheader146.i610 ], [ %.sroa.52.0.copyload, %..loopexit149_crit_edge.i609 ], [ %.sroa.52.0.copyload, %.preheader148.i602 ]
+  %.0265 = phi ptr [ %storemerge.i5251066, %701 ], [ %700, %697 ], [ %706, %703 ], [ %storemerge.i5251066, %695 ], [ %771, %.preheader146.i610 ], [ %803, %..loopexit147_crit_edge.i620 ], [ %804, %..loopexit149_crit_edge.i609 ], [ %768, %.preheader148.i602 ]
+  %.0264 = phi ptr [ %571, %701 ], [ %571, %697 ], [ %571, %703 ], [ %571, %695 ], [ %storemerge.i578, %.preheader146.i610 ], [ %storemerge.i578, %..loopexit147_crit_edge.i620 ], [ %storemerge.i578, %..loopexit149_crit_edge.i609 ], [ %storemerge.i578, %.preheader148.i602 ]
+  %.0262 = phi ptr [ %434, %701 ], [ %434, %697 ], [ %434, %703 ], [ %434, %695 ], [ %.sroa.52.0.copyload, %.preheader146.i610 ], [ %.sroa.52.0.copyload, %..loopexit147_crit_edge.i620 ], [ %.sroa.52.0.copyload, %..loopexit149_crit_edge.i609 ], [ %.sroa.52.0.copyload, %.preheader148.i602 ]
   %805 = call noundef i32 %1(ptr noundef %.0262, ptr noundef %.0264, ptr noundef %2)
   %806 = icmp slt i32 %805, 0
   %807 = call noundef i32 %1(ptr noundef %.0264, ptr noundef %.0265, ptr noundef %2)
@@ -10934,8 +10934,8 @@ cvStartReadSeq.exit:                              ; preds = %48, %51
   br i1 %exitcond274.not, label %.loopexit, label %.preheader180, !llvm.loop !125
 
 .loopexit:                                        ; preds = %59, %72, %144, %97, %._crit_edge.us, %99, %133, %118, %._crit_edge.us244, %.preheader183, %.preheader181, %.preheader179, %.preheader.lr.ph.split
-  %.sroa.16.2 = phi ptr [ %.sroa.16.7, %.preheader179 ], [ %.sroa.16.7, %.preheader.lr.ph.split ], [ %.sroa.16.7, %.preheader181 ], [ %.sroa.16.7, %.preheader183 ], [ %.sroa.16.4.us, %118 ], [ %.sroa.16.3236.us, %._crit_edge.us244 ], [ %.sroa.16.4, %133 ], [ %.sroa.16.5210.us, %99 ], [ %.sroa.16.6.us, %97 ], [ %.sroa.16.5210.us, %._crit_edge.us ], [ %.sroa.16.6, %144 ], [ %.sroa.16.0195, %59 ], [ %.sroa.16.1, %72 ]
-  %.185 = phi i32 [ 0, %.preheader179 ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader181 ], [ 0, %.preheader183 ], [ %45, %118 ], [ %.286238.us, %._crit_edge.us244 ], [ %45, %133 ], [ %.387212.us, %99 ], [ %45, %97 ], [ %.387212.us, %._crit_edge.us ], [ %45, %144 ], [ %.084197, %59 ], [ %45, %72 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.7, %.preheader.lr.ph.split ], [ %.sroa.16.7, %.preheader179 ], [ %.sroa.16.7, %.preheader181 ], [ %.sroa.16.7, %.preheader183 ], [ %.sroa.16.5210.us, %99 ], [ %.sroa.16.4.us, %118 ], [ %.sroa.16.5210.us, %._crit_edge.us ], [ %.sroa.16.4, %133 ], [ %.sroa.16.6, %144 ], [ %.sroa.16.3236.us, %._crit_edge.us244 ], [ %.sroa.16.6.us, %97 ], [ %.sroa.16.0195, %59 ], [ %.sroa.16.1, %72 ]
+  %.185 = phi i32 [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader179 ], [ 0, %.preheader181 ], [ 0, %.preheader183 ], [ %.387212.us, %99 ], [ %45, %118 ], [ %.387212.us, %._crit_edge.us ], [ %45, %133 ], [ %45, %144 ], [ %.286238.us, %._crit_edge.us244 ], [ %45, %97 ], [ %.084197, %59 ], [ %45, %72 ]
   %146 = icmp slt i32 %.185, %45
   %.079 = select i1 %146, ptr %.sroa.16.2, ptr null
   br label %.loopexit186
@@ -11836,7 +11836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %21
   br i1 %.not139, label %.loopexit, label %.lr.ph292, !llvm.loop !144
 
 .loopexit:                                        ; preds = %.lr.ph292, %.preheader270, %195, %191, %.lr.ph299
-  %.2 = phi ptr [ %.186298, %191 ], [ %.186298, %.lr.ph299 ], [ %.186298, %195 ], [ %.4, %.preheader270 ], [ %.4, %.lr.ph292 ]
+  %.2 = phi ptr [ %.186298, %.lr.ph299 ], [ %.186298, %191 ], [ %.186298, %195 ], [ %.4, %.preheader270 ], [ %.4, %.lr.ph292 ]
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.22.4294, i64 24
   %.not140 = icmp ult ptr %226, %.sroa.42.4293
   br i1 %.not140, label %235, label %227
@@ -15345,7 +15345,7 @@ _ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit:         ; preds = %164
   br label %189
 
 189:                                              ; preds = %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread, %188, %113, %84, %73, %48
-  %.0100 = phi i32 [ %81, %84 ], [ 2, %73 ], [ 64, %113 ], [ 1, %48 ], [ 32, %188 ], [ -1, %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread ]
+  %.0100 = phi i32 [ %81, %84 ], [ 2, %73 ], [ 1, %48 ], [ 64, %113 ], [ 32, %188 ], [ -1, %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0100
 }

@@ -1572,7 +1572,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   store i64 %121, ptr %34, align 8, !alias.scope !148
   br label %96
 
-122:                                              ; preds = %.lr.ph, %104, %116
+122:                                              ; preds = %116, %104, %.lr.ph
   %lpad.thr_comm80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h4fbf934b5652eaaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #22
@@ -1629,7 +1629,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   ret void
 
 .thread:                                          ; preds = %131, %42, %.thread75, %136
-  %.pn3157 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %136 ], [ %.pn.pn.pn, %.thread75 ], [ %43, %42 ], [ %132, %131 ]
+  %.pn3157 = phi { ptr, i32 } [ %43, %42 ], [ %lpad.thr_comm.split-lp, %136 ], [ %132, %131 ], [ %.pn.pn.pn, %.thread75 ]
   resume { ptr, i32 } %.pn3157
 
 136:                                              ; preds = %4
@@ -1673,8 +1673,8 @@ define { i32, i32 } @_ZN6sparse5index14search_context13SearchContext11next_min_i
   br i1 %15, label %17, label %19
 
 17:                                               ; preds = %12, %19, %.lr.ph
-  %.sroa.5.1 = phi i32 [ %.sroa.5.015, %.lr.ph ], [ %spec.select, %19 ], [ %16, %12 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.016, %.lr.ph ], [ 1, %19 ], [ 1, %12 ]
+  %.sroa.5.1 = phi i32 [ %spec.select, %19 ], [ %.sroa.5.015, %.lr.ph ], [ %16, %12 ]
+  %.sroa.0.1 = phi i32 [ 1, %19 ], [ %.sroa.0.016, %.lr.ph ], [ 1, %12 ]
   %18 = icmp eq ptr %7, %3
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -1779,7 +1779,7 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %44, %48, %58, %47, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %47 ], [ %61, %58 ], [ false, %44 ], [ false, %48 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %48 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %47 ], [ %61, %58 ], [ false, %44 ]
   ret i1 %.0
 
 16:                                               ; preds = %6
@@ -1811,8 +1811,8 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   br i1 %29, label %31, label %33
 
 31:                                               ; preds = %33, %26, %.lr.ph.i
-  %.sroa.5.1.i = phi i32 [ %.sroa.5.015.i, %.lr.ph.i ], [ %spec.select.i, %33 ], [ %30, %26 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.016.i, %.lr.ph.i ], [ 1, %33 ], [ 1, %26 ]
+  %.sroa.5.1.i = phi i32 [ %spec.select.i, %33 ], [ %.sroa.5.015.i, %.lr.ph.i ], [ %30, %26 ]
+  %.sroa.0.1.i = phi i32 [ 1, %33 ], [ %.sroa.0.016.i, %.lr.ph.i ], [ 1, %26 ]
   %32 = icmp eq ptr %21, %19
   br i1 %32, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit, label %.lr.ph.i
 

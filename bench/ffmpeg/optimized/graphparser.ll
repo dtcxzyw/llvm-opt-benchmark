@@ -109,7 +109,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_parse2(ptr noundef %0, ptr 
   br label %20
 
 20:                                               ; preds = %8, %4, %._crit_edge
-  %.0 = phi i32 [ %10, %._crit_edge ], [ %6, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ %6, %4 ], [ %10, %._crit_edge ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -466,7 +466,7 @@ parse_sws_flags.exit.thread:                      ; preds = %24, %23, %chain_fre
   br label %133
 
 133:                                              ; preds = %14, %4, %parse_sws_flags.exit.thread, %132
-  %.013 = phi i32 [ %.012, %parse_sws_flags.exit.thread ], [ 0, %132 ], [ -38, %4 ], [ -12, %14 ]
+  %.013 = phi i32 [ -38, %4 ], [ %.012, %parse_sws_flags.exit.thread ], [ -12, %14 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.013
@@ -616,7 +616,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
   br label %71
 
 71:                                               ; preds = %._crit_edge64.i, %64, %62
-  %72 = phi i64 [ %.pre.i30, %._crit_edge64.i ], [ %55, %64 ], [ %55, %62 ]
+  %72 = phi i64 [ %.pre.i30, %._crit_edge64.i ], [ %55, %62 ], [ %55, %64 ]
   %73 = add nuw i64 %.02555.i, 1
   %74 = icmp ult i64 %73, %72
   br i1 %74, label %.lr.ph.i25, label %._crit_edge.loopexit.i28, !llvm.loop !69
@@ -637,8 +637,8 @@ avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i29, %4
   br i1 %79, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %68, %._crit_edge.i, %avfilter_graph_segment_init.exit, %61, %11, %13, %.thread25.i, %5
-  %.str.15.sink = phi ptr [ @.str.12, %5 ], [ @.str.13, %.thread25.i ], [ @.str.13, %13 ], [ @.str.13, %11 ], [ @.str.14, %61 ], [ @.str.15, %avfilter_graph_segment_init.exit ], [ @.str.13, %._crit_edge.i ], [ @.str.14, %68 ]
-  %.0.ph = phi i32 [ %6, %5 ], [ %9, %.thread25.i ], [ %9, %13 ], [ %9, %11 ], [ -22, %61 ], [ %78, %avfilter_graph_segment_init.exit ], [ %9, %._crit_edge.i ], [ %69, %68 ]
+  %.str.15.sink = phi ptr [ @.str.14, %61 ], [ @.str.13, %11 ], [ @.str.12, %5 ], [ @.str.13, %.thread25.i ], [ @.str.13, %13 ], [ @.str.15, %avfilter_graph_segment_init.exit ], [ @.str.13, %._crit_edge.i ], [ @.str.14, %68 ]
+  %.0.ph = phi i32 [ -22, %61 ], [ %9, %11 ], [ %6, %5 ], [ %9, %.thread25.i ], [ %9, %13 ], [ %78, %avfilter_graph_segment_init.exit ], [ %9, %._crit_edge.i ], [ %69, %68 ]
   %80 = load ptr, ptr %0, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %80, i32 noundef 16, ptr noundef nonnull %.str.15.sink) #7
   br label %81
@@ -849,8 +849,8 @@ define i32 @avfilter_graph_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @av_freep(ptr noundef nonnull %25) #7
   br label %avfilter_graph_parse2.exit.thread
 
-avfilter_graph_parse2.exit.thread:                ; preds = %._crit_edge.i, %5
-  %.0.i.ph = phi i32 [ %12, %5 ], [ %16, %._crit_edge.i ]
+avfilter_graph_parse2.exit.thread:                ; preds = %5, %._crit_edge.i
+  %.0.i.ph = phi i32 [ %16, %._crit_edge.i ], [ %12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader
 
@@ -1061,8 +1061,8 @@ avfilter_inout_free.exit67:                       ; preds = %.lr.ph.i64, %82
   %100 = icmp slt i32 %.4, 0
   br i1 %100, label %.preheader, label %.loopexit.thread159
 
-.preheader:                                       ; preds = %avfilter_inout_free.exit, %avfilter_inout_free.exit67, %avfilter_graph_parse2.exit.thread, %73, %34, %.loopexit
-  %.024158 = phi i32 [ %.4, %.loopexit ], [ %.0.i.ph, %avfilter_graph_parse2.exit.thread ], [ -22, %73 ], [ -22, %34 ], [ %93, %avfilter_inout_free.exit67 ], [ %59, %avfilter_inout_free.exit ]
+.preheader:                                       ; preds = %avfilter_inout_free.exit, %avfilter_inout_free.exit67, %73, %34, %avfilter_graph_parse2.exit.thread, %.loopexit
+  %.024158 = phi i32 [ %.4, %.loopexit ], [ -22, %73 ], [ -22, %34 ], [ %.0.i.ph, %avfilter_graph_parse2.exit.thread ], [ %93, %avfilter_inout_free.exit67 ], [ %59, %avfilter_inout_free.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !18
   %.not47118 = icmp eq i32 %102, 0
@@ -1290,13 +1290,13 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_create_filters(ptr 
   %60 = add i64 %.15196, 1
   br label %61
 
-.thread82:                                        ; preds = %45, %35, %58
-  %.5.ph = phi i32 [ -1279870712, %35 ], [ %56, %58 ], [ -12, %45 ]
+.thread82:                                        ; preds = %45, %58, %35
+  %.5.ph = phi i32 [ %56, %58 ], [ -1279870712, %35 ], [ -12, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 61:                                               ; preds = %.thread, %32, %.lr.ph
-  %.353 = phi i64 [ %60, %.thread ], [ %.15196, %32 ], [ %.15196, %.lr.ph ]
+  %.353 = phi i64 [ %60, %.thread ], [ %.15196, %.lr.ph ], [ %.15196, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = add nuw i64 %.05895, 1
   %63 = load i64, ptr %23, align 8, !tbaa !47
@@ -1399,9 +1399,9 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply_opts(ptr noun
   %.pre = load i64, ptr %11, align 8, !tbaa !47
   br label %31
 
-31:                                               ; preds = %28, %22, %20
-  %32 = phi i64 [ %13, %20 ], [ %13, %22 ], [ %.pre, %28 ]
-  %.433.ph = phi i32 [ %.23169, %20 ], [ %.23169, %22 ], [ %spec.select, %28 ]
+31:                                               ; preds = %20, %28, %22
+  %32 = phi i64 [ %13, %22 ], [ %.pre, %28 ], [ %13, %20 ]
+  %.433.ph = phi i32 [ %.23169, %22 ], [ %spec.select, %28 ], [ %.23169, %20 ]
   %33 = add nuw i64 %.02870, 1
   %34 = icmp ult i64 %33, %32
   br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
@@ -1423,7 +1423,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply_opts(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.preheader, %.thread59.loopexit, %19, %2
-  %.0 = phi i32 [ -38, %2 ], [ -22, %19 ], [ 0, %.preheader ], [ %38, %.thread59.loopexit ], [ %26, %25 ]
+  %.0 = phi i32 [ -38, %2 ], [ %38, %.thread59.loopexit ], [ -22, %19 ], [ 0, %.preheader ], [ %26, %25 ]
   ret i32 %.0
 }
 
@@ -1494,8 +1494,8 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef re
   %.pre = load i64, ptr %11, align 8, !tbaa !47
   br label %29
 
-29:                                               ; preds = %._crit_edge64, %22, %20
-  %30 = phi i64 [ %.pre, %._crit_edge64 ], [ %13, %22 ], [ %13, %20 ]
+29:                                               ; preds = %._crit_edge64, %20, %22
+  %30 = phi i64 [ %.pre, %._crit_edge64 ], [ %13, %20 ], [ %13, %22 ]
   %31 = add nuw i64 %.02555, 1
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
@@ -2035,8 +2035,8 @@ find_linklabel.exit.i90:                          ; preds = %181
   br i1 %exitcond.not.i, label %.thread110.i, label %203, !llvm.loop !111
 
 .thread110.i:                                     ; preds = %._crit_edge.i.i69, %.thread94.split.i, %219, %.preheader.i61, %154
-  %220 = phi ptr [ null, %.preheader.i61 ], [ %146, %154 ], [ null, %219 ], [ null, %.thread94.split.i ], [ %146, %._crit_edge.i.i69 ]
-  %.not8496179.i = phi i1 [ true, %.preheader.i61 ], [ false, %154 ], [ true, %219 ], [ true, %.thread94.split.i ], [ false, %._crit_edge.i.i69 ]
+  %220 = phi ptr [ null, %.preheader.i61 ], [ %146, %154 ], [ null, %.thread94.split.i ], [ null, %219 ], [ %146, %._crit_edge.i.i69 ]
+  %.not8496179.i = phi i1 [ true, %.preheader.i61 ], [ false, %154 ], [ true, %.thread94.split.i ], [ true, %219 ], [ false, %._crit_edge.i.i69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %221 = tail call noalias ptr @av_mallocz(i64 noundef 32) #7
   store ptr %221, ptr %5, align 8, !tbaa !4
@@ -2119,8 +2119,8 @@ link_outputs.exit:                                ; preds = %236, %23, %.prehead
   %244 = icmp ult i64 %243, %242
   br i1 %244, label %10, label %avfilter_inout_free.exit97, !llvm.loop !114
 
-link_inputs.exit.thread:                          ; preds = %find_linklabel.exit.i, %.split.i, %find_linklabel.exit.i90, %214, %inout_add.exit.thread90.i, %40, %22, %133, %inout_add.exit.thread.i60
-  %.3110.ph = phi i32 [ -22, %22 ], [ -12, %inout_add.exit.thread.i60 ], [ -22, %133 ], [ -12, %inout_add.exit.thread90.i ], [ -22, %40 ], [ %188, %find_linklabel.exit.i90 ], [ %217, %214 ], [ -12, %.split.i ], [ %104, %find_linklabel.exit.i ]
+link_inputs.exit.thread:                          ; preds = %find_linklabel.exit.i, %.split.i, %214, %find_linklabel.exit.i90, %inout_add.exit.thread90.i, %40, %22, %133, %inout_add.exit.thread.i60
+  %.3110.ph = phi i32 [ -22, %22 ], [ -12, %inout_add.exit.thread90.i ], [ -22, %40 ], [ -12, %inout_add.exit.thread.i60 ], [ -22, %133 ], [ %217, %214 ], [ %188, %find_linklabel.exit.i90 ], [ -12, %.split.i ], [ %104, %find_linklabel.exit.i ]
   %.pr.i = load ptr, ptr %2, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %.pr.i, null
   br i1 %.not6.i, label %avfilter_inout_free.exit, label %.lr.ph.i91
@@ -2341,7 +2341,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %95
 
 95:                                               ; preds = %._crit_edge64.i, %88, %86
-  %96 = phi i64 [ %.pre.i86, %._crit_edge64.i ], [ %79, %88 ], [ %79, %86 ]
+  %96 = phi i64 [ %.pre.i86, %._crit_edge64.i ], [ %79, %86 ], [ %79, %88 ]
   %97 = add nuw i64 %.02555.i, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %.lr.ph.i81, label %._crit_edge.loopexit.i84, !llvm.loop !69
@@ -2698,8 +2698,8 @@ log_unknown_opt.exit:                             ; preds = %append_inout.exit12
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
   br label %228
 
-.loopexit:                                        ; preds = %92, %._crit_edge.i, %85, %.thread160, %.thread, %.thread25.i, %37, %115, %139, %143, %35, %28, %24
-  %.043.ph = phi i32 [ %206, %.thread160 ], [ %171, %.thread ], [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %117, %115 ], [ %141, %139 ], [ %145, %143 ], [ %33, %35 ], [ %30, %28 ], [ %26, %24 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
+.loopexit:                                        ; preds = %92, %._crit_edge.i, %85, %.thread25.i, %37, %139, %.thread160, %.thread, %143, %35, %115, %28, %24
+  %.043.ph = phi i32 [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %141, %139 ], [ %206, %.thread160 ], [ %171, %.thread ], [ %145, %143 ], [ %26, %24 ], [ %33, %35 ], [ %117, %115 ], [ %30, %28 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   %219 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.043.ph, ptr noundef nonnull %17, i64 noundef 64) #7
@@ -2896,7 +2896,7 @@ parse_link_name.exit.thread:                      ; preds = %.lr.ph52, %20
   br i1 %33, label %.lr.ph52, label %._crit_edge53
 
 pad_params_free.exit:                             ; preds = %28, %parse_link_name.exit.thread, %24
-  %.014 = phi i32 [ -12, %24 ], [ -22, %parse_link_name.exit.thread ], [ %26, %28 ]
+  %.014 = phi i32 [ -22, %parse_link_name.exit.thread ], [ -12, %24 ], [ %26, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = load i32, ptr %7, align 4, !tbaa !26
@@ -2937,7 +2937,7 @@ pad_params_free.exit22:                           ; preds = %.lr.ph, %41
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
 45:                                               ; preds = %._crit_edge, %._crit_edge53
-  %.015 = phi i32 [ %.014, %._crit_edge ], [ 0, %._crit_edge53 ]
+  %.015 = phi i32 [ 0, %._crit_edge53 ], [ %.014, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.015

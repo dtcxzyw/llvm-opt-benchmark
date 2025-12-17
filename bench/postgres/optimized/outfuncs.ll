@@ -1859,7 +1859,7 @@ define dso_local void @outToken(ptr noundef %0, ptr noundef readonly captures(ad
   br label %22
 
 22:                                               ; preds = %.sink.split, %13, %14
-  %.0 = phi ptr [ %1, %14 ], [ %1, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %1, %13 ], [ %1, %14 ], [ %.0.ph, %.sink.split ]
   %23 = load i8, ptr %.0, align 1
   switch i8 %23, label %25 [
     i8 0, label %.loopexit

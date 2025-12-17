@@ -144,7 +144,7 @@ define internal noundef i32 @by_store_ctrl_ex(ptr noundef %0, i32 noundef %1, pt
   br label %24
 
 24:                                               ; preds = %7, %8, %21, %9, %18, %22
-  %.1 = phi i32 [ %23, %22 ], [ 0, %21 ], [ 0, %9 ], [ 1, %18 ], [ 1, %8 ], [ 0, %7 ]
+  %.1 = phi i32 [ 1, %8 ], [ %23, %22 ], [ 1, %18 ], [ 0, %9 ], [ 0, %21 ], [ 0, %7 ]
   ret i32 %.1
 }
 
@@ -228,7 +228,7 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   br label %27
 
 27:                                               ; preds = %24, %21
-  %.2.us = phi i32 [ %26, %24 ], [ %23, %21 ]
+  %.2.us = phi i32 [ %23, %21 ], [ %26, %24 ]
   %.2.fr.us = freeze i32 %.2.us
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %16) #3
   %.not36.us = icmp eq i32 %.2.fr.us, 0

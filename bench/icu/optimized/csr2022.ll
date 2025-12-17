@@ -82,10 +82,10 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7717CharsetRecog_202210ma
   br label %23
 
 23:                                               ; preds = %.thread.us, %12
-  %.456.us = phi i32 [ %.05276.us, %12 ], [ %20, %.thread.us ]
-  %.251.us = phi i32 [ %.150.us, %12 ], [ %.04977.us, %.thread.us ]
-  %.148.us = phi i32 [ %spec.select.us, %12 ], [ %.04778.us, %.thread.us ]
-  %.4.us = phi i32 [ %.04579.us, %12 ], [ %22, %.thread.us ]
+  %.456.us = phi i32 [ %20, %.thread.us ], [ %.05276.us, %12 ]
+  %.251.us = phi i32 [ %.04977.us, %.thread.us ], [ %.150.us, %12 ]
+  %.148.us = phi i32 [ %.04778.us, %.thread.us ], [ %spec.select.us, %12 ]
+  %.4.us = phi i32 [ %22, %.thread.us ], [ %.04579.us, %12 ]
   %24 = add nsw i32 %.4.us, 1
   %25 = icmp slt i32 %24, %2
   br i1 %25, label %.lr.ph82.split.us, label %._crit_edge83, !llvm.loop !8
@@ -221,10 +221,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022JP5match
   br label %23
 
 23:                                               ; preds = %.thread.us.i, %12
-  %.456.us.i = phi i32 [ %.05276.us.i, %12 ], [ %20, %.thread.us.i ]
-  %.251.us.i = phi i32 [ %.150.us.i, %12 ], [ %.04977.us.i, %.thread.us.i ]
-  %.148.us.i = phi i32 [ %spec.select.us.i, %12 ], [ %.04778.us.i, %.thread.us.i ]
-  %.4.us.i = phi i32 [ %.04579.us.i, %12 ], [ %22, %.thread.us.i ]
+  %.456.us.i = phi i32 [ %20, %.thread.us.i ], [ %.05276.us.i, %12 ]
+  %.251.us.i = phi i32 [ %.04977.us.i, %.thread.us.i ], [ %.150.us.i, %12 ]
+  %.148.us.i = phi i32 [ %.04778.us.i, %.thread.us.i ], [ %spec.select.us.i, %12 ]
+  %.4.us.i = phi i32 [ %22, %.thread.us.i ], [ %.04579.us.i, %12 ]
   %24 = add nsw i32 %.4.us.i, 1
   %25 = icmp slt i32 %24, %6
   br i1 %25, label %.lr.ph82.split.us.i, label %._crit_edge83.i, !llvm.loop !8
@@ -343,10 +343,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022KR5match
   br label %18
 
 18:                                               ; preds = %.thread.us.i, %12
-  %.456.us.i = phi i32 [ %.05276.us.i, %12 ], [ %16, %.thread.us.i ]
-  %.251.us.i = phi i32 [ %.150.us.i, %12 ], [ %.04977.us.i, %.thread.us.i ]
-  %.148.us.i = phi i32 [ %spec.select.us.i, %12 ], [ %.04778.us.i, %.thread.us.i ]
-  %.4.us.i = phi i32 [ %.04579.us.i, %12 ], [ %17, %.thread.us.i ]
+  %.456.us.i = phi i32 [ %16, %.thread.us.i ], [ %.05276.us.i, %12 ]
+  %.251.us.i = phi i32 [ %.04977.us.i, %.thread.us.i ], [ %.150.us.i, %12 ]
+  %.148.us.i = phi i32 [ %.04778.us.i, %.thread.us.i ], [ %spec.select.us.i, %12 ]
+  %.4.us.i = phi i32 [ %17, %.thread.us.i ], [ %.04579.us.i, %12 ]
   %19 = add nsw i32 %.4.us.i, 1
   %20 = icmp slt i32 %19, %6
   br i1 %20, label %.lr.ph82.split.us.i, label %._crit_edge83.i, !llvm.loop !8
@@ -460,10 +460,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022CN5match
   br label %23
 
 23:                                               ; preds = %.thread.us.i, %12
-  %.456.us.i = phi i32 [ %.05276.us.i, %12 ], [ %20, %.thread.us.i ]
-  %.251.us.i = phi i32 [ %.150.us.i, %12 ], [ %.04977.us.i, %.thread.us.i ]
-  %.148.us.i = phi i32 [ %spec.select.us.i, %12 ], [ %.04778.us.i, %.thread.us.i ]
-  %.4.us.i = phi i32 [ %.04579.us.i, %12 ], [ %22, %.thread.us.i ]
+  %.456.us.i = phi i32 [ %20, %.thread.us.i ], [ %.05276.us.i, %12 ]
+  %.251.us.i = phi i32 [ %.04977.us.i, %.thread.us.i ], [ %.150.us.i, %12 ]
+  %.148.us.i = phi i32 [ %.04778.us.i, %.thread.us.i ], [ %spec.select.us.i, %12 ]
+  %.4.us.i = phi i32 [ %22, %.thread.us.i ], [ %.04579.us.i, %12 ]
   %24 = add nsw i32 %.4.us.i, 1
   %25 = icmp slt i32 %24, %6
   br i1 %25, label %.lr.ph82.split.us.i, label %._crit_edge83.i, !llvm.loop !8

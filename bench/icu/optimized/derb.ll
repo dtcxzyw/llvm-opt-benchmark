@@ -231,7 +231,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -902,7 +902,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit186: ; preds = 
   br label %268
 
 167:                                              ; preds = %162, %164
-  %.0 = phi ptr [ %163, %162 ], [ %strchr, %164 ]
+  %.0 = phi ptr [ %strchr, %164 ], [ %163, %162 ]
   br i1 %.not149, label %.thread214, label %169
 
 .thread214:                                       ; preds = %157, %167
@@ -1155,9 +1155,9 @@ _ZL11reportErrorPKcP10UErrorCodeS0_.exit:         ; preds = %.noexc191, %262, %2
   invoke void @ures_close_77(ptr noundef %.0135)
           to label %.thread227 unwind label %149
 
-.thread227:                                       ; preds = %.thread222, %223, %224, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit, %142
-  %267 = phi i1 [ true, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit ], [ false, %142 ], [ false, %224 ], [ false, %223 ], [ false, %.thread222 ]
-  %.7 = phi i32 [ %.1107242, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit ], [ %143, %142 ], [ 3, %224 ], [ 3, %223 ], [ %.9.ph, %.thread222 ]
+.thread227:                                       ; preds = %224, %223, %.thread222, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit, %142
+  %267 = phi i1 [ true, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit ], [ false, %142 ], [ false, %.thread222 ], [ false, %223 ], [ false, %224 ]
+  %.7 = phi i32 [ %.1107242, %_ZL11reportErrorPKcP10UErrorCodeS0_.exit ], [ %143, %142 ], [ %.9.ph, %.thread222 ], [ 3, %223 ], [ 3, %224 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1297,7 +1297,7 @@ define internal fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10
   br label %36
 
 36:                                               ; preds = %34, %32
-  %.120.i = phi i32 [ %35, %34 ], [ %.019.i, %32 ]
+  %.120.i = phi i32 [ %.019.i, %32 ], [ %35, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %.021.i, i64 2
   br label %32, !llvm.loop !31
 
@@ -1332,8 +1332,8 @@ define internal fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10
   br label %50
 
 50:                                               ; preds = %48, %43
-  %51 = phi i16 [ %.pre.i, %48 ], [ %44, %43 ]
-  %.1.i = phi ptr [ %49, %48 ], [ %.0.i, %43 ]
+  %51 = phi i16 [ %44, %43 ], [ %.pre.i, %48 ]
+  %.1.i = phi ptr [ %.0.i, %43 ], [ %49, %48 ]
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   store i16 %51, ptr %.1.i, align 2, !tbaa !29
   br label %53
@@ -1379,7 +1379,7 @@ _ZL12quotedStringPKDs.exit:                       ; preds = %43
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %67, %65, %59
-  %.0.i.i = phi ptr [ %66, %65 ], [ %69, %67 ], [ null, %59 ]
+  %.0.i.i = phi ptr [ %69, %67 ], [ %66, %65 ], [ null, %59 ]
   %70 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit unwind label %71
 
@@ -1434,7 +1434,7 @@ _ZL11printIndentP5UFILEi.exit:                    ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i165
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i165: ; preds = %90, %88, %82
-  %.0.i.i166 = phi ptr [ %89, %88 ], [ %92, %90 ], [ null, %82 ]
+  %.0.i.i166 = phi ptr [ %92, %90 ], [ %89, %88 ], [ null, %82 ]
   %93 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i166, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit168 unwind label %94
 
@@ -1519,7 +1519,7 @@ _ZL12printCStringP5UFILEPKci.exit:                ; preds = %101, %103
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i170
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i170: ; preds = %127, %125, %119
-  %.0.i.i171 = phi ptr [ %126, %125 ], [ %129, %127 ], [ null, %119 ]
+  %.0.i.i171 = phi ptr [ %129, %127 ], [ %126, %125 ], [ null, %119 ]
   %130 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i171, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit173 unwind label %131
 
@@ -1598,7 +1598,7 @@ _ZL11printIndentP5UFILEi.exit173:                 ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i175
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i175: ; preds = %161, %159, %153
-  %.0.i.i176 = phi ptr [ %160, %159 ], [ %163, %161 ], [ null, %153 ]
+  %.0.i.i176 = phi ptr [ %163, %161 ], [ %160, %159 ], [ null, %153 ]
   %164 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i176, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit178 unwind label %165
 
@@ -1653,7 +1653,7 @@ _ZL11printIndentP5UFILEi.exit178:                 ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i180
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i180: ; preds = %186, %184, %178
-  %.0.i.i181 = phi ptr [ %185, %184 ], [ %188, %186 ], [ null, %178 ]
+  %.0.i.i181 = phi ptr [ %188, %186 ], [ %185, %184 ], [ null, %178 ]
   %189 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i181, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit183 unwind label %190
 
@@ -1767,7 +1767,7 @@ _ZL11printIndentP5UFILEi.exit183:                 ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i185
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i185: ; preds = %240, %238, %232
-  %.0.i.i186 = phi ptr [ %239, %238 ], [ %242, %240 ], [ null, %232 ]
+  %.0.i.i186 = phi ptr [ %242, %240 ], [ %239, %238 ], [ null, %232 ]
   %243 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i186, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit188 unwind label %244
 
@@ -1881,7 +1881,7 @@ _ZL11printIndentP5UFILEi.exit188:                 ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i190
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i190: ; preds = %294, %292, %286
-  %.0.i.i191 = phi ptr [ %293, %292 ], [ %296, %294 ], [ null, %286 ]
+  %.0.i.i191 = phi ptr [ %296, %294 ], [ %293, %292 ], [ null, %286 ]
   %297 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i191, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit193 unwind label %298
 
@@ -2027,7 +2027,7 @@ _ZL11printIndentP5UFILEi.exit193:                 ; preds = %_ZNK6icu_7713Unicod
   br label %361
 
 361:                                              ; preds = %359, %357
-  %.120.i.i = phi i32 [ %360, %359 ], [ %.019.i.i, %357 ]
+  %.120.i.i = phi i32 [ %.019.i.i, %357 ], [ %360, %359 ]
   %362 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 2
   br label %357, !llvm.loop !31
 
@@ -2062,8 +2062,8 @@ _ZL11printIndentP5UFILEi.exit193:                 ; preds = %_ZNK6icu_7713Unicod
   br label %375
 
 375:                                              ; preds = %373, %368
-  %376 = phi i16 [ %.pre.i.i, %373 ], [ %369, %368 ]
-  %.1.i.i = phi ptr [ %374, %373 ], [ %.0.i.i194, %368 ]
+  %376 = phi i16 [ %369, %368 ], [ %.pre.i.i, %373 ]
+  %.1.i.i = phi ptr [ %.0.i.i194, %368 ], [ %374, %373 ]
   %377 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 2
   store i16 %376, ptr %.1.i.i, align 2, !tbaa !29
   br label %378
@@ -2227,7 +2227,7 @@ _ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit: ; preds =
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i196
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i196: ; preds = %439, %437, %.critedge
-  %.0.i.i197 = phi ptr [ %438, %437 ], [ %441, %439 ], [ null, %.critedge ]
+  %.0.i.i197 = phi ptr [ %441, %439 ], [ %438, %437 ], [ null, %.critedge ]
   %442 = invoke i32 @u_file_write_77(ptr noundef %.0.i.i197, i32 noundef %2, ptr noundef %0)
           to label %_ZL11printIndentP5UFILEi.exit199 unwind label %443
 

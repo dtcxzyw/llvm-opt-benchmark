@@ -679,7 +679,7 @@ start_iMCU_row.exit:                              ; preds = %131, %142, %145
   br label %process_restart.exit.thread
 
 process_restart.exit.thread:                      ; preds = %35, %151, %start_iMCU_row.exit, %57
-  %.0 = phi i32 [ 0, %57 ], [ 3, %start_iMCU_row.exit ], [ 4, %151 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %57 ], [ 4, %151 ], [ 3, %start_iMCU_row.exit ], [ 0, %35 ]
   ret i32 %.0
 }
 

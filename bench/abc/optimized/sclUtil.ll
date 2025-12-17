@@ -125,7 +125,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %38
   br label %49
 
 49:                                               ; preds = %38, %Abc_ObjIsBarBuf.exit.thread, %36, %33, %.lr.ph
-  %50 = phi ptr [ %.pre35, %Abc_ObjIsBarBuf.exit.thread ], [ %28, %36 ], [ %28, %33 ], [ %28, %.lr.ph ], [ %28, %38 ]
+  %50 = phi ptr [ %.pre35, %Abc_ObjIsBarBuf.exit.thread ], [ %28, %38 ], [ %28, %36 ], [ %28, %33 ], [ %28, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr i8, ptr %50, i64 4
   %.val = load i32, ptr %51, align 4, !tbaa !25
@@ -1068,8 +1068,8 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %28
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink28 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
-  %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
+  %.sink28 = phi ptr [ %43, %42 ], [ %41, %40 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink = phi i32 [ 16, %42 ], [ 16, %40 ], [ %45, %48 ], [ %45, %50 ]
   store ptr %.sink28, ptr %11, align 8, !tbaa !28
   store i32 %.sink, ptr %8, align 8, !tbaa !27
   br label %Vec_IntPush.exit

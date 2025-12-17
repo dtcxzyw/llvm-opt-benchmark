@@ -466,7 +466,7 @@ tlsa_import_rr.exit.thread.i:                     ; preds = %.lr.ph.i, %99, %97,
   br label %load_chain.exit.i
 
 load_chain.exit.i:                                ; preds = %144, %.critedge.thread.i.i
-  %.014.i.i = phi ptr [ null, %144 ], [ %101, %.critedge.thread.i.i ]
+  %.014.i.i = phi ptr [ %101, %.critedge.thread.i.i ], [ null, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -632,15 +632,15 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
   br label %test_tlsafile.exit
 
 test_tlsafile.exit:                               ; preds = %.thread.i, %.critedge.i
-  %.2.i = phi i32 [ %.046.lcssa.i, %.critedge.i ], [ 0, %.thread.i ]
+  %.2.i = phi i32 [ 0, %.thread.i ], [ %.046.lcssa.i, %.critedge.i ]
   %211 = call i32 @test_int_gt(ptr noundef nonnull @.str.14, i32 noundef 396, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.24, i32 noundef %.2.i, i32 noundef 0) #9
   %.not14 = icmp ne i32 %211, 0
   %spec.select = zext i1 %.not14 to i32
   br label %212
 
 212:                                              ; preds = %test_tlsafile.exit, %0, %15, %19, %22, %28, %32
-  %.08 = phi ptr [ %17, %32 ], [ %17, %28 ], [ %17, %22 ], [ %17, %19 ], [ %17, %15 ], [ null, %0 ], [ %17, %test_tlsafile.exit ]
-  %.0 = phi i32 [ 0, %32 ], [ 0, %28 ], [ 0, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %0 ], [ %spec.select, %test_tlsafile.exit ]
+  %.08 = phi ptr [ null, %0 ], [ %17, %test_tlsafile.exit ], [ %17, %32 ], [ %17, %28 ], [ %17, %22 ], [ %17, %19 ], [ %17, %15 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %test_tlsafile.exit ], [ 0, %32 ], [ 0, %28 ], [ 0, %22 ], [ 0, %19 ], [ 0, %15 ]
   %213 = call i32 @BIO_free(ptr noundef %13) #9
   call void @SSL_CTX_free(ptr noundef %.08) #9
   ret i32 %.0
@@ -731,7 +731,7 @@ define internal fastcc noundef ptr @read_to_eol(ptr noundef %0) unnamed_addr #1 
   br i1 %31, label %17, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %27, %17, %.preheader, %15, %16, %1
-  %.06 = phi ptr [ null, %1 ], [ null, %16 ], [ null, %15 ], [ @read_to_eol.buf, %.preheader ], [ @read_to_eol.buf, %17 ], [ @read_to_eol.buf, %27 ]
+  %.06 = phi ptr [ null, %15 ], [ null, %1 ], [ null, %16 ], [ @read_to_eol.buf, %.preheader ], [ @read_to_eol.buf, %17 ], [ @read_to_eol.buf, %27 ]
   ret ptr %.06
 }
 

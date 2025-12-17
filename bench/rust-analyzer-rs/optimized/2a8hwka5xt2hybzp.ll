@@ -1558,7 +1558,7 @@ _ZN3mbe8expander11transcriber23fix_up_and_push_path_tt17h35128d7b59143134E.exit:
   br label %.body
 
 .body:                                            ; preds = %165, %104, %.body58.i, %206, %180, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.i, %165 ], [ %.pn.i, %.body58.i ], [ %105, %104 ], [ %181, %180 ], [ %207, %206 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %105, %104 ], [ %.pn.i, %.body58.i ], [ %lpad.thr_comm.i, %165 ], [ %181, %180 ], [ %207, %206 ]
   %208 = load i64, ptr %2, align 8, !range !80, !noundef !7
   %209 = icmp eq i64 %208, 1
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1623,7 +1623,7 @@ _ZN3mbe8expander11transcriber23fix_up_and_push_path_tt17h35128d7b59143134E.exit:
   br label %"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E.llvm.16042521026500353233.exit"
 
 .body.thread:                                     ; preds = %196, %231, %.body
-  %eh.lpad-body77 = phi { ptr, i32 } [ %eh.lpad-body, %231 ], [ %eh.lpad-body, %.body ], [ %197, %196 ]
+  %eh.lpad-body77 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %231 ], [ %197, %196 ]
   resume { ptr, i32 } %eh.lpad-body77
 
 231:                                              ; preds = %.body

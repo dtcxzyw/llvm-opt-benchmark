@@ -171,21 +171,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %29 = load ptr, ptr %7, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = icmp eq ptr %29, %30
-  br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %31, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0, label %34, label %37
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %27
   %32 = load i64, ptr %30, align 8, !tbaa !21
   %33 = add i64 %32, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %33) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.0, label %34, label %37
 
-34:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn11 = phi { ptr, i32 } [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br i1 %.0, label %34, label %37
+
+34:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn11 = phi { ptr, i32 } [ %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %22) #19
   br label %37
 
@@ -196,8 +196,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
 36:                                               ; preds = %35, %14
   ret void
 
-37:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %34
-  %.pn10 = phi { ptr, i32 } [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn11, %34 ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+37:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %34
+  %.pn10 = phi { ptr, i32 } [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn11, %34 ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   resume { ptr, i32 } %.pn10
 
 38:                                               ; preds = %25
@@ -406,8 +406,8 @@ define hidden void @_ZN4cvc58internal6theory5arith21ArithOperatorTypeRule11compu
   br label %38
 
 38:                                               ; preds = %37, %34
-  %.222.us = phi i1 [ %.02065.us, %37 ], [ true, %34 ]
-  %.218.us = phi i1 [ %.016.mux.us, %37 ], [ %.01666.us, %34 ]
+  %.222.us = phi i1 [ true, %34 ], [ %.02065.us, %37 ]
+  %.218.us = phi i1 [ %.01666.us, %34 ], [ %.016.mux.us, %37 ]
   %39 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode11isRealOrIntEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.noexc.us unwind label %.split71.us
 
@@ -496,7 +496,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split: ; preds = %_ZStlsISt11char
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit.us
 
 _ZN4cvc58internal8TypeNode4nullEv.exit.us:        ; preds = %.invoke, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split, %65, %55, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us, %51
-  %cond = phi i1 [ true, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us ], [ true, %55 ], [ false, %51 ], [ false, %65 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split ], [ false, %.invoke ]
+  %cond = phi i1 [ false, %51 ], [ false, %65 ], [ true, %_ZN4cvc58internal6theory5arith16isMaybeRealOrIntERKNS0_8TypeNodeE.exit.thread.us ], [ true, %55 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.us.sink.split ], [ false, %.invoke ]
   %73 = load ptr, ptr %9, align 8, !tbaa !6
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 1152920405095219200
@@ -599,9 +599,9 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit.us:           ; preds = %82, %76, %_ZN4cvc58
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %103, %91
-  %.323 = phi i1 [ true, %91 ], [ %.02065, %103 ]
-  %.319 = phi i1 [ %.01666, %91 ], [ %spec.select, %103 ]
-  %.0 = phi i1 [ false, %91 ], [ %not., %103 ]
+  %.323 = phi i1 [ %.02065, %103 ], [ true, %91 ]
+  %.319 = phi i1 [ %spec.select, %103 ], [ %.01666, %91 ]
+  %.0 = phi i1 [ %not., %103 ], [ false, %91 ]
   %104 = load ptr, ptr %9, align 8, !tbaa !6
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, 1152920405095219200
@@ -706,17 +706,17 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge:   ; preds = %_ZN4cvc58internal8T
   br i1 %147, label %.invoke116, label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit, !prof !13
 
 .invoke116:                                       ; preds = %146, %135, %126
-  %.sink119 = phi i64 [ %121, %126 ], [ %130, %135 ], [ %141, %146 ]
-  %.sink118 = phi ptr [ %120, %126 ], [ %129, %135 ], [ %140, %146 ]
+  %.sink119 = phi i64 [ %130, %135 ], [ %121, %126 ], [ %141, %146 ]
+  %.sink118 = phi ptr [ %129, %135 ], [ %120, %126 ], [ %140, %146 ]
   %148 = or i64 %.sink119, 1152920405095219200
   store i64 %148, ptr %.sink118, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink118)
           to label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit unwind label %96
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit.sink.split: ; preds = %139, %128, %119
-  %.sink127 = phi i32 [ %124, %119 ], [ %133, %128 ], [ %144, %139 ]
-  %.sink124 = phi i64 [ %121, %119 ], [ %130, %128 ], [ %141, %139 ]
-  %.sink121 = phi ptr [ %120, %119 ], [ %129, %128 ], [ %140, %139 ]
+  %.sink127 = phi i32 [ %133, %128 ], [ %124, %119 ], [ %144, %139 ]
+  %.sink124 = phi i64 [ %130, %128 ], [ %121, %119 ], [ %141, %139 ]
+  %.sink121 = phi ptr [ %129, %128 ], [ %120, %119 ], [ %140, %139 ]
   %149 = add nuw nsw i32 %.sink127, 1
   %150 = zext nneg i32 %149 to i64
   %151 = shl nuw nsw i64 %150, 40
@@ -785,7 +785,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit56:            ; preds = %_ZN4cvc58internal8T
   ret void
 
 180:                                              ; preds = %118, %96, %94
-  %.pn36.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %97, %96 ], [ %.pn34, %118 ]
+  %.pn36.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn34, %118 ], [ %97, %96 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   br label %181
 
@@ -1332,7 +1332,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %45, %44
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %51
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.noexc17, %65, %59, %67, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19
-  %69 = phi i1 [ true, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19 ], [ false, %67 ], [ false, %59 ], [ false, %65 ], [ true, %.noexc17 ]
+  %69 = phi i1 [ false, %65 ], [ true, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19 ], [ false, %67 ], [ false, %59 ], [ true, %.noexc17 ]
   %70 = load ptr, ptr %9, align 8, !tbaa !6
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, 1152920405095219200

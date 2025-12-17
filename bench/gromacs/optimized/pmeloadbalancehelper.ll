@@ -107,7 +107,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %8, %8, %8, %8, %8
   br label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
 
 _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %8, %17, %14, %_ZL8usingPmeRK22CoulombInteractionType.exit, %4
-  %22 = phi i1 [ false, %14 ], [ false, %_ZL8usingPmeRK22CoulombInteractionType.exit ], [ false, %4 ], [ %21, %17 ], [ false, %8 ]
+  %22 = phi i1 [ false, %14 ], [ %21, %17 ], [ false, %_ZL8usingPmeRK22CoulombInteractionType.exit ], [ false, %4 ], [ false, %8 ]
   ret i1 %22
 }
 

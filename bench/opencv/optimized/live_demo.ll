@@ -1311,7 +1311,7 @@ define hidden void @_Z11splitScreenRKN2cv3MatERS0_S3_S3_(ptr noundef nonnull ali
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn
 }
 

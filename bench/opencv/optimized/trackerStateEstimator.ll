@@ -1862,7 +1862,7 @@ _ZN2cv3PtrINS_6detail8tracking15online_boosting31StrongClassifierDirectSelection
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %46, %45
-  %48 = phi ptr [ %42, %45 ], [ %.pr.pre.i.i.i.i, %46 ]
+  %48 = phi ptr [ %.pr.pre.i.i.i.i, %46 ], [ %42, %45 ]
   %.not8.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %49
 

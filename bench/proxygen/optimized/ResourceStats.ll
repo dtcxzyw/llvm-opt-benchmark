@@ -1377,7 +1377,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.then.i.i
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad.loopexit, %terminate.lpad.loopexit.split-lp, %lpad.i.i, %if.end.i.i6.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %if.end.i.i6.i.i ], [ %12, %lpad.i.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i ], [ %12, %if.end.i.i6.i.i ], [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %15) #24
   unreachable
@@ -1564,7 +1564,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us:
   br i1 %6, label %if.end29.us, label %for.inc.us
 
 if.end29.us:                                      ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us, %if.else.us, %if.end18.us
-  %new_state.0.us = phi i32 [ %or.i.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us ], [ %3, %if.else.us ], [ %3, %if.end18.us ]
+  %new_state.0.us = phi i32 [ %3, %if.else.us ], [ %or.i.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us ], [ %3, %if.end18.us ]
   %call.i105.us = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef %new_state.0.us, ptr noundef null, ptr noundef null, i32 noundef %shl.i)
           to label %for.inc.us unwind label %terminate.lpad.split.us
 
@@ -1624,7 +1624,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
   br i1 %12, label %if.end29, label %for.inc
 
 if.end29:                                         ; preds = %if.end18, %if.else, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit
-  %new_state.0 = phi i32 [ %or.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %9, %if.else ], [ %9, %if.end18 ]
+  %new_state.0 = phi i32 [ %9, %if.else ], [ %or.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit ], [ %9, %if.end18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %converted.i)
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %absTime, align 8
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %converted.i, align 8
@@ -1686,7 +1686,7 @@ seqcst_fail50.i122:                               ; preds = %if.end67
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont34, %if.end.us, %for.end.thread, %for.end, %seqcst_fail50.i122, %if.then69
-  %retval.0 = phi i32 [ 0, %if.then69 ], [ 0, %seqcst_fail50.i122 ], [ 0, %for.end ], [ 0, %for.end.thread ], [ 1, %if.end.us ], [ 2, %invoke.cont34 ], [ 1, %if.end ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ 0, %seqcst_fail50.i122 ], [ 0, %if.then69 ], [ 0, %for.end.thread ], [ 1, %if.end.us ], [ 1, %if.end ], [ 2, %invoke.cont34 ]
   ret i32 %retval.0
 
 terminate.lpad.split:                             ; preds = %if.end29

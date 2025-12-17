@@ -1303,7 +1303,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_7TfErrorEEEPKT_v.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_7TfErrorEEEPKT_v.exit: ; preds = %51, %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i
-  %.0.i.i = phi ptr [ %56, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ], [ null, %51 ]
+  %.0.i.i = phi ptr [ null, %51 ], [ %56, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ]
   store ptr @_ZNSt3any17_Manager_internalIPKN32pxrInternal_v0_24__pxrReserved__7TfErrorEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i.i, ptr %57, align 8
@@ -1538,7 +1538,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_8TfStatusEEEPKT_v.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_8TfStatusEEEPKT_v.exit: ; preds = %21, %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i
-  %.0.i.i = phi ptr [ %26, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ], [ null, %21 ]
+  %.0.i.i = phi ptr [ null, %21 ], [ %26, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ]
   store ptr @_ZNSt3any17_Manager_internalIPKN32pxrInternal_v0_24__pxrReserved__8TfStatusEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i, ptr %27, align 8
@@ -1695,7 +1695,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_9TfWarningEEEPKT_v.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7GetInfoINS_9TfWarningEEEPKT_v.exit: ; preds = %51, %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i
-  %.0.i.i = phi ptr [ %56, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ], [ null, %51 ]
+  %.0.i.i = phi ptr [ null, %51 ], [ %56, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i.i ]
   store ptr @_ZNSt3any17_Manager_internalIPKN32pxrInternal_v0_24__pxrReserved__9TfWarningEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i.i, ptr %57, align 8

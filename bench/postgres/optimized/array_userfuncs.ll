@@ -251,7 +251,7 @@ define dso_local i64 @array_append_support(ptr noundef readonly captures(none) %
   br label %27
 
 27:                                               ; preds = %19, %7, %12, %15, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %15 ], [ 0, %12 ], [ 0, %7 ], [ %26, %19 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %7 ], [ %26, %19 ], [ 0, %15 ], [ 0, %12 ]
   ret i64 %.0
 }
 
@@ -379,7 +379,7 @@ define dso_local i64 @array_prepend_support(ptr noundef readonly captures(none) 
   br label %28
 
 28:                                               ; preds = %20, %7, %13, %16, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %16 ], [ 0, %13 ], [ 0, %7 ], [ %27, %20 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %7 ], [ %27, %20 ], [ 0, %16 ], [ 0, %13 ]
   ret i64 %.0
 }
 
@@ -691,9 +691,9 @@ define dso_local i64 @array_cat(ptr noundef captures(none) %0) local_unnamed_add
   unreachable
 
 .loopexit:                                        ; preds = %171, %150, %140, %118
-  %.0198 = phi i32 [ %45, %118 ], [ %45, %140 ], [ %47, %150 ], [ %45, %171 ]
-  %.0197 = phi ptr [ %120, %118 ], [ %120, %140 ], [ %147, %150 ], [ %168, %171 ]
-  %.0196 = phi ptr [ %119, %118 ], [ %119, %140 ], [ %146, %150 ], [ %167, %171 ]
+  %.0198 = phi i32 [ %45, %118 ], [ %47, %150 ], [ %45, %140 ], [ %45, %171 ]
+  %.0197 = phi ptr [ %120, %118 ], [ %147, %150 ], [ %120, %140 ], [ %168, %171 ]
+  %.0196 = phi ptr [ %119, %118 ], [ %146, %150 ], [ %119, %140 ], [ %167, %171 ]
   %187 = tail call i32 @ArrayGetNItems(i32 noundef %.0198, ptr noundef nonnull %.0196) #11
   tail call void @ArrayCheckBounds(i32 noundef %.0198, ptr noundef nonnull %.0196, ptr noundef %.0197) #11
   %188 = add i32 %117, %106
@@ -3095,8 +3095,8 @@ define dso_local i64 @array_reverse(ptr noundef readonly captures(none) %0) loca
   br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !61
 
 array_reverse_n.exit:                             ; preds = %31, %._crit_edge60.loopexit.i
-  %70 = phi ptr [ %.pre64.i, %._crit_edge60.loopexit.i ], [ %.pre65.i, %31 ]
-  %71 = phi ptr [ %.pre.i, %._crit_edge60.loopexit.i ], [ %.pre63.i, %31 ]
+  %70 = phi ptr [ %.pre65.i, %31 ], [ %.pre64.i, %._crit_edge60.loopexit.i ]
+  %71 = phi ptr [ %.pre63.i, %31 ], [ %.pre.i, %._crit_edge60.loopexit.i ]
   %72 = sext i32 %32 to i64
   %73 = shl nsw i64 %72, 2
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 %73

@@ -808,7 +808,7 @@ define hidden ptr @ipmi_get_completion_code(i8 noundef zeroext %0, ptr noundef r
   br label %15
 
 15:                                               ; preds = %10, %2, %13, %12
-  %.0 = phi ptr [ @.str.48, %12 ], [ %14, %13 ], [ @.str.47, %2 ], [ %11, %10 ]
+  %.0 = phi ptr [ %14, %13 ], [ @.str.47, %2 ], [ @.str.48, %12 ], [ %11, %10 ]
   ret ptr %.0
 }
 
@@ -930,8 +930,8 @@ calc_cks.exit93.i:                                ; preds = %40
   br i1 %.not81.i, label %.sink.split.sink.split.i, label %.thread142.i
 
 .thread137.i:                                     ; preds = %27, %25, %24, %23, %21, %.critedge
-  %spec.store.select.sink.i = phi i32 [ %spec.store.select.i, %25 ], [ 0, %24 ], [ 10, %21 ], [ 8, %.critedge ], [ 8, %23 ], [ 8, %27 ]
-  store i32 %spec.store.select.sink.i, ptr %17, align 4
+  %.sink.i = phi i32 [ 8, %.critedge ], [ 8, %23 ], [ %spec.store.select.i, %25 ], [ 0, %24 ], [ 10, %21 ], [ 8, %27 ]
+  store i32 %.sink.i, ptr %17, align 4
   %45 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %.thread142.i
 
@@ -1017,8 +1017,8 @@ calc_cks.exit113.i:                               ; preds = %68
   br i1 %.not85.i, label %.sink.split.sink.split.i, label %.thread142.i
 
 .thread142.i:                                     ; preds = %calc_cks.exit113.i, %calc_cks.exit108.i, %60, %.thread137.i, %calc_cks.exit93.i, %calc_cks.exit.i, %32, %29
-  %73 = phi i32 [ %storemerge.i, %calc_cks.exit113.i ], [ %storemerge.i, %calc_cks.exit108.i ], [ %storemerge.i, %60 ], [ %spec.store.select.sink.i, %.thread137.i ], [ 8, %calc_cks.exit93.i ], [ 8, %calc_cks.exit.i ], [ 8, %32 ], [ 8, %29 ]
-  %74 = phi i32 [ %47, %calc_cks.exit113.i ], [ %47, %calc_cks.exit108.i ], [ %47, %60 ], [ %45, %.thread137.i ], [ %30, %calc_cks.exit93.i ], [ %30, %calc_cks.exit.i ], [ %30, %32 ], [ %30, %29 ]
+  %73 = phi i32 [ %storemerge.i, %60 ], [ %storemerge.i, %calc_cks.exit113.i ], [ %storemerge.i, %calc_cks.exit108.i ], [ %.sink.i, %.thread137.i ], [ 8, %calc_cks.exit93.i ], [ 8, %calc_cks.exit.i ], [ 8, %32 ], [ 8, %29 ]
+  %74 = phi i32 [ %47, %60 ], [ %47, %calc_cks.exit113.i ], [ %47, %calc_cks.exit108.i ], [ %45, %.thread137.i ], [ %30, %calc_cks.exit93.i ], [ %30, %calc_cks.exit.i ], [ %30, %32 ], [ %30, %29 ]
   %75 = and i32 %73, 2
   %.not86.not.i = icmp eq i32 %75, 0
   %76 = lshr i32 %73, 3
@@ -1067,15 +1067,15 @@ calc_cks.exit118.i:                               ; preds = %84
   br i1 %.not.i122.i, label %.loopexit, label %93, !llvm.loop !11
 
 .sink.split.sink.split.i:                         ; preds = %calc_cks.exit113.i, %calc_cks.exit103.i, %calc_cks.exit93.i
-  %.sink.i = phi i32 [ 12, %calc_cks.exit93.i ], [ 10, %calc_cks.exit103.i ], [ 8, %calc_cks.exit113.i ]
-  store i32 %.sink.i, ptr %17, align 4
+  %.sink173.i = phi i32 [ 10, %calc_cks.exit103.i ], [ 12, %calc_cks.exit93.i ], [ 8, %calc_cks.exit113.i ]
+  store i32 %.sink173.i, ptr %17, align 4
   store i8 0, ptr %18, align 4
-  %.pre = and i32 %.sink.i, 2
+  %.pre = and i32 %.sink173.i, 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %.sink.split.sink.split.i
   %.pre-phi = phi i32 [ %.pre, %.sink.split.sink.split.i ], [ %75, %93 ]
-  %98 = phi i32 [ %.sink.i, %.sink.split.sink.split.i ], [ %73, %93 ]
+  %98 = phi i32 [ %.sink173.i, %.sink.split.sink.split.i ], [ %73, %93 ]
   %.lcssa.sink.i = phi i8 [ 0, %.sink.split.sink.split.i ], [ %97, %93 ]
   store i8 %.lcssa.sink.i, ptr %19, align 1
   %99 = lshr i32 %98, 2
@@ -1627,10 +1627,10 @@ ipmi_getnetfn.exit.thread:                        ; preds = %231, %match_request
   br i1 %exitcond.not.i, label %ipmi_getcmd.exit, label %.lr.ph.i293, !llvm.loop !10
 
 ipmi_getcmd.exit:                                 ; preds = %.lr.ph.i293, %244, %ipmi_getnetfn.exit.thread, %233
-  %.not.i291311 = phi i1 [ false, %233 ], [ true, %ipmi_getnetfn.exit.thread ], [ false, %244 ], [ false, %.lr.ph.i293 ]
-  %247 = phi ptr [ %234, %233 ], [ %232, %ipmi_getnetfn.exit.thread ], [ %234, %244 ], [ %234, %.lr.ph.i293 ]
-  %.0.lcssa.i310 = phi ptr [ %.018.i, %233 ], [ null, %ipmi_getnetfn.exit.thread ], [ %.018.i, %244 ], [ %.018.i, %.lr.ph.i293 ]
-  %.0.i294 = phi ptr [ @ipmi_getcmd.ipmi_cmd_unknown, %233 ], [ @ipmi_getcmd.ipmi_cmd_unknown, %ipmi_getnetfn.exit.thread ], [ %.01113.i, %.lr.ph.i293 ], [ @ipmi_getcmd.ipmi_cmd_unknown, %244 ]
+  %.not.i291311 = phi i1 [ true, %ipmi_getnetfn.exit.thread ], [ false, %233 ], [ false, %244 ], [ false, %.lr.ph.i293 ]
+  %247 = phi ptr [ %232, %ipmi_getnetfn.exit.thread ], [ %234, %233 ], [ %234, %244 ], [ %234, %.lr.ph.i293 ]
+  %.0.lcssa.i310 = phi ptr [ null, %ipmi_getnetfn.exit.thread ], [ %.018.i, %233 ], [ %.018.i, %244 ], [ %.018.i, %.lr.ph.i293 ]
+  %.0.i294 = phi ptr [ @ipmi_getcmd.ipmi_cmd_unknown, %ipmi_getnetfn.exit.thread ], [ @ipmi_getcmd.ipmi_cmd_unknown, %233 ], [ %.01113.i, %.lr.ph.i293 ], [ @ipmi_getcmd.ipmi_cmd_unknown, %244 ]
   %.not335 = icmp eq i8 %28, 0
   br i1 %.not335, label %ipmi_get_completion_code.exit.thread, label %248
 
@@ -1669,7 +1669,7 @@ ipmi_getcmd.exit:                                 ; preds = %.lr.ph.i293, %244, 
   br label %ipmi_get_completion_code.exit
 
 ipmi_get_completion_code.exit:                    ; preds = %261, %260, %258, %248
-  %.0249 = phi ptr [ @.str.48, %260 ], [ %262, %261 ], [ @.str.47, %248 ], [ %259, %258 ]
+  %.0249 = phi ptr [ %259, %258 ], [ %262, %261 ], [ @.str.47, %248 ], [ @.str.48, %260 ]
   %263 = load i8, ptr %44, align 8
   %.not260 = icmp eq i8 %263, 0
   br i1 %.not260, label %272, label %add_command_info.exit

@@ -101,7 +101,7 @@ define dso_local void @_Z14res_write_javaP9SResourceP10UErrorCode(ptr noundef %0
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
-  %.0.i.i.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %14 ]
+  %.0.i.i.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %14 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i) #9, !srcloc !18
   %27 = load i16, ptr %17, align 8, !tbaa !17
   %28 = icmp slt i16 %27, 0
@@ -352,7 +352,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
   br label %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i
 
 135:                                              ; preds = %.thread.i.i.i, %122, %117, %110, %100, %95, %89, %86, %85, %82, %72, %68, %65, %61, %58, %54, %51, %50, %47
-  %.1101.i.i.i = phi i32 [ %73, %72 ], [ %96, %95 ], [ %101, %100 ], [ %111, %110 ], [ %48, %50 ], [ %48, %47 ], [ %52, %54 ], [ %52, %51 ], [ %59, %61 ], [ %59, %58 ], [ %66, %68 ], [ %66, %65 ], [ %83, %85 ], [ %83, %82 ], [ %87, %89 ], [ %87, %86 ], [ %120, %122 ], [ %120, %117 ], [ %130, %.thread.i.i.i ]
+  %.1101.i.i.i = phi i32 [ %87, %86 ], [ %48, %47 ], [ %52, %51 ], [ %59, %58 ], [ %73, %72 ], [ %130, %.thread.i.i.i ], [ %96, %95 ], [ %66, %65 ], [ %83, %82 ], [ %101, %100 ], [ %111, %110 ], [ %48, %50 ], [ %52, %54 ], [ %59, %61 ], [ %66, %68 ], [ %83, %85 ], [ %87, %89 ], [ %120, %122 ], [ %120, %117 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %43
   br i1 %exitcond.not.i.i.i, label %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i, label %44, !llvm.loop !25
@@ -530,7 +530,7 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %163, %.lr.ph.i87.i.
   br label %_ZL10write_tabsP11_FileStream.exit92.i.i
 
 _ZL10write_tabsP11_FileStream.exit92.i.i:         ; preds = %.lr.ph.i89.i.i, %219, %211, %._crit_edge.i.i
-  %.pre-phi.i.i = phi i32 [ %209, %211 ], [ %209, %._crit_edge.i.i ], [ %190, %219 ], [ %209, %.lr.ph.i89.i.i ]
+  %.pre-phi.i.i = phi i32 [ %190, %219 ], [ %209, %211 ], [ %209, %._crit_edge.i.i ], [ %209, %.lr.ph.i89.i.i ]
   %222 = icmp ult i32 %.pre-phi.i.i, %.3.i.i.i
   br i1 %222, label %.lr.ph98.i.i, label %.loopexit.i.i, !llvm.loop !34
 

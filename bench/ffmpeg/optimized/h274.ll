@@ -714,7 +714,7 @@ add_8x8_clip_c.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   br i1 %exitcond194.not, label %.loopexit136, label %35, !llvm.loop !57
 
 .loopexit136:                                     ; preds = %.loopexit132, %9, %4
-  %.098 = phi i32 [ -1163346256, %4 ], [ -1163346256, %9 ], [ 0, %.loopexit132 ]
+  %.098 = phi i32 [ -1163346256, %9 ], [ -1163346256, %4 ], [ 0, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.098
 }

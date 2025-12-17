@@ -48,7 +48,7 @@ define dso_local range(i32 -1, 1) i32 @task_cgroup_devices_init() local_unnamed_
   br label %10
 
 10:                                               ; preds = %5, %0, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %0 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %0 ], [ -1, %7 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }

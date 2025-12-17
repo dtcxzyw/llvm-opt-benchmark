@@ -104,7 +104,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %.thread
 
 38:                                               ; preds = %16, %thread-pre-split.thread.i, %33
-  %.1.ph = phi i32 [ %19, %16 ], [ %.056, %thread-pre-split.thread.i ], [ %34, %33 ]
+  %.1.ph = phi i32 [ %19, %16 ], [ %34, %33 ], [ %.056, %thread-pre-split.thread.i ]
   %39 = icmp ult i32 %.1.ph, 25
   %40 = icmp sgt i32 %.1.ph, 199
   %or.cond = or i1 %39, %40
@@ -273,7 +273,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   br i1 %104, label %105, label %get_file_time_stamp.exit.thread
 
 105:                                              ; preds = %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %.critedge.i
-  %.sink.i = phi i32 [ 0, %.critedge.i ], [ 1, %83 ], [ 2, %85 ], [ 3, %87 ], [ 4, %89 ], [ 5, %91 ], [ 6, %93 ], [ 7, %95 ], [ 8, %97 ], [ 9, %99 ], [ 10, %101 ], [ 11, %103 ]
+  %.sink.i = phi i32 [ 0, %.critedge.i ], [ 2, %85 ], [ 4, %89 ], [ 6, %93 ], [ 8, %97 ], [ 10, %101 ], [ 9, %99 ], [ 7, %95 ], [ 5, %91 ], [ 3, %87 ], [ 1, %83 ], [ 11, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.sink.i, ptr %106, align 8
   %107 = getelementptr i8, ptr @log3gpp_open.linebuff, i64 %80
@@ -347,7 +347,7 @@ get_file_time_stamp.exit.thread:                  ; preds = %73, %103, %105
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split.i, %get_file_time_stamp.exit.thread, %66, %35, %thread-pre-split, %41, %38, %110
-  %.0 = phi i32 [ 1, %110 ], [ 0, %38 ], [ 0, %41 ], [ 0, %thread-pre-split ], [ %37, %35 ], [ %68, %66 ], [ 0, %get_file_time_stamp.exit.thread ], [ 0, %thread-pre-split.i ]
+  %.0 = phi i32 [ 0, %38 ], [ 1, %110 ], [ 0, %41 ], [ %68, %66 ], [ %37, %35 ], [ 0, %get_file_time_stamp.exit.thread ], [ 0, %thread-pre-split ], [ 0, %thread-pre-split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -566,7 +566,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %hex_from_char.exit
 
 hex_from_char.exit:                               ; preds = %118, %125, %127
-  %.0.i = phi i8 [ %126, %125 ], [ %spec.select.i, %127 ], [ %122, %118 ]
+  %.0.i = phi i8 [ %spec.select.i, %127 ], [ %126, %125 ], [ %122, %118 ]
   %130 = shl i8 %.0.i, 4
   %131 = getelementptr i8, ptr %120, i64 1
   %132 = load i8, ptr %131, align 1
@@ -591,7 +591,7 @@ hex_from_char.exit:                               ; preds = %118, %125, %127
   br label %hex_from_char.exit63
 
 hex_from_char.exit63:                             ; preds = %hex_from_char.exit, %136, %138
-  %.0.i62 = phi i8 [ %137, %136 ], [ %spec.select.i61, %138 ], [ %133, %hex_from_char.exit ]
+  %.0.i62 = phi i8 [ %spec.select.i61, %138 ], [ %137, %136 ], [ %133, %hex_from_char.exit ]
   %141 = or i8 %.0.i62, %130
   %142 = ashr exact i32 %.097, 1
   %143 = add i32 %142, %113
@@ -691,7 +691,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   br label %195
 
 195:                                              ; preds = %.thread, %193
-  %.3 = phi i1 [ false, %193 ], [ %.not7881, %.thread ]
+  %.3 = phi i1 [ %.not7881, %.thread ], [ false, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -891,7 +891,7 @@ read_new_line.exit:                               ; preds = %20
   br label %hex_from_char.exit
 
 hex_from_char.exit:                               ; preds = %106, %113, %115
-  %.0.i = phi i8 [ %114, %113 ], [ %spec.select.i, %115 ], [ %110, %106 ]
+  %.0.i = phi i8 [ %spec.select.i, %115 ], [ %114, %113 ], [ %110, %106 ]
   %118 = shl i8 %.0.i, 4
   %119 = getelementptr i8, ptr %108, i64 1
   %120 = load i8, ptr %119, align 1
@@ -916,7 +916,7 @@ hex_from_char.exit:                               ; preds = %106, %113, %115
   br label %hex_from_char.exit44
 
 hex_from_char.exit44:                             ; preds = %hex_from_char.exit, %124, %126
-  %.0.i43 = phi i8 [ %125, %124 ], [ %spec.select.i42, %126 ], [ %121, %hex_from_char.exit ]
+  %.0.i43 = phi i8 [ %spec.select.i42, %126 ], [ %125, %124 ], [ %121, %hex_from_char.exit ]
   %129 = or i8 %.0.i43, %118
   %130 = ashr exact i32 %.053, 1
   %131 = add i32 %130, %101
@@ -954,7 +954,7 @@ hex_from_char.exit44:                             ; preds = %hex_from_char.exit,
   br label %147
 
 147:                                              ; preds = %read_new_line.exit, %5, %144, %.loopexit
-  %.037 = phi i1 [ true, %.loopexit ], [ false, %144 ], [ false, %5 ], [ false, %read_new_line.exit ]
+  %.037 = phi i1 [ false, %5 ], [ true, %.loopexit ], [ false, %144 ], [ false, %read_new_line.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1359,7 +1359,7 @@ switch.early.test:                                ; preds = %.lr.ph238
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph225, %switch.early.test, %.critedge5.loopexit, %.critedge11.thread, %162, %._crit_edge, %.critedge5, %._crit_edge232, %.critedge9, %122, %139, %144, %.critedge11, %.critedge, %22
-  %.0142 = phi i1 [ false, %22 ], [ false, %.critedge ], [ true, %162 ], [ false, %._crit_edge ], [ false, %.critedge5 ], [ false, %._crit_edge232 ], [ false, %.critedge9 ], [ false, %122 ], [ false, %139 ], [ false, %144 ], [ false, %.critedge11 ], [ false, %.critedge11.thread ], [ false, %.critedge5.loopexit ], [ false, %switch.early.test ], [ false, %.lr.ph225 ], [ false, %.lr.ph ]
+  %.0142 = phi i1 [ false, %.critedge ], [ false, %22 ], [ false, %139 ], [ false, %._crit_edge ], [ false, %.critedge5 ], [ false, %._crit_edge232 ], [ false, %.critedge9 ], [ false, %122 ], [ true, %162 ], [ false, %144 ], [ false, %.critedge11 ], [ false, %.critedge11.thread ], [ false, %.critedge5.loopexit ], [ false, %.lr.ph225 ], [ false, %switch.early.test ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0142

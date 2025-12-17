@@ -122,7 +122,7 @@ define internal noundef zeroext i1 @ipv6_from_literal(ptr noundef %0, ptr nounde
   br label %43
 
 43:                                               ; preds = %39, %41, %36, %37, %30, %31, %20, %21
-  %.027 = phi i1 [ false, %21 ], [ false, %20 ], [ false, %31 ], [ false, %30 ], [ false, %37 ], [ false, %36 ], [ true, %41 ], [ true, %39 ]
+  %.027 = phi i1 [ false, %20 ], [ false, %30 ], [ false, %36 ], [ false, %21 ], [ false, %31 ], [ false, %37 ], [ true, %41 ], [ true, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.027

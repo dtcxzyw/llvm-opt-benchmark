@@ -89,7 +89,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_allocate_bytes(ptr noundef capture
   br label %WPACKET_get_curr.exit.i
 
 WPACKET_get_curr.exit.i:                          ; preds = %46, %39
-  %.0.i.i = phi ptr [ %45, %39 ], [ %49, %46 ]
+  %.0.i.i = phi ptr [ %49, %46 ], [ %45, %39 ]
   store ptr %.0.i.i, ptr %2, align 8, !tbaa !23
   %50 = load i8, ptr %36, align 8
   %51 = and i8 %50, 1
@@ -116,8 +116,8 @@ WPACKET_reserve_bytes.exit:                       ; preds = %.sink.split.i, %WPA
   store i64 %59, ptr %57, align 8, !tbaa !22
   br label %WPACKET_reserve_bytes.exit.thread
 
-WPACKET_reserve_bytes.exit.thread:                ; preds = %9, %3, %22, %WPACKET_reserve_bytes.exit
-  %.0 = phi i32 [ 1, %WPACKET_reserve_bytes.exit ], [ 0, %22 ], [ 0, %3 ], [ 0, %9 ]
+WPACKET_reserve_bytes.exit.thread:                ; preds = %22, %9, %3, %WPACKET_reserve_bytes.exit
+  %.0 = phi i32 [ 1, %WPACKET_reserve_bytes.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -205,7 +205,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_reserve_bytes(ptr noundef readonly
   br label %WPACKET_get_curr.exit
 
 WPACKET_get_curr.exit:                            ; preds = %39, %46
-  %.0.i = phi ptr [ %45, %39 ], [ %49, %46 ]
+  %.0.i = phi ptr [ %49, %46 ], [ %45, %39 ]
   store ptr %.0.i, ptr %2, align 8, !tbaa !23
   %50 = load i8, ptr %36, align 8
   %51 = and i8 %50, 1
@@ -223,7 +223,7 @@ WPACKET_get_curr.exit:                            ; preds = %39, %46
   br label %55
 
 55:                                               ; preds = %.sink.split, %22, %25, %WPACKET_get_curr.exit, %9, %3
-  %.026 = phi i32 [ 0, %22 ], [ 0, %3 ], [ 0, %9 ], [ 1, %WPACKET_get_curr.exit ], [ 1, %25 ], [ 1, %.sink.split ]
+  %.026 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %22 ], [ 1, %WPACKET_get_curr.exit ], [ 1, %25 ], [ 1, %.sink.split ]
   ret i32 %.026
 }
 
@@ -307,7 +307,7 @@ WPACKET_close.exit.thread:                        ; preds = %27, %30, %WPACKET_c
   br label %34
 
 34:                                               ; preds = %WPACKET_close.exit.thread, %WPACKET_close.exit, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
+  %.0 = phi i32 [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %25 ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
   ret i32 %.0
 }
 
@@ -360,7 +360,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_start_sub_packet_len__(ptr noundef
   br label %25
 
 25:                                               ; preds = %23, %11, %7, %2, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ 0, %7 ], [ 0, %11 ], [ %24, %23 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %22 ], [ 0, %11 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -431,7 +431,7 @@ define dso_local ptr @WPACKET_get_curr(ptr noundef readonly captures(none) %0) l
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %22, %14
-  %.0 = phi ptr [ %21, %14 ], [ %25, %22 ], [ null, %6 ], [ null, %4 ]
+  %.0 = phi ptr [ %25, %22 ], [ %21, %14 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -528,7 +528,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef re
   br label %WPACKET_get_curr.exit.i
 
 WPACKET_get_curr.exit.i:                          ; preds = %53, %46
-  %.0.i.i = phi ptr [ %52, %46 ], [ %56, %53 ]
+  %.0.i.i = phi ptr [ %56, %53 ], [ %52, %46 ]
   store ptr %.0.i.i, ptr %2, align 8, !tbaa !23
   %57 = load i8, ptr %5, align 8
   %58 = and i8 %57, 1
@@ -551,8 +551,8 @@ WPACKET_reserve_bytes.exit.thread.sink.split:     ; preds = %37, %39, %WPACKET_r
   store ptr %.sink, ptr %2, align 8, !tbaa !23
   br label %WPACKET_reserve_bytes.exit.thread
 
-WPACKET_reserve_bytes.exit.thread:                ; preds = %WPACKET_reserve_bytes.exit.thread.sink.split, %17, %10, %30, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %30 ], [ 0, %10 ], [ 0, %17 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ]
+WPACKET_reserve_bytes.exit.thread:                ; preds = %WPACKET_reserve_bytes.exit.thread.sink.split, %30, %17, %10, %4
+  %.0 = phi i32 [ 0, %4 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ], [ 0, %10 ], [ 0, %17 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -616,7 +616,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_init_static_len(ptr noundef captur
   br label %wpacket_intern_init_len.exit
 
 wpacket_intern_init_len.exit:                     ; preds = %9, %25, %32, %33
-  %.0.i16 = phi i32 [ 1, %33 ], [ 0, %32 ], [ 0, %9 ], [ 1, %25 ]
+  %.0.i16 = phi i32 [ 0, %32 ], [ 0, %9 ], [ 1, %33 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -713,7 +713,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_init_len(ptr noundef captures(none
   br label %wpacket_intern_init_len.exit
 
 wpacket_intern_init_len.exit:                     ; preds = %5, %19, %26, %27
-  %.0.i10 = phi i32 [ 1, %27 ], [ 0, %26 ], [ 0, %5 ], [ 1, %19 ]
+  %.0.i10 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 1, %27 ], [ 1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
@@ -958,7 +958,7 @@ put_value.exit:                                   ; preds = %.lr.ph.i
   br label %ossl_quic_vlint_encode_len.exit.i
 
 ossl_quic_vlint_encode_len.exit.i:                ; preds = %58, %56, %54, %52
-  %.0.i.i = phi i64 [ 1, %52 ], [ 2, %54 ], [ 4, %56 ], [ %..i.i, %58 ]
+  %.0.i.i = phi i64 [ 4, %56 ], [ 1, %52 ], [ 2, %54 ], [ %..i.i, %58 ]
   %60 = icmp ugt i64 %.0.i.i, %31
   br i1 %60, label %put_quic_value.exit.thread, label %put_quic_value.exit
 
@@ -1035,7 +1035,7 @@ WPACKET_put_bytes__.exit.thread106:               ; preds = %81
   %.not.i.i = icmp eq i64 %87, 0
   br i1 %.not.i.i, label %WPACKET_put_bytes__.exit, label %.lr.ph.i.i, !llvm.loop !34
 
-WPACKET_put_bytes__.exit.thread:                  ; preds = %79, %77
+WPACKET_put_bytes__.exit.thread:                  ; preds = %77, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %put_quic_value.exit.thread
 
@@ -1150,8 +1150,8 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
   call void @CRYPTO_free(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 313) #12
   br label %put_quic_value.exit.thread
 
-put_quic_value.exit.thread:                       ; preds = %103, %90, %93, %ossl_quic_vlint_encode_len.exit.i, %WPACKET_put_bytes__.exit.thread, %.critedge76, %138, %WPACKET_put_bytes__.exit, %put_value.exit, %17, %11
-  %.053 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %put_value.exit ], [ 0, %WPACKET_put_bytes__.exit ], [ 1, %138 ], [ 1, %.critedge76 ], [ 0, %WPACKET_put_bytes__.exit.thread ], [ 0, %ossl_quic_vlint_encode_len.exit.i ], [ 0, %93 ], [ 0, %90 ], [ 0, %103 ]
+put_quic_value.exit.thread:                       ; preds = %90, %93, %103, %ossl_quic_vlint_encode_len.exit.i, %WPACKET_put_bytes__.exit.thread, %.critedge76, %138, %WPACKET_put_bytes__.exit, %put_value.exit, %17, %11
+  %.053 = phi i32 [ 0, %11 ], [ 0, %WPACKET_put_bytes__.exit ], [ 0, %17 ], [ 0, %put_value.exit ], [ 0, %ossl_quic_vlint_encode_len.exit.i ], [ 0, %90 ], [ 1, %138 ], [ 1, %.critedge76 ], [ 0, %WPACKET_put_bytes__.exit.thread ], [ 0, %103 ], [ 0, %93 ]
   ret i32 %.053
 }
 
@@ -1179,7 +1179,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_finish(ptr noundef captures(none) 
   br label %11
 
 11:                                               ; preds = %7, %9, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %9 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 1, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1212,7 +1212,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_start_sub_packet(ptr noundef captu
   br label %WPACKET_start_sub_packet_len__.exit
 
 WPACKET_start_sub_packet_len__.exit:              ; preds = %1, %4, %7
-  %.0.i = phi i32 [ 1, %7 ], [ 0, %1 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 0, %1 ], [ 0, %4 ], [ 1, %7 ]
   ret i32 %.0.i
 }
 
@@ -1260,7 +1260,7 @@ put_value.exit:                                   ; preds = %.lr.ph.i, %11
   br label %put_value.exit.thread
 
 put_value.exit.thread:                            ; preds = %put_value.exit, %8, %3, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %8 ], [ %spec.select, %put_value.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %8 ], [ %spec.select, %put_value.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1304,7 +1304,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_set_max_size(ptr noundef captures(
   br label %21
 
 21:                                               ; preds = %6, %15, %2, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %2 ], [ 0, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1469,7 +1469,7 @@ WPACKET_close.exit.thread:                        ; preds = %33, %36, %WPACKET_c
   br label %40
 
 40:                                               ; preds = %WPACKET_close.exit.thread, %WPACKET_close.exit, %WPACKET_memcpy.exit, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit
-  %.0 = phi i32 [ 0, %WPACKET_memcpy.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
+  %.0 = phi i32 [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %WPACKET_memcpy.exit ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
   ret i32 %.0
 }
 
@@ -1567,7 +1567,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_start_quic_sub_packet_bound(ptr no
   %10 = icmp ult i64 %1, 4611686018427387904
   br i1 %10, label %select.unfold, label %ossl_quic_vlint_encode_len.exit
 
-select.unfold:                                    ; preds = %9, %2, %5, %7
+select.unfold:                                    ; preds = %9, %7, %2, %5
   %.0.i.ph = phi i64 [ 4, %7 ], [ 2, %5 ], [ 1, %2 ], [ 8, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1702,7 +1702,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.WPACKET_get_curr.e
   br label %WPACKET_start_quic_sub_packet_bound.exit
 
 WPACKET_start_quic_sub_packet_bound.exit:         ; preds = %11, %29, %1, %4, %8, %WPACKET_get_curr.exit.i.i.thread
-  %.0.i = phi i32 [ 1, %WPACKET_get_curr.exit.i.i.thread ], [ 0, %8 ], [ 0, %4 ], [ 0, %1 ], [ 0, %29 ], [ 0, %11 ]
+  %.0.i = phi i32 [ 1, %WPACKET_get_curr.exit.i.i.thread ], [ 0, %1 ], [ 0, %8 ], [ 0, %4 ], [ 0, %29 ], [ 0, %11 ]
   ret i32 %.0.i
 }
 
@@ -1796,7 +1796,7 @@ WPACKET_close.exit.thread:                        ; preds = %36, %39, %WPACKET_c
   br label %WPACKET_start_quic_sub_packet_bound.exit.thread
 
 WPACKET_start_quic_sub_packet_bound.exit.thread:  ; preds = %WPACKET_start_sub_packet_len__.exit.thread.i, %10, %WPACKET_start_sub_packet_len__.exit.i, %WPACKET_close.exit.thread, %WPACKET_close.exit, %30
-  %.0 = phi i32 [ 0, %30 ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.i ], [ 0, %10 ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread.i ]
+  %.0 = phi i32 [ 1, %WPACKET_close.exit ], [ 0, %30 ], [ 0, %WPACKET_close.exit.thread ], [ 0, %WPACKET_start_sub_packet_len__.exit.i ], [ 0, %10 ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -1820,7 +1820,7 @@ define dso_local range(i32 0, 2) i32 @WPACKET_quic_write_vlint(ptr noundef captu
   %10 = icmp ult i64 %1, 4611686018427387904
   br i1 %10, label %select.unfold, label %ossl_quic_vlint_encode_len.exit
 
-select.unfold:                                    ; preds = %9, %2, %5, %7
+select.unfold:                                    ; preds = %9, %7, %2, %5
   %.0.i.ph = phi i64 [ 4, %7 ], [ 2, %5 ], [ 1, %2 ], [ 8, %9 ]
   %11 = call i32 @WPACKET_allocate_bytes(ptr noundef %0, i64 noundef %.0.i.ph, ptr noundef nonnull %3)
   %12 = icmp eq i32 %11, 0

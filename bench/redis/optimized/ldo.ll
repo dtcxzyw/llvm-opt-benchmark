@@ -855,7 +855,7 @@ luaD_reallocCI.exit.i:                            ; preds = %200, %194
   br label %growCI.exit
 
 growCI.exit:                                      ; preds = %179, %211, %luaD_reallocCI.exit.i
-  %.pn128 = phi ptr [ %207, %luaD_reallocCI.exit.i ], [ %.pre.i105, %211 ], [ %180, %179 ]
+  %.pn128 = phi ptr [ %.pre.i105, %211 ], [ %207, %luaD_reallocCI.exit.i ], [ %180, %179 ]
   %storemerge127 = getelementptr inbounds nuw i8, ptr %.pn128, i64 40
   store ptr %storemerge127, ptr %59, align 8, !tbaa !35
   %212 = getelementptr inbounds nuw i8, ptr %.pn128, i64 48
@@ -1052,7 +1052,7 @@ luaD_reallocCI.exit.i114:                         ; preds = %306, %300
   br label %growCI.exit117
 
 growCI.exit117:                                   ; preds = %285, %317, %luaD_reallocCI.exit.i114
-  %.pn = phi ptr [ %313, %luaD_reallocCI.exit.i114 ], [ %.pre.i116, %317 ], [ %286, %285 ]
+  %.pn = phi ptr [ %.pre.i116, %317 ], [ %313, %luaD_reallocCI.exit.i114 ], [ %286, %285 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 40
   store ptr %storemerge, ptr %59, align 8, !tbaa !35
   %318 = load ptr, ptr %52, align 8, !tbaa !45
@@ -1163,7 +1163,7 @@ luaD_callhook.exit125:                            ; preds = %360, %333, %330, %g
   br label %384
 
 384:                                              ; preds = %378, %luaD_callhook.exit125, %._crit_edge, %luaD_callhook.exit
-  %.0 = phi i32 [ 0, %luaD_callhook.exit ], [ 0, %._crit_edge ], [ 1, %378 ], [ 2, %luaD_callhook.exit125 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %luaD_callhook.exit ], [ 1, %378 ], [ 2, %luaD_callhook.exit125 ]
   ret i32 %.0
 }
 
@@ -1366,8 +1366,8 @@ luaD_callhook.exit16.i:                           ; preds = %101, %82, %80
   br i1 %.not8.i, label %callrethooks.exit, label %73, !llvm.loop !84
 
 callrethooks.exit:                                ; preds = %73, %luaD_callhook.exit16.i, %luaD_callhook.exit.i, %.preheader.i
-  %115 = phi ptr [ %59, %.preheader.i ], [ %59, %luaD_callhook.exit.i ], [ %76, %73 ], [ %113, %luaD_callhook.exit16.i ]
-  %116 = phi ptr [ %57, %.preheader.i ], [ %57, %luaD_callhook.exit.i ], [ %75, %73 ], [ %112, %luaD_callhook.exit16.i ]
+  %115 = phi ptr [ %59, %luaD_callhook.exit.i ], [ %59, %.preheader.i ], [ %76, %73 ], [ %113, %luaD_callhook.exit16.i ]
+  %116 = phi ptr [ %57, %luaD_callhook.exit.i ], [ %57, %.preheader.i ], [ %75, %73 ], [ %112, %luaD_callhook.exit16.i ]
   %117 = ptrtoint ptr %1 to i64
   %118 = ptrtoint ptr %10 to i64
   %119 = sub i64 %117, %118

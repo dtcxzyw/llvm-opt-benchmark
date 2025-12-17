@@ -756,7 +756,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
   br label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread
 
 289:                                              ; preds = %.loopexit, %.loopexit.split-lp, %182, %69, %99, %170
-  %.pn51.pn = phi { ptr, i32 } [ %.pn, %170 ], [ %70, %69 ], [ %100, %99 ], [ %183, %182 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn51.pn = phi { ptr, i32 } [ %.pn, %170 ], [ %183, %182 ], [ %100, %99 ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN5model23scoped_model_completionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %290
 

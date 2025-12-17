@@ -548,7 +548,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %88
 
 88:                                               ; preds = %4, %.loopexit, %70
-  %.0 = phi i32 [ %87, %.loopexit ], [ 1, %70 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %70 ], [ %87, %.loopexit ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

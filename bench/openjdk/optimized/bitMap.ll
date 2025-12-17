@@ -935,7 +935,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull 
   br i1 %23, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %19, !llvm.loop !11
 
 _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %11
-  %24 = phi i1 [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
+  %24 = phi i1 [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
   ret i1 %24
 }
 

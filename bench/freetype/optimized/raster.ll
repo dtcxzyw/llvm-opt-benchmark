@@ -145,7 +145,7 @@ define internal i32 @ft_black_render(ptr noundef readnone captures(address_is_nu
   br label %56
 
 56:                                               ; preds = %40, %35, %38, %34, %30, %23, %17, %20, %8, %13, %7, %2, %43
-  %.0 = phi i32 [ %55, %43 ], [ 96, %2 ], [ 20, %7 ], [ 0, %13 ], [ 0, %8 ], [ 20, %20 ], [ 20, %17 ], [ 20, %23 ], [ 19, %30 ], [ 6, %34 ], [ 0, %38 ], [ 0, %35 ], [ 6, %40 ]
+  %.0 = phi i32 [ 20, %7 ], [ 20, %17 ], [ 20, %23 ], [ %55, %43 ], [ 0, %35 ], [ 6, %34 ], [ 19, %30 ], [ 0, %8 ], [ 96, %2 ], [ 0, %13 ], [ 20, %20 ], [ 0, %38 ], [ 6, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -374,7 +374,7 @@ define internal range(i32 0, 7) i32 @ft_raster1_transform(ptr noundef readonly c
   br label %18
 
 18:                                               ; preds = %4, %12, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %12 ], [ 6, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %13 ], [ 6, %4 ]
   ret i32 %.0
 }
 
@@ -487,7 +487,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef nonnull initializes((0, 20)
   br label %36
 
 36:                                               ; preds = %31, %1, %35
-  %.0 = phi i32 [ 0, %35 ], [ %27, %1 ], [ %34, %31 ]
+  %.0 = phi i32 [ %27, %1 ], [ 0, %35 ], [ %34, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -638,9 +638,9 @@ define internal void @Vertical_Sweep_Drop(ptr noundef readonly captures(none) %0
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !41
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %16, %18
-  %31 = phi i32 [ %.pre, %..thread_crit_edge ], [ %14, %18 ], [ %14, %16 ]
-  %.030 = phi i32 [ %10, %..thread_crit_edge ], [ %8, %18 ], [ %8, %16 ]
+.thread:                                          ; preds = %..thread_crit_edge, %18, %16
+  %31 = phi i32 [ %.pre, %..thread_crit_edge ], [ %14, %16 ], [ %14, %18 ]
+  %.030 = phi i32 [ %10, %..thread_crit_edge ], [ %8, %16 ], [ %8, %18 ]
   %.not28 = icmp sgt i32 %.030, %31
   br i1 %.not28, label %43, label %32
 
@@ -1153,7 +1153,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %.not.i48.i = icmp eq i16 %270, 0
   br i1 %.not.i48.i, label %Convert_Glyph.exit.thread165, label %.lr.ph.i47.i, !llvm.loop !122
 
-.loopexit:                                        ; preds = %249, %.split257.us.i.i, %221, %._crit_edge.i.i, %105, %154, %173, %212, %175, %148
+.loopexit:                                        ; preds = %249, %.split257.us.i.i, %221, %._crit_edge.i.i, %212, %105, %154, %173, %175, %148
   %.pr = load i32, ptr %11, align 8, !tbaa !99
   %.not33 = icmp eq i32 %.pr, 98
   br i1 %.not33, label %271, label %.loopexit58
@@ -1246,8 +1246,8 @@ Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   br i1 %308, label %.preheader, label %.sink.split.i, !llvm.loop !127
 
 .sink.split.i:                                    ; preds = %301, %.preheader48, %305, %.preheader
-  %.011.i.lcssa.sink.i = phi ptr [ %.011.i130.i, %305 ], [ null, %.preheader ], [ %.011.i.i, %301 ], [ null, %.preheader48 ]
-  %.0.i.lcssa.sink.i = phi ptr [ %.0.i129.i, %.preheader ], [ %.0.i129.i, %305 ], [ %.0.i.i, %.preheader48 ], [ %.0.i.i, %301 ]
+  %.011.i.lcssa.sink.i = phi ptr [ null, %.preheader ], [ %.011.i130.i, %305 ], [ null, %.preheader48 ], [ %.011.i.i, %301 ]
+  %.0.i.lcssa.sink.i = phi ptr [ %.0.i129.i, %305 ], [ %.0.i129.i, %.preheader ], [ %.0.i.i, %.preheader48 ], [ %.0.i.i, %301 ]
   store ptr %.011.i.lcssa.sink.i, ptr %290, align 8, !tbaa !120
   store ptr %290, ptr %.0.i.lcssa.sink.i, align 8, !tbaa !123
   br label %309
@@ -1401,7 +1401,7 @@ Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   br label %384
 
 384:                                              ; preds = %381, %364, %362, %350, %348, %333, %331
-  %.2.i = phi i32 [ %.0162.i, %331 ], [ %383, %381 ], [ %.0162.i, %333 ], [ %.0162.i, %350 ], [ %.0162.i, %348 ], [ %.0162.i, %364 ], [ %.0162.i, %362 ]
+  %.2.i = phi i32 [ %.0162.i, %331 ], [ %.0162.i, %333 ], [ %383, %381 ], [ %.0162.i, %348 ], [ %.0162.i, %350 ], [ %.0162.i, %364 ], [ %.0162.i, %362 ]
   %.0102.i = load ptr, ptr %.0102163.i, align 8, !tbaa !123
   %.0104.i = load ptr, ptr %.0104164.i, align 8, !tbaa !123
   %385 = icmp ne ptr %.0104.i, null
@@ -1595,7 +1595,7 @@ Increment.exit.i:                                 ; preds = %427, %.preheader.i.
   br i1 %.not34.i152.i, label %Increment.exit153.i, label %.lr.ph42.i146.i, !llvm.loop !134
 
 Increment.exit153.i:                              ; preds = %454, %.preheader.i144.i, %._crit_edge.i141.i, %Increment.exit.i
-  %.0..0102160.pre184.i = phi ptr [ null, %Increment.exit.i ], [ null, %._crit_edge.i141.i ], [ %.0..0..0..0..0..pre43.i142.i, %.preheader.i144.i ], [ %.0..0102160180.i, %454 ]
+  %.0..0102160.pre184.i = phi ptr [ %.0..0..0..0..0..pre43.i142.i, %.preheader.i144.i ], [ null, %Increment.exit.i ], [ null, %._crit_edge.i141.i ], [ %.0..0102160180.i, %454 ]
   %456 = add nsw i32 %.197.i, 1
   %457 = icmp slt i32 %456, %314
   br i1 %457, label %315, label %458, !llvm.loop !135
@@ -1775,9 +1775,9 @@ define internal void @Horizontal_Sweep_Drop(ptr noundef readonly captures(none) 
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !37
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %16, %18
-  %37 = phi i32 [ %.pre, %..thread_crit_edge ], [ %14, %18 ], [ %14, %16 ]
-  %.033 = phi i32 [ %10, %..thread_crit_edge ], [ %8, %18 ], [ %8, %16 ]
+.thread:                                          ; preds = %..thread_crit_edge, %18, %16
+  %37 = phi i32 [ %.pre, %..thread_crit_edge ], [ %14, %16 ], [ %14, %18 ]
+  %.033 = phi i32 [ %10, %..thread_crit_edge ], [ %8, %16 ], [ %8, %18 ]
   %.not31 = icmp sgt i32 %.033, %37
   br i1 %.not31, label %55, label %38
 
@@ -1962,7 +1962,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   br i1 %89, label %.critedge.thread.i, label %100
 
 .critedge.thread.i:                               ; preds = %78, %85, %.critedge.i
-  %.in.i = phi i64 [ %indvars.iv.next.i, %85 ], [ %indvars.iv.next.i, %.critedge.i ], [ %77, %78 ]
+  %.in.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ %indvars.iv.next.i, %85 ], [ %77, %78 ]
   %90 = getelementptr inbounds i8, ptr %65, i64 -8
   store ptr %90, ptr %64, align 8, !tbaa !101
   %.not33.i = icmp ugt ptr %90, %5
@@ -2569,7 +2569,7 @@ Bezier_Up.exit.thread:                            ; preds = %109, %79, %178, %Be
   br i1 %.not78, label %.loopexit, label %23, !llvm.loop !143
 
 .loopexit:                                        ; preds = %72, %74, %290, %Bezier_Up.exit96, %Bezier_Up.exit
-  %.061 = phi i8 [ 1, %Bezier_Up.exit96 ], [ 1, %Bezier_Up.exit ], [ 1, %72 ], [ 1, %74 ], [ 0, %290 ]
+  %.061 = phi i8 [ 1, %Bezier_Up.exit ], [ 1, %Bezier_Up.exit96 ], [ 1, %72 ], [ 1, %74 ], [ 0, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i8 %.061
 }
@@ -3028,7 +3028,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull ca
   br label %86
 
 86:                                               ; preds = %38, %7, %.loopexit, %53
-  %.084 = phi i8 [ 1, %53 ], [ 0, %.loopexit ], [ 0, %7 ], [ 0, %38 ]
+  %.084 = phi i8 [ 0, %.loopexit ], [ 0, %7 ], [ 1, %53 ], [ 0, %38 ]
   ret i8 %.084
 }
 
@@ -3191,7 +3191,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   br label %101
 
 101:                                              ; preds = %43, %6, %100, %59
-  %.073 = phi i8 [ 1, %59 ], [ 0, %100 ], [ 0, %6 ], [ 0, %43 ]
+  %.073 = phi i8 [ 0, %100 ], [ 0, %6 ], [ 1, %59 ], [ 0, %43 ]
   ret i8 %.073
 }
 

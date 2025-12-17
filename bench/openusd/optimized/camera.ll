@@ -7168,7 +7168,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   ret void
 
 .body:                                            ; preds = %88, %71, %1856, %1794, %1899, %1833, %.body151
-  %.pn139 = phi { ptr, i32 } [ %1900, %1899 ], [ %1834, %1833 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body151 ], [ %89, %88 ], [ %1795, %1794 ], [ %72, %71 ], [ %1857, %1856 ]
+  %.pn139 = phi { ptr, i32 } [ %1900, %1899 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body151 ], [ %1834, %1833 ], [ %89, %88 ], [ %1795, %1794 ], [ %72, %71 ], [ %1857, %1856 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #17
   br label %1924
 
@@ -7567,7 +7567,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit7
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit7: ; preds = %104, %101, %91, %88, %86
-  %.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ], [ %89, %91 ], [ %.pn, %101 ], [ %.pn, %104 ]
+  %.pn.pn = phi { ptr, i32 } [ %89, %91 ], [ %87, %86 ], [ %89, %88 ], [ %.pn, %101 ], [ %.pn, %104 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %12, label %110, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10
 

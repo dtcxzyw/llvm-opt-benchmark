@@ -1596,7 +1596,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vec
   unreachable
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %716, %713, %553
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %554, %553 ], [ %717, %716 ], [ %.pn.pn.i.i, %713 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i.i, %713 ], [ %554, %553 ], [ %717, %716 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %27) #28
   br label %785
 
@@ -1969,7 +1969,7 @@ define hidden void @_ZN2cv12cpu_baseline18calcSIFTDescriptorERKNS_3MatENS_6Point
   br label %162
 
 162:                                              ; preds = %132, %129, %124, %.lr.ph.split
-  %.3280 = phi i32 [ %161, %132 ], [ %.2279341, %129 ], [ %.2279341, %124 ], [ %.2279341, %.lr.ph.split ]
+  %.3280 = phi i32 [ %161, %132 ], [ %.2279341, %.lr.ph.split ], [ %.2279341, %129 ], [ %.2279341, %124 ]
   %163 = add i32 %.1275342, 1
   %exitcond389.not = icmp eq i32 %.1275342, %.sroa.speculated317
   br i1 %exitcond389.not, label %._crit_edge343, label %.lr.ph.split, !llvm.loop !60
@@ -2990,7 +2990,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc62
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc62, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.069.0 = phi ptr [ %18, %.noexc62 ], [ %18, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.069.0 = phi ptr [ %18, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %18, %.noexc62 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %22 = mul nsw i32 %12, %3
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5112,7 +5112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %120
   unreachable
 
 255:                                              ; preds = %246, %235, %155, %149, %147
-  %.pn56.pn.pn.pn.pn.i = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ], [ %156, %155 ], [ %.pn56.pn.pn.i, %235 ], [ %247, %246 ]
+  %.pn56.pn.pn.pn.pn.i = phi { ptr, i32 } [ %156, %155 ], [ %150, %149 ], [ %148, %147 ], [ %.pn56.pn.pn.i, %235 ], [ %247, %246 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !215
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #28
@@ -5474,7 +5474,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   ret void
 
 394:                                              ; preds = %374, %380, %286, %284
-  %.pn59.pn.pn = phi { ptr, i32 } [ %285, %284 ], [ %287, %286 ], [ %.pn59, %380 ], [ %375, %374 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %287, %286 ], [ %285, %284 ], [ %.pn59, %380 ], [ %375, %374 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #28

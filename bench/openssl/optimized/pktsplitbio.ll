@@ -48,7 +48,7 @@ define dso_local ptr @bio_f_pkt_split_dgram_filter() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %0, %3, %6, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %11 ]
+  %.0 = phi ptr [ null, %3 ], [ %spec.select, %11 ], [ null, %8 ], [ null, %6 ], [ %1, %0 ]
   ret ptr %.0
 }
 
@@ -234,7 +234,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.critedge, %27, %._crit_edge, %6, %12, %._crit_edge90
-  %.0 = phi i32 [ 1, %._crit_edge90 ], [ 0, %12 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %.critedge ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %.critedge ], [ 1, %._crit_edge90 ], [ 0, %12 ], [ 1, %27 ], [ 0, %19 ]
   ret i32 %.0
 }
 

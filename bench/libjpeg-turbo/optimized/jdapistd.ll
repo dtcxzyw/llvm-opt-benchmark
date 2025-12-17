@@ -206,7 +206,7 @@ define internal fastcc range(i32 0, 2) i32 @output_pass_setup(ptr noundef %0) un
   br i1 %49, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %46, %42, %34
-  %.sink82 = phi i64 [ 8, %34 ], [ 16, %42 ], [ 24, %46 ]
+  %.sink82 = phi i64 [ 16, %42 ], [ 8, %34 ], [ 24, %46 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 15, ptr %51, align 8, !tbaa !45
@@ -1352,7 +1352,7 @@ start_iMCU_row.exit:                              ; preds = %304, %311, %314
   br label %342
 
 342:                                              ; preds = %334, %337, %263, %266, %67, %191, %read_and_discard_scanlines.exit, %59
-  %.0 = phi i32 [ %60, %59 ], [ %1, %read_and_discard_scanlines.exit ], [ %1, %191 ], [ 0, %67 ], [ %1, %266 ], [ %1, %263 ], [ %1, %337 ], [ %1, %334 ]
+  %.0 = phi i32 [ %60, %59 ], [ %1, %191 ], [ %1, %read_and_discard_scanlines.exit ], [ 0, %67 ], [ %1, %263 ], [ %1, %266 ], [ %1, %337 ], [ %1, %334 ]
   ret i32 %.0
 }
 

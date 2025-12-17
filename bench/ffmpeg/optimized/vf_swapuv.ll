@@ -83,7 +83,7 @@ is_planar_yuv.exit:                               ; preds = %21
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.loopexit, label %is_planar_yuv.exit.thread
 
-is_planar_yuv.exit.thread:                        ; preds = %29, %26, %22, %.lr.ph, %11, %15, %is_planar_yuv.exit
+is_planar_yuv.exit.thread:                        ; preds = %22, %29, %26, %15, %.lr.ph, %11, %is_planar_yuv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = trunc nuw i64 %indvars.iv.next to i32
   %35 = call ptr @av_pix_fmt_desc_get(i32 noundef %34) #3

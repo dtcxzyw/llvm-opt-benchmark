@@ -718,7 +718,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   br label %121
 
 121:                                              ; preds = %28, %31, %34, %._crit_edge, %118, %._crit_edge110, %.loopexit94, %100, %.critedge, %73, %66, %._crit_edge115, %.loopexit
-  %.066 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge115 ], [ false, %66 ], [ false, %73 ], [ false, %.loopexit94 ], [ true, %._crit_edge110 ], [ true, %100 ], [ false, %.critedge ], [ true, %118 ], [ false, %._crit_edge ], [ true, %34 ], [ true, %31 ], [ true, %28 ]
+  %.066 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge115 ], [ false, %._crit_edge ], [ false, %66 ], [ false, %73 ], [ false, %.loopexit94 ], [ true, %._crit_edge110 ], [ true, %100 ], [ false, %.critedge ], [ true, %118 ], [ true, %34 ], [ true, %31 ], [ true, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1240,7 +1240,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %80, %110, %.lr.ph.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph186, %.lr.ph191, %.lr.ph196, %.lr.ph202, %._crit_edge203, %185, %190, %195, %133, %126, %119, %197, %73, %61, %49, %37, %25
-  %.0 = phi i32 [ -43, %25 ], [ -43, %37 ], [ -43, %49 ], [ -43, %61 ], [ -43, %73 ], [ -43, %197 ], [ -43, %119 ], [ -43, %126 ], [ -43, %133 ], [ 0, %195 ], [ 0, %190 ], [ 0, %185 ], [ 0, %._crit_edge203 ], [ %180, %.lr.ph202 ], [ -43, %.lr.ph196 ], [ -43, %.lr.ph191 ], [ -43, %.lr.ph186 ], [ %116, %.lr.ph ]
+  %.0 = phi i32 [ -43, %25 ], [ -43, %37 ], [ -43, %49 ], [ -43, %61 ], [ -43, %73 ], [ -43, %133 ], [ -43, %197 ], [ 0, %190 ], [ -43, %126 ], [ -43, %119 ], [ 0, %195 ], [ 0, %185 ], [ 0, %._crit_edge203 ], [ -43, %.lr.ph186 ], [ %180, %.lr.ph202 ], [ -43, %.lr.ph196 ], [ -43, %.lr.ph191 ], [ %116, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1582,7 +1582,7 @@ define noundef i32 @prte_schizo_base_parse_display(ptr noundef readonly captures
   br i1 %.not, label %.loopexit131, label %.lr.ph176, !llvm.loop !61
 
 .loopexit131.sink.split:                          ; preds = %78, %63, %47, %40, %33, %26, %17, %80, %65, %49, %42, %35, %28, %19, %21, %61, %76
-  %.090.ph = phi i32 [ -6, %21 ], [ -6, %76 ], [ -6, %61 ], [ %18, %19 ], [ %27, %28 ], [ %34, %35 ], [ %41, %42 ], [ %48, %49 ], [ %64, %65 ], [ %79, %80 ], [ %18, %17 ], [ %27, %26 ], [ %34, %33 ], [ %41, %40 ], [ %48, %47 ], [ %64, %63 ], [ %79, %78 ]
+  %.090.ph = phi i32 [ -6, %21 ], [ %27, %28 ], [ -6, %76 ], [ %34, %35 ], [ -6, %61 ], [ %41, %42 ], [ %48, %49 ], [ %64, %65 ], [ %79, %80 ], [ %18, %19 ], [ %64, %63 ], [ %48, %47 ], [ %41, %40 ], [ %34, %33 ], [ %27, %26 ], [ %18, %17 ], [ %79, %78 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #19
   br label %.loopexit131
 
@@ -2057,7 +2057,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr noundef readonly captures(
   br label %.thread635
 
 .thread635:                                       ; preds = %2, %.thread241, %.thread239, %155, %156, %.loopexit245, %134, %131, %.loopexit246, %109, %106, %.loopexit247, %.loopexit248, %.loopexit249, %.loopexit250, %.loopexit251, %.loopexit252, %.loopexit253, %.loopexit, %.loopexit243, %.loopexit244
-  %.2162 = phi i32 [ %23, %.loopexit244 ], [ %37, %.loopexit ], [ %30, %.loopexit243 ], [ %53, %.loopexit253 ], [ %60, %.loopexit252 ], [ %67, %.loopexit251 ], [ %74, %.loopexit250 ], [ %81, %.loopexit249 ], [ %88, %.loopexit248 ], [ %95, %.loopexit247 ], [ -6, %106 ], [ -6, %109 ], [ %120, %.loopexit246 ], [ -6, %131 ], [ -6, %134 ], [ %145, %.loopexit245 ], [ 0, %156 ], [ 0, %155 ], [ -6, %.thread239 ], [ -6, %.thread241 ], [ 0, %2 ]
+  %.2162 = phi i32 [ %23, %.loopexit244 ], [ %37, %.loopexit ], [ %30, %.loopexit243 ], [ %53, %.loopexit253 ], [ %60, %.loopexit252 ], [ %67, %.loopexit251 ], [ %74, %.loopexit250 ], [ %81, %.loopexit249 ], [ %88, %.loopexit248 ], [ %95, %.loopexit247 ], [ -6, %106 ], [ -6, %109 ], [ %120, %.loopexit246 ], [ -6, %.thread239 ], [ -6, %131 ], [ -6, %134 ], [ %145, %.loopexit245 ], [ -6, %.thread241 ], [ 0, %156 ], [ 0, %155 ], [ 0, %2 ]
   ret i32 %.2162
 }
 

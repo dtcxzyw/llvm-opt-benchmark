@@ -963,7 +963,7 @@ define noundef ptr @Sat_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noun
   br label %41
 
 41:                                               ; preds = %2, %34, %26
-  %.0 = phi ptr [ %30, %26 ], [ %40, %34 ], [ null, %2 ]
+  %.0 = phi ptr [ %40, %34 ], [ %30, %26 ], [ null, %2 ]
   ret ptr %.0
 }
 

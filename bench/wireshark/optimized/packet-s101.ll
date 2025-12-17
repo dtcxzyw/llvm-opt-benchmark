@@ -806,7 +806,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
   br label %341
 
 .thread266:                                       ; preds = %257, %.thread270, %327
-  %.1269 = phi ptr [ %.2, %327 ], [ %.0104, %.thread270 ], [ %.0104, %257 ]
+  %.1269 = phi ptr [ %.0104, %.thread270 ], [ %.2, %327 ], [ %.0104, %257 ]
   %335 = load ptr, ptr @glow_handle, align 8
   %.not117 = icmp eq ptr %335, null
   br i1 %.not117, label %341, label %336
@@ -831,8 +831,8 @@ new_fragment_info.exit:                           ; preds = %280, %284
 .backedge.backedge:                               ; preds = %341, %337
   br label %.backedge, !llvm.loop !9
 
-find_s101_packet_header.exit.thread:              ; preds = %135, %138, %140, %.backedge, %341, %337, %4
-  %.0103 = phi i32 [ 0, %4 ], [ %.0232, %135 ], [ %.0232, %138 ], [ %.0232, %140 ], [ %.0232, %.backedge ], [ %.4236, %337 ], [ %.4236, %341 ]
+find_s101_packet_header.exit.thread:              ; preds = %138, %140, %135, %.backedge, %341, %337, %4
+  %.0103 = phi i32 [ 0, %4 ], [ %.0232, %138 ], [ %.0232, %140 ], [ %.0232, %135 ], [ %.0232, %.backedge ], [ %.4236, %341 ], [ %.4236, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3)
   ret i32 %.0103

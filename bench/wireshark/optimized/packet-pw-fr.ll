@@ -173,9 +173,9 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 37:                                               ; preds = %35, %27, %33, %31
-  %.2 = phi i32 [ %28, %27 ], [ %32, %31 ], [ %spec.select, %33 ], [ %spec.select110, %35 ]
-  %.194 = phi i32 [ 0, %27 ], [ 0, %31 ], [ %34, %33 ], [ 0, %35 ]
-  %.1 = phi i32 [ %23, %27 ], [ %23, %31 ], [ %22, %33 ], [ %23, %35 ]
+  %.2 = phi i32 [ %spec.select110, %35 ], [ %spec.select, %33 ], [ %28, %27 ], [ %32, %31 ]
+  %.194 = phi i32 [ 0, %35 ], [ %34, %33 ], [ 0, %27 ], [ 0, %31 ]
+  %.1 = phi i32 [ %23, %35 ], [ %22, %33 ], [ %23, %27 ], [ %23, %31 ]
   %38 = icmp eq i32 %.1, 0
   %39 = or i32 %.2, 32
   %spec.select111 = select i1 %38, i32 %39, i32 %.2

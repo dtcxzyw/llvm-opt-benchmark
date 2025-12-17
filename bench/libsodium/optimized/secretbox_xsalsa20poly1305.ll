@@ -48,7 +48,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_xsalsa20poly1305_open(pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %8, %5
-  %.015 = phi i32 [ -1, %5 ], [ -1, %8 ], [ 0, %.loopexit.loopexit ]
+  %.015 = phi i32 [ -1, %8 ], [ -1, %5 ], [ 0, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.015
 }

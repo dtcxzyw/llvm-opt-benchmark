@@ -1011,7 +1011,7 @@ xdl_append_merge.exit335:                         ; preds = %387
   br i1 %.not32.i, label %.critedge2.i, label %409, !llvm.loop !65
 
 .critedge.i:                                      ; preds = %409, %.lr.ph521
-  %.pr.i = phi i64 [ %423, %409 ], [ %.pr.pre.pre.i, %.lr.ph521 ]
+  %.pr.i = phi i64 [ %.pr.pre.pre.i, %.lr.ph521 ], [ %423, %409 ]
   %.not358.i = icmp eq i64 %.pr.i, 0
   br i1 %.not358.i, label %.critedge2.i, label %.lr.ph9.i
 
@@ -1248,7 +1248,7 @@ xdl_append_merge.exit335:                         ; preds = %387
   br label %561
 
 561:                                              ; preds = %._crit_edge.i, %525, %472, %468, %461
-  %.153.ph.i = phi ptr [ %.05273.i, %468 ], [ %.05273.i, %472 ], [ %.05273.i, %461 ], [ %.05273.i, %525 ], [ %.254.lcssa.i, %._crit_edge.i ]
+  %.153.ph.i = phi ptr [ %.05273.i, %472 ], [ %.254.lcssa.i, %._crit_edge.i ], [ %.05273.i, %468 ], [ %.05273.i, %461 ], [ %.05273.i, %525 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1323,8 +1323,8 @@ lines_contain_alnum.exit.thread.us.i:             ; preds = %572
   br label %lines_contain_alnum.exit.us.i
 
 lines_contain_alnum.exit.us.i:                    ; preds = %lines_contain_alnum.exit.thread.us.i, %572, %.lr.ph.split.us.i
-  %.125.us.i = phi i32 [ %581, %lines_contain_alnum.exit.thread.us.i ], [ %.02444.us.i, %572 ], [ %.02444.us.i, %.lr.ph.split.us.i ]
-  %.122.us.i = phi ptr [ %.02145.us.i, %lines_contain_alnum.exit.thread.us.i ], [ %564, %572 ], [ %564, %.lr.ph.split.us.i ]
+  %.125.us.i = phi i32 [ %581, %lines_contain_alnum.exit.thread.us.i ], [ %.02444.us.i, %.lr.ph.split.us.i ], [ %.02444.us.i, %572 ]
+  %.122.us.i = phi ptr [ %.02145.us.i, %lines_contain_alnum.exit.thread.us.i ], [ %564, %.lr.ph.split.us.i ], [ %564, %572 ]
   %596 = load ptr, ptr %.122.us.i, align 8, !tbaa !43
   %.not31.not.us.i = icmp eq ptr %596, null
   br i1 %.not31.not.us.i, label %xdl_simplify_non_conflicts.exit, label %.lr.ph.split.us.i
@@ -1421,8 +1421,8 @@ lines_contain_alnum.exit.thread.i:                ; preds = %634, %612
   br label %lines_contain_alnum.exit.i
 
 lines_contain_alnum.exit.i:                       ; preds = %626, %lines_contain_alnum.exit.thread.i, %609, %.lr.ph.split.i
-  %.125.i = phi i32 [ %636, %lines_contain_alnum.exit.thread.i ], [ %.02444.i, %609 ], [ %.02444.i, %.lr.ph.split.i ], [ %.02444.i, %626 ]
-  %.122.i = phi ptr [ %.02145.i, %lines_contain_alnum.exit.thread.i ], [ %597, %609 ], [ %597, %.lr.ph.split.i ], [ %597, %626 ]
+  %.125.i = phi i32 [ %636, %lines_contain_alnum.exit.thread.i ], [ %.02444.i, %.lr.ph.split.i ], [ %.02444.i, %609 ], [ %.02444.i, %626 ]
+  %.122.i = phi ptr [ %.02145.i, %lines_contain_alnum.exit.thread.i ], [ %597, %.lr.ph.split.i ], [ %597, %609 ], [ %597, %626 ]
   %651 = load ptr, ptr %.122.i, align 8, !tbaa !43
   %.not31.not.i = icmp eq ptr %651, null
   br i1 %.not31.not.i, label %xdl_simplify_non_conflicts.exit, label %.lr.ph.split.i
@@ -1491,7 +1491,7 @@ xdl_cleanup_merge.exit373:                        ; preds = %654
   br i1 %.not.i379, label %xdl_cleanup_merge.exit, label %.lr.ph.i375, !llvm.loop !44
 
 xdl_cleanup_merge.exit:                           ; preds = %.lr.ph.i305, %.lr.ph.i321, %.lr.ph.i288, %.lr.ph.i357, %.lr.ph.i366, %.lr.ph.i375, %.lr.ph.i337, %.lr.ph.i, %660, %664, %xdl_append_merge.exit335, %xdl_append_merge.exit319, %xdl_append_merge.exit303, %xdl_append_merge.exit286, %xdl_append_merge.exit
-  %.1 = phi i32 [ -1, %xdl_append_merge.exit ], [ -1, %xdl_append_merge.exit286 ], [ -1, %xdl_append_merge.exit303 ], [ -1, %xdl_append_merge.exit319 ], [ -1, %xdl_append_merge.exit335 ], [ 0, %664 ], [ -1, %660 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i337 ], [ %spec.select.i378, %.lr.ph.i375 ], [ -1, %.lr.ph.i366 ], [ -1, %.lr.ph.i357 ], [ -1, %.lr.ph.i288 ], [ -1, %.lr.ph.i321 ], [ -1, %.lr.ph.i305 ]
+  %.1 = phi i32 [ -1, %xdl_append_merge.exit ], [ -1, %xdl_append_merge.exit286 ], [ -1, %xdl_append_merge.exit303 ], [ -1, %xdl_append_merge.exit319 ], [ -1, %xdl_append_merge.exit335 ], [ -1, %660 ], [ 0, %664 ], [ -1, %.lr.ph.i321 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i337 ], [ %spec.select.i378, %.lr.ph.i375 ], [ -1, %.lr.ph.i366 ], [ -1, %.lr.ph.i357 ], [ -1, %.lr.ph.i288 ], [ -1, %.lr.ph.i305 ]
   ret i32 %.1
 }
 
@@ -2420,7 +2420,7 @@ xdl_recs_copy.exit106:                            ; preds = %.preheader.split.i.
   br label %fill_conflict_hunk.exit
 
 fill_conflict_hunk.exit:                          ; preds = %340, %320, %xdl_recs_copy.exit106, %439
-  %.160 = phi i32 [ %472, %xdl_recs_copy.exit106 ], [ %.2, %439 ], [ %341, %340 ], [ %323, %320 ]
+  %.160 = phi i32 [ %.2, %439 ], [ %472, %xdl_recs_copy.exit106 ], [ %341, %340 ], [ %323, %320 ]
   %473 = getelementptr inbounds nuw i8, ptr %.0154, i64 16
   %474 = load i64, ptr %473, align 8, !tbaa !34
   %475 = getelementptr inbounds nuw i8, ptr %.0154, i64 32
@@ -2705,15 +2705,15 @@ is_eol_crlf.exit25.thread43:                      ; preds = %86, %69, %is_eol_cr
   br label %.sink.split.i29
 
 .sink.split.i29:                                  ; preds = %115, %.sink.split.sink.split.i31
-  %.sink35.i30 = phi ptr [ %125, %.sink.split.sink.split.i31 ], [ %118, %115 ]
+  %.sink35.i30 = phi ptr [ %118, %115 ], [ %125, %.sink.split.sink.split.i31 ]
   %126 = getelementptr i8, ptr %.sink35.i30, i64 -2
   %127 = load i8, ptr %126, align 1, !tbaa !70
   %128 = icmp eq i8 %127, 13
   %129 = zext i1 %128 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.sink.split.i29, %108, %101, %115, %109, %87, %84, %61, %40, %37, %14, %is_eol_crlf.exit, %is_eol_crlf.exit25
-  %.1 = phi i32 [ 0, %is_eol_crlf.exit25 ], [ 0, %is_eol_crlf.exit ], [ 0, %14 ], [ 0, %37 ], [ 0, %40 ], [ 0, %61 ], [ 0, %84 ], [ 0, %87 ], [ 0, %101 ], [ 0, %108 ], [ %129, %.sink.split.i29 ], [ 0, %115 ], [ 0, %109 ]
+.critedge:                                        ; preds = %.sink.split.i29, %108, %101, %115, %109, %61, %87, %84, %14, %40, %37, %is_eol_crlf.exit, %is_eol_crlf.exit25
+  %.1 = phi i32 [ 0, %61 ], [ 0, %is_eol_crlf.exit25 ], [ 0, %is_eol_crlf.exit ], [ 0, %14 ], [ 0, %37 ], [ 0, %40 ], [ 0, %84 ], [ 0, %87 ], [ 0, %109 ], [ 0, %108 ], [ 0, %101 ], [ %129, %.sink.split.i29 ], [ 0, %115 ]
   ret i32 %.1
 }
 

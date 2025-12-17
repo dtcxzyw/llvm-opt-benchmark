@@ -341,7 +341,7 @@ define hidden noundef zeroext i1 @flexray_call_subdissectors(ptr noundef %0, ptr
   br label %53
 
 53:                                               ; preds = %49, %43, %35, %31, %27, %5, %52
-  %.0 = phi i1 [ true, %52 ], [ true, %5 ], [ true, %27 ], [ true, %31 ], [ true, %35 ], [ false, %43 ], [ false, %49 ]
+  %.0 = phi i1 [ true, %35 ], [ true, %5 ], [ true, %27 ], [ true, %31 ], [ true, %52 ], [ false, %43 ], [ false, %49 ]
   ret i1 %.0
 }
 

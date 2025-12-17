@@ -475,8 +475,8 @@ _ZN7OptoReg8as_VMRegEiii.exit:                    ; preds = %44, %49, %53
   unreachable
 
 .loopexit:                                        ; preds = %120, %138, %128, %._crit_edge..loopexit_crit_edge
-  %147 = phi ptr [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %119, %128 ], [ %119, %138 ], [ %119, %120 ]
-  %.2 = phi i32 [ %.0105.lcssa, %._crit_edge..loopexit_crit_edge ], [ %.1146, %128 ], [ %.1146, %138 ], [ %.1146, %120 ]
+  %147 = phi ptr [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %119, %138 ], [ %119, %128 ], [ %119, %120 ]
+  %.2 = phi i32 [ %.0105.lcssa, %._crit_edge..loopexit_crit_edge ], [ %.1146, %138 ], [ %.1146, %128 ], [ %.1146, %120 ]
   %148 = add i32 %.2, 1
   %149 = zext i32 %148 to i64
   %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %149

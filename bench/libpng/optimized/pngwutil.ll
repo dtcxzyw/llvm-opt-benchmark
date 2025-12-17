@@ -451,7 +451,7 @@ define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   unreachable
 
 27:                                               ; preds = %24, %24, %22, %22, %17, %15, %15, %10
-  %.sink = phi i8 [ 1, %10 ], [ 3, %15 ], [ 3, %15 ], [ 1, %17 ], [ 2, %22 ], [ 2, %22 ], [ 4, %24 ], [ 4, %24 ]
+  %.sink = phi i8 [ 2, %22 ], [ 1, %17 ], [ 3, %15 ], [ 1, %10 ], [ 3, %15 ], [ 2, %22 ], [ 4, %24 ], [ 4, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 627
   store i8 %.sink, ptr %28, align 1, !tbaa !41
   %.not = icmp eq i32 %5, 0
@@ -1068,7 +1068,7 @@ optimize_cmf.exit98:                              ; preds = %145, %135, %128, %1
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef %166) #14
   unreachable
 
-167:                                              ; preds = %161, %108
+167:                                              ; preds = %108, %161
   ret void
 }
 
@@ -1166,11 +1166,11 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   br label %63
 
 63:                                               ; preds = %49, %46, %52
-  %.067 = phi i32 [ %34, %46 ], [ %54, %52 ], [ %34, %49 ]
-  %.066 = phi i32 [ %36, %46 ], [ %56, %52 ], [ %36, %49 ]
-  %.065 = phi i32 [ %38, %46 ], [ %58, %52 ], [ %38, %49 ]
-  %.064 = phi i32 [ %40, %46 ], [ %60, %52 ], [ %40, %49 ]
-  %.063 = phi i32 [ %48, %46 ], [ %62, %52 ], [ %., %49 ]
+  %.067 = phi i32 [ %34, %46 ], [ %34, %49 ], [ %54, %52 ]
+  %.066 = phi i32 [ %36, %46 ], [ %36, %49 ], [ %56, %52 ]
+  %.065 = phi i32 [ %38, %46 ], [ %38, %49 ], [ %58, %52 ]
+  %.064 = phi i32 [ %40, %46 ], [ %40, %49 ], [ %60, %52 ]
+  %.063 = phi i32 [ %48, %46 ], [ %., %49 ], [ %62, %52 ]
   %64 = icmp ult i64 %2, 16385
   br i1 %64, label %65, label %.loopexit
 
@@ -1942,7 +1942,7 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   br label %optimize_cmf.exit
 
 optimize_cmf.exit:                                ; preds = %77, %67, %60, %57, %.thread101, %53, %4
-  %.078 = phi i32 [ %7, %4 ], [ %.27698, %53 ], [ -4, %.thread101 ], [ 0, %57 ], [ 0, %60 ], [ 0, %67 ], [ 0, %77 ]
+  %.078 = phi i32 [ %7, %4 ], [ -4, %.thread101 ], [ %.27698, %53 ], [ 0, %57 ], [ 0, %60 ], [ 0, %67 ], [ 0, %77 ]
   ret i32 %.078
 }
 
@@ -4472,17 +4472,17 @@ define void @png_do_write_interlace(ptr noundef captures(none) %0, ptr noundef c
   br i1 %123, label %115, label %.loopexit, !llvm.loop !258
 
 .loopexit.sink.split:                             ; preds = %._crit_edge, %._crit_edge131, %._crit_edge141
-  %.sink243 = phi i32 [ %29, %._crit_edge141 ], [ %61, %._crit_edge131 ], [ %93, %._crit_edge ]
-  %.0107119.ph.sink = phi ptr [ %.0138.ph, %._crit_edge141 ], [ %.0101128.ph, %._crit_edge131 ], [ %.0107119.ph, %._crit_edge ]
-  %.pre-phi149.ph = phi i32 [ %13, %._crit_edge141 ], [ %44, %._crit_edge131 ], [ %76, %._crit_edge ]
-  %.pre-phi.ph = phi i64 [ %10, %._crit_edge141 ], [ %41, %._crit_edge131 ], [ %73, %._crit_edge ]
+  %.sink243 = phi i32 [ %61, %._crit_edge131 ], [ %29, %._crit_edge141 ], [ %93, %._crit_edge ]
+  %.0107119.ph.sink = phi ptr [ %.0101128.ph, %._crit_edge131 ], [ %.0138.ph, %._crit_edge141 ], [ %.0107119.ph, %._crit_edge ]
+  %.pre-phi149.ph = phi i32 [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %76, %._crit_edge ]
+  %.pre-phi.ph = phi i64 [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %73, %._crit_edge ]
   %124 = trunc i32 %.sink243 to i8
   store i8 %124, ptr %.0107119.ph.sink, align 1, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread196, %.thread182, %.thread, %120, %.loopexit.sink.split, %72, %40, %9, %104, %._crit_edge, %._crit_edge131, %._crit_edge141
-  %.pre-phi149 = phi i32 [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %76, %72 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %110, %120 ], [ %13, %.thread ], [ %44, %.thread182 ], [ %76, %.thread196 ]
-  %.pre-phi = phi i64 [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %73, %72 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %107, %120 ], [ %10, %.thread ], [ %41, %.thread182 ], [ %73, %.thread196 ]
+  %.pre-phi149 = phi i32 [ %76, %72 ], [ %110, %104 ], [ %76, %._crit_edge ], [ %44, %._crit_edge131 ], [ %13, %._crit_edge141 ], [ %13, %9 ], [ %44, %40 ], [ %.pre-phi149.ph, %.loopexit.sink.split ], [ %44, %.thread182 ], [ %110, %120 ], [ %13, %.thread ], [ %76, %.thread196 ]
+  %.pre-phi = phi i64 [ %73, %72 ], [ %107, %104 ], [ %73, %._crit_edge ], [ %41, %._crit_edge131 ], [ %10, %._crit_edge141 ], [ %10, %9 ], [ %41, %40 ], [ %.pre-phi.ph, %.loopexit.sink.split ], [ %41, %.thread182 ], [ %107, %120 ], [ %10, %.thread ], [ %73, %.thread196 ]
   %125 = load i32, ptr %0, align 8, !tbaa !254
   %126 = getelementptr inbounds i8, ptr @png_pass_inc, i64 %.pre-phi
   %127 = load i8, ptr %126, align 1, !tbaa !3
@@ -4550,22 +4550,22 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %19
-  %.not228 = icmp eq i64 %7, 0
-  br i1 %.not228, label %.loopexit, label %.lr.ph
+  %.not227 = icmp eq i64 %7, 0
+  br i1 %.not227, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.pn227 = phi ptr [ %.0109, %.lr.ph ], [ %14, %.preheader ]
-  %.0110226 = phi i64 [ %29, %.lr.ph ], [ 0, %.preheader ]
-  %.0111225 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
-  %.0109 = getelementptr inbounds nuw i8, ptr %.pn227, i64 1
+  %.pn226 = phi ptr [ %.0109, %.lr.ph ], [ %14, %.preheader ]
+  %.0110225 = phi i64 [ %29, %.lr.ph ], [ 0, %.preheader ]
+  %.0111224 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
+  %.0109 = getelementptr inbounds nuw i8, ptr %.pn226, i64 1
   %23 = load i8, ptr %.0109, align 1, !tbaa !3
   %24 = zext i8 %23 to i32
   %25 = sub nuw nsw i32 256, %24
   %26 = icmp slt i8 %23, 0
   %27 = select i1 %26, i32 %25, i32 %24
   %28 = zext nneg i32 %27 to i64
-  %29 = add i64 %.0110226, %28
-  %30 = add nuw nsw i64 %.0111225, 1
+  %29 = add i64 %.0110225, %28
+  %30 = add nuw nsw i64 %.0111224, 1
   %exitcond.not = icmp eq i64 %30, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !260
 
@@ -4590,7 +4590,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   %.020.lcssa.i = phi ptr [ %.0201.i, %32 ], [ %.020.i, %.lr.ph.i ]
   %.022.lcssa.i = phi ptr [ %.0222.i, %32 ], [ %.022.i, %.lr.ph.i ]
   %35 = icmp ult i64 %.0.lcssa.i, %7
-  br i1 %35, label %.lr.ph12.i, label %.thread213.thread
+  br i1 %35, label %.lr.ph12.i, label %.thread212.thread
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %.0225.i = phi ptr [ %.022.i, %.lr.ph.i ], [ %.0222.i, %32 ]
@@ -4618,7 +4618,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   %41 = getelementptr inbounds nuw i8, ptr %.1238.i, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %.1219.i, i64 1
   %exitcond15.not.i = icmp eq i64 %40, %7
-  br i1 %exitcond15.not.i, label %.thread213.thread, label %.lr.ph12.i, !llvm.loop !262
+  br i1 %exitcond15.not.i, label %.thread212.thread, label %.lr.ph12.i, !llvm.loop !262
 
 43:                                               ; preds = %.loopexit
   %44 = and i32 %.0, 16
@@ -4663,12 +4663,12 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %exitcond.not.i133, label %.preheader.i134, label %.lr.ph.i132, !llvm.loop !263
 
 .lr.ph16.i:                                       ; preds = %.preheader.i134, %.lr.ph16.i
-  %.560.val.pn.i = phi ptr [ %.03215.i, %.lr.ph16.i ], [ %14, %.preheader.i134 ]
+  %.03215.pn.i = phi ptr [ %.03215.i, %.lr.ph16.i ], [ %14, %.preheader.i134 ]
   %.114.i = phi i64 [ %64, %.lr.ph16.i ], [ %.0.lcssa.i135, %.preheader.i134 ]
   %.13113.i = phi i64 [ %66, %.lr.ph16.i ], [ %.030.lcssa.i, %.preheader.i134 ]
   %.13412.i = phi ptr [ %68, %.lr.ph16.i ], [ %.033.lcssa.i, %.preheader.i134 ]
   %.13611.i = phi ptr [ %67, %.lr.ph16.i ], [ %.035.lcssa.i, %.preheader.i134 ]
-  %.03215.i = getelementptr inbounds nuw i8, ptr %.560.val.pn.i, i64 1
+  %.03215.i = getelementptr inbounds nuw i8, ptr %.03215.pn.i, i64 1
   %57 = load i8, ptr %.13611.i, align 1, !tbaa !3
   %58 = load i8, ptr %.03215.i, align 1, !tbaa !3
   %.narrow.i136 = sub i8 %57, %58
@@ -4704,8 +4704,8 @@ png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.prehe
   br label %75
 
 75:                                               ; preds = %png_setup_sub_row.exit, %74, %71, %43
-  %.1103 = phi i64 [ %.0102, %43 ], [ %.2.i, %74 ], [ %.2.i, %71 ], [ %.0102, %png_setup_sub_row.exit ]
-  %.0101 = phi ptr [ %14, %43 ], [ %.val130, %74 ], [ %.val130, %71 ], [ %14, %png_setup_sub_row.exit ]
+  %.1103 = phi i64 [ %.0102, %png_setup_sub_row.exit ], [ %.0102, %43 ], [ %.2.i, %74 ], [ %.2.i, %71 ]
+  %.0101 = phi ptr [ %14, %png_setup_sub_row.exit ], [ %14, %43 ], [ %.val130, %74 ], [ %.val130, %71 ]
   %76 = icmp eq i32 %.0, 32
   br i1 %76, label %77, label %85
 
@@ -4715,7 +4715,7 @@ png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.prehe
   %79 = load ptr, ptr %78, align 8, !tbaa !244, !alias.scope !265
   store i8 2, ptr %79, align 1, !tbaa !3, !noalias !265
   %.not.i137 = icmp eq i64 %7, 0
-  br i1 %.not.i137, label %.thread213.thread, label %.lr.ph.preheader.i
+  br i1 %.not.i137, label %.thread212.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -4736,7 +4736,7 @@ png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.prehe
   store i8 %.narrow.i140, ptr %.013.i, align 1, !tbaa !3, !noalias !265
   %84 = add nuw i64 %.020.i139, 1
   %exitcond.not.i141 = icmp eq i64 %84, %7
-  br i1 %exitcond.not.i141, label %.thread213.thread, label %.lr.ph.i138, !llvm.loop !268
+  br i1 %exitcond.not.i141, label %.thread212.thread, label %.lr.ph.i138, !llvm.loop !268
 
 85:                                               ; preds = %75
   %86 = and i32 %.0, 32
@@ -4757,11 +4757,11 @@ png_setup_sub_row.exit:                           ; preds = %.lr.ph16.i, %.prehe
   br label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %.lr.ph.i144, %.lr.ph.preheader.i143
-  %.pn.pn.i = phi ptr [ %14, %.lr.ph.preheader.i143 ], [ %.034.i, %.lr.ph.i144 ]
-  %.pn25.pn.i = phi ptr [ %91, %.lr.ph.preheader.i143 ], [ %.02133.i, %.lr.ph.i144 ]
-  %.pn26.pn.i = phi ptr [ %89, %.lr.ph.preheader.i143 ], [ %.02232.i, %.lr.ph.i144 ]
-  %.01931.i = phi i64 [ 0, %.lr.ph.preheader.i143 ], [ %99, %.lr.ph.i144 ]
-  %.02030.i = phi i64 [ 0, %.lr.ph.preheader.i143 ], [ %101, %.lr.ph.i144 ]
+  %.pn.pn.i = phi ptr [ %.034.i, %.lr.ph.i144 ], [ %14, %.lr.ph.preheader.i143 ]
+  %.pn25.pn.i = phi ptr [ %.02133.i, %.lr.ph.i144 ], [ %91, %.lr.ph.preheader.i143 ]
+  %.pn26.pn.i = phi ptr [ %.02232.i, %.lr.ph.i144 ], [ %89, %.lr.ph.preheader.i143 ]
+  %.01931.i = phi i64 [ %99, %.lr.ph.i144 ], [ 0, %.lr.ph.preheader.i143 ]
+  %.02030.i = phi i64 [ %101, %.lr.ph.i144 ], [ 0, %.lr.ph.preheader.i143 ]
   %.02232.i = getelementptr inbounds nuw i8, ptr %.pn26.pn.i, i64 1
   %.02133.i = getelementptr inbounds nuw i8, ptr %.pn25.pn.i, i64 1
   %.034.i = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 1
@@ -4798,10 +4798,10 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   br label %107
 
 107:                                              ; preds = %png_setup_up_row.exit, %106, %103, %85
-  %.3105 = phi i64 [ %.1103, %85 ], [ %.1.i, %106 ], [ %.1.i, %103 ], [ %.1103, %png_setup_up_row.exit ]
-  %.2 = phi ptr [ %.0101, %85 ], [ %89, %106 ], [ %89, %103 ], [ %.0101, %png_setup_up_row.exit ]
+  %.3105 = phi i64 [ %.1103, %png_setup_up_row.exit ], [ %.1103, %85 ], [ %.1.i, %106 ], [ %.1.i, %103 ]
+  %.2 = phi ptr [ %.0101, %png_setup_up_row.exit ], [ %.0101, %85 ], [ %89, %106 ], [ %89, %103 ]
   %108 = icmp eq i32 %.0, 64
-  br i1 %108, label %109, label %.thread196
+  br i1 %108, label %109, label %.thread195
 
 109:                                              ; preds = %107
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -4822,7 +4822,7 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   %.022.lcssa.i155 = phi ptr [ %.02231.i, %109 ], [ %.022.i151, %.lr.ph.i149 ]
   %114 = zext nneg i32 %12 to i64
   %115 = icmp ugt i64 %7, %114
-  br i1 %115, label %.lr.ph44.i, label %.thread213.thread
+  br i1 %115, label %.lr.ph44.i, label %.thread212.thread
 
 .lr.ph.i149:                                      ; preds = %109, %.lr.ph.i149
   %.02235.i = phi ptr [ %.022.i151, %.lr.ph.i149 ], [ %.02231.i, %109 ]
@@ -4864,14 +4864,14 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   %130 = add i32 %.143.i, 1
   %131 = zext i32 %130 to i64
   %132 = icmp ugt i64 %7, %131
-  br i1 %132, label %.lr.ph44.i, label %.thread213.thread, !llvm.loop !277
+  br i1 %132, label %.lr.ph44.i, label %.thread212.thread, !llvm.loop !277
 
-.thread196:                                       ; preds = %107
+.thread195:                                       ; preds = %107
   %133 = and i32 %.0, 64
   %.not124 = icmp eq i32 %133, 0
   br i1 %.not124, label %176, label %134
 
-134:                                              ; preds = %.thread196
+134:                                              ; preds = %.thread195
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %136 = load ptr, ptr %135, align 8, !tbaa !244, !alias.scope !278
@@ -4918,13 +4918,13 @@ png_setup_up_row.exit:                            ; preds = %.lr.ph.i144, %87
   br i1 %exitcond.not.i161, label %.preheader.i162, label %.lr.ph.i158, !llvm.loop !281
 
 .lr.ph63.i:                                       ; preds = %.preheader.i162, %.lr.ph63.i
-  %.pn.i = phi ptr [ %.03062.i, %.lr.ph63.i ], [ %14, %.preheader.i162 ]
+  %.03062.pn.i = phi ptr [ %.03062.i, %.lr.ph63.i ], [ %14, %.preheader.i162 ]
   %.161.i = phi i64 [ %163, %.lr.ph63.i ], [ %.0.lcssa.i163, %.preheader.i162 ]
   %.12960.i = phi i32 [ %168, %.lr.ph63.i ], [ %12, %.preheader.i162 ]
   %.13259.i = phi ptr [ %166, %.lr.ph63.i ], [ %.031.lcssa.i, %.preheader.i162 ]
   %.13458.i = phi ptr [ %165, %.lr.ph63.i ], [ %.033.lcssa.i164, %.preheader.i162 ]
   %.13657.i = phi ptr [ %167, %.lr.ph63.i ], [ %.035.lcssa.i165, %.preheader.i162 ]
-  %.03062.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
+  %.03062.i = getelementptr inbounds nuw i8, ptr %.03062.pn.i, i64 1
   %151 = load i8, ptr %.13657.i, align 1, !tbaa !3, !noalias !278
   %152 = load i8, ptr %.13259.i, align 1, !tbaa !3, !noalias !278
   %153 = zext i8 %152 to i16
@@ -4967,11 +4967,11 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   store ptr %136, ptr %173, align 8, !tbaa !245
   br label %176
 
-176:                                              ; preds = %png_setup_avg_row.exit, %175, %172, %.thread196
-  %.5107 = phi i64 [ %.3105, %.thread196 ], [ %.2.i166, %175 ], [ %.2.i166, %172 ], [ %.3105, %png_setup_avg_row.exit ]
-  %.4 = phi ptr [ %.2, %.thread196 ], [ %136, %175 ], [ %136, %172 ], [ %.2, %png_setup_avg_row.exit ]
+176:                                              ; preds = %png_setup_avg_row.exit, %175, %172, %.thread195
+  %.5107 = phi i64 [ %.3105, %png_setup_avg_row.exit ], [ %.3105, %.thread195 ], [ %.2.i166, %175 ], [ %.2.i166, %172 ]
+  %.4 = phi ptr [ %.2, %png_setup_avg_row.exit ], [ %.2, %.thread195 ], [ %136, %175 ], [ %136, %172 ]
   %177 = icmp eq i32 %.0, 128
-  br i1 %177, label %178, label %.thread213
+  br i1 %177, label %178, label %.thread212
 
 178:                                              ; preds = %176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
@@ -4993,7 +4993,7 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   %.047.lcssa.i = phi ptr [ %.04765.i, %178 ], [ %.047.i, %.lr.ph.i170 ]
   %.0.lcssa.i173 = phi ptr [ %.066.i, %178 ], [ %.0.i, %.lr.ph.i170 ]
   %184 = icmp ult i64 %.051.lcssa.i, %7
-  br i1 %184, label %.lr.ph80.i, label %.thread213.thread
+  br i1 %184, label %.lr.ph80.i, label %.thread212.thread
 
 .lr.ph.i170:                                      ; preds = %178, %.lr.ph.i170
   %.070.i = phi ptr [ %.0.i, %.lr.ph.i170 ], [ %.066.i, %178 ]
@@ -5046,14 +5046,14 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   store i8 %.narrow.i177, ptr %.14678.i, align 1, !tbaa !3, !noalias !283
   %205 = add nuw i64 %.15274.i, 1
   %exitcond85.not.i = icmp eq i64 %205, %7
-  br i1 %exitcond85.not.i, label %.thread213.thread, label %.lr.ph80.i, !llvm.loop !287
+  br i1 %exitcond85.not.i, label %.thread212.thread, label %.lr.ph80.i, !llvm.loop !287
 
-.thread213:                                       ; preds = %176
+.thread212:                                       ; preds = %176
   %206 = and i32 %.0, 128
   %.not126 = icmp eq i32 %206, 0
-  br i1 %.not126, label %.thread213.thread, label %207
+  br i1 %.not126, label %.thread212.thread, label %207
 
-207:                                              ; preds = %.thread213
+207:                                              ; preds = %.thread212
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %209 = load ptr, ptr %208, align 8, !tbaa !244, !alias.scope !288
@@ -5100,15 +5100,15 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   br i1 %exitcond.not.i179, label %.preheader.i180, label %.lr.ph.i178, !llvm.loop !291
 
 .lr.ph100.i:                                      ; preds = %.preheader.i180, %.lr.ph100.i
-  %.pn.i182 = phi ptr [ %.06299.i, %.lr.ph100.i ], [ %211, %.preheader.i180 ]
-  %.pn110.i = phi ptr [ %.06398.i, %.lr.ph100.i ], [ %14, %.preheader.i180 ]
+  %.06299.pn.i = phi ptr [ %.06299.i, %.lr.ph100.i ], [ %211, %.preheader.i180 ]
+  %.06398.pn.i = phi ptr [ %.06398.i, %.lr.ph100.i ], [ %14, %.preheader.i180 ]
   %.197.i = phi ptr [ %245, %.lr.ph100.i ], [ %.057.lcssa.i, %.preheader.i180 ]
   %.15996.i = phi ptr [ %244, %.lr.ph100.i ], [ %.058.lcssa.i, %.preheader.i180 ]
   %.16195.i = phi ptr [ %246, %.lr.ph100.i ], [ %.060.lcssa.i, %.preheader.i180 ]
   %.16594.i = phi i64 [ %242, %.lr.ph100.i ], [ %.064.lcssa.i, %.preheader.i180 ]
   %.16793.i = phi i64 [ %247, %.lr.ph100.i ], [ %.066.lcssa.i, %.preheader.i180 ]
-  %.06398.i = getelementptr inbounds nuw i8, ptr %.pn110.i, i64 1
-  %.06299.i = getelementptr inbounds nuw i8, ptr %.pn.i182, i64 1
+  %.06398.i = getelementptr inbounds nuw i8, ptr %.06398.pn.i, i64 1
+  %.06299.i = getelementptr inbounds nuw i8, ptr %.06299.pn.i, i64 1
   %223 = load i8, ptr %.16195.i, align 1, !tbaa !3, !noalias !288
   %224 = zext i8 %223 to i32
   %225 = load i8, ptr %.06299.i, align 1, !tbaa !3, !noalias !288
@@ -5121,18 +5121,18 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
   %232 = tail call i32 @llvm.abs.i32(i32 %230, i1 true)
   %233 = add nsw i32 %230, %229
   %234 = tail call i32 @llvm.abs.i32(i32 %233, i1 true)
-  %.not.i183 = icmp samesign ugt i32 %231, %232
+  %.not.i182 = icmp samesign ugt i32 %231, %232
   %.not72.i = icmp samesign ugt i32 %231, %234
-  %or.cond.i184 = select i1 %.not.i183, i1 true, i1 %.not72.i
+  %or.cond.i183 = select i1 %.not.i182, i1 true, i1 %.not72.i
   %.not73.i = icmp samesign ugt i32 %232, %234
   %235 = select i1 %.not73.i, i8 %225, i8 %223
-  %.tr.i185 = select i1 %or.cond.i184, i8 %235, i8 %227
+  %.tr.i184 = select i1 %or.cond.i183, i8 %235, i8 %227
   %236 = load i8, ptr %.197.i, align 1, !tbaa !3, !noalias !288
-  %.narrow.i186 = sub i8 %236, %.tr.i185
-  store i8 %.narrow.i186, ptr %.15996.i, align 1, !tbaa !3, !noalias !288
-  %237 = zext i8 %.narrow.i186 to i32
+  %.narrow.i185 = sub i8 %236, %.tr.i184
+  store i8 %.narrow.i185, ptr %.15996.i, align 1, !tbaa !3, !noalias !288
+  %237 = zext i8 %.narrow.i185 to i32
   %238 = sub nuw nsw i32 256, %237
-  %239 = icmp slt i8 %.narrow.i186, 0
+  %239 = icmp slt i8 %.narrow.i185, 0
   %240 = select i1 %239, i32 %238, i32 %237
   %241 = zext nneg i32 %240 to i64
   %242 = add i64 %.16594.i, %241
@@ -5148,36 +5148,36 @@ png_setup_avg_row.exit:                           ; preds = %.lr.ph63.i, %.prehe
 png_setup_paeth_row.exit:                         ; preds = %.lr.ph100.i, %.preheader.i180
   %.2.i181 = phi i64 [ %.064.lcssa.i, %.preheader.i180 ], [ %242, %.lr.ph100.i ]
   %249 = icmp ult i64 %.2.i181, %.5107
-  br i1 %249, label %250, label %.thread213.thread
+  br i1 %249, label %250, label %.thread212.thread
 
 250:                                              ; preds = %png_setup_paeth_row.exit
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %252 = load ptr, ptr %251, align 8, !tbaa !245
   %.not127 = icmp eq ptr %252, null
-  br i1 %.not127, label %.thread213.thread, label %253
+  br i1 %.not127, label %.thread212.thread, label %253
 
 253:                                              ; preds = %250
   store ptr %252, ptr %208, align 8, !tbaa !244
   store ptr %209, ptr %251, align 8, !tbaa !245
-  br label %.thread213.thread
+  br label %.thread212.thread
 
-.thread213.thread:                                ; preds = %.lr.ph80.i, %.lr.ph44.i, %.lr.ph.i138, %.lr.ph12.i, %.preheader.i172, %.preheader.i153, %77, %.preheader.i, %png_setup_paeth_row.exit, %253, %250, %.thread213
-  %.6 = phi ptr [ %.4, %.thread213 ], [ %209, %253 ], [ %209, %250 ], [ %.4, %png_setup_paeth_row.exit ], [ %.val128, %.preheader.i ], [ %79, %77 ], [ %111, %.preheader.i153 ], [ %180, %.preheader.i172 ], [ %.val128, %.lr.ph12.i ], [ %79, %.lr.ph.i138 ], [ %111, %.lr.ph44.i ], [ %180, %.lr.ph80.i ]
+.thread212.thread:                                ; preds = %.lr.ph80.i, %.lr.ph44.i, %.lr.ph.i138, %.lr.ph12.i, %.preheader.i172, %.preheader.i153, %77, %.preheader.i, %png_setup_paeth_row.exit, %253, %250, %.thread212
+  %.6 = phi ptr [ %111, %.preheader.i153 ], [ %.4, %.thread212 ], [ %209, %253 ], [ %209, %250 ], [ %.4, %png_setup_paeth_row.exit ], [ %79, %77 ], [ %.val128, %.preheader.i ], [ %180, %.preheader.i172 ], [ %111, %.lr.ph44.i ], [ %.val128, %.lr.ph12.i ], [ %79, %.lr.ph.i138 ], [ %180, %.lr.ph80.i ]
   %254 = load i64, ptr %6, align 8, !tbaa !259
   %255 = add i64 %254, 1
   tail call void @png_compress_IDAT(ptr noundef nonnull %0, ptr noundef %.6, i64 noundef %255, i32 noundef 0)
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %257 = load ptr, ptr %256, align 8, !tbaa !246, !alias.scope !293
-  %.not.i187 = icmp eq ptr %257, null
-  br i1 %.not.i187, label %260, label %258
+  %.not.i186 = icmp eq ptr %257, null
+  br i1 %.not.i186, label %260, label %258
 
-258:                                              ; preds = %.thread213.thread
+258:                                              ; preds = %.thread212.thread
   %259 = load ptr, ptr %13, align 8, !tbaa !243, !alias.scope !293
   store ptr %259, ptr %256, align 8, !tbaa !246, !alias.scope !293
   store ptr %257, ptr %13, align 8, !tbaa !243, !alias.scope !293
   br label %260
 
-260:                                              ; preds = %258, %.thread213.thread
+260:                                              ; preds = %258, %.thread212.thread
   tail call void @png_write_finish_row(ptr noundef nonnull %0)
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %262 = load i32, ptr %261, align 4, !tbaa !296, !alias.scope !293

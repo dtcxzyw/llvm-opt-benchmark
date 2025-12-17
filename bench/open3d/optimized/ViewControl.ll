@@ -4118,7 +4118,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
   ret i1 %.0
 
 197:                                              ; preds = %40, %61, %181
-  %.pn29.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %182, %181 ], [ %62, %61 ]
+  %.pn29.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %41, %40 ], [ %182, %181 ]
   call void @_ZN6open3d6camera22PinholeCameraIntrinsicD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn29.pn.pn.pn.pn.pn.pn

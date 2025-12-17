@@ -254,20 +254,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #10
-  %.sink698.i.sroa.gep = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.sink698.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink698.i.sroa.gep = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink698.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sink698.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sink698.i.sroa.gep4 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %.sink698.i.sroa.gep5 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sink698.i.sroa.gep4 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sink698.i.sroa.gep5 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %.sink698.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.sink698.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sink698.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sink698.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sink698.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %.sink698.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %.sink698.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %.sink698.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %.sink698.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %.sink698.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %.sink698.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %.sink698.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink698.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %.sink698.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %.sink698.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %.sink698.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %116 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %.noexc.i unwind label %391
@@ -393,14 +393,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %141, label %144, label %.invoke.i
 
 .invoke.i:                                        ; preds = %142, %138, %133
-  %.sink698.i.sroa.phi = phi ptr [ %.sink698.i.sroa.gep, %133 ], [ %.sink698.i.sroa.gep1, %138 ], [ %.sink698.i.sroa.gep2, %142 ]
-  %.sink698.i.sroa.phi3 = phi ptr [ %.sink698.i.sroa.gep4, %133 ], [ %.sink698.i.sroa.gep5, %138 ], [ %.sink698.i.sroa.gep6, %142 ]
-  %.sink698.i.sroa.phi7 = phi ptr [ %.sink698.i.sroa.gep8, %133 ], [ %.sink698.i.sroa.gep9, %138 ], [ %.sink698.i.sroa.gep10, %142 ]
-  %.sink698.i.sroa.phi11 = phi ptr [ %.sink698.i.sroa.gep12, %133 ], [ %.sink698.i.sroa.gep13, %138 ], [ %.sink698.i.sroa.gep14, %142 ]
-  %.sink698.i.sroa.phi15 = phi ptr [ %.sink698.i.sroa.gep16, %133 ], [ %.sink698.i.sroa.gep17, %138 ], [ %.sink698.i.sroa.gep18, %142 ]
-  %.sink698.i = phi ptr [ %42, %133 ], [ %41, %138 ], [ %40, %142 ]
-  %.sink695.i = phi i64 [ 30, %133 ], [ 32, %138 ], [ 34, %142 ]
-  %143 = phi ptr [ @.str.4, %133 ], [ @.str.5, %138 ], [ @.str.4, %142 ]
+  %.sink698.i.sroa.phi = phi ptr [ %.sink698.i.sroa.gep, %138 ], [ %.sink698.i.sroa.gep1, %133 ], [ %.sink698.i.sroa.gep2, %142 ]
+  %.sink698.i.sroa.phi3 = phi ptr [ %.sink698.i.sroa.gep4, %138 ], [ %.sink698.i.sroa.gep5, %133 ], [ %.sink698.i.sroa.gep6, %142 ]
+  %.sink698.i.sroa.phi7 = phi ptr [ %.sink698.i.sroa.gep8, %138 ], [ %.sink698.i.sroa.gep9, %133 ], [ %.sink698.i.sroa.gep10, %142 ]
+  %.sink698.i.sroa.phi11 = phi ptr [ %.sink698.i.sroa.gep12, %138 ], [ %.sink698.i.sroa.gep13, %133 ], [ %.sink698.i.sroa.gep14, %142 ]
+  %.sink698.i.sroa.phi15 = phi ptr [ %.sink698.i.sroa.gep16, %138 ], [ %.sink698.i.sroa.gep17, %133 ], [ %.sink698.i.sroa.gep18, %142 ]
+  %.sink698.i = phi ptr [ %41, %138 ], [ %42, %133 ], [ %40, %142 ]
+  %.sink695.i = phi i64 [ 32, %138 ], [ 30, %133 ], [ 34, %142 ]
+  %143 = phi ptr [ @.str.5, %138 ], [ @.str.4, %133 ], [ @.str.4, %142 ]
   store ptr @.str.1, ptr %.sink698.i, align 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sink698.i.sroa.phi, align 8
   store i64 %.sink695.i, ptr %.sink698.i.sroa.phi3, align 8

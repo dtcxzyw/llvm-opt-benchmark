@@ -58,7 +58,7 @@ define i32 @dtls1_write_app_data_bytes(ptr noundef %0, i8 noundef zeroext %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %14, %25, %24, %21
-  %.0 = phi i32 [ -1, %24 ], [ %26, %25 ], [ -1, %21 ], [ %17, %14 ], [ -1, %7 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %24 ], [ %26, %25 ], [ %17, %14 ], [ -1, %7 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -149,7 +149,7 @@ define i32 @dtls1_dispatch_alert(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %5, %17, %.thread39, %32
-  %.0 = phi i32 [ %15, %32 ], [ %15, %.thread39 ], [ %15, %17 ], [ 0, %5 ], [ 0, %1 ]
+  %.0 = phi i32 [ %15, %17 ], [ %15, %32 ], [ %15, %.thread39 ], [ 0, %5 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

@@ -518,7 +518,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
   br label %termios_tcgetattr_impl.exit
 
 termios_tcgetattr_impl.exit:                      ; preds = %12, %15, %95, %98
-  %.0.i = phi ptr [ %14, %12 ], [ null, %15 ], [ null, %98 ], [ %53, %95 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %15 ], [ %53, %95 ], [ null, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
@@ -635,7 +635,7 @@ define internal ptr @termios_tcsendbreak(ptr noundef %0, ptr noundef readonly ca
   br label %termios_tcsendbreak_impl.exit
 
 termios_tcsendbreak_impl.exit:                    ; preds = %34, %31, %23, %20, %25, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %22, %20 ], [ %24, %23 ], [ %33, %31 ], [ %35, %34 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %24, %23 ], [ %22, %20 ], [ %33, %31 ], [ %35, %34 ]
   ret ptr %.0
 }
 
@@ -730,7 +730,7 @@ define internal ptr @termios_tcflush(ptr noundef %0, ptr noundef readonly captur
   br label %termios_tcflush_impl.exit
 
 termios_tcflush_impl.exit:                        ; preds = %34, %31, %23, %20, %25, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %22, %20 ], [ %24, %23 ], [ %33, %31 ], [ %35, %34 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %24, %23 ], [ %22, %20 ], [ %33, %31 ], [ %35, %34 ]
   ret ptr %.0
 }
 
@@ -797,7 +797,7 @@ define internal ptr @termios_tcflow(ptr noundef %0, ptr noundef readonly capture
   br label %termios_tcflow_impl.exit
 
 termios_tcflow_impl.exit:                         ; preds = %34, %31, %23, %20, %25, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %22, %20 ], [ %24, %23 ], [ %33, %31 ], [ %35, %34 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %25 ], [ %24, %23 ], [ %22, %20 ], [ %33, %31 ], [ %35, %34 ]
   ret ptr %.0
 }
 
@@ -992,7 +992,7 @@ Py_XDECREF.exit33.i:                              ; preds = %38, %37
   br label %termios_tcsetwinsize_impl.exit
 
 termios_tcsetwinsize_impl.exit:                   ; preds = %61, %36, %35, %27, %26, %18, %8, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %8 ], [ null, %18 ], [ %.2.i, %61 ], [ null, %26 ], [ null, %27 ], [ null, %35 ], [ null, %36 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %8 ], [ null, %18 ], [ %.2.i, %61 ], [ null, %27 ], [ null, %26 ], [ null, %35 ], [ null, %36 ]
   ret ptr %.0
 }
 
@@ -1261,7 +1261,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
   br label %.critedge98
 
 .critedge98:                                      ; preds = %90, %25, %31, %38, %45, %93, %100, %106, %113, %116, %70, %52, %59, %18
-  %.1 = phi ptr [ %20, %18 ], [ null, %25 ], [ null, %31 ], [ null, %38 ], [ null, %45 ], [ null, %70 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ %117, %116 ], [ null, %52 ], [ null, %59 ], [ null, %90 ]
+  %.1 = phi ptr [ %20, %18 ], [ null, %45 ], [ null, %52 ], [ null, %38 ], [ null, %31 ], [ null, %25 ], [ null, %70 ], [ %117, %116 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ null, %59 ], [ null, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 
@@ -1370,7 +1370,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !32
 
 .loopexit:                                        ; preds = %24, %.tail.thread, %13, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %24 ], [ -1, %.tail.thread ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %1 ], [ 0, %24 ], [ -1, %13 ], [ -1, %.tail.thread ]
   ret i32 %.0
 }
 

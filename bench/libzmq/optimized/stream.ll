@@ -512,7 +512,7 @@ _ZN3zmq6blob_tD2Ev.exit19:                        ; preds = %_ZN3zmq6blob_tD2Ev.
   br label %_ZN3zmq6blob_tD2Ev.exit20
 
 _ZN3zmq6blob_tD2Ev.exit20:                        ; preds = %119, %115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %48
-  %.pn8 = phi { ptr, i32 } [ %49, %48 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %116, %115 ], [ %116, %119 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %49, %48 ], [ %116, %115 ], [ %116, %119 ]
   %121 = load i8, ptr %7, align 8, !tbaa !103, !range !107, !noundef !108
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %_ZN3zmq6blob_tD2Ev.exit21
@@ -779,8 +779,8 @@ _ZN3zmq6blob_tD2Ev.exit48:                        ; preds = %35, %39
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %111)
   br label %.thread
 
-.thread:                                          ; preds = %41, %32, %106, %108, %53, %55, %90
-  %.1 = phi i32 [ 0, %90 ], [ 0, %55 ], [ 0, %53 ], [ 0, %108 ], [ 0, %106 ], [ -1, %32 ], [ -1, %41 ]
+.thread:                                          ; preds = %32, %41, %106, %108, %53, %55, %90
+  %.1 = phi i32 [ 0, %90 ], [ 0, %53 ], [ 0, %106 ], [ 0, %55 ], [ 0, %108 ], [ -1, %41 ], [ -1, %32 ]
   ret i32 %.1
 }
 

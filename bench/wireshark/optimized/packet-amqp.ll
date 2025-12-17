@@ -2876,7 +2876,7 @@ define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %49, %45, %40, %39, %31
-  %.sink.i = phi i8 [ 4, %40 ], [ 5, %31 ], [ 2, %39 ], [ 2, %45 ], [ %..i, %49 ]
+  %.sink.i = phi i8 [ 2, %39 ], [ 2, %45 ], [ %..i, %49 ], [ 4, %40 ], [ 5, %31 ]
   store i8 %.sink.i, ptr %.0, align 8
   br label %check_amqp_version.exit
 
@@ -6608,7 +6608,7 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
   br label %136
 
 136:                                              ; preds = %120, %113, %111, %105, %99, %93, %87, %81, %75, %69, %63, %57, %50, %48, %42, %35, %22, %16, %5, %134, %127
-  %.0 = phi i32 [ 0, %127 ], [ %135, %134 ], [ 0, %5 ], [ 0, %16 ], [ 0, %22 ], [ 0, %35 ], [ 0, %42 ], [ 0, %48 ], [ 0, %50 ], [ 0, %57 ], [ 0, %63 ], [ 0, %69 ], [ 0, %75 ], [ 0, %81 ], [ 0, %87 ], [ 0, %93 ], [ 0, %99 ], [ 0, %105 ], [ 0, %111 ], [ 0, %113 ], [ 0, %120 ]
+  %.0 = phi i32 [ 0, %113 ], [ 0, %127 ], [ 0, %5 ], [ %135, %134 ], [ 0, %16 ], [ 0, %22 ], [ 0, %35 ], [ 0, %42 ], [ 0, %48 ], [ 0, %50 ], [ 0, %57 ], [ 0, %63 ], [ 0, %69 ], [ 0, %75 ], [ 0, %81 ], [ 0, %87 ], [ 0, %93 ], [ 0, %99 ], [ 0, %105 ], [ 0, %111 ], [ 0, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -6881,7 +6881,7 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
   br i1 %.not.i8, label %record_delivery_ack_c.exit, label %.lr.ph.split.i, !llvm.loop !12
 
 record_delivery_ack_c.exit:                       ; preds = %.critedge.i, %.critedge.us.i, %.preheader.us.i, %get_conversation_channel.exit
-  %.023.lcssa.i = phi ptr [ null, %get_conversation_channel.exit ], [ %36, %.preheader.us.i ], [ null, %.critedge.us.i ], [ %.2.i, %.critedge.i ]
+  %.023.lcssa.i = phi ptr [ null, %get_conversation_channel.exit ], [ null, %.critedge.us.i ], [ %36, %.preheader.us.i ], [ %.2.i, %.critedge.i ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr @proto_amqp, align 4
@@ -11685,9 +11685,9 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   br label %67
 
 67:                                               ; preds = %57, %54, %50, %58, %61, %64
-  %.3 = phi ptr [ @.str.1494, %50 ], [ @.str.1494, %54 ], [ @.str.1494, %58 ], [ @.str.1494, %61 ], [ @.str.1494, %64 ], [ @.str.1495, %57 ]
-  %.176 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ 1, %57 ]
-  %.1 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 1, %58 ], [ 2, %61 ], [ 4, %64 ], [ %53, %57 ]
+  %.3 = phi ptr [ @.str.1494, %50 ], [ @.str.1494, %54 ], [ @.str.1495, %57 ], [ @.str.1494, %61 ], [ @.str.1494, %64 ], [ @.str.1494, %58 ]
+  %.176 = phi i32 [ %53, %50 ], [ 5, %54 ], [ 1, %57 ], [ %63, %61 ], [ %66, %64 ], [ %60, %58 ]
+  %.1 = phi i32 [ 0, %50 ], [ 0, %54 ], [ %53, %57 ], [ 2, %61 ], [ 4, %64 ], [ 1, %58 ]
   %68 = load i32, ptr @hf_amqp_field, align 4
   %69 = add nuw nsw i32 %13, 2
   %70 = add nuw nsw i32 %69, %.176
@@ -12440,7 +12440,7 @@ dissect_amqp_1_0_SASL_frame.exit:                 ; preds = %145, %148, %151, %1
   br label %167
 
 167:                                              ; preds = %18, %30, %165, %64
-  %.0 = phi i32 [ 8, %64 ], [ %166, %165 ], [ 8, %30 ], [ 8, %18 ]
+  %.0 = phi i32 [ %166, %165 ], [ 8, %64 ], [ 8, %30 ], [ 8, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -12484,9 +12484,9 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
   br label %77
 
 32:                                               ; preds = %8, %23, %17
-  %.076 = phi i32 [ 1, %17 ], [ 4, %23 ], [ 0, %8 ]
-  %.074 = phi i32 [ %22, %17 ], [ %26, %23 ], [ 0, %8 ]
-  %.073 = phi i32 [ %19, %17 ], [ %24, %23 ], [ 0, %8 ]
+  %.076 = phi i32 [ 4, %23 ], [ 1, %17 ], [ 0, %8 ]
+  %.074 = phi i32 [ %26, %23 ], [ %22, %17 ], [ 0, %8 ]
+  %.073 = phi i32 [ %24, %23 ], [ %19, %17 ], [ 0, %8 ]
   %33 = add nuw nsw i32 %.076, 1
   %34 = add i32 %33, %.073
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef %34, i32 noundef 0)
@@ -12604,7 +12604,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %get_amqp_1_0_type_value_formatter.exit, %73, %.critedge
-  %.077.lcssa99 = phi i32 [ %.077.lcssa, %73 ], [ %.077.lcssa, %.critedge ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
+  %.077.lcssa99 = phi i32 [ %.077.lcssa, %.critedge ], [ %.077.lcssa, %73 ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
   %76 = sub i32 %.077.lcssa99, %2
   br label %77
 
@@ -12651,7 +12651,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
   br label %25
 
 25:                                               ; preds = %19, %17, %21, %7
-  %.0 = phi ptr [ %24, %21 ], [ null, %7 ], [ %4, %17 ], [ %15, %19 ]
+  %.0 = phi ptr [ null, %7 ], [ %4, %17 ], [ %24, %21 ], [ %15, %19 ]
   %26 = load i32, ptr %12, align 4
   %27 = add i32 %26, %2
   %28 = trunc nuw i32 %13 to i8
@@ -12739,8 +12739,8 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %42
 
 42:                                               ; preds = %36, %29, %28, %25, %23, %20, %17, %11
-  %.146 = phi i32 [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ 0, %28 ], [ 0, %29 ], [ 0, %36 ], [ 0, %11 ]
-  %.043 = phi i32 [ 1, %17 ], [ 2, %20 ], [ 4, %23 ], [ 8, %25 ], [ 16, %28 ], [ %35, %29 ], [ %41, %36 ], [ 0, %11 ]
+  %.146 = phi i32 [ 0, %11 ], [ 0, %36 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %27, %25 ], [ 0, %28 ], [ 0, %29 ]
+  %.043 = phi i32 [ 0, %11 ], [ %41, %36 ], [ 1, %17 ], [ 2, %20 ], [ 4, %23 ], [ 8, %25 ], [ 16, %28 ], [ %35, %29 ]
   %43 = add i32 %.043, %spec.select
   br label %45
 
@@ -12895,12 +12895,12 @@ decode_fixed_type.exit:                           ; preds = %20
   br i1 %.not128, label %.thread, label %.preheader152, !llvm.loop !23
 
 .thread.sink.split:                               ; preds = %44, %41, %37, %33
-  %.sink = phi ptr [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %46, %44 ]
+  %.sink = phi ptr [ %35, %33 ], [ %43, %41 ], [ %39, %37 ], [ %46, %44 ]
   %50 = load i32, ptr %.sink, align 4
   br label %.thread
 
 .thread:                                          ; preds = %47, %.thread.sink.split, %30, %36, %40, %41, %44, %24
-  %.0114 = phi i32 [ %4, %44 ], [ %4, %24 ], [ %4, %41 ], [ %4, %40 ], [ %4, %36 ], [ %4, %30 ], [ %50, %.thread.sink.split ], [ %4, %47 ]
+  %.0114 = phi i32 [ %4, %41 ], [ %4, %40 ], [ %4, %36 ], [ %4, %44 ], [ %4, %30 ], [ %4, %24 ], [ %50, %.thread.sink.split ], [ %4, %47 ]
   %51 = tail call i32 @proto_registrar_get_ftype(i32 noundef %.0114)
   %.not133 = icmp eq i32 %51, 0
   br i1 %.not133, label %58, label %52
@@ -13318,7 +13318,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %110, %135, %139, %.
   br label %.critedge.i138.thread
 
 .critedge.i138.thread:                            ; preds = %239, %244, %.critedge.i138
-  %.079.i.lcssa204 = phi i32 [ %.079.i.lcssa, %244 ], [ %.079.i.lcssa, %.critedge.i138 ], [ %243, %239 ]
+  %.079.i.lcssa204 = phi i32 [ %.079.i.lcssa, %.critedge.i138 ], [ %.079.i.lcssa, %244 ], [ %243, %239 ]
   %247 = sub i32 %.079.i.lcssa204, %182
   br label %dissect_amqp_1_0_array.exit
 
@@ -13486,7 +13486,7 @@ define internal noundef i32 @format_amqp_1_0_uint(ptr noundef %0, i32 noundef %1
   br label %22
 
 19:                                               ; preds = %4, %5, %11, %14, %8
-  %.0 = phi i64 [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %15, %14 ], [ 0, %4 ]
+  %.0 = phi i64 [ %15, %14 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ 0, %4 ]
   %20 = tail call ptr @wmem_packet_scope()
   %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.1579, i64 noundef %.0)
   br label %22
@@ -13796,47 +13796,47 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %70 = getelementptr %struct._amqp_message_decode_t, ptr %69, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 8
   switch i32 %71, label %.thread.i [
-    i32 0, label %72
-    i32 1, label %77
-    i32 2, label %81
-    i32 3, label %89
+    i32 0, label %103
+    i32 1, label %72
+    i32 2, label %76
+    i32 3, label %84
     i32 4, label %94
   ]
 
 72:                                               ; preds = %.lr.ph.i
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef %65, ptr noundef %74) #13
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %find_data_dissector.exit, label %.thread.i
-
-77:                                               ; preds = %.lr.ph.i
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @strstr(ptr noundef %65, ptr noundef %79) #13
-  %.not76.i = icmp eq ptr %80, null
+  %75 = call ptr @strstr(ptr noundef %65, ptr noundef %74) #13
+  %.not76.i = icmp eq ptr %75, null
   br i1 %.not76.i, label %.thread.i, label %find_data_dissector.exit
 
-81:                                               ; preds = %.lr.ph.i
-  %82 = call i64 @strlen(ptr noundef %65) #13
-  %83 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = call i64 @strlen(ptr noundef %84) #13
-  %.not61.i = icmp ult i64 %82, %85
-  br i1 %.not61.i, label %.thread.i, label %86
+76:                                               ; preds = %.lr.ph.i
+  %77 = call i64 @strlen(ptr noundef %65) #13
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = call i64 @strlen(ptr noundef %79) #13
+  %.not61.i = icmp ult i64 %77, %80
+  br i1 %.not61.i, label %.thread.i, label %81
 
-86:                                               ; preds = %81
-  %87 = call i32 @strncmp(ptr noundef %65, ptr noundef %84, i64 noundef %85) #13
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %find_data_dissector.exit, label %.thread.i
+81:                                               ; preds = %76
+  %82 = call i32 @strncmp(ptr noundef %65, ptr noundef %79, i64 noundef %80) #13
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %find_data_dissector.exit, label %.thread.i
 
-89:                                               ; preds = %.lr.ph.i
-  %90 = call i64 @strlen(ptr noundef %65) #13
-  %91 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @strlen(ptr noundef %92) #13
-  %.not60.i = icmp ult i64 %90, %93
-  br i1 %.not60.i, label %.thread.i, label %103
+84:                                               ; preds = %.lr.ph.i
+  %85 = call i64 @strlen(ptr noundef %65) #13
+  %86 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = call i64 @strlen(ptr noundef %87) #13
+  %.not60.i = icmp ult i64 %85, %88
+  br i1 %.not60.i, label %.thread.i, label %89
+
+89:                                               ; preds = %84
+  %90 = sub nuw i64 %85, %88
+  %91 = getelementptr i8, ptr %65, i64 %90
+  %92 = call i32 @strcmp(ptr noundef %91, ptr noundef %87) #13
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %find_data_dissector.exit, label %.thread.i
 
 94:                                               ; preds = %.lr.ph.i
   %95 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -13862,16 +13862,16 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %.pre37 = load i32, ptr @num_amqp_message_decodes, align 4
   br label %.thread.i
 
-103:                                              ; preds = %89
-  %104 = sub nuw i64 %90, %93
-  %105 = getelementptr i8, ptr %65, i64 %104
-  %106 = call i32 @strcmp(ptr noundef %105, ptr noundef %92) #13
+103:                                              ; preds = %.lr.ph.i
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = call i32 @strcmp(ptr noundef %65, ptr noundef %105) #13
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %find_data_dissector.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %103, %94, %89, %86, %81, %77, %72, %.lr.ph.i
-  %108 = phi i32 [ %68, %103 ], [ %.pre37, %..thread.i_crit_edge ], [ %68, %94 ], [ %68, %89 ], [ %68, %86 ], [ %68, %81 ], [ %68, %77 ], [ %68, %72 ], [ %68, %.lr.ph.i ]
-  %109 = phi ptr [ %69, %103 ], [ %.pre, %..thread.i_crit_edge ], [ %69, %94 ], [ %69, %89 ], [ %69, %86 ], [ %69, %81 ], [ %69, %77 ], [ %69, %72 ], [ %69, %.lr.ph.i ]
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %103, %94, %89, %84, %81, %76, %72, %.lr.ph.i
+  %108 = phi i32 [ %68, %103 ], [ %.pre37, %..thread.i_crit_edge ], [ %68, %94 ], [ %68, %89 ], [ %68, %84 ], [ %68, %81 ], [ %68, %76 ], [ %68, %72 ], [ %68, %.lr.ph.i ]
+  %109 = phi ptr [ %69, %103 ], [ %.pre, %..thread.i_crit_edge ], [ %69, %94 ], [ %69, %89 ], [ %69, %84 ], [ %69, %81 ], [ %69, %76 ], [ %69, %72 ], [ %69, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %110 = zext i32 %108 to i64
   %.not77.i = icmp samesign ult i64 %indvars.iv.next.i, %110
@@ -13881,7 +13881,7 @@ find_data_dissector.exit.thread32:                ; preds = %.thread.i, %63
   %111 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1)
   br label %.critedge
 
-find_data_dissector.exit:                         ; preds = %72, %77, %86, %97, %103
+find_data_dissector.exit:                         ; preds = %72, %81, %89, %97, %103
   %112 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -13890,7 +13890,7 @@ find_data_dissector.exit:                         ; preds = %72, %77, %86, %97, 
   %117 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1)
   br label %119
 
-.critedge:                                        ; preds = %61, %22, %30, %19, %find_data_dissector.exit.thread32, %15
+.critedge:                                        ; preds = %61, %30, %22, %19, %find_data_dissector.exit.thread32, %15
   %118 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %0, i32 noundef %16, i32 noundef %.028, i32 noundef 0)
   br label %119
 

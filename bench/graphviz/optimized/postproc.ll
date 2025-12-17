@@ -262,8 +262,8 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %62
 
 62:                                               ; preds = %58, %57, %55, %.lr.ph.i
-  %.3189.i = phi i64 [ %56, %55 ], [ %.2188465.i, %57 ], [ %.2188465.i, %.lr.ph.i ], [ %.2188465.i, %58 ]
-  %.2.i = phi i64 [ %.1185466.i, %55 ], [ %.1185466.i, %57 ], [ %.1185466.i, %.lr.ph.i ], [ %spec.select.i, %58 ]
+  %.3189.i = phi i64 [ %56, %55 ], [ %.2188465.i, %.lr.ph.i ], [ %.2188465.i, %58 ], [ %.2188465.i, %57 ]
+  %.2.i = phi i64 [ %.1185466.i, %55 ], [ %.1185466.i, %.lr.ph.i ], [ %spec.select.i, %58 ], [ %.1185466.i, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %64 = load ptr, ptr %63, align 8, !tbaa !63
   %.not248.i = icmp eq ptr %64, null
@@ -291,8 +291,8 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %76
 
 76:                                               ; preds = %72, %71, %69, %62
-  %.4190.i = phi i64 [ %70, %69 ], [ %.3189.i, %71 ], [ %.3189.i, %62 ], [ %.3189.i, %72 ]
-  %.3.i = phi i64 [ %.2.i, %69 ], [ %.2.i, %71 ], [ %.2.i, %62 ], [ %spec.select260.i, %72 ]
+  %.4190.i = phi i64 [ %70, %69 ], [ %.3189.i, %62 ], [ %.3189.i, %72 ], [ %.3189.i, %71 ]
+  %.3.i = phi i64 [ %.2.i, %69 ], [ %.2.i, %62 ], [ %spec.select260.i, %72 ], [ %.2.i, %71 ]
   %77 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %78 = load ptr, ptr %77, align 8, !tbaa !64
   %.not251.i = icmp eq ptr %78, null
@@ -320,8 +320,8 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %90
 
 90:                                               ; preds = %86, %85, %83, %76
-  %.5191.i = phi i64 [ %84, %83 ], [ %.4190.i, %85 ], [ %.4190.i, %76 ], [ %.4190.i, %86 ]
-  %.4.i = phi i64 [ %.3.i, %83 ], [ %.3.i, %85 ], [ %.3.i, %76 ], [ %spec.select261.i, %86 ]
+  %.5191.i = phi i64 [ %84, %83 ], [ %.4190.i, %76 ], [ %.4190.i, %86 ], [ %.4190.i, %85 ]
+  %.4.i = phi i64 [ %.3.i, %83 ], [ %.3.i, %76 ], [ %spec.select261.i, %86 ], [ %.3.i, %85 ]
   %91 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %92 = load ptr, ptr %91, align 8, !tbaa !65
   %.not254.i = icmp eq ptr %92, null
@@ -349,8 +349,8 @@ define void @gv_postprocess(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %104
 
 104:                                              ; preds = %100, %99, %97, %90
-  %.6.i = phi i64 [ %98, %97 ], [ %.5191.i, %99 ], [ %.5191.i, %90 ], [ %.5191.i, %100 ]
-  %.5.i = phi i64 [ %.4.i, %97 ], [ %.4.i, %99 ], [ %.4.i, %90 ], [ %spec.select262.i, %100 ]
+  %.6.i = phi i64 [ %98, %97 ], [ %.5191.i, %90 ], [ %.5191.i, %100 ], [ %.5191.i, %99 ]
+  %.5.i = phi i64 [ %.4.i, %97 ], [ %.4.i, %90 ], [ %spec.select262.i, %100 ], [ %.4.i, %99 ]
   %105 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0177467.i) #18
   %.not244.i = icmp eq ptr %105, null
   br i1 %.not244.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
@@ -790,8 +790,8 @@ addXLabel.exit297.i:                              ; preds = %265, %260
   br label %edgeTailpoint.exit.i
 
 edgeTailpoint.exit.i:                             ; preds = %319, %317, %310
-  %.sroa.0.0.i.i = phi double [ %.sroa.0.0.copyload.i.i, %317 ], [ %.sroa.0.0.copyload5.i.i, %319 ], [ 0.000000e+00, %310 ]
-  %.sroa.4.0.i.i = phi double [ %.sroa.4.0.copyload.i.i, %317 ], [ %.sroa.4.0.copyload7.i.i, %319 ], [ 0.000000e+00, %310 ]
+  %.sroa.0.0.i.i = phi double [ %.sroa.0.0.copyload5.i.i, %319 ], [ %.sroa.0.0.copyload.i.i, %317 ], [ 0.000000e+00, %310 ]
+  %.sroa.4.0.i.i = phi double [ %.sroa.4.0.copyload7.i.i, %319 ], [ %.sroa.4.0.copyload.i.i, %317 ], [ 0.000000e+00, %310 ]
   store double %.sroa.0.0.i.i, ptr %.3196.i, align 8, !tbaa !12
   %.sroa.0.sroa.2.0..0.7.sroa_idx.i314.i = getelementptr inbounds nuw i8, ptr %.3196.i, i64 8
   store double %.sroa.4.0.i.i, ptr %.sroa.0.sroa.2.0..0.7.sroa_idx.i314.i, align 8, !tbaa !12

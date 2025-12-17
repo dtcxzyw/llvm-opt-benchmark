@@ -345,7 +345,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %25, %27
   br i1 %.not.i9.i15.i7.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !68
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %38, %40
-  %.pn14.i = phi ptr [ %39, %38 ], [ %34, %40 ], [ %41, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
+  %.pn14.i = phi ptr [ %39, %38 ], [ %34, %40 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %41, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %39, %38 ], [ %41, %40 ], [ %41, %.critedge2.i8.i14.i6.i ], [ %41, %.lr.ph.i6.i12.i3.i ]
   %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %37
   %.not46 = icmp eq ptr %.pn14.i, %44
@@ -1236,16 +1236,16 @@ _ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit: ; preds = %105
   %.not62 = icmp ugt i32 %95, %97
   br i1 %.not62, label %select.unfold, label %._crit_edge
 
-select.unfold:                                    ; preds = %.loopexit113, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit, %93
-  %117 = phi i32 [ %95, %.loopexit113 ], [ %115, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit ], [ %95, %93 ]
-  %118 = phi i32 [ %94, %.loopexit113 ], [ %116, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit ], [ %94, %93 ]
+select.unfold:                                    ; preds = %.loopexit113, %93, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit
+  %117 = phi i32 [ %95, %.loopexit113 ], [ %95, %93 ], [ %115, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit ]
+  %118 = phi i32 [ %94, %.loopexit113 ], [ %94, %93 ], [ %116, %_ZNK4llvm13StackLifetime9LiveRange8overlapsERKS1_.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %.0116, i64 80
   %.not = icmp eq ptr %119, %88
   br i1 %.not, label %._crit_edge, label %93
 
 ._crit_edge:                                      ; preds = %select.unfold, %.loopexit113
-  %120 = phi i32 [ %94, %.loopexit113 ], [ %118, %select.unfold ]
-  %121 = phi i32 [ %95, %.loopexit113 ], [ %117, %select.unfold ]
+  %120 = phi i32 [ %118, %select.unfold ], [ %94, %.loopexit113 ]
+  %121 = phi i32 [ %117, %select.unfold ], [ %95, %.loopexit113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = getelementptr inbounds i8, ptr %88, i64 -76
   %123 = load i32, ptr %122, align 4, !tbaa !79
@@ -4641,7 +4641,7 @@ _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split: ; preds =
   br label %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i
 
 _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i: ; preds = %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split, %43, %.lr.ph157
-  %57 = phi i32 [ %42, %43 ], [ 0, %.lr.ph157 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split ]
+  %57 = phi i32 [ 0, %.lr.ph157 ], [ %42, %43 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i.sink.split ]
   %58 = getelementptr inbounds nuw i8, ptr %.143150, i64 80
   %59 = load i32, ptr %58, align 8, !tbaa !82
   store i32 %59, ptr %33, align 8, !tbaa !82
@@ -4968,7 +4968,7 @@ _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split: ; preds
   br label %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55
 
 _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55: ; preds = %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split, %163, %.lr.ph
-  %177 = phi i32 [ %162, %163 ], [ 0, %.lr.ph ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split ]
+  %177 = phi i32 [ 0, %.lr.ph ], [ %162, %163 ], [ 0, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit.i55.sink.split ]
   %178 = getelementptr inbounds i8, ptr %.345147, i64 -8
   %179 = load i32, ptr %178, align 8, !tbaa !82
   store i32 %179, ptr %28, align 8, !tbaa !82
@@ -5205,7 +5205,7 @@ _ZSt4swapIN4llvm9safestack11StackLayout11StackObjectEENSt9enable_ifIXsr6__and_IS
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
 _ZSt11swap_rangesIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge158, %.lr.ph.i, %7, %3
-  %.041 = phi ptr [ %2, %3 ], [ %0, %7 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge158 ], [ %23, %._crit_edge ]
+  %.041 = phi ptr [ %0, %7 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge158 ], [ %23, %._crit_edge ]
   ret ptr %.041
 }
 
@@ -7043,7 +7043,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58: ; 
   br label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44: ; preds = %.lr.ph.i.i.i.i.i40, %.lr.ph.i.i.i.i.i61, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, %56, %9, %102
-  %.0 = phi ptr [ %103, %102 ], [ %0, %9 ], [ %2, %56 ], [ %0, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58 ], [ %93, %.lr.ph.i.i.i.i.i61 ], [ %52, %.lr.ph.i.i.i.i.i40 ]
+  %.0 = phi ptr [ %2, %56 ], [ %103, %102 ], [ %0, %9 ], [ %0, %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit ], [ %2, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58 ], [ %93, %.lr.ph.i.i.i.i.i61 ], [ %52, %.lr.ph.i.i.i.i.i40 ]
   ret ptr %.0
 }
 

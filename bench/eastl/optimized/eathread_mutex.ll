@@ -192,7 +192,7 @@ if.end26:                                         ; preds = %if.else15, %if.then
   br label %return
 
 return:                                           ; preds = %if.else15, %if.then5, %if.then, %if.end26, %if.end23, %if.end13
-  %retval.0 = phi i32 [ %inc, %if.end26 ], [ -1, %if.end13 ], [ -1, %if.end23 ], [ -1, %if.then ], [ -2, %if.then5 ], [ -2, %if.else15 ]
+  %retval.0 = phi i32 [ -1, %if.end23 ], [ %inc, %if.end26 ], [ -1, %if.then ], [ -1, %if.end13 ], [ -2, %if.then5 ], [ -2, %if.else15 ]
   ret i32 %retval.0
 }
 

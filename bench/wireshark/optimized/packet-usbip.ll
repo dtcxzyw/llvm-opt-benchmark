@@ -401,8 +401,8 @@ usbip_get_usbip_conv.exit:                        ; preds = %50
   br label %79
 
 79:                                               ; preds = %73, %67, %usbip_get_usbip_conv.exit
-  %80 = phi i32 [ %68, %67 ], [ %66, %usbip_get_usbip_conv.exit ], [ %68, %73 ]
-  %.080 = phi i32 [ 48, %67 ], [ 48, %usbip_get_usbip_conv.exit ], [ %spec.select92, %73 ]
+  %80 = phi i32 [ %66, %usbip_get_usbip_conv.exit ], [ %68, %73 ], [ %68, %67 ]
+  %.080 = phi i32 [ 48, %usbip_get_usbip_conv.exit ], [ %spec.select92, %73 ], [ 48, %67 ]
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %87
 
@@ -423,8 +423,8 @@ usbip_get_usbip_conv.exit:                        ; preds = %50
   %90 = tail call i32 @tvb_captured_length(ptr noundef %1)
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %87, %84, %82, %38, %38, %34, %39, %14, %17, %21, %9, %6, %13, %89
-  %.2 = phi i32 [ %90, %89 ], [ 0, %21 ], [ 12, %17 ], [ 0, %14 ], [ %., %9 ], [ 40, %6 ], [ 8, %13 ], [ %88, %87 ], [ %.080, %82 ], [ %86, %84 ], [ 48, %38 ], [ 48, %38 ], [ 0, %34 ], [ %.184, %39 ], [ %31, %.preheader ]
+.thread:                                          ; preds = %.preheader, %87, %84, %82, %39, %34, %38, %38, %14, %17, %21, %6, %9, %13, %89
+  %.2 = phi i32 [ %90, %89 ], [ 8, %13 ], [ 12, %17 ], [ 0, %14 ], [ 0, %21 ], [ 40, %6 ], [ %., %9 ], [ %88, %87 ], [ %.080, %82 ], [ %86, %84 ], [ %.184, %39 ], [ 48, %38 ], [ 0, %34 ], [ 48, %38 ], [ %31, %.preheader ]
   ret i32 %.2
 }
 
@@ -598,7 +598,7 @@ dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
   br label %usbip_dissect_op.exit
 
 usbip_dissect_op.exit:                            ; preds = %37, %40, %43, %45, %dissect_device_list_response.exit.i, %87
-  %.0.i30 = phi i32 [ %90, %87 ], [ 40, %37 ], [ 0, %45 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ %44, %43 ], [ 8, %40 ]
+  %.0.i30 = phi i32 [ %90, %87 ], [ 40, %37 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ 0, %45 ], [ %44, %43 ], [ 8, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %300

@@ -254,7 +254,7 @@ _Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split: ; preds = %1
   br label %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread
 
 _Z14is_explicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %1, %1, %1, %1, %1, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split
-  %.in = phi ptr [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ShenandoahImplicitGCInvokesConcurrent, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ]
+  %.in = phi ptr [ @ShenandoahImplicitGCInvokesConcurrent, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.fold.split ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ], [ @ExplicitGCInvokesConcurrent, %1 ]
   %2 = load i8, ptr %.in, align 1
   %.v = trunc i8 %2 to i1
   %3 = xor i1 %.v, true
@@ -341,8 +341,8 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit.us:       ; preds = %14
   br label %_Z14is_implicit_gcN7GCCause5CauseE.exit.thread.us
 
 _Z14is_implicit_gcN7GCCause5CauseE.exit.thread.us: ; preds = %_Z14is_implicit_gcN7GCCause5CauseE.exit.us, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.us, %14, %14
-  %.166.us = phi i64 [ %.06586.us, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.us ], [ %spec.select.us, %_Z14is_implicit_gcN7GCCause5CauseE.exit.us ], [ %.06586.us, %14 ], [ %.06586.us, %14 ]
-  %.1.us = phi i64 [ %16, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.us ], [ %.087.us, %_Z14is_implicit_gcN7GCCause5CauseE.exit.us ], [ %.087.us, %14 ], [ %.087.us, %14 ]
+  %.166.us = phi i64 [ %.06586.us, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.us ], [ %.06586.us, %14 ], [ %spec.select.us, %_Z14is_implicit_gcN7GCCause5CauseE.exit.us ], [ %.06586.us, %14 ]
+  %.1.us = phi i64 [ %16, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread.us ], [ %.087.us, %14 ], [ %.087.us, %_Z14is_implicit_gcN7GCCause5CauseE.exit.us ], [ %.087.us, %14 ]
   %20 = tail call noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef %15) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, i64 noundef %13, ptr noundef %20, double noundef 0.000000e+00) #9
   br label %21
@@ -389,8 +389,8 @@ _Z14is_implicit_gcN7GCCause5CauseE.exit:          ; preds = %24
   br label %_Z14is_implicit_gcN7GCCause5CauseE.exit.thread
 
 _Z14is_implicit_gcN7GCCause5CauseE.exit.thread:   ; preds = %_Z14is_implicit_gcN7GCCause5CauseE.exit, %24, %24, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread
-  %.166 = phi i64 [ %.06586, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread ], [ %spec.select, %_Z14is_implicit_gcN7GCCause5CauseE.exit ], [ %.06586, %24 ], [ %.06586, %24 ]
-  %.1 = phi i64 [ %26, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread ], [ %.087, %_Z14is_implicit_gcN7GCCause5CauseE.exit ], [ %.087, %24 ], [ %.087, %24 ]
+  %.166 = phi i64 [ %.06586, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread ], [ %.06586, %24 ], [ %spec.select, %_Z14is_implicit_gcN7GCCause5CauseE.exit ], [ %.06586, %24 ]
+  %.1 = phi i64 [ %26, %_Z14is_explicit_gcN7GCCause5CauseE.exit.thread ], [ %.087, %24 ], [ %.087, %_Z14is_implicit_gcN7GCCause5CauseE.exit ], [ %.087, %24 ]
   %30 = tail call noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef %25) #9
   %31 = uitofp i64 %23 to double
   %32 = fdiv double %31, %11

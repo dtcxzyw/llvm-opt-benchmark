@@ -212,7 +212,7 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef captures(address_
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread35, %._crit_edge
-  %.0.lcssa34 = phi float [ %.0.lcssa38, %._crit_edge.thread35 ], [ 0.000000e+00, %._crit_edge ], [ %16, %.lr.ph.split.us ]
+  %.0.lcssa34 = phi float [ 0.000000e+00, %._crit_edge ], [ %.0.lcssa38, %._crit_edge.thread35 ], [ %16, %.lr.ph.split.us ]
   %30 = sitofp i32 %1 to float
   %31 = fdiv float %.0.lcssa34, %30
   %32 = tail call noundef float @sqrtf(float noundef %31) #20, !tbaa !20
@@ -897,8 +897,8 @@ switch.lookup:                                    ; preds = %83
   br label %._crit_edge195
 
 ._crit_edge195:                                   ; preds = %125, %._crit_edge195.loopexit.split.loop.exit, %.preheader172
-  %.0116.lcssa255 = phi i32 [ 1, %.preheader172 ], [ %108, %._crit_edge195.loopexit.split.loop.exit ], [ %108, %125 ]
-  %.0115.lcssa = phi i32 [ %27, %.preheader172 ], [ %127, %._crit_edge195.loopexit.split.loop.exit ], [ -1, %125 ]
+  %.0116.lcssa255 = phi i32 [ %108, %._crit_edge195.loopexit.split.loop.exit ], [ 1, %.preheader172 ], [ %108, %125 ]
+  %.0115.lcssa = phi i32 [ %127, %._crit_edge195.loopexit.split.loop.exit ], [ %27, %.preheader172 ], [ -1, %125 ]
   %128 = icmp eq i32 %.0115.lcssa, %27
   %129 = sext i1 %128 to i32
   %.1 = add nsw i32 %.0115.lcssa, %129

@@ -177,7 +177,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   br label %.loopexit301
 
 .preheader:                                       ; preds = %263, %281, %62, %32
-  %.1.ph = phi ptr [ %5, %32 ], [ %5, %62 ], [ %.2, %263 ], [ %273, %281 ]
+  %.1.ph = phi ptr [ %5, %62 ], [ %5, %32 ], [ %.2, %263 ], [ %273, %281 ]
   %79 = icmp ult ptr %.1.ph, %2
   br i1 %79, label %.lr.ph, label %._crit_edge
 
@@ -538,10 +538,10 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   br label %.backedge
 
 .loopexit301:                                     ; preds = %186, %132, %172, %151, %205, %226, %121, %42, %70
-  %246 = phi i64 [ %90, %121 ], [ %90, %151 ], [ %90, %172 ], [ %90, %205 ], [ %90, %226 ], [ %41, %70 ], [ %41, %42 ], [ %90, %132 ], [ %90, %186 ]
-  %247 = phi i64 [ %89, %121 ], [ %89, %151 ], [ %89, %172 ], [ %89, %205 ], [ %89, %226 ], [ %39, %70 ], [ %39, %42 ], [ %89, %132 ], [ %89, %186 ]
-  %.0265 = phi i32 [ 1, %121 ], [ 1, %151 ], [ 1, %172 ], [ 2, %205 ], [ 2, %226 ], [ %72, %70 ], [ %34, %42 ], [ 3, %186 ], [ 2, %132 ]
-  %.0 = phi ptr [ %93, %121 ], [ %152, %151 ], [ %173, %172 ], [ %206, %205 ], [ %227, %226 ], [ %71, %70 ], [ %5, %42 ], [ %93, %132 ], [ %93, %186 ]
+  %246 = phi i64 [ %90, %121 ], [ %90, %151 ], [ %90, %172 ], [ %41, %70 ], [ %90, %205 ], [ %90, %226 ], [ %41, %42 ], [ %90, %132 ], [ %90, %186 ]
+  %247 = phi i64 [ %89, %121 ], [ %89, %151 ], [ %89, %172 ], [ %39, %70 ], [ %89, %205 ], [ %89, %226 ], [ %39, %42 ], [ %89, %132 ], [ %89, %186 ]
+  %.0265 = phi i32 [ 1, %121 ], [ 1, %151 ], [ 1, %172 ], [ %72, %70 ], [ 2, %205 ], [ 2, %226 ], [ %34, %42 ], [ 3, %186 ], [ 2, %132 ]
+  %.0 = phi ptr [ %93, %121 ], [ %152, %151 ], [ %173, %172 ], [ %71, %70 ], [ %206, %205 ], [ %227, %226 ], [ %5, %42 ], [ %93, %132 ], [ %93, %186 ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %249
 
@@ -622,7 +622,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   br label %.loopexit
 
 .loopexit:                                        ; preds = %231, %211, %190, %157, %136, %106, %253, %52, %37, %10, %._crit_edge, %262, %250, %238, %218, %197, %185, %164, %143, %131, %113, %91, %61, %36, %23
-  %.0267 = phi i32 [ 15, %23 ], [ 14, %36 ], [ 15, %61 ], [ 15, %91 ], [ 15, %113 ], [ 14, %250 ], [ 15, %262 ], [ 14, %131 ], [ 15, %143 ], [ 15, %164 ], [ 14, %185 ], [ 15, %197 ], [ 15, %218 ], [ 15, %238 ], [ 0, %._crit_edge ], [ 1, %10 ], [ 15, %37 ], [ 1, %52 ], [ 1, %253 ], [ 1, %106 ], [ 1, %136 ], [ 1, %157 ], [ 1, %190 ], [ 1, %211 ], [ 1, %231 ]
+  %.0267 = phi i32 [ 0, %._crit_edge ], [ 15, %23 ], [ 14, %36 ], [ 1, %10 ], [ 15, %37 ], [ 15, %61 ], [ 15, %91 ], [ 1, %52 ], [ 15, %113 ], [ 14, %250 ], [ 15, %262 ], [ 14, %131 ], [ 15, %143 ], [ 15, %164 ], [ 14, %185 ], [ 15, %197 ], [ 15, %218 ], [ 15, %238 ], [ 1, %253 ], [ 1, %106 ], [ 1, %136 ], [ 1, %157 ], [ 1, %190 ], [ 1, %211 ], [ 1, %231 ]
   ret i32 %.0267
 }
 
@@ -1050,7 +1050,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   br label %.preheader
 
 .loopexit:                                        ; preds = %67, %86, %.backedge, %.preheader, %200, %170, %53, %36, %11, %209, %179, %159, %147, %135, %123, %102, %93, %52, %24
-  %.0 = phi i32 [ 15, %24 ], [ 15, %93 ], [ 14, %102 ], [ 15, %209 ], [ 15, %123 ], [ 15, %135 ], [ 15, %147 ], [ 15, %159 ], [ 15, %179 ], [ 14, %52 ], [ 1, %11 ], [ 15, %36 ], [ 15, %53 ], [ 1, %170 ], [ 1, %200 ], [ 0, %.preheader ], [ 15, %67 ], [ 1, %86 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ 15, %36 ], [ 15, %24 ], [ 15, %53 ], [ 1, %11 ], [ 15, %93 ], [ 14, %102 ], [ 1, %170 ], [ 15, %209 ], [ 15, %123 ], [ 15, %135 ], [ 15, %147 ], [ 15, %159 ], [ 14, %52 ], [ 15, %179 ], [ 1, %200 ], [ 0, %.preheader ], [ 1, %86 ], [ 15, %67 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -1280,11 +1280,11 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   br label %120
 
 120:                                              ; preds = %110, %117, %47
-  %121 = phi i64 [ %97, %117 ], [ %97, %110 ], [ %40, %47 ]
-  %122 = phi i64 [ %98, %117 ], [ %98, %110 ], [ %38, %47 ]
-  %.0150 = phi i1 [ true, %117 ], [ false, %110 ], [ true, %47 ]
-  %.0148 = phi i8 [ %119, %117 ], [ %.1149, %110 ], [ %43, %47 ]
-  %.0 = phi i8 [ %.1149, %117 ], [ %.1, %110 ], [ %6, %47 ]
+  %121 = phi i64 [ %97, %117 ], [ %40, %47 ], [ %97, %110 ]
+  %122 = phi i64 [ %98, %117 ], [ %38, %47 ], [ %98, %110 ]
+  %.0150 = phi i1 [ true, %117 ], [ true, %47 ], [ false, %110 ]
+  %.0148 = phi i8 [ %119, %117 ], [ %43, %47 ], [ %.1149, %110 ]
+  %.0 = phi i8 [ %.1149, %117 ], [ %6, %47 ], [ %.1, %110 ]
   %123 = zext i8 %.0 to i32
   %124 = add nsw i32 %123, -161
   %125 = icmp ugt i32 %124, 93
@@ -1433,7 +1433,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   br label %.preheader
 
 .loopexit:                                        ; preds = %55, %76, %.backedge, %.preheader, %185, %161, %133, %36, %11, %194, %170, %142, %115, %92, %83, %35, %24
-  %.0151 = phi i32 [ 15, %24 ], [ 15, %83 ], [ 14, %92 ], [ 14, %115 ], [ 15, %142 ], [ 15, %170 ], [ 15, %194 ], [ 14, %35 ], [ 1, %11 ], [ 15, %36 ], [ 1, %133 ], [ 1, %161 ], [ 1, %185 ], [ 0, %.preheader ], [ 15, %55 ], [ 1, %76 ], [ 0, %.backedge ]
+  %.0151 = phi i32 [ 1, %11 ], [ 15, %24 ], [ 15, %36 ], [ 1, %161 ], [ 15, %83 ], [ 14, %92 ], [ 14, %115 ], [ 14, %35 ], [ 15, %142 ], [ 1, %133 ], [ 15, %170 ], [ 1, %185 ], [ 15, %194 ], [ 0, %.preheader ], [ 1, %76 ], [ 15, %55 ], [ 0, %.backedge ]
   ret i32 %.0151
 }
 
@@ -1758,7 +1758,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   br label %.preheader
 
 .loopexit:                                        ; preds = %50, %69, %.backedge, %.preheader, %158, %129, %99, %36, %11, %167, %138, %108, %86, %76, %35, %24
-  %.0 = phi i32 [ 15, %24 ], [ 15, %76 ], [ 14, %86 ], [ 15, %108 ], [ 15, %138 ], [ 15, %167 ], [ 14, %35 ], [ 1, %11 ], [ 15, %36 ], [ 1, %99 ], [ 1, %129 ], [ 1, %158 ], [ 0, %.preheader ], [ 15, %50 ], [ 1, %69 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ 1, %11 ], [ 15, %24 ], [ 15, %36 ], [ 1, %158 ], [ 15, %76 ], [ 14, %86 ], [ 14, %35 ], [ 15, %108 ], [ 1, %99 ], [ 15, %138 ], [ 1, %129 ], [ 15, %167 ], [ 0, %.preheader ], [ 1, %69 ], [ 15, %50 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -2337,8 +2337,8 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %296
   br i1 %320, label %.preheader.i, label %lxb_encoding_decode_gb18030_range.exit
 
 lxb_encoding_decode_gb18030_range.exit:           ; preds = %308, %312, %314, %316, %319
-  %321 = phi i32 [ %303, %319 ], [ %318, %316 ], [ %303, %312 ], [ %303, %308 ], [ %303, %314 ]
-  %.136.i = phi i64 [ %301, %319 ], [ %315, %316 ], [ %301, %312 ], [ %301, %308 ], [ 1, %314 ]
+  %321 = phi i32 [ %303, %319 ], [ %303, %308 ], [ %318, %316 ], [ %303, %312 ], [ %303, %314 ]
+  %.136.i = phi i64 [ %301, %319 ], [ %301, %308 ], [ %315, %316 ], [ %301, %312 ], [ 1, %314 ]
   %322 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %324 = load i32, ptr %323, align 4, !tbaa !33
@@ -2389,7 +2389,7 @@ lxb_encoding_decode_gb18030_range.exit:           ; preds = %308, %312, %314, %3
   br label %66
 
 355:                                              ; preds = %66, %333, %329, %244, %211, %173, %149, %94, %69, %36, %8, %274, %256, %235, %222, %202, %184, %160, %120, %105, %57, %35, %21
-  %.0 = phi i32 [ 15, %21 ], [ 14, %35 ], [ 15, %57 ], [ 15, %105 ], [ 14, %120 ], [ 15, %184 ], [ 15, %160 ], [ 14, %202 ], [ 15, %222 ], [ 14, %235 ], [ 15, %256 ], [ 15, %274 ], [ 1, %8 ], [ 15, %36 ], [ 15, %69 ], [ 1, %94 ], [ 1, %149 ], [ 1, %173 ], [ 1, %211 ], [ 1, %244 ], [ 1, %329 ], [ 15, %333 ], [ 0, %66 ]
+  %.0 = phi i32 [ 1, %329 ], [ 15, %21 ], [ 14, %35 ], [ 1, %8 ], [ 15, %57 ], [ 15, %36 ], [ 15, %333 ], [ 15, %69 ], [ 15, %105 ], [ 14, %120 ], [ 1, %149 ], [ 15, %184 ], [ 1, %94 ], [ 15, %160 ], [ 14, %202 ], [ 1, %173 ], [ 15, %222 ], [ 14, %235 ], [ 1, %211 ], [ 15, %256 ], [ 15, %274 ], [ 1, %244 ], [ 0, %66 ]
   ret i32 %.0
 }
 
@@ -2483,7 +2483,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2572,7 +2572,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %..loopexit_crit_edge, %97, %100, %105, %112, %318, %310, %251, %242, %228, %206, %186, %174, %168, %158, %143, %137, %126, %87, %73, %66, %266
-  %44 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %61, %97 ], [ %102, %100 ], [ %107, %105 ], [ %114, %112 ], [ %61, %318 ], [ %316, %310 ], [ %61, %251 ], [ %248, %242 ], [ %230, %228 ], [ %212, %206 ], [ %192, %186 ], [ %61, %174 ], [ %61, %168 ], [ %164, %158 ], [ %146, %143 ], [ %61, %137 ], [ %132, %126 ], [ %93, %87 ], [ %75, %73 ], [ %61, %66 ], [ %272, %266 ], [ %61, %60 ]
+  %44 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %272, %266 ], [ %61, %97 ], [ %102, %100 ], [ %107, %105 ], [ %114, %112 ], [ %61, %318 ], [ %316, %310 ], [ %61, %251 ], [ %248, %242 ], [ %230, %228 ], [ %212, %206 ], [ %192, %186 ], [ %61, %174 ], [ %61, %168 ], [ %164, %158 ], [ %146, %143 ], [ %61, %137 ], [ %132, %126 ], [ %93, %87 ], [ %75, %73 ], [ %61, %66 ], [ %61, %60 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !22
   %.not320 = icmp ult i64 %44, %46
@@ -3093,7 +3093,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %298
 
 298:                                              ; preds = %276, %275, %.loopexit441, %.loopexit413
-  %.sink = phi i32 [ 0, %.loopexit413 ], [ 2, %275 ], [ 3, %276 ], [ 1, %.loopexit441 ]
+  %.sink = phi i32 [ 2, %275 ], [ 0, %.loopexit413 ], [ 3, %276 ], [ 1, %.loopexit441 ]
   store i32 %.sink, ptr %52, align 4, !tbaa !36
   store i8 0, ptr %4, align 4, !tbaa !38
   store i32 %.sink, ptr %54, align 4, !tbaa !39
@@ -3141,7 +3141,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.loopexit321
 
 .loopexit321:                                     ; preds = %278, %310, %301, %254, %242, %233, %228, %206, %197, %186, %177, %158, %149, %143, %126, %117, %112, %105, %100, %87, %78, %73, %.loopexit, %43, %37, %9, %320, %309, %289, %265, %253, %241, %205, %185, %176, %170, %157, %139, %125, %99, %86, %68, %36, %22
-  %.0 = phi i32 [ 15, %22 ], [ 14, %36 ], [ 14, %68 ], [ 15, %86 ], [ 15, %125 ], [ 14, %99 ], [ 14, %139 ], [ 15, %157 ], [ 14, %170 ], [ 14, %176 ], [ 15, %185 ], [ 15, %205 ], [ 15, %241 ], [ 14, %253 ], [ 15, %265 ], [ 15, %289 ], [ 15, %309 ], [ 14, %320 ], [ 1, %9 ], [ 15, %37 ], [ 0, %43 ], [ 15, %.loopexit ], [ 0, %73 ], [ 1, %78 ], [ 0, %87 ], [ 0, %100 ], [ 0, %105 ], [ 0, %112 ], [ 1, %117 ], [ 0, %126 ], [ 0, %143 ], [ 1, %149 ], [ 0, %158 ], [ 1, %177 ], [ 0, %186 ], [ 1, %197 ], [ 0, %206 ], [ 0, %228 ], [ 1, %233 ], [ 0, %242 ], [ 1, %254 ], [ 1, %301 ], [ 0, %310 ], [ 1, %278 ]
+  %.0 = phi i32 [ 15, %37 ], [ 15, %22 ], [ 14, %36 ], [ 1, %9 ], [ 0, %43 ], [ 14, %68 ], [ 15, %.loopexit ], [ 0, %73 ], [ 15, %86 ], [ 1, %78 ], [ 0, %105 ], [ 0, %112 ], [ 15, %125 ], [ 1, %117 ], [ 14, %99 ], [ 0, %87 ], [ 0, %100 ], [ 14, %139 ], [ 0, %126 ], [ 0, %143 ], [ 15, %157 ], [ 1, %149 ], [ 14, %170 ], [ 14, %176 ], [ 0, %158 ], [ 15, %185 ], [ 1, %177 ], [ 0, %186 ], [ 15, %205 ], [ 1, %197 ], [ 0, %206 ], [ 0, %228 ], [ 15, %241 ], [ 1, %233 ], [ 14, %253 ], [ 0, %242 ], [ 15, %265 ], [ 1, %254 ], [ 15, %289 ], [ 15, %309 ], [ 1, %301 ], [ 14, %320 ], [ 0, %310 ], [ 1, %278 ]
   ret i32 %.0
 }
 
@@ -3235,7 +3235,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3334,7 +3334,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3433,7 +3433,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3532,7 +3532,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3631,7 +3631,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3730,7 +3730,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3829,7 +3829,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3928,7 +3928,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4027,7 +4027,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4126,7 +4126,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4225,7 +4225,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4324,7 +4324,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4423,7 +4423,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4522,7 +4522,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4621,7 +4621,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4997,7 +4997,7 @@ switch.early.test:                                ; preds = %74
   br label %.preheader
 
 .loopexit:                                        ; preds = %50, %76, %.backedge, %.preheader, %180, %142, %110, %36, %11, %189, %151, %119, %92, %83, %35, %24
-  %.0128 = phi i32 [ 15, %24 ], [ 15, %83 ], [ 14, %92 ], [ 15, %119 ], [ 15, %151 ], [ 15, %189 ], [ 14, %35 ], [ 1, %11 ], [ 15, %36 ], [ 1, %110 ], [ 1, %142 ], [ 1, %180 ], [ 0, %.preheader ], [ 15, %50 ], [ 1, %76 ], [ 0, %.backedge ]
+  %.0128 = phi i32 [ 1, %11 ], [ 15, %24 ], [ 15, %36 ], [ 1, %180 ], [ 15, %83 ], [ 14, %92 ], [ 14, %35 ], [ 15, %119 ], [ 1, %110 ], [ 15, %151 ], [ 1, %142 ], [ 15, %189 ], [ 0, %.preheader ], [ 1, %76 ], [ 15, %50 ], [ 0, %.backedge ]
   ret i32 %.0128
 }
 
@@ -5327,7 +5327,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   br label %43
 
 .loopexit:                                        ; preds = %.lr.ph241, %.lr.ph245, %43, %150, %46, %36, %9, %167, %158, %.split116.us, %102, %35, %22
-  %.083 = phi i32 [ 15, %22 ], [ 14, %35 ], [ 14, %102 ], [ 15, %.split116.us ], [ 15, %158 ], [ 14, %167 ], [ 1, %9 ], [ 15, %36 ], [ 15, %46 ], [ 1, %150 ], [ 0, %43 ], [ 1, %.lr.ph245 ], [ 1, %.lr.ph241 ]
+  %.083 = phi i32 [ 14, %167 ], [ 15, %22 ], [ 14, %35 ], [ 1, %9 ], [ 15, %36 ], [ 14, %102 ], [ 1, %150 ], [ 15, %46 ], [ 15, %.split116.us ], [ 15, %158 ], [ 0, %43 ], [ 1, %.lr.ph245 ], [ 1, %.lr.ph241 ]
   ret i32 %.083
 }
 
@@ -5430,7 +5430,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5535,7 +5535,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5634,7 +5634,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5733,7 +5733,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5832,7 +5832,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5931,7 +5931,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6030,7 +6030,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6129,7 +6129,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6228,7 +6228,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6327,7 +6327,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6426,7 +6426,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6525,7 +6525,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %43, %30, %15
-  %.lcssa.sink = phi ptr [ %.03652, %15 ], [ %.03652, %30 ], [ %21, %43 ]
+  %.lcssa.sink = phi ptr [ %.03652, %30 ], [ %.03652, %15 ], [ %21, %43 ]
   store ptr %.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -6801,8 +6801,8 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr noundef captures(none) %
   br label %101
 
 101:                                              ; preds = %83, %52, %64, %56, %87, %95, %36, %7, %17
-  %102 = phi ptr [ %.pre, %17 ], [ %.pre145, %7 ], [ %28, %36 ], [ %57, %56 ], [ %65, %64 ], [ %88, %87 ], [ %96, %95 ], [ %28, %52 ], [ %28, %83 ]
-  %.0116 = phi i32 [ %19, %17 ], [ %6, %7 ], [ 1, %36 ], [ 1, %56 ], [ 1, %64 ], [ 2, %87 ], [ 2, %95 ], [ 2, %52 ], [ 3, %83 ]
+  %102 = phi ptr [ %.pre, %17 ], [ %.pre145, %7 ], [ %28, %36 ], [ %57, %56 ], [ %65, %64 ], [ %28, %52 ], [ %88, %87 ], [ %96, %95 ], [ %28, %83 ]
+  %.0116 = phi i32 [ %19, %17 ], [ %6, %7 ], [ 1, %36 ], [ 1, %56 ], [ 1, %64 ], [ 2, %52 ], [ 2, %87 ], [ 2, %95 ], [ 3, %83 ]
   %103 = icmp ult ptr %102, %2
   br i1 %103, label %.lr.ph, label %._crit_edge
 
@@ -6853,7 +6853,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr noundef captures(none) %
   br label %124
 
 124:                                              ; preds = %76, %45, %77, %80, %46, %49, %._crit_edge
-  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 2, %46 ], [ 2, %49 ], [ 3, %77 ], [ 3, %80 ], [ 2, %45 ], [ 3, %76 ]
+  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 2, %46 ], [ 2, %49 ], [ 2, %45 ], [ 3, %77 ], [ 3, %80 ], [ 3, %76 ]
   store i32 %.1, ptr %5, align 8, !tbaa !24
   br label %127
 
@@ -6864,7 +6864,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr noundef captures(none) %
   br label %127
 
 127:                                              ; preds = %70, %34, %26, %125, %124, %122
-  %.0117 = phi i32 [ 2097151, %125 ], [ %118, %122 ], [ 3145727, %124 ], [ %30, %26 ], [ 2097151, %34 ], [ 2097151, %70 ]
+  %.0117 = phi i32 [ 2097151, %125 ], [ %118, %122 ], [ 3145727, %124 ], [ 2097151, %34 ], [ %30, %26 ], [ 2097151, %70 ]
   ret i32 %.0117
 }
 
@@ -7010,7 +7010,7 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr noundef captures(none) %0
   br label %64
 
 64:                                               ; preds = %.thread, %62, %21, %15, %59, %49, %46, %43, %40, %25, %9
-  %.0 = phi i32 [ %8, %9 ], [ %56, %59 ], [ 202, %40 ], [ 202, %43 ], [ 234, %46 ], [ 234, %49 ], [ 3145727, %25 ], [ %19, %15 ], [ 2097151, %21 ], [ 2097151, %62 ], [ 2097151, %.thread ]
+  %.0 = phi i32 [ %8, %9 ], [ 2097151, %21 ], [ %56, %59 ], [ 202, %40 ], [ 202, %43 ], [ 234, %46 ], [ 234, %49 ], [ 3145727, %25 ], [ %19, %15 ], [ 2097151, %62 ], [ 2097151, %.thread ]
   ret i32 %.0
 }
 
@@ -7152,7 +7152,7 @@ define hidden i32 @lxb_encoding_decode_euc_jp_single(ptr noundef captures(none) 
   br label %68
 
 68:                                               ; preds = %.thread, %63, %65, %59, %18, %40, %32, %24, %16
-  %.053 = phi i32 [ %34, %32 ], [ 3145727, %40 ], [ %17, %16 ], [ 3145727, %24 ], [ 2097151, %18 ], [ %storemerge, %59 ], [ 2097151, %65 ], [ 2097151, %63 ], [ 2097151, %.thread ]
+  %.053 = phi i32 [ %storemerge, %59 ], [ 2097151, %18 ], [ %34, %32 ], [ 3145727, %40 ], [ %17, %16 ], [ 3145727, %24 ], [ 2097151, %65 ], [ 2097151, %63 ], [ 2097151, %.thread ]
   ret i32 %.053
 }
 
@@ -7230,7 +7230,7 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr noundef captures(none) 
   br label %43
 
 43:                                               ; preds = %40, %42, %34, %14, %8, %19
-  %.0 = phi i32 [ 3145727, %19 ], [ %12, %8 ], [ 2097151, %14 ], [ %38, %34 ], [ 2097151, %42 ], [ 2097151, %40 ]
+  %.0 = phi i32 [ %38, %34 ], [ 2097151, %14 ], [ 3145727, %19 ], [ %12, %8 ], [ 2097151, %42 ], [ 2097151, %40 ]
   ret i32 %.0
 }
 
@@ -7491,8 +7491,8 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
   br i1 %128, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %127, %124, %122, %120, %116
-  %129 = phi i32 [ %111, %127 ], [ %126, %124 ], [ %111, %120 ], [ %111, %116 ], [ %111, %122 ]
-  %.136.i = phi i64 [ %109, %127 ], [ %123, %124 ], [ %109, %120 ], [ %109, %116 ], [ 1, %122 ]
+  %129 = phi i32 [ %111, %127 ], [ %111, %116 ], [ %126, %124 ], [ %111, %120 ], [ %111, %122 ]
+  %.136.i = phi i64 [ %109, %127 ], [ %109, %116 ], [ %123, %124 ], [ %109, %120 ], [ 1, %122 ]
   %130 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !33
@@ -7512,7 +7512,7 @@ lxb_encoding_decode_gb18030_range.exit.fold.split: ; preds = %32
   br label %lxb_encoding_decode_gb18030_range.exit
 
 lxb_encoding_decode_gb18030_range.exit:           ; preds = %32, %lxb_encoding_decode_gb18030_range.exit.fold.split, %._crit_edge.i, %105, %87, %135, %137, %48, %83, %75, %71, %63, %36, %30, %15
-  %.0 = phi i32 [ %16, %15 ], [ 2097151, %83 ], [ 2097151, %71 ], [ 3145727, %75 ], [ %31, %30 ], [ 3145727, %36 ], [ 3145727, %63 ], [ 8364, %32 ], [ %58, %48 ], [ 2097151, %137 ], [ 2097151, %135 ], [ %134, %._crit_edge.i ], [ 2097151, %87 ], [ 59335, %105 ], [ 2097151, %lxb_encoding_decode_gb18030_range.exit.fold.split ]
+  %.0 = phi i32 [ %16, %15 ], [ 2097151, %83 ], [ 2097151, %135 ], [ 2097151, %71 ], [ 3145727, %75 ], [ %31, %30 ], [ 3145727, %63 ], [ 8364, %32 ], [ 3145727, %36 ], [ %58, %48 ], [ 2097151, %137 ], [ %134, %._crit_edge.i ], [ 2097151, %87 ], [ 59335, %105 ], [ 2097151, %lxb_encoding_decode_gb18030_range.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -7764,7 +7764,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr noundef captures(n
   br label %102
 
 93:                                               ; preds = %85, %82, %84, %83
-  %.sink = phi i32 [ 2, %84 ], [ 1, %83 ], [ 0, %82 ], [ 3, %85 ]
+  %.sink = phi i32 [ 0, %82 ], [ 1, %83 ], [ 2, %84 ], [ 3, %85 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !36
   store i8 0, ptr %4, align 4, !tbaa !38
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7784,7 +7784,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr noundef captures(n
   br i1 %101, label %8, label %102
 
 102:                                              ; preds = %40, %49, %18, %99, %93, %58, %87, %74, %61, %57, %35, %33, %29, %27
-  %.0 = phi i32 [ %25, %33 ], [ 2097151, %35 ], [ 165, %27 ], [ 8254, %29 ], [ 2097151, %57 ], [ %71, %61 ], [ 2097151, %74 ], [ 2097151, %87 ], [ 2097151, %58 ], [ 2097151, %93 ], [ 3145727, %99 ], [ %., %18 ], [ 2097151, %49 ], [ %spec.select, %40 ]
+  %.0 = phi i32 [ 2097151, %93 ], [ %., %18 ], [ 3145727, %99 ], [ %25, %33 ], [ 2097151, %35 ], [ 165, %27 ], [ 8254, %29 ], [ 2097151, %49 ], [ 2097151, %87 ], [ %spec.select, %40 ], [ 2097151, %57 ], [ %71, %61 ], [ 2097151, %58 ], [ 2097151, %74 ]
   ret i32 %.0
 }
 
@@ -8286,7 +8286,7 @@ switch.early.test:                                ; preds = %19
   br label %57
 
 57:                                               ; preds = %54, %56, %49, %switch.early.test, %8, %47, %22, %17
-  %.043 = phi i32 [ %48, %47 ], [ %18, %17 ], [ 3145727, %22 ], [ %12, %8 ], [ 2097151, %switch.early.test ], [ %52, %49 ], [ 2097151, %56 ], [ 2097151, %54 ]
+  %.043 = phi i32 [ %52, %49 ], [ %48, %47 ], [ 2097151, %switch.early.test ], [ 3145727, %22 ], [ %18, %17 ], [ %12, %8 ], [ 2097151, %56 ], [ 2097151, %54 ]
   ret i32 %.043
 }
 
@@ -8372,7 +8372,7 @@ define hidden i32 @lxb_encoding_decode_utf_16be_single(ptr noundef captures(none
   br i1 %.not37.i, label %8, label %lxb_encoding_decode_utf_16_single.exit
 
 lxb_encoding_decode_utf_16_single.exit:           ; preds = %13, %27, %32, %34, %37, %40
-  %.032.i = phi i32 [ %30, %27 ], [ 2097151, %32 ], [ 3145727, %13 ], [ 2097151, %37 ], [ 3145727, %40 ], [ %21, %34 ]
+  %.032.i = phi i32 [ %30, %27 ], [ 2097151, %32 ], [ 3145727, %40 ], [ 2097151, %37 ], [ 3145727, %13 ], [ %21, %34 ]
   ret i32 %.032.i
 }
 
@@ -8458,7 +8458,7 @@ define hidden i32 @lxb_encoding_decode_utf_16le_single(ptr noundef captures(none
   br i1 %.not37.i, label %8, label %lxb_encoding_decode_utf_16_single.exit
 
 lxb_encoding_decode_utf_16_single.exit:           ; preds = %13, %27, %32, %34, %37, %40
-  %.032.i = phi i32 [ %30, %27 ], [ 2097151, %32 ], [ 3145727, %13 ], [ 2097151, %37 ], [ 3145727, %40 ], [ %21, %34 ]
+  %.032.i = phi i32 [ %30, %27 ], [ 2097151, %32 ], [ 3145727, %40 ], [ 2097151, %37 ], [ 3145727, %13 ], [ %21, %34 ]
   ret i32 %.032.i
 }
 
@@ -8572,8 +8572,8 @@ define hidden range(i32 0, 2097152) i32 @lxb_encoding_decode_valid_utf_8_single(
   br label %84
 
 84:                                               ; preds = %7, %56, %33, %16, %38, %61, %21, %82
-  %.sink = phi ptr [ %52, %38 ], [ %81, %61 ], [ %29, %21 ], [ %83, %82 ], [ %1, %16 ], [ %1, %33 ], [ %1, %56 ], [ %spec.select, %7 ]
-  %.0 = phi i32 [ %51, %38 ], [ %80, %61 ], [ %28, %21 ], [ 2097151, %82 ], [ 2097151, %16 ], [ 2097151, %33 ], [ 2097151, %56 ], [ %spec.select56, %7 ]
+  %.sink = phi ptr [ %1, %56 ], [ %52, %38 ], [ %81, %61 ], [ %29, %21 ], [ %83, %82 ], [ %1, %33 ], [ %1, %16 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 2097151, %56 ], [ %51, %38 ], [ %80, %61 ], [ %28, %21 ], [ 2097151, %82 ], [ 2097151, %33 ], [ 2097151, %16 ], [ %spec.select56, %7 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !4
   ret i32 %.0
 }
@@ -8680,8 +8680,8 @@ define hidden range(i32 0, 2097152) i32 @lxb_encoding_decode_valid_utf_8_single_
   br i1 %73, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %5, %72, %7, %51, %29, %15, %53, %33, %19
-  %.1.sink = phi ptr [ %8, %53 ], [ %8, %33 ], [ %8, %19 ], [ %8, %15 ], [ %8, %29 ], [ %8, %51 ], [ %8, %7 ], [ %scevgep, %72 ], [ %.0, %5 ]
-  %.061 = phi i32 [ %71, %53 ], [ %45, %33 ], [ %25, %19 ], [ 2097151, %15 ], [ 2097151, %29 ], [ 2097151, %51 ], [ %10, %7 ], [ 2097151, %72 ], [ 2097151, %5 ]
+  %.1.sink = phi ptr [ %8, %51 ], [ %8, %53 ], [ %8, %29 ], [ %8, %33 ], [ %8, %15 ], [ %8, %19 ], [ %8, %7 ], [ %scevgep, %72 ], [ %.0, %5 ]
+  %.061 = phi i32 [ 2097151, %51 ], [ %71, %53 ], [ 2097151, %29 ], [ %45, %33 ], [ 2097151, %15 ], [ %25, %19 ], [ %10, %7 ], [ 2097151, %72 ], [ 2097151, %5 ]
   store ptr %.1.sink, ptr %0, align 8, !tbaa !4
   ret i32 %.061
 }
@@ -8709,7 +8709,7 @@ define hidden zeroext range(i8 0, 5) i8 @lxb_encoding_decode_utf_8_length(i8 nou
   br label %13
 
 13:                                               ; preds = %10, %7, %4, %1
-  %.0 = phi i8 [ 1, %1 ], [ 2, %4 ], [ 3, %7 ], [ %., %10 ]
+  %.0 = phi i8 [ 3, %7 ], [ 1, %1 ], [ 2, %4 ], [ %., %10 ]
   ret i8 %.0
 }
 

@@ -138,7 +138,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %55
 
 55:                                               ; preds = %31, %28, %13, %53, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ 0, %53 ], [ %26, %13 ], [ -12, %28 ], [ %46, %31 ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ %26, %13 ], [ -12, %28 ], [ 0, %53 ], [ %46, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -574,7 +574,7 @@ binkb_init_bundles.exit.i:                        ; preds = %112
   br label %.loopexit300.i
 
 .loopexit300.i:                                   ; preds = %197, %212, %.loopexit.sink.split.i.i, %.preheader.i.i, %.preheader59.i.i, %156, %147
-  %.lcssa8082 = phi i32 [ %.lcssa8084, %.loopexit.sink.split.i.i ], [ %172, %.preheader.i.i ], [ %172, %.preheader59.i.i ], [ %.lcssa8083, %156 ], [ %.lcssa8083, %147 ], [ %222, %212 ], [ %207, %197 ]
+  %.lcssa8082 = phi i32 [ %.lcssa8083, %147 ], [ %.lcssa8084, %.loopexit.sink.split.i.i ], [ %172, %.preheader.i.i ], [ %172, %.preheader59.i.i ], [ %.lcssa8083, %156 ], [ %222, %212 ], [ %207, %197 ]
   %indvars.iv.next348.i = add nuw nsw i64 %indvars.iv347.i, 1
   %exitcond350.not.i = icmp eq i64 %indvars.iv.next348.i, 10
   br i1 %exitcond350.not.i, label %263, label %147, !llvm.loop !76
@@ -1230,7 +1230,7 @@ binkb_decode_plane.exit:                          ; preds = %._crit_edge332.i, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %binkb_decode_plane.exit.thread, %583, %53, %31, %26, %23, %588
-  %.0 = phi i32 [ %589, %588 ], [ %24, %23 ], [ %29, %26 ], [ %33, %31 ], [ %54, %53 ], [ %586, %583 ], [ %.1.i.ph, %binkb_decode_plane.exit.thread ], [ %100, %98 ]
+  %.0 = phi i32 [ %29, %26 ], [ %33, %31 ], [ %54, %53 ], [ %.1.i.ph, %binkb_decode_plane.exit.thread ], [ %589, %588 ], [ %24, %23 ], [ %586, %583 ], [ %100, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
@@ -2022,7 +2022,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   store ptr %.sink, ptr %180, align 8, !tbaa !63
   br label %.loopexit493
 
-.loopexit493:                                     ; preds = %419, %.loopexit493.sink.split, %233, %231, %.preheader.i401
+.loopexit493:                                     ; preds = %419, %.loopexit493.sink.split, %231, %233, %.preheader.i401
   %424 = load ptr, ptr %0, align 8, !tbaa !39
   %425 = load ptr, ptr %188, align 8, !tbaa !63
   %.not.i402 = icmp eq ptr %425, null
@@ -2142,8 +2142,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   %.pre = load ptr, ptr %0, align 8, !tbaa !39
   br label %.loopexit491
 
-.loopexit491:                                     ; preds = %.loopexit491.loopexit, %445, %426, %.loopexit493, %.preheader.i403
-  %508 = phi ptr [ %.pre, %.loopexit491.loopexit ], [ %424, %445 ], [ %424, %426 ], [ %424, %.loopexit493 ], [ %424, %.preheader.i403 ]
+.loopexit491:                                     ; preds = %.loopexit491.loopexit, %445, %.loopexit493, %426, %.preheader.i403
+  %508 = phi ptr [ %.pre, %.loopexit491.loopexit ], [ %424, %445 ], [ %424, %.loopexit493 ], [ %424, %426 ], [ %424, %.preheader.i403 ]
   %509 = call fastcc i32 @read_motion_values(ptr noundef %508, ptr noundef %2, ptr noundef nonnull %108)
   %510 = icmp slt i32 %509, 0
   br i1 %510, label %read_colors.exit, label %511
@@ -2294,7 +2294,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @bink_decode_plane(ptr noun
   store ptr %.sink801, ptr %193, align 8, !tbaa !63
   br label %.loopexit489
 
-.loopexit489:                                     ; preds = %.lr.ph.i410, %.loopexit489.sink.split, %526, %523, %.preheader.i409
+.loopexit489:                                     ; preds = %.lr.ph.i410, %.loopexit489.sink.split, %523, %526, %.preheader.i409
   br i1 %200, label %.lr.ph576, label %._crit_edge
 
 .lr.ph576:                                        ; preds = %.loopexit489
@@ -3107,7 +3107,7 @@ unquantize_dct_coeffs.exit459:                    ; preds = %.lr.ph.i455, %958
   br label %read_colors.exit
 
 read_colors.exit:                                 ; preds = %149, %.preheader.i, %551, %259, %519, %515, %511, %.loopexit491, %227, %223, %.lr.ph.i, %.lr.ph.i405, %950, %899, %705, %640, %bink_put_pixels.exit450.thread, %bink_put_pixels.exit437.thread, %.thread473, %bink_put_pixels.exit.thread, %.thread466, %550, %452, %257, %.loopexit495, %1019, %1010, %764
-  %.0 = phi i32 [ -1094995529, %1010 ], [ -1094995529, %764 ], [ 0, %1019 ], [ 0, %.loopexit495 ], [ -1094995529, %257 ], [ -1094995529, %452 ], [ -1094995529, %550 ], [ -1094995529, %.thread466 ], [ -1094995529, %bink_put_pixels.exit.thread ], [ -1094995529, %.thread473 ], [ -1094995529, %bink_put_pixels.exit437.thread ], [ -1094995529, %bink_put_pixels.exit450.thread ], [ %956, %950 ], [ %904, %899 ], [ %710, %705 ], [ -1094995529, %640 ], [ -1094995529, %.lr.ph.i405 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %551 ], [ -1094995529, %259 ], [ %521, %519 ], [ %517, %515 ], [ %513, %511 ], [ %509, %.loopexit491 ], [ %229, %227 ], [ %225, %223 ], [ %143, %.preheader.i ], [ %152, %149 ]
+  %.0 = phi i32 [ -1094995529, %452 ], [ -1094995529, %bink_put_pixels.exit450.thread ], [ -1094995529, %550 ], [ -1094995529, %.thread473 ], [ -1094995529, %bink_put_pixels.exit.thread ], [ -1094995529, %bink_put_pixels.exit437.thread ], [ 0, %.loopexit495 ], [ 0, %1019 ], [ -1094995529, %257 ], [ -1094995529, %1010 ], [ -1094995529, %764 ], [ -1094995529, %.thread466 ], [ -1094995529, %.lr.ph.i405 ], [ %143, %.preheader.i ], [ %956, %950 ], [ -1094995529, %.lr.ph.i ], [ %513, %511 ], [ %710, %705 ], [ -1094995529, %640 ], [ %904, %899 ], [ -1094995529, %259 ], [ -1094995529, %551 ], [ %521, %519 ], [ %517, %515 ], [ %229, %227 ], [ %509, %.loopexit491 ], [ %225, %223 ], [ %152, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3310,7 +3310,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_block_types(ptr nound
   br i1 %123, label %76, label %.critedge, !llvm.loop !132
 
 .critedge:                                        ; preds = %121, %110, %.preheader, %63, %46, %3, %8, %45, %38, %30
-  %.0 = phi i32 [ 0, %38 ], [ -1094995529, %45 ], [ 0, %30 ], [ 0, %8 ], [ 0, %3 ], [ -1094995529, %46 ], [ 0, %63 ], [ 0, %.preheader ], [ 0, %121 ], [ -1094995529, %110 ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %38 ], [ -1094995529, %45 ], [ 0, %3 ], [ 0, %63 ], [ -1094995529, %46 ], [ 0, %8 ], [ 0, %.preheader ], [ 0, %121 ], [ -1094995529, %110 ]
   ret i32 %.0
 }
 
@@ -3502,7 +3502,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_motion_values(ptr nou
   br i1 %130, label %80, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %127, %.preheader, %77, %36, %3, %6, %35, %28
-  %.0 = phi i32 [ -1094995529, %35 ], [ 0, %28 ], [ 0, %6 ], [ 0, %3 ], [ -1094995529, %36 ], [ 0, %77 ], [ 0, %.preheader ], [ 0, %127 ]
+  %.0 = phi i32 [ 0, %28 ], [ -1094995529, %35 ], [ 0, %3 ], [ -1094995529, %36 ], [ 0, %6 ], [ 0, %77 ], [ 0, %.preheader ], [ 0, %127 ]
   ret i32 %.0
 }
 
@@ -3734,7 +3734,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_dcs(ptr noundef %0, p
   br label %.loopexit91
 
 .loopexit91:                                      ; preds = %.lr.ph109, %64, %32, %4, %9, %._crit_edge, %127, %31
-  %.0 = phi i32 [ -1094995529, %127 ], [ 0, %._crit_edge ], [ 0, %31 ], [ 0, %9 ], [ 0, %4 ], [ -1094995529, %32 ], [ -1094995529, %64 ], [ -1094995529, %.lr.ph109 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ -1094995529, %32 ], [ -1094995529, %64 ], [ -1094995529, %127 ], [ 0, %._crit_edge ], [ 0, %9 ], [ -1094995529, %.lr.ph109 ]
   ret i32 %.0
 }
 
@@ -4114,7 +4114,7 @@ define internal fastcc range(i32 -1094995529, 16) i32 @read_dct_coeffs(ptr nound
   br label %212
 
 212:                                              ; preds = %6, %211, %209
-  %.0102 = phi i32 [ %.0, %211 ], [ -1094995529, %209 ], [ -1094995529, %6 ]
+  %.0102 = phi i32 [ -1094995529, %209 ], [ %.0, %211 ], [ -1094995529, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0102

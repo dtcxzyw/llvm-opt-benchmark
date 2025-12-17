@@ -398,7 +398,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   br label %"_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i"
 
 "_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i": ; preds = %..loopexit_crit_edge.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i = phi i8 [ %extract.t16.i.i.i.i.i, %.noexc ], [ %extract.t20.le.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ]
+  %.0.i.i.i.i = phi i8 [ %extract.t20.le.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ], [ %extract.t16.i.i.i.i.i, %.noexc ]
   %85 = add nuw nsw i8 %.0.i.i.i.i, 32
   store i8 %85, ptr %.sroa.03.07.i, align 1, !tbaa !6
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
@@ -652,7 +652,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   br label %"_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i"
 
 "_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i": ; preds = %..loopexit_crit_edge.i.i.i.i.i, %_ZN4absl18container_internal13hash_internal12GetSharedRngEv.exit.i.i
-  %.0.i.i.i.i = phi i8 [ %extract.t16.i.i.i.i.i, %_ZN4absl18container_internal13hash_internal12GetSharedRngEv.exit.i.i ], [ %extract.t20.le.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ]
+  %.0.i.i.i.i = phi i8 [ %extract.t20.le.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ], [ %extract.t16.i.i.i.i.i, %_ZN4absl18container_internal13hash_internal12GetSharedRngEv.exit.i.i ]
   %108 = add nuw nsw i8 %.0.i.i.i.i, 32
   store i8 %108, ptr %.sroa.03.07.i, align 1, !tbaa !6
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
@@ -1126,7 +1126,7 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   br label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !44
   %58 = load ptr, ptr %.0, align 8, !tbaa !45
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

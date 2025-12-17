@@ -52,7 +52,7 @@ define noundef ptr @_ZN6memory8mmap_ops24create_and_ensure_length17hc530b13295be
   br label %20
 
 20:                                               ; preds = %18, %14
-  %.1 = phi ptr [ %11, %14 ], [ %13, %18 ]
+  %.1 = phi ptr [ %13, %18 ], [ %11, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 

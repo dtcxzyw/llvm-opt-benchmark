@@ -565,8 +565,8 @@ Saig_ObjIsPi.exit.thread.us:                      ; preds = %.lr.ph, %43
   br label %43
 
 43:                                               ; preds = %33, %Saig_ObjIsPi.exit.thread.us
-  %44 = phi ptr [ %18, %Saig_ObjIsPi.exit.thread.us ], [ %.pre105, %33 ]
-  %.156.us = phi ptr [ %.05585.us, %Saig_ObjIsPi.exit.thread.us ], [ %41, %33 ]
+  %44 = phi ptr [ %.pre105, %33 ], [ %18, %Saig_ObjIsPi.exit.thread.us ]
+  %.156.us = phi ptr [ %41, %33 ], [ %.05585.us, %Saig_ObjIsPi.exit.thread.us ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %45 = getelementptr i8, ptr %44, i64 4
   %.val60.us = load i32, ptr %45, align 4, !tbaa !37
@@ -632,8 +632,8 @@ Saig_ObjIsPi.exit79.thread.us:                    ; preds = %.lr.ph90, %.critedg
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %71, %Saig_ObjIsPi.exit79.thread.us
-  %81 = phi ptr [ %56, %Saig_ObjIsPi.exit79.thread.us ], [ %.pre107, %71 ]
-  %.3.us = phi ptr [ %.288.us, %Saig_ObjIsPi.exit79.thread.us ], [ %79, %71 ]
+  %81 = phi ptr [ %.pre107, %71 ], [ %56, %Saig_ObjIsPi.exit79.thread.us ]
+  %.3.us = phi ptr [ %79, %71 ], [ %.288.us, %Saig_ObjIsPi.exit79.thread.us ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %82 = getelementptr i8, ptr %81, i64 4
   %.val.us = load i32, ptr %82, align 4, !tbaa !37

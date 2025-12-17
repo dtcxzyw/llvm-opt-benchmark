@@ -578,7 +578,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp11InterpState32maybeDiagnos
   br i1 %.not.i9.i15.i7.i.i, label %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !170
 
 _ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %19, %21
-  %.pn14.i.i = phi ptr [ %20, %19 ], [ %15, %21 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %22, %.critedge2.i8.i14.i6.i.i ]
+  %.pn14.i.i = phi ptr [ %20, %19 ], [ %15, %21 ], [ %22, %.critedge2.i8.i14.i6.i.i ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
   %.pn12.i.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ %22, %.critedge2.i8.i14.i6.i.i ], [ %22, %.lr.ph.i6.i12.i3.i.i ]
   %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %18
   %.not23 = icmp eq ptr %.pn14.i.i, %25

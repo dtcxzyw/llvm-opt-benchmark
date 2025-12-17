@@ -215,7 +215,7 @@ zend_arena_alloc.exit148:                         ; preds = %52, %54
   br label %97
 
 97:                                               ; preds = %28, %91, %95, %74, %83
-  %.2 = phi ptr [ %.0.i146, %74 ], [ %.0.i146, %83 ], [ %.0.i146, %95 ], [ %.0.i146, %91 ], [ null, %28 ]
+  %.2 = phi ptr [ %.0.i146, %74 ], [ %.0.i146, %83 ], [ %.0.i146, %91 ], [ %.0.i146, %95 ], [ null, %28 ]
   %98 = add nsw i32 %.0125151, 1
   br label %172
 
@@ -861,7 +861,7 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %33, %19, %5, %3
-  %.016 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %19 ], [ %.1, %33 ]
+  %.016 = phi i1 [ false, %5 ], [ true, %3 ], [ false, %19 ], [ %.1, %33 ]
   ret i1 %.016
 }
 

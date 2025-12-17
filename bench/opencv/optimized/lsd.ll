@@ -2475,8 +2475,8 @@ _ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_
   br label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
 _ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %134, %129, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_.exit79, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit, %124
-  %.360 = phi float [ %190, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_.exit79 ], [ %.259129, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %.259129, %124 ], [ %.259129, %129 ], [ %.259129, %134 ]
-  %.3 = phi float [ %188, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_.exit79 ], [ %.2130, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %.2130, %124 ], [ %.2130, %129 ], [ %.2130, %134 ]
+  %.360 = phi float [ %190, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_.exit79 ], [ %.259129, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %.259129, %124 ], [ %.259129, %134 ], [ %.259129, %129 ]
+  %.3 = phi float [ %188, %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl11RegionPointESaIS2_EE9push_backERKS2_.exit79 ], [ %.2130, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %.2130, %124 ], [ %.2130, %134 ], [ %.2130, %129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %124, !llvm.loop !159
@@ -2648,8 +2648,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %
   br label %88
 
 88:                                               ; preds = %.lr.ph107, %85, %87
-  %.185 = phi double [ %80, %87 ], [ %.084101, %85 ], [ %.084101, %.lr.ph107 ]
-  %.183 = phi double [ %.082102, %87 ], [ %.082102, %85 ], [ %80, %.lr.ph107 ]
+  %.185 = phi double [ %.084101, %85 ], [ %80, %87 ], [ %.084101, %.lr.ph107 ]
+  %.183 = phi double [ %.082102, %85 ], [ %.082102, %87 ], [ %80, %.lr.ph107 ]
   %89 = fcmp ogt double %83, %.079104
   br i1 %89, label %93, label %90
 
@@ -2661,8 +2661,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %
   br label %93
 
 93:                                               ; preds = %88, %90, %92
-  %.181 = phi double [ %83, %92 ], [ %.080103, %90 ], [ %.080103, %88 ]
-  %.1 = phi double [ %.079104, %92 ], [ %.079104, %90 ], [ %83, %88 ]
+  %.181 = phi double [ %.080103, %90 ], [ %83, %92 ], [ %.080103, %88 ]
+  %.1 = phi double [ %.079104, %90 ], [ %.079104, %92 ], [ %83, %88 ]
   %94 = add nuw i64 %.078105, 1
   %exitcond118.not = icmp eq i64 %94, %52
   br i1 %exitcond118.not, label %._crit_edge108.loopexit, label %.lr.ph107, !llvm.loop !168
@@ -2883,7 +2883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %86, %
   br label %134
 
 134:                                              ; preds = %110, %91, %132
-  %.1 = phi i1 [ %133, %132 ], [ false, %91 ], [ true, %110 ]
+  %.1 = phi i1 [ false, %91 ], [ %133, %132 ], [ true, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %135
 
@@ -3120,13 +3120,13 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl12rect_improveERNS
   br label %114
 
 114:                                              ; preds = %.split, %113
-  %.13 = phi double [ %111, %113 ], [ %.1198, %.split ]
+  %.13 = phi double [ %.1198, %.split ], [ %111, %113 ]
   %115 = add nuw nsw i32 %.06499, 1
   %exitcond105.not = icmp eq i32 %115, 5
   br i1 %exitcond105.not, label %.loopexit, label %.split, !llvm.loop !177
 
 .loopexit:                                        ; preds = %114, %11, %25, %48, %78, %104, %2
-  %.0 = phi double [ %4, %2 ], [ %.166, %11 ], [ %.4, %25 ], [ %.7, %48 ], [ %.10, %78 ], [ %.10, %104 ], [ %.13, %114 ]
+  %.0 = phi double [ %4, %2 ], [ %.10, %78 ], [ %.166, %11 ], [ %.4, %25 ], [ %.7, %48 ], [ %.10, %104 ], [ %.13, %114 ]
   ret double %.0
 }
 
@@ -4063,7 +4063,7 @@ _Z12double_equalRKdS0_.exit.thread:               ; preds = %142, %_Z12double_eq
   br label %._crit_edge96, !llvm.loop !192
 
 ._crit_edge96:                                    ; preds = %.critedge, %178, %._crit_edge
-  %.158 = phi double [ %190, %._crit_edge ], [ %155, %178 ], [ %190, %.critedge ]
+  %.158 = phi double [ %155, %178 ], [ %190, %._crit_edge ], [ %190, %.critedge ]
   %207 = tail call double @log10(double noundef %.158) #26, !tbaa !91
   %208 = fneg double %207
   %209 = fsub double %208, %182
@@ -4462,7 +4462,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %175
   ret void
 
 179:                                              ; preds = %131, %171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %53
-  %.pn38.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %54, %53 ], [ %132, %131 ]
+  %.pn38.pn = phi { ptr, i32 } [ %54, %53 ], [ %172, %171 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ], [ %132, %131 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #26
   br label %180
 
@@ -4566,7 +4566,7 @@ define hidden noundef i32 @_ZN2cv23LineSegmentDetectorImpl15compareSegmentsERKNS
   br label %544
 
 .critedge:                                        ; preds = %46, %39, %42
-  %.sroa.0189.0.in = phi i64 [ %37, %42 ], [ %37, %39 ], [ %47, %46 ]
+  %.sroa.0189.0.in = phi i64 [ %37, %39 ], [ %37, %42 ], [ %47, %46 ]
   %.sroa.8.0.in = lshr i64 %.sroa.0189.0.in, 32
   %.sroa.8.0 = trunc nuw i64 %.sroa.8.0.in to i32
   %.sroa.0189.0 = trunc i64 %.sroa.0189.0.in to i32
@@ -6360,7 +6360,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImp
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !230
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge67.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %52, %54
-  %.sroa.015.0.i.i = phi ptr [ %.sroa.0.0, %52 ], [ %.sroa.067.0, %54 ], [ %.tr7383, %.lr.ph.i.i.i ], [ %70, %._crit_edge.i.i ], [ %70, %._crit_edge67.i.i ]
+  %.sroa.015.0.i.i = phi ptr [ %.sroa.067.0, %54 ], [ %.sroa.0.0, %52 ], [ %.tr7383, %.lr.ph.i.i.i ], [ %70, %._crit_edge.i.i ], [ %70, %._crit_edge67.i.i ]
   tail call void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_T0_SI_T1_(ptr %.tr82, ptr %.sroa.067.0, ptr %.sroa.015.0.i.i, i64 noundef %.0, i64 noundef %.049, ptr %5)
   %92 = sub nsw i64 %.tr7584, %.0
   %93 = sub nsw i64 %.tr7685, %.049
@@ -7242,7 +7242,7 @@ _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norm
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !230
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge.i.i, %._crit_edge67.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
-  %.sroa.032.0 = phi ptr [ %23, %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %36, %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge67.i.i ], [ %55, %._crit_edge.i.i ]
+  %.sroa.032.0 = phi ptr [ %23, %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %2, %25 ], [ %36, %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit ], [ %0, %12 ], [ %0, %39 ], [ %2, %37 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge67.i.i ], [ %55, %._crit_edge.i.i ]
   ret ptr %.sroa.032.0
 }
 

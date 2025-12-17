@@ -37,7 +37,7 @@ alloc_var.exit:                                   ; preds = %3
   br label %12
 
 12:                                               ; preds = %alloc_var.exit, %0, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %0 ], [ %1, %alloc_var.exit ]
+  %.0 = phi ptr [ null, %0 ], [ null, %11 ], [ %1, %alloc_var.exit ]
   ret ptr %.0
 }
 
@@ -216,8 +216,8 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   br i1 %.not84.i, label %set_var_from_str.exit, label %.lr.ph111.i.split, !llvm.loop !5
 
 62:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
-  %.1130 = phi ptr [ %.1, %._crit_edge.i ], [ %0, %._crit_edge.i.thread ]
-  %63 = phi ptr [ %.1, %._crit_edge.i ], [ %.else.val54132, %._crit_edge.i.thread ]
+  %.1130 = phi ptr [ %0, %._crit_edge.i.thread ], [ %.1, %._crit_edge.i ]
+  %63 = phi ptr [ %.else.val54132, %._crit_edge.i.thread ], [ %.1, %._crit_edge.i ]
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load ptr, ptr %65, align 8
@@ -573,7 +573,7 @@ thread-pre-split.i:                               ; preds = %.else25, %.cont23.u
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %186
 
-186:                                              ; preds = %.split92.us, %127, %.split.us, %100, %.critedge87.i, %62
+186:                                              ; preds = %.split92.us, %100, %127, %.split.us, %.critedge87.i, %62
   %187 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %188 = load ptr, ptr %187, align 8
   tail call void @free(ptr noundef %188) #15
@@ -951,7 +951,7 @@ select.unfold:                                    ; preds = %58, %60, %63
   br label %89
 
 89:                                               ; preds = %._crit_edge.thread, %6, %.loopexit, %9
-  %.076 = phi ptr [ %7, %9 ], [ %48, %.loopexit ], [ null, %6 ], [ null, %._crit_edge.thread ]
+  %.076 = phi ptr [ %48, %.loopexit ], [ %7, %9 ], [ null, %6 ], [ null, %._crit_edge.thread ]
   ret ptr %.076
 }
 
@@ -1109,7 +1109,7 @@ default.unreachable67:                            ; preds = %42, %15
   unreachable
 
 72:                                               ; preds = %17, %35, %39, %13, %44, %62, %66, %70, %68, %64, %60, %37, %33, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %33 ], [ -1, %37 ], [ -1, %60 ], [ -1, %64 ], [ -1, %68 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %44 ], [ 0, %13 ], [ 0, %39 ], [ 0, %35 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %64 ], [ -1, %68 ], [ -1, %11 ], [ -1, %33 ], [ -1, %37 ], [ -1, %60 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %44 ], [ 0, %13 ], [ 0, %39 ], [ 0, %35 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1247,9 +1247,9 @@ define internal fastcc range(i32 -1, 1) i32 @add_abs(ptr noundef readonly captur
   br label %.critedge2.thread121
 
 .critedge2.thread121:                             ; preds = %63, %74, %.lr.ph, %.critedge2
-  %.1.lcssa119 = phi i32 [ %.07599, %.critedge2 ], [ 0, %74 ], [ %.1101, %.lr.ph ], [ 0, %63 ]
-  %.074.lcssa112117 = phi ptr [ %.074100, %.critedge2 ], [ %.074100, %.lr.ph ], [ %.074100, %74 ], [ %scevgep, %63 ]
-  %78 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %74 ], [ %.07698, %.lr.ph ], [ 0, %63 ]
+  %.1.lcssa119 = phi i32 [ %.07599, %.critedge2 ], [ %.1101, %.lr.ph ], [ 0, %74 ], [ 0, %63 ]
+  %.074.lcssa112117 = phi ptr [ %.074100, %.critedge2 ], [ %.074100, %74 ], [ %.074100, %.lr.ph ], [ %scevgep, %63 ]
+  %78 = phi i32 [ %spec.select, %.critedge2 ], [ %.07698, %.lr.ph ], [ 0, %74 ], [ 0, %63 ]
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %80 = load ptr, ptr %79, align 8
   tail call void @free(ptr noundef %80) #15
@@ -1438,7 +1438,7 @@ define internal fastcc range(i32 -1, 2) i32 @cmp_abs(ptr noundef readonly captur
   br i1 %.not, label %60, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %13, %24, %56, %60, %61, %48
-  %.0 = phi i32 [ %., %48 ], [ 0, %60 ], [ -1, %61 ], [ 1, %56 ], [ -1, %24 ], [ 1, %13 ]
+  %.0 = phi i32 [ %., %48 ], [ -1, %24 ], [ -1, %61 ], [ 1, %56 ], [ 0, %60 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -1572,9 +1572,9 @@ define internal fastcc range(i32 -1, 1) i32 @sub_abs(ptr noundef readonly captur
   br label %.critedge2.thread116
 
 .critedge2.thread116:                             ; preds = %60, %71, %.lr.ph, %.critedge2
-  %.1.lcssa114 = phi i32 [ %.07294, %.critedge2 ], [ 0, %71 ], [ %.196, %.lr.ph ], [ 0, %60 ]
-  %.071.lcssa107112 = phi ptr [ %.07195, %.critedge2 ], [ %.07195, %.lr.ph ], [ %.07195, %71 ], [ %scevgep, %60 ]
-  %75 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %71 ], [ %.07393, %.lr.ph ], [ 0, %60 ]
+  %.1.lcssa114 = phi i32 [ %.07294, %.critedge2 ], [ %.196, %.lr.ph ], [ 0, %71 ], [ 0, %60 ]
+  %.071.lcssa107112 = phi ptr [ %.07195, %.critedge2 ], [ %.07195, %71 ], [ %.07195, %.lr.ph ], [ %scevgep, %60 ]
+  %75 = phi i32 [ %spec.select, %.critedge2 ], [ %.07393, %.lr.ph ], [ 0, %71 ], [ 0, %60 ]
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef %77) #15
@@ -1743,7 +1743,7 @@ default.unreachable67:                            ; preds = %42, %15
   unreachable
 
 72:                                               ; preds = %17, %35, %39, %13, %44, %62, %66, %70, %68, %64, %60, %37, %33, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %33 ], [ -1, %37 ], [ -1, %60 ], [ -1, %64 ], [ -1, %68 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %44 ], [ 0, %13 ], [ 0, %39 ], [ 0, %35 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %64 ], [ -1, %68 ], [ -1, %11 ], [ -1, %33 ], [ -1, %37 ], [ -1, %60 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %44 ], [ 0, %13 ], [ 0, %39 ], [ 0, %35 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1920,8 +1920,8 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr noundef readonly captures(no
   br i1 %100, label %.lr.ph125, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %88, %.lr.ph125, %98, %.loopexit
-  %.087.lcssa140 = phi i32 [ %14, %.loopexit ], [ %.087114, %98 ], [ %.087114, %.lr.ph125 ], [ %85, %88 ]
-  %.091.lcssa139 = phi ptr [ %25, %.loopexit ], [ %.091112, %98 ], [ %.091112, %.lr.ph125 ], [ %scevgep, %88 ]
+  %.087.lcssa140 = phi i32 [ %14, %.loopexit ], [ %.087114, %.lr.ph125 ], [ %.087114, %98 ], [ %85, %88 ]
+  %.091.lcssa139 = phi ptr [ %25, %.loopexit ], [ %.091112, %.lr.ph125 ], [ %.091112, %98 ], [ %scevgep, %88 ]
   %.2.lcssa = phi i32 [ %.089, %.loopexit ], [ %.2124, %.lr.ph125 ], [ 0, %98 ], [ 0, %88 ]
   %101 = icmp eq i32 %.2.lcssa, 0
   %spec.select = select i1 %101, i32 0, i32 %.087.lcssa140
@@ -2901,7 +2901,7 @@ PGTYPESnumeric_copy.exit.i:                       ; preds = %12
   store i32 302, ptr %52, align 4
   br label %numericvar_to_double.exit.thread
 
-numericvar_to_double.exit.thread:                 ; preds = %PGTYPESnumeric_copy.exit.i, %56, %61, %.loopexit.i, %11, %2
+numericvar_to_double.exit.thread:                 ; preds = %11, %PGTYPESnumeric_copy.exit.i, %.loopexit.i, %56, %61, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
@@ -2943,7 +2943,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_int(ptr noundef readonly captures
   store i32 %..i, ptr %7, align 4
   br label %PGTYPESnumeric_to_long.exit.thread
 
-PGTYPESnumeric_to_long.exit.thread:               ; preds = %14, %2, %6
+PGTYPESnumeric_to_long.exit.thread:               ; preds = %2, %14, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
@@ -2963,7 +2963,7 @@ PGTYPESnumeric_to_long.exit.thread:               ; preds = %14, %2, %6
   br label %21
 
 21:                                               ; preds = %PGTYPESnumeric_to_long.exit.thread, %19, %18
-  %.0 = phi i32 [ -1, %18 ], [ 0, %19 ], [ -1, %PGTYPESnumeric_to_long.exit.thread ]
+  %.0 = phi i32 [ 0, %19 ], [ -1, %18 ], [ -1, %PGTYPESnumeric_to_long.exit.thread ]
   ret i32 %.0
 }
 
@@ -2998,7 +2998,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_long(ptr noundef readonly capture
   br label %17
 
 17:                                               ; preds = %6, %11, %2, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %2 ], [ 0, %11 ], [ -1, %6 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %11 ], [ -1, %14 ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

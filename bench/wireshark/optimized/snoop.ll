@@ -213,7 +213,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %89
 
 89:                                               ; preds = %43, %25, %12, %11, %9, %76, %72, %64, %57, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %57 ], [ 1, %76 ], [ -1, %64 ], [ -1, %72 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %25 ], [ -1, %43 ]
+  %.0 = phi i32 [ %., %9 ], [ -1, %18 ], [ -1, %25 ], [ -1, %57 ], [ 1, %76 ], [ -1, %64 ], [ -1, %72 ], [ -1, %12 ], [ 0, %11 ], [ -1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -259,7 +259,7 @@ define internal noundef zeroext i1 @snoop_read(ptr noundef readonly captures(non
   br label %14
 
 14:                                               ; preds = %10, %5, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %5 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %13 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -287,7 +287,7 @@ define internal noundef zeroext i1 @snoop_seek_read(ptr noundef readonly capture
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %5 ], [ false, %17 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -492,7 +492,7 @@ define internal fastcc i32 @snoop_read_packet(ptr noundef readonly captures(none
   br label %98
 
 98:                                               ; preds = %85, %55, %38, %5, %96, %83, %53, %36, %29, %25, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %83 ], [ %97, %96 ], [ -1, %36 ], [ -1, %53 ], [ -1, %5 ], [ -1, %38 ], [ -1, %55 ], [ -1, %85 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %83 ], [ %97, %96 ], [ -1, %55 ], [ -1, %36 ], [ -1, %5 ], [ -1, %53 ], [ -1, %38 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -706,7 +706,7 @@ define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0)
   br label %9
 
 9:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ -9, %1 ], [ -8, %3 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ -8, %3 ], [ -9, %1 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -844,7 +844,7 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %51, %62, %61
-  %.sink93 = phi i8 [ 2, %61 ], [ 5, %62 ], [ %57, %51 ], [ 1, %58 ]
+  %.sink93 = phi i8 [ %57, %51 ], [ 2, %61 ], [ 5, %62 ], [ 1, %58 ]
   %63 = or disjoint i8 %55, %.sink93
   store i8 %63, ptr %7, align 2
   br label %64
@@ -875,7 +875,7 @@ define internal zeroext i1 @snoop_dump(ptr noundef %0, ptr noundef readonly capt
   br label %80
 
 80:                                               ; preds = %77, %73, %64, %27, %26, %16, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %26 ], [ false, %27 ], [ false, %64 ], [ false, %73 ], [ %79, %77 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %26 ], [ false, %73 ], [ %79, %77 ], [ false, %64 ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

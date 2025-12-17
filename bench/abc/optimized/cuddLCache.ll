@@ -426,7 +426,7 @@ ddLCHash.exit.i:                                  ; preds = %.lr.ph.i23.split
   br label %cuddLocalCacheResize.exit
 
 cuddLocalCacheResize.exit:                        ; preds = %34, %44, %.loopexit, %67, %47, %53
-  %.0 = phi ptr [ null, %53 ], [ null, %47 ], [ null, %67 ], [ null, %.loopexit ], [ %.pre, %44 ], [ %28, %34 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %47 ], [ null, %53 ], [ null, %67 ], [ %.pre, %44 ], [ %28, %34 ]
   ret ptr %.0
 }
 

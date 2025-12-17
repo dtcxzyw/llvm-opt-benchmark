@@ -210,7 +210,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %70
 
 70:                                               ; preds = %59, %61
-  %.sroa.027.0 = phi i64 [ %69, %61 ], [ 0, %59 ]
+  %.sroa.027.0 = phi i64 [ 0, %59 ], [ %69, %61 ]
   %71 = lshr i64 %1, 20
   %72 = and i64 %71, 31
   %73 = and i64 %1, 1048576
@@ -245,7 +245,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %81, %79
-  %.sroa.021.0 = phi i64 [ %89, %81 ], [ 0, %79 ]
+  %.sroa.021.0 = phi i64 [ 0, %79 ], [ %89, %81 ]
   %90 = tail call i64 @f64_sub(i64 %.sroa.027.0, i64 %.sroa.021.0)
   %sext = shl i64 %90, 32
   %91 = ashr exact i64 %sext, 32
@@ -715,7 +715,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %38, %40
   br label %73
 
 73:                                               ; preds = %62, %64
-  %.sroa.032.0 = phi i64 [ %72, %64 ], [ 0, %62 ]
+  %.sroa.032.0 = phi i64 [ 0, %62 ], [ %72, %64 ]
   %74 = lshr i64 %1, 20
   %75 = and i64 %74, 31
   %76 = and i64 %1, 1048576
@@ -750,7 +750,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %38, %40
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %84, %82
-  %.sroa.026.0 = phi i64 [ %92, %84 ], [ 0, %82 ]
+  %.sroa.026.0 = phi i64 [ 0, %82 ], [ %92, %84 ]
   %93 = tail call i64 @f64_sub(i64 %.sroa.032.0, i64 %.sroa.026.0)
   %sext = shl i64 %93, 32
   %94 = ashr exact i64 %sext, 32
@@ -950,7 +950,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !44
@@ -1344,7 +1344,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %78
 
 78:                                               ; preds = %59, %69
-  %.sroa.047.0 = phi i64 [ %77, %69 ], [ 0, %59 ]
+  %.sroa.047.0 = phi i64 [ 0, %59 ], [ %77, %69 ]
   %79 = lshr i64 %1, 20
   %80 = and i64 %79, 31
   %81 = and i64 %1, 1048576
@@ -1396,7 +1396,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %35, %37
   br label %106
 
 106:                                              ; preds = %97, %87
-  %.sroa.037.0 = phi i64 [ %105, %97 ], [ 0, %87 ]
+  %.sroa.037.0 = phi i64 [ 0, %87 ], [ %105, %97 ]
   %107 = tail call i64 @f64_sub(i64 %.sroa.047.0, i64 %.sroa.037.0)
   %108 = icmp samesign ugt i64 %42, 15
   br i1 %108, label %109, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
@@ -1893,7 +1893,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %38, %40
   br label %81
 
 81:                                               ; preds = %62, %72
-  %.sroa.052.0 = phi i64 [ %80, %72 ], [ 0, %62 ]
+  %.sroa.052.0 = phi i64 [ 0, %62 ], [ %80, %72 ]
   %82 = lshr i64 %1, 20
   %83 = and i64 %82, 31
   %84 = and i64 %1, 1048576
@@ -1945,7 +1945,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %38, %40
   br label %109
 
 109:                                              ; preds = %100, %90
-  %.sroa.042.0 = phi i64 [ %108, %100 ], [ 0, %90 ]
+  %.sroa.042.0 = phi i64 [ 0, %90 ], [ %108, %100 ]
   %110 = tail call i64 @f64_sub(i64 %.sroa.052.0, i64 %.sroa.042.0)
   %111 = icmp samesign ugt i64 %45, 15
   br i1 %111, label %112, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
@@ -2606,8 +2606,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -899,7 +899,7 @@ define dso_local void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 
   %66 = tail call ptr @__errno_location() #12
   br label %49
 
-.thread:                                          ; preds = %.split120, %56, %.split101.us, %35, %.split84, %10
+.thread:                                          ; preds = %56, %.split120, %35, %.split101.us, %10, %.split84
   %67 = load i16, ptr @cpu_freq_count, align 2
   %68 = zext i16 %67 to i32
   %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, i32 noundef %68) #10
@@ -1189,7 +1189,7 @@ define dso_local void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.27, i32 noundef %109) #10
   br label %113
 
-.thread:                                          ; preds = %.split120.us, %88, %78, %71, %.split70.us, %37, %27, %22
+.thread:                                          ; preds = %88, %.split120.us, %78, %71, %37, %.split70.us, %27, %22
   %110 = load i16, ptr @cpu_freq_count, align 2
   %111 = zext i16 %110 to i32
   %112 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, i32 noundef %111) #10
@@ -1238,7 +1238,7 @@ define dso_local void @cpu_freq_cpuset_validate(ptr noundef captures(none) %0) l
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = phi i32 [ 0, %14 ], [ %7, %1 ]
+  %16 = phi i32 [ %7, %1 ], [ 0, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i32, ptr %17, align 8
   %.fr = freeze i32 %18
@@ -1923,7 +1923,7 @@ _cpu_freq_govspec_string.exit55:                  ; preds = %178, %173, %171, %1
   store i32 %191, ptr %198, align 4
   br label %_cpu_freq_current_state.exit.thread
 
-_cpu_freq_current_state.exit.thread:              ; preds = %_cpu_freq_get_cur_gov.exit.i, %35, %29, %26, %_cpu_freq_govspec_string.exit55, %197, %190, %_cpu_freq_govspec_string.exit, %10, %110
+_cpu_freq_current_state.exit.thread:              ; preds = %_cpu_freq_get_cur_gov.exit.i, %29, %26, %35, %_cpu_freq_govspec_string.exit55, %197, %190, %_cpu_freq_govspec_string.exit, %10, %110
   ret void
 }
 
@@ -2214,7 +2214,7 @@ define dso_local void @cpu_freq_cgroup_validate(ptr noundef captures(none) %0, p
   br label %11
 
 11:                                               ; preds = %10, %2
-  %12 = phi i32 [ 0, %10 ], [ %3, %2 ]
+  %12 = phi i32 [ %3, %2 ], [ 0, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load i32, ptr %13, align 8
   %.fr = freeze i32 %14
@@ -2652,7 +2652,7 @@ define dso_local i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %74, %10, %2, %4, %89, %63, %50, %39, %32, %29, %19, %16, %11
-  %.047 = phi i32 [ %13, %11 ], [ %18, %16 ], [ %26, %19 ], [ %31, %29 ], [ %38, %32 ], [ %45, %39 ], [ %55, %50 ], [ %71, %63 ], [ %94, %89 ], [ -2, %4 ], [ -2, %2 ], [ -2, %10 ], [ -2, %72 ], [ %0, %74 ]
+  %.047 = phi i32 [ -2, %2 ], [ %13, %11 ], [ %18, %16 ], [ %26, %19 ], [ %31, %29 ], [ %38, %32 ], [ %45, %39 ], [ %55, %50 ], [ %71, %63 ], [ -2, %10 ], [ %94, %89 ], [ -2, %4 ], [ -2, %72 ], [ %0, %74 ]
   ret i32 %.047
 }
 
@@ -3203,7 +3203,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %124 = call i32 @close(i32 noundef %42) #10
   br label %_test_cpu_owner_lock.exit.thread
 
-_test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %114, %121, %47, %44
+_test_cpu_owner_lock.exit.thread:                 ; preds = %36, %121, %60, %44, %114, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %199
@@ -3725,7 +3725,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @_cpu_freq_check_gov(ptr no
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %8, %5, %2
-  %.0 = phi i32 [ -2013265920, %2 ], [ -2113929216, %5 ], [ -2130706432, %8 ], [ -2139095040, %11 ], [ -2080374784, %14 ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ %spec.select, %17 ], [ -2013265920, %2 ], [ -2113929216, %5 ], [ -2130706432, %8 ], [ -2139095040, %11 ], [ -2080374784, %14 ]
   %21 = xor i32 %1, -1
   %22 = and i32 %.0, %21
   %23 = icmp eq i32 %22, 0
@@ -3988,7 +3988,7 @@ define dso_local range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, p
   br i1 %.not135, label %.sink.split, label %.thread121thread-pre-split
 
 .thread121thread-pre-split:                       ; preds = %48, %58, %67, %73, %77, %80, %.thread129, %50, %60
-  %.0.ph.ph = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %67 ], [ -1, %73 ], [ -1, %80 ], [ 0, %.thread129 ], [ -1, %77 ], [ -1, %50 ], [ -1, %60 ]
+  %.0.ph.ph = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %50 ], [ -1, %67 ], [ -1, %73 ], [ -1, %80 ], [ 0, %.thread129 ], [ -1, %77 ], [ -1, %60 ]
   %.pr.pr = load i32, ptr %3, align 4
   br label %.thread121
 
@@ -4101,7 +4101,7 @@ define internal fastcc i32 @_cpu_freq_check_freq(ptr noundef %0) unnamed_addr #0
   br label %30
 
 30:                                               ; preds = %21, %24, %14, %11, %5, %8, %1, %28
-  %.0 = phi i32 [ 0, %28 ], [ -2147483647, %1 ], [ -2147483644, %8 ], [ -2147483644, %5 ], [ -2147483645, %11 ], [ -2147483646, %14 ], [ 0, %24 ], [ %22, %21 ]
+  %.0 = phi i32 [ -2147483646, %14 ], [ -2147483647, %1 ], [ -2147483644, %5 ], [ -2147483645, %11 ], [ 0, %28 ], [ -2147483644, %8 ], [ 0, %24 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4285,7 +4285,7 @@ _fd_lock_retry.exit:                              ; preds = %25, %28
 .lr.ph.split.backedge:                            ; preds = %50, %47
   br label %.lr.ph.split, !llvm.loop !36
 
-51:                                               ; preds = %43, %.split37.us
+51:                                               ; preds = %.split37.us, %43
   %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._set_cpu_owner_lock, ptr noundef nonnull %4) #10
   br label %.loopexit
 

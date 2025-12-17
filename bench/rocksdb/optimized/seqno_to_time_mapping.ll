@@ -2263,9 +2263,9 @@ _ZNSt14priority_queueIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16Remova
   br label %388
 
 388:                                              ; preds = %.loopexit166, %.loopexit.split-lp, %.loopexit168, %.loopexit.split-lp169, %386
-  %.sroa.23.1 = phi ptr [ %.sroa.23.2.lcssa, %386 ], [ %.sroa.14160.0199, %.loopexit168 ], [ %.sroa.14160.0199, %.loopexit.split-lp169 ], [ %.sroa.23.2220, %.loopexit166 ], [ %.sroa.23.2220, %.loopexit.split-lp ]
-  %.sroa.0159.1 = phi ptr [ %.sroa.0159.2.lcssa, %386 ], [ %.sroa.0159.0200, %.loopexit168 ], [ %.sroa.0159.0200, %.loopexit.split-lp169 ], [ %.sroa.0159.2222, %.loopexit166 ], [ %.sroa.0159.2222, %.loopexit.split-lp ]
-  %.pn35 = phi { ptr, i32 } [ %387, %386 ], [ %lpad.loopexit170, %.loopexit168 ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ], [ %lpad.loopexit, %.loopexit166 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.23.1 = phi ptr [ %.sroa.14160.0199, %.loopexit.split-lp169 ], [ %.sroa.23.2.lcssa, %386 ], [ %.sroa.14160.0199, %.loopexit168 ], [ %.sroa.23.2220, %.loopexit166 ], [ %.sroa.23.2220, %.loopexit.split-lp ]
+  %.sroa.0159.1 = phi ptr [ %.sroa.0159.0200, %.loopexit.split-lp169 ], [ %.sroa.0159.2.lcssa, %386 ], [ %.sroa.0159.0200, %.loopexit168 ], [ %.sroa.0159.2222, %.loopexit166 ], [ %.sroa.0159.2222, %.loopexit.split-lp ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ], [ %387, %386 ], [ %lpad.loopexit170, %.loopexit168 ], [ %lpad.loopexit, %.loopexit166 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i83 = icmp eq ptr %.sroa.0159.1, null
   br i1 %.not.i.i.i.i83, label %_ZNSt14priority_queueIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSt6vectorIS2_SaIS2_EESt7greaterIS2_EED2Ev.exit84, label %389
 
@@ -3883,7 +3883,7 @@ _ZN7rocksdb18SeqnoToTimeMapping13SeqnoTimePair5MergeERKS1_.exit: ; preds = %49
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit13
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE12emplace_backIJRmS6_EEERS2_DpOT_.exit13: ; preds = %72, %75, %60, %63, %51, %48, %44, %64, %55, %9
-  %.07 = phi i1 [ false, %9 ], [ false, %64 ], [ false, %55 ], [ false, %44 ], [ false, %48 ], [ false, %51 ], [ true, %63 ], [ true, %60 ], [ true, %75 ], [ true, %72 ]
+  %.07 = phi i1 [ false, %9 ], [ false, %51 ], [ false, %64 ], [ true, %60 ], [ false, %55 ], [ true, %72 ], [ false, %48 ], [ true, %63 ], [ false, %44 ], [ true, %75 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %77 = load i8, ptr %76, align 8, !tbaa !233, !range !234, !noundef !235
   %78 = trunc nuw i8 %77 to i1
@@ -4390,7 +4390,7 @@ _ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26:
   br label %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !21
   %58 = load ptr, ptr %.0, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8054,7 +8054,7 @@ _ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26.
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %115, %116, %119, %120, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26.i
-  %.0.i = phi ptr [ %137, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26.i ], [ %112, %115 ], [ %112, %116 ], [ %112, %119 ], [ %112, %120 ]
+  %.0.i = phi ptr [ %137, %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26.i ], [ %112, %116 ], [ %112, %115 ], [ %112, %119 ], [ %112, %120 ]
   store ptr %.0.i, ptr %36, align 8, !tbaa !21
   %143 = load ptr, ptr %.0.i, align 8, !tbaa !31
   store ptr %143, ptr %40, align 8, !tbaa !19

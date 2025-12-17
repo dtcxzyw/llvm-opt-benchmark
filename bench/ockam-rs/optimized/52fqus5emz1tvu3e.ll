@@ -645,7 +645,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h8debc0be634e3abdE
   br label %.body
 
 .body:                                            ; preds = %.thread12.i.i, %61, %65, %67, %69
-  %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %66, %65 ], [ %68, %67 ], [ %52, %.thread12.i.i ], [ %62, %61 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %66, %65 ], [ %62, %61 ], [ %68, %67 ], [ %52, %.thread12.i.i ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h01199aeb5c3fb486E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #22
           to label %74 unwind label %72
 

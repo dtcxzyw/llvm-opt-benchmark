@@ -1102,7 +1102,7 @@ _init_l_instMonadControlReaderT___closed__3.exit: ; preds = %_init_l_instMonadCo
   br label %66
 
 66:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink34, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

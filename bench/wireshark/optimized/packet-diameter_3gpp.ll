@@ -2845,7 +2845,7 @@ define internal noundef i32 @dissect_diameter_3ggp_qos_susbscribed(ptr noundef %
   br label %54
 
 .thread306:                                       ; preds = %42, %43, %44, %45, %39, %46
-  %.0263309 = phi ptr [ @.str.987, %46 ], [ @.str.983, %39 ], [ @.str.826, %45 ], [ @.str.986, %44 ], [ @.str.985, %43 ], [ @.str.984, %42 ]
+  %.0263309 = phi ptr [ @.str.987, %46 ], [ @.str.983, %39 ], [ @.str.986, %44 ], [ @.str.985, %43 ], [ @.str.984, %42 ], [ @.str.826, %45 ]
   %52 = load i32, ptr @hf_diameter_3gpp_qos_maximum_sdu_size, align 4
   %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %52, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.989, ptr noundef nonnull %.0263309, i32 noundef %41)
   br label %54
@@ -2882,7 +2882,7 @@ define internal noundef i32 @dissect_diameter_3ggp_qos_susbscribed(ptr noundef %
   br label %qos_calc_bitrate.exit
 
 qos_calc_bitrate.exit:                            ; preds = %60, %66, %69
-  %.0.i = phi i32 [ %68, %66 ], [ %71, %69 ], [ %58, %60 ]
+  %.0.i = phi i32 [ %71, %69 ], [ %68, %66 ], [ %58, %60 ]
   %72 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %62, ptr noundef nonnull @.str.993, i32 noundef %.0.i)
   br label %74
 
@@ -2927,7 +2927,7 @@ switch.lookup:                                    ; preds = %56
   br label %qos_calc_bitrate.exit282
 
 qos_calc_bitrate.exit282:                         ; preds = %81, %87, %90
-  %.0.i281 = phi i32 [ %89, %87 ], [ %92, %90 ], [ %79, %81 ]
+  %.0.i281 = phi i32 [ %92, %90 ], [ %89, %87 ], [ %79, %81 ]
   %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.993, i32 noundef %.0.i281)
   br label %95
 
@@ -3031,7 +3031,7 @@ switch.lookup364:                                 ; preds = %77
   br label %qos_calc_bitrate.exit284
 
 qos_calc_bitrate.exit284:                         ; preds = %136, %142, %145
-  %.0.i283 = phi i32 [ %144, %142 ], [ %147, %145 ], [ %134, %136 ]
+  %.0.i283 = phi i32 [ %147, %145 ], [ %144, %142 ], [ %134, %136 ]
   %148 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef nonnull @.str.993, i32 noundef %.0.i283)
   br label %150
 
@@ -3076,7 +3076,7 @@ switch.lookup368:                                 ; preds = %132
   br label %qos_calc_bitrate.exit286
 
 qos_calc_bitrate.exit286:                         ; preds = %157, %163, %166
-  %.0.i285 = phi i32 [ %165, %163 ], [ %168, %166 ], [ %155, %157 ]
+  %.0.i285 = phi i32 [ %168, %166 ], [ %165, %163 ], [ %155, %157 ]
   %169 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %159, ptr noundef nonnull @.str.993, i32 noundef %.0.i285)
   br label %171
 
@@ -3147,7 +3147,7 @@ switch.lookup372:                                 ; preds = %153
   br label %208
 
 208:                                              ; preds = %206, %203, %187, %191, %193
-  %.7 = phi ptr [ %205, %203 ], [ %207, %206 ], [ @.str.1001, %187 ], [ @.str.1002, %191 ], [ @.str.1003, %193 ]
+  %.7 = phi ptr [ %207, %206 ], [ @.str.1001, %187 ], [ @.str.1002, %191 ], [ %205, %203 ], [ @.str.1003, %193 ]
   %209 = load i32, ptr @hf_diameter_3gpp_qos_max_bitrate_downl_ext, align 4
   %210 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %209, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef %189, ptr noundef nonnull @.str.989, ptr noundef %.7, i32 noundef %189)
   %211 = icmp ugt i32 %5, 14
@@ -3191,7 +3191,7 @@ switch.lookup372:                                 ; preds = %153
   br label %233
 
 233:                                              ; preds = %231, %228, %212, %216, %218
-  %.8 = phi ptr [ %230, %228 ], [ %232, %231 ], [ @.str.1005, %212 ], [ @.str.1002, %216 ], [ @.str.1003, %218 ]
+  %.8 = phi ptr [ %232, %231 ], [ @.str.1005, %212 ], [ @.str.1002, %216 ], [ %230, %228 ], [ @.str.1003, %218 ]
   %234 = load i32, ptr @hf_diameter_3gpp_qos_guar_bitrate_downl_ext, align 4
   %235 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %234, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef %214, ptr noundef nonnull @.str.989, ptr noundef %.8, i32 noundef %214)
   %.not351 = icmp eq i32 %5, 15
@@ -3235,7 +3235,7 @@ switch.lookup372:                                 ; preds = %153
   br label %257
 
 257:                                              ; preds = %255, %252, %236, %240, %242
-  %.9 = phi ptr [ %254, %252 ], [ %256, %255 ], [ @.str.1006, %236 ], [ @.str.1002, %240 ], [ @.str.1003, %242 ]
+  %.9 = phi ptr [ %256, %255 ], [ @.str.1006, %236 ], [ @.str.1002, %240 ], [ %254, %252 ], [ @.str.1003, %242 ]
   %258 = load i32, ptr @hf_diameter_3gpp_qos_max_bitrate_upl_ext, align 4
   %259 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %258, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef %238, ptr noundef nonnull @.str.989, ptr noundef %.9, i32 noundef %238)
   %260 = icmp ugt i32 %5, 16
@@ -3279,7 +3279,7 @@ switch.lookup372:                                 ; preds = %153
   br label %282
 
 282:                                              ; preds = %280, %277, %261, %265, %267
-  %.10 = phi ptr [ %279, %277 ], [ %281, %280 ], [ @.str.1007, %261 ], [ @.str.1002, %265 ], [ @.str.1003, %267 ]
+  %.10 = phi ptr [ %281, %280 ], [ @.str.1007, %261 ], [ @.str.1002, %265 ], [ %279, %277 ], [ @.str.1003, %267 ]
   %283 = load i32, ptr @hf_diameter_3gpp_qos_guar_bitrate_upl_ext, align 4
   %284 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %283, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef %263, ptr noundef nonnull @.str.989, ptr noundef %.10, i32 noundef %263)
   %.not352 = icmp eq i32 %5, 17
@@ -4259,7 +4259,7 @@ define internal i32 @dissect_diameter_3gpp_ran_nas_release_cause(ptr noundef %0,
   br label %47
 
 47:                                               ; preds = %.thread61, %16, %19, %22, %25, %28, %43, %40, %37, %34, %31
-  %.058 = phi i32 [ %5, %43 ], [ 2, %31 ], [ 2, %34 ], [ 3, %37 ], [ 3, %40 ], [ 2, %28 ], [ 2, %25 ], [ 2, %22 ], [ 2, %19 ], [ 2, %16 ], [ 2, %.thread61 ]
+  %.058 = phi i32 [ %5, %43 ], [ 3, %40 ], [ 2, %31 ], [ 2, %34 ], [ 3, %37 ], [ 2, %28 ], [ 2, %25 ], [ 2, %22 ], [ 2, %19 ], [ 2, %16 ], [ 2, %.thread61 ]
   ret i32 %.058
 }
 

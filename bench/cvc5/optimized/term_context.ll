@@ -128,7 +128,7 @@ _ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0E
   br label %22
 
 22:                                               ; preds = %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit, %11
-  %.0 = phi i32 [ %spec.select, %11 ], [ %spec.select9, %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit ]
+  %.0 = phi i32 [ %spec.select9, %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit ], [ %spec.select, %11 ]
   ret i32 %.0
 }
 
@@ -262,7 +262,7 @@ define hidden noundef i32 @_ZNK4cvc58internal19PolarityTermContext12computeValue
   br label %27
 
 27:                                               ; preds = %4, %4, %4, %26, %23, %20, %16, %10
-  %.0 = phi i32 [ 0, %26 ], [ %15, %10 ], [ %19, %16 ], [ %22, %20 ], [ %25, %23 ], [ %2, %4 ], [ %2, %4 ], [ %2, %4 ]
+  %.0 = phi i32 [ 0, %26 ], [ %25, %23 ], [ %15, %10 ], [ %19, %16 ], [ %22, %20 ], [ %2, %4 ], [ %2, %4 ], [ %2, %4 ]
   ret i32 %.0
 }
 

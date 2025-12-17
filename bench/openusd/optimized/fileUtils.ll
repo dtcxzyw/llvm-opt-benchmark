@@ -957,8 +957,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
   br label %112
 
 .sink.split:                                      ; preds = %99, %96, %83, %80, %67, %64
-  %.sink75 = phi ptr [ %11, %64 ], [ %11, %67 ], [ %13, %80 ], [ %13, %83 ], [ %15, %96 ], [ %15, %99 ]
-  %.sink = phi ptr [ %12, %64 ], [ %12, %67 ], [ %14, %80 ], [ %14, %83 ], [ %16, %96 ], [ %16, %99 ]
+  %.sink75 = phi ptr [ %11, %67 ], [ %13, %83 ], [ %11, %64 ], [ %13, %80 ], [ %15, %96 ], [ %15, %99 ]
+  %.sink = phi ptr [ %12, %67 ], [ %14, %83 ], [ %12, %64 ], [ %14, %80 ], [ %16, %96 ], [ %16, %99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink75) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #22
   br label %104
@@ -1493,8 +1493,8 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9Tf_FileIdES
   br label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9Tf_FileIdENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit
 
 .invoke:                                          ; preds = %132, %126, %120
-  %138 = phi ptr [ %11, %120 ], [ %12, %126 ], [ %12, %132 ]
-  %139 = phi ptr [ %121, %120 ], [ %127, %126 ], [ %133, %132 ]
+  %138 = phi ptr [ %12, %126 ], [ %11, %120 ], [ %12, %132 ]
+  %139 = phi ptr [ %127, %126 ], [ %121, %120 ], [ %133, %132 ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr %139, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.0121)
           to label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9Tf_FileIdENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1627,7 +1627,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %172, %185, %159, %186
-  %.1 = phi i1 [ true, %186 ], [ false, %159 ], [ false, %185 ], [ false, %172 ]
+  %.1 = phi i1 [ false, %159 ], [ true, %186 ], [ false, %185 ], [ false, %172 ]
   %187 = load ptr, ptr %13, align 8
   %188 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %189 = load ptr, ptr %188, align 8
@@ -1727,7 +1727,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret i1 %.1
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %29, %167, %48, %177, %118
-  %.pn42 = phi { ptr, i32 } [ %.pn40, %118 ], [ %.pn, %177 ], [ %30, %29 ], [ %49, %48 ], [ %168, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit113, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn42 = phi { ptr, i32 } [ %.pn, %177 ], [ %.pn40, %118 ], [ %30, %29 ], [ %49, %48 ], [ %168, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit113, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #22
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #22
@@ -1822,7 +1822,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRmTreeERKNSt7__cxx1112basic
   unreachable
 
 common.resume:                                    ; preds = %96, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_EED2Ev.exit24, %17, %20
-  %common.resume.op = phi { ptr, i32 } [ %18, %20 ], [ %18, %17 ], [ %.pn.pn, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_EED2Ev.exit24 ], [ %.pn.pn, %96 ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %18, %20 ], [ %.pn.pn, %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_EED2Ev.exit24 ], [ %.pn.pn, %96 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZSt4bindIRFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_St8functionIFvS7_S7_EEEJRKSt12_PlaceholderILi1EERKSJ_ILi2EERKSJ_ILi3EERSG_EENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESV_JDpT0_EE4typeEOSV_DpOSW_.exit: ; preds = %2, %13
@@ -1981,8 +1981,8 @@ _ZNSt5_BindIFPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vector
   unreachable
 
 .body:                                            ; preds = %83, %79, %40, %37
-  %88 = phi ptr [ %34, %40 ], [ %34, %37 ], [ %56, %79 ], [ %56, %83 ]
-  %.pn = phi { ptr, i32 } [ %38, %40 ], [ %38, %37 ], [ %80, %79 ], [ %80, %83 ]
+  %88 = phi ptr [ %34, %37 ], [ %56, %83 ], [ %34, %40 ], [ %56, %79 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %80, %83 ], [ %38, %40 ], [ %80, %79 ]
   %89 = load ptr, ptr %88, align 8
   %.not.i.i22 = icmp eq ptr %89, null
   br i1 %.not.i.i22, label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_EED2Ev.exit24, label %90
@@ -2042,8 +2042,8 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L9Tf_Rm
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit unwind label %18
 
 common.resume:                                    ; preds = %64, %66, %39, %44, %37, %18
-  %.sink = phi ptr [ %6, %37 ], [ %6, %18 ], [ %5, %44 ], [ %5, %39 ], [ %10, %66 ], [ %10, %64 ]
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ], [ %.pn14, %44 ], [ %40, %39 ], [ %67, %66 ], [ %65, %64 ]
+  %.sink = phi ptr [ %6, %37 ], [ %6, %18 ], [ %5, %39 ], [ %5, %44 ], [ %10, %66 ], [ %10, %64 ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ], [ %40, %39 ], [ %.pn14, %44 ], [ %67, %66 ], [ %65, %64 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
   resume { ptr, i32 } %common.resume.op
 
@@ -2355,8 +2355,8 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L10Tf_L
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit unwind label %18
 
 common.resume:                                    ; preds = %58, %60, %32, %38, %46, %18
-  %.sink = phi ptr [ %10, %46 ], [ %8, %18 ], [ %8, %38 ], [ %8, %32 ], [ %10, %60 ], [ %10, %58 ]
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %19, %18 ], [ %.pn15, %38 ], [ %33, %32 ], [ %61, %60 ], [ %59, %58 ]
+  %.sink = phi ptr [ %8, %18 ], [ %8, %32 ], [ %10, %46 ], [ %8, %38 ], [ %10, %60 ], [ %10, %58 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %33, %32 ], [ %47, %46 ], [ %.pn15, %38 ], [ %61, %60 ], [ %59, %58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
   resume { ptr, i32 } %common.resume.op
 
@@ -3720,7 +3720,7 @@ define linkonce_odr noundef zeroext i1 @_ZSt13__invoke_implIbRPFbRKNSt7__cxx1112
   unreachable
 
 common.resume:                                    ; preds = %38, %35, %19, %22
-  %common.resume.op = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %36, %35 ], [ %36, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %20, %22 ], [ %36, %35 ], [ %36, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEC2ERKS9_.exit: ; preds = %5, %15

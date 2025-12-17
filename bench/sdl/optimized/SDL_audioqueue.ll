@@ -199,7 +199,7 @@ ReserveMemoryPoolBlocks.exit:                     ; preds = %11
   br label %ReserveMemoryPoolBlocks.exit.thread
 
 ReserveMemoryPoolBlocks.exit.thread:              ; preds = %15, %1, %ReserveMemoryPoolBlocks.exit
-  %.0 = phi ptr [ null, %ReserveMemoryPoolBlocks.exit ], [ null, %1 ], [ %2, %15 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %ReserveMemoryPoolBlocks.exit ], [ %2, %15 ]
   ret ptr %.0
 }
 
@@ -963,7 +963,7 @@ PeekIntoAudioQueueFuture.exit:                    ; preds = %.preheader.i145, %1
   br label %186
 
 186:                                              ; preds = %49, %43, %PeekIntoAudioQueueFuture.exit, %149, %10
-  %.0 = phi ptr [ null, %10 ], [ %spec.select, %49 ], [ %47, %43 ], [ %.1119154, %PeekIntoAudioQueueFuture.exit ], [ %.1119154, %149 ]
+  %.0 = phi ptr [ null, %10 ], [ %47, %43 ], [ %spec.select, %49 ], [ %.1119154, %PeekIntoAudioQueueFuture.exit ], [ %.1119154, %149 ]
   ret ptr %.0
 }
 

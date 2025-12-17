@@ -328,7 +328,7 @@ define ptr @evrpc_add_hook(ptr noundef captures(none) %0, i32 noundef %1, ptr no
   br label %15
 
 15:                                               ; preds = %7, %4, %9
-  %.017 = phi ptr [ %8, %9 ], [ null, %4 ], [ null, %7 ]
+  %.017 = phi ptr [ null, %4 ], [ %8, %9 ], [ null, %7 ]
   ret ptr %.017
 }
 
@@ -1500,7 +1500,7 @@ define ptr @evrpc_make_request_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %27
 
 27:                                               ; preds = %9, %19, %18
-  %.0 = phi ptr [ null, %18 ], [ %10, %19 ], [ null, %9 ]
+  %.0 = phi ptr [ %10, %19 ], [ null, %18 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -1657,7 +1657,7 @@ define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4, %12
-  %.011 = phi i32 [ 0, %12 ], [ -1, %4 ], [ -1, %.preheader ]
+  %.011 = phi i32 [ -1, %4 ], [ 0, %12 ], [ -1, %.preheader ]
   ret i32 %.011
 }
 
@@ -2015,7 +2015,7 @@ define internal void @evrpc_reply_done(ptr noundef %0, ptr noundef %1) #0 {
   br label %evrpc_pause_request.exit.thread
 
 evrpc_pause_request.exit.thread34:                ; preds = %27, %26, %10
-  %.0 = phi i32 [ 0, %10 ], [ %32, %27 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %26 ], [ %32, %27 ]
   tail call void @evrpc_reply_done_closure(ptr noundef %1, i32 noundef %.0)
   br label %evrpc_pause_request.exit.thread
 
@@ -2137,7 +2137,7 @@ define internal void @evrpc_reply_done_closure(ptr noundef %0, i32 noundef %1) #
   br i1 %20, label %.critedge, label %25
 
 .critedge:                                        ; preds = %12, %10, %2
-  %.sink = phi i32 [ 1, %2 ], [ 4, %10 ], [ 2, %12 ]
+  %.sink = phi i32 [ 4, %10 ], [ 1, %2 ], [ 2, %12 ]
   store i32 %.sink, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = load ptr, ptr %21, align 8

@@ -228,11 +228,11 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %93
 
 93:                                               ; preds = %89, %46, %41, %31
-  %.0 = phi i32 [ 12, %31 ], [ 12, %41 ], [ 12, %46 ], [ 0, %89 ]
+  %.0 = phi i32 [ 12, %46 ], [ 12, %31 ], [ 12, %41 ], [ 0, %89 ]
   ret i32 %.0
 
 94:                                               ; preds = %27, %85, %18, %13
-  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %86, %85 ], [ %19, %18 ], [ %28, %27 ]
+  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %86, %85 ], [ %19, %18 ]
   resume { ptr, i32 } %.merged
 
 95:                                               ; preds = %27
@@ -639,11 +639,11 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %117
 
 117:                                              ; preds = %113, %48, %43, %31
-  %.0 = phi i32 [ 12, %31 ], [ 12, %43 ], [ 12, %48 ], [ 0, %113 ]
+  %.0 = phi i32 [ 12, %48 ], [ 12, %31 ], [ 12, %43 ], [ 0, %113 ]
   ret i32 %.0
 
 118:                                              ; preds = %27, %109, %18, %13
-  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %110, %109 ], [ %19, %18 ], [ %28, %27 ]
+  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %110, %109 ], [ %19, %18 ]
   resume { ptr, i32 } %.merged
 
 119:                                              ; preds = %27
@@ -835,12 +835,12 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %82
 
 82:                                               ; preds = %_ZNSt5mutex4lockEv.exit, %79, %44, %40
-  %.0 = phi i32 [ 12, %40 ], [ 12, %44 ], [ 0, %79 ], [ 12, %_ZNSt5mutex4lockEv.exit ]
+  %.0 = phi i32 [ 12, %44 ], [ 0, %79 ], [ 12, %40 ], [ 12, %_ZNSt5mutex4lockEv.exit ]
   %83 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
   ret i32 %.0
 
 84:                                               ; preds = %26, %75, %17, %12
-  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %76, %75 ], [ %18, %17 ], [ %27, %26 ]
+  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %27, %26 ], [ %76, %75 ], [ %18, %17 ]
   resume { ptr, i32 } %.merged
 
 85:                                               ; preds = %26
@@ -1215,7 +1215,7 @@ _ZNSt5mutex4lockEv.exit45:                        ; preds = %30
   ret void
 
 46:                                               ; preds = %42, %22, %33, %13
-  %.merged = phi { ptr, i32 } [ %14, %13 ], [ %34, %33 ], [ %23, %22 ], [ %43, %42 ]
+  %.merged = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %34, %33 ], [ %14, %13 ]
   resume { ptr, i32 } %.merged
 
 47:                                               ; preds = %42, %22

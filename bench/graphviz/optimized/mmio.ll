@@ -84,7 +84,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr noundef captures(none)
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %28, %25, %22, %19
-  %.sink = phi i32 [ 1, %19 ], [ 2, %22 ], [ 8, %25 ], [ 4, %28 ]
+  %.sink = phi i32 [ 1, %19 ], [ 8, %25 ], [ 2, %22 ], [ 4, %28 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !8
   %32 = call i32 @strcasecmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.8) #9
   %33 = icmp eq i32 %32, 0
@@ -111,7 +111,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr noundef captures(none)
   br label %43
 
 43:                                               ; preds = %.sink.split, %40, %28, %17, %15, %13, %11, %2
-  %.0 = phi i32 [ 12, %2 ], [ 12, %11 ], [ 14, %13 ], [ 15, %15 ], [ 15, %17 ], [ 15, %28 ], [ 15, %40 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 12, %11 ], [ 12, %2 ], [ 14, %13 ], [ 15, %15 ], [ 15, %40 ], [ 15, %28 ], [ 15, %17 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -168,7 +168,7 @@ define dso_local range(i32 0, 13) i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr 
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %6, %.preheader, %.loopexit14.loopexit19, %12
-  %.0 = phi i32 [ 0, %12 ], [ 12, %.loopexit14.loopexit19 ], [ 0, %.preheader ], [ 12, %6 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %.preheader ], [ 12, %.loopexit14.loopexit19 ], [ 12, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

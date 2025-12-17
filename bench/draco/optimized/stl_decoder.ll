@@ -765,7 +765,7 @@ _ZN5draco23TriangleSoupMeshBuilderD2Ev.exit:      ; preds = %_ZNSt10unique_ptrIN
   br label %141
 
 141:                                              ; preds = %118, %120, %101, %139, %103, %99
-  %.pn25.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %140, %139 ], [ %104, %103 ], [ %121, %120 ], [ %119, %118 ]
+  %.pn25.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %140, %139 ], [ %121, %120 ], [ %119, %118 ]
   call void @_ZN5draco23TriangleSoupMeshBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %143

@@ -133,8 +133,8 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   br label %63
 
 63:                                               ; preds = %.thread395, %57, %46, %.thread388, %53, %58, %21
-  %64 = phi i32 [ %23, %21 ], [ %18, %.thread388 ], [ %14, %58 ], [ %14, %53 ], [ %14, %46 ], [ %14, %57 ], [ %14, %.thread395 ]
-  %65 = phi i64 [ %24, %21 ], [ %28, %.thread388 ], [ %62, %58 ], [ 22000, %53 ], [ %51, %46 ], [ %spec.select403, %57 ], [ %spec.select404, %.thread395 ]
+  %64 = phi i32 [ %23, %21 ], [ %18, %.thread388 ], [ %14, %58 ], [ %14, %57 ], [ %14, %53 ], [ %14, %46 ], [ %14, %.thread395 ]
+  %65 = phi i64 [ %24, %21 ], [ %28, %.thread388 ], [ %62, %58 ], [ %spec.select403, %57 ], [ 22000, %53 ], [ %51, %46 ], [ %spec.select404, %.thread395 ]
   %66 = trunc i64 %65 to i32
   %67 = sitofp i32 %66 to float
   %68 = fmul nsz float %67, 0x3F48E757A0000000
@@ -399,7 +399,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   br label %235
 
 235:                                              ; preds = %76, %63, %233, %232
-  %.0 = phi i32 [ 0, %233 ], [ -12, %232 ], [ -22, %63 ], [ -12, %76 ]
+  %.0 = phi i32 [ -22, %63 ], [ 0, %233 ], [ -12, %232 ], [ -12, %76 ]
   ret i32 %.0
 }
 
@@ -698,8 +698,8 @@ psy_hp_filter.exit:                               ; preds = %psy_hp_filter.exit.
   br i1 %.not128, label %148, label %144
 
 144:                                              ; preds = %.loopexit129.thread, %141
-  %145 = phi i32 [ %143, %141 ], [ %131, %.loopexit129.thread ]
-  %146 = phi ptr [ %142, %141 ], [ %130, %.loopexit129.thread ]
+  %145 = phi i32 [ %131, %.loopexit129.thread ], [ %143, %141 ]
+  %146 = phi ptr [ %130, %.loopexit129.thread ], [ %142, %141 ]
   %147 = icmp eq i32 %145, 2
   %spec.select.i = select i1 %147, i32 3, i32 0
   br label %lame_apply_block_type.exit
@@ -731,9 +731,9 @@ lame_apply_block_type.exit.thread:                ; preds = %148
   br label %162
 
 lame_apply_block_type.exit:                       ; preds = %144, %148
-  %155 = phi i32 [ %145, %144 ], [ %149, %148 ]
-  %156 = phi ptr [ %146, %144 ], [ %150, %148 ]
-  %.0.i = phi i32 [ %spec.select.i, %144 ], [ 2, %148 ]
+  %155 = phi i32 [ %149, %148 ], [ %145, %144 ]
+  %156 = phi ptr [ %150, %148 ], [ %146, %144 ]
+  %.0.i = phi i32 [ 2, %148 ], [ %spec.select.i, %144 ]
   store i32 %155, ptr %0, align 8, !tbaa !54
   store i32 %.0.i, ptr %156, align 4, !tbaa !78
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -778,7 +778,7 @@ lame_apply_block_type.exit:                       ; preds = %144, %148
   br i1 %exitcond175.not, label %.loopexit.preheader, label %169, !llvm.loop !84
 
 .loopexit.sink.split:                             ; preds = %158, %.thread
-  %.sink = phi i32 [ 0, %.thread ], [ %spec.select187, %158 ]
+  %.sink = phi i32 [ %spec.select187, %158 ], [ 0, %.thread ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %177, align 4, !tbaa !82
   br label %.loopexit.preheader
@@ -958,9 +958,9 @@ define internal void @psy_3gpp_analyze(ptr noundef %0, i32 noundef %1, ptr nound
   br label %95
 
 95:                                               ; preds = %90, %.thread704.i, %89, %85, %.thread700.i, %59, %52
-  %96 = phi i32 [ %.pre902.i, %52 ], [ %61, %59 ], [ %92, %90 ], [ %81, %85 ], [ %81, %.thread700.i ], [ %81, %89 ], [ %81, %.thread704.i ]
-  %97 = phi ptr [ %.pre.i, %52 ], [ %55, %59 ], [ %55, %90 ], [ %55, %85 ], [ %55, %.thread700.i ], [ %55, %89 ], [ %55, %.thread704.i ]
-  %98 = phi i64 [ %53, %52 ], [ %63, %59 ], [ %94, %90 ], [ 22000, %85 ], [ %83, %.thread700.i ], [ %spec.select711.i, %89 ], [ %spec.select712.i, %.thread704.i ]
+  %96 = phi i32 [ %.pre902.i, %52 ], [ %61, %59 ], [ %92, %90 ], [ %81, %89 ], [ %81, %85 ], [ %81, %.thread700.i ], [ %81, %.thread704.i ]
+  %97 = phi ptr [ %.pre.i, %52 ], [ %55, %59 ], [ %55, %90 ], [ %55, %89 ], [ %55, %85 ], [ %55, %.thread700.i ], [ %55, %.thread704.i ]
+  %98 = phi i64 [ %53, %52 ], [ %63, %59 ], [ %94, %90 ], [ %spec.select711.i, %89 ], [ 22000, %85 ], [ %83, %.thread700.i ], [ %spec.select712.i, %.thread704.i ]
   %99 = trunc i64 %98 to i32
   %100 = shl nsw i32 %99, 11
   %101 = sdiv i32 %100, %.fr825.i

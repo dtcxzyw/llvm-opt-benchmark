@@ -1268,7 +1268,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %99, %105
   br label %117
 
 117:                                              ; preds = %115, %76
-  %.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %116, %115 ]
+  %.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %77, %76 ]
   %118 = load ptr, ptr %40, align 8, !tbaa !260
   %.not.i30 = icmp eq ptr %118, null
   br i1 %.not.i30, label %.body, label %119
@@ -1285,7 +1285,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EEixEm.exit: ; preds = %99, %105
   unreachable
 
 .body:                                            ; preds = %119, %117, %53, %50
-  %.pn.pn.pn = phi { ptr, i32 } [ %51, %53 ], [ %51, %50 ], [ %.pn.pn, %117 ], [ %.pn.pn, %119 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn.pn, %119 ], [ %51, %53 ], [ %.pn.pn, %117 ]
   call void @_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #17
   br label %124
 
@@ -1709,7 +1709,7 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EppEv.exit58: ; preds = %1
   br label %184
 
 184:                                              ; preds = %182, %176, %179, %169
-  %.1 = phi i64 [ %181, %179 ], [ %.0194, %169 ], [ %.0194, %176 ], [ %spec.select, %182 ]
+  %.1 = phi i64 [ %181, %179 ], [ %.0194, %176 ], [ %spec.select, %182 ], [ %.0194, %169 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0193, i64 8
   %186 = icmp eq ptr %185, %.sroa.10113.0192
   br i1 %186, label %187, label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EppEv.exit61
@@ -2855,7 +2855,7 @@ _ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_De
   br label %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !334
   %58 = load ptr, ptr %.0, align 8, !tbaa !321
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

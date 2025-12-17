@@ -558,7 +558,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br label %163
 
 .thread:                                          ; preds = %51, %43, %24, %.thread203, %.thread200
-  %.1 = phi i32 [ %142, %.thread200 ], [ %.5.ph, %.thread203 ], [ -2, %51 ], [ %48, %43 ], [ %29, %24 ]
+  %.1 = phi i32 [ %.5.ph, %.thread203 ], [ %142, %.thread200 ], [ %29, %24 ], [ -2, %51 ], [ %48, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

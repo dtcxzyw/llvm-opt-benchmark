@@ -522,7 +522,7 @@ H5RS__resize_for_append.exit.thread:              ; preds = %27, %40, %21
   br label %57
 
 57:                                               ; preds = %8, %11, %H5RS__resize_for_append.exit.thread, %44, %17
-  %.021 = phi i32 [ 0, %11 ], [ 0, %8 ], [ -1, %17 ], [ -1, %44 ], [ 0, %H5RS__resize_for_append.exit.thread ]
+  %.021 = phi i32 [ 0, %8 ], [ 0, %11 ], [ -1, %17 ], [ -1, %44 ], [ 0, %H5RS__resize_for_append.exit.thread ]
   ret i32 %.021
 }
 
@@ -635,7 +635,7 @@ H5RS__resize_for_append.exit.thread:              ; preds = %33, %46, %27
   br label %63
 
 63:                                               ; preds = %10, %16, %H5RS__resize_for_append.exit.thread, %50, %23
-  %.027 = phi i32 [ 0, %16 ], [ 0, %10 ], [ -1, %23 ], [ -1, %50 ], [ 0, %H5RS__resize_for_append.exit.thread ]
+  %.027 = phi i32 [ 0, %10 ], [ 0, %16 ], [ -1, %23 ], [ -1, %50 ], [ 0, %H5RS__resize_for_append.exit.thread ]
   ret i32 %.027
 }
 

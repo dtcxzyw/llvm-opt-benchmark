@@ -27909,7 +27909,7 @@ nbap_get_private_data.exit80.i:                   ; preds = %119, %copy_address_
   br label %140
 
 140:                                              ; preds = %138, %134
-  %.sink.i = phi i32 [ %139, %138 ], [ %..i, %134 ]
+  %.sink.i = phi i32 [ %..i, %134 ], [ %139, %138 ]
   store i32 %.sink.i, ptr %98, align 4
   %141 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %142 = load i32, ptr %141, align 4
@@ -36378,7 +36378,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph158, %.lr.ph158.preheader, %.loopexit..critedge.loopexit_crit_edge, %._crit_edge147
-  %.0139.lcssa = phi i32 [ %101, %._crit_edge147 ], [ %147, %.loopexit..critedge.loopexit_crit_edge ], [ %101, %.lr.ph158.preheader ], [ %147, %.lr.ph158 ]
+  %.0139.lcssa = phi i32 [ %101, %._crit_edge147 ], [ %101, %.lr.ph158.preheader ], [ %147, %.loopexit..critedge.loopexit_crit_edge ], [ %147, %.lr.ph158 ]
   %198 = load i32, ptr %135, align 8
   %199 = add i32 %198, 1
   store i32 %199, ptr %135, align 8
@@ -37236,8 +37236,8 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i22, label %.sink.split, label %90, !llvm.loop !9
 
 .sink.split:                                      ; preds = %90, %69, %48, %27, %72, %51, %30, %9
-  %.0.i19.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %19, %27 ], [ %40, %48 ], [ %61, %69 ], [ %82, %90 ]
-  %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 18, %27 ], [ 36, %48 ], [ 72, %69 ], [ 144, %90 ]
+  %.0.i19.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %61, %69 ], [ %19, %27 ], [ %40, %48 ], [ %82, %90 ]
+  %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 72, %69 ], [ 18, %27 ], [ 36, %48 ], [ 144, %90 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i19.sink, i64 96
   store i32 %.sink, ptr %93, align 8
   br label %94
@@ -44723,7 +44723,7 @@ nbap_get_private_data.exit79:                     ; preds = %118, %copy_address_
   br label %139
 
 139:                                              ; preds = %133, %137
-  %.sink = phi i32 [ %138, %137 ], [ %., %133 ]
+  %.sink = phi i32 [ %., %133 ], [ %138, %137 ]
   store i32 %.sink, ptr %97, align 4
   %140 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %141 = load i32, ptr %140, align 4
@@ -46644,7 +46644,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph157, %.lr.ph157.preheader, %.loopexit..critedge.loopexit_crit_edge, %._crit_edge146
-  %.0136.lcssa = phi i32 [ %101, %._crit_edge146 ], [ %148, %.loopexit..critedge.loopexit_crit_edge ], [ %101, %.lr.ph157.preheader ], [ %148, %.lr.ph157 ]
+  %.0136.lcssa = phi i32 [ %101, %._crit_edge146 ], [ %101, %.lr.ph157.preheader ], [ %148, %.loopexit..critedge.loopexit_crit_edge ], [ %148, %.lr.ph157 ]
   %199 = load i32, ptr %136, align 8
   %200 = add i32 %199, 1
   store i32 %200, ptr %136, align 8

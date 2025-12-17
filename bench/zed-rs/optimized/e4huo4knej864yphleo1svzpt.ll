@@ -285,7 +285,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN8sum_tree6cur
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -427,7 +427,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %82, label %79
 
 .loopexit131:                                     ; preds = %.loopexit, %.backedge, %40, %187
-  %70 = phi i32 [ %41, %40 ], [ %.pre190, %187 ], [ 0, %.loopexit ], [ %135, %.backedge ]
+  %70 = phi i32 [ %.pre190, %187 ], [ %41, %40 ], [ 0, %.loopexit ], [ %135, %.backedge ]
   %71 = icmp eq i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %73 = zext i1 %71 to i8
@@ -946,7 +946,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %76, label %73
 
 .loopexit122:                                     ; preds = %.loopexit, %.backedge, %40, %170
-  %67 = phi i32 [ %41, %40 ], [ %.pre178, %170 ], [ 0, %.loopexit ], [ %123, %.backedge ]
+  %67 = phi i32 [ %.pre178, %170 ], [ %41, %40 ], [ 0, %.loopexit ], [ %123, %.backedge ]
   %68 = icmp eq i32 %67, 0
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %70 = zext i1 %68 to i8
@@ -1406,7 +1406,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %82, label %79
 
 .loopexit132:                                     ; preds = %.loopexit, %.backedge, %40, %187
-  %70 = phi i32 [ %41, %40 ], [ %.pre191, %187 ], [ 0, %.loopexit ], [ %135, %.backedge ]
+  %70 = phi i32 [ %.pre191, %187 ], [ %41, %40 ], [ 0, %.loopexit ], [ %135, %.backedge ]
   %71 = icmp eq i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %73 = zext i1 %71 to i8
@@ -1933,7 +1933,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %86, label %83
 
 .loopexit148:                                     ; preds = %.loopexit, %.backedge, %40, %194
-  %73 = phi i32 [ %41, %40 ], [ %.pre207, %194 ], [ 0, %.loopexit ], [ %141, %.backedge ]
+  %73 = phi i32 [ %.pre207, %194 ], [ %41, %40 ], [ 0, %.loopexit ], [ %141, %.backedge ]
   %74 = icmp eq i32 %73, 0
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %76 = zext i1 %74 to i8
@@ -2497,7 +2497,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %86, label %83
 
 .loopexit148:                                     ; preds = %.loopexit, %.backedge, %40, %194
-  %73 = phi i32 [ %41, %40 ], [ %.pre207, %194 ], [ 0, %.loopexit ], [ %141, %.backedge ]
+  %73 = phi i32 [ %.pre207, %194 ], [ %41, %40 ], [ 0, %.loopexit ], [ %141, %.backedge ]
   %74 = icmp eq i32 %73, 0
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %76 = zext i1 %74 to i8
@@ -3044,7 +3044,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %69, label %66
 
 .loopexit106:                                     ; preds = %.loopexit, %.backedge, %39, %155
-  %62 = phi i32 [ %40, %39 ], [ %.pre153, %155 ], [ 0, %.loopexit ], [ %112, %.backedge ]
+  %62 = phi i32 [ %.pre153, %155 ], [ %40, %39 ], [ 0, %.loopexit ], [ %112, %.backedge ]
   %63 = icmp eq i32 %62, 0
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %65 = zext i1 %63 to i8
@@ -3446,7 +3446,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %70, label %67
 
 .loopexit101:                                     ; preds = %.loopexit, %.backedge, %39, %159
-  %62 = phi i32 [ %40, %39 ], [ %.pre150, %159 ], [ 0, %.loopexit ], [ %114, %.backedge ]
+  %62 = phi i32 [ %.pre150, %159 ], [ %40, %39 ], [ 0, %.loopexit ], [ %114, %.backedge ]
   %63 = icmp eq i32 %62, 0
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %65 = zext i1 %63 to i8
@@ -3860,7 +3860,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %82, label %79
 
 .loopexit131:                                     ; preds = %.loopexit, %.backedge, %40, %187
-  %70 = phi i32 [ %41, %40 ], [ %.pre190, %187 ], [ 0, %.loopexit ], [ %135, %.backedge ]
+  %70 = phi i32 [ %.pre190, %187 ], [ %41, %40 ], [ 0, %.loopexit ], [ %135, %.backedge ]
   %71 = icmp eq i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %73 = zext i1 %71 to i8
@@ -4373,7 +4373,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %74, label %71
 
 .loopexit125:                                     ; preds = %.loopexit, %.backedge, %39, %176
-  %65 = phi i32 [ %40, %39 ], [ %.pre172, %176 ], [ 0, %.loopexit ], [ %125, %.backedge ]
+  %65 = phi i32 [ %.pre172, %176 ], [ %40, %39 ], [ 0, %.loopexit ], [ %125, %.backedge ]
   %66 = icmp eq i32 %65, 0
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %68 = zext i1 %66 to i8
@@ -4857,7 +4857,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %82, label %79
 
 .loopexit132:                                     ; preds = %.loopexit, %.backedge, %40, %187
-  %70 = phi i32 [ %41, %40 ], [ %.pre191, %187 ], [ 0, %.loopexit ], [ %135, %.backedge ]
+  %70 = phi i32 [ %.pre191, %187 ], [ %41, %40 ], [ 0, %.loopexit ], [ %135, %.backedge ]
   %71 = icmp eq i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %73 = zext i1 %71 to i8
@@ -5370,7 +5370,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %74, label %71
 
 .loopexit125:                                     ; preds = %.loopexit, %.backedge, %39, %176
-  %65 = phi i32 [ %40, %39 ], [ %.pre172, %176 ], [ 0, %.loopexit ], [ %125, %.backedge ]
+  %65 = phi i32 [ %.pre172, %176 ], [ %40, %39 ], [ 0, %.loopexit ], [ %125, %.backedge ]
   %66 = icmp eq i32 %65, 0
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 409
   %68 = zext i1 %66 to i8
@@ -5849,7 +5849,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   br i1 %trunc, label %76, label %73
 
 .loopexit122:                                     ; preds = %.loopexit, %.backedge, %40, %170
-  %67 = phi i32 [ %41, %40 ], [ %.pre178, %170 ], [ 0, %.loopexit ], [ %123, %.backedge ]
+  %67 = phi i32 [ %.pre178, %170 ], [ %41, %40 ], [ 0, %.loopexit ], [ %123, %.backedge ]
   %68 = icmp eq i32 %67, 0
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 545
   %70 = zext i1 %68 to i8
@@ -7778,7 +7778,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -7848,7 +7848,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -7918,7 +7918,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -7988,7 +7988,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -8058,7 +8058,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -8128,7 +8128,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -8197,7 +8197,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -8267,7 +8267,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -8336,7 +8336,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -8405,7 +8405,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -8475,7 +8475,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %24, label %31
 
 23:                                               ; preds = %24, %12, %34
-  %.sroa.0.0 = phi ptr [ %36, %34 ], [ null, %12 ], [ null, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %34 ], [ null, %24 ]
   ret ptr %.sroa.0.0
 
 24:                                               ; preds = %15
@@ -8544,7 +8544,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -8613,7 +8613,7 @@ define hidden noundef align 4 dereferenceable_or_null(132) ptr @"_ZN8sum_tree6cu
   br i1 %trunc, label %23, label %30
 
 22:                                               ; preds = %23, %12, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ null, %12 ], [ null, %23 ]
+  %.sroa.0.0 = phi ptr [ null, %12 ], [ %35, %33 ], [ null, %23 ]
   ret ptr %.sroa.0.0
 
 23:                                               ; preds = %14
@@ -9805,7 +9805,7 @@ common.resume:                                    ; preds = %.body, %21
   br i1 %trunc.i, label %70, label %67
 
 .loopexit31.i:                                    ; preds = %.backedge.i, %.loopexit.i, %.noexc16, %46
-  %63 = phi i32 [ %47, %46 ], [ %.pre107.i, %.noexc16 ], [ %.sink.i, %.backedge.i ], [ 0, %.loopexit.i ]
+  %63 = phi i32 [ %.pre107.i, %.noexc16 ], [ %47, %46 ], [ %.sink.i, %.backedge.i ], [ 0, %.loopexit.i ]
   %64 = icmp eq i32 %63, 0
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 273
   %66 = zext i1 %64 to i8
@@ -9992,8 +9992,8 @@ common.resume:                                    ; preds = %.body, %21
   br i1 %.not69.i, label %._crit_edge.i, label %.lr.ph63.i
 
 .invoke197:                                       ; preds = %128, %70, %84, %._crit_edge105.i
-  %139 = phi i64 [ %77, %._crit_edge105.i ], [ %77, %84 ], [ %75, %70 ], [ %75, %128 ]
-  %140 = phi i64 [ %80, %._crit_edge105.i ], [ %87, %84 ], [ %73, %70 ], [ %131, %128 ]
+  %139 = phi i64 [ %75, %70 ], [ %77, %84 ], [ %77, %._crit_edge105.i ], [ %75, %128 ]
+  %140 = phi i64 [ %73, %70 ], [ %87, %84 ], [ %80, %._crit_edge105.i ], [ %131, %128 ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %139, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #16
           to label %.cont198 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -10220,7 +10220,7 @@ common.resume:                                    ; preds = %.body, %21
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %145, %164
-  %eh.lpad-body = phi { ptr, i32 } [ %146, %145 ], [ %165, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit31, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit34, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit39, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %165, %164 ], [ %146, %145 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit31, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit34, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit39, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$sum_tree..cursor..SliceSeekAggregate$LT$rope..Chunk$GT$$GT$17hdd151e107460b387E"(ptr noalias noundef nonnull align 8 dereferenceable(2232) %14) #17
           to label %common.resume unwind label %191
 

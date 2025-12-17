@@ -574,9 +574,9 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   br i1 %340, label %252, label %.loopexit.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %112, %65, %252, %210, %.preheader.i, %.preheader191.i, %.preheader193.i, %.preheader195.i
-  %341 = phi i64 [ %44, %.preheader.i ], [ %44, %.preheader191.i ], [ %44, %.preheader193.i ], [ %44, %.preheader195.i ], [ %250, %210 ], [ %339, %252 ], [ %110, %65 ], [ %204, %112 ]
-  %342 = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ %45, %.preheader193.i ], [ %45, %.preheader195.i ], [ %250, %210 ], [ %339, %252 ], [ %110, %65 ], [ %204, %112 ]
-  %343 = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ 0, %.preheader193.i ], [ 0, %.preheader195.i ], [ %250, %210 ], [ %339, %252 ], [ %110, %65 ], [ %204, %112 ]
+  %341 = phi i64 [ %44, %.preheader195.i ], [ %44, %.preheader.i ], [ %44, %.preheader191.i ], [ %44, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
+  %342 = phi i64 [ %45, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ %45, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
+  %343 = phi i64 [ 0, %.preheader195.i ], [ 0, %.preheader.i ], [ 0, %.preheader191.i ], [ 0, %.preheader193.i ], [ %110, %65 ], [ %250, %210 ], [ %339, %252 ], [ %204, %112 ]
   %344 = load i32, ptr %41, align 16, !tbaa !27
   %345 = add nsw i32 %344, 1
   store i32 %345, ptr %41, align 16, !tbaa !27
@@ -886,7 +886,7 @@ _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.t
   %.val.pre4473 = load ptr, ptr %39, align 16, !tbaa !33
   br label %.lr.ph50.i.preheader
 
-_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: ; preds = %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit
+_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: ; preds = %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit
   %.val2.pr58 = phi i64 [ %547, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit ], [ %6, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread ], [ %347, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread ]
   %555 = load float, ptr %43, align 8, !tbaa !29
   %556 = fdiv float 1.000000e+00, %555
@@ -1021,8 +1021,8 @@ _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: 
   br i1 %exitcond41.not, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph.i12, !llvm.loop !131
 
 _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.lr.ph.i12, %.lr.ph50.i, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread, %.preheader.i10.thread, %.preheader.i10, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread
-  %.val = phi ptr [ %.val.pre, %.preheader.i10 ], [ %.val.pre44, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ %.val.pre65, %.preheader.i10.thread ], [ %.val.pre4468, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val.pre4475, %.lr.ph50.i ], [ %.val.pre, %.lr.ph.i12 ]
-  %.val2 = phi i64 [ 0, %.preheader.i10 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ 0, %.preheader.i10.thread ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val2.pr5874, %.lr.ph50.i ], [ %547, %.lr.ph.i12 ]
+  %.val = phi ptr [ %.val.pre65, %.preheader.i10.thread ], [ %.val.pre, %.preheader.i10 ], [ %.val.pre44, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ %.val.pre4468, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val.pre4475, %.lr.ph50.i ], [ %.val.pre, %.lr.ph.i12 ]
+  %.val2 = phi i64 [ 0, %.preheader.i10.thread ], [ 0, %.preheader.i10 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val2.pr5874, %.lr.ph50.i ], [ %547, %.lr.ph.i12 ]
   %648 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %649 = load ptr, ptr %648, align 8, !tbaa !18
   %650 = getelementptr inbounds nuw i8, ptr %.val, i64 32

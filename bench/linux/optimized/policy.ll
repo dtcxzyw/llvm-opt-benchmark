@@ -749,7 +749,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br label %175
 
 175:                                              ; preds = %169, %161, %149, %44, %netlink_policy_dump_attr_size_estimate.exit
-  %176 = phi i32 [ -61, %44 ], [ -105, %169 ], [ -105, %netlink_policy_dump_attr_size_estimate.exit ], [ 0, %161 ], [ 0, %149 ]
+  %176 = phi i32 [ -61, %44 ], [ -105, %169 ], [ 0, %149 ], [ -105, %netlink_policy_dump_attr_size_estimate.exit ], [ 0, %161 ]
   ret i32 %176
 }
 

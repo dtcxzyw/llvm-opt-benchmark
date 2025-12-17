@@ -8624,7 +8624,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %63
 
 63:                                               ; preds = %.sink.split, %56, %60, %53, %43, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %43 ], [ false, %53 ], [ false, %60 ], [ true, %56 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %43 ], [ false, %53 ], [ false, %60 ], [ false, %17 ], [ true, %56 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
@@ -9609,7 +9609,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
   br label %63
 
 63:                                               ; preds = %.sink.split, %56, %60, %53, %43, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %43 ], [ false, %53 ], [ false, %60 ], [ true, %56 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %43 ], [ false, %53 ], [ false, %60 ], [ false, %17 ], [ true, %56 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
@@ -9683,7 +9683,7 @@ define internal i32 @dissect_gtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %18
 
 18:                                               ; preds = %6, %4, %16, %13
-  %.0 = phi i32 [ %15, %13 ], [ %17, %16 ], [ 0, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ %15, %13 ], [ %17, %16 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -10108,7 +10108,7 @@ define internal range(i32 0, 2) i32 @gtp_info_equal(ptr noundef readonly capture
   br label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %18, %16, %11, %6, %2
-  %26 = phi i32 [ 0, %2 ], [ %25, %18 ], [ 0, %6 ], [ 0, %11 ], [ 1, %16 ]
+  %26 = phi i32 [ 0, %2 ], [ %25, %18 ], [ 0, %6 ], [ 1, %16 ], [ 0, %11 ]
   ret i32 %26
 }
 
@@ -10181,7 +10181,7 @@ define internal range(i32 0, 2) i32 @gtpstat_packet(ptr noundef readonly capture
   br label %41
 
 41:                                               ; preds = %8, %5, %39
-  %.018 = phi i32 [ 1, %39 ], [ 0, %5 ], [ 0, %8 ]
+  %.018 = phi i32 [ 0, %5 ], [ 1, %39 ], [ 0, %8 ]
   ret i32 %.018
 }
 
@@ -11958,7 +11958,7 @@ is_cause_accepted.exit.thread:                    ; preds = %132
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %73, %70, %65, %30, %49, %138, %39
-  %.067 = phi ptr [ null, %39 ], [ %.0.ph, %138 ], [ null, %30 ], [ null, %49 ], [ %.0.ph, %65 ], [ %.0.ph, %70 ], [ %.0.ph, %73 ]
+  %.067 = phi ptr [ null, %39 ], [ null, %30 ], [ %.0.ph, %138 ], [ null, %49 ], [ %.0.ph, %65 ], [ %.0.ph, %70 ], [ %.0.ph, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.067
 }
@@ -12371,7 +12371,7 @@ define internal range(i32 0, 2) i32 @gtp_sn_equal_matched(ptr noundef %0, ptr no
   br label %37
 
 37:                                               ; preds = %12, %6, %31, %17
-  %.0.shrunk = phi i1 [ %30, %17 ], [ %36, %31 ], [ false, %6 ], [ false, %12 ]
+  %.0.shrunk = phi i1 [ %36, %31 ], [ false, %6 ], [ %30, %17 ], [ false, %12 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -13040,7 +13040,7 @@ teid_exists.exit.thread:                          ; preds = %22, %teid_exists.ex
   br label %39
 
 39:                                               ; preds = %36, %7
-  %.0 = phi i32 [ 3, %7 ], [ 5, %36 ]
+  %.0 = phi i32 [ 5, %36 ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -13140,7 +13140,7 @@ define internal range(i32 4, 7) i32 @decode_gtp_18(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %18, %8
-  %.0 = phi i32 [ 4, %8 ], [ 6, %18 ]
+  %.0 = phi i32 [ 6, %18 ], [ 4, %8 ]
   ret i32 %.0
 }
 
@@ -13221,7 +13221,7 @@ define internal noundef i32 @decode_gtp_ranap_cause(ptr noundef %0, i32 noundef 
   br i1 %19, label %.thread72.sink.split, label %.thread72
 
 .thread72.sink.split:                             ; preds = %18, %16, %14, %12, %10, %5
-  %.str.1775.sink = phi ptr [ @.str.1773, %5 ], [ @.str.1775, %10 ], [ @.str.1776, %12 ], [ @.str.1777, %14 ], [ @.str.1778, %16 ], [ @.str.1779, %18 ]
+  %.str.1775.sink = phi ptr [ @.str.1773, %5 ], [ @.str.1778, %16 ], [ @.str.1775, %10 ], [ @.str.1776, %12 ], [ @.str.1777, %14 ], [ @.str.1779, %18 ]
   %20 = load i32, ptr @hf_gtp_ranap_cause, align 4
   %21 = tail call ptr @val_to_str_ext_const(i32 noundef 21, ptr noundef nonnull @gtp_val_ext, ptr noundef nonnull @.str.1683)
   %22 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull @ranap_cause_type_ext, ptr noundef nonnull @.str.1774)
@@ -13669,7 +13669,7 @@ default.unreachable177:                           ; preds = %13
   unreachable
 
 113:                                              ; preds = %94, %74, %decode_triplet.exit, %23
-  %.0168 = phi i32 [ %44, %23 ], [ %73, %decode_triplet.exit ], [ %93, %74 ], [ %112, %94 ]
+  %.0168 = phi i32 [ %112, %94 ], [ %44, %23 ], [ %73, %decode_triplet.exit ], [ %93, %74 ]
   %114 = load i32, ptr @ett_gtp_drx, align 4
   %115 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0168, i32 noundef 2, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.1795)
   %116 = tail call zeroext i16 @de_gmm_drx_param(ptr noundef %0, ptr noundef %115, ptr noundef %2, i32 noundef %.0168, i32 noundef 2, ptr noundef null, i32 noundef 0)
@@ -13782,7 +13782,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_pdp_cntxt(ptr noundef %0, i3
   br label %41
 
 41:                                               ; preds = %34, %30
-  %.0 = phi i32 [ %33, %30 ], [ %40, %34 ]
+  %.0 = phi i32 [ %40, %34 ], [ %33, %30 ]
   %42 = load i32, ptr @hf_gtp_sequence_number_down, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %42, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0)
   %44 = load i32, ptr @hf_gtp_sequence_number_up, align 4
@@ -16865,7 +16865,7 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %62, %5, %116
-  %.0 = phi i32 [ %117, %116 ], [ 3, %5 ], [ %.0111, %62 ], [ %78, %.lr.ph.split.us.split.us ], [ %92, %.lr.ph.split.us.split ], [ %107, %.lr.ph.split ]
+  %.0 = phi i32 [ %117, %116 ], [ 3, %5 ], [ %.0111, %62 ], [ %92, %.lr.ph.split.us.split ], [ %78, %.lr.ph.split.us.split.us ], [ %107, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

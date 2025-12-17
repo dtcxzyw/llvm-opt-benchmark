@@ -92,9 +92,9 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
   br label %26
 
 26:                                               ; preds = %.thread, %22
-  %spec.select59 = phi i32 [ %spec.select, %22 ], [ %spec.select56, %.thread ]
-  %.158 = phi ptr [ %21, %22 ], [ null, %.thread ]
-  %.0 = phi ptr [ %spec.select54, %22 ], [ @.str.2, %.thread ]
+  %spec.select59 = phi i32 [ %spec.select56, %.thread ], [ %spec.select, %22 ]
+  %.158 = phi ptr [ null, %.thread ], [ %21, %22 ]
+  %.0 = phi ptr [ @.str.2, %.thread ], [ %spec.select54, %22 ]
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef nonnull dereferenceable(1) %13) #4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %32
@@ -140,8 +140,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
   tail call void %50(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.041.ph) #3
   br label %.thread71
 
-.thread71:                                        ; preds = %9, %6, %47, %43
-  %.0436675 = phi i32 [ %.043.ph, %47 ], [ %.043.ph, %43 ], [ 1, %6 ], [ 1, %9 ]
+.thread71:                                        ; preds = %6, %9, %47, %43
+  %.0436675 = phi i32 [ %.043.ph, %43 ], [ %.043.ph, %47 ], [ 1, %9 ], [ 1, %6 ]
   %51 = icmp eq i32 %.0436675, 0
   %52 = zext i1 %51 to i8
   ret i8 %52
@@ -338,7 +338,7 @@ define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %59, %.preheader, %83, %.lr.ph.split.us, %104, %111, %40, %34, %28, %22, %16, %10, %7, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %111 ], [ null, %104 ], [ null, %.lr.ph.split.us ], [ null, %83 ], [ %32, %._crit_edge ], [ null, %59 ], [ null, %.preheader ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %104 ], [ null, %83 ], [ null, %111 ], [ null, %.lr.ph.split.us ], [ %32, %._crit_edge ], [ null, %.preheader ], [ null, %59 ]
   ret ptr %.0
 }
 

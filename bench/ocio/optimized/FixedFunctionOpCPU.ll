@@ -1502,7 +1502,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24Renderer_ACES_Glow03_Inv5applyEPK
   br label %66
 
 66:                                               ; preds = %8, %57, %60
-  %.041 = phi float [ %59, %57 ], [ %65, %60 ], [ 0.000000e+00, %8 ]
+  %.041 = phi float [ %65, %60 ], [ %59, %57 ], [ 0.000000e+00, %8 ]
   %67 = fadd float %.041, 1.000000e+00
   %68 = fmul float %9, %67
   store float %68, ptr %.04247, align 4, !tbaa !13

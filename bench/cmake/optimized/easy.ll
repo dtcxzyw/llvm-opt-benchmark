@@ -64,7 +64,7 @@ define dso_local range(i32 0, 3) i32 @curl_global_init(i64 noundef %0) local_unn
   br label %global_init.exit
 
 global_init.exit:                                 ; preds = %1, %6, %8
-  %.0.i = phi i32 [ 2, %8 ], [ 0, %1 ], [ 0, %6 ]
+  %.0.i = phi i32 [ 0, %1 ], [ 2, %8 ], [ 0, %6 ]
   ret i32 %.0.i
 }
 
@@ -118,7 +118,7 @@ global_init.exit.sink.split:                      ; preds = %14, %20
   br label %global_init.exit
 
 global_init.exit:                                 ; preds = %global_init.exit.sink.split, %18, %6
-  %.0 = phi i32 [ 2, %6 ], [ 0, %18 ], [ %.0.ph, %global_init.exit.sink.split ]
+  %.0 = phi i32 [ 0, %18 ], [ 2, %6 ], [ %.0.ph, %global_init.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -349,7 +349,7 @@ sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.
   br label %easy_transfer.exit.i
 
 easy_transfer.exit.i:                             ; preds = %55, %.thread35.i.i
-  %58 = phi i32 [ %43, %.thread35.i.i ], [ %spec.select.i.i, %55 ]
+  %58 = phi i32 [ %spec.select.i.i, %55 ], [ %43, %.thread35.i.i ]
   %59 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.026.i, ptr noundef nonnull %0) #12
   %60 = load i8, ptr %34, align 8, !tbaa !84, !range !92, !noundef !93
   %61 = trunc nuw i8 %60 to i1
@@ -360,7 +360,7 @@ easy_transfer.exit.i:                             ; preds = %55, %.thread35.i.i
   br label %easy_perform.exit
 
 easy_perform.exit:                                ; preds = %1, %14, %18, %20, %30, %easy_transfer.exit.i, %62
-  %.0.i = phi i32 [ 2, %14 ], [ 43, %1 ], [ 27, %18 ], [ 93, %20 ], [ %..i, %30 ], [ %58, %easy_transfer.exit.i ], [ %58, %62 ]
+  %.0.i = phi i32 [ 2, %14 ], [ 27, %18 ], [ %..i, %30 ], [ 93, %20 ], [ 43, %1 ], [ %58, %easy_transfer.exit.i ], [ %58, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -912,7 +912,7 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
   %.not60 = icmp eq i32 %59, 0
   br i1 %.not60, label %.thread, label %.thread64
 
-.thread:                                          ; preds = %55, %52, %57
+.thread:                                          ; preds = %52, %55, %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4876
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 4096
@@ -933,7 +933,7 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
   br label %67
 
 67:                                               ; preds = %.thread64, %66, %2, %3, %6
-  %.0 = phi i32 [ 43, %6 ], [ 43, %3 ], [ 43, %2 ], [ %.2, %66 ], [ %.2, %.thread64 ]
+  %.0 = phi i32 [ 43, %2 ], [ 43, %6 ], [ 43, %3 ], [ %.2, %66 ], [ %.2, %.thread64 ]
   ret i32 %.0
 }
 
@@ -1053,7 +1053,7 @@ easy_connection.exit:                             ; preds = %6
   br label %easy_connection.exit.thread
 
 easy_connection.exit.thread:                      ; preds = %.sink.split.i, %1, %easy_connection.exit, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %easy_connection.exit ], [ 1, %.sink.split.i ], [ 43, %1 ]
+  %.0 = phi i32 [ 0, %easy_connection.exit ], [ 0, %11 ], [ 1, %.sink.split.i ], [ 43, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1183,7 +1183,7 @@ define dso_local i32 @curl_easy_upkeep(ptr noundef %0) local_unnamed_addr #5 {
   br label %9
 
 9:                                                ; preds = %5, %1, %2, %7
-  %.0 = phi i32 [ %8, %7 ], [ 43, %2 ], [ 43, %1 ], [ 93, %5 ]
+  %.0 = phi i32 [ 43, %1 ], [ %8, %7 ], [ 43, %2 ], [ 93, %5 ]
   ret i32 %.0
 }
 

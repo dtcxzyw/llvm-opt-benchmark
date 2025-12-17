@@ -2916,7 +2916,7 @@ dissect_dtls13_record.exit.i:                     ; preds = %296, %295, %293, %2
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %424, %421, %414, %413, %408
-  %.0259.i = phi i8 [ %86, %413 ], [ %86, %408 ], [ %418, %414 ], [ %418, %421 ], [ %418, %424 ]
+  %.0259.i = phi i8 [ %86, %408 ], [ %86, %413 ], [ %418, %414 ], [ %418, %421 ], [ %418, %424 ]
   %428 = zext i8 %.0259.i to i32
   %429 = load i16, ptr %57, align 8
   call void @ssl_check_record_length(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %1, i32 noundef %428, i32 noundef %.0257.i, ptr noundef %370, i16 noundef zeroext %429, ptr noundef %412)
@@ -3191,7 +3191,7 @@ dtls_cid_length.exit.thread:                      ; preds = %33, %28
   br label %46
 
 dtls_cid_length.exit:                             ; preds = %33, %28
-  %.0.i111.in.in = phi ptr [ @dtls_default_client_cid_length, %28 ], [ @dtls_default_server_cid_length, %33 ]
+  %.0.i111.in.in = phi ptr [ @dtls_default_server_cid_length, %33 ], [ @dtls_default_client_cid_length, %28 ]
   %.0.i111.in = load i32, ptr %.0.i111.in.in, align 4
   %40 = and i32 %.0.i111.in, 255
   %41 = add i32 %40, %19
@@ -3365,7 +3365,7 @@ looks_like_dtls.exit117.thread129:                ; preds = %106, %106, %106, %l
   br label %.thread
 
 .thread:                                          ; preds = %106, %looks_like_dtls.exit117, %27, %32, %42, %.thread.sink.split, %119, %123, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ false, %123 ], [ false, %119 ], [ true, %.thread.sink.split ], [ false, %42 ], [ false, %32 ], [ false, %27 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
+  %.2 = phi i1 [ false, %.critedge ], [ false, %123 ], [ false, %119 ], [ true, %.thread.sink.split ], [ false, %27 ], [ false, %42 ], [ false, %32 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
   ret i1 %.2
 }
 
@@ -4147,7 +4147,7 @@ dtls13_maybe_increase_max_epoch.exit:             ; preds = %51, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-199:                                              ; preds = %88, %117, %.critedge, %184, %185, %175, %180, %174, %139, %132, %197, %182, %181, %172, %171, %170, %169, %168, %167, %163, %dissect_dtls_hnd_hello_verify_request.exit, %142, %130, %188, %190, %195
+199:                                              ; preds = %117, %88, %.critedge, %184, %185, %142, %175, %180, %174, %130, %139, %132, %197, %182, %181, %172, %171, %170, %169, %168, %167, %163, %dissect_dtls_hnd_hello_verify_request.exit, %188, %190, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %200 = add i32 %40, %74
   %201 = icmp ult i32 %200, %14
@@ -4577,7 +4577,7 @@ define internal fastcc noundef zeroext i1 @dtls13_decrypt_unified_record(ptr nou
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.959)
   br label %44
 
-44:                                               ; preds = %35, %38, %42, %43, %.thread, %29
+44:                                               ; preds = %35, %29, %38, %42, %43, %.thread
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.955)
   br label %148
 

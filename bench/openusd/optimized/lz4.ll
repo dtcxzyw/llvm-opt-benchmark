@@ -472,9 +472,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %.loopexit2973
 
 .loopexit2973:                                    ; preds = %50, %.loopexit2973.loopexit, %30
-  %.pre-phi3369 = phi i64 [ %.pre3368, %.loopexit2973.loopexit ], [ %7, %30 ], [ %.126383309, %50 ]
-  %.02644 = phi ptr [ %.72651, %.loopexit2973.loopexit ], [ %2, %30 ], [ %.12645, %50 ]
-  %.02637 = phi ptr [ %193, %.loopexit2973.loopexit ], [ %1, %30 ], [ %.12638.fr, %50 ]
+  %.pre-phi3369 = phi i64 [ %7, %30 ], [ %.pre3368, %.loopexit2973.loopexit ], [ %.126383309, %50 ]
+  %.02644 = phi ptr [ %2, %30 ], [ %.72651, %.loopexit2973.loopexit ], [ %.12645, %50 ]
+  %.02637 = phi ptr [ %1, %30 ], [ %193, %.loopexit2973.loopexit ], [ %.12638.fr, %50 ]
   %219 = ptrtoint ptr %27 to i64
   %220 = sub i64 %219, %.pre-phi3369
   %221 = icmp ugt i64 %220, 14
@@ -919,8 +919,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
   br i1 %437, label %.loopexit2976, label %.lr.ph, !llvm.loop !8
 
 .loopexit2976:                                    ; preds = %434, %284, %409
-  %.02715 = phi ptr [ %410, %409 ], [ %.127163062.fr, %284 ], [ %410, %434 ]
-  %.02699 = phi ptr [ %.72706, %409 ], [ %.127003063, %284 ], [ %.72706, %434 ]
+  %.02715 = phi ptr [ %.127163062.fr, %284 ], [ %410, %409 ], [ %410, %434 ]
+  %.02699 = phi ptr [ %.127003063, %284 ], [ %.72706, %409 ], [ %.72706, %434 ]
   %438 = ptrtoint ptr %243 to i64
   %439 = ptrtoint ptr %.02715 to i64
   %440 = sub i64 %438, %439
@@ -1383,9 +1383,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
   br label %.loopexit2965
 
 .loopexit2965:                                    ; preds = %489, %.loopexit2965.loopexit, %469
-  %.pre-phi = phi i64 [ %.pre, %.loopexit2965.loopexit ], [ %7, %469 ], [ %.125913353, %489 ]
-  %.02590 = phi ptr [ %617, %.loopexit2965.loopexit ], [ %1, %469 ], [ %.12591, %489 ]
-  %.02576 = phi ptr [ %.72583, %.loopexit2965.loopexit ], [ %2, %469 ], [ %.12577, %489 ]
+  %.pre-phi = phi i64 [ %7, %469 ], [ %.pre, %.loopexit2965.loopexit ], [ %.125913353, %489 ]
+  %.02590 = phi ptr [ %1, %469 ], [ %617, %.loopexit2965.loopexit ], [ %.12591, %489 ]
+  %.02576 = phi ptr [ %2, %469 ], [ %.72583, %.loopexit2965.loopexit ], [ %.12577, %489 ]
   %671 = ptrtoint ptr %466 to i64
   %672 = sub i64 %671, %.pre-phi
   %673 = getelementptr inbounds i8, ptr %.02576, i64 %672
@@ -1854,8 +1854,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
   br i1 %909, label %.loopexit2969, label %.lr.ph3109, !llvm.loop !8
 
 .loopexit2969:                                    ; preds = %906, %743, %883
-  %.02456 = phi ptr [ %854, %883 ], [ %.124573138, %743 ], [ %854, %906 ]
-  %.02440 = phi ptr [ %.7, %883 ], [ %.124413139, %743 ], [ %.7, %906 ]
+  %.02456 = phi ptr [ %.124573138, %743 ], [ %854, %883 ], [ %854, %906 ]
+  %.02440 = phi ptr [ %.124413139, %743 ], [ %.7, %883 ], [ %.7, %906 ]
   %910 = ptrtoint ptr %702 to i64
   %911 = ptrtoint ptr %.02456 to i64
   %912 = sub i64 %910, %911
@@ -1916,7 +1916,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge35, %851, %.critedge25, %614, %934, %700, %.loopexit2969, %694, %464, %.loopexit2965, %455, %241, %235, %25
-  %.02371 = phi i32 [ %240, %235 ], [ 0, %25 ], [ %460, %455 ], [ 0, %241 ], [ %699, %694 ], [ 0, %464 ], [ 0, %.loopexit2965 ], [ %939, %934 ], [ 0, %700 ], [ 0, %.loopexit2969 ], [ 0, %614 ], [ 0, %.critedge25 ], [ 0, %851 ], [ 0, %.critedge35 ]
+  %.02371 = phi i32 [ 0, %.loopexit2965 ], [ 0, %25 ], [ 0, %241 ], [ %240, %235 ], [ %460, %455 ], [ 0, %464 ], [ %699, %694 ], [ 0, %700 ], [ %939, %934 ], [ 0, %.loopexit2969 ], [ 0, %851 ], [ 0, %614 ], [ 0, %.critedge25 ], [ 0, %.critedge35 ]
   ret i32 %.02371
 }
 
@@ -2414,8 +2414,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %237, label %.loopexit4633, label %.lr.ph4769, !llvm.loop !8
 
 .loopexit4633:                                    ; preds = %234, %82, %207, %41
-  %.04098 = phi ptr [ %2, %41 ], [ %.74105, %207 ], [ %.140994797, %82 ], [ %.74105, %234 ]
-  %.04091 = phi ptr [ %1, %41 ], [ %208, %207 ], [ %.140924798.fr, %82 ], [ %208, %234 ]
+  %.04098 = phi ptr [ %2, %41 ], [ %.140994797, %82 ], [ %.74105, %207 ], [ %.74105, %234 ]
+  %.04091 = phi ptr [ %1, %41 ], [ %.140924798.fr, %82 ], [ %208, %207 ], [ %208, %234 ]
   %238 = ptrtoint ptr %38 to i64
   %239 = ptrtoint ptr %.04091 to i64
   %240 = sub i64 %238, %239
@@ -2854,9 +2854,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
   br label %.loopexit4630
 
 .loopexit4630:                                    ; preds = %282, %.loopexit4630.loopexit, %267
-  %.pre-phi5267 = phi i64 [ %.pre5266, %.loopexit4630.loopexit ], [ %7, %267 ], [ %.141985171, %282 ]
-  %.04200 = phi ptr [ %.74207, %.loopexit4630.loopexit ], [ %2, %267 ], [ %.14201, %282 ]
-  %.04197 = phi ptr [ %425, %.loopexit4630.loopexit ], [ %1, %267 ], [ %.14198.fr, %282 ]
+  %.pre-phi5267 = phi i64 [ %7, %267 ], [ %.pre5266, %.loopexit4630.loopexit ], [ %.141985171, %282 ]
+  %.04200 = phi ptr [ %2, %267 ], [ %.74207, %.loopexit4630.loopexit ], [ %.14201, %282 ]
+  %.04197 = phi ptr [ %1, %267 ], [ %425, %.loopexit4630.loopexit ], [ %.14198.fr, %282 ]
   %451 = ptrtoint ptr %264 to i64
   %452 = sub i64 %451, %.pre-phi5267
   %453 = icmp ugt i64 %452, 14
@@ -3340,8 +3340,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
   br i1 %684, label %.loopexit4636, label %.lr.ph, !llvm.loop !8
 
 .loopexit4636:                                    ; preds = %681, %531, %656
-  %.04169 = phi ptr [ %657, %656 ], [ %.141704752.fr, %531 ], [ %657, %681 ]
-  %.04153 = phi ptr [ %.74160, %656 ], [ %.141544753, %531 ], [ %.74160, %681 ]
+  %.04169 = phi ptr [ %.141704752.fr, %531 ], [ %657, %656 ], [ %657, %681 ]
+  %.04153 = phi ptr [ %.141544753, %531 ], [ %.74160, %656 ], [ %.74160, %681 ]
   %685 = ptrtoint ptr %491 to i64
   %686 = ptrtoint ptr %.04169 to i64
   %687 = sub i64 %685, %686
@@ -3861,8 +3861,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
   br i1 %943, label %.loopexit4621, label %.lr.ph4891, !llvm.loop !8
 
 .loopexit4621:                                    ; preds = %940, %775, %915, %734
-  %.04044 = phi ptr [ %1, %734 ], [ %886, %915 ], [ %.140454920, %775 ], [ %886, %940 ]
-  %.04030 = phi ptr [ %2, %734 ], [ %.74037, %915 ], [ %.140314921, %775 ], [ %.74037, %940 ]
+  %.04044 = phi ptr [ %1, %734 ], [ %.140454920, %775 ], [ %886, %915 ], [ %886, %940 ]
+  %.04030 = phi ptr [ %2, %734 ], [ %.140314921, %775 ], [ %.74037, %915 ], [ %.74037, %940 ]
   %944 = ptrtoint ptr %729 to i64
   %945 = ptrtoint ptr %.04044 to i64
   %946 = sub i64 %944, %945
@@ -4327,9 +4327,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
   br label %.loopexit4617
 
 .loopexit4617:                                    ; preds = %997, %.loopexit4617.loopexit, %982
-  %.pre-phi = phi i64 [ %.pre5265, %.loopexit4617.loopexit ], [ %7, %982 ], [ %.139535238, %997 ]
-  %.03952 = phi ptr [ %1125, %.loopexit4617.loopexit ], [ %1, %982 ], [ %.13953, %997 ]
-  %.03931 = phi ptr [ %.73938, %.loopexit4617.loopexit ], [ %2, %982 ], [ %.13932, %997 ]
+  %.pre-phi = phi i64 [ %7, %982 ], [ %.pre5265, %.loopexit4617.loopexit ], [ %.139535238, %997 ]
+  %.03952 = phi ptr [ %1, %982 ], [ %1125, %.loopexit4617.loopexit ], [ %.13953, %997 ]
+  %.03931 = phi ptr [ %2, %982 ], [ %.73938, %.loopexit4617.loopexit ], [ %.13932, %997 ]
   %1179 = ptrtoint ptr %977 to i64
   %1180 = sub i64 %1179, %.pre-phi
   %1181 = getelementptr inbounds i8, ptr %.03931, i64 %1180
@@ -4839,8 +4839,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
   br i1 %1434, label %.loopexit4626, label %.lr.ph4845, !llvm.loop !8
 
 .loopexit4626:                                    ; preds = %1431, %1268, %1408
-  %.03776 = phi ptr [ %1379, %1408 ], [ %.137774874, %1268 ], [ %1379, %1431 ]
-  %.03760 = phi ptr [ %.7, %1408 ], [ %.137614875, %1268 ], [ %.7, %1431 ]
+  %.03776 = phi ptr [ %.137774874, %1268 ], [ %1379, %1408 ], [ %1379, %1431 ]
+  %.03760 = phi ptr [ %.137614875, %1268 ], [ %.7, %1408 ], [ %.7, %1431 ]
   %1435 = ptrtoint ptr %1226 to i64
   %1436 = ptrtoint ptr %.03776 to i64
   %1437 = sub i64 %1435, %1436
@@ -4901,7 +4901,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge95, %1376, %.critedge63, %883, %.critedge76, %1122, %1459, %1220, %.loopexit4626, %1202, %974, %.loopexit4617, %968, %724, %.loopexit4621, %702, %485, %467, %261, %255, %33
-  %.03691 = phi i32 [ %260, %255 ], [ 0, %33 ], [ %472, %467 ], [ 0, %261 ], [ %707, %702 ], [ 0, %485 ], [ %973, %968 ], [ 0, %724 ], [ 0, %.loopexit4621 ], [ %1207, %1202 ], [ 0, %974 ], [ 0, %.loopexit4617 ], [ %1464, %1459 ], [ 0, %1220 ], [ 0, %.loopexit4626 ], [ 0, %1122 ], [ 0, %.critedge76 ], [ 0, %883 ], [ 0, %.critedge63 ], [ 0, %1376 ], [ 0, %.critedge95 ]
+  %.03691 = phi i32 [ 0, %.loopexit4617 ], [ 0, %33 ], [ 0, %261 ], [ 0, %485 ], [ 0, %.loopexit4621 ], [ %260, %255 ], [ %472, %467 ], [ %707, %702 ], [ 0, %724 ], [ %973, %968 ], [ 0, %974 ], [ %1207, %1202 ], [ 0, %1220 ], [ %1464, %1459 ], [ 0, %.loopexit4626 ], [ 0, %1376 ], [ 0, %1122 ], [ 0, %.critedge76 ], [ 0, %883 ], [ 0, %.critedge63 ], [ 0, %.critedge95 ]
   ret i32 %.03691
 }
 
@@ -5336,9 +5336,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %.loopexit1466
 
 .loopexit1466:                                    ; preds = %32, %.loopexit1466.loopexit, %16
-  %.pre-phi = phi i64 [ %.pre, %.loopexit1466.loopexit ], [ %5, %16 ], [ %.113171660, %32 ]
-  %.01323 = phi ptr [ %.71330, %.loopexit1466.loopexit ], [ %1, %16 ], [ %.11324, %32 ]
-  %.01316 = phi ptr [ %160, %.loopexit1466.loopexit ], [ %0, %16 ], [ %.11317, %32 ]
+  %.pre-phi = phi i64 [ %5, %16 ], [ %.pre, %.loopexit1466.loopexit ], [ %.113171660, %32 ]
+  %.01323 = phi ptr [ %1, %16 ], [ %.71330, %.loopexit1466.loopexit ], [ %.11324, %32 ]
+  %.01316 = phi ptr [ %0, %16 ], [ %160, %.loopexit1466.loopexit ], [ %.11317, %32 ]
   %214 = ptrtoint ptr %13 to i64
   %215 = sub i64 %214, %.pre-phi
   %216 = getelementptr inbounds i8, ptr %.01323, i64 %215
@@ -5804,8 +5804,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
   br i1 %449, label %.loopexit1470, label %.lr.ph, !llvm.loop !8
 
 .loopexit1470:                                    ; preds = %446, %283, %423
-  %.01269 = phi ptr [ %394, %423 ], [ %.112701535, %283 ], [ %394, %446 ]
-  %.01253 = phi ptr [ %.7, %423 ], [ %.112541536, %283 ], [ %.7, %446 ]
+  %.01269 = phi ptr [ %.112701535, %283 ], [ %394, %423 ], [ %394, %446 ]
+  %.01253 = phi ptr [ %.112541536, %283 ], [ %.7, %423 ], [ %.7, %446 ]
   %450 = ptrtoint ptr %245 to i64
   %451 = ptrtoint ptr %.01269 to i64
   %452 = sub i64 %450, %451
@@ -5866,7 +5866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge15, %391, %.critedge5, %157, %474, %243, %.loopexit1470, %237, %11, %.loopexit1466
-  %.01184 = phi i32 [ %242, %237 ], [ 0, %11 ], [ 0, %.loopexit1466 ], [ %479, %474 ], [ 0, %243 ], [ 0, %.loopexit1470 ], [ 0, %157 ], [ 0, %.critedge5 ], [ 0, %391 ], [ 0, %.critedge15 ]
+  %.01184 = phi i32 [ 0, %.loopexit1466 ], [ 0, %11 ], [ %242, %237 ], [ 0, %243 ], [ %479, %474 ], [ 0, %.loopexit1470 ], [ 0, %391 ], [ 0, %157 ], [ 0, %.critedge5 ], [ 0, %.critedge15 ]
   ret i32 %.01184
 }
 
@@ -6331,8 +6331,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i: ;
   br i1 %236, label %.loopexit1480.i, label %.lr.ph1587.i
 
 .loopexit1480.i:                                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preheader.i, %.critedge5.i, %39, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i, %213, %25
-  %.01329.i = phi ptr [ %1, %25 ], [ %.71336.i, %213 ], [ %.71336.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i ], [ %.11330.i, %39 ], [ %.11330.i, %.critedge5.i ], [ %.11330.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preheader.i ]
-  %.01326.i = phi ptr [ %0, %25 ], [ %.51318.i, %213 ], [ %.51318.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i ], [ %.11327.fr.i, %39 ], [ %.11327.fr.i, %.critedge5.i ], [ %.11327.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preheader.i ]
+  %.01329.i = phi ptr [ %1, %25 ], [ %.11330.i, %39 ], [ %.71336.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i ], [ %.71336.i, %213 ], [ %.11330.i, %.critedge5.i ], [ %.11330.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preheader.i ]
+  %.01326.i = phi ptr [ %0, %25 ], [ %.11327.fr.i, %39 ], [ %.51318.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i ], [ %.51318.i, %213 ], [ %.11327.fr.i, %.critedge5.i ], [ %.11327.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preheader.i ]
   %237 = ptrtoint ptr %22 to i64
   %238 = ptrtoint ptr %.01326.i to i64
   %239 = sub i64 %237, %238
@@ -6844,8 +6844,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
   br i1 %499, label %.loopexit1487.i, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit1487.i:                                  ; preds = %497, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i, %.critedge15.i, %316, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i, %473
-  %.01280.i = phi ptr [ %.51304.i, %473 ], [ %.51304.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.112811546.fr.i, %316 ], [ %.112811546.fr.i, %.critedge15.i ], [ %.51304.i, %497 ], [ %.112811546.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
-  %.01264.i = phi ptr [ %.7.i, %473 ], [ %.7.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.112651547.i, %316 ], [ %.112651547.i, %.critedge15.i ], [ %.7.i, %497 ], [ %.112651547.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
+  %.01280.i = phi ptr [ %.51304.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.112811546.fr.i, %316 ], [ %.51304.i, %473 ], [ %.112811546.fr.i, %.critedge15.i ], [ %.51304.i, %497 ], [ %.112811546.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
+  %.01264.i = phi ptr [ %.7.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.112651547.i, %316 ], [ %.7.i, %473 ], [ %.112651547.i, %.critedge15.i ], [ %.7.i, %497 ], [ %.112651547.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
   %500 = ptrtoint ptr %280 to i64
   %501 = ptrtoint ptr %.01280.i to i64
   %502 = sub i64 %500, %501
@@ -6919,7 +6919,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L30LZ4_compress_destSize_extStateEPNS0_12LZ4_stream_uEPKcPcPii.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L30LZ4_compress_destSize_extStateEPNS0_12LZ4_stream_uEPKcPcPii.exit: ; preds = %12, %20, %267, %278, %529
-  %.01199.i = phi i32 [ %13, %12 ], [ %277, %267 ], [ 0, %20 ], [ %538, %529 ], [ 0, %278 ]
+  %.01199.i = phi i32 [ %13, %12 ], [ 0, %278 ], [ %277, %267 ], [ 0, %20 ], [ %538, %529 ]
   ret i32 %.01199.i
 }
 
@@ -7683,8 +7683,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %282, label %.loopexit4562, label %.lr.ph4995, !llvm.loop !8
 
 .loopexit4562:                                    ; preds = %279, %116, %256, %74
-  %.04005 = phi ptr [ %2, %74 ], [ %.74012, %256 ], [ %.140065023, %116 ], [ %.74012, %279 ]
-  %.04002 = phi ptr [ %1, %74 ], [ %227, %256 ], [ %.140035024, %116 ], [ %227, %279 ]
+  %.04005 = phi ptr [ %2, %74 ], [ %.140065023, %116 ], [ %.74012, %256 ], [ %.74012, %279 ]
+  %.04002 = phi ptr [ %1, %74 ], [ %.140035024, %116 ], [ %227, %256 ], [ %227, %279 ]
   %283 = ptrtoint ptr %45 to i64
   %284 = ptrtoint ptr %.04002 to i64
   %285 = sub i64 %283, %284
@@ -8160,8 +8160,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
   br i1 %526, label %.loopexit4566, label %.lr.ph4949, !llvm.loop !8
 
 .loopexit4566:                                    ; preds = %523, %360, %500, %319
-  %.04113 = phi ptr [ %2, %319 ], [ %.74120, %500 ], [ %.141144977, %360 ], [ %.74120, %523 ]
-  %.04110 = phi ptr [ %1, %319 ], [ %471, %500 ], [ %.141114978, %360 ], [ %471, %523 ]
+  %.04113 = phi ptr [ %2, %319 ], [ %.141144977, %360 ], [ %.74120, %500 ], [ %.74120, %523 ]
+  %.04110 = phi ptr [ %1, %319 ], [ %.141114978, %360 ], [ %471, %500 ], [ %471, %523 ]
   %527 = ptrtoint ptr %45 to i64
   %528 = ptrtoint ptr %.04110 to i64
   %529 = sub i64 %527, %528
@@ -8918,8 +8918,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
   br i1 %903, label %.loopexit4579, label %.lr.ph4761, !llvm.loop !8
 
 .loopexit4579:                                    ; preds = %898, %614, %874
-  %.04072 = phi ptr [ %.44108, %874 ], [ %.140734806.fr, %614 ], [ %.44108, %898 ]
-  %.04058 = phi ptr [ %.74065, %874 ], [ %.140594807, %614 ], [ %.74065, %898 ]
+  %.04072 = phi ptr [ %.140734806.fr, %614 ], [ %.44108, %874 ], [ %.44108, %898 ]
+  %.04058 = phi ptr [ %.140594807, %614 ], [ %.74065, %874 ], [ %.74065, %898 ]
   %904 = ptrtoint ptr %45 to i64
   %905 = ptrtoint ptr %.04072 to i64
   %906 = sub i64 %904, %905
@@ -9705,8 +9705,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
   br i1 %1300, label %.loopexit4583, label %.lr.ph, !llvm.loop !8
 
 .loopexit4583:                                    ; preds = %1295, %1002, %1262, %955
-  %.03949 = phi ptr [ %1, %955 ], [ %.43972, %1262 ], [ %.139504742.fr, %1002 ], [ %.43972, %1295 ]
-  %.03935 = phi ptr [ %2, %955 ], [ %.73942, %1262 ], [ %.139364743, %1002 ], [ %.73942, %1295 ]
+  %.03949 = phi ptr [ %1, %955 ], [ %.139504742.fr, %1002 ], [ %.43972, %1262 ], [ %.43972, %1295 ]
+  %.03935 = phi ptr [ %2, %955 ], [ %.139364743, %1002 ], [ %.73942, %1262 ], [ %.73942, %1295 ]
   %1301 = ptrtoint ptr %45 to i64
   %1302 = ptrtoint ptr %.03949 to i64
   %1303 = sub i64 %1301, %1302
@@ -10464,8 +10464,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
   br i1 %1676, label %.loopexit4571, label %.lr.ph4887, !llvm.loop !8
 
 .loopexit4571:                                    ; preds = %1671, %1387, %1647, %1347
-  %.03854 = phi ptr [ %1, %1347 ], [ %.43880, %1647 ], [ %.138554932.fr, %1387 ], [ %.43880, %1671 ]
-  %.03829 = phi ptr [ %2, %1347 ], [ %.73836, %1647 ], [ %.138304933, %1387 ], [ %.73836, %1671 ]
+  %.03854 = phi ptr [ %1, %1347 ], [ %.138554932.fr, %1387 ], [ %.43880, %1647 ], [ %.43880, %1671 ]
+  %.03829 = phi ptr [ %2, %1347 ], [ %.138304933, %1387 ], [ %.73836, %1647 ], [ %.73836, %1671 ]
   %1677 = ptrtoint ptr %45 to i64
   %1678 = ptrtoint ptr %.03854 to i64
   %1679 = sub i64 %1677, %1678
@@ -11209,8 +11209,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
   br i1 %2044, label %.loopexit4575, label %.lr.ph4824, !llvm.loop !8
 
 .loopexit4575:                                    ; preds = %2039, %1755, %2015, %1716
-  %.03678 = phi ptr [ %1, %1716 ], [ %.43722, %2015 ], [ %.136794869.fr, %1755 ], [ %.43722, %2039 ]
-  %.03658 = phi ptr [ %2, %1716 ], [ %.7, %2015 ], [ %.136594870, %1755 ], [ %.7, %2039 ]
+  %.03678 = phi ptr [ %1, %1716 ], [ %.136794869.fr, %1755 ], [ %.43722, %2015 ], [ %.43722, %2039 ]
+  %.03658 = phi ptr [ %2, %1716 ], [ %.136594870, %1755 ], [ %.7, %2015 ], [ %.7, %2039 ]
   %2045 = ptrtoint ptr %45 to i64
   %2046 = ptrtoint ptr %.03678 to i64
   %2047 = sub i64 %2045, %2046
@@ -11271,13 +11271,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
   br label %.loopexit4570
 
 .loopexit4570:                                    ; preds = %.critedge35, %1233, %.critedge25, %845, %.critedge55, %1986, %.critedge45, %1618, %2069, %1707, %.loopexit4575, %1701, %1337, %.loopexit4571, %1325, %934, %.loopexit4583, %928, %562, %.loopexit4579
-  %.0 = phi i32 [ %933, %928 ], [ 0, %562 ], [ 0, %.loopexit4579 ], [ %1330, %1325 ], [ 0, %934 ], [ 0, %.loopexit4583 ], [ %1706, %1701 ], [ 0, %1337 ], [ 0, %.loopexit4571 ], [ %2074, %2069 ], [ 0, %1707 ], [ 0, %.loopexit4575 ], [ 0, %1618 ], [ 0, %.critedge45 ], [ 0, %1986 ], [ 0, %.critedge55 ], [ 0, %845 ], [ 0, %.critedge25 ], [ 0, %1233 ], [ 0, %.critedge35 ]
+  %.0 = phi i32 [ 0, %.loopexit4571 ], [ 0, %.loopexit4579 ], [ 0, %.loopexit4583 ], [ 0, %562 ], [ %933, %928 ], [ 0, %934 ], [ %1330, %1325 ], [ 0, %1337 ], [ %1706, %1701 ], [ 0, %1707 ], [ %2074, %2069 ], [ 0, %.loopexit4575 ], [ 0, %1233 ], [ 0, %1618 ], [ 0, %.critedge45 ], [ 0, %1986 ], [ 0, %.critedge55 ], [ 0, %845 ], [ 0, %.critedge25 ], [ 0, %.critedge35 ]
   store ptr %1, ptr %8, align 8
   store i32 %3, ptr %10, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge15, %468, %.critedge5, %224, %551, %313, %.loopexit4566, %307, %67, %.loopexit4562, %6, %.loopexit4570
-  %.03593 = phi i32 [ %.0, %.loopexit4570 ], [ 0, %6 ], [ %312, %307 ], [ 0, %67 ], [ 0, %.loopexit4562 ], [ %556, %551 ], [ 0, %313 ], [ 0, %.loopexit4566 ], [ 0, %224 ], [ 0, %.critedge5 ], [ 0, %468 ], [ 0, %.critedge15 ]
+  %.03593 = phi i32 [ %.0, %.loopexit4570 ], [ 0, %6 ], [ 0, %.loopexit4562 ], [ 0, %67 ], [ %312, %307 ], [ 0, %313 ], [ %556, %551 ], [ 0, %.loopexit4566 ], [ 0, %468 ], [ 0, %224 ], [ 0, %.critedge5 ], [ 0, %.critedge15 ]
   ret i32 %.03593
 }
 
@@ -12011,8 +12011,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %360, label %.loopexit, label %.lr.ph1592, !llvm.loop !8
 
 .loopexit:                                        ; preds = %355, %84, %331, %46
-  %.01330 = phi ptr [ %2, %46 ], [ %.71337, %331 ], [ %.113311637, %84 ], [ %.71337, %355 ]
-  %.01327 = phi ptr [ %1, %46 ], [ %.41314, %331 ], [ %.113281638.fr, %84 ], [ %.41314, %355 ]
+  %.01330 = phi ptr [ %2, %46 ], [ %.113311637, %84 ], [ %.71337, %331 ], [ %.71337, %355 ]
+  %.01327 = phi ptr [ %1, %46 ], [ %.113281638.fr, %84 ], [ %.41314, %331 ], [ %.41314, %355 ]
   %361 = ptrtoint ptr %41 to i64
   %362 = ptrtoint ptr %.01327 to i64
   %363 = sub i64 %361, %362
@@ -12727,8 +12727,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
   br i1 %706, label %.loopexit1500, label %.lr.ph, !llvm.loop !8
 
 .loopexit1500:                                    ; preds = %701, %430, %677, %393
-  %.01275 = phi ptr [ %1, %393 ], [ %.41298, %677 ], [ %.112761574.fr, %430 ], [ %.41298, %701 ]
-  %.01256 = phi ptr [ %2, %393 ], [ %.7, %677 ], [ %.112571575, %430 ], [ %.7, %701 ]
+  %.01275 = phi ptr [ %1, %393 ], [ %.112761574.fr, %430 ], [ %.41298, %677 ], [ %.41298, %701 ]
+  %.01256 = phi ptr [ %2, %393 ], [ %.112571575, %430 ], [ %.7, %677 ], [ %.7, %701 ]
   %707 = ptrtoint ptr %388 to i64
   %708 = ptrtoint ptr %.01275 to i64
   %709 = sub i64 %707, %708
@@ -12780,7 +12780,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
   br label %730
 
 730:                                              ; preds = %724, %384, %378, %36
-  %.0 = phi i32 [ %383, %378 ], [ 0, %36 ], [ %729, %724 ], [ 0, %384 ]
+  %.0 = phi i32 [ 0, %36 ], [ %383, %378 ], [ %729, %724 ], [ 0, %384 ]
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 16392
   store ptr %1, ptr %731, align 8
   store i32 %3, ptr %28, align 8
@@ -13000,8 +13000,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader682, %.lr.ph.i, %145, %150, %98
-  %.1558.be = phi ptr [ %71, %98 ], [ %.10567, %150 ], [ %.10567, %145 ], [ %.10567, %.lr.ph.i ], [ %.10567, %.preheader682 ]
-  %.1.be = phi ptr [ %94, %98 ], [ %109, %150 ], [ %109, %145 ], [ %109, %.lr.ph.i ], [ %109, %.preheader682 ]
+  %.1558.be = phi ptr [ %71, %98 ], [ %.10567, %150 ], [ %.10567, %.lr.ph.i ], [ %.10567, %145 ], [ %.10567, %.preheader682 ]
+  %.1.be = phi ptr [ %94, %98 ], [ %109, %150 ], [ %109, %.lr.ph.i ], [ %109, %145 ], [ %109, %.preheader682 ]
   br label %34, !llvm.loop !14
 
 106:                                              ; preds = %89, %95
@@ -13300,8 +13300,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond655.not, label %243, label %.critedge
 
 243:                                              ; preds = %237, %.loopexit680
-  %.17 = phi ptr [ %.11568, %.loopexit680 ], [ %234, %237 ]
-  %.7496 = phi i64 [ %.4493, %.loopexit680 ], [ %239, %237 ]
+  %.17 = phi ptr [ %234, %237 ], [ %.11568, %.loopexit680 ]
+  %.7496 = phi i64 [ %239, %237 ], [ %.4493, %.loopexit680 ]
   %244 = add nuw nsw i64 %.7496, 4
   br label %.loopexit690
 
@@ -13429,7 +13429,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit670: 
   br label %.preheader678, !llvm.loop !16
 
 .critedge:                                        ; preds = %41, %106, %84, %76, %.loopexit686, %.preheader740, %._crit_edge, %278, %.loopexit690, %237, %211, %.loopexit
-  %.4561 = phi ptr [ %234, %237 ], [ %.9566, %.loopexit690 ], [ %.9566, %278 ], [ %192, %.loopexit ], [ %.5562, %211 ], [ %.lcssa700, %._crit_edge ], [ %78, %.preheader740 ], [ %35, %41 ], [ %.10567, %106 ], [ %78, %84 ], [ %71, %76 ], [ %44, %.loopexit686 ]
+  %.4561 = phi ptr [ %234, %237 ], [ %.5562, %211 ], [ %.9566, %.loopexit690 ], [ %.9566, %278 ], [ %192, %.loopexit ], [ %.lcssa700, %._crit_edge ], [ %78, %.preheader740 ], [ %.10567, %106 ], [ %44, %.loopexit686 ], [ %71, %76 ], [ %78, %84 ], [ %35, %41 ]
   %307 = ptrtoint ptr %.4561 to i64
   %308 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %308, %307
@@ -13438,7 +13438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit670: 
   br label %311
 
 311:                                              ; preds = %20, %14, %16, %4, %.critedge, %213
-  %.0475 = phi i32 [ %310, %.critedge ], [ %217, %213 ], [ -1, %4 ], [ -1, %14 ], [ %19, %16 ], [ -1, %20 ]
+  %.0475 = phi i32 [ %19, %16 ], [ %310, %.critedge ], [ -1, %4 ], [ %217, %213 ], [ -1, %14 ], [ -1, %20 ]
   ret i32 %.0475
 }
 
@@ -13615,8 +13615,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader686, %.lr.ph.i, %138, %143, %91
-  %.1562.be = phi ptr [ %64, %91 ], [ %.10571, %143 ], [ %.10571, %138 ], [ %.10571, %.lr.ph.i ], [ %.10571, %.preheader686 ]
-  %.1.be = phi ptr [ %87, %91 ], [ %102, %143 ], [ %102, %138 ], [ %102, %.lr.ph.i ], [ %102, %.preheader686 ]
+  %.1562.be = phi ptr [ %64, %91 ], [ %.10571, %143 ], [ %.10571, %.lr.ph.i ], [ %.10571, %138 ], [ %.10571, %.preheader686 ]
+  %.1.be = phi ptr [ %87, %91 ], [ %102, %143 ], [ %102, %.lr.ph.i ], [ %102, %138 ], [ %102, %.preheader686 ]
   br label %27, !llvm.loop !14
 
 99:                                               ; preds = %82, %88
@@ -13926,8 +13926,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond660.not, label %239, label %.critedge
 
 239:                                              ; preds = %233, %.loopexit684
-  %.17 = phi ptr [ %.11572, %.loopexit684 ], [ %230, %233 ]
-  %.7500 = phi i64 [ %.4497, %.loopexit684 ], [ %235, %233 ]
+  %.17 = phi ptr [ %230, %233 ], [ %.11572, %.loopexit684 ]
+  %.7500 = phi i64 [ %235, %233 ], [ %.4497, %.loopexit684 ]
   %240 = add nuw nsw i64 %.7500, 4
   br label %.loopexit694
 
@@ -13978,8 +13978,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %258, label %300, label %.preheader682, !llvm.loop !16
 
 .preheader682:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674, %18, %.loopexit
-  %.0561.ph = phi ptr [ %.9570, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674 ], [ %.9570, %.loopexit ], [ %0, %18 ]
-  %.0480.ph = phi ptr [ %243, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674 ], [ %251, %.loopexit ], [ %1, %18 ]
+  %.0561.ph = phi ptr [ %.9570, %.loopexit ], [ %.9570, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674 ], [ %0, %18 ]
+  %.0480.ph = phi ptr [ %251, %.loopexit ], [ %243, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674 ], [ %1, %18 ]
   %259 = getelementptr inbounds nuw i8, ptr %.0561.ph, i64 1
   %260 = load i8, ptr %.0561.ph, align 1
   %261 = zext i8 %260 to i32
@@ -14059,7 +14059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674: 
   br label %307
 
 .critedge:                                        ; preds = %34, %99, %77, %69, %.loopexit690, %.preheader742, %._crit_edge, %204, %.loopexit694, %233, %.loopexit681
-  %.4565 = phi ptr [ %230, %233 ], [ %.9570, %.loopexit694 ], [ %185, %.loopexit681 ], [ %.5566, %204 ], [ %.lcssa704, %._crit_edge ], [ %71, %.preheader742 ], [ %28, %34 ], [ %.10571, %99 ], [ %71, %77 ], [ %64, %69 ], [ %37, %.loopexit690 ]
+  %.4565 = phi ptr [ %230, %233 ], [ %185, %.loopexit681 ], [ %.9570, %.loopexit694 ], [ %.5566, %204 ], [ %.lcssa704, %._crit_edge ], [ %71, %.preheader742 ], [ %.10571, %99 ], [ %37, %.loopexit690 ], [ %64, %69 ], [ %71, %77 ], [ %28, %34 ]
   %303 = ptrtoint ptr %.4565 to i64
   %304 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %304, %303
@@ -14068,7 +14068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit674: 
   br label %307
 
 307:                                              ; preds = %16, %7, %5, %.critedge, %300
-  %.0478 = phi i32 [ %306, %.critedge ], [ %302, %300 ], [ -1, %5 ], [ 0, %7 ], [ -1, %16 ]
+  %.0478 = phi i32 [ 0, %7 ], [ -1, %5 ], [ %306, %.critedge ], [ %302, %300 ], [ -1, %16 ]
   ret i32 %.0478
 }
 
@@ -14226,8 +14226,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader646, %.lr.ph.i, %119, %124, %76
-  %.1557.be = phi ptr [ %58, %76 ], [ %.10566637, %124 ], [ %.10566637, %119 ], [ %.10566637, %.lr.ph.i ], [ %65, %.preheader646 ]
-  %.1.be = phi ptr [ %74, %76 ], [ %.ptr, %124 ], [ %.ptr, %119 ], [ %.ptr, %.lr.ph.i ], [ %71, %.preheader646 ]
+  %.1557.be = phi ptr [ %58, %76 ], [ %.10566637, %124 ], [ %.10566637, %.lr.ph.i ], [ %.10566637, %119 ], [ %65, %.preheader646 ]
+  %.1.be = phi ptr [ %74, %76 ], [ %.ptr, %124 ], [ %.ptr, %.lr.ph.i ], [ %.ptr, %119 ], [ %71, %.preheader646 ]
   br label %24, !llvm.loop !14
 
 84:                                               ; preds = %68
@@ -14419,8 +14419,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %171
 
 171:                                              ; preds = %168, %._crit_edge
-  %.12568 = phi ptr [ %165, %168 ], [ %.lcssa663, %._crit_edge ]
-  %.5492 = phi i64 [ %170, %168 ], [ %.lcssa657, %._crit_edge ]
+  %.12568 = phi ptr [ %.lcssa663, %._crit_edge ], [ %165, %168 ]
+  %.5492 = phi i64 [ %.lcssa657, %._crit_edge ], [ %170, %168 ]
   %172 = getelementptr inbounds nuw i8, ptr %.0475.lcssa, i64 %.5492
   br label %.loopexit652
 
@@ -14492,8 +14492,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit627: 
   br label %201
 
 201:                                              ; preds = %198, %.loopexit
-  %.17 = phi ptr [ %195, %198 ], [ %.11567, %.loopexit ]
-  %.7494 = phi i64 [ %200, %198 ], [ %.4491, %.loopexit ]
+  %.17 = phi ptr [ %.11567, %.loopexit ], [ %195, %198 ]
+  %.7494 = phi i64 [ %.4491, %.loopexit ], [ %200, %198 ]
   %202 = add nuw nsw i64 %.7494, 4
   br label %.loopexit653
 
@@ -14626,7 +14626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
   br label %268
 
 268:                                              ; preds = %3, %263, %175, %11
-  %.0474 = phi i32 [ %14, %11 ], [ %267, %263 ], [ %180, %175 ], [ -1, %3 ]
+  %.0474 = phi i32 [ %14, %11 ], [ %180, %175 ], [ %267, %263 ], [ -1, %3 ]
   ret i32 %.0474
 }
 
@@ -14804,8 +14804,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit
   %narrow = add nuw nsw i32 %70, 4
   %89 = zext nneg i32 %narrow to i64
-  %.3.add622 = add nsw i64 %.3.idx, %89
-  %.not = icmp slt i64 %.3.add622, %27
+  %.3.add623 = add nsw i64 %.3.idx, %89
+  %.not = icmp slt i64 %.3.add623, %27
   br i1 %.not, label %90, label %.loopexit700
 
 90:                                               ; preds = %88
@@ -14826,8 +14826,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader692, %.lr.ph.i, %137, %142, %91
-  %.1558.be = phi ptr [ %69, %91 ], [ %.10567, %142 ], [ %.10567, %137 ], [ %.10567, %.lr.ph.i ], [ %.10567, %.preheader692 ]
-  %.1.idx.be = phi i64 [ %.3.add622, %91 ], [ %.3.add623, %142 ], [ %.3.add623, %137 ], [ %.3.add623, %.lr.ph.i ], [ %.3.add623, %.preheader692 ]
+  %.1558.be = phi ptr [ %69, %91 ], [ %.10567, %142 ], [ %.10567, %.lr.ph.i ], [ %.10567, %137 ], [ %.10567, %.preheader692 ]
+  %.1.idx.be = phi i64 [ %.3.add623, %91 ], [ %.3.add622, %142 ], [ %.3.add622, %.lr.ph.i ], [ %.3.add622, %137 ], [ %.3.add622, %.preheader692 ]
   br label %34, !llvm.loop !14
 
 99:                                               ; preds = %85, %90
@@ -14837,8 +14837,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %100, label %.critedge, label %101
 
 101:                                              ; preds = %99
-  %.3.add623 = add nsw i64 %.2491, %.3.idx
-  %.ptr627 = getelementptr inbounds i8, ptr %1, i64 %.3.add623
+  %.3.add622 = add nsw i64 %.2491, %.3.idx
+  %.ptr626 = getelementptr inbounds i8, ptr %1, i64 %.3.add622
   %102 = icmp ult i16 %.6563.val, 16
   br i1 %102, label %103, label %.preheader692
 
@@ -14918,7 +14918,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   store i64 %138, ptr %.0.i.i.i, align 1
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
-  %141 = icmp ult ptr %139, %.ptr627
+  %141 = icmp ult ptr %139, %.ptr626
   br i1 %141, label %137, label %.backedge, !llvm.loop !6
 
 142:                                              ; preds = %108, %107, %104
@@ -14940,7 +14940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.pn28.i, i64 12
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx3.i, align 1
   %.0.i673 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
-  %144 = icmp ult ptr %.0.i673, %.ptr627
+  %144 = icmp ult ptr %.0.i673, %.ptr626
   br i1 %144, label %.lr.ph.i, label %.backedge, !llvm.loop !15
 
 .preheader692:                                    ; preds = %101, %.preheader692
@@ -14952,7 +14952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %145, ptr noundef nonnull align 1 dereferenceable(16) %146, i64 16, i1 false)
   %147 = getelementptr inbounds nuw i8, ptr %.0.i675, i64 32
   %148 = getelementptr inbounds nuw i8, ptr %.011.i674, i64 32
-  %149 = icmp ult ptr %147, %.ptr627
+  %149 = icmp ult ptr %147, %.ptr626
   br i1 %149, label %.preheader692, label %.backedge, !llvm.loop !13
 
 150:                                              ; preds = %.lr.ph, %165
@@ -14960,7 +14960,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %151 = phi i32 [ %31, %.lr.ph ], [ %176, %165 ]
   %152 = phi ptr [ %29, %.lr.ph ], [ %174, %165 ]
   %.0476.ptr742 = phi ptr [ %.0476.ptr739, %.lr.ph ], [ %.0476.ptr, %165 ]
-  %.0476.idx741 = phi i64 [ %.0476.idx.ph, %.lr.ph ], [ %.add637, %165 ]
+  %.0476.idx741 = phi i64 [ %.0476.idx.ph, %.lr.ph ], [ %.add638, %165 ]
   %153 = zext nneg i32 %.in to i64
   %154 = icmp ult ptr %152, %10
   %155 = icmp sle i64 %.0476.idx741, %33
@@ -14983,21 +14983,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %or.cond7, label %165, label %.loopexit690
 
 165:                                              ; preds = %157
-  %.ptr641 = getelementptr inbounds i8, ptr %1, i64 %.add
-  %.ptr640 = getelementptr inbounds i8, ptr %1, i64 %.0476.add
-  %166 = load i64, ptr %.ptr641, align 1
-  store i64 %166, ptr %.ptr640, align 1
-  %167 = getelementptr inbounds nuw i8, ptr %.ptr640, i64 8
-  %168 = getelementptr inbounds nuw i8, ptr %.ptr641, i64 8
+  %.ptr640 = getelementptr inbounds i8, ptr %1, i64 %.add
+  %.ptr639 = getelementptr inbounds i8, ptr %1, i64 %.0476.add
+  %166 = load i64, ptr %.ptr640, align 1
+  store i64 %166, ptr %.ptr639, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %.ptr639, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %.ptr640, i64 8
   %169 = load i64, ptr %168, align 1
   store i64 %169, ptr %167, align 1
-  %170 = getelementptr inbounds nuw i8, ptr %.ptr640, i64 16
-  %171 = getelementptr inbounds nuw i8, ptr %.ptr641, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.ptr639, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %.ptr640, i64 16
   %172 = load i16, ptr %171, align 1
   store i16 %172, ptr %170, align 1
   %173 = add nuw nsw i64 %160, 4
-  %.add637 = add nsw i64 %173, %.0476.add
-  %.0476.ptr = getelementptr inbounds i8, ptr %1, i64 %.add637
+  %.add638 = add nsw i64 %173, %.0476.add
+  %.0476.ptr = getelementptr inbounds i8, ptr %1, i64 %.add638
   %174 = getelementptr inbounds nuw i8, ptr %158, i64 3
   %175 = load i8, ptr %162, align 1
   %176 = zext i8 %175 to i32
@@ -15006,7 +15006,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %cond, label %._crit_edge, label %150, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %165, %.preheader688
-  %.0476.idx.lcssa = phi i64 [ %.0476.idx.ph, %.preheader688 ], [ %.add637, %165 ]
+  %.0476.idx.lcssa = phi i64 [ %.0476.idx.ph, %.preheader688 ], [ %.add638, %165 ]
   %.0476.ptr.lcssa = phi ptr [ %.0476.ptr739, %.preheader688 ], [ %.0476.ptr, %165 ]
   %.lcssa710 = phi ptr [ %29, %.preheader688 ], [ %174, %165 ]
   %.lcssa707 = phi i32 [ %31, %.preheader688 ], [ %176, %165 ]
@@ -15044,14 +15044,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   %193 = phi i32 [ %.lcssa707, %.loopexit ], [ %151, %150 ]
   %.12569 = phi ptr [ %181, %.loopexit ], [ %152, %150 ]
   %.5494 = phi i64 [ %185, %.loopexit ], [ %153, %150 ]
-  %.0476.add638 = add nsw i64 %.5494, %.0476.idx718
+  %.0476.add637 = add nsw i64 %.5494, %.0476.idx718
   br label %.loopexit698
 
 .loopexit698:                                     ; preds = %64, %55, %.loopexit689
   %.5562 = phi ptr [ %.12569, %.loopexit689 ], [ %35, %64 ], [ %44, %55 ]
   %.0489 = phi i64 [ %.5494, %.loopexit689 ], [ %39, %64 ], [ %48, %55 ]
   %.0488 = phi i32 [ %193, %.loopexit689 ], [ %37, %55 ], [ %37, %64 ]
-  %.0477.idx = phi i64 [ %.0476.add638, %.loopexit689 ], [ %.1.add, %64 ], [ %.1.add621, %55 ]
+  %.0477.idx = phi i64 [ %.0476.add637, %.loopexit689 ], [ %.1.add, %64 ], [ %.1.add621, %55 ]
   %.2 = phi ptr [ %.0476.ptr715, %.loopexit689 ], [ %.1.ptr, %55 ], [ %.1.ptr, %64 ]
   %.0477.ptr = getelementptr inbounds i8, ptr %1, i64 %.0477.idx
   %194 = add nsw i64 %9, -12
@@ -15131,8 +15131,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond668.not, label %229, label %.critedge
 
 229:                                              ; preds = %223, %.loopexit690
-  %.17 = phi ptr [ %.11568, %.loopexit690 ], [ %220, %223 ]
-  %.7496 = phi i64 [ %.4493, %.loopexit690 ], [ %225, %223 ]
+  %.17 = phi ptr [ %220, %223 ], [ %.11568, %.loopexit690 ]
+  %.7496 = phi i64 [ %225, %223 ], [ %.4493, %.loopexit690 ]
   %230 = add nuw nsw i64 %.7496, 4
   br label %.loopexit700
 
@@ -15149,7 +15149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 232:                                              ; preds = %.loopexit700
   %.4.add = add nsw i64 %.4.idx, %.1490
-  %.ptr642 = getelementptr inbounds i8, ptr %1, i64 %.4.add
+  %.ptr643 = getelementptr inbounds i8, ptr %1, i64 %.4.add
   %233 = icmp ult i64 %.0486, 8
   br i1 %233, label %234, label %256
 
@@ -15226,7 +15226,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680: 
 276:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680, %268
   %.4484 = phi ptr [ %275, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680 ], [ %.3483, %268 ]
   %.13 = phi ptr [ %265, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680 ], [ %260, %268 ]
-  %277 = icmp ult ptr %.13, %.ptr642
+  %277 = icmp ult ptr %.13, %.ptr643
   br i1 %277, label %.lr.ph749, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683
 
 .lr.ph749:                                        ; preds = %276, %.lr.ph749
@@ -15236,7 +15236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680: 
   %279 = load i8, ptr %.5485746, align 1
   %280 = getelementptr inbounds nuw i8, ptr %.14747, i64 1
   store i8 %279, ptr %.14747, align 1
-  %281 = icmp ult ptr %280, %.ptr642
+  %281 = icmp ult ptr %280, %.ptr643
   br i1 %281, label %.lr.ph749, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683, !llvm.loop !17
 
 282:                                              ; preds = %259
@@ -15256,14 +15256,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit680: 
   %288 = load i64, ptr %.09.i681, align 1
   store i64 %288, ptr %.0.i682, align 1
   %289 = getelementptr inbounds nuw i8, ptr %.0.i682, i64 8
-  %290 = icmp ult ptr %289, %.ptr642
+  %290 = icmp ult ptr %289, %.ptr643
   br i1 %290, label %287, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683, !llvm.loop !6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683: ; preds = %287, %.lr.ph749, %276, %282
   br label %.preheader688, !llvm.loop !16
 
 .critedge:                                        ; preds = %41, %99, %80, %72, %.loopexit696, %.preheader753, %._crit_edge, %263, %.loopexit700, %223, %199, %.loopexit
-  %.4561 = phi ptr [ %220, %223 ], [ %.9566, %.loopexit700 ], [ %.9566, %263 ], [ %181, %.loopexit ], [ %.5562, %199 ], [ %.lcssa710, %._crit_edge ], [ %74, %.preheader753 ], [ %35, %41 ], [ %.10567, %99 ], [ %74, %80 ], [ %69, %72 ], [ %44, %.loopexit696 ]
+  %.4561 = phi ptr [ %220, %223 ], [ %.5562, %199 ], [ %.9566, %.loopexit700 ], [ %.9566, %263 ], [ %181, %.loopexit ], [ %.lcssa710, %._crit_edge ], [ %74, %.preheader753 ], [ %.10567, %99 ], [ %44, %.loopexit696 ], [ %69, %72 ], [ %74, %80 ], [ %35, %41 ]
   %291 = ptrtoint ptr %.4561 to i64
   %292 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %292, %291
@@ -15272,7 +15272,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683: 
   br label %295
 
 295:                                              ; preds = %18, %12, %14, %4, %.critedge, %201
-  %.0475 = phi i32 [ %294, %.critedge ], [ %205, %201 ], [ -1, %4 ], [ -1, %12 ], [ %17, %14 ], [ -1, %18 ]
+  %.0475 = phi i32 [ %17, %14 ], [ %294, %.critedge ], [ -1, %4 ], [ %205, %201 ], [ -1, %12 ], [ -1, %18 ]
   ret i32 %.0475
 }
 
@@ -15480,8 +15480,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader699, %.lr.ph.i, %177, %.lr.ph, %182, %124, %140, %.preheader696, %106
-  %.1560.be = phi ptr [ %78, %106 ], [ %.10569, %.preheader696 ], [ %.10569, %140 ], [ %.10569, %124 ], [ %.10569, %182 ], [ %.10569, %.lr.ph ], [ %.10569, %177 ], [ %.10569, %.lr.ph.i ], [ %.10569, %.preheader699 ]
-  %.1.be = phi ptr [ %102, %106 ], [ %131, %.preheader696 ], [ %118, %140 ], [ %118, %124 ], [ %118, %182 ], [ %138, %.lr.ph ], [ %118, %177 ], [ %118, %.lr.ph.i ], [ %118, %.preheader699 ]
+  %.1560.be = phi ptr [ %78, %106 ], [ %.10569, %124 ], [ %.10569, %.preheader696 ], [ %.10569, %140 ], [ %.10569, %182 ], [ %.10569, %.lr.ph.i ], [ %.10569, %.lr.ph ], [ %.10569, %177 ], [ %.10569, %.preheader699 ]
+  %.1.be = phi ptr [ %102, %106 ], [ %118, %124 ], [ %131, %.preheader696 ], [ %118, %140 ], [ %118, %182 ], [ %118, %.lr.ph.i ], [ %138, %.lr.ph ], [ %118, %177 ], [ %118, %.preheader699 ]
   br label %41, !llvm.loop !14
 
 ._crit_edge814:                                   ; preds = %103, %97
@@ -15831,8 +15831,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond666.not, label %275, label %.critedge
 
 275:                                              ; preds = %269, %.loopexit695
-  %.17 = phi ptr [ %.11570, %.loopexit695 ], [ %266, %269 ]
-  %.7498 = phi i64 [ %.4495, %.loopexit695 ], [ %271, %269 ]
+  %.17 = phi ptr [ %266, %269 ], [ %.11570, %.loopexit695 ]
+  %.7498 = phi i64 [ %271, %269 ], [ %.4495, %.loopexit695 ]
   %276 = add nuw nsw i64 %.7498, 4
   br label %.loopexit707
 
@@ -16012,7 +16012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683: 
   br label %.preheader693, !llvm.loop !16
 
 .critedge:                                        ; preds = %48, %119, %._crit_edge814, %83, %92, %.loopexit703, %.preheader766, %._crit_edge, %282, %.loopexit707, %335, %269, %243, %.loopexit692
-  %.4563 = phi ptr [ %266, %269 ], [ %.9568, %335 ], [ %224, %.loopexit692 ], [ %.5564, %243 ], [ %.9568, %.loopexit707 ], [ %.9568, %282 ], [ %.lcssa717, %._crit_edge ], [ %86, %.preheader766 ], [ %42, %48 ], [ %.10569, %119 ], [ %.10569, %._crit_edge814 ], [ %78, %83 ], [ %86, %92 ], [ %51, %.loopexit703 ]
+  %.4563 = phi ptr [ %266, %269 ], [ %.9568, %282 ], [ %.9568, %.loopexit707 ], [ %.9568, %335 ], [ %224, %.loopexit692 ], [ %.5564, %243 ], [ %.lcssa717, %._crit_edge ], [ %86, %.preheader766 ], [ %78, %83 ], [ %86, %92 ], [ %.10569, %119 ], [ %.10569, %._crit_edge814 ], [ %51, %.loopexit703 ], [ %42, %48 ]
   %364 = ptrtoint ptr %.4563 to i64
   %365 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %365, %364
@@ -16021,7 +16021,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit683: 
   br label %368
 
 368:                                              ; preds = %26, %20, %22, %6, %.critedge, %245
-  %.0476 = phi i32 [ %367, %.critedge ], [ %249, %245 ], [ -1, %6 ], [ -1, %20 ], [ %25, %22 ], [ -1, %26 ]
+  %.0476 = phi i32 [ %25, %22 ], [ %367, %.critedge ], [ -1, %6 ], [ %249, %245 ], [ -1, %20 ], [ -1, %26 ]
   ret i32 %.0476
 }
 
@@ -16313,8 +16313,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader766, %.lr.ph, %171, %152, %168, %.preheader764, %134
-  %.1623.be = phi ptr [ %106, %134 ], [ %.10632, %.preheader764 ], [ %.10632, %168 ], [ %.10632, %152 ], [ %.10632, %171 ], [ %.10632, %.lr.ph ], [ %.10632, %.preheader766 ]
-  %.1540.be = phi ptr [ %130, %134 ], [ %159, %.preheader764 ], [ %146, %168 ], [ %146, %152 ], [ %146, %171 ], [ %166, %.lr.ph ], [ %146, %.preheader766 ]
+  %.1623.be = phi ptr [ %106, %134 ], [ %.10632, %152 ], [ %.10632, %.preheader764 ], [ %.10632, %168 ], [ %.10632, %171 ], [ %.10632, %.lr.ph ], [ %.10632, %.preheader766 ]
+  %.1540.be = phi ptr [ %130, %134 ], [ %146, %152 ], [ %159, %.preheader764 ], [ %146, %168 ], [ %146, %171 ], [ %166, %.lr.ph ], [ %146, %.preheader766 ]
   br label %69, !llvm.loop !14
 
 ._crit_edge878:                                   ; preds = %131, %125
@@ -16567,8 +16567,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond734.not, label %262, label %.critedge
 
 262:                                              ; preds = %256, %.loopexit763
-  %.17 = phi ptr [ %.11633, %.loopexit763 ], [ %253, %256 ]
-  %.7559 = phi i64 [ %.4556, %.loopexit763 ], [ %258, %256 ]
+  %.17 = phi ptr [ %253, %256 ], [ %.11633, %.loopexit763 ]
+  %.7559 = phi i64 [ %258, %256 ], [ %.4556, %.loopexit763 ]
   %263 = add nuw nsw i64 %.7559, 4
   br label %.loopexit773
 
@@ -16749,7 +16749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit750: 
   br label %.preheader761, !llvm.loop !16
 
 .critedge:                                        ; preds = %76, %147, %._crit_edge878, %111, %120, %.loopexit769, %.preheader830, %._crit_edge, %269, %.loopexit773, %323, %256, %230, %.loopexit760
-  %.4626 = phi ptr [ %253, %256 ], [ %.9631, %323 ], [ %211, %.loopexit760 ], [ %.5627, %230 ], [ %.9631, %.loopexit773 ], [ %.9631, %269 ], [ %.lcssa783, %._crit_edge ], [ %114, %.preheader830 ], [ %70, %76 ], [ %.10632, %147 ], [ %.10632, %._crit_edge878 ], [ %106, %111 ], [ %114, %120 ], [ %79, %.loopexit769 ]
+  %.4626 = phi ptr [ %253, %256 ], [ %.9631, %269 ], [ %.9631, %.loopexit773 ], [ %.9631, %323 ], [ %211, %.loopexit760 ], [ %.5627, %230 ], [ %.lcssa783, %._crit_edge ], [ %114, %.preheader830 ], [ %106, %111 ], [ %114, %120 ], [ %.10632, %147 ], [ %.10632, %._crit_edge878 ], [ %79, %.loopexit769 ], [ %70, %76 ]
   %352 = ptrtoint ptr %.4626 to i64
   %353 = ptrtoint ptr %1 to i64
   %.neg = sub i64 %353, %352
@@ -16758,7 +16758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit750: 
   br label %356
 
 356:                                              ; preds = %232, %.critedge, %28, %22
-  %.1 = phi i32 [ %23, %22 ], [ %29, %28 ], [ %355, %.critedge ], [ %236, %232 ]
+  %.1 = phi i32 [ %23, %22 ], [ %29, %28 ], [ %236, %232 ], [ %355, %.critedge ]
   %357 = icmp slt i32 %.1, 1
   br i1 %357, label %.thread, label %358
 
@@ -16789,8 +16789,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit750: 
   store ptr %372, ptr %17, align 8
   br label %.thread
 
-.thread:                                          ; preds = %53, %49, %47, %30, %12, %370, %358, %364, %356, %9
-  %.0535 = phi i32 [ %10, %9 ], [ %.1, %356 ], [ %368, %364 ], [ %10, %12 ], [ %.1, %358 ], [ %368, %370 ], [ -1, %53 ], [ %52, %49 ], [ -1, %47 ], [ -1, %30 ]
+.thread:                                          ; preds = %53, %47, %30, %49, %12, %370, %358, %364, %356, %9
+  %.0535 = phi i32 [ %.1, %356 ], [ %368, %364 ], [ %10, %9 ], [ %10, %12 ], [ %.1, %358 ], [ %368, %370 ], [ -1, %53 ], [ -1, %47 ], [ -1, %30 ], [ %52, %49 ]
   ret i32 %.0535
 }
 
@@ -16987,8 +16987,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader683, %.lr.ph.i, %148, %153, %101
-  %.1559.be = phi ptr [ %74, %101 ], [ %.10568, %153 ], [ %.10568, %148 ], [ %.10568, %.lr.ph.i ], [ %.10568, %.preheader683 ]
-  %.1.be = phi ptr [ %97, %101 ], [ %112, %153 ], [ %112, %148 ], [ %112, %.lr.ph.i ], [ %112, %.preheader683 ]
+  %.1559.be = phi ptr [ %74, %101 ], [ %.10568, %153 ], [ %.10568, %.lr.ph.i ], [ %.10568, %148 ], [ %.10568, %.preheader683 ]
+  %.1.be = phi ptr [ %97, %101 ], [ %112, %153 ], [ %112, %.lr.ph.i ], [ %112, %148 ], [ %112, %.preheader683 ]
   br label %37, !llvm.loop !14
 
 109:                                              ; preds = %92, %98
@@ -17287,8 +17287,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %or.cond656.not, label %246, label %.critedge
 
 246:                                              ; preds = %240, %.loopexit681
-  %.17 = phi ptr [ %.11569, %.loopexit681 ], [ %237, %240 ]
-  %.7497 = phi i64 [ %.4494, %.loopexit681 ], [ %242, %240 ]
+  %.17 = phi ptr [ %237, %240 ], [ %.11569, %.loopexit681 ]
+  %.7497 = phi i64 [ %242, %240 ], [ %.4494, %.loopexit681 ]
   %247 = add nuw nsw i64 %.7497, 4
   br label %.loopexit691
 
@@ -17416,7 +17416,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit671: 
   br label %.preheader679, !llvm.loop !16
 
 .critedge:                                        ; preds = %44, %109, %87, %79, %.loopexit687, %.preheader741, %._crit_edge, %281, %.loopexit691, %240, %214, %.loopexit
-  %.4562 = phi ptr [ %237, %240 ], [ %.9567, %.loopexit691 ], [ %.9567, %281 ], [ %195, %.loopexit ], [ %.5563, %214 ], [ %.lcssa701, %._crit_edge ], [ %81, %.preheader741 ], [ %38, %44 ], [ %.10568, %109 ], [ %81, %87 ], [ %74, %79 ], [ %47, %.loopexit687 ]
+  %.4562 = phi ptr [ %237, %240 ], [ %.5563, %214 ], [ %.9567, %.loopexit691 ], [ %.9567, %281 ], [ %195, %.loopexit ], [ %.lcssa701, %._crit_edge ], [ %81, %.preheader741 ], [ %.10568, %109 ], [ %47, %.loopexit687 ], [ %74, %79 ], [ %81, %87 ], [ %38, %44 ]
   %310 = ptrtoint ptr %.4562 to i64
   %311 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %311, %310
@@ -17425,7 +17425,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit671: 
   br label %314
 
 314:                                              ; preds = %23, %17, %19, %5, %.critedge, %216
-  %.0475 = phi i32 [ %313, %.critedge ], [ %220, %216 ], [ -1, %5 ], [ -1, %17 ], [ %22, %19 ], [ -1, %23 ]
+  %.0475 = phi i32 [ %22, %19 ], [ %313, %.critedge ], [ -1, %5 ], [ %220, %216 ], [ -1, %17 ], [ -1, %23 ]
   ret i32 %.0475
 }
 
@@ -17631,8 +17631,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader719, %.lr.ph.i, %178, %.lr.ph, %183, %125, %141, %.preheader716, %109
-  %.1613.be = phi ptr [ %89, %109 ], [ %.10622, %.preheader716 ], [ %.10622, %141 ], [ %.10622, %125 ], [ %.10622, %183 ], [ %.10622, %.lr.ph ], [ %.10622, %178 ], [ %.10622, %.lr.ph.i ], [ %.10622, %.preheader719 ]
-  %.1530.be = phi ptr [ %105, %109 ], [ %132, %.preheader716 ], [ %119, %141 ], [ %119, %125 ], [ %119, %183 ], [ %139, %.lr.ph ], [ %119, %178 ], [ %119, %.lr.ph.i ], [ %119, %.preheader719 ]
+  %.1613.be = phi ptr [ %89, %109 ], [ %.10622, %125 ], [ %.10622, %.preheader716 ], [ %.10622, %141 ], [ %.10622, %183 ], [ %.10622, %.lr.ph.i ], [ %.10622, %.lr.ph ], [ %.10622, %178 ], [ %.10622, %.preheader719 ]
+  %.1530.be = phi ptr [ %105, %109 ], [ %119, %125 ], [ %132, %.preheader716 ], [ %119, %141 ], [ %119, %183 ], [ %119, %.lr.ph.i ], [ %139, %.lr.ph ], [ %119, %178 ], [ %119, %.preheader719 ]
   br label %55, !llvm.loop !14
 
 117:                                              ; preds = %106, %99
@@ -17875,8 +17875,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %230
 
 230:                                              ; preds = %227, %._crit_edge
-  %.12624 = phi ptr [ %224, %227 ], [ %.lcssa737, %._crit_edge ]
-  %.5547 = phi i64 [ %229, %227 ], [ %.lcssa731, %._crit_edge ]
+  %.12624 = phi ptr [ %.lcssa737, %._crit_edge ], [ %224, %227 ]
+  %.5547 = phi i64 [ %.lcssa731, %._crit_edge ], [ %229, %227 ]
   %231 = getelementptr inbounds nuw i8, ptr %.0529.lcssa, i64 %.5547
   br label %.loopexit725
 
@@ -17948,8 +17948,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit695: 
   br label %260
 
 260:                                              ; preds = %257, %.loopexit715
-  %.17 = phi ptr [ %254, %257 ], [ %.11623, %.loopexit715 ]
-  %.7549 = phi i64 [ %259, %257 ], [ %.4546, %.loopexit715 ]
+  %.17 = phi ptr [ %.11623, %.loopexit715 ], [ %254, %257 ]
+  %.7549 = phi i64 [ %.4546, %.loopexit715 ], [ %259, %257 ]
   %261 = add nuw nsw i64 %.7549, 4
   br label %.loopexit726
 
@@ -18133,7 +18133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit701: 
   br label %351
 
 351:                                              ; preds = %234, %.loopexit727, %25
-  %.1 = phi i32 [ %26, %25 ], [ %350, %.loopexit727 ], [ %239, %234 ]
+  %.1 = phi i32 [ %26, %25 ], [ %239, %234 ], [ %350, %.loopexit727 ]
   %352 = icmp slt i32 %.1, 1
   br i1 %352, label %.thread, label %..thread703_crit_edge
 
@@ -18172,7 +18172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit701: 
   br label %.thread
 
 .thread:                                          ; preds = %27, %41, %11, %363, %.thread703, %357, %351, %8
-  %.0524 = phi i32 [ %9, %8 ], [ %.1, %351 ], [ %361, %357 ], [ %9, %11 ], [ %.1705, %.thread703 ], [ %361, %363 ], [ -1, %41 ], [ -1, %27 ]
+  %.0524 = phi i32 [ %.1, %351 ], [ %361, %357 ], [ %9, %8 ], [ %9, %11 ], [ %.1705, %.thread703 ], [ %361, %363 ], [ -1, %41 ], [ -1, %27 ]
   ret i32 %.0524
 }
 
@@ -18337,8 +18337,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.preheader653, %.lr.ph.i, %154, %.lr.ph, %159, %101, %117, %.preheader650, %85
-  %.1559.be = phi ptr [ %65, %85 ], [ %.10568, %.preheader650 ], [ %.10568, %117 ], [ %.10568, %101 ], [ %.10568, %159 ], [ %.10568, %.lr.ph ], [ %.10568, %154 ], [ %.10568, %.lr.ph.i ], [ %.10568, %.preheader653 ]
-  %.1.be = phi ptr [ %81, %85 ], [ %108, %.preheader650 ], [ %95, %117 ], [ %95, %101 ], [ %95, %159 ], [ %115, %.lr.ph ], [ %95, %154 ], [ %95, %.lr.ph.i ], [ %95, %.preheader653 ]
+  %.1559.be = phi ptr [ %65, %85 ], [ %.10568, %101 ], [ %.10568, %.preheader650 ], [ %.10568, %117 ], [ %.10568, %159 ], [ %.10568, %.lr.ph.i ], [ %.10568, %.lr.ph ], [ %.10568, %154 ], [ %.10568, %.preheader653 ]
+  %.1.be = phi ptr [ %81, %85 ], [ %95, %101 ], [ %108, %.preheader650 ], [ %95, %117 ], [ %95, %159 ], [ %95, %.lr.ph.i ], [ %115, %.lr.ph ], [ %95, %154 ], [ %95, %.preheader653 ]
   br label %31, !llvm.loop !14
 
 93:                                               ; preds = %82, %75
@@ -18581,8 +18581,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %206
 
 206:                                              ; preds = %203, %._crit_edge
-  %.12570 = phi ptr [ %200, %203 ], [ %.lcssa671, %._crit_edge ]
-  %.5495 = phi i64 [ %205, %203 ], [ %.lcssa665, %._crit_edge ]
+  %.12570 = phi ptr [ %.lcssa671, %._crit_edge ], [ %200, %203 ]
+  %.5495 = phi i64 [ %.lcssa665, %._crit_edge ], [ %205, %203 ]
   %207 = getelementptr inbounds nuw i8, ptr %.0477.lcssa, i64 %.5495
   br label %.loopexit659
 
@@ -18654,8 +18654,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
   br label %236
 
 236:                                              ; preds = %233, %.loopexit649
-  %.17 = phi ptr [ %230, %233 ], [ %.11569, %.loopexit649 ]
-  %.7497 = phi i64 [ %235, %233 ], [ %.4494, %.loopexit649 ]
+  %.17 = phi ptr [ %.11569, %.loopexit649 ], [ %230, %233 ]
+  %.7497 = phi i64 [ %.4494, %.loopexit649 ], [ %235, %233 ]
   %237 = add nuw nsw i64 %.7497, 4
   br label %.loopexit660
 
@@ -18838,7 +18838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit639: 
   br label %326
 
 326:                                              ; preds = %5, %.loopexit661, %210, %16
-  %.0475 = phi i32 [ %19, %16 ], [ %325, %.loopexit661 ], [ %215, %210 ], [ -1, %5 ]
+  %.0475 = phi i32 [ %19, %16 ], [ %215, %210 ], [ %325, %.loopexit661 ], [ -1, %5 ]
   ret i32 %.0475
 }
 

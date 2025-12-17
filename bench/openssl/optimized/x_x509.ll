@@ -245,7 +245,7 @@ define ptr @d2i_X509_AUX(ptr noundef %0, ptr noundef captures(none) %1, i64 noun
   br label %27
 
 27:                                               ; preds = %24, %26, %25, %.split, %22
-  %.017 = phi ptr [ %10, %22 ], [ null, %.split ], [ null, %25 ], [ null, %26 ], [ null, %24 ]
+  %.017 = phi ptr [ null, %.split ], [ %10, %22 ], [ null, %25 ], [ null, %26 ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.017
 }
@@ -362,7 +362,7 @@ i2d_x509_aux_internal.exit32:                     ; preds = %39
   br label %i2d_x509_aux_internal.exit
 
 i2d_x509_aux_internal.exit:                       ; preds = %8, %29, %i2d_x509_aux_internal.exit32.thread39, %24, %23, %.split18.i, %.split, %i2d_x509_aux_internal.exit32, %48, %35, %i2d_x509_aux_internal.exit24
-  %.0 = phi i32 [ %27, %i2d_x509_aux_internal.exit24 ], [ -1, %35 ], [ %.0.i3038, %48 ], [ %40, %i2d_x509_aux_internal.exit32 ], [ %6, %.split ], [ %25, %24 ], [ %16, %.split18.i ], [ %21, %23 ], [ %47, %i2d_x509_aux_internal.exit32.thread39 ], [ %32, %29 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ -1, %35 ], [ %spec.select, %8 ], [ %27, %i2d_x509_aux_internal.exit24 ], [ %40, %i2d_x509_aux_internal.exit32 ], [ %.0.i3038, %48 ], [ %32, %29 ], [ %6, %.split ], [ %25, %24 ], [ %16, %.split18.i ], [ %21, %23 ], [ %47, %i2d_x509_aux_internal.exit32.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

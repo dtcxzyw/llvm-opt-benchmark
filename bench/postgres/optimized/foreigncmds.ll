@@ -870,7 +870,7 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
   unreachable
 
 lookup_fdw_handler_func.exit:                     ; preds = %24, %28
-  %.0.i = phi i32 [ 0, %24 ], [ %29, %28 ]
+  %.0.i = phi i32 [ %29, %28 ], [ 0, %24 ]
   store i32 %.0.i, ptr %3, align 4
   br label %56
 
@@ -2001,7 +2001,7 @@ user_mapping_ddl_aclcheck.exit:                   ; preds = %64, %72, %.sink.spl
   br label %76
 
 76:                                               ; preds = %55, %60, %32, %34, %13, %15, %user_mapping_ddl_aclcheck.exit
-  %.0 = phi i32 [ %41, %user_mapping_ddl_aclcheck.exit ], [ 0, %15 ], [ 0, %13 ], [ 0, %34 ], [ 0, %32 ], [ 0, %60 ], [ 0, %55 ]
+  %.0 = phi i32 [ %41, %user_mapping_ddl_aclcheck.exit ], [ 0, %32 ], [ 0, %13 ], [ 0, %15 ], [ 0, %34 ], [ 0, %60 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2442,7 +2442,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %65, %64, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %66, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ %66, %65 ], [ 0, %64 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 

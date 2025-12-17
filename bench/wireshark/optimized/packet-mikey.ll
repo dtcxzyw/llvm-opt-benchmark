@@ -815,7 +815,7 @@ switch.lookup:                                    ; preds = %4
   br label %22
 
 22:                                               ; preds = %4, %20
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ %spec.select, %20 ], [ 0, %4 ]
   ret i32 %.0
 }
 

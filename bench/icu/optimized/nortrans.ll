@@ -537,7 +537,7 @@ define noundef ptr @_ZN6icu_7727NormalizationTransliterator7_createERKNS_13Unico
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2, %10, %13
-  %.0 = phi ptr [ null, %10 ], [ %11, %13 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %13 ], [ null, %10 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

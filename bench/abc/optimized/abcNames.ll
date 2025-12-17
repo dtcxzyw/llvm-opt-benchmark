@@ -965,7 +965,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr noundef readonly captures(
   br label %19
 
 19:                                               ; preds = %18, %12, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %11 ], [ -1, %12 ], [ %., %18 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %2 ], [ 1, %11 ], [ %., %18 ]
   ret i32 %.0
 }
 
@@ -1634,7 +1634,7 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(no
   br i1 %.not23, label %47, label %.loopexit
 
 .loopexit:                                        ; preds = %27, %51, %47, %.preheader, %12, %7, %2
-  %.020 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 1, %.preheader ], [ 0, %51 ], [ 1, %47 ], [ 0, %27 ]
+  %.020 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %12 ], [ 1, %.preheader ], [ 1, %47 ], [ 0, %51 ], [ 0, %27 ]
   ret i32 %.020
 }
 
@@ -3109,8 +3109,8 @@ Vec_IntPush.exit:
   br label %Vec_IntPush.exit58.sink.split
 
 Vec_IntPush.exit58.sink.split:                    ; preds = %40, %42, %32, %34
-  %.sink79 = phi ptr [ %33, %32 ], [ %35, %34 ], [ %41, %40 ], [ %43, %42 ]
-  %.sink = phi i32 [ 16, %32 ], [ 16, %34 ], [ %37, %40 ], [ %37, %42 ]
+  %.sink79 = phi ptr [ %35, %34 ], [ %33, %32 ], [ %41, %40 ], [ %43, %42 ]
+  %.sink = phi i32 [ 16, %34 ], [ 16, %32 ], [ %37, %40 ], [ %37, %42 ]
   store ptr %.sink79, ptr %12, align 8, !tbaa !90
   store i32 %.sink, ptr %9, align 8, !tbaa !89
   br label %Vec_IntPush.exit58

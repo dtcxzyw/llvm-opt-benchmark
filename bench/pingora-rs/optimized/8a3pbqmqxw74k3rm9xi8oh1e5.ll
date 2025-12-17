@@ -262,7 +262,7 @@ common.resume.i:                                  ; preds = %.body.i, %16
   br label %.body.i
 
 .body.i:                                          ; preds = %42, %34, %26, %22
-  %eh.lpad-body.i = phi { ptr, i32 } [ %23, %22 ], [ %27, %26 ], [ %35, %34 ], [ %43, %42 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %35, %34 ], [ %27, %26 ], [ %23, %22 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$pingora_http..ResponseHeader$GT$17he0e01f90c62bfdd1E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %10) #17
           to label %common.resume.i unwind label %47, !noalias !36
 
@@ -745,7 +745,7 @@ common.resume:                                    ; preds = %.body, %17
   br label %.body
 
 .body:                                            ; preds = %43, %35, %27, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %28, %27 ], [ %36, %35 ], [ %44, %43 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %28, %27 ], [ %24, %23 ], [ %44, %43 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$pingora_http..ResponseHeader$GT$17he0e01f90c62bfdd1E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %11) #17
           to label %common.resume unwind label %48
 
@@ -917,7 +917,7 @@ define void @_ZN13pingora_proxy7Session6new_h117h31e9875780b2ff4bE(ptr dead_on_u
   unreachable
 
 .thread:                                          ; preds = %.body, %22
-  %.pn6 = phi { ptr, i32 } [ %23, %22 ], [ %eh.lpad-body, %.body ]
+  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %23, %22 ]
   resume { ptr, i32 } %.pn6
 
 22:                                               ; preds = %3

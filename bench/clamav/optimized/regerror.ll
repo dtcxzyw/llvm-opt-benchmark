@@ -109,7 +109,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr noundef readonly captures(none) %1,
   br label %regatoi.exit
 
 regatoi.exit:                                     ; preds = %.lr.ph, %._crit_edge, %27, %31, %33
-  %.0 = phi ptr [ %35, %33 ], [ %5, %31 ], [ %5, %27 ], [ %5, %._crit_edge ], [ @.str.36, %.lr.ph ]
+  %.0 = phi ptr [ %5, %27 ], [ %35, %33 ], [ %5, %31 ], [ %5, %._crit_edge ], [ @.str.36, %.lr.ph ]
   %.not24 = icmp eq i64 %3, 0
   br i1 %.not24, label %38, label %36
 

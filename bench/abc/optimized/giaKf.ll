@@ -771,7 +771,7 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %._crit_edge115.loopexit.i, %.preheader102.i, %._crit_edge.loopexit.i, %.preheader103.i, %.preheader.i
-  %.5.lcssa.sink.i = phi i32 [ 0, %.preheader.i ], [ %.3.i, %.preheader103.i ], [ %97, %._crit_edge.loopexit.i ], [ %.1.i, %.preheader102.i ], [ %110, %._crit_edge115.loopexit.i ], [ %29, %60 ]
+  %.5.lcssa.sink.i = phi i32 [ %97, %._crit_edge.loopexit.i ], [ 0, %.preheader.i ], [ %.3.i, %.preheader103.i ], [ %.1.i, %.preheader102.i ], [ %110, %._crit_edge115.loopexit.i ], [ %29, %60 ]
   %111 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %.5.lcssa.sink.i, ptr %111, align 4, !tbaa !81
   %112 = load i64, ptr %21, align 8, !tbaa !79
@@ -1202,10 +1202,10 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split54
 
 Vec_IntPush.exit.sink.split54:                    ; preds = %58, %56, %66, %64, %39, %37, %47, %45
-  %.sink47.sink = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ], [ %57, %56 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ]
-  %.sink46.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ], [ 16, %56 ], [ 16, %58 ], [ %61, %64 ], [ %61, %66 ]
-  %.sink53.ph = phi i32 [ %31, %37 ], [ %31, %39 ], [ %31, %45 ], [ %31, %47 ], [ %50, %56 ], [ %50, %58 ], [ %50, %64 ], [ %50, %66 ]
-  %.sink48.ph = phi i32 [ %30, %37 ], [ %30, %39 ], [ %30, %45 ], [ %30, %47 ], [ 0, %56 ], [ 0, %58 ], [ 0, %64 ], [ 0, %66 ]
+  %.sink47.sink = phi ptr [ %48, %47 ], [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %59, %58 ], [ %57, %56 ], [ %65, %64 ], [ %67, %66 ]
+  %.sink46.sink = phi i32 [ %42, %47 ], [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ 16, %58 ], [ 16, %56 ], [ %61, %64 ], [ %61, %66 ]
+  %.sink53.ph = phi i32 [ %31, %47 ], [ %31, %39 ], [ %31, %37 ], [ %31, %45 ], [ %50, %58 ], [ %50, %56 ], [ %50, %64 ], [ %50, %66 ]
+  %.sink48.ph = phi i32 [ %30, %47 ], [ %30, %39 ], [ %30, %37 ], [ %30, %45 ], [ 0, %58 ], [ 0, %56 ], [ 0, %64 ], [ 0, %66 ]
   store ptr %.sink47.sink, ptr %11, align 8, !tbaa !38
   store i32 %.sink46.sink, ptr %3, align 8, !tbaa !98
   br label %Vec_IntPush.exit
@@ -1329,8 +1329,8 @@ define void @Kf_ManComputeCuts(ptr noundef %0) local_unnamed_addr #7 {
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %51, %53, %43, %45
-  %.sink265 = phi ptr [ %44, %43 ], [ %46, %45 ], [ %52, %51 ], [ %54, %53 ]
-  %.sink = phi i32 [ 16, %43 ], [ 16, %45 ], [ %48, %51 ], [ %48, %53 ]
+  %.sink265 = phi ptr [ %46, %45 ], [ %44, %43 ], [ %52, %51 ], [ %54, %53 ]
+  %.sink = phi i32 [ 16, %45 ], [ 16, %43 ], [ %48, %51 ], [ %48, %53 ]
   store ptr %.sink265, ptr %16, align 8, !tbaa !38
   store i32 %.sink, ptr %13, align 8, !tbaa !98
   br label %Vec_IntPush.exit
@@ -2202,8 +2202,8 @@ Vec_IntPush.exit52:                               ; preds = %Vec_IntPush.exit52.
   br label %Vec_IntPush.exit59.sink.split
 
 Vec_IntPush.exit59.sink.split:                    ; preds = %131, %133, %123, %125
-  %.sink111 = phi ptr [ %124, %123 ], [ %126, %125 ], [ %132, %131 ], [ %134, %133 ]
-  %.sink110 = phi i32 [ 16, %123 ], [ 16, %125 ], [ %128, %131 ], [ %128, %133 ]
+  %.sink111 = phi ptr [ %126, %125 ], [ %124, %123 ], [ %132, %131 ], [ %134, %133 ]
+  %.sink110 = phi i32 [ 16, %125 ], [ 16, %123 ], [ %128, %131 ], [ %128, %133 ]
   store ptr %.sink111, ptr %8, align 8, !tbaa !38
   store i32 %.sink110, ptr %3, align 8, !tbaa !98
   br label %Vec_IntPush.exit59
@@ -2935,7 +2935,7 @@ Kf_HashLookup.exit.i.i.i.i:                       ; preds = %216, %206
   br label %Kf_HashFindOrAdd.exit.i.i.i
 
 Kf_HashFindOrAdd.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %225, %222, %Kf_HashLookup.exit.i.i.i.i
-  %234 = phi i32 [ %207, %Kf_HashLookup.exit.i.i.i.i ], [ %207, %222 ], [ %.pre.i.i.i, %225 ], [ %207, %.lr.ph.i.i.i.i.i ]
+  %234 = phi i32 [ %.pre.i.i.i, %225 ], [ %207, %Kf_HashLookup.exit.i.i.i.i ], [ %207, %222 ], [ %207, %.lr.ph.i.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %235 = sext i32 %234 to i64
   %236 = icmp slt i64 %indvars.iv.next.i.i.i, %235
@@ -3845,7 +3845,7 @@ Vec_FltFill.exit:                                 ; preds = %Vec_FltGrow.exit.i,
   br label %.critedge, !llvm.loop !153
 
 .critedge:                                        ; preds = %28, %.lr.ph, %..critedge.loopexit_crit_edge, %Vec_FltFill.exit
-  %.lcssa = phi i32 [ %25, %Vec_FltFill.exit ], [ %75, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph ], [ %75, %28 ]
+  %.lcssa = phi i32 [ %25, %Vec_FltFill.exit ], [ %25, %.lr.ph ], [ %75, %..critedge.loopexit_crit_edge ], [ %75, %28 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load ptr, ptr %78, align 8, !tbaa !47
   %80 = getelementptr i8, ptr %79, i64 4
@@ -4322,8 +4322,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %1
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %34, %Vec_IntAlloc.exit
-  %37 = phi ptr [ %36, %34 ], [ %20, %Vec_IntAlloc.exit ]
-  %38 = phi ptr [ %35, %34 ], [ %21, %Vec_IntAlloc.exit ]
+  %37 = phi ptr [ %20, %Vec_IntAlloc.exit ], [ %36, %34 ]
+  %38 = phi ptr [ %21, %Vec_IntAlloc.exit ], [ %35, %34 ]
   %39 = icmp sgt i32 %.val44, 0
   br i1 %39, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
@@ -4516,8 +4516,8 @@ Vec_IntPush.exit57:                               ; preds = %Vec_IntPush.exit57.
   br label %Vec_IntPush.exit64.sink.split
 
 Vec_IntPush.exit64.sink.split:                    ; preds = %127, %129, %119, %121
-  %.sink103 = phi ptr [ %120, %119 ], [ %122, %121 ], [ %128, %127 ], [ %130, %129 ]
-  %.sink102 = phi i32 [ 16, %119 ], [ 16, %121 ], [ %124, %127 ], [ %124, %129 ]
+  %.sink103 = phi ptr [ %122, %121 ], [ %120, %119 ], [ %128, %127 ], [ %130, %129 ]
+  %.sink102 = phi i32 [ 16, %121 ], [ 16, %119 ], [ %124, %127 ], [ %124, %129 ]
   store ptr %.sink103, ptr %38, align 8, !tbaa !38
   store i32 %.sink102, ptr %15, align 8, !tbaa !98
   br label %Vec_IntPush.exit64
@@ -5233,7 +5233,7 @@ Kf_HashLookup.exit.i.i:                           ; preds = %25, %15
   br label %Kf_HashFindOrAdd.exit.i
 
 Kf_HashFindOrAdd.exit.i:                          ; preds = %.lr.ph.i.i.i, %36, %31, %Kf_HashLookup.exit.i.i
-  %45 = phi i32 [ %16, %Kf_HashLookup.exit.i.i ], [ %16, %31 ], [ %.pre.i, %36 ], [ %16, %.lr.ph.i.i.i ]
+  %45 = phi i32 [ %.pre.i, %36 ], [ %16, %Kf_HashLookup.exit.i.i ], [ %16, %31 ], [ %16, %.lr.ph.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next.i, %46
@@ -5372,7 +5372,7 @@ Kf_HashLookup.exit.i:                             ; preds = %103, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %112, %Kf_HashLookup.exit.i
-  %121 = phi i32 [ %.pre90, %112 ], [ %94, %Kf_HashLookup.exit.i ], [ %94, %.lr.ph.i.i ]
+  %121 = phi i32 [ %94, %Kf_HashLookup.exit.i ], [ %.pre90, %112 ], [ %94, %.lr.ph.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122

@@ -880,7 +880,7 @@ get_dist_len_price.exit.i:                        ; preds = %483, %477
   %523 = add i32 %.1179.i, 1
   br label %469
 
-helper1.exit.thread107:                           ; preds = %234, %351, %203, %205, %211, %220
+helper1.exit.thread107:                           ; preds = %205, %234, %351, %203, %211, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !42
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !42
   br label %1349

@@ -217,7 +217,7 @@ zend_string_alloc.exit69:                         ; preds = %18
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %79, %76, %72, %69
-  %.0 = phi ptr [ null, %72 ], [ null, %69 ], [ %80, %79 ], [ null, %76 ]
+  %.0 = phi ptr [ null, %69 ], [ null, %72 ], [ %80, %79 ], [ null, %76 ]
   %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !32, !range !30, !noundef !31
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %91
@@ -350,7 +350,7 @@ zend_hash_find_ptr.exit:                          ; preds = %79, %76, %72, %69
   br label %140
 
 140:                                              ; preds = %125, %124, %.critedge, %24, %32, %31, %15, %17, %4, %139
-  %.051 = phi ptr [ null, %139 ], [ null, %4 ], [ null, %17 ], [ null, %15 ], [ null, %31 ], [ null, %32 ], [ null, %24 ], [ null, %.critedge ], [ %33, %124 ], [ %33, %125 ]
+  %.051 = phi ptr [ null, %139 ], [ null, %4 ], [ null, %15 ], [ null, %24 ], [ null, %.critedge ], [ null, %17 ], [ null, %31 ], [ null, %32 ], [ %33, %124 ], [ %33, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -738,7 +738,7 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   br label %148
 
 148:                                              ; preds = %.sink.split, %123, %138
-  %.0143 = phi ptr [ %140, %138 ], [ %122, %123 ], [ %.sink.in, %.sink.split ]
+  %.0143 = phi ptr [ %122, %123 ], [ %140, %138 ], [ %.sink.in, %.sink.split ]
   %149 = load ptr, ptr %8, align 8, !tbaa !54
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = load ptr, ptr %150, align 8, !tbaa !63
@@ -1098,7 +1098,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %310, %299, %zend_st
   br label %338
 
 338:                                              ; preds = %.critedge, %161, %162, %6, %335, %292, %280, %181, %56, %28, %20
-  %.0 = phi ptr [ null, %28 ], [ null, %56 ], [ %337, %335 ], [ null, %292 ], [ null, %280 ], [ null, %181 ], [ null, %20 ], [ null, %6 ], [ %61, %162 ], [ %61, %161 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %20 ], [ null, %28 ], [ null, %56 ], [ null, %6 ], [ %337, %335 ], [ null, %292 ], [ null, %280 ], [ null, %181 ], [ null, %.critedge ], [ %61, %162 ], [ %61, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1401,7 +1401,7 @@ phar_dostat.exit100:                              ; preds = %81, %91
   %.not85 = icmp eq ptr %151, %109
   br i1 %.not85, label %.thread111, label %.lr.ph
 
-.thread114:                                       ; preds = %126, %130, %122, %140, %145
+.thread114:                                       ; preds = %130, %126, %122, %140, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread111
@@ -1420,7 +1420,7 @@ phar_dostat.exit100:                              ; preds = %81, %91
   br label %155
 
 155:                                              ; preds = %152, %39, %41, %5, %.thread111, %phar_dostat.exit100, %73, %68, %phar_dostat.exit, %29, %21
-  %.0 = phi i32 [ -1, %29 ], [ 0, %phar_dostat.exit ], [ 0, %73 ], [ 0, %phar_dostat.exit100 ], [ 0, %152 ], [ -1, %.thread111 ], [ -1, %68 ], [ -1, %21 ], [ -1, %5 ], [ -1, %41 ], [ -1, %39 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %29 ], [ -1, %5 ], [ 0, %phar_dostat.exit ], [ 0, %73 ], [ 0, %phar_dostat.exit100 ], [ 0, %152 ], [ -1, %.thread111 ], [ -1, %68 ], [ -1, %41 ], [ -1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1592,7 +1592,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %27
   br label %79
 
 79:                                               ; preds = %74, %77, %70, %60, %.thread, %26, %18, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %26 ], [ 0, %60 ], [ 0, %70 ], [ 0, %.thread ], [ 0, %18 ], [ 1, %77 ], [ 1, %74 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %26 ], [ 0, %60 ], [ 0, %70 ], [ 0, %18 ], [ 0, %.thread ], [ 1, %77 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2453,7 +2453,7 @@ zend_string_starts_with_cstr.exit301.thread:      ; preds = %364, %zend_string_s
   br label %417
 
 417:                                              ; preds = %.thread, %416, %413, %193, %121, %110, %103, %94, %86, %78, %zend_string_equals.exit.thread302, %60, %39, %35, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %39 ], [ 0, %94 ], [ 0, %103 ], [ 0, %110 ], [ 0, %121 ], [ 0, %413 ], [ 1, %416 ], [ 0, %193 ], [ 0, %86 ], [ 0, %78 ], [ 0, %zend_string_equals.exit.thread302 ], [ 0, %60 ], [ 0, %35 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %39 ], [ 0, %94 ], [ 0, %103 ], [ 0, %110 ], [ 0, %121 ], [ 0, %413 ], [ 1, %416 ], [ 0, %.thread ], [ 0, %193 ], [ 0, %86 ], [ 0, %78 ], [ 0, %zend_string_equals.exit.thread302 ], [ 0, %60 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2752,7 +2752,7 @@ define internal i32 @phar_stream_seek(ptr noundef readonly captures(none) %0, i6
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %24, %19, %14
-  %.0 = phi i64 [ %18, %14 ], [ %23, %19 ], [ %25, %24 ], [ 0, %13 ]
+  %.0 = phi i64 [ %25, %24 ], [ %18, %14 ], [ %23, %19 ], [ 0, %13 ]
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load i32, ptr %.029, align 8, !tbaa !34
   %28 = zext i32 %27 to i64

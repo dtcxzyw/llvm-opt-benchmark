@@ -142,10 +142,10 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   br label %71
 
 71:                                               ; preds = %.thread, %66
-  %72 = phi float [ %52, %66 ], [ %63, %.thread ]
-  %73 = phi float [ %49, %66 ], [ %62, %.thread ]
-  %.077 = phi nsz float [ %.sroa.speculated65, %66 ], [ %65, %.thread ]
-  %.0 = phi nsz float [ %.sroa.speculated67, %66 ], [ %64, %.thread ]
+  %72 = phi float [ %63, %.thread ], [ %52, %66 ]
+  %73 = phi float [ %62, %.thread ], [ %49, %66 ]
+  %.077 = phi nsz float [ %65, %.thread ], [ %.sroa.speculated65, %66 ]
+  %.0 = phi nsz float [ %64, %.thread ], [ %.sroa.speculated67, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %74 = load i32, ptr %29, align 8, !tbaa !20
   %75 = sitofp i32 %74 to float
@@ -232,7 +232,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc44, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i
-  %.0.i.i.i.i.i = phi ptr [ %107, %.noexc44 ], [ null, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %111, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %107, %.noexc44 ], [ %111, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.0.i.i.i.i.i, ptr %113, align 8, !tbaa !54
   invoke void @_ZN4ncnn42original_pre_calc_for_bilinear_interpolateIfEEviiiiT_S1_S1_S1_iRSt6vectorINS_7PreCalcIS1_EESaIS4_EE(i32 noundef %22, i32 noundef %20, i32 noundef %77, i32 noundef %74, float noundef nofpclass(nan inf) %72, float noundef nofpclass(nan inf) %73, float noundef nofpclass(nan inf) %79, float noundef nofpclass(nan inf) %76, i32 noundef %84, ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -366,7 +366,7 @@ _ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i55: ; preds
   br i1 %.not.i.i.i.i.i.i.i.i.i53, label %.loopexit82, label %.lr.ph.i.i.i.i.i.i.i.i.i51, !llvm.loop !52
 
 .loopexit82:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i51, %.noexc57, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i55
-  %.0.i.i.i.i.i54 = phi ptr [ %159, %.noexc57 ], [ null, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i55 ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i.i51 ]
+  %.0.i.i.i.i.i54 = phi ptr [ null, %_ZNSt12_Vector_baseIN4ncnn7PreCalcIfEESaIS2_EEC2EmRKS3_.exit.thread.i55 ], [ %159, %.noexc57 ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i.i51 ]
   %165 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.0.i.i.i.i.i54, ptr %165, align 8, !tbaa !54
   call void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_interpolateIfEEviiiiiiT_S1_S1_S1_iiRSt6vectorINS_7PreCalcIS1_EESaIS4_EE(i32 noundef %22, i32 noundef %20, i32 noundef %77, i32 noundef %74, i32 noundef %.sink, i32 noundef %.pre-phi, float noundef nofpclass(nan inf) %72, float noundef nofpclass(nan inf) %73, float noundef nofpclass(nan inf) %79, float noundef nofpclass(nan inf) %76, i32 noundef %.sink, i32 noundef %.pre-phi, ptr noundef nonnull align 8 dereferenceable(24) %16)

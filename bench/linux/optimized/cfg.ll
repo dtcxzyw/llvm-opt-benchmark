@@ -1986,7 +1986,7 @@ define internal i32 @ieee80211_change_iface(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %30, %26, %21, %55, %52, %4
-  %56 = phi i32 [ 0, %55 ], [ %8, %4 ], [ %53, %52 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
+  %56 = phi i32 [ 0, %55 ], [ %53, %52 ], [ %8, %4 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
   ret i32 %56
 }
 
@@ -8900,7 +8900,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr readno
   br label %64
 
 64:                                               ; preds = %.thread, %63, %62, %14, %10, %3
-  %65 = phi i32 [ -22, %3 ], [ 0, %62 ], [ 0, %63 ], [ -16, %14 ], [ -16, %10 ], [ %.ph, %.thread ]
+  %65 = phi i32 [ -22, %3 ], [ %.ph, %.thread ], [ 0, %62 ], [ 0, %63 ], [ -16, %14 ], [ -16, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %65
 }
@@ -10578,7 +10578,7 @@ define internal fastcc range(i32 0, 4) i32 @cfg80211_get_chandef_type(ptr nounde
   br label %13
 
 13:                                               ; preds = %1, %12, %4, %1
-  %14 = phi i32 [ 0, %12 ], [ %3, %1 ], [ %11, %4 ], [ %3, %1 ]
+  %14 = phi i32 [ 0, %12 ], [ %11, %4 ], [ %3, %1 ], [ %3, %1 ]
   ret i32 %14
 }
 

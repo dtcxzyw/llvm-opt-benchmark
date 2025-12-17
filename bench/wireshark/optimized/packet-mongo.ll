@@ -1141,7 +1141,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   br label %dissect_op_msg_section.exit.i
 
 dissect_op_msg_section.exit.i:                    ; preds = %.lr.ph.i.i, %380, %360, %357
-  %.pre-phi.i.i = phi i32 [ %351, %360 ], [ %351, %380 ], [ %.pre.i.i, %357 ], [ %351, %.lr.ph.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %357 ], [ %351, %360 ], [ %351, %380 ], [ %351, %.lr.ph.i.i ]
   %383 = add i32 %.pre-phi.i.i, %.022.i
   %384 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %383)
   %385 = icmp sgt i32 %384, %345
@@ -1168,7 +1168,7 @@ dissect_mongo_op_msg.exit:                        ; preds = %._crit_edge.i, %386
   br label %dissect_mongo_reply.exit
 
 dissect_mongo_reply.exit:                         ; preds = %.lr.ph.i61, %.lr.ph.i59, %.lr.ph.i57, %.lr.ph.i, %331, %329, %318, %309, %277, %255, %246, %219, %114, %84, %16, %13, %dissect_mongo_op_msg.exit, %231, %190, %165, %50, %45
-  %.0 = phi i32 [ %2, %13 ], [ %49, %45 ], [ %83, %50 ], [ %189, %165 ], [ %218, %190 ], [ %245, %231 ], [ %.1.i, %dissect_mongo_op_msg.exit ], [ %39, %16 ], [ %106, %84 ], [ %157, %114 ], [ %.014.i, %219 ], [ %258, %255 ], [ %252, %246 ], [ %336, %331 ], [ %278, %277 ], [ %310, %309 ], [ %319, %318 ], [ %330, %329 ], [ %43, %.lr.ph.i ], [ %111, %.lr.ph.i57 ], [ %162, %.lr.ph.i59 ], [ %.0.i, %.lr.ph.i61 ]
+  %.0 = phi i32 [ %2, %13 ], [ %.1.i, %dissect_mongo_op_msg.exit ], [ %49, %45 ], [ %83, %50 ], [ %189, %165 ], [ %218, %190 ], [ %245, %231 ], [ %252, %246 ], [ %39, %16 ], [ %106, %84 ], [ %157, %114 ], [ %.014.i, %219 ], [ %258, %255 ], [ %336, %331 ], [ %278, %277 ], [ %310, %309 ], [ %319, %318 ], [ %330, %329 ], [ %162, %.lr.ph.i59 ], [ %43, %.lr.ph.i ], [ %111, %.lr.ph.i57 ], [ %.0.i, %.lr.ph.i61 ]
   %395 = load i32, ptr @proto_mongo, align 4
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %395, i32 noundef %10)
   ret i32 %.0

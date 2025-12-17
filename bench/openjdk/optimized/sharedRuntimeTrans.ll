@@ -216,7 +216,7 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   br label %115
 
 115:                                              ; preds = %38, %4, %107, %103, %92, %87, %53, %51, %40, %18, %10
-  %.0 = phi double [ %12, %10 ], [ %19, %18 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %91, %87 ], [ %100, %92 ], [ %106, %103 ], [ %114, %107 ], [ 0xFFF0000000000000, %4 ], [ 0.000000e+00, %38 ]
+  %.0 = phi double [ %114, %107 ], [ %12, %10 ], [ %19, %18 ], [ 0xFFF0000000000000, %4 ], [ %44, %40 ], [ %52, %51 ], [ %59, %53 ], [ %91, %87 ], [ %100, %92 ], [ %106, %103 ], [ 0.000000e+00, %38 ]
   ret double %.0
 }
 
@@ -287,7 +287,7 @@ define hidden noundef double @_ZN13SharedRuntime6dlog10Ed(double noundef %0) loc
   br label %_ZL15__ieee754_log10d.exit
 
 _ZL15__ieee754_log10d.exit:                       ; preds = %4, %10, %18, %20
-  %.0.i = phi double [ %12, %10 ], [ %19, %18 ], [ %37, %20 ], [ 0xFFF0000000000000, %4 ]
+  %.0.i = phi double [ %37, %20 ], [ %12, %10 ], [ %19, %18 ], [ 0xFFF0000000000000, %4 ]
   ret double %.0.i
 }
 
@@ -438,7 +438,7 @@ define hidden noundef double @_ZN13SharedRuntime4dexpEd(double noundef %0) local
   br label %_ZL13__ieee754_expd.exit
 
 _ZL13__ieee754_expd.exit:                         ; preds = %11, %13, %16, %18, %47, %63, %78, %80
-  %.0.i = phi double [ %12, %11 ], [ %15, %13 ], [ %67, %63 ], [ %79, %78 ], [ %83, %80 ], [ %48, %47 ], [ 0x7FF0000000000000, %16 ], [ 0.000000e+00, %18 ]
+  %.0.i = phi double [ %12, %11 ], [ %15, %13 ], [ %48, %47 ], [ 0x7FF0000000000000, %16 ], [ %67, %63 ], [ %79, %78 ], [ %83, %80 ], [ 0.000000e+00, %18 ]
   ret double %.0.i
 }
 
@@ -526,7 +526,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br label %.thread293.i
 
 47:                                               ; preds = %34, %29, %24, %22, %20
-  %.0203.i = phi i32 [ %36, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %20 ], [ 2, %22 ]
+  %.0203.i = phi i32 [ 0, %20 ], [ %36, %34 ], [ 0, %29 ], [ 0, %24 ], [ 2, %22 ]
   %48 = icmp eq i32 %.sroa.0.0.extract.trunc.i216.i, 0
   br i1 %48, label %49, label %.thread291.i
 
@@ -977,7 +977,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br label %_ZL13__ieee754_powdd.exit
 
 _ZL13__ieee754_powdd.exit:                        ; preds = %2, %18, %54, %58, %61, %66, %68, %72, %77, %82, %85, %89, %91, %93, %106, %109, %114, %123, %252, %259, %268, %274, %336
-  %.0.i = phi double [ %19, %18 ], [ %55, %54 ], [ %60, %58 ], [ %64, %61 ], [ %69, %68 ], [ %73, %72 ], [ %78, %77 ], [ %108, %106 ], [ %111, %109 ], [ %120, %114 ], [ %129, %123 ], [ %254, %252 ], [ %261, %259 ], [ %337, %336 ], [ %270, %268 ], [ %276, %274 ], [ 1.000000e+00, %2 ], [ %0, %66 ], [ 0x7FF8000000000000, %93 ], [ %92, %91 ], [ %storemerge.i, %89 ], [ %storemerge.i, %82 ], [ 0x7FF8000000000000, %85 ]
+  %.0.i = phi double [ %276, %274 ], [ %19, %18 ], [ %55, %54 ], [ %60, %58 ], [ %64, %61 ], [ %69, %68 ], [ 1.000000e+00, %2 ], [ %73, %72 ], [ %78, %77 ], [ 0x7FF8000000000000, %93 ], [ %0, %66 ], [ %108, %106 ], [ %111, %109 ], [ %120, %114 ], [ %129, %123 ], [ %254, %252 ], [ %261, %259 ], [ %337, %336 ], [ %270, %268 ], [ %storemerge.i, %82 ], [ %92, %91 ], [ %storemerge.i, %89 ], [ 0x7FF8000000000000, %85 ]
   ret double %.0.i
 }
 
@@ -1109,9 +1109,9 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
   br label %52
 
 .thread:                                          ; preds = %2, %10
-  %.01844 = phi i32 [ %.sroa.0.4.extract.trunc.i23, %10 ], [ %.sroa.0.4.extract.trunc.i, %2 ]
-  %.01943 = phi i32 [ %15, %10 ], [ %5, %2 ]
-  %.03842 = phi double [ %11, %10 ], [ %0, %2 ]
+  %.01844 = phi i32 [ %.sroa.0.4.extract.trunc.i, %2 ], [ %.sroa.0.4.extract.trunc.i23, %10 ]
+  %.01943 = phi i32 [ %5, %2 ], [ %15, %10 ]
+  %.03842 = phi double [ %0, %2 ], [ %11, %10 ]
   %21 = add nsw i32 %.01943, %1
   %22 = icmp sgt i32 %21, 2046
   br i1 %22, label %23, label %26
@@ -1170,7 +1170,7 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
   br label %52
 
 52:                                               ; preds = %6, %44, %41, %38, %28, %23, %19, %17
-  %.0 = phi double [ %18, %17 ], [ %20, %19 ], [ %25, %23 ], [ %33, %28 ], [ %40, %38 ], [ %43, %41 ], [ %51, %44 ], [ %0, %6 ]
+  %.0 = phi double [ %51, %44 ], [ %18, %17 ], [ %20, %19 ], [ %25, %23 ], [ %33, %28 ], [ %40, %38 ], [ %43, %41 ], [ %0, %6 ]
   ret double %.0
 }
 

@@ -290,7 +290,7 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr noundef captures(none) %0
   br label %124
 
 124:                                              ; preds = %69, %46, %23, %17, %14, %13, %11, %72, %43, %36, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %36 ], [ -1, %43 ], [ 1, %72 ], [ %., %11 ], [ 0, %13 ], [ -1, %14 ], [ -1, %17 ], [ -1, %23 ], [ -1, %46 ], [ -1, %69 ]
+  %.0 = phi i32 [ %., %11 ], [ -1, %21 ], [ -1, %36 ], [ -1, %43 ], [ -1, %23 ], [ -1, %46 ], [ 1, %72 ], [ -1, %17 ], [ -1, %14 ], [ 0, %13 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -565,7 +565,7 @@ define internal fastcc range(i32 -1, 1) i32 @process_header_records(ptr noundef 
   br label %process_rec_header2_v145.exit
 
 process_rec_header2_v145.exit.thread.sink.split:  ; preds = %105, %98, %93, %84, %108, %96, %95
-  %.sink = phi i32 [ -1, %95 ], [ 27, %96 ], [ 19, %108 ], [ 12, %84 ], [ 36, %93 ], [ 17, %98 ], [ 17, %105 ]
+  %.sink = phi i32 [ 12, %84 ], [ -1, %95 ], [ 27, %96 ], [ 19, %108 ], [ 17, %98 ], [ 36, %93 ], [ 17, %105 ]
   store i32 %.sink, ptr %16, align 8
   br label %process_rec_header2_v145.exit.thread
 
@@ -594,7 +594,7 @@ process_rec_header2_v145.exit.thread:             ; preds = %process_rec_header2
   br i1 %126, label %.lr.ph.split, label %._crit_edge
 
 process_rec_header2_v145.exit:                    ; preds = %41, %44, %23, %26, %65, %74, %113, %119, %86, %82, %109, %103, %91, %.split.us, %._crit_edge
-  %.0 = phi i32 [ %., %._crit_edge ], [ %.72, %.split.us ], [ -1, %91 ], [ -1, %103 ], [ -1, %109 ], [ -1, %82 ], [ -1, %86 ], [ -1, %119 ], [ -1, %113 ], [ -1, %74 ], [ -1, %65 ], [ -1, %26 ], [ -1, %23 ], [ -1, %44 ], [ -1, %41 ]
+  %.0 = phi i32 [ %.72, %.split.us ], [ %., %._crit_edge ], [ -1, %109 ], [ -1, %91 ], [ -1, %103 ], [ -1, %82 ], [ -1, %86 ], [ -1, %23 ], [ -1, %65 ], [ -1, %119 ], [ -1, %113 ], [ -1, %74 ], [ -1, %26 ], [ -1, %44 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -721,7 +721,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
   br i1 %42, label %17, label %._crit_edge
 
 .loopexit:                                        ; preds = %37, %read_rec_header.exit.thread, %32, %28, %24, %35, %30
-  %.0 = phi i1 [ true, %30 ], [ false, %35 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %read_rec_header.exit.thread ], [ false, %37 ]
+  %.0 = phi i1 [ false, %32 ], [ true, %30 ], [ false, %24 ], [ false, %read_rec_header.exit.thread ], [ false, %35 ], [ false, %28 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
@@ -949,8 +949,8 @@ read_rec_header.exit.thread:                      ; preds = %97, %101, %104
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.17, i32 noundef 7, ptr noundef nonnull @.str.18, i64 noundef 1142, ptr noundef nonnull @__func__.ngsniffer_seek_read, ptr noundef nonnull @.str.19) #14
   unreachable
 
-ng_file_seek_rand.exit.thread:                    ; preds = %75, %.loopexit.i, %._crit_edge.i, %44, %read_rec_header.exit.thread, %107, %ng_file_seek_rand.exit
-  %.0 = phi i1 [ false, %ng_file_seek_rand.exit ], [ %108, %107 ], [ false, %read_rec_header.exit.thread ], [ false, %44 ], [ false, %._crit_edge.i ], [ false, %.loopexit.i ], [ false, %75 ]
+ng_file_seek_rand.exit.thread:                    ; preds = %75, %._crit_edge.i, %.loopexit.i, %44, %read_rec_header.exit.thread, %107, %ng_file_seek_rand.exit
+  %.0 = phi i1 [ false, %read_rec_header.exit.thread ], [ %108, %107 ], [ false, %ng_file_seek_rand.exit ], [ false, %44 ], [ false, %.loopexit.i ], [ false, %._crit_edge.i ], [ false, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -1714,13 +1714,13 @@ ng_read_bytes.exit129:                            ; preds = %280
   unreachable
 
 set_metadata_frame2.exit:                         ; preds = %315, %ng_read_bytes.exit129, %112, %111, %110, %109, %97, %94, %93, %89, %set_pseudo_header_frame4.exit
-  %.094 = phi i16 [ %.val110, %set_pseudo_header_frame4.exit ], [ %46, %89 ], [ %46, %93 ], [ %46, %94 ], [ %46, %97 ], [ %46, %109 ], [ %46, %110 ], [ %46, %111 ], [ %46, %112 ], [ %296, %ng_read_bytes.exit129 ], [ %296, %315 ]
-  %.093 = phi i16 [ %.val106, %set_pseudo_header_frame4.exit ], [ %62, %89 ], [ %62, %93 ], [ %62, %94 ], [ %62, %97 ], [ %62, %109 ], [ %62, %110 ], [ %62, %111 ], [ %62, %112 ], [ %312, %ng_read_bytes.exit129 ], [ %312, %315 ]
-  %.092 = phi i16 [ %.val108, %set_pseudo_header_frame4.exit ], [ %56, %89 ], [ %56, %93 ], [ %56, %94 ], [ %56, %97 ], [ %56, %109 ], [ %56, %110 ], [ %56, %111 ], [ %56, %112 ], [ %306, %ng_read_bytes.exit129 ], [ %306, %315 ]
-  %.091 = phi i8 [ %138, %set_pseudo_header_frame4.exit ], [ %48, %89 ], [ %48, %93 ], [ %48, %94 ], [ %48, %97 ], [ %48, %109 ], [ %48, %110 ], [ %48, %111 ], [ %48, %112 ], [ %298, %ng_read_bytes.exit129 ], [ %298, %315 ]
-  %.090 = phi i8 [ %140, %set_pseudo_header_frame4.exit ], [ %50, %89 ], [ %50, %93 ], [ %50, %94 ], [ %50, %97 ], [ %50, %109 ], [ %50, %110 ], [ %50, %111 ], [ %50, %112 ], [ %300, %ng_read_bytes.exit129 ], [ %300, %315 ]
-  %.089 = phi i16 [ %.val112, %set_pseudo_header_frame4.exit ], [ %40, %89 ], [ %40, %93 ], [ %40, %94 ], [ %40, %97 ], [ %40, %109 ], [ %40, %110 ], [ %40, %111 ], [ %40, %112 ], [ %290, %ng_read_bytes.exit129 ], [ %290, %315 ]
-  %.088 = phi i32 [ %143, %set_pseudo_header_frame4.exit ], [ %63, %89 ], [ %63, %93 ], [ %63, %94 ], [ %63, %97 ], [ %63, %109 ], [ %63, %110 ], [ %63, %111 ], [ %63, %112 ], [ %313, %ng_read_bytes.exit129 ], [ %313, %315 ]
+  %.094 = phi i16 [ %46, %112 ], [ %.val110, %set_pseudo_header_frame4.exit ], [ %46, %89 ], [ %46, %93 ], [ %46, %94 ], [ %46, %97 ], [ %46, %109 ], [ %46, %110 ], [ %46, %111 ], [ %296, %ng_read_bytes.exit129 ], [ %296, %315 ]
+  %.093 = phi i16 [ %62, %112 ], [ %.val106, %set_pseudo_header_frame4.exit ], [ %62, %89 ], [ %62, %93 ], [ %62, %94 ], [ %62, %97 ], [ %62, %109 ], [ %62, %110 ], [ %62, %111 ], [ %312, %ng_read_bytes.exit129 ], [ %312, %315 ]
+  %.092 = phi i16 [ %56, %112 ], [ %.val108, %set_pseudo_header_frame4.exit ], [ %56, %89 ], [ %56, %93 ], [ %56, %94 ], [ %56, %97 ], [ %56, %109 ], [ %56, %110 ], [ %56, %111 ], [ %306, %ng_read_bytes.exit129 ], [ %306, %315 ]
+  %.091 = phi i8 [ %48, %112 ], [ %138, %set_pseudo_header_frame4.exit ], [ %48, %89 ], [ %48, %93 ], [ %48, %94 ], [ %48, %97 ], [ %48, %109 ], [ %48, %110 ], [ %48, %111 ], [ %298, %ng_read_bytes.exit129 ], [ %298, %315 ]
+  %.090 = phi i8 [ %50, %112 ], [ %140, %set_pseudo_header_frame4.exit ], [ %50, %89 ], [ %50, %93 ], [ %50, %94 ], [ %50, %97 ], [ %50, %109 ], [ %50, %110 ], [ %50, %111 ], [ %300, %ng_read_bytes.exit129 ], [ %300, %315 ]
+  %.089 = phi i16 [ %40, %112 ], [ %.val112, %set_pseudo_header_frame4.exit ], [ %40, %89 ], [ %40, %93 ], [ %40, %94 ], [ %40, %97 ], [ %40, %109 ], [ %40, %110 ], [ %40, %111 ], [ %290, %ng_read_bytes.exit129 ], [ %290, %315 ]
+  %.088 = phi i32 [ %63, %112 ], [ %143, %set_pseudo_header_frame4.exit ], [ %63, %89 ], [ %63, %93 ], [ %63, %94 ], [ %63, %97 ], [ %63, %109 ], [ %63, %110 ], [ %63, %111 ], [ %313, %ng_read_bytes.exit129 ], [ %313, %315 ]
   %318 = zext i16 %.092 to i32
   %319 = icmp samesign ult i32 %.088, %318
   br i1 %319, label %320, label %322
@@ -1855,7 +1855,7 @@ ng_read_bytes.exit130:                            ; preds = %325
   br label %fix_pseudo_header.exit
 
 379:                                              ; preds = %361, %357, %353, %348, %346
-  %.019.i.ph.i = phi i32 [ 40, %357 ], [ 40, %361 ], [ 35, %353 ], [ 19, %348 ], [ 19, %346 ]
+  %.019.i.ph.i = phi i32 [ 40, %361 ], [ 40, %357 ], [ 35, %353 ], [ 19, %348 ], [ 19, %346 ]
   %380 = load i8, ptr %344, align 8
   %381 = icmp eq i8 %380, 0
   br i1 %381, label %382, label %383
@@ -1903,7 +1903,7 @@ ng_read_bytes.exit130:                            ; preds = %325
   br label %fix_pseudo_header.exit
 
 fix_pseudo_header.exit:                           ; preds = %369, %ng_read_bytes.exit130, %.critedge.i.i, %372, %378, %382, %383, %384, %396, %398, %402
-  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 13, %384 ], [ 12, %378 ], [ 12, %.critedge.i.i ], [ 27, %372 ], [ 12, %369 ]
+  %.0.i = phi i32 [ %343, %ng_read_bytes.exit130 ], [ 13, %384 ], [ %.019.i.ph.i, %382 ], [ %.019.i.ph.i, %383 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 12, %378 ], [ 27, %372 ], [ 12, %.critedge.i.i ], [ 12, %369 ]
   %403 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.0.i, ptr %403, align 8
   %404 = zext i8 %.091 to i64
@@ -1935,7 +1935,7 @@ fix_pseudo_header.exit:                           ; preds = %369, %ng_read_bytes
   br label %ng_read_bytes.exit.thread
 
 ng_read_bytes.exit.thread:                        ; preds = %341, %338, %285, %282, %135, %132, %35, %32, %fix_pseudo_header.exit, %320, %278, %128, %116, %28, %24
-  %.0 = phi i1 [ false, %24 ], [ false, %28 ], [ false, %320 ], [ true, %fix_pseudo_header.exit ], [ false, %116 ], [ false, %128 ], [ false, %278 ], [ false, %32 ], [ false, %35 ], [ false, %132 ], [ false, %135 ], [ false, %282 ], [ false, %285 ], [ false, %338 ], [ false, %341 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %28 ], [ false, %320 ], [ true, %fix_pseudo_header.exit ], [ false, %135 ], [ false, %35 ], [ false, %116 ], [ false, %128 ], [ false, %285 ], [ false, %278 ], [ false, %32 ], [ false, %132 ], [ false, %282 ], [ false, %338 ], [ false, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2201,7 +2201,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   br i1 %.not110, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %94, %100, %63, %69, %46, %44, %13, %.loopexit115, %15
-  %.0 = phi i1 [ false, %.loopexit115 ], [ true, %15 ], [ false, %13 ], [ false, %44 ], [ true, %46 ], [ false, %63 ], [ true, %69 ], [ false, %94 ], [ true, %100 ]
+  %.0 = phi i1 [ false, %44 ], [ false, %.loopexit115 ], [ true, %15 ], [ false, %13 ], [ false, %63 ], [ true, %46 ], [ true, %69 ], [ false, %94 ], [ true, %100 ]
   ret i1 %.0
 }
 
@@ -2586,7 +2586,7 @@ define internal range(i32 -9, 1) i32 @ngsniffer_dump_can_write_encap(i32 noundef
   br label %9
 
 9:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ -9, %1 ], [ -8, %3 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ -8, %3 ], [ -9, %1 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -2876,7 +2876,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %154
 
 154:                                              ; preds = %150, %142, %75, %59, %24, %20, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ false, %59 ], [ false, %75 ], [ false, %142 ], [ %153, %150 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %24 ], [ false, %142 ], [ %153, %150 ], [ false, %75 ], [ false, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -578,7 +578,7 @@ _ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit.i.i: ; preds = %14
   br label %109
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit.i.i": ; preds = %38, %31, %.lr.ph.i.i.i.i.i, %2
-  %.062.i.i = phi i64 [ %18, %31 ], [ %18, %38 ], [ %1, %2 ], [ %1, %.lr.ph.i.i.i.i.i ]
+  %.062.i.i = phi i64 [ %18, %38 ], [ %1, %2 ], [ %1, %.lr.ph.i.i.i.i.i ], [ %18, %31 ]
   store i64 0, ptr %0, align 8, !alias.scope !23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -657,7 +657,7 @@ _ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit.i.i: ; preds = %14
   br label %109
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit40.i.i": ; preds = %71, %64, %48, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.thread.i.i", %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit.i.i"
-  %..i346696.i.i = phi i64 [ %46, %71 ], [ %46, %64 ], [ %46, %48 ], [ %46, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.thread.i.i" ], [ %.062.i.i, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit.i.i" ]
+  %..i346696.i.i = phi i64 [ %46, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he78ca07719e76d4dE.exit.thread.i.i" ], [ %46, %71 ], [ %46, %64 ], [ %46, %48 ], [ %.062.i.i, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit.i.i" ]
   store i64 0, ptr %0, align 8, !alias.scope !23
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i64, ptr %72, align 8, !range !22, !alias.scope !23, !noundef !4
@@ -759,11 +759,11 @@ _ZN4core3ops8function5FnMut8call_mut17h33940878987a20c1E.exit52.i.i: ; preds = %
   br label %109
 
 109:                                              ; preds = %.body57.i.i, %.body38.i.i, %.body.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %93, %.body57.i.i ], [ %56, %.body38.i.i ], [ %23, %.body.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %23, %.body.i.i ], [ %93, %.body57.i.i ], [ %56, %.body38.i.i ]
   resume { ptr, i32 } %.pn.i.i
 
 110:                                              ; preds = %108, %101, %87, %85, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit40.i.i"
-  %.172.i.i = phi i64 [ %84, %85 ], [ %84, %87 ], [ %84, %101 ], [ %84, %108 ], [ %..i346696.i.i, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit40.i.i" ]
+  %.172.i.i = phi i64 [ %84, %108 ], [ %84, %85 ], [ %84, %87 ], [ %84, %101 ], [ %..i346696.i.i, %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.exit40.i.i" ]
   store i64 0, ptr %72, align 8, !alias.scope !23
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17heddbfd1faadc916fE.exit"
 
@@ -3541,8 +3541,8 @@ _ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.i: ; pred
   %336 = icmp ult i64 %54, %335
   br i1 %336, label %338, label %.invoke697, !prof !571
 
-_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %303, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %253, %.noexc67, %.noexc64, %118, %109, %77
-  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %77 ], [ %.sroa.4.sroa.0.2.insert.insert953, %118 ], [ %.sroa.4.sroa.0.2.insert.insert, %109 ], [ %216, %.noexc64 ], [ %241, %.noexc67 ], [ 3, %253 ], [ %250, %.noexc68 ], [ %285, %.noexc71 ], [ %291, %.noexc72 ], [ %296, %.noexc73 ], [ %300, %.noexc74 ], [ %307, %.noexc75 ], [ 3, %303 ], [ %317, %.noexc76 ], [ %328, %.noexc78 ], [ %321, %.noexc77 ]
+_ZN5gimli5write6writer6Writer14write_udata_at17ha1f9c404656c4526E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %303, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %253, %.noexc67, %.noexc64, %77, %109, %118
+  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %77 ], [ %317, %.noexc76 ], [ 3, %303 ], [ %328, %.noexc78 ], [ %300, %.noexc74 ], [ %296, %.noexc73 ], [ %291, %.noexc72 ], [ %285, %.noexc71 ], [ %250, %.noexc68 ], [ 3, %253 ], [ %241, %.noexc67 ], [ %216, %.noexc64 ], [ %.sroa.4.sroa.0.2.insert.insert, %109 ], [ %.sroa.4.sroa.0.2.insert.insert953, %118 ], [ %307, %.noexc75 ], [ %321, %.noexc77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.4.sroa.0.0.extract.trunc = trunc i64 %.sroa.4.sroa.0.0 to i32
   %.sroa.4.sroa.0.4.extract.shift = lshr i64 %.sroa.4.sroa.0.0, 32
@@ -4169,8 +4169,8 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.spli
   br label %_ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.i
 
 _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.sink.split.i: ; preds = %.noexc107, %555, %502
-  %.sink354.i = phi i64 [ %505, %502 ], [ %560, %555 ], [ %.pre.i.i.i.i175.i.i, %.noexc107 ]
-  %.sink.i85 = phi i8 [ %504, %502 ], [ %561, %555 ], [ %.sink.ph.i, %.noexc107 ]
+  %.sink354.i = phi i64 [ %560, %555 ], [ %505, %502 ], [ %.pre.i.i.i.i175.i.i, %.noexc107 ]
+  %.sink.i85 = phi i8 [ %561, %555 ], [ %504, %502 ], [ %.sink.ph.i, %.noexc107 ]
   %579 = load ptr, ptr %36, align 8, !alias.scope !934, !noalias !823, !nonnull !4, !noundef !4
   %580 = getelementptr inbounds i8, ptr %579, i64 %.sink354.i
   store i8 %.sink.i85, ptr %580, align 1, !noalias !823
@@ -4223,14 +4223,14 @@ _ZN5gimli5write3cfi17write_advance_loc17h3fc22d09339a9fffE.exit.thread.i: ; pred
   %598 = or disjoint i64 %596, %597
   br label %51
 
-.thread:                                          ; preds = %400, %359, %.split.i
-  %.sroa.0.0.i80.ph = phi i64 [ 3, %.split.i ], [ 3, %359 ], [ 7, %400 ]
+.thread:                                          ; preds = %.split.i, %400, %359
+  %.sroa.0.0.i80.ph = phi i64 [ 3, %359 ], [ 7, %400 ], [ 3, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit184
 
 599:                                              ; preds = %.noexc106, %470, %.noexc96, %.noexc95, %.noexc94, %.noexc91, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i, %354
-  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.15.sroa.0.1.i, %470 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %354 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc91 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc95 ], [ %.sroa.4270.0.extract.trunc.i, %.noexc94 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc96 ], [ %spec.select300.i, %.noexc106 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ]
-  %.sroa.0.0.i80 = phi i64 [ %.sroa.15.sroa.0.1.in.in.i, %470 ], [ %356, %354 ], [ %401, %.noexc91 ], [ %418, %.noexc95 ], [ %411, %.noexc94 ], [ %428, %.noexc96 ], [ %phi.call.i, %.noexc106 ], [ %584, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ], [ %495, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ]
+  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %spec.select300.i, %.noexc106 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc96 ], [ %.sroa.15.sroa.0.1.i, %470 ], [ %.sroa.4270.0.extract.trunc.i, %.noexc94 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc95 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc91 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %354 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ]
+  %.sroa.0.0.i80 = phi i64 [ %495, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit330.i ], [ %phi.call.i, %.noexc106 ], [ %428, %.noexc96 ], [ %.sroa.15.sroa.0.1.in.in.i, %470 ], [ %411, %.noexc94 ], [ %418, %.noexc95 ], [ %401, %.noexc91 ], [ %356, %354 ], [ %584, %_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E.exit.thread.loopexit.split.loop.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %600 = and i64 %.sroa.0.0.i80, 255
   %601 = icmp eq i64 %600, 18
@@ -4983,8 +4983,8 @@ _ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.i: ; pred
   %335 = icmp ult i64 %53, %334
   br i1 %335, label %337, label %.invoke, !prof !571
 
-_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %302, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %252, %.noexc67, %.noexc64, %117, %108, %76
-  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %76 ], [ %.sroa.4.sroa.0.2.insert.insert928, %117 ], [ %.sroa.4.sroa.0.2.insert.insert, %108 ], [ %215, %.noexc64 ], [ %240, %.noexc67 ], [ 3, %252 ], [ %249, %.noexc68 ], [ %284, %.noexc71 ], [ %290, %.noexc72 ], [ %295, %.noexc73 ], [ %299, %.noexc74 ], [ %306, %.noexc75 ], [ 3, %302 ], [ %316, %.noexc76 ], [ %327, %.noexc78 ], [ %320, %.noexc77 ]
+_ZN5gimli5write6writer6Writer14write_udata_at17h90dbb21f6bb5a191E.exit.thread.i: ; preds = %.noexc77, %.noexc78, %.noexc76, %.noexc75, %302, %.noexc74, %.noexc73, %.noexc72, %.noexc71, %.noexc68, %252, %.noexc67, %.noexc64, %76, %108, %117
+  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.sroa.0.4.insert.insert, %76 ], [ %316, %.noexc76 ], [ 3, %302 ], [ %327, %.noexc78 ], [ %299, %.noexc74 ], [ %295, %.noexc73 ], [ %290, %.noexc72 ], [ %284, %.noexc71 ], [ %249, %.noexc68 ], [ 3, %252 ], [ %240, %.noexc67 ], [ %215, %.noexc64 ], [ %.sroa.4.sroa.0.2.insert.insert, %108 ], [ %.sroa.4.sroa.0.2.insert.insert928, %117 ], [ %306, %.noexc75 ], [ %320, %.noexc77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.4.sroa.0.0.extract.trunc = trunc i64 %.sroa.4.sroa.0.0 to i32
   %.sroa.4.sroa.0.4.extract.shift = lshr i64 %.sroa.4.sroa.0.0, 32
@@ -5716,8 +5716,8 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.spli
   br label %_ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.i
 
 _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.sink.split.i: ; preds = %.noexc110, %595, %542
-  %.sink370.i = phi i64 [ %545, %542 ], [ %600, %595 ], [ %.pre.i.i.i.i175.i.i, %.noexc110 ]
-  %.sink.i85 = phi i8 [ %544, %542 ], [ %601, %595 ], [ %.sink.ph.i, %.noexc110 ]
+  %.sink370.i = phi i64 [ %600, %595 ], [ %545, %542 ], [ %.pre.i.i.i.i175.i.i, %.noexc110 ]
+  %.sink.i85 = phi i8 [ %601, %595 ], [ %544, %542 ], [ %.sink.ph.i, %.noexc110 ]
   %619 = load ptr, ptr %33, align 8, !alias.scope !1456, !noalias !1328, !nonnull !4, !noundef !4
   %620 = getelementptr inbounds i8, ptr %619, i64 %.sink370.i
   store i8 %.sink.i85, ptr %620, align 1, !noalias !1328
@@ -5770,14 +5770,14 @@ _ZN5gimli5write3cfi17write_advance_loc17h4a0538fe5d50254dE.exit.thread.i: ; pred
   %638 = or disjoint i64 %636, %637
   br label %50
 
-.thread:                                          ; preds = %444, %358, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i"
-  %.sroa.0.0.i80.ph = phi i64 [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i" ], [ 3, %358 ], [ 7, %444 ]
+.thread:                                          ; preds = %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i", %444, %358
+  %.sroa.0.0.i80.ph = phi i64 [ 3, %358 ], [ 7, %444 ], [ 3, %"_ZN107_$LT$wasmtime_cranelift..debug..write_debuginfo..WriterRelocate$u20$as$u20$gimli..write..writer..Writer$GT$12write_offset17hf5e81424abe4c4c5E.exit309.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit188
 
 639:                                              ; preds = %.noexc109, %.noexc101.thread, %.noexc99, %.noexc98, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i, %.noexc96, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i, %353
-  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.15.sroa.0.1.i, %.noexc101.thread ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %353 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc96 ], [ %.sroa.4268.0.extract.trunc.i, %.noexc98 ], [ %.sroa.4270.0.extract.trunc.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %.sroa.4272.0.extract.trunc.i, %.noexc99 ], [ %spec.select300.i, %.noexc109 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ], [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ]
-  %.sroa.0.0.i80 = phi i64 [ %.sroa.15.sroa.0.1.in.in.i, %.noexc101.thread ], [ %355, %353 ], [ %441, %.noexc96 ], [ %459, %.noexc98 ], [ %.sroa.0.0.i315.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %470, %.noexc99 ], [ %phi.call.i, %.noexc109 ], [ %624, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ], [ %535, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ]
+  %.sroa.15.sroa.0.0.i = phi i56 [ %.sroa.4282.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %spec.select300.i, %.noexc109 ], [ %.sroa.4272.0.extract.trunc.i, %.noexc99 ], [ %.sroa.15.sroa.0.1.i, %.noexc101.thread ], [ %.sroa.4270.0.extract.trunc.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %.sroa.4268.0.extract.trunc.i, %.noexc98 ], [ %.sroa.4266.0.extract.trunc.i, %.noexc96 ], [ %.1..1..1..1..1..1..sroa.15.sroa.0.0.copyload.i, %353 ], [ %.sroa.4286.0.extract.trunc.le.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ]
+  %.sroa.0.0.i80 = phi i64 [ %535, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit341.i ], [ %phi.call.i, %.noexc109 ], [ %470, %.noexc99 ], [ %.sroa.15.sroa.0.1.in.in.i, %.noexc101.thread ], [ %.sroa.0.0.i315.i, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.i ], [ %459, %.noexc98 ], [ %441, %.noexc96 ], [ %355, %353 ], [ %624, %_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e755d8fE.exit.thread.loopexit.split.loop.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %640 = and i64 %.sroa.0.0.i80, 255
   %641 = icmp eq i64 %640, 18
@@ -6126,8 +6126,8 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit1244: ; preds = %
   br label %189
 
 189:                                              ; preds = %434, %430, %424, %413, %409, %403, %392, %387, %376, %371, %366, %353, %362, %357, %349, %341, %336, %309, %332, %317, %328, %323, %313, %293, %282, %271, %245, %233, %228, %223, %212, %190, %183, %178, %173, %168, %157, %227, %177, %348, %306, %188
-  %.sroa.58.sroa.0.0 = phi i64 [ 0, %188 ], [ %.sroa.2761.1.insert.insert, %177 ], [ %.sroa.2816.1.insert.insert, %227 ], [ %.sroa.2909.1.insert.insert, %306 ], [ %.sroa.2966.1.insert.insert, %348 ], [ %.sroa.41103.0.extract.shift, %157 ], [ %.sroa.41105.0.extract.shift, %168 ], [ %.sroa.41110.0.extract.shift, %173 ], [ %.sroa.41112.0.extract.shift, %178 ], [ %.sroa.41114.0.extract.shift, %183 ], [ %.sroa.41118.0.extract.shift, %190 ], [ %.sroa.41122.0.extract.shift, %212 ], [ %.sroa.41127.0.extract.shift, %223 ], [ %.sroa.41129.0.extract.shift, %228 ], [ %.sroa.41134.0.extract.shift, %233 ], [ %.sroa.41136.0.extract.shift, %245 ], [ %.sroa.41140.0.extract.shift, %271 ], [ %.sroa.41146.0.extract.shift, %282 ], [ %.sroa.41150.0.extract.shift, %293 ], [ %.sroa.41155.0.extract.shift, %313 ], [ %.sroa.41157.0.extract.shift, %323 ], [ %.sroa.41159.0.extract.shift, %328 ], [ %.sroa.41161.0.extract.shift, %317 ], [ %.sroa.41163.0.extract.shift, %332 ], [ %.sroa.41165.0.extract.shift, %309 ], [ %.sroa.41167.0.extract.shift, %336 ], [ %.sroa.41169.0.extract.shift, %341 ], [ %.sroa.41174.0.extract.shift, %349 ], [ %.sroa.41176.0.extract.shift, %357 ], [ %.sroa.41178.0.extract.shift, %362 ], [ %.sroa.41180.0.extract.shift, %353 ], [ %.sroa.41182.0.extract.shift, %366 ], [ %.sroa.41184.0.extract.shift, %371 ], [ %.sroa.41188.0.extract.shift, %376 ], [ %.sroa.41190.0.extract.shift, %387 ], [ %.sroa.41194.0.extract.shift, %392 ], [ %.sroa.41197.0.extract.shift, %403 ], [ %.sroa.41199.0.extract.shift, %409 ], [ %.sroa.41203.0.extract.shift, %413 ], [ %.sroa.41206.0.extract.shift, %424 ], [ %.sroa.41208.0.extract.shift, %430 ], [ %.sroa.41216.0.extract.shift, %434 ]
-  %.sroa.06.0 = phi i64 [ 18, %188 ], [ %154, %177 ], [ %209, %227 ], [ %58, %306 ], [ %66, %348 ], [ %165, %157 ], [ %170, %168 ], [ %174, %173 ], [ %180, %178 ], [ %185, %183 ], [ %198, %190 ], [ %220, %212 ], [ %224, %223 ], [ %230, %228 ], [ %242, %233 ], [ %246, %245 ], [ %279, %271 ], [ %290, %282 ], [ %301, %293 ], [ %314, %313 ], [ %325, %323 ], [ %329, %328 ], [ %320, %317 ], [ %333, %332 ], [ %310, %309 ], [ %338, %336 ], [ %343, %341 ], [ %350, %349 ], [ %359, %357 ], [ %363, %362 ], [ %354, %353 ], [ %368, %366 ], [ %373, %371 ], [ %384, %376 ], [ %389, %387 ], [ %400, %392 ], [ %406, %403 ], [ %410, %409 ], [ %421, %413 ], [ %427, %424 ], [ %431, %430 ], [ %442, %434 ]
+  %.sroa.58.sroa.0.0 = phi i64 [ 0, %188 ], [ %.sroa.41112.0.extract.shift, %178 ], [ %.sroa.41110.0.extract.shift, %173 ], [ %.sroa.41105.0.extract.shift, %168 ], [ %.sroa.2761.1.insert.insert, %177 ], [ %.sroa.41103.0.extract.shift, %157 ], [ %.sroa.41194.0.extract.shift, %392 ], [ %.sroa.41216.0.extract.shift, %434 ], [ %.sroa.41199.0.extract.shift, %409 ], [ %.sroa.41114.0.extract.shift, %183 ], [ %.sroa.41127.0.extract.shift, %223 ], [ %.sroa.41122.0.extract.shift, %212 ], [ %.sroa.2816.1.insert.insert, %227 ], [ %.sroa.41197.0.extract.shift, %403 ], [ %.sroa.41118.0.extract.shift, %190 ], [ %.sroa.41134.0.extract.shift, %233 ], [ %.sroa.41206.0.extract.shift, %424 ], [ %.sroa.41129.0.extract.shift, %228 ], [ %.sroa.41140.0.extract.shift, %271 ], [ %.sroa.41184.0.extract.shift, %371 ], [ %.sroa.41136.0.extract.shift, %245 ], [ %.sroa.41190.0.extract.shift, %387 ], [ %.sroa.41208.0.extract.shift, %430 ], [ %.sroa.41203.0.extract.shift, %413 ], [ %.sroa.41146.0.extract.shift, %282 ], [ %.sroa.41167.0.extract.shift, %336 ], [ %.sroa.41165.0.extract.shift, %309 ], [ %.sroa.41163.0.extract.shift, %332 ], [ %.sroa.41161.0.extract.shift, %317 ], [ %.sroa.41159.0.extract.shift, %328 ], [ %.sroa.41157.0.extract.shift, %323 ], [ %.sroa.41155.0.extract.shift, %313 ], [ %.sroa.41150.0.extract.shift, %293 ], [ %.sroa.2909.1.insert.insert, %306 ], [ %.sroa.41182.0.extract.shift, %366 ], [ %.sroa.41180.0.extract.shift, %353 ], [ %.sroa.41178.0.extract.shift, %362 ], [ %.sroa.41176.0.extract.shift, %357 ], [ %.sroa.41174.0.extract.shift, %349 ], [ %.sroa.41169.0.extract.shift, %341 ], [ %.sroa.2966.1.insert.insert, %348 ], [ %.sroa.41188.0.extract.shift, %376 ]
+  %.sroa.06.0 = phi i64 [ 18, %188 ], [ %180, %178 ], [ %174, %173 ], [ %170, %168 ], [ %154, %177 ], [ %165, %157 ], [ %400, %392 ], [ %442, %434 ], [ %410, %409 ], [ %185, %183 ], [ %224, %223 ], [ %220, %212 ], [ %209, %227 ], [ %406, %403 ], [ %198, %190 ], [ %242, %233 ], [ %427, %424 ], [ %230, %228 ], [ %279, %271 ], [ %373, %371 ], [ %246, %245 ], [ %389, %387 ], [ %431, %430 ], [ %421, %413 ], [ %290, %282 ], [ %338, %336 ], [ %310, %309 ], [ %333, %332 ], [ %320, %317 ], [ %329, %328 ], [ %325, %323 ], [ %314, %313 ], [ %301, %293 ], [ %58, %306 ], [ %368, %366 ], [ %354, %353 ], [ %363, %362 ], [ %359, %357 ], [ %350, %349 ], [ %343, %341 ], [ %66, %348 ], [ %384, %376 ]
   %.sroa.06.0.insert.ext = and i64 %.sroa.06.0, 255
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.06.0.insert.ext, %.sroa.58.sroa.0.0
   ret i64 %.sroa.06.0.insert.insert
@@ -6865,8 +6865,8 @@ _ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit1244: ; preds = %
   br label %177
 
 177:                                              ; preds = %419, %415, %409, %398, %394, %388, %377, %372, %361, %356, %351, %338, %347, %342, %334, %326, %321, %294, %317, %302, %313, %308, %298, %278, %267, %256, %232, %220, %215, %210, %199, %178, %171, %166, %161, %156, %145, %214, %165, %333, %291, %176
-  %.sroa.58.sroa.0.0 = phi i64 [ 0, %176 ], [ %.sroa.2761.1.insert.insert, %165 ], [ %.sroa.2816.1.insert.insert, %214 ], [ %.sroa.2909.1.insert.insert, %291 ], [ %.sroa.2966.1.insert.insert, %333 ], [ %.sroa.41103.0.extract.shift, %145 ], [ %.sroa.41105.0.extract.shift, %156 ], [ %.sroa.41110.0.extract.shift, %161 ], [ %.sroa.41112.0.extract.shift, %166 ], [ %.sroa.41114.0.extract.shift, %171 ], [ %.sroa.41118.0.extract.shift, %178 ], [ %.sroa.41122.0.extract.shift, %199 ], [ %.sroa.41127.0.extract.shift, %210 ], [ %.sroa.41129.0.extract.shift, %215 ], [ %.sroa.41134.0.extract.shift, %220 ], [ %.sroa.41136.0.extract.shift, %232 ], [ %.sroa.41140.0.extract.shift, %256 ], [ %.sroa.41146.0.extract.shift, %267 ], [ %.sroa.41150.0.extract.shift, %278 ], [ %.sroa.41155.0.extract.shift, %298 ], [ %.sroa.41157.0.extract.shift, %308 ], [ %.sroa.41159.0.extract.shift, %313 ], [ %.sroa.41161.0.extract.shift, %302 ], [ %.sroa.41163.0.extract.shift, %317 ], [ %.sroa.41165.0.extract.shift, %294 ], [ %.sroa.41167.0.extract.shift, %321 ], [ %.sroa.41169.0.extract.shift, %326 ], [ %.sroa.41174.0.extract.shift, %334 ], [ %.sroa.41176.0.extract.shift, %342 ], [ %.sroa.41178.0.extract.shift, %347 ], [ %.sroa.41180.0.extract.shift, %338 ], [ %.sroa.41182.0.extract.shift, %351 ], [ %.sroa.41184.0.extract.shift, %356 ], [ %.sroa.41188.0.extract.shift, %361 ], [ %.sroa.41190.0.extract.shift, %372 ], [ %.sroa.41194.0.extract.shift, %377 ], [ %.sroa.41197.0.extract.shift, %388 ], [ %.sroa.41199.0.extract.shift, %394 ], [ %.sroa.41203.0.extract.shift, %398 ], [ %.sroa.41206.0.extract.shift, %409 ], [ %.sroa.41208.0.extract.shift, %415 ], [ %.sroa.41216.0.extract.shift, %419 ]
-  %.sroa.06.0 = phi i64 [ 18, %176 ], [ %142, %165 ], [ %196, %214 ], [ %54, %291 ], [ %62, %333 ], [ %153, %145 ], [ %158, %156 ], [ %162, %161 ], [ %168, %166 ], [ %173, %171 ], [ %186, %178 ], [ %207, %199 ], [ %211, %210 ], [ %217, %215 ], [ %229, %220 ], [ %233, %232 ], [ %264, %256 ], [ %275, %267 ], [ %286, %278 ], [ %299, %298 ], [ %310, %308 ], [ %314, %313 ], [ %305, %302 ], [ %318, %317 ], [ %295, %294 ], [ %323, %321 ], [ %328, %326 ], [ %335, %334 ], [ %344, %342 ], [ %348, %347 ], [ %339, %338 ], [ %353, %351 ], [ %358, %356 ], [ %369, %361 ], [ %374, %372 ], [ %385, %377 ], [ %391, %388 ], [ %395, %394 ], [ %406, %398 ], [ %412, %409 ], [ %416, %415 ], [ %427, %419 ]
+  %.sroa.58.sroa.0.0 = phi i64 [ 0, %176 ], [ %.sroa.41112.0.extract.shift, %166 ], [ %.sroa.41110.0.extract.shift, %161 ], [ %.sroa.41105.0.extract.shift, %156 ], [ %.sroa.2761.1.insert.insert, %165 ], [ %.sroa.41103.0.extract.shift, %145 ], [ %.sroa.41194.0.extract.shift, %377 ], [ %.sroa.41216.0.extract.shift, %419 ], [ %.sroa.41199.0.extract.shift, %394 ], [ %.sroa.41114.0.extract.shift, %171 ], [ %.sroa.41127.0.extract.shift, %210 ], [ %.sroa.41122.0.extract.shift, %199 ], [ %.sroa.2816.1.insert.insert, %214 ], [ %.sroa.41197.0.extract.shift, %388 ], [ %.sroa.41118.0.extract.shift, %178 ], [ %.sroa.41134.0.extract.shift, %220 ], [ %.sroa.41206.0.extract.shift, %409 ], [ %.sroa.41129.0.extract.shift, %215 ], [ %.sroa.41140.0.extract.shift, %256 ], [ %.sroa.41184.0.extract.shift, %356 ], [ %.sroa.41136.0.extract.shift, %232 ], [ %.sroa.41190.0.extract.shift, %372 ], [ %.sroa.41208.0.extract.shift, %415 ], [ %.sroa.41203.0.extract.shift, %398 ], [ %.sroa.41146.0.extract.shift, %267 ], [ %.sroa.41167.0.extract.shift, %321 ], [ %.sroa.41165.0.extract.shift, %294 ], [ %.sroa.41163.0.extract.shift, %317 ], [ %.sroa.41161.0.extract.shift, %302 ], [ %.sroa.41159.0.extract.shift, %313 ], [ %.sroa.41157.0.extract.shift, %308 ], [ %.sroa.41155.0.extract.shift, %298 ], [ %.sroa.41150.0.extract.shift, %278 ], [ %.sroa.2909.1.insert.insert, %291 ], [ %.sroa.41182.0.extract.shift, %351 ], [ %.sroa.41180.0.extract.shift, %338 ], [ %.sroa.41178.0.extract.shift, %347 ], [ %.sroa.41176.0.extract.shift, %342 ], [ %.sroa.41174.0.extract.shift, %334 ], [ %.sroa.41169.0.extract.shift, %326 ], [ %.sroa.2966.1.insert.insert, %333 ], [ %.sroa.41188.0.extract.shift, %361 ]
+  %.sroa.06.0 = phi i64 [ 18, %176 ], [ %168, %166 ], [ %162, %161 ], [ %158, %156 ], [ %142, %165 ], [ %153, %145 ], [ %385, %377 ], [ %427, %419 ], [ %395, %394 ], [ %173, %171 ], [ %211, %210 ], [ %207, %199 ], [ %196, %214 ], [ %391, %388 ], [ %186, %178 ], [ %229, %220 ], [ %412, %409 ], [ %217, %215 ], [ %264, %256 ], [ %358, %356 ], [ %233, %232 ], [ %374, %372 ], [ %416, %415 ], [ %406, %398 ], [ %275, %267 ], [ %323, %321 ], [ %295, %294 ], [ %318, %317 ], [ %305, %302 ], [ %314, %313 ], [ %310, %308 ], [ %299, %298 ], [ %286, %278 ], [ %54, %291 ], [ %353, %351 ], [ %339, %338 ], [ %348, %347 ], [ %344, %342 ], [ %335, %334 ], [ %328, %326 ], [ %62, %333 ], [ %369, %361 ]
   %.sroa.06.0.insert.ext = and i64 %.sroa.06.0, 255
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.06.0.insert.ext, %.sroa.58.sroa.0.0
   ret i64 %.sroa.06.0.insert.insert
@@ -8152,7 +8152,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_op_
           to label %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_sleb12817hb5ca0e17d413d78dE.exit unwind label %86
 
 .invoke.invoke:                                   ; preds = %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_sleb12817hb5ca0e17d413d78dE.exit, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_op_breg17hcb8369f510cf89caE.exit, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter12write_op_reg17h420de0f19217aae9E.exit
-  %67 = phi i64 [ %46, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_op_breg17hcb8369f510cf89caE.exit ], [ %62, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter12write_op_reg17h420de0f19217aae9E.exit ], [ %66, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_sleb12817hb5ca0e17d413d78dE.exit ]
+  %67 = phi i64 [ %62, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter12write_op_reg17h420de0f19217aae9E.exit ], [ %46, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_op_breg17hcb8369f510cf89caE.exit ], [ %66, %_ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_sleb12817hb5ca0e17d413d78dE.exit ]
   %68 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h907045cf30bda4c6E"(i64 %67)
           to label %71 unwind label %86
 
@@ -8757,7 +8757,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_sle
 200:                                              ; preds = %201
   resume { ptr, i32 } %lpad.thr_comm
 
-201:                                              ; preds = %154, %175, %168, %170, %161, %163, %156, %147, %149, %137, %77, %57, %53, %13, %135, %128, %130, %103, %18, %32, %39, %45, %62, %83, %90, %102, %113, %122
+201:                                              ; preds = %154, %18, %175, %168, %170, %161, %163, %156, %147, %149, %137, %83, %77, %62, %39, %57, %45, %53, %13, %135, %128, %130, %122, %32, %113, %102, %103, %90
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr87drop_in_place$LT$wasmtime_cranelift..debug..transform..expression..ExpressionWriter$GT$17hc49ad43ba9dee378E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #37
@@ -9062,7 +9062,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform10expression18Compile
   br label %63
 
 common.resume:                                    ; preds = %135, %89, %122, %80, %55, %65
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %65 ], [ %56, %55 ], [ %81, %80 ], [ %90, %89 ], [ %lpad.phi, %135 ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %56, %55 ], [ %lpad.phi.i, %65 ], [ %90, %89 ], [ %lpad.phi, %135 ], [ %123, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit.i:                                      ; preds = %62, %.noexc14.i, %.noexc13.i, %.noexc12.i, %51, %49
@@ -10070,7 +10070,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug9transform10expression
   unreachable
 
 common.resume:                                    ; preds = %272, %277, %258, %199, %237, %182
-  %common.resume.op = phi { ptr, i32 } [ %183, %182 ], [ %238, %237 ], [ %lpad.phi178, %272 ], [ %278, %277 ], [ %lpad.phi183, %258 ], [ %lpad.phi, %199 ]
+  %common.resume.op = phi { ptr, i32 } [ %238, %237 ], [ %183, %182 ], [ %lpad.phi178, %272 ], [ %lpad.phi183, %258 ], [ %278, %277 ], [ %lpad.phi, %199 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6891a0b19c5930d2E.exit": ; preds = %179, %184
@@ -11488,9 +11488,9 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform10fu
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h52b6e5e207461259E.exit" unwind label %.loopexit.split-lp
 
 .invoke:                                          ; preds = %102, %83, %67
-  %74 = phi i64 [ %3, %67 ], [ 0, %83 ], [ %3, %102 ]
-  %75 = phi i64 [ %69, %67 ], [ 0, %83 ], [ %104, %102 ]
-  %76 = phi ptr [ @anon.acc04376d73b9d47b12eb9d1881f2d89.55, %67 ], [ @anon.acc04376d73b9d47b12eb9d1881f2d89.57, %83 ], [ @anon.acc04376d73b9d47b12eb9d1881f2d89.55, %102 ]
+  %74 = phi i64 [ 0, %83 ], [ %3, %67 ], [ %3, %102 ]
+  %75 = phi i64 [ 0, %83 ], [ %69, %67 ], [ %104, %102 ]
+  %76 = phi ptr [ @anon.acc04376d73b9d47b12eb9d1881f2d89.57, %83 ], [ @anon.acc04376d73b9d47b12eb9d1881f2d89.55, %67 ], [ @anon.acc04376d73b9d47b12eb9d1881f2d89.55, %102 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %74, i64 noundef %75, ptr noalias noundef readonly align 8 dereferenceable(24) %76) #36
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -11784,7 +11784,7 @@ define hidden noundef i64 @_ZN18wasmtime_cranelift5debug9transform18range_info_b
 32:                                               ; preds = %33
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %31, %29
+.loopexit:                                        ; preds = %29, %31
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %33

@@ -230,7 +230,7 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %114
 
 114:                                              ; preds = %113, %111
-  %115 = phi i32 [ %.pr, %113 ], [ %107, %111 ]
+  %115 = phi i32 [ %107, %111 ], [ %.pr, %113 ]
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %.thread140
 
@@ -249,8 +249,8 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %.thread140
 
 .thread140:                                       ; preds = %._crit_edge.thread, %112, %114, %122, %104
-  %.0113.lcssa159163 = phi i32 [ %.1114, %112 ], [ %.1114, %114 ], [ %.1114, %122 ], [ %.1114, %104 ], [ %3, %._crit_edge.thread ]
-  %123 = phi ptr [ %97, %112 ], [ %97, %114 ], [ %97, %122 ], [ %97, %104 ], [ %18, %._crit_edge.thread ]
+  %.0113.lcssa159163 = phi i32 [ %.1114, %104 ], [ %.1114, %112 ], [ %.1114, %114 ], [ %.1114, %122 ], [ %3, %._crit_edge.thread ]
+  %123 = phi ptr [ %97, %104 ], [ %97, %112 ], [ %97, %114 ], [ %97, %122 ], [ %18, %._crit_edge.thread ]
   %124 = load i32, ptr %123, align 8, !tbaa !37
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 132
@@ -298,7 +298,7 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %.thread
 
 .thread:                                          ; preds = %34, %29, %22, %153, %121, %102, %75, %48
-  %.1 = phi i32 [ -1094995529, %48 ], [ -1094995529, %75 ], [ -1094995529, %102 ], [ -22, %121 ], [ %142, %153 ], [ -5, %29 ], [ -1094995529, %34 ], [ -541478725, %22 ]
+  %.1 = phi i32 [ %142, %153 ], [ -1094995529, %48 ], [ -1094995529, %75 ], [ -22, %121 ], [ -1094995529, %102 ], [ -5, %29 ], [ -1094995529, %34 ], [ -541478725, %22 ]
   ret i32 %.1
 }
 

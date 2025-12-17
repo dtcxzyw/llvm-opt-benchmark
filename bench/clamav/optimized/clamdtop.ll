@@ -1823,7 +1823,7 @@ parse_queue.exit.thread.i:                        ; preds = %756
   br label %parse_queue.exit.i
 
 parse_queue.exit.i:                               ; preds = %739, %735, %797, %.thread180.i, %791, %790, %.thread.i61, %750, %749, %748
-  %.1.i60 = phi i32 [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.0116203.i, %748 ], [ %.0116203.i, %749 ], [ %.0116203.i, %750 ], [ %.2.i59, %.thread180.i ], [ %.2.i59, %.thread.i61 ], [ %.2.i59, %791 ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
+  %.1.i60 = phi i32 [ %.0116203.i, %750 ], [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.2.i59, %791 ], [ %.2.i59, %.thread.i61 ], [ %.0116203.i, %748 ], [ %.0116203.i, %749 ], [ %.2.i59, %.thread180.i ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
   %798 = call fastcc i32 @recv_line(ptr noundef %574, ptr noundef %9)
   %.not159.i = icmp eq i32 %798, 0
   br i1 %.not159.i, label %parse_stats.exit, label %711
@@ -3672,7 +3672,7 @@ send_string.exit21:                               ; preds = %send_string_norecon
   br label %29
 
 29:                                               ; preds = %send_string.exit21, %17, %send_string.exit, %3, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %3 ], [ 0, %send_string.exit ], [ -1, %17 ], [ %., %send_string.exit21 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %send_string.exit ], [ -1, %17 ], [ %., %send_string.exit21 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -3888,9 +3888,9 @@ make_ip.exit:                                     ; preds = %72, %74, %82
   br label %.thread95
 
 .thread95:                                        ; preds = %61, %.thread, %24, %.loopexit, %make_ip.exit, %42
-  %.171.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %26, %42 ], [ %.070, %.loopexit ], [ %.070, %make_ip.exit ], [ %26, %61 ]
-  %.168.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %.012.i, %42 ], [ %.067, %.loopexit ], [ %.067, %make_ip.exit ], [ %.012.i, %61 ]
-  %.266.ph = phi i32 [ -1, %.thread ], [ -1, %24 ], [ -1, %42 ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %61 ]
+  %.171.ph = phi ptr [ null, %24 ], [ %26, %42 ], [ null, %.thread ], [ %.070, %.loopexit ], [ %.070, %make_ip.exit ], [ %26, %61 ]
+  %.168.ph = phi ptr [ null, %24 ], [ %.012.i, %42 ], [ null, %.thread ], [ %.067, %.loopexit ], [ %.067, %make_ip.exit ], [ %.012.i, %61 ]
+  %.266.ph = phi i32 [ -1, %24 ], [ -1, %42 ], [ -1, %.thread ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %61 ]
   %.pr = load ptr, ptr %5, align 8, !tbaa !100
   %.not89 = icmp eq ptr %.pr, null
   br i1 %.not89, label %87, label %86
@@ -3980,7 +3980,7 @@ define internal fastcc range(i32 -2, 1) i32 @read_version(ptr noundef captures(a
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.preheader, %4, %1
-  %.010 = phi i32 [ -1, %1 ], [ -2, %4 ], [ 0, %.preheader ], [ 0, %15 ]
+  %.010 = phi i32 [ -2, %4 ], [ -1, %1 ], [ 0, %.preheader ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010
 }
@@ -4208,7 +4208,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @recv_line(ptr noundef captur
   br label %46
 
 46:                                               ; preds = %.thread, %4, %45
-  %.0 = phi i32 [ 1, %45 ], [ 0, %4 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 1, %45 ], [ 0, %.thread ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -4308,9 +4308,9 @@ define internal fastcc void @show_bar(ptr noundef %0, i64 noundef range(i64 2, 5
   unreachable
 
 .thread71:                                        ; preds = %7, %6
-  %22 = phi i32 [ 0, %6 ], [ %12, %7 ]
-  %23 = phi i32 [ 0, %6 ], [ %14, %7 ]
-  %24 = phi i32 [ 36, %6 ], [ %16, %7 ]
+  %22 = phi i32 [ %12, %7 ], [ 0, %6 ]
+  %23 = phi i32 [ %14, %7 ], [ 0, %6 ]
+  %24 = phi i32 [ %16, %7 ], [ 36, %6 ]
   %25 = trunc nuw nsw i64 %1 to i32
   %26 = tail call i32 @wmove(ptr noundef %0, i32 noundef %25, i32 noundef 1) #26
   %27 = icmp eq i32 %26, -1

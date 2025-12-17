@@ -734,8 +734,8 @@ define internal void @_ZNK4ncnn20GroupNorm_x86_avx51215forward_inplaceERNS_3MatE
   br i1 %exitcond460.not, label %_ZN4ncnn3MatD2Ev.exit205, label %.lr.ph411, !llvm.loop !74
 
 _ZN4ncnn3MatD2Ev.exit205:                         ; preds = %.lr.ph387, %.lr.ph411, %.preheader283, %.preheader
-  %270 = phi i32 [ %200, %.preheader283 ], [ %256, %.preheader ], [ %256, %.lr.ph411 ], [ %200, %.lr.ph387 ]
-  %271 = phi i32 [ %201, %.preheader283 ], [ %256, %.preheader ], [ %256, %.lr.ph411 ], [ %201, %.lr.ph387 ]
+  %270 = phi i32 [ %256, %.preheader ], [ %200, %.preheader283 ], [ %256, %.lr.ph411 ], [ %200, %.lr.ph387 ]
+  %271 = phi i32 [ %256, %.preheader ], [ %201, %.preheader283 ], [ %256, %.lr.ph411 ], [ %201, %.lr.ph387 ]
   %272 = add i32 %.0413, 1
   %exitcond461.not = icmp eq i32 %.0413, %17
   br i1 %exitcond461.not, label %._crit_edge416, label %26

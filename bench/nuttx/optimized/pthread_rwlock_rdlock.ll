@@ -33,7 +33,7 @@ define i32 @pthread_rwlock_tryrdlock(ptr noundef %0) local_unnamed_addr #0 {
   br label %tryrdlock.exit
 
 tryrdlock.exit:                                   ; preds = %3, %6, %10, %14
-  %.0.i = phi i32 [ 0, %14 ], [ 16, %6 ], [ 16, %3 ], [ 11, %10 ]
+  %.0.i = phi i32 [ 0, %14 ], [ 16, %3 ], [ 16, %6 ], [ 11, %10 ]
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %17
 
@@ -95,7 +95,7 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
   store i32 %22, ptr %18, align 8
   br label %tryrdlock.exit
 
-23:                                               ; preds = %15, %.preheader.split
+23:                                               ; preds = %.preheader.split, %15
   %24 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   %.not19 = icmp eq i32 %24, 0
   br i1 %.not19, label %.preheader.split, label %tryrdlock.exit, !llvm.loop !6

@@ -824,7 +824,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit: ; preds = %
   ret void
 
 ehcleanup:                                        ; preds = %lpad49.loopexit, %lpad49.loopexit.split-lp.loopexit.split-lp, %lpad49.loopexit.split-lp.loopexit, %lpad170, %lpad114
-  %.pn = phi { ptr, i32 } [ %33, %lpad114 ], [ %45, %lpad170 ], [ %lpad.loopexit, %lpad49.loopexit ], [ %lpad.loopexit255, %lpad49.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp256, %lpad49.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %45, %lpad170 ], [ %33, %lpad114 ], [ %lpad.loopexit, %lpad49.loopexit ], [ %lpad.loopexit255, %lpad49.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp256, %lpad49.loopexit.split-lp.loopexit.split-lp ]
   %53 = load ptr, ptr %fields, align 8
   %tobool.not.i.i.i218 = icmp eq ptr %53, null
   br i1 %tobool.not.i.i.i218, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit220, label %if.then.i.i.i219
@@ -1364,7 +1364,7 @@ if.end98:                                         ; preds = %if.end11, %if.then8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end98
-  %retval.0 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %if.then70 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %if.then70 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -2141,7 +2141,7 @@ if.then.i.i.i113:                                 ; preds = %cleanup106
   br label %return
 
 ehcleanup107:                                     ; preds = %lpad.loopexit126, %lpad.loopexit.split-lp127.loopexit.split-lp, %lpad.loopexit.split-lp127.loopexit, %if.then.i.i99, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i99 ], [ %lpad.loopexit128, %lpad.loopexit126 ], [ %lpad.loopexit132, %lpad.loopexit.split-lp127.loopexit ], [ %lpad.loopexit.split-lp133, %lpad.loopexit.split-lp127.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i99 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit128, %lpad.loopexit126 ], [ %lpad.loopexit132, %lpad.loopexit.split-lp127.loopexit ], [ %lpad.loopexit.split-lp133, %lpad.loopexit.split-lp127.loopexit.split-lp ]
   %49 = load ptr, ptr %fields, align 8
   %tobool.not.i.i.i114 = icmp eq ptr %49, null
   br i1 %tobool.not.i.i.i114, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit116, label %if.then.i.i.i115
@@ -2532,7 +2532,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit: ; preds = %
   ret void
 
 ehcleanup60:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i77, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i77 ], [ %lpad.loopexit90, %lpad.loopexit ], [ %lpad.loopexit95, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp96, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i77 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit90, %lpad.loopexit ], [ %lpad.loopexit95, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp96, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %36 = load ptr, ptr %fields, align 8
   %tobool.not.i.i.i83 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i83, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit85, label %if.then.i.i.i84

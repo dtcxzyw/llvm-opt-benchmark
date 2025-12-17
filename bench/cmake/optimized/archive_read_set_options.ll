@@ -92,9 +92,9 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
 33:                                               ; preds = %30
   br label %34
 
-34:                                               ; preds = %30, %24, %.split, %28, %33
-  %.130.ph = phi i32 [ %.02945, %33 ], [ %.02945, %28 ], [ %.02945, %.split ], [ %.02945, %24 ], [ %32, %30 ]
-  %.127.ph = phi i32 [ %31, %33 ], [ %.02646, %28 ], [ %.02646, %.split ], [ %.02646, %24 ], [ %31, %30 ]
+34:                                               ; preds = %30, %.split, %28, %24, %33
+  %.130.ph = phi i32 [ %.02945, %33 ], [ %.02945, %.split ], [ %.02945, %24 ], [ %.02945, %28 ], [ %32, %30 ]
+  %.127.ph = phi i32 [ %31, %33 ], [ %.02646, %.split ], [ %.02646, %24 ], [ %.02646, %28 ], [ %31, %30 ]
   %35 = add nuw nsw i64 %.03244, 1
   %exitcond.not = icmp eq i64 %35, 16
   br i1 %exitcond.not, label %.split48.us.loopexit51, label %.split, !llvm.loop !28

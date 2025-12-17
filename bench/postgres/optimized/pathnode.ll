@@ -91,7 +91,7 @@ define dso_local range(i32 -1, 2) i32 @compare_path_costs(ptr noundef readonly c
   br label %45
 
 45:                                               ; preds = %42, %36, %34, %28, %26, %20, %18, %12, %8, %44
-  %.0 = phi i32 [ 0, %44 ], [ %., %8 ], [ -1, %12 ], [ 1, %18 ], [ -1, %20 ], [ 1, %26 ], [ -1, %28 ], [ 1, %34 ], [ -1, %36 ], [ 1, %42 ]
+  %.0 = phi i32 [ %., %8 ], [ -1, %36 ], [ 1, %34 ], [ -1, %12 ], [ 1, %18 ], [ -1, %20 ], [ 0, %44 ], [ 1, %26 ], [ -1, %28 ], [ 1, %42 ]
   ret i32 %.0
 }
 
@@ -164,7 +164,7 @@ define dso_local range(i32 -1, 2) i32 @compare_fractional_path_costs(ptr noundef
   br label %compare_path_costs.exit
 
 compare_path_costs.exit:                          ; preds = %29, %27, %21, %19, %13, %44, %30, %8
-  %.0 = phi i32 [ %., %8 ], [ -1, %30 ], [ %.26, %44 ], [ 0, %29 ], [ -1, %13 ], [ 1, %19 ], [ -1, %21 ], [ 1, %27 ]
+  %.0 = phi i32 [ %., %8 ], [ -1, %30 ], [ %.26, %44 ], [ -1, %13 ], [ -1, %21 ], [ 1, %19 ], [ 0, %29 ], [ 1, %27 ]
   ret i32 %.0
 }
 
@@ -389,11 +389,11 @@ compare_path_costs.exit74:                        ; preds = %81, %73, %65, %83
 compare_path_costs.exit78:                        ; preds = %109, %101, %93, %111
   br label %compare_path_costs.exit
 
-compare_path_costs.exit:                          ; preds = %93, %95, %103, %41, %compare_path_costs.exit.thread, %51, %43, %33, %57, %compare_path_costs.exit78, %111, %19, %58, %17
-  %.157 = phi ptr [ %18, %17 ], [ %.05692, %58 ], [ %18, %33 ], [ %18, %57 ], [ %.05692, %compare_path_costs.exit78 ], [ %.05692, %111 ], [ %18, %19 ], [ %18, %43 ], [ %18, %51 ], [ %18, %compare_path_costs.exit.thread ], [ %18, %41 ], [ %.05692, %103 ], [ %.05692, %95 ], [ %.05692, %93 ]
-  %.153 = phi ptr [ %.05293, %17 ], [ %.05293, %58 ], [ %.05293, %33 ], [ %14, %57 ], [ %.05293, %compare_path_costs.exit78 ], [ %.05293, %111 ], [ %14, %19 ], [ %14, %43 ], [ %14, %51 ], [ %.05293, %compare_path_costs.exit.thread ], [ %14, %41 ], [ %.05293, %103 ], [ %.05293, %95 ], [ %.05293, %93 ]
-  %.149 = phi ptr [ %.04895, %17 ], [ %14, %58 ], [ null, %33 ], [ null, %57 ], [ %14, %compare_path_costs.exit78 ], [ %.04895, %111 ], [ null, %19 ], [ null, %43 ], [ null, %51 ], [ null, %compare_path_costs.exit.thread ], [ null, %41 ], [ %.04895, %103 ], [ %.04895, %95 ], [ %.04895, %93 ]
-  %.1 = phi ptr [ %.096, %17 ], [ %14, %58 ], [ %.096, %33 ], [ %.096, %57 ], [ %.3, %compare_path_costs.exit78 ], [ %.3, %111 ], [ %.096, %19 ], [ %.096, %43 ], [ %.096, %51 ], [ %.096, %compare_path_costs.exit.thread ], [ %.096, %41 ], [ %.3, %103 ], [ %.3, %95 ], [ %.3, %93 ]
+compare_path_costs.exit:                          ; preds = %93, %103, %95, %41, %compare_path_costs.exit.thread, %51, %43, %33, %57, %compare_path_costs.exit78, %111, %19, %58, %17
+  %.157 = phi ptr [ %18, %17 ], [ %.05692, %58 ], [ %18, %41 ], [ %18, %33 ], [ %18, %19 ], [ %.05692, %111 ], [ %18, %57 ], [ %.05692, %compare_path_costs.exit78 ], [ %18, %compare_path_costs.exit.thread ], [ %18, %43 ], [ %18, %51 ], [ %.05692, %95 ], [ %.05692, %103 ], [ %.05692, %93 ]
+  %.153 = phi ptr [ %.05293, %17 ], [ %.05293, %58 ], [ %14, %41 ], [ %.05293, %33 ], [ %14, %19 ], [ %.05293, %111 ], [ %14, %57 ], [ %.05293, %compare_path_costs.exit78 ], [ %.05293, %compare_path_costs.exit.thread ], [ %14, %43 ], [ %14, %51 ], [ %.05293, %95 ], [ %.05293, %103 ], [ %.05293, %93 ]
+  %.149 = phi ptr [ %.04895, %17 ], [ %14, %58 ], [ null, %41 ], [ null, %33 ], [ null, %19 ], [ %.04895, %111 ], [ null, %57 ], [ %14, %compare_path_costs.exit78 ], [ null, %compare_path_costs.exit.thread ], [ null, %43 ], [ null, %51 ], [ %.04895, %95 ], [ %.04895, %103 ], [ %.04895, %93 ]
+  %.1 = phi ptr [ %.096, %17 ], [ %14, %58 ], [ %.096, %41 ], [ %.096, %33 ], [ %.096, %19 ], [ %.3, %111 ], [ %.096, %57 ], [ %.3, %compare_path_costs.exit78 ], [ %.096, %compare_path_costs.exit.thread ], [ %.096, %43 ], [ %.096, %51 ], [ %.3, %95 ], [ %.3, %103 ], [ %.3, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = load i32, ptr %5, align 4
   %119 = sext i32 %118 to i64
@@ -472,9 +472,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   br label %22
 
 .thread:                                          ; preds = %215, %compare_path_costs_fuzzily.exit.thread162, %229, %231
-  %.2108200 = phi i32 [ %.0106174, %231 ], [ %230, %229 ], [ %.0106174, %compare_path_costs_fuzzily.exit.thread162 ], [ %.0106174, %215 ]
-  %.sroa.7.1199 = phi i32 [ %.sroa.7.0173, %231 ], [ %.sroa.7.0173, %229 ], [ %211, %compare_path_costs_fuzzily.exit.thread162 ], [ %211, %215 ]
-  %.sroa.0.1198 = phi ptr [ %.sroa.0.0172, %231 ], [ %.sroa.0.0172, %229 ], [ %212, %compare_path_costs_fuzzily.exit.thread162 ], [ %212, %215 ]
+  %.2108200 = phi i32 [ %230, %229 ], [ %.0106174, %231 ], [ %.0106174, %compare_path_costs_fuzzily.exit.thread162 ], [ %.0106174, %215 ]
+  %.sroa.7.1199 = phi i32 [ %.sroa.7.0173, %229 ], [ %.sroa.7.0173, %231 ], [ %211, %compare_path_costs_fuzzily.exit.thread162 ], [ %211, %215 ]
+  %.sroa.0.1198 = phi ptr [ %.sroa.0.0172, %229 ], [ %.sroa.0.0172, %231 ], [ %212, %compare_path_costs_fuzzily.exit.thread162 ], [ %212, %215 ]
   %21 = add i32 %.sroa.7.1199, 1
   %.not129 = icmp eq ptr %.sroa.0.1198, null
   br i1 %.not129, label %._crit_edge.loopexit, label %22, !llvm.loop !7
@@ -587,7 +587,7 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   br label %93
 
 93:                                               ; preds = %70, %74, %78, %47, %51, %55, %35, %84, %90
-  %.0.i.ph = phi i32 [ %.32.i, %90 ], [ 2, %84 ], [ %..i, %35 ], [ 2, %55 ], [ 2, %51 ], [ 2, %47 ], [ 1, %78 ], [ 1, %74 ], [ 1, %70 ]
+  %.0.i.ph = phi i32 [ 2, %47 ], [ %..i, %35 ], [ %.32.i, %90 ], [ 2, %84 ], [ 2, %55 ], [ 2, %51 ], [ 1, %78 ], [ 1, %74 ], [ 1, %70 ]
   %94 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not132 = icmp eq ptr %95, null
@@ -607,7 +607,7 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 102:                                              ; preds = %99
   switch i32 %.0.i.ph, label %default.unreachable [
     i32 0, label %103
-    i32 1, label %166
+    i32 1, label %162
     i32 2, label %186
   ]
 
@@ -635,9 +635,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 114:                                              ; preds = %108, %111
   %115 = phi ptr [ %113, %111 ], [ null, %108 ]
   %116 = tail call i32 @bms_subset_compare(ptr noundef %109, ptr noundef %115) #9
-  switch i32 %101, label %134 [
+  switch i32 %101, label %130 [
     i32 1, label %117
-    i32 2, label %127
+    i32 2, label %123
   ]
 
 117:                                              ; preds = %114
@@ -649,119 +649,119 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %120 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %121 = load double, ptr %120, align 8
   %122 = fcmp ugt double %119, %121
-  br i1 %122, label %compare_path_costs_fuzzily.exit.thread156, label %123
+  br i1 %122, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit
 
-123:                                              ; preds = %118
-  %124 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %125 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %126 = load i8, ptr %125, align 1, !range !8, !noundef !9
-  %.not147.not = icmp samesign ult i8 %124, %126
-  br i1 %.not147.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
+123:                                              ; preds = %114
+  %124 = and i32 %116, -3
+  %or.cond3 = icmp eq i32 %124, 0
+  br i1 %or.cond3, label %125, label %compare_path_costs_fuzzily.exit.thread156
 
-127:                                              ; preds = %114
-  %128 = and i32 %116, -3
-  %or.cond3 = icmp eq i32 %128, 0
-  br i1 %or.cond3, label %129, label %compare_path_costs_fuzzily.exit.thread156
+125:                                              ; preds = %123
+  %126 = load double, ptr %19, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %128 = load double, ptr %127, align 8
+  %129 = fcmp ult double %126, %128
+  br i1 %129, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
 
-129:                                              ; preds = %127
-  %130 = load double, ptr %19, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %132 = load double, ptr %131, align 8
-  %133 = fcmp ult double %130, %132
-  br i1 %133, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
-
-134:                                              ; preds = %114
+130:                                              ; preds = %114
   switch i32 %116, label %compare_path_costs_fuzzily.exit.thread156 [
-    i32 0, label %135
-    i32 1, label %152
-    i32 2, label %161
+    i32 0, label %131
+    i32 1, label %148
+    i32 2, label %157
   ]
 
-135:                                              ; preds = %134
-  %136 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %137 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %138 = load i8, ptr %137, align 1, !range !8, !noundef !9
-  %139 = icmp samesign ugt i8 %136, %138
-  br i1 %139, label %compare_path_costs_fuzzily.exit.thread162, label %140
+131:                                              ; preds = %130
+  %132 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %133 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %134 = load i8, ptr %133, align 1, !range !8, !noundef !9
+  %135 = icmp samesign ugt i8 %132, %134
+  br i1 %135, label %compare_path_costs_fuzzily.exit.thread162, label %136
 
-140:                                              ; preds = %135
-  %141 = icmp samesign ult i8 %136, %138
-  br i1 %141, label %compare_path_costs_fuzzily.exit.thread156, label %142
+136:                                              ; preds = %131
+  %137 = icmp samesign ult i8 %132, %134
+  br i1 %137, label %compare_path_costs_fuzzily.exit.thread156, label %138
 
-142:                                              ; preds = %140
-  %143 = load double, ptr %19, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %145 = load double, ptr %144, align 8
-  %146 = fcmp olt double %143, %145
-  br i1 %146, label %compare_path_costs_fuzzily.exit.thread162, label %147
+138:                                              ; preds = %136
+  %139 = load double, ptr %19, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %141 = load double, ptr %140, align 8
+  %142 = fcmp olt double %139, %141
+  br i1 %142, label %compare_path_costs_fuzzily.exit.thread162, label %143
 
-147:                                              ; preds = %142
-  %148 = fcmp ogt double %143, %145
-  br i1 %148, label %compare_path_costs_fuzzily.exit.thread156, label %149
+143:                                              ; preds = %138
+  %144 = fcmp ogt double %139, %141
+  br i1 %144, label %compare_path_costs_fuzzily.exit.thread156, label %145
 
-149:                                              ; preds = %147
-  %150 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %31, double noundef 0x3FF000000006DF38)
-  %151 = icmp eq i32 %150, 1
-  br i1 %151, label %compare_path_costs_fuzzily.exit.thread162, label %compare_path_costs_fuzzily.exit.thread156
+145:                                              ; preds = %143
+  %146 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %31, double noundef 0x3FF000000006DF38)
+  %147 = icmp eq i32 %146, 1
+  br i1 %147, label %compare_path_costs_fuzzily.exit.thread162, label %compare_path_costs_fuzzily.exit.thread156
 
-152:                                              ; preds = %134
-  %153 = load double, ptr %19, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %155 = load double, ptr %154, align 8
-  %156 = fcmp ugt double %153, %155
-  br i1 %156, label %compare_path_costs_fuzzily.exit.thread156, label %157
+148:                                              ; preds = %130
+  %149 = load double, ptr %19, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %151 = load double, ptr %150, align 8
+  %152 = fcmp ugt double %149, %151
+  br i1 %152, label %compare_path_costs_fuzzily.exit.thread156, label %153
 
-157:                                              ; preds = %152
-  %158 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %159 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %160 = load i8, ptr %159, align 1, !range !8, !noundef !9
-  %.not144 = icmp samesign ult i8 %158, %160
+153:                                              ; preds = %148
+  %154 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %155 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %156 = load i8, ptr %155, align 1, !range !8, !noundef !9
+  %.not144 = icmp samesign ult i8 %154, %156
   br i1 %.not144, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
-161:                                              ; preds = %134
-  %162 = load double, ptr %19, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %164 = load double, ptr %163, align 8
-  %165 = fcmp ult double %162, %164
-  br i1 %165, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
+157:                                              ; preds = %130
+  %158 = load double, ptr %19, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %160 = load double, ptr %159, align 8
+  %161 = fcmp ult double %158, %160
+  br i1 %161, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
 
-166:                                              ; preds = %102
+162:                                              ; preds = %102
   %.not138 = icmp eq i32 %101, 2
-  br i1 %.not138, label %compare_path_costs_fuzzily.exit.thread156, label %167
+  br i1 %.not138, label %compare_path_costs_fuzzily.exit.thread156, label %163
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %6, align 8
-  %.not139 = icmp eq ptr %168, null
-  br i1 %.not139, label %172, label %169
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %6, align 8
+  %.not139 = icmp eq ptr %164, null
+  br i1 %.not139, label %168, label %165
 
-169:                                              ; preds = %167
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %171 = load ptr, ptr %170, align 8
-  br label %172
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %167 = load ptr, ptr %166, align 8
+  br label %168
 
-172:                                              ; preds = %167, %169
-  %173 = phi ptr [ %171, %169 ], [ null, %167 ]
-  %174 = load ptr, ptr %94, align 8
-  %.not140 = icmp eq ptr %174, null
-  br i1 %.not140, label %178, label %175
+168:                                              ; preds = %163, %165
+  %169 = phi ptr [ %167, %165 ], [ null, %163 ]
+  %170 = load ptr, ptr %94, align 8
+  %.not140 = icmp eq ptr %170, null
+  br i1 %.not140, label %174, label %171
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %177 = load ptr, ptr %176, align 8
-  br label %178
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %173 = load ptr, ptr %172, align 8
+  br label %174
 
-178:                                              ; preds = %172, %175
-  %179 = phi ptr [ %177, %175 ], [ null, %172 ]
-  %180 = tail call i32 @bms_subset_compare(ptr noundef %173, ptr noundef %179) #9
-  %or.cond5 = icmp ult i32 %180, 2
-  br i1 %or.cond5, label %181, label %compare_path_costs_fuzzily.exit.thread156
+174:                                              ; preds = %168, %171
+  %175 = phi ptr [ %173, %171 ], [ null, %168 ]
+  %176 = tail call i32 @bms_subset_compare(ptr noundef %169, ptr noundef %175) #9
+  %or.cond5 = icmp ult i32 %176, 2
+  br i1 %or.cond5, label %177, label %compare_path_costs_fuzzily.exit.thread156
 
-181:                                              ; preds = %178
-  %182 = load double, ptr %19, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %184 = load double, ptr %183, align 8
-  %185 = fcmp ugt double %182, %184
-  br i1 %185, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit
+177:                                              ; preds = %174
+  %178 = load double, ptr %19, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %180 = load double, ptr %179, align 8
+  %181 = fcmp ugt double %178, %180
+  br i1 %181, label %compare_path_costs_fuzzily.exit.thread156, label %182
+
+182:                                              ; preds = %177
+  %183 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %184 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %185 = load i8, ptr %184, align 1, !range !8, !noundef !9
+  %.not141.not = icmp samesign ult i8 %183, %185
+  br i1 %.not141.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
 186:                                              ; preds = %102
   %.not134 = icmp eq i32 %101, 1
@@ -805,14 +805,14 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 default.unreachable:                              ; preds = %102
   unreachable
 
-compare_path_costs_fuzzily.exit:                  ; preds = %181
+compare_path_costs_fuzzily.exit:                  ; preds = %118
   %207 = load i8, ptr %20, align 1, !range !8, !noundef !9
   %208 = getelementptr inbounds nuw i8, ptr %31, i64 33
   %209 = load i8, ptr %208, align 1, !range !8, !noundef !9
-  %.not141.not = icmp samesign ult i8 %207, %209
-  br i1 %.not141.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
+  %.not147.not = icmp samesign ult i8 %207, %209
+  br i1 %.not147.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
-compare_path_costs_fuzzily.exit.thread162:        ; preds = %157, %142, %135, %149, %123, %compare_path_costs_fuzzily.exit
+compare_path_costs_fuzzily.exit.thread162:        ; preds = %138, %131, %153, %145, %182, %compare_path_costs_fuzzily.exit
   %210 = load ptr, ptr %13, align 8
   %211 = add i32 %.sroa.7.0173, -1
   %212 = tail call ptr @list_delete_nth_cell(ptr noundef %210, i32 noundef %.sroa.7.0173) #9
@@ -825,15 +825,15 @@ compare_path_costs_fuzzily.exit.thread162:        ; preds = %157, %142, %135, %1
   tail call void @pfree(ptr noundef nonnull %31) #9
   br label %.thread
 
-compare_path_costs_fuzzily.exit.thread156.sink.split: ; preds = %202, %161, %129
+compare_path_costs_fuzzily.exit.thread156.sink.split: ; preds = %202, %157, %125
   %216 = load i8, ptr %20, align 1, !range !8, !noundef !9
   %217 = getelementptr inbounds nuw i8, ptr %31, i64 33
   %218 = load i8, ptr %217, align 1, !range !8, !noundef !9
-  %.not137 = icmp samesign ugt i8 %216, %218
+  %.not145 = icmp samesign ugt i8 %216, %218
   br label %compare_path_costs_fuzzily.exit.thread156
 
-compare_path_costs_fuzzily.exit.thread156:        ; preds = %compare_path_costs_fuzzily.exit.thread156.sink.split, %152, %157, %78, %55, %134, %147, %140, %99, %186, %198, %202, %166, %178, %181, %161, %127, %129, %117, %118, %149, %123, %compare_path_costs_fuzzily.exit
-  %.2160.shrunk = phi i1 [ true, %compare_path_costs_fuzzily.exit ], [ true, %123 ], [ false, %149 ], [ true, %78 ], [ true, %55 ], [ true, %134 ], [ false, %147 ], [ false, %140 ], [ true, %99 ], [ true, %186 ], [ true, %198 ], [ true, %202 ], [ true, %166 ], [ true, %178 ], [ true, %181 ], [ true, %161 ], [ true, %127 ], [ true, %129 ], [ true, %117 ], [ true, %118 ], [ true, %157 ], [ true, %152 ], [ %.not137, %compare_path_costs_fuzzily.exit.thread156.sink.split ]
+compare_path_costs_fuzzily.exit.thread156:        ; preds = %compare_path_costs_fuzzily.exit.thread156.sink.split, %148, %153, %78, %55, %162, %174, %177, %202, %157, %198, %130, %186, %143, %136, %123, %125, %117, %118, %99, %145, %182, %compare_path_costs_fuzzily.exit
+  %.2160.shrunk = phi i1 [ false, %145 ], [ true, %compare_path_costs_fuzzily.exit ], [ true, %182 ], [ true, %78 ], [ true, %55 ], [ true, %162 ], [ true, %174 ], [ true, %177 ], [ true, %202 ], [ true, %153 ], [ true, %148 ], [ true, %157 ], [ true, %198 ], [ true, %130 ], [ true, %186 ], [ false, %143 ], [ false, %136 ], [ true, %99 ], [ true, %123 ], [ true, %125 ], [ true, %117 ], [ true, %118 ], [ %.not145, %compare_path_costs_fuzzily.exit.thread156.sink.split ]
   %219 = load i32, ptr %15, align 8
   %220 = load i32, ptr %33, align 8
   %221 = icmp sgt i32 %219, %220
@@ -992,7 +992,7 @@ define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nound
   br label %74
 
 74:                                               ; preds = %71, %64, %56, %31, %8, %63, %38
-  %.0 = phi i32 [ 2, %38 ], [ 1, %63 ], [ %., %8 ], [ 3, %31 ], [ 3, %56 ], [ 2, %64 ], [ %.32, %71 ]
+  %.0 = phi i32 [ %., %8 ], [ 2, %64 ], [ %.32, %71 ], [ 2, %38 ], [ 3, %31 ], [ 1, %63 ], [ 3, %56 ]
   ret i32 %.0
 }
 
@@ -1157,8 +1157,8 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
   %84 = icmp slt i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph84, label %.critedge
 
-.critedge:                                        ; preds = %.critedge51, %52, %54, %79, %.critedge51.us, %19, %21, %41, %.lr.ph.split.us.split, %.lr.ph.split.split, %6
-  %cond = phi i1 [ true, %6 ], [ true, %.lr.ph.split.us.split ], [ true, %.lr.ph.split.split ], [ false, %41 ], [ true, %21 ], [ true, %19 ], [ true, %.critedge51.us ], [ false, %79 ], [ true, %54 ], [ true, %52 ], [ true, %.critedge51 ]
+.critedge:                                        ; preds = %.critedge51, %52, %79, %54, %.critedge51.us, %19, %41, %21, %.lr.ph.split.us.split, %.lr.ph.split.split, %6
+  %cond = phi i1 [ true, %.lr.ph.split.split ], [ true, %21 ], [ true, %6 ], [ true, %.lr.ph.split.us.split ], [ false, %41 ], [ true, %19 ], [ true, %.critedge51.us ], [ true, %52 ], [ true, %.critedge51 ], [ true, %54 ], [ false, %79 ]
   ret i1 %cond
 }
 
@@ -1242,24 +1242,24 @@ define dso_local void @add_partial_path(ptr noundef captures(none) %0, ptr nound
 39:                                               ; preds = %32
   %40 = fmul double %33, 1.010000e+00
   %41 = fcmp ogt double %35, %40
-  br i1 %41, label %42, label %43
+  br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %.not53.not = icmp eq i32 %26, 2
-  br i1 %.not53.not, label %.thread, label %.thread81
-
-43:                                               ; preds = %39
-  switch i32 %26, label %44 [
+  switch i32 %26, label %43 [
     i32 1, label %.thread81
     i32 2, label %.thread
   ]
 
-44:                                               ; preds = %43
-  %45 = fmul double %33, 0x3FF000000006DF38
-  %46 = fcmp ogt double %35, %45
-  br i1 %46, label %.thread81, label %.thread
+43:                                               ; preds = %42
+  %44 = fmul double %33, 0x3FF000000006DF38
+  %45 = fcmp ogt double %35, %44
+  br i1 %45, label %.thread81, label %.thread
 
-.thread81:                                        ; preds = %44, %31, %42, %43
+46:                                               ; preds = %39
+  %.not53.not = icmp eq i32 %26, 2
+  br i1 %.not53.not, label %.thread, label %.thread81
+
+.thread81:                                        ; preds = %46, %31, %43, %42
   %47 = load ptr, ptr %6, align 8
   %48 = add i32 %.sroa.7.071, -1
   %49 = tail call ptr @list_delete_nth_cell(ptr noundef %47, i32 noundef %.sroa.7.071) #9
@@ -1267,8 +1267,8 @@ define dso_local void @add_partial_path(ptr noundef captures(none) %0, ptr nound
   tail call void @pfree(ptr noundef nonnull %22) #9
   br label %11
 
-.thread:                                          ; preds = %43, %38, %17, %42, %31, %44
-  %.260 = phi i1 [ false, %44 ], [ false, %31 ], [ true, %42 ], [ %.not54, %38 ], [ true, %17 ], [ false, %43 ]
+.thread:                                          ; preds = %42, %38, %17, %43, %31, %46
+  %.260 = phi i1 [ false, %43 ], [ true, %46 ], [ false, %31 ], [ true, %17 ], [ %.not54, %38 ], [ false, %42 ]
   %50 = load double, ptr %10, align 8
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %52 = load double, ptr %51, align 8
@@ -1947,8 +1947,8 @@ compare_path_costs.exit:                          ; preds = %25
   %35 = tail call i32 @bms_compare(ptr noundef %30, ptr noundef %34) #9
   br label %36
 
-36:                                               ; preds = %25, %19, %17, %11, %9, %compare_path_costs.exit
-  %.0 = phi i32 [ %35, %compare_path_costs.exit ], [ -1, %25 ], [ 1, %19 ], [ -1, %17 ], [ 1, %11 ], [ %..i.neg, %9 ]
+36:                                               ; preds = %11, %25, %17, %19, %9, %compare_path_costs.exit
+  %.0 = phi i32 [ %35, %compare_path_costs.exit ], [ 1, %11 ], [ -1, %25 ], [ -1, %17 ], [ 1, %19 ], [ %..i.neg, %9 ]
   ret i32 %.0
 }
 
@@ -2004,8 +2004,8 @@ compare_path_costs.exit:                          ; preds = %25
   %35 = tail call i32 @bms_compare(ptr noundef %30, ptr noundef %34) #9
   br label %36
 
-36:                                               ; preds = %25, %19, %17, %11, %9, %compare_path_costs.exit
-  %.0 = phi i32 [ %35, %compare_path_costs.exit ], [ -1, %25 ], [ 1, %19 ], [ -1, %17 ], [ 1, %11 ], [ %..i.neg, %9 ]
+36:                                               ; preds = %19, %17, %11, %25, %9, %compare_path_costs.exit
+  %.0 = phi i32 [ %35, %compare_path_costs.exit ], [ 1, %19 ], [ -1, %17 ], [ 1, %11 ], [ -1, %25 ], [ %..i.neg, %9 ]
   ret i32 %.0
 }
 
@@ -2642,7 +2642,7 @@ translate_sub_tlist.exit:                         ; preds = %122
   store ptr %148, ptr %42, align 8
   br label %.sink.split.sink.split
 
-.thread:                                          ; preds = %119, %116, %.lr.ph52.i, %.lr.ph.split.i, %105, %55, %130, %translate_sub_tlist.exit, %100, %78
+.thread:                                          ; preds = %119, %.lr.ph52.i, %116, %105, %.lr.ph.split.i, %55, %130, %translate_sub_tlist.exit, %100, %78
   %149 = load ptr, ptr %48, align 8
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %151 = load double, ptr %150, align 8
@@ -4650,7 +4650,7 @@ list_length.exit107:                              ; preds = %.lr.ph134, %86
   br label %149
 
 149:                                              ; preds = %122, %133
-  %.2 = phi i1 [ false, %133 ], [ %spec.select100, %122 ]
+  %.2 = phi i1 [ %spec.select100, %122 ], [ false, %133 ]
   %150 = load i32, ptr %68, align 8
   %151 = load i32, ptr %69, align 8
   %152 = add i32 %151, %150
@@ -4668,7 +4668,7 @@ list_length.exit107:                              ; preds = %.lr.ph134, %86
   br label %159
 
 159:                                              ; preds = %104, %149
-  %.191 = phi i1 [ %.2, %149 ], [ %spec.select99, %104 ]
+  %.191 = phi i1 [ %spec.select99, %104 ], [ %.2, %149 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
   %160 = load i32, ptr %60, align 4
   %161 = sext i32 %160 to i64
@@ -5940,7 +5940,7 @@ create_memoize_path.exit:                         ; preds = %199, %223
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph143, %102, %15, %create_memoize_path.exit, %194, %create_material_path.exit, %151, %._crit_edge, %12, %105, %create_subqueryscan_path.exit, %52, %48, %33, %18
-  %.0 = phi ptr [ %19, %18 ], [ %34, %33 ], [ %49, %48 ], [ %55, %52 ], [ %80, %create_subqueryscan_path.exit ], [ %106, %105 ], [ null, %12 ], [ %150, %._crit_edge ], [ %157, %create_material_path.exit ], [ null, %151 ], [ %210, %create_memoize_path.exit ], [ null, %194 ], [ null, %15 ], [ null, %102 ], [ null, %.lr.ph143 ]
+  %.0 = phi ptr [ null, %194 ], [ %19, %18 ], [ %34, %33 ], [ %49, %48 ], [ %55, %52 ], [ %80, %create_subqueryscan_path.exit ], [ %106, %105 ], [ null, %12 ], [ null, %102 ], [ null, %151 ], [ %150, %._crit_edge ], [ %157, %create_material_path.exit ], [ %210, %create_memoize_path.exit ], [ null, %15 ], [ null, %.lr.ph143 ]
   ret ptr %.0
 }
 
@@ -6397,7 +6397,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br label %.critedge334
 
 .critedge334:                                     ; preds = %215, %133, %102, %261, %267, %12, %208, %186, %191, %167, %172, %152, %157, %87, %81, %3, %6, %65, %211, %225
-  %.0 = phi ptr [ null, %65 ], [ null, %211 ], [ null, %225 ], [ %1, %6 ], [ %1, %3 ], [ null, %81 ], [ null, %87 ], [ null, %157 ], [ null, %152 ], [ null, %172 ], [ null, %167 ], [ null, %191 ], [ null, %186 ], [ null, %208 ], [ null, %12 ], [ %1, %267 ], [ %1, %261 ], [ null, %102 ], [ null, %133 ], [ null, %215 ]
+  %.0 = phi ptr [ null, %133 ], [ null, %12 ], [ null, %65 ], [ %1, %3 ], [ null, %81 ], [ %1, %261 ], [ null, %102 ], [ null, %87 ], [ null, %152 ], [ null, %167 ], [ null, %186 ], [ null, %211 ], [ null, %215 ], [ null, %225 ], [ %1, %6 ], [ null, %157 ], [ null, %172 ], [ null, %191 ], [ null, %208 ], [ %1, %267 ]
   ret ptr %.0
 }
 
@@ -6645,7 +6645,7 @@ pathlist_is_reparameterizable_by_child.exit.thread: ; preds = %82, %59, %39, %24
   br label %.thread106
 
 .thread106:                                       ; preds = %.lr.ph124, %.lr.ph129, %.lr.ph134, %.lr.ph139, %71, %67, %50, %98, %94, %90, %13, %11, %2, %5, %pathlist_is_reparameterizable_by_child.exit.thread
-  %.0 = phi i1 [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %13 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %50 ], [ false, %67 ], [ false, %71 ], [ false, %.lr.ph139 ], [ false, %.lr.ph134 ], [ false, %.lr.ph129 ], [ false, %.lr.ph124 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %13 ], [ false, %71 ], [ false, %11 ], [ false, %50 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %5 ], [ false, %67 ], [ false, %.lr.ph129 ], [ false, %.lr.ph139 ], [ false, %.lr.ph134 ], [ false, %.lr.ph124 ]
   ret i1 %.0
 }
 

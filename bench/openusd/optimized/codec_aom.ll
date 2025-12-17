@@ -40,7 +40,7 @@ define hidden ptr @avifCodecCreateAOM() local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %0, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %1, %10 ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %10 ], [ null, %9 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -189,7 +189,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   br label %76
 
 76:                                               ; preds = %69, %69, %69, %75, %74
-  %.097 = phi i32 [ 2, %74 ], [ 1, %75 ], [ 3, %69 ], [ 3, %69 ], [ 3, %69 ]
+  %.097 = phi i32 [ 1, %75 ], [ 2, %74 ], [ 3, %69 ], [ 3, %69 ], [ 3, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %78 = load i32, ptr %77, align 8
   %.not124.not = icmp eq i32 %78, 0
@@ -417,7 +417,7 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.sink.split, %173, %178, %181, %69, %61, %62, %27, %20, %11
-  %.096 = phi i32 [ 0, %11 ], [ 0, %20 ], [ 0, %27 ], [ 0, %62 ], [ 0, %61 ], [ 0, %69 ], [ 0, %181 ], [ 0, %178 ], [ 0, %173 ], [ 1, %.loopexit.sink.split ], [ 0, %49 ]
+  %.096 = phi i32 [ 0, %61 ], [ 0, %173 ], [ 0, %69 ], [ 0, %27 ], [ 0, %20 ], [ 0, %11 ], [ 0, %62 ], [ 0, %181 ], [ 0, %178 ], [ 1, %.loopexit.sink.split ], [ 0, %49 ]
   ret i32 %.096
 }
 

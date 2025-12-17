@@ -1304,9 +1304,9 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   br label %.thread
 
 .loopexit:                                        ; preds = %7, %34, %23, %12, %135, %134, %44, %33, %22, %11
-  %.1149 = phi i32 [ %.0148, %11 ], [ %.0148, %22 ], [ %.0148, %33 ], [ %.0148, %44 ], [ %.0148, %135 ], [ %.0148, %134 ], [ %.0148, %7 ], [ %39, %34 ], [ %.0148, %23 ], [ %.0148, %12 ]
-  %.1146 = phi float [ %.0145, %11 ], [ %.0145, %22 ], [ %.0145, %33 ], [ %.0145, %44 ], [ %.0145, %135 ], [ %.0145, %134 ], [ %.0145, %7 ], [ %.0145, %34 ], [ %28, %23 ], [ %.0145, %12 ]
-  %.1143 = phi float [ %.0142, %11 ], [ %.0142, %22 ], [ %.0142, %33 ], [ %.0142, %44 ], [ %.0142, %135 ], [ %.0142, %134 ], [ %.0142, %7 ], [ %.0142, %34 ], [ %.0142, %23 ], [ %17, %12 ]
+  %.1149 = phi i32 [ %.0148, %134 ], [ %.0148, %11 ], [ %.0148, %44 ], [ %.0148, %22 ], [ %.0148, %135 ], [ %.0148, %33 ], [ %39, %34 ], [ %.0148, %23 ], [ %.0148, %12 ], [ %.0148, %7 ]
+  %.1146 = phi float [ %.0145, %134 ], [ %.0145, %11 ], [ %.0145, %44 ], [ %.0145, %22 ], [ %.0145, %135 ], [ %.0145, %33 ], [ %.0145, %34 ], [ %28, %23 ], [ %.0145, %12 ], [ %.0145, %7 ]
+  %.1143 = phi float [ %.0142, %134 ], [ %.0142, %11 ], [ %.0142, %44 ], [ %.0142, %22 ], [ %.0142, %135 ], [ %.0142, %33 ], [ %.0142, %34 ], [ %.0142, %23 ], [ %17, %12 ], [ %.0142, %7 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %172 = load ptr, ptr %171, align 8, !tbaa !84
   %173 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 80, i64 1, ptr %172)
@@ -1363,7 +1363,7 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
   br label %.thread
 
 .thread:                                          ; preds = %107, %106, %.critedge, %170, %136, %.loopexit, %141
-  %.1 = phi i32 [ 1, %.loopexit ], [ 0, %141 ], [ 1, %136 ], [ 0, %170 ], [ 0, %.critedge ], [ 1, %106 ], [ 1, %107 ]
+  %.1 = phi i32 [ 1, %.loopexit ], [ 0, %.critedge ], [ 0, %141 ], [ 1, %136 ], [ 0, %170 ], [ 1, %106 ], [ 1, %107 ]
   ret i32 %.1
 }
 
@@ -1525,8 +1525,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.135 = phi float [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %18 ], [ %.034.ph, %4 ], [ %13, %8 ]
-  %.133 = phi float [ %.032.ph101, %.loopexit.sink.split ], [ %.032.ph101, %4 ], [ %23, %18 ], [ %.032.ph101, %8 ]
+  %.135 = phi float [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %4 ], [ %.034.ph, %18 ], [ %13, %8 ]
+  %.133 = phi float [ %.032.ph101, %.loopexit.sink.split ], [ %23, %18 ], [ %.032.ph101, %4 ], [ %.032.ph101, %8 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %40 = load ptr, ptr %39, align 8, !tbaa !84
   %41 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 36, i64 1, ptr %40)
@@ -1639,8 +1639,8 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.128 = phi float [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %18 ], [ %.027.ph, %4 ], [ %13, %8 ]
-  %.126 = phi float [ %.025.ph78, %.loopexit.sink.split ], [ %.025.ph78, %4 ], [ %23, %18 ], [ %.025.ph78, %8 ]
+  %.128 = phi float [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %4 ], [ %.027.ph, %18 ], [ %13, %8 ]
+  %.126 = phi float [ %.025.ph78, %.loopexit.sink.split ], [ %23, %18 ], [ %.025.ph78, %4 ], [ %.025.ph78, %8 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %38 = load ptr, ptr %37, align 8, !tbaa !84
   %39 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 34, i64 1, ptr %38)
@@ -1954,9 +1954,9 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   br label %78
 
 .loopexit:                                        ; preds = %20, %4, %31, %9, %45, %30, %19, %8
-  %.141 = phi float [ %.040.ph, %8 ], [ %.040.ph, %19 ], [ %.040.ph, %30 ], [ %.040.ph, %45 ], [ %.040.ph, %20 ], [ %.040.ph, %4 ], [ %.040.ph, %31 ], [ %14, %9 ]
-  %.138 = phi float [ %.037.ph129, %8 ], [ %.037.ph129, %19 ], [ %.037.ph129, %30 ], [ %.037.ph129, %45 ], [ %.037.ph129, %31 ], [ %.037.ph129, %4 ], [ %25, %20 ], [ %.037.ph129, %9 ]
-  %.136 = phi i32 [ %.035.ph133, %8 ], [ %.035.ph133, %19 ], [ %.035.ph133, %30 ], [ %.035.ph133, %45 ], [ %.035.ph133, %4 ], [ %36, %31 ], [ %.035.ph133, %20 ], [ %.035.ph133, %9 ]
+  %.141 = phi float [ %.040.ph, %45 ], [ %.040.ph, %8 ], [ %.040.ph, %30 ], [ %.040.ph, %19 ], [ %.040.ph, %31 ], [ %.040.ph, %20 ], [ %.040.ph, %4 ], [ %14, %9 ]
+  %.138 = phi float [ %.037.ph129, %45 ], [ %.037.ph129, %8 ], [ %.037.ph129, %30 ], [ %.037.ph129, %19 ], [ %25, %20 ], [ %.037.ph129, %4 ], [ %.037.ph129, %31 ], [ %.037.ph129, %9 ]
+  %.136 = phi i32 [ %.035.ph133, %45 ], [ %.035.ph133, %8 ], [ %.035.ph133, %30 ], [ %.035.ph133, %19 ], [ %.035.ph133, %20 ], [ %36, %31 ], [ %.035.ph133, %4 ], [ %.035.ph133, %9 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %59 = load ptr, ptr %58, align 8, !tbaa !84
   %60 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 53, i64 1, ptr %59)
@@ -2181,7 +2181,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %77
 
 .loopexit:                                        ; preds = %4, %9, %8
-  %.1 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %14, %9 ]
+  %.1 = phi i32 [ %.0, %8 ], [ %14, %9 ], [ %.0, %4 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %57 = load ptr, ptr %56, align 8, !tbaa !84
   %58 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 32, i64 1, ptr %57)
@@ -2589,14 +2589,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
   br label %133
 
 .loopexit.sink.split:                             ; preds = %54, %43, %32
-  %.str.116.sink = phi ptr [ @.str.114, %32 ], [ @.str.115, %43 ], [ @.str.116, %54 ]
+  %.str.116.sink = phi ptr [ @.str.115, %43 ], [ @.str.114, %32 ], [ @.str.116, %54 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.116.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %56, %45, %34, %.loopexit.sink.split
-  %99 = phi i32 [ %24, %.loopexit.sink.split ], [ %24, %34 ], [ %24, %45 ], [ %61, %56 ], [ %24, %21 ]
-  %100 = phi i32 [ %23, %.loopexit.sink.split ], [ %23, %34 ], [ %50, %45 ], [ %23, %56 ], [ %23, %21 ]
-  %101 = phi i32 [ %22, %.loopexit.sink.split ], [ %39, %34 ], [ %22, %45 ], [ %22, %56 ], [ %22, %21 ]
+  %99 = phi i32 [ %24, %.loopexit.sink.split ], [ %24, %45 ], [ %61, %56 ], [ %24, %21 ], [ %24, %34 ]
+  %100 = phi i32 [ %23, %.loopexit.sink.split ], [ %50, %45 ], [ %23, %56 ], [ %23, %21 ], [ %23, %34 ]
+  %101 = phi i32 [ %22, %.loopexit.sink.split ], [ %22, %45 ], [ %22, %56 ], [ %22, %21 ], [ %39, %34 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %103 = load ptr, ptr %102, align 8, !tbaa !84
   %104 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 36, i64 1, ptr %103)

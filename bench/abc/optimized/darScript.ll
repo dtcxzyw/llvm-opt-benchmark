@@ -290,12 +290,12 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
   br i1 %.not82, label %115, label %.sink.split
 
 .sink.split:                                      ; preds = %114, %95, %76, %57, %38
-  %.sink = phi ptr [ %23, %38 ], [ %42, %57 ], [ %61, %76 ], [ %80, %95 ], [ %99, %114 ]
+  %.sink = phi ptr [ %80, %95 ], [ %61, %76 ], [ %42, %57 ], [ %23, %38 ], [ %99, %114 ]
   call void @Aig_ManStop(ptr noundef nonnull %.sink) #13
   br label %115
 
 115:                                              ; preds = %.sink.split, %102, %Abc_Clock.exit94, %114, %95, %76, %57, %38
-  %.0 = phi ptr [ null, %38 ], [ null, %57 ], [ null, %76 ], [ null, %95 ], [ null, %114 ], [ %99, %Abc_Clock.exit94 ], [ %99, %102 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %114 ], [ null, %38 ], [ null, %57 ], [ null, %76 ], [ null, %95 ], [ %99, %Abc_Clock.exit94 ], [ %99, %102 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
@@ -1128,7 +1128,7 @@ Dar_NewChoiceSynthesisGuard.exit:                 ; preds = %26
   br label %Vec_PtrPush.exit64
 
 Vec_PtrPush.exit64:                               ; preds = %6, %Dar_NewChoiceSynthesisGuard.exit, %29, %28, %7
-  %.037 = phi i32 [ %2, %Dar_NewChoiceSynthesisGuard.exit ], [ 0, %6 ], [ 0, %29 ], [ 0, %28 ], [ %2, %7 ]
+  %.037 = phi i32 [ 0, %6 ], [ %2, %Dar_NewChoiceSynthesisGuard.exit ], [ 0, %29 ], [ 0, %28 ], [ %2, %7 ]
   %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 8, ptr %30, align 8, !tbaa !34

@@ -133,7 +133,7 @@ define internal range(i32 0, 2) i32 @test_decode_nonfipsalg() #1 {
   br label %15
 
 15:                                               ; preds = %11, %7, %0
-  %.0 = phi i32 [ 0, %7 ], [ 0, %0 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %11 ], [ 0, %7 ]
   %16 = call i32 @BIO_free(ptr noundef %5) #7
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   call void @EVP_PKEY_free(ptr noundef %17) #7

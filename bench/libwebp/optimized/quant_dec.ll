@@ -94,7 +94,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br label %97
 
 44:                                               ; preds = %35, %41
-  %.049 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
+  %.049 = phi i32 [ %3, %41 ], [ %spec.select, %35 ]
   %45 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %33, i64 %indvars.iv
   %46 = add nsw i32 %.049, %8
   %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)

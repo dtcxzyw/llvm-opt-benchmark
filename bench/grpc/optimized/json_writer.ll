@@ -1081,7 +1081,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit7.i.i9: ; 
   br label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter11OutputCheckEm.exit.i8
 
 _ZN9grpc_core12_GLOBAL__N_110JsonWriter11OutputCheckEm.exit.i8: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i6.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit7.i.i9
-  %49 = phi i64 [ %.pre.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit7.i.i9 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i6.thread ]
+  %49 = phi i64 [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i6.thread ], [ %.pre.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit7.i.i9 ]
   %50 = and i64 %49, -64
   %51 = icmp eq i64 %50, 4611686018427387840
   br i1 %51, label %52, label %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1688,14 +1688,14 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %0, i16 noundef zeroext %203)
   br label %204
 
-204:                                              ; preds = %159, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit121, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit115, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit109, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit92, %202, %194
-  %.5.ph = phi i64 [ %175, %194 ], [ %175, %202 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit121 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit115 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit109 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.061172, %159 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit92 ]
+204:                                              ; preds = %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit92, %159, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit121, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit115, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit109, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %202, %194
+  %.5.ph = phi i64 [ %175, %202 ], [ %175, %194 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit115 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit109 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit103 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.061172, %159 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit92 ], [ %.061172, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE.exit121 ]
   %205 = add i64 %.5.ph, 1
   %206 = load i64, ptr %27, align 8, !tbaa !21
   %207 = icmp ult i64 %205, %206
   br i1 %207, label %.lr.ph, label %.thread151, !llvm.loop !44
 
-.thread151:                                       ; preds = %204, %167, %189, %176, %180, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
+.thread151:                                       ; preds = %204, %189, %167, %176, %180, %_ZN9grpc_core12_GLOBAL__N_110JsonWriter10OutputCharEc.exit
   %208 = load ptr, ptr %3, align 8, !tbaa !23
   %209 = icmp eq ptr %208, %5
   %210 = load i64, ptr %7, align 8, !tbaa !21

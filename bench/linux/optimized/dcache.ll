@@ -665,7 +665,7 @@ define internal fastcc noundef zeroext i1 @lock_for_kill(ptr noundef %0) unnamed
   br label %27
 
 27:                                               ; preds = %.thread4, %.thread, %26, %21, %10, %8, %1
-  %28 = phi i1 [ false, %1 ], [ true, %10 ], [ true, %8 ], [ true, %21 ], [ false, %26 ], [ true, %.thread ], [ false, %.thread4 ]
+  %28 = phi i1 [ false, %1 ], [ true, %10 ], [ true, %8 ], [ true, %21 ], [ false, %26 ], [ false, %.thread4 ], [ true, %.thread ]
   ret i1 %28
 }
 
@@ -952,7 +952,7 @@ define internal fastcc noundef zeroext i1 @retain_dentry(ptr noundef nonnull %0)
   br label %36
 
 36:                                               ; preds = %33, %30, %29, %23, %13, %6, %1
-  %37 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %13 ], [ false, %23 ], [ true, %30 ], [ true, %33 ], [ true, %29 ]
+  %37 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %13 ], [ true, %29 ], [ false, %23 ], [ true, %33 ], [ true, %30 ]
   ret i1 %37
 }
 
@@ -2080,8 +2080,8 @@ select.unfold:                                    ; preds = %.split50, %.split
   br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !84
 
 .loopexit12:                                      ; preds = %.loopexit14, %.loopexit14.us.us, %.loopexit, %.loopexit.us.us.us
-  %146 = phi i8 [ %59, %.loopexit.us.us.us ], [ %121, %.loopexit ], [ %59, %.loopexit14.us.us ], [ %121, %.loopexit14 ]
-  %147 = phi ptr [ %63, %.loopexit.us.us.us ], [ %126, %.loopexit ], [ %33, %.loopexit14.us.us ], [ %94, %.loopexit14 ]
+  %146 = phi i8 [ %59, %.loopexit14.us.us ], [ %59, %.loopexit.us.us.us ], [ %121, %.loopexit ], [ %121, %.loopexit14 ]
+  %147 = phi ptr [ %33, %.loopexit14.us.us ], [ %63, %.loopexit.us.us.us ], [ %126, %.loopexit ], [ %94, %.loopexit14 ]
   br i1 %24, label %148, label %.critedge9
 
 148:                                              ; preds = %.loopexit12
@@ -2835,7 +2835,7 @@ define internal fastcc ptr @__d_alloc(ptr noundef %0, ptr noundef readonly captu
   br label %67
 
 67:                                               ; preds = %.thread, %66, %64, %2
-  %68 = phi ptr [ null, %64 ], [ %5, %66 ], [ null, %2 ], [ null, %.thread ]
+  %68 = phi ptr [ null, %64 ], [ %5, %66 ], [ null, %.thread ], [ null, %2 ]
   ret ptr %68
 }
 
@@ -3162,7 +3162,7 @@ define internal fastcc void @__d_instantiate(ptr noundef %0, ptr noundef nonnull
   br label %40
 
 40:                                               ; preds = %38, %32
-  %41 = phi i32 [ %39, %38 ], [ %33, %32 ]
+  %41 = phi i32 [ %33, %32 ], [ %39, %38 ]
   %42 = load i32, ptr %0, align 8
   %43 = and i32 %42, 268435456
   %44 = icmp eq i32 %43, 0
@@ -4393,7 +4393,7 @@ __d_lookup_rcu.exit.thread:                       ; preds = %.loopexit.i, %58, %
   br label %40
 
 342:                                              ; preds = %.thread, %338, %330, %315, %129
-  %343 = phi ptr [ %116, %129 ], [ %176, %315 ], [ %17, %330 ], [ %17, %338 ], [ inttoptr (i64 -12 to ptr), %.thread ]
+  %343 = phi ptr [ %116, %129 ], [ %176, %315 ], [ inttoptr (i64 -12 to ptr), %.thread ], [ %17, %330 ], [ %17, %338 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %343
 }

@@ -164,8 +164,8 @@ ttml_write_header_content.exit.thread:            ; preds = %8
   br label %ttml_get_display_alignment.exit.i.i
 
 ttml_get_display_alignment.exit.i.i:              ; preds = %37, %36, %35, %34, %34, %34
-  %38 = phi i1 [ false, %37 ], [ true, %35 ], [ true, %36 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
-  %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.24, %35 ], [ @.str.25, %36 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
+  %38 = phi i1 [ false, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
+  %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.25, %36 ], [ @.str.24, %35 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
   %switch.tableidx = add i32 %.sroa.650.0.copyload.i, -1
   %39 = icmp ult i32 %switch.tableidx, 9
   %.not157 = xor i1 %39, true
@@ -402,7 +402,7 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread50
 
 .thread50:                                        ; preds = %22, %.thread48, %21, %64, %._crit_edge, %66
-  %.4 = phi i32 [ -1397118274, %66 ], [ 0, %._crit_edge ], [ %63, %64 ], [ %38, %.thread48 ], [ -22, %21 ], [ -12, %22 ]
+  %.4 = phi i32 [ %63, %64 ], [ 0, %._crit_edge ], [ -1397118274, %66 ], [ %38, %.thread48 ], [ -22, %21 ], [ -12, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4
 }

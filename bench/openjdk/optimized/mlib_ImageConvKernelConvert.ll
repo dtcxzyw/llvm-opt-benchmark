@@ -300,7 +300,7 @@ select.unfold.loopexit:                           ; preds = %74
   br i1 %exitcond324.not, label %.loopexit, label %.lr.ph273, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph273, %.lr.ph291, %.lr.ph311, %.lr.ph309, %12, %._crit_edge, %36, %6
-  %.0206 = phi i32 [ 1, %6 ], [ 1, %36 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %.lr.ph309 ], [ 0, %.lr.ph311 ], [ 0, %.lr.ph291 ], [ 0, %.lr.ph273 ]
+  %.0206 = phi i32 [ 1, %6 ], [ 1, %36 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %.lr.ph291 ], [ 0, %.lr.ph309 ], [ 0, %.lr.ph311 ], [ 0, %.lr.ph273 ]
   ret i32 %.0206
 }
 

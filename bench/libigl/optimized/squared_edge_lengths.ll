@@ -2935,7 +2935,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %93
 
 93:                                               ; preds = %85, %._crit_edge.i.i.i.i.us
-  %.072.i.i.i.i.us = phi <2 x double> [ %92, %85 ], [ %84, %._crit_edge.i.i.i.i.us ]
+  %.072.i.i.i.i.us = phi <2 x double> [ %84, %._crit_edge.i.i.i.i.us ], [ %92, %85 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.us, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.us, %shift
   %94 = extractelement <2 x double> %foldExtExtBinop, i64 0
@@ -3217,7 +3217,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %93
 
 93:                                               ; preds = %85, %._crit_edge.i.i.i.i.us
-  %.072.i.i.i.i.us = phi <2 x double> [ %92, %85 ], [ %84, %._crit_edge.i.i.i.i.us ]
+  %.072.i.i.i.i.us = phi <2 x double> [ %84, %._crit_edge.i.i.i.i.us ], [ %92, %85 ]
   %shift = shufflevector <2 x double> %.072.i.i.i.i.us, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %.072.i.i.i.i.us, %shift
   %94 = extractelement <2 x double> %foldExtExtBinop, i64 0

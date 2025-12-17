@@ -1278,7 +1278,7 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
-  %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
+  %22 = phi ptr [ null, %1 ], [ %16, %18 ], [ %16, %.preheader ], [ %9, %.preheader1 ]
   ret ptr %22
 }
 
@@ -1317,7 +1317,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
-  %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
+  %22 = phi ptr [ null, %1 ], [ %16, %18 ], [ %16, %.preheader ], [ %9, %.preheader1 ]
   ret ptr %22
 }
 

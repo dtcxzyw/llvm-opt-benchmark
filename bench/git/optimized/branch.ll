@@ -135,7 +135,7 @@ define internal fastcc range(i32 -1, 1) i32 @install_branch_config_multiple_remo
   br label %should_setup_rebase.exit
 
 should_setup_rebase.exit:                         ; preds = %4, %9, %11, %13
-  %.0.shrunk.i = phi i1 [ false, %13 ], [ %10, %9 ], [ %12, %11 ], [ true, %4 ]
+  %.0.shrunk.i = phi i1 [ false, %13 ], [ %12, %11 ], [ %10, %9 ], [ true, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !8
   %.not = icmp eq i64 %15, 0
@@ -398,7 +398,7 @@ _.exit95.sink.split:                              ; preds = %110
   br label %_.exit95
 
 _.exit95:                                         ; preds = %110, %_.exit95.sink.split
-  %113 = phi ptr [ %112, %_.exit95.sink.split ], [ %.str.29..str.30, %110 ]
+  %113 = phi ptr [ %.str.29..str.30, %110 ], [ %112, %_.exit95.sink.split ]
   %114 = load ptr, ptr %7, align 8, !tbaa !13
   %115 = load ptr, ptr %114, align 8, !tbaa !14
   %116 = call i32 (ptr, ...) @printf_ln(ptr noundef %113, ptr noundef %1, ptr noundef %115) #14
@@ -506,7 +506,7 @@ _.exit107:                                        ; preds = %_.exit104, %139
   br i1 %159, label %.lr.ph139, label %.critedge8
 
 .critedge8:                                       ; preds = %.lr.ph139, %.lr.ph139.preheader, %148, %143, %76, %.critedge6, %_.exit
-  %.0 = phi i32 [ 0, %_.exit ], [ 0, %.critedge6 ], [ 0, %76 ], [ -1, %143 ], [ -1, %148 ], [ -1, %.lr.ph139.preheader ], [ -1, %.lr.ph139 ]
+  %.0 = phi i32 [ 0, %76 ], [ 0, %_.exit ], [ 0, %.critedge6 ], [ -1, %143 ], [ -1, %148 ], [ -1, %.lr.ph139.preheader ], [ -1, %.lr.ph139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

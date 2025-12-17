@@ -102,7 +102,7 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %11, %14, %6
-  %.0 = phi ptr [ %15, %14 ], [ %2, %6 ], [ %1, %11 ]
+  %.0 = phi ptr [ %2, %6 ], [ %15, %14 ], [ %1, %11 ]
   %17 = icmp ne ptr %4, null
   %or.cond = or i1 %17, %5
   br i1 %or.cond, label %21, label %18
@@ -185,7 +185,7 @@ define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly c
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph66
-  %.0.i.us = phi ptr [ %20, %19 ], [ %14, %.lr.ph66 ]
+  %.0.i.us = phi ptr [ %14, %.lr.ph66 ], [ %20, %19 ]
   %.not56.us = icmp eq ptr %16, null
   br i1 %.not56.us, label %22, label %transformTargetEntry.exit.us
 
@@ -621,7 +621,7 @@ default.unreachable127:                           ; preds = %.thread105.thread
   unreachable
 
 ExpandSingleTable.exit:                           ; preds = %.lr.ph30.i, %.lr.ph.i94, %109, %94, %89, %41
-  %.3 = phi ptr [ %90, %89 ], [ %42, %41 ], [ %95, %94 ], [ null, %109 ], [ %101, %.lr.ph.i94 ], [ %101, %.lr.ph30.i ]
+  %.3 = phi ptr [ %42, %41 ], [ %90, %89 ], [ %95, %94 ], [ null, %109 ], [ %101, %.lr.ph.i94 ], [ %101, %.lr.ph30.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ExpandAllTables.exit
 
@@ -727,7 +727,7 @@ define dso_local ptr @transformExpressionList(ptr noundef %0, ptr noundef readon
   br label %52
 
 52:                                               ; preds = %48, %50
-  %.030 = phi ptr [ %51, %50 ], [ %11, %48 ]
+  %.030 = phi ptr [ %11, %48 ], [ %51, %50 ]
   %53 = tail call ptr @lappend(ptr noundef %.04551, ptr noundef %.030) #7
   br label %54
 
@@ -1321,7 +1321,7 @@ define dso_local ptr @transformAssignmentIndirection(ptr noundef %0, ptr noundef
   %110 = tail call fastcc ptr @transformAssignmentSubscripts(ptr noundef %0, ptr noundef %.0118144.ph, ptr noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %104, ptr noundef nonnull %7, ptr noundef null, ptr noundef %9, i32 noundef %10, i32 noundef %11)
   br label %128
 
-._crit_edge.thread:                               ; preds = %31, %.lr.ph, %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph, %31, %._crit_edge
   %111 = tail call i32 @exprType(ptr noundef %9) #7
   %112 = tail call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %9, i32 noundef %111, i32 noundef %4, i32 noundef %5, i32 noundef %10, i32 noundef 2, i32 noundef -1) #7
   %113 = icmp eq ptr %112, null
@@ -1885,7 +1885,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   br label %151
 
 .thread100:                                       ; preds = %98, %63, %134, %85, %108
-  %.086 = phi ptr [ %.tr104, %108 ], [ %87, %85 ], [ %136, %134 ], [ %105, %98 ], [ %.tr104, %63 ]
+  %.086 = phi ptr [ %136, %134 ], [ %.tr104, %108 ], [ %87, %85 ], [ %105, %98 ], [ %.tr104, %63 ]
   %150 = tail call ptr @get_expr_result_tupdesc(ptr noundef nonnull %.086, i1 noundef zeroext false) #7
   br label %151
 
@@ -2220,13 +2220,13 @@ switch.lookup279:                                 ; preds = %117
   br label %.critedge135.sink.split
 
 .critedge135.sink.split:                          ; preds = %.critedge131, %.lr.ph174, %.critedge135.sink.split.loopexit282, %switch.lookup279, %switch.lookup276, %switch.lookup, %.critedge135.sink.split.loopexit, %97, %90, %83, %74, %51, %.critedge, %40, %63, %77, %95, %96, %100, %109, %110, %111, %112, %113, %114, %115, %116
-  %.sink = phi ptr [ @.str.55, %116 ], [ @.str.54, %115 ], [ @.str.53, %114 ], [ @.str.52, %113 ], [ @.str.51, %112 ], [ @.str.50, %111 ], [ @.str.49, %110 ], [ @.str.48, %109 ], [ @.str.30, %100 ], [ @.str.28, %96 ], [ @.str.27, %95 ], [ @.str.25, %77 ], [ %73, %63 ], [ %50, %40 ], [ %.1109, %.critedge ], [ @.str.21, %51 ], [ @.str.24, %74 ], [ %89, %83 ], [ @.str.26, %90 ], [ @.str.29, %97 ], [ %switch.load, %switch.lookup ], [ %switch.load278, %switch.lookup276 ], [ %switch.load281, %switch.lookup279 ], [ @.str.22, %.critedge135.sink.split.loopexit ], [ @.str.25, %.lr.ph174 ], [ %.1113, %.critedge131 ], [ @.str.23, %.critedge135.sink.split.loopexit282 ]
-  %.0.ph = phi i32 [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %112 ], [ 2, %111 ], [ 2, %110 ], [ 2, %109 ], [ 2, %100 ], [ 2, %96 ], [ 2, %95 ], [ 2, %77 ], [ 1, %63 ], [ 2, %40 ], [ 2, %.critedge ], [ 2, %51 ], [ 2, %74 ], [ 2, %83 ], [ 1, %90 ], [ 2, %97 ], [ 2, %switch.lookup ], [ 2, %switch.lookup276 ], [ 2, %switch.lookup279 ], [ 2, %.critedge135.sink.split.loopexit ], [ 2, %.lr.ph174 ], [ 2, %.critedge131 ], [ 2, %.critedge135.sink.split.loopexit282 ]
+  %.sink = phi ptr [ @.str.24, %74 ], [ %50, %40 ], [ %.1109, %.critedge ], [ %switch.load281, %switch.lookup279 ], [ @.str.25, %77 ], [ %switch.load278, %switch.lookup276 ], [ @.str.55, %116 ], [ @.str.54, %115 ], [ @.str.53, %114 ], [ @.str.52, %113 ], [ @.str.51, %112 ], [ @.str.50, %111 ], [ @.str.49, %110 ], [ @.str.48, %109 ], [ @.str.21, %51 ], [ %73, %63 ], [ @.str.22, %.critedge135.sink.split.loopexit ], [ @.str.29, %97 ], [ @.str.30, %100 ], [ @.str.26, %90 ], [ %switch.load, %switch.lookup ], [ @.str.28, %96 ], [ @.str.27, %95 ], [ @.str.25, %.lr.ph174 ], [ %89, %83 ], [ %.1113, %.critedge131 ], [ @.str.23, %.critedge135.sink.split.loopexit282 ]
+  %.0.ph = phi i32 [ 2, %74 ], [ 2, %40 ], [ 2, %.critedge ], [ 2, %switch.lookup279 ], [ 2, %77 ], [ 2, %switch.lookup276 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %112 ], [ 2, %111 ], [ 2, %110 ], [ 2, %109 ], [ 2, %51 ], [ 1, %63 ], [ 2, %.critedge135.sink.split.loopexit ], [ 2, %97 ], [ 2, %100 ], [ 1, %90 ], [ 2, %switch.lookup ], [ 2, %96 ], [ 2, %95 ], [ 2, %.lr.ph174 ], [ 2, %83 ], [ 2, %.critedge131 ], [ 2, %.critedge135.sink.split.loopexit282 ]
   store ptr %.sink, ptr %1, align 8
   br label %.critedge135
 
 .critedge135:                                     ; preds = %tailrecurse.backedge, %.lr.ph174, %105, %101, %.critedge135.sink.split, %.lr.ph177, %5, %2, %78, %83, %51, %60, %55, %74, %90, %97, %.critedge
-  %.0 = phi i32 [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %74 ], [ 2, %90 ], [ 0, %97 ], [ 0, %101 ], [ 0, %105 ], [ 0, %.critedge ], [ 0, %83 ], [ 0, %78 ], [ 0, %2 ], [ 0, %5 ], [ 0, %.lr.ph177 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
+  %.0 = phi i32 [ 0, %.lr.ph177 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %.critedge ], [ 0, %74 ], [ 0, %78 ], [ 2, %90 ], [ 0, %97 ], [ 0, %83 ], [ 0, %101 ], [ 0, %105 ], [ 0, %2 ], [ 0, %5 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 
@@ -2440,7 +2440,7 @@ define internal fastcc ptr @ExpandRowReference(ptr noundef %0, ptr noundef %1, i
   br i1 %exitcond.not, label %ExpandSingleTable.exit, label %.lr.ph.split, !llvm.loop !12
 
 ExpandSingleTable.exit:                           ; preds = %116, %89, %.lr.ph30.i, %53, %.lr.ph.i, %34, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %26, %.lr.ph30.i ], [ %.1.us, %89 ], [ %.1, %116 ]
+  %.0 = phi ptr [ %20, %19 ], [ null, %34 ], [ %26, %.lr.ph.i ], [ null, %53 ], [ %.1.us, %89 ], [ %26, %.lr.ph30.i ], [ %.1, %116 ]
   ret ptr %.0
 }
 

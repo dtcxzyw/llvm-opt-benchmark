@@ -116,7 +116,7 @@ tls_iv_length_within_key_block.exit.thread:       ; preds = %20, %2, %tls_iv_len
   br label %54
 
 54:                                               ; preds = %50, %44, %42, %52
-  %.087 = phi i64 [ %53, %52 ], [ 16, %42 ], [ %., %44 ], [ 16, %50 ]
+  %.087 = phi i64 [ %., %44 ], [ %53, %52 ], [ 16, %42 ], [ 16, %50 ]
   %55 = and i32 %1, 1
   %.not95 = icmp eq i32 %55, 0
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2836
@@ -341,7 +341,7 @@ tls_iv_length_within_key_block.exit.thread:       ; preds = %32, %18, %tls_iv_le
   br label %58
 
 58:                                               ; preds = %49, %48, %1, %37, %17
-  %.0 = phi i32 [ 0, %37 ], [ 0, %17 ], [ 1, %1 ], [ 0, %48 ], [ %57, %49 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %37 ], [ 1, %1 ], [ 0, %48 ], [ %57, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -401,7 +401,7 @@ define range(i64 0, 33) i64 @tls1_final_finish_mac(ptr noundef %0, ptr noundef %
   br label %25
 
 25:                                               ; preds = %15, %13, %4, %23
-  %.011 = phi i64 [ %spec.select, %23 ], [ 0, %4 ], [ 0, %13 ], [ 0, %15 ]
+  %.011 = phi i64 [ %spec.select, %23 ], [ 0, %13 ], [ 0, %4 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.011
@@ -524,7 +524,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_PRF(ptr noundef %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %26, %27, %53, %49
-  %.0 = phi i32 [ 0, %53 ], [ 1, %49 ], [ 0, %27 ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %49 ], [ 0, %53 ], [ 0, %27 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
@@ -561,7 +561,7 @@ define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %0, ptr noun
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %.thread, label %20
 
-.thread:                                          ; preds = %15, %13, %17
+.thread:                                          ; preds = %13, %15, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
@@ -585,7 +585,7 @@ define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %0, ptr noun
   br label %27
 
 27:                                               ; preds = %.thread, %22, %26
-  %.1 = phi i32 [ 1, %26 ], [ 0, %22 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 1, %26 ], [ 0, %.thread ], [ 0, %22 ]
   ret i32 %.1
 }
 
@@ -740,7 +740,7 @@ define range(i32 -1, 121) i32 @tls1_alert_code(i32 noundef %0) local_unnamed_add
   br label %4
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %3, %2
-  %.0 = phi i32 [ -1, %3 ], [ 40, %2 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+  %.0 = phi i32 [ -1, %3 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ 40, %2 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   ret i32 %.0
 }
 

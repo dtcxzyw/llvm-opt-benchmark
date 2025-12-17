@@ -1025,7 +1025,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17hd5b75b1e1b588d1aE
   br label %.body
 
 .body:                                            ; preds = %33, %17, %10
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %18, %17 ], [ %34, %33 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %11, %10 ], [ %34, %33 ]
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17heee7074e50ac2e6dE"(ptr noalias noundef align 8 dereferenceable(40) %1) #28
           to label %65 unwind label %63
 
@@ -4674,7 +4674,7 @@ define hidden void @_ZN14regex_automata4meta13reverse_inner7extract17h7208a998da
   unreachable
 
 common.resume:                                    ; preds = %123, %.thread42, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30", %126, %53, %92, %102
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %93, %92 ], [ %103, %102 ], [ %127, %126 ], [ %.pn1741, %.thread42 ], [ %.pn15, %123 ], [ %.pn15, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30" ]
+  %common.resume.op = phi { ptr, i32 } [ %127, %126 ], [ %103, %102 ], [ %93, %92 ], [ %54, %53 ], [ %.pn15, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30" ], [ %.pn1741, %.thread42 ], [ %.pn15, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h54a041d5a91a77faE.exit.i.i": ; preds = %57, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h590bb358993fd72dE.llvm.17425413886787028408.exit.i.i.i"
@@ -4853,7 +4853,7 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
 123:                                              ; preds = %.body
   br i1 %.3, label %.thread42, label %common.resume
 
-.thread42.loopexit:                               ; preds = %154, %141
+.thread42.loopexit:                               ; preds = %141, %154
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
@@ -4996,8 +4996,8 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
   br i1 %162, label %214, label %123
 
 163:                                              ; preds = %197, %159, %158, %165
-  %.010 = phi i8 [ 1, %165 ], [ 1, %158 ], [ 1, %159 ], [ %.4, %197 ]
-  %.2 = phi i1 [ true, %165 ], [ true, %158 ], [ true, %159 ], [ false, %197 ]
+  %.010 = phi i8 [ %.4, %197 ], [ 1, %165 ], [ 1, %159 ], [ 1, %158 ]
+  %.2 = phi i1 [ false, %197 ], [ true, %165 ], [ true, %159 ], [ true, %158 ]
   %164 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5046,7 +5046,7 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
           to label %179 unwind label %177
 
 177:                                              ; preds = %205, %176
-  %.313 = phi i8 [ 1, %176 ], [ 0, %205 ]
+  %.313 = phi i8 [ 0, %205 ], [ 1, %176 ]
   %178 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h9e6457dabbad7c0fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #28
@@ -5186,7 +5186,7 @@ _ZN14regex_automata4meta13reverse_inner10top_concat17h24b77c9a94e08cdfE.exit: ; 
   br i1 %.3, label %.thread42, label %common.resume
 
 .thread42:                                        ; preds = %.thread42.loopexit, %.thread42.loopexit.split-lp, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30", %123
-  %.pn1741 = phi { ptr, i32 } [ %.pn15, %123 ], [ %.pn15, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30" ], [ %lpad.loopexit, %.thread42.loopexit ], [ %lpad.loopexit.split-lp, %.thread42.loopexit.split-lp ]
+  %.pn1741 = phi { ptr, i32 } [ %.pn15, %"_ZN4core3ptr63drop_in_place$LT$regex_automata..util..prefilter..Prefilter$GT$17h205244e4e621b1f1E.exit30" ], [ %.pn15, %123 ], [ %lpad.loopexit, %.thread42.loopexit ], [ %lpad.loopexit.split-lp, %.thread42.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h54a041d5a91a77faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #28
           to label %common.resume unwind label %212
 }
@@ -5773,7 +5773,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
   br label %287
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %330, %320, %common.resume.sink.split.i, %116, %131, %144, %155, %.body46
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body47, %.body46 ], [ %lpad.thr_comm.i.i, %116 ], [ %.pn.i.i, %144 ], [ %.pn.i162.i, %155 ], [ %132, %131 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ], [ %321, %320 ], [ %331, %330 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body47, %.body46 ], [ %321, %320 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ], [ %331, %330 ], [ %.pn.i162.i, %155 ], [ %132, %131 ], [ %lpad.thr_comm.i.i, %116 ], [ %.pn.i.i, %144 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h54a041d5a91a77faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #28
           to label %common.resume unwind label %348
 
@@ -5848,7 +5848,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
           to label %64 unwind label %62, !noalias !814
 
 .invoke:                                          ; preds = %269, %258, %204, %190, %167, %118, %64, %54
-  %61 = phi ptr [ @anon.5a48a2ebb7f06f3dffebe9420965407a.122, %54 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.121, %64 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %118 ], [ @anon.93414e78877ac8c524c991426ed90868.49.llvm.17489849572920684177, %167 ], [ @anon.93414e78877ac8c524c991426ed90868.45.llvm.17489849572920684177, %190 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %204 ], [ @anon.93414e78877ac8c524c991426ed90868.38.llvm.17489849572920684177, %258 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.117, %269 ]
+  %61 = phi ptr [ @anon.93414e78877ac8c524c991426ed90868.38.llvm.17489849572920684177, %258 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.122, %54 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.121, %64 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %118 ], [ @anon.93414e78877ac8c524c991426ed90868.49.llvm.17489849572920684177, %167 ], [ @anon.93414e78877ac8c524c991426ed90868.45.llvm.17489849572920684177, %190 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %204 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.117, %269 ]
   invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) %61) #26
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5951,7 +5951,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
           to label %113 unwind label %116, !noalias !887
 
 common.resume.sink.split.i:                       ; preds = %273, %262, %208, %195, %171, %123, %62
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %63, %62 ], [ %274, %273 ], [ %209, %208 ], [ %196, %195 ], [ %172, %171 ], [ %263, %262 ], [ %124, %123 ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %274, %273 ], [ %63, %62 ], [ %196, %195 ], [ %172, %171 ], [ %209, %208 ], [ %124, %123 ], [ %263, %262 ]
   %109 = load i64, ptr %55, align 8, !noalias !820, !noundef !7
   %110 = add i64 %109, 1
   store i64 %110, ptr %55, align 8, !noalias !820
@@ -6686,7 +6686,7 @@ _ZN14regex_automata3nfa8thompson8compiler8Compiler5patch17hd8179b9a018f9d9eE.exi
   unreachable
 
 common.resume:                                    ; preds = %.body, %338, %292
-  %common.resume.op = phi { ptr, i32 } [ %293, %292 ], [ %339, %338 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %339, %338 ], [ %293, %292 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17h54a041d5a91a77faE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h590bb358993fd72dE.llvm.17425413886787028408.exit.i", %296
@@ -7029,14 +7029,14 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler7compile17
           to label %99 unwind label %102, !noalias !1083
 
 common.resume.sink.split:                         ; preds = %110, %254, %198, %184, %159, %266, %47
-  %common.resume.op.ph = phi { ptr, i32 } [ %48, %47 ], [ %267, %266 ], [ %199, %198 ], [ %185, %184 ], [ %160, %159 ], [ %255, %254 ], [ %111, %110 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %267, %266 ], [ %48, %47 ], [ %185, %184 ], [ %160, %159 ], [ %199, %198 ], [ %111, %110 ], [ %255, %254 ]
   %95 = load i64, ptr %40, align 8, !noalias !7, !noundef !7
   %96 = add i64 %95, 1
   store i64 %96, ptr %40, align 8, !noalias !7
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %118, %142, %131, %102
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %102 ], [ %.pn.i, %131 ], [ %.pn.i162, %142 ], [ %119, %118 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i162, %142 ], [ %119, %118 ], [ %lpad.thr_comm.i, %102 ], [ %.pn.i, %131 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 97:                                               ; preds = %102

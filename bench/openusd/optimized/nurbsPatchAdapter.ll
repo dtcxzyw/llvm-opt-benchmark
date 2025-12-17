@@ -1215,7 +1215,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %109, %111, %1
   ret void
 
 .body:                                            ; preds = %13, %142, %131, %137, %135, %133
-  %.pn = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %14, %13 ], [ %132, %131 ], [ %143, %142 ]
+  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %138, %137 ], [ %136, %135 ], [ %14, %13 ], [ %132, %131 ], [ %143, %142 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   resume { ptr, i32 } %.pn
 }
@@ -2733,7 +2733,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %582, %588
   br label %.body92
 
 .body92:                                          ; preds = %406, %557, %567, %525, %.body123, %561, %559
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body124, %.body123 ], [ %562, %561 ], [ %560, %559 ], [ %407, %406 ], [ %526, %525 ], [ %558, %557 ], [ %568, %567 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body124, %.body123 ], [ %560, %559 ], [ %562, %561 ], [ %407, %406 ], [ %526, %525 ], [ %558, %557 ], [ %568, %567 ]
   %594 = load ptr, ptr %20, align 8
   %595 = ptrtoint ptr %594 to i64
   %596 = and i64 %595, 7

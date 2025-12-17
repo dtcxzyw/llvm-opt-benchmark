@@ -1976,7 +1976,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74:               ; preds = %135, %137
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit71
 
 _ZN4llvm11raw_ostreamlsEPKc.exit71:               ; preds = %126, %124, %.critedge2.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit74, %.critedge2
-  %.0 = phi i64 [ %140, %_ZN4llvm11raw_ostreamlsEPKc.exit74 ], [ %108, %.critedge2 ], [ 0, %.critedge2.thread ], [ %108, %124 ], [ %108, %126 ]
+  %.0 = phi i64 [ 0, %.critedge2.thread ], [ %140, %_ZN4llvm11raw_ostreamlsEPKc.exit74 ], [ %108, %.critedge2 ], [ %108, %124 ], [ %108, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 0) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2712,7 +2712,7 @@ _ZN4llvm11raw_ostreamlsEc.exit62:                 ; preds = %47, %49
   br label %_ZN4llvm11raw_ostreamlsEc.exit65
 
 _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %69, %67, %56
-  %.3 = phi i32 [ %62, %56 ], [ %55, %67 ], [ %55, %69 ]
+  %.3 = phi i32 [ %55, %69 ], [ %62, %56 ], [ %55, %67 ]
   %71 = zext i32 %.3 to i64
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !28
@@ -3731,7 +3731,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit234:              ; preds = %259, %261
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit237
 
 _ZN4llvm11raw_ostreamlsEPKc.exit237:              ; preds = %272, %270, %175, %42, %44, %43, %45, %152, %155, %127, %144, %150, %151, %147, %140, %141, %174, %173, %280, %281, %277, %282, %157, %46, %25, %15, %3, %7
-  %.0176 = phi i1 [ false, %7 ], [ false, %3 ], [ true, %42 ], [ true, %44 ], [ true, %43 ], [ true, %45 ], [ true, %152 ], [ true, %155 ], [ true, %127 ], [ true, %144 ], [ true, %150 ], [ true, %151 ], [ true, %147 ], [ true, %140 ], [ true, %141 ], [ true, %174 ], [ true, %173 ], [ true, %280 ], [ true, %281 ], [ true, %277 ], [ true, %282 ], [ false, %175 ], [ false, %157 ], [ false, %46 ], [ false, %25 ], [ false, %15 ], [ true, %270 ], [ true, %272 ]
+  %.0176 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %282 ], [ true, %173 ], [ true, %45 ], [ true, %141 ], [ true, %42 ], [ true, %44 ], [ true, %43 ], [ true, %152 ], [ true, %155 ], [ true, %127 ], [ true, %144 ], [ true, %150 ], [ true, %151 ], [ true, %147 ], [ true, %140 ], [ true, %174 ], [ false, %15 ], [ true, %280 ], [ true, %281 ], [ true, %277 ], [ false, %175 ], [ false, %157 ], [ false, %46 ], [ false, %25 ], [ true, %270 ], [ true, %272 ]
   ret i1 %.0176
 }
 

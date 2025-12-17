@@ -616,7 +616,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit8, %46, %39, %33, %115, %94, %84, %76, %71, %.preheader7, %121, %27, %18, %9, %6, %2
-  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ false, %115 ], [ true, %33 ], [ true, %.loopexit8 ], [ false, %46 ], [ false, %39 ]
+  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %115 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ true, %33 ], [ true, %.loopexit8 ], [ false, %46 ], [ false, %39 ]
   ret i1 %122
 }
 
@@ -758,8 +758,8 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   %.not = icmp eq i8 %71, %73
   br i1 %.not, label %.thread36, label %.thread38
 
-.thread38:                                        ; preds = %63, %60, %33, %69
-  %74 = phi i8 [ 0, %69 ], [ 0, %63 ], [ 0, %60 ], [ 1, %33 ]
+.thread38:                                        ; preds = %60, %33, %63, %69
+  %74 = phi i8 [ 0, %69 ], [ 0, %60 ], [ 1, %33 ], [ 0, %63 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %74, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 37
@@ -962,7 +962,7 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   %182 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %181, ptr noundef nonnull @reg_work) #26
   br label %290
 
-.sink.split:                                      ; preds = %124, %99, %102
+.sink.split:                                      ; preds = %124, %102, %99
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %183, align 4
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 37
@@ -1153,7 +1153,7 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   tail call void asm sideeffect "3313: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3313b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3313) #26, !srcloc !29
   br label %.thread36
 
-290:                                              ; preds = %275, %272, %.thread55, %180, %174
+290:                                              ; preds = %272, %.thread55, %275, %180, %174
   %291 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %292 = load i32, ptr %291, align 8
   %293 = and i32 %292, 2
@@ -1167,7 +1167,7 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   %297 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %296, ptr noundef nonnull @reg_check_chans, i64 noundef 60000) #26
   br label %.thread61
 
-.thread36:                                        ; preds = %260, %249, %248, %211, %208, %219, %.thread41, %.thread, %48, %29, %54, %40, %36, %11, %69, %.thread38, %148, %185, %.thread52, %289, %197, %93
+.thread36:                                        ; preds = %260, %249, %208, %248, %211, %219, %.thread41, %.thread, %48, %29, %54, %40, %36, %11, %69, %.thread38, %148, %185, %.thread52, %289, %197, %93
   %298 = icmp eq ptr %0, @core_request_world
   br i1 %298, label %.thread61, label %299
 
@@ -1180,7 +1180,7 @@ define internal fastcc void @reg_process_hint(ptr noundef %0) unnamed_addr #1 al
   tail call void @kfree(ptr noundef %0) #26
   br label %.thread61
 
-.thread61:                                        ; preds = %13, %24, %88, %187, %196, %279, %288, %302, %299, %.thread36, %295, %290
+.thread61:                                        ; preds = %13, %24, %88, %288, %187, %196, %279, %302, %299, %.thread36, %295, %290
   ret void
 }
 
@@ -1220,7 +1220,7 @@ define dso_local zeroext i1 @reg_is_valid_request(ptr noundef readonly captures(
   br label %19
 
 19:                                               ; preds = %13, %8, %4, %1
-  %20 = phi i1 [ false, %4 ], [ false, %1 ], [ false, %8 ], [ %18, %13 ]
+  %20 = phi i1 [ false, %4 ], [ false, %1 ], [ %18, %13 ], [ false, %8 ]
   ret i1 %20
 }
 
@@ -1422,7 +1422,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #1 align 16 
   br i1 %62, label %.split9.us, label %.split.splitthread-pre-split, !llvm.loop !34
 
 .split9.us:                                       ; preds = %.thread4, %55, %.split, %13
-  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %57, %.thread4 ], [ %35, %55 ]
+  %.us-phi = phi ptr [ inttoptr (i64 -34 to ptr), %.split ], [ inttoptr (i64 -22 to ptr), %13 ], [ %57, %.thread4 ], [ %35, %55 ]
   ret ptr %.us-phi
 }
 
@@ -3531,7 +3531,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   %cond = icmp eq i32 %269, 0
   br i1 %cond, label %.thread36, label %.thread33
 
-.thread39:                                        ; preds = %127, %76
+.thread39:                                        ; preds = %76, %127
   %270 = load volatile ptr, ptr @last_request, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 37
   store i8 1, ptr %271, align 1
@@ -3554,9 +3554,9 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread33.sink.split
 
 .thread33.sink.split:                             ; preds = %241, %246, %250, %144, %149, %153, %.thread33.sink.split.sink.split, %228, %131
-  %.sink77 = phi i8 [ %21, %131 ], [ %21, %228 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %153 ], [ %21, %149 ], [ %21, %144 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
-  %.sink.in = phi i8 [ %16, %131 ], [ %16, %228 ], [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %153 ], [ %16, %149 ], [ %16, %144 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
-  %.ph = phi i1 [ false, %131 ], [ false, %228 ], [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %153 ], [ false, %149 ], [ false, %144 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
+  %.sink77 = phi i8 [ %21, %131 ], [ %21, %228 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %144 ], [ %21, %153 ], [ %21, %149 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
+  %.sink.in = phi i8 [ %16, %131 ], [ %16, %228 ], [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %144 ], [ %16, %153 ], [ %16, %149 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
+  %.ph = phi i1 [ false, %131 ], [ false, %228 ], [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %144 ], [ false, %153 ], [ false, %149 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
   %.sink = zext i8 %.sink.in to i32
   %278 = zext i8 %.sink77 to i32
   %279 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %.sink, i32 noundef %278) #30
@@ -3564,8 +3564,8 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread33.sink.split, %.thread, %117, %225, %260, %255, %200, %158, %112, %33
-  %280 = phi i1 [ false, %.thread ], [ false, %225 ], [ false, %260 ], [ false, %255 ], [ false, %200 ], [ false, %158 ], [ true, %112 ], [ false, %33 ], [ false, %117 ], [ %.ph, %.thread33.sink.split ]
-  %281 = phi i32 [ %269, %.thread ], [ -22, %225 ], [ -22, %260 ], [ -19, %255 ], [ -22, %200 ], [ -19, %158 ], [ -22, %112 ], [ -22, %33 ], [ -22, %117 ], [ -22, %.thread33.sink.split ]
+  %280 = phi i1 [ false, %.thread ], [ false, %225 ], [ false, %260 ], [ false, %255 ], [ false, %33 ], [ true, %112 ], [ false, %200 ], [ false, %158 ], [ false, %117 ], [ %.ph, %.thread33.sink.split ]
+  %281 = phi i32 [ %269, %.thread ], [ -22, %225 ], [ -22, %260 ], [ -19, %255 ], [ -22, %33 ], [ -22, %112 ], [ -22, %200 ], [ -19, %158 ], [ -22, %117 ], [ -22, %.thread33.sink.split ]
   tail call fastcc void @restore_regulatory_settings(i1 noundef zeroext %280, i1 noundef zeroext false)
   br label %282
 
@@ -3574,7 +3574,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   tail call void @kfree(ptr noundef %0) #26
   br label %319
 
-.thread36:                                        ; preds = %.thread, %264, %199, %209, %111, %116, %40
+.thread36:                                        ; preds = %.thread, %209, %264, %111, %116, %199, %40
   %284 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %285 = load i8, ptr %284, align 4, !range !15, !noundef !16
   %286 = icmp eq i8 %285, 0
@@ -4244,8 +4244,8 @@ freq_reg_info.exit:                               ; preds = %138, %.thread4.i
   %146 = icmp ugt ptr %.us-phi.i, inttoptr (i64 -4096 to ptr)
   br i1 %146, label %freq_reg_info.exit.thread, label %484
 
-freq_reg_info.exit.thread:                        ; preds = %.split.i, %96, %freq_reg_info.exit
-  %.us-phi.i18 = phi ptr [ %.us-phi.i, %freq_reg_info.exit ], [ inttoptr (i64 -34 to ptr), %.split.i ], [ inttoptr (i64 -22 to ptr), %96 ]
+freq_reg_info.exit.thread:                        ; preds = %96, %.split.i, %freq_reg_info.exit
+  %.us-phi.i18 = phi ptr [ %.us-phi.i, %freq_reg_info.exit ], [ inttoptr (i64 -22 to ptr), %96 ], [ inttoptr (i64 -34 to ptr), %.split.i ]
   %147 = add i32 %80, -20000
   %148 = call ptr @freq_reg_info(ptr noundef %0, i32 noundef %147)
   %149 = add i32 %80, 20000
@@ -4620,7 +4620,7 @@ freq_reg_info.exit.thread:                        ; preds = %.split.i, %96, %fre
   br label %439
 
 439:                                              ; preds = %437, %._crit_edge29
-  %440 = phi i32 [ %436, %._crit_edge29 ], [ %spec.select, %437 ]
+  %440 = phi i32 [ %spec.select, %437 ], [ %436, %._crit_edge29 ]
   %441 = getelementptr inbounds nuw i8, ptr %73, i64 56
   store i32 %440, ptr %441, align 8
   br label %442
@@ -6495,7 +6495,7 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #1 al
   %140 = icmp eq i64 %139, 15
   br i1 %140, label %.loopexit, label %39, !llvm.loop !208
 
-141:                                              ; preds = %.thread, %136
+141:                                              ; preds = %136, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @cfg80211_leave(ptr noundef %16, ptr noundef %21) #26
   br label %142

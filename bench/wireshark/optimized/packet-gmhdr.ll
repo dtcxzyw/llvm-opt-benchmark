@@ -383,7 +383,7 @@ define internal zeroext i1 @dissect_gmtrailer_heur(ptr noundef %0, ptr noundef %
   br label %dissect_gmtrailer.exit
 
 dissect_gmtrailer.exit:                           ; preds = %4, %11, %13, %17, %22, %30, %37, %41
-  %.045.i = phi i32 [ 0, %22 ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ], [ 0, %17 ], [ %6, %37 ], [ %6, %41 ], [ %6, %30 ]
+  %.045.i = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %13 ], [ 0, %17 ], [ 0, %22 ], [ %6, %37 ], [ %6, %41 ], [ %6, %30 ]
   %44 = icmp sgt i32 %.045.i, 0
   ret i1 %44
 }

@@ -597,7 +597,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   br i1 %.not87, label %.loopexit, label %101, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph101, %101, %54, %35, %85, %26
-  %.179 = phi ptr [ %34, %26 ], [ %.078, %85 ], [ %.078, %35 ], [ %.078, %54 ], [ %110, %101 ], [ %51, %.lr.ph101 ], [ %83, %.lr.ph ]
+  %.179 = phi ptr [ %34, %26 ], [ %.078, %85 ], [ %.078, %35 ], [ %.078, %54 ], [ %51, %.lr.ph101 ], [ %110, %101 ], [ %83, %.lr.ph ]
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %114 = load i32, ptr %113, align 8, !tbaa !56
   %115 = icmp sgt i32 %114, 0
@@ -662,9 +662,9 @@ define internal fastcc void @write_os2_header(ptr noundef %0, ptr noundef readon
   br label %14
 
 14:                                               ; preds = %12, %12, %9, %13
-  %.035 = phi i8 [ 8, %13 ], [ %., %9 ], [ 24, %12 ], [ 24, %12 ]
-  %15 = phi i1 [ true, %13 ], [ %.not, %9 ], [ false, %12 ], [ false, %12 ]
-  %.0 = phi i32 [ 256, %13 ], [ %.41, %9 ], [ 0, %12 ], [ 0, %12 ]
+  %.035 = phi i8 [ %., %9 ], [ 8, %13 ], [ 24, %12 ], [ 24, %12 ]
+  %15 = phi i1 [ %.not, %9 ], [ true, %13 ], [ false, %12 ], [ false, %12 ]
+  %.0 = phi i32 [ %.41, %9 ], [ 256, %13 ], [ 0, %12 ], [ 0, %12 ]
   %16 = mul nuw nsw i32 %.0, 3
   %17 = or disjoint i32 %16, 26
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -785,9 +785,9 @@ define internal fastcc void @write_bmp_header(ptr noundef %0, ptr noundef readon
   br label %14
 
 14:                                               ; preds = %12, %12, %9, %13
-  %.050 = phi i8 [ 8, %13 ], [ %., %9 ], [ 24, %12 ], [ 24, %12 ]
-  %15 = phi i1 [ true, %13 ], [ %.not, %9 ], [ false, %12 ], [ false, %12 ]
-  %.0 = phi i32 [ 256, %13 ], [ %.56, %9 ], [ 0, %12 ], [ 0, %12 ]
+  %.050 = phi i8 [ %., %9 ], [ 8, %13 ], [ 24, %12 ], [ 24, %12 ]
+  %15 = phi i1 [ %.not, %9 ], [ true, %13 ], [ false, %12 ], [ false, %12 ]
+  %.0 = phi i32 [ %.56, %9 ], [ 256, %13 ], [ 0, %12 ], [ 0, %12 ]
   %16 = shl nuw nsw i32 %.0, 2
   %17 = or disjoint i32 %16, 54
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -1066,7 +1066,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
-  %.2 = phi i32 [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
+  %.2 = phi i32 [ %7, %.lr.ph.split.us ], [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split ]
   %89 = icmp samesign ugt i32 %.2, %1
   br i1 %89, label %90, label %96
 

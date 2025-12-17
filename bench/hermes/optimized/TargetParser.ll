@@ -964,7 +964,7 @@ land.lhs.true.i.thread1629:                       ; preds = %if.end.i2866, %if.e
   br label %return
 
 return:                                           ; preds = %entry, %if.end.i2587, %land.lhs.true.i190.thread1546.thread, %land.lhs.true.i.thread1629, %if.end.i2515, %if.end.i2524, %if.end.i2533, %if.end.i2542, %if.end.i2551, %if.end.i2560, %if.end.i2569, %if.end.i2578, %if.end.i2596, %if.end.i2605, %if.end.i2614, %if.end.i2623, %if.end.i2632, %if.end.i2641, %if.end.i2650, %if.end.i2659, %if.end.i2668, %if.end.i2677, %if.end.i2686, %if.end.i2695, %if.end.i2704, %if.end.i2713, %if.end.i2722, %if.end.i2731, %if.end.i2740, %if.end.i2749, %if.end.i2758, %if.end.i2767, %if.end.i2776, %if.end.i2785, %if.end.i2794, %if.end.i2803, %if.end.i2812, %if.end.i2821, %if.end.i2830, %if.end.i2839, %if.end.i2848, %if.end.i2857, %if.end.i2866, %if.end.i2875, %if.end.i2884, %if.end.i2893, %if.end.i2902, %if.end.i2911, %if.end.i2920, %if.end.i2929, %if.end.i2938, %if.end.i2947, %if.end.i2956, %if.end.i2965, %if.end.i2974, %if.end.i2983, %if.end.i2992, %if.end.i3001, %if.end.i3010, %if.end.i3019, %if.end.i3028, %if.end.i3037, %if.end.i3046, %if.end.i3055, %if.end.i3064, %if.end.i3073, %if.end.i3082, %if.end.i3091, %if.end.i3100, %if.end.i3109, %if.end.i3118, %if.end.i3127, %if.end.i3136, %if.end.i3145, %if.end.i3154, %if.end.i3163, %if.end.i3172, %if.end.i3181, %if.end.i3190, %if.end.i3199, %if.end.i3208, %if.end.i3217, %if.end.i3226, %if.end.i3235, %if.end.i3244, %land.lhs.true.i.thread, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %land.lhs.true.i.thread ], [ 1, %if.end.i3244 ], [ 1, %if.end.i3235 ], [ 1, %if.end.i3226 ], [ 1, %if.end.i3217 ], [ 1, %if.end.i3208 ], [ 1, %if.end.i3199 ], [ 1, %if.end.i3190 ], [ 1, %if.end.i3181 ], [ 1, %if.end.i3172 ], [ 1, %if.end.i3163 ], [ 1, %if.end.i3154 ], [ 1, %if.end.i3145 ], [ 1, %if.end.i3136 ], [ 1, %if.end.i3127 ], [ 1, %if.end.i3118 ], [ 1, %if.end.i3109 ], [ 1, %if.end.i3100 ], [ 1, %if.end.i3091 ], [ 1, %if.end.i3082 ], [ 1, %if.end.i3073 ], [ 1, %if.end.i3064 ], [ 1, %if.end.i3055 ], [ 1, %if.end.i3046 ], [ 1, %if.end.i3037 ], [ 1, %if.end.i3028 ], [ 1, %if.end.i3019 ], [ 1, %if.end.i3010 ], [ 1, %if.end.i3001 ], [ 1, %if.end.i2992 ], [ 1, %if.end.i2983 ], [ 1, %if.end.i2974 ], [ 1, %if.end.i2965 ], [ 1, %if.end.i2956 ], [ 3, %if.end.i2947 ], [ 1, %if.end.i2938 ], [ 3, %if.end.i2929 ], [ 1, %if.end.i2920 ], [ 1, %if.end.i2911 ], [ 3, %if.end.i2902 ], [ 1, %if.end.i2893 ], [ 3, %if.end.i2884 ], [ 1, %if.end.i2875 ], [ 1, %if.end.i2866 ], [ 1, %if.end.i2857 ], [ 1, %if.end.i2848 ], [ 18, %if.end.i2839 ], [ 18, %if.end.i2830 ], [ 16, %if.end.i2821 ], [ 17, %if.end.i2812 ], [ 18, %if.end.i2803 ], [ 18, %if.end.i2794 ], [ 18, %if.end.i2785 ], [ 18, %if.end.i2776 ], [ 1, %if.end.i2767 ], [ 6, %if.end.i2758 ], [ 6, %if.end.i2749 ], [ 7, %if.end.i2740 ], [ 7, %if.end.i2731 ], [ 19, %if.end.i2722 ], [ 1, %if.end.i2713 ], [ 1, %if.end.i2704 ], [ 12, %if.end.i2695 ], [ 13, %if.end.i2686 ], [ 1, %if.end.i2677 ], [ 14, %if.end.i2668 ], [ 20, %if.end.i2659 ], [ 20, %if.end.i2650 ], [ 20, %if.end.i2641 ], [ 20, %if.end.i2632 ], [ 20, %if.end.i2623 ], [ 20, %if.end.i2614 ], [ 20, %if.end.i2605 ], [ 20, %if.end.i2596 ], [ 20, %if.end.i2578 ], [ 20, %if.end.i2569 ], [ 20, %if.end.i2560 ], [ 20, %if.end.i2551 ], [ 20, %if.end.i2542 ], [ 1, %if.end.i2533 ], [ 1, %if.end.i2524 ], [ 18, %if.end.i2515 ], [ 0, %land.lhs.true.i.thread1629 ], [ 0, %land.lhs.true.i190.thread1546.thread ], [ %spec.select, %if.end.i2587 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %land.lhs.true.i190.thread1546.thread ], [ 0, %land.lhs.true.i.thread ], [ 0, %land.lhs.true.i.thread1629 ], [ 1, %if.end.i2524 ], [ 0, %entry ], [ 20, %if.end.i2542 ], [ 1, %if.end.i2533 ], [ 20, %if.end.i2560 ], [ 20, %if.end.i2551 ], [ 20, %if.end.i2578 ], [ 20, %if.end.i2569 ], [ 20, %if.end.i2596 ], [ %spec.select, %if.end.i2587 ], [ 20, %if.end.i2614 ], [ 20, %if.end.i2605 ], [ 20, %if.end.i2632 ], [ 20, %if.end.i2623 ], [ 20, %if.end.i2650 ], [ 20, %if.end.i2641 ], [ 14, %if.end.i2668 ], [ 20, %if.end.i2659 ], [ 13, %if.end.i2686 ], [ 1, %if.end.i2677 ], [ 1, %if.end.i2704 ], [ 12, %if.end.i2695 ], [ 19, %if.end.i2722 ], [ 1, %if.end.i2713 ], [ 7, %if.end.i2740 ], [ 7, %if.end.i2731 ], [ 6, %if.end.i2758 ], [ 6, %if.end.i2749 ], [ 18, %if.end.i2776 ], [ 1, %if.end.i2767 ], [ 18, %if.end.i2794 ], [ 18, %if.end.i2785 ], [ 17, %if.end.i2812 ], [ 18, %if.end.i2803 ], [ 18, %if.end.i2830 ], [ 16, %if.end.i2821 ], [ 1, %if.end.i2848 ], [ 18, %if.end.i2839 ], [ 1, %if.end.i2866 ], [ 1, %if.end.i2857 ], [ 1, %if.end.i2893 ], [ 3, %if.end.i2884 ], [ 1, %if.end.i2875 ], [ 1, %if.end.i2911 ], [ 3, %if.end.i2902 ], [ 1, %if.end.i2920 ], [ 1, %if.end.i2938 ], [ 3, %if.end.i2929 ], [ 1, %if.end.i2956 ], [ 3, %if.end.i2947 ], [ 1, %if.end.i3244 ], [ 1, %if.end.i3235 ], [ 1, %if.end.i3226 ], [ 1, %if.end.i3217 ], [ 1, %if.end.i3208 ], [ 1, %if.end.i3199 ], [ 1, %if.end.i3190 ], [ 1, %if.end.i3181 ], [ 1, %if.end.i3172 ], [ 1, %if.end.i3163 ], [ 1, %if.end.i3154 ], [ 1, %if.end.i3145 ], [ 1, %if.end.i3136 ], [ 1, %if.end.i3127 ], [ 1, %if.end.i3118 ], [ 1, %if.end.i3109 ], [ 1, %if.end.i3100 ], [ 1, %if.end.i3091 ], [ 1, %if.end.i3082 ], [ 1, %if.end.i3073 ], [ 1, %if.end.i3064 ], [ 1, %if.end.i3055 ], [ 1, %if.end.i3046 ], [ 1, %if.end.i3037 ], [ 1, %if.end.i3028 ], [ 1, %if.end.i3019 ], [ 1, %if.end.i3010 ], [ 1, %if.end.i3001 ], [ 1, %if.end.i2992 ], [ 1, %if.end.i2983 ], [ 1, %if.end.i2974 ], [ 1, %if.end.i2965 ], [ 18, %if.end.i2515 ]
   ret i32 %retval.0
 }
 
@@ -1483,7 +1483,7 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread: ; preds = %if.
   br label %return
 
 return:                                           ; preds = %if.end.i2606, %if.end.i2597, %if.end.i2750, %if.end.i2804, %land.lhs.true.i765.thread1521, %if.end.i2930, %if.end.i2939, %if.end.i2948, %if.end.i2957, %if.end.i3047, %if.end.i3056, %if.end.i3065, %if.end.i3074, %if.end.i3083, %if.end.i3092, %if.end.i3101, %if.end.i3110, %if.end.i3119, %if.end.i3128, %if.end.i3038, %if.end.i3029, %if.end.i3020, %if.end.i3137, %if.end.i3146, %if.end.i3155, %if.end.i3164, %if.end.i3173, %if.end.i3182, %if.end.i3191, %if.end.i3200, %if.end.i3209, %if.end.i3218, %if.end.i3227, %if.end.i3236, %if.end.i3245, %if.end.i3254, %if.end.i3263, %if.end.i3272, %if.end.i3281, %if.end.i3290, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603, %if.end.i2966, %if.end.i2975, %if.end.i3011, %if.end.i3002, %if.end.i2993, %if.end.i2984, %if.end.i2867, %if.end.i2876, %if.end.i2885, %if.end.i2894, %if.end.i2903, %if.end.i2912, %if.end.i2921, %if.end.i2813, %if.end.i2822, %if.end.i2831, %if.end.i2840, %if.end.i2849, %if.end.i2759, %if.end.i2768, %if.end.i2777, %if.end.i2786, %if.end.i2795, %if.end.i2615, %if.end.i2624, %if.end.i2633, %if.end.i2642, %if.end.i2651, %if.end.i2660, %if.end.i2669, %if.end.i2678, %if.end.i2687, %if.end.i2696, %if.end.i2705, %if.end.i2714, %if.end.i2723, %if.end.i2732, %if.end.i2741, %if.end.i2588, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 1, %if.end.i2588 ], [ 1, %if.end.i2606 ], [ 1072, %if.end.i2597 ], [ 1906, %if.end.i2741 ], [ 1906, %if.end.i2732 ], [ 1906, %if.end.i2723 ], [ 24434, %if.end.i2714 ], [ 1906, %if.end.i2705 ], [ 1906, %if.end.i2696 ], [ 1906, %if.end.i2687 ], [ 24434, %if.end.i2678 ], [ 1906, %if.end.i2669 ], [ 1906, %if.end.i2660 ], [ 1906, %if.end.i2651 ], [ 1906, %if.end.i2642 ], [ 1906, %if.end.i2633 ], [ 1906, %if.end.i2624 ], [ 1, %if.end.i2615 ], [ 1040, %if.end.i2750 ], [ 17, %if.end.i2795 ], [ 17, %if.end.i2786 ], [ 1041, %if.end.i2777 ], [ 1041, %if.end.i2768 ], [ 17, %if.end.i2759 ], [ 1651, %if.end.i2804 ], [ 1041, %if.end.i2849 ], [ 1041, %if.end.i2840 ], [ 1136, %if.end.i2831 ], [ 1136, %if.end.i2822 ], [ 1136, %if.end.i2813 ], [ 1072, %land.lhs.true.i765.thread1521 ], [ 1344, %if.end.i2921 ], [ 1904, %if.end.i2912 ], [ 1280, %if.end.i2903 ], [ 1344, %if.end.i2894 ], [ 1904, %if.end.i2885 ], [ 1904, %if.end.i2876 ], [ 1904, %if.end.i2867 ], [ 1, %if.end.i2957 ], [ 1, %if.end.i2948 ], [ 1, %if.end.i2939 ], [ 1, %if.end.i2930 ], [ 1025, %if.end.i3011 ], [ 1025, %if.end.i3002 ], [ 1281, %if.end.i2993 ], [ 1281, %if.end.i2984 ], [ 1025, %if.end.i2975 ], [ 1025, %if.end.i2966 ], [ 1, %if.end.i3128 ], [ 1, %if.end.i3119 ], [ 1025, %if.end.i3110 ], [ 1025, %if.end.i3101 ], [ 1025, %if.end.i3092 ], [ 1025, %if.end.i3083 ], [ 1025, %if.end.i3074 ], [ 1025, %if.end.i3065 ], [ 1025, %if.end.i3056 ], [ 1025, %if.end.i3047 ], [ 1025, %if.end.i3038 ], [ 1025, %if.end.i3029 ], [ 1025, %if.end.i3020 ], [ %ref.tmp.sroa.168.3, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603 ], [ 1, %if.end.i3290 ], [ 1, %if.end.i3281 ], [ 1, %if.end.i3272 ], [ 1, %if.end.i3263 ], [ 1, %if.end.i3254 ], [ 1, %if.end.i3245 ], [ 1, %if.end.i3236 ], [ 1, %if.end.i3227 ], [ 1, %if.end.i3218 ], [ 1, %if.end.i3209 ], [ 1, %if.end.i3200 ], [ 1, %if.end.i3191 ], [ 1, %if.end.i3182 ], [ 1, %if.end.i3173 ], [ 1, %if.end.i3164 ], [ 1, %if.end.i3155 ], [ 1, %if.end.i3146 ], [ 1, %if.end.i3137 ]
+  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 1, %if.end.i2588 ], [ 1, %if.end.i2606 ], [ 1072, %if.end.i2597 ], [ 1906, %if.end.i2624 ], [ 1906, %if.end.i2642 ], [ 1906, %if.end.i2633 ], [ 1906, %if.end.i2660 ], [ 1906, %if.end.i2651 ], [ 24434, %if.end.i2678 ], [ 1906, %if.end.i2669 ], [ 1906, %if.end.i2687 ], [ 1906, %if.end.i2696 ], [ 1906, %if.end.i2705 ], [ 24434, %if.end.i2714 ], [ 1906, %if.end.i2723 ], [ 1906, %if.end.i2732 ], [ 1906, %if.end.i2741 ], [ 1, %if.end.i2615 ], [ 1040, %if.end.i2750 ], [ 1041, %if.end.i2768 ], [ 1041, %if.end.i2777 ], [ 17, %if.end.i2786 ], [ 17, %if.end.i2795 ], [ 17, %if.end.i2759 ], [ 1651, %if.end.i2804 ], [ 1136, %if.end.i2822 ], [ 1041, %if.end.i2840 ], [ 1136, %if.end.i2831 ], [ 1041, %if.end.i2849 ], [ 1136, %if.end.i2813 ], [ 1072, %land.lhs.true.i765.thread1521 ], [ 1904, %if.end.i2876 ], [ 1344, %if.end.i2894 ], [ 1904, %if.end.i2885 ], [ 1280, %if.end.i2903 ], [ 1904, %if.end.i2912 ], [ 1344, %if.end.i2921 ], [ 1904, %if.end.i2867 ], [ 1, %if.end.i2948 ], [ 1, %if.end.i2939 ], [ 1, %if.end.i2957 ], [ 1, %if.end.i2930 ], [ 1025, %if.end.i2975 ], [ 1281, %if.end.i2984 ], [ 1281, %if.end.i2993 ], [ 1025, %if.end.i3002 ], [ 1025, %if.end.i3011 ], [ 1025, %if.end.i2966 ], [ 1025, %if.end.i3029 ], [ 1025, %if.end.i3047 ], [ 1025, %if.end.i3038 ], [ 1025, %if.end.i3056 ], [ 1025, %if.end.i3065 ], [ 1025, %if.end.i3083 ], [ 1025, %if.end.i3074 ], [ 1025, %if.end.i3101 ], [ 1025, %if.end.i3092 ], [ 1, %if.end.i3119 ], [ 1025, %if.end.i3110 ], [ 1, %if.end.i3128 ], [ 1025, %if.end.i3020 ], [ 1, %if.end.i3146 ], [ 1, %if.end.i3164 ], [ 1, %if.end.i3155 ], [ 1, %if.end.i3182 ], [ 1, %if.end.i3173 ], [ 1, %if.end.i3209 ], [ 1, %if.end.i3200 ], [ 1, %if.end.i3191 ], [ 1, %if.end.i3227 ], [ 1, %if.end.i3218 ], [ 1, %if.end.i3245 ], [ 1, %if.end.i3236 ], [ 1, %if.end.i3263 ], [ 1, %if.end.i3254 ], [ 1, %if.end.i3281 ], [ 1, %if.end.i3272 ], [ 1, %if.end.i3290 ], [ %ref.tmp.sroa.168.3, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603 ], [ 1, %if.end.i3137 ]
   ret i32 %retval.0
 }
 
@@ -5122,7 +5122,7 @@ for.inc22:                                        ; preds = %for.body11, %if.end
   br i1 %cmp10.not, label %return, label %for.body11
 
 return.sink.split:                                ; preds = %if.end.i90, %land.rhs.i68, %if.end.i, %land.rhs.i78
-  %AE12.sroa.335.0.copyload.lcssa.sink = phi ptr [ %AE12.sroa.335.0.copyload, %land.rhs.i78 ], [ %AE12.sroa.335.0.copyload, %if.end.i ], [ %AE.sroa.337.0.copyload, %land.rhs.i68 ], [ %AE.sroa.337.0.copyload, %if.end.i90 ]
+  %AE12.sroa.335.0.copyload.lcssa.sink = phi ptr [ %AE12.sroa.335.0.copyload, %if.end.i ], [ %AE12.sroa.335.0.copyload, %land.rhs.i78 ], [ %AE.sroa.337.0.copyload, %land.rhs.i68 ], [ %AE.sroa.337.0.copyload, %if.end.i90 ]
   %call.i48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %AE12.sroa.335.0.copyload.lcssa.sink) #18
   br label %return
 
@@ -5283,7 +5283,7 @@ return.split.loop.exit:                           ; preds = %land.rhs.i
   br label %return
 
 return:                                           ; preds = %for.inc, %entry, %return.split.loop.exit
-  %retval.0 = phi i32 [ %A.sroa.39.0.copyload.le14, %return.split.loop.exit ], [ 0, %entry ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %A.sroa.39.0.copyload.le14, %return.split.loop.exit ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -5498,7 +5498,7 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread: ; preds = %ent
   br label %return
 
 return:                                           ; preds = %if.end.i646, %if.end.i655, %if.end.i664, %if.end.i673, %if.end.i682, %if.end.i691, %if.end.i700, %if.end.i709, %if.end.i718, %if.end.i727, %if.end.i736, %if.end.i745, %if.end.i754, %if.end.i763, %if.end.i772, %if.end.i781, %if.end.i790, %if.end.i799, %if.end.i808, %if.end.i817, %if.end.i826, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 20, %if.end.i826 ], [ 20, %if.end.i817 ], [ 20, %if.end.i808 ], [ 20, %if.end.i799 ], [ 20, %if.end.i790 ], [ 20, %if.end.i781 ], [ 20, %if.end.i772 ], [ 20, %if.end.i763 ], [ 20, %if.end.i754 ], [ 20, %if.end.i745 ], [ 20, %if.end.i736 ], [ 20, %if.end.i727 ], [ 20, %if.end.i718 ], [ 20, %if.end.i709 ], [ 20, %if.end.i700 ], [ 20, %if.end.i691 ], [ 20, %if.end.i682 ], [ 20, %if.end.i673 ], [ 20, %if.end.i664 ], [ 20, %if.end.i655 ], [ 0, %if.end.i646 ]
+  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 20, %if.end.i655 ], [ 20, %if.end.i826 ], [ 20, %if.end.i817 ], [ 20, %if.end.i808 ], [ 20, %if.end.i799 ], [ 20, %if.end.i790 ], [ 20, %if.end.i781 ], [ 20, %if.end.i772 ], [ 20, %if.end.i763 ], [ 20, %if.end.i754 ], [ 20, %if.end.i745 ], [ 20, %if.end.i736 ], [ 20, %if.end.i727 ], [ 20, %if.end.i718 ], [ 20, %if.end.i709 ], [ 20, %if.end.i700 ], [ 20, %if.end.i691 ], [ 20, %if.end.i682 ], [ 20, %if.end.i673 ], [ 20, %if.end.i664 ], [ 0, %if.end.i646 ]
   ret i32 %retval.0
 }
 
@@ -5637,7 +5637,7 @@ _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread: ; preds = %ent
   br label %return
 
 return:                                           ; preds = %if.end.i783, %if.end.i774, %if.end.i765, %if.end.i756, %if.end.i747, %if.end.i738, %if.end.i792, %if.end.i801, %if.end.i810, %if.end.i819, %if.end.i828, %if.end.i846, %if.end.i837, %if.end.i666, %if.end.i675, %if.end.i684, %if.end.i693, %if.end.i702, %if.end.i729, %if.end.i720, %if.end.i711, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 6622, %if.end.i729 ], [ 30, %if.end.i720 ], [ 4383, %if.end.i711 ], [ 94, %if.end.i702 ], [ 94, %if.end.i693 ], [ 94, %if.end.i684 ], [ 94, %if.end.i675 ], [ 1, %if.end.i666 ], [ 29, %if.end.i783 ], [ 30, %if.end.i774 ], [ 30, %if.end.i765 ], [ 30, %if.end.i756 ], [ 30, %if.end.i747 ], [ 4126, %if.end.i738 ], [ 30, %if.end.i846 ], [ 30, %if.end.i837 ], [ 7614, %if.end.i828 ], [ 30, %if.end.i819 ], [ 30, %if.end.i810 ], [ 30, %if.end.i801 ], [ 7614, %if.end.i792 ]
+  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit.thread ], [ 94, %if.end.i675 ], [ 94, %if.end.i684 ], [ 94, %if.end.i693 ], [ 4383, %if.end.i711 ], [ 94, %if.end.i702 ], [ 30, %if.end.i720 ], [ 6622, %if.end.i729 ], [ 1, %if.end.i666 ], [ 30, %if.end.i747 ], [ 30, %if.end.i756 ], [ 30, %if.end.i765 ], [ 29, %if.end.i783 ], [ 30, %if.end.i774 ], [ 4126, %if.end.i738 ], [ 30, %if.end.i801 ], [ 30, %if.end.i819 ], [ 30, %if.end.i810 ], [ 30, %if.end.i837 ], [ 7614, %if.end.i828 ], [ 30, %if.end.i846 ], [ 7614, %if.end.i792 ]
   ret i32 %retval.0
 }
 
@@ -5769,7 +5769,7 @@ _ZN4llvh12StringSwitchINS_7AArch648ArchKindES2_E4CaseENS_13StringLiteralES2_.exi
   br label %return
 
 return:                                           ; preds = %if.end.i646, %if.end.i655, %if.end.i664, %if.end.i673, %if.end.i682, %if.end.i691, %if.end.i700, %if.end.i709, %if.end.i718, %if.end.i727, %if.end.i736, %if.end.i745, %if.end.i754, %if.end.i763, %if.end.i772, %if.end.i781, %if.end.i790, %if.end.i799, %if.end.i808, %if.end.i817, %if.end.i826, %_ZN4llvh12StringSwitchINS_7AArch648ArchKindES2_E4CaseENS_13StringLiteralES2_.exit.thread, %if.end.i639
-  %retval.0 = phi i32 [ 1, %if.end.i639 ], [ 0, %_ZN4llvh12StringSwitchINS_7AArch648ArchKindES2_E4CaseENS_13StringLiteralES2_.exit.thread ], [ 1, %if.end.i826 ], [ 1, %if.end.i817 ], [ 3, %if.end.i808 ], [ 1, %if.end.i799 ], [ 1, %if.end.i790 ], [ 1, %if.end.i781 ], [ 3, %if.end.i772 ], [ 1, %if.end.i763 ], [ 1, %if.end.i754 ], [ 1, %if.end.i745 ], [ 1, %if.end.i736 ], [ 1, %if.end.i727 ], [ 1, %if.end.i718 ], [ 4, %if.end.i709 ], [ 1, %if.end.i700 ], [ 2, %if.end.i691 ], [ 1, %if.end.i682 ], [ 1, %if.end.i673 ], [ 1, %if.end.i664 ], [ 1, %if.end.i655 ], [ 0, %if.end.i646 ]
+  %retval.0 = phi i32 [ 1, %if.end.i639 ], [ 0, %_ZN4llvh12StringSwitchINS_7AArch648ArchKindES2_E4CaseENS_13StringLiteralES2_.exit.thread ], [ 1, %if.end.i655 ], [ 1, %if.end.i664 ], [ 1, %if.end.i673 ], [ 2, %if.end.i691 ], [ 1, %if.end.i682 ], [ 4, %if.end.i709 ], [ 1, %if.end.i700 ], [ 1, %if.end.i727 ], [ 1, %if.end.i718 ], [ 1, %if.end.i736 ], [ 1, %if.end.i745 ], [ 1, %if.end.i763 ], [ 1, %if.end.i754 ], [ 3, %if.end.i772 ], [ 1, %if.end.i790 ], [ 1, %if.end.i781 ], [ 3, %if.end.i808 ], [ 1, %if.end.i799 ], [ 1, %if.end.i817 ], [ 1, %if.end.i826 ], [ 0, %if.end.i646 ]
   ret i32 %retval.0
 }
 
@@ -7346,7 +7346,7 @@ for.inc22:                                        ; preds = %for.body11, %if.end
   br i1 %cmp10.not, label %return, label %for.body11
 
 return.sink.split:                                ; preds = %if.end.i90, %land.rhs.i68, %if.end.i, %land.rhs.i78
-  %.lcssa.sink = phi ptr [ %4, %land.rhs.i78 ], [ %4, %if.end.i ], [ %1, %land.rhs.i68 ], [ %1, %if.end.i90 ]
+  %.lcssa.sink = phi ptr [ %4, %if.end.i ], [ %4, %land.rhs.i78 ], [ %1, %land.rhs.i68 ], [ %1, %if.end.i90 ]
   %call.i48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa.sink) #18
   br label %return
 
@@ -7447,9 +7447,9 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %cmp1.not = icmp eq i64 %__begin1.0.add, 672
   br i1 %cmp1.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc.i, %for.inc, %land.lhs.true3.i.i, %entry, %land.lhs.true.i.i, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %__begin1.0.ptr.val, %if.then3 ], [ null, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ null, %land.lhs.true.i.i ], [ null, %entry ], [ null, %land.lhs.true3.i.i ], [ @.str, %for.inc ], [ null, %for.inc.i ]
-  %retval.sroa.5.0 = phi i64 [ %__begin1.0.ptr.val8, %if.then3 ], [ 0, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ 0, %land.lhs.true.i.i ], [ 0, %entry ], [ 0, %land.lhs.true3.i.i ], [ 7, %for.inc ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.inc, %entry, %land.lhs.true3.i.i, %land.lhs.true.i.i, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit, %if.then3
+  %retval.sroa.0.0 = phi ptr [ %__begin1.0.ptr.val, %if.then3 ], [ null, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true3.i.i ], [ null, %entry ], [ @.str, %for.inc ], [ null, %for.inc.i ]
+  %retval.sroa.5.0 = phi i64 [ %__begin1.0.ptr.val8, %if.then3 ], [ 0, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true3.i.i ], [ 0, %entry ], [ 7, %for.inc ], [ 0, %for.inc.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7514,8 +7514,8 @@ return.loopexit.split.loop.exit16:                ; preds = %land.rhs.i
   %A.sroa.311.0.copyload.le = load i32, ptr %A.sroa.311.0.__begin1.0.ptr.sroa_idx.le20, align 8
   br label %return
 
-return:                                           ; preds = %for.inc, %if.end, %return.loopexit.split.loop.exit16, %land.lhs.true3.i, %entry, %land.lhs.true.i
-  %retval.0 = phi i32 [ 0, %land.lhs.true.i ], [ 0, %entry ], [ 0, %land.lhs.true3.i ], [ %A.sroa.311.0.copyload.le, %return.loopexit.split.loop.exit16 ], [ 0, %if.end ], [ 0, %for.inc ]
+return:                                           ; preds = %for.inc, %if.end, %return.loopexit.split.loop.exit16, %land.lhs.true.i, %land.lhs.true3.i, %entry
+  %retval.0 = phi i32 [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %entry ], [ %A.sroa.311.0.copyload.le, %return.loopexit.split.loop.exit16 ], [ 0, %if.end ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -7540,7 +7540,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %land.lhs.true3, %entry, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true3 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true3 ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -7607,9 +7607,9 @@ if.end.i304:                                      ; preds = %if.end
   %spec.select = select i1 %7, i64 10, i64 7
   br label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end, %if.end.i322, %if.end.i331, %if.end.i340, %if.end.i304, %if.end.i331.thread
-  %8 = phi i64 [ %Arch.coerce1, %if.end.i331.thread ], [ %5, %if.end.i304 ], [ %Arch.coerce1, %if.end.i340 ], [ %Arch.coerce1, %if.end.i331 ], [ %Arch.coerce1, %if.end.i322 ], [ %5, %if.end ]
-  %offset.0.ph = phi i64 [ 3, %if.end.i331.thread ], [ %spec.select, %if.end.i304 ], [ 5, %if.end.i340 ], [ 3, %if.end.i331 ], [ 5, %if.end.i322 ], [ 7, %if.end ]
+land.lhs.true:                                    ; preds = %if.end.i322, %if.end.i331, %if.end.i340, %if.end.i304, %if.end, %if.end.i331.thread
+  %8 = phi i64 [ %Arch.coerce1, %if.end.i331.thread ], [ %5, %if.end ], [ %5, %if.end.i304 ], [ %Arch.coerce1, %if.end.i340 ], [ %Arch.coerce1, %if.end.i331 ], [ %Arch.coerce1, %if.end.i322 ]
+  %offset.0.ph = phi i64 [ 3, %if.end.i331.thread ], [ 7, %if.end ], [ %spec.select, %if.end.i304 ], [ 5, %if.end.i340 ], [ 3, %if.end.i331 ], [ 5, %if.end.i322 ]
   %.sroa.speculated113 = call i64 @llvm.umin.i64(i64 %8, i64 %offset.0.ph)
   %sub.i225 = sub i64 %8, %.sroa.speculated113
   %cmp.i291 = icmp ugt i64 %sub.i225, 1
@@ -7632,9 +7632,9 @@ _ZN4llvh9StringRefC2EPKc.exit150:                 ; preds = %land.lhs.true, %if.
   %cmp.i249 = icmp ugt i64 %11, 1
   br i1 %cmp.i249, label %land.rhs.i250, label %if.end39
 
-land.rhs.i250:                                    ; preds = %if.end.i349, %_ZN4llvh9StringRefC2EPKc.exit110, %if.end.i331.thread, %_ZN4llvh9StringRefC2EPKc.exit150
-  %offset.0129143 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ -1, %if.end.i331.thread ], [ -1, %_ZN4llvh9StringRefC2EPKc.exit110 ], [ -1, %if.end.i349 ]
-  %12 = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %Arch.coerce1, %if.end.i331.thread ], [ %Arch.coerce1, %_ZN4llvh9StringRefC2EPKc.exit110 ], [ %Arch.coerce1, %if.end.i349 ]
+land.rhs.i250:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit110, %if.end.i349, %if.end.i331.thread, %_ZN4llvh9StringRefC2EPKc.exit150
+  %offset.0129143 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ -1, %if.end.i331.thread ], [ -1, %if.end.i349 ], [ -1, %_ZN4llvh9StringRefC2EPKc.exit110 ]
+  %12 = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %Arch.coerce1, %if.end.i331.thread ], [ %Arch.coerce1, %if.end.i349 ], [ %Arch.coerce1, %_ZN4llvh9StringRefC2EPKc.exit110 ]
   %13 = load ptr, ptr %A, align 8
   %add.ptr.i88 = getelementptr inbounds i8, ptr %13, i64 %12
   %add.ptr.i252 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 -2
@@ -7645,8 +7645,8 @@ land.rhs.i250:                                    ; preds = %if.end.i349, %_ZN4l
   br label %if.end39
 
 if.end39:                                         ; preds = %land.rhs.i250, %_ZN4llvh9StringRefC2EPKc.exit150
-  %offset.0129142 = phi i64 [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %offset.0129143, %land.rhs.i250 ]
-  %.pr = phi i64 [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %spec.select148, %land.rhs.i250 ]
+  %offset.0129142 = phi i64 [ %offset.0129143, %land.rhs.i250 ], [ %offset.0129, %_ZN4llvh9StringRefC2EPKc.exit150 ]
+  %.pr = phi i64 [ %spec.select148, %land.rhs.i250 ], [ %11, %_ZN4llvh9StringRefC2EPKc.exit150 ]
   %cmp40.not = icmp eq i64 %offset.0129142, -1
   br i1 %cmp40.not, label %if.end44, label %if.end39.if.then41_crit_edge
 
@@ -7701,8 +7701,8 @@ if.end65:                                         ; preds = %if.end44, %_ZN4llvh
   br label %return
 
 return:                                           ; preds = %if.end44.thread, %_ZN4llvh9StringRefC2EPKc.exit160, %land.lhs.true52, %lor.lhs.false, %if.end44, %_ZN4llvh9StringRefC2EPKc.exit120, %if.end65
-  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload12, %if.end65 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce0, %if.end44 ], [ @.str.135, %lor.lhs.false ], [ @.str.135, %land.lhs.true52 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce0, %if.end44.thread ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.6.0.copyload17, %if.end65 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce1, %if.end44 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true52 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce1, %if.end44.thread ]
+  %retval.sroa.0.0 = phi ptr [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce0, %if.end44 ], [ @.str.135, %land.lhs.true52 ], [ %retval.sroa.0.0.copyload12, %if.end65 ], [ @.str.135, %lor.lhs.false ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce0, %if.end44.thread ]
+  %retval.sroa.6.0 = phi i64 [ 0, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce1, %if.end44 ], [ 0, %land.lhs.true52 ], [ %retval.sroa.6.0.copyload17, %if.end65 ], [ 0, %lor.lhs.false ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce1, %if.end44.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7864,8 +7864,8 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i35.i.i
   br label %_ZL13getFPUSynonymN4llvh9StringRefE.exit
 
 _ZL13getFPUSynonymN4llvh9StringRefE.exit:         ; preds = %if.end.i.i.i.i, %if.end.i.i.i617.i, %if.end.i.i35.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i352.i, %if.end.i.i317.i, %if.end.i.i282.i, %if.end.i.i247.i, %if.end.i.i212.i, %if.end.i.i35.i571.i, %if.end.i.i.i560.i, %if.end.i.i35.i492.i, %if.end.i.i.i481.i, %if.end.i.i177.i, %if.end.i.i35.i.i, %if.end.i.i.i414.i, %land.lhs.true.i.thread.i, %if.end.i.i.i
-  %retval.i.sroa.0.0.i = phi ptr [ %FPU.coerce0, %land.lhs.true.i.thread.i ], [ @.str.83, %if.end.i.i.i.i ], [ @.str.83, %if.end.i.i.i617.i ], [ @.str.83, %if.end.i.i35.i.i.i ], [ @.str.83, %if.end.i.i.i.i.i ], [ @.str.151, %if.end.i.i352.i ], [ @.str.152, %if.end.i.i317.i ], [ @.str.158, %if.end.i.i282.i ], [ @.str.154, %if.end.i.i247.i ], [ @.str.159, %if.end.i.i212.i ], [ @.str.160, %if.end.i.i35.i571.i ], [ @.str.160, %if.end.i.i.i560.i ], [ @.str.159, %if.end.i.i35.i492.i ], [ @.str.159, %if.end.i.i.i481.i ], [ @.str.162, %if.end.i.i177.i ], [ @.str.161, %if.end.i.i35.i.i ], [ @.str.161, %if.end.i.i.i414.i ], [ %spec.select.i, %if.end.i.i.i ]
-  %retval.i.sroa.3.0.i = phi i64 [ %FPU.coerce1, %land.lhs.true.i.thread.i ], [ 7, %if.end.i.i.i.i ], [ 7, %if.end.i.i.i617.i ], [ 7, %if.end.i.i35.i.i.i ], [ 7, %if.end.i.i.i.i.i ], [ 5, %if.end.i.i352.i ], [ 5, %if.end.i.i317.i ], [ 5, %if.end.i.i282.i ], [ 9, %if.end.i.i247.i ], [ 9, %if.end.i.i212.i ], [ 11, %if.end.i.i35.i571.i ], [ 11, %if.end.i.i.i560.i ], [ 9, %if.end.i.i35.i492.i ], [ 9, %if.end.i.i.i481.i ], [ 11, %if.end.i.i177.i ], [ 8, %if.end.i.i35.i.i ], [ 8, %if.end.i.i.i414.i ], [ %spec.select405.i, %if.end.i.i.i ]
+  %retval.i.sroa.0.0.i = phi ptr [ %spec.select.i, %if.end.i.i.i ], [ %FPU.coerce0, %land.lhs.true.i.thread.i ], [ @.str.161, %if.end.i.i35.i.i ], [ @.str.161, %if.end.i.i.i414.i ], [ @.str.159, %if.end.i.i.i481.i ], [ @.str.162, %if.end.i.i177.i ], [ @.str.160, %if.end.i.i.i560.i ], [ @.str.159, %if.end.i.i35.i492.i ], [ @.str.159, %if.end.i.i212.i ], [ @.str.160, %if.end.i.i35.i571.i ], [ @.str.158, %if.end.i.i282.i ], [ @.str.154, %if.end.i.i247.i ], [ @.str.151, %if.end.i.i352.i ], [ @.str.152, %if.end.i.i317.i ], [ @.str.83, %if.end.i.i35.i.i.i ], [ @.str.83, %if.end.i.i.i.i.i ], [ @.str.83, %if.end.i.i.i.i ], [ @.str.83, %if.end.i.i.i617.i ]
+  %retval.i.sroa.3.0.i = phi i64 [ %spec.select405.i, %if.end.i.i.i ], [ %FPU.coerce1, %land.lhs.true.i.thread.i ], [ 8, %if.end.i.i35.i.i ], [ 8, %if.end.i.i.i414.i ], [ 9, %if.end.i.i.i481.i ], [ 11, %if.end.i.i177.i ], [ 11, %if.end.i.i.i560.i ], [ 9, %if.end.i.i35.i492.i ], [ 9, %if.end.i.i212.i ], [ 11, %if.end.i.i35.i571.i ], [ 5, %if.end.i.i282.i ], [ 9, %if.end.i.i247.i ], [ 5, %if.end.i.i352.i ], [ 5, %if.end.i.i317.i ], [ 7, %if.end.i.i35.i.i.i ], [ 7, %if.end.i.i.i.i.i ], [ 7, %if.end.i.i.i.i ], [ 7, %if.end.i.i.i617.i ]
   %cmp.i7 = icmp eq i64 %retval.i.sroa.3.0.i, 0
   br label %for.body
 
@@ -8053,19 +8053,19 @@ if.end.i.i285:                                    ; preds = %land.lhs.true.i728
   %27 = icmp eq i32 %bcmp168, 0
   br i1 %27, label %_ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit, label %if.end.i.i
 
-land.lhs.true.i.thread:                           ; preds = %if.end.i.i320, %if.end.i.i355, %if.end.i.i35.i.i.i, %if.end.i.i530, %if.end.i.i.i1054
+land.lhs.true.i.thread:                           ; preds = %if.end.i.i320, %if.end.i.i.i1054, %if.end.i.i355, %if.end.i.i35.i.i.i, %if.end.i.i530
   br label %_ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit
 
 if.end.i.i:                                       ; preds = %if.end.i.i285
   %bcmp169 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %Arch.coerce0, ptr noundef nonnull dereferenceable(8) @.str.252, i64 8)
   %28 = icmp eq i32 %bcmp169, 0
   %spec.select = select i1 %28, ptr @.str.348, ptr %Arch.coerce0
-  %spec.select721 = select i1 %28, i64 9, i64 8
+  %spec.select718 = select i1 %28, i64 9, i64 8
   br label %_ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit
 
 _ZN4llvh12StringSwitchINS_9StringRefES1_E7DefaultES1_.exit: ; preds = %land.lhs.true.i728, %if.end.i.i, %if.end.i.i285, %if.end.i.i320, %if.end.i.i355, %if.end.i.i390, %if.end.i.i425, %if.end.i.i460, %if.end.i.i495, %if.end.i.i.i.i.i, %if.end.i.i35.i.i.i, %if.end.i.i.i61.i, %if.end.i.i.i.i1043, %if.end.i.i.i1054, %if.end.i.i530, %if.end.i.i565, %if.end.i.i600, %if.end.i.i.i.i, %if.end.i.i35.i.i, %if.end.i.i.i847, %if.end.i.i.i, %if.end.i.i.i802, %if.end.i.i35.i, %if.end.i.i.i.i949, %if.end.i.i35.i.i960, %if.end.i.i.i971, %if.end.i.i635, %if.end.i.i670, %if.end.i.i705, %if.end.i.i740, %land.lhs.true.i.thread
-  %retval.i.sroa.0.0 = phi ptr [ %Arch.coerce0, %land.lhs.true.i.thread ], [ @.str.322, %if.end.i.i740 ], [ @.str.323, %if.end.i.i705 ], [ @.str.198, %if.end.i.i670 ], [ @.str.201, %if.end.i.i635 ], [ @.str.328, %if.end.i.i.i971 ], [ @.str.328, %if.end.i.i35.i.i960 ], [ @.str.328, %if.end.i.i.i.i949 ], [ @.str.207, %if.end.i.i35.i ], [ @.str.207, %if.end.i.i.i802 ], [ @.str.334, %if.end.i.i.i ], [ @.str.334, %if.end.i.i.i847 ], [ @.str.334, %if.end.i.i35.i.i ], [ @.str.334, %if.end.i.i.i.i ], [ @.str.335, %if.end.i.i600 ], [ @.str.336, %if.end.i.i565 ], [ @.str.337, %if.end.i.i530 ], [ @.str.340, %if.end.i.i.i1054 ], [ @.str.340, %if.end.i.i.i.i1043 ], [ @.str.340, %if.end.i.i.i61.i ], [ @.str.340, %if.end.i.i35.i.i.i ], [ @.str.340, %if.end.i.i.i.i.i ], [ @.str.341, %if.end.i.i495 ], [ @.str.342, %if.end.i.i460 ], [ @.str.343, %if.end.i.i425 ], [ @.str.344, %if.end.i.i390 ], [ @.str.345, %if.end.i.i355 ], [ @.str.346, %if.end.i.i320 ], [ @.str.347, %if.end.i.i285 ], [ %spec.select, %if.end.i.i ], [ %Arch.coerce0, %land.lhs.true.i728 ]
-  %retval.i.sroa.3.0 = phi i64 [ %Arch.coerce1, %land.lhs.true.i.thread ], [ 3, %if.end.i.i740 ], [ 4, %if.end.i.i705 ], [ 2, %if.end.i.i670 ], [ 3, %if.end.i.i635 ], [ 4, %if.end.i.i.i971 ], [ 4, %if.end.i.i35.i.i960 ], [ 4, %if.end.i.i.i.i949 ], [ 4, %if.end.i.i35.i ], [ 4, %if.end.i.i.i802 ], [ 4, %if.end.i.i.i ], [ 4, %if.end.i.i.i847 ], [ 4, %if.end.i.i35.i.i ], [ 4, %if.end.i.i.i.i ], [ 4, %if.end.i.i600 ], [ 4, %if.end.i.i565 ], [ 5, %if.end.i.i530 ], [ 4, %if.end.i.i.i1054 ], [ 4, %if.end.i.i.i.i1043 ], [ 4, %if.end.i.i.i61.i ], [ 4, %if.end.i.i35.i.i.i ], [ 4, %if.end.i.i.i.i.i ], [ 6, %if.end.i.i495 ], [ 6, %if.end.i.i460 ], [ 6, %if.end.i.i425 ], [ 6, %if.end.i.i390 ], [ 6, %if.end.i.i355 ], [ 4, %if.end.i.i320 ], [ 9, %if.end.i.i285 ], [ %spec.select721, %if.end.i.i ], [ %Arch.coerce1, %land.lhs.true.i728 ]
+  %retval.i.sroa.0.0 = phi ptr [ %spec.select, %if.end.i.i ], [ @.str.323, %if.end.i.i705 ], [ %Arch.coerce0, %land.lhs.true.i.thread ], [ @.str.346, %if.end.i.i320 ], [ @.str.347, %if.end.i.i285 ], [ @.str.344, %if.end.i.i390 ], [ @.str.345, %if.end.i.i355 ], [ @.str.342, %if.end.i.i460 ], [ @.str.343, %if.end.i.i425 ], [ @.str.340, %if.end.i.i.i.i.i ], [ @.str.341, %if.end.i.i495 ], [ @.str.340, %if.end.i.i.i.i1043 ], [ @.str.340, %if.end.i.i.i61.i ], [ @.str.340, %if.end.i.i35.i.i.i ], [ @.str.340, %if.end.i.i.i1054 ], [ @.str.335, %if.end.i.i600 ], [ @.str.337, %if.end.i.i530 ], [ @.str.336, %if.end.i.i565 ], [ @.str.334, %if.end.i.i35.i.i ], [ @.str.334, %if.end.i.i.i.i ], [ @.str.334, %if.end.i.i.i ], [ @.str.334, %if.end.i.i.i847 ], [ @.str.207, %if.end.i.i35.i ], [ @.str.207, %if.end.i.i.i802 ], [ @.str.328, %if.end.i.i.i971 ], [ @.str.328, %if.end.i.i.i.i949 ], [ @.str.328, %if.end.i.i35.i.i960 ], [ @.str.198, %if.end.i.i670 ], [ @.str.201, %if.end.i.i635 ], [ @.str.322, %if.end.i.i740 ], [ %Arch.coerce0, %land.lhs.true.i728 ]
+  %retval.i.sroa.3.0 = phi i64 [ %spec.select718, %if.end.i.i ], [ 4, %if.end.i.i705 ], [ %Arch.coerce1, %land.lhs.true.i.thread ], [ 4, %if.end.i.i320 ], [ 9, %if.end.i.i285 ], [ 6, %if.end.i.i390 ], [ 6, %if.end.i.i355 ], [ 6, %if.end.i.i460 ], [ 6, %if.end.i.i425 ], [ 4, %if.end.i.i.i.i.i ], [ 6, %if.end.i.i495 ], [ 4, %if.end.i.i.i.i1043 ], [ 4, %if.end.i.i.i61.i ], [ 4, %if.end.i.i35.i.i.i ], [ 4, %if.end.i.i.i1054 ], [ 4, %if.end.i.i600 ], [ 5, %if.end.i.i530 ], [ 4, %if.end.i.i565 ], [ 4, %if.end.i.i35.i.i ], [ 4, %if.end.i.i.i.i ], [ 4, %if.end.i.i.i ], [ 4, %if.end.i.i.i847 ], [ 4, %if.end.i.i35.i ], [ 4, %if.end.i.i.i802 ], [ 4, %if.end.i.i.i971 ], [ 4, %if.end.i.i.i.i949 ], [ 4, %if.end.i.i35.i.i960 ], [ 2, %if.end.i.i670 ], [ 3, %if.end.i.i635 ], [ 3, %if.end.i.i740 ], [ %Arch.coerce1, %land.lhs.true.i728 ]
   %.fca.0.insert70 = insertvalue { ptr, i64 } poison, ptr %retval.i.sroa.0.0, 0
   %.fca.1.insert71 = insertvalue { ptr, i64 } %.fca.0.insert70, i64 %retval.i.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert71
@@ -8287,7 +8287,7 @@ if.end.i115:                                      ; preds = %if.end.i106, %_ZN4l
   br label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit
 
 _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit: ; preds = %if.end.i115, %if.end.i106, %if.end.i97, %if.end.i89, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35
-  %retval.i.0 = phi i32 [ 0, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35 ], [ 3, %if.end.i89 ], [ 3, %if.end.i97 ], [ 2, %if.end.i106 ], [ %spec.select, %if.end.i115 ]
+  %retval.i.0 = phi i32 [ 0, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35 ], [ %spec.select, %if.end.i115 ], [ 2, %if.end.i106 ], [ 3, %if.end.i97 ], [ 3, %if.end.i89 ]
   ret i32 %retval.i.0
 }
 
@@ -8359,7 +8359,7 @@ if.end19:                                         ; preds = %if.end.i181.thread,
   br label %return
 
 return:                                           ; preds = %land.rhs.i144, %if.end.i199, %if.end.i154, %if.end.i163, %if.end.i172, %if.end19
-  %retval.0 = phi i32 [ 0, %if.end19 ], [ 2, %if.end.i172 ], [ 2, %if.end.i163 ], [ 2, %if.end.i154 ], [ 1, %if.end.i199 ], [ %spec.select, %land.rhs.i144 ]
+  %retval.0 = phi i32 [ 0, %if.end19 ], [ 2, %if.end.i154 ], [ 1, %if.end.i199 ], [ %spec.select, %land.rhs.i144 ], [ 2, %if.end.i172 ], [ 2, %if.end.i163 ]
   ret i32 %retval.0
 }
 
@@ -8587,8 +8587,8 @@ switch.lookup:                                    ; preds = %if.end19
   br label %return
 
 return:                                           ; preds = %switch.lookup, %if.end24, %if.end, %sw.default, %if.else, %if.then, %lor.lhs.false8
-  %retval.sroa.0.0 = phi ptr [ @.str.145, %lor.lhs.false8 ], [ @.str.145, %if.then ], [ @.str.145, %if.else ], [ @.str.147, %sw.default ], [ %spec.select, %if.end ], [ %spec.select30, %if.end24 ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.10.0 = phi i64 [ 5, %lor.lhs.false8 ], [ 5, %if.then ], [ 5, %if.else ], [ 8, %sw.default ], [ %spec.select29, %if.end ], [ %spec.select31, %if.end24 ], [ %switch.load45, %switch.lookup ]
+  %retval.sroa.0.0 = phi ptr [ @.str.145, %if.else ], [ @.str.145, %if.then ], [ %switch.load, %switch.lookup ], [ %spec.select30, %if.end24 ], [ @.str.145, %lor.lhs.false8 ], [ @.str.147, %sw.default ], [ %spec.select, %if.end ]
+  %retval.sroa.10.0 = phi i64 [ 5, %if.else ], [ 5, %if.then ], [ %switch.load45, %switch.lookup ], [ %spec.select31, %if.end24 ], [ 5, %lor.lhs.false8 ], [ 8, %sw.default ], [ %spec.select29, %if.end ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8722,7 +8722,7 @@ if.end.i115.i:                                    ; preds = %_ZN4llvh12StringSwi
   br label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit
 
 _ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit:   ; preds = %if.end.i89.i, %if.end.i97.i, %if.end.i106.i, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, %if.end.i115.i
-  %retval.i.0.i = phi i32 [ 0, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i ], [ 3, %if.end.i89.i ], [ 3, %if.end.i97.i ], [ 2, %if.end.i106.i ], [ %spec.select.i, %if.end.i115.i ]
+  %retval.i.0.i = phi i32 [ 0, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i ], [ %spec.select.i, %if.end.i115.i ], [ 2, %if.end.i106.i ], [ 3, %if.end.i97.i ], [ 3, %if.end.i89.i ]
   ret i32 %retval.i.0.i
 }
 
@@ -8773,7 +8773,7 @@ switch.lookup:                                    ; preds = %lor.lhs.false.i
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.lhs.false.i, %switch.lookup, %lor.lhs.false, %entry
-  %4 = phi i1 [ true, %entry ], [ true, %lor.lhs.false ], [ %switch.masked, %switch.lookup ], [ false, %lor.lhs.false.i ]
+  %4 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %lor.lhs.false ], [ true, %entry ], [ false, %lor.lhs.false.i ]
   ret i1 %4
 }
 

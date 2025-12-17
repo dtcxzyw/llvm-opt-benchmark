@@ -121,7 +121,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr noundef readonly capt
   br label %49
 
 .thread:                                          ; preds = %29, %24, %34
-  %42 = phi i16 [ %27, %24 ], [ %33, %34 ], [ %33, %29 ]
+  %42 = phi i16 [ %33, %34 ], [ %27, %24 ], [ %33, %29 ]
   %43 = and i16 %42, 8
   %.not50 = icmp eq i16 %43, 0
   br i1 %.not50, label %44, label %47
@@ -430,7 +430,7 @@ compare_special_version_forms.exit104:            ; preds = %124, %121
   br label %128
 
 128:                                              ; preds = %compare_special_version_forms.exit, %compare_special_version_forms.exit104, %compare_special_version_forms.exit96
-  %.2 = phi i32 [ %101, %compare_special_version_forms.exit96 ], [ %127, %compare_special_version_forms.exit104 ], [ %75, %compare_special_version_forms.exit ]
+  %.2 = phi i32 [ %75, %compare_special_version_forms.exit ], [ %101, %compare_special_version_forms.exit96 ], [ %127, %compare_special_version_forms.exit104 ]
   %.not84 = icmp eq i32 %.2, 0
   br i1 %.not84, label %.thread107, label %.critedge.thread118
 
@@ -497,13 +497,13 @@ compare_special_version_forms.exit104:            ; preds = %124, %121
   br label %.critedge.thread118
 
 .critedge.thread118:                              ; preds = %128, %.critedge.thread118.loopexit.split.loop.exit, %145, %.critedge.thread.thread, %142, %153, %144
-  %.3 = phi i32 [ %143, %142 ], [ %154, %153 ], [ 0, %144 ], [ 1, %.critedge.thread.thread ], [ -1, %145 ], [ %156, %.critedge.thread118.loopexit.split.loop.exit ], [ %.2, %128 ]
+  %.3 = phi i32 [ -1, %145 ], [ %143, %142 ], [ 1, %.critedge.thread.thread ], [ %154, %153 ], [ 0, %144 ], [ %156, %.critedge.thread118.loopexit.split.loop.exit ], [ %.2, %128 ]
   tail call void @_efree(ptr noundef nonnull %.055) #9
   tail call void @_efree(ptr noundef %.064) #9
   br label %157
 
 157:                                              ; preds = %6, %5, %.critedge.thread118
-  %.054 = phi i32 [ %.3, %.critedge.thread118 ], [ 1, %5 ], [ %spec.select122, %6 ]
+  %.054 = phi i32 [ %.3, %.critedge.thread118 ], [ %spec.select122, %6 ], [ 1, %5 ]
   ret i32 %.054
 }
 
@@ -601,11 +601,11 @@ zend_parse_arg_str_ex.exit:                       ; preds = %26
   %cond.fr151 = freeze i1 %32
   br i1 %cond.fr151, label %.critedge, label %.thread161, !prof !25
 
-.thread161:                                       ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_string.exit88, %zend_parse_arg_string.exit, %9
-  %.0172 = phi i32 [ 2, %zend_parse_arg_string.exit88 ], [ 1, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_str_ex.exit ]
-  %.076171 = phi i32 [ 9, %zend_parse_arg_string.exit88 ], [ 9, %zend_parse_arg_string.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ]
-  %.077170 = phi ptr [ %18, %zend_parse_arg_string.exit88 ], [ %11, %zend_parse_arg_string.exit ], [ null, %9 ], [ %27, %zend_parse_arg_str_ex.exit ]
-  %.078169 = phi i32 [ 4, %zend_parse_arg_string.exit88 ], [ 4, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 5, %zend_parse_arg_str_ex.exit ]
+.thread161:                                       ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_string.exit, %zend_parse_arg_string.exit88, %9
+  %.0172 = phi i32 [ 0, %9 ], [ 2, %zend_parse_arg_string.exit88 ], [ 1, %zend_parse_arg_string.exit ], [ 3, %zend_parse_arg_str_ex.exit ]
+  %.076171 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_string.exit88 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_str_ex.exit ]
+  %.077170 = phi ptr [ null, %9 ], [ %18, %zend_parse_arg_string.exit88 ], [ %11, %zend_parse_arg_string.exit ], [ %27, %zend_parse_arg_str_ex.exit ]
+  %.078169 = phi i32 [ 0, %9 ], [ 4, %zend_parse_arg_string.exit88 ], [ 4, %zend_parse_arg_string.exit ], [ 5, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.076171, i32 noundef %.0172, ptr noundef null, i32 noundef %.078169, ptr noundef %.077170) #9
   br label %64
 

@@ -545,7 +545,7 @@ _ZL9currentpcP9lua_StateP8CallInfo.exit.i.i:      ; preds = %87, %85
   br label %_ZL11currentlineP9lua_StateP8CallInfo.exit.i
 
 _ZL11currentlineP9lua_StateP8CallInfo.exit.i:     ; preds = %99, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i, %81, %76
-  %113 = phi i32 [ -1, %81 ], [ -1, %76 ], [ %112, %99 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i ]
+  %113 = phi i32 [ -1, %76 ], [ -1, %81 ], [ %112, %99 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i ]
   store i32 %113, ptr %52, align 4, !tbaa !60
   br label %162
 
@@ -642,7 +642,7 @@ _ZL11currentlineP9lua_StateP8CallInfo.exit.i:     ; preds = %99, %_ZL9currentpcP
   br label %_ZL11getfuncnameP7Closure.exit.i
 
 _ZL11getfuncnameP7Closure.exit.i:                 ; preds = %159, %154, %152, %149, %143, %140
-  %160 = phi ptr [ null, %149 ], [ %148, %143 ], [ %142, %140 ], [ null, %159 ], [ %158, %154 ], [ %153, %152 ]
+  %160 = phi ptr [ %142, %140 ], [ %148, %143 ], [ null, %149 ], [ %158, %154 ], [ null, %159 ], [ %153, %152 ]
   store ptr %160, ptr %3, align 8, !tbaa !66
   br label %162
 
@@ -650,7 +650,7 @@ _ZL11getfuncnameP7Closure.exit.i:                 ; preds = %159, %154, %152, %1
   br label %162
 
 162:                                              ; preds = %161, %_ZL11getfuncnameP7Closure.exit.i, %127, %126, %122, %120, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i, %63, %62, %58
-  %.1.i = phi ptr [ %.042.i, %62 ], [ %.042.i, %63 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i ], [ %.042.i, %120 ], [ %.042.i, %122 ], [ %.042.i, %126 ], [ %.042.i, %127 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.136, %161 ], [ %.042.i, %58 ]
+  %.1.i = phi ptr [ %.042.i, %58 ], [ %.042.i, %62 ], [ %.042.i, %63 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i ], [ %.042.i, %120 ], [ %.042.i, %122 ], [ %.042.i, %126 ], [ %.042.i, %127 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.136, %161 ]
   %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %58, !llvm.loop !67
 
@@ -697,7 +697,7 @@ _ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit: ; preds = %58
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %182, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit, %24, %18, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 1, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit ], [ 1, %182 ], [ 0, %41 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %6 ], [ 0, %41 ], [ 1, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit ], [ 1, %182 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1348,7 +1348,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %11
   br i1 %exitcond97.not, label %.thread70, label %36, !llvm.loop !96
 
 .thread70:                                        ; preds = %_Z12luaG_getlineP5Protoi.exit, %36, %40, %.loopexit
-  %.5 = phi i32 [ %.041, %.loopexit ], [ %1, %36 ], [ %.849.ph, %40 ], [ %1, %_Z12luaG_getlineP5Protoi.exit ]
+  %.5 = phi i32 [ %.041, %.loopexit ], [ %.849.ph, %40 ], [ %1, %36 ], [ %1, %_Z12luaG_getlineP5Protoi.exit ]
   ret i32 %.5
 }
 

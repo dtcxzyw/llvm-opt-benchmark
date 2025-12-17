@@ -93,7 +93,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %1, %1, %1, %9, %3, %2
-  %.07 = phi i32 [ %10, %9 ], [ 107, %2 ], [ 105, %3 ], [ 10, %1 ], [ 10, %1 ], [ 10, %1 ], [ -1, %4 ]
+  %.07 = phi i32 [ %10, %9 ], [ 10, %1 ], [ 105, %3 ], [ 10, %1 ], [ 107, %2 ], [ 10, %1 ], [ -1, %4 ]
   ret i32 %.07
 }
 
@@ -116,12 +116,12 @@ define hidden range(i32 262144, 134217729) i32 @wtap_max_snaplen_for_encap(i32 n
   br label %4
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %3, %2
-  %.0 = phi i32 [ 262144, %3 ], [ 33554432, %2 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ]
+  %.0 = phi i32 [ 262144, %3 ], [ 134217728, %1 ], [ 33554432, %2 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ], [ 134217728, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+define hidden range(i32 8, 6) i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.i2c_linux_file_hdr, align 1
   %9 = alloca [16 x i8], align 16
   %10 = alloca [4 x i8], align 2
@@ -1003,13 +1003,13 @@ pcap_read_erf_pseudoheader.exit.thread137:        ; preds = %341
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %pcap_read_erf_pseudoheader.exit.thread
 
-pcap_read_erf_pseudoheader.exit.thread:           ; preds = %235, %346, %351, %376, %381, %406, %411, %237, %.critedge.i, %353, %383, %413
+pcap_read_erf_pseudoheader.exit.thread:           ; preds = %235, %413, %346, %351, %237, %376, %381, %353, %406, %411, %383, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447
 
 pcap_read_erf_pseudoheader.exit:                  ; preds = %355, %385, %415
-  %.0.i120 = phi i32 [ %349, %355 ], [ %379, %385 ], [ %409, %415 ]
+  %.0.i120 = phi i32 [ %409, %415 ], [ %349, %355 ], [ %379, %385 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447
@@ -1065,7 +1065,7 @@ pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %423
   br label %447
 
 447:                                              ; preds = %pcap_read_erf_pseudoheader.exit, %7, %94, %96, %186, %pcap_read_nokiaatm_pseudoheader.exit, %pcap_read_sunatm_pseudoheader.exit, %pcap_read_irda_pseudoheader.exit, %pcap_read_mtp2_pseudoheader.exit, %pcap_read_lapd_pseudoheader.exit, %pcap_read_sita_pseudoheader.exit, %pcap_read_bt_pseudoheader.exit, %pcap_read_bt_monitor_pseudoheader.exit, %pcap_read_llcp_pseudoheader.exit, %pcap_read_ppp_pseudoheader.exit, %pcap_read_erf_pseudoheader.exit.thread137, %pcap_read_i2c_linux_pseudoheader.exit, %pcap_read_i2c_linux_pseudoheader.exit.thread, %pcap_read_erf_pseudoheader.exit.thread, %pcap_read_ppp_pseudoheader.exit.thread, %pcap_read_llcp_pseudoheader.exit.thread, %pcap_read_bt_monitor_pseudoheader.exit.thread, %pcap_read_bt_pseudoheader.exit.thread, %pcap_read_sita_pseudoheader.exit.thread, %pcap_read_lapd_pseudoheader.exit.thread, %pcap_read_mtp2_pseudoheader.exit.thread, %pcap_read_irda_pseudoheader.exit.thread, %pcap_read_nokia_pseudoheader.exit.thread, %pcap_read_sunatm_pseudoheader.exit.thread, %pcap_read_nokiaatm_pseudoheader.exit.thread
-  %.087 = phi i32 [ -1, %pcap_read_nokiaatm_pseudoheader.exit.thread ], [ -1, %pcap_read_sunatm_pseudoheader.exit.thread ], [ -1, %pcap_read_nokia_pseudoheader.exit.thread ], [ -1, %pcap_read_irda_pseudoheader.exit.thread ], [ -1, %pcap_read_mtp2_pseudoheader.exit.thread ], [ -1, %pcap_read_lapd_pseudoheader.exit.thread ], [ -1, %pcap_read_sita_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_monitor_pseudoheader.exit.thread ], [ -1, %pcap_read_llcp_pseudoheader.exit.thread ], [ -1, %pcap_read_ppp_pseudoheader.exit.thread ], [ -1, %pcap_read_erf_pseudoheader.exit.thread ], [ -1, %pcap_read_i2c_linux_pseudoheader.exit.thread ], [ 0, %7 ], [ 4, %pcap_read_nokiaatm_pseudoheader.exit ], [ 4, %pcap_read_sunatm_pseudoheader.exit ], [ 0, %94 ], [ 0, %96 ], [ 16, %pcap_read_irda_pseudoheader.exit ], [ 4, %pcap_read_mtp2_pseudoheader.exit ], [ 16, %pcap_read_lapd_pseudoheader.exit ], [ 5, %pcap_read_sita_pseudoheader.exit ], [ 0, %186 ], [ 4, %pcap_read_bt_pseudoheader.exit ], [ 4, %pcap_read_bt_monitor_pseudoheader.exit ], [ 2, %pcap_read_llcp_pseudoheader.exit ], [ 1, %pcap_read_ppp_pseudoheader.exit ], [ 5, %pcap_read_i2c_linux_pseudoheader.exit ], [ %.087.i, %pcap_read_erf_pseudoheader.exit.thread137 ], [ %.0.i120, %pcap_read_erf_pseudoheader.exit ]
+  %.087 = phi i32 [ -1, %pcap_read_erf_pseudoheader.exit.thread ], [ %.0.i120, %pcap_read_erf_pseudoheader.exit ], [ -1, %pcap_read_nokiaatm_pseudoheader.exit.thread ], [ -1, %pcap_read_sunatm_pseudoheader.exit.thread ], [ -1, %pcap_read_nokia_pseudoheader.exit.thread ], [ -1, %pcap_read_irda_pseudoheader.exit.thread ], [ -1, %pcap_read_mtp2_pseudoheader.exit.thread ], [ -1, %pcap_read_lapd_pseudoheader.exit.thread ], [ -1, %pcap_read_sita_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_monitor_pseudoheader.exit.thread ], [ -1, %pcap_read_llcp_pseudoheader.exit.thread ], [ -1, %pcap_read_ppp_pseudoheader.exit.thread ], [ -1, %pcap_read_i2c_linux_pseudoheader.exit.thread ], [ 0, %7 ], [ 4, %pcap_read_nokiaatm_pseudoheader.exit ], [ 4, %pcap_read_sunatm_pseudoheader.exit ], [ 0, %94 ], [ 0, %96 ], [ 16, %pcap_read_irda_pseudoheader.exit ], [ 4, %pcap_read_mtp2_pseudoheader.exit ], [ 16, %pcap_read_lapd_pseudoheader.exit ], [ 5, %pcap_read_sita_pseudoheader.exit ], [ 0, %186 ], [ 4, %pcap_read_bt_pseudoheader.exit ], [ 4, %pcap_read_bt_monitor_pseudoheader.exit ], [ 2, %pcap_read_llcp_pseudoheader.exit ], [ 1, %pcap_read_ppp_pseudoheader.exit ], [ 5, %pcap_read_i2c_linux_pseudoheader.exit ], [ %.087.i, %pcap_read_erf_pseudoheader.exit.thread137 ]
   ret i32 %.087
 }
 
@@ -1960,7 +1960,7 @@ define noundef zeroext i1 @wtap_encap_requires_phdr(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   switch i32 %0, label %25 [
     i32 13, label %26
     i32 44, label %3
@@ -2043,7 +2043,7 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captu
   br label %26
 
 26:                                               ; preds = %2, %2, %2, %2, %19, %21, %23, %.loopexit, %25, %6, %5, %4, %3
-  %.0 = phi i32 [ 0, %25 ], [ 16, %3 ], [ 5, %4 ], [ 2, %5 ], [ 1, %6 ], [ %.1, %.loopexit ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
+  %.0 = phi i32 [ 0, %25 ], [ %24, %23 ], [ 16, %3 ], [ 4, %2 ], [ 4, %2 ], [ 5, %4 ], [ 4, %2 ], [ 4, %2 ], [ 2, %5 ], [ 1, %6 ], [ %.1, %.loopexit ], [ %20, %19 ], [ %22, %21 ]
   ret i32 %.0
 }
 
@@ -2106,7 +2106,7 @@ define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %29, %28, %25, %18
-  %.sink9.i = phi i8 [ 2, %28 ], [ 5, %29 ], [ %24, %18 ], [ 1, %25 ]
+  %.sink9.i = phi i8 [ %24, %18 ], [ 2, %28 ], [ 5, %29 ], [ 1, %25 ]
   %30 = or disjoint i8 %.sink9.i, %22
   store i8 %30, ptr %17, align 1
   br label %pcap_write_sunatm_pseudoheader.exit
@@ -2327,7 +2327,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   br label %pcap_get_phdr_size.exit.i
 
 pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.loopexit.i.i
-  %.0.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ]
+  %.0.i.i = phi i32 [ %128, %127 ], [ %132, %131 ], [ %130, %129 ], [ %.1.i.i, %.loopexit.i.i ]
   %133 = add i32 %.0.i.i, %117
   %134 = icmp sgt i32 %133, %114
   br i1 %134, label %151, label %135
@@ -2381,7 +2381,7 @@ pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.
   br label %pcap_get_phdr_size.exit81.i
 
 pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.loopexit.i78.i
-  %.0.i80.i = phi i32 [ %.1.i79.i, %.loopexit.i78.i ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ]
+  %.0.i80.i = phi i32 [ %145, %144 ], [ %149, %148 ], [ %147, %146 ], [ %.1.i79.i, %.loopexit.i78.i ]
   %150 = add i32 %.0.i80.i, %117
   br label %151
 
@@ -2439,7 +2439,7 @@ pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.
   br label %pcap_get_phdr_size.exit90.i
 
 pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.loopexit.i87.i
-  %.0.i89.i = phi i32 [ %.1.i88.i, %.loopexit.i87.i ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ]
+  %.0.i89.i = phi i32 [ %165, %164 ], [ %169, %168 ], [ %167, %166 ], [ %.1.i88.i, %.loopexit.i87.i ]
   %170 = add i32 %.0.i89.i, %117
   %171 = icmp sgt i32 %170, %114
   br i1 %171, label %188, label %172
@@ -2493,7 +2493,7 @@ pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.
   br label %pcap_get_phdr_size.exit99.i
 
 pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.loopexit.i96.i
-  %.0.i98.i = phi i32 [ %.1.i97.i, %.loopexit.i96.i ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ]
+  %.0.i98.i = phi i32 [ %182, %181 ], [ %186, %185 ], [ %184, %183 ], [ %.1.i97.i, %.loopexit.i96.i ]
   %187 = add i32 %.0.i98.i, %117
   br label %188
 
@@ -2658,7 +2658,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %pcap_write_erf_pseudoheader.exit.thread
 
-pcap_write_erf_pseudoheader.exit.thread:          ; preds = %188, %.critedge.i, %247, %261, %275
+pcap_write_erf_pseudoheader.exit.thread:          ; preds = %.critedge.i, %247, %261, %275, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %300
@@ -2702,7 +2702,7 @@ pcap_write_erf_pseudoheader.exit:                 ; preds = %244, %247, %261, %2
   br label %300
 
 300:                                              ; preds = %pcap_write_erf_pseudoheader.exit.thread, %279, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %299
-  %.0 = phi i1 [ true, %299 ], [ false, %pcap_write_sunatm_pseudoheader.exit ], [ false, %43 ], [ false, %51 ], [ false, %64 ], [ false, %76 ], [ false, %pcap_write_bt_pseudoheader.exit ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %279 ], [ false, %pcap_write_erf_pseudoheader.exit.thread ]
+  %.0 = phi i1 [ true, %299 ], [ false, %pcap_write_erf_pseudoheader.exit.thread ], [ false, %pcap_write_sunatm_pseudoheader.exit ], [ false, %43 ], [ false, %51 ], [ false, %64 ], [ false, %76 ], [ false, %pcap_write_bt_pseudoheader.exit ], [ false, %94 ], [ false, %98 ], [ false, %102 ], [ false, %279 ]
   ret i1 %.0
 }
 

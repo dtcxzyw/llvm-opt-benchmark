@@ -433,8 +433,8 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %9, %2, %5, %17, %13
-  %.025.sink = phi i8 [ %3, %13 ], [ %3, %17 ], [ %3, %5 ], [ %12, %9 ], [ %24, %21 ], [ %3, %2 ]
-  %.024.sink = phi i64 [ 1, %13 ], [ 1, %17 ], [ 1, %5 ], [ 2, %9 ], [ 3, %21 ], [ 1, %2 ]
+  %.025.sink = phi i8 [ %12, %9 ], [ %3, %13 ], [ %3, %17 ], [ %3, %5 ], [ %24, %21 ], [ %3, %2 ]
+  %.024.sink = phi i64 [ 2, %9 ], [ 1, %13 ], [ 1, %17 ], [ 1, %5 ], [ 3, %21 ], [ 1, %2 ]
   store i8 %.025.sink, ptr %1, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
   ret ptr %25
@@ -638,8 +638,8 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextIaEEPcPKcPT_.exit
 
 _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %20, %24, %28, %32
-  %.025.sink.i = phi i8 [ %14, %24 ], [ %14, %28 ], [ %14, %16 ], [ %23, %20 ], [ %35, %32 ], [ %14, %.lr.ph25 ]
-  %.024.sink.i = phi i64 [ 1, %24 ], [ 1, %28 ], [ 1, %16 ], [ 2, %20 ], [ 3, %32 ], [ 1, %.lr.ph25 ]
+  %.025.sink.i = phi i8 [ %23, %20 ], [ %14, %24 ], [ %14, %28 ], [ %14, %16 ], [ %35, %32 ], [ %14, %.lr.ph25 ]
+  %.024.sink.i = phi i64 [ 2, %20 ], [ 1, %24 ], [ 1, %28 ], [ 1, %16 ], [ 3, %32 ], [ 1, %.lr.ph25 ]
   store i8 %.025.sink.i, ptr %13, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1

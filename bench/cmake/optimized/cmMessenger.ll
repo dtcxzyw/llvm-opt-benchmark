@@ -182,9 +182,9 @@ _ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit: ; preds = %6, %12
 _ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread: ; preds = %10, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit
   switch i32 %1, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread [
     i32 8, label %16
-    i32 9, label %20
-    i32 2, label %24
-    i32 1, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit
+    i32 9, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit
+    i32 2, label %20
+    i32 1, label %24
   ]
 
 16:                                               ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread
@@ -194,29 +194,29 @@ _ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread: ; preds = %10, 
   br i1 %19, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread, label %31
 
 20:                                               ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  %22 = load i8, ptr %21, align 1, !tbaa !44, !range !41, !noundef !42
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 202
+  %22 = load i8, ptr %21, align 2, !tbaa !4, !range !41, !noundef !42
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %31, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread
+  br i1 %23, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread, label %31
 
 24:                                               ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  %26 = load i8, ptr %25, align 2, !tbaa !4, !range !41, !noundef !42
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %26 = load i8, ptr %25, align 8, !tbaa !45, !range !41, !noundef !42
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread, label %31
+  br i1 %27, label %31, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread
 
 _ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit: ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %29 = load i8, ptr %28, align 8, !tbaa !45, !range !41, !noundef !42
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 201
+  %29 = load i8, ptr %28, align 1, !tbaa !44, !range !41, !noundef !42
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread
 
-_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread: ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread, %24, %20, %16, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit
-  %.0.i16 = phi i32 [ 1, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit ], [ %.0.i, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit ], [ 8, %16 ], [ 9, %20 ], [ 2, %24 ], [ %1, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread ]
+_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread: ; preds = %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread, %20, %24, %16, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit
+  %.0.i16 = phi i32 [ 9, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit ], [ %.0.i, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit ], [ 2, %20 ], [ 8, %16 ], [ 1, %24 ], [ %1, %_ZNK11cmMessenger18ConvertMessageTypeE11MessageType.exit.thread ]
   tail call void @_ZNK11cmMessenger14DisplayMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %.0.i16, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %31
 
-31:                                               ; preds = %24, %20, %16, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit
+31:                                               ; preds = %20, %24, %16, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit.thread, %_ZNK11cmMessenger20IsMessageTypeVisibleE11MessageType.exit
   ret void
 }
 
@@ -891,7 +891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %.
   br label %_ZN12_GLOBAL__N_114PrintCallStackERSo19cmListFileBacktraceRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit
 
 271:                                              ; preds = %265, %264, %149, %127, %125
-  %.pn17.pn.i = phi { ptr, i32 } [ %128, %127 ], [ %126, %125 ], [ %266, %265 ], [ %.pn.pn.i, %264 ], [ %150, %149 ]
+  %.pn17.pn.i = phi { ptr, i32 } [ %126, %125 ], [ %128, %127 ], [ %266, %265 ], [ %.pn.pn.i, %264 ], [ %150, %149 ]
   %272 = load ptr, ptr %15, align 8, !tbaa !58
   %273 = icmp eq ptr %272, %48
   br i1 %273, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36.i
@@ -1539,7 +1539,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   ret void
 
 .body43:                                          ; preds = %434, %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i, %.body49, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body49 ], [ %eh.lpad-body, %.body ], [ %482, %481 ], [ %435, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i ], [ %.pn28.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i ], [ %435, %434 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body49 ], [ %eh.lpad-body, %.body ], [ %482, %481 ], [ %.pn28.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.i ], [ %435, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i ], [ %435, %434 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %21) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   resume { ptr, i32 } %.pn.pn

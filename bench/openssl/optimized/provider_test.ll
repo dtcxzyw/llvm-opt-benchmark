@@ -312,7 +312,7 @@ test_provider_ex.exit:                            ; preds = %9, %12, %17, %20, %
   br label %52
 
 52:                                               ; preds = %test_provider_ex.exit, %5, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ %.018.i, %test_provider_ex.exit ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ %.018.i, %test_provider_ex.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

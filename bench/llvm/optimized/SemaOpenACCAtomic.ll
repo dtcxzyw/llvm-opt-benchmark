@@ -1650,8 +1650,8 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i:    ; preds = %655, %652, %646
   br label %.thread137.i.i
 
 .thread137.i.i:                                   ; preds = %_ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i, %644, %642, %637, %632, %.thread.i.i, %600, %_ZN5clang19StreamingDiagnosticD2Ev.exit72.i.i, %567, %560, %_ZN5clang19StreamingDiagnosticD2Ev.exit62.i.i
-  %.0.i.i = phi i1 [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit62.i.i ], [ false, %560 ], [ false, %567 ], [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit72.i.i ], [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i ], [ false, %632 ], [ false, %600 ], [ true, %644 ], [ false, %.thread.i.i ], [ false, %637 ], [ false, %642 ]
-  %.sroa.042.0.i.i = phi i64 [ %540, %_ZN5clang19StreamingDiagnosticD2Ev.exit62.i.i ], [ %561, %560 ], [ %568, %567 ], [ %579, %_ZN5clang19StreamingDiagnosticD2Ev.exit72.i.i ], [ %656, %_ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i ], [ %.sroa.042.6.i.i, %632 ], [ %601, %600 ], [ %.sroa.042.4.i.i, %644 ], [ %606, %.thread.i.i ], [ %638, %637 ], [ %643, %642 ]
+  %.0.i.i = phi i1 [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit62.i.i ], [ false, %560 ], [ false, %567 ], [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit72.i.i ], [ false, %_ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i ], [ false, %600 ], [ false, %.thread.i.i ], [ false, %632 ], [ true, %644 ], [ false, %637 ], [ false, %642 ]
+  %.sroa.042.0.i.i = phi i64 [ %540, %_ZN5clang19StreamingDiagnosticD2Ev.exit62.i.i ], [ %561, %560 ], [ %568, %567 ], [ %579, %_ZN5clang19StreamingDiagnosticD2Ev.exit72.i.i ], [ %656, %_ZN5clang19StreamingDiagnosticD2Ev.exit94.i.i ], [ %601, %600 ], [ %606, %.thread.i.i ], [ %.sroa.042.6.i.i, %632 ], [ %.sroa.042.4.i.i, %644 ], [ %638, %637 ], [ %643, %642 ]
   %657 = load ptr, ptr %8, align 8, !tbaa !17
   %.not.i.i95.i.i = icmp eq ptr %657, null
   br i1 %.not.i.i95.i.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit97.i.i, label %658
@@ -1887,7 +1887,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit108.i.i:   ; preds = %736, %733, %_ZN5cla
   br label %_ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i
 
 _ZN12_GLOBAL__N_120AtomicOperandChecker12CheckCaptureEv.exit.i: ; preds = %749, %.thread144.i.i, %.thread140.i.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit97.i.i
-  %750 = phi i64 [ %.sroa.042.0.copyload.i.i, %749 ], [ %747, %.thread144.i.i ], [ %737, %.thread140.i.i ], [ %.sroa.042.0.i.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit97.i.i ]
+  %750 = phi i64 [ %.sroa.042.0.copyload.i.i, %749 ], [ %747, %.thread144.i.i ], [ %.sroa.042.0.i.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit97.i.i ], [ %737, %.thread140.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1906,7 +1906,7 @@ _ZN12_GLOBAL__N_120AtomicOperandChecker5CheckEv.exit: ; preds = %_ZN12_GLOBAL__N
   br label %752
 
 752:                                              ; preds = %41, %4, %_ZN12_GLOBAL__N_120AtomicOperandChecker5CheckEv.exit
-  %.sroa.03.0 = phi i64 [ %.sroa.0.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker5CheckEv.exit ], [ %3, %4 ], [ %3, %41 ]
+  %.sroa.03.0 = phi i64 [ %3, %4 ], [ %.sroa.0.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker5CheckEv.exit ], [ %3, %41 ]
   ret i64 %.sroa.03.0
 }
 
@@ -2183,7 +2183,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_120AtomicOperandChecker15getRecovery
   br label %39
 
 39:                                               ; preds = %6, %1, %36
-  %.sroa.013.0 = phi i64 [ %38, %36 ], [ %4, %1 ], [ 1, %6 ]
+  %.sroa.013.0 = phi i64 [ %4, %1 ], [ %38, %36 ], [ 1, %6 ]
   ret i64 %.sroa.013.0
 }
 
@@ -2750,7 +2750,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %3, %8, %11
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit7
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit7:         ; preds = %22, %19, %16, %12, %_ZN5clang19StreamingDiagnosticD2Ev.exit
-  %.0 = phi i1 [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit ], [ false, %12 ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
+  %.0 = phi i1 [ false, %12 ], [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit ], [ true, %16 ], [ true, %19 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -4104,39 +4104,39 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AtomicOperandCheck
   %19 = icmp ne i8 %18, 13
   %.not.not24.i = icmp eq ptr %16, null
   %.not.not.i = or i1 %.not.not24.i, %19
-  br i1 %.not.not.i, label %20, label %_ZNK5clang4Type12isScalarTypeEv.exit
+  br i1 %.not.not.i, label %25, label %20
 
 20:                                               ; preds = %12
-  %21 = icmp ne i8 %18, 46
-  %.not12.not.i = or i1 %.not.not24.i, %21
-  br i1 %.not12.not.i, label %30, label %22
-
-22:                                               ; preds = %20
-  %23 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %16) #13
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 74
-  %25 = load i8, ptr %24, align 2
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8
-  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %29 = select i1 %27, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %29, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
-
-30:                                               ; preds = %20
-  %switch.tableidx = add i8 %18, -10
-  %31 = icmp ult i8 %switch.tableidx, 32
-  br i1 %31, label %switch.hole_check, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
-
-_ZNK5clang4Type12isScalarTypeEv.exit:             ; preds = %12
-  %32 = load i32, ptr %17, align 16
-  %33 = lshr i32 %32, 19
-  %34 = and i32 %33, 511
-  %35 = add nsw i32 %34, -435
-  %spec.select.i = icmp ult i32 %35, 53
+  %21 = load i32, ptr %17, align 16
+  %22 = lshr i32 %21, 19
+  %23 = and i32 %22, 511
+  %24 = add nsw i32 %23, -435
+  %spec.select.i = icmp ult i32 %24, 53
   br i1 %spec.select.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
 
-_ZNK5clang4Type12isScalarTypeEv.exit.thread9:     ; preds = %switch.hole_check, %30, %22, %_ZNK5clang4Type12isScalarTypeEv.exit
+25:                                               ; preds = %12
+  %26 = icmp ne i8 %18, 46
+  %.not12.not.i = or i1 %.not.not24.i, %26
+  br i1 %.not12.not.i, label %27, label %_ZNK5clang4Type12isScalarTypeEv.exit
+
+27:                                               ; preds = %25
+  %switch.tableidx = add i8 %18, -10
+  %28 = icmp ult i8 %switch.tableidx, 32
+  br i1 %28, label %switch.hole_check, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
+
+_ZNK5clang4Type12isScalarTypeEv.exit:             ; preds = %25
+  %29 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %16) #13
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 74
+  %31 = load i8, ptr %30, align 2
+  %32 = and i8 %31, 1
+  %33 = icmp ne i8 %32, 0
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
+  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
+  %35 = select i1 %33, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %35, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
+
+_ZNK5clang4Type12isScalarTypeEv.exit.thread9:     ; preds = %switch.hole_check, %27, %20, %_ZNK5clang4Type12isScalarTypeEv.exit
   %36 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   tail call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %2, i64 noundef 1, i32 noundef 2)
   tail call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %2, i64 noundef %.sroa.0.0.copyload.i, i32 noundef 8)
@@ -4156,14 +4156,14 @@ _ZNK5clang4Type12isScalarTypeEv.exit.thread9:     ; preds = %switch.hole_check, 
   call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %40, ptr noundef nonnull %37)
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit
 
-switch.hole_check:                                ; preds = %30
+switch.hole_check:                                ; preds = %27
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 -2134900717, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
 
-_ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %switch.hole_check, %41, %38, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9, %22, %3, %_ZNK5clang4Type12isScalarTypeEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang4Type12isScalarTypeEv.exit ], [ false, %3 ], [ false, %22 ], [ true, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9 ], [ true, %38 ], [ true, %41 ], [ false, %switch.hole_check ]
+_ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %switch.hole_check, %41, %38, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9, %20, %3, %_ZNK5clang4Type12isScalarTypeEv.exit
+  %.0 = phi i1 [ false, %20 ], [ false, %_ZNK5clang4Type12isScalarTypeEv.exit ], [ false, %3 ], [ true, %41 ], [ true, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9 ], [ true, %38 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 
@@ -4268,7 +4268,7 @@ define internal fastcc { i64, ptr } @_ZN12_GLOBAL__N_120AtomicOperandChecker31Ch
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %64, %63, %62, %61, %60, %59, %55, %51, %47
-  %.sroa.6.0.ph.i = phi i32 [ 4, %47 ], [ 13, %64 ], [ 9, %63 ], [ 8, %62 ], [ 7, %61 ], [ 6, %60 ], [ 5, %59 ], [ 2, %51 ], [ 3, %55 ]
+  %.sroa.6.0.ph.i = phi i32 [ 2, %51 ], [ 13, %64 ], [ 4, %47 ], [ 9, %63 ], [ 8, %62 ], [ 7, %61 ], [ 6, %60 ], [ 5, %59 ], [ 3, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load i32, ptr %65, align 8, !tbaa !468, !noalias !477
   %.not19.i = icmp eq i32 %66, 1
@@ -5071,9 +5071,9 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i: ; preds = %405, %398
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit32.i
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit32.i:      ; preds = %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i, %402, %399, %395, %392
-  %.sroa.04.1.in.i = phi i1 [ %393, %392 ], [ %393, %395 ], [ %400, %399 ], [ %400, %402 ], [ %.sroa.04.1.in.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
-  %.sroa.914.1.i = phi i64 [ 8589934592, %392 ], [ 8589934592, %395 ], [ 12884901888, %399 ], [ 12884901888, %402 ], [ %.sroa.914.1.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
-  %.sroa.13.1.i = phi ptr [ %.sroa.2.0.copyload, %392 ], [ %.sroa.2.0.copyload, %395 ], [ %.sroa.1.0.copyload, %399 ], [ %.sroa.1.0.copyload, %402 ], [ %.sroa.13.1.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
+  %.sroa.04.1.in.i = phi i1 [ %400, %402 ], [ %393, %392 ], [ %393, %395 ], [ %400, %399 ], [ %.sroa.04.1.in.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
+  %.sroa.914.1.i = phi i64 [ 12884901888, %402 ], [ 8589934592, %392 ], [ 8589934592, %395 ], [ 12884901888, %399 ], [ %.sroa.914.1.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
+  %.sroa.13.1.i = phi ptr [ %.sroa.1.0.copyload, %402 ], [ %.sroa.2.0.copyload, %392 ], [ %.sroa.2.0.copyload, %395 ], [ %.sroa.1.0.copyload, %399 ], [ %.sroa.13.1.ph.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit32.sink.split.i ]
   %406 = load ptr, ptr %11, align 8, !tbaa !17
   %.not.i.i36.i = icmp eq ptr %406, null
   br i1 %.not.i.i36.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i, label %407
@@ -5436,9 +5436,9 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit59.i:      ; preds = %557, %554, %_ZN5cla
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit47.i
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit47.i:      ; preds = %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i, %457, %454, %451
-  %.sroa.04.3.shrunk.i = phi i1 [ %524, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ %452, %451 ], [ %452, %454 ], [ %452, %457 ]
-  %.sroa.914.3.i = phi i64 [ 21474836480, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ 21474836480, %451 ], [ 21474836480, %454 ], [ 21474836480, %457 ]
-  %.sroa.13.3.i = phi ptr [ %.sroa.1.0.copyload, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ %.sroa.1.0.copyload, %451 ], [ %.sroa.1.0.copyload, %454 ], [ %.sroa.1.0.copyload, %457 ]
+  %.sroa.04.3.shrunk.i = phi i1 [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ %524, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ %452, %451 ], [ %452, %454 ], [ %452, %457 ]
+  %.sroa.914.3.i = phi i64 [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ 21474836480, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ 21474836480, %451 ], [ 21474836480, %454 ], [ 21474836480, %457 ]
+  %.sroa.13.3.i = phi ptr [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit59.i ], [ %.sroa.1.0.copyload, %_ZN5clang19StreamingDiagnosticD2Ev.exit53.i ], [ %.sroa.1.0.copyload, %451 ], [ %.sroa.1.0.copyload, %454 ], [ %.sroa.1.0.copyload, %457 ]
   %558 = load ptr, ptr %19, align 8, !tbaa !43
   %559 = icmp eq ptr %558, %438
   br i1 %559, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit.i, label %560
@@ -5472,9 +5472,9 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i:          ; preds = %566, %_ZN4llvm16Fol
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit41.i
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit41.i:      ; preds = %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i, %430, %427, %422, %418, %415, %411, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i
-  %.sroa.04.2.shrunk.i = phi i1 [ %.sroa.04.3.shrunk.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.04.1.in.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ true, %411 ], [ true, %415 ], [ true, %418 ], [ true, %422 ], [ true, %427 ], [ true, %430 ]
-  %.sroa.914.2.i = phi i64 [ %.sroa.914.3.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.914.1.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ 0, %411 ], [ 0, %415 ], [ 0, %418 ], [ 0, %422 ], [ 0, %427 ], [ 0, %430 ]
-  %.sroa.13.2.i = phi ptr [ %.sroa.13.3.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.13.1.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ null, %411 ], [ null, %415 ], [ null, %418 ], [ null, %422 ], [ null, %427 ], [ null, %430 ]
+  %.sroa.04.2.shrunk.i = phi i1 [ true, %418 ], [ %.sroa.04.3.shrunk.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.04.1.in.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ true, %411 ], [ true, %415 ], [ true, %422 ], [ true, %427 ], [ true, %430 ]
+  %.sroa.914.2.i = phi i64 [ 0, %418 ], [ %.sroa.914.3.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.914.1.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ 0, %411 ], [ 0, %415 ], [ 0, %422 ], [ 0, %427 ], [ 0, %430 ]
+  %.sroa.13.2.i = phi ptr [ null, %418 ], [ %.sroa.13.3.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit61.i ], [ %.sroa.13.1.i, %_ZN5clang19StreamingDiagnosticD2Ev.exit38.i ], [ null, %411 ], [ null, %415 ], [ null, %422 ], [ null, %427 ], [ null, %430 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %567 = and i64 %.sroa.914.2.i, -4294967296
   %568 = zext i1 %.sroa.04.2.shrunk.i to i64
@@ -5829,7 +5829,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit66:        ; preds = %_ZNK5clang19Streami
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit69
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit69:        ; preds = %_ZN5clang19StreamingDiagnosticD2Ev.exit66, %722, %719, %714
-  %.shrunk = phi i1 [ %717, %714 ], [ %717, %719 ], [ %717, %722 ], [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit66 ]
+  %.shrunk = phi i1 [ %717, %722 ], [ %717, %714 ], [ %717, %719 ], [ true, %_ZN5clang19StreamingDiagnosticD2Ev.exit66 ]
   %723 = zext i1 %.shrunk to i64
   %724 = load ptr, ptr %36, align 8, !tbaa !17
   %.not.i.i70 = icmp eq ptr %724, null
@@ -5882,10 +5882,10 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit78:        ; preds = %_ZN5clang19Streamin
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit37
 
 _ZN5clang19StreamingDiagnosticD2Ev.exit37:        ; preds = %244, %241, %236, %_ZN5clang19StreamingDiagnosticD2Ev.exit78, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit, %_ZN5clang19StreamingDiagnosticD2Ev.exit34
-  %.sroa.07.1 = phi i64 [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %723, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 1, %236 ], [ 1, %241 ], [ 1, %244 ]
-  %.sroa.617.1 = phi i64 [ %.sroa.617.0.extract.shift22, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 17179869184, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 0, %236 ], [ 0, %241 ], [ 0, %244 ]
-  %.sroa.7.1 = phi ptr [ %.sroa.13.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %712, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ null, %236 ], [ null, %241 ], [ null, %244 ]
-  %.sroa.6.sroa.0.1 = phi i64 [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ 0, %236 ], [ 0, %241 ], [ 0, %244 ]
+  %.sroa.07.1 = phi i64 [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %723, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 1, %236 ], [ 1, %241 ], [ 1, %244 ]
+  %.sroa.617.1 = phi i64 [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ %.sroa.617.0.extract.shift22, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 17179869184, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 0, %236 ], [ 0, %241 ], [ 0, %244 ]
+  %.sroa.7.1 = phi ptr [ null, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ %.sroa.13.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ %712, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ null, %236 ], [ null, %241 ], [ null, %244 ]
+  %.sroa.6.sroa.0.1 = phi i64 [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit34 ], [ %.sroa.914.0.i, %_ZN12_GLOBAL__N_120AtomicOperandChecker29CheckAssignmentWithBinOpOnRHSENS0_12BinaryOpInfoENS0_16SimpleAssignKindE.exit ], [ 0, %_ZN5clang19StreamingDiagnosticD2Ev.exit78 ], [ 0, %236 ], [ 0, %241 ], [ 0, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %739
 

@@ -1096,7 +1096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %168
           cleanup
   br label %.body.thread
 
-.body.thread83:                                   ; preds = %85, %88
+.body.thread83:                                   ; preds = %88, %85
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
@@ -1114,7 +1114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %168
   br label %180
 
 180:                                              ; preds = %.body.thread83, %.body.thread, %176
-  %.pn22.pn = phi { ptr, i32 } [ %.pn2281, %.body.thread ], [ %177, %176 ], [ %lpad.thr_comm, %.body.thread83 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn2281, %.body.thread ], [ %lpad.thr_comm, %.body.thread83 ], [ %177, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %233
 
@@ -1255,7 +1255,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 233:                                              ; preds = %174, %180, %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %44, %29
-  %.pn25.pn = phi { ptr, i32 } [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %45, %44 ], [ %30, %29 ], [ %182, %181 ], [ %.pn22.pn, %180 ], [ %175, %174 ]
+  %.pn25.pn = phi { ptr, i32 } [ %30, %29 ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %45, %44 ], [ %182, %181 ], [ %.pn22.pn, %180 ], [ %175, %174 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
@@ -6418,7 +6418,7 @@ _ZNKSt14default_deleteIN5arrow2io12BufferReaderEEclEPS2_.exit.i88: ; preds = %43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %42, %_ZNKSt14default_deleteIN5arrow2io12BufferReaderEEclEPS2_.exit.i88, %431, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
-  %.pn35.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ], [ %.pn35.pn.pn.pn.pn, %431 ], [ %.pn35.pn.pn.pn.pn, %_ZNKSt14default_deleteIN5arrow2io12BufferReaderEEclEPS2_.exit.i88 ], [ %43, %42 ]
+  %.pn35.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ], [ %.pn35.pn.pn.pn.pn, %_ZNKSt14default_deleteIN5arrow2io12BufferReaderEEclEPS2_.exit.i88 ], [ %.pn35.pn.pn.pn.pn, %431 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn35.pn.pn.pn.pn.pn
 }

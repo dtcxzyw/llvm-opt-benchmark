@@ -284,11 +284,11 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   %126 = icmp slt i32 %125, 11
   br i1 %126, label %.thread, label %141
 
-.thread:                                          ; preds = %69, %59, %32, %103, %86, %120
-  %.070150 = phi ptr [ @d2i_ECPrivateKey, %120 ], [ @d2i_RSAPrivateKey, %86 ], [ @d2i_DSAPrivateKey, %103 ], [ @d2i_X509, %32 ], [ @d2i_X509_AUX, %59 ], [ @d2i_X509_CRL, %69 ]
-  %.071149 = phi i32 [ 408, %120 ], [ 6, %86 ], [ 116, %103 ], [ 0, %32 ], [ 0, %59 ], [ 0, %69 ]
-  %.not119148 = phi i1 [ false, %120 ], [ false, %86 ], [ false, %103 ], [ true, %32 ], [ true, %59 ], [ true, %69 ]
-  %.076147 = phi ptr [ %122, %120 ], [ %88, %86 ], [ %105, %103 ], [ %.279.ph, %32 ], [ %.279.ph, %59 ], [ %55, %69 ]
+.thread:                                          ; preds = %69, %59, %32, %86, %103, %120
+  %.070150 = phi ptr [ @d2i_RSAPrivateKey, %86 ], [ @d2i_ECPrivateKey, %120 ], [ @d2i_DSAPrivateKey, %103 ], [ @d2i_X509_AUX, %59 ], [ @d2i_X509, %32 ], [ @d2i_X509_CRL, %69 ]
+  %.071149 = phi i32 [ 6, %86 ], [ 408, %120 ], [ 116, %103 ], [ 0, %59 ], [ 0, %32 ], [ 0, %69 ]
+  %.not119148 = phi i1 [ false, %86 ], [ false, %120 ], [ false, %103 ], [ true, %59 ], [ true, %32 ], [ true, %69 ]
+  %.076147 = phi ptr [ %88, %86 ], [ %122, %120 ], [ %105, %103 ], [ %.279.ph, %59 ], [ %.279.ph, %32 ], [ %55, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %127 = load ptr, ptr %6, align 8, !tbaa !6
   %128 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %127, ptr noundef nonnull %10) #5
@@ -322,7 +322,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str, i32 noundef %.sink) #5
   br label %.thread152
 
-.thread152:                                       ; preds = %.thread, %129, %.thread152.sink.split
+.thread152:                                       ; preds = %129, %.thread, %.thread152.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread155
 
@@ -330,8 +330,8 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-141:                                              ; preds = %103, %86, %120
-  %142 = phi ptr [ %106, %103 ], [ %89, %86 ], [ %123, %120 ]
+141:                                              ; preds = %86, %103, %120
+  %142 = phi ptr [ %89, %86 ], [ %106, %103 ], [ %123, %120 ]
   %143 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef nonnull %142, ptr noundef nonnull %51) #5
   %.not121 = icmp eq i32 %143, 0
   br i1 %.not121, label %.thread155, label %144
@@ -407,13 +407,13 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   %.not130 = icmp eq i64 %169, 0
   br i1 %.not130, label %.thread155, label %.thread167.thread
 
-.thread155:                                       ; preds = %141, %115, %98, %81, %71, %61, %34, %._crit_edge, %168, %.thread152
-  %.077160 = phi ptr [ %.279.ph, %.thread152 ], [ %.178.lcssa, %168 ], [ %.178.lcssa, %._crit_edge ], [ %.279.ph, %34 ], [ %.279.ph, %61 ], [ %.279.ph, %71 ], [ %.279.ph, %81 ], [ %.279.ph, %98 ], [ %.279.ph, %115 ], [ %.279.ph, %141 ]
+.thread155:                                       ; preds = %141, %98, %81, %71, %61, %34, %115, %._crit_edge, %168, %.thread152
+  %.077160 = phi ptr [ %.178.lcssa, %168 ], [ %.279.ph, %.thread152 ], [ %.178.lcssa, %._crit_edge ], [ %.279.ph, %115 ], [ %.279.ph, %34 ], [ %.279.ph, %61 ], [ %.279.ph, %71 ], [ %.279.ph, %81 ], [ %.279.ph, %98 ], [ %.279.ph, %141 ]
   call void @X509_INFO_free(ptr noundef nonnull %.077160) #5
   br label %.preheader
 
-.preheader:                                       ; preds = %117, %100, %83, %73, %63, %36, %16, %15, %.thread155
-  %.074164172.ph = phi ptr [ %.1, %.thread155 ], [ %.1, %16 ], [ null, %15 ], [ %.1, %36 ], [ %.1, %63 ], [ %.1, %73 ], [ %.1, %83 ], [ %.1, %100 ], [ %.1, %117 ]
+.preheader:                                       ; preds = %63, %83, %100, %73, %36, %117, %16, %15, %.thread155
+  %.074164172.ph = phi ptr [ %.1, %16 ], [ %.1, %.thread155 ], [ null, %15 ], [ %.1, %117 ], [ %.1, %36 ], [ %.1, %73 ], [ %.1, %100 ], [ %.1, %83 ], [ %.1, %63 ]
   %170 = call i64 @sk_num(ptr noundef %.074164172.ph) #5
   %.not216 = icmp eq i64 %170, 0
   br i1 %.not216, label %._crit_edge215, label %.lr.ph
@@ -438,7 +438,7 @@ define hidden ptr @PEM_X509_INFO_read_bio(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread167.thread
 
 .thread167.thread:                                ; preds = %168, %.thread155.thread, %._crit_edge215, %177
-  %.2 = phi ptr [ null, %177 ], [ null, %._crit_edge215 ], [ %.1, %.thread155.thread ], [ %.1, %168 ]
+  %.2 = phi ptr [ %.1, %.thread155.thread ], [ null, %177 ], [ null, %._crit_edge215 ], [ %.1, %168 ]
   %178 = load ptr, ptr %5, align 8, !tbaa !6
   %.not134 = icmp eq ptr %178, null
   br i1 %.not134, label %180, label %179

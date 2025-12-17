@@ -525,8 +525,8 @@ lean_int_dec_eq.exit.i:                           ; preds = %.critedge.i.i10.i, 
   br label %l_Std_Time_Internal_instOrdUnitVal___rarg.exit
 
 l_Std_Time_Internal_instOrdUnitVal___rarg.exit:   ; preds = %lean_int_dec_lt.exit.i, %8, %lean_int_dec_eq.exit.i
-  %.pre-phi = phi i64 [ %6, %8 ], [ %.pre-phi10, %lean_int_dec_eq.exit.i ], [ %.pre, %lean_int_dec_lt.exit.i ]
-  %.1.i = phi i64 [ 1, %8 ], [ %19, %lean_int_dec_eq.exit.i ], [ 1, %lean_int_dec_lt.exit.i ]
+  %.pre-phi = phi i64 [ %.pre-phi10, %lean_int_dec_eq.exit.i ], [ %6, %8 ], [ %.pre, %lean_int_dec_lt.exit.i ]
+  %.1.i = phi i64 [ %19, %lean_int_dec_eq.exit.i ], [ 1, %8 ], [ 1, %lean_int_dec_lt.exit.i ]
   %20 = and i64 %.pre-phi, 1
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %21, label %lean_dec.exit5
@@ -817,7 +817,7 @@ define ptr @l_Std_Time_Internal_UnitVal_ofNat___rarg(ptr noundef %0) #1 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -2384,7 +2384,7 @@ lean_nat_abs.exit:                                ; preds = %4, %lean_int_neg.ex
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_nat_abs.exit, %30
-  %.1.i = phi ptr [ %32, %30 ], [ %.0.i, %lean_nat_abs.exit ]
+  %.1.i = phi ptr [ %.0.i, %lean_nat_abs.exit ], [ %32, %30 ]
   ret ptr %.1.i
 }
 
@@ -2569,7 +2569,7 @@ lean_inc.exit19:                                  ; preds = %11, %13, %14
   br label %lean_dec.exit18
 
 lean_dec.exit18:                                  ; preds = %29, %24, %38, %37, %35, %lean_int_mul.exit
-  %.0.i38 = phi ptr [ %31, %lean_int_mul.exit ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ]
+  %.0.i38 = phi ptr [ %32, %38 ], [ %31, %lean_int_mul.exit ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ]
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !4
   %41 = ptrtoint ptr %40 to i64
@@ -2630,7 +2630,7 @@ lean_dec.exit17:                                  ; preds = %57, %56, %54, %lean
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_dec.exit17, %59
-  %.1.i = phi ptr [ %61, %59 ], [ %40, %lean_dec.exit17 ]
+  %.1.i = phi ptr [ %40, %lean_dec.exit17 ], [ %61, %59 ]
   %62 = ptrtoint ptr %.0.i38 to i64
   %63 = and i64 %62, 1
   %.not.i32 = icmp eq i64 %63, 0
@@ -2800,7 +2800,7 @@ define ptr @l_Std_Time_Internal_UnitVal_instOfNat___rarg(ptr noundef %0) #1 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -3319,7 +3319,7 @@ define ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed(ptr noundef %0) #
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %13, %8, %22, %21, %19
-  %.0.i.i4 = phi ptr [ %16, %19 ], [ %16, %21 ], [ %16, %22 ], [ %14, %13 ], [ %12, %8 ]
+  %.0.i.i4 = phi ptr [ %16, %22 ], [ %16, %19 ], [ %16, %21 ], [ %14, %13 ], [ %12, %8 ]
   ret ptr %.0.i.i4
 }
 
@@ -3562,7 +3562,7 @@ lean_nat_abs.exit40:                              ; preds = %.thread43, %lean_in
   br label %lean_dec.exit20
 
 lean_dec.exit20:                                  ; preds = %63, %61, %73, %72, %70
-  %.1.i45 = phi ptr [ %67, %70 ], [ %67, %72 ], [ %67, %73 ], [ inttoptr (i64 1 to ptr), %61 ], [ %65, %63 ]
+  %.1.i45 = phi ptr [ %67, %73 ], [ %67, %70 ], [ %67, %72 ], [ inttoptr (i64 1 to ptr), %61 ], [ %65, %63 ]
   %74 = ptrtoint ptr %.1.i45 to i64
   %75 = and i64 %74, 1
   %.not52 = icmp eq i64 %75, 0
@@ -3604,7 +3604,7 @@ lean_dec.exit20:                                  ; preds = %63, %61, %73, %72, 
   br label %lean_dec.exit19
 
 lean_dec.exit19:                                  ; preds = %80, %84, %93, %92, %90
-  %.0.i47 = phi ptr [ %87, %90 ], [ %87, %92 ], [ %87, %93 ], [ %85, %84 ], [ %83, %80 ]
+  %.0.i47 = phi ptr [ %87, %93 ], [ %87, %90 ], [ %87, %92 ], [ %85, %84 ], [ %83, %80 ]
   %94 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.0.i47) #5
   %95 = load ptr, ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___closed__1, align 8, !tbaa !4
   %96 = tail call ptr @lean_string_append(ptr noundef %95, ptr noundef %94) #5

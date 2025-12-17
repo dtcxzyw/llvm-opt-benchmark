@@ -548,7 +548,7 @@ define ptr @H5G__open_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %18, %35, %45, %42, %2
-  %.0 = phi ptr [ null, %45 ], [ null, %42 ], [ null, %2 ], [ %36, %35 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %45 ], [ null, %42 ], [ null, %18 ], [ null, %2 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -810,7 +810,7 @@ H5G__open_oid.exit:                               ; preds = %93, %.critedge24.i
   br label %.thread
 
 .thread:                                          ; preds = %20, %10, %119, %135, %144, %14
-  %.1 = phi ptr [ null, %144 ], [ null, %14 ], [ %18, %119 ], [ %18, %135 ], [ null, %20 ], [ null, %10 ]
+  %.1 = phi ptr [ null, %144 ], [ null, %10 ], [ null, %14 ], [ %18, %119 ], [ %18, %135 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -1075,7 +1075,7 @@ define range(i32 -1, 1) i32 @H5G_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %153
 
 153:                                              ; preds = %144, %12, %31, %43, %52, %61, %68, %86, %95, %105, %117, %124, %140, %149, %16
-  %.0 = phi i32 [ -1, %12 ], [ -1, %31 ], [ -1, %43 ], [ -1, %52 ], [ -1, %61 ], [ -1, %68 ], [ -1, %149 ], [ -1, %86 ], [ -1, %95 ], [ -1, %105 ], [ -1, %117 ], [ -1, %140 ], [ -1, %124 ], [ 0, %16 ], [ 0, %144 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %31 ], [ -1, %43 ], [ -1, %52 ], [ -1, %61 ], [ -1, %68 ], [ -1, %149 ], [ 0, %16 ], [ -1, %86 ], [ -1, %95 ], [ -1, %105 ], [ -1, %117 ], [ -1, %140 ], [ -1, %124 ], [ 0, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1397,7 +1397,7 @@ define internal i32 @H5G__iterate_cb(ptr noundef %0, ptr noundef readonly captur
   br label %61
 
 61:                                               ; preds = %2, %12, %32, %60
-  %.021 = phi i32 [ -1, %12 ], [ %.122, %32 ], [ %.223, %60 ], [ -1, %2 ]
+  %.021 = phi i32 [ -1, %12 ], [ -1, %2 ], [ %.122, %32 ], [ %.223, %60 ]
   ret i32 %.021
 }
 
@@ -1883,8 +1883,8 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %149
 
-.thread108:                                       ; preds = %50, %72, %70, %33, %.thread98
-  %.2.ph = phi i32 [ -1, %.thread98 ], [ -1, %33 ], [ %64, %70 ], [ 0, %72 ], [ -1, %50 ]
+.thread108:                                       ; preds = %50, %70, %72, %33, %.thread98
+  %.2.ph = phi i32 [ -1, %.thread98 ], [ -1, %33 ], [ 0, %72 ], [ %64, %70 ], [ -1, %50 ]
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %141 = load ptr, ptr %140, align 8, !tbaa !60
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 %12
@@ -1904,7 +1904,7 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %158
 
 149:                                              ; preds = %82, %.thread103
-  %.4.ph = phi i32 [ %.6, %.thread103 ], [ 0, %82 ]
+  %.4.ph = phi i32 [ 0, %82 ], [ %.6, %.thread103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %150 = load ptr, ptr %39, align 8, !tbaa !60
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %12

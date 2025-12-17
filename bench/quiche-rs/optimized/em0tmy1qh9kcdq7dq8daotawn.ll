@@ -121,7 +121,7 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   br i1 %25, label %.loopexit, label %.critedge.i.i.i25
 
 .loopexit:                                        ; preds = %.preheader.i.i.i16, %23, %.critedge.i.i.i25, %.lr.ph80
-  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
+  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
   %.sroa.348.1 = phi ptr [ null, %.lr.ph80 ], [ %24, %23 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.348.078, i64 -32
   %.val.i22 = load i64, ptr %26, align 8, !noalias !23, !noundef !12
@@ -158,7 +158,7 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
 
 .loopexit66:                                      ; preds = %.preheader.i.i.i, %15, %.critedge.i.i.i, %9
   %.sroa.5.1 = phi ptr [ null, %9 ], [ null, %.critedge.i.i.i ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.sroa.5.071, i64 -32
   %.val.i11 = load i64, ptr %38, align 8, !noalias !33, !noundef !12
   %39 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge73
@@ -269,7 +269,7 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   br i1 %25, label %.loopexit, label %.critedge.i.i.i25
 
 .loopexit:                                        ; preds = %.preheader.i.i.i16, %23, %.critedge.i.i.i25, %.lr.ph80
-  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
+  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
   %.sroa.348.1 = phi ptr [ null, %.lr.ph80 ], [ %24, %23 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.348.078, i64 -8
   %.val.i22 = load i64, ptr %26, align 8, !noalias !53, !noundef !12
@@ -306,7 +306,7 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
 
 .loopexit66:                                      ; preds = %.preheader.i.i.i, %15, %.critedge.i.i.i, %9
   %.sroa.5.1 = phi ptr [ null, %9 ], [ null, %.critedge.i.i.i ], [ %16, %15 ], [ %.sroa.08.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.preheader.i.i.i ]
+  %.sroa.8.1 = phi ptr [ null, %9 ], [ %.sroa.8.072, %15 ], [ %.sroa.8.072, %.critedge.i.i.i ], [ %.sroa.8.072, %.preheader.i.i.i ]
   %38 = getelementptr inbounds i8, ptr %.sroa.5.071, i64 -8
   %.val.i11 = load i64, ptr %38, align 8, !noalias !62, !noundef !12
   %39 = getelementptr inbounds nuw i64, ptr %.sink10.i, i64 %storemerge73
@@ -352,7 +352,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !63, !noalias !66
   br label %8
 
-.thread30:                                        ; preds = %27, %32, %.thread34
+.thread30:                                        ; preds = %.thread34, %27, %32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %81
@@ -664,7 +664,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
+  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h31d7da01673df322E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b4a6b1075b68cb687183782e55d07620.6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !106, !nonnull !12, !noundef !12
@@ -1091,8 +1091,8 @@ _ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit: ; preds = %37
   br label %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77.thread
 
 _ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77.thread: ; preds = %24, %21, %19, %16, %15, %_ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit, %30, %14, %26, %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77
-  %.sroa.7.0 = phi i64 [ %17, %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77 ], [ %17, %26 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit ], [ undef, %15 ], [ %17, %16 ], [ %17, %19 ], [ %22, %21 ], [ %22, %24 ]
-  %.sroa.0.0 = phi i64 [ 8, %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77 ], [ 8, %26 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ], [ 0, %21 ], [ 0, %24 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit ], [ %17, %26 ], [ undef, %15 ], [ %17, %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77 ], [ %17, %19 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ], [ %22, %21 ], [ %22, %24 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h5b7b285b15cba79eE.exit ], [ 8, %26 ], [ -9223372036854775807, %15 ], [ 8, %_ZN8smallvec12layout_array17hc847bbd27e45d30dE.exit77 ], [ 0, %19 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ], [ 0, %21 ], [ 0, %24 ]
   %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.0, 1
   ret { i64, i64 } %42
@@ -1197,8 +1197,8 @@ _ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit: ; preds = %37
   br label %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77.thread
 
 _ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77.thread: ; preds = %24, %21, %19, %16, %15, %_ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit, %30, %14, %26, %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77
-  %.sroa.7.0 = phi i64 [ %17, %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77 ], [ %17, %26 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit ], [ undef, %15 ], [ %17, %16 ], [ %17, %19 ], [ %22, %21 ], [ %22, %24 ]
-  %.sroa.0.0 = phi i64 [ 8, %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77 ], [ 8, %26 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ], [ 0, %21 ], [ 0, %24 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit ], [ %17, %26 ], [ undef, %15 ], [ %17, %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77 ], [ %17, %19 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ], [ %22, %21 ], [ %22, %24 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hf2b1c7d0af0c9569E.exit ], [ 8, %26 ], [ -9223372036854775807, %15 ], [ 8, %_ZN8smallvec12layout_array17h160eb6f17565cc3fE.exit77 ], [ 0, %19 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ], [ 0, %21 ], [ 0, %24 ]
   %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.0, 1
   ret { i64, i64 } %42

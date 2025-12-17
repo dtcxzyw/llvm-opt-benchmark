@@ -253,7 +253,7 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   br label %net_sim_send.exit
 
 net_sim_send.exit:                                ; preds = %48, %82, %89
-  %.0.i = phi i32 [ 0, %89 ], [ 0, %48 ], [ 1, %82 ]
+  %.0.i = phi i32 [ 0, %48 ], [ 0, %89 ], [ 1, %82 ]
   %90 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 406, ptr noundef nonnull @.str.12, i32 noundef %.0.i) #8
   %.not70 = icmp eq i32 %90, 0
   %91 = add i64 %46, %.161.ph
@@ -304,8 +304,8 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   %spec.select81 = zext i1 %.not69 to i32
   br label %.thread87
 
-.thread87:                                        ; preds = %104, %107, %100, %97, %92, %net_sim_send.exit, %37, %30, %23, %111
-  %.053.ph = phi i32 [ %spec.select81, %111 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %net_sim_send.exit ], [ 0, %92 ], [ 0, %97 ], [ 0, %100 ], [ 0, %107 ], [ 0, %104 ]
+.thread87:                                        ; preds = %104, %107, %100, %97, %92, %net_sim_send.exit, %111, %37, %30, %23
+  %.053.ph = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ %spec.select81, %111 ], [ 0, %net_sim_send.exit ], [ 0, %92 ], [ 0, %97 ], [ 0, %100 ], [ 0, %107 ], [ 0, %104 ]
   %.val = load ptr, ptr %20, align 8, !tbaa !20
   call void @ossl_pqueue_pop_free(ptr noundef %.val, ptr noundef nonnull @do_free) #8
   br label %113
@@ -568,7 +568,7 @@ define internal range(i32 0, 2) i32 @test_sanity() #0 {
   br label %125
 
 125:                                              ; preds = %122, %119, %113, %108, %100, %96, %91, %86, %83, %80, %74, %71, %66, %63, %55, %51, %45, %42, %36, %32, %21, %29, %14, %0
-  %.0 = phi i32 [ 0, %119 ], [ 0, %113 ], [ 0, %108 ], [ 0, %100 ], [ 0, %96 ], [ 0, %91 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %71 ], [ 0, %66 ], [ 0, %63 ], [ 0, %55 ], [ 0, %51 ], [ 0, %45 ], [ 0, %42 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %21 ], [ 0, %14 ], [ 0, %0 ], [ %spec.select, %122 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %122 ], [ 0, %119 ], [ 0, %113 ], [ 0, %108 ], [ 0, %100 ], [ 0, %96 ], [ 0, %91 ], [ 0, %86 ], [ 0, %83 ], [ 0, %80 ], [ 0, %74 ], [ 0, %71 ], [ 0, %66 ], [ 0, %63 ], [ 0, %55 ], [ 0, %51 ], [ 0, %45 ], [ 0, %42 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %21 ], [ 0, %14 ]
   %.not85 = icmp eq ptr %12, null
   br i1 %.not85, label %128, label %126
 
@@ -682,7 +682,7 @@ net_sim_process_one.exit:                         ; preds = %30
   %.not47.i.not = icmp eq i32 %44, 0
   br i1 %.not47.i.not, label %net_sim_process_one.exit.thread, label %.backedge
 
-.backedge:                                        ; preds = %101, %.critedge.i, %net_sim_process_one.exit
+.backedge:                                        ; preds = %.critedge.i, %101, %net_sim_process_one.exit
   %45 = load ptr, ptr %5, align 8, !tbaa !20
   %46 = call ptr @ossl_pqueue_peek(ptr noundef %45) #8
   %47 = icmp eq ptr %46, null
@@ -707,7 +707,7 @@ net_sim_process_one.exit:                         ; preds = %30
   br label %.thread59.i
 
 .thread59.i:                                      ; preds = %56, %.thread.i
-  %59 = phi i32 [ %58, %56 ], [ 1, %.thread.i ]
+  %59 = phi i32 [ 1, %.thread.i ], [ %58, %56 ]
   %60 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @.str.27, i32 noundef %59) #8
   %.not49.i = icmp eq i32 %60, 0
   br i1 %.not49.i, label %net_sim_process_one.exit.thread, label %61
@@ -794,8 +794,8 @@ net_sim_process_one.exit:                         ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %net_sim_process_one.exit.thread
 
-net_sim_process_one.exit.thread:                  ; preds = %net_sim_process_one.exit, %.backedge, %48, %.thread59.i, %.thread.i, %2, %.critedge55.i, %89
-  %.042.i6 = phi i32 [ 0, %.critedge55.i ], [ 0, %89 ], [ 3, %2 ], [ 0, %net_sim_process_one.exit ], [ 3, %.backedge ], [ 2, %48 ], [ 0, %.thread59.i ], [ 2, %.thread.i ]
+net_sim_process_one.exit.thread:                  ; preds = %net_sim_process_one.exit, %.backedge, %.thread59.i, %48, %.thread.i, %2, %89, %.critedge55.i
+  %.042.i6 = phi i32 [ 0, %.critedge55.i ], [ 0, %89 ], [ 3, %2 ], [ 0, %net_sim_process_one.exit ], [ 3, %.backedge ], [ 0, %.thread59.i ], [ 2, %48 ], [ 2, %.thread.i ]
   ret i32 %.042.i6
 }
 

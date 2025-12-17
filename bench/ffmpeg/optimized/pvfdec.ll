@@ -86,7 +86,7 @@ define internal range(i32 -1094995529, 1) i32 @pvf_read_header(ptr noundef %0) #
   br label %42
 
 42:                                               ; preds = %20, %12, %1, %22
-  %.0 = phi i32 [ 0, %22 ], [ -1094995529, %1 ], [ -1094995529, %12 ], [ -12, %20 ]
+  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %1 ], [ 0, %22 ], [ -12, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

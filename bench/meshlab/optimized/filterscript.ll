@@ -1521,7 +1521,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN29FilterNamePara
   br label %.body
 
 .body:                                            ; preds = %238, %230, %284, %265, %242, %240
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %265 ], [ %.pn, %284 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %231, %230 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %265 ], [ %.pn, %284 ], [ %241, %240 ], [ %243, %242 ], [ %239, %238 ], [ %231, %230 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #11
   br label %285
 
@@ -1619,13 +1619,13 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %305
 
 _ZN7QStringD2Ev.exit.sink.split:                  ; preds = %_ZN10QByteArrayD2Ev.exit53, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i147, %_ZN10QByteArrayD2Ev.exit41, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45
-  %.sink = phi ptr [ %.pre.i46, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45 ], [ %72, %_ZN10QByteArrayD2Ev.exit41 ], [ %.pre.i148, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i147 ], [ %301, %_ZN10QByteArrayD2Ev.exit53 ]
-  %.016.ph = phi i1 [ false, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45 ], [ false, %_ZN10QByteArrayD2Ev.exit41 ], [ %.117, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i147 ], [ %.117, %_ZN10QByteArrayD2Ev.exit53 ]
+  %.sink = phi ptr [ %72, %_ZN10QByteArrayD2Ev.exit41 ], [ %.pre.i46, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45 ], [ %.pre.i148, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i147 ], [ %301, %_ZN10QByteArrayD2Ev.exit53 ]
+  %.016.ph = phi i1 [ false, %_ZN10QByteArrayD2Ev.exit41 ], [ false, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i45 ], [ %.117, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i147 ], [ %.117, %_ZN10QByteArrayD2Ev.exit53 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #11
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exit.sink.split, %_ZN9QtPrivate8RefCount5derefEv.exit.i145, %_ZN10QByteArrayD2Ev.exit53, %_ZN9QtPrivate8RefCount5derefEv.exit.i43, %_ZN10QByteArrayD2Ev.exit41
-  %.016 = phi i1 [ false, %_ZN10QByteArrayD2Ev.exit41 ], [ false, %_ZN9QtPrivate8RefCount5derefEv.exit.i43 ], [ %.117, %_ZN10QByteArrayD2Ev.exit53 ], [ %.117, %_ZN9QtPrivate8RefCount5derefEv.exit.i145 ], [ %.016.ph, %_ZN7QStringD2Ev.exit.sink.split ]
+  %.016 = phi i1 [ %.117, %_ZN9QtPrivate8RefCount5derefEv.exit.i145 ], [ false, %_ZN10QByteArrayD2Ev.exit41 ], [ false, %_ZN9QtPrivate8RefCount5derefEv.exit.i43 ], [ %.117, %_ZN10QByteArrayD2Ev.exit53 ], [ %.016.ph, %_ZN7QStringD2Ev.exit.sink.split ]
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
   call void @_ZN12QDomDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   ret i1 %.016

@@ -667,7 +667,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   br label %.thread28
 
 .thread28:                                        ; preds = %127, %3, %360, %243
-  %361 = phi i32 [ 0, %360 ], [ 0, %243 ], [ -3, %3 ], [ -3, %127 ]
+  %361 = phi i32 [ 0, %243 ], [ 0, %360 ], [ -3, %3 ], [ -3, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %361
 }
@@ -1088,7 +1088,7 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
   br i1 %100, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %.thread16, %92, %82
-  %101 = phi i64 [ 0, %82 ], [ 0, %.backedge ], [ %99, %.thread16 ], [ %93, %92 ]
+  %101 = phi i64 [ 0, %82 ], [ 0, %.backedge ], [ %93, %92 ], [ %99, %.thread16 ]
   %102 = icmp eq ptr %1, null
   br i1 %102, label %111, label %103
 

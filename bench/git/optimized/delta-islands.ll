@@ -110,7 +110,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
-  %.1.i = phi i32 [ 0, %8 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not9 = icmp ult i32 %.1.i, %9
   br i1 %.not9, label %37, label %island_bitmap_is_subset.exit
@@ -215,7 +215,7 @@ kh_get_oid_map.exit24:                            ; preds = %43, %54
   br i1 %.not.i25, label %77, label %island_bitmap_is_subset.exit
 
 island_bitmap_is_subset.exit:                     ; preds = %78, %77, %.preheader.i, %64, %kh_get_oid_map.exit24.thread, %kh_get_oid_map.exit.thread, %kh_get_oid_map.exit24, %kh_get_oid_map.exit, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %kh_get_oid_map.exit ], [ 0, %kh_get_oid_map.exit24 ], [ 1, %kh_get_oid_map.exit.thread ], [ 0, %kh_get_oid_map.exit24.thread ], [ 1, %64 ], [ 1, %.preheader.i ], [ 1, %77 ], [ 0, %78 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %kh_get_oid_map.exit ], [ 0, %kh_get_oid_map.exit24.thread ], [ 0, %kh_get_oid_map.exit24 ], [ 1, %kh_get_oid_map.exit.thread ], [ 1, %64 ], [ 1, %.preheader.i ], [ 1, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -297,7 +297,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
-  %.1.i = phi i32 [ 0, %8 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = icmp ult i32 %.1.i, %9
   br i1 %37, label %.thread, label %43
@@ -376,8 +376,8 @@ kh_get_oid_map.exit37.thread:                     ; preds = %.critedge2.i34
   br label %kh_get_oid_map.exit37
 
 kh_get_oid_map.exit37:                            ; preds = %43, %.critedge.i29
-  %.01452 = phi ptr [ null, %43 ], [ %.01451, %.critedge.i29 ]
-  %.1.i32 = phi i32 [ 0, %43 ], [ %spec.select.i31, %.critedge.i29 ]
+  %.01452 = phi ptr [ %.01451, %.critedge.i29 ], [ null, %43 ]
+  %.1.i32 = phi i32 [ %spec.select.i31, %.critedge.i29 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = icmp ult i32 %.1.i32, %9
   br i1 %71, label %72, label %78
@@ -462,7 +462,7 @@ kh_get_oid_map.exit37:                            ; preds = %43, %.critedge.i29
   br i1 %.not.i44, label %95, label %island_bitmap_is_subset.exit
 
 island_bitmap_is_subset.exit:                     ; preds = %86, %95, %96, %.preheader.i, %80, %92, %.preheader.i39, %79, %2
-  %.015 = phi i32 [ 0, %2 ], [ -1, %79 ], [ 0, %.preheader.i39 ], [ %spec.select, %92 ], [ 0, %80 ], [ 0, %.preheader.i ], [ 0, %95 ], [ 1, %96 ], [ -1, %86 ]
+  %.015 = phi i32 [ -1, %79 ], [ 0, %2 ], [ 0, %.preheader.i39 ], [ %spec.select, %92 ], [ 0, %80 ], [ 0, %.preheader.i ], [ 1, %96 ], [ 0, %95 ], [ -1, %86 ]
   ret i32 %.015
 }
 
@@ -545,8 +545,8 @@ oe_tree_depth.exit:                               ; preds = %26, %30
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %st_mult.exit, %._crit_edge, %39
-  %40 = phi i64 [ %37, %._crit_edge ], [ %37, %39 ], [ 0, %st_mult.exit ]
-  %.0.lcssa123 = phi i32 [ %.1, %._crit_edge ], [ %.1, %39 ], [ 0, %st_mult.exit ]
+  %40 = phi i64 [ %37, %39 ], [ %37, %._crit_edge ], [ 0, %st_mult.exit ]
+  %.0.lcssa123 = phi i32 [ %.1, %39 ], [ %.1, %._crit_edge ], [ 0, %st_mult.exit ]
   %.not47 = icmp eq i32 %1, 0
   br i1 %.not47, label %47, label %41
 
@@ -648,7 +648,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %51, %.critedge.i
-  %.1.i = phi i32 [ 0, %51 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not48 = icmp ult i32 %.1.i, %55
   br i1 %.not48, label %83, label %238
@@ -1252,7 +1252,7 @@ __ac_X31_hash_string.exit.i.i.i:                  ; preds = %.lr.ph.i.i.i.i, %82
   br label %kh_get_str.exit.i.i
 
 kh_get_str.exit.i.i:                              ; preds = %.critedge.i.i.i, %78
-  %.1.i.i.i = phi i32 [ 0, %78 ], [ %spec.select.i.i.i, %.critedge.i.i.i ]
+  %.1.i.i.i = phi i32 [ %spec.select.i.i.i, %.critedge.i.i.i ], [ 0, %78 ]
   %117 = icmp ult i32 %.1.i.i.i, %31
   br i1 %117, label %118, label %get_core_island.exit.i
 
@@ -1956,7 +1956,7 @@ strbuf_addch.exit:                                ; preds = %26
   br label %54
 
 54:                                               ; preds = %50, %52, %49
-  %.1 = phi i32 [ %53, %52 ], [ %.0, %49 ], [ 0, %50 ]
+  %.1 = phi i32 [ %.0, %49 ], [ %53, %52 ], [ 0, %50 ]
   ret i32 %.1
 }
 
@@ -2591,7 +2591,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %1, %.critedge.i
-  %.1.i = phi i32 [ 0, %1 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = icmp ult i32 %.1.i, %10
   br i1 %38, label %39, label %.loopexit
@@ -2683,7 +2683,7 @@ island_bitmap_new.exit.i:                         ; preds = %61
   br i1 %exitcond.not.i.i, label %set_island_marks.exit, label %84, !llvm.loop !53
 
 set_island_marks.exit:                            ; preds = %84, %53, %79
-  %90 = phi ptr [ %56, %53 ], [ %80, %79 ], [ %80, %84 ]
+  %90 = phi ptr [ %80, %79 ], [ %56, %53 ], [ %80, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.029 = load ptr, ptr %91, align 8, !tbaa !105
@@ -2773,7 +2773,7 @@ island_bitmap_new.exit.i21:                       ; preds = %107
   br i1 %exitcond.not.i.i20, label %set_island_marks.exit23, label %129, !llvm.loop !53
 
 set_island_marks.exit23:                          ; preds = %129, %99, %125
-  %135 = phi ptr [ %102, %99 ], [ %126, %125 ], [ %126, %129 ]
+  %135 = phi ptr [ %126, %125 ], [ %102, %99 ], [ %126, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %136 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %.0 = load ptr, ptr %136, align 8, !tbaa !105
@@ -2943,7 +2943,7 @@ define dso_local range(i32 1, 3) i32 @compute_pack_layers(ptr noundef captures(n
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %.critedge2.i, %13, %.critedge.i
-  %.1.i = phi i32 [ 0, %13 ], [ %spec.select.i, %.critedge.i ], [ %17, %.critedge2.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %13 ], [ %17, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = load ptr, ptr %11, align 8, !tbaa !112
   %.not.i16 = icmp eq ptr %45, null

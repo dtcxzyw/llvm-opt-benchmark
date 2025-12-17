@@ -718,7 +718,7 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
           to label %202 unwind label %203
 
 202:                                              ; preds = %201, %196, %191, %186, %156
-  %.merged = phi { ptr, i32 } [ %lpad.phi, %156 ], [ %.pn50, %186 ], [ %.pn52, %191 ], [ %.pn54, %196 ], [ %.pn56, %201 ]
+  %.merged = phi { ptr, i32 } [ %.pn54, %196 ], [ %.pn52, %191 ], [ %.pn50, %186 ], [ %lpad.phi, %156 ], [ %.pn56, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.merged
 

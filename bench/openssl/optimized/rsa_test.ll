@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
   br i1 %.not17, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph23, %24, %.preheader, %7, %11, %1
-  %.014 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %1 ], [ 1, %.preheader ], [ 0, %.lr.ph23 ], [ 1, %24 ], [ 0, %.lr.ph ]
+  %.014 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %1 ], [ 1, %.preheader ], [ 1, %24 ], [ 0, %.lr.ph23 ], [ 0, %.lr.ph ]
   call void @RSA_free(ptr noundef %.pre) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
   br label %29
 
 29:                                               ; preds = %26, %14, %1, %12
-  %.0 = phi i32 [ 0, %14 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %26 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %26 ], [ 0, %14 ], [ 0, %12 ]
   call void @RSA_free(ptr noundef %3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -566,7 +566,7 @@ define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %0, i32 
   br label %rsa_setkey.exit
 
 rsa_setkey.exit:                                  ; preds = %6, %10, %11, %23, %24, %36, %37, %49
-  %.0.i = phi i32 [ 0, %10 ], [ 0, %6 ], [ 64, %11 ], [ 64, %23 ], [ 50, %24 ], [ 50, %36 ], [ 128, %37 ], [ 128, %49 ]
+  %.0.i = phi i32 [ 0, %10 ], [ 0, %6 ], [ 64, %23 ], [ 50, %36 ], [ 64, %11 ], [ 50, %24 ], [ 128, %37 ], [ 128, %49 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %51, label %50
 

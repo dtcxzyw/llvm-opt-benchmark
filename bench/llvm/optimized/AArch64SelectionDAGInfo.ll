@@ -1162,10 +1162,10 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCod
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %85, %.backedge.sink.split.i, %72
-  %.sink.i = phi i32 [ %89, %85 ], [ %76, %72 ], [ %.pre.i.i, %.backedge.sink.split.i ]
-  %.fca.0.extract30.sink.i = phi ptr [ %.fca.0.extract3.i, %85 ], [ %.fca.0.extract30.i, %72 ], [ %.fca.0.extract30.sink.ph.i, %.backedge.sink.split.i ]
-  %.fca.1.extract31.sink.i = phi i32 [ %.fca.1.extract4.i, %85 ], [ %.fca.1.extract31.i, %72 ], [ %.fca.1.extract31.sink.ph.i, %.backedge.sink.split.i ]
-  %.0.be.i = phi i32 [ %88, %85 ], [ %75, %72 ], [ %.0.be.ph.i, %.backedge.sink.split.i ]
+  %.sink.i = phi i32 [ %76, %72 ], [ %89, %85 ], [ %.pre.i.i, %.backedge.sink.split.i ]
+  %.fca.0.extract30.sink.i = phi ptr [ %.fca.0.extract30.i, %72 ], [ %.fca.0.extract3.i, %85 ], [ %.fca.0.extract30.sink.ph.i, %.backedge.sink.split.i ]
+  %.fca.1.extract31.sink.i = phi i32 [ %.fca.1.extract31.i, %72 ], [ %.fca.1.extract4.i, %85 ], [ %.fca.1.extract31.sink.ph.i, %.backedge.sink.split.i ]
+  %.0.be.i = phi i32 [ %75, %72 ], [ %88, %85 ], [ %.0.be.ph.i, %.backedge.sink.split.i ]
   %80 = load ptr, ptr %10, align 8, !tbaa !25
   %81 = zext i32 %.sink.i to i64
   %82 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %80, i64 %81

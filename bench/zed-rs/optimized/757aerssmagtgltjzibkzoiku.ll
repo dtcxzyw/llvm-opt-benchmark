@@ -1108,7 +1108,7 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
   invoke void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.279bbded6134a69821cc51a81176004f.15)
           to label %281 unwind label %.thread145
 
-.thread145:                                       ; preds = %278, %340
+.thread145:                                       ; preds = %340, %278
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread132
@@ -1330,7 +1330,7 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
   invoke void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.279bbded6134a69821cc51a81176004f.16)
           to label %347 unwind label %.thread191
 
-.thread191:                                       ; preds = %398, %396, %345, %459
+.thread191:                                       ; preds = %459, %396, %345, %398
   %lpad.thr_comm189 = landingpad { ptr, i32 }
           cleanup
   br label %.thread157
@@ -1751,30 +1751,30 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
   unreachable
 
 .thread157:                                       ; preds = %467, %473, %460, %438, %430, %419, %408, %401, %388, %380, %365, %349, %.thread191
-  %.pn156 = phi { ptr, i32 } [ %lpad.thr_comm189, %.thread191 ], [ %350, %349 ], [ %366, %365 ], [ %381, %380 ], [ %389, %388 ], [ %402, %401 ], [ %409, %408 ], [ %420, %419 ], [ %431, %430 ], [ %439, %438 ], [ %lpad.thr_comm.i91, %460 ], [ %468, %467 ], [ %474, %473 ]
-  %.sroa.09.6154 = phi i1 [ true, %.thread191 ], [ true, %349 ], [ true, %365 ], [ true, %380 ], [ true, %388 ], [ true, %401 ], [ true, %408 ], [ true, %419 ], [ true, %430 ], [ true, %438 ], [ true, %460 ], [ false, %467 ], [ false, %473 ]
+  %.pn156 = phi { ptr, i32 } [ %lpad.thr_comm.i91, %460 ], [ %lpad.thr_comm189, %.thread191 ], [ %439, %438 ], [ %350, %349 ], [ %366, %365 ], [ %381, %380 ], [ %389, %388 ], [ %402, %401 ], [ %409, %408 ], [ %420, %419 ], [ %431, %430 ], [ %468, %467 ], [ %474, %473 ]
+  %.sroa.09.6154 = phi i1 [ true, %460 ], [ true, %.thread191 ], [ true, %438 ], [ true, %349 ], [ true, %365 ], [ true, %380 ], [ true, %388 ], [ true, %401 ], [ true, %408 ], [ true, %419 ], [ true, %430 ], [ false, %467 ], [ false, %473 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h399657807088896bE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %48) #20
           to label %.thread132 unwind label %475
 
 .thread132:                                       ; preds = %346, %.thread157, %.body.thread.i55, %302, %294, %283, %.thread145
-  %.pn15131 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread145 ], [ %284, %283 ], [ %295, %294 ], [ %303, %302 ], [ %eh.lpad-body5.i, %.body.thread.i55 ], [ %lpad.thr_comm.split-lp190, %346 ], [ %.pn156, %.thread157 ]
-  %.sroa.09.4129 = phi i1 [ true, %.thread145 ], [ true, %283 ], [ true, %294 ], [ true, %302 ], [ true, %.body.thread.i55 ], [ false, %346 ], [ %.sroa.09.6154, %.thread157 ]
+  %.pn15131 = phi { ptr, i32 } [ %eh.lpad-body5.i, %.body.thread.i55 ], [ %lpad.thr_comm, %.thread145 ], [ %303, %302 ], [ %284, %283 ], [ %295, %294 ], [ %lpad.thr_comm.split-lp190, %346 ], [ %.pn156, %.thread157 ]
+  %.sroa.09.4129 = phi i1 [ true, %.body.thread.i55 ], [ true, %.thread145 ], [ true, %302 ], [ true, %283 ], [ true, %294 ], [ false, %346 ], [ %.sroa.09.6154, %.thread157 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h399657807088896bE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %51) #20
           to label %.thread118 unwind label %475
 
 .thread118:                                       ; preds = %280, %.thread132, %270, %.thread121
-  %.pn17117 = phi { ptr, i32 } [ %267, %.thread121 ], [ %271, %270 ], [ %lpad.thr_comm.split-lp, %280 ], [ %.pn15131, %.thread132 ]
-  %.sroa.09.2116 = phi i1 [ true, %.thread121 ], [ true, %270 ], [ false, %280 ], [ %.sroa.09.4129, %.thread132 ]
+  %.pn17117 = phi { ptr, i32 } [ %271, %270 ], [ %267, %.thread121 ], [ %lpad.thr_comm.split-lp, %280 ], [ %.pn15131, %.thread132 ]
+  %.sroa.09.2116 = phi i1 [ true, %270 ], [ true, %.thread121 ], [ false, %280 ], [ %.sroa.09.4129, %.thread132 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h399657807088896bE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %58)
           to label %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit" unwind label %475
 
 .thread:                                          ; preds = %.body.thread.i, %226, %206, %202, %188, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit"
-  %.pn17.pn110 = phi { ptr, i32 } [ %.pn17117, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit" ], [ %203, %202 ], [ %189, %188 ], [ %.pn.pn.i, %206 ], [ %227, %226 ], [ %eh.lpad-body4.i, %.body.thread.i ]
+  %.pn17.pn110 = phi { ptr, i32 } [ %.pn17117, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit" ], [ %203, %202 ], [ %eh.lpad-body4.i, %.body.thread.i ], [ %227, %226 ], [ %.pn.pn.i, %206 ], [ %189, %188 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$editor..EditorStyle$GT$17h399f8ffa2445aaefE"(ptr noalias noundef nonnull align 8 dereferenceable(1128) %63) #20
           to label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h5fe38b64d7fd6be0E.exit24" unwind label %475
 
 "_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h5fe38b64d7fd6be0E.exit24": ; preds = %480, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h5fe38b64d7fd6be0E.exit", %484, %168, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit", %.thread, %477
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.ph, %477 ], [ %.pn17.pn110, %.thread ], [ %.pn17117, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit" ], [ %169, %168 ], [ %103, %484 ], [ %103, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h5fe38b64d7fd6be0E.exit" ], [ %103, %480 ]
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.ph, %477 ], [ %169, %168 ], [ %.pn17.pn110, %.thread ], [ %.pn17117, %"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h7dc1f2c4768c07c5E.exit" ], [ %103, %484 ], [ %103, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h5fe38b64d7fd6be0E.exit" ], [ %103, %480 ]
   resume { ptr, i32 } %.pn17.pn.pn.pn
 
 477:                                              ; preds = %159, %153, %147

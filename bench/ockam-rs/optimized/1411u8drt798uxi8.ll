@@ -1948,7 +1948,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2049,7 +2049,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2150,7 +2150,7 @@ define hidden { ptr, ptr } @"_ZN100_$LT$opentelemetry..trace..context..WithConte
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2251,7 +2251,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2352,7 +2352,7 @@ define hidden { i64, ptr } @"_ZN100_$LT$opentelemetry..trace..context..WithConte
   unreachable
 
 common.resume:                                    ; preds = %26, %28, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %29, %28 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %16, %15 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2459,7 +2459,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2560,7 +2560,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2661,7 +2661,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2762,7 +2762,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2863,7 +2863,7 @@ define hidden void @"_ZN100_$LT$opentelemetry..trace..context..WithContext$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -2964,7 +2964,7 @@ define hidden { ptr, ptr } @"_ZN100_$LT$opentelemetry..trace..context..WithConte
   unreachable
 
 common.resume:                                    ; preds = %21, %24, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %25, %24 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN70_$LT$opentelemetry..context..Context$u20$as$u20$core..clone..Clone$GT$5clone17h0a614908206a7d83E.llvm.18141648412879468590.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf9cb3cada91185e2E.llvm.18141648412879468590.exit.i"
@@ -3157,7 +3157,7 @@ common.resume:                                    ; preds = %.thread35, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !229
   br label %41
 
-41:                                               ; preds = %40, %38, %36, %5
+41:                                               ; preds = %36, %40, %5, %38
   tail call void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.18447cd967edbb62a84b1bcc4d80419e.12, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18447cd967edbb62a84b1bcc4d80419e.14) #47
   unreachable
 
@@ -3442,7 +3442,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1425447921696267910.exit.th
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !320
   br label %107
 
-118:                                              ; preds = %84, %"_ZN4core3ptr73drop_in_place$LT$tracing_subscriber..registry..extensions..Extensions$GT$17h5947270b2d4daf56E.exit15", %81, %.noexc16, %.noexc17
+118:                                              ; preds = %84, %.noexc17, %"_ZN4core3ptr73drop_in_place$LT$tracing_subscriber..registry..extensions..Extensions$GT$17h5947270b2d4daf56E.exit15", %81, %.noexc16
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$tracing_subscriber..fmt..fmt_layer..FormattedFields$LT$tracing_subscriber..fmt..format..DefaultFields$GT$$GT$17hf44fa751a7545a70E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #45
@@ -4017,7 +4017,7 @@ default.unreachable115:                           ; preds = %3
           to label %30 unwind label %28
 
 .body:                                            ; preds = %197, %192, %90, %63, %70, %174, %184, %48, %34, %28
-  %.pn45 = phi { ptr, i32 } [ %185, %184 ], [ %49, %48 ], [ %35, %34 ], [ %29, %28 ], [ %.pn39.pn.pn, %174 ], [ %71, %70 ], [ %64, %63 ], [ %.pn28.pn.pn.pn.pn, %90 ], [ %198, %197 ], [ %193, %192 ]
+  %.pn45 = phi { ptr, i32 } [ %198, %197 ], [ %185, %184 ], [ %49, %48 ], [ %193, %192 ], [ %35, %34 ], [ %29, %28 ], [ %.pn39.pn.pn, %174 ], [ %71, %70 ], [ %.pn28.pn.pn.pn.pn, %90 ], [ %64, %63 ]
   store i8 2, ptr %21, align 8
   resume { ptr, i32 } %.pn45
 
@@ -5792,7 +5792,7 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %317
 
 275:                                              ; preds = %339, %236, %216, %209
-  %.pn216.pn.pn.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i, %339 ], [ %217, %216 ], [ %210, %209 ], [ %.pn206.pn.pn.pn.i.i, %236 ]
+  %.pn216.pn.pn.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i, %339 ], [ %217, %216 ], [ %.pn206.pn.pn.pn.i.i, %236 ], [ %210, %209 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %76) #45
           to label %342 unwind label %340
 
@@ -6110,10 +6110,10 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %392
 
 378:                                              ; preds = %.body373.i.i, %425, %422
-  %379 = phi ptr [ %404, %425 ], [ %404, %422 ], [ %591, %.body373.i.i ]
-  %380 = phi ptr [ %405, %425 ], [ %405, %422 ], [ %592, %.body373.i.i ]
-  %381 = phi ptr [ %406, %425 ], [ %406, %422 ], [ %593, %.body373.i.i ]
-  %.pn309.i.i = phi { ptr, i32 } [ %426, %425 ], [ %423, %422 ], [ %.pn230.i.i, %.body373.i.i ]
+  %379 = phi ptr [ %404, %425 ], [ %591, %.body373.i.i ], [ %404, %422 ]
+  %380 = phi ptr [ %405, %425 ], [ %592, %.body373.i.i ], [ %405, %422 ]
+  %381 = phi ptr [ %406, %425 ], [ %593, %.body373.i.i ], [ %406, %422 ]
+  %.pn309.i.i = phi { ptr, i32 } [ %426, %425 ], [ %.pn230.i.i, %.body373.i.i ], [ %423, %422 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !537
   br label %383
 
@@ -6122,10 +6122,10 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %317
 
 383:                                              ; preds = %874, %378, %371, %364
-  %384 = phi ptr [ %379, %378 ], [ %875, %874 ], [ %360, %371 ], [ %360, %364 ]
-  %385 = phi ptr [ %380, %378 ], [ %876, %874 ], [ %361, %371 ], [ %361, %364 ]
-  %386 = phi ptr [ %381, %378 ], [ %877, %874 ], [ %362, %371 ], [ %362, %364 ]
-  %.pn309.pn.i.i = phi { ptr, i32 } [ %.pn309.i.i, %378 ], [ %.pn307.i.i, %874 ], [ %372, %371 ], [ %365, %364 ]
+  %384 = phi ptr [ %379, %378 ], [ %875, %874 ], [ %360, %364 ], [ %360, %371 ]
+  %385 = phi ptr [ %380, %378 ], [ %876, %874 ], [ %361, %364 ], [ %361, %371 ]
+  %386 = phi ptr [ %381, %378 ], [ %877, %874 ], [ %362, %364 ], [ %362, %371 ]
+  %.pn309.pn.i.i = phi { ptr, i32 } [ %.pn309.i.i, %378 ], [ %.pn307.i.i, %874 ], [ %365, %364 ], [ %372, %371 ]
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %388 = load i8, ptr %387, align 8, !range !528, !noalias !537, !noundef !10
   %389 = trunc nuw i8 %388 to i1
@@ -6633,18 +6633,18 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %594
 
 .body385.i.i:                                     ; preds = %618, %613, %599, %533
-  %536 = phi ptr [ %595, %599 ], [ %404, %533 ], [ %595, %618 ], [ %595, %613 ]
-  %537 = phi ptr [ %596, %599 ], [ %405, %533 ], [ %596, %618 ], [ %596, %613 ]
-  %538 = phi ptr [ %597, %599 ], [ %406, %533 ], [ %597, %618 ], [ %597, %613 ]
-  %.pn262.i.i = phi { ptr, i32 } [ %600, %599 ], [ %534, %533 ], [ %619, %618 ], [ %614, %613 ]
+  %536 = phi ptr [ %404, %533 ], [ %595, %599 ], [ %595, %618 ], [ %595, %613 ]
+  %537 = phi ptr [ %405, %533 ], [ %596, %599 ], [ %596, %618 ], [ %596, %613 ]
+  %538 = phi ptr [ %406, %533 ], [ %597, %599 ], [ %597, %618 ], [ %597, %613 ]
+  %.pn262.i.i = phi { ptr, i32 } [ %534, %533 ], [ %600, %599 ], [ %619, %618 ], [ %614, %613 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %539
 
 539:                                              ; preds = %755, %750, %657, %637, %630, %.body385.i.i, %528
-  %540 = phi ptr [ %759, %755 ], [ %595, %750 ], [ %536, %.body385.i.i ], [ %404, %528 ], [ %595, %637 ], [ %595, %630 ], [ %595, %657 ]
-  %541 = phi ptr [ %760, %755 ], [ %596, %750 ], [ %537, %.body385.i.i ], [ %405, %528 ], [ %596, %637 ], [ %596, %630 ], [ %596, %657 ]
-  %542 = phi ptr [ %761, %755 ], [ %597, %750 ], [ %538, %.body385.i.i ], [ %406, %528 ], [ %597, %637 ], [ %597, %630 ], [ %597, %657 ]
-  %.pn296.pn.i.i = phi { ptr, i32 } [ %.pn296.i.i, %755 ], [ %.pn287.pn.pn.i.i, %750 ], [ %.pn262.i.i, %.body385.i.i ], [ %529, %528 ], [ %638, %637 ], [ %631, %630 ], [ %.pn274.pn.pn.pn.pn.i.i, %657 ]
+  %540 = phi ptr [ %759, %755 ], [ %595, %750 ], [ %404, %528 ], [ %536, %.body385.i.i ], [ %595, %630 ], [ %595, %637 ], [ %595, %657 ]
+  %541 = phi ptr [ %760, %755 ], [ %596, %750 ], [ %405, %528 ], [ %537, %.body385.i.i ], [ %596, %630 ], [ %596, %637 ], [ %596, %657 ]
+  %542 = phi ptr [ %761, %755 ], [ %597, %750 ], [ %406, %528 ], [ %538, %.body385.i.i ], [ %597, %630 ], [ %597, %637 ], [ %597, %657 ]
+  %.pn296.pn.i.i = phi { ptr, i32 } [ %.pn296.i.i, %755 ], [ %.pn287.pn.pn.i.i, %750 ], [ %529, %528 ], [ %.pn262.i.i, %.body385.i.i ], [ %631, %630 ], [ %638, %637 ], [ %.pn274.pn.pn.pn.pn.i.i, %657 ]
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %544 = load i8, ptr %543, align 8, !range !528, !noalias !537, !noundef !10
   %545 = trunc nuw i8 %544 to i1
@@ -6756,15 +6756,15 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
           to label %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17hbb3556b00bbabecdE.exit.i.i" unwind label %788
 
 .body42.i:                                        ; preds = %449, %446, %437
-  %.pn234.i.i = phi { ptr, i32 } [ %438, %437 ], [ %450, %449 ], [ %447, %446 ]
+  %.pn234.i.i = phi { ptr, i32 } [ %438, %437 ], [ %447, %446 ], [ %450, %449 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !537
   br label %581
 
 581:                                              ; preds = %964, %.body42.i, %566
-  %582 = phi ptr [ %567, %964 ], [ %567, %566 ], [ %404, %.body42.i ]
-  %583 = phi ptr [ %568, %964 ], [ %568, %566 ], [ %405, %.body42.i ]
-  %584 = phi ptr [ %569, %964 ], [ %569, %566 ], [ %406, %.body42.i ]
-  %.pn302.pn.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i, %964 ], [ %.pn299.pn.i.i, %566 ], [ %.pn234.i.i, %.body42.i ]
+  %582 = phi ptr [ %567, %566 ], [ %567, %964 ], [ %404, %.body42.i ]
+  %583 = phi ptr [ %568, %566 ], [ %568, %964 ], [ %405, %.body42.i ]
+  %584 = phi ptr [ %569, %566 ], [ %569, %964 ], [ %406, %.body42.i ]
+  %.pn302.pn.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i, %566 ], [ %.pn299.pn.i.i, %964 ], [ %.pn234.i.i, %.body42.i ]
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 559
   store i8 0, ptr %585, align 1, !noalias !537
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !537
@@ -6787,10 +6787,10 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %587
 
 .body373.i.i:                                     ; preds = %415, %410
-  %591 = phi ptr [ %107, %415 ], [ %404, %410 ]
-  %592 = phi ptr [ %.phi.trans.insert.i, %415 ], [ %405, %410 ]
-  %593 = phi ptr [ %127, %415 ], [ %406, %410 ]
-  %.pn230.i.i = phi { ptr, i32 } [ %416, %415 ], [ %411, %410 ]
+  %591 = phi ptr [ %404, %410 ], [ %107, %415 ]
+  %592 = phi ptr [ %405, %410 ], [ %.phi.trans.insert.i, %415 ]
+  %593 = phi ptr [ %406, %410 ], [ %127, %415 ]
+  %.pn230.i.i = phi { ptr, i32 } [ %411, %410 ], [ %416, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0530.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8534.i.i)
   br label %378
@@ -7265,7 +7265,7 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %758
 
 755:                                              ; preds = %770, %763
-  %.pn296.i.i = phi { ptr, i32 } [ %771, %770 ], [ %764, %763 ]
+  %.pn296.i.i = phi { ptr, i32 } [ %764, %763 ], [ %771, %770 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0603.i.i)
   br label %539
 
@@ -7756,10 +7756,10 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %940
 
 .body444.i.i:                                     ; preds = %972, %959, %942, %930
-  %955 = phi ptr [ %931, %972 ], [ %931, %930 ], [ %163, %959 ], [ %163, %942 ]
-  %956 = phi ptr [ %932, %972 ], [ %932, %930 ], [ %164, %959 ], [ %164, %942 ]
-  %957 = phi ptr [ %933, %972 ], [ %933, %930 ], [ %165, %959 ], [ %165, %942 ]
-  %.pn324.i.i = phi { ptr, i32 } [ %.pn322.i.i, %972 ], [ %.pn322.i.i, %930 ], [ %960, %959 ], [ %943, %942 ]
+  %955 = phi ptr [ %931, %930 ], [ %931, %972 ], [ %163, %959 ], [ %163, %942 ]
+  %956 = phi ptr [ %932, %930 ], [ %932, %972 ], [ %164, %959 ], [ %164, %942 ]
+  %957 = phi ptr [ %933, %930 ], [ %933, %972 ], [ %165, %959 ], [ %165, %942 ]
+  %.pn324.i.i = phi { ptr, i32 } [ %.pn322.i.i, %930 ], [ %.pn322.i.i, %972 ], [ %960, %959 ], [ %943, %942 ]
   %958 = getelementptr inbounds nuw i8, ptr %0, i64 557
   store i8 0, ptr %958, align 1, !noalias !537
   store i8 2, ptr %956, align 1, !noalias !537
@@ -7856,9 +7856,9 @@ default.unreachable64:                            ; preds = %390, %126, %106, %2
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h7a22e84b6a82104fE.exit"
 
 .body.i:                                          ; preds = %973, %.body444.i.i
-  %987 = phi ptr [ %107, %973 ], [ %955, %.body444.i.i ]
-  %988 = phi ptr [ %127, %973 ], [ %957, %.body444.i.i ]
-  %.pn35.i = phi { ptr, i32 } [ %974, %973 ], [ %.pn324.i.i, %.body444.i.i ]
+  %987 = phi ptr [ %955, %.body444.i.i ], [ %107, %973 ]
+  %988 = phi ptr [ %957, %.body444.i.i ], [ %127, %973 ]
+  %.pn35.i = phi { ptr, i32 } [ %.pn324.i.i, %.body444.i.i ], [ %974, %973 ]
   invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address_impl$LT$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h684c0b4517b7bdffE"(ptr noundef nonnull align 8 %988) #45
           to label %118 unwind label %116
 
@@ -7923,7 +7923,7 @@ common.ret:                                       ; preds = %1003, %1000
   br label %common.ret
 
 .body:                                            ; preds = %996, %994
-  %.pn26 = phi { ptr, i32 } [ %997, %996 ], [ %.pn37.i, %994 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn37.i, %994 ], [ %997, %996 ]
   invoke fastcc void @"_ZN4core3ptr227drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address$LT$ockam_core..routing..route..Route$C$alloc..vec..Vec$LT$u8$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd536672b1d347846E"(ptr noundef nonnull align 8 %0) #45
           to label %100 unwind label %97
 
@@ -8415,7 +8415,7 @@ default.unreachable35:                            ; preds = %715, %580, %419, %3
   br label %178
 
 178:                                              ; preds = %176, %170
-  %.pn73.i = phi { ptr, i32 } [ %177, %176 ], [ %171, %170 ]
+  %.pn73.i = phi { ptr, i32 } [ %171, %170 ], [ %177, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !845
   br label %180
 
@@ -8436,7 +8436,7 @@ default.unreachable35:                            ; preds = %715, %580, %419, %3
           to label %136 unwind label %889
 
 .body.i:                                          ; preds = %.body109.i, %161, %156, %148, %127, %124
-  %.pn86.pn.i = phi { ptr, i32 } [ %.pn86.i, %.body109.i ], [ %149, %148 ], [ %128, %127 ], [ %125, %124 ], [ %162, %161 ], [ %157, %156 ]
+  %.pn86.pn.i = phi { ptr, i32 } [ %.pn86.i, %.body109.i ], [ %157, %156 ], [ %125, %124 ], [ %149, %148 ], [ %128, %127 ], [ %162, %161 ]
   invoke void @"_ZN4core3ptr101drop_in_place$LT$sqlx_core..pool..connection..PoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17hc36f425e29a2ab40E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %81) #45
           to label %140 unwind label %138
 
@@ -8624,7 +8624,7 @@ default.unreachable35:                            ; preds = %715, %580, %419, %3
   br label %250
 
 246:                                              ; preds = %819, %703, %284, %272, %235
-  %.0.i.i = phi ptr [ %280, %284 ], [ %.1.i.i, %819 ], [ null, %703 ], [ %234, %235 ], [ %275, %272 ]
+  %.0.i.i = phi ptr [ %234, %235 ], [ %280, %284 ], [ %.1.i.i, %819 ], [ null, %703 ], [ %275, %272 ]
   store i8 1, ptr %184, align 1, !noalias !902
   %247 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0.i.i, 1
   br label %836
@@ -8636,7 +8636,7 @@ default.unreachable35:                            ; preds = %715, %580, %419, %3
   unreachable
 
 .body.i.i:                                        ; preds = %315, %281, %.body145.i.i, %241, %232, %227, %219, %202
-  %.pn135.pn.i.i = phi { ptr, i32 } [ %.pn133.i.i, %281 ], [ %.pn129.i.i, %315 ], [ %220, %219 ], [ %203, %202 ], [ %233, %232 ], [ %228, %227 ], [ %.pn101.i.i, %.body145.i.i ], [ %242, %241 ]
+  %.pn135.pn.i.i = phi { ptr, i32 } [ %228, %227 ], [ %.pn133.i.i, %281 ], [ %.pn129.i.i, %315 ], [ %242, %241 ], [ %203, %202 ], [ %220, %219 ], [ %233, %232 ], [ %.pn101.i.i, %.body145.i.i ]
   store i8 2, ptr %184, align 1, !noalias !902
   br label %.body98.i
 
@@ -8970,7 +8970,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br i1 %352, label %686, label %692
 
 .body165.i.i:                                     ; preds = %816, %808, %697, %688
-  %.pn124.i.i = phi { ptr, i32 } [ %.pn120.pn.pn.i.i, %816 ], [ %689, %688 ], [ %698, %697 ], [ %809, %808 ]
+  %.pn124.i.i = phi { ptr, i32 } [ %809, %808 ], [ %.pn120.pn.pn.i.i, %816 ], [ %689, %688 ], [ %698, %697 ]
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 200
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_core..migrate..migration..AppliedMigration$GT$$GT$17hb88779c9fb434204E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %353) #45
           to label %359 unwind label %248
@@ -8987,7 +8987,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br i1 %358, label %820, label %819
 
 359:                                              ; preds = %701, %.body165.i.i, %.body151.i.i, %307
-  %.pn126.pn.i.i = phi { ptr, i32 } [ %702, %701 ], [ %.pn124.i.i, %.body165.i.i ], [ %.pn108.i.i, %.body151.i.i ], [ %308, %307 ]
+  %.pn126.pn.i.i = phi { ptr, i32 } [ %.pn124.i.i, %.body165.i.i ], [ %702, %701 ], [ %308, %307 ], [ %.pn108.i.i, %.body151.i.i ]
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %361 = load i8, ptr %360, align 8, !range !528, !noalias !902, !noundef !10
   %362 = trunc nuw i8 %361 to i1
@@ -9060,7 +9060,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %392
 
 388:                                              ; preds = %.body.i.i.i, %381
-  %.pn40.i.i.i = phi { ptr, i32 } [ %.pn.i154.i.i, %.body.i.i.i ], [ %382, %381 ]
+  %.pn40.i.i.i = phi { ptr, i32 } [ %382, %381 ], [ %.pn.i154.i.i, %.body.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.body58.i.i.i
 
@@ -9224,9 +9224,9 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %437
 
 .body.i.i.i.i.i:                                  ; preds = %457, %453, %445, %427
-  %432 = phi ptr [ %438, %445 ], [ %423, %427 ], [ %438, %457 ], [ %438, %453 ]
-  %433 = phi ptr [ %439, %445 ], [ %424, %427 ], [ %439, %457 ], [ %439, %453 ]
-  %.pn11.i.i.i.i.i = phi { ptr, i32 } [ %446, %445 ], [ %428, %427 ], [ %458, %457 ], [ %454, %453 ]
+  %432 = phi ptr [ %423, %427 ], [ %438, %445 ], [ %438, %457 ], [ %438, %453 ]
+  %433 = phi ptr [ %424, %427 ], [ %439, %445 ], [ %439, %457 ], [ %439, %453 ]
+  %.pn11.i.i.i.i.i = phi { ptr, i32 } [ %428, %427 ], [ %446, %445 ], [ %458, %457 ], [ %454, %453 ]
   store i8 2, ptr %432, align 8, !noalias !1026
   br label %.body.i.i.i.i
 
@@ -9476,13 +9476,13 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %.body34.i.i.i.i
 
 .body39.i.i.i.i:                                  ; preds = %.body34.i.i.i.i, %464
-  %.pn25.i.i.i.i = phi { ptr, i32 } [ %.pn23.i.i.i.i, %.body34.i.i.i.i ], [ %.pn19.i.i.i.i, %464 ]
+  %.pn25.i.i.i.i = phi { ptr, i32 } [ %.pn19.i.i.i.i, %464 ], [ %.pn23.i.i.i.i, %.body34.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i)
   br label %415
 
 .body.i.i.i.i:                                    ; preds = %461, %.body.i.i.i.i.i
-  %509 = phi ptr [ %420, %461 ], [ %433, %.body.i.i.i.i.i ]
-  %.pn17.i.i.i.i = phi { ptr, i32 } [ %462, %461 ], [ %.pn11.i.i.i.i.i, %.body.i.i.i.i.i ]
+  %509 = phi ptr [ %433, %.body.i.i.i.i.i ], [ %420, %461 ]
+  %.pn17.i.i.i.i = phi { ptr, i32 } [ %.pn11.i.i.i.i.i, %.body.i.i.i.i.i ], [ %462, %461 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.850.i.i.i.i)
   invoke fastcc void @"_ZN4core3ptr229drop_in_place$LT$sqlx_core..query..Query$LT$sqlx_sqlite..database..Sqlite$C$sqlx_sqlite..arguments..SqliteArguments$GT$..fetch_optional$LT$$RF$mut$u20$sqlx_sqlite..connection..SqliteConnection$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h76182203b7d428a8E"(ptr noundef nonnull align 8 %509) #45
           to label %464 unwind label %413, !noalias !1025
@@ -9543,7 +9543,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %537
 
 531:                                              ; preds = %.thread.i.i.i, %578, %559, %533, %524
-  %.0.i.i.i = phi ptr [ null, %524 ], [ %.sroa.385.0.copyload.i.i.i, %578 ], [ %471, %533 ], [ null, %559 ], [ %.022.i.i.i.i, %.thread.i.i.i ]
+  %.0.i.i.i = phi ptr [ null, %524 ], [ %471, %533 ], [ null, %559 ], [ %.sroa.385.0.copyload.i.i.i, %578 ], [ %.022.i.i.i.i, %.thread.i.i.i ]
   store i8 1, ptr %365, align 8, !noalias !1001
   %532 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0.i.i.i, 1
   br label %"_ZN10ockam_node7storage8database10migrations17migration_support8migrator13NextMigration20apply_rust_migration28_$u7b$$u7b$closure$u7d$$u7d$17hafaac5922bb3b267E.exit.i.i"
@@ -9560,7 +9560,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %531
 
 .body.i.i.i:                                      ; preds = %510, %415
-  %.pn.i154.i.i = phi { ptr, i32 } [ %511, %510 ], [ %.pn25.pn.i.i.i.i, %415 ]
+  %.pn.i154.i.i = phi { ptr, i32 } [ %.pn25.pn.i.i.i.i, %415 ], [ %511, %510 ]
   invoke fastcc void @"_ZN4core3ptr144drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..Migrator..has_migrated..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf2c37854cd147532E"(ptr noundef nonnull align 8 %393) #45
           to label %388 unwind label %535
 
@@ -9571,7 +9571,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   unreachable
 
 .body58.i.i.i:                                    ; preds = %577, %557, %552, %544, %525, %388
-  %.pn49.pn.i.i.i = phi { ptr, i32 } [ %.pn49.i.i.i, %577 ], [ %.pn40.i.i.i, %388 ], [ %545, %544 ], [ %526, %525 ], [ %558, %557 ], [ %553, %552 ]
+  %.pn49.pn.i.i.i = phi { ptr, i32 } [ %.pn49.i.i.i, %577 ], [ %.pn40.i.i.i, %388 ], [ %526, %525 ], [ %545, %544 ], [ %558, %557 ], [ %553, %552 ]
   store i8 2, ptr %365, align 8, !noalias !1001
   br label %.body157.i.i
 
@@ -9680,7 +9680,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %580
 
 577:                                              ; preds = %.body68.i.i.i, %571
-  %.pn49.i.i.i = phi { ptr, i32 } [ %.pn47.i.i.i, %.body68.i.i.i ], [ %572, %571 ]
+  %.pn49.i.i.i = phi { ptr, i32 } [ %572, %571 ], [ %.pn47.i.i.i, %.body68.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.body58.i.i.i
 
@@ -9871,7 +9871,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
           to label %610 unwind label %626, !noalias !1102
 
 630:                                              ; preds = %645, %639, %633, %623, %592
-  %.pn38.pn.i.i.i.i = phi { ptr, i32 } [ %.pn24.i.i.i.i, %633 ], [ %.pn31.pn.i.i.i.i, %623 ], [ %593, %592 ], [ %646, %645 ], [ %640, %639 ]
+  %.pn38.pn.i.i.i.i = phi { ptr, i32 } [ %.pn24.i.i.i.i, %633 ], [ %593, %592 ], [ %.pn31.pn.i.i.i.i, %623 ], [ %640, %639 ], [ %646, %645 ]
   store i8 2, ptr %582, align 8, !noalias !1099
   br label %.body68.i.i.i
 
@@ -9963,7 +9963,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %"_ZN10ockam_node7storage8database10migrations17migration_support8migrator13NextMigration20apply_rust_migration28_$u7b$$u7b$closure$u7d$$u7d$17hafaac5922bb3b267E.exit.i.i"
 
 .thread.i.i.i:                                    ; preds = %651, %631, %594
-  %.022.i.i.i.i = phi ptr [ %.sroa.050.069.i.i.i.i, %631 ], [ %597, %594 ], [ %650, %651 ]
+  %.022.i.i.i.i = phi ptr [ %.sroa.050.069.i.i.i.i, %631 ], [ %650, %651 ], [ %597, %594 ]
   store i8 1, ptr %582, align 8, !noalias !1099
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1001
@@ -9971,7 +9971,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %531
 
 .body68.i.i.i:                                    ; preds = %652, %630
-  %.pn47.i.i.i = phi { ptr, i32 } [ %653, %652 ], [ %.pn38.pn.i.i.i.i, %630 ]
+  %.pn47.i.i.i = phi { ptr, i32 } [ %.pn38.pn.i.i.i.i, %630 ], [ %653, %652 ]
   invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..Migrator..mark_as_migrated..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc67248e76d322adfE"(ptr noundef nonnull align 8 %581) #45
           to label %577 unwind label %535
 
@@ -10049,7 +10049,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   br label %836
 
 .body161.i.i:                                     ; preds = %.body157.i.i, %812, %681, %671
-  %.pn114.i.i = phi { ptr, i32 } [ %.pn112.i.i, %.body157.i.i ], [ %813, %812 ], [ %682, %681 ], [ %672, %671 ]
+  %.pn114.i.i = phi { ptr, i32 } [ %813, %812 ], [ %.pn112.i.i, %.body157.i.i ], [ %682, %681 ], [ %672, %671 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %816
 
@@ -10311,7 +10311,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br label %770
 
 770:                                              ; preds = %.body.i170.i.i, %768, %765, %746, %730
-  %.pn30.pn.pn.i.i.i = phi { ptr, i32 } [ %731, %730 ], [ %769, %768 ], [ %766, %765 ], [ %.pn28.i.i.i, %.body.i170.i.i ], [ %747, %746 ]
+  %.pn30.pn.pn.i.i.i = phi { ptr, i32 } [ %731, %730 ], [ %766, %765 ], [ %747, %746 ], [ %769, %768 ], [ %.pn28.i.i.i, %.body.i170.i.i ]
   store i8 2, ptr %717, align 8, !noalias !1147
   br label %.body175.i.i
 
@@ -10435,7 +10435,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br i1 %805, label %685, label %806
 
 .body180.i.i:                                     ; preds = %.body175.i.i, %711
-  %.pn120.i.i = phi { ptr, i32 } [ %.pn118.i.i, %.body175.i.i ], [ %712, %711 ]
+  %.pn120.i.i = phi { ptr, i32 } [ %712, %711 ], [ %.pn118.i.i, %.body175.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %816
 
@@ -10463,7 +10463,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
           to label %817 unwind label %697
 
 .body175.i.i:                                     ; preds = %802, %770
-  %.pn118.i.i = phi { ptr, i32 } [ %803, %802 ], [ %.pn30.pn.pn.i.i.i, %770 ]
+  %.pn118.i.i = phi { ptr, i32 } [ %.pn30.pn.pn.i.i.i, %770 ], [ %803, %802 ]
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration..apply_sql_migration..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4982d09a2f1eacbaE"(ptr noundef nonnull align 8 %716) #45
           to label %.body180.i.i unwind label %248
 
@@ -10481,7 +10481,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br label %363
 
 816:                                              ; preds = %.body180.i.i, %.body161.i.i
-  %.pn120.pn.pn.i.i = phi { ptr, i32 } [ %.pn120.i.i, %.body180.i.i ], [ %.pn114.i.i, %.body161.i.i ]
+  %.pn120.pn.pn.i.i = phi { ptr, i32 } [ %.pn114.i.i, %.body161.i.i ], [ %.pn120.i.i, %.body180.i.i ]
   invoke void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$GT$$GT$17hfb4a971feaec9de1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %183) #45
           to label %.body165.i.i unwind label %248
 
@@ -10528,7 +10528,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br label %315
 
 .body157.i.i:                                     ; preds = %655, %.body58.i.i.i
-  %.pn112.i.i = phi { ptr, i32 } [ %656, %655 ], [ %.pn49.pn.i.i.i, %.body58.i.i.i ]
+  %.pn112.i.i = phi { ptr, i32 } [ %.pn49.pn.i.i.i, %.body58.i.i.i ], [ %656, %655 ]
   invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration..apply_rust_migration..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb94bc0fad96cc41fE"(ptr noundef nonnull align 8 %364) #45
           to label %.body161.i.i unwind label %248
 
@@ -10606,12 +10606,12 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br label %858
 
 .body98.i:                                        ; preds = %834, %.body.i.i
-  %.pn75.i = phi { ptr, i32 } [ %835, %834 ], [ %.pn135.pn.i.i, %.body.i.i ]
+  %.pn75.i = phi { ptr, i32 } [ %.pn135.pn.i.i, %.body.i.i ], [ %835, %834 ]
   invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..Migrator..run_migrations..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1504bb10df6d0a86E"(ptr noundef nonnull align 8 %183) #45
           to label %180 unwind label %138
 
 .body109.i:                                       ; preds = %905, %901, %.body105.i, %180
-  %.pn86.i = phi { ptr, i32 } [ %.pn83.pn.i, %905 ], [ %.pn83.pn.i, %.body105.i ], [ %.pn77.i, %180 ], [ %902, %901 ]
+  %.pn86.i = phi { ptr, i32 } [ %.pn77.i, %180 ], [ %.pn83.pn.i, %905 ], [ %.pn83.pn.i, %.body105.i ], [ %902, %901 ]
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %857, align 8, !noalias !845
   br label %.body.i
@@ -10708,14 +10708,14 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i.i: ;
   br i1 %892, label %896, label %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17h7e4f565e55145787E.exit.i"
 
 .body105.i:                                       ; preds = %878, %873, %865, %851, %848
-  %.pn83.pn.i = phi { ptr, i32 } [ %866, %865 ], [ %852, %851 ], [ %849, %848 ], [ %879, %878 ], [ %874, %873 ]
+  %.pn83.pn.i = phi { ptr, i32 } [ %849, %848 ], [ %879, %878 ], [ %874, %873 ], [ %866, %865 ], [ %852, %851 ]
   %893 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %894 = load i8, ptr %893, align 8, !range !528, !noalias !845, !noundef !10
   %895 = trunc nuw i8 %894 to i1
   br i1 %895, label %905, label %.body109.i
 
 "_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$GT$17h7e4f565e55145787E.exit.i": ; preds = %884, %"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E.exit.i.i", %896, %891
-  %.2162.i = phi ptr [ %880, %"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E.exit.i.i" ], [ %880, %896 ], [ %880, %891 ], [ %886, %884 ]
+  %.2162.i = phi ptr [ %880, %891 ], [ %880, %"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E.exit.i.i" ], [ %880, %896 ], [ %886, %884 ]
   store i8 0, ptr %883, align 8, !noalias !845
   br label %181
 
@@ -10790,7 +10790,7 @@ common.ret:                                       ; preds = %915, %912
   br label %common.ret
 
 .body:                                            ; preds = %907, %140
-  %.pn = phi { ptr, i32 } [ %908, %907 ], [ %.pn89.pn.i, %140 ]
+  %.pn = phi { ptr, i32 } [ %.pn89.pn.i, %140 ], [ %908, %907 ]
   invoke fastcc void @"_ZN4core3ptr145drop_in_place$LT$ockam_node..storage..database..migrations..migration_support..migrator..Migrator..migrate_up_to..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa9e8271176dce6fE"(ptr noundef nonnull align 8 %81) #45
           to label %77 unwind label %917
 
@@ -11008,7 +11008,7 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..response_header..Respo
           to label %109 unwind label %107
 
 "_ZN110_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Decoder$LT$T$GT$$GT$6decode17h4909a8a074ba5925E.exit": ; preds = %.noexc, %27
-  %.sroa.476.0 = phi i32 [ %40, %.noexc ], [ %.0.i, %27 ]
+  %.sroa.476.0 = phi i32 [ %.0.i, %27 ], [ %40, %.noexc ]
   %.not = icmp eq i32 %.sroa.476.0, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -11060,8 +11060,8 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..response_header..Respo
 63:                                               ; preds = %105, %.thread, %21
   ret void
 
-64:                                               ; preds = %.noexc59, %48
-  %.sroa.479.1.ph = phi i32 [ %.0.i53, %48 ], [ %61, %.noexc59 ]
+64:                                               ; preds = %48, %.noexc59
+  %.sroa.479.1.ph = phi i32 [ %61, %.noexc59 ], [ %.0.i53, %48 ]
   br label %65
 
 65:                                               ; preds = %.noexc68, %64
@@ -11098,8 +11098,8 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..response_header..Respo
   %80 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h5e53097b588d4558E"()
           to label %105 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-81:                                               ; preds = %.noexc68, %65
-  %.sroa.482.1.ph = phi i32 [ %.0.i62, %65 ], [ %78, %.noexc68 ]
+81:                                               ; preds = %65, %.noexc68
+  %.sroa.482.1.ph = phi i32 [ %78, %.noexc68 ], [ %.0.i62, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.585)
   %82 = zext i32 %.sroa.482.1.ph to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !1321)
@@ -11298,7 +11298,7 @@ define hidden noundef ptr @"_ZN113_$LT$kafka_protocol..messages..response_header
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %26
-  %.0.ph = phi ptr [ %32, %26 ], [ %34, %.loopexit ]
+  %.0.ph = phi ptr [ %34, %.loopexit ], [ %32, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %35
 
@@ -11693,7 +11693,7 @@ define hidden { ptr, ptr } @"_ZN11sqlx_sqlite10connection8executor113_$LT$impl$u
   br label %18
 
 .body:                                            ; preds = %36, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr123drop_in_place$LT$sqlx_core..query..Query$LT$sqlx_sqlite..database..Sqlite$C$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17hcc211da8b2f346dcE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #45
           to label %common.resume unwind label %60
 
@@ -12086,8 +12086,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr433dro
   br label %29
 
 "_ZN4core3ptr433drop_in_place$LT$futures_util..future..try_future..TryFlattenStream$LT$futures_util..future..try_future..MapOk$LT$sqlx_sqlite..connection..worker..ConnectionWorker..execute..$u7b$$u7b$closure$u7d$$u7d$$C$flume..async..$LT$impl$u20$flume..Receiver$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$..into_stream$GT$$GT$$GT$17h0562c6234f216cddE.exit": ; preds = %75, %74, %43, %73, %66, %65, %56, %64
-  %.sroa.050.1 = phi i64 [ %.sroa.050.0, %64 ], [ %.sroa.050.0, %56 ], [ %.sroa.050.0, %65 ], [ %.sroa.050.0, %66 ], [ 16, %73 ], [ 16, %43 ], [ 16, %74 ], [ 16, %75 ]
-  %.sroa.451.1 = phi i64 [ %.sroa.451.0, %64 ], [ %.sroa.451.0, %56 ], [ %.sroa.451.0, %65 ], [ %.sroa.451.0, %66 ], [ 0, %73 ], [ 0, %43 ], [ 0, %74 ], [ 0, %75 ]
+  %.sroa.050.1 = phi i64 [ %.sroa.050.0, %66 ], [ %.sroa.050.0, %64 ], [ %.sroa.050.0, %56 ], [ %.sroa.050.0, %65 ], [ 16, %73 ], [ 16, %43 ], [ 16, %74 ], [ 16, %75 ]
+  %.sroa.451.1 = phi i64 [ %.sroa.451.0, %66 ], [ %.sroa.451.0, %64 ], [ %.sroa.451.0, %56 ], [ %.sroa.451.0, %65 ], [ 0, %73 ], [ 0, %43 ], [ 0, %74 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   store i64 %.sroa.050.1, ptr %0, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12600,7 +12600,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.18141648412
   br label %23
 
 19:                                               ; preds = %.thread.i.i, %17
-  %.011 = phi i64 [ %16, %.thread.i.i ], [ %18, %17 ]
+  %.011 = phi i64 [ %18, %17 ], [ %16, %.thread.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.011, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12891,7 +12891,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.18141648412
   br label %11
 
 11:                                               ; preds = %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.18141648412879468590.exit, %.thread.i.i, %9
-  %.0 = phi i64 [ %8, %.thread.i.i ], [ %10, %9 ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.18141648412879468590.exit ]
+  %.0 = phi i64 [ %10, %9 ], [ %8, %.thread.i.i ], [ -1, %_ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.llvm.18141648412879468590.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8, !noundef !10
   %14 = icmp eq i64 %.0, %13
@@ -13159,7 +13159,7 @@ select.unfold:                                    ; preds = %10, %"_ZN4core6resu
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17hc86171b74b75c5cdE.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$9get_inner17hc86171b74b75c5cdE.exit": ; preds = %10, %select.unfold
-  %.0 = phi ptr [ %16, %select.unfold ], [ %12, %10 ]
+  %.0 = phi ptr [ %12, %10 ], [ %16, %select.unfold ]
   ret ptr %.0
 }
 
@@ -13209,7 +13209,7 @@ select.unfold.i:                                  ; preds = %10, %"_ZN4core6resu
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h48fb75af595f9451E.llvm.18141648412879468590.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h48fb75af595f9451E.llvm.18141648412879468590.exit": ; preds = %10, %select.unfold.i
-  %.0.i = phi ptr [ %16, %select.unfold.i ], [ %12, %10 ]
+  %.0.i = phi ptr [ %12, %10 ], [ %16, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
@@ -14618,8 +14618,8 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %15
 
 15:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit.thread"
-  %.sink8 = phi ptr [ %.ph, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit.thread" ], [ %spec.select, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit" ]
-  %.sink = phi i8 [ 17, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit.thread" ], [ %spec.select13, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit" ]
+  %.sink8 = phi ptr [ %spec.select, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit" ], [ %.ph, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit.thread" ]
+  %.sink = phi i8 [ %spec.select13, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit" ], [ 17, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h907a35a005ae12d8E.llvm.18141648412879468590.exit.thread" ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink8, ptr %16, align 8
   store i8 %.sink, ptr %0, align 8
@@ -14677,7 +14677,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   store ptr %1, ptr %21, align 8
   br label %25
 
-22:                                               ; preds = %10, %18, %14
+22:                                               ; preds = %18, %10, %14
   %.sroa.78.0.ph = phi ptr [ %16, %14 ], [ %19, %18 ], [ %11, %10 ]
   %23 = icmp ne ptr %.sroa.78.0.ph, null
   tail call void @llvm.assume(i1 %23)
@@ -14799,7 +14799,7 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   store ptr %1, ptr %21, align 8
   br label %25
 
-22:                                               ; preds = %10, %18, %14
+22:                                               ; preds = %18, %10, %14
   %.sroa.78.0.ph = phi ptr [ %16, %14 ], [ %19, %18 ], [ %11, %10 ]
   %23 = icmp ne ptr %.sroa.78.0.ph, null
   tail call void @llvm.assume(i1 %23)
@@ -17109,8 +17109,8 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   call void @llvm.lifetime.end.p0(ptr nonnull %397)
   br label %536
 
-533:                                              ; preds = %531, %448, %441, %468
-  %.pn469.pn.ph = phi { ptr, i32 } [ %.pn458.pn.pn.pn, %468 ], [ %442, %441 ], [ %449, %448 ], [ %.pn466.pn, %531 ]
+533:                                              ; preds = %531, %441, %448, %468
+  %.pn469.pn.ph = phi { ptr, i32 } [ %.pn466.pn, %531 ], [ %442, %441 ], [ %.pn458.pn.pn.pn, %468 ], [ %449, %448 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %397) #45
           to label %532 unwind label %534
 
@@ -17121,7 +17121,7 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   unreachable
 
 536:                                              ; preds = %3099, %2367, %2357, %2998, %2384, %2376, %2897, %2401, %2393, %1275, %1044, %1034, %1174, %1061, %1053, %532, %418, %408, %2448, %2421, %2428, %2506, %3879, %2507, %1074, %432
-  %.pn860.pn.pn = phi { ptr, i32 } [ %.pn860.pn, %2506 ], [ %.pn840.pn.pn.pn.pn, %3879 ], [ %2508, %2507 ], [ %.pn560.pn.pn, %1074 ], [ %.pn492.pn.pn, %432 ], [ %2429, %2428 ], [ %2422, %2421 ], [ %.pn852.pn.pn.pn, %2448 ], [ %.pn469.pn2459, %532 ], [ %419, %418 ], [ %409, %408 ], [ %.pn534.pn2477, %1174 ], [ %1062, %1061 ], [ %1054, %1053 ], [ %.pn513.pn2485, %1275 ], [ %1045, %1044 ], [ %1035, %1034 ], [ %.pn623.pn2533, %2897 ], [ %2402, %2401 ], [ %2394, %2393 ], [ %.pn602.pn2541, %2998 ], [ %2385, %2384 ], [ %2377, %2376 ], [ %.pn581.pn2549, %3099 ], [ %2368, %2367 ], [ %2358, %2357 ]
+  %.pn860.pn.pn = phi { ptr, i32 } [ %.pn860.pn, %2506 ], [ %.pn560.pn.pn, %1074 ], [ %409, %408 ], [ %2422, %2421 ], [ %2429, %2428 ], [ %.pn852.pn.pn.pn, %2448 ], [ %2377, %2376 ], [ %1054, %1053 ], [ %.pn492.pn.pn, %432 ], [ %.pn840.pn.pn.pn.pn, %3879 ], [ %2508, %2507 ], [ %1035, %1034 ], [ %2394, %2393 ], [ %.pn469.pn2459, %532 ], [ %419, %418 ], [ %.pn534.pn2477, %1174 ], [ %1062, %1061 ], [ %.pn513.pn2485, %1275 ], [ %1045, %1044 ], [ %.pn623.pn2533, %2897 ], [ %2402, %2401 ], [ %.pn602.pn2541, %2998 ], [ %2385, %2384 ], [ %.pn581.pn2549, %3099 ], [ %2368, %2367 ], [ %2358, %2357 ]
   store i8 2, ptr %399, align 1
   resume { ptr, i32 } %.pn860.pn.pn
 
@@ -17366,7 +17366,7 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   br i1 %628, label %select.unfold.i, label %674
 
 629:                                              ; preds = %1006, %843, %842, %825, %720, %700, %693, %683, %672, %670, %585, %565, %558
-  %.pn172.pn.pn.i = phi { ptr, i32 } [ %.pn172.pn.i, %1006 ], [ %826, %825 ], [ %.pn131.pn.pn.pn.pn.pn.i, %842 ], [ %684, %683 ], [ %673, %672 ], [ %671, %670 ], [ %.pn110.pn.i, %843 ], [ %566, %565 ], [ %559, %558 ], [ %.pn102.pn.pn.pn.i, %585 ], [ %701, %700 ], [ %694, %693 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.i, %720 ]
+  %.pn172.pn.pn.i = phi { ptr, i32 } [ %.pn172.pn.i, %1006 ], [ %826, %825 ], [ %673, %672 ], [ %.pn131.pn.pn.pn.pn.pn.i, %842 ], [ %671, %670 ], [ %.pn110.pn.i, %843 ], [ %694, %693 ], [ %559, %558 ], [ %701, %700 ], [ %.pn102.pn.pn.pn.i, %585 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.i, %720 ], [ %566, %565 ], [ %684, %683 ]
   store i8 2, ptr %541, align 8, !noalias !2449
   br label %.body
 
@@ -17552,7 +17552,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   br label %629
 
 685:                                              ; preds = %680, %.noexc236.i
-  %.0.i.i234.i = phi ptr [ null, %.noexc236.i ], [ %..i.i233.i, %680 ]
+  %.0.i.i234.i = phi ptr [ %..i.i233.i, %680 ], [ null, %.noexc236.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !2503
   store ptr %.0.i.i234.i, ptr %677, align 8, !noalias !2449
   %686 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8, !noalias !2449
@@ -18094,7 +18094,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   br label %847
 
 .body.i:                                          ; preds = %874, %868, %849, %834
-  %.pn170.i = phi { ptr, i32 } [ %850, %849 ], [ %835, %834 ], [ %875, %874 ], [ %869, %868 ]
+  %.pn170.i = phi { ptr, i32 } [ %835, %834 ], [ %850, %849 ], [ %875, %874 ], [ %869, %868 ]
   %838 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$17h35e8b2d14119e09cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %838) #45
           to label %839 unwind label %1011, !noalias !2453
@@ -18622,7 +18622,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   br label %1010
 
 1010:                                             ; preds = %1009, %996, %988, %920, %900, %893, %883
-  %.pn168.ph.i = phi { ptr, i32 } [ %.pn153.pn.pn.pn.i, %920 ], [ %894, %893 ], [ %901, %900 ], [ %989, %988 ], [ %884, %883 ], [ %.pn163.pn.i, %1009 ], [ %997, %996 ]
+  %.pn168.ph.i = phi { ptr, i32 } [ %894, %893 ], [ %989, %988 ], [ %.pn153.pn.pn.pn.i, %920 ], [ %.pn163.pn.i, %1009 ], [ %884, %883 ], [ %901, %900 ], [ %997, %996 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$aws_smithy_types..endpoint..Endpoint$GT$17h07fd6e7d319902e0E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %122) #45
           to label %1006 unwind label %1011, !noalias !2453
 
@@ -19080,8 +19080,8 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   call void @llvm.lifetime.end.p0(ptr nonnull %357)
   br label %536
 
-1175:                                             ; preds = %1173, %1090, %1083, %1110
-  %.pn534.pn.ph = phi { ptr, i32 } [ %.pn523.pn.pn.pn, %1110 ], [ %1084, %1083 ], [ %1091, %1090 ], [ %.pn531.pn, %1173 ]
+1175:                                             ; preds = %1173, %1083, %1090, %1110
+  %.pn534.pn.ph = phi { ptr, i32 } [ %.pn531.pn, %1173 ], [ %1084, %1083 ], [ %.pn523.pn.pn.pn, %1110 ], [ %1091, %1090 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %357) #45
           to label %1174 unwind label %534
 
@@ -19387,8 +19387,8 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   call void @llvm.lifetime.end.p0(ptr nonnull %370)
   br label %536
 
-1276:                                             ; preds = %1274, %1191, %1184, %1211
-  %.pn513.pn.ph = phi { ptr, i32 } [ %.pn502.pn.pn.pn, %1211 ], [ %1185, %1184 ], [ %1192, %1191 ], [ %.pn510.pn, %1274 ]
+1276:                                             ; preds = %1274, %1184, %1191, %1211
+  %.pn513.pn.ph = phi { ptr, i32 } [ %.pn510.pn, %1274 ], [ %1185, %1184 ], [ %.pn502.pn.pn.pn, %1211 ], [ %1192, %1191 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %370) #45
           to label %1275 unwind label %534
 
@@ -19696,13 +19696,13 @@ select.unfold.i:                                  ; preds = %626, %.noexc215.i
   call void @llvm.lifetime.end.p0(ptr nonnull %383)
   br label %432
 
-1379:                                             ; preds = %1377, %1293, %1286, %1313
-  %.pn492.pn.ph = phi { ptr, i32 } [ %.pn481.pn.pn.pn, %1313 ], [ %1287, %1286 ], [ %1294, %1293 ], [ %.pn489.pn, %1377 ]
+1379:                                             ; preds = %1377, %1286, %1293, %1313
+  %.pn492.pn.ph = phi { ptr, i32 } [ %.pn489.pn, %1377 ], [ %1287, %1286 ], [ %.pn481.pn.pn.pn, %1313 ], [ %1294, %1293 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %383) #45
           to label %1378 unwind label %534
 
 .body:                                            ; preds = %1023, %629
-  %.pn473 = phi { ptr, i32 } [ %1024, %1023 ], [ %.pn172.pn.pn.i, %629 ]
+  %.pn473 = phi { ptr, i32 } [ %.pn172.pn.pn.i, %629 ], [ %1024, %1023 ]
   invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$aws_smithy_runtime..client..orchestrator..endpoints..orchestrate_endpoint..$u7b$$u7b$closure$u7d$$u7d$$GT$17h37ea898e31306e58E"(ptr noundef nonnull align 8 %540) #45
           to label %432 unwind label %534
 
@@ -20153,7 +20153,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
           to label %1561 unwind label %1559, !noalias !2838
 
 1525:                                             ; preds = %2030, %1636, %1614, %1559, %1473, %1453, %1446, %1436, %1434
-  %.pn464.i = phi { ptr, i32 } [ %1615, %1614 ], [ %1560, %1559 ], [ %.pn322.pn.pn.pn.pn.pn.i, %2030 ], [ %1437, %1436 ], [ %1435, %1434 ], [ %.pn458.pn.i, %1636 ], [ %1454, %1453 ], [ %1447, %1446 ], [ %.pn310.pn.pn.pn.pn.pn.pn.pn.i, %1473 ]
+  %.pn464.i = phi { ptr, i32 } [ %1615, %1614 ], [ %1435, %1434 ], [ %.pn310.pn.pn.pn.pn.pn.pn.pn.i, %1473 ], [ %1454, %1453 ], [ %1560, %1559 ], [ %.pn322.pn.pn.pn.pn.pn.i, %2030 ], [ %1437, %1436 ], [ %.pn458.pn.i, %1636 ], [ %1447, %1446 ]
   %1526 = getelementptr inbounds nuw i8, ptr %0, i64 448
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE"(ptr noalias noundef align 8 dereferenceable(24) %1526) #45
           to label %1628 unwind label %1986, !noalias !2838
@@ -20946,7 +20946,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
           to label %1807 unwind label %1805, !noalias !2838
 
 1752:                                             ; preds = %1992, %1698, %1680, %1673, %1663
-  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1992 ], [ %1664, %1663 ], [ %1681, %1680 ], [ %1674, %1673 ], [ %.pn351.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1698 ]
+  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1992 ], [ %.pn351.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1698 ], [ %1664, %1663 ], [ %1674, %1673 ], [ %1681, %1680 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h421e8044f97a49d9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1576) #45
           to label %1993 unwind label %1986, !noalias !2838
 
@@ -21452,7 +21452,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
           to label %1921 unwind label %1919, !noalias !2838
 
 .body.i1205:                                      ; preds = %.body835.i, %1935, %1931, %1925, %1846, %1826, %1819
-  %.pn445.pn.pn.i = phi { ptr, i32 } [ %.pn445.pn.i, %.body835.i ], [ %.pn395.pn.pn.pn.i, %1925 ], [ %1936, %1935 ], [ %1827, %1826 ], [ %1820, %1819 ], [ %.pn385.pn.pn.pn.pn.pn.i, %1846 ], [ %1932, %1931 ]
+  %.pn445.pn.pn.i = phi { ptr, i32 } [ %.pn445.pn.i, %.body835.i ], [ %.pn395.pn.pn.pn.i, %1925 ], [ %1827, %1826 ], [ %1932, %1931 ], [ %1820, %1819 ], [ %.pn385.pn.pn.pn.pn.pn.i, %1846 ], [ %1936, %1935 ]
   %1892 = getelementptr inbounds nuw i8, ptr %0, i64 336
   invoke void @"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h421e8044f97a49d9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1892) #45
           to label %1942 unwind label %1986, !noalias !2838
@@ -21738,7 +21738,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %1963
 
 1967:                                             ; preds = %2334, %1993, %.loopexit.split-lp1335.i, %.loopexit1334.i
-  %.pn453.i = phi { ptr, i32 } [ %.pn449.pn.pn.i, %2334 ], [ %.pn449.pn.pn.i, %1993 ], [ %lpad.loopexit1336.i, %.loopexit1334.i ], [ %lpad.loopexit.split-lp1337.i, %.loopexit.split-lp1335.i ]
+  %.pn453.i = phi { ptr, i32 } [ %.pn449.pn.pn.i, %1993 ], [ %.pn449.pn.pn.i, %2334 ], [ %lpad.loopexit1336.i, %.loopexit1334.i ], [ %lpad.loopexit.split-lp1337.i, %.loopexit.split-lp1335.i ]
   %1968 = getelementptr inbounds nuw i8, ptr %0, i64 553
   store i8 0, ptr %1968, align 1, !noalias !2831
   br label %2016
@@ -21770,7 +21770,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
           to label %.backedge.i unwind label %.loopexit1339.i, !noalias !2838
 
 1973:                                             ; preds = %2019, %2006, %.loopexit.split-lp1340.i, %.loopexit1339.i
-  %.pn458.i = phi { ptr, i32 } [ %.pn453.pn.pn.i, %2006 ], [ %2020, %2019 ], [ %lpad.loopexit1341.i, %.loopexit1339.i ], [ %lpad.loopexit.split-lp1342.i, %.loopexit.split-lp1340.i ]
+  %.pn458.i = phi { ptr, i32 } [ %2020, %2019 ], [ %.pn453.pn.pn.i, %2006 ], [ %lpad.loopexit1341.i, %.loopexit1339.i ], [ %lpad.loopexit.split-lp1342.i, %.loopexit.split-lp1340.i ]
   %1974 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %1975 = load ptr, ptr %1974, align 8, !noalias !2831, !noundef !10
   %.not460.i = icmp eq ptr %1975, null
@@ -22284,7 +22284,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %2091
 
 2134:                                             ; preds = %2296, %2294, %2275, %2260, %2196, %2176, %2169, %2091, %2071, %2064
-  %.pn442.pn.i = phi { ptr, i32 } [ %2261, %2260 ], [ %.pn439.pn.i, %2294 ], [ %.pn420.pn.pn.pn.i, %2296 ], [ %2276, %2275 ], [ %2072, %2071 ], [ %2065, %2064 ], [ %.pn410.pn.pn.pn.pn.pn.i, %2091 ], [ %2177, %2176 ], [ %2170, %2169 ], [ %.pn431.pn.pn.pn.i, %2196 ]
+  %.pn442.pn.i = phi { ptr, i32 } [ %2177, %2176 ], [ %2261, %2260 ], [ %.pn420.pn.pn.pn.i, %2296 ], [ %.pn439.pn.i, %2294 ], [ %2072, %2071 ], [ %.pn431.pn.pn.pn.i, %2196 ], [ %2170, %2169 ], [ %2065, %2064 ], [ %2276, %2275 ], [ %.pn410.pn.pn.pn.pn.pn.i, %2091 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$aws_smithy_runtime_api..client..identity..Identity$GT$17h197f6457f8556c67E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39) #45
           to label %.body835.i unwind label %1986, !noalias !2838
 
@@ -22908,8 +22908,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %.body1229
 
 2348:                                             ; preds = %2036, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit844.i", %1635, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit.i"
-  %.sroa.81906.0.ph = phi ptr [ %.sroa.7288.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit844.i" ], [ %.sroa.7288.2.i, %2036 ], [ @anon.cd7c969f4556469dc4b35f3c424afcac.179.llvm.4791013001715523264, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit.i" ], [ @anon.cd7c969f4556469dc4b35f3c424afcac.179.llvm.4791013001715523264, %1635 ]
-  %.sroa.61905.0.ph = phi ptr [ %.sroa.0287.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit844.i" ], [ %.sroa.0287.2.i, %2036 ], [ %.fca.0.extract.i.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit.i" ], [ %.fca.0.extract.i.i.i.i, %1635 ]
+  %.sroa.81906.0.ph = phi ptr [ %.sroa.7288.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit844.i" ], [ %.sroa.7288.2.i, %2036 ], [ @anon.cd7c969f4556469dc4b35f3c424afcac.179.llvm.4791013001715523264, %1635 ], [ @anon.cd7c969f4556469dc4b35f3c424afcac.179.llvm.4791013001715523264, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit.i" ]
+  %.sroa.61905.0.ph = phi ptr [ %.sroa.0287.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit844.i" ], [ %.sroa.0287.2.i, %2036 ], [ %.fca.0.extract.i.i.i.i, %1635 ], [ %.fca.0.extract.i.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17h3ec5cf94e682b1bfE.exit.i" ]
   store i8 1, ptr %1382, align 4, !noalias !2831
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51111.i)
@@ -24177,8 +24177,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %2795
 
-2794:                                             ; preds = %2792, %2707, %2700, %2727
-  %.pn665.pn.ph = phi { ptr, i32 } [ %.pn654.pn.pn.pn, %2727 ], [ %2701, %2700 ], [ %2708, %2707 ], [ %.pn662.pn, %2792 ]
+2794:                                             ; preds = %2792, %2700, %2707, %2727
+  %.pn665.pn.ph = phi { ptr, i32 } [ %.pn662.pn, %2792 ], [ %2701, %2700 ], [ %.pn654.pn.pn.pn, %2727 ], [ %2708, %2707 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %267) #45
           to label %2793 unwind label %534
 
@@ -24199,8 +24199,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %.thread2513
 
-.thread2513:                                      ; preds = %2551, %2524, %2531, %2797, %2795, %2597
-  %.pn673.pn.pn2516 = phi { ptr, i32 } [ %.pn673.pn, %2597 ], [ %.pn633.pn.pn.pn.pn.pn, %2551 ], [ %2525, %2524 ], [ %2532, %2531 ], [ %.pn643.pn.pn.pn, %2797 ], [ %.pn665.pn.pn, %2795 ]
+.thread2513:                                      ; preds = %2551, %2531, %2524, %2797, %2795, %2597
+  %.pn673.pn.pn2516 = phi { ptr, i32 } [ %.pn673.pn, %2597 ], [ %2525, %2524 ], [ %.pn665.pn.pn, %2795 ], [ %.pn633.pn.pn.pn.pn.pn, %2551 ], [ %2532, %2531 ], [ %.pn643.pn.pn.pn, %2797 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..request..Request$GT$17h46d3a28bba528559E"(ptr noalias noundef nonnull align 8 dereferenceable(344) %2511) #45
           to label %3879 unwind label %534
 
@@ -24506,8 +24506,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %304)
   br label %536
 
-2898:                                             ; preds = %2896, %2813, %2806, %2833
-  %.pn623.pn.ph = phi { ptr, i32 } [ %.pn612.pn.pn.pn, %2833 ], [ %2807, %2806 ], [ %2814, %2813 ], [ %.pn620.pn, %2896 ]
+2898:                                             ; preds = %2896, %2806, %2813, %2833
+  %.pn623.pn.ph = phi { ptr, i32 } [ %.pn620.pn, %2896 ], [ %2807, %2806 ], [ %.pn612.pn.pn.pn, %2833 ], [ %2814, %2813 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %304) #45
           to label %2897 unwind label %534
 
@@ -24813,8 +24813,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %317)
   br label %536
 
-2999:                                             ; preds = %2997, %2914, %2907, %2934
-  %.pn602.pn.ph = phi { ptr, i32 } [ %.pn591.pn.pn.pn, %2934 ], [ %2908, %2907 ], [ %2915, %2914 ], [ %.pn599.pn, %2997 ]
+2999:                                             ; preds = %2997, %2907, %2914, %2934
+  %.pn602.pn.ph = phi { ptr, i32 } [ %.pn599.pn, %2997 ], [ %2908, %2907 ], [ %.pn591.pn.pn.pn, %2934 ], [ %2915, %2914 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %317) #45
           to label %2998 unwind label %534
 
@@ -25120,8 +25120,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %330)
   br label %536
 
-3100:                                             ; preds = %3098, %3015, %3008, %3035
-  %.pn581.pn.ph = phi { ptr, i32 } [ %.pn570.pn.pn.pn, %3035 ], [ %3009, %3008 ], [ %3016, %3015 ], [ %.pn578.pn, %3098 ]
+3100:                                             ; preds = %3098, %3008, %3015, %3035
+  %.pn581.pn.ph = phi { ptr, i32 } [ %.pn578.pn, %3098 ], [ %3009, %3008 ], [ %.pn570.pn.pn.pn, %3035 ], [ %3016, %3015 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %330) #45
           to label %3099 unwind label %534
 
@@ -25429,13 +25429,13 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %343)
   br label %1074
 
-3203:                                             ; preds = %3201, %3117, %3110, %3137
-  %.pn560.pn.ph = phi { ptr, i32 } [ %.pn549.pn.pn.pn, %3137 ], [ %3111, %3110 ], [ %3118, %3117 ], [ %.pn557.pn, %3201 ]
+3203:                                             ; preds = %3201, %3110, %3117, %3137
+  %.pn560.pn.ph = phi { ptr, i32 } [ %.pn557.pn, %3201 ], [ %3111, %3110 ], [ %.pn549.pn.pn.pn, %3137 ], [ %3118, %3117 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %343) #45
           to label %3202 unwind label %534
 
 .body1229:                                        ; preds = %2346, %1413
-  %.pn540 = phi { ptr, i32 } [ %2347, %2346 ], [ %.pn468.i, %1413 ]
+  %.pn540 = phi { ptr, i32 } [ %.pn468.i, %1413 ], [ %2347, %2346 ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$aws_smithy_runtime..client..orchestrator..auth..orchestrate_auth..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcd9030eae6573492E"(ptr noundef nonnull align 8 %1381) #45
           to label %1074 unwind label %534
 
@@ -25824,7 +25824,7 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %3331
 
 3331:                                             ; preds = %3773, %3377, %3368, %3672, %3394, %3386, %3571, %3411, %3403, %3280, %3253, %3260, %3776, %4116, %3419, %3363, %.body1522
-  %.pn816.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn, %4116 ], [ %3420, %3419 ], [ %3364, %3363 ], [ %3330, %.body1522 ], [ %.pn699.pn.pn.pn, %3776 ], [ %3261, %3260 ], [ %3254, %3253 ], [ %.pn689.pn.pn.pn.pn.pn, %3280 ], [ %.pn763.pn2577, %3571 ], [ %3412, %3411 ], [ %3404, %3403 ], [ %.pn742.pn2585, %3672 ], [ %3395, %3394 ], [ %3387, %3386 ], [ %.pn721.pn2593, %3773 ], [ %3378, %3377 ], [ %3369, %3368 ]
+  %.pn816.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn, %4116 ], [ %3420, %3419 ], [ %3254, %3253 ], [ %3404, %3403 ], [ %3387, %3386 ], [ %3364, %3363 ], [ %3330, %.body1522 ], [ %.pn699.pn.pn.pn, %3776 ], [ %3261, %3260 ], [ %.pn689.pn.pn.pn.pn.pn, %3280 ], [ %.pn763.pn2577, %3571 ], [ %3412, %3411 ], [ %.pn742.pn2585, %3672 ], [ %3395, %3394 ], [ %.pn721.pn2593, %3773 ], [ %3378, %3377 ], [ %3369, %3368 ]
   %3332 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3333 = load i8, ptr %3332, align 8, !range !528, !noundef !10
   %3334 = trunc nuw i8 %3333 to i1
@@ -26188,13 +26188,13 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %.body1687
 
 3469:                                             ; preds = %3440, %3443, %3457, %3433
-  %.pn774.ph = phi { ptr, i32 } [ %3434, %3433 ], [ %3441, %3440 ], [ %3450, %3443 ], [ %3458, %3457 ]
+  %.pn774.ph = phi { ptr, i32 } [ %3458, %3457 ], [ %3441, %3440 ], [ %3450, %3443 ], [ %3434, %3433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %179)
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf015498a77f06e25E"(ptr noundef nonnull align 8 %180) #45
           to label %3468 unwind label %534
 
 .body1687:                                        ; preds = %3894, %3889, %3883, %3468
-  %.pn780 = phi { ptr, i32 } [ %3884, %3883 ], [ %.pn774.ph, %3468 ], [ %3895, %3894 ], [ %3890, %3889 ]
+  %.pn780 = phi { ptr, i32 } [ %.pn774.ph, %3468 ], [ %3884, %3883 ], [ %3895, %3894 ], [ %3890, %3889 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %4116
 
@@ -26505,8 +26505,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %3331
 
-3572:                                             ; preds = %3570, %3485, %3478, %3505
-  %.pn763.pn.ph = phi { ptr, i32 } [ %.pn752.pn.pn.pn, %3505 ], [ %3479, %3478 ], [ %3486, %3485 ], [ %.pn760.pn, %3570 ]
+3572:                                             ; preds = %3570, %3478, %3485, %3505
+  %.pn763.pn.ph = phi { ptr, i32 } [ %.pn760.pn, %3570 ], [ %3479, %3478 ], [ %.pn752.pn.pn.pn, %3505 ], [ %3486, %3485 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %195) #45
           to label %3571 unwind label %534
 
@@ -26812,8 +26812,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %3331
 
-3673:                                             ; preds = %3671, %3588, %3581, %3608
-  %.pn742.pn.ph = phi { ptr, i32 } [ %.pn731.pn.pn.pn, %3608 ], [ %3582, %3581 ], [ %3589, %3588 ], [ %.pn739.pn, %3671 ]
+3673:                                             ; preds = %3671, %3581, %3588, %3608
+  %.pn742.pn.ph = phi { ptr, i32 } [ %.pn739.pn, %3671 ], [ %3582, %3581 ], [ %.pn731.pn.pn.pn, %3608 ], [ %3589, %3588 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %208) #45
           to label %3672 unwind label %534
 
@@ -27119,8 +27119,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %3331
 
-3774:                                             ; preds = %3772, %3689, %3682, %3709
-  %.pn721.pn.ph = phi { ptr, i32 } [ %.pn710.pn.pn.pn, %3709 ], [ %3683, %3682 ], [ %3690, %3689 ], [ %.pn718.pn, %3772 ]
+3774:                                             ; preds = %3772, %3682, %3689, %3709
+  %.pn721.pn.ph = phi { ptr, i32 } [ %.pn718.pn, %3772 ], [ %3683, %3682 ], [ %.pn710.pn.pn.pn, %3709 ], [ %3690, %3689 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %221) #45
           to label %3773 unwind label %534
 
@@ -27433,13 +27433,13 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %3879
 
-3878:                                             ; preds = %3876, %3792, %3785, %3812
-  %.pn840.pn.ph = phi { ptr, i32 } [ %.pn829.pn.pn.pn, %3812 ], [ %3786, %3785 ], [ %3793, %3792 ], [ %.pn837.pn, %3876 ]
+3878:                                             ; preds = %3876, %3785, %3792, %3812
+  %.pn840.pn.ph = phi { ptr, i32 } [ %.pn837.pn, %3876 ], [ %3786, %3785 ], [ %.pn829.pn.pn.pn, %3812 ], [ %3793, %3792 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %249) #45
           to label %3877 unwind label %534
 
 3879:                                             ; preds = %2514, %2597, %2790, %.thread2513, %3877, %3242, %3233, %4118, %3331
-  %.pn840.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn.pn, %4118 ], [ %.pn816.pn.pn.pn.pn.pn, %3331 ], [ %.pn673.pn.pn2516, %.thread2513 ], [ %.pn673.pn, %2597 ], [ %2791, %2790 ], [ %2515, %2514 ], [ %.pn840.pn2601, %3877 ], [ %3243, %3242 ], [ %.pn681, %3233 ]
+  %.pn840.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn.pn, %3331 ], [ %.pn816.pn.pn.pn.pn.pn, %4118 ], [ %2515, %2514 ], [ %.pn673.pn.pn2516, %.thread2513 ], [ %.pn673.pn, %2597 ], [ %2791, %2790 ], [ %.pn840.pn2601, %3877 ], [ %3243, %3242 ], [ %.pn681, %3233 ]
   %3880 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3880, align 8
   br label %536
@@ -28124,8 +28124,8 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %4116
 
-4114:                                             ; preds = %4112, %4029, %4022, %4049
-  %.pn816.pn.ph = phi { ptr, i32 } [ %.pn805.pn.pn.pn, %4049 ], [ %4023, %4022 ], [ %4030, %4029 ], [ %.pn813.pn, %4112 ]
+4114:                                             ; preds = %4112, %4022, %4029, %4049
+  %.pn816.pn.ph = phi { ptr, i32 } [ %.pn813.pn, %4112 ], [ %4023, %4022 ], [ %.pn805.pn.pn.pn, %4049 ], [ %4030, %4029 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %162) #45
           to label %4113 unwind label %534
 
@@ -28136,12 +28136,12 @@ select.unfold1220.i:                              ; preds = %1431, %.noexc529.i
   br label %4117
 
 4116:                                             ; preds = %4113, %4006, %3997, %.body1710, %3992, %4117, %.body1687
-  %.pn816.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.ph, %4117 ], [ %.pn780, %.body1687 ], [ %3993, %3992 ], [ %3972, %.body1710 ], [ %.pn816.pn2616, %4113 ], [ %4007, %4006 ], [ %3998, %3997 ]
+  %.pn816.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.ph, %4117 ], [ %.pn780, %.body1687 ], [ %3972, %.body1710 ], [ %3993, %3992 ], [ %.pn816.pn2616, %4113 ], [ %4007, %4006 ], [ %3998, %3997 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %3331
 
-4117:                                             ; preds = %4115, %3911, %3904, %3931
-  %.pn816.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn788.pn.pn.pn, %3931 ], [ %3905, %3904 ], [ %3912, %3911 ], [ %.pn796.pn, %4115 ]
+4117:                                             ; preds = %4115, %3904, %3911, %3931
+  %.pn816.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn796.pn, %4115 ], [ %3905, %3904 ], [ %.pn788.pn.pn.pn, %3931 ], [ %3912, %3911 ]
   invoke void @"_ZN4core3ptr244drop_in_place$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17hde895e875207c724E.llvm.18141648412879468590"(ptr noalias noundef nonnull align 8 dereferenceable(112) %183) #45
           to label %4116 unwind label %534
 
@@ -29471,14 +29471,14 @@ default.unreachable76:                            ; preds = %300, %216, %86, %3
   br label %180
 
 .body.i:                                          ; preds = %183, %187, %174, %170, %166
-  %.pn57.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %175, %174 ], [ %171, %170 ], [ %188, %187 ], [ %184, %183 ]
+  %.pn57.pn.i = phi { ptr, i32 } [ %175, %174 ], [ %171, %170 ], [ %167, %166 ], [ %188, %187 ], [ %184, %183 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 1161
   %156 = load i8, ptr %155, align 1, !range !528, !noalias !4133, !noundef !10
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %196, label %192
 
 158:                                              ; preds = %197, %192, %190, %136, %120, %117, %110
-  %.pn60.i = phi { ptr, i32 } [ %191, %190 ], [ %.pn57.pn.i, %197 ], [ %.pn57.pn.i, %192 ], [ %137, %136 ], [ %127, %120 ], [ %118, %117 ], [ %111, %110 ]
+  %.pn60.i = phi { ptr, i32 } [ %191, %190 ], [ %.pn57.pn.i, %197 ], [ %.pn57.pn.i, %192 ], [ %137, %136 ], [ %111, %110 ], [ %127, %120 ], [ %118, %117 ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   store i8 0, ptr %159, align 8, !noalias !4133
   store i8 2, ptr %88, align 2, !noalias !4133
@@ -29644,7 +29644,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %212
 
 .body:                                            ; preds = %198, %158
-  %.pn38 = phi { ptr, i32 } [ %199, %198 ], [ %.pn60.i, %158 ]
+  %.pn38 = phi { ptr, i32 } [ %.pn60.i, %158 ], [ %199, %198 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e53a9bcffa3b628E"(ptr noundef nonnull align 8 %87) #45
           to label %78 unwind label %210
 
@@ -29655,7 +29655,7 @@ common.ret:                                       ; preds = %627, %617, %201
   unreachable
 
 212:                                              ; preds = %628, %.body62, %78, %209
-  %.pn48 = phi { ptr, i32 } [ %636, %.body62 ], [ %629, %628 ], [ %.pn46, %209 ], [ %.pn40, %78 ]
+  %.pn48 = phi { ptr, i32 } [ %636, %.body62 ], [ %629, %628 ], [ %.pn40, %78 ], [ %.pn46, %209 ]
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 1089
   %214 = load i8, ptr %213, align 1, !range !528, !noundef !10
   %215 = trunc nuw i8 %214 to i1
@@ -29824,7 +29824,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %301
 
 .body66.i:                                        ; preds = %286, %290, %294, %607, %603
-  %.pn56.pn.i = phi { ptr, i32 } [ %608, %607 ], [ %.pn117.pn.i.i, %603 ], [ %287, %286 ], [ %295, %294 ], [ %291, %290 ]
+  %.pn56.pn.i = phi { ptr, i32 } [ %608, %607 ], [ %.pn117.pn.i.i, %603 ], [ %291, %290 ], [ %287, %286 ], [ %295, %294 ]
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 1161
   store i8 0, ptr %274, align 1, !noalias !4157
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 1160
@@ -29833,7 +29833,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br i1 %277, label %613, label %278
 
 278:                                              ; preds = %613, %611, %.body66.i, %262, %246, %243, %236
-  %.pn59.i = phi { ptr, i32 } [ %612, %611 ], [ %.pn56.pn.i, %613 ], [ %.pn56.pn.i, %.body66.i ], [ %263, %262 ], [ %253, %246 ], [ %244, %243 ], [ %237, %236 ]
+  %.pn59.i = phi { ptr, i32 } [ %612, %611 ], [ %.pn56.pn.i, %613 ], [ %.pn56.pn.i, %.body66.i ], [ %263, %262 ], [ %237, %236 ], [ %253, %246 ], [ %244, %243 ]
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   store i8 0, ptr %279, align 8, !noalias !4157
   store i8 2, ptr %218, align 2, !noalias !4157
@@ -30394,7 +30394,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %454
 
 451:                                              ; preds = %449, %356, %336, %329
-  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn.pn.i.i, %356 ], [ %330, %329 ], [ %337, %336 ], [ %.pn82.pn.pn.pn.i.i, %449 ]
+  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn82.pn.pn.pn.i.i, %449 ], [ %330, %329 ], [ %.pn72.pn.pn.pn.pn.pn.i.i, %356 ], [ %337, %336 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %41) #45
           to label %450 unwind label %452, !noalias !4157
 
@@ -30405,7 +30405,7 @@ common.ret:                                       ; preds = %627, %617, %201
   unreachable
 
 454:                                              ; preds = %450, %316, %306
-  %.pn90.i.i = phi { ptr, i32 } [ %.pn87.pn113.i.i, %450 ], [ %317, %316 ], [ %307, %306 ]
+  %.pn90.i.i = phi { ptr, i32 } [ %307, %306 ], [ %.pn87.pn113.i.i, %450 ], [ %317, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !4157
   br label %603
 
@@ -30888,12 +30888,12 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %602
 
 601:                                              ; preds = %599, %506, %486, %479
-  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn99.pn.pn.pn.pn.pn.i.i, %506 ], [ %480, %479 ], [ %487, %486 ], [ %.pn109.pn.pn.pn.i.i, %599 ]
+  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn109.pn.pn.pn.i.i, %599 ], [ %480, %479 ], [ %.pn99.pn.pn.pn.pn.pn.i.i, %506 ], [ %487, %486 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #45
           to label %600 unwind label %452, !noalias !4157
 
 602:                                              ; preds = %600, %466, %458
-  %.pn117.i.i = phi { ptr, i32 } [ %.pn114.pn127.i.i, %600 ], [ %467, %466 ], [ %459, %458 ]
+  %.pn117.i.i = phi { ptr, i32 } [ %459, %458 ], [ %.pn114.pn127.i.i, %600 ], [ %467, %466 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !4157
   br label %603
 
@@ -31039,7 +31039,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %627
 
 .body57:                                          ; preds = %614, %278
-  %.pn44 = phi { ptr, i32 } [ %615, %614 ], [ %.pn59.i, %278 ]
+  %.pn44 = phi { ptr, i32 } [ %.pn59.i, %278 ], [ %615, %614 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea4597c8f6bbd54dE"(ptr noundef nonnull align 8 %217) #45
           to label %209 unwind label %210
 
@@ -31871,7 +31871,7 @@ default.unreachable3230:                          ; preds = %955, %933, %919, %2
   br label %383
 
 .body:                                            ; preds = %399, %359, %405, %369, %366
-  %.pn599 = phi { ptr, i32 } [ %406, %405 ], [ %376, %369 ], [ %367, %366 ], [ %360, %359 ], [ %400, %399 ]
+  %.pn599 = phi { ptr, i32 } [ %400, %399 ], [ %406, %405 ], [ %360, %359 ], [ %376, %369 ], [ %367, %366 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %459
 
@@ -32473,7 +32473,7 @@ _ZN4core3mem4swap17h9a96b6c15cf071f5E.exit:       ; preds = %585
   br label %919
 
 .body1430:                                        ; preds = %1061, %1053, %.body1425, %2018, %594
-  %.pn646 = phi { ptr, i32 } [ %.pn643.pn3000, %2018 ], [ %.pn624, %.body1425 ], [ %.pn620, %594 ], [ %1054, %1053 ], [ %1062, %1061 ]
+  %.pn646 = phi { ptr, i32 } [ %.pn620, %594 ], [ %.pn643.pn3000, %2018 ], [ %.pn624, %.body1425 ], [ %1054, %1053 ], [ %1062, %1061 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %1915
 
@@ -32804,8 +32804,8 @@ _ZN4core3mem4swap17h9a96b6c15cf071f5E.exit:       ; preds = %585
   br label %common.ret
 
 common.ret:                                       ; preds = %2797, %2027, %709, %812, %913, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit2065", %1807, %1908, %2015, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit", %2060, %1052
-  %.sink = phi i8 [ 6, %2060 ], [ 3, %1052 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit" ], [ 1, %2015 ], [ 1, %1908 ], [ 1, %1807 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit2065" ], [ 1, %913 ], [ 1, %812 ], [ 1, %709 ], [ 4, %2027 ], [ 5, %2797 ]
-  %common.ret.op = phi i1 [ true, %2060 ], [ true, %1052 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit" ], [ false, %2015 ], [ false, %1908 ], [ false, %1807 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit2065" ], [ false, %913 ], [ false, %812 ], [ false, %709 ], [ true, %2027 ], [ true, %2797 ]
+  %.sink = phi i8 [ 4, %2027 ], [ 6, %2060 ], [ 1, %709 ], [ 3, %1052 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit" ], [ 1, %2015 ], [ 1, %1908 ], [ 1, %1807 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit2065" ], [ 1, %913 ], [ 1, %812 ], [ 5, %2797 ]
+  %common.ret.op = phi i1 [ true, %2027 ], [ true, %2060 ], [ false, %709 ], [ true, %1052 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit" ], [ false, %2015 ], [ false, %1908 ], [ false, %1807 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E.exit2065" ], [ false, %913 ], [ false, %812 ], [ true, %2797 ]
   store i8 %.sink, ptr %303, align 1
   ret i1 %common.ret.op
 
@@ -32820,8 +32820,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %713
 
-712:                                              ; preds = %710, %622, %615, %642
-  %.pn1024.pn.ph = phi { ptr, i32 } [ %.pn1013.pn.pn.pn, %642 ], [ %616, %615 ], [ %623, %622 ], [ %.pn1021.pn, %710 ]
+712:                                              ; preds = %710, %615, %622, %642
+  %.pn1024.pn.ph = phi { ptr, i32 } [ %.pn1021.pn, %710 ], [ %616, %615 ], [ %.pn1013.pn.pn.pn, %642 ], [ %623, %622 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %268) #45
           to label %711 unwind label %403
 
@@ -32831,7 +32831,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
           to label %429 unwind label %403
 
 714:                                              ; preds = %1910, %1118, %1109, %1809, %1135, %1127, %915, %324, %314, %814, %341, %333, %512, %485, %492, %469, %572, %603, %1708, %1103, %459, %349
-  %.pn1032.pn = phi { ptr, i32 } [ %.pn1032, %459 ], [ %.pn1003.pn, %1708 ], [ %1104, %1103 ], [ %350, %349 ], [ %.pn653.pn.pn.pn, %572 ], [ %.pn617.pn, %603 ], [ %470, %469 ], [ %493, %492 ], [ %486, %485 ], [ %.pn609.pn.pn.pn, %512 ], [ %.pn588.pn2905, %814 ], [ %342, %341 ], [ %334, %333 ], [ %.pn567.pn2913, %915 ], [ %325, %324 ], [ %315, %314 ], [ %.pn697.pn2979, %1809 ], [ %1136, %1135 ], [ %1128, %1127 ], [ %.pn676.pn2987, %1910 ], [ %1119, %1118 ], [ %1110, %1109 ]
+  %.pn1032.pn = phi { ptr, i32 } [ %.pn1032, %459 ], [ %.pn1003.pn, %1708 ], [ %315, %314 ], [ %1128, %1127 ], [ %1104, %1103 ], [ %334, %333 ], [ %350, %349 ], [ %493, %492 ], [ %.pn653.pn.pn.pn, %572 ], [ %.pn617.pn, %603 ], [ %.pn609.pn.pn.pn, %512 ], [ %470, %469 ], [ %486, %485 ], [ %.pn588.pn2905, %814 ], [ %342, %341 ], [ %.pn567.pn2913, %915 ], [ %325, %324 ], [ %.pn697.pn2979, %1809 ], [ %1136, %1135 ], [ %.pn676.pn2987, %1910 ], [ %1119, %1118 ], [ %1110, %1109 ]
   store i8 2, ptr %303, align 1
   resume { ptr, i32 } %.pn1032.pn
 
@@ -33137,8 +33137,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %714
 
-815:                                              ; preds = %813, %730, %723, %750
-  %.pn588.pn.ph = phi { ptr, i32 } [ %.pn577.pn.pn.pn, %750 ], [ %724, %723 ], [ %731, %730 ], [ %.pn585.pn, %813 ]
+815:                                              ; preds = %813, %723, %730, %750
+  %.pn588.pn.ph = phi { ptr, i32 } [ %.pn585.pn, %813 ], [ %724, %723 ], [ %.pn577.pn.pn.pn, %750 ], [ %731, %730 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %288) #45
           to label %814 unwind label %403
 
@@ -33444,8 +33444,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %301)
   br label %714
 
-916:                                              ; preds = %914, %831, %824, %851
-  %.pn567.pn.ph = phi { ptr, i32 } [ %.pn556.pn.pn.pn, %851 ], [ %825, %824 ], [ %832, %831 ], [ %.pn564.pn, %914 ]
+916:                                              ; preds = %914, %824, %831, %851
+  %.pn567.pn.ph = phi { ptr, i32 } [ %.pn564.pn, %914 ], [ %825, %824 ], [ %.pn556.pn.pn.pn, %851 ], [ %832, %831 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %301) #45
           to label %915 unwind label %403
 
@@ -33637,7 +33637,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   br label %.body53.i.i
 
 .body53.i.i:                                      ; preds = %1008, %.loopexit.split-lp.i.i, %.loopexit.i.i, %972, %968
-  %.pn42.pn.i.i = phi { ptr, i32 } [ %1009, %1008 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %973, %972 ], [ %969, %968 ]
+  %.pn42.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %1009, %1008 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %969, %968 ], [ %973, %972 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %974 = getelementptr inbounds nuw i8, ptr %0, i64 488
   invoke void @"_ZN4core3ptr52drop_in_place$LT$aws_smithy_types..body..SdkBody$GT$17h0347fa02a0fd8f4eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %974) #45
@@ -33894,7 +33894,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   br label %1051
 
 .body.i:                                          ; preds = %1036, %1033
-  %.pn11.i = phi { ptr, i32 } [ %1037, %1036 ], [ %.pn48.i.i, %1033 ]
+  %.pn11.i = phi { ptr, i32 } [ %.pn48.i.i, %1033 ], [ %1037, %1036 ]
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1777d675e9d96aa9E"(ptr noundef nonnull align 8 %934) #45
           to label %929 unwind label %1047, !noalias !4600
 
@@ -34439,7 +34439,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
           to label %2048 unwind label %2046
 
 .body1806:                                        ; preds = %3186, %2360, %2044, %1208, %1181, %1188, %1270, %2051, %2046, %1705, %1600, %.body1706, %1271, %1158
-  %.pn1003 = phi { ptr, i32 } [ %.pn997.pn.pn.pn.pn, %2051 ], [ %2047, %2046 ], [ %.pn809.pn, %1270 ], [ %.pn791.pn.pn, %1271 ], [ %.pn770, %.body1706 ], [ %.pn743.pn.pn, %1600 ], [ %.pn723.pn2971, %1705 ], [ %1159, %1158 ], [ %1189, %1188 ], [ %1182, %1181 ], [ %.pn801.pn.pn.pn, %1208 ], [ %2045, %2044 ], [ %2361, %2360 ], [ %3187, %3186 ]
+  %.pn1003 = phi { ptr, i32 } [ %1189, %1188 ], [ %.pn997.pn.pn.pn.pn, %2051 ], [ %2047, %2046 ], [ %.pn809.pn, %1270 ], [ %.pn743.pn.pn, %1600 ], [ %.pn723.pn2971, %1705 ], [ %1182, %1181 ], [ %2361, %2360 ], [ %.pn801.pn.pn.pn, %1208 ], [ %1159, %1158 ], [ %2045, %2044 ], [ %3187, %3186 ], [ %.pn791.pn.pn, %1271 ], [ %.pn770, %.body1706 ]
   %1247 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1248 = load i64, ptr %1247, align 8, !range !214, !noundef !10
   %.not1005 = icmp eq i64 %1248, 0
@@ -34839,8 +34839,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %1374
 
-1374:                                             ; preds = %1373, %1289, %1282, %1309
-  %.pn791.pn.ph = phi { ptr, i32 } [ %.pn778.pn.pn.pn, %1309 ], [ %1283, %1282 ], [ %1290, %1289 ], [ %.pn786.pn, %1373 ]
+1374:                                             ; preds = %1373, %1282, %1289, %1309
+  %.pn791.pn.ph = phi { ptr, i32 } [ %.pn786.pn, %1373 ], [ %1283, %1282 ], [ %.pn778.pn.pn.pn, %1309 ], [ %1290, %1289 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590"(ptr noalias noundef nonnull align 8 dereferenceable(16) %189) #45
           to label %1271 unwind label %403
 
@@ -35076,7 +35076,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
           to label %1493 unwind label %1491
 
 .body1706:                                        ; preds = %2037, %2033, %1426, %1399, %1406, %1498, %2025, %1491
-  %.pn770 = phi { ptr, i32 } [ %2026, %2025 ], [ %1492, %1491 ], [ %.pn765.pn, %1498 ], [ %1407, %1406 ], [ %1400, %1399 ], [ %.pn755.pn.pn.pn, %1426 ], [ %2038, %2037 ], [ %2034, %2033 ]
+  %.pn770 = phi { ptr, i32 } [ %1407, %1406 ], [ %2026, %2025 ], [ %.pn755.pn.pn.pn, %1426 ], [ %1492, %1491 ], [ %.pn765.pn, %1498 ], [ %2038, %2037 ], [ %2034, %2033 ], [ %1400, %1399 ]
   %1468 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17hf8424973a9c7c01cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1468) #45
           to label %.body1806 unwind label %403
@@ -35480,8 +35480,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %1600
 
-1599:                                             ; preds = %1597, %1514, %1507, %1534
-  %.pn743.pn.ph = phi { ptr, i32 } [ %.pn732.pn.pn.pn, %1534 ], [ %1508, %1507 ], [ %1515, %1514 ], [ %.pn740.pn, %1597 ]
+1599:                                             ; preds = %1597, %1507, %1514, %1534
+  %.pn743.pn.ph = phi { ptr, i32 } [ %.pn740.pn, %1597 ], [ %1508, %1507 ], [ %.pn732.pn.pn.pn, %1534 ], [ %1515, %1514 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %164) #45
           to label %1598 unwind label %403
 
@@ -35797,8 +35797,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %.body1806
 
-1706:                                             ; preds = %1704, %1621, %1614, %1641
-  %.pn723.pn.ph = phi { ptr, i32 } [ %.pn710.pn.pn.pn, %1641 ], [ %1615, %1614 ], [ %1622, %1621 ], [ %.pn718.pn, %1704 ]
+1706:                                             ; preds = %1704, %1614, %1621, %1641
+  %.pn723.pn.ph = phi { ptr, i32 } [ %.pn718.pn, %1704 ], [ %1615, %1614 ], [ %.pn710.pn.pn.pn, %1641 ], [ %1622, %1621 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hd4b71e21a35d89e4E.llvm.18141648412879468590"(ptr noalias noundef nonnull align 8 dereferenceable(16) %177) #45
           to label %1705 unwind label %403
 
@@ -36115,8 +36115,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %714
 
-1810:                                             ; preds = %1808, %1725, %1718, %1745
-  %.pn697.pn.ph = phi { ptr, i32 } [ %.pn686.pn.pn.pn, %1745 ], [ %1719, %1718 ], [ %1726, %1725 ], [ %.pn694.pn, %1808 ]
+1810:                                             ; preds = %1808, %1718, %1725, %1745
+  %.pn697.pn.ph = phi { ptr, i32 } [ %.pn694.pn, %1808 ], [ %1719, %1718 ], [ %.pn686.pn.pn.pn, %1745 ], [ %1726, %1725 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %212) #45
           to label %1809 unwind label %403
 
@@ -36422,8 +36422,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %714
 
-1911:                                             ; preds = %1909, %1826, %1819, %1846
-  %.pn676.pn.ph = phi { ptr, i32 } [ %.pn665.pn.pn.pn, %1846 ], [ %1820, %1819 ], [ %1827, %1826 ], [ %.pn673.pn, %1909 ]
+1911:                                             ; preds = %1909, %1819, %1826, %1846
+  %.pn676.pn.ph = phi { ptr, i32 } [ %.pn673.pn, %1909 ], [ %1820, %1819 ], [ %.pn665.pn.pn.pn, %1846 ], [ %1827, %1826 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %225) #45
           to label %1910 unwind label %403
 
@@ -36756,13 +36756,13 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %.body1430
 
-2019:                                             ; preds = %2017, %1932, %1925, %1952
-  %.pn643.pn.ph = phi { ptr, i32 } [ %.pn632.pn.pn.pn, %1952 ], [ %1926, %1925 ], [ %1933, %1932 ], [ %.pn640.pn, %2017 ]
+2019:                                             ; preds = %2017, %1925, %1932, %1952
+  %.pn643.pn.ph = phi { ptr, i32 } [ %.pn640.pn, %2017 ], [ %1926, %1925 ], [ %.pn632.pn.pn.pn, %1952 ], [ %1933, %1932 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %240) #45
           to label %2018 unwind label %403
 
 .body1425:                                        ; preds = %1049, %929
-  %.pn624 = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn14.i, %929 ]
+  %.pn624 = phi { ptr, i32 } [ %.pn14.i, %929 ], [ %1050, %1049 ]
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$aws_smithy_types..byte_stream..ByteStream..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a1e7b2b34398098E"(ptr noundef nonnull align 8 %920) #45
           to label %.body1430 unwind label %403
 
@@ -36850,7 +36850,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   br label %2418
 
 2051:                                             ; preds = %2583, %2556, %2563, %2457, %2430, %2437, %2541, %2642, %.body1949, %2963, %2643, %2653, %2648, %2965
-  %.pn997.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn979.pn.pn, %2963 ], [ %.pn860, %.body1949 ], [ %2654, %2653 ], [ %2649, %2648 ], [ %2644, %2643 ], [ %.pn830.pn, %2965 ], [ %.pn997.pn, %2642 ], [ %2542, %2541 ], [ %2438, %2437 ], [ %2431, %2430 ], [ %.pn820.pn.pn.pn, %2457 ], [ %2564, %2563 ], [ %2557, %2556 ], [ %.pn989.pn.pn.pn, %2583 ]
+  %.pn997.pn.pn.pn.pn = phi { ptr, i32 } [ %2557, %2556 ], [ %.pn997.pn, %2642 ], [ %.pn979.pn.pn, %2963 ], [ %.pn860, %.body1949 ], [ %2654, %2653 ], [ %2649, %2648 ], [ %2644, %2643 ], [ %.pn830.pn, %2965 ], [ %.pn989.pn.pn.pn, %2583 ], [ %2438, %2437 ], [ %2431, %2430 ], [ %.pn820.pn.pn.pn, %2457 ], [ %2564, %2563 ], [ %2542, %2541 ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17ha19c484d3c737665E"(ptr noalias noundef align 8 dereferenceable(32) %0) #45
           to label %.body1806 unwind label %403
 
@@ -36884,7 +36884,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   br label %common.ret
 
 .body1713:                                        ; preds = %2074, %2069, %2054, %2958, %2061
-  %.pn883 = phi { ptr, i32 } [ %2062, %2061 ], [ %2055, %2054 ], [ %2959, %2958 ], [ %2075, %2074 ], [ %2070, %2069 ]
+  %.pn883 = phi { ptr, i32 } [ %2959, %2958 ], [ %2062, %2061 ], [ %2055, %2054 ], [ %2075, %2074 ], [ %2070, %2069 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %2347
 
@@ -37405,13 +37405,13 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %2347
 
-2215:                                             ; preds = %2214, %2099, %2092, %2119
-  %.pn907.pn.ph = phi { ptr, i32 } [ %.pn892.pn.pn.pn.pn.pn, %2119 ], [ %2093, %2092 ], [ %2100, %2099 ], [ %.pn902.pn.pn.pn, %2214 ]
+2215:                                             ; preds = %2214, %2092, %2099, %2119
+  %.pn907.pn.ph = phi { ptr, i32 } [ %.pn902.pn.pn.pn, %2214 ], [ %2093, %2092 ], [ %.pn892.pn.pn.pn.pn.pn, %2119 ], [ %2100, %2099 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %89) #45
           to label %.thread3032 unwind label %403
 
 2216:                                             ; preds = %2284, %2257, %2264, %2364, %.body1811, %2240
-  %.pn975.pn.pn = phi { ptr, i32 } [ %.pn975.pn, %2364 ], [ %.pn959, %.body1811 ], [ %.pn933, %2240 ], [ %2265, %2264 ], [ %2258, %2257 ], [ %.pn967.pn.pn.pn, %2284 ]
+  %.pn975.pn.pn = phi { ptr, i32 } [ %.pn975.pn, %2364 ], [ %.pn933, %2240 ], [ %.pn959, %.body1811 ], [ %2258, %2257 ], [ %2265, %2264 ], [ %.pn967.pn.pn.pn, %2284 ]
   %2217 = load i16, ptr %95, align 8, !range !3476, !noundef !10
   %2218 = icmp ne i16 %2217, 11
   %or.cond7 = and i1 %2064, %2218
@@ -38914,7 +38914,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   br label %2707
 
 .body1944:                                        ; preds = %2807, %2803, %2707, %2680, %2687, %2809, %2795
-  %.pn857 = phi { ptr, i32 } [ %2796, %2795 ], [ %.pn852.pn, %2809 ], [ %2688, %2687 ], [ %2681, %2680 ], [ %.pn842.pn.pn.pn, %2707 ], [ %2808, %2807 ], [ %2804, %2803 ]
+  %.pn857 = phi { ptr, i32 } [ %2688, %2687 ], [ %2796, %2795 ], [ %.pn842.pn.pn.pn, %2707 ], [ %.pn852.pn, %2809 ], [ %2808, %2807 ], [ %2804, %2803 ], [ %2681, %2680 ]
   %2745 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %2746 = load i8, ptr %2745, align 2, !range !528, !noundef !10
   %2747 = trunc nuw i8 %2746 to i1
@@ -39130,7 +39130,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
           to label %2810 unwind label %403
 
 .body1949:                                        ; preds = %2833, %2829, %2810
-  %.pn860 = phi { ptr, i32 } [ %.pn857, %2810 ], [ %2834, %2833 ], [ %2830, %2829 ]
+  %.pn860 = phi { ptr, i32 } [ %2830, %2829 ], [ %.pn857, %2810 ], [ %2834, %2833 ]
   %2812 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 0, ptr %2812, align 8
   br label %2051
@@ -39402,7 +39402,7 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
           to label %2960 unwind label %2958
 
 2918:                                             ; preds = %2873, %2846, %2853, %2962, %2347
-  %.pn979.pn = phi { ptr, i32 } [ %.pn979, %2347 ], [ %.pn876.pn, %2962 ], [ %2854, %2853 ], [ %2847, %2846 ], [ %.pn868.pn.pn.pn, %2873 ]
+  %.pn979.pn = phi { ptr, i32 } [ %.pn979, %2347 ], [ %.pn876.pn, %2962 ], [ %2854, %2853 ], [ %.pn868.pn.pn.pn, %2873 ], [ %2847, %2846 ]
   %2919 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %2920 = load i8, ptr %2919, align 1, !range !528, !noundef !10
   %2921 = trunc nuw i8 %2920 to i1
@@ -39883,8 +39883,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.body1811
 
-3070:                                             ; preds = %3068, %2982, %2975, %3002
-  %.pn953.pn.ph = phi { ptr, i32 } [ %.pn942.pn.pn.pn, %3002 ], [ %2976, %2975 ], [ %2983, %2982 ], [ %.pn950.pn, %3068 ]
+3070:                                             ; preds = %3068, %2975, %2982, %3002
+  %.pn953.pn.ph = phi { ptr, i32 } [ %.pn950.pn, %3068 ], [ %2976, %2975 ], [ %.pn942.pn.pn.pn, %3002 ], [ %2983, %2982 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %48) #45
           to label %3069 unwind label %403
 
@@ -40250,8 +40250,8 @@ common.ret:                                       ; preds = %2797, %2027, %709, 
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %3194
 
-3193:                                             ; preds = %3191, %3089, %3082, %3109
-  %.pn929.pn.ph = phi { ptr, i32 } [ %.pn918.pn.pn.pn, %3109 ], [ %3083, %3082 ], [ %3090, %3089 ], [ %.pn926.pn, %3191 ]
+3193:                                             ; preds = %3191, %3082, %3089, %3109
+  %.pn929.pn.ph = phi { ptr, i32 } [ %.pn926.pn, %3191 ], [ %3083, %3082 ], [ %.pn918.pn.pn.pn, %3109 ], [ %3090, %3089 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %71) #45
           to label %3192 unwind label %403
 
@@ -40583,7 +40583,7 @@ default.unreachable151:                           ; preds = %422, %338, %208, %3
           to label %202 unwind label %200
 
 157:                                              ; preds = %107, %80, %87, %205, %335, %204
-  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %335 ], [ %.pn58, %204 ], [ %.pn51.pn, %205 ], [ %88, %87 ], [ %81, %80 ], [ %.pn41.pn.pn.pn, %107 ]
+  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %335 ], [ %.pn58, %204 ], [ %.pn51.pn, %205 ], [ %88, %87 ], [ %.pn41.pn.pn.pn, %107 ], [ %81, %80 ]
   store i8 2, ptr %68, align 8
   resume { ptr, i32 } %.pn62.pn
 
@@ -40933,14 +40933,14 @@ default.unreachable151:                           ; preds = %422, %338, %208, %3
   br label %301
 
 .body.i:                                          ; preds = %304, %308, %295, %291, %287
-  %.pn57.pn.i = phi { ptr, i32 } [ %288, %287 ], [ %296, %295 ], [ %292, %291 ], [ %309, %308 ], [ %305, %304 ]
+  %.pn57.pn.i = phi { ptr, i32 } [ %296, %295 ], [ %292, %291 ], [ %288, %287 ], [ %309, %308 ], [ %305, %304 ]
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %277 = load i8, ptr %276, align 1, !range !528, !noalias !5690, !noundef !10
   %278 = trunc nuw i8 %277 to i1
   br i1 %278, label %317, label %313
 
 279:                                              ; preds = %318, %313, %311, %258, %242, %239, %232
-  %.pn60.i = phi { ptr, i32 } [ %312, %311 ], [ %.pn57.pn.i, %318 ], [ %.pn57.pn.i, %313 ], [ %259, %258 ], [ %249, %242 ], [ %240, %239 ], [ %233, %232 ]
+  %.pn60.i = phi { ptr, i32 } [ %312, %311 ], [ %.pn57.pn.i, %318 ], [ %.pn57.pn.i, %313 ], [ %259, %258 ], [ %233, %232 ], [ %249, %242 ], [ %240, %239 ]
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 0, ptr %280, align 8, !noalias !5690
   store i8 2, ptr %210, align 2, !noalias !5690
@@ -41115,7 +41115,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %157
 
 .body:                                            ; preds = %319, %279
-  %.pn56 = phi { ptr, i32 } [ %320, %319 ], [ %.pn60.i, %279 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn60.i, %279 ], [ %320, %319 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99cf814d61e3655aE"(ptr noundef nonnull align 8 %209) #45
           to label %204 unwind label %336
 
@@ -41288,7 +41288,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %423
 
 .body66.i:                                        ; preds = %408, %412, %416, %729, %725
-  %.pn56.pn.i = phi { ptr, i32 } [ %730, %729 ], [ %.pn117.pn.i.i, %725 ], [ %409, %408 ], [ %417, %416 ], [ %413, %412 ]
+  %.pn56.pn.i = phi { ptr, i32 } [ %730, %729 ], [ %.pn117.pn.i.i, %725 ], [ %413, %412 ], [ %409, %408 ], [ %417, %416 ]
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 113
   store i8 0, ptr %396, align 1, !noalias !5714
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -41297,7 +41297,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br i1 %399, label %735, label %400
 
 400:                                              ; preds = %735, %733, %.body66.i, %384, %368, %365, %358
-  %.pn59.i = phi { ptr, i32 } [ %734, %733 ], [ %.pn56.pn.i, %735 ], [ %.pn56.pn.i, %.body66.i ], [ %385, %384 ], [ %375, %368 ], [ %366, %365 ], [ %359, %358 ]
+  %.pn59.i = phi { ptr, i32 } [ %734, %733 ], [ %.pn56.pn.i, %735 ], [ %.pn56.pn.i, %.body66.i ], [ %385, %384 ], [ %359, %358 ], [ %375, %368 ], [ %366, %365 ]
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 0, ptr %401, align 8, !noalias !5714
   store i8 2, ptr %340, align 2, !noalias !5714
@@ -41858,7 +41858,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %576
 
 573:                                              ; preds = %571, %478, %458, %451
-  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn.pn.i.i, %478 ], [ %452, %451 ], [ %459, %458 ], [ %.pn82.pn.pn.pn.i.i, %571 ]
+  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn82.pn.pn.pn.i.i, %571 ], [ %452, %451 ], [ %.pn72.pn.pn.pn.pn.pn.i.i, %478 ], [ %459, %458 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %40) #45
           to label %572 unwind label %574, !noalias !5714
 
@@ -41869,7 +41869,7 @@ common.ret:                                       ; preds = %742, %739, %322
   unreachable
 
 576:                                              ; preds = %572, %438, %428
-  %.pn90.i.i = phi { ptr, i32 } [ %.pn87.pn113.i.i, %572 ], [ %439, %438 ], [ %429, %428 ]
+  %.pn90.i.i = phi { ptr, i32 } [ %429, %428 ], [ %.pn87.pn113.i.i, %572 ], [ %439, %438 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !5714
   br label %725
 
@@ -42352,12 +42352,12 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %724
 
 723:                                              ; preds = %721, %628, %608, %601
-  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn99.pn.pn.pn.pn.pn.i.i, %628 ], [ %602, %601 ], [ %609, %608 ], [ %.pn109.pn.pn.pn.i.i, %721 ]
+  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn109.pn.pn.pn.i.i, %721 ], [ %602, %601 ], [ %.pn99.pn.pn.pn.pn.pn.i.i, %628 ], [ %609, %608 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17h71fac3ad805e03c9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #45
           to label %722 unwind label %574, !noalias !5714
 
 724:                                              ; preds = %722, %588, %580
-  %.pn117.i.i = phi { ptr, i32 } [ %.pn114.pn127.i.i, %722 ], [ %589, %588 ], [ %581, %580 ]
+  %.pn117.i.i = phi { ptr, i32 } [ %581, %580 ], [ %.pn114.pn127.i.i, %722 ], [ %589, %588 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !5714
   br label %725
 
@@ -42426,7 +42426,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %common.ret
 
 .body102:                                         ; preds = %736, %400
-  %.pn60 = phi { ptr, i32 } [ %737, %736 ], [ %.pn59.i, %400 ]
+  %.pn60 = phi { ptr, i32 } [ %.pn59.i, %400 ], [ %737, %736 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4552453d214a1c28E"(ptr noundef nonnull align 8 %339) #45
           to label %335 unwind label %336
 }
@@ -43755,7 +43755,7 @@ define hidden void @"_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h5018bfe2cb278630E.llvm.18141648412879468590.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h5018bfe2cb278630E.llvm.18141648412879468590.exit": ; preds = %10, %15, %19, %21, %23
-  %.sink.i.i.sink.i = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink.i = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink.i, ptr %0, align 8, !alias.scope !5933, !noalias !5938
   ret void
 }
@@ -43821,7 +43821,7 @@ define hidden void @"_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h62452ee23ca0cda3E.llvm.18141648412879468590.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h62452ee23ca0cda3E.llvm.18141648412879468590.exit": ; preds = %10, %15, %19, %21, %23
-  %.sink.i.i.sink.i = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink.i = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink.i, ptr %0, align 8, !alias.scope !5950, !noalias !5955
   ret void
 }
@@ -46893,10 +46893,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit167
   br label %"_ZN4core3ptr244drop_in_place$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17hde895e875207c724E.llvm.18141648412879468590.exit"
 
 .thread:                                          ; preds = %229, %235, %240
-  %.pn.pn244 = phi { ptr, i32 } [ %lpad.thr_comm, %240 ], [ %.pn, %235 ], [ %.pn, %229 ]
+  %.pn.pn244 = phi { ptr, i32 } [ %.pn, %229 ], [ %lpad.thr_comm, %240 ], [ %.pn, %235 ]
   resume { ptr, i32 } %.pn.pn244
 
-240:                                              ; preds = %.invoke262, %130, %.noexc161, %.noexc160, %.critedge9.i, %105, %41, %44, %64, %67, %74, %92
+240:                                              ; preds = %.invoke262, %.noexc161, %.noexc160, %.critedge9.i, %105, %74, %41, %64, %92, %44, %67, %130
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h82c7c352b53ad27cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1) #45
@@ -49685,11 +49685,7 @@ default.unreachable5.i:                           ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %21, align 8, !noalias !6443
   %22 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %.noexc3 unwind label %8
-
-.noexc3:                                          ; preds = %17
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6443
-  br i1 %22, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha838ac3507014909E.llvm.18141648412879468590.exit"
+          to label %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit" unwind label %8
 
 23:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6443
@@ -49703,20 +49699,24 @@ default.unreachable5.i:                           ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %27, align 8, !noalias !6443
   %28 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-          to label %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit" unwind label %8
+          to label %.noexc4 unwind label %8
 
-"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit": ; preds = %23
+.noexc4:                                          ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6443
   br i1 %28, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha838ac3507014909E.llvm.18141648412879468590.exit"
 
-29:                                               ; preds = %.noexc3, %.noexc, %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit"
+"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit": ; preds = %17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6443
+  br i1 %22, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha838ac3507014909E.llvm.18141648412879468590.exit"
+
+29:                                               ; preds = %.noexc4, %.noexc, %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit"
   invoke void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.18447cd967edbb62a84b1bcc4d80419e.430.llvm.18141648412879468590, i64 noundef 55, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18447cd967edbb62a84b1bcc4d80419e.480.llvm.18141648412879468590, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.18447cd967edbb62a84b1bcc4d80419e.432.llvm.18141648412879468590) #47
           to label %.noexc5 unwind label %8
 
 .noexc5:                                          ; preds = %29
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha838ac3507014909E.llvm.18141648412879468590.exit": ; preds = %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit", %.noexc, %.noexc3
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha838ac3507014909E.llvm.18141648412879468590.exit": ; preds = %"_ZN85_$LT$ockam_api..session..sessions..ConnectionStatus$u20$as$u20$core..fmt..Display$GT$3fmt17hb3a4ae43981fcc3eE.exit", %.noexc, %.noexc4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -50401,7 +50401,7 @@ common.ret:                                       ; preds = %1, %20
   br i1 %15, label %21, label %20
 
 .body:                                            ; preds = %10, %6
-  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -50714,7 +50714,7 @@ common.ret:                                       ; preds = %1, %20
   br i1 %15, label %21, label %20
 
 .body:                                            ; preds = %10, %6
-  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -51958,7 +51958,7 @@ common.ret:                                       ; preds = %31, %"_ZN4core3ptr6
   br label %common.ret
 
 .body9:                                           ; preds = %72, %62, %66, %42, %.body
-  %.pn2 = phi { ptr, i32 } [ %.pn, %66 ], [ %43, %42 ], [ %eh.lpad-body, %.body ], [ %73, %72 ], [ %63, %62 ]
+  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %66 ], [ %43, %42 ], [ %73, %72 ], [ %63, %62 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 91
   store i8 0, ptr %75, align 1
   br label %33
@@ -52111,7 +52111,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %19, label %common.ret.sink.split, label %common.ret
 
 20:                                               ; preds = %30, %13
-  %.pn2 = phi { ptr, i32 } [ %14, %13 ], [ %.pn, %30 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %30 ], [ %14, %13 ]
   resume { ptr, i32 } %.pn2
 
 21:                                               ; preds = %30, %13
@@ -52274,7 +52274,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 
 common.resume:                                    ; preds = %43, %.body, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %eh.lpad-body, %.body ], [ %44, %43 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %15, %14 ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %1
@@ -52665,7 +52665,7 @@ common.ret:                                       ; preds = %6, %4, %"_ZN4core3p
   unreachable
 
 .body:                                            ; preds = %48, %21, %33, %42
-  %.pn4 = phi { ptr, i32 } [ %43, %42 ], [ %.pn, %33 ], [ %49, %48 ], [ %22, %21 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn, %33 ], [ %43, %42 ], [ %49, %48 ], [ %22, %21 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %47, align 8
   resume { ptr, i32 } %.pn4
@@ -52862,7 +52862,7 @@ common.ret:                                       ; preds = %4, %1, %36
   br i1 %29, label %37, label %36
 
 .body:                                            ; preds = %34, %19, %24, %8
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %9, %8 ], [ %35, %34 ], [ %20, %19 ]
+  %.pn = phi { ptr, i32 } [ %9, %8 ], [ %25, %24 ], [ %35, %34 ], [ %20, %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -53565,7 +53565,7 @@ common.ret:                                       ; preds = %4, %"_ZN4core3ptr23
   br label %"_ZN4core3ptr231drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$sqlx_core..migrate..error..MigrateError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h96db2c30d115cc4fE.exit"
 
 .body9:                                           ; preds = %42, %.body6, %31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body7, %.body6 ], [ %32, %31 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %eh.lpad-body7, %.body6 ], [ %43, %42 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 0, ptr %34, align 8
   br label %.body
@@ -53892,7 +53892,7 @@ common.resume:                                    ; preds = %22, %12, %107
           to label %92 unwind label %90
 
 .body9:                                           ; preds = %87, %63, %80, %45
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %46, %45 ], [ %88, %87 ], [ %64, %63 ]
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %81, %80 ], [ %88, %87 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr145drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..migration_support..migrator..NextMigration$GT$$GT$17hfb4a971feaec9de1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #45
           to label %.body16 unwind label %111
 
@@ -54552,7 +54552,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   unreachable
 
 .body.i.i:                                        ; preds = %97, %82, %72, %55
-  %.pn.i.i = phi { ptr, i32 } [ %73, %72 ], [ %56, %55 ], [ %98, %97 ], [ %83, %82 ]
+  %.pn.i.i = phi { ptr, i32 } [ %56, %55 ], [ %73, %72 ], [ %98, %97 ], [ %83, %82 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i8 0, ptr %96, align 8
   br label %.body22.i
@@ -54745,7 +54745,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   unreachable
 
 .body22.i:                                        ; preds = %172, %162, %148, %.body18.i, %.body.i.i, %33
-  %.pn6.i = phi { ptr, i32 } [ %.pn2.i, %.body18.i ], [ %163, %162 ], [ %149, %148 ], [ %173, %172 ], [ %.pn.i.i, %.body.i.i ], [ %34, %33 ]
+  %.pn6.i = phi { ptr, i32 } [ %149, %148 ], [ %.pn2.i, %.body18.i ], [ %163, %162 ], [ %173, %172 ], [ %.pn.i.i, %.body.i.i ], [ %34, %33 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %170 = load i8, ptr %169, align 8, !range !528, !noundef !10
   %171 = trunc nuw i8 %170 to i1
@@ -54798,7 +54798,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   unreachable
 
 .body25.i:                                        ; preds = %193, %191, %180, %.body22.i
-  %.pn8.i = phi { ptr, i32 } [ %.pn6.i, %193 ], [ %.pn6.i, %.body22.i ], [ %192, %191 ], [ %181, %180 ]
+  %.pn8.i = phi { ptr, i32 } [ %.pn6.i, %.body22.i ], [ %.pn6.i, %193 ], [ %192, %191 ], [ %181, %180 ]
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i8 0, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 377
@@ -55037,7 +55037,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   unreachable
 
 .body.i5:                                         ; preds = %291, %286, %284, %282, %272, %267, %265, %253, %.body.i.i7, %221, %209
-  %.pn2.i6 = phi { ptr, i32 } [ %273, %272 ], [ %268, %267 ], [ %292, %291 ], [ %287, %286 ], [ %266, %265 ], [ %210, %209 ], [ %283, %282 ], [ %222, %221 ], [ %285, %284 ], [ %eh.lpad-body.i.i, %.body.i.i7 ], [ %254, %253 ]
+  %.pn2.i6 = phi { ptr, i32 } [ %287, %286 ], [ %273, %272 ], [ %268, %267 ], [ %210, %209 ], [ %222, %221 ], [ %292, %291 ], [ %266, %265 ], [ %283, %282 ], [ %285, %284 ], [ %eh.lpad-body.i.i, %.body.i.i7 ], [ %254, %253 ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 401
   %280 = load i8, ptr %279, align 1, !range !528, !noundef !10
   %281 = trunc nuw i8 %280 to i1
@@ -55353,7 +55353,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br i1 %395, label %407, label %"_ZN4core3ptr62drop_in_place$LT$sqlx_sqlite..connection..SqliteConnection$GT$17h18f251e6178c42e1E.exit.i"
 
 .body13.i:                                        ; preds = %403, %.body17.i, %391, %362
-  %.pn.i12 = phi { ptr, i32 } [ %404, %403 ], [ %eh.lpad-body18.i, %.body17.i ], [ %392, %391 ], [ %363, %362 ]
+  %.pn.i12 = phi { ptr, i32 } [ %eh.lpad-body18.i, %.body17.i ], [ %404, %403 ], [ %392, %391 ], [ %363, %362 ]
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %397 = load i8, ptr %396, align 4, !range !528, !noundef !10
   %398 = trunc nuw i8 %397 to i1
@@ -55595,7 +55595,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr13
   br label %"_ZN4core3ptr136drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..acquire_permit..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4ab4be230f1bbebE.exit"
 
 .body9:                                           ; preds = %486, %.body26.i, %316, %482, %473, %456, %296
-  %.pn2 = phi { ptr, i32 } [ %457, %456 ], [ %.pn4.i, %296 ], [ %483, %482 ], [ %474, %473 ], [ %487, %486 ], [ %.pn9.i, %.body26.i ], [ %317, %316 ]
+  %.pn2 = phi { ptr, i32 } [ %474, %473 ], [ %317, %316 ], [ %.pn4.i, %296 ], [ %457, %456 ], [ %483, %482 ], [ %487, %486 ], [ %.pn9.i, %.body26.i ]
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %485, align 8
   br label %.body
@@ -55795,7 +55795,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
   br label %common.ret
 
 38:                                               ; preds = %122, %25
-  %.pn14 = phi { ptr, i32 } [ %26, %25 ], [ %.pn12, %122 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %122 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn14
 
 39:                                               ; preds = %129, %128, %126, %79, %62, %25
@@ -56836,7 +56836,7 @@ define internal void @"_ZN4core3ptr188drop_in_place$LT$aws_smithy_runtime_api..c
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr192drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h289d960fc7e23ca7E.exit": ; preds = %5
@@ -57195,7 +57195,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %common.ret
 
 75:                                               ; preds = %.body43, %69
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %69 ], [ %.pn16, %.body43 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn16, %.body43 ], [ %.pn20, %69 ]
   resume { ptr, i32 } %.pn22
 
 76:                                               ; preds = %212, %210, %208, %206, %152, %118, %99, %69, %55, %.body
@@ -57524,7 +57524,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %188
 
 .body43:                                          ; preds = %204, %190, %212, %181
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %212 ], [ %.pn14, %181 ], [ %205, %204 ], [ %191, %190 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %181 ], [ %.pn14, %212 ], [ %205, %204 ], [ %191, %190 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 493
   store i8 0, ptr %203, align 1
   br label %75
@@ -57750,7 +57750,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %common.ret
 
 75:                                               ; preds = %.body42, %69
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %69 ], [ %.pn16, %.body42 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn16, %.body42 ], [ %.pn20, %69 ]
   resume { ptr, i32 } %.pn22
 
 76:                                               ; preds = %212, %210, %208, %206, %152, %118, %99, %69, %55, %.body
@@ -58079,7 +58079,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %188
 
 .body42:                                          ; preds = %204, %190, %212, %181
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %212 ], [ %.pn14, %181 ], [ %205, %204 ], [ %191, %190 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %181 ], [ %.pn14, %212 ], [ %205, %204 ], [ %191, %190 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 493
   store i8 0, ptr %203, align 1
   br label %75
@@ -58335,7 +58335,7 @@ common.ret:                                       ; preds = %9, %1, %117
   br i1 %84, label %118, label %117
 
 .body:                                            ; preds = %79, %66, %25, %17, %101, %115, %60
-  %.pn6 = phi { ptr, i32 } [ %18, %17 ], [ %.pn4, %60 ], [ %116, %115 ], [ %.pn, %101 ], [ %26, %25 ], [ %80, %79 ], [ %67, %66 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn, %101 ], [ %18, %17 ], [ %26, %25 ], [ %.pn4, %60 ], [ %116, %115 ], [ %67, %66 ], [ %80, %79 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %86 = load i8, ptr %85, align 8, !range !528, !noundef !10
   %87 = trunc nuw i8 %86 to i1
@@ -58653,7 +58653,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %common.ret
 
 75:                                               ; preds = %.body43, %69
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %69 ], [ %.pn16, %.body43 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn16, %.body43 ], [ %.pn20, %69 ]
   resume { ptr, i32 } %.pn22
 
 76:                                               ; preds = %212, %210, %208, %206, %152, %118, %99, %69, %55, %.body
@@ -58982,7 +58982,7 @@ common.ret:                                       ; preds = %73, %1, %188
   br label %188
 
 .body43:                                          ; preds = %204, %190, %212, %181
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %212 ], [ %.pn14, %181 ], [ %205, %204 ], [ %191, %190 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %181 ], [ %.pn14, %212 ], [ %205, %204 ], [ %191, %190 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 493
   store i8 0, ptr %203, align 1
   br label %75
@@ -59214,7 +59214,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %common.ret
 
 35:                                               ; preds = %38, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %.body
@@ -59330,7 +59330,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr46drop
   br label %common.ret
 
 35:                                               ; preds = %38, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %.body
@@ -59537,7 +59537,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr48
   br label %common.ret
 
 .body5:                                           ; preds = %59, %48, %33, %17
-  %.pn2 = phi { ptr, i32 } [ %.pn, %33 ], [ %18, %17 ], [ %60, %59 ], [ %.pn.i, %48 ]
+  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %33 ], [ %60, %59 ], [ %.pn.i, %48 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %20, align 8
   resume { ptr, i32 } %.pn2
@@ -59816,7 +59816,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr11
   br label %common.ret
 
 .body:                                            ; preds = %80, %73, %25, %15, %82, %36
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %82 ], [ %.pn4, %36 ], [ %26, %25 ], [ %16, %15 ], [ %81, %80 ], [ %74, %73 ]
+  %.pn6 = phi { ptr, i32 } [ %16, %15 ], [ %.pn4, %82 ], [ %.pn4, %36 ], [ %26, %25 ], [ %81, %80 ], [ %74, %73 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %28, align 8
   resume { ptr, i32 } %.pn6
@@ -60018,7 +60018,7 @@ common.ret:                                       ; preds = %45, %"_ZN87_$LT$sql
   unreachable
 
 common.resume:                                    ; preds = %48, %41, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %42, %41 ], [ %.pn, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %16, %15 ], [ %.pn, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr279drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h9214c58133f9c4b7E.exit.i": ; preds = %9
@@ -60185,7 +60185,7 @@ common.ret:                                       ; preds = %42, %"_ZN87_$LT$sql
   unreachable
 
 common.resume:                                    ; preds = %45, %38, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %39, %38 ], [ %.pn, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %16, %15 ], [ %.pn, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr279drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h9214c58133f9c4b7E.exit.i": ; preds = %9
@@ -60508,7 +60508,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
   br label %common.ret
 
 50:                                               ; preds = %53, %36
-  %.pn2 = phi { ptr, i32 } [ %.pn, %36 ], [ %54, %53 ]
+  %.pn2 = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %36 ]
   resume { ptr, i32 } %.pn2
 
 51:                                               ; preds = %36, %.body
@@ -60628,7 +60628,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr56drop
   br label %common.ret
 
 35:                                               ; preds = %38, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %.body
@@ -60841,7 +60841,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr11
   br label %common.ret
 
 .body:                                            ; preds = %77, %70, %25, %15, %79, %35
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %79 ], [ %.pn2, %35 ], [ %26, %25 ], [ %16, %15 ], [ %78, %77 ], [ %71, %70 ]
+  %.pn4 = phi { ptr, i32 } [ %16, %15 ], [ %.pn2, %79 ], [ %.pn2, %35 ], [ %26, %25 ], [ %78, %77 ], [ %71, %70 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 0, ptr %28, align 8
   resume { ptr, i32 } %.pn4
@@ -61028,7 +61028,7 @@ common.ret:                                       ; preds = %42, %"_ZN87_$LT$sql
   unreachable
 
 common.resume:                                    ; preds = %45, %38, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %39, %38 ], [ %.pn, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %16, %15 ], [ %.pn, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr279drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h9214c58133f9c4b7E.exit.i": ; preds = %9
@@ -61256,7 +61256,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
   br label %common.ret
 
 50:                                               ; preds = %53, %36
-  %.pn2 = phi { ptr, i32 } [ %.pn, %36 ], [ %54, %53 ]
+  %.pn2 = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %36 ]
   resume { ptr, i32 } %.pn2
 
 51:                                               ; preds = %36, %.body
@@ -61507,7 +61507,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr58drop
   br label %common.ret
 
 50:                                               ; preds = %53, %36
-  %.pn2 = phi { ptr, i32 } [ %.pn, %36 ], [ %54, %53 ]
+  %.pn2 = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %36 ]
   resume { ptr, i32 } %.pn2
 
 51:                                               ; preds = %36, %.body
@@ -64428,7 +64428,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   unreachable
 
 common.resume:                                    ; preds = %209, %140, %175, %181, %201, %221, %226, %231, %236, %241, %246, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %242, %241 ], [ %210, %209 ]
+  %common.resume.op = phi { ptr, i32 } [ %242, %241 ], [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17h2eb6f498b9b5dc1aE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5d8cd8d2186d789fE.llvm.1425447921696267910.exit.i", %152, %156
@@ -67189,8 +67189,8 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN81_$LT$ockam_api..cli_state..error..CliStateError$u20$as$u20$core..error..Error$GT$6source17h3990a188f58f6336E.exit"
 
 "_ZN81_$LT$ockam_api..cli_state..error..CliStateError$u20$as$u20$core..error..Error$GT$6source17h3990a188f58f6336E.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %3, %6, %9, %12
-  %.sroa.13.0.i = phi ptr [ %.fca.1.extract.i, %3 ], [ %.fca.1.extract3.i, %6 ], [ %.fca.1.extract11.i, %9 ], [ %.fca.1.extract15.i, %12 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %.fca.0.extract.i, %3 ], [ %.fca.0.extract1.i, %6 ], [ %.fca.0.extract9.i, %9 ], [ %.fca.0.extract13.i, %12 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.13.0.i = phi ptr [ %.fca.1.extract.i, %3 ], [ %.fca.1.extract3.i, %6 ], [ undef, %1 ], [ %.fca.1.extract11.i, %9 ], [ %.fca.1.extract15.i, %12 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %.fca.0.extract.i, %3 ], [ %.fca.0.extract1.i, %6 ], [ null, %1 ], [ %.fca.0.extract9.i, %9 ], [ %.fca.0.extract13.i, %12 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.13.0.i, 1
   ret { ptr, ptr } %21
@@ -68687,14 +68687,14 @@ _ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i: ; preds = %_ZN4rand3rng3Rng3g
   br label %170
 
 170:                                              ; preds = %.sink.split, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i, %165, %167
-  %.in.i = phi i32 [ %152, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %152, %165 ], [ %152, %167 ], [ %.in.i.ph, %.sink.split ]
-  %171 = phi i8 [ %116, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %116, %165 ], [ %116, %167 ], [ %.ph, %.sink.split ]
-  %172 = phi i8 [ %71, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %71, %165 ], [ %71, %167 ], [ %.ph34, %.sink.split ]
-  %173 = phi i8 [ %25, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %25, %165 ], [ %25, %167 ], [ %.ph35, %.sink.split ]
-  %174 = phi i8 [ %51, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %51, %165 ], [ %51, %167 ], [ %.ph36, %.sink.split ]
-  %175 = phi i8 [ %91, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %91, %165 ], [ %91, %167 ], [ %.ph37, %.sink.split ]
-  %.in51.i = phi i32 [ %133, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %133, %165 ], [ %133, %167 ], [ %.in51.i.ph, %.sink.split ]
-  %176 = phi i64 [ %153, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ 0, %165 ], [ 0, %167 ], [ %.sink, %.sink.split ]
+  %.in.i = phi i32 [ %152, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %152, %167 ], [ %152, %165 ], [ %.in.i.ph, %.sink.split ]
+  %171 = phi i8 [ %116, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %116, %167 ], [ %116, %165 ], [ %.ph, %.sink.split ]
+  %172 = phi i8 [ %71, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %71, %167 ], [ %71, %165 ], [ %.ph34, %.sink.split ]
+  %173 = phi i8 [ %25, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %25, %167 ], [ %25, %165 ], [ %.ph35, %.sink.split ]
+  %174 = phi i8 [ %51, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %51, %167 ], [ %51, %165 ], [ %.ph36, %.sink.split ]
+  %175 = phi i8 [ %91, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %91, %167 ], [ %91, %165 ], [ %.ph37, %.sink.split ]
+  %.in51.i = phi i32 [ %133, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ %133, %167 ], [ %133, %165 ], [ %.in51.i.ph, %.sink.split ]
+  %176 = phi i64 [ %153, %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i ], [ 0, %167 ], [ 0, %165 ], [ %.sink, %.sink.split ]
   %177 = getelementptr inbounds nuw i32, ptr %3, i64 %176
   %178 = load i32, ptr %177, align 4, !alias.scope !9617, !noalias !9618, !noundef !10
   %179 = add nuw nsw i64 %176, 1
@@ -70577,7 +70577,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hadcdc284f2479f2cE(ptr noa
   br i1 %46, label %.loopexit, label %.lr.ph310
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172", %.preheader271, %.preheader269, %.preheader267, %.preheader265, %.preheader263, %.preheader
-  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
+  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
   %47 = sub i64 %.fca.1.extract, %.sroa.27.6
   store i64 %47, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -70861,7 +70861,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17he1e05baa98b42b42E(ptr noa
   br i1 %46, label %.loopexit, label %.lr.ph310
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172", %.preheader271, %.preheader269, %.preheader267, %.preheader265, %.preheader263, %.preheader
-  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
+  %.sroa.27.6 = phi i64 [ %45, %.preheader ], [ %45, %.preheader263 ], [ %45, %.preheader265 ], [ %45, %.preheader267 ], [ %45, %.preheader269 ], [ %45, %.preheader271 ], [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit138" ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit172" ], [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit87" ], [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit104" ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit121" ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h996b21eedf7d33e2E.exit155" ]
   %47 = sub i64 %.fca.1.extract, %.sroa.27.6
   store i64 %47, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -73755,10 +73755,10 @@ default.unreachable45:                            ; preds = %30, %20, %3
   br label %71
 
 .body.i.i:                                        ; preds = %96, %82, %77, %61
-  %64 = phi ptr [ %72, %77 ], [ %47, %61 ], [ %72, %96 ], [ %72, %82 ]
-  %65 = phi ptr [ %73, %77 ], [ %48, %61 ], [ %73, %96 ], [ %73, %82 ]
-  %66 = phi ptr [ %74, %77 ], [ %49, %61 ], [ %74, %96 ], [ %74, %82 ]
-  %.pn31.i.i = phi { ptr, i32 } [ %78, %77 ], [ %62, %61 ], [ %97, %96 ], [ %83, %82 ]
+  %64 = phi ptr [ %47, %61 ], [ %72, %77 ], [ %72, %96 ], [ %72, %82 ]
+  %65 = phi ptr [ %48, %61 ], [ %73, %77 ], [ %73, %96 ], [ %73, %82 ]
+  %66 = phi ptr [ %49, %61 ], [ %74, %77 ], [ %74, %96 ], [ %74, %82 ]
+  %.pn31.i.i = phi { ptr, i32 } [ %62, %61 ], [ %78, %77 ], [ %97, %96 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
@@ -73852,9 +73852,9 @@ default.unreachable45:                            ; preds = %30, %20, %3
   br label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread"
 
 .body.i:                                          ; preds = %100, %67
-  %107 = phi ptr [ %21, %100 ], [ %68, %67 ]
-  %108 = phi ptr [ %31, %100 ], [ %70, %67 ]
-  %.pn.i = phi { ptr, i32 } [ %101, %100 ], [ %.pn31.pn.i.i, %67 ]
+  %107 = phi ptr [ %68, %67 ], [ %21, %100 ]
+  %108 = phi ptr [ %70, %67 ], [ %31, %100 ]
+  %.pn.i = phi { ptr, i32 } [ %.pn31.pn.i.i, %67 ], [ %101, %100 ]
   invoke fastcc void @"_ZN4core3ptr140drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h050507bc789b0b12E"(ptr noundef nonnull align 8 %108) #45
           to label %26 unwind label %109
 
@@ -73925,7 +73925,7 @@ common.ret:                                       ; preds = %124, %"_ZN5tokio4sy
   br label %common.ret
 
 .body:                                            ; preds = %111, %26
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %.pn.i, %26 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %26 ], [ %112, %111 ]
   invoke fastcc void @"_ZN4core3ptr134drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1f3cfeac01901052E"(ptr noundef nonnull align 8 %1) #45
           to label %.body33 unwind label %126
 
@@ -74125,10 +74125,10 @@ default.unreachable46:                            ; preds = %30, %20, %3
   br label %71
 
 .body.i.i:                                        ; preds = %96, %82, %77, %61
-  %64 = phi ptr [ %72, %77 ], [ %47, %61 ], [ %72, %96 ], [ %72, %82 ]
-  %65 = phi ptr [ %73, %77 ], [ %48, %61 ], [ %73, %96 ], [ %73, %82 ]
-  %66 = phi ptr [ %74, %77 ], [ %49, %61 ], [ %74, %96 ], [ %74, %82 ]
-  %.pn31.i.i = phi { ptr, i32 } [ %78, %77 ], [ %62, %61 ], [ %97, %96 ], [ %83, %82 ]
+  %64 = phi ptr [ %47, %61 ], [ %72, %77 ], [ %72, %96 ], [ %72, %82 ]
+  %65 = phi ptr [ %48, %61 ], [ %73, %77 ], [ %73, %96 ], [ %73, %82 ]
+  %66 = phi ptr [ %49, %61 ], [ %74, %77 ], [ %74, %96 ], [ %74, %82 ]
+  %.pn31.i.i = phi { ptr, i32 } [ %62, %61 ], [ %78, %77 ], [ %97, %96 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
@@ -74222,9 +74222,9 @@ default.unreachable46:                            ; preds = %30, %20, %3
   br label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17h2854b75363a646b7E.exit.thread"
 
 .body.i:                                          ; preds = %100, %67
-  %107 = phi ptr [ %21, %100 ], [ %68, %67 ]
-  %108 = phi ptr [ %31, %100 ], [ %70, %67 ]
-  %.pn.i = phi { ptr, i32 } [ %101, %100 ], [ %.pn31.pn.i.i, %67 ]
+  %107 = phi ptr [ %68, %67 ], [ %21, %100 ]
+  %108 = phi ptr [ %70, %67 ], [ %31, %100 ]
+  %.pn.i = phi { ptr, i32 } [ %.pn31.pn.i.i, %67 ], [ %101, %100 ]
   invoke fastcc void @"_ZN4core3ptr164drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24d07a92bea267cfE"(ptr noundef nonnull align 8 %108) #45
           to label %26 unwind label %109
 
@@ -74297,7 +74297,7 @@ common.ret:                                       ; preds = %"_ZN5tokio4sync4mps
   br label %common.ret
 
 .body:                                            ; preds = %111, %26
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %.pn.i, %26 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %26 ], [ %112, %111 ]
   invoke fastcc void @"_ZN4core3ptr158drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$..reserve..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdf810af742de326fE"(ptr noundef nonnull align 8 %1) #45
           to label %.body34 unwind label %127
 
@@ -74694,7 +74694,7 @@ default.unreachable101:                           ; preds = %7
   unreachable
 
 _ZN6chrono6format10formatting14write_hundreds17h61cb2907a5eb6e2dE.exit: ; preds = %.critedge.i.i.i81, %113, %94, %48, %_ZN6chrono6format10formatting14write_hundreds17h61cb2907a5eb6e2dE.exit78, %92, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc3ce4adce65f1c92E.llvm.18141648412879468590.exit"
-  %.0 = phi i1 [ false, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc3ce4adce65f1c92E.llvm.18141648412879468590.exit" ], [ false, %_ZN6chrono6format10formatting14write_hundreds17h61cb2907a5eb6e2dE.exit78 ], [ false, %92 ], [ true, %48 ], [ true, %94 ], [ true, %113 ], [ false, %.critedge.i.i.i81 ]
+  %.0 = phi i1 [ false, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc3ce4adce65f1c92E.llvm.18141648412879468590.exit" ], [ true, %94 ], [ false, %_ZN6chrono6format10formatting14write_hundreds17h61cb2907a5eb6e2dE.exit78 ], [ false, %92 ], [ true, %48 ], [ true, %113 ], [ false, %.critedge.i.i.i81 ]
   ret i1 %.0
 
 23:                                               ; preds = %7, %7
@@ -77882,7 +77882,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_identity..secure_channel..api..DecryptionResponse$GT$..deserialize..__Field$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hdd0f25cc0c411d35E.llvm.18141648412879468590.exit"
 
 "_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_identity..secure_channel..api..DecryptionResponse$GT$..deserialize..__Field$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hdd0f25cc0c411d35E.llvm.18141648412879468590.exit": ; preds = %10, %15, %19, %21, %23
-  %.sink.i.i.sink.i.i = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink.i.i = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink.i.i, ptr %0, align 8, !alias.scope !10748, !noalias !10749
   ret void
 }
@@ -78107,7 +78107,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_identity..secure_channel..api..EncryptionResponse$GT$..deserialize..__Field$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf4c65216b3c075c6E.llvm.18141648412879468590.exit"
 
 "_ZN212_$LT$ockam_identity..secure_channel..api.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_identity..secure_channel..api..EncryptionResponse$GT$..deserialize..__Field$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf4c65216b3c075c6E.llvm.18141648412879468590.exit": ; preds = %10, %15, %19, %21, %23
-  %.sink.i.i.sink.i.i = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink.i.i = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink.i.i, ptr %0, align 8, !alias.scope !10827, !noalias !10828
   ret void
 }
@@ -79709,7 +79709,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hdf1493978146684cE.exit
 
 _ZN5serde2de7Visitor9visit_u3217hdf1493978146684cE.exit: ; preds = %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %15, %10, %47
-  %.sink.i.i.sink = phi i8 [ 1, %10 ], [ 1, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink = phi i8 [ 1, %47 ], [ 1, %10 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -79774,7 +79774,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217h22ef5155e968d638E.exit
 
 _ZN5serde2de7Visitor9visit_u3217h22ef5155e968d638E.exit: ; preds = %21, %19, %15, %10, %23
-  %.sink.i.i.sink = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -79839,7 +79839,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %_ZN5serde2de7Visitor9visit_u3217hc63268466e1ebce5E.exit
 
 _ZN5serde2de7Visitor9visit_u3217hc63268466e1ebce5E.exit: ; preds = %21, %19, %15, %10, %23
-  %.sink.i.i.sink = phi i8 [ 1, %10 ], [ 1, %23 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
+  %.sink.i.i.sink = phi i8 [ 1, %23 ], [ 1, %10 ], [ 0, %21 ], [ 0, %19 ], [ 1, %15 ]
   store i8 %.sink.i.i.sink, ptr %0, align 8
   ret void
 }
@@ -80446,7 +80446,7 @@ default.unreachable41:                            ; preds = %3
   br label %26
 
 .body:                                            ; preds = %46, %41, %14, %17, %33
-  %.pn14 = phi { ptr, i32 } [ %34, %33 ], [ %18, %17 ], [ %15, %14 ], [ %47, %46 ], [ %42, %41 ]
+  %.pn14 = phi { ptr, i32 } [ %15, %14 ], [ %34, %33 ], [ %18, %17 ], [ %47, %46 ], [ %42, %41 ]
   invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$sqlx_core..pool..maybe..MaybePoolConnection$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0d5a542a3a5b4710E"(ptr noalias noundef align 8 dereferenceable(64) %1) #45
           to label %54 unwind label %57
 
@@ -80664,7 +80664,7 @@ default.unreachable42:                            ; preds = %3
   br label %28
 
 .body:                                            ; preds = %48, %43, %15, %18, %35
-  %.pn16 = phi { ptr, i32 } [ %36, %35 ], [ %19, %18 ], [ %16, %15 ], [ %49, %48 ], [ %44, %43 ]
+  %.pn16 = phi { ptr, i32 } [ %16, %15 ], [ %36, %35 ], [ %19, %18 ], [ %49, %48 ], [ %44, %43 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %25) #45
           to label %.body23 unwind label %75
@@ -80757,7 +80757,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
   br i1 %54, label %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit", label %.invoke
 
 .body23:                                          ; preds = %68, %55, %.body
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body ], [ %56, %55 ], [ %69, %68 ]
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body ], [ %69, %68 ], [ %56, %55 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn18
 
@@ -80885,7 +80885,7 @@ default.unreachable55:                            ; preds = %3
   br label %20
 
 .body25:                                          ; preds = %40, %29, %22, %70, %65, %57
-  %.pn23 = phi { ptr, i32 } [ %58, %57 ], [ %71, %70 ], [ %66, %65 ], [ %30, %29 ], [ %23, %22 ], [ %41, %40 ]
+  %.pn23 = phi { ptr, i32 } [ %23, %22 ], [ %66, %65 ], [ %58, %57 ], [ %71, %70 ], [ %30, %29 ], [ %41, %40 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn23
 
@@ -81356,11 +81356,11 @@ default.unreachable59:                            ; preds = %58, %20, %3
   br label %100
 
 .body.i.i:                                        ; preds = %118, %113, %106, %89
-  %93 = phi ptr [ %101, %106 ], [ %61, %89 ], [ %101, %118 ], [ %101, %113 ]
-  %94 = phi ptr [ %102, %106 ], [ %62, %89 ], [ %102, %118 ], [ %102, %113 ]
-  %95 = phi ptr [ %103, %106 ], [ %65, %89 ], [ %103, %118 ], [ %103, %113 ]
-  %96 = phi ptr [ %104, %106 ], [ %66, %89 ], [ %104, %118 ], [ %104, %113 ]
-  %.pn20.i.i = phi { ptr, i32 } [ %107, %106 ], [ %90, %89 ], [ %119, %118 ], [ %114, %113 ]
+  %93 = phi ptr [ %101, %113 ], [ %61, %89 ], [ %101, %106 ], [ %101, %118 ]
+  %94 = phi ptr [ %102, %113 ], [ %62, %89 ], [ %102, %106 ], [ %102, %118 ]
+  %95 = phi ptr [ %103, %113 ], [ %65, %89 ], [ %103, %106 ], [ %103, %118 ]
+  %96 = phi ptr [ %104, %113 ], [ %66, %89 ], [ %104, %106 ], [ %104, %118 ]
+  %.pn20.i.i = phi { ptr, i32 } [ %114, %113 ], [ %90, %89 ], [ %107, %106 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %81
 
@@ -81478,10 +81478,10 @@ default.unreachable59:                            ; preds = %58, %20, %3
   br label %140
 
 .body.i:                                          ; preds = %126, %124
-  %132 = phi ptr [ %22, %126 ], [ %82, %124 ]
-  %133 = phi ptr [ %21, %126 ], [ %83, %124 ]
-  %134 = phi ptr [ %59, %126 ], [ %85, %124 ]
-  %.pn13.i = phi { ptr, i32 } [ %127, %126 ], [ %.pn20.pn.i.i, %124 ]
+  %132 = phi ptr [ %82, %124 ], [ %22, %126 ]
+  %133 = phi ptr [ %83, %124 ], [ %21, %126 ]
+  %134 = phi ptr [ %85, %124 ], [ %59, %126 ]
+  %.pn13.i = phi { ptr, i32 } [ %.pn20.pn.i.i, %124 ], [ %127, %126 ]
   invoke fastcc void @"_ZN4core3ptr217drop_in_place$LT$sqlx_core..rt..timeout$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..acquire..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcec21565f79a2b16E"(ptr noundef nonnull align 8 %134) #45
           to label %128 unwind label %135, !noalias !11354
 
@@ -81636,8 +81636,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr115dro
   br label %common.ret
 
 .body:                                            ; preds = %137, %52
-  %164 = phi ptr [ %21, %137 ], [ %54, %52 ]
-  %.pn12 = phi { ptr, i32 } [ %138, %137 ], [ %.pn17.pn.i, %52 ]
+  %164 = phi ptr [ %54, %52 ], [ %21, %137 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn17.pn.i, %52 ], [ %138, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$sqlx_core..pool..inner..PoolInner$LT$sqlx_sqlite..database..Sqlite$GT$..acquire..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafa7eab0a4546eeeE"(ptr noundef nonnull align 8 %164) #45
           to label %.body24 unwind label %165
@@ -81732,7 +81732,7 @@ default.unreachable16:                            ; preds = %3
   br label %31
 
 .body:                                            ; preds = %50, %45, %23, %37
-  %.pn11 = phi { ptr, i32 } [ %38, %37 ], [ %24, %23 ], [ %51, %50 ], [ %46, %45 ]
+  %.pn11 = phi { ptr, i32 } [ %24, %23 ], [ %38, %37 ], [ %46, %45 ], [ %51, %50 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn11
 
@@ -81864,7 +81864,7 @@ default.unreachable14:                            ; preds = %3
   br label %21
 
 .body:                                            ; preds = %40, %35, %27, %14
-  %.pn11 = phi { ptr, i32 } [ %28, %27 ], [ %15, %14 ], [ %41, %40 ], [ %36, %35 ]
+  %.pn11 = phi { ptr, i32 } [ %15, %14 ], [ %28, %27 ], [ %41, %40 ], [ %36, %35 ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn11
 
@@ -82125,7 +82125,7 @@ default.unreachable26:                            ; preds = %.noexc, %3
   br label %21
 
 .body:                                            ; preds = %52, %.body.i, %34, %14
-  %.pn13 = phi { ptr, i32 } [ %35, %34 ], [ %15, %14 ], [ %53, %52 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn13 = phi { ptr, i32 } [ %15, %14 ], [ %35, %34 ], [ %53, %52 ], [ %eh.lpad-body.i, %.body.i ]
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn13
 
@@ -83237,7 +83237,7 @@ default.unreachable:                              ; preds = %"_ZN84_$LT$tracing_
 146:                                              ; preds = %147
   resume { ptr, i32 } %lpad.thr_comm
 
-147:                                              ; preds = %.invoke, %143, %.noexc84, %.noexc83, %.critedge9.i, %119, %29, %32, %52, %55, %62, %93
+147:                                              ; preds = %.invoke, %.noexc84, %.noexc83, %.critedge9.i, %119, %52, %55, %93, %32, %62, %29, %143
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_api..ui..terminal..notification..Notification$GT$17h9ede38a9b3e37390E"(ptr noalias noundef align 8 dereferenceable(32) %1) #45
@@ -84559,13 +84559,13 @@ default.unreachable422:                           ; preds = %359, %347, %104, %9
   br label %.thread.i
 
 78:                                               ; preds = %.body, %73
-  %.pn82 = phi { ptr, i32 } [ %.pn80, %.body ], [ %74, %73 ]
+  %.pn82 = phi { ptr, i32 } [ %74, %73 ], [ %.pn80, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0306)
   br label %88
 
 "_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit": ; preds = %70, %814, %819, %343
-  %.sroa.5378.0 = phi i64 [ 3, %343 ], [ 3, %819 ], [ 3, %814 ], [ 0, %70 ]
-  %.sroa.9379.0 = phi ptr [ %.fca.1.extract31427, %343 ], [ %.fca.1.extract41444, %819 ], [ %.fca.1.extract41444, %814 ], [ %67, %70 ]
+  %.sroa.5378.0 = phi i64 [ 3, %814 ], [ 3, %343 ], [ 3, %819 ], [ 0, %70 ]
+  %.sroa.9379.0 = phi ptr [ %.fca.1.extract41444, %814 ], [ %.fca.1.extract31427, %343 ], [ %.fca.1.extract41444, %819 ], [ %67, %70 ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !11938
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h611795092d2689cfE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %79)
@@ -84845,11 +84845,11 @@ default.unreachable422:                           ; preds = %359, %347, %104, %9
   br label %183
 
 .body.i.i:                                        ; preds = %306, %304, %201, %190, %155, %151, %.body.i.i.i.i, %118
-  %161 = phi ptr [ %295, %304 ], [ %307, %306 ], [ %108, %155 ], [ %108, %118 ], [ %108, %151 ], [ %108, %.body.i.i.i.i ], [ %184, %201 ], [ %184, %190 ]
-  %162 = phi ptr [ %296, %304 ], [ %308, %306 ], [ %109, %155 ], [ %109, %118 ], [ %109, %151 ], [ %109, %.body.i.i.i.i ], [ %185, %201 ], [ %185, %190 ]
-  %163 = phi ptr [ %297, %304 ], [ %309, %306 ], [ %111, %155 ], [ %111, %118 ], [ %111, %151 ], [ %111, %.body.i.i.i.i ], [ %186, %201 ], [ %186, %190 ]
-  %164 = phi ptr [ %298, %304 ], [ %310, %306 ], [ %112, %155 ], [ %112, %118 ], [ %112, %151 ], [ %112, %.body.i.i.i.i ], [ %187, %201 ], [ %187, %190 ]
-  %.pn101.i.i = phi { ptr, i32 } [ %305, %304 ], [ %.pn97.pn.i.i, %306 ], [ %156, %155 ], [ %119, %118 ], [ %152, %151 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %202, %201 ], [ %191, %190 ]
+  %161 = phi ptr [ %295, %304 ], [ %307, %306 ], [ %108, %118 ], [ %108, %151 ], [ %108, %155 ], [ %108, %.body.i.i.i.i ], [ %184, %201 ], [ %184, %190 ]
+  %162 = phi ptr [ %296, %304 ], [ %308, %306 ], [ %109, %118 ], [ %109, %151 ], [ %109, %155 ], [ %109, %.body.i.i.i.i ], [ %185, %201 ], [ %185, %190 ]
+  %163 = phi ptr [ %297, %304 ], [ %309, %306 ], [ %111, %118 ], [ %111, %151 ], [ %111, %155 ], [ %111, %.body.i.i.i.i ], [ %186, %201 ], [ %186, %190 ]
+  %164 = phi ptr [ %298, %304 ], [ %310, %306 ], [ %112, %118 ], [ %112, %151 ], [ %112, %155 ], [ %112, %.body.i.i.i.i ], [ %187, %201 ], [ %187, %190 ]
+  %.pn101.i.i = phi { ptr, i32 } [ %305, %304 ], [ %.pn97.pn.i.i, %306 ], [ %119, %118 ], [ %152, %151 ], [ %156, %155 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %202, %201 ], [ %191, %190 ]
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 129
   store i8 0, ptr %165, align 1, !noalias !11958
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %164) #45
@@ -84861,11 +84861,11 @@ default.unreachable422:                           ; preds = %359, %347, %104, %9
   br label %"_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit.i.i"
 
 "_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit.i.i": ; preds = %303, %294, %203, %166
-  %167 = phi ptr [ %108, %166 ], [ %295, %303 ], [ %295, %294 ], [ %184, %203 ]
-  %168 = phi ptr [ %109, %166 ], [ %296, %303 ], [ %296, %294 ], [ %185, %203 ]
-  %169 = phi ptr [ %111, %166 ], [ %297, %303 ], [ %297, %294 ], [ %186, %203 ]
-  %170 = phi ptr [ %112, %166 ], [ %298, %303 ], [ %298, %294 ], [ %187, %203 ]
-  %.fca.1.extract51.pn.i.i = phi ptr [ %142, %166 ], [ %.pn171.i.i, %303 ], [ %.pn171.i.i, %294 ], [ %.fca.1.extract51.i.i, %203 ]
+  %167 = phi ptr [ %108, %166 ], [ %295, %294 ], [ %295, %303 ], [ %184, %203 ]
+  %168 = phi ptr [ %109, %166 ], [ %296, %294 ], [ %296, %303 ], [ %185, %203 ]
+  %169 = phi ptr [ %111, %166 ], [ %297, %294 ], [ %297, %303 ], [ %186, %203 ]
+  %170 = phi ptr [ %112, %166 ], [ %298, %294 ], [ %298, %303 ], [ %187, %203 ]
+  %.pn172.i.i = phi ptr [ %142, %166 ], [ %.pn171.i.i, %294 ], [ %.pn171.i.i, %303 ], [ %.fca.1.extract51.i.i, %203 ]
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 129
   store i8 0, ptr %171, align 1, !noalias !11958
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !11994
@@ -85164,7 +85164,7 @@ default.unreachable422:                           ; preds = %359, %347, %104, %9
   %289 = phi ptr [ %169, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i" ], [ %215, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i" ]
   %290 = phi ptr [ %170, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i" ], [ %216, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i" ]
   %.sroa.075.2.i.i = phi i64 [ 1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i" ], [ 0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i" ]
-  %.sroa.676.2.i.i = phi ptr [ %.fca.1.extract51.pn.i.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i" ], [ %217, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i" ]
+  %.sroa.676.2.i.i = phi ptr [ %.pn172.i.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i" ], [ %217, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i" ]
   store i8 1, ptr %289, align 2, !noalias !11958
   %291 = insertvalue { i64, ptr } poison, i64 %.sroa.075.2.i.i, 0
   %292 = insertvalue { i64, ptr } %291, ptr %.sroa.676.2.i.i, 1
@@ -85233,10 +85233,10 @@ default.unreachable422:                           ; preds = %359, %347, %104, %9
   br label %98
 
 .body.i:                                          ; preds = %312, %275
-  %321 = phi ptr [ %94, %312 ], [ %276, %275 ]
-  %322 = phi ptr [ %93, %312 ], [ %277, %275 ]
-  %323 = phi ptr [ %105, %312 ], [ %279, %275 ]
-  %.pn15.i = phi { ptr, i32 } [ %313, %312 ], [ %.pn103.i.i, %275 ]
+  %321 = phi ptr [ %276, %275 ], [ %94, %312 ]
+  %322 = phi ptr [ %277, %275 ], [ %93, %312 ]
+  %323 = phi ptr [ %279, %275 ], [ %105, %312 ]
+  %.pn15.i = phi { ptr, i32 } [ %.pn103.i.i, %275 ], [ %313, %312 ]
   invoke fastcc void @"_ZN4core3ptr246drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase..create_impl$LT$std..path..PathBuf$C$ockam_node..storage..database..migrations..node_migrations..node_migration_set..NodeMigrationSet$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hee8c15a7ef22bd0bE"(ptr noundef nonnull align 8 %323) #45
           to label %98 unwind label %324
 
@@ -85309,7 +85309,7 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %.thread.i236
 
 342:                                              ; preds = %.body240, %337
-  %.pn90 = phi { ptr, i32 } [ %.pn88, %.body240 ], [ %338, %337 ]
+  %.pn90 = phi { ptr, i32 } [ %338, %337 ], [ %.pn88, %.body240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0311)
   br label %812
 
@@ -85318,8 +85318,8 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %"_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit"
 
 .body:                                            ; preds = %326, %98
-  %344 = phi ptr [ %93, %326 ], [ %100, %98 ]
-  %.pn80 = phi { ptr, i32 } [ %327, %326 ], [ %.pn17.i, %98 ]
+  %344 = phi ptr [ %100, %98 ], [ %93, %326 ]
+  %.pn80 = phi { ptr, i32 } [ %.pn17.i, %98 ], [ %327, %326 ]
   invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase..create$LT$std..path..PathBuf$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h54a1c434f0ccfafbE"(ptr noundef nonnull align 8 %344) #45
           to label %78 unwind label %345
 
@@ -85569,11 +85569,11 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %438
 
 .body.i.i180:                                     ; preds = %561, %559, %456, %445, %410, %406, %.body.i.i.i.i225, %373
-  %416 = phi ptr [ %550, %559 ], [ %562, %561 ], [ %363, %410 ], [ %363, %373 ], [ %363, %406 ], [ %363, %.body.i.i.i.i225 ], [ %439, %456 ], [ %439, %445 ]
-  %417 = phi ptr [ %551, %559 ], [ %563, %561 ], [ %364, %410 ], [ %364, %373 ], [ %364, %406 ], [ %364, %.body.i.i.i.i225 ], [ %440, %456 ], [ %440, %445 ]
-  %418 = phi ptr [ %552, %559 ], [ %564, %561 ], [ %366, %410 ], [ %366, %373 ], [ %366, %406 ], [ %366, %.body.i.i.i.i225 ], [ %441, %456 ], [ %441, %445 ]
-  %419 = phi ptr [ %553, %559 ], [ %565, %561 ], [ %367, %410 ], [ %367, %373 ], [ %367, %406 ], [ %367, %.body.i.i.i.i225 ], [ %442, %456 ], [ %442, %445 ]
-  %.pn101.i.i181 = phi { ptr, i32 } [ %560, %559 ], [ %.pn97.pn.i.i179, %561 ], [ %411, %410 ], [ %374, %373 ], [ %407, %406 ], [ %eh.lpad-body.i.i.i.i226, %.body.i.i.i.i225 ], [ %457, %456 ], [ %446, %445 ]
+  %416 = phi ptr [ %550, %559 ], [ %562, %561 ], [ %363, %373 ], [ %363, %406 ], [ %363, %410 ], [ %363, %.body.i.i.i.i225 ], [ %439, %456 ], [ %439, %445 ]
+  %417 = phi ptr [ %551, %559 ], [ %563, %561 ], [ %364, %373 ], [ %364, %406 ], [ %364, %410 ], [ %364, %.body.i.i.i.i225 ], [ %440, %456 ], [ %440, %445 ]
+  %418 = phi ptr [ %552, %559 ], [ %564, %561 ], [ %366, %373 ], [ %366, %406 ], [ %366, %410 ], [ %366, %.body.i.i.i.i225 ], [ %441, %456 ], [ %441, %445 ]
+  %419 = phi ptr [ %553, %559 ], [ %565, %561 ], [ %367, %373 ], [ %367, %406 ], [ %367, %410 ], [ %367, %.body.i.i.i.i225 ], [ %442, %456 ], [ %442, %445 ]
+  %.pn101.i.i181 = phi { ptr, i32 } [ %560, %559 ], [ %.pn97.pn.i.i179, %561 ], [ %374, %373 ], [ %407, %406 ], [ %411, %410 ], [ %eh.lpad-body.i.i.i.i226, %.body.i.i.i.i225 ], [ %457, %456 ], [ %446, %445 ]
   %420 = getelementptr inbounds nuw i8, ptr %1, i64 137
   store i8 0, ptr %420, align 1, !noalias !12048
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %419) #45
@@ -85585,11 +85585,11 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %"_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit.i.i194"
 
 "_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E.exit.i.i194": ; preds = %558, %549, %458, %421
-  %422 = phi ptr [ %363, %421 ], [ %550, %558 ], [ %550, %549 ], [ %439, %458 ]
-  %423 = phi ptr [ %364, %421 ], [ %551, %558 ], [ %551, %549 ], [ %440, %458 ]
-  %424 = phi ptr [ %366, %421 ], [ %552, %558 ], [ %552, %549 ], [ %441, %458 ]
-  %425 = phi ptr [ %367, %421 ], [ %553, %558 ], [ %553, %549 ], [ %442, %458 ]
-  %.fca.1.extract51.pn.i.i195 = phi ptr [ %397, %421 ], [ %.pn171.i.i193, %558 ], [ %.pn171.i.i193, %549 ], [ %.fca.1.extract51.i.i208, %458 ]
+  %422 = phi ptr [ %363, %421 ], [ %550, %549 ], [ %550, %558 ], [ %439, %458 ]
+  %423 = phi ptr [ %364, %421 ], [ %551, %549 ], [ %551, %558 ], [ %440, %458 ]
+  %424 = phi ptr [ %366, %421 ], [ %552, %549 ], [ %552, %558 ], [ %441, %458 ]
+  %425 = phi ptr [ %367, %421 ], [ %553, %549 ], [ %553, %558 ], [ %442, %458 ]
+  %.pn172.i.i195 = phi ptr [ %397, %421 ], [ %.pn171.i.i193, %549 ], [ %.pn171.i.i193, %558 ], [ %.fca.1.extract51.i.i208, %458 ]
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 137
   store i8 0, ptr %426, align 1, !noalias !12048
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !12084
@@ -85888,7 +85888,7 @@ common.ret:                                       ; preds = %808, %585, %330
   %544 = phi ptr [ %424, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i198" ], [ %470, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i206" ]
   %545 = phi ptr [ %425, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i198" ], [ %471, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i206" ]
   %.sroa.075.2.i.i199 = phi i64 [ 1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i198" ], [ 0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i206" ]
-  %.sroa.676.2.i.i200 = phi ptr [ %.fca.1.extract51.pn.i.i195, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i198" ], [ %472, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i206" ]
+  %.sroa.676.2.i.i200 = phi ptr [ %.pn172.i.i195, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit.i.i198" ], [ %472, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3d744424fe6ad1adE.exit122.i.i206" ]
   store i8 1, ptr %544, align 2, !noalias !12048
   %546 = insertvalue { i64, ptr } poison, i64 %.sroa.075.2.i.i199, 0
   %547 = insertvalue { i64, ptr } %546, ptr %.sroa.676.2.i.i200, 1
@@ -85957,10 +85957,10 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %353
 
 .body.i183:                                       ; preds = %567, %530
-  %576 = phi ptr [ %349, %567 ], [ %531, %530 ]
-  %577 = phi ptr [ %348, %567 ], [ %532, %530 ]
-  %578 = phi ptr [ %360, %567 ], [ %534, %530 ]
-  %.pn15.i184 = phi { ptr, i32 } [ %568, %567 ], [ %.pn103.i.i182, %530 ]
+  %576 = phi ptr [ %531, %530 ], [ %349, %567 ]
+  %577 = phi ptr [ %532, %530 ], [ %348, %567 ]
+  %578 = phi ptr [ %534, %530 ], [ %360, %567 ]
+  %.pn15.i184 = phi { ptr, i32 } [ %.pn103.i.i182, %530 ], [ %568, %567 ]
   invoke fastcc void @"_ZN4core3ptr267drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase..create_impl$LT$std..path..PathBuf$C$ockam_node..storage..database..migrations..application_migrations..application_migration_set..ApplicationMigrationSet$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb26dcde97aa706a2E"(ptr noundef nonnull align 8 %578) #45
           to label %353 unwind label %579
 
@@ -86196,7 +86196,7 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %624
 
 663:                                              ; preds = %722, %695, %702, %624, %597, %604, %811, %810, %809, %787
-  %.pn134 = phi { ptr, i32 } [ %eh.lpad-body304, %809 ], [ %788, %787 ], [ %.pn131.pn, %810 ], [ %.pn110.pn, %811 ], [ %605, %604 ], [ %598, %597 ], [ %.pn100.pn.pn.pn, %624 ], [ %703, %702 ], [ %696, %695 ], [ %.pn121.pn.pn.pn, %722 ]
+  %.pn134 = phi { ptr, i32 } [ %eh.lpad-body304, %809 ], [ %788, %787 ], [ %.pn131.pn, %810 ], [ %605, %604 ], [ %.pn110.pn, %811 ], [ %696, %695 ], [ %598, %597 ], [ %703, %702 ], [ %.pn100.pn.pn.pn, %624 ], [ %.pn121.pn.pn.pn, %722 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase$GT$17hc72b323af232f4e0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56) #45
           to label %812 unwind label %345
 
@@ -86725,8 +86725,8 @@ common.ret:                                       ; preds = %808, %585, %330
   br label %822
 
 .body240:                                         ; preds = %581, %353
-  %825 = phi ptr [ %348, %581 ], [ %355, %353 ]
-  %.pn88 = phi { ptr, i32 } [ %582, %581 ], [ %.pn17.i185, %353 ]
+  %825 = phi ptr [ %355, %353 ], [ %348, %581 ]
+  %.pn88 = phi { ptr, i32 } [ %.pn17.i185, %353 ], [ %582, %581 ]
   invoke fastcc void @"_ZN4core3ptr277drop_in_place$LT$ockam_node..storage..database..sqlx_database..SqlxDatabase..create_with_migration$LT$std..path..PathBuf$C$ockam_node..storage..database..migrations..application_migrations..application_migration_set..ApplicationMigrationSet$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c8e54b4ca728056E"(ptr noundef nonnull align 8 %825) #45
           to label %342 unwind label %345
 }
@@ -87173,7 +87173,7 @@ define void @_ZN9ockam_api9cli_state9cli_state11random_name17h12db7469b8cf52acE(
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #46
   unreachable
 
-.body.thread16:                                   ; preds = %1, %13, %16
+.body.thread16:                                   ; preds = %16, %13, %1
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -87429,7 +87429,7 @@ define noundef nonnull align 8 ptr @"_ZN9ockam_api9cli_state10identities59_$LT$i
   ret ptr %48
 
 .body.thread:                                     ; preds = %.body.i, %49
-  %eh.lpad-body3 = phi { ptr, i32 } [ %50, %49 ], [ %eh.lpad-body.i, %.body.i ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %50, %49 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 49:                                               ; preds = %14
@@ -87800,7 +87800,7 @@ define void @"_ZN9ockam_api9cli_state8journeys8journeys59_$LT$impl$u20$ockam_api
           to label %74 unwind label %72
 
 .body:                                            ; preds = %87, %72, %.body82, %.body77
-  %.pn73 = phi { ptr, i32 } [ %.pn71, %.body82 ], [ %eh.lpad-body78, %.body77 ], [ %73, %72 ], [ %88, %87 ]
+  %.pn73 = phi { ptr, i32 } [ %eh.lpad-body78, %.body77 ], [ %.pn71, %.body82 ], [ %73, %72 ], [ %88, %87 ]
   invoke void @"_ZN4core3ptr119drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$opentelemetry..common..Key$C$alloc..string..String$GT$$GT$17hfd17ab4ee93c6ac4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %67) #45
           to label %485 unwind label %185
 
@@ -87961,7 +87961,7 @@ define void @"_ZN9ockam_api9cli_state8journeys8journeys59_$LT$impl$u20$ockam_api
   br label %122
 
 .body82:                                          ; preds = %.loopexit, %.loopexit.split-lp, %470, %400, %382, %305, %203, %160, %466, %.body147, %.body131, %369, %.body116, %.body105, %263, %215, %191, %169
-  %.pn71 = phi { ptr, i32 } [ %.pn69, %.body147 ], [ %.pn69, %466 ], [ %.pn67, %.body131 ], [ %.pn65, %.body116 ], [ %.pn65, %369 ], [ %.pn63, %.body105 ], [ %.pn, %263 ], [ %216, %215 ], [ %192, %191 ], [ %170, %169 ], [ %161, %160 ], [ %204, %203 ], [ %306, %305 ], [ %383, %382 ], [ %401, %400 ], [ %471, %470 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn71 = phi { ptr, i32 } [ %170, %169 ], [ %.pn69, %.body147 ], [ %.pn69, %466 ], [ %.pn67, %.body131 ], [ %.pn65, %.body116 ], [ %.pn65, %369 ], [ %.pn63, %.body105 ], [ %.pn, %263 ], [ %216, %215 ], [ %192, %191 ], [ %401, %400 ], [ %161, %160 ], [ %204, %203 ], [ %306, %305 ], [ %383, %382 ], [ %471, %470 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$opentelemetry..trace..span_context..SpanContext$GT$17h6539147f050abc65E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %65) #45
           to label %.body unwind label %185
 
@@ -89247,14 +89247,14 @@ define void @"_ZN9ockam_api9cli_state8journeys8journeys59_$LT$impl$u20$ockam_api
   br i1 %or.cond3, label %307, label %306
 
 56:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..global..trace..ObjectSafeTracer$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h295c8e68e481e6dcE.llvm.1425447921696267910.exit.i", %10
-  %.027 = phi i8 [ 1, %10 ], [ %.3, %"_ZN4core3ptr146drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..global..trace..ObjectSafeTracer$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h295c8e68e481e6dcE.llvm.1425447921696267910.exit.i" ]
+  %.027 = phi i8 [ %.3, %"_ZN4core3ptr146drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$opentelemetry..global..trace..ObjectSafeTracer$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h295c8e68e481e6dcE.llvm.1425447921696267910.exit.i" ], [ 1, %10 ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body60
 
 .thread71:                                        ; preds = %274, %.thread.i, %.body.i, %.thread88, %219, %300, %304, %302, %301, %214, %58
-  %.2 = phi i8 [ 0, %301 ], [ 0, %214 ], [ 1, %302 ], [ 1, %304 ], [ 1, %58 ], [ %.3, %300 ], [ %.3, %219 ], [ %.3, %.thread88 ], [ %.3, %.body.i ], [ %.3, %.thread.i ], [ %.3, %274 ]
-  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn80, %301 ], [ %.pn38, %214 ], [ %303, %302 ], [ %305, %304 ], [ %59, %58 ], [ %lpad.thr_comm.split-lp, %300 ], [ %220, %219 ], [ %lpad.thr_comm, %.thread88 ], [ %264, %.body.i ], [ %eh.lpad-body18.i, %.thread.i ], [ %275, %274 ]
+  %.2 = phi i8 [ 0, %301 ], [ 0, %214 ], [ 1, %302 ], [ 1, %58 ], [ 1, %304 ], [ %.3, %300 ], [ %.3, %219 ], [ %.3, %.thread88 ], [ %.3, %.body.i ], [ %.3, %.thread.i ], [ %.3, %274 ]
+  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn80, %301 ], [ %.pn38, %214 ], [ %303, %302 ], [ %59, %58 ], [ %305, %304 ], [ %lpad.thr_comm.split-lp, %300 ], [ %220, %219 ], [ %lpad.thr_comm, %.thread88 ], [ %264, %.body.i ], [ %eh.lpad-body18.i, %.thread.i ], [ %275, %274 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$opentelemetry..global..trace..BoxedTracer$GT$17h0edcb6fa930f43c5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51) #45
           to label %.body60 unwind label %216
 
@@ -90382,7 +90382,7 @@ define void @"_ZN9ockam_api9cli_state5nodes59_$LT$impl$u20$ockam_api..cli_state.
   br i1 %58, label %.thread, label %382
 
 59:                                               ; preds = %360, %302, %65, %4
-  %.0189 = phi i8 [ 0, %302 ], [ 1, %65 ], [ 1, %4 ], [ %.5, %360 ]
+  %.0189 = phi i8 [ %.5, %360 ], [ 0, %302 ], [ 1, %65 ], [ 1, %4 ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -90534,7 +90534,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit: ; preds
           to label %57 unwind label %355
 
 104:                                              ; preds = %.invoke421, %.invoke, %354, %240, %231, %191, %121, %.noexc233, %.noexc232, %106, %95, %303, %204, %291, %273, %266, %263, %243, %172, %154, %147, %144, %124
-  %.3 = phi i8 [ 0, %303 ], [ 0, %291 ], [ 0, %273 ], [ 0, %266 ], [ 0, %263 ], [ 0, %243 ], [ 1, %204 ], [ 1, %172 ], [ 1, %154 ], [ 1, %147 ], [ 1, %144 ], [ 1, %124 ], [ 1, %95 ], [ 1, %106 ], [ 1, %.noexc232 ], [ 1, %.noexc233 ], [ 1, %121 ], [ 0, %191 ], [ 0, %231 ], [ 0, %240 ], [ 0, %354 ], [ 0, %.invoke ], [ 1, %.invoke421 ]
+  %.3 = phi i8 [ 1, %.invoke421 ], [ 1, %.noexc232 ], [ 0, %.invoke ], [ 0, %303 ], [ 1, %.noexc233 ], [ 1, %147 ], [ 1, %106 ], [ 0, %291 ], [ 1, %204 ], [ 1, %172 ], [ 0, %273 ], [ 0, %266 ], [ 0, %263 ], [ 1, %95 ], [ 1, %124 ], [ 1, %154 ], [ 1, %144 ], [ 0, %243 ], [ 0, %240 ], [ 1, %121 ], [ 0, %231 ], [ 0, %354 ], [ 0, %191 ]
   %105 = landingpad { ptr, i32 }
           cleanup
   br label %.body247
@@ -94788,8 +94788,8 @@ define void @"_ZN106_$LT$ockam_api..cloud..lease_manager..models..influxdb..Toke
   br label %36
 
 .body:                                            ; preds = %68, %58, %51, %122, %72
-  %.3 = phi i1 [ %.5, %72 ], [ true, %122 ], [ true, %68 ], [ %.2, %51 ], [ true, %58 ]
-  %.pn69 = phi { ptr, i32 } [ %.pn, %72 ], [ %123, %122 ], [ %69, %68 ], [ %52, %51 ], [ %59, %58 ]
+  %.3 = phi i1 [ true, %68 ], [ %.5, %72 ], [ true, %122 ], [ %.2, %51 ], [ true, %58 ]
+  %.pn69 = phi { ptr, i32 } [ %69, %68 ], [ %.pn, %72 ], [ %123, %122 ], [ %52, %51 ], [ %59, %58 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$colorful..core..color_string..CString$GT$17h8d3fe086b94afc9bE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21) #45
           to label %27 unwind label %43
 
@@ -95092,7 +95092,7 @@ define void @"_ZN106_$LT$ockam_api..cloud..lease_manager..models..influxdb..Toke
   resume { ptr, i32 } %.pn7191
 
 .thread:                                          ; preds = %47, %32, %41, %134, %.thread94, %27
-  %.pn7192 = phi { ptr, i32 } [ %.pn69, %27 ], [ %lpad.thr_comm, %.thread94 ], [ %33, %32 ], [ %42, %41 ], [ %48, %47 ], [ %135, %134 ]
+  %.pn7192 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread94 ], [ %.pn69, %27 ], [ %33, %32 ], [ %42, %41 ], [ %48, %47 ], [ %135, %134 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #45
           to label %136 unwind label %43
 }
@@ -97209,7 +97209,7 @@ define { i64, ptr } @"_ZN122_$LT$ockam_api..enroll..okta_oidc_provider..OktaOidc
   unreachable
 
 common.resume:                                    ; preds = %70, %.body.i.i, %63, %27, %33
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %28, %27 ], [ %lpad.thr_comm, %70 ], [ %64, %63 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %34, %33 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %lpad.thr_comm, %70 ], [ %64, %63 ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %27
@@ -97352,7 +97352,7 @@ common.resume:                                    ; preds = %70, %.body.i.i, %63
   %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn35, 1
   ret { i64, ptr } %.merged
 
-70:                                               ; preds = %41, %39
+70:                                               ; preds = %39, %41
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$reqwest..tls..Certificate$GT$17h87a30a4c2195e20eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #45
@@ -97611,7 +97611,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit:
           to label %_ZN10ockam_abac4expr2eq17hd61caf3033d48c5cE.exit unwind label %32, !noalias !14244
 
 common.resume:                                    ; preds = %.body, %44, %49, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %50, %49 ], [ %45, %44 ], [ %22, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %33, %32 ], [ %45, %44 ], [ %22, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %29
@@ -97995,7 +97995,7 @@ define noundef zeroext i1 @"_ZN93_$LT$ockam_api..nodes..models..policies..Resour
   unreachable
 
 common.resume:                                    ; preds = %33, %25, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %26, %25 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %16, %15 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8db5862896e237dfE.exit": ; preds = %20
@@ -98417,7 +98417,7 @@ define void @"_ZN95_$LT$ockam_api..nodes..models..portal..InletStatus$u20$as$u20
   unreachable
 
 common.resume:                                    ; preds = %108, %.thread71, %180, %164, %.body.i, %79, %37, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ], [ %80, %79 ], [ %59, %.body.i ], [ %.pn47.pn74, %.thread71 ], [ %.pn.pn.pn, %108 ], [ %181, %180 ], [ %.pn47, %164 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %.body.i ], [ %38, %37 ], [ %41, %40 ], [ %80, %79 ], [ %.pn47.pn74, %.thread71 ], [ %.pn.pn.pn, %108 ], [ %181, %180 ], [ %.pn47, %164 ]
   resume { ptr, i32 } %common.resume.op
 
 53:                                               ; preds = %37
@@ -99556,7 +99556,7 @@ common.resume:                                    ; preds = %.body, %53
   br label %.body20
 
 .body20:                                          ; preds = %85, %72, %63
-  %eh.lpad-body21 = phi { ptr, i32 } [ %64, %63 ], [ %73, %72 ], [ %86, %85 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %73, %72 ], [ %64, %63 ], [ %86, %85 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ockam_multiaddr..ProtoValue$GT$17h634d713b0f1d64a8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #45
           to label %.body unwind label %111
 
@@ -102129,7 +102129,7 @@ switch.lookup:                                    ; preds = %2
   unreachable
 
 .body:                                            ; preds = %71, %54, %34, %30, %22, %109, %105, %101, %74, %57, %37
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %102, %101 ], [ %72, %71 ], [ %58, %57 ], [ %106, %105 ], [ %55, %54 ], [ %38, %37 ], [ %110, %109 ], [ %35, %34 ], [ %31, %30 ], [ %23, %22 ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %75, %74 ], [ %102, %101 ], [ %72, %71 ], [ %58, %57 ], [ %106, %105 ], [ %55, %54 ], [ %38, %37 ], [ %110, %109 ], [ %31, %30 ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #45
           to label %111 unwind label %99
 
@@ -104356,7 +104356,7 @@ default.unreachable104:                           ; preds = %3
           to label %77 unwind label %75
 
 .thread80:                                        ; preds = %60, %69, %75
-  %.pn36 = phi { ptr, i32 } [ %76, %75 ], [ %70, %69 ], [ %61, %60 ]
+  %.pn36 = phi { ptr, i32 } [ %70, %69 ], [ %76, %75 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %104
 
@@ -104766,7 +104766,7 @@ define hidden void @"_ZN9ockam_api4logs14span_exporters26OckamSpanExporter$LT$S$
   resume { ptr, i32 } %.pn10.ph
 
 .thread:                                          ; preds = %17, %29, %78, %.body18
-  %.pn10.ph = phi { ptr, i32 } [ %eh.lpad-body15, %.body18 ], [ %eh.lpad-body15, %78 ], [ %18, %17 ], [ %30, %29 ]
+  %.pn10.ph = phi { ptr, i32 } [ %eh.lpad-body15, %78 ], [ %eh.lpad-body15, %.body18 ], [ %18, %17 ], [ %30, %29 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$opentelemetry_sdk..export..trace..SpanData$GT$17hcd8bbb48190c7b34E"(ptr noalias noundef nonnull align 8 dereferenceable(384) %2) #45
           to label %79 unwind label %41
 }
@@ -105230,7 +105230,7 @@ define hidden void @_ZN9ockam_api7session8sessions7Session3new17h926f2cb48ca1124
   unreachable
 
 .body22:                                          ; preds = %52, %41, %25, %30
-  %eh.lpad-body23 = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %42, %41 ], [ %53, %52 ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %31, %30 ], [ %26, %25 ], [ %42, %41 ], [ %53, %52 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #45
           to label %60 unwind label %58
 
@@ -105441,7 +105441,7 @@ define hidden void @_ZN9ockam_api7session8sessions7Session3new17hfd4719f608fa3f4
   unreachable
 
 .body22:                                          ; preds = %52, %41, %25, %30
-  %eh.lpad-body23 = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %42, %41 ], [ %53, %52 ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %31, %30 ], [ %26, %25 ], [ %42, %41 ], [ %53, %52 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #45
           to label %60 unwind label %58
 
@@ -106208,7 +106208,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.18141648412879468590.exit.t
   unreachable
 
 .thread:                                          ; preds = %33, %.thread11
-  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body14, %.thread11 ], [ %34, %33 ]
+  %.pn10 = phi { ptr, i32 } [ %34, %33 ], [ %eh.lpad-body14, %.thread11 ]
   resume { ptr, i32 } %.pn10
 
 .thread11:                                        ; preds = %22, %.thread15
@@ -106968,7 +106968,7 @@ define void @"_ZN9ockam_api2ui6output10ockam_abac120_$LT$impl$u20$ockam_api..ui.
           to label %24 unwind label %20
 
 .body:                                            ; preds = %34, %20, %43, %22
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %23, %22 ], [ %21, %20 ], [ %35, %34 ]
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %44, %43 ], [ %21, %20 ], [ %35, %34 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #45
           to label %72 unwind label %68
 
@@ -107372,7 +107372,7 @@ default.unreachable:                              ; preds = %2
   ret void
 
 15:                                               ; preds = %24, %21, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %22, %21 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn
 
 16:                                               ; preds = %7
@@ -107481,8 +107481,8 @@ define void @_ZN9ockam_api13authenticator17credential_issuer17credential_issuer1
   br i1 %66, label %314, label %.thread
 
 67:                                               ; preds = %.noexc139, %.invoke, %236, %80, %183, %177, %249, %190, %82, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit
-  %.0107 = phi i8 [ %.3, %249 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 0, %190 ], [ 0, %82 ], [ 0, %177 ], [ 0, %183 ], [ 0, %.noexc139 ], [ 0, %80 ], [ 0, %236 ], [ 0, %.invoke ]
-  %.0104 = phi i8 [ %.3, %249 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 0, %190 ], [ 0, %82 ], [ 1, %177 ], [ 1, %183 ], [ 1, %.noexc139 ], [ 0, %80 ], [ 0, %236 ], [ 0, %.invoke ]
+  %.0107 = phi i8 [ 0, %80 ], [ 0, %.invoke ], [ %.3, %249 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 0, %.noexc139 ], [ 0, %236 ], [ 0, %190 ], [ 0, %183 ], [ 0, %177 ], [ 0, %82 ]
+  %.0104 = phi i8 [ 0, %80 ], [ 0, %.invoke ], [ %.3, %249 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 1, %.noexc139 ], [ 0, %236 ], [ 0, %190 ], [ 1, %183 ], [ 1, %177 ], [ 0, %82 ]
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -108905,7 +108905,7 @@ default.unreachable912:                           ; preds = %1369, %1233, %1078,
           to label %229 unwind label %227
 
 .body461:                                         ; preds = %2258, %2272, %659, %616, %227, %663, %629, %242, %238
-  %.pn326 = phi { ptr, i32 } [ %.pn323.pn, %629 ], [ %243, %242 ], [ %239, %238 ], [ %.pn208.pn, %663 ], [ %228, %227 ], [ %617, %616 ], [ %660, %659 ], [ %2273, %2272 ], [ %.pn310, %2258 ]
+  %.pn326 = phi { ptr, i32 } [ %660, %659 ], [ %.pn323.pn, %629 ], [ %228, %227 ], [ %243, %242 ], [ %239, %238 ], [ %.pn208.pn, %663 ], [ %617, %616 ], [ %2273, %2272 ], [ %.pn310, %2258 ]
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %225 = load i8, ptr %224, align 8, !range !528, !noundef !10
   %226 = trunc nuw i8 %225 to i1
@@ -109134,7 +109134,7 @@ _ZN10serde_bare2de10from_slice17h97bea367ebe48959E.exit.i.i: ; preds = %.noexc5.
   br label %.body345
 
 .body345:                                         ; preds = %256, %271, %290, %302
-  %eh.lpad-body346 = phi { ptr, i32 } [ %303, %302 ], [ %257, %256 ], [ %246, %271 ], [ %291, %290 ]
+  %eh.lpad-body346 = phi { ptr, i32 } [ %303, %302 ], [ %246, %271 ], [ %257, %256 ], [ %291, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %629
 
@@ -109685,7 +109685,7 @@ _ZN8minicbor6decode7decoder7Decoder6decode17h123601a9984105cdE.exit: ; preds = %
           to label %519 unwind label %517, !range !1000
 
 449:                                              ; preds = %357, %330, %337, %561, %576, %521, %517, %598
-  %.pn314.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn257.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %598 ], [ %.pn314.pn.pn.pn, %561 ], [ %.pn274, %576 ], [ %522, %521 ], [ %518, %517 ], [ %338, %337 ], [ %331, %330 ], [ %.pn231.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %357 ]
+  %.pn314.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %522, %521 ], [ %.pn257.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %598 ], [ %.pn314.pn.pn.pn, %561 ], [ %.pn274, %576 ], [ %331, %330 ], [ %338, %337 ], [ %.pn231.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %357 ], [ %518, %517 ]
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr51drop_in_place$LT$ockam_core..api..RequestHeader$GT$17hdb020b5dc28f0a91E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %450) #45
           to label %309 unwind label %683
@@ -110399,7 +110399,7 @@ _ZN8minicbor6decode7decoder7Decoder6decode17heb4916f47432cb5fE.exit: ; preds = %
   br label %679
 
 629:                                              ; preds = %.body345, %2210, %309
-  %.pn323.pn = phi { ptr, i32 } [ %2211, %2210 ], [ %.pn321, %309 ], [ %eh.lpad-body346, %.body345 ]
+  %.pn323.pn = phi { ptr, i32 } [ %.pn321, %309 ], [ %2211, %2210 ], [ %eh.lpad-body346, %.body345 ]
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hf8be416902198545E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %630) #45
           to label %.body461 unwind label %683
@@ -111645,9 +111645,9 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1027
 
 .body222.i:                                       ; preds = %2118, %.body234.i, %1018, %1011, %1005
-  %983 = phi ptr [ %1002, %1005 ], [ %1002, %1018 ], [ %1002, %1011 ], [ %1028, %2118 ], [ %1028, %.body234.i ]
-  %984 = phi ptr [ %1003, %1005 ], [ %1003, %1018 ], [ %1003, %1011 ], [ %1029, %2118 ], [ %1029, %.body234.i ]
-  %.pn114.pn.i = phi { ptr, i32 } [ %1006, %1005 ], [ %1019, %1018 ], [ %1012, %1011 ], [ %2119, %2118 ], [ %.pn112.i, %.body234.i ]
+  %983 = phi ptr [ %1002, %1018 ], [ %1002, %1011 ], [ %1002, %1005 ], [ %1028, %2118 ], [ %1028, %.body234.i ]
+  %984 = phi ptr [ %1003, %1018 ], [ %1003, %1011 ], [ %1003, %1005 ], [ %1029, %2118 ], [ %1029, %.body234.i ]
+  %.pn114.pn.i = phi { ptr, i32 } [ %1019, %1018 ], [ %1012, %1011 ], [ %1006, %1005 ], [ %2119, %2118 ], [ %.pn112.i, %.body234.i ]
   %985 = getelementptr inbounds nuw i8, ptr %0, i64 810
   %986 = load i8, ptr %985, align 2, !range !528, !noalias !15986, !noundef !10
   %987 = trunc nuw i8 %986 to i1
@@ -111673,9 +111673,9 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %991
 
 991:                                              ; preds = %2129, %2124, %2122, %990, %727, %724, %717
-  %992 = phi ptr [ %1020, %2122 ], [ %983, %2129 ], [ %983, %2124 ], [ %692, %990 ], [ %692, %727 ], [ %692, %724 ], [ %692, %717 ]
-  %993 = phi ptr [ %1021, %2122 ], [ %984, %2129 ], [ %984, %2124 ], [ %693, %990 ], [ %693, %727 ], [ %693, %724 ], [ %693, %717 ]
-  %.pn117.i = phi { ptr, i32 } [ %2123, %2122 ], [ %.pn114.pn.i, %2129 ], [ %.pn114.pn.i, %2124 ], [ %.pn99.pn.pn.pn.i, %990 ], [ %.pn80.pn.pn.pn.i, %727 ], [ %725, %724 ], [ %718, %717 ]
+  %992 = phi ptr [ %1020, %2122 ], [ %983, %2129 ], [ %983, %2124 ], [ %692, %990 ], [ %692, %717 ], [ %692, %727 ], [ %692, %724 ]
+  %993 = phi ptr [ %1021, %2122 ], [ %984, %2129 ], [ %984, %2124 ], [ %693, %990 ], [ %693, %717 ], [ %693, %727 ], [ %693, %724 ]
+  %.pn117.i = phi { ptr, i32 } [ %2123, %2122 ], [ %.pn114.pn.i, %2129 ], [ %.pn114.pn.i, %2124 ], [ %.pn99.pn.pn.pn.i, %990 ], [ %718, %717 ], [ %.pn80.pn.pn.pn.i, %727 ], [ %725, %724 ]
   %994 = getelementptr inbounds nuw i8, ptr %0, i64 809
   store i8 0, ptr %994, align 1, !noalias !15986
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 811
@@ -112000,11 +112000,11 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1115
 
 .body.i.i.i.i:                                    ; preds = %1154, %1139, %1135, %1126, %1100
-  %1107 = phi ptr [ %1116, %1154 ], [ %1116, %1126 ], [ %1082, %1100 ], [ %1116, %1139 ], [ %1116, %1135 ]
-  %1108 = phi ptr [ %1117, %1154 ], [ %1117, %1126 ], [ %1083, %1100 ], [ %1117, %1139 ], [ %1117, %1135 ]
-  %1109 = phi ptr [ %1118, %1154 ], [ %1118, %1126 ], [ %1087, %1100 ], [ %1118, %1139 ], [ %1118, %1135 ]
-  %1110 = phi ptr [ %1119, %1154 ], [ %1119, %1126 ], [ %1088, %1100 ], [ %1119, %1139 ], [ %1119, %1135 ]
-  %.pn26.i.i.i.i = phi { ptr, i32 } [ %.pn24.i.i.i.i, %1154 ], [ %1127, %1126 ], [ %1101, %1100 ], [ %1140, %1139 ], [ %1136, %1135 ]
+  %1107 = phi ptr [ %1116, %1135 ], [ %1116, %1154 ], [ %1116, %1126 ], [ %1082, %1100 ], [ %1116, %1139 ]
+  %1108 = phi ptr [ %1117, %1135 ], [ %1117, %1154 ], [ %1117, %1126 ], [ %1083, %1100 ], [ %1117, %1139 ]
+  %1109 = phi ptr [ %1118, %1135 ], [ %1118, %1154 ], [ %1118, %1126 ], [ %1087, %1100 ], [ %1118, %1139 ]
+  %1110 = phi ptr [ %1119, %1135 ], [ %1119, %1154 ], [ %1119, %1126 ], [ %1088, %1100 ], [ %1119, %1139 ]
+  %.pn26.i.i.i.i = phi { ptr, i32 } [ %1136, %1135 ], [ %.pn24.i.i.i.i, %1154 ], [ %1127, %1126 ], [ %1101, %1100 ], [ %1140, %1139 ]
   %1111 = getelementptr inbounds nuw i8, ptr %0, i64 992
   invoke fastcc void @"_ZN4core3ptr144drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_api..authenticator..storage..authority_members_repository..AuthorityMembersRepository$GT$$GT$17hcb80af7597bbb16cE"(ptr noalias noundef align 8 dereferenceable(16) %1111) #45
           to label %1159 unwind label %1166, !noalias !16257
@@ -112199,11 +112199,11 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %.body.i.i.i
 
 1177:                                             ; preds = %1174, %1168, %1146, %1141
-  %.sroa.8105.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.018.0.i.i.i.i, %1141 ], [ %.sroa.018.0.i.i.i.i, %1146 ]
-  %.sroa.0104.0.ph.i.i.i = phi i1 [ true, %1168 ], [ true, %1174 ], [ false, %1141 ], [ false, %1146 ]
-  %.sroa.9106.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.319.0.i.i.i.i, %1141 ], [ %.sroa.319.0.i.i.i.i, %1146 ]
-  %.sroa.11108.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.7.0.i.i.i.i, %1141 ], [ %.sroa.7.0.i.i.i.i, %1146 ]
-  %.sroa.12109.0.ph.i.i.i = phi ptr [ %.sroa.038.0.copyload.i.i.i.i, %1168 ], [ %.sroa.038.0.copyload.i.i.i.i, %1174 ], [ undef, %1141 ], [ undef, %1146 ]
+  %.sroa.8105.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.018.0.i.i.i.i, %1146 ], [ %.sroa.018.0.i.i.i.i, %1141 ]
+  %.sroa.0104.0.ph.i.i.i = phi i1 [ true, %1168 ], [ true, %1174 ], [ false, %1146 ], [ false, %1141 ]
+  %.sroa.9106.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.319.0.i.i.i.i, %1146 ], [ %.sroa.319.0.i.i.i.i, %1141 ]
+  %.sroa.11108.0.ph.i.i.i = phi i8 [ undef, %1168 ], [ undef, %1174 ], [ %.sroa.7.0.i.i.i.i, %1146 ], [ %.sroa.7.0.i.i.i.i, %1141 ]
+  %.sroa.12109.0.ph.i.i.i = phi ptr [ %.sroa.038.0.copyload.i.i.i.i, %1168 ], [ %.sroa.038.0.copyload.i.i.i.i, %1174 ], [ undef, %1146 ], [ undef, %1141 ]
   store i8 1, ptr %1118, align 8, !noalias !16244
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.339.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i.i)
@@ -112321,10 +112321,10 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
           to label %1615 unwind label %1607, !noalias !16258
 
 .body.i.i.i:                                      ; preds = %1175, %1159
-  %1224 = phi ptr [ %.phi.trans.insert.i.i, %1175 ], [ %1160, %1159 ]
-  %1225 = phi ptr [ %1062, %1175 ], [ %1161, %1159 ]
-  %1226 = phi ptr [ %1079, %1175 ], [ %1163, %1159 ]
-  %.pn.i.i.i = phi { ptr, i32 } [ %1176, %1175 ], [ %.pn28.i.i.i.i, %1159 ]
+  %1224 = phi ptr [ %1160, %1159 ], [ %.phi.trans.insert.i.i, %1175 ]
+  %1225 = phi ptr [ %1161, %1159 ], [ %1062, %1175 ]
+  %1226 = phi ptr [ %1163, %1159 ], [ %1079, %1175 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.pn28.i.i.i.i, %1159 ], [ %1176, %1175 ]
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$ockam_api..authenticator..common..EnrollerAccessControlChecks..check_is_member..$u7b$$u7b$closure$u7d$$u7d$$GT$17h561e438d1e6dbeaeE"(ptr noundef nonnull align 8 %1226) #45
           to label %1229 unwind label %1227, !noalias !16258
 
@@ -112694,7 +112694,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1369
 
 .body.i72.i.i.i:                                  ; preds = %.body131.i.i.i.i, %1476, %1363, %1358, %1352
-  %.pn88.pn.i.i.i.i = phi { ptr, i32 } [ %1353, %1352 ], [ %1364, %1363 ], [ %1359, %1358 ], [ %1477, %1476 ], [ %.pn86.i.i.i.i, %.body131.i.i.i.i ]
+  %.pn88.pn.i.i.i.i = phi { ptr, i32 } [ %1364, %1363 ], [ %1359, %1358 ], [ %1353, %1352 ], [ %1477, %1476 ], [ %.pn86.i.i.i.i, %.body131.i.i.i.i ]
   %1340 = getelementptr inbounds nuw i8, ptr %0, i64 1065
   %1341 = load i8, ptr %1340, align 1, !range !528, !noalias !16312, !noundef !10
   %1342 = trunc nuw i8 %1341 to i1
@@ -112714,7 +112714,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1345
 
 1345:                                             ; preds = %1487, %1482, %1480, %1344, %1268, %1265, %1258
-  %.pn91.i.i.i.i = phi { ptr, i32 } [ %1481, %1480 ], [ %.pn88.pn.i.i.i.i, %1487 ], [ %.pn88.pn.i.i.i.i, %1482 ], [ %.pn73.pn.pn.pn.i.i.i.i, %1344 ], [ %.pn61.pn.pn.pn.i.i.i.i, %1268 ], [ %1266, %1265 ], [ %1259, %1258 ]
+  %.pn91.i.i.i.i = phi { ptr, i32 } [ %1481, %1480 ], [ %.pn88.pn.i.i.i.i, %1487 ], [ %.pn88.pn.i.i.i.i, %1482 ], [ %.pn73.pn.pn.pn.i.i.i.i, %1344 ], [ %1259, %1258 ], [ %.pn61.pn.pn.pn.i.i.i.i, %1268 ], [ %1266, %1265 ]
   %1346 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store i8 0, ptr %1346, align 8, !noalias !16312
   store i8 2, ptr %1237, align 2, !noalias !16312
@@ -112986,7 +112986,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   unreachable
 
 .body.i.i.i.i.i:                                  ; preds = %1470, %1465, %1457, %1443, %1423, %1419, %1412, %1394, %1382
-  %.pn29.i.i.i.i.i = phi { ptr, i32 } [ %1458, %1457 ], [ %1444, %1443 ], [ %1413, %1412 ], [ %1395, %1394 ], [ %1383, %1382 ], [ %1424, %1423 ], [ %1420, %1419 ], [ %1471, %1470 ], [ %1466, %1465 ]
+  %.pn29.i.i.i.i.i = phi { ptr, i32 } [ %1420, %1419 ], [ %1458, %1457 ], [ %1444, %1443 ], [ %1471, %1470 ], [ %1466, %1465 ], [ %1413, %1412 ], [ %1395, %1394 ], [ %1383, %1382 ], [ %1424, %1423 ]
   store i8 2, ptr %1371, align 8, !noalias !16368
   br label %.body131.i.i.i.i
 
@@ -113059,8 +113059,8 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %.body131.i.i.i.i
 
 1474:                                             ; preds = %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0fd95f881eb09af5E.llvm.1425447921696267910.exit.i.i.i.i.i.i", %1425, %1384
-  %.sroa.4.0.i.i.i.i.i = phi ptr [ %.sroa.4.0.copyload39.i.i.i.i.i, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0fd95f881eb09af5E.llvm.1425447921696267910.exit.i.i.i.i.i.i" ], [ %.fca.1.extract.i.i.i.i.i, %1425 ], [ %1388, %1384 ]
-  %.sroa.0.0.i.i.i.i.i = phi i64 [ %1459, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0fd95f881eb09af5E.llvm.1425447921696267910.exit.i.i.i.i.i.i" ], [ 3, %1425 ], [ 3, %1384 ]
+  %.sroa.4.0.i.i.i.i.i = phi ptr [ %.fca.1.extract.i.i.i.i.i, %1425 ], [ %.sroa.4.0.copyload39.i.i.i.i.i, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0fd95f881eb09af5E.llvm.1425447921696267910.exit.i.i.i.i.i.i" ], [ %1388, %1384 ]
+  %.sroa.0.0.i.i.i.i.i = phi i64 [ 3, %1425 ], [ %1459, %"_ZN4core3ptr284drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$ockam_identity..identities..storage..attributes_entry..AttributesEntry$GT$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0fd95f881eb09af5E.llvm.1425447921696267910.exit.i.i.i.i.i.i" ], [ 3, %1384 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.i.i.i.i.i, i64 72, i1 false), !noalias !16312
   store i8 1, ptr %1371, align 8, !noalias !16368
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i.i.i)
@@ -113089,7 +113089,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1345
 
 .body131.i.i.i.i:                                 ; preds = %1472, %.body.i.i.i.i.i
-  %.pn86.i.i.i.i = phi { ptr, i32 } [ %1473, %1472 ], [ %.pn29.i.i.i.i.i, %.body.i.i.i.i.i ]
+  %.pn86.i.i.i.i = phi { ptr, i32 } [ %.pn29.i.i.i.i.i, %.body.i.i.i.i.i ], [ %1473, %1472 ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes..get_attributes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8268b87c29965229E"(ptr noundef nonnull align 8 %1370) #45
           to label %.body.i72.i.i.i unwind label %1301, !noalias !16316
 
@@ -113504,7 +113504,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %1216
 
 .body73.i.i.i:                                    ; preds = %1489, %1345
-  %.pn48.i.i.i = phi { ptr, i32 } [ %1490, %1489 ], [ %.pn91.i.i.i.i, %1345 ]
+  %.pn48.i.i.i = phi { ptr, i32 } [ %.pn91.i.i.i.i, %1345 ], [ %1490, %1489 ]
   invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$ockam_identity..identities..identities_attributes..IdentitiesAttributes..get_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4476d24db879860bE"(ptr noundef nonnull align 8 %1236) #45
           to label %1201 unwind label %1227, !noalias !16258
 
@@ -113514,19 +113514,19 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %.body.i226.i
 
 1615:                                             ; preds = %1223, %1216, %1213, %1204
-  %1616 = phi ptr [ %1217, %1216 ], [ %1217, %1223 ], [ %1205, %1204 ], [ %1205, %1213 ]
-  %1617 = phi ptr [ %1218, %1216 ], [ %1218, %1223 ], [ %1206, %1204 ], [ %1206, %1213 ]
-  %.sroa.10377.0.ph.i.i = phi ptr [ %.sroa.5141.1.i.i.i, %1216 ], [ %.sroa.5141.1.i.i.i, %1223 ], [ undef, %1204 ], [ undef, %1213 ]
-  %.sroa.9375.0.ph.i.i = phi i32 [ undef, %1216 ], [ undef, %1223 ], [ %1208, %1204 ], [ %1208, %1213 ]
-  %.sroa.0374.0.ph.i.i = phi i1 [ true, %1216 ], [ true, %1223 ], [ false, %1204 ], [ false, %1213 ]
+  %1616 = phi ptr [ %1217, %1216 ], [ %1217, %1223 ], [ %1205, %1213 ], [ %1205, %1204 ]
+  %1617 = phi ptr [ %1218, %1216 ], [ %1218, %1223 ], [ %1206, %1213 ], [ %1206, %1204 ]
+  %.sroa.10377.0.ph.i.i = phi ptr [ %.sroa.5141.1.i.i.i, %1216 ], [ %.sroa.5141.1.i.i.i, %1223 ], [ undef, %1213 ], [ undef, %1204 ]
+  %.sroa.9375.0.ph.i.i = phi i32 [ undef, %1216 ], [ undef, %1223 ], [ %1208, %1213 ], [ %1208, %1204 ]
+  %.sroa.0374.0.ph.i.i = phi i1 [ true, %1216 ], [ true, %1223 ], [ false, %1213 ], [ false, %1204 ]
   store i8 1, ptr %1616, align 8, !noalias !16240
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6134.i.i.i)
   invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$ockam_api..authenticator..common..EnrollerAccessControlChecks..check_identifier..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca4265aa06350409E"(ptr noundef nonnull align 8 %1617)
           to label %1622 unwind label %1620, !noalias !16232
 
 1618:                                             ; preds = %1492, %1178
-  %1619 = phi ptr [ %1234, %1492 ], [ %1116, %1178 ]
-  %.sink.i.i.i = phi i8 [ 4, %1492 ], [ 3, %1178 ]
+  %1619 = phi ptr [ %1116, %1178 ], [ %1234, %1492 ]
+  %.sink.i.i.i = phi i8 [ 3, %1178 ], [ 4, %1492 ]
   store i8 %.sink.i.i.i, ptr %1619, align 8, !noalias !16240
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6134.i.i.i)
   br label %2117
@@ -113890,7 +113890,7 @@ common.ret:                                       ; preds = %2243, %2225, %2137,
   br label %.body276.i.i
 
 .body276.i.i:                                     ; preds = %.body.i226.i, %1941, %1878, %1874, %1869, %1868, %1862, %1798, %1778, %1771, %1758, %1751, %1747, %1737, %1673, %1653, %1646, %1620
-  %.pn204.i.i = phi { ptr, i32 } [ %.pn197.pn.pn.pn.pn.pn.i.i, %1941 ], [ %1879, %1878 ], [ %1875, %1874 ], [ %1863, %1862 ], [ %.pn161.pn.i.i, %1868 ], [ %1752, %1751 ], [ %1738, %1737 ], [ %.pn140.pn.i.i, %1747 ], [ %1654, %1653 ], [ %1647, %1646 ], [ %.pn130.pn.pn.pn.i.i, %1673 ], [ %1779, %1778 ], [ %1772, %1771 ], [ %.pn151.pn.pn.pn.i.i, %1798 ], [ %1870, %1869 ], [ %1759, %1758 ], [ %1621, %1620 ], [ %.pn118.i.i, %.body.i226.i ]
+  %.pn204.i.i = phi { ptr, i32 } [ %1870, %1869 ], [ %.pn197.pn.pn.pn.pn.pn.i.i, %1941 ], [ %1879, %1878 ], [ %1875, %1874 ], [ %1863, %1862 ], [ %.pn161.pn.i.i, %1868 ], [ %1647, %1646 ], [ %.pn130.pn.pn.pn.i.i, %1673 ], [ %1772, %1771 ], [ %1759, %1758 ], [ %.pn140.pn.i.i, %1747 ], [ %1779, %1778 ], [ %1654, %1653 ], [ %.pn151.pn.pn.pn.i.i, %1798 ], [ %1752, %1751 ], [ %1738, %1737 ], [ %1621, %1620 ], [ %.pn118.i.i, %.body.i226.i ]
   %1748 = getelementptr inbounds nuw i8, ptr %0, i64 889
   %1749 = load i8, ptr %1748, align 1, !range !528, !noalias !16228, !noundef !10
   %1750 = trunc nuw i8 %1749 to i1
@@ -114450,8 +114450,8 @@ _ZN9ockam_api13authenticator6common27EnrollerAccessControlChecks32check_str_attr
   br label %1743
 
 .body.i226.i:                                     ; preds = %1613, %1604
-  %1955 = phi ptr [ %1062, %1613 ], [ %1606, %1604 ]
-  %.pn118.i.i = phi { ptr, i32 } [ %1614, %1613 ], [ %.pn61.i.i.i, %1604 ]
+  %1955 = phi ptr [ %1606, %1604 ], [ %1062, %1613 ]
+  %.pn118.i.i = phi { ptr, i32 } [ %.pn61.i.i.i, %1604 ], [ %1614, %1613 ]
   invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$ockam_api..authenticator..common..EnrollerAccessControlChecks..check_identifier..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca4265aa06350409E"(ptr noundef nonnull align 8 %1955) #45
           to label %.body276.i.i unwind label %1056, !noalias !16232
 
@@ -114760,7 +114760,7 @@ _ZN9ockam_api13authenticator6common27EnrollerAccessControlChecks32check_str_attr
   br label %2116
 
 .body321.i.i:                                     ; preds = %2103, %2014, %1994, %1987, %1975, %1971, %1964, %1932
-  %.pn197.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn197.pn.pn.i.i, %2103 ], [ %1965, %1964 ], [ %1933, %1932 ], [ %1976, %1975 ], [ %1972, %1971 ], [ %1995, %1994 ], [ %1988, %1987 ], [ %.pn186.pn.pn.pn.pn.i.i, %2014 ]
+  %.pn197.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn197.pn.pn.i.i, %2103 ], [ %.pn186.pn.pn.pn.pn.i.i, %2014 ], [ %1965, %1964 ], [ %1988, %1987 ], [ %1933, %1932 ], [ %1976, %1975 ], [ %1972, %1971 ], [ %1995, %1994 ]
   %2071 = getelementptr inbounds nuw i8, ptr %0, i64 890
   %2072 = load i8, ptr %2071, align 2, !range !528, !noalias !16228, !noundef !10
   %2073 = trunc nuw i8 %2072 to i1
@@ -114946,7 +114946,7 @@ _ZN9ockam_api13authenticator6common27EnrollerAccessControlChecks32check_str_attr
   br label %991
 
 .body234.i:                                       ; preds = %2114, %2108
-  %.pn112.i = phi { ptr, i32 } [ %2115, %2114 ], [ %.pn204.pn.i.i, %2108 ]
+  %.pn112.i = phi { ptr, i32 } [ %.pn204.pn.i.i, %2108 ], [ %2115, %2114 ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$ockam_api..authenticator..enrollment_tokens..issuer..EnrollmentTokenIssuer..issue_token..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4867ce34f0407feE"(ptr noundef nonnull align 8 %1030) #45
           to label %.body222.i unwind label %848, !noalias !15990
 
@@ -115271,7 +115271,7 @@ _ZN9ockam_api13authenticator6common27EnrollerAccessControlChecks32check_str_attr
   br label %2166
 
 2204:                                             ; preds = %2167, %.thread820, %555
-  %.pn314.pn = phi { ptr, i32 } [ %.pn314, %555 ], [ %.pn301, %2167 ], [ %.pn293, %.thread820 ]
+  %.pn314.pn = phi { ptr, i32 } [ %.pn314, %555 ], [ %.pn293, %.thread820 ], [ %.pn301, %2167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %2205 = getelementptr inbounds nuw i8, ptr %0, i64 626
   %2206 = load i8, ptr %2205, align 2, !range !528, !noundef !10
@@ -115337,8 +115337,8 @@ _ZN9ockam_api13authenticator6common27EnrollerAccessControlChecks32check_str_attr
   br label %2229
 
 .body483:                                         ; preds = %2133, %2131
-  %2232 = phi ptr [ %687, %2133 ], [ %993, %2131 ]
-  %.pn284 = phi { ptr, i32 } [ %2134, %2133 ], [ %.pn117.i, %2131 ]
+  %2232 = phi ptr [ %993, %2131 ], [ %687, %2133 ]
+  %.pn284 = phi { ptr, i32 } [ %.pn117.i, %2131 ], [ %2134, %2133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9706)
   invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$ockam_api..authenticator..enrollment_tokens..issuer..EnrollmentTokenIssuer..issue_token..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbefb7b954c6dcf8bE"(ptr noundef nonnull align 8 %2232) #45
           to label %555 unwind label %683
@@ -115910,8 +115910,8 @@ default.unreachable17:                            ; preds = %1
   br label %20
 
 20:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %12, %9, %6, %3
-  %.sroa.13.0 = phi ptr [ %.fca.1.extract, %3 ], [ %.fca.1.extract3, %6 ], [ %.fca.1.extract11, %9 ], [ %.fca.1.extract15, %12 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %.fca.0.extract, %3 ], [ %.fca.0.extract1, %6 ], [ %.fca.0.extract9, %9 ], [ %.fca.0.extract13, %12 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.13.0 = phi ptr [ %.fca.1.extract, %3 ], [ %.fca.1.extract3, %6 ], [ undef, %1 ], [ %.fca.1.extract11, %9 ], [ %.fca.1.extract15, %12 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %.fca.0.extract, %3 ], [ %.fca.0.extract1, %6 ], [ null, %1 ], [ %.fca.0.extract9, %9 ], [ %.fca.0.extract13, %12 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.13.0, 1
   ret { ptr, ptr } %22
@@ -116306,7 +116306,7 @@ default.unreachable23:                            ; preds = %1
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.18141648412879468590.exit: ; preds = %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6
-  %anon.18447cd967edbb62a84b1bcc4d80419e.1091.sink = phi ptr [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %6 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %8 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %10 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %12 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1093, %14 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1094, %16 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %18 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %20 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %22 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %24 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %26 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %28 ]
+  %anon.18447cd967edbb62a84b1bcc4d80419e.1091.sink = phi ptr [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %26 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %24 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %22 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %20 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %18 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1094, %16 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1093, %14 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %12 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %10 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %8 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %6 ], [ @anon.18447cd967edbb62a84b1bcc4d80419e.1091, %28 ]
   store ptr %anon.18447cd967edbb62a84b1bcc4d80419e.1091.sink, ptr %4, align 8, !noalias !10
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 6, ptr %30, align 8
@@ -116426,7 +116426,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit10: ; pre
   br label %30
 
 30:                                               ; preds = %1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit5"
-  %.sroa.0.0 = phi ptr [ %11, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit5" ], [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit" ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit" ], [ %11, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha47bec1e1a8acb93E.exit5" ], [ null, %1 ]
   %31 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %32 = insertvalue { ptr, ptr } %31, ptr @anon.18447cd967edbb62a84b1bcc4d80419e.1097, 1
   ret { ptr, ptr } %32
@@ -117292,15 +117292,15 @@ define void @"_ZN9ockam_api9cli_state5nodes59_$LT$impl$u20$ockam_api..cli_state.
   br i1 %56, label %63, label %60
 
 .body:                                            ; preds = %278, %266, %.body.thread.i.i.i, %158, %174, %73, %58, %271, %306
-  %.1126 = phi i8 [ %.3, %271 ], [ %.3, %306 ], [ %.0125, %58 ], [ %.3, %73 ], [ %.3, %174 ], [ %.3, %158 ], [ %.3, %.body.thread.i.i.i ], [ %.3, %266 ], [ %.3, %278 ]
-  %.1 = phi i8 [ %.3, %271 ], [ %.3, %306 ], [ %.0123, %58 ], [ %.3, %73 ], [ %.3, %174 ], [ %.3, %158 ], [ %.3, %.body.thread.i.i.i ], [ %.3, %266 ], [ %.3, %278 ]
-  %.pn = phi { ptr, i32 } [ %272, %271 ], [ %307, %306 ], [ %59, %58 ], [ %74, %73 ], [ %175, %174 ], [ %159, %158 ], [ %eh.lpad-body24.i.i.i, %.body.thread.i.i.i ], [ %267, %266 ], [ %279, %278 ]
+  %.1126 = phi i8 [ %.3, %.body.thread.i.i.i ], [ %.3, %73 ], [ %.3, %271 ], [ %.3, %306 ], [ %.0125, %58 ], [ %.3, %158 ], [ %.3, %266 ], [ %.3, %174 ], [ %.3, %278 ]
+  %.1 = phi i8 [ %.3, %.body.thread.i.i.i ], [ %.3, %73 ], [ %.3, %271 ], [ %.3, %306 ], [ %.0123, %58 ], [ %.3, %158 ], [ %.3, %266 ], [ %.3, %174 ], [ %.3, %278 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body24.i.i.i, %.body.thread.i.i.i ], [ %74, %73 ], [ %272, %271 ], [ %307, %306 ], [ %59, %58 ], [ %159, %158 ], [ %267, %266 ], [ %175, %174 ], [ %279, %278 ]
   %57 = trunc nuw i8 %.1126 to i1
   br i1 %57, label %328, label %.thread
 
 58:                                               ; preds = %.noexc145, %94, %77, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit, %142, %136, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit", %151, %96
-  %.0125 = phi i8 [ 0, %151 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit" ], [ 0, %96 ], [ 0, %136 ], [ 0, %142 ], [ 0, %.noexc145 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ %.3, %77 ], [ 0, %94 ]
-  %.0123 = phi i8 [ 0, %151 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit" ], [ 0, %96 ], [ 1, %136 ], [ 1, %142 ], [ 1, %.noexc145 ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ %.3, %77 ], [ 0, %94 ]
+  %.0125 = phi i8 [ 0, %151 ], [ %.3, %77 ], [ 0, %.noexc145 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit" ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 0, %96 ], [ 0, %94 ], [ 0, %136 ], [ 0, %142 ]
+  %.0123 = phi i8 [ 0, %151 ], [ %.3, %77 ], [ 1, %.noexc145 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit" ], [ %.3, %_ZN7tracing4span4Span8do_enter17h1d5487548bd0aa4fE.exit ], [ 0, %96 ], [ 0, %94 ], [ 1, %136 ], [ 1, %142 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -118072,7 +118072,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17hfbba730246fc696aE.exit.thread.i:
   br label %.critedge.i171
 
 .body.thread.i.i.i:                               ; preds = %.body.thread26.loopexit.split-lp.i.i.i, %.body.thread26.loopexit.i.i.i, %248, %.body19.i.i.i.i.i.i.i.i.i, %219, %.body.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body24.i.i.i = phi { ptr, i32 } [ %249, %248 ], [ %eh.lpad-body20.i.i.i.i.i.i.i.i.i, %.body19.i.i.i.i.i.i.i.i.i ], [ %220, %219 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i, %.body.thread26.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.body.thread26.loopexit.split-lp.i.i.i ]
+  %eh.lpad-body24.i.i.i = phi { ptr, i32 } [ %eh.lpad-body20.i.i.i.i.i.i.i.i.i, %.body19.i.i.i.i.i.i.i.i.i ], [ %249, %248 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %220, %219 ], [ %lpad.loopexit.i.i.i, %.body.thread26.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.body.thread26.loopexit.split-lp.i.i.i ]
   invoke void @"_ZN4core3ptr565drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..flatten..Flatten$LT$std..fs..ReadDir$GT$$C$ockam_api..cli_state..nodes..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..stdout_logs..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..traits..iterator..Iterator..max_by_key..key$LT$std..fs..DirEntry$C$std..time..SystemTime$C$ockam_api..cli_state..nodes..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..stdout_logs..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd00d6f7627a1e6bdE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %28) #45
           to label %.body unwind label %255, !noalias !17015
 
@@ -118986,7 +118986,7 @@ common.ret:                                       ; preds = %343, %293, %262, %2
   ret { i64, ptr } %common.ret.op
 
 "_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit": ; preds = %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i", %212, %115, %350
-  %.0 = phi ptr [ %117, %115 ], [ %349, %350 ], [ %.1, %212 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
+  %.0 = phi ptr [ %349, %350 ], [ %117, %115 ], [ %.1, %212 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
   store i8 1, ptr %42, align 1
   %45 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   br label %common.ret
@@ -119016,7 +119016,7 @@ common.ret:                                       ; preds = %343, %293, %262, %2
   br label %.body188
 
 .body188:                                         ; preds = %344, %337, %333, %208, %.body171, %114
-  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %.body171 ], [ %.pn154.pn.pn.pn.pn.pn, %114 ], [ %334, %333 ], [ %209, %208 ], [ %345, %344 ], [ %338, %337 ]
+  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %.body171 ], [ %334, %333 ], [ %209, %208 ], [ %.pn154.pn.pn.pn.pn.pn, %114 ], [ %345, %344 ], [ %338, %337 ]
   store i8 2, ptr %42, align 1
   resume { ptr, i32 } %.pn168.pn
 
@@ -119269,7 +119269,7 @@ common.ret:                                       ; preds = %343, %293, %262, %2
           to label %110 unwind label %104
 
 114:                                              ; preds = %328, %294, %287, %325, %233, %263, %256, %249, %187, %225, %218, %184, %107, %106
-  %.pn154.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113, %106 ], [ %.pn102.pn, %107 ], [ %.pn121.pn, %187 ], [ %226, %225 ], [ %219, %218 ], [ %186, %184 ], [ %.pn132.pn, %233 ], [ %264, %263 ], [ %257, %256 ], [ %251, %249 ], [ %.pn145.pn, %328 ], [ %295, %294 ], [ %288, %287 ], [ %327, %325 ]
+  %.pn154.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn, %107 ], [ %.pn113, %106 ], [ %219, %218 ], [ %.pn121.pn, %187 ], [ %186, %184 ], [ %226, %225 ], [ %.pn132.pn, %233 ], [ %257, %256 ], [ %251, %249 ], [ %264, %263 ], [ %.pn145.pn, %328 ], [ %327, %325 ], [ %295, %294 ], [ %288, %287 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #45
           to label %.body188 unwind label %104
 
@@ -119619,8 +119619,8 @@ common.ret:                                       ; preds = %343, %293, %262, %2
   unreachable
 
 .body179:                                         ; preds = %146, %127
-  %215 = phi ptr [ %119, %146 ], [ %133, %127 ]
-  %.pn109 = phi { ptr, i32 } [ %147, %146 ], [ %.pn16.i, %127 ]
+  %215 = phi ptr [ %133, %127 ], [ %119, %146 ]
+  %.pn109 = phi { ptr, i32 } [ %.pn16.i, %127 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8237)
   invoke fastcc void @"_ZN4core3ptr244drop_in_place$LT$sqlx_core..query_scalar..QueryScalar$LT$sqlx_sqlite..database..Sqlite$C$bool$C$sqlx_sqlite..arguments..SqliteArguments$GT$..fetch_one$LT$$RF$mut$u20$sqlx_sqlite..connection..SqliteConnection$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd60a07bdc554f6ddE"(ptr noundef nonnull align 8 %215) #45
           to label %106 unwind label %104
@@ -120779,7 +120779,7 @@ common.ret:                                       ; preds = %300, %262, %190, %7
   br label %.body151
 
 .body151:                                         ; preds = %333, %326, %.body122, %105, %336
-  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %.body122 ], [ %.pn113.pn.pn, %336 ], [ %.pn113.pn.pn, %105 ], [ %334, %333 ], [ %327, %326 ]
+  %.pn117.pn = phi { ptr, i32 } [ %.pn117, %.body122 ], [ %.pn113.pn.pn, %105 ], [ %.pn113.pn.pn, %336 ], [ %334, %333 ], [ %327, %326 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i8 0, ptr %52, align 8
   store i8 2, ptr %36, align 2
@@ -121247,9 +121247,9 @@ common.ret:                                       ; preds = %300, %262, %190, %7
   unreachable
 
 .body27.i:                                        ; preds = %123, %139, %147, %151, %.body22.i
-  %184 = phi ptr [ %132, %.body22.i ], [ %132, %139 ], [ %116, %123 ], [ %132, %151 ], [ %132, %147 ]
-  %185 = phi ptr [ %133, %.body22.i ], [ %133, %139 ], [ %117, %123 ], [ %133, %151 ], [ %133, %147 ]
-  %.pn20.i = phi { ptr, i32 } [ %.pn18.i, %.body22.i ], [ %140, %139 ], [ %124, %123 ], [ %152, %151 ], [ %148, %147 ]
+  %184 = phi ptr [ %132, %.body22.i ], [ %116, %123 ], [ %132, %139 ], [ %132, %147 ], [ %132, %151 ]
+  %185 = phi ptr [ %133, %.body22.i ], [ %117, %123 ], [ %133, %139 ], [ %133, %147 ], [ %133, %151 ]
+  %.pn20.i = phi { ptr, i32 } [ %.pn18.i, %.body22.i ], [ %124, %123 ], [ %140, %139 ], [ %148, %147 ], [ %152, %151 ]
   store i8 2, ptr %184, align 8, !noalias !17532
   br label %.body130
 
@@ -121529,7 +121529,7 @@ common.ret:                                       ; preds = %300, %262, %190, %7
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit"
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit": ; preds = %312, %314, %288, %246
-  %.sroa.6233.2 = phi ptr [ %270, %288 ], [ %197, %246 ], [ %306, %314 ], [ %306, %312 ]
+  %.sroa.6233.2 = phi ptr [ %197, %246 ], [ %270, %288 ], [ %306, %314 ], [ %306, %312 ]
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 241
   store i8 0, ptr %247, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -121539,8 +121539,8 @@ common.ret:                                       ; preds = %300, %262, %190, %7
   br i1 %250, label %315, label %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit"
 
 .body130:                                         ; preds = %187, %.body27.i
-  %251 = phi ptr [ %113, %187 ], [ %185, %.body27.i ]
-  %.pn82 = phi { ptr, i32 } [ %188, %187 ], [ %.pn20.i, %.body27.i ]
+  %251 = phi ptr [ %185, %.body27.i ], [ %113, %187 ]
+  %.pn82 = phi { ptr, i32 } [ %.pn20.i, %.body27.i ], [ %188, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9182.sroa.6)
   invoke fastcc void @"_ZN4core3ptr299drop_in_place$LT$sqlx_core..query_as..QueryAs$LT$sqlx_sqlite..database..Sqlite$C$ockam_api..cli_state..storage..spaces_repository_sql..SpaceRow$C$sqlx_sqlite..arguments..SqliteArguments$GT$..fetch_optional$LT$$RF$mut$u20$sqlx_sqlite..connection..SqliteConnection$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7500e59902bda923E"(ptr noundef nonnull align 8 %251) #45
           to label %102 unwind label %100
@@ -121650,7 +121650,7 @@ common.ret:                                       ; preds = %300, %262, %190, %7
   br label %292
 
 286:                                              ; preds = %301, %294
-  %.pn111 = phi { ptr, i32 } [ %302, %301 ], [ %295, %294 ]
+  %.pn111 = phi { ptr, i32 } [ %295, %294 ], [ %302, %301 ]
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 248
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E"(ptr noalias noundef align 8 dereferenceable(72) %287) #45
           to label %.body133 unwind label %100
@@ -121965,7 +121965,7 @@ common.ret:                                       ; preds = %294, %201, %153, %7
   br label %.body159
 
 .body159:                                         ; preds = %323, %316, %.body126, %188, %326
-  %.pn121.pn = phi { ptr, i32 } [ %.pn121, %.body126 ], [ %.pn117.pn, %326 ], [ %.pn117.pn, %188 ], [ %324, %323 ], [ %317, %316 ]
+  %.pn121.pn = phi { ptr, i32 } [ %.pn121, %.body126 ], [ %.pn117.pn, %188 ], [ %.pn117.pn, %326 ], [ %324, %323 ], [ %317, %316 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 0, ptr %46, align 8
   store i8 2, ptr %29, align 2
@@ -122196,9 +122196,9 @@ common.ret:                                       ; preds = %294, %201, %153, %7
   br label %112
 
 .body.i:                                          ; preds = %144, %.body.i.i, %127, %102
-  %107 = phi ptr [ %113, %127 ], [ %96, %102 ], [ %113, %144 ], [ %113, %.body.i.i ]
-  %108 = phi ptr [ %114, %127 ], [ %97, %102 ], [ %114, %144 ], [ %114, %.body.i.i ]
-  %.pn13.i = phi { ptr, i32 } [ %128, %127 ], [ %103, %102 ], [ %145, %144 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %107 = phi ptr [ %96, %102 ], [ %113, %127 ], [ %113, %144 ], [ %113, %.body.i.i ]
+  %108 = phi ptr [ %97, %102 ], [ %114, %127 ], [ %114, %144 ], [ %114, %.body.i.i ]
+  %.pn13.i = phi { ptr, i32 } [ %103, %102 ], [ %128, %127 ], [ %145, %144 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   store i8 2, ptr %107, align 8, !noalias !17678
   br label %.body130
 
@@ -122479,8 +122479,8 @@ common.ret:                                       ; preds = %294, %201, %153, %7
   br i1 %186, label %306, label %"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit"
 
 .body130:                                         ; preds = %148, %.body.i
-  %187 = phi ptr [ %93, %148 ], [ %108, %.body.i ]
-  %.pn79 = phi { ptr, i32 } [ %149, %148 ], [ %.pn13.i, %.body.i ]
+  %187 = phi ptr [ %108, %.body.i ], [ %93, %148 ]
+  %.pn79 = phi { ptr, i32 } [ %.pn13.i, %.body.i ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8195)
   invoke fastcc void @"_ZN4core3ptr294drop_in_place$LT$sqlx_core..query_as..QueryAs$LT$sqlx_sqlite..database..Sqlite$C$ockam_api..cli_state..storage..spaces_repository_sql..SpaceRow$C$sqlx_sqlite..arguments..SqliteArguments$GT$..fetch_all$LT$$RF$mut$u20$sqlx_sqlite..connection..SqliteConnection$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44119b6358170314E"(ptr noundef nonnull align 8 %187) #45
           to label %88 unwind label %86
@@ -122821,7 +122821,7 @@ common.ret:                                       ; preds = %294, %201, %153, %7
           to label %182 unwind label %166
 
 284:                                              ; preds = %288, %295, %246, %254
-  %.pn112.pn = phi { ptr, i32 } [ %255, %254 ], [ %.pn104, %246 ], [ %296, %295 ], [ %289, %288 ]
+  %.pn112.pn = phi { ptr, i32 } [ %.pn104, %246 ], [ %255, %254 ], [ %289, %288 ], [ %296, %295 ]
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ockam_api..cloud..space..Space$GT$$GT$17h9270e48faab918d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %285) #45
           to label %162 unwind label %86
@@ -123382,7 +123382,7 @@ common.ret:                                       ; preds = %147, %52, %21
   br label %128
 
 .body57:                                          ; preds = %148, %143, %114, %135
-  %.pn45 = phi { ptr, i32 } [ %136, %135 ], [ %115, %114 ], [ %149, %148 ], [ %144, %143 ]
+  %.pn45 = phi { ptr, i32 } [ %115, %114 ], [ %136, %135 ], [ %144, %143 ], [ %149, %148 ]
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %121) #45
           to label %.body55 unwind label %35
@@ -123603,7 +123603,7 @@ common.ret:                                       ; preds = %193, %172, %108, %5
   ret { i64, ptr } %common.ret.op
 
 "_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit": ; preds = %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i", %161, %97, %200
-  %.0 = phi ptr [ %99, %97 ], [ %199, %200 ], [ %.1, %161 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
+  %.0 = phi ptr [ %199, %200 ], [ %99, %97 ], [ %.1, %161 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
   store i8 1, ptr %24, align 8
   %27 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   br label %common.ret
@@ -123632,7 +123632,7 @@ common.ret:                                       ; preds = %193, %172, %108, %5
   br label %.body107
 
 .body107:                                         ; preds = %194, %187, %183, %157, %.body96, %95
-  %.pn93.pn = phi { ptr, i32 } [ %.pn93, %.body96 ], [ %.pn82.pn.pn, %95 ], [ %184, %183 ], [ %158, %157 ], [ %195, %194 ], [ %188, %187 ]
+  %.pn93.pn = phi { ptr, i32 } [ %.pn93, %.body96 ], [ %184, %183 ], [ %158, %157 ], [ %.pn82.pn.pn, %95 ], [ %195, %194 ], [ %188, %187 ]
   store i8 2, ptr %24, align 8
   resume { ptr, i32 } %.pn93.pn
 
@@ -123859,7 +123859,7 @@ common.ret:                                       ; preds = %193, %172, %108, %5
           to label %91 unwind label %86
 
 95:                                               ; preds = %139, %173, %166, %136, %83, %102, %109, %88
-  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn62.pn, %88 ], [ %110, %109 ], [ %103, %102 ], [ %85, %83 ], [ %.pn73.pn, %139 ], [ %174, %173 ], [ %167, %166 ], [ %138, %136 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn62.pn, %88 ], [ %85, %83 ], [ %110, %109 ], [ %.pn73.pn, %139 ], [ %138, %136 ], [ %174, %173 ], [ %167, %166 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %96) #45
           to label %.body107 unwind label %86
@@ -124307,7 +124307,7 @@ common.ret:                                       ; preds = %173, %152, %96, %55
   ret { i64, ptr } %common.ret.op
 
 "_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E.exit": ; preds = %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i", %141, %85, %180
-  %.0 = phi ptr [ %87, %85 ], [ %179, %180 ], [ %.1, %141 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
+  %.0 = phi ptr [ %179, %180 ], [ %87, %85 ], [ %.1, %141 ], [ %.1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09b098571e3e4176E.llvm.1425447921696267910.exit.i" ]
   store i8 1, ptr %20, align 8
   %23 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   br label %common.ret
@@ -124336,7 +124336,7 @@ common.ret:                                       ; preds = %173, %152, %96, %55
   br label %.body103
 
 .body103:                                         ; preds = %174, %167, %163, %137, %.body92, %83
-  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %.body92 ], [ %.pn78.pn.pn, %83 ], [ %164, %163 ], [ %138, %137 ], [ %175, %174 ], [ %168, %167 ]
+  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %.body92 ], [ %164, %163 ], [ %138, %137 ], [ %.pn78.pn.pn, %83 ], [ %175, %174 ], [ %168, %167 ]
   store i8 2, ptr %20, align 8
   resume { ptr, i32 } %.pn89.pn
 
@@ -124533,7 +124533,7 @@ common.ret:                                       ; preds = %173, %152, %96, %55
           to label %61 unwind label %79
 
 83:                                               ; preds = %105, %153, %146, %121, %76, %90, %97, %61
-  %.pn78.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %61 ], [ %98, %97 ], [ %91, %90 ], [ %78, %76 ], [ %.pn69.pn, %105 ], [ %154, %153 ], [ %147, %146 ], [ %123, %121 ]
+  %.pn78.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %.pn58.pn, %61 ], [ %78, %76 ], [ %98, %97 ], [ %.pn69.pn, %105 ], [ %123, %121 ], [ %154, %153 ], [ %147, %146 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr93drop_in_place$LT$sqlx_core..transaction..Transaction$LT$sqlx_sqlite..database..Sqlite$GT$$GT$17h0bb245dd46266415E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %84) #45
           to label %.body103 unwind label %79
@@ -125726,19 +125726,19 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %214 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .thread1858:                                      ; preds = %.thread3163, %.thread3159, %.thread3155, %.thread3151, %.thread3147, %.thread3143, %.thread3139, %.thread3135, %.thread3131, %.thread3127, %.thread3123, %.thread3119, %.thread3115, %.thread, %.thread2032.loopexit, %.thread2032.loopexit.split-lp, %.thread1974.loopexit, %.thread1974.loopexit.split-lp, %.thread1922.loopexit, %.thread1922.loopexit.split-lp, %.thread1864.loopexit, %.thread1864.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1767, %1709, %1669, %1643, %1603, %1563, %1533, %1493, %1453, %875, %817, %777, %751, %711, %671, %641, %601, %561, %1777, %1759, %1737, %1731, %1719, %1701, %1679, %1662, %1653, %1635, %1613, %1595, %1573, %1555, %1543, %1525, %1503, %1485, %1463, %1446, %1438, %1429, %1403, %1397, %1385, %1376, %1350, %1341, %1315, %1306, %1280, %1271, %1190, %1160, %885, %867, %845, %839, %827, %809, %787, %770, %761, %743, %721, %703, %681, %663, %651, %633, %611, %593, %571, %554, %546, %537, %511, %505, %493, %484, %458, %449, %423, %414, %388, %376
-  %.11368 = phi i8 [ %.451412, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01367.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11318 = phi i8 [ %.441361, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01317.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11269 = phi i8 [ %.431311, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01268.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11221 = phi i8 [ %.421262, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01220.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11174 = phi i8 [ %.411214, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01173.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11128 = phi i8 [ %.401167, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01127.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11083 = phi i8 [ %.391121, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01082.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.11039 = phi i8 [ %.381076, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.01038.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.1996 = phi i8 [ %.371032, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0995.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.1954 = phi i8 [ %.36989, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0953.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.1913 = phi i8 [ %.35947, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0912.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.1911 = phi i8 [ 0, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %1669 ], [ 1, %1709 ], [ 1, %1767 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0910.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1864.loopexit ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1922.loopexit ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread1974.loopexit ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
-  %.pn2087 = phi { ptr, i32 } [ %.pn2083, %1160 ], [ %1191, %1190 ], [ %.pn1599, %388 ], [ %.pn1599, %376 ], [ %.pn1596, %423 ], [ %.pn1596, %414 ], [ %.pn1593, %458 ], [ %.pn1593, %449 ], [ %.pn1590, %493 ], [ %.pn1590, %484 ], [ %.pn1587, %511 ], [ %.pn1587, %505 ], [ %.pn1584, %546 ], [ %.pn1584, %537 ], [ %lpad.thr_comm.split-lp, %571 ], [ %lpad.thr_comm.split-lp, %554 ], [ %.pn1580, %611 ], [ %.pn1580, %593 ], [ %.pn1578, %651 ], [ %.pn1578, %633 ], [ %.pn1576, %681 ], [ %.pn1576, %663 ], [ %.pn1574, %721 ], [ %.pn1574, %703 ], [ %.pn1572, %761 ], [ %.pn1572, %743 ], [ %lpad.thr_comm.split-lp1921, %787 ], [ %lpad.thr_comm.split-lp1921, %770 ], [ %.pn1568, %827 ], [ %.pn1568, %809 ], [ %.pn1565, %845 ], [ %.pn1565, %839 ], [ %.pn1563, %885 ], [ %.pn1563, %867 ], [ %.pn1560, %1280 ], [ %.pn1560, %1271 ], [ %.pn1557, %1315 ], [ %.pn1557, %1306 ], [ %.pn1554, %1350 ], [ %.pn1554, %1341 ], [ %.pn1551, %1385 ], [ %.pn1551, %1376 ], [ %.pn1548, %1403 ], [ %.pn1548, %1397 ], [ %.pn1545, %1438 ], [ %.pn1545, %1429 ], [ %lpad.thr_comm.split-lp1973, %1463 ], [ %lpad.thr_comm.split-lp1973, %1446 ], [ %.pn1541, %1503 ], [ %.pn1541, %1485 ], [ %.pn1539, %1543 ], [ %.pn1539, %1525 ], [ %.pn1537, %1573 ], [ %.pn1537, %1555 ], [ %.pn1535, %1613 ], [ %.pn1535, %1595 ], [ %.pn1533, %1653 ], [ %.pn1533, %1635 ], [ %lpad.thr_comm.split-lp2031, %1679 ], [ %lpad.thr_comm.split-lp2031, %1662 ], [ %.pn1529, %1719 ], [ %.pn1529, %1701 ], [ %.pn1526, %1737 ], [ %.pn1526, %1731 ], [ %.pn, %1777 ], [ %.pn, %1759 ], [ %562, %561 ], [ %602, %601 ], [ %642, %641 ], [ %672, %671 ], [ %712, %711 ], [ %752, %751 ], [ %778, %777 ], [ %818, %817 ], [ %876, %875 ], [ %1454, %1453 ], [ %1494, %1493 ], [ %1534, %1533 ], [ %1564, %1563 ], [ %1604, %1603 ], [ %1644, %1643 ], [ %1670, %1669 ], [ %1710, %1709 ], [ %1768, %1767 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit2159, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2160, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp2200, %.thread1864.loopexit.split-lp ], [ %lpad.loopexit2199, %.thread1864.loopexit ], [ %lpad.loopexit.split-lp2172, %.thread1922.loopexit.split-lp ], [ %lpad.loopexit2171, %.thread1922.loopexit ], [ %lpad.loopexit.split-lp2156, %.thread1974.loopexit.split-lp ], [ %lpad.loopexit2155, %.thread1974.loopexit ], [ %lpad.loopexit.split-lp2128, %.thread2032.loopexit.split-lp ], [ %lpad.loopexit2127, %.thread2032.loopexit ], [ %lpad.loopexit.split-lp2197, %.thread ], [ %lpad.loopexit.split-lp2192, %.thread3115 ], [ %lpad.loopexit.split-lp2187, %.thread3119 ], [ %lpad.loopexit.split-lp2182, %.thread3123 ], [ %lpad.loopexit.split-lp2177, %.thread3127 ], [ %lpad.loopexit.split-lp2169, %.thread3131 ], [ %lpad.loopexit.split-lp, %.thread3135 ], [ %lpad.loopexit.split-lp2153, %.thread3139 ], [ %lpad.loopexit.split-lp2148, %.thread3143 ], [ %lpad.loopexit.split-lp2143, %.thread3147 ], [ %lpad.loopexit.split-lp2138, %.thread3151 ], [ %lpad.loopexit.split-lp2133, %.thread3155 ], [ %lpad.loopexit.split-lp2125, %.thread3159 ], [ %lpad.loopexit.split-lp2120, %.thread3163 ]
+  %.11368 = phi i8 [ 1, %1767 ], [ %.451412, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01367.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11318 = phi i8 [ 1, %1767 ], [ %.441361, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01317.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11269 = phi i8 [ 1, %1767 ], [ %.431311, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01268.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11221 = phi i8 [ 1, %1767 ], [ %.421262, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01220.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11174 = phi i8 [ 1, %1767 ], [ %.411214, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01173.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11128 = phi i8 [ 1, %1767 ], [ %.401167, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01127.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11083 = phi i8 [ 1, %1767 ], [ %.391121, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01082.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.11039 = phi i8 [ 1, %1767 ], [ %.381076, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.01038.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.1996 = phi i8 [ 1, %1767 ], [ %.371032, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.0995.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.1954 = phi i8 [ 1, %1767 ], [ %.36989, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.0953.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.1913 = phi i8 [ 1, %1767 ], [ %.35947, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.0912.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.1911 = phi i8 [ 1, %1767 ], [ 0, %1160 ], [ 1, %1190 ], [ 1, %388 ], [ 1, %376 ], [ 1, %423 ], [ 1, %414 ], [ 1, %458 ], [ 1, %449 ], [ 1, %493 ], [ 1, %484 ], [ 1, %511 ], [ 1, %505 ], [ 1, %546 ], [ 1, %537 ], [ 1, %571 ], [ 1, %554 ], [ 1, %611 ], [ 1, %593 ], [ 1, %651 ], [ 1, %633 ], [ 1, %681 ], [ 1, %663 ], [ 1, %721 ], [ 1, %703 ], [ 1, %761 ], [ 1, %743 ], [ 1, %787 ], [ 1, %770 ], [ 1, %827 ], [ 1, %809 ], [ 1, %845 ], [ 1, %839 ], [ 1, %885 ], [ 1, %867 ], [ 1, %1280 ], [ 1, %1271 ], [ 1, %1315 ], [ 1, %1306 ], [ 1, %1350 ], [ 1, %1341 ], [ 1, %1385 ], [ 1, %1376 ], [ 1, %1403 ], [ 1, %1397 ], [ 1, %1438 ], [ 1, %1429 ], [ 1, %1463 ], [ 1, %1446 ], [ 1, %1503 ], [ 1, %1485 ], [ 1, %1543 ], [ 1, %1525 ], [ 1, %1573 ], [ 1, %1555 ], [ 1, %1613 ], [ 1, %1595 ], [ 1, %1653 ], [ 1, %1635 ], [ 1, %1679 ], [ 1, %1662 ], [ 1, %1719 ], [ 1, %1701 ], [ 1, %1737 ], [ 1, %1731 ], [ 1, %1777 ], [ 1, %1759 ], [ 1, %1709 ], [ %.0910.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ 1, %561 ], [ 1, %601 ], [ 1, %641 ], [ 1, %671 ], [ 1, %711 ], [ 1, %751 ], [ 1, %.thread1864.loopexit ], [ 1, %777 ], [ 1, %817 ], [ 1, %875 ], [ 1, %.thread1922.loopexit ], [ 1, %1453 ], [ 1, %1493 ], [ 1, %1533 ], [ 1, %1563 ], [ 1, %1603 ], [ 1, %1643 ], [ 1, %.thread1974.loopexit ], [ 1, %1669 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.thread1864.loopexit.split-lp ], [ 1, %.thread1922.loopexit.split-lp ], [ 1, %.thread1974.loopexit.split-lp ], [ 1, %.thread2032.loopexit.split-lp ], [ 1, %.thread2032.loopexit ], [ 1, %.thread ], [ 1, %.thread3115 ], [ 1, %.thread3119 ], [ 1, %.thread3123 ], [ 1, %.thread3127 ], [ 1, %.thread3131 ], [ 1, %.thread3135 ], [ 1, %.thread3139 ], [ 1, %.thread3143 ], [ 1, %.thread3147 ], [ 1, %.thread3151 ], [ 1, %.thread3155 ], [ 1, %.thread3159 ], [ 1, %.thread3163 ]
+  %.pn2087 = phi { ptr, i32 } [ %1768, %1767 ], [ %.pn2083, %1160 ], [ %1191, %1190 ], [ %.pn1599, %388 ], [ %.pn1599, %376 ], [ %.pn1596, %423 ], [ %.pn1596, %414 ], [ %.pn1593, %458 ], [ %.pn1593, %449 ], [ %.pn1590, %493 ], [ %.pn1590, %484 ], [ %.pn1587, %511 ], [ %.pn1587, %505 ], [ %.pn1584, %546 ], [ %.pn1584, %537 ], [ %lpad.thr_comm.split-lp, %571 ], [ %lpad.thr_comm.split-lp, %554 ], [ %.pn1580, %611 ], [ %.pn1580, %593 ], [ %.pn1578, %651 ], [ %.pn1578, %633 ], [ %.pn1576, %681 ], [ %.pn1576, %663 ], [ %.pn1574, %721 ], [ %.pn1574, %703 ], [ %.pn1572, %761 ], [ %.pn1572, %743 ], [ %lpad.thr_comm.split-lp1921, %787 ], [ %lpad.thr_comm.split-lp1921, %770 ], [ %.pn1568, %827 ], [ %.pn1568, %809 ], [ %.pn1565, %845 ], [ %.pn1565, %839 ], [ %.pn1563, %885 ], [ %.pn1563, %867 ], [ %.pn1560, %1280 ], [ %.pn1560, %1271 ], [ %.pn1557, %1315 ], [ %.pn1557, %1306 ], [ %.pn1554, %1350 ], [ %.pn1554, %1341 ], [ %.pn1551, %1385 ], [ %.pn1551, %1376 ], [ %.pn1548, %1403 ], [ %.pn1548, %1397 ], [ %.pn1545, %1438 ], [ %.pn1545, %1429 ], [ %lpad.thr_comm.split-lp1973, %1463 ], [ %lpad.thr_comm.split-lp1973, %1446 ], [ %.pn1541, %1503 ], [ %.pn1541, %1485 ], [ %.pn1539, %1543 ], [ %.pn1539, %1525 ], [ %.pn1537, %1573 ], [ %.pn1537, %1555 ], [ %.pn1535, %1613 ], [ %.pn1535, %1595 ], [ %.pn1533, %1653 ], [ %.pn1533, %1635 ], [ %lpad.thr_comm.split-lp2031, %1679 ], [ %lpad.thr_comm.split-lp2031, %1662 ], [ %.pn1529, %1719 ], [ %.pn1529, %1701 ], [ %.pn1526, %1737 ], [ %.pn1526, %1731 ], [ %.pn, %1777 ], [ %.pn, %1759 ], [ %1710, %1709 ], [ %lpad.loopexit.split-lp2160, %.loopexit.split-lp.loopexit.split-lp ], [ %562, %561 ], [ %602, %601 ], [ %642, %641 ], [ %672, %671 ], [ %712, %711 ], [ %752, %751 ], [ %lpad.loopexit2199, %.thread1864.loopexit ], [ %778, %777 ], [ %818, %817 ], [ %876, %875 ], [ %lpad.loopexit2171, %.thread1922.loopexit ], [ %1454, %1453 ], [ %1494, %1493 ], [ %1534, %1533 ], [ %1564, %1563 ], [ %1604, %1603 ], [ %1644, %1643 ], [ %lpad.loopexit2155, %.thread1974.loopexit ], [ %1670, %1669 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit2159, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2200, %.thread1864.loopexit.split-lp ], [ %lpad.loopexit.split-lp2172, %.thread1922.loopexit.split-lp ], [ %lpad.loopexit.split-lp2156, %.thread1974.loopexit.split-lp ], [ %lpad.loopexit.split-lp2128, %.thread2032.loopexit.split-lp ], [ %lpad.loopexit2127, %.thread2032.loopexit ], [ %lpad.loopexit.split-lp2197, %.thread ], [ %lpad.loopexit.split-lp2192, %.thread3115 ], [ %lpad.loopexit.split-lp2187, %.thread3119 ], [ %lpad.loopexit.split-lp2182, %.thread3123 ], [ %lpad.loopexit.split-lp2177, %.thread3127 ], [ %lpad.loopexit.split-lp2169, %.thread3131 ], [ %lpad.loopexit.split-lp, %.thread3135 ], [ %lpad.loopexit.split-lp2153, %.thread3139 ], [ %lpad.loopexit.split-lp2148, %.thread3143 ], [ %lpad.loopexit.split-lp2143, %.thread3147 ], [ %lpad.loopexit.split-lp2138, %.thread3151 ], [ %lpad.loopexit.split-lp2133, %.thread3155 ], [ %lpad.loopexit.split-lp2125, %.thread3159 ], [ %lpad.loopexit.split-lp2120, %.thread3163 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h848c99b5bd60a6acE"(ptr noalias noundef align 8 dereferenceable(32) %193) #45
           to label %957 unwind label %385
 
@@ -125753,18 +125753,18 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
   br label %.thread1858
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %1198, %1163, %899, %3
-  %.01367.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.461413, %1163 ], [ 1, %1198 ]
-  %.01317.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.451362, %1163 ], [ 1, %1198 ]
-  %.01268.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.441312, %1163 ], [ 1, %1198 ]
-  %.01220.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.431263, %1163 ], [ 1, %1198 ]
-  %.01173.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.421215, %1163 ], [ 1, %1198 ]
-  %.01127.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.411168, %1163 ], [ 1, %1198 ]
-  %.01082.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.401122, %1163 ], [ 1, %1198 ]
-  %.01038.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.391077, %1163 ], [ 1, %1198 ]
-  %.0995.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.381033, %1163 ], [ 1, %1198 ]
-  %.0953.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.37990, %1163 ], [ 1, %1198 ]
-  %.0912.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ %.36948, %1163 ], [ 1, %1198 ]
-  %.0910.ph.ph = phi i8 [ 1, %899 ], [ 1, %3 ], [ 0, %1163 ], [ 1, %1198 ]
+  %.01367.ph.ph = phi i8 [ %.461413, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01317.ph.ph = phi i8 [ %.451362, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01268.ph.ph = phi i8 [ %.441312, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01220.ph.ph = phi i8 [ %.431263, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01173.ph.ph = phi i8 [ %.421215, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01127.ph.ph = phi i8 [ %.411168, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01082.ph.ph = phi i8 [ %.401122, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.01038.ph.ph = phi i8 [ %.391077, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.0995.ph.ph = phi i8 [ %.381033, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.0953.ph.ph = phi i8 [ %.37990, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.0912.ph.ph = phi i8 [ %.36948, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
+  %.0910.ph.ph = phi i8 [ 0, %1163 ], [ 1, %1198 ], [ 1, %3 ], [ 1, %899 ]
   %lpad.loopexit.split-lp2160 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1858
@@ -129069,16 +129069,16 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1160 unwind label %385
 
 1142:                                             ; preds = %1125, %1157
-  %.441411 = phi i8 [ 1, %1157 ], [ %.401407, %1125 ]
-  %.431360 = phi i8 [ 1, %1157 ], [ %.391356, %1125 ]
-  %.421310 = phi i8 [ 1, %1157 ], [ %.381306, %1125 ]
-  %.411261 = phi i8 [ 1, %1157 ], [ %.371257, %1125 ]
-  %.401213 = phi i8 [ 1, %1157 ], [ %.361209, %1125 ]
-  %.391166 = phi i8 [ 1, %1157 ], [ %.351162, %1125 ]
-  %.381120 = phi i8 [ 1, %1157 ], [ %.341116, %1125 ]
-  %.371075 = phi i8 [ 1, %1157 ], [ %.331071, %1125 ]
-  %.361031 = phi i8 [ 1, %1157 ], [ %.321027, %1125 ]
-  %.35988 = phi i8 [ 1, %1157 ], [ 0, %1125 ]
+  %.441411 = phi i8 [ %.401407, %1125 ], [ 1, %1157 ]
+  %.431360 = phi i8 [ %.391356, %1125 ], [ 1, %1157 ]
+  %.421310 = phi i8 [ %.381306, %1125 ], [ 1, %1157 ]
+  %.411261 = phi i8 [ %.371257, %1125 ], [ 1, %1157 ]
+  %.401213 = phi i8 [ %.361209, %1125 ], [ 1, %1157 ]
+  %.391166 = phi i8 [ %.351162, %1125 ], [ 1, %1157 ]
+  %.381120 = phi i8 [ %.341116, %1125 ], [ 1, %1157 ]
+  %.371075 = phi i8 [ %.331071, %1125 ], [ 1, %1157 ]
+  %.361031 = phi i8 [ %.321027, %1125 ], [ 1, %1157 ]
+  %.35988 = phi i8 [ 0, %1125 ], [ 1, %1157 ]
   %1143 = landingpad { ptr, i32 }
           cleanup
   br label %1141
@@ -129348,18 +129348,18 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
   br label %1189
 
 1207:                                             ; preds = %1227, %1277, %1312, %1347, %1382, %1401, %1435, %1452, %1492, %1532, %1562, %1602, %1642, %1668, %1708, %1735, %1766, %1782, %321, %904, %897, %890, %874, %843, %816, %776, %750, %710, %670, %640, %600, %560, %543, %509, %490, %455, %420, %382, %332, %1189
-  %.101377 = phi i8 [ %.481415, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101327 = phi i8 [ %.471364, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101278 = phi i8 [ %.461314, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101230 = phi i8 [ %.451265, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101183 = phi i8 [ %.441217, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101137 = phi i8 [ %.431170, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101092 = phi i8 [ %.421124, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101048 = phi i8 [ %.411079, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.101005 = phi i8 [ %.401035, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.10963 = phi i8 [ %.39992, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.10922 = phi i8 [ %.38950, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
-  %.10 = phi i8 [ %.37, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %904 ], [ 1, %321 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101377 = phi i8 [ %.481415, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101327 = phi i8 [ %.471364, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101278 = phi i8 [ %.461314, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101230 = phi i8 [ %.451265, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101183 = phi i8 [ %.441217, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101137 = phi i8 [ %.431170, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101092 = phi i8 [ %.421124, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101048 = phi i8 [ %.411079, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.101005 = phi i8 [ %.401035, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.10963 = phi i8 [ %.39992, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.10922 = phi i8 [ %.38950, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
+  %.10 = phi i8 [ %.37, %1189 ], [ 1, %332 ], [ 1, %382 ], [ 1, %420 ], [ 1, %455 ], [ 1, %490 ], [ 1, %509 ], [ 1, %543 ], [ 1, %560 ], [ 1, %600 ], [ 1, %640 ], [ 1, %670 ], [ 1, %710 ], [ 1, %750 ], [ 1, %776 ], [ 1, %816 ], [ 1, %843 ], [ 1, %874 ], [ 1, %890 ], [ 1, %897 ], [ 1, %321 ], [ 1, %904 ], [ 1, %1782 ], [ 1, %1766 ], [ 1, %1735 ], [ 1, %1708 ], [ 1, %1668 ], [ 1, %1642 ], [ 1, %1602 ], [ 1, %1562 ], [ 1, %1532 ], [ 1, %1492 ], [ 1, %1452 ], [ 1, %1435 ], [ 1, %1401 ], [ 1, %1382 ], [ 1, %1347 ], [ 1, %1312 ], [ 1, %1277 ], [ 1, %1227 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18330)
   %1208 = load i64, ptr %193, align 8, !range !214, !alias.scope !18330, !noundef !10
   %1209 = icmp eq i64 %1208, 0
@@ -132050,7 +132050,7 @@ define hidden noundef align 8 ptr @"_ZN9ockam_api5cloud7project6models1_99_$LT$i
   br label %92
 
 92:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit165", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit168", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit171", %37, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit174", %46, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit179", %61, %65, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit182", %73, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit185", %82, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit188", %.sink.split, %91
-  %.1 = phi ptr [ null, %91 ], [ %20, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit" ], [ %25, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit165" ], [ %30, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit168" ], [ %35, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit171" ], [ %39, %37 ], [ %44, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit174" ], [ %48, %46 ], [ %53, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit" ], [ %58, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit179" ], [ %62, %61 ], [ %66, %65 ], [ %71, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit182" ], [ %75, %73 ], [ %80, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit185" ], [ %84, %82 ], [ %89, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit188" ], [ %93, %.sink.split ]
+  %.1 = phi ptr [ null, %91 ], [ %89, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit188" ], [ %84, %82 ], [ %80, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit185" ], [ %75, %73 ], [ %71, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit182" ], [ %66, %65 ], [ %20, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit" ], [ %62, %61 ], [ %25, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit165" ], [ %58, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit179" ], [ %53, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hd2a7d77e09f15411E.exit" ], [ %48, %46 ], [ %44, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit174" ], [ %39, %37 ], [ %35, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit171" ], [ %30, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit168" ], [ %93, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 
@@ -132170,7 +132170,7 @@ define hidden void @"_ZN205_$LT$ockam_api..cloud..project..models.._..$LT$impl$u
   br label %20
 
 20:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit56", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit52", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit48", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit44", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit40", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit36", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit32", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit28", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit24", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit20", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit16", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60.thread"
-  %.sink = phi i8 [ 16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit16" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit20" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit24" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit28" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit32" ], [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit36" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit40" ], [ 11, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit44" ], [ 12, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit48" ], [ 13, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit52" ], [ 14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit56" ], [ 15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60" ]
+  %.sink = phi i8 [ 14, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit56" ], [ 16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60.thread" ], [ 13, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit52" ], [ 12, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit48" ], [ 11, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit44" ], [ 10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit40" ], [ 9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit36" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit32" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit28" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit24" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit20" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit16" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit60" ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %21, align 1
   store i8 0, ptr %0, align 8
@@ -133150,10 +133150,10 @@ define hidden void @"_ZN101_$LT$ockam_api..cloud..project..models..OktaConfig$u2
           to label %75 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %519, %513, %501, %492, %466, %457, %430, %420, %368, %337, %252, %246, %234, %225, %199, %190, %163, %150
-  %.1329 = phi i8 [ %.16344, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %513 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0328.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.1308 = phi i8 [ %.15322, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %513 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0307.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.1306 = phi i8 [ 0, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %513 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0305.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn404 = phi { ptr, i32 } [ %.pn402, %337 ], [ %369, %368 ], [ %.pn392, %163 ], [ %.pn392, %150 ], [ %.pn389, %199 ], [ %.pn389, %190 ], [ %.pn386, %234 ], [ %.pn386, %225 ], [ %.pn383, %252 ], [ %.pn383, %246 ], [ %.pn381, %430 ], [ %.pn381, %420 ], [ %.pn378, %466 ], [ %.pn378, %457 ], [ %.pn375, %501 ], [ %.pn375, %492 ], [ %.pn, %519 ], [ %.pn, %513 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit502, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp503, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1329 = phi i8 [ 1, %513 ], [ %.16344, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0328.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1308 = phi i8 [ 1, %513 ], [ %.15322, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0307.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1306 = phi i8 [ 1, %513 ], [ 0, %337 ], [ 1, %368 ], [ 1, %163 ], [ 1, %150 ], [ 1, %199 ], [ 1, %190 ], [ 1, %234 ], [ 1, %225 ], [ 1, %252 ], [ 1, %246 ], [ 1, %430 ], [ 1, %420 ], [ 1, %466 ], [ 1, %457 ], [ 1, %501 ], [ 1, %492 ], [ 1, %519 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0305.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn404 = phi { ptr, i32 } [ %.pn, %513 ], [ %.pn402, %337 ], [ %369, %368 ], [ %.pn392, %163 ], [ %.pn392, %150 ], [ %.pn389, %199 ], [ %.pn389, %190 ], [ %.pn386, %234 ], [ %.pn386, %225 ], [ %.pn383, %252 ], [ %.pn383, %246 ], [ %.pn381, %430 ], [ %.pn381, %420 ], [ %.pn378, %466 ], [ %.pn378, %457 ], [ %.pn375, %501 ], [ %.pn375, %492 ], [ %.pn, %519 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit502, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp503, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hb871fae20b097687E"(ptr noalias noundef align 8 dereferenceable(24) %70) #45
           to label %287 unwind label %160
 
@@ -133168,9 +133168,9 @@ define hidden void @"_ZN101_$LT$ockam_api..cloud..project..models..OktaConfig$u2
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %376, %340, %266, %3
-  %.0328.ph.ph = phi i8 [ 1, %266 ], [ 1, %3 ], [ %.17345, %340 ], [ 1, %376 ]
-  %.0307.ph.ph = phi i8 [ 1, %266 ], [ 1, %3 ], [ %.16323, %340 ], [ 1, %376 ]
-  %.0305.ph.ph = phi i8 [ 1, %266 ], [ 1, %3 ], [ 0, %340 ], [ 1, %376 ]
+  %.0328.ph.ph = phi i8 [ %.17345, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
+  %.0307.ph.ph = phi i8 [ %.16323, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
+  %.0305.ph.ph = phi i8 [ 0, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
   %lpad.loopexit.split-lp503 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -134192,9 +134192,9 @@ define hidden void @"_ZN101_$LT$ockam_api..cloud..project..models..OktaConfig$u2
   br label %367
 
 386:                                              ; preds = %395, %427, %463, %498, %517, %524, %114, %271, %264, %257, %250, %231, %196, %157, %125, %367
-  %.10338 = phi i8 [ %.19347, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %271 ], [ 1, %114 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
-  %.10317 = phi i8 [ %.18325, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %271 ], [ 1, %114 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
-  %.10 = phi i8 [ %.17, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %271 ], [ 1, %114 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
+  %.10338 = phi i8 [ %.19347, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %114 ], [ 1, %271 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
+  %.10317 = phi i8 [ %.18325, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %114 ], [ 1, %271 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
+  %.10 = phi i8 [ %.17, %367 ], [ 1, %125 ], [ 1, %157 ], [ 1, %196 ], [ 1, %231 ], [ 1, %250 ], [ 1, %257 ], [ 1, %264 ], [ 1, %114 ], [ 1, %271 ], [ 1, %524 ], [ 1, %517 ], [ 1, %498 ], [ 1, %463 ], [ 1, %427 ], [ 1, %395 ]
   %387 = load ptr, ptr %70, align 8, !alias.scope !19033, !noundef !10
   %388 = icmp eq ptr %387, null
   br i1 %388, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hb871fae20b097687E.exit438", label %389
@@ -134851,7 +134851,7 @@ define hidden noundef align 8 ptr @"_ZN9ockam_api5cloud7project6models1_97_$LT$i
   br label %34
 
 34:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf3c56e275b40cea3E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit47", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42f4609facc21373E.exit", %.sink.split, %33
-  %.1 = phi ptr [ null, %33 ], [ %16, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf3c56e275b40cea3E.exit" ], [ %21, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit" ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit47" ], [ %31, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42f4609facc21373E.exit" ], [ %35, %.sink.split ]
+  %.1 = phi ptr [ null, %33 ], [ %31, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h42f4609facc21373E.exit" ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit47" ], [ %21, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcd55921db851a1abE.exit" ], [ %16, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf3c56e275b40cea3E.exit" ], [ %35, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 
@@ -134905,7 +134905,7 @@ define hidden void @"_ZN203_$LT$ockam_api..cloud..project..models.._..$LT$impl$u
   br label %8
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread"
-  %.sink = phi i8 [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ]
+  %.sink = phi i8 [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %9, align 1
   store i8 0, ptr %0, align 8
@@ -134991,7 +134991,7 @@ define hidden void @"_ZN114_$LT$ockam_api..cloud..project..models..OrchestratorV
           to label %34 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .thread313:                                       ; preds = %.thread515, %.thread511, %.thread507, %.thread, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %266, %228, %140, %99, %275, %259, %237, %221, %149, %133, %111, %92
-  %.pn361 = phi { ptr, i32 } [ %.pn257, %111 ], [ %.pn257, %92 ], [ %.pn255, %149 ], [ %.pn255, %133 ], [ %.pn253, %237 ], [ %.pn253, %221 ], [ %.pn, %275 ], [ %.pn, %259 ], [ %100, %99 ], [ %141, %140 ], [ %229, %228 ], [ %267, %266 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp387, %.thread ], [ %lpad.loopexit.split-lp, %.thread507 ], [ %lpad.loopexit.split-lp374, %.thread511 ], [ %lpad.loopexit.split-lp369, %.thread515 ]
+  %.pn361 = phi { ptr, i32 } [ %267, %266 ], [ %.pn, %259 ], [ %.pn, %275 ], [ %.pn257, %111 ], [ %.pn257, %92 ], [ %.pn255, %149 ], [ %.pn255, %133 ], [ %.pn253, %237 ], [ %.pn253, %221 ], [ %229, %228 ], [ %100, %99 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp387, %.thread ], [ %lpad.loopexit.split-lp, %.thread507 ], [ %lpad.loopexit.split-lp374, %.thread511 ], [ %lpad.loopexit.split-lp369, %.thread515 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h848c99b5bd60a6acE"(ptr noalias noundef align 8 dereferenceable(32) %29) #45
           to label %186 unwind label %109
 
@@ -136054,8 +136054,8 @@ define hidden void @"_ZN106_$LT$ockam_api..cloud..project..models..ProjectUserRo
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.loopexit, %.loopexit.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %323, %315, %307, %298, %290, %227, %176, %168, %160, %151, %140
-  %.1296 = phi i1 [ true, %227 ], [ true, %151 ], [ true, %140 ], [ true, %160 ], [ true, %168 ], [ true, %176 ], [ true, %298 ], [ true, %290 ], [ true, %307 ], [ true, %315 ], [ true, %323 ], [ true, %.loopexit.split-lp.loopexit ], [ %.0295.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit.loopexit.loopexit ], [ true, %.loopexit.loopexit.split-lp ]
-  %.pn340 = phi { ptr, i32 } [ %228, %227 ], [ %.pn334, %151 ], [ %.pn334, %140 ], [ %161, %160 ], [ %169, %168 ], [ %177, %176 ], [ %.pn, %298 ], [ %.pn, %290 ], [ %308, %307 ], [ %316, %315 ], [ %324, %323 ], [ %lpad.loopexit445, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp446, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit.split-lp927, %.loopexit.loopexit.loopexit.split-lp ], [ %lpad.loopexit931, %.loopexit.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp932, %.loopexit.loopexit.loopexit.loopexit.split-lp ]
+  %.1296 = phi i1 [ true, %323 ], [ true, %315 ], [ true, %227 ], [ true, %151 ], [ true, %140 ], [ true, %160 ], [ %.0295.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ true, %168 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %176 ], [ true, %307 ], [ true, %298 ], [ true, %290 ], [ true, %.loopexit.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit.loopexit.loopexit ], [ true, %.loopexit.loopexit.split-lp ]
+  %.pn340 = phi { ptr, i32 } [ %324, %323 ], [ %316, %315 ], [ %228, %227 ], [ %.pn334, %151 ], [ %.pn334, %140 ], [ %161, %160 ], [ %lpad.loopexit.split-lp446, %.loopexit.split-lp.loopexit.split-lp ], [ %169, %168 ], [ %lpad.loopexit445, %.loopexit.split-lp.loopexit ], [ %177, %176 ], [ %308, %307 ], [ %.pn, %298 ], [ %.pn, %290 ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit.split-lp927, %.loopexit.loopexit.loopexit.split-lp ], [ %lpad.loopexit931, %.loopexit.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp932, %.loopexit.loopexit.loopexit.loopexit.split-lp ]
   %58 = load ptr, ptr %56, align 8, !noundef !10
   %59 = icmp ne ptr %58, null
   %or.cond24 = and i1 %.1296, %59
@@ -136087,7 +136087,7 @@ define hidden void @"_ZN106_$LT$ockam_api..cloud..project..models..ProjectUserRo
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %234, %211, %189, %3
-  %.0295.ph.ph = phi i1 [ true, %189 ], [ true, %3 ], [ false, %211 ], [ true, %234 ]
+  %.0295.ph.ph = phi i1 [ false, %211 ], [ true, %234 ], [ true, %3 ], [ true, %189 ]
   %lpad.loopexit.split-lp446 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -136800,7 +136800,7 @@ switch.lookup822:                                 ; preds = %123
   br label %226
 
 243:                                              ; preds = %251, %296, %306, %314, %322, %329, %91, %194, %188, %182, %175, %167, %159, %146, %101, %226
-  %.9 = phi i1 [ %.not337, %226 ], [ true, %101 ], [ true, %146 ], [ true, %159 ], [ true, %167 ], [ true, %175 ], [ true, %182 ], [ true, %188 ], [ true, %194 ], [ true, %91 ], [ true, %329 ], [ true, %322 ], [ true, %314 ], [ true, %306 ], [ true, %296 ], [ true, %251 ]
+  %.9 = phi i1 [ %.not337, %226 ], [ true, %101 ], [ true, %146 ], [ true, %159 ], [ true, %167 ], [ true, %175 ], [ true, %182 ], [ true, %188 ], [ true, %91 ], [ true, %194 ], [ true, %329 ], [ true, %322 ], [ true, %314 ], [ true, %306 ], [ true, %296 ], [ true, %251 ]
   %244 = load ptr, ptr %56, align 8, !noundef !10
   %245 = icmp ne ptr %244, null
   %or.cond22 = and i1 %.9, %245
@@ -137193,7 +137193,7 @@ switch.lookup826:                                 ; preds = %273
   br label %205
 
 .thread:                                          ; preds = %206, %339, %.loopexit.split-lp
-  %.pn340397 = phi { ptr, i32 } [ %.pn340, %339 ], [ %.pn340, %.loopexit.split-lp ], [ %207, %206 ]
+  %.pn340397 = phi { ptr, i32 } [ %.pn340, %.loopexit.split-lp ], [ %.pn340, %339 ], [ %207, %206 ]
   resume { ptr, i32 } %.pn340397
 
 339:                                              ; preds = %.loopexit.split-lp
@@ -137245,7 +137245,7 @@ define hidden void @"_ZN208_$LT$ockam_api..cloud..project..models.._..$LT$impl$u
   br label %8
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread"
-  %.sink = phi i8 [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ]
+  %.sink = phi i8 [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit8" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12.thread" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit12" ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %9, align 1
   store i8 0, ptr %0, align 8
@@ -137336,7 +137336,7 @@ define hidden noundef align 8 ptr @"_ZN9ockam_api5cloud7project6models1_102_$LT$
   br label %34
 
 34:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h8f2d7f4223740713E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2f7c625b55ac696bE.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17heddd22323b07db17E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h423c53cf0d45ec5bE.exit", %.sink.split, %33
-  %.1 = phi ptr [ null, %33 ], [ %17, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h8f2d7f4223740713E.exit" ], [ %21, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2f7c625b55ac696bE.exit" ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17heddd22323b07db17E.exit" ], [ %31, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h423c53cf0d45ec5bE.exit" ], [ %35, %.sink.split ]
+  %.1 = phi ptr [ null, %33 ], [ %31, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h423c53cf0d45ec5bE.exit" ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17heddd22323b07db17E.exit" ], [ %21, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h2f7c625b55ac696bE.exit" ], [ %17, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h8f2d7f4223740713E.exit" ], [ %35, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 
@@ -138069,14 +138069,14 @@ default.unreachable127:                           ; preds = %875, %595, %573, %5
   br label %225
 
 .body:                                            ; preds = %.body80, %1566, %209, %214, %219
-  %.pn68.pn = phi { ptr, i32 } [ %210, %209 ], [ %220, %219 ], [ %215, %214 ], [ %.pn66, %.body80 ], [ %1567, %1566 ]
+  %.pn68.pn = phi { ptr, i32 } [ %220, %219 ], [ %215, %214 ], [ %210, %209 ], [ %1567, %1566 ], [ %.pn66, %.body80 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 289
   %197 = load i8, ptr %196, align 1, !range !528, !noundef !10
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %1581, label %1577
 
 199:                                              ; preds = %147, %173, %157, %154, %1582, %1577, %1575
-  %.pn72 = phi { ptr, i32 } [ %1576, %1575 ], [ %.pn68.pn, %1582 ], [ %.pn68.pn, %1577 ], [ %174, %173 ], [ %164, %157 ], [ %155, %154 ], [ %148, %147 ]
+  %.pn72 = phi { ptr, i32 } [ %1576, %1575 ], [ %.pn68.pn, %1582 ], [ %.pn68.pn, %1577 ], [ %174, %173 ], [ %148, %147 ], [ %164, %157 ], [ %155, %154 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 0, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 290
@@ -138555,7 +138555,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %355 unwind label %353
 
 352:                                              ; preds = %353, %349, %336
-  %.pn86.i = phi { ptr, i32 } [ %354, %353 ], [ %350, %349 ], [ %337, %336 ]
+  %.pn86.i = phi { ptr, i32 } [ %337, %336 ], [ %354, %353 ], [ %350, %349 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hf8be416902198545E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %93) #45
           to label %356 unwind label %368
 
@@ -138589,7 +138589,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %363 unwind label %361
 
 360:                                              ; preds = %373, %361, %321
-  %.pn92.i = phi { ptr, i32 } [ %362, %361 ], [ %.pn88.pn.i, %373 ], [ %322, %321 ]
+  %.pn92.i = phi { ptr, i32 } [ %322, %321 ], [ %362, %361 ], [ %.pn88.pn.i, %373 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !19474
   call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !19474
   br label %377
@@ -138712,7 +138712,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %"_ZN10ockam_core7message15Routed$LT$M$GT$12return_route17hfa1eee5d394ac533E.exit186.i" unwind label %474
 
 384:                                              ; preds = %545, %512, %267, %247, %240
-  %.pn133.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn133.pn.pn.pn.i, %545 ], [ %.pn121.i, %512 ], [ %248, %247 ], [ %241, %240 ], [ %.pn96.pn.pn.pn.pn.pn.i, %267 ]
+  %.pn133.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn133.pn.pn.pn.i, %545 ], [ %.pn121.i, %512 ], [ %248, %247 ], [ %.pn96.pn.pn.pn.pn.pn.i, %267 ], [ %241, %240 ]
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 2065
   %386 = load i8, ptr %385, align 1, !range !528, !noalias !19474, !noundef !10
   %387 = trunc nuw i8 %386 to i1
@@ -138999,7 +138999,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %461 unwind label %459
 
 458:                                              ; preds = %459, %455, %444
-  %.pn123.i = phi { ptr, i32 } [ %460, %459 ], [ %456, %455 ], [ %445, %444 ]
+  %.pn123.i = phi { ptr, i32 } [ %445, %444 ], [ %460, %459 ], [ %456, %455 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hf8be416902198545E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %111) #45
           to label %462 unwind label %368
 
@@ -139033,7 +139033,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %469 unwind label %467
 
 466:                                              ; preds = %524, %467, %429
-  %.pn129.i = phi { ptr, i32 } [ %468, %467 ], [ %.pn125.pn.i, %524 ], [ %430, %429 ]
+  %.pn129.i = phi { ptr, i32 } [ %430, %429 ], [ %468, %467 ], [ %.pn125.pn.i, %524 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !19474
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !19474
   br label %543
@@ -139954,7 +139954,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %790
 
 748:                                              ; preds = %814, %709, %689, %682
-  %.pn216.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i.i.i, %814 ], [ %690, %689 ], [ %683, %682 ], [ %.pn206.pn.pn.pn.i.i.i.i, %709 ]
+  %.pn216.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i.i.i, %814 ], [ %690, %689 ], [ %.pn206.pn.pn.pn.i.i.i.i, %709 ], [ %683, %682 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77) #45
           to label %817 unwind label %815
 
@@ -140280,12 +140280,12 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %877
 
 859:                                              ; preds = %.body373.i.i.i.i, %914, %911
-  %860 = phi ptr [ %891, %914 ], [ %891, %911 ], [ %1092, %.body373.i.i.i.i ]
-  %861 = phi ptr [ %892, %914 ], [ %892, %911 ], [ %1093, %.body373.i.i.i.i ]
-  %862 = phi ptr [ %893, %914 ], [ %893, %911 ], [ %1094, %.body373.i.i.i.i ]
-  %863 = phi ptr [ %894, %914 ], [ %894, %911 ], [ %1095, %.body373.i.i.i.i ]
-  %864 = phi ptr [ %895, %914 ], [ %895, %911 ], [ %1096, %.body373.i.i.i.i ]
-  %.pn309.i.i.i.i = phi { ptr, i32 } [ %915, %914 ], [ %912, %911 ], [ %.pn230.i.i.i.i, %.body373.i.i.i.i ]
+  %860 = phi ptr [ %891, %914 ], [ %1092, %.body373.i.i.i.i ], [ %891, %911 ]
+  %861 = phi ptr [ %892, %914 ], [ %1093, %.body373.i.i.i.i ], [ %892, %911 ]
+  %862 = phi ptr [ %893, %914 ], [ %1094, %.body373.i.i.i.i ], [ %893, %911 ]
+  %863 = phi ptr [ %894, %914 ], [ %1095, %.body373.i.i.i.i ], [ %894, %911 ]
+  %864 = phi ptr [ %895, %914 ], [ %1096, %.body373.i.i.i.i ], [ %895, %911 ]
+  %.pn309.i.i.i.i = phi { ptr, i32 } [ %915, %914 ], [ %.pn230.i.i.i.i, %.body373.i.i.i.i ], [ %912, %911 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !19693
   br label %866
 
@@ -140294,12 +140294,12 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %790
 
 866:                                              ; preds = %1397, %859, %852, %845
-  %867 = phi ptr [ %860, %859 ], [ %1398, %1397 ], [ %839, %852 ], [ %839, %845 ]
-  %868 = phi ptr [ %861, %859 ], [ %1399, %1397 ], [ %840, %852 ], [ %840, %845 ]
-  %869 = phi ptr [ %862, %859 ], [ %1400, %1397 ], [ %841, %852 ], [ %841, %845 ]
-  %870 = phi ptr [ %863, %859 ], [ %1401, %1397 ], [ %842, %852 ], [ %842, %845 ]
-  %871 = phi ptr [ %864, %859 ], [ %1402, %1397 ], [ %843, %852 ], [ %843, %845 ]
-  %.pn309.pn.i.i.i.i = phi { ptr, i32 } [ %.pn309.i.i.i.i, %859 ], [ %.pn307.i.i.i.i, %1397 ], [ %853, %852 ], [ %846, %845 ]
+  %867 = phi ptr [ %860, %859 ], [ %1398, %1397 ], [ %839, %845 ], [ %839, %852 ]
+  %868 = phi ptr [ %861, %859 ], [ %1399, %1397 ], [ %840, %845 ], [ %840, %852 ]
+  %869 = phi ptr [ %862, %859 ], [ %1400, %1397 ], [ %841, %845 ], [ %841, %852 ]
+  %870 = phi ptr [ %863, %859 ], [ %1401, %1397 ], [ %842, %845 ], [ %842, %852 ]
+  %871 = phi ptr [ %864, %859 ], [ %1402, %1397 ], [ %843, %845 ], [ %843, %852 ]
+  %.pn309.pn.i.i.i.i = phi { ptr, i32 } [ %.pn309.i.i.i.i, %859 ], [ %.pn307.i.i.i.i, %1397 ], [ %846, %845 ], [ %853, %852 ]
   %872 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %873 = load i8, ptr %872, align 8, !range !528, !noalias !19693, !noundef !10
   %874 = trunc nuw i8 %873 to i1
@@ -140811,22 +140811,22 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %1097
 
 .body385.i.i.i.i:                                 ; preds = %1123, %1118, %1104, %1022
-  %1025 = phi ptr [ %1098, %1104 ], [ %891, %1022 ], [ %1098, %1123 ], [ %1098, %1118 ]
-  %1026 = phi ptr [ %1099, %1104 ], [ %892, %1022 ], [ %1099, %1123 ], [ %1099, %1118 ]
-  %1027 = phi ptr [ %1100, %1104 ], [ %893, %1022 ], [ %1100, %1123 ], [ %1100, %1118 ]
-  %1028 = phi ptr [ %1101, %1104 ], [ %894, %1022 ], [ %1101, %1123 ], [ %1101, %1118 ]
-  %1029 = phi ptr [ %1102, %1104 ], [ %895, %1022 ], [ %1102, %1123 ], [ %1102, %1118 ]
-  %.pn262.i.i.i.i = phi { ptr, i32 } [ %1105, %1104 ], [ %1023, %1022 ], [ %1124, %1123 ], [ %1119, %1118 ]
+  %1025 = phi ptr [ %891, %1022 ], [ %1098, %1104 ], [ %1098, %1123 ], [ %1098, %1118 ]
+  %1026 = phi ptr [ %892, %1022 ], [ %1099, %1104 ], [ %1099, %1123 ], [ %1099, %1118 ]
+  %1027 = phi ptr [ %893, %1022 ], [ %1100, %1104 ], [ %1100, %1123 ], [ %1100, %1118 ]
+  %1028 = phi ptr [ %894, %1022 ], [ %1101, %1104 ], [ %1101, %1123 ], [ %1101, %1118 ]
+  %1029 = phi ptr [ %895, %1022 ], [ %1102, %1104 ], [ %1102, %1123 ], [ %1102, %1118 ]
+  %.pn262.i.i.i.i = phi { ptr, i32 } [ %1023, %1022 ], [ %1105, %1104 ], [ %1124, %1123 ], [ %1119, %1118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %1030
 
 1030:                                             ; preds = %1262, %1257, %1162, %1142, %1135, %.body385.i.i.i.i, %1017
-  %1031 = phi ptr [ %1266, %1262 ], [ %1098, %1257 ], [ %1025, %.body385.i.i.i.i ], [ %891, %1017 ], [ %1098, %1142 ], [ %1098, %1135 ], [ %1098, %1162 ]
-  %1032 = phi ptr [ %1267, %1262 ], [ %1099, %1257 ], [ %1026, %.body385.i.i.i.i ], [ %892, %1017 ], [ %1099, %1142 ], [ %1099, %1135 ], [ %1099, %1162 ]
-  %1033 = phi ptr [ %1268, %1262 ], [ %1100, %1257 ], [ %1027, %.body385.i.i.i.i ], [ %893, %1017 ], [ %1100, %1142 ], [ %1100, %1135 ], [ %1100, %1162 ]
-  %1034 = phi ptr [ %1269, %1262 ], [ %1101, %1257 ], [ %1028, %.body385.i.i.i.i ], [ %894, %1017 ], [ %1101, %1142 ], [ %1101, %1135 ], [ %1101, %1162 ]
-  %1035 = phi ptr [ %1270, %1262 ], [ %1102, %1257 ], [ %1029, %.body385.i.i.i.i ], [ %895, %1017 ], [ %1102, %1142 ], [ %1102, %1135 ], [ %1102, %1162 ]
-  %.pn296.pn.i.i.i.i = phi { ptr, i32 } [ %.pn296.i.i.i.i, %1262 ], [ %.pn287.pn.pn.i.i.i.i, %1257 ], [ %.pn262.i.i.i.i, %.body385.i.i.i.i ], [ %1018, %1017 ], [ %1143, %1142 ], [ %1136, %1135 ], [ %.pn274.pn.pn.pn.pn.i.i.i.i, %1162 ]
+  %1031 = phi ptr [ %1266, %1262 ], [ %1098, %1257 ], [ %891, %1017 ], [ %1025, %.body385.i.i.i.i ], [ %1098, %1135 ], [ %1098, %1142 ], [ %1098, %1162 ]
+  %1032 = phi ptr [ %1267, %1262 ], [ %1099, %1257 ], [ %892, %1017 ], [ %1026, %.body385.i.i.i.i ], [ %1099, %1135 ], [ %1099, %1142 ], [ %1099, %1162 ]
+  %1033 = phi ptr [ %1268, %1262 ], [ %1100, %1257 ], [ %893, %1017 ], [ %1027, %.body385.i.i.i.i ], [ %1100, %1135 ], [ %1100, %1142 ], [ %1100, %1162 ]
+  %1034 = phi ptr [ %1269, %1262 ], [ %1101, %1257 ], [ %894, %1017 ], [ %1028, %.body385.i.i.i.i ], [ %1101, %1135 ], [ %1101, %1142 ], [ %1101, %1162 ]
+  %1035 = phi ptr [ %1270, %1262 ], [ %1102, %1257 ], [ %895, %1017 ], [ %1029, %.body385.i.i.i.i ], [ %1102, %1135 ], [ %1102, %1142 ], [ %1102, %1162 ]
+  %.pn296.pn.i.i.i.i = phi { ptr, i32 } [ %.pn296.i.i.i.i, %1262 ], [ %.pn287.pn.pn.i.i.i.i, %1257 ], [ %1018, %1017 ], [ %.pn262.i.i.i.i, %.body385.i.i.i.i ], [ %1136, %1135 ], [ %1143, %1142 ], [ %.pn274.pn.pn.pn.pn.i.i.i.i, %1162 ]
   %1036 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %1037 = load i8, ptr %1036, align 8, !range !528, !noalias !19693, !noundef !10
   %1038 = trunc nuw i8 %1037 to i1
@@ -140944,17 +140944,17 @@ common.ret:                                       ; preds = %1572, %1571, %218
           to label %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17hbb3556b00bbabecdE.exit.i.i.i.i" unwind label %1299
 
 .body42.i.i.i:                                    ; preds = %938, %935, %926
-  %.pn234.i.i.i.i = phi { ptr, i32 } [ %927, %926 ], [ %939, %938 ], [ %936, %935 ]
+  %.pn234.i.i.i.i = phi { ptr, i32 } [ %927, %926 ], [ %936, %935 ], [ %939, %938 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !19693
   br label %1080
 
 1080:                                             ; preds = %1497, %.body42.i.i.i, %1061
-  %1081 = phi ptr [ %1062, %1497 ], [ %1062, %1061 ], [ %891, %.body42.i.i.i ]
-  %1082 = phi ptr [ %1063, %1497 ], [ %1063, %1061 ], [ %892, %.body42.i.i.i ]
-  %1083 = phi ptr [ %1064, %1497 ], [ %1064, %1061 ], [ %893, %.body42.i.i.i ]
-  %1084 = phi ptr [ %1065, %1497 ], [ %1065, %1061 ], [ %894, %.body42.i.i.i ]
-  %1085 = phi ptr [ %1066, %1497 ], [ %1066, %1061 ], [ %895, %.body42.i.i.i ]
-  %.pn302.pn.i.i.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i.i.i, %1497 ], [ %.pn299.pn.i.i.i.i, %1061 ], [ %.pn234.i.i.i.i, %.body42.i.i.i ]
+  %1081 = phi ptr [ %1062, %1061 ], [ %1062, %1497 ], [ %891, %.body42.i.i.i ]
+  %1082 = phi ptr [ %1063, %1061 ], [ %1063, %1497 ], [ %892, %.body42.i.i.i ]
+  %1083 = phi ptr [ %1064, %1061 ], [ %1064, %1497 ], [ %893, %.body42.i.i.i ]
+  %1084 = phi ptr [ %1065, %1061 ], [ %1065, %1497 ], [ %894, %.body42.i.i.i ]
+  %1085 = phi ptr [ %1066, %1061 ], [ %1066, %1497 ], [ %895, %.body42.i.i.i ]
+  %.pn302.pn.i.i.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i.i.i, %1061 ], [ %.pn299.pn.i.i.i.i, %1497 ], [ %.pn234.i.i.i.i, %.body42.i.i.i ]
   %1086 = getelementptr inbounds nuw i8, ptr %0, i64 1087
   store i8 0, ptr %1086, align 1, !noalias !19693
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !19693
@@ -140977,12 +140977,12 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %1088
 
 .body373.i.i.i.i:                                 ; preds = %904, %899
-  %1092 = phi ptr [ %.phi.trans.insert.i, %904 ], [ %891, %899 ]
-  %1093 = phi ptr [ %550, %904 ], [ %892, %899 ]
-  %1094 = phi ptr [ %.phi.trans.insert.i.i, %904 ], [ %893, %899 ]
-  %1095 = phi ptr [ %.phi.trans.insert.i.i.i, %904 ], [ %894, %899 ]
-  %1096 = phi ptr [ %596, %904 ], [ %895, %899 ]
-  %.pn230.i.i.i.i = phi { ptr, i32 } [ %905, %904 ], [ %900, %899 ]
+  %1092 = phi ptr [ %891, %899 ], [ %.phi.trans.insert.i, %904 ]
+  %1093 = phi ptr [ %892, %899 ], [ %550, %904 ]
+  %1094 = phi ptr [ %893, %899 ], [ %.phi.trans.insert.i.i, %904 ]
+  %1095 = phi ptr [ %894, %899 ], [ %.phi.trans.insert.i.i.i, %904 ]
+  %1096 = phi ptr [ %895, %899 ], [ %596, %904 ]
+  %.pn230.i.i.i.i = phi { ptr, i32 } [ %900, %899 ], [ %905, %904 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0531.sroa.6.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8535.i.i.i.i)
   br label %859
@@ -141461,7 +141461,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %1265
 
 1262:                                             ; preds = %1279, %1272
-  %.pn296.i.i.i.i = phi { ptr, i32 } [ %1280, %1279 ], [ %1273, %1272 ]
+  %.pn296.i.i.i.i = phi { ptr, i32 } [ %1273, %1272 ], [ %1280, %1279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0604.i.i.i.i)
   br label %1030
 
@@ -141976,12 +141976,12 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %1471
 
 .body445.i.i.i.i:                                 ; preds = %1505, %1492, %1473, %1459
-  %1486 = phi ptr [ %1460, %1505 ], [ %1460, %1459 ], [ %634, %1492 ], [ %634, %1473 ]
-  %1487 = phi ptr [ %1461, %1505 ], [ %1461, %1459 ], [ %635, %1492 ], [ %635, %1473 ]
-  %1488 = phi ptr [ %1462, %1505 ], [ %1462, %1459 ], [ %636, %1492 ], [ %636, %1473 ]
-  %1489 = phi ptr [ %1463, %1505 ], [ %1463, %1459 ], [ %637, %1492 ], [ %637, %1473 ]
-  %1490 = phi ptr [ %1464, %1505 ], [ %1464, %1459 ], [ %638, %1492 ], [ %638, %1473 ]
-  %.pn324.i.i.i.i = phi { ptr, i32 } [ %.pn322.i.i.i.i, %1505 ], [ %.pn322.i.i.i.i, %1459 ], [ %1493, %1492 ], [ %1474, %1473 ]
+  %1486 = phi ptr [ %1460, %1459 ], [ %1460, %1505 ], [ %634, %1492 ], [ %634, %1473 ]
+  %1487 = phi ptr [ %1461, %1459 ], [ %1461, %1505 ], [ %635, %1492 ], [ %635, %1473 ]
+  %1488 = phi ptr [ %1462, %1459 ], [ %1462, %1505 ], [ %636, %1492 ], [ %636, %1473 ]
+  %1489 = phi ptr [ %1463, %1459 ], [ %1463, %1505 ], [ %637, %1492 ], [ %637, %1473 ]
+  %1490 = phi ptr [ %1464, %1459 ], [ %1464, %1505 ], [ %638, %1492 ], [ %638, %1473 ]
+  %.pn324.i.i.i.i = phi { ptr, i32 } [ %.pn322.i.i.i.i, %1459 ], [ %.pn322.i.i.i.i, %1505 ], [ %1493, %1492 ], [ %1474, %1473 ]
   %1491 = getelementptr inbounds nuw i8, ptr %0, i64 1085
   store i8 0, ptr %1491, align 1, !noalias !19693
   store i8 2, ptr %1489, align 1, !noalias !19693
@@ -142080,11 +142080,11 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17hae2e7a3ef11ed5f1E.exit.i.i"
 
 .body.i.i.i:                                      ; preds = %1506, %.body445.i.i.i.i
-  %1522 = phi ptr [ %.phi.trans.insert.i, %1506 ], [ %1486, %.body445.i.i.i.i ]
-  %1523 = phi ptr [ %550, %1506 ], [ %1487, %.body445.i.i.i.i ]
-  %1524 = phi ptr [ %.phi.trans.insert.i.i, %1506 ], [ %1488, %.body445.i.i.i.i ]
-  %1525 = phi ptr [ %596, %1506 ], [ %1490, %.body445.i.i.i.i ]
-  %.pn35.i.i.i = phi { ptr, i32 } [ %1507, %1506 ], [ %.pn324.i.i.i.i, %.body445.i.i.i.i ]
+  %1522 = phi ptr [ %1486, %.body445.i.i.i.i ], [ %.phi.trans.insert.i, %1506 ]
+  %1523 = phi ptr [ %1487, %.body445.i.i.i.i ], [ %550, %1506 ]
+  %1524 = phi ptr [ %1488, %.body445.i.i.i.i ], [ %.phi.trans.insert.i.i, %1506 ]
+  %1525 = phi ptr [ %1490, %.body445.i.i.i.i ], [ %596, %1506 ]
+  %.pn35.i.i.i = phi { ptr, i32 } [ %.pn324.i.i.i.i, %.body445.i.i.i.i ], [ %1507, %1506 ]
   invoke fastcc void @"_ZN4core3ptr206drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address_impl$LT$ockam_core..message..NeutralMessage$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf54fa6dc9c7fe66bE"(ptr noundef nonnull align 8 %1525) #45
           to label %585 unwind label %583
 
@@ -142145,9 +142145,9 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h75fb11280840eba4E.exit.i"
 
 .body.i.i:                                        ; preds = %1533, %1531
-  %1543 = phi ptr [ %.phi.trans.insert.i, %1533 ], [ %586, %1531 ]
-  %1544 = phi ptr [ %550, %1533 ], [ %587, %1531 ]
-  %.pn26.i.i = phi { ptr, i32 } [ %1534, %1533 ], [ %.pn37.i.i.i, %1531 ]
+  %1543 = phi ptr [ %586, %1531 ], [ %.phi.trans.insert.i, %1533 ]
+  %1544 = phi ptr [ %587, %1531 ], [ %550, %1533 ]
+  %.pn26.i.i = phi { ptr, i32 } [ %.pn37.i.i.i, %1531 ], [ %1534, %1533 ]
   invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address$LT$ockam_core..routing..route..Route$C$ockam_core..message..NeutralMessage$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd8c9dea19b34f5d7E"(ptr noundef nonnull align 8 %1544) #45
           to label %564 unwind label %561
 
@@ -142193,8 +142193,8 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %537
 
 .body236.i:                                       ; preds = %1547, %1545
-  %1556 = phi ptr [ %550, %1547 ], [ %566, %1545 ]
-  %.pn119.i = phi { ptr, i32 } [ %1548, %1547 ], [ %.pn28.i.i, %1545 ]
+  %1556 = phi ptr [ %566, %1545 ], [ %550, %1547 ]
+  %.pn119.i = phi { ptr, i32 } [ %.pn28.i.i, %1545 ], [ %1548, %1547 ]
   invoke fastcc void @"_ZN4core3ptr224drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send$LT$ockam_core..routing..route..Route$C$ockam_core..message..NeutralMessage$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a57945c01b91ce3E"(ptr noundef nonnull align 8 %1556) #45
           to label %512 unwind label %368
 
@@ -142259,7 +142259,7 @@ common.ret:                                       ; preds = %1572, %1571, %218
   br label %199
 
 .body80:                                          ; preds = %1560, %540
-  %.pn66 = phi { ptr, i32 } [ %1561, %1560 ], [ %.pn142.i, %540 ]
+  %.pn66 = phi { ptr, i32 } [ %.pn142.i, %540 ], [ %1561, %1560 ]
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$$LT$ockam_api..echoer..Echoer$u20$as$u20$ockam_core..worker..Worker$GT$..handle_message..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he5504602eb72eeeeE"(ptr noundef nonnull align 8 %226) #45
           to label %.body unwind label %171
 
@@ -142568,8 +142568,8 @@ default.unreachable:                              ; preds = %18
   br label %"_ZN81_$LT$ockam_api..cli_state..error..CliStateError$u20$as$u20$core..error..Error$GT$6source17h3990a188f58f6336E.exit"
 
 "_ZN81_$LT$ockam_api..cli_state..error..CliStateError$u20$as$u20$core..error..Error$GT$6source17h3990a188f58f6336E.exit": ; preds = %30, %27, %24, %21, %18, %18, %18, %18, %18, %18, %18, %18, %1, %1, %41, %38, %15, %13, %10, %7
-  %.sroa.10.0 = phi ptr [ %.fca.1.extract, %7 ], [ %.fca.1.extract3, %10 ], [ %.fca.1.extract7, %13 ], [ %.fca.1.extract11, %15 ], [ %.fca.1.extract19, %38 ], [ %.fca.1.extract23, %41 ], [ undef, %1 ], [ undef, %1 ], [ %.fca.1.extract.i, %21 ], [ %.fca.1.extract3.i, %24 ], [ %.fca.1.extract11.i, %27 ], [ %.fca.1.extract15.i, %30 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ]
-  %.sroa.0.0 = phi ptr [ %.fca.0.extract, %7 ], [ %.fca.0.extract1, %10 ], [ %.fca.0.extract5, %13 ], [ %.fca.0.extract9, %15 ], [ %.fca.0.extract17, %38 ], [ %.fca.0.extract21, %41 ], [ null, %1 ], [ null, %1 ], [ %.fca.0.extract.i, %21 ], [ %.fca.0.extract1.i, %24 ], [ %.fca.0.extract9.i, %27 ], [ %.fca.0.extract13.i, %30 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ]
+  %.sroa.10.0 = phi ptr [ undef, %1 ], [ %.fca.1.extract, %7 ], [ %.fca.1.extract3, %10 ], [ %.fca.1.extract7, %13 ], [ %.fca.1.extract11, %15 ], [ undef, %1 ], [ %.fca.1.extract19, %38 ], [ %.fca.1.extract23, %41 ], [ %.fca.1.extract.i, %21 ], [ %.fca.1.extract3.i, %24 ], [ undef, %18 ], [ %.fca.1.extract11.i, %27 ], [ %.fca.1.extract15.i, %30 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ], [ undef, %18 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.fca.0.extract, %7 ], [ %.fca.0.extract1, %10 ], [ %.fca.0.extract5, %13 ], [ %.fca.0.extract9, %15 ], [ null, %1 ], [ %.fca.0.extract17, %38 ], [ %.fca.0.extract21, %41 ], [ %.fca.0.extract.i, %21 ], [ %.fca.0.extract1.i, %24 ], [ null, %18 ], [ %.fca.0.extract9.i, %27 ], [ %.fca.0.extract13.i, %30 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ], [ null, %18 ]
   %44 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %45 = insertvalue { ptr, ptr } %44, ptr %.sroa.10.0, 1
   ret { ptr, ptr } %45
@@ -143536,7 +143536,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
           to label %254 unwind label %252
 
 224:                                              ; preds = %183, %156, %163, %345, %1009, %342, %252
-  %.pn157 = phi { ptr, i32 } [ %1010, %1009 ], [ %.pn155, %342 ], [ %253, %252 ], [ %.pn135.pn.pn, %345 ], [ %164, %163 ], [ %157, %156 ], [ %.pn124.pn.pn.pn.pn, %183 ]
+  %.pn157 = phi { ptr, i32 } [ %1010, %1009 ], [ %.pn155, %342 ], [ %253, %252 ], [ %.pn135.pn.pn, %345 ], [ %164, %163 ], [ %.pn124.pn.pn.pn.pn, %183 ], [ %157, %156 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 2052
   %226 = load i8, ptr %225, align 4, !range !528, !noundef !10
   %227 = trunc nuw i8 %226 to i1
@@ -143937,7 +143937,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br i1 %355, label %1076, label %1072
 
 356:                                              ; preds = %111, %121, %123, %1021, %346
-  %.pn161.pn = phi { ptr, i32 } [ %1022, %1021 ], [ %.pn159, %346 ], [ %122, %121 ], [ %.pn, %123 ], [ %112, %111 ]
+  %.pn161.pn = phi { ptr, i32 } [ %.pn159, %346 ], [ %1022, %1021 ], [ %122, %121 ], [ %.pn, %123 ], [ %112, %111 ]
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 2049
   %358 = load i8, ptr %357, align 1, !range !528, !noundef !10
   %359 = trunc nuw i8 %358 to i1
@@ -144455,7 +144455,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %567
 
 537:                                              ; preds = %586, %489, %469, %462
-  %.pn179.pn.pn.i.i = phi { ptr, i32 } [ %.pn179.pn.i.i, %586 ], [ %470, %469 ], [ %463, %462 ], [ %.pn167.pn.pn.pn.i.i, %489 ]
+  %.pn179.pn.pn.i.i = phi { ptr, i32 } [ %.pn179.pn.i.i, %586 ], [ %470, %469 ], [ %.pn167.pn.pn.pn.i.i, %489 ], [ %463, %462 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %57) #45
           to label %587 unwind label %533
 
@@ -144724,7 +144724,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %622
 
 614:                                              ; preds = %.body303.i.i, %649, %646
-  %.pn243.i.i = phi { ptr, i32 } [ %650, %649 ], [ %647, %646 ], [ %.pn193.i.i, %.body303.i.i ]
+  %.pn243.i.i = phi { ptr, i32 } [ %650, %649 ], [ %.pn193.i.i, %.body303.i.i ], [ %647, %646 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !20133
   br label %616
 
@@ -144733,7 +144733,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %567
 
 616:                                              ; preds = %955, %614, %607, %600
-  %.pn243.pn.i.i = phi { ptr, i32 } [ %.pn243.i.i, %614 ], [ %.pn241.i.i, %955 ], [ %608, %607 ], [ %601, %600 ]
+  %.pn243.pn.i.i = phi { ptr, i32 } [ %.pn243.i.i, %614 ], [ %.pn241.i.i, %955 ], [ %601, %600 ], [ %608, %607 ]
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 1181
   %618 = load i8, ptr %617, align 1, !range !528, !noalias !20133, !noundef !10
   %619 = trunc nuw i8 %618 to i1
@@ -144962,12 +144962,12 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %699
 
 .body306.i.i:                                     ; preds = %720, %715, %701, %680
-  %.pn201.i.i = phi { ptr, i32 } [ %702, %701 ], [ %681, %680 ], [ %721, %720 ], [ %716, %715 ]
+  %.pn201.i.i = phi { ptr, i32 } [ %681, %680 ], [ %702, %701 ], [ %721, %720 ], [ %716, %715 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %683
 
 683:                                              ; preds = %854, %849, %759, %739, %732, %.body306.i.i, %675
-  %.pn235.pn.i.i = phi { ptr, i32 } [ %.pn235.i.i, %854 ], [ %.pn226.pn.pn.i.i, %849 ], [ %.pn201.i.i, %.body306.i.i ], [ %676, %675 ], [ %740, %739 ], [ %733, %732 ], [ %.pn213.pn.pn.pn.pn.i.i, %759 ]
+  %.pn235.pn.i.i = phi { ptr, i32 } [ %.pn235.i.i, %854 ], [ %.pn226.pn.pn.i.i, %849 ], [ %676, %675 ], [ %.pn201.i.i, %.body306.i.i ], [ %733, %732 ], [ %740, %739 ], [ %.pn213.pn.pn.pn.pn.i.i, %759 ]
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %685 = load i8, ptr %684, align 8, !range !528, !noalias !20133, !noundef !10
   %686 = trunc nuw i8 %685 to i1
@@ -145011,7 +145011,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %695
 
 .body303.i.i:                                     ; preds = %639, %634
-  %.pn193.i.i = phi { ptr, i32 } [ %640, %639 ], [ %635, %634 ]
+  %.pn193.i.i = phi { ptr, i32 } [ %635, %634 ], [ %640, %639 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0440.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8444.i.i)
   br label %614
@@ -145480,7 +145480,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %857
 
 854:                                              ; preds = %866, %859
-  %.pn235.i.i = phi { ptr, i32 } [ %867, %866 ], [ %860, %859 ]
+  %.pn235.i.i = phi { ptr, i32 } [ %860, %859 ], [ %867, %866 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0504.i.i)
   br label %683
 
@@ -145841,7 +145841,7 @@ default.unreachable304:                           ; preds = %620, %385, %362, %2
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$7forward28_$u7b$$u7b$closure$u7d$$u7d$17hef35af9d4e5b3583E.exit"
 
 .body.i:                                          ; preds = %962, %949
-  %.pn15.i = phi { ptr, i32 } [ %963, %962 ], [ %.pn254.i.i, %949 ]
+  %.pn15.i = phi { ptr, i32 } [ %.pn254.i.i, %949 ], [ %963, %962 ]
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..forward_from_address..$u7b$$u7b$closure$u7d$$u7d$$GT$17h294515391743375aE"(ptr noundef nonnull align 8 %386) #45
           to label %381 unwind label %379
 
@@ -146156,7 +146156,7 @@ common.ret:                                       ; preds = %1025, %976
   br label %1087
 
 .body205:                                         ; preds = %971, %381
-  %.pn145 = phi { ptr, i32 } [ %972, %971 ], [ %.pn17.i, %381 ]
+  %.pn145 = phi { ptr, i32 } [ %.pn17.i, %381 ], [ %972, %971 ]
   invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..forward..$u7b$$u7b$closure$u7d$$u7d$$GT$17hecfd3ce1aa0563d0E"(ptr noundef nonnull align 8 %363) #45
           to label %322 unwind label %340
 
@@ -147106,14 +147106,14 @@ default.unreachable119:                           ; preds = %635, %355, %333, %3
   br label %196
 
 .body:                                            ; preds = %1345, %.body79, %180, %185, %190
-  %.pn68.pn = phi { ptr, i32 } [ %181, %180 ], [ %191, %190 ], [ %186, %185 ], [ %1346, %1345 ], [ %.pn66, %.body79 ]
+  %.pn68.pn = phi { ptr, i32 } [ %191, %190 ], [ %186, %185 ], [ %181, %180 ], [ %1346, %1345 ], [ %.pn66, %.body79 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 289
   %168 = load i8, ptr %167, align 1, !range !528, !noundef !10
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %1356, label %1352
 
 170:                                              ; preds = %118, %144, %128, %125, %1357, %1352, %1350
-  %.pn72 = phi { ptr, i32 } [ %1351, %1350 ], [ %.pn68.pn, %1357 ], [ %.pn68.pn, %1352 ], [ %145, %144 ], [ %135, %128 ], [ %126, %125 ], [ %119, %118 ]
+  %.pn72 = phi { ptr, i32 } [ %1351, %1350 ], [ %.pn68.pn, %1357 ], [ %.pn68.pn, %1352 ], [ %145, %144 ], [ %119, %118 ], [ %135, %128 ], [ %126, %125 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 0, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 290
@@ -147380,7 +147380,7 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %.body61.i
 
 .body61.i:                                        ; preds = %263, %250, %235, %220
-  %eh.lpad-body62.i = phi { ptr, i32 } [ %264, %263 ], [ %221, %220 ], [ %210, %235 ], [ %251, %250 ]
+  %eh.lpad-body62.i = phi { ptr, i32 } [ %264, %263 ], [ %210, %235 ], [ %221, %220 ], [ %251, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !20414
   call void @llvm.lifetime.end.p0(ptr nonnull %95), !noalias !20414
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hf8be416902198545E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %96) #45
@@ -147532,7 +147532,7 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %302
 
 .sink.split.i:                                    ; preds = %294, %281, %.body61.i, %207
-  %.pn53.pn.ph.i = phi { ptr, i32 } [ %208, %207 ], [ %eh.lpad-body62.i, %.body61.i ], [ %295, %294 ], [ %282, %281 ]
+  %.pn53.pn.ph.i = phi { ptr, i32 } [ %208, %207 ], [ %eh.lpad-body62.i, %.body61.i ], [ %282, %281 ], [ %295, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !20414
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %305
@@ -148162,7 +148162,7 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %550
 
 508:                                              ; preds = %574, %469, %449, %442
-  %.pn216.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i.i.i, %574 ], [ %450, %449 ], [ %443, %442 ], [ %.pn206.pn.pn.pn.i.i.i.i, %469 ]
+  %.pn216.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn216.pn.i.i.i.i, %574 ], [ %450, %449 ], [ %.pn206.pn.pn.pn.i.i.i.i, %469 ], [ %443, %442 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ockam_core..error..Error$GT$17he63b0357f2ed7081E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77) #45
           to label %577 unwind label %575
 
@@ -148488,12 +148488,12 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %637
 
 619:                                              ; preds = %.body373.i.i.i.i, %674, %671
-  %620 = phi ptr [ %651, %674 ], [ %651, %671 ], [ %852, %.body373.i.i.i.i ]
-  %621 = phi ptr [ %652, %674 ], [ %652, %671 ], [ %853, %.body373.i.i.i.i ]
-  %622 = phi ptr [ %653, %674 ], [ %653, %671 ], [ %854, %.body373.i.i.i.i ]
-  %623 = phi ptr [ %654, %674 ], [ %654, %671 ], [ %855, %.body373.i.i.i.i ]
-  %624 = phi ptr [ %655, %674 ], [ %655, %671 ], [ %856, %.body373.i.i.i.i ]
-  %.pn309.i.i.i.i = phi { ptr, i32 } [ %675, %674 ], [ %672, %671 ], [ %.pn230.i.i.i.i, %.body373.i.i.i.i ]
+  %620 = phi ptr [ %651, %674 ], [ %852, %.body373.i.i.i.i ], [ %651, %671 ]
+  %621 = phi ptr [ %652, %674 ], [ %853, %.body373.i.i.i.i ], [ %652, %671 ]
+  %622 = phi ptr [ %653, %674 ], [ %854, %.body373.i.i.i.i ], [ %653, %671 ]
+  %623 = phi ptr [ %654, %674 ], [ %855, %.body373.i.i.i.i ], [ %654, %671 ]
+  %624 = phi ptr [ %655, %674 ], [ %856, %.body373.i.i.i.i ], [ %655, %671 ]
+  %.pn309.i.i.i.i = phi { ptr, i32 } [ %675, %674 ], [ %.pn230.i.i.i.i, %.body373.i.i.i.i ], [ %672, %671 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !20521
   br label %626
 
@@ -148502,12 +148502,12 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %550
 
 626:                                              ; preds = %1157, %619, %612, %605
-  %627 = phi ptr [ %620, %619 ], [ %1158, %1157 ], [ %599, %612 ], [ %599, %605 ]
-  %628 = phi ptr [ %621, %619 ], [ %1159, %1157 ], [ %600, %612 ], [ %600, %605 ]
-  %629 = phi ptr [ %622, %619 ], [ %1160, %1157 ], [ %601, %612 ], [ %601, %605 ]
-  %630 = phi ptr [ %623, %619 ], [ %1161, %1157 ], [ %602, %612 ], [ %602, %605 ]
-  %631 = phi ptr [ %624, %619 ], [ %1162, %1157 ], [ %603, %612 ], [ %603, %605 ]
-  %.pn309.pn.i.i.i.i = phi { ptr, i32 } [ %.pn309.i.i.i.i, %619 ], [ %.pn307.i.i.i.i, %1157 ], [ %613, %612 ], [ %606, %605 ]
+  %627 = phi ptr [ %620, %619 ], [ %1158, %1157 ], [ %599, %605 ], [ %599, %612 ]
+  %628 = phi ptr [ %621, %619 ], [ %1159, %1157 ], [ %600, %605 ], [ %600, %612 ]
+  %629 = phi ptr [ %622, %619 ], [ %1160, %1157 ], [ %601, %605 ], [ %601, %612 ]
+  %630 = phi ptr [ %623, %619 ], [ %1161, %1157 ], [ %602, %605 ], [ %602, %612 ]
+  %631 = phi ptr [ %624, %619 ], [ %1162, %1157 ], [ %603, %605 ], [ %603, %612 ]
+  %.pn309.pn.i.i.i.i = phi { ptr, i32 } [ %.pn309.i.i.i.i, %619 ], [ %.pn307.i.i.i.i, %1157 ], [ %606, %605 ], [ %613, %612 ]
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %633 = load i8, ptr %632, align 8, !range !528, !noalias !20521, !noundef !10
   %634 = trunc nuw i8 %633 to i1
@@ -149019,22 +149019,22 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %857
 
 .body385.i.i.i.i:                                 ; preds = %883, %878, %864, %782
-  %785 = phi ptr [ %858, %864 ], [ %651, %782 ], [ %858, %883 ], [ %858, %878 ]
-  %786 = phi ptr [ %859, %864 ], [ %652, %782 ], [ %859, %883 ], [ %859, %878 ]
-  %787 = phi ptr [ %860, %864 ], [ %653, %782 ], [ %860, %883 ], [ %860, %878 ]
-  %788 = phi ptr [ %861, %864 ], [ %654, %782 ], [ %861, %883 ], [ %861, %878 ]
-  %789 = phi ptr [ %862, %864 ], [ %655, %782 ], [ %862, %883 ], [ %862, %878 ]
-  %.pn262.i.i.i.i = phi { ptr, i32 } [ %865, %864 ], [ %783, %782 ], [ %884, %883 ], [ %879, %878 ]
+  %785 = phi ptr [ %651, %782 ], [ %858, %864 ], [ %858, %883 ], [ %858, %878 ]
+  %786 = phi ptr [ %652, %782 ], [ %859, %864 ], [ %859, %883 ], [ %859, %878 ]
+  %787 = phi ptr [ %653, %782 ], [ %860, %864 ], [ %860, %883 ], [ %860, %878 ]
+  %788 = phi ptr [ %654, %782 ], [ %861, %864 ], [ %861, %883 ], [ %861, %878 ]
+  %789 = phi ptr [ %655, %782 ], [ %862, %864 ], [ %862, %883 ], [ %862, %878 ]
+  %.pn262.i.i.i.i = phi { ptr, i32 } [ %783, %782 ], [ %865, %864 ], [ %884, %883 ], [ %879, %878 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %790
 
 790:                                              ; preds = %1022, %1017, %922, %902, %895, %.body385.i.i.i.i, %777
-  %791 = phi ptr [ %1026, %1022 ], [ %858, %1017 ], [ %785, %.body385.i.i.i.i ], [ %651, %777 ], [ %858, %902 ], [ %858, %895 ], [ %858, %922 ]
-  %792 = phi ptr [ %1027, %1022 ], [ %859, %1017 ], [ %786, %.body385.i.i.i.i ], [ %652, %777 ], [ %859, %902 ], [ %859, %895 ], [ %859, %922 ]
-  %793 = phi ptr [ %1028, %1022 ], [ %860, %1017 ], [ %787, %.body385.i.i.i.i ], [ %653, %777 ], [ %860, %902 ], [ %860, %895 ], [ %860, %922 ]
-  %794 = phi ptr [ %1029, %1022 ], [ %861, %1017 ], [ %788, %.body385.i.i.i.i ], [ %654, %777 ], [ %861, %902 ], [ %861, %895 ], [ %861, %922 ]
-  %795 = phi ptr [ %1030, %1022 ], [ %862, %1017 ], [ %789, %.body385.i.i.i.i ], [ %655, %777 ], [ %862, %902 ], [ %862, %895 ], [ %862, %922 ]
-  %.pn296.pn.i.i.i.i = phi { ptr, i32 } [ %.pn296.i.i.i.i, %1022 ], [ %.pn287.pn.pn.i.i.i.i, %1017 ], [ %.pn262.i.i.i.i, %.body385.i.i.i.i ], [ %778, %777 ], [ %903, %902 ], [ %896, %895 ], [ %.pn274.pn.pn.pn.pn.i.i.i.i, %922 ]
+  %791 = phi ptr [ %1026, %1022 ], [ %858, %1017 ], [ %651, %777 ], [ %785, %.body385.i.i.i.i ], [ %858, %895 ], [ %858, %902 ], [ %858, %922 ]
+  %792 = phi ptr [ %1027, %1022 ], [ %859, %1017 ], [ %652, %777 ], [ %786, %.body385.i.i.i.i ], [ %859, %895 ], [ %859, %902 ], [ %859, %922 ]
+  %793 = phi ptr [ %1028, %1022 ], [ %860, %1017 ], [ %653, %777 ], [ %787, %.body385.i.i.i.i ], [ %860, %895 ], [ %860, %902 ], [ %860, %922 ]
+  %794 = phi ptr [ %1029, %1022 ], [ %861, %1017 ], [ %654, %777 ], [ %788, %.body385.i.i.i.i ], [ %861, %895 ], [ %861, %902 ], [ %861, %922 ]
+  %795 = phi ptr [ %1030, %1022 ], [ %862, %1017 ], [ %655, %777 ], [ %789, %.body385.i.i.i.i ], [ %862, %895 ], [ %862, %902 ], [ %862, %922 ]
+  %.pn296.pn.i.i.i.i = phi { ptr, i32 } [ %.pn296.i.i.i.i, %1022 ], [ %.pn287.pn.pn.i.i.i.i, %1017 ], [ %778, %777 ], [ %.pn262.i.i.i.i, %.body385.i.i.i.i ], [ %896, %895 ], [ %903, %902 ], [ %.pn274.pn.pn.pn.pn.i.i.i.i, %922 ]
   %796 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %797 = load i8, ptr %796, align 8, !range !528, !noalias !20521, !noundef !10
   %798 = trunc nuw i8 %797 to i1
@@ -149152,17 +149152,17 @@ common.ret:                                       ; preds = %1347, %1344, %189
           to label %"_ZN4core3ptr120drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_core..routing..message..relay_message..RelayMessage$GT$$GT$17hbb3556b00bbabecdE.exit.i.i.i.i" unwind label %1059
 
 .body42.i.i.i:                                    ; preds = %698, %695, %686
-  %.pn234.i.i.i.i = phi { ptr, i32 } [ %687, %686 ], [ %699, %698 ], [ %696, %695 ]
+  %.pn234.i.i.i.i = phi { ptr, i32 } [ %687, %686 ], [ %696, %695 ], [ %699, %698 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !20521
   br label %840
 
 840:                                              ; preds = %1257, %.body42.i.i.i, %821
-  %841 = phi ptr [ %822, %1257 ], [ %822, %821 ], [ %651, %.body42.i.i.i ]
-  %842 = phi ptr [ %823, %1257 ], [ %823, %821 ], [ %652, %.body42.i.i.i ]
-  %843 = phi ptr [ %824, %1257 ], [ %824, %821 ], [ %653, %.body42.i.i.i ]
-  %844 = phi ptr [ %825, %1257 ], [ %825, %821 ], [ %654, %.body42.i.i.i ]
-  %845 = phi ptr [ %826, %1257 ], [ %826, %821 ], [ %655, %.body42.i.i.i ]
-  %.pn302.pn.i.i.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i.i.i, %1257 ], [ %.pn299.pn.i.i.i.i, %821 ], [ %.pn234.i.i.i.i, %.body42.i.i.i ]
+  %841 = phi ptr [ %822, %821 ], [ %822, %1257 ], [ %651, %.body42.i.i.i ]
+  %842 = phi ptr [ %823, %821 ], [ %823, %1257 ], [ %652, %.body42.i.i.i ]
+  %843 = phi ptr [ %824, %821 ], [ %824, %1257 ], [ %653, %.body42.i.i.i ]
+  %844 = phi ptr [ %825, %821 ], [ %825, %1257 ], [ %654, %.body42.i.i.i ]
+  %845 = phi ptr [ %826, %821 ], [ %826, %1257 ], [ %655, %.body42.i.i.i ]
+  %.pn302.pn.i.i.i.i = phi { ptr, i32 } [ %.pn299.pn.i.i.i.i, %821 ], [ %.pn299.pn.i.i.i.i, %1257 ], [ %.pn234.i.i.i.i, %.body42.i.i.i ]
   %846 = getelementptr inbounds nuw i8, ptr %0, i64 1135
   store i8 0, ptr %846, align 1, !noalias !20521
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !20521
@@ -149185,12 +149185,12 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %848
 
 .body373.i.i.i.i:                                 ; preds = %664, %659
-  %852 = phi ptr [ %.phi.trans.insert.i, %664 ], [ %651, %659 ]
-  %853 = phi ptr [ %310, %664 ], [ %652, %659 ]
-  %854 = phi ptr [ %.phi.trans.insert.i.i, %664 ], [ %653, %659 ]
-  %855 = phi ptr [ %.phi.trans.insert.i.i.i, %664 ], [ %654, %659 ]
-  %856 = phi ptr [ %356, %664 ], [ %655, %659 ]
-  %.pn230.i.i.i.i = phi { ptr, i32 } [ %665, %664 ], [ %660, %659 ]
+  %852 = phi ptr [ %651, %659 ], [ %.phi.trans.insert.i, %664 ]
+  %853 = phi ptr [ %652, %659 ], [ %310, %664 ]
+  %854 = phi ptr [ %653, %659 ], [ %.phi.trans.insert.i.i, %664 ]
+  %855 = phi ptr [ %654, %659 ], [ %.phi.trans.insert.i.i.i, %664 ]
+  %856 = phi ptr [ %655, %659 ], [ %356, %664 ]
+  %.pn230.i.i.i.i = phi { ptr, i32 } [ %660, %659 ], [ %665, %664 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0531.sroa.6.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8535.i.i.i.i)
   br label %619
@@ -149669,7 +149669,7 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %1025
 
 1022:                                             ; preds = %1039, %1032
-  %.pn296.i.i.i.i = phi { ptr, i32 } [ %1040, %1039 ], [ %1033, %1032 ]
+  %.pn296.i.i.i.i = phi { ptr, i32 } [ %1033, %1032 ], [ %1040, %1039 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0604.i.i.i.i)
   br label %790
 
@@ -150184,12 +150184,12 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %1231
 
 .body445.i.i.i.i:                                 ; preds = %1265, %1252, %1233, %1219
-  %1246 = phi ptr [ %1220, %1265 ], [ %1220, %1219 ], [ %394, %1252 ], [ %394, %1233 ]
-  %1247 = phi ptr [ %1221, %1265 ], [ %1221, %1219 ], [ %395, %1252 ], [ %395, %1233 ]
-  %1248 = phi ptr [ %1222, %1265 ], [ %1222, %1219 ], [ %396, %1252 ], [ %396, %1233 ]
-  %1249 = phi ptr [ %1223, %1265 ], [ %1223, %1219 ], [ %397, %1252 ], [ %397, %1233 ]
-  %1250 = phi ptr [ %1224, %1265 ], [ %1224, %1219 ], [ %398, %1252 ], [ %398, %1233 ]
-  %.pn324.i.i.i.i = phi { ptr, i32 } [ %.pn322.i.i.i.i, %1265 ], [ %.pn322.i.i.i.i, %1219 ], [ %1253, %1252 ], [ %1234, %1233 ]
+  %1246 = phi ptr [ %1220, %1219 ], [ %1220, %1265 ], [ %394, %1252 ], [ %394, %1233 ]
+  %1247 = phi ptr [ %1221, %1219 ], [ %1221, %1265 ], [ %395, %1252 ], [ %395, %1233 ]
+  %1248 = phi ptr [ %1222, %1219 ], [ %1222, %1265 ], [ %396, %1252 ], [ %396, %1233 ]
+  %1249 = phi ptr [ %1223, %1219 ], [ %1223, %1265 ], [ %397, %1252 ], [ %397, %1233 ]
+  %1250 = phi ptr [ %1224, %1219 ], [ %1224, %1265 ], [ %398, %1252 ], [ %398, %1233 ]
+  %.pn324.i.i.i.i = phi { ptr, i32 } [ %.pn322.i.i.i.i, %1219 ], [ %.pn322.i.i.i.i, %1265 ], [ %1253, %1252 ], [ %1234, %1233 ]
   %1251 = getelementptr inbounds nuw i8, ptr %0, i64 1133
   store i8 0, ptr %1251, align 1, !noalias !20521
   store i8 2, ptr %1249, align 1, !noalias !20521
@@ -150288,11 +150288,11 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$17send_from_address28_$u7b$$u7b$closure$u7d$$u7d$17h885881b40f75084bE.exit.i.i"
 
 .body.i.i.i:                                      ; preds = %1266, %.body445.i.i.i.i
-  %1282 = phi ptr [ %.phi.trans.insert.i, %1266 ], [ %1246, %.body445.i.i.i.i ]
-  %1283 = phi ptr [ %310, %1266 ], [ %1247, %.body445.i.i.i.i ]
-  %1284 = phi ptr [ %.phi.trans.insert.i.i, %1266 ], [ %1248, %.body445.i.i.i.i ]
-  %1285 = phi ptr [ %356, %1266 ], [ %1250, %.body445.i.i.i.i ]
-  %.pn35.i.i.i = phi { ptr, i32 } [ %1267, %1266 ], [ %.pn324.i.i.i.i, %.body445.i.i.i.i ]
+  %1282 = phi ptr [ %1246, %.body445.i.i.i.i ], [ %.phi.trans.insert.i, %1266 ]
+  %1283 = phi ptr [ %1247, %.body445.i.i.i.i ], [ %310, %1266 ]
+  %1284 = phi ptr [ %1248, %.body445.i.i.i.i ], [ %.phi.trans.insert.i.i, %1266 ]
+  %1285 = phi ptr [ %1250, %.body445.i.i.i.i ], [ %356, %1266 ]
+  %.pn35.i.i.i = phi { ptr, i32 } [ %.pn324.i.i.i.i, %.body445.i.i.i.i ], [ %1267, %1266 ]
   invoke fastcc void @"_ZN4core3ptr192drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address_impl$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h08b046712d16a840E"(ptr noundef nonnull align 8 %1285) #45
           to label %345 unwind label %343
 
@@ -150353,9 +150353,9 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %"_ZN10ockam_node7context12send_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h806625a5b26db330E.exit.i"
 
 .body.i.i:                                        ; preds = %1293, %1291
-  %1303 = phi ptr [ %.phi.trans.insert.i, %1293 ], [ %346, %1291 ]
-  %1304 = phi ptr [ %310, %1293 ], [ %347, %1291 ]
-  %.pn26.i.i = phi { ptr, i32 } [ %1294, %1293 ], [ %.pn37.i.i.i, %1291 ]
+  %1303 = phi ptr [ %346, %1291 ], [ %.phi.trans.insert.i, %1293 ]
+  %1304 = phi ptr [ %347, %1291 ], [ %310, %1293 ]
+  %.pn26.i.i = phi { ptr, i32 } [ %.pn37.i.i.i, %1291 ], [ %1294, %1293 ]
   invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send_from_address$LT$ockam_core..routing..route..Route$C$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44ecf655022994e7E"(ptr noundef nonnull align 8 %1304) #45
           to label %324 unwind label %321
 
@@ -150442,8 +150442,8 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br i1 %1331, label %1337, label %1333
 
 .body70.i:                                        ; preds = %1307, %1305
-  %1332 = phi ptr [ %310, %1307 ], [ %326, %1305 ]
-  %.pn49.i = phi { ptr, i32 } [ %1308, %1307 ], [ %.pn28.i.i, %1305 ]
+  %1332 = phi ptr [ %326, %1305 ], [ %310, %1307 ]
+  %.pn49.i = phi { ptr, i32 } [ %.pn28.i.i, %1305 ], [ %1308, %1307 ]
   invoke fastcc void @"_ZN4core3ptr210drop_in_place$LT$ockam_node..context..send_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..send$LT$ockam_core..routing..route..Route$C$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3ddd8351ed6e7a21E"(ptr noundef nonnull align 8 %1332) #45
           to label %276 unwind label %274
 
@@ -150503,7 +150503,7 @@ common.ret:                                       ; preds = %1347, %1344, %189
   br label %170
 
 .body79:                                          ; preds = %1340, %302
-  %.pn66 = phi { ptr, i32 } [ %1341, %1340 ], [ %.pn58.i, %302 ]
+  %.pn66 = phi { ptr, i32 } [ %.pn58.i, %302 ], [ %1341, %1340 ]
   invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LT$ockam_api..uppercase..Uppercase$u20$as$u20$ockam_core..worker..Worker$GT$..handle_message..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8f0bb1ad4427bad0E"(ptr noundef nonnull align 8 %197) #45
           to label %.body unwind label %142
 
@@ -150782,7 +150782,7 @@ define hidden { ptr, ptr } @"_ZN126_$LT$ockam_api..logs..span_exporters..OckamSp
   ret { ptr, ptr } %37
 
 .body.thread:                                     ; preds = %20, %38
-  %eh.lpad-body3 = phi { ptr, i32 } [ %39, %38 ], [ %21, %20 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %21, %20 ], [ %39, %38 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 38:                                               ; preds = %14

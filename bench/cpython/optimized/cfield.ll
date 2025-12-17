@@ -903,7 +903,7 @@ PyStgInfo_FromType.exit77.i:                      ; preds = %154
   br label %PyCField_new_impl.exit
 
 PyCField_new_impl.exit:                           ; preds = %189, %186, %184, %176, %170, %PyStgInfo_FromType.exit73.i, %145, %PyObject_TypeCheck.exit.thread.i, %PyObject_TypeCheck.exit.i, %80, %77, %72, %Py_DECREF.exit86.thread, %Py_DECREF.exit84.thread, %Py_DECREF.exit.thread, %23, %13
-  %.056 = phi ptr [ null, %23 ], [ null, %13 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit84.thread ], [ null, %Py_DECREF.exit86.thread ], [ null, %80 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ null, %189 ], [ %85, %PyStgInfo_FromType.exit73.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
+  %.056 = phi ptr [ null, %Py_DECREF.exit86.thread ], [ null, %Py_DECREF.exit84.thread ], [ null, %Py_DECREF.exit.thread ], [ null, %13 ], [ null, %23 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %80 ], [ null, %189 ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ %85, %PyStgInfo_FromType.exit73.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.056
 }
@@ -1144,7 +1144,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %10, %PyObject_TypeC
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %8, %5, %18, %PyObject_TypeCheck.exit.thread
-  %.0 = phi ptr [ %33, %PyObject_TypeCheck.exit.thread ], [ null, %18 ], [ %0, %5 ], [ %0, %8 ]
+  %.0 = phi ptr [ null, %18 ], [ %33, %PyObject_TypeCheck.exit.thread ], [ %0, %5 ], [ %0, %8 ]
   ret ptr %.0
 }
 
@@ -3033,7 +3033,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %PyObject_TypeCheck.
   br label %40
 
 40:                                               ; preds = %31, %38, %.thread
-  %.1 = phi ptr [ null, %.thread ], [ @_Py_NoneStruct, %38 ], [ null, %31 ]
+  %.1 = phi ptr [ @_Py_NoneStruct, %38 ], [ null, %.thread ], [ null, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
@@ -3096,7 +3096,7 @@ define internal noundef ptr @u_set(ptr noundef writeonly captures(none) %0, ptr 
   br label %22
 
 22:                                               ; preds = %16, %18, %20, %8
-  %.0 = phi ptr [ @_Py_NoneStruct, %20 ], [ null, %8 ], [ null, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %8 ], [ @_Py_NoneStruct, %20 ], [ null, %18 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -3212,7 +3212,7 @@ define internal noundef ptr @P_set(ptr noundef writeonly captures(none) %0, ptr 
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %5
-  %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ @_Py_NoneStruct, %15 ], [ null, %10 ], [ null, %12 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ null, %10 ], [ @_Py_NoneStruct, %15 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -3287,7 +3287,7 @@ define internal noundef ptr @z_set(ptr noundef writeonly captures(none) %0, ptr 
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %18, %14, %8, %5, %25, %22
-  %.0 = phi ptr [ @_Py_NoneStruct, %22 ], [ null, %25 ], [ @_Py_NoneStruct, %5 ], [ @_Py_NoneStruct, %8 ], [ %1, %14 ], [ %1, %18 ]
+  %.0 = phi ptr [ null, %25 ], [ @_Py_NoneStruct, %8 ], [ @_Py_NoneStruct, %22 ], [ @_Py_NoneStruct, %5 ], [ %1, %14 ], [ %1, %18 ]
   ret ptr %.0
 }
 
@@ -3356,7 +3356,7 @@ define internal noundef ptr @U_set(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %28, %25, %19, %13, %22, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %19 ], [ null, %13 ], [ null, %22 ], [ %1, %25 ], [ %1, %28 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %22 ], [ null, %19 ], [ null, %13 ], [ %1, %25 ], [ %1, %28 ]
   ret ptr %.0
 }
 
@@ -3448,7 +3448,7 @@ define internal ptr @Z_set(ptr noundef writeonly captures(none) %0, ptr noundef 
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %9, %6, %25, %30, %29, %20, %15
-  %.0 = phi ptr [ @_Py_NoneStruct, %15 ], [ %28, %30 ], [ null, %29 ], [ null, %20 ], [ null, %25 ], [ @_Py_NoneStruct, %6 ], [ @_Py_NoneStruct, %9 ]
+  %.0 = phi ptr [ null, %25 ], [ @_Py_NoneStruct, %15 ], [ %28, %30 ], [ null, %29 ], [ null, %20 ], [ @_Py_NoneStruct, %6 ], [ @_Py_NoneStruct, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

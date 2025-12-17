@@ -311,7 +311,7 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i: ; preds = %2
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit
 
 _ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %2, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i, %12
-  %.not9.i = phi i1 [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i ], [ true, %12 ], [ false, %2 ]
+  %.not9.i = phi i1 [ true, %12 ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i ], [ false, %2 ]
   ret i1 %.not9.i
 }
 
@@ -573,7 +573,7 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit: ; preds = %15
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread, %2, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit
-  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit ], [ false, %2 ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread ]
+  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -623,7 +623,7 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit: ; preds = %15
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread, %2, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit
-  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit ], [ false, %2 ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread ]
+  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -679,7 +679,7 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit: ; preds = %19
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %._crit_edge.i.i, %11, %2, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit
-  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit ], [ false, %2 ], [ false, %11 ], [ false, %._crit_edge.i.i ]
+  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit ], [ false, %._crit_edge.i.i ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -735,7 +735,7 @@ _ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit: ; preds = %19
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %._crit_edge.i.i, %11, %2, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit
-  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit ], [ false, %2 ], [ false, %11 ], [ false, %._crit_edge.i.i ]
+  %.0 = phi i1 [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit ], [ false, %._crit_edge.i.i ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 

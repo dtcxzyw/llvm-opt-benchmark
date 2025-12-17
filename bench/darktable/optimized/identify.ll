@@ -1487,7 +1487,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %.thread773
 
 .thread773:                                       ; preds = %411, %543, %584, %576, %508
-  %spec.select454772775 = phi i32 [ %168, %543 ], [ %168, %584 ], [ %168, %576 ], [ %168, %508 ], [ 0, %411 ]
+  %spec.select454772775 = phi i32 [ %168, %508 ], [ %168, %543 ], [ %168, %584 ], [ %168, %576 ], [ 0, %411 ]
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 153507
   store i8 0, ptr %585, align 1, !tbaa !85
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 331
@@ -1936,7 +1936,7 @@ thread-pre-split:                                 ; preds = %590
   br label %773
 
 773:                                              ; preds = %739, %768, %731, %735
-  %.1191 = phi i1 [ %.0190625, %735 ], [ %.0190625, %731 ], [ true, %768 ], [ true, %739 ]
+  %.1191 = phi i1 [ %.0190625, %731 ], [ %.0190625, %735 ], [ true, %768 ], [ true, %739 ]
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %exitcond700.not = icmp eq i64 %indvars.iv.next699, 54
   br i1 %exitcond700.not, label %774, label %731, !llvm.loop !176
@@ -2146,7 +2146,7 @@ thread-pre-split:                                 ; preds = %590
   br label %.sink.split795
 
 .sink.split795:                                   ; preds = %872, %865, %876
-  %.sink796 = phi i32 [ 0, %876 ], [ -1802201964, %865 ], [ -1802201964, %872 ]
+  %.sink796 = phi i32 [ -1802201964, %865 ], [ 0, %876 ], [ -1802201964, %872 ]
   store i32 %.sink796, ptr %14, align 8, !tbaa !78
   br label %877
 
@@ -2569,7 +2569,7 @@ thread-pre-split569:                              ; preds = %1001
   br i1 %1063, label %.sink.split808, label %thread-pre-split573
 
 thread-pre-split573:                              ; preds = %1055, %1059, %1052, %1049
-  %1064 = phi i32 [ %1053, %1052 ], [ %1051, %1049 ], [ %1053, %1059 ], [ %1053, %1055 ]
+  %1064 = phi i32 [ %1051, %1049 ], [ %1053, %1052 ], [ %1053, %1059 ], [ %1053, %1055 ]
   %1065 = icmp ugt i32 %1064, 65535
   br i1 %1065, label %.sink.split808, label %1066
 
@@ -2746,7 +2746,7 @@ thread-pre-split573:                              ; preds = %1055, %1059, %1052,
   br label %.sink.split814
 
 .sink.split814:                                   ; preds = %1133, %1137, %1136
-  %.sink815 = phi i32 [ 3, %1136 ], [ 6, %1137 ], [ 5, %1133 ]
+  %.sink815 = phi i32 [ 6, %1137 ], [ 3, %1136 ], [ 5, %1133 ]
   store i32 %.sink815, ptr %16, align 8, !tbaa !79
   br label %1138
 
@@ -2997,7 +2997,7 @@ define void @_ZN6LibRaw24identify_finetune_pentaxEv(ptr noundef nonnull align 8 
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %24, %27, %.thread32, %31, %35
-  %37 = phi i16 [ 2616, %.thread32 ], [ 3136, %31 ], [ 3124, %35 ], [ 2624, %27 ], [ %26, %24 ]
+  %37 = phi i16 [ 2616, %.thread32 ], [ %26, %24 ], [ 3136, %31 ], [ 3124, %35 ], [ 2624, %27 ]
   switch i32 %23, label %.thread49 [
     i32 49, label %38
     i32 56, label %92
@@ -4299,7 +4299,7 @@ switch.early.test:                                ; preds = %233
   br label %.thread553
 
 .thread553:                                       ; preds = %427, %.thread612, %.thread529, %430, %.thread536, %431
-  %433 = phi i16 [ 4096, %.thread529 ], [ 4056, %430 ], [ 8170, %.thread536 ], [ 9274, %431 ], [ %storemerge, %.thread612 ], [ %429, %427 ]
+  %433 = phi i16 [ 4096, %.thread529 ], [ 4056, %430 ], [ 8170, %.thread536 ], [ 9274, %431 ], [ %429, %427 ], [ %storemerge, %.thread612 ]
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   %.unpack213 = load i64, ptr %434, align 8, !tbaa !147
   %.elt214 = getelementptr inbounds nuw i8, ptr %0, i64 767592
@@ -8089,7 +8089,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br label %.thread517
 
 ._crit_edge757:                                   ; preds = %555, %564
-  %582 = phi i32 [ 1, %564 ], [ %562, %555 ]
+  %582 = phi i32 [ %562, %555 ], [ 1, %564 ]
   %583 = getelementptr inbounds nuw i8, ptr %0, i64 154184
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 154188
   %585 = load i32, ptr %584, align 4, !tbaa !92

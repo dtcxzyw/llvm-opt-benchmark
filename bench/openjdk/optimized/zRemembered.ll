@@ -292,7 +292,7 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered9scan_pageEP5ZPage(ptr nounde
   br i1 %45, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit"
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
-  %.0.i.i.i.i.i.i.i = phi i64 [ %.0916.i.i.i.i.i, %25 ], [ %44, %42 ]
+  %.0.i.i.i.i.i.i.i = phi i64 [ %44, %42 ], [ %.0916.i.i.i.i.i, %25 ]
   %.not.i.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i.i, %21
   br i1 %.not.i.i.i.i.i, label %46, label %"_ZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS_E3$_0EEvT_.exit"
 
@@ -357,7 +357,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   br i1 %92, label %"_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i", label %88, !llvm.loop !9
 
 "_ZNK6BitMap14IterateInvokerIbEclIZN14ZRememberedSet14iterate_bitmapIZN5ZPage18oops_do_rememberedIZNK11ZRemembered9scan_pageEPS5_E3$_0EEvT_EUlmE_EEvSA_P11CHeapBitMapEUlmE_EEbSA_m.exit.i.i.i.i.i": ; preds = %90, %88, %54, %46
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ false, %54 ], [ false, %46 ], [ true, %88 ], [ true, %90 ]
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i1 [ false, %46 ], [ false, %54 ], [ true, %88 ], [ true, %90 ]
   %93 = or i1 %.2, %.0.i.i.i.i.i.i.i.i.i.i
   %94 = add nuw nsw i32 %.0, 1
   %95 = add nuw i64 %.0.i.i.i.i.i.i.i, 1
@@ -453,7 +453,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i: ; preds = %42, %25
   br i1 %152, label %"_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i", label %148, !llvm.loop !9
 
 "_ZZNK11ZRemembered9scan_pageEP5ZPageENK3$_1clEPV8zpointer.exit.i": ; preds = %150, %148, %114, %.lr.ph.i
-  %.0.i.i.i10 = phi i1 [ false, %114 ], [ false, %.lr.ph.i ], [ true, %148 ], [ true, %150 ]
+  %.0.i.i.i10 = phi i1 [ false, %.lr.ph.i ], [ false, %114 ], [ true, %148 ], [ true, %150 ]
   %153 = or i1 %.4, %.0.i.i.i10
   %154 = call noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull %4) #14
   br i1 %154, label %.lr.ph.i, label %"_ZN5ZPage26oops_do_remembered_in_liveIZNK11ZRemembered9scan_pageEPS_E3$_1EEvT_.exit", !llvm.loop !12
@@ -735,7 +735,7 @@ _ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %89, %69, %62, %59
   br i1 %141, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i", label %137, !llvm.loop !9
 
 "_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_0clEPV8zpointer.exit.i": ; preds = %139, %137, %103, %98
-  %.0.i.i.i = phi i1 [ false, %103 ], [ false, %98 ], [ true, %137 ], [ true, %139 ]
+  %.0.i.i.i = phi i1 [ false, %98 ], [ false, %103 ], [ true, %137 ], [ true, %139 ]
   %142 = or i1 %.1, %.0.i.i.i
   br label %143
 
@@ -915,7 +915,7 @@ _ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5
   br i1 %246, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %242, !llvm.loop !9
 
 "_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i": ; preds = %244, %242, %207, %.lr.ph.i18
-  %.0.i.i.i19 = phi i1 [ false, %207 ], [ false, %.lr.ph.i18 ], [ true, %242 ], [ true, %244 ]
+  %.0.i.i.i19 = phi i1 [ false, %.lr.ph.i18 ], [ false, %207 ], [ true, %242 ], [ true, %244 ]
   %247 = or i1 %.5, %.0.i.i.i19
   %.not7.i = icmp eq i64 %202, %201
   br i1 %.not7.i, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18, !llvm.loop !16
@@ -1342,7 +1342,7 @@ define hidden noundef zeroext i1 @_ZNK11ZRemembered10scan_fieldEPV8zpointer(ptr 
   br i1 %44, label %_ZNK11ZRemembered8rememberEPV8zpointer.exit, label %40, !llvm.loop !9
 
 _ZNK11ZRemembered8rememberEPV8zpointer.exit:      ; preds = %42, %40, %2, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ true, %40 ], [ true, %42 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ true, %40 ], [ true, %42 ]
   ret i1 %.0
 }
 
@@ -1505,13 +1505,13 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %41, %39, %34, %29
   br label %_Z17color_remset_good8zaddress8zpointer.exit
 
 _Z17color_remset_good8zaddress8zpointer.exit.thread: ; preds = %88, %.split7.i, %.thread
-  %.ph = phi i64 [ 0, %.thread ], [ %63, %.split7.i ], [ %63, %88 ]
+  %.ph = phi i64 [ %63, %.split7.i ], [ 0, %.thread ], [ %63, %88 ]
   %102 = load i64, ptr @ZPointerStoreGoodMask, align 8
   br label %.preheader.i.i.preheader
 
 _Z17color_remset_good8zaddress8zpointer.exit:     ; preds = %.split.i, %75, %89
-  %103 = phi i64 [ 0, %.split.i ], [ %63, %75 ], [ %63, %89 ]
-  %.0.in.i = phi i64 [ %61, %.split.i ], [ %87, %75 ], [ %101, %89 ]
+  %103 = phi i64 [ %63, %75 ], [ 0, %.split.i ], [ %63, %89 ]
+  %.0.in.i = phi i64 [ %87, %75 ], [ %61, %.split.i ], [ %101, %89 ]
   %104 = and i64 %.0.in.i, -65521
   %105 = icmp ne i64 %104, 0
   %or.cond18.i.i = or i1 %17, %105
@@ -2157,7 +2157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20ZRemsetTableIterator4nextEP1
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %_ZNK6BitMap18find_first_set_bitEm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEm.exit:           ; preds = %22, %43
-  %.0.i.i.i = phi i64 [ %20, %22 ], [ %45, %43 ]
+  %.0.i.i.i = phi i64 [ %45, %43 ], [ %20, %22 ]
   %47 = icmp eq i64 %.0.i.i.i, %17
   br i1 %47, label %_ZNK6BitMap18find_first_set_bitEm.exit.thread, label %49
 
@@ -2204,7 +2204,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit.thread:    ; preds = %43, %19, %_ZNK6BitM
   br label %73
 
 73:                                               ; preds = %69, %63
-  %.0 = phi ptr [ null, %63 ], [ %spec.select, %69 ]
+  %.0 = phi ptr [ %spec.select, %69 ], [ null, %63 ]
   %74 = icmp eq ptr %.0, null
   %75 = icmp eq ptr %.024, null
   %or.cond = and i1 %75, %74
@@ -2217,7 +2217,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit.thread:    ; preds = %43, %19, %_ZNK6BitM
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %76, %_ZNK6BitMap18find_first_set_bitEm.exit.thread
-  %.025 = phi i1 [ false, %_ZNK6BitMap18find_first_set_bitEm.exit.thread ], [ true, %76 ], [ false, %16 ]
+  %.025 = phi i1 [ true, %76 ], [ false, %_ZNK6BitMap18find_first_set_bitEm.exit.thread ], [ false, %16 ]
   ret i1 %.025
 }
 

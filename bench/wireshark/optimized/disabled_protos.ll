@@ -82,7 +82,7 @@ define noundef zeroext i1 @proto_disable_proto_by_name(ptr noundef %0) local_unn
   br label %13
 
 13:                                               ; preds = %10, %4, %9, %7, %12
-  %.0 = phi i1 [ true, %12 ], [ true, %7 ], [ true, %9 ], [ true, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %12 ], [ true, %4 ], [ true, %7 ], [ true, %9 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -138,7 +138,7 @@ define noundef zeroext i1 @proto_enable_proto_by_name(ptr noundef %0) local_unna
   br label %13
 
 13:                                               ; preds = %10, %4, %9, %7, %12
-  %.0 = phi i1 [ true, %12 ], [ true, %7 ], [ true, %9 ], [ true, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %12 ], [ true, %4 ], [ true, %7 ], [ true, %9 ], [ false, %10 ]
   ret i1 %.0
 }
 

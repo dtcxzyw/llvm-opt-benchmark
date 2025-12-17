@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1318,7 +1318,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
   br i1 %93, label %94, label %.invoke
 
 94:                                               ; preds = %.invoke, %91
-  %.1 = phi ptr [ %54, %91 ], [ null, %.invoke ]
+  %.1 = phi ptr [ null, %.invoke ], [ %54, %91 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %95
@@ -1424,7 +1424,7 @@ define noundef i32 @ucol_getShortDefinitionString_77(ptr noundef %0, ptr noundef
   br label %16
 
 16:                                               ; preds = %5, %11, %10
-  %.0 = phi i32 [ 0, %10 ], [ %15, %11 ], [ 0, %5 ]
+  %.0 = phi i32 [ %15, %11 ], [ 0, %10 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2029,8 +2029,8 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
   br label %60
 
 60:                                               ; preds = %36, %36, %.critedge, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34
-  %61 = phi i32 [ %32, %36 ], [ %32, %36 ], [ %32, %.critedge ], [ %.pre, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ]
-  %.1 = phi ptr [ %.469, %36 ], [ %.469, %36 ], [ %.469, %.critedge ], [ %.7, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ]
+  %61 = phi i32 [ %.pre, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ], [ %32, %36 ], [ %32, %36 ], [ %32, %.critedge ]
+  %.1 = phi ptr [ %.7, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34 ], [ %.469, %36 ], [ %.469, %36 ], [ %.469, %.critedge ]
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.thread, label %63
 
@@ -2041,7 +2041,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.thread71, %38, %63, %60
-  %.175 = phi ptr [ %.178, %63 ], [ %.1, %60 ], [ %2, %.critedge.thread71 ], [ %.469, %38 ]
+  %.175 = phi ptr [ %.1, %60 ], [ %.178, %63 ], [ %2, %.critedge.thread71 ], [ %.469, %38 ]
   ret ptr %.175
 }
 
@@ -2093,7 +2093,7 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
   br i1 %21, label %.critedge, label %.split, !llvm.loop !48
 
 .critedge:                                        ; preds = %.split.us, %.split.us, %12, %19, %.split, %.split
-  %.us-phi = phi ptr [ %17, %.split ], [ %17, %.split ], [ %17, %19 ], [ %10, %12 ], [ %10, %.split.us ], [ %10, %.split.us ]
+  %.us-phi = phi ptr [ %17, %19 ], [ %17, %.split ], [ %17, %.split ], [ %10, %12 ], [ %10, %.split.us ], [ %10, %.split.us ]
   ret ptr %.us-phi
 }
 

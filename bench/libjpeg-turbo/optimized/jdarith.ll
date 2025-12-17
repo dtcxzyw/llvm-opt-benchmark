@@ -1993,7 +1993,7 @@ get_byte.exit68:                                  ; preds = %.preheader, %42, %4
   br label %.loopexitthread-pre-split
 
 .loopexitthread-pre-split:                        ; preds = %get_byte.exit68, %55, %get_byte.exit
-  %.0.ph = phi i64 [ %36, %get_byte.exit ], [ 0, %55 ], [ 255, %get_byte.exit68 ]
+  %.0.ph = phi i64 [ 0, %55 ], [ %36, %get_byte.exit ], [ 255, %get_byte.exit68 ]
   %.pr = load i32, ptr %8, align 8, !tbaa !66
   br label %.loopexit
 

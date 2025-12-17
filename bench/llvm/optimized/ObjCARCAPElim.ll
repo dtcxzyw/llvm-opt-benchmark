@@ -176,8 +176,8 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i: ; preds = %_
   br label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i
 
 _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread25.i.i: ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i, %67, %58, %57, %56, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i, %.lr.ph.i.i
-  %.114.i.i = phi ptr [ %.01330.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %42, %56 ], [ null, %67 ], [ null, %58 ], [ null, %57 ], [ %spec.select.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ %.01330.i.i, %.lr.ph.i.i ]
-  %.1.i.i = phi i1 [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %.031.i.i, %56 ], [ true, %67 ], [ %.031.i.i, %58 ], [ %.031.i.i, %57 ], [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ %.031.i.i, %.lr.ph.i.i ]
+  %.114.i.i = phi ptr [ %.01330.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %42, %56 ], [ %spec.select.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ null, %57 ], [ null, %67 ], [ null, %58 ], [ %.01330.i.i, %.lr.ph.i.i ]
+  %.1.i.i = phi i1 [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i ], [ %.031.i.i, %56 ], [ %.031.i.i, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread.i.i ], [ %.031.i.i, %57 ], [ true, %67 ], [ %.031.i.i, %58 ], [ %.031.i.i, %.lr.ph.i.i ]
   %.not27.i.i = icmp eq ptr %41, %39
   br i1 %.not27.i.i, label %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
 
@@ -187,7 +187,7 @@ _ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i: ; preds = %_ZN4llvm7o
   br label %72
 
 72:                                               ; preds = %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i, %.preheader.i.i.i.i, %29, %.lr.ph.i
-  %.119.i = phi i1 [ %71, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i ], [ %.01832.i, %.lr.ph.i ], [ %.01832.i, %29 ], [ %.01832.i, %.preheader.i.i.i.i ]
+  %.119.i = phi i1 [ %.01832.i, %.lr.ph.i ], [ %.01832.i, %29 ], [ %71, %_ZN12_GLOBAL__N_110OptimizeBBEPN4llvm10BasicBlockE.exit.i ], [ %.01832.i, %.preheader.i.i.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %.02031.i, i64 32
   %.not23.i = icmp eq ptr %73, %13
   br i1 %.not23.i, label %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit, label %.lr.ph.i, !llvm.loop !52
@@ -196,8 +196,8 @@ _ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit:   ; preds = %72
   %spec.select = select i1 %.119.i, ptr @_ZN4llvm11CFGAnalyses6SetKeyE, ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE
   br label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit
 
-_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit, %4, %7, %9, %11
-  %_ZN4llvm11CFGAnalyses6SetKeyE.sink = phi ptr [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %11 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %9 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %7 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %4 ], [ %spec.select, %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit ]
+_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit, %7, %4, %9, %11
+  %_ZN4llvm11CFGAnalyses6SetKeyE.sink = phi ptr [ %spec.select, %_ZN12_GLOBAL__N_17runImplERN4llvm6ModuleE.exit ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %11 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %9 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %4 ], [ @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, %7 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %74, ptr %0, align 8, !tbaa !54
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -440,8 +440,8 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %.lr.p
   %.not.not = icmp eq ptr %.sroa.046.0, %24
   br i1 %.not.not, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.lr.ph65.split
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %._crit_edge.split, %31, %.lr.ph65, %22, %18, %14, %14, %14, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %5, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit
-  %spec.select39 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %2 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %31 ], [ false, %._crit_edge.split ]
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %._crit_edge.split, %31, %.lr.ph65, %22, %18, %14, %14, %14, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %5, %2, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit
+  %spec.select39 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %18 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %2 ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %31 ], [ false, %._crit_edge.split ]
   ret i1 %spec.select39
 }
 

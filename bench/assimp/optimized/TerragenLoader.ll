@@ -409,7 +409,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.preheader: ; preds = %63
           to label %.invoke347 unwind label %100
 
 .invoke347:                                       ; preds = %97, %185, %176, %165, %157, %149, %136, %124, %112
-  %99 = phi ptr [ %113, %112 ], [ %125, %124 ], [ %137, %136 ], [ %150, %149 ], [ %158, %157 ], [ %166, %165 ], [ %177, %176 ], [ %186, %185 ], [ %98, %97 ]
+  %99 = phi ptr [ %186, %185 ], [ %177, %176 ], [ %113, %112 ], [ %125, %124 ], [ %137, %136 ], [ %150, %149 ], [ %158, %157 ], [ %166, %165 ], [ %98, %97 ]
   invoke void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #20
           to label %.cont348 unwind label %.loopexit.split-lp274
 
@@ -739,7 +739,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
           to label %.invoke349 unwind label %230
 
 .invoke349:                                       ; preds = %208, %235, %227
-  %229 = phi ptr [ %228, %227 ], [ %236, %235 ], [ %209, %208 ]
+  %229 = phi ptr [ %236, %235 ], [ %228, %227 ], [ %209, %208 ]
   invoke void @__cxa_throw(ptr nonnull %229, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #20
           to label %.cont350 unwind label %.loopexit.split-lp
 
@@ -1202,7 +1202,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %403, %411, %_ZN9__g
   ret void
 
 .body:                                            ; preds = %.loopexit272, %.loopexit.split-lp, %.loopexit273, %.loopexit.split-lp274, %383, %381, %210, %225, %202, %100, %126, %151, %167, %187, %178, %159, %138, %114, %103, %89, %105, %394, %291, %295, %361, %.split.us, %297, %293, %237, %230, %58, %50, %44, %42
-  %.pn191 = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %59, %58 ], [ %395, %394 ], [ %106, %105 ], [ %231, %230 ], [ %238, %237 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %359, %.split.us ], [ %362, %361 ], [ %104, %103 ], [ %90, %89 ], [ %101, %100 ], [ %115, %114 ], [ %127, %126 ], [ %139, %138 ], [ %152, %151 ], [ %160, %159 ], [ %168, %167 ], [ %179, %178 ], [ %188, %187 ], [ %226, %225 ], [ %203, %202 ], [ %211, %210 ], [ %384, %383 ], [ %382, %381 ], [ %lpad.loopexit275, %.loopexit273 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %lpad.loopexit, %.loopexit272 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn191 = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %59, %58 ], [ %362, %361 ], [ %395, %394 ], [ %106, %105 ], [ %211, %210 ], [ %90, %89 ], [ %188, %187 ], [ %203, %202 ], [ %231, %230 ], [ %238, %237 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %359, %.split.us ], [ %104, %103 ], [ %101, %100 ], [ %115, %114 ], [ %127, %126 ], [ %139, %138 ], [ %152, %151 ], [ %160, %159 ], [ %168, %167 ], [ %179, %178 ], [ %382, %381 ], [ %226, %225 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %384, %383 ], [ %lpad.loopexit275, %.loopexit273 ], [ %lpad.loopexit, %.loopexit272 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %427

@@ -452,13 +452,13 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %106, !llvm.loop !39
 
 .critedge38.sink.split.i:                         ; preds = %._crit_edge.i.i, %Abc_TruthStoreAlloc.exit.i, %8
-  %.1.ph.i = phi ptr [ %14, %Abc_TruthStoreAlloc.exit.i ], [ %14, %._crit_edge.i.i ], [ null, %8 ]
+  %.1.ph.i = phi ptr [ %14, %._crit_edge.i.i ], [ %14, %Abc_TruthStoreAlloc.exit.i ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Abc_TtStoreLoad.exit
 
 Abc_TtStoreLoad.exit:                             ; preds = %106, %83, %91, %.critedge38.sink.split.i
-  %.1.i = phi ptr [ null, %83 ], [ %93, %91 ], [ %.1.ph.i, %.critedge38.sink.split.i ], [ %93, %106 ]
+  %.1.i = phi ptr [ %93, %91 ], [ null, %83 ], [ %.1.ph.i, %.critedge38.sink.split.i ], [ %93, %106 ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.split, label %.split9
 

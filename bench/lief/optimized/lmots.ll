@@ -40,7 +40,7 @@ define hidden range(i32 -114, 1) i32 @mbedtls_lms_error_from_psa(i32 noundef %0)
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %6 ], [ -112, %2 ], [ -114, %3 ], [ -25, %4 ], [ -17, %5 ], [ %0, %1 ]
+  %.0 = phi i32 [ -1, %6 ], [ -17, %5 ], [ -112, %2 ], [ -114, %3 ], [ -25, %4 ], [ %0, %1 ]
   ret i32 %.0
 }
 
@@ -447,7 +447,7 @@ public_key_from_hashed_digit_array.exit:          ; preds = %123, %128
   br label %136
 
 136:                                              ; preds = %131, %132, %public_key_from_hashed_digit_array.exit, %hash_digit_array.exit, %create_digit_array_with_checksum.exit, %22, %8
-  %.0 = phi i32 [ -17, %8 ], [ -17, %22 ], [ %62, %create_digit_array_with_checksum.exit ], [ %108, %hash_digit_array.exit ], [ %130, %public_key_from_hashed_digit_array.exit ], [ 0, %132 ], [ 0, %131 ]
+  %.0 = phi i32 [ %130, %public_key_from_hashed_digit_array.exit ], [ -17, %8 ], [ -17, %22 ], [ %62, %create_digit_array_with_checksum.exit ], [ %108, %hash_digit_array.exit ], [ 0, %132 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.0
@@ -496,7 +496,7 @@ define hidden range(i32 -21, 1) i32 @mbedtls_lmots_verify(ptr noundef %0, ptr no
   br label %22
 
 22:                                               ; preds = %20, %18, %17, %15, %12, %9, %5
-  %.0 = phi i32 [ -17, %5 ], [ -17, %9 ], [ -17, %12 ], [ -21, %15 ], [ -21, %17 ], [ -21, %18 ], [ %., %20 ]
+  %.0 = phi i32 [ -17, %5 ], [ -17, %9 ], [ -17, %12 ], [ -21, %15 ], [ -21, %17 ], [ %., %20 ], [ -21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -459,7 +459,7 @@ bytestream2_get_be32.exit103:                     ; preds = %170, %176
   br label %200
 
 200:                                              ; preds = %bytestream2_get_be32.exit101, %104, %101, %switch.lookup, %189, %188, %91, %83, %bytestream2_get_be32.exit93.thread, %bytestream2_get_be32.exit91.thread
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit91.thread ], [ -1094995529, %bytestream2_get_be32.exit93.thread ], [ -1094995529, %83 ], [ -1163346256, %91 ], [ -1094995529, %188 ], [ %199, %189 ], [ %.1, %bytestream2_get_be32.exit101 ], [ -1094995529, %switch.lookup ], [ %102, %101 ], [ %105, %104 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit91.thread ], [ -1094995529, %bytestream2_get_be32.exit93.thread ], [ -1094995529, %83 ], [ -1163346256, %91 ], [ %.1, %bytestream2_get_be32.exit101 ], [ -1094995529, %switch.lookup ], [ %102, %101 ], [ -1094995529, %188 ], [ %199, %189 ], [ %105, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

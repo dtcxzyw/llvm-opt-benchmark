@@ -367,7 +367,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %82
 
 82:                                               ; preds = %3, %80, %72, %66, %60, %55, %49, %45, %38, %32, %23, %17, %11, %9
-  %.0 = phi i32 [ 2, %9 ], [ 2, %11 ], [ 11, %17 ], [ 26, %38 ], [ 26, %49 ], [ 26, %55 ], [ 26, %60 ], [ %71, %72 ], [ 0, %80 ], [ 12, %66 ], [ 12, %45 ], [ 20, %32 ], [ 19, %23 ], [ 2, %3 ]
+  %.0 = phi i32 [ 19, %23 ], [ 2, %9 ], [ 2, %11 ], [ 11, %17 ], [ 26, %38 ], [ 26, %49 ], [ 26, %55 ], [ 26, %60 ], [ %71, %72 ], [ 0, %80 ], [ 12, %66 ], [ 12, %45 ], [ 20, %32 ], [ 2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -904,7 +904,7 @@ ole2_translate_docsummary_propid.exit:            ; preds = %97, %70
   br i1 %.not77, label %ole2_process_property.exit.thread83, label %ole2_translate_docsummary_propid.exit.thread
 
 ole2_translate_docsummary_propid.exit.thread.sink.split: ; preds = %97, %70, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
-  %.str.36.sink = phi ptr [ @.str.36, %71 ], [ @.str.38, %72 ], [ @.str.39, %73 ], [ @.str.40, %74 ], [ @.str.41, %75 ], [ @.str.42, %76 ], [ @.str.43, %77 ], [ @.str.44, %78 ], [ @.str.45, %79 ], [ @.str.46, %80 ], [ @.str.47, %81 ], [ @.str.48, %82 ], [ @.str.49, %83 ], [ @.str.50, %84 ], [ @.str.51, %85 ], [ @.str.52, %86 ], [ @.str.53, %87 ], [ @.str.54, %88 ], [ @.str.55, %89 ], [ @.str.56, %90 ], [ @.str.57, %91 ], [ @.str.58, %92 ], [ @.str.59, %93 ], [ @.str.60, %94 ], [ @.str.61, %95 ], [ @.str.62, %96 ], [ @.str.36, %98 ], [ @.str.65, %99 ], [ @.str.66, %100 ], [ @.str.67, %101 ], [ @.str.68, %102 ], [ @.str.69, %103 ], [ @.str.70, %104 ], [ @.str.71, %105 ], [ @.str.72, %106 ], [ @.str.73, %107 ], [ @.str.74, %108 ], [ @.str.75, %109 ], [ @.str.76, %110 ], [ @.str.77, %111 ], [ @.str.78, %112 ], [ @.str.79, %113 ], [ @.str.80, %114 ], [ @.str.81, %115 ], [ @.str.37, %70 ], [ @.str.64, %97 ]
+  %.str.36.sink = phi ptr [ @.str.36, %71 ], [ @.str.81, %115 ], [ @.str.38, %72 ], [ @.str.39, %73 ], [ @.str.40, %74 ], [ @.str.41, %75 ], [ @.str.42, %76 ], [ @.str.43, %77 ], [ @.str.44, %78 ], [ @.str.45, %79 ], [ @.str.46, %80 ], [ @.str.47, %81 ], [ @.str.48, %82 ], [ @.str.49, %83 ], [ @.str.50, %84 ], [ @.str.51, %85 ], [ @.str.52, %86 ], [ @.str.53, %87 ], [ @.str.54, %88 ], [ @.str.55, %89 ], [ @.str.56, %90 ], [ @.str.57, %91 ], [ @.str.58, %92 ], [ @.str.59, %93 ], [ @.str.60, %94 ], [ @.str.61, %95 ], [ @.str.62, %96 ], [ @.str.36, %98 ], [ @.str.37, %70 ], [ @.str.65, %99 ], [ @.str.66, %100 ], [ @.str.67, %101 ], [ @.str.68, %102 ], [ @.str.69, %103 ], [ @.str.70, %104 ], [ @.str.71, %105 ], [ @.str.72, %106 ], [ @.str.73, %107 ], [ @.str.74, %108 ], [ @.str.75, %109 ], [ @.str.76, %110 ], [ @.str.77, %111 ], [ @.str.78, %112 ], [ @.str.79, %113 ], [ @.str.80, %114 ], [ @.str.64, %97 ]
   store ptr %.str.36.sink, ptr %7, align 8, !tbaa !41
   br label %ole2_translate_docsummary_propid.exit.thread
 
@@ -1483,17 +1483,17 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread83
 
 ole2_process_property.exit:                       ; preds = %140, %150, %155, %168, %178, %190, %202, %.thread372.i, %.thread374.i, %237, %247, %257, %267, %318, %362, %381
-  %.0.i = phi i32 [ %143, %140 ], [ %172, %168 ], [ %184, %178 ], [ %196, %190 ], [ %207, %202 ], [ %241, %237 ], [ %251, %247 ], [ %261, %257 ], [ %271, %267 ], [ %321, %318 ], [ %365, %362 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ]
+  %.0.i = phi i32 [ %172, %168 ], [ %184, %178 ], [ %196, %190 ], [ %207, %202 ], [ %214, %.thread372.i ], [ %224, %.thread374.i ], [ %241, %237 ], [ %251, %247 ], [ %261, %257 ], [ %271, %267 ], [ %321, %318 ], [ %365, %362 ], [ %159, %155 ], [ %154, %150 ], [ %385, %381 ], [ %143, %140 ]
   %.not78 = icmp eq i32 %.0.i, 0
   br i1 %.not78, label %ole2_process_property.exit.thread83, label %.thread
 
-ole2_process_property.exit.thread83:              ; preds = %380, %275, %389, %ole2_translate_docsummary_propid.exit, %ole2_process_property.exit
+ole2_process_property.exit.thread83:              ; preds = %389, %275, %380, %ole2_translate_docsummary_propid.exit, %ole2_process_property.exit
   %394 = add nuw nsw i32 %.06799, 1
   %exitcond.not = icmp eq i32 %394, %.071
   br i1 %exitcond.not, label %.thread, label %58
 
-.thread:                                          ; preds = %ole2_process_property.exit.thread83, %ole2_process_property.exit, %299, %345, %.preheader, %326, %342, %.thread395.i, %282, %290, %.thread385.i, %.thread382.i, %.thread380.i, %.thread378.i, %.thread376.i, %.thread370.i, %.thread368.i, %.thread366.i, %.thread364.i, %386, %225, %215, %160, %135, %127, %118, %63, %54, %41, %22, %12
-  %.068 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 12, %54 ], [ 12, %22 ], [ 26, %63 ], [ 26, %326 ], [ 26, %342 ], [ %.17.ph.i, %.thread395.i ], [ 26, %282 ], [ 26, %290 ], [ %.14.ph.i, %.thread385.i ], [ 26, %.thread382.i ], [ 26, %.thread380.i ], [ 26, %.thread378.i ], [ 26, %.thread376.i ], [ 26, %.thread370.i ], [ 26, %.thread368.i ], [ 26, %.thread366.i ], [ 26, %.thread364.i ], [ 26, %386 ], [ 26, %225 ], [ 26, %215 ], [ 26, %160 ], [ 26, %135 ], [ 26, %127 ], [ 21, %118 ], [ 0, %.preheader ], [ 0, %ole2_process_property.exit.thread83 ], [ %.0.i, %ole2_process_property.exit ], [ 20, %299 ], [ 20, %345 ]
+.thread:                                          ; preds = %ole2_process_property.exit.thread83, %ole2_process_property.exit, %299, %345, %.preheader, %342, %.thread395.i, %290, %.thread385.i, %326, %282, %.thread382.i, %.thread380.i, %.thread378.i, %.thread376.i, %225, %215, %.thread370.i, %.thread368.i, %.thread366.i, %.thread364.i, %160, %386, %135, %127, %118, %63, %54, %41, %22, %12
+  %.068 = phi i32 [ 26, %12 ], [ 26, %41 ], [ 26, %386 ], [ 12, %22 ], [ 12, %54 ], [ 26, %63 ], [ 26, %135 ], [ 26, %342 ], [ %.17.ph.i, %.thread395.i ], [ 26, %127 ], [ 26, %290 ], [ %.14.ph.i, %.thread385.i ], [ 21, %118 ], [ 26, %326 ], [ 26, %282 ], [ 26, %.thread382.i ], [ 26, %.thread380.i ], [ 26, %.thread378.i ], [ 26, %.thread376.i ], [ 26, %225 ], [ 26, %215 ], [ 26, %.thread370.i ], [ 26, %.thread368.i ], [ 26, %.thread366.i ], [ 26, %.thread364.i ], [ 26, %160 ], [ 0, %.preheader ], [ %.0.i, %ole2_process_property.exit ], [ 20, %299 ], [ 0, %ole2_process_property.exit.thread83 ], [ 20, %345 ]
   ret i32 %.068
 }
 
@@ -1790,7 +1790,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
   br label %.loopexit127
 
 .loopexit127:                                     ; preds = %.lr.ph148.preheader, %38, %39, %16, %37, %22, %19, %111, %.preheader._crit_edge, %55, %11
-  %.089 = phi ptr [ %12, %11 ], [ %.0100, %111 ], [ null, %.preheader._crit_edge ], [ null, %55 ], [ null, %16 ], [ %18, %37 ], [ %18, %22 ], [ %18, %19 ], [ null, %39 ], [ %18, %38 ], [ %18, %.lr.ph148.preheader ]
+  %.089 = phi ptr [ %18, %19 ], [ %12, %11 ], [ null, %55 ], [ %.0100, %111 ], [ null, %.preheader._crit_edge ], [ null, %16 ], [ %18, %37 ], [ %18, %22 ], [ null, %39 ], [ %18, %38 ], [ %18, %.lr.ph148.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

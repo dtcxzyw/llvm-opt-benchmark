@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   br i1 %exitcond83.not, label %.loopexit, label %.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
-  %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.173.us, %23 ], [ %.2.lcssa, %._crit_edge.split ], [ %.173, %.split ]
+  %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.173.us, %23 ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.2.lcssa, %._crit_edge.split ], [ %.173, %.split ]
   ret i32 %.047
 }
 

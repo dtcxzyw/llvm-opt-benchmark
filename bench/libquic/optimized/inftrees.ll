@@ -192,11 +192,11 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   br i1 %or.cond5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %63, %._crit_edge257, %65
-  %68 = phi i1 [ %67, %65 ], [ false, %._crit_edge257 ], [ false, %63 ]
-  %.0178230315 = phi ptr [ @MOZ_Z_inflate_table.dbase, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lbase, i64 -514), %63 ]
-  %.0177231314 = phi ptr [ @MOZ_Z_inflate_table.dext, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lext, i64 -514), %63 ]
-  %.0232313 = phi i32 [ -1, %65 ], [ 19, %._crit_edge257 ], [ 256, %63 ]
-  %69 = phi i1 [ false, %65 ], [ false, %._crit_edge257 ], [ true, %63 ]
+  %68 = phi i1 [ false, %._crit_edge257 ], [ %67, %65 ], [ false, %63 ]
+  %.0178230315 = phi ptr [ %5, %._crit_edge257 ], [ @MOZ_Z_inflate_table.dbase, %65 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lbase, i64 -514), %63 ]
+  %.0177231314 = phi ptr [ %5, %._crit_edge257 ], [ @MOZ_Z_inflate_table.dext, %65 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lext, i64 -514), %63 ]
+  %.0232313 = phi i32 [ 19, %._crit_edge257 ], [ -1, %65 ], [ 256, %63 ]
+  %69 = phi i1 [ false, %._crit_edge257 ], [ false, %65 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select221
   %71 = add i32 %70, -1
   %72 = load ptr, ptr %3, align 8, !tbaa !12
@@ -242,8 +242,8 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   br label %92
 
 92:                                               ; preds = %83, %75, %85
-  %.sroa.14.0 = phi i16 [ %91, %85 ], [ %80, %75 ], [ 0, %83 ]
-  %.sroa.0.0 = phi i8 [ %89, %85 ], [ 0, %75 ], [ 96, %83 ]
+  %.sroa.14.0 = phi i16 [ %80, %75 ], [ %91, %85 ], [ 0, %83 ]
+  %.sroa.0.0 = phi i8 [ 0, %75 ], [ %89, %85 ], [ 96, %83 ]
   %.neg = shl nsw i32 -1, %76
   %93 = lshr i32 %.0185, %.0191.ph
   br label %94
@@ -409,7 +409,7 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge262, %.loopexit.sink.split, %63, %65, %41
-  %.0180 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge262 ], [ -1, %33 ]
+  %.0180 = phi i32 [ 1, %63 ], [ -1, %41 ], [ 1, %65 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge262 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0180

@@ -139,7 +139,7 @@ define dso_local noundef range(i32 0, 7434) i32 @_Z24getNonFlagSettingVariantj(i
   br label %18
 
 18:                                               ; preds = %1, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 1216, %2 ], [ 1215, %3 ], [ 7433, %4 ], [ 7430, %5 ], [ 7432, %6 ], [ 7429, %7 ], [ 317, %8 ], [ 316, %9 ], [ 1510, %10 ], [ 1507, %11 ], [ 1509, %12 ], [ 1506, %13 ], [ 5745, %14 ], [ 5744, %15 ], [ 1455, %16 ], [ 1454, %17 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1454, %17 ], [ 1216, %2 ], [ 1215, %3 ], [ 7433, %4 ], [ 7430, %5 ], [ 7432, %6 ], [ 7429, %7 ], [ 317, %8 ], [ 316, %9 ], [ 1510, %10 ], [ 1507, %11 ], [ 1509, %12 ], [ 1506, %13 ], [ 5745, %14 ], [ 5744, %15 ], [ 1455, %16 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i.i:         ; preds = %116
   br label %_Z24getNonFlagSettingVariantj.exit.i
 
 _Z24getNonFlagSettingVariantj.exit.i:             ; preds = %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %130
-  %.0.i.neg.i = phi i64 [ -1215, %133 ], [ -7433, %134 ], [ -7430, %135 ], [ -7432, %136 ], [ -7429, %137 ], [ -317, %138 ], [ -316, %139 ], [ -1510, %140 ], [ -1507, %141 ], [ -1509, %142 ], [ -1506, %143 ], [ -5745, %144 ], [ -5744, %145 ], [ -1455, %146 ], [ -1454, %147 ], [ -1216, %130 ]
+  %.0.i.neg.i = phi i64 [ -1454, %147 ], [ -1455, %146 ], [ -1215, %133 ], [ -7433, %134 ], [ -7430, %135 ], [ -7432, %136 ], [ -7429, %137 ], [ -317, %138 ], [ -316, %139 ], [ -1510, %140 ], [ -1507, %141 ], [ -1509, %142 ], [ -1506, %143 ], [ -5745, %144 ], [ -5744, %145 ], [ -1216, %130 ]
   %148 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.027.0, i32 7, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #12
   %.not.i = icmp eq i32 %148, -1
   br i1 %.not.i, label %_ZNK4llvm12LiveRegUnits9availableEt.exit.i, label %150
@@ -725,7 +725,7 @@ _Z24getNonFlagSettingVariantj.exit.thread.i:      ; preds = %130
   br label %_ZNK4llvm12LiveRegUnits9availableEt.exit.i
 
 _ZNK4llvm12LiveRegUnits9availableEt.exit.i:       ; preds = %116, %158, %150, %_Z24getNonFlagSettingVariantj.exit.thread.i, %_Z24getNonFlagSettingVariantj.exit.i, %.loopexit.i
-  %.1.i = phi i1 [ %.016.i, %.loopexit.i ], [ true, %150 ], [ %.016.i, %158 ], [ %.016.i, %_Z24getNonFlagSettingVariantj.exit.i ], [ %.016.i, %_Z24getNonFlagSettingVariantj.exit.thread.i ], [ %.016.i, %116 ]
+  %.1.i = phi i1 [ %.016.i, %_Z24getNonFlagSettingVariantj.exit.i ], [ %.016.i, %.loopexit.i ], [ true, %150 ], [ %.016.i, %158 ], [ %.016.i, %_Z24getNonFlagSettingVariantj.exit.thread.i ], [ %.016.i, %116 ]
   call void @_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.027.0) #12
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.027.0, align 8
   %165 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
@@ -1333,7 +1333,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %50, %_ZN4llvm8DebugLocD2Ev.exit, %90, %86, %._crit_edge, %5, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %5 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ false, %90 ], [ false, %86 ], [ false, %._crit_edge ], [ false, %50 ], [ false, %70 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %5 ], [ false, %22 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ false, %90 ], [ false, %86 ], [ false, %50 ], [ false, %70 ]
   ret i1 %.0
 }
 

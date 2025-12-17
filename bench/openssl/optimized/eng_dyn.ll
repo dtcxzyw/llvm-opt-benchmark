@@ -230,7 +230,7 @@ dynamic_get_data_ctx.exit:                        ; preds = %35, %36, %.thread30
   %.not = icmp eq ptr %.not7.i, null
   br i1 %.not, label %dynamic_get_data_ctx.exit.thread, label %dynamic_get_data_ctx.exit.thread70
 
-dynamic_get_data_ctx.exit.thread:                 ; preds = %28, %13, %14, %dynamic_get_data_ctx.exit
+dynamic_get_data_ctx.exit.thread:                 ; preds = %13, %14, %28, %dynamic_get_data_ctx.exit
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 301, ptr noundef nonnull @__func__.dynamic_ctrl) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 112, ptr noundef null) #6
@@ -551,7 +551,7 @@ int_load.exit.i:                                  ; preds = %123, %107
   br label %dynamic_load.exit
 
 dynamic_load.exit:                                ; preds = %90, %95, %.loopexit.i, %133, %.critedge.i, %167, %171, %175, %180, %181
-  %.048.i = phi i32 [ 0, %180 ], [ 0, %167 ], [ 0, %133 ], [ 0, %.loopexit.i ], [ 0, %90 ], [ 0, %95 ], [ 0, %.critedge.i ], [ 1, %175 ], [ 1, %181 ], [ 1, %171 ]
+  %.048.i = phi i32 [ 0, %90 ], [ 0, %95 ], [ 0, %180 ], [ 0, %167 ], [ 0, %.critedge.i ], [ 0, %133 ], [ 0, %.loopexit.i ], [ 1, %175 ], [ 1, %181 ], [ 1, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread82

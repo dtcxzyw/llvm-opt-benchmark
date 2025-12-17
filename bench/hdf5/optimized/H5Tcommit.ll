@@ -1227,7 +1227,7 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
   br label %158
 
 158:                                              ; preds = %87, %94, %102, %110, %136, %147, %154
-  %.071 = phi i1 [ true, %94 ], [ true, %102 ], [ true, %110 ], [ false, %136 ], [ false, %147 ], [ false, %154 ], [ true, %87 ]
+  %.071 = phi i1 [ false, %154 ], [ true, %87 ], [ true, %94 ], [ true, %102 ], [ true, %110 ], [ false, %136 ], [ false, %147 ]
   %159 = call i32 @H5O_unpin(ptr noundef nonnull %78) #9
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %172, label %.thread92
@@ -1331,7 +1331,7 @@ H5T_update_shared.exit:                           ; preds = %.H5T_update_shared.
   br label %.thread113
 
 .thread113:                                       ; preds = %.thread, %.thread101.thread, %213, %210, %3
-  %.068 = phi i32 [ -1, %213 ], [ -1, %210 ], [ 0, %3 ], [ -1, %.thread101.thread ], [ 0, %.thread ]
+  %.068 = phi i32 [ -1, %213 ], [ -1, %210 ], [ -1, %.thread101.thread ], [ 0, %3 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.068
@@ -1792,7 +1792,7 @@ H5T_destruct_datatype.exit:                       ; preds = %63, %67, %73, %85, 
   br label %.thread
 
 .thread:                                          ; preds = %17, %23, %40, %30, %44, %H5T_destruct_datatype.exit, %5
-  %.0 = phi i64 [ -1, %H5T_destruct_datatype.exit ], [ -1, %5 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ], [ -1, %30 ]
+  %.0 = phi i64 [ -1, %H5T_destruct_datatype.exit ], [ -1, %5 ], [ -1, %30 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -2545,7 +2545,7 @@ define ptr @H5T__open_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %18, %35, %46, %49, %42, %2
-  %.0 = phi ptr [ null, %49 ], [ null, %46 ], [ null, %42 ], [ null, %2 ], [ %36, %35 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %49 ], [ null, %46 ], [ null, %42 ], [ null, %18 ], [ null, %2 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2704,7 +2704,7 @@ H5T_update_shared.exit.i:                         ; preds = %47, %39
   %89 = call i32 @H5O_close(ptr noundef %88, ptr noundef null) #9
   br label %90
 
-90:                                               ; preds = %H5T_update_shared.exit.i, %25, %69, %59
+90:                                               ; preds = %H5T_update_shared.exit.i, %59, %25, %69
   %91 = load i64, ptr %2, align 8, !tbaa !11
   call void @H5AC_tag(i64 noundef %91, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2898,8 +2898,8 @@ H5T_update_shared.exit:                           ; preds = %152, %159
   store ptr %212, ptr %52, align 8, !tbaa !29
   br label %.thread77
 
-.thread77:                                        ; preds = %195, %186, %170, %148, %138, %210
-  %.050.ph.ph81 = phi ptr [ %45, %210 ], [ %127, %138 ], [ %127, %148 ], [ %127, %170 ], [ %127, %186 ], [ %127, %195 ]
+.thread77:                                        ; preds = %186, %170, %148, %138, %195, %210
+  %.050.ph.ph81 = phi ptr [ %45, %210 ], [ %127, %195 ], [ %127, %138 ], [ %127, %148 ], [ %127, %170 ], [ %127, %186 ]
   %213 = getelementptr inbounds nuw i8, ptr %.050.ph.ph81, i64 48
   %214 = call i32 @H5O_loc_free(ptr noundef nonnull %213) #9
   %215 = getelementptr inbounds nuw i8, ptr %.050.ph.ph81, i64 72
@@ -2913,8 +2913,8 @@ H5T_update_shared.exit:                           ; preds = %152, %159
   store i64 %220, ptr %23, align 8, !tbaa !49
   br label %.thread83
 
-.thread83:                                        ; preds = %11, %90, %190, %124, %218, %.thread77, %15
-  %.1 = phi ptr [ null, %218 ], [ null, %.thread77 ], [ null, %15 ], [ %45, %124 ], [ %127, %190 ], [ null, %90 ], [ null, %11 ]
+.thread83:                                        ; preds = %90, %11, %190, %124, %218, %.thread77, %15
+  %.1 = phi ptr [ null, %218 ], [ null, %.thread77 ], [ null, %15 ], [ %45, %124 ], [ %127, %190 ], [ null, %11 ], [ null, %90 ]
   ret ptr %.1
 }
 
@@ -3093,7 +3093,7 @@ define ptr @H5T_get_actual_type(ptr noundef readonly captures(ret: address, prov
   br label %14
 
 14:                                               ; preds = %8, %12, %1
-  %.0 = phi ptr [ %13, %12 ], [ null, %1 ], [ %0, %8 ]
+  %.0 = phi ptr [ null, %1 ], [ %13, %12 ], [ %0, %8 ]
   ret ptr %.0
 }
 

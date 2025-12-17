@@ -470,8 +470,8 @@ define dso_local i64 @_ZN4llvm15IntervalMapImpl10distributeEjjjPKjPjjb(i32 nound
   br label %31
 
 31:                                               ; preds = %7, %15, %26
-  %.sroa.026.0 = phi i32 [ %.sroa.026.2, %26 ], [ %.sroa.026.2, %15 ], [ 0, %7 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.2, %26 ], [ %.sroa.6.2, %15 ], [ 0, %7 ]
+  %.sroa.026.0 = phi i32 [ %.sroa.026.2, %15 ], [ %.sroa.026.2, %26 ], [ 0, %7 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.2, %15 ], [ %.sroa.6.2, %26 ], [ 0, %7 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.026.0.insert.ext = zext i32 %.sroa.026.0 to i64

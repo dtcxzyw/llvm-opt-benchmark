@@ -56,8 +56,8 @@ define void @Acb_ObjPushToFanout(ptr noundef readonly captures(none) %0, i32 nou
   br label %Abc_Tt6CheckOutDec.exit
 
 Abc_Tt6CheckOutDec.exit:                          ; preds = %32, %4, %26, %28, %30
-  %.086 = phi i64 [ %24, %4 ], [ %19, %26 ], [ %24, %28 ], [ %19, %30 ], [ %spec.select, %32 ]
-  %.0.i = phi i32 [ 0, %4 ], [ 1, %26 ], [ 2, %28 ], [ 3, %30 ], [ %spec.select88, %32 ]
+  %.086 = phi i64 [ %spec.select, %32 ], [ %24, %28 ], [ %19, %26 ], [ %24, %4 ], [ %19, %30 ]
+  %.0.i = phi i32 [ %spec.select88, %32 ], [ 2, %28 ], [ 1, %26 ], [ 0, %4 ], [ 3, %30 ]
   %35 = getelementptr i8, ptr %0, i64 136
   %.val59 = load ptr, ptr %35, align 8, !tbaa !12
   %36 = getelementptr i8, ptr %0, i64 152
@@ -282,7 +282,7 @@ Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %101
   br label %Vec_IntRemove.exit.i
 
 Vec_IntRemove.exit.i:                             ; preds = %136, %._crit_edge30.i.i, %._crit_edge.i.i
-  %.pre-phi = phi i64 [ %.pre101, %._crit_edge30.i.i ], [ %39, %._crit_edge.i.i ], [ %39, %136 ]
+  %.pre-phi = phi i64 [ %39, %._crit_edge.i.i ], [ %.pre101, %._crit_edge30.i.i ], [ %39, %136 ]
   %153 = getelementptr inbounds i32, ptr %.val60, i64 %.pre-phi
   %154 = load i32, ptr %153, align 4, !tbaa !15
   %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %154, i32 0)
@@ -749,9 +749,9 @@ Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %133
   br label %Vec_IntRemove.exit.i
 
 Vec_IntRemove.exit.i:                             ; preds = %164, %._crit_edge30.i.i, %._crit_edge.i.i
-  %wide.trip.count.i.i.i.pre-phi = phi i64 [ %.pre96, %._crit_edge30.i.i ], [ %wide.trip.count.i, %._crit_edge.i.i ], [ %wide.trip.count.i, %164 ]
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge30.i.i ], [ %16, %._crit_edge.i.i ], [ %16, %164 ]
-  %181 = phi i32 [ %.pre94, %._crit_edge30.i.i ], [ %18, %._crit_edge.i.i ], [ %18, %164 ]
+  %wide.trip.count.i.i.i.pre-phi = phi i64 [ %wide.trip.count.i, %._crit_edge.i.i ], [ %.pre96, %._crit_edge30.i.i ], [ %wide.trip.count.i, %164 ]
+  %.pre-phi = phi i64 [ %16, %._crit_edge.i.i ], [ %.phi.trans.insert, %._crit_edge30.i.i ], [ %16, %164 ]
+  %181 = phi i32 [ %18, %._crit_edge.i.i ], [ %.pre94, %._crit_edge30.i.i ], [ %18, %164 ]
   %182 = getelementptr inbounds i32, ptr %.val57, i64 %.pre-phi
   br label %183
 
@@ -1537,9 +1537,9 @@ Acb_ObjWhatFanin.exit:                            ; preds = %32, %.critedge.spli
   br label %Vec_IntRemove.exit.i
 
 Vec_IntRemove.exit.i:                             ; preds = %44, %._crit_edge30.i.i, %._crit_edge.loopexit.i.i
-  %wide.trip.count.i.i.i.pre-phi = phi i64 [ %.pre106, %._crit_edge30.i.i ], [ %wide.trip.count.i32, %._crit_edge.loopexit.i.i ], [ %wide.trip.count.i32, %44 ]
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge30.i.i ], [ %29, %._crit_edge.loopexit.i.i ], [ %29, %44 ]
-  %58 = phi i32 [ %.pre104, %._crit_edge30.i.i ], [ %31, %._crit_edge.loopexit.i.i ], [ %31, %44 ]
+  %wide.trip.count.i.i.i.pre-phi = phi i64 [ %wide.trip.count.i32, %._crit_edge.loopexit.i.i ], [ %.pre106, %._crit_edge30.i.i ], [ %wide.trip.count.i32, %44 ]
+  %.pre-phi = phi i64 [ %29, %._crit_edge.loopexit.i.i ], [ %.phi.trans.insert, %._crit_edge30.i.i ], [ %29, %44 ]
+  %58 = phi i32 [ %31, %._crit_edge.loopexit.i.i ], [ %.pre104, %._crit_edge30.i.i ], [ %31, %44 ]
   %59 = getelementptr inbounds i32, ptr %.val28, i64 %.pre-phi
   br label %60
 
@@ -2437,7 +2437,7 @@ Acb_ObjRemoveFaninFanout.exit.thread:             ; preds = %265
   br label %Vec_IntRemove.exit.i
 
 Vec_IntRemove.exit.i:                             ; preds = %287, %._crit_edge30.i.i, %._crit_edge.i.i
-  %304 = phi i32 [ %273, %._crit_edge.i.i ], [ %.pre.i, %._crit_edge30.i.i ], [ %273, %287 ]
+  %304 = phi i32 [ %.pre.i, %._crit_edge30.i.i ], [ %273, %._crit_edge.i.i ], [ %273, %287 ]
   %305 = sext i32 %304 to i64
   %306 = icmp slt i64 %indvars.iv.next.i64, %305
   br i1 %306, label %.lr.ph.i62, label %Acb_ObjRemoveFaninFanout.exit, !llvm.loop !39
@@ -2855,7 +2855,7 @@ Acb_ObjFindFanoutPushableIndex.exit:              ; preds = %97
   br label %118
 
 118:                                              ; preds = %.critedge, %78, %82, %88, %Acb_ObjFindFanoutPushableIndex.exit, %3, %Acb_ObjFindFaninPushableIndex.exit
-  %.0 = phi i32 [ 1, %Acb_ObjFindFaninPushableIndex.exit ], [ 0, %3 ], [ 1, %Acb_ObjFindFanoutPushableIndex.exit ], [ 0, %88 ], [ 0, %82 ], [ 0, %78 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 1, %Acb_ObjFindFanoutPushableIndex.exit ], [ 1, %Acb_ObjFindFaninPushableIndex.exit ], [ 0, %3 ], [ 0, %88 ], [ 0, %82 ], [ 0, %78 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -3048,7 +3048,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   br label %76
 
 76:                                               ; preds = %.lr.ph103, %.lr.ph103, %.lr.ph103, %59, %75, %68
-  %.3 = phi i32 [ %.1102, %59 ], [ %.2, %75 ], [ %.2, %68 ], [ %.1102, %.lr.ph103 ], [ %.1102, %.lr.ph103 ], [ %.1102, %.lr.ph103 ]
+  %.3 = phi i32 [ %.1102, %.lr.ph103 ], [ %.1102, %59 ], [ %.2, %75 ], [ %.2, %68 ], [ %.1102, %.lr.ph103 ], [ %.1102, %.lr.ph103 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %.val77 = load i32, ptr %4, align 4, !tbaa !44
   %77 = sext i32 %.val77 to i64

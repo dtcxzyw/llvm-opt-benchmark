@@ -365,9 +365,9 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   br i1 %189, label %.thread, label %.split.split, !llvm.loop !51
 
 .split128.us:                                     ; preds = %.split.split, %.split.split.us, %.split.us
-  %.us-phi = phi i32 [ %.184.us, %.split.us ], [ %.184.us131, %.split.split.us ], [ %.184, %.split.split ]
-  %.us-phi129 = phi ptr [ %.282.us, %.split.us ], [ %.282.us132, %.split.split.us ], [ %.282, %.split.split ]
-  %.us-phi130 = phi i32 [ %.0.us, %.split.us ], [ %.0.us133, %.split.split.us ], [ %.0, %.split.split ]
+  %.us-phi = phi i32 [ %.184.us131, %.split.split.us ], [ %.184.us, %.split.us ], [ %.184, %.split.split ]
+  %.us-phi129 = phi ptr [ %.282.us132, %.split.split.us ], [ %.282.us, %.split.us ], [ %.282, %.split.split ]
+  %.us-phi130 = phi i32 [ %.0.us133, %.split.split.us ], [ %.0.us, %.split.us ], [ %.0, %.split.split ]
   br i1 %146, label %190, label %201
 
 190:                                              ; preds = %.split128.us
@@ -438,7 +438,7 @@ bytestream2_get_byte.exit100:                     ; preds = %208, %209
   br label %set_palette.exit
 
 set_palette.exit:                                 ; preds = %bytestream2_init.exit96, %bytestream2_get_byte.exit.thread, %.thread, %bytestream2_get_le16.exit, %25, %bytestream2_get_byte.exit, %226, %set_palette.exit109, %110
-  %.078 = phi i32 [ -1094995529, %110 ], [ %115, %set_palette.exit109 ], [ %227, %226 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit96 ]
+  %.078 = phi i32 [ %227, %226 ], [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %110 ], [ %115, %set_palette.exit109 ], [ %27, %25 ], [ -1094995529, %bytestream2_get_le16.exit ], [ %224, %.thread ], [ -1094995529, %bytestream2_init.exit96 ]
   ret i32 %.078
 }
 

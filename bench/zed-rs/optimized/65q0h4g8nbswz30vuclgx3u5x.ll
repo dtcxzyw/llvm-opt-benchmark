@@ -193,7 +193,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %37, %29, %110
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %111, %110 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %30, %29 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14

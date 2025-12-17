@@ -168,8 +168,8 @@ define i32 @X509_load_cert_file_ex(ptr noundef readonly captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %32, %58, %37, %38, %63, %57, %48, %21, %17, %8
-  %.019 = phi ptr [ null, %8 ], [ %11, %17 ], [ %11, %21 ], [ %11, %32 ], [ %11, %37 ], [ %11, %38 ], [ %11, %48 ], [ %11, %57 ], [ %11, %58 ], [ %11, %63 ], [ %11, %39 ]
-  %.0 = phi i32 [ 0, %8 ], [ 0, %17 ], [ 0, %21 ], [ %.1.lcssa, %32 ], [ 0, %37 ], [ 0, %38 ], [ 0, %48 ], [ 0, %57 ], [ %62, %58 ], [ 0, %63 ], [ 0, %39 ]
+  %.019 = phi ptr [ null, %8 ], [ %11, %17 ], [ %11, %21 ], [ %11, %32 ], [ %11, %37 ], [ %11, %38 ], [ %11, %48 ], [ %11, %63 ], [ %11, %57 ], [ %11, %58 ], [ %11, %39 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %17 ], [ 0, %21 ], [ %.1.lcssa, %32 ], [ 0, %37 ], [ 0, %38 ], [ 0, %48 ], [ 0, %63 ], [ 0, %57 ], [ %62, %58 ], [ 0, %39 ]
   %64 = load ptr, ptr %6, align 8, !tbaa !3
   call void @X509_free(ptr noundef %64) #4
   %65 = call i32 @BIO_free(ptr noundef %.019) #4
@@ -330,9 +330,9 @@ define i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %24, %41, %27, %28, %45, %40, %14, %5
-  %.022 = phi ptr [ null, %5 ], [ %8, %14 ], [ %8, %24 ], [ %8, %27 ], [ %8, %28 ], [ %8, %40 ], [ %8, %41 ], [ %8, %45 ], [ %8, %29 ]
-  %.021 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %.1.lcssa, %24 ], [ 0, %27 ], [ 0, %28 ], [ 0, %40 ], [ %44, %41 ], [ 0, %45 ], [ 0, %29 ]
-  %.0 = phi ptr [ null, %5 ], [ null, %14 ], [ null, %24 ], [ null, %27 ], [ null, %28 ], [ null, %40 ], [ %38, %41 ], [ null, %45 ], [ %30, %29 ]
+  %.022 = phi ptr [ null, %5 ], [ %8, %14 ], [ %8, %24 ], [ %8, %27 ], [ %8, %28 ], [ %8, %45 ], [ %8, %40 ], [ %8, %41 ], [ %8, %29 ]
+  %.021 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %.1.lcssa, %24 ], [ 0, %27 ], [ 0, %28 ], [ 0, %45 ], [ 0, %40 ], [ %44, %41 ], [ 0, %29 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %14 ], [ null, %24 ], [ null, %27 ], [ null, %28 ], [ null, %45 ], [ null, %40 ], [ %38, %41 ], [ %30, %29 ]
   tail call void @X509_CRL_free(ptr noundef %.0) #4
   %46 = tail call i32 @BIO_free(ptr noundef %.022) #4
   ret i32 %.021
@@ -442,7 +442,7 @@ define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %23, %._crit_edge, %._crit_edge.thread
-  %.2 = phi i32 [ 0, %._crit_edge.thread ], [ %.3, %._crit_edge ], [ 0, %23 ], [ 0, %31 ]
+  %.2 = phi i32 [ %.3, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %23 ], [ 0, %31 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %13, ptr noundef nonnull @X509_INFO_free) #4
   br label %41
 

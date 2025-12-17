@@ -15691,7 +15691,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17he2bf177356802424E.exit: ; preds = 
   br label %37
 
 37:                                               ; preds = %30, %35, %70
-  %.sroa.0.0 = phi i1 [ true, %35 ], [ true, %70 ], [ false, %30 ]
+  %.sroa.0.0 = phi i1 [ true, %70 ], [ true, %35 ], [ false, %30 ]
   ret i1 %.sroa.0.0
 
 38:                                               ; preds = %33
@@ -16534,7 +16534,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv28_$u
   unreachable
 
 common.resume:                                    ; preds = %125, %152, %23, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %46, %.body.i ], [ %126, %125 ], [ %153, %152 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %.body.i ], [ %24, %23 ], [ %126, %125 ], [ %153, %152 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h776eae969241dab2E.exit.i": ; preds = %2
@@ -17056,8 +17056,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h383fe2df125
   unreachable
 
 .outer.backedge.i:                                ; preds = %._crit_edge.loopexit.i.i, %45, %40, %38
-  %.sroa.049.0.ph.be.i = phi ptr [ %33, %38 ], [ %33, %40 ], [ %.sroa.049.1.i, %45 ], [ %.sroa.049.1.i, %._crit_edge.loopexit.i.i ]
-  %.sroa.0.0.ph.be.i = phi i32 [ %.sroa.0.085.i.lcssa, %38 ], [ %.sroa.0.085.i.lcssa, %40 ], [ 1, %45 ], [ %47, %._crit_edge.loopexit.i.i ]
+  %.sroa.049.0.ph.be.i = phi ptr [ %33, %40 ], [ %33, %38 ], [ %.sroa.049.1.i, %45 ], [ %.sroa.049.1.i, %._crit_edge.loopexit.i.i ]
+  %.sroa.0.0.ph.be.i = phi i32 [ %.sroa.0.085.i.lcssa, %40 ], [ %.sroa.0.085.i.lcssa, %38 ], [ 1, %45 ], [ %47, %._crit_edge.loopexit.i.i ]
   %53 = load atomic i64, ptr %9 acquire, align 128, !noalias !1396
   %54 = load atomic ptr, ptr %11 acquire, align 8, !noalias !1396
   %55 = and i64 %53, 1
@@ -17363,10 +17363,10 @@ _ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i.i.i: ; preds = %154, 
   ret void
 
 .body.thread27:                                   ; preds = %88, %83, %.body.thread
-  %eh.lpad-body25 = phi { ptr, i32 } [ %eh.lpad-body26, %.body.thread ], [ %84, %83 ], [ %89, %88 ]
+  %eh.lpad-body25 = phi { ptr, i32 } [ %eh.lpad-body26, %.body.thread ], [ %89, %88 ], [ %84, %83 ]
   resume { ptr, i32 } %eh.lpad-body25
 
-.body.thread:                                     ; preds = %.body.loopexit, %.body.loopexit.split-lp, %61, %.thread61.i
+.body.thread:                                     ; preds = %.body.loopexit, %.body.loopexit.split-lp, %.thread61.i, %61
   %eh.lpad-body26 = phi { ptr, i32 } [ %lpad.phi.i, %.thread61.i ], [ %lpad.phi.i, %61 ], [ %lpad.loopexit, %.body.loopexit ], [ %lpad.loopexit.split-lp, %.body.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$17hd45443cbc7142fbbE"(ptr noalias noundef align 8 dereferenceable(64) %2) #31
           to label %.body.thread27 unwind label %163
@@ -18232,7 +18232,7 @@ define internal fastcc void @"_ZN4core3ptr230drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h60cf35f44ae35583E.exit": ; preds = %17, %9, %"_ZN4core3ptr196drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..DataFrame$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$polars_core..frame..DataFrame$GT$$RP$$GT$17hefd07530d9c8c5b8E.exit", %1
@@ -18318,7 +18318,7 @@ define internal fastcc void @"_ZN4core3ptr272drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h60cf35f44ae35583E.exit": ; preds = %17, %9, %"_ZN4core3ptr238drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..DataFrame$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$polars_core..frame..DataFrame$GT$$GT$$RP$$GT$17hb2b94214e8237147E.exit", %1
@@ -18404,7 +18404,7 @@ define internal fastcc void @"_ZN4core3ptr290drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h60cf35f44ae35583E.exit": ; preds = %17, %9, %"_ZN4core3ptr256drop_in_place$LT$$LP$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$C$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$RP$$GT$17h2200281aefcea88bE.exit", %1
@@ -18490,7 +18490,7 @@ define internal fastcc void @"_ZN4core3ptr324drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h60cf35f44ae35583E.exit": ; preds = %17, %9, %"_ZN4core3ptr290drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$$GT$$RP$$GT$17hcd58c471dd430652E.exit", %1
@@ -18576,7 +18576,7 @@ define internal fastcc void @"_ZN4core3ptr332drop_in_place$LT$rayon_core..job..J
   br label %common.resume
 
 common.resume:                                    ; preds = %29, %18, %26
-  %common.resume.op = phi { ptr, i32 } [ %19, %26 ], [ %19, %18 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %26 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h60cf35f44ae35583E.exit": ; preds = %17, %9, %"_ZN4core3ptr298drop_in_place$LT$$LP$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$$RP$$GT$17hf6fd7339d48fbdccE.exit", %1
@@ -19178,10 +19178,10 @@ common.resume.i:                                  ; preds = %81, %67, %52, %38
   br label %88
 
 88:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i"
-  %.sroa.26.1.i = phi i64 [ %41, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %70, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %55, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ %84, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
-  %.sroa.10.0.i = phi i64 [ %15, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %59, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
-  %.sroa.8.0.i = phi i64 [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
-  %.sroa.021.0.i = phi ptr [ %9, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %9, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
+  %.sroa.26.1.i = phi i64 [ %70, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %41, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %55, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ %84, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
+  %.sroa.10.0.i = phi i64 [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %15, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %59, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
+  %.sroa.8.0.i = phi i64 [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %18, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
+  %.sroa.021.0.i = phi ptr [ %9, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit53.i" ], [ %9, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit49.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hae2d83ae21c57914E.exit57.i" ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.i, i64 98
   %90 = load i16, ptr %89, align 2, !noalias !1552, !noundef !3
   %91 = zext i16 %90 to i64

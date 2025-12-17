@@ -999,8 +999,8 @@ _ZN10rayon_core8registry19set_global_registry17h8c93fbc64a3f9233E.exit: ; preds 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23, !noalias !105
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf293763e98a4f866E.llvm.14976363794789945401.exit": ; preds = %.thread, %14, %19, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i"
-  %.sroa.6.0.ph = phi ptr [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i" ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %19 ], [ %.sroa.4.0.copyload.pre, %14 ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %.thread ]
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf293763e98a4f866E.llvm.14976363794789945401.exit": ; preds = %.thread, %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i", %19
+  %.sroa.6.0.ph = phi ptr [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %19 ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i" ], [ %.sroa.4.0.copyload.pre, %14 ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %.thread ]
   ret ptr %.sroa.6.0.ph
 }
 
@@ -1121,7 +1121,7 @@ default.unreachable:                              ; preds = %.noexc
           to label %68 unwind label %66
 
 _ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit: ; preds = %20, %23, %28, %16
-  %.0.i.i = phi i8 [ %22, %20 ], [ %27, %23 ], [ %32, %28 ], [ %19, %16 ]
+  %.0.i.i = phi i8 [ %32, %28 ], [ %22, %20 ], [ %27, %23 ], [ %19, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !126
   %35 = icmp eq i8 %.0.i.i, 36
   %.0.val.i = load ptr, ptr @_ZN10rayon_core8registry19WORKER_THREAD_STATE7__getit3VAL17h9453257021be81b2E, align 8
@@ -2244,7 +2244,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.
   br label %15
 
 15:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread
-  %16 = phi i1 [ false, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread ], [ true, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6 ]
+  %16 = phi i1 [ true, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6 ], [ false, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread ]
   ret i1 %16
 }
 
@@ -2378,7 +2378,7 @@ _ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-49:                                               ; preds = %.invoke, %27, %40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i"
+49:                                               ; preds = %.invoke, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b09e8088fcb6a7fE.exit4.i", %27, %40
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17h981eb812ff12ac33E"(ptr noalias noundef nonnull align 1 %2) #22

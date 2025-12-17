@@ -5250,7 +5250,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -5401,7 +5401,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -5538,8 +5538,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !191
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -5944,7 +5944,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -6095,7 +6095,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -6232,8 +6232,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !201
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEENS7_IjLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -6632,7 +6632,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -6783,7 +6783,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -6920,8 +6920,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !210
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -7320,7 +7320,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -7471,7 +7471,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -7608,8 +7608,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !219
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEENS7_IiLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -8008,7 +8008,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -8159,7 +8159,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -8296,8 +8296,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !228
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -8696,7 +8696,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -8847,7 +8847,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -8984,8 +8984,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !237
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS7_IfLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -9435,7 +9435,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %47, %35, %33, %32
-  %.sink.i = phi ptr [ %0, %32 ], [ %0, %33 ], [ %0, %35 ], [ %.0915.i.i, %47 ]
+  %.sink.i = phi ptr [ %0, %35 ], [ %0, %32 ], [ %0, %33 ], [ %.0915.i.i, %47 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -9591,7 +9591,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %114, %102, %100, %96
-  %.sink.i38 = phi ptr [ %0, %96 ], [ %0, %100 ], [ %0, %102 ], [ %.0915.i.i32, %114 ]
+  %.sink.i38 = phi ptr [ %0, %102 ], [ %0, %96 ], [ %0, %100 ], [ %.0915.i.i32, %114 ]
   store i32 %75, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -9730,8 +9730,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i41.i, !llvm.loop !246
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %38 ], [ %.pre.i, %73 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %38 ], [ %10, %73 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -10136,7 +10136,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %47, %35, %33, %32
-  %.sink.i = phi ptr [ %0, %32 ], [ %0, %33 ], [ %0, %35 ], [ %.0915.i.i, %47 ]
+  %.sink.i = phi ptr [ %0, %35 ], [ %0, %32 ], [ %0, %33 ], [ %.0915.i.i, %47 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -10292,7 +10292,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %114, %102, %100, %96
-  %.sink.i38 = phi ptr [ %0, %96 ], [ %0, %100 ], [ %0, %102 ], [ %.0915.i.i32, %114 ]
+  %.sink.i38 = phi ptr [ %0, %102 ], [ %0, %96 ], [ %0, %100 ], [ %.0915.i.i32, %114 ]
   store i32 %75, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -10431,8 +10431,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i41.i, !llvm.loop !255
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS7_IdLin1ELin1ELi0ELin1ELin1EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %38 ], [ %.pre.i, %73 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %38 ], [ %10, %73 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -10835,7 +10835,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -10986,7 +10986,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -11123,8 +11123,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !264
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -11523,7 +11523,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -11674,7 +11674,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -11811,8 +11811,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit, label %.lr.ph.i.i47.i, !llvm.loop !273
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEENS7_IdLin1ELi3ELi0ELin1ELi3EEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSG_IT1_EEEUlmmE0_EEEvSC_SC_SC_SC_SH_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -12209,7 +12209,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %41, %30, %28, %27
-  %.sink.i = phi ptr [ %0, %27 ], [ %0, %28 ], [ %0, %30 ], [ %.0915.i.i, %41 ]
+  %.sink.i = phi ptr [ %0, %30 ], [ %0, %27 ], [ %0, %28 ], [ %.0915.i.i, %41 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -12353,7 +12353,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i40:   ; preds = %98, %87, %85, %81
-  %.sink.i41 = phi ptr [ %0, %81 ], [ %0, %85 ], [ %0, %87 ], [ %.0915.i.i34, %98 ]
+  %.sink.i41 = phi ptr [ %0, %87 ], [ %0, %81 ], [ %0, %85 ], [ %.0915.i.i34, %98 ]
   store i32 %64, ptr %.sink.i41, align 4, !tbaa !14
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -12490,8 +12490,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !282
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %32 ], [ %.pre.i, %66 ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %32 ], [ %10, %66 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -12879,7 +12879,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %41, %30, %28, %27
-  %.sink.i = phi ptr [ %0, %27 ], [ %0, %28 ], [ %0, %30 ], [ %.0915.i.i, %41 ]
+  %.sink.i = phi ptr [ %0, %30 ], [ %0, %27 ], [ %0, %28 ], [ %.0915.i.i, %41 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -13023,7 +13023,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i40:   ; preds = %98, %87, %85, %81
-  %.sink.i41 = phi ptr [ %0, %81 ], [ %0, %85 ], [ %0, %87 ], [ %.0915.i.i34, %98 ]
+  %.sink.i41 = phi ptr [ %0, %87 ], [ %0, %81 ], [ %0, %85 ], [ %.0915.i.i34, %98 ]
   store i32 %64, ptr %.sink.i41, align 4, !tbaa !14
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -13160,8 +13160,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !291
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %32 ], [ %.pre.i, %66 ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %32 ], [ %10, %66 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -13600,7 +13600,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -13751,7 +13751,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -13887,8 +13887,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !300
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -14284,7 +14284,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -14435,7 +14435,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -14571,8 +14571,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !309
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -14963,7 +14963,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -15102,7 +15102,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !76
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -15235,8 +15235,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !318
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -15614,7 +15614,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -15753,7 +15753,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !76
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -15886,8 +15886,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !327
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi12ELi0ELi12ELi12EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -16320,7 +16320,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -16474,7 +16474,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -16614,8 +16614,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !336
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -17016,7 +17016,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -17170,7 +17170,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -17310,8 +17310,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !345
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -17761,7 +17761,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -17915,7 +17915,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -18055,8 +18055,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !354
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -18457,7 +18457,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -18611,7 +18611,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -18751,8 +18751,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !363
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -19152,7 +19152,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -19303,7 +19303,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -19440,8 +19440,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !372
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -19840,7 +19840,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -19991,7 +19991,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -20128,8 +20128,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !381
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIjLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -20529,7 +20529,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -20683,7 +20683,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -20823,8 +20823,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !390
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -21225,7 +21225,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -21379,7 +21379,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -21519,8 +21519,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !399
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -21920,7 +21920,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -22071,7 +22071,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -22208,8 +22208,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !408
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -22608,7 +22608,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -22759,7 +22759,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -22896,8 +22896,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !417
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -23297,7 +23297,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -23451,7 +23451,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -23591,8 +23591,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !426
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -23993,7 +23993,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -24147,7 +24147,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -24287,8 +24287,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !435
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -24686,7 +24686,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i:     ; preds = %43, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %43 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %43 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !117
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -24835,7 +24835,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i37:   ; preds = %103, %92, %90, %86
-  %.sink.i38 = phi ptr [ %0, %86 ], [ %0, %90 ], [ %0, %92 ], [ %.0915.i.i32, %103 ]
+  %.sink.i38 = phi ptr [ %0, %92 ], [ %0, %86 ], [ %0, %90 ], [ %.0915.i.i32, %103 ]
   store i64 %67, ptr %.sink.i38, align 8, !tbaa !117
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 8
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -24971,8 +24971,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !444
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !117
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !117
@@ -25363,7 +25363,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i:     ; preds = %43, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %43 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %43 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !117
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -25512,7 +25512,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i37:   ; preds = %103, %92, %90, %86
-  %.sink.i38 = phi ptr [ %0, %86 ], [ %0, %90 ], [ %0, %92 ], [ %.0915.i.i32, %103 ]
+  %.sink.i38 = phi ptr [ %0, %92 ], [ %0, %86 ], [ %0, %90 ], [ %.0915.i.i32, %103 ]
   store i64 %67, ptr %.sink.i38, align 8, !tbaa !117
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 8
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -25648,8 +25648,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !453
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !117
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !117
@@ -26037,7 +26037,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !117
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -26176,7 +26176,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !117
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -26309,8 +26309,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !462
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !117
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !117
@@ -26688,7 +26688,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !117
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -26827,7 +26827,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPxS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !117
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -26960,8 +26960,8 @@ _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !471
 
 _ZSt22__move_median_to_firstIPxN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IxLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !117
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !117
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !117
@@ -27342,7 +27342,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %41, %30, %28, %27
-  %.sink.i = phi ptr [ %0, %27 ], [ %0, %28 ], [ %0, %30 ], [ %.0915.i.i, %41 ]
+  %.sink.i = phi ptr [ %0, %30 ], [ %0, %27 ], [ %0, %28 ], [ %.0915.i.i, %41 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -27486,7 +27486,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i40:   ; preds = %98, %87, %85, %81
-  %.sink.i41 = phi ptr [ %0, %81 ], [ %0, %85 ], [ %0, %87 ], [ %.0915.i.i34, %98 ]
+  %.sink.i41 = phi ptr [ %0, %87 ], [ %0, %81 ], [ %0, %85 ], [ %.0915.i.i34, %98 ]
   store i32 %64, ptr %.sink.i41, align 4, !tbaa !14
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -27623,8 +27623,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !480
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %32 ], [ %.pre.i, %66 ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %32 ], [ %10, %66 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -28012,7 +28012,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %41, %30, %28, %27
-  %.sink.i = phi ptr [ %0, %27 ], [ %0, %28 ], [ %0, %30 ], [ %.0915.i.i, %41 ]
+  %.sink.i = phi ptr [ %0, %30 ], [ %0, %27 ], [ %0, %28 ], [ %.0915.i.i, %41 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -28156,7 +28156,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i40:   ; preds = %98, %87, %85, %81
-  %.sink.i41 = phi ptr [ %0, %81 ], [ %0, %85 ], [ %0, %87 ], [ %.0915.i.i34, %98 ]
+  %.sink.i41 = phi ptr [ %0, %87 ], [ %0, %81 ], [ %0, %85 ], [ %.0915.i.i34, %98 ]
   store i32 %64, ptr %.sink.i41, align 4, !tbaa !14
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -28293,8 +28293,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !489
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %52, %.lr.ph.i.i44.i, %66, %32, %.lr.ph.i.i30.i, %46
-  %.sink76.i = phi i32 [ %16, %46 ], [ %29, %.lr.ph.i.i30.i ], [ %.pre.i, %32 ], [ %.pre.i, %66 ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
-  %.sink75.i = phi ptr [ %11, %46 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %32 ], [ %10, %66 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
+  %.sink76.i = phi i32 [ %.pre.i, %66 ], [ %16, %46 ], [ %.pre.i, %32 ], [ %29, %.lr.ph.i.i30.i ], [ %49, %.lr.ph.i.i44.i ], [ %16, %52 ]
+  %.sink75.i = phi ptr [ %10, %66 ], [ %11, %46 ], [ %10, %32 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %52 ]
   %69 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink76.i, ptr %0, align 4, !tbaa !14
   store i32 %69, ptr %.sink75.i, align 4, !tbaa !14
@@ -28684,7 +28684,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -28835,7 +28835,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -28971,8 +28971,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !498
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -29368,7 +29368,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -29519,7 +29519,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -29655,8 +29655,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !507
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi4ELi0ELin1ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -30047,7 +30047,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -30186,7 +30186,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !76
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -30319,8 +30319,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !516
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -30698,7 +30698,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %38, %28, %26, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %0, %26 ], [ %0, %28 ], [ %.0915.i.i, %38 ]
+  %.sink.i = phi ptr [ %0, %28 ], [ %0, %25 ], [ %0, %26 ], [ %.0915.i.i, %38 ]
   store i64 %12, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -30837,7 +30837,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0
   br label %.lr.ph.i.i.i.i33
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i40:   ; preds = %90, %80, %78, %74
-  %.sink.i41 = phi ptr [ %0, %74 ], [ %0, %78 ], [ %0, %80 ], [ %.0915.i.i34, %90 ]
+  %.sink.i41 = phi ptr [ %0, %80 ], [ %0, %74 ], [ %0, %78 ], [ %.0915.i.i34, %90 ]
   store i64 %58, ptr %.sink.i41, align 8, !tbaa !76
   %.0.i42 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i43 = icmp eq ptr %.0.i42, %1
@@ -30970,8 +30970,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i48.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i44.i, !llvm.loop !525
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLi12ELi4ELi0ELi12ELi4EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %48, %.lr.ph.i.i44.i, %62, %29, %.lr.ph.i.i30.i, %43
-  %.sink76.i = phi i64 [ %15, %43 ], [ %27, %.lr.ph.i.i30.i ], [ %.pre.i, %29 ], [ %.pre.i, %62 ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
-  %.sink75.i = phi ptr [ %11, %43 ], [ %12, %.lr.ph.i.i30.i ], [ %10, %29 ], [ %10, %62 ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
+  %.sink76.i = phi i64 [ %.pre.i, %62 ], [ %15, %43 ], [ %.pre.i, %29 ], [ %27, %.lr.ph.i.i30.i ], [ %46, %.lr.ph.i.i44.i ], [ %15, %48 ]
+  %.sink75.i = phi ptr [ %10, %62 ], [ %11, %43 ], [ %10, %29 ], [ %12, %.lr.ph.i.i30.i ], [ %12, %.lr.ph.i.i44.i ], [ %11, %48 ]
   %65 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink76.i, ptr %0, align 8, !tbaa !76
   store i64 %65, ptr %.sink75.i, align 8, !tbaa !76
@@ -31468,7 +31468,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %37, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i, %24, %23
-  %.sink.i = phi ptr [ %0, %23 ], [ %0, %24 ], [ %.024.i.ptr, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i ], [ %.01316.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i ]
+  %.sink.i = phi ptr [ %0, %24 ], [ %0, %23 ], [ %.024.i.ptr, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i ], [ %.01316.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -31589,7 +31589,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %92, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i31, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i27
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i27:   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26, %79, %77, %73
-  %.sink.i28 = phi ptr [ %0, %73 ], [ %0, %77 ], [ %0, %79 ], [ %.024.i24, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26 ], [ %.01316.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i31 ]
+  %.sink.i28 = phi ptr [ %0, %79 ], [ %0, %73 ], [ %0, %77 ], [ %.024.i24, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26 ], [ %.01316.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIiPiEEbRS8_SD_.exit.i.i31 ]
   store i32 %60, ptr %.sink.i28, align 4, !tbaa !14
   %.0.i29 = getelementptr inbounds nuw i8, ptr %.024.i24, i64 4
   %.not.i30 = icmp eq ptr %.0.i29, %1
@@ -31919,7 +31919,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %72, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i.i.us40, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SF_SF_SI_T2_.exit.us44, !llvm.loop !540
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SF_SF_SI_T2_.exit.us44: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i.i.us40, %70, %.split.split.split.us, %._crit_edge.i.us35
-  %.013.lcssa.i.i.us45 = phi i64 [ %spec.select.i.us34, %._crit_edge.i.us35 ], [ %.014.us28, %.split.split.split.us ], [ %.018.i.i.us43, %70 ], [ %.01317.i.i.us41, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i.i.us40 ]
+  %.013.lcssa.i.i.us45 = phi i64 [ %spec.select.i.us34, %._crit_edge.i.us35 ], [ %.014.us28, %.split.split.split.us ], [ %.01317.i.i.us41, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE_EclIPiiEEbS8_RSD_.exit.i.i.us40 ], [ %.018.i.i.us43, %70 ]
   %73 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us45
   store i32 %38, ptr %73, align 4, !tbaa !14
   %.not.us46 = icmp eq i64 %.014.us28, 0
@@ -32286,7 +32286,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %37, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i, %24, %23
-  %.sink.i = phi ptr [ %0, %23 ], [ %0, %24 ], [ %.024.i.ptr, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i ], [ %.01316.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i ]
+  %.sink.i = phi ptr [ %0, %24 ], [ %0, %23 ], [ %.024.i.ptr, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i ], [ %.01316.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -32407,7 +32407,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %92, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i31, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i27
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i27:   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26, %79, %77, %73
-  %.sink.i28 = phi ptr [ %0, %73 ], [ %0, %77 ], [ %0, %79 ], [ %.024.i24, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26 ], [ %.01316.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i31 ]
+  %.sink.i28 = phi ptr [ %0, %79 ], [ %0, %73 ], [ %0, %77 ], [ %.024.i24, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.lr.ph.i.i26 ], [ %.01316.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIiPiEEbRS8_SD_.exit.i.i31 ]
   store i32 %60, ptr %.sink.i28, align 4, !tbaa !14
   %.0.i29 = getelementptr inbounds nuw i8, ptr %.024.i24, i64 4
   %.not.i30 = icmp eq ptr %.0.i29, %1
@@ -32737,7 +32737,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0
   br i1 %72, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i.i.us40, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SF_SF_SI_T2_.exit.us44, !llvm.loop !549
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SF_SF_SI_T2_.exit.us44: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i.i.us40, %70, %.split.split.split.us, %._crit_edge.i.us35
-  %.013.lcssa.i.i.us45 = phi i64 [ %spec.select.i.us34, %._crit_edge.i.us35 ], [ %.014.us28, %.split.split.split.us ], [ %.018.i.i.us43, %70 ], [ %.01317.i.i.us41, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i.i.us40 ]
+  %.013.lcssa.i.i.us45 = phi i64 [ %spec.select.i.us34, %._crit_edge.i.us35 ], [ %.014.us28, %.split.split.split.us ], [ %.01317.i.i.us41, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEES6_S6_EEvRKNS4_9DenseBaseIT_EEbRNS4_15PlainObjectBaseIT0_EERNSC_IT1_EEEUlmmE0_EclIPiiEEbS8_RSD_.exit.i.i.us40 ], [ %.018.i.i.us43, %70 ]
   %73 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us45
   store i32 %38, ptr %73, align 4, !tbaa !14
   %.not.us46 = icmp eq i64 %.014.us28, 0
@@ -32990,7 +32990,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -33141,7 +33141,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -33278,8 +33278,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !554
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -33678,7 +33678,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -33829,7 +33829,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -33966,8 +33966,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !563
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -34367,7 +34367,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -34521,7 +34521,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -34661,8 +34661,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !572
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -35063,7 +35063,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -35217,7 +35217,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -35357,8 +35357,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !581
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -35758,7 +35758,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -35909,7 +35909,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -36046,8 +36046,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !590
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -36446,7 +36446,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %42, %31, %29, %28
-  %.sink.i = phi ptr [ %0, %28 ], [ %0, %29 ], [ %0, %31 ], [ %.0915.i.i, %42 ]
+  %.sink.i = phi ptr [ %0, %31 ], [ %0, %28 ], [ %0, %29 ], [ %.0915.i.i, %42 ]
   store i32 %13, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -36597,7 +36597,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1
   br label %.lr.ph.i.i.i.i34
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i41:   ; preds = %101, %90, %88, %84
-  %.sink.i42 = phi ptr [ %0, %84 ], [ %0, %88 ], [ %0, %90 ], [ %.0915.i.i35, %101 ]
+  %.sink.i42 = phi ptr [ %0, %90 ], [ %0, %84 ], [ %0, %88 ], [ %.0915.i.i35, %101 ]
   store i32 %66, ptr %.sink.i42, align 4, !tbaa !14
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 4
   %.not.i44 = icmp eq ptr %.0.i43, %1
@@ -36734,8 +36734,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i52.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i47.i, !llvm.loop !599
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIfLin1ELi3ELi1ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %53, %.lr.ph.i.i47.i, %67, %33, %.lr.ph.i.i31.i, %47
-  %.sink80.i = phi i32 [ %16, %47 ], [ %30, %.lr.ph.i.i31.i ], [ %.pre.i, %33 ], [ %.pre.i, %67 ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
-  %.sink79.i = phi ptr [ %11, %47 ], [ %12, %.lr.ph.i.i31.i ], [ %10, %33 ], [ %10, %67 ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
+  %.sink80.i = phi i32 [ %.pre.i, %67 ], [ %16, %47 ], [ %.pre.i, %33 ], [ %30, %.lr.ph.i.i31.i ], [ %50, %.lr.ph.i.i47.i ], [ %16, %53 ]
+  %.sink79.i = phi ptr [ %10, %67 ], [ %11, %47 ], [ %10, %33 ], [ %12, %.lr.ph.i.i31.i ], [ %12, %.lr.ph.i.i47.i ], [ %11, %53 ]
   %70 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink80.i, ptr %0, align 4, !tbaa !14
   store i32 %70, ptr %.sink79.i, align 4, !tbaa !14
@@ -37134,7 +37134,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -37285,7 +37285,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -37421,8 +37421,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !608
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -37818,7 +37818,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -37969,7 +37969,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -38105,8 +38105,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !617
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -38553,7 +38553,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %47, %35, %33, %32
-  %.sink.i = phi ptr [ %0, %32 ], [ %0, %33 ], [ %0, %35 ], [ %.0915.i.i, %47 ]
+  %.sink.i = phi ptr [ %0, %35 ], [ %0, %32 ], [ %0, %33 ], [ %.0915.i.i, %47 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -38709,7 +38709,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %114, %102, %100, %96
-  %.sink.i38 = phi ptr [ %0, %96 ], [ %0, %100 ], [ %0, %102 ], [ %.0915.i.i32, %114 ]
+  %.sink.i38 = phi ptr [ %0, %102 ], [ %0, %96 ], [ %0, %100 ], [ %.0915.i.i32, %114 ]
   store i32 %75, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -38848,8 +38848,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !626
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %38 ], [ %.pre.i, %73 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %38 ], [ %10, %73 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -39254,7 +39254,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %47, %35, %33, %32
-  %.sink.i = phi ptr [ %0, %32 ], [ %0, %33 ], [ %0, %35 ], [ %.0915.i.i, %47 ]
+  %.sink.i = phi ptr [ %0, %35 ], [ %0, %32 ], [ %0, %33 ], [ %.0915.i.i, %47 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -39410,7 +39410,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %114, %102, %100, %96
-  %.sink.i38 = phi ptr [ %0, %96 ], [ %0, %100 ], [ %0, %102 ], [ %.0915.i.i32, %114 ]
+  %.sink.i38 = phi ptr [ %0, %102 ], [ %0, %96 ], [ %0, %100 ], [ %.0915.i.i32, %114 ]
   store i32 %75, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -39549,8 +39549,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !635
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %59, %.lr.ph.i.i41.i, %73, %38, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %34, %.lr.ph.i.i29.i ], [ %.pre.i, %38 ], [ %.pre.i, %73 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %38 ], [ %10, %73 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
+  %.sink72.i = phi i32 [ %.pre.i, %73 ], [ %16, %52 ], [ %.pre.i, %38 ], [ %34, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %59 ]
+  %.sink71.i = phi ptr [ %10, %73 ], [ %11, %52 ], [ %10, %38 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %59 ]
   %76 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %76, ptr %.sink71.i, align 4, !tbaa !14
@@ -39953,7 +39953,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -40104,7 +40104,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -40240,8 +40240,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !644
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -40637,7 +40637,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -40788,7 +40788,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -40924,8 +40924,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !653
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -41322,7 +41322,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -41476,7 +41476,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -41616,8 +41616,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !662
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -42018,7 +42018,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -42172,7 +42172,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -42312,8 +42312,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !671
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -42714,7 +42714,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -42868,7 +42868,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -43008,8 +43008,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !680
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -43410,7 +43410,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -43564,7 +43564,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -43704,8 +43704,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !689
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -44106,7 +44106,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -44260,7 +44260,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -44400,8 +44400,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !698
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -44802,7 +44802,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -44956,7 +44956,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -45096,8 +45096,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !707
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -45498,7 +45498,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -45652,7 +45652,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -45792,8 +45792,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !716
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -46194,7 +46194,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -46348,7 +46348,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -46488,8 +46488,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !725
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi3ELi0ELin1ELi3EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -46890,7 +46890,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -47044,7 +47044,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -47184,8 +47184,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !734
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -47586,7 +47586,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -47740,7 +47740,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -47880,8 +47880,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !743
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -48282,7 +48282,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -48436,7 +48436,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -48576,8 +48576,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !752
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -48978,7 +48978,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -49132,7 +49132,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -49272,8 +49272,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !761
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELi2ELi0ELin1ELi2EEES8_NS7_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -49674,7 +49674,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -49828,7 +49828,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -49968,8 +49968,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit, label %.lr.ph.i.i41.i, !llvm.loop !770
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE_EEEvSA_SA_SA_SA_SF_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -50370,7 +50370,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i:     ; preds = %46, %34, %32, %31
-  %.sink.i = phi ptr [ %0, %31 ], [ %0, %32 ], [ %0, %34 ], [ %.0915.i.i, %46 ]
+  %.sink.i = phi ptr [ %0, %34 ], [ %0, %31 ], [ %0, %32 ], [ %.0915.i.i, %46 ]
   store i32 %14, ptr %.sink.i, align 4, !tbaa !14
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 4
   %.not.i = icmp eq i64 %.024.i.add, 64
@@ -50524,7 +50524,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi
   br label %.lr.ph.i.i.i.i31
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit.i37:   ; preds = %111, %99, %97, %93
-  %.sink.i38 = phi ptr [ %0, %93 ], [ %0, %97 ], [ %0, %99 ], [ %.0915.i.i32, %111 ]
+  %.sink.i38 = phi ptr [ %0, %99 ], [ %0, %93 ], [ %0, %97 ], [ %.0915.i.i32, %111 ]
   store i32 %73, ptr %.sink.i38, align 4, !tbaa !14
   %.0.i39 = getelementptr inbounds nuw i8, ptr %.024.i26, i64 4
   %.not.i40 = icmp eq ptr %.0.i39, %1
@@ -50664,8 +50664,8 @@ _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit, label %.lr.ph.i.i41.i, !llvm.loop !779
 
 _ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES8_S8_EEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSE_IT1_EEEUlmmE0_EEEvSA_SA_SA_SA_SF_.exit: ; preds = %58, %.lr.ph.i.i41.i, %74, %36, %.lr.ph.i.i29.i, %52
-  %.sink72.i = phi i32 [ %16, %52 ], [ %33, %.lr.ph.i.i29.i ], [ %.pre.i, %36 ], [ %.pre.i, %74 ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
-  %.sink71.i = phi ptr [ %11, %52 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %36 ], [ %10, %74 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
+  %.sink72.i = phi i32 [ %.pre.i, %74 ], [ %16, %52 ], [ %.pre.i, %36 ], [ %33, %.lr.ph.i.i29.i ], [ %55, %.lr.ph.i.i41.i ], [ %16, %58 ]
+  %.sink71.i = phi ptr [ %10, %74 ], [ %11, %52 ], [ %10, %36 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %58 ]
   %77 = load i32, ptr %0, align 4, !tbaa !14
   store i32 %.sink72.i, ptr %0, align 4, !tbaa !14
   store i32 %77, ptr %.sink71.i, align 4, !tbaa !14
@@ -51065,7 +51065,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -51216,7 +51216,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -51352,8 +51352,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !788
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76
@@ -51749,7 +51749,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i:     ; preds = %44, %32, %30, %29
-  %.sink.i = phi ptr [ %0, %29 ], [ %0, %30 ], [ %0, %32 ], [ %.0915.i.i, %44 ]
+  %.sink.i = phi ptr [ %0, %32 ], [ %0, %29 ], [ %0, %30 ], [ %.0915.i.i, %44 ]
   store i64 %13, ptr %.sink.i, align 8, !tbaa !76
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i = icmp eq i64 %.024.i.add, 128
@@ -51900,7 +51900,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi
   br label %.lr.ph.i.i.i.i32
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit.i38:   ; preds = %105, %93, %91, %87
-  %.sink.i39 = phi ptr [ %0, %87 ], [ %0, %91 ], [ %0, %93 ], [ %.0915.i.i33, %105 ]
+  %.sink.i39 = phi ptr [ %0, %93 ], [ %0, %87 ], [ %0, %91 ], [ %.0915.i.i33, %105 ]
   store i64 %68, ptr %.sink.i39, align 8, !tbaa !76
   %.0.i40 = getelementptr inbounds nuw i8, ptr %.024.i27, i64 8
   %.not.i41 = icmp eq ptr %.0.i40, %1
@@ -52036,8 +52036,8 @@ _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrow
   br i1 %or.cond.i.i44.i, label %_ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit, label %.lr.ph.i.i41.i, !llvm.loop !797
 
 _ZSt22__move_median_to_firstIPlN9__gnu_cxx5__ops15_Iter_comp_iterIZN3igl8sortrowsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES8_NS7_IlLin1ELi1ELi0ELin1ELi1EEEEEvRKNS6_9DenseBaseIT_EEbRNS6_15PlainObjectBaseIT0_EERNSF_IT1_EEEUlmmE0_EEEvSB_SB_SB_SB_SG_.exit: ; preds = %54, %.lr.ph.i.i41.i, %70, %33, %.lr.ph.i.i29.i, %49
-  %.sink72.i = phi i64 [ %15, %49 ], [ %31, %.lr.ph.i.i29.i ], [ %.pre.i, %33 ], [ %.pre.i, %70 ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
-  %.sink71.i = phi ptr [ %11, %49 ], [ %12, %.lr.ph.i.i29.i ], [ %10, %33 ], [ %10, %70 ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
+  %.sink72.i = phi i64 [ %.pre.i, %70 ], [ %15, %49 ], [ %.pre.i, %33 ], [ %31, %.lr.ph.i.i29.i ], [ %52, %.lr.ph.i.i41.i ], [ %15, %54 ]
+  %.sink71.i = phi ptr [ %10, %70 ], [ %11, %49 ], [ %10, %33 ], [ %12, %.lr.ph.i.i29.i ], [ %12, %.lr.ph.i.i41.i ], [ %11, %54 ]
   %73 = load i64, ptr %0, align 8, !tbaa !76
   store i64 %.sink72.i, ptr %0, align 8, !tbaa !76
   store i64 %73, ptr %.sink71.i, align 8, !tbaa !76

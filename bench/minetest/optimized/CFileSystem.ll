@@ -1293,7 +1293,7 @@ for.inc96:                                        ; preds = %if.then80, %if.then
   br i1 %cmp64, label %for.body65, label %if.else110, !llvm.loop !53
 
 if.then101:                                       ; preds = %if.then80, %if.then13, %if.then41
-  %archive.7184 = phi ptr [ %call51, %if.then41 ], [ %call20, %if.then13 ], [ %call90, %if.then80 ]
+  %archive.7184 = phi ptr [ %call20, %if.then13 ], [ %call51, %if.then41 ], [ %call90, %if.then80 ]
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_finish.i.i173 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %31 = load ptr, ptr %_M_finish.i.i173, align 8, !tbaa !27

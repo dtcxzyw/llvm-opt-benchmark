@@ -956,7 +956,7 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
   br label %.thread
 
 .thread:                                          ; preds = %.thread39, %285, %249, %.critedge, %334, %329, %323, %may_context_mount_inode_relabel.exit37, %may_context_mount_inode_relabel.exit, %280, %260, %235, %227, %205, %151, %41, %34, %28, %25
-  %336 = phi i32 [ -22, %.critedge ], [ %245, %235 ], [ %335, %334 ], [ %262, %260 ], [ %296, %may_context_mount_inode_relabel.exit ], [ %314, %may_context_mount_inode_relabel.exit37 ], [ -22, %323 ], [ %331, %329 ], [ %282, %280 ], [ %203, %205 ], [ 0, %41 ], [ -22, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %151 ], [ -13, %227 ], [ %258, %249 ], [ %293, %285 ], [ %311, %.thread39 ]
+  %336 = phi i32 [ -22, %.critedge ], [ %245, %235 ], [ %335, %334 ], [ %262, %260 ], [ %296, %may_context_mount_inode_relabel.exit ], [ %314, %may_context_mount_inode_relabel.exit37 ], [ -22, %323 ], [ %331, %329 ], [ %282, %280 ], [ %203, %205 ], [ 0, %41 ], [ -22, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %151 ], [ -13, %227 ], [ %293, %285 ], [ %258, %249 ], [ %311, %.thread39 ]
   tail call void @mutex_unlock(ptr noundef nonnull %20) #25
   br label %342
 
@@ -1189,7 +1189,7 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br label %97
 
 97:                                               ; preds = %93, %.thread9, %.thread6
-  %98 = phi i16 [ %91, %.thread6 ], [ %92, %.thread9 ], [ %spec.select, %93 ]
+  %98 = phi i16 [ %91, %.thread6 ], [ %spec.select, %93 ], [ %92, %.thread9 ]
   store i16 %98, ptr %58, align 2
   %99 = call fastcc i32 @inode_doinit_with_dentry(ptr noundef %11, ptr noundef %9)
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1315,7 +1315,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   br label %33
 
 33:                                               ; preds = %32, %31, %30, %29, %28, %27, %22
-  %34 = phi i16 [ 7, %32 ], [ 14, %31 ], [ 11, %30 ], [ 8, %29 ], [ 12, %28 ], [ 10, %27 ], [ 13, %22 ]
+  %34 = phi i16 [ 7, %32 ], [ 14, %31 ], [ 11, %30 ], [ 8, %29 ], [ 12, %28 ], [ 13, %22 ], [ 10, %27 ]
   store i16 %34, ptr %19, align 8
   br label %35
 
@@ -1596,7 +1596,7 @@ define internal fastcc noundef zeroext range(i16 7, 15) i16 @inode_mode_to_secur
   br label %11
 
 11:                                               ; preds = %10, %9, %8, %7, %6, %5, %1
-  %12 = phi i16 [ 7, %10 ], [ 14, %9 ], [ 11, %8 ], [ 8, %7 ], [ 12, %6 ], [ 10, %5 ], [ 13, %1 ]
+  %12 = phi i16 [ 7, %10 ], [ 14, %9 ], [ 11, %8 ], [ 8, %7 ], [ 12, %6 ], [ 13, %1 ], [ 10, %5 ]
   ret i16 %12
 }
 
@@ -2866,7 +2866,7 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr noundef captures(none) %0) 
   br label %180
 
 180:                                              ; preds = %82, %179, %159, %147, %136, %133, %128, %88, %52
-  %181 = phi i32 [ 0, %179 ], [ 0, %52 ], [ %92, %88 ], [ %131, %128 ], [ %134, %133 ], [ %140, %136 ], [ -1, %147 ], [ -1, %159 ], [ %87, %82 ]
+  %181 = phi i32 [ 0, %179 ], [ 0, %52 ], [ -1, %159 ], [ %92, %88 ], [ %131, %128 ], [ %134, %133 ], [ %140, %136 ], [ -1, %147 ], [ %87, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %181
 }
@@ -4287,7 +4287,7 @@ define internal i32 @selinux_dentry_init_security(ptr noundef readonly captures(
   br label %30
 
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %6
-  %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 10, %24 ], [ 13, %6 ]
+  %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 13, %6 ], [ 10, %24 ]
   store i32 0, ptr %7, align 4, !annotation !5
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %33 = load ptr, ptr %32, align 8
@@ -4431,7 +4431,7 @@ define internal i32 @selinux_dentry_create_files_as(ptr noundef readonly capture
   br label %25
 
 25:                                               ; preds = %24, %23, %22, %21, %20, %19, %5
-  %26 = phi i16 [ 7, %24 ], [ 14, %23 ], [ 11, %22 ], [ 8, %21 ], [ 12, %20 ], [ 10, %19 ], [ 13, %5 ]
+  %26 = phi i16 [ 7, %24 ], [ 14, %23 ], [ 11, %22 ], [ 8, %21 ], [ 12, %20 ], [ 13, %5 ], [ 10, %19 ]
   store i32 0, ptr %6, align 4, !annotation !5
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -4653,7 +4653,7 @@ define internal i32 @selinux_inode_init_security(ptr noundef readonly captures(n
   br label %45
 
 45:                                               ; preds = %44, %43, %42, %41, %40, %39, %24
-  %46 = phi i16 [ 7, %44 ], [ 14, %43 ], [ 11, %42 ], [ 8, %41 ], [ 12, %40 ], [ 10, %39 ], [ 13, %24 ]
+  %46 = phi i16 [ 7, %44 ], [ 14, %43 ], [ 11, %42 ], [ 8, %41 ], [ 12, %40 ], [ 13, %24 ], [ 10, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 256
@@ -4772,7 +4772,7 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
   br label %112
 
 112:                                              ; preds = %111, %110, %109, %108, %107, %106, %94
-  %113 = phi i16 [ 7, %111 ], [ 14, %110 ], [ 11, %109 ], [ 8, %108 ], [ 12, %107 ], [ 10, %106 ], [ 13, %94 ]
+  %113 = phi i16 [ 7, %111 ], [ 14, %110 ], [ 11, %109 ], [ 8, %108 ], [ 12, %107 ], [ 13, %94 ], [ 10, %106 ]
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i16 %113, ptr %114, align 8
   %115 = load i32, ptr %6, align 4
@@ -4989,7 +4989,7 @@ define internal i32 @selinux_inode_mknod(ptr noundef %0, ptr noundef %1, i16 nou
   br label %14
 
 14:                                               ; preds = %13, %12, %11, %10, %9, %8, %4
-  %15 = phi i16 [ 7, %13 ], [ 14, %12 ], [ 11, %11 ], [ 8, %10 ], [ 12, %9 ], [ 10, %8 ], [ 13, %4 ]
+  %15 = phi i16 [ 7, %13 ], [ 14, %12 ], [ 11, %11 ], [ 8, %10 ], [ 12, %9 ], [ 13, %4 ], [ 10, %8 ]
   %16 = tail call fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %15)
   ret i32 %16
 }
@@ -6117,7 +6117,7 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr noundef re
   br label %62
 
 62:                                               ; preds = %61, %60, %59, %58, %57, %56, %44
-  %63 = phi i16 [ 7, %61 ], [ 14, %60 ], [ 11, %59 ], [ 8, %58 ], [ 12, %57 ], [ 10, %56 ], [ 13, %44 ]
+  %63 = phi i16 [ 7, %61 ], [ 14, %60 ], [ 11, %59 ], [ 8, %58 ], [ 12, %57 ], [ 13, %44 ], [ 10, %56 ]
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i16 %63, ptr %64, align 8
   %65 = load i32, ptr %6, align 4
@@ -6767,7 +6767,7 @@ define internal i32 @selinux_inode_setsecurity(ptr noundef readonly captures(non
   br label %48
 
 48:                                               ; preds = %47, %46, %45, %44, %43, %42, %36
-  %49 = phi i16 [ 7, %47 ], [ 14, %46 ], [ 11, %45 ], [ 8, %44 ], [ 12, %43 ], [ 10, %42 ], [ 13, %36 ]
+  %49 = phi i16 [ 7, %47 ], [ 14, %46 ], [ 11, %45 ], [ 8, %44 ], [ 12, %43 ], [ 13, %36 ], [ 10, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 %49, ptr %50, align 8
   %51 = load i32, ptr %6, align 4
@@ -9218,7 +9218,7 @@ define internal void @selinux_task_to_inode(ptr noundef %0, ptr noundef readonly
   br label %30
 
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %2
-  %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 10, %24 ], [ 13, %2 ]
+  %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 13, %2 ], [ 10, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -10422,7 +10422,7 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   br label %127
 
 .thread9:                                         ; preds = %117, %95, %89, %102
-  %.ph14 = phi i32 [ %104, %102 ], [ %100, %95 ], [ %93, %89 ], [ %121, %117 ]
+  %.ph14 = phi i32 [ %93, %89 ], [ %121, %117 ], [ %104, %102 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10439,7 +10439,7 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   br label %127
 
 127:                                              ; preds = %.thread12, %122, %.thread9, %40, %21
-  %128 = phi i32 [ %38, %21 ], [ 0, %40 ], [ %.ph14, %.thread9 ], [ %126, %122 ], [ -22, %.thread12 ]
+  %128 = phi i32 [ -22, %.thread12 ], [ %38, %21 ], [ 0, %40 ], [ %.ph14, %.thread9 ], [ %126, %122 ]
   ret i32 %128
 }
 
@@ -11193,8 +11193,8 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   call void @selinux_netlbl_err(ptr noundef %1, i16 noundef zeroext %28, i32 noundef %100, i32 noundef 0) #25
   br label %.thread9
 
-.thread9:                                         ; preds = %99, %.thread6
-  %.ph8 = phi i32 [ -13, %.thread6 ], [ %100, %99 ]
+.thread9:                                         ; preds = %.thread6, %99
+  %.ph8 = phi i32 [ %100, %99 ], [ -13, %.thread6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %107
 
@@ -11212,7 +11212,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   br label %107
 
 107:                                              ; preds = %.thread9, %103, %102, %.thread, %64, %52, %2
-  %108 = phi i32 [ %53, %52 ], [ 0, %2 ], [ 0, %64 ], [ %74, %.thread ], [ 0, %102 ], [ %106, %103 ], [ %.ph8, %.thread9 ]
+  %108 = phi i32 [ %.ph8, %.thread9 ], [ %53, %52 ], [ 0, %2 ], [ 0, %64 ], [ %74, %.thread ], [ 0, %102 ], [ %106, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -11693,7 +11693,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   br i1 %50, label %.preheader.split.us4, label %.thread, !llvm.loop !31
 
 .thread:                                          ; preds = %.preheader.split.us4, %34, %37, %41, %44, %47, %26, %23, %19, %16, %.preheader.split.us, %.preheader, %7, %4
-  %51 = phi i32 [ 0, %4 ], [ 0, %7 ], [ -22, %.preheader ], [ -22, %.preheader.split.us ], [ -22, %16 ], [ -22, %19 ], [ %24, %23 ], [ 0, %26 ], [ -22, %.preheader.split.us4 ], [ -22, %34 ], [ -22, %37 ], [ %42, %41 ], [ %45, %44 ], [ 0, %47 ]
+  %51 = phi i32 [ 0, %4 ], [ 0, %7 ], [ -22, %.preheader ], [ 0, %26 ], [ %24, %23 ], [ -22, %.preheader.split.us ], [ -22, %16 ], [ -22, %19 ], [ 0, %47 ], [ -22, %.preheader.split.us4 ], [ -22, %34 ], [ -22, %37 ], [ %42, %41 ], [ %45, %44 ]
   ret i32 %51
 }
 
@@ -11815,7 +11815,7 @@ define internal i32 @selinux_inet_conn_request(ptr noundef readonly captures(non
   br label %37
 
 37:                                               ; preds = %.thread, %31, %28
-  %38 = phi i32 [ %36, %31 ], [ %29, %28 ], [ -13, %.thread ]
+  %38 = phi i32 [ %36, %31 ], [ -13, %.thread ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %38
@@ -15344,7 +15344,7 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   br label %67
 
 67:                                               ; preds = %.thread, %66, %57
-  %68 = phi i32 [ 0, %66 ], [ %64, %57 ], [ -13, %.thread ]
+  %68 = phi i32 [ 0, %66 ], [ -13, %.thread ], [ %64, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %68
@@ -16133,7 +16133,7 @@ define internal range(i32 0, 2) i32 @selinux_ip_output(ptr readnone captures(non
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %22, %3
-  %30 = phi i32 [ 1, %3 ], [ %29, %22 ], [ 1, %10 ]
+  %30 = phi i32 [ 1, %10 ], [ 1, %3 ], [ %29, %22 ]
   ret i32 %30
 }
 

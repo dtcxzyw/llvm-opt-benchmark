@@ -88,7 +88,7 @@ define range(i32 -2147483647, -2147483648) i32 @av_file_map(ptr noundef %0, ptr 
   br label %44
 
 44:                                               ; preds = %42, %36, %24, %16
-  %.0 = phi i32 [ %19, %16 ], [ %27, %24 ], [ %39, %36 ], [ 0, %42 ]
+  %.0 = phi i32 [ %19, %16 ], [ %27, %24 ], [ 0, %42 ], [ %39, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

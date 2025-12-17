@@ -171,13 +171,13 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %38, label %.sink.split, label %39
 
 .sink.split:                                      ; preds = %36, %34, %23
-  %.032.lcssa.sink = phi ptr [ %19, %23 ], [ %.032, %34 ], [ %.032, %36 ]
+  %.032.lcssa.sink = phi ptr [ %.032, %34 ], [ %19, %23 ], [ %.032, %36 ]
   store ptr %.032.lcssa.sink, ptr %10, align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %24, %36
-  %40 = phi ptr [ %storemerge, %36 ], [ %storemerge, %24 ], [ %.032.lcssa.sink, %.sink.split ]
-  %41 = phi i1 [ false, %36 ], [ false, %24 ], [ true, %.sink.split ]
+  %40 = phi ptr [ %storemerge, %24 ], [ %storemerge, %36 ], [ %.032.lcssa.sink, %.sink.split ]
+  %41 = phi i1 [ false, %24 ], [ false, %36 ], [ true, %.sink.split ]
   br label %42
 
 .preheader:                                       ; preds = %52
@@ -262,7 +262,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %42, %.loopexit43, %72, %68, %69
-  %.0 = phi i1 [ true, %69 ], [ true, %68 ], [ false, %72 ], [ false, %.loopexit43 ], [ false, %42 ]
+  %.0 = phi i1 [ true, %68 ], [ true, %69 ], [ false, %72 ], [ false, %.loopexit43 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -463,7 +463,7 @@ define dso_local range(i64 0, 2) i64 @box_same(ptr noundef readonly captures(non
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -523,7 +523,7 @@ point_eq_point.exit:                              ; preds = %30
   br i1 %54, label %.critedge.i9, label %66, !prof !12
 
 .critedge.i9:                                     ; preds = %51, %46, %..critedge_crit_edge.i12
-  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %46 ], [ %.pre14.i6, %51 ]
+  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %51 ], [ %.pre14.i6, %46 ]
   %56 = fcmp uno double %55, 0.000000e+00
   %57 = fcmp oeq double %44, %55
   %.in.i.i10 = select i1 %45, i1 %56, i1 %57
@@ -557,7 +557,7 @@ point_eq_point.exit:                              ; preds = %30
   br label %point_eq_point.exit14
 
 point_eq_point.exit14:                            ; preds = %30, %.critedge.i, %72, %66, %58, %.critedge.i9, %22, %point_eq_point.exit
-  %78 = phi i1 [ false, %point_eq_point.exit ], [ false, %22 ], [ false, %.critedge.i9 ], [ %.in.i13.i11, %58 ], [ false, %66 ], [ %77, %72 ], [ false, %.critedge.i ], [ false, %30 ]
+  %78 = phi i1 [ false, %point_eq_point.exit ], [ false, %22 ], [ %77, %72 ], [ %.in.i13.i11, %58 ], [ false, %.critedge.i9 ], [ false, %66 ], [ false, %.critedge.i ], [ false, %30 ]
   %79 = zext i1 %78 to i64
   ret i64 %79
 }
@@ -1209,7 +1209,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %35, %43, %44, %54
-  %.0.i.i = phi double [ %.022.i.i, %44 ], [ %50, %54 ], [ 0x7FF8000000000000, %43 ], [ 0x7FF0000000000000, %35 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %50, %54 ], [ 0x7FF0000000000000, %35 ], [ %.022.i.i, %44 ], [ 0x7FF8000000000000, %43 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %57 = bitcast double %.0.i.i to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1629,7 +1629,7 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.line_decode) #15
   br label %75
 
-75:                                               ; preds = %single_decode.exit.i, %single_decode.exit19.i, %single_decode.exit21.i, %72, %70
+75:                                               ; preds = %single_decode.exit21.i, %single_decode.exit19.i, %single_decode.exit.i, %72, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %76, align 4
@@ -1693,7 +1693,7 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   br i1 %106, label %.critedge.i, label %118, !prof !12
 
 .critedge.i:                                      ; preds = %103, %98, %..critedge_crit_edge.i
-  %107 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %98 ], [ %.pre14.i, %103 ]
+  %107 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %103 ], [ %.pre14.i, %98 ]
   %108 = fcmp uno double %107, 0.000000e+00
   %109 = fcmp oeq double %96, %107
   %.in.i.i = select i1 %97, i1 %108, i1 %109
@@ -1907,7 +1907,7 @@ line_construct.exit:                              ; preds = %209, %float8_mi.exi
   br label %211
 
 211:                                              ; preds = %129, %131, %85, %87, %line_construct.exit, %92, %75
-  %.0 = phi i64 [ %210, %line_construct.exit ], [ 0, %75 ], [ 0, %92 ], [ 0, %87 ], [ 0, %85 ], [ 0, %131 ], [ 0, %129 ]
+  %.0 = phi i64 [ 0, %92 ], [ %210, %line_construct.exit ], [ 0, %75 ], [ 0, %85 ], [ 0, %87 ], [ 0, %131 ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
@@ -2046,7 +2046,7 @@ define dso_local i64 @line_construct_pp(ptr noundef readonly captures(none) %0) 
   br i1 %19, label %.critedge.i, label %31, !prof !12
 
 .critedge.i:                                      ; preds = %16, %11, %..critedge_crit_edge.i
-  %20 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %11 ], [ %.pre14.i, %16 ]
+  %20 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %16 ], [ %.pre14.i, %11 ]
   %21 = fcmp uno double %20, 0.000000e+00
   %22 = fcmp oeq double %9, %20
   %.in.i.i = select i1 %10, i1 %21, i1 %22
@@ -2956,8 +2956,8 @@ float8_pl.exit96.thread:                          ; preds = %float8_mul.exit94
   unreachable
 
 float8_div.exit68:                                ; preds = %312, %309, %160, %157
-  %.041 = phi double [ %120, %157 ], [ %120, %160 ], [ %272, %309 ], [ %272, %312 ]
-  %.0 = phi double [ %158, %157 ], [ %158, %160 ], [ %310, %309 ], [ %310, %312 ]
+  %.041 = phi double [ %120, %160 ], [ %120, %157 ], [ %272, %309 ], [ %272, %312 ]
+  %.0 = phi double [ %158, %160 ], [ %158, %157 ], [ %310, %309 ], [ %310, %312 ]
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %320, label %316
 
@@ -2972,7 +2972,7 @@ float8_div.exit68:                                ; preds = %312, %309, %160, %1
   br label %320
 
 320:                                              ; preds = %float8_div.exit68, %316, %164, %float8_mul.exit73, %float8_mul.exit
-  %.043 = phi i1 [ false, %float8_mul.exit ], [ false, %float8_mul.exit73 ], [ false, %164 ], [ true, %316 ], [ true, %float8_div.exit68 ]
+  %.043 = phi i1 [ false, %float8_mul.exit73 ], [ false, %float8_mul.exit ], [ false, %164 ], [ true, %316 ], [ true, %float8_div.exit68 ]
   ret i1 %.043
 }
 
@@ -3318,7 +3318,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   unreachable
 
 float8_div.exit:                                  ; preds = %95, %93, %78, %76, %61, %59, %82
-  %.0 = phi double [ 1.000000e+00, %82 ], [ %52, %59 ], [ %52, %61 ], [ %69, %76 ], [ %69, %78 ], [ %86, %93 ], [ %86, %95 ]
+  %.0 = phi double [ 1.000000e+00, %82 ], [ %69, %78 ], [ %52, %61 ], [ %52, %59 ], [ %69, %76 ], [ %86, %93 ], [ %86, %95 ]
   %99 = fmul double %19, %.0
   %100 = tail call double @llvm.fabs.f64(double %99)
   %101 = fcmp oeq double %100, 0x7FF0000000000000
@@ -3438,7 +3438,7 @@ float8_mul.exit45:                                ; preds = %149, %151
   br label %160
 
 160:                                              ; preds = %float8_mul.exit, %float8_mul.exit42, %float8_mul.exit45, %.critedge, %32, %40
-  %.032.shrunk = phi i1 [ false, %32 ], [ false, %.critedge ], [ %.in.i34, %40 ], [ false, %float8_mul.exit42 ], [ false, %float8_mul.exit ], [ %159, %float8_mul.exit45 ]
+  %.032.shrunk = phi i1 [ %.in.i34, %40 ], [ false, %32 ], [ false, %.critedge ], [ false, %float8_mul.exit42 ], [ false, %float8_mul.exit ], [ %159, %float8_mul.exit45 ]
   %.032 = zext i1 %.032.shrunk to i64
   ret i64 %.032
 }
@@ -3541,7 +3541,7 @@ define dso_local i64 @line_distance(ptr noundef readonly captures(none) %0) loca
   unreachable
 
 float8_div.exit:                                  ; preds = %52, %50, %28, %26, %31, %37
-  %.0 = phi double [ 1.000000e+00, %37 ], [ 1.000000e+00, %31 ], [ %20, %26 ], [ %20, %28 ], [ %44, %50 ], [ %44, %52 ]
+  %.0 = phi double [ 1.000000e+00, %31 ], [ %20, %28 ], [ 1.000000e+00, %37 ], [ %20, %26 ], [ %44, %50 ], [ %44, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3635,7 +3635,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit, %7
   unreachable
 
 pg_hypot.exit:                                    ; preds = %87, %97
-  %.0.i = phi double [ %.022.i, %87 ], [ %93, %97 ]
+  %.0.i = phi double [ %93, %97 ], [ %.022.i, %87 ]
   %100 = fcmp oeq double %.0.i, 0.000000e+00
   br i1 %100, label %101, label %pg_hypot.exit.thread, !prof !15
 
@@ -3648,7 +3648,7 @@ pg_hypot.exit:                                    ; preds = %87, %97
   unreachable
 
 pg_hypot.exit.thread:                             ; preds = %86, %float8_mi.exit, %101, %pg_hypot.exit
-  %.0.i33 = phi double [ %.0.i, %101 ], [ %.0.i, %pg_hypot.exit ], [ 0x7FF8000000000000, %86 ], [ 0x7FF0000000000000, %float8_mi.exit ]
+  %.0.i33 = phi double [ %.0.i, %pg_hypot.exit ], [ %.0.i, %101 ], [ 0x7FF8000000000000, %86 ], [ 0x7FF0000000000000, %float8_mi.exit ]
   %104 = fdiv double %75, %.0.i33
   %105 = tail call double @llvm.fabs.f64(double %104)
   %106 = fcmp oeq double %105, 0x7FF0000000000000
@@ -3727,7 +3727,7 @@ define dso_local double @pg_hypot(double noundef %0, double noundef %1) local_un
   unreachable
 
 21:                                               ; preds = %7, %2, %18, %8
-  %.0 = phi double [ %.022, %8 ], [ %14, %18 ], [ 0x7FF0000000000000, %2 ], [ 0x7FF8000000000000, %7 ]
+  %.0 = phi double [ %14, %18 ], [ 0x7FF0000000000000, %2 ], [ %.022, %8 ], [ 0x7FF8000000000000, %7 ]
   ret double %.0
 }
 
@@ -4104,7 +4104,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br label %87
 
 87:                                               ; preds = %75, %77, %62, %64, %43, %45, %pair_count.exit.thread, %22, %80, %56
-  %.0 = phi i64 [ %86, %80 ], [ 0, %56 ], [ 0, %22 ], [ 0, %pair_count.exit.thread ], [ 0, %45 ], [ 0, %43 ], [ 0, %64 ], [ 0, %62 ], [ 0, %77 ], [ 0, %75 ]
+  %.0 = phi i64 [ 0, %56 ], [ 0, %pair_count.exit.thread ], [ 0, %43 ], [ 0, %62 ], [ %86, %80 ], [ 0, %22 ], [ 0, %45 ], [ 0, %64 ], [ 0, %77 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
@@ -4915,7 +4915,7 @@ line_construct.exit:                              ; preds = %53, %58, %float8_mi
   br label %89
 
 89:                                               ; preds = %87, %88, %85, %line_construct.exit
-  %.0 = phi i1 [ false, %line_construct.exit ], [ false, %85 ], [ true, %88 ], [ true, %87 ]
+  %.0 = phi i1 [ false, %85 ], [ false, %line_construct.exit ], [ true, %88 ], [ true, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -5042,7 +5042,7 @@ float8_lt.exit.i:                                 ; preds = %62
   br label %float8_lt.exit.thread.i
 
 float8_lt.exit.thread.i:                          ; preds = %69, %float8_lt.exit.i, %62
-  %.0.i = phi double [ %64, %69 ], [ %63, %float8_lt.exit.i ], [ %63, %62 ]
+  %.0.i = phi double [ %63, %62 ], [ %64, %69 ], [ %63, %float8_lt.exit.i ]
   %70 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %3)
   %71 = fcmp uno double %70, 0.000000e+00
   br i1 %71, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
@@ -5057,7 +5057,7 @@ float8_lt.exit37.i:                               ; preds = %float8_lt.exit.thre
   br label %float8_lt.exit37.thread.i
 
 float8_lt.exit37.thread.i:                        ; preds = %75, %float8_lt.exit37.i, %float8_lt.exit.thread.i
-  %.1.i = phi double [ %70, %75 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %float8_lt.exit.thread.i ]
+  %.1.i = phi double [ %.0.i, %float8_lt.exit.thread.i ], [ %70, %75 ], [ %.0.i, %float8_lt.exit37.i ]
   %76 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %21)
   %77 = fcmp uno double %76, 0.000000e+00
   br i1 %77, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
@@ -5072,7 +5072,7 @@ float8_lt.exit38.i:                               ; preds = %float8_lt.exit37.th
   br label %lseg_closept_lseg.exit
 
 lseg_closept_lseg.exit:                           ; preds = %float8_lt.exit37.thread.i, %float8_lt.exit38.i, %81
-  %.031.i = phi double [ %76, %81 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ]
+  %.031.i = phi double [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ], [ %76, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %82 = trunc nuw i8 %.253 to i1
   br i1 %82, label %84, label %float8_lt.exit.thread
@@ -5097,8 +5097,8 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %84, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %89, %44
-  %.339 = phi double [ %.23852, %44 ], [ %.23852, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i4648, %89 ], [ %.23852, %84 ]
-  %.3 = phi i8 [ %.253, %44 ], [ 1, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %89 ], [ 1, %84 ]
+  %.339 = phi double [ %.23852, %44 ], [ %.031.i4648, %89 ], [ %.23852, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.23852, %84 ]
+  %.3 = phi i8 [ %.253, %44 ], [ 1, %89 ], [ 1, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i32, ptr %17, align 4
   %91 = sext i32 %90 to i64
@@ -5333,7 +5333,7 @@ float8_mi.exit.thread.i:                          ; preds = %14
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %43, %51, %52, %62
-  %.0.i.i = phi double [ %.022.i.i, %52 ], [ %58, %62 ], [ 0x7FF8000000000000, %51 ], [ 0x7FF0000000000000, %43 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %58, %62 ], [ 0x7FF0000000000000, %43 ], [ %.022.i.i, %52 ], [ 0x7FF8000000000000, %51 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %65 = fadd double %.01422, %.0.i.i
   %66 = tail call double @llvm.fabs.f64(double %65)
   %67 = fcmp oeq double %66, 0x7FF0000000000000
@@ -5507,7 +5507,7 @@ single_decode.exit23.thread:                      ; preds = %32, %34, %single_de
   br label %66
 
 66:                                               ; preds = %61, %63, %58, %59, %single_decode.exit23, %single_decode.exit
-  %.0 = phi i1 [ false, %single_decode.exit ], [ false, %single_decode.exit23 ], [ true, %59 ], [ true, %58 ], [ false, %63 ], [ false, %61 ]
+  %.0 = phi i1 [ true, %58 ], [ false, %single_decode.exit23 ], [ false, %single_decode.exit ], [ true, %59 ], [ false, %63 ], [ false, %61 ]
   ret i1 %.0
 }
 
@@ -5695,7 +5695,7 @@ define dso_local range(i64 0, 2) i64 @point_eq(ptr noundef readonly captures(non
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -5729,7 +5729,7 @@ define dso_local range(i64 0, 2) i64 @point_eq(ptr noundef readonly captures(non
   br label %point_eq_point.exit
 
 point_eq_point.exit:                              ; preds = %.critedge.i, %22, %30, %36
-  %.0.i = phi i1 [ false, %.critedge.i ], [ %.in.i13.i, %22 ], [ false, %30 ], [ %41, %36 ]
+  %.0.i = phi i1 [ %.in.i13.i, %22 ], [ false, %.critedge.i ], [ false, %30 ], [ %41, %36 ]
   %42 = zext i1 %.0.i to i64
   ret i64 %42
 }
@@ -5766,7 +5766,7 @@ define dso_local range(i64 0, 2) i64 @point_ne(ptr noundef readonly captures(non
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -5800,7 +5800,7 @@ define dso_local range(i64 0, 2) i64 @point_ne(ptr noundef readonly captures(non
   br label %point_eq_point.exit
 
 point_eq_point.exit:                              ; preds = %.critedge.i, %22, %30, %36
-  %.0.i = phi i1 [ false, %.critedge.i ], [ %.in.i13.i, %22 ], [ false, %30 ], [ %41, %36 ]
+  %.0.i = phi i1 [ %.in.i13.i, %22 ], [ false, %.critedge.i ], [ false, %30 ], [ %41, %36 ]
   %42 = xor i1 %.0.i, true
   %43 = zext i1 %42 to i64
   ret i64 %43
@@ -5900,7 +5900,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = bitcast double %.0.i.i to i64
   ret i64 %55
 }
@@ -6198,7 +6198,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %31, %39, %40, %50
-  %.0.i.i = phi double [ %.022.i.i, %40 ], [ %46, %50 ], [ 0x7FF8000000000000, %39 ], [ 0x7FF0000000000000, %31 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %46, %50 ], [ 0x7FF0000000000000, %31 ], [ %.022.i.i, %40 ], [ 0x7FF8000000000000, %39 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %53 = bitcast double %.0.i.i to i64
   ret i64 %53
 }
@@ -6559,7 +6559,7 @@ define dso_local range(i64 0, 2) i64 @lseg_eq(ptr noundef readonly captures(none
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -6619,7 +6619,7 @@ point_eq_point.exit:                              ; preds = %30
   br i1 %54, label %.critedge.i9, label %66, !prof !12
 
 .critedge.i9:                                     ; preds = %51, %46, %..critedge_crit_edge.i12
-  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %46 ], [ %.pre14.i6, %51 ]
+  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %51 ], [ %.pre14.i6, %46 ]
   %56 = fcmp uno double %55, 0.000000e+00
   %57 = fcmp oeq double %44, %55
   %.in.i.i10 = select i1 %45, i1 %56, i1 %57
@@ -6653,7 +6653,7 @@ point_eq_point.exit:                              ; preds = %30
   br label %point_eq_point.exit14
 
 point_eq_point.exit14:                            ; preds = %30, %.critedge.i, %72, %66, %58, %.critedge.i9, %22, %point_eq_point.exit
-  %78 = phi i1 [ false, %point_eq_point.exit ], [ false, %22 ], [ false, %.critedge.i9 ], [ %.in.i13.i11, %58 ], [ false, %66 ], [ %77, %72 ], [ false, %.critedge.i ], [ false, %30 ]
+  %78 = phi i1 [ false, %point_eq_point.exit ], [ false, %22 ], [ %77, %72 ], [ %.in.i13.i11, %58 ], [ false, %.critedge.i9 ], [ false, %66 ], [ false, %.critedge.i ], [ false, %30 ]
   %79 = zext i1 %78 to i64
   ret i64 %79
 }
@@ -6690,7 +6690,7 @@ define dso_local range(i64 0, 2) i64 @lseg_ne(ptr noundef readonly captures(none
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -6750,7 +6750,7 @@ point_eq_point.exit:                              ; preds = %30
   br i1 %54, label %.critedge.i9, label %66, !prof !12
 
 .critedge.i9:                                     ; preds = %51, %46, %..critedge_crit_edge.i12
-  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %46 ], [ %.pre14.i6, %51 ]
+  %55 = phi double [ %.pre.i13, %..critedge_crit_edge.i12 ], [ %.pre14.i6, %51 ], [ %.pre14.i6, %46 ]
   %56 = fcmp uno double %55, 0.000000e+00
   %57 = fcmp oeq double %44, %55
   %.in.i.i10 = select i1 %45, i1 %56, i1 %57
@@ -6784,7 +6784,7 @@ point_eq_point.exit:                              ; preds = %30
   br label %point_eq_point.exit14
 
 point_eq_point.exit14:                            ; preds = %.critedge.i9, %58, %66, %72
-  %.0.i8 = phi i1 [ false, %.critedge.i9 ], [ %.in.i13.i11, %58 ], [ false, %66 ], [ %77, %72 ]
+  %.0.i8 = phi i1 [ %.in.i13.i11, %58 ], [ false, %.critedge.i9 ], [ false, %66 ], [ %77, %72 ]
   %78 = xor i1 %.0.i8, true
   %79 = zext i1 %78 to i64
   br label %point_eq_point.exit.thread
@@ -6889,7 +6889,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
-  %.0.i.i = phi double [ %.022.i.i, %43 ], [ %49, %53 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %49, %53 ], [ 0x7FF0000000000000, %34 ], [ %.022.i.i, %43 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load double, ptr %7, align 8
   %58 = load double, ptr %56, align 8
@@ -6977,7 +6977,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
-  %.0.i.i11 = phi double [ %.022.i.i9, %91 ], [ %97, %101 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
+  %.0.i.i11 = phi double [ %97, %101 ], [ 0x7FF0000000000000, %82 ], [ %.022.i.i9, %91 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
   %104 = fadd double %.0.i.i, 0x3EB0C6F7A0B5ED8D
   %105 = fcmp olt double %104, %.0.i.i11
   %106 = zext i1 %105 to i64
@@ -7079,7 +7079,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
-  %.0.i.i = phi double [ %.022.i.i, %43 ], [ %49, %53 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %49, %53 ], [ 0x7FF0000000000000, %34 ], [ %.022.i.i, %43 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load double, ptr %7, align 8
   %58 = load double, ptr %56, align 8
@@ -7167,7 +7167,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
-  %.0.i.i11 = phi double [ %.022.i.i9, %91 ], [ %97, %101 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
+  %.0.i.i11 = phi double [ %97, %101 ], [ 0x7FF0000000000000, %82 ], [ %.022.i.i9, %91 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
   %104 = fadd double %.0.i.i11, 0x3EB0C6F7A0B5ED8D
   %105 = fcmp ole double %.0.i.i, %104
   %106 = zext i1 %105 to i64
@@ -7269,7 +7269,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
-  %.0.i.i = phi double [ %.022.i.i, %43 ], [ %49, %53 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %49, %53 ], [ 0x7FF0000000000000, %34 ], [ %.022.i.i, %43 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load double, ptr %7, align 8
   %58 = load double, ptr %56, align 8
@@ -7357,7 +7357,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
-  %.0.i.i11 = phi double [ %.022.i.i9, %91 ], [ %97, %101 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
+  %.0.i.i11 = phi double [ %97, %101 ], [ 0x7FF0000000000000, %82 ], [ %.022.i.i9, %91 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
   %104 = fadd double %.0.i.i11, 0x3EB0C6F7A0B5ED8D
   %105 = fcmp ogt double %.0.i.i, %104
   %106 = zext i1 %105 to i64
@@ -7459,7 +7459,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
-  %.0.i.i = phi double [ %.022.i.i, %43 ], [ %49, %53 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %49, %53 ], [ 0x7FF0000000000000, %34 ], [ %.022.i.i, %43 ], [ 0x7FF8000000000000, %42 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load double, ptr %7, align 8
   %58 = load double, ptr %56, align 8
@@ -7547,7 +7547,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
-  %.0.i.i11 = phi double [ %.022.i.i9, %91 ], [ %97, %101 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %82 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
+  %.0.i.i11 = phi double [ %97, %101 ], [ 0x7FF0000000000000, %82 ], [ %.022.i.i9, %91 ], [ 0x7FF8000000000000, %90 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
   %104 = fadd double %.0.i.i, 0x3EB0C6F7A0B5ED8D
   %105 = fcmp oge double %104, %.0.i.i11
   %106 = zext i1 %105 to i64
@@ -7962,7 +7962,7 @@ float8_mi.exit.thread.i:                          ; preds = %74
   unreachable
 
 point_dt.exit:                                    ; preds = %119, %109, %108, %100, %float8_mi.exit.i12, %70, %71
-  %.0 = phi double [ 0x7FF8000000000000, %71 ], [ 0x7FF8000000000000, %70 ], [ %.022.i.i, %109 ], [ %115, %119 ], [ 0x7FF8000000000000, %108 ], [ 0x7FF0000000000000, %100 ], [ 0x7FF0000000000000, %float8_mi.exit.i12 ]
+  %.0 = phi double [ 0x7FF8000000000000, %70 ], [ 0x7FF8000000000000, %71 ], [ %115, %119 ], [ 0x7FF0000000000000, %100 ], [ %.022.i.i, %109 ], [ 0x7FF8000000000000, %108 ], [ 0x7FF0000000000000, %float8_mi.exit.i12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0
@@ -8192,7 +8192,7 @@ float8_mi.exit.thread.i:                          ; preds = %51
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i7, %77, %85, %86, %96
-  %.0.i.i = phi double [ %.022.i.i, %86 ], [ %92, %96 ], [ 0x7FF8000000000000, %85 ], [ 0x7FF0000000000000, %77 ], [ 0x7FF0000000000000, %float8_mi.exit.i7 ]
+  %.0.i.i = phi double [ %92, %96 ], [ 0x7FF0000000000000, %77 ], [ %.022.i.i, %86 ], [ 0x7FF8000000000000, %85 ], [ 0x7FF0000000000000, %float8_mi.exit.i7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0.i.i
@@ -8531,7 +8531,7 @@ float8_lt.exit43:                                 ; preds = %float8_lt.exit42.th
   br label %float8_lt.exit43.thread
 
 float8_lt.exit43.thread:                          ; preds = %float8_lt.exit42.thread, %float8_lt.exit43, %57, %56, %19, %20
-  %.035 = phi double [ 0.000000e+00, %20 ], [ 0.000000e+00, %19 ], [ %51, %57 ], [ %51, %56 ], [ %.1, %float8_lt.exit43 ], [ %.1, %float8_lt.exit42.thread ]
+  %.035 = phi double [ 0.000000e+00, %19 ], [ 0.000000e+00, %20 ], [ %51, %57 ], [ %51, %56 ], [ %.1, %float8_lt.exit43 ], [ %.1, %float8_lt.exit42.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.035
@@ -8571,7 +8571,7 @@ define dso_local i64 @dist_sl(ptr noundef readonly captures(none) %0) local_unna
   br label %lseg_closept_line.exit
 
 lseg_closept_line.exit:                           ; preds = %1, %9
-  %.0.i = phi i64 [ 0, %1 ], [ %14, %9 ]
+  %.0.i = phi i64 [ %14, %9 ], [ 0, %1 ]
   ret i64 %.0.i
 }
 
@@ -8596,7 +8596,7 @@ define dso_local i64 @dist_ls(ptr noundef readonly captures(none) %0) local_unna
   br label %lseg_closept_line.exit
 
 lseg_closept_line.exit:                           ; preds = %1, %9
-  %.0.i = phi i64 [ 0, %1 ], [ %14, %9 ]
+  %.0.i = phi i64 [ %14, %9 ], [ 0, %1 ]
   ret i64 %.0.i
 }
 
@@ -9319,7 +9319,7 @@ lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
   unreachable
 
 line_sl.exit:                                     ; preds = %lseg_sl.exit, %53, %66, %68
-  %.0.i = phi double [ 0.000000e+00, %lseg_sl.exit ], [ 0x7FF0000000000000, %53 ], [ %60, %66 ], [ %60, %68 ]
+  %.0.i = phi double [ 0x7FF0000000000000, %53 ], [ 0.000000e+00, %lseg_sl.exit ], [ %60, %66 ], [ %60, %68 ]
   %71 = fcmp oeq double %.0.i.i, %.0.i
   br i1 %71, label %72, label %74
 
@@ -9613,9 +9613,9 @@ float8_mi.exit.thread.i:                          ; preds = %2
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %28, %36, %37, %47
-  %50 = phi double [ %24, %37 ], [ %24, %47 ], [ %24, %36 ], [ %29, %28 ], [ %17, %float8_mi.exit.i ]
-  %51 = phi double [ %22, %37 ], [ %22, %47 ], [ %22, %36 ], [ %30, %28 ], [ %15, %float8_mi.exit.i ]
-  %.0.i.i = phi double [ %.022.i.i, %37 ], [ %43, %47 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF0000000000000, %28 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %50 = phi double [ %24, %47 ], [ %29, %28 ], [ %24, %37 ], [ %24, %36 ], [ %17, %float8_mi.exit.i ]
+  %51 = phi double [ %22, %47 ], [ %30, %28 ], [ %22, %37 ], [ %22, %36 ], [ %15, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %43, %47 ], [ 0x7FF0000000000000, %28 ], [ %.022.i.i, %37 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load double, ptr %52, align 8
   %54 = fsub double %3, %53
@@ -9697,8 +9697,8 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %73, %80, %81, %91
-  %94 = phi double [ %69, %81 ], [ %69, %91 ], [ %69, %80 ], [ %74, %73 ], [ %64, %float8_mi.exit.i14 ]
-  %.0.i.i11 = phi double [ %.022.i.i9, %81 ], [ %87, %91 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
+  %94 = phi double [ %69, %91 ], [ %74, %73 ], [ %69, %81 ], [ %69, %80 ], [ %64, %float8_mi.exit.i14 ]
+  %.0.i.i11 = phi double [ %87, %91 ], [ 0x7FF0000000000000, %73 ], [ %.022.i.i9, %81 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF0000000000000, %float8_mi.exit.i14 ]
   %95 = fsub double %4, %53
   %96 = tail call double @llvm.fabs.f64(double %95)
   %97 = fcmp oeq double %96, 0x7FF0000000000000
@@ -9773,7 +9773,7 @@ float8_mi.exit.thread.i16:                        ; preds = %point_dt.exit15
   unreachable
 
 point_dt.exit25:                                  ; preds = %float8_mi.exit.i24, %110, %116, %117, %127
-  %.0.i.i21 = phi double [ %.022.i.i19, %117 ], [ %123, %127 ], [ 0x7FF8000000000000, %116 ], [ 0x7FF0000000000000, %110 ], [ 0x7FF0000000000000, %float8_mi.exit.i24 ]
+  %.0.i.i21 = phi double [ %123, %127 ], [ 0x7FF0000000000000, %110 ], [ %.022.i.i19, %117 ], [ 0x7FF8000000000000, %116 ], [ 0x7FF0000000000000, %float8_mi.exit.i24 ]
   %130 = fadd double %.0.i.i, %.0.i.i11
   %131 = fcmp oeq double %130, %.0.i.i21
   %132 = fsub double %130, %.0.i.i21
@@ -9966,8 +9966,8 @@ float8_mi.exit.thread.i:                          ; preds = %13
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %41, %49, %50, %60
-  %63 = phi double [ %35, %50 ], [ %35, %60 ], [ %35, %49 ], [ %43, %41 ], [ %28, %float8_mi.exit.i ]
-  %.0.i.i = phi double [ %.022.i.i, %50 ], [ %56, %60 ], [ 0x7FF8000000000000, %49 ], [ 0x7FF0000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %63 = phi double [ %35, %60 ], [ %43, %41 ], [ %35, %50 ], [ %35, %49 ], [ %28, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %56, %60 ], [ 0x7FF0000000000000, %41 ], [ %.022.i.i, %50 ], [ 0x7FF8000000000000, %49 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %64 = tail call double @llvm.fabs.f64(double %16)
   %65 = fcmp oeq double %64, 0x7FF0000000000000
   %smax = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
@@ -10061,8 +10061,8 @@ float8_mi.exit.thread.i24:                        ; preds = %69
   unreachable
 
 point_dt.exit33:                                  ; preds = %float8_mi.exit.i32, %89, %94, %95, %105
-  %108 = phi double [ %85, %95 ], [ %85, %105 ], [ %85, %94 ], [ %90, %89 ], [ %80, %float8_mi.exit.i32 ]
-  %.0.i.i29 = phi double [ %.022.i.i27, %95 ], [ %101, %105 ], [ 0x7FF8000000000000, %94 ], [ 0x7FF0000000000000, %89 ], [ 0x7FF0000000000000, %float8_mi.exit.i32 ]
+  %108 = phi double [ %85, %105 ], [ %90, %89 ], [ %85, %95 ], [ %85, %94 ], [ %80, %float8_mi.exit.i32 ]
+  %.0.i.i29 = phi double [ %101, %105 ], [ 0x7FF0000000000000, %89 ], [ %.022.i.i27, %95 ], [ 0x7FF8000000000000, %94 ], [ 0x7FF0000000000000, %float8_mi.exit.i32 ]
   %109 = fadd double %.022, %.0.i.i29
   %110 = tail call double @llvm.fabs.f64(double %109)
   %111 = fcmp oeq double %110, 0x7FF0000000000000
@@ -10162,7 +10162,7 @@ float8_mi.exit.thread.i34:                        ; preds = %float8_pl.exit
   unreachable
 
 point_dt.exit43:                                  ; preds = %float8_mi.exit.i42, %139, %146, %147, %157
-  %.0.i.i39 = phi double [ %.022.i.i37, %147 ], [ %153, %157 ], [ 0x7FF8000000000000, %146 ], [ 0x7FF0000000000000, %139 ], [ 0x7FF0000000000000, %float8_mi.exit.i42 ]
+  %.0.i.i39 = phi double [ %153, %157 ], [ 0x7FF0000000000000, %139 ], [ %.022.i.i37, %147 ], [ 0x7FF8000000000000, %146 ], [ 0x7FF0000000000000, %float8_mi.exit.i42 ]
   %160 = fcmp oeq double %109, %.0.i.i39
   %161 = fsub double %109, %.0.i.i39
   %162 = tail call double @llvm.fabs.f64(double %161)
@@ -10384,7 +10384,7 @@ box_contain_point.exit.i:                         ; preds = %15
   br label %box_contain_lseg.exit
 
 box_contain_lseg.exit:                            ; preds = %1, %11, %15, %box_contain_point.exit.i, %24, %29, %33
-  %36 = phi i64 [ 0, %box_contain_point.exit.i ], [ 0, %29 ], [ 0, %24 ], [ %35, %33 ], [ 0, %15 ], [ 0, %11 ], [ 0, %1 ]
+  %36 = phi i64 [ 0, %box_contain_point.exit.i ], [ %35, %33 ], [ 0, %29 ], [ 0, %1 ], [ 0, %24 ], [ 0, %15 ], [ 0, %11 ]
   ret i64 %36
 }
 
@@ -10611,7 +10611,7 @@ line_construct.exit:                              ; preds = %53, %58, %float8_mi
   br i1 %99, label %.critedge.i, label %111, !prof !12
 
 .critedge.i:                                      ; preds = %96, %91, %..critedge_crit_edge.i
-  %100 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %91 ], [ %.pre14.i, %96 ]
+  %100 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %96 ], [ %.pre14.i, %91 ]
   %101 = fcmp uno double %100, 0.000000e+00
   %102 = fcmp oeq double %89, %100
   %.in.i.i = select i1 %90, i1 %101, i1 %102
@@ -10701,12 +10701,12 @@ point_eq_point.exit22.thread:                     ; preds = %143, %.critedge.i17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %point_eq_point.exit22, %135, %point_eq_point.exit, %103, %point_eq_point.exit22.thread
-  %.sink = phi ptr [ %4, %point_eq_point.exit22.thread ], [ %1, %103 ], [ %1, %point_eq_point.exit ], [ %6, %135 ], [ %6, %point_eq_point.exit22 ]
+  %.sink = phi ptr [ %1, %point_eq_point.exit ], [ %4, %point_eq_point.exit22.thread ], [ %1, %103 ], [ %6, %135 ], [ %6, %point_eq_point.exit22 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   br label %154
 
 154:                                              ; preds = %.sink.split, %87, %85, %line_construct.exit
-  %.0 = phi i1 [ false, %line_construct.exit ], [ false, %85 ], [ true, %87 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %85 ], [ false, %line_construct.exit ], [ true, %87 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -10903,7 +10903,7 @@ box_contain_point.exit35.thread:                  ; preds = %box_contain_point.e
   br label %box_ov.exit.thread
 
 box_ov.exit.thread:                               ; preds = %float8_min.exit32, %32, %41, %88, %83, %79, %box_contain_point.exit35.thread, %box_contain_point.exit, %box_contain_point.exit35, %box_ov.exit
-  %.0 = phi i1 [ false, %box_ov.exit ], [ true, %box_contain_point.exit35 ], [ true, %box_contain_point.exit ], [ true, %box_contain_point.exit35.thread ], [ true, %79 ], [ true, %83 ], [ %91, %88 ], [ false, %41 ], [ false, %32 ], [ false, %float8_min.exit32 ]
+  %.0 = phi i1 [ false, %box_ov.exit ], [ true, %box_contain_point.exit ], [ true, %box_contain_point.exit35.thread ], [ true, %79 ], [ %91, %88 ], [ true, %83 ], [ true, %box_contain_point.exit35 ], [ false, %41 ], [ false, %32 ], [ false, %float8_min.exit32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -10967,7 +10967,7 @@ define dso_local range(i64 0, 2) i64 @inter_lb(ptr noundef readonly captures(non
   br label %31
 
 31:                                               ; preds = %27, %23, %19, %1
-  %.0 = phi i64 [ 1, %1 ], [ 1, %19 ], [ 1, %23 ], [ %spec.select, %27 ]
+  %.0 = phi i64 [ %spec.select, %27 ], [ 1, %1 ], [ 1, %19 ], [ 1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -11129,7 +11129,7 @@ make_bound_box.exit:                              ; preds = %float8_lt.exit39.th
   br label %71
 
 71:                                               ; preds = %25, %27, %pair_count.exit.thread, %19, %make_bound_box.exit, %38
-  %.0 = phi i64 [ %70, %make_bound_box.exit ], [ 0, %38 ], [ 0, %19 ], [ 0, %pair_count.exit.thread ], [ 0, %27 ], [ 0, %25 ]
+  %.0 = phi i64 [ 0, %38 ], [ 0, %pair_count.exit.thread ], [ %70, %make_bound_box.exit ], [ 0, %19 ], [ 0, %27 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -11710,7 +11710,7 @@ point_eq_point.exit.i.us:                         ; preds = %30
   br label %.critedge.i.i.us
 
 .critedge.i.i.us:                                 ; preds = %..critedge_crit_edge.i.i.us, %27, %22
-  %41 = phi double [ %.pre.i.i.us, %..critedge_crit_edge.i.i.us ], [ %.pre14.i.i.us, %22 ], [ %.pre14.i.i.us, %27 ]
+  %41 = phi double [ %.pre.i.i.us, %..critedge_crit_edge.i.i.us ], [ %.pre14.i.i.us, %27 ], [ %.pre14.i.i.us, %22 ]
   %42 = fcmp uno double %41, 0.000000e+00
   %43 = fcmp oeq double %20, %41
   %.in.i.i.i.us = select i1 %21, i1 %42, i1 %43
@@ -11755,7 +11755,7 @@ point_eq_point.exit.thread.i.us:                  ; preds = %44, %.critedge.i.i.
   br i1 %61, label %.critedge.i.i, label %72, !prof !12
 
 .critedge.i.i:                                    ; preds = %59, %54, %..critedge_crit_edge.i.i
-  %62 = phi double [ %.pre.i.i, %..critedge_crit_edge.i.i ], [ %.pre14.i.i, %54 ], [ %.pre14.i.i, %59 ]
+  %62 = phi double [ %.pre.i.i, %..critedge_crit_edge.i.i ], [ %.pre14.i.i, %59 ], [ %.pre14.i.i, %54 ]
   %63 = fcmp uno double %62, 0.000000e+00
   %64 = fcmp oeq double %52, %62
   %.in.i.i.i = select i1 %53, i1 %63, i1 %64
@@ -11824,7 +11824,7 @@ point_eq_point.exit.i:                            ; preds = %72
   br i1 %97, label %.critedge.i40.i, label %109, !prof !12
 
 .critedge.i40.i:                                  ; preds = %94, %89, %..critedge_crit_edge.i43.i
-  %98 = phi double [ %.pre.i44.i, %..critedge_crit_edge.i43.i ], [ %.pre14.i37.i, %89 ], [ %.pre14.i37.i, %94 ]
+  %98 = phi double [ %.pre.i44.i, %..critedge_crit_edge.i43.i ], [ %.pre14.i37.i, %94 ], [ %.pre14.i37.i, %89 ]
   %99 = fcmp uno double %98, 0.000000e+00
   %100 = fcmp oeq double %87, %98
   %.in.i.i41.i = select i1 %88, i1 %99, i1 %100
@@ -11900,7 +11900,7 @@ point_eq_point.exit45.thread.i:                   ; preds = %point_eq_point.exit
   br i1 %137, label %.critedge.i49.i, label %149, !prof !12
 
 .critedge.i49.i:                                  ; preds = %134, %129, %..critedge_crit_edge.i52.i
-  %138 = phi double [ %.pre.i53.i, %..critedge_crit_edge.i52.i ], [ %.pre14.i46.i, %129 ], [ %.pre14.i46.i, %134 ]
+  %138 = phi double [ %.pre.i53.i, %..critedge_crit_edge.i52.i ], [ %.pre14.i46.i, %134 ], [ %.pre14.i46.i, %129 ]
   %139 = fcmp uno double %138, 0.000000e+00
   %140 = fcmp oeq double %127, %138
   %.in.i.i50.i = select i1 %128, i1 %139, i1 %140
@@ -11949,7 +11949,7 @@ point_eq_point.exit.thread.i:                     ; preds = %point_eq_point.exit
   br i1 %exitcond95.not.i, label %plist_same.exit, label %.lr.ph79.i.split, !llvm.loop !49
 
 plist_same.exit:                                  ; preds = %point_eq_point.exit45.thread.i, %point_eq_point.exit54.thread.i, %point_eq_point.exit.thread.i, %120, %160, %point_eq_point.exit.i.us, %44, %point_eq_point.exit.thread.i.us, %14, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %point_eq_point.exit.i.us ], [ 1, %44 ], [ 1, %160 ], [ 1, %120 ], [ 1, %point_eq_point.exit45.thread.i ], [ 1, %point_eq_point.exit54.thread.i ], [ 0, %point_eq_point.exit.thread.i ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %44 ], [ 1, %point_eq_point.exit.i.us ], [ 1, %160 ], [ 1, %120 ], [ 1, %point_eq_point.exit54.thread.i ], [ 0, %point_eq_point.exit.thread.i ], [ 1, %point_eq_point.exit45.thread.i ]
   %163 = load i64, ptr %2, align 8
   %164 = inttoptr i64 %163 to ptr
   %.not16 = icmp eq ptr %5, %164
@@ -12225,7 +12225,7 @@ box_contain_box.exit.i:                           ; preds = %24
   br i1 %52, label %46, label %poly_contain_poly.exit, !llvm.loop !53
 
 poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %24, %box_contain_box.exit.i, %37
-  %.010.i = phi i64 [ 0, %box_contain_box.exit.i ], [ 0, %24 ], [ 0, %17 ], [ 0, %1 ], [ 1, %37 ], [ 1, %49 ], [ 0, %46 ]
+  %.010.i = phi i64 [ 0, %box_contain_box.exit.i ], [ 0, %17 ], [ 0, %1 ], [ 0, %24 ], [ 1, %37 ], [ 1, %49 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = load i64, ptr %3, align 8
   %54 = inttoptr i64 %53 to ptr
@@ -12328,7 +12328,7 @@ box_contain_box.exit.i:                           ; preds = %24
   br i1 %52, label %46, label %poly_contain_poly.exit, !llvm.loop !53
 
 poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %24, %box_contain_box.exit.i, %37
-  %.010.i = phi i64 [ 0, %box_contain_box.exit.i ], [ 0, %24 ], [ 0, %17 ], [ 0, %1 ], [ 1, %37 ], [ 1, %49 ], [ 0, %46 ]
+  %.010.i = phi i64 [ 0, %box_contain_box.exit.i ], [ 0, %17 ], [ 0, %1 ], [ 0, %24 ], [ 1, %37 ], [ 1, %49 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = load i64, ptr %3, align 8
   %54 = inttoptr i64 %53 to ptr
@@ -12499,7 +12499,7 @@ float8_lt.exit.i:                                 ; preds = %55
   br label %float8_lt.exit.thread.i
 
 float8_lt.exit.thread.i:                          ; preds = %62, %float8_lt.exit.i, %55
-  %.0.i = phi double [ %57, %62 ], [ %56, %float8_lt.exit.i ], [ %56, %55 ]
+  %.0.i = phi double [ %56, %55 ], [ %57, %62 ], [ %56, %float8_lt.exit.i ]
   %63 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %3)
   %64 = fcmp uno double %63, 0.000000e+00
   br i1 %64, label %float8_lt.exit37.thread.i, label %float8_lt.exit37.i
@@ -12514,7 +12514,7 @@ float8_lt.exit37.i:                               ; preds = %float8_lt.exit.thre
   br label %float8_lt.exit37.thread.i
 
 float8_lt.exit37.thread.i:                        ; preds = %68, %float8_lt.exit37.i, %float8_lt.exit.thread.i
-  %.1.i = phi double [ %63, %68 ], [ %.0.i, %float8_lt.exit37.i ], [ %.0.i, %float8_lt.exit.thread.i ]
+  %.1.i = phi double [ %.0.i, %float8_lt.exit.thread.i ], [ %63, %68 ], [ %.0.i, %float8_lt.exit37.i ]
   %69 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %20)
   %70 = fcmp uno double %69, 0.000000e+00
   br i1 %70, label %lseg_closept_lseg.exit, label %float8_lt.exit38.i
@@ -12529,7 +12529,7 @@ float8_lt.exit38.i:                               ; preds = %float8_lt.exit37.th
   br label %lseg_closept_lseg.exit
 
 lseg_closept_lseg.exit:                           ; preds = %float8_lt.exit37.thread.i, %float8_lt.exit38.i, %74
-  %.031.i = phi double [ %69, %74 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ]
+  %.031.i = phi double [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %float8_lt.exit37.thread.i ], [ %69, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.149, label %75, label %float8_lt.exit.thread
 
@@ -12552,7 +12552,7 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %75, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %80, %float8_lt.exit
-  %.238 = phi double [ %.13748, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i4345, %80 ], [ %.13748, %75 ]
+  %.238 = phi double [ %.031.i4345, %80 ], [ %.13748, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.13748, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %17, align 4
   %82 = sext i32 %81 to i64
@@ -14500,7 +14500,7 @@ float8_mi.exit.thread.i:                          ; preds = %79
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %100, %105, %106, %116
-  %.0.i.i = phi double [ %.022.i.i, %106 ], [ %112, %116 ], [ 0x7FF8000000000000, %105 ], [ 0x7FF0000000000000, %100 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %112, %116 ], [ 0x7FF0000000000000, %100 ], [ %.022.i.i, %106 ], [ 0x7FF8000000000000, %105 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %119 = fadd double %80, %.0.i.i
   %120 = tail call double @llvm.fabs.f64(double %119)
   %121 = fcmp oeq double %120, 0x7FF0000000000000
@@ -14898,7 +14898,7 @@ single_decode.exit.thread:                        ; preds = %37, %41, %single_de
   br label %74
 
 74:                                               ; preds = %67, %69, %.split.us, %63, %57, %59, %72, %47, %29
-  %.0 = phi i64 [ %73, %72 ], [ 0, %47 ], [ 0, %29 ], [ 0, %59 ], [ 0, %57 ], [ 0, %63 ], [ 0, %.split.us ], [ 0, %69 ], [ 0, %67 ]
+  %.0 = phi i64 [ 0, %29 ], [ 0, %57 ], [ 0, %.split.us ], [ %73, %72 ], [ 0, %47 ], [ 0, %59 ], [ 0, %63 ], [ 0, %69 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -15040,7 +15040,7 @@ define dso_local range(i64 0, 2) i64 @circle_same(ptr noundef readonly captures(
   br i1 %30, label %.critedge.i, label %42, !prof !12
 
 .critedge.i:                                      ; preds = %27, %22, %..critedge_crit_edge.i
-  %31 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %22 ], [ %.pre14.i, %27 ]
+  %31 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %27 ], [ %.pre14.i, %22 ]
   %32 = fcmp uno double %31, 0.000000e+00
   %33 = fcmp oeq double %20, %31
   %.in.i.i = select i1 %21, i1 %32, i1 %33
@@ -15074,7 +15074,7 @@ define dso_local range(i64 0, 2) i64 @circle_same(ptr noundef readonly captures(
   br label %point_eq_point.exit
 
 point_eq_point.exit:                              ; preds = %48, %42, %34, %.critedge.i, %._crit_edge
-  %54 = phi i1 [ false, %._crit_edge ], [ false, %.critedge.i ], [ %.in.i13.i, %34 ], [ false, %42 ], [ %53, %48 ]
+  %54 = phi i1 [ false, %._crit_edge ], [ %.in.i13.i, %34 ], [ false, %.critedge.i ], [ false, %42 ], [ %53, %48 ]
   %55 = zext i1 %54 to i64
   ret i64 %55
 }
@@ -15173,7 +15173,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -15520,7 +15520,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -15643,7 +15643,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -16821,7 +16821,7 @@ define dso_local noundef i64 @circle_mul_pt(ptr noundef readonly captures(none) 
   unreachable
 
 pg_hypot.exit:                                    ; preds = %1, %18, %19, %29
-  %.0.i = phi double [ %.022.i, %19 ], [ %25, %29 ], [ 0x7FF0000000000000, %1 ], [ 0x7FF8000000000000, %18 ]
+  %.0.i = phi double [ %25, %29 ], [ 0x7FF0000000000000, %1 ], [ %.022.i, %19 ], [ 0x7FF8000000000000, %18 ]
   %32 = fmul double %10, %.0.i
   %33 = tail call double @llvm.fabs.f64(double %32)
   %34 = fcmp oeq double %33, 0x7FF0000000000000
@@ -16915,7 +16915,7 @@ define dso_local noundef i64 @circle_div_pt(ptr noundef readonly captures(none) 
   unreachable
 
 pg_hypot.exit:                                    ; preds = %19, %29
-  %.0.i = phi double [ %.022.i, %19 ], [ %25, %29 ]
+  %.0.i = phi double [ %25, %29 ], [ %.022.i, %19 ]
   %32 = fcmp oeq double %.0.i, 0.000000e+00
   br i1 %32, label %33, label %pg_hypot.exit.thread, !prof !15
 
@@ -16928,7 +16928,7 @@ pg_hypot.exit:                                    ; preds = %19, %29
   unreachable
 
 pg_hypot.exit.thread:                             ; preds = %18, %1, %33, %pg_hypot.exit
-  %.0.i12 = phi double [ %.0.i, %33 ], [ %.0.i, %pg_hypot.exit ], [ 0x7FF8000000000000, %18 ], [ 0x7FF0000000000000, %1 ]
+  %.0.i12 = phi double [ %.0.i, %pg_hypot.exit ], [ %.0.i, %33 ], [ 0x7FF8000000000000, %18 ], [ 0x7FF0000000000000, %1 ]
   %36 = fdiv double %10, %.0.i12
   %37 = tail call double @llvm.fabs.f64(double %36)
   %38 = fcmp oeq double %37, 0x7FF0000000000000
@@ -17170,7 +17170,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -17309,7 +17309,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fcmp ole double %.0.i.i, %56
@@ -17411,7 +17411,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fcmp ole double %.0.i.i, %56
@@ -17513,7 +17513,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fsub double %.0.i.i, %56
@@ -17634,7 +17634,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
-  %.0.i.i = phi double [ %.022.i.i, %42 ], [ %48, %52 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %33 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %48, %52 ], [ 0x7FF0000000000000, %33 ], [ %.022.i.i, %42 ], [ 0x7FF8000000000000, %41 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fsub double %.0.i.i, %56
@@ -17997,7 +17997,7 @@ float8_mi.exit.thread.i:                          ; preds = %float8_div.exit15
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %73, %80, %81, %91
-  %.0.i.i = phi double [ %.022.i.i, %81 ], [ %87, %91 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
+  %.0.i.i = phi double [ %87, %91 ], [ 0x7FF0000000000000, %73 ], [ %.022.i.i, %81 ], [ 0x7FF8000000000000, %80 ], [ 0x7FF0000000000000, %float8_mi.exit.i ]
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %.0.i.i, ptr %94, align 8
   %95 = ptrtoint ptr %5 to i64
@@ -18435,7 +18435,7 @@ float8_mi.exit10:                                 ; preds = %float8_mi.exit, %31
   unreachable
 
 float8_div.exit:                                  ; preds = %49, %47, %10, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0x7FF0000000000000, %10 ], [ %42, %47 ], [ %42, %49 ]
+  %.0 = phi double [ 0x7FF0000000000000, %10 ], [ 0.000000e+00, %2 ], [ %42, %47 ], [ %42, %49 ]
   ret double %.0
 }
 
@@ -18525,9 +18525,9 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   br label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %38, %34, %44, %29
-  %indvars.iv.next.pre-phi = phi i64 [ %35, %34 ], [ %40, %44 ], [ %30, %29 ], [ %40, %38 ]
-  %.232.shrunk = phi i1 [ %37, %34 ], [ %45, %44 ], [ %32, %29 ], [ true, %38 ]
-  %.2 = phi i1 [ %.02951, %34 ], [ true, %44 ], [ %.02951, %29 ], [ %.02951, %38 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %40, %44 ], [ %35, %34 ], [ %30, %29 ], [ %40, %38 ]
+  %.232.shrunk = phi i1 [ %45, %44 ], [ %37, %34 ], [ %32, %29 ], [ true, %38 ]
+  %.2 = phi i1 [ true, %44 ], [ %.02951, %34 ], [ %.02951, %29 ], [ %.02951, %38 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = load i32, ptr %17, align 4
@@ -18696,7 +18696,7 @@ define internal fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef nonnull 
   br i1 %18, label %.critedge.i, label %30, !prof !12
 
 .critedge.i:                                      ; preds = %15, %10, %..critedge_crit_edge.i
-  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %10 ], [ %.pre14.i, %15 ]
+  %19 = phi double [ %.pre.i, %..critedge_crit_edge.i ], [ %.pre14.i, %15 ], [ %.pre14.i, %10 ]
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oeq double %8, %19
   %.in.i.i = select i1 %9, i1 %20, i1 %21
@@ -18771,8 +18771,8 @@ point_eq_point.exit.thread._crit_edge:            ; preds = %point_eq_point.exit
   br i1 %55, label %.critedge.i29, label %68, !prof !12
 
 .critedge.i29:                                    ; preds = %52, %47, %..critedge_crit_edge.i32
-  %56 = phi ptr [ %46, %..critedge_crit_edge.i32 ], [ %49, %47 ], [ %49, %52 ]
-  %57 = phi double [ %.pre.i33, %..critedge_crit_edge.i32 ], [ %.pre14.i26, %47 ], [ %.pre14.i26, %52 ]
+  %56 = phi ptr [ %46, %..critedge_crit_edge.i32 ], [ %49, %52 ], [ %49, %47 ]
+  %57 = phi double [ %.pre.i33, %..critedge_crit_edge.i32 ], [ %.pre14.i26, %52 ], [ %.pre14.i26, %47 ]
   %58 = fcmp uno double %57, 0.000000e+00
   %59 = fcmp oeq double %8, %57
   %.in.i.i30 = select i1 %9, i1 %58, i1 %59
@@ -18810,7 +18810,7 @@ point_eq_point.exit34:                            ; preds = %68
   br i1 %80, label %.sink.split, label %86
 
 point_eq_point.exit34.thread:                     ; preds = %68, %.critedge.i29, %60, %point_eq_point.exit34
-  %81 = phi ptr [ %49, %point_eq_point.exit34 ], [ %56, %60 ], [ %49, %68 ], [ %56, %.critedge.i29 ]
+  %81 = phi ptr [ %56, %60 ], [ %49, %point_eq_point.exit34 ], [ %49, %68 ], [ %56, %.critedge.i29 ]
   %82 = call fastcc zeroext i1 @lseg_contain_point(ptr noundef nonnull %6, ptr noundef nonnull %2)
   br i1 %82, label %.sink.split, label %83
 
@@ -18819,12 +18819,12 @@ point_eq_point.exit34.thread:                     ; preds = %68, %.critedge.i29,
   br i1 %84, label %.sink.split, label %86
 
 .sink.split:                                      ; preds = %83, %point_eq_point.exit34.thread, %79, %43
-  %.sink = phi ptr [ %44, %43 ], [ %2, %79 ], [ %2, %point_eq_point.exit34.thread ], [ %81, %83 ]
+  %.sink = phi ptr [ %2, %point_eq_point.exit34.thread ], [ %2, %79 ], [ %44, %43 ], [ %81, %83 ]
   %85 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %1, ptr noundef %.sink, ptr noundef %3, i32 noundef %4)
   br label %86
 
 86:                                               ; preds = %.sink.split, %43, %83, %79
-  %.0 = phi i1 [ true, %79 ], [ true, %83 ], [ true, %43 ], [ %85, %.sink.split ]
+  %.0 = phi i1 [ true, %43 ], [ true, %79 ], [ true, %83 ], [ %85, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -19043,7 +19043,7 @@ float8_mi.exit42:                                 ; preds = %float8_mul.exit40, 
   br label %104
 
 104:                                              ; preds = %47, %98, %.critedge34, %float8_mi.exit42, %37, %.critedge, %22, %7, %102, %45, %32, %23, %18, %15
-  %.0 = phi i32 [ %17, %15 ], [ %21, %18 ], [ %26, %23 ], [ %35, %32 ], [ %46, %45 ], [ %103, %102 ], [ 2147483647, %7 ], [ 0, %22 ], [ 0, %.critedge ], [ 0, %37 ], [ 2147483647, %float8_mi.exit42 ], [ 0, %.critedge34 ], [ 0, %98 ], [ 0, %47 ]
+  %.0 = phi i32 [ %103, %102 ], [ %17, %15 ], [ %21, %18 ], [ %26, %23 ], [ 2147483647, %7 ], [ %35, %32 ], [ 0, %22 ], [ %46, %45 ], [ 0, %37 ], [ 0, %47 ], [ 2147483647, %float8_mi.exit42 ], [ 0, %.critedge ], [ 0, %.critedge34 ], [ 0, %98 ]
   ret i32 %.0
 }
 

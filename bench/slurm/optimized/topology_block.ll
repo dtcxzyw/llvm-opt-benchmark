@@ -433,7 +433,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %3, %61, %60, %58
-  %.0 = phi i32 [ -1, %61 ], [ 0, %58 ], [ 0, %60 ], [ 0, %3 ], [ 0, %45 ]
+  %.0 = phi i32 [ -1, %61 ], [ 0, %60 ], [ 0, %58 ], [ 0, %3 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -701,7 +701,7 @@ define dso_local noundef i32 @topology_p_topology_print(ptr noundef readonly cap
   br label %56
 
 56:                                               ; preds = %50, %37, %43, %52
-  %.142 = phi i32 [ %53, %52 ], [ %.04151, %43 ], [ %.04151, %37 ], [ %.04151, %50 ]
+  %.142 = phi i32 [ %.04151, %37 ], [ %53, %52 ], [ %.04151, %43 ], [ %.04151, %50 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %57 = load i32, ptr %0, align 8
   %58 = zext i32 %57 to i64
@@ -1008,7 +1008,7 @@ topology_p_topology_free.exit:                    ; preds = %89, %103
   br label %.loopexit
 
 .loopexit:                                        ; preds = %82, %23, %.thread116, %.thread, %62, %20, %topology_p_topology_free.exit
-  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %62 ], [ 0, %.thread ], [ 0, %.thread116 ], [ 0, %23 ], [ 0, %82 ]
+  %.0 = phi i32 [ -1, %topology_p_topology_free.exit ], [ 0, %20 ], [ 0, %62 ], [ 0, %.thread116 ], [ 0, %.thread ], [ 0, %23 ], [ 0, %82 ]
   ret i32 %.0
 }
 

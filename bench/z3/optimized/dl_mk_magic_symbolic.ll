@@ -1451,7 +1451,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit137:       ; preds = %529, %530, %536
   br label %.body
 
 _ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread: ; preds = %480, %494, %491, %.preheader.i.i.i, %_ZN7obj_refI3app11ast_managerED2Ev.exit137
-  %550 = phi ptr [ %441, %.preheader.i.i.i ], [ %524, %_ZN7obj_refI3app11ast_managerED2Ev.exit137 ], [ %441, %491 ], [ %441, %494 ], [ %441, %480 ]
+  %550 = phi ptr [ %524, %_ZN7obj_refI3app11ast_managerED2Ev.exit137 ], [ %441, %.preheader.i.i.i ], [ %441, %494 ], [ %441, %491 ], [ %441, %480 ]
   br i1 %.not220, label %._crit_edge215, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %_ZNK7datalog8rule_set19is_output_predicateEP9func_decl.exit.thread
@@ -1578,7 +1578,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit147:       ; preds = %577, %579, %585
   br label %.body
 
 .body:                                            ; preds = %.loopexit207, %.loopexit.split-lp, %430, %411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i192, %262, %246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i161, %260, %192, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %303, %304, %544, %549, %429, %596, %595
-  %.pn75.pn.pn = phi { ptr, i32 } [ %.pn65, %549 ], [ %.pn63, %544 ], [ %305, %304 ], [ %.pn, %303 ], [ %.pn71, %429 ], [ %597, %596 ], [ %.pn67, %595 ], [ %261, %260 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %193, %192 ], [ %263, %262 ], [ %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i161 ], [ %247, %246 ], [ %431, %430 ], [ %406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i192 ], [ %412, %411 ], [ %lpad.loopexit, %.loopexit207 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn75.pn.pn = phi { ptr, i32 } [ %412, %411 ], [ %.pn, %303 ], [ %.pn67, %595 ], [ %.pn71, %429 ], [ %406, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i192 ], [ %.pn65, %549 ], [ %.pn63, %544 ], [ %305, %304 ], [ %193, %192 ], [ %247, %246 ], [ %597, %596 ], [ %261, %260 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %263, %262 ], [ %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i161 ], [ %431, %430 ], [ %lpad.loopexit, %.loopexit207 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIbLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #22
@@ -2868,7 +2868,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !288
@@ -2915,7 +2915,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI9func_decl
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !289
@@ -3340,7 +3340,7 @@ define linkonce_odr hidden void @_ZN13string_bufferILj64EE6appendEi(ptr noundef 
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !296
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %2
-  %.0.i.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit.i = lshr i32 %1, 31
   %21 = add i32 %.0.i.i, %.lobit.i
   %22 = zext i32 %21 to i64

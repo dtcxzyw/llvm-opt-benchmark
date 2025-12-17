@@ -103,7 +103,7 @@ define dso_local range(i32 -1, 2) i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 nou
   br label %40
 
 40:                                               ; preds = %32, %35, %16, %19, %9, %12, %36, %27
-  %.0 = phi i32 [ -1, %27 ], [ %., %36 ], [ -1, %12 ], [ -1, %9 ], [ -1, %19 ], [ -1, %16 ], [ -1, %35 ], [ -1, %32 ]
+  %.0 = phi i32 [ %., %36 ], [ -1, %9 ], [ -1, %27 ], [ -1, %16 ], [ -1, %12 ], [ -1, %19 ], [ -1, %35 ], [ -1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -147,7 +147,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %2, %0, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %0 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %0 ], [ -1, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -357,7 +357,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
   br label %82
 
 82:                                               ; preds = %._crit_edge.thread, %._crit_edge, %13, %16, %80, %19, %8
-  %.0 = phi i32 [ %9, %8 ], [ %20, %19 ], [ %81, %80 ], [ 0, %16 ], [ 0, %13 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %.0 = phi i32 [ %9, %8 ], [ 0, %13 ], [ %20, %19 ], [ %81, %80 ], [ 0, %16 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

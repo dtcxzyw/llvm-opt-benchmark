@@ -48613,7 +48613,7 @@ if.then.i.i641:                                   ; preds = %ehcleanup47
   br label %ehcleanup48
 
 ehcleanup48:                                      ; preds = %ehcleanup47, %if.then.i.i641, %lpad40.loopexit.split-lp, %lpad40.loopexit
-  %.pn446.pn = phi { ptr, i32 } [ %.pn446, %if.then.i.i641 ], [ %lpad.loopexit1709, %lpad40.loopexit ], [ %lpad.loopexit.split-lp1710, %lpad40.loopexit.split-lp ], [ %.pn446, %ehcleanup47 ]
+  %.pn446.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp1710, %lpad40.loopexit.split-lp ], [ %.pn446, %if.then.i.i641 ], [ %lpad.loopexit1709, %lpad40.loopexit ], [ %.pn446, %ehcleanup47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp38)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp37)
   br label %ehcleanup106
@@ -49742,7 +49742,7 @@ if.then.i.i866:                                   ; preds = %ehcleanup211
   br label %ehcleanup212
 
 ehcleanup212:                                     ; preds = %ehcleanup211, %if.then.i.i866, %lpad143.loopexit.split-lp, %lpad143.loopexit
-  %.pn459.pn = phi { ptr, i32 } [ %.pn459, %if.then.i.i866 ], [ %lpad.loopexit1700, %lpad143.loopexit ], [ %lpad.loopexit.split-lp1701, %lpad143.loopexit.split-lp ], [ %.pn459, %ehcleanup211 ]
+  %.pn459.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp1701, %lpad143.loopexit.split-lp ], [ %.pn459, %if.then.i.i866 ], [ %lpad.loopexit1700, %lpad143.loopexit ], [ %.pn459, %ehcleanup211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %state_str)
   br label %ehcleanup387
 
@@ -50594,7 +50594,7 @@ if.end302:                                        ; preds = %if.end302.sink.spli
   br label %if.end305
 
 ehcleanup303:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i173, %lpad.i.i.i204, %lpad.i.i.i164, %lpad235, %ehcleanup287, %ehcleanup269, %ehcleanup251
-  %.pn471 = phi { ptr, i32 } [ %.pn468, %ehcleanup287 ], [ %.pn465, %ehcleanup269 ], [ %.pn462, %ehcleanup251 ], [ %322, %lpad235 ], [ %363, %lpad.i.i.i164 ], [ %376, %lpad.i.i.i204 ], [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i173 ], [ %376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i213 ]
+  %.pn471 = phi { ptr, i32 } [ %.pn462, %ehcleanup251 ], [ %.pn468, %ehcleanup287 ], [ %.pn465, %ehcleanup269 ], [ %363, %lpad.i.i.i164 ], [ %322, %lpad235 ], [ %376, %lpad.i.i.i204 ], [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i173 ], [ %376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i213 ]
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm25EED2Ev(ptr noundef nonnull align 8 dereferenceable(800) %properties.i899) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %hover_spec)
   br label %ehcleanup387
@@ -51230,7 +51230,7 @@ if.end382:                                        ; preds = %if.end382.sink.spli
   br label %cleanup386
 
 ehcleanup383:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i294, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i254, %lpad.i.i.i285, %lpad.i.i.i245, %lpad315, %ehcleanup367, %ehcleanup349, %ehcleanup331
-  %.pn482 = phi { ptr, i32 } [ %.pn479, %ehcleanup367 ], [ %.pn476, %ehcleanup349 ], [ %.pn473, %ehcleanup331 ], [ %394, %lpad315 ], [ %435, %lpad.i.i.i245 ], [ %448, %lpad.i.i.i285 ], [ %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i254 ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i294 ]
+  %.pn482 = phi { ptr, i32 } [ %.pn473, %ehcleanup331 ], [ %.pn479, %ehcleanup367 ], [ %.pn476, %ehcleanup349 ], [ %435, %lpad.i.i.i245 ], [ %394, %lpad315 ], [ %448, %lpad.i.i.i285 ], [ %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i254 ], [ %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i294 ]
   call void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm25EED2Ev(ptr noundef nonnull align 8 dereferenceable(800) %properties.i1173) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %press_spec)
   br label %ehcleanup387
@@ -51275,7 +51275,7 @@ if.then.i.i1459:                                  ; preds = %ehcleanup393
   br label %ehcleanup399
 
 ehcleanup399:                                     ; preds = %ehcleanup393, %if.then.i.i1459, %lpad132.loopexit.split-lp, %lpad132.loopexit, %lpad128
-  %.pn482.pn.pn.pn = phi { ptr, i32 } [ %254, %lpad128 ], [ %.pn482.pn.pn, %if.then.i.i1459 ], [ %lpad.loopexit, %lpad132.loopexit ], [ %lpad.loopexit.split-lp, %lpad132.loopexit.split-lp ], [ %.pn482.pn.pn, %ehcleanup393 ]
+  %.pn482.pn.pn.pn = phi { ptr, i32 } [ %254, %lpad128 ], [ %lpad.loopexit.split-lp, %lpad132.loopexit.split-lp ], [ %.pn482.pn.pn, %if.then.i.i1459 ], [ %lpad.loopexit, %lpad132.loopexit ], [ %.pn482.pn.pn, %ehcleanup393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %selector)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %selectors) #35
   br label %ehcleanup408
@@ -55822,7 +55822,7 @@ ehcleanup294:                                     ; preds = %lpad281, %lpad275
   br label %ehcleanup1092
 
 for.end297.thread:                                ; preds = %for.inc218, %for.inc232, %for.inc246, %for.inc260, %for.end262, %for.end248, %for.end234, %for.end220, %if.end206
-  %i.5.lcssa.ph117 = phi i32 [ %i.41980, %for.end262 ], [ %i.31970, %for.end248 ], [ %i.21960, %for.end234 ], [ %i.11951, %for.end220 ], [ %i.0, %if.end206 ], [ %inc261, %for.inc260 ], [ %inc247, %for.inc246 ], [ %inc233, %for.inc232 ], [ %inc219, %for.inc218 ]
+  %i.5.lcssa.ph117 = phi i32 [ %i.41980, %for.end262 ], [ %i.31970, %for.end248 ], [ %i.21960, %for.end234 ], [ %i.11951, %for.end220 ], [ %i.0, %if.end206 ], [ %inc233, %for.inc232 ], [ %inc261, %for.inc260 ], [ %inc247, %for.inc246 ], [ %inc219, %for.inc218 ]
   %182 = load i16, ptr %m_formspec_version, align 8, !tbaa !176
   %cmp300122 = icmp ugt i16 %182, 1
   %real_coordinates123 = getelementptr inbounds nuw i8, ptr %mydata, i64 1
@@ -58673,7 +58673,7 @@ if.then.i.i7.i:                                   ; preds = %lpad2.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad2.i, %lpad42, %if.then.i.i8.i, %lpad5, %if.then.i.i7.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %if.then.i.i7.i ], [ %25, %if.then.i.i8.i ], [ %44, %lpad42 ], [ %9, %lpad5 ], [ %5, %lpad2.i ], [ %25, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %if.then.i.i7.i ], [ %9, %lpad5 ], [ %25, %if.then.i.i8.i ], [ %5, %lpad2.i ], [ %44, %lpad42 ], [ %25, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9ItemStackC2Ev.exit:                           ; preds = %if.then
@@ -60663,7 +60663,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad2.i, %lpad.i, %if.then.i.i7.i, %lpad, %if.then.i.i8.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %lpad ], [ %18, %if.then.i.i8.i ], [ %39, %if.then.i.i7.i ], [ %18, %lpad.i ], [ %39, %lpad2.i ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %lpad ], [ %18, %if.then.i.i8.i ], [ %18, %lpad.i ], [ %39, %if.then.i.i7.i ], [ %39, %lpad2.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9ItemStackC2ERKS_.exit:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
@@ -65694,9 +65694,9 @@ ehcleanup322:                                     ; preds = %lpad.i, %ehcleanup3
   br label %ehcleanup1883
 
 if.end323:                                        ; preds = %_ZN9ItemStackD2Ev.exit3076, %land.end295.thread4652, %land.end284, %land.lhs.true276
-  %190 = phi i1 [ %cmp.i3021, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.lhs.true276 ], [ %cmp.i30214657, %land.end295.thread4652 ], [ false, %land.end284 ]
-  %191 = phi i1 [ %.ph4425.ph, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.lhs.true276 ], [ false, %land.end295.thread4652 ], [ false, %land.end284 ]
-  %matching.0 = phi i1 [ %call317, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.lhs.true276 ], [ false, %land.end295.thread4652 ], [ false, %land.end284 ]
+  %190 = phi i1 [ %cmp.i3021, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.end284 ], [ false, %land.lhs.true276 ], [ %cmp.i30214657, %land.end295.thread4652 ]
+  %191 = phi i1 [ %.ph4425.ph, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.end284 ], [ false, %land.lhs.true276 ], [ false, %land.end295.thread4652 ]
+  %matching.0 = phi i1 [ %call317, %_ZN9ItemStackD2Ev.exit3076 ], [ false, %land.end284 ], [ false, %land.lhs.true276 ], [ false, %land.end295.thread4652 ]
   %192 = load i32, ptr %event, align 8
   %cmp325 = icmp eq i32 %192, 1
   br i1 %cmp325, label %if.then326, label %if.end323.sw.bb1047_crit_edge
@@ -69323,9 +69323,9 @@ if.else1748.if.then1750_crit_edge:                ; preds = %if.else1748
   br label %if.then1750
 
 if.then1750:                                      ; preds = %if.else1748.if.then1750_crit_edge, %land.lhs.true.i3395, %if.then1239
-  %698 = phi ptr [ %.pre241, %if.else1748.if.then1750_crit_edge ], [ %418, %if.then1239 ], [ %418, %land.lhs.true.i3395 ]
-  %drop_amount.244684515471347194744 = phi i32 [ %drop_amount.24468, %if.else1748.if.then1750_crit_edge ], [ 1, %if.then1239 ], [ 1, %land.lhs.true.i3395 ]
-  %m_left_dragging12344686471047214743 = phi ptr [ %m_left_dragging12344687, %if.else1748.if.then1750_crit_edge ], [ %m_left_dragging1234, %if.then1239 ], [ %m_left_dragging1234, %land.lhs.true.i3395 ]
+  %698 = phi ptr [ %.pre241, %if.else1748.if.then1750_crit_edge ], [ %418, %land.lhs.true.i3395 ], [ %418, %if.then1239 ]
+  %drop_amount.244684515471347194744 = phi i32 [ %drop_amount.24468, %if.else1748.if.then1750_crit_edge ], [ 1, %land.lhs.true.i3395 ], [ 1, %if.then1239 ]
+  %m_left_dragging12344686471047214743 = phi ptr [ %m_left_dragging12344687, %if.else1748.if.then1750_crit_edge ], [ %m_left_dragging1234, %land.lhs.true.i3395 ], [ %m_left_dragging1234, %if.then1239 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %stack_from1751)
   %i1753 = getelementptr inbounds nuw i8, ptr %698, i64 80
   %699 = load i32, ptr %i1753, align 8, !tbaa !670
@@ -72298,7 +72298,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
+  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
   ret ptr %spec.select
 }
 
@@ -75144,7 +75144,7 @@ if.then.i.i154.3:                                 ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.2, %if.then.i.i154.3, %lpad.thread
-  %.pn106 = phi { ptr, i32 } [ %5, %lpad.thread ], [ %45, %if.then.i.i154.3 ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.2 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ]
+  %.pn106 = phi { ptr, i32 } [ %5, %lpad.thread ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.2 ], [ %45, %if.then.i.i154.3 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %ehcleanup98
 
@@ -75444,7 +75444,7 @@ if.then.i.i228.3:                                 ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup71
 
 ehcleanup71:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.2, %if.then.i.i228.3, %lpad34.thread
-  %.pn = phi { ptr, i32 } [ %53, %lpad34.thread ], [ %93, %if.then.i.i228.3 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.2 ], [ %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226 ]
+  %.pn = phi { ptr, i32 } [ %53, %lpad34.thread ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.2 ], [ %93, %if.then.i.i228.3 ], [ %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30)
   br label %ehcleanup98
 
@@ -82830,7 +82830,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !1085
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8GUITable11DynamicDataEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8GUITable11DynamicDataEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8GUITable11DynamicDataEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -85615,7 +85615,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !1152
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS6_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS6_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS6_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -85793,8 +85793,8 @@ lpad:                                             ; preds = %if.end27
   resume { ptr, i32 } %28
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
-  %retval.sroa.0.1 = phi ptr [ %call30, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.080.us, %for.body.us ], [ %__it.sroa.0.080, %land.rhs.i.i.i ]
-  %retval.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %for.body.us ], [ 0, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ %call30, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ %__it.sroa.0.080.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.080, %land.rhs.i.i.i ]
+  %retval.sroa.4.1 = phi i8 [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit ], [ 0, %for.body.us ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %land.rhs.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -89858,7 +89858,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !1097
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_bENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_bENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_bENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -90451,7 +90451,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !1162
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorI9StyleSpecSaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorI9StyleSpecSaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St6vectorI9StyleSpecSaISA_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

@@ -502,8 +502,8 @@ show_setup_info.exit:                             ; preds = %31, %44, %52, %prot
   %117 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_bfcp_heur_check.exit.thread
 
-dissect_bfcp_heur_check.exit.thread:              ; preds = %12, %8, %4, %dissect_bfcp_heur_check.exit, %112
-  %.0 = phi i32 [ %117, %112 ], [ 0, %dissect_bfcp_heur_check.exit ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
+dissect_bfcp_heur_check.exit.thread:              ; preds = %8, %4, %12, %dissect_bfcp_heur_check.exit, %112
+  %.0 = phi i32 [ %117, %112 ], [ 0, %dissect_bfcp_heur_check.exit ], [ 0, %12 ], [ 0, %4 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -577,8 +577,8 @@ dissect_bfcp_heur_check.exit:                     ; preds = %11
   %17 = tail call i32 @dissect_bfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %dissect_bfcp_heur_check.exit.thread
 
-dissect_bfcp_heur_check.exit.thread:              ; preds = %11, %7, %4, %dissect_bfcp_heur_check.exit, %16
-  %.0.i10 = phi i1 [ false, %dissect_bfcp_heur_check.exit ], [ true, %16 ], [ false, %4 ], [ false, %7 ], [ false, %11 ]
+dissect_bfcp_heur_check.exit.thread:              ; preds = %7, %4, %11, %dissect_bfcp_heur_check.exit, %16
+  %.0.i10 = phi i1 [ true, %16 ], [ false, %dissect_bfcp_heur_check.exit ], [ false, %11 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0.i10
 }
 

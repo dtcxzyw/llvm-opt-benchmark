@@ -57,7 +57,7 @@ define hidden noundef ptr @pj_aitoff(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z35pj_projection_specific_setup_aitoffP8PJconsts.exit
 
 _Z35pj_projection_specific_setup_aitoffP8PJconsts.exit: ; preds = %7, %5, %12, %15
-  %.0 = phi ptr [ %13, %15 ], [ null, %12 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ null, %12 ], [ %13, %15 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 

@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @ossl_dh_buf2key(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not12, label %20, label %19
 
 19:                                               ; preds = %15, %9, %12, %17, %3
-  %.0 = phi i32 [ 106, %3 ], [ 106, %17 ], [ 107, %12 ], [ 107, %9 ], [ 102, %15 ]
+  %.0 = phi i32 [ 106, %3 ], [ 107, %9 ], [ 106, %17 ], [ 107, %12 ], [ 102, %15 ]
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.ossl_dh_buf2key) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.0, ptr noundef null) #9
@@ -539,7 +539,7 @@ define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr
   br label %41
 
 41:                                               ; preds = %.thread29, %27, %39, %37, %20
-  %.0 = phi i64 [ 0, %20 ], [ 0, %37 ], [ %40, %39 ], [ 0, %27 ], [ 0, %.thread29 ]
+  %.0 = phi i64 [ 0, %20 ], [ %40, %39 ], [ 0, %37 ], [ 0, %27 ], [ 0, %.thread29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
@@ -769,9 +769,9 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   store i64 %111, ptr %109, align 8, !tbaa !40
   br label %115
 
-112:                                              ; preds = %ossl_dh_generate_public_key.exit.thread101, %80, %83, %68, %78, %61, %ossl_dh_generate_public_key.exit, %34, %27, %19, %47, %40, %52, %87
-  %.063.ph = phi ptr [ %.164, %ossl_dh_generate_public_key.exit.thread101 ], [ %.164, %80 ], [ %.164, %83 ], [ %.164, %68 ], [ %.164, %78 ], [ %.164, %61 ], [ %.164, %ossl_dh_generate_public_key.exit ], [ null, %34 ], [ null, %27 ], [ null, %19 ], [ %.164, %47 ], [ %.164, %40 ], [ %.164, %52 ], [ %.164, %87 ]
-  %.062.ph = phi ptr [ %.1, %ossl_dh_generate_public_key.exit.thread101 ], [ %.1, %80 ], [ %.1, %83 ], [ %.1, %68 ], [ %.1, %78 ], [ %.1, %61 ], [ %.1, %ossl_dh_generate_public_key.exit ], [ %.1, %34 ], [ null, %27 ], [ null, %19 ], [ %.1, %47 ], [ %.1, %40 ], [ %.1, %52 ], [ %.1, %87 ]
+112:                                              ; preds = %ossl_dh_generate_public_key.exit.thread101, %80, %83, %68, %78, %61, %ossl_dh_generate_public_key.exit, %34, %27, %19, %40, %47, %52, %87
+  %.063.ph = phi ptr [ %.164, %ossl_dh_generate_public_key.exit.thread101 ], [ %.164, %52 ], [ %.164, %80 ], [ %.164, %83 ], [ %.164, %68 ], [ %.164, %78 ], [ %.164, %61 ], [ null, %19 ], [ %.164, %ossl_dh_generate_public_key.exit ], [ null, %34 ], [ null, %27 ], [ %.164, %40 ], [ %.164, %47 ], [ %.164, %87 ]
+  %.062.ph = phi ptr [ %.1, %ossl_dh_generate_public_key.exit.thread101 ], [ %.1, %52 ], [ %.1, %80 ], [ %.1, %83 ], [ %.1, %68 ], [ %.1, %78 ], [ %.1, %61 ], [ null, %19 ], [ %.1, %ossl_dh_generate_public_key.exit ], [ %.1, %34 ], [ null, %27 ], [ %.1, %40 ], [ %.1, %47 ], [ %.1, %87 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.generate_key) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524291, ptr noundef null) #9

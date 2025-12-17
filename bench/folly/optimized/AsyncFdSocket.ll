@@ -565,7 +565,7 @@ define void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback16getAncillaryData
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %49
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread, !llvm.loop !33
 
-_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %19, %..loopexit_crit_edge21.i.i.i.i.i, %24
+_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %19, %24, %..loopexit_crit_edge21.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !34
@@ -857,7 +857,7 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
 
 _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit: ; preds = %.lr.ph.i.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i.i, %.loopexit13.i
-  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %15 ], [ 0, %10 ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %.sroa.010.0.i = phi i32 [ %55, %.loopexit13.i ], [ 0, %15 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i ], [ 0, %10 ], [ 0, %.lr.ph.i.i.i.i.i ]
   ret i32 %.sroa.010.0.i
 }
 
@@ -4042,7 +4042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.thread
 
-.loopexit:                                        ; preds = %_ZN5folly12_GLOBAL__N_118receiveFdsFromCMSGERK7cmsghdrPSt6vectorINS_4FileESaIS5_EE.exit.i, %117, %126
+.loopexit:                                        ; preds = %117, %_ZN5folly12_GLOBAL__N_118receiveFdsFromCMSGERK7cmsghdrPSt6vectorINS_4FileESaIS5_EE.exit.i, %126
   %.pre = load ptr, ptr %16, align 8, !tbaa !302
   %.pre86 = load ptr, ptr %57, align 8, !tbaa !302
   %161 = icmp eq ptr %.pre, %.pre86
@@ -5865,9 +5865,9 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   %52 = add nsw i64 %51, 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %.loopexit13
-  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %13 ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %13 ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %.loopexit13
+  %.sroa.010.0 = phi i64 [ %52, %.loopexit13 ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.3.0 = phi ptr [ %.sroa.06.1.i.i, %.loopexit13 ], [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %8 ], [ null, %.lr.ph.i.i.i.i ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -7020,7 +7020,7 @@ _ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque_b
   br label %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !286
   %58 = load ptr, ptr %.0, align 8, !tbaa !283
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -560,7 +560,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3
   br label %244
 
 244:                                              ; preds = %242, %127, %110
-  %.pn67.pn = phi { ptr, i32 } [ %111, %110 ], [ %128, %127 ], [ %243, %242 ]
+  %.pn67.pn = phi { ptr, i32 } [ %243, %242 ], [ %128, %127 ], [ %111, %110 ]
   %245 = load ptr, ptr %11, align 8, !tbaa !28
   call void @free(ptr noundef %245) #15
   br label %.body

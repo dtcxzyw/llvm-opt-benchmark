@@ -379,7 +379,7 @@ read_ip_port.exit:                                ; preds = %.critedge.i, %.thre
   br i1 %.not.i16, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !49
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %read_ip_port.exit.thread.thread, %108, %read_ip_port.exit.thread, %0, %41, %42, %95, %85, %79, %63, %56, %8
-  %.0 = phi i32 [ -43, %8 ], [ -2, %56 ], [ -43, %79 ], [ -1, %85 ], [ -1, %95 ], [ -43, %63 ], [ -43, %42 ], [ -43, %41 ], [ 0, %0 ], [ -43, %read_ip_port.exit.thread ], [ 0, %108 ], [ -43, %read_ip_port.exit.thread.thread ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ -43, %8 ], [ -43, %63 ], [ -2, %56 ], [ -43, %79 ], [ -1, %85 ], [ -1, %95 ], [ -43, %41 ], [ -43, %42 ], [ -43, %read_ip_port.exit.thread ], [ 0, %0 ], [ 0, %108 ], [ -43, %read_ip_port.exit.thread.thread ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -774,7 +774,7 @@ dyn_allocate.exit:                                ; preds = %36, %162
   br label %226
 
 201:                                              ; preds = %193, %178, %195
-  %.035 = phi ptr [ %189, %195 ], [ %179, %178 ], [ %189, %193 ]
+  %.035 = phi ptr [ %179, %178 ], [ %189, %195 ], [ %189, %193 ]
   %202 = tail call fastcc i32 @prte_ras_slurm_discover(ptr noundef nonnull %166, ptr noundef nonnull %.035, ptr noundef %1)
   tail call void @free(ptr noundef nonnull %166) #20
   tail call void @free(ptr noundef nonnull %.035) #20
@@ -822,7 +822,7 @@ dyn_allocate.exit:                                ; preds = %36, %162
   br label %226
 
 226:                                              ; preds = %213, %218, %224, %203, %205, %211, %15, %17, %23, %199, %191, %186, %181, %176, %168, %163, %dyn_allocate.exit
-  %.0 = phi i32 [ %.0.i, %dyn_allocate.exit ], [ -13, %163 ], [ -2, %168 ], [ -13, %176 ], [ -2, %181 ], [ -13, %186 ], [ -2, %191 ], [ -1, %199 ], [ -46, %23 ], [ -46, %17 ], [ -46, %15 ], [ %202, %211 ], [ %202, %205 ], [ %202, %203 ], [ 0, %224 ], [ 0, %218 ], [ 0, %213 ]
+  %.0 = phi i32 [ %.0.i, %dyn_allocate.exit ], [ -13, %163 ], [ -2, %168 ], [ -13, %176 ], [ -2, %181 ], [ -46, %15 ], [ %202, %203 ], [ -13, %186 ], [ -2, %191 ], [ -1, %199 ], [ -46, %23 ], [ -46, %17 ], [ %202, %211 ], [ %202, %205 ], [ 0, %224 ], [ 0, %218 ], [ 0, %213 ]
   ret i32 %.0
 }
 
@@ -2850,7 +2850,7 @@ prte_ras_slurm_parse_ranges.exit.thread153:       ; preds = %74, %._crit_edge.i,
   br label %217
 
 217:                                              ; preds = %.thread163, %.critedge, %155, %119, %114, %.loopexit167, %81, %.preheader165._crit_edge, %.loopexit166.thread, %8
-  %.0 = phi i32 [ -2, %8 ], [ -5, %.loopexit166.thread ], [ -5, %.preheader165._crit_edge ], [ %.0.i152159, %81 ], [ -2, %114 ], [ -2, %119 ], [ 0, %.critedge ], [ -5, %155 ], [ %100, %.loopexit167 ], [ -2, %.thread163 ]
+  %.0 = phi i32 [ -2, %8 ], [ -5, %.loopexit166.thread ], [ -5, %.preheader165._crit_edge ], [ %.0.i152159, %81 ], [ -2, %114 ], [ -2, %119 ], [ -2, %.thread163 ], [ 0, %.critedge ], [ -5, %155 ], [ %100, %.loopexit167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

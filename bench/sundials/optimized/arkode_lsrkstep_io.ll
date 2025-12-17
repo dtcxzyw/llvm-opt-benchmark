@@ -151,7 +151,7 @@ define i32 @LSRKStepSetSTSMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %37
 
 37:                                               ; preds = %2, %34, %33
-  %.0 = phi i32 [ -22, %33 ], [ 0, %34 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %34 ], [ -22, %33 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -267,7 +267,7 @@ define i32 @LSRKStepSetSSPMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %49
 
 49:                                               ; preds = %2, %46, %45
-  %.0 = phi i32 [ -22, %45 ], [ 0, %46 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %46 ], [ -22, %45 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -582,7 +582,7 @@ define i32 @LSRKStepSetDomEigFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ -22, %10 ], [ %5, %2 ]
+  %.0 = phi i32 [ -22, %10 ], [ 0, %9 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -802,7 +802,7 @@ define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unname
   br label %50
 
 50:                                               ; preds = %17, %19, %21, %2, %48, %46, %44, %36, %28, %23, %10
-  %.0 = phi i32 [ -22, %23 ], [ -22, %46 ], [ -22, %28 ], [ 0, %48 ], [ -22, %36 ], [ -22, %44 ], [ -22, %10 ], [ %5, %2 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ]
+  %.0 = phi i32 [ -22, %10 ], [ -22, %23 ], [ %5, %2 ], [ -22, %46 ], [ -22, %28 ], [ 0, %48 ], [ -22, %36 ], [ -22, %44 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -837,7 +837,7 @@ define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly ca
   br label %14
 
 14:                                               ; preds = %2, %10, %8
-  %.0 = phi i32 [ -22, %8 ], [ 0, %10 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %10 ], [ -22, %8 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -870,7 +870,7 @@ define i32 @LSRKStepGetMaxNumStages(ptr noundef %0, ptr noundef writeonly captur
   br label %14
 
 14:                                               ; preds = %2, %10, %8
-  %.0 = phi i32 [ -22, %8 ], [ 0, %10 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %10 ], [ -22, %8 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -942,7 +942,7 @@ define i32 @lsrkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %1, %32, %31, %24
-  %.0 = phi i32 [ -20, %24 ], [ -20, %31 ], [ 0, %32 ], [ %3, %1 ]
+  %.0 = phi i32 [ 0, %32 ], [ -20, %24 ], [ -20, %31 ], [ %3, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1063,7 +1063,7 @@ define i32 @lsrkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1
   br label %78
 
 78:                                               ; preds = %19, %11, %29, %53, %3, %77, %27
-  %.0 = phi i32 [ -22, %27 ], [ -22, %77 ], [ %5, %3 ], [ 0, %53 ], [ 0, %29 ], [ 0, %11 ], [ 0, %19 ]
+  %.0 = phi i32 [ -22, %77 ], [ -22, %27 ], [ %5, %3 ], [ 0, %53 ], [ 0, %29 ], [ 0, %11 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1169,7 +1169,7 @@ define i32 @lsrkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) 
   br label %58
 
 58:                                               ; preds = %2, %57, %56, %19
-  %.0 = phi i32 [ -22, %19 ], [ -22, %56 ], [ 0, %57 ], [ %4, %2 ]
+  %.0 = phi i32 [ 0, %57 ], [ -22, %19 ], [ -22, %56 ], [ %4, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1207,7 +1207,7 @@ define i32 @lsrkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %16
 
 16:                                               ; preds = %3, %12, %11, %8
-  %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ 0, %12 ], [ %5, %3 ]
+  %.0 = phi i32 [ 0, %12 ], [ -22, %8 ], [ -22, %11 ], [ %5, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

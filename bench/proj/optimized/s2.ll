@@ -280,7 +280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %40,
   br label %79
 
 79:                                               ; preds = %74, %71, %69, %57, %76
-  %.sink = phi i32 [ %78, %76 ], [ 2, %57 ], [ 5, %69 ], [ 0, %71 ], [ 3, %74 ]
+  %.sink = phi i32 [ 2, %57 ], [ %78, %76 ], [ 0, %71 ], [ 5, %69 ], [ 3, %74 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !62
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %81 = load double, ptr %80, align 8, !tbaa !63
@@ -479,7 +479,7 @@ _ZL6STtoUVd16S2ProjectionType.exit.thread30:      ; preds = %3
   br label %_ZL6STtoUVd16S2ProjectionType.exit23
 
 _ZL6STtoUVd16S2ProjectionType.exit.thread:        ; preds = %17, %14
-  %.0.i25.in = phi double [ %20, %17 ], [ %16, %14 ]
+  %.0.i25.in = phi double [ %16, %14 ], [ %20, %17 ]
   %.0.i25 = fmul double %.0.i25.in, 0x3FD5555555555555
   %27 = fcmp ult double %1, 5.000000e-01
   br i1 %27, label %32, label %28
@@ -498,8 +498,8 @@ _ZL6STtoUVd16S2ProjectionType.exit.thread:        ; preds = %17, %14
   br label %_ZL6STtoUVd16S2ProjectionType.exit23
 
 _ZL6STtoUVd16S2ProjectionType.exit23:             ; preds = %3, %_ZL6STtoUVd16S2ProjectionType.exit.thread27, %28, %32, %_ZL6STtoUVd16S2ProjectionType.exit.thread30
-  %.0.i26 = phi double [ %10, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %.0.i25, %28 ], [ %.0.i25, %32 ], [ %23, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %0, %3 ]
-  %.0.i22 = phi double [ %11, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %31, %28 ], [ %36, %32 ], [ %26, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %1, %3 ]
+  %.0.i26 = phi double [ %23, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %10, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %.0.i25, %28 ], [ %.0.i25, %32 ], [ %0, %3 ]
+  %.0.i22 = phi double [ %26, %_ZL6STtoUVd16S2ProjectionType.exit.thread30 ], [ %11, %_ZL6STtoUVd16S2ProjectionType.exit.thread27 ], [ %31, %28 ], [ %36, %32 ], [ %1, %3 ]
   %37 = load i32, ptr %7, align 8, !tbaa !62
   %38 = tail call double @llvm.fmuladd.f64(double %.0.i26, double %.0.i26, double 1.000000e+00)
   %39 = tail call double @llvm.fmuladd.f64(double %.0.i22, double %.0.i22, double %38)
@@ -540,9 +540,9 @@ _ZL6STtoUVd16S2ProjectionType.exit23:             ; preds = %3, %_ZL6STtoUVd16S2
   br label %_Z13UVtoSphereXYZiddP6PJ_XYZ.exit
 
 _Z13UVtoSphereXYZiddP6PJ_XYZ.exit:                ; preds = %_ZL6STtoUVd16S2ProjectionType.exit23, %43, %45, %48, %52, %55
-  %.sroa.9.0 = phi double [ %41, %55 ], [ %40, %43 ], [ %47, %45 ], [ %50, %48 ], [ %53, %52 ], [ %41, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
-  %.sroa.0.0 = phi double [ %42, %55 ], [ %44, %43 ], [ %46, %45 ], [ %49, %48 ], [ %42, %52 ], [ %40, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
-  %.sink.i = phi double [ %56, %55 ], [ %42, %43 ], [ %40, %45 ], [ %51, %48 ], [ %54, %52 ], [ %42, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sroa.9.0 = phi double [ %41, %55 ], [ %53, %52 ], [ %40, %43 ], [ %47, %45 ], [ %50, %48 ], [ %41, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sroa.0.0 = phi double [ %42, %55 ], [ %42, %52 ], [ %44, %43 ], [ %46, %45 ], [ %49, %48 ], [ %40, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
+  %.sink.i = phi double [ %56, %55 ], [ %54, %52 ], [ %42, %43 ], [ %40, %45 ], [ %51, %48 ], [ %42, %_ZL6STtoUVd16S2ProjectionType.exit23 ]
   %57 = fneg double %.sink.i
   %58 = tail call double @acos(double noundef %57) #23, !tbaa !72
   %59 = fadd double %58, 0xBFF921FB54442D18
@@ -718,7 +718,7 @@ _ZL6UVtoSTd16S2ProjectionType.exit.thread52:      ; preds = %_Z16ValidFaceXYZtoU
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
 _ZL6UVtoSTd16S2ProjectionType.exit.thread49:      ; preds = %61, %57
-  %.0.i51 = phi double [ %60, %57 ], [ %64, %61 ]
+  %.0.i51 = phi double [ %64, %61 ], [ %60, %57 ]
   %71 = fcmp ult double %.sink.i, 0.000000e+00
   br i1 %71, label %76, label %72
 
@@ -735,8 +735,8 @@ _ZL6UVtoSTd16S2ProjectionType.exit.thread49:      ; preds = %61, %57
   br label %_ZL6UVtoSTd16S2ProjectionType.exit23
 
 _ZL6UVtoSTd16S2ProjectionType.exit23:             ; preds = %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit, %_ZL6UVtoSTd16S2ProjectionType.exit.thread, %72, %76, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52
-  %.0.i48 = phi double [ %52, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.0.i51, %72 ], [ %.0.i51, %76 ], [ %67, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %.sroa.0.0, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
-  %.0.i22 = phi double [ %54, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %75, %72 ], [ %79, %76 ], [ %70, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %.sink.i, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
+  %.0.i48 = phi double [ %67, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %52, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %.0.i51, %72 ], [ %.0.i51, %76 ], [ %.sroa.0.0, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
+  %.0.i22 = phi double [ %70, %_ZL6UVtoSTd16S2ProjectionType.exit.thread52 ], [ %54, %_ZL6UVtoSTd16S2ProjectionType.exit.thread ], [ %75, %72 ], [ %79, %76 ], [ %.sink.i, %_Z16ValidFaceXYZtoUViRK6PJ_XYZPdS2_.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.0.i48, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0.i22, 1
   ret { double, double } %.fca.1.insert
@@ -876,7 +876,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_16S2ProjectionTypeESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_16S2ProjectionTypeESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit: ; preds = %8, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %23 = phi i1 [ true, %8 ], [ %22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %23 = phi i1 [ %22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %8 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !77
   %25 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_16S2ProjectionTypeESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE17_M_construct_nodeIJRKS9_EEEvPSt13_Rb_tree_nodeIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(36) %2)
@@ -1086,8 +1086,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %87, %68, %61, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %89, %87 ], [ null, %68 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %90, %87 ], [ %70, %68 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1186,8 +1186,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

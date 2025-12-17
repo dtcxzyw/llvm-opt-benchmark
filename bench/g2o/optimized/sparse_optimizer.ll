@@ -572,40 +572,40 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer12gaugeFreedomEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !125
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %.critedge26, label %5
+  br i1 %4, label %.critedge24, label %5
 
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_ZNK3g2o16OptimizableGraph12maxDimensionEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.031.038 = load ptr, ptr %7, align 8, !tbaa !126
-  %.not39 = icmp eq ptr %.sroa.031.038, null
-  br i1 %.not39, label %.critedge26, label %.lr.ph41
+  %.sroa.030.037 = load ptr, ptr %7, align 8, !tbaa !126
+  %.not38 = icmp eq ptr %.sroa.030.037, null
+  br i1 %.not38, label %.critedge24, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %5, %.critedge24
-  %.sroa.031.040 = phi ptr [ %.sroa.031.0, %.critedge24 ], [ %.sroa.031.038, %5 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 16
+.lr.ph40:                                         ; preds = %5, %.critedge22
+  %.sroa.030.039 = phi ptr [ %.sroa.030.0, %.critedge22 ], [ %.sroa.030.037, %5 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.030.039, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !127
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load i32, ptr %10, align 8, !tbaa !130
   %12 = icmp eq i32 %11, %6
-  br i1 %12, label %13, label %.critedge24
+  br i1 %12, label %13, label %.critedge22
 
-13:                                               ; preds = %.lr.ph41
+13:                                               ; preds = %.lr.ph40
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %15 = load i8, ptr %14, align 4, !tbaa !137, !range !138, !noundef !139
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.critedge26, label %17
+  br i1 %16, label %.critedge24, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !85
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.not3436 = icmp eq ptr %19, %20
-  br i1 %.not3436, label %.critedge24, label %.lr.ph
+  %.not3335 = icmp eq ptr %19, %20
+  br i1 %.not3335, label %.critedge22, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.critedge
-  %.sroa.027.037 = phi ptr [ %35, %.critedge ], [ %19, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 32
+  %.sroa.026.036 = phi ptr [ %35, %.critedge ], [ %19, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.026.036, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !140
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -621,20 +621,20 @@ define noundef zeroext i1 @_ZN3g2o15SparseOptimizer12gaugeFreedomEv(ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !144
   %34 = icmp eq i32 %33, %6
-  br i1 %34, label %.critedge26, label %.critedge
+  br i1 %34, label %.critedge24, label %.critedge
 
 .critedge:                                        ; preds = %31, %.lr.ph
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.027.037) #27
-  %.not34 = icmp eq ptr %35, %20
-  br i1 %.not34, label %.critedge24, label %.lr.ph, !llvm.loop !145
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.026.036) #27
+  %.not33 = icmp eq ptr %35, %20
+  br i1 %.not33, label %.critedge22, label %.lr.ph, !llvm.loop !145
 
-.critedge24:                                      ; preds = %.critedge, %17, %.lr.ph41
-  %.sroa.031.0 = load ptr, ptr %.sroa.031.040, align 8, !tbaa !126
-  %.not = icmp eq ptr %.sroa.031.0, null
-  br i1 %.not, label %.critedge26, label %.lr.ph41, !llvm.loop !146
+.critedge22:                                      ; preds = %.critedge, %17, %.lr.ph40
+  %.sroa.030.0 = load ptr, ptr %.sroa.030.039, align 8, !tbaa !126
+  %.not = icmp eq ptr %.sroa.030.0, null
+  br i1 %.not, label %.critedge24, label %.lr.ph40, !llvm.loop !146
 
-.critedge26:                                      ; preds = %.critedge24, %13, %31, %5, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %5 ], [ false, %31 ], [ true, %.critedge24 ], [ false, %13 ]
+.critedge24:                                      ; preds = %.critedge22, %13, %31, %5, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %5 ], [ false, %31 ], [ true, %.critedge22 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -902,7 +902,7 @@ select.unfold.i.i:                                ; preds = %24, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %28, %select.unfold.i.i
-  %32 = phi i1 [ true, %select.unfold.i.i ], [ %31, %28 ]
+  %32 = phi i1 [ %31, %28 ], [ true, %select.unfold.i.i ]
   %33 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc unwind label %14
 
@@ -1283,7 +1283,7 @@ select.unfold.i.i:                                ; preds = %129, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o16OptimizableGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %133, %select.unfold.i.i
-  %137 = phi i1 [ true, %select.unfold.i.i ], [ %136, %133 ]
+  %137 = phi i1 [ %136, %133 ], [ true, %select.unfold.i.i ]
   %138 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc33 unwind label %144
 
@@ -1572,7 +1572,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds =
   br label %242
 
 242:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit76, %.loopexit.split-lp77, %144, %240, %197
-  %.pn.pn.pn = phi { ptr, i32 } [ %241, %240 ], [ %198, %197 ], [ %145, %144 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %198, %197 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ], [ %241, %240 ], [ %145, %144 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setIPN3g2o16OptimizableGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
@@ -1965,7 +1965,7 @@ select.unfold.i.i:                                ; preds = %123, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %127, %select.unfold.i.i
-  %131 = phi i1 [ true, %select.unfold.i.i ], [ %130, %127 ]
+  %131 = phi i1 [ %130, %127 ], [ true, %select.unfold.i.i ]
   %132 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc19 unwind label %139
 
@@ -2186,7 +2186,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds
   br label %211
 
 211:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit46, %.loopexit.split-lp47, %82, %139, %209, %166
-  %.pn.pn = phi { ptr, i32 } [ %210, %209 ], [ %167, %166 ], [ %140, %139 ], [ %83, %82 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ], [ %210, %209 ], [ %140, %139 ], [ %83, %82 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -2390,7 +2390,7 @@ select.unfold.i.i:                                ; preds = %50, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %54, %select.unfold.i.i
-  %58 = phi i1 [ true, %select.unfold.i.i ], [ %57, %54 ]
+  %58 = phi i1 [ %57, %54 ], [ true, %select.unfold.i.i ]
   %59 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc unwind label %63
 
@@ -2496,7 +2496,7 @@ select.unfold.i.i48:                              ; preds = %98, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i50
 
 _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i50: ; preds = %102, %select.unfold.i.i48
-  %106 = phi i1 [ true, %select.unfold.i.i48 ], [ %105, %102 ]
+  %106 = phi i1 [ %105, %102 ], [ true, %select.unfold.i.i48 ]
   %107 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc55 unwind label %113
 
@@ -2559,7 +2559,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit: 
   %127 = icmp ult ptr %37, %126
   br i1 %127, label %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
 
-_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %120, %_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit
+_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %120, %_ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE4findERKS3_.exit
   %128 = load ptr, ptr %37, align 8, !tbaa !3
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 168
   %130 = load ptr, ptr %129, align 8
@@ -2615,7 +2615,7 @@ select.unfold.i.i75:                              ; preds = %139, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o16OptimizableGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %143, %select.unfold.i.i75
-  %147 = phi i1 [ true, %select.unfold.i.i75 ], [ %146, %143 ]
+  %147 = phi i1 [ %146, %143 ], [ true, %select.unfold.i.i75 ]
   %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc81 unwind label %152
 
@@ -3773,7 +3773,7 @@ _ZNSt6vectorIPN3g2o16OptimizableGraph4EdgeESaIS3_EE7reserveEm.exit: ; preds = %_
   br label %124
 
 81:                                               ; preds = %.invoke, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph4EdgeESaIS3_EE11_M_allocateEm.exit.i, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph6VertexESaIS3_EE11_M_allocateEm.exit.i, %_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm.exit.i, %8
-  %82 = phi ptr [ %.promoted102, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph4EdgeESaIS3_EE11_M_allocateEm.exit.i ], [ %.promoted102, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph6VertexESaIS3_EE11_M_allocateEm.exit.i ], [ null, %_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm.exit.i ], [ null, %8 ], [ %.promoted102, %.invoke ]
+  %82 = phi ptr [ %.promoted102, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph4EdgeESaIS3_EE11_M_allocateEm.exit.i ], [ %.promoted102, %.invoke ], [ %.promoted102, %_ZNSt12_Vector_baseIPN3g2o16OptimizableGraph6VertexESaIS3_EE11_M_allocateEm.exit.i ], [ null, %8 ], [ null, %_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm.exit.i ]
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %232
@@ -4189,8 +4189,8 @@ _ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit: ; preds = %223, %225
   br label %232
 
 232:                                              ; preds = %.loopexit71, %.loopexit.split-lp72, %.loopexit, %.loopexit.split-lp, %.loopexit76, %.loopexit.split-lp77, %230, %81
-  %233 = phi ptr [ %82, %81 ], [ %.pre, %230 ], [ %.promoted102, %.loopexit76 ], [ %.promoted102, %.loopexit.split-lp77 ], [ %212, %.loopexit ], [ %214, %.loopexit.split-lp ], [ %127, %.loopexit71 ], [ %127, %.loopexit.split-lp72 ]
-  %.pn20 = phi { ptr, i32 } [ %83, %81 ], [ %231, %230 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit73, %.loopexit71 ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ]
+  %233 = phi ptr [ %214, %.loopexit.split-lp ], [ %82, %81 ], [ %.pre, %230 ], [ %.promoted102, %.loopexit.split-lp77 ], [ %.promoted102, %.loopexit76 ], [ %212, %.loopexit ], [ %127, %.loopexit71 ], [ %127, %.loopexit.split-lp72 ]
+  %.pn20 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %83, %81 ], [ %231, %230 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit73, %.loopexit71 ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ]
   %.not.i.i.i50 = icmp eq ptr %233, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev.exit51, label %234
 
@@ -4302,7 +4302,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph6Vert
   br label %28
 
 28:                                               ; preds = %25, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEEPKS4_NS3_15VertexIDCompareEET_SF_SF_RKT0_T1_.exit
-  %.sroa.02.0 = phi ptr [ %6, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEEPKS4_NS3_15VertexIDCompareEET_SF_SF_RKT0_T1_.exit ], [ %spec.select, %25 ]
+  %.sroa.02.0 = phi ptr [ %spec.select, %25 ], [ %6, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEEPKS4_NS3_15VertexIDCompareEET_SF_SF_RKT0_T1_.exit ]
   ret ptr %.sroa.02.0
 }
 
@@ -4356,7 +4356,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph4Edge
   br label %28
 
 28:                                               ; preds = %25, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEEPKS4_NS3_13EdgeIDCompareEET_SF_SF_RKT0_T1_.exit
-  %.sroa.02.0 = phi ptr [ %6, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEEPKS4_NS3_13EdgeIDCompareEET_SF_SF_RKT0_T1_.exit ], [ %spec.select, %25 ]
+  %.sroa.02.0 = phi ptr [ %spec.select, %25 ], [ %6, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEEPKS4_NS3_13EdgeIDCompareEET_SF_SF_RKT0_T1_.exit ]
   ret ptr %.sroa.02.0
 }
 
@@ -4884,7 +4884,7 @@ select.unfold.i.i:                                ; preds = %15, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %19, %select.unfold.i.i
-  %23 = phi i1 [ true, %select.unfold.i.i ], [ %22, %19 ]
+  %23 = phi i1 [ %22, %19 ], [ true, %select.unfold.i.i ]
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %1, ptr %25, align 8, !tbaa !86
@@ -5326,7 +5326,7 @@ _ZSt6fill_nIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.
   br label %_ZSt27__uninitialized_default_n_aIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN3g2o16OptimizableGraph6VertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !147
   br label %41
 
@@ -6262,7 +6262,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3g
   br i1 %50, label %42, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_T0_SG_T1_T2_.exit.us, !llvm.loop !271
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph6VertexESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_15VertexIDCompareEEEEvT_T0_SG_T1_T2_.exit.us: ; preds = %42, %48, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %48 ], [ %.019.i.i.us, %42 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %42 ], [ %.0920.i.i.us, %48 ]
   %51 = getelementptr inbounds nuw ptr, ptr %.fr17, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %51, align 8, !tbaa !150
   %.not.us = icmp eq i64 %.09.us, 0
@@ -7019,7 +7019,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3g
   br i1 %50, label %42, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_T0_SG_T1_T2_.exit.us, !llvm.loop !283
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3g2o16OptimizableGraph4EdgeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_13EdgeIDCompareEEEEvT_T0_SG_T1_T2_.exit.us: ; preds = %42, %48, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %48 ], [ %.019.i.i.us, %42 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %42 ], [ %.0920.i.i.us, %48 ]
   %51 = getelementptr inbounds nuw ptr, ptr %.fr17, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %51, align 8, !tbaa !90
   %.not.us = icmp eq i64 %.09.us, 0
@@ -7222,7 +7222,7 @@ _ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE
   br i1 %.not.i3, label %_ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %.lr.ph.i2, !llvm.loop !297
 
 _ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i, %.critedge.i
-  %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
+  %40 = phi i64 [ %26, %.critedge.i ], [ 0, %_ZNSt8_Rb_treeIPN3g2o16HyperGraphActionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %39, %.lr.ph.i2 ]
   %41 = sub i64 %26, %40
   ret i64 %41
 }

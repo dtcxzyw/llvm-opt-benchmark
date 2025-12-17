@@ -84,7 +84,7 @@ define hidden ptr @BIO_new_NDEF(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %42
 
 42:                                               ; preds = %40, %41, %27, %11
-  %.0 = phi ptr [ %37, %27 ], [ null, %11 ], [ null, %41 ], [ null, %40 ]
+  %.0 = phi ptr [ null, %11 ], [ %37, %27 ], [ null, %41 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %0,
   br label %29
 
 29:                                               ; preds = %15, %6, %4, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %23 ], [ 0, %6 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -245,7 +245,7 @@ define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %0,
   br label %46
 
 46:                                               ; preds = %32, %25, %7, %4, %39
-  %.0 = phi i32 [ 1, %39 ], [ 0, %4 ], [ 0, %7 ], [ 0, %25 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %39 ], [ 0, %25 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

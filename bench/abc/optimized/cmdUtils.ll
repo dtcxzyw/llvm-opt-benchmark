@@ -889,7 +889,7 @@ CmdFreeArgv.exit153:                              ; preds = %CmdFreeArgv.exit, %
   br label %.loopexit155
 
 .loopexit155:                                     ; preds = %14, %12, %._crit_edge189, %CmdFreeArgv.exit153, %54
-  %.0120 = phi i32 [ 1, %54 ], [ 1, %CmdFreeArgv.exit153 ], [ 1, %._crit_edge189 ], [ 0, %12 ], [ 0, %14 ]
+  %.0120 = phi i32 [ 1, %._crit_edge189 ], [ 1, %54 ], [ 1, %CmdFreeArgv.exit153 ], [ 0, %12 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -987,7 +987,7 @@ sub_063:                                          ; preds = %sub_0, %.tail
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread56, label %40
 
-.thread56:                                        ; preds = %sub_063, %22, %.tail62, %34, %36
+.thread56:                                        ; preds = %sub_063, %22, %34, %.tail62, %36
   %39 = tail call ptr @Extra_UtilTildeExpand(ptr noundef nonnull %1) #25
   br label %40
 
@@ -1477,7 +1477,7 @@ define internal range(i32 -1, 2) i32 @CmdCommandPrintCompare(ptr noundef readonl
   br label %23
 
 23:                                               ; preds = %22, %19, %18, %17, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %11 ], [ -1, %17 ], [ 1, %18 ], [ -1, %19 ], [ %., %22 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %2 ], [ 1, %11 ], [ -1, %17 ], [ 1, %18 ], [ %., %22 ]
   ret i32 %.0
 }
 

@@ -148,7 +148,7 @@ define internal fastcc double @eqsel_internal(ptr noundef readonly captures(none
   br label %47
 
 47:                                               ; preds = %41, %44, %20, %24
-  %.019 = phi double [ %25, %24 ], [ 0x3FEFD70A3D70A3D7, %20 ], [ %.0, %44 ], [ %.0, %41 ]
+  %.019 = phi double [ 0x3FEFD70A3D70A3D7, %20 ], [ %25, %24 ], [ %.0, %44 ], [ %.0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -382,7 +382,7 @@ statistic_proc_security_check.exit:               ; preds = %44, %38
   br label %118
 
 118:                                              ; preds = %._crit_edge95, %115, %117
-  %.2 = phi double [ 1.000000e+00, %117 ], [ %113, %115 ], [ 0.000000e+00, %._crit_edge95 ]
+  %.2 = phi double [ %113, %115 ], [ 1.000000e+00, %117 ], [ 0.000000e+00, %._crit_edge95 ]
   %119 = call double @get_variable_numdistinct(ptr noundef %0, ptr noundef nonnull %8)
   %120 = load i32, ptr %102, align 8
   %121 = sitofp i32 %120 to double
@@ -434,7 +434,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %48, %46, %43, %37
   br label %146
 
 146:                                              ; preds = %145, %143, %139, %7
-  %.0 = phi double [ 0.000000e+00, %7 ], [ 1.000000e+00, %145 ], [ %.5, %143 ], [ 0.000000e+00, %139 ]
+  %.0 = phi double [ 0.000000e+00, %7 ], [ %.5, %143 ], [ 1.000000e+00, %145 ], [ 0.000000e+00, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret double %.0
 }
@@ -541,8 +541,8 @@ define dso_local double @get_variable_numdistinct(ptr noundef readonly captures(
   br label %38
 
 38:                                               ; preds = %28, %30, %33, %24, %17, %37, %36, %5
-  %.028 = phi double [ %16, %5 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %36 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %28 ]
-  %.027 = phi double [ %13, %5 ], [ 0.000000e+00, %37 ], [ 1.000000e+00, %36 ], [ 2.000000e+00, %17 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %33 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %28 ]
+  %.028 = phi double [ %16, %5 ], [ 0.000000e+00, %33 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %24 ], [ 0.000000e+00, %36 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %28 ]
+  %.027 = phi double [ %13, %5 ], [ -1.000000e+00, %33 ], [ 2.000000e+00, %17 ], [ 0.000000e+00, %37 ], [ -1.000000e+00, %24 ], [ 1.000000e+00, %36 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %40 = load i8, ptr %39, align 4, !range !4, !noundef !5
   %41 = trunc nuw i8 %40 to i1
@@ -712,7 +712,7 @@ define dso_local double @var_eq_non_const(ptr noundef readonly captures(none) %0
   br label %64
 
 64:                                               ; preds = %57, %61, %63
-  %.5 = phi double [ 1.000000e+00, %63 ], [ %.4, %61 ], [ 0.000000e+00, %57 ]
+  %.5 = phi double [ %.4, %61 ], [ 1.000000e+00, %63 ], [ 0.000000e+00, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.5
 }
@@ -1123,7 +1123,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
   br label %46
 
 46:                                               ; preds = %28, %37, %40
-  %.026 = phi double [ %45, %40 ], [ %35, %37 ], [ %5, %28 ]
+  %.026 = phi double [ %35, %37 ], [ %45, %40 ], [ %5, %28 ]
   %47 = fcmp olt double %.026, 1.000000e-04
   br i1 %47, label %51, label %48
 
@@ -1135,7 +1135,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
   br label %51
 
 51:                                               ; preds = %46, %48, %50
-  %.1 = phi double [ 9.999000e-01, %50 ], [ %.026, %48 ], [ 1.000000e-04, %46 ]
+  %.1 = phi double [ %.026, %48 ], [ 9.999000e-01, %50 ], [ 1.000000e-04, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
@@ -1189,7 +1189,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
   br label %79
 
 79:                                               ; preds = %78, %76, %74, %22, %25, %6
-  %.0 = phi double [ %5, %6 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %22 ], [ 1.000000e+00, %78 ], [ %.2, %76 ], [ 0.000000e+00, %74 ]
+  %.0 = phi double [ %5, %6 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %25 ], [ %.2, %76 ], [ 1.000000e+00, %78 ], [ 0.000000e+00, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1272,7 +1272,7 @@ list_length.exit:                                 ; preds = %6
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %6, %36, %39, %list_length.exit, %27, %21
-  %.0 = phi i1 [ true, %21 ], [ true, %27 ], [ false, %list_length.exit ], [ false, %39 ], [ false, %36 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %list_length.exit ], [ true, %21 ], [ true, %27 ], [ false, %39 ], [ false, %36 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -1504,7 +1504,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   br label %129
 
 129:                                              ; preds = %102, %122, %119, %115, %124
-  %.0123 = phi double [ %spec.store.select, %124 ], [ 5.000000e-01, %115 ], [ 0.000000e+00, %119 ], [ 1.000000e+00, %122 ], [ 5.000000e-01, %102 ]
+  %.0123 = phi double [ 1.000000e+00, %122 ], [ 5.000000e-01, %115 ], [ 0.000000e+00, %119 ], [ %spec.store.select, %124 ], [ 5.000000e-01, %102 ]
   %130 = uitofp nneg i32 %105 to double
   %131 = fadd double %.0123, %130
   %132 = load i32, ptr %36, align 8
@@ -1524,7 +1524,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   br i1 %.2128, label %144, label %150
 
 141:                                              ; preds = %85, %._crit_edge162
-  %.0112 = phi double [ 0.000000e+00, %._crit_edge162 ], [ 1.000000e+00, %85 ]
+  %.0112 = phi double [ 1.000000e+00, %85 ], [ 0.000000e+00, %._crit_edge162 ]
   %142 = fsub double 1.000000e+00, %.0112
   %143 = select i1 %4, double %142, double %.0112
   br i1 %.2128, label %144, label %150
@@ -1627,12 +1627,12 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
   br label %196
 
 196:                                              ; preds = %._crit_edge, %192, %195
-  %.4 = phi double [ %193, %195 ], [ %175, %192 ], [ %178, %._crit_edge ]
+  %.4 = phi double [ %175, %192 ], [ %193, %195 ], [ %178, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %197
 
 197:                                              ; preds = %147, %149, %144, %150, %157, %160, %161, %196
-  %.3 = phi double [ %.4, %196 ], [ -1.000000e+00, %161 ], [ 1.000000e+00, %149 ], [ %145, %147 ], [ 0.000000e+00, %144 ], [ %158, %160 ], [ %151, %157 ], [ %155, %150 ]
+  %.3 = phi double [ -1.000000e+00, %161 ], [ %.4, %196 ], [ 0.000000e+00, %144 ], [ 1.000000e+00, %149 ], [ %145, %147 ], [ %151, %157 ], [ %158, %160 ], [ %155, %150 ]
   call void @free_attstatsslot(ptr noundef nonnull %10) #11
   br label %statistic_proc_security_check.exit.thread
 
@@ -1799,7 +1799,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_range(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-93:                                               ; preds = %31, %37, %40, %44, %48, %51
+93:                                               ; preds = %44, %31, %37, %40, %48, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %28, align 4
   %95 = sext i32 %94 to i64
@@ -1807,7 +1807,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_range(ptr noundef
   br i1 %.not, label %31, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %93, %.preheader, %92, %17, %6, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %6 ], [ false, %17 ], [ %.pre-phi, %92 ], [ false, %.preheader ], [ false, %93 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %6 ], [ false, %13 ], [ %.pre-phi, %92 ], [ false, %.preheader ], [ false, %93 ]
   ret i1 %.0
 }
 
@@ -2160,7 +2160,7 @@ convert_string_to_scalar.exit:                    ; preds = %113, %convert_one_s
   br label %convert_timevalue_to_scalar.exit
 
 convert_timevalue_to_scalar.exit:                 ; preds = %129, %131, %133, %136, %148, %150
-  %.0.i = phi double [ %130, %129 ], [ %132, %131 ], [ %135, %133 ], [ %147, %136 ], [ %149, %148 ], [ %157, %150 ]
+  %.0.i = phi double [ %157, %150 ], [ %130, %129 ], [ %132, %131 ], [ %135, %133 ], [ %147, %136 ], [ %149, %148 ]
   store double %.0.i, ptr %3, align 8
   switch i32 %6, label %convert_timevalue_to_scalar.exit57 [
     i32 1114, label %convert_timevalue_to_scalar.exit57.thread
@@ -2270,7 +2270,7 @@ convert_timevalue_to_scalar.exit59:               ; preds = %convert_timevalue_t
   br label %213
 
 213:                                              ; preds = %127, %212, %205, %convert_timevalue_to_scalar.exit59, %128, %126, %11
-  %.0 = phi i1 [ false, %212 ], [ %17, %11 ], [ %.1, %126 ], [ true, %128 ], [ %204, %convert_timevalue_to_scalar.exit59 ], [ %211, %205 ], [ false, %127 ]
+  %.0 = phi i1 [ false, %212 ], [ %17, %11 ], [ %.1, %126 ], [ %211, %205 ], [ true, %128 ], [ %204, %convert_timevalue_to_scalar.exit59 ], [ false, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
@@ -2392,7 +2392,7 @@ define internal fastcc i64 @scalarineqsel_wrapper(ptr noundef readonly captures(
   br label %68
 
 68:                                               ; preds = %51, %54, %36, %39, %26, %29, %3, %66
-  %.0 = phi i64 [ %67, %66 ], [ 4599676419421066581, %3 ], [ 4599676419421066581, %29 ], [ 4599676419421066581, %26 ], [ 0, %39 ], [ 0, %36 ], [ 4599676419421066581, %54 ], [ 4599676419421066581, %51 ]
+  %.0 = phi i64 [ 4599676419421066581, %26 ], [ %67, %66 ], [ 0, %36 ], [ 4599676419421066581, %3 ], [ 4599676419421066581, %29 ], [ 0, %39 ], [ 4599676419421066581, %54 ], [ 4599676419421066581, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2440,7 +2440,7 @@ define dso_local double @boolvarsel(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %3, %9, %7
-  %.07 = phi double [ %8, %9 ], [ %8, %7 ], [ 5.000000e-01, %3 ]
+  %.07 = phi double [ %8, %7 ], [ %8, %9 ], [ 5.000000e-01, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.07
 }
@@ -3462,7 +3462,7 @@ list_head.exit:                                   ; preds = %.lr.ph726
   br i1 %.not287, label %.critedge, label %551, !llvm.loop !19
 
 .critedge:                                        ; preds = %551, %.lr.ph422, %532, %.lr.ph425
-  %.0248.lcssa = phi i32 [ %542, %.lr.ph425 ], [ %542, %532 ], [ %560, %.lr.ph422 ], [ %560, %551 ]
+  %.0248.lcssa = phi i32 [ %542, %532 ], [ %542, %.lr.ph425 ], [ %560, %.lr.ph422 ], [ %560, %551 ]
   %.not289 = icmp eq i32 %.0248.lcssa, %517
   br i1 %.not289, label %.critedge.thread, label %561
 
@@ -3532,8 +3532,8 @@ list_head.exit:                                   ; preds = %.lr.ph726
   br label %595
 
 595:                                              ; preds = %.thread324, %424
-  %596 = phi i32 [ %425, %424 ], [ %.pre, %.thread324 ]
-  %.2254 = phi ptr [ %.0252427, %424 ], [ %..i, %.thread324 ]
+  %596 = phi i32 [ %.pre, %.thread324 ], [ %425, %424 ]
+  %.2254 = phi ptr [ %..i, %.thread324 ], [ %.0252427, %424 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %597 = sext i32 %596 to i64
   %598 = icmp slt i64 %indvars.iv.next, %597
@@ -3768,7 +3768,7 @@ list_head.exit.thread:                            ; preds = %._crit_edge, %.lr.p
   br i1 %.not305, label %.critedge7, label %712, !llvm.loop !21
 
 .critedge7:                                       ; preds = %712, %.lr.ph461, %693, %.lr.ph464
-  %.0.lcssa = phi i32 [ %703, %.lr.ph464 ], [ %703, %693 ], [ %721, %.lr.ph461 ], [ %721, %712 ]
+  %.0.lcssa = phi i32 [ %703, %693 ], [ %703, %.lr.ph464 ], [ %721, %.lr.ph461 ], [ %721, %712 ]
   %.not307 = icmp eq i32 %.0.lcssa, %678
   br i1 %.not307, label %.thread331, label %722
 
@@ -3821,7 +3821,7 @@ list_head.exit.thread:                            ; preds = %._crit_edge, %.lr.p
   %750 = icmp slt i64 %indvars.iv.next534, %749
   br i1 %750, label %.lr.ph446, label %.thread331
 
-.thread331:                                       ; preds = %.thread334, %.lr.ph454.split, %.lr.ph454.split.us, %677, %643, %.lr.ph441, %.critedge7, %746, %675, %669, %635, %638
+.thread331:                                       ; preds = %.thread334, %.lr.ph454.split, %.lr.ph454.split.us, %677, %643, %.lr.ph441, %.critedge7, %746, %675, %669, %638, %635
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538727, 1
   %751 = load i32, ptr %604, align 4
   %752 = sext i32 %751 to i64
@@ -3912,7 +3912,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 46:                                               ; preds = %24, %41, %40, %39, %38, %36
-  %.0 = phi double [ %37, %36 ], [ %.037, %38 ], [ %34, %39 ], [ %35, %40 ], [ %42, %41 ], [ %19, %24 ]
+  %.0 = phi double [ %42, %41 ], [ %37, %36 ], [ %.037, %38 ], [ %34, %39 ], [ %35, %40 ], [ %19, %24 ]
   call void @free_attstatsslot(ptr noundef nonnull %8) #11
   br label %59
 
@@ -3947,7 +3947,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 59:                                               ; preds = %47, %48, %50, %53, %46
-  %.1 = phi double [ %.0, %46 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %19, %47 ]
+  %.1 = phi double [ %.0, %46 ], [ %55, %53 ], [ %49, %48 ], [ %52, %50 ], [ %19, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %70
 
@@ -3980,7 +3980,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 70:                                               ; preds = %59, %64, %62
-  %.2.ph = phi double [ %66, %64 ], [ %63, %62 ], [ %.1, %59 ]
+  %.2.ph = phi double [ %63, %62 ], [ %66, %64 ], [ %.1, %59 ]
   %.pr = load ptr, ptr %9, align 8
   %.not39 = icmp eq ptr %.pr, null
   br i1 %.not39, label %74, label %71
@@ -4003,7 +4003,7 @@ define dso_local double @booltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.thread47
 
 .thread47:                                        ; preds = %61, %60, %74, %76, %78
-  %.3 = phi double [ 1.000000e+00, %78 ], [ %.2.ph, %76 ], [ 0.000000e+00, %74 ], [ 5.000000e-03, %60 ], [ 0x3FEFD70A3D70A3D7, %61 ]
+  %.3 = phi double [ %.2.ph, %76 ], [ 1.000000e+00, %78 ], [ 0.000000e+00, %74 ], [ 5.000000e-03, %60 ], [ 0x3FEFD70A3D70A3D7, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.3
 }
@@ -4091,7 +4091,7 @@ define dso_local double @nulltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   unreachable
 
 41:                                               ; preds = %19, %10
-  %.1 = phi double [ %20, %19 ], [ %18, %10 ]
+  %.1 = phi double [ %18, %10 ], [ %20, %19 ]
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull %9) #11
@@ -4106,7 +4106,7 @@ define dso_local double @nulltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.thread26
 
 .thread26:                                        ; preds = %33, %37, %36, %47, %45, %41
-  %.2 = phi double [ 1.000000e+00, %47 ], [ %.1, %45 ], [ 0.000000e+00, %41 ], [ 5.000000e-03, %36 ], [ 0x3FEFD70A3D70A3D7, %37 ], [ %35, %33 ]
+  %.2 = phi double [ %.1, %45 ], [ 1.000000e+00, %47 ], [ 0.000000e+00, %41 ], [ 5.000000e-03, %36 ], [ %35, %33 ], [ 0x3FEFD70A3D70A3D7, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.2
 }
@@ -4391,7 +4391,7 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   br label %144
 
 144:                                              ; preds = %136, %138, %140, %143
-  %.1191 = phi double [ %.0192.lcssa, %143 ], [ %.2.lcssa, %140 ], [ %.2.lcssa, %136 ], [ %.2.lcssa, %138 ]
+  %.1191 = phi double [ %.2.lcssa, %138 ], [ %.0192.lcssa, %143 ], [ %.2.lcssa, %140 ], [ %.2.lcssa, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4583,7 +4583,7 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   br label %233
 
 233:                                              ; preds = %.thread, %232, %230, %.loopexit, %65, %56, %6
-  %.0 = phi double [ 5.000000e-01, %6 ], [ %58, %56 ], [ 5.000000e-01, %65 ], [ 1.000000e+00, %232 ], [ %.10, %230 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
+  %.0 = phi double [ 5.000000e-01, %65 ], [ 0.000000e+00, %.thread ], [ %58, %56 ], [ 5.000000e-01, %6 ], [ %.10, %230 ], [ 1.000000e+00, %232 ], [ 0.000000e+00, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.0
 }
@@ -4764,7 +4764,7 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %38, %35, %65, %21, %17, %.critedge.thread
-  %.123 = phi double [ 1.000000e+01, %.critedge.thread ], [ %.1.ph, %65 ], [ %30, %21 ], [ 0.000000e+00, %17 ], [ %41, %38 ], [ 0.000000e+00, %35 ]
+  %.123 = phi double [ 0.000000e+00, %17 ], [ 1.000000e+01, %.critedge.thread ], [ %.1.ph, %65 ], [ %30, %21 ], [ %41, %38 ], [ 0.000000e+00, %35 ]
   ret double %.123
 }
 
@@ -4882,7 +4882,7 @@ define dso_local i64 @eqjoinsel(ptr noundef readonly captures(none) %0) #0 {
   br label %40
 
 40:                                               ; preds = %37, %35, %1
-  %41 = phi i1 [ false, %35 ], [ false, %1 ], [ %39, %37 ]
+  %41 = phi i1 [ false, %35 ], [ %39, %37 ], [ false, %1 ]
   %42 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %statistic_proc_security_check.exit.thread, label %43
@@ -5148,7 +5148,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %.thread.i
 
 .thread.i:                                        ; preds = %172, %170, %._crit_edge.i
-  %.4.i = phi double [ 1.000000e+00, %172 ], [ %.2.i, %170 ], [ 0.000000e+00, %._crit_edge.i ]
+  %.4.i = phi double [ %.2.i, %170 ], [ 1.000000e+00, %172 ], [ 0.000000e+00, %._crit_edge.i ]
   %173 = icmp sgt i32 %165, 0
   br i1 %173, label %.thread.i..lr.ph25.i_crit_edge, label %.thread95.i
 
@@ -5193,7 +5193,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %188
 
 188:                                              ; preds = %187, %185, %._crit_edge26.i
-  %.2144.i = phi double [ 1.000000e+00, %187 ], [ %.1143.i, %185 ], [ 0.000000e+00, %._crit_edge26.i ]
+  %.2144.i = phi double [ %.1143.i, %185 ], [ 1.000000e+00, %187 ], [ 0.000000e+00, %._crit_edge26.i ]
   %189 = fcmp olt double %.1163.i, 0.000000e+00
   br i1 %189, label %.thread95.i, label %190
 
@@ -5205,10 +5205,10 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %.thread95.i
 
 .thread95.i:                                      ; preds = %192, %190, %188, %.thread.i, %95
-  %.4121.i = phi double [ %.4122.i, %192 ], [ %.4122.i, %190 ], [ %.4122.i, %188 ], [ %.4.i, %.thread.i ], [ 0.000000e+00, %95 ]
-  %.0146.lcssa74119.i = phi double [ %.0146.lcssa74120.i, %192 ], [ %.0146.lcssa74120.i, %190 ], [ %.0146.lcssa74120.i, %188 ], [ %168, %.thread.i ], [ 0.000000e+00, %95 ]
-  %.214494.i = phi double [ %.2144.i, %192 ], [ %.2144.i, %190 ], [ %.2144.i, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
-  %.2164.i = phi double [ 1.000000e+00, %192 ], [ %.1163.i, %190 ], [ 0.000000e+00, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.4121.i = phi double [ %.4122.i, %190 ], [ %.4122.i, %192 ], [ %.4122.i, %188 ], [ %.4.i, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.0146.lcssa74119.i = phi double [ %.0146.lcssa74120.i, %190 ], [ %.0146.lcssa74120.i, %192 ], [ %.0146.lcssa74120.i, %188 ], [ %168, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.214494.i = phi double [ %.2144.i, %190 ], [ %.2144.i, %192 ], [ %.2144.i, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.2164.i = phi double [ %.1163.i, %190 ], [ 1.000000e+00, %192 ], [ 0.000000e+00, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
   %193 = load i32, ptr %114, align 8
   %194 = icmp sgt i32 %193, 0
   br i1 %194, label %.lr.ph33.i, label %.thread112.i
@@ -5249,7 +5249,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %210
 
 210:                                              ; preds = %209, %207, %._crit_edge34.i
-  %.2167.i = phi double [ 1.000000e+00, %209 ], [ %.1166.i, %207 ], [ 0.000000e+00, %._crit_edge34.i ]
+  %.2167.i = phi double [ %.1166.i, %207 ], [ 1.000000e+00, %209 ], [ 0.000000e+00, %._crit_edge34.i ]
   %211 = fcmp olt double %.1160.i, 0.000000e+00
   br i1 %211, label %.thread112.i, label %212
 
@@ -5261,8 +5261,8 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %.thread112.i
 
 .thread112.i:                                     ; preds = %214, %212, %210, %.thread95.i
-  %.2167111.i = phi double [ %.2167.i, %214 ], [ %.2167.i, %212 ], [ %.2167.i, %210 ], [ 0.000000e+00, %.thread95.i ]
-  %.2161.i = phi double [ 1.000000e+00, %214 ], [ %.1160.i, %212 ], [ 0.000000e+00, %210 ], [ 0.000000e+00, %.thread95.i ]
+  %.2167111.i = phi double [ %.2167.i, %212 ], [ %.2167.i, %214 ], [ %.2167.i, %210 ], [ 0.000000e+00, %.thread95.i ]
+  %.2161.i = phi double [ %.1160.i, %212 ], [ 1.000000e+00, %214 ], [ 0.000000e+00, %210 ], [ 0.000000e+00, %.thread95.i ]
   call void @pfree(ptr noundef %113) #11
   call void @pfree(ptr noundef %117) #11
   %215 = fsub double 1.000000e+00, %98
@@ -5282,7 +5282,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %225
 
 225:                                              ; preds = %224, %222, %.thread112.i
-  %.0158.i = phi double [ 1.000000e+00, %224 ], [ %217, %222 ], [ 0.000000e+00, %.thread112.i ]
+  %.0158.i = phi double [ %217, %222 ], [ 1.000000e+00, %224 ], [ 0.000000e+00, %.thread112.i ]
   %226 = fcmp olt double %220, 0.000000e+00
   br i1 %226, label %230, label %227
 
@@ -5294,7 +5294,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %230
 
 230:                                              ; preds = %229, %227, %225
-  %.0157.i = phi double [ 1.000000e+00, %229 ], [ %220, %227 ], [ 0.000000e+00, %225 ]
+  %.0157.i = phi double [ %220, %227 ], [ 1.000000e+00, %229 ], [ 0.000000e+00, %225 ]
   %231 = load i32, ptr %114, align 8
   %232 = sitofp i32 %231 to double
   %233 = fcmp ogt double %27, %232
@@ -5514,7 +5514,7 @@ find_join_input_rel.exit:                         ; preds = %297
   br label %342
 
 342:                                              ; preds = %337, %339, %341
-  %.2 = phi double [ 1.000000e+00, %341 ], [ %.0, %339 ], [ 0.000000e+00, %337 ]
+  %.2 = phi double [ %.0, %339 ], [ 1.000000e+00, %341 ], [ 0.000000e+00, %337 ]
   %343 = bitcast double %.2 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5582,7 +5582,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   br label %34
 
 34:                                               ; preds = %27, %18, %33
-  %.sink = phi i8 [ 0, %33 ], [ 1, %18 ], [ 1, %27 ]
+  %.sink = phi i8 [ 1, %18 ], [ 0, %33 ], [ 1, %27 ]
   store i8 %.sink, ptr %5, align 1
   ret void
 }
@@ -5776,8 +5776,8 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %25, %._crit_edge, %95, %97
-  %.0109.lcssa4857 = phi double [ %.0109.lcssa49, %97 ], [ %.0109.lcssa49, %95 ], [ %.0109.lcssa49, %._crit_edge ], [ %78, %.preheader ], [ 0.000000e+00, %25 ]
-  %.2117 = phi double [ 1.000000e+00, %97 ], [ %.1116, %95 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %25 ]
+  %.0109.lcssa4857 = phi double [ %.0109.lcssa49, %95 ], [ %.0109.lcssa49, %97 ], [ %.0109.lcssa49, %._crit_edge ], [ %78, %.preheader ], [ 0.000000e+00, %25 ]
+  %.2117 = phi double [ %.1116, %95 ], [ 1.000000e+00, %97 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %25 ]
   call void @pfree(ptr noundef %45) #11
   call void @pfree(ptr noundef %47) #11
   %or.cond5 = or i1 %4, %.1108
@@ -5796,7 +5796,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br label %105
 
 105:                                              ; preds = %.thread, %98, %103
-  %.0114 = phi double [ %104, %103 ], [ 1.000000e+00, %98 ], [ 5.000000e-01, %.thread ]
+  %.0114 = phi double [ 1.000000e+00, %98 ], [ %104, %103 ], [ 5.000000e-01, %.thread ]
   %106 = fsub double 1.000000e+00, %.2117
   %107 = fsub double %106, %28
   %108 = fcmp olt double %107, 0.000000e+00
@@ -5810,7 +5810,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br label %112
 
 112:                                              ; preds = %105, %109, %111
-  %.0113 = phi double [ 1.000000e+00, %111 ], [ %107, %109 ], [ 0.000000e+00, %105 ]
+  %.0113 = phi double [ %107, %109 ], [ 1.000000e+00, %111 ], [ 0.000000e+00, %105 ]
   %113 = call double @llvm.fmuladd.f64(double %.0114, double %.0113, double %.2117)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6731,7 +6731,7 @@ define internal fastcc double @scalarineqsel(ptr noundef readonly captures(none)
   br label %85
 
 85:                                               ; preds = %84, %82, %64, %13, %15, %18, %22, %53, %61, %63
-  %.1 = phi double [ 1.000000e+00, %22 ], [ 1.000000e+00, %63 ], [ %.157, %61 ], [ 0.000000e+00, %53 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ 0x3FD5555555555555, %13 ], [ 1.000000e+00, %84 ], [ %80, %82 ], [ 0.000000e+00, %64 ]
+  %.1 = phi double [ 0x3FD5555555555555, %13 ], [ 0.000000e+00, %53 ], [ 1.000000e+00, %22 ], [ %.157, %61 ], [ 1.000000e+00, %63 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ %80, %82 ], [ 1.000000e+00, %84 ], [ 0.000000e+00, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret double %.1
@@ -6898,11 +6898,11 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %371
 
-.loopexit:                                        ; preds = %63, %.preheader249, %35, %26, %45, %42, %53
-  %.2167.ph = phi i32 [ %.1166, %53 ], [ %.1166, %42 ], [ %.1166, %45 ], [ %28, %26 ], [ %.1166, %35 ], [ %.1166, %.preheader249 ], [ %.1166, %63 ]
-  %.2144.ph = phi double [ %.0142268, %53 ], [ %.0142268, %42 ], [ %.0142268, %45 ], [ %.0142268, %26 ], [ %36, %35 ], [ %.0142268, %.preheader249 ], [ %.0142268, %63 ]
-  %.2140.ph = phi double [ %.3141, %53 ], [ %.3141, %42 ], [ %.3141, %45 ], [ %.0138269, %26 ], [ %.3141, %35 ], [ %.3141, %.preheader249 ], [ %.3141, %63 ]
-  %.2136.ph = phi ptr [ %.0134270, %53 ], [ %43, %42 ], [ %43, %45 ], [ %.0134270, %26 ], [ %.0134270, %35 ], [ %.0134270, %.preheader249 ], [ %59, %63 ]
+.loopexit:                                        ; preds = %63, %.preheader249, %35, %26, %53, %42, %45
+  %.2167.ph = phi i32 [ %.1166, %45 ], [ %.1166, %42 ], [ %.1166, %53 ], [ %28, %26 ], [ %.1166, %35 ], [ %.1166, %.preheader249 ], [ %.1166, %63 ]
+  %.2144.ph = phi double [ %.0142268, %45 ], [ %.0142268, %42 ], [ %.0142268, %53 ], [ %.0142268, %26 ], [ %36, %35 ], [ %.0142268, %.preheader249 ], [ %.0142268, %63 ]
+  %.2140.ph = phi double [ %.3141, %45 ], [ %.3141, %42 ], [ %.3141, %53 ], [ %.0138269, %26 ], [ %.3141, %35 ], [ %.3141, %.preheader249 ], [ %.3141, %63 ]
+  %.2136.ph = phi ptr [ %43, %45 ], [ %43, %42 ], [ %.0134270, %53 ], [ %.0134270, %26 ], [ %.0134270, %35 ], [ %.0134270, %.preheader249 ], [ %59, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %66 = load i32, ptr %16, align 4
@@ -7130,8 +7130,8 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br label %.critedge256.i
 
 .critedge256.i:                                   ; preds = %161, %.critedge256.loopexit.split.loop.exit.i, %.lr.ph.i, %155, %150, %146
-  %.1187.i = phi i32 [ %.0186295.i284, %150 ], [ %.0186295.i284, %146 ], [ %170, %.critedge256.loopexit.split.loop.exit.i ], [ %.0186295.i284, %155 ], [ %.0186295.i284, %.lr.ph.i ], [ %.0186295.i284, %161 ]
-  %.1184.i = phi i32 [ %spec.select.i, %150 ], [ %.0183296.i283, %146 ], [ %.0183296.i283, %.critedge256.loopexit.split.loop.exit.i ], [ %.0183296.i283, %155 ], [ %.0183296.i283, %.lr.ph.i ], [ %.0183296.i283, %161 ]
+  %.1187.i = phi i32 [ %.0186295.i284, %150 ], [ %.0186295.i284, %146 ], [ %.0186295.i284, %155 ], [ %170, %.critedge256.loopexit.split.loop.exit.i ], [ %.0186295.i284, %.lr.ph.i ], [ %.0186295.i284, %161 ]
+  %.1184.i = phi i32 [ %spec.select.i, %150 ], [ %.0183296.i283, %146 ], [ %.0183296.i283, %155 ], [ %.0183296.i283, %.critedge256.loopexit.split.loop.exit.i ], [ %.0183296.i283, %.lr.ph.i ], [ %.0183296.i283, %161 ]
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i282, 1
   %171 = load i32, ptr %121, align 4
   %172 = sext i32 %171 to i64
@@ -7154,10 +7154,10 @@ define dso_local double @estimate_num_groups(ptr noundef %0, ptr noundef readonl
   br label %182
 
 182:                                              ; preds = %179, %176, %.critedge254.i, %130, %123
-  %.1176.i = phi ptr [ %.0175304.i, %123 ], [ %.0175304.i, %130 ], [ %.0175304.i, %.critedge254.i ], [ %126, %179 ], [ %.0175304.i, %176 ]
-  %.1173.i = phi i32 [ %.0172305.i, %123 ], [ %.0172305.i, %130 ], [ %.0172305.i, %.critedge254.i ], [ %181, %179 ], [ %.0172305.i, %176 ]
-  %.1170.i = phi i32 [ %.0169306.i, %123 ], [ %.0169306.i, %130 ], [ %.0169306.i, %.critedge254.i ], [ %.0186295.i.lcssa, %179 ], [ %.0169306.i, %176 ]
-  %.1164.i = phi i32 [ %.0163307.i, %123 ], [ %.0163307.i, %130 ], [ %.0163307.i, %.critedge254.i ], [ %.0183296.i.lcssa, %179 ], [ %.0163307.i, %176 ]
+  %.1176.i = phi ptr [ %.0175304.i, %.critedge254.i ], [ %.0175304.i, %123 ], [ %.0175304.i, %130 ], [ %126, %179 ], [ %.0175304.i, %176 ]
+  %.1173.i = phi i32 [ %.0172305.i, %.critedge254.i ], [ %.0172305.i, %123 ], [ %.0172305.i, %130 ], [ %181, %179 ], [ %.0172305.i, %176 ]
+  %.1170.i = phi i32 [ %.0169306.i, %.critedge254.i ], [ %.0169306.i, %123 ], [ %.0169306.i, %130 ], [ %.0186295.i.lcssa, %179 ], [ %.0169306.i, %176 ]
+  %.1164.i = phi i32 [ %.0163307.i, %.critedge254.i ], [ %.0163307.i, %123 ], [ %.0163307.i, %130 ], [ %.0183296.i.lcssa, %179 ], [ %.0163307.i, %176 ]
   %indvars.iv.next353.i = add nuw nsw i64 %indvars.iv352.i, 1
   %183 = load i32, ptr %117, align 4
   %184 = sext i32 %183 to i64
@@ -7274,7 +7274,7 @@ list_length.exit.i:                               ; preds = %189
   br label %.critedge260.i
 
 .critedge260.i:                                   ; preds = %232, %.critedge260.sink.split.i, %.lr.ph313.i, %219, %213, %209
-  %.3202.i = phi ptr [ %.0199318.i289, %209 ], [ %.0199318.i289, %213 ], [ %.0199318.i289, %.lr.ph313.i ], [ %.0199318.i289, %219 ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %232 ]
+  %.3202.i = phi ptr [ %.0199318.i289, %219 ], [ %.0199318.i289, %209 ], [ %.0199318.i289, %213 ], [ %.0199318.i289, %.lr.ph313.i ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %232 ]
   %indvars.iv.next361.i = add nuw nsw i64 %indvars.iv360.i288, 1
   %237 = load i32, ptr %121, align 4
   %238 = sext i32 %237 to i64
@@ -7537,7 +7537,7 @@ select.unfold.i:                                  ; preds = %253, %240
   br label %371
 
 371:                                              ; preds = %.critedge.thread, %8, %12, %366, %.critedge.thread354
-  %.0133 = phi double [ %.4146, %.critedge.thread354 ], [ %.8, %366 ], [ 1.000000e+00, %12 ], [ 1.000000e+00, %8 ], [ %9, %.critedge.thread ]
+  %.0133 = phi double [ %9, %.critedge.thread ], [ %.4146, %.critedge.thread354 ], [ %.8, %366 ], [ 1.000000e+00, %12 ], [ 1.000000e+00, %8 ]
   ret double %.0133
 }
 
@@ -7767,7 +7767,7 @@ define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1
   br label %72
 
 72:                                               ; preds = %67, %69, %71
-  %.2 = phi double [ 1.000000e+00, %71 ], [ %.1, %69 ], [ 0x3EB0C6F7A0B5ED8D, %67 ]
+  %.2 = phi double [ %.1, %69 ], [ 1.000000e+00, %71 ], [ 0x3EB0C6F7A0B5ED8D, %67 ]
   store double %.2, ptr %4, align 8
   %73 = load ptr, ptr %9, align 8
   %.not40 = icmp eq ptr %73, null
@@ -8534,12 +8534,12 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr noundef readonly captu
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %29, %.lr.ph270, %..critedge.loopexit_crit_edge349, %8
-  %.0149.lcssa = phi double [ 1.000000e+00, %8 ], [ %.3152.lcssa, %..critedge.loopexit_crit_edge349 ], [ 1.000000e+00, %.lr.ph270 ], [ %.0149264335, %29 ], [ %.0149264335, %27 ]
-  %.0143.lcssa = phi i1 [ false, %8 ], [ %.3146.lcssa, %..critedge.loopexit_crit_edge349 ], [ false, %.lr.ph270 ], [ %.0143265334, %29 ], [ %.0143265334, %27 ]
-  %.0138.lcssa = phi i1 [ false, %8 ], [ %.3141.lcssa, %..critedge.loopexit_crit_edge349 ], [ false, %.lr.ph270 ], [ %.0138266333, %29 ], [ %.0138266333, %27 ]
-  %.0129.lcssa = phi ptr [ null, %8 ], [ %.3.lcssa, %..critedge.loopexit_crit_edge349 ], [ null, %.lr.ph270 ], [ %.0129269330, %29 ], [ %.0129269330, %27 ]
-  %.1135 = phi i1 [ false, %8 ], [ %82, %..critedge.loopexit_crit_edge349 ], [ false, %.lr.ph270 ], [ false, %29 ], [ false, %27 ]
-  %.1131 = phi i32 [ 0, %8 ], [ %.2132, %..critedge.loopexit_crit_edge349 ], [ 0, %.lr.ph270 ], [ %30, %29 ], [ %.0130268331, %27 ]
+  %.0149.lcssa = phi double [ 1.000000e+00, %8 ], [ 1.000000e+00, %.lr.ph270 ], [ %.3152.lcssa, %..critedge.loopexit_crit_edge349 ], [ %.0149264335, %29 ], [ %.0149264335, %27 ]
+  %.0143.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph270 ], [ %.3146.lcssa, %..critedge.loopexit_crit_edge349 ], [ %.0143265334, %29 ], [ %.0143265334, %27 ]
+  %.0138.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph270 ], [ %.3141.lcssa, %..critedge.loopexit_crit_edge349 ], [ %.0138266333, %29 ], [ %.0138266333, %27 ]
+  %.0129.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph270 ], [ %.3.lcssa, %..critedge.loopexit_crit_edge349 ], [ %.0129269330, %29 ], [ %.0129269330, %27 ]
+  %.1135 = phi i1 [ false, %8 ], [ false, %.lr.ph270 ], [ %82, %..critedge.loopexit_crit_edge349 ], [ false, %29 ], [ false, %27 ]
+  %.1131 = phi i32 [ 0, %8 ], [ 0, %.lr.ph270 ], [ %.2132, %..critedge.loopexit_crit_edge349 ], [ %30, %29 ], [ %.0130268331, %27 ]
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 169
   %84 = load i8, ptr %83, align 1, !range !4, !noundef !5
   %85 = trunc nuw i8 %84 to i1
@@ -8777,7 +8777,7 @@ add_predicate_to_index_quals.exit:                ; preds = %91, %.critedge.i
   br label %221
 
 221:                                              ; preds = %.sink.split, %183, %206
-  %222 = phi ptr [ %185, %183 ], [ %208, %206 ], [ %.sink, %.sink.split ]
+  %222 = phi ptr [ %208, %206 ], [ %185, %183 ], [ %.sink, %.sink.split ]
   %223 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.not184 = icmp eq ptr %222, null
   br i1 %.not184, label %.thread215, label %224
@@ -10047,8 +10047,8 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   unreachable
 
 .sink.split:                                      ; preds = %136, %139, %124, %126
-  %.sink118.in = phi ptr [ %103, %126 ], [ %103, %124 ], [ %104, %139 ], [ %104, %136 ]
-  %.sink = phi i16 [ %118, %126 ], [ %118, %124 ], [ %137, %139 ], [ %137, %136 ]
+  %.sink118.in = phi ptr [ %103, %124 ], [ %103, %126 ], [ %104, %139 ], [ %104, %136 ]
+  %.sink = phi i16 [ %118, %124 ], [ %118, %126 ], [ %137, %139 ], [ %137, %136 ]
   %.sink118 = load i32, ptr %.sink118.in, align 4
   %150 = zext i32 %.sink118 to i64
   %151 = sext i16 %.sink to i64
@@ -10058,7 +10058,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   br label %153
 
 153:                                              ; preds = %.sink.split, %142, %128
-  %154 = phi ptr [ %143, %142 ], [ %129, %128 ], [ %152, %.sink.split ]
+  %154 = phi ptr [ %129, %128 ], [ %143, %142 ], [ %152, %.sink.split ]
   %.not100 = icmp eq ptr %154, null
   br i1 %.not100, label %.thread, label %155
 
@@ -10133,7 +10133,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   br label %187
 
 187:                                              ; preds = %181, %184, %186
-  %.083 = phi double [ 1.000000e+00, %186 ], [ %182, %184 ], [ 0.000000e+00, %181 ]
+  %.083 = phi double [ %182, %184 ], [ 1.000000e+00, %186 ], [ 0.000000e+00, %181 ]
   %188 = uitofp i32 %43 to double
   store double %.083, ptr %5, align 8
   %189 = call double @index_other_operands_eval_cost(ptr noundef %0, ptr noundef %.0.lcssa.i)

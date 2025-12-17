@@ -1759,7 +1759,7 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !21
 
 .loopexit:                                        ; preds = %49, %4, %42, %48
-  %.not3234 = phi i1 [ true, %42 ], [ true, %48 ], [ true, %4 ], [ %.1, %49 ]
+  %.not3234 = phi i1 [ true, %48 ], [ true, %42 ], [ true, %4 ], [ %.1, %49 ]
   ret i1 %.not3234
 }
 

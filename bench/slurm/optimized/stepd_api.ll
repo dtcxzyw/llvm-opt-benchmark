@@ -649,12 +649,12 @@ _step_connect.exit:                               ; preds = %32
   store i16 %167, ptr %3, align 2
   br label %.sink.split
 
-.thread:                                          ; preds = %.split108, %138, %128, %123, %.split88.us, %112, %.outer._crit_edge
+.thread:                                          ; preds = %138, %.split108, %128, %123, %112, %.split88.us, %.outer._crit_edge
   %168 = call i32 @close(i32 noundef %100) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %_step_connect.exit, %_step_connect.exit.thread, %166, %165
-  %.0.ph = phi i32 [ %100, %165 ], [ %100, %166 ], [ -1, %_step_connect.exit.thread ], [ -1, %_step_connect.exit ], [ %100, %.thread ]
+  %.0.ph = phi i32 [ %100, %166 ], [ %100, %165 ], [ -1, %_step_connect.exit.thread ], [ -1, %_step_connect.exit ], [ %100, %.thread ]
   call void @slurm_xfree(ptr noundef nonnull %13) #12
   br label %169
 
@@ -861,8 +861,8 @@ define dso_local i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   %67 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split85, %42, %32, %27, %.split65.us, %16, %.loopexit
-  %.0 = phi i32 [ %67, %.loopexit ], [ -1, %16 ], [ -1, %.split65.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split85 ]
+.thread:                                          ; preds = %42, %.split85, %32, %27, %16, %.split65.us, %.loopexit
+  %.0 = phi i32 [ %67, %.loopexit ], [ -1, %16 ], [ -1, %.split65.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split85 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1125,8 +1125,8 @@ define dso_local i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 n
   %89 = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split132, %61, %51, %46, %.split111, %32, %.split94.us, %17, %88
-  %.0 = phi i32 [ %89, %88 ], [ -1, %17 ], [ -1, %.split94.us ], [ -1, %32 ], [ -1, %.split111 ], [ -1, %46 ], [ -1, %51 ], [ -1, %61 ], [ -1, %.split132 ]
+.thread:                                          ; preds = %61, %.split132, %51, %46, %32, %.split111, %17, %.split94.us, %88
+  %.0 = phi i32 [ %89, %88 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.split94.us ], [ -1, %.split111 ], [ -1, %46 ], [ -1, %51 ], [ -1, %.split132 ], [ -1, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1606,8 +1606,8 @@ define dso_local i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext 
   %163 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split269.us, %151, %141, %136, %.split218.us, %104, %94, %89, %.split167, %43, %33, %28, %.split147.us, %17, %162
-  %.0 = phi i32 [ %163, %162 ], [ 0, %17 ], [ 0, %.split147.us ], [ 0, %28 ], [ 0, %33 ], [ 0, %43 ], [ 0, %.split167 ], [ 0, %89 ], [ 0, %94 ], [ 0, %104 ], [ 0, %.split218.us ], [ 0, %136 ], [ 0, %141 ], [ 0, %151 ], [ 0, %.split269.us ]
+.thread:                                          ; preds = %151, %.split269.us, %141, %136, %104, %.split218.us, %94, %89, %43, %.split167, %33, %28, %17, %.split147.us, %162
+  %.0 = phi i32 [ %163, %162 ], [ 0, %104 ], [ 0, %43 ], [ 0, %17 ], [ 0, %.split147.us ], [ 0, %28 ], [ 0, %33 ], [ 0, %.split167 ], [ 0, %89 ], [ 0, %94 ], [ 0, %.split218.us ], [ 0, %136 ], [ 0, %141 ], [ 0, %.split269.us ], [ 0, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3721,7 +3721,7 @@ define dso_local ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   %723 = load ptr, ptr %12, align 8
   br label %730
 
-.thread:                                          ; preds = %.split1424.us, %711, %701, %696, %.split1372, %645, %635, %630, %.split1319.us, %619, %609, %604, %.split1268, %553, %543, %538, %.split1215.us, %527, %517, %512, %.split1164, %461, %451, %446, %.split1112.us, %435, %425, %420, %.split1061.us, %391, %381, %376, %.split1008.us, %346, %336, %331, %.split956, %280, %270, %265, %.split903.us, %254, %244, %239, %.split852, %189, %179, %174, %.split801.us, %161, %151, %146, %.split779, %115, %.split760.us, %100, %.split742.us, %81, %.split723, %57, %.split705, %39, %.split688.us, %24
+.thread:                                          ; preds = %711, %.split1424.us, %701, %696, %645, %.split1372, %635, %630, %619, %.split1319.us, %609, %604, %553, %.split1268, %543, %538, %527, %.split1215.us, %517, %512, %461, %.split1164, %451, %446, %435, %.split1112.us, %425, %420, %391, %.split1061.us, %381, %376, %346, %.split1008.us, %336, %331, %280, %.split956, %270, %265, %254, %.split903.us, %244, %239, %189, %.split852, %179, %174, %161, %.split801.us, %151, %146, %115, %.split779, %100, %.split760.us, %81, %.split742.us, %57, %.split723, %39, %.split705, %24, %.split688.us
   %724 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %724, ptr %6, align 8
@@ -3746,7 +3746,7 @@ xfree_struct_passwd.exit:                         ; preds = %.thread, %725
   br label %730
 
 730:                                              ; preds = %xfree_struct_passwd.exit, %722, %170
-  %.0 = phi ptr [ %723, %722 ], [ null, %xfree_struct_passwd.exit ], [ null, %170 ]
+  %.0 = phi ptr [ %723, %722 ], [ null, %170 ], [ null, %xfree_struct_passwd.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5258,13 +5258,13 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.stepd_getgr) #12
   br label %507
 
-.thread:                                          ; preds = %481, %486, %496, %.split1043.us, %427, %432, %442, %.split990.us, %381, %386, %396, %.split938.us, %336, %341, %351, %.split876.us, %270, %275, %285, %.split823, %244, %249, %259, %.split761.us, %194, %199, %209, %.split709.us, %.split658.us, %158, %148, %143, %.split636, %112, %.split617.us, %97, %.split599.us, %78, %.split580, %54, %.split562, %36, %.split545.us, %21
-  %.0257 = phi ptr [ null, %21 ], [ null, %.split545.us ], [ null, %36 ], [ null, %.split562 ], [ null, %54 ], [ null, %.split580 ], [ null, %78 ], [ null, %.split599.us ], [ null, %97 ], [ null, %.split617.us ], [ null, %112 ], [ null, %.split636 ], [ null, %143 ], [ null, %148 ], [ null, %158 ], [ null, %.split658.us ], [ %170, %.split709.us ], [ %170, %209 ], [ %170, %199 ], [ %170, %194 ], [ %170, %.split761.us ], [ %170, %259 ], [ %170, %249 ], [ %170, %244 ], [ %170, %.split823 ], [ %170, %285 ], [ %170, %275 ], [ %170, %270 ], [ %170, %.split876.us ], [ %170, %351 ], [ %170, %341 ], [ %170, %336 ], [ %170, %.split938.us ], [ %170, %396 ], [ %170, %386 ], [ %170, %381 ], [ %170, %.split990.us ], [ %170, %442 ], [ %170, %432 ], [ %170, %427 ], [ %170, %.split1043.us ], [ %170, %496 ], [ %170, %486 ], [ %170, %481 ]
+.thread:                                          ; preds = %481, %486, %496, %.split1043.us, %427, %432, %442, %.split990.us, %381, %386, %396, %.split938.us, %336, %341, %351, %.split876.us, %270, %275, %285, %.split823, %244, %249, %259, %.split761.us, %194, %199, %209, %.split709.us, %158, %.split658.us, %148, %143, %112, %.split636, %97, %.split617.us, %78, %.split599.us, %54, %.split580, %36, %.split562, %21, %.split545.us
+  %.0257 = phi ptr [ null, %158 ], [ null, %112 ], [ null, %78 ], [ null, %54 ], [ null, %97 ], [ null, %36 ], [ null, %21 ], [ null, %.split545.us ], [ null, %.split562 ], [ null, %.split580 ], [ null, %.split599.us ], [ null, %.split617.us ], [ null, %.split636 ], [ null, %143 ], [ null, %148 ], [ null, %.split658.us ], [ %170, %.split709.us ], [ %170, %209 ], [ %170, %199 ], [ %170, %194 ], [ %170, %.split761.us ], [ %170, %259 ], [ %170, %249 ], [ %170, %244 ], [ %170, %.split823 ], [ %170, %285 ], [ %170, %275 ], [ %170, %270 ], [ %170, %.split876.us ], [ %170, %351 ], [ %170, %341 ], [ %170, %336 ], [ %170, %.split938.us ], [ %170, %396 ], [ %170, %386 ], [ %170, %381 ], [ %170, %.split990.us ], [ %170, %442 ], [ %170, %432 ], [ %170, %427 ], [ %170, %.split1043.us ], [ %170, %496 ], [ %170, %486 ], [ %170, %481 ]
   tail call void @xfree_struct_group_array(ptr noundef %.0257)
   br label %507
 
 507:                                              ; preds = %._crit_edge1099, %506, %.outer436._crit_edge, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %.outer436._crit_edge ], [ %170, %506 ], [ %170, %._crit_edge1099 ]
+  %.0 = phi ptr [ %170, %._crit_edge1099 ], [ null, %.outer436._crit_edge ], [ null, %.thread ], [ %170, %506 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6851,13 +6851,13 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
   br label %527
 
-.thread:                                          ; preds = %.split1044.us, %516, %506, %501, %.split992, %447, %437, %432, %.split940.us, %421, %411, %406, %362, %367, %377, %.split877.us, %309, %314, %324, %.split824.us, %.split772, %259, %249, %244, %.split719.us, %233, %223, %218, %.split668.us, %185, %175, %170, %.split617.us, %139, %129, %124, %.split595, %93, %.split576.us, %78, %.split558.us, %59, %.split539, %35, %.split522.us, %20
-  %.0252 = phi ptr [ null, %20 ], [ null, %.split522.us ], [ null, %35 ], [ null, %.split539 ], [ null, %59 ], [ null, %.split558.us ], [ null, %78 ], [ null, %.split576.us ], [ null, %93 ], [ null, %.split595 ], [ null, %124 ], [ null, %129 ], [ null, %139 ], [ null, %.split617.us ], [ %149, %170 ], [ %149, %175 ], [ %149, %185 ], [ %149, %.split668.us ], [ %149, %218 ], [ %149, %223 ], [ %149, %233 ], [ %149, %.split719.us ], [ %149, %244 ], [ %149, %249 ], [ %149, %259 ], [ %149, %.split772 ], [ %149, %.split824.us ], [ %149, %324 ], [ %149, %314 ], [ %149, %309 ], [ %149, %.split877.us ], [ %149, %377 ], [ %149, %367 ], [ %149, %362 ], [ %149, %406 ], [ %149, %411 ], [ %149, %421 ], [ %149, %.split940.us ], [ %149, %432 ], [ %149, %437 ], [ %149, %447 ], [ %149, %.split992 ], [ %149, %501 ], [ %149, %506 ], [ %149, %516 ], [ %149, %.split1044.us ]
+.thread:                                          ; preds = %516, %.split1044.us, %506, %501, %447, %.split992, %437, %432, %421, %.split940.us, %411, %406, %362, %367, %377, %.split877.us, %309, %314, %324, %.split824.us, %259, %.split772, %249, %244, %233, %.split719.us, %223, %218, %185, %.split668.us, %175, %170, %139, %.split617.us, %129, %124, %93, %.split595, %78, %.split576.us, %59, %.split558.us, %35, %.split539, %20, %.split522.us
+  %.0252 = phi ptr [ %149, %447 ], [ %149, %421 ], [ %149, %362 ], [ %149, %259 ], [ %149, %233 ], [ %149, %185 ], [ null, %139 ], [ null, %93 ], [ null, %59 ], [ null, %35 ], [ null, %78 ], [ null, %20 ], [ null, %.split522.us ], [ null, %.split539 ], [ null, %.split558.us ], [ null, %.split576.us ], [ null, %.split595 ], [ null, %124 ], [ null, %129 ], [ null, %.split617.us ], [ %149, %170 ], [ %149, %175 ], [ %149, %.split668.us ], [ %149, %218 ], [ %149, %223 ], [ %149, %.split719.us ], [ %149, %244 ], [ %149, %249 ], [ %149, %.split772 ], [ %149, %.split824.us ], [ %149, %324 ], [ %149, %314 ], [ %149, %309 ], [ %149, %.split877.us ], [ %149, %377 ], [ %149, %367 ], [ %149, %406 ], [ %149, %411 ], [ %149, %.split940.us ], [ %149, %432 ], [ %149, %437 ], [ %149, %.split992 ], [ %149, %501 ], [ %149, %506 ], [ %149, %.split1044.us ], [ %149, %516 ]
   tail call void @xfree_struct_hostent(ptr noundef %.0252)
   br label %527
 
 527:                                              ; preds = %.outer._crit_edge, %526, %.outer442._crit_edge, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %.outer442._crit_edge ], [ %149, %526 ], [ %149, %.outer._crit_edge ]
+  %.0 = phi ptr [ null, %.outer442._crit_edge ], [ %149, %.outer._crit_edge ], [ null, %.thread ], [ %149, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7122,8 +7122,8 @@ define dso_local i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 
   %72 = tail call i32 @receive_fd_over_socket(i32 noundef %0) #12
   br label %.thread
 
-.thread:                                          ; preds = %.outer._crit_edge, %71, %.split84, %44, %34, %29, %.split64.us, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %.split64.us ], [ -1, %29 ], [ -1, %34 ], [ -1, %44 ], [ -1, %.split84 ], [ %72, %71 ], [ %69, %.outer._crit_edge ]
+.thread:                                          ; preds = %.outer._crit_edge, %71, %44, %.split84, %34, %29, %18, %.split64.us
+  %.0 = phi i32 [ -1, %44 ], [ -1, %18 ], [ -1, %.split64.us ], [ -1, %29 ], [ -1, %34 ], [ -1, %.split84 ], [ %72, %71 ], [ %69, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -7384,7 +7384,7 @@ define dso_local i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_
   %65 = tail call ptr @__errno_location() #13
   br label %.lr.ph195
 
-.thread:                                          ; preds = %.split76, %.split59.us, %15, %26, %31, %41, %.split79
+.thread:                                          ; preds = %.split76, %15, %.split59.us, %26, %31, %41, %.split79
   %66 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7774,8 +7774,8 @@ define dso_local i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, p
   %130 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split243.us, %122, %112, %107, %.split221.us, %79, %.split200.us, %60, %.split181.us, %38, %.split163.us, %16, %.outer._crit_edge
-  %.0 = phi i32 [ %130, %.outer._crit_edge ], [ -1, %16 ], [ -1, %.split163.us ], [ -1, %38 ], [ -1, %.split181.us ], [ -1, %60 ], [ -1, %.split200.us ], [ -1, %79 ], [ -1, %.split221.us ], [ -1, %107 ], [ -1, %112 ], [ -1, %122 ], [ -1, %.split243.us ]
+.thread:                                          ; preds = %122, %.split243.us, %112, %107, %79, %.split221.us, %60, %.split200.us, %38, %.split181.us, %16, %.split163.us, %.outer._crit_edge
+  %.0 = phi i32 [ -1, %79 ], [ -1, %16 ], [ -1, %60 ], [ -1, %38 ], [ %130, %.outer._crit_edge ], [ -1, %.split163.us ], [ -1, %.split181.us ], [ -1, %.split200.us ], [ -1, %.split221.us ], [ -1, %107 ], [ -1, %112 ], [ -1, %.split243.us ], [ -1, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -8422,8 +8422,8 @@ define dso_local i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext
   %220 = load i32, ptr %12, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split427, %193, %183, %178, %.split376, %150, %140, %135, %.split355, %118, %.split336.us, %103, %.split318.us, %84, %.split299, %58, %.split280.us, %43, %.split263.us, %24, %129, %.outer._crit_edge
-  %.0 = phi i32 [ %220, %.outer._crit_edge ], [ -1, %129 ], [ -1, %24 ], [ -1, %.split263.us ], [ -1, %43 ], [ -1, %.split280.us ], [ -1, %58 ], [ -1, %.split299 ], [ -1, %84 ], [ -1, %.split318.us ], [ -1, %103 ], [ -1, %.split336.us ], [ -1, %118 ], [ -1, %.split355 ], [ -1, %135 ], [ -1, %140 ], [ -1, %150 ], [ -1, %.split376 ], [ -1, %178 ], [ -1, %183 ], [ -1, %193 ], [ -1, %.split427 ]
+.thread:                                          ; preds = %193, %.split427, %183, %178, %150, %.split376, %140, %135, %118, %.split355, %103, %.split336.us, %84, %.split318.us, %58, %.split299, %43, %.split280.us, %24, %.split263.us, %129, %.outer._crit_edge
+  %.0 = phi i32 [ %220, %.outer._crit_edge ], [ -1, %150 ], [ -1, %118 ], [ -1, %103 ], [ -1, %84 ], [ -1, %58 ], [ -1, %43 ], [ -1, %24 ], [ -1, %129 ], [ -1, %.split263.us ], [ -1, %.split280.us ], [ -1, %.split299 ], [ -1, %.split318.us ], [ -1, %.split336.us ], [ -1, %.split355 ], [ -1, %135 ], [ -1, %140 ], [ -1, %.split376 ], [ -1, %178 ], [ -1, %183 ], [ -1, %.split427 ], [ -1, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -9686,8 +9686,8 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
-.thread:                                          ; preds = %.outer389._crit_edge, %._crit_edge908, %.split592, %164, %154, %149, %.split570, %135, %.split552, %117, %.split533.us, %102, %.split515, %80, %.split497, %62, %.split479, %44, %.split462.us, %29, %.thread382, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %.thread382 ], [ -1, %29 ], [ -1, %.split462.us ], [ -1, %44 ], [ -1, %.split479 ], [ -1, %62 ], [ -1, %.split497 ], [ -1, %80 ], [ -1, %.split515 ], [ -1, %102 ], [ -1, %.split533.us ], [ -1, %117 ], [ -1, %.split552 ], [ -1, %135 ], [ -1, %.split570 ], [ -1, %149 ], [ -1, %154 ], [ -1, %164 ], [ -1, %.split592 ], [ %189, %._crit_edge908 ], [ %189, %.outer389._crit_edge ]
+.thread:                                          ; preds = %.outer389._crit_edge, %._crit_edge908, %164, %.split592, %154, %149, %135, %.split570, %117, %.split552, %102, %.split533.us, %80, %.split515, %62, %.split497, %44, %.split479, %29, %.split462.us, %.thread382, %7
+  %.0 = phi i32 [ -1, %164 ], [ -1, %.thread382 ], [ -1, %135 ], [ -1, %117 ], [ -1, %102 ], [ -1, %80 ], [ -1, %62 ], [ -1, %44 ], [ -1, %29 ], [ -1, %7 ], [ -1, %.split462.us ], [ -1, %.split479 ], [ -1, %.split497 ], [ -1, %.split515 ], [ -1, %.split533.us ], [ -1, %.split552 ], [ -1, %.split570 ], [ -1, %149 ], [ -1, %154 ], [ -1, %.split592 ], [ %189, %._crit_edge908 ], [ %189, %.outer389._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -9808,7 +9808,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   br label %48
 
 48:                                               ; preds = %37, %46, %7, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %7 ], [ 0, %46 ], [ 0, %37 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %3 ], [ 0, %46 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -10257,8 +10257,8 @@ define dso_local zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef 
   %90 = trunc nuw i8 %89 to i1
   br label %.thread
 
-.thread:                                          ; preds = %.split132, %61, %51, %46, %.split111, %32, %.split94.us, %17, %88
-  %.0 = phi i1 [ %90, %88 ], [ false, %17 ], [ false, %.split94.us ], [ false, %32 ], [ false, %.split111 ], [ false, %46 ], [ false, %51 ], [ false, %61 ], [ false, %.split132 ]
+.thread:                                          ; preds = %61, %.split132, %51, %46, %32, %.split111, %17, %.split94.us, %88
+  %.0 = phi i1 [ %90, %88 ], [ false, %32 ], [ false, %17 ], [ false, %.split94.us ], [ false, %.split111 ], [ false, %46 ], [ false, %51 ], [ false, %.split132 ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -10457,8 +10457,8 @@ define dso_local i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) l
   %66 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split83, %41, %31, %26, %.split63.us, %15, %.outer._crit_edge
-  %.0 = phi i32 [ %66, %.outer._crit_edge ], [ -1, %15 ], [ -1, %.split63.us ], [ -1, %26 ], [ -1, %31 ], [ -1, %41 ], [ -1, %.split83 ]
+.thread:                                          ; preds = %41, %.split83, %31, %26, %15, %.split63.us, %.outer._crit_edge
+  %.0 = phi i32 [ -1, %15 ], [ %66, %.outer._crit_edge ], [ -1, %.split63.us ], [ -1, %26 ], [ -1, %31 ], [ -1, %.split83 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -10795,8 +10795,8 @@ define dso_local i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr 
   %.pre = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %.split159, %90, %80, %75, %.split110, %47, %37, %32, %.split207.us, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %47 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %90 ], [ -1, %.split159 ], [ %.pre, %.outer87._crit_edge ], [ 0, %4 ], [ 0, %.split204.us ]
+.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %90, %.split159, %80, %75, %47, %.split110, %37, %32, %21, %.split207.us
+  %.0 = phi i32 [ -1, %90 ], [ -1, %47 ], [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %.split159 ], [ 0, %4 ], [ %.pre, %.outer87._crit_edge ], [ 0, %.split204.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11134,8 +11134,8 @@ define dso_local i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr n
   %.pre = load i32, ptr %6, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %.split159, %90, %80, %75, %.split110, %47, %37, %32, %.split207.us, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %47 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %90 ], [ -1, %.split159 ], [ %.pre, %.outer87._crit_edge ], [ 0, %4 ], [ 0, %.split204.us ]
+.thread:                                          ; preds = %.split204.us, %4, %.outer87._crit_edge, %90, %.split159, %80, %75, %47, %.split110, %37, %32, %21, %.split207.us
+  %.0 = phi i32 [ -1, %90 ], [ -1, %47 ], [ -1, %21 ], [ -1, %.split207.us ], [ -1, %32 ], [ -1, %37 ], [ -1, %.split110 ], [ -1, %75 ], [ -1, %80 ], [ -1, %.split159 ], [ 0, %4 ], [ %.pre, %.outer87._crit_edge ], [ 0, %.split204.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11667,8 +11667,8 @@ define dso_local i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr
   %176 = load i32, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split328, %149, %139, %134, %.split277.us, %123, %113, %108, %.split201.us, %18, %.thread162, %.outer._crit_edge
-  %.0 = phi i32 [ %176, %.outer._crit_edge ], [ -1, %.thread162 ], [ -1, %18 ], [ -1, %.split201.us ], [ -1, %108 ], [ -1, %113 ], [ -1, %123 ], [ -1, %.split277.us ], [ -1, %134 ], [ -1, %139 ], [ -1, %149 ], [ -1, %.split328 ]
+.thread:                                          ; preds = %149, %.split328, %139, %134, %123, %.split277.us, %113, %108, %18, %.split201.us, %.thread162, %.outer._crit_edge
+  %.0 = phi i32 [ %176, %.outer._crit_edge ], [ -1, %123 ], [ -1, %18 ], [ -1, %.thread162 ], [ -1, %.split201.us ], [ -1, %108 ], [ -1, %113 ], [ -1, %.split277.us ], [ -1, %134 ], [ -1, %139 ], [ -1, %.split328 ], [ -1, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -12000,8 +12000,8 @@ define dso_local i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) lo
   %112 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split172, %85, %75, %70, %.split122, %42, %32, %27, %.split102.us, %16, %.outer._crit_edge
-  %.0 = phi i32 [ %112, %.outer._crit_edge ], [ -1, %16 ], [ -1, %.split102.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split122 ], [ -1, %70 ], [ -1, %75 ], [ -1, %85 ], [ -1, %.split172 ]
+.thread:                                          ; preds = %85, %.split172, %75, %70, %42, %.split122, %32, %27, %16, %.split102.us, %.outer._crit_edge
+  %.0 = phi i32 [ %112, %.outer._crit_edge ], [ -1, %42 ], [ -1, %16 ], [ -1, %.split102.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split122 ], [ -1, %70 ], [ -1, %75 ], [ -1, %.split172 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -13399,7 +13399,7 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   %471 = load i32, ptr %5, align 4
   br label %.thread522
 
-.thread:                                          ; preds = %.split709.us, %372, %.split690.us, %351, %.split671.us, %329, %.split652.us, %310, %.split633, %288, %.split616.us, %273, %.split962.us, %166, %.split943.us, %145, %.split924.us, %123, %.split905.us, %104, %.split886.us, %85, %.split867.us, %66, %.split848, %44, %.split829.us, %29
+.thread:                                          ; preds = %372, %.split709.us, %351, %.split690.us, %329, %.split671.us, %310, %.split652.us, %288, %.split633, %273, %.split616.us, %166, %.split962.us, %145, %.split943.us, %123, %.split924.us, %104, %.split905.us, %85, %.split886.us, %66, %.split867.us, %44, %.split848, %29, %.split829.us
   %.not433 = icmp eq ptr %8, null
   br i1 %.not433, label %.thread522, label %472
 
@@ -13407,8 +13407,8 @@ define dso_local i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, p
   tail call void @free_buf(ptr noundef nonnull %8) #12
   br label %.thread522
 
-.thread522:                                       ; preds = %.split781, %442, %432, %427, %.split731.us, %416, %406, %401, %.split1035, %236, %226, %221, %.split984.us, %210, %200, %195, %.thread, %472, %.loopexit
-  %.0 = phi i32 [ %471, %.loopexit ], [ -1, %472 ], [ -1, %.thread ], [ -1, %195 ], [ -1, %200 ], [ -1, %210 ], [ -1, %.split984.us ], [ -1, %221 ], [ -1, %226 ], [ -1, %236 ], [ -1, %.split1035 ], [ -1, %401 ], [ -1, %406 ], [ -1, %416 ], [ -1, %.split731.us ], [ -1, %427 ], [ -1, %432 ], [ -1, %442 ], [ -1, %.split781 ]
+.thread522:                                       ; preds = %442, %.split781, %432, %427, %416, %.split731.us, %406, %401, %236, %.split1035, %226, %221, %210, %.split984.us, %200, %195, %.thread, %472, %.loopexit
+  %.0 = phi i32 [ %471, %.loopexit ], [ -1, %472 ], [ -1, %.thread ], [ -1, %195 ], [ -1, %200 ], [ -1, %.split984.us ], [ -1, %210 ], [ -1, %221 ], [ -1, %226 ], [ -1, %.split1035 ], [ -1, %236 ], [ -1, %401 ], [ -1, %406 ], [ -1, %.split731.us ], [ -1, %416 ], [ -1, %427 ], [ -1, %432 ], [ -1, %.split781 ], [ -1, %442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13651,8 +13651,8 @@ define dso_local i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1,
   store i32 %84, ptr %85, align 8
   br label %88
 
-.thread:                                          ; preds = %.split96.us, %76, %65, %60, %.split75.us, %25, %.outer65._crit_edge
-  %.042 = phi i32 [ 0, %.outer65._crit_edge ], [ 0, %25 ], [ 0, %.split75.us ], [ %37, %60 ], [ %37, %65 ], [ %37, %76 ], [ %37, %.split96.us ]
+.thread:                                          ; preds = %76, %.split96.us, %65, %60, %25, %.split75.us, %.outer65._crit_edge
+  %.042 = phi i32 [ 0, %.outer65._crit_edge ], [ 0, %25 ], [ 0, %.split75.us ], [ %37, %60 ], [ %37, %65 ], [ %37, %.split96.us ], [ %37, %76 ]
   %86 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, i32 noundef %.042) #12
   %87 = load ptr, ptr %3, align 8
   call void @jobacctinfo_destroy(ptr noundef %87) #12
@@ -13660,7 +13660,7 @@ define dso_local i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1,
   br label %88
 
 88:                                               ; preds = %4, %.thread, %.outer._crit_edge
-  %.0 = phi i32 [ %.042, %.thread ], [ %37, %.outer._crit_edge ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.042, %.thread ], [ %37, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -14538,7 +14538,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   store ptr %storemerge, ptr %2, align 8
   br label %292
 
-.thread:                                          ; preds = %.split564.us, %284, %274, %269, %.split512.us, %241, %231, %226, %.split460.us, %197, %187, %182, %.split408.us, %153, %143, %138, %.split356.us, %109, %99, %94, %.split305, %44, %34, %29, %.split285.us, %18
+.thread:                                          ; preds = %284, %.split564.us, %274, %269, %241, %.split512.us, %231, %226, %197, %.split460.us, %187, %182, %153, %.split408.us, %143, %138, %109, %.split356.us, %99, %94, %44, %.split305, %34, %29, %18, %.split285.us
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   store i32 0, ptr %3, align 4
   store ptr null, ptr %2, align 8
@@ -14546,7 +14546,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
   br label %292
 
 292:                                              ; preds = %.thread, %._crit_edge610
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge610 ]
+  %.0 = phi i32 [ 0, %._crit_edge610 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -14894,7 +14894,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 nound
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge227
 
-.thread:                                          ; preds = %.split181.us, %108, %98, %93, %.split130, %44, %34, %29, %.split110.us, %18
+.thread:                                          ; preds = %108, %.split181.us, %98, %93, %44, %.split130, %34, %29, %18, %.split110.us
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %._crit_edge227
 
@@ -15229,8 +15229,8 @@ define dso_local range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 
 .lr.ph168.backedge:                               ; preds = %110, %107
   br label %.lr.ph168, !llvm.loop !160
 
-.thread:                                          ; preds = %.split173.us, %.split176.us, %103, %93, %88, %.split126, %42, %32, %27, %.split106.us, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %16 ], [ -1, %.split106.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %42 ], [ -1, %.split126 ], [ -1, %88 ], [ -1, %93 ], [ -1, %103 ], [ -1, %.split176.us ], [ 0, %.split173.us ]
+.thread:                                          ; preds = %.split173.us, %103, %.split176.us, %93, %88, %42, %.split126, %32, %27, %16, %.split106.us, %3
+  %.0 = phi i32 [ 0, %3 ], [ -1, %42 ], [ -1, %16 ], [ -1, %.split106.us ], [ -1, %27 ], [ -1, %32 ], [ -1, %.split126 ], [ -1, %88 ], [ -1, %93 ], [ -1, %.split176.us ], [ -1, %103 ], [ 0, %.split173.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -15433,8 +15433,8 @@ define dso_local i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) l
   %67 = load i32, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.split85, %42, %32, %27, %.split65.us, %16, %.loopexit
-  %.0 = phi i32 [ %67, %.loopexit ], [ -2, %16 ], [ -2, %.split65.us ], [ -2, %27 ], [ -2, %32 ], [ -2, %42 ], [ -2, %.split85 ]
+.thread:                                          ; preds = %42, %.split85, %32, %27, %16, %.split65.us, %.loopexit
+  %.0 = phi i32 [ %67, %.loopexit ], [ -2, %16 ], [ -2, %.split65.us ], [ -2, %27 ], [ -2, %32 ], [ -2, %.split85 ], [ -2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -15700,8 +15700,8 @@ define dso_local range(i32 -1, 1) i32 @stepd_relay_msg(i32 noundef %0, ptr nound
 .lr.ph174.split.backedge:                         ; preds = %97, %94
   br label %.lr.ph174.split, !llvm.loop !166
 
-.thread:                                          ; preds = %.split176.us, %.outer109._crit_edge, %.split179.us, %90, %.split161.us, %65, %.split142.us, %45, %.split124.us, %19
-  %.0 = phi i32 [ -1, %19 ], [ -1, %.split124.us ], [ -1, %45 ], [ -1, %.split142.us ], [ -1, %65 ], [ -1, %.split161.us ], [ -1, %90 ], [ -1, %.split179.us ], [ 0, %.outer109._crit_edge ], [ 0, %.split176.us ]
+.thread:                                          ; preds = %.split176.us, %.outer109._crit_edge, %90, %.split179.us, %65, %.split161.us, %45, %.split142.us, %19, %.split124.us
+  %.0 = phi i32 [ -1, %65 ], [ -1, %45 ], [ -1, %19 ], [ -1, %.split124.us ], [ -1, %.split142.us ], [ -1, %.split161.us ], [ -1, %.split179.us ], [ -1, %90 ], [ 0, %.outer109._crit_edge ], [ 0, %.split176.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

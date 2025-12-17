@@ -183,7 +183,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl7debian214flags_internal7Flag
   br label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %7, %16, %4, %25, %24, %21, %19, %15, %14, %12, %10, %9
-  %.0 = phi ptr [ null, %25 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ @_ZTIi, %15 ], [ %2, %19 ], [ null, %21 ], [ inttoptr (i64 80 to ptr), %24 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %16 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %16 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ inttoptr (i64 80 to ptr), %24 ], [ @_ZN4absl7debian213base_internal11FastTypeTagIiE9dummy_varE, %14 ], [ @_ZTIi, %15 ], [ %2, %19 ], [ inttoptr (i64 4 to ptr), %4 ], [ null, %21 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -276,7 +276,7 @@ _ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit: ; preds = %7, %4, %29, %28, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit, %21, %14, %13, %12, %10, %9
-  %.0 = phi ptr [ null, %29 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ @_ZN4absl7debian213base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %13 ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %14 ], [ %.1, %21 ], [ null, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit ], [ inttoptr (i64 80 to ptr), %28 ], [ inttoptr (i64 32 to ptr), %4 ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %29 ], [ inttoptr (i64 32 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ inttoptr (i64 80 to ptr), %28 ], [ @_ZN4absl7debian213base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %13 ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %14 ], [ %.1, %21 ], [ null, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -737,8 +737,8 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %exitcond.not.i.i, label %208, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %361, %379, %.loopexit104.i.i, %208, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i, %392, %395
-  %.be = phi i64 [ %203, %.loopexit104.i.i ], [ %348, %395 ], [ %348, %392 ], [ %203, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ %203, %208 ], [ %348, %379 ], [ %348, %361 ]
-  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %.loopexit104.i.i ], [ 0, %395 ], [ 0, %392 ], [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ 0, %208 ], [ 0, %379 ], [ 0, %361 ]
+  %.be = phi i64 [ %203, %.loopexit104.i.i ], [ %203, %208 ], [ %348, %395 ], [ %348, %392 ], [ %203, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ %348, %379 ], [ %348, %361 ]
+  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %.loopexit104.i.i ], [ 0, %208 ], [ 0, %395 ], [ 0, %392 ], [ 0, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S7_.exit.i.i ], [ 0, %379 ], [ 0, %361 ]
   br label %.preheader.i.i, !llvm.loop !29
 
 208:                                              ; preds = %.loopexit104.i.i

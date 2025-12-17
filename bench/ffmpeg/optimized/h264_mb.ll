@@ -300,8 +300,8 @@ define internal fastcc void @hl_decode_mb_444_complex(ptr noundef %0, ptr nounde
   br label %.loopexit283
 
 .loopexit283:                                     ; preds = %117, %.loopexit281.us, %.preheader282, %.loopexit285, %118
-  %.0137 = phi ptr [ %69, %.loopexit285 ], [ %18, %118 ], [ %69, %.preheader282 ], [ %69, %.loopexit281.us ], [ %69, %117 ]
-  %.0.in = phi i64 [ %66, %.loopexit285 ], [ %64, %118 ], [ %66, %.preheader282 ], [ %66, %.loopexit281.us ], [ %66, %117 ]
+  %.0137 = phi ptr [ %18, %118 ], [ %69, %.loopexit285 ], [ %69, %.preheader282 ], [ %69, %.loopexit281.us ], [ %69, %117 ]
+  %.0.in = phi i64 [ %64, %118 ], [ %66, %.loopexit285 ], [ %66, %.preheader282 ], [ %66, %.loopexit281.us ], [ %66, %117 ]
   %.0 = trunc i64 %.0.in to i32
   %121 = and i32 %.fr, 4
   %.not141 = icmp eq i32 %121, 0
@@ -445,7 +445,7 @@ define internal fastcc void @hl_decode_mb_444_complex(ptr noundef %0, ptr nounde
   br label %192
 
 192:                                              ; preds = %190, %189, %175
-  %.0607.i = phi i64 [ 1, %189 ], [ %191, %190 ], [ 1, %175 ]
+  %.0607.i = phi i64 [ 1, %175 ], [ 1, %189 ], [ %191, %190 ]
   %193 = icmp eq i32 %174, 2
   br i1 %193, label %194, label %213
 
@@ -1082,7 +1082,7 @@ xchg_mb_border.exit.split.split.us:               ; preds = %xchg_mb_border.exit
   br label %568
 
 568:                                              ; preds = %563, %557, %553, %546
-  %.1169.i.us = phi ptr [ %555, %553 ], [ %4, %557 ], [ %3, %563 ], [ null, %546 ]
+  %.1169.i.us = phi ptr [ %3, %563 ], [ %555, %553 ], [ %4, %557 ], [ null, %546 ]
   %569 = sext i8 %529 to i64
   %570 = getelementptr inbounds ptr, ptr %452, i64 %569
   %571 = load ptr, ptr %570, align 8, !tbaa !115
@@ -1125,8 +1125,8 @@ dctcoef_get.exit196.us:                           ; preds = %582, %579
   br label %.sink.split
 
 .sink.split:                                      ; preds = %dctcoef_get.exit196.us, %._crit_edge425
-  %.pre-phi445.sink = phi i64 [ %.pre444, %._crit_edge425 ], [ %578, %dctcoef_get.exit196.us ]
-  %.1.i.us.sink = phi ptr [ %.1.i.us, %._crit_edge425 ], [ %spec.select, %dctcoef_get.exit196.us ]
+  %.pre-phi445.sink = phi i64 [ %578, %dctcoef_get.exit196.us ], [ %.pre444, %._crit_edge425 ]
+  %.1.i.us.sink = phi ptr [ %spec.select, %dctcoef_get.exit196.us ], [ %.1.i.us, %._crit_edge425 ]
   %586 = trunc nuw nsw i64 %.pre-phi445.sink to i32
   %587 = shl i32 %586, %506
   %588 = sext i32 %587 to i64
@@ -1337,7 +1337,7 @@ hl_decode_mb_predict_luma.exit.loopexit274:       ; preds = %678
   br label %698
 
 698:                                              ; preds = %696, %695, %681
-  %.0607.i151 = phi i64 [ 1, %695 ], [ %697, %696 ], [ 1, %681 ]
+  %.0607.i151 = phi i64 [ 1, %681 ], [ 1, %695 ], [ %697, %696 ]
   %699 = icmp eq i32 %680, 2
   br i1 %699, label %700, label %720
 
@@ -2645,7 +2645,7 @@ xchg_mb_border.exit.split.split.us:               ; preds = %xchg_mb_border.exit
   br label %243
 
 243:                                              ; preds = %238, %235, %219
-  %.1169.i.us = phi ptr [ %237, %235 ], [ %3, %238 ], [ null, %219 ]
+  %.1169.i.us = phi ptr [ %3, %238 ], [ %237, %235 ], [ null, %219 ]
   %244 = sext i8 %228 to i64
   %245 = getelementptr inbounds ptr, ptr %178, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !115
@@ -3545,12 +3545,12 @@ define internal fastcc void @hl_decode_mb_complex(ptr noundef %0, ptr noundef in
   br label %.loopexit518
 
 .loopexit518:                                     ; preds = %.loopexit516, %.preheader517, %111, %153
-  %.0332 = phi ptr [ %103, %111 ], [ %18, %153 ], [ %103, %.preheader517 ], [ %103, %.loopexit516 ]
-  %.0324.in = phi i64 [ %101, %111 ], [ %155, %153 ], [ %101, %.preheader517 ], [ %101, %.loopexit516 ]
-  %.0323.in = phi i64 [ %98, %111 ], [ %96, %153 ], [ %98, %.preheader517 ], [ %98, %.loopexit516 ]
-  %.1322 = phi ptr [ %.0321, %111 ], [ %63, %153 ], [ %.0321, %.preheader517 ], [ %.0321, %.loopexit516 ]
-  %.1320 = phi ptr [ %.0319, %111 ], [ %59, %153 ], [ %.0319, %.preheader517 ], [ %.0319, %.loopexit516 ]
-  %.1 = phi ptr [ %.0, %111 ], [ %48, %153 ], [ %.0, %.preheader517 ], [ %.0, %.loopexit516 ]
+  %.0332 = phi ptr [ %18, %153 ], [ %103, %111 ], [ %103, %.preheader517 ], [ %103, %.loopexit516 ]
+  %.0324.in = phi i64 [ %155, %153 ], [ %101, %111 ], [ %101, %.preheader517 ], [ %101, %.loopexit516 ]
+  %.0323.in = phi i64 [ %96, %153 ], [ %98, %111 ], [ %98, %.preheader517 ], [ %98, %.loopexit516 ]
+  %.1322 = phi ptr [ %63, %153 ], [ %.0321, %111 ], [ %.0321, %.preheader517 ], [ %.0321, %.loopexit516 ]
+  %.1320 = phi ptr [ %59, %153 ], [ %.0319, %111 ], [ %.0319, %.preheader517 ], [ %.0319, %.loopexit516 ]
+  %.1 = phi ptr [ %48, %153 ], [ %.0, %111 ], [ %.0, %.preheader517 ], [ %.0, %.loopexit516 ]
   %.0323 = trunc i64 %.0323.in to i32
   %.0324 = trunc i64 %.0324.in to i32
   %157 = and i32 %17, 4
@@ -3848,7 +3848,7 @@ define internal fastcc void @hl_decode_mb_complex(ptr noundef %0, ptr noundef in
   br label %295
 
 295:                                              ; preds = %293, %292, %283
-  %.0607.i = phi i64 [ 1, %292 ], [ %294, %293 ], [ 1, %283 ]
+  %.0607.i = phi i64 [ 1, %283 ], [ 1, %292 ], [ %294, %293 ]
   %296 = icmp eq i32 %282, 2
   br i1 %296, label %297, label %316
 
@@ -4429,7 +4429,7 @@ dctcoef_get.exit402:                              ; preds = %548, %551
   br label %635
 
 635:                                              ; preds = %632, %627, %621, %613
-  %.1169.i = phi ptr [ %634, %632 ], [ %4, %621 ], [ %3, %627 ], [ null, %613 ]
+  %.1169.i = phi ptr [ %3, %627 ], [ %634, %632 ], [ %4, %621 ], [ null, %613 ]
   %636 = sext i8 %598 to i64
   %637 = getelementptr inbounds ptr, ptr %585, i64 %636
   %638 = load ptr, ptr %637, align 8, !tbaa !115
@@ -4467,8 +4467,8 @@ dctcoef_get.exit399:                              ; preds = %643, %646
   br label %.sink.split
 
 .sink.split:                                      ; preds = %dctcoef_get.exit399, %._crit_edge685
-  %.pre-phi696.sink = phi i64 [ %.pre695, %._crit_edge685 ], [ %642, %dctcoef_get.exit399 ]
-  %.1.i.sink = phi ptr [ %.1.i, %._crit_edge685 ], [ %spec.select, %dctcoef_get.exit399 ]
+  %.pre-phi696.sink = phi i64 [ %642, %dctcoef_get.exit399 ], [ %.pre695, %._crit_edge685 ]
+  %.1.i.sink = phi ptr [ %spec.select, %dctcoef_get.exit399 ], [ %.1.i, %._crit_edge685 ]
   %650 = trunc nuw nsw i64 %.pre-phi696.sink to i32
   %651 = shl i32 %650, %471
   %652 = sext i32 %651 to i64
@@ -4580,7 +4580,7 @@ hl_decode_mb_predict_luma.exit:                   ; preds = %565, %655, %dctcoef
   br label %706
 
 706:                                              ; preds = %704, %703, %694
-  %.0607.i360 = phi i64 [ 1, %703 ], [ %705, %704 ], [ 1, %694 ]
+  %.0607.i360 = phi i64 [ 1, %694 ], [ 1, %703 ], [ %705, %704 ]
   %707 = icmp eq i32 %693, 2
   br i1 %707, label %708, label %728
 
@@ -6444,7 +6444,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   br label %289
 
 289:                                              ; preds = %286, %280, %264
-  %.1169.i = phi ptr [ %288, %286 ], [ %3, %280 ], [ null, %264 ]
+  %.1169.i = phi ptr [ null, %264 ], [ %288, %286 ], [ %3, %280 ]
   %290 = sext i8 %273 to i64
   %291 = getelementptr inbounds ptr, ptr %258, i64 %290
   %292 = load ptr, ptr %291, align 8, !tbaa !115
@@ -7845,7 +7845,7 @@ xchg_mb_border.exit:                              ; preds = %.xchg_mb_border.exi
   br label %261
 
 261:                                              ; preds = %258, %253, %237
-  %.1169.i = phi ptr [ %260, %258 ], [ %3, %253 ], [ null, %237 ]
+  %.1169.i = phi ptr [ %3, %253 ], [ %260, %258 ], [ null, %237 ]
   %262 = sext i8 %246 to i64
   %263 = getelementptr inbounds ptr, ptr %231, i64 %262
   %264 = load ptr, ptr %263, align 8, !tbaa !115
@@ -9879,7 +9879,7 @@ get_lowest_part_y.exit204:                        ; preds = %581, %595, %600
   br label %get_lowest_part_y.exit240.us
 
 get_lowest_part_y.exit240.us:                     ; preds = %716, %711
-  %733 = phi i32 [ %698, %711 ], [ %spec.select276, %716 ]
+  %733 = phi i32 [ %spec.select276, %716 ], [ %698, %711 ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next302, 4
   br i1 %exitcond304.not, label %get_lowest_part_y.exit195, label %697, !llvm.loop !199
@@ -10214,8 +10214,8 @@ get_lowest_part_y.exit195.sink.split:             ; preds = %524, %677, %866
   br label %get_lowest_part_y.exit195
 
 get_lowest_part_y.exit195:                        ; preds = %get_lowest_part_y.exit240, %get_lowest_part_y.exit240.us, %get_lowest_part_y.exit195.sink.split, %.preheader241.split.us, %861, %847, %672, %658, %519, %505
-  %957 = phi i32 [ %809, %861 ], [ %809, %847 ], [ %618, %672 ], [ %618, %658 ], [ %453, %519 ], [ %453, %505 ], [ %453, %.preheader241.split.us ], [ %spec.select280, %get_lowest_part_y.exit195.sink.split ], [ %733, %get_lowest_part_y.exit240.us ], [ %949, %get_lowest_part_y.exit240 ]
-  %.us-phi246253 = phi i32 [ %.us-phi246261, %861 ], [ %.us-phi246261, %847 ], [ %.us-phi246257, %672 ], [ %.us-phi246257, %658 ], [ %.us-phi246254, %519 ], [ %.us-phi246254, %505 ], [ %.us-phi246263264, %.preheader241.split.us ], [ %.us-phi246253.ph, %get_lowest_part_y.exit195.sink.split ], [ %.us-phi246263264, %get_lowest_part_y.exit240.us ], [ %916, %get_lowest_part_y.exit240 ]
+  %957 = phi i32 [ %453, %505 ], [ %453, %.preheader241.split.us ], [ %809, %861 ], [ %809, %847 ], [ %618, %672 ], [ %618, %658 ], [ %453, %519 ], [ %spec.select280, %get_lowest_part_y.exit195.sink.split ], [ %733, %get_lowest_part_y.exit240.us ], [ %949, %get_lowest_part_y.exit240 ]
+  %.us-phi246253 = phi i32 [ %.us-phi246254, %505 ], [ %.us-phi246263264, %.preheader241.split.us ], [ %.us-phi246261, %861 ], [ %.us-phi246261, %847 ], [ %.us-phi246257, %672 ], [ %.us-phi246257, %658 ], [ %.us-phi246254, %519 ], [ %.us-phi246253.ph, %get_lowest_part_y.exit195.sink.split ], [ %.us-phi246263264, %get_lowest_part_y.exit240.us ], [ %916, %get_lowest_part_y.exit240 ]
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next306, 4
   br i1 %exitcond308.not, label %get_lowest_part_y.exit.loopexit, label %452, !llvm.loop !200

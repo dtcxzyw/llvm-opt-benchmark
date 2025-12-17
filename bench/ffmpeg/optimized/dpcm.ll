@@ -296,7 +296,7 @@ bytestream2_init.exit:                            ; preds = %4
   br label %35
 
 35:                                               ; preds = %bytestream2_init.exit, %bytestream2_init.exit, %bytestream2_init.exit, %bytestream2_init.exit, %bytestream2_init.exit, %31, %28, %26, %24
-  %.0188 = phi i32 [ %25, %24 ], [ %27, %26 ], [ %30, %28 ], [ %spec.select, %31 ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ]
+  %.0188 = phi i32 [ %spec.select, %31 ], [ %25, %24 ], [ %27, %26 ], [ %30, %28 ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ], [ %.0187, %bytestream2_init.exit ]
   %36 = icmp slt i32 %.0188, 1
   br i1 %36, label %.thread, label %37
 

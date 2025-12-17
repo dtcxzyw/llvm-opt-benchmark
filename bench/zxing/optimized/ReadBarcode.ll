@@ -814,7 +814,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit10.i.body.i.i84: ; preds =
   br i1 %.not.i.i.i.i.i.i88, label %_ZN5ZXing5ImageD2Ev.exit, label %_ZN5ZXing5ImageD2Ev.exit.sink.split
 
 _ZN5ZXing5ImageD2Ev.exit.sink.split:              ; preds = %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_4EES2_RKS1_T_.exit", %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_3EES2_RKS1_T_.exit", %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_2EES2_RKS1_T_.exit", %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_1EES2_RKS1_T_.exit", %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_0EES2_RKS1_T_.exit"
-  %.sink = phi ptr [ %72, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_0EES2_RKS1_T_.exit" ], [ %128, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_1EES2_RKS1_T_.exit" ], [ %184, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_2EES2_RKS1_T_.exit" ], [ %243, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_3EES2_RKS1_T_.exit" ], [ %282, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_4EES2_RKS1_T_.exit" ]
+  %.sink = phi ptr [ %243, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_3EES2_RKS1_T_.exit" ], [ %184, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_2EES2_RKS1_T_.exit" ], [ %128, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_1EES2_RKS1_T_.exit" ], [ %72, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_0EES2_RKS1_T_.exit" ], [ %282, %"_ZN5ZXingL10ExtractLumIZNS_17SetupLumImageViewENS_9ImageViewERNS_8LumImageERKNS_13ReaderOptionsEE3$_4EES2_RKS1_T_.exit" ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink) #23
   br label %_ZN5ZXing5ImageD2Ev.exit
 
@@ -918,7 +918,7 @@ _ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev
   br label %_ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit.sink.split, %3, %16, %12
-  %.sink = phi ptr [ %13, %12 ], [ %17, %16 ], [ null, %3 ], [ %.sink21, %_ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit.sink.split ]
+  %.sink = phi ptr [ %17, %16 ], [ %13, %12 ], [ null, %3 ], [ %.sink21, %_ZNSt10unique_ptrIN5ZXing24GlobalHistogramBinarizerESt14default_deleteIS1_EED2Ev.exit.sink.split ]
   store ptr %.sink, ptr %0, align 8, !tbaa !89
   ret void
 }
@@ -1802,7 +1802,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN5ZX
   br label %.loopexit220
 
 .loopexit220:                                     ; preds = %.noexc167, %.noexc168, %.noexc169, %.noexc170, %._crit_edge.i, %.noexc171, %.noexc172, %.noexc173
-  %.sroa.08.0.in.sroa.speculated.i = phi ptr [ %.sroa.032.0.lcssa.i, %.noexc171 ], [ %.sroa.032.1.i, %.noexc172 ], [ %253, %._crit_edge.i ], [ %spec.select.i, %.noexc173 ], [ %.sroa.032.042.i, %.noexc167 ], [ %262, %.noexc168 ], [ %265, %.noexc169 ], [ %268, %.noexc170 ]
+  %.sroa.08.0.in.sroa.speculated.i = phi ptr [ %.sroa.032.1.i, %.noexc172 ], [ %spec.select.i, %.noexc173 ], [ %253, %._crit_edge.i ], [ %.sroa.032.0.lcssa.i, %.noexc171 ], [ %.sroa.032.042.i, %.noexc167 ], [ %262, %.noexc168 ], [ %265, %.noexc169 ], [ %268, %.noexc170 ]
   %285 = load ptr, ptr %160, align 8, !tbaa !102
   %.not219 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i, %285
   br i1 %.not219, label %286, label %357

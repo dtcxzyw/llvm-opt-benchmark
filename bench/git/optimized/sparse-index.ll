@@ -124,8 +124,8 @@ define dso_local range(i32 0, 2) i32 @is_sparse_index_allowed(ptr noundef %0, i3
   %.18 = zext i1 %.not17 to i32
   br label %.thread
 
-.thread:                                          ; preds = %9, %12, %31, %29, %23, %2
-  %.011 = phi i32 [ 0, %23 ], [ 0, %2 ], [ 0, %29 ], [ %.18, %31 ], [ 0, %12 ], [ 0, %9 ]
+.thread:                                          ; preds = %12, %9, %31, %29, %23, %2
+  %.011 = phi i32 [ 0, %2 ], [ 0, %29 ], [ %.18, %31 ], [ 0, %23 ], [ 0, %9 ], [ 0, %12 ]
   ret i32 %.011
 }
 
@@ -1213,7 +1213,7 @@ define internal fastcc range(i32 0, 2) i32 @path_found(ptr noundef %0, ptr nound
   br i1 %.not.i, label %max_common_dir_prefix.exit, label %.lr.ph.i, !llvm.loop !85
 
 max_common_dir_prefix.exit:                       ; preds = %.lr.ph.i, %21
-  %.012.lcssa.i = phi i64 [ %.01218.i, %.lr.ph.i ], [ %spec.select.i, %21 ]
+  %.012.lcssa.i = phi i64 [ %spec.select.i, %21 ], [ %.01218.i, %.lr.ph.i ]
   %26 = load i64, ptr %1, align 8, !tbaa !78
   %spec.select.i31 = tail call i64 @llvm.usub.sat.i64(i64 %26, i64 1)
   %27 = icmp ugt i64 %.012.lcssa.i, %spec.select.i31

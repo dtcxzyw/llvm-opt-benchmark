@@ -510,8 +510,8 @@ hexdecode_string.exit102.i:                       ; preds = %hexdecode_string.ex
   unreachable
 
 .thread105.i:                                     ; preds = %159, %128, %119, %115
-  %.060.i = phi ptr [ null, %119 ], [ null, %115 ], [ %126, %128 ], [ %126, %159 ]
-  %.0.i = phi i32 [ 0, %119 ], [ 0, %115 ], [ %124, %128 ], [ %124, %159 ]
+  %.060.i = phi ptr [ null, %115 ], [ null, %119 ], [ %126, %128 ], [ %126, %159 ]
+  %.0.i = phi i32 [ 0, %115 ], [ 0, %119 ], [ %124, %128 ], [ %124, %159 ]
   %168 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %13, align 8
@@ -864,7 +864,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr noundef captur
   unreachable
 
 59:                                               ; preds = %52, %49, %46, %43, %40, %37
-  %.sink = phi i32 [ 0, %37 ], [ 1, %40 ], [ 2, %43 ], [ 3, %46 ], [ 4, %49 ], [ 5, %52 ]
+  %.sink = phi i32 [ 0, %37 ], [ 2, %43 ], [ 4, %49 ], [ 3, %46 ], [ 1, %40 ], [ 5, %52 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %60, align 4
   store i32 8, ptr %4, align 8

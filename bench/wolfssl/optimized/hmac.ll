@@ -83,7 +83,7 @@ define i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   br label %HmacKeyInitHash.exit
 
 HmacKeyInitHash.exit:                             ; preds = %4, %6, %8, %10, %12, %14, %16, %18, %20, %22
-  %.0.i = phi i32 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
+  %.0.i = phi i32 [ %23, %22 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %24, label %HmacKeyInitHash.exit.thread
 
@@ -93,7 +93,7 @@ HmacKeyInitHash.exit:                             ; preds = %4, %6, %8, %10, %12
   br label %HmacKeyInitHash.exit.thread
 
 HmacKeyInitHash.exit.thread:                      ; preds = %3, %HmacKeyInitHash.exit, %24
-  %.0.i11 = phi i32 [ %.0.i, %HmacKeyInitHash.exit ], [ 0, %24 ], [ -173, %3 ]
+  %.0.i11 = phi i32 [ 0, %24 ], [ %.0.i, %HmacKeyInitHash.exit ], [ -173, %3 ]
   ret i32 %.0.i11
 }
 
@@ -336,14 +336,14 @@ define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   br i1 %99, label %.thread, label %.thread293
 
 .thread.sink.split:                               ; preds = %93, %86, %79, %72, %65, %58, %51, %44, %37, %30
-  %.0188289.ph = phi i32 [ 64, %30 ], [ 64, %37 ], [ 64, %44 ], [ 64, %51 ], [ 128, %58 ], [ 128, %65 ], [ 144, %72 ], [ 136, %79 ], [ 104, %86 ], [ 72, %93 ]
+  %.0188289.ph = phi i32 [ 144, %72 ], [ 136, %79 ], [ 64, %30 ], [ 64, %37 ], [ 64, %44 ], [ 64, %51 ], [ 104, %86 ], [ 128, %58 ], [ 128, %65 ], [ 72, %93 ]
   %100 = zext nneg i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %2, i64 %100, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %93, %86, %79, %72, %65, %58, %51, %44, %37, %30, %98
-  %.0188289 = phi i32 [ %.0188, %98 ], [ 72, %93 ], [ 104, %86 ], [ 136, %79 ], [ 144, %72 ], [ 128, %65 ], [ 128, %58 ], [ 64, %51 ], [ 64, %44 ], [ 64, %37 ], [ 64, %30 ], [ %.0188289.ph, %.thread.sink.split ]
-  %.0190288 = phi i32 [ %spec.select283, %98 ], [ %3, %93 ], [ %3, %86 ], [ %3, %79 ], [ %3, %72 ], [ %3, %65 ], [ %3, %58 ], [ %3, %51 ], [ %3, %44 ], [ %3, %37 ], [ %3, %30 ], [ %3, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %79, %72, %65, %58, %93, %51, %44, %37, %86, %30, %98
+  %.0188289 = phi i32 [ %.0188, %98 ], [ 136, %79 ], [ 64, %51 ], [ 144, %72 ], [ 64, %30 ], [ 128, %65 ], [ 64, %44 ], [ 104, %86 ], [ 128, %58 ], [ 64, %37 ], [ 72, %93 ], [ %.0188289.ph, %.thread.sink.split ]
+  %.0190288 = phi i32 [ %spec.select283, %98 ], [ %3, %79 ], [ %3, %51 ], [ %3, %72 ], [ %3, %30 ], [ %3, %65 ], [ %3, %44 ], [ %3, %86 ], [ %3, %58 ], [ %3, %37 ], [ %3, %93 ], [ %3, %.thread.sink.split ]
   %101 = icmp ult i32 %.0190288, %.0188289
   br i1 %101, label %102, label %107
 
@@ -372,8 +372,8 @@ define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread293, label %108, !llvm.loop !11
 
-.thread293:                                       ; preds = %108, %94, %87, %80, %73, %66, %59, %52, %45, %38, %31, %98, %24, %21, %17, %5, %7, %10
-  %.0189 = phi i32 [ -173, %10 ], [ -173, %7 ], [ -173, %5 ], [ %20, %17 ], [ -200, %21 ], [ -173, %24 ], [ %.sink321, %98 ], [ %95, %94 ], [ %88, %87 ], [ %81, %80 ], [ %74, %73 ], [ %67, %66 ], [ %60, %59 ], [ %53, %52 ], [ %46, %45 ], [ %39, %38 ], [ %32, %31 ], [ 0, %108 ]
+.thread293:                                       ; preds = %108, %80, %73, %87, %66, %59, %52, %94, %45, %38, %31, %98, %24, %21, %17, %5, %7, %10
+  %.0189 = phi i32 [ -173, %24 ], [ -173, %5 ], [ %20, %17 ], [ -200, %21 ], [ -173, %10 ], [ -173, %7 ], [ %.sink321, %98 ], [ %81, %80 ], [ %74, %73 ], [ %88, %87 ], [ %67, %66 ], [ %60, %59 ], [ %53, %52 ], [ %95, %94 ], [ %46, %45 ], [ %39, %38 ], [ %32, %31 ], [ 0, %108 ]
   ret i32 %.0189
 }
 
@@ -624,7 +624,7 @@ define i32 @wc_HmacUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %40
 
 40:                                               ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %17, %11, %3, %5
-  %.043 = phi i32 [ -173, %5 ], [ -173, %3 ], [ %15, %11 ], [ 0, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
+  %.043 = phi i32 [ -173, %3 ], [ %15, %11 ], [ -173, %5 ], [ 0, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   ret i32 %.043
 }
 
@@ -940,7 +940,7 @@ define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %117
 
 117:                                              ; preds = %45, %115, %105, %95, %85, %75, %65, %55, %35, %25
-  %.0 = phi i32 [ %26, %25 ], [ %36, %35 ], [ %46, %45 ], [ %56, %55 ], [ %66, %65 ], [ %76, %75 ], [ %86, %85 ], [ %96, %95 ], [ %106, %105 ], [ %116, %115 ]
+  %.0 = phi i32 [ %116, %115 ], [ %106, %105 ], [ %96, %95 ], [ %46, %45 ], [ %26, %25 ], [ %76, %75 ], [ %66, %65 ], [ %86, %85 ], [ %36, %35 ], [ %56, %55 ]
   %118 = icmp eq i32 %.0, 0
   br i1 %118, label %119, label %.thread
 
@@ -1045,7 +1045,7 @@ switch.lookup:                                    ; preds = %8
   br label %wc_HmacSizeByType.exit
 
 wc_HmacSizeByType.exit:                           ; preds = %8, %.thread
-  %.0 = phi i32 [ %.2, %.thread ], [ -173, %8 ]
+  %.0 = phi i32 [ -173, %8 ], [ %.2, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -1100,7 +1100,7 @@ switch.lookup:                                    ; preds = %6
   br label %wc_HKDF_Extract_ex.exit
 
 wc_HKDF_Extract_ex.exit:                          ; preds = %6, %.thread.i
-  %.0.i = phi i32 [ %.2.i, %.thread.i ], [ -173, %6 ]
+  %.0.i = phi i32 [ -173, %6 ], [ %.2.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
@@ -1191,12 +1191,12 @@ switch.lookup:                                    ; preds = %9
   br i1 %46, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %38, %.lr.ph, %28, %32, %34, %36, %23
-  %.1 = phi i32 [ 0, %23 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ %27, %.lr.ph ], [ 0, %38 ]
+  %.1 = phi i32 [ 0, %23 ], [ %27, %.lr.ph ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ 0, %38 ]
   call void @wc_HmacFree(ptr noundef nonnull %11)
   br label %wc_HmacSizeByType.exit
 
 wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, %16, %.thread
-  %.0 = phi i32 [ %.1, %.thread ], [ -173, %16 ], [ -173, %switch.lookup ], [ -173, %9 ]
+  %.0 = phi i32 [ %.1, %.thread ], [ -173, %9 ], [ -173, %switch.lookup ], [ -173, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1277,8 +1277,8 @@ wc_HKDF_Extract.exit.thread:                      ; preds = %16
   br label %20
 
 20:                                               ; preds = %16, %16, %.thread, %.thread25, %19, %18, %17
-  %.030.i.ph22 = phi i32 [ %.030.i.ph, %19 ], [ %.030.i.ph, %18 ], [ %.030.i.ph, %17 ], [ 20, %.thread25 ], [ 16, %.thread ], [ %.030.i.ph, %16 ], [ %.030.i.ph, %16 ]
-  %.030.i.ph.i.i = phi i32 [ 64, %19 ], [ 48, %18 ], [ 32, %17 ], [ 20, %.thread25 ], [ 16, %.thread ], [ 28, %16 ], [ 28, %16 ]
+  %.030.i.ph22 = phi i32 [ %.030.i.ph, %19 ], [ %.030.i.ph, %18 ], [ %.030.i.ph, %17 ], [ 16, %.thread ], [ 20, %.thread25 ], [ %.030.i.ph, %16 ], [ %.030.i.ph, %16 ]
+  %.030.i.ph.i.i = phi i32 [ 64, %19 ], [ 48, %18 ], [ 32, %17 ], [ 16, %.thread ], [ 20, %.thread25 ], [ 28, %16 ], [ 28, %16 ]
   %21 = icmp eq ptr %3, null
   br i1 %21, label %22, label %24
 

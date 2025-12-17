@@ -555,8 +555,8 @@ define dso_local range(i32 -1, 1) i32 @scriptPrepareForRun(ptr noundef %0, ptr n
   store ptr %0, ptr @curr_run_ctx, align 8, !tbaa !41
   br label %.critedge
 
-.critedge:                                        ; preds = %54, %57, %50, %49, %106, %67, %65, %43, %34, %31
-  %.0 = phi i32 [ -1, %67 ], [ 0, %106 ], [ -1, %31 ], [ -1, %65 ], [ -1, %43 ], [ -1, %34 ], [ -1, %49 ], [ -1, %50 ], [ -1, %57 ], [ -1, %54 ]
+.critedge:                                        ; preds = %54, %49, %57, %50, %106, %67, %65, %43, %34, %31
+  %.0 = phi i32 [ -1, %67 ], [ 0, %106 ], [ -1, %31 ], [ -1, %65 ], [ -1, %34 ], [ -1, %43 ], [ -1, %50 ], [ -1, %57 ], [ -1, %49 ], [ -1, %54 ]
   ret i32 %.0
 }
 
@@ -1049,7 +1049,7 @@ scriptVerifyWriteCommandAllow.exit:               ; preds = %66, %79, %85, %89
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %114, %120, %123, %127, %131, %135
-  %.0.i56 = phi i64 [ %122, %120 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ %137, %135 ], [ 0, %114 ]
+  %.0.i56 = phi i64 [ %137, %135 ], [ %122, %120 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ 0, %114 ]
   call void @afterErrorReply(ptr noundef nonnull %5, ptr noundef nonnull %115, i64 noundef %.0.i56, i32 noundef 0) #11
   %138 = call i32 @incrCommandStatsOnError(ptr noundef %15, i32 noundef 1) #11
   br label %139
@@ -1240,7 +1240,7 @@ define internal fastcc range(i32 -1, 1) i32 @scriptVerifyClusterState(ptr nounde
   br label %66
 
 66:                                               ; preds = %29, %33, %45, %47, %39, %31, %63, %61
-  %.1 = phi i32 [ 0, %63 ], [ -1, %61 ], [ -1, %31 ], [ -1, %39 ], [ -1, %47 ], [ -1, %45 ], [ -1, %33 ], [ -1, %29 ]
+  %.1 = phi i32 [ -1, %61 ], [ 0, %63 ], [ -1, %31 ], [ -1, %39 ], [ -1, %47 ], [ -1, %45 ], [ -1, %33 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67

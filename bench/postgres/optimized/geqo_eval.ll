@@ -273,8 +273,8 @@ tailrecurse:                                      ; preds = %51, %.split105
   br i1 %cond, label %.loopexit, label %.lr.ph.split.split
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %52, %.lr.ph.split.us.split.us187, %19
-  %.us-phi = phi ptr [ %.tr88177.us, %19 ], [ %.tr88177.us, %.lr.ph.split.us.split.us187 ], [ %.tr88177, %52 ], [ %.tr88177, %.lr.ph.split.split ]
-  %.us-phi103 = phi ptr [ %.tr89179.us, %19 ], [ %.tr89179.us, %.lr.ph.split.us.split.us187 ], [ %.tr89179, %52 ], [ %.tr89179, %.lr.ph.split.split ]
+  %.us-phi = phi ptr [ %.tr88177, %52 ], [ %.tr88177.us, %19 ], [ %.tr88177.us, %.lr.ph.split.us.split.us187 ], [ %.tr88177, %.lr.ph.split.split ]
+  %.us-phi103 = phi ptr [ %.tr89179, %52 ], [ %.tr89179.us, %19 ], [ %.tr89179.us, %.lr.ph.split.us.split.us187 ], [ %.tr89179, %.lr.ph.split.split ]
   %62 = getelementptr inbounds nuw i8, ptr %.us-phi103, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 1

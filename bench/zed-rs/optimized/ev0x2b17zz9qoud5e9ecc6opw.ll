@@ -1632,7 +1632,7 @@ define noundef zeroext i1 @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui.
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8eb90e43e38fafb9E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h8eb90e43e38fafb9E.exit": ; preds = %3, %15, %20, %23
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %26, %23 ], [ false, %20 ], [ %.mux.i.i, %15 ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %20 ], [ %.mux.i.i, %15 ], [ %26, %23 ]
   ret i1 %.sroa.02.0.i
 }
 

@@ -92,7 +92,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %37, %29, %17
-  %common.resume.op.i = phi { ptr, i32 } [ %30, %37 ], [ %30, %29 ], [ %18, %17 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %30, %29 ], [ %30, %37 ], [ %18, %17 ]
   resume { ptr, i32 } %common.resume.op.i
 
 38:                                               ; preds = %17
@@ -267,7 +267,7 @@ _ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit: ; preds = %39, %.
   br i1 %43, label %.loopexit, label %44
 
 .loopexit:                                        ; preds = %44, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread.loopexit.us, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread9, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread9 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit ], [ false, %44 ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread9 ], [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit ], [ false, %44 ]
   ret i1 %.sroa.0.0
 
 44:                                               ; preds = %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit.thread.loopexit11, %_ZN4core3str7pattern14small_slice_eq17h164e2350b3bc132cE.exit
@@ -625,7 +625,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   br label %166
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h94b95ee688b59965E.exit": ; preds = %107, %.preheader.i.i38, %30, %.preheader.i.i, %166, %101, %89, %24, %13
-  %.sroa.0.0.shrunk = phi i1 [ false, %13 ], [ %25, %24 ], [ %90, %89 ], [ %102, %101 ], [ %167, %166 ], [ %.not.not.not.i.i.i, %.preheader.i.i ], [ %.not.not.not.i.i.i, %30 ], [ %.not.not.not.i.i.i39, %.preheader.i.i38 ], [ %.not.not.not.i.i.i39, %107 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %13 ], [ %167, %166 ], [ %25, %24 ], [ %90, %89 ], [ %.not.not.not.i.i.i, %30 ], [ %102, %101 ], [ %.not.not.not.i.i.i, %.preheader.i.i ], [ %.not.not.not.i.i.i39, %.preheader.i.i38 ], [ %.not.not.not.i.i.i39, %107 ]
   ret i1 %.sroa.0.0.shrunk
 }
 

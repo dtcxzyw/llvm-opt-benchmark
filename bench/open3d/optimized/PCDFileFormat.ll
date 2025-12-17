@@ -429,7 +429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %40, %37, %71
-  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %38, %40 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %38, %37 ], [ %38, %40 ]
   br label %73
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106, %.body

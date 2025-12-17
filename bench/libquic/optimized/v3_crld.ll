@@ -231,9 +231,9 @@ crldp_from_section.exit.thread:                   ; preds = %13, %42
   tail call void @ASN1_item_free(ptr noundef nonnull %.lcssa.sink, ptr noundef nonnull @DIST_POINT_it) #4
   br label %.thread68
 
-.thread68:                                        ; preds = %54, %50, %48, %46, %.thread68.sink.split, %3
-  %.039 = phi ptr [ null, %3 ], [ %.039.ph, %.thread68.sink.split ], [ null, %46 ], [ %47, %48 ], [ %47, %50 ], [ %47, %54 ]
-  %.037 = phi ptr [ null, %3 ], [ null, %.thread68.sink.split ], [ %45, %46 ], [ %45, %48 ], [ null, %50 ], [ null, %54 ]
+.thread68:                                        ; preds = %46, %48, %50, %54, %.thread68.sink.split, %3
+  %.039 = phi ptr [ %.039.ph, %.thread68.sink.split ], [ null, %3 ], [ %47, %48 ], [ null, %46 ], [ %47, %54 ], [ %47, %50 ]
+  %.037 = phi ptr [ null, %.thread68.sink.split ], [ null, %3 ], [ %45, %48 ], [ %45, %46 ], [ null, %54 ], [ null, %50 ]
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.5, i32 noundef 336) #4
   br label %.thread81
 
@@ -787,7 +787,7 @@ define hidden range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(ad
   br label %23
 
 23:                                               ; preds = %.sink.split, %._crit_edge, %5, %2, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %2 ], [ 0, %5 ], [ 1, %._crit_edge ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 1, %3 ], [ 1, %._crit_edge ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -926,8 +926,8 @@ define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr noundef non
   tail call void @sk_pop_free(ptr noundef nonnull %.137, ptr noundef nonnull @GENERAL_NAME_free) #4
   br label %.thread63
 
-.thread63:                                        ; preds = %20, %23, %32, %43, %42
-  %.03867 = phi ptr [ %.139, %43 ], [ %.139, %42 ], [ %22, %32 ], [ %22, %23 ], [ %22, %20 ]
+.thread63:                                        ; preds = %23, %20, %32, %43, %42
+  %.03867 = phi ptr [ %.139, %42 ], [ %.139, %43 ], [ %22, %23 ], [ %22, %32 ], [ %22, %20 ]
   %.not55 = icmp eq ptr %.03867, null
   br i1 %.not55, label %.thread59, label %44
 
@@ -935,8 +935,8 @@ define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr noundef non
   tail call void @sk_pop_free(ptr noundef nonnull %.03867, ptr noundef nonnull @X509_NAME_ENTRY_free) #4
   br label %.thread59
 
-.thread59:                                        ; preds = %7, %13, %19, %.thread63, %44, %40, %41, %11
-  %.1 = phi i32 [ 0, %11 ], [ 1, %41 ], [ 1, %40 ], [ -1, %44 ], [ -1, %.thread63 ], [ -1, %19 ], [ -1, %13 ], [ -1, %7 ]
+.thread59:                                        ; preds = %7, %19, %13, %.thread63, %44, %40, %41, %11
+  %.1 = phi i32 [ 0, %11 ], [ -1, %.thread63 ], [ 1, %40 ], [ 1, %41 ], [ -1, %44 ], [ -1, %13 ], [ -1, %19 ], [ -1, %7 ]
   ret i32 %.1
 }
 
@@ -1011,7 +1011,7 @@ define internal fastcc range(i32 0, 2) i32 @set_reasons(ptr noundef nonnull capt
   br label %30
 
 30:                                               ; preds = %4, %2, %.thread
-  %.021 = phi i32 [ %.0, %.thread ], [ 0, %2 ], [ 0, %4 ]
+  %.021 = phi i32 [ 0, %2 ], [ %.0, %.thread ], [ 0, %4 ]
   ret i32 %.021
 }
 

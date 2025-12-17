@@ -210,7 +210,7 @@ define range(i32 -2147483648, 1) i32 @ff_rtsp_parse_streaming_commands(ptr nound
   br label %read_line.exit.thread
 
 read_line.exit.thread:                            ; preds = %16, %23, %34, %45, %40, %29, %27, %26
-  %.019 = phi i32 [ %25, %26 ], [ %28, %27 ], [ %39, %34 ], [ %44, %40 ], [ %50, %45 ], [ 0, %29 ], [ -5, %23 ], [ %spec.select, %16 ]
+  %.019 = phi i32 [ %28, %27 ], [ %25, %26 ], [ 0, %29 ], [ %39, %34 ], [ %44, %40 ], [ %50, %45 ], [ %spec.select, %16 ], [ -5, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -291,8 +291,8 @@ define internal fastcc range(i32 -1330794744, 1) i32 @parse_command_line(ptr nou
   br label %38
 
 38:                                               ; preds = %36, %34, %32, %30, %28, %24
-  %.sink = phi i32 [ 1, %24 ], [ 2, %28 ], [ 10, %30 ], [ 3, %32 ], [ 5, %34 ], [ %., %36 ]
-  %switch = phi i1 [ true, %24 ], [ true, %28 ], [ false, %30 ], [ false, %32 ], [ false, %34 ], [ false, %36 ]
+  %.sink = phi i32 [ 1, %24 ], [ 10, %30 ], [ %., %36 ], [ 5, %34 ], [ 3, %32 ], [ 2, %28 ]
+  %switch = phi i1 [ true, %24 ], [ false, %30 ], [ false, %36 ], [ false, %34 ], [ false, %32 ], [ true, %28 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !37
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !38
@@ -429,7 +429,7 @@ define internal fastcc range(i32 -1330794744, 1) i32 @parse_command_line(ptr nou
   br label %77
 
 77:                                               ; preds = %73, %76, %56, %50, %47, %46, %44, %42, %23, %17
-  %.0 = phi i32 [ -5, %23 ], [ -1330794744, %42 ], [ -5, %56 ], [ -1330794744, %76 ], [ -1094995529, %50 ], [ -1330794744, %44 ], [ -1330794744, %46 ], [ -558323010, %47 ], [ -1094995529, %17 ], [ 0, %73 ]
+  %.0 = phi i32 [ -5, %23 ], [ -1330794744, %42 ], [ -5, %56 ], [ -1094995529, %17 ], [ -1330794744, %76 ], [ -1094995529, %50 ], [ -1330794744, %44 ], [ -1330794744, %46 ], [ -558323010, %47 ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -543,7 +543,7 @@ check_sessionid.exit:                             ; preds = %46
   br label %read_line.exit.thread
 
 read_line.exit.thread:                            ; preds = %16, %46, %45, %23, %36, %39, %check_sessionid.exit, %35
-  %.0 = phi i32 [ -22, %35 ], [ -1381258232, %check_sessionid.exit ], [ 0, %39 ], [ 0, %36 ], [ -5, %23 ], [ 0, %45 ], [ 0, %46 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ -1381258232, %check_sessionid.exit ], [ -22, %35 ], [ 0, %36 ], [ %spec.select, %16 ], [ 0, %39 ], [ 0, %46 ], [ -5, %23 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -645,7 +645,7 @@ define i32 @ff_rtsp_setup_input_streams(ptr noundef %0, ptr noundef %1) local_un
   br label %25
 
 25:                                               ; preds = %22, %20, %17
-  %.0 = phi i32 [ %19, %17 ], [ -1094995529, %20 ], [ %., %22 ]
+  %.0 = phi i32 [ %19, %17 ], [ %., %22 ], [ -1094995529, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -695,7 +695,7 @@ define range(i32 -2147483648, 65536) i32 @ff_rtsp_tcp_read_packet(ptr noundef %0
   br i1 %.not, label %21, label %.thread
 
 .thread:                                          ; preds = %.backedge, %19, %21, %4
-  %.2.ph = phi i32 [ %9, %4 ], [ %35, %.backedge ], [ %22, %21 ], [ 0, %19 ]
+  %.2.ph = phi i32 [ %9, %4 ], [ %35, %.backedge ], [ 0, %19 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit55
 
@@ -788,7 +788,7 @@ define range(i32 -2147483648, 65536) i32 @ff_rtsp_tcp_read_packet(ptr noundef %0
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %43, %37, %24, %.thread, %60
-  %.3 = phi i32 [ %32, %60 ], [ %.2.ph, %.thread ], [ %44, %43 ], [ -5, %37 ], [ -5, %24 ]
+  %.3 = phi i32 [ %.2.ph, %.thread ], [ %32, %60 ], [ %44, %43 ], [ -5, %37 ], [ -5, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.3
 }
@@ -1064,7 +1064,7 @@ define internal i32 @rtsp_read_header(ptr noundef %0) #0 {
   br label %rtsp_read_announce.exit.i
 
 rtsp_read_announce.exit.i:                        ; preds = %127, %123, %119, %115, %104, %98, %91
-  %.0.i46.i = phi i32 [ -1414549496, %98 ], [ -5, %115 ], [ 0, %123 ], [ -5, %127 ], [ %93, %91 ], [ -12, %104 ], [ %122, %119 ]
+  %.0.i46.i = phi i32 [ -5, %127 ], [ -1414549496, %98 ], [ -5, %115 ], [ -12, %104 ], [ 0, %123 ], [ %93, %91 ], [ %122, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 2, ptr %56, align 8, !tbaa !38
   br label %266
@@ -1381,19 +1381,19 @@ check_sessionid.exit.i.i:                         ; preds = %149
   br label %rtsp_read_setup.exit.i
 
 rtsp_read_setup.exit.i:                           ; preds = %._crit_edge107.i.i, %242, %217, %._crit_edge100.thread.i.i, %174, %165, %156
-  %.074.i.i = phi i32 [ -1094995529, %174 ], [ -1381258232, %._crit_edge100.thread.i.i ], [ %216, %217 ], [ 0, %._crit_edge107.i.i ], [ %241, %242 ], [ -1094995529, %165 ], [ %158, %156 ]
+  %.074.i.i = phi i32 [ %241, %242 ], [ -1094995529, %174 ], [ -1381258232, %._crit_edge100.thread.i.i ], [ %216, %217 ], [ 0, %._crit_edge107.i.i ], [ -1094995529, %165 ], [ %158, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %266
 
 266:                                              ; preds = %rtsp_read_setup.exit.i, %rtsp_read_options.exit.i, %rtsp_read_announce.exit.i, %89
-  %.1.i = phi i32 [ %.0.i46.i, %rtsp_read_announce.exit.i ], [ %133, %rtsp_read_options.exit.i ], [ %.074.i.i, %rtsp_read_setup.exit.i ], [ 0, %89 ]
+  %.1.i = phi i32 [ %.0.i46.i, %rtsp_read_announce.exit.i ], [ %133, %rtsp_read_options.exit.i ], [ 0, %89 ], [ %.074.i.i, %rtsp_read_setup.exit.i ]
   %.not43.i = icmp eq i32 %.1.i, 0
   br i1 %.not43.i, label %69, label %read_line.exit.thread.i
 
 read_line.exit.thread.i:                          ; preds = %266, %.thread.i, %88, %85, %78, %54
-  %.0.i = phi i32 [ %53, %54 ], [ %87, %88 ], [ -1094995529, %.thread.i ], [ -5, %85 ], [ %spec.select59.i, %78 ], [ -1094995529, %266 ]
+  %.0.i = phi i32 [ %53, %54 ], [ -1094995529, %.thread.i ], [ %87, %88 ], [ %spec.select59.i, %78 ], [ -5, %85 ], [ -1094995529, %266 ]
   call void @ff_rtsp_close_streams(ptr noundef %0) #11
   call void @ff_rtsp_close_connections(ptr noundef %0) #11
   call void @ff_network_close() #11
@@ -1608,9 +1608,9 @@ define internal i32 @rtsp_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %53
-  %54 = phi i32 [ %42, %._crit_edge ], [ %.pre167, %53 ]
-  %55 = phi ptr [ %.pre166.pre, %._crit_edge ], [ %.pre165, %53 ]
-  %56 = phi ptr [ %.pre164, %._crit_edge ], [ %.pre, %53 ]
+  %54 = phi i32 [ %.pre167, %53 ], [ %42, %._crit_edge ]
+  %55 = phi ptr [ %.pre165, %53 ], [ %.pre166.pre, %._crit_edge ]
+  %56 = phi ptr [ %.pre, %53 ], [ %.pre164, %._crit_edge ]
   %57 = zext i32 %54 to i64
   %58 = shl nuw nsw i64 %57, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %56, ptr align 4 %55, i64 %58, i1 false)
@@ -1884,7 +1884,7 @@ rtsp_read_pause.exit:                             ; preds = %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %102, %104, %109, %106, %.thread130, %.thread127, %51, %93, %144, %169, %160
-  %.5 = phi i32 [ 0, %160 ], [ 0, %169 ], [ 0, %144 ], [ %52, %51 ], [ %94, %93 ], [ -1, %.thread127 ], [ -110, %.thread130 ], [ %100, %102 ], [ -110, %104 ], [ -110, %109 ], [ -110, %106 ]
+  %.5 = phi i32 [ %94, %93 ], [ -1, %.thread127 ], [ 0, %144 ], [ 0, %160 ], [ 0, %169 ], [ %52, %51 ], [ -110, %.thread130 ], [ %100, %102 ], [ -110, %104 ], [ -110, %109 ], [ -110, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5
@@ -2245,7 +2245,7 @@ define internal i32 @rtsp_read_pause(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %1, %21, %19
-  %.0 = phi i32 [ 0, %21 ], [ %20, %19 ], [ 0, %1 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %21 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

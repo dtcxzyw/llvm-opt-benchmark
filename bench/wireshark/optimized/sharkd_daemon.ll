@@ -248,7 +248,7 @@ sub_034:                                          ; preds = %12, %.tail
   unreachable
 
 .loopexit:                                        ; preds = %.thread52, %33, %.thread, %.thread30.thread, %._crit_edge, %.thread30, %60, %.tail33.thread, %29, %4
-  %.020 = phi i32 [ -1, %4 ], [ -1, %29 ], [ -1, %.tail33.thread ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread30.thread ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread52 ]
+  %.020 = phi i32 [ -1, %4 ], [ -1, %.tail33.thread ], [ -1, %29 ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread30.thread ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread52 ]
   ret i32 %.020
 }
 
@@ -401,7 +401,7 @@ define internal fastcc i32 @socket_init(ptr noundef %0) unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %.thread, %51, %53, %49, %47, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %49 ], [ -1, %47 ], [ -1, %53 ], [ %17, %51 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %49 ], [ -1, %47 ], [ -1, %53 ], [ -1, %.thread ], [ %17, %51 ]
   ret i32 %.0
 }
 

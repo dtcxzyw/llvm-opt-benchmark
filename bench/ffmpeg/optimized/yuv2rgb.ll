@@ -261,7 +261,7 @@ isALPHA.exit24:                                   ; preds = %52
   br label %isALPHA.exit18.thread
 
 isALPHA.exit18.thread:                            ; preds = %isALPHA.exit24, %isALPHA.exit18, %52, %43, %23, %isALPHA.exit21, %38, %38, %isALPHA.exit, %11, %11, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %39, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %12
-  %.0 = phi ptr [ null, %67 ], [ @yuv422p_rgb48_c, %12 ], [ @yuv422p_rgb24_c, %28 ], [ @yuv422p_bgr24_c, %29 ], [ @yuv422p_bgr16, %30 ], [ @yuv422p_bgr15, %31 ], [ @yuv422p_bgr12, %32 ], [ @yuv422p_bgr8, %33 ], [ @yuv422p_bgr4, %34 ], [ @yuv422p_bgr4_byte, %35 ], [ @yuv2rgb_c_1_ordered_dither, %36 ], [ @yuv422p_gbrp_c, %37 ], [ @yuv2rgb_c_48, %39 ], [ @yuv2rgb_c_24_rgb, %57 ], [ @yuv2rgb_c_24_bgr, %58 ], [ @yuv2rgb_c_16_ordered_dither, %59 ], [ @yuv2rgb_c_15_ordered_dither, %60 ], [ @yuv2rgb_c_12_ordered_dither, %61 ], [ @yuv2rgb_c_8_ordered_dither, %62 ], [ @yuv2rgb_c_4_ordered_dither, %63 ], [ @yuv2rgb_c_4b_ordered_dither, %64 ], [ @yuv2rgb_c_1_ordered_dither, %65 ], [ @yuv420p_gbrp_c, %66 ], [ @yuv422p_bgr48_c, %11 ], [ @yuv422p_bgr48_c, %11 ], [ @yuva422p_argb_c, %isALPHA.exit ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuva2argb_c, %isALPHA.exit21 ], [ @yuva422p_rgba_c, %23 ], [ @yuva2argb_c, %43 ], [ @yuva2rgba_c, %52 ], [ %spec.select, %isALPHA.exit18 ], [ %spec.select36, %isALPHA.exit24 ]
+  %.0 = phi ptr [ @yuv420p_gbrp_c, %66 ], [ null, %67 ], [ @yuv2rgb_c_1_ordered_dither, %65 ], [ @yuv422p_rgb48_c, %12 ], [ @yuv422p_bgr48_c, %11 ], [ @yuva2argb_c, %isALPHA.exit21 ], [ @yuv422p_rgb24_c, %28 ], [ @yuv422p_bgr24_c, %29 ], [ @yuv422p_bgr16, %30 ], [ @yuv422p_bgr15, %31 ], [ @yuv422p_bgr12, %32 ], [ @yuv422p_bgr8, %33 ], [ @yuv422p_bgr4, %34 ], [ @yuv422p_bgr4_byte, %35 ], [ @yuv2rgb_c_1_ordered_dither, %36 ], [ @yuv422p_gbrp_c, %37 ], [ @yuva422p_argb_c, %isALPHA.exit ], [ @yuv2rgb_c_48, %39 ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuva422p_rgba_c, %23 ], [ @yuv2rgb_c_24_rgb, %57 ], [ @yuv2rgb_c_24_bgr, %58 ], [ @yuv2rgb_c_16_ordered_dither, %59 ], [ @yuv2rgb_c_15_ordered_dither, %60 ], [ @yuv2rgb_c_12_ordered_dither, %61 ], [ @yuv2rgb_c_8_ordered_dither, %62 ], [ @yuv2rgb_c_4_ordered_dither, %63 ], [ @yuv2rgb_c_4b_ordered_dither, %64 ], [ @yuv422p_bgr48_c, %11 ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuva2rgba_c, %52 ], [ %spec.select36, %isALPHA.exit24 ], [ @yuva2argb_c, %43 ], [ %spec.select, %isALPHA.exit18 ]
   ret ptr %.0
 }
 
@@ -23893,7 +23893,7 @@ define range(i32 -22, 1) i32 @ff_yuv2rgb_c_init_tables(ptr noundef initializes((
   br label %switch.edge
 
 switch.edge:                                      ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %9
-  %10 = phi i1 [ true, %6 ], [ false, %9 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ]
+  %10 = phi i1 [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ false, %9 ], [ true, %6 ]
   switch i32 %8, label %11 [
     i32 36, label %switch.edge448
     i32 38, label %switch.edge448
@@ -23909,7 +23909,7 @@ switch.edge:                                      ; preds = %6, %6, %6, %6, %6, 
   br label %switch.edge448
 
 switch.edge448:                                   ; preds = %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %switch.edge, %11
-  %12 = phi i1 [ true, %switch.edge ], [ false, %11 ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ]
+  %12 = phi i1 [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ true, %switch.edge ], [ false, %11 ], [ true, %switch.edge ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load i32, ptr %13, align 8, !tbaa !95
   %.not = icmp eq i32 %2, 0
@@ -25346,7 +25346,7 @@ isPlanar.exit.thread:                             ; preds = %794, %isPlanar.exit
   br label %fill_gv_table.exit
 
 fill_gv_table.exit:                               ; preds = %780, %677, %582, %517, %428, %341, %262, %183, %isPlanar.exit.thread, %isPlanar.exit, %isALPHA.exit, %isALPHA.exit451, %527, %438, %350, %271, %192, %150
-  %.0 = phi i32 [ -12, %150 ], [ -12, %192 ], [ -12, %271 ], [ -12, %350 ], [ -12, %438 ], [ -12, %527 ], [ -12, %isALPHA.exit451 ], [ -12, %isALPHA.exit ], [ -22, %isPlanar.exit ], [ -22, %isPlanar.exit.thread ], [ 0, %183 ], [ 0, %262 ], [ 0, %341 ], [ 0, %428 ], [ 0, %517 ], [ 0, %582 ], [ 0, %677 ], [ 0, %780 ]
+  %.0 = phi i32 [ -12, %isALPHA.exit ], [ -22, %isPlanar.exit.thread ], [ -12, %isALPHA.exit451 ], [ -12, %150 ], [ -12, %192 ], [ -12, %271 ], [ -12, %350 ], [ -12, %438 ], [ -12, %527 ], [ -22, %isPlanar.exit ], [ 0, %677 ], [ 0, %183 ], [ 0, %262 ], [ 0, %341 ], [ 0, %428 ], [ 0, %517 ], [ 0, %582 ], [ 0, %780 ]
   ret i32 %.0
 }
 

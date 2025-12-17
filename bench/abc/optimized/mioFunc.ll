@@ -512,7 +512,7 @@ Mio_SopRegister.exit:                             ; preds = %105, %116
   br label %Exp_Truth6Lit.exit.i
 
 Exp_Truth6Lit.exit.i:                             ; preds = %162, %155, %149, %143, %138, %135
-  %.0.i.i = phi i64 [ -1, %138 ], [ 0, %135 ], [ %148, %143 ], [ %153, %149 ], [ %161, %155 ], [ %167, %162 ]
+  %.0.i.i = phi i64 [ %153, %149 ], [ -1, %138 ], [ 0, %135 ], [ %148, %143 ], [ %161, %155 ], [ %167, %162 ]
   %168 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %169 = load i32, ptr %168, align 4, !tbaa !30
   switch i32 %169, label %171 [
@@ -568,7 +568,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %162, %155, %149, %1
   br label %Exp_Truth6Lit.exit31.i
 
 Exp_Truth6Lit.exit31.i:                           ; preds = %194, %187, %181, %175, %170, %Exp_Truth6Lit.exit.i
-  %.0.i29.i = phi i64 [ -1, %170 ], [ 0, %Exp_Truth6Lit.exit.i ], [ %180, %175 ], [ %185, %181 ], [ %193, %187 ], [ %199, %194 ]
+  %.0.i29.i = phi i64 [ %185, %181 ], [ -1, %170 ], [ 0, %Exp_Truth6Lit.exit.i ], [ %180, %175 ], [ %193, %187 ], [ %199, %194 ]
   %200 = and i64 %.0.i29.i, %.0.i.i
   %201 = getelementptr inbounds nuw i64, ptr %131, i64 %indvars.iv.i
   store i64 %200, ptr %201, align 8, !tbaa !57
@@ -635,7 +635,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %194, %187, %181, %1
   br label %Exp_Truth6Lit.exit34.thread.i
 
 Exp_Truth6Lit.exit34.i:                           ; preds = %218, %212, %206, %._crit_edge.i
-  %.0.i32.i = phi i64 [ -1, %206 ], [ 0, %._crit_edge.i ], [ %217, %212 ], [ %222, %218 ]
+  %.0.i32.i = phi i64 [ %222, %218 ], [ -1, %206 ], [ 0, %._crit_edge.i ], [ %217, %212 ]
   %.not.i = icmp eq ptr %131, null
   br i1 %.not.i, label %Exp_Truth6.exit, label %Exp_Truth6Lit.exit34.thread.i
 
@@ -909,7 +909,7 @@ Exp_Truth8.exit:                                  ; preds = %.preheader1.split.i
   br label %351
 
 351:                                              ; preds = %Exp_Truth6.exit, %Exp_Truth8.exit, %238, %19, %37, %99, %59, %52
-  %.0100 = phi i32 [ 1, %52 ], [ 1, %59 ], [ 1, %99 ], [ 0, %37 ], [ 0, %19 ], [ 0, %238 ], [ 0, %Exp_Truth8.exit ], [ 0, %Exp_Truth6.exit ]
+  %.0100 = phi i32 [ 1, %99 ], [ 1, %52 ], [ 1, %59 ], [ 0, %19 ], [ 0, %Exp_Truth6.exit ], [ 0, %37 ], [ 0, %238 ], [ 0, %Exp_Truth8.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0100

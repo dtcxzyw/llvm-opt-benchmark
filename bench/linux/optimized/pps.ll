@@ -765,7 +765,7 @@ define internal fastcc range(i32 -110, 1) i32 @pps_cdev_pps_fetch(ptr noundef %0
   br label %.thread9
 
 .thread9:                                         ; preds = %63, %28, %11, %60
-  %66 = phi i32 [ -110, %60 ], [ 0, %11 ], [ 0, %28 ], [ %spec.select, %63 ]
+  %66 = phi i32 [ -110, %60 ], [ 0, %28 ], [ %spec.select, %63 ], [ 0, %11 ]
   ret i32 %66
 }
 

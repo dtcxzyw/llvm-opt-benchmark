@@ -710,7 +710,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8Hal
   %152 = icmp slt i32 %.0.i.i.i.i.i, 0
   br i1 %152, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoSt4lessIS5_ESaISt4pairIKS5_SE_EEE5countERSI_.exit.thread, label %245
 
-_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoSt4lessIS5_ESaISt4pairIKS5_SE_EEE5countERSI_.exit.thread: ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit53, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoSt4lessIS5_ESaISt4pairIKS5_SE_EEE5countERSI_.exit
+_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoSt4lessIS5_ESaISt4pairIKS5_SE_EEE5countERSI_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit53, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoSt4lessIS5_ESaISt4pairIKS5_SE_EEE5countERSI_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %12, ptr %32, align 8
@@ -1026,12 +1026,12 @@ _ZNSt7__cxx114listImSaImEE9push_backERKm.exit:    ; preds = %247
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %51, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit
-  %.sroa.14.3 = phi ptr [ %.sroa.14.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.14.5, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.14.0253, %51 ], [ %.sroa.14.0253, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.9.2, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.9.0254, %51 ], [ %.sroa.9.0254, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
-  %.sroa.0146.3 = phi ptr [ %.sroa.0146.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.0146.5, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.0146.0255, %51 ], [ %.sroa.0146.0255, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
-  %.sroa.16.2 = phi ptr [ %.sroa.16.0256, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.16.0256, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.16.0256, %51 ], [ %71, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0258, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.10.0258, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %52, %51 ], [ %69, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
-  %.sroa.0154.2 = phi ptr [ %.sroa.0154.0259, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.0154.0259, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.0154.0259, %51 ], [ %65, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.5, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.14.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.14.0253, %51 ], [ %.sroa.14.0253, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.9.2, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.9.0254, %51 ], [ %.sroa.9.0254, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.0146.3 = phi ptr [ %.sroa.0146.5, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.0146.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.0146.0255, %51 ], [ %.sroa.0146.0255, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.0256, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.16.0256, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.16.0256, %51 ], [ %71, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0258, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.10.0258, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %52, %51 ], [ %69, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
+  %.sroa.0154.2 = phi ptr [ %.sroa.0154.0259, %_ZNSt7__cxx114listImSaImEE9push_backERKm.exit ], [ %.sroa.0154.0259, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit ], [ %.sroa.0154.0259, %51 ], [ %65, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ]
   %253 = add nuw i64 %storemerge261, 1
   %254 = load ptr, ptr %25, align 8
   %255 = load ptr, ptr %1, align 8
@@ -1453,11 +1453,11 @@ _ZNSt6vectorImSaImEED2Ev.exit111:                 ; preds = %_ZNSt6vectorImSaImE
   ret void
 
 396:                                              ; preds = %.loopexit187, %.loopexit.split-lp, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76, %132, %382, %343, %305
-  %.sroa.16.0224 = phi ptr [ %.sroa.16.0.lcssa, %305 ], [ %.sroa.16.0.lcssa, %382 ], [ %.sroa.16.0.lcssa, %343 ], [ %.sroa.16.0256, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.16.0256, %132 ], [ %.sroa.16.0256.lcssa313, %.loopexit187 ], [ %.sroa.16.0256319, %.loopexit.split-lp ]
-  %.sroa.0154.0205 = phi ptr [ %.sroa.0154.0.lcssa, %305 ], [ %.sroa.0154.0.lcssa, %382 ], [ %.sroa.0154.0.lcssa, %343 ], [ %.sroa.0154.0259, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.0154.0259, %132 ], [ %.sroa.0154.0259, %.loopexit187 ], [ %.sroa.0154.0259, %.loopexit.split-lp ]
-  %.sroa.14.6 = phi ptr [ %.sroa.14.0.lcssa, %305 ], [ %.sroa.14.0.lcssa, %382 ], [ %.sroa.14.0.lcssa, %343 ], [ %.sroa.14.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.14.0253, %132 ], [ %.sroa.14.2.ph, %.loopexit187 ], [ %.sroa.14.0253303, %.loopexit.split-lp ]
-  %.sroa.0146.6 = phi ptr [ %.sroa.0146.0.lcssa, %305 ], [ %.sroa.0146.0.lcssa, %382 ], [ %.sroa.0146.0.lcssa, %343 ], [ %.sroa.0146.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.0146.0255, %132 ], [ %.sroa.0146.2.ph, %.loopexit187 ], [ %.sroa.0146.0255, %.loopexit.split-lp ]
-  %.pn26.pn = phi { ptr, i32 } [ %306, %305 ], [ %383, %382 ], [ %344, %343 ], [ %.pn, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %133, %132 ], [ %lpad.loopexit, %.loopexit187 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.16.0224 = phi ptr [ %.sroa.16.0.lcssa, %343 ], [ %.sroa.16.0.lcssa, %305 ], [ %.sroa.16.0.lcssa, %382 ], [ %.sroa.16.0256, %132 ], [ %.sroa.16.0256, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.16.0256.lcssa313, %.loopexit187 ], [ %.sroa.16.0256319, %.loopexit.split-lp ]
+  %.sroa.0154.0205 = phi ptr [ %.sroa.0154.0.lcssa, %343 ], [ %.sroa.0154.0.lcssa, %305 ], [ %.sroa.0154.0.lcssa, %382 ], [ %.sroa.0154.0259, %132 ], [ %.sroa.0154.0259, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.0154.0259, %.loopexit187 ], [ %.sroa.0154.0259, %.loopexit.split-lp ]
+  %.sroa.14.6 = phi ptr [ %.sroa.14.0.lcssa, %343 ], [ %.sroa.14.0.lcssa, %305 ], [ %.sroa.14.0.lcssa, %382 ], [ %.sroa.14.0253, %132 ], [ %.sroa.14.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.14.2.ph, %.loopexit187 ], [ %.sroa.14.0253303, %.loopexit.split-lp ]
+  %.sroa.0146.6 = phi ptr [ %.sroa.0146.0.lcssa, %343 ], [ %.sroa.0146.0.lcssa, %305 ], [ %.sroa.0146.0.lcssa, %382 ], [ %.sroa.0146.0255, %132 ], [ %.sroa.0146.5, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %.sroa.0146.2.ph, %.loopexit187 ], [ %.sroa.0146.0255, %.loopexit.split-lp ]
+  %.pn26.pn = phi { ptr, i32 } [ %344, %343 ], [ %306, %305 ], [ %383, %382 ], [ %133, %132 ], [ %.pn, %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit76 ], [ %lpad.loopexit, %.loopexit187 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %397 = load ptr, ptr %7, align 8
@@ -1945,14 +1945,14 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %120
 
 120:                                              ; preds = %.sink.split.i, %100, %80
-  %.sroa.021.2.i.i = phi ptr [ %82, %80 ], [ null, %100 ], [ %118, %.sink.split.i ]
-  %.sroa.12.2.i.i = phi ptr [ %82, %80 ], [ %102, %100 ], [ %119, %.sink.split.i ]
+  %.sroa.021.2.i.i = phi ptr [ null, %100 ], [ %82, %80 ], [ %118, %.sink.split.i ]
+  %.sroa.12.2.i.i = phi ptr [ %102, %100 ], [ %82, %80 ], [ %119, %.sink.split.i ]
   %.not.i = icmp eq ptr %.sroa.12.2.i.i, null
   br i1 %.not.i, label %_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEN13DuplicateInfoD2Ev.exit.i.i.i.i.i.i.i, label %.thread.i
 
 .thread.i:                                        ; preds = %120, %114, %94, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %.sroa.12.2.i8.i = phi ptr [ %.sroa.12.2.i.i, %120 ], [ %spec.select30.i.i, %114 ], [ %spec.select28.i.i, %94 ], [ %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
-  %.sroa.021.2.i7.i = phi ptr [ %.sroa.021.2.i.i, %120 ], [ %spec.select29.i.i, %114 ], [ %spec.select.i.i, %94 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.12.2.i8.i = phi ptr [ %.sroa.12.2.i.i, %120 ], [ %spec.select30.i.i, %114 ], [ %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %spec.select28.i.i, %94 ]
+  %.sroa.021.2.i7.i = phi ptr [ %.sroa.021.2.i.i, %120 ], [ %spec.select29.i.i, %114 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %spec.select.i.i, %94 ]
   %.not.i.i.i12 = icmp ne ptr %.sroa.021.2.i7.i, null
   %121 = icmp eq ptr %.sroa.12.2.i8.i, %6
   %or.cond.i.i.i = select i1 %.not.i.i.i12, i1 true, i1 %121
@@ -1985,7 +1985,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %131
 
 131:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i16, %.thread.i
-  %132 = phi i1 [ true, %.thread.i ], [ %130, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i16 ]
+  %132 = phi i1 [ %130, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i16 ], [ true, %.thread.i ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %132, ptr noundef nonnull %26, ptr noundef nonnull %.sroa.12.2.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load i64, ptr %133, align 8
@@ -2281,7 +2281,7 @@ define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11mak
   br i1 %22, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %19, %17, %13, %9, %3
-  %.0.i.i = phi i32 [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ 1, %3 ], [ %21, %19 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ %10, %9 ], [ %14, %13 ], [ 1, %3 ], [ %21, %19 ]
   %23 = zext i32 %.0.i.i to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %24, ptr %5, align 8, !alias.scope !18
@@ -2714,8 +2714,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %25
 
 25:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22, %._crit_edge.thread
-  %.sroa.09.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22 ]
-  %.sroa.4.0 = phi ptr [ %.010.lcssa21, %._crit_edge.thread ], [ %spec.select12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22 ]
+  %.sroa.09.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit22 ], [ %.010.lcssa21, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.09.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

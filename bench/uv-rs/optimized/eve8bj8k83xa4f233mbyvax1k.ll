@@ -100,7 +100,7 @@ define hidden void @"_ZN106_$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$17h9d776c1810196d16E.exit"
 
-.thread146:                                       ; preds = %43, %29, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit134"
+.thread146:                                       ; preds = %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit134", %43, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -139,7 +139,7 @@ define hidden void @"_ZN106_$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$u20
           to label %111 unwind label %.thread146
 
 "_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit136": ; preds = %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit", %110, %64, %44
-  %.pn102 = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.split-lp161, %64 ], [ %lpad.thr_comm160, %110 ], [ %79, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit" ]
+  %.pn102 = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm160, %110 ], [ %lpad.thr_comm.split-lp161, %64 ], [ %79, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit" ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h0f8696a8be4de888E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 1, i64 noundef 1)
           to label %.thread unwind label %94
 
@@ -385,7 +385,7 @@ define hidden void @"_ZN106_$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$u20
   unreachable
 
 common.resume:                                    ; preds = %.thread, %98, %103
-  %common.resume.op = phi { ptr, i32 } [ %99, %103 ], [ %99, %98 ], [ %.pn104145, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %99, %98 ], [ %99, %103 ], [ %.pn104145, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 110:                                              ; preds = %68, %70, %63
@@ -627,7 +627,7 @@ define hidden void @"_ZN106_$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$u20
   br i1 %23, label %26, label %25
 
 common.resume:                                    ; preds = %94, %99, %.thread
-  %common.resume.op = phi { ptr, i32 } [ %.pn104145, %.thread ], [ %95, %99 ], [ %95, %94 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %.pn104145, %.thread ], [ %95, %99 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %3
@@ -656,7 +656,7 @@ common.resume:                                    ; preds = %94, %99, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %"_ZN4core3ptr57drop_in_place$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$17h9d776c1810196d16E.exit"
 
-.thread146:                                       ; preds = %39, %25, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit134"
+.thread146:                                       ; preds = %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit134", %39, %25
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -695,7 +695,7 @@ common.resume:                                    ; preds = %94, %99, %.thread
           to label %107 unwind label %.thread146
 
 "_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0330cf107cd6eaceE.exit136": ; preds = %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit", %106, %60, %40
-  %.pn102 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm.split-lp161, %60 ], [ %lpad.thr_comm160, %106 ], [ %75, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit" ]
+  %.pn102 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm160, %106 ], [ %lpad.thr_comm.split-lp161, %60 ], [ %75, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h84441992abf2352dE.exit" ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h0f8696a8be4de888E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, i64 noundef 1)
           to label %.thread unwind label %90
 
@@ -1216,8 +1216,8 @@ _ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24: ; preds = %"
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %11, %_ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24
-  %.sroa.4.0 = phi i64 [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24 ], [ %.val22, %11 ], [ 1, %16 ]
-  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24 ], [ %.val, %11 ], [ @anon.00835ac976339eea7072b4a7feea4241.9, %16 ]
+  %.sroa.4.0 = phi i64 [ %.val22, %11 ], [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24 ], [ 1, %16 ]
+  %.sroa.0.0 = phi ptr [ %.val, %11 ], [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hb11e93d583dd4da1E.exit24 ], [ @anon.00835ac976339eea7072b4a7feea4241.9, %16 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %29
@@ -1296,7 +1296,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$uv_pypi_types..parsed_url..P
   unreachable
 
 common.resume:                                    ; preds = %30, %22, %8, %13
-  %common.resume.op = phi { ptr, i32 } [ %9, %13 ], [ %9, %8 ], [ %23, %22 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %9, %8 ], [ %9, %13 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %1

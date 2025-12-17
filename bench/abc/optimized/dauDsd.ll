@@ -603,8 +603,8 @@ tailrecurse:                                      ; preds = %148, %3
   br label %37
 
 37:                                               ; preds = %36, %.critedge2
-  %38 = phi i8 [ %.pre138, %36 ], [ %.lcssa92, %.critedge2 ]
-  %.pn77110 = phi ptr [ %27, %36 ], [ %.promoted106, %.critedge2 ]
+  %38 = phi i8 [ %.lcssa92, %.critedge2 ], [ %.pre138, %36 ]
+  %.pn77110 = phi ptr [ %.promoted106, %.critedge2 ], [ %27, %36 ]
   %39 = add i8 %38, -97
   %or.cond79 = icmp ult i8 %39, 26
   br i1 %or.cond79, label %.loopexit, label %40
@@ -997,8 +997,8 @@ define i32 @Dau_DsdCountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %31
 
 31:                                               ; preds = %30, %.critedge2
-  %32 = phi i8 [ %.pre80, %30 ], [ %.lcssa, %.critedge2 ]
-  %33 = phi ptr [ %27, %30 ], [ %.lcssa63, %.critedge2 ]
+  %32 = phi i8 [ %.lcssa, %.critedge2 ], [ %.pre80, %30 ]
+  %33 = phi ptr [ %.lcssa63, %.critedge2 ], [ %27, %30 ]
   %34 = add i8 %32, -97
   %or.cond61 = icmp ult i8 %34, 26
   br i1 %or.cond61, label %.loopexit, label %35
@@ -1181,7 +1181,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not27, label %tailrecurse, label %20
 
 common.ret52:                                     ; preds = %6, %3, %20
-  %common.ret52.op = phi i64 [ %36, %20 ], [ %spec.select, %6 ], [ %0, %3 ]
+  %common.ret52.op = phi i64 [ %36, %20 ], [ %0, %3 ], [ %spec.select, %6 ]
   ret i64 %common.ret52.op
 
 20:                                               ; preds = %11
@@ -1360,8 +1360,8 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %.preheader.preheader
-  %84 = phi ptr [ %82, %._crit_edge ], [ %83, %.preheader.preheader ], [ %65, %58 ]
-  %.0127151 = phi ptr [ %6, %._crit_edge ], [ %6, %.preheader.preheader ], [ %3, %58 ]
+  %84 = phi ptr [ %83, %.preheader.preheader ], [ %82, %._crit_edge ], [ %65, %58 ]
+  %.0127151 = phi ptr [ %6, %.preheader.preheader ], [ %6, %._crit_edge ], [ %3, %58 ]
   %storemerge155 = getelementptr inbounds nuw i8, ptr %.pn154, i64 1
   store ptr %storemerge155, ptr %1, align 8, !tbaa !19
   %85 = icmp ult ptr %storemerge155, %84
@@ -1464,7 +1464,7 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %141
 
 141:                                              ; preds = %112, %16, %.thread147, %._crit_edge176, %100, %._crit_edge165, %._crit_edge171
-  %.0 = phi i64 [ %42, %._crit_edge171 ], [ %57, %._crit_edge165 ], [ %111, %100 ], [ %140, %._crit_edge176 ], [ %21, %16 ], [ %25, %.thread147 ], [ 0, %112 ]
+  %.0 = phi i64 [ %25, %.thread147 ], [ %42, %._crit_edge171 ], [ %57, %._crit_edge165 ], [ %111, %100 ], [ %140, %._crit_edge176 ], [ %21, %16 ], [ 0, %112 ]
   ret i64 %.0
 }
 
@@ -1551,9 +1551,9 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef nonnull c
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
-  %.fr = phi i32 [ 2, %21 ], [ %32, %.lr.ph.preheader.i ]
-  %38 = phi i64 [ 8, %21 ], [ %37, %.lr.ph.preheader.i ]
+  %.0.lcssa74 = phi i32 [ %indvars, %.lr.ph.preheader.i ], [ 1, %21 ]
+  %.fr = phi i32 [ %32, %.lr.ph.preheader.i ], [ 2, %21 ]
+  %38 = phi i64 [ %37, %.lr.ph.preheader.i ], [ 8, %21 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %38, i1 false), !tbaa !29
   %39 = sext i32 %.0.lcssa74 to i64
   %wide.trip.count = zext i32 %.0.lcssa74 to i64
@@ -1628,8 +1628,8 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread83, %64, %22, %25
-  %.sink = phi i64 [ %28, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %76, %64 ]
-  %.037.ph = phi i32 [ 1, %25 ], [ 0, %22 ], [ 2, %.thread83 ], [ %.fr, %64 ]
+  %.sink = phi i64 [ %24, %22 ], [ %28, %25 ], [ 0, %.thread83 ], [ %76, %64 ]
+  %.037.ph = phi i32 [ 0, %22 ], [ 1, %25 ], [ 2, %.thread83 ], [ %.fr, %64 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !29
   br label %77
 
@@ -2855,7 +2855,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %156
 
 156:                                              ; preds = %150, %138, %137
-  %.1.us = phi i32 [ %.0346.us, %138 ], [ %.0346.us, %137 ], [ %spec.select.us, %150 ]
+  %.1.us = phi i32 [ %.0346.us, %137 ], [ %spec.select.us, %150 ], [ %.0346.us, %138 ]
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond438.not = icmp eq i64 %indvars.iv.next435, %wide.trip.count442
   br i1 %exitcond438.not, label %._crit_edge348.us, label %137, !llvm.loop !62
@@ -3018,8 +3018,8 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %._crit_edge353
 
 ._crit_edge353:                                   ; preds = %5, %.preheader281, %._crit_edge353.loopexit
-  %.0255.lcssa450452454457 = phi i32 [ %.1256, %._crit_edge353.loopexit ], [ %.1256, %.preheader281 ], [ 0, %5 ]
-  %.1249 = phi i64 [ %267, %._crit_edge353.loopexit ], [ -1, %.preheader281 ], [ -1, %5 ]
+  %.0255.lcssa450452454457 = phi i32 [ %.1256, %.preheader281 ], [ %.1256, %._crit_edge353.loopexit ], [ 0, %5 ]
+  %.1249 = phi i64 [ -1, %.preheader281 ], [ %267, %._crit_edge353.loopexit ], [ -1, %5 ]
   %268 = sext i32 %2 to i64
   %269 = getelementptr inbounds i8, ptr %1, i64 %268
   store i8 60, ptr %269, align 1, !tbaa !3
@@ -3043,7 +3043,7 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %285
 
 285:                                              ; preds = %40, %._crit_edge353, %253, %238, %221, %206, %190, %123, %106, %94, %80, %69, %43, %34
-  %.0257 = phi i32 [ %37, %34 ], [ %48, %43 ], [ %77, %69 ], [ %90, %80 ], [ %103, %94 ], [ %117, %106 ], [ %131, %123 ], [ %203, %190 ], [ %219, %206 ], [ %234, %221 ], [ %251, %238 ], [ %266, %253 ], [ %282, %._crit_edge353 ], [ %2, %40 ]
+  %.0257 = phi i32 [ %37, %34 ], [ %48, %43 ], [ %282, %._crit_edge353 ], [ %77, %69 ], [ %90, %80 ], [ %103, %94 ], [ %117, %106 ], [ %131, %123 ], [ %203, %190 ], [ %219, %206 ], [ %234, %221 ], [ %251, %238 ], [ %266, %253 ], [ %2, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3932,7 +3932,7 @@ Dau_DsdComputeMatches.exit:                       ; preds = %42, %Abc_TtIsConst1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47, %._crit_edge.sink.split, %.loopexit, %.loopexit59
-  %.1 = phi i32 [ 0, %.loopexit59 ], [ 0, %.loopexit ], [ %spec.select, %47 ], [ 0, %._crit_edge.sink.split ]
+  %.1 = phi i32 [ 0, %._crit_edge.sink.split ], [ 0, %.loopexit59 ], [ 0, %.loopexit ], [ %spec.select, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
@@ -4646,8 +4646,8 @@ Dau_Dsd6FindSupportOne.exit.i:                    ; preds = %33
   br i1 %192, label %.lr.ph21.i.i, label %Dau_DsdAddVarDef.exit.i, !llvm.loop !99
 
 Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.preheader.i.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i
-  %.pre-phi.i118.i = phi i64 [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %184, %.preheader.i.i ], [ %191, %.lr.ph21.i.i ]
-  %.lcssa.i.i = phi i32 [ %176, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %183, %.preheader.i.i ], [ %190, %.lr.ph21.i.i ]
+  %.pre-phi.i118.i = phi i64 [ %184, %.preheader.i.i ], [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %191, %.lr.ph21.i.i ]
+  %.lcssa.i.i = phi i32 [ %183, %.preheader.i.i ], [ %176, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %190, %.lr.ph21.i.i ]
   %193 = add nsw i32 %.lcssa.i.i, 1
   store i32 %193, ptr %18, align 4, !tbaa !87
   %194 = getelementptr inbounds [8 x i8], ptr %19, i64 %.pre-phi.i118.i
@@ -4752,7 +4752,7 @@ default.unreachable:                              ; preds = %Dau_Dsd6FindSupport
   unreachable
 
 Dau_Dsd6DecomposeDoubleVarsOne.exit:              ; preds = %Dau_Dsd6FindSupportOne.exit.i, %67, %70, %112, %154, %Dau_DsdAddVarDef.exit.i, %Dau_Dsd6DecomposeSingleVar.exit
-  %.0.i35 = phi i32 [ %.358, %Dau_Dsd6FindSupportOne.exit.i ], [ %.358, %112 ], [ %.358, %154 ], [ %.358, %67 ], [ %.358, %70 ], [ %.2.i, %Dau_Dsd6DecomposeSingleVar.exit ], [ %197, %Dau_DsdAddVarDef.exit.i ]
+  %.0.i35 = phi i32 [ %.358, %70 ], [ %.358, %Dau_Dsd6FindSupportOne.exit.i ], [ %.358, %112 ], [ %.358, %154 ], [ %.358, %67 ], [ %.2.i, %Dau_Dsd6DecomposeSingleVar.exit ], [ %197, %Dau_DsdAddVarDef.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %235 = icmp eq i32 %.0.i35, 0
   br i1 %235, label %236, label %246
@@ -5317,8 +5317,8 @@ Abc_TtSuppFindFirst.exit94.i:                     ; preds = %200, %198
   br i1 %274, label %.lr.ph21.i.i, label %Dau_DsdAddVarDef.exit.i, !llvm.loop !99
 
 Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.preheader.i.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i
-  %.pre-phi.i.i = phi i64 [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %266, %.preheader.i.i ], [ %273, %.lr.ph21.i.i ]
-  %.lcssa.i.i = phi i32 [ %258, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %265, %.preheader.i.i ], [ %272, %.lr.ph21.i.i ]
+  %.pre-phi.i.i = phi i64 [ %266, %.preheader.i.i ], [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %273, %.lr.ph21.i.i ]
+  %.lcssa.i.i = phi i32 [ %265, %.preheader.i.i ], [ %258, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %272, %.lr.ph21.i.i ]
   %275 = add nsw i32 %.lcssa.i.i, 1
   store i32 %275, ptr %20, align 4, !tbaa !87
   %276 = getelementptr inbounds [8 x i8], ptr %21, i64 %.pre-phi.i.i
@@ -5488,8 +5488,8 @@ Abc_Clock.exit66:                                 ; preds = %.loopexit.thread, %
   store i64 %343, ptr @s_Times.2, align 16, !tbaa !29
   br label %.thread96
 
-.thread96:                                        ; preds = %Abc_Clock.exit64, %Abc_Clock.exit62, %Dau_Dsd6DecomposeTripleVarsOuter.exit, %Abc_Clock.exit66
-  %.5.ph = phi i32 [ %.245178, %Abc_Clock.exit66 ], [ 0, %Dau_Dsd6DecomposeTripleVarsOuter.exit ], [ 0, %Abc_Clock.exit62 ], [ 0, %Abc_Clock.exit64 ]
+.thread96:                                        ; preds = %Abc_Clock.exit62, %Abc_Clock.exit64, %Dau_Dsd6DecomposeTripleVarsOuter.exit, %Abc_Clock.exit66
+  %.5.ph = phi i32 [ %.245178, %Abc_Clock.exit66 ], [ 0, %Dau_Dsd6DecomposeTripleVarsOuter.exit ], [ 0, %Abc_Clock.exit64 ], [ 0, %Abc_Clock.exit62 ]
   ret i32 %.5.ph
 }
 
@@ -6168,7 +6168,7 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DsdDecomposeSingleVarOne(ptr nou
   %36 = icmp ult ptr %35, %27
   br i1 %36, label %.preheader27.us.i, label %.loopexit272, !llvm.loop !113
 
-.loopexit272:                                     ; preds = %._crit_edge.us.i, %18, %.preheader.i, %23, %.preheader27.lr.ph.i
+.loopexit272:                                     ; preds = %._crit_edge.us.i, %18, %23, %.preheader.i, %.preheader27.lr.ph.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %39
@@ -6562,7 +6562,7 @@ Abc_TtCof0IsConst1.exit:                          ; preds = %32, %19, %107, %94
   %203 = icmp ult ptr %202, %194
   br i1 %203, label %.preheader29.us.i, label %.loopexit263, !llvm.loop !122
 
-.loopexit263:                                     ; preds = %._crit_edge.us.i126, %186, %.preheader.i127, %191, %.preheader29.lr.ph.i
+.loopexit263:                                     ; preds = %._crit_edge.us.i126, %186, %191, %.preheader.i127, %.preheader29.lr.ph.i
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %206
@@ -6750,7 +6750,7 @@ Dau_DsdWriteString.exit132:                       ; preds = %206
   %276 = icmp ult ptr %275, %267
   br i1 %276, label %.preheader28.us.i, label %.loopexit257, !llvm.loop !128
 
-.loopexit257:                                     ; preds = %._crit_edge.us.i170, %259, %.preheader.i171, %264, %.preheader28.lr.ph.i
+.loopexit257:                                     ; preds = %._crit_edge.us.i170, %259, %264, %.preheader.i171, %.preheader28.lr.ph.i
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %279
@@ -6933,7 +6933,7 @@ Abc_TtCof1IsConst1.exit:                          ; preds = %200, %187, %273, %2
   %355 = icmp ult ptr %354, %343
   br i1 %355, label %.preheader.us.i204, label %.loopexit, !llvm.loop !131
 
-.loopexit.thread:                                 ; preds = %325, %340
+.loopexit.thread:                                 ; preds = %340, %325
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %358 = load i32, ptr %357, align 8, !tbaa !93
@@ -7352,7 +7352,7 @@ Abc_TtCheckEqualCofs.exit372.thread374:           ; preds = %73
   br i1 %151, label %.preheader121.us.us.i335, label %Abc_TtCheckEqualCofs.exit372.thread, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit372.thread:              ; preds = %._crit_edge125.split.us.us.us.i349, %._crit_edge.us.i365, %108, %107, %128, %144
-  %152 = phi i32 [ 0, %144 ], [ 0, %128 ], [ 0, %108 ], [ 2, %107 ], [ 2, %._crit_edge.us.i365 ], [ 2, %._crit_edge125.split.us.us.us.i349 ]
+  %152 = phi i32 [ 2, %._crit_edge.us.i365 ], [ 0, %144 ], [ 0, %128 ], [ 0, %108 ], [ 2, %107 ], [ 2, %._crit_edge125.split.us.us.us.i349 ]
   br i1 %96, label %153, label %Abc_TtCheckEqualCofs.exit372.thread.thread
 
 153:                                              ; preds = %Abc_TtCheckEqualCofs.exit372.thread
@@ -7514,8 +7514,8 @@ Abc_TtCheckEqualCofs.exit372.thread.thread:       ; preds = %Abc_TtCheckEqualCof
   br i1 %219, label %.preheader121.us.us.i287, label %Abc_TtCheckEqualCofs.exit324, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit324:                     ; preds = %._crit_edge125.split.us.us.us.i301, %._crit_edge.us.i317, %162, %163, %195, %212, %97, %.preheader121.lr.ph.i280, %Abc_TtCheckEqualCofs.exit372.thread374, %153, %184, %.preheader.lr.ph.i302, %202
-  %220 = phi i32 [ %88, %Abc_TtCheckEqualCofs.exit372.thread374 ], [ %152, %153 ], [ %188, %184 ], [ %206, %202 ], [ %188, %.preheader.lr.ph.i302 ], [ %206, %.preheader121.lr.ph.i280 ], [ 2, %97 ], [ %206, %212 ], [ %188, %195 ], [ %152, %163 ], [ %152, %162 ], [ %188, %._crit_edge.us.i317 ], [ %206, %._crit_edge125.split.us.us.us.i301 ]
-  %.0.i279 = phi i32 [ %94, %Abc_TtCheckEqualCofs.exit372.thread374 ], [ 1, %153 ], [ 1, %184 ], [ 1, %202 ], [ 1, %.preheader.lr.ph.i302 ], [ 1, %.preheader121.lr.ph.i280 ], [ 1, %97 ], [ 0, %212 ], [ 0, %195 ], [ 1, %162 ], [ 0, %163 ], [ 1, %._crit_edge.us.i317 ], [ 1, %._crit_edge125.split.us.us.us.i301 ]
+  %220 = phi i32 [ %88, %Abc_TtCheckEqualCofs.exit372.thread374 ], [ %188, %184 ], [ %206, %202 ], [ %152, %153 ], [ %188, %.preheader.lr.ph.i302 ], [ %206, %.preheader121.lr.ph.i280 ], [ 2, %97 ], [ %188, %._crit_edge.us.i317 ], [ %206, %212 ], [ %188, %195 ], [ %152, %162 ], [ %152, %163 ], [ %206, %._crit_edge125.split.us.us.us.i301 ]
+  %.0.i279 = phi i32 [ %94, %Abc_TtCheckEqualCofs.exit372.thread374 ], [ 1, %184 ], [ 1, %202 ], [ 1, %153 ], [ 1, %.preheader.lr.ph.i302 ], [ 1, %.preheader121.lr.ph.i280 ], [ 1, %97 ], [ 1, %._crit_edge.us.i317 ], [ 0, %212 ], [ 0, %195 ], [ 1, %162 ], [ 0, %163 ], [ 1, %._crit_edge125.split.us.us.us.i301 ]
   %221 = or disjoint i32 %.0.i279, %220
   br label %Dau_DsdFindSupportOne.exit.i
 
@@ -7689,7 +7689,7 @@ Abc_TtCheckEqualCofs.exit276.thread.thread.thread700: ; preds = %282
   br i1 %302, label %.preheader121.us.us.i240, label %Abc_TtCheckEqualCofs.exit276.thread, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit276.thread:              ; preds = %._crit_edge125.split.us.us.us.i254, %._crit_edge.us.i269, %256, %255, %275, %295
-  %303 = phi i32 [ 0, %295 ], [ 0, %275 ], [ 0, %256 ], [ 2, %255 ], [ 2, %._crit_edge.us.i269 ], [ 2, %._crit_edge125.split.us.us.us.i254 ]
+  %303 = phi i32 [ 2, %._crit_edge.us.i269 ], [ 0, %295 ], [ 0, %275 ], [ 0, %256 ], [ 2, %255 ], [ 2, %._crit_edge125.split.us.us.us.i254 ]
   br i1 %40, label %304, label %Abc_TtCheckEqualCofs.exit276.thread.thread
 
 304:                                              ; preds = %Abc_TtCheckEqualCofs.exit276.thread
@@ -7836,8 +7836,8 @@ Abc_TtCheckEqualCofs.exit276.thread.thread:       ; preds = %Abc_TtCheckEqualCof
   br i1 %360, label %.preheader121.us.us.i193, label %Abc_TtCheckEqualCofs.exit229, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit229:                     ; preds = %._crit_edge125.split.us.us.us.i207, %._crit_edge.us.i222, %313, %314, %335, %353, %245, %Abc_TtCheckEqualCofs.exit276.thread377, %304, %325, %.preheader.lr.ph.i208, %342, %.preheader121.lr.ph.i186, %.preheader121.lr.ph.split.us.i188
-  %361 = phi i32 [ %237, %Abc_TtCheckEqualCofs.exit276.thread377 ], [ %303, %304 ], [ %327, %325 ], [ %344, %342 ], [ %327, %.preheader.lr.ph.i208 ], [ %344, %.preheader121.lr.ph.i186 ], [ %344, %.preheader121.lr.ph.split.us.i188 ], [ 2, %245 ], [ %344, %353 ], [ %327, %335 ], [ %303, %314 ], [ %303, %313 ], [ %327, %._crit_edge.us.i222 ], [ %344, %._crit_edge125.split.us.us.us.i207 ]
-  %.0.i185 = phi i32 [ %243, %Abc_TtCheckEqualCofs.exit276.thread377 ], [ 1, %304 ], [ 1, %325 ], [ 1, %342 ], [ 1, %.preheader.lr.ph.i208 ], [ 1, %.preheader121.lr.ph.i186 ], [ poison, %.preheader121.lr.ph.split.us.i188 ], [ 1, %245 ], [ 0, %353 ], [ 0, %335 ], [ 1, %313 ], [ 0, %314 ], [ 1, %._crit_edge.us.i222 ], [ 1, %._crit_edge125.split.us.us.us.i207 ]
+  %361 = phi i32 [ %237, %Abc_TtCheckEqualCofs.exit276.thread377 ], [ %327, %325 ], [ %344, %342 ], [ %303, %304 ], [ %344, %.preheader121.lr.ph.split.us.i188 ], [ %327, %.preheader.lr.ph.i208 ], [ %344, %.preheader121.lr.ph.i186 ], [ 2, %245 ], [ %327, %._crit_edge.us.i222 ], [ %344, %353 ], [ %327, %335 ], [ %303, %313 ], [ %303, %314 ], [ %344, %._crit_edge125.split.us.us.us.i207 ]
+  %.0.i185 = phi i32 [ %243, %Abc_TtCheckEqualCofs.exit276.thread377 ], [ 1, %325 ], [ 1, %342 ], [ 1, %304 ], [ poison, %.preheader121.lr.ph.split.us.i188 ], [ 1, %.preheader.lr.ph.i208 ], [ 1, %.preheader121.lr.ph.i186 ], [ 1, %245 ], [ 1, %._crit_edge.us.i222 ], [ 0, %353 ], [ 0, %335 ], [ 1, %313 ], [ 0, %314 ], [ 1, %._crit_edge125.split.us.us.us.i207 ]
   %362 = or disjoint i32 %.0.i185, %361
   br label %Dau_DsdFindSupportOne.exit.i
 
@@ -8171,7 +8171,7 @@ Abc_TtCheckEqualCofs.exit135:                     ; preds = %Abc_TtCheckEqualCof
   %.not440 = icmp eq i64 %493, 0
   br i1 %.not440, label %Abc_TtCheckEqualCofs.exit135.thread401, label %Dau_DsdDecomposeDoubleVarsOne.exit
 
-Abc_TtCheckEqualCofs.exit135.thread401:           ; preds = %._crit_edge125.split.us.us.us.i113, %._crit_edge.us.i128, %443, %.preheader121.lr.ph.split.us.i141, %404, %388, %367, %.preheader121.lr.ph.i93, %.preheader.lr.ph.i114, %.thread390.thread.thread433, %.thread390.thread.thread, %434, %Abc_TtCheckEqualCofs.exit135
+Abc_TtCheckEqualCofs.exit135.thread401:           ; preds = %._crit_edge125.split.us.us.us.i113, %._crit_edge.us.i128, %443, %.preheader121.lr.ph.split.us.i141, %404, %388, %367, %.preheader121.lr.ph.i93, %.preheader.lr.ph.i114, %434, %.thread390.thread.thread433, %.thread390.thread.thread, %Abc_TtCheckEqualCofs.exit135
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %494 = load i32, ptr %39, align 4, !tbaa !6
   %495 = add nsw i32 %494, 97
@@ -8694,7 +8694,7 @@ Abc_TtCheckEqualCofs.exit89:                      ; preds = %651
   %.not438 = icmp eq i64 %706, 0
   br i1 %.not438, label %Abc_TtCheckEqualCofs.exit89.thread, label %Abc_TtCheckEqualCofs.exit89.thread410
 
-Abc_TtCheckEqualCofs.exit89.thread:               ; preds = %._crit_edge125.split.us.us.us.i67, %._crit_edge.us.i82, %660, %671, %.preheader121.lr.ph.i47, %683, %654, %Abc_TtCheckEqualCofs.exit89
+Abc_TtCheckEqualCofs.exit89.thread:               ; preds = %._crit_edge125.split.us.us.us.i67, %._crit_edge.us.i82, %660, %671, %.preheader121.lr.ph.i47, %654, %683, %Abc_TtCheckEqualCofs.exit89
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %707 = load i32, ptr %39, align 4, !tbaa !6
   %708 = add nsw i32 %707, 97
@@ -9620,7 +9620,7 @@ Abc_TtCheckEqualCofs.exit:                        ; preds = %1031
   %.not437 = icmp eq i64 %1100, 0
   br i1 %.not437, label %Abc_TtCheckEqualCofs.exit.thread, label %Abc_TtCheckEqualCofs.exit.thread419
 
-Abc_TtCheckEqualCofs.exit.thread:                 ; preds = %._crit_edge125.split.us.us.us.i, %._crit_edge.us.i, %1044, %.preheader121.lr.ph.i, %.preheader.lr.ph.i, %1071, %1055, %1034, %Abc_TtCheckEqualCofs.exit
+Abc_TtCheckEqualCofs.exit.thread:                 ; preds = %._crit_edge125.split.us.us.us.i, %._crit_edge.us.i, %1044, %.preheader121.lr.ph.i, %.preheader.lr.ph.i, %1034, %1071, %1055, %Abc_TtCheckEqualCofs.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1101 = load i32, ptr %39, align 4, !tbaa !6
   %1102 = add nsw i32 %1101, 97
@@ -10423,8 +10423,8 @@ Abc_TtMux.exit643.i:                              ; preds = %.lr.ph.i639.i, %Dau
   br i1 %1438, label %.lr.ph21.i.i, label %Dau_DsdAddVarDef.exit.i, !llvm.loop !99
 
 Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.preheader.i647.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i
-  %.pre-phi.i.i = phi i64 [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %1430, %.preheader.i647.i ], [ %1437, %.lr.ph21.i.i ]
-  %.lcssa.i.i = phi i32 [ %1422, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %1429, %.preheader.i647.i ], [ %1436, %.lr.ph21.i.i ]
+  %.pre-phi.i.i = phi i64 [ %1430, %.preheader.i647.i ], [ %.pre.i, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %1437, %.lr.ph21.i.i ]
+  %.lcssa.i.i = phi i32 [ %1429, %.preheader.i647.i ], [ %1422, %..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %1436, %.lr.ph21.i.i ]
   %1439 = add nsw i32 %.lcssa.i.i, 1
   store i32 %1439, ptr %28, align 4, !tbaa !87
   %1440 = getelementptr inbounds [8 x i8], ptr %29, i64 %.pre-phi.i.i
@@ -10527,7 +10527,7 @@ Dau_DsdDecomposeSingleVar.exit:                   ; preds = %.loopexit.thread.i,
   br label %Dau_DsdDecomposeDoubleVarsOne.exit
 
 Dau_DsdDecomposeDoubleVarsOne.exit:               ; preds = %378, %444, %396, %464, %414, %481, %Dau_DsdFindSupportOne.exit.i, %Abc_TtCheckEqualCofs.exit182, %Abc_TtCheckEqualCofs.exit135, %Abc_TtCheckEqualCofs.exit89.thread410, %Abc_TtCheckEqualCofs.exit.thread419, %Dau_DsdAddVarDef.exit.i, %Dau_DsdDecomposeSingleVar.exit
-  %.0.i35 = phi i32 [ %.3508, %Dau_DsdFindSupportOne.exit.i ], [ %.3508, %Abc_TtCheckEqualCofs.exit89.thread410 ], [ %.3508, %Abc_TtCheckEqualCofs.exit.thread419 ], [ %.3508, %Abc_TtCheckEqualCofs.exit182 ], [ %.3508, %Abc_TtCheckEqualCofs.exit135 ], [ %.2.i, %Dau_DsdDecomposeSingleVar.exit ], [ %1443, %Dau_DsdAddVarDef.exit.i ], [ %.3508, %481 ], [ %.3508, %414 ], [ %.3508, %464 ], [ %.3508, %396 ], [ %.3508, %444 ], [ %.3508, %378 ]
+  %.0.i35 = phi i32 [ %.3508, %Abc_TtCheckEqualCofs.exit135 ], [ %.3508, %Dau_DsdFindSupportOne.exit.i ], [ %.3508, %Abc_TtCheckEqualCofs.exit89.thread410 ], [ %.3508, %Abc_TtCheckEqualCofs.exit.thread419 ], [ %.3508, %Abc_TtCheckEqualCofs.exit182 ], [ %.2.i, %Dau_DsdDecomposeSingleVar.exit ], [ %1443, %Dau_DsdAddVarDef.exit.i ], [ %.3508, %444 ], [ %.3508, %481 ], [ %.3508, %414 ], [ %.3508, %464 ], [ %.3508, %396 ], [ %.3508, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1482 = icmp eq i32 %.0.i35, 0
   br i1 %1482, label %1483, label %1493
@@ -10895,7 +10895,7 @@ Abc_TtCheckEqualCofs.exit210.thread257:           ; preds = %83
   br i1 %153, label %.preheader121.us.us.i173, label %Abc_TtCheckEqualCofs.exit210.thread, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit210.thread:              ; preds = %._crit_edge125.split.us.us.us.i187, %._crit_edge.us.i203, %115, %114, %131, %146
-  %154 = phi i32 [ 0, %146 ], [ 0, %131 ], [ 0, %115 ], [ 2, %114 ], [ 2, %._crit_edge.us.i203 ], [ 2, %._crit_edge125.split.us.us.us.i187 ]
+  %154 = phi i32 [ 2, %._crit_edge.us.i203 ], [ 0, %146 ], [ 0, %131 ], [ 0, %115 ], [ 2, %114 ], [ 2, %._crit_edge125.split.us.us.us.i187 ]
   br i1 %105, label %155, label %Abc_TtCheckEqualCofs.exit210.thread.thread
 
 155:                                              ; preds = %Abc_TtCheckEqualCofs.exit210.thread
@@ -11038,8 +11038,8 @@ Abc_TtCheckEqualCofs.exit210.thread.thread:       ; preds = %Abc_TtCheckEqualCof
   br i1 %206, label %.preheader121.us.us.i126, label %Abc_TtCheckEqualCofs.exit163, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit163:                     ; preds = %._crit_edge125.split.us.us.us.i140, %._crit_edge.us.i156, %162, %163, %184, %199, %106, %.preheader121.lr.ph.i119, %Abc_TtCheckEqualCofs.exit210.thread257, %155, %175, %.preheader.lr.ph.i141, %191
-  %207 = phi i32 [ %97, %Abc_TtCheckEqualCofs.exit210.thread257 ], [ %154, %155 ], [ %178, %175 ], [ %194, %191 ], [ %178, %.preheader.lr.ph.i141 ], [ %194, %.preheader121.lr.ph.i119 ], [ 2, %106 ], [ %194, %199 ], [ %178, %184 ], [ %154, %163 ], [ %154, %162 ], [ %178, %._crit_edge.us.i156 ], [ %194, %._crit_edge125.split.us.us.us.i140 ]
-  %.0.i118 = phi i32 [ %103, %Abc_TtCheckEqualCofs.exit210.thread257 ], [ 1, %155 ], [ 1, %175 ], [ 1, %191 ], [ 1, %.preheader.lr.ph.i141 ], [ 1, %.preheader121.lr.ph.i119 ], [ 1, %106 ], [ 0, %199 ], [ 0, %184 ], [ 1, %162 ], [ 0, %163 ], [ 1, %._crit_edge.us.i156 ], [ 1, %._crit_edge125.split.us.us.us.i140 ]
+  %207 = phi i32 [ %97, %Abc_TtCheckEqualCofs.exit210.thread257 ], [ %178, %175 ], [ %194, %191 ], [ %154, %155 ], [ %178, %.preheader.lr.ph.i141 ], [ %194, %.preheader121.lr.ph.i119 ], [ 2, %106 ], [ %178, %._crit_edge.us.i156 ], [ %194, %199 ], [ %178, %184 ], [ %154, %162 ], [ %154, %163 ], [ %194, %._crit_edge125.split.us.us.us.i140 ]
+  %.0.i118 = phi i32 [ %103, %Abc_TtCheckEqualCofs.exit210.thread257 ], [ 1, %175 ], [ 1, %191 ], [ 1, %155 ], [ 1, %.preheader.lr.ph.i141 ], [ 1, %.preheader121.lr.ph.i119 ], [ 1, %106 ], [ 1, %._crit_edge.us.i156 ], [ 0, %199 ], [ 0, %184 ], [ 1, %162 ], [ 0, %163 ], [ 1, %._crit_edge125.split.us.us.us.i140 ]
   %208 = or disjoint i32 %.0.i118, %207
   br label %326
 
@@ -11200,7 +11200,7 @@ Abc_TtCheckEqualCofs.exit116.thread260:           ; preds = %209
   br i1 %279, label %.preheader121.us.us.i82, label %Abc_TtCheckEqualCofs.exit116.thread, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit116.thread:              ; preds = %._crit_edge125.split.us.us.us.i95, %._crit_edge.us.i109, %242, %241, %257, %272
-  %280 = phi i32 [ 0, %272 ], [ 0, %257 ], [ 0, %242 ], [ 2, %241 ], [ 2, %._crit_edge.us.i109 ], [ 2, %._crit_edge125.split.us.us.us.i95 ]
+  %280 = phi i32 [ 2, %._crit_edge.us.i109 ], [ 0, %272 ], [ 0, %257 ], [ 0, %242 ], [ 2, %241 ], [ 2, %._crit_edge125.split.us.us.us.i95 ]
   br i1 %56, label %281, label %Abc_TtCheckEqualCofs.exit116.thread.thread
 
 281:                                              ; preds = %Abc_TtCheckEqualCofs.exit116.thread
@@ -11330,8 +11330,8 @@ Abc_TtCheckEqualCofs.exit116.thread.thread.thread449: ; preds = %264, %Abc_TtChe
   br i1 %323, label %.preheader121.us.us.i, label %Abc_TtCheckEqualCofs.exit, !llvm.loop !137
 
 Abc_TtCheckEqualCofs.exit:                        ; preds = %._crit_edge125.split.us.us.us.i, %._crit_edge.us.i, %289, %290, %302, %316, %.preheader.lr.ph.i96, %251, %232, %Abc_TtCheckEqualCofs.exit116.thread260, %281, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread, %.preheader.lr.ph.i, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449, %.preheader121.lr.ph.i, %.preheader121.lr.ph.split.us.i
-  %324 = phi i32 [ %224, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ %280, %281 ], [ %280, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ %309, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ %280, %.preheader.lr.ph.i ], [ %309, %.preheader121.lr.ph.i ], [ %309, %.preheader121.lr.ph.split.us.i ], [ 2, %232 ], [ 2, %251 ], [ 2, %.preheader.lr.ph.i96 ], [ %309, %316 ], [ %280, %302 ], [ %280, %290 ], [ %280, %289 ], [ %280, %._crit_edge.us.i ], [ %309, %._crit_edge125.split.us.us.us.i ]
-  %.0.i66 = phi i32 [ %230, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ 1, %281 ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ 1, %.preheader.lr.ph.i ], [ 1, %.preheader121.lr.ph.i ], [ poison, %.preheader121.lr.ph.split.us.i ], [ 1, %232 ], [ 1, %251 ], [ 1, %.preheader.lr.ph.i96 ], [ 0, %316 ], [ 0, %302 ], [ 1, %289 ], [ 0, %290 ], [ 1, %._crit_edge.us.i ], [ 1, %._crit_edge125.split.us.us.us.i ]
+  %324 = phi i32 [ %224, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ %280, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ %309, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ %280, %281 ], [ %309, %.preheader121.lr.ph.split.us.i ], [ %280, %.preheader.lr.ph.i ], [ %309, %.preheader121.lr.ph.i ], [ 2, %232 ], [ 2, %251 ], [ 2, %.preheader.lr.ph.i96 ], [ %280, %._crit_edge.us.i ], [ %309, %316 ], [ %280, %302 ], [ %280, %289 ], [ %280, %290 ], [ %309, %._crit_edge125.split.us.us.us.i ]
+  %.0.i66 = phi i32 [ %230, %Abc_TtCheckEqualCofs.exit116.thread260 ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread ], [ 1, %Abc_TtCheckEqualCofs.exit116.thread.thread.thread449 ], [ 1, %281 ], [ poison, %.preheader121.lr.ph.split.us.i ], [ 1, %.preheader.lr.ph.i ], [ 1, %.preheader121.lr.ph.i ], [ 1, %232 ], [ 1, %251 ], [ 1, %.preheader.lr.ph.i96 ], [ 1, %._crit_edge.us.i ], [ 0, %316 ], [ 0, %302 ], [ 1, %289 ], [ 0, %290 ], [ 1, %._crit_edge125.split.us.us.us.i ]
   %325 = or disjoint i32 %.0.i66, %324
   br label %326
 
@@ -11496,7 +11496,7 @@ Abc_TtCofactor0p.exit.thread:                     ; preds = %._crit_edge.us.i254
   br i1 %394, label %.preheader.us.i236, label %Abc_TtCofactor1p.exit, !llvm.loop !78
 
 Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i240, %Abc_TtCofactor0p.exit.thread262, %Abc_TtCofactor0p.exit.thread, %.preheader.lr.ph.i232
-  %395 = phi ptr [ %361, %Abc_TtCofactor0p.exit.thread262 ], [ %382, %Abc_TtCofactor0p.exit.thread ], [ %382, %.preheader.lr.ph.i232 ], [ %382, %._crit_edge.us.i240 ]
+  %395 = phi ptr [ %361, %Abc_TtCofactor0p.exit.thread262 ], [ %382, %.preheader.lr.ph.i232 ], [ %382, %Abc_TtCofactor0p.exit.thread ], [ %382, %._crit_edge.us.i240 ]
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %398 = load i32, ptr %397, align 8, !tbaa !93
@@ -12301,8 +12301,8 @@ Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i: ; preds = %Abc_Tt
   br i1 %748, label %.lr.ph21.i.i, label %Dau_DsdAddVarDef.exit.i, !llvm.loop !99
 
 Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.preheader.i234.i, %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i
-  %.pre-phi.i.i = phi i64 [ %.pre.i, %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %740, %.preheader.i234.i ], [ %747, %.lr.ph21.i.i ]
-  %.lcssa.i.i = phi i32 [ %732, %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %739, %.preheader.i234.i ], [ %746, %.lr.ph21.i.i ]
+  %.pre-phi.i.i = phi i64 [ %740, %.preheader.i234.i ], [ %.pre.i, %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %747, %.lr.ph21.i.i ]
+  %.lcssa.i.i = phi i32 [ %739, %.preheader.i234.i ], [ %732, %Abc_TtMux.exit..preheader.._crit_edge_crit_edge.i_crit_edge.i ], [ %746, %.lr.ph21.i.i ]
   %749 = add nsw i32 %.lcssa.i.i, 1
   store i32 %749, ptr %25, align 4, !tbaa !87
   %750 = getelementptr inbounds [8 x i8], ptr %26, i64 %.pre-phi.i.i
@@ -12476,8 +12476,8 @@ Abc_Clock.exit65:                                 ; preds = %.loopexit.thread, %
   store i64 %817, ptr @s_Times.2, align 16, !tbaa !29
   br label %.thread283
 
-.thread283:                                       ; preds = %Abc_Clock.exit63, %Abc_Clock.exit61, %Dau_DsdDecomposeTripleVarsOuter.exit, %Abc_Clock.exit65
-  %.5.ph = phi i32 [ %.245446, %Abc_Clock.exit65 ], [ 0, %Dau_DsdDecomposeTripleVarsOuter.exit ], [ 0, %Abc_Clock.exit61 ], [ 0, %Abc_Clock.exit63 ]
+.thread283:                                       ; preds = %Abc_Clock.exit61, %Abc_Clock.exit63, %Dau_DsdDecomposeTripleVarsOuter.exit, %Abc_Clock.exit65
+  %.5.ph = phi i32 [ %.245446, %Abc_Clock.exit65 ], [ 0, %Dau_DsdDecomposeTripleVarsOuter.exit ], [ 0, %Abc_Clock.exit63 ], [ 0, %Abc_Clock.exit61 ]
   ret i32 %.5.ph
 }
 
@@ -12631,7 +12631,7 @@ Abc_TtHasVar.exit:                                ; preds = %.lr.ph38
   %.not29 = icmp eq i64 %52, 0
   br i1 %.not29, label %Abc_TtHasVar.exit.thread, label %Abc_TtHasVar.exit.thread26
 
-Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %19, %.preheader.lr.ph.i, %26, %11, %Abc_TtHasVar.exit
+Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %19, %.preheader.lr.ph.i, %11, %26, %Abc_TtHasVar.exit
   %53 = add nsw i32 %.02034, -1
   %54 = trunc nuw nsw i64 %indvars.iv.next43 to i32
   tail call fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %.02034, i32 noundef %54, i32 noundef %53)
@@ -12954,7 +12954,7 @@ Dau_DsdInitialize.exit:                           ; preds = %.preheader.us.i, %3
   br label %Dau_Dsd6DecomposeInternal.exit
 
 Dau_Dsd6DecomposeInternal.exit:                   ; preds = %45, %42, %39, %36, %34, %31, %28, %25, %18
-  %.0 = phi i32 [ 0, %18 ], [ %35, %34 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ %46, %45 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %31 ], [ %35, %34 ], [ 0, %25 ], [ 0, %28 ], [ %46, %45 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !95
   %49 = icmp sgt i32 %48, 0
@@ -13150,7 +13150,7 @@ Dau_DsdComputeMatches.exit:                       ; preds = %43, %Abc_TtIsConst1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %48, %._crit_edge.sink.split, %.loopexit, %.loopexit60
-  %.1 = phi i32 [ 0, %.loopexit60 ], [ 0, %.loopexit ], [ %spec.select, %48 ], [ 0, %._crit_edge.sink.split ]
+  %.1 = phi i32 [ 0, %._crit_edge.sink.split ], [ 0, %.loopexit60 ], [ 0, %.loopexit ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
@@ -14210,7 +14210,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCheckEqualCofs(ptr noundef rea
   br i1 %130, label %.preheader121.us.us, label %.loopexit, !llvm.loop !137
 
 .loopexit:                                        ; preds = %._crit_edge125.split.us.us.us, %123, %._crit_edge.us, %92, %58, %59, %.preheader121.lr.ph.split.us, %.preheader121.lr.ph, %.preheader.lr.ph, %101, %72, %37, %8
-  %.0 = phi i32 [ %34, %8 ], [ 1, %37 ], [ 1, %72 ], [ 1, %101 ], [ 1, %.preheader.lr.ph ], [ 1, %.preheader121.lr.ph ], [ poison, %.preheader121.lr.ph.split.us ], [ 1, %58 ], [ 0, %59 ], [ 0, %92 ], [ 1, %._crit_edge.us ], [ 0, %123 ], [ 1, %._crit_edge125.split.us.us.us ]
+  %.0 = phi i32 [ %34, %8 ], [ 1, %72 ], [ 1, %101 ], [ 1, %37 ], [ poison, %.preheader121.lr.ph.split.us ], [ 1, %.preheader.lr.ph ], [ 1, %.preheader121.lr.ph ], [ 0, %123 ], [ 0, %59 ], [ 0, %92 ], [ 1, %._crit_edge.us ], [ 1, %58 ], [ 1, %._crit_edge125.split.us.us.us ]
   ret i32 %.0
 }
 

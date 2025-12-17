@@ -288,7 +288,7 @@ define ptr @H5T__vlen_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %11, %28, %44, %41, %1
-  %.0 = phi ptr [ null, %44 ], [ null, %41 ], [ null, %1 ], [ %9, %28 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %44 ], [ null, %41 ], [ null, %11 ], [ null, %1 ], [ %9, %28 ]
   ret ptr %.0
 }
 
@@ -459,7 +459,7 @@ define range(i32 -1, 2) i32 @H5T__vlen_set_loc(ptr noundef %0, ptr noundef %1, i
   br label %79
 
 79:                                               ; preds = %42, %70, %69, %.thread, %3, %17, %75, %35
-  %.033 = phi i32 [ -1, %75 ], [ -1, %35 ], [ 0, %17 ], [ 0, %3 ], [ -1, %.thread ], [ 1, %69 ], [ 1, %70 ], [ 1, %42 ]
+  %.033 = phi i32 [ -1, %75 ], [ -1, %35 ], [ 0, %3 ], [ -1, %.thread ], [ 0, %17 ], [ 1, %69 ], [ 1, %70 ], [ 1, %42 ]
   ret i32 %.033
 }
 
@@ -694,7 +694,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %30, %.preheader106, %.preheader, %109, %69, %21, %3, %120, %119, %10, %10, %10, %10, %10, %10, %10, %10, %121, %49, %81, %116, %115, %78
-  %.078 = phi i32 [ -1, %121 ], [ -1, %69 ], [ 0, %119 ], [ 0, %120 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %3 ], [ 0, %21 ], [ -1, %49 ], [ -1, %109 ], [ 0, %115 ], [ 0, %116 ], [ 0, %81 ], [ 0, %78 ], [ 0, %.preheader ], [ 0, %.preheader106 ], [ 0, %30 ], [ 0, %.thread ]
+  %.078 = phi i32 [ -1, %121 ], [ 0, %3 ], [ 0, %10 ], [ 0, %21 ], [ -1, %69 ], [ -1, %49 ], [ 0, %119 ], [ 0, %120 ], [ 0, %78 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ -1, %109 ], [ 0, %115 ], [ 0, %116 ], [ 0, %81 ], [ 0, %.preheader ], [ 0, %.preheader106 ], [ 0, %30 ], [ 0, %.thread ]
   ret i32 %.078
 }
 
@@ -952,8 +952,8 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_seq_write(ptr readnone captu
   store ptr %.sroa.4.3, ptr %.sroa.4.0..sroa_idx, align 1
   br label %.thread33
 
-.thread33:                                        ; preds = %.thread, %41, %34, %7, %46
-  %.021 = phi i32 [ 0, %46 ], [ 0, %7 ], [ -1, %34 ], [ -1, %41 ], [ -1, %.thread ]
+.thread33:                                        ; preds = %41, %.thread, %34, %7, %46
+  %.021 = phi i32 [ 0, %46 ], [ 0, %7 ], [ -1, %34 ], [ -1, %.thread ], [ -1, %41 ]
   ret i32 %.021
 }
 
@@ -1139,7 +1139,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_str_write(ptr readnone captu
   br label %50
 
 50:                                               ; preds = %.thread, %7, %47, %43, %34
-  %.022 = phi i32 [ -1, %34 ], [ 0, %47 ], [ -1, %43 ], [ 0, %7 ], [ -1, %.thread ]
+  %.022 = phi i32 [ -1, %34 ], [ 0, %47 ], [ -1, %.thread ], [ -1, %43 ], [ 0, %7 ]
   ret i32 %.022
 }
 
@@ -1408,7 +1408,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   br label %22
 
 22:                                               ; preds = %21, %2, %11
-  %.022 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.2, %21 ]
+  %.022 = phi i32 [ 0, %2 ], [ %.2, %21 ], [ 0, %11 ]
   ret i32 %.022
 }
 

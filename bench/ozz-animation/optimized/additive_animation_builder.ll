@@ -1194,7 +1194,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8S
   br i1 %202, label %82, label %._crit_edge, !llvm.loop !76
 
 203:                                              ; preds = %37, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit, %4, %._crit_edge
-  %.033 = phi i1 [ %81, %._crit_edge ], [ false, %4 ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit ], [ false, %37 ]
+  %.033 = phi i1 [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit ], [ %81, %._crit_edge ], [ false, %4 ], [ false, %37 ]
   ret i1 %.033
 }
 

@@ -441,8 +441,8 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.backedge, %.backedge.us, %.lr.ph.split, %.thread143.thread321, %.thread143.thread316, %2, %90, %.split224.us
-  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %90 ], [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %.thread143.thread316 ], [ %.0111.ph248, %.thread143.thread321 ], [ %.0111.ph248, %.lr.ph.split ], [ %7, %2 ], [ %.0111.ph248, %.backedge.us ], [ %.0111.ph.be, %.outer.backedge ]
-  %.1.sink = phi ptr [ %.2, %90 ], [ %27, %.split224.us ], [ %27, %.thread143.thread316 ], [ %.4137148153, %.thread143.thread321 ], [ %.0.ph249, %.lr.ph.split ], [ %5, %2 ], [ %27, %.backedge.us ], [ %27, %.outer.backedge ]
+  %.0111.ph196.sink = phi ptr [ %.0111.ph248, %.split224.us ], [ %.0111.ph248, %90 ], [ %.0111.ph248, %.thread143.thread316 ], [ %.0111.ph248, %.thread143.thread321 ], [ %.0111.ph248, %.lr.ph.split ], [ %7, %2 ], [ %.0111.ph248, %.backedge.us ], [ %.0111.ph.be, %.outer.backedge ]
+  %.1.sink = phi ptr [ %27, %.split224.us ], [ %.2, %90 ], [ %27, %.thread143.thread316 ], [ %.4137148153, %.thread143.thread321 ], [ %.0.ph249, %.lr.ph.split ], [ %5, %2 ], [ %27, %.backedge.us ], [ %27, %.outer.backedge ]
   store ptr %.0111.ph196.sink, ptr %6, align 8, !tbaa !32
   store ptr %.1.sink, ptr %4, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -853,7 +853,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   store i32 15, ptr %1, align 4, !tbaa !11
   br label %.outer
 
-.loopexit200:                                     ; preds = %89, %85, %71, %80
+.loopexit200:                                     ; preds = %89, %80, %85, %71
   %212 = and i32 %69, 63488
   %213 = icmp eq i32 %212, 55296
   br i1 %213, label %214, label %238
@@ -870,12 +870,12 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br label %220
 
 220:                                              ; preds = %2, %217
-  %221 = phi i32 [ %69, %217 ], [ %30, %2 ]
-  %222 = phi ptr [ %218, %217 ], [ %24, %2 ]
-  %.0164 = phi i32 [ %69, %217 ], [ 0, %2 ]
-  %.0160 = phi i8 [ %.1161.ph237, %217 ], [ %28, %2 ]
-  %.0148 = phi i32 [ %.1149223, %217 ], [ 0, %2 ]
-  %.0137 = phi i32 [ %68, %217 ], [ 0, %2 ]
+  %221 = phi i32 [ %30, %2 ], [ %69, %217 ]
+  %222 = phi ptr [ %24, %2 ], [ %218, %217 ]
+  %.0164 = phi i32 [ 0, %2 ], [ %69, %217 ]
+  %.0160 = phi i8 [ %28, %2 ], [ %.1161.ph237, %217 ]
+  %.0148 = phi i32 [ 0, %2 ], [ %.1149223, %217 ]
+  %.0137 = phi i32 [ 0, %2 ], [ %68, %217 ]
   %223 = icmp slt i32 %.0137, %22
   br i1 %223, label %224, label %238
 
@@ -899,11 +899,11 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br label %238
 
 238:                                              ; preds = %.loopexit200, %214, %220, %232, %224
-  %.sink = phi i32 [ 10, %232 ], [ 12, %224 ], [ 0, %220 ], [ 12, %214 ], [ 10, %.loopexit200 ]
-  %.2166 = phi i32 [ %237, %232 ], [ %.0164, %224 ], [ %.0164, %220 ], [ %69, %214 ], [ %69, %.loopexit200 ]
-  %.3163 = phi i8 [ %.0160, %232 ], [ %.0160, %224 ], [ %.0160, %220 ], [ %.1161.ph237, %214 ], [ %.1161.ph237, %.loopexit200 ]
-  %.10158 = phi i32 [ %.0148, %232 ], [ %.0148, %224 ], [ %.0148, %220 ], [ %.1149223, %214 ], [ %.1149223, %.loopexit200 ]
-  %.4141 = phi i32 [ %233, %232 ], [ %.0137, %224 ], [ %.0137, %220 ], [ %68, %214 ], [ %68, %.loopexit200 ]
+  %.sink = phi i32 [ 0, %220 ], [ 12, %224 ], [ 12, %214 ], [ 10, %232 ], [ 10, %.loopexit200 ]
+  %.2166 = phi i32 [ %.0164, %220 ], [ %.0164, %224 ], [ %69, %214 ], [ %237, %232 ], [ %69, %.loopexit200 ]
+  %.3163 = phi i8 [ %.0160, %220 ], [ %.0160, %224 ], [ %.1161.ph237, %214 ], [ %.0160, %232 ], [ %.1161.ph237, %.loopexit200 ]
+  %.10158 = phi i32 [ %.0148, %220 ], [ %.0148, %224 ], [ %.1149223, %214 ], [ %.0148, %232 ], [ %.1149223, %.loopexit200 ]
+  %.4141 = phi i32 [ %.0137, %220 ], [ %.0137, %224 ], [ %68, %214 ], [ %233, %232 ], [ %68, %.loopexit200 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !11
   %239 = load ptr, ptr %23, align 8, !tbaa !53
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 84
@@ -916,8 +916,8 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   br label %.loopexit199
 
 .outer:                                           ; preds = %.thread193, %204, %202, %198, %179, %163, %169
-  %.11159 = phi i32 [ %165, %163 ], [ %152, %169 ], [ %.5153, %179 ], [ %199, %202 ], [ %199, %198 ], [ %.5153, %204 ], [ %160, %.thread193 ]
-  %.12 = phi ptr [ %168, %163 ], [ %.11192, %169 ], [ %.4, %179 ], [ %203, %202 ], [ null, %198 ], [ %.4, %204 ], [ null, %.thread193 ]
+  %.11159 = phi i32 [ %165, %163 ], [ %160, %.thread193 ], [ %152, %169 ], [ %.5153, %179 ], [ %199, %202 ], [ %199, %198 ], [ %.5153, %204 ]
+  %.12 = phi ptr [ %168, %163 ], [ null, %.thread193 ], [ %.11192, %169 ], [ %.4, %179 ], [ %203, %202 ], [ null, %198 ], [ %.4, %204 ]
   store i32 65535, ptr %3, align 4, !tbaa !40
   %243 = icmp slt i32 %68, %22
   br i1 %243, label %.lr.ph, label %.loopexit199, !llvm.loop !59
@@ -1016,7 +1016,7 @@ define internal noundef ptr @_ZL13_HZ_SafeClonePK10UConverterPvPiP10UErrorCode(p
   br label %23
 
 23:                                               ; preds = %4, %12, %11
-  %.0 = phi ptr [ null, %11 ], [ %1, %12 ], [ null, %4 ]
+  %.0 = phi ptr [ %1, %12 ], [ null, %11 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

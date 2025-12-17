@@ -1586,7 +1586,7 @@ _ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit: ; preds = %.
   br i1 %130, label %131, label %.sink.split
 
 .sink.split:                                      ; preds = %129, %.split79.us, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit.thread
-  %.us-phi94102.sink = phi ptr [ %.06975.us, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit.thread ], [ %.06975, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit ], [ %.06876, %129 ], [ %.06876.us, %.split79.us ]
+  %.us-phi94102.sink = phi ptr [ %.06975, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit ], [ %.06975.us, %_ZSt4copyIP27HashTablePermutohedralValueILi2EES2_ET0_T_S4_S3_.exit.thread ], [ %.06876, %129 ], [ %.06876.us, %.split79.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %.us-phi94102.sink) #25
   br label %131
 

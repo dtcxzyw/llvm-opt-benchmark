@@ -333,7 +333,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %65, %66
   br label %74
 
 74:                                               ; preds = %72, %70
-  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ]
   %.not.i.i.i47 = icmp eq ptr %.sroa.050.0, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48, label %75
 
@@ -344,7 +344,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %65, %66
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48: ; preds = %62, %74, %75, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %.pn.pn, %74 ], [ %.pn.pn, %75 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %75 ], [ %35, %34 ], [ %63, %62 ], [ %.pn.pn, %74 ]
   %78 = load ptr, ptr %7, align 8, !tbaa !15
   call void @free(ptr noundef %78) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -607,7 +607,7 @@ _ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EED2Ev.exit: ; preds = %66, %67
   br label %75
 
 75:                                               ; preds = %73, %71
-  %.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
+  %.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %74, %73 ]
   %.not.i.i.i47 = icmp eq ptr %.sroa.050.0, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EED2Ev.exit48, label %76
 
@@ -618,7 +618,7 @@ _ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EED2Ev.exit: ; preds = %66, %67
   br label %_ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EED2Ev.exit48
 
 _ZNSt6vectorIN5Eigen7TripletIfiEESaIS2_EED2Ev.exit48: ; preds = %63, %75, %76, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %64, %63 ], [ %.pn.pn, %75 ], [ %.pn.pn, %76 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %76 ], [ %35, %34 ], [ %64, %63 ], [ %.pn.pn, %75 ]
   %79 = load ptr, ptr %7, align 8, !tbaa !15
   call void @free(ptr noundef %79) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -877,7 +877,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %65, %66
   br label %74
 
 74:                                               ; preds = %72, %70
-  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ]
   %.not.i.i.i47 = icmp eq ptr %.sroa.050.0, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48, label %75
 
@@ -888,7 +888,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %65, %66
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit48: ; preds = %62, %74, %75, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %.pn.pn, %74 ], [ %.pn.pn, %75 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %75 ], [ %35, %34 ], [ %63, %62 ], [ %.pn.pn, %74 ]
   %78 = load ptr, ptr %7, align 8, !tbaa !15
   call void @free(ptr noundef %78) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1096,7 +1096,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %76) #19
   br label %.body
@@ -2395,7 +2395,7 @@ _ZN5Eigen12SparseMatrixIfLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !4
   call void @free(ptr noundef %76) #19
   br label %.body

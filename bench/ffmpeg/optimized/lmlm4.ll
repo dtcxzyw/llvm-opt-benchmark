@@ -63,7 +63,7 @@ define internal range(i32 0, 34) i32 @lmlm4_probe(ptr noundef readonly captures(
   br label %37
 
 37:                                               ; preds = %22, %19, %36
-  %.0 = phi i32 [ 0, %36 ], [ %., %19 ], [ 20, %22 ]
+  %.0 = phi i32 [ %., %19 ], [ 0, %36 ], [ 20, %22 ]
   ret i32 %.0
 }
 

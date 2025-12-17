@@ -635,7 +635,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit47:             ; preds = %_ZN18SafepointMecha
   br label %108
 
 108:                                              ; preds = %86, %83, %80, %_ZN20ThreadToNativeFromVMD2Ev.exit, %_ZN20ThreadToNativeFromVMD2Ev.exit47, %89, %78
-  %.2 = phi ptr [ null, %78 ], [ null, %89 ], [ %97, %_ZN20ThreadToNativeFromVMD2Ev.exit47 ], [ null, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ null, %80 ], [ null, %83 ], [ null, %86 ]
+  %.2 = phi ptr [ null, %78 ], [ null, %89 ], [ null, %_ZN20ThreadToNativeFromVMD2Ev.exit ], [ %97, %_ZN20ThreadToNativeFromVMD2Ev.exit47 ], [ null, %80 ], [ null, %83 ], [ null, %86 ]
   %109 = load ptr, ptr %37, align 8
   %.not.i.i.i.i48 = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i48, label %111, label %110
@@ -952,7 +952,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit62:             ; preds = %_ZN18SafepointMecha
   br label %120
 
 120:                                              ; preds = %99, %96, %_ZN20ThreadToNativeFromVMD2Ev.exit62, %._crit_edge, %93
-  %.2 = phi ptr [ null, %93 ], [ %109, %._crit_edge ], [ null, %_ZN20ThreadToNativeFromVMD2Ev.exit62 ], [ null, %96 ], [ null, %99 ]
+  %.2 = phi ptr [ null, %93 ], [ null, %_ZN20ThreadToNativeFromVMD2Ev.exit62 ], [ %109, %._crit_edge ], [ null, %96 ], [ null, %99 ]
   %121 = load ptr, ptr %46, align 8
   %.not.i.i.i.i63 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i63, label %123, label %122

@@ -437,8 +437,8 @@ HeapTupleHeaderGetXmin.exit.us.us98..thread.split.us.split.us100_crit_edge: ; pr
   br i1 %.not71, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer.us129, %.outer.us, %141, %.outer.us.us, %92, %.outer.us.us.us, %55, %20
-  %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.057.ph84.us.us.us, %55 ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.057.ph84.us.us, %92 ], [ %.158.us.us, %.outer.us.us ], [ %.057.ph84.us, %141 ], [ %.158.us, %.outer.us ], [ %.158.us130, %.outer.us129 ], [ %.158, %.outer ]
-  %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %.054.ph89.us.us.us, %55 ], [ %31, %.outer.us.us.us ], [ %.054.ph89.us.us, %92 ], [ %68, %.outer.us.us ], [ %.054.ph89.us, %141 ], [ %105, %.outer.us ], [ %160, %.outer.us129 ], [ %181, %.outer ]
+  %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.158.us130, %.outer.us129 ], [ %.057.ph84.us.us.us, %55 ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.057.ph84.us.us, %92 ], [ %.158.us.us, %.outer.us.us ], [ %.057.ph84.us, %141 ], [ %.158.us, %.outer.us ], [ %.158, %.outer ]
+  %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %160, %.outer.us129 ], [ %.054.ph89.us.us.us, %55 ], [ %31, %.outer.us.us.us ], [ %.054.ph89.us.us, %92 ], [ %68, %.outer.us.us ], [ %.054.ph89.us, %141 ], [ %105, %.outer.us ], [ %181, %.outer ]
   call void @systable_endscan(ptr noundef %23) #4
   call void @table_close(ptr noundef %22, i32 noundef 1) #4
   %185 = icmp sgt i32 %.054.ph.lcssa, 1
@@ -862,7 +862,7 @@ has_subclass.exit:                                ; preds = %9
   br label %56
 
 56:                                               ; preds = %has_subclass.exit, %6, %2, %.critedge
-  %.0 = phi i1 [ %.1, %.critedge ], [ false, %2 ], [ false, %6 ], [ false, %has_subclass.exit ]
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ %.1, %.critedge ], [ false, %has_subclass.exit ]
   ret i1 %.0
 }
 
@@ -1053,7 +1053,7 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %77, %49, %31, %19, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ true, %19 ], [ true, %31 ], [ %.1.us42, %49 ], [ %.1, %77 ]
+  %.0.lcssa = phi i1 [ false, %4 ], [ %.1.us42, %49 ], [ true, %19 ], [ true, %31 ], [ %.1, %77 ]
   call void @systable_endscan(ptr noundef %8) #4
   call void @table_close(ptr noundef %6, i32 noundef 3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

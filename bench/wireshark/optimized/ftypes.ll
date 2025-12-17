@@ -2484,7 +2484,7 @@ fvalue_length2.exit:                              ; preds = %11, %12
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.102, i32 noundef 7, ptr noundef nonnull @.str.103, i64 noundef 845, ptr noundef nonnull @__func__.compute_drnode, ptr noundef nonnull @.str.107) #12
   unreachable
 
-44:                                               ; preds = %19, %23, %26, %36, %39
+44:                                               ; preds = %36, %19, %23, %26, %39
   store i8 1, ptr %3, align 8
   br label %52
 

@@ -306,7 +306,7 @@ define void @_ZN3tbb6detail2r115call_itt_notifyEiPv(i32 noundef %0, ptr noundef 
   br i1 %.not, label %13, label %.sink.split
 
 .sink.split:                                      ; preds = %11, %9, %7, %5, %3
-  %.sink = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ]
+  %.sink = phi ptr [ %10, %9 ], [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %12, %11 ]
   tail call void %.sink(ptr noundef %1)
   br label %13
 

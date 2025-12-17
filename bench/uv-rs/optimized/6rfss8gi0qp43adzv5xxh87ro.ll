@@ -90,7 +90,7 @@ _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit: ; preds = %9
   br label %37
 
 37:                                               ; preds = %13, %24, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit", %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit
-  %.sroa.0.0 = phi i1 [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit ], [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit" ], [ %narrow, %24 ], [ false, %13 ]
+  %.sroa.0.0 = phi i1 [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread ], [ %narrow, %24 ], [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit" ], [ false, %13 ]
   ret i1 %.sroa.0.0
 }
 

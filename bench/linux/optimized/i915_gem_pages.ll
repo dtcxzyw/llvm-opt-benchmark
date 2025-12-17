@@ -131,7 +131,7 @@ define dso_local void @__i915_gem_object_set_pages(ptr noundef %0, ptr noundef %
   br label %64
 
 64:                                               ; preds = %61, %56
-  %65 = phi ptr [ %63, %61 ], [ %57, %56 ]
+  %65 = phi ptr [ %57, %56 ], [ %63, %61 ]
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread, label %.preheader, !llvm.loop !9
 
@@ -450,7 +450,7 @@ define dso_local i32 @i915_gem_object_pin_pages_unlocked(ptr noundef %0) local_u
   br i1 %67, label %12, label %.thread6
 
 .thread6:                                         ; preds = %62, %34, %65, %.lr.ph, %64
-  %68 = phi i32 [ 0, %64 ], [ 0, %.lr.ph ], [ %63, %62 ], [ %21, %34 ], [ %66, %65 ]
+  %68 = phi i32 [ 0, %64 ], [ 0, %.lr.ph ], [ %21, %34 ], [ %63, %62 ], [ %66, %65 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %68
@@ -997,7 +997,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   br label %167
 
 167:                                              ; preds = %164, %159
-  %168 = phi ptr [ %166, %164 ], [ %160, %159 ]
+  %168 = phi ptr [ %160, %159 ], [ %166, %164 ]
   %169 = icmp eq ptr %168, null
   br i1 %169, label %.thread33, label %170
 
@@ -1131,7 +1131,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   br label %254
 
 254:                                              ; preds = %251, %246
-  %255 = phi ptr [ %253, %251 ], [ %247, %246 ]
+  %255 = phi ptr [ %247, %246 ], [ %253, %251 ]
   %256 = icmp eq ptr %255, null
   br i1 %256, label %.thread35, label %257
 
@@ -1189,7 +1189,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   br label %286
 
 286:                                              ; preds = %67, %.thread39, %280, %37, %13, %6
-  %287 = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ %285, %.thread39 ], [ %39, %37 ], [ %278, %280 ], [ inttoptr (i64 -6 to ptr), %6 ], [ %65, %67 ]
+  %287 = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ %285, %.thread39 ], [ %39, %37 ], [ inttoptr (i64 -6 to ptr), %6 ], [ %278, %280 ], [ %65, %67 ]
   ret ptr %287
 }
 
@@ -1470,9 +1470,9 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   br i1 %91, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %85, %.lr.ph.split, %.preheader4, %53, %.lr.ph.split.us, %.preheader4.us, %17
-  %92 = phi i32 [ %20, %17 ], [ %31, %.preheader4.us ], [ %28, %53 ], [ %31, %.lr.ph.split.us ], [ %63, %.preheader4 ], [ %60, %85 ], [ %63, %.lr.ph.split ]
-  %93 = phi ptr [ %19, %17 ], [ %30, %.preheader4.us ], [ %54, %53 ], [ %30, %.lr.ph.split.us ], [ %62, %.preheader4 ], [ %86, %85 ], [ %62, %.lr.ph.split ]
-  %94 = phi i32 [ %24, %17 ], [ %29, %.preheader4.us ], [ %56, %53 ], [ %29, %.lr.ph.split.us ], [ %61, %.preheader4 ], [ %88, %85 ], [ %61, %.lr.ph.split ]
+  %92 = phi i32 [ %20, %17 ], [ %31, %.preheader4.us ], [ %63, %.preheader4 ], [ %28, %53 ], [ %31, %.lr.ph.split.us ], [ %63, %.lr.ph.split ], [ %60, %85 ]
+  %93 = phi ptr [ %19, %17 ], [ %30, %.preheader4.us ], [ %62, %.preheader4 ], [ %54, %53 ], [ %30, %.lr.ph.split.us ], [ %62, %.lr.ph.split ], [ %86, %85 ]
+  %94 = phi i32 [ %24, %17 ], [ %29, %.preheader4.us ], [ %61, %.preheader4 ], [ %56, %53 ], [ %29, %.lr.ph.split.us ], [ %61, %.lr.ph.split ], [ %88, %85 ]
   store ptr %93, ptr %1, align 8
   store i32 %92, ptr %13, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %18) #6

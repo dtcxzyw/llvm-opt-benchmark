@@ -843,7 +843,7 @@ define internal i32 @VectorMismatch_SSE2(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %10, %41, %28, %30, %39
-  %.3 = phi i32 [ 4, %39 ], [ 0, %30 ], [ 0, %28 ], [ %spec.select, %41 ], [ %.0, %.preheader ], [ %.45, %10 ]
+  %.3 = phi i32 [ 0, %28 ], [ 0, %30 ], [ %spec.select, %41 ], [ 4, %39 ], [ %.0, %.preheader ], [ %.45, %10 ]
   %52 = icmp slt i32 %.3, %2
   br i1 %52, label %.lr.ph.preheader, label %.critedge
 

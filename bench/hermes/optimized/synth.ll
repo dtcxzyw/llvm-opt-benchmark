@@ -4157,7 +4157,7 @@ if.then4.i.i:                                     ; preds = %invoke.cont243
   br label %invoke.cont245
 
 invoke.cont245:                                   ; preds = %if.then4.i.i, %if.then.i.i117
-  %phi.call.i = phi ptr [ %call244, %if.then4.i.i ], [ %call3.i.i118, %if.then.i.i117 ]
+  %phi.call.i = phi ptr [ %call3.i.i118, %if.then.i.i117 ], [ %call244, %if.then4.i.i ]
   %call.i119 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN2clL5TraceB5cxx11E, i64 152)) #27
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN2clL5TraceB5cxx11E, i64 152)) #27
   %call3.i120 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i119, i64 noundef %call2.i)
@@ -4312,7 +4312,7 @@ if.then4.i.i179:                                  ; preds = %invoke.cont266
   br label %invoke.cont268
 
 invoke.cont268:                                   ; preds = %if.then4.i.i179, %if.then.i.i183
-  %phi.call.i182 = phi ptr [ %call267, %if.then4.i.i179 ], [ %call3.i.i185, %if.then.i.i183 ]
+  %phi.call.i182 = phi ptr [ %call3.i.i185, %if.then.i.i183 ], [ %call267, %if.then4.i.i179 ]
   %call.i187 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %marker) #27
   %call2.i188 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %marker) #27
   %call3.i189 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i182, ptr noundef %call.i187, i64 noundef %call2.i188)
@@ -4341,7 +4341,7 @@ if.then4.i.i200:                                  ; preds = %invoke.cont271
   br label %invoke.cont273
 
 invoke.cont273:                                   ; preds = %if.then4.i.i200, %if.then.i.i204
-  %phi.call.i203 = phi ptr [ %call3.i189, %if.then4.i.i200 ], [ %call3.i.i206, %if.then.i.i204 ]
+  %phi.call.i203 = phi ptr [ %call3.i.i206, %if.then.i.i204 ], [ %call3.i189, %if.then4.i.i200 ]
   %call.i208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %profileFileName263) #27
   %call2.i209 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %profileFileName263) #27
   %call3.i210 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i203, ptr noundef %call.i208, i64 noundef %call2.i209)
@@ -4398,12 +4398,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %cleanup
 
 ehcleanup281:                                     ; preds = %lpad202, %lpad.i107, %lpad256, %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit148, %lpad208
-  %.pn14 = phi { ptr, i32 } [ %35, %lpad208 ], [ %62, %lpad256 ], [ %.pn12, %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit148 ], [ %34, %lpad202 ], [ %36, %lpad.i107 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit148 ], [ %35, %lpad208 ], [ %62, %lpad256 ], [ %34, %lpad202 ], [ %36, %lpad.i107 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %bytecodeFiles) #27
   br label %ehcleanup282
 
 ehcleanup282:                                     ; preds = %if.then.i.i.i, %lpad.i100, %if.then.i.i30, %ehcleanup, %ehcleanup281, %lpad5
-  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %ehcleanup281 ], [ %12, %lpad5 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i30 ], [ %29, %if.then.i.i.i ], [ %29, %lpad.i100 ]
+  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %ehcleanup281 ], [ %.pn, %if.then.i.i30 ], [ %12, %lpad5 ], [ %.pn, %ehcleanup ], [ %29, %lpad.i100 ], [ %29, %if.then.i.i.i ]
   call void @_ZN8facebook6hermes7tracing16TraceInterpreter14ExecuteOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(316) %options) #27
   br label %catch.dispatch
 
@@ -8585,7 +8585,7 @@ common.resume.sink.split:                         ; preds = %lpad.i.i.i.i, %lpad
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i143, %lpad.i.i.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i.i.i.i ], [ %26, %lpad.i ], [ %39, %lpad.i143 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %lpad.i143 ], [ %22, %lpad.i.i.i.i ], [ %26, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4llvh2cl6valuesIJNS0_15OptionEnumValueES2_S2_S2_S2_EEENS0_11ValuesClassEDpT_.exit.i: ; preds = %entry

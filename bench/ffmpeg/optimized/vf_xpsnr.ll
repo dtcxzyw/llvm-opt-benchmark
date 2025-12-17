@@ -165,7 +165,7 @@ define internal void @uninit(ptr noundef %0) #1 {
   br label %get_avg_xpsnr.exit
 
 get_avg_xpsnr.exit:                               ; preds = %15, %29
-  %.0.i = phi nsz double [ %28, %15 ], [ %31, %29 ]
+  %.0.i = phi nsz double [ %31, %29 ], [ %28, %15 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load i8, ptr %32, align 8, !tbaa !41
   %34 = sext i8 %33 to i32
@@ -229,7 +229,7 @@ get_avg_xpsnr.exit:                               ; preds = %15, %29
   br label %get_avg_xpsnr.exit92
 
 get_avg_xpsnr.exit92:                             ; preds = %.lr.ph, %62, %73
-  %.0.i91 = phi nsz double [ %72, %62 ], [ %74, %73 ], [ 0x7FF0000000000000, %.lr.ph ]
+  %.0.i91 = phi nsz double [ %74, %73 ], [ %72, %62 ], [ 0x7FF0000000000000, %.lr.ph ]
   %75 = fcmp nsz ogt double %.06993, %.0.i91
   %.170 = select nsz i1 %75, double %.0.i91, double %.06993
   %76 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
@@ -1019,7 +1019,7 @@ av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.threa
   br label %av_cmp_q.exit43.thread51
 
 av_cmp_q.exit43.thread51:                         ; preds = %58, %56, %av_cmp_q.exit.thread, %11, %1
-  %.0 = phi i32 [ %9, %1 ], [ %27, %11 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %56 ], [ 0, %58 ]
+  %.0 = phi i32 [ %27, %11 ], [ %9, %1 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %58 ], [ 0, %56 ]
   ret i32 %.0
 }
 
@@ -1779,7 +1779,7 @@ calc_squared_error_and_weight.exit.us.i:          ; preds = %.loopexit.i.us.i, %
   br label %432
 
 432:                                              ; preds = %427, %425, %419, %417
-  %.0243.us.i = phi nsz double [ %431, %427 ], [ 0.000000e+00, %425 ], [ %..us.i, %419 ], [ %414, %417 ]
+  %.0243.us.i = phi nsz double [ 0.000000e+00, %425 ], [ %431, %427 ], [ %..us.i, %419 ], [ %414, %417 ]
   %433 = icmp ule i32 %.1238304.us.i, %195
   br i1 %433, label %439, label %.thread.us.i
 
@@ -2004,8 +2004,8 @@ calc_squared_error.exit.us.us.i:                  ; preds = %.lr.ph.us335.i, %ca
   br i1 %544, label %.lr.ph.i, label %get_wsse.exit, !llvm.loop !116
 
 get_wsse.exit.thread:                             ; preds = %.loopexit, %218, %222, %226
-  %.str.21.sink.i = phi ptr [ @.str.20, %222 ], [ @.str.20, %218 ], [ @.str.20, %.loopexit ], [ @.str.21, %226 ]
-  %.0.ph.i = phi i32 [ -22, %222 ], [ -22, %218 ], [ -22, %.loopexit ], [ -12, %226 ]
+  %.str.21.sink.i = phi ptr [ @.str.20, %.loopexit ], [ @.str.20, %222 ], [ @.str.20, %218 ], [ @.str.21, %226 ]
+  %.0.ph.i = phi i32 [ -22, %.loopexit ], [ -22, %222 ], [ -22, %218 ], [ -12, %226 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 16, ptr noundef nonnull %.str.21.sink.i) #16
   br label %651
 
@@ -2184,7 +2184,7 @@ set_meta.exit:                                    ; preds = %618, %622
   br label %651
 
 651:                                              ; preds = %get_wsse.exit.thread, %1, %645, %39
-  %.0 = phi i32 [ %650, %645 ], [ %44, %39 ], [ %31, %1 ], [ %.0.ph.i, %get_wsse.exit.thread ]
+  %.0 = phi i32 [ %44, %39 ], [ %31, %1 ], [ %650, %645 ], [ %.0.ph.i, %get_wsse.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

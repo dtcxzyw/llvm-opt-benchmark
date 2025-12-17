@@ -67,8 +67,8 @@ define dso_local ptr @string_list_insert(ptr noundef captures(none) %0, ptr noun
   br i1 %.not30.i.i, label %get_entry_index.exit.i, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i.i
-  %.227.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ %.02535.i.i, %18 ]
-  %.224.i.i = phi i32 [ %.02236.i.i, %.lr.ph.i.i ], [ %11, %18 ]
+  %.227.i.i = phi i32 [ %.02535.i.i, %18 ], [ %11, %.lr.ph.i.i ]
+  %.224.i.i = phi i32 [ %11, %18 ], [ %.02236.i.i, %.lr.ph.i.i ]
   %20 = add nsw i32 %.224.i.i, 1
   %21 = icmp slt i32 %20, %.227.i.i
   br i1 %21, label %.lr.ph.i.i, label %.loopexit.loopexit.i, !llvm.loop !17
@@ -199,8 +199,8 @@ define dso_local void @string_list_remove(ptr noundef captures(none) %0, ptr nou
   br i1 %.not30.i, label %get_entry_index.exit, label %20
 
 20:                                               ; preds = %19, %.lr.ph.i
-  %.227.i = phi i32 [ %12, %.lr.ph.i ], [ %.02535.i, %19 ]
-  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %12, %19 ]
+  %.227.i = phi i32 [ %.02535.i, %19 ], [ %12, %.lr.ph.i ]
+  %.224.i = phi i32 [ %12, %19 ], [ %.02236.i, %.lr.ph.i ]
   %21 = add nsw i32 %.224.i, 1
   %22 = icmp slt i32 %21, %.227.i
   br i1 %22, label %.lr.ph.i, label %move_array.exit, !llvm.loop !17
@@ -293,8 +293,8 @@ define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr noundef readonl
   br i1 %.not30.i, label %get_entry_index.exit, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i
-  %.227.i = phi i32 [ %11, %.lr.ph.i ], [ %.02535.i, %18 ]
-  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %11, %18 ]
+  %.227.i = phi i32 [ %.02535.i, %18 ], [ %11, %.lr.ph.i ]
+  %.224.i = phi i32 [ %11, %18 ], [ %.02236.i, %.lr.ph.i ]
   %20 = add nsw i32 %.224.i, 1
   %21 = icmp slt i32 %20, %.227.i
   br i1 %21, label %.lr.ph.i, label %get_entry_index.exit, !llvm.loop !17
@@ -335,8 +335,8 @@ define dso_local i32 @string_list_find_insert_index(ptr noundef readonly capture
   br i1 %.not30.i, label %get_entry_index.exit, label %20
 
 20:                                               ; preds = %19, %.lr.ph.i
-  %.227.i = phi i32 [ %12, %.lr.ph.i ], [ %.02535.i, %19 ]
-  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %12, %19 ]
+  %.227.i = phi i32 [ %.02535.i, %19 ], [ %12, %.lr.ph.i ]
+  %.224.i = phi i32 [ %12, %19 ], [ %.02236.i, %.lr.ph.i ]
   %21 = add nsw i32 %.224.i, 1
   %22 = icmp slt i32 %21, %.227.i
   br i1 %22, label %.lr.ph.i, label %.loopexit, !llvm.loop !17
@@ -383,8 +383,8 @@ define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %0,
   br i1 %.not30.i, label %get_entry_index.exit, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i
-  %.227.i = phi i32 [ %11, %.lr.ph.i ], [ %.02535.i, %18 ]
-  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %11, %18 ]
+  %.227.i = phi i32 [ %.02535.i, %18 ], [ %11, %.lr.ph.i ]
+  %.224.i = phi i32 [ %11, %18 ], [ %.02236.i, %.lr.ph.i ]
   %20 = add nsw i32 %.224.i, 1
   %21 = icmp slt i32 %20, %.227.i
   br i1 %21, label %.lr.ph.i, label %get_entry_index.exit.thread, !llvm.loop !17

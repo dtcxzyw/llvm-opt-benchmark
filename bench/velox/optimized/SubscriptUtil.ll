@@ -1786,7 +1786,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i96.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i96.i ], [ 257, %land.rhs.i.i.i ], [ %102, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i96.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %102, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4, !noalias !4
   %103 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -2211,7 +2211,7 @@ if.then26.i.i.i.i212.i:                           ; preds = %for.end.i.i.i.i210.
   br label %land.end.i.i131.i
 
 land.end.i.i131.i:                                ; preds = %for.body.i.i.i.i221.i, %if.then26.i.i.i.i212.i, %for.end.i.i.i.i210.i, %land.rhs.i.i204.i, %land.lhs.true.i.i200.i, %if.end.i.i128.i
-  %frombool.i.i132.i = phi i16 [ 256, %land.lhs.true.i.i200.i ], [ 256, %if.end.i.i128.i ], [ 257, %land.rhs.i.i204.i ], [ %162, %if.then26.i.i.i.i212.i ], [ 257, %for.end.i.i.i.i210.i ], [ 256, %for.body.i.i.i.i221.i ]
+  %frombool.i.i132.i = phi i16 [ 256, %land.lhs.true.i.i200.i ], [ 256, %if.end.i.i128.i ], [ 257, %land.rhs.i.i204.i ], [ 257, %for.end.i.i.i.i210.i ], [ %162, %if.then26.i.i.i.i212.i ], [ 256, %for.body.i.i.i.i221.i ]
   store i16 %frombool.i.i132.i, ptr %allSelected_.i.i125.i, align 4, !noalias !4
   %163 = trunc i16 %frombool.i.i132.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i133.i
@@ -3596,7 +3596,7 @@ terminate.lpad.i399.i:                            ; preds = %.noexc.i400.i, %if.
   unreachable
 
 ehcleanup83.i:                                    ; preds = %lpad81.i, %if.then.i.i.i94.i, %_ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EED2Ev.exit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad35.loopexit.split-lp.loopexit.i, %lpad35.loopexit.i
-  %.pn27.i = phi { ptr, i32 } [ %289, %lpad81.i ], [ %lpad.phi.i, %_ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EED2Ev.exit.i ], [ %lpad.phi.i, %if.then.i.i.i94.i ], [ %lpad.loopexit586.i, %lpad35.loopexit.i ], [ %lpad.loopexit588.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit591.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit593.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit597.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit599.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit603.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit605.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit608.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit610.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit614.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit616.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp617.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn27.i = phi { ptr, i32 } [ %289, %lpad81.i ], [ %lpad.phi.i, %if.then.i.i.i94.i ], [ %lpad.phi.i, %_ZNSt6vectorIN8facebook5velox9functions12_GLOBAL__N_16MapKeyESaIS4_EED2Ev.exit.i ], [ %lpad.loopexit586.i, %lpad35.loopexit.i ], [ %lpad.loopexit588.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit591.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit593.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit597.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit599.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit603.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit605.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit608.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit610.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit614.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit616.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp617.i, %lpad35.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %indexHolder.i) #30
   br label %ehcleanup85.i
 
@@ -3977,7 +3977,7 @@ if.end8.sink.split.i.i.i.i59:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %return
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46, %_ZNSt12__shared_ptrIN8facebook5velox9functions15LookupTableBaseELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, %if.end9.i.i.i, %if.then21, %if.end24, %entry, %if.then17
-  %retval.0 = phi i1 [ false, %if.then17 ], [ false, %entry ], [ true, %if.end24 ], [ false, %if.then21 ], [ false, %if.end9.i.i.i ], [ false, %_ZNSt12__shared_ptrIN8facebook5velox9functions15LookupTableBaseELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56 ], [ false, %if.end8.sink.split.i.i.i.i59 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end9.i.i.i ], [ true, %if.end24 ], [ false, %if.then17 ], [ false, %if.then21 ], [ false, %_ZNSt12__shared_ptrIN8facebook5velox9functions15LookupTableBaseELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i46 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i56 ], [ false, %if.end8.sink.split.i.i.i.i59 ]
   ret i1 %retval.0
 }
 
@@ -4245,7 +4245,7 @@ if.then1.i:                                       ; preds = %sw.bb
           to label %_ZSt11make_sharedIN8facebook5velox9functions11LookupTableILNS1_8TypeKindE0EEEJRNS1_6memory10MemoryPoolEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !55
 
 common.resume:                                    ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE9EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i7865, %ehcleanup86.i7875, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i6858, %ehcleanup85.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i6083, %ehcleanup86.i6093, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE6EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i5085, %ehcleanup86.i5095, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i4097, %ehcleanup86.i4107, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE10EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i3472, %ehcleanup86.i3482, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE4EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i2474, %ehcleanup86.i2484, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i1476, %ehcleanup86.i1486, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i478, %ehcleanup86.i488, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i44, %ehcleanup86.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, %lpad.i.i.i, %ehcleanup105.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %43, %lpad.i.i.i ], [ %.pn24.pn.pn.pn.pn.pn.pn.i, %ehcleanup105.i ], [ %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %361, %lpad.i.i.i44 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i54, %ehcleanup86.i ], [ %653, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %679, %lpad.i.i.i478 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i489, %ehcleanup86.i488 ], [ %971, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %997, %lpad.i.i.i1476 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i1487, %ehcleanup86.i1486 ], [ %1289, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE4EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1315, %lpad.i.i.i2474 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i2485, %ehcleanup86.i2484 ], [ %1607, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE10EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1633, %lpad.i.i.i3472 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i3483, %ehcleanup86.i3482 ], [ %1919, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1945, %lpad.i.i.i4097 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i4108, %ehcleanup86.i4107 ], [ %2237, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE6EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2263, %lpad.i.i.i5085 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i5096, %ehcleanup86.i5095 ], [ %2555, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2581, %lpad.i.i.i6083 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i6094, %ehcleanup86.i6093 ], [ %2866, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2892, %lpad.i.i.i6858 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i6868, %ehcleanup85.i ], [ %3177, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE9EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %3203, %lpad.i.i.i7865 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i7876, %ehcleanup86.i7875 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn24.pn.pn.pn.pn.pn.pn.i6868, %ehcleanup85.i ], [ %.pn24.pn.pn.pn.pn.pn.pn.i, %ehcleanup105.i ], [ %.pn24.pn.pn.pn.pn.pn.pn.i54, %ehcleanup86.i ], [ %.pn24.pn.pn.pn.pn.pn.pn.i489, %ehcleanup86.i488 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i1487, %ehcleanup86.i1486 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i2485, %ehcleanup86.i2484 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i3483, %ehcleanup86.i3482 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i4108, %ehcleanup86.i4107 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i5096, %ehcleanup86.i5095 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i6094, %ehcleanup86.i6093 ], [ %17, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %43, %lpad.i.i.i ], [ %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE3EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %361, %lpad.i.i.i44 ], [ %653, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %679, %lpad.i.i.i478 ], [ %971, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE2EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %997, %lpad.i.i.i1476 ], [ %1289, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE4EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1315, %lpad.i.i.i2474 ], [ %1607, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE10EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1633, %lpad.i.i.i3472 ], [ %1919, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %1945, %lpad.i.i.i4097 ], [ %2237, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE6EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2263, %lpad.i.i.i5085 ], [ %2555, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE7EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2581, %lpad.i.i.i6083 ], [ %2866, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE8EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %2892, %lpad.i.i.i6858 ], [ %3177, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE9EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i ], [ %3203, %lpad.i.i.i7865 ], [ %.pn24.pn.pn.pn.pn.pn.pn.i7876, %ehcleanup86.i7875 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions11LookupTableILNS2_8TypeKindE0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %if.then1.i
@@ -4664,7 +4664,7 @@ if.then3.i.i.i:                                   ; preds = %if.then55.i
   br label %invoke.cont56.i
 
 invoke.cont56.i:                                  ; preds = %if.then3.i.i.i, %if.then55.i
-  %retval.0.i.i.i = phi i64 [ %92, %if.then3.i.i.i ], [ 0, %if.then55.i ]
+  %retval.0.i.i.i = phi i64 [ 0, %if.then55.i ], [ %92, %if.then3.i.i.i ]
   %div2.i.i.i = lshr i64 %retval.0.i.i.i, 6
   %arrayidx.i1.i.i = getelementptr inbounds nuw i64, ptr %89, i64 %div2.i.i.i
   %93 = load i64, ptr %arrayidx.i1.i.i, align 8
@@ -4737,7 +4737,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i69.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i69.i ], [ 257, %land.rhs.i.i.i ], [ %105, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i69.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %105, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4, !noalias !52
   %106 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -5099,7 +5099,7 @@ if.then26.i.i.i.i190.i:                           ; preds = %for.end.i.i.i.i188.
   br label %land.end.i.i94.i
 
 land.end.i.i94.i:                                 ; preds = %for.body.i.i.i.i199.i, %if.then26.i.i.i.i190.i, %for.end.i.i.i.i188.i, %land.rhs.i.i182.i, %land.lhs.true.i.i178.i, %if.end.i.i91.i
-  %frombool.i.i95.i = phi i16 [ 256, %land.lhs.true.i.i178.i ], [ 256, %if.end.i.i91.i ], [ 257, %land.rhs.i.i182.i ], [ %138, %if.then26.i.i.i.i190.i ], [ 257, %for.end.i.i.i.i188.i ], [ 256, %for.body.i.i.i.i199.i ]
+  %frombool.i.i95.i = phi i16 [ 256, %land.lhs.true.i.i178.i ], [ 256, %if.end.i.i91.i ], [ 257, %land.rhs.i.i182.i ], [ 257, %for.end.i.i.i.i188.i ], [ %138, %if.then26.i.i.i.i190.i ], [ 256, %for.body.i.i.i.i199.i ]
   store i16 %frombool.i.i95.i, ptr %allSelected_.i.i88.i, align 4, !noalias !52
   %139 = trunc i16 %frombool.i.i95.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i96.i
@@ -5148,7 +5148,7 @@ if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i5.i.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i, %if.then3.i.i.i.i177.i, %for.body.i175.i
-  %retval.0.i.i.i.i.i = phi i32 [ %147, %if.then3.i.i.i.i177.i ], [ %149, %if.end4.i.i.i.i.i ], [ %145, %for.body.i175.i ]
+  %retval.0.i.i.i.i.i = phi i32 [ %149, %if.end4.i.i.i.i.i ], [ %147, %if.then3.i.i.i.i177.i ], [ %145, %for.body.i175.i ]
   %conv.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i to i64
   %div2.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i, 6
   %arrayidx.i1.i.i.i.i = getelementptr inbounds nuw i64, ptr %143, i64 %div2.i.i.i.i.i
@@ -5238,7 +5238,7 @@ if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i165.i
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %163, %if.then3.i.i.i.i.i.i.i.i.i ], [ %165, %if.end4.i.i.i.i.i.i.i.i.i ], [ %add.i26.i.i.i.i168.i, %while.body.i.i.i.i.i165.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %165, %if.end4.i.i.i.i.i.i.i.i.i ], [ %163, %if.then3.i.i.i.i.i.i.i.i.i ], [ %add.i26.i.i.i.i168.i, %while.body.i.i.i.i.i165.i ]
   %conv.i.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i to i64
   %div2.i.i.i.i.i.i.i.i.i = lshr i64 %conv.i.i.i.i.i.i.i.i.i, 6
   %arrayidx.i1.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %160, i64 %div2.i.i.i.i.i.i.i.i.i
@@ -5311,7 +5311,7 @@ if.end4.i.i.i.i55.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i, %if.then3.i.i.i.i71.i.i.i.i.i, %while.body.i42.i.i.i.i122.i
-  %retval.0.i.i.i.i60.i.i.i.i.i = phi i32 [ %172, %if.then3.i.i.i.i71.i.i.i.i.i ], [ %174, %if.end4.i.i.i.i55.i.i.i.i.i ], [ %add.i45.i.i.i.i125.i, %while.body.i42.i.i.i.i122.i ]
+  %retval.0.i.i.i.i60.i.i.i.i.i = phi i32 [ %174, %if.end4.i.i.i.i55.i.i.i.i.i ], [ %172, %if.then3.i.i.i.i71.i.i.i.i.i ], [ %add.i45.i.i.i.i125.i, %while.body.i42.i.i.i.i122.i ]
   %conv.i.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i to i64
   %div2.i.i.i.i62.i.i.i.i.i = lshr i64 %conv.i.i.i.i61.i.i.i.i.i, 6
   %arrayidx.i1.i.i.i63.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %169, i64 %div2.i.i.i.i62.i.i.i.i.i
@@ -5395,7 +5395,7 @@ if.end4.i.i.i.i85.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i82.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i88.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i88.i.i.i.i.i: ; preds = %if.end4.i.i.i.i85.i.i.i.i.i, %if.then3.i.i.i.i97.i.i.i.i.i, %for.body.i.i.i.i.i140.i
-  %retval.0.i.i.i.i89.i.i.i.i.i = phi i32 [ %180, %if.then3.i.i.i.i97.i.i.i.i.i ], [ %183, %if.end4.i.i.i.i85.i.i.i.i.i ], [ %conv7.i.i.i.i.i141.i, %for.body.i.i.i.i.i140.i ]
+  %retval.0.i.i.i.i89.i.i.i.i.i = phi i32 [ %183, %if.end4.i.i.i.i85.i.i.i.i.i ], [ %180, %if.then3.i.i.i.i97.i.i.i.i.i ], [ %conv7.i.i.i.i.i141.i, %for.body.i.i.i.i.i140.i ]
   %conv.i.i.i.i90.i.i.i.i.i = sext i32 %retval.0.i.i.i.i89.i.i.i.i.i to i64
   %div2.i.i.i.i91.i.i.i.i.i = lshr i64 %conv.i.i.i.i90.i.i.i.i.i, 6
   %arrayidx.i1.i.i.i92.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %177, i64 %div2.i.i.i.i91.i.i.i.i.i
@@ -5439,7 +5439,7 @@ if.end4.i.i.i20.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i, %if.then3.i.i.i32.i.i.i.i.i.i, %while.body.i99.i.i.i.i.i
-  %retval.0.i.i.i24.i.i.i.i.i.i = phi i32 [ %189, %if.then3.i.i.i32.i.i.i.i.i.i ], [ %191, %if.end4.i.i.i20.i.i.i.i.i.i ], [ %add10.i.i.i.i.i146.i, %while.body.i99.i.i.i.i.i ]
+  %retval.0.i.i.i24.i.i.i.i.i.i = phi i32 [ %191, %if.end4.i.i.i20.i.i.i.i.i.i ], [ %189, %if.then3.i.i.i32.i.i.i.i.i.i ], [ %add10.i.i.i.i.i146.i, %while.body.i99.i.i.i.i.i ]
   %conv.i.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i to i64
   %div2.i.i.i26.i.i.i.i.i.i = lshr i64 %conv.i.i.i25.i.i.i.i.i.i, 6
   %arrayidx.i1.i.i27.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %186, i64 %div2.i.i.i26.i.i.i.i.i.i
@@ -5513,7 +5513,7 @@ if.end4.i.i.i.i129.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i126.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i133.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i133.i.i.i.i.i: ; preds = %if.end4.i.i.i.i129.i.i.i.i.i, %if.then3.i.i.i.i145.i.i.i.i.i, %while.body.i116.i.i.i.i.i
-  %retval.0.i.i.i.i134.i.i.i.i.i = phi i32 [ %198, %if.then3.i.i.i.i145.i.i.i.i.i ], [ %200, %if.end4.i.i.i.i129.i.i.i.i.i ], [ %add.i119.i.i.i.i.i, %while.body.i116.i.i.i.i.i ]
+  %retval.0.i.i.i.i134.i.i.i.i.i = phi i32 [ %200, %if.end4.i.i.i.i129.i.i.i.i.i ], [ %198, %if.then3.i.i.i.i145.i.i.i.i.i ], [ %add.i119.i.i.i.i.i, %while.body.i116.i.i.i.i.i ]
   %conv.i.i.i.i135.i.i.i.i.i = sext i32 %retval.0.i.i.i.i134.i.i.i.i.i to i64
   %div2.i.i.i.i136.i.i.i.i.i = lshr i64 %conv.i.i.i.i135.i.i.i.i.i, 6
   %arrayidx.i1.i.i.i137.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %195, i64 %div2.i.i.i.i136.i.i.i.i.i
@@ -6928,7 +6928,7 @@ if.then3.i.i.i237:                                ; preds = %if.then45.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.then3.i.i.i237, %if.then45.i
-  %retval.0.i.i.i239 = phi i64 [ %410, %if.then3.i.i.i237 ], [ 0, %if.then45.i ]
+  %retval.0.i.i.i239 = phi i64 [ 0, %if.then45.i ], [ %410, %if.then3.i.i.i237 ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %407, i64 %retval.0.i.i.i239
   %411 = load i32, ptr %arrayidx.i.i, align 4
   %allSelected_.i.i.i240 = getelementptr inbounds nuw i8, ptr %327, i64 36
@@ -6996,7 +6996,7 @@ if.then26.i.i.i.i.i350:                           ; preds = %for.end.i.i.i.i.i34
   br label %land.end.i.i.i246
 
 land.end.i.i.i246:                                ; preds = %for.body.i.i.i.i.i359, %if.then26.i.i.i.i.i350, %for.end.i.i.i.i.i348, %land.rhs.i.i.i344, %land.lhs.true.i.i.i341, %if.end.i.i69.i243
-  %frombool.i.i.i247 = phi i16 [ 256, %land.lhs.true.i.i.i341 ], [ 256, %if.end.i.i69.i243 ], [ 257, %land.rhs.i.i.i344 ], [ %423, %if.then26.i.i.i.i.i350 ], [ 257, %for.end.i.i.i.i.i348 ], [ 256, %for.body.i.i.i.i.i359 ]
+  %frombool.i.i.i247 = phi i16 [ 256, %land.lhs.true.i.i.i341 ], [ 256, %if.end.i.i69.i243 ], [ 257, %land.rhs.i.i.i344 ], [ 257, %for.end.i.i.i.i.i348 ], [ %423, %if.then26.i.i.i.i.i350 ], [ 256, %for.body.i.i.i.i.i359 ]
   store i16 %frombool.i.i.i247, ptr %allSelected_.i.i.i240, align 4, !noalias !101
   %424 = trunc i16 %frombool.i.i.i247 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i248
@@ -7358,7 +7358,7 @@ if.then26.i.i.i.i189.i:                           ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i
 
 land.end.i.i93.i:                                 ; preds = %for.body.i.i.i.i198.i, %if.then26.i.i.i.i189.i, %for.end.i.i.i.i187.i, %land.rhs.i.i181.i, %land.lhs.true.i.i177.i, %if.end.i.i90.i
-  %frombool.i.i94.i = phi i16 [ 256, %land.lhs.true.i.i177.i ], [ 256, %if.end.i.i90.i ], [ 257, %land.rhs.i.i181.i ], [ %456, %if.then26.i.i.i.i189.i ], [ 257, %for.end.i.i.i.i187.i ], [ 256, %for.body.i.i.i.i198.i ]
+  %frombool.i.i94.i = phi i16 [ 256, %land.lhs.true.i.i177.i ], [ 256, %if.end.i.i90.i ], [ 257, %land.rhs.i.i181.i ], [ 257, %for.end.i.i.i.i187.i ], [ %456, %if.then26.i.i.i.i189.i ], [ 256, %for.body.i.i.i.i198.i ]
   store i16 %frombool.i.i94.i, ptr %allSelected_.i.i87.i, align 4, !noalias !101
   %457 = trunc i16 %frombool.i.i94.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i
@@ -7407,7 +7407,7 @@ if.end4.i.i.i.i.i230:                             ; preds = %if.end.i.i.i5.i.i22
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i230, %if.then3.i.i.i.i176.i, %for.body.i174.i
-  %retval.0.i.i.i.i.i232 = phi i32 [ %465, %if.then3.i.i.i.i176.i ], [ %467, %if.end4.i.i.i.i.i230 ], [ %463, %for.body.i174.i ]
+  %retval.0.i.i.i.i.i232 = phi i32 [ %467, %if.end4.i.i.i.i.i230 ], [ %465, %if.then3.i.i.i.i176.i ], [ %463, %for.body.i174.i ]
   %idxprom.i.i.i.i = sext i32 %retval.0.i.i.i.i.i232 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %461, i64 %idxprom.i.i.i.i
   %468 = load i32, ptr %arrayidx.i.i.i.i, align 4
@@ -7492,7 +7492,7 @@ if.end4.i.i.i.i.i.i.i.i.i214:                     ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i214, %if.then3.i.i.i.i.i.i.i.i.i219, %while.body.i.i.i.i.i164.i
-  %retval.0.i.i.i.i.i.i.i.i.i217 = phi i32 [ %481, %if.then3.i.i.i.i.i.i.i.i.i219 ], [ %483, %if.end4.i.i.i.i.i.i.i.i.i214 ], [ %add.i26.i.i.i.i167.i, %while.body.i.i.i.i.i164.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i217 = phi i32 [ %483, %if.end4.i.i.i.i.i.i.i.i.i214 ], [ %481, %if.then3.i.i.i.i.i.i.i.i.i219 ], [ %add.i26.i.i.i.i167.i, %while.body.i.i.i.i.i164.i ]
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i217 to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %478, i64 %idxprom.i.i.i.i.i.i.i.i
   %484 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
@@ -7560,7 +7560,7 @@ if.end4.i.i.i.i55.i.i.i.i.i186:                   ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i186, %if.then3.i.i.i.i66.i.i.i.i.i, %while.body.i42.i.i.i.i121.i
-  %retval.0.i.i.i.i60.i.i.i.i.i189 = phi i32 [ %490, %if.then3.i.i.i.i66.i.i.i.i.i ], [ %492, %if.end4.i.i.i.i55.i.i.i.i.i186 ], [ %add.i45.i.i.i.i124.i, %while.body.i42.i.i.i.i121.i ]
+  %retval.0.i.i.i.i60.i.i.i.i.i189 = phi i32 [ %492, %if.end4.i.i.i.i55.i.i.i.i.i186 ], [ %490, %if.then3.i.i.i.i66.i.i.i.i.i ], [ %add.i45.i.i.i.i124.i, %while.body.i42.i.i.i.i121.i ]
   %idxprom.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i189 to i64
   %arrayidx.i.i.i62.i.i.i.i.i = getelementptr inbounds i32, ptr %487, i64 %idxprom.i.i.i61.i.i.i.i.i
   %493 = load i32, ptr %arrayidx.i.i.i62.i.i.i.i.i, align 4
@@ -7639,7 +7639,7 @@ if.end4.i.i.i.i80.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i, %if.then3.i.i.i.i87.i.i.i.i.i, %for.body.i.i.i.i.i139.i
-  %retval.0.i.i.i.i84.i.i.i.i.i = phi i32 [ %498, %if.then3.i.i.i.i87.i.i.i.i.i ], [ %501, %if.end4.i.i.i.i80.i.i.i.i.i ], [ %conv7.i.i.i.i.i140.i, %for.body.i.i.i.i.i139.i ]
+  %retval.0.i.i.i.i84.i.i.i.i.i = phi i32 [ %501, %if.end4.i.i.i.i80.i.i.i.i.i ], [ %498, %if.then3.i.i.i.i87.i.i.i.i.i ], [ %conv7.i.i.i.i.i140.i, %for.body.i.i.i.i.i139.i ]
   %idxprom.i.i.i85.i.i.i.i.i = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i to i64
   %arrayidx.i.i.i86.i.i.i.i.i = getelementptr inbounds i32, ptr %495, i64 %idxprom.i.i.i85.i.i.i.i.i
   %502 = load i32, ptr %arrayidx.i.i.i86.i.i.i.i.i, align 4
@@ -7678,7 +7678,7 @@ if.end4.i.i.i20.i.i.i.i.i.i201:                   ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i201, %if.then3.i.i.i27.i.i.i.i.i.i, %while.body.i89.i.i.i.i.i
-  %retval.0.i.i.i24.i.i.i.i.i.i204 = phi i32 [ %507, %if.then3.i.i.i27.i.i.i.i.i.i ], [ %509, %if.end4.i.i.i20.i.i.i.i.i.i201 ], [ %add10.i.i.i.i.i145.i, %while.body.i89.i.i.i.i.i ]
+  %retval.0.i.i.i24.i.i.i.i.i.i204 = phi i32 [ %509, %if.end4.i.i.i20.i.i.i.i.i.i201 ], [ %507, %if.then3.i.i.i27.i.i.i.i.i.i ], [ %add10.i.i.i.i.i145.i, %while.body.i89.i.i.i.i.i ]
   %idxprom.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i204 to i64
   %arrayidx.i.i26.i.i.i.i.i.i = getelementptr inbounds i32, ptr %504, i64 %idxprom.i.i25.i.i.i.i.i.i
   %510 = load i32, ptr %arrayidx.i.i26.i.i.i.i.i.i, align 4
@@ -7747,7 +7747,7 @@ if.end4.i.i.i.i119.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i, %if.then3.i.i.i.i130.i.i.i.i.i, %while.body.i106.i.i.i.i.i
-  %retval.0.i.i.i.i124.i.i.i.i.i = phi i32 [ %516, %if.then3.i.i.i.i130.i.i.i.i.i ], [ %518, %if.end4.i.i.i.i119.i.i.i.i.i ], [ %add.i109.i.i.i.i.i, %while.body.i106.i.i.i.i.i ]
+  %retval.0.i.i.i.i124.i.i.i.i.i = phi i32 [ %518, %if.end4.i.i.i.i119.i.i.i.i.i ], [ %516, %if.then3.i.i.i.i130.i.i.i.i.i ], [ %add.i109.i.i.i.i.i, %while.body.i106.i.i.i.i.i ]
   %idxprom.i.i.i125.i.i.i.i.i = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i to i64
   %arrayidx.i.i.i126.i.i.i.i.i = getelementptr inbounds i32, ptr %513, i64 %idxprom.i.i.i125.i.i.i.i.i
   %519 = load i32, ptr %arrayidx.i.i.i126.i.i.i.i.i, align 4
@@ -9157,7 +9157,7 @@ if.then3.i.i.i1189:                               ; preds = %if.then45.i1185
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i: ; preds = %if.then3.i.i.i1189, %if.then45.i1185
-  %retval.0.i.i.i1191 = phi i64 [ %728, %if.then3.i.i.i1189 ], [ 0, %if.then45.i1185 ]
+  %retval.0.i.i.i1191 = phi i64 [ 0, %if.then45.i1185 ], [ %728, %if.then3.i.i.i1189 ]
   %arrayidx.i.i1192 = getelementptr inbounds i8, ptr %725, i64 %retval.0.i.i.i1191
   %729 = load i8, ptr %arrayidx.i.i1192, align 1
   %allSelected_.i.i.i1193 = getelementptr inbounds nuw i8, ptr %645, i64 36
@@ -9225,7 +9225,7 @@ if.then26.i.i.i.i.i1348:                          ; preds = %for.end.i.i.i.i.i13
   br label %land.end.i.i.i1199
 
 land.end.i.i.i1199:                               ; preds = %for.body.i.i.i.i.i1357, %if.then26.i.i.i.i.i1348, %for.end.i.i.i.i.i1346, %land.rhs.i.i.i1340, %land.lhs.true.i.i.i1337, %if.end.i.i69.i1196
-  %frombool.i.i.i1200 = phi i16 [ 256, %land.lhs.true.i.i.i1337 ], [ 256, %if.end.i.i69.i1196 ], [ 257, %land.rhs.i.i.i1340 ], [ %741, %if.then26.i.i.i.i.i1348 ], [ 257, %for.end.i.i.i.i.i1346 ], [ 256, %for.body.i.i.i.i.i1357 ]
+  %frombool.i.i.i1200 = phi i16 [ 256, %land.lhs.true.i.i.i1337 ], [ 256, %if.end.i.i69.i1196 ], [ 257, %land.rhs.i.i.i1340 ], [ 257, %for.end.i.i.i.i.i1346 ], [ %741, %if.then26.i.i.i.i.i1348 ], [ 256, %for.body.i.i.i.i.i1357 ]
   store i16 %frombool.i.i.i1200, ptr %allSelected_.i.i.i1193, align 4, !noalias !150
   %742 = trunc i16 %frombool.i.i.i1200 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i1201
@@ -9587,7 +9587,7 @@ if.then26.i.i.i.i189.i1170:                       ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i567
 
 land.end.i.i93.i567:                              ; preds = %for.body.i.i.i.i198.i1179, %if.then26.i.i.i.i189.i1170, %for.end.i.i.i.i187.i1168, %land.rhs.i.i181.i1162, %land.lhs.true.i.i177.i1159, %if.end.i.i90.i564
-  %frombool.i.i94.i568 = phi i16 [ 256, %land.lhs.true.i.i177.i1159 ], [ 256, %if.end.i.i90.i564 ], [ 257, %land.rhs.i.i181.i1162 ], [ %774, %if.then26.i.i.i.i189.i1170 ], [ 257, %for.end.i.i.i.i187.i1168 ], [ 256, %for.body.i.i.i.i198.i1179 ]
+  %frombool.i.i94.i568 = phi i16 [ 256, %land.lhs.true.i.i177.i1159 ], [ 256, %if.end.i.i90.i564 ], [ 257, %land.rhs.i.i181.i1162 ], [ 257, %for.end.i.i.i.i187.i1168 ], [ %774, %if.then26.i.i.i.i189.i1170 ], [ 256, %for.body.i.i.i.i198.i1179 ]
   store i16 %frombool.i.i94.i568, ptr %allSelected_.i.i87.i561, align 4, !noalias !150
   %775 = trunc i16 %frombool.i.i94.i568 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i569
@@ -9636,7 +9636,7 @@ if.end4.i.i.i.i.i1148:                            ; preds = %if.end.i.i.i5.i.i11
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i1148, %if.then3.i.i.i.i176.i1158, %for.body.i174.i1143
-  %retval.0.i.i.i.i.i1150 = phi i32 [ %783, %if.then3.i.i.i.i176.i1158 ], [ %785, %if.end4.i.i.i.i.i1148 ], [ %781, %for.body.i174.i1143 ]
+  %retval.0.i.i.i.i.i1150 = phi i32 [ %785, %if.end4.i.i.i.i.i1148 ], [ %783, %if.then3.i.i.i.i176.i1158 ], [ %781, %for.body.i174.i1143 ]
   %idxprom.i.i.i.i1151 = sext i32 %retval.0.i.i.i.i.i1150 to i64
   %arrayidx.i.i.i.i1152 = getelementptr inbounds i8, ptr %779, i64 %idxprom.i.i.i.i1151
   %786 = load i8, ptr %arrayidx.i.i.i.i1152, align 1
@@ -9721,7 +9721,7 @@ if.end4.i.i.i.i.i.i.i.i.i1122:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i1122, %if.then3.i.i.i.i.i.i.i.i.i1134, %while.body.i.i.i.i.i164.i1115
-  %retval.0.i.i.i.i.i.i.i.i.i1125 = phi i32 [ %799, %if.then3.i.i.i.i.i.i.i.i.i1134 ], [ %801, %if.end4.i.i.i.i.i.i.i.i.i1122 ], [ %add.i26.i.i.i.i167.i1118, %while.body.i.i.i.i.i164.i1115 ]
+  %retval.0.i.i.i.i.i.i.i.i.i1125 = phi i32 [ %801, %if.end4.i.i.i.i.i.i.i.i.i1122 ], [ %799, %if.then3.i.i.i.i.i.i.i.i.i1134 ], [ %add.i26.i.i.i.i167.i1118, %while.body.i.i.i.i.i164.i1115 ]
   %idxprom.i.i.i.i.i.i.i.i1126 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i1125 to i64
   %arrayidx.i.i.i.i.i.i.i.i1127 = getelementptr inbounds i8, ptr %796, i64 %idxprom.i.i.i.i.i.i.i.i1126
   %802 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i1127, align 1
@@ -9789,7 +9789,7 @@ if.end4.i.i.i.i55.i.i.i.i.i978:                   ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i978, %if.then3.i.i.i.i66.i.i.i.i.i1091, %while.body.i42.i.i.i.i121.i971
-  %retval.0.i.i.i.i60.i.i.i.i.i981 = phi i32 [ %808, %if.then3.i.i.i.i66.i.i.i.i.i1091 ], [ %810, %if.end4.i.i.i.i55.i.i.i.i.i978 ], [ %add.i45.i.i.i.i124.i974, %while.body.i42.i.i.i.i121.i971 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i981 = phi i32 [ %810, %if.end4.i.i.i.i55.i.i.i.i.i978 ], [ %808, %if.then3.i.i.i.i66.i.i.i.i.i1091 ], [ %add.i45.i.i.i.i124.i974, %while.body.i42.i.i.i.i121.i971 ]
   %idxprom.i.i.i61.i.i.i.i.i982 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i981 to i64
   %arrayidx.i.i.i62.i.i.i.i.i983 = getelementptr inbounds i8, ptr %805, i64 %idxprom.i.i.i61.i.i.i.i.i982
   %811 = load i8, ptr %arrayidx.i.i.i62.i.i.i.i.i983, align 1
@@ -9868,7 +9868,7 @@ if.end4.i.i.i.i80.i.i.i.i.i1057:                  ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i1057, %if.then3.i.i.i.i87.i.i.i.i.i1068, %for.body.i.i.i.i.i139.i1051
-  %retval.0.i.i.i.i84.i.i.i.i.i1060 = phi i32 [ %816, %if.then3.i.i.i.i87.i.i.i.i.i1068 ], [ %819, %if.end4.i.i.i.i80.i.i.i.i.i1057 ], [ %conv7.i.i.i.i.i140.i1053, %for.body.i.i.i.i.i139.i1051 ]
+  %retval.0.i.i.i.i84.i.i.i.i.i1060 = phi i32 [ %819, %if.end4.i.i.i.i80.i.i.i.i.i1057 ], [ %816, %if.then3.i.i.i.i87.i.i.i.i.i1068 ], [ %conv7.i.i.i.i.i140.i1053, %for.body.i.i.i.i.i139.i1051 ]
   %idxprom.i.i.i85.i.i.i.i.i1061 = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i1060 to i64
   %arrayidx.i.i.i86.i.i.i.i.i1062 = getelementptr inbounds i8, ptr %813, i64 %idxprom.i.i.i85.i.i.i.i.i1061
   %820 = load i8, ptr %arrayidx.i.i.i86.i.i.i.i.i1062, align 1
@@ -9907,7 +9907,7 @@ if.end4.i.i.i20.i.i.i.i.i.i1078:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i1078, %if.then3.i.i.i27.i.i.i.i.i.i1090, %while.body.i89.i.i.i.i.i1071
-  %retval.0.i.i.i24.i.i.i.i.i.i1081 = phi i32 [ %825, %if.then3.i.i.i27.i.i.i.i.i.i1090 ], [ %827, %if.end4.i.i.i20.i.i.i.i.i.i1078 ], [ %add10.i.i.i.i.i145.i1074, %while.body.i89.i.i.i.i.i1071 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i1081 = phi i32 [ %827, %if.end4.i.i.i20.i.i.i.i.i.i1078 ], [ %825, %if.then3.i.i.i27.i.i.i.i.i.i1090 ], [ %add10.i.i.i.i.i145.i1074, %while.body.i89.i.i.i.i.i1071 ]
   %idxprom.i.i25.i.i.i.i.i.i1082 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i1081 to i64
   %arrayidx.i.i26.i.i.i.i.i.i1083 = getelementptr inbounds i8, ptr %822, i64 %idxprom.i.i25.i.i.i.i.i.i1082
   %828 = load i8, ptr %arrayidx.i.i26.i.i.i.i.i.i1083, align 1
@@ -9976,7 +9976,7 @@ if.end4.i.i.i.i119.i.i.i.i.i1030:                 ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i1030, %if.then3.i.i.i.i130.i.i.i.i.i1042, %while.body.i106.i.i.i.i.i1023
-  %retval.0.i.i.i.i124.i.i.i.i.i1033 = phi i32 [ %834, %if.then3.i.i.i.i130.i.i.i.i.i1042 ], [ %836, %if.end4.i.i.i.i119.i.i.i.i.i1030 ], [ %add.i109.i.i.i.i.i1026, %while.body.i106.i.i.i.i.i1023 ]
+  %retval.0.i.i.i.i124.i.i.i.i.i1033 = phi i32 [ %836, %if.end4.i.i.i.i119.i.i.i.i.i1030 ], [ %834, %if.then3.i.i.i.i130.i.i.i.i.i1042 ], [ %add.i109.i.i.i.i.i1026, %while.body.i106.i.i.i.i.i1023 ]
   %idxprom.i.i.i125.i.i.i.i.i1034 = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i1033 to i64
   %arrayidx.i.i.i126.i.i.i.i.i1035 = getelementptr inbounds i8, ptr %831, i64 %idxprom.i.i.i125.i.i.i.i.i1034
   %837 = load i8, ptr %arrayidx.i.i.i126.i.i.i.i.i1035, align 1
@@ -11386,7 +11386,7 @@ if.then3.i.i.i2187:                               ; preds = %if.then45.i2183
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i: ; preds = %if.then3.i.i.i2187, %if.then45.i2183
-  %retval.0.i.i.i2189 = phi i64 [ %1046, %if.then3.i.i.i2187 ], [ 0, %if.then45.i2183 ]
+  %retval.0.i.i.i2189 = phi i64 [ 0, %if.then45.i2183 ], [ %1046, %if.then3.i.i.i2187 ]
   %arrayidx.i.i2190 = getelementptr inbounds i16, ptr %1043, i64 %retval.0.i.i.i2189
   %1047 = load i16, ptr %arrayidx.i.i2190, align 2
   %allSelected_.i.i.i2191 = getelementptr inbounds nuw i8, ptr %963, i64 36
@@ -11454,7 +11454,7 @@ if.then26.i.i.i.i.i2346:                          ; preds = %for.end.i.i.i.i.i23
   br label %land.end.i.i.i2197
 
 land.end.i.i.i2197:                               ; preds = %for.body.i.i.i.i.i2355, %if.then26.i.i.i.i.i2346, %for.end.i.i.i.i.i2344, %land.rhs.i.i.i2338, %land.lhs.true.i.i.i2335, %if.end.i.i69.i2194
-  %frombool.i.i.i2198 = phi i16 [ 256, %land.lhs.true.i.i.i2335 ], [ 256, %if.end.i.i69.i2194 ], [ 257, %land.rhs.i.i.i2338 ], [ %1059, %if.then26.i.i.i.i.i2346 ], [ 257, %for.end.i.i.i.i.i2344 ], [ 256, %for.body.i.i.i.i.i2355 ]
+  %frombool.i.i.i2198 = phi i16 [ 256, %land.lhs.true.i.i.i2335 ], [ 256, %if.end.i.i69.i2194 ], [ 257, %land.rhs.i.i.i2338 ], [ 257, %for.end.i.i.i.i.i2344 ], [ %1059, %if.then26.i.i.i.i.i2346 ], [ 256, %for.body.i.i.i.i.i2355 ]
   store i16 %frombool.i.i.i2198, ptr %allSelected_.i.i.i2191, align 4, !noalias !199
   %1060 = trunc i16 %frombool.i.i.i2198 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i2199
@@ -11816,7 +11816,7 @@ if.then26.i.i.i.i189.i2168:                       ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i1565
 
 land.end.i.i93.i1565:                             ; preds = %for.body.i.i.i.i198.i2177, %if.then26.i.i.i.i189.i2168, %for.end.i.i.i.i187.i2166, %land.rhs.i.i181.i2160, %land.lhs.true.i.i177.i2157, %if.end.i.i90.i1562
-  %frombool.i.i94.i1566 = phi i16 [ 256, %land.lhs.true.i.i177.i2157 ], [ 256, %if.end.i.i90.i1562 ], [ 257, %land.rhs.i.i181.i2160 ], [ %1092, %if.then26.i.i.i.i189.i2168 ], [ 257, %for.end.i.i.i.i187.i2166 ], [ 256, %for.body.i.i.i.i198.i2177 ]
+  %frombool.i.i94.i1566 = phi i16 [ 256, %land.lhs.true.i.i177.i2157 ], [ 256, %if.end.i.i90.i1562 ], [ 257, %land.rhs.i.i181.i2160 ], [ 257, %for.end.i.i.i.i187.i2166 ], [ %1092, %if.then26.i.i.i.i189.i2168 ], [ 256, %for.body.i.i.i.i198.i2177 ]
   store i16 %frombool.i.i94.i1566, ptr %allSelected_.i.i87.i1559, align 4, !noalias !199
   %1093 = trunc i16 %frombool.i.i94.i1566 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i1567
@@ -11865,7 +11865,7 @@ if.end4.i.i.i.i.i2146:                            ; preds = %if.end.i.i.i5.i.i21
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i2146, %if.then3.i.i.i.i176.i2156, %for.body.i174.i2141
-  %retval.0.i.i.i.i.i2148 = phi i32 [ %1101, %if.then3.i.i.i.i176.i2156 ], [ %1103, %if.end4.i.i.i.i.i2146 ], [ %1099, %for.body.i174.i2141 ]
+  %retval.0.i.i.i.i.i2148 = phi i32 [ %1103, %if.end4.i.i.i.i.i2146 ], [ %1101, %if.then3.i.i.i.i176.i2156 ], [ %1099, %for.body.i174.i2141 ]
   %idxprom.i.i.i.i2149 = sext i32 %retval.0.i.i.i.i.i2148 to i64
   %arrayidx.i.i.i.i2150 = getelementptr inbounds i16, ptr %1097, i64 %idxprom.i.i.i.i2149
   %1104 = load i16, ptr %arrayidx.i.i.i.i2150, align 2
@@ -11950,7 +11950,7 @@ if.end4.i.i.i.i.i.i.i.i.i2120:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i2120, %if.then3.i.i.i.i.i.i.i.i.i2132, %while.body.i.i.i.i.i164.i2113
-  %retval.0.i.i.i.i.i.i.i.i.i2123 = phi i32 [ %1117, %if.then3.i.i.i.i.i.i.i.i.i2132 ], [ %1119, %if.end4.i.i.i.i.i.i.i.i.i2120 ], [ %add.i26.i.i.i.i167.i2116, %while.body.i.i.i.i.i164.i2113 ]
+  %retval.0.i.i.i.i.i.i.i.i.i2123 = phi i32 [ %1119, %if.end4.i.i.i.i.i.i.i.i.i2120 ], [ %1117, %if.then3.i.i.i.i.i.i.i.i.i2132 ], [ %add.i26.i.i.i.i167.i2116, %while.body.i.i.i.i.i164.i2113 ]
   %idxprom.i.i.i.i.i.i.i.i2124 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i2123 to i64
   %arrayidx.i.i.i.i.i.i.i.i2125 = getelementptr inbounds i16, ptr %1114, i64 %idxprom.i.i.i.i.i.i.i.i2124
   %1120 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i2125, align 2
@@ -12018,7 +12018,7 @@ if.end4.i.i.i.i55.i.i.i.i.i1976:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i1976, %if.then3.i.i.i.i66.i.i.i.i.i2089, %while.body.i42.i.i.i.i121.i1969
-  %retval.0.i.i.i.i60.i.i.i.i.i1979 = phi i32 [ %1126, %if.then3.i.i.i.i66.i.i.i.i.i2089 ], [ %1128, %if.end4.i.i.i.i55.i.i.i.i.i1976 ], [ %add.i45.i.i.i.i124.i1972, %while.body.i42.i.i.i.i121.i1969 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i1979 = phi i32 [ %1128, %if.end4.i.i.i.i55.i.i.i.i.i1976 ], [ %1126, %if.then3.i.i.i.i66.i.i.i.i.i2089 ], [ %add.i45.i.i.i.i124.i1972, %while.body.i42.i.i.i.i121.i1969 ]
   %idxprom.i.i.i61.i.i.i.i.i1980 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i1979 to i64
   %arrayidx.i.i.i62.i.i.i.i.i1981 = getelementptr inbounds i16, ptr %1123, i64 %idxprom.i.i.i61.i.i.i.i.i1980
   %1129 = load i16, ptr %arrayidx.i.i.i62.i.i.i.i.i1981, align 2
@@ -12097,7 +12097,7 @@ if.end4.i.i.i.i80.i.i.i.i.i2055:                  ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i2055, %if.then3.i.i.i.i87.i.i.i.i.i2066, %for.body.i.i.i.i.i139.i2049
-  %retval.0.i.i.i.i84.i.i.i.i.i2058 = phi i32 [ %1134, %if.then3.i.i.i.i87.i.i.i.i.i2066 ], [ %1137, %if.end4.i.i.i.i80.i.i.i.i.i2055 ], [ %conv7.i.i.i.i.i140.i2051, %for.body.i.i.i.i.i139.i2049 ]
+  %retval.0.i.i.i.i84.i.i.i.i.i2058 = phi i32 [ %1137, %if.end4.i.i.i.i80.i.i.i.i.i2055 ], [ %1134, %if.then3.i.i.i.i87.i.i.i.i.i2066 ], [ %conv7.i.i.i.i.i140.i2051, %for.body.i.i.i.i.i139.i2049 ]
   %idxprom.i.i.i85.i.i.i.i.i2059 = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i2058 to i64
   %arrayidx.i.i.i86.i.i.i.i.i2060 = getelementptr inbounds i16, ptr %1131, i64 %idxprom.i.i.i85.i.i.i.i.i2059
   %1138 = load i16, ptr %arrayidx.i.i.i86.i.i.i.i.i2060, align 2
@@ -12136,7 +12136,7 @@ if.end4.i.i.i20.i.i.i.i.i.i2076:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i2076, %if.then3.i.i.i27.i.i.i.i.i.i2088, %while.body.i89.i.i.i.i.i2069
-  %retval.0.i.i.i24.i.i.i.i.i.i2079 = phi i32 [ %1143, %if.then3.i.i.i27.i.i.i.i.i.i2088 ], [ %1145, %if.end4.i.i.i20.i.i.i.i.i.i2076 ], [ %add10.i.i.i.i.i145.i2072, %while.body.i89.i.i.i.i.i2069 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i2079 = phi i32 [ %1145, %if.end4.i.i.i20.i.i.i.i.i.i2076 ], [ %1143, %if.then3.i.i.i27.i.i.i.i.i.i2088 ], [ %add10.i.i.i.i.i145.i2072, %while.body.i89.i.i.i.i.i2069 ]
   %idxprom.i.i25.i.i.i.i.i.i2080 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i2079 to i64
   %arrayidx.i.i26.i.i.i.i.i.i2081 = getelementptr inbounds i16, ptr %1140, i64 %idxprom.i.i25.i.i.i.i.i.i2080
   %1146 = load i16, ptr %arrayidx.i.i26.i.i.i.i.i.i2081, align 2
@@ -12205,7 +12205,7 @@ if.end4.i.i.i.i119.i.i.i.i.i2028:                 ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i2028, %if.then3.i.i.i.i130.i.i.i.i.i2040, %while.body.i106.i.i.i.i.i2021
-  %retval.0.i.i.i.i124.i.i.i.i.i2031 = phi i32 [ %1152, %if.then3.i.i.i.i130.i.i.i.i.i2040 ], [ %1154, %if.end4.i.i.i.i119.i.i.i.i.i2028 ], [ %add.i109.i.i.i.i.i2024, %while.body.i106.i.i.i.i.i2021 ]
+  %retval.0.i.i.i.i124.i.i.i.i.i2031 = phi i32 [ %1154, %if.end4.i.i.i.i119.i.i.i.i.i2028 ], [ %1152, %if.then3.i.i.i.i130.i.i.i.i.i2040 ], [ %add.i109.i.i.i.i.i2024, %while.body.i106.i.i.i.i.i2021 ]
   %idxprom.i.i.i125.i.i.i.i.i2032 = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i2031 to i64
   %arrayidx.i.i.i126.i.i.i.i.i2033 = getelementptr inbounds i16, ptr %1149, i64 %idxprom.i.i.i125.i.i.i.i.i2032
   %1155 = load i16, ptr %arrayidx.i.i.i126.i.i.i.i.i2033, align 2
@@ -13615,7 +13615,7 @@ if.then3.i.i.i3185:                               ; preds = %if.then45.i3181
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.then3.i.i.i3185, %if.then45.i3181
-  %retval.0.i.i.i3187 = phi i64 [ %1364, %if.then3.i.i.i3185 ], [ 0, %if.then45.i3181 ]
+  %retval.0.i.i.i3187 = phi i64 [ 0, %if.then45.i3181 ], [ %1364, %if.then3.i.i.i3185 ]
   %arrayidx.i.i3188 = getelementptr inbounds i64, ptr %1361, i64 %retval.0.i.i.i3187
   %1365 = load i64, ptr %arrayidx.i.i3188, align 8
   %allSelected_.i.i.i3189 = getelementptr inbounds nuw i8, ptr %1281, i64 36
@@ -13683,7 +13683,7 @@ if.then26.i.i.i.i.i3344:                          ; preds = %for.end.i.i.i.i.i33
   br label %land.end.i.i.i3195
 
 land.end.i.i.i3195:                               ; preds = %for.body.i.i.i.i.i3353, %if.then26.i.i.i.i.i3344, %for.end.i.i.i.i.i3342, %land.rhs.i.i.i3336, %land.lhs.true.i.i.i3333, %if.end.i.i69.i3192
-  %frombool.i.i.i3196 = phi i16 [ 256, %land.lhs.true.i.i.i3333 ], [ 256, %if.end.i.i69.i3192 ], [ 257, %land.rhs.i.i.i3336 ], [ %1377, %if.then26.i.i.i.i.i3344 ], [ 257, %for.end.i.i.i.i.i3342 ], [ 256, %for.body.i.i.i.i.i3353 ]
+  %frombool.i.i.i3196 = phi i16 [ 256, %land.lhs.true.i.i.i3333 ], [ 256, %if.end.i.i69.i3192 ], [ 257, %land.rhs.i.i.i3336 ], [ 257, %for.end.i.i.i.i.i3342 ], [ %1377, %if.then26.i.i.i.i.i3344 ], [ 256, %for.body.i.i.i.i.i3353 ]
   store i16 %frombool.i.i.i3196, ptr %allSelected_.i.i.i3189, align 4, !noalias !248
   %1378 = trunc i16 %frombool.i.i.i3196 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i3197
@@ -14045,7 +14045,7 @@ if.then26.i.i.i.i189.i3166:                       ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i2563
 
 land.end.i.i93.i2563:                             ; preds = %for.body.i.i.i.i198.i3175, %if.then26.i.i.i.i189.i3166, %for.end.i.i.i.i187.i3164, %land.rhs.i.i181.i3158, %land.lhs.true.i.i177.i3155, %if.end.i.i90.i2560
-  %frombool.i.i94.i2564 = phi i16 [ 256, %land.lhs.true.i.i177.i3155 ], [ 256, %if.end.i.i90.i2560 ], [ 257, %land.rhs.i.i181.i3158 ], [ %1410, %if.then26.i.i.i.i189.i3166 ], [ 257, %for.end.i.i.i.i187.i3164 ], [ 256, %for.body.i.i.i.i198.i3175 ]
+  %frombool.i.i94.i2564 = phi i16 [ 256, %land.lhs.true.i.i177.i3155 ], [ 256, %if.end.i.i90.i2560 ], [ 257, %land.rhs.i.i181.i3158 ], [ 257, %for.end.i.i.i.i187.i3164 ], [ %1410, %if.then26.i.i.i.i189.i3166 ], [ 256, %for.body.i.i.i.i198.i3175 ]
   store i16 %frombool.i.i94.i2564, ptr %allSelected_.i.i87.i2557, align 4, !noalias !248
   %1411 = trunc i16 %frombool.i.i94.i2564 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i2565
@@ -14094,7 +14094,7 @@ if.end4.i.i.i.i.i3144:                            ; preds = %if.end.i.i.i5.i.i31
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i3144, %if.then3.i.i.i.i176.i3154, %for.body.i174.i3139
-  %retval.0.i.i.i.i.i3146 = phi i32 [ %1419, %if.then3.i.i.i.i176.i3154 ], [ %1421, %if.end4.i.i.i.i.i3144 ], [ %1417, %for.body.i174.i3139 ]
+  %retval.0.i.i.i.i.i3146 = phi i32 [ %1421, %if.end4.i.i.i.i.i3144 ], [ %1419, %if.then3.i.i.i.i176.i3154 ], [ %1417, %for.body.i174.i3139 ]
   %idxprom.i.i.i.i3147 = sext i32 %retval.0.i.i.i.i.i3146 to i64
   %arrayidx.i.i.i.i3148 = getelementptr inbounds i64, ptr %1415, i64 %idxprom.i.i.i.i3147
   %1422 = load i64, ptr %arrayidx.i.i.i.i3148, align 8
@@ -14179,7 +14179,7 @@ if.end4.i.i.i.i.i.i.i.i.i3118:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i3118, %if.then3.i.i.i.i.i.i.i.i.i3130, %while.body.i.i.i.i.i164.i3111
-  %retval.0.i.i.i.i.i.i.i.i.i3121 = phi i32 [ %1435, %if.then3.i.i.i.i.i.i.i.i.i3130 ], [ %1437, %if.end4.i.i.i.i.i.i.i.i.i3118 ], [ %add.i26.i.i.i.i167.i3114, %while.body.i.i.i.i.i164.i3111 ]
+  %retval.0.i.i.i.i.i.i.i.i.i3121 = phi i32 [ %1437, %if.end4.i.i.i.i.i.i.i.i.i3118 ], [ %1435, %if.then3.i.i.i.i.i.i.i.i.i3130 ], [ %add.i26.i.i.i.i167.i3114, %while.body.i.i.i.i.i164.i3111 ]
   %idxprom.i.i.i.i.i.i.i.i3122 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i3121 to i64
   %arrayidx.i.i.i.i.i.i.i.i3123 = getelementptr inbounds i64, ptr %1432, i64 %idxprom.i.i.i.i.i.i.i.i3122
   %1438 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i3123, align 8
@@ -14247,7 +14247,7 @@ if.end4.i.i.i.i55.i.i.i.i.i2974:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i2974, %if.then3.i.i.i.i66.i.i.i.i.i3087, %while.body.i42.i.i.i.i121.i2967
-  %retval.0.i.i.i.i60.i.i.i.i.i2977 = phi i32 [ %1444, %if.then3.i.i.i.i66.i.i.i.i.i3087 ], [ %1446, %if.end4.i.i.i.i55.i.i.i.i.i2974 ], [ %add.i45.i.i.i.i124.i2970, %while.body.i42.i.i.i.i121.i2967 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i2977 = phi i32 [ %1446, %if.end4.i.i.i.i55.i.i.i.i.i2974 ], [ %1444, %if.then3.i.i.i.i66.i.i.i.i.i3087 ], [ %add.i45.i.i.i.i124.i2970, %while.body.i42.i.i.i.i121.i2967 ]
   %idxprom.i.i.i61.i.i.i.i.i2978 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i2977 to i64
   %arrayidx.i.i.i62.i.i.i.i.i2979 = getelementptr inbounds i64, ptr %1441, i64 %idxprom.i.i.i61.i.i.i.i.i2978
   %1447 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i2979, align 8
@@ -14326,7 +14326,7 @@ if.end4.i.i.i.i80.i.i.i.i.i3053:                  ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i3053, %if.then3.i.i.i.i87.i.i.i.i.i3064, %for.body.i.i.i.i.i139.i3047
-  %retval.0.i.i.i.i84.i.i.i.i.i3056 = phi i32 [ %1452, %if.then3.i.i.i.i87.i.i.i.i.i3064 ], [ %1455, %if.end4.i.i.i.i80.i.i.i.i.i3053 ], [ %conv7.i.i.i.i.i140.i3049, %for.body.i.i.i.i.i139.i3047 ]
+  %retval.0.i.i.i.i84.i.i.i.i.i3056 = phi i32 [ %1455, %if.end4.i.i.i.i80.i.i.i.i.i3053 ], [ %1452, %if.then3.i.i.i.i87.i.i.i.i.i3064 ], [ %conv7.i.i.i.i.i140.i3049, %for.body.i.i.i.i.i139.i3047 ]
   %idxprom.i.i.i85.i.i.i.i.i3057 = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i3056 to i64
   %arrayidx.i.i.i86.i.i.i.i.i3058 = getelementptr inbounds i64, ptr %1449, i64 %idxprom.i.i.i85.i.i.i.i.i3057
   %1456 = load i64, ptr %arrayidx.i.i.i86.i.i.i.i.i3058, align 8
@@ -14365,7 +14365,7 @@ if.end4.i.i.i20.i.i.i.i.i.i3074:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i3074, %if.then3.i.i.i27.i.i.i.i.i.i3086, %while.body.i89.i.i.i.i.i3067
-  %retval.0.i.i.i24.i.i.i.i.i.i3077 = phi i32 [ %1461, %if.then3.i.i.i27.i.i.i.i.i.i3086 ], [ %1463, %if.end4.i.i.i20.i.i.i.i.i.i3074 ], [ %add10.i.i.i.i.i145.i3070, %while.body.i89.i.i.i.i.i3067 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i3077 = phi i32 [ %1463, %if.end4.i.i.i20.i.i.i.i.i.i3074 ], [ %1461, %if.then3.i.i.i27.i.i.i.i.i.i3086 ], [ %add10.i.i.i.i.i145.i3070, %while.body.i89.i.i.i.i.i3067 ]
   %idxprom.i.i25.i.i.i.i.i.i3078 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i3077 to i64
   %arrayidx.i.i26.i.i.i.i.i.i3079 = getelementptr inbounds i64, ptr %1458, i64 %idxprom.i.i25.i.i.i.i.i.i3078
   %1464 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i3079, align 8
@@ -14434,7 +14434,7 @@ if.end4.i.i.i.i119.i.i.i.i.i3026:                 ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i3026, %if.then3.i.i.i.i130.i.i.i.i.i3038, %while.body.i106.i.i.i.i.i3019
-  %retval.0.i.i.i.i124.i.i.i.i.i3029 = phi i32 [ %1470, %if.then3.i.i.i.i130.i.i.i.i.i3038 ], [ %1472, %if.end4.i.i.i.i119.i.i.i.i.i3026 ], [ %add.i109.i.i.i.i.i3022, %while.body.i106.i.i.i.i.i3019 ]
+  %retval.0.i.i.i.i124.i.i.i.i.i3029 = phi i32 [ %1472, %if.end4.i.i.i.i119.i.i.i.i.i3026 ], [ %1470, %if.then3.i.i.i.i130.i.i.i.i.i3038 ], [ %add.i109.i.i.i.i.i3022, %while.body.i106.i.i.i.i.i3019 ]
   %idxprom.i.i.i125.i.i.i.i.i3030 = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i3029 to i64
   %arrayidx.i.i.i126.i.i.i.i.i3031 = getelementptr inbounds i64, ptr %1467, i64 %idxprom.i.i.i125.i.i.i.i.i3030
   %1473 = load i64, ptr %arrayidx.i.i.i126.i.i.i.i.i3031, align 8
@@ -15845,7 +15845,7 @@ if.then3.i.i.i3850:                               ; preds = %if.then45.i3846
   br label %invoke.cont46.i
 
 invoke.cont46.i:                                  ; preds = %if.then3.i.i.i3850, %if.then45.i3846
-  %retval.0.i.i.i3852 = phi i64 [ %1683, %if.then3.i.i.i3850 ], [ 0, %if.then45.i3846 ]
+  %retval.0.i.i.i3852 = phi i64 [ 0, %if.then45.i3846 ], [ %1683, %if.then3.i.i.i3850 ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1679, i64 %retval.0.i.i.i3852
   %value.i.0.copyload.i.i = load i128, ptr %add.ptr.i.i, align 1
   %retval.sroa.2.0.extract.shift.i.i = lshr i128 %value.i.0.copyload.i.i, 64
@@ -15915,7 +15915,7 @@ if.then26.i.i.i.i.i3969:                          ; preds = %for.end.i.i.i.i.i39
   br label %land.end.i.i.i3858
 
 land.end.i.i.i3858:                               ; preds = %for.body.i.i.i.i.i3978, %if.then26.i.i.i.i.i3969, %for.end.i.i.i.i.i3967, %land.rhs.i.i.i3961, %land.lhs.true.i.i.i3958, %if.end.i.i70.i
-  %frombool.i.i.i3859 = phi i16 [ 256, %land.lhs.true.i.i.i3958 ], [ 256, %if.end.i.i70.i ], [ 257, %land.rhs.i.i.i3961 ], [ %1695, %if.then26.i.i.i.i.i3969 ], [ 257, %for.end.i.i.i.i.i3967 ], [ 256, %for.body.i.i.i.i.i3978 ]
+  %frombool.i.i.i3859 = phi i16 [ 256, %land.lhs.true.i.i.i3958 ], [ 256, %if.end.i.i70.i ], [ 257, %land.rhs.i.i.i3961 ], [ 257, %for.end.i.i.i.i.i3967 ], [ %1695, %if.then26.i.i.i.i.i3969 ], [ 256, %for.body.i.i.i.i.i3978 ]
   store i16 %frombool.i.i.i3859, ptr %allSelected_.i.i.i3853, align 4, !noalias !297
   %1696 = trunc i16 %frombool.i.i.i3859 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i3860
@@ -16294,7 +16294,7 @@ if.then26.i.i.i.i191.i:                           ; preds = %for.end.i.i.i.i189.
   br label %land.end.i.i94.i3560
 
 land.end.i.i94.i3560:                             ; preds = %for.body.i.i.i.i200.i, %if.then26.i.i.i.i191.i, %for.end.i.i.i.i189.i, %land.rhs.i.i183.i, %land.lhs.true.i.i179.i, %if.end.i.i91.i3557
-  %frombool.i.i95.i3561 = phi i16 [ 256, %land.lhs.true.i.i179.i ], [ 256, %if.end.i.i91.i3557 ], [ 257, %land.rhs.i.i183.i ], [ %1728, %if.then26.i.i.i.i191.i ], [ 257, %for.end.i.i.i.i189.i ], [ 256, %for.body.i.i.i.i200.i ]
+  %frombool.i.i95.i3561 = phi i16 [ 256, %land.lhs.true.i.i179.i ], [ 256, %if.end.i.i91.i3557 ], [ 257, %land.rhs.i.i183.i ], [ 257, %for.end.i.i.i.i189.i ], [ %1728, %if.then26.i.i.i.i191.i ], [ 256, %for.body.i.i.i.i200.i ]
   store i16 %frombool.i.i95.i3561, ptr %allSelected_.i.i88.i3554, align 4, !noalias !297
   %1729 = trunc i16 %frombool.i.i95.i3561 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i96.i3562
@@ -16343,7 +16343,7 @@ if.end4.i.i.i.i.i3839:                            ; preds = %if.end.i.i.i5.i.i38
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i3839, %if.then3.i.i.i.i178.i, %for.body.i175.i3834
-  %retval.0.i.i.i.i.i3841 = phi i32 [ %1737, %if.then3.i.i.i.i178.i ], [ %1739, %if.end4.i.i.i.i.i3839 ], [ %1735, %for.body.i175.i3834 ]
+  %retval.0.i.i.i.i.i3841 = phi i32 [ %1739, %if.end4.i.i.i.i.i3839 ], [ %1737, %if.then3.i.i.i.i178.i ], [ %1735, %for.body.i175.i3834 ]
   %conv.i.i.i.i = sext i32 %retval.0.i.i.i.i.i3841 to i64
   %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 4
   %add.ptr.i.i.i176.i = getelementptr inbounds i8, ptr %1733, i64 %mul.i.i.i.i
@@ -16432,7 +16432,7 @@ if.end4.i.i.i.i.i.i.i.i.i3815:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i3815, %if.then3.i.i.i.i.i.i.i.i.i3825, %while.body.i.i.i.i.i165.i3808
-  %retval.0.i.i.i.i.i.i.i.i.i3818 = phi i32 [ %1752, %if.then3.i.i.i.i.i.i.i.i.i3825 ], [ %1754, %if.end4.i.i.i.i.i.i.i.i.i3815 ], [ %add.i26.i.i.i.i168.i3811, %while.body.i.i.i.i.i165.i3808 ]
+  %retval.0.i.i.i.i.i.i.i.i.i3818 = phi i32 [ %1754, %if.end4.i.i.i.i.i.i.i.i.i3815 ], [ %1752, %if.then3.i.i.i.i.i.i.i.i.i3825 ], [ %add.i26.i.i.i.i168.i3811, %while.body.i.i.i.i.i165.i3808 ]
   %conv.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i3818 to i64
   %mul.i.i.i.i.i.i.i.i3819 = shl nsw i64 %conv.i.i.i.i.i.i.i.i, 4
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1749, i64 %mul.i.i.i.i.i.i.i.i3819
@@ -16504,7 +16504,7 @@ if.end4.i.i.i.i55.i.i.i.i.i3681:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i3681, %if.then3.i.i.i.i71.i.i.i.i.i3784, %while.body.i42.i.i.i.i122.i3674
-  %retval.0.i.i.i.i60.i.i.i.i.i3684 = phi i32 [ %1760, %if.then3.i.i.i.i71.i.i.i.i.i3784 ], [ %1762, %if.end4.i.i.i.i55.i.i.i.i.i3681 ], [ %add.i45.i.i.i.i125.i3677, %while.body.i42.i.i.i.i122.i3674 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i3684 = phi i32 [ %1762, %if.end4.i.i.i.i55.i.i.i.i.i3681 ], [ %1760, %if.then3.i.i.i.i71.i.i.i.i.i3784 ], [ %add.i45.i.i.i.i125.i3677, %while.body.i42.i.i.i.i122.i3674 ]
   %conv.i.i.i61.i.i.i.i.i = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i3684 to i64
   %mul.i.i.i62.i.i.i.i.i = shl nsw i64 %conv.i.i.i61.i.i.i.i.i, 4
   %add.ptr.i.i.i63.i.i.i.i.i = getelementptr inbounds i8, ptr %1757, i64 %mul.i.i.i62.i.i.i.i.i
@@ -16587,7 +16587,7 @@ if.end4.i.i.i.i85.i.i.i.i.i3754:                  ; preds = %if.end.i.i.i.i82.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i88.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i88.i.i.i.i.i: ; preds = %if.end4.i.i.i.i85.i.i.i.i.i3754, %if.then3.i.i.i.i97.i.i.i.i.i3763, %for.body.i.i.i.i.i140.i3748
-  %retval.0.i.i.i.i89.i.i.i.i.i3757 = phi i32 [ %1767, %if.then3.i.i.i.i97.i.i.i.i.i3763 ], [ %1770, %if.end4.i.i.i.i85.i.i.i.i.i3754 ], [ %conv7.i.i.i.i.i141.i3750, %for.body.i.i.i.i.i140.i3748 ]
+  %retval.0.i.i.i.i89.i.i.i.i.i3757 = phi i32 [ %1770, %if.end4.i.i.i.i85.i.i.i.i.i3754 ], [ %1767, %if.then3.i.i.i.i97.i.i.i.i.i3763 ], [ %conv7.i.i.i.i.i141.i3750, %for.body.i.i.i.i.i140.i3748 ]
   %conv.i.i.i90.i.i.i.i.i = sext i32 %retval.0.i.i.i.i89.i.i.i.i.i3757 to i64
   %mul.i.i.i91.i.i.i.i.i = shl nsw i64 %conv.i.i.i90.i.i.i.i.i, 4
   %add.ptr.i.i.i92.i.i.i.i.i = getelementptr inbounds i8, ptr %1764, i64 %mul.i.i.i91.i.i.i.i.i
@@ -16630,7 +16630,7 @@ if.end4.i.i.i20.i.i.i.i.i.i3773:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit34.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i3773, %if.then3.i.i.i32.i.i.i.i.i.i3783, %while.body.i99.i.i.i.i.i3766
-  %retval.0.i.i.i24.i.i.i.i.i.i3776 = phi i32 [ %1775, %if.then3.i.i.i32.i.i.i.i.i.i3783 ], [ %1777, %if.end4.i.i.i20.i.i.i.i.i.i3773 ], [ %add10.i.i.i.i.i146.i3769, %while.body.i99.i.i.i.i.i3766 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i3776 = phi i32 [ %1777, %if.end4.i.i.i20.i.i.i.i.i.i3773 ], [ %1775, %if.then3.i.i.i32.i.i.i.i.i.i3783 ], [ %add10.i.i.i.i.i146.i3769, %while.body.i99.i.i.i.i.i3766 ]
   %conv.i.i25.i.i.i.i.i.i = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i3776 to i64
   %mul.i.i26.i.i.i.i.i.i = shl nsw i64 %conv.i.i25.i.i.i.i.i.i, 4
   %add.ptr.i.i27.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1772, i64 %mul.i.i26.i.i.i.i.i.i
@@ -16703,7 +16703,7 @@ if.end4.i.i.i.i129.i.i.i.i.i3730:                 ; preds = %if.end.i.i.i.i126.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i133.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i133.i.i.i.i.i: ; preds = %if.end4.i.i.i.i129.i.i.i.i.i3730, %if.then3.i.i.i.i145.i.i.i.i.i3739, %while.body.i116.i.i.i.i.i3723
-  %retval.0.i.i.i.i134.i.i.i.i.i3733 = phi i32 [ %1783, %if.then3.i.i.i.i145.i.i.i.i.i3739 ], [ %1785, %if.end4.i.i.i.i129.i.i.i.i.i3730 ], [ %add.i119.i.i.i.i.i3726, %while.body.i116.i.i.i.i.i3723 ]
+  %retval.0.i.i.i.i134.i.i.i.i.i3733 = phi i32 [ %1785, %if.end4.i.i.i.i129.i.i.i.i.i3730 ], [ %1783, %if.then3.i.i.i.i145.i.i.i.i.i3739 ], [ %add.i119.i.i.i.i.i3726, %while.body.i116.i.i.i.i.i3723 ]
   %conv.i.i.i135.i.i.i.i.i = sext i32 %retval.0.i.i.i.i134.i.i.i.i.i3733 to i64
   %mul.i.i.i136.i.i.i.i.i = shl nsw i64 %conv.i.i.i135.i.i.i.i.i, 4
   %add.ptr.i.i.i137.i.i.i.i.i = getelementptr inbounds i8, ptr %1780, i64 %mul.i.i.i136.i.i.i.i.i
@@ -18117,7 +18117,7 @@ if.then3.i.i.i4801:                               ; preds = %if.then45.i4797
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i: ; preds = %if.then3.i.i.i4801, %if.then45.i4797
-  %retval.0.i.i.i4803 = phi i64 [ %1994, %if.then3.i.i.i4801 ], [ 0, %if.then45.i4797 ]
+  %retval.0.i.i.i4803 = phi i64 [ 0, %if.then45.i4797 ], [ %1994, %if.then3.i.i.i4801 ]
   %arrayidx.i.i4804 = getelementptr inbounds float, ptr %1991, i64 %retval.0.i.i.i4803
   %1995 = load float, ptr %arrayidx.i.i4804, align 4
   %allSelected_.i.i.i4805 = getelementptr inbounds nuw i8, ptr %1911, i64 36
@@ -18185,7 +18185,7 @@ if.then26.i.i.i.i.i4957:                          ; preds = %for.end.i.i.i.i.i49
   br label %land.end.i.i.i4811
 
 land.end.i.i.i4811:                               ; preds = %for.body.i.i.i.i.i4966, %if.then26.i.i.i.i.i4957, %for.end.i.i.i.i.i4955, %land.rhs.i.i.i4949, %land.lhs.true.i.i.i4946, %if.end.i.i69.i4808
-  %frombool.i.i.i4812 = phi i16 [ 256, %land.lhs.true.i.i.i4946 ], [ 256, %if.end.i.i69.i4808 ], [ 257, %land.rhs.i.i.i4949 ], [ %2007, %if.then26.i.i.i.i.i4957 ], [ 257, %for.end.i.i.i.i.i4955 ], [ 256, %for.body.i.i.i.i.i4966 ]
+  %frombool.i.i.i4812 = phi i16 [ 256, %land.lhs.true.i.i.i4946 ], [ 256, %if.end.i.i69.i4808 ], [ 257, %land.rhs.i.i.i4949 ], [ 257, %for.end.i.i.i.i.i4955 ], [ %2007, %if.then26.i.i.i.i.i4957 ], [ 256, %for.body.i.i.i.i.i4966 ]
   store i16 %frombool.i.i.i4812, ptr %allSelected_.i.i.i4805, align 4, !noalias !346
   %2008 = trunc i16 %frombool.i.i.i4812 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i4813
@@ -18547,7 +18547,7 @@ if.then26.i.i.i.i189.i4782:                       ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i4185
 
 land.end.i.i93.i4185:                             ; preds = %for.body.i.i.i.i198.i4791, %if.then26.i.i.i.i189.i4782, %for.end.i.i.i.i187.i4780, %land.rhs.i.i181.i4774, %land.lhs.true.i.i177.i4771, %if.end.i.i90.i4182
-  %frombool.i.i94.i4186 = phi i16 [ 256, %land.lhs.true.i.i177.i4771 ], [ 256, %if.end.i.i90.i4182 ], [ 257, %land.rhs.i.i181.i4774 ], [ %2040, %if.then26.i.i.i.i189.i4782 ], [ 257, %for.end.i.i.i.i187.i4780 ], [ 256, %for.body.i.i.i.i198.i4791 ]
+  %frombool.i.i94.i4186 = phi i16 [ 256, %land.lhs.true.i.i177.i4771 ], [ 256, %if.end.i.i90.i4182 ], [ 257, %land.rhs.i.i181.i4774 ], [ 257, %for.end.i.i.i.i187.i4780 ], [ %2040, %if.then26.i.i.i.i189.i4782 ], [ 256, %for.body.i.i.i.i198.i4791 ]
   store i16 %frombool.i.i94.i4186, ptr %allSelected_.i.i87.i4179, align 4, !noalias !346
   %2041 = trunc i16 %frombool.i.i94.i4186 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i4187
@@ -18596,7 +18596,7 @@ if.end4.i.i.i.i.i4760:                            ; preds = %if.end.i.i.i5.i.i47
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i4760, %if.then3.i.i.i.i176.i4770, %for.body.i174.i4755
-  %retval.0.i.i.i.i.i4762 = phi i32 [ %2049, %if.then3.i.i.i.i176.i4770 ], [ %2051, %if.end4.i.i.i.i.i4760 ], [ %2047, %for.body.i174.i4755 ]
+  %retval.0.i.i.i.i.i4762 = phi i32 [ %2051, %if.end4.i.i.i.i.i4760 ], [ %2049, %if.then3.i.i.i.i176.i4770 ], [ %2047, %for.body.i174.i4755 ]
   %idxprom.i.i.i.i4763 = sext i32 %retval.0.i.i.i.i.i4762 to i64
   %arrayidx.i.i.i.i4764 = getelementptr inbounds float, ptr %2045, i64 %idxprom.i.i.i.i4763
   %2052 = load float, ptr %arrayidx.i.i.i.i4764, align 4
@@ -18681,7 +18681,7 @@ if.end4.i.i.i.i.i.i.i.i.i4734:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i4734, %if.then3.i.i.i.i.i.i.i.i.i4746, %while.body.i.i.i.i.i164.i4727
-  %retval.0.i.i.i.i.i.i.i.i.i4737 = phi i32 [ %2065, %if.then3.i.i.i.i.i.i.i.i.i4746 ], [ %2067, %if.end4.i.i.i.i.i.i.i.i.i4734 ], [ %add.i26.i.i.i.i167.i4730, %while.body.i.i.i.i.i164.i4727 ]
+  %retval.0.i.i.i.i.i.i.i.i.i4737 = phi i32 [ %2067, %if.end4.i.i.i.i.i.i.i.i.i4734 ], [ %2065, %if.then3.i.i.i.i.i.i.i.i.i4746 ], [ %add.i26.i.i.i.i167.i4730, %while.body.i.i.i.i.i164.i4727 ]
   %idxprom.i.i.i.i.i.i.i.i4738 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i4737 to i64
   %arrayidx.i.i.i.i.i.i.i.i4739 = getelementptr inbounds float, ptr %2062, i64 %idxprom.i.i.i.i.i.i.i.i4738
   %2068 = load float, ptr %arrayidx.i.i.i.i.i.i.i.i4739, align 4
@@ -18749,7 +18749,7 @@ if.end4.i.i.i.i55.i.i.i.i.i4592:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i4592, %if.then3.i.i.i.i66.i.i.i.i.i4703, %while.body.i42.i.i.i.i121.i4585
-  %retval.0.i.i.i.i60.i.i.i.i.i4595 = phi i32 [ %2074, %if.then3.i.i.i.i66.i.i.i.i.i4703 ], [ %2076, %if.end4.i.i.i.i55.i.i.i.i.i4592 ], [ %add.i45.i.i.i.i124.i4588, %while.body.i42.i.i.i.i121.i4585 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i4595 = phi i32 [ %2076, %if.end4.i.i.i.i55.i.i.i.i.i4592 ], [ %2074, %if.then3.i.i.i.i66.i.i.i.i.i4703 ], [ %add.i45.i.i.i.i124.i4588, %while.body.i42.i.i.i.i121.i4585 ]
   %idxprom.i.i.i61.i.i.i.i.i4596 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i4595 to i64
   %arrayidx.i.i.i62.i.i.i.i.i4597 = getelementptr inbounds float, ptr %2071, i64 %idxprom.i.i.i61.i.i.i.i.i4596
   %2077 = load float, ptr %arrayidx.i.i.i62.i.i.i.i.i4597, align 4
@@ -18828,7 +18828,7 @@ if.end4.i.i.i.i80.i.i.i.i.i4670:                  ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i4670, %if.then3.i.i.i.i87.i.i.i.i.i4681, %for.body.i.i.i.i.i139.i4664
-  %retval.0.i.i.i.i84.i.i.i.i.i4673 = phi i32 [ %2082, %if.then3.i.i.i.i87.i.i.i.i.i4681 ], [ %2085, %if.end4.i.i.i.i80.i.i.i.i.i4670 ], [ %conv7.i.i.i.i.i140.i4666, %for.body.i.i.i.i.i139.i4664 ]
+  %retval.0.i.i.i.i84.i.i.i.i.i4673 = phi i32 [ %2085, %if.end4.i.i.i.i80.i.i.i.i.i4670 ], [ %2082, %if.then3.i.i.i.i87.i.i.i.i.i4681 ], [ %conv7.i.i.i.i.i140.i4666, %for.body.i.i.i.i.i139.i4664 ]
   %idxprom.i.i.i85.i.i.i.i.i4674 = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i4673 to i64
   %arrayidx.i.i.i86.i.i.i.i.i4675 = getelementptr inbounds float, ptr %2079, i64 %idxprom.i.i.i85.i.i.i.i.i4674
   %2086 = load float, ptr %arrayidx.i.i.i86.i.i.i.i.i4675, align 4
@@ -18867,7 +18867,7 @@ if.end4.i.i.i20.i.i.i.i.i.i4691:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i4691, %if.then3.i.i.i27.i.i.i.i.i.i4702, %while.body.i89.i.i.i.i.i4684
-  %retval.0.i.i.i24.i.i.i.i.i.i4694 = phi i32 [ %2091, %if.then3.i.i.i27.i.i.i.i.i.i4702 ], [ %2093, %if.end4.i.i.i20.i.i.i.i.i.i4691 ], [ %add10.i.i.i.i.i145.i4687, %while.body.i89.i.i.i.i.i4684 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i4694 = phi i32 [ %2093, %if.end4.i.i.i20.i.i.i.i.i.i4691 ], [ %2091, %if.then3.i.i.i27.i.i.i.i.i.i4702 ], [ %add10.i.i.i.i.i145.i4687, %while.body.i89.i.i.i.i.i4684 ]
   %idxprom.i.i25.i.i.i.i.i.i4695 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i4694 to i64
   %arrayidx.i.i26.i.i.i.i.i.i4696 = getelementptr inbounds float, ptr %2088, i64 %idxprom.i.i25.i.i.i.i.i.i4695
   %2094 = load float, ptr %arrayidx.i.i26.i.i.i.i.i.i4696, align 4
@@ -18936,7 +18936,7 @@ if.end4.i.i.i.i119.i.i.i.i.i4644:                 ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i4644, %if.then3.i.i.i.i130.i.i.i.i.i4655, %while.body.i106.i.i.i.i.i4637
-  %retval.0.i.i.i.i124.i.i.i.i.i4647 = phi i32 [ %2100, %if.then3.i.i.i.i130.i.i.i.i.i4655 ], [ %2102, %if.end4.i.i.i.i119.i.i.i.i.i4644 ], [ %add.i109.i.i.i.i.i4640, %while.body.i106.i.i.i.i.i4637 ]
+  %retval.0.i.i.i.i124.i.i.i.i.i4647 = phi i32 [ %2102, %if.end4.i.i.i.i119.i.i.i.i.i4644 ], [ %2100, %if.then3.i.i.i.i130.i.i.i.i.i4655 ], [ %add.i109.i.i.i.i.i4640, %while.body.i106.i.i.i.i.i4637 ]
   %idxprom.i.i.i125.i.i.i.i.i4648 = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i4647 to i64
   %arrayidx.i.i.i126.i.i.i.i.i4649 = getelementptr inbounds float, ptr %2097, i64 %idxprom.i.i.i125.i.i.i.i.i4648
   %2103 = load float, ptr %arrayidx.i.i.i126.i.i.i.i.i4649, align 4
@@ -20346,7 +20346,7 @@ if.then3.i.i.i5796:                               ; preds = %if.then45.i5792
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit.i: ; preds = %if.then3.i.i.i5796, %if.then45.i5792
-  %retval.0.i.i.i5798 = phi i64 [ %2312, %if.then3.i.i.i5796 ], [ 0, %if.then45.i5792 ]
+  %retval.0.i.i.i5798 = phi i64 [ 0, %if.then45.i5792 ], [ %2312, %if.then3.i.i.i5796 ]
   %arrayidx.i.i5799 = getelementptr inbounds double, ptr %2309, i64 %retval.0.i.i.i5798
   %2313 = load double, ptr %arrayidx.i.i5799, align 8
   %allSelected_.i.i.i5800 = getelementptr inbounds nuw i8, ptr %2229, i64 36
@@ -20414,7 +20414,7 @@ if.then26.i.i.i.i.i5955:                          ; preds = %for.end.i.i.i.i.i59
   br label %land.end.i.i.i5806
 
 land.end.i.i.i5806:                               ; preds = %for.body.i.i.i.i.i5964, %if.then26.i.i.i.i.i5955, %for.end.i.i.i.i.i5953, %land.rhs.i.i.i5947, %land.lhs.true.i.i.i5944, %if.end.i.i69.i5803
-  %frombool.i.i.i5807 = phi i16 [ 256, %land.lhs.true.i.i.i5944 ], [ 256, %if.end.i.i69.i5803 ], [ 257, %land.rhs.i.i.i5947 ], [ %2325, %if.then26.i.i.i.i.i5955 ], [ 257, %for.end.i.i.i.i.i5953 ], [ 256, %for.body.i.i.i.i.i5964 ]
+  %frombool.i.i.i5807 = phi i16 [ 256, %land.lhs.true.i.i.i5944 ], [ 256, %if.end.i.i69.i5803 ], [ 257, %land.rhs.i.i.i5947 ], [ 257, %for.end.i.i.i.i.i5953 ], [ %2325, %if.then26.i.i.i.i.i5955 ], [ 256, %for.body.i.i.i.i.i5964 ]
   store i16 %frombool.i.i.i5807, ptr %allSelected_.i.i.i5800, align 4, !noalias !395
   %2326 = trunc i16 %frombool.i.i.i5807 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i5808
@@ -20776,7 +20776,7 @@ if.then26.i.i.i.i189.i5777:                       ; preds = %for.end.i.i.i.i187.
   br label %land.end.i.i93.i5174
 
 land.end.i.i93.i5174:                             ; preds = %for.body.i.i.i.i198.i5786, %if.then26.i.i.i.i189.i5777, %for.end.i.i.i.i187.i5775, %land.rhs.i.i181.i5769, %land.lhs.true.i.i177.i5766, %if.end.i.i90.i5171
-  %frombool.i.i94.i5175 = phi i16 [ 256, %land.lhs.true.i.i177.i5766 ], [ 256, %if.end.i.i90.i5171 ], [ 257, %land.rhs.i.i181.i5769 ], [ %2358, %if.then26.i.i.i.i189.i5777 ], [ 257, %for.end.i.i.i.i187.i5775 ], [ 256, %for.body.i.i.i.i198.i5786 ]
+  %frombool.i.i94.i5175 = phi i16 [ 256, %land.lhs.true.i.i177.i5766 ], [ 256, %if.end.i.i90.i5171 ], [ 257, %land.rhs.i.i181.i5769 ], [ 257, %for.end.i.i.i.i187.i5775 ], [ %2358, %if.then26.i.i.i.i189.i5777 ], [ 256, %for.body.i.i.i.i198.i5786 ]
   store i16 %frombool.i.i94.i5175, ptr %allSelected_.i.i87.i5168, align 4, !noalias !395
   %2359 = trunc i16 %frombool.i.i94.i5175 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i5176
@@ -20825,7 +20825,7 @@ if.end4.i.i.i.i.i5755:                            ; preds = %if.end.i.i.i5.i.i57
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i5755, %if.then3.i.i.i.i176.i5765, %for.body.i174.i5750
-  %retval.0.i.i.i.i.i5757 = phi i32 [ %2367, %if.then3.i.i.i.i176.i5765 ], [ %2369, %if.end4.i.i.i.i.i5755 ], [ %2365, %for.body.i174.i5750 ]
+  %retval.0.i.i.i.i.i5757 = phi i32 [ %2369, %if.end4.i.i.i.i.i5755 ], [ %2367, %if.then3.i.i.i.i176.i5765 ], [ %2365, %for.body.i174.i5750 ]
   %idxprom.i.i.i.i5758 = sext i32 %retval.0.i.i.i.i.i5757 to i64
   %arrayidx.i.i.i.i5759 = getelementptr inbounds double, ptr %2363, i64 %idxprom.i.i.i.i5758
   %2370 = load double, ptr %arrayidx.i.i.i.i5759, align 8
@@ -20910,7 +20910,7 @@ if.end4.i.i.i.i.i.i.i.i.i5729:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i5729, %if.then3.i.i.i.i.i.i.i.i.i5741, %while.body.i.i.i.i.i164.i5722
-  %retval.0.i.i.i.i.i.i.i.i.i5732 = phi i32 [ %2383, %if.then3.i.i.i.i.i.i.i.i.i5741 ], [ %2385, %if.end4.i.i.i.i.i.i.i.i.i5729 ], [ %add.i26.i.i.i.i167.i5725, %while.body.i.i.i.i.i164.i5722 ]
+  %retval.0.i.i.i.i.i.i.i.i.i5732 = phi i32 [ %2385, %if.end4.i.i.i.i.i.i.i.i.i5729 ], [ %2383, %if.then3.i.i.i.i.i.i.i.i.i5741 ], [ %add.i26.i.i.i.i167.i5725, %while.body.i.i.i.i.i164.i5722 ]
   %idxprom.i.i.i.i.i.i.i.i5733 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i5732 to i64
   %arrayidx.i.i.i.i.i.i.i.i5734 = getelementptr inbounds double, ptr %2380, i64 %idxprom.i.i.i.i.i.i.i.i5733
   %2386 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i5734, align 8
@@ -20978,7 +20978,7 @@ if.end4.i.i.i.i55.i.i.i.i.i5585:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i5585, %if.then3.i.i.i.i66.i.i.i.i.i5698, %while.body.i42.i.i.i.i121.i5578
-  %retval.0.i.i.i.i60.i.i.i.i.i5588 = phi i32 [ %2392, %if.then3.i.i.i.i66.i.i.i.i.i5698 ], [ %2394, %if.end4.i.i.i.i55.i.i.i.i.i5585 ], [ %add.i45.i.i.i.i124.i5581, %while.body.i42.i.i.i.i121.i5578 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i5588 = phi i32 [ %2394, %if.end4.i.i.i.i55.i.i.i.i.i5585 ], [ %2392, %if.then3.i.i.i.i66.i.i.i.i.i5698 ], [ %add.i45.i.i.i.i124.i5581, %while.body.i42.i.i.i.i121.i5578 ]
   %idxprom.i.i.i61.i.i.i.i.i5589 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i5588 to i64
   %arrayidx.i.i.i62.i.i.i.i.i5590 = getelementptr inbounds double, ptr %2389, i64 %idxprom.i.i.i61.i.i.i.i.i5589
   %2395 = load double, ptr %arrayidx.i.i.i62.i.i.i.i.i5590, align 8
@@ -21057,7 +21057,7 @@ if.end4.i.i.i.i80.i.i.i.i.i5664:                  ; preds = %if.end.i.i.i.i77.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i83.i.i.i.i.i: ; preds = %if.end4.i.i.i.i80.i.i.i.i.i5664, %if.then3.i.i.i.i87.i.i.i.i.i5675, %for.body.i.i.i.i.i139.i5658
-  %retval.0.i.i.i.i84.i.i.i.i.i5667 = phi i32 [ %2400, %if.then3.i.i.i.i87.i.i.i.i.i5675 ], [ %2403, %if.end4.i.i.i.i80.i.i.i.i.i5664 ], [ %conv7.i.i.i.i.i140.i5660, %for.body.i.i.i.i.i139.i5658 ]
+  %retval.0.i.i.i.i84.i.i.i.i.i5667 = phi i32 [ %2403, %if.end4.i.i.i.i80.i.i.i.i.i5664 ], [ %2400, %if.then3.i.i.i.i87.i.i.i.i.i5675 ], [ %conv7.i.i.i.i.i140.i5660, %for.body.i.i.i.i.i139.i5658 ]
   %idxprom.i.i.i85.i.i.i.i.i5668 = sext i32 %retval.0.i.i.i.i84.i.i.i.i.i5667 to i64
   %arrayidx.i.i.i86.i.i.i.i.i5669 = getelementptr inbounds double, ptr %2397, i64 %idxprom.i.i.i85.i.i.i.i.i5668
   %2404 = load double, ptr %arrayidx.i.i.i86.i.i.i.i.i5669, align 8
@@ -21096,7 +21096,7 @@ if.end4.i.i.i20.i.i.i.i.i.i5685:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit29.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i5685, %if.then3.i.i.i27.i.i.i.i.i.i5697, %while.body.i89.i.i.i.i.i5678
-  %retval.0.i.i.i24.i.i.i.i.i.i5688 = phi i32 [ %2409, %if.then3.i.i.i27.i.i.i.i.i.i5697 ], [ %2411, %if.end4.i.i.i20.i.i.i.i.i.i5685 ], [ %add10.i.i.i.i.i145.i5681, %while.body.i89.i.i.i.i.i5678 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i5688 = phi i32 [ %2411, %if.end4.i.i.i20.i.i.i.i.i.i5685 ], [ %2409, %if.then3.i.i.i27.i.i.i.i.i.i5697 ], [ %add10.i.i.i.i.i145.i5681, %while.body.i89.i.i.i.i.i5678 ]
   %idxprom.i.i25.i.i.i.i.i.i5689 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i5688 to i64
   %arrayidx.i.i26.i.i.i.i.i.i5690 = getelementptr inbounds double, ptr %2406, i64 %idxprom.i.i25.i.i.i.i.i.i5689
   %2412 = load double, ptr %arrayidx.i.i26.i.i.i.i.i.i5690, align 8
@@ -21165,7 +21165,7 @@ if.end4.i.i.i.i119.i.i.i.i.i5637:                 ; preds = %if.end.i.i.i.i116.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i123.i.i.i.i.i: ; preds = %if.end4.i.i.i.i119.i.i.i.i.i5637, %if.then3.i.i.i.i130.i.i.i.i.i5649, %while.body.i106.i.i.i.i.i5630
-  %retval.0.i.i.i.i124.i.i.i.i.i5640 = phi i32 [ %2418, %if.then3.i.i.i.i130.i.i.i.i.i5649 ], [ %2420, %if.end4.i.i.i.i119.i.i.i.i.i5637 ], [ %add.i109.i.i.i.i.i5633, %while.body.i106.i.i.i.i.i5630 ]
+  %retval.0.i.i.i.i124.i.i.i.i.i5640 = phi i32 [ %2420, %if.end4.i.i.i.i119.i.i.i.i.i5637 ], [ %2418, %if.then3.i.i.i.i130.i.i.i.i.i5649 ], [ %add.i109.i.i.i.i.i5633, %while.body.i106.i.i.i.i.i5630 ]
   %idxprom.i.i.i125.i.i.i.i.i5641 = sext i32 %retval.0.i.i.i.i124.i.i.i.i.i5640 to i64
   %arrayidx.i.i.i126.i.i.i.i.i5642 = getelementptr inbounds double, ptr %2415, i64 %idxprom.i.i.i125.i.i.i.i.i5641
   %2421 = load double, ptr %arrayidx.i.i.i126.i.i.i.i.i5642, align 8
@@ -22575,7 +22575,7 @@ if.then3.i.i.i6608:                               ; preds = %if.then45.i6604
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i: ; preds = %if.then3.i.i.i6608, %if.then45.i6604
-  %retval.0.i.i.i6610 = phi i64 [ %2630, %if.then3.i.i.i6608 ], [ 0, %if.then45.i6604 ]
+  %retval.0.i.i.i6610 = phi i64 [ 0, %if.then45.i6604 ], [ %2630, %if.then3.i.i.i6608 ]
   %arrayidx.i.i6611 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2627, i64 %retval.0.i.i.i6610
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i6611, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i6611, i64 8
@@ -22645,7 +22645,7 @@ if.then26.i.i.i.i.i6733:                          ; preds = %for.end.i.i.i.i.i67
   br label %land.end.i.i.i6618
 
 land.end.i.i.i6618:                               ; preds = %for.body.i.i.i.i.i6742, %if.then26.i.i.i.i.i6733, %for.end.i.i.i.i.i6731, %land.rhs.i.i.i6725, %land.lhs.true.i.i.i6722, %if.end.i.i69.i6615
-  %frombool.i.i.i6619 = phi i16 [ 256, %land.lhs.true.i.i.i6722 ], [ 256, %if.end.i.i69.i6615 ], [ 257, %land.rhs.i.i.i6725 ], [ %2642, %if.then26.i.i.i.i.i6733 ], [ 257, %for.end.i.i.i.i.i6731 ], [ 256, %for.body.i.i.i.i.i6742 ]
+  %frombool.i.i.i6619 = phi i16 [ 256, %land.lhs.true.i.i.i6722 ], [ 256, %if.end.i.i69.i6615 ], [ 257, %land.rhs.i.i.i6725 ], [ 257, %for.end.i.i.i.i.i6731 ], [ %2642, %if.then26.i.i.i.i.i6733 ], [ 256, %for.body.i.i.i.i.i6742 ]
   store i16 %frombool.i.i.i6619, ptr %allSelected_.i.i.i6612, align 4, !noalias !444
   %2643 = trunc i16 %frombool.i.i.i6619 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i6620
@@ -23007,7 +23007,7 @@ if.then26.i.i.i.i191.i6589:                       ; preds = %for.end.i.i.i.i189.
   br label %land.end.i.i93.i6171
 
 land.end.i.i93.i6171:                             ; preds = %for.body.i.i.i.i200.i6598, %if.then26.i.i.i.i191.i6589, %for.end.i.i.i.i189.i6587, %land.rhs.i.i183.i6581, %land.lhs.true.i.i179.i6578, %if.end.i.i90.i6168
-  %frombool.i.i94.i6172 = phi i16 [ 256, %land.lhs.true.i.i179.i6578 ], [ 256, %if.end.i.i90.i6168 ], [ 257, %land.rhs.i.i183.i6581 ], [ %2675, %if.then26.i.i.i.i191.i6589 ], [ 257, %for.end.i.i.i.i189.i6587 ], [ 256, %for.body.i.i.i.i200.i6598 ]
+  %frombool.i.i94.i6172 = phi i16 [ 256, %land.lhs.true.i.i179.i6578 ], [ 256, %if.end.i.i90.i6168 ], [ 257, %land.rhs.i.i183.i6581 ], [ 257, %for.end.i.i.i.i189.i6587 ], [ %2675, %if.then26.i.i.i.i191.i6589 ], [ 256, %for.body.i.i.i.i200.i6598 ]
   store i16 %frombool.i.i94.i6172, ptr %allSelected_.i.i87.i6165, align 4, !noalias !444
   %2676 = trunc i16 %frombool.i.i94.i6172 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i6173
@@ -23056,7 +23056,7 @@ if.end4.i.i.i.i.i6567:                            ; preds = %if.end.i.i.i5.i176.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i6567, %if.then3.i.i.i.i178.i6577, %for.body.i175.i6563
-  %retval.0.i.i.i.i.i6569 = phi i32 [ %2684, %if.then3.i.i.i.i178.i6577 ], [ %2686, %if.end4.i.i.i.i.i6567 ], [ %2682, %for.body.i175.i6563 ]
+  %retval.0.i.i.i.i.i6569 = phi i32 [ %2686, %if.end4.i.i.i.i.i6567 ], [ %2684, %if.then3.i.i.i.i178.i6577 ], [ %2682, %for.body.i175.i6563 ]
   %idxprom.i.i.i.i6570 = sext i32 %retval.0.i.i.i.i.i6569 to i64
   %arrayidx.i.i.i.i6571 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2680, i64 %idxprom.i.i.i.i6570
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i6571, align 8
@@ -23143,7 +23143,7 @@ if.end4.i.i.i.i.i.i.i.i.i6542:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i6542, %if.then3.i.i.i.i.i.i.i.i.i6554, %while.body.i.i.i.i.i165.i6535
-  %retval.0.i.i.i.i.i.i.i.i.i6545 = phi i32 [ %2699, %if.then3.i.i.i.i.i.i.i.i.i6554 ], [ %2701, %if.end4.i.i.i.i.i.i.i.i.i6542 ], [ %add.i26.i.i.i.i168.i6538, %while.body.i.i.i.i.i165.i6535 ]
+  %retval.0.i.i.i.i.i.i.i.i.i6545 = phi i32 [ %2701, %if.end4.i.i.i.i.i.i.i.i.i6542 ], [ %2699, %if.then3.i.i.i.i.i.i.i.i.i6554 ], [ %add.i26.i.i.i.i168.i6538, %while.body.i.i.i.i.i165.i6535 ]
   %idxprom.i.i.i.i.i.i.i.i6546 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i6545 to i64
   %arrayidx.i.i.i.i.i.i.i.i6547 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2696, i64 %idxprom.i.i.i.i.i.i.i.i6546
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i6547, align 8
@@ -23213,7 +23213,7 @@ if.end4.i.i.i.i55.i.i.i.i.i6460:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i6460, %if.then3.i.i.i.i69.i.i.i.i.i, %while.body.i42.i.i.i.i121.i6453
-  %retval.0.i.i.i.i60.i.i.i.i.i6463 = phi i32 [ %2707, %if.then3.i.i.i.i69.i.i.i.i.i ], [ %2709, %if.end4.i.i.i.i55.i.i.i.i.i6460 ], [ %add.i45.i.i.i.i124.i6456, %while.body.i42.i.i.i.i121.i6453 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i6463 = phi i32 [ %2709, %if.end4.i.i.i.i55.i.i.i.i.i6460 ], [ %2707, %if.then3.i.i.i.i69.i.i.i.i.i ], [ %add.i45.i.i.i.i124.i6456, %while.body.i42.i.i.i.i121.i6453 ]
   %idxprom.i.i.i61.i.i.i.i.i6464 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i6463 to i64
   %arrayidx.i.i.i62.i.i.i.i.i6465 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2704, i64 %idxprom.i.i.i61.i.i.i.i.i6464
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i6465, align 8
@@ -23294,7 +23294,7 @@ if.end4.i.i.i.i83.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i80.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i, %if.then3.i.i.i.i93.i.i.i.i.i, %for.body.i.i.i.i.i140.i6490
-  %retval.0.i.i.i.i87.i.i.i.i.i = phi i32 [ %2714, %if.then3.i.i.i.i93.i.i.i.i.i ], [ %2717, %if.end4.i.i.i.i83.i.i.i.i.i ], [ %conv7.i.i.i.i.i141.i6491, %for.body.i.i.i.i.i140.i6490 ]
+  %retval.0.i.i.i.i87.i.i.i.i.i = phi i32 [ %2717, %if.end4.i.i.i.i83.i.i.i.i.i ], [ %2714, %if.then3.i.i.i.i93.i.i.i.i.i ], [ %conv7.i.i.i.i.i141.i6491, %for.body.i.i.i.i.i140.i6490 ]
   %idxprom.i.i.i88.i.i.i.i.i = sext i32 %retval.0.i.i.i.i87.i.i.i.i.i to i64
   %arrayidx.i.i.i89.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2711, i64 %idxprom.i.i.i88.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i90.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i89.i.i.i.i.i, align 8
@@ -23335,7 +23335,7 @@ if.end4.i.i.i20.i.i.i.i.i.i6503:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i6503, %if.then3.i.i.i30.i.i.i.i.i.i, %while.body.i95.i.i.i.i.i
-  %retval.0.i.i.i24.i.i.i.i.i.i6506 = phi i32 [ %2722, %if.then3.i.i.i30.i.i.i.i.i.i ], [ %2724, %if.end4.i.i.i20.i.i.i.i.i.i6503 ], [ %add10.i.i.i.i.i146.i6499, %while.body.i95.i.i.i.i.i ]
+  %retval.0.i.i.i24.i.i.i.i.i.i6506 = phi i32 [ %2724, %if.end4.i.i.i20.i.i.i.i.i.i6503 ], [ %2722, %if.then3.i.i.i30.i.i.i.i.i.i ], [ %add10.i.i.i.i.i146.i6499, %while.body.i95.i.i.i.i.i ]
   %idxprom.i.i25.i.i.i.i.i.i6507 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i6506 to i64
   %arrayidx.i.i26.i.i.i.i.i.i6508 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2719, i64 %idxprom.i.i25.i.i.i.i.i.i6507
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i6508, align 8
@@ -23406,7 +23406,7 @@ if.end4.i.i.i.i125.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i122.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i, %if.then3.i.i.i.i139.i.i.i.i.i, %while.body.i112.i.i.i.i.i
-  %retval.0.i.i.i.i130.i.i.i.i.i = phi i32 [ %2730, %if.then3.i.i.i.i139.i.i.i.i.i ], [ %2732, %if.end4.i.i.i.i125.i.i.i.i.i ], [ %add.i115.i.i.i.i.i, %while.body.i112.i.i.i.i.i ]
+  %retval.0.i.i.i.i130.i.i.i.i.i = phi i32 [ %2732, %if.end4.i.i.i.i125.i.i.i.i.i ], [ %2730, %if.then3.i.i.i.i139.i.i.i.i.i ], [ %add.i115.i.i.i.i.i, %while.body.i112.i.i.i.i.i ]
   %idxprom.i.i.i131.i.i.i.i.i = sext i32 %retval.0.i.i.i.i130.i.i.i.i.i to i64
   %arrayidx.i.i.i132.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2727, i64 %idxprom.i.i.i131.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i133.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i132.i.i.i.i.i, align 8
@@ -24818,7 +24818,7 @@ if.then3.i.i.i7574:                               ; preds = %if.then45.i7570
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i7576
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i7576: ; preds = %if.then3.i.i.i7574, %if.then45.i7570
-  %retval.0.i.i.i7577 = phi i64 [ %2941, %if.then3.i.i.i7574 ], [ 0, %if.then45.i7570 ]
+  %retval.0.i.i.i7577 = phi i64 [ 0, %if.then45.i7570 ], [ %2941, %if.then3.i.i.i7574 ]
   %arrayidx.i.i7578 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2938, i64 %retval.0.i.i.i7577
   %retval.sroa.0.0.copyload.i.i7579 = load i64, ptr %arrayidx.i.i7578, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i7580 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i7578, i64 8
@@ -24888,7 +24888,7 @@ if.then26.i.i.i.i.i7737:                          ; preds = %for.end.i.i.i.i.i77
   br label %land.end.i.i.i7588
 
 land.end.i.i.i7588:                               ; preds = %for.body.i.i.i.i.i7746, %if.then26.i.i.i.i.i7737, %for.end.i.i.i.i.i7735, %land.rhs.i.i.i7729, %land.lhs.true.i.i.i7726, %if.end.i.i69.i7585
-  %frombool.i.i.i7589 = phi i16 [ 256, %land.lhs.true.i.i.i7726 ], [ 256, %if.end.i.i69.i7585 ], [ 257, %land.rhs.i.i.i7729 ], [ %2953, %if.then26.i.i.i.i.i7737 ], [ 257, %for.end.i.i.i.i.i7735 ], [ 256, %for.body.i.i.i.i.i7746 ]
+  %frombool.i.i.i7589 = phi i16 [ 256, %land.lhs.true.i.i.i7726 ], [ 256, %if.end.i.i69.i7585 ], [ 257, %land.rhs.i.i.i7729 ], [ 257, %for.end.i.i.i.i.i7735 ], [ %2953, %if.then26.i.i.i.i.i7737 ], [ 256, %for.body.i.i.i.i.i7746 ]
   store i16 %frombool.i.i.i7589, ptr %allSelected_.i.i.i7582, align 4, !noalias !493
   %2954 = trunc i16 %frombool.i.i.i7589 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i7590
@@ -25250,7 +25250,7 @@ if.then26.i.i.i.i191.i7555:                       ; preds = %for.end.i.i.i.i189.
   br label %land.end.i.i93.i6940
 
 land.end.i.i93.i6940:                             ; preds = %for.body.i.i.i.i200.i7564, %if.then26.i.i.i.i191.i7555, %for.end.i.i.i.i189.i7553, %land.rhs.i.i183.i7547, %land.lhs.true.i.i179.i7544, %if.end.i.i90.i6937
-  %frombool.i.i94.i6941 = phi i16 [ 256, %land.lhs.true.i.i179.i7544 ], [ 256, %if.end.i.i90.i6937 ], [ 257, %land.rhs.i.i183.i7547 ], [ %2986, %if.then26.i.i.i.i191.i7555 ], [ 257, %for.end.i.i.i.i189.i7553 ], [ 256, %for.body.i.i.i.i200.i7564 ]
+  %frombool.i.i94.i6941 = phi i16 [ 256, %land.lhs.true.i.i179.i7544 ], [ 256, %if.end.i.i90.i6937 ], [ 257, %land.rhs.i.i183.i7547 ], [ 257, %for.end.i.i.i.i189.i7553 ], [ %2986, %if.then26.i.i.i.i191.i7555 ], [ 256, %for.body.i.i.i.i200.i7564 ]
   store i16 %frombool.i.i94.i6941, ptr %allSelected_.i.i87.i6934, align 4, !noalias !493
   %2987 = trunc i16 %frombool.i.i94.i6941 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i6942
@@ -25299,7 +25299,7 @@ if.end4.i.i.i.i.i7530:                            ; preds = %if.end.i.i.i5.i176.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i7530, %if.then3.i.i.i.i178.i7543, %for.body.i175.i7525
-  %retval.0.i.i.i.i.i7532 = phi i32 [ %2995, %if.then3.i.i.i.i178.i7543 ], [ %2997, %if.end4.i.i.i.i.i7530 ], [ %2993, %for.body.i175.i7525 ]
+  %retval.0.i.i.i.i.i7532 = phi i32 [ %2997, %if.end4.i.i.i.i.i7530 ], [ %2995, %if.then3.i.i.i.i178.i7543 ], [ %2993, %for.body.i175.i7525 ]
   %idxprom.i.i.i.i7533 = sext i32 %retval.0.i.i.i.i.i7532 to i64
   %arrayidx.i.i.i.i7534 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2991, i64 %idxprom.i.i.i.i7533
   %retval.sroa.0.0.copyload.i.i.i.i7535 = load i64, ptr %arrayidx.i.i.i.i7534, align 8
@@ -25386,7 +25386,7 @@ if.end4.i.i.i.i.i.i.i.i.i7501:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i7501, %if.then3.i.i.i.i.i.i.i.i.i7516, %while.body.i.i.i.i.i165.i7494
-  %retval.0.i.i.i.i.i.i.i.i.i7504 = phi i32 [ %3010, %if.then3.i.i.i.i.i.i.i.i.i7516 ], [ %3012, %if.end4.i.i.i.i.i.i.i.i.i7501 ], [ %add.i26.i.i.i.i168.i7497, %while.body.i.i.i.i.i165.i7494 ]
+  %retval.0.i.i.i.i.i.i.i.i.i7504 = phi i32 [ %3012, %if.end4.i.i.i.i.i.i.i.i.i7501 ], [ %3010, %if.then3.i.i.i.i.i.i.i.i.i7516 ], [ %add.i26.i.i.i.i168.i7497, %while.body.i.i.i.i.i165.i7494 ]
   %idxprom.i.i.i.i.i.i.i.i7505 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i7504 to i64
   %arrayidx.i.i.i.i.i.i.i.i7506 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %3007, i64 %idxprom.i.i.i.i.i.i.i.i7505
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i7507 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i7506, align 8
@@ -25456,7 +25456,7 @@ if.end4.i.i.i.i55.i.i.i.i.i7345:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i7345, %if.then3.i.i.i.i69.i.i.i.i.i7470, %while.body.i42.i.i.i.i121.i7338
-  %retval.0.i.i.i.i60.i.i.i.i.i7348 = phi i32 [ %3018, %if.then3.i.i.i.i69.i.i.i.i.i7470 ], [ %3020, %if.end4.i.i.i.i55.i.i.i.i.i7345 ], [ %add.i45.i.i.i.i124.i7341, %while.body.i42.i.i.i.i121.i7338 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i7348 = phi i32 [ %3020, %if.end4.i.i.i.i55.i.i.i.i.i7345 ], [ %3018, %if.then3.i.i.i.i69.i.i.i.i.i7470 ], [ %add.i45.i.i.i.i124.i7341, %while.body.i42.i.i.i.i121.i7338 ]
   %idxprom.i.i.i61.i.i.i.i.i7349 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i7348 to i64
   %arrayidx.i.i.i62.i.i.i.i.i7350 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %3015, i64 %idxprom.i.i.i61.i.i.i.i.i7349
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i7351 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i7350, align 8
@@ -25537,7 +25537,7 @@ if.end4.i.i.i.i83.i.i.i.i.i7430:                  ; preds = %if.end.i.i.i.i80.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i7430, %if.then3.i.i.i.i93.i.i.i.i.i7444, %for.body.i.i.i.i.i140.i7424
-  %retval.0.i.i.i.i87.i.i.i.i.i7433 = phi i32 [ %3025, %if.then3.i.i.i.i93.i.i.i.i.i7444 ], [ %3028, %if.end4.i.i.i.i83.i.i.i.i.i7430 ], [ %conv7.i.i.i.i.i141.i7426, %for.body.i.i.i.i.i140.i7424 ]
+  %retval.0.i.i.i.i87.i.i.i.i.i7433 = phi i32 [ %3028, %if.end4.i.i.i.i83.i.i.i.i.i7430 ], [ %3025, %if.then3.i.i.i.i93.i.i.i.i.i7444 ], [ %conv7.i.i.i.i.i141.i7426, %for.body.i.i.i.i.i140.i7424 ]
   %idxprom.i.i.i88.i.i.i.i.i7434 = sext i32 %retval.0.i.i.i.i87.i.i.i.i.i7433 to i64
   %arrayidx.i.i.i89.i.i.i.i.i7435 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %3022, i64 %idxprom.i.i.i88.i.i.i.i.i7434
   %retval.sroa.0.0.copyload.i.i.i90.i.i.i.i.i7436 = load i64, ptr %arrayidx.i.i.i89.i.i.i.i.i7435, align 8
@@ -25578,7 +25578,7 @@ if.end4.i.i.i20.i.i.i.i.i.i7454:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i7454, %if.then3.i.i.i30.i.i.i.i.i.i7469, %while.body.i95.i.i.i.i.i7447
-  %retval.0.i.i.i24.i.i.i.i.i.i7457 = phi i32 [ %3033, %if.then3.i.i.i30.i.i.i.i.i.i7469 ], [ %3035, %if.end4.i.i.i20.i.i.i.i.i.i7454 ], [ %add10.i.i.i.i.i146.i7450, %while.body.i95.i.i.i.i.i7447 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i7457 = phi i32 [ %3035, %if.end4.i.i.i20.i.i.i.i.i.i7454 ], [ %3033, %if.then3.i.i.i30.i.i.i.i.i.i7469 ], [ %add10.i.i.i.i.i146.i7450, %while.body.i95.i.i.i.i.i7447 ]
   %idxprom.i.i25.i.i.i.i.i.i7458 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i7457 to i64
   %arrayidx.i.i26.i.i.i.i.i.i7459 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %3030, i64 %idxprom.i.i25.i.i.i.i.i.i7458
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i7460 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i7459, align 8
@@ -25649,7 +25649,7 @@ if.end4.i.i.i.i125.i.i.i.i.i7400:                 ; preds = %if.end.i.i.i.i122.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i7400, %if.then3.i.i.i.i139.i.i.i.i.i7415, %while.body.i112.i.i.i.i.i7393
-  %retval.0.i.i.i.i130.i.i.i.i.i7403 = phi i32 [ %3041, %if.then3.i.i.i.i139.i.i.i.i.i7415 ], [ %3043, %if.end4.i.i.i.i125.i.i.i.i.i7400 ], [ %add.i115.i.i.i.i.i7396, %while.body.i112.i.i.i.i.i7393 ]
+  %retval.0.i.i.i.i130.i.i.i.i.i7403 = phi i32 [ %3043, %if.end4.i.i.i.i125.i.i.i.i.i7400 ], [ %3041, %if.then3.i.i.i.i139.i.i.i.i.i7415 ], [ %add.i115.i.i.i.i.i7396, %while.body.i112.i.i.i.i.i7393 ]
   %idxprom.i.i.i131.i.i.i.i.i7404 = sext i32 %retval.0.i.i.i.i130.i.i.i.i.i7403 to i64
   %arrayidx.i.i.i132.i.i.i.i.i7405 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %3038, i64 %idxprom.i.i.i131.i.i.i.i.i7404
   %retval.sroa.0.0.copyload.i.i.i133.i.i.i.i.i7406 = load i64, ptr %arrayidx.i.i.i132.i.i.i.i.i7405, align 8
@@ -27061,7 +27061,7 @@ if.then3.i.i.i8587:                               ; preds = %if.then45.i8583
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit.i: ; preds = %if.then3.i.i.i8587, %if.then45.i8583
-  %retval.0.i.i.i8589 = phi i64 [ %3252, %if.then3.i.i.i8587 ], [ 0, %if.then45.i8583 ]
+  %retval.0.i.i.i8589 = phi i64 [ 0, %if.then45.i8583 ], [ %3252, %if.then3.i.i.i8587 ]
   %arrayidx.i.i8590 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3249, i64 %retval.0.i.i.i8589
   %retval.sroa.0.0.copyload.i.i8591 = load i64, ptr %arrayidx.i.i8590, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i8592 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i8590, i64 8
@@ -27131,7 +27131,7 @@ if.then26.i.i.i.i.i8749:                          ; preds = %for.end.i.i.i.i.i87
   br label %land.end.i.i.i8600
 
 land.end.i.i.i8600:                               ; preds = %for.body.i.i.i.i.i8758, %if.then26.i.i.i.i.i8749, %for.end.i.i.i.i.i8747, %land.rhs.i.i.i8741, %land.lhs.true.i.i.i8738, %if.end.i.i69.i8597
-  %frombool.i.i.i8601 = phi i16 [ 256, %land.lhs.true.i.i.i8738 ], [ 256, %if.end.i.i69.i8597 ], [ 257, %land.rhs.i.i.i8741 ], [ %3264, %if.then26.i.i.i.i.i8749 ], [ 257, %for.end.i.i.i.i.i8747 ], [ 256, %for.body.i.i.i.i.i8758 ]
+  %frombool.i.i.i8601 = phi i16 [ 256, %land.lhs.true.i.i.i8738 ], [ 256, %if.end.i.i69.i8597 ], [ 257, %land.rhs.i.i.i8741 ], [ 257, %for.end.i.i.i.i.i8747 ], [ %3264, %if.then26.i.i.i.i.i8749 ], [ 256, %for.body.i.i.i.i.i8758 ]
   store i16 %frombool.i.i.i8601, ptr %allSelected_.i.i.i8594, align 4, !noalias !542
   %3265 = trunc i16 %frombool.i.i.i8601 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i8602
@@ -27493,7 +27493,7 @@ if.then26.i.i.i.i191.i8568:                       ; preds = %for.end.i.i.i.i189.
   br label %land.end.i.i93.i7953
 
 land.end.i.i93.i7953:                             ; preds = %for.body.i.i.i.i200.i8577, %if.then26.i.i.i.i191.i8568, %for.end.i.i.i.i189.i8566, %land.rhs.i.i183.i8560, %land.lhs.true.i.i179.i8557, %if.end.i.i90.i7950
-  %frombool.i.i94.i7954 = phi i16 [ 256, %land.lhs.true.i.i179.i8557 ], [ 256, %if.end.i.i90.i7950 ], [ 257, %land.rhs.i.i183.i8560 ], [ %3297, %if.then26.i.i.i.i191.i8568 ], [ 257, %for.end.i.i.i.i189.i8566 ], [ 256, %for.body.i.i.i.i200.i8577 ]
+  %frombool.i.i94.i7954 = phi i16 [ 256, %land.lhs.true.i.i179.i8557 ], [ 256, %if.end.i.i90.i7950 ], [ 257, %land.rhs.i.i183.i8560 ], [ 257, %for.end.i.i.i.i189.i8566 ], [ %3297, %if.then26.i.i.i.i191.i8568 ], [ 256, %for.body.i.i.i.i200.i8577 ]
   store i16 %frombool.i.i94.i7954, ptr %allSelected_.i.i87.i7947, align 4, !noalias !542
   %3298 = trunc i16 %frombool.i.i94.i7954 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i95.i7955
@@ -27542,7 +27542,7 @@ if.end4.i.i.i.i.i8543:                            ; preds = %if.end.i.i.i5.i176.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i: ; preds = %if.end4.i.i.i.i.i8543, %if.then3.i.i.i.i178.i8556, %for.body.i175.i8538
-  %retval.0.i.i.i.i.i8545 = phi i32 [ %3306, %if.then3.i.i.i.i178.i8556 ], [ %3308, %if.end4.i.i.i.i.i8543 ], [ %3304, %for.body.i175.i8538 ]
+  %retval.0.i.i.i.i.i8545 = phi i32 [ %3308, %if.end4.i.i.i.i.i8543 ], [ %3306, %if.then3.i.i.i.i178.i8556 ], [ %3304, %for.body.i175.i8538 ]
   %idxprom.i.i.i.i8546 = sext i32 %retval.0.i.i.i.i.i8545 to i64
   %arrayidx.i.i.i.i8547 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3302, i64 %idxprom.i.i.i.i8546
   %retval.sroa.0.0.copyload.i.i.i.i8548 = load i64, ptr %arrayidx.i.i.i.i8547, align 8
@@ -27629,7 +27629,7 @@ if.end4.i.i.i.i.i.i.i.i.i8514:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i8514, %if.then3.i.i.i.i.i.i.i.i.i8529, %while.body.i.i.i.i.i165.i8507
-  %retval.0.i.i.i.i.i.i.i.i.i8517 = phi i32 [ %3321, %if.then3.i.i.i.i.i.i.i.i.i8529 ], [ %3323, %if.end4.i.i.i.i.i.i.i.i.i8514 ], [ %add.i26.i.i.i.i168.i8510, %while.body.i.i.i.i.i165.i8507 ]
+  %retval.0.i.i.i.i.i.i.i.i.i8517 = phi i32 [ %3323, %if.end4.i.i.i.i.i.i.i.i.i8514 ], [ %3321, %if.then3.i.i.i.i.i.i.i.i.i8529 ], [ %add.i26.i.i.i.i168.i8510, %while.body.i.i.i.i.i165.i8507 ]
   %idxprom.i.i.i.i.i.i.i.i8518 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i8517 to i64
   %arrayidx.i.i.i.i.i.i.i.i8519 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3318, i64 %idxprom.i.i.i.i.i.i.i.i8518
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i8520 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i8519, align 8
@@ -27699,7 +27699,7 @@ if.end4.i.i.i.i55.i.i.i.i.i8360:                  ; preds = %if.end.i.i.i.i52.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i59.i.i.i.i.i: ; preds = %if.end4.i.i.i.i55.i.i.i.i.i8360, %if.then3.i.i.i.i69.i.i.i.i.i8483, %while.body.i42.i.i.i.i121.i8353
-  %retval.0.i.i.i.i60.i.i.i.i.i8363 = phi i32 [ %3329, %if.then3.i.i.i.i69.i.i.i.i.i8483 ], [ %3331, %if.end4.i.i.i.i55.i.i.i.i.i8360 ], [ %add.i45.i.i.i.i124.i8356, %while.body.i42.i.i.i.i121.i8353 ]
+  %retval.0.i.i.i.i60.i.i.i.i.i8363 = phi i32 [ %3331, %if.end4.i.i.i.i55.i.i.i.i.i8360 ], [ %3329, %if.then3.i.i.i.i69.i.i.i.i.i8483 ], [ %add.i45.i.i.i.i124.i8356, %while.body.i42.i.i.i.i121.i8353 ]
   %idxprom.i.i.i61.i.i.i.i.i8364 = sext i32 %retval.0.i.i.i.i60.i.i.i.i.i8363 to i64
   %arrayidx.i.i.i62.i.i.i.i.i8365 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3326, i64 %idxprom.i.i.i61.i.i.i.i.i8364
   %retval.sroa.0.0.copyload.i.i.i63.i.i.i.i.i8366 = load i64, ptr %arrayidx.i.i.i62.i.i.i.i.i8365, align 8
@@ -27780,7 +27780,7 @@ if.end4.i.i.i.i83.i.i.i.i.i8444:                  ; preds = %if.end.i.i.i.i80.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i86.i.i.i.i.i: ; preds = %if.end4.i.i.i.i83.i.i.i.i.i8444, %if.then3.i.i.i.i93.i.i.i.i.i8457, %for.body.i.i.i.i.i140.i8438
-  %retval.0.i.i.i.i87.i.i.i.i.i8447 = phi i32 [ %3336, %if.then3.i.i.i.i93.i.i.i.i.i8457 ], [ %3339, %if.end4.i.i.i.i83.i.i.i.i.i8444 ], [ %conv7.i.i.i.i.i141.i8440, %for.body.i.i.i.i.i140.i8438 ]
+  %retval.0.i.i.i.i87.i.i.i.i.i8447 = phi i32 [ %3339, %if.end4.i.i.i.i83.i.i.i.i.i8444 ], [ %3336, %if.then3.i.i.i.i93.i.i.i.i.i8457 ], [ %conv7.i.i.i.i.i141.i8440, %for.body.i.i.i.i.i140.i8438 ]
   %idxprom.i.i.i88.i.i.i.i.i8448 = sext i32 %retval.0.i.i.i.i87.i.i.i.i.i8447 to i64
   %arrayidx.i.i.i89.i.i.i.i.i8449 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3333, i64 %idxprom.i.i.i88.i.i.i.i.i8448
   %retval.sroa.0.0.copyload.i.i.i90.i.i.i.i.i8450 = load i64, ptr %arrayidx.i.i.i89.i.i.i.i.i8449, align 8
@@ -27821,7 +27821,7 @@ if.end4.i.i.i20.i.i.i.i.i.i8467:                  ; preds = %if.end.i.i.i17.i.i.
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit32.i.i.i.i.i.i: ; preds = %if.end4.i.i.i20.i.i.i.i.i.i8467, %if.then3.i.i.i30.i.i.i.i.i.i8482, %while.body.i95.i.i.i.i.i8460
-  %retval.0.i.i.i24.i.i.i.i.i.i8470 = phi i32 [ %3344, %if.then3.i.i.i30.i.i.i.i.i.i8482 ], [ %3346, %if.end4.i.i.i20.i.i.i.i.i.i8467 ], [ %add10.i.i.i.i.i146.i8463, %while.body.i95.i.i.i.i.i8460 ]
+  %retval.0.i.i.i24.i.i.i.i.i.i8470 = phi i32 [ %3346, %if.end4.i.i.i20.i.i.i.i.i.i8467 ], [ %3344, %if.then3.i.i.i30.i.i.i.i.i.i8482 ], [ %add10.i.i.i.i.i146.i8463, %while.body.i95.i.i.i.i.i8460 ]
   %idxprom.i.i25.i.i.i.i.i.i8471 = sext i32 %retval.0.i.i.i24.i.i.i.i.i.i8470 to i64
   %arrayidx.i.i26.i.i.i.i.i.i8472 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3341, i64 %idxprom.i.i25.i.i.i.i.i.i8471
   %retval.sroa.0.0.copyload.i.i27.i.i.i.i.i.i8473 = load i64, ptr %arrayidx.i.i26.i.i.i.i.i.i8472, align 8
@@ -27892,7 +27892,7 @@ if.end4.i.i.i.i125.i.i.i.i.i8414:                 ; preds = %if.end.i.i.i.i122.i
   br label %_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i
 
 _ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliE0_clEi.exit.i129.i.i.i.i.i: ; preds = %if.end4.i.i.i.i125.i.i.i.i.i8414, %if.then3.i.i.i.i139.i.i.i.i.i8429, %while.body.i112.i.i.i.i.i8407
-  %retval.0.i.i.i.i130.i.i.i.i.i8417 = phi i32 [ %3352, %if.then3.i.i.i.i139.i.i.i.i.i8429 ], [ %3354, %if.end4.i.i.i.i125.i.i.i.i.i8414 ], [ %add.i115.i.i.i.i.i8410, %while.body.i112.i.i.i.i.i8407 ]
+  %retval.0.i.i.i.i130.i.i.i.i.i8417 = phi i32 [ %3354, %if.end4.i.i.i.i125.i.i.i.i.i8414 ], [ %3352, %if.then3.i.i.i.i139.i.i.i.i.i8429 ], [ %add.i115.i.i.i.i.i8410, %while.body.i112.i.i.i.i.i8407 ]
   %idxprom.i.i.i131.i.i.i.i.i8418 = sext i32 %retval.0.i.i.i.i130.i.i.i.i.i8417 to i64
   %arrayidx.i.i.i132.i.i.i.i.i8419 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %3349, i64 %idxprom.i.i.i131.i.i.i.i.i8418
   %retval.sroa.0.0.copyload.i.i.i133.i.i.i.i.i8420 = load i64, ptr %arrayidx.i.i.i132.i.i.i.i.i8419, align 8
@@ -30880,7 +30880,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %58, %if.then3.i.i ], [ %61, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %61, %if.end4.i.i ], [ %58, %if.then3.i.i ], [ %conv12, %for.body ]
   %conv.i.i73 = sext i32 %retval.0.i.i to i64
   %div2.i.i = lshr i64 %conv.i.i73, 6
   %arrayidx.i1.i = getelementptr inbounds nuw i64, ptr %55, i64 %div2.i.i
@@ -30916,9 +30916,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit
-  %conv.i.i.i84.pre-phi = phi i64 [ %.pre188, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %67 = phi ptr [ %.pre187, %if.end.loopexit ], [ %44, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %31, %while.body.i.i52 ]
-  %68 = phi ptr [ %.pre185, %if.end.loopexit ], [ %42, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %28, %while.body.i.i52 ]
+  %conv.i.i.i84.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %.pre188, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %67 = phi ptr [ %44, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %.pre187, %if.end.loopexit ], [ %31, %while.body.i.i52 ]
+  %68 = phi ptr [ %42, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE0EE13getMapAtIndexEi.exit ], [ %.pre185, %if.end.loopexit ], [ %28, %while.body.i.i52 ]
   %values_.i.i89 = getelementptr inbounds nuw i8, ptr %68, i64 8
   br label %for.cond.i.i.i90
 
@@ -31538,8 +31538,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIbiNS_23HeterogeneousAccessHashIbvEENS_26HeterogeneousAccessEqualToIbvEEN8facebook5velox6memory12StlAllocatorISt4pairIKbiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIbiNS_23HeterogeneousAccessHashIbvEENS_26HeterogeneousAccessEqualToIbvEEN8facebook5velox6memory12StlAllocatorISt4pairIKbiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -33567,7 +33567,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %57, %if.then3.i.i ], [ %60, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %60, %if.end4.i.i ], [ %57, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %54, i64 %idxprom.i
   %61 = load i32, ptr %arrayidx.i, align 4
@@ -33598,9 +33598,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre178, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %64 = phi ptr [ %.pre177, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i52 ]
-  %65 = phi ptr [ %.pre175, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %.pre178, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %64 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %.pre177, %if.end.loopexit ], [ %30, %while.body.i.i52 ]
+  %65 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE3EE13getMapAtIndexEi.exit ], [ %.pre175, %if.end.loopexit ], [ %27, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %65, i64 8
   br label %for.cond.i.i.i88
 
@@ -33998,8 +33998,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIiiNS_23HeterogeneousAccessHashIivEENS_26HeterogeneousAccessEqualToIivEEN8facebook5velox6memory12StlAllocatorISt4pairIKiiEEEEEvvNSC_ISD_ISE_SH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIiiNS_23HeterogeneousAccessHashIivEENS_26HeterogeneousAccessEqualToIivEEN8facebook5velox6memory12StlAllocatorISt4pairIKiiEEEEEvvNSC_ISD_ISE_SH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -35835,7 +35835,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %56, %if.then3.i.i ], [ %59, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %59, %if.end4.i.i ], [ %56, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %53, i64 %idxprom.i
   %60 = load i8, ptr %arrayidx.i, align 1
@@ -35866,9 +35866,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre178, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %63 = phi ptr [ %.pre177, %if.end.loopexit ], [ %42, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %29, %while.body.i.i52 ]
-  %64 = phi ptr [ %.pre175, %if.end.loopexit ], [ %40, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %26, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %.pre178, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %63 = phi ptr [ %42, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %.pre177, %if.end.loopexit ], [ %29, %while.body.i.i52 ]
+  %64 = phi ptr [ %40, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE1EE13getMapAtIndexEi.exit ], [ %.pre175, %if.end.loopexit ], [ %26, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %for.cond.i.i.i88
 
@@ -36266,8 +36266,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIaiNS_23HeterogeneousAccessHashIavEENS_26HeterogeneousAccessEqualToIavEEN8facebook5velox6memory12StlAllocatorISt4pairIKaiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIaiNS_23HeterogeneousAccessHashIavEENS_26HeterogeneousAccessEqualToIavEEN8facebook5velox6memory12StlAllocatorISt4pairIKaiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -38103,7 +38103,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %57, %if.then3.i.i ], [ %60, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %60, %if.end4.i.i ], [ %57, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %54, i64 %idxprom.i
   %61 = load i16, ptr %arrayidx.i, align 2
@@ -38134,9 +38134,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre178, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %64 = phi ptr [ %.pre177, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i52 ]
-  %65 = phi ptr [ %.pre175, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %.pre178, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %64 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %.pre177, %if.end.loopexit ], [ %30, %while.body.i.i52 ]
+  %65 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE2EE13getMapAtIndexEi.exit ], [ %.pre175, %if.end.loopexit ], [ %27, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %65, i64 8
   br label %for.cond.i.i.i88
 
@@ -38534,8 +38534,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIsiNS_23HeterogeneousAccessHashIsvEENS_26HeterogeneousAccessEqualToIsvEEN8facebook5velox6memory12StlAllocatorISt4pairIKsiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIsiNS_23HeterogeneousAccessHashIsvEENS_26HeterogeneousAccessEqualToIsvEEN8facebook5velox6memory12StlAllocatorISt4pairIKsiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -40483,7 +40483,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %57, %if.then3.i.i ], [ %60, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %60, %if.end4.i.i ], [ %57, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i
   %61 = load i64, ptr %arrayidx.i, align 8
@@ -40513,9 +40513,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre176, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %64 = phi ptr [ %.pre175, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i52 ]
-  %65 = phi ptr [ %.pre173, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %.pre176, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %64 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %.pre175, %if.end.loopexit ], [ %30, %while.body.i.i52 ]
+  %65 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE4EE13getMapAtIndexEi.exit ], [ %.pre173, %if.end.loopexit ], [ %27, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %65, i64 8
   br label %for.cond.i.i.i88
 
@@ -40911,8 +40911,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIliNS_23HeterogeneousAccessHashIlvEENS_26HeterogeneousAccessEqualToIlvEEN8facebook5velox6memory12StlAllocatorISt4pairIKliEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIliNS_23HeterogeneousAccessHashIlvEENS_26HeterogeneousAccessEqualToIlvEEN8facebook5velox6memory12StlAllocatorISt4pairIKliEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -42733,7 +42733,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %54, %if.then3.i.i ], [ %57, %if.end4.i.i ], [ %conv13, %for.body ]
+  %retval.0.i.i = phi i32 [ %57, %if.end4.i.i ], [ %54, %if.then3.i.i ], [ %conv13, %for.body ]
   %conv.i = sext i32 %retval.0.i.i to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %51, i64 %mul.i
@@ -42765,9 +42765,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i42, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit
-  %conv.i.i.i75.pre-phi = phi i64 [ %.pre193, %if.end.loopexit ], [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i42 ]
-  %60 = phi ptr [ %.pre192, %if.end.loopexit ], [ %40, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i42 ]
-  %61 = phi ptr [ %.pre190, %if.end.loopexit ], [ %38, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %24, %while.body.i.i42 ]
+  %conv.i.i.i75.pre-phi = phi i64 [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %.pre193, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i42 ]
+  %60 = phi ptr [ %40, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %.pre192, %if.end.loopexit ], [ %27, %while.body.i.i42 ]
+  %61 = phi ptr [ %38, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE10EE13getMapAtIndexEi.exit ], [ %.pre190, %if.end.loopexit ], [ %24, %while.body.i.i42 ]
   %values_.i.i80 = getelementptr inbounds nuw i8, ptr %61, i64 8
   br label %for.cond.i.i.i81
 
@@ -43172,8 +43172,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIniNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEEN8facebook5velox6memory12StlAllocatorISt4pairIKniEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIniNS_23HeterogeneousAccessHashInvEENS_26HeterogeneousAccessEqualToInvEEN8facebook5velox6memory12StlAllocatorISt4pairIKniEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -43922,8 +43922,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyInivvN8facebook5velox6memory12StlAllocatorISt4pairIKniEEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyInivvN8facebook5velox6memory12StlAllocatorISt4pairIKniEEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -45095,7 +45095,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %57, %if.then3.i.i ], [ %60, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %60, %if.end4.i.i ], [ %57, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds float, ptr %54, i64 %idxprom.i
   %61 = load float, ptr %arrayidx.i, align 4
@@ -45144,9 +45144,9 @@ if.end.loopexit:                                  ; preds = %_ZN5folly3f146detai
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre178, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %66 = phi ptr [ %.pre177, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i52 ]
-  %67 = phi ptr [ %.pre175, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %.pre178, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %66 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %.pre177, %if.end.loopexit ], [ %30, %while.body.i.i52 ]
+  %67 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE5EE13getMapAtIndexEi.exit ], [ %.pre175, %if.end.loopexit ], [ %27, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %for.cond.i.i.i88
 
@@ -45562,8 +45562,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIfiNS_23HeterogeneousAccessHashIfvEENS_26HeterogeneousAccessEqualToIfvEEN8facebook5velox6memory12StlAllocatorISt4pairIKfiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIfiNS_23HeterogeneousAccessHashIfvEENS_26HeterogeneousAccessEqualToIfvEEN8facebook5velox6memory12StlAllocatorISt4pairIKfiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -47534,7 +47534,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %57, %if.then3.i.i ], [ %60, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %60, %if.end4.i.i ], [ %57, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds double, ptr %54, i64 %idxprom.i
   %61 = load double, ptr %arrayidx.i, align 8
@@ -47583,9 +47583,9 @@ if.end.loopexit:                                  ; preds = %_ZN5folly3f146detai
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i52, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit
-  %conv.i.i.i82.pre-phi = phi i64 [ %.pre177, %if.end.loopexit ], [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i52 ]
-  %66 = phi ptr [ %.pre176, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i52 ]
-  %67 = phi ptr [ %.pre174, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i52 ]
+  %conv.i.i.i82.pre-phi = phi i64 [ %conv.i.i.i59, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %.pre177, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i52 ]
+  %66 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %.pre176, %if.end.loopexit ], [ %30, %while.body.i.i52 ]
+  %67 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE6EE13getMapAtIndexEi.exit ], [ %.pre174, %if.end.loopexit ], [ %27, %while.body.i.i52 ]
   %values_.i.i87 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %for.cond.i.i.i88
 
@@ -48000,8 +48000,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIdiNS_23HeterogeneousAccessHashIdvEENS_26HeterogeneousAccessEqualToIdvEEN8facebook5velox6memory12StlAllocatorISt4pairIKdiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIdiNS_23HeterogeneousAccessHashIdvEENS_26HeterogeneousAccessEqualToIdvEEN8facebook5velox6memory12StlAllocatorISt4pairIKdiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -49819,7 +49819,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %53, %if.then3.i.i ], [ %56, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %56, %if.end4.i.i ], [ %53, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %50, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -49861,9 +49861,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i42, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit
-  %conv.i.i.i76.pre-phi = phi i64 [ %.pre207, %if.end.loopexit ], [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i42 ]
-  %60 = phi ptr [ %.pre206, %if.end.loopexit ], [ %37, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %24, %while.body.i.i42 ]
-  %61 = phi ptr [ %.pre204, %if.end.loopexit ], [ %35, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %21, %while.body.i.i42 ]
+  %conv.i.i.i76.pre-phi = phi i64 [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %.pre207, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i42 ]
+  %60 = phi ptr [ %37, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %.pre206, %if.end.loopexit ], [ %24, %while.body.i.i42 ]
+  %61 = phi ptr [ %35, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE7EE13getMapAtIndexEi.exit ], [ %.pre204, %if.end.loopexit ], [ %21, %while.body.i.i42 ]
   %values_.i.i81 = getelementptr inbounds nuw i8, ptr %61, i64 8
   br label %for.cond.i.i.i82
 
@@ -50040,7 +50040,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   br i1 %exitcond203.not, label %if.then44, label %for.body.i.i, !llvm.loop !923
 
 if.then21:                                        ; preds = %if.end.i.i.i, %if.end.i.i.i.us, %while.body.i.i.us.us
-  %idx.ext8.i.pre-phi = phi i64 [ %idxprom.i113.us.us, %while.body.i.i.us.us ], [ %idxprom.i113.us, %if.end.i.i.i.us ], [ %idxprom.i113, %if.end.i.i.i ]
+  %idx.ext8.i.pre-phi = phi i64 [ %idxprom.i113.us, %if.end.i.i.i.us ], [ %idxprom.i113.us.us, %while.body.i.i.us.us ], [ %idxprom.i113, %if.end.i.i.i ]
   %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair.896", ptr %79, i64 %idx.ext8.i.pre-phi
   %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 16
   %91 = load i32, ptr %second, align 8
@@ -50074,7 +50074,7 @@ if.end4.i.i132:                                   ; preds = %if.end.i.i129
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit146
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit146: ; preds = %for.body29, %if.then3.i.i144, %if.end4.i.i132
-  %retval.0.i.i136 = phi i32 [ %96, %if.then3.i.i144 ], [ %99, %if.end4.i.i132 ], [ %conv31, %for.body29 ]
+  %retval.0.i.i136 = phi i32 [ %99, %if.end4.i.i132 ], [ %96, %if.then3.i.i144 ], [ %conv31, %for.body29 ]
   %idxprom.i137 = sext i32 %retval.0.i.i136 to i64
   %arrayidx.i138 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %17, i64 %idxprom.i137
   %retval.sroa.0.0.copyload.i139 = load i64, ptr %arrayidx.i138, align 8
@@ -50376,8 +50376,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIN8facebook5velox10StringViewEiNS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEENS6_6memory12StlAllocatorISt4pairIKS7_iEEEEEvvNSD_ISE_IKiSI_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIN8facebook5velox10StringViewEiNS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEENS6_6memory12StlAllocatorISt4pairIKS7_iEEEEEvvNSD_ISE_IKiSI_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -51070,8 +51070,8 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %if.end7, label %for.body.i, !llvm.loop !923
 
 if.then6:                                         ; preds = %if.end.i.i.i, %if.end.i.i.i.us.us83, %while.body.i.us.us.us.us
-  %.us-phi = phi i64 [ %conv9.i.us.us.us.us, %while.body.i.us.us.us.us ], [ %conv9.i.us.us78, %if.end.i.i.i.us.us83 ], [ %conv9.i, %if.end.i.i.i ]
-  %.us-phi61 = phi ptr [ %rawItems_.i.i.us.us, %while.body.i.us.us.us.us ], [ %rawItems_.i.i.us, %if.end.i.i.i.us.us83 ], [ %rawItems_.i.i, %if.end.i.i.i ]
+  %.us-phi = phi i64 [ %conv9.i.us.us78, %if.end.i.i.i.us.us83 ], [ %conv9.i.us.us.us.us, %while.body.i.us.us.us.us ], [ %conv9.i, %if.end.i.i.i ]
+  %.us-phi61 = phi ptr [ %rawItems_.i.i.us, %if.end.i.i.i.us.us83 ], [ %rawItems_.i.i.us.us, %while.body.i.us.us.us.us ], [ %rawItems_.i.i, %if.end.i.i.i ]
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %.us-phi61, i64 %.us-phi
   br label %return
 
@@ -51252,8 +51252,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox10StringViewEivvNS5_6memory12StlAllocatorISt4pairIKS6_iEEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox10StringViewEivvNS5_6memory12StlAllocatorISt4pairIKS6_iEEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -52273,7 +52273,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %53, %if.then3.i.i ], [ %56, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %56, %if.end4.i.i ], [ %53, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %50, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -52315,9 +52315,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i42, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit
-  %conv.i.i.i76.pre-phi = phi i64 [ %.pre207, %if.end.loopexit ], [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i42 ]
-  %60 = phi ptr [ %.pre206, %if.end.loopexit ], [ %37, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %24, %while.body.i.i42 ]
-  %61 = phi ptr [ %.pre204, %if.end.loopexit ], [ %35, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %21, %while.body.i.i42 ]
+  %conv.i.i.i76.pre-phi = phi i64 [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %.pre207, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i42 ]
+  %60 = phi ptr [ %37, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %.pre206, %if.end.loopexit ], [ %24, %while.body.i.i42 ]
+  %61 = phi ptr [ %35, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EE13getMapAtIndexEi.exit ], [ %.pre204, %if.end.loopexit ], [ %21, %while.body.i.i42 ]
   %values_.i.i81 = getelementptr inbounds nuw i8, ptr %61, i64 8
   br label %for.cond.i.i.i82
 
@@ -52494,7 +52494,7 @@ if.end20.i.i:                                     ; preds = %while.end.i.i
   br i1 %exitcond203.not, label %if.then44, label %for.body.i.i, !llvm.loop !923
 
 if.then21:                                        ; preds = %if.end.i.i.i, %if.end.i.i.i.us, %while.body.i.i.us.us
-  %idx.ext8.i.pre-phi = phi i64 [ %idxprom.i113.us.us, %while.body.i.i.us.us ], [ %idxprom.i113.us, %if.end.i.i.i.us ], [ %idxprom.i113, %if.end.i.i.i ]
+  %idx.ext8.i.pre-phi = phi i64 [ %idxprom.i113.us, %if.end.i.i.i.us ], [ %idxprom.i113.us.us, %while.body.i.i.us.us ], [ %idxprom.i113, %if.end.i.i.i ]
   %add.ptr9.i = getelementptr inbounds nuw %"struct.std::pair.896", ptr %79, i64 %idx.ext8.i.pre-phi
   %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i, i64 16
   %91 = load i32, ptr %second, align 8
@@ -52528,7 +52528,7 @@ if.end4.i.i132:                                   ; preds = %if.end.i.i129
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit146
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit146: ; preds = %for.body29, %if.then3.i.i144, %if.end4.i.i132
-  %retval.0.i.i136 = phi i32 [ %96, %if.then3.i.i144 ], [ %99, %if.end4.i.i132 ], [ %conv31, %for.body29 ]
+  %retval.0.i.i136 = phi i32 [ %99, %if.end4.i.i132 ], [ %96, %if.then3.i.i144 ], [ %conv31, %for.body29 ]
   %idxprom.i137 = sext i32 %retval.0.i.i136 to i64
   %arrayidx.i138 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %17, i64 %idxprom.i137
   %retval.sroa.0.0.copyload.i139 = load i64, ptr %arrayidx.i138, align 8
@@ -53200,7 +53200,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit: ; preds = %for.body, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %58, %if.then3.i.i ], [ %61, %if.end4.i.i ], [ %conv12, %for.body ]
+  %retval.0.i.i = phi i32 [ %61, %if.end4.i.i ], [ %58, %if.then3.i.i ], [ %conv12, %for.body ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %55, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -53242,9 +53242,9 @@ if.end.loopexit:                                  ; preds = %_ZNK8facebook5velox
   br label %if.end
 
 if.end:                                           ; preds = %while.body.i.i42, %if.end.loopexit, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit
-  %conv.i.i.i75.pre-phi = phi i64 [ %.pre196, %if.end.loopexit ], [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %conv.i18.i, %while.body.i.i42 ]
-  %65 = phi ptr [ %.pre195, %if.end.loopexit ], [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %30, %while.body.i.i42 ]
-  %66 = phi ptr [ %.pre193, %if.end.loopexit ], [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %27, %while.body.i.i42 ]
+  %conv.i.i.i75.pre-phi = phi i64 [ %conv.i.i.i50, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %.pre196, %if.end.loopexit ], [ %conv.i18.i, %while.body.i.i42 ]
+  %65 = phi ptr [ %43, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %.pre195, %if.end.loopexit ], [ %30, %while.body.i.i42 ]
+  %66 = phi ptr [ %41, %_ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE9EE13getMapAtIndexEi.exit ], [ %.pre193, %if.end.loopexit ], [ %27, %while.body.i.i42 ]
   %values_.i.i80 = getelementptr inbounds nuw i8, ptr %66, i64 8
   br label %for.cond.i.i.i81
 
@@ -53665,8 +53665,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIN8facebook5velox9TimestampEiNS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEENS6_6memory12StlAllocatorISt4pairIKS7_iEEEEEvvNSD_ISE_IKiSI_EEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIN8facebook5velox9TimestampEiNS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEENS6_6memory12StlAllocatorISt4pairIKS7_iEEEEEvvNSD_ISE_IKiSI_EEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -54420,8 +54420,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox9TimestampEivvNS5_6memory12StlAllocatorISt4pairIKS6_iEEESt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox9TimestampEivvNS5_6memory12StlAllocatorISt4pairIKS6_iEEESt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 

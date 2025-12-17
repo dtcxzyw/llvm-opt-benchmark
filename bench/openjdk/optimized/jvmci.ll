@@ -1267,7 +1267,7 @@ define hidden void @_ZN5JVMCI9fatal_logEPKcm(ptr noundef %0, i64 noundef %1) loc
   br label %27
 
 27:                                               ; preds = %13, %10, %20, %19
-  %.0 = phi i32 [ %18, %19 ], [ 1, %20 ], [ 1, %10 ], [ 2, %13 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %10 ], [ %18, %19 ], [ 2, %13 ]
   store volatile i32 %.0, ptr @_ZN5JVMCI13_fatal_log_fdE, align 4
   br label %.loopexit
 

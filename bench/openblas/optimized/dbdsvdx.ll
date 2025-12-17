@@ -142,7 +142,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %or.cond1216, label %.thread846.sink.split, label %.thread
 
 .thread846.sink.split:                            ; preds = %77, %80, %71, %67, %63, %60, %55, %51, %49, %17
-  %.sink = phi i32 [ -1, %17 ], [ -2, %49 ], [ -3, %51 ], [ -4, %55 ], [ -7, %60 ], [ -8, %63 ], [ -9, %67 ], [ -10, %71 ], [ -14, %80 ], [ -14, %77 ]
+  %.sink = phi i32 [ -1, %17 ], [ -3, %51 ], [ -7, %60 ], [ -4, %55 ], [ -8, %63 ], [ -9, %67 ], [ -2, %49 ], [ -10, %71 ], [ -14, %80 ], [ -14, %77 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread846
 
@@ -1022,7 +1022,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not833.not, label %495, label %.loopexit858, !llvm.loop !19
 
 .loopexit858:                                     ; preds = %495, %380, %._crit_edge948, %479, %392
-  %.3723 = phi i32 [ %.1721969, %479 ], [ %.1721969, %._crit_edge948 ], [ %.1721969, %392 ], [ %.1721969, %380 ], [ 1, %495 ]
+  %.3723 = phi i32 [ %.1721969, %479 ], [ %.1721969, %392 ], [ %.1721969, %._crit_edge948 ], [ %.1721969, %380 ], [ 1, %495 ]
   %497 = load i32, ptr %29, align 4, !tbaa !3
   %498 = load i32, ptr %30, align 4, !tbaa !3
   %499 = call i32 @llvm.smin.i32(i32 %497, i32 %498)

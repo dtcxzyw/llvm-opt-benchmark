@@ -201,7 +201,7 @@ zend_string_release_ex.exit:                      ; preds = %get_libxml_namespac
   br label %64
 
 64:                                               ; preds = %41, %zend_string_release_ex.exit, %62, %38, %29
-  %.0192 = phi ptr [ %37, %38 ], [ %37, %29 ], [ %9, %41 ], [ %53, %62 ], [ null, %zend_string_release_ex.exit ]
+  %.0192 = phi ptr [ %37, %29 ], [ %9, %41 ], [ %37, %38 ], [ %53, %62 ], [ null, %zend_string_release_ex.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store ptr %.0192, ptr %65, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -570,7 +570,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit231.thread: ; preds = %197, %203, %
   br label %lxb_dom_document_type_name.exit
 
 lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %234
-  %.0.i239 = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %218 ], [ @lxb_dom_document_type_name.lxb_empty, %227 ], [ %235, %234 ], [ %225, %230 ]
+  %.0.i239 = phi ptr [ @lxb_dom_document_type_name.lxb_empty, %227 ], [ @lxb_dom_document_type_name.lxb_empty, %218 ], [ %235, %234 ], [ %225, %230 ]
   %236 = getelementptr i8, ptr %20, i64 112
   %.val = load ptr, ptr %236, align 8, !tbaa !116
   %237 = getelementptr i8, ptr %20, i64 120
@@ -587,10 +587,10 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
   %.not221.not = icmp eq ptr %242, null
   br i1 %.not221.not, label %.thread281, label %.backedge
 
-.backedge:                                        ; preds = %lxb_dom_attr_value.exit, %112, %183, %.lr.ph343, %._crit_edge, %lxb_dom_document_type_name.exit, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, %211, %215, %248
-  %.0168.be = phi ptr [ %.0168340, %248 ], [ %.0168340, %211 ], [ %.0168340, %215 ], [ %.3171298, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0168340, %lxb_dom_document_type_name.exit ], [ %.0168340, %.lr.ph343 ], [ %.0168340, %._crit_edge ], [ %.3171298, %lxb_dom_attr_value.exit ], [ %.3171298, %112 ], [ %.10178, %183 ]
-  %.0156.be = phi ptr [ %.0156341, %248 ], [ %.0156341, %211 ], [ %.0156341, %215 ], [ %.3159299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0156341, %lxb_dom_document_type_name.exit ], [ %.0156341, %.lr.ph343 ], [ %.0156341, %._crit_edge ], [ %.3159299, %lxb_dom_attr_value.exit ], [ %.3159299, %112 ], [ %.8164, %183 ]
-  %.0.be = phi i32 [ %.0342, %248 ], [ %.0342, %211 ], [ %.0342, %215 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0342, %lxb_dom_document_type_name.exit ], [ %.0342, %.lr.ph343 ], [ %.0342, %._crit_edge ], [ 3, %lxb_dom_attr_value.exit ], [ 4, %112 ], [ %.0342, %183 ]
+.backedge:                                        ; preds = %lxb_dom_attr_value.exit, %112, %183, %248, %211, %215, %.lr.ph343, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, %._crit_edge, %lxb_dom_document_type_name.exit
+  %.0168.be = phi ptr [ %.0168340, %lxb_dom_document_type_name.exit ], [ %.0168340, %._crit_edge ], [ %.0168340, %248 ], [ %.0168340, %211 ], [ %.0168340, %215 ], [ %.0168340, %.lr.ph343 ], [ %.3171298, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.3171298, %112 ], [ %.10178, %183 ], [ %.3171298, %lxb_dom_attr_value.exit ]
+  %.0156.be = phi ptr [ %.0156341, %lxb_dom_document_type_name.exit ], [ %.0156341, %._crit_edge ], [ %.0156341, %248 ], [ %.0156341, %211 ], [ %.0156341, %215 ], [ %.0156341, %.lr.ph343 ], [ %.3159299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.3159299, %112 ], [ %.8164, %183 ], [ %.3159299, %lxb_dom_attr_value.exit ]
+  %.0.be = phi i32 [ %.0342, %lxb_dom_document_type_name.exit ], [ %.0342, %._crit_edge ], [ %.0342, %248 ], [ %.0342, %211 ], [ %.0342, %215 ], [ %.0342, %.lr.ph343 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ 4, %112 ], [ %.0342, %183 ], [ 3, %lxb_dom_attr_value.exit ]
   %243 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %7) #11
   %.not217 = icmp eq ptr %243, null
   br i1 %.not217, label %.thread281, label %.lr.ph343
@@ -612,8 +612,8 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
   store i16 %.0.i241, ptr %252, align 8, !tbaa !32
   br label %.backedge
 
-.thread281:                                       ; preds = %.backedge, %25, %74, %185, %lexbor_libxml2_bridge_new_text_node_fast.exit231, %193, %244, %lxb_dom_document_type_name.exit, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %.0.be, %.backedge ], [ 4, %25 ], [ 4, %74 ], [ 3, %185 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit231 ], [ 4, %193 ], [ 4, %244 ], [ 4, %lxb_dom_document_type_name.exit ]
+.thread281:                                       ; preds = %.backedge, %74, %25, %185, %lexbor_libxml2_bridge_new_text_node_fast.exit231, %193, %244, %lxb_dom_document_type_name.exit, %.preheader
+  %.1 = phi i32 [ 0, %.preheader ], [ %.0.be, %.backedge ], [ 4, %lxb_dom_document_type_name.exit ], [ 4, %193 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit231 ], [ 4, %244 ], [ 4, %25 ], [ 3, %185 ], [ 4, %74 ]
   %253 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %7, i1 noundef zeroext false) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1

@@ -792,8 +792,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.b
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
 if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
@@ -808,8 +808,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !9
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us ], [ true, %if.then.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us50 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i.us98 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }
@@ -2225,8 +2225,8 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   br label %_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit
 
 _ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit: ; preds = %entry, %if.end.i, %lor.lhs.false.i, %if.end5.i
-  %retval.sroa.0.0.i = phi ptr [ %call7.i, %if.end5.i ], [ undef, %entry ], [ undef, %lor.lhs.false.i ], [ undef, %if.end.i ]
-  %retval.sroa.2.0.i = phi i8 [ 2, %if.end5.i ], [ 0, %entry ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i ]
+  %retval.sroa.0.0.i = phi ptr [ undef, %entry ], [ %call7.i, %if.end5.i ], [ undef, %lor.lhs.false.i ], [ undef, %if.end.i ]
+  %retval.sroa.2.0.i = phi i8 [ 0, %entry ], [ 2, %if.end5.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end.i ]
   %.fca.0.insert.i = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i8 } %.fca.0.insert.i, i8 %retval.sroa.2.0.i, 1
   ret { ptr, i8 } %.fca.1.insert.i
@@ -30344,8 +30344,8 @@ return.sink.split:                                ; preds = %_ZN6hermes25ES6Clas
   br label %return
 
 return:                                           ; preds = %if.end, %return.sink.split, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit, %lor.lhs.false12, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, %entry, %lor.lhs.false
-  %retval.sroa.0.0 = phi ptr [ undef, %lor.lhs.false ], [ undef, %entry ], [ %call2.i, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ undef, %lor.lhs.false12 ], [ %call11.i, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ], [ %retval.sroa.0.0.ph, %return.sink.split ], [ undef, %if.end ]
-  %retval.sroa.3.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 2, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ 0, %lor.lhs.false12 ], [ 2, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ], [ 2, %return.sink.split ], [ 0, %if.end ]
+  %retval.sroa.0.0 = phi ptr [ undef, %if.end ], [ undef, %entry ], [ %call11.i, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ], [ undef, %lor.lhs.false ], [ %call2.i, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ undef, %lor.lhs.false12 ], [ %retval.sroa.0.0.ph, %return.sink.split ]
+  %retval.sroa.3.0 = phi i8 [ 0, %if.end ], [ 0, %entry ], [ 2, %_ZN6hermes25ES6ClassesTransformations21createSuperMethodCallEPNS_6ESTree4NodeES3_S3_N12_GLOBAL__N_110NodeVectorE.exit ], [ 0, %lor.lhs.false ], [ 2, %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit ], [ 0, %lor.lhs.false12 ], [ 2, %return.sink.split ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -31870,7 +31870,7 @@ if.then9.i:                                       ; preds = %if.end.i126.i.i
   br label %for.inc.i
 
 if.end.i:                                         ; preds = %if.end.i.i.i48, %if.end.i108.i.i, %if.end.i117.i.i
-  %retval.0.i.ph.i = phi i32 [ 3, %if.end.i.i.i48 ], [ 2, %if.end.i108.i.i ], [ 1, %if.end.i117.i.i ]
+  %retval.0.i.ph.i = phi i32 [ 3, %if.end.i.i.i48 ], [ 1, %if.end.i117.i.i ], [ 2, %if.end.i108.i.i ]
   %_key.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.060.i, i64 48
   %49 = load ptr, ptr %_key.i, align 8
   %_name.i49 = getelementptr inbounds nuw i8, ptr %49, i64 48
@@ -32751,20 +32751,20 @@ _ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit:
   br i1 %cmp.not.i.i269, label %if.end31.i, label %if.end31.i.sink.split
 
 if.end31.i.sink.split:                            ; preds = %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, %if.then22.i, %if.then.i155
-  %retval.0.i.i.i.i.i.i.i.sink.ph = phi ptr [ %153, %if.then.i155 ], [ %183, %if.then22.i ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  %hermesCallName.i.sroa.0.1.ph = phi ptr [ %cond.i, %if.then.i155 ], [ %cond11.i, %if.then22.i ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  %hermesCallName.i.sroa.6.1.ph = phi i64 [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %if.then22.i ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
-  %srcNode.0.i.ph = phi ptr [ %149, %if.then.i155 ], [ %180, %if.then22.i ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %retval.0.i.i.i.i.i.i.i.sink.ph = phi ptr [ %183, %if.then22.i ], [ %153, %if.then.i155 ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %hermesCallName.i.sroa.0.1.ph = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %hermesCallName.i.sroa.6.1.ph = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
+  %srcNode.0.i.ph = phi ptr [ %180, %if.then22.i ], [ %149, %if.then.i155 ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ]
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %parameters.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i410, i64 noundef 0, i64 noundef 8) #16
   %.pre.i.i272 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end31.i.sink.split, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, %if.then22.i, %if.then.i155
-  %.sink443 = phi i32 [ %154, %if.then.i155 ], [ %184, %if.then22.i ], [ %199, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %.pre.i.i272, %if.end31.i.sink.split ]
-  %retval.0.i.i.i.i.i.i.i.sink = phi ptr [ %153, %if.then.i155 ], [ %183, %if.then22.i ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %retval.0.i.i.i.i.i.i.i.sink.ph, %if.end31.i.sink.split ]
-  %hermesCallName.i.sroa.0.1 = phi ptr [ %cond.i, %if.then.i155 ], [ %cond11.i, %if.then22.i ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.0.1.ph, %if.end31.i.sink.split ]
-  %hermesCallName.i.sroa.6.1 = phi i64 [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %if.then22.i ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.6.1.ph, %if.end31.i.sink.split ]
-  %srcNode.0.i = phi ptr [ %149, %if.then.i155 ], [ %180, %if.then22.i ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %srcNode.0.i.ph, %if.end31.i.sink.split ]
+  %.sink443 = phi i32 [ %184, %if.then22.i ], [ %154, %if.then.i155 ], [ %199, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %.pre.i.i272, %if.end31.i.sink.split ]
+  %retval.0.i.i.i.i.i.i.i.sink = phi ptr [ %183, %if.then22.i ], [ %153, %if.then.i155 ], [ %retval.0.i.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %retval.0.i.i.i.i.i.i.i.sink.ph, %if.end31.i.sink.split ]
+  %hermesCallName.i.sroa.0.1 = phi ptr [ %cond11.i, %if.then22.i ], [ %cond.i, %if.then.i155 ], [ %cond11.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.0.1.ph, %if.end31.i.sink.split ]
+  %hermesCallName.i.sroa.6.1 = phi i64 [ %call.i43.i, %if.then22.i ], [ %call.i.i156, %if.then.i155 ], [ %call.i43.i, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %hermesCallName.i.sroa.6.1.ph, %if.end31.i.sink.split ]
+  %srcNode.0.i = phi ptr [ %180, %if.then22.i ], [ %149, %if.then.i155 ], [ %157, %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit ], [ %srcNode.0.i.ph, %if.end31.i.sink.split ]
   %201 = load ptr, ptr %parameters.i, align 8
   %conv.i3.i.i273 = zext i32 %.sink443 to i64
   %add.ptr.i.i.i274 = getelementptr inbounds nuw ptr, ptr %201, i64 %conv.i3.i.i273

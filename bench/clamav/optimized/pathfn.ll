@@ -156,7 +156,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br label %20
 
 20:                                               ; preds = %5, %15, %7, %11
-  %.147 = phi ptr [ %.046, %11 ], [ %.046, %7 ], [ %spec.select, %15 ], [ %.046, %5 ]
+  %.147 = phi ptr [ %.046, %5 ], [ %spec.select, %15 ], [ %.046, %11 ], [ %.046, %7 ]
   %21 = getelementptr inbounds nuw i8, ptr %.045, i64 4
   br label %5, !llvm.loop !9
 
@@ -175,7 +175,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %26, label %27, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %29, %.preheader, %32, %23
-  %.0.ph = phi ptr [ %.248, %.preheader ], [ %33, %32 ], [ %.248, %23 ], [ %.248, %29 ]
+  %.0.ph = phi ptr [ %33, %32 ], [ %.248, %23 ], [ %.248, %.preheader ], [ %.248, %29 ]
   br label %.loopexit
 
 27:                                               ; preds = %23
@@ -244,7 +244,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %49, %45, %43
-  %.5 = phi ptr [ %.248, %45 ], [ %.248, %43 ], [ %spec.select62, %49 ], [ %.248, %.preheader ]
+  %.5 = phi ptr [ %.248, %43 ], [ %spec.select62, %49 ], [ %.248, %45 ], [ %.248, %.preheader ]
   %.not61 = icmp eq ptr %1, null
   br i1 %.not61, label %54, label %53
 
@@ -726,7 +726,7 @@ define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef 
   br label %18
 
 18:                                               ; preds = %11, %8, %10, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %10 ], [ true, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %14 ], [ true, %8 ], [ true, %10 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -812,7 +812,7 @@ _Z11AddEndSlashPwm.exit.us:                       ; preds = %28, %25, %21, %19
   tail call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef %2)
   br label %36
 
-36:                                               ; preds = %35, %33
+36:                                               ; preds = %33, %35
   %37 = tail call i64 @wcslen(ptr noundef nonnull %1) #19
   %.not.i12 = icmp eq i64 %37, 0
   br i1 %.not.i12, label %_Z11AddEndSlashPwm.exit, label %38
@@ -1027,8 +1027,8 @@ _Z6GetExtPKw.exit54:                              ; preds = %25, %33
   %53 = icmp eq ptr %52, null
   br i1 %53, label %59, label %_Z6GetExtPKw.exit54.thread
 
-_Z6GetExtPKw.exit54.thread:                       ; preds = %42, %45, %_Z6GetExtPKw.exit54
-  %.04556 = phi ptr [ %52, %_Z6GetExtPKw.exit54 ], [ %19, %45 ], [ %19, %42 ]
+_Z6GetExtPKw.exit54.thread:                       ; preds = %45, %42, %_Z6GetExtPKw.exit54
+  %.04556 = phi ptr [ %52, %_Z6GetExtPKw.exit54 ], [ %19, %42 ], [ %19, %45 ]
   %54 = load i32, ptr %.04556, align 4, !tbaa !3
   %.not = icmp eq i32 %54, 46
   br i1 %.not, label %55, label %59
@@ -1187,7 +1187,7 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
   br label %.thread
 
 .thread:                                          ; preds = %7, %.lr.ph, %.preheader, %._crit_edge, %1
-  %.012 = phi i1 [ false, %1 ], [ %11, %._crit_edge ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
+  %.012 = phi i1 [ %11, %._crit_edge ], [ false, %1 ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
   ret i1 %.012
 }
 

@@ -186,7 +186,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail13ndarray_checkEP7_object(ptr noun
           to label %_ZL10_Py_DECREFP7_object.exit unwind label %33
 
 _ZL10_Py_DECREFP7_object.exit:                    ; preds = %28, %32, %3, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %3 ], [ %29, %32 ], [ %29, %28 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %6 ], [ %29, %32 ], [ %29, %28 ]
   ret i1 %.0
 
 33:                                               ; preds = %32, %12, %4, %1
@@ -639,7 +639,7 @@ _ZN8nanobind6objectD2Ev.exit293:                  ; preds = %125, %157, %158, %1
   br label %168
 
 165:                                              ; preds = %155, %123, %107, %91
-  %.pn203.pn = phi { ptr, i32 } [ %156, %155 ], [ %92, %91 ], [ %108, %107 ], [ %124, %123 ]
+  %.pn203.pn = phi { ptr, i32 } [ %156, %155 ], [ %124, %123 ], [ %92, %91 ], [ %108, %107 ]
   call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %166
@@ -780,9 +780,9 @@ thread-pre-split.i:                               ; preds = %189, %186
   br label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit94.i
 
 207:                                              ; preds = %204, %203, %202, %201, %200, %200, %200, %200, %200, %200, %200
-  %208 = phi i1 [ true, %204 ], [ true, %201 ], [ false, %202 ], [ true, %203 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ]
-  %.sroa.023.1.i = phi i8 [ 0, %204 ], [ 1, %201 ], [ 2, %202 ], [ 6, %203 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ]
-  %.169.i = phi i1 [ true, %204 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ]
+  %208 = phi i1 [ true, %204 ], [ true, %203 ], [ true, %201 ], [ false, %202 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ], [ true, %200 ]
+  %.sroa.023.1.i = phi i8 [ 0, %204 ], [ 6, %203 ], [ 1, %201 ], [ 2, %202 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ], [ 0, %200 ]
+  %.169.i = phi i1 [ true, %204 ], [ false, %203 ], [ false, %201 ], [ false, %202 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ], [ false, %200 ]
   %spec.select85.i = select i1 %193, i1 %208, i1 %.169.i
   br i1 %spec.select85.i, label %.thread138.i, label %209
 
@@ -1170,13 +1170,13 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
   br i1 %.not206403405, label %.loopexit429, label %371
 
 365:                                              ; preds = %343, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit
-  %.0177408 = phi i1 [ %.0177, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %348, %343 ]
-  %366 = phi i1 [ %354, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ true, %343 ]
-  %367 = phi i32 [ %352, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %332, %343 ]
-  %.not206403406 = phi i1 [ %.not206403, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %.not206404, %343 ]
-  %368 = phi ptr [ %351, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %331, %343 ]
-  %369 = phi i8 [ %350, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %330, %343 ]
-  %370 = phi i1 [ %349, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ], [ %329, %343 ]
+  %.0177408 = phi i1 [ %348, %343 ], [ %.0177, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %366 = phi i1 [ true, %343 ], [ %354, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %367 = phi i32 [ %332, %343 ], [ %352, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %.not206403406 = phi i1 [ %.not206404, %343 ], [ %.not206403, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %368 = phi ptr [ %331, %343 ], [ %351, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %369 = phi i8 [ %330, %343 ], [ %350, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %370 = phi i1 [ %329, %343 ], [ %349, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
   br i1 %.not206403406, label %.loopexit429, label %371
 
 371:                                              ; preds = %355, %365
@@ -1219,13 +1219,13 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %337, %328, %_ZNK8na
   br i1 %or.cond525.not, label %385, label %.loopexit429, !llvm.loop !17
 
 .loopexit429:                                     ; preds = %385, %.preheader428, %355, %371, %365
-  %.0178412 = phi i1 [ %.0178411, %371 ], [ true, %365 ], [ %364, %355 ], [ %.0178411, %.preheader428 ], [ %.0178411, %385 ]
-  %390 = phi i1 [ %372, %371 ], [ %370, %365 ], [ %361, %355 ], [ %372, %.preheader428 ], [ %372, %385 ]
-  %391 = phi i8 [ %373, %371 ], [ %369, %365 ], [ %360, %355 ], [ %373, %.preheader428 ], [ %373, %385 ]
-  %392 = phi ptr [ %374, %371 ], [ %368, %365 ], [ %359, %355 ], [ %374, %.preheader428 ], [ %374, %385 ]
-  %393 = phi i1 [ %376, %371 ], [ %366, %365 ], [ %356, %355 ], [ %376, %.preheader428 ], [ %376, %385 ]
-  %.0177408410 = phi i1 [ %.0177408409, %371 ], [ %.0177408, %365 ], [ %.0177407, %355 ], [ %.0177408409, %.preheader428 ], [ %.0177408409, %385 ]
-  %.0179 = phi i1 [ false, %371 ], [ true, %365 ], [ true, %355 ], [ true, %.preheader428 ], [ %or.cond220, %385 ]
+  %.0178412 = phi i1 [ true, %365 ], [ %.0178411, %371 ], [ %364, %355 ], [ %.0178411, %.preheader428 ], [ %.0178411, %385 ]
+  %390 = phi i1 [ %370, %365 ], [ %372, %371 ], [ %361, %355 ], [ %372, %.preheader428 ], [ %372, %385 ]
+  %391 = phi i8 [ %369, %365 ], [ %373, %371 ], [ %360, %355 ], [ %373, %.preheader428 ], [ %373, %385 ]
+  %392 = phi ptr [ %368, %365 ], [ %374, %371 ], [ %359, %355 ], [ %374, %.preheader428 ], [ %374, %385 ]
+  %393 = phi i1 [ %366, %365 ], [ %376, %371 ], [ %356, %355 ], [ %376, %.preheader428 ], [ %376, %385 ]
+  %.0177408410 = phi i1 [ %.0177408, %365 ], [ %.0177408409, %371 ], [ %.0177407, %355 ], [ %.0177408409, %.preheader428 ], [ %.0177408409, %385 ]
+  %.0179 = phi i1 [ true, %365 ], [ false, %371 ], [ true, %355 ], [ true, %.preheader428 ], [ %or.cond220, %385 ]
   %394 = getelementptr inbounds nuw i8, ptr %303, i64 16
   %395 = load i32, ptr %394, align 8
   %396 = icmp sgt i32 %395, 0
@@ -1479,7 +1479,7 @@ _ZNK8nanobind3str5c_strEv.exit320:                ; preds = %_ZN8nanobind6detail
   br label %490
 
 490:                                              ; preds = %485, %489, %488, %487
-  %.0170 = phi ptr [ @.str.16, %487 ], [ @.str.17, %488 ], [ @.str.18, %489 ], [ @.str.15, %485 ]
+  %.0170 = phi ptr [ @.str.18, %489 ], [ @.str.16, %487 ], [ @.str.17, %488 ], [ @.str.15, %485 ]
   %491 = zext i8 %.sroa.5.0.copyload to i32
   %492 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 11, ptr noundef nonnull @.str.19, ptr noundef nonnull %.0170, i32 noundef %491) #20
   br label %493
@@ -1803,7 +1803,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit: ; preds = %571, %576
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit329:                  ; preds = %565, %583, %584, %587
-  %.4420 = phi ptr [ %568, %583 ], [ %568, %584 ], [ %568, %587 ], [ null, %565 ]
+  %.4420 = phi ptr [ %568, %587 ], [ %568, %583 ], [ %568, %584 ], [ null, %565 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %591
 
@@ -1978,7 +1978,7 @@ _ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit: ; preds = %._crit_edge459, %62
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit332:                  ; preds = %650, %596, %593, %592, %305, %600, %298
-  %.0169 = phi ptr [ null, %298 ], [ null, %305 ], [ null, %600 ], [ %.2, %592 ], [ %.2, %593 ], [ %.2, %596 ], [ %602, %650 ]
+  %.0169 = phi ptr [ null, %298 ], [ null, %305 ], [ %.2, %596 ], [ null, %600 ], [ %.2, %592 ], [ %.2, %593 ], [ %602, %650 ]
   %654 = load ptr, ptr %7, align 8
   %.not.i.i.i337 = icmp eq ptr %654, null
   br i1 %.not.i.i.i337, label %_ZN8nanobind6objectD2Ev.exit339, label %655
@@ -3139,7 +3139,7 @@ _ZN8nanobind6objectD2Ev.exit139:                  ; preds = %_ZN8nanobind6detail
   br label %120
 
 120:                                              ; preds = %117, %118, %119, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121
-  %.055 = phi ptr [ @.str.7, %117 ], [ @.str.11, %118 ], [ @.str.21, %119 ], [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121 ]
+  %.055 = phi ptr [ @.str.21, %119 ], [ @.str.7, %117 ], [ @.str.11, %118 ], [ @.str.9, %_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE.exit121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %121 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef nonnull %.055)
@@ -3405,7 +3405,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175: ; preds = %_ZN8nanobin
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit178:                  ; preds = %_ZN8nanobind6objectD2Ev.exit160, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175, %.critedge89, %74, %44, %29, %48, %.critedge, %204, %207, %_ZN8nanobind6objectD2Ev.exit
-  %.0 = phi ptr [ @_Py_NoneStruct, %_ZN8nanobind6objectD2Ev.exit ], [ %47, %44 ], [ null, %29 ], [ null, %48 ], [ %.4, %.critedge ], [ %.4, %204 ], [ %.4, %207 ], [ %133, %_ZN8nanobind6objectD2Ev.exit160 ], [ %.sroa.0194.0, %.critedge89 ], [ %175, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175 ], [ null, %74 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %_ZN8nanobind6objectD2Ev.exit ], [ null, %48 ], [ %47, %44 ], [ null, %29 ], [ %.4, %207 ], [ %.4, %.critedge ], [ %.4, %204 ], [ %133, %_ZN8nanobind6objectD2Ev.exit160 ], [ %.sroa.0194.0, %.critedge89 ], [ %175, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit175 ], [ null, %74 ]
   ret ptr %.0
 
 211:                                              ; preds = %203, %195, %165, %157, %.thread219, %_ZN8nanobind6detailL13nd_ndarray_tpEv.exit, %29
@@ -3791,7 +3791,7 @@ switch.lookup76:                                  ; preds = %.split1
   br label %39
 
 39:                                               ; preds = %switch.lookup76, %switch.lookup, %9, %33, %28, %32, %31, %36
-  %.051 = phi ptr [ @.str.49, %31 ], [ @.str.50, %32 ], [ @.str.52, %36 ], [ @.str.48, %28 ], [ @.str.51, %33 ], [ @.str.53, %9 ], [ %switch.load, %switch.lookup ], [ %switch.load78, %switch.lookup76 ]
+  %.051 = phi ptr [ @.str.51, %33 ], [ @.str.53, %9 ], [ @.str.52, %36 ], [ @.str.48, %28 ], [ %switch.load, %switch.lookup ], [ @.str.50, %32 ], [ @.str.49, %31 ], [ %switch.load78, %switch.lookup76 ]
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %41 = load i16, ptr %40, align 2
   %.not53 = icmp eq i16 %41, 1

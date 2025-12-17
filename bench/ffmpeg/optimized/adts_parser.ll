@@ -30,7 +30,7 @@ define range(i32 -2147483648, 1) i32 @av_adts_header_parse(ptr noundef readonly 
   br label %14
 
 14:                                               ; preds = %6, %3, %9
-  %.0 = phi i32 [ 0, %9 ], [ -22, %3 ], [ %7, %6 ]
+  %.0 = phi i32 [ -22, %3 ], [ 0, %9 ], [ %7, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -74,7 +74,7 @@ define range(i32 -2147483648, 1) i32 @avpriv_adts_header_parse(ptr noundef %0, p
   br label %15
 
 15:                                               ; preds = %.thread, %14, %9, %3
-  %.015 = phi i32 [ -1094995529, %3 ], [ -12, %9 ], [ %12, %14 ], [ %.mux, %.thread ]
+  %.015 = phi i32 [ -1094995529, %3 ], [ -12, %9 ], [ %.mux, %.thread ], [ %12, %14 ]
   ret i32 %.015
 }
 

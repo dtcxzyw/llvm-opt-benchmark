@@ -1343,7 +1343,7 @@ define dso_local noundef i32 @line_log_print(ptr noundef %0, ptr noundef %1) loc
   br i1 %exitcond224.not.i.i, label %.loopexit.i.i, label %.lr.ph209.i.i, !llvm.loop !146
 
 .loopexit.i.i:                                    ; preds = %94, %.lr.ph209.i.i, %.critedge7.i.i, %97, %.critedge.i.i
-  %.2157.i.i = phi i32 [ %.1156.lcssa.i.i, %97 ], [ %84, %.critedge.i.i ], [ %.3158.lcssa.i.i, %.critedge7.i.i ], [ %.3158.lcssa.i.i, %.lr.ph209.i.i ], [ %84, %94 ]
+  %.2157.i.i = phi i32 [ %84, %.critedge.i.i ], [ %.1156.lcssa.i.i, %97 ], [ %.3158.lcssa.i.i, %.critedge7.i.i ], [ %.3158.lcssa.i.i, %.lr.ph209.i.i ], [ %84, %94 ]
   %indvars.iv.next226.i.i = add nuw nsw i64 %indvars.iv225.i.i, 1
   %196 = load i32, ptr %72, align 4, !tbaa !120
   %197 = zext i32 %196 to i64
@@ -1351,8 +1351,8 @@ define dso_local noundef i32 @line_log_print(ptr noundef %0, ptr noundef %1) loc
   br i1 %198, label %78, label %dump_diff_hacky_one.exit.i, !llvm.loop !147
 
 dump_diff_hacky_one.exit.i:                       ; preds = %.loopexit.i.i, %64, %20
-  %199 = phi ptr [ %.pre230.i.i, %64 ], [ null, %20 ], [ %.pre230.i.i, %.loopexit.i.i ]
-  %200 = phi ptr [ %.pre229.i.i, %64 ], [ null, %20 ], [ %.pre229.i.i, %.loopexit.i.i ]
+  %199 = phi ptr [ null, %20 ], [ %.pre230.i.i, %64 ], [ %.pre230.i.i, %.loopexit.i.i ]
+  %200 = phi ptr [ null, %20 ], [ %.pre229.i.i, %64 ], [ %.pre229.i.i, %.loopexit.i.i ]
   tail call void @free(ptr noundef %200) #16
   tail call void @free(ptr noundef %199) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1415,7 +1415,7 @@ define dso_local i32 @line_log_process_ranges_arbitrary_commit(ptr noundef %0, p
   %26 = select i1 %.not21.i, i1 %25, i1 false
   br i1 %26, label %.preheader.i, label %bloom_filter_check.exit, !llvm.loop !154
 
-bloom_filter_check.exit.thread:                   ; preds = %14, %11
+bloom_filter_check.exit.thread:                   ; preds = %11, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 

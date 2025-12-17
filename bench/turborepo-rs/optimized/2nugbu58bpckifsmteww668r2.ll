@@ -91,7 +91,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB
   unreachable
 
 common.resume:                                    ; preds = %23, %4, %10
-  %common.resume.op = phi { ptr, i32 } [ %5, %10 ], [ %5, %4 ], [ %24, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %4 ], [ %5, %10 ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %1
@@ -1024,7 +1024,7 @@ define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode7compileuRINtNtB4_5token5Tok
   br label %.body
 
 .body:                                            ; preds = %445, %.body.i, %54, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %.pn34.i, %54 ], [ %.pn34.i, %.body.i ], [ %446, %445 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn34.i, %.body.i ], [ %34, %33 ], [ %.pn34.i, %54 ], [ %446, %445 ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #15
           to label %common.resume unwind label %455
 
@@ -1090,7 +1090,7 @@ _RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit95.i: ; preds = %
           to label %60 unwind label %58
 
 .body.i:                                          ; preds = %300, %298, %.body79.i, %248, %232, %201, %.body47.i, %172, %154, %148, %96, %71, %58
-  %.pn34.i = phi { ptr, i32 } [ %.pn32.i, %.body47.i ], [ %233, %232 ], [ %299, %298 ], [ %.pn.i, %.body79.i ], [ %59, %58 ], [ %72, %71 ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %173, %172 ], [ %202, %201 ], [ %249, %248 ], [ %301, %300 ]
+  %.pn34.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn32.i, %.body47.i ], [ %233, %232 ], [ %299, %298 ], [ %.pn.i, %.body79.i ], [ %249, %248 ], [ %173, %172 ], [ %202, %201 ], [ %72, %71 ], [ %97, %96 ], [ %155, %154 ], [ %149, %148 ], [ %301, %300 ]
   %52 = load i64, ptr %27, align 8, !range !100, !alias.scope !101, !noalias !97, !noundef !4
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %.body, label %54
@@ -1976,8 +1976,8 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit111.i: ; 
   br label %_RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit95.i.backedge
 
 .invoke.i:                                        ; preds = %342, %319, %316, %185
-  %364 = phi ptr [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), %185 ], [ %..i, %316 ], [ @anon.91e0f2e95f4668886e854e1bc81b7ae2.33, %319 ], [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), %342 ]
-  %365 = phi i64 [ 4, %185 ], [ %.171.i, %316 ], [ 2, %319 ], [ 9, %342 ]
+  %364 = phi ptr [ @anon.91e0f2e95f4668886e854e1bc81b7ae2.33, %319 ], [ %..i, %316 ], [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.26, i64 8), %185 ], [ getelementptr inbounds nuw (i8, ptr @anon.91e0f2e95f4668886e854e1bc81b7ae2.31, i64 8), %342 ]
+  %365 = phi i64 [ 2, %319 ], [ %.171.i, %316 ], [ 4, %185 ], [ 9, %342 ]
   invoke void @_RINvMs0_NtCseG2FYMysgNb_3wax6encodeNtB6_8Grouping9push_withNCNvB2_8push_str0EB8_(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %29, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 %364, i64 noundef %365)
           to label %_RNvMs0_NtCseG2FYMysgNb_3wax6encodeNtB5_8Grouping8push_str.exit95.i.backedge unwind label %71
 
@@ -2415,7 +2415,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token
   br label %59
 
 common.resume:                                    ; preds = %302, %250, %214, %92, %144, %150, %169, %300, %.body58, %232, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %233, %232 ], [ %301, %300 ], [ %.pn, %.body58 ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
+  %common.resume.op = phi { ptr, i32 } [ %251, %250 ], [ %301, %300 ], [ %170, %169 ], [ %215, %214 ], [ %.pn, %.body58 ], [ %.pn28, %.body ], [ %233, %232 ], [ %93, %92 ], [ %151, %150 ], [ %145, %144 ], [ %303, %302 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable127:                           ; preds = %310, %200
@@ -3481,7 +3481,7 @@ define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5To
   br label %53
 
 common.resume:                                    ; preds = %300, %248, %212, %90, %142, %148, %167, %298, %.body56, %230, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %231, %230 ], [ %299, %298 ], [ %.pn, %.body56 ], [ %149, %148 ], [ %143, %142 ], [ %91, %90 ], [ %168, %167 ], [ %213, %212 ], [ %249, %248 ], [ %301, %300 ]
+  %common.resume.op = phi { ptr, i32 } [ %249, %248 ], [ %299, %298 ], [ %168, %167 ], [ %213, %212 ], [ %.pn, %.body56 ], [ %.pn28, %.body ], [ %231, %230 ], [ %91, %90 ], [ %149, %148 ], [ %143, %142 ], [ %301, %300 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable111:                           ; preds = %198
@@ -4567,7 +4567,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RNtNtCseG2FYMysgNb_3wax5token
   br label %63
 
 common.resume:                                    ; preds = %306, %254, %218, %96, %148, %154, %173, %304, %.body58, %236, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %237, %236 ], [ %305, %304 ], [ %.pn, %.body58 ], [ %155, %154 ], [ %149, %148 ], [ %97, %96 ], [ %174, %173 ], [ %219, %218 ], [ %255, %254 ], [ %307, %306 ]
+  %common.resume.op = phi { ptr, i32 } [ %255, %254 ], [ %305, %304 ], [ %174, %173 ], [ %219, %218 ], [ %.pn, %.body58 ], [ %.pn28, %.body ], [ %237, %236 ], [ %97, %96 ], [ %155, %154 ], [ %149, %148 ], [ %307, %306 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable127:                           ; preds = %314, %204
@@ -5648,7 +5648,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionIBw_RINtNtCseG2FYMysgNb_3wax5toke
   br label %59
 
 common.resume:                                    ; preds = %302, %250, %214, %92, %144, %150, %169, %300, %.body58, %232, %.body
-  %common.resume.op = phi { ptr, i32 } [ %.pn28, %.body ], [ %233, %232 ], [ %301, %300 ], [ %.pn, %.body58 ], [ %151, %150 ], [ %145, %144 ], [ %93, %92 ], [ %170, %169 ], [ %215, %214 ], [ %251, %250 ], [ %303, %302 ]
+  %common.resume.op = phi { ptr, i32 } [ %251, %250 ], [ %301, %300 ], [ %170, %169 ], [ %215, %214 ], [ %.pn, %.body58 ], [ %.pn28, %.body ], [ %233, %232 ], [ %93, %92 ], [ %151, %150 ], [ %145, %144 ], [ %303, %302 ]
   resume { ptr, i32 } %common.resume.op
 
 default.unreachable127:                           ; preds = %310, %200

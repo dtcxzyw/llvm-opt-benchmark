@@ -1215,7 +1215,7 @@ typesequiv.exit546.thread.i:                      ; preds = %535, %typesequiv.ex
   br label %tzloadbody.exit
 
 tzloadbody.exit:                                  ; preds = %detzcode.exit492.i, %114, %117, %120, %168, %.lr.ph655.i, %detzcode.exit512.i, %214, %detzcode.exit533.i, %272, %280, %287, %9, %24, %47, %.loopexit601.i, %.thread594.i
-  %.0.i = phi i32 [ %25, %24 ], [ %49, %47 ], [ 0, %.thread594.i ], [ 2, %9 ], [ 22, %.loopexit601.i ], [ 22, %287 ], [ 22, %280 ], [ 22, %272 ], [ 22, %detzcode.exit533.i ], [ 22, %214 ], [ 22, %detzcode.exit512.i ], [ 22, %.lr.ph655.i ], [ 22, %168 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
+  %.0.i = phi i32 [ 0, %.thread594.i ], [ %25, %24 ], [ %49, %47 ], [ 22, %.loopexit601.i ], [ 2, %9 ], [ 22, %168 ], [ 22, %287 ], [ 22, %280 ], [ 22, %detzcode.exit533.i ], [ 22, %detzcode.exit512.i ], [ 22, %.lr.ph655.i ], [ 22, %272 ], [ 22, %214 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
   tail call void @free(ptr noundef %5) #20
   br label %572
 
@@ -1298,8 +1298,8 @@ define dso_local noundef zeroext i1 @tzparse(ptr noundef %0, ptr noundef %1, i1 
   br i1 %.not.i, label %getzname.exit, label %.lr.ph.i, !llvm.loop !30
 
 getzname.exit:                                    ; preds = %.lr.ph.i, %30, %11
-  %33 = phi i8 [ %12, %11 ], [ 0, %30 ], [ %24, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %0, %11 ], [ %31, %30 ], [ %.016.i, %.lr.ph.i ]
+  %33 = phi i8 [ %12, %11 ], [ %24, %.lr.ph.i ], [ 0, %30 ]
+  %.0.lcssa.i = phi ptr [ %0, %11 ], [ %.016.i, %.lr.ph.i ], [ %31, %30 ]
   %34 = ptrtoint ptr %.0.lcssa.i to i64
   %35 = ptrtoint ptr %0 to i64
   %36 = sub i64 %34, %35
@@ -1682,8 +1682,8 @@ increment_overflow_time.exit286.thread:           ; preds = %182, %185, %188
   br label %increment_overflow_time.exit293.thread
 
 increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %170, %168
-  %.1226 = phi i32 [ %207, %203 ], [ %.0225372, %170 ], [ %.0225372, %168 ], [ %.0225372, %200 ], [ %.0225372, %197 ]
-  %.2223 = phi i32 [ %205, %203 ], [ %.0221373, %170 ], [ %.0221373, %168 ], [ %.4, %200 ], [ %.4, %197 ]
+  %.1226 = phi i32 [ %.0225372, %168 ], [ %207, %203 ], [ %.0225372, %170 ], [ %.0225372, %200 ], [ %.0225372, %197 ]
+  %.2223 = phi i32 [ %.0221373, %168 ], [ %205, %203 ], [ %.0221373, %170 ], [ %.4, %200 ], [ %.4, %197 ]
   %208 = add i32 %165, %.2219374
   %209 = icmp slt i32 %208, 0
   br i1 %209, label %210, label %213
@@ -1708,7 +1708,7 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   br i1 %219, label %152, label %.thread337, !llvm.loop !32
 
 .thread337:                                       ; preds = %216, %213, %210
-  %.0228.lcssa = phi i32 [ %218, %216 ], [ %.0228371, %213 ], [ %.0228371, %210 ]
+  %.0228.lcssa = phi i32 [ %.0228371, %210 ], [ %218, %216 ], [ %.0228371, %213 ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.2223, ptr %220, align 4
   %.not262 = icmp eq i32 %.2223, 0
@@ -1880,13 +1880,13 @@ increment_overflow_time.exit293.thread:           ; preds = %197, %200, %203, %1
   store i8 0, ptr %303, align 1
   br label %.critedge267
 
-.critedge:                                        ; preds = %104, %100, %98, %94
+.critedge:                                        ; preds = %100, %98, %94, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge267
 
 .critedge267:                                     ; preds = %15, %52, %86, %.thread343, %297, %.critedge, %80, %74, %73, %43, %40, %37
-  %.0196 = phi i1 [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ false, %80 ], [ false, %.critedge ], [ true, %297 ], [ true, %.thread343 ], [ false, %86 ], [ false, %52 ], [ false, %15 ]
+  %.0196 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %73 ], [ false, %74 ], [ true, %.thread343 ], [ false, %.critedge ], [ false, %86 ], [ false, %37 ], [ false, %80 ], [ true, %297 ], [ false, %52 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0196
@@ -2015,8 +2015,8 @@ getnum.exit30.i:                                  ; preds = %67
   br label %getsecs.exit
 
 getsecs.exit:                                     ; preds = %getnum.exit.i, %getnum.exit24.i, %getnum.exit30.i
-  %70 = phi i32 [ %69, %getnum.exit30.i ], [ %47, %getnum.exit24.i ], [ %24, %getnum.exit.i ]
-  %.0.i = phi ptr [ %62, %getnum.exit30.i ], [ %39, %getnum.exit24.i ], [ %17, %getnum.exit.i ]
+  %70 = phi i32 [ %24, %getnum.exit.i ], [ %69, %getnum.exit30.i ], [ %47, %getnum.exit24.i ]
+  %.0.i = phi ptr [ %17, %getnum.exit.i ], [ %62, %getnum.exit30.i ], [ %39, %getnum.exit24.i ]
   br i1 %4, label %71, label %getsecs.exit.thread
 
 71:                                               ; preds = %getsecs.exit
@@ -2024,8 +2024,8 @@ getsecs.exit:                                     ; preds = %getnum.exit.i, %get
   store i32 %72, ptr %1, align 4
   br label %getsecs.exit.thread
 
-getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.preheader.i20.i, %.preheader.i26.i, %67, %50, %44, %27, %22, %2, %getsecs.exit, %71
-  %.0.i18 = phi ptr [ %.0.i, %getsecs.exit ], [ %.0.i, %71 ], [ null, %2 ], [ null, %22 ], [ null, %27 ], [ null, %44 ], [ null, %50 ], [ null, %67 ], [ null, %.preheader.i26.i ], [ null, %.preheader.i20.i ], [ null, %.preheader.i.i ]
+getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.preheader.i20.i, %.preheader.i26.i, %67, %50, %27, %22, %2, %44, %getsecs.exit, %71
+  %.0.i18 = phi ptr [ %.0.i, %71 ], [ %.0.i, %getsecs.exit ], [ null, %44 ], [ null, %2 ], [ null, %22 ], [ null, %27 ], [ null, %50 ], [ null, %67 ], [ null, %.preheader.i20.i ], [ null, %.preheader.i26.i ], [ null, %.preheader.i.i ]
   ret ptr %.0.i18
 }
 
@@ -2246,8 +2246,8 @@ getnum.exit:                                      ; preds = %24, %89, %113
   store i32 7200, ptr %121, align 4
   br label %getnum.exit40.thread
 
-getnum.exit40.thread:                             ; preds = %.preheader.i36, %.preheader.i42, %.preheader.i48, %.preheader.i, %.preheader.i54, %111, %94, %87, %69, %22, %4, %65, %47, %43, %25, %116, %120, %90, %67, %45
-  %.0 = phi ptr [ null, %45 ], [ null, %67 ], [ null, %90 ], [ %119, %116 ], [ %.030, %120 ], [ null, %25 ], [ null, %43 ], [ null, %47 ], [ null, %65 ], [ null, %4 ], [ null, %22 ], [ null, %69 ], [ null, %87 ], [ null, %94 ], [ null, %111 ], [ null, %.preheader.i54 ], [ null, %.preheader.i ], [ null, %.preheader.i48 ], [ null, %.preheader.i42 ], [ null, %.preheader.i36 ]
+getnum.exit40.thread:                             ; preds = %.preheader.i36, %.preheader.i42, %.preheader.i48, %.preheader.i, %.preheader.i54, %111, %94, %69, %4, %22, %87, %65, %47, %43, %25, %116, %120, %90, %67, %45
+  %.0 = phi ptr [ null, %90 ], [ null, %65 ], [ null, %67 ], [ %.030, %120 ], [ null, %45 ], [ null, %43 ], [ %119, %116 ], [ null, %25 ], [ null, %47 ], [ null, %87 ], [ null, %22 ], [ null, %4 ], [ null, %69 ], [ null, %94 ], [ null, %111 ], [ null, %.preheader.i42 ], [ null, %.preheader.i54 ], [ null, %.preheader.i ], [ null, %.preheader.i48 ], [ null, %.preheader.i36 ]
   ret ptr %.0
 }
 
@@ -2547,7 +2547,7 @@ gmtload.exit.i:                                   ; preds = %15, %13, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %81, %73, %55, %63
-  %.1 = phi ptr [ null, %63 ], [ null, %55 ], [ null, %73 ], [ %72, %81 ], [ null, %71 ]
+  %.1 = phi ptr [ null, %73 ], [ null, %55 ], [ null, %63 ], [ %72, %81 ], [ null, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %gmtsub.exit
 
@@ -2624,7 +2624,7 @@ gmtload.exit.i:                                   ; preds = %15, %13, %7
   br label %gmtsub.exit
 
 gmtsub.exit:                                      ; preds = %gmtload.exit.i, %10, %107, %113, %.critedge
-  %.0 = phi ptr [ %.1, %.critedge ], [ %112, %113 ], [ null, %107 ], [ %18, %gmtload.exit.i ], [ null, %10 ]
+  %.0 = phi ptr [ null, %107 ], [ %.1, %.critedge ], [ %112, %113 ], [ %18, %gmtload.exit.i ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -3126,7 +3126,7 @@ define dso_local zeroext i1 @pg_timezone_abbrev_is_known(ptr noundef readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %22, %47, %.preheader, %.loopexit.loopexit, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %47 ], [ false, %.preheader ], [ %52, %.loopexit.loopexit ], [ false, %22 ]
+  %.0 = phi i1 [ %52, %.loopexit.loopexit ], [ false, %5 ], [ true, %47 ], [ false, %.preheader ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -3540,7 +3540,7 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   br label %.thread30
 
 .thread30:                                        ; preds = %.thread122, %.thread28, %166
-  %170 = phi i64 [ %169, %166 ], [ 0, %.thread28 ], [ 1, %.thread122 ]
+  %170 = phi i64 [ 0, %.thread28 ], [ 1, %.thread122 ], [ %169, %166 ]
   %171 = icmp eq i32 %.420, 2147483647
   br i1 %171, label %.thread, label %increment_overflow.exit107
 
@@ -3654,7 +3654,7 @@ leaps_thru_end_of.exit110:                        ; preds = %183, %191
   br label %231
 
 231:                                              ; preds = %.thread, %._crit_edge
-  %.074 = phi ptr [ null, %.thread ], [ @tm, %._crit_edge ]
+  %.074 = phi ptr [ @tm, %._crit_edge ], [ null, %.thread ]
   ret ptr %.074
 }
 

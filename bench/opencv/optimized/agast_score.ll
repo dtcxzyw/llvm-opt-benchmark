@@ -38,8 +38,8 @@ define hidden void @_ZN2cv16makeAgastOffsetsEPiiNS_20AgastFeatureDetector12Detec
   br label %.thread28
 
 .thread28:                                        ; preds = %3, %.thread28.fold.split, %6
-  %13 = phi ptr [ %10, %6 ], [ @_ZZN2cv16makeAgastOffsetsEPiiNS_20AgastFeatureDetector12DetectorTypeEE9offsets16, %3 ], [ @_ZZN2cv16makeAgastOffsetsEPiiNS_20AgastFeatureDetector12DetectorTypeEE10offsets12d, %.thread28.fold.split ]
-  %14 = phi i32 [ %12, %6 ], [ 16, %3 ], [ 12, %.thread28.fold.split ]
+  %13 = phi ptr [ @_ZZN2cv16makeAgastOffsetsEPiiNS_20AgastFeatureDetector12DetectorTypeEE9offsets16, %3 ], [ %10, %6 ], [ @_ZZN2cv16makeAgastOffsetsEPiiNS_20AgastFeatureDetector12DetectorTypeEE10offsets12d, %.thread28.fold.split ]
+  %14 = phi i32 [ 16, %3 ], [ %12, %6 ], [ 12, %.thread28.fold.split ]
   %15 = icmp ne ptr %0, null
   %16 = icmp ne ptr %13, null
   %or.cond = and i1 %15, %16

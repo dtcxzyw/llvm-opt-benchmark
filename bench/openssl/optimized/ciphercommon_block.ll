@@ -64,7 +64,7 @@ define range(i32 0, 2) i32 @ossl_cipher_trailingdata(ptr noundef writeonly captu
   br label %19
 
 19:                                               ; preds = %5, %13, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %13 ], [ 1, %5 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %12 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -187,7 +187,7 @@ define i32 @ossl_cipher_tlsunpadblock(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %20
 
 20:                                               ; preds = %9, %17, %10
-  %.0 = phi i32 [ %12, %10 ], [ %19, %17 ], [ 0, %9 ]
+  %.0 = phi i32 [ %19, %17 ], [ %12, %10 ], [ 0, %9 ]
   ret i32 %.0
 }
 

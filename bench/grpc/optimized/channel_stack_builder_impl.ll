@@ -365,7 +365,7 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %_ZN4absl12lts_
   ret void
 
 107:                                              ; preds = %93, %85, %81
-  %.pn25 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %85 ], [ %82, %81 ]
+  %.pn25 = phi { ptr, i32 } [ %94, %93 ], [ %82, %81 ], [ %.pn, %85 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %108
 
@@ -375,9 +375,9 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %_ZN4absl12lts_
   br label %109
 
 109:                                              ; preds = %.loopexit, %.loopexit.split-lp, %75, %108, %77
-  %.sroa.19.071 = phi ptr [ %.sroa.19.0.lcssa, %75 ], [ %.sroa.19.0.lcssa, %108 ], [ %.sroa.19.0.lcssa, %77 ], [ %.sroa.13.078, %.loopexit ], [ %.sroa.13.078, %.loopexit.split-lp ]
-  %.sroa.047.063 = phi ptr [ %.sroa.047.0.lcssa, %75 ], [ %.sroa.047.0.lcssa, %108 ], [ %.sroa.047.0.lcssa, %77 ], [ %.sroa.047.079, %.loopexit ], [ %.sroa.047.079, %.loopexit.split-lp ]
-  %.pn30 = phi { ptr, i32 } [ %76, %75 ], [ %.pn25.pn, %108 ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.19.071 = phi ptr [ %.sroa.19.0.lcssa, %77 ], [ %.sroa.19.0.lcssa, %75 ], [ %.sroa.19.0.lcssa, %108 ], [ %.sroa.13.078, %.loopexit ], [ %.sroa.13.078, %.loopexit.split-lp ]
+  %.sroa.047.063 = phi ptr [ %.sroa.047.0.lcssa, %77 ], [ %.sroa.047.0.lcssa, %75 ], [ %.sroa.047.0.lcssa, %108 ], [ %.sroa.047.079, %.loopexit ], [ %.sroa.047.079, %.loopexit.split-lp ]
+  %.pn30 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %.pn25.pn, %108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i40 = icmp eq ptr %.sroa.047.063, null
   br i1 %.not.i.i.i40, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit41, label %110
 

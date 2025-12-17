@@ -250,7 +250,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr n
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %.critedge
-  %.not1720 = phi i1 [ true, %12 ], [ false, %.critedge ], [ %.not1720.ph, %.sink.split ]
+  %.not1720 = phi i1 [ false, %.critedge ], [ true, %12 ], [ %.not1720.ph, %.sink.split ]
   ret i1 %.not1720
 }
 

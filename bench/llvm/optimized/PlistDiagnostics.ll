@@ -1067,8 +1067,8 @@ _ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %126, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126
-  %.sink589 = phi i32 [ %124, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %128, %126 ], [ %.pre.i132, %.sink.split.sink.split ]
-  %.sink587 = phi ptr [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %127, %126 ], [ %.sink587.ph, %.sink.split.sink.split ]
+  %.sink589 = phi i32 [ %128, %126 ], [ %124, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %.pre.i132, %.sink.split.sink.split ]
+  %.sink587 = phi ptr [ %127, %126 ], [ %123, %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit126 ], [ %.sink587.ph, %.sink.split.sink.split ]
   %132 = load ptr, ptr %15, align 8, !tbaa !40
   %133 = zext i32 %.sink589 to i64
   %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
@@ -1531,7 +1531,7 @@ _ZSt7advanceISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosti
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit25.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit25.i:             ; preds = %366, %364, %"_ZSt15partition_pointISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEZN12_GLOBAL__N_116PlistDiagnostics12printBugPathERN4llvm11raw_ostreamERKNS9_8DenseMapINS2_6FileIDEjNS9_12DenseMapInfoISD_vEENS9_6detail12DenseMapPairISD_jEEEERKNS3_10PathPiecesEE3$_0ET_SQ_SQ_T0_.exit.i", %_ZN4llvm11raw_ostreamlsEPKc.exit159
-  %.sroa.051.0.i = phi ptr [ %326, %"_ZSt15partition_pointISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEZN12_GLOBAL__N_116PlistDiagnostics12printBugPathERN4llvm11raw_ostreamERKNS9_8DenseMapINS2_6FileIDEjNS9_12DenseMapInfoISD_vEENS9_6detail12DenseMapPairISD_jEEEERKNS3_10PathPiecesEE3$_0ET_SQ_SQ_T0_.exit.i" ], [ %357, %364 ], [ %357, %366 ], [ %326, %_ZN4llvm11raw_ostreamlsEPKc.exit159 ]
+  %.sroa.051.0.i = phi ptr [ %357, %366 ], [ %326, %"_ZSt15partition_pointISt20_List_const_iteratorISt10shared_ptrIN5clang4ento19PathDiagnosticPieceEEEZN12_GLOBAL__N_116PlistDiagnostics12printBugPathERN4llvm11raw_ostreamERKNS9_8DenseMapINS2_6FileIDEjNS9_12DenseMapInfoISD_vEENS9_6detail12DenseMapPairISD_jEEEERKNS3_10PathPiecesEE3$_0ET_SQ_SQ_T0_.exit.i" ], [ %357, %364 ], [ %326, %_ZN4llvm11raw_ostreamlsEPKc.exit159 ]
   %369 = load ptr, ptr %196, align 8, !tbaa !356
   %370 = load ptr, ptr %198, align 8, !tbaa !360
   %371 = ptrtoint ptr %369 to i64
@@ -2385,8 +2385,8 @@ _ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %_ZN4llvm11raw_ostre
   br label %755
 
 755:                                              ; preds = %752, %753, %754, %751
-  %.sroa.8.2 = phi i64 [ 10, %752 ], [ 18, %753 ], [ 8, %754 ], [ 9, %751 ]
-  %.sroa.0356.2 = phi ptr [ @.str.12, %752 ], [ @.str.13, %753 ], [ @.str.14, %754 ], [ @.str.11, %751 ]
+  %.sroa.8.2 = phi i64 [ 8, %754 ], [ 18, %753 ], [ 10, %752 ], [ 9, %751 ]
+  %.sroa.0356.2 = phi ptr [ @.str.14, %754 ], [ @.str.13, %753 ], [ @.str.12, %752 ], [ @.str.11, %751 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %756 = getelementptr inbounds nuw i8, ptr %744, i64 40
@@ -2841,8 +2841,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit270:              ; preds = %958, %960
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit273
 
 _ZN4llvm11raw_ostreamlsEPKc.exit273:              ; preds = %914, %972, %970, %_ZN4llvmneENS_9StringRefES0_.exit
-  %.sroa.6.4 = phi i64 [ %.sroa.6.3440, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.sroa.5.0.copyload, %970 ], [ %.sroa.5.0.copyload, %972 ], [ 0, %914 ]
-  %.sroa.0340.4 = phi ptr [ %.sroa.0340.3441, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.sroa.016.0.copyload, %970 ], [ %.sroa.016.0.copyload, %972 ], [ %.sroa.0340.3441, %914 ]
+  %.sroa.6.4 = phi i64 [ %.sroa.5.0.copyload, %972 ], [ %.sroa.6.3440, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.sroa.5.0.copyload, %970 ], [ 0, %914 ]
+  %.sroa.0340.4 = phi ptr [ %.sroa.016.0.copyload, %972 ], [ %.sroa.0340.3441, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.sroa.016.0.copyload, %970 ], [ %.sroa.0340.3441, %914 ]
   %975 = load ptr, ptr %196, align 8, !tbaa !356
   %976 = load ptr, ptr %198, align 8, !tbaa !360
   %977 = ptrtoint ptr %975 to i64
@@ -4969,7 +4969,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
+  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -8083,7 +8083,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
+  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -8096,7 +8096,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
+  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
   ret ptr %51
 }
 

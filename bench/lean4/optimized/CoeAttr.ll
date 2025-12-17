@@ -434,7 +434,7 @@ lean_nat_le.exit33:                               ; preds = %13
   br label %17
 
 17:                                               ; preds = %lean_nat_le.exit33, %14, %lean_nat_le.exit30, %10, %lean_nat_le.exit, %6, %16, %12, %8
-  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink = phi ptr [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__20, %16 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__14, %12 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__8, %8 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %6 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %lean_nat_le.exit ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %10 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %lean_nat_le.exit30 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %14 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %lean_nat_le.exit33 ]
+  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink = phi ptr [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %lean_nat_le.exit30 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__20, %16 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %lean_nat_le.exit ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__14, %12 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__8, %8 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %6 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %10 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %14 ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %lean_nat_le.exit33 ]
   %18 = load ptr, ptr %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink, align 8, !tbaa !10
   %19 = tail call ptr @l_Repr_addAppParen(ptr noundef %18, ptr noundef %1) #7
   ret ptr %19
@@ -524,11 +524,11 @@ l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAtt
   br label %lean_dec.exit
 
 l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i
-  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i = phi ptr [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__8, %lean_nat_le.exit.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__14, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__20, %lean_nat_le.exit33.i ]
+  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i = phi ptr [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__14, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__20, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__8, %lean_nat_le.exit.i ]
   br label %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread12
 
 l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread12: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit
-  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i.sink = phi ptr [ %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %lean_nat_le.exit.i ]
+  %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i.sink = phi ptr [ %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__5, %lean_nat_le.exit.i ], [ @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__12, %lean_nat_le.exit30.i ]
   %29 = load ptr, ptr %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19____closed__18.sink.i.sink, align 8, !tbaa !10
   %30 = tail call ptr @l_Repr_addAppParen(ptr noundef %29, ptr noundef %1) #7
   %31 = load i32, ptr %1, align 4, !tbaa !4
@@ -549,7 +549,7 @@ l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAtt
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread16, %36, %35, %33, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread
-  %37 = phi ptr [ %26, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ], [ %28, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread16 ]
+  %37 = phi ptr [ %26, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread ], [ %28, %l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnType____x40_Lean_Meta_CoeAttr___hyg_19_.exit.thread16 ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ]
   ret ptr %37
 }
 
@@ -631,7 +631,7 @@ l_Lean_Meta_CoeFnType_ofNat.exit.thread6:         ; preds = %lean_nat_le.exit.i,
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %4, %13, %12, %10, %l_Lean_Meta_CoeFnType_ofNat.exit.thread9
-  %.0.i5 = phi i8 [ %..i11, %l_Lean_Meta_CoeFnType_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ %.0.i8, %13 ], [ 0, %4 ]
+  %.0.i5 = phi i8 [ %.0.i8, %13 ], [ %..i11, %l_Lean_Meta_CoeFnType_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ 0, %4 ]
   %14 = zext nneg i8 %.0.i5 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = or disjoint i64 %15, 1
@@ -2481,7 +2481,7 @@ lean_alloc_ctor.exit92:                           ; preds = %lean_dec.exit
   br label %145
 
 145:                                              ; preds = %lean_alloc_ctor.exit92, %lean_dec.exit52, %lean_dec.exit55, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %15, %lean_dec.exit55 ], [ %96, %lean_alloc_ctor.exit ], [ %139, %lean_alloc_ctor.exit92 ], [ %15, %lean_dec.exit52 ]
+  %.1 = phi ptr [ %96, %lean_alloc_ctor.exit ], [ %15, %lean_dec.exit55 ], [ %139, %lean_alloc_ctor.exit92 ], [ %15, %lean_dec.exit52 ]
   ret ptr %.1
 }
 
@@ -6658,7 +6658,7 @@ lean_dec.exit144:                                 ; preds = %502, %501, %499, %l
   br label %lean_dec.exit160
 
 lean_dec.exit160:                                 ; preds = %lean_dec.exit144, %508, %510, %511, %lean_dec.exit161, %303, %305, %306, %lean_alloc_ctor.exit312, %lean_dec.exit155, %lean_dec.exit166, %lean_dec.exit165, %lean_dec.exit149, %lean_alloc_ctor.exit319
-  %.6 = phi ptr [ %239, %lean_dec.exit165 ], [ %179, %lean_dec.exit166 ], [ %372, %lean_alloc_ctor.exit312 ], [ %96, %lean_dec.exit155 ], [ %451, %lean_alloc_ctor.exit319 ], [ %26, %lean_dec.exit149 ], [ %278, %306 ], [ %278, %305 ], [ %278, %303 ], [ %278, %lean_dec.exit161 ], [ %475, %511 ], [ %475, %510 ], [ %475, %508 ], [ %475, %lean_dec.exit144 ]
+  %.6 = phi ptr [ %278, %lean_dec.exit161 ], [ %96, %lean_dec.exit155 ], [ %179, %lean_dec.exit166 ], [ %26, %lean_dec.exit149 ], [ %239, %lean_dec.exit165 ], [ %372, %lean_alloc_ctor.exit312 ], [ %451, %lean_alloc_ctor.exit319 ], [ %278, %306 ], [ %278, %305 ], [ %278, %303 ], [ %475, %511 ], [ %475, %510 ], [ %475, %508 ], [ %475, %lean_dec.exit144 ]
   ret ptr %.6
 }
 
@@ -7733,7 +7733,7 @@ lean_alloc_ctor.exit183:                          ; preds = %lean_dec.exit
   br label %277
 
 277:                                              ; preds = %lean_alloc_ctor.exit176, %lean_dec.exit99, %lean_dec.exit97, %lean_alloc_ctor.exit183, %lean_alloc_ctor.exit, %lean_dec.exit103
-  %.0 = phi ptr [ %136, %lean_alloc_ctor.exit ], [ %79, %lean_dec.exit103 ], [ %187, %lean_dec.exit99 ], [ %228, %lean_alloc_ctor.exit176 ], [ %271, %lean_alloc_ctor.exit183 ], [ %149, %lean_dec.exit97 ]
+  %.0 = phi ptr [ %79, %lean_dec.exit103 ], [ %136, %lean_alloc_ctor.exit ], [ %228, %lean_alloc_ctor.exit176 ], [ %187, %lean_dec.exit99 ], [ %271, %lean_alloc_ctor.exit183 ], [ %149, %lean_dec.exit97 ]
   ret ptr %.0
 }
 
@@ -8677,7 +8677,7 @@ _init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_
   br label %_init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__17.exit
 
 _init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__17.exit: ; preds = %_init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__13.exit, %275
-  %.1.i.i = phi ptr [ %277, %275 ], [ %271, %_init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__13.exit ]
+  %.1.i.i = phi ptr [ %271, %_init_l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__13.exit ], [ %277, %275 ]
   store ptr %.1.i.i, ptr @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__17, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #7
   %278 = load ptr, ptr @l___private_Lean_Meta_CoeAttr_0__Lean_Meta_reprCoeFnInfo____x40_Lean_Meta_CoeAttr___hyg_314____closed__15, align 8, !tbaa !10
@@ -9514,7 +9514,7 @@ lean_dec_ref.exit:                                ; preds = %607, %606, %604, %_
   br label %614
 
 614:                                              ; preds = %.sink.split, %596, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit, %lean_dec_ref.exit25, %lean_dec_ref.exit27, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit27 ], [ %28, %lean_dec_ref.exit25 ], [ %367, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit ], [ %598, %596 ], [ %.sink103, %.sink.split ]
+  %.0 = phi ptr [ %367, %_init_l_Lean_Meta_initFn____x40_Lean_Meta_CoeAttr___hyg_443____closed__5.exit ], [ %598, %596 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit27 ], [ %28, %lean_dec_ref.exit25 ], [ %.sink103, %.sink.split ]
   ret ptr %.0
 }
 

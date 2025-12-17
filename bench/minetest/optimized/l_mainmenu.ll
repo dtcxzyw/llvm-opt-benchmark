@@ -4645,7 +4645,7 @@ if.then.i.i397:                                   ; preds = %ehcleanup95
   br label %ehcleanup96
 
 ehcleanup96:                                      ; preds = %ehcleanup95, %if.then.i.i397, %lpad55.loopexit.split-lp, %lpad55.loopexit, %lpad51
-  %.pn263.pn.pn.pn = phi { ptr, i32 } [ %72, %lpad51 ], [ %.pn263.pn.pn, %if.then.i.i397 ], [ %lpad.loopexit454, %lpad55.loopexit ], [ %lpad.loopexit.split-lp455, %lpad55.loopexit.split-lp ], [ %.pn263.pn.pn, %ehcleanup95 ]
+  %.pn263.pn.pn.pn = phi { ptr, i32 } [ %72, %lpad51 ], [ %lpad.loopexit.split-lp455, %lpad55.loopexit.split-lp ], [ %.pn263.pn.pn, %if.then.i.i397 ], [ %lpad.loopexit454, %lpad55.loopexit ], [ %.pn263.pn.pn, %ehcleanup95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %virtual_path)
   br label %ehcleanup97
 
@@ -4660,7 +4660,7 @@ if.then.i.i403:                                   ; preds = %ehcleanup97
   br label %ehcleanup98
 
 ehcleanup98:                                      ; preds = %ehcleanup97, %if.then.i.i403, %lpad45.loopexit.split-lp, %lpad45.loopexit, %lpad41
-  %.pn263.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad41 ], [ %.pn263.pn.pn.pn.pn, %if.then.i.i403 ], [ %lpad.loopexit451, %lpad45.loopexit ], [ %lpad.loopexit.split-lp452, %lpad45.loopexit.split-lp ], [ %.pn263.pn.pn.pn.pn, %ehcleanup97 ]
+  %.pn263.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad41 ], [ %lpad.loopexit.split-lp452, %lpad45.loopexit.split-lp ], [ %.pn263.pn.pn.pn.pn, %if.then.i.i403 ], [ %lpad.loopexit451, %lpad45.loopexit ], [ %.pn263.pn.pn.pn.pn, %ehcleanup97 ]
   %exn.slot.9 = extractvalue { ptr, i32 } %.pn263.pn.pn.pn.pn.pn, 0
   %ehselector.slot.9 = extractvalue { ptr, i32 } %.pn263.pn.pn.pn.pn.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %modpath)
@@ -6285,7 +6285,7 @@ if.then.i.i232:                                   ; preds = %lpad13
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %lpad13, %if.then.i.i232, %lpad11.loopexit.split-lp, %lpad11.loopexit, %lpad7
-  %.pn223.pn = phi { ptr, i32 } [ %8, %lpad7 ], [ %9, %if.then.i.i232 ], [ %lpad.loopexit425, %lpad11.loopexit ], [ %lpad.loopexit.split-lp426, %lpad11.loopexit.split-lp ], [ %9, %lpad13 ]
+  %.pn223.pn = phi { ptr, i32 } [ %8, %lpad7 ], [ %lpad.loopexit.split-lp426, %lpad11.loopexit.split-lp ], [ %9, %if.then.i.i232 ], [ %lpad.loopexit425, %lpad11.loopexit ], [ %9, %lpad13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %ehcleanup179
 
@@ -7219,7 +7219,7 @@ ehcleanup177:                                     ; preds = %if.then.i.i411, %_Z
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup177, %ehcleanup19
-  %lpad.val188.merged = phi { ptr, i32 } [ %.pn223.pn, %ehcleanup19 ], [ %.merged, %ehcleanup177 ], [ %lpad.loopexit423, %lpad.loopexit ], [ %lpad.loopexit.split-lp424, %lpad.loopexit.split-lp ]
+  %lpad.val188.merged = phi { ptr, i32 } [ %.merged, %ehcleanup177 ], [ %.pn223.pn, %ehcleanup19 ], [ %lpad.loopexit423, %lpad.loopexit ], [ %lpad.loopexit.split-lp424, %lpad.loopexit.split-lp ]
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %use_settings) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %use_settings)
   resume { ptr, i32 } %lpad.val188.merged
@@ -11140,7 +11140,7 @@ if.then.i.i172:                                   ; preds = %ehcleanup49
   br label %ehcleanup51
 
 ehcleanup51:                                      ; preds = %ehcleanup49, %lpad11, %if.then.i.i172, %if.then.i.i142, %lpad9
-  %.pn74.pn = phi { ptr, i32 } [ %35, %lpad9 ], [ %36, %if.then.i.i142 ], [ %.pn74, %if.then.i.i172 ], [ %36, %lpad11 ], [ %.pn74, %ehcleanup49 ]
+  %.pn74.pn = phi { ptr, i32 } [ %35, %lpad9 ], [ %.pn74, %if.then.i.i172 ], [ %36, %if.then.i.i142 ], [ %36, %lpad11 ], [ %.pn74, %ehcleanup49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %abs_source)
   %50 = load ptr, ptr %abs_destination, align 8, !tbaa !11
   %51 = getelementptr inbounds nuw i8, ptr %abs_destination, i64 16
@@ -15048,7 +15048,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !299
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

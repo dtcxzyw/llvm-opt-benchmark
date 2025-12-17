@@ -213,7 +213,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr noundef 
   br label %49
 
 49:                                               ; preds = %43, %37, %31, %25, %19, %13, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %31 ], [ false, %37 ], [ %.not12, %43 ]
+  %.0 = phi i1 [ false, %37 ], [ %.not12, %43 ], [ false, %31 ], [ false, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1183,8 +1183,8 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit:              ; preds = %168
   %187 = fcmp olt float %184, %45
   br i1 %187, label %.loopexit, label %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread
 
-_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %168, %159, %183, %186, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit, %153
-  %.3 = phi float [ %.2121, %153 ], [ %184, %186 ], [ %.2121, %183 ], [ %.2121, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit ], [ %.2121, %159 ], [ %.2121, %168 ]
+_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %159, %168, %183, %186, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit, %153
+  %.3 = phi float [ %.2121, %153 ], [ %184, %186 ], [ %.2121, %183 ], [ %.2121, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit ], [ %.2121, %168 ], [ %.2121, %159 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !10
@@ -1590,7 +1590,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %50
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %94, %._crit_edge127.loopexit160, %._crit_edge127.loopexit159, %_Z13dtNormalize2DPf.exit
-  %.0.lcssa = phi i32 [ 1, %_Z13dtNormalize2DPf.exit ], [ %149, %._crit_edge127.loopexit159 ], [ %150, %._crit_edge127.loopexit160 ], [ %.2.us, %94 ]
+  %.0.lcssa = phi i32 [ 1, %_Z13dtNormalize2DPf.exit ], [ %150, %._crit_edge127.loopexit160 ], [ %149, %._crit_edge127.loopexit159 ], [ %.2.us, %94 ]
   %151 = load float, ptr %0, align 8
   %152 = load float, ptr %5, align 4
   %153 = fmul float %151, %152

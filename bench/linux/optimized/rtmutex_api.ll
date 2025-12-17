@@ -1813,7 +1813,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   br i1 %81, label %.thread44, label %.loopexit
 
 .thread44:                                        ; preds = %77, %66, %.thread42
-  %82 = phi i8 [ 0, %.thread42 ], [ %67, %66 ], [ %., %77 ]
+  %82 = phi i8 [ %., %77 ], [ %67, %66 ], [ 0, %.thread42 ]
   %83 = tail call i32 @_raw_spin_trylock(ptr noundef %54) #11
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %88
@@ -2403,7 +2403,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   br i1 %400, label %146, label %.loopexit53
 
 .loopexit:                                        ; preds = %13, %77, %.thread42, %85, %60, %57, %52, %49, %98
-  %401 = phi i32 [ -35, %98 ], [ 0, %49 ], [ 0, %52 ], [ 0, %57 ], [ 0, %60 ], [ 0, %85 ], [ 0, %.thread42 ], [ 0, %77 ], [ 0, %13 ]
+  %401 = phi i32 [ -35, %98 ], [ 0, %77 ], [ 0, %49 ], [ 0, %52 ], [ 0, %57 ], [ 0, %60 ], [ 0, %85 ], [ 0, %.thread42 ], [ 0, %13 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #11
   br label %.loopexit53
 
@@ -2429,7 +2429,7 @@ define internal fastcc noundef range(i32 -35, 1) i32 @rt_mutex_adjust_prio_chain
   br label %.thread
 
 .thread:                                          ; preds = %407, %409, %42, %44, %410, %236, %111, %45
-  %411 = phi i32 [ 0, %236 ], [ 0, %111 ], [ -35, %45 ], [ %403, %410 ], [ -35, %44 ], [ -35, %42 ], [ %403, %409 ], [ %403, %407 ]
+  %411 = phi i32 [ 0, %236 ], [ 0, %111 ], [ %403, %410 ], [ -35, %45 ], [ -35, %42 ], [ -35, %44 ], [ %403, %409 ], [ %403, %407 ]
   ret i32 %411
 }
 

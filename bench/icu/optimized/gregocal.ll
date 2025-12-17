@@ -756,7 +756,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717GregorianCalendar10isLeap
   br label %12
 
 12:                                               ; preds = %2, %9, %7
-  %13 = phi i1 [ true, %7 ], [ %11, %9 ], [ %.mux, %2 ]
+  %13 = phi i1 [ %11, %9 ], [ %.mux, %2 ], [ true, %7 ]
   %14 = zext i1 %13 to i8
   ret i8 %14
 }
@@ -853,7 +853,7 @@ define noundef i32 @_ZN6icu_7717GregorianCalendar22handleComputeJulianDayE19UCal
   br label %48
 
 48:                                               ; preds = %31, %33, %39, %46, %44, %27, %3, %18
-  %.0 = phi i32 [ %19, %18 ], [ 0, %3 ], [ 0, %27 ], [ %.019, %33 ], [ %.019, %31 ], [ %45, %44 ], [ %47, %46 ], [ %.019, %39 ]
+  %.0 = phi i32 [ 0, %27 ], [ %19, %18 ], [ 0, %3 ], [ %.019, %31 ], [ %.019, %33 ], [ %45, %44 ], [ %47, %46 ], [ %.019, %39 ]
   ret i32 %.0
 }
 
@@ -1235,7 +1235,7 @@ _ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %or.cond46 = select i1 %41, i1 %43, i1 false
   br i1 %or.cond46, label %44, label %.thread32
 
-.thread32:                                        ; preds = %32, %24
+.thread32:                                        ; preds = %24, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -1299,7 +1299,7 @@ _ZNK6icu_7717GregorianCalendar10isLeapYearEi.exit.thread.i: ; preds = %_ZNK6icu_
   br label %.thread
 
 .thread:                                          ; preds = %10, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %64, %47, %.thread32, %62
-  %.1 = phi i8 [ 0, %62 ], [ 0, %.thread32 ], [ 0, %47 ], [ %spec.select, %64 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
+  %.1 = phi i8 [ 0, %47 ], [ 0, %62 ], [ 0, %.thread32 ], [ %spec.select, %64 ], [ 0, %_ZNK6icu_7717GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %10 ]
   ret i8 %.1
 }
 
@@ -1901,7 +1901,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread: ; preds 
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %31, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread, %12, %8, %34, %.critedge, %5, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17, %2
-  %.010 = phi i32 [ 0, %2 ], [ 0, %.critedge ], [ %27, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17 ], [ 1970, %5 ], [ %spec.select, %34 ], [ %14, %12 ], [ 1970, %8 ], [ %33, %31 ], [ 1970, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread ]
+  %.010 = phi i32 [ 0, %2 ], [ %spec.select, %34 ], [ 0, %.critedge ], [ 1970, %8 ], [ 1970, %5 ], [ %27, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit17 ], [ %14, %12 ], [ %33, %31 ], [ 1970, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit16.thread ]
   ret i32 %.010
 }
 

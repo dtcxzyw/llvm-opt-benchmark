@@ -78,7 +78,7 @@ define range(i32 0, 27) i32 @cli_unarj_open(ptr noundef %0, ptr noundef readnone
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #12
   br label %18
 
-18:                                               ; preds = %17, %3
+18:                                               ; preds = %3, %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #12
   br label %138
 
@@ -328,9 +328,9 @@ fmap_readn.exit100.i:                             ; preds = %45
   br i1 %.not92.i, label %.thread.i, label %.lr.ph.i
 
 .thread.sink.split.i:                             ; preds = %94, %87, %75
-  %.str.24.sink.i = phi ptr [ @.str.23, %75 ], [ @.str.22, %87 ], [ @.str.24, %94 ]
-  %.074.ph.i = phi ptr [ %77, %75 ], [ %.175.i, %87 ], [ %.175.i, %94 ]
-  %.072.ph.i = phi ptr [ null, %75 ], [ null, %87 ], [ %96, %94 ]
+  %.str.24.sink.i = phi ptr [ @.str.22, %87 ], [ @.str.23, %75 ], [ @.str.24, %94 ]
+  %.074.ph.i = phi ptr [ %.175.i, %87 ], [ %77, %75 ], [ %.175.i, %94 ]
+  %.072.ph.i = phi ptr [ null, %87 ], [ null, %75 ], [ %96, %94 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.24.sink.i) #12
   br label %.thread.i
 
@@ -353,7 +353,7 @@ fmap_readn.exit100.i:                             ; preds = %45
   call void @free(ptr noundef nonnull %.072.i) #12
   br label %arj_read_main_header.exit
 
-arj_read_main_header.exit.thread:                 ; preds = %fmap_readn.exit.i, %is_arj_archive.exit, %22, %45, %44, %fmap_readn.exit100.i, %27, %73, %61, %43, %34
+arj_read_main_header.exit.thread:                 ; preds = %fmap_readn.exit.i, %22, %is_arj_archive.exit, %34, %45, %43, %44, %fmap_readn.exit100.i, %73, %61, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -372,7 +372,7 @@ arj_read_main_header.exit:                        ; preds = %135, %136
   br label %138
 
 138:                                              ; preds = %arj_read_main_header.exit, %137, %18
-  %.0 = phi i32 [ 26, %137 ], [ 26, %18 ], [ 0, %arj_read_main_header.exit ]
+  %.0 = phi i32 [ 26, %18 ], [ 26, %137 ], [ 0, %arj_read_main_header.exit ]
   ret i32 %.0
 }
 
@@ -413,7 +413,7 @@ define range(i32 0, 27) i32 @cli_unarj_prepare_file(ptr noundef readnone capture
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #12
   br label %22
 
-22:                                               ; preds = %21, %9
+22:                                               ; preds = %9, %21
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #12
   br label %158
 
@@ -730,8 +730,8 @@ fmap_readn.exit119.i:                             ; preds = %49
   br label %154
 
 154:                                              ; preds = %145, %.thread140.i, %110, %103, %98
-  %.082.i = phi ptr [ null, %98 ], [ %102, %110 ], [ null, %103 ], [ %.183.i, %145 ], [ %.183.i, %.thread140.i ]
-  %.081.i = phi i32 [ 26, %98 ], [ 26, %110 ], [ 20, %103 ], [ %spec.select.i, %145 ], [ 26, %.thread140.i ]
+  %.082.i = phi ptr [ null, %98 ], [ %.183.i, %145 ], [ %.183.i, %.thread140.i ], [ %102, %110 ], [ null, %103 ]
+  %.081.i = phi i32 [ 26, %98 ], [ %spec.select.i, %145 ], [ 26, %.thread140.i ], [ 26, %110 ], [ 20, %103 ]
   %.not113.i = icmp eq ptr %.185.i, null
   br i1 %.not113.i, label %156, label %155
 
@@ -743,8 +743,8 @@ fmap_readn.exit119.i:                             ; preds = %49
   br label %156
 
 156:                                              ; preds = %155, %154
-  %.081149.i = phi i32 [ %.081157.i, %155 ], [ %.081.i, %154 ]
-  %.082148.i = phi ptr [ %.082156.i, %155 ], [ %.082.i, %154 ]
+  %.081149.i = phi i32 [ %.081.i, %154 ], [ %.081157.i, %155 ]
+  %.082148.i = phi ptr [ %.082.i, %154 ], [ %.082156.i, %155 ]
   %.not114.i = icmp eq ptr %.082148.i, null
   br i1 %.not114.i, label %arj_read_file_header.exit, label %157
 
@@ -753,7 +753,7 @@ fmap_readn.exit119.i:                             ; preds = %49
   br label %arj_read_file_header.exit
 
 arj_read_file_header.exit:                        ; preds = %is_arj_archive.exit, %26, %fmap_readn.exit.i, %31, %38, %47, %48, %49, %fmap_readn.exit119.i, %66, %78, %83, %156, %157
-  %.0.i6 = phi i32 [ 26, %fmap_readn.exit.i ], [ %.081149.i, %157 ], [ %.081149.i, %156 ], [ 26, %is_arj_archive.exit ], [ 26, %26 ], [ 26, %fmap_readn.exit119.i ], [ 22, %31 ], [ 20, %83 ], [ 26, %78 ], [ 26, %66 ], [ 26, %47 ], [ 26, %38 ], [ 26, %48 ], [ 26, %49 ]
+  %.0.i6 = phi i32 [ 26, %fmap_readn.exit.i ], [ %.081149.i, %157 ], [ %.081149.i, %156 ], [ 26, %26 ], [ 26, %is_arj_archive.exit ], [ 26, %49 ], [ 20, %83 ], [ 26, %fmap_readn.exit119.i ], [ 26, %78 ], [ 26, %66 ], [ 22, %31 ], [ 26, %47 ], [ 26, %38 ], [ 26, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1367,10 +1367,10 @@ fill_buf.exit190.thread.i:                        ; preds = %fmap_need_off_once_
   br i1 %275, label %.lr.ph.split.i173.i, label %.preheader80.i.i.i, !llvm.loop !57
 
 .preheader80.i.i.i:                               ; preds = %270, %._crit_edge.split.us.i189.i, %226
-  %276 = phi i16 [ %241, %._crit_edge.split.us.i189.i ], [ %228, %226 ], [ %253, %270 ]
-  %277 = phi i8 [ 0, %._crit_edge.split.us.i189.i ], [ %.promoted.i172.i, %226 ], [ %274, %270 ]
-  %.035.lcssa.i168.i = phi i32 [ %238, %._crit_edge.split.us.i189.i ], [ 9, %226 ], [ %250, %270 ]
-  %.lcssa.i169.i = phi i32 [ 8, %._crit_edge.split.us.i189.i ], [ %220, %226 ], [ 8, %270 ]
+  %276 = phi i16 [ %228, %226 ], [ %241, %._crit_edge.split.us.i189.i ], [ %253, %270 ]
+  %277 = phi i8 [ %.promoted.i172.i, %226 ], [ 0, %._crit_edge.split.us.i189.i ], [ %274, %270 ]
+  %.035.lcssa.i168.i = phi i32 [ 9, %226 ], [ %238, %._crit_edge.split.us.i189.i ], [ %250, %270 ]
+  %.lcssa.i169.i = phi i32 [ %220, %226 ], [ 8, %._crit_edge.split.us.i189.i ], [ 8, %270 ]
   %278 = zext i8 %277 to i32
   %279 = sub nsw i32 %.lcssa.i169.i, %.035.lcssa.i168.i
   store i32 %279, ptr %45, align 4, !tbaa !56
@@ -2529,7 +2529,7 @@ decode.exit:                                      ; preds = %29, %.sink.split.i
   br label %794
 
 794:                                              ; preds = %25, %decode.exit, %792, %22, %17, %2, %10
-  %.017 = phi i32 [ 0, %10 ], [ 2, %2 ], [ 8, %17 ], [ %28, %25 ], [ %.053.i, %decode.exit ], [ %793, %792 ], [ 26, %22 ]
+  %.017 = phi i32 [ 0, %10 ], [ 2, %2 ], [ 8, %17 ], [ %793, %792 ], [ %28, %25 ], [ %.053.i, %decode.exit ], [ 26, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
@@ -2586,7 +2586,7 @@ fmap_need_off_once_len.exit:                      ; preds = %9
   br i1 %.not17, label %6, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit.thread:               ; preds = %fmap_need_off_once_len.exit, %20, %6, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 26, %9 ], [ 0, %6 ], [ 14, %20 ], [ 26, %fmap_need_off_once_len.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 14, %20 ], [ 0, %6 ], [ 26, %9 ], [ 26, %fmap_need_off_once_len.exit ]
   ret i32 %.0
 }
 
@@ -3172,17 +3172,17 @@ fmap_need_off_once_len.exit.i:                    ; preds = %236
   br label %fill_buf.exit
 
 fill_buf.exit:                                    ; preds = %236, %fmap_need_off_once_len.exit.i, %._crit_edge.i, %198, %196
-  %.sroa.23.2 = phi i64 [ %.sroa.23.7, %196 ], [ %.sroa.23.7, %198 ], [ %.sroa.23.8, %._crit_edge.i ], [ %.sroa.23.9, %fmap_need_off_once_len.exit.i ], [ %.sroa.23.9, %236 ]
-  %.sroa.49.1 = phi ptr [ %.sroa.49.6, %196 ], [ %.sroa.49.6, %198 ], [ %.sroa.49.7, %._crit_edge.i ], [ null, %fmap_need_off_once_len.exit.i ], [ null, %236 ]
-  %.sroa.73.1 = phi ptr [ %.sroa.73.6, %196 ], [ %.sroa.73.6, %198 ], [ %.sroa.73.7, %._crit_edge.i ], [ %.sroa.73.8, %fmap_need_off_once_len.exit.i ], [ %.sroa.73.8, %236 ]
-  %.sroa.85246.1 = phi i16 [ %.sroa.85246.6, %196 ], [ %.sroa.85246.6, %198 ], [ %254, %._crit_edge.i ], [ %232, %fmap_need_off_once_len.exit.i ], [ %232, %236 ]
-  %.sroa.127.1 = phi i32 [ %.sroa.127.6, %196 ], [ %.sroa.127.6, %198 ], [ %251, %._crit_edge.i ], [ %.sroa.127.7, %fmap_need_off_once_len.exit.i ], [ %.sroa.127.7, %236 ]
-  %.sroa.146.1 = phi i32 [ %.sroa.146.6, %196 ], [ %.sroa.146.6, %198 ], [ %.sroa.146.7, %._crit_edge.i ], [ %234, %fmap_need_off_once_len.exit.i ], [ %234, %236 ]
-  %.sroa.165.1 = phi i16 [ %.sroa.165.3, %196 ], [ 16, %198 ], [ 16, %._crit_edge.i ], [ 16, %fmap_need_off_once_len.exit.i ], [ 16, %236 ]
-  %.sroa.177.1 = phi i16 [ %.sroa.177.4, %196 ], [ %203, %198 ], [ %203, %._crit_edge.i ], [ %203, %fmap_need_off_once_len.exit.i ], [ %203, %236 ]
-  %.sroa.197283.1 = phi i8 [ %.sroa.197283.6, %196 ], [ %.sroa.197283.6, %198 ], [ %.sroa.197283.7, %._crit_edge.i ], [ %.sroa.197283.8, %fmap_need_off_once_len.exit.i ], [ %.sroa.197283.8, %236 ]
-  %.not70 = phi i1 [ true, %196 ], [ true, %198 ], [ true, %._crit_edge.i ], [ false, %fmap_need_off_once_len.exit.i ], [ false, %236 ]
-  %.sroa.228284.1 = phi i32 [ 0, %196 ], [ 0, %198 ], [ 0, %._crit_edge.i ], [ 26, %fmap_need_off_once_len.exit.i ], [ 26, %236 ]
+  %.sroa.23.2 = phi i64 [ %.sroa.23.7, %196 ], [ %.sroa.23.8, %._crit_edge.i ], [ %.sroa.23.7, %198 ], [ %.sroa.23.9, %fmap_need_off_once_len.exit.i ], [ %.sroa.23.9, %236 ]
+  %.sroa.49.1 = phi ptr [ %.sroa.49.6, %196 ], [ %.sroa.49.7, %._crit_edge.i ], [ %.sroa.49.6, %198 ], [ null, %fmap_need_off_once_len.exit.i ], [ null, %236 ]
+  %.sroa.73.1 = phi ptr [ %.sroa.73.6, %196 ], [ %.sroa.73.7, %._crit_edge.i ], [ %.sroa.73.6, %198 ], [ %.sroa.73.8, %fmap_need_off_once_len.exit.i ], [ %.sroa.73.8, %236 ]
+  %.sroa.85246.1 = phi i16 [ %.sroa.85246.6, %196 ], [ %254, %._crit_edge.i ], [ %.sroa.85246.6, %198 ], [ %232, %fmap_need_off_once_len.exit.i ], [ %232, %236 ]
+  %.sroa.127.1 = phi i32 [ %.sroa.127.6, %196 ], [ %251, %._crit_edge.i ], [ %.sroa.127.6, %198 ], [ %.sroa.127.7, %fmap_need_off_once_len.exit.i ], [ %.sroa.127.7, %236 ]
+  %.sroa.146.1 = phi i32 [ %.sroa.146.6, %196 ], [ %.sroa.146.7, %._crit_edge.i ], [ %.sroa.146.6, %198 ], [ %234, %fmap_need_off_once_len.exit.i ], [ %234, %236 ]
+  %.sroa.165.1 = phi i16 [ %.sroa.165.3, %196 ], [ 16, %._crit_edge.i ], [ 16, %198 ], [ 16, %fmap_need_off_once_len.exit.i ], [ 16, %236 ]
+  %.sroa.177.1 = phi i16 [ %.sroa.177.4, %196 ], [ %203, %._crit_edge.i ], [ %203, %198 ], [ %203, %fmap_need_off_once_len.exit.i ], [ %203, %236 ]
+  %.sroa.197283.1 = phi i8 [ %.sroa.197283.6, %196 ], [ %.sroa.197283.7, %._crit_edge.i ], [ %.sroa.197283.6, %198 ], [ %.sroa.197283.8, %fmap_need_off_once_len.exit.i ], [ %.sroa.197283.8, %236 ]
+  %.not70 = phi i1 [ true, %196 ], [ true, %._crit_edge.i ], [ true, %198 ], [ false, %fmap_need_off_once_len.exit.i ], [ false, %236 ]
+  %.sroa.228284.1 = phi i32 [ 0, %196 ], [ 0, %._crit_edge.i ], [ 0, %198 ], [ 26, %fmap_need_off_once_len.exit.i ], [ 26, %236 ]
   br label %255
 
 255:                                              ; preds = %fill_buf.exit, %255
@@ -3618,8 +3618,8 @@ decode_ptr.exit:                                  ; preds = %410
   br label %.sink.split
 
 .sink.split:                                      ; preds = %fmap_need_off_once_len.exit.i101, %25, %decode_ptr.exit, %268, %258, %decode_len.exit, %436, %.loopexit403, %446, %.loopexit404
-  %.sroa.23.1724.sink = phi i64 [ %.sroa.23.1, %446 ], [ %.sroa.23.1, %.loopexit403 ], [ %.sroa.23.15, %.loopexit404 ], [ %.sroa.23.14, %436 ], [ %.sroa.23.7, %decode_len.exit ], [ %.sroa.23.2, %258 ], [ %.sroa.23.2, %268 ], [ %.sroa.23.14, %decode_ptr.exit ], [ %.sroa.23.16, %25 ], [ %.sroa.23.16, %fmap_need_off_once_len.exit.i101 ]
-  %.0.ph = phi i32 [ 0, %446 ], [ 0, %.loopexit403 ], [ 0, %.loopexit404 ], [ 14, %436 ], [ %.sroa.228284.6, %decode_len.exit ], [ %.sroa.228284.1, %258 ], [ 14, %268 ], [ %.sroa.228284.10, %decode_ptr.exit ], [ 26, %25 ], [ 26, %fmap_need_off_once_len.exit.i101 ]
+  %.sroa.23.1724.sink = phi i64 [ %.sroa.23.1, %.loopexit403 ], [ %.sroa.23.1, %446 ], [ %.sroa.23.15, %.loopexit404 ], [ %.sroa.23.14, %decode_ptr.exit ], [ %.sroa.23.14, %436 ], [ %.sroa.23.2, %268 ], [ %.sroa.23.2, %258 ], [ %.sroa.23.7, %decode_len.exit ], [ %.sroa.23.16, %25 ], [ %.sroa.23.16, %fmap_need_off_once_len.exit.i101 ]
+  %.0.ph = phi i32 [ 0, %.loopexit403 ], [ 0, %446 ], [ 0, %.loopexit404 ], [ %.sroa.228284.10, %decode_ptr.exit ], [ 14, %436 ], [ 14, %268 ], [ %.sroa.228284.1, %258 ], [ %.sroa.228284.6, %decode_len.exit ], [ 26, %25 ], [ 26, %fmap_need_off_once_len.exit.i101 ]
   tail call void @free(ptr noundef %2) #12
   store i64 %.sroa.23.1724.sink, ptr %5, align 8, !tbaa !12
   br label %451
@@ -3892,8 +3892,8 @@ define internal fastcc void @read_pt_len(ptr noundef nonnull captures(none) %0, 
   br label %.loopexit70.thread
 
 .loopexit70.thread:                               ; preds = %.loopexit70, %.preheader69, %20
-  %.052106 = phi i16 [ %22, %20 ], [ 7, %.preheader69 ], [ %27, %.loopexit70 ]
-  %32 = phi i32 [ 3, %20 ], [ 4, %.preheader69 ], [ %spec.select, %.loopexit70 ]
+  %.052106 = phi i16 [ %22, %20 ], [ %27, %.loopexit70 ], [ 7, %.preheader69 ]
+  %32 = phi i32 [ 3, %20 ], [ %spec.select, %.loopexit70 ], [ 4, %.preheader69 ]
   tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef %32)
   %33 = load i32, ptr %9, align 8, !tbaa !59
   %.not64 = icmp eq i32 %33, 0

@@ -526,7 +526,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   br i1 %40, label %.sink.split, label %64
 
 .loopexit:                                        ; preds = %22, %_hash.exit, %.preheader
-  %41 = phi i32 [ 0, %.preheader ], [ %.pre, %_hash.exit ], [ %23, %22 ]
+  %41 = phi i32 [ %.pre, %_hash.exit ], [ 0, %.preheader ], [ %23, %22 ]
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %43 = shl i32 %41, 1
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 12

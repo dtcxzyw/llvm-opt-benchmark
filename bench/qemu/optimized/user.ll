@@ -117,7 +117,7 @@ define dso_local range(i32 -1, 256) i32 @gdb_get_char() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %19, %16
-  %.0 = phi i32 [ -1, %16 ], [ %21, %19 ], [ -1, %12 ]
+  %.0 = phi i32 [ %21, %19 ], [ -1, %16 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -180,7 +180,7 @@ gdb_get_char.exit:                                ; preds = %14
   br label %21
 
 21:                                               ; preds = %gdb_get_char.exit.thread, %gdb_get_char.exit
-  %.0 = phi i1 [ %20, %gdb_get_char.exit ], [ true, %gdb_get_char.exit.thread ]
+  %.0 = phi i1 [ true, %gdb_get_char.exit.thread ], [ %20, %gdb_get_char.exit ]
   ret i1 %.0
 }
 
@@ -455,7 +455,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br label %62
 
 62:                                               ; preds = %42, %5, %60, %59
-  %.023 = phi i32 [ 0, %59 ], [ %61, %60 ], [ %1, %5 ], [ %1, %42 ]
+  %.023 = phi i32 [ %61, %60 ], [ %1, %5 ], [ 0, %59 ], [ %1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.023
 }
@@ -698,7 +698,7 @@ glib_auto_cleanup_GStrv.exit43:                   ; preds = %18, %23, %17
   br label %glib_auto_cleanup_GStrv.exit45
 
 glib_auto_cleanup_GStrv.exit45:                   ; preds = %gdbserver_open_socket.exit, %glib_auto_cleanup_GStrv.exit43, %83, %82, %78, %._crit_edge.thread
-  %.2 = phi i1 [ true, %78 ], [ false, %82 ], [ true, %83 ], [ false, %._crit_edge.thread ], [ false, %glib_auto_cleanup_GStrv.exit43 ], [ false, %gdbserver_open_socket.exit ]
+  %.2 = phi i1 [ false, %glib_auto_cleanup_GStrv.exit43 ], [ false, %._crit_edge.thread ], [ true, %78 ], [ false, %82 ], [ true, %83 ], [ false, %gdbserver_open_socket.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @g_strfreev(ptr noundef nonnull %6) #16
   ret i1 %.2

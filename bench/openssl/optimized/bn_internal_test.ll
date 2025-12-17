@@ -185,7 +185,7 @@ define internal i32 @test_bn_small_factors() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %0, %3, %.thread21
-  %.017 = phi i32 [ %19, %.thread21 ], [ 0, %3 ], [ 0, %0 ], [ 0, %12 ]
+  %.017 = phi i32 [ %19, %.thread21 ], [ 0, %0 ], [ 0, %3 ], [ 0, %12 ]
   tail call void @BN_free(ptr noundef %1) #3
   ret i32 %.017
 }

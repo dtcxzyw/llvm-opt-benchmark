@@ -338,8 +338,8 @@ _Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loop
   br label %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit
 
 _Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit: ; preds = %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit, %14, %17, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %6, %17 ], [ %6, %14 ], [ %6, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %6, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %18, %17 ], [ %16, %14 ], [ %.pre, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %21, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %6, %14 ], [ %6, %17 ], [ %6, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %6, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %16, %14 ], [ %18, %17 ], [ %.pre, %_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh.exit.loopexit ], [ %21, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -513,7 +513,7 @@ define noundef i32 @_Z33alts_grpc_record_protocol_protectP25alts_grpc_record_pro
   br label %15
 
 15:                                               ; preds = %10, %3, %5, %13
-  %.0 = phi i32 [ %14, %13 ], [ 2, %5 ], [ 2, %3 ], [ 6, %10 ]
+  %.0 = phi i32 [ %14, %13 ], [ 2, %3 ], [ 2, %5 ], [ 6, %10 ]
   ret i32 %.0
 }
 
@@ -542,7 +542,7 @@ define noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_p
   br label %16
 
 16:                                               ; preds = %10, %3, %5, %14
-  %.0 = phi i32 [ %15, %14 ], [ 2, %5 ], [ 2, %3 ], [ 6, %10 ]
+  %.0 = phi i32 [ %15, %14 ], [ 2, %3 ], [ 2, %5 ], [ 6, %10 ]
   ret i32 %.0
 }
 

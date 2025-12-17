@@ -234,7 +234,7 @@ get_resman_context.exit:                          ; preds = %1, %9
   br label %61
 
 61:                                               ; preds = %get_resman_context.exit.thread, %59, %.loopexit.thread
-  %.0 = phi ptr [ %.030, %59 ], [ null, %.loopexit.thread ], [ null, %get_resman_context.exit.thread ]
+  %.0 = phi ptr [ %.030, %59 ], [ null, %get_resman_context.exit.thread ], [ null, %.loopexit.thread ]
   ret ptr %.0
 }
 

@@ -1533,7 +1533,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   br label %176
 
 176:                                              ; preds = %169, %165, %25, %2
-  %177 = phi ptr [ %166, %169 ], [ %166, %165 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -3 to ptr), %25 ]
+  %177 = phi ptr [ inttoptr (i64 -3 to ptr), %25 ], [ %166, %169 ], [ %166, %165 ], [ inttoptr (i64 -22 to ptr), %2 ]
   ret ptr %177
 }
 
@@ -1646,7 +1646,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   br label %68
 
 68:                                               ; preds = %65, %61, %57
-  %69 = phi i64 [ %60, %57 ], [ %64, %61 ], [ %67, %65 ]
+  %69 = phi i64 [ %67, %65 ], [ %60, %57 ], [ %64, %61 ]
   %70 = call ptr @dqget(ptr noundef %6, i64 %69)
   %71 = icmp ugt ptr %70, inttoptr (i64 -4096 to ptr)
   br i1 %71, label %72, label %74
@@ -1731,7 +1731,7 @@ default.unreachable:                              ; preds = %93
   unreachable
 
 113:                                              ; preds = %109, %97, %94
-  %114 = phi i64 [ %112, %109 ], [ %100, %97 ], [ %96, %94 ]
+  %114 = phi i64 [ %96, %94 ], [ %112, %109 ], [ %100, %97 ]
   %115 = call ptr @dqget(ptr noundef %6, i64 %114)
   %116 = icmp ugt ptr %115, inttoptr (i64 -4096 to ptr)
   br i1 %116, label %117, label %119
@@ -5831,7 +5831,7 @@ define dso_local i32 @dquot_load_quota_inode(ptr noundef %0, i32 noundef %1, i32
   br label %.thread
 
 .thread:                                          ; preds = %28, %23, %18, %12, %9, %4, %62, %46, %42
-  %63 = phi i32 [ %44, %42 ], [ %44, %46 ], [ %44, %62 ], [ -5, %28 ], [ -22, %23 ], [ -16, %18 ], [ -30, %12 ], [ -13, %9 ], [ -117, %4 ]
+  %63 = phi i32 [ %44, %62 ], [ %44, %42 ], [ %44, %46 ], [ -5, %28 ], [ -22, %23 ], [ -16, %18 ], [ -30, %12 ], [ -13, %9 ], [ -117, %4 ]
   ret i32 %63
 }
 

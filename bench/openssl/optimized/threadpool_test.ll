@@ -127,7 +127,7 @@ define internal range(i32 0, 2) i32 @test_thread_native() #0 {
   br label %23
 
 23:                                               ; preds = %20, %17, %11, %14, %8, %5, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 0, %8 ], [ 0, %14 ], [ 0, %11 ], [ 0, %17 ], [ %., %20 ]
+  %.0 = phi i32 [ 0, %17 ], [ %., %20 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -184,7 +184,7 @@ define internal range(i32 0, 2) i32 @test_thread_native_multiple_joins() #0 {
   br label %24
 
 24:                                               ; preds = %21, %18, %15, %12, %9, %0, %5, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %0 ], [ 0, %9 ], [ 0, %12 ], [ 0, %15 ], [ 0, %18 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %18 ], [ %., %21 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %0 ], [ 0, %7 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -510,7 +510,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %81, %73, %76, %70, %67, %61, %90, %.preheader104, %116, %104, %110, %124, %.preheader98, %150, %138, %144, %155, %26, %121, %87, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %29, %23, %20, %17, %14, %11, %9
-  %.059.shrunk = phi i1 [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %11 ], [ false, %9 ], [ false, %121 ], [ false, %87 ], [ false, %58 ], [ false, %55 ], [ false, %52 ], [ false, %49 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %31 ], [ false, %29 ], [ %.not96, %26 ], [ %.not72, %155 ], [ false, %144 ], [ false, %138 ], [ false, %150 ], [ false, %.preheader98 ], [ false, %124 ], [ false, %110 ], [ false, %104 ], [ false, %116 ], [ false, %.preheader104 ], [ false, %90 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %76 ], [ false, %73 ], [ false, %81 ], [ false, %84 ]
+  %.059.shrunk = phi i1 [ false, %29 ], [ false, %31 ], [ false, %23 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ false, %11 ], [ false, %9 ], [ %.not96, %26 ], [ %.not72, %155 ], [ false, %121 ], [ false, %87 ], [ false, %58 ], [ false, %55 ], [ false, %52 ], [ false, %49 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %90 ], [ false, %150 ], [ false, %.preheader98 ], [ false, %124 ], [ false, %116 ], [ false, %.preheader104 ], [ false, %144 ], [ false, %138 ], [ false, %110 ], [ false, %104 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %76 ], [ false, %73 ], [ false, %81 ], [ false, %84 ]
   %.059 = zext i1 %.059.shrunk to i32
   call void @OSSL_LIB_CTX_free(ptr noundef %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -164,8 +164,8 @@ _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit: ; preds = %54
   br i1 %77, label %80, label %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit.thread.invoke
 
 _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit.thread.invoke: ; preds = %43, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit, %54
-  %78 = phi i32 [ 49, %54 ], [ 49, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ], [ 44, %43 ]
-  %79 = phi ptr [ @.str.6, %54 ], [ @.str.6, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ], [ @.str.5, %43 ]
+  %78 = phi i32 [ 49, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ], [ 49, %54 ], [ 44, %43 ]
+  %79 = phi ptr [ @.str.6, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit ], [ @.str.6, %54 ], [ @.str.5, %43 ]
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef %78, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d2io22WriteTriangleMeshToSTLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8geometry12TriangleMeshEbbbbbb, ptr noundef nonnull %79)
           to label %163 unwind label %52
 
@@ -373,7 +373,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %164
 
 163:                                              ; preds = %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit.thread.invoke, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %.028 = phi i1 [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ false, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit.thread.invoke ]
+  %.028 = phi i1 [ false, %_ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit.thread.invoke ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.028

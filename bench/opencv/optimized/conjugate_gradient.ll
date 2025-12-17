@@ -1058,7 +1058,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %193, %191
   br label %251
 
 251:                                              ; preds = %247, %249
-  %.pn71.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %248, %247 ]
+  %.pn71.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %250, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %279
 
@@ -1142,7 +1142,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %193, %191
   ret double %277
 
 279:                                              ; preds = %215, %217, %219, %221, %251, %259, %223, %270, %161, %159, %109, %100
-  %.pn83 = phi { ptr, i32 } [ %101, %100 ], [ %.pn81, %270 ], [ %162, %161 ], [ %160, %159 ], [ %.pn62.pn, %109 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %224, %223 ], [ %.pn75.pn, %259 ], [ %.pn71.pn.pn, %251 ]
+  %.pn83 = phi { ptr, i32 } [ %101, %100 ], [ %.pn81, %270 ], [ %.pn62.pn, %109 ], [ %162, %161 ], [ %160, %159 ], [ %216, %215 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %224, %223 ], [ %.pn75.pn, %259 ], [ %.pn71.pn.pn, %251 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %280

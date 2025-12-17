@@ -380,9 +380,9 @@ define internal fastcc void @_ZN8protobuf18coded_input_stream16CodedInputStream2
   store ptr %48, ptr %49, align 8
   br label %78
 
-.loopexit:                                        ; preds = %23, %41, %46, %34
-  %.sroa.17.0.ph.ph = phi i64 [ 5, %34 ], [ 1, %46 ], [ 2, %41 ], [ %24, %23 ]
-  %.sroa.10.0.ph.ph.in = phi i64 [ %.sroa.10.8.insert.ext34, %34 ], [ %.sroa.10.8.insert.ext42, %46 ], [ %.sroa.10.8.insert.ext38, %41 ], [ %30, %23 ]
+.loopexit:                                        ; preds = %23, %46, %34, %41
+  %.sroa.17.0.ph.ph = phi i64 [ 2, %41 ], [ 5, %34 ], [ 1, %46 ], [ %24, %23 ]
+  %.sroa.10.0.ph.ph.in = phi i64 [ %.sroa.10.8.insert.ext38, %41 ], [ %.sroa.10.8.insert.ext34, %34 ], [ %.sroa.10.8.insert.ext42, %46 ], [ %30, %23 ]
   %.not = icmp ugt i64 %.sroa.17.0.ph.ph, %11
   br i1 %.not, label %79, label %80, !prof !27
 
@@ -727,7 +727,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test10SubMessage33generated_message_d
   br label %.body
 
 .body:                                            ; preds = %66, %47, %35
-  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %48, %47 ], [ %67, %66 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %67, %66 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17hf6e3b0098568cba5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #22
           to label %26 unwind label %79
 
@@ -1066,8 +1066,8 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473
   br label %.loopexit141
 
 .loopexit.i:                                      ; preds = %70, %93, %88, %81
-  %.sroa.17.0.ph.ph.i = phi i64 [ 5, %81 ], [ 1, %93 ], [ 2, %88 ], [ %71, %70 ]
-  %.sroa.10.0.ph.ph.in.i = phi i64 [ %.sroa.10.8.insert.ext12.i, %81 ], [ %.sroa.10.8.insert.ext20.i, %93 ], [ %.sroa.10.8.insert.ext16.i, %88 ], [ %77, %70 ]
+  %.sroa.17.0.ph.ph.i = phi i64 [ 2, %88 ], [ 5, %81 ], [ 1, %93 ], [ %71, %70 ]
+  %.sroa.10.0.ph.ph.in.i = phi i64 [ %.sroa.10.8.insert.ext16.i, %88 ], [ %.sroa.10.8.insert.ext12.i, %81 ], [ %.sroa.10.8.insert.ext20.i, %93 ], [ %77, %70 ]
   %.not.i = icmp ugt i64 %.sroa.17.0.ph.ph.i, %58
   br i1 %.not.i, label %95, label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit.thread202, !prof !27
 
@@ -1307,7 +1307,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473
   br label %.loopexit141
 
 .thread:                                          ; preds = %.thread130.loopexit, %.thread130.loopexit.split-lp, %148, %140
-  %.pn128 = phi { ptr, i32 } [ %149, %148 ], [ %141, %140 ], [ %lpad.loopexit, %.thread130.loopexit ], [ %lpad.loopexit.split-lp, %.thread130.loopexit.split-lp ]
+  %.pn128 = phi { ptr, i32 } [ %141, %140 ], [ %149, %148 ], [ %lpad.loopexit, %.thread130.loopexit ], [ %lpad.loopexit.split-lp, %.thread130.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hebed34b4110f1319E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
           to label %161 unwind label %159
 
@@ -1323,7 +1323,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473
           to label %110 unwind label %159
 
 .loopexit141:                                     ; preds = %43, %111, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit, %50, %45, %38, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit.thread, %._crit_edge, %158
-  %.sroa.0.1 = phi ptr [ %37, %._crit_edge ], [ %.sroa.0.2, %158 ], [ %94, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit.thread ], [ %44, %43 ], [ %116, %111 ], [ %98, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit ], [ %53, %50 ], [ %48, %45 ], [ null, %38 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %158 ], [ %37, %._crit_edge ], [ %94, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit.thread ], [ %44, %43 ], [ %98, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint3217hb53ea473307ab699E.exit ], [ %53, %50 ], [ %48, %45 ], [ %116, %111 ], [ null, %38 ]
   ret ptr %.sroa.0.1
 }
 
@@ -1433,7 +1433,7 @@ define noundef align 8 ptr @"_ZN82_$LT$yara_x_proto_yaml..test..SubMessage$u20$a
   br i1 %.not52, label %20, label %14
 
 13:                                               ; preds = %39, %14, %7, %55
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %55 ], [ %10, %7 ], [ %19, %14 ], [ %41, %39 ]
+  %.sroa.0.0 = phi ptr [ %41, %39 ], [ %10, %7 ], [ %.sroa.0.1, %55 ], [ %19, %14 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -1504,7 +1504,7 @@ define noundef align 8 ptr @"_ZN82_$LT$yara_x_proto_yaml..test..SubMessage$u20$a
   br i1 %.not65, label %22, label %55
 
 55:                                               ; preds = %51, %47, %42, %25
-  %.sroa.0.1 = phi ptr [ %38, %25 ], [ %46, %42 ], [ %50, %47 ], [ %54, %51 ]
+  %.sroa.0.1 = phi ptr [ %50, %47 ], [ %38, %25 ], [ %46, %42 ], [ %54, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 }
@@ -1963,7 +1963,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
   br label %.body
 
 .body:                                            ; preds = %130, %112, %99, %82, %65, %48, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ], [ %66, %65 ], [ %83, %82 ], [ %100, %99 ], [ %113, %112 ], [ %131, %130 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %49, %48 ], [ %66, %65 ], [ %83, %82 ], [ %100, %99 ], [ %40, %39 ], [ %131, %130 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17hf6e3b0098568cba5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
           to label %30 unwind label %143
 
@@ -2197,7 +2197,7 @@ define hidden void @_ZN17yara_x_proto_yaml4test7Message33generated_message_descr
   br i1 %121, label %.invoke, label %123, !prof !27
 
 .invoke:                                          ; preds = %33, %116, %86, %69, %52
-  %122 = phi i64 [ 24, %52 ], [ 24, %69 ], [ 24, %86 ], [ 32, %116 ], [ 24, %33 ]
+  %122 = phi i64 [ 24, %86 ], [ 24, %69 ], [ 24, %52 ], [ 32, %116 ], [ 24, %33 ]
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h62b0c67f72f21d9dE(i64 noundef 8, i64 noundef %122) #21
           to label %.cont unwind label %39
 
@@ -2492,7 +2492,7 @@ common.resume:                                    ; preds = %83, %75
   br label %65
 
 .loopexit:                                        ; preds = %35, %58, %50, %45, %40, %30, %._crit_edge, %60, %77
-  %.sroa.0.1 = phi ptr [ %29, %._crit_edge ], [ %62, %60 ], [ %57, %77 ], [ %36, %35 ], [ %59, %58 ], [ %53, %50 ], [ %48, %45 ], [ %43, %40 ], [ null, %30 ]
+  %.sroa.0.1 = phi ptr [ %62, %60 ], [ %29, %._crit_edge ], [ %57, %77 ], [ %36, %35 ], [ %48, %45 ], [ %43, %40 ], [ %53, %50 ], [ %59, %58 ], [ null, %30 ]
   ret ptr %.sroa.0.1
 }
 
@@ -2637,7 +2637,7 @@ define noundef align 8 ptr @"_ZN79_$LT$yara_x_proto_yaml..test..Message$u20$as$u
   br i1 %12, label %13, label %17
 
 .loopexit:                                        ; preds = %42, %49, %47, %28, %21, %13, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %33, %28 ], [ %48, %47 ], [ %51, %49 ], [ %43, %42 ]
+  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %16, %13 ], [ %24, %21 ], [ %51, %49 ], [ %33, %28 ], [ %48, %47 ], [ %43, %42 ]
   ret ptr %.sroa.0.0
 
 13:                                               ; preds = %10
@@ -2760,7 +2760,7 @@ define void @"_ZN79_$LT$yara_x_proto_yaml..test..Message$u20$as$u20$protobuf..me
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1a0cc1415600a879E.exit" unwind label %8
 
 common.resume6:                                   ; preds = %19, %8, %.body
-  %common.resume6.op = phi { ptr, i32 } [ %9, %8 ], [ %31, %.body ], [ %22, %19 ]
+  %common.resume6.op = phi { ptr, i32 } [ %31, %.body ], [ %9, %8 ], [ %22, %19 ]
   resume { ptr, i32 } %common.resume6.op
 
 8:                                                ; preds = %7

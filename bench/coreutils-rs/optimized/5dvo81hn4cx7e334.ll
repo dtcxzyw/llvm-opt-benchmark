@@ -1969,7 +1969,7 @@ define void @_ZN6uu_cat6uu_app17h3602ed242c97a9edE(ptr noalias noundef writeonly
   ret void
 
 .body:                                            ; preds = %433, %400, %367, %334, %301, %268, %235, %202, %169, %136, %103, %92, %452, %450, %449, %448, %447, %446, %445, %444, %443, %442, %441, %438
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body204.ph, %438 ], [ %eh.lpad-body187.ph, %441 ], [ %eh.lpad-body170.ph, %442 ], [ %eh.lpad-body153.ph, %443 ], [ %eh.lpad-body136.ph, %444 ], [ %eh.lpad-body119.ph, %445 ], [ %eh.lpad-body102.ph, %446 ], [ %eh.lpad-body85.ph, %447 ], [ %eh.lpad-body68.ph, %448 ], [ %eh.lpad-body52.ph, %449 ], [ %451, %450 ], [ %453, %452 ], [ %93, %92 ], [ %104, %103 ], [ %137, %136 ], [ %170, %169 ], [ %203, %202 ], [ %236, %235 ], [ %269, %268 ], [ %302, %301 ], [ %335, %334 ], [ %368, %367 ], [ %401, %400 ], [ %434, %433 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body204.ph, %438 ], [ %401, %400 ], [ %eh.lpad-body187.ph, %441 ], [ %368, %367 ], [ %eh.lpad-body170.ph, %442 ], [ %335, %334 ], [ %eh.lpad-body153.ph, %443 ], [ %302, %301 ], [ %eh.lpad-body136.ph, %444 ], [ %269, %268 ], [ %eh.lpad-body119.ph, %445 ], [ %236, %235 ], [ %eh.lpad-body102.ph, %446 ], [ %203, %202 ], [ %eh.lpad-body85.ph, %447 ], [ %170, %169 ], [ %eh.lpad-body68.ph, %448 ], [ %137, %136 ], [ %eh.lpad-body52.ph, %449 ], [ %104, %103 ], [ %451, %450 ], [ %93, %92 ], [ %453, %452 ], [ %434, %433 ]
   resume { ptr, i32 } %.pn
 
 438:                                              ; preds = %405, %409
@@ -2209,7 +2209,7 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   br label %46
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %160, %170, %196, %202, %.body65, %.body54
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body55, %.body54 ], [ %eh.lpad-body66, %.body65 ], [ %161, %160 ], [ %171, %170 ], [ %197, %196 ], [ %lpad.thr_comm.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body66, %.body65 ], [ %eh.lpad-body55, %.body54 ], [ %171, %170 ], [ %197, %196 ], [ %lpad.thr_comm.i, %202 ], [ %161, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h448b13ec6a9b3c87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #15
           to label %285 unwind label %250
 
@@ -2345,7 +2345,7 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread109.i: ; preds = %"_ZN
   br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread109.i
 
 _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread116.i: ; preds = %128, %127, %126, %125, %124, %123, %113
-  %.sroa.14.0.ph.i = phi ptr [ inttoptr (i64 4 to ptr), %113 ], [ inttoptr (i64 3 to ptr), %128 ], [ inttoptr (i64 1 to ptr), %127 ], [ null, %126 ], [ inttoptr (i64 7 to ptr), %125 ], [ inttoptr (i64 6 to ptr), %124 ], [ inttoptr (i64 5 to ptr), %123 ]
+  %.sroa.14.0.ph.i = phi ptr [ inttoptr (i64 4 to ptr), %113 ], [ inttoptr (i64 1 to ptr), %127 ], [ null, %126 ], [ inttoptr (i64 7 to ptr), %125 ], [ inttoptr (i64 6 to ptr), %124 ], [ inttoptr (i64 5 to ptr), %123 ], [ inttoptr (i64 3 to ptr), %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !660
   br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i
 
@@ -2379,7 +2379,7 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i: ; preds = %.no
   br label %136
 
 _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc40, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread116.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i"
-  %.sroa.14.2108.i = phi ptr [ %.sroa.14.0.copyload.i, %.noexc40 ], [ %.sroa.14.0.ph.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread116.i ], [ inttoptr (i64 2 to ptr), %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i" ]
+  %.sroa.14.2108.i = phi ptr [ %.sroa.14.0.ph.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread116.i ], [ %.sroa.14.0.copyload.i, %.noexc40 ], [ inttoptr (i64 2 to ptr), %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i" ]
   %135 = ptrtoint ptr %.sroa.14.2108.i to i64
   %.sroa.14.0.extract.trunc75.i = trunc i64 %135 to i8
   switch i8 %.sroa.14.0.extract.trunc75.i, label %137 [

@@ -2003,7 +2003,7 @@ _ZN7QStringD2Ev.exit183:                          ; preds = %305, %_ZN17QArrayDa
   br label %311
 
 311:                                              ; preds = %_ZN7QStringD2Ev.exit183, %303, %_ZN7QStringD2Ev.exit179, %_ZN7QStringD2Ev.exit175, %289, %_ZN7QStringD2Ev.exit171, %281, %_ZN7QStringD2Ev.exit167, %273, %_ZN7QStringD2Ev.exit163, %265, %_ZN7QStringD2Ev.exit159, %257, %_ZN7QStringD2Ev.exit155, %249, %_ZN7QStringD2Ev.exit151, %241, %_ZN7QStringD2Ev.exit147, %233, %_ZN7QStringD2Ev.exit143, %225, %_ZN7QStringD2Ev.exit139, %217, %_ZN7QStringD2Ev.exit135, %209, %_ZN7QStringD2Ev.exit47
-  %.pn = phi { ptr, i32 } [ %306, %_ZN7QStringD2Ev.exit183 ], [ %304, %303 ], [ %298, %_ZN7QStringD2Ev.exit179 ], [ %292, %_ZN7QStringD2Ev.exit175 ], [ %290, %289 ], [ %284, %_ZN7QStringD2Ev.exit171 ], [ %282, %281 ], [ %276, %_ZN7QStringD2Ev.exit167 ], [ %274, %273 ], [ %268, %_ZN7QStringD2Ev.exit163 ], [ %266, %265 ], [ %260, %_ZN7QStringD2Ev.exit159 ], [ %258, %257 ], [ %252, %_ZN7QStringD2Ev.exit155 ], [ %250, %249 ], [ %244, %_ZN7QStringD2Ev.exit151 ], [ %242, %241 ], [ %236, %_ZN7QStringD2Ev.exit147 ], [ %234, %233 ], [ %228, %_ZN7QStringD2Ev.exit143 ], [ %226, %225 ], [ %220, %_ZN7QStringD2Ev.exit139 ], [ %218, %217 ], [ %212, %_ZN7QStringD2Ev.exit135 ], [ %210, %209 ], [ %39, %_ZN7QStringD2Ev.exit47 ]
+  %.pn = phi { ptr, i32 } [ %306, %_ZN7QStringD2Ev.exit183 ], [ %304, %303 ], [ %39, %_ZN7QStringD2Ev.exit47 ], [ %298, %_ZN7QStringD2Ev.exit179 ], [ %292, %_ZN7QStringD2Ev.exit175 ], [ %290, %289 ], [ %284, %_ZN7QStringD2Ev.exit171 ], [ %282, %281 ], [ %276, %_ZN7QStringD2Ev.exit167 ], [ %274, %273 ], [ %268, %_ZN7QStringD2Ev.exit163 ], [ %266, %265 ], [ %260, %_ZN7QStringD2Ev.exit159 ], [ %258, %257 ], [ %252, %_ZN7QStringD2Ev.exit155 ], [ %250, %249 ], [ %244, %_ZN7QStringD2Ev.exit151 ], [ %242, %241 ], [ %236, %_ZN7QStringD2Ev.exit147 ], [ %234, %233 ], [ %228, %_ZN7QStringD2Ev.exit143 ], [ %226, %225 ], [ %220, %_ZN7QStringD2Ev.exit139 ], [ %218, %217 ], [ %212, %_ZN7QStringD2Ev.exit135 ], [ %210, %209 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4113,7 +4113,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %79, %_ZN17QArrayDat
   br label %89
 
 _ZN7QStringD2Ev.exit21:                           ; preds = %85, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %81, %56, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19, %52, %_ZN17QArrayDataPointerIDsED2Ev.exit29, %50
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit29 ], [ %51, %50 ], [ %53, %52 ], [ %53, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ], [ %53, %56 ], [ %82, %81 ], [ %82, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %82, %85 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit29 ], [ %53, %56 ], [ %51, %50 ], [ %53, %52 ], [ %53, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19 ], [ %82, %81 ], [ %82, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %82, %85 ]
   call void @_ZN9QMimeTypeD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #22
   br label %87
 
@@ -4890,7 +4890,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i120:   ; preds = %243
   br label %_ZN7QStringD2Ev.exit122
 
 _ZN7QStringD2Ev.exit122:                          ; preds = %247, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i120, %243, %_ZN10QByteArrayD2Ev.exit66, %_ZN7QStringD2Ev.exit82, %160, %_ZN7QStringD2Ev.exit100
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %_ZN7QStringD2Ev.exit100 ], [ %161, %160 ], [ %.pn22.pn.pn, %_ZN7QStringD2Ev.exit82 ], [ %.pn20, %_ZN10QByteArrayD2Ev.exit66 ], [ %244, %243 ], [ %244, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i120 ], [ %244, %247 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn20, %_ZN10QByteArrayD2Ev.exit66 ], [ %.pn30, %_ZN7QStringD2Ev.exit100 ], [ %161, %160 ], [ %.pn22.pn.pn, %_ZN7QStringD2Ev.exit82 ], [ %244, %243 ], [ %244, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i120 ], [ %244, %247 ]
   %249 = load ptr, ptr %11, align 8
   %.not.i.i.i123 = icmp eq ptr %249, null
   br i1 %.not.i.i.i123, label %_ZN7QStringD2Ev.exit126, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i124

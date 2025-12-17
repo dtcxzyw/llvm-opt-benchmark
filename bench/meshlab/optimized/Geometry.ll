@@ -294,7 +294,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %12, %._crit_edge, %3, %._crit_edge.thread
-  %.019 = phi i1 [ true, %._crit_edge.thread ], [ true, %3 ], [ false, %._crit_edge ], [ %.not24.not.not, %12 ], [ %.not24.not.not, %15 ]
+  %.019 = phi i1 [ false, %._crit_edge ], [ true, %3 ], [ true, %._crit_edge.thread ], [ %.not24.not.not, %12 ], [ %.not24.not.not, %15 ]
   ret i1 %.019
 }
 

@@ -220,7 +220,7 @@ define internal zeroext i1 @test_shicp(ptr noundef readonly captures(none) %0, p
   br label %16
 
 16:                                               ; preds = %13, %7, %10, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ false, %7 ], [ %.not5, %13 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ %.not5, %13 ], [ false, %10 ]
   ret i1 %.0
 }
 

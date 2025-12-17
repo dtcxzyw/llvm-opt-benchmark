@@ -294,7 +294,7 @@ define noundef i32 @_Z15SolveAllBoardsNR6boardsR12solvedBoards(ptr noundef nonnu
   br label %15
 
 15:                                               ; preds = %12, %10, %2
-  %.0 = phi i32 [ -101, %2 ], [ %11, %10 ], [ %., %12 ]
+  %.0 = phi i32 [ %11, %10 ], [ -101, %2 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -468,7 +468,7 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
   br label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
 _Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %46, %59, %57, %._crit_edge, %2
-  %.0 = phi i32 [ -101, %2 ], [ -101, %._crit_edge ], [ %58, %57 ], [ %..i, %59 ], [ -99, %46 ]
+  %.0 = phi i32 [ -101, %2 ], [ %58, %57 ], [ -101, %._crit_edge ], [ %..i, %59 ], [ -99, %46 ]
   ret i32 %.0
 }
 
@@ -541,7 +541,7 @@ define i32 @SolveAllChunksBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
 _Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %15, %13, %5, %3
-  %.0 = phi i32 [ -301, %3 ], [ -101, %5 ], [ %14, %13 ], [ %..i, %15 ]
+  %.0 = phi i32 [ -301, %3 ], [ %14, %13 ], [ -101, %5 ], [ %..i, %15 ]
   ret i32 %.0
 }
 
@@ -800,7 +800,7 @@ _Z9SameBoardRK6boardsjj.exit:                     ; preds = %108
   store i32 %74, ptr %120, align 4
   br label %_Z9SameBoardRK6boardsjj.exit.thread
 
-_Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %109, %114, %81, %103, %99, %95, %91, %87, %_Z9SameBoardRK6boardsjj.exit
+_Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %109, %114, %81, %99, %95, %91, %87, %103, %_Z9SameBoardRK6boardsjj.exit
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next46 to i32
   %exitcond48.not = icmp eq i32 %4, %lftr.wideiv
@@ -923,7 +923,7 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
   br i1 %.not54, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %14, %50, %56, %51, %43, %38, %32, %26, %20
-  %.048 = phi i1 [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %43 ], [ true, %50 ], [ false, %56 ], [ false, %51 ], [ false, %14 ]
+  %.048 = phi i1 [ false, %43 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %56 ], [ true, %50 ], [ false, %51 ], [ false, %14 ]
   ret i1 %.048
 }
 
@@ -969,7 +969,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

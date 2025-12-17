@@ -440,7 +440,7 @@ define dso_local range(i32 0, 2030) i32 @node_features_p_job_valid(ptr noundef %
   br label %23
 
 23:                                               ; preds = %17, %15, %3, %2, %21, %13
-  %.0 = phi i32 [ 2029, %13 ], [ 2029, %21 ], [ 0, %2 ], [ 0, %3 ], [ 0, %15 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %2 ], [ 2029, %13 ], [ 2029, %21 ], [ 0, %15 ], [ 0, %3 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1097,7 +1097,7 @@ _xlate_job_features.exit:                         ; preds = %41, %42
   br label %44
 
 44:                                               ; preds = %9, %12, %3, %_xlate_job_features.exit
-  %.0 = phi ptr [ %43, %_xlate_job_features.exit ], [ null, %3 ], [ null, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %3 ], [ %43, %_xlate_job_features.exit ], [ null, %12 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -1264,7 +1264,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %16, %13, %._crit_edge, %1
-  %.07 = phi i1 [ true, %1 ], [ false, %._crit_edge ], [ false, %13 ], [ false, %16 ], [ true, %7 ]
+  %.07 = phi i1 [ false, %16 ], [ true, %1 ], [ false, %._crit_edge ], [ false, %13 ], [ true, %7 ]
   ret i1 %.07
 }
 

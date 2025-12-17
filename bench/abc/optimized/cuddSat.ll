@@ -397,8 +397,8 @@ define internal fastcc i64 @getShortest(ptr noundef %0, ptr noundef %1, ptr noun
   br label %42
 
 42:                                               ; preds = %17, %32, %38
-  %.sroa.038.2 = phi i32 [ %35, %38 ], [ %35, %32 ], [ %., %17 ]
-  %.sroa.11.2 = phi i32 [ %37, %38 ], [ %37, %32 ], [ %.49, %17 ]
+  %.sroa.038.2 = phi i32 [ %., %17 ], [ %35, %32 ], [ %35, %38 ]
+  %.sroa.11.2 = phi i32 [ %.49, %17 ], [ %37, %32 ], [ %37, %38 ]
   %43 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #11
   store ptr %43, ptr %5, align 8, !tbaa !35
   %44 = icmp eq ptr %43, null
@@ -724,8 +724,8 @@ define internal fastcc i64 @getLargest(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %28
 
 28:                                               ; preds = %15, %17
-  %.sroa.024.2 = phi i32 [ %25, %17 ], [ %., %15 ]
-  %.sroa.11.2 = phi i32 [ %27, %17 ], [ %.32, %15 ]
+  %.sroa.024.2 = phi i32 [ %., %15 ], [ %25, %17 ]
+  %.sroa.11.2 = phi i32 [ %.32, %15 ], [ %27, %17 ]
   %29 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #11
   store ptr %29, ptr %3, align 8, !tbaa !35
   %30 = icmp eq ptr %29, null
@@ -803,7 +803,7 @@ define i32 @Cudd_ShortestLength(ptr noundef readonly captures(none) %0, ptr noun
   br label %25
 
 25:                                               ; preds = %14, %3, %21
-  %.0 = phi i32 [ %.015, %21 ], [ 1000000, %3 ], [ -1, %14 ]
+  %.0 = phi i32 [ 1000000, %3 ], [ %.015, %21 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -907,7 +907,7 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   br label %65
 
 65:                                               ; preds = %50, %54, %58, %63
-  %.048 = phi ptr [ %64, %63 ], [ %59, %58 ], [ %57, %54 ], [ %53, %50 ]
+  %.048 = phi ptr [ %59, %58 ], [ %64, %63 ], [ %57, %54 ], [ %53, %50 ]
   %66 = load ptr, ptr %22, align 8, !tbaa !40
   %67 = getelementptr inbounds ptr, ptr %66, i64 %14
   %68 = load ptr, ptr %67, align 8, !tbaa !29
@@ -915,7 +915,7 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   br label %69
 
 69:                                               ; preds = %21, %65, %44, %18
-  %.0 = phi ptr [ %20, %18 ], [ %.048, %65 ], [ %49, %44 ], [ %26, %21 ]
+  %.0 = phi ptr [ %20, %18 ], [ %49, %44 ], [ %.048, %65 ], [ %26, %21 ]
   ret ptr %.0
 }
 
@@ -1096,13 +1096,13 @@ define range(i32 0, 2) i32 @Cudd_EquivDC(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %100, %98
-  %.089121 = phi i32 [ 0, %98 ], [ %.fr, %100 ]
-  %102 = phi ptr [ %12, %98 ], [ %spec.select123, %100 ]
+  %.089121 = phi i32 [ %.fr, %100 ], [ 0, %98 ]
+  %102 = phi ptr [ %spec.select123, %100 ], [ %12, %98 ]
   tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 74, ptr noundef nonnull %.1, ptr noundef %.188, ptr noundef %3, ptr noundef %102) #10
   br label %103
 
 103:                                              ; preds = %9, %14, %4, %.thread, %32
-  %.0 = phi i32 [ %34, %32 ], [ %.089121, %.thread ], [ 1, %4 ], [ 0, %14 ], [ 0, %9 ]
+  %.0 = phi i32 [ %.089121, %.thread ], [ 1, %4 ], [ %34, %32 ], [ 0, %14 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1244,9 +1244,9 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %71
 
 71:                                               ; preds = %69, %67, %65, %57, %53, %47, %49, %59
-  %.0149 = phi ptr [ %27, %49 ], [ %2, %59 ], [ %27, %47 ], [ %., %53 ], [ %2, %57 ], [ %.175, %65 ], [ %3, %67 ], [ %spec.select178, %69 ]
-  %.0141 = phi ptr [ %2, %49 ], [ %27, %59 ], [ %3, %47 ], [ %.174, %53 ], [ %3, %57 ], [ %.176, %65 ], [ %spec.select, %67 ], [ %spec.select179, %69 ]
-  %.0140 = phi ptr [ %51, %49 ], [ %61, %59 ], [ %19, %47 ], [ %55, %53 ], [ %1, %57 ], [ %19, %65 ], [ %spec.select177, %67 ], [ %1, %69 ]
+  %.0149 = phi ptr [ %3, %67 ], [ %27, %49 ], [ %., %53 ], [ %27, %47 ], [ %2, %59 ], [ %spec.select178, %69 ], [ %.175, %65 ], [ %2, %57 ]
+  %.0141 = phi ptr [ %spec.select, %67 ], [ %2, %49 ], [ %.174, %53 ], [ %3, %47 ], [ %27, %59 ], [ %spec.select179, %69 ], [ %.176, %65 ], [ %3, %57 ]
+  %.0140 = phi ptr [ %spec.select177, %67 ], [ %51, %49 ], [ %55, %53 ], [ %19, %47 ], [ %61, %59 ], [ %1, %69 ], [ %19, %65 ], [ %1, %57 ]
   %72 = tail call ptr @cuddCacheLookup(ptr noundef nonnull %0, i64 noundef 130, ptr noundef %.0140, ptr noundef %.0141, ptr noundef %.0149) #10
   %.not164 = icmp eq ptr %72, null
   br i1 %.not164, label %76, label %73
@@ -1356,7 +1356,7 @@ define i32 @Cudd_bddLeqUnless(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %140
 
 140:                                              ; preds = %46, %4, %9, %16, %136, %73, %38, %34, %29
-  %.0 = phi i32 [ %30, %29 ], [ %35, %34 ], [ %39, %38 ], [ %75, %73 ], [ %.0142, %136 ], [ 1, %16 ], [ 1, %9 ], [ 1, %4 ], [ 0, %46 ]
+  %.0 = phi i32 [ 1, %4 ], [ %30, %29 ], [ %35, %34 ], [ %39, %38 ], [ %75, %73 ], [ %.0142, %136 ], [ 1, %16 ], [ 1, %9 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -1483,7 +1483,7 @@ define range(i32 0, 2) i32 @Cudd_EqualSupNorm(ptr noundef %0, ptr noundef %1, pt
   br label %80
 
 80:                                               ; preds = %75, %73, %39, %27, %29, %19, %5, %77
-  %.0 = phi i32 [ 1, %77 ], [ 1, %5 ], [ 1, %19 ], [ 0, %29 ], [ 0, %27 ], [ 1, %39 ], [ 0, %73 ], [ 0, %75 ]
+  %.0 = phi i32 [ 1, %39 ], [ 1, %5 ], [ 1, %19 ], [ 0, %27 ], [ 1, %77 ], [ 0, %73 ], [ 0, %29 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -1593,7 +1593,7 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %31, %40, %39
-  %.2 = phi ptr [ %.037.lcssa, %39 ], [ null, %40 ], [ null, %31 ], [ null, %16 ]
+  %.2 = phi ptr [ null, %40 ], [ %.037.lcssa, %39 ], [ null, %31 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2

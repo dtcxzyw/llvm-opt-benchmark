@@ -708,8 +708,8 @@ define internal noundef zeroext i1 @lwm2m_resource_update_cb(ptr noundef capture
   br label %34
 
 34:                                               ; preds = %._crit_edge, %31, %14, %6
-  %.sink = phi ptr [ %33, %31 ], [ %15, %14 ], [ %7, %6 ], [ null, %._crit_edge ]
-  %.023 = phi i1 [ false, %31 ], [ false, %14 ], [ false, %6 ], [ true, %._crit_edge ]
+  %.sink = phi ptr [ %7, %6 ], [ %33, %31 ], [ %15, %14 ], [ null, %._crit_edge ]
+  %.023 = phi i1 [ false, %6 ], [ false, %31 ], [ false, %14 ], [ true, %._crit_edge ]
   store ptr %.sink, ptr %1, align 8
   ret i1 %.023
 }
@@ -814,8 +814,8 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %31
 
 31:                                               ; preds = %10, %14, %16, %27, %24, %19, %8, %5, %4
-  %.041 = phi i32 [ -1, %8 ], [ -1, %5 ], [ -1, %4 ], [ %30, %27 ], [ -1, %24 ], [ -1, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ]
-  %.0 = phi i32 [ -1, %8 ], [ -1, %5 ], [ -1, %4 ], [ %21, %27 ], [ %21, %24 ], [ %21, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ]
+  %.041 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %5 ], [ %30, %27 ], [ -1, %24 ], [ -1, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %5 ], [ %21, %27 ], [ %21, %24 ], [ %21, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ]
   %.not57 = icmp eq ptr %2, null
   br i1 %.not57, label %59, label %32
 
@@ -1307,7 +1307,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   br i1 %exitcond.not.i38, label %lwm2m_search_fields.exit46.thread, label %.lr.ph.i35, !llvm.loop !16
 
 lwm2m_search_fields.exit46:                       ; preds = %56, %45, %47
-  %.017.i39 = phi ptr [ %38, %47 ], [ %38, %45 ], [ %53, %56 ]
+  %.017.i39 = phi ptr [ %38, %45 ], [ %38, %47 ], [ %53, %56 ]
   %62 = icmp eq ptr %.017.i39, null
   br i1 %62, label %lwm2m_search_fields.exit46.thread, label %addTlvElement.exit.thread99
 
@@ -1379,7 +1379,7 @@ addTlvElement.exit.thread:                        ; preds = %87, %86, %parseTLVH
   br label %95
 
 addTlvElement.exit:                               ; preds = %82, %73, %71
-  %.0.i = phi ptr [ %64, %73 ], [ %64, %71 ], [ %79, %82 ]
+  %.0.i = phi ptr [ %64, %71 ], [ %64, %73 ], [ %79, %82 ]
   %.not.i31 = icmp eq ptr %.0.i, null
   %89 = load ptr, ptr %12, align 8
   br i1 %.not.i31, label %95, label %90
@@ -1448,7 +1448,7 @@ default.unreachable:                              ; preds = %98
   unreachable
 
 addElementTree.exit:                              ; preds = %99, %104, %109, %115
-  %.037.i = phi ptr [ %103, %99 ], [ %108, %104 ], [ %114, %109 ], [ %120, %115 ]
+  %.037.i = phi ptr [ %120, %115 ], [ %103, %99 ], [ %108, %104 ], [ %114, %109 ]
   %121 = load i32, ptr @hf_lwm2mtlv_header, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %.037.i, i32 noundef %121, ptr noundef %16, i32 noundef 0, i32 noundef %32, i32 noundef 0)
   %123 = load i32, ptr @ett_lwm2mtlv_header, align 4
@@ -1813,7 +1813,7 @@ define internal fastcc i64 @decodeVariableUInt(ptr noundef %0, i32 noundef %1, i
   br label %24
 
 24:                                               ; preds = %3, %22, %20, %18, %16, %13, %10, %7, %4
-  %.0 = phi i64 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
+  %.0 = phi i64 [ %23, %22 ], [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ 0, %3 ]
   ret i64 %.0
 }
 
@@ -1897,7 +1897,7 @@ define internal fastcc i64 @decodeVariableInt(ptr noundef %0, i32 noundef %1, i3
   br label %24
 
 24:                                               ; preds = %3, %22, %20, %18, %16, %13, %10, %7, %4
-  %.0 = phi i64 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 0, %3 ]
+  %.0 = phi i64 [ %23, %22 ], [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ 0, %3 ]
   ret i64 %.0
 }
 

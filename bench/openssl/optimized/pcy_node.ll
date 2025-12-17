@@ -227,7 +227,7 @@ define ptr @ossl_policy_level_add_node(ptr noundef captures(address_is_null) %0,
   br label %63
 
 63:                                               ; preds = %45, %48, %10, %8, %62
-  %.0 = phi ptr [ null, %62 ], [ null, %8 ], [ null, %10 ], [ %11, %48 ], [ %11, %45 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %62 ], [ %11, %48 ], [ %11, %45 ]
   ret ptr %.0
 }
 

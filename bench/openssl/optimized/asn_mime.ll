@@ -268,7 +268,7 @@ strip_eol.exit.us.thread:                         ; preds = %.thread88, %.thread
   br i1 %.old4.not.i, label %59, label %.preheader
 
 59:                                               ; preds = %57, %57, %58, %53
-  %.1.i = phi i32 [ 1, %57 ], [ 0, %58 ], [ 1, %53 ], [ 1, %57 ]
+  %.1.i = phi i32 [ 0, %58 ], [ 1, %57 ], [ 1, %53 ], [ 1, %57 ]
   %60 = add nsw i32 %.13647.i, -1
   %61 = icmp sgt i32 %.13647.i, 1
   br i1 %61, label %53, label %strip_eol.exit, !llvm.loop !9
@@ -496,8 +496,8 @@ define range(i32 0, 2) i32 @SMIME_write_ASN1_ex(ptr noundef %0, ptr noundef %1, 
   br label %68
 
 68:                                               ; preds = %66, %65, %63, %61, %59, %57, %55, %.thread40.i
-  %.132.i = phi i32 [ 1, %66 ], [ %.03142.i, %55 ], [ %.03142.i, %57 ], [ %.03142.i, %59 ], [ %.03142.i, %61 ], [ %.03142.i, %63 ], [ 1, %65 ], [ %.03142.i, %.thread40.i ]
-  %.1.i = phi i32 [ 1, %66 ], [ 1, %55 ], [ 1, %57 ], [ 1, %59 ], [ 1, %61 ], [ 1, %63 ], [ 0, %65 ], [ 1, %.thread40.i ]
+  %.132.i = phi i32 [ %.03142.i, %.thread40.i ], [ 1, %66 ], [ %.03142.i, %55 ], [ %.03142.i, %57 ], [ %.03142.i, %59 ], [ %.03142.i, %61 ], [ %.03142.i, %63 ], [ 1, %65 ]
+  %.1.i = phi i32 [ 1, %.thread40.i ], [ 1, %66 ], [ 1, %55 ], [ 1, %57 ], [ 1, %59 ], [ 1, %61 ], [ 1, %63 ], [ 0, %65 ]
   %69 = add nuw nsw i32 %.02844.i, 1
   %70 = call i32 @OPENSSL_sk_num(ptr noundef %6) #6
   %71 = icmp slt i32 %69, %70
@@ -626,9 +626,9 @@ asn1_output_data.exit:                            ; preds = %.lr.ph.i99, %79, %9
   br label %117
 
 117:                                              ; preds = %109, %.fold.split, %113, %111, %110, %116
-  %.085 = phi ptr [ @.str.3, %110 ], [ @.str.28, %116 ], [ @.str.3, %109 ], [ @.str.3, %111 ], [ @.str.3, %113 ], [ @.str.3, %.fold.split ]
-  %.not95 = phi i1 [ false, %110 ], [ false, %116 ], [ false, %109 ], [ false, %111 ], [ false, %113 ], [ true, %.fold.split ]
-  %.0 = phi ptr [ @.str.23, %110 ], [ @.str.27, %116 ], [ @.str.22, %109 ], [ @.str.24, %111 ], [ %.str.25..str.26, %113 ], [ null, %.fold.split ]
+  %.085 = phi ptr [ @.str.3, %110 ], [ @.str.3, %109 ], [ @.str.3, %113 ], [ @.str.3, %111 ], [ @.str.28, %116 ], [ @.str.3, %.fold.split ]
+  %.not95 = phi i1 [ false, %110 ], [ false, %109 ], [ false, %113 ], [ false, %111 ], [ false, %116 ], [ true, %.fold.split ]
+  %.0 = phi ptr [ @.str.23, %110 ], [ @.str.22, %109 ], [ %.str.25..str.26, %113 ], [ @.str.24, %111 ], [ @.str.27, %116 ], [ null, %.fold.split ]
   %118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.086) #6
   %119 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19) #6
   %120 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %.085, ptr noundef nonnull %.086) #6
@@ -651,7 +651,7 @@ asn1_output_data.exit:                            ; preds = %.lr.ph.i99, %79, %9
   br label %130
 
 130:                                              ; preds = %asn1_output_data.exit.thread, %124, %asn1_output_data.exit, %20, %128, %100
-  %.090 = phi i32 [ 1, %100 ], [ 1, %128 ], [ 0, %20 ], [ 0, %asn1_output_data.exit ], [ 0, %124 ], [ 0, %asn1_output_data.exit.thread ]
+  %.090 = phi i32 [ 0, %asn1_output_data.exit ], [ 1, %100 ], [ 0, %20 ], [ 1, %128 ], [ 0, %124 ], [ 0, %asn1_output_data.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.090
 }
@@ -888,14 +888,14 @@ mime_bound_check.exit.i:                          ; preds = %sub_119.i.i
   br i1 %.old4.not.i.i, label %104, label %strip_eol.exit.i
 
 104:                                              ; preds = %103, %100, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ 1, %100 ], [ 0, %103 ], [ 1, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ 0, %103 ], [ 1, %100 ], [ 1, %.lr.ph.i.i ]
   %105 = add nsw i32 %.13647.i.i, -1
   %106 = icmp sgt i32 %.13647.i.i, 1
   br i1 %106, label %.lr.ph.i.i, label %strip_eol.exit.i, !llvm.loop !9
 
 strip_eol.exit.i:                                 ; preds = %104, %103, %100, %95, %90, %88, %84
-  %.050.i = phi i32 [ 1, %88 ], [ %58, %90 ], [ %58, %84 ], [ %96, %95 ], [ %.13647.i.i, %100 ], [ %.13647.i.i, %103 ], [ 0, %104 ]
-  %.033.i.i = phi i32 [ 0, %88 ], [ 0, %90 ], [ 0, %84 ], [ 1, %95 ], [ 1, %100 ], [ 0, %103 ], [ %.1.i.i, %104 ]
+  %.050.i = phi i32 [ %58, %90 ], [ %58, %84 ], [ 1, %88 ], [ %96, %95 ], [ 0, %104 ], [ %.13647.i.i, %100 ], [ %.13647.i.i, %103 ]
+  %.033.i.i = phi i32 [ 0, %90 ], [ 0, %84 ], [ 0, %88 ], [ 1, %95 ], [ %.1.i.i, %104 ], [ 1, %100 ], [ 0, %103 ]
   %.not42.i = icmp eq i8 %.066.i, 0
   br i1 %.not42.i, label %116, label %107
 
@@ -952,7 +952,7 @@ strip_eol.exit.i:                                 ; preds = %104, %103, %100, %9
   br i1 %127, label %57, label %.loopexit.sink.split.i, !llvm.loop !49
 
 .loopexit.sink.split.i:                           ; preds = %125, %108, %mime_bound_check.exit.i, %.preheader.i
-  %.033.lcssa.sink.i = phi ptr [ %.03364.i, %mime_bound_check.exit.i ], [ null, %.preheader.i ], [ %.134.i, %125 ], [ %.03364.i, %108 ]
+  %.033.lcssa.sink.i = phi ptr [ null, %.preheader.i ], [ %.03364.i, %mime_bound_check.exit.i ], [ %.134.i, %125 ], [ %.03364.i, %108 ]
   %128 = call i32 @BIO_free(ptr noundef %.033.lcssa.sink.i) #6
   br label %multi_split.exit.thread
 
@@ -1084,7 +1084,7 @@ multi_split.exit.thread:                          ; preds = %110, %42, %.loopexi
   br label %170
 
 170:                                              ; preds = %166, %156, %159, %169, %164, %154, %149, %144, %136, %131, %41, %25, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %25 ], [ null, %41 ], [ null, %131 ], [ null, %136 ], [ null, %144 ], [ null, %149 ], [ null, %154 ], [ null, %164 ], [ null, %169 ], [ %152, %159 ], [ %152, %156 ], [ %167, %166 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %25 ], [ null, %41 ], [ null, %131 ], [ null, %136 ], [ null, %144 ], [ null, %149 ], [ null, %154 ], [ %152, %156 ], [ null, %164 ], [ null, %169 ], [ %152, %159 ], [ %167, %166 ]
   ret ptr %.0
 }
 
@@ -1221,7 +1221,7 @@ strip_start.exit.i:                               ; preds = %24, %21
   br i1 %.not18.i.i, label %strip_ends.exit, label %.lr.ph.i.i, !llvm.loop !51
 
 strip_ends.exit:                                  ; preds = %19, %.lr.ph.i, %41, %21, %strip_start.exit.i, %.lr.ph.i._crit_edge.i, %37
-  %.0.i1.i = phi ptr [ %.0.i.i, %37 ], [ null, %.lr.ph.i._crit_edge.i ], [ null, %strip_start.exit.i ], [ null, %21 ], [ %.0.i.i, %.lr.ph.i ], [ null, %41 ], [ null, %19 ]
+  %.0.i1.i = phi ptr [ %.0.i.i, %37 ], [ null, %.lr.ph.i._crit_edge.i ], [ null, %strip_start.exit.i ], [ null, %21 ], [ null, %41 ], [ %.0.i.i, %.lr.ph.i ], [ null, %19 ]
   %42 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   br label %133
 
@@ -1303,7 +1303,7 @@ strip_start.exit.i96:                             ; preds = %50, %47
   br i1 %.not18.i.i105, label %strip_ends.exit112, label %.lr.ph.i.i106, !llvm.loop !51
 
 strip_ends.exit112:                               ; preds = %45, %.lr.ph.i101, %67, %47, %strip_start.exit.i96, %.lr.ph.i._crit_edge.i107, %63
-  %.0.i1.i110 = phi ptr [ %.0.i.i97, %63 ], [ null, %.lr.ph.i._crit_edge.i107 ], [ null, %strip_start.exit.i96 ], [ null, %47 ], [ %.0.i.i97, %.lr.ph.i101 ], [ null, %67 ], [ null, %45 ]
+  %.0.i1.i110 = phi ptr [ %.0.i.i97, %63 ], [ null, %.lr.ph.i._crit_edge.i107 ], [ null, %strip_start.exit.i96 ], [ null, %47 ], [ null, %67 ], [ %.0.i.i97, %.lr.ph.i101 ], [ null, %45 ]
   %68 = call fastcc ptr @mime_hdr_new(ptr noundef %.077, ptr noundef %.0.i1.i110)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %mime_hdr_free.exit, label %70
@@ -1401,7 +1401,7 @@ strip_start.exit.i115:                            ; preds = %85, %82
   br i1 %.not18.i.i124, label %strip_ends.exit131, label %.lr.ph.i.i125, !llvm.loop !51
 
 strip_ends.exit131:                               ; preds = %80, %.lr.ph.i120, %102, %82, %strip_start.exit.i115, %.lr.ph.i._crit_edge.i126, %98
-  %.0.i1.i129 = phi ptr [ %.0.i.i116, %98 ], [ null, %.lr.ph.i._crit_edge.i126 ], [ null, %strip_start.exit.i115 ], [ null, %82 ], [ %.0.i.i116, %.lr.ph.i120 ], [ null, %102 ], [ null, %80 ]
+  %.0.i1.i129 = phi ptr [ %.0.i.i116, %98 ], [ null, %.lr.ph.i._crit_edge.i126 ], [ null, %strip_start.exit.i115 ], [ null, %82 ], [ null, %102 ], [ %.0.i.i116, %.lr.ph.i120 ], [ null, %80 ]
   %103 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   br label %133
 
@@ -1484,7 +1484,7 @@ strip_start.exit.i134:                            ; preds = %111, %108
   br i1 %.not18.i.i143, label %strip_ends.exit150, label %.lr.ph.i.i144, !llvm.loop !51
 
 strip_ends.exit150:                               ; preds = %106, %.lr.ph.i139, %128, %108, %strip_start.exit.i134, %.lr.ph.i._crit_edge.i145, %124
-  %.0.i1.i148 = phi ptr [ %.0.i.i135, %124 ], [ null, %.lr.ph.i._crit_edge.i145 ], [ null, %strip_start.exit.i134 ], [ null, %108 ], [ %.0.i.i135, %.lr.ph.i139 ], [ null, %128 ], [ null, %106 ]
+  %.0.i1.i148 = phi ptr [ %.0.i.i135, %124 ], [ null, %.lr.ph.i._crit_edge.i145 ], [ null, %strip_start.exit.i134 ], [ null, %108 ], [ null, %128 ], [ %.0.i.i135, %.lr.ph.i139 ], [ null, %106 ]
   call fastcc void @mime_hdr_addparam(ptr noundef %.175, ptr noundef %.077, ptr noundef %.0.i1.i148)
   %129 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   br label %133
@@ -1501,11 +1501,11 @@ strip_ends.exit150:                               ; preds = %106, %.lr.ph.i139, 
   br label %133
 
 133:                                              ; preds = %131, %75, %104, %.fold.split, %43, %15, %strip_ends.exit, %16, %74, %72, %strip_ends.exit131, %77, %130, %strip_ends.exit150
-  %.180 = phi ptr [ %.079, %15 ], [ %42, %strip_ends.exit ], [ %.079, %16 ], [ %73, %72 ], [ %.079, %74 ], [ %103, %strip_ends.exit131 ], [ %.079, %77 ], [ %129, %strip_ends.exit150 ], [ %.079, %130 ], [ %.079, %43 ], [ %.079, %75 ], [ %.079, %104 ], [ %.079, %.fold.split ], [ %.079, %131 ]
-  %.178 = phi ptr [ %.077, %15 ], [ %.0.i1.i, %strip_ends.exit ], [ %.077, %16 ], [ null, %72 ], [ %.077, %74 ], [ %.0.i1.i129, %strip_ends.exit131 ], [ %.077, %77 ], [ null, %strip_ends.exit150 ], [ %.077, %130 ], [ %.077, %43 ], [ %.077, %75 ], [ %.077, %104 ], [ %.077, %.fold.split ], [ %.077, %131 ]
-  %.276 = phi ptr [ %.175, %15 ], [ %.175, %strip_ends.exit ], [ %.175, %16 ], [ %68, %72 ], [ %.175, %74 ], [ %.175, %strip_ends.exit131 ], [ %.175, %77 ], [ %.175, %strip_ends.exit150 ], [ %.175, %130 ], [ %.175, %43 ], [ %.175, %75 ], [ %.175, %104 ], [ %.175, %.fold.split ], [ %.175, %131 ]
-  %.269 = phi i32 [ %.168, %15 ], [ 2, %strip_ends.exit ], [ 1, %16 ], [ 3, %72 ], [ 6, %74 ], [ 4, %strip_ends.exit131 ], [ 3, %77 ], [ 3, %strip_ends.exit150 ], [ 6, %130 ], [ 2, %43 ], [ %spec.select, %75 ], [ 5, %104 ], [ 4, %.fold.split ], [ %spec.select93, %131 ]
-  %.2 = phi i32 [ %.1, %15 ], [ %.1, %strip_ends.exit ], [ %.1, %16 ], [ %.1, %72 ], [ 2, %74 ], [ %.1, %strip_ends.exit131 ], [ %.1, %77 ], [ %.1, %strip_ends.exit150 ], [ 4, %130 ], [ %.1, %43 ], [ %.1, %75 ], [ %.1, %104 ], [ %.1, %.fold.split ], [ %.1, %131 ]
+  %.180 = phi ptr [ %.079, %15 ], [ %42, %strip_ends.exit ], [ %.079, %16 ], [ %73, %72 ], [ %.079, %74 ], [ %.079, %43 ], [ %.079, %104 ], [ %.079, %131 ], [ %103, %strip_ends.exit131 ], [ %.079, %77 ], [ %129, %strip_ends.exit150 ], [ %.079, %75 ], [ %.079, %130 ], [ %.079, %.fold.split ]
+  %.178 = phi ptr [ %.077, %15 ], [ %.0.i1.i, %strip_ends.exit ], [ %.077, %16 ], [ null, %72 ], [ %.077, %74 ], [ %.077, %43 ], [ %.077, %104 ], [ %.077, %131 ], [ %.0.i1.i129, %strip_ends.exit131 ], [ %.077, %77 ], [ null, %strip_ends.exit150 ], [ %.077, %75 ], [ %.077, %130 ], [ %.077, %.fold.split ]
+  %.276 = phi ptr [ %.175, %15 ], [ %.175, %strip_ends.exit ], [ %.175, %16 ], [ %68, %72 ], [ %.175, %74 ], [ %.175, %43 ], [ %.175, %104 ], [ %.175, %131 ], [ %.175, %strip_ends.exit131 ], [ %.175, %77 ], [ %.175, %strip_ends.exit150 ], [ %.175, %75 ], [ %.175, %130 ], [ %.175, %.fold.split ]
+  %.269 = phi i32 [ %.168, %15 ], [ 2, %strip_ends.exit ], [ 1, %16 ], [ 3, %72 ], [ 6, %74 ], [ 2, %43 ], [ 5, %104 ], [ %spec.select93, %131 ], [ 4, %strip_ends.exit131 ], [ 3, %77 ], [ 3, %strip_ends.exit150 ], [ %spec.select, %75 ], [ 6, %130 ], [ 4, %.fold.split ]
+  %.2 = phi i32 [ %.1, %15 ], [ %.1, %strip_ends.exit ], [ %.1, %16 ], [ %.1, %72 ], [ 2, %74 ], [ %.1, %43 ], [ %.1, %104 ], [ %.1, %131 ], [ %.1, %strip_ends.exit131 ], [ %.1, %77 ], [ %.1, %strip_ends.exit150 ], [ %.1, %75 ], [ 4, %130 ], [ %.1, %.fold.split ]
   %134 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   br label %13, !llvm.loop !52
 
@@ -1583,7 +1583,7 @@ strip_start.exit.i153:                            ; preds = %139, %136
   br i1 %.not18.i.i162, label %strip_ends.exit169, label %.lr.ph.i.i163, !llvm.loop !51
 
 strip_ends.exit169:                               ; preds = %.preheader, %.lr.ph.i158, %156, %136, %strip_start.exit.i153, %.lr.ph.i._crit_edge.i164, %152
-  %.0.i1.i167 = phi ptr [ %.0.i.i154, %152 ], [ null, %.lr.ph.i._crit_edge.i164 ], [ null, %strip_start.exit.i153 ], [ null, %136 ], [ %.0.i.i154, %.lr.ph.i158 ], [ null, %156 ], [ null, %.preheader ]
+  %.0.i1.i167 = phi ptr [ %.0.i.i154, %152 ], [ null, %.lr.ph.i._crit_edge.i164 ], [ null, %strip_start.exit.i153 ], [ null, %136 ], [ null, %156 ], [ %.0.i.i154, %.lr.ph.i158 ], [ null, %.preheader ]
   %157 = call fastcc ptr @mime_hdr_new(ptr noundef %.077, ptr noundef %.0.i1.i167)
   %158 = icmp eq ptr %157, null
   br i1 %158, label %mime_hdr_free.exit, label %159
@@ -1661,12 +1661,12 @@ strip_start.exit.i172:                            ; preds = %165, %162
   br i1 %.not18.i.i181, label %strip_ends.exit188, label %.lr.ph.i.i182, !llvm.loop !51
 
 strip_ends.exit188:                               ; preds = %.preheader195, %.lr.ph.i177, %182, %162, %strip_start.exit.i172, %.lr.ph.i._crit_edge.i183, %178
-  %.0.i1.i186 = phi ptr [ %.0.i.i173, %178 ], [ null, %.lr.ph.i._crit_edge.i183 ], [ null, %strip_start.exit.i172 ], [ null, %162 ], [ %.0.i.i173, %.lr.ph.i177 ], [ null, %182 ], [ null, %.preheader195 ]
+  %.0.i1.i186 = phi ptr [ %.0.i.i173, %178 ], [ null, %.lr.ph.i._crit_edge.i183 ], [ null, %strip_start.exit.i172 ], [ null, %162 ], [ null, %182 ], [ %.0.i.i173, %.lr.ph.i177 ], [ null, %.preheader195 ]
   call fastcc void @mime_hdr_addparam(ptr noundef %.175, ptr noundef %.077, ptr noundef %.0.i1.i186)
   br label %183
 
 183:                                              ; preds = %.critedge, %159, %strip_ends.exit188
-  %.3 = phi ptr [ %.175, %strip_ends.exit188 ], [ %157, %159 ], [ %.175, %.critedge ]
+  %.3 = phi ptr [ %.175, %.critedge ], [ %.175, %strip_ends.exit188 ], [ %157, %159 ]
   %184 = icmp eq ptr %.072, %2
   br i1 %184, label %185, label %.preheader198, !llvm.loop !53
 
@@ -1723,7 +1723,7 @@ mime_hdr_free.exit:                               ; preds = %strip_ends.exit169,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %193, %185, %1, %mime_hdr_free.exit
-  %.070 = phi ptr [ null, %mime_hdr_free.exit ], [ null, %1 ], [ %3, %185 ], [ %3, %193 ]
+  %.070 = phi ptr [ null, %1 ], [ null, %mime_hdr_free.exit ], [ %3, %185 ], [ %3, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.070
 }
@@ -2046,7 +2046,7 @@ define internal fastcc ptr @mime_hdr_new(ptr noundef %0, ptr noundef %1) unnamed
   br label %31
 
 31:                                               ; preds = %25, %3, %30
-  %.029 = phi ptr [ null, %30 ], [ null, %3 ], [ %23, %25 ]
+  %.029 = phi ptr [ null, %3 ], [ null, %30 ], [ %23, %25 ]
   ret ptr %.029
 }
 

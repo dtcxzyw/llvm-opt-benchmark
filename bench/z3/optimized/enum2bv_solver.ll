@@ -1783,7 +1783,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
           cleanup
   br label %437
 
-.loopexit186:                                     ; preds = %134, %148, %145, %.preheader.i.i.i
+.loopexit186:                                     ; preds = %134, %145, %148, %.preheader.i.i.i
   %.not.i.i.i.i80 = icmp eq ptr %96, null
   br i1 %.not.i.i.i.i80, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i81, label %.thread
 
@@ -2356,7 +2356,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit155:      ; preds = %379, %420, %421, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %436
 
-_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %347, %358, %361, %.preheader.i.i.i123, %305, %314, %290, %285, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %301, %_ZN7obj_refI4expr11ast_managerED2Ev.exit155, %365, %_Z17is_uninterp_constPK4expr.exit116
+_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %347, %361, %358, %.preheader.i.i.i123, %305, %314, %290, %285, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %301, %_ZN7obj_refI4expr11ast_managerED2Ev.exit155, %365, %_Z17is_uninterp_constPK4expr.exit116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %431 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !99
@@ -2388,7 +2388,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br label %437
 
 437:                                              ; preds = %.loopexit189, %.loopexit.split-lp, %250, %436, %166, %71
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67, %71 ], [ %167, %166 ], [ %251, %250 ], [ %.pn.pn, %436 ], [ %lpad.loopexit, %.loopexit189 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67, %71 ], [ %.pn.pn, %436 ], [ %251, %250 ], [ %167, %166 ], [ %lpad.loopexit, %.loopexit189 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20

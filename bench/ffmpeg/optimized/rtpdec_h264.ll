@@ -365,8 +365,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   br i1 %83, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .thread:                                          ; preds = %.lr.ph.split.us108, %.lr.ph.split.us.us, %.lr.ph.split.us108.us, %.lr.ph.split.us.us.us
-  %.us-phi = phi i32 [ %19, %.lr.ph.split.us.us.us ], [ %32, %.lr.ph.split.us108.us ], [ %73, %.lr.ph.split.us.us ], [ %52, %.lr.ph.split.us108 ]
-  %.us-phi86 = phi i32 [ %20, %.lr.ph.split.us.us.us ], [ %33, %.lr.ph.split.us108.us ], [ %74, %.lr.ph.split.us.us ], [ %53, %.lr.ph.split.us108 ]
+  %.us-phi = phi i32 [ %73, %.lr.ph.split.us.us ], [ %19, %.lr.ph.split.us.us.us ], [ %32, %.lr.ph.split.us108.us ], [ %52, %.lr.ph.split.us108 ]
+  %.us-phi86 = phi i32 [ %74, %.lr.ph.split.us.us ], [ %20, %.lr.ph.split.us.us.us ], [ %33, %.lr.ph.split.us108.us ], [ %53, %.lr.ph.split.us108 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.us-phi86, i32 noundef %.us-phi) #10
   br label %.loopexit
 
@@ -719,7 +719,7 @@ define internal i32 @h264_handle_packet(ptr noundef %0, ptr readnone captures(no
   br label %ff_h264_handle_aggregated_packet.exit
 
 ff_h264_handle_aggregated_packet.exit:            ; preds = %._crit_edge.us.us.i, %32, %.preheader.i, %83, %66, %65, %.thread.i, %88, %62, %20
-  %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ -1094995529, %65 ], [ 0, %83 ], [ %75, %66 ], [ %spec.select, %.preheader.i ], [ %33, %32 ], [ 0, %._crit_edge.us.us.i ]
+  %.0 = phi i32 [ -1094995529, %88 ], [ %18, %20 ], [ -1094995529, %65 ], [ -1163346256, %62 ], [ -1094995529, %.thread.i ], [ %spec.select, %.preheader.i ], [ 0, %83 ], [ %75, %66 ], [ 0, %._crit_edge.us.us.i ], [ %33, %32 ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load i32, ptr %89, align 8, !tbaa !49
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -849,7 +849,7 @@ define internal range(i32 -12, 1) i32 @sdp_parse_fmtp_config_h264(ptr noundef %0
   br label %69
 
 69:                                               ; preds = %17, %10, %51, %20, %23, %62, %63
-  %.1 = phi i32 [ 0, %62 ], [ %66, %63 ], [ 0, %23 ], [ 0, %20 ], [ 0, %51 ], [ 0, %10 ], [ 0, %17 ]
+  %.1 = phi i32 [ %66, %63 ], [ 0, %62 ], [ 0, %23 ], [ 0, %20 ], [ 0, %51 ], [ 0, %10 ], [ 0, %17 ]
   ret i32 %.1
 }
 

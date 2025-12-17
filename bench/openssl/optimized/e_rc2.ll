@@ -128,7 +128,7 @@ define internal i32 @rc2_set_asn1_type_and_iv(ptr noundef %0, ptr noundef %1) #1
   br label %rc2_meth_to_magic.exit
 
 rc2_meth_to_magic.exit:                           ; preds = %4, %7, %9, %10, %11
-  %.0.i = phi i64 [ 120, %9 ], [ 160, %10 ], [ 0, %11 ], [ 0, %4 ], [ 58, %7 ]
+  %.0.i = phi i64 [ 0, %11 ], [ 0, %4 ], [ 120, %9 ], [ 160, %10 ], [ 58, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %0) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -208,7 +208,7 @@ rc2_magic_to_meth.exit:                           ; preds = %11
   br label %26
 
 26:                                               ; preds = %rc2_magic_to_meth.exit, %22, %2, %19, %17, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %rc2_magic_to_meth.exit ], [ -1, %17 ], [ -1, %19 ], [ 0, %2 ], [ %spec.select, %22 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %17 ], [ -1, %19 ], [ -1, %rc2_magic_to_meth.exit ], [ %spec.select, %22 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -245,7 +245,7 @@ define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %0, i32 noundef %1, i
   br label %16
 
 16:                                               ; preds = %4, %12, %14, %9, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %9 ], [ 1, %14 ], [ 0, %12 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %5 ], [ 1, %9 ], [ 1, %14 ], [ -1, %4 ]
   ret i32 %.0
 }
 

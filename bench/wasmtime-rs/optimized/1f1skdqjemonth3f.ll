@@ -261,7 +261,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   br i1 %22, label %25, label %23
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6c457d926a627ed9E.exit": ; preds = %31, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e16e3e637e06746E.llvm.12393783928750787229.exit.i", %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread16, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit, %23
-  %.012 = phi ptr [ %24, %23 ], [ %17, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit ], [ null, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread ], [ %12, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread16 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e16e3e637e06746E.llvm.12393783928750787229.exit.i" ], [ null, %31 ]
+  %.012 = phi ptr [ %17, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit ], [ %12, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread16 ], [ %24, %23 ], [ null, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e16e3e637e06746E.llvm.12393783928750787229.exit.i" ], [ null, %31 ]
   ret ptr %.012
 
 23:                                               ; preds = %20
@@ -604,7 +604,7 @@ define hidden void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$
   br i1 %or.cond, label %20, label %.critedge45
 
 .critedge45:                                      ; preds = %20, %.critedge, %3, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit", %25, %30
-  %.sroa.0.0.insert.insert.i50 = phi i32 [ %.sroa.01.0.copyload.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit" ], [ %.sroa.01.0.copyload.i, %25 ], [ %.sroa.01.0.copyload.i, %30 ], [ 8, %3 ], [ %.sroa.01.0.copyload.i, %.critedge ], [ %.sroa.01.0.copyload.i, %20 ]
+  %.sroa.0.0.insert.insert.i50 = phi i32 [ 8, %3 ], [ %.sroa.01.0.copyload.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit" ], [ %.sroa.01.0.copyload.i, %25 ], [ %.sroa.01.0.copyload.i, %30 ], [ %.sroa.01.0.copyload.i, %.critedge ], [ %.sroa.01.0.copyload.i, %20 ]
   tail call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 %2, i32 %.sroa.0.0.insert.insert.i50)
   br label %34
 
@@ -987,7 +987,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %34
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %21, %.critedge.i, %26, %31
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1056,7 +1056,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit46": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32", %49, %.critedge.i42, %54, %59
-  %.sroa.0.0.insert.insert.i50.i39 = phi i32 [ %.sroa.01.0.copyload.i.i33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32" ], [ %.sroa.01.0.copyload.i.i33, %54 ], [ %.sroa.01.0.copyload.i.i33, %59 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i33, %.critedge.i42 ], [ %.sroa.01.0.copyload.i.i33, %49 ]
+  %.sroa.0.0.insert.insert.i50.i39 = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32" ], [ %.sroa.01.0.copyload.i.i33, %54 ], [ %.sroa.01.0.copyload.i.i33, %59 ], [ %.sroa.01.0.copyload.i.i33, %.critedge.i42 ], [ %.sroa.01.0.copyload.i.i33, %49 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i39)
   %.pre48 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1219,7 +1219,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit": ; preds = %.critedge45.i, %.critedge45.i.us, %68, %63, %.thread.i, %51, %8
-  %.0 = phi ptr [ %11, %8 ], [ %.sroa.028.0.copyload, %51 ], [ %62, %.thread.i ], [ null, %63 ], [ null, %68 ], [ %50, %.critedge45.i.us ], [ %81, %.critedge45.i ]
+  %.0 = phi ptr [ %11, %8 ], [ null, %68 ], [ %.sroa.028.0.copyload, %51 ], [ %62, %.thread.i ], [ null, %63 ], [ %50, %.critedge45.i.us ], [ %81, %.critedge45.i ]
   ret ptr %.0
 
 12:                                               ; preds = %1
@@ -1310,7 +1310,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %47, %43, %.critedge.i.us, %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ %.sroa.01.0.copyload.i.i.us, %47 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %39 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ %.sroa.01.0.copyload.i.i.us, %47 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %39 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us67, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre47 = load i8, ptr %2, align 8, !range !48
   %49 = trunc nuw i8 %.pre47 to i1
@@ -1388,7 +1388,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br i1 %or.cond.i, label %83, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %91, %87, %.critedge.i, %83, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %69
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %87 ], [ %.sroa.01.0.copyload.i.i, %91 ], [ 8, %69 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %83 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %69 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %87 ], [ %.sroa.01.0.copyload.i.i, %91 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %83 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %80 = trunc nuw i8 %.pre to i1
@@ -1546,7 +1546,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br i1 %or.cond.i, label %36, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %44, %40, %.critedge.i, %36, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %40 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %36 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %40 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %36 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.08.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %33 = trunc nuw i8 %.pre to i1
@@ -1972,7 +1972,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %33
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %20, %.critedge.i, %25, %30
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %20 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %20 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2075,7 +2075,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %34
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %21, %.critedge.i, %26, %31
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2144,7 +2144,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit46": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32", %49, %.critedge.i42, %54, %59
-  %.sroa.0.0.insert.insert.i50.i39 = phi i32 [ %.sroa.01.0.copyload.i.i33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32" ], [ %.sroa.01.0.copyload.i.i33, %54 ], [ %.sroa.01.0.copyload.i.i33, %59 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i33, %.critedge.i42 ], [ %.sroa.01.0.copyload.i.i33, %49 ]
+  %.sroa.0.0.insert.insert.i50.i39 = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i32" ], [ %.sroa.01.0.copyload.i.i33, %54 ], [ %.sroa.01.0.copyload.i.i33, %59 ], [ %.sroa.01.0.copyload.i.i33, %.critedge.i42 ], [ %.sroa.01.0.copyload.i.i33, %49 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i39)
   %.pre48 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2381,7 +2381,7 @@ default.unreachable11:                            ; preds = %2
   br i1 %.not, label %34, label %42
 
 _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit: ; preds = %68, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread", %26, %23, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6f5961711fa15754E.llvm.17514045976136648023.exit.i", %2, %34
-  %.0 = phi ptr [ %41, %34 ], [ null, %2 ], [ %28, %26 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6f5961711fa15754E.llvm.17514045976136648023.exit.i" ], [ null, %23 ], [ null, %68 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread" ]
+  %.0 = phi ptr [ %41, %34 ], [ null, %23 ], [ null, %2 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6f5961711fa15754E.llvm.17514045976136648023.exit.i" ], [ %28, %26 ], [ null, %68 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread" ]
   ret ptr %.0
 
 34:                                               ; preds = %29
@@ -2575,7 +2575,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %33
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %20, %.critedge.i, %25, %30
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %20 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %20 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2669,7 +2669,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   br i1 %or.cond, label %.critedge.i, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %37, %32, %.critedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %14
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %32 ], [ %.sroa.01.0.copyload.i.i, %37 ], [ 8, %14 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %14 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %32 ], [ %.sroa.01.0.copyload.i.i, %37 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 %.sroa.014.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
 
@@ -2853,7 +2853,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %58
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %50, %55
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %50 ], [ %.sroa.01.0.copyload.i.i, %55 ], [ 8, %33 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %33 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %50 ], [ %.sroa.01.0.copyload.i.i, %55 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2886,7 +2886,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %70
 
 70:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.024 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %26, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %32, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre45, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.024 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %32, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %26, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre45, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.024
 }
 
@@ -3100,7 +3100,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %64
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %51, %.critedge.i, %56, %61
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %61 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %51 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3135,7 +3135,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br i1 %or.cond.i43, label %.critedge.i48, label %.critedge45.i44
 
 .critedge45.i44:                                  ; preds = %86, %81, %.critedge.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %64
-  %.sroa.0.0.insert.insert.i50.i45 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %81 ], [ %.sroa.01.0.copyload.i.i39, %86 ], [ 8, %64 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i48 ]
+  %.sroa.0.0.insert.insert.i50.i45 = phi i32 [ 8, %64 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %81 ], [ %.sroa.01.0.copyload.i.i39, %86 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i48 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i45)
   %.pre68 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3169,7 +3169,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %88
 
 88:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre67, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre67, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -3255,7 +3255,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3484,7 +3484,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %89
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %78, %81, %86
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %81 ], [ %.sroa.01.0.copyload.i.i, %86 ], [ 8, %62 ], [ %.sroa.01.0.copyload.i.i, %78 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %62 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %81 ], [ %.sroa.01.0.copyload.i.i, %86 ], [ %.sroa.01.0.copyload.i.i, %78 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %11, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3611,7 +3611,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %or.cond.i76, label %139, label %.critedge45.i77
 
 .critedge45.i77:                                  ; preds = %147, %143, %.critedge.i, %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72", %122
-  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %143 ], [ %.sroa.01.0.copyload.i.i73, %147 ], [ 8, %122 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i ], [ %.sroa.01.0.copyload.i.i73, %139 ]
+  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ 8, %122 ], [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %143 ], [ %.sroa.01.0.copyload.i.i73, %147 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i ], [ %.sroa.01.0.copyload.i.i73, %139 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.026.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i78)
           to label %".critedge45.i77._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit83_crit_edge" unwind label %.loopexit
 
@@ -3772,7 +3772,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %34
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %3, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %21, %.critedge.i, %26, %31
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ 8, %3 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %3 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %31 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %21 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3865,7 +3865,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %29
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %18, %21, %26
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %18 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %18 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3924,7 +3924,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit50": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40", %42, %45, %50
-  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
+  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i46)
   %.pre52 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4016,7 +4016,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %17, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4178,7 +4178,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %29
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %18, %21, %26
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %18 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %18 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4237,7 +4237,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40", %42, %45, %50
-  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
+  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i46)
   %.pre53 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4354,7 +4354,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !496
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4517,7 +4517,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %54, %50, %.critedge.i.us, %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %35
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %50 ], [ %.sroa.01.0.copyload.i.i.us, %54 ], [ 8, %35 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %46 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %35 ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %50 ], [ %.sroa.01.0.copyload.i.i.us, %54 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %46 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre97 = load i8, ptr %3, align 8, !range !48
   %56 = trunc nuw i8 %.pre97 to i1
@@ -4609,7 +4609,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %.not42.i.us80, label %.critedge45.i.us81, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83"
 
 .critedge45.i.us81:                               ; preds = %95, %91, %.critedge.i.us77, %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us70", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us82 = phi i32 [ %.sroa.01.0.copyload.i.i.us71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us70" ], [ %.sroa.01.0.copyload.i.i.us71, %91 ], [ %.sroa.01.0.copyload.i.i.us71, %95 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us71, %.critedge.i.us77 ], [ %.sroa.01.0.copyload.i.i.us71, %87 ]
+  %.sroa.0.0.insert.insert.i50.i.us82 = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us70" ], [ %.sroa.01.0.copyload.i.i.us71, %91 ], [ %.sroa.01.0.copyload.i.i.us71, %95 ], [ %.sroa.01.0.copyload.i.i.us71, %.critedge.i.us77 ], [ %.sroa.01.0.copyload.i.i.us71, %87 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.8.16.extract.trunc.us140, i32 %.sroa.0.0.insert.insert.i50.i.us82)
   %.pre96 = load i8, ptr %3, align 8, !range !48
   %97 = trunc nuw i8 %.pre96 to i1
@@ -4630,9 +4630,9 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %101, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", label %126
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit", %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge", %25, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us", %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader", %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83", %.critedge45.i.us81
-  %102 = phi ptr [ %71, %.critedge45.i.us81 ], [ %71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %71, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %61, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %21, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %21, %25 ], [ %61, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %61, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
-  %103 = phi ptr [ %70, %.critedge45.i.us81 ], [ %70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %70, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %60, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %20, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %20, %25 ], [ %60, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %60, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
-  %104 = phi ptr [ %69, %.critedge45.i.us81 ], [ %69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %69, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %59, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %19, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %19, %25 ], [ %59, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %59, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
+  %102 = phi ptr [ %71, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %71, %.critedge45.i.us81 ], [ %71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %61, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %21, %25 ], [ %21, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %61, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %61, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
+  %103 = phi ptr [ %70, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %70, %.critedge45.i.us81 ], [ %70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %60, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %20, %25 ], [ %20, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %60, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %60, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
+  %104 = phi ptr [ %69, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us67.preheader" ], [ %69, %.critedge45.i.us81 ], [ %69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us83" ], [ %59, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.preheader" ], [ %19, %25 ], [ %19, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %59, %"_ZN92_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68b6857d9c1c62b2E.exit.split.split.backedge" ], [ %59, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
   %.sroa.3.0.copyload = load ptr, ptr %8, align 8
   br i1 %trunc.i, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.split87.us", label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.split87"
 
@@ -4715,7 +4715,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %or.cond.i, label %140, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %148, %144, %.critedge.i, %140, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %126
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %144 ], [ %.sroa.01.0.copyload.i.i, %148 ], [ 8, %126 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %140 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %126 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %144 ], [ %.sroa.01.0.copyload.i.i, %148 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %140 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %137 = trunc nuw i8 %.pre to i1
@@ -4781,9 +4781,9 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit"
 
 "_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit": ; preds = %154, %156
-  %.sroa.450.1 = phi ptr [ null, %156 ], [ %155, %154 ]
-  %.sroa.852.1 = phi ptr [ %158, %156 ], [ %.sroa.852.0, %154 ]
-  %.sroa.0.0.i36 = phi i32 [ %.sroa.852.16.extract.trunc, %156 ], [ %.sroa.02.0.copyload.i.i.i35, %154 ]
+  %.sroa.450.1 = phi ptr [ %155, %154 ], [ null, %156 ]
+  %.sroa.852.1 = phi ptr [ %.sroa.852.0, %154 ], [ %158, %156 ]
+  %.sroa.0.0.i36 = phi i32 [ %.sroa.02.0.copyload.i.i.i35, %154 ], [ %.sroa.852.16.extract.trunc, %156 ]
   %159 = and i32 %.sroa.0.0.i36, 255
   %160 = icmp eq i32 %159, 6
   br i1 %160, label %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread", label %161
@@ -4810,7 +4810,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.split87"
 
 "_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread": ; preds = %.critedge45.i, %.critedge45.i.us, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit", %151, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.us", %106, %.critedge45.i.us81
-  %.0 = phi ptr [ %98, %.critedge45.i.us81 ], [ null, %106 ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.us" ], [ null, %151 ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit" ], [ %57, %.critedge45.i.us ], [ %138, %.critedge45.i ]
+  %.0 = phi ptr [ %98, %.critedge45.i.us81 ], [ %57, %.critedge45.i.us ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.us" ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit" ], [ null, %106 ], [ null, %151 ], [ %138, %.critedge45.i ]
   ret ptr %.0
 }
 
@@ -4869,7 +4869,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %17, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5000,7 +5000,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %30
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %19, %22, %27
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %22 ], [ %.sroa.01.0.copyload.i.i, %27 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %19 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %22 ], [ %.sroa.01.0.copyload.i.i, %27 ], [ %.sroa.01.0.copyload.i.i, %19 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5059,7 +5059,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %54
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit66": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55", %43, %46, %51
-  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %46 ], [ %.sroa.01.0.copyload.i.i56, %51 ], [ 8, %30 ], [ %.sroa.01.0.copyload.i.i56, %43 ]
+  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ 8, %30 ], [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %46 ], [ %.sroa.01.0.copyload.i.i56, %51 ], [ %.sroa.01.0.copyload.i.i56, %43 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i61)
   %.pre80 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5118,7 +5118,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %78
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78": ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67", %67, %70, %75
-  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ %.sroa.01.0.copyload.i.i68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67" ], [ %.sroa.01.0.copyload.i.i68, %70 ], [ %.sroa.01.0.copyload.i.i68, %75 ], [ 8, %54 ], [ %.sroa.01.0.copyload.i.i68, %67 ]
+  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ 8, %54 ], [ %.sroa.01.0.copyload.i.i68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67" ], [ %.sroa.01.0.copyload.i.i68, %70 ], [ %.sroa.01.0.copyload.i.i68, %75 ], [ %.sroa.01.0.copyload.i.i68, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i73)
   %.pre83 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5295,7 +5295,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %64
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %51, %.critedge.i, %56, %61
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %61 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %51 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5353,7 +5353,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %87
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit60": ; preds = %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46", %.critedge.i56, %79, %84
-  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %79 ], [ %.sroa.01.0.copyload.i.i47, %84 ], [ 8, %64 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i56 ]
+  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ 8, %64 ], [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %79 ], [ %.sroa.01.0.copyload.i.i47, %84 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i56 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i53)
   %.pre76 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5386,7 +5386,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %99
 
 99:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit60", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.035 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre75, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre78, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit60" ]
+  %.035 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre75, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre78, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit60" ]
   ret ptr %.035
 }
 
@@ -5531,7 +5531,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %65
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %52, %.critedge.i, %57, %62
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %57 ], [ %.sroa.01.0.copyload.i.i, %62 ], [ 8, %35 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %52 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %35 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %57 ], [ %.sroa.01.0.copyload.i.i, %62 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %52 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %11, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5600,7 +5600,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %93
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74": ; preds = %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i60", %80, %.critedge.i70, %85, %90
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i61, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i60" ], [ %.sroa.01.0.copyload.i.i61, %85 ], [ %.sroa.01.0.copyload.i.i61, %90 ], [ 8, %65 ], [ %.sroa.01.0.copyload.i.i61, %.critedge.i70 ], [ %.sroa.01.0.copyload.i.i61, %80 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %65 ], [ %.sroa.01.0.copyload.i.i61, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i60" ], [ %.sroa.01.0.copyload.i.i61, %85 ], [ %.sroa.01.0.copyload.i.i61, %90 ], [ %.sroa.01.0.copyload.i.i61, %.critedge.i70 ], [ %.sroa.01.0.copyload.i.i61, %80 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %2, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre105 = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5658,7 +5658,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %116
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit89": ; preds = %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i75", %.critedge.i85, %108, %113
-  %.sroa.0.0.insert.insert.i50.i82 = phi i32 [ %.sroa.01.0.copyload.i.i76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i75" ], [ %.sroa.01.0.copyload.i.i76, %108 ], [ %.sroa.01.0.copyload.i.i76, %113 ], [ 8, %93 ], [ %.sroa.01.0.copyload.i.i76, %.critedge.i85 ]
+  %.sroa.0.0.insert.insert.i50.i82 = phi i32 [ 8, %93 ], [ %.sroa.01.0.copyload.i.i76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i75" ], [ %.sroa.01.0.copyload.i.i76, %108 ], [ %.sroa.01.0.copyload.i.i76, %113 ], [ %.sroa.01.0.copyload.i.i76, %.critedge.i85 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i82)
   %.pre108 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -5672,7 +5672,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   br label %118
 
 118:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit89", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %116
-  %.045 = phi ptr [ null, %116 ], [ %28, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %34, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre107, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74" ], [ %.pre110, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit89" ]
+  %.045 = phi ptr [ null, %116 ], [ %34, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre107, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74" ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %28, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre110, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit89" ]
   ret ptr %.045
 }
 
@@ -5817,7 +5817,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i"
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ 8, %2 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 6, i32 %.sroa.0.0.insert.insert.i50.i)
   %18 = load i8, ptr %6, align 8, !range !48, !noundef !13
   %trunc = trunc nuw i8 %18 to i1
@@ -5983,8 +5983,8 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   br label %43
 
 35:                                               ; preds = %2, %44, %9
-  %.sroa.02.0 = phi ptr [ null, %9 ], [ %47, %44 ], [ null, %2 ]
-  %.sroa.7.0 = phi ptr [ %11, %9 ], [ %48, %44 ], [ inttoptr (i64 6 to ptr), %2 ]
+  %.sroa.02.0 = phi ptr [ %47, %44 ], [ null, %9 ], [ null, %2 ]
+  %.sroa.7.0 = phi ptr [ %48, %44 ], [ %11, %9 ], [ inttoptr (i64 6 to ptr), %2 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.02.0, ptr %36, align 8
   br label %50
@@ -6220,7 +6220,7 @@ common.resume:                                    ; preds = %44, %47
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %82, %78, %.critedge.i.us, %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %.lr.ph123
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %78 ], [ %.sroa.01.0.copyload.i.i.us, %82 ], [ 8, %.lr.ph123 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %74 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %.lr.ph123 ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %78 ], [ %.sroa.01.0.copyload.i.i.us, %82 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %74 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 %.sroa.558.8.extract.trunc.us118, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre84 = load i8, ptr %5, align 8, !range !48
   %84 = trunc nuw i8 %.pre84 to i1
@@ -6289,7 +6289,7 @@ common.resume:                                    ; preds = %44, %47
   br i1 %or.cond.i, label %114, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %122, %118, %.critedge.i, %114, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %100
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %118 ], [ %.sroa.01.0.copyload.i.i, %122 ], [ 8, %100 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %114 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %100 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %118 ], [ %.sroa.01.0.copyload.i.i, %122 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %114 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %111 = trunc nuw i8 %.pre to i1
@@ -6651,7 +6651,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i"
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ 8, %1 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i50.i)
   %14 = load i8, ptr %2, align 8, !range !48, !noundef !13
   %trunc = trunc nuw i8 %14 to i1
@@ -6705,7 +6705,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %18
 
 18:                                               ; preds = %8, %10, %1
-  %.1 = phi ptr [ %17, %10 ], [ %.sroa.01.0, %1 ], [ %9, %8 ]
+  %.1 = phi ptr [ %9, %8 ], [ %.sroa.01.0, %1 ], [ %17, %10 ]
   ret ptr %.1
 }
 
@@ -6807,7 +6807,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %43, %39, %.critedge.i.us, %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %39 ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %35 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %39 ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us70, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre53 = load i8, ptr %3, align 8, !range !48
   %45 = trunc nuw i8 %.pre53 to i1
@@ -6862,7 +6862,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %67, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %75, %71, %.critedge.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %53
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %71 ], [ %.sroa.01.0.copyload.i.i, %75 ], [ 8, %53 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %67 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %53 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %71 ], [ %.sroa.01.0.copyload.i.i, %75 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %64 = trunc nuw i8 %.pre to i1
@@ -7005,7 +7005,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %43, %39, %.critedge.i.us, %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %39 ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %35 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %39 ], [ %.sroa.01.0.copyload.i.i.us, %43 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us70, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre53 = load i8, ptr %3, align 8, !range !48
   %45 = trunc nuw i8 %.pre53 to i1
@@ -7060,7 +7060,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %67, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %75, %71, %.critedge.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %53
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %71 ], [ %.sroa.01.0.copyload.i.i, %75 ], [ 8, %53 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %67 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %53 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %71 ], [ %.sroa.01.0.copyload.i.i, %75 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %64 = trunc nuw i8 %.pre to i1
@@ -7164,7 +7164,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %33
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %22, %25, %30
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %22 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %22 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %7, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7277,7 +7277,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 74:                                               ; preds = %38, %44, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit", %72
-  %.0 = phi ptr [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %73, %72 ], [ %.pre62, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %49, %44 ], [ %39, %38 ]
+  %.0 = phi ptr [ %.pre62, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %73, %72 ], [ %49, %44 ], [ %39, %38 ]
   ret ptr %.0
 }
 
@@ -7441,7 +7441,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %71, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %79, %75, %.critedge.i, %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %54
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %75 ], [ %.sroa.01.0.copyload.i.i, %79 ], [ 8, %54 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %71 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %54 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %75 ], [ %.sroa.01.0.copyload.i.i, %79 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %71 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
           to label %".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit_crit_edge" unwind label %.loopexit
 
@@ -7532,7 +7532,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17h30ba12af5e277479E.exit51"
 
 "_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17h30ba12af5e277479E.exit51": ; preds = %96, %91, %.thread.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5456684732158232753.exit.i.i.i50", %103, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$6tag_at17hdea853093afcb40cE.exit", %97
-  %.0 = phi ptr [ %102, %97 ], [ %18, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$6tag_at17hdea853093afcb40cE.exit" ], [ %69, %103 ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5456684732158232753.exit.i.i.i50" ], [ %90, %.thread.i ], [ null, %91 ], [ null, %96 ]
+  %.0 = phi ptr [ %102, %97 ], [ %18, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$6tag_at17hdea853093afcb40cE.exit" ], [ %69, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5456684732158232753.exit.i.i.i50" ], [ %69, %103 ], [ %90, %.thread.i ], [ null, %91 ], [ null, %96 ]
   ret ptr %.0
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %79
@@ -7611,7 +7611,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %29
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %21, %26
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7673,7 +7673,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit74": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i62", %.critedge.i70, %45, %50
-  %.sroa.0.0.insert.insert.i50.i68 = phi i32 [ %.sroa.01.0.copyload.i.i63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i62" ], [ %.sroa.01.0.copyload.i.i63, %45 ], [ %.sroa.01.0.copyload.i.i63, %50 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i63, %.critedge.i70 ]
+  %.sroa.0.0.insert.insert.i50.i68 = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i62" ], [ %.sroa.01.0.copyload.i.i63, %45 ], [ %.sroa.01.0.copyload.i.i63, %50 ], [ %.sroa.01.0.copyload.i.i63, %.critedge.i70 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1275068411, i32 %.sroa.0.0.insert.insert.i50.i68)
   %.pre77 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7775,7 +7775,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %32
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %21, %24, %29
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %24 ], [ %.sroa.01.0.copyload.i.i, %29 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %21 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %24 ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %21 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7805,7 +7805,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84": ; preds = %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i74"
-  %.sroa.0.0.insert.insert.i50.i80 = phi i32 [ %.sroa.01.0.copyload.i.i75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i74" ], [ 8, %32 ]
+  %.sroa.0.0.insert.insert.i50.i80 = phi i32 [ 8, %32 ], [ %.sroa.01.0.copyload.i.i75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i74" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i50.i80)
   %42 = load i8, ptr %5, align 8, !range !48, !noundef !13
   %trunc61 = trunc nuw i8 %42 to i1
@@ -7839,7 +7839,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i85"
-  %.sroa.0.0.insert.insert.i50.i91 = phi i32 [ %.sroa.01.0.copyload.i.i86, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i85" ], [ 8, %46 ]
+  %.sroa.0.0.insert.insert.i50.i91 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i86, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i85" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i50.i91)
   %56 = load i8, ptr %4, align 8, !range !48, !noundef !13
   %trunc63 = trunc nuw i8 %56 to i1
@@ -7898,7 +7898,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %81, label %.critedge, label %83
 
 82:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit", %.critedge70, %63
-  %.0 = phi ptr [ %70, %63 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit" ], [ %105, %.critedge70 ], [ %.pre97, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %45, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84" ], [ %59, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95" ]
+  %.0 = phi ptr [ %70, %63 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit" ], [ %.pre97, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %105, %.critedge70 ], [ %45, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84" ], [ %59, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit95" ]
   ret ptr %.0
 
 83:                                               ; preds = %80
@@ -8012,7 +8012,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %17, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8104,7 +8104,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %17, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8196,7 +8196,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %17, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8300,7 +8300,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %30, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %30 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %30 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %15, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -8551,7 +8551,7 @@ default.unreachable455:                           ; preds = %108
   br i1 %.not42.i187.us, label %.critedge45.i183.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit188.us"
 
 .critedge45.i183.us:                              ; preds = %140, %136, %.critedge.i.us, %132, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us", %121
-  %.sroa.0.0.insert.insert.i50.i184.us = phi i32 [ %.sroa.01.0.copyload.i.i179.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us" ], [ %.sroa.01.0.copyload.i.i179.us, %136 ], [ %.sroa.01.0.copyload.i.i179.us, %140 ], [ 8, %121 ], [ %.sroa.01.0.copyload.i.i179.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i179.us, %132 ]
+  %.sroa.0.0.insert.insert.i50.i184.us = phi i32 [ 8, %121 ], [ %.sroa.01.0.copyload.i.i179.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us" ], [ %.sroa.01.0.copyload.i.i179.us, %136 ], [ %.sroa.01.0.copyload.i.i179.us, %140 ], [ %.sroa.01.0.copyload.i.i179.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i179.us, %132 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us, i32 %.sroa.0.0.insert.insert.i50.i184.us)
   %.pre422 = load i8, ptr %9, align 8, !range !48
   %142 = trunc nuw i8 %.pre422 to i1
@@ -8628,7 +8628,7 @@ default.unreachable455:                           ; preds = %108
   br i1 %.not42.i187.us390, label %.critedge45.i183.us391, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit188.us393"
 
 .critedge45.i183.us391:                           ; preds = %165, %161, %.critedge.i.us387, %157, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us380", %.lr.ph506
-  %.sroa.0.0.insert.insert.i50.i184.us392 = phi i32 [ %.sroa.01.0.copyload.i.i179.us381, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us380" ], [ %.sroa.01.0.copyload.i.i179.us381, %161 ], [ %.sroa.01.0.copyload.i.i179.us381, %165 ], [ 8, %.lr.ph506 ], [ %.sroa.01.0.copyload.i.i179.us381, %.critedge.i.us387 ], [ %.sroa.01.0.copyload.i.i179.us381, %157 ]
+  %.sroa.0.0.insert.insert.i50.i184.us392 = phi i32 [ 8, %.lr.ph506 ], [ %.sroa.01.0.copyload.i.i179.us381, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178.us380" ], [ %.sroa.01.0.copyload.i.i179.us381, %161 ], [ %.sroa.01.0.copyload.i.i179.us381, %165 ], [ %.sroa.01.0.copyload.i.i179.us381, %.critedge.i.us387 ], [ %.sroa.01.0.copyload.i.i179.us381, %157 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.8299.16.extract.trunc302.us501, i32 %.sroa.0.0.insert.insert.i50.i184.us392)
   %.pre421 = load i8, ptr %9, align 8, !range !48
   %167 = trunc nuw i8 %.pre421 to i1
@@ -8677,7 +8677,7 @@ default.unreachable455:                           ; preds = %108
   br i1 %or.cond.i182, label %187, label %.critedge45.i183
 
 .critedge45.i183:                                 ; preds = %195, %191, %.critedge.i, %187, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178", %173
-  %.sroa.0.0.insert.insert.i50.i184 = phi i32 [ %.sroa.01.0.copyload.i.i179, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178" ], [ %.sroa.01.0.copyload.i.i179, %191 ], [ %.sroa.01.0.copyload.i.i179, %195 ], [ 8, %173 ], [ %.sroa.01.0.copyload.i.i179, %.critedge.i ], [ %.sroa.01.0.copyload.i.i179, %187 ]
+  %.sroa.0.0.insert.insert.i50.i184 = phi i32 [ 8, %173 ], [ %.sroa.01.0.copyload.i.i179, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i178" ], [ %.sroa.01.0.copyload.i.i179, %191 ], [ %.sroa.01.0.copyload.i.i179, %195 ], [ %.sroa.01.0.copyload.i.i179, %.critedge.i ], [ %.sroa.01.0.copyload.i.i179, %187 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i3.i, i32 %.sroa.0.0.insert.insert.i50.i184)
   %.pre420 = load i8, ptr %9, align 8, !range !48
   %184 = trunc nuw i8 %.pre420 to i1
@@ -8718,7 +8718,7 @@ default.unreachable455:                           ; preds = %108
   br label %.split.split.backedge
 
 .loopexit:                                        ; preds = %.critedge45.i183, %.critedge45.i183.us, %.critedge45.i183.us391, %46, %54, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %.loopexit360, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit"
-  %.0 = phi ptr [ %.2, %.loopexit360 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %172, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %.pre417, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %59, %54 ], [ %47, %46 ], [ %168, %.critedge45.i183.us391 ], [ %143, %.critedge45.i183.us ], [ %185, %.critedge45.i183 ]
+  %.0 = phi ptr [ %172, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %47, %46 ], [ %.pre417, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.2, %.loopexit360 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %59, %54 ], [ %168, %.critedge45.i183.us391 ], [ %143, %.critedge45.i183.us ], [ %185, %.critedge45.i183 ]
   ret ptr %.0
 
 197:                                              ; preds = %108
@@ -8841,10 +8841,10 @@ default.unreachable455:                           ; preds = %108
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit"
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit": ; preds = %231, %235, %240, %244
-  %247 = phi i1 [ true, %235 ], [ false, %231 ], [ true, %244 ], [ false, %240 ]
-  %.sroa.9274.1.ph347 = phi i64 [ %.sroa.436.0.copyload.i206, %235 ], [ %.sroa.436.0.copyload.i206, %231 ], [ %.sroa.439.0.copyload.i196, %244 ], [ %.sroa.439.0.copyload.i196, %240 ]
-  %.sroa.5273.0.ph345 = phi ptr [ null, %235 ], [ %.sroa.035.0.copyload.i204, %231 ], [ null, %244 ], [ %.sroa.038.0.copyload.i194, %240 ]
-  %.0.i = phi i64 [ %spec.select.i.i.i.i, %235 ], [ %234, %231 ], [ %spec.select.i.i.i3.i, %244 ], [ %243, %240 ]
+  %247 = phi i1 [ false, %231 ], [ true, %235 ], [ true, %244 ], [ false, %240 ]
+  %.sroa.9274.1.ph347 = phi i64 [ %.sroa.436.0.copyload.i206, %231 ], [ %.sroa.436.0.copyload.i206, %235 ], [ %.sroa.439.0.copyload.i196, %244 ], [ %.sroa.439.0.copyload.i196, %240 ]
+  %.sroa.5273.0.ph345 = phi ptr [ %.sroa.035.0.copyload.i204, %231 ], [ null, %235 ], [ null, %244 ], [ %.sroa.038.0.copyload.i194, %240 ]
+  %.0.i = phi i64 [ %234, %231 ], [ %spec.select.i.i.i.i, %235 ], [ %spec.select.i.i.i3.i, %244 ], [ %243, %240 ]
   %.not = icmp eq i64 %.0.i, %spec.select.i.i.i.i212.
   br i1 %.not, label %248, label %270
 
@@ -8882,7 +8882,7 @@ default.unreachable455:                           ; preds = %108
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit222"
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit222": ; preds = %250, %254, %258, %262
-  %.0.i217 = phi i64 [ %spec.select.i.i.i.i219, %254 ], [ %253, %250 ], [ %spec.select.i.i.i3.i221, %262 ], [ %261, %258 ]
+  %.0.i217 = phi i64 [ %253, %250 ], [ %spec.select.i.i.i.i219, %254 ], [ %spec.select.i.i.i3.i221, %262 ], [ %261, %258 ]
   %265 = load i64, ptr %102, align 8, !alias.scope !1048, !noundef !13
   %266 = load i64, ptr %101, align 8, !alias.scope !1048, !noundef !13
   %267 = sub i64 %266, %265
@@ -9035,7 +9035,7 @@ default.unreachable455:                           ; preds = %108
   br label %346
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit244": ; preds = %303, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i230", %314, %.critedge.i240, %318, %322
-  %.sroa.0.0.insert.insert.i50.i237 = phi i32 [ %.sroa.01.0.copyload.i.i231, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i230" ], [ %.sroa.01.0.copyload.i.i231, %318 ], [ %.sroa.01.0.copyload.i.i231, %322 ], [ 8, %303 ], [ %.sroa.01.0.copyload.i.i231, %.critedge.i240 ], [ %.sroa.01.0.copyload.i.i231, %314 ]
+  %.sroa.0.0.insert.insert.i50.i237 = phi i32 [ 8, %303 ], [ %.sroa.01.0.copyload.i.i231, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i230" ], [ %.sroa.01.0.copyload.i.i231, %318 ], [ %.sroa.01.0.copyload.i.i231, %322 ], [ %.sroa.01.0.copyload.i.i231, %.critedge.i240 ], [ %.sroa.01.0.copyload.i.i231, %314 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i225, i32 %.sroa.0.0.insert.insert.i50.i237)
   %.pre418 = load i8, ptr %11, align 8, !range !48
   %.sroa.0128.0.copyload.pre = load i32, ptr %105, align 1
@@ -9129,7 +9129,7 @@ default.unreachable455:                           ; preds = %108
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc617771f3716d934E.exit"
 
 .loopexit360:                                     ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit244", %200, %206, %270, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit207", %215
-  %.2 = phi ptr [ %.sroa.326.0.copyload, %215 ], [ %275, %270 ], [ %.sroa.038.0.copyload.sink1.i202, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit207" ], [ %211, %206 ], [ %201, %200 ], [ %325, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit244" ]
+  %.2 = phi ptr [ %.sroa.326.0.copyload, %215 ], [ %.sroa.038.0.copyload.sink1.i202, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit207" ], [ %201, %200 ], [ %275, %270 ], [ %211, %206 ], [ %325, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit244" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
@@ -9274,7 +9274,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h03992fbe7bf081eaE.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h03992fbe7bf081eaE.exit": ; preds = %48, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread.i", %2, %54, %17
-  %.2 = phi ptr [ %15, %2 ], [ %59, %54 ], [ %21, %17 ], [ %50, %48 ], [ %.sroa.4.0.i.ph.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread.i" ]
+  %.2 = phi ptr [ %21, %17 ], [ %15, %2 ], [ %59, %54 ], [ %50, %48 ], [ %.sroa.4.0.i.ph.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12func_type_at17h84b62839c2f68604E.exit.thread.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.2
 }
@@ -9386,7 +9386,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %40, %.critedge.i, %45, %50
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %45 ], [ %.sroa.01.0.copyload.i.i, %50 ], [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %40 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %45 ], [ %.sroa.01.0.copyload.i.i, %50 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %40 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9530,7 +9530,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %40, %.critedge.i, %45, %50
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %45 ], [ %.sroa.01.0.copyload.i.i, %50 ], [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %40 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %45 ], [ %.sroa.01.0.copyload.i.i, %50 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %40 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.025.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9649,7 +9649,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9768,7 +9768,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9863,7 +9863,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %34
 
 34:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit", %61, %35, %"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit.thread"
-  %.0 = phi ptr [ %33, %"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit.thread" ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %64, %61 ], [ %42, %35 ]
+  %.0 = phi ptr [ %33, %"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit.thread" ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %42, %35 ], [ %64, %61 ]
   ret ptr %.0
 
 35:                                               ; preds = %"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit"
@@ -10138,7 +10138,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %69
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %37, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %52, %55, %60
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %55 ], [ %.sroa.01.0.copyload.i.i, %60 ], [ 8, %37 ], [ %.sroa.01.0.copyload.i.i, %52 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %37 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %55 ], [ %.sroa.01.0.copyload.i.i, %60 ], [ %.sroa.01.0.copyload.i.i, %52 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10196,7 +10196,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %85
 
 85:                                               ; preds = %69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %63, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %68, %63 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %72, %69 ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %68, %63 ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %72, %69 ]
   ret ptr %.0
 }
 
@@ -10258,7 +10258,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1342177275, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10422,7 +10422,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %59
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %48, %51, %56
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %51 ], [ %.sroa.01.0.copyload.i.i, %56 ], [ 8, %33 ], [ %.sroa.01.0.copyload.i.i, %48 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %33 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %51 ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %48 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10440,7 +10440,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not, label %63, label %91
 
 63:                                               ; preds = %59, %91
-  %.sroa.422.sroa.0.0 = phi i32 [ 0, %59 ], [ %95, %91 ]
+  %.sroa.422.sroa.0.0 = phi i32 [ %95, %91 ], [ 0, %59 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1237)
   %64 = load i64, ptr %35, align 8, !alias.scope !1237, !noalias !1240, !noundef !13
   %65 = icmp eq i64 %64, 0
@@ -10499,7 +10499,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %96
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54": ; preds = %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44", %78, %.critedge.i, %83, %88
-  %.sroa.0.0.insert.insert.i50.i50 = phi i32 [ %.sroa.01.0.copyload.i.i45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44" ], [ %.sroa.01.0.copyload.i.i45, %83 ], [ %.sroa.01.0.copyload.i.i45, %88 ], [ 8, %63 ], [ %.sroa.01.0.copyload.i.i45, %.critedge.i ], [ %.sroa.01.0.copyload.i.i45, %78 ]
+  %.sroa.0.0.insert.insert.i50.i50 = phi i32 [ 8, %63 ], [ %.sroa.01.0.copyload.i.i45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44" ], [ %.sroa.01.0.copyload.i.i45, %83 ], [ %.sroa.01.0.copyload.i.i45, %88 ], [ %.sroa.01.0.copyload.i.i45, %.critedge.i ], [ %.sroa.01.0.copyload.i.i45, %78 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.422.sroa.0.0, i32 %.sroa.0.0.insert.insert.i50.i50)
   %.pre58 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10522,7 +10522,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %98
 
 98:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %96
-  %.0 = phi ptr [ %97, %96 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre57, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre60, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54" ]
+  %.0 = phi ptr [ %97, %96 ], [ %.pre57, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre60, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54" ]
   ret ptr %.0
 }
 
@@ -10632,7 +10632,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not, label %55, label %50
 
 49:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit63", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %109, %39
-  %.0 = phi ptr [ %44, %39 ], [ %spec.select, %109 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit63" ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %spec.select, %109 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %44, %39 ], [ %.pre69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit63" ]
   ret ptr %.0
 
 50:                                               ; preds = %45
@@ -10707,7 +10707,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %85
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %72, %.critedge.i, %77, %82
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %77 ], [ %.sroa.01.0.copyload.i.i, %82 ], [ 8, %55 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %72 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %55 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %77 ], [ %.sroa.01.0.copyload.i.i, %82 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %72 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10766,7 +10766,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %109
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit63": ; preds = %85, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i50", %98, %101, %106
-  %.sroa.0.0.insert.insert.i50.i56 = phi i32 [ %.sroa.01.0.copyload.i.i51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i50" ], [ %.sroa.01.0.copyload.i.i51, %101 ], [ %.sroa.01.0.copyload.i.i51, %106 ], [ 8, %85 ], [ %.sroa.01.0.copyload.i.i51, %98 ]
+  %.sroa.0.0.insert.insert.i50.i56 = phi i32 [ 8, %85 ], [ %.sroa.01.0.copyload.i.i51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i50" ], [ %.sroa.01.0.copyload.i.i51, %101 ], [ %.sroa.01.0.copyload.i.i51, %106 ], [ %.sroa.01.0.copyload.i.i51, %98 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i56)
   %.pre67 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10848,7 +10848,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %33
 
 33:                                               ; preds = %20, %12, %24
-  %.1 = phi ptr [ %19, %12 ], [ %32, %24 ], [ null, %20 ]
+  %.1 = phi ptr [ %32, %24 ], [ %19, %12 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -11050,7 +11050,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %50
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %25, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %39, %42, %47
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %39 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %39 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11089,7 +11089,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i49, label %67, label %.critedge45.i50
 
 .critedge45.i50:                                  ; preds = %77, %72, %.critedge.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45", %50
-  %.sroa.0.0.insert.insert.i50.i51 = phi i32 [ %.sroa.01.0.copyload.i.i46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45" ], [ %.sroa.01.0.copyload.i.i46, %72 ], [ %.sroa.01.0.copyload.i.i46, %77 ], [ 8, %50 ], [ %.sroa.01.0.copyload.i.i46, %.critedge.i ], [ %.sroa.01.0.copyload.i.i46, %67 ]
+  %.sroa.0.0.insert.insert.i50.i51 = phi i32 [ 8, %50 ], [ %.sroa.01.0.copyload.i.i46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45" ], [ %.sroa.01.0.copyload.i.i46, %72 ], [ %.sroa.01.0.copyload.i.i46, %77 ], [ %.sroa.01.0.copyload.i.i46, %.critedge.i ], [ %.sroa.01.0.copyload.i.i46, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i51)
   %.pre59 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11289,7 +11289,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %50
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %25, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %39, %42, %47
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %39 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %39 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11328,7 +11328,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i49, label %67, label %.critedge45.i50
 
 .critedge45.i50:                                  ; preds = %77, %72, %.critedge.i, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45", %50
-  %.sroa.0.0.insert.insert.i50.i51 = phi i32 [ %.sroa.01.0.copyload.i.i46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45" ], [ %.sroa.01.0.copyload.i.i46, %72 ], [ %.sroa.01.0.copyload.i.i46, %77 ], [ 8, %50 ], [ %.sroa.01.0.copyload.i.i46, %.critedge.i ], [ %.sroa.01.0.copyload.i.i46, %67 ]
+  %.sroa.0.0.insert.insert.i50.i51 = phi i32 [ 8, %50 ], [ %.sroa.01.0.copyload.i.i46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i45" ], [ %.sroa.01.0.copyload.i.i46, %72 ], [ %.sroa.01.0.copyload.i.i46, %77 ], [ %.sroa.01.0.copyload.i.i46, %.critedge.i ], [ %.sroa.01.0.copyload.i.i46, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.028.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i51)
   %.pre59 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11431,7 +11431,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11526,7 +11526,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1610612731, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11664,7 +11664,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11703,7 +11703,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre50 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11744,7 +11744,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %11, %2 ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -11849,7 +11849,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11888,7 +11888,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre51 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11929,7 +11929,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %11, %2 ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -12057,7 +12057,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   br label %60
 
 60:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit", %40, %26
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %46, %40 ], [ %32, %26 ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %32, %26 ], [ %46, %40 ]
   ret ptr %.0
 }
 
@@ -12156,7 +12156,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   br label %54
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %34, %.critedge.i, %39, %44
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %34 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %34 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12230,7 +12230,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   br label %78
 
 78:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h299fa06a836ff7f6E.exit", %58, %47
-  %.0 = phi ptr [ %53, %47 ], [ null, %58 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h299fa06a836ff7f6E.exit" ], [ %.pre37, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %53, %47 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h299fa06a836ff7f6E.exit" ], [ null, %58 ], [ %.pre37, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -12329,7 +12329,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i: ; pre
   br label %54
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %34, %.critedge.i, %39, %44
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %34 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %34 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -12520,7 +12520,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %34, %37, %42
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %37 ], [ %.sroa.01.0.copyload.i.i, %42 ], [ 8, %18 ], [ %.sroa.01.0.copyload.i.i, %34 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %18 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %37 ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %34 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -12654,7 +12654,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %47
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.04.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -12694,7 +12694,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i35, label %62, label %.critedge45.i36
 
 .critedge45.i36:                                  ; preds = %70, %65, %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i31", %47
-  %.sroa.0.0.insert.insert.i50.i37 = phi i32 [ %.sroa.01.0.copyload.i.i32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i31" ], [ %.sroa.01.0.copyload.i.i32, %65 ], [ %.sroa.01.0.copyload.i.i32, %70 ], [ 8, %47 ], [ %.sroa.01.0.copyload.i.i32, %62 ]
+  %.sroa.0.0.insert.insert.i50.i37 = phi i32 [ 8, %47 ], [ %.sroa.01.0.copyload.i.i32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i31" ], [ %.sroa.01.0.copyload.i.i32, %65 ], [ %.sroa.01.0.copyload.i.i32, %70 ], [ %.sroa.01.0.copyload.i.i32, %62 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i37)
   %.pre45 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -12786,7 +12786,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -2080374779, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12829,7 +12829,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit"
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %45, %40, %.thread.i
-  %.0 = phi ptr [ %39, %.thread.i ], [ null, %40 ], [ null, %45 ], [ %.pre16, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ null, %45 ], [ %39, %.thread.i ], [ null, %40 ], [ %.pre16, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -12967,7 +12967,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %73, %69, %.critedge.i.us, %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %69 ], [ %.sroa.01.0.copyload.i.i.us, %73 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %65 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %69 ], [ %.sroa.01.0.copyload.i.i.us, %73 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %65 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %31, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us1106, i32 %.sroa.0.0.insert.insert.i50.i.us)
           to label %".critedge45.i.us._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us_crit_edge" unwind label %.loopexit780.split.us
 
@@ -13025,7 +13025,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br i1 %or.cond.i, label %96, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %104, %100, %.critedge.i, %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %82
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %100 ], [ %.sroa.01.0.copyload.i.i, %104 ], [ 8, %82 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %96 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %82 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %100 ], [ %.sroa.01.0.copyload.i.i, %104 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %96 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %31, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i)
           to label %".critedge45.i._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit_crit_edge" unwind label %.loopexit780.split
 
@@ -13114,7 +13114,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit"
 
 "_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit": ; preds = %.loopexit775, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %401, %405
-  %.pn = phi { ptr, i32 } [ %402, %405 ], [ %402, %401 ], [ %lpad.loopexit, %.loopexit775 ], [ %lpad.loopexit777, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp778, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %402, %401 ], [ %402, %405 ], [ %lpad.loopexit, %.loopexit775 ], [ %lpad.loopexit777, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp778, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17h7d5131a4083fda38E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #15
           to label %.thread unwind label %449
 
@@ -13161,7 +13161,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %121
 
 121:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i", %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit"
-  %.2 = phi ptr [ %.0.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit" ], [ %.3, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i" ], [ %120, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread" ]
+  %.2 = phi ptr [ %120, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit.thread" ], [ %.0.ph, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..readers..core..operators..Catch$GT$$GT$17he833013f8d15054bE.exit" ], [ %.3, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf900fd3603c20a0aE.llvm.5456684732158232753.exit.i" ]
   ret ptr %.2
 
 122:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ad3f5420e6e198cE.exit"
@@ -13419,9 +13419,9 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit"
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit": ; preds = %223, %219, %214, %210
-  %.sroa.5516.0.ph663 = phi ptr [ null, %214 ], [ %.sroa.035.0.copyload.i, %210 ], [ null, %223 ], [ %.sroa.038.0.copyload.i, %219 ]
-  %.sroa.9.2.ph661 = phi i64 [ %.sroa.436.0.copyload.i, %214 ], [ %.sroa.436.0.copyload.i, %210 ], [ %.sroa.439.0.copyload.i, %223 ], [ %.sroa.439.0.copyload.i, %219 ]
-  %.0.i = phi i64 [ %spec.select.i.i.i.i, %214 ], [ %213, %210 ], [ %spec.select.i.i.i3.i, %223 ], [ %222, %219 ]
+  %.sroa.5516.0.ph663 = phi ptr [ %.sroa.035.0.copyload.i, %210 ], [ null, %214 ], [ null, %223 ], [ %.sroa.038.0.copyload.i, %219 ]
+  %.sroa.9.2.ph661 = phi i64 [ %.sroa.436.0.copyload.i, %210 ], [ %.sroa.436.0.copyload.i, %214 ], [ %.sroa.439.0.copyload.i, %223 ], [ %.sroa.439.0.copyload.i, %219 ]
+  %.0.i = phi i64 [ %213, %210 ], [ %spec.select.i.i.i.i, %214 ], [ %spec.select.i.i.i3.i, %223 ], [ %222, %219 ]
   %.not290 = icmp eq i64 %193, %.0.i
   br i1 %.not290, label %232, label %226
 
@@ -13505,8 +13505,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit"
 
 "_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.thread.i": ; preds = %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i", %243, %236
-  %.sroa.5523.2 = phi ptr [ %.sroa.5523.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i" ], [ %.sroa.5523.0, %243 ], [ %.sroa.5523.0, %236 ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i" ], [ %.sroa.10.0614, %243 ], [ %.sroa.10.0614, %236 ]
+  %.sroa.5523.2 = phi ptr [ %.sroa.5523.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i" ], [ %.sroa.5523.0, %236 ], [ %.sroa.5523.0, %243 ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.1, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i" ], [ %.sroa.10.0614, %236 ], [ %.sroa.10.0614, %243 ]
   %.sroa.0531.0.insert.mask = and i32 %.sroa.0531.1, -256
   %.sroa.0531.0.insert.insert = or disjoint i32 %.sroa.0531.0.insert.mask, 6
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit"
@@ -13539,8 +13539,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %265
 
 .loopexit:                                        ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit", %531, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471", %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426"
-  %.sroa.0531.2 = phi i32 [ %.sroa.0531.0883, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426" ], [ %.sroa.0531.0883, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471" ], [ %.sroa.0531.0883, %531 ], [ %.sroa.0531.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
-  %.sroa.8534.2 = phi ptr [ %.sroa.8534.0884, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426" ], [ %.sroa.8534.0884, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471" ], [ %.sroa.8534.0884, %531 ], [ %.sroa.8534.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
+  %.sroa.0531.2 = phi i32 [ %.sroa.0531.0883, %531 ], [ %.sroa.0531.0883, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426" ], [ %.sroa.0531.0883, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471" ], [ %.sroa.0531.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
+  %.sroa.8534.2 = phi ptr [ %.sroa.8534.0884, %531 ], [ %.sroa.8534.0884, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426" ], [ %.sroa.8534.0884, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471" ], [ %.sroa.8534.3, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h2d15e98cfc64d5c7E.exit" ]
   %262 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !1610, !noalias !1563, !nonnull !13, !noundef !13
   %263 = load ptr, ptr %.sroa.5500.0..sroa_idx, align 8, !alias.scope !1610, !noalias !1563, !nonnull !13, !noundef !13
   %264 = icmp eq ptr %263, %262
@@ -13576,7 +13576,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br i1 %or.cond.i371, label %281, label %.critedge45.i372
 
 .critedge45.i372:                                 ; preds = %289, %285, %.critedge.i376, %281, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i366", %265
-  %.sroa.0.0.insert.insert.i50.i373 = phi i32 [ %.sroa.01.0.copyload.i.i367, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i366" ], [ %.sroa.01.0.copyload.i.i367, %285 ], [ %.sroa.01.0.copyload.i.i367, %289 ], [ 8, %265 ], [ %.sroa.01.0.copyload.i.i367, %.critedge.i376 ], [ %.sroa.01.0.copyload.i.i367, %281 ]
+  %.sroa.0.0.insert.insert.i50.i373 = phi i32 [ 8, %265 ], [ %.sroa.01.0.copyload.i.i367, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i366" ], [ %.sroa.01.0.copyload.i.i367, %285 ], [ %.sroa.01.0.copyload.i.i367, %289 ], [ %.sroa.01.0.copyload.i.i367, %.critedge.i376 ], [ %.sroa.01.0.copyload.i.i367, %281 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %28, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0531.3, i32 %.sroa.0.0.insert.insert.i50.i373)
           to label %".critedge45.i372._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit381_crit_edge" unwind label %.loopexit775
 
@@ -13623,7 +13623,7 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %.loopexit776
 
 .loopexit776:                                     ; preds = %".critedge45.i372._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit381_crit_edge", %.invoke1095, %.noexc351, %.noexc345, %.noexc387, %.noexc358, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447", %451, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit408", %297, %291, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit", %172, %483, %492, %541, %520
-  %.3 = phi ptr [ %.sroa.038.0.copyload.sink1.i457, %483 ], [ %491, %492 ], [ %.sroa.038.0.copyload.sink1.i481, %520 ], [ %540, %541 ], [ %131, %172 ], [ %141, %297 ], [ %231, %291 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %364, %451 ], [ %433, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %.sroa.038.0.copyload.sink1.i401, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit408" ], [ %185, %.noexc358 ], [ %311, %.noexc387 ], [ %154, %.noexc345 ], [ %169, %.noexc351 ], [ %301, %.invoke1095 ], [ %280, %".critedge45.i372._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit381_crit_edge" ]
+  %.3 = phi ptr [ %141, %297 ], [ %.sroa.038.0.copyload.sink1.i401, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit408" ], [ %154, %.noexc345 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %131, %172 ], [ %.sroa.038.0.copyload.sink1.i457, %483 ], [ %491, %492 ], [ %311, %.noexc387 ], [ %.sroa.038.0.copyload.sink1.i481, %520 ], [ %540, %541 ], [ %185, %.noexc358 ], [ %231, %291 ], [ %433, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit447" ], [ %364, %451 ], [ %169, %.noexc351 ], [ %301, %.invoke1095 ], [ %280, %".critedge45.i372._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit381_crit_edge" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1620
   store ptr %30, ptr %11, align 8, !noalias !1620
   %292 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h241d20d4dae8dd50E.llvm.12393783928750787229(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %30)
@@ -13693,8 +13693,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br i1 %313, label %316, label %.invoke1093, !prof !757
 
 .invoke1093:                                      ; preds = %312, %186, %170, %155
-  %314 = phi i64 [ %148, %155 ], [ %163, %170 ], [ %179, %186 ], [ %305, %312 ]
-  %315 = phi i64 [ %143, %155 ], [ %158, %170 ], [ %174, %186 ], [ %299, %312 ]
+  %314 = phi i64 [ %179, %186 ], [ %163, %170 ], [ %148, %155 ], [ %305, %312 ]
+  %315 = phi i64 [ %174, %186 ], [ %158, %170 ], [ %143, %155 ], [ %299, %312 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %314, i64 noundef %315, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.626509dc6931756cc21347e4e4750bba.73) #16
           to label %.cont1094 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -13801,10 +13801,10 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit415"
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit415": ; preds = %355, %351, %346, %342
-  %.sroa.9552.2.ph694 = phi i64 [ %.sroa.436.0.copyload.i405, %346 ], [ %.sroa.436.0.copyload.i405, %342 ], [ %.sroa.439.0.copyload.i395, %355 ], [ %.sroa.439.0.copyload.i395, %351 ]
-  %.sroa.5551.0.ph692 = phi ptr [ null, %346 ], [ %.sroa.035.0.copyload.i403, %342 ], [ null, %355 ], [ %.sroa.038.0.copyload.i393, %351 ]
-  %.sroa.0550.0.ph689 = phi i64 [ 0, %346 ], [ 0, %342 ], [ 1, %355 ], [ 1, %351 ]
-  %.0.i410 = phi i64 [ %spec.select.i.i.i.i412, %346 ], [ %345, %342 ], [ %spec.select.i.i.i3.i414, %355 ], [ %354, %351 ]
+  %.sroa.9552.2.ph694 = phi i64 [ %.sroa.436.0.copyload.i405, %342 ], [ %.sroa.436.0.copyload.i405, %346 ], [ %.sroa.439.0.copyload.i395, %355 ], [ %.sroa.439.0.copyload.i395, %351 ]
+  %.sroa.5551.0.ph692 = phi ptr [ %.sroa.035.0.copyload.i403, %342 ], [ null, %346 ], [ null, %355 ], [ %.sroa.038.0.copyload.i393, %351 ]
+  %.sroa.0550.0.ph689 = phi i64 [ 0, %342 ], [ 0, %346 ], [ 1, %355 ], [ 1, %351 ]
+  %.0.i410 = phi i64 [ %345, %342 ], [ %spec.select.i.i.i.i412, %346 ], [ %spec.select.i.i.i3.i414, %355 ], [ %354, %351 ]
   %358 = add nuw nsw i64 %321, 1
   %.not285 = icmp eq i64 %358, %.0.i410
   br i1 %.not285, label %365, label %359
@@ -13970,7 +13970,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   %413 = icmp eq i64 %411, %412
   br i1 %413, label %417, label %418
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8b4d7294ee84b164E.exit.thread": ; preds = %396, %379, %370, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i418", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc3331ec6f1bb008E.exit.i"
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8b4d7294ee84b164E.exit.thread": ; preds = %396, %370, %379, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit.i418", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc3331ec6f1bb008E.exit.i"
   %.pr = load i64, ptr %.sroa.4559.0..sroa_idx, align 8, !alias.scope !1703
   %414 = icmp eq i64 %.pr, 0
   br i1 %414, label %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit426", label %415
@@ -14022,7 +14022,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   br i1 %or.cond.i435, label %434, label %.critedge45.i436
 
 .critedge45.i436:                                 ; preds = %442, %438, %.critedge.i440, %434, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i430", %418
-  %.sroa.0.0.insert.insert.i50.i437 = phi i32 [ %.sroa.01.0.copyload.i.i431, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i430" ], [ %.sroa.01.0.copyload.i.i431, %438 ], [ %.sroa.01.0.copyload.i.i431, %442 ], [ 8, %418 ], [ %.sroa.01.0.copyload.i.i431, %.critedge.i440 ], [ %.sroa.01.0.copyload.i.i431, %434 ]
+  %.sroa.0.0.insert.insert.i50.i437 = phi i32 [ 8, %418 ], [ %.sroa.01.0.copyload.i.i431, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i430" ], [ %.sroa.01.0.copyload.i.i431, %438 ], [ %.sroa.01.0.copyload.i.i431, %442 ], [ %.sroa.01.0.copyload.i.i431, %.critedge.i440 ], [ %.sroa.01.0.copyload.i.i431, %434 ]
   invoke fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %25, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.0119.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i437)
           to label %".critedge45.i436._ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit445_crit_edge" unwind label %401
 
@@ -14168,7 +14168,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   br label %.loopexit776
 
 "_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h05908b900844d4baE.exit471": ; preds = %480, %476, %471, %467
-  %.0.i466 = phi i64 [ %spec.select.i.i.i.i468, %471 ], [ %470, %467 ], [ %spec.select.i.i.i3.i470, %480 ], [ %479, %476 ]
+  %.0.i466 = phi i64 [ %470, %467 ], [ %spec.select.i.i.i.i468, %471 ], [ %spec.select.i.i.i3.i470, %480 ], [ %479, %476 ]
   %485 = icmp eq i64 %.0.i466, 0
   br i1 %485, label %.loopexit, label %486
 
@@ -14295,8 +14295,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   br label %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit497"
 
 "_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1861b5cb1ecc92ecE.exit497": ; preds = %529, %528, %526, %525, %524, %522
-  %.sroa.0.0.i490752 = phi i32 [ %.sroa.16.16.extract.trunc, %525 ], [ %.sroa.0.0.i490.ph756, %524 ], [ %.sroa.0.0.i490.ph756, %522 ], [ %.sroa.16.16.extract.trunc597, %529 ], [ %.sroa.0.0.i490.ph.ph, %528 ], [ %.sroa.0.0.i490.ph.ph, %526 ]
-  %.sroa.0.0.i493 = phi i32 [ 6, %525 ], [ %.sroa.02.0.copyload.i.i.i492, %524 ], [ 6, %522 ], [ 6, %529 ], [ %.sroa.02.0.copyload.i.i3.i495, %528 ], [ 6, %526 ]
+  %.sroa.0.0.i490752 = phi i32 [ %.sroa.0.0.i490.ph756, %522 ], [ %.sroa.16.16.extract.trunc, %525 ], [ %.sroa.0.0.i490.ph756, %524 ], [ %.sroa.16.16.extract.trunc597, %529 ], [ %.sroa.0.0.i490.ph.ph, %528 ], [ %.sroa.0.0.i490.ph.ph, %526 ]
+  %.sroa.0.0.i493 = phi i32 [ 6, %522 ], [ 6, %525 ], [ %.sroa.02.0.copyload.i.i.i492, %524 ], [ 6, %529 ], [ %.sroa.02.0.copyload.i.i3.i495, %528 ], [ 6, %526 ]
   %530 = and i32 %.sroa.0.0.i490752, 255
   %.not = icmp eq i32 %530, 6
   br i1 %.not, label %535, label %531
@@ -14355,7 +14355,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4826023f4fcc8e6aE.exit.thread.
   br label %121
 
 .thread:                                          ; preds = %293, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit", %.loopexit780
-  %.pn294617 = phi { ptr, i32 } [ %lpad.phi783, %.loopexit780 ], [ %.pn, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit" ], [ %294, %293 ]
+  %.pn294617 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr836drop_in_place$LT$core..iter..adapters..zip..Zip$LT$wasmparser..validator..operators..Either$LT$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$wasmparser..validator..operators..Either$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..option..IntoIter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$$C$core..iter..adapters..chain..Chain$LT$core..iter..adapters..copied..Copied$LT$core..slice..iter..Iter$LT$wasmparser..readers..core..types..ValType$GT$$GT$$C$core..array..iter..IntoIter$LT$wasmparser..readers..core..types..ValType$C$1_usize$GT$$GT$$GT$$GT$17hcd8230ad72841f67E.exit" ], [ %lpad.phi783, %.loopexit780 ], [ %294, %293 ]
   resume { ptr, i32 } %.pn294617
 
 .loopexit780.split:                               ; preds = %.critedge45.i
@@ -14456,7 +14456,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -14672,7 +14672,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %89
 
 89:                                               ; preds = %188, %184, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit135", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit124.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %192, %150, %141, %132, %125, %61
-  %.0 = phi ptr [ %131, %125 ], [ %138, %132 ], [ %158, %150 ], [ %149, %141 ], [ %66, %61 ], [ %spec.select, %192 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.sroa.4.0.i122.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit124.thread" ], [ %.pre140, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre143, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit135" ], [ %187, %184 ], [ %191, %188 ]
+  %.0 = phi ptr [ %.sroa.4.0.i122.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit124.thread" ], [ %spec.select, %192 ], [ %187, %184 ], [ %.pre143, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit135" ], [ %.pre140, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %66, %61 ], [ %131, %125 ], [ %138, %132 ], [ %158, %150 ], [ %149, %141 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %191, %188 ]
   ret ptr %.0
 
 90:                                               ; preds = %70
@@ -14755,7 +14755,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %160
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %99, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %114, %117, %122
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %117 ], [ %.sroa.01.0.copyload.i.i, %122 ], [ 8, %99 ], [ %.sroa.01.0.copyload.i.i, %114 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %99 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %117 ], [ %.sroa.01.0.copyload.i.i, %122 ], [ %.sroa.01.0.copyload.i.i, %114 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %18, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %18, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -14943,7 +14943,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %184
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit135": ; preds = %160, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i125", %173, %176, %181
-  %.sroa.0.0.insert.insert.i50.i131 = phi i32 [ %.sroa.01.0.copyload.i.i126, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i125" ], [ %.sroa.01.0.copyload.i.i126, %176 ], [ %.sroa.01.0.copyload.i.i126, %181 ], [ 8, %160 ], [ %.sroa.01.0.copyload.i.i126, %173 ]
+  %.sroa.0.0.insert.insert.i50.i131 = phi i32 [ 8, %160 ], [ %.sroa.01.0.copyload.i.i126, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i125" ], [ %.sroa.01.0.copyload.i.i126, %176 ], [ %.sroa.01.0.copyload.i.i126, %181 ], [ %.sroa.01.0.copyload.i.i126, %173 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i131)
   %.pre141 = load i8, ptr %17, align 8, !range !48
   %.phi.trans.insert142 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -15135,7 +15135,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %73
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %61, %64, %69
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %64 ], [ %.sroa.01.0.copyload.i.i, %69 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i, %61 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %64 ], [ %.sroa.01.0.copyload.i.i, %69 ], [ %.sroa.01.0.copyload.i.i, %61 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %11, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -15145,7 +15145,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %134, %40
-  %.0 = phi ptr [ %45, %40 ], [ %spec.select, %134 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre105, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96" ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %spec.select, %134 ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %45, %40 ], [ %.pre105, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96" ]
   ret ptr %.0
 
 73:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
@@ -15157,7 +15157,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not, label %77, label %105
 
 77:                                               ; preds = %73, %105
-  %.sroa.423.sroa.0.0 = phi i32 [ 0, %73 ], [ %109, %105 ]
+  %.sroa.423.sroa.0.0 = phi i32 [ %109, %105 ], [ 0, %73 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1849)
   %78 = load i64, ptr %48, align 8, !alias.scope !1849, !noalias !1852, !noundef !13
   %79 = icmp eq i64 %78, 0
@@ -15216,7 +15216,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %110
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82": ; preds = %77, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72", %92, %.critedge.i, %97, %102
-  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %97 ], [ %.sroa.01.0.copyload.i.i73, %102 ], [ 8, %77 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i ], [ %.sroa.01.0.copyload.i.i73, %92 ]
+  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ 8, %77 ], [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %97 ], [ %.sroa.01.0.copyload.i.i73, %102 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i ], [ %.sroa.01.0.copyload.i.i73, %92 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.423.sroa.0.0, i32 %.sroa.0.0.insert.insert.i50.i78)
   %.pre100 = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15284,7 +15284,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %134
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit96": ; preds = %110, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83", %123, %126, %131
-  %.sroa.0.0.insert.insert.i50.i89 = phi i32 [ %.sroa.01.0.copyload.i.i84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83" ], [ %.sroa.01.0.copyload.i.i84, %126 ], [ %.sroa.01.0.copyload.i.i84, %131 ], [ 8, %110 ], [ %.sroa.01.0.copyload.i.i84, %123 ]
+  %.sroa.0.0.insert.insert.i50.i89 = phi i32 [ 8, %110 ], [ %.sroa.01.0.copyload.i.i84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83" ], [ %.sroa.01.0.copyload.i.i84, %126 ], [ %.sroa.01.0.copyload.i.i84, %131 ], [ %.sroa.01.0.copyload.i.i84, %123 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i89)
   %.pre103 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -15413,7 +15413,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   unreachable
 
 57:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %42, %48, %103, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %135, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit", %24, %4, %138, %29
-  %.0111 = phi ptr [ null, %138 ], [ %37, %29 ], [ %22, %4 ], [ %25, %24 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %100, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %111, %103 ], [ %136, %135 ], [ %53, %48 ], [ %43, %42 ], [ %.pre170, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0111 = phi ptr [ %25, %24 ], [ null, %138 ], [ %136, %135 ], [ %37, %29 ], [ %22, %4 ], [ %111, %103 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %100, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %43, %42 ], [ %53, %48 ], [ %.pre170, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0111
 
 58:                                               ; preds = %54
@@ -15506,10 +15506,10 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit"
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit": ; preds = %81, %84, %90, %93
-  %.sroa.5.0.ph161 = phi ptr [ null, %93 ], [ %.sroa.038.0.copyload.i, %90 ], [ null, %84 ], [ %.sroa.035.0.copyload.i, %81 ]
-  %.sroa.0137.0.ph158 = phi i64 [ 1, %93 ], [ 1, %90 ], [ 0, %84 ], [ 0, %81 ]
-  %.sroa.9.0140 = phi i64 [ %.sroa.9.16.insert.insert136, %93 ], [ %92, %90 ], [ %.sroa.9.16.insert.insert, %84 ], [ %83, %81 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.9.16.extract.trunc133, %93 ], [ %.sroa.02.0.copyload.i.i3.i, %90 ], [ %.sroa.9.16.extract.trunc, %84 ], [ %.sroa.02.0.copyload.i.i.i, %81 ]
+  %.sroa.5.0.ph161 = phi ptr [ null, %93 ], [ %.sroa.035.0.copyload.i, %81 ], [ %.sroa.038.0.copyload.i, %90 ], [ null, %84 ]
+  %.sroa.0137.0.ph158 = phi i64 [ 1, %93 ], [ 0, %81 ], [ 1, %90 ], [ 0, %84 ]
+  %.sroa.9.0140 = phi i64 [ %.sroa.9.16.insert.insert136, %93 ], [ %83, %81 ], [ %92, %90 ], [ %.sroa.9.16.insert.insert, %84 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.9.16.extract.trunc133, %93 ], [ %.sroa.02.0.copyload.i.i.i, %81 ], [ %.sroa.02.0.copyload.i.i3.i, %90 ], [ %.sroa.9.16.extract.trunc, %84 ]
   %94 = and i32 %.sroa.0.0.i, 255
   %95 = icmp eq i32 %94, 6
   br i1 %95, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", label %101
@@ -15620,7 +15620,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %135
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %112, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %128, %132
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %128 ], [ %.sroa.01.0.copyload.i.i, %132 ], [ 8, %112 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %112 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %128 ], [ %.sroa.01.0.copyload.i.i, %132 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.067.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %13, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -15801,7 +15801,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %68
 
 68:                                               ; preds = %18, %24, %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit", %52, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit" ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %53, %52 ], [ %11, %2 ], [ %29, %24 ], [ %19, %18 ]
+  %.0 = phi ptr [ %11, %2 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb3f33551a9f7ceafE.exit" ], [ %53, %52 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %29, %24 ], [ %19, %18 ]
   ret ptr %.0
 }
 
@@ -15950,7 +15950,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %46, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %56, %51, %.critedge.i, %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %51 ], [ %.sroa.01.0.copyload.i.i, %56 ], [ 8, %27 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %46 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %27 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %51 ], [ %.sroa.01.0.copyload.i.i, %56 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %46 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.2.extract.trunc, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15991,7 +15991,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %58
 
 58:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %11, %19
-  %.1 = phi ptr [ %26, %19 ], [ %18, %11 ], [ %trunc, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.1 = phi ptr [ %trunc, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %18, %11 ], [ %26, %19 ]
   ret ptr %.1
 }
 
@@ -16068,7 +16068,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16107,7 +16107,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre50 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16148,7 +16148,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %11, %2 ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -16225,7 +16225,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16264,7 +16264,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre51 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16305,7 +16305,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %11, %2 ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -16503,7 +16503,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not, label %54, label %52
 
 .loopexit:                                        ; preds = %.critedge45.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread", %._crit_edge
-  %.0 = phi ptr [ %46, %._crit_edge ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread" ], [ %66, %.critedge45.i ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread" ], [ %46, %._crit_edge ], [ %66, %.critedge45.i ]
   ret ptr %.0
 
 52:                                               ; preds = %47
@@ -16541,7 +16541,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %68, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %76, %72, %.critedge.i, %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %54
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %72 ], [ %.sroa.01.0.copyload.i.i, %76 ], [ 8, %54 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %68 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %54 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %72 ], [ %.sroa.01.0.copyload.i.i, %76 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %68 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %8, align 8, !range !48
   %65 = trunc nuw i8 %.pre to i1
@@ -16694,7 +16694,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %54
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %23, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %41, %.critedge.i, %46, %51
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %46 ], [ %.sroa.01.0.copyload.i.i, %51 ], [ 8, %23 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %41 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %23 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %46 ], [ %.sroa.01.0.copyload.i.i, %51 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %41 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.010.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16715,7 +16715,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %58
 
 58:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %54, %14, %17
-  %.1 = phi ptr [ %22, %17 ], [ %16, %14 ], [ %spec.select, %54 ], [ %.pre46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.1 = phi ptr [ %16, %14 ], [ %spec.select, %54 ], [ %22, %17 ], [ %.pre46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.1
 }
 
@@ -16840,7 +16840,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %50, %53, %58
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %53 ], [ %.sroa.01.0.copyload.i.i, %58 ], [ 8, %35 ], [ %.sroa.01.0.copyload.i.i, %50 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %35 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %53 ], [ %.sroa.01.0.copyload.i.i, %58 ], [ %.sroa.01.0.copyload.i.i, %50 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16850,7 +16850,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit69", %27, %15
-  %.0 = phi ptr [ %34, %27 ], [ %22, %15 ], [ %trunc44, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit69" ], [ %.pre70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre73, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58" ]
+  %.0 = phi ptr [ %22, %15 ], [ %trunc44, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit69" ], [ %.pre70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %34, %27 ], [ %.pre73, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58" ]
   ret ptr %.0
 
 62:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
@@ -16903,7 +16903,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %86
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58": ; preds = %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i48", %75, %78, %83
-  %.sroa.0.0.insert.insert.i50.i54 = phi i32 [ %.sroa.01.0.copyload.i.i49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i48" ], [ %.sroa.01.0.copyload.i.i49, %78 ], [ %.sroa.01.0.copyload.i.i49, %83 ], [ 8, %62 ], [ %.sroa.01.0.copyload.i.i49, %75 ]
+  %.sroa.0.0.insert.insert.i50.i54 = phi i32 [ 8, %62 ], [ %.sroa.01.0.copyload.i.i49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i48" ], [ %.sroa.01.0.copyload.i.i49, %78 ], [ %.sroa.01.0.copyload.i.i49, %83 ], [ %.sroa.01.0.copyload.i.i49, %75 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i54)
   %.pre71 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16939,7 +16939,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i63, label %101, label %.critedge45.i64
 
 .critedge45.i64:                                  ; preds = %109, %104, %101, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i59", %86
-  %.sroa.0.0.insert.insert.i50.i65 = phi i32 [ %.sroa.01.0.copyload.i.i60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i59" ], [ %.sroa.01.0.copyload.i.i60, %104 ], [ %.sroa.01.0.copyload.i.i60, %109 ], [ 8, %86 ], [ %.sroa.01.0.copyload.i.i60, %101 ]
+  %.sroa.0.0.insert.insert.i50.i65 = phi i32 [ 8, %86 ], [ %.sroa.01.0.copyload.i.i60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i59" ], [ %.sroa.01.0.copyload.i.i60, %104 ], [ %.sroa.01.0.copyload.i.i60, %109 ], [ %.sroa.01.0.copyload.i.i60, %101 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i65)
   %.pre74 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17062,7 +17062,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %48
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %36, %39, %44
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %36 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %39 ], [ %.sroa.01.0.copyload.i.i, %44 ], [ %.sroa.01.0.copyload.i.i, %36 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -17072,7 +17072,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", %12
-  %.0 = phi ptr [ %19, %12 ], [ %trunc36, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52" ]
+  %.0 = phi ptr [ %19, %12 ], [ %.pre66, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %trunc36, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ], [ %.pre69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52" ]
   ret ptr %.0
 
 48:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
@@ -17131,7 +17131,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %72
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit52": ; preds = %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i42", %.critedge.i, %64, %69
-  %.sroa.0.0.insert.insert.i50.i48 = phi i32 [ %.sroa.01.0.copyload.i.i43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i42" ], [ %.sroa.01.0.copyload.i.i43, %64 ], [ %.sroa.01.0.copyload.i.i43, %69 ], [ 8, %48 ], [ %.sroa.01.0.copyload.i.i43, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i48 = phi i32 [ 8, %48 ], [ %.sroa.01.0.copyload.i.i43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i42" ], [ %.sroa.01.0.copyload.i.i43, %64 ], [ %.sroa.01.0.copyload.i.i43, %69 ], [ %.sroa.01.0.copyload.i.i43, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.015.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i48)
   %.pre67 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17167,7 +17167,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i57, label %87, label %.critedge45.i58
 
 .critedge45.i58:                                  ; preds = %95, %90, %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i53", %72
-  %.sroa.0.0.insert.insert.i50.i59 = phi i32 [ %.sroa.01.0.copyload.i.i54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i53" ], [ %.sroa.01.0.copyload.i.i54, %90 ], [ %.sroa.01.0.copyload.i.i54, %95 ], [ 8, %72 ], [ %.sroa.01.0.copyload.i.i54, %87 ]
+  %.sroa.0.0.insert.insert.i50.i59 = phi i32 [ 8, %72 ], [ %.sroa.01.0.copyload.i.i54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i53" ], [ %.sroa.01.0.copyload.i.i54, %90 ], [ %.sroa.01.0.copyload.i.i54, %95 ], [ %.sroa.01.0.copyload.i.i54, %87 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i59)
   %.pre70 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17289,7 +17289,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %47
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17358,7 +17358,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %71
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51": ; preds = %47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i41", %.critedge.i, %63, %68
-  %.sroa.0.0.insert.insert.i50.i47 = phi i32 [ %.sroa.01.0.copyload.i.i42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i41" ], [ %.sroa.01.0.copyload.i.i42, %63 ], [ %.sroa.01.0.copyload.i.i42, %68 ], [ 8, %47 ], [ %.sroa.01.0.copyload.i.i42, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i47 = phi i32 [ 8, %47 ], [ %.sroa.01.0.copyload.i.i42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i41" ], [ %.sroa.01.0.copyload.i.i42, %63 ], [ %.sroa.01.0.copyload.i.i42, %68 ], [ %.sroa.01.0.copyload.i.i42, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.021.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i47)
   %.pre53 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17449,7 +17449,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %trunc.i, label %33, label %36
 
 32:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82", %43, %36, %19
-  %.0 = phi ptr [ %27, %19 ], [ %48, %43 ], [ %42, %36 ], [ %trunc52, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre94, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre97, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71" ]
+  %.0 = phi ptr [ %27, %19 ], [ %42, %36 ], [ %trunc52, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre94, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %48, %43 ], [ %.pre97, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71" ]
   ret ptr %.0
 
 33:                                               ; preds = %28
@@ -17551,7 +17551,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %75
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %64, %67, %72
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %67 ], [ %.sroa.01.0.copyload.i.i, %72 ], [ 8, %49 ], [ %.sroa.01.0.copyload.i.i, %64 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %49 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %67 ], [ %.sroa.01.0.copyload.i.i, %72 ], [ %.sroa.01.0.copyload.i.i, %64 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -17610,7 +17610,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %99
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71": ; preds = %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %88, %91, %96
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %91 ], [ %.sroa.01.0.copyload.i.i62, %96 ], [ 8, %75 ], [ %.sroa.01.0.copyload.i.i62, %88 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %75 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %91 ], [ %.sroa.01.0.copyload.i.i62, %96 ], [ %.sroa.01.0.copyload.i.i62, %88 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre95 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -17646,7 +17646,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i76, label %114, label %.critedge45.i77
 
 .critedge45.i77:                                  ; preds = %122, %117, %114, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72", %99
-  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %117 ], [ %.sroa.01.0.copyload.i.i73, %122 ], [ 8, %99 ], [ %.sroa.01.0.copyload.i.i73, %114 ]
+  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ 8, %99 ], [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %117 ], [ %.sroa.01.0.copyload.i.i73, %122 ], [ %.sroa.01.0.copyload.i.i73, %114 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i78)
   %.pre98 = load i8, ptr %7, align 8, !range !48
   %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -17842,7 +17842,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17881,7 +17881,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre51 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17922,7 +17922,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %11, %2 ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -18076,7 +18076,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %69
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %58, %61, %66
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %66 ], [ 8, %43 ], [ %.sroa.01.0.copyload.i.i, %58 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %43 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %66 ], [ %.sroa.01.0.copyload.i.i, %58 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -18119,7 +18119,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %85
 
 85:                                               ; preds = %69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %37, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %42, %37 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %72, %69 ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %42, %37 ], [ %72, %69 ]
   ret ptr %.0
 }
 
@@ -18273,7 +18273,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %69
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %58, %61, %66
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %66 ], [ 8, %43 ], [ %.sroa.01.0.copyload.i.i, %58 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %43 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %61 ], [ %.sroa.01.0.copyload.i.i, %66 ], [ %.sroa.01.0.copyload.i.i, %58 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -18316,7 +18316,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %85
 
 85:                                               ; preds = %69, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %37, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %42, %37 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %72, %69 ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre51, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %42, %37 ], [ %72, %69 ]
   ret ptr %.0
 }
 
@@ -18476,7 +18476,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18586,7 +18586,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18625,7 +18625,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre50 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18666,7 +18666,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %11, %2 ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit48" ], [ %.pre49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -18752,7 +18752,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18862,7 +18862,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18901,7 +18901,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre51 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18942,7 +18942,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %11, %2 ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -19019,7 +19019,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -19058,7 +19058,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %55, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %65, %60, %.critedge.i, %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38", %38
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i38" ], [ %.sroa.01.0.copyload.i.i39, %60 ], [ %.sroa.01.0.copyload.i.i39, %65 ], [ %.sroa.01.0.copyload.i.i39, %.critedge.i ], [ %.sroa.01.0.copyload.i.i39, %55 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.022.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre51 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19099,7 +19099,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %67
 
 67:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %2, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49"
-  %.0 = phi ptr [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %11, %2 ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ %11, %2 ], [ %trunc31, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit49" ], [ %.pre50, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 }
 
@@ -19226,7 +19226,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %47, %52
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %52 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %..sroa.6.0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %14, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -19306,7 +19306,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %85
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit86": ; preds = %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72", %.critedge.i82, %77, %82
-  %.sroa.0.0.insert.insert.i50.i79 = phi i32 [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %77 ], [ %.sroa.01.0.copyload.i.i73, %82 ], [ 8, %62 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i82 ]
+  %.sroa.0.0.insert.insert.i50.i79 = phi i32 [ 8, %62 ], [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %77 ], [ %.sroa.01.0.copyload.i.i73, %82 ], [ %.sroa.01.0.copyload.i.i73, %.critedge.i82 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.489.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i79)
   %.pre105 = load i8, ptr %13, align 8, !range !48
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -19327,7 +19327,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %89
 
 89:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit86", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %85, %55, %22
-  %.0 = phi ptr [ %61, %55 ], [ %28, %22 ], [ %spec.select, %85 ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre107, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit86" ]
+  %.0 = phi ptr [ %28, %22 ], [ %spec.select, %85 ], [ %.pre104, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %61, %55 ], [ %.pre107, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit86" ]
   ret ptr %.0
 }
 
@@ -19410,7 +19410,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %31, %36
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %31 ], [ %.sroa.01.0.copyload.i.i, %36 ], [ 8, %14 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %14 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %31 ], [ %.sroa.01.0.copyload.i.i, %36 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -19491,7 +19491,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %70
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i52", %59, %62, %67
-  %.sroa.0.0.insert.insert.i50.i58 = phi i32 [ %.sroa.01.0.copyload.i.i53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i52" ], [ %.sroa.01.0.copyload.i.i53, %62 ], [ %.sroa.01.0.copyload.i.i53, %67 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i53, %59 ]
+  %.sroa.0.0.insert.insert.i50.i58 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i52" ], [ %.sroa.01.0.copyload.i.i53, %62 ], [ %.sroa.01.0.copyload.i.i53, %67 ], [ %.sroa.01.0.copyload.i.i53, %59 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i58)
   %.pre89 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -19526,7 +19526,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i71, label %.critedge.i76, label %.critedge45.i72
 
 .critedge45.i72:                                  ; preds = %92, %87, %.critedge.i76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66", %70
-  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ %.sroa.01.0.copyload.i.i67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66" ], [ %.sroa.01.0.copyload.i.i67, %87 ], [ %.sroa.01.0.copyload.i.i67, %92 ], [ 8, %70 ], [ %.sroa.01.0.copyload.i.i67, %.critedge.i76 ]
+  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ 8, %70 ], [ %.sroa.01.0.copyload.i.i67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66" ], [ %.sroa.01.0.copyload.i.i67, %87 ], [ %.sroa.01.0.copyload.i.i67, %92 ], [ %.sroa.01.0.copyload.i.i67, %.critedge.i76 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i73)
   %.pre92 = load i8, ptr %7, align 8, !range !48
   %.phi.trans.insert93 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -19614,7 +19614,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %29
 
 29:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit", %55, %21
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %61, %55 ], [ %28, %21 ], [ %.pre36, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %28, %21 ], [ %61, %55 ], [ %.pre36, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   ret ptr %.0
 
 30:                                               ; preds = %11
@@ -19675,7 +19675,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %47, %52
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %52 ], [ 8, %30 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %30 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -19885,7 +19885,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %62, %65, %70
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %65 ], [ %.sroa.01.0.copyload.i.i, %70 ], [ 8, %47 ], [ %.sroa.01.0.copyload.i.i, %62 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %47 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %65 ], [ %.sroa.01.0.copyload.i.i, %70 ], [ %.sroa.01.0.copyload.i.i, %62 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -19895,7 +19895,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit67", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78", %30, %40, %23
-  %.0 = phi ptr [ %29, %23 ], [ %35, %30 ], [ %46, %40 ], [ %trunc46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78" ], [ %.pre86, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre89, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit67" ]
+  %.0 = phi ptr [ %29, %23 ], [ %46, %40 ], [ %trunc46, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78" ], [ %.pre86, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %35, %30 ], [ %.pre89, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit67" ]
   ret ptr %.0
 
 74:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit"
@@ -19948,7 +19948,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %98
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit67": ; preds = %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57", %87, %90, %95
-  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %90 ], [ %.sroa.01.0.copyload.i.i58, %95 ], [ 8, %74 ], [ %.sroa.01.0.copyload.i.i58, %87 ]
+  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ 8, %74 ], [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %90 ], [ %.sroa.01.0.copyload.i.i58, %95 ], [ %.sroa.01.0.copyload.i.i58, %87 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i63)
   %.pre87 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert88 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -19983,7 +19983,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i72, label %.critedge.i, label %.critedge45.i73
 
 .critedge45.i73:                                  ; preds = %120, %115, %.critedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68", %98
-  %.sroa.0.0.insert.insert.i50.i74 = phi i32 [ %.sroa.01.0.copyload.i.i69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68" ], [ %.sroa.01.0.copyload.i.i69, %115 ], [ %.sroa.01.0.copyload.i.i69, %120 ], [ 8, %98 ], [ %.sroa.01.0.copyload.i.i69, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i74 = phi i32 [ 8, %98 ], [ %.sroa.01.0.copyload.i.i69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68" ], [ %.sroa.01.0.copyload.i.i69, %115 ], [ %.sroa.01.0.copyload.i.i69, %120 ], [ %.sroa.01.0.copyload.i.i69, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i74)
   %.pre90 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert91 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -20066,7 +20066,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 28:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit", %43, %20
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %49, %43 ], [ %27, %20 ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %27, %20 ], [ %49, %43 ]
   ret ptr %.0
 
 29:                                               ; preds = %10
@@ -20342,7 +20342,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20461,7 +20461,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20580,7 +20580,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20698,7 +20698,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %39
 
 39:                                               ; preds = %21, %12, %15, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %20, %15 ], [ %14, %12 ], [ %24, %21 ]
+  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %14, %12 ], [ %20, %15 ], [ %24, %21 ]
   ret ptr %.1
 }
 
@@ -20783,7 +20783,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %39
 
 39:                                               ; preds = %21, %12, %15, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %20, %15 ], [ %14, %12 ], [ %24, %21 ]
+  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %14, %12 ], [ %20, %15 ], [ %24, %21 ]
   ret ptr %.1
 }
 
@@ -20872,7 +20872,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   br label %48
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %37, %40, %45
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %40 ], [ %.sroa.01.0.copyload.i.i, %45 ], [ 8, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread ], [ %.sroa.01.0.copyload.i.i, %37 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %40 ], [ %.sroa.01.0.copyload.i.i, %45 ], [ %.sroa.01.0.copyload.i.i, %37 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -20942,7 +20942,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   br label %76
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65": ; preds = %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55", %63, %.critedge.i, %68, %73
-  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %68 ], [ %.sroa.01.0.copyload.i.i56, %73 ], [ 8, %48 ], [ %.sroa.01.0.copyload.i.i56, %.critedge.i ], [ %.sroa.01.0.copyload.i.i56, %63 ]
+  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ 8, %48 ], [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %68 ], [ %.sroa.01.0.copyload.i.i56, %73 ], [ %.sroa.01.0.copyload.i.i56, %.critedge.i ], [ %.sroa.01.0.copyload.i.i56, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.018.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i61)
   %.pre85 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -21012,7 +21012,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   br label %104
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit80": ; preds = %76, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66", %91, %.critedge.i76, %96, %101
-  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ %.sroa.01.0.copyload.i.i67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66" ], [ %.sroa.01.0.copyload.i.i67, %96 ], [ %.sroa.01.0.copyload.i.i67, %101 ], [ 8, %76 ], [ %.sroa.01.0.copyload.i.i67, %.critedge.i76 ], [ %.sroa.01.0.copyload.i.i67, %91 ]
+  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ 8, %76 ], [ %.sroa.01.0.copyload.i.i67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i66" ], [ %.sroa.01.0.copyload.i.i67, %96 ], [ %.sroa.01.0.copyload.i.i67, %101 ], [ %.sroa.01.0.copyload.i.i67, %.critedge.i76 ], [ %.sroa.01.0.copyload.i.i67, %91 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i73)
   %.pre88 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert89 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -21027,7 +21027,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582
   br label %106
 
 106:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit80", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread82, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit, %104
-  %.044 = phi ptr [ null, %104 ], [ %22, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit ], [ %17, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread82 ], [ %.pre84, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre87, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ], [ %.pre90, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit80" ]
+  %.044 = phi ptr [ null, %104 ], [ %17, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit.thread82 ], [ %.pre87, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ], [ %.pre84, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %22, %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h1a4e924215582c82E.exit ], [ %.pre90, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit80" ]
   ret ptr %.044
 }
 
@@ -21129,7 +21129,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %32
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %21, %24, %29
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %24 ], [ %.sroa.01.0.copyload.i.i, %29 ], [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %21 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %2 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %24 ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %21 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -21188,7 +21188,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %56
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65": ; preds = %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i54", %45, %48, %53
-  %.sroa.0.0.insert.insert.i50.i60 = phi i32 [ %.sroa.01.0.copyload.i.i55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i54" ], [ %.sroa.01.0.copyload.i.i55, %48 ], [ %.sroa.01.0.copyload.i.i55, %53 ], [ 8, %32 ], [ %.sroa.01.0.copyload.i.i55, %45 ]
+  %.sroa.0.0.insert.insert.i50.i60 = phi i32 [ 8, %32 ], [ %.sroa.01.0.copyload.i.i55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i54" ], [ %.sroa.01.0.copyload.i.i55, %48 ], [ %.sroa.01.0.copyload.i.i55, %53 ], [ %.sroa.01.0.copyload.i.i55, %45 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i60)
   %.pre73 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21261,7 +21261,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %81
 
 81:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %80, %74 ], [ %.pre72, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre75, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ]
+  %.0 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.pre72, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %80, %74 ], [ %.pre75, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit65" ]
   ret ptr %.0
 }
 
@@ -21321,7 +21321,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %29
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %18, %21, %26
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %18 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %18 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -21380,7 +21380,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40", %42, %45, %50
-  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
+  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i46)
   %.pre53 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21619,7 +21619,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %96
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %85, %88, %93
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %88 ], [ %.sroa.01.0.copyload.i.i, %93 ], [ 8, %70 ], [ %.sroa.01.0.copyload.i.i, %85 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %70 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %88 ], [ %.sroa.01.0.copyload.i.i, %93 ], [ %.sroa.01.0.copyload.i.i, %85 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -21678,7 +21678,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %120
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54": ; preds = %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44", %109, %112, %117
-  %.sroa.0.0.insert.insert.i50.i50 = phi i32 [ %.sroa.01.0.copyload.i.i45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44" ], [ %.sroa.01.0.copyload.i.i45, %112 ], [ %.sroa.01.0.copyload.i.i45, %117 ], [ 8, %96 ], [ %.sroa.01.0.copyload.i.i45, %109 ]
+  %.sroa.0.0.insert.insert.i50.i50 = phi i32 [ 8, %96 ], [ %.sroa.01.0.copyload.i.i45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i44" ], [ %.sroa.01.0.copyload.i.i45, %112 ], [ %.sroa.01.0.copyload.i.i45, %117 ], [ %.sroa.01.0.copyload.i.i45, %109 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i50)
   %.pre58 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21692,7 +21692,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %122
 
 122:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %47, %63, %53, %120
-  %.0 = phi ptr [ %121, %120 ], [ %52, %47 ], [ %58, %53 ], [ %69, %63 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre57, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre60, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54" ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %121, %120 ], [ %52, %47 ], [ %.pre57, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %69, %63 ], [ %58, %53 ], [ %.pre60, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit54" ]
   ret ptr %.0
 }
 
@@ -21933,7 +21933,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %102
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %90, %93, %98
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %93 ], [ %.sroa.01.0.copyload.i.i, %98 ], [ 8, %75 ], [ %.sroa.01.0.copyload.i.i, %90 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %75 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %93 ], [ %.sroa.01.0.copyload.i.i, %98 ], [ %.sroa.01.0.copyload.i.i, %90 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %13, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -21943,7 +21943,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %64, %57
-  %.2 = phi ptr [ %74, %64 ], [ %63, %57 ], [ %.pre95, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre98, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79" ]
+  %.2 = phi ptr [ %.pre95, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %63, %57 ], [ %74, %64 ], [ %.pre98, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
@@ -21997,7 +21997,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %126
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79": ; preds = %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69", %115, %118, %123
-  %.sroa.0.0.insert.insert.i50.i75 = phi i32 [ %.sroa.01.0.copyload.i.i70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69" ], [ %.sroa.01.0.copyload.i.i70, %118 ], [ %.sroa.01.0.copyload.i.i70, %123 ], [ 8, %102 ], [ %.sroa.01.0.copyload.i.i70, %115 ]
+  %.sroa.0.0.insert.insert.i50.i75 = phi i32 [ 8, %102 ], [ %.sroa.01.0.copyload.i.i70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69" ], [ %.sroa.01.0.copyload.i.i70, %118 ], [ %.sroa.01.0.copyload.i.i70, %123 ], [ %.sroa.01.0.copyload.i.i70, %115 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i75)
   %.pre96 = load i8, ptr %12, align 8, !range !48
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -22176,10 +22176,10 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit"
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit": ; preds = %62, %65, %71, %74
-  %.sroa.5.0.ph126 = phi ptr [ null, %74 ], [ %.sroa.038.0.copyload.i, %71 ], [ null, %65 ], [ %.sroa.035.0.copyload.i, %62 ]
-  %.sroa.0102.0.ph123 = phi i64 [ 1, %74 ], [ 1, %71 ], [ 0, %65 ], [ 0, %62 ]
-  %.sroa.9.0105 = phi i64 [ %.sroa.9.16.insert.insert101, %74 ], [ %73, %71 ], [ %.sroa.9.16.insert.insert, %65 ], [ %64, %62 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.9.16.extract.trunc98, %74 ], [ %.sroa.02.0.copyload.i.i3.i, %71 ], [ %.sroa.9.16.extract.trunc, %65 ], [ %.sroa.02.0.copyload.i.i.i, %62 ]
+  %.sroa.5.0.ph126 = phi ptr [ null, %74 ], [ %.sroa.035.0.copyload.i, %62 ], [ %.sroa.038.0.copyload.i, %71 ], [ null, %65 ]
+  %.sroa.0102.0.ph123 = phi i64 [ 1, %74 ], [ 0, %62 ], [ 1, %71 ], [ 0, %65 ]
+  %.sroa.9.0105 = phi i64 [ %.sroa.9.16.insert.insert101, %74 ], [ %64, %62 ], [ %73, %71 ], [ %.sroa.9.16.insert.insert, %65 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.9.16.extract.trunc98, %74 ], [ %.sroa.02.0.copyload.i.i.i, %62 ], [ %.sroa.02.0.copyload.i.i3.i, %71 ], [ %.sroa.9.16.extract.trunc, %65 ]
   %75 = and i32 %.sroa.0.0.i, 255
   %76 = icmp eq i32 %75, 6
   br i1 %76, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", label %82
@@ -22285,7 +22285,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %113
 
 113:                                              ; preds = %23, %29, %2, %86, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %88, %96, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit"
-  %.0 = phi ptr [ %81, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %93, %88 ], [ %112, %96 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %87, %86 ], [ %17, %2 ], [ %34, %29 ], [ %24, %23 ]
+  %.0 = phi ptr [ %93, %88 ], [ %87, %86 ], [ %17, %2 ], [ %112, %96 ], [ %81, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %34, %29 ], [ %24, %23 ]
   ret ptr %.0
 }
 
@@ -22367,7 +22367,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %45
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %13 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %13 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -22424,7 +22424,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i42, label %.critedge.i47, label %.critedge45.i43
 
 .critedge45.i43:                                  ; preds = %67, %62, %.critedge.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i37", %45
-  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ %.sroa.01.0.copyload.i.i38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i37" ], [ %.sroa.01.0.copyload.i.i38, %62 ], [ %.sroa.01.0.copyload.i.i38, %67 ], [ 8, %45 ], [ %.sroa.01.0.copyload.i.i38, %.critedge.i47 ]
+  %.sroa.0.0.insert.insert.i50.i44 = phi i32 [ 8, %45 ], [ %.sroa.01.0.copyload.i.i38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i37" ], [ %.sroa.01.0.copyload.i.i38, %62 ], [ %.sroa.01.0.copyload.i.i38, %67 ], [ %.sroa.01.0.copyload.i.i38, %.critedge.i47 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.4.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i44)
   %.pre60 = load i8, ptr %7, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -22519,7 +22519,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %30
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %19, %22, %27
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %22 ], [ %.sroa.01.0.copyload.i.i, %27 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %19 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %22 ], [ %.sroa.01.0.copyload.i.i, %27 ], [ %.sroa.01.0.copyload.i.i, %19 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22578,7 +22578,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %54
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit66": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55", %43, %46, %51
-  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %46 ], [ %.sroa.01.0.copyload.i.i56, %51 ], [ 8, %30 ], [ %.sroa.01.0.copyload.i.i56, %43 ]
+  %.sroa.0.0.insert.insert.i50.i61 = phi i32 [ 8, %30 ], [ %.sroa.01.0.copyload.i.i56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i55" ], [ %.sroa.01.0.copyload.i.i56, %46 ], [ %.sroa.01.0.copyload.i.i56, %51 ], [ %.sroa.01.0.copyload.i.i56, %43 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i61)
   %.pre80 = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -22637,7 +22637,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %78
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit78": ; preds = %54, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67", %67, %70, %75
-  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ %.sroa.01.0.copyload.i.i68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67" ], [ %.sroa.01.0.copyload.i.i68, %70 ], [ %.sroa.01.0.copyload.i.i68, %75 ], [ 8, %54 ], [ %.sroa.01.0.copyload.i.i68, %67 ]
+  %.sroa.0.0.insert.insert.i50.i73 = phi i32 [ 8, %54 ], [ %.sroa.01.0.copyload.i.i68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i67" ], [ %.sroa.01.0.copyload.i.i68, %70 ], [ %.sroa.01.0.copyload.i.i68, %75 ], [ %.sroa.01.0.copyload.i.i68, %67 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i73)
   %.pre83 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -22785,7 +22785,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %55, label %61, label %57
 
 56:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit93", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %158, %61, %77, %67, %46
-  %.0 = phi ptr [ %51, %46 ], [ %66, %61 ], [ %72, %67 ], [ %83, %77 ], [ %spec.select, %158 ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %.pre96, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit93" ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %83, %77 ], [ %51, %46 ], [ %66, %61 ], [ %spec.select, %158 ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82" ], [ %.pre96, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %72, %67 ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit93" ]
   ret ptr %.0
 
 57:                                               ; preds = %52
@@ -22904,7 +22904,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %110
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %99, %102, %107
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %102 ], [ %.sroa.01.0.copyload.i.i, %107 ], [ 8, %84 ], [ %.sroa.01.0.copyload.i.i, %99 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %84 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %102 ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %.sroa.01.0.copyload.i.i, %99 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %12, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -22963,7 +22963,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %134
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit82": ; preds = %110, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72", %123, %126, %131
-  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %126 ], [ %.sroa.01.0.copyload.i.i73, %131 ], [ 8, %110 ], [ %.sroa.01.0.copyload.i.i73, %123 ]
+  %.sroa.0.0.insert.insert.i50.i78 = phi i32 [ 8, %110 ], [ %.sroa.01.0.copyload.i.i73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i72" ], [ %.sroa.01.0.copyload.i.i73, %126 ], [ %.sroa.01.0.copyload.i.i73, %131 ], [ %.sroa.01.0.copyload.i.i73, %123 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i78)
   %.pre97 = load i8, ptr %11, align 8, !range !48
   %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -23022,7 +23022,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %158
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit93": ; preds = %134, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83", %147, %150, %155
-  %.sroa.0.0.insert.insert.i50.i89 = phi i32 [ %.sroa.01.0.copyload.i.i84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83" ], [ %.sroa.01.0.copyload.i.i84, %150 ], [ %.sroa.01.0.copyload.i.i84, %155 ], [ 8, %134 ], [ %.sroa.01.0.copyload.i.i84, %147 ]
+  %.sroa.0.0.insert.insert.i50.i89 = phi i32 [ 8, %134 ], [ %.sroa.01.0.copyload.i.i84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i83" ], [ %.sroa.01.0.copyload.i.i84, %150 ], [ %.sroa.01.0.copyload.i.i84, %155 ], [ %.sroa.01.0.copyload.i.i84, %147 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i89)
   %.pre100 = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -23308,7 +23308,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %116
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %104, %107, %112
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %.sroa.01.0.copyload.i.i, %112 ], [ 8, %89 ], [ %.sroa.01.0.copyload.i.i, %104 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %89 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %.sroa.01.0.copyload.i.i, %112 ], [ %.sroa.01.0.copyload.i.i, %104 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %15, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -23318,7 +23318,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %144, %140, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit107", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %78, %71
-  %.2 = phi ptr [ %88, %78 ], [ %77, %71 ], [ %.pre123, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre126, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit107" ], [ %143, %140 ], [ %147, %144 ]
+  %.2 = phi ptr [ %143, %140 ], [ %.pre126, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit107" ], [ %.pre123, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %77, %71 ], [ %88, %78 ], [ %147, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %68
 
@@ -23372,7 +23372,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %140
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit107": ; preds = %116, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i97", %129, %132, %137
-  %.sroa.0.0.insert.insert.i50.i103 = phi i32 [ %.sroa.01.0.copyload.i.i98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i97" ], [ %.sroa.01.0.copyload.i.i98, %132 ], [ %.sroa.01.0.copyload.i.i98, %137 ], [ 8, %116 ], [ %.sroa.01.0.copyload.i.i98, %129 ]
+  %.sroa.0.0.insert.insert.i50.i103 = phi i32 [ 8, %116 ], [ %.sroa.01.0.copyload.i.i98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i97" ], [ %.sroa.01.0.copyload.i.i98, %132 ], [ %.sroa.01.0.copyload.i.i98, %137 ], [ %.sroa.01.0.copyload.i.i98, %129 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %14, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i103)
   %.pre124 = load i8, ptr %14, align 8, !range !48
   %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -23549,7 +23549,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %.critedge45.i.us
 
 .critedge45.i.us:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %58
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ 8, %58 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %58 ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %49, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %67 = load i8, ptr %9, align 8, !range !48, !noundef !13
   %trunc.us = trunc nuw i8 %67 to i1
@@ -23615,7 +23615,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us, label %.critedge45.i.us40, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us42"
 
 .critedge45.i.us40:                               ; preds = %93, %89, %.critedge.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us38", %.lr.ph87
-  %.sroa.0.0.insert.insert.i50.i.us41 = phi i32 [ %.sroa.01.0.copyload.i.i.us39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us38" ], [ %.sroa.01.0.copyload.i.i.us39, %89 ], [ %.sroa.01.0.copyload.i.i.us39, %93 ], [ 8, %.lr.ph87 ], [ %.sroa.01.0.copyload.i.i.us39, %.critedge.i.us ]
+  %.sroa.0.0.insert.insert.i50.i.us41 = phi i32 [ 8, %.lr.ph87 ], [ %.sroa.01.0.copyload.i.i.us39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us38" ], [ %.sroa.01.0.copyload.i.i.us39, %89 ], [ %.sroa.01.0.copyload.i.i.us39, %93 ], [ %.sroa.01.0.copyload.i.i.us39, %.critedge.i.us ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.67.sroa.0.06770, i32 %.sroa.0.0.insert.insert.i50.i.us41)
   %.pre = load i8, ptr %9, align 8, !range !48
   %95 = trunc nuw i8 %.pre to i1
@@ -23667,7 +23667,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond, label %.critedge.i, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %117, %113, %.critedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %113 ], [ %.sroa.01.0.copyload.i.i, %117 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %113 ], [ %.sroa.01.0.copyload.i.i, %117 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %49, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre55 = load i8, ptr %9, align 8, !range !48
   %110 = trunc nuw i8 %.pre55 to i1
@@ -23701,7 +23701,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %.split.split.backedge
 
 .loopexit:                                        ; preds = %.critedge45.i, %.critedge45.i.us, %.critedge45.i.us40, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread", %.split36.us
-  %.0 = phi ptr [ %97, %.split36.us ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %96, %.critedge45.i.us40 ], [ %68, %.critedge45.i.us ], [ %111, %.critedge45.i ]
+  %.0 = phi ptr [ %97, %.split36.us ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13array_type_at17hfb964740a5e04af3E.exit.thread" ], [ %68, %.critedge45.i.us ], [ %96, %.critedge45.i.us40 ], [ %111, %.critedge45.i ]
   ret ptr %.0
 }
 
@@ -23814,7 +23814,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   unreachable
 
 58:                                               ; preds = %43, %49, %141, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit", %25, %4, %140, %30
-  %.0112 = phi ptr [ null, %140 ], [ %38, %30 ], [ %23, %4 ], [ %26, %25 ], [ %.3, %141 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %54, %49 ], [ %44, %43 ]
+  %.0112 = phi ptr [ %26, %25 ], [ null, %140 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %38, %30 ], [ %23, %4 ], [ %.3, %141 ], [ %54, %49 ], [ %44, %43 ]
   ret ptr %.0112
 
 59:                                               ; preds = %55
@@ -24029,7 +24029,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %137
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %114, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %130, %134
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %130 ], [ %.sroa.01.0.copyload.i.i, %134 ], [ 8, %114 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %114 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %130 ], [ %.sroa.01.0.copyload.i.i, %134 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.069.0.insert.insert, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %13, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -24057,7 +24057,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %58
 
 141:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %137, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread", %105
-  %.3 = phi ptr [ %102, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %113, %105 ], [ %138, %137 ], [ %.pre160, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
+  %.3 = phi ptr [ %113, %105 ], [ %102, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread" ], [ %138, %137 ], [ %.pre160, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %58
 }
@@ -24218,7 +24218,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24287,7 +24287,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %61, %.critedge.i, %66, %71
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre75 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -24301,7 +24301,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %13, %3 ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
+  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %13, %3 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
   ret ptr %.0
 }
 
@@ -24398,7 +24398,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24467,7 +24467,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %61, %.critedge.i, %66, %71
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre75 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -24481,7 +24481,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %13, %3 ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
+  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %13, %3 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
   ret ptr %.0
 }
 
@@ -24578,7 +24578,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24647,7 +24647,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %61, %.critedge.i, %66, %71
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre75 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -24661,7 +24661,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %13, %3 ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
+  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %13, %3 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
   ret ptr %.0
 }
 
@@ -24758,7 +24758,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -24827,7 +24827,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72": ; preds = %46, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %61, %.critedge.i, %66, %71
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %66 ], [ %.sroa.01.0.copyload.i.i62, %71 ], [ %.sroa.01.0.copyload.i.i62, %.critedge.i ], [ %.sroa.01.0.copyload.i.i62, %61 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.040.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre75 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -24841,7 +24841,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %3, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %13, %3 ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
+  %.0 = phi ptr [ null, %74 ], [ %19, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %13, %3 ], [ %.pre77, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ]
   ret ptr %.0
 }
 
@@ -24927,7 +24927,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25057,7 +25057,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -25096,7 +25096,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i50, label %63, label %.critedge45.i51
 
 .critedge45.i51:                                  ; preds = %73, %68, %.critedge.i, %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46", %46
-  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
+  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i52)
   %.pre60 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -25305,7 +25305,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %75
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %.thread, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %63, %66, %71
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %66 ], [ %.sroa.01.0.copyload.i.i, %71 ], [ 8, %.thread ], [ %.sroa.01.0.copyload.i.i, %63 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %.thread ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %66 ], [ %.sroa.01.0.copyload.i.i, %71 ], [ %.sroa.01.0.copyload.i.i, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -25560,7 +25560,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25679,7 +25679,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %41
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %28, %.critedge.i, %33, %38
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %33 ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %28 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.019.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25809,7 +25809,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -25848,7 +25848,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i50, label %63, label %.critedge45.i51
 
 .critedge45.i51:                                  ; preds = %73, %68, %.critedge.i, %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46", %46
-  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
+  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i52)
   %.pre60 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -25986,7 +25986,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -26025,7 +26025,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i50, label %63, label %.critedge45.i51
 
 .critedge45.i51:                                  ; preds = %73, %68, %.critedge.i, %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46", %46
-  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
+  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i52)
   %.pre60 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -26163,7 +26163,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %46
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %35, %38, %43
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %35 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %20 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %38 ], [ %.sroa.01.0.copyload.i.i, %43 ], [ %.sroa.01.0.copyload.i.i, %35 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -26202,7 +26202,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i50, label %63, label %.critedge45.i51
 
 .critedge45.i51:                                  ; preds = %73, %68, %.critedge.i, %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46", %46
-  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
+  %.sroa.0.0.insert.insert.i50.i52 = phi i32 [ 8, %46 ], [ %.sroa.01.0.copyload.i.i47, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i46" ], [ %.sroa.01.0.copyload.i.i47, %68 ], [ %.sroa.01.0.copyload.i.i47, %73 ], [ %.sroa.01.0.copyload.i.i47, %.critedge.i ], [ %.sroa.01.0.copyload.i.i47, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.027.0.copyload, i32 %.sroa.0.0.insert.insert.i50.i52)
   %.pre60 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -26305,7 +26305,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1946157051, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -26433,7 +26433,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %.critedge.i, %20, %25
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %20 ], [ %.sroa.01.0.copyload.i.i, %25 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 -1140850683, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -26605,7 +26605,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %49
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %38, %41, %46
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %41 ], [ %.sroa.01.0.copyload.i.i, %46 ], [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %38 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %41 ], [ %.sroa.01.0.copyload.i.i, %46 ], [ %.sroa.01.0.copyload.i.i, %38 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -26745,7 +26745,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %50
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %25, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %39, %42, %47
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %39 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %39 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -26804,7 +26804,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68": ; preds = %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57", %63, %66, %71
-  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %66 ], [ %.sroa.01.0.copyload.i.i58, %71 ], [ 8, %50 ], [ %.sroa.01.0.copyload.i.i58, %63 ]
+  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ 8, %50 ], [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %66 ], [ %.sroa.01.0.copyload.i.i58, %71 ], [ %.sroa.01.0.copyload.i.i58, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i63)
   %.pre72 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -26818,7 +26818,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %17, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit" ], [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68" ]
+  %.0 = phi ptr [ null, %74 ], [ %17, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit" ], [ %.pre71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68" ]
   ret ptr %.0
 }
 
@@ -26924,7 +26924,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %49
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %38, %41, %46
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %41 ], [ %.sroa.01.0.copyload.i.i, %46 ], [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %38 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %24 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %41 ], [ %.sroa.01.0.copyload.i.i, %46 ], [ %.sroa.01.0.copyload.i.i, %38 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27064,7 +27064,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %50
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %25, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %39, %42, %47
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %39 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %25 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %42 ], [ %.sroa.01.0.copyload.i.i, %47 ], [ %.sroa.01.0.copyload.i.i, %39 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -27123,7 +27123,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %74
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68": ; preds = %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57", %63, %66, %71
-  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %66 ], [ %.sroa.01.0.copyload.i.i58, %71 ], [ 8, %50 ], [ %.sroa.01.0.copyload.i.i58, %63 ]
+  %.sroa.0.0.insert.insert.i50.i63 = phi i32 [ 8, %50 ], [ %.sroa.01.0.copyload.i.i58, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i57" ], [ %.sroa.01.0.copyload.i.i58, %66 ], [ %.sroa.01.0.copyload.i.i58, %71 ], [ %.sroa.01.0.copyload.i.i58, %63 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i63)
   %.pre72 = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27137,7 +27137,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %76
 
 76:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit", %74
-  %.0 = phi ptr [ null, %74 ], [ %17, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit" ], [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68" ]
+  %.0 = phi ptr [ null, %74 ], [ %17, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$20check_floats_enabled17h5d4f842d01a60c7eE.llvm.8213084322371663677.exit" ], [ %.pre71, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %24, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ], [ %.pre74, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit68" ]
   ret ptr %.0
 }
 
@@ -27219,7 +27219,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27278,7 +27278,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57": ; preds = %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47", %51, %54, %59
-  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
+  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i53)
   %.pre60 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27392,7 +27392,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %37
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %26, %29, %34
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %26 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ %.sroa.01.0.copyload.i.i, %26 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27507,7 +27507,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27566,7 +27566,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57": ; preds = %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47", %51, %54, %59
-  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
+  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i53)
   %.pre60 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27680,7 +27680,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %37
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %26, %29, %34
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %26 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ %.sroa.01.0.copyload.i.i, %26 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27795,7 +27795,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27854,7 +27854,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit58": ; preds = %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47", %51, %54, %59
-  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
+  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i53)
   %.pre61 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert62 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -27969,7 +27969,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %38
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %27, %30, %35
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %27 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %12 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %30 ], [ %.sroa.01.0.copyload.i.i, %35 ], [ %.sroa.01.0.copyload.i.i, %27 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -28028,7 +28028,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %62
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit57": ; preds = %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47", %51, %54, %59
-  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
+  %.sroa.0.0.insert.insert.i50.i53 = phi i32 [ 8, %38 ], [ %.sroa.01.0.copyload.i.i48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i47" ], [ %.sroa.01.0.copyload.i.i48, %54 ], [ %.sroa.01.0.copyload.i.i48, %59 ], [ %.sroa.01.0.copyload.i.i48, %51 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i53)
   %.pre60 = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28165,7 +28165,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not, label %.thread, label %47
 
 46:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread", %._crit_edge, %50
-  %.0 = phi ptr [ %56, %50 ], [ %41, %._crit_edge ], [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread" ]
+  %.0 = phi ptr [ %.sroa.4.0.i.ph, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14struct_type_at17h544b829abc209aa8E.exit.thread" ], [ %41, %._crit_edge ], [ %56, %50 ]
   ret ptr %.0
 
 47:                                               ; preds = %.lr.ph
@@ -28279,7 +28279,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %37
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %26, %29, %34
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %26 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ %.sroa.01.0.copyload.i.i, %26 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28393,7 +28393,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %37
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %26, %29, %34
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %26 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %11 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %29 ], [ %.sroa.01.0.copyload.i.i, %34 ], [ %.sroa.01.0.copyload.i.i, %26 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %4, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -28561,7 +28561,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %60
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %49, %52, %57
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %57 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %49 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %57 ], [ %.sroa.01.0.copyload.i.i, %49 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -28620,7 +28620,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %84
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79": ; preds = %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68", %73, %76, %81
-  %.sroa.0.0.insert.insert.i50.i74 = phi i32 [ %.sroa.01.0.copyload.i.i69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68" ], [ %.sroa.01.0.copyload.i.i69, %76 ], [ %.sroa.01.0.copyload.i.i69, %81 ], [ 8, %60 ], [ %.sroa.01.0.copyload.i.i69, %73 ]
+  %.sroa.0.0.insert.insert.i50.i74 = phi i32 [ 8, %60 ], [ %.sroa.01.0.copyload.i.i69, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i68" ], [ %.sroa.01.0.copyload.i.i69, %76 ], [ %.sroa.01.0.copyload.i.i69, %81 ], [ %.sroa.01.0.copyload.i.i69, %73 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i74)
   %.pre107 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert108 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -28678,7 +28678,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %107
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91": ; preds = %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i80", %.critedge.i, %99, %104
-  %.sroa.0.0.insert.insert.i50.i86 = phi i32 [ %.sroa.01.0.copyload.i.i81, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i80" ], [ %.sroa.01.0.copyload.i.i81, %99 ], [ %.sroa.01.0.copyload.i.i81, %104 ], [ 8, %84 ], [ %.sroa.01.0.copyload.i.i81, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i86 = phi i32 [ 8, %84 ], [ %.sroa.01.0.copyload.i.i81, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i80" ], [ %.sroa.01.0.copyload.i.i81, %99 ], [ %.sroa.01.0.copyload.i.i81, %104 ], [ %.sroa.01.0.copyload.i.i81, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i86)
   %.pre110 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert111 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -28692,7 +28692,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %109
 
 109:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %107
-  %.0 = phi ptr [ null, %107 ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre106, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre109, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79" ], [ %.pre112, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91" ]
+  %.0 = phi ptr [ null, %107 ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre109, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79" ], [ %.pre106, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre112, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit91" ]
   ret ptr %.0
 }
 
@@ -28827,7 +28827,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %60
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %34, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %49, %52, %57
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %57 ], [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %49 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %34 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %52 ], [ %.sroa.01.0.copyload.i.i, %57 ], [ %.sroa.01.0.copyload.i.i, %49 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %10, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -28886,7 +28886,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %84
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72": ; preds = %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61", %73, %76, %81
-  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %76 ], [ %.sroa.01.0.copyload.i.i62, %81 ], [ 8, %60 ], [ %.sroa.01.0.copyload.i.i62, %73 ]
+  %.sroa.0.0.insert.insert.i50.i67 = phi i32 [ 8, %60 ], [ %.sroa.01.0.copyload.i.i62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i61" ], [ %.sroa.01.0.copyload.i.i62, %76 ], [ %.sroa.01.0.copyload.i.i62, %81 ], [ %.sroa.01.0.copyload.i.i62, %73 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i67)
   %.pre100 = load i8, ptr %9, align 8, !range !48
   %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -28944,7 +28944,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %107
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84": ; preds = %84, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i73", %.critedge.i, %99, %104
-  %.sroa.0.0.insert.insert.i50.i79 = phi i32 [ %.sroa.01.0.copyload.i.i74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i73" ], [ %.sroa.01.0.copyload.i.i74, %99 ], [ %.sroa.01.0.copyload.i.i74, %104 ], [ 8, %84 ], [ %.sroa.01.0.copyload.i.i74, %.critedge.i ]
+  %.sroa.0.0.insert.insert.i50.i79 = phi i32 [ 8, %84 ], [ %.sroa.01.0.copyload.i.i74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i73" ], [ %.sroa.01.0.copyload.i.i74, %99 ], [ %.sroa.01.0.copyload.i.i74, %104 ], [ %.sroa.01.0.copyload.i.i74, %.critedge.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.1.insert.ext, i32 %.sroa.0.0.insert.insert.i50.i79)
   %.pre103 = load i8, ptr %8, align 8, !range !48
   %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -28958,7 +28958,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %109
 
 109:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit", %107
-  %.0 = phi ptr [ null, %107 ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ], [ %.pre105, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84" ]
+  %.0 = phi ptr [ null, %107 ], [ %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit" ], [ %.pre102, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit72" ], [ %.pre99, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %27, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_shared_memarg17hd3f61b095874ad6fE.exit.thread" ], [ %.pre105, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit84" ]
   ret ptr %.0
 }
 
@@ -29033,7 +29033,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %29
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %18, %21, %26
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %18 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %21 ], [ %.sroa.01.0.copyload.i.i, %26 ], [ %.sroa.01.0.copyload.i.i, %18 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %3, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29092,7 +29092,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %53
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit51": ; preds = %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40", %42, %45, %50
-  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
+  %.sroa.0.0.insert.insert.i50.i46 = phi i32 [ 8, %29 ], [ %.sroa.01.0.copyload.i.i41, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i40" ], [ %.sroa.01.0.copyload.i.i41, %45 ], [ %.sroa.01.0.copyload.i.i41, %50 ], [ %.sroa.01.0.copyload.i.i41, %42 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i46)
   %.pre53 = load i8, ptr %2, align 8, !range !48
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -29294,7 +29294,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us.us, label %.critedge45.i.us.us, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.sink.split"
 
 .critedge45.i.us.us:                              ; preds = %70, %66, %.critedge.i.us.us, %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us.us", %.lr.ph177
-  %.sroa.0.0.insert.insert.i50.i.us.us = phi i32 [ %.sroa.01.0.copyload.i.i.us.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us.us" ], [ %.sroa.01.0.copyload.i.i.us.us, %66 ], [ %.sroa.01.0.copyload.i.i.us.us, %70 ], [ 8, %.lr.ph177 ], [ %.sroa.01.0.copyload.i.i.us.us, %.critedge.i.us.us ], [ %.sroa.01.0.copyload.i.i.us.us, %62 ]
+  %.sroa.0.0.insert.insert.i50.i.us.us = phi i32 [ 8, %.lr.ph177 ], [ %.sroa.01.0.copyload.i.i.us.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us.us" ], [ %.sroa.01.0.copyload.i.i.us.us, %66 ], [ %.sroa.01.0.copyload.i.i.us.us, %70 ], [ %.sroa.01.0.copyload.i.i.us.us, %.critedge.i.us.us ], [ %.sroa.01.0.copyload.i.i.us.us, %62 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.8.16.extract.trunc.us.us172, i32 %.sroa.0.0.insert.insert.i50.i.us.us)
   %.pre121 = load i8, ptr %6, align 8, !range !48
   %72 = trunc nuw i8 %.pre121 to i1
@@ -29359,7 +29359,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us, label %.critedge45.i.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.us"
 
 .critedge45.i.us:                                 ; preds = %96, %92, %.critedge.i.us, %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us", %77
-  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %92 ], [ %.sroa.01.0.copyload.i.i.us, %96 ], [ 8, %77 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %88 ]
+  %.sroa.0.0.insert.insert.i50.i.us = phi i32 [ 8, %77 ], [ %.sroa.01.0.copyload.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us" ], [ %.sroa.01.0.copyload.i.i.us, %92 ], [ %.sroa.01.0.copyload.i.i.us, %96 ], [ %.sroa.01.0.copyload.i.i.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i.us, %88 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i.i.us, i32 %.sroa.0.0.insert.insert.i50.i.us)
   %.pre120 = load i8, ptr %6, align 8, !range !48
   %98 = trunc nuw i8 %.pre120 to i1
@@ -29443,7 +29443,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i.us101, label %.critedge45.i.us102, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.sink.split"
 
 .critedge45.i.us102:                              ; preds = %127, %123, %.critedge.i.us98, %119, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us91", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i.us103 = phi i32 [ %.sroa.01.0.copyload.i.i.us92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us91" ], [ %.sroa.01.0.copyload.i.i.us92, %123 ], [ %.sroa.01.0.copyload.i.i.us92, %127 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us92, %.critedge.i.us98 ], [ %.sroa.01.0.copyload.i.i.us92, %119 ]
+  %.sroa.0.0.insert.insert.i50.i.us103 = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i.us92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.us91" ], [ %.sroa.01.0.copyload.i.i.us92, %123 ], [ %.sroa.01.0.copyload.i.i.us92, %127 ], [ %.sroa.01.0.copyload.i.i.us92, %.critedge.i.us98 ], [ %.sroa.01.0.copyload.i.i.us92, %119 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.8.16.extract.trunc65.us166, i32 %.sroa.0.0.insert.insert.i50.i.us103)
   %.pre119 = load i8, ptr %6, align 8, !range !48
   %129 = trunc nuw i8 %.pre119 to i1
@@ -29465,7 +29465,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread"
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit", %.split.split.backedge, %.split.us.split.backedge, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us", %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.sink.split", %.split.split.preheader, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us88.preheader", %.critedge45.i.us102, %.split.us.split.preheader, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us.us.preheader", %.critedge45.i.us.us
-  %134 = phi ptr [ %44, %.critedge45.i.us.us ], [ %44, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us.us.preheader" ], [ %44, %.split.us.split.preheader ], [ %101, %.critedge45.i.us102 ], [ %101, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us88.preheader" ], [ %101, %.split.split.preheader ], [ %.ph, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.sink.split" ], [ %44, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %44, %.split.us.split.backedge ], [ %101, %.split.split.backedge ], [ %101, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
+  %134 = phi ptr [ %101, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us88.preheader" ], [ %44, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us.us.preheader" ], [ %44, %.split.us.split.preheader ], [ %44, %.critedge45.i.us.us ], [ %101, %.critedge45.i.us102 ], [ %101, %.split.split.preheader ], [ %.ph, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.thread.sink.split" ], [ %44, %.split.us.split.backedge ], [ %44, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit.us" ], [ %101, %.split.split.backedge ], [ %101, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h2dbbd35987098d39E.exit" ]
   %135 = load i64, ptr %8, align 8, !noalias !3506, !noundef !13
   %.not.i57 = icmp eq i64 %135, 0
   br i1 %.not.i57, label %.thread.i, label %136
@@ -29518,7 +29518,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i, label %162, label %.critedge45.i
 
 .critedge45.i:                                    ; preds = %170, %166, %.critedge.i, %162, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %148
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %166 ], [ %.sroa.01.0.copyload.i.i, %170 ], [ 8, %148 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %162 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %148 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %166 ], [ %.sroa.01.0.copyload.i.i, %170 ], [ %.sroa.01.0.copyload.i.i, %.critedge.i ], [ %.sroa.01.0.copyload.i.i, %162 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i3.i, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %159 = trunc nuw i8 %.pre to i1
@@ -29559,7 +29559,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %.split.split.backedge
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h81549a42f4fa19e2E.llvm.8213084322371663677.exit": ; preds = %.critedge45.i, %.critedge45.i.us, %.critedge45.i.us102, %.critedge45.i.us.us, %147, %142, %.thread.i, %11, %17, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit"
-  %.0 = phi ptr [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %22, %17 ], [ %12, %11 ], [ %141, %.thread.i ], [ null, %142 ], [ null, %147 ], [ %73, %.critedge45.i.us.us ], [ %130, %.critedge45.i.us102 ], [ %99, %.critedge45.i.us ], [ %160, %.critedge45.i ]
+  %.0 = phi ptr [ %12, %11 ], [ null, %147 ], [ %.sroa.038.0.copyload.sink1.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11label_types17h94aba0ad44c241c4E.exit" ], [ %22, %17 ], [ %141, %.thread.i ], [ null, %142 ], [ %130, %.critedge45.i.us102 ], [ %73, %.critedge45.i.us.us ], [ %99, %.critedge45.i.us ], [ %160, %.critedge45.i ]
   ret ptr %.0
 }
 
@@ -29627,7 +29627,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %35
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit": ; preds = %9, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i", %24, %27, %32
-  %.sroa.0.0.insert.insert.i50.i = phi i32 [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %27 ], [ %.sroa.01.0.copyload.i.i, %32 ], [ 8, %9 ], [ %.sroa.01.0.copyload.i.i, %24 ]
+  %.sroa.0.0.insert.insert.i50.i = phi i32 [ 8, %9 ], [ %.sroa.01.0.copyload.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i" ], [ %.sroa.01.0.copyload.i.i, %27 ], [ %.sroa.01.0.copyload.i.i, %32 ], [ %.sroa.01.0.copyload.i.i, %24 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i)
   %.pre = load i8, ptr %5, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -29722,7 +29722,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %.not42.i78.us, label %.critedge45.i74.us, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit79.us"
 
 .critedge45.i74.us:                               ; preds = %68, %64, %.critedge.i.us, %60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69.us", %.lr.ph
-  %.sroa.0.0.insert.insert.i50.i75.us = phi i32 [ %.sroa.01.0.copyload.i.i70.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69.us" ], [ %.sroa.01.0.copyload.i.i70.us, %64 ], [ %.sroa.01.0.copyload.i.i70.us, %68 ], [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i70.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i70.us, %60 ]
+  %.sroa.0.0.insert.insert.i50.i75.us = phi i32 [ 8, %.lr.ph ], [ %.sroa.01.0.copyload.i.i70.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69.us" ], [ %.sroa.01.0.copyload.i.i70.us, %64 ], [ %.sroa.01.0.copyload.i.i70.us, %68 ], [ %.sroa.01.0.copyload.i.i70.us, %.critedge.i.us ], [ %.sroa.01.0.copyload.i.i70.us, %60 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.5.8.extract.trunc.us108, i32 %.sroa.0.0.insert.insert.i50.i75.us)
   %.pre87 = load i8, ptr %3, align 8, !range !48
   %70 = trunc nuw i8 %.pre87 to i1
@@ -29777,7 +29777,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %or.cond.i73, label %92, label %.critedge45.i74
 
 .critedge45.i74:                                  ; preds = %100, %96, %.critedge.i, %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69", %78
-  %.sroa.0.0.insert.insert.i50.i75 = phi i32 [ %.sroa.01.0.copyload.i.i70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69" ], [ %.sroa.01.0.copyload.i.i70, %96 ], [ %.sroa.01.0.copyload.i.i70, %100 ], [ 8, %78 ], [ %.sroa.01.0.copyload.i.i70, %.critedge.i ], [ %.sroa.01.0.copyload.i.i70, %92 ]
+  %.sroa.0.0.insert.insert.i50.i75 = phi i32 [ 8, %78 ], [ %.sroa.01.0.copyload.i.i70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i69" ], [ %.sroa.01.0.copyload.i.i70, %96 ], [ %.sroa.01.0.copyload.i.i70, %100 ], [ %.sroa.01.0.copyload.i.i70, %.critedge.i ], [ %.sroa.01.0.copyload.i.i70, %92 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 %.sroa.02.0.copyload.i.i, i32 %.sroa.0.0.insert.insert.i50.i75)
   %.pre86 = load i8, ptr %3, align 8, !range !48
   %89 = trunc nuw i8 %.pre86 to i1
@@ -29970,7 +29970,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %59
 
 59:                                               ; preds = %57, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit.thread", %52, %27, %1, %11, %14
-  %.1 = phi ptr [ %.sroa.075.0.copyload, %27 ], [ %.sroa.05.0, %1 ], [ %12, %11 ], [ %.sroa.023.0, %14 ], [ null, %52 ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit.thread" ], [ null, %57 ]
+  %.1 = phi ptr [ %.sroa.023.0, %14 ], [ %.sroa.05.0, %1 ], [ %12, %11 ], [ %.sroa.075.0.copyload, %27 ], [ null, %52 ], [ null, %"_ZN112_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2316679c3fde91e8E.exit.thread" ], [ null, %57 ]
   ret ptr %.1
 }
 
@@ -30048,7 +30048,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17h4de7bf2a38b875bdE.llvm.8213084322371663677.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17h4de7bf2a38b875bdE.llvm.8213084322371663677.exit": ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i"
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ 8, %1 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 6, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %14 = load i8, ptr %2, align 8, !range !48, !noalias !3559, !noundef !13
   %trunc.i = trunc nuw i8 %14 to i1
@@ -30103,7 +30103,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17heb5e112bf9e0c546E.llvm.8213084322371663677.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17heb5e112bf9e0c546E.llvm.8213084322371663677.exit": ; preds = %1, %8, %10
-  %.1.i = phi ptr [ %17, %10 ], [ %.sroa.01.0.i, %1 ], [ %9, %8 ]
+  %.1.i = phi ptr [ %9, %8 ], [ %.sroa.01.0.i, %1 ], [ %17, %10 ]
   ret ptr %.1.i
 }
 
@@ -31469,7 +31469,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !3808
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31568,7 +31568,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !3828
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31667,7 +31667,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !3848
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31814,7 +31814,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !3868
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -31974,7 +31974,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !3900
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34090,7 +34090,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !4365
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34550,7 +34550,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17h1204cdbe6cf8c499E.llvm.8213084322371663677.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17h1204cdbe6cf8c499E.llvm.8213084322371663677.exit": ; preds = %29, %37, %41
-  %.1.i = phi ptr [ %36, %29 ], [ %49, %41 ], [ null, %37 ]
+  %.1.i = phi ptr [ %49, %41 ], [ %36, %29 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
@@ -36122,7 +36122,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !4842
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -36358,7 +36358,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !4895
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -36765,7 +36765,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !4982
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37001,7 +37001,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5035
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37308,7 +37308,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5098
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37544,7 +37544,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5151
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37780,7 +37780,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5204
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -37966,7 +37966,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5245
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -39643,7 +39643,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !5633
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -42193,7 +42193,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6238
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -42647,7 +42647,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6339
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -43257,7 +43257,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6476
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -43967,7 +43967,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6635
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44177,7 +44177,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6679
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44604,7 +44604,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6771
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44740,7 +44740,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6800
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -44876,7 +44876,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6829
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45062,7 +45062,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6870
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45198,7 +45198,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6899
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45434,7 +45434,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !6952
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45708,7 +45708,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7012
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45844,7 +45844,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7041
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -45980,7 +45980,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7070
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -46116,7 +46116,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7099
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -46352,7 +46352,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7152
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -46488,7 +46488,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7181
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47012,7 +47012,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7301
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47361,7 +47361,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7378
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47460,7 +47460,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7398
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47559,7 +47559,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7418
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47658,7 +47658,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7438
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47807,7 +47807,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7470
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -47906,7 +47906,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7490
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48005,7 +48005,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7510
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48104,7 +48104,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7530
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48895,7 +48895,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7712
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48994,7 +48994,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7732
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -49518,7 +49518,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7855
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -49642,7 +49642,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7879
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -49766,7 +49766,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7903
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -49890,7 +49890,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7927
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50114,7 +50114,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7975
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50238,7 +50238,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !7999
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50362,7 +50362,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8023
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50486,7 +50486,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8047
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53088,7 +53088,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8671
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53262,7 +53262,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %40
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %37, %32, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %15
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %15 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %32 ], [ %.sroa.01.0.copyload.i.i.i, %37 ], [ %.sroa.01.0.copyload.i.i.i, %29 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8707
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53561,7 +53561,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8772
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53697,7 +53697,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8804
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53833,7 +53833,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8833
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -53969,7 +53969,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8862
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54105,7 +54105,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8891
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54354,7 +54354,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %28
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %25, %20, %17, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %1
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %1 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %20 ], [ %.sroa.01.0.copyload.i.i.i, %25 ], [ %.sroa.01.0.copyload.i.i.i, %17 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8944
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54490,7 +54490,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !8976
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54626,7 +54626,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 2, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9005
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54762,7 +54762,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9034
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -54898,7 +54898,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 3, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9063
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -57639,7 +57639,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9716
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -57775,7 +57775,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9745
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -58061,7 +58061,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9810
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -58197,7 +58197,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9839
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -58483,7 +58483,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9904
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -58619,7 +58619,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !9933
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59055,7 +59055,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10034
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59191,7 +59191,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10063
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59477,7 +59477,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10128
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59613,7 +59613,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10157
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -59899,7 +59899,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10222
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60035,7 +60035,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10251
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60421,7 +60421,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10340
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60557,7 +60557,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10369
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60793,7 +60793,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10422
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -60929,7 +60929,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10451
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61065,7 +61065,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10480
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61201,7 +61201,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10509
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61387,7 +61387,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10550
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -61523,7 +61523,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %44
 
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit.i": ; preds = %41, %36, %33, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i", %19
-  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
+  %.sroa.0.0.insert.insert.i50.i.i = phi i32 [ 8, %19 ], [ %.sroa.01.0.copyload.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i.i" ], [ %.sroa.01.0.copyload.i.i.i, %36 ], [ %.sroa.01.0.copyload.i.i.i, %41 ], [ %.sroa.01.0.copyload.i.i.i, %33 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i50.i.i)
   %.pre.i = load i8, ptr %2, align 8, !range !48, !noalias !10579
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8

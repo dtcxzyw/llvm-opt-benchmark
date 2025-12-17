@@ -309,7 +309,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br label %118
 
 118:                                              ; preds = %5, %._crit_edge, %102, %95, %82, %77, %61, %48, %43
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %77 ], [ 2, %82 ], [ 1, %95 ], [ 1, %102 ], [ 1, %43 ], [ 2, %48 ], [ 1, %61 ], [ 1, %5 ]
+  %.0 = phi i32 [ 1, %61 ], [ 0, %._crit_edge ], [ 1, %77 ], [ 2, %82 ], [ 1, %95 ], [ 1, %102 ], [ 1, %43 ], [ 2, %48 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -618,7 +618,7 @@ define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly captures(addres
   br i1 %.not20, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %11, %16, %10, %.preheader, %5, %2
-  %.016 = phi i1 [ false, %2 ], [ false, %5 ], [ true, %.preheader ], [ false, %11 ], [ false, %16 ], [ true, %10 ]
+  %.016 = phi i1 [ false, %5 ], [ false, %2 ], [ true, %.preheader ], [ false, %16 ], [ false, %11 ], [ true, %10 ]
   ret i1 %.016
 }
 

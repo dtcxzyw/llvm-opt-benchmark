@@ -655,7 +655,7 @@ _ZNSt6vectorIN2cv3PtrINS0_3MatEEESaIS3_EE6resizeEm.exit: ; preds = %37, %39, %41
           to label %common.resume unwind label %96
 
 common.resume:                                    ; preds = %81, %83, %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %84, %83 ], [ %82, %81 ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %82, %81 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
 96:                                               ; preds = %94
@@ -699,7 +699,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3MatEEET_.exit: ; pr
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %110, %109
-  %112 = phi ptr [ %106, %109 ], [ %.pr.pre.i.i.i.i, %110 ]
+  %112 = phi ptr [ %.pr.pre.i.i.i.i, %110 ], [ %106, %109 ]
   %.not8.i.i.i.i = icmp eq ptr %112, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %113
 
@@ -1695,7 +1695,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %135
   br label %213
 
 206:                                              ; preds = %184, %155, %153
-  %.pn88 = phi { ptr, i32 } [ %.pn84.pn.pn, %184 ], [ %156, %155 ], [ %154, %153 ]
+  %.pn88 = phi { ptr, i32 } [ %154, %153 ], [ %.pn84.pn.pn, %184 ], [ %156, %155 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #25
   br label %207
 
@@ -1768,7 +1768,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %135
   br i1 %235, label %103, label %._crit_edge164, !llvm.loop !100
 
 236:                                              ; preds = %208, %211, %101, %99
-  %.pn88.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ], [ %.pn88.pn.pn, %208 ], [ %212, %211 ]
+  %.pn88.pn.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %.pn88.pn.pn, %208 ], [ %212, %211 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4218,7 +4218,7 @@ _ZNK2cv3VecIhLi2EEcvNS0_IT_Li2EEEIfEEv.exit315.critedge: ; preds = %294
   br i1 %586, label %264, label %._crit_edge, !llvm.loop !123
 
 587:                                              ; preds = %349, %355, %364, %370, %384, %390, %398, %404, %417, %423, %436, %442, %455, %461, %470, %476, %483, %489, %532, %534, %536, %538, %540, %542, %326
-  %.pn290.pn = phi { ptr, i32 } [ %327, %326 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %.pn271, %355 ], [ %350, %349 ], [ %.pn266, %370 ], [ %365, %364 ], [ %.pn261, %390 ], [ %385, %384 ], [ %.pn256, %404 ], [ %399, %398 ], [ %.pn251, %423 ], [ %418, %417 ], [ %.pn246, %442 ], [ %437, %436 ], [ %.pn241, %461 ], [ %456, %455 ], [ %.pn236, %476 ], [ %471, %470 ], [ %.pn231, %489 ], [ %484, %483 ]
+  %.pn290.pn = phi { ptr, i32 } [ %.pn231, %489 ], [ %327, %326 ], [ %484, %483 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %.pn271, %355 ], [ %350, %349 ], [ %.pn266, %370 ], [ %365, %364 ], [ %.pn261, %390 ], [ %385, %384 ], [ %.pn256, %404 ], [ %399, %398 ], [ %.pn251, %423 ], [ %418, %417 ], [ %.pn246, %442 ], [ %437, %436 ], [ %.pn241, %461 ], [ %456, %455 ], [ %.pn236, %476 ], [ %471, %470 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #25
   br label %588
 
@@ -4702,7 +4702,7 @@ _ZN2cv3Mat2atINS_3VecIiLi2EEEEERT_i.exit51:       ; preds = %161, %155, %148
   br label %195
 
 195:                                              ; preds = %136, %138, %193, %59, %57, %55
-  %.pn46.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %139, %138 ], [ %137, %136 ], [ %194, %193 ]
+  %.pn46.pn = phi { ptr, i32 } [ %56, %55 ], [ %60, %59 ], [ %58, %57 ], [ %194, %193 ], [ %137, %136 ], [ %139, %138 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #25

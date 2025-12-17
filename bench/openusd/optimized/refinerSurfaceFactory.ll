@@ -478,7 +478,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.lo
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %200, %181, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177, %.thread, %183, %._crit_edge.loopexit.split.loop.exit11.i, %176
-  %.092 = phi i32 [ -1, %176 ], [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %183 ], [ -1, %.thread ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177 ], [ -1, %181 ], [ -1, %200 ]
+  %.092 = phi i32 [ %182, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %176 ], [ -1, %183 ], [ -1, %.thread ], [ %201, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.loopexit174.split.loop.exit177 ], [ -1, %181 ], [ -1, %200 ]
   ret i32 %.092
 }
 
@@ -1072,7 +1072,7 @@ define noundef range(i32 12, 17) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfac
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds = %49, %45, %42
-  %.0.i.i = phi i64 [ 2, %42 ], [ 3, %45 ], [ %spec.select.i, %49 ]
+  %.0.i.i = phi i64 [ %spec.select.i, %49 ], [ 2, %42 ], [ 3, %45 ]
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %.0.i.i
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i16, ptr %41, i64 %.0.i.i

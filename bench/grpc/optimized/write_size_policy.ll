@@ -163,7 +163,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %6, %7
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %13, %14, %.thread.i, %18, %23, %26, %29
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %13 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %18 ], [ %30, %29 ], [ 9223372036854775807, %23 ], [ -9223372036854775808, %26 ], [ %spec.select.i, %14 ]
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %14 ], [ 9223372036854775807, %13 ], [ -9223372036854775808, %18 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %26 ], [ %30, %29 ], [ 9223372036854775807, %23 ]
   store i64 9223372036854775807, ptr %3, align 8, !tbaa !17
   br i1 %1, label %31, label %53
 

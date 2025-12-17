@@ -196,20 +196,20 @@ define internal fastcc void @_ZL27_LoadAndUnloadSharedLibraryRKNSt7__cxx1112basi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  %.sink34.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink34.sroa.gep35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink34.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink34.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sink34.sroa.gep36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sink34.sroa.gep38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink34.sroa.gep39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink34.sroa.gep38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink34.sroa.gep39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sink34.sroa.gep40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sink34.sroa.gep42 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink34.sroa.gep43 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink34.sroa.gep42 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink34.sroa.gep43 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sink34.sroa.gep44 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sink34.sroa.gep46 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink34.sroa.gep47 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink34.sroa.gep46 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink34.sroa.gep47 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sink34.sroa.gep48 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.sink34.sroa.gep50 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink34.sroa.gep51 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink34.sroa.gep50 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink34.sroa.gep51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sink34.sroa.gep52 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %27
@@ -269,14 +269,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not, label %26, label %.invoke
 
 .invoke:                                          ; preds = %24, %20, %19
-  %.sink34.sroa.phi = phi ptr [ %.sink34.sroa.gep, %19 ], [ %.sink34.sroa.gep35, %20 ], [ %.sink34.sroa.gep36, %24 ]
-  %.sink34.sroa.phi37 = phi ptr [ %.sink34.sroa.gep38, %19 ], [ %.sink34.sroa.gep39, %20 ], [ %.sink34.sroa.gep40, %24 ]
-  %.sink34.sroa.phi41 = phi ptr [ %.sink34.sroa.gep42, %19 ], [ %.sink34.sroa.gep43, %20 ], [ %.sink34.sroa.gep44, %24 ]
-  %.sink34.sroa.phi45 = phi ptr [ %.sink34.sroa.gep46, %19 ], [ %.sink34.sroa.gep47, %20 ], [ %.sink34.sroa.gep48, %24 ]
-  %.sink34.sroa.phi49 = phi ptr [ %.sink34.sroa.gep50, %19 ], [ %.sink34.sroa.gep51, %20 ], [ %.sink34.sroa.gep52, %24 ]
-  %.sink34 = phi ptr [ %4, %19 ], [ %3, %20 ], [ %2, %24 ]
-  %.sink31 = phi i64 [ 30, %19 ], [ 31, %20 ], [ 32, %24 ]
-  %25 = phi ptr [ @.str.17, %19 ], [ @.str.18, %20 ], [ @.str.19, %24 ]
+  %.sink34.sroa.phi = phi ptr [ %.sink34.sroa.gep, %20 ], [ %.sink34.sroa.gep35, %19 ], [ %.sink34.sroa.gep36, %24 ]
+  %.sink34.sroa.phi37 = phi ptr [ %.sink34.sroa.gep38, %20 ], [ %.sink34.sroa.gep39, %19 ], [ %.sink34.sroa.gep40, %24 ]
+  %.sink34.sroa.phi41 = phi ptr [ %.sink34.sroa.gep42, %20 ], [ %.sink34.sroa.gep43, %19 ], [ %.sink34.sroa.gep44, %24 ]
+  %.sink34.sroa.phi45 = phi ptr [ %.sink34.sroa.gep46, %20 ], [ %.sink34.sroa.gep47, %19 ], [ %.sink34.sroa.gep48, %24 ]
+  %.sink34.sroa.phi49 = phi ptr [ %.sink34.sroa.gep50, %20 ], [ %.sink34.sroa.gep51, %19 ], [ %.sink34.sroa.gep52, %24 ]
+  %.sink34 = phi ptr [ %3, %20 ], [ %4, %19 ], [ %2, %24 ]
+  %.sink31 = phi i64 [ 31, %20 ], [ 30, %19 ], [ 32, %24 ]
+  %25 = phi ptr [ @.str.18, %20 ], [ @.str.17, %19 ], [ @.str.19, %24 ]
   store ptr @.str.1, ptr %.sink34, align 8
   store ptr @__func__._ZL27_LoadAndUnloadSharedLibraryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %.sink34.sroa.phi, align 8
   store i64 %.sink31, ptr %.sink34.sroa.phi37, align 8

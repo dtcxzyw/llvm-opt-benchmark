@@ -2033,7 +2033,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit117:          ; preds = %_ZN6bufferIP4exprLb
   br label %.body
 
 .body:                                            ; preds = %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %177, %191, %319, %235, %110
-  %.pn44 = phi { ptr, i32 } [ %111, %110 ], [ %236, %235 ], [ %320, %319 ], [ %130, %129 ], [ %192, %191 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %178, %177 ]
+  %.pn44 = phi { ptr, i32 } [ %111, %110 ], [ %178, %177 ], [ %236, %235 ], [ %320, %319 ], [ %130, %129 ], [ %192, %191 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ]
   call void @_ZN6vectorI10ptr_vectorI4exprELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #20
@@ -3065,7 +3065,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %69, %72
   br label %80
 
 80:                                               ; preds = %76, %78, %60
-  %.pn24 = phi { ptr, i32 } [ %61, %60 ], [ %79, %78 ], [ %77, %76 ]
+  %.pn24 = phi { ptr, i32 } [ %61, %60 ], [ %77, %76 ], [ %79, %78 ]
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn24
@@ -4307,7 +4307,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN7obj_refI4expr11
   br label %113
 
 113:                                              ; preds = %104, %112, %106, %62
-  %.pn28 = phi { ptr, i32 } [ %63, %62 ], [ %105, %104 ], [ %.pn, %112 ], [ %107, %106 ]
+  %.pn28 = phi { ptr, i32 } [ %63, %62 ], [ %107, %106 ], [ %105, %104 ], [ %.pn, %112 ]
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn28
@@ -5471,7 +5471,7 @@ _ZNK3smt17theory_array_base12is_array_extEPK3app.exit90.thread: ; preds = %124, 
   br label %195
 
 195:                                              ; preds = %38, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread, %_ZNK3smt7context14e_internalizedEPK4expr.exit, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit90.thread, %27
-  %.0 = phi i1 [ %28, %27 ], [ true, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit90.thread ], [ true, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit ], [ true, %38 ]
+  %.0 = phi i1 [ true, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ %28, %27 ], [ true, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit90.thread ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread ], [ true, %38 ]
   ret i1 %.0
 }
 
@@ -6412,7 +6412,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit107: 
   br label %277
 
 277:                                              ; preds = %179, %181, %275, %131
-  %.pn.pn = phi { ptr, i32 } [ %276, %275 ], [ %132, %131 ], [ %182, %181 ], [ %180, %179 ]
+  %.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %276, %275 ], [ %182, %181 ], [ %180, %179 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
@@ -7061,7 +7061,7 @@ define hidden noundef zeroext i1 @_ZN3smt17theory_array_full13try_assign_eqEP4ex
   %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %60 ], [ %59, %57 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !712
 
-.loopexit:                                        ; preds = %41, %57, %60, %.preheader.i.i.i
+.loopexit:                                        ; preds = %41, %60, %57, %.preheader.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !713
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7397,7 +7397,7 @@ _ZN16ast2ast_trailmapI4sort3appE4findEPS0_RPS1_.exit: ; preds = %21, %32
   %42 = load ptr, ptr %41, align 8, !tbaa !764
   br label %66
 
-.noexc:                                           ; preds = %26, %40, %37, %.preheader.i.i.i.i
+.noexc:                                           ; preds = %26, %37, %40, %.preheader.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !656
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7524,7 +7524,7 @@ _ZN16ast2ast_trailmapI4sort9func_declE4findEPS0_RPS1_.exit: ; preds = %81, %92
   %102 = load ptr, ptr %101, align 8, !tbaa !772
   br label %126
 
-.noexc26:                                         ; preds = %86, %100, %97, %.preheader.i.i.i.i11
+.noexc26:                                         ; preds = %86, %97, %100, %.preheader.i.i.i.i11
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !656
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7946,7 +7946,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
           to label %109 unwind label %121
 
 109:                                              ; preds = %.noexc37, %100, %107
-  %.0.i.i.i = phi i1 [ %103, %100 ], [ %106, %.noexc37 ], [ %108, %107 ]
+  %.0.i.i.i = phi i1 [ %106, %.noexc37 ], [ %103, %100 ], [ %108, %107 ]
   %110 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !777
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc.i39 unwind label %111
@@ -8191,7 +8191,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit18.i:  ; preds = %37, %49
   br i1 %54, label %.critedge19.loopexit.i, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit18.i, !llvm.loop !665
 
 _ZN3smt17theory_array_full25instantiate_axiom_map_forEi.exit.thread: ; preds = %.critedge19.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i
-  %.0.lcssa.i = phi i1 [ %.1.lcssa.i, %.critedge19.i ], [ %.024.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i ]
+  %.0.lcssa.i = phi i1 [ %.024.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i ], [ %.1.lcssa.i, %.critedge19.i ]
   %cond.fr = freeze i1 %.0.lcssa.i
   %spec.select = select i1 %cond.fr, i32 1, i32 %.132
   %.pre = load i8, ptr %21, align 8, !tbaa !667, !range !592
@@ -8260,7 +8260,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i16:  ; preds = %_ZNK3smt12theory_ar
   br i1 %88, label %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit, label %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i16, !llvm.loop !702
 
 _ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit: ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i16, %86
-  %.0.lcssa.i18 = phi i1 [ %.1.i, %86 ], [ %.012.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i16 ]
+  %.0.lcssa.i18 = phi i1 [ %.012.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i16 ], [ %.1.i, %86 ]
   %cond.fr25 = freeze i1 %.0.lcssa.i18
   %spec.select30 = select i1 %cond.fr25, i32 1, i32 %.246
   br label %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit.thread
@@ -8451,7 +8451,7 @@ _ZNK3smt17theory_array_base10is_defaultEPKNS_5enodeE.exit.thread: ; preds = %.lr
   br i1 %.not57, label %.loopexit, label %37
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge85, %_ZNK3smt17theory_array_base10is_defaultEPKNS_5enodeE.exit.thread, %._crit_edge81, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit61
-  %.5 = phi i1 [ false, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit61 ], [ false, %._crit_edge81 ], [ true, %_ZNK3smt17theory_array_base10is_defaultEPKNS_5enodeE.exit.thread ], [ false, %._crit_edge85 ], [ true, %.lr.ph ]
+  %.5 = phi i1 [ false, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit61 ], [ false, %._crit_edge81 ], [ false, %._crit_edge85 ], [ true, %_ZNK3smt17theory_array_base10is_defaultEPKNS_5enodeE.exit.thread ], [ true, %.lr.ph ]
   ret i1 %.5
 }
 
@@ -11023,7 +11023,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP3appE13obj_
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !808
@@ -11070,7 +11070,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP3appE13obj_
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !809
@@ -11848,7 +11848,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP9func_declE
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !819
@@ -11895,7 +11895,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4sortP9func_declE
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !820

@@ -733,7 +733,7 @@ split68.i.i:                                      ; preds = %285, %.loopexit._cr
   br label %rle_unpack.exit.i
 
 rle_unpack.exit.i:                                ; preds = %split68.i.i, %split.i.i, %305, %276
-  %.0.i262.i = phi i64 [ %330, %split68.i.i ], [ %306, %305 ], [ %320, %split.i.i ], [ 0, %276 ]
+  %.0.i262.i = phi i64 [ %320, %split.i.i ], [ %330, %split68.i.i ], [ %306, %305 ], [ 0, %276 ]
   %331 = add nsw i32 %.2208.i, %261
   %332 = and i64 %.0.i262.i, 255
   %..i256.i = tail call i64 @llvm.smin.i64(i64 %266, i64 %332)
@@ -818,8 +818,8 @@ vmd_decode.exit:                                  ; preds = %362, %235, %229, %.
   store i32 1, ptr %2, align 4, !tbaa !37
   br label %vmd_decode.exit.thread
 
-vmd_decode.exit.thread:                           ; preds = %bytestream2_get_byte.exit258.thread.i, %bytestream2_peek_byte.exit.thread.i, %337, %204, %bytestream2_get_byte.exit.thread.i, %184, %.preheader.split.us.i, %bytestream2_get_byte.exit.us.i, %136, %138, %.thread.i, %123, %360, %227, %70, %61, %vmd_decode.exit, %14, %4, %374
-  %.0 = phi i32 [ %8, %374 ], [ -1094995529, %4 ], [ %15, %14 ], [ %372, %vmd_decode.exit ], [ -1094995529, %136 ], [ %144, %138 ], [ -1094995529, %.thread.i ], [ -1094995529, %123 ], [ -1094995529, %360 ], [ -1094995529, %227 ], [ -1094995529, %70 ], [ -1094995529, %61 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %184 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %204 ], [ -1094995529, %337 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ]
+vmd_decode.exit.thread:                           ; preds = %bytestream2_peek_byte.exit.thread.i, %337, %bytestream2_get_byte.exit258.thread.i, %bytestream2_get_byte.exit.thread.i, %204, %.preheader.split.us.i, %bytestream2_get_byte.exit.us.i, %184, %136, %123, %360, %227, %.thread.i, %138, %70, %61, %vmd_decode.exit, %14, %4, %374
+  %.0 = phi i32 [ %8, %374 ], [ -1094995529, %4 ], [ %15, %14 ], [ %372, %vmd_decode.exit ], [ -1094995529, %136 ], [ -1094995529, %123 ], [ -1094995529, %360 ], [ -1094995529, %227 ], [ -1094995529, %.thread.i ], [ %144, %138 ], [ -1094995529, %70 ], [ -1094995529, %61 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %.preheader.split.us.i ], [ -1094995529, %184 ], [ -1094995529, %bytestream2_get_byte.exit.us.i ], [ -1094995529, %204 ], [ -1094995529, %bytestream2_get_byte.exit258.thread.i ], [ -1094995529, %337 ], [ -1094995529, %bytestream2_peek_byte.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -1116,7 +1116,7 @@ bytestream2_get_byte.exit71:                      ; preds = %bytestream2_get_byt
   br label %.loopexit119
 
 .loopexit119:                                     ; preds = %34, %bytestream2_get_byte.exit71, %53, %bytestream2_get_le32.exit, %.critedge
-  %.059 = phi i32 [ %128, %.critedge ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %53 ], [ -1094995529, %bytestream2_get_byte.exit71 ], [ -1094995529, %34 ]
+  %.059 = phi i32 [ %128, %.critedge ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_byte.exit71 ], [ -1094995529, %53 ], [ -1094995529, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.059
 }

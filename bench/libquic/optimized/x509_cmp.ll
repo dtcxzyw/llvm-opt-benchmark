@@ -602,7 +602,7 @@ define hidden i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %29
 
 29:                                               ; preds = %8, %13, %18, %2, %25
-  %.0 = phi i32 [ %28, %25 ], [ %7, %2 ], [ %24, %18 ], [ 0, %13 ], [ 0, %8 ]
+  %.0 = phi i32 [ %28, %25 ], [ %24, %18 ], [ %7, %2 ], [ 0, %13 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -826,7 +826,7 @@ X509_get_pubkey.exit:                             ; preds = %4
   br label %16
 
 16:                                               ; preds = %14, %.thread41, %.thread37, %.thread35
-  %17 = phi i32 [ 0, %.thread35 ], [ 0, %.thread37 ], [ 0, %.thread41 ], [ %spec.select, %14 ]
+  %17 = phi i32 [ 0, %.thread41 ], [ %spec.select, %14 ], [ 0, %.thread35 ], [ 0, %.thread37 ]
   ret i32 %17
 }
 
@@ -1041,12 +1041,12 @@ check_suite_b.exit67:                             ; preds = %65, %62
   tail call void @EVP_PKEY_free(ptr noundef nonnull %.1.lcssa) #8
   br label %96
 
-.thread:                                          ; preds = %.lr.ph, %53, %57, %59, %60, %64, %65, %49, %74, %80, %81, %83, %84, %78, %._crit_edge, %24, %28, %30, %34, %20
-  %.1150.sink = phi ptr [ %19, %20 ], [ %19, %28 ], [ %19, %34 ], [ %19, %30 ], [ %19, %24 ], [ %.1.lcssa, %74 ], [ %.1.lcssa, %80 ], [ %.1.lcssa, %81 ], [ %.1.lcssa, %83 ], [ %.1.lcssa, %84 ], [ %.1.lcssa, %78 ], [ %.1.lcssa, %._crit_edge ], [ %48, %53 ], [ %48, %57 ], [ %48, %59 ], [ %48, %60 ], [ %48, %64 ], [ %48, %65 ], [ %48, %49 ], [ %.1165, %.lr.ph ]
-  %.080103121 = phi i64 [ %3, %20 ], [ %3, %28 ], [ %3, %34 ], [ %3, %30 ], [ %3, %24 ], [ %.181.lcssa, %74 ], [ %.181.lcssa, %80 ], [ %.181.lcssa, %81 ], [ %.181.lcssa, %83 ], [ %.181.lcssa, %84 ], [ %.181.lcssa, %78 ], [ %.181.lcssa, %._crit_edge ], [ %.181162, %49 ], [ %.181162, %65 ], [ %.181162, %64 ], [ %.181162, %60 ], [ %.181162, %59 ], [ %.181162, %57 ], [ %.181162, %53 ], [ %.181162, %.lr.ph ]
-  %87 = phi i1 [ false, %20 ], [ false, %28 ], [ true, %34 ], [ true, %30 ], [ false, %24 ], [ false, %74 ], [ false, %80 ], [ true, %81 ], [ false, %83 ], [ true, %84 ], [ false, %78 ], [ false, %._crit_edge ], [ false, %53 ], [ false, %57 ], [ false, %59 ], [ true, %60 ], [ false, %64 ], [ true, %65 ], [ false, %49 ], [ false, %.lr.ph ]
-  %.041105120 = phi i32 [ 57, %20 ], [ 58, %28 ], [ 60, %34 ], [ 60, %30 ], [ 57, %24 ], [ 57, %74 ], [ 59, %80 ], [ 60, %81 ], [ 59, %83 ], [ 60, %84 ], [ 58, %78 ], [ 57, %._crit_edge ], [ 57, %53 ], [ 58, %57 ], [ 59, %59 ], [ 60, %60 ], [ 59, %64 ], [ 60, %65 ], [ 57, %49 ], [ 56, %.lr.ph ]
-  %.139107119 = phi i64 [ 0, %20 ], [ 0, %28 ], [ 0, %34 ], [ 0, %30 ], [ 0, %24 ], [ %.2.lcssa, %74 ], [ %.2.lcssa, %80 ], [ %.2.lcssa, %81 ], [ %.2.lcssa, %83 ], [ %.2.lcssa, %84 ], [ %.2.lcssa, %78 ], [ %.2.lcssa, %._crit_edge ], [ %.2164, %49 ], [ %.2164, %65 ], [ %.2164, %64 ], [ %.2164, %60 ], [ %.2164, %59 ], [ %.2164, %57 ], [ %.2164, %53 ], [ %.2164, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %53, %57, %59, %60, %64, %65, %49, %74, %._crit_edge, %80, %81, %83, %84, %78, %24, %28, %30, %34, %20
+  %.1150.sink = phi ptr [ %.1.lcssa, %74 ], [ %19, %28 ], [ %19, %34 ], [ %19, %30 ], [ %19, %20 ], [ %19, %24 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %80 ], [ %.1.lcssa, %81 ], [ %.1.lcssa, %83 ], [ %.1.lcssa, %84 ], [ %.1.lcssa, %78 ], [ %48, %49 ], [ %48, %53 ], [ %48, %57 ], [ %48, %59 ], [ %48, %60 ], [ %48, %64 ], [ %48, %65 ], [ %.1165, %.lr.ph ]
+  %.080103121 = phi i64 [ %.181.lcssa, %74 ], [ %3, %28 ], [ %3, %34 ], [ %3, %30 ], [ %3, %20 ], [ %3, %24 ], [ %.181.lcssa, %._crit_edge ], [ %.181.lcssa, %80 ], [ %.181.lcssa, %81 ], [ %.181.lcssa, %83 ], [ %.181.lcssa, %84 ], [ %.181.lcssa, %78 ], [ %.181162, %49 ], [ %.181162, %65 ], [ %.181162, %64 ], [ %.181162, %60 ], [ %.181162, %59 ], [ %.181162, %57 ], [ %.181162, %53 ], [ %.181162, %.lr.ph ]
+  %87 = phi i1 [ false, %74 ], [ false, %28 ], [ true, %34 ], [ true, %30 ], [ false, %20 ], [ false, %24 ], [ false, %._crit_edge ], [ false, %80 ], [ true, %81 ], [ false, %83 ], [ true, %84 ], [ false, %78 ], [ false, %49 ], [ false, %53 ], [ false, %57 ], [ false, %59 ], [ true, %60 ], [ false, %64 ], [ true, %65 ], [ false, %.lr.ph ]
+  %.041105120 = phi i32 [ 57, %74 ], [ 58, %28 ], [ 60, %34 ], [ 60, %30 ], [ 57, %20 ], [ 57, %24 ], [ 57, %._crit_edge ], [ 59, %80 ], [ 60, %81 ], [ 59, %83 ], [ 60, %84 ], [ 58, %78 ], [ 57, %49 ], [ 57, %53 ], [ 58, %57 ], [ 59, %59 ], [ 60, %60 ], [ 59, %64 ], [ 60, %65 ], [ 56, %.lr.ph ]
+  %.139107119 = phi i64 [ %.2.lcssa, %74 ], [ 0, %28 ], [ 0, %34 ], [ 0, %30 ], [ 0, %20 ], [ 0, %24 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %80 ], [ %.2.lcssa, %81 ], [ %.2.lcssa, %83 ], [ %.2.lcssa, %84 ], [ %.2.lcssa, %78 ], [ %.2164, %49 ], [ %.2164, %65 ], [ %.2164, %64 ], [ %.2164, %60 ], [ %.2164, %59 ], [ %.2164, %57 ], [ %.2164, %53 ], [ %.2164, %.lr.ph ]
   tail call void @EVP_PKEY_free(ptr noundef nonnull %.1150.sink) #8
   %.not56 = icmp eq i64 %3, %.080103121
   %spec.select58 = select i1 %.not56, i32 60, i32 61
@@ -1056,10 +1056,10 @@ check_suite_b.exit67:                             ; preds = %65, %62
   %90 = select i1 %87, i1 true, i1 %89
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %X509_get_pubkey.exit61, %43, %.thread, %14, %X509_get_pubkey.exit, %10
-  %.139107119199 = phi i64 [ 0, %14 ], [ 0, %X509_get_pubkey.exit ], [ 0, %10 ], [ %.139107119, %.thread ], [ %.2164, %43 ], [ %.2164, %X509_get_pubkey.exit61 ]
-  %.041105120198 = phi i1 [ false, %14 ], [ false, %X509_get_pubkey.exit ], [ false, %10 ], [ %90, %.thread ], [ false, %43 ], [ false, %X509_get_pubkey.exit61 ]
-  %91 = phi i32 [ 57, %14 ], [ 57, %X509_get_pubkey.exit ], [ 56, %10 ], [ %spec.select216, %.thread ], [ 57, %43 ], [ 57, %X509_get_pubkey.exit61 ]
+.thread.thread:                                   ; preds = %X509_get_pubkey.exit61, %43, %.thread, %X509_get_pubkey.exit, %14, %10
+  %.139107119199 = phi i64 [ %.139107119, %.thread ], [ 0, %X509_get_pubkey.exit ], [ 0, %14 ], [ 0, %10 ], [ %.2164, %43 ], [ %.2164, %X509_get_pubkey.exit61 ]
+  %.041105120198 = phi i1 [ %90, %.thread ], [ false, %X509_get_pubkey.exit ], [ false, %14 ], [ false, %10 ], [ false, %43 ], [ false, %X509_get_pubkey.exit61 ]
+  %91 = phi i32 [ %spec.select216, %.thread ], [ 57, %X509_get_pubkey.exit ], [ 57, %14 ], [ 56, %10 ], [ 57, %43 ], [ 57, %X509_get_pubkey.exit61 ]
   %.not57 = icmp eq ptr %0, null
   br i1 %.not57, label %96, label %92
 
@@ -1142,7 +1142,7 @@ define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly c
   br label %check_suite_b.exit
 
 check_suite_b.exit:                               ; preds = %27, %25, %24, %22, %21, %19, %15, %11, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ 57, %15 ], [ 59, %21 ], [ 60, %22 ], [ 59, %24 ], [ 60, %25 ], [ 58, %19 ], [ 57, %11 ], [ 57, %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ 57, %15 ], [ 0, %27 ], [ 59, %21 ], [ 60, %22 ], [ 59, %24 ], [ 60, %25 ], [ 58, %19 ], [ 57, %11 ], [ 57, %5 ]
   ret i32 %.0
 }
 

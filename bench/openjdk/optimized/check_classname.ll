@@ -77,7 +77,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   br label %skip_over_field_signature.exit
 
 skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
-  %.0 = phi ptr [ %32, %31 ], [ %14, %13 ], [ null, %15 ], [ %spec.select.i, %23 ], [ null, %11 ], [ null, %27 ]
+  %.0 = phi ptr [ %32, %31 ], [ %14, %13 ], [ %spec.select.i, %23 ], [ null, %15 ], [ null, %11 ], [ null, %27 ]
   %.not16 = icmp ne ptr %.0, null
   %33 = ptrtoint ptr %.0 to i64
   %34 = ptrtoint ptr %0 to i64
@@ -179,8 +179,8 @@ default.unreachable106:                           ; preds = %15
   %39 = or disjoint i16 %38, %37
   br label %41
 
-.thread:                                          ; preds = %29, %25, %17
-  %.0.i38.ph.ph = phi i64 [ 1, %17 ], [ 1, %25 ], [ 2, %29 ]
+.thread:                                          ; preds = %25, %17, %29
+  %.0.i38.ph.ph = phi i64 [ 2, %29 ], [ 1, %17 ], [ 1, %25 ]
   %40 = getelementptr inbounds nuw i8, ptr %.03288, i64 %.0.i38.ph.ph
   br label %isJvmIdentifier.exit.thread51
 
@@ -231,8 +231,8 @@ isJvmIdentifier.exit.thread:                      ; preds = %47, %12
   br label %next_utf2unicode.exit
 
 isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %41, %7, %53, %isJvmIdentifier.exit46, %isJvmIdentifier.exit
-  %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %53 ], [ %44, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %40, %.thread ], [ %44, %41 ]
-  %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %53 ], [ %43, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %43, %41 ]
+  %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %53 ], [ %44, %41 ], [ %44, %isJvmIdentifier.exit46 ], [ %40, %.thread ], [ %9, %7 ]
+  %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %53 ], [ %43, %41 ], [ %43, %isJvmIdentifier.exit46 ], [ 128, %.thread ], [ %8, %7 ]
   %.not = icmp eq ptr %.133, %4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
@@ -242,7 +242,7 @@ isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %41, %7, %
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, %15, %53, %2, %._crit_edge.loopexit, %.loopexit
-  %.0 = phi ptr [ %56, %.loopexit ], [ null, %2 ], [ %58, %._crit_edge.loopexit ], [ null, %53 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ]
+  %.0 = phi ptr [ %56, %.loopexit ], [ %58, %._crit_edge.loopexit ], [ null, %2 ], [ null, %53 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -302,7 +302,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr noundef captures
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %5, %15, %7, %11
-  %.0.i = phi i64 [ 1, %11 ], [ %spec.select, %7 ], [ %spec.select9, %15 ], [ 1, %5 ]
+  %.0.i = phi i64 [ %spec.select9, %15 ], [ 1, %11 ], [ %spec.select, %7 ], [ 1, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
   br label %2, !llvm.loop !9
 
@@ -365,7 +365,7 @@ define hidden void @fixClassname(ptr noundef captures(none) %0) local_unnamed_ad
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %3, %13, %5, %9
-  %.0.i = phi i64 [ 1, %9 ], [ %spec.select, %5 ], [ %spec.select5, %13 ], [ 1, %3 ]
+  %.0.i = phi i64 [ %spec.select5, %13 ], [ 1, %9 ], [ %spec.select, %5 ], [ 1, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %.036, i64 %.0.i
   br label %.backedge.backedge
 

@@ -77,9 +77,9 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %23, %15
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, %10, %10
-  %.val14.i = phi i32 [ %8, %10 ], [ %8, %10 ], [ %.val14.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %8, %select.unfold.i.i.i ]
-  %.val.i = phi i32 [ %11, %10 ], [ %11, %10 ], [ %.val.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %11, %select.unfold.i.i.i ]
-  %32 = phi i32 [ %6, %10 ], [ %6, %10 ], [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %6, %select.unfold.i.i.i ]
+  %.val14.i = phi i32 [ %.val14.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %8, %10 ], [ %8, %10 ], [ %8, %select.unfold.i.i.i ]
+  %.val.i = phi i32 [ %.val.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %11, %10 ], [ %11, %10 ], [ %11, %select.unfold.i.i.i ]
+  %32 = phi i32 [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %6, %10 ], [ %6, %10 ], [ %6, %select.unfold.i.i.i ]
   %33 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef readonly %0, i32 %.val.i, i32 %.val14.i, i32 noundef %32, ptr noundef nonnull %2)
   %.pre31.i = load i32, ptr %5, align 4, !tbaa !3
   br label %_ZN3url12_GLOBAL__N_16DoPathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
@@ -200,9 +200,9 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %23, %15
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, %10, %10
-  %.val14.i = phi i32 [ %8, %10 ], [ %8, %10 ], [ %.val14.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %8, %select.unfold.i.i.i ]
-  %.val.i = phi i32 [ %11, %10 ], [ %11, %10 ], [ %.val.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %11, %select.unfold.i.i.i ]
-  %32 = phi i32 [ %6, %10 ], [ %6, %10 ], [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %6, %select.unfold.i.i.i ]
+  %.val14.i = phi i32 [ %.val14.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %8, %10 ], [ %8, %10 ], [ %8, %select.unfold.i.i.i ]
+  %.val.i = phi i32 [ %.val.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %11, %10 ], [ %11, %10 ], [ %11, %select.unfold.i.i.i ]
+  %32 = phi i32 [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %6, %10 ], [ %6, %10 ], [ %6, %select.unfold.i.i.i ]
   %33 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 %.val.i, i32 %.val14.i, i32 noundef %32, ptr noundef nonnull %2)
   %.pre31.i = load i32, ptr %5, align 4, !tbaa !3
   br label %_ZN3url12_GLOBAL__N_16DoPathIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_.exit
@@ -439,8 +439,8 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   %79 = add i32 %78, %.0.i.ph
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit89
 
-80:                                               ; preds = %38, %41, %41
-  %.sink.i.ph = phi i32 [ 1, %41 ], [ 1, %41 ], [ 0, %38 ]
+80:                                               ; preds = %41, %41, %38
+  %.sink.i.ph = phi i32 [ 1, %41 ], [ 0, %38 ], [ 1, %41 ]
   %81 = add i32 %storemerge79, -1
   %82 = add i32 %81, %.0.i.ph
   %83 = add i32 %82, %.sink.i.ph
@@ -708,8 +708,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %207, %197
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, %187
-  %215 = phi i32 [ %214, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %185, %187 ], [ %185, %select.unfold.i.i.i ]
-  %216 = phi ptr [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %188, %187 ], [ %188, %select.unfold.i.i.i ]
+  %215 = phi i32 [ %185, %187 ], [ %214, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %185, %select.unfold.i.i.i ]
+  %216 = phi ptr [ %188, %187 ], [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %188, %select.unfold.i.i.i ]
   %217 = add nsw i32 %.082, 3
   %218 = icmp sgt i32 %217, %215
   br i1 %218, label %274, label %219
@@ -781,7 +781,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i: ; preds = %243, %236
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit39.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit39.i:    ; preds = %select.unfold.i.i32.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i, %235
-  %252 = phi ptr [ %.pre62.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i ], [ %216, %235 ], [ %216, %select.unfold.i.i32.i ]
+  %252 = phi ptr [ %216, %235 ], [ %.pre62.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i ], [ %216, %select.unfold.i.i32.i ]
   %253 = getelementptr i8, ptr %252, i64 %220
   %254 = getelementptr i8, ptr %253, i64 1
   store i8 50, ptr %254, align 1, !tbaa !13
@@ -1070,9 +1070,9 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150: ; preds = %346, %354
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit89
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit89:      ; preds = %select.unfold.i.i82, %select.unfold.i.i42.i, %select.unfold.i.i137, %select.unfold.i.i147, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150, %_ZN3url12CanonOutputTIcE9push_backEc.exit101, %_ZN3url12CanonOutputTIcE9push_backEc.exit134, %195, %274, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85, %_ZN3url12CanonOutputTIcE9push_backEc.exit, %80, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %_ZN3url12CanonOutputTIcE9push_backEc.exit79, %343, %345, %342
-  %.218 = phi i32 [ %118, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %storemerge79, %343 ], [ %storemerge79, %345 ], [ %storemerge79, %342 ], [ %79, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %83, %80 ], [ %100, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %163, %195 ], [ %163, %274 ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %storemerge79, %select.unfold.i.i147 ], [ %storemerge79, %select.unfold.i.i137 ], [ %163, %select.unfold.i.i42.i ], [ %storemerge79, %select.unfold.i.i82 ]
-  %.4 = phi i1 [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %.05380, %343 ], [ %.05380, %345 ], [ false, %342 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05380, %80 ], [ %.05380, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %.05380, %195 ], [ %.05380, %274 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %.05380, %select.unfold.i.i147 ], [ %.05380, %select.unfold.i.i137 ], [ %.05380, %select.unfold.i.i42.i ], [ %.05380, %select.unfold.i.i82 ]
-  %.3 = phi i32 [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %.082, %343 ], [ %.082, %345 ], [ %.082, %342 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.082, %80 ], [ %.082, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.082, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %.082, %195 ], [ %.082, %274 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %324, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %.082, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %.082, %select.unfold.i.i147 ], [ %324, %select.unfold.i.i137 ], [ %.082, %select.unfold.i.i42.i ], [ %.082, %select.unfold.i.i82 ]
+  %.218 = phi i32 [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %118, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %storemerge79, %343 ], [ %storemerge79, %345 ], [ %storemerge79, %342 ], [ %100, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %79, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %83, %80 ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %163, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %163, %195 ], [ %163, %274 ], [ %storemerge79, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %163, %select.unfold.i.i42.i ], [ %storemerge79, %select.unfold.i.i147 ], [ %storemerge79, %select.unfold.i.i137 ], [ %storemerge79, %select.unfold.i.i82 ]
+  %.4 = phi i1 [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %.05380, %343 ], [ %.05380, %345 ], [ false, %342 ], [ %.05380, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05380, %80 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %.05380, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %.05380, %195 ], [ %.05380, %274 ], [ %.05380, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %.05380, %select.unfold.i.i42.i ], [ %.05380, %select.unfold.i.i147 ], [ %.05380, %select.unfold.i.i137 ], [ %.05380, %select.unfold.i.i82 ]
+  %.3 = phi i32 [ %324, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i140 ], [ %.082, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i85 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit79 ], [ %.082, %343 ], [ %.082, %345 ], [ %.082, %342 ], [ %.082, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.082, %80 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit134 ], [ %.082, %_ZN3url12CanonOutputTIcE9push_backEc.exit101 ], [ %.082, %195 ], [ %.082, %274 ], [ %.082, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i150 ], [ %.082, %select.unfold.i.i42.i ], [ %.082, %select.unfold.i.i147 ], [ %324, %select.unfold.i.i137 ], [ %.082, %select.unfold.i.i82 ]
   %363 = add nsw i32 %.218, 1
   %364 = icmp slt i32 %363, %4
   br i1 %364, label %9, label %._crit_edge, !llvm.loop !23
@@ -1287,8 +1287,8 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   store i32 %92, ptr %5, align 4, !tbaa !24
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
-93:                                               ; preds = %50, %53, %53
-  %.sink.i.ph = phi i32 [ 1, %53 ], [ 1, %53 ], [ 0, %50 ]
+93:                                               ; preds = %53, %53, %50
+  %.sink.i.ph = phi i32 [ 1, %53 ], [ 0, %50 ], [ 1, %53 ]
   %94 = add i32 %storemerge62, -1
   %95 = add i32 %94, %.0.i.ph
   %96 = add i32 %95, %.sink.i.ph
@@ -1579,8 +1579,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %232, %224
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, %207
-  %240 = phi i32 [ %239, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %205, %207 ], [ %205, %select.unfold.i.i.i ]
-  %241 = phi ptr [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %210, %207 ], [ %210, %select.unfold.i.i.i ]
+  %240 = phi i32 [ %205, %207 ], [ %239, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %205, %select.unfold.i.i.i ]
+  %241 = phi ptr [ %210, %207 ], [ %.pre.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %210, %select.unfold.i.i.i ]
   %242 = add nsw i32 %.065, 3
   %243 = icmp sgt i32 %242, %240
   br i1 %243, label %299, label %244
@@ -1652,7 +1652,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i: ; preds = %268, %261
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit39.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit39.i:    ; preds = %select.unfold.i.i32.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i, %260
-  %277 = phi ptr [ %.pre62.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i ], [ %241, %260 ], [ %241, %select.unfold.i.i32.i ]
+  %277 = phi ptr [ %241, %260 ], [ %.pre62.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i35.i ], [ %241, %select.unfold.i.i32.i ]
   %278 = getelementptr i8, ptr %277, i64 %245
   %279 = getelementptr i8, ptr %278, i64 1
   store i8 50, ptr %279, align 1, !tbaa !13
@@ -1942,8 +1942,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156: ; preds = %377, %385
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit95:      ; preds = %select.unfold.i.i88, %select.unfold.i.i42.i, %select.unfold.i.i143, %select.unfold.i.i153, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156, %_ZN3url12CanonOutputTIcE9push_backEc.exit107, %_ZN3url12CanonOutputTIcE9push_backEc.exit140, %217, %219, %299, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91, %_ZN3url12CanonOutputTIcE9push_backEc.exit, %93, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit, %373, %376, %374, %_ZN3url12CanonOutputTIcE9push_backEc.exit85, %17
-  %.159 = phi i8 [ %22, %17 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ 0, %373 ], [ %.05863, %376 ], [ %.05863, %374 ], [ %.05863, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05863, %93 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.05863, %217 ], [ %.05863, %219 ], [ %.05863, %299 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.05863, %select.unfold.i.i153 ], [ %.05863, %select.unfold.i.i143 ], [ %.05863, %select.unfold.i.i42.i ], [ %.05863, %select.unfold.i.i88 ]
-  %.1 = phi i32 [ %.065, %17 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ %.065, %373 ], [ %.065, %376 ], [ %.065, %374 ], [ %.065, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.065, %93 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.065, %217 ], [ %.065, %219 ], [ %.065, %299 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %355, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.065, %select.unfold.i.i153 ], [ %355, %select.unfold.i.i143 ], [ %.065, %select.unfold.i.i42.i ], [ %.065, %select.unfold.i.i88 ]
+  %.159 = phi i8 [ %22, %17 ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.05863, %374 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ 0, %373 ], [ %.05863, %376 ], [ %.05863, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.05863, %93 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %spec.select, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.05863, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %.05863, %217 ], [ %.05863, %219 ], [ %.05863, %299 ], [ %.05863, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.05863, %select.unfold.i.i42.i ], [ %.05863, %select.unfold.i.i153 ], [ %.05863, %select.unfold.i.i143 ], [ %.05863, %select.unfold.i.i88 ]
+  %.1 = phi i32 [ %.065, %17 ], [ %355, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i146 ], [ %.065, %374 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit85 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i91 ], [ %.065, %373 ], [ %.065, %376 ], [ %.065, %_ZN3url12_GLOBAL__N_121BackUpToPreviousSlashEiPNS_12CanonOutputTIcEE.exit ], [ %.065, %93 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit49.sink.split.i ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit140 ], [ %.065, %_ZN3url12CanonOutputTIcE9push_backEc.exit107 ], [ %.065, %217 ], [ %.065, %219 ], [ %.065, %299 ], [ %.065, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i156 ], [ %.065, %select.unfold.i.i42.i ], [ %.065, %select.unfold.i.i153 ], [ %355, %select.unfold.i.i143 ], [ %.065, %select.unfold.i.i88 ]
   %394 = load i32, ptr %5, align 4, !tbaa !24
   %395 = add nsw i32 %394, 1
   store i32 %395, ptr %5, align 4, !tbaa !24

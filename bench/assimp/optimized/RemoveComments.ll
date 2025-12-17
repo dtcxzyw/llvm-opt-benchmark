@@ -71,7 +71,7 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.lr.ph
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !3
 
 .critedge2:                                       ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %18
-  %.4 = phi i64 [ %.1, %18 ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ]
+  %.4 = phi i64 [ %.1, %18 ], [ %.343, %.lr.ph ], [ %5, %_ZN6Assimp9IsLineEndIcEEbT_.exit ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ], [ %.343, %.lr.ph ]
   %25 = add i64 %.4, 1
   %26 = icmp ult i64 %25, %5
   br i1 %26, label %.lr.ph53, label %.critedge._crit_edge, !llvm.loop !5

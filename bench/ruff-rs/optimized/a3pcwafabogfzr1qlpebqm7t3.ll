@@ -83,8 +83,8 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
 36:                                               ; preds = %63, %12
   ret void
 
-37:                                               ; preds = %28, %24, %29, %32
-  %.sroa.3.0.i.ph = phi i8 [ %spec.select.i, %32 ], [ 1, %29 ], [ 1, %24 ], [ 0, %28 ]
+37:                                               ; preds = %24, %28, %29, %32
+  %.sroa.3.0.i.ph = phi i8 [ %spec.select.i, %32 ], [ 1, %29 ], [ 0, %28 ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 %.sroa.3.0.i.ph, ptr %8, align 1
@@ -188,7 +188,7 @@ define hidden range(i8 0, 4) i8 @_ZN16ruff_source_file8newlines4Line11line_endin
   br label %.thread
 
 .thread:                                          ; preds = %14, %11, %9, %1, %13
-  %.sroa.0.0 = phi i8 [ 1, %13 ], [ 3, %1 ], [ 3, %9 ], [ 0, %11 ], [ %spec.select, %14 ]
+  %.sroa.0.0 = phi i8 [ 1, %13 ], [ 3, %9 ], [ 3, %1 ], [ 0, %11 ], [ %spec.select, %14 ]
   ret i8 %.sroa.0.0
 }
 

@@ -440,7 +440,7 @@ define dso_local noundef zeroext i1 @_ZNK22cmWhileFunctionBlocker14ArgumentsMatc
   br label %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i
 
 _ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i:   ; preds = %29, %27
-  %33 = phi i1 [ %32, %29 ], [ true, %27 ]
+  %33 = phi i1 [ true, %27 ], [ %32, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 32
@@ -456,7 +456,7 @@ _ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i:   ; preds = %29, %27
   br i1 %.not.i.i.i.i.i, label %_ZSteqI18cmListFileArgumentSaIS0_EEbRKSt6vectorIT_T0_ES7_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !53
 
 _ZSteqI18cmListFileArgumentSaIS0_EEbRKSt6vectorIT_T0_ES7_.exit: ; preds = %40, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %10, %3
-  %43 = phi i1 [ true, %3 ], [ false, %10 ], [ false, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i ], [ true, %40 ], [ false, %.lr.ph.i.i.i.i.i ]
+  %43 = phi i1 [ true, %3 ], [ false, %10 ], [ true, %40 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %_ZNK18cmListFileArgumenteqERKS_.exit.i.i.i.i.i ]
   ret i1 %43
 }
 
@@ -1089,8 +1089,8 @@ _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit: ; preds = %260
   br label %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread
 
 _ZN13cmSystemTools21GetFatalErrorOccurredEv.exit.thread: ; preds = %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit, %257, %250, %247, %256, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %cond2 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ false, %256 ], [ false, %247 ], [ false, %250 ], [ false, %257 ], [ %not., %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
-  %.254 = phi i32 [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 1, %256 ], [ 1, %247 ], [ 4, %250 ], [ 1, %257 ], [ %spec.select197, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ]
+  %cond2 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ false, %250 ], [ false, %247 ], [ false, %256 ], [ %not., %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ false, %257 ]
+  %.254 = phi i32 [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 4, %250 ], [ 1, %247 ], [ 1, %256 ], [ %spec.select197, %_ZN13cmSystemTools21GetFatalErrorOccurredEv.exit ], [ 1, %257 ]
   %262 = load ptr, ptr %131, align 8, !tbaa !88
   %263 = load ptr, ptr %138, align 8, !tbaa !87
   %.not4.i.i.i.i.i = icmp eq ptr %262, %263
@@ -1147,7 +1147,7 @@ _ZN17cmExecutionStatusD2Ev.exit:                  ; preds = %_ZNSt6vectorINSt7__
   br i1 %cond2, label %169, label %._crit_edge.loopexit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit97: ; preds = %242, %.loopexit206, %.loopexit.split-lp207, %222, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i95, %238
-  %.pn56 = phi { ptr, i32 } [ %239, %238 ], [ %239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i95 ], [ %217, %222 ], [ %lpad.loopexit208, %.loopexit206 ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp207 ], [ %239, %242 ]
+  %.pn56 = phi { ptr, i32 } [ %239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i95 ], [ %239, %238 ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp207 ], [ %217, %222 ], [ %lpad.loopexit208, %.loopexit206 ], [ %239, %242 ]
   call void @_ZN17cmExecutionStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %305
@@ -1690,7 +1690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %45
   br label %.thread193
 
 464:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137, %440
-  %.pn63.pn.pn = phi { ptr, i32 } [ %441, %440 ], [ %.pn61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ], [ %.pn63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137 ], [ %441, %440 ], [ %.pn63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %465 = load ptr, ptr %18, align 8, !tbaa !44
   %466 = icmp eq ptr %465, %338
   br i1 %466, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141

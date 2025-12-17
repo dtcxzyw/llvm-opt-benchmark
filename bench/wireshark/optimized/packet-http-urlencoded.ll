@@ -352,7 +352,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
   br i1 %.not76, label %.loopexit, label %.lr.ph92, !llvm.loop !8
 
 .loopexit:                                        ; preds = %26, %21, %18, %51, %67, %.loopexit77, %46
-  %.0 = phi i32 [ %50, %46 ], [ %3, %.loopexit77 ], [ %42, %51 ], [ %71, %67 ], [ -1, %18 ], [ -1, %21 ], [ -1, %26 ]
+  %.0 = phi i32 [ %50, %46 ], [ %3, %.loopexit77 ], [ %71, %67 ], [ %42, %51 ], [ -1, %18 ], [ -1, %21 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -341,7 +341,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   br label %197
 
 197:                                              ; preds = %.loopexit.thread, %.loopexit, %33, %._crit_edge
-  %.0 = phi i32 [ %196, %._crit_edge ], [ 0, %33 ], [ 0, %.loopexit ], [ 0, %.loopexit.thread ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %33 ], [ %196, %._crit_edge ], [ 0, %.loopexit.thread ]
   ret i32 %.0
 }
 

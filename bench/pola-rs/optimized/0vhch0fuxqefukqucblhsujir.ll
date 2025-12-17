@@ -4422,7 +4422,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %14
 
 .body.i.i:                                        ; preds = %27, %23, %12
-  %.pn.i.i = phi { ptr, i32 } [ %13, %12 ], [ %24, %27 ], [ %24, %23 ]
+  %.pn.i.i = phi { ptr, i32 } [ %24, %23 ], [ %13, %12 ], [ %24, %27 ]
   %11 = icmp ne ptr %.sroa.03.0.copyload, null
   call void @llvm.assume(i1 %11)
   store i64 %.val12.i.i, ptr %.sroa.03.0.copyload, align 8, !noalias !969

@@ -516,7 +516,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   br label %_get_node_energy.exit
 
 _get_node_energy.exit:                            ; preds = %142, %127, %139, %.preheader, %108, %105, %._crit_edge.i48, %86, %83, %._crit_edge.i43, %38, %30, %27, %._crit_edge.i, %125, %146, %124, %118
-  %.029 = phi i32 [ -1, %146 ], [ 0, %118 ], [ 0, %124 ], [ 0, %125 ], [ 0, %._crit_edge.i ], [ 0, %27 ], [ 0, %30 ], [ 0, %38 ], [ 0, %._crit_edge.i43 ], [ 0, %83 ], [ 0, %86 ], [ 0, %._crit_edge.i48 ], [ 0, %105 ], [ 0, %108 ], [ 0, %.preheader ], [ 0, %139 ], [ 0, %127 ], [ 0, %142 ]
+  %.029 = phi i32 [ -1, %146 ], [ 0, %30 ], [ 0, %86 ], [ 0, %118 ], [ 0, %124 ], [ 0, %125 ], [ 0, %._crit_edge.i ], [ 0, %27 ], [ 0, %38 ], [ 0, %._crit_edge.i43 ], [ 0, %83 ], [ 0, %._crit_edge.i48 ], [ 0, %105 ], [ 0, %108 ], [ 0, %.preheader ], [ 0, %139 ], [ 0, %127 ], [ 0, %142 ]
   %148 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
   %.not38 = icmp eq i32 %148, 0
   br i1 %.not38, label %151, label %149
@@ -807,7 +807,7 @@ define dso_local noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr 
   br label %37
 
 37:                                               ; preds = %7, %20, %23, %17, %28, %31, %32, %35, %2
-  %.0 = phi i32 [ -1, %35 ], [ 0, %2 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 2072, %31 ], [ 2072, %28 ], [ %16, %32 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %35 ], [ 0, %2 ], [ %16, %32 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 2072, %31 ], [ 2072, %28 ], [ 0, %7 ]
   ret i32 %.0
 }
 

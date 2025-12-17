@@ -689,7 +689,7 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   br i1 %.not37, label %.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %64, %67, %35, %56, %53
-  %.030 = phi i32 [ %51, %56 ], [ -5, %53 ], [ -1414092869, %35 ], [ -5, %67 ], [ -110, %64 ], [ -11, %.thread ]
+  %.030 = phi i32 [ -5, %67 ], [ -5, %53 ], [ %51, %56 ], [ -1414092869, %35 ], [ -11, %.thread ], [ -110, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -811,8 +811,8 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread118, %.thread118.thread
-  %.str.36.sink = phi ptr [ @.str.36, %.thread118.thread ], [ @.str.37, %.thread118 ], [ %.str.36.sink.ph, %.sink.split.sink.split ]
-  %.068116.ph = phi i32 [ %.068117121, %.thread118.thread ], [ %.068114, %.thread118 ], [ %.068116.ph.ph, %.sink.split.sink.split ]
+  %.str.36.sink = phi ptr [ @.str.37, %.thread118 ], [ @.str.36, %.thread118.thread ], [ %.str.36.sink.ph, %.sink.split.sink.split ]
+  %.068116.ph = phi i32 [ %.068114, %.thread118 ], [ %.068117121, %.thread118.thread ], [ %.068116.ph.ph, %.sink.split.sink.split ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull %.str.36.sink) #12
   br label %46
 
@@ -846,7 +846,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %63
 
 63:                                               ; preds = %59, %53, %50, %21
-  %.171 = phi i32 [ %2, %21 ], [ %51, %50 ], [ %62, %59 ], [ %57, %53 ]
+  %.171 = phi i32 [ %51, %50 ], [ %2, %21 ], [ %62, %59 ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
@@ -891,7 +891,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %82
 
 82:                                               ; preds = %71, %78, %74, %64, %3, %81, %63
-  %.070 = phi i32 [ %.171, %63 ], [ %79, %81 ], [ -22, %3 ], [ %69, %64 ], [ %69, %74 ], [ %69, %78 ], [ %69, %71 ]
+  %.070 = phi i32 [ %79, %81 ], [ %.171, %63 ], [ -22, %3 ], [ %69, %64 ], [ %69, %71 ], [ %69, %74 ], [ %69, %78 ]
   ret i32 %.070
 }
 

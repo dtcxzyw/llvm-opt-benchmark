@@ -130,7 +130,7 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
   %.not.i = icmp eq i8 %.pre41.i, 0
   br i1 %.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !34
 
-.thread:                                          ; preds = %14, %10, %4
+.thread:                                          ; preds = %4, %14, %10
   %35 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %42
 

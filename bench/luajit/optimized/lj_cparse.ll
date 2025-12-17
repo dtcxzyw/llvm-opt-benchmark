@@ -730,7 +730,7 @@ cp_check.exit.i:                                  ; preds = %279
   br label %282
 
 282:                                              ; preds = %cp_check.exit.i, %cp_pragma.exit.i, %cp_line.exit83.i, %cp_line.exit.i, %cp_opt.exit.i
-  %.1.i = phi i32 [ 0, %cp_check.exit.i ], [ 0, %cp_opt.exit.i ], [ %.0117.i, %cp_pragma.exit.i ], [ %.0117.i, %cp_line.exit83.i ], [ %.0117.i, %cp_line.exit.i ]
+  %.1.i = phi i32 [ 0, %cp_check.exit.i ], [ 0, %cp_opt.exit.i ], [ %.0117.i, %cp_line.exit.i ], [ %.0117.i, %cp_line.exit83.i ], [ %.0117.i, %cp_pragma.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %283 = load i32, ptr %28, align 4, !tbaa !64
   %.not.i = icmp eq i32 %283, 259
@@ -1273,7 +1273,7 @@ cp_get.exit60.i.i:                                ; preds = %214, %205
   br label %cp_get.exit57.i.i
 
 cp_get.exit57.i.i:                                ; preds = %229, %220, %cp_get.exit60.i.i, %cp_get.exit63.i.i
-  %.2.i.i = phi i32 [ %209, %cp_get.exit60.i.i ], [ %194, %cp_get.exit63.i.i ], [ %224, %220 ], [ %224, %229 ]
+  %.2.i.i = phi i32 [ %194, %cp_get.exit63.i.i ], [ %209, %cp_get.exit60.i.i ], [ %224, %220 ], [ %224, %229 ]
   %231 = load ptr, ptr %135, align 8, !tbaa !45
   %232 = load ptr, ptr %3, align 8, !tbaa !97
   %233 = ptrtoint ptr %231 to i64
@@ -1296,7 +1296,7 @@ lj_buf_more.exit75.i.i:                           ; preds = %238, %cp_get.exit57
   br label %cp_get.exit54.i.i, !llvm.loop !103
 
 242:                                              ; preds = %188, %153, %152, %151, %150, %149, %148, %147, %cp_get.exit69.i.i, %136
-  %.0.i106.i = phi i32 [ %.0.i68.i.i, %188 ], [ 8, %147 ], [ 12, %148 ], [ 10, %149 ], [ 13, %150 ], [ 9, %151 ], [ 11, %152 ], [ 27, %153 ], [ %137, %136 ], [ 7, %cp_get.exit69.i.i ]
+  %.0.i106.i = phi i32 [ %.0.i68.i.i, %188 ], [ %137, %136 ], [ 8, %147 ], [ 12, %148 ], [ 10, %149 ], [ 13, %150 ], [ 9, %151 ], [ 11, %152 ], [ 27, %153 ], [ 7, %cp_get.exit69.i.i ]
   %243 = load ptr, ptr %135, align 8, !tbaa !45
   %244 = load ptr, ptr %3, align 8, !tbaa !97
   %245 = ptrtoint ptr %243 to i64
@@ -1945,7 +1945,7 @@ cp_get.exit94.i:                                  ; preds = %341, %cp_get.exit.i
   br i1 %.not.i, label %111, label %._crit_edge.i
 
 cp_next_.exit:                                    ; preds = %111, %332, %cp_number.exit.i, %cp_ident.exit.i, %268, %287, %cp_get.exit88.i, %350, %355, %cp_get.exit82.i, %364, %369, %cp_get.exit76.i, %378, %383, %cp_get.exit70.i, %392, %397, %407, %412, %414, %417, %422, %432, %437, %439, %442, %447, %cp_get.exit46.i, %456, %461, %491, %502, %523, %527, %530, %535
-  %.0.i = phi i32 [ 258, %cp_number.exit.i ], [ %.0.i101.i, %cp_ident.exit.i ], [ 124, %cp_get.exit88.i ], [ 38, %cp_get.exit82.i ], [ 61, %cp_get.exit76.i ], [ 33, %cp_get.exit70.i ], [ 60, %414 ], [ 62, %439 ], [ 45, %cp_get.exit46.i ], [ 257, %268 ], [ 258, %287 ], [ 260, %350 ], [ 260, %355 ], [ 261, %364 ], [ 261, %369 ], [ 262, %378 ], [ 262, %383 ], [ 263, %392 ], [ 263, %397 ], [ 264, %407 ], [ 264, %412 ], [ 266, %417 ], [ 266, %422 ], [ 265, %432 ], [ 265, %437 ], [ 267, %442 ], [ 267, %447 ], [ 268, %456 ], [ 268, %461 ], [ 256, %491 ], [ 258, %502 ], [ 36, %527 ], [ 36, %523 ], [ %112, %530 ], [ %112, %535 ], [ 47, %332 ], [ 259, %111 ]
+  %.0.i = phi i32 [ 45, %cp_get.exit46.i ], [ 36, %523 ], [ %112, %530 ], [ %.0.i101.i, %cp_ident.exit.i ], [ %112, %535 ], [ 258, %287 ], [ 124, %cp_get.exit88.i ], [ 260, %355 ], [ 38, %cp_get.exit82.i ], [ 261, %369 ], [ 61, %cp_get.exit76.i ], [ 262, %383 ], [ 263, %397 ], [ 264, %412 ], [ 33, %cp_get.exit70.i ], [ 266, %422 ], [ 265, %437 ], [ 60, %414 ], [ 62, %439 ], [ 267, %447 ], [ 268, %461 ], [ 258, %cp_number.exit.i ], [ 257, %268 ], [ 260, %350 ], [ 261, %364 ], [ 262, %378 ], [ 263, %392 ], [ 264, %407 ], [ 266, %417 ], [ 265, %432 ], [ 267, %442 ], [ 268, %456 ], [ 256, %491 ], [ 258, %502 ], [ 36, %527 ], [ 259, %111 ], [ 47, %332 ]
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.i, ptr %542, align 4, !tbaa !64
   ret i32 %.0.i
@@ -2095,7 +2095,7 @@ lj_buf_more.exit:                                 ; preds = %27, %36
   br label %cp_tok2str.exit
 
 cp_tok2str.exit:                                  ; preds = %56, %54, %42, %3, %lj_buf_more.exit
-  %.029 = phi ptr [ %39, %lj_buf_more.exit ], [ null, %3 ], [ %46, %42 ], [ %57, %56 ], [ %55, %54 ]
+  %.029 = phi ptr [ null, %3 ], [ %39, %lj_buf_more.exit ], [ %46, %42 ], [ %57, %56 ], [ %55, %54 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -2442,7 +2442,7 @@ cp_check.exit.us:                                 ; preds = %104, %101
   br label %.backedge.us
 
 .backedge.us:                                     ; preds = %39, %cp_check.exit.us, %115, %113, %36, %29
-  %.094.be.us = phi i32 [ %116, %115 ], [ %114, %113 ], [ %37, %36 ], [ %30, %29 ], [ %40, %cp_check.exit.us ], [ %40, %39 ]
+  %.094.be.us = phi i32 [ %37, %36 ], [ %30, %29 ], [ %116, %115 ], [ %114, %113 ], [ %40, %cp_check.exit.us ], [ %40, %39 ]
   call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
   %117 = load i32, ptr %15, align 4, !tbaa !64
   %118 = add i32 %117, -269
@@ -2670,8 +2670,8 @@ cp_push.exit:                                     ; preds = %149
   unreachable
 
 200:                                              ; preds = %186, %184, %197, %190, %188, %194, %196, %179
-  %.4 = phi i32 [ %spec.store.select, %179 ], [ 8, %194 ], [ %.3150, %196 ], [ %spec.select125, %184 ], [ 2, %188 ], [ 8, %190 ], [ 4, %197 ], [ %.3150, %186 ]
-  %.1 = phi i32 [ %spec.select, %179 ], [ %195, %194 ], [ %174, %196 ], [ 67108864, %184 ], [ %174, %188 ], [ %174, %190 ], [ %174, %197 ], [ %174, %186 ]
+  %.4 = phi i32 [ %spec.store.select, %179 ], [ 8, %190 ], [ 4, %197 ], [ %spec.select125, %184 ], [ %.3150, %196 ], [ 8, %194 ], [ 2, %188 ], [ %.3150, %186 ]
+  %.1 = phi i32 [ %spec.select, %179 ], [ %174, %190 ], [ %174, %197 ], [ 67108864, %184 ], [ %174, %196 ], [ %195, %194 ], [ %174, %188 ], [ %174, %186 ]
   %201 = load i32, ptr %1, align 8, !tbaa !88
   %202 = icmp ugt i32 %201, 99
   br i1 %202, label %203, label %cp_push.exit126
@@ -3425,10 +3425,10 @@ ctype_raw.exit161:                                ; preds = %101
   br label %.thread164
 
 .thread164:                                       ; preds = %117, %.lr.ph, %111, %7, %83, %87, %84, %108, %143, %68
-  %.3136 = phi i32 [ %12, %68 ], [ %12, %108 ], [ %.4137, %143 ], [ %.0133, %83 ], [ %90, %87 ], [ %.0133, %84 ], [ %12, %7 ], [ %12, %111 ], [ %12, %.lr.ph ], [ %12, %117 ]
-  %.3129 = phi i32 [ %.fr, %68 ], [ %.fr, %108 ], [ %150, %143 ], [ %.0126, %83 ], [ %96, %87 ], [ %.0126, %84 ], [ %.fr, %7 ], [ %112, %111 ], [ %112, %.lr.ph ], [ %112, %117 ]
-  %.5 = phi i32 [ %15, %68 ], [ %15, %108 ], [ %15, %143 ], [ %15, %83 ], [ %15, %87 ], [ %15, %84 ], [ %15, %7 ], [ 0, %111 ], [ 0, %117 ], [ %.6170, %.lr.ph ]
-  %.4 = phi i32 [ %.0, %68 ], [ %.0, %108 ], [ %.0, %143 ], [ %.0, %83 ], [ %89, %87 ], [ %.0, %84 ], [ %.0, %7 ], [ %.0, %111 ], [ %.0, %.lr.ph ], [ %.0, %117 ]
+  %.3136 = phi i32 [ %12, %68 ], [ %12, %7 ], [ %.0133, %84 ], [ %12, %108 ], [ %.4137, %143 ], [ %.0133, %83 ], [ %90, %87 ], [ %12, %111 ], [ %12, %.lr.ph ], [ %12, %117 ]
+  %.3129 = phi i32 [ %.fr, %68 ], [ %.fr, %7 ], [ %.0126, %84 ], [ %.fr, %108 ], [ %150, %143 ], [ %.0126, %83 ], [ %96, %87 ], [ %112, %111 ], [ %112, %.lr.ph ], [ %112, %117 ]
+  %.5 = phi i32 [ %15, %68 ], [ %15, %7 ], [ %15, %84 ], [ %15, %108 ], [ %15, %143 ], [ %15, %83 ], [ %15, %87 ], [ 0, %111 ], [ 0, %117 ], [ %.6170, %.lr.ph ]
+  %.4 = phi i32 [ %.0, %68 ], [ %.0, %7 ], [ %.0, %84 ], [ %.0, %108 ], [ %.0, %143 ], [ %.0, %83 ], [ %89, %87 ], [ %.0, %111 ], [ %.0, %.lr.ph ], [ %.0, %117 ]
   %151 = add i32 %.4, %.3129
   %152 = load ptr, ptr %5, align 8, !tbaa !14
   %153 = call i32 @lj_ctype_intern(ptr noundef %152, i32 noundef %151, i32 noundef %.3136) #15
@@ -3694,7 +3694,7 @@ thread-pre-split.i:                               ; preds = %97, %89, %86
   br label %109
 
 109:                                              ; preds = %108, %107, %106, %105, %104, %thread-pre-split.i
-  %.025.i = phi i32 [ 2, %104 ], [ 4, %105 ], [ 8, %106 ], [ 16, %107 ], [ 32, %108 ], [ 1, %thread-pre-split.i ]
+  %.025.i = phi i32 [ 32, %108 ], [ 2, %104 ], [ 4, %105 ], [ 8, %106 ], [ 16, %107 ], [ 1, %thread-pre-split.i ]
   %110 = load i8, ptr %103, align 1, !tbaa !4
   switch i8 %110, label %124 [
     i8 73, label %111
@@ -4574,7 +4574,7 @@ cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_
   br label %227
 
 227:                                              ; preds = %224, %222, %._crit_edge150.i
-  %.0102.i = phi i32 [ %219, %222 ], [ %.pre151.i, %._crit_edge150.i ], [ %spec.select157.i, %224 ]
+  %.0102.i = phi i32 [ %219, %222 ], [ %spec.select157.i, %224 ], [ %.pre151.i, %._crit_edge150.i ]
   %228 = load i8, ptr %186, align 1, !tbaa !59
   %229 = zext i8 %228 to i64
   %230 = getelementptr inbounds nuw i8, ptr %185, i64 %229
@@ -6094,7 +6094,7 @@ cp_expr_unary.exit139:                            ; preds = %40
   %61 = icmp eq i32 %.mask.i, 1879048192
   br i1 %61, label %cp_istypedecl.exit.thread, label %cp_istypedecl.exit.thread126
 
-cp_istypedecl.exit.thread:                        ; preds = %56, %57, %52
+cp_istypedecl.exit.thread:                        ; preds = %56, %52, %57
   %62 = tail call fastcc i32 @cp_decl_abstract(ptr noundef nonnull %0)
   %63 = load i32, ptr %3, align 4, !tbaa !64
   %.not.i = icmp eq i32 %63, 41
@@ -6579,7 +6579,7 @@ define internal fastcc void @cp_expr_sizeof(ptr noundef %0, ptr noundef nonnull 
   %18 = icmp eq i32 %.mask.i, 1879048192
   br i1 %18, label %cp_istypedecl.exit.thread, label %cp_istypedecl.exit.thread29
 
-cp_istypedecl.exit.thread:                        ; preds = %13, %14, %9
+cp_istypedecl.exit.thread:                        ; preds = %13, %9, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call fastcc i32 @cp_decl_spec(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7046,7 +7046,7 @@ cp_check.exit71:                                  ; preds = %2, %cp_opt.exit69.t
   unreachable
 
 .thread94:                                        ; preds = %76, %80, %78
-  %.1 = phi i32 [ %79, %78 ], [ %81, %80 ], [ %.0, %76 ]
+  %.1 = phi i32 [ %79, %78 ], [ %.0, %76 ], [ %81, %80 ]
   %84 = call fastcc i32 @cp_next(ptr noundef nonnull %0)
   br label %76
 

@@ -314,10 +314,10 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %108, %102, %99
-  %.sroa.099.1.ph.i = phi i16 [ %.sroa.099.0101.i, %108 ], [ %104, %102 ], [ %.sroa.099.0101.i, %99 ]
-  %.sroa.4100.1.ph.i = phi i16 [ %.sroa.4100.0102.i, %108 ], [ %106, %102 ], [ %.sroa.4100.0102.i, %99 ]
-  %.187.ph.i = phi i32 [ 1, %108 ], [ 1, %102 ], [ %.086103.i, %99 ]
-  %.not91.ph.i = phi i1 [ true, %108 ], [ true, %102 ], [ false, %99 ]
+  %.sroa.099.1.ph.i = phi i16 [ %104, %102 ], [ %.sroa.099.0101.i, %108 ], [ %.sroa.099.0101.i, %99 ]
+  %.sroa.4100.1.ph.i = phi i16 [ %106, %102 ], [ %.sroa.4100.0102.i, %108 ], [ %.sroa.4100.0102.i, %99 ]
+  %.187.ph.i = phi i32 [ 1, %102 ], [ 1, %108 ], [ %.086103.i, %99 ]
+  %.not91.ph.i = phi i1 [ true, %102 ], [ true, %108 ], [ false, %99 ]
   %122 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #11
   br label %123
 
@@ -646,8 +646,8 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   br label %302
 
 .loopexit.i:                                      ; preds = %256, %.split104.us.i, %.split97.us.i, %.split90.us.i, %.split88.us.i, %.split.us.i
-  %.sink.i.i = phi i32 [ %281, %.split104.us.i ], [ %277, %.split97.us.i ], [ %269, %.split88.us.i ], [ %273, %.split90.us.i ], [ %265, %.split.us.i ], [ 20, %256 ]
-  %282 = phi i32 [ 16, %.split104.us.i ], [ 16, %.split97.us.i ], [ 32, %.split88.us.i ], [ 24, %.split90.us.i ], [ 32, %.split.us.i ], [ 8, %256 ]
+  %.sink.i.i = phi i32 [ %265, %.split.us.i ], [ %281, %.split104.us.i ], [ %277, %.split97.us.i ], [ %269, %.split88.us.i ], [ %273, %.split90.us.i ], [ 20, %256 ]
+  %282 = phi i32 [ 32, %.split.us.i ], [ 16, %.split104.us.i ], [ 16, %.split97.us.i ], [ 32, %.split88.us.i ], [ 24, %.split90.us.i ], [ 8, %256 ]
   store i32 %.sink.i.i, ptr %210, align 4, !tbaa !33
   store i32 %282, ptr %211, align 4, !tbaa !33
   call void @free(ptr noundef %164) #11
@@ -681,8 +681,8 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   %.not80.i = icmp eq ptr %300, null
   br i1 %.not80.i, label %302, label %304
 
-302:                                              ; preds = %195, %292, %165, %148, %151, %293, %pixfmt_from_pixmap_format.exit.thread.i
-  %.0.i75.ph = phi i32 [ -1163346256, %pixfmt_from_pixmap_format.exit.thread.i ], [ -12, %293 ], [ %155, %151 ], [ -12, %148 ], [ -542398533, %165 ], [ -1163346256, %292 ], [ -22, %195 ]
+302:                                              ; preds = %148, %195, %151, %292, %pixfmt_from_pixmap_format.exit.thread.i, %165, %293
+  %.0.i75.ph = phi i32 [ -12, %293 ], [ -542398533, %165 ], [ -1163346256, %pixfmt_from_pixmap_format.exit.thread.i ], [ -1163346256, %292 ], [ %155, %151 ], [ -22, %195 ], [ -12, %148 ]
   %303 = call i32 @xcbgrab_read_close(ptr noundef %0) #12
   br label %418
 
@@ -865,7 +865,7 @@ check_xfixes.exit:                                ; preds = %324
   br label %418
 
 418:                                              ; preds = %334, %337, %1, %302, %146, %55, %35
-  %.0 = phi i32 [ -5, %35 ], [ %.0.i73, %146 ], [ %.0.i75.ph, %302 ], [ -5, %55 ], [ -12, %1 ], [ 0, %337 ], [ 0, %334 ]
+  %.0 = phi i32 [ -5, %35 ], [ %.0.i73, %146 ], [ %.0.i75.ph, %302 ], [ -12, %1 ], [ -5, %55 ], [ 0, %337 ], [ 0, %334 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -1497,7 +1497,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   br label %xcbgrab_draw_mouse.exit
 
 xcbgrab_draw_mouse.exit:                          ; preds = %._crit_edge17.i, %278, %269, %.thread106, %266, %.thread101
-  %.072103 = phi i32 [ 0, %266 ], [ 0, %.thread101 ], [ %.0.i96.ph, %.thread106 ], [ 0, %269 ], [ 0, %278 ], [ 0, %._crit_edge17.i ]
+  %.072103 = phi i32 [ %.0.i96.ph, %.thread106 ], [ 0, %266 ], [ 0, %.thread101 ], [ 0, %269 ], [ 0, %278 ], [ 0, %._crit_edge17.i ]
   call void @free(ptr noundef %.068) #11
   call void @free(ptr noundef %.069) #11
   br label %390
@@ -1620,7 +1620,7 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   br label %16
 
 16:                                               ; preds = %5, %10, %14, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %14 ], [ %13, %10 ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %10 ], [ null, %5 ], [ null, %14 ]
   ret ptr %.0
 }
 

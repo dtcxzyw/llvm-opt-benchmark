@@ -138,9 +138,9 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %29, ptr %51, align 8, !tbaa !4
   br label %52
 
-52:                                               ; preds = %12, %20, %17, %50, %49
-  %.265.ph = phi ptr [ %spec.select, %49 ], [ %spec.select, %50 ], [ %.06398, %17 ], [ %.06398, %20 ], [ %.06398, %12 ]
-  %.162.ph = phi ptr [ %29, %49 ], [ %29, %50 ], [ %.06199, %17 ], [ %.06199, %20 ], [ %.06199, %12 ]
+52:                                               ; preds = %17, %49, %12, %20, %50
+  %.265.ph = phi ptr [ %spec.select, %50 ], [ %.06398, %20 ], [ %.06398, %12 ], [ %spec.select, %49 ], [ %.06398, %17 ]
+  %.162.ph = phi ptr [ %29, %50 ], [ %.06199, %20 ], [ %.06199, %12 ], [ %29, %49 ], [ %.06199, %17 ]
   %53 = getelementptr inbounds nuw i8, ptr %.060100, i64 40
   %.060 = load ptr, ptr %53, align 8, !tbaa !17
   %.not75 = icmp eq ptr %.060, null
@@ -268,7 +268,7 @@ define dso_local ptr @Curl_ip2addr(i32 noundef %0, ptr noundef readonly captures
   br label %29
 
 29:                                               ; preds = %.sink.split, %13, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %12, %13 ], [ %12, %.sink.split ]
+  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ %12, %13 ], [ %12, %.sink.split ]
   ret ptr %.0
 }
 

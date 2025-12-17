@@ -482,7 +482,7 @@ invoke.cont145:                                   ; preds = %invoke.cont143
           to label %sw.epilog.sink.split unwind label %terminate.lpad
 
 sw.epilog.sink.split:                             ; preds = %invoke.cont145, %invoke.cont100, %cleanup.action62
-  %ref.tmp133.sink = phi ptr [ %ref.tmp43, %cleanup.action62 ], [ %ref.tmp88, %invoke.cont100 ], [ %ref.tmp133, %invoke.cont145 ]
+  %ref.tmp133.sink = phi ptr [ %ref.tmp88, %invoke.cont100 ], [ %ref.tmp43, %cleanup.action62 ], [ %ref.tmp133, %invoke.cont145 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp133.sink) #17
   br label %sw.epilog
 
@@ -820,7 +820,7 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
   br label %cond.false, !llvm.loop !6
 
-cond.false:                                       ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %if.end15.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i
+cond.false:                                       ; preds = %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, %if.end15.i.i.i.i
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2, ptr noundef nonnull @.str.14, i32 noundef 70, i32 noundef 2)
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -1067,7 +1067,7 @@ lpad50:                                           ; preds = %if.then.i.i.i35, %i
   br label %eh.resume
 
 return:                                           ; preds = %cond.true, %invoke.cont58, %cleanup.action, %cond.end, %sw.bb19, %if.end10, %sw.bb8, %entry, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16
-  %retval.0 = phi i32 [ 0, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32 ], [ 1, %entry ], [ 1, %sw.bb8 ], [ 2, %if.end10 ], [ 2, %sw.bb19 ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 1, %invoke.cont58 ], [ 1, %cond.true ]
+  %retval.0 = phi i32 [ 2, %sw.bb19 ], [ 0, %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16 ], [ 1, %entry ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit22 ], [ 1, %sw.bb8 ], [ 0, %_ZN5folly8OptionalISt4pairImmEEptEv.exit32 ], [ 2, %if.end10 ], [ 1, %cond.end ], [ 1, %cond.true ], [ 1, %cleanup.action ], [ 1, %invoke.cont58 ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad, %lpad50

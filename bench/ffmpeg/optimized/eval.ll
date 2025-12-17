@@ -264,7 +264,7 @@ define range(i32 -2147483648, 1) i32 @av_expr_parse(ptr noundef writeonly captur
   br label %av_isspace.exit.thread
 
 av_isspace.exit.thread:                           ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %19
-  %.1 = phi ptr [ %20, %19 ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ]
+  %.1 = phi ptr [ %.02238, %.lr.ph ], [ %20, %19 ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ], [ %.02238, %.lr.ph ]
   %21 = load i8, ptr %18, align 1, !tbaa !4
   %.not28 = icmp eq i8 %21, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -423,7 +423,7 @@ make_eval_expr.exit:                              ; preds = %22
   br label %34
 
 34:                                               ; preds = %8, %2, %._crit_edge, %31, %21
-  %.0 = phi i32 [ %19, %21 ], [ -12, %31 ], [ 0, %._crit_edge ], [ -22, %2 ], [ %10, %8 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -22, %2 ], [ %19, %21 ], [ -12, %31 ], [ %10, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -554,7 +554,7 @@ tailrecurse.backedge:                             ; preds = %33, %11, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %.lr.ph, %11, %7, %22, %18, %14, %29, %25, %.loopexit.sink.split, %1, %36, %40, %3
-  %.0.shrunk = phi i32 [ 0, %3 ], [ 0, %40 ], [ 0, %36 ], [ 0, %1 ], [ %46, %.loopexit.sink.split ], [ 0, %tailrecurse.backedge ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %11 ], [ 0, %7 ], [ 1, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %29 ], [ 0, %25 ]
+  %.0.shrunk = phi i32 [ 0, %40 ], [ 0, %36 ], [ 0, %3 ], [ 0, %1 ], [ %46, %.loopexit.sink.split ], [ 0, %7 ], [ 0, %18 ], [ 1, %22 ], [ 1, %.lr.ph ], [ 1, %11 ], [ 0, %tailrecurse.backedge ], [ 1, %.lr.ph ], [ 0, %25 ], [ 0, %29 ], [ 0, %14 ]
   ret i32 %.0.shrunk
 }
 
@@ -734,8 +734,8 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %22 = fmul nsz double %14, %21
   br label %common.ret534
 
-common.ret534:                                    ; preds = %639, %636, %628, %625, %620, %615, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
-  %common.ret534.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %636 ], [ %646, %639 ], [ 0x7FF8000000000000, %625 ], [ %635, %628 ], [ %624, %620 ], [ %619, %615 ], [ %614, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
+common.ret534:                                    ; preds = %636, %625, %628, %620, %615, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %639, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
+  %common.ret534.op = phi double [ %261, %250 ], [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %599, %596 ], [ 0x7FF8000000000000, %.preheader ], [ %624, %620 ], [ 0x7FF8000000000000, %625 ], [ %635, %628 ], [ %646, %639 ], [ %614, %600 ], [ %.1358, %split ], [ 0x7FF8000000000000, %208 ], [ %387, %ff_sfc64_init.exit400 ], [ %325, %ff_sfc64_init.exit ], [ %265, %271 ], [ %619, %615 ], [ %249, %247 ], [ %503, %.loopexit ], [ %207, %205 ], [ %190, %188 ], [ 0x7FF8000000000000, %504 ], [ %11, %9 ], [ %22, %12 ], [ 0x7FF8000000000000, %636 ], [ %522, %512 ], [ %530, %523 ], [ %536, %531 ], [ %542, %537 ], [ %548, %543 ], [ %554, %549 ], [ %560, %555 ], [ %566, %561 ], [ %572, %567 ], [ %577, %573 ], [ %582, %578 ], [ %590, %583 ], [ %595, %591 ], [ %390, %388 ]
   ret double %common.ret534.op
 
 23:                                               ; preds = %2
@@ -1446,8 +1446,8 @@ split:                                            ; preds = %413, %._crit_edge
   br i1 %499, label %.loopexit, label %479
 
 .loopexit:                                        ; preds = %436, %498, %479, %.preheader403
-  %.1349 = phi nsz double [ %488, %498 ], [ %.4352, %479 ], [ %.3351420, %.preheader403 ], [ %.2350, %436 ]
-  %.1346 = phi nsz double [ %488, %498 ], [ %.4, %479 ], [ %.3421, %.preheader403 ], [ %.2347, %436 ]
+  %.1349 = phi nsz double [ %.3351420, %.preheader403 ], [ %488, %498 ], [ %.4352, %479 ], [ %.2350, %436 ]
+  %.1346 = phi nsz double [ %.3421, %.preheader403 ], [ %488, %498 ], [ %.4, %479 ], [ %.2347, %436 ]
   %500 = load ptr, ptr %429, align 8, !tbaa !46
   store double %431, ptr %500, align 8, !tbaa !48
   %501 = fneg nsz double %.2344
@@ -1782,7 +1782,7 @@ make_eval_expr.exit:                              ; preds = %15
   br label %23
 
 23:                                               ; preds = %2, %22, %21, %14
-  %.0 = phi i32 [ %12, %14 ], [ -12, %21 ], [ 0, %22 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %22 ], [ %12, %14 ], [ -12, %21 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2049,7 +2049,7 @@ parse_dB.exit21:                                  ; preds = %57, %59
   br label %94
 
 94:                                               ; preds = %parse_dB.exit, %93, %77, %73
-  %.0 = phi i32 [ %.1.i17, %73 ], [ -12, %77 ], [ 0, %93 ], [ %.1.i, %parse_dB.exit ]
+  %.0 = phi i32 [ 0, %93 ], [ %.1.i17, %73 ], [ -12, %77 ], [ %.1.i, %parse_dB.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2865,7 +2865,7 @@ strmatch.exit167.thread:                          ; preds = %.lr.ph.i156, %strma
   br label %303
 
 303:                                              ; preds = %73, %2, %302, %.critedge4, %.split212, %.split202, %104, %88, %81, %79, %68, %61, %.split.us, %13
-  %.079 = phi i32 [ 0, %13 ], [ 0, %.split.us ], [ 0, %61 ], [ -22, %79 ], [ 0, %81 ], [ %86, %88 ], [ -22, %104 ], [ 0, %302 ], [ 0, %.split202 ], [ 0, %.split212 ], [ -22, %.critedge4 ], [ -22, %68 ], [ -12, %2 ], [ %74, %73 ]
+  %.079 = phi i32 [ 0, %13 ], [ 0, %.split.us ], [ 0, %61 ], [ -12, %2 ], [ -22, %79 ], [ 0, %81 ], [ %86, %88 ], [ -22, %104 ], [ 0, %302 ], [ 0, %.split202 ], [ 0, %.split212 ], [ -22, %.critedge4 ], [ -22, %68 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.079

@@ -350,7 +350,7 @@ define dso_local i32 @i2c_acpi_find_bus_speed(ptr noundef %0) #1 align 16 {
   br label %36
 
 36:                                               ; preds = %30, %32, %33, %24, %1
-  %37 = phi i32 [ 0, %24 ], [ 0, %1 ], [ %35, %33 ], [ %.pre, %32 ], [ %27, %30 ]
+  %37 = phi i32 [ 0, %24 ], [ %35, %33 ], [ 0, %1 ], [ %.pre, %32 ], [ %27, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %37

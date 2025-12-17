@@ -115,7 +115,7 @@ hash_init_with_dom.exit.thread64:                 ; preds = %45
   %.not15.i = icmp eq i32 %54, 0
   br i1 %.not15.i, label %hash_init_with_dom.exit.thread, label %hash_init_with_dom.exit
 
-hash_init_with_dom.exit.thread:                   ; preds = %37, %46, %53, %48
+hash_init_with_dom.exit.thread:                   ; preds = %48, %46, %37, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %75
@@ -243,7 +243,7 @@ define internal fastcc range(i32 0, 2) i32 @hash_init_with_dom(ptr noundef nonnu
   br label %22
 
 22:                                               ; preds = %20, %13, %18, %11, %10, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %10 ], [ 0, %11 ], [ 0, %18 ], [ 0, %13 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 0, %11 ], [ 0, %6 ], [ %spec.select, %20 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2687,7 +2687,7 @@ fe_neg.exit63:                                    ; preds = %46
   br label %.thread
 
 .thread:                                          ; preds = %38, %fe_neg.exit63, %.loopexit, %30, %23, %20, %11, %69
-  %.046 = phi i32 [ %.0, %69 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ 0, %30 ], [ 0, %.loopexit ], [ 0, %fe_neg.exit63 ], [ 0, %38 ]
+  %.046 = phi i32 [ 0, %30 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ 0, %fe_neg.exit63 ], [ 0, %.loopexit ], [ %.0, %69 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

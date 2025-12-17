@@ -616,7 +616,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %list_l
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 381, ptr noundef nonnull @__func__.ExecMakeTableFunctionResult) #5
   unreachable
 
-.thread133:                                       ; preds = %106, %152, %159
+.thread133:                                       ; preds = %152, %106, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -1181,7 +1181,7 @@ ExecPrepareTuplestoreResult.exit:                 ; preds = %135, %138
   unreachable
 
 146:                                              ; preds = %.thread113, %96, %140, %100, %97, %36, %slot_getattr.exit, %50
-  %.1 = phi i64 [ %38, %36 ], [ %49, %slot_getattr.exit ], [ 0, %50 ], [ %92, %97 ], [ %92, %100 ], [ 0, %140 ], [ %92, %96 ], [ 0, %.thread113 ]
+  %.1 = phi i64 [ 0, %50 ], [ %38, %36 ], [ %49, %slot_getattr.exit ], [ %92, %97 ], [ %92, %100 ], [ 0, %140 ], [ %92, %96 ], [ 0, %.thread113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1

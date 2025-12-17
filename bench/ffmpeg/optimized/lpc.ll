@@ -620,7 +620,7 @@ define i32 @ff_lpc_calc_coefs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br i1 %exitcond280.not, label %._crit_edge236, label %.preheader217, !llvm.loop !32
 
 ._crit_edge236:                                   ; preds = %.loopexit, %._crit_edge229.us, %.preheader217.us.us, %108
-  %.1154.lcssa = phi double [ 0.000000e+00, %108 ], [ %.2155.us.us, %.preheader217.us.us ], [ %.2155.us, %._crit_edge229.us ], [ %.2155, %.loopexit ]
+  %.1154.lcssa = phi double [ 0.000000e+00, %108 ], [ %.2155.us, %._crit_edge229.us ], [ %.2155.us.us, %.preheader217.us.us ], [ %.2155, %.loopexit ]
   call void @avpriv_solve_lls(ptr noundef nonnull %111, double noundef 1.000000e-03, i16 noundef zeroext 0) #10
   %145 = add nuw i32 %.1157238, 1
   %exitcond292.not = icmp eq i32 %145, %spec.store.select

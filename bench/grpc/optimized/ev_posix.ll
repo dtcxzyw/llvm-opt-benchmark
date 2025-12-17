@@ -716,14 +716,14 @@ _ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i: ; pred
   br i1 %57, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i: ; preds = %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i
-  %58 = phi ptr [ %56, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ], [ %54, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i ]
+  %58 = phi ptr [ %54, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i ], [ %56, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ]
   %bcmp.i.us.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.4.0.copyload.i, ptr noundef nonnull dereferenceable(3) %48, i64 3)
   %59 = icmp eq i32 %bcmp.i.us.i.i, 0
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i
-  %60 = phi ptr [ %56, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ], [ %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ]
-  %61 = phi i1 [ false, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ], [ %59, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ]
+  %60 = phi ptr [ %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ], [ %56, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ]
+  %61 = phi i1 [ %59, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ], [ false, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread14.us.i.i ]
   %62 = call noundef zeroext i1 %60(i1 noundef zeroext %61)
   br i1 %62, label %.split19.us.i.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.us.i.i
 
@@ -783,7 +783,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %84, label %.split19.us.i.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.i.i
 
 .split19.us.i.i:                                  ; preds = %.thread16.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
-  %.us-phi.i.i = phi i64 [ %.017.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %.017.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %.017.us20.i.i, %.thread16.us.i.i ]
+  %.us-phi.i.i = phi i64 [ %.017.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %.017.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %.017.us20.i.i, %.thread16.us.i.i ]
   %85 = getelementptr inbounds nuw ptr, ptr @_ZL9g_vtables, i64 %.us-phi.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !3
   store ptr %86, ptr @_ZL14g_event_engine, align 8, !tbaa !3

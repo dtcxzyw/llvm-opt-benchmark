@@ -487,7 +487,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit126:                 ; preds = %132, %135
   ret void
 
 136:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit126, %_ZNSt6vectorIjSaIjEED2Ev.exit122, %_ZNSt6vectorIjSaIjEED2Ev.exit118, %_ZNSt6vectorIjSaIjEED2Ev.exit114, %_ZNSt6vectorIjSaIjEED2Ev.exit110, %_ZNSt6vectorIjSaIjEED2Ev.exit106, %_ZNSt6vectorIjSaIjEED2Ev.exit102, %_ZNSt6vectorIjSaIjEED2Ev.exit98, %_ZNSt6vectorIjSaIjEED2Ev.exit94
-  %.pn = phi { ptr, i32 } [ %133, %_ZNSt6vectorIjSaIjEED2Ev.exit126 ], [ %121, %_ZNSt6vectorIjSaIjEED2Ev.exit122 ], [ %109, %_ZNSt6vectorIjSaIjEED2Ev.exit118 ], [ %97, %_ZNSt6vectorIjSaIjEED2Ev.exit114 ], [ %82, %_ZNSt6vectorIjSaIjEED2Ev.exit110 ], [ %68, %_ZNSt6vectorIjSaIjEED2Ev.exit106 ], [ %54, %_ZNSt6vectorIjSaIjEED2Ev.exit102 ], [ %40, %_ZNSt6vectorIjSaIjEED2Ev.exit98 ], [ %26, %_ZNSt6vectorIjSaIjEED2Ev.exit94 ]
+  %.pn = phi { ptr, i32 } [ %133, %_ZNSt6vectorIjSaIjEED2Ev.exit126 ], [ %26, %_ZNSt6vectorIjSaIjEED2Ev.exit94 ], [ %121, %_ZNSt6vectorIjSaIjEED2Ev.exit122 ], [ %68, %_ZNSt6vectorIjSaIjEED2Ev.exit106 ], [ %109, %_ZNSt6vectorIjSaIjEED2Ev.exit118 ], [ %40, %_ZNSt6vectorIjSaIjEED2Ev.exit98 ], [ %97, %_ZNSt6vectorIjSaIjEED2Ev.exit114 ], [ %54, %_ZNSt6vectorIjSaIjEED2Ev.exit102 ], [ %82, %_ZNSt6vectorIjSaIjEED2Ev.exit110 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -825,7 +825,7 @@ define { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(
   br label %48
 
 48:                                               ; preds = %38, %29, %23, %47, %12
-  %.pn = phi { i64, i64 } [ { i64 0, i64 9223372036854775807 }, %47 ], [ %22, %12 ], [ zeroinitializer, %23 ], [ zeroinitializer, %29 ], [ zeroinitializer, %38 ]
+  %.pn = phi { i64, i64 } [ %22, %12 ], [ zeroinitializer, %23 ], [ zeroinitializer, %29 ], [ { i64 0, i64 9223372036854775807 }, %47 ], [ zeroinitializer, %38 ]
   ret { i64, i64 } %.pn
 }
 

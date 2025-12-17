@@ -907,7 +907,7 @@ define internal i32 @dissect_ged125_base_messages(ptr noundef %0, ptr noundef %1
   br label %OperationalStatus_funk.exit
 
 OperationalStatus_funk.exit:                      ; preds = %121, %130, %132, %134
-  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %121 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %130 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %132 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i, %134 ]
+  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %121 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i, %134 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %132 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %130 ]
   %136 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %128, ptr noundef nonnull %ei_ged125_OperationalStatus_loss_redundant_component.sink.i)
   %.not5.i = icmp slt i32 %6, 24
   br i1 %.not5.i, label %trunk_funk.exit, label %.lr.ph.i229
@@ -1008,7 +1008,7 @@ OperationalStatus_funk.exit:                      ; preds = %121, %130, %132, %1
   br label %OperationalStatus_funk.exit233
 
 OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %199
-  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i232 = phi ptr [ @ei_ged125_OperationalStatus_normal, %186 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %195 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %197 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i231, %199 ]
+  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i232 = phi ptr [ @ei_ged125_OperationalStatus_normal, %186 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i231, %199 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %197 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %195 ]
   %201 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %193, ptr noundef nonnull %ei_ged125_OperationalStatus_loss_redundant_component.sink.i232)
   %.not5.i234 = icmp slt i32 %6, 24
   br i1 %.not5.i234, label %trunk_funk.exit, label %.lr.ph.i235
@@ -1286,7 +1286,7 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   br label %OperationalStatus_funk.exit.i
 
 OperationalStatus_funk.exit.i:                    ; preds = %357, %355, %353, %342
-  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %342 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %353 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %355 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i.i, %357 ]
+  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %342 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i.i, %357 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %355 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %353 ]
   %359 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %351, ptr noundef nonnull %ei_ged125_OperationalStatus_loss_redundant_component.sink.i.i)
   %.not5.i.i = icmp slt i32 %6, 40
   br i1 %.not5.i.i, label %trunk_funk.exit, label %.lr.ph.i361.i
@@ -1356,7 +1356,7 @@ OperationalStatus_funk.exit.i:                    ; preds = %357, %355, %353, %3
   br label %OperationalStatus_funk.exit369.i
 
 OperationalStatus_funk.exit369.i:                 ; preds = %398, %396, %394, %385
-  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i368.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %385 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %394 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %396 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i367.i, %398 ]
+  %ei_ged125_OperationalStatus_loss_redundant_component.sink.i368.i = phi ptr [ @ei_ged125_OperationalStatus_normal, %385 ], [ %ei_ged125_OperationalStatus_conditions_prevent_call.ei_ged125_OperationalStatus_invalid_message.i367.i, %398 ], [ @ei_ged125_OperationalStatus_degraded_call_processing, %396 ], [ @ei_ged125_OperationalStatus_loss_redundant_component, %394 ]
   %400 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %392, ptr noundef nonnull %ei_ged125_OperationalStatus_loss_redundant_component.sink.i368.i)
   %.not5.i370.i = icmp slt i32 %6, 36
   br i1 %.not5.i370.i, label %trunk_funk.exit, label %.lr.ph.i371.i
@@ -1478,7 +1478,7 @@ OperationalStatus_funk.exit369.i:                 ; preds = %398, %396, %394, %3
   br label %trunk_funk.exit
 
 trunk_funk.exit:                                  ; preds = %.lr.ph.i371.i, %.lr.ph.i364.i, %.lr.ph.i361.i, %.lr.ph.i.i, %.lr.ph.i239, %.lr.ph.i235, %.lr.ph.i229, %.lr.ph.i, %472, %467, %452, %431, %426, %419, %418, %413, %410, %405, %OperationalStatus_funk.exit369.i, %380, %364, %OperationalStatus_funk.exit.i, %331, %313, %310, %305, %302, %299, %294, %291, %284, %279, %276, %271, %215, %OperationalStatus_funk.exit233, %OperationalStatus_funk.exit, %74, %477, %474, %251, %246, %241, %236, %226, %183, %176, %171, %162, %157, %148, %141, %98, %55, %52, %39, %32, %29, %24, %4
-  %.0464 = phi i32 [ 8, %4 ], [ 16, %24 ], [ 12, %29 ], [ 20, %32 ], [ 32, %39 ], [ 12, %52 ], [ 16, %55 ], [ 52, %98 ], [ 20, %141 ], [ 24, %148 ], [ 16, %157 ], [ 24, %162 ], [ 16, %171 ], [ 20, %176 ], [ 12, %183 ], [ 16, %226 ], [ 16, %236 ], [ 16, %241 ], [ 16, %246 ], [ 12, %251 ], [ 8, %474 ], [ 10, %477 ], [ 40, %74 ], [ 20, %OperationalStatus_funk.exit ], [ 20, %OperationalStatus_funk.exit233 ], [ 20, %215 ], [ 20, %472 ], [ 24, %276 ], [ 28, %279 ], [ 32, %284 ], [ 24, %291 ], [ 28, %294 ], [ 24, %299 ], [ 24, %302 ], [ 28, %305 ], [ 24, %310 ], [ 32, %313 ], [ 40, %331 ], [ 36, %OperationalStatus_funk.exit.i ], [ 28, %364 ], [ 28, %380 ], [ 32, %OperationalStatus_funk.exit369.i ], [ 28, %405 ], [ 24, %410 ], [ 28, %413 ], [ 20, %418 ], [ 20, %271 ], [ 32, %419 ], [ 28, %426 ], [ 60, %431 ], [ 48, %452 ], [ 28, %467 ], [ %92, %.lr.ph.i ], [ %139, %.lr.ph.i229 ], [ %204, %.lr.ph.i235 ], [ %220, %.lr.ph.i239 ], [ %325, %.lr.ph.i.i ], [ %362, %.lr.ph.i361.i ], [ %374, %.lr.ph.i364.i ], [ %403, %.lr.ph.i371.i ]
+  %.0464 = phi i32 [ 8, %4 ], [ 16, %24 ], [ 12, %29 ], [ 20, %32 ], [ 32, %39 ], [ 12, %52 ], [ 16, %55 ], [ 10, %477 ], [ 52, %98 ], [ 20, %141 ], [ 24, %148 ], [ 16, %157 ], [ 24, %162 ], [ 16, %171 ], [ 20, %176 ], [ 12, %183 ], [ 16, %226 ], [ 16, %236 ], [ 16, %241 ], [ 16, %246 ], [ 12, %251 ], [ 8, %474 ], [ 40, %74 ], [ 20, %OperationalStatus_funk.exit ], [ 20, %OperationalStatus_funk.exit233 ], [ 20, %215 ], [ 20, %472 ], [ 24, %276 ], [ 28, %279 ], [ 32, %284 ], [ 24, %291 ], [ 28, %294 ], [ 24, %299 ], [ 24, %302 ], [ 28, %305 ], [ 24, %310 ], [ 32, %313 ], [ 40, %331 ], [ 36, %OperationalStatus_funk.exit.i ], [ 28, %364 ], [ 28, %380 ], [ 32, %OperationalStatus_funk.exit369.i ], [ 28, %405 ], [ 24, %410 ], [ 28, %413 ], [ 20, %418 ], [ 20, %271 ], [ 32, %419 ], [ 28, %426 ], [ 60, %431 ], [ 48, %452 ], [ 28, %467 ], [ %374, %.lr.ph.i364.i ], [ %92, %.lr.ph.i ], [ %139, %.lr.ph.i229 ], [ %204, %.lr.ph.i235 ], [ %220, %.lr.ph.i239 ], [ %325, %.lr.ph.i.i ], [ %362, %.lr.ph.i361.i ], [ %403, %.lr.ph.i371.i ]
   %480 = load ptr, ptr %5, align 8
   %481 = add i32 %.0464, -8
   call void @proto_item_set_len(ptr noundef %480, i32 noundef %481)

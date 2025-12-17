@@ -417,8 +417,8 @@ HeapTupleHeaderGetXvac.exit136:                   ; preds = %24
   %.117 = select i1 %168, i32 4, i32 3
   br label %.critedge
 
-.critedge:                                        ; preds = %35, %28, %20, %HeapTupleHeaderGetXvac.exit, %165, %149, %147, %139, %110, %133, %102, %107, %115, %120, %122, %127, %131, %96, %90, %84, %76, %74, %63, %66, %54, %56, %41, %39, %8, %163, %154, %81, %71
-  %.0 = phi i32 [ 0, %163 ], [ 0, %154 ], [ 0, %71 ], [ 1, %81 ], [ 1, %8 ], [ 1, %39 ], [ 0, %41 ], [ %., %54 ], [ %.109, %56 ], [ %.110, %63 ], [ %.111, %66 ], [ %.112, %74 ], [ 1, %76 ], [ 0, %84 ], [ 0, %90 ], [ %.113, %96 ], [ 0, %110 ], [ 0, %133 ], [ 0, %102 ], [ 5, %107 ], [ 5, %115 ], [ %.114, %120 ], [ 5, %122 ], [ %.115, %127 ], [ 5, %131 ], [ 5, %139 ], [ %.116, %147 ], [ 5, %149 ], [ %.117, %165 ], [ 1, %HeapTupleHeaderGetXvac.exit ], [ 1, %20 ], [ 1, %28 ], [ 1, %35 ]
+.critedge:                                        ; preds = %28, %35, %20, %HeapTupleHeaderGetXvac.exit, %165, %149, %147, %139, %110, %133, %102, %107, %115, %120, %122, %127, %131, %96, %90, %84, %76, %74, %63, %66, %54, %56, %41, %39, %8, %163, %154, %81, %71
+  %.0 = phi i32 [ 1, %76 ], [ 0, %84 ], [ 0, %90 ], [ %.113, %96 ], [ %., %54 ], [ 5, %131 ], [ %.116, %147 ], [ 5, %139 ], [ %.115, %127 ], [ 0, %163 ], [ 5, %149 ], [ %.117, %165 ], [ 0, %154 ], [ 1, %81 ], [ 5, %122 ], [ 1, %20 ], [ 1, %8 ], [ 1, %39 ], [ 0, %41 ], [ %.109, %56 ], [ %.112, %74 ], [ %.110, %63 ], [ 0, %71 ], [ %.111, %66 ], [ 5, %107 ], [ 0, %102 ], [ 0, %110 ], [ %.114, %120 ], [ 5, %115 ], [ 0, %133 ], [ 1, %HeapTupleHeaderGetXvac.exit ], [ 1, %35 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -729,8 +729,8 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %54, %56
   store i32 %.val81, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %28, %HeapTupleHeaderGetXvac.exit90, %33, %15, %HeapTupleHeaderGetXvac.exit, %20, %112, %103, %98, %107, %104, %77, %93, %87, %90, %84, %67, %59, %HeapTupleHeaderGetUpdateXid.exit, %42, %49, %39, %8, %121, %118, %64
-  %.0 = phi i32 [ 2, %121 ], [ 1, %118 ], [ 0, %64 ], [ 0, %8 ], [ 3, %39 ], [ 3, %49 ], [ 3, %42 ], [ %., %HeapTupleHeaderGetUpdateXid.exit ], [ 3, %59 ], [ 1, %67 ], [ 1, %84 ], [ 1, %90 ], [ 1, %87 ], [ 1, %93 ], [ 1, %77 ], [ 2, %103 ], [ 4, %98 ], [ 1, %107 ], [ 1, %104 ], [ 4, %112 ], [ 4, %15 ], [ 4, %HeapTupleHeaderGetXvac.exit ], [ 0, %20 ], [ 3, %28 ], [ 3, %HeapTupleHeaderGetXvac.exit90 ], [ 0, %33 ]
+.thread:                                          ; preds = %28, %HeapTupleHeaderGetXvac.exit90, %33, %15, %20, %HeapTupleHeaderGetXvac.exit, %112, %103, %98, %107, %104, %77, %93, %87, %90, %84, %67, %59, %HeapTupleHeaderGetUpdateXid.exit, %42, %49, %39, %8, %121, %118, %64
+  %.0 = phi i32 [ 3, %59 ], [ 1, %90 ], [ 1, %67 ], [ 1, %84 ], [ 1, %77 ], [ 2, %121 ], [ 1, %104 ], [ 1, %118 ], [ 0, %64 ], [ 4, %112 ], [ 4, %HeapTupleHeaderGetXvac.exit ], [ 0, %8 ], [ 3, %39 ], [ %., %HeapTupleHeaderGetUpdateXid.exit ], [ 3, %42 ], [ 3, %49 ], [ 1, %87 ], [ 1, %93 ], [ 4, %98 ], [ 2, %103 ], [ 1, %107 ], [ 4, %15 ], [ 0, %20 ], [ 3, %28 ], [ 3, %HeapTupleHeaderGetXvac.exit90 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -770,7 +770,7 @@ define dso_local zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef %0) local_u
   br label %16
 
 16:                                               ; preds = %14, %12, %9, %7, %5, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %5 ], [ false, %7 ], [ false, %9 ], [ false, %12 ], [ %not., %14 ]
+  %.0 = phi i1 [ true, %5 ], [ true, %1 ], [ false, %7 ], [ false, %9 ], [ %not., %14 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -810,7 +810,7 @@ define dso_local zeroext i1 @HeapTupleIsSurelyDead(ptr noundef readonly captures
   br label %21
 
 21:                                               ; preds = %12, %10, %18, %7
-  %.0 = phi i1 [ %20, %18 ], [ %9, %7 ], [ false, %10 ], [ false, %12 ]
+  %.0 = phi i1 [ %9, %7 ], [ false, %10 ], [ false, %12 ], [ %20, %18 ]
   ret i1 %.0
 }
 
@@ -2002,7 +2002,7 @@ HeapTupleSatisfiesNonVacuumable.exit:             ; preds = %539, %542
   br label %HeapTupleSatisfiesMVCC.exit
 
 HeapTupleSatisfiesMVCC.exit:                      ; preds = %.critedge.i, %532, %528, %525, %522, %518, %483, %480, %TransactionIdInArray.exit67.thread.i, %459, %457, %448, %HeapTupleHeaderGetXmin.exit.i56, %419, %417, %408, %404, %396, %386, %381, %380, %375, %373, %365, %359, %356, %352, %337, %334, %331, %322, %319, %315, %308, %300, %HeapTupleHeaderGetXvac.exit.i49, %288, %HeapTupleHeaderGetXmin.exit.thread.i, %HeapTupleHeaderGetXmin.exit.i, %278, %273, %267, %HeapTupleHeaderGetXvac.exit.i37, %255, %249, %247, %238, %233, %225, %220, %218, %215, %213, %205, %199, %196, %191, %188, %185, %182, %173, %170, %166, %159, %151, %HeapTupleHeaderGetXvac.exit.i31, %139, %134, %132, %128, %124, %120, %113, %111, %107, %95, %92, %90, %84, %79, %76, %73, %67, %64, %55, %52, %48, %44, %37, %29, %HeapTupleHeaderGetXvac.exit.i, %17, %3, %HeapTupleSatisfiesNonVacuumable.exit, %250
-  %.0 = phi i1 [ true, %250 ], [ %547, %HeapTupleSatisfiesNonVacuumable.exit ], [ false, %3 ], [ false, %134 ], [ true, %128 ], [ true, %73 ], [ false, %84 ], [ false, %17 ], [ false, %48 ], [ true, %52 ], [ true, %55 ], [ true, %64 ], [ %.not83.i, %67 ], [ %.not82.i, %76 ], [ false, %79 ], [ false, %90 ], [ true, %92 ], [ true, %95 ], [ %.not88.i, %107 ], [ true, %111 ], [ %not..i, %113 ], [ %.not87.i, %120 ], [ true, %124 ], [ true, %132 ], [ false, %HeapTupleHeaderGetXvac.exit.i ], [ false, %29 ], [ false, %37 ], [ false, %44 ], [ true, %247 ], [ false, %249 ], [ true, %238 ], [ %.3.i, %182 ], [ true, %188 ], [ false, %196 ], [ false, %139 ], [ true, %170 ], [ true, %173 ], [ false, %185 ], [ false, %191 ], [ true, %199 ], [ %210, %205 ], [ true, %213 ], [ false, %215 ], [ true, %218 ], [ %not..i28, %220 ], [ %232, %225 ], [ true, %233 ], [ false, %HeapTupleHeaderGetXvac.exit.i31 ], [ false, %151 ], [ false, %159 ], [ false, %166 ], [ true, %HeapTupleHeaderGetXmin.exit.thread.i ], [ false, %255 ], [ false, %HeapTupleHeaderGetXmin.exit.i ], [ false, %HeapTupleHeaderGetXvac.exit.i37 ], [ false, %267 ], [ false, %273 ], [ false, %278 ], [ true, %417 ], [ false, %419 ], [ true, %408 ], [ %.3.i54, %331 ], [ true, %337 ], [ true, %352 ], [ false, %356 ], [ false, %288 ], [ true, %319 ], [ true, %322 ], [ false, %334 ], [ true, %359 ], [ %370, %365 ], [ true, %380 ], [ true, %373 ], [ false, %375 ], [ %not..i45, %381 ], [ %393, %386 ], [ true, %404 ], [ true, %396 ], [ false, %HeapTupleHeaderGetXvac.exit.i49 ], [ false, %300 ], [ false, %308 ], [ false, %315 ], [ %.2.i, %518 ], [ %527, %525 ], [ false, %448 ], [ false, %HeapTupleHeaderGetXmin.exit.i56 ], [ false, %.critedge.i ], [ false, %457 ], [ false, %459 ], [ true, %480 ], [ true, %483 ], [ false, %522 ], [ true, %528 ], [ %not..i60, %532 ], [ false, %TransactionIdInArray.exit67.thread.i ]
+  %.0 = phi i1 [ %547, %HeapTupleSatisfiesNonVacuumable.exit ], [ false, %3 ], [ false, %37 ], [ true, %250 ], [ false, %159 ], [ false, %273 ], [ false, %308 ], [ false, %90 ], [ true, %92 ], [ true, %95 ], [ true, %124 ], [ false, %134 ], [ %.not87.i, %120 ], [ %not..i, %113 ], [ true, %111 ], [ true, %128 ], [ false, %79 ], [ false, %84 ], [ true, %132 ], [ false, %29 ], [ false, %17 ], [ false, %48 ], [ true, %52 ], [ true, %55 ], [ %.not82.i, %76 ], [ true, %64 ], [ true, %73 ], [ %.not83.i, %67 ], [ %.not88.i, %107 ], [ false, %HeapTupleHeaderGetXvac.exit.i ], [ false, %44 ], [ false, %191 ], [ %210, %205 ], [ true, %199 ], [ false, %185 ], [ %232, %225 ], [ %not..i28, %220 ], [ false, %215 ], [ true, %247 ], [ false, %249 ], [ true, %238 ], [ false, %196 ], [ true, %233 ], [ false, %151 ], [ false, %139 ], [ true, %170 ], [ %.3.i, %182 ], [ true, %173 ], [ true, %188 ], [ true, %218 ], [ true, %213 ], [ false, %HeapTupleHeaderGetXvac.exit.i31 ], [ false, %166 ], [ true, %HeapTupleHeaderGetXmin.exit.thread.i ], [ false, %255 ], [ false, %HeapTupleHeaderGetXmin.exit.i ], [ false, %267 ], [ false, %HeapTupleHeaderGetXvac.exit.i37 ], [ false, %278 ], [ false, %334 ], [ %370, %365 ], [ true, %359 ], [ true, %352 ], [ %393, %386 ], [ %not..i45, %381 ], [ true, %380 ], [ true, %417 ], [ false, %419 ], [ true, %408 ], [ false, %356 ], [ true, %396 ], [ false, %300 ], [ false, %288 ], [ true, %319 ], [ %.3.i54, %331 ], [ true, %322 ], [ true, %337 ], [ false, %375 ], [ true, %373 ], [ true, %404 ], [ false, %HeapTupleHeaderGetXvac.exit.i49 ], [ false, %315 ], [ false, %459 ], [ false, %TransactionIdInArray.exit67.thread.i ], [ true, %480 ], [ %.2.i, %518 ], [ true, %483 ], [ %527, %525 ], [ false, %522 ], [ %not..i60, %532 ], [ true, %528 ], [ false, %448 ], [ false, %.critedge.i ], [ false, %457 ], [ false, %HeapTupleHeaderGetXmin.exit.i56 ]
   ret i1 %.0
 }
 
@@ -2051,7 +2051,7 @@ define internal fastcc noundef zeroext i1 @TransactionIdInArray(i32 noundef %0, 
   br i1 %15, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !4
 
 bsearch.exit:                                     ; preds = %14, %11, %3
-  %16 = phi i1 [ false, %3 ], [ true, %11 ], [ false, %14 ]
+  %16 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %11 ]
   ret i1 %16
 }
 

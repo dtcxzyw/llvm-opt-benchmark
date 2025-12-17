@@ -1070,8 +1070,8 @@ define void @_ZNK5folly3ssl17SSLSessionManager10getSessionEv(ptr dead_on_unwind 
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %14, %11, %6, %2
-  %.sroa.6.0 = phi ptr [ null, %6 ], [ %.val6.i.i.i, %14 ], [ %.val6.i.i.i, %11 ], [ null, %2 ]
-  %.sroa.02.0 = phi ptr [ %.val.i.i.i, %6 ], [ %.val.i.i.i, %14 ], [ %.val.i.i.i, %11 ], [ null, %2 ]
+  %.sroa.6.0 = phi ptr [ %.val6.i.i.i, %11 ], [ null, %6 ], [ %.val6.i.i.i, %14 ], [ null, %2 ]
+  %.sroa.02.0 = phi ptr [ %.val.i.i.i, %11 ], [ %.val.i.i.i, %6 ], [ %.val.i.i.i, %14 ], [ null, %2 ]
   store ptr %.sroa.02.0, ptr %0, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.0, ptr %16, align 8, !tbaa !29

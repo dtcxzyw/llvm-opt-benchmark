@@ -787,7 +787,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17h13b079f91b5
   br i1 %exitcond67.not, label %_ZN4core5slice4sort6shared17find_existing_run17h8c80c5703c644670E.exit.i, label %.lr.ph51
 
 _ZN4core5slice4sort6shared17find_existing_run17h8c80c5703c644670E.exit.i: ; preds = %39, %.lr.ph, %46, %.lr.ph51
-  %.sroa.0.0.i.i = phi i64 [ %22, %46 ], [ %.sroa.01.0.i.i50, %.lr.ph51 ], [ %22, %39 ], [ %.sroa.01.1.i.i47, %.lr.ph ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.01.0.i.i50, %.lr.ph51 ], [ %22, %46 ], [ %.sroa.01.1.i.i47, %.lr.ph ], [ %22, %39 ]
   %48 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %48)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0

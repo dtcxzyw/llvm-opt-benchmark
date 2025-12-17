@@ -634,7 +634,7 @@ define hidden noundef nonnull ptr @_ZN19TemplateInterpreter29invoke_return_entry
   unreachable
 
 9:                                                ; preds = %1, %1, %1, %1, %1, %3, %2
-  %.0 = phi ptr [ @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, %2 ], [ @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, %3 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ]
+  %.0 = phi ptr [ @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, %3 ], [ @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, %2 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ], [ @_ZN19TemplateInterpreter20_invoke_return_entryE, %1 ]
   ret ptr %.0
 }
 

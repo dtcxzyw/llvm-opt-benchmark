@@ -1324,7 +1324,7 @@ define dso_local i32 @update_active_features_node(ptr noundef %0, ptr noundef %1
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
-  %.0 = phi i32 [ 0, %33 ], [ 0, %14 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %33 ], [ %.0.ph, %.sink.split ]
   call void @slurm_free_update_node_msg(ptr noundef nonnull %5) #11
   br i1 %.not.not, label %57, label %60
 
@@ -1496,7 +1496,7 @@ define dso_local i32 @update_avail_features_node(ptr noundef %0, ptr noundef %1,
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
-  %.0 = phi i32 [ 0, %33 ], [ 0, %14 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %33 ], [ %.0.ph, %.sink.split ]
   call void @slurm_free_update_node_msg(ptr noundef nonnull %5) #11
   br i1 %.not.not, label %57, label %60
 
@@ -1610,7 +1610,7 @@ define dso_local i32 @update_gres_node(ptr noundef %0, ptr noundef %1, ptr nound
   br label %56
 
 56:                                               ; preds = %.sink.split, %33, %14
-  %.0 = phi i32 [ 0, %33 ], [ 0, %14 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %33 ], [ %.0.ph, %.sink.split ]
   call void @slurm_free_update_node_msg(ptr noundef nonnull %5) #11
   br i1 %.not.not, label %57, label %60
 
@@ -1817,7 +1817,7 @@ define dso_local i32 @update_state_node(ptr noundef %0, ptr noundef %1, ptr noun
   br label %95
 
 95:                                               ; preds = %.sink.split, %64, %.loopexit
-  %.054 = phi i32 [ 0, %64 ], [ 0, %.loopexit ], [ %.054.ph, %.sink.split ]
+  %.054 = phi i32 [ 0, %.loopexit ], [ 0, %64 ], [ %.054.ph, %.sink.split ]
   call void @slurm_free_update_node_msg(ptr noundef %6) #11
   br i1 %.not.not, label %96, label %99
 

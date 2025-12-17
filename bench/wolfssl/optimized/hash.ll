@@ -160,8 +160,8 @@ define dso_local i32 @HashTest() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %20, %18, %16, %14, %12, %10, %8, %6, %4, %2, %0, %22
-  %str.12.sink = phi ptr [ @str.12, %22 ], [ @str.23, %0 ], [ @str.22, %2 ], [ @str.21, %4 ], [ @str.20, %6 ], [ @str.19, %8 ], [ @str.18, %10 ], [ @str.17, %12 ], [ @str.16, %14 ], [ @str.15, %16 ], [ @str.14, %18 ], [ @str.13, %20 ]
-  %.0 = phi i32 [ 0, %22 ], [ %1, %0 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
+  %str.12.sink = phi ptr [ @str.12, %22 ], [ @str.14, %18 ], [ @str.15, %16 ], [ @str.16, %14 ], [ @str.17, %12 ], [ @str.18, %10 ], [ @str.19, %8 ], [ @str.20, %6 ], [ @str.21, %4 ], [ @str.22, %2 ], [ @str.23, %0 ], [ @str.13, %20 ]
+  %.0 = phi i32 [ 0, %22 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %2 ], [ %1, %0 ], [ %21, %20 ]
   %puts44 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.12.sink)
   ret i32 %.0
 }
@@ -245,7 +245,7 @@ define dso_local i32 @md5_test() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.preheader, %0, %24, %20
-  %.030 = phi i32 [ %22, %20 ], [ 0, %24 ], [ %8, %0 ], [ %16, %15 ], [ %14, %.preheader ]
+  %.030 = phi i32 [ 0, %24 ], [ %8, %0 ], [ %22, %20 ], [ %16, %15 ], [ %14, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -317,7 +317,7 @@ define dso_local i32 @sha_test() local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %0, %21, %17
-  %.022 = phi i32 [ %19, %17 ], [ 0, %21 ], [ %7, %0 ]
+  %.022 = phi i32 [ 0, %21 ], [ %19, %17 ], [ %7, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -652,7 +652,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
-  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4016, %19 ], [ -4015, %12 ], [ -4014, %.preheader ]
+  %.022 = phi i32 [ 0, %28 ], [ -20009, %0 ], [ %26, %24 ], [ -4016, %19 ], [ -4015, %12 ], [ -4014, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -735,7 +735,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
-  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4019, %19 ], [ -4018, %12 ], [ -4017, %.preheader ]
+  %.022 = phi i32 [ 0, %28 ], [ -20009, %0 ], [ %26, %24 ], [ -4019, %19 ], [ -4018, %12 ], [ -4017, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -818,7 +818,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
-  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4023, %19 ], [ -4022, %12 ], [ -4021, %.preheader ]
+  %.022 = phi i32 [ 0, %28 ], [ -20009, %0 ], [ %26, %24 ], [ -4023, %19 ], [ -4022, %12 ], [ -4021, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -901,7 +901,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
-  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4022, %19 ], [ -4021, %12 ], [ -4020, %.preheader ]
+  %.022 = phi i32 [ 0, %28 ], [ -20009, %0 ], [ %26, %24 ], [ -4022, %19 ], [ -4021, %12 ], [ -4020, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -984,7 +984,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
-  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4025, %19 ], [ -4024, %12 ], [ -4023, %.preheader ]
+  %.022 = phi i32 [ 0, %28 ], [ -20009, %0 ], [ %26, %24 ], [ -4025, %19 ], [ -4024, %12 ], [ -4023, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

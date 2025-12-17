@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @ossl_crypto_thread_native_perform_join(ptr noundef r
   br label %14
 
 14:                                               ; preds = %12, %9, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %9 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %., %12 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -178,7 +178,7 @@ define ptr @ossl_crypto_mutex_new() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %3, %0, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %0 ], [ %1, %3 ]
+  %.0 = phi ptr [ null, %0 ], [ null, %5 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -277,7 +277,7 @@ define ptr @ossl_crypto_condvar_new() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %3, %0, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %0 ], [ %1, %3 ]
+  %.0 = phi ptr [ null, %0 ], [ null, %5 ], [ %1, %3 ]
   ret ptr %.0
 }
 

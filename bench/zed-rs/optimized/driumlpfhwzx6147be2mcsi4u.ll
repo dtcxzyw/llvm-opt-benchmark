@@ -900,8 +900,8 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %"_ZN191_$LT$jsonwebtoken..validation.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$jsonwebtoken..validation..BorrowedCowIfPossible$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17he8351e35971b046fE.llvm.9814727790501108674.exit"
 
 "_ZN191_$LT$jsonwebtoken..validation.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$jsonwebtoken..validation..BorrowedCowIfPossible$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17he8351e35971b046fE.llvm.9814727790501108674.exit": ; preds = %24, %23, %17, %16
-  %.sink = phi ptr [ %15, %16 ], [ %15, %17 ], [ %22, %23 ], [ %22, %24 ]
-  %storemerge = phi i64 [ %12, %16 ], [ %12, %17 ], [ %19, %23 ], [ %19, %24 ]
+  %.sink = phi ptr [ %15, %17 ], [ %15, %16 ], [ %22, %23 ], [ %22, %24 ]
+  %storemerge = phi i64 [ %12, %17 ], [ %12, %16 ], [ %19, %23 ], [ %19, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %25, align 8, !noalias !4
   store i64 %storemerge, ptr %0, align 8, !noalias !4
@@ -1094,8 +1094,8 @@ define hidden void @"_ZN12jsonwebtoken10validation1_100_$LT$impl$u20$serde..de..
   br label %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hd8a8336e294f2494E.llvm.9814727790501108674.exit"
 
 "_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hd8a8336e294f2494E.llvm.9814727790501108674.exit": ; preds = %14, %15, %21, %22
-  %.sink.i = phi ptr [ %13, %14 ], [ %13, %15 ], [ %20, %21 ], [ %20, %22 ]
-  %storemerge.i = phi i64 [ %10, %14 ], [ -9223372036854775807, %15 ], [ %17, %21 ], [ -9223372036854775807, %22 ]
+  %.sink.i = phi ptr [ %13, %15 ], [ %13, %14 ], [ %20, %21 ], [ %20, %22 ]
+  %storemerge.i = phi i64 [ -9223372036854775807, %15 ], [ %10, %14 ], [ %17, %21 ], [ -9223372036854775807, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink.i, ptr %23, align 8, !alias.scope !235, !noalias !238
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !235, !noalias !238
@@ -1170,7 +1170,7 @@ define hidden void @"_ZN194_$LT$jsonwebtoken..validation.._..$LT$impl$u20$serde.
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit16.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit16.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit16", %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit"
-  %.sink = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit12" ], [ 5, %3 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit16" ]
+  %.sink = phi i8 [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit16" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit12" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit8" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1e93bdbf24174fb5E.exit" ], [ 5, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %9, align 1
   store i8 0, ptr %0, align 8
@@ -3615,7 +3615,7 @@ default.unreachable1:                             ; preds = %2
   br label %91
 
 91:                                               ; preds = %2, %2, %90, %89, %88, %87, %80, %73, %66, %59, %55, %51, %46, %42, %37, %32, %27, %23, %18, %13, %8, %4
-  %.sink = phi i8 [ 11, %90 ], [ 10, %89 ], [ 9, %88 ], [ 7, %87 ], [ 6, %80 ], [ 6, %73 ], [ 5, %66 ], [ 5, %59 ], [ 4, %55 ], [ 3, %51 ], [ 3, %46 ], [ 2, %42 ], [ 2, %37 ], [ 2, %32 ], [ 2, %27 ], [ 1, %23 ], [ 1, %18 ], [ 1, %13 ], [ 1, %8 ], [ 0, %4 ], [ 8, %2 ], [ 8, %2 ]
+  %.sink = phi i8 [ 11, %90 ], [ 10, %89 ], [ 9, %88 ], [ 7, %87 ], [ 0, %4 ], [ 6, %80 ], [ 6, %73 ], [ 5, %66 ], [ 5, %59 ], [ 4, %55 ], [ 3, %51 ], [ 3, %46 ], [ 2, %42 ], [ 2, %37 ], [ 2, %32 ], [ 2, %27 ], [ 1, %23 ], [ 1, %18 ], [ 1, %13 ], [ 1, %8 ], [ 8, %2 ], [ 8, %2 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -5623,8 +5623,8 @@ _ZN10serde_json2de12ParserNumber5visit17h5bb4a5ef655e036bE.exit.thread: ; preds 
   br label %206
 
 208:                                              ; preds = %243, %206
-  %.sroa.0111.2 = phi i64 [ %.sroa.0111.0162, %206 ], [ %.sroa.0111.3173, %243 ]
-  %.sroa.41.3 = phi i64 [ %.sroa.41.1163, %206 ], [ %.sroa.41.4174, %243 ]
+  %.sroa.0111.2 = phi i64 [ %.sroa.0111.3173, %243 ], [ %.sroa.0111.0162, %206 ]
+  %.sroa.41.3 = phi i64 [ %.sroa.41.4174, %243 ], [ %.sroa.41.1163, %206 ]
   %.not187 = icmp eq i64 %.sroa.0111.2, 3
   br i1 %.not187, label %166, label %251
 
@@ -5799,7 +5799,7 @@ _ZN10serde_json2de12ParserNumber5visit17h5bb4a5ef655e036bE.exit109.thread: ; pre
   br label %120
 
 269:                                              ; preds = %189, %228
-  %.pn = phi { ptr, i32 } [ %190, %189 ], [ %229, %228 ]
+  %.pn = phi { ptr, i32 } [ %229, %228 ], [ %190, %189 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6515,8 +6515,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h043191b9bf73c6ceE.exit.sink.split"
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h043191b9bf73c6ceE.exit.sink.split": ; preds = %31, %38, %23, %22
-  %.sink20 = phi ptr [ %21, %22 ], [ %21, %23 ], [ %39, %38 ], [ %32, %31 ]
-  %.sink.ph = phi i64 [ %18, %22 ], [ -9223372036854775806, %23 ], [ -9223372036854775806, %38 ], [ -9223372036854775806, %31 ]
+  %.sink20 = phi ptr [ %21, %23 ], [ %21, %22 ], [ %39, %38 ], [ %32, %31 ]
+  %.sink.ph = phi i64 [ -9223372036854775806, %23 ], [ %18, %22 ], [ -9223372036854775806, %38 ], [ -9223372036854775806, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink20, ptr %40, align 8
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17h043191b9bf73c6ceE.exit"
@@ -6740,7 +6740,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   %31 = invoke { i64, i32 } @_ZN3std4time10SystemTime3now17h20ea71815bb24008E()
           to label %32 unwind label %.thread63
 
-.thread63:                                        ; preds = %24, %30
+.thread63:                                        ; preds = %30, %24
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread58
@@ -6943,7 +6943,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   br label %"_ZN4core3ptr56drop_in_place$LT$jsonwebtoken..encoding..EncodingKey$GT$17h9142786f16c8e03dE.exit40"
 
 "_ZN4core3ptr56drop_in_place$LT$jsonwebtoken..encoding..EncodingKey$GT$17h9142786f16c8e03dE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %82, %69
-  %.pn32 = phi { ptr, i32 } [ %70, %69 ], [ %.pn30, %82 ], [ %.pn30, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i" ]
+  %.pn32 = phi { ptr, i32 } [ %.pn30, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i" ], [ %70, %69 ], [ %.pn30, %82 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$jsonwebtoken..header..Header$GT$17ha7fb5ea0912fe310E"(ptr noalias noundef nonnull align 8 dereferenceable(432) %12) #32
           to label %.thread unwind label %113
 
@@ -7028,7 +7028,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   unreachable
 
 .thread:                                          ; preds = %66, %"_ZN4core3ptr56drop_in_place$LT$jsonwebtoken..encoding..EncodingKey$GT$17h9142786f16c8e03dE.exit", %.thread58
-  %.pn3457 = phi { ptr, i32 } [ %.pn3461, %.thread58 ], [ %67, %66 ], [ %.pn32, %"_ZN4core3ptr56drop_in_place$LT$jsonwebtoken..encoding..EncodingKey$GT$17h9142786f16c8e03dE.exit" ]
+  %.pn3457 = phi { ptr, i32 } [ %.pn32, %"_ZN4core3ptr56drop_in_place$LT$jsonwebtoken..encoding..EncodingKey$GT$17h9142786f16c8e03dE.exit" ], [ %.pn3461, %.thread58 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn3457
 
 .thread58:                                        ; preds = %36, %.thread63

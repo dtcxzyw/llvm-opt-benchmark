@@ -158,7 +158,7 @@ define internal range(i32 25, 24) i32 @msnwc_tcp_read_packet(ptr noundef readonl
   br label %29
 
 29:                                               ; preds = %13, %2, %27
-  %.0 = phi i32 [ %28, %27 ], [ -1094995529, %2 ], [ %14, %13 ]
+  %.0 = phi i32 [ -1094995529, %2 ], [ %28, %27 ], [ %14, %13 ]
   ret i32 %.0
 }
 

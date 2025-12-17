@@ -309,8 +309,8 @@ _ZN3ue2L17findDesiredStrideEmmm.exit:             ; preds = %9, %21, %25, %28, %
   %85 = icmp eq i64 %.065117, 1
   br i1 %85, label %89, label %.thread
 
-.thread:                                          ; preds = %82, %80, %78, %76, %84
-  %.0102 = phi i32 [ 10, %84 ], [ %.93, %82 ], [ 12, %80 ], [ 11, %78 ], [ 10, %76 ]
+.thread:                                          ; preds = %78, %76, %82, %80, %84
+  %.0102 = phi i32 [ 10, %84 ], [ 11, %78 ], [ 10, %76 ], [ %.93, %82 ], [ 12, %80 ]
   %86 = load i32, ptr %40, align 4
   %87 = icmp eq i32 %86, 32
   %88 = zext i1 %87 to i32

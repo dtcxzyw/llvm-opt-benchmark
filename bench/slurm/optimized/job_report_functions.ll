@@ -583,8 +583,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %.not330 = icmp eq ptr %221, null
   br i1 %.not330, label %._crit_edge404, label %.lr.ph403.split, !llvm.loop !15
 
-.thread363:                                       ; preds = %218, %206, %211, %216, %.lr.ph403.split.us
-  %.us-phi = phi ptr [ %196, %.lr.ph403.split.us ], [ %200, %216 ], [ %200, %211 ], [ %200, %206 ], [ %200, %218 ]
+.thread363:                                       ; preds = %218, %211, %206, %216, %.lr.ph403.split.us
+  %.us-phi = phi ptr [ %196, %.lr.ph403.split.us ], [ %200, %216 ], [ %200, %206 ], [ %200, %211 ], [ %200, %218 ]
   call void @list_iterator_destroy(ptr noundef %192) #11
   br label %255
 

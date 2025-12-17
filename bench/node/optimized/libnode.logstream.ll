@@ -656,7 +656,7 @@ if.end10:                                         ; preds = %_ZNSt5dequeIN4node4
   br label %return
 
 return:                                           ; preds = %entry, %if.end10, %if.then6
-  %retval.0 = phi i32 [ %call9, %if.then6 ], [ 0, %if.end10 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ 0, %if.end10 ], [ %call9, %if.then6 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1528,7 +1528,7 @@ _ZSt4copyIPPN4node4quic9LogStream5ChunkES5_ET0_T_S7_S6_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN4node4quic9LogStream5ChunkES5_ET0_T_S7_S6_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4node4quic9LogStream5ChunkES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4node4quic9LogStream5ChunkES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

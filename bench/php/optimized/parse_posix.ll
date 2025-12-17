@@ -498,7 +498,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
   br label %166
 
 166:                                              ; preds = %162, %63, %165, %161, %156, %152, %timelib_posix_str_dtor.exit64, %timelib_posix_str_dtor.exit59, %timelib_posix_str_dtor.exit54, %timelib_posix_str_dtor.exit41, %timelib_posix_str_dtor.exit
-  %.0 = phi ptr [ null, %timelib_posix_str_dtor.exit41 ], [ null, %timelib_posix_str_dtor.exit59 ], [ null, %timelib_posix_str_dtor.exit64 ], [ null, %156 ], [ null, %165 ], [ null, %161 ], [ null, %152 ], [ null, %timelib_posix_str_dtor.exit54 ], [ null, %timelib_posix_str_dtor.exit ], [ %3, %63 ], [ %3, %162 ]
+  %.0 = phi ptr [ null, %timelib_posix_str_dtor.exit41 ], [ null, %timelib_posix_str_dtor.exit ], [ null, %timelib_posix_str_dtor.exit59 ], [ null, %timelib_posix_str_dtor.exit64 ], [ null, %156 ], [ null, %165 ], [ %3, %63 ], [ null, %161 ], [ null, %152 ], [ null, %timelib_posix_str_dtor.exit54 ], [ %3, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1023,7 +1023,7 @@ read_trans_spec_mwd.exit:                         ; preds = %read_number.exit44.
   br label %114
 
 114:                                              ; preds = %read_trans_spec_mwd.exit.thread, %read_trans_spec_mwd.exit, %111, %113
-  %.019 = phi ptr [ null, %113 ], [ %5, %111 ], [ %5, %read_trans_spec_mwd.exit ], [ null, %read_trans_spec_mwd.exit.thread ]
+  %.019 = phi ptr [ null, %113 ], [ null, %read_trans_spec_mwd.exit.thread ], [ %5, %111 ], [ %5, %read_trans_spec_mwd.exit ]
   ret ptr %.019
 }
 

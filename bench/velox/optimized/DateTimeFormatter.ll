@@ -439,7 +439,7 @@ if.then.us:                                       ; preds = %for.body.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then.us, %sw.bb9.us, %sw.bb14.us, %sw.bb21.us, %cond.false.us, %sw.bb25.us, %sw.bb35.us, %sw.bb42.us, %sw.bb49.us, %if.end.us, %if.end.us
-  %.pn.us = phi i32 [ %13, %if.then.us ], [ %.sroa.speculated59.us, %sw.bb9.us ], [ %.sroa.speculated55.us, %sw.bb14.us ], [ %cond.us, %sw.bb21.us ], [ %.sroa.speculated47.us, %sw.bb35.us ], [ %.sroa.speculated43.us, %sw.bb42.us ], [ %.sroa.speculated39.us, %sw.bb49.us ], [ 2, %if.end.us ], [ 2, %if.end.us ], [ %.sroa.speculated51.us, %cond.false.us ], [ 2, %sw.bb25.us ]
+  %.pn.us = phi i32 [ %13, %if.then.us ], [ 2, %sw.bb25.us ], [ %.sroa.speculated59.us, %sw.bb9.us ], [ %.sroa.speculated55.us, %sw.bb14.us ], [ %cond.us, %sw.bb21.us ], [ 2, %if.end.us ], [ %.sroa.speculated47.us, %sw.bb35.us ], [ %.sroa.speculated43.us, %sw.bb42.us ], [ %.sroa.speculated39.us, %sw.bb49.us ], [ 2, %if.end.us ], [ %.sroa.speculated51.us, %cond.false.us ]
   %size.1.us = add i32 %.pn.us, %size.068.us
   %incdec.ptr.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.067.us, i64 24
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %1
@@ -552,7 +552,7 @@ sw.default:                                       ; preds = %if.end, %if.end.us
   unreachable
 
 for.inc:                                          ; preds = %cond.false, %sw.bb25, %if.end, %if.end, %sw.bb9, %sw.bb14, %sw.bb21, %sw.bb35, %sw.bb42, %sw.bb49, %sw.bb56, %if.then
-  %.pn = phi i32 [ %17, %if.then ], [ %.sroa.speculated59, %sw.bb9 ], [ %.sroa.speculated55, %sw.bb14 ], [ %cond, %sw.bb21 ], [ %.sroa.speculated47, %sw.bb35 ], [ %.sroa.speculated43, %sw.bb42 ], [ %.sroa.speculated39, %sw.bb49 ], [ %27, %sw.bb56 ], [ 2, %if.end ], [ 2, %if.end ], [ %.sroa.speculated51, %cond.false ], [ 2, %sw.bb25 ]
+  %.pn = phi i32 [ %17, %if.then ], [ %27, %sw.bb56 ], [ %.sroa.speculated59, %sw.bb9 ], [ %.sroa.speculated55, %sw.bb14 ], [ %cond, %sw.bb21 ], [ 2, %if.end ], [ %.sroa.speculated47, %sw.bb35 ], [ %.sroa.speculated43, %sw.bb42 ], [ %.sroa.speculated39, %sw.bb49 ], [ 2, %if.end ], [ %.sroa.speculated51, %cond.false ], [ 2, %sw.bb25 ]
   %size.1 = add i32 %.pn, %size.068
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.067, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
@@ -1100,7 +1100,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   br i1 %cmp.i, label %cond.end, label %if.end.i, !llvm.loop !6
 
 cond.end:                                         ; preds = %if.end12.i, %if.end12.i67, %if.then3.i, %if.then6.i, %if.then10.i, %if.then3.i74, %if.then6.i72, %if.then10.i70
-  %cond = phi i32 [ %add.i75, %if.then3.i74 ], [ %add7.i73, %if.then6.i72 ], [ %add11.i71, %if.then10.i70 ], [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add13.i69, %if.end12.i67 ], [ %add13.i, %if.end12.i ]
+  %cond = phi i32 [ %add11.i71, %if.then10.i70 ], [ %add.i75, %if.then3.i74 ], [ %add7.i73, %if.then6.i72 ], [ %add11.i, %if.then10.i ], [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ %add13.i69, %if.end12.i67 ], [ %add13.i, %if.end12.i ]
   %.lobit.neg = ashr i32 %0, 31
   %cmp10 = icmp eq i32 %cond, %.lobit.neg
   br i1 %cmp10, label %if.then, label %if.end
@@ -1195,7 +1195,7 @@ if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.end8.i73
-  %retval.0.i.i.i = phi i32 [ %add.i.i.i, %if.then4.i.i.i ], [ %add8.i.i.i, %if.then7.i.i.i ], [ %add13.i.i.i, %if.then12.i.i.i ], [ 1, %if.end8.i73 ], [ %add17.i.i.i, %if.end14.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %add13.i.i.i, %if.then12.i.i.i ], [ %add.i.i.i, %if.then4.i.i.i ], [ %add8.i.i.i, %if.then7.i.i.i ], [ 1, %if.end8.i73 ], [ %add17.i.i.i, %if.end14.i.i.i ]
   %sub.ptr.lhs.cast.i23.i = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i = ptrtoint ptr %__first.addr.0.i to i64
   %sub.ptr.sub.i25.i = sub i64 %sub.ptr.lhs.cast.i23.i, %sub.ptr.rhs.cast.i24.i
@@ -1261,7 +1261,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i: ; preds = %if.else.i.i.i,
   br label %_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.then14, %if.then2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
-  %__last.pn.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ]
+  %__last.pn.i = phi ptr [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %result, %if.then14 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %result to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -1339,7 +1339,7 @@ if.end14.i.i.i94:                                 ; preds = %if.end9.i.i.i92
   br i1 %cmp.i.i.i96, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97, label %if.end.i.i.i86, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97: ; preds = %if.end14.i.i.i94, %if.then12.i.i.i138, %if.then7.i.i.i140, %if.then4.i.i.i142, %if.end8.i82
-  %retval.0.i.i.i98 = phi i32 [ %add.i.i.i143, %if.then4.i.i.i142 ], [ %add8.i.i.i141, %if.then7.i.i.i140 ], [ %add13.i.i.i139, %if.then12.i.i.i138 ], [ 1, %if.end8.i82 ], [ %add17.i.i.i95, %if.end14.i.i.i94 ]
+  %retval.0.i.i.i98 = phi i32 [ %add13.i.i.i139, %if.then12.i.i.i138 ], [ %add.i.i.i143, %if.then4.i.i.i142 ], [ %add8.i.i.i141, %if.then7.i.i.i140 ], [ 1, %if.end8.i82 ], [ %add17.i.i.i95, %if.end14.i.i.i94 ]
   %sub.ptr.lhs.cast.i23.i99 = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i100 = ptrtoint ptr %__first.addr.0.i83 to i64
   %sub.ptr.sub.i25.i101 = sub i64 %sub.ptr.lhs.cast.i23.i99, %sub.ptr.rhs.cast.i24.i100
@@ -1470,7 +1470,7 @@ if.end14.i.i.i167:                                ; preds = %if.end9.i.i.i165
   br i1 %cmp.i.i.i169, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i170, label %if.end.i.i.i159, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i170: ; preds = %if.end14.i.i.i167, %if.then12.i.i.i211, %if.then7.i.i.i213, %if.then4.i.i.i215, %if.end8.i155
-  %retval.0.i.i.i171 = phi i32 [ %add.i.i.i216, %if.then4.i.i.i215 ], [ %add8.i.i.i214, %if.then7.i.i.i213 ], [ %add13.i.i.i212, %if.then12.i.i.i211 ], [ 1, %if.end8.i155 ], [ %add17.i.i.i168, %if.end14.i.i.i167 ]
+  %retval.0.i.i.i171 = phi i32 [ %add13.i.i.i212, %if.then12.i.i.i211 ], [ %add.i.i.i216, %if.then4.i.i.i215 ], [ %add8.i.i.i214, %if.then7.i.i.i213 ], [ 1, %if.end8.i155 ], [ %add17.i.i.i168, %if.end14.i.i.i167 ]
   %sub.ptr.lhs.cast.i23.i172 = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i173 = ptrtoint ptr %__first.addr.0.i156 to i64
   %sub.ptr.sub.i25.i174 = sub i64 %sub.ptr.lhs.cast.i23.i172, %sub.ptr.rhs.cast.i24.i173
@@ -1536,14 +1536,14 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i184: ; preds = %if.else.i.i
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i184, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i170, %if.then2.i220, %_ZSt4fillIPccEvT_S1_RKT0_.exit68, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97, %if.then2.i147, %_ZSt4fillIPccEvT_S1_RKT0_.exit61
-  %__last.pn.i114.pn = phi ptr [ %add.ptr.i148, %if.then2.i147 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i113, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97 ], [ %add.ptr.i221, %if.then2.i220 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i186, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i184 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i170 ]
+  %__last.pn.i114.pn = phi ptr [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i113, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111 ], [ %add.ptr.i148, %if.then2.i147 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97 ], [ %add.ptr.i29.i186, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i184 ], [ %add.ptr.i221, %if.then2.i220 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i170 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ]
   %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i114.pn to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.then, %if.end36, %_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
-  %retval.0.in = phi i64 [ %sub.ptr.sub, %_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit ], [ %sub.ptr.sub40, %if.end36 ], [ 0, %if.then ], [ %totalDigits, %if.then.i.i.i ]
+  %retval.0.in = phi i64 [ %sub.ptr.sub40, %if.end36 ], [ %sub.ptr.sub, %_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit ], [ 0, %if.then ], [ %totalDigits, %if.then.i.i.i ]
   %retval.0 = trunc i64 %retval.0.in to i32
   ret i32 %retval.0
 }
@@ -1595,7 +1595,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   br i1 %cmp.i, label %if.end, label %if.end.i, !llvm.loop !6
 
 if.end:                                           ; preds = %if.end12.i, %entry, %if.then10.i, %if.then6.i, %if.then3.i
-  %retval.i.0 = phi i32 [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add13.i, %if.end12.i ]
+  %retval.i.0 = phi i32 [ %add11.i, %if.then10.i ], [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ 1, %entry ], [ %add13.i, %if.end12.i ]
   %conv12 = sext i32 %retval.i.0 to i64
   %cmp13.not = icmp ugt i64 %totalDigits, %conv12
   br i1 %cmp13.not, label %if.end17, label %if.then14
@@ -1644,7 +1644,7 @@ if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.end5.i
-  %retval.0.i.i.i = phi i32 [ %add.i.i.i, %if.then4.i.i.i ], [ %add8.i.i.i, %if.then7.i.i.i ], [ %add13.i.i.i, %if.then12.i.i.i ], [ 1, %if.end5.i ], [ %add17.i.i.i, %if.end14.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %add13.i.i.i, %if.then12.i.i.i ], [ %add.i.i.i, %if.then4.i.i.i ], [ %add8.i.i.i, %if.then7.i.i.i ], [ 1, %if.end5.i ], [ %add17.i.i.i, %if.end14.i.i.i ]
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %result to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
@@ -1704,8 +1704,8 @@ if.else.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.else.i.i.i, %if.then.i.i.i59, %if.end.i58
-  %.sink.i = phi i8 [ 48, %if.end.i58 ], [ %conv.i.i.i, %if.else.i.i.i ], [ %9, %if.then.i.i.i59 ]
-  %conv3033.i.sink.i = phi i64 [ 1, %if.end.i58 ], [ %conv.i23.i, %if.else.i.i.i ], [ %conv.i23.i, %if.then.i.i.i59 ]
+  %.sink.i = phi i8 [ 48, %if.end.i58 ], [ %9, %if.then.i.i.i59 ], [ %conv.i.i.i, %if.else.i.i.i ]
+  %conv3033.i.sink.i = phi i64 [ 1, %if.end.i58 ], [ %conv.i23.i, %if.then.i.i.i59 ], [ %conv.i23.i, %if.else.i.i.i ]
   store i8 %.sink.i, ptr %result, align 1
   %add.ptr.i109.i = getelementptr inbounds nuw i8, ptr %result, i64 %conv3033.i.sink.i
   br label %return
@@ -1759,7 +1759,7 @@ if.end14.i.i.i73:                                 ; preds = %if.end9.i.i.i71
   br i1 %cmp.i.i.i75, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76, label %if.end.i.i.i65, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76: ; preds = %if.end14.i.i.i73, %if.then12.i.i.i118, %if.then7.i.i.i120, %if.then4.i.i.i122, %if.end5.i63
-  %retval.0.i.i.i77 = phi i32 [ %add.i.i.i123, %if.then4.i.i.i122 ], [ %add8.i.i.i121, %if.then7.i.i.i120 ], [ %add13.i.i.i119, %if.then12.i.i.i118 ], [ 1, %if.end5.i63 ], [ %add17.i.i.i74, %if.end14.i.i.i73 ]
+  %retval.0.i.i.i77 = phi i32 [ %add13.i.i.i119, %if.then12.i.i.i118 ], [ %add.i.i.i123, %if.then4.i.i.i122 ], [ %add8.i.i.i121, %if.then7.i.i.i120 ], [ 1, %if.end5.i63 ], [ %add17.i.i.i74, %if.end14.i.i.i73 ]
   %sub.ptr.lhs.cast.i20.i78 = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i21.i79 = ptrtoint ptr %add.ptr32 to i64
   %sub.ptr.sub.i22.i80 = sub i64 %sub.ptr.lhs.cast.i20.i78, %sub.ptr.rhs.cast.i21.i79
@@ -1819,14 +1819,14 @@ if.else.i.i.i88:                                  ; preds = %while.end.i.i.i85
   br label %return.sink.split.i90
 
 return.sink.split.i90:                            ; preds = %if.else.i.i.i88, %if.then.i.i.i98, %if.end.i61
-  %.sink.i91 = phi i8 [ 48, %if.end.i61 ], [ %conv.i.i.i89, %if.else.i.i.i88 ], [ %20, %if.then.i.i.i98 ]
-  %conv3033.i.sink.i92 = phi i64 [ 1, %if.end.i61 ], [ %conv.i23.i81, %if.else.i.i.i88 ], [ %conv.i23.i81, %if.then.i.i.i98 ]
+  %.sink.i91 = phi i8 [ 48, %if.end.i61 ], [ %20, %if.then.i.i.i98 ], [ %conv.i.i.i89, %if.else.i.i.i88 ]
+  %conv3033.i.sink.i92 = phi i64 [ 1, %if.end.i61 ], [ %conv.i23.i81, %if.then.i.i.i98 ], [ %conv.i23.i81, %if.else.i.i.i88 ]
   store i8 %.sink.i91, ptr %add.ptr32, align 1
   %add.ptr.i109.i93 = getelementptr inbounds nuw i8, ptr %add.ptr32, i64 %conv3033.i.sink.i92
   br label %return
 
 return:                                           ; preds = %return.sink.split.i90, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76, %if.end17, %return.sink.split.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, %if.then14
-  %__last.pn.i94.sink = phi ptr [ %result, %if.then14 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %add.ptr.i109.i, %return.sink.split.i ], [ %maxResultEnd, %if.end17 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76 ], [ %add.ptr.i109.i93, %return.sink.split.i90 ]
+  %__last.pn.i94.sink = phi ptr [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i ], [ %result, %if.then14 ], [ %add.ptr.i109.i, %return.sink.split.i ], [ %maxResultEnd, %if.end17 ], [ %add.ptr.i109.i93, %return.sink.split.i90 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76 ]
   %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i94.sink to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
@@ -1923,7 +1923,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   br i1 %cmp.i, label %cond.end, label %if.end.i, !llvm.loop !6
 
 cond.end:                                         ; preds = %if.end12.i, %if.end12.i67, %cond.false, %cond.true, %if.then3.i, %if.then6.i, %if.then10.i, %if.then3.i74, %if.then6.i72, %if.then10.i70
-  %cond = phi i32 [ %add.i75, %if.then3.i74 ], [ %add7.i73, %if.then6.i72 ], [ %add11.i71, %if.then10.i70 ], [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %cond.true ], [ 1, %cond.false ], [ %add13.i69, %if.end12.i67 ], [ %add13.i, %if.end12.i ]
+  %cond = phi i32 [ %add11.i71, %if.then10.i70 ], [ %add.i75, %if.then3.i74 ], [ %add7.i73, %if.then6.i72 ], [ %add11.i, %if.then10.i ], [ %add.i, %if.then3.i ], [ %add7.i, %if.then6.i ], [ 1, %cond.true ], [ 1, %cond.false ], [ %add13.i69, %if.end12.i67 ], [ %add13.i, %if.end12.i ]
   %.lobit.neg = ashr i64 %0, 63
   %add.neg = trunc nsw i64 %.lobit.neg to i32
   %cmp10 = icmp eq i32 %cond, %add.neg
@@ -2003,7 +2003,7 @@ if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %if.end16.i.i.i, %if.then14.i.i.i, %if.then10.i.i.i, %if.then6.i.i.i, %if.end8.i73
-  %retval.0.i.i.i = phi i32 [ %add.i.i.i, %if.then6.i.i.i ], [ %add11.i.i.i, %if.then10.i.i.i ], [ %add15.i.i.i, %if.then14.i.i.i ], [ 1, %if.end8.i73 ], [ %add17.i.i.i, %if.end16.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ %add15.i.i.i, %if.then14.i.i.i ], [ %add.i.i.i, %if.then6.i.i.i ], [ %add11.i.i.i, %if.then10.i.i.i ], [ 1, %if.end8.i73 ], [ %add17.i.i.i, %if.end16.i.i.i ]
   %sub.ptr.lhs.cast.i23.i = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i = ptrtoint ptr %__first.addr.0.i to i64
   %sub.ptr.sub.i25.i = sub i64 %sub.ptr.lhs.cast.i23.i, %sub.ptr.rhs.cast.i24.i
@@ -2067,7 +2067,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i: ; preds = %if.else.i.i.i,
   br label %_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 _ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit: ; preds = %if.then14, %if.then2.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
-  %__last.pn.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %result, %if.then14 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ]
+  %__last.pn.i = phi ptr [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i ], [ %result, %if.then14 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %result to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -2144,7 +2144,7 @@ if.end16.i.i.i94:                                 ; preds = %if.end12.i.i.i92
   br i1 %cmp.i.i.i97, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98, label %if.end.i.i.i86, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98: ; preds = %if.end16.i.i.i94, %if.then14.i.i.i139, %if.then10.i.i.i141, %if.then6.i.i.i143, %if.end8.i82
-  %retval.0.i.i.i99 = phi i32 [ %add.i.i.i144, %if.then6.i.i.i143 ], [ %add11.i.i.i142, %if.then10.i.i.i141 ], [ %add15.i.i.i140, %if.then14.i.i.i139 ], [ 1, %if.end8.i82 ], [ %add17.i.i.i96, %if.end16.i.i.i94 ]
+  %retval.0.i.i.i99 = phi i32 [ %add15.i.i.i140, %if.then14.i.i.i139 ], [ %add.i.i.i144, %if.then6.i.i.i143 ], [ %add11.i.i.i142, %if.then10.i.i.i141 ], [ 1, %if.end8.i82 ], [ %add17.i.i.i96, %if.end16.i.i.i94 ]
   %sub.ptr.lhs.cast.i23.i100 = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i101 = ptrtoint ptr %__first.addr.0.i83 to i64
   %sub.ptr.sub.i25.i102 = sub i64 %sub.ptr.lhs.cast.i23.i100, %sub.ptr.rhs.cast.i24.i101
@@ -2272,7 +2272,7 @@ if.end16.i.i.i168:                                ; preds = %if.end12.i.i.i166
   br i1 %cmp.i.i.i171, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i172, label %if.end.i.i.i160, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i172: ; preds = %if.end16.i.i.i168, %if.then14.i.i.i213, %if.then10.i.i.i215, %if.then6.i.i.i217, %if.end8.i156
-  %retval.0.i.i.i173 = phi i32 [ %add.i.i.i218, %if.then6.i.i.i217 ], [ %add11.i.i.i216, %if.then10.i.i.i215 ], [ %add15.i.i.i214, %if.then14.i.i.i213 ], [ 1, %if.end8.i156 ], [ %add17.i.i.i170, %if.end16.i.i.i168 ]
+  %retval.0.i.i.i173 = phi i32 [ %add15.i.i.i214, %if.then14.i.i.i213 ], [ %add.i.i.i218, %if.then6.i.i.i217 ], [ %add11.i.i.i216, %if.then10.i.i.i215 ], [ 1, %if.end8.i156 ], [ %add17.i.i.i170, %if.end16.i.i.i168 ]
   %sub.ptr.lhs.cast.i23.i174 = ptrtoint ptr %maxResultEnd to i64
   %sub.ptr.rhs.cast.i24.i175 = ptrtoint ptr %__first.addr.0.i157 to i64
   %sub.ptr.sub.i25.i176 = sub i64 %sub.ptr.lhs.cast.i23.i174, %sub.ptr.rhs.cast.i24.i175
@@ -2336,14 +2336,14 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i186: ; preds = %if.else.i.i
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i186, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i172, %if.then2.i222, %_ZSt4fillIPccEvT_S1_RKT0_.exit68, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98, %if.then2.i148, %_ZSt4fillIPccEvT_S1_RKT0_.exit61
-  %__last.pn.i115.pn = phi ptr [ %add.ptr.i149, %if.then2.i148 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i114, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98 ], [ %add.ptr.i223, %if.then2.i222 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ], [ %add.ptr.i29.i188, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i186 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i172 ]
+  %__last.pn.i115.pn = phi ptr [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit61 ], [ %add.ptr.i29.i114, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112 ], [ %add.ptr.i149, %if.then2.i148 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98 ], [ %add.ptr.i29.i188, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i186 ], [ %add.ptr.i223, %if.then2.i222 ], [ %maxResultEnd, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i172 ], [ %maxResultEnd, %_ZSt4fillIPccEvT_S1_RKT0_.exit68 ]
   %sub.ptr.lhs.cast38 = ptrtoint ptr %__last.pn.i115.pn to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %result to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.then, %if.end36, %_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
-  %retval.0.in = phi i64 [ %sub.ptr.sub, %_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit ], [ %sub.ptr.sub40, %if.end36 ], [ 0, %if.then ], [ %totalDigits, %if.then.i.i.i ]
+  %retval.0.in = phi i64 [ %sub.ptr.sub40, %if.end36 ], [ %sub.ptr.sub, %_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit ], [ 0, %if.then ], [ %totalDigits, %if.then.i.i.i ]
   %retval.0 = trunc i64 %retval.0.in to i32
   ret i32 %retval.0
 }
@@ -2745,7 +2745,7 @@ if.else93:                                        ; preds = %if.else87
           to label %if.end99 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end99:                                         ; preds = %if.else93, %if.then89, %if.then83
-  %daysSinceEpoch.0 = phi i64 [ %call86, %if.then83 ], [ %call92, %if.then89 ], [ %call97, %if.else93 ]
+  %daysSinceEpoch.0 = phi i64 [ %call92, %if.then89 ], [ %call86, %if.then83 ], [ %call97, %if.else93 ]
   %hour100 = getelementptr inbounds nuw i8, ptr %date, i64 36
   %48 = load i32, ptr %hour100, align 4
   %minute = getelementptr inbounds nuw i8, ptr %date, i64 40
@@ -2991,8 +2991,8 @@ lpad.i:                                           ; preds = %if.end67.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.then43.tail.i, %if.then23.i, %if.then8.i, %if.then.i, %if.else.i, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i
-  %.sink.i = phi i64 [ 0, %if.then8.i ], [ 0, %if.then23.i ], [ 0, %if.then43.tail.i ], [ 0, %if.then.i ], [ %call12.i250, %if.else.i ], [ %call35.i255, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ %call54.i261, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
-  %retval.0.i = phi i64 [ 6, %if.then8.i ], [ 5, %if.then23.i ], [ 3, %if.then43.tail.i ], [ 1, %if.then.i ], [ 6, %if.else.i ], [ 5, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ 3, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
+  %.sink.i = phi i64 [ 0, %if.then23.i ], [ %call35.i255, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ 0, %if.then8.i ], [ %call12.i250, %if.else.i ], [ 0, %if.then43.tail.i ], [ 0, %if.then.i ], [ %call54.i261, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
+  %retval.0.i = phi i64 [ 5, %if.then23.i ], [ 5, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ 6, %if.then8.i ], [ 6, %if.else.i ], [ 3, %if.then43.tail.i ], [ 1, %if.then.i ], [ 3, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
   %timezoneId48.i = getelementptr inbounds nuw i8, ptr %date, i64 56
   store i64 %.sink.i, ptr %timezoneId48.i, align 8
   %16 = load ptr, ptr %cur, align 8
@@ -3305,7 +3305,7 @@ eh.resume.i284:                                   ; preds = %lpad15.i, %lpad.i28
   br label %lpad15.body
 
 invoke.cont16:                                    ; preds = %lor.lhs.false7.tail.i, %if.else.tail.i, %lor.lhs.false.tail.i, %if.then.tail.i
-  %.sink.i289 = phi i8 [ 1, %lor.lhs.false.tail.i ], [ 1, %if.then.tail.i ], [ 0, %lor.lhs.false7.tail.i ], [ 0, %if.else.tail.i ]
+  %.sink.i289 = phi i8 [ 1, %if.then.tail.i ], [ 1, %lor.lhs.false.tail.i ], [ 0, %lor.lhs.false7.tail.i ], [ 0, %if.else.tail.i ]
   %isAd11.i = getelementptr inbounds nuw i8, ptr %date, i64 12
   store i8 %.sink.i289, ptr %isAd11.i, align 4
   %49 = load ptr, ptr %cur, align 8
@@ -3486,7 +3486,7 @@ eh.resume.i318:                                   ; preds = %lpad15.i317, %lpad.
   br label %lpad39.body
 
 invoke.cont40:                                    ; preds = %lor.lhs.false7.tail.i323, %if.else.tail.i329, %lor.lhs.false.tail.i330, %if.then.tail.i331
-  %.sink.i328 = phi i8 [ 1, %lor.lhs.false.tail.i330 ], [ 1, %if.then.tail.i331 ], [ 0, %lor.lhs.false7.tail.i323 ], [ 0, %if.else.tail.i329 ]
+  %.sink.i328 = phi i8 [ 1, %if.then.tail.i331 ], [ 1, %lor.lhs.false.tail.i330 ], [ 0, %lor.lhs.false7.tail.i323 ], [ 0, %if.else.tail.i329 ]
   %isAm11.i = getelementptr inbounds nuw i8, ptr %date, i64 52
   store i8 %.sink.i328, ptr %isAm11.i, align 4
   %78 = load ptr, ptr %cur, align 8
@@ -3632,8 +3632,8 @@ if.end82.sink.split:                              ; preds = %land.lhs.true76, %l
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end82.sink.split, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit, %land.lhs.true72, %if.else63, %land.lhs.true76
-  %cur.promoted27 = phi ptr [ %0, %land.lhs.true76 ], [ %0, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ %0, %if.else63 ], [ %0, %land.lhs.true72 ], [ %incdec.ptr80, %if.end82.sink.split ]
-  %negative.0 = phi i1 [ false, %land.lhs.true76 ], [ false, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ false, %if.else63 ], [ false, %land.lhs.true72 ], [ %negative.0.ph, %if.end82.sink.split ]
+  %cur.promoted27 = phi ptr [ %0, %if.else63 ], [ %0, %land.lhs.true72 ], [ %0, %land.lhs.true76 ], [ %0, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ %incdec.ptr80, %if.end82.sink.split ]
+  %negative.0 = phi i1 [ false, %if.else63 ], [ false, %land.lhs.true72 ], [ false, %land.lhs.true76 ], [ false, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ %negative.0.ph, %if.end82.sink.split ]
   switch i8 %curPattern.coerce0, label %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit [
     i8 1, label %sw.bb.i
     i8 6, label %sw.bb.i
@@ -3739,7 +3739,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %if.end181
 
 if.else104:                                       ; preds = %sw.bb19.i, %sw.bb10.i, %if.end.i, %if.else.i372, %if.then.i374, %if.end82, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit
-  %retval.0.i3714 = phi i32 [ %retval.0.i371, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit ], [ 2, %if.end82 ], [ 4, %if.else.i372 ], [ %conv27.i, %sw.bb19.i ], [ %conv18.i, %sw.bb10.i ], [ %conv8.i, %if.end.i ], [ %conv3.i, %if.then.i374 ]
+  %retval.0.i3714 = phi i32 [ %retval.0.i371, %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit ], [ 2, %if.end82 ], [ %conv18.i, %sw.bb10.i ], [ 4, %if.else.i372 ], [ %conv8.i, %if.end.i ], [ %conv27.i, %sw.bb19.i ], [ %conv3.i, %if.then.i374 ]
   %cmp106 = icmp eq i8 %curPattern.coerce0, 8
   %101 = and i8 %curPattern.coerce0, -2
   %102 = icmp eq i8 %101, 2
@@ -3833,8 +3833,8 @@ while.body172:                                    ; preds = %land.rhs169
   br i1 %or.cond246, label %land.rhs169, label %if.end181, !llvm.loop !18
 
 if.end181:                                        ; preds = %land.rhs169, %while.body172, %if.else139, %if.else147, %if.then137, %while.end
-  %112 = phi ptr [ %100, %while.end ], [ %106, %if.then137 ], [ %108, %if.else147 ], [ %106, %if.else139 ], [ %incdec.ptr178812, %land.rhs169 ], [ %incdec.ptr178, %while.body172 ]
-  %number.2 = phi i64 [ %conv103, %while.end ], [ %add138, %if.then137 ], [ %number.3.lcssa43, %if.else147 ], [ %spec.select, %if.else139 ], [ %number.413, %land.rhs169 ], [ %add177, %while.body172 ]
+  %112 = phi ptr [ %100, %while.end ], [ %106, %if.then137 ], [ %106, %if.else139 ], [ %108, %if.else147 ], [ %incdec.ptr178, %while.body172 ], [ %incdec.ptr178812, %land.rhs169 ]
+  %number.2 = phi i64 [ %conv103, %while.end ], [ %add138, %if.then137 ], [ %spec.select, %if.else139 ], [ %number.3.lcssa43, %if.else147 ], [ %add177, %while.body172 ], [ %number.413, %land.rhs169 ]
   %cmp182.not = icmp ugt ptr %112, %cur.promoted27
   br i1 %cmp182.not, label %if.end184, label %if.then183
 
@@ -4826,7 +4826,7 @@ if.end12.i:                                       ; preds = %if.else8.i, %if.the
   br i1 %cmp.i54, label %while.body.ithread-pre-split, label %_ZN8facebook5velox9functions12_GLOBAL__N_115numLiteralCharsEPKcS4_.exit, !llvm.loop !23
 
 _ZN8facebook5velox9functions12_GLOBAL__N_115numLiteralCharsEPKcS4_.exit: ; preds = %if.then.i, %land.lhs.true.i, %if.end12.i
-  %retval.0.i = phi i64 [ %count.1.i, %if.end12.i ], [ %count.014.i, %if.then.i ], [ %count.014.i, %land.lhs.true.i ]
+  %retval.0.i = phi i64 [ %count.014.i, %land.lhs.true.i ], [ %count.014.i, %if.then.i ], [ %count.1.i, %if.end12.i ]
   %cmp17 = icmp eq i64 %retval.0.i, -1
   br i1 %cmp17, label %if.then18, label %for.cond.preheader
 
@@ -5530,7 +5530,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end25, !llvm.loop !30
 
-if.end25:                                         ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %if.end3.us.i.i, %lor.lhs.false.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
+if.end25:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
   %second.i13 = getelementptr inbounds nuw i8, ptr %__v, i64 16
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   store ptr null, ptr %call5.i.i.i.i.i, align 8
@@ -5549,8 +5549,8 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_
   resume { ptr, i32 } %17
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i, %if.end25
-  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.035.us, %for.body.us ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %for.body.us ], [ 0, %land.rhs.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %__it.sroa.0.035.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %for.body.us ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %land.rhs.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5940,7 +5940,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !33
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.inc, %for.body.us, %for.inc.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %if.then, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ null, %if.then ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.end3.i.i ], [ %retval.sroa.0.015.us, %for.body.us ], [ null, %for.inc.us ], [ %retval.sroa.0.015, %land.rhs.i.i.i ], [ null, %for.inc ]
+  %retval.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.015.us, %for.body.us ], [ null, %for.inc ], [ %retval.sroa.0.015, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -6087,7 +6087,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !35
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.inc, %for.body.us, %for.inc.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %if.then, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ null, %if.then ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.end3.i.i ], [ %retval.sroa.0.015.us, %for.body.us ], [ null, %for.inc.us ], [ %retval.sroa.0.015, %land.rhs.i.i.i ], [ null, %for.inc ]
+  %retval.sroa.0.1 = phi ptr [ null, %if.then ], [ null, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.015.us, %for.body.us ], [ null, %for.inc ], [ %retval.sroa.0.015, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -6457,7 +6457,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end25, !llvm.loop !38
 
-if.end25:                                         ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %if.end3.us.i.i, %lor.lhs.false.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
+if.end25:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
   %second.i13 = getelementptr inbounds nuw i8, ptr %__v, i64 16
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   store ptr null, ptr %call5.i.i.i.i.i, align 8
@@ -6475,8 +6475,8 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_l
   resume { ptr, i32 } %16
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i, %if.end25
-  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.035.us, %for.body.us ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %for.body.us ], [ 0, %land.rhs.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %__it.sroa.0.035.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %for.body.us ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %land.rhs.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

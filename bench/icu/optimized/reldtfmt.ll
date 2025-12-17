@@ -409,7 +409,7 @@ _ZN6icu_7718RelativeDateFormat18initializeCalendarEPNS_8TimeZoneERKNS_6LocaleER1
           to label %67 unwind label %30
 
 .sink.split:                                      ; preds = %32, %.thread, %22
-  %.sink = phi i32 [ 1, %22 ], [ 16, %.thread ], [ 16, %32 ]
+  %.sink = phi i32 [ 16, %32 ], [ 1, %22 ], [ 16, %.thread ]
   store i32 %.sink, ptr %4, align 4, !tbaa !38
   br label %67
 
@@ -931,7 +931,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit13:        ; preds = %51
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %51, %19, %47, %15, %2, %4, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit13, %74
-  %.0 = phi i1 [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit13 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %4 ], [ %77, %74 ], [ false, %2 ], [ false, %15 ], [ false, %47 ], [ false, %19 ], [ false, %51 ]
+  %.0 = phi i1 [ %77, %74 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit13 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %4 ], [ false, %2 ], [ false, %47 ], [ false, %15 ], [ false, %19 ], [ false, %51 ]
   ret i1 %.0
 }
 
@@ -1129,7 +1129,7 @@ _ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread: ;
           to label %.invoke84 unwind label %66
 
 .invoke84:                                        ; preds = %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread, %79, %92, %93, %100, %101, %96, %97
-  %104 = phi i32 [ 256, %97 ], [ 256, %96 ], [ 256, %101 ], [ 256, %100 ], [ 256, %93 ], [ 256, %92 ], [ %19, %79 ], [ %19, %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread ]
+  %104 = phi i32 [ 256, %92 ], [ 256, %97 ], [ 256, %96 ], [ 256, %101 ], [ 256, %100 ], [ 256, %93 ], [ %19, %79 ], [ %19, %_ZNK6icu_7718RelativeDateFormat15getStringForDayEiRiR10UErrorCode.exit.thread ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !6
   %107 = load ptr, ptr %106, align 8, !tbaa !3

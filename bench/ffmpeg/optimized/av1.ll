@@ -182,7 +182,7 @@ parse_obu_header.exit:                            ; preds = %59
   br label %.thread
 
 .thread:                                          ; preds = %59, %get_leb128.exit.i, %19, %10, %parse_obu_header.exit, %._crit_edge, %84
-  %.2 = phi i32 [ %.040.lcssa, %84 ], [ %.040.lcssa, %._crit_edge ], [ -1094995529, %59 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %19 ], [ -1094995529, %10 ], [ %65, %parse_obu_header.exit ]
+  %.2 = phi i32 [ %.040.lcssa, %._crit_edge ], [ %.040.lcssa, %84 ], [ -1094995529, %59 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %19 ], [ -1094995529, %10 ], [ %65, %parse_obu_header.exit ]
   ret i32 %.2
 }
 
@@ -425,7 +425,7 @@ parse_obu_header.exit:                            ; preds = %92
   br label %.thread103
 
 .thread103:                                       ; preds = %92, %get_leb128.exit.i, %.lr.ph, %parse_obu_header.exit, %102, %103, %7, %3, %._crit_edge
-  %.0 = phi i32 [ %112, %._crit_edge ], [ -1094995529, %3 ], [ -1094995529, %7 ], [ -1094995529, %102 ], [ %106, %103 ], [ -1094995529, %92 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %.lr.ph ], [ %98, %parse_obu_header.exit ]
+  %.0 = phi i32 [ -1094995529, %3 ], [ -1094995529, %7 ], [ %112, %._crit_edge ], [ %106, %103 ], [ -1094995529, %102 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %.lr.ph ], [ -1094995529, %92 ], [ %98, %parse_obu_header.exit ]
   ret i32 %.0
 }
 
@@ -1164,9 +1164,9 @@ uvlc.exit:                                        ; preds = %._crit_edge.thread.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %471, %.thread80.i, %442, %439, %422
-  %.sink91.i = phi i64 [ 6, %.thread80.i ], [ 6, %439 ], [ 6, %422 ], [ 7, %471 ], [ 6, %442 ]
-  %.sink.i = phi i8 [ 0, %.thread80.i ], [ 0, %439 ], [ 0, %422 ], [ %482, %471 ], [ 0, %442 ]
-  %.ph.i = phi i32 [ %spec.select.i67.i, %.thread80.i ], [ %spec.select.i67.i, %439 ], [ %395, %422 ], [ %481, %471 ], [ %spec.select.i68.i, %442 ]
+  %.sink91.i = phi i64 [ 6, %.thread80.i ], [ 7, %471 ], [ 6, %439 ], [ 6, %422 ], [ 6, %442 ]
+  %.sink.i = phi i8 [ 0, %.thread80.i ], [ %482, %471 ], [ 0, %439 ], [ 0, %422 ], [ 0, %442 ]
+  %.ph.i = phi i32 [ %spec.select.i67.i, %.thread80.i ], [ %481, %471 ], [ %spec.select.i67.i, %439 ], [ %395, %422 ], [ %spec.select.i68.i, %442 ]
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink91.i
   store i8 %.sink.i, ptr %483, align 1, !tbaa !4
   br label %484
@@ -1185,7 +1185,7 @@ parse_color_config.exit:                          ; preds = %401, %484
   br label %get_obu_bit_length.exit.thread
 
 get_obu_bit_length.exit.thread:                   ; preds = %16, %13, %parse_color_config.exit, %get_obu_bit_length.exit.thread197, %get_obu_bit_length.exit
-  %.035 = phi i32 [ %23, %get_obu_bit_length.exit ], [ -1094995529, %get_obu_bit_length.exit.thread197 ], [ %., %parse_color_config.exit ], [ %18, %16 ], [ -34, %13 ]
+  %.035 = phi i32 [ -1094995529, %get_obu_bit_length.exit.thread197 ], [ %23, %get_obu_bit_length.exit ], [ %., %parse_color_config.exit ], [ %18, %16 ], [ -34, %13 ]
   ret i32 %.035
 }
 
@@ -1418,13 +1418,13 @@ put_bits.exit75:                                  ; preds = %.thread232, %._crit
   call void @avio_write(ptr noundef %0, ptr noundef %132, i32 noundef %130) #7
   br label %.thread
 
-.thread:                                          ; preds = %66, %64, %55, %get_leb128.exit.i, %.lr.ph, %71, %parse_obu_header.exit, %._crit_edge, %128, %131
-  %.3 = phi i32 [ %.253238247, %131 ], [ %.253238247, %128 ], [ -1094995529, %._crit_edge ], [ -1094995529, %71 ], [ %61, %parse_obu_header.exit ], [ -1094995529, %.lr.ph ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %55 ], [ %69, %66 ], [ -1094995529, %64 ]
+.thread:                                          ; preds = %64, %66, %55, %get_leb128.exit.i, %.lr.ph, %71, %parse_obu_header.exit, %._crit_edge, %128, %131
+  %.3 = phi i32 [ -1094995529, %._crit_edge ], [ %.253238247, %131 ], [ %.253238247, %128 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %71 ], [ %61, %parse_obu_header.exit ], [ -1094995529, %55 ], [ -1094995529, %.lr.ph ], [ %69, %66 ], [ -1094995529, %64 ]
   call void @ffio_free_dyn_buf(ptr noundef nonnull %5) #7
   br label %133
 
 133:                                              ; preds = %17, %16, %12, %4, %.thread
-  %.0 = phi i32 [ %.3, %.thread ], [ -1094995529, %4 ], [ 0, %16 ], [ -1094995529, %12 ], [ %18, %17 ]
+  %.0 = phi i32 [ %.3, %.thread ], [ -1094995529, %4 ], [ -1094995529, %12 ], [ %18, %17 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -391,7 +391,7 @@ define dso_local range(i32 0, 2) i32 @php_XML_Parse(ptr noundef readonly capture
   br label %16
 
 16:                                               ; preds = %4, %8, %11
-  %.0 = phi i32 [ 1, %8 ], [ %15, %11 ], [ 0, %4 ]
+  %.0 = phi i32 [ %15, %11 ], [ 1, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -634,8 +634,8 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not37, label %.thread55, label %51
 
 .thread55:                                        ; preds = %.critedge.thread, %32, %28
-  %.1455357 = phi ptr [ %.144, %32 ], [ %.144, %28 ], [ null, %.critedge.thread ]
-  %35 = phi ptr [ %24, %32 ], [ %24, %28 ], [ %26, %.critedge.thread ]
+  %.1455357 = phi ptr [ %.144, %28 ], [ %.144, %32 ], [ null, %.critedge.thread ]
+  %35 = phi ptr [ %24, %28 ], [ %24, %32 ], [ %26, %.critedge.thread ]
   %36 = tail call i32 @xmlStrlen(ptr noundef %1) #10
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %37, 2
@@ -687,7 +687,7 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br label %68
 
 68:                                               ; preds = %21, %.thread, %61, %.thread55, %55, %51, %2
-  %.0 = phi ptr [ %.14552, %55 ], [ %.14552, %51 ], [ %.1455357, %.thread55 ], [ %.144, %61 ], [ %.144, %.thread ], [ null, %2 ], [ %.144, %21 ]
+  %.0 = phi ptr [ %.14552, %55 ], [ %.14552, %51 ], [ %.1455357, %.thread55 ], [ %.144, %61 ], [ %.144, %21 ], [ %.144, %.thread ], [ null, %2 ]
   ret ptr %.0
 }
 

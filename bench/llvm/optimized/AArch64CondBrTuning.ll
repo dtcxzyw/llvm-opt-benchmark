@@ -632,7 +632,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineIns
   br label %145
 
 145:                                              ; preds = %144, %143, %142, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit
-  %.0.i27 = phi i64 [ 1, %142 ], [ 5, %143 ], [ 4, %144 ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ]
+  %.0.i27 = phi i64 [ 4, %144 ], [ 1, %142 ], [ 5, %143 ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ], [ 0, %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit ]
   %146 = load ptr, ptr %75, align 8, !tbaa !177
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.038.069, i64 56
@@ -708,7 +708,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning15convertToCondBrERN4llvm12MachineInstrE.e
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.038.069) #11
   br label %.loopexit
 
-.thread52:                                        ; preds = %41, %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit, %.lr.ph, %71, %67, %62, %58, %52, %47
+.thread52:                                        ; preds = %41, %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit, %.lr.ph, %71, %62, %58, %52, %67, %47
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.038.069, align 8
   %165 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %165, 0

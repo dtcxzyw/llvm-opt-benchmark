@@ -1187,7 +1187,7 @@ _ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS
   br label %111
 
 111:                                              ; preds = %90, %92, %94, %96, %110, %88, %86, %84, %82
-  %.pn100.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %83, %82 ], [ %87, %86 ], [ %85, %84 ], [ %.pn100, %110 ], [ %91, %90 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ]
+  %.pn100.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %89, %88 ], [ %83, %82 ], [ %87, %86 ], [ %.pn100, %110 ], [ %91, %90 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ]
   call void @_ZN13b3OpenCLArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %10) #25
   resume { ptr, i32 } %.pn100.pn.pn
 }
@@ -1253,7 +1253,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI10b3SortDataEC2EP11_cl_co
   br label %_ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayI10b3SortDataE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !78
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !79
@@ -1325,7 +1325,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl
   br label %_ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !87
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !79
@@ -4407,8 +4407,8 @@ _ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86: ; preds = %.lr.ph.i8
   br label %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86.thread
 
 _ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86.thread: ; preds = %121, %.lr.ph.split, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.thread, %124, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86
-  %125 = phi ptr [ %101, %.lr.ph.split ], [ %101, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.thread ], [ %72, %124 ], [ %72, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86 ], [ %72, %121 ]
-  %126 = phi i32 [ %102, %.lr.ph.split ], [ %.pr, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.thread ], [ %.pr, %124 ], [ %.pr, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86 ], [ %.pr, %121 ]
+  %125 = phi ptr [ %72, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86 ], [ %101, %.lr.ph.split ], [ %101, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.thread ], [ %72, %124 ], [ %72, %121 ]
+  %126 = phi i32 [ %.pr, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit86 ], [ %102, %.lr.ph.split ], [ %.pr, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.thread ], [ %.pr, %124 ], [ %.pr, %121 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %95, %lftr.wideiv
@@ -4622,7 +4622,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i101: ; preds = %_ZNK20b3Align
   br i1 %exitcond134.not, label %37, label %69, !llvm.loop !193
 
 195:                                              ; preds = %184, %186
-  %.pn62.pn = phi { ptr, i32 } [ %187, %186 ], [ %185, %184 ]
+  %.pn62.pn = phi { ptr, i32 } [ %185, %184 ], [ %187, %186 ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %10) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %196

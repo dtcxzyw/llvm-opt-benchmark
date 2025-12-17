@@ -157,8 +157,8 @@ define dso_local ptr @php_lookup_class_name(ptr noundef readonly captures(none) 
   store i32 %17, ptr %11, align 4, !tbaa !26
   br label %zend_string_copy.exit
 
-zend_string_copy.exit:                            ; preds = %4, %6, %1, %10, %15
-  %.1 = phi ptr [ %11, %10 ], [ %11, %15 ], [ null, %1 ], [ null, %6 ], [ null, %4 ]
+zend_string_copy.exit:                            ; preds = %6, %4, %1, %10, %15
+  %.1 = phi ptr [ %11, %15 ], [ %11, %10 ], [ null, %1 ], [ null, %4 ], [ null, %6 ]
   ret ptr %.1
 }
 
@@ -228,7 +228,7 @@ define internal fastcc void @incomplete_class_message(ptr %.32.val) unnamed_addr
   store i32 %14, ptr %8, align 4, !tbaa !26
   br label %15
 
-php_lookup_class_name.exit.thread:                ; preds = %0, %3, %1
+php_lookup_class_name.exit.thread:                ; preds = %0, %1, %3
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
   br label %zend_string_release_ex.exit
 
@@ -294,7 +294,7 @@ define internal fastcc void @throw_incomplete_class_error(ptr %.32.val, ptr noun
   store i32 %15, ptr %9, align 4, !tbaa !26
   br label %16
 
-php_lookup_class_name.exit.thread:                ; preds = %1, %4, %2
+php_lookup_class_name.exit.thread:                ; preds = %1, %2, %4
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull @.str.3) #6
   br label %zend_string_release_ex.exit
 

@@ -106,10 +106,10 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.1 = phi i1 [ %.0126, %30 ], [ false, %44 ], [ false, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %52 = load i16, ptr %51, align 4
-  switch i16 %52, label %63 [
+  switch i16 %52, label %62 [
     i16 1, label %53
-    i16 2, label %58
-    i16 3, label %73
+    i16 2, label %72
+    i16 3, label %58
   ]
 
 53:                                               ; preds = %50
@@ -122,32 +122,32 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = load i32, ptr %38, align 4
-  %62 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %60, i32 noundef 20, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef %61, i32 noundef 20) #3
-  br i1 %62, label %87, label %77
+  %61 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %60) #3
+  br i1 %61, label %87, label %77
 
-63:                                               ; preds = %50
-  %64 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %64, label %65, label %92
+62:                                               ; preds = %50
+  %63 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %63, label %64, label %92
 
-65:                                               ; preds = %63
-  %66 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %67 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %68 = load i32, ptr %67, align 4
-  %69 = tail call ptr @format_procedure(i32 noundef %68) #3
-  %70 = load i16, ptr %51, align 4
-  %71 = sext i16 %70 to i32
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %69, i32 noundef %71) #3
+64:                                               ; preds = %62
+  %65 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %67 = load i32, ptr %66, align 4
+  %68 = tail call ptr @format_procedure(i32 noundef %67) #3
+  %69 = load i16, ptr %51, align 4
+  %70 = sext i16 %69 to i32
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %68, i32 noundef %70) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef nonnull @__func__.hashvalidate) #3
   br label %92
 
-73:                                               ; preds = %50
-  %74 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %75 = load i32, ptr %74, align 4
-  %76 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %75) #3
+72:                                               ; preds = %50
+  %73 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %74 = load i32, ptr %73, align 4
+  %75 = load i32, ptr %38, align 4
+  %76 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %74, i32 noundef 20, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef %75, i32 noundef 20) #3
   br i1 %76, label %87, label %77
 
-77:                                               ; preds = %58, %53, %73
+77:                                               ; preds = %58, %53, %72
   %78 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %78, label %79, label %92
 
@@ -162,7 +162,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @__func__.hashvalidate) #3
   br label %92
 
-87:                                               ; preds = %73, %53, %58
+87:                                               ; preds = %72, %53, %58
   %88 = load i16, ptr %51, align 4
   %.off = add i16 %88, -1
   %switch = icmp ult i16 %.off, 2
@@ -173,9 +173,9 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %91 = tail call ptr @list_append_unique_oid(ptr noundef %.092125, i32 noundef %90) #3
   br label %92
 
-92:                                               ; preds = %79, %77, %87, %89, %63, %65
-  %.193 = phi ptr [ %.092125, %65 ], [ %.092125, %63 ], [ %91, %89 ], [ %.092125, %87 ], [ %.092125, %77 ], [ %.092125, %79 ]
-  %.2 = phi i1 [ false, %65 ], [ false, %63 ], [ %.1, %89 ], [ %.1, %87 ], [ false, %77 ], [ false, %79 ]
+92:                                               ; preds = %79, %77, %87, %89, %62, %64
+  %.193 = phi ptr [ %.092125, %62 ], [ %.092125, %64 ], [ %91, %89 ], [ %.092125, %87 ], [ %.092125, %77 ], [ %.092125, %79 ]
+  %.2 = phi i1 [ false, %62 ], [ false, %64 ], [ %.1, %89 ], [ %.1, %87 ], [ false, %77 ], [ false, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %22, align 8
   %94 = sext i32 %93 to i64

@@ -109,8 +109,8 @@ define ptr @l_Lake_nameToSharedLib(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %4, %9
-  %l_Lake_nameToSharedLib___closed__1.sink = phi ptr [ @l_Lake_nameToSharedLib___closed__3, %9 ], [ %l_Lake_nameToSharedLib___closed__1.l_Lake_nameToSharedLib___closed__2, %4 ]
-  %.sink = phi ptr [ %11, %9 ], [ %8, %4 ]
+  %l_Lake_nameToSharedLib___closed__1.sink = phi ptr [ %l_Lake_nameToSharedLib___closed__1.l_Lake_nameToSharedLib___closed__2, %4 ], [ @l_Lake_nameToSharedLib___closed__3, %9 ]
+  %.sink = phi ptr [ %8, %4 ], [ %11, %9 ]
   %13 = load ptr, ptr %l_Lake_nameToSharedLib___closed__1.sink, align 8, !tbaa !7
   %14 = tail call ptr @lean_string_append(ptr noundef %.sink, ptr noundef %13) #3
   ret ptr %14
@@ -136,8 +136,8 @@ define ptr @l_Lake_nameToSharedLib___boxed(ptr noundef %0) local_unnamed_addr #0
   br label %l_Lake_nameToSharedLib.exit
 
 l_Lake_nameToSharedLib.exit:                      ; preds = %4, %9
-  %l_Lake_nameToSharedLib___closed__1.sink.i = phi ptr [ @l_Lake_nameToSharedLib___closed__3, %9 ], [ %l_Lake_nameToSharedLib___closed__1.l_Lake_nameToSharedLib___closed__2.i, %4 ]
-  %.sink.i = phi ptr [ %11, %9 ], [ %8, %4 ]
+  %l_Lake_nameToSharedLib___closed__1.sink.i = phi ptr [ %l_Lake_nameToSharedLib___closed__1.l_Lake_nameToSharedLib___closed__2.i, %4 ], [ @l_Lake_nameToSharedLib___closed__3, %9 ]
+  %.sink.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %12 = load ptr, ptr %l_Lake_nameToSharedLib___closed__1.sink.i, align 8, !tbaa !7
   %13 = tail call ptr @lean_string_append(ptr noundef %.sink.i, ptr noundef %12) #3
   %14 = ptrtoint ptr %0 to i64
@@ -670,7 +670,7 @@ lean_alloc_ctor.exit117:                          ; preds = %lean_dec.exit
   br label %189
 
 189:                                              ; preds = %lean_alloc_ctor.exit117, %153, %lean_alloc_ctor.exit, %lean_dec.exit66, %lean_alloc_ctor.exit110, %lean_dec.exit62
-  %.3 = phi ptr [ %3, %lean_dec.exit66 ], [ %61, %lean_alloc_ctor.exit ], [ %3, %lean_dec.exit62 ], [ %147, %lean_alloc_ctor.exit110 ], [ %183, %lean_alloc_ctor.exit117 ], [ %3, %153 ]
+  %.3 = phi ptr [ %147, %lean_alloc_ctor.exit110 ], [ %61, %lean_alloc_ctor.exit ], [ %3, %lean_dec.exit66 ], [ %3, %lean_dec.exit62 ], [ %183, %lean_alloc_ctor.exit117 ], [ %3, %153 ]
   ret ptr %.3
 }
 

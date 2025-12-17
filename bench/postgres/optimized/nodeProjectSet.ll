@@ -191,7 +191,7 @@ ExecProcNode.exit:                                ; preds = %18, %23
   br label %18
 
 .loopexit:                                        ; preds = %32, %ExecProcNode.exit, %28, %12
-  %.0 = phi ptr [ %13, %12 ], [ %33, %32 ], [ null, %ExecProcNode.exit ], [ null, %28 ]
+  %.0 = phi ptr [ %13, %12 ], [ %33, %32 ], [ null, %28 ], [ null, %ExecProcNode.exit ]
   ret ptr %.0
 }
 
@@ -371,7 +371,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   br label %73
 
 73:                                               ; preds = %63, %68, %69
-  %.1 = phi i1 [ %.03942, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
+  %.1 = phi i1 [ %spec.select, %63 ], [ %.03942, %69 ], [ %spec.select, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64

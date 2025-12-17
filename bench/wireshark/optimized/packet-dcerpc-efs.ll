@@ -172,7 +172,7 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -262,7 +262,7 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -347,7 +347,7 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -427,7 +427,7 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -510,7 +510,7 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 

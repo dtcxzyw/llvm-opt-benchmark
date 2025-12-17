@@ -1305,7 +1305,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   br label %684
 
 97:                                               ; preds = %uhci_alloc_qh.exit.thread, %19
-  %98 = phi ptr [ %28, %19 ], [ %35, %uhci_alloc_qh.exit.thread ]
+  %98 = phi ptr [ %35, %uhci_alloc_qh.exit.thread ], [ %28, %19 ]
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 116
@@ -2167,7 +2167,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   call fastcc void @uhci_reserve_bandwidth(ptr noundef nonnull %10, ptr noundef nonnull %98)
   br label %.thread46
 
-.thread46:                                        ; preds = %634, %639, %378, %337, %268, %240, %245
+.thread46:                                        ; preds = %634, %639, %268, %240, %245, %378, %337
   %640 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %641 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %642 = load ptr, ptr %641, align 8
@@ -2194,7 +2194,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   br label %.thread48
 
 .thread44:                                        ; preds = %285, %327, %.loopexit56, %288, %.thread42, %520, %478, %381, %387, %334, %328, %265, %253, %.critedge, %97
-  %652 = phi i32 [ -12, %.thread42 ], [ -27, %520 ], [ -22, %478 ], [ -27, %381 ], [ -27, %387 ], [ %335, %334 ], [ -22, %328 ], [ %266, %265 ], [ -22, %253 ], [ -12, %.critedge ], [ -12, %97 ], [ -22, %288 ], [ -28, %.loopexit56 ], [ -28, %327 ], [ -22, %285 ]
+  %652 = phi i32 [ -12, %97 ], [ -12, %.thread42 ], [ -27, %520 ], [ -22, %478 ], [ -27, %381 ], [ -27, %387 ], [ %335, %334 ], [ -22, %328 ], [ %266, %265 ], [ -22, %253 ], [ -12, %.critedge ], [ -22, %288 ], [ -28, %.loopexit56 ], [ -28, %327 ], [ -22, %285 ]
   %653 = getelementptr inbounds nuw i8, ptr %98, i64 112
   %654 = load i32, ptr %653, align 16
   %655 = icmp eq i32 %654, 1
@@ -6663,9 +6663,9 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef range(i32 1,
   br label %41
 
 41:                                               ; preds = %38, %15, %25, %31, %34
-  %42 = phi i1 [ false, %34 ], [ false, %31 ], [ false, %25 ], [ true, %15 ], [ false, %38 ]
-  %43 = phi i32 [ %21, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select9, %38 ]
-  %44 = phi i32 [ %20, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select10, %38 ]
+  %42 = phi i1 [ false, %34 ], [ false, %38 ], [ false, %31 ], [ false, %25 ], [ true, %15 ]
+  %43 = phi i32 [ %21, %34 ], [ %spec.select9, %38 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ]
+  %44 = phi i32 [ %20, %34 ], [ %spec.select10, %38 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ]
   %45 = icmp ne i32 %43, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %47 = load i8, ptr %46, align 8

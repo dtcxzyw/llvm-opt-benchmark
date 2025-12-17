@@ -263,7 +263,7 @@ if.end.i.i58:                                     ; preds = %land.rhs.i53
   br label %lor.end
 
 lor.end:                                          ; preds = %land.rhs.i42, %land.rhs.i31, %land.rhs.i20, %land.rhs.i9, %land.rhs.i, %if.end.i.i58, %land.rhs.i53, %lor.rhs, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit49, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit38, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit27, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %6 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit49 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit38 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit27 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit16 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %lor.rhs ], [ %5, %if.end.i.i58 ], [ true, %land.rhs.i53 ], [ true, %land.rhs.i ], [ true, %land.rhs.i9 ], [ true, %land.rhs.i20 ], [ true, %land.rhs.i31 ], [ true, %land.rhs.i42 ]
+  %6 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit49 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit38 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit27 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit16 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %land.rhs.i31 ], [ true, %land.rhs.i53 ], [ true, %land.rhs.i ], [ true, %land.rhs.i9 ], [ true, %land.rhs.i20 ], [ false, %lor.rhs ], [ %5, %if.end.i.i58 ], [ true, %land.rhs.i42 ]
   ret i1 %6
 }
 
@@ -668,7 +668,7 @@ _ZNK5folly5RangeIPKcE4findES3_.exit224.thread238: ; preds = %if.end.i.i156, %_ZN
   br label %return
 
 return:                                           ; preds = %if.end28.i.i185, %while.body10.i.i174, %if.then17.us.i.i218, %while.body10.us.i.i209, %if.end3.i.i158, %if.else14, %if.end.i.i71, %if.end.i.i, %_ZNK5folly5RangeIPKcE4findES3_.exit224.thread238, %_ZNK5folly5RangeIPKcE4findES3_.exit224, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i44, %land.rhs.i.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i28, %land.rhs.i.i26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i12, %land.rhs.i.i10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i, %_ZNK5folly5RangeIPKcE4findES3_.exit139, %_ZNK5folly5RangeIPKcE4findES3_.exit
-  %retval.0 = phi i8 [ 2, %_ZNK5folly5RangeIPKcE4findES3_.exit ], [ 3, %_ZNK5folly5RangeIPKcE4findES3_.exit139 ], [ 0, %land.rhs.i.i ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ 1, %land.rhs.i.i10 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i12 ], [ 1, %land.rhs.i.i26 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i28 ], [ 1, %land.rhs.i.i42 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i44 ], [ 4, %_ZNK5folly5RangeIPKcE4findES3_.exit224.thread238 ], [ 0, %_ZNK5folly5RangeIPKcE4findES3_.exit224 ], [ 2, %if.end.i.i ], [ 3, %if.end.i.i71 ], [ 0, %if.else14 ], [ 0, %if.end3.i.i158 ], [ 0, %while.body10.us.i.i209 ], [ 0, %if.then17.us.i.i218 ], [ 0, %while.body10.i.i174 ], [ 0, %if.end28.i.i185 ]
+  %retval.0 = phi i8 [ 3, %_ZNK5folly5RangeIPKcE4findES3_.exit139 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ 2, %_ZNK5folly5RangeIPKcE4findES3_.exit ], [ 2, %if.end.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i28 ], [ 0, %land.rhs.i.i ], [ 1, %land.rhs.i.i10 ], [ 1, %land.rhs.i.i26 ], [ 1, %land.rhs.i.i42 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i44 ], [ 3, %if.end.i.i71 ], [ 4, %_ZNK5folly5RangeIPKcE4findES3_.exit224.thread238 ], [ 0, %_ZNK5folly5RangeIPKcE4findES3_.exit224 ], [ 0, %if.else14 ], [ 0, %if.end3.i.i158 ], [ 0, %while.body10.i.i174 ], [ 0, %if.then17.us.i.i218 ], [ 0, %while.body10.us.i.i209 ], [ 0, %if.end28.i.i185 ]
   ret i8 %retval.0
 }
 
@@ -942,7 +942,7 @@ if.then.i.i.i37:                                  ; preds = %_ZNSt6vectorIN5foll
   br label %return
 
 ehcleanup65:                                      ; preds = %lpad12, %lpad.i.i, %lpad42, %lpad.i23
-  %.pn9 = phi { ptr, i32 } [ %11, %lpad42 ], [ %6, %lpad.i23 ], [ %10, %lpad12 ], [ %14, %lpad.i.i ]
+  %.pn9 = phi { ptr, i32 } [ %14, %lpad.i.i ], [ %6, %lpad.i23 ], [ %11, %lpad42 ], [ %10, %lpad12 ]
   %18 = load ptr, ptr %serverProtocols, align 8
   %tobool.not.i.i.i39 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i39, label %ehcleanup67, label %if.then.i.i.i40
@@ -1536,7 +1536,7 @@ call5.i.i.i35.i.noexc:                            ; preds = %sw.bb37.i
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %call5.i.i.i19.i.noexc, %call5.i.i.i15.i.noexc, %call5.i.i.i11.i.noexc, %call5.i.i.i.i.noexc, %call5.i.i.i35.i.noexc, %call5.i.i.i31.i.noexc, %call5.i.i.i27.i.noexc, %for.end.i
-  %retval.sroa.0.0.in.sroa.speculated.i = phi ptr [ %__first.sroa.0.0.lcssa.i, %call5.i.i.i27.i.noexc ], [ %__first.sroa.0.1.i, %call5.i.i.i31.i.noexc ], [ %__last.coerce, %for.end.i ], [ %spec.select.i, %call5.i.i.i35.i.noexc ], [ %__first.sroa.0.048.i, %call5.i.i.i.i.noexc ], [ %incdec.ptr.i.i, %call5.i.i.i11.i.noexc ], [ %incdec.ptr.i12.i, %call5.i.i.i15.i.noexc ], [ %incdec.ptr.i16.i, %call5.i.i.i19.i.noexc ]
+  %retval.sroa.0.0.in.sroa.speculated.i = phi ptr [ %__first.sroa.0.1.i, %call5.i.i.i31.i.noexc ], [ %spec.select.i, %call5.i.i.i35.i.noexc ], [ %__last.coerce, %for.end.i ], [ %__first.sroa.0.0.lcssa.i, %call5.i.i.i27.i.noexc ], [ %__first.sroa.0.048.i, %call5.i.i.i.i.noexc ], [ %incdec.ptr.i.i, %call5.i.i.i11.i.noexc ], [ %incdec.ptr.i12.i, %call5.i.i.i15.i.noexc ], [ %incdec.ptr.i16.i, %call5.i.i.i19.i.noexc ]
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %a3_.i.i.i.i) #19
   ret ptr %retval.sroa.0.0.in.sroa.speculated.i
 
@@ -1618,8 +1618,8 @@ lpad.i:                                           ; preds = %call.i.noexc.i, %en
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i88, %lpad.i35, %lpad.i78, %lpad.i27, %lpad.i68, %lpad.i19, %lpad.i58, %lpad.i11, %lpad.i48, %lpad.i3, %lpad.i41, %lpad.i
-  %ref.tmp.i33.sink = phi ptr [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i41 ], [ %ref.tmp.i1, %lpad.i3 ], [ %ref.tmp.i1, %lpad.i48 ], [ %ref.tmp.i9, %lpad.i11 ], [ %ref.tmp.i9, %lpad.i58 ], [ %ref.tmp.i17, %lpad.i19 ], [ %ref.tmp.i17, %lpad.i68 ], [ %ref.tmp.i25, %lpad.i27 ], [ %ref.tmp.i25, %lpad.i78 ], [ %ref.tmp.i33, %lpad.i35 ], [ %ref.tmp.i33, %lpad.i88 ]
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %3, %lpad.i41 ], [ %9, %lpad.i3 ], [ %8, %lpad.i48 ], [ %14, %lpad.i11 ], [ %13, %lpad.i58 ], [ %19, %lpad.i19 ], [ %18, %lpad.i68 ], [ %24, %lpad.i27 ], [ %23, %lpad.i78 ], [ %29, %lpad.i35 ], [ %28, %lpad.i88 ]
+  %ref.tmp.i33.sink = phi ptr [ %ref.tmp.i25, %lpad.i78 ], [ %ref.tmp.i17, %lpad.i68 ], [ %ref.tmp.i9, %lpad.i58 ], [ %ref.tmp.i1, %lpad.i48 ], [ %ref.tmp.i, %lpad.i41 ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i1, %lpad.i3 ], [ %ref.tmp.i9, %lpad.i11 ], [ %ref.tmp.i17, %lpad.i19 ], [ %ref.tmp.i25, %lpad.i27 ], [ %ref.tmp.i33, %lpad.i35 ], [ %ref.tmp.i33, %lpad.i88 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %lpad.i78 ], [ %18, %lpad.i68 ], [ %13, %lpad.i58 ], [ %8, %lpad.i48 ], [ %3, %lpad.i41 ], [ %4, %lpad.i ], [ %9, %lpad.i3 ], [ %14, %lpad.i11 ], [ %19, %lpad.i19 ], [ %24, %lpad.i27 ], [ %29, %lpad.i35 ], [ %28, %lpad.i88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i33.sink) #19
   resume { ptr, i32 } %common.resume.op
 

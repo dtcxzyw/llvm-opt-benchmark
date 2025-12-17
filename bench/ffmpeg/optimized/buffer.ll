@@ -45,7 +45,7 @@ buffer_create.exit:                               ; preds = %7
   br label %18
 
 18:                                               ; preds = %buffer_create.exit, %5, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %5 ], [ %14, %buffer_create.exit ]
+  %.0 = phi ptr [ null, %5 ], [ null, %17 ], [ %14, %buffer_create.exit ]
   ret ptr %.0
 }
 
@@ -101,7 +101,7 @@ av_buffer_create.exit:                            ; preds = %6
   store i64 %0, ptr %15, align 8, !tbaa !21
   br label %17
 
-16:                                               ; preds = %13, %4
+16:                                               ; preds = %4, %13
   call void @av_freep(ptr noundef nonnull %2) #10
   br label %17
 
@@ -416,7 +416,7 @@ define range(i32 -12, 1) i32 @av_buffer_realloc(ptr noundef captures(none) %0, i
   tail call void @av_free(ptr noundef nonnull %9) #10
   br label %18
 
-18:                                               ; preds = %17, %8
+18:                                               ; preds = %8, %17
   call void @av_freep(ptr noundef nonnull %3) #10
   br label %25
 
@@ -534,7 +534,7 @@ buffer_replace.exit:                              ; preds = %69, %60, %48, %av_b
   br label %75
 
 75:                                               ; preds = %70, %26, %72, %buffer_replace.exit, %25
-  %.1 = phi i32 [ %46, %buffer_replace.exit ], [ 0, %72 ], [ %.0, %25 ], [ 0, %26 ], [ -12, %70 ]
+  %.1 = phi i32 [ %.0, %25 ], [ %46, %buffer_replace.exit ], [ 0, %72 ], [ 0, %26 ], [ -12, %70 ]
   ret i32 %.1
 }
 
@@ -639,7 +639,7 @@ av_buffer_unref.exit24:                           ; preds = %34, %39, %44, %53
   br label %av_buffer_unref.exit
 
 av_buffer_unref.exit:                             ; preds = %32, %19, %10, %5, %4, %av_buffer_unref.exit24, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %av_buffer_unref.exit24 ], [ 0, %4 ], [ 0, %5 ], [ 0, %10 ], [ 0, %19 ], [ -12, %32 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %av_buffer_unref.exit24 ], [ 0, %19 ], [ 0, %4 ], [ 0, %5 ], [ 0, %10 ], [ -12, %32 ]
   ret i32 %.0
 }
 
@@ -932,7 +932,7 @@ define ptr @av_buffer_pool_get(ptr noundef %0) local_unnamed_addr #0 {
   call void @av_free(ptr noundef nonnull %45) #10
   br label %.thread30
 
-.thread30:                                        ; preds = %41, %46, %50, %59
+.thread30:                                        ; preds = %41, %59, %46, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
   br label %74

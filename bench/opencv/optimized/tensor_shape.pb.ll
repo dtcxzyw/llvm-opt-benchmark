@@ -446,8 +446,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33, %39, %41
-  %.029 = phi i32 [ %37, %39 ], [ %.fca.1.extract.i, %41 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
-  %.0.i15 = phi ptr [ %40, %39 ], [ %.fca.0.extract.i, %41 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
+  %.029 = phi i32 [ %.fca.1.extract.i, %41 ], [ %37, %39 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
+  %.0.i15 = phi ptr [ %.fca.0.extract.i, %41 ], [ %40, %39 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33 ]
   %43 = lshr i32 %.029, 3
   switch i32 %43, label %81 [
     i32 1, label %44
@@ -566,17 +566,17 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.not10 = icmp eq ptr %98, null
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold, !prof !44
 
-select.unfold:                                    ; preds = %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit
-  %.1 = phi ptr [ %98, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %63, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %76, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ]
-  %.0 = phi i1 [ false, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ false, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.not, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ]
+select.unfold:                                    ; preds = %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
+  %.1 = phi ptr [ %76, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ], [ %63, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %98, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
+  %.0 = phi i1 [ %.not, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ], [ false, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ false, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
   br i1 %.0, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %select.unfold, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread
   %.030.be = phi ptr [ %.1, %select.unfold ], [ %.0.i.i17.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ]
   br label %.backedge
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %select.unfold, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %85, %.thread41
-  %.2 = phi ptr [ %.0.i15, %.thread41 ], [ %spec.select, %21 ], [ null, %85 ], [ null, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %select.unfold ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %select.unfold, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %85, %.thread41
+  %.2 = phi ptr [ %.0.i15, %.thread41 ], [ null, %85 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %select.unfold ], [ null, %_ZN17opencv_tensorflow20TensorShapeProto_Dim22_internal_mutable_nameB5cxx11Ev.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -1364,8 +1364,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, %42, %44
-  %.026 = phi i32 [ %40, %42 ], [ %.fca.1.extract.i, %44 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
-  %.0.i12 = phi ptr [ %43, %42 ], [ %.fca.0.extract.i, %44 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %.026 = phi i32 [ %.fca.1.extract.i, %44 ], [ %40, %42 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
+  %.0.i12 = phi ptr [ %.fca.0.extract.i, %44 ], [ %43, %42 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ]
   %46 = lshr i32 %.026, 3
   switch i32 %46, label %101 [
     i32 2, label %47
@@ -1464,7 +1464,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %82, %91
   br label %.backedge
 
 .backedge:                                        ; preds = %70, %73, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit
-  %.027.be = phi ptr [ %118, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.0.i.i14.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %69, %73 ], [ %69, %70 ]
+  %.027.be = phi ptr [ %.0.i.i14.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %97, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %118, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %69, %73 ], [ %69, %70 ]
   br label %12, !llvm.loop !68
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %84
@@ -1518,7 +1518,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %.not8, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !44
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit, %24, %105, %.thread37
-  %.3 = phi ptr [ %.0.i12, %.thread37 ], [ null, %105 ], [ %spec.select, %24 ], [ null, %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.3 = phi ptr [ %spec.select, %24 ], [ %.0.i12, %.thread37 ], [ null, %105 ], [ null, %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 

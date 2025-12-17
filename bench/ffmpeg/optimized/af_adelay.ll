@@ -269,8 +269,8 @@ parse_delays.exit66:                              ; preds = %79
   store i64 %..140, ptr %91, align 8, !tbaa !49
   br label %.thread
 
-.thread:                                          ; preds = %parse_delays.exit.thread69, %.fold.split, %.thread77
-  %.347 = phi i32 [ %.5, %.thread77 ], [ -22, %.fold.split ], [ -22, %parse_delays.exit.thread69 ]
+.thread:                                          ; preds = %.fold.split, %parse_delays.exit.thread69, %.thread77
+  %.347 = phi i32 [ %.5, %.thread77 ], [ -22, %parse_delays.exit.thread69 ], [ -22, %.fold.split ]
   call void @av_freep(ptr noundef nonnull %14) #10
   br label %.sink.split
 
@@ -477,7 +477,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %110
 
 110:                                              ; preds = %13, %107, %81, %79, %44, %42, %16, %109, %106, %71
-  %.1 = phi i32 [ %72, %71 ], [ 0, %106 ], [ 0, %109 ], [ 0, %13 ], [ %17, %16 ], [ %68, %44 ], [ -12, %42 ], [ %105, %81 ], [ -12, %79 ], [ -1497649742, %107 ]
+  %.1 = phi i32 [ %17, %16 ], [ %72, %71 ], [ -12, %42 ], [ 0, %106 ], [ -12, %79 ], [ 0, %109 ], [ 0, %13 ], [ %68, %44 ], [ %105, %81 ], [ -1497649742, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -723,8 +723,8 @@ thread-pre-split.i:                               ; preds = %32
   %.pre167 = load i32, ptr %17, align 8, !tbaa !25
   br label %106
 
-106:                                              ; preds = %99, %89
-  %107 = phi i32 [ %.pre167, %99 ], [ %90, %89 ]
+106:                                              ; preds = %89, %99
+  %107 = phi i32 [ %90, %89 ], [ %.pre167, %99 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next162, %108
@@ -783,7 +783,7 @@ thread-pre-split.i:                               ; preds = %32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %.loopexit.loopexit143, %._crit_edge142, %111, %114, %117, %120, %123, %1
-  %.0 = phi i32 [ -12, %1 ], [ 0, %123 ], [ 0, %120 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ 0, %._crit_edge142 ], [ -22, %.loopexit.loopexit143 ], [ -12, %94 ]
+  %.0 = phi i32 [ 0, %._crit_edge142 ], [ -12, %1 ], [ 0, %123 ], [ 0, %120 ], [ 0, %117 ], [ 0, %114 ], [ 0, %111 ], [ -22, %.loopexit.loopexit143 ], [ -12, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -970,7 +970,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_u8p(ptr noundef %0, i64 no
   br label %54
 
 54:                                               ; preds = %9, %2, %53, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %53 ], [ 0, %2 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %53 ], [ -12, %9 ]
   ret i32 %.0
 }
 
@@ -1178,7 +1178,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s16p(ptr noundef %0, i64 n
   br label %59
 
 59:                                               ; preds = %9, %2, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %2 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %58 ], [ -12, %9 ]
   ret i32 %.0
 }
 
@@ -1386,7 +1386,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s32p(ptr noundef %0, i64 n
   br label %59
 
 59:                                               ; preds = %9, %2, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %2 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %58 ], [ -12, %9 ]
   ret i32 %.0
 }
 
@@ -1594,7 +1594,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_fltp(ptr noundef %0, i64 n
   br label %59
 
 59:                                               ; preds = %9, %2, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %2 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %58 ], [ -12, %9 ]
   ret i32 %.0
 }
 
@@ -1802,7 +1802,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_dblp(ptr noundef %0, i64 n
   br label %59
 
 59:                                               ; preds = %9, %2, %58, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %58 ], [ 0, %2 ], [ -12, %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %58 ], [ -12, %9 ]
   ret i32 %.0
 }
 

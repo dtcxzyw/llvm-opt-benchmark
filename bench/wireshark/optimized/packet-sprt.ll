@@ -884,7 +884,7 @@ proto_item_set_generated.exit24.i:                ; preds = %60, %57, %53
   br label %show_setup_info.exit
 
 show_setup_info.exit:                             ; preds = %69, %66, %proto_item_set_generated.exit24.i, %proto_item_set_generated.exit.i, %find_sprt_conversation_data.exit.thread.i, %26, %22
-  %.098 = phi ptr [ %30, %26 ], [ null, %22 ], [ %30, %find_sprt_conversation_data.exit.thread.i ], [ %30, %proto_item_set_generated.exit.i ], [ %30, %proto_item_set_generated.exit24.i ], [ %30, %66 ], [ %30, %69 ]
+  %.098 = phi ptr [ null, %22 ], [ %30, %26 ], [ %30, %find_sprt_conversation_data.exit.thread.i ], [ %30, %proto_item_set_generated.exit.i ], [ %30, %proto_item_set_generated.exit24.i ], [ %30, %66 ], [ %30, %69 ]
   %73 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %74 = lshr i16 %73, 14
   %75 = and i16 %73, 16383
@@ -1165,7 +1165,7 @@ show_setup_info.exit:                             ; preds = %69, %66, %proto_ite
   br label %272
 
 272:                                              ; preds = %271, %264, %257, %254, %231, %228, %.preheader.i
-  %hf_sprt_payload_msg_jminfo_unk_category_info.sink.i = phi ptr [ @hf_sprt_payload_msg_jminfo_unk_category_info, %271 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %264 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %257 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %254 ], [ @hf_sprt_payload_msg_jminfo_mod_v21, %231 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %228 ], [ @hf_sprt_payload_msg_jminfo_category_ext_info, %.preheader.i ]
+  %hf_sprt_payload_msg_jminfo_unk_category_info.sink.i = phi ptr [ @hf_sprt_payload_msg_jminfo_unk_category_info, %271 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %228 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %264 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %257 ], [ @hf_sprt_payload_msg_jminfo_category_leftover_bits, %254 ], [ @hf_sprt_payload_msg_jminfo_mod_v21, %231 ], [ @hf_sprt_payload_msg_jminfo_category_ext_info, %.preheader.i ]
   %273 = load i32, ptr %hf_sprt_payload_msg_jminfo_unk_category_info.sink.i, align 4
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %273, ptr noundef %0, i32 noundef %.0662.i, i32 noundef 2, i32 noundef 0)
   %275 = add i32 %.0662.i, 2
@@ -1539,9 +1539,9 @@ proto_item_set_generated.exit672.i:               ; preds = %523, %520, %517
   br i1 %.not5.i677.i, label %proto_item_set_generated.exit.i115, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %537, %531, %514
-  %.sink696.i = phi ptr [ %516, %514 ], [ %533, %531 ], [ %539, %537 ]
-  %.1664.ph.i = phi i32 [ %.2665.i, %514 ], [ %137, %531 ], [ %137, %537 ]
-  %.3.ph.i = phi i32 [ %.4.i, %514 ], [ %136, %531 ], [ %136, %537 ]
+  %.sink696.i = phi ptr [ %533, %531 ], [ %516, %514 ], [ %539, %537 ]
+  %.1664.ph.i = phi i32 [ %137, %531 ], [ %.2665.i, %514 ], [ %137, %537 ]
+  %.3.ph.i = phi i32 [ %136, %531 ], [ %.4.i, %514 ], [ %136, %537 ]
   %540 = getelementptr inbounds nuw i8, ptr %.sink696.i, i64 28
   %541 = load i32, ptr %540, align 4
   %542 = or i32 %541, 2
@@ -1549,8 +1549,8 @@ proto_item_set_generated.exit.sink.split.i:       ; preds = %537, %531, %514
   br label %proto_item_set_generated.exit.i115
 
 proto_item_set_generated.exit.i115:               ; preds = %proto_item_set_generated.exit.sink.split.i, %537, %534, %531, %proto_item_set_generated.exit672.i, %514, %509, %485
-  %.1664.i = phi i32 [ %137, %485 ], [ %.2665.i, %509 ], [ %.2665.i, %514 ], [ %137, %proto_item_set_generated.exit672.i ], [ %137, %531 ], [ %137, %534 ], [ %137, %537 ], [ %.1664.ph.i, %proto_item_set_generated.exit.sink.split.i ]
-  %.3.i = phi i32 [ %136, %485 ], [ %.4.i, %509 ], [ %.4.i, %514 ], [ %136, %proto_item_set_generated.exit672.i ], [ %136, %531 ], [ %136, %534 ], [ %136, %537 ], [ %.3.ph.i, %proto_item_set_generated.exit.sink.split.i ]
+  %.1664.i = phi i32 [ %137, %534 ], [ %137, %485 ], [ %137, %537 ], [ %.2665.i, %509 ], [ %.2665.i, %514 ], [ %137, %proto_item_set_generated.exit672.i ], [ %137, %531 ], [ %.1664.ph.i, %proto_item_set_generated.exit.sink.split.i ]
+  %.3.i = phi i32 [ %136, %534 ], [ %136, %485 ], [ %136, %537 ], [ %.4.i, %509 ], [ %.4.i, %514 ], [ %136, %proto_item_set_generated.exit672.i ], [ %136, %531 ], [ %.3.ph.i, %proto_item_set_generated.exit.sink.split.i ]
   %543 = load i32, ptr @hf_sprt_payload_data, align 4
   %544 = tail call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %543, ptr noundef %0, i32 noundef %.3.i, i32 noundef %.1664.i, i32 noundef 0)
   br label %dissect_sprt_data.exit

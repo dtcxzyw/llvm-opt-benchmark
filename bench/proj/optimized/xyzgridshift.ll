@@ -545,7 +545,7 @@ _ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108: ; preds = %166, %_ZN12_GLOBA
   br label %192
 
 192:                                              ; preds = %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %130, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit
-  %.0 = phi ptr [ %45, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit ], [ %115, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82 ], [ %191, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108 ], [ %83, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66 ], [ %0, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ %0, %130 ]
+  %.0 = phi ptr [ %45, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit ], [ %115, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit82 ], [ %83, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit66 ], [ %191, %_ZL26pj_xyzgridshift_destructorP8PJconstsi.exit108 ], [ %0, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ %0, %130 ]
   ret ptr %.0
 }
 
@@ -1143,9 +1143,9 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
   br label %91
 
 91:                                               ; preds = %88, %85, %79
-  %.159 = phi i32 [ %.05478, %79 ], [ %.05875, %85 ], [ %.05875, %88 ]
-  %.157 = phi i32 [ %.05676, %79 ], [ %.05478, %85 ], [ %.05676, %88 ]
-  %.1 = phi i32 [ %.05577, %79 ], [ %.05577, %85 ], [ %spec.select, %88 ]
+  %.159 = phi i32 [ %.05875, %88 ], [ %.05478, %79 ], [ %.05875, %85 ]
+  %.157 = phi i32 [ %.05676, %88 ], [ %.05676, %79 ], [ %.05478, %85 ]
+  %.1 = phi i32 [ %spec.select, %88 ], [ %.05577, %79 ], [ %.05577, %85 ]
   %92 = load ptr, ptr %9, align 8, !tbaa !106
   %93 = icmp eq ptr %92, %70
   br i1 %93, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

@@ -729,7 +729,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   br label %389
 
 389:                                              ; preds = %.loopexit, %383, %385, %387, %374, %221, %122
-  %.0 = phi i32 [ -43, %387 ], [ -5, %122 ], [ -5, %221 ], [ -43, %374 ], [ 0, %385 ], [ 0, %383 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ -43, %374 ], [ -43, %387 ], [ -5, %122 ], [ -5, %221 ], [ 0, %385 ], [ 0, %383 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

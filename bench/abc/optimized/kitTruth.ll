@@ -1119,10 +1119,10 @@ define void @Kit_TruthPermute(ptr noundef captures(none) %0, ptr noundef capture
   br i1 %exitcond171.not.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, label %73, !llvm.loop !7
 
 Kit_TruthSwapAdjacentVars.exit.us:                ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %73, %64, %.preheader.i.us, %.preheader87.lr.ph.i.us, %22, %.lr.ph.us
-  %.237.us = phi ptr [ %.13645.us, %.lr.ph.us ], [ %.13247.us, %64 ], [ %.13247.us, %.preheader.i.us ], [ %.13247.us, %22 ], [ %.13247.us, %.preheader87.lr.ph.i.us ], [ %.13247.us, %73 ], [ %.13247.us, %.lr.ph.i.us ], [ %.13247.us, %._crit_edge.us.i.us ]
-  %.233.us = phi ptr [ %.13247.us, %.lr.ph.us ], [ %.13645.us, %64 ], [ %.13645.us, %.preheader.i.us ], [ %.13645.us, %22 ], [ %.13645.us, %.preheader87.lr.ph.i.us ], [ %.13645.us, %73 ], [ %.13645.us, %.lr.ph.i.us ], [ %.13645.us, %._crit_edge.us.i.us ]
-  %.130.us = phi i32 [ %.02948.us, %.lr.ph.us ], [ 1, %64 ], [ 1, %.preheader.i.us ], [ 1, %22 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %73 ], [ 1, %.lr.ph.i.us ], [ 1, %._crit_edge.us.i.us ]
-  %.2.us = phi i32 [ %.149.us, %.lr.ph.us ], [ %19, %64 ], [ %19, %.preheader.i.us ], [ %19, %22 ], [ %19, %.preheader87.lr.ph.i.us ], [ %19, %73 ], [ %19, %.lr.ph.i.us ], [ %19, %._crit_edge.us.i.us ]
+  %.237.us = phi ptr [ %.13645.us, %.lr.ph.us ], [ %.13247.us, %64 ], [ %.13247.us, %.preheader.i.us ], [ %.13247.us, %22 ], [ %.13247.us, %.preheader87.lr.ph.i.us ], [ %.13247.us, %.lr.ph.i.us ], [ %.13247.us, %73 ], [ %.13247.us, %._crit_edge.us.i.us ]
+  %.233.us = phi ptr [ %.13247.us, %.lr.ph.us ], [ %.13645.us, %64 ], [ %.13645.us, %.preheader.i.us ], [ %.13645.us, %22 ], [ %.13645.us, %.preheader87.lr.ph.i.us ], [ %.13645.us, %.lr.ph.i.us ], [ %.13645.us, %73 ], [ %.13645.us, %._crit_edge.us.i.us ]
+  %.130.us = phi i32 [ %.02948.us, %.lr.ph.us ], [ 1, %64 ], [ 1, %.preheader.i.us ], [ 1, %22 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %.lr.ph.i.us ], [ 1, %73 ], [ 1, %._crit_edge.us.i.us ]
+  %.2.us = phi i32 [ %.149.us, %.lr.ph.us ], [ %19, %64 ], [ %19, %.preheader.i.us ], [ %19, %22 ], [ %19, %.preheader87.lr.ph.i.us ], [ %19, %.lr.ph.i.us ], [ %19, %73 ], [ %19, %._crit_edge.us.i.us ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us.backedge
 
@@ -1335,7 +1335,7 @@ define range(i32 0, 2) i32 @Kit_TruthVarInSupport(ptr noundef readonly captures(
   br i1 %56, label %.preheader.us, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %.lr.ph81, %31, %.lr.ph86, %25, %.lr.ph91, %19, %.lr.ph96, %13, %._crit_edge.us, %50, %.preheader.lr.ph, %.preheader74, %.preheader71, %.preheader68, %.preheader65, %.preheader63, %42
-  %.0 = phi i32 [ 0, %42 ], [ 0, %.preheader63 ], [ 0, %.preheader65 ], [ 0, %.preheader68 ], [ 0, %.preheader71 ], [ 0, %.preheader74 ], [ poison, %.preheader.lr.ph ], [ 1, %50 ], [ 0, %._crit_edge.us ], [ 1, %.lr.ph96 ], [ 0, %13 ], [ 1, %.lr.ph91 ], [ 0, %19 ], [ 1, %.lr.ph86 ], [ 0, %25 ], [ 1, %.lr.ph81 ], [ 0, %31 ], [ 1, %.lr.ph ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %.preheader74 ], [ 0, %19 ], [ poison, %.preheader.lr.ph ], [ 0, %42 ], [ 0, %.preheader63 ], [ 0, %.preheader65 ], [ 0, %13 ], [ 0, %.preheader68 ], [ 0, %.preheader71 ], [ 0, %25 ], [ 1, %50 ], [ 0, %._crit_edge.us ], [ 1, %.lr.ph96 ], [ 1, %.lr.ph91 ], [ 1, %.lr.ph86 ], [ 1, %.lr.ph81 ], [ 0, %37 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1771,7 +1771,7 @@ define i32 @Kit_TruthCofactor0Count(ptr noundef readonly captures(none) %0, i32 
   br i1 %134, label %.preheader.us, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph75, %.lr.ph79, %.lr.ph83, %.lr.ph87, %._crit_edge.us, %.preheader.lr.ph, %.preheader69, %.preheader67, %.preheader65, %.preheader63, %.preheader61, %103
-  %.051 = phi i32 [ 0, %103 ], [ 0, %.preheader61 ], [ 0, %.preheader63 ], [ 0, %.preheader65 ], [ 0, %.preheader67 ], [ 0, %.preheader69 ], [ poison, %.preheader.lr.ph ], [ %131, %._crit_edge.us ], [ %30, %.lr.ph87 ], [ %48, %.lr.ph83 ], [ %66, %.lr.ph79 ], [ %84, %.lr.ph75 ], [ %102, %.lr.ph ]
+  %.051 = phi i32 [ 0, %103 ], [ 0, %.preheader61 ], [ 0, %.preheader63 ], [ 0, %.preheader65 ], [ 0, %.preheader67 ], [ 0, %.preheader69 ], [ poison, %.preheader.lr.ph ], [ %84, %.lr.ph75 ], [ %131, %._crit_edge.us ], [ %30, %.lr.ph87 ], [ %48, %.lr.ph83 ], [ %66, %.lr.ph79 ], [ %102, %.lr.ph ]
   ret i32 %.051
 }
 
@@ -2469,7 +2469,7 @@ define range(i32 0, 2) i32 @Kit_TruthVarIsVacuous(ptr noundef readonly captures(
   br i1 %92, label %.preheader.us, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.lr.ph, %58, %.lr.ph109, %47, %.lr.ph114, %36, %.lr.ph119, %25, %.lr.ph124, %14, %._crit_edge.us, %76, %.preheader.lr.ph, %.preheader102, %.preheader99, %.preheader96, %.preheader93, %.preheader91, %68
-  %.0 = phi i32 [ 1, %68 ], [ 1, %.preheader91 ], [ 1, %.preheader93 ], [ 1, %.preheader96 ], [ 1, %.preheader99 ], [ 1, %.preheader102 ], [ poison, %.preheader.lr.ph ], [ 0, %76 ], [ 1, %._crit_edge.us ], [ 0, %.lr.ph124 ], [ 1, %14 ], [ 0, %.lr.ph119 ], [ 1, %25 ], [ 0, %.lr.ph114 ], [ 1, %36 ], [ 0, %.lr.ph109 ], [ 1, %47 ], [ 0, %.lr.ph ], [ 1, %58 ]
+  %.0 = phi i32 [ 1, %47 ], [ 1, %.preheader102 ], [ 1, %25 ], [ poison, %.preheader.lr.ph ], [ 1, %68 ], [ 1, %.preheader91 ], [ 1, %.preheader93 ], [ 1, %14 ], [ 1, %.preheader96 ], [ 1, %.preheader99 ], [ 1, %36 ], [ 0, %76 ], [ 1, %._crit_edge.us ], [ 0, %.lr.ph124 ], [ 0, %.lr.ph119 ], [ 0, %.lr.ph114 ], [ 0, %.lr.ph109 ], [ 1, %58 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3660,7 +3660,7 @@ define i32 @Kit_TruthBooleanDiffCount(ptr noundef readonly captures(none) %0, i3
   br i1 %147, label %.preheader.us, label %.loopexit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph89, %.lr.ph93, %.lr.ph97, %.lr.ph101, %._crit_edge.us, %.preheader.lr.ph, %.preheader83, %.preheader81, %.preheader79, %.preheader77, %.preheader75, %113
-  %.064 = phi i32 [ 0, %113 ], [ 0, %.preheader75 ], [ 0, %.preheader77 ], [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ 0, %.preheader83 ], [ poison, %.preheader.lr.ph ], [ %144, %._crit_edge.us ], [ %32, %.lr.ph101 ], [ %52, %.lr.ph97 ], [ %72, %.lr.ph93 ], [ %92, %.lr.ph89 ], [ %112, %.lr.ph ]
+  %.064 = phi i32 [ 0, %113 ], [ 0, %.preheader75 ], [ 0, %.preheader77 ], [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ 0, %.preheader83 ], [ poison, %.preheader.lr.ph ], [ %92, %.lr.ph89 ], [ %144, %._crit_edge.us ], [ %32, %.lr.ph101 ], [ %52, %.lr.ph97 ], [ %72, %.lr.ph93 ], [ %112, %.lr.ph ]
   ret i32 %.064
 }
 
@@ -4639,8 +4639,8 @@ Kit_TruthVarInSupport.exit:                       ; preds = %.preheader.lr.ph.i
   %61 = shl nuw nsw i32 1, %.0810.i
   br label %Kit_TruthVarInSupport.exit.thread
 
-Kit_TruthVarInSupport.exit.thread:                ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %46, %.preheader63.i, %.preheader65.i, %.preheader68.i, %.preheader71.i, %.preheader74.i, %Kit_TruthVarInSupport.exit, %Kit_TruthVarInSupport.exit.thread118
-  %62 = phi i32 [ %61, %Kit_TruthVarInSupport.exit ], [ %60, %Kit_TruthVarInSupport.exit.thread118 ], [ 0, %.preheader74.i ], [ 0, %.preheader71.i ], [ 0, %.preheader68.i ], [ 0, %.preheader65.i ], [ 0, %.preheader63.i ], [ 0, %46 ], [ 0, %._crit_edge.us.i ], [ 0, %17 ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %41 ]
+Kit_TruthVarInSupport.exit.thread:                ; preds = %41, %35, %29, %23, %17, %._crit_edge.us.i, %.preheader74.i, %46, %.preheader63.i, %.preheader65.i, %.preheader68.i, %.preheader71.i, %Kit_TruthVarInSupport.exit, %Kit_TruthVarInSupport.exit.thread118
+  %62 = phi i32 [ %60, %Kit_TruthVarInSupport.exit.thread118 ], [ %61, %Kit_TruthVarInSupport.exit ], [ 0, %.preheader71.i ], [ 0, %.preheader68.i ], [ 0, %.preheader65.i ], [ 0, %.preheader63.i ], [ 0, %46 ], [ 0, %.preheader74.i ], [ 0, %35 ], [ 0, %._crit_edge.us.i ], [ 0, %17 ], [ 0, %23 ], [ 0, %29 ], [ 0, %41 ]
   %.1.i = or i32 %62, %.011.i
   %63 = add nuw nsw i32 %.0810.i, 1
   %exitcond.not.i = icmp eq i32 %63, %1
@@ -4833,8 +4833,8 @@ Kit_TruthVarInSupport.exit113:                    ; preds = %.preheader.lr.ph.i9
   %131 = shl nuw nsw i32 1, %.0810.i47
   br label %Kit_TruthVarInSupport.exit113.thread
 
-Kit_TruthVarInSupport.exit113.thread:             ; preds = %111, %105, %99, %93, %87, %._crit_edge.us.i112, %116, %.preheader63.i90, %.preheader65.i82, %.preheader68.i74, %.preheader71.i66, %.preheader74.i57, %Kit_TruthVarInSupport.exit113, %Kit_TruthVarInSupport.exit113.thread127
-  %132 = phi i32 [ %131, %Kit_TruthVarInSupport.exit113 ], [ %130, %Kit_TruthVarInSupport.exit113.thread127 ], [ 0, %.preheader74.i57 ], [ 0, %.preheader71.i66 ], [ 0, %.preheader68.i74 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader63.i90 ], [ 0, %116 ], [ 0, %._crit_edge.us.i112 ], [ 0, %87 ], [ 0, %93 ], [ 0, %99 ], [ 0, %105 ], [ 0, %111 ]
+Kit_TruthVarInSupport.exit113.thread:             ; preds = %111, %105, %99, %93, %87, %._crit_edge.us.i112, %.preheader74.i57, %116, %.preheader63.i90, %.preheader65.i82, %.preheader68.i74, %.preheader71.i66, %Kit_TruthVarInSupport.exit113, %Kit_TruthVarInSupport.exit113.thread127
+  %132 = phi i32 [ %130, %Kit_TruthVarInSupport.exit113.thread127 ], [ %131, %Kit_TruthVarInSupport.exit113 ], [ 0, %.preheader71.i66 ], [ 0, %.preheader68.i74 ], [ 0, %.preheader65.i82 ], [ 0, %.preheader63.i90 ], [ 0, %116 ], [ 0, %.preheader74.i57 ], [ 0, %105 ], [ 0, %._crit_edge.us.i112 ], [ 0, %87 ], [ 0, %93 ], [ 0, %99 ], [ 0, %111 ]
   %.1.i49 = or i32 %132, %.011.i46
   %133 = add nuw nsw i32 %.0810.i47, 1
   %exitcond.not.i50 = icmp eq i32 %133, %1
@@ -5099,7 +5099,7 @@ Kit_TruthIsConst1.exit.preheader:                 ; preds = %17
   br i1 %65, label %.preheader.us.i.us, label %Kit_TruthVarInSupport.exit.us, !llvm.loop !38
 
 Kit_TruthVarInSupport.exit.us:                    ; preds = %.lr.ph.i54.us, %27, %.lr.ph81.i.us, %33, %.lr.ph86.i.us, %39, %.lr.ph91.i.us, %45, %.lr.ph96.i.us, %51, %._crit_edge.us.i.us, %58, %.preheader.lr.ph.i.us, %52, %.preheader63.i.us, %.preheader65.i.us, %.preheader68.i.us, %.preheader71.i.us, %.preheader74.i.us
-  %.0.i.us = phi i32 [ 0, %52 ], [ 0, %.preheader63.i.us ], [ 0, %.preheader65.i.us ], [ 0, %.preheader68.i.us ], [ 0, %.preheader71.i.us ], [ 0, %.preheader74.i.us ], [ poison, %.preheader.lr.ph.i.us ], [ 1, %58 ], [ 0, %._crit_edge.us.i.us ], [ 0, %51 ], [ 1, %.lr.ph96.i.us ], [ 0, %45 ], [ 1, %.lr.ph91.i.us ], [ 0, %39 ], [ 1, %.lr.ph86.i.us ], [ 0, %33 ], [ 1, %.lr.ph81.i.us ], [ 0, %27 ], [ 1, %.lr.ph.i54.us ]
+  %.0.i.us = phi i32 [ 0, %33 ], [ 0, %.preheader74.i.us ], [ 0, %45 ], [ poison, %.preheader.lr.ph.i.us ], [ 0, %52 ], [ 0, %.preheader63.i.us ], [ 0, %.preheader65.i.us ], [ 0, %51 ], [ 0, %.preheader68.i.us ], [ 0, %.preheader71.i.us ], [ 0, %39 ], [ 1, %58 ], [ 0, %._crit_edge.us.i.us ], [ 1, %.lr.ph96.i.us ], [ 1, %.lr.ph91.i.us ], [ 1, %.lr.ph86.i.us ], [ 1, %.lr.ph81.i.us ], [ 0, %27 ], [ 1, %.lr.ph.i54.us ]
   %66 = add nuw nsw i32 %.0.i.us, %.010.i.us
   %67 = add nuw nsw i32 %.079.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %67, %1
@@ -5249,7 +5249,7 @@ Kit_TruthVarInSupport.exit.us:                    ; preds = %.lr.ph.i54.us, %27,
   br i1 %110, label %.preheader.us.i104.us, label %Kit_TruthVarInSupport.exit114.us, !llvm.loop !38
 
 Kit_TruthVarInSupport.exit114.us:                 ; preds = %.lr.ph.i62.us, %72, %.lr.ph81.i70.us, %78, %.lr.ph86.i78.us, %84, %.lr.ph91.i86.us, %90, %.lr.ph96.i94.us, %96, %._crit_edge.us.i113.us, %103, %.preheader.lr.ph.i99.us, %97, %.preheader63.i91.us, %.preheader65.i83.us, %.preheader68.i75.us, %.preheader71.i67.us, %.preheader74.i58.us
-  %.0.i59.us = phi i32 [ 0, %97 ], [ 0, %.preheader63.i91.us ], [ 0, %.preheader65.i83.us ], [ 0, %.preheader68.i75.us ], [ 0, %.preheader71.i67.us ], [ 0, %.preheader74.i58.us ], [ poison, %.preheader.lr.ph.i99.us ], [ 1, %103 ], [ 0, %._crit_edge.us.i113.us ], [ 0, %96 ], [ 1, %.lr.ph96.i94.us ], [ 0, %90 ], [ 1, %.lr.ph91.i86.us ], [ 0, %84 ], [ 1, %.lr.ph86.i78.us ], [ 0, %78 ], [ 1, %.lr.ph81.i70.us ], [ 0, %72 ], [ 1, %.lr.ph.i62.us ]
+  %.0.i59.us = phi i32 [ 0, %78 ], [ 0, %.preheader74.i58.us ], [ 0, %90 ], [ poison, %.preheader.lr.ph.i99.us ], [ 0, %97 ], [ 0, %.preheader63.i91.us ], [ 0, %.preheader65.i83.us ], [ 0, %96 ], [ 0, %.preheader68.i75.us ], [ 0, %.preheader71.i67.us ], [ 0, %84 ], [ 1, %103 ], [ 0, %._crit_edge.us.i113.us ], [ 1, %.lr.ph96.i94.us ], [ 1, %.lr.ph91.i86.us ], [ 1, %.lr.ph86.i78.us ], [ 1, %.lr.ph81.i70.us ], [ 0, %72 ], [ 1, %.lr.ph.i62.us ]
   %111 = add nuw nsw i32 %.0.i59.us, %.010.i50.us
   %112 = add nuw nsw i32 %.079.i51.us, 1
   %exitcond.not.i52.us = icmp eq i32 %112, %1
@@ -6447,7 +6447,7 @@ Kit_TruthNot.exit.loopexit:                       ; preds = %select.unfold.i103
   br label %Kit_TruthNot.exit
 
 Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.loopexit, %Kit_TruthCountOnes.exit.thread, %Kit_TruthCountOnes.exit
-  %.0 = phi i32 [ 0, %Kit_TruthCountOnes.exit ], [ %40, %Kit_TruthCountOnes.exit.thread ], [ %45, %Kit_TruthNot.exit.loopexit ]
+  %.0 = phi i32 [ %40, %Kit_TruthCountOnes.exit.thread ], [ 0, %Kit_TruthCountOnes.exit ], [ %45, %Kit_TruthNot.exit.loopexit ]
   call void @Kit_TruthCountOnesInCofs(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %5)
   br i1 %10, label %.lr.ph120.preheader, label %Kit_TruthCopy.exit
 
@@ -6658,11 +6658,11 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   br i1 %exitcond171.not.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, label %122, !llvm.loop !7
 
 Kit_TruthSwapAdjacentVars.exit.us:                ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %122, %115, %.preheader.i.us, %.preheader87.lr.ph.i.us, %73, %.lr.ph128.us
-  %.293.us = phi ptr [ %.192121.us, %.lr.ph128.us ], [ %.181125.us, %115 ], [ %.181125.us, %.preheader.i.us ], [ %.181125.us, %73 ], [ %.181125.us, %.preheader87.lr.ph.i.us ], [ %.181125.us, %122 ], [ %.181125.us, %.lr.ph.i.us ], [ %.181125.us, %._crit_edge.us.i.us ]
-  %.187.us = phi i32 [ %.086123.us, %.lr.ph128.us ], [ 1, %115 ], [ 1, %.preheader.i.us ], [ 1, %73 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %122 ], [ 1, %.lr.ph.i.us ], [ 1, %._crit_edge.us.i.us ]
-  %.285.us = phi i32 [ %.184124.us, %.lr.ph128.us ], [ %53, %115 ], [ %53, %.preheader.i.us ], [ %53, %73 ], [ %53, %.preheader87.lr.ph.i.us ], [ %53, %122 ], [ %53, %.lr.ph.i.us ], [ %53, %._crit_edge.us.i.us ]
-  %.282.us = phi ptr [ %.181125.us, %.lr.ph128.us ], [ %.192121.us, %115 ], [ %.192121.us, %.preheader.i.us ], [ %.192121.us, %73 ], [ %.192121.us, %.preheader87.lr.ph.i.us ], [ %.192121.us, %122 ], [ %.192121.us, %.lr.ph.i.us ], [ %.192121.us, %._crit_edge.us.i.us ]
-  %.5.us = phi i32 [ %.4126.us, %.lr.ph128.us ], [ %.6.us, %115 ], [ %.6.us, %.preheader.i.us ], [ %.6.us, %73 ], [ %.6.us, %.preheader87.lr.ph.i.us ], [ %.6.us, %122 ], [ %.6.us, %.lr.ph.i.us ], [ %.6.us, %._crit_edge.us.i.us ]
+  %.293.us = phi ptr [ %.192121.us, %.lr.ph128.us ], [ %.181125.us, %115 ], [ %.181125.us, %.preheader.i.us ], [ %.181125.us, %73 ], [ %.181125.us, %.preheader87.lr.ph.i.us ], [ %.181125.us, %.lr.ph.i.us ], [ %.181125.us, %122 ], [ %.181125.us, %._crit_edge.us.i.us ]
+  %.187.us = phi i32 [ %.086123.us, %.lr.ph128.us ], [ 1, %115 ], [ 1, %.preheader.i.us ], [ 1, %73 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %.lr.ph.i.us ], [ 1, %122 ], [ 1, %._crit_edge.us.i.us ]
+  %.285.us = phi i32 [ %.184124.us, %.lr.ph128.us ], [ %53, %115 ], [ %53, %.preheader.i.us ], [ %53, %73 ], [ %53, %.preheader87.lr.ph.i.us ], [ %53, %.lr.ph.i.us ], [ %53, %122 ], [ %53, %._crit_edge.us.i.us ]
+  %.282.us = phi ptr [ %.181125.us, %.lr.ph128.us ], [ %.192121.us, %115 ], [ %.192121.us, %.preheader.i.us ], [ %.192121.us, %73 ], [ %.192121.us, %.preheader87.lr.ph.i.us ], [ %.192121.us, %.lr.ph.i.us ], [ %.192121.us, %122 ], [ %.192121.us, %._crit_edge.us.i.us ]
+  %.5.us = phi i32 [ %.4126.us, %.lr.ph128.us ], [ %.6.us, %115 ], [ %.6.us, %.preheader.i.us ], [ %.6.us, %73 ], [ %.6.us, %.preheader87.lr.ph.i.us ], [ %.6.us, %.lr.ph.i.us ], [ %.6.us, %122 ], [ %.6.us, %._crit_edge.us.i.us ]
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
   br i1 %exitcond153.not, label %._crit_edge129.us, label %.lr.ph128.us.backedge
 

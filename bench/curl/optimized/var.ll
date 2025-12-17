@@ -409,8 +409,8 @@ sub_1150.i:                                       ; preds = %sub_0.i
   br label %.thread.i
 
 131:                                              ; preds = %129, %121, %111, %107, %96, %95, %.critedge4.i
-  %.195.i = phi ptr [ %119, %129 ], [ %119, %121 ], [ %105, %107 ], [ %93, %96 ], [ %93, %95 ], [ %75, %.critedge4.i ], [ %105, %111 ]
-  %.4.i = phi ptr [ %.0.i170, %129 ], [ %.0.i170, %121 ], [ %.0.i170, %107 ], [ %.0.i170, %96 ], [ %.0.i170, %95 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %111 ]
+  %.195.i = phi ptr [ %119, %129 ], [ %119, %121 ], [ %75, %.critedge4.i ], [ %105, %107 ], [ %93, %96 ], [ %93, %95 ], [ %105, %111 ]
+  %.4.i = phi ptr [ %.0.i170, %129 ], [ %.0.i170, %121 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %107 ], [ %.0.i170, %96 ], [ %.0.i170, %95 ], [ %.0.i170, %111 ]
   br i1 %.0101.i, label %132, label %133
 
 132:                                              ; preds = %131
@@ -439,9 +439,9 @@ Memdup.exit.i:                                    ; preds = %139, %138
   br label %69, !llvm.loop !32
 
 .thread.i:                                        ; preds = %133, %111, %108, %96, %.critedge4.i, %69, %69, %.tail148.thread.i, %.thread145.i
-  %.not131.i = phi i1 [ false, %.tail148.thread.i ], [ false, %.thread145.i ], [ false, %111 ], [ true, %69 ], [ true, %69 ], [ false, %133 ], [ false, %108 ], [ false, %.critedge4.i ], [ false, %96 ]
-  %.197.i = phi i32 [ 22, %.tail148.thread.i ], [ 15, %.thread145.i ], [ 15, %111 ], [ 0, %69 ], [ 0, %69 ], [ 15, %133 ], [ 15, %108 ], [ 15, %.critedge4.i ], [ 15, %96 ]
-  %.1.i = phi ptr [ %.0.i170, %.tail148.thread.i ], [ %.0.i170, %.thread145.i ], [ %.0.i170, %111 ], [ %.0.i170, %69 ], [ %.0.i170, %69 ], [ null, %133 ], [ %.0.i170, %108 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %96 ]
+  %.not131.i = phi i1 [ false, %.thread145.i ], [ false, %.tail148.thread.i ], [ false, %111 ], [ true, %69 ], [ true, %69 ], [ false, %96 ], [ false, %133 ], [ false, %.critedge4.i ], [ false, %108 ]
+  %.197.i = phi i32 [ 15, %.thread145.i ], [ 22, %.tail148.thread.i ], [ 15, %111 ], [ 0, %69 ], [ 0, %69 ], [ 15, %96 ], [ 15, %133 ], [ 15, %.critedge4.i ], [ 15, %108 ]
+  %.1.i = phi ptr [ %.0.i170, %.thread145.i ], [ %.0.i170, %.tail148.thread.i ], [ %.0.i170, %111 ], [ %.0.i170, %69 ], [ %.0.i170, %69 ], [ %.0.i170, %96 ], [ null, %133 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %108 ]
   br i1 %.0101.i, label %141, label %142
 
 141:                                              ; preds = %.thread.i
@@ -461,8 +461,8 @@ varfunc.exit:                                     ; preds = %142
   br label %145
 
 145:                                              ; preds = %.thread175, %varcontent.exit.thread
-  %.1125 = phi ptr [ %.0124, %varcontent.exit.thread ], [ %143, %.thread175 ]
-  %.1122 = phi i64 [ %.0121, %varcontent.exit.thread ], [ %144, %.thread175 ]
+  %.1125 = phi ptr [ %143, %.thread175 ], [ %.0124, %varcontent.exit.thread ]
+  %.1122 = phi i64 [ %144, %.thread175 ], [ %.0121, %varcontent.exit.thread ]
   %146 = icmp ne ptr %.1125, null
   %147 = icmp ne i64 %.1122, 0
   %or.cond7 = select i1 %146, i1 %147, i1 false
@@ -494,8 +494,8 @@ varfunc.exit:                                     ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %153
 
-.thread186:                                       ; preds = %.thread179, %37, %40, %54, %.thread181
-  %.2.ph = phi i32 [ %.6.ph, %.thread181 ], [ 15, %54 ], [ 15, %40 ], [ 15, %37 ], [ 15, %.thread179 ]
+.thread186:                                       ; preds = %37, %40, %.thread179, %54, %.thread181
+  %.2.ph = phi i32 [ %.6.ph, %.thread181 ], [ 15, %54 ], [ 15, %.thread179 ], [ 15, %40 ], [ 15, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -534,7 +534,7 @@ varfunc.exit:                                     ; preds = %142
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %17, %159, %.thread186, %160, %157
-  %.1 = phi i32 [ 15, %157 ], [ 0, %160 ], [ 0, %159 ], [ %.2.ph, %.thread186 ], [ 15, %17 ], [ 15, %23 ]
+  %.1 = phi i32 [ %.2.ph, %.thread186 ], [ 15, %157 ], [ 0, %160 ], [ 0, %159 ], [ 15, %17 ], [ 15, %23 ]
   ret i32 %.1
 }
 
@@ -613,9 +613,9 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge4, %17
-  %.193.lcssa = phi ptr [ %20, %.critedge4 ], [ %.193165, %17 ]
-  %.lcssa163 = phi i8 [ 0, %.critedge4 ], [ %14, %17 ]
-  %.not.lcssa = phi i1 [ true, %.critedge4 ], [ false, %17 ]
+  %.193.lcssa = phi ptr [ %.193165, %17 ], [ %20, %.critedge4 ]
+  %.lcssa163 = phi i8 [ %14, %17 ], [ 0, %.critedge4 ]
+  %.not.lcssa = phi i1 [ false, %17 ], [ true, %.critedge4 ]
   %22 = ptrtoint ptr %.193.lcssa to i64
   %23 = ptrtoint ptr %spec.select to i64
   %24 = sub i64 %22, %23
@@ -722,10 +722,10 @@ define dso_local i32 @setvariable(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %65
 
 65:                                               ; preds = %._crit_edge, %43, %40
-  %66 = phi i64 [ %64, %._crit_edge ], [ 9223372036854775807, %43 ], [ 9223372036854775807, %40 ]
-  %67 = phi i64 [ %63, %._crit_edge ], [ 0, %43 ], [ 0, %40 ]
-  %68 = phi ptr [ %.pre, %._crit_edge ], [ %41, %43 ], [ %41, %40 ]
-  %.294 = phi ptr [ %.496132, %._crit_edge ], [ %.193.lcssa, %43 ], [ %.193.lcssa, %40 ]
+  %66 = phi i64 [ %64, %._crit_edge ], [ 9223372036854775807, %40 ], [ 9223372036854775807, %43 ]
+  %67 = phi i64 [ %63, %._crit_edge ], [ 0, %40 ], [ 0, %43 ]
+  %68 = phi ptr [ %.pre, %._crit_edge ], [ %41, %40 ], [ %41, %43 ]
+  %.294 = phi ptr [ %.496132, %._crit_edge ], [ %.193.lcssa, %40 ], [ %.193.lcssa, %43 ]
   %.not114 = icmp eq ptr %68, null
   br i1 %.not114, label %69, label %thread-pre-split
 
@@ -928,12 +928,12 @@ addvariable.exit:                                 ; preds = %varcontent.exit.thr
   call void @free(ptr noundef %131) #13
   br label %132
 
-.critedge126:                                     ; preds = %55, %47, %49, %58
+.critedge126:                                     ; preds = %55, %49, %47, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %132
 
 132:                                              ; preds = %addvariable.exit.thread, %.thread149, %addvariable.exit, %130, %.critedge126, %62, %90, %106, %36, %.critedge.thread
-  %.0 = phi i32 [ 0, %.critedge.thread ], [ %85, %90 ], [ 0, %106 ], [ 24, %62 ], [ 22, %36 ], [ 24, %.critedge126 ], [ 15, %130 ], [ 15, %addvariable.exit ], [ 21, %.thread149 ], [ 0, %addvariable.exit.thread ]
+  %.0 = phi i32 [ 0, %.critedge.thread ], [ 24, %.critedge126 ], [ %85, %90 ], [ 0, %106 ], [ 24, %62 ], [ 22, %36 ], [ 15, %130 ], [ 15, %addvariable.exit ], [ 21, %.thread149 ], [ 0, %addvariable.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

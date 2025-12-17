@@ -506,7 +506,7 @@ define void @_ZN7Imf_3_418saveDeepTiledImageERKNSt7__cxx1112basic_stringIcSt11ch
   br label %144
 
 144:                                              ; preds = %.loopexit71, %.loopexit.split-lp, %.loopexit73, %.loopexit.split-lp74, %96, %108, %18, %94, %143, %92, %62, %51, %49
-  %.pn50.pn = phi { ptr, i32 } [ %50, %49 ], [ %93, %92 ], [ %52, %51 ], [ %63, %62 ], [ %.pn42.pn, %143 ], [ %95, %94 ], [ %19, %18 ], [ %109, %108 ], [ %97, %96 ], [ %lpad.loopexit75, %.loopexit73 ], [ %lpad.loopexit.split-lp76, %.loopexit.split-lp74 ], [ %lpad.loopexit, %.loopexit71 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn50.pn = phi { ptr, i32 } [ %95, %94 ], [ %63, %62 ], [ %50, %49 ], [ %93, %92 ], [ %52, %51 ], [ %19, %18 ], [ %.pn42.pn, %143 ], [ %97, %96 ], [ %109, %108 ], [ %lpad.loopexit.split-lp76, %.loopexit.split-lp74 ], [ %lpad.loopexit75, %.loopexit73 ], [ %lpad.loopexit, %.loopexit71 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn50.pn
@@ -826,7 +826,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %113
   br label %123
 
 123:                                              ; preds = %.loopexit, %.loopexit.split-lp, %78, %96, %98, %122, %76
-  %.pn19.pn = phi { ptr, i32 } [ %.pn, %122 ], [ %77, %76 ], [ %99, %98 ], [ %97, %96 ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn19.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn, %122 ], [ %99, %98 ], [ %97, %96 ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #17
   br label %.body
 
@@ -836,7 +836,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %113
   br label %124
 
 124:                                              ; preds = %.loopexit46, %.loopexit.split-lp47, %18, %74, %.body, %72, %70
-  %.pn26.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %.pn19.pn.pn, %.body ], [ %75, %74 ], [ %19, %18 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
+  %.pn26.pn = phi { ptr, i32 } [ %75, %74 ], [ %71, %70 ], [ %73, %72 ], [ %.pn19.pn.pn, %.body ], [ %19, %18 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn26.pn
@@ -1800,7 +1800,7 @@ _ZN7Imf_3_418DeepTiledInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br label %.preheader, !llvm.loop !77
 
 164:                                              ; preds = %.loopexit, %.loopexit.split-lp, %156, %24, %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %90, %97, %82, %22
-  %.pn36.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %83, %82 ], [ %98, %97 ], [ %91, %90 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %27, %26 ], [ %25, %24 ], [ %157, %156 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn36.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %25, %24 ], [ %23, %22 ], [ %83, %82 ], [ %98, %97 ], [ %.pn36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %27, %26 ], [ %157, %156 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_418DeepTiledInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn36.pn.pn
@@ -2289,7 +2289,7 @@ _ZN7Imf_3_421DeepScanLineInputFileD2Ev.exit:      ; preds = %_ZNSt12__shared_ptr
   br label %.preheader, !llvm.loop !80
 
 _ZN7Imf_3_418SampleCountChannel4EditD2Ev.exit42:  ; preds = %.loopexit, %.loopexit.split-lp, %187, %180, %182, %91, %93, %105, %178, %89
-  %.pn29.pn = phi { ptr, i32 } [ %179, %178 ], [ %90, %89 ], [ %106, %105 ], [ %94, %93 ], [ %92, %91 ], [ %181, %180 ], [ %183, %182 ], [ %188, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29.pn = phi { ptr, i32 } [ %90, %89 ], [ %183, %182 ], [ %179, %178 ], [ %92, %91 ], [ %106, %105 ], [ %94, %93 ], [ %181, %180 ], [ %188, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #17
   br label %.body
 
@@ -2299,7 +2299,7 @@ _ZN7Imf_3_418SampleCountChannel4EditD2Ev.exit42:  ; preds = %.loopexit, %.loopex
   br label %197
 
 197:                                              ; preds = %27, %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40, %87, %.body, %25
-  %.pn34.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn29.pn.pn, %.body ], [ %88, %87 ], [ %.pn34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %30, %29 ], [ %28, %27 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %26, %25 ], [ %.pn29.pn.pn, %.body ], [ %.pn34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40 ], [ %30, %29 ], [ %28, %27 ]
   call void @_ZN7Imf_3_421DeepScanLineInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn34.pn.pn
@@ -2748,7 +2748,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %52
   br label %59
 
 59:                                               ; preds = %29, %31, %43, %57, %27
-  %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %28, %27 ], [ %44, %43 ], [ %32, %31 ], [ %30, %29 ]
+  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %58, %57 ], [ %44, %43 ], [ %32, %31 ], [ %30, %29 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
@@ -3003,7 +3003,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %63
   unreachable
 
 _ZN7Imf_3_418SampleCountChannel4EditD2Ev.exit30:  ; preds = %70, %72, %29, %31, %43, %68, %27
-  %.pn27.pn = phi { ptr, i32 } [ %69, %68 ], [ %28, %27 ], [ %44, %43 ], [ %32, %31 ], [ %30, %29 ], [ %71, %70 ], [ %73, %72 ]
+  %.pn27.pn = phi { ptr, i32 } [ %28, %27 ], [ %69, %68 ], [ %30, %29 ], [ %44, %43 ], [ %32, %31 ], [ %71, %70 ], [ %73, %72 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume

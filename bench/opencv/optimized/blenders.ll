@@ -277,8 +277,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %
   br label %common.resume
 
 _ZNSt12__shared_ptrIN2cv6detail16MultiBandBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %24, %_ZNSt12__shared_ptrIN2cv6detail14FeatherBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %6
-  %.sink16 = phi ptr [ %17, %_ZNSt12__shared_ptrIN2cv6detail14FeatherBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %10, %6 ], [ %28, %24 ]
-  %.sink = phi ptr [ %14, %_ZNSt12__shared_ptrIN2cv6detail14FeatherBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %7, %6 ], [ %25, %24 ]
+  %.sink16 = phi ptr [ %10, %6 ], [ %17, %_ZNSt12__shared_ptrIN2cv6detail14FeatherBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %28, %24 ]
+  %.sink = phi ptr [ %7, %6 ], [ %14, %_ZNSt12__shared_ptrIN2cv6detail14FeatherBlenderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %25, %24 ]
   store ptr %.sink16, ptr %0, align 8, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %41, align 8, !tbaa !50
@@ -3505,7 +3505,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev.exit249:      ; preds = %_ZSt8_DestroyIPN2cv
   br label %432
 
 432:                                              ; preds = %420, %430, %264, %241, %232, %215, %210, %181
-  %.pn205.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %265, %264 ], [ %233, %232 ], [ %.pn191.pn, %181 ], [ %.pn185.pn.pn.pn.pn, %215 ], [ %.pn179.pn, %210 ], [ %.pn199.pn.pn.pn, %420 ], [ %431, %430 ]
+  %.pn205.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %.pn179.pn, %210 ], [ %265, %264 ], [ %233, %232 ], [ %.pn191.pn, %181 ], [ %.pn185.pn.pn.pn.pn, %215 ], [ %.pn199.pn.pn.pn, %420 ], [ %431, %430 ]
   call void @_ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #22
   br label %433
 
@@ -3529,7 +3529,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev.exit249:      ; preds = %_ZSt8_DestroyIPN2cv
   br label %436
 
 436:                                              ; preds = %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %54, %53
-  %.pn205.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %55, %54 ], [ %.pn169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %53 ], [ %.pn205.pn.pn.pn.pn.pn, %435 ]
+  %.pn205.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %53 ], [ %.pn171, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %55, %54 ], [ %.pn169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn205.pn.pn.pn.pn.pn, %435 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn205.pn.pn.pn.pn.pn.pn.pn.pn.pn
@@ -4155,7 +4155,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE6resizeEm.exit:    ; preds = %50, %52, %54, %_ZSt
   ret void
 
 216:                                              ; preds = %214, %189, %164, %66
-  %.pn105.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn101.pn.pn, %164 ], [ %.pn72.pn.pn.pn, %214 ], [ %190, %189 ]
+  %.pn105.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn101.pn.pn, %164 ], [ %190, %189 ], [ %.pn72.pn.pn.pn, %214 ]
   resume { ptr, i32 } %.pn105.pn
 }
 

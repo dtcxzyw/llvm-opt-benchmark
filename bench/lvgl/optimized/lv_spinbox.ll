@@ -276,7 +276,7 @@ lv_spinbox_step_next.exit77:                      ; preds = %91
   br label %122
 
 122:                                              ; preds = %119, %114, %._crit_edge.i
-  %.1.i = phi i32 [ %121, %119 ], [ %111, %._crit_edge.i ], [ %113, %114 ]
+  %.1.i = phi i32 [ %111, %._crit_edge.i ], [ %121, %119 ], [ %113, %114 ]
   %.not30.i = icmp eq i32 %.1.i, %103
   br i1 %.not30.i, label %lv_spinbox_increment.exit, label %123
 
@@ -323,7 +323,7 @@ lv_spinbox_step_next.exit77:                      ; preds = %91
   br label %144
 
 144:                                              ; preds = %141, %136, %._crit_edge.i81
-  %.1.i83 = phi i32 [ %143, %141 ], [ %133, %._crit_edge.i81 ], [ %135, %136 ]
+  %.1.i83 = phi i32 [ %133, %._crit_edge.i81 ], [ %143, %141 ], [ %135, %136 ]
   %.not29.i84 = icmp eq i32 %.1.i83, %126
   br i1 %.not29.i84, label %lv_spinbox_increment.exit, label %145
 
@@ -848,7 +848,7 @@ define void @lv_spinbox_increment(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %14, %._crit_edge, %19
-  %.1 = phi i32 [ %21, %19 ], [ %11, %._crit_edge ], [ %13, %14 ]
+  %.1 = phi i32 [ %11, %._crit_edge ], [ %21, %19 ], [ %13, %14 ]
   %.not30 = icmp eq i32 %.1, %3
   br i1 %.not30, label %24, label %23
 
@@ -900,7 +900,7 @@ define void @lv_spinbox_decrement(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %13, %._crit_edge, %18
-  %.1 = phi i32 [ %20, %18 ], [ %10, %._crit_edge ], [ %12, %13 ]
+  %.1 = phi i32 [ %10, %._crit_edge ], [ %20, %18 ], [ %12, %13 ]
   %.not29 = icmp eq i32 %.1, %3
   br i1 %.not29, label %23, label %22
 

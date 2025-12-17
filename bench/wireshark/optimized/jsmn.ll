@@ -495,7 +495,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %179
   br label %.loopexit
 
 .loopexit:                                        ; preds = %154, %74, %.loopexit184, %139, %.preheader, %12, %12, %12, %12, %135, %188, %194, %132, %133, %152, %jsmn_parse_string.exit, %123, %72, %42, %17, %129, %36, %jsmn_parse_string.exit.thread166, %.thread173
-  %.2122.ph = phi i32 [ %178, %.thread173 ], [ %84, %jsmn_parse_string.exit.thread166 ], [ %.0120225, %135 ], [ %192, %188 ], [ %192, %194 ], [ %.0120225, %132 ], [ %.0120225, %133 ], [ %.0120225, %152 ], [ %.0120225, %129 ], [ %121, %jsmn_parse_string.exit ], [ %121, %123 ], [ %.0120225, %72 ], [ %.0120225, %42 ], [ %18, %36 ], [ %18, %17 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %.preheader ], [ %.0120225, %139 ], [ %.0120225, %.loopexit184 ], [ %.0120225, %74 ], [ %.0120225, %154 ]
+  %.2122.ph = phi i32 [ %178, %.thread173 ], [ %84, %jsmn_parse_string.exit.thread166 ], [ %192, %188 ], [ %192, %194 ], [ %.0120225, %132 ], [ %.0120225, %133 ], [ %.0120225, %135 ], [ %18, %17 ], [ %.0120225, %152 ], [ %.0120225, %129 ], [ %121, %jsmn_parse_string.exit ], [ %121, %123 ], [ %.0120225, %72 ], [ %.0120225, %42 ], [ %18, %36 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %12 ], [ %.0120225, %.preheader ], [ %.0120225, %139 ], [ %.0120225, %.loopexit184 ], [ %.0120225, %74 ], [ %.0120225, %154 ]
   %200 = load i32, ptr %0, align 4
   %201 = add i32 %200, 1
   store i32 %201, ptr %0, align 4
@@ -537,13 +537,13 @@ jsmn_alloc_token.exit.i162:                       ; preds = %179
   %216 = icmp sgt i64 %indvars.iv265, 0
   br i1 %216, label %.lr.ph232, label %jsmn_alloc_token.exit.thread, !llvm.loop !14
 
-jsmn_alloc_token.exit.thread.sink.split:          ; preds = %jsmn_alloc_token.exit.i162, %179, %76, %85, %jsmn_alloc_token.exit.i, %.lr.ph.i160, %172, %170, %.lr.ph.i, %116, %98, %switch.early.test.i
-  %.5.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %98 ], [ -3, %116 ], [ -3, %.lr.ph.i ], [ -2, %170 ], [ -3, %172 ], [ -3, %.lr.ph.i160 ], [ -1, %jsmn_alloc_token.exit.i ], [ -1, %85 ], [ -3, %76 ], [ -1, %jsmn_alloc_token.exit.i162 ], [ -1, %179 ]
+jsmn_alloc_token.exit.thread.sink.split:          ; preds = %179, %jsmn_alloc_token.exit.i162, %76, %85, %jsmn_alloc_token.exit.i, %.lr.ph.i160, %172, %170, %.lr.ph.i, %116, %98, %switch.early.test.i
+  %.5.ph = phi i32 [ -3, %.lr.ph.i160 ], [ -2, %98 ], [ -2, %switch.early.test.i ], [ -3, %.lr.ph.i ], [ -3, %116 ], [ -2, %170 ], [ -3, %172 ], [ -3, %76 ], [ -1, %85 ], [ -1, %179 ], [ -1, %jsmn_alloc_token.exit.i ], [ -1, %jsmn_alloc_token.exit.i162 ]
   store i32 %14, ptr %0, align 4
   br label %jsmn_alloc_token.exit.thread
 
 jsmn_alloc_token.exit.thread:                     ; preds = %163, %159, %19, %jsmn_alloc_token.exit, %56, %.loopexit184, %12, %58, %211, %215, %jsmn_alloc_token.exit.thread.sink.split, %204, %.critedge
-  %.5 = phi i32 [ %.0120.lcssa, %.critedge ], [ %.0120.lcssa, %204 ], [ %.5.ph, %jsmn_alloc_token.exit.thread.sink.split ], [ -3, %211 ], [ %.0120.lcssa, %215 ], [ -2, %58 ], [ -2, %163 ], [ -2, %159 ], [ -1, %19 ], [ -2, %12 ], [ -2, %.loopexit184 ], [ -2, %56 ], [ -1, %jsmn_alloc_token.exit ]
+  %.5 = phi i32 [ %.0120.lcssa, %.critedge ], [ %.5.ph, %jsmn_alloc_token.exit.thread.sink.split ], [ %.0120.lcssa, %215 ], [ %.0120.lcssa, %204 ], [ -2, %58 ], [ -3, %211 ], [ -1, %jsmn_alloc_token.exit ], [ -2, %12 ], [ -2, %163 ], [ -1, %19 ], [ -2, %159 ], [ -2, %.loopexit184 ], [ -2, %56 ]
   ret i32 %.5
 }
 

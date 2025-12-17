@@ -225,8 +225,8 @@ switch.lookup:                                    ; preds = %3
   br label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %40, %.lr.ph10.i.split.us.split
-  %.146.i.us = phi i64 [ %.0457.i.us, %.lr.ph10.i.split.us.split ], [ %43, %40 ]
-  %.144.i.us = phi i32 [ %.0438.i.us, %.lr.ph10.i.split.us.split ], [ %spec.select, %40 ]
+  %.146.i.us = phi i64 [ %43, %40 ], [ %.0457.i.us, %.lr.ph10.i.split.us.split ]
+  %.144.i.us = phi i32 [ %spec.select, %40 ], [ %.0438.i.us, %.lr.ph10.i.split.us.split ]
   %47 = getelementptr i8, ptr %.212.us, i64 1
   %exitcond50.not = icmp eq ptr %47, %scevgep49
   br i1 %exitcond50.not, label %.critedge.i, label %.lr.ph10.i.split.us.split, !llvm.loop !6
@@ -1244,7 +1244,7 @@ define internal fastcc noundef zeroext i1 @_parse_time(ptr noundef %0, ptr nound
   br label %55
 
 55:                                               ; preds = %.thread, %54, %16, %.thread2, %32, %28, %23, %.critedge
-  %.138 = phi i1 [ false, %.critedge ], [ false, %23 ], [ false, %28 ], [ false, %32 ], [ false, %.thread2 ], [ true, %16 ], [ true, %54 ], [ false, %.thread ]
+  %.138 = phi i1 [ false, %32 ], [ false, %.thread2 ], [ false, %.critedge ], [ false, %23 ], [ false, %28 ], [ true, %16 ], [ true, %54 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1726,7 +1726,7 @@ default.unreachable:                              ; preds = %.loopexit
   br label %168
 
 168:                                              ; preds = %write_byte.exit63.thread, %write_byte.exit.thread, %165, %161, %147, %129, %125, %107, %102, %87, %70, %65, %46, %41, %39, %31, %26, %167
-  %.0 = phi i32 [ 0, %167 ], [ 1, %26 ], [ 1, %31 ], [ 1, %39 ], [ 1, %41 ], [ 1, %46 ], [ 1, %65 ], [ 1, %70 ], [ 1, %87 ], [ 1, %102 ], [ 1, %107 ], [ 1, %125 ], [ 1, %129 ], [ 1, %147 ], [ 1, %161 ], [ 1, %165 ], [ 1, %write_byte.exit.thread ], [ 1, %write_byte.exit63.thread ]
+  %.0 = phi i32 [ 1, %161 ], [ 0, %167 ], [ 1, %147 ], [ 1, %26 ], [ 1, %31 ], [ 1, %39 ], [ 1, %41 ], [ 1, %46 ], [ 1, %65 ], [ 1, %70 ], [ 1, %87 ], [ 1, %102 ], [ 1, %107 ], [ 1, %write_byte.exit.thread ], [ 1, %125 ], [ 1, %129 ], [ 1, %write_byte.exit63.thread ], [ 1, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2193,7 +2193,7 @@ define internal fastcc range(i32 0, 2) i32 @write_bytes(ptr noundef %0) unnamed_
   br i1 %51, label %.critedge, label %34, !llvm.loop !34
 
 .critedge:                                        ; preds = %45, %47, %24, %26, %31, %.preheader, %1
-  %.014 = phi i32 [ 1, %1 ], [ 0, %.preheader ], [ 0, %31 ], [ 1, %24 ], [ 0, %26 ], [ 1, %45 ], [ 0, %47 ]
+  %.014 = phi i32 [ 1, %1 ], [ 0, %31 ], [ 0, %26 ], [ 0, %.preheader ], [ 1, %24 ], [ 0, %47 ], [ 1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.014
 }
@@ -2622,7 +2622,7 @@ switch.lookup:                                    ; preds = %9
   br label %87
 
 87:                                               ; preds = %71, %73, %86, %85, %77, %81
-  %.034 = phi i32 [ 0, %81 ], [ 8, %77 ], [ 0, %85 ], [ %spec.store.select, %86 ], [ 3, %73 ], [ 1, %71 ]
+  %.034 = phi i32 [ 0, %81 ], [ 3, %73 ], [ %spec.store.select, %86 ], [ 8, %77 ], [ 0, %85 ], [ 1, %71 ]
   %88 = load ptr, ptr @packet_buf, align 8
   tail call void @g_free(ptr noundef %88)
   br label %89

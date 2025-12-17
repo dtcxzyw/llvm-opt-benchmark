@@ -278,7 +278,7 @@ define void @_ZN23assistant_slash_command22slash_command_registry20SlashCommandR
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h393a6e734114fe09E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
           to label %54 unwind label %33
 
-.thread:                                          ; preds = %.noexc9, %.noexc8
+.thread:                                          ; preds = %.noexc8, %.noexc9
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !35
   br label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$assistant_slash_command..SlashCommand$GT$$GT$$GT$17hbd9e84e546598727E.exit"
 

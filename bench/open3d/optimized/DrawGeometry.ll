@@ -1331,7 +1331,7 @@ _ZNSt12__shared_ptrIKN6open3d8geometry8GeometryELN9__gnu_cxx12_Lock_policyE2EED2
           to label %79 unwind label %74
 
 79:                                               ; preds = %59, %73, %78, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %73 ], [ true, %78 ], [ false, %59 ]
+  %.0 = phi i1 [ false, %12 ], [ true, %78 ], [ false, %73 ], [ false, %59 ]
   call void @_ZN6open3d13visualization29VisualizerWithCustomAnimationD1Ev(ptr noundef nonnull align 8 dereferenceable(656) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
@@ -1583,7 +1583,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %83, %85
   ret i1 %.0
 
 .body:                                            ; preds = %94, %91, %75, %78, %61, %63, %14
-  %.pn21 = phi { ptr, i32 } [ %15, %14 ], [ %64, %63 ], [ %62, %61 ], [ %76, %78 ], [ %76, %75 ], [ %92, %91 ], [ %92, %94 ]
+  %.pn21 = phi { ptr, i32 } [ %62, %61 ], [ %76, %75 ], [ %15, %14 ], [ %64, %63 ], [ %76, %78 ], [ %92, %91 ], [ %92, %94 ]
   call void @_ZN6open3d13visualization10VisualizerD1Ev(ptr noundef nonnull align 8 dereferenceable(456) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn21
@@ -1891,7 +1891,7 @@ _ZNSt4pairIKiSt8functionIFbPN6open3d13visualization10VisualizerEEEED2Ev.exit: ; 
   unreachable
 
 .body37:                                          ; preds = %124, %121, %101, %98
-  %.pn28 = phi { ptr, i32 } [ %99, %101 ], [ %99, %98 ], [ %122, %121 ], [ %122, %124 ]
+  %.pn28 = phi { ptr, i32 } [ %99, %98 ], [ %122, %124 ], [ %99, %101 ], [ %122, %121 ]
   %129 = load ptr, ptr %70, align 8, !tbaa !81
   %.not.i.i43 = icmp eq ptr %129, null
   br i1 %.not.i.i43, label %.body, label %130
@@ -1908,7 +1908,7 @@ _ZNSt4pairIKiSt8functionIFbPN6open3d13visualization10VisualizerEEEED2Ev.exit: ; 
   unreachable
 
 .body:                                            ; preds = %130, %.body37, %85, %82
-  %.pn28.pn = phi { ptr, i32 } [ %83, %85 ], [ %83, %82 ], [ %.pn28, %.body37 ], [ %.pn28, %130 ]
+  %.pn28.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn28, %130 ], [ %83, %85 ], [ %.pn28, %.body37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %137
 

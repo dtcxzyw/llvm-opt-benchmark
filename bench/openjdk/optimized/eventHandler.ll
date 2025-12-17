@@ -364,7 +364,7 @@ define hidden ptr @getMethodClass(ptr noundef readnone captures(none) %0, ptr no
   br label %12
 
 12:                                               ; preds = %2, %10, %7
-  %.0 = phi ptr [ null, %7 ], [ %11, %10 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ null, %7 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -701,7 +701,7 @@ deinsert.exit.i:                                  ; preds = %32, %17
   br label %freeHandler.exit
 
 freeHandler.exit:                                 ; preds = %13, %getHandlerChain.exit.i, %deinsert.exit.i, %find.exit
-  %.0 = phi i32 [ 0, %find.exit ], [ %33, %deinsert.exit.i ], [ 0, %getHandlerChain.exit.i ], [ 0, %13 ]
+  %.0 = phi i32 [ %33, %deinsert.exit.i ], [ 0, %find.exit ], [ 0, %getHandlerChain.exit.i ], [ 0, %13 ]
   %34 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorExit(ptr noundef %34) #6
   ret i32 %.0
@@ -993,7 +993,7 @@ define internal void @cbSingleStep(ptr readnone captures(none) %0, ptr noundef %
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %18, %26, %29
-  %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
+  %.0.i = phi ptr [ %30, %29 ], [ null, %26 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
@@ -1133,7 +1133,7 @@ define internal void @cbBreakpoint(ptr readnone captures(none) %0, ptr noundef %
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %18, %26, %29
-  %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
+  %.0.i = phi ptr [ %30, %29 ], [ null, %26 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
@@ -1277,7 +1277,7 @@ define internal void @cbFramePop(ptr readnone captures(none) %0, ptr noundef %1,
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %19, %27, %30
-  %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
+  %.0.i = phi ptr [ %31, %30 ], [ null, %27 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %32, align 8
@@ -1416,7 +1416,7 @@ define internal void @cbException(ptr readnone captures(none) %0, ptr noundef %1
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %22, %30, %33
-  %.0.i = phi ptr [ null, %30 ], [ %34, %33 ], [ null, %22 ]
+  %.0.i = phi ptr [ %34, %33 ], [ null, %30 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i, ptr %35, align 8
@@ -1448,7 +1448,7 @@ getMethodClass.exit:                              ; preds = %22, %30, %33
   br label %getMethodClass.exit17
 
 getMethodClass.exit17:                            ; preds = %getMethodClass.exit, %42, %45
-  %.0.i16 = phi ptr [ null, %42 ], [ %46, %45 ], [ null, %getMethodClass.exit ]
+  %.0.i16 = phi ptr [ %46, %45 ], [ null, %42 ], [ null, %getMethodClass.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %.0.i16, ptr %47, align 8
@@ -2028,7 +2028,7 @@ define internal void @cbFieldAccess(ptr readnone captures(none) %0, ptr noundef 
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %21, %29, %32
-  %.0.i = phi ptr [ null, %29 ], [ %33, %32 ], [ null, %21 ]
+  %.0.i = phi ptr [ %33, %32 ], [ null, %29 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.0.i, ptr %34, align 8
@@ -2174,7 +2174,7 @@ define internal void @cbFieldModification(ptr readnone captures(none) %0, ptr no
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %23, %31, %34
-  %.0.i = phi ptr [ null, %31 ], [ %35, %34 ], [ null, %23 ]
+  %.0.i = phi ptr [ %35, %34 ], [ null, %31 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.0.i, ptr %36, align 8
@@ -2324,7 +2324,7 @@ define internal void @cbExceptionCatch(ptr readnone captures(none) %0, ptr nound
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %19, %27, %30
-  %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
+  %.0.i = phi ptr [ %31, %30 ], [ null, %27 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %32, align 8
@@ -2466,7 +2466,7 @@ define internal void @cbMethodEntry(ptr readnone captures(none) %0, ptr noundef 
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %17, %25, %28
-  %.0.i = phi ptr [ null, %25 ], [ %29, %28 ], [ null, %17 ]
+  %.0.i = phi ptr [ %29, %28 ], [ null, %25 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %30, align 8
@@ -2608,7 +2608,7 @@ define internal void @cbMethodExit(ptr readnone captures(none) %0, ptr noundef %
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %20, %28, %31
-  %.0.i = phi ptr [ null, %28 ], [ %32, %31 ], [ null, %20 ]
+  %.0.i = phi ptr [ %32, %31 ], [ null, %28 ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %33, align 8
@@ -2782,7 +2782,7 @@ define internal void @cbMonitorContendedEnter(ptr readnone captures(none) %0, pt
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %38, %46, %49
-  %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
+  %.0.i = phi ptr [ %50, %49 ], [ null, %46 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
@@ -2960,7 +2960,7 @@ define internal void @cbMonitorContendedEntered(ptr readnone captures(none) %0, 
   br label %getMethodClass.exit
 
 getMethodClass.exit:                              ; preds = %38, %46, %49
-  %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
+  %.0.i = phi ptr [ %50, %49 ], [ null, %46 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
@@ -4247,7 +4247,7 @@ eventHandler_free.exit:                           ; preds = %27, %deinsert.exit.
   br label %eventHandler_alloc.exit.thread
 
 eventHandler_alloc.exit.thread:                   ; preds = %7, %25, %eventHandler_free.exit
-  %.025 = phi ptr [ null, %eventHandler_free.exit ], [ %13, %25 ], [ null, %7 ]
+  %.025 = phi ptr [ %13, %25 ], [ null, %eventHandler_free.exit ], [ null, %7 ]
   ret ptr %.025
 }
 

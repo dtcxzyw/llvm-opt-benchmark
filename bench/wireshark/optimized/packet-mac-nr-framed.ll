@@ -70,7 +70,7 @@ define internal i32 @dissect_mac_nr_framed(ptr noundef %0, ptr noundef %1, ptr n
   br label %28
 
 28:                                               ; preds = %7, %4, %.thread24, %19
-  %.0 = phi i32 [ %27, %.thread24 ], [ %20, %19 ], [ 0, %4 ], [ 5, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %27, %.thread24 ], [ %20, %19 ], [ 5, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

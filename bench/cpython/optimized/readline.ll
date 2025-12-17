@@ -513,7 +513,7 @@ define internal ptr @call_readline(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %78
 
 78:                                               ; preds = %66, %76, %71
-  %.040 = phi ptr [ %77, %76 ], [ @.str.49, %71 ], [ @.str.49, %66 ]
+  %.040 = phi ptr [ @.str.49, %71 ], [ %77, %76 ], [ @.str.49, %66 ]
   %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr.pr.i, ptr noundef nonnull dereferenceable(1) %.040) #13
   %.not51 = icmp eq i32 %79, 0
   br i1 %.not51, label %81, label %80
@@ -825,7 +825,7 @@ Py_DECREF.exit:                                   ; preds = %17, %21, %24
   br label %26
 
 26:                                               ; preds = %2, %Py_DECREF.exit, %Py_DECREF.exit14
-  %.0 = phi ptr [ %16, %Py_DECREF.exit14 ], [ @_Py_NoneStruct, %Py_DECREF.exit ], [ null, %2 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %Py_DECREF.exit ], [ %16, %Py_DECREF.exit14 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1316,7 +1316,7 @@ define internal ptr @readline_get_history_item(ptr readnone captures(none) %0, p
   br label %readline_get_history_item_impl.exit
 
 readline_get_history_item_impl.exit:              ; preds = %20, %23, %.critedge.i7, %15, %.critedge.i, %5, %18
-  %.0 = phi ptr [ null, %18 ], [ %17, %15 ], [ @_Py_NoneStruct, %5 ], [ @_Py_NoneStruct, %.critedge.i ], [ %25, %23 ], [ @_Py_NoneStruct, %20 ], [ @_Py_NoneStruct, %.critedge.i7 ]
+  %.0 = phi ptr [ null, %18 ], [ @_Py_NoneStruct, %.critedge.i ], [ %17, %15 ], [ @_Py_NoneStruct, %5 ], [ %25, %23 ], [ @_Py_NoneStruct, %20 ], [ @_Py_NoneStruct, %.critedge.i7 ]
   ret ptr %.0
 }
 
@@ -1504,7 +1504,7 @@ Py_DECREF.exit:                                   ; preds = %5, %9, %12
   br label %19
 
 19:                                               ; preds = %2, %17, %16
-  %.0 = phi ptr [ @_Py_NoneStruct, %16 ], [ %18, %17 ], [ null, %2 ]
+  %.0 = phi ptr [ %18, %17 ], [ @_Py_NoneStruct, %16 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1693,7 +1693,7 @@ Py_DECREF.exit.i:                                 ; preds = %40, %37, %31
   br label %readline_replace_history_item_impl.exit
 
 readline_replace_history_item_impl.exit:          ; preds = %44, %41, %28, %.thread23, %10, %4, %23
-  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %4 ], [ null, %.thread23 ], [ @_Py_NoneStruct, %44 ], [ null, %41 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %4 ], [ null, %23 ], [ null, %.thread23 ], [ null, %41 ], [ @_Py_NoneStruct, %44 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -1922,7 +1922,7 @@ _Py_NewRef.exit:                                  ; preds = %15, %19
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %26, %23, %21, %_Py_NewRef.exit, %12, %9, %7, %5, %27
-  %.0 = phi ptr [ null, %27 ], [ @_Py_NoneStruct, %5 ], [ @_Py_NoneStruct, %7 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %23 ], [ @_Py_NoneStruct, %26 ]
+  %.0 = phi ptr [ null, %27 ], [ @_Py_NoneStruct, %5 ], [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %7 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ], [ @_Py_NoneStruct, %21 ], [ @_Py_NoneStruct, %23 ], [ @_Py_NoneStruct, %26 ]
   ret ptr %.0
 }
 
@@ -2090,7 +2090,7 @@ Py_XDECREF.exit:                                  ; preds = %41
   tail call void @_Py_Dealloc(ptr noundef nonnull %35) #14
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %43, %45, %48, %Py_XDECREF.exit.thread48, %Py_XDECREF.exit, %56, %59, %49, %51, %54, %get_hook_module_state.exit, %get_hook_module_state.exit.thread
+Py_DECREF.exit:                                   ; preds = %43, %45, %48, %Py_XDECREF.exit.thread48, %Py_XDECREF.exit, %56, %59, %54, %49, %51, %get_hook_module_state.exit, %get_hook_module_state.exit.thread
   tail call void @PyGILState_Release(i32 noundef %4) #14
   ret void
 }
@@ -2495,7 +2495,7 @@ define internal fastcc i32 @on_hook(ptr noundef %0) unnamed_addr #0 {
   br label %Py_XDECREF.exit
 
 18:                                               ; preds = %5, %7, %10
-  %.1 = phi i32 [ -1, %10 ], [ %8, %7 ], [ 0, %5 ]
+  %.1 = phi i32 [ %8, %7 ], [ -1, %10 ], [ 0, %5 ]
   %19 = load i32, ptr %3, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %19, -1
   br i1 %.not.i, label %20, label %Py_XDECREF.exit
@@ -2511,7 +2511,7 @@ define internal fastcc i32 @on_hook(ptr noundef %0) unnamed_addr #0 {
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %23, %20, %18, %17, %14, %12, %1, %.split
-  %.0 = phi i32 [ 0, %.split ], [ 0, %1 ], [ -1, %12 ], [ -1, %14 ], [ -1, %17 ], [ %.1, %18 ], [ %.1, %20 ], [ %.1, %23 ]
+  %.0 = phi i32 [ 0, %1 ], [ -1, %17 ], [ 0, %.split ], [ -1, %12 ], [ -1, %14 ], [ %.1, %18 ], [ %.1, %20 ], [ %.1, %23 ]
   ret i32 %.0
 }
 
@@ -2655,7 +2655,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
   br label %Py_DECREF.exit31
 
 Py_DECREF.exit31:                                 ; preds = %18, %.split25, %.split, %29, %32, %44, %46, %49, %.split23, %51, %54, %get_hook_module_state.exit, %get_hook_module_state.exit.thread
-  %.0 = phi ptr [ null, %get_hook_module_state.exit.thread ], [ null, %get_hook_module_state.exit ], [ null, %.split25 ], [ null, %.split ], [ null, %29 ], [ null, %32 ], [ null, %44 ], [ null, %46 ], [ null, %49 ], [ %38, %.split23 ], [ %38, %51 ], [ %38, %54 ], [ null, %18 ]
+  %.0 = phi ptr [ %38, %54 ], [ null, %get_hook_module_state.exit ], [ null, %get_hook_module_state.exit.thread ], [ null, %49 ], [ null, %32 ], [ null, %.split25 ], [ null, %.split ], [ null, %29 ], [ null, %44 ], [ null, %46 ], [ %38, %.split23 ], [ %38, %51 ], [ null, %18 ]
   tail call void @PyGILState_Release(i32 noundef %3) #14
   ret ptr %.0
 }

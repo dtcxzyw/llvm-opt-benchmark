@@ -8902,7 +8902,7 @@ default.unreachable:                              ; preds = %2966, %2680, %2394,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3262, %2928, %2642, %2356, %2046, %3409, %1581, %1239, %945, %651, %333, %1732, %2930, %2644, %2358, %2048, %1738, %3264, %1241, %947, %653, %335, %18, %1583, %3411
-  %.0 = phi i1 [ %3412, %3411 ], [ true, %1583 ], [ true, %18 ], [ true, %335 ], [ true, %653 ], [ true, %947 ], [ true, %1241 ], [ true, %3264 ], [ true, %1738 ], [ true, %2048 ], [ true, %2358 ], [ true, %2644 ], [ true, %2930 ], [ true, %1732 ], [ true, %333 ], [ true, %651 ], [ true, %945 ], [ true, %1239 ], [ true, %1581 ], [ true, %3409 ], [ true, %2046 ], [ true, %2356 ], [ true, %2642 ], [ true, %2928 ], [ true, %3262 ]
+  %.0 = phi i1 [ %3412, %3411 ], [ true, %2644 ], [ true, %1583 ], [ true, %18 ], [ true, %335 ], [ true, %653 ], [ true, %947 ], [ true, %1241 ], [ true, %3264 ], [ true, %1738 ], [ true, %2048 ], [ true, %2358 ], [ true, %2930 ], [ true, %2928 ], [ true, %1732 ], [ true, %333 ], [ true, %651 ], [ true, %945 ], [ true, %1239 ], [ true, %1581 ], [ true, %3409 ], [ true, %2046 ], [ true, %2356 ], [ true, %2642 ], [ true, %3262 ]
   ret i1 %.0
 }
 
@@ -11312,7 +11312,7 @@ default.unreachable:                              ; preds = %1535, %1183, %831, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1895, %1495, %1143, %791, %403, %2067, %1497, %1145, %793, %405, %18, %1897, %2069
-  %.0 = phi i1 [ %2070, %2069 ], [ true, %1897 ], [ true, %18 ], [ true, %405 ], [ true, %793 ], [ true, %1145 ], [ true, %1497 ], [ true, %2067 ], [ true, %403 ], [ true, %791 ], [ true, %1143 ], [ true, %1495 ], [ true, %1895 ]
+  %.0 = phi i1 [ %2070, %2069 ], [ true, %1145 ], [ true, %1897 ], [ true, %18 ], [ true, %405 ], [ true, %793 ], [ true, %1497 ], [ true, %1495 ], [ true, %2067 ], [ true, %403 ], [ true, %791 ], [ true, %1143 ], [ true, %1895 ]
   ret i1 %.0
 }
 
@@ -11368,16 +11368,16 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   %.039 = phi i8 [ %32, %23 ], [ %5, %21 ]
   %.038 = phi i8 [ %36, %23 ], [ %6, %21 ]
   switch i8 %17, label %.thread [
-    i8 15, label %38
-    i8 16, label %46
+    i8 15, label %46
+    i8 16, label %38
     i8 32, label %41
   ]
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %40 = load i32, ptr %39, align 4
-  %cond2.not = icmp eq i32 %40, 31744
-  br i1 %cond2.not, label %51, label %.thread
+  %cond1.not = icmp eq i32 %40, 63488
+  br i1 %cond1.not, label %51, label %.thread
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -11395,8 +11395,8 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %48 = load i32, ptr %47, align 4
-  %cond1.not = icmp eq i32 %48, 63488
-  br i1 %cond1.not, label %51, label %.thread
+  %cond2.not = icmp eq i32 %48, 31744
+  br i1 %cond2.not, label %51, label %.thread
 
 .thread:                                          ; preds = %41, %37, %38, %46
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -11406,7 +11406,7 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   br label %51
 
 51:                                               ; preds = %38, %.thread48, %.thread, %46
-  %.135 = phi ptr [ @SDL_BlendFillRect_RGB565, %46 ], [ %SDL_BlendFillRect_RGB.SDL_BlendFillRect_RGBA, %.thread ], [ %SDL_BlendFillRect_XRGB8888.SDL_BlendFillRect_ARGB8888, %.thread48 ], [ @SDL_BlendFillRect_RGB555, %38 ]
+  %.135 = phi ptr [ @SDL_BlendFillRect_RGB555, %46 ], [ %SDL_BlendFillRect_RGB.SDL_BlendFillRect_RGBA, %.thread ], [ %SDL_BlendFillRect_XRGB8888.SDL_BlendFillRect_ARGB8888, %.thread48 ], [ @SDL_BlendFillRect_RGB565, %38 ]
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %.lr.ph, label %.loopexit
 

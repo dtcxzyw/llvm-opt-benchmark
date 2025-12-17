@@ -984,7 +984,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %87, %221, %325, %269, %.critedge.thread.sink.split, %201, %184, %.critedge
-  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ null, %.critedge.thread.sink.split ], [ null, %221 ], [ %218, %269 ], [ %327, %325 ], [ null, %87 ]
+  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ null, %.critedge.thread.sink.split ], [ %327, %325 ], [ null, %221 ], [ %218, %269 ], [ null, %87 ]
   ret ptr %331
 }
 
@@ -1591,7 +1591,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   br i1 %368, label %.lr.ph34, label %.thread15
 
 .thread15:                                        ; preds = %.loopexit20, %362, %.lr.ph34, %322, %359, %33, %303, %.thread16, %._crit_edge, %269, %253, %17
-  %369 = phi ptr [ %18, %17 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %.thread16 ], [ %153, %303 ], [ %18, %33 ], [ %153, %359 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %153, %362 ], [ %18, %.loopexit20 ]
+  %369 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %.thread16 ], [ %153, %303 ], [ %153, %362 ], [ %153, %359 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %18, %.loopexit20 ]
   ret ptr %369
 }
 
@@ -2673,7 +2673,7 @@ define dso_local ptr @xas_find(ptr noundef captures(none) %0, i64 noundef %1) #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %93, %59, %.loopexit10, %24, %21, %2
-  %106 = phi ptr [ null, %2 ], [ null, %24 ], [ %22, %21 ], [ null, %.loopexit10 ], [ null, %59 ], [ null, %61 ], [ %84, %93 ]
+  %106 = phi ptr [ null, %2 ], [ null, %24 ], [ %22, %21 ], [ null, %59 ], [ null, %.loopexit10 ], [ null, %61 ], [ %84, %93 ]
   ret ptr %106
 }
 
@@ -2915,7 +2915,7 @@ define dso_local ptr @xas_find_marked(ptr noundef captures(none) %0, i64 noundef
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %156, %64, %.thread, %163, %31
-  %164 = phi i64 [ %16, %.thread ], [ 1, %163 ], [ %16, %31 ], [ %160, %156 ], [ %62, %64 ]
+  %164 = phi i64 [ %16, %31 ], [ %16, %.thread ], [ 1, %163 ], [ %160, %156 ], [ %62, %64 ]
   %165 = icmp ugt i64 %164, %1
   br i1 %165, label %.loopexit, label %166
 
@@ -3228,7 +3228,7 @@ define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %71, %38, %57, %65, %.loopexit8, %135, %133, %67, %1
-  %195 = phi ptr [ null, %.loopexit8 ], [ null, %1 ], [ null, %67 ], [ %129, %133 ], [ null, %135 ], [ null, %65 ], [ null, %57 ], [ null, %38 ], [ %69, %71 ], [ %189, %.loopexit ]
+  %195 = phi ptr [ null, %.loopexit8 ], [ null, %1 ], [ null, %67 ], [ %129, %133 ], [ null, %135 ], [ null, %38 ], [ null, %65 ], [ null, %57 ], [ %69, %71 ], [ %189, %.loopexit ]
   ret ptr %195
 }
 
@@ -3382,9 +3382,9 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
 .split6.us.i:                                     ; preds = %.lr.ph
   br i1 %81, label %xas_load.exit, label %.split6.us.i.thread21
 
-xas_load.exit:                                    ; preds = %.split6.us.i, %.split6.us.i.thread21, %.split.us.i, %46, %45, %31, %53
-  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %46 ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ %68, %.split.us.i ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
-  %109 = phi ptr [ %54, %53 ], [ null, %46 ], [ null, %45 ], [ null, %31 ], [ %87, %.split.us.i ], [ %75, %.split6.us.i ], [ %60, %.split6.us.i.thread21 ]
+xas_load.exit:                                    ; preds = %.split6.us.i, %.split6.us.i.thread21, %.split.us.i, %46, %31, %45, %53
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %45 ], [ inttoptr (i64 1 to ptr), %46 ], [ %.sroa.134.0, %31 ], [ %68, %.split.us.i ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
+  %109 = phi ptr [ %54, %53 ], [ null, %45 ], [ null, %46 ], [ null, %31 ], [ %87, %.split.us.i ], [ %75, %.split6.us.i ], [ %60, %.split6.us.i.thread21 ]
   %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
   %111 = select i1 %110, ptr null, ptr %109
   %112 = ptrtoint ptr %111 to i64
@@ -4723,7 +4723,7 @@ define dso_local noundef zeroext i1 @xa_get_mark(ptr noundef %0, i64 noundef %1,
   br i1 %84, label %.split, label %.lr.ph.backedge, !llvm.loop !5
 
 .thread:                                          ; preds = %30, %36, %27, %13, %11
-  %85 = phi i1 [ false, %11 ], [ false, %13 ], [ false, %30 ], [ true, %36 ], [ false, %27 ]
+  %85 = phi i1 [ false, %13 ], [ false, %11 ], [ true, %36 ], [ false, %27 ], [ false, %30 ]
   tail call void @__rcu_read_unlock() #9
   ret i1 %85
 }
@@ -5201,7 +5201,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   br label %73
 
 73:                                               ; preds = %71, %66
-  %74 = phi ptr [ %69, %66 ], [ %72, %71 ]
+  %74 = phi ptr [ %72, %71 ], [ %69, %66 ]
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread19, label %21, !llvm.loop !79
 
@@ -5317,7 +5317,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(
   br i1 %134, label %.thread19, label %.preheader20, !llvm.loop !81
 
 .thread19:                                        ; preds = %132, %83, %.thread, %73, %26, %76, %16
-  %135 = phi i32 [ 0, %16 ], [ 0, %76 ], [ %32, %.thread ], [ %4, %26 ], [ %32, %73 ], [ %4, %83 ], [ %89, %132 ]
+  %135 = phi i32 [ 0, %16 ], [ 0, %76 ], [ %32, %73 ], [ %32, %.thread ], [ %4, %26 ], [ %4, %83 ], [ %89, %132 ]
   tail call void @__rcu_read_unlock() #9
   br label %136
 
@@ -5411,7 +5411,7 @@ define dso_local void @xa_destroy(ptr noundef %0) #1 align 16 {
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %.loopexit7.i, %.loopexit4.i
-  %24 = phi i32 [ %7, %.loopexit7.i ], [ %7, %.loopexit4.i ], [ %.sink, %.loopexit.i.sink.split ]
+  %24 = phi i32 [ %7, %.loopexit4.i ], [ %7, %.loopexit7.i ], [ %.sink, %.loopexit.i.sink.split ]
   %25 = icmp eq i64 %8, 2
   %26 = add nuw nsw i64 %8, 1
   br i1 %25, label %xas_init_marks.exit, label %6, !llvm.loop !22

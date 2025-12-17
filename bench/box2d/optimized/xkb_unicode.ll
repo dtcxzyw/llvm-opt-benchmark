@@ -63,7 +63,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %27, %1, %22, %7
-  %.0 = phi i32 [ %8, %7 ], [ %26, %22 ], [ %0, %1 ], [ -1, %27 ]
+  %.0 = phi i32 [ %0, %1 ], [ %8, %7 ], [ %26, %22 ], [ -1, %27 ]
   ret i32 %.0
 }
 

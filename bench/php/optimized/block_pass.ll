@@ -112,7 +112,7 @@ zend_get_special_const.exit:                      ; preds = %25
   br label %zend_get_special_const.exit.thread
 
 zend_get_special_const.exit.thread:               ; preds = %25, %zend_get_special_const.exit, %6, %13, %16, %22, %31
-  %.0 = phi i1 [ true, %31 ], [ true, %22 ], [ true, %16 ], [ false, %13 ], [ false, %6 ], [ false, %zend_get_special_const.exit ], [ false, %25 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ true, %31 ], [ false, %25 ], [ true, %22 ], [ false, %13 ], [ false, %zend_get_special_const.exit ]
   ret i1 %.0
 }
 
@@ -489,8 +489,8 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
   br i1 %.not156.i, label %.sink.split.i, label %229
 
 .sink.split.i:                                    ; preds = %209, %201, %194, %194
-  %.sink.i = phi i32 [ %198, %194 ], [ %198, %194 ], [ %198, %201 ], [ %213, %209 ]
-  %.sink219.i = phi ptr [ %.0.i150.i, %194 ], [ %.0.i150.i, %194 ], [ %.0.i95, %201 ], [ %.0.i95, %209 ]
+  %.sink.i = phi i32 [ %198, %201 ], [ %198, %194 ], [ %198, %194 ], [ %213, %209 ]
+  %.sink219.i = phi ptr [ %.0.i95, %201 ], [ %.0.i150.i, %194 ], [ %.0.i150.i, %194 ], [ %.0.i95, %209 ]
   %221 = and i32 %.sink.i, 63
   %222 = zext nneg i32 %221 to i64
   %223 = shl nuw i64 1, %222
@@ -3810,7 +3810,7 @@ zval_ptr_dtor_nogc.exit1060.i:                    ; preds = %1873, %1868, %1861
   br label %.loopexit.i106
 
 .loopexit.i106:                                   ; preds = %1908, %1900, %1392, %1389, %1386, %1334, %1311, %1308, %1297, %1257, %1108, %1105, %1094, %1092, %1958, %1955, %1952, %1952, %1952, %1949, %1937, %1934, %1932, %.critedge.i108, %1893, %1885, %1882, %1881, %1850, %1849, %1816, %zval_ptr_dtor_nogc.exit1054.i, %.loopexit1085.i, %1785, %zval_ptr_dtor_nogc.exit1051.i, %1735, %1732, %1729, %1728, %1725, %1717, %1716, %1713, %1705, %1704, %1701, %zval_ptr_dtor_nogc.exit1045.i, %zval_ptr_dtor_nogc.exit1042.i, %zval_ptr_dtor_nogc.exit1039.i, %1336, %1284, %1268, %1243, %1240, %1228, %1204, %1180, %1164, %1148, %1132, %1077, %1076, %1060, %1048, %zval_ptr_dtor_nogc.exit1036.i, %955, %948, %938, %935, %930, %929, %918, %915, %915, %915, %915, %915, %915, %903, %893, %887, %883, %880, %872, %870, %863, %860, %zval_ptr_dtor_nogc.exit1030.i, %715, %707, %705, %696, %692, %688, %680, %674
-  %.1.i107 = phi ptr [ %.09271117.i, %674 ], [ %.09271117.i, %707 ], [ %.09261118.i, %zval_ptr_dtor_nogc.exit1030.i ], [ %.09261118.i, %715 ], [ %.09271117.i, %705 ], [ %.09271117.i, %680 ], [ %.09271117.i, %696 ], [ %.09271117.i, %692 ], [ %.09271117.i, %688 ], [ %.09271117.i, %860 ], [ %.09271117.i, %863 ], [ %.09271117.i, %870 ], [ %.09271117.i, %872 ], [ %.09271117.i, %880 ], [ %.09271117.i, %883 ], [ %.09271117.i, %887 ], [ %.09271117.i, %893 ], [ %.09271117.i, %903 ], [ %.09271117.i, %930 ], [ %.09271117.i, %929 ], [ %.09271117.i, %918 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %935 ], [ %.09271117.i, %938 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1036.i ], [ %.09271117.i, %955 ], [ %.09271117.i, %948 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1051.i ], [ %.09271117.i, %1735 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1054.i ], [ %.09271117.i, %.loopexit1085.i ], [ %.09271117.i, %1132 ], [ %.09271117.i, %1148 ], [ %.09271117.i, %1164 ], [ %.09271117.i, %1180 ], [ %.09271117.i, %1204 ], [ %.09271117.i, %1228 ], [ %.09271117.i, %1240 ], [ %.09271117.i, %1243 ], [ %.09271117.i, %1060 ], [ %.09271117.i, %1077 ], [ %.09271117.i, %1076 ], [ %.09271117.i, %1048 ], [ %.09271117.i, %1268 ], [ %.09271117.i, %1284 ], [ %.09271117.i, %1336 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1039.i ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1042.i ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1045.i ], [ %.09271117.i, %1704 ], [ %.09271117.i, %1716 ], [ %.09271117.i, %1728 ], [ %.09271117.i, %1717 ], [ %.09271117.i, %1725 ], [ %.09271117.i, %1705 ], [ %.09271117.i, %1713 ], [ %.09271117.i, %1701 ], [ %.09271117.i, %1732 ], [ %.09271117.i, %1729 ], [ %.09271117.i, %1785 ], [ %.09271117.i, %1849 ], [ %.09271117.i, %1816 ], [ %.09271117.i, %1881 ], [ %.09271117.i, %1850 ], [ %.09271117.i, %1885 ], [ %.09271117.i, %.critedge.i108 ], [ %.09271117.i, %1893 ], [ %.09271117.i, %1882 ], [ %.09271117.i, %1932 ], [ %.09271117.i, %1949 ], [ %.09271117.i, %1958 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1955 ], [ %.09271117.i, %1937 ], [ %.09271117.i, %1934 ], [ %.09271117.i, %1092 ], [ %.09271117.i, %1094 ], [ %.09271117.i, %1105 ], [ %.09271117.i, %1108 ], [ %.09271117.i, %1257 ], [ %.09271117.i, %1297 ], [ %.09271117.i, %1308 ], [ %.09271117.i, %1311 ], [ %.09271117.i, %1334 ], [ %.09271117.i, %1386 ], [ %.09271117.i, %1389 ], [ %.09271117.i, %1392 ], [ %.09271117.i, %1900 ], [ %.09271117.i, %1908 ]
+  %.1.i107 = phi ptr [ %.09271117.i, %674 ], [ %.09271117.i, %707 ], [ %.09261118.i, %zval_ptr_dtor_nogc.exit1030.i ], [ %.09261118.i, %715 ], [ %.09271117.i, %705 ], [ %.09271117.i, %680 ], [ %.09271117.i, %696 ], [ %.09271117.i, %692 ], [ %.09271117.i, %688 ], [ %.09271117.i, %860 ], [ %.09271117.i, %863 ], [ %.09271117.i, %870 ], [ %.09271117.i, %872 ], [ %.09271117.i, %880 ], [ %.09271117.i, %883 ], [ %.09271117.i, %887 ], [ %.09271117.i, %893 ], [ %.09271117.i, %903 ], [ %.09271117.i, %930 ], [ %.09271117.i, %929 ], [ %.09271117.i, %918 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %915 ], [ %.09271117.i, %935 ], [ %.09271117.i, %938 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1036.i ], [ %.09271117.i, %955 ], [ %.09271117.i, %948 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1051.i ], [ %.09271117.i, %1735 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1054.i ], [ %.09271117.i, %.loopexit1085.i ], [ %.09271117.i, %1132 ], [ %.09271117.i, %1148 ], [ %.09271117.i, %1164 ], [ %.09271117.i, %1180 ], [ %.09271117.i, %1204 ], [ %.09271117.i, %1228 ], [ %.09271117.i, %1240 ], [ %.09271117.i, %1243 ], [ %.09271117.i, %1060 ], [ %.09271117.i, %1077 ], [ %.09271117.i, %1076 ], [ %.09271117.i, %1048 ], [ %.09271117.i, %1268 ], [ %.09271117.i, %1284 ], [ %.09271117.i, %1336 ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1039.i ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1042.i ], [ %.09271117.i, %zval_ptr_dtor_nogc.exit1045.i ], [ %.09271117.i, %1704 ], [ %.09271117.i, %1716 ], [ %.09271117.i, %1728 ], [ %.09271117.i, %1717 ], [ %.09271117.i, %1725 ], [ %.09271117.i, %1705 ], [ %.09271117.i, %1713 ], [ %.09271117.i, %1701 ], [ %.09271117.i, %1732 ], [ %.09271117.i, %1729 ], [ %.09271117.i, %1785 ], [ %.09271117.i, %1849 ], [ %.09271117.i, %1816 ], [ %.09271117.i, %1881 ], [ %.09271117.i, %1850 ], [ %.09271117.i, %1885 ], [ %.09271117.i, %.critedge.i108 ], [ %.09271117.i, %1893 ], [ %.09271117.i, %1882 ], [ %.09271117.i, %1932 ], [ %.09271117.i, %1949 ], [ %.09271117.i, %1958 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1952 ], [ %.09271117.i, %1955 ], [ %.09271117.i, %1937 ], [ %.09271117.i, %1934 ], [ %.09271117.i, %1392 ], [ %.09271117.i, %1108 ], [ %.09271117.i, %1311 ], [ %.09271117.i, %1092 ], [ %.09271117.i, %1094 ], [ %.09271117.i, %1105 ], [ %.09271117.i, %1257 ], [ %.09271117.i, %1297 ], [ %.09271117.i, %1308 ], [ %.09271117.i, %1334 ], [ %.09271117.i, %1386 ], [ %.09271117.i, %1389 ], [ %.09271117.i, %1900 ], [ %.09271117.i, %1908 ]
   %1973 = getelementptr inbounds nuw i8, ptr %.09261118.i, i64 31
   %1974 = load i8, ptr %1973, align 1, !tbaa !99
   %1975 = and i8 %1974, 6
@@ -3872,21 +3872,21 @@ zend_optimize_block.exit:                         ; preds = %1983, %469, %.threa
   %2004 = getelementptr inbounds nuw i8, ptr %2003, i64 28
   %2005 = load i8, ptr %2004, align 4, !tbaa !98
   switch i8 %2005, label %zend_optimizer_is_loop_var_free.exit.thread [
-    i8 127, label %zend_optimizer_is_loop_var_free.exit
-    i8 70, label %2006
+    i8 127, label %2006
+    i8 70, label %zend_optimizer_is_loop_var_free.exit
   ]
 
 2006:                                             ; preds = %.lr.ph298
   %2007 = getelementptr inbounds nuw i8, ptr %2003, i64 20
   %2008 = load i32, ptr %2007, align 4, !tbaa !105
-  %2009 = icmp eq i32 %2008, 2
-  br i1 %2009, label %2018, label %zend_optimizer_is_loop_var_free.exit.thread
+  %.not.i114.not = icmp eq i32 %2008, 1
+  br i1 %.not.i114.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %2018
 
 zend_optimizer_is_loop_var_free.exit:             ; preds = %.lr.ph298
-  %2010 = getelementptr inbounds nuw i8, ptr %2003, i64 20
-  %2011 = load i32, ptr %2010, align 4, !tbaa !105
-  %.not.i114.not = icmp eq i32 %2011, 1
-  br i1 %.not.i114.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %2018
+  %2009 = getelementptr inbounds nuw i8, ptr %2003, i64 20
+  %2010 = load i32, ptr %2009, align 4, !tbaa !105
+  %2011 = icmp eq i32 %2010, 2
+  br i1 %2011, label %2018, label %zend_optimizer_is_loop_var_free.exit.thread
 
 zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %.lr.ph298, %2006, %zend_optimizer_is_loop_var_free.exit
   store i8 0, ptr %2004, align 4, !tbaa !98
@@ -4703,9 +4703,9 @@ get_target_block.exit297.i:                       ; preds = %.critedge.i295.i, %
   br i1 %2419, label %2347, label %in_hitlist.exit314.thread.i
 
 in_hitlist.exit314.thread.i:                      ; preds = %get_target_block.exit297.i, %2400, %2380, %2375, %2372, %.lr.ph399.i, %get_target_block.exit291.i, %2323
-  %2420 = phi i32 [ %2340, %get_target_block.exit291.i ], [ %2317, %2323 ], [ %2348, %.lr.ph399.i ], [ %2348, %2372 ], [ %2348, %2375 ], [ %2348, %2380 ], [ %.0256.i, %2400 ], [ %2417, %get_target_block.exit297.i ]
-  %.28 = phi i32 [ %.27, %get_target_block.exit291.i ], [ %.2205309, %2323 ], [ %.30, %.lr.ph399.i ], [ %.30, %2372 ], [ %.30, %2375 ], [ %.30, %2380 ], [ %2394, %2400 ], [ %.31, %get_target_block.exit297.i ]
-  %.2376.i = phi ptr [ %.0.i286.i, %get_target_block.exit291.i ], [ %2319, %2323 ], [ %.2401.i, %.lr.ph399.i ], [ %.2401.i, %2372 ], [ %.2401.i, %2375 ], [ %.2401.i, %2380 ], [ %2396, %2400 ], [ %.0.i292.i, %get_target_block.exit297.i ]
+  %2420 = phi i32 [ %2317, %2323 ], [ %2340, %get_target_block.exit291.i ], [ %2348, %.lr.ph399.i ], [ %2348, %2372 ], [ %2348, %2375 ], [ %2348, %2380 ], [ %.0256.i, %2400 ], [ %2417, %get_target_block.exit297.i ]
+  %.28 = phi i32 [ %.2205309, %2323 ], [ %.27, %get_target_block.exit291.i ], [ %.30, %.lr.ph399.i ], [ %.30, %2372 ], [ %.30, %2375 ], [ %.30, %2380 ], [ %2394, %2400 ], [ %.31, %get_target_block.exit297.i ]
+  %.2376.i = phi ptr [ %2319, %2323 ], [ %.0.i286.i, %get_target_block.exit291.i ], [ %.2401.i, %.lr.ph399.i ], [ %.2401.i, %2372 ], [ %.2401.i, %2375 ], [ %.2401.i, %2380 ], [ %2396, %2400 ], [ %.0.i292.i, %get_target_block.exit297.i ]
   %2421 = getelementptr inbounds nuw i8, ptr %2316, i64 4
   %2422 = load i32, ptr %2421, align 4, !tbaa !110
   %2423 = sext i32 %2422 to i64
@@ -5253,10 +5253,10 @@ in_hitlist.exit316.thread.loopexit.i:             ; preds = %.lr.ph.i126
   br label %in_hitlist.exit316.thread.i
 
 in_hitlist.exit316.thread.i:                      ; preds = %get_target_block.exit309.i, %2720, %2697, %2694, %2682, %in_hitlist.exit316.thread.loopexit.i, %get_target_block.exit303.i, %2542
-  %.23 = phi i32 [ %.25, %in_hitlist.exit316.thread.loopexit.i ], [ %.22, %get_target_block.exit303.i ], [ %.2205309, %2542 ], [ %.25, %2682 ], [ %.25, %2694 ], [ %.25, %2697 ], [ %2713, %2720 ], [ %.26, %get_target_block.exit309.i ]
-  %2739 = phi ptr [ %.pre499.i, %in_hitlist.exit316.thread.loopexit.i ], [ %2535, %get_target_block.exit303.i ], [ %2535, %2542 ], [ %2571, %2682 ], [ %2571, %2694 ], [ %2571, %2697 ], [ %2712, %2720 ], [ %2712, %get_target_block.exit309.i ]
-  %2740 = phi ptr [ %.pre498.i, %in_hitlist.exit316.thread.loopexit.i ], [ %2534, %get_target_block.exit303.i ], [ %2534, %2542 ], [ %2572, %2682 ], [ %2572, %2694 ], [ %2572, %2697 ], [ %2714, %2720 ], [ %2714, %get_target_block.exit309.i ]
-  %.3384.i = phi ptr [ %.3389.i, %in_hitlist.exit316.thread.loopexit.i ], [ %.0.i298.i, %get_target_block.exit303.i ], [ %2538, %2542 ], [ %.3389.i, %2682 ], [ %.3389.i, %2694 ], [ %.3389.i, %2697 ], [ %2716, %2720 ], [ %.0.i304.i, %get_target_block.exit309.i ]
+  %.23 = phi i32 [ %.2205309, %2542 ], [ %.22, %get_target_block.exit303.i ], [ %.25, %in_hitlist.exit316.thread.loopexit.i ], [ %.25, %2682 ], [ %.25, %2694 ], [ %.25, %2697 ], [ %2713, %2720 ], [ %.26, %get_target_block.exit309.i ]
+  %2739 = phi ptr [ %2535, %2542 ], [ %2535, %get_target_block.exit303.i ], [ %.pre499.i, %in_hitlist.exit316.thread.loopexit.i ], [ %2571, %2682 ], [ %2571, %2694 ], [ %2571, %2697 ], [ %2712, %2720 ], [ %2712, %get_target_block.exit309.i ]
+  %2740 = phi ptr [ %2534, %2542 ], [ %2534, %get_target_block.exit303.i ], [ %.pre498.i, %in_hitlist.exit316.thread.loopexit.i ], [ %2572, %2682 ], [ %2572, %2694 ], [ %2572, %2697 ], [ %2714, %2720 ], [ %2714, %get_target_block.exit309.i ]
+  %.3384.i = phi ptr [ %2538, %2542 ], [ %.0.i298.i, %get_target_block.exit303.i ], [ %.3389.i, %in_hitlist.exit316.thread.loopexit.i ], [ %.3389.i, %2682 ], [ %.3389.i, %2694 ], [ %.3389.i, %2697 ], [ %2716, %2720 ], [ %.0.i304.i, %get_target_block.exit309.i ]
   %2741 = getelementptr inbounds nuw i8, ptr %2739, i64 4
   %2742 = load i32, ptr %2741, align 4, !tbaa !110
   %2743 = sext i32 %2742 to i64
@@ -5312,7 +5312,7 @@ get_follow_block.exit340.i:                       ; preds = %.critedge.i338.i, %
   br label %zend_jmp_optimization.exit
 
 zend_jmp_optimization.exit:                       ; preds = %get_target_block.exit285.i, %2295, %.lr.ph419.i, %.lr.ph416.i, %2765, %get_follow_block.exit340.i, %2514, %get_next_block.exit329.i, %2486, %2476, %2458, %2454, %2451, %get_target_block.exit279.i, %2255, %2243, %2221, %2214, %2213, %2203, %2101, %2097, %.lr.ph313
-  %.3 = phi i32 [ %.2205309, %.lr.ph313 ], [ %.2205309, %2097 ], [ %.2205309, %2101 ], [ %2210, %2203 ], [ %.36, %2214 ], [ %2245, %2243 ], [ %.36, %2221 ], [ %.36, %2213 ], [ %.32, %get_target_block.exit279.i ], [ %.2205309, %2255 ], [ %2453, %2451 ], [ %2485, %2476 ], [ %.29, %2514 ], [ %.29, %get_next_block.exit329.i ], [ %.29, %2486 ], [ %.29, %2458 ], [ %.29, %2454 ], [ %2768, %2765 ], [ %.24, %get_follow_block.exit340.i ], [ %.33, %.lr.ph416.i ], [ %.33, %.lr.ph419.i ], [ %2289, %2295 ], [ %.34, %get_target_block.exit285.i ]
+  %.3 = phi i32 [ %.2205309, %.lr.ph313 ], [ %.2205309, %2097 ], [ %.2205309, %2101 ], [ %2210, %2203 ], [ %.36, %2214 ], [ %2245, %2243 ], [ %.36, %2221 ], [ %.36, %2213 ], [ %2768, %2765 ], [ %.24, %get_follow_block.exit340.i ], [ %.32, %get_target_block.exit279.i ], [ %.2205309, %2255 ], [ %2453, %2451 ], [ %2485, %2476 ], [ %.29, %2514 ], [ %.29, %get_next_block.exit329.i ], [ %.29, %2486 ], [ %.29, %2458 ], [ %.29, %2454 ], [ %.33, %.lr.ph416.i ], [ %.33, %.lr.ph419.i ], [ %2289, %2295 ], [ %.34, %get_target_block.exit285.i ]
   %2769 = getelementptr inbounds nuw i8, ptr %.2310, i64 64
   %2770 = icmp ult ptr %2769, %108
   br i1 %2770, label %.lr.ph313, label %._crit_edge
@@ -5728,7 +5728,7 @@ define internal fastcc void @assemble_code_blocks(ptr noundef nonnull readonly c
   br label %.critedge322
 
 .critedge322:                                     ; preds = %.preheader, %.critedge322.sink.split, %.critedge, %48
-  %51 = phi i32 [ %13, %.critedge ], [ %13, %48 ], [ %.sink72, %.critedge322.sink.split ], [ %13, %.preheader ]
+  %51 = phi i32 [ %13, %48 ], [ %13, %.critedge ], [ %.sink72, %.critedge322.sink.split ], [ %13, %.preheader ]
   %52 = add i32 %51, %.02854
   br label %.loopexit1
 

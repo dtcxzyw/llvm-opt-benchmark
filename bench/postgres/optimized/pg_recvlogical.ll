@@ -878,7 +878,7 @@ OutputFsync.exit.i:                               ; preds = %282, %279, %278, %2
   br i1 %293, label %294, label %.thread193.i
 
 294:                                              ; preds = %291, %289, %OutputFsync.exit.i
-  %.2.i = phi i64 [ %.094268.i, %289 ], [ %.094268.i, %OutputFsync.exit.i ], [ %268, %291 ]
+  %.2.i = phi i64 [ %.094268.i, %OutputFsync.exit.i ], [ %.094268.i, %289 ], [ %268, %291 ]
   %295 = load i32, ptr @outfd, align 4
   %.not144.i = icmp eq i32 %295, -1
   br i1 %.not144.i, label %sub_0208.i, label %296

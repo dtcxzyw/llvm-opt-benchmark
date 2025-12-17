@@ -3468,7 +3468,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__ata_sff_port_intr(ptr noun
   br label %58
 
 58:                                               ; preds = %55, %49
-  %59 = phi i8 [ %50, %49 ], [ %57, %55 ]
+  %59 = phi i8 [ %57, %55 ], [ %50, %49 ]
   %60 = icmp sgt i8 %59, -1
   br i1 %60, label %..thread_crit_edge, label %.thread5
 
@@ -3664,7 +3664,7 @@ define dso_local range(i32 0, 2) i32 @ata_sff_interrupt(i32 %0, ptr noundef %1) 
   br label %88
 
 88:                                               ; preds = %85, %79
-  %89 = phi i8 [ %80, %79 ], [ %87, %85 ]
+  %89 = phi i8 [ %87, %85 ], [ %80, %79 ]
   %90 = icmp sgt i8 %89, -1
   br i1 %90, label %..thread_crit_edge.i, label %.thread5.i
 
@@ -3969,7 +3969,7 @@ define dso_local i32 @ata_sff_wait_after_reset(ptr noundef %0, i32 noundef %1, i
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %42, %39, %3
-  %46 = phi i32 [ %6, %3 ], [ %40, %42 ], [ %40, %39 ], [ %31, %30 ]
+  %46 = phi i32 [ %40, %39 ], [ %6, %3 ], [ %40, %42 ], [ %31, %30 ]
   ret i32 %46
 }
 

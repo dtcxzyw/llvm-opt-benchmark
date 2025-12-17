@@ -257,7 +257,7 @@ checkbuffers.exit.us:                             ; preds = %41, %34
   br label %checkbuffers.exit85.us
 
 checkbuffers.exit85.us:                           ; preds = %63, %56
-  %.0.shrunk.i83.us = phi i32 [ 0, %56 ], [ %69, %63 ]
+  %.0.shrunk.i83.us = phi i32 [ %69, %63 ], [ 0, %56 ]
   %70 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 117, ptr noundef nonnull @.str.28, i32 noundef %.0.shrunk.i83.us) #5
   %.not76.us = icmp eq i32 %70, 0
   br i1 %.not76.us, label %.thread117, label %71
@@ -293,7 +293,7 @@ checkbuffers.exit85.us:                           ; preds = %63, %56
   br label %checkbuffers.exit88.us
 
 checkbuffers.exit88.us:                           ; preds = %85, %78
-  %.0.shrunk.i86.us = phi i32 [ 0, %78 ], [ %91, %85 ]
+  %.0.shrunk.i86.us = phi i32 [ %91, %85 ], [ 0, %78 ]
   %92 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 121, ptr noundef nonnull @.str.28, i32 noundef %.0.shrunk.i86.us) #5
   %.not78.us = icmp eq i32 %92, 0
   br i1 %.not78.us, label %.thread117, label %93
@@ -505,7 +505,7 @@ checkbuffers.exit97:                              ; preds = %177, %184
   br label %checkbuffers.exit100
 
 checkbuffers.exit100:                             ; preds = %199, %206
-  %.0.shrunk.i98 = phi i32 [ 0, %199 ], [ %212, %206 ]
+  %.0.shrunk.i98 = phi i32 [ %212, %206 ], [ 0, %199 ]
   %213 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 158, ptr noundef nonnull @.str.35, i32 noundef %.0.shrunk.i98) #5
   %.not70 = icmp eq i32 %213, 0
   br i1 %.not70, label %.thread117, label %214
@@ -583,7 +583,7 @@ checkbuffers.exit103:                             ; preds = %221, %228
   %.not64 = icmp eq i32 %254, 0
   br i1 %.not64, label %.thread117, label %25
 
-.thread117:                                       ; preds = %253, %.split.us, %checkbuffers.exit91.us, %94, %checkbuffers.exit88.us, %72, %checkbuffers.exit85.us, %50, %checkbuffers.exit.us, %.preheader129.split.us, %215, %checkbuffers.exit103, %193, %checkbuffers.exit100, %171, %checkbuffers.exit97, %149, %checkbuffers.exit94, %.thread114, %.thread107, %24, %12
+.thread117:                                       ; preds = %253, %.split.us, %checkbuffers.exit91.us, %94, %checkbuffers.exit88.us, %72, %checkbuffers.exit85.us, %50, %checkbuffers.exit.us, %.preheader129.split.us, %checkbuffers.exit103, %checkbuffers.exit100, %checkbuffers.exit97, %checkbuffers.exit94, %215, %149, %171, %193, %.thread114, %.thread107, %12, %24
   %255 = load ptr, ptr @stderr, align 8, !tbaa !88
   call void @ERR_print_errors_fp(ptr noundef %255) #5
   br label %.loopexit
@@ -757,7 +757,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br label %.thread
 
 83:                                               ; preds = %77, %79, %78
-  %.029 = phi i64 [ 5, %78 ], [ %81, %79 ], [ 4, %77 ]
+  %.029 = phi i64 [ %81, %79 ], [ 5, %78 ], [ 4, %77 ]
   br i1 %8, label %84, label %90
 
 84:                                               ; preds = %83
@@ -813,9 +813,9 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   %spec.select66 = zext i1 %.not59 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %84, %105, %100, %102, %90, %64, %71, %74, %82, %61, %55, %.thread72, %40, %22, %28, %34, %14, %9
-  %.037 = phi i32 [ 0, %9 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %14 ], [ %spec.select66, %.thread72 ], [ 0, %55 ], [ 0, %61 ], [ 0, %82 ], [ 0, %74 ], [ 0, %71 ], [ 0, %64 ], [ 0, %90 ], [ 0, %102 ], [ 0, %100 ], [ 0, %105 ], [ 0, %84 ], [ 0, %.preheader ]
-  %.136 = phi ptr [ null, %9 ], [ %.035, %40 ], [ %.035, %34 ], [ %.035, %28 ], [ %.035, %22 ], [ %.035, %14 ], [ %.035, %.thread72 ], [ %.035, %55 ], [ %.035, %61 ], [ %.035, %82 ], [ %.035, %74 ], [ %.035, %71 ], [ %.035, %64 ], [ %.035, %90 ], [ %.035, %102 ], [ %.035, %100 ], [ %.035, %105 ], [ %.035, %84 ], [ %.035, %.preheader ]
+.thread:                                          ; preds = %.preheader, %84, %105, %102, %71, %74, %64, %100, %90, %82, %61, %55, %.thread72, %40, %22, %28, %34, %14, %9
+  %.037 = phi i32 [ 0, %9 ], [ 0, %14 ], [ %spec.select66, %.thread72 ], [ 0, %61 ], [ 0, %105 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %55 ], [ 0, %82 ], [ 0, %90 ], [ 0, %100 ], [ 0, %64 ], [ 0, %74 ], [ 0, %71 ], [ 0, %102 ], [ 0, %84 ], [ 0, %.preheader ]
+  %.136 = phi ptr [ null, %9 ], [ %.035, %14 ], [ %.035, %.thread72 ], [ %.035, %61 ], [ %.035, %105 ], [ %.035, %40 ], [ %.035, %34 ], [ %.035, %28 ], [ %.035, %22 ], [ %.035, %55 ], [ %.035, %82 ], [ %.035, %90 ], [ %.035, %100 ], [ %.035, %64 ], [ %.035, %74 ], [ %.035, %71 ], [ %.035, %102 ], [ %.035, %84 ], [ %.035, %.preheader ]
   %112 = load ptr, ptr %3, align 8, !tbaa !4
   call void @SSL_free(ptr noundef %112) #5
   %113 = load ptr, ptr %2, align 8, !tbaa !4

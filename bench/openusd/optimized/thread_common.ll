@@ -396,7 +396,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
   br label %loop_filter_alloc.exit.i
 
 loop_filter_alloc.exit.i:                         ; preds = %91, %89, %87
-  %.0.i.i.i = phi i32 [ 1, %87 ], [ 2, %89 ], [ %..i.i.i, %91 ]
+  %.0.i.i.i = phi i32 [ 2, %89 ], [ 1, %87 ], [ %..i.i.i, %91 ]
   store i32 %.0.i.i.i, ptr %23, align 8
   br label %93
 

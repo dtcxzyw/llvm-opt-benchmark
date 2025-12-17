@@ -607,7 +607,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %96
 
 96:                                               ; preds = %94, %91, %88
-  %.01022 = phi i32 [ %55, %91 ], [ %55, %88 ], [ %spec.select, %94 ]
+  %.01022 = phi i32 [ %55, %88 ], [ %spec.select, %94 ], [ %55, %91 ]
   %97 = load ptr, ptr %12, align 8
   %98 = load ptr, ptr %50, align 8
   %99 = add i32 %.010271160, 4
@@ -2195,7 +2195,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   br label %97
 
 97:                                               ; preds = %67, %68, %55, %24, %25, %8, %5, %94
-  %.0130 = phi i32 [ %96, %94 ], [ -1, %5 ], [ -1, %8 ], [ -1, %25 ], [ -1, %24 ], [ -1, %55 ], [ -1, %68 ], [ -1, %67 ]
+  %.0130 = phi i32 [ %96, %94 ], [ -1, %5 ], [ -1, %8 ], [ -1, %24 ], [ -1, %55 ], [ -1, %25 ], [ -1, %68 ], [ -1, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0130
 }

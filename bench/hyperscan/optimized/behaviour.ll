@@ -3228,7 +3228,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN7testing15Assert
   br label %551
 
 551:                                              ; preds = %.loopexit, %.loopexit.split-lp, %550, %485, %412, %344, %296
-  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn, %412 ], [ %.pn78.pn.pn, %550 ], [ %.pn74.pn.pn, %485 ], [ %.pn69.pn.pn, %344 ], [ %.pn65.pn.pn, %296 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn, %412 ], [ %.pn65.pn.pn, %296 ], [ %.pn78.pn.pn, %550 ], [ %.pn74.pn.pn, %485 ], [ %.pn69.pn.pn, %344 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %552
 
@@ -6585,7 +6585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i410: ; preds
   br label %895
 
 895:                                              ; preds = %.loopexit, %.loopexit.split-lp, %645, %690, %765, %833, %894, %584, %503, %433, %385, %322
-  %.pn151.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %584 ], [ %.pn127.pn.pn, %503 ], [ %323, %322 ], [ %.pn122.pn.pn, %433 ], [ %.pn118.pn.pn, %385 ], [ %.pn151.pn.pn, %690 ], [ %.pn147.pn.pn, %645 ], [ %.pn143.pn.pn, %894 ], [ %.pn139.pn.pn, %833 ], [ %.pn135.pn.pn, %765 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn151.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn.pn, %385 ], [ %.pn131.pn.pn, %584 ], [ %.pn127.pn.pn, %503 ], [ %323, %322 ], [ %.pn122.pn.pn, %433 ], [ %.pn151.pn.pn, %690 ], [ %.pn147.pn.pn, %645 ], [ %.pn135.pn.pn, %765 ], [ %.pn143.pn.pn, %894 ], [ %.pn139.pn.pn, %833 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN7testing8internal11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #30
   br label %896
@@ -8518,7 +8518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i201: ; preds
   br label %477
 
 477:                                              ; preds = %404, %410, %476, %235, %200, %134
-  %.pn90.pn = phi { ptr, i32 } [ %.pn71.pn.pn, %235 ], [ %.pn67.pn.pn, %200 ], [ %135, %134 ], [ %411, %410 ], [ %.pn86.pn.pn, %476 ], [ %.pn84, %404 ]
+  %.pn90.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn71.pn.pn, %235 ], [ %.pn67.pn.pn, %200 ], [ %411, %410 ], [ %.pn86.pn.pn, %476 ], [ %.pn84, %404 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %478
 
@@ -32596,7 +32596,7 @@ _ZNK7testing15AssertionResult15failure_messageEv.exit433: ; preds = %926, %923
   br label %948
 
 948:                                              ; preds = %551, %599, %663, %727, %790, %947, %482, %416
-  %.pn173.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn137.pn.pn, %482 ], [ %.pn134.pn, %416 ], [ %.pn173.pn.pn.pn, %947 ], [ %.pn154.pn, %790 ], [ %.pn151.pn, %727 ], [ %.pn148.pn, %663 ], [ %.pn145.pn, %599 ], [ %.pn141.pn.pn, %551 ]
+  %.pn173.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn134.pn, %416 ], [ %.pn137.pn.pn, %482 ], [ %.pn173.pn.pn.pn, %947 ], [ %.pn154.pn, %790 ], [ %.pn151.pn, %727 ], [ %.pn148.pn, %663 ], [ %.pn145.pn, %599 ], [ %.pn141.pn.pn, %551 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %949
 
@@ -57880,7 +57880,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %72, %._crit_edge, %61, %49
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.0.lcssa, %49 ], [ %.sroa.032.1, %61 ], [ %1, %._crit_edge ], [ %spec.select, %72 ], [ %81, %.loopexit.loopexit.split.loop.exit ], [ %82, %.loopexit.loopexit.split.loop.exit65 ], [ %83, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.032.051, %13 ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.032.1, %61 ], [ %spec.select, %72 ], [ %1, %._crit_edge ], [ %.sroa.032.0.lcssa, %49 ], [ %83, %.loopexit.loopexit.split.loop.exit67 ], [ %81, %.loopexit.loopexit.split.loop.exit ], [ %82, %.loopexit.loopexit.split.loop.exit65 ], [ %.sroa.032.051, %13 ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -75785,7 +75785,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79
   br label %.body66
 
 .body66:                                          ; preds = %308, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i101, %306
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %307, %306 ], [ %.pn.pn.i, %.body.i101 ], [ %309, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79 ], [ %309, %308 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.i, %.body.i101 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %307, %306 ], [ %309, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79 ], [ %309, %308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %312 = load ptr, ptr %9, align 8
   %313 = icmp eq ptr %312, %52
@@ -75871,7 +75871,7 @@ _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_120HugeScanMatchingDataEED2Ev.
   unreachable
 
 _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_120HugeScanMatchingDataEED2Ev.exit90: ; preds = %.loopexit126, %.loopexit.split-lp127, %168, %.noexc.i.i89, %332, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_120HugeScanMatchingDataEED2Ev.exit59, %.body
-  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %169, %168 ], [ %330, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_120HugeScanMatchingDataEED2Ev.exit59 ], [ %.pn19123, %332 ], [ %.pn19123, %.noexc.i.i89 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn19123, %.noexc.i.i89 ], [ %169, %168 ], [ %330, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_120HugeScanMatchingDataEED2Ev.exit59 ], [ %.pn19123, %332 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
   %339 = load ptr, ptr %6, align 8
   %340 = icmp eq ptr %339, %16
   br i1 %340, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
@@ -76942,7 +76942,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
   br label %.body53
 
 .body53:                                          ; preds = %317, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i88, %315
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %316, %315 ], [ %.pn.pn.i, %.body.i88 ], [ %318, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66 ], [ %318, %317 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.i, %.body.i88 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %316, %315 ], [ %318, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66 ], [ %318, %317 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %321 = load ptr, ptr %9, align 8
   %322 = icmp eq ptr %321, %52
@@ -77028,7 +77028,7 @@ _ZN7testing8internal13ParamIteratorImED2Ev.exit46.thread: ; preds = %_ZN7testing
   unreachable
 
 _ZN7testing8internal13ParamIteratorImED2Ev.exit77: ; preds = %.loopexit121, %.loopexit.split-lp122, %173, %.noexc.i.i76, %341, %_ZN7testing8internal13ParamIteratorImED2Ev.exit46, %.body
-  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %174, %173 ], [ %339, %_ZN7testing8internal13ParamIteratorImED2Ev.exit46 ], [ %.pn19118, %341 ], [ %.pn19118, %.noexc.i.i76 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn19118, %.noexc.i.i76 ], [ %174, %173 ], [ %339, %_ZN7testing8internal13ParamIteratorImED2Ev.exit46 ], [ %.pn19118, %341 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
   %348 = load ptr, ptr %6, align 8
   %349 = icmp eq ptr %348, %16
   br i1 %349, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i78
@@ -78287,7 +78287,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79
   br label %.body66
 
 .body66:                                          ; preds = %308, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i101, %306
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %307, %306 ], [ %.pn.pn.i, %.body.i101 ], [ %309, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79 ], [ %309, %308 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn.pn.i, %.body.i101 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %307, %306 ], [ %309, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79 ], [ %309, %308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %312 = load ptr, ptr %9, align 8
   %313 = icmp eq ptr %312, %52
@@ -78373,7 +78373,7 @@ _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_116CallbackStopDataEED2Ev.exit
   unreachable
 
 _ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_116CallbackStopDataEED2Ev.exit90: ; preds = %.loopexit126, %.loopexit.split-lp127, %168, %.noexc.i.i89, %332, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_116CallbackStopDataEED2Ev.exit59, %.body
-  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %169, %168 ], [ %330, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_116CallbackStopDataEED2Ev.exit59 ], [ %.pn19123, %332 ], [ %.pn19123, %.noexc.i.i89 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn19123, %.noexc.i.i89 ], [ %169, %168 ], [ %330, %_ZN7testing8internal13ParamIteratorIN12_GLOBAL__N_116CallbackStopDataEED2Ev.exit59 ], [ %.pn19123, %332 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ]
   %339 = load ptr, ptr %6, align 8
   %340 = icmp eq ptr %339, %16
   br i1 %340, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91

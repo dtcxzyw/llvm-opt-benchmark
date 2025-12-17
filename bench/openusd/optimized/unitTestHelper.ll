@@ -794,7 +794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2.i38: ; preds = %156, %_Z
   br label %.body18
 
 .body18:                                          ; preds = %163, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2.i38, %141, %57
-  %.pn9 = phi { ptr, i32 } [ %142, %141 ], [ %58, %57 ], [ %144, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2.i38 ], [ %144, %163 ]
+  %.pn9 = phi { ptr, i32 } [ %58, %57 ], [ %142, %141 ], [ %144, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2.i38 ], [ %144, %163 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRprimCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %18) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdReprSelectorD2Ev.exit34
 
@@ -2379,7 +2379,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
           to label %64 unwind label %337
 
 64:                                               ; preds = %58, %59
-  %.0.i = phi i32 [ 0, %59 ], [ %57, %58 ]
+  %.0.i = phi i32 [ %57, %58 ], [ 0, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %66 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_8HdCamera10ProjectionEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -3095,7 +3095,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit: ; preds = %371, %374
   ret void
 
 .body:                                            ; preds = %48, %122, %188, %252, %337, %318, %285, %220, %156, %86, %353, %351, %349, %347, %345, %343, %341, %339
-  %.pn = phi { ptr, i32 } [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %49, %48 ], [ %87, %86 ], [ %123, %122 ], [ %157, %156 ], [ %189, %188 ], [ %221, %220 ], [ %253, %252 ], [ %286, %285 ], [ %338, %337 ], [ %319, %318 ]
+  %.pn = phi { ptr, i32 } [ %340, %339 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %49, %48 ], [ %87, %86 ], [ %123, %122 ], [ %157, %156 ], [ %189, %188 ], [ %221, %220 ], [ %253, %252 ], [ %286, %285 ], [ %338, %337 ], [ %319, %318 ]
   %380 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %381 = load ptr, ptr %380, align 8
   %.not.i.i.i.i83 = icmp eq ptr %381, null
@@ -3117,7 +3117,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sin
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split, %.body, %331
-  %.pn.pn = phi { ptr, i32 } [ %332, %331 ], [ %.pn, %.body ], [ %.pn.pn.ph, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %332, %331 ], [ %.pn.pn.ph, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split ]
   resume { ptr, i32 } %.pn.pn
 }
 

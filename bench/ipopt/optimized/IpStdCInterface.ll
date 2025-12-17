@@ -1572,7 +1572,7 @@ _ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit115: ; preds = %284, %279, %276, %2
   ret i32 %.0
 
 289:                                              ; preds = %228, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit113, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit115, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit99
-  %.merged = phi { ptr, i32 } [ %40, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit99 ], [ %.pn.pn, %228 ], [ %.pn93, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit113 ], [ %.pn95, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit115 ]
+  %.merged = phi { ptr, i32 } [ %40, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit99 ], [ %.pn93, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit113 ], [ %.pn.pn, %228 ], [ %.pn95, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit115 ]
   resume { ptr, i32 } %.merged
 
 290:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit115, %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit113

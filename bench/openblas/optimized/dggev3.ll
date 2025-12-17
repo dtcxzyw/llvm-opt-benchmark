@@ -232,7 +232,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not581, label %123, label %.thread617
 
 .thread617.sink.split:                            ; preds = %78, %74, %70, %67, %64, %.thread608, %56, %54, %.thread
-  %.sink = phi i32 [ -1, %.thread ], [ -1, %54 ], [ -2, %56 ], [ -3, %.thread608 ], [ -5, %64 ], [ -7, %67 ], [ -12, %70 ], [ -14, %74 ], [ -16, %78 ]
+  %.sink = phi i32 [ -1, %54 ], [ -3, %.thread608 ], [ -7, %67 ], [ -14, %74 ], [ -12, %70 ], [ -5, %64 ], [ -2, %56 ], [ -1, %.thread ], [ -16, %78 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread617
 
@@ -275,7 +275,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %125, %137
-  %storemerge643 = phi double [ %138, %137 ], [ %135, %125 ]
+  %storemerge643 = phi double [ %135, %125 ], [ %138, %137 ]
   store double %storemerge643, ptr %29, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %20, ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %22) #5
   br label %141
@@ -296,7 +296,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %141, %146
-  %storemerge644 = phi double [ %147, %146 ], [ %144, %141 ]
+  %storemerge644 = phi double [ %144, %141 ], [ %147, %146 ]
   store double %storemerge644, ptr %30, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %21, ptr noundef nonnull %30, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %22) #5
   br label %150
@@ -733,7 +733,7 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond754.not, label %.loopexit655, label %297, !llvm.loop !20
 
 .loopexit655.sink.split:                          ; preds = %226, %240, %231, %233
-  %.sink823 = phi i32 [ %234, %233 ], [ %232, %231 ], [ %242, %240 ], [ %225, %226 ]
+  %.sink823 = phi i32 [ %242, %240 ], [ %234, %233 ], [ %232, %231 ], [ %225, %226 ]
   store i32 %.sink823, ptr %16, align 4, !tbaa !3
   br label %.loopexit655
 

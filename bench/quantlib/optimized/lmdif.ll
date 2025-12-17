@@ -3620,7 +3620,7 @@ if.end377:                                        ; preds = %if.end374
   br i1 %cmp378, label %for.body193.preheader, label %L30
 
 if.end383.sink.split:                             ; preds = %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339, %if.end26, %if.end168, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496, %115, %112, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit, %.thread
-  %.sink = phi i32 [ 8, %.thread ], [ %3, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit ], [ 3, %112 ], [ 8, %115 ], [ %69, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496 ], [ 4, %if.end168 ], [ %22, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339 ], [ %19, %if.end26 ]
+  %.sink = phi i32 [ 8, %.thread ], [ 3, %112 ], [ %3, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit ], [ 8, %115 ], [ %69, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496 ], [ 4, %if.end168 ], [ %19, %if.end26 ], [ %22, %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339 ]
   store i32 %.sink, ptr %info, align 4, !tbaa !9
   br label %if.end383
 

@@ -448,7 +448,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1712,7 +1712,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %48, label %_ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
 _ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i: ; preds = %45, %41, %37, %29, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i
-  %.sink.i = phi i32 [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %29 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ]
+  %.sink.i = phi i32 [ %43, %41 ], [ %39, %37 ], [ 7, %29 ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %47, %45 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
@@ -2633,7 +2633,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %2
   br i1 %48, label %_ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
 _ZNK6icu_776number4impl10StringProp11copyErrorToER10UErrorCode.exit22.sink.split.i: ; preds = %45, %41, %37, %29, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i
-  %.sink.i = phi i32 [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %29 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ]
+  %.sink.i = phi i32 [ %43, %41 ], [ %39, %37 ], [ 7, %29 ], [ %10, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %28, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %22, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %16, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %47, %45 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !13
   br label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
@@ -4169,8 +4169,8 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter9formatIntElR10UErrorCo
   br label %32
 
 32:                                               ; preds = %22, %4, %19, %27
-  %.sink19 = phi ptr [ null, %19 ], [ null, %27 ], [ null, %4 ], [ %8, %22 ]
-  %.sink = phi i32 [ 7, %19 ], [ %31, %27 ], [ 1, %4 ], [ 0, %22 ]
+  %.sink19 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %27 ], [ %8, %22 ]
+  %.sink = phi i32 [ 7, %19 ], [ 1, %4 ], [ %31, %27 ], [ 0, %22 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number15FormattedNumberE, i64 16), ptr %0, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink19, ptr %33, align 8, !tbaa !147
@@ -4202,7 +4202,7 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter10formatImplEPNS0_4impl
   br label %14
 
 14:                                               ; preds = %11, %7, %3
-  %.016.i = phi i32 [ %13, %11 ], [ %5, %7 ], [ %5, %3 ]
+  %.016.i = phi i32 [ %13, %11 ], [ %5, %3 ], [ %5, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = load i32, ptr %15, align 8, !tbaa !77
   %17 = icmp eq i32 %.016.i, %16
@@ -4341,8 +4341,8 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter12formatDoubleEdR10UErr
   br label %32
 
 32:                                               ; preds = %22, %4, %19, %27
-  %.sink19 = phi ptr [ null, %19 ], [ null, %27 ], [ null, %4 ], [ %8, %22 ]
-  %.sink = phi i32 [ 7, %19 ], [ %31, %27 ], [ 1, %4 ], [ 0, %22 ]
+  %.sink19 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %27 ], [ %8, %22 ]
+  %.sink = phi i32 [ 7, %19 ], [ 1, %4 ], [ %31, %27 ], [ 0, %22 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number15FormattedNumberE, i64 16), ptr %0, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink19, ptr %33, align 8, !tbaa !147
@@ -4427,8 +4427,8 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter13formatDecimalENS_11St
   br label %33
 
 33:                                               ; preds = %23, %5, %20, %28
-  %.sink21 = phi ptr [ null, %20 ], [ null, %28 ], [ null, %5 ], [ %9, %23 ]
-  %.sink = phi i32 [ 7, %20 ], [ %32, %28 ], [ 1, %5 ], [ 0, %23 ]
+  %.sink21 = phi ptr [ null, %20 ], [ null, %5 ], [ null, %28 ], [ %9, %23 ]
+  %.sink = phi i32 [ 7, %20 ], [ 1, %5 ], [ %32, %28 ], [ 0, %23 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number15FormattedNumberE, i64 16), ptr %0, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink21, ptr %34, align 8, !tbaa !147
@@ -4513,8 +4513,8 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter21formatDecimalQuantity
   br label %32
 
 32:                                               ; preds = %22, %4, %19, %27
-  %.sink19 = phi ptr [ null, %19 ], [ null, %27 ], [ null, %4 ], [ %8, %22 ]
-  %.sink = phi i32 [ 7, %19 ], [ %31, %27 ], [ 1, %4 ], [ 0, %22 ]
+  %.sink19 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %27 ], [ %8, %22 ]
+  %.sink = phi i32 [ 7, %19 ], [ 1, %4 ], [ %31, %27 ], [ 0, %22 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number15FormattedNumberE, i64 16), ptr %0, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink19, ptr %33, align 8, !tbaa !147
@@ -4546,7 +4546,7 @@ define noundef zeroext i1 @_ZNK6icu_776number24LocalizedNumberFormatter15compute
   br label %13
 
 13:                                               ; preds = %10, %6, %2
-  %.016 = phi i32 [ %12, %10 ], [ %4, %6 ], [ %4, %2 ]
+  %.016 = phi i32 [ %12, %10 ], [ %4, %2 ], [ %4, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = load i32, ptr %14, align 8, !tbaa !77
   %16 = icmp eq i32 %.016, %15
@@ -4584,7 +4584,7 @@ define noundef zeroext i1 @_ZNK6icu_776number24LocalizedNumberFormatter15compute
   br label %29
 
 29:                                               ; preds = %27, %22, %25
-  %.1 = phi i1 [ true, %25 ], [ false, %22 ], [ %28, %27 ]
+  %.1 = phi i1 [ false, %22 ], [ %28, %27 ], [ true, %25 ]
   ret i1 %.1
 }
 
@@ -4623,7 +4623,7 @@ define void @_ZNK6icu_776number24LocalizedNumberFormatter12getAffixImplEbbRNS_13
   br label %22
 
 22:                                               ; preds = %19, %15, %5
-  %.016.i = phi i32 [ %21, %19 ], [ %13, %15 ], [ %13, %5 ]
+  %.016.i = phi i32 [ %21, %19 ], [ %13, %5 ], [ %13, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %24 = load i32, ptr %23, align 8, !tbaa !77
   %25 = icmp eq i32 %.016.i, %24

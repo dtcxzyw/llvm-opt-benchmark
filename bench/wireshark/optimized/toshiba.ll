@@ -195,7 +195,7 @@ define internal noundef zeroext i1 @toshiba_seek_read(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %11, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %11 ]
   ret i1 %.0
 }
 

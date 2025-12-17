@@ -1373,7 +1373,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPathEv.exit: ; preds = 
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #16
   br label %309
 
-139:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery3GetINS_7VtArrayINS_7GfVec3fEEEEEbPT_NS_11UsdTimeCodeE.exit, %45, %114, %116, %129
+139:                                              ; preds = %45, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery3GetINS_7VtArrayINS_7GfVec3fEEEEEbPT_NS_11UsdTimeCodeE.exit, %114, %116, %129
   %140 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE seq_cst, align 4
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %144
@@ -1685,7 +1685,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPathEv.exit43: ; preds 
   br label %309
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %303, %290, %288, %50, %224, %230
-  %.114.in = phi i1 [ true, %224 ], [ false, %230 ], [ true, %50 ], [ false, %288 ], [ false, %290 ], [ false, %303 ]
+  %.114.in = phi i1 [ false, %230 ], [ true, %224 ], [ true, %50 ], [ false, %288 ], [ false, %290 ], [ false, %303 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #16
   ret i1 %.114.in
 

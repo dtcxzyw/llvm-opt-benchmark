@@ -483,8 +483,8 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 162:                                              ; preds = %155, %150, %.critedge._crit_edge.i, %.critedge.i
-  %.134.i = phi ptr [ %.033101.i, %.critedge.i ], [ %158, %155 ], [ %.033101.i, %.critedge._crit_edge.i ], [ %.033101.i, %150 ]
-  %.1.i = phi i32 [ %.032102.i, %.critedge.i ], [ 1, %155 ], [ %spec.select.i, %.critedge._crit_edge.i ], [ 3, %150 ]
+  %.134.i = phi ptr [ %.033101.i, %.critedge.i ], [ %158, %155 ], [ %.033101.i, %150 ], [ %.033101.i, %.critedge._crit_edge.i ]
+  %.1.i = phi i32 [ %.032102.i, %.critedge.i ], [ 1, %155 ], [ 3, %150 ], [ %spec.select.i, %.critedge._crit_edge.i ]
   %163 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !36
   %165 = load ptr, ptr %104, align 8, !tbaa !27
@@ -1322,10 +1322,10 @@ define internal void @parse_cmd_symref_delete(ptr noundef %0, ptr noundef %1, pt
   br label %parse_next_refname.exit
 
 parse_next_refname.exit:                          ; preds = %14, %14, %16, %17
-  %.b7 = phi i32 [ %20, %17 ], [ 10, %14 ], [ 0, %16 ], [ 10, %14 ]
-  %21 = phi i8 [ %.pre11, %17 ], [ %13, %14 ], [ %13, %16 ], [ %13, %14 ]
-  %22 = phi ptr [ %.pre, %17 ], [ %12, %14 ], [ %12, %16 ], [ %12, %14 ]
-  %.0.i = phi ptr [ %19, %17 ], [ null, %14 ], [ null, %16 ], [ null, %14 ]
+  %.b7 = phi i32 [ 10, %14 ], [ %20, %17 ], [ 0, %16 ], [ 10, %14 ]
+  %21 = phi i8 [ %13, %14 ], [ %.pre11, %17 ], [ %13, %16 ], [ %13, %14 ]
+  %22 = phi ptr [ %12, %14 ], [ %.pre, %17 ], [ %12, %16 ], [ %12, %14 ]
+  %.0.i = phi ptr [ null, %14 ], [ %19, %17 ], [ null, %16 ], [ null, %14 ]
   %23 = sext i8 %21 to i32
   %.not9 = icmp eq i32 %.b7, %23
   br i1 %.not9, label %25, label %24
@@ -1932,7 +1932,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %.not, label %.critedge, label %19, !llvm.loop !62
 
 .critedge:                                        ; preds = %strbuf_addch.exit, %19, %2, %10, %13
-  %37 = phi ptr [ %11, %10 ], [ %11, %13 ], [ %0, %2 ], [ %27, %strbuf_addch.exit ], [ %21, %19 ]
+  %37 = phi ptr [ %11, %13 ], [ %0, %2 ], [ %11, %10 ], [ %27, %strbuf_addch.exit ], [ %21, %19 ]
   ret ptr %37
 }
 
@@ -2014,7 +2014,7 @@ define internal fastcc ptr @parse_next_arg(ptr noundef nonnull captures(none) %0
   br label %23
 
 23:                                               ; preds = %5, %5, %7, %22, %20
-  %.0 = phi ptr [ %21, %20 ], [ null, %22 ], [ null, %5 ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %5 ], [ %21, %20 ], [ null, %22 ], [ null, %7 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

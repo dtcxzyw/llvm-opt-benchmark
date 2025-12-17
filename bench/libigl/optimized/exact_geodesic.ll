@@ -1795,8 +1795,8 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
   br label %177
 
 158:                                              ; preds = %152, %156, %.thread18.i
-  %159 = phi double [ %149, %156 ], [ -0.000000e+00, %.thread18.i ], [ %149, %152 ]
-  %160 = phi double [ %144, %156 ], [ %136, %.thread18.i ], [ %144, %152 ]
+  %159 = phi double [ -0.000000e+00, %.thread18.i ], [ %149, %156 ], [ %149, %152 ]
+  %160 = phi double [ %136, %.thread18.i ], [ %144, %156 ], [ %144, %152 ]
   store double %136, ptr %45, align 8, !tbaa !77
   %161 = fcmp olt double %160, 0.000000e+00
   br i1 %161, label %166, label %177
@@ -1864,12 +1864,12 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
 .thread64:                                        ; preds = %.thread62, %.thread65, %177
-  %191 = phi double [ %180, %177 ], [ 0.000000e+00, %.thread65 ], [ 0.000000e+00, %.thread62 ]
+  %191 = phi double [ 0.000000e+00, %.thread65 ], [ %180, %177 ], [ 0.000000e+00, %.thread62 ]
   %192 = fsub double 0.000000e+00, %191
   br label %_ZN3igl8geodesic8Interval6signalEd.exit.i
 
 _ZN3igl8geodesic8Interval6signalEd.exit.i:        ; preds = %.thread66, %188, %171, %174, %.thread64
-  %.1.i.sink.i = phi double [ %192, %.thread64 ], [ %173, %171 ], [ %sqrt.i.i20, %174 ], [ %187, %.thread66 ], [ %sqrt.i6.i, %188 ]
+  %.1.i.sink.i = phi double [ %sqrt.i.i20, %174 ], [ %192, %.thread64 ], [ %173, %171 ], [ %187, %.thread66 ], [ %sqrt.i6.i, %188 ]
   store double %.1.i.sink.i, ptr %44, align 8, !tbaa !149
   store i32 2, ptr %39, align 4, !tbaa !90
   %193 = getelementptr inbounds nuw i8, ptr %80, i64 48
@@ -2080,7 +2080,7 @@ _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21: ; preds = %74
   br label %_ZN3igl8geodesic12IntervalList6signalEd.exit
 
 _ZN3igl8geodesic12IntervalList6signalEd.exit:     ; preds = %73, %45, %97, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21, %69, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i
-  %98 = phi double [ %.1.i.i, %69 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i ], [ %.1.i.i24, %97 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21 ], [ 1.000000e+100, %45 ], [ 1.000000e+100, %73 ]
+  %98 = phi double [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i ], [ %.1.i.i, %69 ], [ 1.000000e+100, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit.i21 ], [ %.1.i.i24, %97 ], [ 1.000000e+100, %45 ], [ 1.000000e+100, %73 ]
   %99 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %100 = load double, ptr %99, align 8, !tbaa !121
   %101 = fadd double %98, %100
@@ -2357,9 +2357,9 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i169:   ; preds = %138, %136
   br label %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit
 
 _ZN3igl8geodesic8Interval20compute_min_distanceEd.exit: ; preds = %141, %_ZN3igl8geodesic8Interval6signalEd.exit10.i169, %_ZN3igl8geodesic8Interval6signalEd.exit.i173, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166, %63, %_ZN3igl8geodesic8Interval6signalEd.exit10.i, %_ZN3igl8geodesic8Interval6signalEd.exit.i, %30
-  %..sink = phi ptr [ %2, %30 ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ %2, %63 ], [ %., %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %., %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %., %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %., %141 ]
-  %.1.i.sink.i167.sink = phi double [ 1.000000e+100, %30 ], [ %.1.i.i, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %.1.i8.i, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ %66, %63 ], [ 1.000000e+100, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %.1.i.i175, %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %.1.i8.i171, %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %144, %141 ]
-  %.0130 = phi ptr [ %2, %30 ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ %2, %63 ], [ %.155, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %.155, %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %.155, %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %.155, %141 ]
+  %..sink = phi ptr [ %2, %63 ], [ %2, %30 ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ %., %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %., %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %., %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %., %141 ]
+  %.1.i.sink.i167.sink = phi double [ %66, %63 ], [ 1.000000e+100, %30 ], [ %.1.i.i, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %.1.i8.i, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ 1.000000e+100, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %.1.i.i175, %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %.1.i8.i171, %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %144, %141 ]
+  %.0130 = phi ptr [ %2, %63 ], [ %2, %30 ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %2, %_ZN3igl8geodesic8Interval6signalEd.exit10.i ], [ %.155, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit166 ], [ %.155, %_ZN3igl8geodesic8Interval6signalEd.exit.i173 ], [ %.155, %_ZN3igl8geodesic8Interval6signalEd.exit10.i169 ], [ %.155, %141 ]
   %145 = getelementptr inbounds nuw i8, ptr %..sink, i64 32
   store double %.1.i.sink.i167.sink, ptr %145, align 8, !tbaa !149
   %146 = load double, ptr %.0130, align 8, !tbaa !77
@@ -2445,7 +2445,7 @@ _ZN3igl8geodesic8Interval20compute_min_distanceEd.exit: ; preds = %141, %_ZN3igl
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %185, %183, %177, %165
-  %195 = phi i1 [ true, %165 ], [ %178, %177 ], [ %184, %183 ], [ %194, %185 ]
+  %195 = phi i1 [ %194, %185 ], [ true, %165 ], [ %178, %177 ], [ %184, %183 ]
   %196 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   store ptr %.pre.i.i.i, ptr %197, align 8, !tbaa !75
@@ -2517,7 +2517,7 @@ _ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit: ; preds = %159
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i181
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i181: ; preds = %228, %226, %220, %208
-  %238 = phi i1 [ true, %208 ], [ %221, %220 ], [ %227, %226 ], [ %237, %228 ]
+  %238 = phi i1 [ %237, %228 ], [ true, %208 ], [ %221, %220 ], [ %227, %226 ]
   %239 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
   store ptr %.pre.i.i.i180, ptr %240, align 8, !tbaa !75
@@ -2714,21 +2714,21 @@ _ZN3igl8geodesic8Interval20compute_min_distanceEd.exit196: ; preds = %287, %_ZN3
   %334 = load double, ptr %.0419496, align 8, !tbaa !77
   %335 = load double, ptr %327, align 8, !tbaa !77
   %336 = fcmp une double %334, %335
-  br i1 %336, label %337, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i
+  br i1 %336, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i, label %337
 
 337:                                              ; preds = %333
-  %338 = fcmp olt double %334, %335
-  br i1 %338, label %347, label %.thread
+  %338 = load ptr, ptr %325, align 8, !tbaa !76
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 48
+  %340 = load i32, ptr %339, align 4, !tbaa !24
+  %341 = getelementptr inbounds nuw i8, ptr %327, i64 48
+  %342 = load ptr, ptr %341, align 8, !tbaa !76
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 48
+  %344 = load i32, ptr %343, align 4, !tbaa !24
+  %345 = icmp ult i32 %340, %344
+  br i1 %345, label %347, label %.thread
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i:      ; preds = %333
-  %339 = load ptr, ptr %325, align 8, !tbaa !76
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 48
-  %341 = load i32, ptr %340, align 4, !tbaa !24
-  %342 = getelementptr inbounds nuw i8, ptr %327, i64 48
-  %343 = load ptr, ptr %342, align 8, !tbaa !76
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 48
-  %345 = load i32, ptr %344, align 4, !tbaa !24
-  %346 = icmp ult i32 %341, %345
+  %346 = fcmp olt double %334, %335
   br i1 %346, label %347, label %.thread
 
 347:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i, %337, %331
@@ -2776,22 +2776,22 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i:      ; preds = %333
   %360 = load double, ptr %355, align 8, !tbaa !77
   %361 = load double, ptr %.0419496, align 8, !tbaa !77
   %362 = fcmp une double %360, %361
-  br i1 %362, label %363, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i
+  br i1 %362, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i, label %363
 
 363:                                              ; preds = %359
-  %364 = fcmp olt double %360, %361
-  br i1 %364, label %374, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit206
+  %364 = getelementptr inbounds nuw i8, ptr %355, i64 48
+  %365 = load ptr, ptr %364, align 8, !tbaa !76
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 48
+  %367 = load i32, ptr %366, align 4, !tbaa !24
+  %368 = getelementptr inbounds nuw i8, ptr %.0419496, i64 48
+  %369 = load ptr, ptr %368, align 8, !tbaa !76
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 48
+  %371 = load i32, ptr %370, align 4, !tbaa !24
+  %372 = icmp ult i32 %367, %371
+  br i1 %372, label %374, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit206
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i:     ; preds = %359
-  %365 = getelementptr inbounds nuw i8, ptr %355, i64 48
-  %366 = load ptr, ptr %365, align 8, !tbaa !76
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 48
-  %368 = load i32, ptr %367, align 4, !tbaa !24
-  %369 = getelementptr inbounds nuw i8, ptr %.0419496, i64 48
-  %370 = load ptr, ptr %369, align 8, !tbaa !76
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 48
-  %372 = load i32, ptr %371, align 4, !tbaa !24
-  %373 = icmp ult i32 %368, %372
+  %373 = fcmp olt double %360, %361
   br i1 %373, label %374, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit206
 
 374:                                              ; preds = %._crit_edge.thread.i, %363, %357, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i
@@ -2834,7 +2834,7 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i:     ; preds = %359
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i201
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i201: ; preds = %390, %388, %382, %374
-  %400 = phi i1 [ true, %374 ], [ %383, %382 ], [ %389, %388 ], [ %399, %390 ]
+  %400 = phi i1 [ %399, %390 ], [ true, %374 ], [ %383, %382 ], [ %389, %388 ]
   %401 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 32
   store ptr %.0419496, ptr %402, align 8, !tbaa !75
@@ -2889,21 +2889,21 @@ _ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit206: ; preds = %
   %427 = load double, ptr %420, align 8, !tbaa !77
   %428 = load double, ptr %.1138501, align 8, !tbaa !77
   %429 = fcmp une double %427, %428
-  br i1 %429, label %430, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i
+  br i1 %429, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i, label %430
 
 430:                                              ; preds = %426
-  %431 = fcmp olt double %427, %428
-  br i1 %431, label %440, label %441
+  %431 = getelementptr inbounds nuw i8, ptr %420, i64 48
+  %432 = load ptr, ptr %431, align 8, !tbaa !76
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 48
+  %434 = load i32, ptr %433, align 4, !tbaa !24
+  %435 = load ptr, ptr %417, align 8, !tbaa !76
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 48
+  %437 = load i32, ptr %436, align 4, !tbaa !24
+  %438 = icmp ult i32 %434, %437
+  br i1 %438, label %440, label %441
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i: ; preds = %426
-  %432 = getelementptr inbounds nuw i8, ptr %420, i64 48
-  %433 = load ptr, ptr %432, align 8, !tbaa !76
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 48
-  %435 = load i32, ptr %434, align 4, !tbaa !24
-  %436 = load ptr, ptr %417, align 8, !tbaa !76
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 48
-  %438 = load i32, ptr %437, align 4, !tbaa !24
-  %439 = icmp ult i32 %435, %438
+  %439 = fcmp olt double %427, %428
   br i1 %439, label %440, label %441
 
 440:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i, %430, %424
@@ -2937,22 +2937,22 @@ _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lowe
   %453 = load double, ptr %.1138501, align 8, !tbaa !77
   %454 = load double, ptr %446, align 8, !tbaa !77
   %455 = fcmp une double %453, %454
-  br i1 %455, label %456, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i
+  br i1 %455, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i, label %456
 
 456:                                              ; preds = %452
-  %457 = fcmp uge double %453, %454
-  br i1 %457, label %465, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit
+  %457 = load ptr, ptr %417, align 8, !tbaa !76
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 48
+  %459 = load i32, ptr %458, align 4, !tbaa !24
+  %460 = getelementptr inbounds nuw i8, ptr %446, i64 48
+  %461 = load ptr, ptr %460, align 8, !tbaa !76
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 48
+  %463 = load i32, ptr %462, align 4, !tbaa !24
+  %.not.i207 = icmp ult i32 %459, %463
+  br i1 %.not.i207, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit, label %465
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i:  ; preds = %452
-  %458 = load ptr, ptr %417, align 8, !tbaa !76
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 48
-  %460 = load i32, ptr %459, align 4, !tbaa !24
-  %461 = getelementptr inbounds nuw i8, ptr %446, i64 48
-  %462 = load ptr, ptr %461, align 8, !tbaa !76
-  %463 = getelementptr inbounds nuw i8, ptr %462, i64 48
-  %464 = load i32, ptr %463, align 4, !tbaa !24
-  %.not.i207 = icmp ult i32 %460, %464
-  br i1 %.not.i207, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit, label %465
+  %464 = fcmp uge double %453, %454
+  br i1 %464, label %465, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit
 
 465:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i, %456, %450
   %466 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
@@ -3048,8 +3048,8 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit: ; preds
   br label %505
 
 505:                                              ; preds = %528, %.lr.ph.i.i.i.i212
-  %.012.i.i.i.i213 = phi ptr [ %503, %.lr.ph.i.i.i.i212 ], [ %.1.i.i.i.i218, %528 ]
-  %.0811.i.i.i.i214 = phi ptr [ %13, %.lr.ph.i.i.i.i212 ], [ %.19.i.i.i.i217, %528 ]
+  %.012.i.i.i.i213 = phi ptr [ %503, %.lr.ph.i.i.i.i212 ], [ %.1.i.i.i.i217, %528 ]
+  %.0811.i.i.i.i214 = phi ptr [ %13, %.lr.ph.i.i.i.i212 ], [ %.19.i.i.i.i216, %528 ]
   %506 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i213, i64 32
   %507 = load ptr, ptr %506, align 8, !tbaa !75
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 32
@@ -3065,40 +3065,40 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit: ; preds
   %514 = load double, ptr %507, align 8, !tbaa !77
   %515 = load double, ptr %.1138501, align 8, !tbaa !77
   %516 = fcmp une double %514, %515
-  br i1 %516, label %517, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215
+  br i1 %516, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222, label %517
 
 517:                                              ; preds = %513
-  %518 = fcmp olt double %514, %515
-  br i1 %518, label %527, label %528
+  %518 = getelementptr inbounds nuw i8, ptr %507, i64 48
+  %519 = load ptr, ptr %518, align 8, !tbaa !76
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 48
+  %521 = load i32, ptr %520, align 4, !tbaa !24
+  %522 = load ptr, ptr %504, align 8, !tbaa !76
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 48
+  %524 = load i32, ptr %523, align 4, !tbaa !24
+  %525 = icmp ult i32 %521, %524
+  br i1 %525, label %527, label %528
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215: ; preds = %513
-  %519 = getelementptr inbounds nuw i8, ptr %507, i64 48
-  %520 = load ptr, ptr %519, align 8, !tbaa !76
-  %521 = getelementptr inbounds nuw i8, ptr %520, i64 48
-  %522 = load i32, ptr %521, align 4, !tbaa !24
-  %523 = load ptr, ptr %504, align 8, !tbaa !76
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 48
-  %525 = load i32, ptr %524, align 4, !tbaa !24
-  %526 = icmp ult i32 %522, %525
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222: ; preds = %513
+  %526 = fcmp olt double %514, %515
   br i1 %526, label %527, label %528
 
-527:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215, %517, %511
+527:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222, %517, %511
   br label %528
 
-528:                                              ; preds = %527, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215, %517, %511
-  %.sink.i.i.i.i216 = phi i64 [ 24, %527 ], [ 16, %517 ], [ 16, %511 ], [ 16, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215 ]
-  %.19.i.i.i.i217 = phi ptr [ %.0811.i.i.i.i214, %527 ], [ %.012.i.i.i.i213, %517 ], [ %.012.i.i.i.i213, %511 ], [ %.012.i.i.i.i213, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i215 ]
-  %529 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i213, i64 %.sink.i.i.i.i216
-  %.1.i.i.i.i218 = load ptr, ptr %529, align 8, !tbaa !159
-  %.not.i.i.i.i219 = icmp eq ptr %.1.i.i.i.i218, null
-  br i1 %.not.i.i.i.i219, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i220, label %505, !llvm.loop !162
+528:                                              ; preds = %527, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222, %517, %511
+  %.sink.i.i.i.i215 = phi i64 [ 24, %527 ], [ 16, %517 ], [ 16, %511 ], [ 16, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222 ]
+  %.19.i.i.i.i216 = phi ptr [ %.0811.i.i.i.i214, %527 ], [ %.012.i.i.i.i213, %517 ], [ %.012.i.i.i.i213, %511 ], [ %.012.i.i.i.i213, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i222 ]
+  %529 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i213, i64 %.sink.i.i.i.i215
+  %.1.i.i.i.i217 = load ptr, ptr %529, align 8, !tbaa !159
+  %.not.i.i.i.i218 = icmp eq ptr %.1.i.i.i.i217, null
+  br i1 %.not.i.i.i.i218, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i219, label %505, !llvm.loop !162
 
-_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i220: ; preds = %528
-  %530 = icmp eq ptr %.19.i.i.i.i217, %13
+_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i219: ; preds = %528
+  %530 = icmp eq ptr %.19.i.i.i.i216, %13
   br i1 %530, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223, label %531
 
-531:                                              ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i220
-  %532 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i217, i64 32
+531:                                              ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i219
+  %532 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i216, i64 32
   %533 = load ptr, ptr %532, align 8, !tbaa !75
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 32
   %535 = load double, ptr %534, align 8, !tbaa !77
@@ -3113,32 +3113,32 @@ _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lowe
   %540 = load double, ptr %.1138501, align 8, !tbaa !77
   %541 = load double, ptr %533, align 8, !tbaa !77
   %542 = fcmp une double %540, %541
-  br i1 %542, label %543, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221
+  br i1 %542, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221, label %543
 
 543:                                              ; preds = %539
-  %544 = fcmp uge double %540, %541
-  br i1 %544, label %552, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223
+  %544 = load ptr, ptr %504, align 8, !tbaa !76
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 48
+  %546 = load i32, ptr %545, align 4, !tbaa !24
+  %547 = getelementptr inbounds nuw i8, ptr %533, i64 48
+  %548 = load ptr, ptr %547, align 8, !tbaa !76
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 48
+  %550 = load i32, ptr %549, align 4, !tbaa !24
+  %.not.i220 = icmp ult i32 %546, %550
+  br i1 %.not.i220, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223, label %552
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221: ; preds = %539
-  %545 = load ptr, ptr %504, align 8, !tbaa !76
-  %546 = getelementptr inbounds nuw i8, ptr %545, i64 48
-  %547 = load i32, ptr %546, align 4, !tbaa !24
-  %548 = getelementptr inbounds nuw i8, ptr %533, i64 48
-  %549 = load ptr, ptr %548, align 8, !tbaa !76
-  %550 = getelementptr inbounds nuw i8, ptr %549, i64 48
-  %551 = load i32, ptr %550, align 4, !tbaa !24
-  %.not.i222 = icmp ult i32 %547, %551
-  br i1 %.not.i222, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223, label %552
+  %551 = fcmp uge double %540, %541
+  br i1 %551, label %552, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223
 
 552:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221, %543, %537
-  %553 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i.i217, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  %553 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i.i216, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %553, i64 noundef 40) #25
   %554 = load i64, ptr %14, align 8, !tbaa !73
   %555 = add i64 %554, -1
   store i64 %555, ptr %14, align 8, !tbaa !73
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223
 
-_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223: ; preds = %498, %502, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i220, %537, %543, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221, %552
+_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit223: ; preds = %498, %502, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i219, %537, %543, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i221, %552
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.1138501, ptr noundef nonnull align 8 dereferenceable(64) %262, i64 64, i1 false)
   %556 = load double, ptr %26, align 8, !tbaa !77
   store double %556, ptr %.1138501, align 8, !tbaa !77
@@ -3162,8 +3162,8 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit2
   br i1 %or.cond508, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237, label %.lr.ph.i.i.i.i226
 
 .lr.ph.i.i.i.i226:                                ; preds = %557, %584
-  %.012.i.i.i.i227 = phi ptr [ %.1.i.i.i.i232, %584 ], [ %561, %557 ]
-  %.0811.i.i.i.i228 = phi ptr [ %.19.i.i.i.i231, %584 ], [ %13, %557 ]
+  %.012.i.i.i.i227 = phi ptr [ %.1.i.i.i.i231, %584 ], [ %561, %557 ]
+  %.0811.i.i.i.i228 = phi ptr [ %.19.i.i.i.i230, %584 ], [ %13, %557 ]
   %562 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i227, i64 32
   %563 = load ptr, ptr %562, align 8, !tbaa !75
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 32
@@ -3179,40 +3179,40 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit2
   %570 = load double, ptr %563, align 8, !tbaa !77
   %571 = load double, ptr %.1138501, align 8, !tbaa !77
   %572 = fcmp une double %570, %571
-  br i1 %572, label %573, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229
+  br i1 %572, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236, label %573
 
 573:                                              ; preds = %569
-  %574 = fcmp olt double %570, %571
-  br i1 %574, label %583, label %584
+  %574 = getelementptr inbounds nuw i8, ptr %563, i64 48
+  %575 = load ptr, ptr %574, align 8, !tbaa !76
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 48
+  %577 = load i32, ptr %576, align 4, !tbaa !24
+  %578 = load ptr, ptr %.sroa.7.0..1138.sroa_idx, align 8, !tbaa !76
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 48
+  %580 = load i32, ptr %579, align 4, !tbaa !24
+  %581 = icmp ult i32 %577, %580
+  br i1 %581, label %583, label %584
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229: ; preds = %569
-  %575 = getelementptr inbounds nuw i8, ptr %563, i64 48
-  %576 = load ptr, ptr %575, align 8, !tbaa !76
-  %577 = getelementptr inbounds nuw i8, ptr %576, i64 48
-  %578 = load i32, ptr %577, align 4, !tbaa !24
-  %579 = load ptr, ptr %.sroa.7.0..1138.sroa_idx, align 8, !tbaa !76
-  %580 = getelementptr inbounds nuw i8, ptr %579, i64 48
-  %581 = load i32, ptr %580, align 4, !tbaa !24
-  %582 = icmp ult i32 %578, %581
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236: ; preds = %569
+  %582 = fcmp olt double %570, %571
   br i1 %582, label %583, label %584
 
-583:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229, %573, %567
+583:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236, %573, %567
   br label %584
 
-584:                                              ; preds = %583, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229, %573, %567
-  %.sink.i.i.i.i230 = phi i64 [ 24, %583 ], [ 16, %573 ], [ 16, %567 ], [ 16, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229 ]
-  %.19.i.i.i.i231 = phi ptr [ %.0811.i.i.i.i228, %583 ], [ %.012.i.i.i.i227, %573 ], [ %.012.i.i.i.i227, %567 ], [ %.012.i.i.i.i227, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i229 ]
-  %585 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i227, i64 %.sink.i.i.i.i230
-  %.1.i.i.i.i232 = load ptr, ptr %585, align 8, !tbaa !159
-  %.not.i.i.i.i233 = icmp eq ptr %.1.i.i.i.i232, null
-  br i1 %.not.i.i.i.i233, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i234, label %.lr.ph.i.i.i.i226, !llvm.loop !162
+584:                                              ; preds = %583, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236, %573, %567
+  %.sink.i.i.i.i229 = phi i64 [ 24, %583 ], [ 16, %573 ], [ 16, %567 ], [ 16, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236 ]
+  %.19.i.i.i.i230 = phi ptr [ %.0811.i.i.i.i228, %583 ], [ %.012.i.i.i.i227, %573 ], [ %.012.i.i.i.i227, %567 ], [ %.012.i.i.i.i227, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i.i236 ]
+  %585 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i227, i64 %.sink.i.i.i.i229
+  %.1.i.i.i.i231 = load ptr, ptr %585, align 8, !tbaa !159
+  %.not.i.i.i.i232 = icmp eq ptr %.1.i.i.i.i231, null
+  br i1 %.not.i.i.i.i232, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i233, label %.lr.ph.i.i.i.i226, !llvm.loop !162
 
-_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i234: ; preds = %584
-  %586 = icmp eq ptr %.19.i.i.i.i231, %13
+_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i233: ; preds = %584
+  %586 = icmp eq ptr %.19.i.i.i.i230, %13
   br i1 %586, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237, label %587
 
-587:                                              ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i234
-  %588 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i231, i64 32
+587:                                              ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i233
+  %588 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i230, i64 32
   %589 = load ptr, ptr %588, align 8, !tbaa !75
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 32
   %591 = load double, ptr %590, align 8, !tbaa !77
@@ -3227,33 +3227,33 @@ _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lowe
   %596 = load double, ptr %.1138501, align 8, !tbaa !77
   %597 = load double, ptr %589, align 8, !tbaa !77
   %598 = fcmp une double %596, %597
-  br i1 %598, label %599, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235
+  br i1 %598, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235, label %599
 
 599:                                              ; preds = %595
-  %600 = fcmp uge double %596, %597
-  br i1 %600, label %608, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237
+  %600 = load ptr, ptr %.sroa.7.0..1138.sroa_idx, align 8, !tbaa !76
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 48
+  %602 = load i32, ptr %601, align 4, !tbaa !24
+  %603 = getelementptr inbounds nuw i8, ptr %589, i64 48
+  %604 = load ptr, ptr %603, align 8, !tbaa !76
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 48
+  %606 = load i32, ptr %605, align 4, !tbaa !24
+  %.not.i234 = icmp ult i32 %602, %606
+  br i1 %.not.i234, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237, label %608
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235: ; preds = %595
-  %601 = load ptr, ptr %.sroa.7.0..1138.sroa_idx, align 8, !tbaa !76
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 48
-  %603 = load i32, ptr %602, align 4, !tbaa !24
-  %604 = getelementptr inbounds nuw i8, ptr %589, i64 48
-  %605 = load ptr, ptr %604, align 8, !tbaa !76
-  %606 = getelementptr inbounds nuw i8, ptr %605, i64 48
-  %607 = load i32, ptr %606, align 4, !tbaa !24
-  %.not.i236 = icmp ult i32 %603, %607
-  br i1 %.not.i236, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237, label %608
+  %607 = fcmp uge double %596, %597
+  br i1 %607, label %608, label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237
 
 608:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235, %599, %593
-  %609 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i.i231, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  %609 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %609, i64 noundef 40) #25
   %610 = load i64, ptr %14, align 8, !tbaa !73
   %611 = add i64 %610, -1
   store i64 %611, ptr %14, align 8, !tbaa !73
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237
 
-_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237: ; preds = %557, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i234, %593, %599, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235, %608
-  %.1.i224 = phi i1 [ true, %608 ], [ false, %557 ], [ false, %599 ], [ false, %593 ], [ false, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235 ], [ false, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i234 ]
+_ZN3igl8geodesic22GeodesicAlgorithmExact16erase_from_queueEPNS0_8IntervalE.exit237: ; preds = %557, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i233, %593, %599, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235, %608
+  %.1.i224 = phi i1 [ true, %608 ], [ false, %557 ], [ false, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i.i.i235 ], [ false, %599 ], [ false, %593 ], [ false, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i.i233 ]
   %.not510 = icmp eq i32 %281, 0
   br i1 %.not510, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3553,7 +3553,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i245:   ; preds = %734, %732
   store double %.1.i.sink.i243, ptr %742, align 8, !tbaa !149
   %.02226.i331 = load ptr, ptr %12, align 8, !tbaa !159
   %.not27.i332 = icmp eq ptr %.02226.i331, null
-  br i1 %.not27.i332, label %._crit_edge.thread.i348, label %.lr.ph.i333.preheader
+  br i1 %.not27.i332, label %._crit_edge.thread.i347, label %.lr.ph.i333.preheader
 
 .lr.ph.i333.preheader:                            ; preds = %741
   %743 = getelementptr inbounds nuw i8, ptr %705, i64 48
@@ -3576,89 +3576,89 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i245:   ; preds = %734, %732
   %752 = load double, ptr %.0419496, align 8, !tbaa !77
   %753 = load double, ptr %745, align 8, !tbaa !77
   %754 = fcmp une double %752, %753
-  br i1 %754, label %755, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i335
+  br i1 %754, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i349, label %755
 
 755:                                              ; preds = %751
-  %756 = fcmp olt double %752, %753
-  br i1 %756, label %763, label %.thread435
+  %756 = load i32, ptr %743, align 4, !tbaa !24
+  %757 = getelementptr inbounds nuw i8, ptr %745, i64 48
+  %758 = load ptr, ptr %757, align 8, !tbaa !76
+  %759 = getelementptr inbounds nuw i8, ptr %758, i64 48
+  %760 = load i32, ptr %759, align 4, !tbaa !24
+  %761 = icmp ult i32 %756, %760
+  br i1 %761, label %763, label %.thread435
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i335:   ; preds = %751
-  %757 = load i32, ptr %743, align 4, !tbaa !24
-  %758 = getelementptr inbounds nuw i8, ptr %745, i64 48
-  %759 = load ptr, ptr %758, align 8, !tbaa !76
-  %760 = getelementptr inbounds nuw i8, ptr %759, i64 48
-  %761 = load i32, ptr %760, align 4, !tbaa !24
-  %762 = icmp ult i32 %757, %761
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i349:   ; preds = %751
+  %762 = fcmp olt double %752, %753
   br i1 %762, label %763, label %.thread435
 
-763:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i335, %755, %749
+763:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i349, %755, %749
   %764 = getelementptr inbounds nuw i8, ptr %.02228.i334, i64 16
-  %.022.i338 = load ptr, ptr %764, align 8, !tbaa !159
-  %.not.i339 = icmp eq ptr %.022.i338, null
-  br i1 %.not.i339, label %._crit_edge.thread.i348, label %.lr.ph.i333.backedge
+  %.022.i337 = load ptr, ptr %764, align 8, !tbaa !159
+  %.not.i338 = icmp eq ptr %.022.i337, null
+  br i1 %.not.i338, label %._crit_edge.thread.i347, label %.lr.ph.i333.backedge
 
 .lr.ph.i333.backedge:                             ; preds = %763, %.thread435
-  %.02228.i334.be = phi ptr [ %.022.i338, %763 ], [ %.022.i338438, %.thread435 ]
+  %.02228.i334.be = phi ptr [ %.022.i337438, %.thread435 ], [ %.022.i337, %763 ]
   br label %.lr.ph.i333, !llvm.loop !160
 
-.thread435:                                       ; preds = %749, %755, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i335
+.thread435:                                       ; preds = %749, %755, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i349
   %765 = getelementptr inbounds nuw i8, ptr %.02228.i334, i64 24
-  %.022.i338438 = load ptr, ptr %765, align 8, !tbaa !159
-  %.not.i339439 = icmp eq ptr %.022.i338438, null
-  br i1 %.not.i339439, label %._crit_edge.i340.thread, label %.lr.ph.i333.backedge
+  %.022.i337438 = load ptr, ptr %765, align 8, !tbaa !159
+  %.not.i338439 = icmp eq ptr %.022.i337438, null
+  br i1 %.not.i338439, label %._crit_edge.i339.thread, label %.lr.ph.i333.backedge
 
-._crit_edge.thread.i348:                          ; preds = %763, %741
-  %.021.lcssa40.i349 = phi ptr [ %13, %741 ], [ %.02228.i334, %763 ]
+._crit_edge.thread.i347:                          ; preds = %763, %741
+  %.021.lcssa40.i348 = phi ptr [ %13, %741 ], [ %.02228.i334, %763 ]
   %766 = load ptr, ptr %27, align 8, !tbaa !74
-  %767 = icmp eq ptr %.021.lcssa40.i349, %766
+  %767 = icmp eq ptr %.021.lcssa40.i348, %766
   br i1 %767, label %788, label %768
 
-768:                                              ; preds = %._crit_edge.thread.i348
-  %769 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i349) #28
+768:                                              ; preds = %._crit_edge.thread.i347
+  %769 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i348) #28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %769, i64 32
   %.pre536 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !75
   %.phi.trans.insert537 = getelementptr inbounds nuw i8, ptr %.pre536, i64 32
   %.pre538 = load double, ptr %.phi.trans.insert537, align 8, !tbaa !77
-  br label %._crit_edge.i340.thread
+  br label %._crit_edge.i339.thread
 
-._crit_edge.i340.thread:                          ; preds = %.thread435, %768
+._crit_edge.i339.thread:                          ; preds = %.thread435, %768
   %770 = phi double [ %.pre538, %768 ], [ %747, %.thread435 ]
   %771 = phi ptr [ %.pre536, %768 ], [ %745, %.thread435 ]
-  %.021.lcssa39.i341 = phi ptr [ %.021.lcssa40.i349, %768 ], [ %.02228.i334, %.thread435 ]
+  %.021.lcssa39.i340 = phi ptr [ %.021.lcssa40.i348, %768 ], [ %.02228.i334, %.thread435 ]
   %772 = fcmp une double %770, %.1.i.sink.i243
   br i1 %772, label %773, label %775
 
-773:                                              ; preds = %._crit_edge.i340.thread
+773:                                              ; preds = %._crit_edge.i339.thread
   %774 = fcmp olt double %770, %.1.i.sink.i243
   br i1 %774, label %788, label %.noexc262
 
-775:                                              ; preds = %._crit_edge.i340.thread
+775:                                              ; preds = %._crit_edge.i339.thread
   %776 = load double, ptr %771, align 8, !tbaa !77
   %777 = load double, ptr %.0419496, align 8, !tbaa !77
   %778 = fcmp une double %776, %777
-  br i1 %778, label %779, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343
+  br i1 %778, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i346, label %779
 
 779:                                              ; preds = %775
-  %780 = fcmp olt double %776, %777
-  br i1 %780, label %788, label %.noexc262
+  %780 = getelementptr inbounds nuw i8, ptr %771, i64 48
+  %781 = load ptr, ptr %780, align 8, !tbaa !76
+  %782 = getelementptr inbounds nuw i8, ptr %781, i64 48
+  %783 = load i32, ptr %782, align 4, !tbaa !24
+  %784 = getelementptr inbounds nuw i8, ptr %705, i64 48
+  %785 = load i32, ptr %784, align 4, !tbaa !24
+  %786 = icmp ult i32 %783, %785
+  br i1 %786, label %788, label %.noexc262
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343:  ; preds = %775
-  %781 = getelementptr inbounds nuw i8, ptr %771, i64 48
-  %782 = load ptr, ptr %781, align 8, !tbaa !76
-  %783 = getelementptr inbounds nuw i8, ptr %782, i64 48
-  %784 = load i32, ptr %783, align 4, !tbaa !24
-  %785 = getelementptr inbounds nuw i8, ptr %705, i64 48
-  %786 = load i32, ptr %785, align 4, !tbaa !24
-  %787 = icmp ult i32 %784, %786
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i346:  ; preds = %775
+  %787 = fcmp olt double %776, %777
   br i1 %787, label %788, label %.noexc262
 
-788:                                              ; preds = %._crit_edge.thread.i348, %779, %773, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343
-  %.sroa.4.0.i345.ph = phi ptr [ %.021.lcssa39.i341, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343 ], [ %.021.lcssa39.i341, %773 ], [ %.021.lcssa39.i341, %779 ], [ %.021.lcssa40.i349, %._crit_edge.thread.i348 ]
-  %789 = icmp eq ptr %.sroa.4.0.i345.ph, %13
+788:                                              ; preds = %._crit_edge.thread.i347, %779, %773, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i346
+  %.sroa.4.0.i343.ph = phi ptr [ %.021.lcssa39.i340, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i346 ], [ %.021.lcssa39.i340, %773 ], [ %.021.lcssa39.i340, %779 ], [ %.021.lcssa40.i348, %._crit_edge.thread.i347 ]
+  %789 = icmp eq ptr %.sroa.4.0.i343.ph, %13
   br i1 %789, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i257, label %790
 
 790:                                              ; preds = %788
-  %791 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i345.ph, i64 32
+  %791 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i343.ph, i64 32
   %792 = load ptr, ptr %791, align 8, !tbaa !75
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 32
   %794 = load double, ptr %793, align 8, !tbaa !77
@@ -3690,17 +3690,17 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343:  ; preds = %775
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i257
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i257: ; preds = %804, %802, %796, %788
-  %812 = phi i1 [ true, %788 ], [ %797, %796 ], [ %803, %802 ], [ %811, %804 ]
+  %812 = phi i1 [ %811, %804 ], [ true, %788 ], [ %797, %796 ], [ %803, %802 ]
   %813 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 32
   store ptr %.0419496, ptr %814, align 8, !tbaa !75
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %812, ptr noundef nonnull %813, ptr noundef nonnull %.sroa.4.0.i345.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %812, ptr noundef nonnull %813, ptr noundef nonnull %.sroa.4.0.i343.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %815 = load i64, ptr %14, align 8, !tbaa !73
   %816 = add i64 %815, 1
   store i64 %816, ptr %14, align 8, !tbaa !73
   br label %.noexc262
 
-.noexc262:                                        ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i257, %773, %779, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i343, %701
+.noexc262:                                        ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i257, %773, %779, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i346, %701
   store ptr %.1138501, ptr %22, align 8, !tbaa !75
   %817 = load ptr, ptr %24, align 8, !tbaa !75
   store ptr %817, ptr %.sroa.5.0..1138.sroa_idx, align 8, !tbaa !75
@@ -3962,7 +3962,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i279:   ; preds = %919, %917
 932:                                              ; preds = %926
   %.02226.i351 = load ptr, ptr %12, align 8, !tbaa !159
   %.not27.i352 = icmp eq ptr %.02226.i351, null
-  br i1 %.not27.i352, label %._crit_edge.thread.i368, label %.lr.ph.i353.preheader
+  br i1 %.not27.i352, label %._crit_edge.thread.i367, label %.lr.ph.i353.preheader
 
 .lr.ph.i353.preheader:                            ; preds = %932
   %933 = getelementptr inbounds nuw i8, ptr %889, i64 48
@@ -3985,89 +3985,89 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i279:   ; preds = %919, %917
   %942 = load double, ptr %885, align 8, !tbaa !77
   %943 = load double, ptr %935, align 8, !tbaa !77
   %944 = fcmp une double %942, %943
-  br i1 %944, label %945, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i355
+  br i1 %944, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i369, label %945
 
 945:                                              ; preds = %941
-  %946 = fcmp olt double %942, %943
-  br i1 %946, label %953, label %.thread449
+  %946 = load i32, ptr %933, align 4, !tbaa !24
+  %947 = getelementptr inbounds nuw i8, ptr %935, i64 48
+  %948 = load ptr, ptr %947, align 8, !tbaa !76
+  %949 = getelementptr inbounds nuw i8, ptr %948, i64 48
+  %950 = load i32, ptr %949, align 4, !tbaa !24
+  %951 = icmp ult i32 %946, %950
+  br i1 %951, label %953, label %.thread449
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i355:   ; preds = %941
-  %947 = load i32, ptr %933, align 4, !tbaa !24
-  %948 = getelementptr inbounds nuw i8, ptr %935, i64 48
-  %949 = load ptr, ptr %948, align 8, !tbaa !76
-  %950 = getelementptr inbounds nuw i8, ptr %949, i64 48
-  %951 = load i32, ptr %950, align 4, !tbaa !24
-  %952 = icmp ult i32 %947, %951
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i369:   ; preds = %941
+  %952 = fcmp olt double %942, %943
   br i1 %952, label %953, label %.thread449
 
-953:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i355, %945, %939
+953:                                              ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i369, %945, %939
   %954 = getelementptr inbounds nuw i8, ptr %.02228.i354, i64 16
-  %.022.i358 = load ptr, ptr %954, align 8, !tbaa !159
-  %.not.i359 = icmp eq ptr %.022.i358, null
-  br i1 %.not.i359, label %._crit_edge.thread.i368, label %.lr.ph.i353.backedge
+  %.022.i357 = load ptr, ptr %954, align 8, !tbaa !159
+  %.not.i358 = icmp eq ptr %.022.i357, null
+  br i1 %.not.i358, label %._crit_edge.thread.i367, label %.lr.ph.i353.backedge
 
 .lr.ph.i353.backedge:                             ; preds = %953, %.thread449
-  %.02228.i354.be = phi ptr [ %.022.i358, %953 ], [ %.022.i358452, %.thread449 ]
+  %.02228.i354.be = phi ptr [ %.022.i357452, %.thread449 ], [ %.022.i357, %953 ]
   br label %.lr.ph.i353, !llvm.loop !160
 
-.thread449:                                       ; preds = %939, %945, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i355
+.thread449:                                       ; preds = %939, %945, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i369
   %955 = getelementptr inbounds nuw i8, ptr %.02228.i354, i64 24
-  %.022.i358452 = load ptr, ptr %955, align 8, !tbaa !159
-  %.not.i359453 = icmp eq ptr %.022.i358452, null
-  br i1 %.not.i359453, label %._crit_edge.i360.thread, label %.lr.ph.i353.backedge
+  %.022.i357452 = load ptr, ptr %955, align 8, !tbaa !159
+  %.not.i358453 = icmp eq ptr %.022.i357452, null
+  br i1 %.not.i358453, label %._crit_edge.i359.thread, label %.lr.ph.i353.backedge
 
-._crit_edge.thread.i368:                          ; preds = %953, %932
-  %.021.lcssa40.i369 = phi ptr [ %13, %932 ], [ %.02228.i354, %953 ]
+._crit_edge.thread.i367:                          ; preds = %953, %932
+  %.021.lcssa40.i368 = phi ptr [ %13, %932 ], [ %.02228.i354, %953 ]
   %956 = load ptr, ptr %27, align 8, !tbaa !74
-  %957 = icmp eq ptr %.021.lcssa40.i369, %956
+  %957 = icmp eq ptr %.021.lcssa40.i368, %956
   br i1 %957, label %978, label %958
 
-958:                                              ; preds = %._crit_edge.thread.i368
-  %959 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i369) #28
+958:                                              ; preds = %._crit_edge.thread.i367
+  %959 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i368) #28
   %.phi.trans.insert539 = getelementptr inbounds nuw i8, ptr %959, i64 32
   %.pre540 = load ptr, ptr %.phi.trans.insert539, align 8, !tbaa !75
   %.phi.trans.insert541 = getelementptr inbounds nuw i8, ptr %.pre540, i64 32
   %.pre542 = load double, ptr %.phi.trans.insert541, align 8, !tbaa !77
-  br label %._crit_edge.i360.thread
+  br label %._crit_edge.i359.thread
 
-._crit_edge.i360.thread:                          ; preds = %.thread449, %958
+._crit_edge.i359.thread:                          ; preds = %.thread449, %958
   %960 = phi double [ %.pre542, %958 ], [ %937, %.thread449 ]
   %961 = phi ptr [ %.pre540, %958 ], [ %935, %.thread449 ]
-  %.021.lcssa39.i361 = phi ptr [ %.021.lcssa40.i369, %958 ], [ %.02228.i354, %.thread449 ]
+  %.021.lcssa39.i360 = phi ptr [ %.021.lcssa40.i368, %958 ], [ %.02228.i354, %.thread449 ]
   %962 = fcmp une double %960, %.1.i.sink.i277
   br i1 %962, label %963, label %965
 
-963:                                              ; preds = %._crit_edge.i360.thread
+963:                                              ; preds = %._crit_edge.i359.thread
   %964 = fcmp olt double %960, %.1.i.sink.i277
   br i1 %964, label %978, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
 
-965:                                              ; preds = %._crit_edge.i360.thread
+965:                                              ; preds = %._crit_edge.i359.thread
   %966 = load double, ptr %961, align 8, !tbaa !77
   %967 = load double, ptr %885, align 8, !tbaa !77
   %968 = fcmp une double %966, %967
-  br i1 %968, label %969, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363
+  br i1 %968, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366, label %969
 
 969:                                              ; preds = %965
-  %970 = fcmp olt double %966, %967
-  br i1 %970, label %978, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
+  %970 = getelementptr inbounds nuw i8, ptr %961, i64 48
+  %971 = load ptr, ptr %970, align 8, !tbaa !76
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 48
+  %973 = load i32, ptr %972, align 4, !tbaa !24
+  %974 = getelementptr inbounds nuw i8, ptr %889, i64 48
+  %975 = load i32, ptr %974, align 4, !tbaa !24
+  %976 = icmp ult i32 %973, %975
+  br i1 %976, label %978, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363:  ; preds = %965
-  %971 = getelementptr inbounds nuw i8, ptr %961, i64 48
-  %972 = load ptr, ptr %971, align 8, !tbaa !76
-  %973 = getelementptr inbounds nuw i8, ptr %972, i64 48
-  %974 = load i32, ptr %973, align 4, !tbaa !24
-  %975 = getelementptr inbounds nuw i8, ptr %889, i64 48
-  %976 = load i32, ptr %975, align 4, !tbaa !24
-  %977 = icmp ult i32 %974, %976
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366:  ; preds = %965
+  %977 = fcmp olt double %966, %967
   br i1 %977, label %978, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
 
-978:                                              ; preds = %._crit_edge.thread.i368, %969, %963, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363
-  %.sroa.4.0.i365.ph = phi ptr [ %.021.lcssa39.i361, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363 ], [ %.021.lcssa39.i361, %963 ], [ %.021.lcssa39.i361, %969 ], [ %.021.lcssa40.i369, %._crit_edge.thread.i368 ]
-  %979 = icmp eq ptr %.sroa.4.0.i365.ph, %13
+978:                                              ; preds = %._crit_edge.thread.i367, %969, %963, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366
+  %.sroa.4.0.i363.ph = phi ptr [ %.021.lcssa39.i360, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366 ], [ %.021.lcssa39.i360, %963 ], [ %.021.lcssa39.i360, %969 ], [ %.021.lcssa40.i368, %._crit_edge.thread.i367 ]
+  %979 = icmp eq ptr %.sroa.4.0.i363.ph, %13
   br i1 %979, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291, label %980
 
 980:                                              ; preds = %978
-  %981 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i365.ph, i64 32
+  %981 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i363.ph, i64 32
   %982 = load ptr, ptr %981, align 8, !tbaa !75
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 32
   %984 = load double, ptr %983, align 8, !tbaa !77
@@ -4099,18 +4099,18 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363:  ; preds = %965
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291: ; preds = %994, %992, %986, %978
-  %1002 = phi i1 [ true, %978 ], [ %987, %986 ], [ %993, %992 ], [ %1001, %994 ]
+  %1002 = phi i1 [ %1001, %994 ], [ true, %978 ], [ %987, %986 ], [ %993, %992 ]
   %1003 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 32
   store ptr %885, ptr %1004, align 8, !tbaa !75
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1002, ptr noundef nonnull %1003, ptr noundef nonnull %.sroa.4.0.i365.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1002, ptr noundef nonnull %1003, ptr noundef nonnull %.sroa.4.0.i363.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %1005 = load i64, ptr %14, align 8, !tbaa !73
   %1006 = add i64 %1005, 1
   store i64 %1006, ptr %14, align 8, !tbaa !73
   br label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
 
-_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298: ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291, %963, %969, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363, %926, %881
-  %.6 = phi ptr [ %882, %881 ], [ %.5490, %926 ], [ %.5490, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i363 ], [ %.5490, %969 ], [ %.5490, %963 ], [ %.5490, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291 ]
+_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298: ; preds = %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291, %963, %969, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366, %926, %881
+  %.6 = phi ptr [ %882, %881 ], [ %.5490, %926 ], [ %.5490, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i366 ], [ %.5490, %969 ], [ %.5490, %963 ], [ %.5490, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i291 ]
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count527
   br i1 %exitcond528.not, label %._crit_edge494, label %876, !llvm.loop !191
@@ -4122,7 +4122,7 @@ _ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298: ; preds = %
   br i1 %.not148, label %.critedge2, label %275
 
 .critedge2:                                       ; preds = %275, %1007
-  %.0419.lcssa = phi ptr [ %.0419496, %275 ], [ %.2, %1007 ]
+  %.0419.lcssa = phi ptr [ %.2, %1007 ], [ %.0419496, %275 ]
   %.not149 = icmp eq ptr %.0419.lcssa, null
   br i1 %.not149, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320, label %1008
 
@@ -4207,7 +4207,7 @@ _ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310: ; preds = %1008, %_ZN
   store double %.1.i.sink.i301, ptr %1049, align 8, !tbaa !149
   %.02226.i371 = load ptr, ptr %12, align 8, !tbaa !159
   %.not27.i372 = icmp eq ptr %.02226.i371, null
-  br i1 %.not27.i372, label %._crit_edge.thread.i388, label %.lr.ph.i373.preheader
+  br i1 %.not27.i372, label %._crit_edge.thread.i387, label %.lr.ph.i373.preheader
 
 .lr.ph.i373.preheader:                            ; preds = %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310
   %1050 = getelementptr inbounds nuw i8, ptr %1012, i64 48
@@ -4230,89 +4230,89 @@ _ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310: ; preds = %1008, %_ZN
   %1059 = load double, ptr %.0419.lcssa, align 8, !tbaa !77
   %1060 = load double, ptr %1052, align 8, !tbaa !77
   %1061 = fcmp une double %1059, %1060
-  br i1 %1061, label %1062, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i375
+  br i1 %1061, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i389, label %1062
 
 1062:                                             ; preds = %1058
-  %1063 = fcmp olt double %1059, %1060
-  br i1 %1063, label %1070, label %.thread463
+  %1063 = load i32, ptr %1050, align 4, !tbaa !24
+  %1064 = getelementptr inbounds nuw i8, ptr %1052, i64 48
+  %1065 = load ptr, ptr %1064, align 8, !tbaa !76
+  %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 48
+  %1067 = load i32, ptr %1066, align 4, !tbaa !24
+  %1068 = icmp ult i32 %1063, %1067
+  br i1 %1068, label %1070, label %.thread463
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i375:   ; preds = %1058
-  %1064 = load i32, ptr %1050, align 4, !tbaa !24
-  %1065 = getelementptr inbounds nuw i8, ptr %1052, i64 48
-  %1066 = load ptr, ptr %1065, align 8, !tbaa !76
-  %1067 = getelementptr inbounds nuw i8, ptr %1066, i64 48
-  %1068 = load i32, ptr %1067, align 4, !tbaa !24
-  %1069 = icmp ult i32 %1064, %1068
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i389:   ; preds = %1058
+  %1069 = fcmp olt double %1059, %1060
   br i1 %1069, label %1070, label %.thread463
 
-1070:                                             ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i375, %1062, %1056
+1070:                                             ; preds = %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i389, %1062, %1056
   %1071 = getelementptr inbounds nuw i8, ptr %.02228.i374, i64 16
-  %.022.i378 = load ptr, ptr %1071, align 8, !tbaa !159
-  %.not.i379 = icmp eq ptr %.022.i378, null
-  br i1 %.not.i379, label %._crit_edge.thread.i388, label %.lr.ph.i373.backedge
+  %.022.i377 = load ptr, ptr %1071, align 8, !tbaa !159
+  %.not.i378 = icmp eq ptr %.022.i377, null
+  br i1 %.not.i378, label %._crit_edge.thread.i387, label %.lr.ph.i373.backedge
 
 .lr.ph.i373.backedge:                             ; preds = %1070, %.thread463
-  %.02228.i374.be = phi ptr [ %.022.i378, %1070 ], [ %.022.i378466, %.thread463 ]
+  %.02228.i374.be = phi ptr [ %.022.i377466, %.thread463 ], [ %.022.i377, %1070 ]
   br label %.lr.ph.i373, !llvm.loop !160
 
-.thread463:                                       ; preds = %1056, %1062, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i375
+.thread463:                                       ; preds = %1056, %1062, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit.i389
   %1072 = getelementptr inbounds nuw i8, ptr %.02228.i374, i64 24
-  %.022.i378466 = load ptr, ptr %1072, align 8, !tbaa !159
-  %.not.i379467 = icmp eq ptr %.022.i378466, null
-  br i1 %.not.i379467, label %._crit_edge.i380.thread, label %.lr.ph.i373.backedge
+  %.022.i377466 = load ptr, ptr %1072, align 8, !tbaa !159
+  %.not.i378467 = icmp eq ptr %.022.i377466, null
+  br i1 %.not.i378467, label %._crit_edge.i379.thread, label %.lr.ph.i373.backedge
 
-._crit_edge.thread.i388:                          ; preds = %1070, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310
-  %.021.lcssa40.i389 = phi ptr [ %13, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310 ], [ %.02228.i374, %1070 ]
+._crit_edge.thread.i387:                          ; preds = %1070, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310
+  %.021.lcssa40.i388 = phi ptr [ %13, %_ZN3igl8geodesic8Interval20compute_min_distanceEd.exit310 ], [ %.02228.i374, %1070 ]
   %1073 = load ptr, ptr %27, align 8, !tbaa !74
-  %1074 = icmp eq ptr %.021.lcssa40.i389, %1073
+  %1074 = icmp eq ptr %.021.lcssa40.i388, %1073
   br i1 %1074, label %1095, label %1075
 
-1075:                                             ; preds = %._crit_edge.thread.i388
-  %1076 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i389) #28
+1075:                                             ; preds = %._crit_edge.thread.i387
+  %1076 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa40.i388) #28
   %.phi.trans.insert547 = getelementptr inbounds nuw i8, ptr %1076, i64 32
   %.pre548 = load ptr, ptr %.phi.trans.insert547, align 8, !tbaa !75
   %.phi.trans.insert549 = getelementptr inbounds nuw i8, ptr %.pre548, i64 32
   %.pre550 = load double, ptr %.phi.trans.insert549, align 8, !tbaa !77
-  br label %._crit_edge.i380.thread
+  br label %._crit_edge.i379.thread
 
-._crit_edge.i380.thread:                          ; preds = %.thread463, %1075
+._crit_edge.i379.thread:                          ; preds = %.thread463, %1075
   %1077 = phi double [ %.pre550, %1075 ], [ %1054, %.thread463 ]
   %1078 = phi ptr [ %.pre548, %1075 ], [ %1052, %.thread463 ]
-  %.021.lcssa39.i381 = phi ptr [ %.021.lcssa40.i389, %1075 ], [ %.02228.i374, %.thread463 ]
+  %.021.lcssa39.i380 = phi ptr [ %.021.lcssa40.i388, %1075 ], [ %.02228.i374, %.thread463 ]
   %1079 = fcmp une double %1077, %.1.i.sink.i301
   br i1 %1079, label %1080, label %1082
 
-1080:                                             ; preds = %._crit_edge.i380.thread
+1080:                                             ; preds = %._crit_edge.i379.thread
   %1081 = fcmp olt double %1077, %.1.i.sink.i301
   br i1 %1081, label %1095, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
 
-1082:                                             ; preds = %._crit_edge.i380.thread
+1082:                                             ; preds = %._crit_edge.i379.thread
   %1083 = load double, ptr %1078, align 8, !tbaa !77
   %1084 = load double, ptr %.0419.lcssa, align 8, !tbaa !77
   %1085 = fcmp une double %1083, %1084
-  br i1 %1085, label %1086, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383
+  br i1 %1085, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i386, label %1086
 
 1086:                                             ; preds = %1082
-  %1087 = fcmp olt double %1083, %1084
-  br i1 %1087, label %1095, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
+  %1087 = getelementptr inbounds nuw i8, ptr %1078, i64 48
+  %1088 = load ptr, ptr %1087, align 8, !tbaa !76
+  %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 48
+  %1090 = load i32, ptr %1089, align 4, !tbaa !24
+  %1091 = getelementptr inbounds nuw i8, ptr %1012, i64 48
+  %1092 = load i32, ptr %1091, align 4, !tbaa !24
+  %1093 = icmp ult i32 %1090, %1092
+  br i1 %1093, label %1095, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
 
-_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383:  ; preds = %1082
-  %1088 = getelementptr inbounds nuw i8, ptr %1078, i64 48
-  %1089 = load ptr, ptr %1088, align 8, !tbaa !76
-  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 48
-  %1091 = load i32, ptr %1090, align 4, !tbaa !24
-  %1092 = getelementptr inbounds nuw i8, ptr %1012, i64 48
-  %1093 = load i32, ptr %1092, align 4, !tbaa !24
-  %1094 = icmp ult i32 %1091, %1093
+_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i386:  ; preds = %1082
+  %1094 = fcmp olt double %1083, %1084
   br i1 %1094, label %1095, label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
 
-1095:                                             ; preds = %._crit_edge.thread.i388, %1086, %1080, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383
-  %.sroa.4.0.i385.ph = phi ptr [ %.021.lcssa39.i381, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383 ], [ %.021.lcssa39.i381, %1080 ], [ %.021.lcssa39.i381, %1086 ], [ %.021.lcssa40.i389, %._crit_edge.thread.i388 ]
-  %1096 = icmp eq ptr %.sroa.4.0.i385.ph, %13
+1095:                                             ; preds = %._crit_edge.thread.i387, %1086, %1080, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i386
+  %.sroa.4.0.i383.ph = phi ptr [ %.021.lcssa39.i380, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i386 ], [ %.021.lcssa39.i380, %1080 ], [ %.021.lcssa39.i380, %1086 ], [ %.021.lcssa40.i388, %._crit_edge.thread.i387 ]
+  %1096 = icmp eq ptr %.sroa.4.0.i383.ph, %13
   br i1 %1096, label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i315, label %1097
 
 1097:                                             ; preds = %1095
-  %1098 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i385.ph, i64 32
+  %1098 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i383.ph, i64 32
   %1099 = load ptr, ptr %1098, align 8, !tbaa !75
   %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 32
   %1101 = load double, ptr %1100, align 8, !tbaa !77
@@ -4344,17 +4344,17 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383:  ; preds = %1082
   br label %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i315
 
 _ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i315: ; preds = %1111, %1109, %1103, %1095
-  %1119 = phi i1 [ true, %1095 ], [ %1104, %1103 ], [ %1110, %1109 ], [ %1118, %1111 ]
+  %1119 = phi i1 [ %1118, %1111 ], [ true, %1095 ], [ %1104, %1103 ], [ %1110, %1109 ]
   %1120 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   %1121 = getelementptr inbounds nuw i8, ptr %1120, i64 32
   store ptr %.0419.lcssa, ptr %1121, align 8, !tbaa !75
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1119, ptr noundef nonnull %1120, ptr noundef nonnull %.sroa.4.0.i385.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1119, ptr noundef nonnull %1120, ptr noundef nonnull %.sroa.4.0.i383.ph, ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %1122 = load i64, ptr %14, align 8, !tbaa !73
   %1123 = add i64 %1122, 1
   store i64 %1123, ptr %14, align 8, !tbaa !73
   br label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
 
-_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320: ; preds = %263, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i315, %1080, %1086, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i383, %.critedge2
+_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320: ; preds = %263, %_ZNSt8_Rb_treeIPN3igl8geodesic8IntervalES3_St9_IdentityIS3_ES2_SaIS3_EE10_M_insert_IRKS3_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i315, %1080, %1086, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6.i386, %.critedge2
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
   br i1 %exitcond533.not, label %.loopexit, label %261, !llvm.loop !192
@@ -4410,8 +4410,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc107
   br label %26
 
 26:                                               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc107, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %27 = phi ptr [ %19, %.noexc107 ], [ %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc107 ], [ %25, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
+  %27 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %19, %.noexc107 ], [ %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %22, %.noexc107 ], [ %25, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i.i.i.i.i, ptr %28, align 8, !tbaa !199
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4461,8 +4461,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc112
   br label %45
 
 45:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc112, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %46 = phi ptr [ %38, %.noexc112 ], [ %38, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i110 = phi ptr [ %41, %.noexc112 ], [ %44, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
+  %46 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %38, %.noexc112 ], [ %38, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i110 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %41, %.noexc112 ], [ %44, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0.i.i.i.i.i110, ptr %47, align 8, !tbaa !207
   %.not348 = icmp eq ptr %.0.i.i.i.i.i, %27
@@ -5562,9 +5562,9 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152: ; preds = %558, 
   br label %566
 
 566:                                              ; preds = %.loopexit265, %.loopexit.split-lp, %.loopexit268, %.loopexit.split-lp269, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152, %328
-  %.sroa.30.2 = phi ptr [ %.sroa.30.0, %328 ], [ %.sroa.30.4.lcssa, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %.sroa.15.0329, %.loopexit268 ], [ %.sroa.15.0329, %.loopexit.split-lp269 ], [ %.sroa.15.2338, %.loopexit265 ], [ %.sroa.15.2338, %.loopexit.split-lp ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %328 ], [ %.sroa.0.4.lcssa, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %.sroa.0.1330, %.loopexit268 ], [ %.sroa.0.1330, %.loopexit.split-lp269 ], [ %.sroa.0.4339, %.loopexit265 ], [ %.sroa.0.4339, %.loopexit.split-lp ]
-  %.pn96 = phi { ptr, i32 } [ %329, %328 ], [ %.pn, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %lpad.loopexit270, %.loopexit268 ], [ %lpad.loopexit.split-lp271, %.loopexit.split-lp269 ], [ %lpad.loopexit, %.loopexit265 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.30.2 = phi ptr [ %.sroa.30.0, %328 ], [ %.sroa.30.4.lcssa, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %.sroa.15.0329, %.loopexit.split-lp269 ], [ %.sroa.15.0329, %.loopexit268 ], [ %.sroa.15.2338, %.loopexit265 ], [ %.sroa.15.2338, %.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %328 ], [ %.sroa.0.4.lcssa, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %.sroa.0.1330, %.loopexit.split-lp269 ], [ %.sroa.0.1330, %.loopexit268 ], [ %.sroa.0.4339, %.loopexit265 ], [ %.sroa.0.4339, %.loopexit.split-lp ]
+  %.pn96 = phi { ptr, i32 } [ %329, %328 ], [ %.pn, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152 ], [ %lpad.loopexit.split-lp271, %.loopexit.split-lp269 ], [ %lpad.loopexit270, %.loopexit268 ], [ %lpad.loopexit, %.loopexit265 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i153 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i153, label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit154, label %567
 
@@ -5576,7 +5576,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit152: ; preds = %558, 
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit154
 
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit154: ; preds = %.loopexit274, %.loopexit.split-lp275, %.loopexit281, %.loopexit.split-lp282, %567, %566, %146
-  %.pn98 = phi { ptr, i32 } [ %147, %146 ], [ %.pn96, %566 ], [ %.pn96, %567 ], [ %lpad.loopexit283, %.loopexit281 ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp282 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit.split-lp277, %.loopexit.split-lp275 ]
+  %.pn98 = phi { ptr, i32 } [ %.pn96, %567 ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp282 ], [ %147, %146 ], [ %.pn96, %566 ], [ %lpad.loopexit283, %.loopexit281 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit.split-lp277, %.loopexit.split-lp275 ]
   %571 = load ptr, ptr %12, align 8, !tbaa !113
   %.not.i.i.i155 = icmp eq ptr %571, null
   br i1 %.not.i.i.i155, label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EED2Ev.exit156, label %572
@@ -6285,8 +6285,8 @@ _ZN3igl8geodesic8Interval6signalEd.exit74.i:      ; preds = %206, %208
   br label %.noexc99
 
 .noexc99:                                         ; preds = %214, %_ZN3igl8geodesic8Interval6signalEd.exit74.i, %_ZN3igl8geodesic8Interval6signalEd.exit68.i, %182, %_ZN3igl8geodesic8Interval6signalEd.exit58.i, %_ZN3igl8geodesic8Interval6signalEd.exit.i, %129
-  %.0 = phi double [ %.015.i, %182 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit58.i ], [ %150, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %188, %_ZN3igl8geodesic8Interval6signalEd.exit68.i ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit74.i ], [ %187, %214 ], [ 1.000000e+100, %129 ]
-  %.sink.i = phi double [ %.1.i61.i, %182 ], [ %174, %_ZN3igl8geodesic8Interval6signalEd.exit58.i ], [ %162, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %200, %_ZN3igl8geodesic8Interval6signalEd.exit68.i ], [ %213, %_ZN3igl8geodesic8Interval6signalEd.exit74.i ], [ %218, %214 ], [ 1.000000e+100, %129 ]
+  %.0 = phi double [ %187, %214 ], [ 1.000000e+100, %129 ], [ %.015.i, %182 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit58.i ], [ %150, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %188, %_ZN3igl8geodesic8Interval6signalEd.exit68.i ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit74.i ]
+  %.sink.i = phi double [ %218, %214 ], [ 1.000000e+100, %129 ], [ %.1.i61.i, %182 ], [ %174, %_ZN3igl8geodesic8Interval6signalEd.exit58.i ], [ %162, %_ZN3igl8geodesic8Interval6signalEd.exit.i ], [ %200, %_ZN3igl8geodesic8Interval6signalEd.exit68.i ], [ %213, %_ZN3igl8geodesic8Interval6signalEd.exit74.i ]
   %219 = fcmp olt double %.sink.i, %.0142
   br i1 %219, label %220, label %221
 
@@ -6702,7 +6702,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit: ; preds = %363, %365
   br label %377
 
 thread-pre-split:                                 ; preds = %271, %.loopexit, %.loopexit.split-lp171, %.loopexit170, %.loopexit.split-lp166, %.loopexit165, %.loopexit.split-lp161, %.loopexit160
-  %.pn36.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp163, %.loopexit.split-lp161 ], [ %lpad.loopexit162, %.loopexit160 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit, %.loopexit ], [ %272, %271 ]
+  %.pn36.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp163, %.loopexit.split-lp161 ], [ %lpad.loopexit162, %.loopexit160 ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %272, %271 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ]
   %.pr = load ptr, ptr %7, align 8, !tbaa !138
   br label %370
 
@@ -7920,7 +7920,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit77: ; preds = %2
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit, %3, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i50, %98, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %14, %36, %8, %.loopexit
-  %.0 = phi i32 [ %240, %.loopexit ], [ 1, %8 ], [ 2, %36 ], [ 1, %14 ], [ 1, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ 2, %98 ], [ 2, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i50 ], [ 0, %3 ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ]
+  %.0 = phi i32 [ 2, %36 ], [ 1, %8 ], [ %240, %.loopexit ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ 1, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ 1, %14 ], [ 2, %98 ], [ 2, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i50 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -8309,7 +8309,7 @@ _ZSt6fill_nIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RKT1_.exit.loop
   br label %_ZSt27__uninitialized_default_n_aIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN3igl8geodesic21SurfacePointWithIndexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !329
   br label %41
 
@@ -8579,7 +8579,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit.i.i.i.i, !llvm.loop !341
 
 .loopexit.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i
-  %.us-phi.i.i = phi ptr [ %.sroa.04.0.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i ], [ %.sroa.04.0.us.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i ], [ %.sroa.04.0.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i ], [ %.sroa.04.0.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i ], [ %.sroa.04.0.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i ], [ %.sroa.04.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i ]
+  %.us-phi.i.i = phi ptr [ %.sroa.04.0.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us.i ], [ %.sroa.04.0.us.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i.i ], [ %.sroa.04.0.us.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i.i ], [ %.sroa.04.0.i.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us.i ], [ %.sroa.04.0.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.i ], [ %.sroa.04.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.i ]
   store ptr %12, ptr %.us-phi.i.i, align 8, !tbaa !282
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i, i64 8
   %.not.i = icmp eq ptr %53, %1
@@ -8715,8 +8715,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
   br label %.split.i.split, !llvm.loop !343
 
 .split25.us.i:                                    ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i
-  %.us-phi27.i = phi ptr [ %.sroa.019.1.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.sroa.019.1.us.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %.sroa.019.1.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.sroa.019.1.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %.sroa.019.1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %.sroa.019.1.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
-  %.us-phi28.i = phi ptr [ %19, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %33, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %45, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
+  %.us-phi27.i = phi ptr [ %.sroa.019.1.i.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %.sroa.019.1.us.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %.sroa.019.1.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.sroa.019.1.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.sroa.019.1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %.sroa.019.1.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
+  %.us-phi28.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.us ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.us.i ], [ %19, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %33, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %45, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
   br label %58
 
 58:                                               ; preds = %.backedge, %.split25.us.i
@@ -9023,7 +9023,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
   br i1 %110, label %.lr.ph.split.i.split, label %.loopexit, !llvm.loop !347
 
 .loopexit:                                        ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %108, %93, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us, %77, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i, %60
-  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.019.us.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i ], [ %.0920.us.i, %77 ], [ %.019.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.019.i.us, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us ], [ %.0920.i.us, %93 ], [ %.019.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ], [ %.0920.i, %108 ], [ %.019.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
+  %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.019.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.019.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.019.us.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i ], [ %.0920.us.i, %77 ], [ %.019.i.us, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us ], [ %.0920.i.us, %93 ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ], [ %.0920.i, %108 ], [ %.019.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
   %111 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %111, align 8, !tbaa !282
   ret void
@@ -9312,8 +9312,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
   br label %133
 
 133:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit61, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i59, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit52, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit43, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i32, %132, %82
-  %.sink81 = phi ptr [ %7, %132 ], [ %6, %82 ], [ %7, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i32 ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34 ], [ %36, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i41 ], [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit43 ], [ %6, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i50 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit52 ], [ %86, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i59 ], [ %86, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit61 ]
-  %.sink80 = phi ptr [ %2, %132 ], [ %1, %82 ], [ %2, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i32 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34 ], [ %3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i41 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit43 ], [ %1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i50 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit52 ], [ %3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i59 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit61 ]
+  %.sink81 = phi ptr [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit43 ], [ %7, %132 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit52 ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34 ], [ %6, %82 ], [ %7, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i32 ], [ %36, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i41 ], [ %6, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i50 ], [ %86, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i59 ], [ %86, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit61 ]
+  %.sink80 = phi ptr [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit43 ], [ %2, %132 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit52 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit34 ], [ %1, %82 ], [ %2, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i32 ], [ %3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i41 ], [ %1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i50 ], [ %3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i59 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit61 ]
   %134 = load ptr, ptr %0, align 8, !tbaa !282
   store ptr %.sink81, ptr %0, align 8, !tbaa !282
   store ptr %134, ptr %.sink80, align 8, !tbaa !282
@@ -9526,7 +9526,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit.i.i.i, !llvm.loop !341
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us, %47, %45, %41
-  %.sink = phi ptr [ %0, %41 ], [ %0, %45 ], [ %0, %47 ], [ %.sroa.04.0.i.us, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us ], [ %.sroa.04.0.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us ], [ %.sroa.04.0.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i ], [ %.sroa.04.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i ], [ %.sroa.04.0.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i ], [ %.sroa.04.0.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i ]
+  %.sink = phi ptr [ %0, %47 ], [ %0, %41 ], [ %0, %45 ], [ %.sroa.04.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i ], [ %.sroa.04.0.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i.us ], [ %.sroa.04.0.i.us, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.i.us ], [ %.sroa.04.0.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.i ], [ %.sroa.04.0.us.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIPS4_NS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.us.i ], [ %.sroa.04.0.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i.us.i ]
   store ptr %7, ptr %.sink, align 8, !tbaa !282
   %.sroa.012.0 = getelementptr inbounds nuw i8, ptr %.sroa.012.026, i64 8
   %.not = icmp eq ptr %.sroa.012.0, %1
@@ -10453,7 +10453,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3igl8geodesic22GeodesicAlgorithmEx
   br label %120
 
 120:                                              ; preds = %95, %92, %104, %115, %117, %69, %73
-  %.1152 = phi i32 [ 1, %73 ], [ 0, %69 ], [ 1, %95 ], [ 0, %92 ], [ 1, %117 ], [ 0, %115 ], [ %., %104 ]
+  %.1152 = phi i32 [ 0, %69 ], [ 1, %73 ], [ 1, %95 ], [ 0, %92 ], [ %., %104 ], [ 0, %115 ], [ 1, %117 ]
   %121 = load double, ptr %1, align 8, !tbaa !77
   %122 = load double, ptr %2, align 8, !tbaa !77
   %123 = fcmp olt double %121, %122
@@ -10626,8 +10626,8 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
   br i1 %exitcond.not, label %._crit_edge, label %194, !llvm.loop !371
 
 ._crit_edge183:                                   ; preds = %_ZN3igl8geodesic8Interval6signalEd.exit174, %_ZN3igl8geodesic8Interval6signalEd.exit.us186, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader, %._crit_edge
-  %204 = phi i1 [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ false, %._crit_edge ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
-  %205 = phi i32 [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ %141, %._crit_edge ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
+  %204 = phi i1 [ false, %._crit_edge ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ true, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
+  %205 = phi i32 [ %141, %._crit_edge ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ %143, %_ZN3igl8geodesic8Interval6signalEd.exit174 ]
   %206 = fsub double %124, %11
   %207 = fcmp olt double %121, %206
   br i1 %207, label %227, label %234
@@ -10931,21 +10931,21 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPN3igl8geodesic8Inter
   %18 = load double, ptr %5, align 8, !tbaa !77
   %19 = load double, ptr %11, align 8, !tbaa !77
   %20 = fcmp une double %18, %19
-  br i1 %20, label %21, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit
+  br i1 %20, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = fcmp olt double %18, %19
-  br i1 %22, label %32, label %31
+  %22 = load ptr, ptr %8, align 8, !tbaa !76
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %24 = load i32, ptr %23, align 4, !tbaa !24
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %28 = load i32, ptr %27, align 4, !tbaa !24
+  %29 = icmp ult i32 %24, %28
+  br i1 %29, label %32, label %31
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit:        ; preds = %17
-  %23 = load ptr, ptr %8, align 8, !tbaa !76
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load i32, ptr %24, align 4, !tbaa !24
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !76
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load i32, ptr %28, align 4, !tbaa !24
-  %30 = icmp ult i32 %25, %29
+  %30 = fcmp olt double %18, %19
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %21, %15, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit
@@ -10994,22 +10994,22 @@ _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit:        ; preds = %17
   %51 = load double, ptr %41, align 8, !tbaa !77
   %52 = load double, ptr %42, align 8, !tbaa !77
   %53 = fcmp une double %51, %52
-  br i1 %53, label %54, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6
+  br i1 %53, label %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6, label %54
 
 54:                                               ; preds = %50
-  %55 = fcmp olt double %51, %52
-  br i1 %55, label %66, label %65
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %56 = load ptr, ptr %55, align 8, !tbaa !76
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %58 = load i32, ptr %57, align 4, !tbaa !24
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %60 = load ptr, ptr %59, align 8, !tbaa !76
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %62 = load i32, ptr %61, align 4, !tbaa !24
+  %63 = icmp ult i32 %58, %62
+  br i1 %63, label %66, label %65
 
 _ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6:       ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %57 = load ptr, ptr %56, align 8, !tbaa !76
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %59 = load i32, ptr %58, align 4, !tbaa !24
-  %60 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %61 = load ptr, ptr %60, align 8, !tbaa !76
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %63 = load i32, ptr %62, align 4, !tbaa !24
-  %64 = icmp ult i32 %59, %63
+  %64 = fcmp olt double %51, %52
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %54, %48, %_ZNK3igl8geodesic8IntervalclEPS1_S2_.exit6
@@ -11382,7 +11382,7 @@ _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !395
   br label %41
 
@@ -11904,15 +11904,15 @@ _ZN3igl8geodesic8Interval6signalEd.exit95:        ; preds = %_ZN3igl8geodesic12I
   br label %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread
 
 _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread: ; preds = %154, %_ZN3igl8geodesic8Interval6signalEd.exit95, %181
-  %184 = phi i32 [ %.pre, %181 ], [ %135, %_ZN3igl8geodesic8Interval6signalEd.exit95 ], [ %135, %154 ]
-  %.6 = phi ptr [ %.0.i86, %181 ], [ %.5106, %_ZN3igl8geodesic8Interval6signalEd.exit95 ], [ %.5106, %154 ]
+  %184 = phi i32 [ %135, %_ZN3igl8geodesic8Interval6signalEd.exit95 ], [ %.pre, %181 ], [ %135, %154 ]
+  %.6 = phi ptr [ %.5106, %_ZN3igl8geodesic8Interval6signalEd.exit95 ], [ %.0.i86, %181 ], [ %.5106, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %186, label %134, label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit84.thread, !llvm.loop !405
 
 _ZN3igl8geodesic12SurfacePoint4typeEv.exit84.thread: ; preds = %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread, %125, %43, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit, %.preheader101, %72, %5, %_ZN3igl8geodesic8Interval6signalEd.exit
-  %.067 = phi ptr [ %.0.i, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ null, %5 ], [ %.2, %72 ], [ null, %.preheader101 ], [ null, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ null, %43 ], [ %.4, %125 ], [ %.6, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
+  %.067 = phi ptr [ null, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ null, %5 ], [ %.0.i, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ %.2, %72 ], [ null, %.preheader101 ], [ %.4, %125 ], [ null, %43 ], [ %.6, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
   %187 = load double, ptr %2, align 8, !tbaa !77
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %189 = load double, ptr %188, align 8, !tbaa !105
@@ -12088,7 +12088,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split: ; preds = %_ZN3i
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread
 
 _ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread: ; preds = %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread, %37, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split, %.preheader, %91, %2, %49, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit
-  %.1 = phi i64 [ %52, %49 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit ], [ 0, %2 ], [ %94, %91 ], [ -1, %.preheader ], [ -1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split ], [ -1, %37 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread ]
+  %.1 = phi i64 [ -1, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit ], [ 0, %2 ], [ %52, %49 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit ], [ %94, %91 ], [ -1, %.preheader ], [ 0, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit44.thread.fold.split ], [ -1, %37 ], [ -1, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread ]
   ret i64 %.1
 }
 
@@ -12302,7 +12302,7 @@ _ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i38: ; preds = %92
   br i1 %exitcond.not.i40, label %_ZN3igl8geodesic4Face9next_edgeEPNS0_4EdgeEPNS0_6VertexE.exit, label %87, !llvm.loop !97
 
 _ZN3igl8geodesic4Face9next_edgeEPNS0_4EdgeEPNS0_6VertexE.exit: ; preds = %92, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i38, %105
-  %106 = phi ptr [ %89, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i38 ], [ null, %105 ], [ %89, %92 ]
+  %106 = phi ptr [ null, %105 ], [ %89, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i38 ], [ %89, %92 ]
   %107 = load ptr, ptr %74, align 8, !tbaa !134
   %.not.i.i42 = icmp eq ptr %77, %107
   br i1 %.not.i.i42, label %110, label %108
@@ -12410,7 +12410,7 @@ _ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i52: ; preds = %143
   br i1 %exitcond.not.i54, label %_ZN3igl8geodesic4Face9next_edgeEPNS0_4EdgeEPNS0_6VertexE.exit56, label %138, !llvm.loop !97
 
 _ZN3igl8geodesic4Face9next_edgeEPNS0_4EdgeEPNS0_6VertexE.exit56: ; preds = %143, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i52, %156
-  %157 = phi ptr [ %140, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i52 ], [ null, %156 ], [ %140, %143 ]
+  %157 = phi ptr [ null, %156 ], [ %140, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i52 ], [ %140, %143 ]
   %.not.i.i57 = icmp eq ptr %130, %129
   br i1 %.not.i.i57, label %160, label %158
 
@@ -13027,7 +13027,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit74:        ; preds = %108, %121
   br label %_ZN3igl8geodesic8Interval6signalEd.exit63
 
 _ZN3igl8geodesic8Interval6signalEd.exit63:        ; preds = %79, %66, %_ZN3igl8geodesic8Interval6signalEd.exit58, %_ZN3igl8geodesic8Interval6signalEd.exit, %_ZN3igl8geodesic8Interval6signalEd.exit74, %126, %_ZN3igl8geodesic8Interval6signalEd.exit68, %9
-  %.sink = phi double [ %65, %_ZN3igl8geodesic8Interval6signalEd.exit58 ], [ %46, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ %125, %_ZN3igl8geodesic8Interval6signalEd.exit74 ], [ %131, %126 ], [ %105, %_ZN3igl8geodesic8Interval6signalEd.exit68 ], [ 1.000000e+100, %9 ], [ %.1.i61, %79 ], [ 1.000000e+100, %66 ]
+  %.sink = phi double [ %65, %_ZN3igl8geodesic8Interval6signalEd.exit58 ], [ 1.000000e+100, %9 ], [ %46, %_ZN3igl8geodesic8Interval6signalEd.exit ], [ %125, %_ZN3igl8geodesic8Interval6signalEd.exit74 ], [ %131, %126 ], [ %105, %_ZN3igl8geodesic8Interval6signalEd.exit68 ], [ %.1.i61, %79 ], [ 1.000000e+100, %66 ]
   store double %.sink, ptr %4, align 8, !tbaa !77
   ret void
 }
@@ -13153,7 +13153,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i30: ; preds = %_ZN3igl8geodesic1
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i31
 
 _ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i30.thread: ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit8.i.i28.thread97, %50, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i30.thread93
-  %53 = phi i32 [ %51, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i30.thread93 ], [ 3, %50 ], [ 3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit8.i.i28.thread97 ]
+  %53 = phi i32 [ %51, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i30.thread93 ], [ 3, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit8.i.i28.thread97 ], [ 3, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %55 = load i32, ptr %54, align 4, !tbaa !142
   br label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i31
@@ -13543,9 +13543,9 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc219
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc219, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.34.3 = phi ptr [ %13, %.noexc219 ], [ %13, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0328.3 = phi ptr [ %12, %.noexc219 ], [ %12, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %14, %.noexc219 ], [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.34.3 = phi ptr [ %13, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc219 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0328.3 = phi ptr [ %12, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %12, %.noexc219 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %17, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %14, %.noexc219 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i484 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %.sroa.0328.3483 = ptrtoint ptr %.sroa.0328.3 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -14506,8 +14506,8 @@ _ZN3igl8geodesic4Face13opposite_edgeEPNS0_6VertexE.exit: ; preds = %_ZN3igl8geod
   br i1 %exitcond500.not, label %480, label %.preheader371, !llvm.loop !443
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc263, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0276.0 = phi ptr [ %467, %.noexc263 ], [ %467, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %468, %.noexc263 ], [ %468, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0276.0 = phi ptr [ %467, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %467, %.noexc263 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %468, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %468, %.noexc263 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   br i1 %.not461, label %.preheader370, label %.lr.ph444
 
 .preheader370:                                    ; preds = %531, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
@@ -14633,9 +14633,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3igl8
   br i1 %584, label %.lr.ph448, label %._crit_edge449, !llvm.loop !447
 
 585:                                              ; preds = %525, %186, %422, %406, %322, %254
-  %.sroa.34.2 = phi ptr [ %.sroa.34.3, %254 ], [ %.sroa.34.3, %322 ], [ %.sroa.34.3, %406 ], [ %.sroa.34.3, %422 ], [ %.sroa.34.3, %186 ], [ %.sroa.34.4, %525 ]
-  %.sroa.0328.2 = phi ptr [ %.sroa.0328.3, %254 ], [ %.sroa.0328.3, %322 ], [ %.sroa.0328.3, %406 ], [ %.sroa.0328.3, %422 ], [ %.sroa.0328.3, %186 ], [ %.sroa.0328.4, %525 ]
-  %.pn211.pn.pn = phi { ptr, i32 } [ %255, %254 ], [ %323, %322 ], [ %407, %406 ], [ %423, %422 ], [ %187, %186 ], [ %526, %525 ]
+  %.sroa.34.2 = phi ptr [ %.sroa.34.3, %254 ], [ %.sroa.34.3, %322 ], [ %.sroa.34.3, %406 ], [ %.sroa.34.4, %525 ], [ %.sroa.34.3, %422 ], [ %.sroa.34.3, %186 ]
+  %.sroa.0328.2 = phi ptr [ %.sroa.0328.3, %254 ], [ %.sroa.0328.3, %322 ], [ %.sroa.0328.3, %406 ], [ %.sroa.0328.4, %525 ], [ %.sroa.0328.3, %422 ], [ %.sroa.0328.3, %186 ]
+  %.pn211.pn.pn = phi { ptr, i32 } [ %255, %254 ], [ %323, %322 ], [ %407, %406 ], [ %526, %525 ], [ %423, %422 ], [ %187, %186 ]
   %.not.i.i.i268 = icmp eq ptr %.sroa.0299.0577585, null
   br i1 %.not.i.i.i268, label %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269, label %586
 
@@ -14652,9 +14652,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3igl8
   br label %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269
 
 _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269: ; preds = %585, %586
-  %.sroa.34.0 = phi ptr [ %.sroa.34.2, %585 ], [ %.sroa.34.2600, %586 ]
-  %.sroa.0328.0 = phi ptr [ %.sroa.0328.2, %585 ], [ %.sroa.0328.2601, %586 ]
-  %.pn216 = phi { ptr, i32 } [ %.pn211.pn.pn, %585 ], [ %.pn211.pn.pn602, %586 ]
+  %.sroa.34.0 = phi ptr [ %.sroa.34.2600, %586 ], [ %.sroa.34.2, %585 ]
+  %.sroa.0328.0 = phi ptr [ %.sroa.0328.2601, %586 ], [ %.sroa.0328.2, %585 ]
+  %.pn216 = phi { ptr, i32 } [ %.pn211.pn.pn602, %586 ], [ %.pn211.pn.pn, %585 ]
   %.not.i.i.i270 = icmp eq ptr %.sroa.0328.0, null
   br i1 %.not.i.i.i270, label %_ZNSt6vectorIjSaIjEED2Ev.exit271, label %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269._crit_edge
 
@@ -14676,7 +14676,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269._crit_edge: ; preds = 
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit271
 
 _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %590, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269
-  %.pn216.pn = phi { ptr, i32 } [ %.pn216, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269 ], [ %.pn216361, %590 ]
+  %.pn216.pn = phi { ptr, i32 } [ %.pn216361, %590 ], [ %.pn216, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269 ]
   resume { ptr, i32 } %.pn216.pn
 }
 

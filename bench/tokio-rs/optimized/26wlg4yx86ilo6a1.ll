@@ -336,7 +336,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
 _ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
-  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
+  %.0 = phi i8 [ %52, %50 ], [ %spec.select.i.i, %43 ], [ %49, %47 ], [ 13, %42 ], [ 40, %41 ], [ 1, %40 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -2178,10 +2178,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -2278,10 +2278,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -2378,10 +2378,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -2478,10 +2478,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -2578,10 +2578,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -2678,10 +2678,10 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit: ; preds = %
   ret void
 
 .body.thread:                                     ; preds = %30, %12
-  %eh.lpad-body7 = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm, %30 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %13, %12 ]
   resume { ptr, i32 } %eh.lpad-body7
 
-30:                                               ; preds = %4, %10
+30:                                               ; preds = %10, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %31 = invoke noundef i32 @close(i32 noundef %1)
@@ -3196,7 +3196,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17hc6d6dd6e77c21bedE
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr49drop_in_place$LT$mio..sys..unix..pipe..Sender$GT$17h9fa94c2d42606f27E.exit", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i14", %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i" ], [ %.pn.i15, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i14" ], [ %.pn, %"_ZN4core3ptr49drop_in_place$LT$mio..sys..unix..pipe..Sender$GT$17h9fa94c2d42606f27E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i15, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i14" ], [ %.pn.i, %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Sender$GT$$GT$17hefb556ef1a5eb0bcE.llvm.700930863383756518.exit.i" ], [ %.pn, %"_ZN4core3ptr49drop_in_place$LT$mio..sys..unix..pipe..Sender$GT$17h9fa94c2d42606f27E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17hc6d6dd6e77c21bedE.exit
@@ -3370,7 +3370,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17h787a3fe1cde948e0E
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr51drop_in_place$LT$mio..sys..unix..pipe..Receiver$GT$17h1ce3dc243e61cae7E.exit", %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i14", %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i" ], [ %.pn.i15, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i14" ], [ %.pn, %"_ZN4core3ptr51drop_in_place$LT$mio..sys..unix..pipe..Receiver$GT$17h1ce3dc243e61cae7E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i15, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i14" ], [ %.pn.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$mio..sys..unix..pipe..Receiver$GT$$GT$17h5fda2430d314592aE.llvm.700930863383756518.exit.i" ], [ %.pn, %"_ZN4core3ptr51drop_in_place$LT$mio..sys..unix..pipe..Receiver$GT$17h1ce3dc243e61cae7E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17h787a3fe1cde948e0E.exit
@@ -3544,7 +3544,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17h3ec6abc89bdae26eE
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit", %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i14", %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i" ], [ %.pn.i15, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i14" ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i15, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i14" ], [ %.pn.i, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$tokio..process..imp..Pipe$GT$$GT$17he3dfe60add4e70a8E.llvm.700930863383756518.exit.i" ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17h3ec6abc89bdae26eE.exit
@@ -3718,7 +3718,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17h67db85a0efc60d31E
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr57drop_in_place$LT$mio..net..tcp..listener..TcpListener$GT$17h26f8368ceb99290fE.exit", %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i14", %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i" ], [ %.pn.i15, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i14" ], [ %.pn, %"_ZN4core3ptr57drop_in_place$LT$mio..net..tcp..listener..TcpListener$GT$17h26f8368ceb99290fE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i15, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i14" ], [ %.pn.i, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$mio..net..tcp..listener..TcpListener$GT$$GT$17h394e641d68b207e2E.llvm.700930863383756518.exit.i" ], [ %.pn, %"_ZN4core3ptr57drop_in_place$LT$mio..net..tcp..listener..TcpListener$GT$17h26f8368ceb99290fE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17h67db85a0efc60d31E.exit
@@ -5594,7 +5594,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17h498586b60a6a02c0E
   unreachable
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i14.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i.i", %"_ZN4core3ptr53drop_in_place$LT$mio..net..tcp..stream..TcpStream$GT$17hbf0e089966e96e89E.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i15.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i, %"_ZN4core3ptr53drop_in_place$LT$mio..net..tcp..stream..TcpStream$GT$17hbf0e089966e96e89E.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i15.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$mio..net..tcp..stream..TcpStream$GT$$GT$17h53b59ffbef3f4176E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i, %"_ZN4core3ptr53drop_in_place$LT$mio..net..tcp..stream..TcpStream$GT$17hbf0e089966e96e89E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17h498586b60a6a02c0E.exit.i
@@ -5941,8 +5941,8 @@ define { i64, ptr } @_ZN5tokio3net3tcp6stream9TcpStream15poll_read_ready17hd9438
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h865a425826d5dff3E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h865a425826d5dff3E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6005,8 +6005,8 @@ define { i64, ptr } @_ZN5tokio3net3tcp6stream9TcpStream16poll_write_ready17h063a
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h3f11e7f901dd2a3fE.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h3f11e7f901dd2a3fE.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6675,7 +6675,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17h02d536f3dacc1a3cE
   unreachable
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i14.i", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i.i", %"_ZN4core3ptr45drop_in_place$LT$mio..net..udp..UdpSocket$GT$17h859d541cc2de49d9E.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i.i" ], [ %.pn.i15.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i, %"_ZN4core3ptr45drop_in_place$LT$mio..net..udp..UdpSocket$GT$17h859d541cc2de49d9E.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i15.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$mio..net..udp..UdpSocket$GT$$GT$17h89464249ab0bfaefE.llvm.700930863383756518.exit.i.i" ], [ %.pn.i, %"_ZN4core3ptr45drop_in_place$LT$mio..net..udp..UdpSocket$GT$17h859d541cc2de49d9E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17h02d536f3dacc1a3cE.exit.i
@@ -6849,8 +6849,8 @@ define { i64, ptr } @_ZN5tokio3net3udp9UdpSocket15poll_send_ready17h94bce858f38f
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h5533d62ed9c9468cE.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h5533d62ed9c9468cE.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6925,8 +6925,8 @@ define { i64, ptr } @_ZN5tokio3net3udp9UdpSocket15poll_recv_ready17h452bb4fb8ba3
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h0e6f3dc30ae52784E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h0e6f3dc30ae52784E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7962,8 +7962,8 @@ define { i64, ptr } @_ZN5tokio3net4unix8datagram6socket12UnixDatagram15poll_send
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h449bf368115a5440E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h449bf368115a5440E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7998,8 +7998,8 @@ define { i64, ptr } @_ZN5tokio3net4unix8datagram6socket12UnixDatagram15poll_recv
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17ha61fb55394cf655cE.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17ha61fb55394cf655cE.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8314,7 +8314,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17haaa891452357640cE
   unreachable
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i14.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i.i", %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..datagram..UnixDatagram$GT$17h8106718d1e152dedE.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i15.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i, %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..datagram..UnixDatagram$GT$17h8106718d1e152dedE.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i15.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..datagram..UnixDatagram$GT$$GT$17h811161ee56b7a541E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i, %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..datagram..UnixDatagram$GT$17h8106718d1e152dedE.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17haaa891452357640cE.exit.i
@@ -8461,8 +8461,8 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram7unbound17hda8d804b
   br label %_ZN5tokio3net4unix8datagram6socket12UnixDatagram3new17h40dc916ec332cac6E.exit
 
 _ZN5tokio3net4unix8datagram6socket12UnixDatagram3new17h40dc916ec332cac6E.exit: ; preds = %1, %15, %14
-  %.sink = phi ptr [ %13, %14 ], [ %13, %15 ], [ %8, %1 ]
-  %storemerge = phi i64 [ %10, %14 ], [ %10, %15 ], [ 2, %1 ]
+  %.sink = phi ptr [ %13, %15 ], [ %13, %14 ], [ %8, %1 ]
+  %storemerge = phi i64 [ %10, %15 ], [ %10, %14 ], [ 2, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %16, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -9140,7 +9140,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17hf68f866d3cbb6f99E
   unreachable
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i14.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i.i", %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..listener..UnixListener$GT$17h4d8cf84d70ea2688E.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i.i" ], [ %.pn.i15.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i, %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..listener..UnixListener$GT$17h4d8cf84d70ea2688E.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i15.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$mio..net..uds..listener..UnixListener$GT$$GT$17h296fd86060b6a7dfE.llvm.700930863383756518.exit.i.i" ], [ %.pn.i, %"_ZN4core3ptr58drop_in_place$LT$mio..net..uds..listener..UnixListener$GT$17h4d8cf84d70ea2688E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17hf68f866d3cbb6f99E.exit.i
@@ -9495,8 +9495,8 @@ define { i64, ptr } @_ZN5tokio3net4unix6stream10UnixStream15poll_read_ready17hc5
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h16b303c7bfeb37d4E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h16b303c7bfeb37d4E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9559,8 +9559,8 @@ define { i64, ptr } @_ZN5tokio3net4unix6stream10UnixStream16poll_write_ready17hb
   br label %"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h2712e3a8f4a9de26E.exit"
 
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17h2712e3a8f4a9de26E.exit": ; preds = %2, %6, %7
-  %.sroa.4.0.i = phi ptr [ %8, %7 ], [ null, %6 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %6 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ null, %6 ], [ %8, %7 ], [ undef, %2 ]
+  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ 1, %2 ]
   %9 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, ptr } %9, ptr %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9740,7 +9740,7 @@ _ZN5tokio7runtime2io12registration12Registration10deregister17ha1cfe1f899e9b479E
   unreachable
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i14.i", %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i.i", %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h4f8e1943313e69f6E.exit.i"
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i15.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i, %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h4f8e1943313e69f6E.exit.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i15.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i14.i" ], [ %.pn.i.i, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$mio..net..uds..stream..UnixStream$GT$$GT$17h04fc3f0625891cc5E.llvm.700930863383756518.exit.i.i" ], [ %.pn.i, %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h4f8e1943313e69f6E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 44:                                               ; preds = %_ZN5tokio7runtime2io12registration12Registration10deregister17ha1cfe1f899e9b479E.exit.i
@@ -10680,7 +10680,7 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit.i: ; preds =
   unreachable
 
 .thread73:                                        ; preds = %.body, %85, %21
-  %.pn77 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %85 ], [ %lpad.thr_comm.split-lp, %21 ], [ %eh.lpad-body, %.body ]
+  %.pn77 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.thr_comm.split-lp, %85 ], [ %lpad.thr_comm.split-lp, %21 ]
   resume { ptr, i32 } %.pn77
 
 85:                                               ; preds = %21
@@ -10742,7 +10742,7 @@ define hidden void @"_ZN5tokio7process3imp12pidfd_reaper24PidfdReaper$LT$W$C$Q$G
   %8 = invoke noundef i32 @_ZN5tokio7process3imp12pidfd_reaper5Pidfd4open17h789e52c81a31ec90E(i32 noundef %7)
           to label %9 unwind label %.body.thread31
 
-.body.thread31:                                   ; preds = %2, %25
+.body.thread31:                                   ; preds = %25, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -10862,7 +10862,7 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit.i: ; preds =
   resume { ptr, i32 } %eh.lpad-body30
 
 .body.thread:                                     ; preds = %29, %15, %.body.thread31
-  %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread31 ], [ %16, %15 ], [ %lpad.thr_comm.i, %29 ]
+  %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread31 ], [ %lpad.thr_comm.i, %29 ], [ %16, %15 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..process..Child$GT$17h1b4efbb3bd140d7bE"(ptr noalias noundef nonnull align 4 dereferenceable(28) %1) #28
           to label %40 unwind label %41
 
@@ -11099,7 +11099,7 @@ define hidden void @_ZN5tokio7process3imp5stdio17h00010676ce4933adE(ptr noalias 
 "_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit": ; preds = %29
   resume { ptr, i32 } %lpad.thr_comm
 
-29:                                               ; preds = %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h43809222017603a1E.llvm.7600499188078001995.exit", %10, %.sink.split.i
+29:                                               ; preds = %10, %.sink.split.i, %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h43809222017603a1E.llvm.7600499188078001995.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %30 = invoke noundef i32 @close(i32 noundef %1)
@@ -11192,7 +11192,7 @@ define hidden void @_ZN5tokio7process3imp5stdio17h5c8e94a9b2941581E(ptr noalias 
 "_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit": ; preds = %29
   resume { ptr, i32 } %lpad.thr_comm
 
-29:                                               ; preds = %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hcf4ef81f70fcfedcE.llvm.7600499188078001995.exit", %10, %.sink.split.i
+29:                                               ; preds = %10, %.sink.split.i, %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hcf4ef81f70fcfedcE.llvm.7600499188078001995.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %30 = invoke noundef i32 @close(i32 noundef %1)
@@ -11285,7 +11285,7 @@ define hidden void @_ZN5tokio7process3imp5stdio17heb86b092186e7f3bE(ptr noalias 
 "_ZN4core3ptr46drop_in_place$LT$tokio..process..imp..Pipe$GT$17hd68b1f9596d2f574E.exit": ; preds = %29
   resume { ptr, i32 } %lpad.thr_comm
 
-29:                                               ; preds = %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hd33ad630bd6deb55E.llvm.7600499188078001995.exit", %10, %.sink.split.i
+29:                                               ; preds = %10, %.sink.split.i, %"_ZN74_$LT$tokio..process..imp..Pipe$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hd33ad630bd6deb55E.llvm.7600499188078001995.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %30 = invoke noundef i32 @close(i32 noundef %1)
@@ -11501,8 +11501,8 @@ _ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6d
   br label %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread
 
 _ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread.sink.split, %40, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit4.thread, %2, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit
-  %.sroa.4.0 = phi i64 [ undef, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit ], [ undef, %2 ], [ undef, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit4.thread ], [ %.sroa.3.0.i, %40 ], [ %.sroa.4.0.ph, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread.sink.split ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit ], [ 0, %2 ], [ 0, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit4.thread ], [ %.sroa.0.0.i, %40 ], [ %.sroa.0.0.ph, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread.sink.split ]
+  %.sroa.4.0 = phi i64 [ %.sroa.3.0.i, %40 ], [ undef, %2 ], [ undef, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit ], [ undef, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit4.thread ], [ %.sroa.4.0.ph, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread.sink.split ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %40 ], [ 0, %2 ], [ 0, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit ], [ 0, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit4.thread ], [ %.sroa.0.0.ph, %_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle20notify_should_wakeup17h4e6df787a1ce876eE.llvm.7600499188078001995.exit.thread.sink.split ]
   %18 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.4.0, 1
   ret { i64, i64 } %19
@@ -11717,7 +11717,7 @@ define hidden noundef zeroext i1 @_ZN5tokio7runtime9scheduler12multi_thread4idle
   br label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit9"
 
 "_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit9": ; preds = %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit9.sink.split", %16, %28
-  %22 = phi i1 [ true, %28 ], [ %13, %16 ], [ %.ph, %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit9.sink.split" ]
+  %22 = phi i1 [ %13, %16 ], [ true, %28 ], [ %.ph, %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit9.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %22
 

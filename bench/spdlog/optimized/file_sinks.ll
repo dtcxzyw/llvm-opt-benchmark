@@ -367,7 +367,7 @@ define linkonce_odr dso_local void @_ZN6spdlog19file_event_handlersC2ERKS0_(ptr 
   unreachable
 
 common.resume:                                    ; preds = %94, %.body, %13, %16
-  %common.resume.op = phi { ptr, i32 } [ %14, %16 ], [ %14, %13 ], [ %.pn.pn, %.body ], [ %.pn.pn, %94 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %16 ], [ %.pn.pn, %.body ], [ %.pn.pn, %94 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit: ; preds = %2, %9
@@ -513,7 +513,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
   unreachable
 
 .body16:                                          ; preds = %82, %.body22, %56, %53
-  %.pn = phi { ptr, i32 } [ %54, %56 ], [ %54, %53 ], [ %74, %.body22 ], [ %74, %82 ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %74, %82 ], [ %54, %56 ], [ %74, %.body22 ]
   %87 = load ptr, ptr %22, align 8, !tbaa !25
   %.not.i25 = icmp eq ptr %87, null
   br i1 %.not.i25, label %.body, label %88
@@ -530,7 +530,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
   unreachable
 
 .body:                                            ; preds = %88, %.body16, %36, %33
-  %.pn.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %.pn, %.body16 ], [ %.pn, %88 ]
+  %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %88 ], [ %34, %36 ], [ %.pn, %.body16 ]
   %93 = load ptr, ptr %3, align 8, !tbaa !25
   %.not.i27 = icmp eq ptr %93, null
   br i1 %.not.i27, label %common.resume, label %94
@@ -6030,7 +6030,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE15on_format_specsEiPKcS5
   br label %_ZN3fmt3v116detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcLi3ELi0ELb0EEEEEPKT_S8_S8_OT0_.exit
 
 _ZN3fmt3v116detail23parse_replacement_fieldIcRNS1_21format_string_checkerIcLi3ELi0ELb0EEEEEPKT_S8_S8_OT0_.exit: ; preds = %91, %41, %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit, %.thread47, %13, %98
-  %.125 = phi ptr [ %99, %98 ], [ %14, %13 ], [ %92, %91 ], [ %40, %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit ], [ %42, %41 ], [ %68, %.thread47 ]
+  %.125 = phi ptr [ %14, %13 ], [ %99, %98 ], [ %92, %91 ], [ %68, %.thread47 ], [ %40, %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit ], [ %42, %41 ]
   %.not = icmp eq ptr %.125, %5
   br i1 %.not, label %._crit_edge, label %13
 
@@ -6355,7 +6355,7 @@ _ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %_ZN3fmt3v116detail11parse_alignEc.exit52
 
 _ZN3fmt3v116detail11parse_alignEc.exit52:         ; preds = %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit, %34, %35, %36
-  %.0.i51 = phi i32 [ 0, %36 ], [ 16, %34 ], [ 24, %35 ], [ 8, %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
+  %.0.i51 = phi i32 [ 0, %36 ], [ 24, %35 ], [ 16, %34 ], [ 8, %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit ]
   %37 = load i32, ptr %2, align 8, !tbaa !166
   %38 = and i32 %37, -57
   %39 = or disjoint i32 %38, %.0.i51
@@ -6765,7 +6765,7 @@ _ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %_ZN3fmt3v116detail11parse_alignEc.exit87
 
 _ZN3fmt3v116detail11parse_alignEc.exit87:         ; preds = %203, %205, %206
-  %.0.i86 = phi i32 [ 16, %205 ], [ 24, %206 ], [ 8, %203 ]
+  %.0.i86 = phi i32 [ 8, %203 ], [ 24, %206 ], [ 16, %205 ]
   %207 = icmp eq i32 %.sroa.0124.0, 0
   br i1 %207, label %_ZZN3fmt3v116detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_13parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit89, label %_ZN3fmt3v116detail11parse_alignEc.exit87.thread
 
@@ -6825,7 +6825,7 @@ _ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit: ; preds
   br label %.loopexit166
 
 .loopexit166:                                     ; preds = %185, %223, %30, %.loopexit166.sink.split, %13
-  %.0 = phi ptr [ %0, %13 ], [ %227, %.loopexit166.sink.split ], [ %.0156, %30 ], [ %.1157, %223 ], [ %.0156, %185 ]
+  %.0 = phi ptr [ %0, %13 ], [ %227, %.loopexit166.sink.split ], [ %.0156, %30 ], [ %.0156, %185 ], [ %.1157, %223 ]
   ret ptr %.0
 }
 

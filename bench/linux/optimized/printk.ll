@@ -644,7 +644,7 @@ sub_15:                                           ; preds = %.tail
   br label %.thread
 
 .thread:                                          ; preds = %.tail3.thread, %17, %16
-  %18 = phi i32 [ 6, %17 ], [ 5, %16 ], [ 4, %.tail3.thread ]
+  %18 = phi i32 [ 5, %16 ], [ 6, %17 ], [ 4, %.tail3.thread ]
   store i32 %18, ptr @devkmsg_log, align 4
   br label %19
 
@@ -2027,7 +2027,7 @@ define internal fastcc i32 @syslog_print(ptr noundef nonnull %0, i32 noundef ran
   br i1 %84, label %.thread12, label %.preheader, !llvm.loop !36
 
 .thread12:                                        ; preds = %.thread8, %57, %60, %.preheader, %79, %76
-  %85 = phi i32 [ %78, %76 ], [ %34, %57 ], [ %34, %.preheader ], [ %34, %60 ], [ %81, %79 ], [ %28, %.thread8 ]
+  %85 = phi i32 [ %78, %76 ], [ %81, %79 ], [ %34, %57 ], [ %34, %.preheader ], [ %34, %60 ], [ %28, %.thread8 ]
   call void @mutex_unlock(ptr noundef nonnull @syslog_lock) #28
   call void @kfree(ptr noundef nonnull %7) #28
   br label %86
@@ -2358,7 +2358,7 @@ define dso_local zeroext i16 @printk_parse_prefix(ptr noundef readonly captures(
   br i1 %cond, label %.lr.ph.split.split, label %.thread, !llvm.loop !38
 
 .thread:                                          ; preds = %.lr.ph.split.split, %56, %.lr.ph.split.split.us, %38, %.lr.ph.split.us.split, %22, %.lr.ph.split.us.split.us, %11, %3
-  %.lcssa = phi i16 [ 0, %3 ], [ %12, %11 ], [ %7, %.lr.ph.split.us.split.us ], [ %23, %22 ], [ %15, %.lr.ph.split.us.split ], [ %39, %38 ], [ %26, %.lr.ph.split.split.us ], [ %57, %56 ], [ %42, %.lr.ph.split.split ]
+  %.lcssa = phi i16 [ 0, %3 ], [ %26, %.lr.ph.split.split.us ], [ %23, %22 ], [ %12, %11 ], [ %7, %.lr.ph.split.us.split.us ], [ %15, %.lr.ph.split.us.split ], [ %39, %38 ], [ %57, %56 ], [ %42, %.lr.ph.split.split ]
   ret i16 %.lcssa
 }
 
@@ -2490,8 +2490,8 @@ define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noun
   br label %67
 
 67:                                               ; preds = %65, %60
-  %68 = phi i32 [ %66, %65 ], [ %57, %60 ]
-  %69 = phi i32 [ %56, %65 ], [ %64, %60 ]
+  %68 = phi i32 [ %57, %60 ], [ %66, %65 ]
+  %69 = phi i32 [ %64, %60 ], [ %56, %65 ]
   %70 = getelementptr i8, ptr %55, i64 2
   %71 = load i8, ptr %70, align 1
   %cond = icmp eq i8 %71, 1
@@ -2670,7 +2670,7 @@ define dso_local range(i32 0, 65547) i32 @vprintk_store(i32 noundef %0, i32 noun
   br label %.thread
 
 .thread:                                          ; preds = %29, %32, %172, %166
-  %173 = phi i32 [ %167, %166 ], [ %167, %172 ], [ 0, %32 ], [ 0, %29 ]
+  %173 = phi i32 [ %167, %172 ], [ %167, %166 ], [ 0, %32 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2747,7 +2747,7 @@ define internal fastcc zeroext i16 @printk_sprint(ptr noundef %0, i16 noundef ze
   br i1 %cond, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %30, %.lr.ph
-  %.lcssa = phi i16 [ %31, %30 ], [ %26, %.lr.ph ]
+  %.lcssa = phi i16 [ %26, %.lr.ph ], [ %31, %30 ]
   %34 = icmp eq i16 %.lcssa, 0
   br i1 %34, label %.critedge.thread, label %35
 
@@ -6427,8 +6427,8 @@ define internal fastcc noundef i64 @find_first_fitting_seq(i64 noundef %0, i64 n
   br i1 %93, label %.split.split, label %.loopexit8, !llvm.loop !122
 
 .loopexit8:                                       ; preds = %.split.split, %.split.split.us, %32, %5
-  %94 = phi i64 [ 0, %5 ], [ %49, %32 ], [ %74, %.split.split.us ], [ %87, %.split.split ]
-  %95 = phi i64 [ %0, %5 ], [ %51, %32 ], [ %76, %.split.split.us ], [ %88, %.split.split ]
+  %94 = phi i64 [ 0, %5 ], [ %74, %.split.split.us ], [ %49, %32 ], [ %87, %.split.split ]
+  %95 = phi i64 [ %0, %5 ], [ %76, %.split.split.us ], [ %51, %32 ], [ %88, %.split.split ]
   %96 = call i64 @llvm.umin.i64(i64 %95, i64 %1)
   %97 = load ptr, ptr @prb, align 8
   %98 = call zeroext i1 @prb_read_valid_info(ptr noundef %97, i64 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #28

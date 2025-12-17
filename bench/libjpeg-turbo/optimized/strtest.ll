@@ -129,7 +129,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %48 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %41, i64 noundef 2) #10
   br label %49
 
-49:                                               ; preds = %47, %42
+49:                                               ; preds = %42, %47
   %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 147, i32 noundef 0, i32 noundef 34)
   br label %76
 
@@ -194,7 +194,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   br label %76
 
 76:                                               ; preds = %75, %72, %67, %61, %57, %49, %38, %29, %25, %21, %17, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %38 ], [ -1, %49 ], [ -1, %57 ], [ -1, %61 ], [ -1, %67 ], [ -1, %72 ], [ 0, %75 ]
+  %.0 = phi i32 [ 0, %75 ], [ -1, %72 ], [ -1, %67 ], [ -1, %61 ], [ -1, %7 ], [ -1, %29 ], [ -1, %57 ], [ -1, %25 ], [ -1, %49 ], [ -1, %21 ], [ -1, %38 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

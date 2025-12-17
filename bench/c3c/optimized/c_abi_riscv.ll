@@ -158,8 +158,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %.sink.split31.i.else
 
 .sink.split31.i.else:                             ; preds = %.sink.split31.i, %.sink.split.i.cont
-  %.1100.ph = phi i32 [ %.099, %.sink.split.i.cont ], [ %spec.select112, %.sink.split31.i ]
-  %.1.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select113, %.sink.split31.i ]
+  %.1100.ph = phi i32 [ %spec.select112, %.sink.split31.i ], [ %.099, %.sink.split.i.cont ]
+  %.1.ph = phi i32 [ %spec.select113, %.sink.split31.i ], [ %.098, %.sink.split.i.cont ]
   %43 = load i32, ptr %2, align 4
   %.not73 = icmp ugt i32 %.1100.ph, %43
   br i1 %.not73, label %.critedge, label %44
@@ -203,8 +203,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %63
 
 63:                                               ; preds = %61, %57
-  %64 = phi i32 [ %58, %57 ], [ %.pre, %61 ]
-  %.058 = phi i32 [ %60, %57 ], [ %spec.select87, %61 ]
+  %64 = phi i32 [ %.pre, %61 ], [ %58, %57 ]
+  %.058 = phi i32 [ %spec.select87, %61 ], [ %60, %57 ]
   %65 = icmp ugt i32 %.058, %64
   %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.058)
   store i32 %66, ptr %2, align 4
@@ -432,7 +432,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -780,7 +780,7 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph105, %45, %37, %35, %.thread93, %32, %29, %23, %19, %._crit_edge, %34, %.thread92
-  %.083 = phi i1 [ true, %34 ], [ true, %.thread92 ], [ %71, %._crit_edge ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ false, %32 ], [ false, %.thread93 ], [ false, %35 ], [ true, %37 ], [ %44, %45 ], [ %44, %.lr.ph105 ], [ false, %.lr.ph ]
+  %.083 = phi i1 [ false, %19 ], [ false, %23 ], [ false, %29 ], [ true, %34 ], [ true, %.thread92 ], [ false, %32 ], [ %71, %._crit_edge ], [ false, %35 ], [ false, %.thread93 ], [ true, %37 ], [ %44, %.lr.ph105 ], [ %44, %45 ], [ false, %.lr.ph ]
   ret i1 %.083
 }
 

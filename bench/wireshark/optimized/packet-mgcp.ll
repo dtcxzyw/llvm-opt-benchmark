@@ -915,7 +915,7 @@ is_mgcp_rspcode.exit:                             ; preds = %43
   br label %tvb_find_dot_line.exit
 
 .thread.i46:                                      ; preds = %93, %93, %91, %99, %96
-  %105 = phi i32 [ %82, %99 ], [ %85, %96 ], [ %85, %93 ], [ %85, %93 ], [ 0, %91 ]
+  %105 = phi i32 [ %85, %96 ], [ %82, %99 ], [ %85, %93 ], [ %85, %93 ], [ 0, %91 ]
   %106 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %105, i32 noundef %86, ptr noundef nonnull %19, i1 noundef zeroext false)
   br label %tvb_find_dot_line.exit
 
@@ -1247,7 +1247,7 @@ is_mgcp_rspcode.exit.i.i:                         ; preds = %206, %197
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %259, %257, %253, %is_mgcp_rspcode.exit.i.i, %.critedge.sink.split.i.i
-  %.2247.i.i = phi i32 [ %.0245.i.i, %.critedge.sink.split.i.i ], [ %.0245.i.i, %is_mgcp_rspcode.exit.i.i ], [ %.1246308313.i.i, %253 ], [ %.1246308313.i.i, %257 ], [ %.1246308313.i.i, %259 ]
+  %.2247.i.i = phi i32 [ %.0245.i.i, %.critedge.sink.split.i.i ], [ %.1246308313.i.i, %257 ], [ %.1246308313.i.i, %259 ], [ %.0245.i.i, %is_mgcp_rspcode.exit.i.i ], [ %.1246308313.i.i, %253 ]
   switch i32 %.2247.i.i, label %proto_item_set_generated.exit303.thread.i.i [
     i32 1, label %262
     i32 0, label %364
@@ -1627,7 +1627,7 @@ proto_item_set_generated.exit297.i.i:             ; preds = %429, %426, %proto_i
   br label %proto_item_set_generated.exit300.i.i
 
 proto_item_set_generated.exit300.i.i:             ; preds = %443, %439, %436, %proto_item_set_generated.exit297.i.i, %407, %403
-  %.1241.i.i = phi ptr [ %402, %407 ], [ %402, %403 ], [ %447, %443 ], [ %402, %proto_item_set_generated.exit297.i.i ], [ %402, %436 ], [ %402, %439 ]
+  %.1241.i.i = phi ptr [ %447, %443 ], [ %402, %407 ], [ %402, %403 ], [ %402, %proto_item_set_generated.exit297.i.i ], [ %402, %436 ], [ %402, %439 ]
   %458 = getelementptr inbounds nuw i8, ptr %.1241.i.i, i64 16
   %459 = load i32, ptr %458, align 8
   %.not268.i.i = icmp eq i32 %459, 0
@@ -2259,7 +2259,7 @@ define internal fastcc zeroext i1 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, 
   br i1 %.not29, label %.thread, label %66
 
 66:                                               ; preds = %59, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11
-  %.str.410.sink = phi ptr [ @.str.391, %11 ], [ @.str.393, %14 ], [ @.str.395, %17 ], [ @.str.397, %20 ], [ @.str.399, %23 ], [ @.str.401, %26 ], [ @.str.403, %29 ], [ @.str.405, %32 ], [ @.str.407, %35 ], [ @.str.409, %38 ], [ @.str.410, %59 ]
+  %.str.410.sink = phi ptr [ @.str.409, %38 ], [ @.str.407, %35 ], [ @.str.405, %32 ], [ @.str.403, %29 ], [ @.str.401, %26 ], [ @.str.399, %23 ], [ @.str.397, %20 ], [ @.str.395, %17 ], [ @.str.393, %14 ], [ @.str.391, %11 ], [ @.str.410, %59 ]
   store ptr %.str.410.sink, ptr %3, align 8
   %.not32 = icmp eq i32 %2, 4
   br i1 %.not32, label %.thread, label %67
@@ -2272,7 +2272,7 @@ define internal fastcc zeroext i1 @is_mgcp_verb(ptr noundef %0, i32 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %66, %59, %52, %44, %41, %9, %67, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %66 ], [ false, %59 ], [ false, %52 ], [ false, %44 ], [ false, %41 ], [ false, %9 ], [ %switch.selectcmp, %67 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %66 ], [ %switch.selectcmp, %67 ], [ false, %9 ], [ false, %59 ], [ false, %52 ], [ false, %44 ], [ false, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -2711,9 +2711,9 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %166, %163, %160, %157, %136, %101, %85, %39, %31, %28, %25, %153, %147, %141, %96, %90, %58, %36, %22, %131, %54, %44, %156, %150, %144, %135, %134, %100, %99, %93, %83, %38
-  %.0142 = phi ptr [ @hf_mgcp_param_secondconnectionid, %38 ], [ %.1, %83 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_restartdelay, %100 ], [ @hf_mgcp_param_digitmap, %135 ], [ @hf_mgcp_param_invalid, %134 ], [ @hf_mgcp_param_packagelist, %144 ], [ @hf_mgcp_param_eventstates, %150 ], [ @hf_mgcp_param_secondendpointid, %156 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_resourceid, %131 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_connectionid, %36 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_connectionparam, %141 ], [ @hf_mgcp_param_reasoncode, %147 ], [ @hf_mgcp_param_specificendpoint, %153 ], [ %spec.select, %25 ], [ %spec.select148, %28 ], [ %spec.select149, %31 ], [ %spec.select150, %39 ], [ %spec.select151, %85 ], [ %spec.select152, %101 ], [ %spec.select154, %136 ], [ %spec.select156, %157 ], [ %spec.select157, %160 ], [ %spec.select158, %163 ], [ %spec.select159, %166 ]
-  %.0223.i = phi i32 [ %35, %38 ], [ %84, %83 ], [ %89, %93 ], [ %95, %99 ], [ %95, %100 ], [ %16, %135 ], [ %16, %134 ], [ %140, %144 ], [ %146, %150 ], [ %152, %156 ], [ %16, %44 ], [ %16, %54 ], [ %126, %131 ], [ %16, %22 ], [ %16, %36 ], [ %16, %58 ], [ %16, %90 ], [ %16, %96 ], [ %16, %141 ], [ %16, %147 ], [ %16, %153 ], [ %16, %25 ], [ %16, %28 ], [ %16, %31 ], [ %16, %39 ], [ %16, %85 ], [ %16, %101 ], [ %16, %136 ], [ %16, %157 ], [ %16, %160 ], [ %16, %163 ], [ %16, %166 ]
-  %.0.i = phi ptr [ null, %38 ], [ null, %83 ], [ null, %93 ], [ null, %99 ], [ null, %100 ], [ null, %135 ], [ null, %134 ], [ null, %144 ], [ null, %150 ], [ null, %156 ], [ null, %44 ], [ null, %54 ], [ null, %131 ], [ null, %22 ], [ null, %36 ], [ null, %58 ], [ null, %90 ], [ null, %96 ], [ null, %141 ], [ null, %147 ], [ null, %153 ], [ null, %25 ], [ null, %28 ], [ null, %31 ], [ null, %39 ], [ null, %85 ], [ %spec.select153, %101 ], [ %spec.select155, %136 ], [ null, %157 ], [ null, %160 ], [ null, %163 ], [ null, %166 ]
+  %.0142 = phi ptr [ @hf_mgcp_param_eventstates, %150 ], [ @hf_mgcp_param_specificendpoint, %153 ], [ @hf_mgcp_param_reasoncode, %147 ], [ %spec.select159, %166 ], [ %spec.select, %25 ], [ %spec.select158, %163 ], [ %spec.select148, %28 ], [ @hf_mgcp_param_invalid, %22 ], [ @hf_mgcp_param_secondconnectionid, %38 ], [ @hf_mgcp_param_secondendpointid, %156 ], [ %spec.select149, %31 ], [ %spec.select157, %160 ], [ @hf_mgcp_param_requestid, %44 ], [ @hf_mgcp_param_connectionid, %36 ], [ %.1, %83 ], [ %spec.select150, %39 ], [ @hf_mgcp_param_remotevoicemetrics, %54 ], [ @hf_mgcp_param_localvoicemetrics, %58 ], [ @hf_mgcp_param_maxmgcpdatagram, %93 ], [ @hf_mgcp_param_connectionmode, %90 ], [ @hf_mgcp_param_restartmethod, %99 ], [ @hf_mgcp_param_restartdelay, %100 ], [ %spec.select154, %136 ], [ %spec.select151, %85 ], [ @hf_mgcp_param_digitmap, %135 ], [ @hf_mgcp_param_invalid, %134 ], [ %spec.select156, %157 ], [ %spec.select152, %101 ], [ @hf_mgcp_param_resourceid, %131 ], [ @hf_mgcp_param_reqevents, %96 ], [ @hf_mgcp_param_packagelist, %144 ], [ @hf_mgcp_param_connectionparam, %141 ]
+  %.0223.i = phi i32 [ %146, %150 ], [ %16, %153 ], [ %16, %147 ], [ %16, %166 ], [ %16, %25 ], [ %16, %163 ], [ %16, %28 ], [ %16, %22 ], [ %35, %38 ], [ %152, %156 ], [ %16, %31 ], [ %16, %160 ], [ %16, %44 ], [ %16, %36 ], [ %84, %83 ], [ %16, %39 ], [ %16, %54 ], [ %16, %58 ], [ %89, %93 ], [ %16, %90 ], [ %95, %99 ], [ %95, %100 ], [ %16, %136 ], [ %16, %85 ], [ %16, %135 ], [ %16, %134 ], [ %16, %157 ], [ %16, %101 ], [ %126, %131 ], [ %16, %96 ], [ %140, %144 ], [ %16, %141 ]
+  %.0.i = phi ptr [ null, %150 ], [ null, %153 ], [ null, %147 ], [ null, %166 ], [ null, %25 ], [ null, %163 ], [ null, %28 ], [ null, %22 ], [ null, %38 ], [ null, %156 ], [ null, %31 ], [ null, %160 ], [ null, %44 ], [ null, %36 ], [ null, %83 ], [ null, %39 ], [ null, %54 ], [ null, %58 ], [ null, %93 ], [ null, %90 ], [ null, %99 ], [ null, %100 ], [ %spec.select155, %136 ], [ null, %85 ], [ null, %135 ], [ null, %134 ], [ null, %157 ], [ %spec.select153, %101 ], [ null, %131 ], [ null, %96 ], [ null, %144 ], [ null, %141 ]
   %169 = add i32 %.0223.i, 1
   %.not250.i = icmp ne ptr %.0142, null
   %170 = sub i32 %169, %16
@@ -2887,7 +2887,7 @@ tvb_parse_param.exit:                             ; preds = %153, %151, %147, %1
   br i1 %.not77.i, label %270, label %277
 
 270:                                              ; preds = %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %216
-  %.060.in.i = phi ptr [ @hf_mgcp_param_connectionparam_ps, %216 ], [ @hf_mgcp_param_connectionparam_os, %220 ], [ @hf_mgcp_param_connectionparam_pr, %225 ], [ @hf_mgcp_param_connectionparam_or, %230 ], [ @hf_mgcp_param_connectionparam_pl, %235 ], [ @hf_mgcp_param_connectionparam_ji, %240 ], [ @hf_mgcp_param_connectionparam_la, %245 ], [ @hf_mgcp_param_connectionparam_pcrps, %250 ], [ @hf_mgcp_param_connectionparam_pcros, %255 ], [ @hf_mgcp_param_connectionparam_pcrpl, %260 ], [ @hf_mgcp_param_connectionparam_pcrji, %265 ]
+  %.060.in.i = phi ptr [ @hf_mgcp_param_connectionparam_ps, %216 ], [ @hf_mgcp_param_connectionparam_os, %220 ], [ @hf_mgcp_param_connectionparam_pcrpl, %260 ], [ @hf_mgcp_param_connectionparam_pcros, %255 ], [ @hf_mgcp_param_connectionparam_pcrps, %250 ], [ @hf_mgcp_param_connectionparam_la, %245 ], [ @hf_mgcp_param_connectionparam_ji, %240 ], [ @hf_mgcp_param_connectionparam_pl, %235 ], [ @hf_mgcp_param_connectionparam_or, %230 ], [ @hf_mgcp_param_connectionparam_pr, %225 ], [ @hf_mgcp_param_connectionparam_pcrji, %265 ]
   %.060.i = load i32, ptr %.060.in.i, align 4
   %271 = icmp sgt i32 %.060.i, 0
   br i1 %271, label %272, label %.thread82.i
@@ -3542,7 +3542,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   br label %662
 
 662:                                              ; preds = %656, %654, %647, %640, %633, %626, %619, %612, %605, %598, %591, %584, %577, %570, %563, %556, %549, %542, %535, %528, %521, %514, %507
-  %.0.i100 = phi i32 [ %655, %654 ], [ %648, %647 ], [ %641, %640 ], [ %634, %633 ], [ %627, %626 ], [ %620, %619 ], [ %613, %612 ], [ %606, %605 ], [ %599, %598 ], [ %592, %591 ], [ %585, %584 ], [ %578, %577 ], [ %571, %570 ], [ %564, %563 ], [ %557, %556 ], [ %550, %549 ], [ %543, %542 ], [ %536, %535 ], [ %529, %528 ], [ %522, %521 ], [ %515, %514 ], [ %508, %507 ], [ %spec.select.i99, %656 ]
+  %.0.i100 = phi i32 [ %508, %507 ], [ %spec.select.i99, %656 ], [ %655, %654 ], [ %648, %647 ], [ %641, %640 ], [ %634, %633 ], [ %627, %626 ], [ %620, %619 ], [ %613, %612 ], [ %606, %605 ], [ %599, %598 ], [ %592, %591 ], [ %585, %584 ], [ %578, %577 ], [ %571, %570 ], [ %564, %563 ], [ %557, %556 ], [ %550, %549 ], [ %543, %542 ], [ %536, %535 ], [ %529, %528 ], [ %522, %521 ], [ %515, %514 ]
   br i1 %.not100.i, label %679, label %663
 
 663:                                              ; preds = %662
@@ -3907,7 +3907,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   br label %875
 
 875:                                              ; preds = %869, %867, %860, %853, %846, %839, %832, %825, %818, %811, %804, %797, %790, %783, %776, %769, %762, %755, %748, %741, %734, %727, %720
-  %.0.i136 = phi i32 [ %868, %867 ], [ %861, %860 ], [ %854, %853 ], [ %847, %846 ], [ %840, %839 ], [ %833, %832 ], [ %826, %825 ], [ %819, %818 ], [ %812, %811 ], [ %805, %804 ], [ %798, %797 ], [ %791, %790 ], [ %784, %783 ], [ %777, %776 ], [ %770, %769 ], [ %763, %762 ], [ %756, %755 ], [ %749, %748 ], [ %742, %741 ], [ %735, %734 ], [ %728, %727 ], [ %721, %720 ], [ %spec.select.i135, %869 ]
+  %.0.i136 = phi i32 [ %721, %720 ], [ %spec.select.i135, %869 ], [ %868, %867 ], [ %861, %860 ], [ %854, %853 ], [ %847, %846 ], [ %840, %839 ], [ %833, %832 ], [ %826, %825 ], [ %819, %818 ], [ %812, %811 ], [ %805, %804 ], [ %798, %797 ], [ %791, %790 ], [ %784, %783 ], [ %777, %776 ], [ %770, %769 ], [ %763, %762 ], [ %756, %755 ], [ %749, %748 ], [ %742, %741 ], [ %735, %734 ], [ %728, %727 ]
   br i1 %.not100.i107, label %892, label %876
 
 876:                                              ; preds = %875

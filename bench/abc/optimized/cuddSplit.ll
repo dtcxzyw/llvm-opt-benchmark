@@ -214,7 +214,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br label %.split93.us
 
 .split93.us:                                      ; preds = %.preheader81.us.us, %16, %14, %5, %.split95.us, %76, %68, %.split.us
-  %.0 = phi ptr [ null, %.split.us ], [ %.us-phi96, %.split95.us ], [ null, %68 ], [ %1, %76 ], [ %12, %5 ], [ null, %14 ], [ null, %16 ], [ %1, %.preheader81.us.us ]
+  %.0 = phi ptr [ %1, %76 ], [ %12, %5 ], [ null, %14 ], [ null, %.split.us ], [ null, %16 ], [ %.us-phi96, %.split95.us ], [ null, %68 ], [ %1, %.preheader81.us.us ]
   ret ptr %.0
 }
 
@@ -428,7 +428,7 @@ define internal fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr nound
   br label %48
 
 48:                                               ; preds = %43, %31, %20, %11, %47, %41, %17
-  %.0 = phi double [ %19, %17 ], [ -1.000000e+00, %41 ], [ -1.000000e+00, %47 ], [ %., %11 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %31 ], [ %44, %43 ]
+  %.0 = phi double [ %., %11 ], [ -1.000000e+00, %31 ], [ %19, %17 ], [ -1.000000e+00, %47 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %41 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0
 }
@@ -918,7 +918,7 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %288
 
 288:                                              ; preds = %.thread, %73, %51, %279, %278, %257, %241, %240, %228, %215, %214, %204, %186, %185, %175, %159, %158, %148, %132, %131, %115, %114, %64, %63, %19
-  %.0229 = phi ptr [ %20, %19 ], [ null, %63 ], [ %61, %64 ], [ null, %114 ], [ %112, %115 ], [ null, %131 ], [ %129, %132 ], [ null, %148 ], [ null, %158 ], [ %156, %159 ], [ null, %175 ], [ null, %185 ], [ %183, %186 ], [ null, %257 ], [ null, %278 ], [ %.0232, %279 ], [ null, %228 ], [ null, %240 ], [ %238, %241 ], [ null, %204 ], [ null, %214 ], [ %212, %215 ], [ null, %51 ], [ null, %73 ], [ null, %.thread ]
+  %.0229 = phi ptr [ %20, %19 ], [ null, %51 ], [ null, %63 ], [ %61, %64 ], [ null, %114 ], [ %112, %115 ], [ null, %131 ], [ %129, %132 ], [ null, %148 ], [ null, %158 ], [ %156, %159 ], [ null, %175 ], [ null, %185 ], [ %183, %186 ], [ null, %257 ], [ null, %278 ], [ %.0232, %279 ], [ null, %228 ], [ null, %240 ], [ %238, %241 ], [ null, %204 ], [ null, %214 ], [ %212, %215 ], [ null, %73 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0229
 }
@@ -1030,7 +1030,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef non
   br label %67
 
 67:                                               ; preds = %40, %24, %10, %5, %58, %57, %17
-  %.0 = phi ptr [ %20, %17 ], [ null, %57 ], [ %.048, %58 ], [ %7, %5 ], [ %13, %10 ], [ null, %24 ], [ null, %40 ]
+  %.0 = phi ptr [ null, %24 ], [ %7, %5 ], [ %20, %17 ], [ %13, %10 ], [ null, %57 ], [ %.048, %58 ], [ null, %40 ]
   ret ptr %.0
 }
 

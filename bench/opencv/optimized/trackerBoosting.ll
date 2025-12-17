@@ -1843,7 +1843,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %348, %347
-  %350 = phi ptr [ %344, %347 ], [ %.pr.pre.i.i.i.i, %348 ]
+  %350 = phi ptr [ %.pr.pre.i.i.i.i, %348 ], [ %344, %347 ]
   %.not8.i.i.i.i = icmp eq ptr %350, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %351
 

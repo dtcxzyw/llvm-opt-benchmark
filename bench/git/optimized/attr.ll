@@ -236,8 +236,8 @@ hashmap_get_size.exit24:                          ; preds = %hashmap_get_size.ex
   %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @g_attr_hashmap, i64 48)) #22
   br label %attr_name_valid.exit.thread
 
-attr_name_valid.exit.thread:                      ; preds = %11, %2, %5, %51
-  %.0 = phi ptr [ %.016, %51 ], [ null, %5 ], [ null, %2 ], [ null, %11 ]
+attr_name_valid.exit.thread:                      ; preds = %11, %5, %2, %51
+  %.0 = phi ptr [ %.016, %51 ], [ null, %2 ], [ null, %5 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -378,7 +378,7 @@ attr_name_valid.exit:                             ; preds = %58
   %.not85 = icmp eq i32 %59, 0
   br i1 %.not85, label %60, label %attr_name_valid.exit.thread
 
-attr_name_valid.exit.thread:                      ; preds = %53, %41, %47, %attr_name_valid.exit
+attr_name_valid.exit.thread:                      ; preds = %53, %47, %41, %attr_name_valid.exit
   call fastcc void @report_invalid_attr(ptr noundef nonnull %44, i64 noundef %45, ptr noundef %1, i32 noundef %2)
   br label %.loopexit
 
@@ -512,7 +512,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
   br label %107
 
 107:                                              ; preds = %4, %4, %.loopexit, %._crit_edge110, %_.exit
-  %.0 = phi ptr [ null, %_.exit ], [ null, %.loopexit ], [ %81, %._crit_edge110 ], [ null, %4 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_.exit ], [ null, %.loopexit ], [ %81, %._crit_edge110 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -655,7 +655,7 @@ attr_name_valid.exit:                             ; preds = %33
   %.not52 = icmp eq i32 %34, 0
   br i1 %.not52, label %62, label %attr_name_valid.exit.thread
 
-attr_name_valid.exit.thread:                      ; preds = %28, %20, %22, %attr_name_valid.exit
+attr_name_valid.exit.thread:                      ; preds = %28, %22, %20, %attr_name_valid.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.git_pathdup.path, i64 24, i1 false)
   %35 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !22
@@ -2450,7 +2450,7 @@ define internal fastcc ptr @read_attr(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %read_attr_from_blob.exit
 
 read_attr_from_blob.exit:                         ; preds = %14, %24, %25
-  %.0.i = phi ptr [ null, %24 ], [ %27, %25 ], [ null, %14 ]
+  %.0.i = phi ptr [ null, %14 ], [ null, %24 ], [ %27, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2488,7 +2488,7 @@ read_attr_from_blob.exit:                         ; preds = %14, %24, %25
   br label %40
 
 40:                                               ; preds = %read_attr_from_blob.exit, %34, %38, %11
-  %.0 = phi ptr [ %12, %11 ], [ %.0.i, %read_attr_from_blob.exit ], [ %35, %34 ], [ %39, %38 ]
+  %.0 = phi ptr [ %12, %11 ], [ %.0.i, %read_attr_from_blob.exit ], [ %39, %38 ], [ %35, %34 ]
   %.not28 = icmp eq ptr %.0, null
   br i1 %.not28, label %.thread, label %.thread32
 
@@ -2791,7 +2791,7 @@ define internal fastcc ptr @read_attr_from_index(ptr noundef %0, ptr noundef %1,
   br label %read_attr_from_blob.exit
 
 read_attr_from_blob.exit:                         ; preds = %31, %43, %44
-  %.0.i = phi ptr [ null, %43 ], [ %46, %44 ], [ null, %31 ]
+  %.0.i = phi ptr [ null, %31 ], [ null, %43 ], [ %46, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -1345,8 +1345,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit70: ; preds = %_ZN
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i: ; preds = %255, %253
-  %258 = phi ptr [ %248, %253 ], [ %.pre7.i.i.i.i.i, %255 ]
-  %259 = phi i64 [ %242, %253 ], [ %.pre6.i.i.i.i.i, %255 ]
+  %258 = phi ptr [ %.pre7.i.i.i.i.i, %255 ], [ %248, %253 ]
+  %259 = phi i64 [ %.pre6.i.i.i.i.i, %255 ], [ %242, %253 ]
   %260 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i64 %259, ptr %260, align 8, !tbaa !28
   %261 = getelementptr inbounds nuw i32, ptr %258, i64 %259
@@ -2289,7 +2289,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit110, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit112, %56, %61, %66
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %56 ], [ %.sroa.032.1.i.i.i.i, %61 ], [ %spec.select.i.i.i.i, %66 ], [ %69, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit ], [ %70, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit110 ], [ %71, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit112 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %61 ], [ %spec.select.i.i.i.i, %66 ], [ %.sroa.032.0.lcssa.i.i.i.i, %56 ], [ %71, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit112 ], [ %70, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit110 ], [ %69, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not55 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %32
   br i1 %.not55, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.thread, label %72
 
@@ -2391,7 +2391,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.spli
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit: ; preds = %.lr.ph.i.i.i.i27, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit118, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit120, %99, %104, %109
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i23 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i19, %99 ], [ %.sroa.032.1.i.i.i.i24, %104 ], [ %spec.select.i.i.i.i22, %109 ], [ %112, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit ], [ %113, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit118 ], [ %114, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit120 ], [ %.sroa.032.051.i.i.i.i29, %.lr.ph.i.i.i.i27 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i23 = phi ptr [ %.sroa.032.1.i.i.i.i24, %104 ], [ %spec.select.i.i.i.i22, %109 ], [ %.sroa.032.0.lcssa.i.i.i.i19, %99 ], [ %114, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit120 ], [ %113, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit118 ], [ %112, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i29, %.lr.ph.i.i.i.i27 ]
   %.not56 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i23, %75
   br i1 %.not56, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread, label %115
 
@@ -2530,7 +2530,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit: ; preds = %.lr.ph.i.i.i.i42, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit126, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit128, %159, %164, %169
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i38 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i34, %159 ], [ %.sroa.032.1.i.i.i.i39, %164 ], [ %spec.select.i.i.i.i37, %169 ], [ %172, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit ], [ %173, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit126 ], [ %174, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit128 ], [ %.sroa.032.051.i.i.i.i44, %.lr.ph.i.i.i.i42 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i38 = phi ptr [ %.sroa.032.1.i.i.i.i39, %164 ], [ %spec.select.i.i.i.i37, %169 ], [ %.sroa.032.0.lcssa.i.i.i.i34, %159 ], [ %174, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit128 ], [ %173, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit126 ], [ %172, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i44, %.lr.ph.i.i.i.i42 ]
   %.not57 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i38, %135
   br i1 %.not57, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.thread, label %175
 
@@ -2802,7 +2802,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit117, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit119, %82, %87, %92
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %82 ], [ %.sroa.032.1.i.i.i.i, %87 ], [ %spec.select.i.i.i.i, %92 ], [ %95, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit ], [ %96, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit117 ], [ %97, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit119 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %87 ], [ %spec.select.i.i.i.i, %92 ], [ %.sroa.032.0.lcssa.i.i.i.i, %82 ], [ %97, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit119 ], [ %96, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit117 ], [ %95, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %58
   br i1 %.not, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE8is_quoteEc.exit.thread, label %98
 
@@ -2934,7 +2934,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.spli
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit: ; preds = %.lr.ph.i.i.i.i37, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit125, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit127, %141, %146, %151
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i33 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %141 ], [ %.sroa.032.1.i.i.i.i34, %146 ], [ %spec.select.i.i.i.i32, %151 ], [ %154, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit ], [ %155, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit125 ], [ %156, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit127 ], [ %.sroa.032.051.i.i.i.i39, %.lr.ph.i.i.i.i37 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i33 = phi ptr [ %.sroa.032.1.i.i.i.i34, %146 ], [ %spec.select.i.i.i.i32, %151 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %141 ], [ %156, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit127 ], [ %155, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit125 ], [ %154, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i39, %.lr.ph.i.i.i.i37 ]
   %.not71 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i33, %117
   br i1 %.not71, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE4is_cEc.exit.thread, label %157
 
@@ -3065,7 +3065,7 @@ _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit
   br label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit
 
 _ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit: ; preds = %.lr.ph.i.i.i.i55, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit133, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit135, %199, %204, %209
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i51 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i47, %199 ], [ %.sroa.032.1.i.i.i.i52, %204 ], [ %spec.select.i.i.i.i50, %209 ], [ %212, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit ], [ %213, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit133 ], [ %214, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit135 ], [ %.sroa.032.051.i.i.i.i57, %.lr.ph.i.i.i.i55 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i51 = phi ptr [ %.sroa.032.1.i.i.i.i52, %204 ], [ %spec.select.i.i.i.i50, %209 ], [ %.sroa.032.0.lcssa.i.i.i.i47, %199 ], [ %214, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit135 ], [ %213, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit133 ], [ %212, %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i57, %.lr.ph.i.i.i.i55 ]
   %.not72 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i51, %175
   br i1 %.not72, label %_ZN5boost22escaped_list_separatorIcSt11char_traitsIcEE9is_escapeEc.exit.thread, label %215
 
@@ -4957,7 +4957,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit114, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit116, %45, %50, %55
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %45 ], [ %.sroa.032.1.i.i.i.i, %50 ], [ %spec.select.i.i.i.i, %55 ], [ %58, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit ], [ %59, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit114 ], [ %60, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit116 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %50 ], [ %spec.select.i.i.i.i, %55 ], [ %.sroa.032.0.lcssa.i.i.i.i, %45 ], [ %60, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit116 ], [ %59, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit114 ], [ %58, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not62 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %23
   br i1 %.not62, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.thread, label %61
 
@@ -5062,7 +5062,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.spli
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit: ; preds = %.lr.ph.i.i.i.i23, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit122, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit124, %86, %91, %96
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i32 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i29, %86 ], [ %.sroa.032.1.i.i.i.i33, %91 ], [ %spec.select.i.i.i.i31, %96 ], [ %99, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit ], [ %100, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit122 ], [ %101, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit124 ], [ %.sroa.032.051.i.i.i.i25, %.lr.ph.i.i.i.i23 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i32 = phi ptr [ %.sroa.032.1.i.i.i.i33, %91 ], [ %spec.select.i.i.i.i31, %96 ], [ %.sroa.032.0.lcssa.i.i.i.i29, %86 ], [ %101, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit124 ], [ %100, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit122 ], [ %99, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i25, %.lr.ph.i.i.i.i23 ]
   %.not63 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i32, %64
   br i1 %.not63, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread, label %102
 
@@ -5203,7 +5203,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit: ; preds = %.lr.ph.i.i.i.i41, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit130, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit132, %143, %148, %153
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i50 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i47, %143 ], [ %.sroa.032.1.i.i.i.i51, %148 ], [ %spec.select.i.i.i.i49, %153 ], [ %156, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit ], [ %157, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit130 ], [ %158, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit132 ], [ %.sroa.032.051.i.i.i.i43, %.lr.ph.i.i.i.i41 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i50 = phi ptr [ %.sroa.032.1.i.i.i.i51, %148 ], [ %spec.select.i.i.i.i49, %153 ], [ %.sroa.032.0.lcssa.i.i.i.i47, %143 ], [ %158, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit132 ], [ %157, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit130 ], [ %156, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i43, %.lr.ph.i.i.i.i41 ]
   %.not64 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i50, %121
   br i1 %.not64, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.thread, label %159
 
@@ -5479,7 +5479,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit123, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit125, %81, %86, %91
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %81 ], [ %.sroa.032.1.i.i.i.i, %86 ], [ %spec.select.i.i.i.i, %91 ], [ %94, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit ], [ %95, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit123 ], [ %96, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit125 ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %86 ], [ %spec.select.i.i.i.i, %91 ], [ %.sroa.032.0.lcssa.i.i.i.i, %81 ], [ %96, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit125 ], [ %95, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit123 ], [ %94, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %59
   br i1 %.not, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE8is_quoteEw.exit.thread, label %97
 
@@ -5616,7 +5616,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.spli
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit: ; preds = %.lr.ph.i.i.i.i32, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit131, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit133, %139, %144, %149
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i41 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i38, %139 ], [ %.sroa.032.1.i.i.i.i42, %144 ], [ %spec.select.i.i.i.i40, %149 ], [ %152, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit ], [ %153, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit131 ], [ %154, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit133 ], [ %.sroa.032.051.i.i.i.i34, %.lr.ph.i.i.i.i32 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i41 = phi ptr [ %.sroa.032.1.i.i.i.i42, %144 ], [ %spec.select.i.i.i.i40, %149 ], [ %.sroa.032.0.lcssa.i.i.i.i38, %139 ], [ %154, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit133 ], [ %153, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit131 ], [ %152, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i34, %.lr.ph.i.i.i.i32 ]
   %.not77 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i41, %117
   br i1 %.not77, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE4is_cEw.exit.thread, label %155
 
@@ -5752,7 +5752,7 @@ _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit
   br label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit
 
 _ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit: ; preds = %.lr.ph.i.i.i.i53, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit139, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit141, %196, %201, %206
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i62 = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i59, %196 ], [ %.sroa.032.1.i.i.i.i63, %201 ], [ %spec.select.i.i.i.i61, %206 ], [ %209, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit ], [ %210, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit139 ], [ %211, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit141 ], [ %.sroa.032.051.i.i.i.i55, %.lr.ph.i.i.i.i53 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i62 = phi ptr [ %.sroa.032.1.i.i.i.i63, %201 ], [ %spec.select.i.i.i.i61, %206 ], [ %.sroa.032.0.lcssa.i.i.i.i59, %196 ], [ %211, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit141 ], [ %210, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit139 ], [ %209, %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i55, %.lr.ph.i.i.i.i53 ]
   %.not78 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i62, %174
   br i1 %.not78, label %_ZN5boost22escaped_list_separatorIwSt11char_traitsIwEE9is_escapeEw.exit.thread, label %212
 

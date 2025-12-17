@@ -857,7 +857,7 @@ opt_format_error.exit105:                         ; preds = %213
   br label %248
 
 248:                                              ; preds = %40, %58, %76, %99, %117, %135, %153, %171, %189, %228, %245, %217, %20, %246, %244, %227, %opt_format_error.exit105, %opt_format_error.exit101, %opt_format_error.exit97, %opt_format_error.exit93, %opt_format_error.exit89, %opt_format_error.exit85, %98, %opt_format_error.exit81, %opt_format_error.exit77, %opt_format_error.exit73, %opt_format_error.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %opt_format_error.exit ], [ 0, %opt_format_error.exit73 ], [ 0, %opt_format_error.exit77 ], [ 0, %opt_format_error.exit81 ], [ 0, %98 ], [ 0, %opt_format_error.exit85 ], [ 0, %opt_format_error.exit89 ], [ 0, %opt_format_error.exit93 ], [ 0, %opt_format_error.exit97 ], [ 0, %opt_format_error.exit101 ], [ 0, %opt_format_error.exit105 ], [ 0, %227 ], [ 0, %244 ], [ 0, %246 ], [ 0, %20 ], [ 1, %217 ], [ 1, %245 ], [ 1, %228 ], [ 1, %189 ], [ 1, %171 ], [ 1, %153 ], [ 1, %135 ], [ 1, %117 ], [ 1, %99 ], [ 1, %76 ], [ 1, %58 ], [ 1, %40 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %opt_format_error.exit ], [ 0, %20 ], [ 0, %246 ], [ 0, %opt_format_error.exit73 ], [ 0, %opt_format_error.exit77 ], [ 0, %opt_format_error.exit81 ], [ 0, %98 ], [ 0, %opt_format_error.exit85 ], [ 0, %opt_format_error.exit89 ], [ 0, %opt_format_error.exit93 ], [ 0, %opt_format_error.exit97 ], [ 0, %opt_format_error.exit101 ], [ 0, %opt_format_error.exit105 ], [ 0, %227 ], [ 0, %244 ], [ 1, %217 ], [ 1, %245 ], [ 1, %228 ], [ 1, %189 ], [ 1, %171 ], [ 1, %153 ], [ 1, %135 ], [ 1, %117 ], [ 1, %99 ], [ 1, %76 ], [ 1, %58 ], [ 1, %40 ]
   ret i32 %.0
 }
 
@@ -942,7 +942,7 @@ define void @print_format_error(i32 noundef %0, i64 noundef %1) local_unnamed_ad
   br label %format2str.exit
 
 format2str.exit:                                  ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12
-  %.0.i = phi ptr [ @.str.12, %3 ], [ @.str.63, %4 ], [ @.str.64, %5 ], [ @.str.10, %6 ], [ @.str.65, %7 ], [ @.str.66, %8 ], [ @.str.67, %9 ], [ @.str.68, %10 ], [ @.str.16, %11 ], [ @.str.14, %12 ], [ @.str.62, %2 ]
+  %.0.i = phi ptr [ @.str.14, %12 ], [ @.str.12, %3 ], [ @.str.63, %4 ], [ @.str.64, %5 ], [ @.str.10, %6 ], [ @.str.65, %7 ], [ @.str.66, %8 ], [ @.str.67, %9 ], [ @.str.68, %10 ], [ @.str.16, %11 ], [ @.str.62, %2 ]
   %13 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.53, ptr noundef nonnull @prog, ptr noundef nonnull %.0.i) #20
   br label %14
 
@@ -1887,7 +1887,7 @@ define range(i32 0, 2) i32 @opt_verify(i32 noundef %0, ptr noundef %1) local_unn
   br label %114
 
 114:                                              ; preds = %70, %67, %64, %59, %113, %42, %35, %28, %21, %16
-  %.0 = phi i32 [ 1, %113 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ 0, %35 ], [ 0, %42 ], [ 0, %59 ], [ 0, %64 ], [ 0, %67 ], [ 0, %70 ]
+  %.0 = phi i32 [ 1, %113 ], [ 0, %67 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ 0, %35 ], [ 0, %42 ], [ 0, %64 ], [ 0, %59 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2047,8 +2047,8 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
   br i1 %.not47, label %.split.us, label %121
 
 .split.us:                                        ; preds = %sub_057.us, %sub_057, %45, %sub_057.us65
-  %.us-phi = phi ptr [ %.063.us66, %sub_057.us65 ], [ %.063.us66, %45 ], [ %.063, %sub_057 ], [ %.063.us, %sub_057.us ]
-  %.us-phi64 = phi ptr [ %42, %sub_057.us65 ], [ %42, %45 ], [ %50, %sub_057 ], [ %34, %sub_057.us ]
+  %.us-phi = phi ptr [ %.063, %sub_057 ], [ %.063.us66, %45 ], [ %.063.us66, %sub_057.us65 ], [ %.063.us, %sub_057.us ]
+  %.us-phi64 = phi ptr [ %50, %sub_057 ], [ %42, %45 ], [ %42, %sub_057.us65 ], [ %34, %sub_057.us ]
   %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !20
   %54 = icmp eq ptr %30, null
@@ -2189,7 +2189,7 @@ switch.edge:                                      ; preds = %71
   br label %111
 
 111:                                              ; preds = %71, %switch.edge, %.fold.split55, %.fold.split, %110
-  %112 = phi i64 [ 4094, %110 ], [ 70, %.fold.split ], [ 6, %.fold.split55 ], [ 14, %switch.edge ], [ 38, %71 ]
+  %112 = phi i64 [ 38, %71 ], [ 4094, %110 ], [ 70, %.fold.split ], [ 6, %.fold.split55 ], [ 14, %switch.edge ]
   %113 = call i32 @opt_format(ptr noundef nonnull %72, i64 noundef %112, ptr noundef nonnull %2)
   %.not53 = icmp eq i32 %113, 0
   br i1 %.not53, label %114, label %118
@@ -2237,7 +2237,7 @@ switch.edge:                                      ; preds = %71
   br label %135
 
 135:                                              ; preds = %108, %106, %104, %102, %84, %.tail, %13, %0, %133, %130, %127, %118, %114, %98, %91, %81, %67, %58, %56
-  %.036 = phi i32 [ -1, %56 ], [ %60, %58 ], [ -1, %67 ], [ %120, %118 ], [ -1, %81 ], [ -1, %91 ], [ -1, %98 ], [ -1, %114 ], [ -1, %127 ], [ %132, %130 ], [ -1, %133 ], [ 0, %0 ], [ 0, %13 ], [ 0, %.tail ], [ -1, %84 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ]
+  %.036 = phi i32 [ -1, %133 ], [ 0, %0 ], [ 0, %13 ], [ -1, %56 ], [ %60, %58 ], [ -1, %67 ], [ %120, %118 ], [ -1, %81 ], [ -1, %91 ], [ -1, %98 ], [ 0, %.tail ], [ -1, %84 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %114 ], [ -1, %127 ], [ %132, %130 ], [ -1, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2372,7 +2372,7 @@ define range(i32 0, 2) i32 @opt_check_rest_arg(ptr noundef %0) local_unnamed_add
   br label %32
 
 32:                                               ; preds = %28, %30, %16, %20, %11, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 1, %11 ], [ 1, %20 ], [ 1, %16 ], [ 0, %30 ], [ 0, %28 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %13 ], [ 1, %11 ], [ 0, %23 ], [ 1, %20 ], [ 0, %30 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -2620,7 +2620,7 @@ define internal fastcc noundef nonnull ptr @valtype2param(i32 %.12.val) unnamed_
   br label %17
 
 17:                                               ; preds = %0, %0, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2, %1
-  %.0 = phi ptr [ @.str.92, %16 ], [ @.str.77, %1 ], [ @.str.78, %2 ], [ @.str.79, %3 ], [ @.str.80, %4 ], [ @.str.81, %5 ], [ @.str.82, %6 ], [ @.str.83, %7 ], [ @.str.84, %8 ], [ @.str.85, %9 ], [ @.str.86, %10 ], [ @.str.87, %11 ], [ @.str.88, %12 ], [ @.str.89, %13 ], [ @.str.90, %14 ], [ @.str.91, %15 ], [ @.str.76, %0 ], [ @.str.76, %0 ]
+  %.0 = phi ptr [ @.str.92, %16 ], [ @.str.91, %15 ], [ @.str.77, %1 ], [ @.str.78, %2 ], [ @.str.79, %3 ], [ @.str.80, %4 ], [ @.str.81, %5 ], [ @.str.82, %6 ], [ @.str.83, %7 ], [ @.str.84, %8 ], [ @.str.85, %9 ], [ @.str.86, %10 ], [ @.str.87, %11 ], [ @.str.88, %12 ], [ @.str.89, %13 ], [ @.str.90, %14 ], [ @.str.76, %0 ], [ @.str.76, %0 ]
   ret ptr %.0
 }
 

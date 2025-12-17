@@ -125,13 +125,13 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %30 = shl nsw i64 -1, %28
   %31 = and i64 %29, %30
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.thread19.split.us, label %33
+  br i1 %32, label %.thread19.split.us.critedge, label %33
 
 33:                                               ; preds = %.thread
   %34 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %31) #9, !srcloc !5
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %35, 64
-  br i1 %36, label %37, label %.thread19.split.us
+  br i1 %36, label %37, label %.thread19.split.us.critedge
 
 37:                                               ; preds = %33
   %38 = and i64 %34, 63
@@ -220,7 +220,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %93, label %94, label %.thread19.split.preheader
 
 .thread19.split.preheader:                        ; preds = %20, %85, %89
-  %.ph = phi i64 [ %60, %89 ], [ %60, %85 ], [ %2, %20 ]
+  %.ph = phi i64 [ %60, %85 ], [ %60, %89 ], [ %2, %20 ]
   br label %.thread19.split
 
 94:                                               ; preds = %89
@@ -286,18 +286,18 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   %131 = add nuw nsw i64 %34, 1
   %132 = and i64 %131, 127
   %133 = icmp samesign ugt i64 %132, 63
-  br i1 %133, label %.thread25..thread19.split.us_crit_edge, label %.thread, !prof !6, !llvm.loop !14
+  br i1 %133, label %.thread25..thread19.split.us.critedge_crit_edge, label %.thread, !prof !6, !llvm.loop !14
 
-.thread25..thread19.split.us_crit_edge:           ; preds = %.thread25
+.thread25..thread19.split.us.critedge_crit_edge:  ; preds = %.thread25
   %.pre35 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread19.split.us, !llvm.loop !14
+  br label %.thread19.split.us.critedge, !llvm.loop !14
 
-.thread19.split.us:                               ; preds = %33, %.thread, %.thread25..thread19.split.us_crit_edge
-  %134 = phi i64 [ %.pre35, %.thread25..thread19.split.us_crit_edge ], [ %29, %.thread ], [ %29, %33 ]
+.thread19.split.us.critedge:                      ; preds = %33, %.thread, %.thread25..thread19.split.us.critedge_crit_edge
+  %134 = phi i64 [ %.pre35, %.thread25..thread19.split.us.critedge_crit_edge ], [ %29, %.thread ], [ %29, %33 ]
   br label %135
 
-135:                                              ; preds = %144, %.thread19.split.us
-  %136 = phi i64 [ 0, %.thread19.split.us ], [ %146, %144 ]
+135:                                              ; preds = %144, %.thread19.split.us.critedge
+  %136 = phi i64 [ 0, %.thread19.split.us.critedge ], [ %146, %144 ]
   %137 = shl nsw i64 -1, %136
   %138 = and i64 %134, %137
   %139 = icmp eq i64 %138, 0
@@ -427,7 +427,7 @@ define dso_local i32 @acpi_processor_tstate_has_changed(ptr noundef %0) local_un
   br label %35
 
 35:                                               ; preds = %.thread, %32, %30, %12, %1
-  %36 = phi i32 [ %34, %32 ], [ 0, %1 ], [ -22, %12 ], [ 0, %30 ], [ %.ph, %.thread ]
+  %36 = phi i32 [ %34, %32 ], [ 0, %1 ], [ %.ph, %.thread ], [ -22, %12 ], [ 0, %30 ]
   ret i32 %36
 }
 
@@ -697,8 +697,8 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br label %113
 
 113:                                              ; preds = %109, %104, %96
-  %114 = phi i64 [ %84, %96 ], [ %84, %104 ], [ %.pre20, %109 ]
-  %115 = phi i32 [ %86, %96 ], [ %86, %104 ], [ %112, %109 ]
+  %114 = phi i64 [ %84, %104 ], [ %84, %96 ], [ %.pre20, %109 ]
+  %115 = phi i32 [ %86, %104 ], [ %86, %96 ], [ %112, %109 ]
   %116 = add nuw nsw i64 %93, 1
   %117 = and i64 %116, 127
   %118 = icmp samesign ugt i64 %117, 63
@@ -814,14 +814,14 @@ define internal fastcc i32 @__acpi_processor_set_throttling(ptr noundef %0, i32 
   br label %191
 
 191:                                              ; preds = %184, %188, %164, %156
-  %192 = phi i32 [ %145, %156 ], [ %145, %164 ], [ %187, %184 ], [ %190, %188 ]
+  %192 = phi i32 [ %145, %164 ], [ %145, %156 ], [ %187, %184 ], [ %190, %188 ]
   %193 = add nuw nsw i64 %153, 1
   %194 = and i64 %193, 127
   %195 = icmp samesign ugt i64 %194, 63
   br i1 %195, label %.thread13, label %.split, !prof !6, !llvm.loop !21
 
 .thread13:                                        ; preds = %152, %191, %.split, %113, %92, %.split.us, %141, %137
-  %196 = phi i32 [ %140, %137 ], [ %143, %141 ], [ %86, %92 ], [ %115, %113 ], [ %86, %.split.us ], [ %145, %152 ], [ %192, %191 ], [ %145, %.split ]
+  %196 = phi i32 [ %140, %137 ], [ %143, %141 ], [ %86, %.split.us ], [ %86, %92 ], [ %115, %113 ], [ %145, %152 ], [ %192, %191 ], [ %145, %.split ]
   %197 = load i64, ptr @__cpu_online_mask, align 8
   br label %198
 

@@ -353,7 +353,7 @@ dpcm_predict.exit:                                ; preds = %.split.i, %.split.u
   br label %169
 
 169:                                              ; preds = %73, %17, %._crit_edge, %54
-  %.0 = phi i32 [ 0, %54 ], [ 0, %._crit_edge ], [ 0, %17 ], [ %84, %73 ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %17 ], [ 0, %._crit_edge ], [ %84, %73 ]
   ret i32 %.0
 }
 

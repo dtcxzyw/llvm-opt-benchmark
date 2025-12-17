@@ -509,8 +509,8 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
   unreachable
 
 .thread86:                                        ; preds = %111, %.body, %150, %154
-  %.136 = phi i1 [ true, %154 ], [ false, %150 ], [ false, %.body ], [ false, %111 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %154 ], [ %151, %150 ], [ %115, %.body ], [ %112, %111 ]
+  %.136 = phi i1 [ true, %154 ], [ false, %111 ], [ false, %150 ], [ false, %.body ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %154 ], [ %112, %111 ], [ %151, %150 ], [ %115, %.body ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %18) #17
           to label %64 unwind label %148
 
@@ -798,12 +798,12 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
           to label %.thread69.thread unwind label %148
 
 .thread69.thread:                                 ; preds = %39, %.thread72, %155
-  %.pn5097 = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm, %.thread72 ], [ %lpad.thr_comm.split-lp, %155 ]
+  %.pn5097 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %155 ], [ %40, %39 ], [ %lpad.thr_comm, %.thread72 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h12362e3bcd02dd06E"(ptr noalias noundef align 8 dereferenceable(8) %22) #17
           to label %.thread69.thread100 unwind label %148
 
 .thread69.thread100:                              ; preds = %53, %135, %.thread69.thread
-  %.pn5096 = phi { ptr, i32 } [ %.pn5097, %.thread69.thread ], [ %136, %135 ], [ %.pn.pn.pn.pn.pn, %53 ]
+  %.pn5096 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %53 ], [ %.pn5097, %.thread69.thread ], [ %136, %135 ]
   resume { ptr, i32 } %.pn5096
 }
 
@@ -957,7 +957,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %84
 
 .thread.i:                                        ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i", %28, %23, %14, %13, %1
-  %.0.i = phi i1 [ false, %14 ], [ true, %13 ], [ true, %1 ], [ false, %23 ], [ false, %28 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i" ]
+  %.0.i = phi i1 [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3a12dad2cd6878e9E.exit.i.i.i.i" ], [ false, %14 ], [ true, %13 ], [ true, %1 ], [ false, %23 ], [ false, %28 ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -1179,7 +1179,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   resume { ptr, i32 } %.pn34526066.i
 
 .thread62.i:                                      ; preds = %89, %87, %83, %.thread67.i
-  %.pn34526066.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp73.i, %89 ], [ %60, %.thread67.i ], [ %.pn35.i, %87 ], [ %.pn35.i, %83 ]
+  %.pn34526066.i = phi { ptr, i32 } [ %60, %.thread67.i ], [ %lpad.thr_comm.split-lp73.i, %89 ], [ %.pn35.i, %87 ], [ %.pn35.i, %83 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %91) #17
           to label %90 unwind label %85
@@ -1418,7 +1418,7 @@ define internal void @"_ZN4core3ptr191drop_in_place$LT$std..thread..Builder..spa
   br label %40
 
 40:                                               ; preds = %17, %38
-  %.pn2 = phi { ptr, i32 } [ %39, %38 ], [ %18, %17 ]
+  %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %39, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17hb2f42282145fb0c3E"(ptr noalias noundef align 8 dereferenceable(8) %41) #17
           to label %52 unwind label %50

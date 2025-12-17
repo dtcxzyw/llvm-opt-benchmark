@@ -562,7 +562,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIddLNS2_14Com
   br i1 %exitcond241.not, label %._crit_edge209, label %36, !llvm.loop !61
 
 .body:                                            ; preds = %.body87, %200, %202, %83
-  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %203, %202 ], [ %201, %200 ], [ %.pn, %.body87 ]
+  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %203, %202 ], [ %.pn, %.body87 ], [ %201, %200 ]
   %212 = load ptr, ptr %12, align 8, !tbaa !29
   call void @free(ptr noundef %212) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

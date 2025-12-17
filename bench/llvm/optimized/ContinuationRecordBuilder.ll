@@ -2293,7 +2293,7 @@ define linkonce_odr hidden void @_ZN4llvm25AppendingBinaryByteStream9readBytesEm
   br i1 %17, label %27, label %_ZN4llvm5ErrorD2Ev.exit8
 
 27:                                               ; preds = %26, %19, %18
-  %.sink6.i.sink.i = phi i32 [ 3, %18 ], [ 1, %19 ], [ 3, %26 ]
+  %.sink6.i.sink.i = phi i32 [ 1, %19 ], [ 3, %18 ], [ 3, %26 ]
   %28 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !175
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %28, i32 noundef %.sink6.i.sink.i) #16, !noalias !175
   br label %32
@@ -2343,7 +2343,7 @@ define linkonce_odr hidden void @_ZN4llvm25AppendingBinaryByteStream26readLonges
   br i1 %14, label %24, label %_ZN4llvm5ErrorD2Ev.exit6
 
 24:                                               ; preds = %23, %16, %15
-  %.sink6.i.sink.i = phi i32 [ 3, %15 ], [ 1, %16 ], [ 3, %23 ]
+  %.sink6.i.sink.i = phi i32 [ 1, %16 ], [ 3, %15 ], [ 3, %23 ]
   %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18, !noalias !184
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %25, i32 noundef %.sink6.i.sink.i) #16, !noalias !184
   br label %35
@@ -2489,7 +2489,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !51
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

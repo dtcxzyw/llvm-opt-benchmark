@@ -68,7 +68,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr noundef writeonly capture
   br label %22
 
 22:                                               ; preds = %3, %15, %13
-  %.0 = phi i32 [ -1, %13 ], [ 0, %15 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %15 ], [ -1, %13 ], [ -1, %3 ]
   ret i32 %.0
 }
 

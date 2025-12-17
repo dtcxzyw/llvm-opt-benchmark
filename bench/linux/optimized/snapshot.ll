@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br i1 %270, label %.thread109, label %134, !llvm.loop !42
 
 .thread91:                                        ; preds = %193, %206, %198, %157, %170, %162, %244, %257, %249
-  %271 = phi ptr [ %231, %244 ], [ %251, %249 ], [ %251, %257 ], [ %148, %157 ], [ %164, %162 ], [ %164, %170 ], [ %185, %193 ], [ %200, %198 ], [ %200, %206 ]
+  %271 = phi ptr [ %148, %157 ], [ %251, %249 ], [ %231, %244 ], [ %251, %257 ], [ %164, %170 ], [ %164, %162 ], [ %200, %206 ], [ %185, %193 ], [ %200, %198 ]
   %272 = load ptr, ptr %120, align 8
   %273 = icmp eq ptr %272, %120
   br i1 %273, label %.loopexit143, label %.preheader142
@@ -1176,7 +1176,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   br i1 %310, label %.loopexit, label %.preheader, !llvm.loop !36
 
 .thread108:                                       ; preds = %106, %111, %.preheader141, %.loopexit143
-  %.ph111 = phi ptr [ %271, %.loopexit143 ], [ %271, %.preheader141 ], [ %93, %106 ], [ %113, %111 ]
+  %.ph111 = phi ptr [ %271, %.loopexit143 ], [ %271, %.preheader141 ], [ %113, %111 ], [ %93, %106 ]
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.ph111, ptr %311, align 8
   %312 = load ptr, ptr %0, align 8
@@ -5191,10 +5191,10 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   br label %178
 
 .loopexit52.sink.split:                           ; preds = %182, %423, %440
-  %.lcssa244.sink = phi i64 [ %453, %440 ], [ %435, %423 ], [ %195, %182 ]
-  %.lcssa240.sink = phi ptr [ %457, %440 ], [ %439, %423 ], [ %199, %182 ]
-  %.lcssa242.sink = phi i64 [ %455, %440 ], [ %437, %423 ], [ %197, %182 ]
-  %.ph273 = phi i32 [ %424, %440 ], [ %424, %423 ], [ 0, %182 ]
+  %.lcssa244.sink = phi i64 [ %435, %423 ], [ %453, %440 ], [ %195, %182 ]
+  %.lcssa240.sink = phi ptr [ %439, %423 ], [ %457, %440 ], [ %199, %182 ]
+  %.lcssa242.sink = phi i64 [ %437, %423 ], [ %455, %440 ], [ %197, %182 ]
+  %.ph273 = phi i32 [ %424, %423 ], [ %424, %440 ], [ 0, %182 ]
   %214 = trunc i64 %.lcssa244.sink to i32
   %215 = getelementptr inbounds nuw i8, ptr %.lcssa240.sink, i64 48
   %216 = load i64, ptr %215, align 8
@@ -6180,7 +6180,7 @@ define internal fastcc ptr @get_image_page(i32 noundef %0, i32 noundef range(i32
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %56, %97, %84, %.critedge
-  %101 = phi ptr [ %62, %97 ], [ %62, %84 ], [ null, %.critedge ], [ null, %56 ]
+  %101 = phi ptr [ null, %.critedge ], [ %62, %97 ], [ %62, %84 ], [ null, %56 ]
   ret ptr %101
 }
 
@@ -6635,7 +6635,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %258
 
 258:                                              ; preds = %255, %247
-  %259 = phi i32 [ %248, %247 ], [ %257, %255 ]
+  %259 = phi i32 [ %257, %255 ], [ %248, %247 ]
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %.thread83, label %.loopexit127
 
@@ -7630,7 +7630,7 @@ define dso_local i32 @snapshot_write_next(ptr noundef captures(none) %0) local_u
   br label %33
 
 .loopexit127:                                     ; preds = %785, %770, %97, %.thread72, %47, %36, %.loopexit107, %258, %.thread83, %.thread73, %767, %754
-  %794 = phi i32 [ %756, %754 ], [ %769, %767 ], [ %745, %.loopexit107 ], [ -1, %.thread73 ], [ -14, %.thread83 ], [ -14, %258 ], [ 4096, %770 ], [ 4096, %785 ], [ %98, %97 ], [ %95, %.thread72 ], [ -12, %47 ], [ 0, %36 ]
+  %794 = phi i32 [ %756, %754 ], [ %769, %767 ], [ -1, %.thread73 ], [ %745, %.loopexit107 ], [ -14, %.thread83 ], [ -14, %258 ], [ 4096, %770 ], [ 4096, %785 ], [ %98, %97 ], [ %95, %.thread72 ], [ -12, %47 ], [ 0, %36 ]
   ret i32 %794
 }
 
@@ -8933,7 +8933,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %124
 
 124:                                              ; preds = %121, %113
-  %125 = phi i32 [ %114, %113 ], [ %123, %121 ]
+  %125 = phi i32 [ %123, %121 ], [ %114, %113 ]
   %.fr = freeze i32 %125
   %126 = icmp eq i32 %.fr, 0
   %127 = load i64, ptr @vmemmap_base, align 8
@@ -9049,7 +9049,7 @@ define internal fastcc ptr @saveable_page(ptr noundef nonnull readnone captures(
   br label %.thread
 
 .thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %189, %186, %184, %175, %168, %150, %131, %67
-  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
+  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %124 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %37 ], [ null, %2 ], [ null, %11 ], [ null, %71 ], [ null, %94 ]
   ret ptr %190
 }
 

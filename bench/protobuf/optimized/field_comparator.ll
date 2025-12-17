@@ -1084,7 +1084,7 @@ if.end.i15:                                       ; preds = %if.end35
   br label %return
 
 return:                                           ; preds = %if.else, %if.end.i15, %if.end35, %if.end.i, %lor.lhs.false.i, %if.then28, %if.else30, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %if.else30 ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i22, %if.end.i15 ], [ false, %if.end35 ], [ %or.cond29.mux, %if.else ]
+  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %entry ], [ false, %if.end35 ], [ %cmp.i22, %if.end.i15 ], [ true, %if.else30 ], [ %or.cond29.mux, %if.else ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ]
   ret i1 %retval.0
 }
 
@@ -1261,7 +1261,7 @@ if.end.i15:                                       ; preds = %if.end38
   br label %return
 
 return:                                           ; preds = %if.else, %if.else31, %if.end.i15, %if.end38, %if.end.i, %lor.lhs.false.i, %if.then28, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i22, %if.end.i15 ], [ false, %if.end38 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ]
+  %retval.0 = phi i1 [ false, %if.then28 ], [ true, %entry ], [ false, %if.end38 ], [ %cmp.i22, %if.end.i15 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ]
   ret i1 %retval.0
 }
 
@@ -1347,8 +1347,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

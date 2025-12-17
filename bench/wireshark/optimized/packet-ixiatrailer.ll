@@ -230,7 +230,7 @@ dissect_ixiatrailer.exit.loopexit:                ; preds = %64
   br label %dissect_ixiatrailer.exit
 
 dissect_ixiatrailer.exit:                         ; preds = %dissect_ixiatrailer.exit.loopexit, %4, %19, %20, %24, %38
-  %.0.i = phi i1 [ false, %4 ], [ false, %20 ], [ false, %24 ], [ false, %19 ], [ true, %38 ], [ %67, %dissect_ixiatrailer.exit.loopexit ]
+  %.0.i = phi i1 [ false, %4 ], [ false, %19 ], [ false, %20 ], [ false, %24 ], [ true, %38 ], [ %67, %dissect_ixiatrailer.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }

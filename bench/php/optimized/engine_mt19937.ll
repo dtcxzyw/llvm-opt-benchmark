@@ -356,7 +356,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %9, %7, %16, %32, %27, %29, %23, %.critedge, %20, %2
-  %.027 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %.critedge ], [ false, %23 ], [ false, %29 ], [ false, %27 ], [ %switch, %32 ], [ false, %16 ], [ false, %7 ], [ false, %9 ], [ false, %12 ]
+  %.027 = phi i1 [ false, %29 ], [ false, %2 ], [ false, %.critedge ], [ false, %23 ], [ false, %27 ], [ %switch, %32 ], [ false, %20 ], [ false, %16 ], [ false, %7 ], [ false, %9 ], [ false, %12 ]
   ret i1 %.027
 }
 
@@ -485,10 +485,10 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit58, %10
-  %.04975 = phi i32 [ 9, %zend_parse_arg_long_ex.exit58 ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05074 = phi i32 [ 1, %zend_parse_arg_long_ex.exit58 ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05173 = phi i32 [ 1, %zend_parse_arg_long_ex.exit58 ], [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05272 = phi ptr [ %15, %zend_parse_arg_long_ex.exit58 ], [ null, %10 ], [ %23, %zend_parse_arg_long_ex.exit ]
+  %.04975 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit58 ]
+  %.05074 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 1, %zend_parse_arg_long_ex.exit58 ]
+  %.05173 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %10 ], [ 1, %zend_parse_arg_long_ex.exit58 ]
+  %.05272 = phi ptr [ %23, %zend_parse_arg_long_ex.exit ], [ null, %10 ], [ %15, %zend_parse_arg_long_ex.exit58 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04975, i32 noundef %.05074, ptr noundef null, i32 noundef %.05173, ptr noundef %.05272) #6
   br label %54
 

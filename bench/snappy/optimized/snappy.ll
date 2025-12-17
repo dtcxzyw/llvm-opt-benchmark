@@ -158,8 +158,8 @@ _ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %38, %29, %20, %11,
   store i64 %44, ptr %2, align 8, !tbaa !7
   br label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
 
-_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %38, %37, %28, %19, %10, %3, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
-  %.not8 = phi i1 [ true, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ], [ false, %37 ], [ false, %38 ]
+_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %28, %19, %10, %3, %38, %37, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
+  %.not8 = phi i1 [ true, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %37 ], [ false, %38 ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ]
   ret i1 %.not8
 }
 
@@ -338,9 +338,9 @@ define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(pt
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
 55:                                               ; preds = %.thread209, %19
-  %.0183 = phi i64 [ %.0.copyload.i161, %19 ], [ %.0.copyload.i163, %.thread209 ]
-  %.0133 = phi i32 [ 33, %19 ], [ 49, %.thread209 ]
-  %.1119 = phi ptr [ %20, %19 ], [ %27, %.thread209 ]
+  %.0183 = phi i64 [ %.0.copyload.i163, %.thread209 ], [ %.0.copyload.i161, %19 ]
+  %.0133 = phi i32 [ 49, %.thread209 ], [ 33, %19 ]
+  %.1119 = phi ptr [ %27, %.thread209 ], [ %20, %19 ]
   %56 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
   %57 = icmp ugt ptr %56, %11
   br i1 %57, label %.thread255, label %.lr.ph, !prof !27
@@ -716,8 +716,8 @@ _ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit:          ; preds = %222, %209, %174
   br label %19
 
 .thread255:                                       ; preds = %55, %74, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
-  %.13 = phi ptr [ %0, %5 ], [ %229, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %74 ], [ %.0118, %55 ]
-  %.11 = phi ptr [ %2, %5 ], [ %.10, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %74 ], [ %.0117, %55 ]
+  %.13 = phi ptr [ %0, %5 ], [ %.0118, %74 ], [ %229, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %55 ]
+  %.11 = phi ptr [ %2, %5 ], [ %.0117, %74 ], [ %.10, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %55 ]
   %256 = icmp ult ptr %.13, %8
   br i1 %256, label %257, label %277
 
@@ -760,7 +760,7 @@ _ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %264, %266
   br label %277
 
 277:                                              ; preds = %.thread255, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %276, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.11, %.thread255 ]
+  %.0 = phi ptr [ %.11, %.thread255 ], [ %276, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1080,10 +1080,10 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = %.crited
   store i16 %47, ptr %122, align 2, !tbaa !21
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
-  %.2203.ph = phi i32 [ %114, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %.127.i252, %151 ], [ %76, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2194.ph = phi ptr [ %89, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %125, %151 ], [ %51, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2178.ph = phi ptr [ %.1177583, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177583, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+.preheader:                                       ; preds = %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151
+  %.2203.ph = phi i32 [ %.127.i252, %151 ], [ %76, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %114, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2194.ph = phi ptr [ %125, %151 ], [ %51, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %89, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2178.ph = phi ptr [ %115, %151 ], [ %.1177583, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %.1177583, %_ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
   %152 = icmp ugt ptr %.2178.ph, %.0176588
   %153 = icmp ugt ptr %.2194.ph, %0
   %or.cond403 = select i1 %152, i1 %153, i1 false
@@ -1563,8 +1563,8 @@ _ZN6snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308: ; preds = %.crited
   br label %_ZN6snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 .thread355:                                       ; preds = %.loopexit.loopexit, %26, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
-  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176588, %26 ], [ %223, %.loopexit.loopexit ]
-  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175590, %26 ], [ %.4, %.loopexit.loopexit ]
+  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %.0176588, %26 ], [ %223, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %223, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.0175590, %26 ], [ %.4, %_ZN6snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.4, %.loopexit.loopexit ]
   %405 = icmp ult ptr %.8, %10
   br i1 %405, label %406, label %426
 
@@ -1607,7 +1607,7 @@ _ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %413, %415
   br label %426
 
 426:                                              ; preds = %.thread355, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %425, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.5, %.thread355 ]
+  %.0 = phi ptr [ %.5, %.thread355 ], [ %425, %_ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1809,7 +1809,7 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   br label %96
 
 96:                                               ; preds = %.critedge37, %84, %95, %79, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ false, %.critedge37 ], [ true, %84 ], [ true, %95 ], [ true, %79 ]
+  %.2 = phi i1 [ false, %.critedge ], [ true, %79 ], [ true, %95 ], [ false, %.critedge37 ], [ true, %84 ]
   ret i1 %.2
 }
 
@@ -1860,7 +1860,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6Sour
   br i1 %28, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %4
 
 .loopexit.sink.split.i:                           ; preds = %20, %11, %4
-  %.1.ph.i = phi i1 [ false, %4 ], [ false, %11 ], [ true, %20 ]
+  %.1.ph.i = phi i1 [ false, %11 ], [ false, %4 ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit
 
@@ -2243,7 +2243,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit
 
 _ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit: ; preds = %43, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i, %45, %53
-  %.0.i = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %45 ], [ %56, %53 ], [ false, %43 ]
+  %.0.i = phi i1 [ %56, %53 ], [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %45 ], [ false, %43 ]
   %57 = load ptr, ptr %5, align 8, !tbaa !48
   %58 = load i32, ptr %19, align 8, !tbaa !49
   %59 = zext i32 %58 to i64
@@ -2365,7 +2365,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; pred
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit
 
 _ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit: ; preds = %34, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i, %36, %47
-  %.0.i = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %36 ], [ %50, %47 ], [ false, %34 ]
+  %.0.i = phi i1 [ %50, %47 ], [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i ], [ false, %36 ], [ false, %34 ]
   %51 = load ptr, ptr %4, align 8, !tbaa !48
   %52 = load i32, ptr %10, align 8, !tbaa !49
   %53 = zext i32 %52 to i64
@@ -2472,8 +2472,8 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
-_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %39, %38, %29, %20, %11, %3, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0 = phi i1 [ %55, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ], [ false, %38 ], [ false, %39 ]
+_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %29, %20, %11, %3, %39, %38, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.0 = phi i1 [ %55, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %38 ], [ false, %39 ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -2549,7 +2549,7 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
   %31 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %31, label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit, label %8
 
-_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8: ; preds = %8, %15
+_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8: ; preds = %15, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
@@ -2574,7 +2574,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8: ; preds 
   br label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %30, %40, %32, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8
-  %.0 = phi i1 [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8 ], [ false, %32 ], [ %44, %40 ], [ false, %30 ]
+  %.0 = phi i1 [ %44, %40 ], [ false, %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8 ], [ false, %32 ], [ false, %30 ]
   %45 = load ptr, ptr %4, align 8, !tbaa !48
   %46 = load i32, ptr %6, align 8, !tbaa !49
   %47 = zext i32 %46 to i64
@@ -3167,7 +3167,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
   %35 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %35, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %12
 
-_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds = %12, %19
+_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds = %19, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread
 
@@ -3774,7 +3774,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   %170 = zext i8 %169 to i32
   br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-.thread149:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread185, %.lr.ph, %76, %.thread, %15
+.thread149:                                       ; preds = %131, %._crit_edge, %118, %137, %.thread185, %.lr.ph, %76, %.thread, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4014,10 +4014,10 @@ _ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133: ; 
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %121, ptr noundef nonnull readonly align 1 dereferenceable(32) %122, i64 32, i1 false)
   br label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
 
-_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %112, %109, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133
-  %.5142 = phi i64 [ 0, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %46, %109 ], [ %46, %112 ], [ %46, %115 ], [ %46, %120 ]
-  %.5106141 = phi ptr [ %8, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %.2117188, %109 ], [ %.2117188, %112 ], [ %117, %115 ], [ %117, %120 ]
-  %.5113140 = phi i64 [ %102, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %104, %109 ], [ %104, %112 ], [ %104, %115 ], [ %104, %120 ]
+_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %109, %112, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133
+  %.5142 = phi i64 [ 0, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %46, %112 ], [ %46, %109 ], [ %46, %115 ], [ %46, %120 ]
+  %.5106141 = phi ptr [ %8, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %.2117188, %112 ], [ %.2117188, %109 ], [ %117, %115 ], [ %117, %120 ]
+  %.5113140 = phi i64 [ %102, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread133 ], [ %104, %112 ], [ %104, %109 ], [ %104, %115 ], [ %104, %120 ]
   br i1 %23, label %22, label %123, !llvm.loop !136
 
 123:                                              ; preds = %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
@@ -4032,10 +4032,10 @@ _ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %1
   br label %.thread154
 
 .thread:                                          ; preds = %123, %54, %108
-  %.2117184 = phi ptr [ %.2117188, %108 ], [ %.2117188, %54 ], [ %45, %123 ]
-  %.2110181 = phi i64 [ %.2110189, %108 ], [ %.2110189, %54 ], [ %.5113140, %123 ]
-  %.2103178 = phi ptr [ %.2103190, %108 ], [ %.2103190, %54 ], [ %.5106141, %123 ]
-  %.299175 = phi i64 [ %.299191, %108 ], [ %.299191, %54 ], [ %.5142, %123 ]
+  %.2117184 = phi ptr [ %.2117188, %54 ], [ %.2117188, %108 ], [ %45, %123 ]
+  %.2110181 = phi i64 [ %.2110189, %54 ], [ %.2110189, %108 ], [ %.5113140, %123 ]
+  %.2103178 = phi ptr [ %.2103190, %54 ], [ %.2103190, %108 ], [ %.5106141, %123 ]
+  %.299175 = phi i64 [ %.299191, %54 ], [ %.299191, %108 ], [ %.5142, %123 ]
   %128 = getelementptr inbounds i8, ptr %.2117184, i64 -1
   %.not51 = icmp eq i64 %.299175, 0
   br i1 %.not51, label %.thread154, label %129
@@ -4498,12 +4498,12 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
   br i1 %.not53, label %.lr.ph102, label %.split.us
 
 .outer:                                           ; preds = %.thread69, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
-  %.pre.i136 = phi i64 [ %.pre.i133, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.promoted86112129 = phi i64 [ %.promoted86112126, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.sroa.speculated.pn = phi i64 [ %.sroa.speculated, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %spec.select57, %.thread69 ]
-  %.342 = phi ptr [ %spec.select, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %.140.ph107, %.thread69 ]
-  %.437 = phi i64 [ %spec.select56, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %123, %.thread69 ]
-  %.1 = sub i64 %.0.ph106, %.sroa.speculated.pn
+  %.pre.i136 = phi i64 [ %122, %.thread69 ], [ %.pre.i133, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.promoted86112129 = phi i64 [ %122, %.thread69 ], [ %.promoted86112126, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %spec.select57.pn = phi i64 [ %spec.select57, %.thread69 ], [ %.sroa.speculated, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.342 = phi ptr [ %.140.ph107, %.thread69 ], [ %spec.select, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.437 = phi i64 [ %123, %.thread69 ], [ %spec.select56, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.1 = sub i64 %.0.ph106, %spec.select57.pn
   %.not52 = icmp eq i64 %.1, 0
   br i1 %.not52, label %.thread, label %.lr.ph87.split, !llvm.loop !143
 
@@ -4839,13 +4839,13 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 
 .thread134.i:                                     ; preds = %90, %88, %75
   %.pre-phi.i = phi i64 [ %84, %88 ], [ %77, %75 ], [ %92, %90 ]
-  %.2113168.i = phi ptr [ %.2113169.i, %75 ], [ %.2113169.i, %88 ], [ %66, %90 ]
+  %.2113168.i = phi ptr [ %.2113169.i, %88 ], [ %.2113169.i, %75 ], [ %66, %90 ]
   %95 = getelementptr inbounds i8, ptr %.2113168.i, i64 -1
   br label %_ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
 
 _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.loopexit, %.thread134.thread.i, %.thread134.i
-  %.0111149.i = phi ptr [ %.1, %.loopexit ], [ %94, %.thread134.thread.i ], [ %95, %.thread134.i ]
-  %.7.i = phi i64 [ %30, %.loopexit ], [ %77, %.thread134.thread.i ], [ %.pre-phi.i, %.thread134.i ]
+  %.0111149.i = phi ptr [ %95, %.thread134.i ], [ %94, %.thread134.thread.i ], [ %.1, %.loopexit ]
+  %.7.i = phi i64 [ %.pre-phi.i, %.thread134.i ], [ %77, %.thread134.thread.i ], [ %30, %.loopexit ]
   %96 = add i64 %.7.i, 1
   %97 = load ptr, ptr %14, align 8, !tbaa !121
   %.not116 = icmp ult ptr %.0111149.i, %97
@@ -5054,12 +5054,12 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134: ; preds =
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.sink.split, %194, %162, %191
-  %.1147.be = phi i64 [ %189, %191 ], [ %160, %162 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
-  %.1.be = phi ptr [ %193, %191 ], [ %163, %162 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
+  %.1147.be = phi i64 [ %160, %162 ], [ %189, %191 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
+  %.1.be = phi ptr [ %163, %162 ], [ %193, %191 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
   br label %.loopexit
 
-.thread194:                                       ; preds = %._crit_edge, %164, %175, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
-  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %164 ], [ %160, %._crit_edge ], [ %96, %175 ], [ %189, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %96, %166 ], [ %173, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %98 ]
+.thread194:                                       ; preds = %164, %._crit_edge, %175, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
+  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %._crit_edge ], [ %160, %164 ], [ %189, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %173, %_ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %166 ], [ %96, %98 ], [ %96, %175 ]
   store i64 %.0146, ptr %15, align 8, !tbaa !84
   ret void
 }
@@ -5418,7 +5418,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.2.ph, ptr noundef nonnull align 1 dereferenceable(64) %201, i64 64, i1 false)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126: ; preds = %199, %195
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126: ; preds = %195, %199
   %202 = zext nneg i32 %62 to i64
   %203 = getelementptr inbounds nuw i8, ptr %60, i64 %202
   %204 = lshr i32 %.0.copyload.i135, %172
@@ -5426,7 +5426,7 @@ _ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126: ; preds = %199, %19
   %.not217 = icmp ult ptr %203, %205
   br i1 %.not217, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge, label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread195
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread195: ; preds = %164, %160, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread195: ; preds = %160, %164, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126
   %.6152 = phi ptr [ %180, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126 ], [ %145, %160 ], [ %145, %164 ]
   %.13 = phi ptr [ %203, %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit126 ], [ %142, %160 ], [ %142, %164 ]
   %206 = load ptr, ptr %13, align 8, !tbaa !121
@@ -5456,8 +5456,8 @@ _ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread195: ; preds = %1
   %219 = zext i8 %218 to i32
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.backedge
 
-_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread210: ; preds = %._crit_edge, %126, %191, %167, %156, %139, %207, %46, %.lr.ph, %.thread184, %16
-  %.0147 = phi ptr [ %15, %16 ], [ %102, %.thread184 ], [ %.4150225, %.lr.ph ], [ %123, %126 ], [ %.4150.lcssa, %._crit_edge ], [ %.2.ph, %191 ], [ %.2.ph, %167 ], [ %.6152, %207 ], [ %.2.ph, %139 ], [ %.2.ph, %156 ], [ %44, %46 ]
+_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread210: ; preds = %._crit_edge, %126, %191, %167, %139, %156, %207, %46, %.lr.ph, %.thread184, %16
+  %.0147 = phi ptr [ %15, %16 ], [ %102, %.thread184 ], [ %.4150225, %.lr.ph ], [ %123, %126 ], [ %.4150.lcssa, %._crit_edge ], [ %.2.ph, %167 ], [ %.2.ph, %156 ], [ %.2.ph, %139 ], [ %.6152, %207 ], [ %44, %46 ], [ %.2.ph, %191 ]
   store ptr %.0147, ptr %14, align 8, !tbaa !75
   ret void
 }
@@ -6238,7 +6238,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   br label %40
 
 40:                                               ; preds = %._crit_edge, %.thread, %16, %3
-  %.013 = phi i1 [ false, %3 ], [ false, %16 ], [ false, %.thread ], [ true, %._crit_edge ]
+  %.013 = phi i1 [ false, %16 ], [ false, %3 ], [ false, %.thread ], [ true, %._crit_edge ]
   ret i1 %.013
 }
 

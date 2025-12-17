@@ -1020,7 +1020,7 @@ define ptr @address_to_name(ptr noundef %0) local_unnamed_addr #5 {
   br label %16
 
 16:                                               ; preds = %11, %1, %14, %8
-  %.0 = phi ptr [ %10, %8 ], [ %15, %14 ], [ null, %1 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ %10, %8 ], [ %15, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1278,7 +1278,7 @@ address_type_get_length.exit.i:                   ; preds = %10, %20, %27, %16, 
   br label %address_to_str.exit
 
 address_to_str.exit:                              ; preds = %90, %85, %81, %79, %66, %65, %.thread29, %45, %44, %address_type_get_length.exit.i, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %address_type_get_length.exit.i ], [ %33, %44 ], [ %33, %45 ], [ %56, %.thread29 ], [ %56, %65 ], [ %56, %66 ], [ %56, %79 ], [ %56, %81 ], [ %56, %85 ], [ %56, %90 ]
+  %.0 = phi ptr [ %9, %8 ], [ %33, %45 ], [ null, %address_type_get_length.exit.i ], [ %33, %44 ], [ %56, %.thread29 ], [ %56, %65 ], [ %56, %66 ], [ %56, %79 ], [ %56, %81 ], [ %56, %85 ], [ %56, %90 ]
   ret ptr %.0
 }
 

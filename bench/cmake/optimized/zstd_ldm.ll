@@ -360,8 +360,8 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   br label %.lr.ph76, !llvm.loop !35
 
 .loopexit:                                        ; preds = %72, %55, %38, %21, %91, %98, %.preheader
-  %.164 = phi i64 [ %.063.lcssa, %.preheader ], [ %87, %98 ], [ %87, %91 ], [ %68, %72 ], [ %51, %55 ], [ %34, %38 ], [ %17, %21 ]
-  %.1 = phi i64 [ %.0.lcssa, %.preheader ], [ %88, %98 ], [ %88, %91 ], [ %69, %72 ], [ %52, %55 ], [ %35, %38 ], [ %18, %21 ]
+  %.164 = phi i64 [ %.063.lcssa, %.preheader ], [ %87, %91 ], [ %87, %98 ], [ %68, %72 ], [ %51, %55 ], [ %34, %38 ], [ %17, %21 ]
+  %.1 = phi i64 [ %.0.lcssa, %.preheader ], [ %88, %91 ], [ %88, %98 ], [ %69, %72 ], [ %52, %55 ], [ %35, %38 ], [ %18, %21 ]
   store i64 %.164, ptr %0, align 8, !tbaa !21
   ret i64 %.1
 }
@@ -786,7 +786,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   br label %ZSTD_count.exit.i.us.i
 
 ZSTD_count.exit.i.us.i:                           ; preds = %.thread63.i.i.us.i, %206, %180
-  %.1.i.i.us.i = phi i64 [ %208, %206 ], [ %183, %180 ], [ %215, %.thread63.i.i.us.i ]
+  %.1.i.i.us.i = phi i64 [ %215, %.thread63.i.i.us.i ], [ %208, %206 ], [ %183, %180 ]
   %216 = getelementptr inbounds nuw i8, ptr %170, i64 %.1.i.i.us.i
   %.not.i.us.i = icmp eq ptr %216, %171
   br i1 %.not.i.us.i, label %217, label %ZSTD_count_2segments.exit.us.i
@@ -888,7 +888,7 @@ ZSTD_count.exit.i.us.i:                           ; preds = %.thread63.i.i.us.i,
   br label %ZSTD_count.exit49.i.us.i
 
 ZSTD_count.exit49.i.us.i:                         ; preds = %.thread63.i48.i.us.i, %245, %221
-  %.1.i30.i.us.i = phi i64 [ %248, %245 ], [ %224, %221 ], [ %256, %.thread63.i48.i.us.i ]
+  %.1.i30.i.us.i = phi i64 [ %256, %.thread63.i48.i.us.i ], [ %248, %245 ], [ %224, %221 ]
   %257 = add i64 %.1.i30.i.us.i, %.1.i.i.us.i
   br label %ZSTD_count_2segments.exit.us.i
 
@@ -960,7 +960,7 @@ ZSTD_ldm_countBackwardsMatch.exit26.i.us.i:       ; preds = %281, %.lr.ph.i21.i.
   br label %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i
 
 ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i: ; preds = %ZSTD_ldm_countBackwardsMatch.exit26.i.us.i, %ZSTD_ldm_countBackwardsMatch.exit.i.us.i
-  %.7.us.i = phi i64 [ %285, %ZSTD_ldm_countBackwardsMatch.exit26.i.us.i ], [ %.0.lcssa.i.i.us.i, %ZSTD_ldm_countBackwardsMatch.exit.i.us.i ]
+  %.7.us.i = phi i64 [ %.0.lcssa.i.i.us.i, %ZSTD_ldm_countBackwardsMatch.exit.i.us.i ], [ %285, %ZSTD_ldm_countBackwardsMatch.exit26.i.us.i ]
   %286 = add i64 %.7.us.i, %.0.i.us.i
   %287 = icmp ugt i64 %286, %.0239330.us.i
   br i1 %287, label %288, label %ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.us.i
@@ -969,10 +969,10 @@ ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i: ; preds = %ZSTD_ldm_countBackw
   br label %ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.us.i
 
 ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.us.i: ; preds = %288, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i, %ZSTD_count_2segments.exit.us.i, %164, %.lr.ph333.split.us.i
-  %.1244.us.i = phi ptr [ %.0243328.us.i, %164 ], [ %.0243328.us.i, %.lr.ph333.split.us.i ], [ %.0242329.us.i, %288 ], [ %.0243328.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0243328.us.i, %ZSTD_count_2segments.exit.us.i ]
-  %.1240.us.i = phi i64 [ %.0239330.us.i, %164 ], [ %.0239330.us.i, %.lr.ph333.split.us.i ], [ %286, %288 ], [ %.0239330.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0239330.us.i, %ZSTD_count_2segments.exit.us.i ]
-  %.1229.us.i = phi i64 [ %.0228331.us.i, %164 ], [ %.0228331.us.i, %.lr.ph333.split.us.i ], [ %.7.us.i, %288 ], [ %.0228331.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0228331.us.i, %ZSTD_count_2segments.exit.us.i ]
-  %.1226.us.i = phi i64 [ %.0225332.us.i, %164 ], [ %.0225332.us.i, %.lr.ph333.split.us.i ], [ %.0.i.us.i, %288 ], [ %.0225332.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0225332.us.i, %ZSTD_count_2segments.exit.us.i ]
+  %.1244.us.i = phi ptr [ %.0243328.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0243328.us.i, %.lr.ph333.split.us.i ], [ %.0243328.us.i, %ZSTD_count_2segments.exit.us.i ], [ %.0243328.us.i, %164 ], [ %.0242329.us.i, %288 ]
+  %.1240.us.i = phi i64 [ %.0239330.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0239330.us.i, %.lr.ph333.split.us.i ], [ %.0239330.us.i, %ZSTD_count_2segments.exit.us.i ], [ %.0239330.us.i, %164 ], [ %286, %288 ]
+  %.1229.us.i = phi i64 [ %.0228331.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0228331.us.i, %.lr.ph333.split.us.i ], [ %.0228331.us.i, %ZSTD_count_2segments.exit.us.i ], [ %.0228331.us.i, %164 ], [ %.7.us.i, %288 ]
+  %.1226.us.i = phi i64 [ %.0225332.us.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.us.i ], [ %.0225332.us.i, %.lr.ph333.split.us.i ], [ %.0225332.us.i, %ZSTD_count_2segments.exit.us.i ], [ %.0225332.us.i, %164 ], [ %.0.i.us.i, %288 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0242329.us.i, i64 8
   %290 = icmp ult ptr %289, %159
   br i1 %290, label %.lr.ph333.split.us.i, label %._crit_edge.i, !llvm.loop !59
@@ -1088,7 +1088,7 @@ ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.us.i: ; preds = %288, %ZSTD_l
   br label %ZSTD_count.exit.i
 
 ZSTD_count.exit.i:                                ; preds = %330, %.thread63.i.i, %299
-  %.1.i.i = phi i64 [ %332, %330 ], [ %302, %299 ], [ %310, %.thread63.i.i ]
+  %.1.i.i = phi i64 [ %310, %.thread63.i.i ], [ %332, %330 ], [ %302, %299 ]
   %.not256.i = icmp ult i64 %.1.i.i, %106
   br i1 %.not256.i, label %ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.i, label %333
 
@@ -1116,7 +1116,7 @@ ZSTD_count.exit.i:                                ; preds = %330, %.thread63.i.i
   br i1 %or.cond.i279.i, label %.lr.ph.i278.i, label %ZSTD_ldm_countBackwardsMatch.exit.thread296.i, !llvm.loop !58
 
 ZSTD_ldm_countBackwardsMatch.exit.thread296.i:    ; preds = %340, %.lr.ph.i278.i, %333
-  %.7.i = phi i64 [ 0, %333 ], [ %341, %340 ], [ %.014.i.i, %.lr.ph.i278.i ]
+  %.7.i = phi i64 [ 0, %333 ], [ %.014.i.i, %.lr.ph.i278.i ], [ %341, %340 ]
   %344 = add i64 %.7.i, %.1.i.i
   %345 = icmp ugt i64 %344, %.0239330.i
   br i1 %345, label %346, label %ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.i
@@ -1125,10 +1125,10 @@ ZSTD_ldm_countBackwardsMatch.exit.thread296.i:    ; preds = %340, %.lr.ph.i278.i
   br label %ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.i
 
 ZSTD_ldm_countBackwardsMatch_2segments.exit.thread.i: ; preds = %346, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i, %ZSTD_count.exit.i, %293, %.lr.ph333.split.i
-  %.1244.i = phi ptr [ %.0243328.i, %293 ], [ %.0243328.i, %.lr.ph333.split.i ], [ %.0242329.i, %346 ], [ %.0243328.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0243328.i, %ZSTD_count.exit.i ]
-  %.1240.i = phi i64 [ %.0239330.i, %293 ], [ %.0239330.i, %.lr.ph333.split.i ], [ %344, %346 ], [ %.0239330.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0239330.i, %ZSTD_count.exit.i ]
-  %.1229.i = phi i64 [ %.0228331.i, %293 ], [ %.0228331.i, %.lr.ph333.split.i ], [ %.7.i, %346 ], [ %.0228331.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0228331.i, %ZSTD_count.exit.i ]
-  %.1226.i = phi i64 [ %.0225332.i, %293 ], [ %.0225332.i, %.lr.ph333.split.i ], [ %.1.i.i, %346 ], [ %.0225332.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0225332.i, %ZSTD_count.exit.i ]
+  %.1244.i = phi ptr [ %.0243328.i, %ZSTD_count.exit.i ], [ %.0243328.i, %.lr.ph333.split.i ], [ %.0243328.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0243328.i, %293 ], [ %.0242329.i, %346 ]
+  %.1240.i = phi i64 [ %.0239330.i, %ZSTD_count.exit.i ], [ %.0239330.i, %.lr.ph333.split.i ], [ %.0239330.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0239330.i, %293 ], [ %344, %346 ]
+  %.1229.i = phi i64 [ %.0228331.i, %ZSTD_count.exit.i ], [ %.0228331.i, %.lr.ph333.split.i ], [ %.0228331.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0228331.i, %293 ], [ %.7.i, %346 ]
+  %.1226.i = phi i64 [ %.0225332.i, %ZSTD_count.exit.i ], [ %.0225332.i, %.lr.ph333.split.i ], [ %.0225332.i, %ZSTD_ldm_countBackwardsMatch.exit.thread296.i ], [ %.0225332.i, %293 ], [ %.1.i.i, %346 ]
   %347 = getelementptr inbounds nuw i8, ptr %.0242329.i, i64 8
   %348 = icmp ult ptr %347, %159
   br i1 %348, label %.lr.ph333.split.i, label %._crit_edge.i, !llvm.loop !59
@@ -1262,30 +1262,30 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
   %404 = phi i64 [ %35, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %.pre103, %ZSTD_ldm_generateSequences_internal.exit._crit_edge ]
   %.0.i69 = phi i64 [ %46, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit._crit_edge ]
   %405 = icmp ult i64 %35, %404
-  br i1 %405, label %406, label %413
+  br i1 %405, label %408, label %406
 
 406:                                              ; preds = %403
-  %407 = trunc i64 %.05687 to i32
-  %408 = load ptr, ptr %1, align 8, !tbaa !60
-  %409 = getelementptr inbounds nuw %struct.rawSeq, ptr %408, i64 %35
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 4
-  %411 = load i32, ptr %410, align 4, !tbaa !61
-  %412 = add i32 %411, %407
-  store i32 %412, ptr %410, align 4, !tbaa !61
+  %407 = add i64 %46, %.05687
   br label %415
 
-413:                                              ; preds = %403
-  %414 = add i64 %46, %.05687
+408:                                              ; preds = %403
+  %409 = trunc i64 %.05687 to i32
+  %410 = load ptr, ptr %1, align 8, !tbaa !60
+  %411 = getelementptr inbounds nuw %struct.rawSeq, ptr %410, i64 %35
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 4
+  %413 = load i32, ptr %412, align 4, !tbaa !61
+  %414 = add i32 %413, %409
+  store i32 %414, ptr %412, align 4, !tbaa !61
   br label %415
 
-415:                                              ; preds = %406, %413
-  %.15778 = phi i64 [ %.0.i69, %406 ], [ %414, %413 ]
+415:                                              ; preds = %408, %406
+  %.15778 = phi i64 [ %407, %406 ], [ %.0.i69, %408 ]
   %416 = add nuw nsw i64 %.05588, 1
   %exitcond.not = icmp eq i64 %416, %16
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !67
 
 .critedge:                                        ; preds = %415, %34, %ZSTD_ldm_generateSequences_internal.exit, %5, %ZSTD_ldm_generateSequences_internal.exit.thread72
-  %.2 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread72 ], [ 0, %5 ], [ 0, %415 ], [ 0, %34 ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit ]
+  %.2 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread72 ], [ 0, %5 ], [ 0, %34 ], [ 0, %415 ], [ %.pre-phi112, %ZSTD_ldm_generateSequences_internal.exit ]
   ret i64 %.2
 }
 
@@ -1758,8 +1758,8 @@ ZSTD_wildcopy.exit.thread:                        ; preds = %134
   br i1 %162, label %158, label %ZSTD_wildcopy.exit.i, !llvm.loop !86
 
 ZSTD_wildcopy.exit.i:                             ; preds = %158, %151, %150
-  %.014.i = phi ptr [ %36, %151 ], [ %130, %150 ], [ %36, %158 ]
-  %.0.i = phi ptr [ %154, %151 ], [ %133, %150 ], [ %154, %158 ]
+  %.014.i = phi ptr [ %130, %150 ], [ %36, %151 ], [ %36, %158 ]
+  %.0.i = phi ptr [ %133, %150 ], [ %154, %151 ], [ %154, %158 ]
   %163 = icmp ult ptr %.014.i, %128
   br i1 %163, label %.lr.ph.i85, label %ZSTD_wildcopy.exit
 

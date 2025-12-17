@@ -881,8 +881,8 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %332, %322, %316
   br label %382
 
 382:                                              ; preds = %380, %378, %375, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i, %312, %.lr.ph131.i.i
-  %.183.i.i = phi i1 [ false, %380 ], [ %.082129.i.i, %.lr.ph131.i.i ], [ false, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ false, %312 ], [ false, %378 ], [ false, %375 ]
-  %.1.i39.i = phi ptr [ %.2.lcssa.i.i, %380 ], [ %.081130.i.i, %.lr.ph131.i.i ], [ %.2.lcssa.i.i, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ %.2.lcssa.i.i, %312 ], [ %.2.lcssa.i.i, %378 ], [ %.2.lcssa.i.i, %375 ]
+  %.183.i.i = phi i1 [ %.082129.i.i, %.lr.ph131.i.i ], [ false, %380 ], [ false, %312 ], [ false, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ false, %378 ], [ false, %375 ]
+  %.1.i39.i = phi ptr [ %.081130.i.i, %.lr.ph131.i.i ], [ %.2.lcssa.i.i, %380 ], [ %.2.lcssa.i.i, %312 ], [ %.2.lcssa.i.i, %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i ], [ %.2.lcssa.i.i, %378 ], [ %.2.lcssa.i.i, %375 ]
   %383 = getelementptr inbounds nuw i8, ptr %.084128.i.i, i64 16
   %384 = load ptr, ptr %262, align 8, !tbaa !84
   %385 = icmp ult ptr %383, %384
@@ -1718,7 +1718,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
   br i1 %exitcond.not.i.i, label %.loopexit.i37.i, label %.lr.ph.i34.i, !llvm.loop !121
 
 .loopexit.i37.i:                                  ; preds = %334, %331, %.preheader.i.i, %309, %306
-  %.0.i38.i = phi ptr [ null, %309 ], [ null, %306 ], [ %333, %331 ], [ null, %.preheader.i.i ], [ null, %334 ]
+  %.0.i38.i = phi ptr [ null, %306 ], [ null, %309 ], [ %333, %331 ], [ null, %.preheader.i.i ], [ null, %334 ]
   %335 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %336 = load i32, ptr %335, align 4, !tbaa !70
   %337 = sext i32 %336 to i64

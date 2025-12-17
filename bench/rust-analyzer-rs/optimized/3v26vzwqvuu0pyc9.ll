@@ -1660,7 +1660,7 @@ _ZN8lz4_flex5block8compress9init_dict17h17cfb7df0eb34f5cE.exit.i: ; preds = %106
   br label %.body
 
 .body:                                            ; preds = %56, %59, %92, %95, %115, %121, %127
-  %eh.lpad-body = phi { ptr, i32 } [ %128, %127 ], [ %57, %59 ], [ %57, %56 ], [ %93, %95 ], [ %93, %92 ], [ %122, %121 ], [ %116, %115 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %128, %127 ], [ %93, %92 ], [ %57, %56 ], [ %57, %59 ], [ %93, %95 ], [ %122, %121 ], [ %116, %115 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0cc67ae7d2ab5255E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #27
           to label %155 unwind label %153
 
@@ -1847,7 +1847,7 @@ define noundef range(i8 0, 4) i8 @_ZN7base_db17toolchain_channel17ha1af912636b6f
           to label %20 unwind label %18
 
 11:                                               ; preds = %20, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit16.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit20.i", %25, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3ecac50cd1530438E.exit.i"
-  %.0.i = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit16.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit20.i" ], [ 3, %25 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3ecac50cd1530438E.exit.i" ], [ 0, %20 ]
+  %.0.i = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit16.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb04d15cb85c74fc5E.exit20.i" ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3ecac50cd1530438E.exit.i" ], [ 3, %25 ], [ 0, %20 ]
   invoke void @"_ZN72_$LT$semver..identifier..Identifier$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2be2ae9091aa993eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
           to label %"_ZN4core3ptr36drop_in_place$LT$semver..Version$GT$17h2595ea9fd7bc9e80E.exit.i" unwind label %12
 
@@ -2769,7 +2769,7 @@ define void @_ZN7base_db28SourceDatabaseGroupStorage__3new17h7d500040a371de88E(p
   unreachable
 
 common.resume:                                    ; preds = %37, %.body41, %24, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %25, %24 ], [ %.pn.pn, %.body41 ], [ %.pn.pn, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %12, %11 ], [ %.pn.pn, %.body41 ], [ %.pn.pn, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN106_$LT$salsa..derived..DerivedStorage$LT$Q$C$MP$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$3new17h272b01e7f46461ecE.exit": ; preds = %2
@@ -2845,7 +2845,7 @@ common.resume:                                    ; preds = %37, %.body41, %24, 
   br label %.body41
 
 .body41:                                          ; preds = %32, %.body39, %41
-  %.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %41 ], [ %.pn, %.body39 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %.pn, %.body39 ], [ %33, %32 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !499)
   call void @llvm.experimental.noalias.scope.decl(metadata !502)
   %34 = load ptr, ptr %9, align 8, !alias.scope !505, !nonnull !4, !noundef !4
@@ -2859,7 +2859,7 @@ common.resume:                                    ; preds = %37, %.body41, %24, 
           to label %common.resume unwind label %71
 
 .body39:                                          ; preds = %.body, %55, %49
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %64, %55 ], [ %64, %.body ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %64, %.body ], [ %64, %55 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !506)
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %38 = load ptr, ptr %8, align 8, !alias.scope !512, !nonnull !4, !noundef !4
@@ -4005,8 +4005,8 @@ _ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i: ; pre
   br label %.backedge.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i, %128, %111, %62, %.preheader38.i.i.i.i, %.preheader.i.i.i.i, %135, %108, %.noexc.i
-  %.sroa.13.0.ph.i.i.i = phi i64 [ undef, %.noexc.i ], [ %110, %108 ], [ %136, %135 ], [ undef, %.preheader.i.i.i.i ], [ undef, %.preheader38.i.i.i.i ], [ undef, %62 ], [ undef, %111 ], [ undef, %128 ], [ undef, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ]
-  %.sroa.0.021.ph.i.i.i = phi i64 [ 2, %.noexc.i ], [ 0, %108 ], [ 0, %135 ], [ 2, %.preheader.i.i.i.i ], [ 2, %.preheader38.i.i.i.i ], [ 2, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ 3, %128 ], [ 2, %111 ], [ 1, %62 ]
+  %.sroa.13.0.ph.i.i.i = phi i64 [ %110, %108 ], [ %136, %135 ], [ undef, %.noexc.i ], [ undef, %.preheader38.i.i.i.i ], [ undef, %.preheader.i.i.i.i ], [ undef, %62 ], [ undef, %111 ], [ undef, %128 ], [ undef, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ]
+  %.sroa.0.021.ph.i.i.i = phi i64 [ 0, %108 ], [ 0, %135 ], [ 2, %.noexc.i ], [ 2, %.preheader38.i.i.i.i ], [ 2, %.preheader.i.i.i.i ], [ 2, %_ZN8lz4_flex5block10decompress9duplicate17h453689ed96a7505cE.exit.i.i.i.i ], [ 3, %128 ], [ 2, %111 ], [ 1, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !707
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5891a58152962f9dE.llvm.3524786003483496519"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc5.i unwind label %205
@@ -4531,7 +4531,7 @@ common.resume:                                    ; preds = %33, %.body38, %20
   unreachable
 
 .body38:                                          ; preds = %.body, %50, %43, %25
-  %.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %44, %43 ], [ %.pn.pn, %50 ], [ %.pn.pn, %.body ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %26, %25 ], [ %.pn.pn, %.body ], [ %.pn.pn, %50 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !809)
   call void @llvm.experimental.noalias.scope.decl(metadata !812)
   %30 = load ptr, ptr %13, align 8, !alias.scope !815, !nonnull !4, !noundef !4
@@ -4593,7 +4593,7 @@ common.resume:                                    ; preds = %33, %.body38, %20
   unreachable
 
 .body:                                            ; preds = %.body34, %65, %58
-  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn, %65 ], [ %.pn, %.body34 ]
+  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn, %.body34 ], [ %.pn, %65 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   %47 = load ptr, ptr %12, align 8, !alias.scope !825, !nonnull !4, !noundef !4
@@ -4651,7 +4651,7 @@ common.resume:                                    ; preds = %33, %.body38, %20
   unreachable
 
 .body34:                                          ; preds = %.body36, %86, %73
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %eh.lpad-body37, %86 ], [ %eh.lpad-body37, %.body36 ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body37, %86 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !829)
   call void @llvm.experimental.noalias.scope.decl(metadata !832)
   %62 = load ptr, ptr %11, align 8, !alias.scope !835, !nonnull !4, !noundef !4

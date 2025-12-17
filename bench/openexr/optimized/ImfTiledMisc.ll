@@ -513,8 +513,8 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30: ; preds
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
-  %.val2966 = phi i32 [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
-  %.0.i31 = phi i32 [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.val2966 = phi i32 [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.0.i31 = phi i32 [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
   %.0.i31.fr = freeze i32 %.0.i31
   store i32 %.0.i31.fr, ptr %8, align 4, !tbaa !25
   %81 = load i32, ptr %7, align 4, !tbaa !25
@@ -830,7 +830,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   ret i32 %82
 
 83:                                               ; preds = %39, %72, %61, %59, %67, %65, %37
-  %.pn38.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %73, %72 ], [ %62, %61 ], [ %60, %59 ], [ %68, %67 ], [ %66, %65 ]
+  %.pn38.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %73, %72 ], [ %60, %59 ], [ %40, %39 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
   %.027 = extractvalue { ptr, i32 } %.pn38.pn.pn, 0
   %84 = tail call ptr @__cxa_begin_catch(ptr %.027) #13
   %85 = load ptr, ptr %2, align 8, !tbaa !37

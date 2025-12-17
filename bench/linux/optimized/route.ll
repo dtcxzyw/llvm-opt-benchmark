@@ -2108,8 +2108,8 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   br label %78
 
 78:                                               ; preds = %.thread18, %.thread17
-  %79 = phi ptr [ %54, %.thread17 ], [ %71, %.thread18 ]
-  %80 = phi ptr [ %42, %.thread17 ], [ %77, %.thread18 ]
+  %79 = phi ptr [ %71, %.thread18 ], [ %54, %.thread17 ]
+  %80 = phi ptr [ %77, %.thread18 ], [ %42, %.thread17 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
   %82 = load volatile ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 25
@@ -2165,7 +2165,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   br label %111
 
 111:                                              ; preds = %.thread19, %99
-  %112 = phi ptr [ %97, %99 ], [ %110, %.thread19 ]
+  %112 = phi ptr [ %110, %.thread19 ], [ %97, %99 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %114 = load volatile ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 25
@@ -2284,8 +2284,8 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   br label %182
 
 182:                                              ; preds = %.thread32, %.thread31
-  %183 = phi ptr [ %158, %.thread31 ], [ %175, %.thread32 ]
-  %184 = phi ptr [ %146, %.thread31 ], [ %181, %.thread32 ]
+  %183 = phi ptr [ %175, %.thread32 ], [ %158, %.thread31 ]
+  %184 = phi ptr [ %181, %.thread32 ], [ %146, %.thread31 ]
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 128
   %186 = load volatile ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 25
@@ -2512,7 +2512,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread39
 
 .thread39:                                        ; preds = %303, %301, %294, %292, %312, %308, %.thread37, %236, %234, %.thread33
-  %314 = phi ptr [ %313, %312 ], [ %229, %.thread33 ], [ %229, %234 ], [ %229, %236 ], [ %253, %.thread37 ], [ %253, %308 ], [ %296, %303 ], [ %296, %301 ], [ %296, %294 ], [ null, %292 ]
+  %314 = phi ptr [ %313, %312 ], [ %253, %308 ], [ %229, %.thread33 ], [ %229, %234 ], [ %229, %236 ], [ %253, %.thread37 ], [ %296, %303 ], [ %296, %301 ], [ %296, %294 ], [ null, %292 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_fib6_table_lookup, i64 8), i32 2) #22
           to label %335 [label %315], !srcloc !27
 
@@ -3360,7 +3360,7 @@ define dso_local noundef i32 @fib6_table_lookup(ptr noundef %0, ptr noundef %1, 
   br i1 %74, label %.thread, label %81
 
 .thread:                                          ; preds = %73, %21
-  %75 = phi ptr [ %.pre11, %21 ], [ %.pre13, %73 ]
+  %75 = phi ptr [ %.pre13, %73 ], [ %.pre11, %21 ]
   store ptr %75, ptr %14, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 168
   store ptr %76, ptr %4, align 8
@@ -3801,7 +3801,7 @@ define dso_local ptr @ip6_pol_route(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread31
 
 .thread31:                                        ; preds = %90, %94, %202, %208, %218, %217, %215
-  %.ph = phi ptr [ %165, %218 ], [ %165, %208 ], [ %165, %202 ], [ %165, %217 ], [ %165, %215 ], [ %88, %94 ], [ %88, %90 ]
+  %.ph = phi ptr [ %165, %218 ], [ %165, %215 ], [ %165, %208 ], [ %165, %202 ], [ %165, %217 ], [ %88, %94 ], [ %88, %90 ]
   call void @__local_bh_enable_ip(i64 noundef %83, i32 noundef 512) #22
   br label %.thread29
 
@@ -4027,7 +4027,7 @@ define internal fastcc ptr @ip6_rt_cache_alloc(ptr noundef readonly captures(non
   br label %.thread5
 
 .thread5:                                         ; preds = %76, %78, %101, %90, %86, %81, %79, %71, %56, %21
-  %103 = phi ptr [ null, %21 ], [ %54, %86 ], [ %54, %90 ], [ %54, %101 ], [ %54, %81 ], [ null, %71 ], [ null, %79 ], [ %54, %56 ], [ null, %78 ], [ null, %76 ]
+  %103 = phi ptr [ null, %21 ], [ %54, %86 ], [ %54, %90 ], [ %54, %101 ], [ %54, %81 ], [ null, %71 ], [ %54, %56 ], [ null, %79 ], [ null, %78 ], [ null, %76 ]
   ret ptr %103
 }
 
@@ -4614,7 +4614,7 @@ define dso_local ptr @ip6_dst_check(ptr noundef %0, i32 noundef %1) #1 align 16 
   br label %.thread5
 
 .thread5:                                         ; preds = %58, %94, %87, %82, %78, %70, %61, %.thread, %52, %47, %14
-  %95 = phi ptr [ null, %.thread ], [ %0, %52 ], [ %0, %47 ], [ null, %61 ], [ %0, %94 ], [ null, %70 ], [ null, %78 ], [ %93, %87 ], [ %0, %82 ], [ null, %14 ], [ null, %58 ]
+  %95 = phi ptr [ null, %.thread ], [ %0, %52 ], [ %0, %47 ], [ null, %61 ], [ null, %14 ], [ %0, %94 ], [ null, %70 ], [ null, %78 ], [ %93, %87 ], [ %0, %82 ], [ null, %58 ]
   tail call void @__rcu_read_unlock() #22
   br label %96
 
@@ -5257,7 +5257,7 @@ define dso_local ptr @__ip6_route_redirect(ptr noundef %0, ptr noundef %1, ptr n
   br label %54
 
 54:                                               ; preds = %.thread, %42
-  %55 = phi ptr [ %40, %42 ], [ %53, %.thread ]
+  %55 = phi ptr [ %53, %.thread ], [ %40, %42 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %57 = load volatile ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 25
@@ -6244,7 +6244,7 @@ define dso_local ptr @icmp6_dst_alloc(ptr noundef %0, ptr noundef %1) local_unna
   br label %in6_dev_put.exit
 
 in6_dev_put.exit:                                 ; preds = %43, %42, %40, %.critedge, %62
-  %72 = phi ptr [ %71, %62 ], [ inttoptr (i64 -19 to ptr), %.critedge ], [ inttoptr (i64 -12 to ptr), %40 ], [ inttoptr (i64 -12 to ptr), %42 ], [ inttoptr (i64 -12 to ptr), %43 ]
+  %72 = phi ptr [ inttoptr (i64 -19 to ptr), %.critedge ], [ %71, %62 ], [ inttoptr (i64 -12 to ptr), %40 ], [ inttoptr (i64 -12 to ptr), %42 ], [ inttoptr (i64 -12 to ptr), %43 ]
   ret ptr %72
 }
 
@@ -6842,9 +6842,9 @@ thread-pre-split:                                 ; preds = %102, %104, %105
   br label %.thread50
 
 .thread42:                                        ; preds = %85, %269, %136, %245, %143, %261, %267, %254, %322, %316, %309, %295, %293, %282, %280
-  %327 = phi ptr [ %317, %316 ], [ %317, %322 ], [ %276, %293 ], [ %276, %295 ], [ %276, %309 ], [ %276, %280 ], [ %276, %282 ], [ %271, %269 ], [ %66, %136 ], [ %246, %245 ], [ %66, %143 ], [ %251, %261 ], [ %251, %267 ], [ null, %254 ], [ null, %85 ]
-  %328 = phi ptr [ %318, %316 ], [ %318, %322 ], [ %275, %293 ], [ %275, %295 ], [ %275, %309 ], [ %275, %280 ], [ %275, %282 ], [ %272, %269 ], [ %65, %136 ], [ %247, %245 ], [ %65, %143 ], [ %252, %261 ], [ %252, %267 ], [ %252, %254 ], [ %65, %85 ]
-  %329 = phi i32 [ -12, %316 ], [ 0, %322 ], [ -100, %293 ], [ -100, %295 ], [ %314, %309 ], [ -13, %280 ], [ -13, %282 ], [ -22, %269 ], [ -22, %136 ], [ %248, %245 ], [ -22, %143 ], [ -22, %261 ], [ -22, %267 ], [ -22, %254 ], [ -19, %85 ]
+  %327 = phi ptr [ %317, %316 ], [ %317, %322 ], [ null, %254 ], [ %276, %293 ], [ %276, %295 ], [ %276, %309 ], [ %276, %280 ], [ %276, %282 ], [ %271, %269 ], [ %66, %136 ], [ %246, %245 ], [ %66, %143 ], [ %251, %261 ], [ %251, %267 ], [ null, %85 ]
+  %328 = phi ptr [ %318, %316 ], [ %318, %322 ], [ %252, %254 ], [ %275, %293 ], [ %275, %295 ], [ %275, %309 ], [ %275, %280 ], [ %275, %282 ], [ %272, %269 ], [ %65, %136 ], [ %247, %245 ], [ %65, %143 ], [ %252, %261 ], [ %252, %267 ], [ %65, %85 ]
+  %329 = phi i32 [ -12, %316 ], [ 0, %322 ], [ -22, %254 ], [ -100, %293 ], [ -100, %295 ], [ %314, %309 ], [ -13, %280 ], [ -13, %282 ], [ -22, %269 ], [ -22, %136 ], [ %248, %245 ], [ -22, %143 ], [ -22, %261 ], [ -22, %267 ], [ -19, %85 ]
   %330 = icmp eq ptr %328, null
   br i1 %330, label %.thread49, label %.thread47
 
@@ -6871,8 +6871,8 @@ thread-pre-split:                                 ; preds = %102, %104, %105
   br label %.thread49
 
 .thread49:                                        ; preds = %337, %339, %340, %.thread42
-  %341 = phi i32 [ %331, %340 ], [ %329, %.thread42 ], [ %331, %339 ], [ %331, %337 ]
-  %342 = phi ptr [ %333, %340 ], [ %327, %.thread42 ], [ %333, %339 ], [ %333, %337 ]
+  %341 = phi i32 [ %329, %.thread42 ], [ %331, %340 ], [ %331, %339 ], [ %331, %337 ]
+  %342 = phi ptr [ %327, %.thread42 ], [ %333, %340 ], [ %333, %339 ], [ %333, %337 ]
   %343 = icmp eq i32 %341, 0
   br i1 %343, label %354, label %.thread50
 
@@ -7618,7 +7618,7 @@ define internal fastcc ptr @ip6_route_info_create(ptr noundef %0, i32 noundef %1
   br label %.thread20
 
 .thread20:                                        ; preds = %233, %235, %227, %47, %38, %34, %28, %22, %16, %11, %67, %.thread, %49, %236
-  %238 = phi i32 [ %229, %236 ], [ -22, %227 ], [ -22, %47 ], [ -22, %38 ], [ -22, %34 ], [ -22, %28 ], [ -22, %22 ], [ -22, %16 ], [ -22, %11 ], [ -105, %67 ], [ -12, %.thread ], [ %50, %49 ], [ %229, %235 ], [ %229, %233 ]
+  %238 = phi i32 [ %50, %49 ], [ %229, %236 ], [ -22, %227 ], [ -22, %47 ], [ -22, %38 ], [ -22, %34 ], [ -22, %28 ], [ -22, %22 ], [ -22, %16 ], [ -22, %11 ], [ -105, %67 ], [ -12, %.thread ], [ %229, %235 ], [ %229, %233 ]
   %239 = sext i32 %238 to i64
   %240 = inttoptr i64 %239 to ptr
   br label %245
@@ -8196,7 +8196,7 @@ define dso_local i32 @ipv6_route_ioctl(ptr noundef %0, i32 noundef %1, ptr nound
   br label %60
 
 60:                                               ; preds = %58, %56
-  %61 = phi i32 [ %59, %58 ], [ %57, %56 ]
+  %61 = phi i32 [ %57, %56 ], [ %59, %58 ]
   call void @rtnl_unlock() #22
   br label %62
 
@@ -8265,7 +8265,7 @@ define internal fastcc i32 @ip6_route_del(ptr noundef %0, ptr noundef writeonly 
   %38 = getelementptr i8, ptr %0, i64 92
   br label %43
 
-39:                                               ; preds = %51, %.thread18, %69, %77, %84, %107, %127, %137, %133, %144, %171
+39:                                               ; preds = %171, %51, %.thread18, %69, %77, %84, %107, %127, %137, %133, %144
   %40 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %41 = load volatile ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
@@ -9256,7 +9256,7 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %38, %.preheader, %49, %60, %70, %65, %61, %33, %21, %16, %13, %9, %2
-  %74 = phi i32 [ %34, %33 ], [ %20, %16 ], [ 0, %9 ], [ 0, %2 ], [ -1, %21 ], [ 0, %61 ], [ 0, %65 ], [ 0, %13 ], [ 0, %70 ], [ -2, %60 ], [ -1, %49 ], [ -1, %.preheader ], [ -2, %38 ]
+  %74 = phi i32 [ 0, %70 ], [ %34, %33 ], [ %20, %16 ], [ 0, %9 ], [ 0, %2 ], [ -1, %21 ], [ 0, %61 ], [ 0, %65 ], [ 0, %13 ], [ -2, %60 ], [ -1, %49 ], [ -1, %.preheader ], [ -2, %38 ]
   ret i32 %74
 }
 
@@ -9777,8 +9777,8 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rt6_fill_node(ptr noundef 
   br label %.thread12
 
 .thread12:                                        ; preds = %57, %33
-  %62 = phi i32 [ 0, %33 ], [ %.fr, %57 ]
-  %63 = phi i8 [ 0, %33 ], [ %spec.select, %57 ]
+  %62 = phi i32 [ %.fr, %57 ], [ 0, %33 ]
+  %63 = phi i8 [ %spec.select, %57 ], [ 0, %33 ]
   %64 = getelementptr i8, ptr %31, i64 20
   store i8 %63, ptr %64, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -10097,7 +10097,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rt6_fill_node(ptr noundef 
   br label %249
 
 249:                                              ; preds = %.thread17, %236
-  %250 = phi ptr [ %237, %236 ], [ %248, %.thread17 ]
+  %250 = phi ptr [ %248, %.thread17 ], [ %237, %236 ]
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 128
   %252 = load volatile ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 25
@@ -10447,7 +10447,7 @@ define dso_local void @inet6_rt_notify(i32 noundef %0, ptr noundef %1, ptr nound
   br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.preheader, %24, %20, %18
-  %43 = phi i32 [ 0, %20 ], [ %.pre, %18 ], [ %28, %24 ], [ %40, %.preheader ]
+  %43 = phi i32 [ %.pre, %18 ], [ 0, %20 ], [ %28, %24 ], [ %40, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !99
   %45 = and i32 %44, 65280
@@ -10562,7 +10562,7 @@ define dso_local void @fib6_rt_update(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.preheader, %21, %17, %15
-  %40 = phi i32 [ 0, %17 ], [ %.pre, %15 ], [ %25, %21 ], [ %37, %.preheader ]
+  %40 = phi i32 [ %.pre, %15 ], [ 0, %17 ], [ %25, %21 ], [ %37, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !99
   %42 = and i32 %41, 65280
@@ -10709,7 +10709,7 @@ define dso_local void @fib6_info_hw_flags_set(ptr noundef %0, ptr noundef %1, i1
   br i1 %66, label %.loopexit, label %.preheader, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.preheader, %48, %44, %42
-  %67 = phi i32 [ 0, %44 ], [ %.pre, %42 ], [ %52, %48 ], [ %64, %.preheader ]
+  %67 = phi i32 [ %.pre, %42 ], [ 0, %44 ], [ %52, %48 ], [ %64, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %68 = add i32 %67, 343
   %69 = and i32 %68, -4
@@ -11594,7 +11594,7 @@ define internal i32 @inet6_rtm_newroute(ptr noundef readonly captures(none) %0, 
   br i1 %346, label %.thread51, label %.preheader64, !llvm.loop !113
 
 .thread51:                                        ; preds = %.preheader64, %169, %171, %120, %122, %73, %74, %333, %311, %308, %172, %.loopexit65, %123, %114, %96
-  %347 = phi i32 [ %98, %96 ], [ -22, %114 ], [ -22, %123 ], [ %.ph53, %.loopexit65 ], [ %.ph53, %172 ], [ 0, %308 ], [ 0, %311 ], [ %315, %333 ], [ -22, %74 ], [ -22, %73 ], [ -22, %122 ], [ -22, %120 ], [ %.ph53, %171 ], [ %.ph53, %169 ], [ %315, %.preheader64 ]
+  %347 = phi i32 [ %98, %96 ], [ -22, %114 ], [ -22, %73 ], [ -22, %123 ], [ %.ph53, %.loopexit65 ], [ -22, %120 ], [ %.ph53, %172 ], [ 0, %308 ], [ 0, %311 ], [ %315, %333 ], [ -22, %74 ], [ -22, %122 ], [ %.ph53, %171 ], [ %.ph53, %169 ], [ %315, %.preheader64 ]
   %348 = load ptr, ptr %6, align 8
   %349 = icmp eq ptr %348, %6
   br i1 %349, label %.loopexit, label %.preheader
@@ -12296,7 +12296,7 @@ define internal i32 @inet6_rtm_getroute(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %20, %22, %87, %89, %77, %79, %57, %59, %49, %51, %12, %14, %.thread24, %271, %269, %236, %232, %226, %188, %119, %108, %93
-  %275 = phi i32 [ %94, %93 ], [ -22, %108 ], [ -22, %119 ], [ %190, %188 ], [ %227, %226 ], [ 0, %232 ], [ %270, %269 ], [ %274, %271 ], [ -105, %236 ], [ -19, %.thread24 ], [ -22, %14 ], [ -22, %12 ], [ -22, %51 ], [ -22, %49 ], [ -22, %59 ], [ -22, %57 ], [ -22, %79 ], [ -22, %77 ], [ -22, %89 ], [ -22, %87 ], [ -22, %22 ], [ -22, %20 ]
+  %275 = phi i32 [ %94, %93 ], [ -22, %108 ], [ -22, %119 ], [ %190, %188 ], [ -19, %.thread24 ], [ %227, %226 ], [ 0, %232 ], [ %270, %269 ], [ %274, %271 ], [ -105, %236 ], [ -22, %14 ], [ -22, %12 ], [ -22, %51 ], [ -22, %49 ], [ -22, %59 ], [ -22, %57 ], [ -22, %79 ], [ -22, %77 ], [ -22, %89 ], [ -22, %87 ], [ -22, %22 ], [ -22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %275
@@ -13137,7 +13137,7 @@ define internal fastcc void @__find_rr_leaf(ptr noundef %0, ptr noundef readnone
   br label %61
 
 61:                                               ; preds = %49, %.thread
-  %62 = phi ptr [ %47, %49 ], [ %60, %.thread ]
+  %62 = phi ptr [ %60, %.thread ], [ %47, %49 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %64 = load volatile ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 25
@@ -14494,7 +14494,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   br i1 %105, label %98, label %.loopexit, !llvm.loop !132
 
 .thread:                                          ; preds = %98, %93, %16, %10
-  %106 = phi ptr [ null, %16 ], [ null, %10 ], [ %73, %93 ], [ %73, %98 ]
+  %106 = phi ptr [ null, %10 ], [ null, %16 ], [ %73, %93 ], [ %73, %98 ]
   %107 = call i32 @fib6_del(ptr noundef nonnull %0, ptr noundef nonnull %4) #22
   br label %.loopexit
 

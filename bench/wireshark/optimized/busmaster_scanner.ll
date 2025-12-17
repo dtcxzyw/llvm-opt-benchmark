@@ -730,7 +730,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %406
 
 406:                                              ; preds = %398, %390, %382, %366, %379
-  %.1 = phi i32 [ 2, %379 ], [ 2, %366 ], [ 2, %382 ], [ 2, %390 ], [ %spec.select, %398 ]
+  %.1 = phi i32 [ %spec.select, %398 ], [ 2, %366 ], [ 2, %382 ], [ 2, %390 ], [ 2, %379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1091,7 +1091,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   br i1 %.not280, label %.backedge.sink.split987.backedge, label %627
 
 .backedge.sink.split987.backedge:                 ; preds = %yy_try_NUL_trans.exit, %120
-  %.1261.ph.be = phi ptr [ %.1261, %120 ], [ %555, %yy_try_NUL_trans.exit ]
+  %.1261.ph.be = phi ptr [ %555, %yy_try_NUL_trans.exit ], [ %.1261, %120 ]
   br label %.backedge.sink.split987
 
 627:                                              ; preds = %yy_try_NUL_trans.exit
@@ -2171,7 +2171,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
+  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

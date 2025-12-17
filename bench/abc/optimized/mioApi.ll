@@ -414,7 +414,7 @@ define ptr @Mio_LibraryReadGateByName(ptr noundef readonly captures(none) %0, pt
   br label %23
 
 23:                                               ; preds = %8, %18, %11, %3, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %3 ], [ %10, %11 ], [ %17, %18 ], [ %10, %8 ]
+  %.0 = phi ptr [ %17, %18 ], [ null, %22 ], [ %10, %11 ], [ null, %3 ], [ %10, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

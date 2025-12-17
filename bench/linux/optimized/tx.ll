@@ -867,7 +867,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ieee80211_txq_setup_flows(ptr no
   br label %113
 
 113:                                              ; preds = %1, %19, %111, %110, %.loopexit
-  %114 = phi i32 [ -12, %.loopexit ], [ 0, %110 ], [ 0, %111 ], [ -12, %19 ], [ -12, %1 ]
+  %114 = phi i32 [ -12, %.loopexit ], [ 0, %111 ], [ 0, %110 ], [ -12, %19 ], [ -12, %1 ]
   ret i32 %114
 }
 
@@ -1110,7 +1110,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @ieee80211_tx_prepare(ptr nou
   br label %58
 
 .thread39:                                        ; preds = %21, %47, %26
-  %.ph = phi ptr [ %48, %47 ], [ %2, %21 ], [ %28, %26 ]
+  %.ph = phi ptr [ %2, %21 ], [ %48, %47 ], [ %28, %26 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %62
 
@@ -1440,7 +1440,7 @@ ieee80211_aggr_check.exit:                        ; preds = %94, %99, %104, %109
   br label %262
 
 262:                                              ; preds = %.thread11.thread20, %.thread11.thread18, %259, %31
-  %263 = phi i32 [ 0, %259 ], [ 1, %31 ], [ 2, %.thread11.thread18 ], [ 2, %.thread11.thread20 ]
+  %263 = phi i32 [ 0, %259 ], [ 1, %31 ], [ 2, %.thread11.thread20 ], [ 2, %.thread11.thread18 ]
   ret i32 %263
 }
 
@@ -3067,7 +3067,7 @@ define dso_local void @ieee80211_check_fast_xmit(ptr noundef %0) local_unnamed_a
   br label %.thread7
 
 .thread7:                                         ; preds = %217, %212, %208, %.thread6, %214, %.thread, %226, %80, %72, %60, %50, %46, %42, %38, %34, %30, %25, %22
-  %233 = phi ptr [ null, %34 ], [ null, %38 ], [ null, %42 ], [ null, %46 ], [ null, %50 ], [ null, %80 ], [ %232, %226 ], [ null, %72 ], [ null, %60 ], [ null, %30 ], [ null, %25 ], [ null, %22 ], [ null, %.thread ], [ null, %214 ], [ null, %.thread6 ], [ null, %208 ], [ null, %212 ], [ null, %217 ]
+  %233 = phi ptr [ null, %34 ], [ null, %38 ], [ null, %42 ], [ null, %46 ], [ null, %50 ], [ null, %80 ], [ null, %22 ], [ %232, %226 ], [ null, %.thread ], [ null, %72 ], [ null, %60 ], [ null, %30 ], [ null, %25 ], [ null, %214 ], [ null, %.thread6 ], [ null, %208 ], [ null, %212 ], [ null, %217 ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %235 = load ptr, ptr %234, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !74
@@ -4444,8 +4444,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   tail call void %458(ptr noundef %0, ptr noundef nonnull %66) #20
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %37, %42, %44, %65, %52, %11, %20, %454, %.thread22, %406, %4
-  %459 = phi i1 [ false, %4 ], [ true, %406 ], [ true, %.thread22 ], [ true, %454 ], [ false, %20 ], [ false, %11 ], [ false, %52 ], [ false, %65 ], [ false, %44 ], [ false, %42 ], [ false, %37 ]
+.critedge.thread:                                 ; preds = %37, %42, %44, %65, %11, %20, %52, %454, %.thread22, %406, %4
+  %459 = phi i1 [ false, %4 ], [ false, %37 ], [ true, %406 ], [ true, %.thread22 ], [ true, %454 ], [ false, %52 ], [ false, %20 ], [ false, %11 ], [ false, %65 ], [ false, %44 ], [ false, %42 ]
   ret i1 %459
 }
 
@@ -5446,7 +5446,7 @@ codel_dequeue_func.exit:                          ; preds = %167
   br i1 %424, label %428, label %.thread39
 
 codel_dequeue_func.exit37:                        ; preds = %343, %412, %407, %419
-  %425 = phi ptr [ %346, %419 ], [ null, %343 ], [ %346, %407 ], [ %346, %412 ]
+  %425 = phi ptr [ %346, %419 ], [ null, %343 ], [ %346, %412 ], [ %346, %407 ]
   %426 = phi i32 [ %421, %419 ], [ 0, %407 ], [ 0, %412 ], [ 0, %343 ]
   store i32 %426, ptr %280, align 4
   br label %.thread39
@@ -5716,12 +5716,12 @@ codel_dequeue_func.exit38:                        ; preds = %473
   br label %603
 
 603:                                              ; preds = %.thread39, %591
-  %604 = phi ptr [ %559, %591 ], [ %427, %.thread39 ]
+  %604 = phi ptr [ %427, %.thread39 ], [ %559, %591 ]
   %605 = icmp eq ptr %604, null
   br i1 %605, label %.thread47, label %.thread40
 
 .thread40:                                        ; preds = %440, %271, %603, %283, %428, %270, %308
-  %606 = phi ptr [ %175, %270 ], [ %285, %308 ], [ %346, %428 ], [ %285, %283 ], [ %175, %271 ], [ %175, %440 ], [ %604, %603 ]
+  %606 = phi ptr [ %285, %283 ], [ %175, %270 ], [ %285, %308 ], [ %346, %428 ], [ %175, %440 ], [ %175, %271 ], [ %604, %603 ]
   %607 = load i32, ptr %237, align 4
   %608 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %609 = load i32, ptr %608, align 4
@@ -6062,7 +6062,7 @@ codel_dequeue_func.exit38:                        ; preds = %473
   br i1 %803, label %808, label %.sink.split, !prof !9
 
 .sink.split:                                      ; preds = %796, %801, %931, %903, %847, %825, %808
-  %.sink = phi ptr [ %.ph50, %808 ], [ %.ph50, %825 ], [ %.ph50, %847 ], [ %885, %903 ], [ %885, %931 ], [ %.ph50, %801 ], [ %.ph50, %796 ]
+  %.sink = phi ptr [ %885, %903 ], [ %.ph50, %847 ], [ %.ph50, %825 ], [ %.ph50, %808 ], [ %885, %931 ], [ %.ph50, %801 ], [ %.ph50, %796 ]
   call void @ieee80211_free_txskb(ptr noundef %0, ptr noundef %.sink) #20
   br label %804
 
@@ -6292,9 +6292,9 @@ codel_dequeue_func.exit38:                        ; preds = %473
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %931, %825, %821, %.loopexit59.loopexit.split.loop.exit, %.loopexit63, %916
-  %942 = phi ptr [ %940, %.loopexit63 ], [ %917, %916 ], [ %941, %.loopexit59.loopexit.split.loop.exit ], [ null, %931 ], [ %7, %825 ], [ %7, %821 ]
-  %943 = phi ptr [ %884, %.loopexit63 ], [ %884, %916 ], [ %884, %.loopexit59.loopexit.split.loop.exit ], [ %884, %931 ], [ %768, %825 ], [ %768, %821 ]
-  %944 = phi ptr [ %885, %.loopexit63 ], [ %885, %916 ], [ %885, %.loopexit59.loopexit.split.loop.exit ], [ %885, %931 ], [ %.ph50, %825 ], [ %.ph50, %821 ]
+  %942 = phi ptr [ %940, %.loopexit63 ], [ %917, %916 ], [ %941, %.loopexit59.loopexit.split.loop.exit ], [ %7, %825 ], [ null, %931 ], [ %7, %821 ]
+  %943 = phi ptr [ %884, %.loopexit63 ], [ %884, %916 ], [ %884, %.loopexit59.loopexit.split.loop.exit ], [ %768, %825 ], [ %884, %931 ], [ %768, %821 ]
+  %944 = phi ptr [ %885, %.loopexit63 ], [ %885, %916 ], [ %885, %.loopexit59.loopexit.split.loop.exit ], [ %.ph50, %825 ], [ %885, %931 ], [ %.ph50, %821 ]
   %945 = getelementptr inbounds nuw i8, ptr %943, i64 24
   store ptr %942, ptr %945, align 8
   %946 = load ptr, ptr %88, align 8
@@ -6337,7 +6337,7 @@ codel_dequeue_func.exit38:                        ; preds = %473
   br label %976
 
 .loopexit56:                                      ; preds = %113, %100, %118
-  %975 = phi ptr [ null, %118 ], [ null, %113 ], [ %96, %100 ]
+  %975 = phi ptr [ null, %118 ], [ %96, %100 ], [ null, %113 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %64) #20
   br label %976
 
@@ -7739,8 +7739,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   br label %359
 
 403:                                              ; preds = %364, %359
-  %404 = phi i32 [ %.ph.i, %359 ], [ %368, %364 ]
-  %405 = phi i32 [ %.ph8.i, %359 ], [ %367, %364 ]
+  %404 = phi i32 [ %368, %364 ], [ %.ph.i, %359 ]
+  %405 = phi i32 [ %367, %364 ], [ %.ph8.i, %359 ]
   %.fr.i = freeze i32 %405
   %406 = icmp eq i32 %.fr.i, -1
   %spec.select.i = select i1 %406, i32 %404, i32 %.fr.i
@@ -7748,8 +7748,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr
   br label %.thread9.i
 
 .thread9.i:                                       ; preds = %403, %350
-  %407 = phi i16 [ %345, %350 ], [ %.pre11.i, %403 ]
-  %408 = phi i32 [ %353, %350 ], [ %spec.select.i, %403 ]
+  %407 = phi i16 [ %.pre11.i, %403 ], [ %345, %350 ]
+  %408 = phi i32 [ %spec.select.i, %403 ], [ %353, %350 ]
   %409 = and i16 %407, 140
   %410 = icmp eq i16 %409, 136
   br i1 %410, label %411, label %419
@@ -9064,7 +9064,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   br label %109
 
 109:                                              ; preds = %.thread17, %.thread, %98
-  %110 = phi i8 [ %12, %98 ], [ %80, %.thread ], [ %12, %.thread17 ]
+  %110 = phi i8 [ %12, %98 ], [ %12, %.thread17 ], [ %80, %.thread ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %112 = getelementptr i8, ptr %16, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %111, ptr noundef align 1 dereferenceable(6) %112, i64 6, i1 false)
@@ -9175,12 +9175,12 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   br label %172
 
 172:                                              ; preds = %.thread18, %166, %162, %156, %148, %109, %63
-  %173 = phi i8 [ %12, %166 ], [ %12, %162 ], [ %12, %148 ], [ %12, %156 ], [ %110, %109 ], [ %12, %63 ], [ %12, %.thread18 ]
-  %174 = phi ptr [ %33, %166 ], [ %33, %162 ], [ %33, %148 ], [ %33, %156 ], [ %66, %109 ], [ %64, %63 ], [ %33, %.thread18 ]
-  %175 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %67, %109 ], [ %54, %63 ], [ 0, %.thread18 ]
-  %176 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %68, %109 ], [ %55, %63 ], [ 0, %.thread18 ]
-  %177 = phi i16 [ 8, %166 ], [ 8, %162 ], [ 776, %148 ], [ 264, %156 ], [ %70, %109 ], [ %56, %63 ], [ 8, %.thread18 ]
-  %178 = phi i16 [ 24, %166 ], [ 24, %162 ], [ 30, %148 ], [ 24, %156 ], [ 24, %109 ], [ %57, %63 ], [ 24, %.thread18 ]
+  %173 = phi i8 [ %12, %166 ], [ %12, %162 ], [ %12, %.thread18 ], [ %12, %148 ], [ %12, %156 ], [ %110, %109 ], [ %12, %63 ]
+  %174 = phi ptr [ %33, %166 ], [ %33, %162 ], [ %33, %.thread18 ], [ %33, %148 ], [ %33, %156 ], [ %66, %109 ], [ %64, %63 ]
+  %175 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %.thread18 ], [ 0, %148 ], [ 0, %156 ], [ %67, %109 ], [ %54, %63 ]
+  %176 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %.thread18 ], [ 0, %148 ], [ 0, %156 ], [ %68, %109 ], [ %55, %63 ]
+  %177 = phi i16 [ 8, %166 ], [ 8, %162 ], [ 8, %.thread18 ], [ 776, %148 ], [ 264, %156 ], [ %70, %109 ], [ %56, %63 ]
+  %178 = phi i16 [ 24, %166 ], [ 24, %162 ], [ 24, %.thread18 ], [ 30, %148 ], [ 24, %156 ], [ 24, %109 ], [ %57, %63 ]
   %179 = icmp eq ptr %174, null
   br i1 %179, label %180, label %182
 
@@ -9448,8 +9448,8 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   br label %352
 
 348:                                              ; preds = %.thread20, %138, %101, %90, %341, %250, %216, %211, %180, %32
-  %349 = phi i64 [ -22, %341 ], [ -22, %138 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -1, %211 ], [ -67, %101 ], [ -12, %.thread20 ]
-  %350 = phi ptr [ %253, %341 ], [ %1, %138 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %211 ], [ %1, %101 ], [ null, %.thread20 ]
+  %349 = phi i64 [ -22, %341 ], [ -22, %138 ], [ -1, %211 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -67, %101 ], [ -12, %.thread20 ]
+  %350 = phi ptr [ %253, %341 ], [ %1, %138 ], [ %1, %211 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %101 ], [ null, %.thread20 ]
   tail call void @kfree_skb_reason(ptr noundef %350, i32 noundef 2) #20
   %351 = inttoptr i64 %349 to ptr
   br label %352
@@ -10423,8 +10423,8 @@ define dso_local void @ieee80211_tx_pending(ptr noundef %0) local_unnamed_addr #
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %31
 
-thread-pre-split:                                 ; preds = %90, %70, %.thread5, %.thread, %95
-  %29 = phi i64 [ %32, %.thread ], [ %102, %95 ], [ %94, %.thread5 ], [ %72, %70 ], [ %93, %90 ]
+thread-pre-split:                                 ; preds = %90, %70, %.thread5, %.thread, %99
+  %29 = phi i64 [ %32, %.thread ], [ %102, %99 ], [ %98, %.thread5 ], [ %72, %70 ], [ %97, %90 ]
   %.pr = load ptr, ptr %24, align 8
   %30 = icmp eq ptr %.pr, %24
   br i1 %30, label %.loopexit.loopexit, label %31
@@ -10507,7 +10507,7 @@ thread-pre-split:                                 ; preds = %90, %70, %.thread5,
   %74 = load i32, ptr %43, align 8
   %75 = and i32 %74, 16384
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %95, label %77
+  br i1 %76, label %90, label %77
 
 77:                                               ; preds = %73
   %78 = call i32 @ieee80211_lookup_ra_sta(ptr noundef %49, ptr noundef %33, ptr noundef nonnull %2), !range !150
@@ -10521,52 +10521,52 @@ thread-pre-split:                                 ; preds = %90, %70, %.thread5,
 
 83:                                               ; preds = %80
   %84 = icmp eq ptr %81, null
-  br i1 %84, label %90, label %85
+  br i1 %84, label %99, label %85
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 204
   %87 = load i8, ptr %86, align 4, !range !6, !noundef !7
   %88 = icmp eq i8 %87, 0
-  br i1 %88, label %89, label %90
+  br i1 %88, label %89, label %99
 
 89:                                               ; preds = %85, %80
   store ptr null, ptr %2, align 8
-  br label %90
+  br label %99
 
-90:                                               ; preds = %89, %85, %83
-  %91 = phi ptr [ null, %89 ], [ %81, %85 ], [ null, %83 ]
-  %92 = call fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef %49, ptr noundef %33, ptr noundef %91, i1 noundef zeroext true)
+90:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store i64 0, ptr %15, align 8, !annotation !36
+  store volatile ptr %3, ptr %33, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store volatile ptr %3, ptr %91, align 8
+  store volatile ptr %33, ptr %13, align 8
+  store volatile ptr %33, ptr %3, align 8
+  store volatile i32 1, ptr %14, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %33, i64 200
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = call ptr @sta_info_get(ptr noundef %49, ptr noundef nonnull %94) #20
+  %96 = call fastcc zeroext i1 @__ieee80211_tx(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %95, i1 noundef zeroext true)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %93 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
-  br i1 %92, label %thread-pre-split, label %.loopexit.loopexit
+  %97 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
+  br i1 %96, label %thread-pre-split, label %.loopexit.loopexit
 
 .thread5:                                         ; preds = %77, %58
   call void @consume_skb(ptr noundef %33) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %94 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
+  %98 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
   br label %thread-pre-split
 
-95:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 0, ptr %15, align 8, !annotation !36
-  store volatile ptr %3, ptr %33, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store volatile ptr %3, ptr %96, align 8
-  store volatile ptr %33, ptr %13, align 8
-  store volatile ptr %33, ptr %3, align 8
-  store volatile i32 1, ptr %14, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %100 = call ptr @sta_info_get(ptr noundef %49, ptr noundef nonnull %99) #20
-  %101 = call fastcc zeroext i1 @__ieee80211_tx(ptr noundef %4, ptr noundef nonnull %3, ptr noundef %100, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+99:                                               ; preds = %83, %85, %89
+  %100 = phi ptr [ null, %89 ], [ %81, %85 ], [ null, %83 ]
+  %101 = call fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef %49, ptr noundef %33, ptr noundef %100, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %102 = call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #20
   br i1 %101, label %thread-pre-split, label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %90, %70, %thread-pre-split, %95
-  %.ph = phi i64 [ %102, %95 ], [ %29, %thread-pre-split ], [ %72, %70 ], [ %93, %90 ]
+.loopexit.loopexit:                               ; preds = %90, %70, %thread-pre-split, %99
+  %.ph = phi i64 [ %102, %99 ], [ %29, %thread-pre-split ], [ %72, %70 ], [ %97, %90 ]
   %.pre = load i16, ptr %7, align 8
   br label %.loopexit
 
@@ -10620,7 +10620,7 @@ define dso_local zeroext i8 @ieee80211_beacon_update_cntdwn(ptr noundef %0) #0 a
   br label %.thread
 
 .thread:                                          ; preds = %9, %14, %1, %4
-  %15 = phi i8 [ 0, %4 ], [ 0, %1 ], [ %.pre, %14 ], [ %12, %9 ]
+  %15 = phi i8 [ 0, %1 ], [ 0, %4 ], [ %.pre, %14 ], [ %12, %9 ]
   tail call void @__rcu_read_unlock() #20
   ret i8 %15
 }
@@ -10755,7 +10755,7 @@ define dso_local zeroext i1 @ieee80211_beacon_cntdwn_is_complete(ptr noundef %0)
   br label %47
 
 47:                                               ; preds = %25, %19, %43, %42, %32, %31, %16
-  %48 = phi i1 [ false, %16 ], [ false, %42 ], [ false, %32 ], [ false, %31 ], [ %46, %43 ], [ false, %19 ], [ false, %25 ]
+  %48 = phi i1 [ false, %16 ], [ false, %42 ], [ false, %32 ], [ %46, %43 ], [ false, %19 ], [ false, %31 ], [ false, %25 ]
   tail call void @__rcu_read_unlock() #20
   br label %49
 
@@ -11213,7 +11213,7 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %234, %239
   br label %257
 
 257:                                              ; preds = %94, %.loopexit, %ieee80211_beacon_get_finish.exit, %256, %91, %84, %.thread, %30, %14, %7
-  %258 = phi ptr [ null, %.thread ], [ null, %84 ], [ %93, %91 ], [ null, %30 ], [ null, %256 ], [ null, %14 ], [ null, %7 ], [ %183, %ieee80211_beacon_get_finish.exit ], [ null, %94 ], [ null, %.loopexit ]
+  %258 = phi ptr [ null, %.thread ], [ null, %84 ], [ %93, %91 ], [ null, %30 ], [ null, %7 ], [ null, %14 ], [ null, %256 ], [ %183, %ieee80211_beacon_get_finish.exit ], [ null, %94 ], [ null, %.loopexit ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %258
 }
@@ -12399,7 +12399,7 @@ define dso_local noundef range(i32 -67, 1) i32 @ieee80211_tx_control_port(ptr no
   br label %100
 
 100:                                              ; preds = %.thread, %97, %81, %19, %9
-  %101 = phi i32 [ 0, %97 ], [ %79, %81 ], [ -22, %9 ], [ -12, %19 ], [ -67, %.thread ]
+  %101 = phi i32 [ 0, %97 ], [ %79, %81 ], [ -67, %.thread ], [ -22, %9 ], [ -12, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %101
 }
@@ -13245,9 +13245,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   %.pre16 = load ptr, ptr %2, align 8
   br label %.thread10
 
-.thread10:                                        ; preds = %..thread10_crit_edge, %95, %135, %.thread5
-  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %95 ], [ %85, %135 ], [ %85, %.thread5 ]
-  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %95 ], [ %77, %135 ], [ %77, %.thread5 ]
+.thread10:                                        ; preds = %..thread10_crit_edge, %135, %.thread5, %95
+  %328 = phi ptr [ %.pre16, %..thread10_crit_edge ], [ %85, %135 ], [ %85, %.thread5 ], [ %85, %95 ]
+  %329 = phi ptr [ %.pre15, %..thread10_crit_edge ], [ %77, %135 ], [ %77, %.thread5 ], [ %77, %95 ]
   %330 = icmp eq ptr %329, null
   br i1 %330, label %332, label %331
 
@@ -13261,7 +13261,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   br label %.thread12
 
 .thread12:                                        ; preds = %326, %305, %237, %332, %331
-  %334 = phi i32 [ -1, %332 ], [ -1, %331 ], [ -1, %237 ], [ -1, %305 ], [ 0, %326 ]
+  %334 = phi i32 [ -1, %237 ], [ -1, %332 ], [ -1, %331 ], [ -1, %305 ], [ 0, %326 ]
   ret i32 %334
 }
 
@@ -14346,7 +14346,7 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   br i1 %125, label %.critedge4, label %.split.split, !llvm.loop !248
 
 .critedge4:                                       ; preds = %123, %92, %64, %36
-  %.us-phi = phi i8 [ %37, %36 ], [ %65, %64 ], [ %93, %92 ], [ %124, %123 ]
+  %.us-phi = phi i8 [ %93, %92 ], [ %37, %36 ], [ %65, %64 ], [ %124, %123 ]
   %126 = icmp ne i8 %.us-phi, 0
   br label %.critedge
 

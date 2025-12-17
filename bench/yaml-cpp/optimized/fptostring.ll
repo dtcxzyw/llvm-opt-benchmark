@@ -1516,14 +1516,14 @@ define linkonce_odr { i64, i8 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee75
   br label %186
 
 186:                                              ; preds = %154, %175, %177, %133, %37, %58
-  %.sink = phi i32 [ %146, %133 ], [ %50, %37 ], [ %.0100, %58 ], [ %165, %154 ], [ %176, %175 ], [ %spec.select122, %177 ]
-  %.sroa.2.0.insert.ext.i123.sink = phi i64 [ %.sroa.2.0.insert.ext.i123, %133 ], [ %.sroa.2.0.insert.ext.i, %37 ], [ %.sroa.2.0.insert.ext.i127, %58 ], [ %76, %154 ], [ %76, %175 ], [ %76, %177 ]
+  %.sink = phi i32 [ %146, %133 ], [ %.0100, %58 ], [ %50, %37 ], [ %165, %154 ], [ %176, %175 ], [ %spec.select122, %177 ]
+  %.sroa.2.0.insert.ext.i123.sink = phi i64 [ %.sroa.2.0.insert.ext.i123, %133 ], [ %.sroa.2.0.insert.ext.i127, %58 ], [ %.sroa.2.0.insert.ext.i, %37 ], [ %76, %154 ], [ %76, %175 ], [ %76, %177 ]
   %.sroa.0.0.insert.ext.i125 = zext i32 %.sink to i64
   %.sroa.0.0.insert.insert.i126 = or disjoint i64 %.sroa.2.0.insert.ext.i123.sink, %.sroa.0.0.insert.ext.i125
   %.pn.in = lshr i32 %0, 31
   %.pn = trunc nuw nsw i32 %.pn.in to i8
-  %.fca.0.insert.i.i.pn = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.insert.insert.i126, 0
-  %.pn118.pn = insertvalue { i64, i8 } %.fca.0.insert.i.i.pn, i8 %.pn, 1
+  %.fca.0.insert.i.i132.pn = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.insert.insert.i126, 0
+  %.pn118.pn = insertvalue { i64, i8 } %.fca.0.insert.i.i132.pn, i8 %.pn, 1
   ret { i64, i8 } %.pn118.pn
 }
 
@@ -1816,11 +1816,11 @@ define linkonce_odr { i64, i64 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee7
 210:                                              ; preds = %147, %208, %35, %63
   %.sink = phi i64 [ %173, %147 ], [ %80, %208 ], [ %61, %35 ], [ %11, %63 ]
   %.sroa.4.8.insert.shift.i.i128.sink = phi i64 [ %.sroa.4.8.insert.shift.i.i128, %147 ], [ %.sroa.4.8.insert.shift.i.i141, %208 ], [ %62, %35 ], [ %74, %63 ]
-  %.pn181 = phi i64 [ %165, %147 ], [ %.1, %208 ], [ %53, %35 ], [ %.084, %63 ]
+  %.084.pn = phi i64 [ %165, %147 ], [ %.1, %208 ], [ %53, %35 ], [ %.084, %63 ]
   %.sroa.22.8.insert.ext.i.i129 = and i64 %.sink, 4294967295
   %.sroa.22.8.insert.insert.i.i130 = or disjoint i64 %.sroa.22.8.insert.ext.i.i129, %.sroa.4.8.insert.shift.i.i128.sink
-  %.fca.0.insert.i.i108.pn = insertvalue { i64, i64 } poison, i64 %.pn181, 0
-  %.pn101.pn = insertvalue { i64, i64 } %.fca.0.insert.i.i108.pn, i64 %.sroa.22.8.insert.insert.i.i130, 1
+  %.fca.0.insert.i.i112.pn = insertvalue { i64, i64 } poison, i64 %.084.pn, 0
+  %.pn101.pn = insertvalue { i64, i64 } %.fca.0.insert.i.i112.pn, i64 %.sroa.22.8.insert.insert.i.i130, 1
   ret { i64, i64 } %.pn101.pn
 }
 

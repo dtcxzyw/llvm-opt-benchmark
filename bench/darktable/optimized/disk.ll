@@ -590,7 +590,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.preheader
   br label %122
 
 122:                                              ; preds = %109, %.critedge100.critedge, %119, %117, %93
-  %.0 = phi i32 [ 1, %117 ], [ 0, %119 ], [ 0, %109 ], [ 0, %93 ], [ 1, %.critedge100.critedge ]
+  %.0 = phi i32 [ 0, %93 ], [ 1, %117 ], [ 0, %119 ], [ 0, %109 ], [ 1, %.critedge100.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

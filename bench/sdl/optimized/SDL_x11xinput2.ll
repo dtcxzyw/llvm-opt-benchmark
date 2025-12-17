@@ -120,7 +120,7 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   br label %56
 
 56:                                               ; preds = %16, %12, %1, %33
-  %.0 = phi i1 [ true, %33 ], [ false, %1 ], [ false, %12 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %33 ], [ false, %16 ], [ false, %1 ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -346,10 +346,10 @@ AddDeviceID.exit68:                               ; preds = %57, %63
   br label %HasDeviceID.exit
 
 HasDeviceID.exit:                                 ; preds = %.lr.ph.i72, %.lr.ph.i, %.loopexit150, %.loopexit148, %34
-  %.1137 = phi i32 [ %.0136155, %34 ], [ %.2138, %.loopexit148 ], [ %.0136155, %.loopexit150 ], [ %.2138, %.lr.ph.i ], [ %.0136155, %.lr.ph.i72 ]
-  %.1134 = phi ptr [ %.0133156, %34 ], [ %.2135, %.loopexit148 ], [ %.0133156, %.loopexit150 ], [ %.2135, %.lr.ph.i ], [ %.0133156, %.lr.ph.i72 ]
-  %.1131 = phi i32 [ %.0130157, %34 ], [ %.0130157, %.loopexit148 ], [ %.2132, %.loopexit150 ], [ %.0130157, %.lr.ph.i ], [ %.2132, %.lr.ph.i72 ]
-  %.1128 = phi ptr [ %.0127158, %34 ], [ %.0127158, %.loopexit148 ], [ %.2129, %.loopexit150 ], [ %.0127158, %.lr.ph.i ], [ %.2129, %.lr.ph.i72 ]
+  %.1137 = phi i32 [ %.0136155, %34 ], [ %.0136155, %.loopexit150 ], [ %.2138, %.loopexit148 ], [ %.2138, %.lr.ph.i ], [ %.0136155, %.lr.ph.i72 ]
+  %.1134 = phi ptr [ %.0133156, %34 ], [ %.0133156, %.loopexit150 ], [ %.2135, %.loopexit148 ], [ %.2135, %.lr.ph.i ], [ %.0133156, %.lr.ph.i72 ]
+  %.1131 = phi i32 [ %.0130157, %34 ], [ %.2132, %.loopexit150 ], [ %.0130157, %.loopexit148 ], [ %.0130157, %.lr.ph.i ], [ %.2132, %.lr.ph.i72 ]
+  %.1128 = phi ptr [ %.0127158, %34 ], [ %.2129, %.loopexit150 ], [ %.0127158, %.loopexit148 ], [ %.0127158, %.lr.ph.i ], [ %.2129, %.lr.ph.i72 ]
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
@@ -430,8 +430,8 @@ AddDeviceID64.exit:                               ; preds = %87, %95
   br label %HasDeviceID64.exit
 
 HasDeviceID64.exit:                               ; preds = %.lr.ph.i81, %.loopexit147, %82
-  %.2125 = phi i32 [ %.3126, %.loopexit147 ], [ %.1124151, %82 ], [ %.3126, %.lr.ph.i81 ]
-  %.2 = phi ptr [ %.3, %.loopexit147 ], [ %.1152, %82 ], [ %.3, %.lr.ph.i81 ]
+  %.2125 = phi i32 [ %.1124151, %82 ], [ %.3126, %.loopexit147 ], [ %.3126, %.lr.ph.i81 ]
+  %.2 = phi ptr [ %.1152, %82 ], [ %.3, %.loopexit147 ], [ %.3, %.lr.ph.i81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %74, align 4
   %110 = sext i32 %109 to i64
@@ -1636,8 +1636,8 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   %49 = icmp sgt i32 %.04263, 0
   br i1 %49, label %._crit_edge66, label %50
 
-50:                                               ; preds = %30, %35
-  %.2.ph = phi i32 [ %48, %35 ], [ %.04263, %30 ]
+50:                                               ; preds = %35, %30
+  %.2.ph = phi i32 [ %.04263, %30 ], [ %48, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %51, ptr %3, align 4
@@ -1654,7 +1654,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   br label %56
 
 56:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %9, %._crit_edge66, %20
-  %.0 = phi ptr [ %15, %._crit_edge66 ], [ null, %20 ], [ %.04461.lcssa, %9 ], [ %.04461.lcssa, %.lr.ph._crit_edge ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ %.04461.lcssa, %.lr.ph._crit_edge ], [ %15, %._crit_edge66 ], [ null, %20 ], [ %.04461.lcssa, %9 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

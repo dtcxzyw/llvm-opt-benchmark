@@ -383,7 +383,7 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %79, %73, %64, %__archive_rb_tree_reparent_nodes.exit36.i, %19, %.critedge50
-  %.2 = phi i32 [ 1, %.critedge50 ], [ 1, %19 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %64 ], [ 1, %73 ], [ 1, %79 ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ 1, %19 ], [ 1, %.critedge50 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %79 ], [ 1, %64 ], [ 1, %73 ], [ 0, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -656,7 +656,7 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(no
   br i1 %.not, label %.loopexit, label %29, !llvm.loop !25
 
 .loopexit:                                        ; preds = %29, %28, %.lr.ph, %10, %.preheader31, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %.preheader31 ], [ %.024, %10 ], [ null, %28 ], [ %27, %.lr.ph ], [ %.2, %29 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %.preheader31 ], [ null, %28 ], [ %.024, %10 ], [ %27, %.lr.ph ], [ %.2, %29 ]
   ret ptr %.0
 }
 
@@ -837,8 +837,8 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %97, %88, %.loopexit.thread136, %.loopexit
-  %107 = phi ptr [ %79, %97 ], [ %79, %88 ], [ %79, %.loopexit.thread136 ], [ %46, %.loopexit ], [ %106, %.loopexit.thread.loopexit ]
-  %.050135 = phi ptr [ %.050140, %97 ], [ %.050140, %88 ], [ %.050140, %.loopexit.thread136 ], [ %67, %.loopexit ], [ %17, %.loopexit.thread.loopexit ]
+  %107 = phi ptr [ %46, %.loopexit ], [ %79, %97 ], [ %79, %88 ], [ %79, %.loopexit.thread136 ], [ %106, %.loopexit.thread.loopexit ]
+  %.050135 = phi ptr [ %67, %.loopexit ], [ %.050140, %97 ], [ %.050140, %88 ], [ %.050140, %.loopexit.thread136 ], [ %17, %.loopexit.thread.loopexit ]
   %108 = getelementptr inbounds nuw ptr, ptr %.050135, i64 %15
   %109 = load ptr, ptr %108, align 8, !tbaa !11
   %110 = icmp eq ptr %109, null

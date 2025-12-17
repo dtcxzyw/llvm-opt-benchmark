@@ -129,7 +129,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5
   br label %92
 
 92:                                               ; preds = %61, %46, %64, %82, %86, %45
-  %.0 = phi i1 [ false, %45 ], [ false, %61 ], [ false, %46 ], [ true, %86 ], [ false, %82 ], [ false, %64 ]
+  %.0 = phi i1 [ false, %45 ], [ false, %46 ], [ false, %61 ], [ true, %86 ], [ false, %82 ], [ false, %64 ]
   ret i1 %.0
 }
 

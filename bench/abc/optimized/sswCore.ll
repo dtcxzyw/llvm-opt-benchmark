@@ -343,8 +343,8 @@ define void @Ssw_ManUpdateEquivs(ptr noundef captures(none) %0, ptr noundef %1, 
   br label %47
 
 47:                                               ; preds = %31, %20, %38, %42, %45, %27
-  %.137 = phi i32 [ %.03660, %20 ], [ %35, %42 ], [ %35, %45 ], [ %35, %38 ], [ %spec.select.mux, %31 ], [ %.03660, %27 ]
-  %.1 = phi i32 [ %.061, %20 ], [ %.061, %42 ], [ %46, %45 ], [ %.061, %38 ], [ %.061, %31 ], [ %.061, %27 ]
+  %.137 = phi i32 [ %.03660, %20 ], [ %35, %42 ], [ %35, %45 ], [ %35, %38 ], [ %.03660, %27 ], [ %spec.select.mux, %31 ]
+  %.1 = phi i32 [ %.061, %20 ], [ %.061, %42 ], [ %46, %45 ], [ %.061, %38 ], [ %.061, %27 ], [ %.061, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !70

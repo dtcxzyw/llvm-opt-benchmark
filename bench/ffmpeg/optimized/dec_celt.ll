@@ -1720,7 +1720,7 @@ ff_celt_flush.exit:                               ; preds = %34, %55
   br label %ff_celt_free.exit
 
 ff_celt_free.exit:                                ; preds = %59, %9, %ff_celt_flush.exit, %8
-  %.019 = phi i32 [ -22, %8 ], [ 0, %ff_celt_flush.exit ], [ -12, %9 ], [ %.017, %59 ]
+  %.019 = phi i32 [ -22, %8 ], [ -12, %9 ], [ 0, %ff_celt_flush.exit ], [ %.017, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }

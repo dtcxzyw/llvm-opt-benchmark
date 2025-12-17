@@ -339,7 +339,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTest(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %41, %10, %.thread31, %37, %9
-  %.0 = phi i32 [ -21, %9 ], [ 0, %37 ], [ 901, %.thread31 ], [ -21, %10 ], [ 902, %41 ]
+  %.0 = phi i32 [ -21, %9 ], [ 901, %.thread31 ], [ 0, %37 ], [ -21, %10 ], [ 902, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

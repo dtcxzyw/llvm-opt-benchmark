@@ -122,7 +122,7 @@ define ptr @H5EA__dblock_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   br label %.thread
 
 .thread:                                          ; preds = %13, %31, %34, %45, %42, %3
-  %.0 = phi ptr [ null, %45 ], [ null, %42 ], [ null, %3 ], [ %11, %31 ], [ %11, %34 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %45 ], [ null, %42 ], [ null, %13 ], [ null, %3 ], [ %11, %31 ], [ %11, %34 ]
   ret ptr %.0
 }
 
@@ -381,7 +381,7 @@ define i64 @H5EA__dblock_create(ptr noundef %0, ptr noundef %1, ptr noundef writ
   br label %.thread
 
 .thread:                                          ; preds = %15, %85, %118, %121, %5
-  %.0 = phi i64 [ -1, %121 ], [ -1, %118 ], [ -1, %5 ], [ %44, %85 ], [ -1, %15 ]
+  %.0 = phi i64 [ -1, %121 ], [ -1, %118 ], [ -1, %15 ], [ -1, %5 ], [ %44, %85 ]
   ret i64 %.0
 }
 
@@ -505,7 +505,7 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr noundef readonly capture
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %67, %62, %55, %50, %41, %36, %29, %24, %2
-  %.0 = phi i32 [ 0, %2 ], [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
+  %.0 = phi i32 [ 0, %2 ], [ %59, %55 ], [ %33, %29 ], [ %45, %41 ], [ %28, %24 ], [ %40, %36 ], [ %54, %50 ], [ %66, %62 ], [ %70, %67 ]
   ret i32 %.0
 }
 
@@ -583,7 +583,7 @@ define ptr @H5EA__dblock_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.thread
 
 .thread:                                          ; preds = %21, %25, %28, %36, %47, %38, %5
-  %.0 = phi ptr [ null, %47 ], [ null, %38 ], [ null, %5 ], [ %19, %25 ], [ %19, %28 ], [ %19, %36 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %47 ], [ null, %38 ], [ null, %21 ], [ null, %5 ], [ %19, %25 ], [ %19, %28 ], [ %19, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -724,7 +724,7 @@ define range(i32 -1, 1) i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef %1,
   br label %H5EA__dblock_unprotect.exit.thread
 
 H5EA__dblock_unprotect.exit.thread:               ; preds = %.thread37, %56, %.thread, %4, %65
-  %.031 = phi i32 [ -1, %65 ], [ 0, %4 ], [ -1, %.thread ], [ %.139, %56 ], [ %.139, %.thread37 ]
+  %.031 = phi i32 [ -1, %65 ], [ -1, %.thread ], [ %.139, %.thread37 ], [ 0, %4 ], [ %.139, %56 ]
   ret i32 %.031
 }
 

@@ -35,7 +35,7 @@ define dso_local range(i32 1, 5) i32 @pg_utf_mblen_private(ptr noundef readonly 
   br label %14
 
 14:                                               ; preds = %11, %8, %5, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %5 ], [ 3, %8 ], [ %., %11 ]
+  %.0 = phi i32 [ 3, %8 ], [ 1, %1 ], [ 2, %5 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -58,7 +58,7 @@ define dso_local range(i32 1, 5) i32 @pg_mule_mblen(ptr noundef readonly capture
   br label %8
 
 8:                                                ; preds = %6, %4, %1
-  %.0 = phi i32 [ 2, %1 ], [ 3, %4 ], [ %spec.select, %6 ]
+  %.0 = phi i32 [ 3, %4 ], [ 2, %1 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 
@@ -131,7 +131,7 @@ thread-pre-split:                                 ; preds = %2
   br label %24
 
 24:                                               ; preds = %.thread, %20, %19, %18, %16, %15, %13, %6, %3, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %6 ], [ false, %13 ], [ false, %15 ], [ false, %16 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ %23, %.thread ]
+  %.0 = phi i1 [ false, %16 ], [ false, %2 ], [ false, %3 ], [ false, %18 ], [ false, %19 ], [ %23, %.thread ], [ false, %20 ], [ false, %6 ], [ false, %13 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -303,9 +303,9 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr noundef readonly captures(none)
   br label %39
 
 39:                                               ; preds = %33, %30, %19, %10
-  %.sink48.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
-  %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
-  %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
+  %.sink48.i = phi i32 [ %29, %19 ], [ %15, %10 ], [ %38, %33 ], [ %6, %30 ]
+  %.sink.i = phi i32 [ -3, %19 ], [ -2, %10 ], [ -2, %33 ], [ -1, %30 ]
+  %.137.i = phi ptr [ %26, %19 ], [ %12, %10 ], [ %35, %33 ], [ %32, %30 ]
   store i32 %.sink48.i, ptr %.03540.i, align 4
   %40 = add nsw i32 %.sink.i, %.03441.i
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
@@ -432,7 +432,7 @@ define internal range(i32 1, 4) i32 @pg_eucjp_mblen(ptr noundef readonly capture
   br label %pg_euc_mblen.exit
 
 pg_euc_mblen.exit:                                ; preds = %1, %2, %3
-  %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
+  %.0.i = phi i32 [ 2, %1 ], [ 3, %2 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
 
@@ -461,7 +461,7 @@ define internal range(i32 -1, 3) i32 @pg_eucjp_dsplen(ptr noundef readonly captu
   br label %9
 
 9:                                                ; preds = %4, %1, %3, %5
-  %.0 = phi i32 [ 2, %3 ], [ %.0.i, %5 ], [ 1, %1 ], [ 2, %4 ]
+  %.0 = phi i32 [ %.0.i, %5 ], [ 2, %3 ], [ 1, %1 ], [ 2, %4 ]
   ret i32 %.0
 }
 
@@ -519,11 +519,11 @@ define internal range(i32 -1, 4) i32 @pg_eucjp_verifychar(ptr noundef readonly c
   br i1 %or.cond14, label %26, label %27
 
 26:                                               ; preds = %19, %23, %15, %7
-  %.038 = phi i32 [ 2, %23 ], [ 2, %7 ], [ 3, %15 ], [ 1, %19 ]
+  %.038 = phi i32 [ 2, %23 ], [ 3, %15 ], [ 2, %7 ], [ 1, %19 ]
   br label %27
 
 27:                                               ; preds = %23, %20, %15, %12, %10, %7, %5, %26
-  %.0 = phi i32 [ %.038, %26 ], [ -1, %5 ], [ -1, %7 ], [ -1, %10 ], [ -1, %12 ], [ -1, %15 ], [ -1, %20 ], [ -1, %23 ]
+  %.0 = phi i32 [ -1, %15 ], [ %.038, %26 ], [ -1, %23 ], [ -1, %20 ], [ -1, %10 ], [ -1, %5 ], [ -1, %7 ], [ -1, %12 ]
   ret i32 %.0
 }
 
@@ -591,15 +591,15 @@ define internal i32 @pg_eucjp_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %or.cond14.i, label %29, label %.thread
 
 29:                                               ; preds = %5, %11, %19, %26
-  %.013 = phi i32 [ 1, %5 ], [ 2, %26 ], [ 2, %11 ], [ 3, %19 ]
+  %.013 = phi i32 [ 1, %5 ], [ 2, %26 ], [ 3, %19 ], [ 2, %11 ]
   %30 = zext nneg i32 %.013 to i64
   %31 = getelementptr inbounds nuw i8, ptr %.01423, i64 %30
   %32 = sub nsw i32 %.01522, %.013
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %29, %5, %9, %11, %14, %16, %19, %23, %26, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %26 ], [ %.01423, %23 ], [ %.01423, %19 ], [ %.01423, %16 ], [ %.01423, %14 ], [ %.01423, %11 ], [ %.01423, %9 ], [ %.01423, %5 ], [ %31, %29 ]
+.thread:                                          ; preds = %29, %5, %19, %26, %23, %14, %9, %11, %16, %2
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %16 ], [ %.01423, %11 ], [ %.01423, %9 ], [ %.01423, %14 ], [ %.01423, %23 ], [ %.01423, %26 ], [ %.01423, %19 ], [ %.01423, %5 ], [ %31, %29 ]
   %34 = ptrtoint ptr %.014.lcssa to i64
   %35 = ptrtoint ptr %0 to i64
   %36 = sub i64 %34, %35
@@ -678,9 +678,9 @@ define internal i32 @pg_euccn2wchar_with_len(ptr noundef readonly captures(none)
   br label %44
 
 44:                                               ; preds = %34, %23, %38, %10
-  %.sink50 = phi i32 [ %33, %23 ], [ %43, %38 ], [ %20, %10 ], [ %6, %34 ]
-  %.sink = phi i32 [ -3, %23 ], [ -2, %38 ], [ -3, %10 ], [ -1, %34 ]
-  %.139 = phi ptr [ %30, %23 ], [ %40, %38 ], [ %17, %10 ], [ %37, %34 ]
+  %.sink50 = phi i32 [ %33, %23 ], [ %20, %10 ], [ %43, %38 ], [ %6, %34 ]
+  %.sink = phi i32 [ -3, %23 ], [ -3, %10 ], [ -2, %38 ], [ -1, %34 ]
+  %.139 = phi ptr [ %30, %23 ], [ %17, %10 ], [ %40, %38 ], [ %37, %34 ]
   store i32 %.sink50, ptr %.03742, align 4
   %45 = add nsw i32 %.03643, %.sink
   %46 = getelementptr inbounds nuw i8, ptr %.03742, i64 4
@@ -745,7 +745,7 @@ define internal range(i32 -1, 3) i32 @pg_euckr_verifychar(ptr noundef readonly c
   br label %11
 
 11:                                               ; preds = %8, %2, %5
-  %.0 = phi i32 [ -1, %5 ], [ 1, %2 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ -1, %5 ], [ %spec.select, %8 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -861,9 +861,9 @@ define internal i32 @pg_euckr2wchar_with_len(ptr noundef readonly captures(none)
   br label %39
 
 39:                                               ; preds = %33, %30, %19, %10
-  %.sink48.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
-  %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
-  %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
+  %.sink48.i = phi i32 [ %29, %19 ], [ %15, %10 ], [ %38, %33 ], [ %6, %30 ]
+  %.sink.i = phi i32 [ -3, %19 ], [ -2, %10 ], [ -2, %33 ], [ -1, %30 ]
+  %.137.i = phi ptr [ %26, %19 ], [ %12, %10 ], [ %35, %33 ], [ %32, %30 ]
   store i32 %.sink48.i, ptr %.03540.i, align 4
   %40 = add nsw i32 %.sink.i, %.03441.i
   %41 = getelementptr inbounds nuw i8, ptr %.03540.i, i64 4
@@ -895,7 +895,7 @@ define internal range(i32 1, 4) i32 @pg_euckr_mblen(ptr noundef readonly capture
   br label %pg_euc_mblen.exit
 
 pg_euc_mblen.exit:                                ; preds = %1, %2, %3
-  %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
+  %.0.i = phi i32 [ 2, %1 ], [ 3, %2 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
 
@@ -997,9 +997,9 @@ define internal i32 @pg_euctw2wchar_with_len(ptr noundef readonly captures(none)
   br label %50
 
 50:                                               ; preds = %40, %29, %44, %10
-  %.sink52 = phi i32 [ %39, %29 ], [ %49, %44 ], [ %25, %10 ], [ %6, %40 ]
-  %.sink = phi i32 [ -3, %29 ], [ -2, %44 ], [ -4, %10 ], [ -1, %40 ]
-  %.141 = phi ptr [ %36, %29 ], [ %46, %44 ], [ %22, %10 ], [ %43, %40 ]
+  %.sink52 = phi i32 [ %39, %29 ], [ %25, %10 ], [ %49, %44 ], [ %6, %40 ]
+  %.sink = phi i32 [ -3, %29 ], [ -4, %10 ], [ -2, %44 ], [ -1, %40 ]
+  %.141 = phi ptr [ %36, %29 ], [ %22, %10 ], [ %46, %44 ], [ %43, %40 ]
   store i32 %.sink52, ptr %.03944, align 4
   %51 = add nsw i32 %.03845, %.sink
   %52 = getelementptr inbounds nuw i8, ptr %.03944, i64 4
@@ -1031,7 +1031,7 @@ define internal range(i32 1, 5) i32 @pg_euctw_mblen(ptr noundef readonly capture
   br label %5
 
 5:                                                ; preds = %4, %1, %3
-  %.0 = phi i32 [ 3, %3 ], [ 4, %1 ], [ %., %4 ]
+  %.0 = phi i32 [ 4, %1 ], [ 3, %3 ], [ %., %4 ]
   ret i32 %.0
 }
 
@@ -1107,7 +1107,7 @@ define internal range(i32 -1, 5) i32 @pg_euctw_verifychar(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %21, %19, %2, %14, %10, %7, %5, %24
-  %.0 = phi i32 [ %.031, %24 ], [ -1, %5 ], [ -1, %7 ], [ -1, %10 ], [ -1, %14 ], [ -1, %2 ], [ -1, %19 ], [ -1, %21 ]
+  %.0 = phi i32 [ -1, %2 ], [ %.031, %24 ], [ -1, %19 ], [ -1, %14 ], [ -1, %5 ], [ -1, %10 ], [ -1, %7 ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -1176,8 +1176,8 @@ define internal i32 @pg_euctw_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %27, %5, %9, %11, %14, %18, %7, %22, %24, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %24 ], [ %.01423, %22 ], [ %.01423, %7 ], [ %.01423, %18 ], [ %.01423, %14 ], [ %.01423, %11 ], [ %.01423, %9 ], [ %.01423, %5 ], [ %29, %27 ]
+.thread:                                          ; preds = %27, %5, %7, %22, %18, %9, %14, %11, %24, %2
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01423, %24 ], [ %.01423, %11 ], [ %.01423, %14 ], [ %.01423, %9 ], [ %.01423, %18 ], [ %.01423, %22 ], [ %.01423, %7 ], [ %.01423, %5 ], [ %29, %27 ]
   %32 = ptrtoint ptr %.014.lcssa to i64
   %33 = ptrtoint ptr %0 to i64
   %34 = sub i64 %32, %33
@@ -1399,7 +1399,7 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
   br label %pg_utf_mblen_private.exit
 
 pg_utf_mblen_private.exit:                        ; preds = %49, %unicode_to_utf8.exit.thread, %41
-  %.0.i = phi i32 [ 2, %41 ], [ 1, %unicode_to_utf8.exit.thread ], [ %spec.select, %49 ]
+  %.0.i = phi i32 [ %spec.select, %49 ], [ 1, %unicode_to_utf8.exit.thread ], [ 2, %41 ]
   %52 = add i32 %.0.i, %.01218
   %53 = zext nneg i32 %.0.i to i64
   %54 = getelementptr inbounds nuw i8, ptr %.01416, i64 %53
@@ -1569,7 +1569,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !13
 
 ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
-  %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
+  %.0.i1 = phi i32 [ -1, %49 ], [ 0, %utf8_to_unicode.exit ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]
   ret i32 %.0.i1
 }
 
@@ -1602,7 +1602,7 @@ define internal range(i32 -1, 5) i32 @pg_utf8_verifychar(ptr noundef readonly ca
   br label %17
 
 17:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 2, %8 ], [ 3, %11 ], [ %.11, %14 ]
+  %.0 = phi i32 [ 3, %11 ], [ 2, %8 ], [ %.11, %14 ]
   %18 = icmp sgt i32 %.0, %1
   br i1 %18, label %21, label %19
 
@@ -1612,7 +1612,7 @@ define internal range(i32 -1, 5) i32 @pg_utf8_verifychar(ptr noundef readonly ca
   br label %21
 
 21:                                               ; preds = %19, %17, %6
-  %.010 = phi i32 [ %., %6 ], [ -1, %17 ], [ %.0., %19 ]
+  %.010 = phi i32 [ %., %6 ], [ %.0., %19 ], [ -1, %17 ]
   ret i32 %.010
 }
 
@@ -1712,8 +1712,8 @@ utf8_advance.exit:                                ; preds = %14
   br label %pg_utf_mblen_private.exit.thread
 
 pg_utf_mblen_private.exit.thread:                 ; preds = %35, %30, %.fold.split, %2
-  %.027 = phi i32 [ %1, %2 ], [ %1, %30 ], [ %28, %.fold.split ], [ %32, %35 ]
-  %.026 = phi ptr [ %0, %2 ], [ %0, %30 ], [ %27, %.fold.split ], [ %31, %35 ]
+  %.027 = phi i32 [ %1, %2 ], [ %28, %.fold.split ], [ %1, %30 ], [ %32, %35 ]
+  %.026 = phi ptr [ %0, %2 ], [ %27, %.fold.split ], [ %0, %30 ], [ %31, %35 ]
   %43 = icmp sgt i32 %.027, 0
   br i1 %43, label %.lr.ph, label %.thread
 
@@ -1746,7 +1746,7 @@ pg_utf_mblen_private.exit.thread:                 ; preds = %35, %30, %.fold.spl
   br label %57
 
 57:                                               ; preds = %54, %51, %47
-  %.0.i37 = phi i32 [ 2, %47 ], [ 3, %51 ], [ %.11.i, %54 ]
+  %.0.i37 = phi i32 [ 3, %51 ], [ 2, %47 ], [ %.11.i, %54 ]
   %58 = icmp samesign ugt i32 %.0.i37, %.33060
   br i1 %58, label %.thread, label %59
 
@@ -2081,7 +2081,7 @@ define internal range(i32 1, 3) i32 @pg_mule_dsplen(ptr noundef readonly capture
   br label %8
 
 8:                                                ; preds = %7, %5, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %5 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ 1, %1 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 
@@ -2104,7 +2104,7 @@ define internal range(i32 -1, 5) i32 @pg_mule_verifychar(ptr noundef readonly ca
   br label %pg_mule_mblen.exit
 
 pg_mule_mblen.exit:                               ; preds = %2, %5, %7
-  %.0.i = phi i32 [ 2, %2 ], [ 3, %5 ], [ %spec.select.i, %7 ]
+  %.0.i = phi i32 [ 3, %5 ], [ 2, %2 ], [ %spec.select.i, %7 ]
   %9 = icmp slt i32 %1, %.0.i
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -2159,7 +2159,7 @@ define internal i32 @pg_mule_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br label %pg_mule_mblen.exit.i
 
 pg_mule_mblen.exit.i:                             ; preds = %11, %9, %7
-  %.0.i.i = phi i32 [ 2, %7 ], [ 3, %9 ], [ %spec.select.i.i, %11 ]
+  %.0.i.i = phi i32 [ 3, %9 ], [ 2, %7 ], [ %spec.select.i.i, %11 ]
   %13 = icmp samesign ult i32 %.01525, %.0.i.i
   br i1 %13, label %.thread, label %.preheader.i
 
@@ -2325,7 +2325,7 @@ define internal range(i32 -1, 3) i32 @pg_sjis_verifychar(ptr noundef readonly ca
   br label %14
 
 14:                                               ; preds = %2, %10, %7
-  %.0 = phi i32 [ %.mux, %2 ], [ -1, %7 ], [ %spec.select, %10 ]
+  %.0 = phi i32 [ %spec.select, %10 ], [ %.mux, %2 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -2381,8 +2381,8 @@ pg_sjis_verifychar.exit.thread19:                 ; preds = %13, %pg_sjis_verify
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %10, %13, %2
-  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %13 ], [ %.01425, %10 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
+.thread:                                          ; preds = %pg_sjis_verifychar.exit.thread19, %5, %pg_sjis_verifychar.exit, %13, %10, %2
+  %.014.lcssa = phi ptr [ %0, %2 ], [ %.01425, %10 ], [ %.01425, %13 ], [ %.01425, %pg_sjis_verifychar.exit ], [ %.01425, %5 ], [ %18, %pg_sjis_verifychar.exit.thread19 ]
   %21 = ptrtoint ptr %.014.lcssa to i64
   %22 = ptrtoint ptr %0 to i64
   %23 = sub i64 %21, %22
@@ -2449,7 +2449,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr noundef readonly ca
   br label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ %.mux, %7 ], [ -1, %2 ], [ %spec.select, %12 ], [ %..i, %11 ]
   ret i32 %.0
 }
 
@@ -2497,8 +2497,8 @@ define internal i32 @pg_big5_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+.thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2565,7 +2565,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr noundef readonly cap
   br label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ %.mux, %7 ], [ -1, %2 ], [ %spec.select, %12 ], [ %..i, %11 ]
   ret i32 %.0
 }
 
@@ -2613,8 +2613,8 @@ define internal i32 @pg_gbk_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+.thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2681,7 +2681,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr noundef readonly cap
   br label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %12, %7, %11, %2
-  %.0 = phi i32 [ -1, %2 ], [ %.mux, %7 ], [ %..i, %11 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ %.mux, %7 ], [ -1, %2 ], [ %spec.select, %12 ], [ %..i, %11 ]
   ret i32 %.0
 }
 
@@ -2729,8 +2729,8 @@ define internal i32 @pg_uhc_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.loopexit, %5, %7, %11, %15, %2
-  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %7 ], [ %.01426, %11 ], [ %.01426, %15 ]
+.thread:                                          ; preds = %.loopexit, %5, %11, %7, %15, %2
+  %.01424 = phi ptr [ %0, %2 ], [ %20, %.loopexit ], [ %.01426, %5 ], [ %.01426, %11 ], [ %.01426, %7 ], [ %.01426, %15 ]
   %23 = ptrtoint ptr %.01424 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -2840,7 +2840,7 @@ define internal range(i32 -1, 5) i32 @pg_gb18030_verifychar(ptr noundef readonly
   br label %27
 
 27:                                               ; preds = %.thread, %.thread, %26, %20, %22, %15, %2, %19
-  %.0 = phi i32 [ -1, %19 ], [ 1, %2 ], [ 4, %15 ], [ 2, %22 ], [ -1, %.thread ], [ -1, %20 ], [ %spec.select, %26 ], [ -1, %.thread ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %19 ], [ 4, %15 ], [ -1, %20 ], [ 2, %22 ], [ %spec.select, %26 ], [ -1, %.thread ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -2944,7 +2944,7 @@ define internal range(i32 1, 4) i32 @pg_johab_mblen(ptr noundef readonly capture
   br label %pg_euc_mblen.exit
 
 pg_euc_mblen.exit:                                ; preds = %1, %2, %3
-  %.0.i = phi i32 [ 3, %2 ], [ 2, %1 ], [ %..i, %3 ]
+  %.0.i = phi i32 [ 2, %1 ], [ 3, %2 ], [ %..i, %3 ]
   ret i32 %.0.i
 }
 
@@ -2985,7 +2985,7 @@ define internal range(i32 -1, 4) i32 @pg_johab_verifychar(ptr noundef readonly c
   br label %pg_johab_mblen.exit
 
 pg_johab_mblen.exit:                              ; preds = %2, %3, %4
-  %.0.i.i = phi i32 [ 3, %3 ], [ 2, %2 ], [ %..i.i, %4 ]
+  %.0.i.i = phi i32 [ 2, %2 ], [ 3, %3 ], [ %..i.i, %4 ]
   %5 = icmp slt i32 %1, %.0.i.i
   br i1 %5, label %.loopexit, label %6
 

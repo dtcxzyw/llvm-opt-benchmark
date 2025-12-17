@@ -116,7 +116,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4, %1
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #13
-  br label %292
+  br label %293
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -126,7 +126,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
-  br label %292
+  br label %293
 
 13:                                               ; preds = %8
   %14 = add i64 %10, -512
@@ -138,7 +138,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %13
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
-  br label %292
+  br label %293
 
 19:                                               ; preds = %13
   %.sroa.0.0.copyload = load i32, ptr %17, align 1
@@ -148,18 +148,18 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %19
-  %.sroa.9486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 216
-  %.sroa.9486.0.copyload = load i64, ptr %.sroa.9486.0..sroa_idx, align 1
+  %.sroa.9487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 216
+  %.sroa.9487.0.copyload = load i64, ptr %.sroa.9487.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.5485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sroa.5485.0.copyload = load i64, ptr %.sroa.5485.0..sroa_idx, align 1
+  %.sroa.5486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.5486.0.copyload = load i64, ptr %.sroa.5486.0..sroa_idx, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i64 noundef %14) #13
-  %22 = tail call i64 @llvm.bswap.i64(i64 %.sroa.5485.0.copyload)
+  %22 = tail call i64 @llvm.bswap.i64(i64 %.sroa.5486.0.copyload)
   %23 = tail call i64 @llvm.bswap.i64(i64 %.sroa.7.0.copyload)
   %24 = trunc i64 %23 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i64 noundef %22, i32 noundef %24) #13
-  %25 = tail call i64 @llvm.bswap.i64(i64 %.sroa.9486.0.copyload)
+  %25 = tail call i64 @llvm.bswap.i64(i64 %.sroa.9487.0.copyload)
   %26 = tail call i64 @llvm.bswap.i64(i64 %.sroa.12.0.copyload)
   %27 = icmp ugt i64 %26, 2147483647
   br i1 %27, label %30, label %31
@@ -167,11 +167,11 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %19
   %29 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %29) #13
-  br label %292
+  br label %293
 
 30:                                               ; preds = %21
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
-  br label %292
+  br label %293
 
 31:                                               ; preds = %21
   %32 = icmp ugt i64 %25, %10
@@ -184,7 +184,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 36:                                               ; preds = %31
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #13
-  br label %292
+  br label %293
 
 37:                                               ; preds = %31
   %38 = trunc nuw nsw i64 %26 to i32
@@ -194,14 +194,14 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %37
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #13
-  br label %292
+  br label %293
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !27
   %44 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %43, ptr noundef nonnull @.str.10) #13
   %.not258 = icmp eq ptr %44, null
-  br i1 %.not258, label %292, label %45
+  br i1 %.not258, label %293, label %45
 
 45:                                               ; preds = %41
   %46 = tail call i32 @mkdir(ptr noundef nonnull %44, i32 noundef 448) #13
@@ -211,7 +211,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 47:                                               ; preds = %45
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %44) #13
   tail call void @free(ptr noundef nonnull %44) #13
-  br label %292
+  br label %293
 
 48:                                               ; preds = %45
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %44) #13
@@ -237,7 +237,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   tail call void @free(ptr noundef nonnull %44) #13
-  br label %292
+  br label %293
 
 .critedge289:                                     ; preds = %57, %53, %48
   %60 = load ptr, ptr %5, align 8, !tbaa !7
@@ -260,7 +260,7 @@ define i32 @cli_scandmg(ptr noundef %0) local_unnamed_addr #0 {
 
 69:                                               ; preds = %67, %62
   tail call void @free(ptr noundef nonnull %44) #13
-  br label %292
+  br label %293
 
 70:                                               ; preds = %.critedge289
   %71 = load ptr, ptr %5, align 8, !tbaa !7
@@ -277,8 +277,8 @@ fmap_need_off_once_len.exit:                      ; preds = %70
   %77 = tail call ptr %76(ptr noundef nonnull %71, i64 noundef %25, i64 noundef %spec.select.i299, i32 noundef 0) #13
   %.not264 = icmp ne ptr %77, null
   %.not265 = icmp ule i64 %26, %74
-  %or.cond453 = and i1 %.not265, %.not264
-  br i1 %or.cond453, label %84, label %fmap_need_off_once_len.exit.thread
+  %or.cond454 = and i1 %.not265, %.not264
+  br i1 %or.cond454, label %84, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_once_len.exit
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.14, i32 noundef %38) #13
@@ -294,7 +294,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 
 83:                                               ; preds = %81, %fmap_need_off_once_len.exit.thread
   tail call void @free(ptr noundef nonnull %44) #13
-  br label %292
+  br label %293
 
 84:                                               ; preds = %fmap_need_off_once_len.exit
   %85 = tail call ptr @xmlReaderForMemory(ptr noundef nonnull %77, i32 noundef %38, ptr noundef nonnull @.str.15, ptr noundef null, i32 noundef 67616) #13
@@ -315,7 +315,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 
 92:                                               ; preds = %90, %86
   tail call void @free(ptr noundef nonnull %44) #13
-  br label %292
+  br label %293
 
 93:                                               ; preds = %84
   store i32 -1, ptr %3, align 16, !tbaa !3
@@ -328,17 +328,17 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %101 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
   %102 = icmp eq i32 %101, 1
-  br i1 %102, label %.lr.ph550, label %.critedge
+  br i1 %102, label %.lr.ph551, label %.critedge
 
-.lr.ph550:                                        ; preds = %93, %.thread431
-  %.0217463548 = phi i32 [ %.14, %.thread431 ], [ 0, %93 ]
-  %.0210464547 = phi ptr [ %.5215, %.thread431 ], [ null, %93 ]
-  %.0202465546 = phi ptr [ %.6208, %.thread431 ], [ null, %93 ]
+.lr.ph551:                                        ; preds = %93, %.critedge292
+  %.0217464549 = phi i32 [ %.14, %.critedge292 ], [ 0, %93 ]
+  %.0210465548 = phi ptr [ %.5215, %.critedge292 ], [ null, %93 ]
+  %.0202466547 = phi ptr [ %.6208, %.critedge292 ], [ null, %93 ]
   %103 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %85) #13
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %105, label %249
 
-105:                                              ; preds = %.lr.ph550
+105:                                              ; preds = %.lr.ph551
   %106 = tail call i32 @xmlTextReaderDepth(ptr noundef nonnull %85) #13
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.critedge, label %108
@@ -361,10 +361,10 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 115:                                              ; preds = %110, %108
   %116 = tail call ptr @xmlTextReaderLocalName(ptr noundef nonnull %85) #13
   %.not270 = icmp eq ptr %116, null
-  br i1 %.not270, label %.thread431, label %117
+  br i1 %.not270, label %.critedge292, label %117
 
 117:                                              ; preds = %115
-  switch i32 %.0217463548, label %.thread422 [
+  switch i32 %.0217464549, label %.thread422 [
     i32 7, label %118
     i32 6, label %158
     i32 5, label %183
@@ -390,7 +390,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #13
   %124 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %124(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 125:                                              ; preds = %121
   %126 = tail call i32 @xmlTextReaderIsEmptyElement(ptr noundef nonnull %85) #13
@@ -401,7 +401,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #13
   %128 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %128(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 129:                                              ; preds = %125
   %130 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
@@ -422,7 +422,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #13
   %136 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %136(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 137:                                              ; preds = %133
   %138 = tail call ptr @xmlTextReaderValue(ptr noundef nonnull %85) #13
@@ -432,7 +432,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 140:                                              ; preds = %137
   %141 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %141(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 142:                                              ; preds = %137
   %143 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
@@ -450,7 +450,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   %149 = call fastcc i32 @dmg_decode_mish(ptr noundef %2, ptr noundef %138, ptr noundef %143)
   %150 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %150(ptr noundef nonnull %138) #13
-  switch i32 %149, label %.thread431.thread [
+  switch i32 %149, label %.critedge292.thread [
     i32 26, label %151
     i32 0, label %154
   ]
@@ -459,32 +459,32 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void @free(ptr noundef nonnull %143) #13
   %152 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %152(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
-.thread431.thread:                                ; preds = %148
+.critedge292.thread:                              ; preds = %148
   %153 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %153(ptr noundef nonnull %116) #13
   tail call void @free(ptr noundef nonnull %143) #13
   br label %.critedge
 
 154:                                              ; preds = %148
-  %.not276 = icmp eq ptr %.0210464547, null
+  %.not276 = icmp eq ptr %.0210465548, null
   br i1 %.not276, label %.thread334, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %.0210464547, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.0210465548, i64 16
   store ptr %143, ptr %156, align 8, !tbaa !53
   br label %.thread334
 
 .thread334:                                       ; preds = %154, %155
-  %.5207 = phi ptr [ %.0202465546, %155 ], [ %143, %154 ]
+  %.5207 = phi ptr [ %.0202466547, %155 ], [ %143, %154 ]
   %157 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr null, ptr %157, align 8, !tbaa !53
   br label %158
 
 158:                                              ; preds = %117, %.thread334
-  %.3205342 = phi ptr [ %.5207, %.thread334 ], [ %.0202465546, %117 ]
-  %.2212340 = phi ptr [ %143, %.thread334 ], [ %.0210464547, %117 ]
+  %.3205342 = phi ptr [ %.5207, %.thread334 ], [ %.0202466547, %117 ]
+  %.2212340 = phi ptr [ %143, %.thread334 ], [ %.0210465548, %117 ]
   %159 = load i32, ptr %99, align 4, !tbaa !3
   %160 = icmp sgt i32 %106, %159
   br i1 %160, label %161, label %.thread422
@@ -513,7 +513,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #13
   %171 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %171(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 172:                                              ; preds = %168
   %173 = tail call ptr @xmlTextReaderValue(ptr noundef nonnull %85) #13
@@ -524,7 +524,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #13
   %176 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %176(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 177:                                              ; preds = %172
   %178 = tail call i32 @xmlStrcmp(ptr noundef nonnull %173, ptr noundef nonnull @.str.25) #13
@@ -599,7 +599,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23) #13
   %208 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %208(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 209:                                              ; preds = %205
   %210 = tail call ptr @xmlTextReaderValue(ptr noundef nonnull %85) #13
@@ -610,7 +610,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #13
   %213 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %213(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
 214:                                              ; preds = %209
   %215 = tail call i32 @xmlStrcmp(ptr noundef nonnull %210, ptr noundef nonnull @.str.29) #13
@@ -690,18 +690,18 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br label %.thread422
 
 .thread422:                                       ; preds = %117, %118, %158, %161, %181, %183, %193, %189, %194, %198, %219, %221, %227, %228, %232, %235, %236, %240, %243, %244, %247
-  %.3205341362371393402419428 = phi ptr [ %.0202465546, %247 ], [ %.0202465546, %244 ], [ %.0202465546, %236 ], [ %.0202465546, %240 ], [ %.0202465546, %243 ], [ %.0202465546, %228 ], [ %.0202465546, %232 ], [ %.0202465546, %235 ], [ %.0202465546, %221 ], [ %.0202465546, %227 ], [ %.0202465546, %194 ], [ %.0202465546, %198 ], [ %.0202465546, %219 ], [ %.0202465546, %183 ], [ %.0202465546, %193 ], [ %.0202465546, %189 ], [ %.3205342, %158 ], [ %.3205342, %161 ], [ %.3205342, %181 ], [ %.0202465546, %118 ], [ %.0202465546, %117 ]
-  %.2212339363370394401420427 = phi ptr [ %.0210464547, %247 ], [ %.0210464547, %244 ], [ %.0210464547, %236 ], [ %.0210464547, %240 ], [ %.0210464547, %243 ], [ %.0210464547, %228 ], [ %.0210464547, %232 ], [ %.0210464547, %235 ], [ %.0210464547, %221 ], [ %.0210464547, %227 ], [ %.0210464547, %194 ], [ %.0210464547, %198 ], [ %.0210464547, %219 ], [ %.0210464547, %183 ], [ %.0210464547, %193 ], [ %.0210464547, %189 ], [ %.2212340, %158 ], [ %.2212340, %161 ], [ %.2212340, %181 ], [ %.0210464547, %118 ], [ %.0210464547, %117 ]
-  %.13 = phi i32 [ 1, %247 ], [ 0, %244 ], [ 1, %236 ], [ 1, %240 ], [ 2, %243 ], [ 2, %228 ], [ 2, %232 ], [ 3, %235 ], [ 3, %221 ], [ 4, %227 ], [ 4, %194 ], [ 4, %198 ], [ %.9226, %219 ], [ 5, %183 ], [ 6, %193 ], [ 6, %189 ], [ 6, %158 ], [ 6, %161 ], [ %.5222, %181 ], [ 7, %118 ], [ %.0217463548, %117 ]
+  %.3205341362371393402419428 = phi ptr [ %.0202466547, %247 ], [ %.0202466547, %244 ], [ %.0202466547, %117 ], [ %.0202466547, %243 ], [ %.0202466547, %236 ], [ %.0202466547, %240 ], [ %.0202466547, %235 ], [ %.0202466547, %228 ], [ %.0202466547, %232 ], [ %.0202466547, %227 ], [ %.0202466547, %221 ], [ %.0202466547, %219 ], [ %.0202466547, %194 ], [ %.0202466547, %198 ], [ %.0202466547, %189 ], [ %.0202466547, %183 ], [ %.0202466547, %193 ], [ %.3205342, %181 ], [ %.3205342, %158 ], [ %.3205342, %161 ], [ %.0202466547, %118 ]
+  %.2212339363370394401420427 = phi ptr [ %.0210465548, %247 ], [ %.0210465548, %244 ], [ %.0210465548, %117 ], [ %.0210465548, %243 ], [ %.0210465548, %236 ], [ %.0210465548, %240 ], [ %.0210465548, %235 ], [ %.0210465548, %228 ], [ %.0210465548, %232 ], [ %.0210465548, %227 ], [ %.0210465548, %221 ], [ %.0210465548, %219 ], [ %.0210465548, %194 ], [ %.0210465548, %198 ], [ %.0210465548, %189 ], [ %.0210465548, %183 ], [ %.0210465548, %193 ], [ %.2212340, %181 ], [ %.2212340, %158 ], [ %.2212340, %161 ], [ %.0210465548, %118 ]
+  %.13 = phi i32 [ 1, %247 ], [ 0, %244 ], [ %.0217464549, %117 ], [ 2, %243 ], [ 1, %236 ], [ 1, %240 ], [ 3, %235 ], [ 2, %228 ], [ 2, %232 ], [ 4, %227 ], [ 3, %221 ], [ %.9226, %219 ], [ 4, %194 ], [ 4, %198 ], [ 6, %189 ], [ 5, %183 ], [ 6, %193 ], [ %.5222, %181 ], [ 6, %158 ], [ 6, %161 ], [ 7, %118 ]
   %248 = load ptr, ptr @xmlFree, align 8, !tbaa !52
   tail call void %248(ptr noundef nonnull %116) #13
-  br label %.thread431
+  br label %.critedge292
 
-249:                                              ; preds = %.lr.ph550
+249:                                              ; preds = %.lr.ph551
   %250 = icmp eq i32 %103, 15
-  %251 = icmp ne i32 %.0217463548, 0
+  %251 = icmp ne i32 %.0217464549, 0
   %or.cond = select i1 %250, i1 %251, i1 false
-  br i1 %or.cond, label %252, label %.thread431
+  br i1 %or.cond, label %252, label %.critedge292
 
 252:                                              ; preds = %249
   %253 = tail call i32 @xmlTextReaderDepth(ptr noundef nonnull %85) #13
@@ -709,103 +709,103 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
   br i1 %254, label %255, label %.critedge
 
 255:                                              ; preds = %252
-  %256 = add i32 %.0217463548, -1
+  %256 = add i32 %.0217464549, -1
   %257 = zext i32 %256 to i64
   %258 = getelementptr inbounds nuw i32, ptr %3, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
   %260 = icmp slt i32 %253, %259
-  br i1 %260, label %.critedge292, label %261
+  br i1 %260, label %264, label %261
 
 261:                                              ; preds = %255
   %262 = icmp eq i32 %253, %259
   %263 = icmp eq i32 %256, 5
   %or.cond290 = and i1 %263, %262
-  br i1 %or.cond290, label %.critedge292.thread, label %.thread431
+  br i1 %or.cond290, label %.thread438, label %.critedge292
 
-.critedge292.thread:                              ; preds = %261
+.thread438:                                       ; preds = %261
   store i32 -1, ptr %258, align 4, !tbaa !3
-  br label %265
+  br label %266
 
-.critedge292:                                     ; preds = %255
+264:                                              ; preds = %255
   store i32 -1, ptr %258, align 4, !tbaa !3
-  %264 = add i32 %.0217463548, -2
-  switch i32 %.0217463548, label %.thread431 [
-    i32 6, label %265
-    i32 4, label %265
+  %265 = add i32 %.0217464549, -2
+  switch i32 %.0217464549, label %.critedge292 [
+    i32 6, label %266
+    i32 4, label %266
   ]
 
-265:                                              ; preds = %.critedge292.thread, %.critedge292, %.critedge292
-  %266 = phi i32 [ 4, %.critedge292.thread ], [ %264, %.critedge292 ], [ %264, %.critedge292 ]
-  %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %3, i64 %267
-  store i32 -1, ptr %268, align 4, !tbaa !3
-  br label %.thread431
+266:                                              ; preds = %.thread438, %264, %264
+  %267 = phi i32 [ 4, %.thread438 ], [ %265, %264 ], [ %265, %264 ]
+  %268 = zext nneg i32 %267 to i64
+  %269 = getelementptr inbounds nuw i32, ptr %3, i64 %268
+  store i32 -1, ptr %269, align 4, !tbaa !3
+  br label %.critedge292
 
-.thread431:                                       ; preds = %261, %265, %.critedge292, %212, %207, %175, %170, %151, %140, %135, %127, %123, %115, %249, %.thread422
-  %.14 = phi i32 [ %.13, %.thread422 ], [ %.0217463548, %249 ], [ %.0217463548, %115 ], [ 6, %123 ], [ 6, %127 ], [ 6, %135 ], [ 6, %140 ], [ 6, %151 ], [ 6, %170 ], [ 6, %175 ], [ 4, %207 ], [ 4, %212 ], [ %256, %.critedge292 ], [ %.0217463548, %261 ], [ %266, %265 ]
-  %.5215 = phi ptr [ %.2212339363370394401420427, %.thread422 ], [ %.0210464547, %249 ], [ %.0210464547, %115 ], [ %.0210464547, %123 ], [ %.0210464547, %127 ], [ %.0210464547, %135 ], [ %.0210464547, %140 ], [ %.0210464547, %151 ], [ %.2212340, %170 ], [ %.2212340, %175 ], [ %.0210464547, %207 ], [ %.0210464547, %212 ], [ %.0210464547, %.critedge292 ], [ %.0210464547, %261 ], [ %.0210464547, %265 ]
-  %.6208 = phi ptr [ %.3205341362371393402419428, %.thread422 ], [ %.0202465546, %249 ], [ %.0202465546, %115 ], [ %.0202465546, %123 ], [ %.0202465546, %127 ], [ %.0202465546, %135 ], [ %.0202465546, %140 ], [ %.0202465546, %151 ], [ %.3205342, %170 ], [ %.3205342, %175 ], [ %.0202465546, %207 ], [ %.0202465546, %212 ], [ %.0202465546, %.critedge292 ], [ %.0202465546, %261 ], [ %.0202465546, %265 ]
-  %269 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
-  %270 = icmp eq i32 %269, 1
-  br i1 %270, label %.lr.ph550, label %.critedge
+.critedge292:                                     ; preds = %261, %266, %264, %212, %207, %175, %170, %151, %140, %135, %127, %123, %115, %249, %.thread422
+  %.14 = phi i32 [ %.0217464549, %249 ], [ 4, %212 ], [ %.13, %.thread422 ], [ %.0217464549, %115 ], [ 6, %170 ], [ %256, %264 ], [ 6, %175 ], [ %267, %266 ], [ 6, %123 ], [ 6, %127 ], [ 4, %207 ], [ 6, %135 ], [ 6, %140 ], [ %.0217464549, %261 ], [ 6, %151 ]
+  %.5215 = phi ptr [ %.0210465548, %249 ], [ %.0210465548, %212 ], [ %.2212339363370394401420427, %.thread422 ], [ %.0210465548, %115 ], [ %.2212340, %170 ], [ %.0210465548, %264 ], [ %.2212340, %175 ], [ %.0210465548, %266 ], [ %.0210465548, %123 ], [ %.0210465548, %127 ], [ %.0210465548, %207 ], [ %.0210465548, %135 ], [ %.0210465548, %140 ], [ %.0210465548, %261 ], [ %.0210465548, %151 ]
+  %.6208 = phi ptr [ %.0202466547, %249 ], [ %.0202466547, %212 ], [ %.3205341362371393402419428, %.thread422 ], [ %.0202466547, %115 ], [ %.3205342, %170 ], [ %.0202466547, %264 ], [ %.3205342, %175 ], [ %.0202466547, %266 ], [ %.0202466547, %123 ], [ %.0202466547, %127 ], [ %.0202466547, %207 ], [ %.0202466547, %135 ], [ %.0202466547, %140 ], [ %.0202466547, %261 ], [ %.0202466547, %151 ]
+  %270 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %85) #13
+  %271 = icmp eq i32 %270, 1
+  br i1 %271, label %.lr.ph551, label %.critedge
 
-.critedge:                                        ; preds = %.thread431, %252, %105, %93, %.thread431.thread, %203, %166, %131, %145, %114
-  %.1203 = phi ptr [ %.0202465546, %203 ], [ %.3205342, %166 ], [ %.0202465546, %145 ], [ %.0202465546, %131 ], [ %.0202465546, %114 ], [ %.0202465546, %.thread431.thread ], [ null, %93 ], [ %.0202465546, %105 ], [ %.0202465546, %252 ], [ %.6208, %.thread431 ]
-  %.1201 = phi i32 [ 0, %203 ], [ 0, %166 ], [ 20, %145 ], [ 0, %131 ], [ 0, %114 ], [ %149, %.thread431.thread ], [ 0, %93 ], [ 0, %105 ], [ 0, %252 ], [ 0, %.thread431 ]
+.critedge:                                        ; preds = %.critedge292, %252, %105, %93, %.critedge292.thread, %131, %145, %114, %166, %203
+  %.1203 = phi ptr [ %.0202466547, %203 ], [ %.3205342, %166 ], [ %.0202466547, %145 ], [ %.0202466547, %131 ], [ %.0202466547, %114 ], [ %.0202466547, %.critedge292.thread ], [ null, %93 ], [ %.0202466547, %105 ], [ %.0202466547, %252 ], [ %.6208, %.critedge292 ]
+  %.1201 = phi i32 [ 0, %203 ], [ 0, %166 ], [ 20, %145 ], [ 0, %131 ], [ 0, %114 ], [ %149, %.critedge292.thread ], [ 0, %93 ], [ 0, %105 ], [ 0, %252 ], [ 0, %.critedge292 ]
   tail call void @xmlFreeTextReader(ptr noundef nonnull %85) #13
-  %271 = icmp eq i32 %.1201, 0
-  %272 = icmp ne ptr %.1203, null
-  %273 = select i1 %271, i1 %272, i1 false
-  br i1 %273, label %.lr.ph, label %.preheader
+  %272 = icmp eq i32 %.1201, 0
+  %273 = icmp ne ptr %.1203, null
+  %274 = select i1 %272, i1 %273, i1 false
+  br i1 %274, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge
-  %.8.lcssa = phi ptr [ %.1203, %.critedge ], [ %279, %.lr.ph ]
-  %.7.lcssa = phi i32 [ %.1201, %.critedge ], [ %276, %.lr.ph ]
-  %.not281470 = icmp eq ptr %.8.lcssa, null
-  br i1 %.not281470, label %._crit_edge, label %.lr.ph472
+  %.8.lcssa = phi ptr [ %.1203, %.critedge ], [ %280, %.lr.ph ]
+  %.7.lcssa = phi i32 [ %.1201, %.critedge ], [ %277, %.lr.ph ]
+  %.not281471 = icmp eq ptr %.8.lcssa, null
+  br i1 %.not281471, label %._crit_edge, label %.lr.ph473
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %.8467 = phi ptr [ %279, %.lr.ph ], [ %.1203, %.critedge ]
-  %274 = phi i32 [ %275, %.lr.ph ], [ 0, %.critedge ]
-  %275 = add i32 %274, 1
-  %276 = tail call fastcc i32 @dmg_handle_mish(ptr noundef %0, i32 noundef %274, ptr noundef %44, i64 noundef %25, ptr noundef %.8467)
-  %277 = load ptr, ptr %.8467, align 8, !tbaa !58
-  tail call void @free(ptr noundef %277) #13
-  %278 = getelementptr inbounds nuw i8, ptr %.8467, i64 16
-  %279 = load ptr, ptr %278, align 8, !tbaa !53
-  tail call void @free(ptr noundef nonnull %.8467) #13
-  %280 = icmp eq i32 %276, 0
-  %281 = icmp ne ptr %279, null
-  %282 = select i1 %280, i1 %281, i1 false
-  br i1 %282, label %.lr.ph, label %.preheader
+  %.8468 = phi ptr [ %280, %.lr.ph ], [ %.1203, %.critedge ]
+  %275 = phi i32 [ %276, %.lr.ph ], [ 0, %.critedge ]
+  %276 = add i32 %275, 1
+  %277 = tail call fastcc i32 @dmg_handle_mish(ptr noundef %0, i32 noundef %275, ptr noundef %44, i64 noundef %25, ptr noundef %.8468)
+  %278 = load ptr, ptr %.8468, align 8, !tbaa !58
+  tail call void @free(ptr noundef %278) #13
+  %279 = getelementptr inbounds nuw i8, ptr %.8468, i64 16
+  %280 = load ptr, ptr %279, align 8, !tbaa !53
+  tail call void @free(ptr noundef nonnull %.8468) #13
+  %281 = icmp eq i32 %277, 0
+  %282 = icmp ne ptr %280, null
+  %283 = select i1 %281, i1 %282, i1 false
+  br i1 %283, label %.lr.ph, label %.preheader
 
-.lr.ph472:                                        ; preds = %.preheader, %.lr.ph472
-  %.9471 = phi ptr [ %285, %.lr.ph472 ], [ %.8.lcssa, %.preheader ]
-  %283 = load ptr, ptr %.9471, align 8, !tbaa !58
-  tail call void @free(ptr noundef %283) #13
-  %284 = getelementptr inbounds nuw i8, ptr %.9471, i64 16
-  %285 = load ptr, ptr %284, align 8, !tbaa !53
-  tail call void @free(ptr noundef nonnull %.9471) #13
-  %.not281 = icmp eq ptr %285, null
-  br i1 %.not281, label %._crit_edge, label %.lr.ph472
+.lr.ph473:                                        ; preds = %.preheader, %.lr.ph473
+  %.9472 = phi ptr [ %286, %.lr.ph473 ], [ %.8.lcssa, %.preheader ]
+  %284 = load ptr, ptr %.9472, align 8, !tbaa !58
+  tail call void @free(ptr noundef %284) #13
+  %285 = getelementptr inbounds nuw i8, ptr %.9472, i64 16
+  %286 = load ptr, ptr %285, align 8, !tbaa !53
+  tail call void @free(ptr noundef nonnull %.9472) #13
+  %.not281 = icmp eq ptr %286, null
+  br i1 %.not281, label %._crit_edge, label %.lr.ph473
 
-._crit_edge:                                      ; preds = %.lr.ph472, %.preheader
-  %286 = load ptr, ptr %49, align 8, !tbaa !28
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 40
-  %288 = load i32, ptr %287, align 8, !tbaa !29
-  %.not282 = icmp eq i32 %288, 0
-  br i1 %.not282, label %289, label %291
+._crit_edge:                                      ; preds = %.lr.ph473, %.preheader
+  %287 = load ptr, ptr %49, align 8, !tbaa !28
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 40
+  %289 = load i32, ptr %288, align 8, !tbaa !29
+  %.not282 = icmp eq i32 %289, 0
+  br i1 %.not282, label %290, label %292
 
-289:                                              ; preds = %._crit_edge
-  %290 = tail call i32 @cli_rmdirs(ptr noundef nonnull %44) #13
-  br label %291
-
-291:                                              ; preds = %289, %._crit_edge
-  tail call void @free(ptr noundef %44) #13
+290:                                              ; preds = %._crit_edge
+  %291 = tail call i32 @cli_rmdirs(ptr noundef nonnull %44) #13
   br label %292
 
-292:                                              ; preds = %59, %41, %291, %92, %83, %69, %47, %40, %36, %30, %28, %18, %12, %7
-  %.0 = phi i32 [ 0, %12 ], [ 26, %18 ], [ 26, %30 ], [ 26, %36 ], [ 26, %40 ], [ 18, %47 ], [ %61, %69 ], [ 19, %83 ], [ %.7.lcssa, %291 ], [ 26, %92 ], [ %58, %59 ], [ 26, %28 ], [ 2, %7 ], [ 18, %41 ]
+292:                                              ; preds = %290, %._crit_edge
+  tail call void @free(ptr noundef %44) #13
+  br label %293
+
+293:                                              ; preds = %59, %41, %292, %92, %83, %69, %47, %40, %36, %30, %28, %18, %12, %7
+  %.0 = phi i32 [ 0, %12 ], [ 26, %18 ], [ 26, %30 ], [ 26, %36 ], [ 26, %40 ], [ 18, %47 ], [ %61, %69 ], [ 19, %83 ], [ %.7.lcssa, %292 ], [ 26, %92 ], [ %58, %59 ], [ 2, %7 ], [ 26, %28 ], [ 18, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1147,9 +1147,9 @@ dmg_track_sectors.exit:                           ; preds = %62
   br label %340
 
 .sink.split:                                      ; preds = %62, %58
-  %.str.54.sink = phi ptr [ %.str.52..str.51, %58 ], [ @.str.54, %62 ]
+  %.str.51.sink = phi ptr [ %.str.52..str.51, %58 ], [ @.str.54, %62 ]
   %.2210.ph.ph = phi i8 [ %.0208259, %58 ], [ %.1209, %62 ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.54.sink, i32 noundef %.0170260) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.51.sink, i32 noundef %.0170260) #13
   br label %63
 
 63:                                               ; preds = %.sink.split, %55, %55, %59
@@ -1292,7 +1292,7 @@ dmg_track_sectors.exit:                           ; preds = %62
   br label %dmg_stripe_zeroes.exit
 
 dmg_stripe_zeroes.exit:                           ; preds = %111, %._crit_edge.i, %.loopexit.i
-  %.017.i188 = phi i32 [ 14, %.loopexit.i ], [ 0, %111 ], [ 0, %._crit_edge.i ]
+  %.017.i188 = phi i32 [ 0, %111 ], [ 14, %.loopexit.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dmg_stripe_store.exit
 
@@ -1454,7 +1454,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %111, %._crit_edge.i
   br label %dmg_stripe_adc.exit
 
 dmg_stripe_adc.exit:                              ; preds = %145, %161, %164, %165, %173, %181, %187, %.thread5.i
-  %.037.i = phi i32 [ 20, %164 ], [ 0, %.thread5.i ], [ 19, %161 ], [ 0, %145 ], [ 26, %187 ], [ 14, %181 ], [ 14, %173 ], [ 26, %165 ]
+  %.037.i = phi i32 [ 19, %161 ], [ 20, %164 ], [ 0, %145 ], [ 0, %.thread5.i ], [ 14, %181 ], [ 26, %187 ], [ 14, %173 ], [ 26, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dmg_stripe_store.exit
@@ -1618,7 +1618,7 @@ dmg_stripe_adc.exit:                              ; preds = %145, %161, %164, %1
   br label %dmg_stripe_inflate.exit
 
 dmg_stripe_inflate.exit:                          ; preds = %192, %208, %213, %215, %224, %233, %242, %251, %.thread8.i
-  %.034.i = phi i32 [ 20, %213 ], [ 14, %251 ], [ 0, %.thread8.i ], [ 19, %208 ], [ 0, %192 ], [ 26, %242 ], [ 14, %233 ], [ 14, %224 ], [ 26, %215 ]
+  %.034.i = phi i32 [ 19, %208 ], [ 20, %213 ], [ 0, %192 ], [ 14, %251 ], [ 0, %.thread8.i ], [ 14, %233 ], [ 26, %242 ], [ 14, %224 ], [ 26, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dmg_stripe_store.exit
@@ -1683,8 +1683,8 @@ dmg_stripe_inflate.exit:                          ; preds = %192, %208, %213, %2
   br label %.thread10.i
 
 281:                                              ; preds = %.thread.i, %267
-  %.169.i = phi i64 [ %.068.i, %267 ], [ %278, %.thread.i ]
-  %.160.i = phi i64 [ %.059.i, %267 ], [ %279, %.thread.i ]
+  %.169.i = phi i64 [ %278, %.thread.i ], [ %.068.i, %267 ]
+  %.160.i = phi i64 [ %279, %.thread.i ], [ %.059.i, %267 ]
   %282 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %6) #13
   %283 = and i32 %282, -5
   %or.cond.not.i = icmp eq i32 %283, 0
@@ -1788,8 +1788,8 @@ dmg_stripe_inflate.exit:                          ; preds = %192, %208, %213, %2
   br i1 %319, label %.preheader18.i, label %.thread10.i
 
 .thread10.i:                                      ; preds = %316, %315, %314, %305, %.thread5.i205, %284, %280, %266
-  %.172.i = phi i64 [ %.071.i, %266 ], [ %.071.i, %284 ], [ %.071.i, %280 ], [ %309, %314 ], [ %309, %305 ], [ %287, %.thread5.i205 ], [ %309, %315 ], [ %.273.i, %316 ]
-  %.1.i = phi i32 [ 26, %266 ], [ 26, %284 ], [ 19, %280 ], [ 14, %314 ], [ %311, %305 ], [ 26, %.thread5.i205 ], [ 0, %315 ], [ %.4.i203, %316 ]
+  %.172.i = phi i64 [ %.071.i, %266 ], [ %.071.i, %284 ], [ %309, %305 ], [ %.071.i, %280 ], [ %309, %314 ], [ %287, %.thread5.i205 ], [ %309, %315 ], [ %.273.i, %316 ]
+  %.1.i = phi i32 [ 26, %266 ], [ 26, %284 ], [ %311, %305 ], [ 19, %280 ], [ 14, %314 ], [ 26, %.thread5.i205 ], [ 0, %315 ], [ %.4.i203, %316 ]
   %320 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %6) #13
   %321 = icmp ne i32 %.1.i, 0
   %.not89.i = icmp eq i64 %.172.i, %262
@@ -1814,7 +1814,7 @@ dmg_stripe_bzip.exit:                             ; preds = %.thread10.i, %.sink
   br label %dmg_stripe_store.exit
 
 dmg_stripe_store.exit:                            ; preds = %143, %125, %dmg_stripe_zeroes.exit, %dmg_stripe_adc.exit, %dmg_stripe_inflate.exit, %dmg_stripe_bzip.exit, %322
-  %.1169 = phi i32 [ 0, %322 ], [ %.017.i188, %dmg_stripe_zeroes.exit ], [ %.037.i, %dmg_stripe_adc.exit ], [ %.034.i, %dmg_stripe_inflate.exit ], [ %.0.i201, %dmg_stripe_bzip.exit ], [ 0, %125 ], [ 0, %143 ]
+  %.1169 = phi i32 [ 0, %322 ], [ %.017.i188, %dmg_stripe_zeroes.exit ], [ %.0.i201, %dmg_stripe_bzip.exit ], [ %.037.i, %dmg_stripe_adc.exit ], [ %.034.i, %dmg_stripe_inflate.exit ], [ 0, %143 ], [ 0, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %324 = load ptr, ptr %4, align 8, !tbaa !58
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 200
@@ -1832,8 +1832,8 @@ dmg_stripe_store.exit:                            ; preds = %143, %125, %dmg_str
   %331 = call i32 @cli_magic_scan_desc_type(i32 noundef %86, ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef 557, ptr noundef null, i32 noundef 0) #13
   br label %._crit_edge271.thread348
 
-._crit_edge271.thread348:                         ; preds = %142, %144, %138, %._crit_edge271.thread, %._crit_edge271
-  %.2 = phi i32 [ %331, %._crit_edge271.thread ], [ %.1169, %._crit_edge271 ], [ 19, %138 ], [ 14, %144 ], [ 14, %142 ]
+._crit_edge271.thread348:                         ; preds = %138, %142, %144, %._crit_edge271.thread, %._crit_edge271
+  %.2 = phi i32 [ %331, %._crit_edge271.thread ], [ %.1169, %._crit_edge271 ], [ 14, %144 ], [ 14, %142 ], [ 19, %138 ]
   %332 = call i32 @close(i32 noundef %86) #13
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %334 = load ptr, ptr %333, align 8, !tbaa !28
@@ -1851,7 +1851,7 @@ dmg_stripe_store.exit:                            ; preds = %143, %125, %dmg_str
   br label %340
 
 340:                                              ; preds = %dmg_track_sectors.exit, %337, %339, %88, %82, %78, %75, %42
-  %.0167 = phi i32 [ 26, %42 ], [ 0, %75 ], [ 0, %78 ], [ %81, %82 ], [ 17, %88 ], [ %.2, %339 ], [ 26, %dmg_track_sectors.exit ], [ 10, %337 ]
+  %.0167 = phi i32 [ 26, %42 ], [ 26, %dmg_track_sectors.exit ], [ 0, %75 ], [ 0, %78 ], [ %81, %82 ], [ 17, %88 ], [ %.2, %339 ], [ 10, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0167
 }

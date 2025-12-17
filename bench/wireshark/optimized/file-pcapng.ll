@@ -691,9 +691,9 @@ define hidden noundef i32 @dissect_options(ptr noundef %0, ptr noundef %1, i32 n
   %67 = load ptr, ptr %43, align 8
   br label %69
 
-.thread:                                          ; preds = %60, %61, %62, %63, %64, %55
-  %.1533.ph = phi ptr [ @option_code_section_header_vals, %55 ], [ @option_code_interface_statistics_vals, %64 ], [ @option_code_name_resolution_vals, %63 ], [ @option_code_packet_vals, %62 ], [ @option_code_enhanced_packet_vals, %61 ], [ @option_code_interface_description_vals, %60 ]
-  %.0531.in.ph = phi ptr [ @hf_pcapng_option_code_section_header, %55 ], [ @hf_pcapng_option_code_interface_statistics, %64 ], [ @hf_pcapng_option_code_name_resolution, %63 ], [ @hf_pcapng_option_code_packet, %62 ], [ @hf_pcapng_option_code_enhanced_packet, %61 ], [ @hf_pcapng_option_code_interface_description, %60 ]
+.thread:                                          ; preds = %55, %64, %60, %61, %62, %63
+  %.1533.ph = phi ptr [ @option_code_name_resolution_vals, %63 ], [ @option_code_packet_vals, %62 ], [ @option_code_enhanced_packet_vals, %61 ], [ @option_code_interface_description_vals, %60 ], [ @option_code_interface_statistics_vals, %64 ], [ @option_code_section_header_vals, %55 ]
+  %.0531.in.ph = phi ptr [ @hf_pcapng_option_code_name_resolution, %63 ], [ @hf_pcapng_option_code_packet, %62 ], [ @hf_pcapng_option_code_enhanced_packet, %61 ], [ @hf_pcapng_option_code_interface_description, %60 ], [ @hf_pcapng_option_code_interface_statistics, %64 ], [ @hf_pcapng_option_code_section_header, %55 ]
   %.0531581 = load i32, ptr %.0531.in.ph, align 4
   %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %.0531581, ptr noundef %3, i32 noundef %.0529591, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %8)
   br label %71
@@ -1021,7 +1021,7 @@ dissect_custom_options.exit:                      ; preds = %97, %.sink.split.i
   br label %229
 
 229:                                              ; preds = %220, %224, %226, %225
-  %.0534 = phi ptr [ @.str.9, %224 ], [ @.str.10, %225 ], [ %228, %226 ], [ @.str.8, %220 ]
+  %.0534 = phi ptr [ %228, %226 ], [ @.str.9, %224 ], [ @.str.10, %225 ], [ @.str.8, %220 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %222, ptr noundef nonnull @.str.12, ptr noundef %.0534)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.5, ptr noundef %.0534)
   %230 = add i32 %.0529591, 12
@@ -1809,7 +1809,7 @@ dissect_custom_options.exit:                      ; preds = %97, %.sink.split.i
   br label %659
 
 659:                                              ; preds = %138, %146, %156, %160, %175, %179, %192, %196, %203, %207, %216, %229, %272, %276, %284, %305, %308, %318, %322, %329, %340, %348, %338, %333, %268, %233, %87, %656, %132, %125, %118, %111, %365, %371, %387, %377, %357, %428, %421, %417, %408, %404, %394, %510, %505, %501, %494, %490, %483, %479, %472, %468, %461, %457, %451, %447, %441, %437, %527, %533, %641, %634, %628, %621, %613, %606, %603, %585, %577, %573, %566, %562, %555, %551, %539, %519, %dissect_custom_options.exit
-  %.4 = phi i32 [ %94, %87 ], [ %107, %dissect_custom_options.exit ], [ %658, %656 ], [ %136, %132 ], [ %117, %111 ], [ %124, %118 ], [ %131, %125 ], [ %392, %387 ], [ %360, %357 ], [ %364, %365 ], [ %364, %371 ], [ %386, %377 ], [ %433, %428 ], [ %401, %394 ], [ %407, %404 ], [ %412, %408 ], [ %420, %417 ], [ %425, %421 ], [ %515, %510 ], [ %440, %437 ], [ %444, %441 ], [ %450, %447 ], [ %454, %451 ], [ %460, %457 ], [ %465, %461 ], [ %471, %468 ], [ %476, %472 ], [ %482, %479 ], [ %487, %483 ], [ %493, %490 ], [ %498, %494 ], [ %504, %501 ], [ %509, %505 ], [ %646, %641 ], [ %522, %519 ], [ %526, %527 ], [ %526, %533 ], [ %548, %539 ], [ %554, %551 ], [ %559, %555 ], [ %565, %562 ], [ %570, %566 ], [ %576, %573 ], [ %581, %577 ], [ %78, %585 ], [ %605, %603 ], [ %611, %606 ], [ %618, %613 ], [ %626, %621 ], [ %633, %628 ], [ %639, %634 ], [ %353, %348 ], [ %145, %138 ], [ %153, %146 ], [ %159, %156 ], [ %168, %160 ], [ %178, %175 ], [ %186, %179 ], [ %195, %192 ], [ %200, %196 ], [ %206, %203 ], [ %211, %207 ], [ %219, %216 ], [ %230, %229 ], [ %275, %272 ], [ %279, %276 ], [ %78, %284 ], [ %307, %305 ], [ %315, %308 ], [ %321, %318 ], [ %325, %322 ], [ %332, %329 ], [ %336, %338 ], [ %336, %333 ], [ %347, %340 ], [ %236, %233 ], [ %242, %268 ]
+  %.4 = phi i32 [ %94, %87 ], [ %107, %dissect_custom_options.exit ], [ %658, %656 ], [ %136, %132 ], [ %117, %111 ], [ %124, %118 ], [ %131, %125 ], [ %639, %634 ], [ %392, %387 ], [ %360, %357 ], [ %364, %365 ], [ %364, %371 ], [ %386, %377 ], [ %433, %428 ], [ %401, %394 ], [ %407, %404 ], [ %412, %408 ], [ %420, %417 ], [ %425, %421 ], [ %515, %510 ], [ %440, %437 ], [ %444, %441 ], [ %450, %447 ], [ %454, %451 ], [ %460, %457 ], [ %465, %461 ], [ %471, %468 ], [ %476, %472 ], [ %482, %479 ], [ %487, %483 ], [ %493, %490 ], [ %498, %494 ], [ %504, %501 ], [ %509, %505 ], [ %646, %641 ], [ %522, %519 ], [ %526, %527 ], [ %526, %533 ], [ %548, %539 ], [ %554, %551 ], [ %559, %555 ], [ %565, %562 ], [ %570, %566 ], [ %576, %573 ], [ %581, %577 ], [ %78, %585 ], [ %605, %603 ], [ %611, %606 ], [ %618, %613 ], [ %626, %621 ], [ %633, %628 ], [ %353, %348 ], [ %145, %138 ], [ %153, %146 ], [ %159, %156 ], [ %168, %160 ], [ %178, %175 ], [ %186, %179 ], [ %195, %192 ], [ %200, %196 ], [ %206, %203 ], [ %211, %207 ], [ %219, %216 ], [ %230, %229 ], [ %347, %340 ], [ %275, %272 ], [ %279, %276 ], [ %78, %284 ], [ %307, %305 ], [ %315, %308 ], [ %321, %318 ], [ %325, %322 ], [ %332, %329 ], [ %336, %338 ], [ %336, %333 ], [ %236, %233 ], [ %242, %268 ]
   %660 = load i32, ptr %9, align 4
   %661 = and i32 %660, 3
   %.not577 = icmp eq i32 %661, 0
@@ -2281,7 +2281,7 @@ process_block_length.exit:                        ; preds = %69, %73, %75
   br label %150
 
 150:                                              ; preds = %133, %process_block_length.exit, %148
-  %.0 = phi i32 [ %149, %148 ], [ -1, %process_block_length.exit ], [ -1, %133 ]
+  %.0 = phi i32 [ -1, %process_block_length.exit ], [ %149, %148 ], [ -1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3811,7 +3811,7 @@ define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %56, label %.thread, label %23
 
 .thread:                                          ; preds = %45, %53, %23, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %45 ], [ %.035, %53 ], [ %.035, %23 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %45 ], [ %.035, %23 ], [ %.035, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

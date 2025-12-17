@@ -248,7 +248,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %117
 
 117:                                              ; preds = %113, %108, %115, %110
-  %.2253 = phi float [ %116, %115 ], [ %.1252.lcssa, %110 ], [ %.293, %108 ], [ %98, %113 ]
+  %.2253 = phi float [ %.293, %108 ], [ %.1252.lcssa, %110 ], [ %116, %115 ], [ %98, %113 ]
   %118 = and i8 %94, 8
   %cond = icmp eq i8 %118, 0
   %119 = and i8 %107, 24
@@ -303,7 +303,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %143
 
 143:                                              ; preds = %128, %142, %139
-  %.0256 = phi float [ %140, %142 ], [ %129, %139 ], [ %137, %128 ]
+  %.0256 = phi float [ %129, %139 ], [ %140, %142 ], [ %137, %128 ]
   %144 = fadd float %101, %.0256
   %145 = load float, ptr %69, align 4, !tbaa !17
   %146 = fsub float %.0255, %145

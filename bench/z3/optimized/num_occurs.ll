@@ -474,7 +474,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   br i1 %.not55.i, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 177:                                              ; preds = %174, %169
-  %.1.i = phi ptr [ %.04970.i, %169 ], [ %.05069.i, %174 ]
+  %.1.i = phi ptr [ %.05069.i, %174 ], [ %.04970.i, %169 ]
   %178 = getelementptr inbounds nuw i8, ptr %.05069.i, i64 16
   %.not.i118 = icmp eq ptr %178, %166
   br i1 %.not.i118, label %.preheader.i, label %.lr.ph.i, !llvm.loop !56
@@ -503,7 +503,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   br i1 %.not54.i, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 189:                                              ; preds = %186, %181
-  %.3.i = phi ptr [ %.273.i, %181 ], [ %.15172.i, %186 ]
+  %.3.i = phi ptr [ %.15172.i, %186 ], [ %.273.i, %181 ]
   %190 = getelementptr inbounds nuw i8, ptr %.15172.i, i64 16
   %.not53.i = icmp eq ptr %190, %165
   br i1 %.not53.i, label %._crit_edge.i119, label %.lr.ph74.i, !llvm.loop !57
@@ -917,7 +917,7 @@ _ZN6bufferIP4exprLb0ELj128EED2Ev.exit:            ; preds = %._crit_edge, %316
   ret void
 
 320:                                              ; preds = %.loopexit154, %.loopexit.split-lp, %263, %265, %196, %29, %27
-  %.pn21.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %197, %196 ], [ %264, %263 ], [ %266, %265 ], [ %lpad.loopexit, %.loopexit154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ], [ %266, %265 ], [ %197, %196 ], [ %264, %263 ], [ %lpad.loopexit, %.loopexit154 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferIP4exprLb0ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn21.pn.pn
@@ -1322,7 +1322,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4ex
   br label %65
 
 44:                                               ; preds = %35, %29
-  %.1 = phi ptr [ %.04970, %29 ], [ %.05069, %35 ]
+  %.1 = phi ptr [ %.05069, %35 ], [ %.04970, %29 ]
   %45 = getelementptr inbounds nuw i8, ptr %.05069, i64 16
   %.not = icmp eq ptr %45, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !56
@@ -1370,7 +1370,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4ex
   br label %65
 
 63:                                               ; preds = %54, %48
-  %.3 = phi ptr [ %.273, %48 ], [ %.15172, %54 ]
+  %.3 = phi ptr [ %.15172, %54 ], [ %.273, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %.15172, i64 16
   %.not53 = icmp eq ptr %64, %24
   br i1 %.not53, label %._crit_edge, label %.lr.ph74, !llvm.loop !57

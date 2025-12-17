@@ -469,8 +469,8 @@ _ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8
   %50 = load ptr, ptr %49, align 8, !tbaa !51
   br label %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread
 
-_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %22, %..loopexit_crit_edge21.i.i.i.i, %27, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
-  %.0 = phi ptr [ %50, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ null, %27 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %22 ], [ null, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %22, %27, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
+  %.0 = phi ptr [ %50, %_ZNSt13unordered_mapIjPFvPvESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %27 ], [ null, %22 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -2243,7 +2243,7 @@ define void @_ZN7rocksdb14ThreadLocalPtrC2EPFvPvE(ptr noundef nonnull align 4 ca
   br label %common.resume
 
 common.resume:                                    ; preds = %26, %28, %11, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ], [ %29, %28 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ], [ %29, %28 ], [ %27, %26 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -2658,7 +2658,7 @@ define void @_ZN7rocksdb14ThreadLocalPtr4FoldESt8functionIFvPvS2_EES2_(ptr nound
   br label %17
 
 common.resume:                                    ; preds = %48, %45, %30, %33, %17
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %17 ], [ %31, %33 ], [ %31, %30 ], [ %46, %45 ], [ %46, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %17 ], [ %31, %30 ], [ %31, %33 ], [ %46, %45 ], [ %46, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %15, %13

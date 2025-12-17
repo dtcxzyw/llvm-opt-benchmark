@@ -417,7 +417,7 @@ define internal fastcc i64 @_load(ptr noundef %0, i64 noundef %1) unnamed_addr #
   br label %24
 
 24:                                               ; preds = %17, %22, %5, %8, %15
-  %.011 = phi i64 [ 0, %15 ], [ 0, %8 ], [ 0, %5 ], [ %spec.select, %22 ], [ %spec.select, %17 ]
+  %.011 = phi i64 [ 0, %15 ], [ 0, %5 ], [ 0, %8 ], [ %spec.select, %22 ], [ %spec.select, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.011
 }

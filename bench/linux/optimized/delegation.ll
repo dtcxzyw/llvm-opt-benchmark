@@ -523,7 +523,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr nou
   br label %150
 
 .thread.sink.split:                               ; preds = %.thread26, %44, %52, %81
-  %.sink = phi ptr [ %45, %81 ], [ %45, %52 ], [ %45, %44 ], [ %101, %.thread26 ]
+  %.sink = phi ptr [ %45, %44 ], [ %45, %81 ], [ %45, %52 ], [ %101, %.thread26 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #12
   br label %.thread
 
@@ -835,7 +835,7 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr re
   br label %.thread12
 
 .thread12:                                        ; preds = %28, %.thread14, %.thread13, %37
-  %40 = phi i1 [ false, %.thread13 ], [ true, %37 ], [ true, %.thread14 ], [ true, %28 ]
+  %40 = phi i1 [ true, %.thread14 ], [ false, %.thread13 ], [ true, %37 ], [ true, %28 ]
   %41 = load volatile i64, ptr %20, align 8
   %42 = and i64 %41, 16
   %43 = icmp eq i64 %42, 0
@@ -1510,7 +1510,7 @@ define dso_local void @nfs4_inode_return_delegation_on_close(ptr noundef %0) loc
   br label %.thread
 
 .thread:                                          ; preds = %12, %7, %3, %.thread5, %48, %20
-  %49 = phi ptr [ %5, %48 ], [ null, %20 ], [ null, %.thread5 ], [ null, %3 ], [ null, %7 ], [ null, %12 ]
+  %49 = phi ptr [ %5, %48 ], [ null, %.thread5 ], [ null, %20 ], [ null, %3 ], [ null, %7 ], [ null, %12 ]
   tail call void @__rcu_read_unlock() #12
   %50 = tail call fastcc i32 @nfs_end_delegation_return(ptr noundef nonnull %0, ptr noundef %49, i32 noundef 0)
   br label %51
@@ -2134,7 +2134,7 @@ define dso_local nonnull ptr @nfs_delegation_find_inode(ptr noundef %0, ptr noun
   br i1 %48, label %5, label %.thread9, !llvm.loop !57
 
 .thread9:                                         ; preds = %.loopexit, %5, %.thread8, %42, %44
-  %49 = phi ptr [ inttoptr (i64 -11 to ptr), %44 ], [ inttoptr (i64 -11 to ptr), %42 ], [ inttoptr (i64 -11 to ptr), %.thread8 ], [ inttoptr (i64 -2 to ptr), %5 ], [ %47, %.loopexit ]
+  %49 = phi ptr [ inttoptr (i64 -11 to ptr), %42 ], [ inttoptr (i64 -11 to ptr), %.thread8 ], [ inttoptr (i64 -11 to ptr), %44 ], [ inttoptr (i64 -2 to ptr), %5 ], [ %47, %.loopexit ]
   tail call void @__rcu_read_unlock() #12
   ret ptr %49
 }

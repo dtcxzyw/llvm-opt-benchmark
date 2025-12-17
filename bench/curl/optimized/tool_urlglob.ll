@@ -504,7 +504,7 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   br i1 %or.cond171.i.i, label %.critedge173.i.i, label %196
 
 .critedge173.i.i:                                 ; preds = %190, %185, %176, %166, %.thread210.i, %151, %148, %145, %141
-  %195 = phi i64 [ %186, %190 ], [ %186, %185 ], [ %172, %176 ], [ %172, %166 ], [ %133, %148 ], [ %133, %145 ], [ %133, %141 ], [ %133, %151 ], [ %133, %.thread210.i ]
+  %195 = phi i64 [ %172, %166 ], [ %186, %190 ], [ %186, %185 ], [ %172, %176 ], [ %133, %141 ], [ %133, %148 ], [ %133, %145 ], [ %133, %151 ], [ %133, %.thread210.i ]
   store ptr @.str.15, ptr %20, align 8, !tbaa !22
   store i64 %195, ptr %21, align 8, !tbaa !23
   br label %glob_fixed.exit.i
@@ -639,7 +639,7 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   br i1 %248, label %._crit_edge.i.i, label %262
 
 .thread.i54.thread.i:                             ; preds = %.thread191.i.i, %241, %237, %234, %231, %.critedge8.i.i, %227, %224, %.critedge.i.i
-  %.4.i.ph.i = phi ptr [ %238, %241 ], [ %238, %.thread191.i.i ], [ %.3.i.i, %231 ], [ %238, %237 ], [ %.3.i.i, %.critedge8.i.i ], [ %132, %227 ], [ %132, %.critedge.i.i ], [ %132, %224 ], [ %.3.i.i, %234 ]
+  %.4.i.ph.i = phi ptr [ %238, %241 ], [ %238, %.thread191.i.i ], [ %.3.i.i, %231 ], [ %238, %237 ], [ %132, %224 ], [ %.3.i.i, %.critedge8.i.i ], [ %132, %.critedge.i.i ], [ %132, %227 ], [ %.3.i.i, %234 ]
   %249 = ptrtoint ptr %.4.i.ph.i to i64
   %250 = ptrtoint ptr %132 to i64
   %251 = sub i64 %133, %250
@@ -715,11 +715,11 @@ multiply.exit185.i.i:                             ; preds = %276, %._crit_edge.i
   br label %glob_fixed.exit.i
 
 glob_fixed.exit.i:                                ; preds = %196, %205, %279, %multiply.exit185.i.i, %.critedge180.i.i, %.critedge173.i.i, %123, %119, %114, %107, %.thread.i.i, %92, %89, %88, %77, %75, %74, %70
-  %.2 = phi i64 [ %.032, %77 ], [ %.032, %.critedge173.i.i ], [ %.032, %.critedge180.i.i ], [ %.0.i184.i.i, %multiply.exit185.i.i ], [ %.032, %279 ], [ %.3, %88 ], [ %.3, %89 ], [ %.3, %92 ], [ %.5, %107 ], [ %.5, %114 ], [ %.5, %119 ], [ %.5, %.thread.i.i ], [ %.3, %123 ], [ %.032, %70 ], [ %.032, %74 ], [ %.032, %75 ], [ 0, %196 ], [ %spec.select.i.i57.i, %205 ]
-  %.597.i = phi ptr [ %.193.i, %77 ], [ %132, %.critedge173.i.i ], [ %132, %.critedge180.i.i ], [ %270, %multiply.exit185.i.i ], [ %132, %279 ], [ %.ptr.i, %88 ], [ %.ptr.i, %89 ], [ %.ptr.i, %92 ], [ %.ptr.i, %107 ], [ %.ptr.i, %114 ], [ %120, %119 ], [ %.ptr.i, %.thread.i.i ], [ %.ptr.i, %123 ], [ %.193.i, %70 ], [ %.193.i, %74 ], [ %.193.i, %75 ], [ %.0139.i208218219.i, %196 ], [ %.0139.i208218219.i, %205 ]
-  %.3.i = phi i64 [ %.190.ph.i, %77 ], [ %195, %.critedge173.i.i ], [ %268, %.critedge180.i.i ], [ %269, %multiply.exit185.i.i ], [ %133, %279 ], [ %.4.i, %88 ], [ %.4.i, %89 ], [ %.4.i, %92 ], [ %.4.i, %107 ], [ %.4.i, %114 ], [ %.4.i, %119 ], [ %.4.i, %.thread.i.i ], [ %.4.i, %123 ], [ %.190.ph.i, %70 ], [ %.190.ph.i, %74 ], [ %.190.ph.i, %75 ], [ %197, %196 ], [ %197, %205 ]
-  %.237.i = phi i32 [ 0, %77 ], [ 3, %.critedge173.i.i ], [ 3, %.critedge180.i.i ], [ 0, %multiply.exit185.i.i ], [ 3, %279 ], [ 3, %88 ], [ 3, %89 ], [ 3, %92 ], [ 27, %107 ], [ 27, %114 ], [ 0, %119 ], [ 27, %.thread.i.i ], [ 3, %123 ], [ 27, %70 ], [ 27, %74 ], [ 0, %75 ], [ 0, %196 ], [ 0, %205 ]
-  %.234.i = phi i32 [ %.032.i, %77 ], [ %134, %.critedge173.i.i ], [ %134, %.critedge180.i.i ], [ %134, %multiply.exit185.i.i ], [ %134, %279 ], [ %80, %88 ], [ %80, %89 ], [ %80, %92 ], [ %80, %107 ], [ %80, %114 ], [ %80, %119 ], [ %80, %.thread.i.i ], [ %80, %123 ], [ %.032.i, %70 ], [ %.032.i, %74 ], [ %.032.i, %75 ], [ %134, %196 ], [ %134, %205 ]
+  %.2 = phi i64 [ %.032, %77 ], [ %.032, %.critedge173.i.i ], [ %.032, %75 ], [ %.032, %.critedge180.i.i ], [ %.0.i184.i.i, %multiply.exit185.i.i ], [ %.032, %279 ], [ %.3, %88 ], [ %.3, %89 ], [ %.3, %92 ], [ %.5, %107 ], [ %.5, %114 ], [ %.5, %119 ], [ %.5, %.thread.i.i ], [ %.3, %123 ], [ %.032, %70 ], [ %.032, %74 ], [ 0, %196 ], [ %spec.select.i.i57.i, %205 ]
+  %.597.i = phi ptr [ %.193.i, %77 ], [ %132, %.critedge173.i.i ], [ %.193.i, %75 ], [ %132, %.critedge180.i.i ], [ %270, %multiply.exit185.i.i ], [ %132, %279 ], [ %.ptr.i, %88 ], [ %.ptr.i, %89 ], [ %.ptr.i, %92 ], [ %.ptr.i, %107 ], [ %.ptr.i, %114 ], [ %120, %119 ], [ %.ptr.i, %.thread.i.i ], [ %.ptr.i, %123 ], [ %.193.i, %70 ], [ %.193.i, %74 ], [ %.0139.i208218219.i, %196 ], [ %.0139.i208218219.i, %205 ]
+  %.3.i = phi i64 [ %.190.ph.i, %77 ], [ %195, %.critedge173.i.i ], [ %.190.ph.i, %75 ], [ %268, %.critedge180.i.i ], [ %269, %multiply.exit185.i.i ], [ %133, %279 ], [ %.4.i, %88 ], [ %.4.i, %89 ], [ %.4.i, %92 ], [ %.4.i, %107 ], [ %.4.i, %114 ], [ %.4.i, %119 ], [ %.4.i, %.thread.i.i ], [ %.4.i, %123 ], [ %.190.ph.i, %70 ], [ %.190.ph.i, %74 ], [ %197, %196 ], [ %197, %205 ]
+  %.237.i = phi i32 [ 0, %77 ], [ 3, %.critedge173.i.i ], [ 0, %75 ], [ 3, %.critedge180.i.i ], [ 0, %multiply.exit185.i.i ], [ 3, %279 ], [ 3, %88 ], [ 3, %89 ], [ 3, %92 ], [ 27, %107 ], [ 27, %114 ], [ 0, %119 ], [ 27, %.thread.i.i ], [ 3, %123 ], [ 27, %70 ], [ 27, %74 ], [ 0, %196 ], [ 0, %205 ]
+  %.234.i = phi i32 [ %.032.i, %77 ], [ %134, %.critedge173.i.i ], [ %.032.i, %75 ], [ %134, %.critedge180.i.i ], [ %134, %multiply.exit185.i.i ], [ %134, %279 ], [ %80, %88 ], [ %80, %89 ], [ %80, %92 ], [ %80, %107 ], [ %80, %114 ], [ %80, %119 ], [ %80, %.thread.i.i ], [ %80, %123 ], [ %.032.i, %70 ], [ %.032.i, %74 ], [ %134, %196 ], [ %134, %205 ]
   %280 = load i64, ptr %19, align 8, !tbaa !17
   %281 = add i64 %280, 1
   store i64 %281, ptr %19, align 8, !tbaa !17
@@ -898,7 +898,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   br label %.thread86
 
 .lr.ph107:                                        ; preds = %.preheader, %.backedge
-  %13 = phi i64 [ %55, %.backedge ], [ %11, %.preheader ]
+  %13 = phi i64 [ %29, %.backedge ], [ %11, %.preheader ]
   %.07289106 = phi i64 [ %.07289.be, %.backedge ], [ 0, %.preheader ]
   %14 = xor i64 %.07289106, -1
   %15 = getelementptr %struct.URLPattern, ptr %1, i64 %13
@@ -906,76 +906,76 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   %17 = load i32, ptr %16, align 8, !tbaa !18
   switch i32 %17, label %.thread [
     i32 1, label %18
-    i32 2, label %21
-    i32 3, label %34
+    i32 2, label %31
+    i32 3, label %44
   ]
 
 18:                                               ; preds = %.lr.ph107
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %.not78 = icmp eq ptr %20, null
-  br i1 %.not78, label %.thread86, label %47
+  br i1 %.not78, label %.thread86, label %21
 
-21:                                               ; preds = %.lr.ph107
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  %25 = load i8, ptr %24, align 2, !tbaa !9
-  %26 = trunc i32 %23 to i8
-  %27 = add i8 %25, %26
-  store i8 %27, ptr %24, align 2, !tbaa !9
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %29 = load i8, ptr %28, align 1, !tbaa !9
-  %30 = icmp sgt i8 %27, %29
-  br i1 %30, label %31, label %.thread86
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %23 = load i32, ptr %22, align 8, !tbaa !9
+  %24 = add nsw i32 %23, 1
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !9
+  %28 = icmp eq i64 %27, %25
+  %spec.store.select = select i1 %28, i32 0, i32 %24
+  store i32 %spec.store.select, ptr %22, align 8
+  br i1 %28, label %.backedge, label %.thread86
 
-31:                                               ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %33 = load i8, ptr %32, align 8, !tbaa !9
-  store i8 %33, ptr %24, align 2, !tbaa !9
+.backedge:                                        ; preds = %53, %41, %21
+  %.07289.be = add nuw i64 %.07289106, 1
+  %29 = load i64, ptr %10, align 8, !tbaa !17
+  %30 = icmp ult i64 %.07289.be, %29
+  br i1 %30, label %.lr.ph107, label %.loopexit, !llvm.loop !34
+
+31:                                               ; preds = %.lr.ph107
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  %35 = load i8, ptr %34, align 2, !tbaa !9
+  %36 = trunc i32 %33 to i8
+  %37 = add i8 %35, %36
+  store i8 %37, ptr %34, align 2, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  %39 = load i8, ptr %38, align 1, !tbaa !9
+  %40 = icmp sgt i8 %37, %39
+  br i1 %40, label %41, label %.thread86
+
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %43 = load i8, ptr %42, align 8, !tbaa !9
+  store i8 %43, ptr %34, align 2, !tbaa !9
   br label %.backedge
 
-34:                                               ; preds = %.lr.ph107
-  %35 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %36 = load i64, ptr %35, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %38 = load i64, ptr %37, align 8, !tbaa !9
-  %39 = add nsw i64 %38, %36
-  store i64 %39, ptr %37, align 8, !tbaa !9
-  %40 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !9
-  %42 = icmp sgt i64 %39, %41
-  br i1 %42, label %43, label %.thread86
+44:                                               ; preds = %.lr.ph107
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %46 = load i64, ptr %45, align 8, !tbaa !9
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %48 = load i64, ptr %47, align 8, !tbaa !9
+  %49 = add nsw i64 %48, %46
+  store i64 %49, ptr %47, align 8, !tbaa !9
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !9
+  %52 = icmp sgt i64 %49, %51
+  br i1 %52, label %53, label %.thread86
 
-43:                                               ; preds = %34
-  %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !9
-  store i64 %45, ptr %37, align 8, !tbaa !9
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !9
+  store i64 %55, ptr %47, align 8, !tbaa !9
   br label %.backedge
 
 .thread:                                          ; preds = %.lr.ph107
-  %46 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.3, i32 noundef %17) #17
+  %56 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.3, i32 noundef %17) #17
   br label %.loopexit
 
-47:                                               ; preds = %18
-  %48 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !9
-  %50 = add nsw i32 %49, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !9
-  %54 = icmp eq i64 %53, %51
-  %spec.store.select = select i1 %54, i32 0, i32 %50
-  store i32 %spec.store.select, ptr %48, align 8
-  br i1 %54, label %.backedge, label %.thread86
-
-.backedge:                                        ; preds = %47, %31, %43
-  %.07289.be = add nuw i64 %.07289106, 1
-  %55 = load i64, ptr %10, align 8, !tbaa !17
-  %56 = icmp ult i64 %.07289.be, %55
-  br i1 %56, label %.lr.ph107, label %.loopexit, !llvm.loop !34
-
-.thread86:                                        ; preds = %47, %18, %21, %34, %12
+.thread86:                                        ; preds = %21, %44, %18, %31, %12
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 4800
   %58 = load i64, ptr %57, align 8, !tbaa !17
   %.not93 = icmp eq i64 %58, 0
@@ -1056,7 +1056,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %.thread, %._crit_edge, %89
-  %.175 = phi i32 [ 2, %89 ], [ %.83, %._crit_edge ], [ 2, %.thread ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %.175 = phi i32 [ 2, %89 ], [ 2, %.thread ], [ %.83, %._crit_edge ], [ 0, %.preheader ], [ 0, %.backedge ]
   ret i32 %.175
 }
 
@@ -1169,7 +1169,7 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
   call void @curlx_dyn_free(ptr noundef nonnull %6) #17
   br label %.loopexit52
 
-.loopexit:                                        ; preds = %23, %18, %16
+.loopexit:                                        ; preds = %23, %16, %18
   store ptr %13, ptr %4, align 8, !tbaa !24
   br label %56
 

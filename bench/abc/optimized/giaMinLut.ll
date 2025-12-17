@@ -297,7 +297,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %121, label %104, label %Vec_IntReverseOrder.exit, !llvm.loop !20
 
 Vec_IntReverseOrder.exit:                         ; preds = %104, %.preheader, %._crit_edge, %17
-  %.val8.pre.i40 = phi ptr [ %.val8.pre.i37, %._crit_edge ], [ %.val8.pre.i42, %17 ], [ %.val8.pre.i42, %.preheader ], [ %.val8.pre.i37, %104 ]
+  %.val8.pre.i40 = phi ptr [ %.val8.pre.i42, %17 ], [ %.val8.pre.i37, %._crit_edge ], [ %.val8.pre.i42, %.preheader ], [ %.val8.pre.i37, %104 ]
   %122 = add nuw nsw i32 %.02233, 1
   %123 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef nonnull %5)
   %.not = icmp eq ptr %123, null
@@ -431,7 +431,7 @@ define noundef ptr @Vec_WrdReadTruthText(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %4, %26, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %26 ], [ %11, %4 ], [ %11, %13 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %25 ], [ %11, %4 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -750,8 +750,8 @@ Abc_UtilStrsav.exit:                              ; preds = %44, %46
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %126, %128, %118, %120
-  %.sink162 = phi ptr [ %119, %118 ], [ %121, %120 ], [ %127, %126 ], [ %129, %128 ]
-  %.sink = phi i32 [ 16, %118 ], [ 16, %120 ], [ %123, %126 ], [ %123, %128 ]
+  %.sink162 = phi ptr [ %121, %120 ], [ %119, %118 ], [ %127, %126 ], [ %129, %128 ]
+  %.sink = phi i32 [ 16, %120 ], [ 16, %118 ], [ %123, %126 ], [ %123, %128 ]
   store ptr %.sink162, ptr %31, align 8, !tbaa !17
   store i32 %.sink, ptr %24, align 8, !tbaa !16
   br label %Vec_IntPush.exit
@@ -1629,8 +1629,8 @@ define noalias noundef ptr @Vec_WrdReadNumsOut(ptr noundef %0, i32 noundef %1) l
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %31, %33, %23, %25
-  %.sink20 = phi ptr [ %24, %23 ], [ %26, %25 ], [ %32, %31 ], [ %34, %33 ]
-  %.sink = phi i32 [ 16, %23 ], [ 16, %25 ], [ %28, %31 ], [ %28, %33 ]
+  %.sink20 = phi ptr [ %26, %25 ], [ %24, %23 ], [ %32, %31 ], [ %34, %33 ]
+  %.sink = phi i32 [ 16, %25 ], [ 16, %23 ], [ %28, %31 ], [ %28, %33 ]
   store ptr %.sink20, ptr %12, align 8, !tbaa !17
   store i32 %.sink, ptr %9, align 8, !tbaa !16
   br label %Vec_IntPush.exit
@@ -2650,8 +2650,8 @@ Gia_ManSimEvalMaxValue.exit:                      ; preds = %Gia_ManSimEvalMaxVa
   br i1 %exitcond.not, label %.critedge, label %Gia_ManSimEvalMaxValue.exit, !llvm.loop !86
 
 .critedge:                                        ; preds = %Gia_ManSimEvalMaxValue.exit, %.preheader.lr.ph.i.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us, %4
-  %.024.lcssa = phi i32 [ -1, %4 ], [ %.125.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.125.us, %.preheader.lr.ph.i.us ], [ %.125, %Gia_ManSimEvalMaxValue.exit ]
-  %.023.lcssa = phi i32 [ 0, %4 ], [ %.1.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.1.us, %.preheader.lr.ph.i.us ], [ %.1, %Gia_ManSimEvalMaxValue.exit ]
+  %.024.lcssa = phi i32 [ -1, %4 ], [ %.125.us, %.preheader.lr.ph.i.us ], [ %.125.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.125, %Gia_ManSimEvalMaxValue.exit ]
+  %.023.lcssa = phi i32 [ 0, %4 ], [ %.1.us, %.preheader.lr.ph.i.us ], [ %.1.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ %.1, %Gia_ManSimEvalMaxValue.exit ]
   %54 = uitofp nneg i32 %.023.lcssa to double
   %55 = fmul double %54, 1.000000e+02
   %56 = sitofp i32 %.val27 to double
@@ -3587,8 +3587,8 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr noundef readonly captures(n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %81, %._crit_edge
-  %.063.lcssa120 = phi i32 [ %67, %81 ], [ %67, %._crit_edge ], [ 0, %.preheader ]
-  %.064.lcssa119 = phi i32 [ %70, %81 ], [ %70, %._crit_edge ], [ 0, %.preheader ]
+  %.063.lcssa120 = phi i32 [ %67, %._crit_edge ], [ %67, %81 ], [ 0, %.preheader ]
+  %.064.lcssa119 = phi i32 [ %70, %._crit_edge ], [ %70, %81 ], [ 0, %.preheader ]
   %.not69 = icmp eq i32 %4, 0
   br i1 %.not69, label %104, label %102
 
@@ -5460,8 +5460,8 @@ Gia_ManCollectSuppNew.exit:                       ; preds = %.lr.ph.i.i, %148
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %214, %216, %206, %208
-  %.sink379 = phi ptr [ %207, %206 ], [ %209, %208 ], [ %215, %214 ], [ %217, %216 ]
-  %.sink = phi i32 [ 16, %206 ], [ 16, %208 ], [ %211, %214 ], [ %211, %216 ]
+  %.sink379 = phi ptr [ %209, %208 ], [ %207, %206 ], [ %215, %214 ], [ %217, %216 ]
+  %.sink = phi i32 [ 16, %208 ], [ 16, %206 ], [ %211, %214 ], [ %211, %216 ]
   store ptr %.sink379, ptr %25, align 8, !tbaa !17
   store i32 %.sink, ptr %17, align 8, !tbaa !16
   br label %Vec_IntPush.exit

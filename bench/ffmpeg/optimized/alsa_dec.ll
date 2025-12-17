@@ -99,7 +99,7 @@ define internal range(i32 -2147483648, 1) i32 @audio_read_header(ptr noundef %0)
   br label %49
 
 49:                                               ; preds = %32, %17, %45, %6
-  %.029 = phi i32 [ %.0, %45 ], [ -12, %6 ], [ -5, %17 ], [ 0, %32 ]
+  %.029 = phi i32 [ -12, %6 ], [ %.0, %45 ], [ -5, %17 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.029
 }

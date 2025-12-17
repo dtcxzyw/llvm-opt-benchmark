@@ -88,7 +88,7 @@ define internal range(i32 0, 2) i32 @eckey_pub_decode(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %12, %2, %10, %21, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %21 ], [ 0, %10 ], [ 0, %2 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %23 ], [ 0, %21 ], [ 0, %2 ], [ 0, %10 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -198,7 +198,7 @@ define internal range(i32 -2, 2) i32 @eckey_pub_cmp(ptr noundef readonly capture
   br label %16
 
 16:                                               ; preds = %14, %2
-  %.0 = phi i32 [ -2, %2 ], [ %switch.select19, %14 ]
+  %.0 = phi i32 [ %switch.select19, %14 ], [ -2, %2 ]
   ret i32 %.0
 }
 
@@ -278,7 +278,7 @@ define internal range(i32 0, 2) i32 @eckey_priv_encode(ptr noundef %0, ptr nound
   br label %31
 
 31:                                               ; preds = %26, %29, %17, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %17 ], [ 0, %29 ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 0, %29 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -511,7 +511,7 @@ define internal i32 @ec_pkey_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %4, %12, %19, %16, %9, %8
-  %.0 = phi i32 [ 2, %8 ], [ 1, %9 ], [ %18, %16 ], [ %22, %19 ], [ 0, %12 ], [ -2, %4 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %12 ], [ 2, %8 ], [ 1, %9 ], [ %18, %16 ], [ %22, %19 ], [ -2, %4 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -697,8 +697,8 @@ define internal i32 @ec_pkey_export_to(ptr noundef readonly captures(address_is_
   br label %.thread
 
 .thread:                                          ; preds = %43, %38, %35, %31, %27, %22, %19, %49
-  %.050 = phi i32 [ 0, %19 ], [ %51, %49 ], [ 0, %22 ], [ 0, %27 ], [ 0, %31 ], [ 0, %35 ], [ 0, %38 ], [ 0, %43 ]
-  %.048 = phi ptr [ null, %19 ], [ %50, %49 ], [ null, %22 ], [ null, %27 ], [ null, %31 ], [ null, %35 ], [ null, %38 ], [ null, %43 ]
+  %.050 = phi i32 [ 0, %19 ], [ %51, %49 ], [ 0, %31 ], [ 0, %22 ], [ 0, %27 ], [ 0, %35 ], [ 0, %38 ], [ 0, %43 ]
+  %.048 = phi ptr [ null, %19 ], [ %50, %49 ], [ null, %31 ], [ null, %22 ], [ null, %27 ], [ null, %35 ], [ null, %38 ], [ null, %43 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %17) #5
   call void @OSSL_PARAM_free(ptr noundef %.048) #5
   %52 = load ptr, ptr %6, align 8, !tbaa !3
@@ -710,7 +710,7 @@ define internal i32 @ec_pkey_export_to(ptr noundef readonly captures(address_is_
   br label %54
 
 54:                                               ; preds = %16, %5, %9, %13, %.thread
-  %.0 = phi i32 [ %.050, %.thread ], [ 0, %13 ], [ 0, %9 ], [ 0, %5 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ %.050, %.thread ], [ 0, %16 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -989,7 +989,7 @@ define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr noundef nonnull
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.eckey_param2type) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 124, ptr noundef null) #5
-  br label %.critedge31
+  br label %28
 
 9:                                                ; preds = %5
   %10 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %6) #5
@@ -1015,39 +1015,39 @@ define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr noundef nonnull
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 45, ptr noundef nonnull @__func__.eckey_param2type) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 167, ptr noundef null) #5
-  br label %.critedge31
+  br label %28
 
 19:                                               ; preds = %16
   store ptr %14, ptr %1, align 8, !tbaa !17
   store i32 6, ptr %0, align 4, !tbaa !14
-  br label %.critedge31
+  br label %28
 
 20:                                               ; preds = %11, %9
   %21 = tail call ptr @ASN1_STRING_new() #5
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.critedge31, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = tail call i32 @i2d_ECParameters(ptr noundef nonnull %2, ptr noundef nonnull %24) #5
   store i32 %25, ptr %21, align 8, !tbaa !55
   %26 = icmp slt i32 %25, 1
-  br i1 %26, label %27, label %28
+  br i1 %26, label %27, label %.critedge31
 
 27:                                               ; preds = %23
   tail call void @ASN1_STRING_free(ptr noundef nonnull %21) #5
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 59, ptr noundef nonnull @__func__.eckey_param2type) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #5
-  br label %.critedge31
+  br label %28
 
-28:                                               ; preds = %23
+.critedge31:                                      ; preds = %23
   store ptr %21, ptr %1, align 8, !tbaa !17
   store i32 16, ptr %0, align 4, !tbaa !14
-  br label %.critedge31
+  br label %28
 
-.critedge31:                                      ; preds = %27, %20, %19, %28, %.critedge, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %.critedge ], [ 1, %28 ], [ 1, %19 ], [ 0, %20 ], [ 0, %27 ]
+28:                                               ; preds = %19, %.critedge31, %27, %20, %.critedge, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %27 ], [ 0, %.critedge ], [ 0, %20 ], [ 1, %.critedge31 ], [ 1, %19 ]
   ret i32 %.0
 }
 

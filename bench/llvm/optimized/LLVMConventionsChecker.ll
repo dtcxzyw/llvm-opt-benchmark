@@ -763,7 +763,7 @@ _ZL11IsClangStmtPKN5clang10RecordDeclE.exit:      ; preds = %_ZN4llvmneENS_9Stri
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %.loopexit, label %_ZN4llvmeqENS_9StringRefES0_.exit.i33
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i33:            ; preds = %31, %25, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i33:            ; preds = %25, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i, %31, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %bcmp.i.i34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %49, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %50 = icmp eq i32 %bcmp.i.i34, 0
@@ -836,7 +836,7 @@ _ZL11IsClangTypePKN5clang10RecordDeclE.exit:      ; preds = %_ZN4llvmneENS_9Stri
   %84 = icmp eq i16 %83, 0
   br i1 %84, label %.loopexit, label %_ZN4llvmeqENS_9StringRefES0_.exit.i53
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i53:            ; preds = %67, %61, %_ZN4llvmneENS_9StringRefES0_.exit.i.i43, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i37, %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i53:            ; preds = %61, %_ZN4llvmneENS_9StringRefES0_.exit.i.i43, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i37, %67, %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %bcmp.i.i54 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %85, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %86 = icmp eq i32 %bcmp.i.i54, 0
@@ -909,7 +909,7 @@ _ZL11IsClangDeclPKN5clang10RecordDeclE.exit:      ; preds = %_ZN4llvmneENS_9Stri
   %120 = icmp eq i16 %119, 0
   br i1 %120, label %.loopexit, label %_ZN4llvmeqENS_9StringRefES0_.exit.i73
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i73:            ; preds = %103, %97, %_ZN4llvmneENS_9StringRefES0_.exit.i.i63, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i57, %_ZN4llvmeqENS_9StringRefES0_.exit.i53, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i73:            ; preds = %97, %_ZN4llvmneENS_9StringRefES0_.exit.i.i63, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i57, %103, %_ZN4llvmeqENS_9StringRefES0_.exit.i53, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %bcmp.i.i74 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %121, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
   %122 = icmp eq i32 %bcmp.i.i74, 0
@@ -982,7 +982,7 @@ _ZL11IsClangAttrPKN5clang10RecordDeclE.exit:      ; preds = %_ZN4llvmneENS_9Stri
   %156 = icmp eq i16 %155, 0
   br i1 %156, label %.loopexit, label %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread
 
-_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread: ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i, %1, %139, %133, %_ZN4llvmneENS_9StringRefES0_.exit.i.i83, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i77, %_ZN4llvmeqENS_9StringRefES0_.exit.i73, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit
+_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread: ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i, %1, %133, %_ZN4llvmneENS_9StringRefES0_.exit.i.i83, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i77, %139, %_ZN4llvmeqENS_9StringRefES0_.exit.i73, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit
   %157 = tail call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %158 = extractvalue { ptr, ptr } %157, 0
   %159 = extractvalue { ptr, ptr } %157, 1
@@ -1037,7 +1037,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %167
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.critedge, %179, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit
-  %.0 = phi i1 [ true, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit ], [ false, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ], [ false, %.critedge ], [ true, %179 ]
+  %.0 = phi i1 [ true, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit ], [ false, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ], [ false, %.critedge ], [ true, %179 ]
   ret i1 %.0
 }
 
@@ -1290,7 +1290,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i28.i:        ; preds = %119
   %130 = icmp eq i64 %129, 11
   br i1 %130, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21
 
-_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21: ; preds = %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i24.i, %81, %_ZNK5clang9NamedDecl7getNameEv.exit.i28.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i10.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i19.i, %95, %101, %119
+_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21: ; preds = %101, %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i24.i, %81, %_ZNK5clang9NamedDecl7getNameEv.exit.i28.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i10.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i19.i, %95, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread19
 
@@ -3702,7 +3702,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   tail call fastcc void @_ZN12_GLOBAL__N_123StringRefCheckerVisitor13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
+.critedge.thread:                                 ; preds = %64, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
   ret void
 }
 

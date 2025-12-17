@@ -105,13 +105,13 @@ define dso_local i64 @tsquery_and(ptr noundef readonly captures(none) %0) local_
   br i1 %.not26, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %53, %20, %13
-  %.sink = phi ptr [ %5, %13 ], [ %9, %20 ], [ %9, %53 ]
-  %.0.in.ph = phi ptr [ %9, %13 ], [ %5, %20 ], [ %49, %53 ]
+  %.sink = phi ptr [ %9, %20 ], [ %5, %13 ], [ %9, %53 ]
+  %.0.in.ph = phi ptr [ %5, %20 ], [ %9, %13 ], [ %49, %53 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #8
   br label %56
 
 56:                                               ; preds = %.sink.split, %53, %20, %13
-  %.0.in = phi ptr [ %9, %13 ], [ %5, %20 ], [ %49, %53 ], [ %.0.in.ph, %.sink.split ]
+  %.0.in = phi ptr [ %5, %20 ], [ %9, %13 ], [ %49, %53 ], [ %.0.in.ph, %.sink.split ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -205,13 +205,13 @@ define dso_local i64 @tsquery_or(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not26, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %53, %20, %13
-  %.sink = phi ptr [ %5, %13 ], [ %9, %20 ], [ %9, %53 ]
-  %.0.in.ph = phi ptr [ %9, %13 ], [ %5, %20 ], [ %49, %53 ]
+  %.sink = phi ptr [ %9, %20 ], [ %5, %13 ], [ %9, %53 ]
+  %.0.in.ph = phi ptr [ %5, %20 ], [ %9, %13 ], [ %49, %53 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #8
   br label %56
 
 56:                                               ; preds = %.sink.split, %53, %20, %13
-  %.0.in = phi ptr [ %9, %13 ], [ %5, %20 ], [ %49, %53 ], [ %.0.in.ph, %.sink.split ]
+  %.0.in = phi ptr [ %5, %20 ], [ %9, %13 ], [ %49, %53 ], [ %.0.in.ph, %.sink.split ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -319,13 +319,13 @@ define dso_local i64 @tsquery_phrase_distance(ptr noundef readonly captures(none
   br i1 %.not32, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %28, %21
-  %.sink = phi ptr [ %5, %21 ], [ %9, %28 ], [ %9, %64 ]
-  %.0.in.ph = phi ptr [ %9, %21 ], [ %5, %28 ], [ %60, %64 ]
+  %.sink = phi ptr [ %9, %28 ], [ %5, %21 ], [ %9, %64 ]
+  %.0.in.ph = phi ptr [ %5, %28 ], [ %9, %21 ], [ %60, %64 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #8
   br label %67
 
 67:                                               ; preds = %.sink.split, %64, %28, %21
-  %.0.in = phi ptr [ %9, %21 ], [ %5, %28 ], [ %60, %64 ], [ %.0.in.ph, %.sink.split ]
+  %.0.in = phi ptr [ %5, %28 ], [ %9, %21 ], [ %60, %64 ], [ %.0.in.ph, %.sink.split ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -700,7 +700,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr noundef readonly captures(n
   br label %CompareTSQ.exit
 
 CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
-  %.0.i = phi i64 [ %32, %18 ], [ 1, %17 ], [ 0, %1 ], [ 0, %14 ]
+  %.0.i = phi i64 [ 1, %17 ], [ 0, %1 ], [ %32, %18 ], [ 0, %14 ]
   %33 = load i64, ptr %2, align 8
   %34 = inttoptr i64 %33 to ptr
   %.not = icmp eq ptr %5, %34
@@ -938,7 +938,7 @@ define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr noundef readonly captures(n
   br label %CompareTSQ.exit
 
 CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
-  %.0.i = phi i64 [ %32, %18 ], [ 0, %17 ], [ 1, %1 ], [ 1, %14 ]
+  %.0.i = phi i64 [ 0, %17 ], [ 1, %1 ], [ %32, %18 ], [ 1, %14 ]
   %33 = load i64, ptr %2, align 8
   %34 = inttoptr i64 %33 to ptr
   %.not = icmp eq ptr %5, %34

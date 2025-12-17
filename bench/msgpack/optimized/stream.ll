@@ -5115,14 +5115,14 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796: ; p
   br label %.thread
 
 .sink.split2673:                                  ; preds = %1385, %1337, %1289, %1236, %1184, %1128, %1076, %1020, %969, %918, %871, %824, %777, %730, %683, %636, %588, %541, %494, %448, %401, %355, %309, %263, %1405, %1393, %1357, %1345, %1309, %1297, %1256, %1244, %1214, %1204, %1192, %1162, %1148, %1136, %1106, %1096, %1084, %1054, %1040, %1028, %999, %989, %977, %948, %938, %926, %891, %879, %844, %832, %797, %785, %750, %738, %703, %691, %656, %644, %608, %596, %561, %549, %514, %502, %468, %456, %421, %409, %375, %363, %329, %317, %283, %271, %1050, %1158, %1266
-  %.sink = phi i32 [ 34, %1266 ], [ 34, %1158 ], [ 34, %1050 ], [ 0, %271 ], [ 0, %283 ], [ 0, %317 ], [ 0, %329 ], [ 0, %363 ], [ 0, %375 ], [ 0, %409 ], [ 0, %421 ], [ 0, %456 ], [ 0, %468 ], [ 0, %502 ], [ 0, %514 ], [ 0, %549 ], [ 0, %561 ], [ 0, %596 ], [ 0, %608 ], [ 0, %644 ], [ 0, %656 ], [ 0, %691 ], [ 0, %703 ], [ 0, %738 ], [ 0, %750 ], [ 0, %785 ], [ 0, %797 ], [ 0, %832 ], [ 0, %844 ], [ 0, %879 ], [ 0, %891 ], [ 0, %926 ], [ 0, %938 ], [ 32, %948 ], [ 0, %977 ], [ 0, %989 ], [ 33, %999 ], [ 0, %1028 ], [ 0, %1040 ], [ 32, %1054 ], [ 0, %1084 ], [ 0, %1096 ], [ 33, %1106 ], [ 0, %1136 ], [ 0, %1148 ], [ 32, %1162 ], [ 0, %1192 ], [ 0, %1204 ], [ 33, %1214 ], [ 0, %1244 ], [ 0, %1256 ], [ 0, %1297 ], [ 0, %1309 ], [ 0, %1345 ], [ 0, %1357 ], [ 0, %1393 ], [ 0, %1405 ], [ 0, %263 ], [ 0, %309 ], [ 0, %355 ], [ 0, %401 ], [ 0, %448 ], [ 0, %494 ], [ 0, %541 ], [ 0, %588 ], [ 0, %636 ], [ 0, %683 ], [ 0, %730 ], [ 0, %777 ], [ 0, %824 ], [ 0, %871 ], [ 0, %918 ], [ 0, %969 ], [ 0, %1020 ], [ 0, %1076 ], [ 0, %1128 ], [ 0, %1184 ], [ 0, %1236 ], [ 0, %1289 ], [ 0, %1337 ], [ 0, %1385 ]
-  %.23413.ph = phi i1 [ true, %1266 ], [ true, %1158 ], [ true, %1050 ], [ false, %271 ], [ false, %283 ], [ false, %317 ], [ false, %329 ], [ false, %363 ], [ false, %375 ], [ false, %409 ], [ false, %421 ], [ false, %456 ], [ false, %468 ], [ false, %502 ], [ false, %514 ], [ false, %549 ], [ false, %561 ], [ false, %596 ], [ false, %608 ], [ false, %644 ], [ false, %656 ], [ false, %691 ], [ false, %703 ], [ false, %738 ], [ false, %750 ], [ false, %785 ], [ false, %797 ], [ false, %832 ], [ false, %844 ], [ false, %879 ], [ false, %891 ], [ false, %926 ], [ false, %938 ], [ true, %948 ], [ false, %977 ], [ false, %989 ], [ true, %999 ], [ false, %1028 ], [ false, %1040 ], [ true, %1054 ], [ false, %1084 ], [ false, %1096 ], [ true, %1106 ], [ false, %1136 ], [ false, %1148 ], [ true, %1162 ], [ false, %1192 ], [ false, %1204 ], [ true, %1214 ], [ false, %1244 ], [ false, %1256 ], [ false, %1297 ], [ false, %1309 ], [ false, %1345 ], [ false, %1357 ], [ false, %1393 ], [ false, %1405 ], [ false, %263 ], [ false, %309 ], [ false, %355 ], [ false, %401 ], [ false, %448 ], [ false, %494 ], [ false, %541 ], [ false, %588 ], [ false, %636 ], [ false, %683 ], [ false, %730 ], [ false, %777 ], [ false, %824 ], [ false, %871 ], [ false, %918 ], [ false, %969 ], [ false, %1020 ], [ false, %1076 ], [ false, %1128 ], [ false, %1184 ], [ false, %1236 ], [ false, %1289 ], [ false, %1337 ], [ false, %1385 ]
+  %.sink = phi i32 [ 0, %1357 ], [ 0, %1309 ], [ 0, %1256 ], [ 33, %1214 ], [ 0, %1204 ], [ 32, %1162 ], [ 0, %1148 ], [ 33, %1106 ], [ 0, %1096 ], [ 32, %1054 ], [ 0, %1040 ], [ 33, %999 ], [ 0, %989 ], [ 32, %948 ], [ 0, %938 ], [ 0, %891 ], [ 0, %844 ], [ 0, %797 ], [ 0, %750 ], [ 0, %703 ], [ 0, %656 ], [ 0, %608 ], [ 0, %561 ], [ 0, %514 ], [ 0, %468 ], [ 0, %421 ], [ 0, %375 ], [ 0, %329 ], [ 0, %283 ], [ 34, %1050 ], [ 34, %1266 ], [ 34, %1158 ], [ 0, %271 ], [ 0, %317 ], [ 0, %363 ], [ 0, %409 ], [ 0, %456 ], [ 0, %502 ], [ 0, %549 ], [ 0, %596 ], [ 0, %644 ], [ 0, %691 ], [ 0, %738 ], [ 0, %785 ], [ 0, %832 ], [ 0, %879 ], [ 0, %926 ], [ 0, %977 ], [ 0, %1028 ], [ 0, %1084 ], [ 0, %1136 ], [ 0, %1192 ], [ 0, %1244 ], [ 0, %1297 ], [ 0, %1345 ], [ 0, %1393 ], [ 0, %1405 ], [ 0, %1337 ], [ 0, %263 ], [ 0, %309 ], [ 0, %355 ], [ 0, %401 ], [ 0, %448 ], [ 0, %494 ], [ 0, %541 ], [ 0, %588 ], [ 0, %636 ], [ 0, %683 ], [ 0, %730 ], [ 0, %777 ], [ 0, %824 ], [ 0, %871 ], [ 0, %918 ], [ 0, %969 ], [ 0, %1020 ], [ 0, %1076 ], [ 0, %1128 ], [ 0, %1184 ], [ 0, %1236 ], [ 0, %1289 ], [ 0, %1385 ]
+  %.23413.ph = phi i1 [ false, %1357 ], [ false, %1309 ], [ false, %1256 ], [ true, %1214 ], [ false, %1204 ], [ true, %1162 ], [ false, %1148 ], [ true, %1106 ], [ false, %1096 ], [ true, %1054 ], [ false, %1040 ], [ true, %999 ], [ false, %989 ], [ true, %948 ], [ false, %938 ], [ false, %891 ], [ false, %844 ], [ false, %797 ], [ false, %750 ], [ false, %703 ], [ false, %656 ], [ false, %608 ], [ false, %561 ], [ false, %514 ], [ false, %468 ], [ false, %421 ], [ false, %375 ], [ false, %329 ], [ false, %283 ], [ true, %1050 ], [ true, %1266 ], [ true, %1158 ], [ false, %271 ], [ false, %317 ], [ false, %363 ], [ false, %409 ], [ false, %456 ], [ false, %502 ], [ false, %549 ], [ false, %596 ], [ false, %644 ], [ false, %691 ], [ false, %738 ], [ false, %785 ], [ false, %832 ], [ false, %879 ], [ false, %926 ], [ false, %977 ], [ false, %1028 ], [ false, %1084 ], [ false, %1136 ], [ false, %1192 ], [ false, %1244 ], [ false, %1297 ], [ false, %1345 ], [ false, %1393 ], [ false, %1405 ], [ false, %1337 ], [ false, %263 ], [ false, %309 ], [ false, %355 ], [ false, %401 ], [ false, %448 ], [ false, %494 ], [ false, %541 ], [ false, %588 ], [ false, %636 ], [ false, %683 ], [ false, %730 ], [ false, %777 ], [ false, %824 ], [ false, %871 ], [ false, %918 ], [ false, %969 ], [ false, %1020 ], [ false, %1076 ], [ false, %1128 ], [ false, %1184 ], [ false, %1236 ], [ false, %1289 ], [ false, %1385 ]
   store i32 %.sink, ptr %22, align 8, !tbaa !88
   br label %1431
 
 1431:                                             ; preds = %.sink.split2673, %224, %1421, %1419, %1417, %1415
-  %.23413 = phi i1 [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ false, %1421 ], [ false, %224 ], [ %.23413.ph, %.sink.split2673 ]
-  %.1340 = phi ptr [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %1421 ], [ %.0339, %224 ], [ %232, %.sink.split2673 ]
+  %.23413 = phi i1 [ false, %1421 ], [ false, %224 ], [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ %.23413.ph, %.sink.split2673 ]
+  %.1340 = phi ptr [ %232, %1421 ], [ %.0339, %224 ], [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %.sink.split2673 ]
   %1432 = load ptr, ptr %19, align 8, !tbaa !153
   %.not493 = icmp eq ptr %1432, %20
   br i1 %.not493, label %1433, label %29, !llvm.loop !162
@@ -5135,7 +5135,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796: ; p
   br label %.thread
 
 .thread:                                          ; preds = %213, %207, %201, %198, %194, %1421, %1419, %1417, %1415, %4, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread, %218, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread, %.loopexit1011, %.thread977, %.loopexit1010, %.thread964, %.loopexit1009, %.thread951, %.loopexit1008, %.thread938, %.loopexit1007, %.thread925, %.loopexit, %.thread912, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558, %238, %1423, %1433
-  %.0 = phi i32 [ 0, %238 ], [ -1, %1423 ], [ 0, %1433 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703 ], [ 2, %.loopexit ], [ 2, %.loopexit1007 ], [ 2, %.loopexit1008 ], [ 2, %.loopexit1009 ], [ 2, %.loopexit1010 ], [ 2, %.loopexit1011 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread ], [ -2, %.thread912 ], [ -2, %.thread925 ], [ -2, %.thread938 ], [ -2, %.thread951 ], [ -2, %.thread964 ], [ -2, %.thread977 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread ], [ -1, %218 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit ], [ 0, %4 ], [ %195, %194 ], [ %199, %198 ], [ %206, %201 ], [ %212, %207 ], [ %217, %213 ], [ %1422, %1421 ], [ %1420, %1419 ], [ %1418, %1417 ], [ %1416, %1415 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %238 ], [ -1, %1423 ], [ 0, %1433 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703 ], [ 2, %.loopexit ], [ 2, %.loopexit1007 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread ], [ 2, %.loopexit1008 ], [ 2, %.loopexit1009 ], [ -1, %218 ], [ 2, %.loopexit1010 ], [ 2, %.loopexit1011 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread ], [ -2, %.thread912 ], [ -2, %.thread925 ], [ -2, %.thread938 ], [ -2, %.thread951 ], [ -2, %.thread964 ], [ -2, %.thread977 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread ], [ %195, %194 ], [ %199, %198 ], [ %206, %201 ], [ %212, %207 ], [ %217, %213 ], [ %1418, %1417 ], [ %1416, %1415 ], [ %1420, %1419 ], [ %1422, %1421 ]
   ret i32 %.0
 }
 
@@ -5579,7 +5579,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %109
 
 109:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %72, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %72 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %72 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -5796,7 +5796,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %109
 
 109:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %72, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %72 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %72 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -6274,7 +6274,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %108
 
 108:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %71, %15
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %15 ], [ -2, %71 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %71 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -6486,7 +6486,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %106
 
 106:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %69, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %69 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %69 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -6703,7 +6703,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %108
 
 108:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %71, %15
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %15 ], [ -2, %71 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %71 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -6917,7 +6917,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %106
 
 106:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %69, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %69 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %69 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -7472,7 +7472,7 @@ _ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; pred
   br label %_ZSt27__uninitialized_default_n_aIPPN7msgpack2v26objectEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN7msgpack2v26objectEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !109
   br label %41
 
@@ -7852,7 +7852,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36: ; 
   unreachable
 
 _ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit: ; preds = %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit, %65, %63, %50, %39, %32, %27, %22, %20, %18, %10, %44
-  %.0.shrunk = phi i1 [ false, %10 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ false, %18 ], [ false, %20 ], [ false, %63 ], [ false, %65 ], [ %115, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit ], [ %155, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36 ]
+  %.0.shrunk = phi i1 [ false, %10 ], [ false, %63 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ false, %20 ], [ false, %65 ], [ %155, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36 ], [ %115, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit ], [ false, %18 ]
   %158 = load ptr, ptr %3, align 8, !tbaa !220
   %159 = load ptr, ptr %4, align 8, !tbaa !220
   %160 = icmp eq ptr %158, %159
@@ -7978,7 +7978,7 @@ _ZN7msgpack2v124object_stringize_visitor14end_array_itemEv.exit.i: ; preds = %21
   store ptr %226, ptr %224, align 8, !tbaa !54
   br label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62
 
-227:                                              ; preds = %197, %218, %175, %173
+227:                                              ; preds = %175, %197, %173, %218
   %228 = load ptr, ptr %4, align 8, !tbaa !209
   %229 = getelementptr inbounds i8, ptr %228, i64 -24
   store ptr %229, ptr %4, align 8, !tbaa !209
@@ -7986,7 +7986,7 @@ _ZN7msgpack2v124object_stringize_visitor14end_array_itemEv.exit.i: ; preds = %21
   %231 = icmp eq ptr %230, %229
   br i1 %231, label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64, label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit
 
-_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62: ; preds = %223, %202, %182, %161
+_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62: ; preds = %202, %182, %223, %161
   %232 = load ptr, ptr %4, align 8, !tbaa !220
   %233 = getelementptr inbounds i8, ptr %232, i64 -24
   %234 = getelementptr inbounds i8, ptr %232, i64 -8
@@ -8002,7 +8002,7 @@ _ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8ne
   store ptr %.0.i38, ptr %0, align 8, !tbaa !135
   br label %7
 
-_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64: ; preds = %44, %76, %116, %_ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit, %227
+_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64: ; preds = %44, %76, %_ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit, %116, %227
   ret void
 }
 

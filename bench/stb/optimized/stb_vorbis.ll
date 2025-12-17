@@ -99,7 +99,7 @@ define ptr @setup_malloc(ptr noundef captures(none) %0, i32 noundef %1) local_un
   br label %24
 
 24:                                               ; preds = %21, %20, %17, %10
-  %.1 = phi ptr [ %19, %17 ], [ null, %10 ], [ %23, %21 ], [ null, %20 ]
+  %.1 = phi ptr [ null, %10 ], [ %19, %17 ], [ %23, %21 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -154,7 +154,7 @@ define ptr @setup_temp_malloc(ptr noundef captures(none) %0, i32 noundef %1) loc
   br label %20
 
 20:                                               ; preds = %7, %17, %14
-  %.0 = phi ptr [ %16, %14 ], [ %19, %17 ], [ null, %7 ]
+  %.0 = phi ptr [ %19, %17 ], [ %16, %14 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -317,7 +317,7 @@ define range(i32 -128, 158) i32 @ilog(i32 noundef %0) local_unnamed_addr #7 {
   br label %62
 
 62:                                               ; preds = %1, %55, %48, %39, %32, %21, %14, %7
-  %.0 = phi i32 [ %11, %7 ], [ %20, %14 ], [ %27, %21 ], [ %38, %32 ], [ %45, %39 ], [ %54, %48 ], [ %61, %55 ], [ 0, %1 ]
+  %.0 = phi i32 [ %61, %55 ], [ %11, %7 ], [ %20, %14 ], [ %27, %21 ], [ %38, %32 ], [ %45, %39 ], [ %54, %48 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -543,7 +543,7 @@ add_entry.exit66:                                 ; preds = %48, %50
   br i1 %68, label %34, label %.loopexit72, !llvm.loop !35
 
 .loopexit72:                                      ; preds = %9, %.loopexit, %34, %41, %.preheader73, %._crit_edge
-  %.052 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader73 ], [ 0, %41 ], [ 1, %.loopexit ], [ 0, %34 ], [ 1, %9 ]
+  %.052 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader73 ], [ 0, %34 ], [ 0, %41 ], [ 1, %.loopexit ], [ 1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052
 }
@@ -674,7 +674,7 @@ define range(i32 0, 2) i32 @include_in_sort(ptr noundef readonly captures(none) 
   br label %9
 
 9:                                                ; preds = %7, %5, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %2 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -1148,7 +1148,7 @@ define void @compute_bitreverse(i32 noundef %0, ptr noundef writeonly captures(n
   br label %ilog.exit
 
 ilog.exit:                                        ; preds = %2, %8, %15, %22, %33, %40, %49, %56
-  %.0.i = phi i32 [ %12, %8 ], [ %21, %15 ], [ %28, %22 ], [ %39, %33 ], [ %46, %40 ], [ %55, %49 ], [ %62, %56 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %62, %56 ], [ %12, %8 ], [ %21, %15 ], [ %28, %22 ], [ %39, %33 ], [ %46, %40 ], [ %55, %49 ], [ 0, %2 ]
   %63 = ashr i32 %0, 3
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -1247,8 +1247,8 @@ define range(i32 0, 2) i32 @init_blocksize(ptr noundef captures(none) %0, i32 no
   br label %58
 
 46:                                               ; preds = %35, %28
-  %47 = phi i32 [ %.pre-phi, %35 ], [ %29, %28 ]
-  %.1.i59 = phi ptr [ %37, %35 ], [ null, %28 ]
+  %47 = phi i32 [ %29, %28 ], [ %.pre-phi, %35 ]
+  %.1.i59 = phi ptr [ null, %28 ], [ %37, %35 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %49 = getelementptr inbounds ptr, ptr %48, i64 %31
   store ptr %.1.i59, ptr %49, align 8, !tbaa !53
@@ -1287,10 +1287,10 @@ define range(i32 0, 2) i32 @init_blocksize(ptr noundef captures(none) %0, i32 no
   br label %setup_malloc.exit65
 
 setup_malloc.exit65:                              ; preds = %46, %55, %58, %64
-  %.1.i5990 = phi ptr [ %.1.i59, %55 ], [ %.1.i59, %46 ], [ %.1.i59.ph, %64 ], [ %.1.i59.ph, %58 ]
-  %67 = phi i64 [ %31, %55 ], [ %31, %46 ], [ %.ph88, %64 ], [ %.ph88, %58 ]
-  %68 = phi ptr [ %32, %55 ], [ %32, %46 ], [ %.ph87, %64 ], [ %.ph87, %58 ]
-  %.1.i63 = phi ptr [ %57, %55 ], [ null, %46 ], [ %66, %64 ], [ null, %58 ]
+  %.1.i5990 = phi ptr [ %.1.i59, %46 ], [ %.1.i59, %55 ], [ %.1.i59.ph, %64 ], [ %.1.i59.ph, %58 ]
+  %67 = phi i64 [ %31, %46 ], [ %31, %55 ], [ %.ph88, %64 ], [ %.ph88, %58 ]
+  %68 = phi ptr [ %32, %46 ], [ %32, %55 ], [ %.ph87, %64 ], [ %.ph87, %58 ]
+  %.1.i63 = phi ptr [ null, %46 ], [ %57, %55 ], [ %66, %64 ], [ null, %58 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %70 = getelementptr inbounds ptr, ptr %69, i64 %67
   store ptr %.1.i63, ptr %70, align 8, !tbaa !53
@@ -1586,7 +1586,7 @@ setup_malloc.exit77:                              ; preds = %170, %174
   br label %ilog.exit.i
 
 ilog.exit.i:                                      ; preds = %233, %226, %217, %210, %199, %192, %185, %179
-  %.0.i.i = phi i32 [ %189, %185 ], [ %198, %192 ], [ %205, %199 ], [ %216, %210 ], [ %223, %217 ], [ %232, %226 ], [ %239, %233 ], [ 0, %179 ]
+  %.0.i.i = phi i32 [ %239, %233 ], [ %189, %185 ], [ %198, %192 ], [ %205, %199 ], [ %216, %210 ], [ %223, %217 ], [ %232, %226 ], [ 0, %179 ]
   br i1 %78, label %.lr.ph.i78, label %compute_bitreverse.exit
 
 .lr.ph.i78:                                       ; preds = %ilog.exit.i
@@ -1608,7 +1608,7 @@ ilog.exit.i:                                      ; preds = %233, %226, %217, %2
   br i1 %exitcond.not.i83, label %compute_bitreverse.exit, label %241, !llvm.loop !52
 
 compute_bitreverse.exit.sink.split.sink.split:    ; preds = %173, %163, %133, %123
-  %.sink116 = phi i64 [ 1464, %123 ], [ 1464, %133 ], [ 1480, %163 ], [ 1480, %173 ]
+  %.sink116 = phi i64 [ 1464, %133 ], [ 1464, %123 ], [ 1480, %163 ], [ 1480, %173 ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink116
   %248 = getelementptr inbounds ptr, ptr %247, i64 %67
   store ptr null, ptr %248, align 8, !tbaa !3
@@ -2086,7 +2086,7 @@ define range(i32 0, 2) i32 @set_file_offset(ptr noundef captures(none) %0, i32 n
   br label %36
 
 36:                                               ; preds = %27, %2, %31, %17, %16
-  %.028 = phi i32 [ 0, %16 ], [ 1, %17 ], [ 0, %31 ], [ 0, %2 ], [ 1, %27 ]
+  %.028 = phi i32 [ 0, %2 ], [ 0, %16 ], [ 1, %17 ], [ 0, %31 ], [ 1, %27 ]
   ret i32 %.028
 }
 
@@ -2267,7 +2267,7 @@ get8.exit18:                                      ; preds = %66, %77
   br label %get8.exit.thread
 
 get8.exit.thread:                                 ; preds = %get8.exit18, %75, %64, %55, %45, %36, %26, %17, %7, %get8.exit14, %get8.exit10, %get8.exit
-  %.0 = phi i32 [ 0, %get8.exit ], [ 0, %get8.exit10 ], [ 0, %get8.exit14 ], [ 0, %7 ], [ 0, %17 ], [ 0, %26 ], [ 0, %36 ], [ 0, %45 ], [ 0, %55 ], [ 0, %64 ], [ 0, %75 ], [ %spec.select, %get8.exit18 ]
+  %.0 = phi i32 [ 0, %get8.exit14 ], [ 0, %get8.exit ], [ 0, %get8.exit10 ], [ 0, %36 ], [ 0, %55 ], [ 0, %17 ], [ 0, %75 ], [ %spec.select, %get8.exit18 ], [ 0, %7 ], [ 0, %26 ], [ 0, %45 ], [ 0, %64 ]
   ret i32 %.0
 }
 
@@ -2310,7 +2310,7 @@ define range(i32 0, 2) i32 @start_page_no_capturepattern(ptr noundef captures(no
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %10, %17
-  %.0.i = phi i32 [ %16, %10 ], [ %24, %17 ]
+  %.0.i = phi i32 [ %24, %17 ], [ %16, %10 ]
   %25 = add i32 %.0.i, -4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %25, ptr %26, align 4, !tbaa !67
@@ -2496,8 +2496,8 @@ get8.exit68._crit_edge:                           ; preds = %get8.exit68
   br label %146
 
 getn.exit:                                        ; preds = %104, %103
-  %112 = phi ptr [ %98, %103 ], [ %93, %104 ]
-  %113 = phi ptr [ %99, %103 ], [ %92, %104 ]
+  %112 = phi ptr [ %93, %104 ], [ %98, %103 ]
+  %113 = phi ptr [ %92, %104 ], [ %99, %103 ]
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   store i32 -2, ptr %114, align 8, !tbaa !71
   %115 = icmp ne i32 %65, -1
@@ -2614,7 +2614,7 @@ define i32 @stb_vorbis_get_file_offset(ptr noundef readonly captures(none) %0) l
   br label %22
 
 22:                                               ; preds = %1, %14, %7
-  %.0 = phi i32 [ %13, %7 ], [ %21, %14 ], [ 0, %1 ]
+  %.0 = phi i32 [ %21, %14 ], [ %13, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2914,8 +2914,8 @@ start_page.exit.i:                                ; preds = %81
   store i8 0, ptr %94, align 4, !tbaa !82
   br label %start_packet.exit
 
-start_packet.exit:                                ; preds = %start_page.exit.i, %66, %get8.exit, %72, %64, %get8.exit32.thread, %get8.exit28.thread, %28, %90, %88, %start_page.exit.thread.i
-  %.1 = phi i32 [ 0, %88 ], [ 1, %90 ], [ 0, %start_page.exit.thread.i ], [ 0, %28 ], [ 0, %get8.exit28.thread ], [ 0, %get8.exit32.thread ], [ 0, %64 ], [ 0, %72 ], [ 0, %get8.exit ], [ 0, %66 ], [ 0, %start_page.exit.i ]
+start_packet.exit:                                ; preds = %start_page.exit.i, %66, %72, %64, %get8.exit32.thread, %get8.exit28.thread, %28, %get8.exit, %90, %88, %start_page.exit.thread.i
+  %.1 = phi i32 [ 0, %88 ], [ 1, %90 ], [ 0, %start_page.exit.thread.i ], [ 0, %get8.exit ], [ 0, %28 ], [ 0, %get8.exit28.thread ], [ 0, %get8.exit32.thread ], [ 0, %64 ], [ 0, %72 ], [ 0, %66 ], [ 0, %start_page.exit.i ]
   ret i32 %.1
 }
 
@@ -3006,7 +3006,7 @@ start_page.exit:                                  ; preds = %8
   br label %39
 
 39:                                               ; preds = %1, %37, %21, %16
-  %.0 = phi i32 [ %30, %37 ], [ 0, %21 ], [ 0, %16 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %16 ], [ %30, %37 ], [ 0, %21 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3152,8 +3152,8 @@ get8.exit:                                        ; preds = %50, %52, %60, %62
   %64 = zext i8 %.0.i9 to i32
   br label %next_segment.exit.thread
 
-next_segment.exit.thread:                         ; preds = %19, %24, %next_segment.exit, %4, %get8.exit
-  %.0 = phi i32 [ %64, %get8.exit ], [ -1, %4 ], [ -1, %next_segment.exit ], [ -1, %24 ], [ -1, %19 ]
+next_segment.exit.thread:                         ; preds = %24, %19, %next_segment.exit, %4, %get8.exit
+  %.0 = phi i32 [ %64, %get8.exit ], [ -1, %4 ], [ -1, %next_segment.exit ], [ -1, %19 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -3257,7 +3257,7 @@ define i32 @get_bits(ptr noundef captures(none) %0, i32 noundef %1) local_unname
   br label %get_bits.exit
 
 common.ret42:                                     ; preds = %.critedge, %2, %.loopexit32, %get_bits.exit
-  %common.ret42.op = phi i32 [ %35, %get_bits.exit ], [ %54, %.loopexit32 ], [ 0, %2 ], [ 0, %.critedge ]
+  %common.ret42.op = phi i32 [ %35, %get_bits.exit ], [ 0, %.critedge ], [ %54, %.loopexit32 ], [ 0, %2 ]
   ret i32 %common.ret42.op
 
 get_bits.exit:                                    ; preds = %17, %.loopexit
@@ -3502,8 +3502,8 @@ prep_huffman.exit:                                ; preds = %16, %18, %21, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %88, %69, %61, %90, %._crit_edge77
-  %.sink = phi i32 [ 0, %._crit_edge77 ], [ %96, %90 ], [ %71, %69 ], [ 0, %61 ], [ 0, %88 ]
-  %.0.ph = phi i32 [ -1, %._crit_edge77 ], [ %92, %90 ], [ %.2, %69 ], [ -1, %61 ], [ -1, %88 ]
+  %.sink = phi i32 [ 0, %._crit_edge77 ], [ 0, %61 ], [ %96, %90 ], [ %71, %69 ], [ 0, %88 ]
+  %.0.ph = phi i32 [ -1, %._crit_edge77 ], [ -1, %61 ], [ %92, %90 ], [ %.2, %69 ], [ -1, %88 ]
   store i32 %.sink, ptr %3, align 8, !tbaa !80
   br label %99
 
@@ -3992,7 +3992,7 @@ prep_huffman.exit:                                ; preds = %40, %37, %35, %27
   br label %.thread120
 
 .thread120:                                       ; preds = %68, %70, %._crit_edge, %25
-  %.0 = phi i32 [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %70 ], [ 0, %68 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %68 ], [ 1, %._crit_edge ], [ 0, %70 ]
   ret i32 %.0
 }
 
@@ -4179,7 +4179,7 @@ define range(i32 0, 2) i32 @residue_decode(ptr noundef captures(none) %0, ptr no
   br i1 %77, label %46, label %codebook_decode_step.exit, !llvm.loop !102
 
 codebook_decode_step.exit:                        ; preds = %46, %.loopexit50, %20, %.loopexit, %.preheader, %12
-  %.1 = phi i32 [ 1, %12 ], [ 1, %.preheader ], [ 0, %20 ], [ 1, %.loopexit ], [ 0, %46 ], [ 1, %.loopexit50 ]
+  %.1 = phi i32 [ 1, %.preheader ], [ 1, %.loopexit ], [ 1, %12 ], [ 0, %20 ], [ 1, %.loopexit50 ], [ 0, %46 ]
   ret i32 %.1
 }
 
@@ -4251,7 +4251,7 @@ define void @decode_residue(ptr noundef %0, ptr noundef readonly captures(none) 
   br label %setup_temp_malloc.exit
 
 setup_temp_malloc.exit:                           ; preds = %50, %42, %53
-  %60 = phi ptr [ %59, %53 ], [ %52, %50 ], [ null, %42 ]
+  %60 = phi ptr [ %59, %53 ], [ null, %42 ], [ %52, %50 ]
   %61 = icmp sgt i32 %41, 0
   br i1 %61, label %.lr.ph.i, label %make_block_array.exit
 
@@ -4356,7 +4356,7 @@ make_block_array.exit:                            ; preds = %66, %setup_temp_mal
   br i1 %105, label %.preheader657.lr.ph.us, label %._crit_edge709.us
 
 ._crit_edge709.us:                                ; preds = %.preheader657.us731, %._crit_edge703.split.us713.us, %._crit_edge703.split.us.us.us.us, %.loopexit660.us
-  %.1305.lcssa.us = phi i32 [ %.0304725.us, %.loopexit660.us ], [ %894, %._crit_edge703.split.us.us.us.us ], [ %579, %._crit_edge703.split.us713.us ], [ %211, %.preheader657.us731 ]
+  %.1305.lcssa.us = phi i32 [ %.0304725.us, %.loopexit660.us ], [ %579, %._crit_edge703.split.us713.us ], [ %894, %._crit_edge703.split.us.us.us.us ], [ %211, %.preheader657.us731 ]
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
   %106 = icmp slt i32 %.1305.lcssa.us, %35
   br i1 %106, label %103, label %._crit_edge729.us, !llvm.loop !112
@@ -5386,7 +5386,7 @@ codebook_decode_scalar_raw.exit.us.us:            ; preds = %538, %502
   br i1 %552, label %.thread.i, label %codebook_decode_start.exit.us.us
 
 codebook_decode_start.exit.us.us:                 ; preds = %542, %codebook_decode_scalar_raw.exit.us.us
-  %.0.i360.us.us = phi i32 [ %.0.ph.i377.us.us, %codebook_decode_scalar_raw.exit.us.us ], [ %543, %542 ]
+  %.0.i360.us.us = phi i32 [ %543, %542 ], [ %.0.ph.i377.us.us, %codebook_decode_scalar_raw.exit.us.us ]
   %553 = sub nsw i32 %234, %.13055.i.us.us
   %554 = load i32, ptr %236, align 8, !tbaa !91
   %spec.select.i36.i.us.us = call i32 @llvm.smin.i32(i32 %553, i32 %554)
@@ -6117,7 +6117,7 @@ codebook_decode_scalar_raw.exit437.us.us.us.us:   ; preds = %858, %822
   br i1 %872, label %.thread.i365, label %codebook_decode_start.exit374.us.us.us.us
 
 codebook_decode_start.exit374.us.us.us.us:        ; preds = %862, %codebook_decode_scalar_raw.exit437.us.us.us.us
-  %.0.i364.us.us.us.us = phi i32 [ %.0.ph.i411.us.us.us.us, %codebook_decode_scalar_raw.exit437.us.us.us.us ], [ %863, %862 ]
+  %.0.i364.us.us.us.us = phi i32 [ %863, %862 ], [ %.0.ph.i411.us.us.us.us, %codebook_decode_scalar_raw.exit437.us.us.us.us ]
   %873 = trunc nuw nsw i64 %indvars.iv.i355.us.us.us.us to i32
   %874 = add i32 %606, %873
   %875 = sub i32 %604, %874
@@ -6210,7 +6210,7 @@ codebook_decode_start.exit374.us.us.us.us:        ; preds = %862, %codebook_deco
   br label %._crit_edge751
 
 ._crit_edge751:                                   ; preds = %._crit_edge751.loopexit, %._crit_edge.thread
-  %.0278.lcssa = phi i32 [ 0, %._crit_edge.thread ], [ %901, %._crit_edge751.loopexit ]
+  %.0278.lcssa = phi i32 [ %901, %._crit_edge751.loopexit ], [ 0, %._crit_edge.thread ]
   %902 = icmp eq i32 %.0278.lcssa, %2
   br i1 %902, label %.thread636, label %.preheader646
 
@@ -7270,7 +7270,7 @@ define void @inverse_mdct(ptr noundef %0, i32 noundef %1, ptr noundef captures(n
   br label %setup_temp_malloc.exit
 
 setup_temp_malloc.exit:                           ; preds = %20, %12, %23
-  %27 = phi ptr [ %26, %23 ], [ %22, %20 ], [ null, %12 ]
+  %27 = phi ptr [ %26, %23 ], [ null, %12 ], [ %22, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 1416
   %29 = sext i32 %3 to i64
   %30 = getelementptr inbounds ptr, ptr %28, i64 %29
@@ -7530,7 +7530,7 @@ setup_temp_malloc.exit:                           ; preds = %20, %12, %23
   br label %ilog.exit
 
 ilog.exit:                                        ; preds = %._crit_edge447, %141, %148, %155, %166, %173, %182, %189
-  %.0.i420 = phi i32 [ %145, %141 ], [ %154, %148 ], [ %161, %155 ], [ %172, %166 ], [ %179, %173 ], [ %188, %182 ], [ %195, %189 ], [ 0, %._crit_edge447 ]
+  %.0.i420 = phi i32 [ %195, %189 ], [ %145, %141 ], [ %154, %148 ], [ %161, %155 ], [ %172, %166 ], [ %179, %173 ], [ %188, %182 ], [ 0, %._crit_edge447 ]
   %196 = ashr i32 %1, 4
   %197 = add nsw i32 %5, -1
   %198 = sub nsw i32 0, %7
@@ -8646,7 +8646,7 @@ get_bits.exit.thread:                             ; preds = %29, %get_bits.exit,
   br label %ilog.exit
 
 ilog.exit:                                        ; preds = %get_bits.exit.thread, %100, %107, %114, %125, %132, %141, %148
-  %.0.i = phi i32 [ %104, %100 ], [ %113, %107 ], [ %120, %114 ], [ %131, %125 ], [ %138, %132 ], [ %147, %141 ], [ %154, %148 ], [ 0, %get_bits.exit.thread ]
+  %.0.i = phi i32 [ %154, %148 ], [ %104, %100 ], [ %113, %107 ], [ %120, %114 ], [ %131, %125 ], [ %138, %132 ], [ %147, %141 ], [ 0, %get_bits.exit.thread ]
   %155 = tail call i32 @get_bits(ptr noundef nonnull %0, i32 noundef %.0.i)
   %156 = icmp eq i32 %155, -1
   br i1 %156, label %.loopexit79, label %157
@@ -8757,8 +8757,8 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %216
 
 204:                                              ; preds = %.critedge.i71, %.loopexit32.i67, %164, %.critedge.i65
-  %common.ret.op.i6278 = phi i32 [ %182, %.loopexit32.i67 ], [ %182, %.critedge.i71 ], [ 0, %164 ], [ 0, %.critedge.i65 ]
-  %common.ret.op.i68 = phi i1 [ %200, %.loopexit32.i67 ], [ false, %.critedge.i71 ], [ false, %164 ], [ false, %.critedge.i65 ]
+  %common.ret.op.i6278 = phi i32 [ %182, %.critedge.i71 ], [ %182, %.loopexit32.i67 ], [ 0, %.critedge.i65 ], [ 0, %164 ]
+  %common.ret.op.i68 = phi i1 [ false, %.critedge.i71 ], [ %200, %.loopexit32.i67 ], [ false, %.critedge.i65 ], [ false, %164 ]
   %205 = icmp ne i32 %common.ret.op.i6278, 0
   %.pre94 = load i8, ptr %162, align 2, !tbaa !158
   %206 = icmp eq i8 %.pre94, 0
@@ -8816,7 +8816,7 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %232, %50
-  %.0 = phi i32 [ 0, %50 ], [ 1, %232 ], [ 0, %ilog.exit ], [ 0, %157 ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %50 ], [ 0, %ilog.exit ], [ 1, %232 ], [ 0, %157 ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -9106,7 +9106,7 @@ ilog.exit:                                        ; preds = %85
   br label %ilog.exit411
 
 ilog.exit411:                                     ; preds = %ilog.exit, %141, %148, %155, %164, %171, %180, %187
-  %.0.i410 = phi i32 [ %145, %141 ], [ %154, %148 ], [ %161, %155 ], [ %170, %164 ], [ %177, %171 ], [ %186, %180 ], [ %193, %187 ], [ 0, %ilog.exit ]
+  %.0.i410 = phi i32 [ %193, %187 ], [ %145, %141 ], [ %154, %148 ], [ %161, %155 ], [ %170, %164 ], [ %177, %171 ], [ %186, %180 ], [ 0, %ilog.exit ]
   %194 = add nsw i32 %.0.i410, -1
   %195 = tail call i32 @get_bits(ptr noundef nonnull %0, i32 noundef %194)
   %196 = trunc i32 %195 to i16
@@ -9539,7 +9539,7 @@ start_page.exit.thread.i.i438.sink.split:         ; preds = %382, %376, %368, %3
   store i32 1, ptr %48, align 8, !tbaa !61
   br label %start_page.exit.thread.i.i438
 
-start_page.exit.thread.i.i438:                    ; preds = %get8.exit14.i, %get8.exit10.i, %get8.exit.i462, %capture_pattern.exit, %start_page.exit.thread.i.i438.sink.split
+start_page.exit.thread.i.i438:                    ; preds = %get8.exit10.i, %get8.exit.i462, %get8.exit14.i, %capture_pattern.exit, %start_page.exit.thread.i.i438.sink.split
   store i32 30, ptr %50, align 4
   br label %.loopexit527
 
@@ -9845,7 +9845,7 @@ start_page.exit.thread.i.i457.sink.split:         ; preds = %509, %503, %495, %4
   store i32 1, ptr %48, align 8, !tbaa !61
   br label %start_page.exit.thread.i.i457
 
-start_page.exit.thread.i.i457:                    ; preds = %get8.exit14.i479, %get8.exit10.i474, %get8.exit.i469, %capture_pattern.exit488, %start_page.exit.thread.i.i457.sink.split
+start_page.exit.thread.i.i457:                    ; preds = %get8.exit10.i474, %get8.exit.i469, %get8.exit14.i479, %capture_pattern.exit488, %start_page.exit.thread.i.i457.sink.split
   store i32 30, ptr %50, align 4
   br label %.loopexit526
 
@@ -10092,8 +10092,8 @@ prep_huffman.exit.i:                              ; preds = %next_segment.exit.i
   br label %codebook_decode_scalar_raw.exit.sink.split
 
 codebook_decode_scalar_raw.exit.sink.split:       ; preds = %588, %596, %614, %616, %._crit_edge77.i, %436
-  %.sink.i.sink = phi i32 [ %spec.select408, %436 ], [ 0, %._crit_edge77.i ], [ %622, %616 ], [ %598, %596 ], [ 0, %588 ], [ 0, %614 ]
-  %.1362.ph = phi i32 [ %spec.select409, %436 ], [ -1, %._crit_edge77.i ], [ %618, %616 ], [ %.2.i, %596 ], [ -1, %588 ], [ -1, %614 ]
+  %.sink.i.sink = phi i32 [ %spec.select408, %436 ], [ 0, %._crit_edge77.i ], [ 0, %588 ], [ %622, %616 ], [ %598, %596 ], [ 0, %614 ]
+  %.1362.ph = phi i32 [ %spec.select409, %436 ], [ -1, %._crit_edge77.i ], [ -1, %588 ], [ %618, %616 ], [ %.2.i, %596 ], [ -1, %614 ]
   store i32 %.sink.i.sink, ptr %34, align 8, !tbaa !80
   br label %codebook_decode_scalar_raw.exit
 
@@ -10283,7 +10283,7 @@ codebook_decode_scalar_raw.exit:                  ; preds = %codebook_decode_sca
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %get_bits.exit.thread
 
-get_bits.exit.thread:                             ; preds = %.critedge.i, %64, %712, %get_bits.exit
+get_bits.exit.thread:                             ; preds = %64, %.critedge.i, %712, %get_bits.exit
   store i32 1, ptr %57, align 4, !tbaa !21
   br label %713
 
@@ -10678,7 +10678,7 @@ flush_packet.exit:                                ; preds = %.preheader
   br label %885
 
 885:                                              ; preds = %.thread520, %.thread519, %884
-  %.2 = phi i32 [ 1, %884 ], [ 0, %.thread519 ], [ 1, %.thread520 ]
+  %.2 = phi i32 [ 0, %.thread519 ], [ 1, %884 ], [ 1, %.thread520 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.2
@@ -10867,7 +10867,7 @@ get_window.exit:                                  ; preds = %7, %12
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %get_window.exit, %._crit_edge76, %60
-  %.1 = phi i32 [ %61, %60 ], [ 0, %._crit_edge76 ], [ 0, %get_window.exit ], [ 0, %12 ]
+  %.1 = phi i32 [ %61, %60 ], [ 0, %._crit_edge76 ], [ 0, %12 ], [ 0, %get_window.exit ]
   ret i32 %.1
 }
 
@@ -11074,7 +11074,7 @@ define range(i32 0, 2) i32 @is_whole_packet_present(ptr noundef captures(none) %
   br i1 %60, label %.critedge.sink.split, label %27, !llvm.loop !190
 
 .critedge.sink.split:                             ; preds = %._crit_edge90, %46, %42, %38, %32, %31, %28, %._crit_edge
-  %.sink = phi i32 [ 1, %._crit_edge ], [ 1, %28 ], [ 21, %31 ], [ 21, %32 ], [ 21, %38 ], [ 21, %42 ], [ 1, %46 ], [ 1, %._crit_edge90 ]
+  %.sink = phi i32 [ 1, %._crit_edge ], [ 1, %28 ], [ 21, %31 ], [ 21, %32 ], [ 21, %42 ], [ 1, %46 ], [ 21, %38 ], [ 1, %._crit_edge90 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %.sink, ptr %61, align 4
   br label %.critedge
@@ -11913,8 +11913,8 @@ setup_temp_free.exit:                             ; preds = %361, %367
   store i8 0, ptr %283, align 1, !tbaa !24
   br label %.preheader1268
 
-.preheader1268:                                   ; preds = %setup_temp_free.exit, %.critedge1159
-  %.11015.ph = phi ptr [ %.01014, %.critedge1159 ], [ %368, %setup_temp_free.exit ]
+.preheader1268:                                   ; preds = %.critedge1159, %setup_temp_free.exit
+  %.11015.ph = phi ptr [ %368, %setup_temp_free.exit ], [ %.01014, %.critedge1159 ]
   %369 = load i32, ptr %276, align 4, !tbaa !42
   %370 = icmp sgt i32 %369, 0
   br i1 %370, label %.lr.ph1358.preheader, label %._crit_edge1359
@@ -12405,7 +12405,7 @@ setup_temp_free.exit1190:                         ; preds = %555, %562
   br label %597
 
 597:                                              ; preds = %595, %.lr.ph1373.split.us1392
-  %.21029.us1389 = phi i32 [ %596, %595 ], [ %.010271369.us1386, %.lr.ph1373.split.us1392 ]
+  %.21029.us1389 = phi i32 [ %.010271369.us1386, %.lr.ph1373.split.us1392 ], [ %596, %595 ]
   %exitcond1606.not = icmp eq i64 %indvars.iv.next1603, %572
   br i1 %exitcond1606.not, label %._crit_edge1374.us, label %.lr.ph1373.split.us1392, !llvm.loop !211
 
@@ -12444,7 +12444,7 @@ setup_temp_free.exit1190:                         ; preds = %555, %562
   br label %613
 
 613:                                              ; preds = %611, %.lr.ph1373.split.us.us
-  %.21029.us.us = phi i32 [ %612, %611 ], [ %.010271369.us.us, %.lr.ph1373.split.us.us ]
+  %.21029.us.us = phi i32 [ %.010271369.us.us, %.lr.ph1373.split.us.us ], [ %612, %611 ]
   %exitcond1611.not = icmp eq i64 %indvars.iv.next1608, %572
   br i1 %exitcond1611.not, label %._crit_edge1374.us, label %.lr.ph1373.split.us.us, !llvm.loop !211
 
@@ -13769,14 +13769,14 @@ flush_packet.exit:                                ; preds = %.preheader
   br label %.critedge
 
 .critedge1169:                                    ; preds = %._crit_edge1447, %._crit_edge1443, %902, %896, %888, %.lr.ph1454, %944
-  %.sink1863 = phi i32 [ 20, %944 ], [ 3, %.lr.ph1454 ], [ 20, %888 ], [ 20, %896 ], [ 20, %902 ], [ 3, %._crit_edge1443 ], [ 3, %._crit_edge1447 ]
+  %.sink1863 = phi i32 [ 20, %944 ], [ 3, %.lr.ph1454 ], [ 3, %._crit_edge1447 ], [ 3, %._crit_edge1443 ], [ 20, %902 ], [ 20, %896 ], [ 20, %888 ]
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %.sink1863, ptr %1268, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %1142, %1137, %1115, %1097, %1093, %1089, %1085, %1061, %1043, %1035, %.thread1227, %setup_temp_free.exit1190, %.thread1232, %.thread1223, %500, %515, %507, %385, %392, %399, %.thread1236, %337, %317, %311, %start_page.exit.thread, %669, %1170, %1174, %1179, %249, %254, %259, %288, %355, %426, %435, %476, %setup_temp_free.exit1180, %380, %298, %104, %108, %112, %1263, %1266, %1216, %._crit_edge1480, %.critedge1169, %201, %205, %194, %123, %121, %119, %start_page.exit, %1257, %1205, %1024, %879, %._crit_edge1490, %689, %681, %233, %223, %217, %187, %171, %160, %143, %134, %128, %117, %89, %85, %81, %75, %71, %68, %64, %60, %58, %27, %22, %18, %14
-  %.0 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %27 ], [ 0, %58 ], [ 0, %60 ], [ 0, %64 ], [ 0, %75 ], [ 0, %85 ], [ 0, %128 ], [ 0, %143 ], [ 0, %160 ], [ 0, %171 ], [ 0, %217 ], [ 0, %233 ], [ 0, %669 ], [ 0, %681 ], [ 0, %689 ], [ 0, %._crit_edge1490 ], [ 0, %879 ], [ 0, %1024 ], [ 0, %1205 ], [ 0, %1257 ], [ 0, %223 ], [ 0, %187 ], [ 0, %134 ], [ 0, %117 ], [ 0, %89 ], [ 0, %81 ], [ 0, %71 ], [ 0, %68 ], [ 0, %14 ], [ 0, %start_page.exit ], [ 0, %119 ], [ 0, %121 ], [ 0, %123 ], [ 0, %194 ], [ 0, %205 ], [ 0, %201 ], [ 0, %.critedge1169 ], [ 0, %._crit_edge1480 ], [ 0, %1216 ], [ 1, %1266 ], [ 1, %1263 ], [ 0, %112 ], [ 0, %108 ], [ 0, %104 ], [ 0, %298 ], [ 0, %337 ], [ 0, %380 ], [ 0, %setup_temp_free.exit1180 ], [ 0, %476 ], [ 0, %435 ], [ 0, %426 ], [ 0, %355 ], [ 0, %288 ], [ 0, %259 ], [ 0, %254 ], [ 0, %249 ], [ 0, %1179 ], [ 0, %1174 ], [ 0, %1170 ], [ 0, %start_page.exit.thread ], [ 0, %311 ], [ 0, %317 ], [ 0, %.thread1236 ], [ 0, %399 ], [ 0, %392 ], [ 0, %385 ], [ 0, %507 ], [ 0, %515 ], [ 0, %500 ], [ 0, %.thread1223 ], [ 0, %.thread1232 ], [ 0, %setup_temp_free.exit1190 ], [ 0, %.thread1227 ], [ 0, %1035 ], [ 0, %1043 ], [ 0, %1061 ], [ 0, %1085 ], [ 0, %1089 ], [ 0, %1093 ], [ 0, %1097 ], [ 0, %1115 ], [ 0, %1137 ], [ 0, %1142 ]
+.critedge:                                        ; preds = %1142, %1137, %1115, %1097, %1093, %1089, %1085, %1061, %1043, %1035, %.thread1227, %setup_temp_free.exit1190, %.thread1232, %500, %.thread1223, %515, %507, %392, %399, %385, %.thread1236, %337, %317, %311, %start_page.exit.thread, %669, %1170, %1174, %1179, %249, %254, %259, %288, %355, %426, %435, %476, %setup_temp_free.exit1180, %380, %298, %104, %108, %112, %1263, %1266, %1216, %._crit_edge1480, %.critedge1169, %201, %205, %194, %123, %121, %119, %start_page.exit, %1257, %1205, %1024, %879, %._crit_edge1490, %689, %681, %233, %223, %217, %187, %171, %160, %143, %134, %128, %117, %89, %85, %81, %75, %71, %68, %64, %60, %58, %27, %22, %18, %14
+  %.0 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %27 ], [ 0, %58 ], [ 0, %60 ], [ 0, %64 ], [ 0, %75 ], [ 0, %85 ], [ 0, %128 ], [ 0, %143 ], [ 0, %160 ], [ 0, %171 ], [ 0, %217 ], [ 0, %233 ], [ 0, %104 ], [ 0, %669 ], [ 0, %681 ], [ 0, %689 ], [ 0, %._crit_edge1490 ], [ 0, %.thread1236 ], [ 0, %879 ], [ 0, %.critedge1169 ], [ 0, %1024 ], [ 0, %.thread1227 ], [ 0, %249 ], [ 0, %1205 ], [ 0, %1257 ], [ 0, %1216 ], [ 0, %._crit_edge1480 ], [ 0, %201 ], [ 0, %223 ], [ 0, %194 ], [ 0, %123 ], [ 0, %187 ], [ 0, %134 ], [ 0, %121 ], [ 0, %119 ], [ 0, %start_page.exit ], [ 0, %117 ], [ 1, %1263 ], [ 0, %89 ], [ 0, %81 ], [ 0, %71 ], [ 0, %68 ], [ 0, %14 ], [ 0, %205 ], [ 1, %1266 ], [ 0, %112 ], [ 0, %108 ], [ 0, %298 ], [ 0, %337 ], [ 0, %start_page.exit.thread ], [ 0, %380 ], [ 0, %317 ], [ 0, %setup_temp_free.exit1180 ], [ 0, %392 ], [ 0, %476 ], [ 0, %435 ], [ 0, %426 ], [ 0, %355 ], [ 0, %288 ], [ 0, %259 ], [ 0, %254 ], [ 0, %1179 ], [ 0, %1174 ], [ 0, %1170 ], [ 0, %311 ], [ 0, %385 ], [ 0, %399 ], [ 0, %507 ], [ 0, %515 ], [ 0, %.thread1223 ], [ 0, %500 ], [ 0, %.thread1232 ], [ 0, %setup_temp_free.exit1190 ], [ 0, %1035 ], [ 0, %1043 ], [ 0, %1061 ], [ 0, %1085 ], [ 0, %1089 ], [ 0, %1093 ], [ 0, %1097 ], [ 0, %1115 ], [ 0, %1137 ], [ 0, %1142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -13834,7 +13834,7 @@ setup_free.exit99:                                ; preds = %.lr.ph.split, %14
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %setup_free.exit
-  %21 = phi ptr [ %.pre224, %._crit_edge.loopexit ], [ %.pre225, %setup_free.exit ]
+  %21 = phi ptr [ %.pre225, %setup_free.exit ], [ %.pre224, %._crit_edge.loopexit ]
   %.not.i100 = icmp eq ptr %21, null
   br i1 %.not.i100, label %22, label %setup_free.exit101
 
@@ -13919,7 +13919,7 @@ setup_free.exit103:                               ; preds = %.lr.ph186.split, %4
   br label %._crit_edge187
 
 ._crit_edge187:                                   ; preds = %._crit_edge187.loopexit, %.preheader182
-  %60 = phi ptr [ %.pre228, %._crit_edge187.loopexit ], [ %.pr.pre230, %.preheader182 ]
+  %60 = phi ptr [ %.pr.pre230, %.preheader182 ], [ %.pre228, %._crit_edge187.loopexit ]
   %.not.i104 = icmp eq ptr %60, null
   br i1 %.not.i104, label %61, label %setup_free.exit107
 
@@ -14025,7 +14025,7 @@ setup_free.exit117:                               ; preds = %setup_free.exit109,
   br label %._crit_edge192
 
 ._crit_edge192:                                   ; preds = %._crit_edge192.loopexit, %.preheader181
-  %93 = phi ptr [ %.pre232, %._crit_edge192.loopexit ], [ %.pr155.pre234, %.preheader181 ]
+  %93 = phi ptr [ %.pr155.pre234, %.preheader181 ], [ %.pre232, %._crit_edge192.loopexit ]
   %.not.i118 = icmp eq ptr %93, null
   br i1 %.not.i118, label %94, label %setup_free.exit123
 
@@ -14099,7 +14099,7 @@ setup_free.exit125:                               ; preds = %.lr.ph194.split, %1
   br label %._crit_edge195
 
 ._crit_edge195:                                   ; preds = %._crit_edge195.loopexit, %.preheader180
-  %116 = phi ptr [ %.pre237, %._crit_edge195.loopexit ], [ %.pre240.pre242, %.preheader180 ]
+  %116 = phi ptr [ %.pre240.pre242, %.preheader180 ], [ %.pre237, %._crit_edge195.loopexit ]
   %.not.i126 = icmp eq ptr %116, null
   br i1 %.not.i126, label %117, label %setup_free.exit127
 
@@ -14128,7 +14128,7 @@ setup_free.exit127:                               ; preds = %.lr.ph194, %117, %.
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %setup_free.exit127
-  %126 = phi ptr [ %.pre239, %.preheader.loopexit ], [ %.pre240, %setup_free.exit127 ]
+  %126 = phi ptr [ %.pre240, %setup_free.exit127 ], [ %.pre239, %.preheader.loopexit ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 1448
@@ -14396,7 +14396,7 @@ define ptr @vorbis_alloc(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   br label %setup_malloc.exit
 
 setup_malloc.exit:                                ; preds = %7, %14, %17
-  %.1.i = phi ptr [ %16, %14 ], [ null, %7 ], [ %18, %17 ]
+  %.1.i = phi ptr [ null, %7 ], [ %16, %14 ], [ %18, %17 ]
   ret ptr %.1.i
 }
 
@@ -14589,9 +14589,9 @@ define i32 @vorbis_search_for_page_pushdata(ptr noundef captures(none) %0, ptr n
   %.old200 = icmp slt i32 %.old, %11
   br i1 %.old200, label %.backedge, label %.thread, !llvm.loop !291
 
-.thread:                                          ; preds = %21, %19, %70, %76
-  %77 = phi i32 [ %.ph, %76 ], [ %.ph, %21 ], [ %.ph, %19 ], [ %51, %70 ]
-  %.0142 = phi i32 [ %11, %76 ], [ %.1146182, %21 ], [ %.1146182, %19 ], [ %11, %70 ]
+.thread:                                          ; preds = %19, %21, %70, %76
+  %77 = phi i32 [ %.ph, %76 ], [ %.ph, %19 ], [ %51, %70 ], [ %.ph, %21 ]
+  %.0142 = phi i32 [ %11, %76 ], [ %.1146182, %19 ], [ %11, %70 ], [ %.1146182, %21 ]
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph199, label %.loopexit
 
@@ -14684,8 +14684,8 @@ define i32 @vorbis_search_for_page_pushdata(ptr noundef captures(none) %0, ptr n
   br label %122
 
 122:                                              ; preds = %116, %120
-  %123 = phi i32 [ %.pre, %116 ], [ %82, %120 ]
-  %.3148 = phi i32 [ %.2147198, %116 ], [ %121, %120 ]
+  %123 = phi i32 [ %82, %120 ], [ %.pre, %116 ]
+  %.3148 = phi i32 [ %121, %120 ], [ %.2147198, %116 ]
   %124 = icmp slt i32 %.3148, %123
   br i1 %124, label %81, label %.loopexit, !llvm.loop !294
 
@@ -14903,7 +14903,7 @@ vorbis_decode_packet.exit:                        ; preds = %31
   br label %104
 
 104:                                              ; preds = %50, %67, %73, %97, %30, %21, %15
-  %.0 = phi i32 [ %22, %21 ], [ %103, %97 ], [ 0, %30 ], [ 0, %15 ], [ %55, %50 ], [ %72, %67 ], [ 1, %73 ]
+  %.0 = phi i32 [ %22, %21 ], [ %103, %97 ], [ 0, %15 ], [ 0, %30 ], [ %55, %50 ], [ %72, %67 ], [ 1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -14993,7 +14993,7 @@ vorbis_init.exit:                                 ; preds = %5, %7
   br label %vorbis_alloc.exit
 
 vorbis_alloc.exit:                                ; preds = %41, %44
-  %.1.i.i = phi ptr [ %43, %41 ], [ %45, %44 ]
+  %.1.i.i = phi ptr [ %45, %44 ], [ %43, %41 ]
   %.not15 = icmp eq ptr %.1.i.i, null
   br i1 %.not15, label %vorbis_alloc.exit.thread, label %46
 
@@ -15106,7 +15106,7 @@ get8.exit:                                        ; preds = %22, %30
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %33, %37, %43
-  %.0.i83 = phi i32 [ %42, %37 ], [ %48, %43 ], [ 0, %33 ]
+  %.0.i83 = phi i32 [ %48, %43 ], [ %42, %37 ], [ 0, %33 ]
   %49 = add i32 %.0.i83, -25
   %50 = load i32, ptr %12, align 8, !tbaa !302
   %51 = icmp ugt i32 %49, %50
@@ -15400,8 +15400,8 @@ get8.exit99:                                      ; preds = %134, %135, %142, %1
   %163 = tail call i32 @set_file_offset(ptr noundef nonnull %0, i32 noundef %162)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %129, %161
-  %.4.ph = phi i32 [ 1, %161 ], [ 0, %129 ], [ 0, %._crit_edge ]
+.thread:                                          ; preds = %129, %._crit_edge, %161
+  %.4.ph = phi i32 [ 1, %161 ], [ 0, %._crit_edge ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread105
 
@@ -15473,8 +15473,8 @@ get8.exit.thread:                                 ; preds = %165, %174, %175, %1
   %.not = icmp eq i32 %192, 0
   br i1 %.not, label %.lr.ph203, label %.thread105
 
-.thread105:                                       ; preds = %get8.exit.thread, %stb_vorbis_get_file_offset.exit, %69, %.thread172, %3, %.thread
-  %.1108 = phi i32 [ %.4.ph, %.thread ], [ 0, %3 ], [ 0, %.thread172 ], [ 0, %69 ], [ 0, %stb_vorbis_get_file_offset.exit ], [ 0, %get8.exit.thread ]
+.thread105:                                       ; preds = %get8.exit.thread, %69, %stb_vorbis_get_file_offset.exit, %.thread172, %3, %.thread
+  %.1108 = phi i32 [ %.4.ph, %.thread ], [ 0, %3 ], [ 0, %.thread172 ], [ 0, %stb_vorbis_get_file_offset.exit ], [ 0, %69 ], [ 0, %get8.exit.thread ]
   ret i32 %.1108
 }
 
@@ -15515,7 +15515,7 @@ define range(i32 0, 2) i32 @get_seek_page_info(ptr noundef captures(none) %0, pt
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %2, %10, %17
-  %.0.i = phi i32 [ %16, %10 ], [ %24, %17 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %24, %17 ], [ %16, %10 ], [ 0, %2 ]
   store i32 %.0.i, ptr %1, align 4, !tbaa !308
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8, !tbaa !59
@@ -15727,7 +15727,7 @@ define range(i32 0, 2) i32 @go_to_page_before(ptr noundef captures(none) %0, i32
   br label %9
 
 9:                                                ; preds = %5, %._crit_edge29
-  %.0 = phi i32 [ %.pre, %._crit_edge29 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ %.pre, %._crit_edge29 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %11 = load i8, ptr %10, align 4, !tbaa !63
   %.not.i = icmp eq i8 %11, 0
@@ -15839,7 +15839,7 @@ set_file_offset.exit:                             ; preds = %9, %23, %24, %34, %
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %52, %55, %61
-  %.0.i18 = phi i32 [ %60, %55 ], [ %66, %61 ], [ 0, %52 ]
+  %.0.i18 = phi i32 [ %66, %61 ], [ %60, %55 ], [ 0, %52 ]
   %67 = icmp ult i32 %.0.i18, %1
   br i1 %67, label %._crit_edge, label %stb_vorbis_get_file_offset.exit._crit_edge
 
@@ -16294,8 +16294,8 @@ set_file_offset.exit:                             ; preds = %29, %39, %40, %49, 
   br label %set_file_offset.exit150
 
 set_file_offset.exit150:                          ; preds = %184, %181, %172, %171, %159, %154, %151, %142, %141, %126
-  %.5 = phi double [ %.4, %126 ], [ %.4, %141 ], [ %.4, %142 ], [ %.4, %151 ], [ %.4, %154 ], [ %.0104194, %159 ], [ %.0104194, %171 ], [ %.0104194, %172 ], [ %.0104194, %181 ], [ %.0104194, %184 ]
-  %.3 = phi double [ %.2, %126 ], [ %.2, %141 ], [ %.2, %142 ], [ %.2, %151 ], [ %.2, %154 ], [ %.0103195, %159 ], [ %.0103195, %171 ], [ %.0103195, %172 ], [ %.0103195, %181 ], [ %.0103195, %184 ]
+  %.5 = phi double [ %.4, %154 ], [ %.4, %126 ], [ %.4, %141 ], [ %.4, %142 ], [ %.4, %151 ], [ %.0104194, %159 ], [ %.0104194, %171 ], [ %.0104194, %172 ], [ %.0104194, %181 ], [ %.0104194, %184 ]
+  %.3 = phi double [ %.2, %154 ], [ %.2, %126 ], [ %.2, %141 ], [ %.2, %142 ], [ %.2, %151 ], [ %.0103195, %159 ], [ %.0103195, %171 ], [ %.0103195, %172 ], [ %.0103195, %181 ], [ %.0103195, %184 ]
   %189 = tail call i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef null, ptr noundef null)
   %.not124 = icmp eq i32 %189, 0
   br i1 %.not124, label %.loopexit175, label %set_file_offset.exit142
@@ -16482,7 +16482,7 @@ set_file_offset.exit166:                          ; preds = %192, %202, %203, %2
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %254, %258, %264
-  %.0.i168 = phi i32 [ %263, %258 ], [ %269, %264 ], [ 0, %254 ]
+  %.0.i168 = phi i32 [ %269, %264 ], [ %263, %258 ], [ 0, %254 ]
   %270 = tail call i32 @capture_pattern(ptr noundef nonnull %0)
   %.not.i169 = icmp eq i32 %270, 0
   br i1 %.not.i169, label %start_page.exit.thread, label %start_page.exit
@@ -16576,13 +16576,13 @@ skip.exit:                                        ; preds = %289, %293, %294
   br label %.sink.split
 
 .sink.split:                                      ; preds = %302, %._crit_edge, %66, %7, %2, %.loopexit175
-  %.sink = phi i32 [ 37, %.loopexit175 ], [ 7, %2 ], [ 11, %7 ], [ 37, %66 ], [ 37, %._crit_edge ], [ 37, %302 ]
+  %.sink = phi i32 [ 37, %.loopexit175 ], [ 37, %._crit_edge ], [ 37, %66 ], [ 11, %7 ], [ 7, %2 ], [ 37, %302 ]
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %.sink, ptr %307, align 4
   br label %308
 
 308:                                              ; preds = %.sink.split, %302, %._crit_edge208, %64, %66
-  %.0 = phi i32 [ 1, %66 ], [ 0, %64 ], [ 0, %._crit_edge208 ], [ 1, %302 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %66 ], [ 0, %._crit_edge208 ], [ 0, %64 ], [ 1, %302 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -16638,7 +16638,7 @@ define range(i32 0, -1) i32 @stb_vorbis_stream_length_in_samples(ptr noundef %0)
   br label %stb_vorbis_get_file_offset.exit
 
 stb_vorbis_get_file_offset.exit:                  ; preds = %15, %22
-  %.0.i = phi i32 [ %21, %15 ], [ %29, %22 ]
+  %.0.i = phi i32 [ %29, %22 ], [ %21, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %31 = load i32, ptr %30, align 8, !tbaa !302
   %32 = icmp ugt i32 %31, 65535
@@ -16657,7 +16657,7 @@ stb_vorbis_get_file_offset.exit._crit_edge:       ; preds = %stb_vorbis_get_file
   br label %37
 
 37:                                               ; preds = %33, %stb_vorbis_get_file_offset.exit._crit_edge
-  %.042 = phi i32 [ %.pre, %stb_vorbis_get_file_offset.exit._crit_edge ], [ %spec.select114, %33 ]
+  %.042 = phi i32 [ %spec.select114, %33 ], [ %.pre, %stb_vorbis_get_file_offset.exit._crit_edge ]
   %38 = load i8, ptr %5, align 4, !tbaa !63
   %.not.i53 = icmp eq i8 %38, 0
   br i1 %.not.i53, label %39, label %set_file_offset.exit
@@ -16762,7 +16762,7 @@ set_file_offset.exit:                             ; preds = %37, %49, %50, %60, 
   br label %stb_vorbis_get_file_offset.exit58
 
 stb_vorbis_get_file_offset.exit58:                ; preds = %72, %76, %83
-  %.0.i56 = phi i32 [ %82, %76 ], [ %90, %83 ], [ 0, %72 ]
+  %.0.i56 = phi i32 [ %90, %83 ], [ %82, %76 ], [ 0, %72 ]
   %91 = load i32, ptr %3, align 4, !tbaa !21
   %.not4989 = icmp eq i32 %91, 0
   br i1 %.not4989, label %.lr.ph, label %set_file_offset.exit66._crit_edge
@@ -16868,7 +16868,7 @@ set_file_offset.exit66:                           ; preds = %97, %107, %108, %11
   br label %stb_vorbis_get_file_offset.exit70
 
 stb_vorbis_get_file_offset.exit70:                ; preds = %126, %130, %136
-  %.0.i68 = phi i32 [ %135, %130 ], [ %141, %136 ], [ 0, %126 ]
+  %.0.i68 = phi i32 [ %141, %136 ], [ %135, %130 ], [ 0, %126 ]
   %142 = load i32, ptr %3, align 4, !tbaa !21
   %.not49 = icmp eq i32 %142, 0
   br i1 %.not49, label %97, label %set_file_offset.exit66._crit_edge, !llvm.loop !319
@@ -17322,7 +17322,7 @@ define range(i32 0, 2) i32 @peek_decode_initial(ptr noundef initializes((1892, 1
   br label %ilog.exit
 
 ilog.exit:                                        ; preds = %8, %17, %24, %31, %42, %49, %58, %65
-  %.0.i = phi i16 [ %21, %17 ], [ %30, %24 ], [ %37, %31 ], [ %48, %42 ], [ %55, %49 ], [ %64, %58 ], [ %71, %65 ], [ 0, %8 ]
+  %.0.i = phi i16 [ %71, %65 ], [ %21, %17 ], [ %30, %24 ], [ %37, %31 ], [ %48, %42 ], [ %55, %49 ], [ %64, %58 ], [ 0, %8 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %73 = load i32, ptr %5, align 4, !tbaa !21
   %74 = sext i32 %73 to i64
@@ -17556,7 +17556,7 @@ flush_packet.exit:                                ; preds = %62, %vorbis_pump_fi
   br label %68
 
 68:                                               ; preds = %flush_packet.exit.thread, %._crit_edge, %18, %66, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %66 ], [ 0, %18 ], [ 1, %._crit_edge ], [ %.2.ph, %flush_packet.exit.thread ]
+  %.0 = phi i32 [ 0, %16 ], [ %.2.ph, %flush_packet.exit.thread ], [ 0, %66 ], [ 0, %18 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -17793,7 +17793,7 @@ vorbis_init.exit:                                 ; preds = %5, %13
   br label %vorbis_alloc.exit
 
 vorbis_alloc.exit:                                ; preds = %44, %47
-  %.1.i.i = phi ptr [ %46, %44 ], [ %48, %47 ]
+  %.1.i.i = phi ptr [ %48, %47 ], [ %46, %44 ]
   %.not13 = icmp eq ptr %.1.i.i, null
   br i1 %.not13, label %vorbis_alloc.exit.thread, label %49
 
@@ -18003,7 +18003,7 @@ vorbis_init.exit:                                 ; preds = %14, %15
   br label %vorbis_alloc.exit
 
 vorbis_alloc.exit:                                ; preds = %48, %51
-  %.1.i.i = phi ptr [ %50, %48 ], [ %52, %51 ]
+  %.1.i.i = phi ptr [ %52, %51 ], [ %50, %48 ]
   %.not21 = icmp eq ptr %.1.i.i, null
   br i1 %.not21, label %vorbis_alloc.exit.thread, label %53
 
@@ -18071,7 +18071,7 @@ vorbis_alloc.exit.thread:                         ; preds = %41, %vorbis_alloc.e
   br label %71
 
 71:                                               ; preds = %vorbis_pump_first_frame.exit, %67, %12, %13, %70
-  %.0 = phi ptr [ null, %70 ], [ null, %13 ], [ null, %12 ], [ %.1.i.i, %67 ], [ %.1.i.i, %vorbis_pump_first_frame.exit ]
+  %.0 = phi ptr [ null, %12 ], [ null, %70 ], [ null, %13 ], [ %.1.i.i, %67 ], [ %.1.i.i, %vorbis_pump_first_frame.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
@@ -18984,7 +18984,7 @@ stb_vorbis_get_frame_short.exit:                  ; preds = %9, %11
   br label %convert_channels_short_interleaved.exit
 
 convert_channels_short_interleaved.exit:          ; preds = %..preheader44_crit_edge.us.i, %..preheader44_crit_edge.us.i.us, %.lr.ph.i, %.preheader45.us56.preheader.i, %.preheader45.lr.ph.split.i, %31, %.preheader.i, %15, %stb_vorbis_get_frame_short.exit
-  %.015 = phi i32 [ %spec.select.i, %stb_vorbis_get_frame_short.exit ], [ 0, %15 ], [ %.1, %.preheader.i ], [ %.1, %31 ], [ %.1, %.preheader45.lr.ph.split.i ], [ %.1, %.preheader45.us56.preheader.i ], [ %.1, %.lr.ph.i ], [ %.1, %..preheader44_crit_edge.us.i.us ], [ %.1, %..preheader44_crit_edge.us.i ]
+  %.015 = phi i32 [ %spec.select.i, %stb_vorbis_get_frame_short.exit ], [ 0, %15 ], [ %.1, %.preheader.i ], [ %.1, %31 ], [ %.1, %.preheader45.lr.ph.split.i ], [ %.1, %.preheader45.us56.preheader.i ], [ %.1, %..preheader44_crit_edge.us.i.us ], [ %.1, %.lr.ph.i ], [ %.1, %..preheader44_crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.015
 }
@@ -19533,12 +19533,12 @@ stb_vorbis_close.exit60:                          ; preds = %.stb_vorbis_close.e
   br i1 %.not.i.i61, label %stb_vorbis_close.exit.sink.split, label %stb_vorbis_close.exit
 
 stb_vorbis_close.exit.sink.split:                 ; preds = %._crit_edge, %45, %30
-  %.0.ph = phi i32 [ -2, %30 ], [ -2, %45 ], [ %.040.lcssa, %._crit_edge ]
+  %.0.ph = phi i32 [ -2, %45 ], [ -2, %30 ], [ %.040.lcssa, %._crit_edge ]
   call void @free(ptr noundef nonnull %14) #34
   br label %stb_vorbis_close.exit
 
 stb_vorbis_close.exit:                            ; preds = %stb_vorbis_close.exit.sink.split, %4, %45, %._crit_edge, %30, %stb_vorbis_open_filename.exit
-  %.0 = phi i32 [ -1, %stb_vorbis_open_filename.exit ], [ -2, %30 ], [ %.040.lcssa, %._crit_edge ], [ -2, %45 ], [ -1, %4 ], [ %.0.ph, %stb_vorbis_close.exit.sink.split ]
+  %.0 = phi i32 [ %.040.lcssa, %._crit_edge ], [ -2, %45 ], [ -1, %4 ], [ -1, %stb_vorbis_open_filename.exit ], [ -2, %30 ], [ %.0.ph, %stb_vorbis_close.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -19648,7 +19648,7 @@ stb_vorbis_close.exit.sink.split:                 ; preds = %._crit_edge, %38, %
   br label %stb_vorbis_close.exit
 
 stb_vorbis_close.exit:                            ; preds = %stb_vorbis_close.exit.sink.split, %38, %._crit_edge, %23, %5
-  %.0 = phi i32 [ -1, %5 ], [ -2, %23 ], [ %.041.lcssa, %._crit_edge ], [ -2, %38 ], [ %.0.ph, %stb_vorbis_close.exit.sink.split ]
+  %.0 = phi i32 [ %.041.lcssa, %._crit_edge ], [ -1, %5 ], [ -2, %38 ], [ -2, %23 ], [ %.0.ph, %stb_vorbis_close.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -19830,7 +19830,7 @@ define i32 @stb_vorbis_get_samples_float_interleaved(ptr noundef %0, i32 noundef
   br i1 %.not49, label %.thread, label %.split.split
 
 .thread:                                          ; preds = %79, %._crit_edge62.split.split, %.split.split, %65, %._crit_edge62.split.split.us.us, %.split.split.us, %.split.us, %._crit_edge62.split.us.us, %37
-  %.us-phi75 = phi i32 [ %.042.us, %.split.us ], [ %6, %._crit_edge62.split.us.us ], [ %34, %37 ], [ %.042.us77, %.split.split.us ], [ %6, %._crit_edge62.split.split.us.us ], [ %62, %65 ], [ %.042, %.split.split ], [ %6, %._crit_edge62.split.split ], [ %76, %79 ]
+  %.us-phi75 = phi i32 [ %34, %37 ], [ %62, %65 ], [ %.042.us, %.split.us ], [ %6, %._crit_edge62.split.us.us ], [ %.042.us77, %.split.split.us ], [ %6, %._crit_edge62.split.split.us.us ], [ %.042, %.split.split ], [ %6, %._crit_edge62.split.split ], [ %76, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.us-phi75
 }
@@ -20002,7 +20002,7 @@ define i32 @stb_vorbis_get_samples_float(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not48, label %.thread, label %.split.split
 
 .thread:                                          ; preds = %73, %.preheader51, %.split.split, %59, %..loopexit_crit_edge.us64, %.split.split.us, %.split.us, %.loopexit.us, %38
-  %.us-phi = phi i32 [ %.042.us, %.split.us ], [ %3, %.loopexit.us ], [ %34, %38 ], [ %.042.us55, %.split.split.us ], [ %3, %..loopexit_crit_edge.us64 ], [ %56, %59 ], [ %.042, %.split.split ], [ %3, %.preheader51 ], [ %70, %73 ]
+  %.us-phi = phi i32 [ %34, %38 ], [ %56, %59 ], [ %.042.us, %.split.us ], [ %3, %.loopexit.us ], [ %.042.us55, %.split.split.us ], [ %3, %..loopexit_crit_edge.us64 ], [ %.042, %.split.split ], [ %3, %.preheader51 ], [ %70, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.us-phi
 }

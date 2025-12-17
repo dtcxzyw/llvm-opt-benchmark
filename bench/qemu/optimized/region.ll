@@ -772,7 +772,7 @@ alloc_code_gen_buffer.exit:                       ; preds = %alloc_code_gen_buff
   br label %tcg_n_regions.exit
 
 tcg_n_regions.exit:                               ; preds = %57, %61, %64
-  %.0.i = phi i64 [ %67, %64 ], [ 1, %57 ], [ %63, %61 ]
+  %.0.i = phi i64 [ 1, %57 ], [ %67, %64 ], [ %63, %61 ]
   store i64 %.0.i, ptr getelementptr inbounds nuw (i8, ptr @region, i64 64), align 8
   %.lhs.trunc = trunc nuw i64 %spec.store.select1 to i32
   %.rhs.trunc = trunc i64 %.0.i to i32
@@ -1193,7 +1193,7 @@ define internal range(i32 -1, 2) i32 @tb_tc_cmp(ptr noundef readonly captures(no
   br label %25
 
 25:                                               ; preds = %15, %13, %9, %.critedge, %17
-  %.0 = phi i32 [ %.0.i, %17 ], [ %.0.i27, %.critedge ], [ 1, %9 ], [ -1, %13 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.0.i27, %.critedge ], [ 1, %9 ], [ -1, %13 ], [ %.0.i, %17 ], [ 0, %15 ]
   ret i32 %.0
 }
 

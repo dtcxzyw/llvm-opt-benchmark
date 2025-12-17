@@ -1075,7 +1075,7 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
   br label %.critedge2.i, !llvm.loop !101
 
 .critedge2.i:                                     ; preds = %.lr.ph281, %.lr.ph281.preheader, %.lr.ph.i179..critedge2.i.loopexit_crit_edge, %.lr.ph.i179.preheader, %..critedge2.i.loopexit_crit_edge284, %gv_alloc.exit.i
-  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %471, %..critedge2.i.loopexit_crit_edge284 ], [ %.0.i, %.lr.ph.i179.preheader ], [ %471, %.lr.ph.i179..critedge2.i.loopexit_crit_edge ], [ %.0.i, %.lr.ph281.preheader ], [ %471, %.lr.ph281 ]
+  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i179.preheader ], [ %471, %..critedge2.i.loopexit_crit_edge284 ], [ %.0.i, %.lr.ph281.preheader ], [ %471, %.lr.ph.i179..critedge2.i.loopexit_crit_edge ], [ %471, %.lr.ph281 ]
   %476 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 88
   %477 = load double, ptr %476, align 8, !tbaa !80
   %478 = getelementptr inbounds nuw i8, ptr %450, i64 24
@@ -1206,7 +1206,7 @@ gv_alloc.exit.i193:                               ; preds = %.critedge.i192
   br label %.critedge2.i199, !llvm.loop !106
 
 .critedge2.i199:                                  ; preds = %.lr.ph288, %.lr.ph288.preheader, %.lr.ph.i195..critedge2.i199.loopexit_crit_edge, %.lr.ph.i195.preheader, %..critedge2.i199.loopexit_crit_edge291, %gv_alloc.exit.i193
-  %.1.lcssa.i200 = phi ptr [ %.0.i188, %gv_alloc.exit.i193 ], [ %529, %..critedge2.i199.loopexit_crit_edge291 ], [ %.0.i188, %.lr.ph.i195.preheader ], [ %529, %.lr.ph.i195..critedge2.i199.loopexit_crit_edge ], [ %.0.i188, %.lr.ph288.preheader ], [ %529, %.lr.ph288 ]
+  %.1.lcssa.i200 = phi ptr [ %.0.i188, %gv_alloc.exit.i193 ], [ %.0.i188, %.lr.ph.i195.preheader ], [ %529, %..critedge2.i199.loopexit_crit_edge291 ], [ %.0.i188, %.lr.ph288.preheader ], [ %529, %.lr.ph.i195..critedge2.i199.loopexit_crit_edge ], [ %529, %.lr.ph288 ]
   %535 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i200, i64 96
   %536 = load double, ptr %535, align 8, !tbaa !79
   %537 = getelementptr inbounds nuw i8, ptr %507, i64 24
@@ -4004,7 +4004,7 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr noundef readonly capture
   br label %overlapSeg.exit
 
 overlapSeg.exit:                                  ; preds = %116, %108, %106, %102, %96, %89, %85, %79, %62, %54, %52, %48, %42, %35, %31, %25, %241, %235, %233, %227, %172, %171, %162, %161, %152, %148, %145, %144, %134, %4, %10, %224, %223, %211, %210, %.thread185.thread, %188, %182, %177, %173, %163, %155
-  %.0 = phi i32 [ 0, %155 ], [ 0, %163 ], [ 0, %173 ], [ %.0.i159, %177 ], [ %.0.i161.neg, %182 ], [ %.0.i163, %188 ], [ %.0.i165.neg, %.thread185.thread ], [ %.0.i166, %210 ], [ %.0.i171.neg, %211 ], [ %.0.i176, %223 ], [ %.0.i181.neg, %224 ], [ 0, %10 ], [ 0, %4 ], [ 0, %134 ], [ 1, %144 ], [ -1, %145 ], [ 1, %148 ], [ -1, %152 ], [ 1, %161 ], [ -1, %162 ], [ 1, %171 ], [ -1, %172 ], [ 0, %227 ], [ %., %233 ], [ 0, %235 ], [ %.146, %241 ], [ 0, %35 ], [ 0, %52 ], [ %.0.i.i, %54 ], [ %.0.i38.neg.i, %62 ], [ -1, %25 ], [ 1, %31 ], [ -1, %42 ], [ 1, %48 ], [ 0, %89 ], [ 0, %106 ], [ %.0.i.i157.neg, %108 ], [ %.0.i38.neg.i151.neg, %116 ], [ 1, %79 ], [ -1, %85 ], [ 1, %96 ], [ -1, %102 ]
+  %.0 = phi i32 [ 0, %235 ], [ %.146, %241 ], [ 1, %48 ], [ 0, %4 ], [ 0, %134 ], [ 1, %144 ], [ -1, %145 ], [ 1, %148 ], [ 0, %155 ], [ -1, %152 ], [ 1, %161 ], [ 0, %163 ], [ -1, %162 ], [ 1, %171 ], [ 0, %173 ], [ %.0.i159, %177 ], [ %.0.i161.neg, %182 ], [ %.0.i163, %188 ], [ %.0.i165.neg, %.thread185.thread ], [ %.0.i166, %210 ], [ %.0.i171.neg, %211 ], [ %.0.i176, %223 ], [ %.0.i181.neg, %224 ], [ -1, %172 ], [ %., %233 ], [ 0, %227 ], [ 0, %10 ], [ %.0.i38.neg.i, %62 ], [ -1, %25 ], [ 0, %35 ], [ 1, %31 ], [ -1, %42 ], [ 0, %52 ], [ %.0.i.i, %54 ], [ %.0.i38.neg.i151.neg, %116 ], [ 1, %79 ], [ 0, %89 ], [ -1, %85 ], [ 1, %96 ], [ 0, %106 ], [ %.0.i.i157.neg, %108 ], [ -1, %102 ]
   ret i32 %.0
 }
 
@@ -4170,10 +4170,10 @@ define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr noundef read
   br label %98
 
 98:                                               ; preds = %97, %96, %89, %88, %66, %65, %58, %57
-  %.0.i109.sink = phi ptr [ %.0.i109..0.i, %57 ], [ %.0.i..0.i109127, %58 ], [ %.0.i..0.i109129, %65 ], [ %.0.i109..0.i131, %66 ], [ %.0.i..0.i109133, %88 ], [ %.0.i109..0.i135, %89 ], [ %.0.i109..0.i137, %96 ], [ %.0.i..0.i109139, %97 ]
-  %.0.i.sink = phi ptr [ %.0.i..0.i109, %57 ], [ %.0.i109..0.i128, %58 ], [ %.0.i109..0.i130, %65 ], [ %.0.i..0.i109132, %66 ], [ %.0.i109..0.i134, %88 ], [ %.0.i..0.i109136, %89 ], [ %.0.i..0.i109138, %96 ], [ %.0.i109..0.i140, %97 ]
-  %.sink122 = phi ptr [ %56, %57 ], [ %56, %58 ], [ %64, %65 ], [ %64, %66 ], [ %87, %88 ], [ %87, %89 ], [ %95, %96 ], [ %95, %97 ]
-  %.0103 = phi ptr [ %43, %57 ], [ %43, %58 ], [ %43, %65 ], [ %43, %66 ], [ %74, %88 ], [ %74, %89 ], [ %74, %96 ], [ %74, %97 ]
+  %.0.i109.sink = phi ptr [ %.0.i109..0.i135, %89 ], [ %.0.i109..0.i, %57 ], [ %.0.i..0.i109133, %88 ], [ %.0.i109..0.i131, %66 ], [ %.0.i..0.i109139, %97 ], [ %.0.i..0.i109127, %58 ], [ %.0.i109..0.i137, %96 ], [ %.0.i..0.i109129, %65 ]
+  %.0.i.sink = phi ptr [ %.0.i..0.i109136, %89 ], [ %.0.i..0.i109, %57 ], [ %.0.i109..0.i134, %88 ], [ %.0.i..0.i109132, %66 ], [ %.0.i109..0.i140, %97 ], [ %.0.i109..0.i128, %58 ], [ %.0.i..0.i109138, %96 ], [ %.0.i109..0.i130, %65 ]
+  %.sink122 = phi ptr [ %87, %89 ], [ %56, %57 ], [ %87, %88 ], [ %64, %66 ], [ %95, %97 ], [ %56, %58 ], [ %95, %96 ], [ %64, %65 ]
+  %.0103 = phi ptr [ %74, %89 ], [ %43, %57 ], [ %74, %88 ], [ %43, %66 ], [ %74, %97 ], [ %43, %58 ], [ %74, %96 ], [ %43, %65 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0.i109.sink, i64 40
   %100 = load i64, ptr %99, align 8, !tbaa !119
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.sink, i64 40

@@ -486,13 +486,13 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
   ret void
 
 .sink.split66:                                    ; preds = %35, %.sink.split65, %21, %.sink.split
-  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %28, %.sink.split65 ], [ %28, %35 ]
-  %.pn34.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn45.ph, %.sink.split ], [ %22, %21 ], [ %.pn34.pn52.ph, %.sink.split65 ], [ %36, %35 ]
+  %.sink = phi ptr [ %14, %21 ], [ %14, %.sink.split ], [ %28, %.sink.split65 ], [ %28, %35 ]
+  %.pn34.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %.pn.pn45.ph, %.sink.split ], [ %.pn34.pn52.ph, %.sink.split65 ], [ %36, %35 ]
   call void @__cxa_free_exception(ptr %.sink) #19
   br label %49
 
 49:                                               ; preds = %.sink.split66, %35, %21
-  %.pn34.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %22, %21 ], [ %.pn34.pn.pn.ph, %.sink.split66 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ], [ %.pn34.pn.pn.ph, %.sink.split66 ]
   resume { ptr, i32 } %.pn34.pn.pn
 
 50:                                               ; preds = %32, %18

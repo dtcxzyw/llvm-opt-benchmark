@@ -1592,7 +1592,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br label %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS6_.exit
 
 _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS6_.exit: ; preds = %23, %2, %.loopexit.i
-  %32 = phi i64 [ %6, %2 ], [ %.pre, %.loopexit.i ], [ %6, %23 ]
+  %32 = phi i64 [ %.pre, %.loopexit.i ], [ %6, %2 ], [ %6, %23 ]
   %33 = add i64 %32, -1
   %34 = load ptr, ptr %1, align 8, !tbaa !30
   %35 = ptrtoint ptr %34 to i64
@@ -2520,7 +2520,7 @@ _ZN4Luau7Compile12getTripCountEddd.exit:          ; preds = %138
   br label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
 _ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %135, %138, %94, %96, %100, %71, %74, %78, %48, %51, %55, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
-  %148 = phi i64 [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %55 ], [ 3, %51 ], [ 3, %48 ], [ 3, %78 ], [ 3, %74 ], [ 3, %71 ], [ 3, %100 ], [ 3, %96 ], [ 3, %94 ], [ 0, %138 ], [ 0, %135 ]
+  %148 = phi i64 [ 3, %94 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %55 ], [ 3, %51 ], [ 3, %48 ], [ 3, %78 ], [ 3, %74 ], [ 3, %71 ], [ 3, %100 ], [ 3, %96 ], [ 0, %138 ], [ 0, %135 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 64
   %149 = load ptr, ptr %.in, align 8, !tbaa !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -2729,7 +2729,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile11CostVisitor5
   br label %_ZN4Luau7Compile11CostVisitor6assignEPNS_7AstExprE.exit
 
 _ZN4Luau7Compile11CostVisitor6assignEPNS_7AstExprE.exit: ; preds = %43, %45, %19, %28, %48
-  %50 = phi i64 [ %20, %19 ], [ %20, %28 ], [ %.pre, %48 ], [ %20, %45 ], [ %20, %43 ]
+  %50 = phi i64 [ %.pre, %48 ], [ %20, %19 ], [ %20, %28 ], [ %20, %45 ], [ %20, %43 ]
   %51 = add nuw i64 %.01829, 1
   %52 = icmp ult i64 %51, %50
   br i1 %52, label %19, label %.preheader, !llvm.loop !95
@@ -3493,14 +3493,14 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br i1 %.not91, label %.loopexit, label %.lr.ph184
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph184, %.thread, %50, %.preheader, %260, %257, %138, %103, %184, %217, %226, %198, %117
-  %.sroa.0149.3 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
-  %.sroa.29.3 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
+  %.sroa.0149.3 = phi i64 [ 10, %138 ], [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %94, %.lr.ph.split ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %76, %.lr.ph.split.us ]
+  %.sroa.29.3 = phi i64 [ 0, %138 ], [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %276
 
 276:                                              ; preds = %39, %36, %34, %30, %18, %.loopexit, %12
-  %.sroa.0149.0 = phi i64 [ %.sroa.0149.3, %.loopexit ], [ %16, %12 ], [ 0, %18 ], [ 0, %30 ], [ 0, %34 ], [ 1, %36 ], [ 3, %39 ]
-  %.sroa.29.0 = phi i64 [ %.sroa.29.3, %.loopexit ], [ %17, %12 ], [ -1, %18 ], [ 0, %30 ], [ %35, %34 ], [ 0, %36 ], [ 0, %39 ]
+  %.sroa.0149.0 = phi i64 [ %16, %12 ], [ 0, %34 ], [ 1, %36 ], [ %.sroa.0149.3, %.loopexit ], [ 0, %18 ], [ 3, %39 ], [ 0, %30 ]
+  %.sroa.29.0 = phi i64 [ %17, %12 ], [ %35, %34 ], [ 0, %36 ], [ %.sroa.29.3, %.loopexit ], [ -1, %18 ], [ 0, %39 ], [ 0, %30 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0149.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.29.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3551,7 +3551,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalE
   br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %20, !llvm.loop !31
 
 _ZNK4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemInterfaceMapIS3_mEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit: ; preds = %20, %24, %26, %2, %6
-  %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
   %.not = icmp eq ptr %.0.i, null
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = select i1 %.not, ptr null, ptr %29
@@ -3603,7 +3603,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExpr
   br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %20, !llvm.loop !147
 
 _ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit: ; preds = %20, %24, %26, %2, %6
-  %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
   %.not = icmp eq ptr %.0.i, null
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = select i1 %.not, ptr null, ptr %29

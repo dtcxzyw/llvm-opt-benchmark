@@ -155,7 +155,7 @@ _ZN3gmxL31checkIfRandomDeviceIsFunctionalEv.exit.thread: ; preds = %41, %44
   br label %78
 
 common.resume:                                    ; preds = %.body.i, %_ZNSt13random_deviceD2Ev.exit5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
-  %common.resume.op = phi { ptr, i32 } [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %74, %_ZNSt13random_deviceD2Ev.exit5 ], [ %.pn.pn.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %74, %_ZNSt13random_deviceD2Ev.exit5 ], [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %.pn.pn.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3gmxL31checkIfRandomDeviceIsFunctionalEv.exit: ; preds = %31

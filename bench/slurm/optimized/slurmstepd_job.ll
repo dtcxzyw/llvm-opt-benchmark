@@ -792,7 +792,7 @@ srun_info_create.exit:                            ; preds = %326, %335
   br label %_expand_stdio_filename.exit.i
 
 _expand_stdio_filename.exit.i:                    ; preds = %482, %480, %478, %474, %466
-  %.0.i.i = phi ptr [ %475, %474 ], [ null, %478 ], [ %483, %482 ], [ null, %466 ], [ null, %480 ]
+  %.0.i.i = phi ptr [ %483, %482 ], [ %475, %474 ], [ null, %478 ], [ null, %466 ], [ null, %480 ]
   %484 = load ptr, ptr %462, align 8
   %485 = getelementptr inbounds nuw i32, ptr %484, i64 %indvars.iv.i
   %486 = load i32, ptr %485, align 4
@@ -826,7 +826,7 @@ _expand_stdio_filename.exit.i:                    ; preds = %482, %480, %478, %4
   br label %_expand_stdio_filename.exit63.i
 
 _expand_stdio_filename.exit63.i:                  ; preds = %499, %497, %495, %491, %_expand_stdio_filename.exit.i
-  %.0.i62.i = phi ptr [ %492, %491 ], [ null, %495 ], [ %500, %499 ], [ null, %_expand_stdio_filename.exit.i ], [ null, %497 ]
+  %.0.i62.i = phi ptr [ %500, %499 ], [ %492, %491 ], [ null, %495 ], [ null, %_expand_stdio_filename.exit.i ], [ null, %497 ]
   %501 = load ptr, ptr %462, align 8
   %502 = getelementptr inbounds nuw i32, ptr %501, i64 %indvars.iv.i
   %503 = load i32, ptr %502, align 4
@@ -860,7 +860,7 @@ _expand_stdio_filename.exit63.i:                  ; preds = %499, %497, %495, %4
   br label %_expand_stdio_filename.exit66.i
 
 _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %508, %_expand_stdio_filename.exit63.i
-  %.0.i65.i = phi ptr [ %509, %508 ], [ null, %512 ], [ %517, %516 ], [ null, %_expand_stdio_filename.exit63.i ], [ null, %514 ]
+  %.0.i65.i = phi ptr [ %517, %516 ], [ %509, %508 ], [ null, %512 ], [ null, %_expand_stdio_filename.exit63.i ], [ null, %514 ]
   %518 = load ptr, ptr %462, align 8
   %519 = getelementptr inbounds nuw i32, ptr %518, i64 %indvars.iv.i
   %520 = load i32, ptr %519, align 4
@@ -927,7 +927,7 @@ _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %5
   br i1 %562, label %.lr.ph69.i, label %_job_init_task_info.exit, !llvm.loop !15
 
 _job_init_task_info.exit:                         ; preds = %.lr.ph69.i, %._crit_edge.i, %454, %451, %8, %69, %29
-  %.0 = phi ptr [ null, %29 ], [ null, %69 ], [ null, %8 ], [ %15, %451 ], [ %15, %454 ], [ %15, %._crit_edge.i ], [ %15, %.lr.ph69.i ]
+  %.0 = phi ptr [ null, %69 ], [ null, %29 ], [ null, %8 ], [ %15, %451 ], [ %15, %454 ], [ %15, %._crit_edge.i ], [ %15, %.lr.ph69.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -1939,7 +1939,7 @@ _batchfilename.exit158:                           ; preds = %_batchfilename.exit
   br label %251
 
 251:                                              ; preds = %5, %_batchfilename.exit158, %73
-  %.0 = phi ptr [ %12, %_batchfilename.exit158 ], [ null, %73 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %73 ], [ %12, %_batchfilename.exit158 ], [ null, %5 ]
   ret ptr %.0
 }
 

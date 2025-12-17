@@ -66,7 +66,7 @@ int_start_context.exit.thread10:                  ; preds = %4
   br label %int_end_context.exit
 
 int_end_context.exit:                             ; preds = %13, %14, %17, %19, %21, %25
-  %.0.i7 = phi i32 [ 1, %13 ], [ 0, %19 ], [ 0, %17 ], [ 0, %14 ], [ 1, %21 ], [ %29, %25 ]
+  %.0.i7 = phi i32 [ 1, %13 ], [ %29, %25 ], [ 0, %19 ], [ 0, %17 ], [ 0, %14 ], [ 1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %int_start_context.exit.thread
@@ -153,7 +153,7 @@ int_start_context.exit.thread16:                  ; preds = %3, %int_start_conte
   br label %int_end_context.exit
 
 int_end_context.exit:                             ; preds = %18, %19, %22, %24, %26, %30
-  %.0.i13 = phi i32 [ 1, %18 ], [ 0, %24 ], [ 0, %22 ], [ 0, %19 ], [ 1, %26 ], [ %34, %30 ]
+  %.0.i13 = phi i32 [ 1, %18 ], [ %34, %30 ], [ 0, %24 ], [ 0, %22 ], [ 0, %19 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %int_start_context.exit.thread
@@ -240,7 +240,7 @@ int_start_context.exit.thread16:                  ; preds = %4, %int_start_conte
   br label %int_end_context.exit
 
 int_end_context.exit:                             ; preds = %18, %19, %22, %24, %26, %30
-  %.0.i13 = phi i32 [ 1, %18 ], [ 0, %24 ], [ 0, %22 ], [ 0, %19 ], [ 1, %26 ], [ %34, %30 ]
+  %.0.i13 = phi i32 [ 1, %18 ], [ %34, %30 ], [ 0, %24 ], [ 0, %22 ], [ 0, %19 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %int_start_context.exit.thread
@@ -371,7 +371,7 @@ int_start_context.exit.thread18:                  ; preds = %4, %int_start_conte
   br label %int_end_context.exit
 
 int_end_context.exit:                             ; preds = %25, %26, %29, %31, %33, %37
-  %.0.i15 = phi i32 [ 1, %25 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 1, %33 ], [ %41, %37 ]
+  %.0.i15 = phi i32 [ 1, %25 ], [ %41, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %int_start_context.exit.thread
@@ -437,7 +437,7 @@ define range(i32 0, 2) i32 @ossl_DER_w_bn(ptr noundef %0, i32 noundef %1, ptr no
   br label %14
 
 14:                                               ; preds = %3, %6, %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -550,7 +550,7 @@ int_start_context.exit.thread12:                  ; preds = %2, %int_start_conte
   br label %int_end_context.exit
 
 int_end_context.exit:                             ; preds = %14, %15, %18, %20, %22, %26
-  %.0.i9 = phi i32 [ 1, %14 ], [ 0, %20 ], [ 0, %18 ], [ 0, %15 ], [ 1, %22 ], [ %30, %26 ]
+  %.0.i9 = phi i32 [ 1, %14 ], [ %30, %26 ], [ 0, %20 ], [ 0, %18 ], [ 0, %15 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %int_start_context.exit.thread

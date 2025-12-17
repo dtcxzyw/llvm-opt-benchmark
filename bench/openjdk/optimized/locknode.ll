@@ -263,7 +263,7 @@ define hidden noundef nonnull ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noun
   br label %22
 
 22:                                               ; preds = %.sink.split, %21, %2, %5, %15, %9
-  %.0 = phi ptr [ %0, %9 ], [ %12, %15 ], [ %0, %5 ], [ %0, %2 ], [ %12, %21 ], [ %12, %.sink.split ]
+  %.0 = phi ptr [ %12, %15 ], [ %0, %9 ], [ %12, %21 ], [ %0, %5 ], [ %0, %2 ], [ %12, %.sink.split ]
   ret ptr %.0
 }
 
@@ -456,8 +456,8 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br label %61
 
 61:                                               ; preds = %60, %58, %54, %42, %.lr.ph.split.split.us
-  %.129.us47 = phi i1 [ %.02838.us46, %54 ], [ %.02838.us46, %42 ], [ %.02838.us46, %.lr.ph.split.split.us ], [ true, %58 ], [ %spec.select, %60 ]
-  %.1.us48 = phi ptr [ %.02640.us44, %54 ], [ %.02640.us44, %42 ], [ %.02640.us44, %.lr.ph.split.split.us ], [ %37, %58 ], [ %.02640.us44, %60 ]
+  %.129.us47 = phi i1 [ %.02838.us46, %.lr.ph.split.split.us ], [ %.02838.us46, %42 ], [ true, %58 ], [ %spec.select, %60 ], [ %.02838.us46, %54 ]
+  %.1.us48 = phi ptr [ %.02640.us44, %.lr.ph.split.split.us ], [ %.02640.us44, %42 ], [ %37, %58 ], [ %.02640.us44, %60 ], [ %.02640.us44, %54 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %62 = load i32, ptr %8, align 8
   %63 = zext i32 %62 to i64
@@ -512,7 +512,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br label %93
 
 .split.us:                                        ; preds = %78, %48, %25
-  %.us-phi = phi ptr [ %14, %25 ], [ %37, %48 ], [ %67, %78 ]
+  %.us-phi = phi ptr [ %37, %48 ], [ %14, %25 ], [ %67, %78 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %92
 
@@ -521,8 +521,8 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br label %._crit_edge.thread
 
 93:                                               ; preds = %88, %.lr.ph.split.split, %91, %90, %84, %72
-  %.129 = phi i1 [ false, %91 ], [ %.02838, %90 ], [ %.02838, %84 ], [ %.02838, %72 ], [ %.02838, %.lr.ph.split.split ], [ true, %88 ]
-  %.1 = phi ptr [ %.02640, %91 ], [ %.02640, %90 ], [ %.02640, %84 ], [ %.02640, %72 ], [ %.02640, %.lr.ph.split.split ], [ %67, %88 ]
+  %.129 = phi i1 [ %.02838, %.lr.ph.split.split ], [ false, %91 ], [ %.02838, %72 ], [ %.02838, %90 ], [ %.02838, %84 ], [ true, %88 ]
+  %.1 = phi ptr [ %.02640, %.lr.ph.split.split ], [ %.02640, %91 ], [ %.02640, %72 ], [ %.02640, %90 ], [ %.02640, %84 ], [ %67, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %8, align 8
   %95 = zext i32 %94 to i64
@@ -539,7 +539,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %.preheader, %._crit_edge, %97, %.split.us, %92, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %92 ], [ false, %.split.us ], [ true, %97 ], [ true, %._crit_edge ], [ true, %.preheader ], [ true, %31 ]
+  %.0 = phi i1 [ false, %.split.us ], [ false, %4 ], [ false, %92 ], [ true, %97 ], [ true, %._crit_edge ], [ true, %.preheader ], [ true, %31 ]
   ret i1 %.0
 }
 

@@ -626,8 +626,8 @@ select.unfold.i:                                  ; preds = %73, %62
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %IDASensRes1DQ.exit.thread, label %25
 
-IDASensRes1DQ.exit.thread:                        ; preds = %166, %select.unfold.i, %86, %98, %106, %113, %123, %134, %148, %154, %12
-  %.021 = phi i32 [ 0, %12 ], [ %161, %154 ], [ %151, %148 ], [ %142, %134 ], [ %129, %123 ], [ %120, %113 ], [ %110, %106 ], [ %103, %98 ], [ %93, %86 ], [ %83, %select.unfold.i ], [ 0, %166 ]
+IDASensRes1DQ.exit.thread:                        ; preds = %166, %148, %select.unfold.i, %86, %98, %106, %113, %123, %134, %154, %12
+  %.021 = phi i32 [ 0, %12 ], [ %151, %148 ], [ %161, %154 ], [ %142, %134 ], [ %129, %123 ], [ %120, %113 ], [ %110, %106 ], [ %103, %98 ], [ %93, %86 ], [ %83, %select.unfold.i ], [ 0, %166 ]
   ret i32 %.021
 }
 
@@ -749,7 +749,7 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   br label %90
 
 90:                                               ; preds = %87, %78
-  %.0116.i = phi i64 [ 2, %78 ], [ 1, %87 ]
+  %.0116.i = phi i64 [ 1, %87 ], [ 2, %78 ]
   %91 = load ptr, ptr %18, align 8, !tbaa !89
   %92 = getelementptr inbounds double, ptr %91, i64 %47
   store double %49, ptr %92, align 8, !tbaa !87
@@ -760,8 +760,8 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %IDAQuadSensRhs1InternalDQ.exit.thread, label %24
 
-IDAQuadSensRhs1InternalDQ.exit.thread:            ; preds = %90, %62, %70, %80, %12
-  %.0 = phi i32 [ 0, %12 ], [ %86, %80 ], [ %77, %70 ], [ %69, %62 ], [ 0, %90 ]
+IDAQuadSensRhs1InternalDQ.exit.thread:            ; preds = %90, %70, %62, %80, %12
+  %.0 = phi i32 [ 0, %12 ], [ %77, %70 ], [ %86, %80 ], [ %69, %62 ], [ 0, %90 ]
   ret i32 %.0
 }
 
@@ -870,7 +870,7 @@ IDACheckNvector.exit:                             ; preds = %56
   %.not97 = icmp eq ptr %61, null
   br i1 %.not97, label %IDACheckNvector.exit.thread, label %62
 
-IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, %36, %40, %44, %48, %52, %56, %IDACheckNvector.exit
+IDACheckNvector.exit.thread:                      ; preds = %24, %28, %32, %36, %40, %44, %48, %52, %56, %19, %IDACheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 616, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
   br label %218
 
@@ -1557,7 +1557,7 @@ define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %34, label %IDAEwtSetSS.exit.sink.split, label %IDAEwtSetSS.exit
 
 IDAEwtSetSS.exit.sink.split:                      ; preds = %21, %31, %6, %17
-  %.sink.in = phi ptr [ %7, %17 ], [ %7, %6 ], [ %22, %31 ], [ %22, %21 ]
+  %.sink.in = phi ptr [ %7, %6 ], [ %7, %17 ], [ %22, %31 ], [ %22, %21 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !119
   tail call void @N_VInv(ptr noundef %.sink, ptr noundef %1) #14
   br label %IDAEwtSetSS.exit
@@ -1857,7 +1857,7 @@ define range(i32 -28, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
   br label %70
 
 70:                                               ; preds = %.loopexit24, %64, %.loopexit, %7
-  %.0 = phi i32 [ -20, %7 ], [ 0, %64 ], [ -21, %.loopexit ], [ -28, %.loopexit24 ]
+  %.0 = phi i32 [ -20, %7 ], [ -21, %.loopexit ], [ 0, %64 ], [ -28, %.loopexit24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2463,7 +2463,7 @@ define range(i32 -28, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   store ptr null, ptr %187, align 8, !tbaa !86
   br label %.loopexit
 
-.loopexit:                                        ; preds = %208, %46, %53, %62, %73, %86, %101, %118, %159, %237, %27
+.loopexit:                                        ; preds = %208, %46, %53, %62, %73, %86, %101, %118, %159, %27, %237
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 1358, ptr noundef nonnull @__func__.IDASensInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
   br label %309
 
@@ -2631,7 +2631,7 @@ define range(i32 -28, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br label %309
 
 309:                                              ; preds = %306, %.thread132, %266, %._crit_edge, %304, %300, %259, %.loopexit, %22, %19, %15, %11, %8
-  %.0105 = phi i32 [ -20, %8 ], [ -22, %11 ], [ -22, %15 ], [ -22, %19 ], [ -22, %22 ], [ -21, %259 ], [ -21, %300 ], [ -21, %304 ], [ -21, %.loopexit ], [ -28, %._crit_edge ], [ -28, %266 ], [ 0, %.thread132 ], [ 0, %306 ]
+  %.0105 = phi i32 [ -20, %8 ], [ -22, %11 ], [ -22, %15 ], [ -22, %19 ], [ -22, %22 ], [ -21, %259 ], [ -21, %.loopexit ], [ -28, %._crit_edge ], [ -21, %300 ], [ -21, %304 ], [ -28, %266 ], [ 0, %.thread132 ], [ 0, %306 ]
   ret i32 %.0105
 }
 
@@ -2977,7 +2977,7 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %62, %66, %93, %32, %._crit_edge, %94, %86, %82, %26, %18, %14, %11, %6
-  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -21, %82 ], [ -21, %86 ], [ -15, %94 ], [ -28, %._crit_edge ], [ -28, %32 ], [ 0, %93 ], [ 0, %66 ], [ 0, %62 ]
+  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -28, %32 ], [ -28, %._crit_edge ], [ -21, %82 ], [ -21, %86 ], [ -15, %94 ], [ 0, %93 ], [ 0, %66 ], [ 0, %62 ]
   ret i32 %.078
 }
 
@@ -3521,7 +3521,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br label %115
 
 115:                                              ; preds = %._crit_edge, %109, %.loopexit, %12, %9, %5
-  %.0 = phi i32 [ -20, %5 ], [ -22, %12 ], [ 0, %109 ], [ -21, %.loopexit ], [ -40, %9 ], [ -28, %._crit_edge ]
+  %.0 = phi i32 [ -20, %5 ], [ -22, %12 ], [ -40, %9 ], [ 0, %109 ], [ -21, %.loopexit ], [ -28, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3601,7 +3601,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef captures(address_is_
   br label %31
 
 31:                                               ; preds = %._crit_edge, %26, %20, %12, %8, %4
-  %.0 = phi i32 [ -20, %4 ], [ -22, %20 ], [ 0, %26 ], [ -50, %12 ], [ -40, %8 ], [ -28, %._crit_edge ]
+  %.0 = phi i32 [ -20, %4 ], [ -22, %20 ], [ -40, %8 ], [ 0, %26 ], [ -50, %12 ], [ -28, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3730,7 +3730,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(addre
   br i1 %57, label %48, label %.loopexit
 
 .loopexit:                                        ; preds = %48, %43, %27, %22, %16, %13, %9, %5
-  %.038 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -50, %13 ], [ -40, %9 ], [ 0, %43 ], [ 0, %48 ]
+  %.038 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -40, %9 ], [ -50, %13 ], [ 0, %43 ], [ 0, %48 ]
   ret i32 %.038
 }
 
@@ -3888,7 +3888,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef captures(addre
   br label %82
 
 82:                                               ; preds = %._crit_edge66, %36, %19, %16, %13, %9, %5
-  %.0 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %19 ], [ -22, %36 ], [ -50, %13 ], [ -40, %9 ], [ %., %._crit_edge66 ]
+  %.0 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %19 ], [ -22, %36 ], [ %., %._crit_edge66 ], [ -40, %9 ], [ -50, %13 ]
   ret i32 %.0
 }
 
@@ -4214,7 +4214,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %115
 
 115:                                              ; preds = %40, %._crit_edge, %103, %98, %93, %87, %82, %77, %69, %66, %45, %36, %5
-  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %._crit_edge ], [ 0, %40 ]
+  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ 0, %._crit_edge ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -5506,8 +5506,8 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %528
   br label %._crit_edge219.i.i
 
 ._crit_edge219.i.i:                               ; preds = %._crit_edge219.loopexit.i.i, %.preheader187.lr.ph.i.i, %.thread314.i.._crit_edge219.i_crit_edge.i
-  %688 = phi ptr [ %.pre368429.i, %._crit_edge219.loopexit.i.i ], [ %.pre368.i, %.preheader187.lr.ph.i.i ], [ %.pre.i, %.thread314.i.._crit_edge219.i_crit_edge.i ]
-  %.2163.lcssa.i.i = phi i32 [ %687, %._crit_edge219.loopexit.i.i ], [ 0, %.preheader187.lr.ph.i.i ], [ 0, %.thread314.i.._crit_edge219.i_crit_edge.i ]
+  %688 = phi ptr [ %.pre.i, %.thread314.i.._crit_edge219.i_crit_edge.i ], [ %.pre368429.i, %._crit_edge219.loopexit.i.i ], [ %.pre368.i, %.preheader187.lr.ph.i.i ]
+  %.2163.lcssa.i.i = phi i32 [ 0, %.thread314.i.._crit_edge219.i_crit_edge.i ], [ %687, %._crit_edge219.loopexit.i.i ], [ 0, %.preheader187.lr.ph.i.i ]
   %689 = load ptr, ptr %320, align 8, !tbaa !122
   %690 = call i32 @N_VScaleVectorArray(i32 noundef %.2163.lcssa.i.i, ptr noundef %689, ptr noundef %688, ptr noundef %688) #14
   br label %.thread.i.i
@@ -5896,7 +5896,7 @@ IDASensPredict.exit.i:                            ; preds = %732, %728
   br label %IDANls.exit.thread.i
 
 IDANls.exit.thread.i:                             ; preds = %857, %851, %803, %789, %787
-  %.0.i.ph.i = phi i32 [ -11, %851 ], [ %.1.i.i450, %803 ], [ 6, %789 ], [ -16, %787 ], [ 5, %857 ]
+  %.0.i.ph.i = phi i32 [ 5, %857 ], [ %.1.i.i450, %803 ], [ 6, %789 ], [ -16, %787 ], [ -11, %851 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %select.unfold.i
@@ -6046,9 +6046,9 @@ select.unfold.i:                                  ; preds = %IDATestError.exit.i
   br i1 %950, label %.backedge.sink.split.i, label %.backedge.i.backedge
 
 .backedge.sink.split.i:                           ; preds = %1390, %1247, %1075, %948
-  %.0268.be.ph.i = phi double [ %.3271.i, %1075 ], [ %.5273.ph.i, %1247 ], [ %.6274319.i, %1390 ], [ %.1269.ph.i, %948 ]
-  %.0251.be.ph.i = phi double [ %.3254.i, %1075 ], [ %.5256.ph.i, %1247 ], [ %.6257320.i, %1390 ], [ %.1252.ph.i, %948 ]
-  %.0247.be.ph.i = phi double [ %.3250.i, %1075 ], [ %.5.ph.i, %1247 ], [ %.6321.i, %1390 ], [ %.1248.ph.i, %948 ]
+  %.0268.be.ph.i = phi double [ %.5273.ph.i, %1247 ], [ %.3271.i, %1075 ], [ %.6274319.i, %1390 ], [ %.1269.ph.i, %948 ]
+  %.0251.be.ph.i = phi double [ %.5256.ph.i, %1247 ], [ %.3254.i, %1075 ], [ %.6257320.i, %1390 ], [ %.1252.ph.i, %948 ]
+  %.0247.be.ph.i = phi double [ %.5.ph.i, %1247 ], [ %.3250.i, %1075 ], [ %.6321.i, %1390 ], [ %.1248.ph.i, %948 ]
   %951 = load double, ptr %328, align 8, !tbaa !216
   store double %951, ptr %329, align 8, !tbaa !87
   %952 = load double, ptr %372, align 8, !tbaa !248
@@ -6075,9 +6075,9 @@ select.unfold.i:                                  ; preds = %IDATestError.exit.i
   br i1 %.not27.i, label %.backedge.i.backedge, label %962
 
 .backedge.i.backedge:                             ; preds = %960, %972, %.thread.i454, %1390, %1247, %1087, %1075, %948
-  %.0268.i.be = phi double [ %.2270.i, %1087 ], [ %.1269.ph.i, %948 ], [ %.3271.i, %1075 ], [ %.5273.ph.i, %1247 ], [ %.6274319.i, %1390 ], [ %.0268.be.ph.i, %.thread.i454 ], [ %.0268.be.ph.i, %972 ], [ %.0268.be.ph.i, %960 ]
-  %.0251.i.be = phi double [ %.2253.i, %1087 ], [ %.1252.ph.i, %948 ], [ %.3254.i, %1075 ], [ %.5256.ph.i, %1247 ], [ %.6257320.i, %1390 ], [ %.0251.be.ph.i, %.thread.i454 ], [ %.0251.be.ph.i, %972 ], [ %.0251.be.ph.i, %960 ]
-  %.0247.i.be = phi double [ %.2249.i, %1087 ], [ %.1248.ph.i, %948 ], [ %.3250.i, %1075 ], [ %.5.ph.i, %1247 ], [ %.6321.i, %1390 ], [ %.0247.be.ph.i, %.thread.i454 ], [ %.0247.be.ph.i, %972 ], [ %.0247.be.ph.i, %960 ]
+  %.0268.i.be = phi double [ %.5273.ph.i, %1247 ], [ %.3271.i, %1075 ], [ %.2270.i, %1087 ], [ %.1269.ph.i, %948 ], [ %.6274319.i, %1390 ], [ %.0268.be.ph.i, %972 ], [ %.0268.be.ph.i, %.thread.i454 ], [ %.0268.be.ph.i, %960 ]
+  %.0251.i.be = phi double [ %.5256.ph.i, %1247 ], [ %.3254.i, %1075 ], [ %.2253.i, %1087 ], [ %.1252.ph.i, %948 ], [ %.6257320.i, %1390 ], [ %.0251.be.ph.i, %972 ], [ %.0251.be.ph.i, %.thread.i454 ], [ %.0251.be.ph.i, %960 ]
+  %.0247.i.be = phi double [ %.5.ph.i, %1247 ], [ %.3250.i, %1075 ], [ %.2249.i, %1087 ], [ %.1248.ph.i, %948 ], [ %.6321.i, %1390 ], [ %.0247.be.ph.i, %972 ], [ %.0247.be.ph.i, %.thread.i454 ], [ %.0247.be.ph.i, %960 ]
   br label %.backedge.i
 
 962:                                              ; preds = %960, %958
@@ -6287,10 +6287,10 @@ IDAQuadTestError.exit.i:                          ; preds = %.sink.split.i160.i,
   br i1 %1073, label %IDAQuadNls.exit.thread.i, label %.thread294.i
 
 IDAQuadNls.exit.thread.i:                         ; preds = %IDAQuadTestError.exit.i, %997, %IDAQuadPredict.exit.i.i
-  %.3271.i = phi double [ %884, %IDAQuadPredict.exit.i.i ], [ %884, %997 ], [ %.8276.i, %IDAQuadTestError.exit.i ]
-  %.3254.i = phi double [ %.8259.i, %IDAQuadPredict.exit.i.i ], [ %.8259.i, %997 ], [ %.10261.i, %IDAQuadTestError.exit.i ]
-  %.3250.i = phi double [ %.8.i, %IDAQuadPredict.exit.i.i ], [ %.8.i, %997 ], [ %.11.i, %IDAQuadTestError.exit.i ]
-  %.1.i = phi i32 [ -31, %IDAQuadPredict.exit.i.i ], [ 10, %997 ], [ 7, %IDAQuadTestError.exit.i ]
+  %.3271.i = phi double [ %884, %997 ], [ %884, %IDAQuadPredict.exit.i.i ], [ %.8276.i, %IDAQuadTestError.exit.i ]
+  %.3254.i = phi double [ %.8259.i, %997 ], [ %.8259.i, %IDAQuadPredict.exit.i.i ], [ %.10261.i, %IDAQuadTestError.exit.i ]
+  %.3250.i = phi double [ %.8.i, %997 ], [ %.8.i, %IDAQuadPredict.exit.i.i ], [ %.11.i, %IDAQuadTestError.exit.i ]
+  %.1.i = phi i32 [ 10, %997 ], [ -31, %IDAQuadPredict.exit.i.i ], [ 7, %IDAQuadTestError.exit.i ]
   call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %563)
   %1074 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.1.i, double noundef %.3271.i, double noundef %.3254.i, ptr noundef %383, ptr noundef %11, ptr noundef %384, ptr noundef %12)
   %.not129.i = icmp eq i32 %1074, 20
@@ -6627,10 +6627,10 @@ IDASensWrmsNorm.exit99.i.i:                       ; preds = %.lr.ph.i93.i.i, %12
   br i1 %1245, label %select.unfold301.i, label %IDASensTestError.exit.i
 
 select.unfold301.i:                               ; preds = %1243, %1199, %1161, %IDASensNls.exit.thread.i
-  %.5273.ph.i = phi double [ %.9277.i, %1199 ], [ %.9277.i, %1161 ], [ %.2270.i, %IDASensNls.exit.thread.i ], [ %.9277.i, %1243 ]
-  %.5256.ph.i = phi double [ %.12263.i, %1199 ], [ %.2253.i, %1161 ], [ %.2253.i, %IDASensNls.exit.thread.i ], [ %.11262.i, %1243 ]
-  %.5.ph.i = phi double [ %.2249.i, %1199 ], [ %.2249.i, %1161 ], [ %.2249.i, %IDASensNls.exit.thread.i ], [ %.12.i, %1243 ]
-  %.2.ph.i = phi i32 [ -28, %1199 ], [ -28, %1161 ], [ %1105, %IDASensNls.exit.thread.i ], [ 7, %1243 ]
+  %.5273.ph.i = phi double [ %.2270.i, %IDASensNls.exit.thread.i ], [ %.9277.i, %1199 ], [ %.9277.i, %1161 ], [ %.9277.i, %1243 ]
+  %.5256.ph.i = phi double [ %.2253.i, %IDASensNls.exit.thread.i ], [ %.12263.i, %1199 ], [ %.2253.i, %1161 ], [ %.11262.i, %1243 ]
+  %.5.ph.i = phi double [ %.2249.i, %IDASensNls.exit.thread.i ], [ %.2249.i, %1199 ], [ %.2249.i, %1161 ], [ %.12.i, %1243 ]
+  %.2.ph.i = phi i32 [ %1105, %IDASensNls.exit.thread.i ], [ -28, %1199 ], [ -28, %1161 ], [ 7, %1243 ]
   call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %563)
   %1246 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.2.ph.i, double noundef %.5273.ph.i, double noundef %.5256.ph.i, ptr noundef %383, ptr noundef %11, ptr noundef %384, ptr noundef %12)
   %.not128.i = icmp eq i32 %1246, 20
@@ -6642,9 +6642,9 @@ select.unfold301.i:                               ; preds = %1243, %1199, %1161,
   br i1 %1249, label %.backedge.sink.split.i, label %.backedge.i.backedge
 
 IDASensTestError.exit.i:                          ; preds = %1243, %IDASensNls.exit.i, %.thread294.i
-  %.4272.i = phi double [ %.2270.i, %.thread294.i ], [ %.2270.i, %IDASensNls.exit.i ], [ %.9277.i, %1243 ]
-  %.4255.i = phi double [ %.2253.i, %.thread294.i ], [ %.2253.i, %IDASensNls.exit.i ], [ %.11262.i, %1243 ]
-  %.4.i = phi double [ %.2249.i, %.thread294.i ], [ %.2249.i, %IDASensNls.exit.i ], [ %.12.i, %1243 ]
+  %.4272.i = phi double [ %.2270.i, %.thread294.i ], [ %.9277.i, %1243 ], [ %.2270.i, %IDASensNls.exit.i ]
+  %.4255.i = phi double [ %.2253.i, %.thread294.i ], [ %.11262.i, %1243 ], [ %.2253.i, %IDASensNls.exit.i ]
+  %.4.i = phi double [ %.2249.i, %.thread294.i ], [ %.12.i, %1243 ], [ %.2249.i, %IDASensNls.exit.i ]
   %1250 = load i32, ptr %52, align 8, !tbaa !55
   %.not125.i = icmp eq i32 %1250, 0
   %.pre372.i = load i32, ptr %325, align 8, !tbaa !223
@@ -6908,10 +6908,10 @@ IDAQuadSensTestError.exit.IDAQuadSensTestError.exit.thread323_crit_edge.i: ; pre
   br label %IDAQuadSensTestError.exit.thread323.i
 
 IDAQuadSensTestError.exit.thread.i:               ; preds = %IDAQuadSensTestError.exit.i, %1385, %1347, %1316, %1279, %1278, %IDAQuadSensPredict.exit.i.i
-  %.3322.i = phi i32 [ -28, %IDAQuadSensTestError.exit.i ], [ -28, %1347 ], [ -28, %1316 ], [ -28, %1279 ], [ 12, %1278 ], [ -51, %IDAQuadSensPredict.exit.i.i ], [ 7, %1385 ]
-  %.6321.i = phi double [ %.4.i, %IDAQuadSensTestError.exit.i ], [ %.4.i, %1347 ], [ %.4.i, %1316 ], [ %.4.i, %1279 ], [ %.4.i, %1278 ], [ %.4.i, %IDAQuadSensPredict.exit.i.i ], [ %.16.i, %1385 ]
-  %.6257320.i = phi double [ %.4255.i, %IDAQuadSensTestError.exit.i ], [ %.15266.i, %1347 ], [ %.4255.i, %1316 ], [ %.4255.i, %1279 ], [ %.4255.i, %1278 ], [ %.4255.i, %IDAQuadSensPredict.exit.i.i ], [ %.14265.i, %1385 ]
-  %.6274319.i = phi double [ %.4272.i, %IDAQuadSensTestError.exit.i ], [ %.10278.i, %1347 ], [ %.10278.i, %1316 ], [ %.4272.i, %1279 ], [ %.4272.i, %1278 ], [ %.4272.i, %IDAQuadSensPredict.exit.i.i ], [ %.10278.i, %1385 ]
+  %.3322.i = phi i32 [ -28, %IDAQuadSensTestError.exit.i ], [ -28, %1279 ], [ -28, %1316 ], [ -28, %1347 ], [ 12, %1278 ], [ -51, %IDAQuadSensPredict.exit.i.i ], [ 7, %1385 ]
+  %.6321.i = phi double [ %.4.i, %IDAQuadSensTestError.exit.i ], [ %.4.i, %1279 ], [ %.4.i, %1316 ], [ %.4.i, %1347 ], [ %.4.i, %1278 ], [ %.4.i, %IDAQuadSensPredict.exit.i.i ], [ %.16.i, %1385 ]
+  %.6257320.i = phi double [ %.4255.i, %IDAQuadSensTestError.exit.i ], [ %.4255.i, %1279 ], [ %.4255.i, %1316 ], [ %.15266.i, %1347 ], [ %.4255.i, %1278 ], [ %.4255.i, %IDAQuadSensPredict.exit.i.i ], [ %.14265.i, %1385 ]
+  %.6274319.i = phi double [ %.4272.i, %IDAQuadSensTestError.exit.i ], [ %.4272.i, %1279 ], [ %.10278.i, %1316 ], [ %.10278.i, %1347 ], [ %.4272.i, %1278 ], [ %.4272.i, %IDAQuadSensPredict.exit.i.i ], [ %.10278.i, %1385 ]
   call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %563)
   %1389 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.3322.i, double noundef %.6274319.i, double noundef %.6257320.i, ptr noundef %383, ptr noundef %11, ptr noundef %384, ptr noundef %12)
   %.not127.i = icmp eq i32 %1389, 20
@@ -7178,8 +7178,8 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
   br label %.thread343.i.i
 
 .thread343.i.i:                                   ; preds = %1526, %1525, %1523, %1514, %.thread338.i.i, %.thread338.thread.i.i
-  %1527 = phi i32 [ %1509, %1525 ], [ %.pre-phi.i.i, %1526 ], [ %1393, %.thread338.i.i ], [ %1505, %1523 ], [ 1, %1514 ], [ %1393, %.thread338.thread.i.i ]
-  %.0284.i.i = phi double [ %1508, %1525 ], [ %.7258.i, %1526 ], [ %.7275.i, %.thread338.i.i ], [ %.7275.i, %1523 ], [ %.7275.i, %1514 ], [ %.7275.i, %.thread338.thread.i.i ]
+  %1527 = phi i32 [ %1509, %1525 ], [ %.pre-phi.i.i, %1526 ], [ %1393, %.thread338.i.i ], [ %1393, %.thread338.thread.i.i ], [ %1505, %1523 ], [ 1, %1514 ]
+  %.0284.i.i = phi double [ %1508, %1525 ], [ %.7258.i, %1526 ], [ %.7275.i, %.thread338.i.i ], [ %.7275.i, %.thread338.thread.i.i ], [ %.7275.i, %1523 ], [ %.7275.i, %1514 ]
   store double 1.000000e+00, ptr %372, align 8, !tbaa !248
   %1528 = call double @llvm.fmuladd.f64(double %.0284.i.i, double 2.000000e+00, double 1.000000e-04)
   %1529 = add nsw i32 %1527, 1
@@ -7602,7 +7602,7 @@ IDAStep.exit.thread:                              ; preds = %1683, %._crit_edge3
   br label %1727
 
 IDAStep.exit:                                     ; preds = %select.unfold.i, %IDAQuadNls.exit.thread.i, %select.unfold301.i, %IDAQuadSensTestError.exit.thread.i
-  %.0.i449 = phi i32 [ %1389, %IDAQuadSensTestError.exit.thread.i ], [ %1246, %select.unfold301.i ], [ %1074, %IDAQuadNls.exit.thread.i ], [ %947, %select.unfold.i ]
+  %.0.i449 = phi i32 [ %947, %select.unfold.i ], [ %1389, %IDAQuadSensTestError.exit.thread.i ], [ %1246, %select.unfold301.i ], [ %1074, %IDAQuadNls.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not425 = icmp eq i32 %.0.i449, 0
@@ -7788,7 +7788,7 @@ IDAStep.exit:                                     ; preds = %select.unfold.i, %I
   br label %IDAStopTest2.exit.thread
 
 IDAStopTest2.exit.thread:                         ; preds = %1804, %1814, %1811, %1791, %419, %443, %456, %468, %482, %.loopexit, %1749, %1754, %553, %546, %299, %230, %223, %71, %296, %293, %290, %264, %261, %258, %199, %178, %98, %90, %80, %62, %50, %33, %30, %26, %22, %19, %14
-  %.0365 = phi i32 [ -20, %14 ], [ -23, %19 ], [ -22, %22 ], [ -22, %26 ], [ -22, %30 ], [ -22, %33 ], [ -22, %50 ], [ -22, %62 ], [ -22, %80 ], [ -22, %90 ], [ -22, %98 ], [ -22, %178 ], [ -10, %199 ], [ -22, %258 ], [ -10, %261 ], [ 2, %264 ], [ 0, %290 ], [ 2, %293 ], [ -10, %296 ], [ %72, %71 ], [ -28, %223 ], [ -28, %230 ], [ %300, %299 ], [ -1, %419 ], [ -22, %443 ], [ -22, %456 ], [ -22, %468 ], [ -22, %482 ], [ -2, %553 ], [ -2, %546 ], [ %1723, %.loopexit ], [ 2, %1749 ], [ -10, %1754 ], [ 0, %1814 ], [ 0, %1811 ], [ 1, %1791 ], [ -22, %1804 ]
+  %.0365 = phi i32 [ -20, %14 ], [ -23, %19 ], [ -22, %22 ], [ -22, %26 ], [ -22, %30 ], [ -22, %33 ], [ -22, %50 ], [ -22, %62 ], [ -10, %296 ], [ -22, %80 ], [ -22, %90 ], [ -22, %98 ], [ -22, %178 ], [ -10, %199 ], [ %72, %71 ], [ -28, %223 ], [ -22, %258 ], [ -10, %261 ], [ 2, %264 ], [ 0, %290 ], [ -28, %230 ], [ %300, %299 ], [ 2, %293 ], [ -1, %419 ], [ -22, %443 ], [ -22, %456 ], [ -22, %468 ], [ -22, %482 ], [ -2, %553 ], [ -2, %546 ], [ %1723, %.loopexit ], [ 2, %1749 ], [ -10, %1754 ], [ 0, %1814 ], [ 0, %1811 ], [ 1, %1791 ], [ -22, %1804 ]
   ret i32 %.0365
 }
 
@@ -8190,7 +8190,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %207
 
 207:                                              ; preds = %201, %204, %40, %41, %206, %200, %194, %191, %185, %177, %165, %159, %154, %147, %142, %136, %134, %96, %89, %79, %73, %65, %63, %21, %17, %12
-  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -31, %63 ], [ -32, %65 ], [ -22, %73 ], [ -22, %79 ], [ -22, %89 ], [ -22, %96 ], [ -31, %134 ], [ -52, %136 ], [ -22, %147 ], [ -22, %154 ], [ -22, %159 ], [ -22, %165 ], [ -22, %177 ], [ -5, %191 ], [ -15, %194 ], [ -15, %200 ], [ -15, %206 ], [ -22, %185 ], [ -22, %142 ], [ -22, %41 ], [ -22, %40 ], [ 0, %204 ], [ 0, %201 ]
+  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -22, %142 ], [ -31, %63 ], [ -32, %65 ], [ -22, %73 ], [ -22, %79 ], [ -22, %89 ], [ -22, %96 ], [ -31, %134 ], [ -52, %136 ], [ -22, %147 ], [ -22, %154 ], [ -22, %159 ], [ -22, %165 ], [ -22, %177 ], [ -5, %191 ], [ -15, %194 ], [ -15, %200 ], [ -15, %206 ], [ -22, %40 ], [ -22, %185 ], [ -22, %41 ], [ 0, %204 ], [ 0, %201 ]
   ret i32 %.0
 }
 
@@ -8686,7 +8686,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %122, label %100, label %.loopexit
 
 .loopexit:                                        ; preds = %113, %119, %.preheader86, %.preheader85, %.preheader, %85, %._crit_edge, %5, %1
-  %.076 = phi i32 [ 0, %1 ], [ -10, %5 ], [ 0, %._crit_edge ], [ -10, %85 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 3, %113 ], [ %.3, %119 ]
+  %.076 = phi i32 [ -10, %5 ], [ 0, %1 ], [ 0, %._crit_edge ], [ -10, %85 ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 0, %.preheader ], [ %.3, %119 ], [ 3, %113 ]
   ret i32 %.076
 }
 
@@ -8856,7 +8856,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %102, label %.thread.i, label %103
 
 103:                                              ; preds = %98, %91, %88, %81, %71, %63
-  %.1224.i = phi i32 [ 1, %81 ], [ %.0223281.i, %71 ], [ %.0223281.i, %98 ], [ %.0223281.i, %91 ], [ %.0223281.i, %88 ], [ %.0223281.i, %63 ]
+  %.1224.i = phi i32 [ 1, %81 ], [ %.0223281.i, %71 ], [ %.0223281.i, %88 ], [ %.0223281.i, %98 ], [ %.0223281.i, %91 ], [ %.0223281.i, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %63
@@ -9108,7 +9108,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %243, label %.thread419.i, label %244
 
 244:                                              ; preds = %239, %232, %229, %222, %212, %204
-  %.3226.i = phi i32 [ 1, %222 ], [ %.2225289.i, %212 ], [ %.2225289.i, %239 ], [ %.2225289.i, %232 ], [ %.2225289.i, %229 ], [ %.2225289.i, %204 ]
+  %.3226.i = phi i32 [ 1, %222 ], [ %.2225289.i, %212 ], [ %.2225289.i, %229 ], [ %.2225289.i, %239 ], [ %.2225289.i, %232 ], [ %.2225289.i, %204 ]
   %indvars.iv.next336.i = add nuw nsw i64 %indvars.iv335.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next336.i, %wide.trip.count338.i
   br i1 %exitcond339.not.i, label %._crit_edge292.i, label %204
@@ -9658,7 +9658,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %83
 
 83:                                               ; preds = %52, %70, %58, %80, %69, %68, %57, %41, %39, %19
-  %.0 = phi i32 [ -22, %19 ], [ -22, %39 ], [ 1, %41 ], [ 0, %57 ], [ -22, %68 ], [ 0, %69 ], [ 0, %80 ], [ 99, %58 ], [ 99, %70 ], [ -22, %52 ]
+  %.0 = phi i32 [ -22, %19 ], [ -22, %39 ], [ 1, %41 ], [ 99, %70 ], [ 0, %57 ], [ -22, %68 ], [ 0, %69 ], [ 99, %58 ], [ 0, %80 ], [ -22, %52 ]
   ret i32 %.0
 }
 
@@ -9711,7 +9711,7 @@ define internal fastcc range(i32 -1, 1) i32 @IDAQuadEwtSet(ptr noundef readonly 
   br i1 %29, label %IDAQuadEwtSetSS.exit.sink.split, label %IDAQuadEwtSetSS.exit
 
 IDAQuadEwtSetSS.exit.sink.split:                  ; preds = %18, %27, %6, %15
-  %.sink = phi ptr [ %8, %15 ], [ %8, %6 ], [ %20, %27 ], [ %20, %18 ]
+  %.sink = phi ptr [ %8, %6 ], [ %8, %15 ], [ %20, %27 ], [ %20, %18 ]
   tail call void @N_VInv(ptr noundef %.sink, ptr noundef %2) #14
   br label %IDAQuadEwtSetSS.exit
 
@@ -9871,7 +9871,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr noundef readonly captures(none) %
   br i1 %96, label %74, label %IDASensEwtSetEE.exit
 
 IDASensEwtSetEE.exit:                             ; preds = %90, %86, %59, %55, %26, %15, %66, %34, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %34 ], [ 0, %66 ], [ -1, %15 ], [ 0, %26 ], [ -1, %55 ], [ 0, %59 ], [ -1, %86 ], [ 0, %90 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %66 ], [ -1, %55 ], [ 0, %6 ], [ -1, %15 ], [ 0, %34 ], [ 0, %26 ], [ 0, %59 ], [ -1, %86 ], [ 0, %90 ]
   ret i32 %.0
 }
 
@@ -10013,7 +10013,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr noundef readonly captures(non
   br i1 %85, label %67, label %IDAQuadSensEwtSetEE.exit
 
 IDAQuadSensEwtSetEE.exit:                         ; preds = %80, %77, %52, %49, %22, %.lr.ph.i, %58, %30, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %30 ], [ 0, %58 ], [ -1, %.lr.ph.i ], [ 0, %22 ], [ -1, %49 ], [ 0, %52 ], [ -1, %77 ], [ 0, %80 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %58 ], [ -1, %49 ], [ 0, %6 ], [ -1, %.lr.ph.i ], [ 0, %30 ], [ 0, %22 ], [ 0, %52 ], [ -1, %77 ], [ 0, %80 ]
   ret i32 %.0
 }
 
@@ -12130,7 +12130,7 @@ define internal fastcc void @IDARestore(ptr noundef nonnull initializes((1272, 1
   br label %._crit_edge131
 
 ._crit_edge131:                                   ; preds = %.thread208, %.preheader107.lr.ph, %._crit_edge131.loopexit
-  %.287.lcssa = phi i32 [ %92, %._crit_edge131.loopexit ], [ 0, %.preheader107.lr.ph ], [ 0, %.thread208 ]
+  %.287.lcssa = phi i32 [ 0, %.thread208 ], [ %92, %._crit_edge131.loopexit ], [ 0, %.preheader107.lr.ph ]
   %93 = load ptr, ptr %18, align 8, !tbaa !122
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %95 = load ptr, ptr %94, align 8, !tbaa !123
@@ -12387,7 +12387,7 @@ switch.lookup:                                    ; preds = %30
   br label %112
 
 112:                                              ; preds = %30, %switch.lookup, %16, %16, %16, %16, %16, %16, %94, %16, %98, %79, %48, %39, %17
-  %.0 = phi i32 [ -17, %17 ], [ 20, %39 ], [ 20, %48 ], [ 20, %79 ], [ 20, %98 ], [ %1, %16 ], [ -3, %94 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %switch.load, %switch.lookup ], [ -4, %30 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ -3, %94 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ %1, %16 ], [ -17, %17 ], [ %1, %16 ], [ %1, %16 ], [ 20, %98 ], [ 20, %79 ], [ 20, %48 ], [ 20, %39 ], [ -4, %30 ]
   ret i32 %.0
 }
 

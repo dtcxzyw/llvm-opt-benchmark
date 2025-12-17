@@ -393,7 +393,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   br label %xv_write_trailer.exit
 
 197:                                              ; preds = %130, %116, %96, %148
-  %.0115 = phi i32 [ -22, %148 ], [ -12, %96 ], [ -542398533, %116 ], [ -542398533, %130 ]
+  %.0115 = phi i32 [ -12, %96 ], [ -22, %148 ], [ -542398533, %116 ], [ -542398533, %130 ]
   %198 = load ptr, ptr %7, align 8, !tbaa !4
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 72
   %200 = load ptr, ptr %199, align 8, !tbaa !52
@@ -434,7 +434,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   br label %xv_write_trailer.exit
 
 xv_write_trailer.exit:                            ; preds = %218, %197, %151, %129, %40, %33, %22
-  %.0 = phi i32 [ -22, %22 ], [ 0, %151 ], [ -19, %129 ], [ -22, %40 ], [ -1163346256, %33 ], [ %.0115, %197 ], [ %.0115, %218 ]
+  %.0 = phi i32 [ -22, %22 ], [ -1163346256, %33 ], [ 0, %151 ], [ -19, %129 ], [ -22, %40 ], [ %.0115, %197 ], [ %.0115, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

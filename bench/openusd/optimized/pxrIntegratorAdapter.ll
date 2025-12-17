@@ -4828,7 +4828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %362, %_ZN
   br label %427
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.i.i, %339, %330
-  %374 = phi ptr [ %.pre26.i.i, %339 ], [ %.pre26.i.i, %330 ], [ %.pre27.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.i.i ]
+  %374 = phi ptr [ %.pre26.i.i, %339 ], [ %.pre27.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7TfTokenEEEbv.exit.i.i ], [ %.pre26.i.i, %330 ]
   %375 = ptrtoint ptr %374 to i64
   %.not.i.i15.i.i = icmp eq ptr %374, null
   %376 = and i64 %375, 3
@@ -5482,7 +5482,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %.body.i
 
 .body.i:                                          ; preds = %672, %668, %662, %427
-  %.pn.pn.i = phi { ptr, i32 } [ %663, %662 ], [ %.pn.i.i, %427 ], [ %.pn.i, %668 ], [ %.pn.i, %672 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i.i, %427 ], [ %663, %662 ], [ %.pn.i, %668 ], [ %.pn.i, %672 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #20
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #20
   br label %676

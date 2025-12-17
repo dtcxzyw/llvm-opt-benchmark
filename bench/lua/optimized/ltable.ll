@@ -389,7 +389,7 @@ resizearray.exit.thread:                          ; preds = %90
   br label %resizearray.exit
 
 resizearray.exit:                                 ; preds = %87, %100, %106, %108
-  %.0.i = phi ptr [ %89, %87 ], [ null, %100 ], [ %107, %108 ], [ %107, %106 ]
+  %.0.i = phi ptr [ %89, %87 ], [ %107, %106 ], [ null, %100 ], [ %107, %108 ]
   %123 = icmp eq ptr %.0.i, null
   %124 = icmp ne i32 %2, 0
   %125 = and i1 %124, %123
@@ -1293,57 +1293,57 @@ define internal fastcc ptr @getgeneric(ptr noundef readonly captures(none) %0, p
     i8 0, label %equalkey.exit.thread18
     i8 1, label %equalkey.exit.thread18
     i8 17, label %equalkey.exit.thread18
-    i8 3, label %23
-    i8 19, label %18
-    i8 2, label %14
-    i8 22, label %10
-    i8 84, label %equalkey.exit.us
+    i8 3, label %equalkey.exit.us
+    i8 19, label %24
+    i8 2, label %20
+    i8 22, label %16
+    i8 84, label %10
   ]
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %1, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  %.not30 = icmp eq ptr %11, %13
+  %14 = tail call i32 @luaS_eqlngstr(ptr noundef %11, ptr noundef %13) #13
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %equalkey.exit.thread.us, label %equalkey.exit.thread18
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %1, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %.not30 = icmp eq ptr %17, %19
   br i1 %.not30, label %equalkey.exit.thread18, label %equalkey.exit.thread.us
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %1, align 8, !tbaa !16
-  %16 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %.not31 = icmp eq ptr %15, %17
+20:                                               ; preds = %9
+  %21 = load ptr, ptr %1, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
+  %.not31 = icmp eq ptr %21, %23
   br i1 %.not31, label %equalkey.exit.thread18, label %equalkey.exit.thread.us
 
-18:                                               ; preds = %9
-  %19 = load double, ptr %1, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
-  %21 = load double, ptr %20, align 8, !tbaa !16
-  %22 = fcmp une double %19, %21
-  br i1 %22, label %equalkey.exit.thread.us, label %equalkey.exit.thread18
-
-23:                                               ; preds = %9
-  %24 = load i64, ptr %1, align 8, !tbaa !16
-  %25 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !16
-  %.not32 = icmp eq i64 %24, %26
-  br i1 %.not32, label %equalkey.exit.thread18, label %equalkey.exit.thread.us
+24:                                               ; preds = %9
+  %25 = load double, ptr %1, align 8, !tbaa !16
+  %26 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
+  %27 = load double, ptr %26, align 8, !tbaa !16
+  %28 = fcmp une double %25, %27
+  br i1 %28, label %equalkey.exit.thread.us, label %equalkey.exit.thread18
 
 .thread.i.us:                                     ; preds = %9
-  %27 = load ptr, ptr %1, align 8, !tbaa !16
-  %28 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %.not33 = icmp eq ptr %27, %29
+  %29 = load ptr, ptr %1, align 8, !tbaa !16
+  %30 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %.not33 = icmp eq ptr %29, %31
   br i1 %.not33, label %equalkey.exit.thread18, label %equalkey.exit.thread.us
 
 equalkey.exit.us:                                 ; preds = %9
-  %30 = load ptr, ptr %1, align 8, !tbaa !16
-  %31 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !16
-  %33 = tail call i32 @luaS_eqlngstr(ptr noundef %30, ptr noundef %32) #13
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %equalkey.exit.thread.us, label %equalkey.exit.thread18
+  %32 = load i64, ptr %1, align 8, !tbaa !16
+  %33 = getelementptr inbounds nuw i8, ptr %.012.us, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !16
+  %.not32 = icmp eq i64 %32, %34
+  br i1 %.not32, label %equalkey.exit.thread18, label %equalkey.exit.thread.us
 
-equalkey.exit.thread.us:                          ; preds = %10, %14, %18, %23, %.thread.i.us, %.split.us, %equalkey.exit.us
+equalkey.exit.thread.us:                          ; preds = %24, %20, %16, %10, %.thread.i.us, %.split.us, %equalkey.exit.us
   %35 = getelementptr inbounds nuw i8, ptr %.012.us, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %.not15.us = icmp eq i32 %36, 0
@@ -1371,57 +1371,57 @@ equalkey.exit.thread.us:                          ; preds = %10, %14, %18, %23, 
     i8 0, label %equalkey.exit.thread18
     i8 1, label %equalkey.exit.thread18
     i8 17, label %equalkey.exit.thread18
-    i8 3, label %46
-    i8 19, label %50
-    i8 2, label %55
-    i8 22, label %59
-    i8 84, label %equalkey.exit
+    i8 3, label %equalkey.exit
+    i8 19, label %46
+    i8 2, label %51
+    i8 22, label %55
+    i8 84, label %59
   ]
 
 46:                                               ; preds = %45
-  %47 = load i64, ptr %1, align 8, !tbaa !16
+  %47 = load double, ptr %1, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !16
-  %.not28 = icmp eq i64 %47, %49
-  br i1 %.not28, label %equalkey.exit.thread18, label %equalkey.exit.thread
+  %49 = load double, ptr %48, align 8, !tbaa !16
+  %50 = fcmp une double %47, %49
+  br i1 %50, label %equalkey.exit.thread, label %equalkey.exit.thread18
 
-50:                                               ; preds = %45
-  %51 = load double, ptr %1, align 8, !tbaa !16
-  %52 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %53 = load double, ptr %52, align 8, !tbaa !16
-  %54 = fcmp une double %51, %53
-  br i1 %54, label %equalkey.exit.thread, label %equalkey.exit.thread18
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %1, align 8, !tbaa !16
+  %53 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !16
+  %.not27 = icmp eq ptr %52, %54
+  br i1 %.not27, label %equalkey.exit.thread18, label %equalkey.exit.thread
 
 55:                                               ; preds = %45
   %56 = load ptr, ptr %1, align 8, !tbaa !16
   %57 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !16
-  %.not27 = icmp eq ptr %56, %58
-  br i1 %.not27, label %equalkey.exit.thread18, label %equalkey.exit.thread
+  %.not = icmp eq ptr %56, %58
+  br i1 %.not, label %equalkey.exit.thread18, label %equalkey.exit.thread
 
 59:                                               ; preds = %45
   %60 = load ptr, ptr %1, align 8, !tbaa !16
   %61 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !16
-  %.not = icmp eq ptr %60, %62
-  br i1 %.not, label %equalkey.exit.thread18, label %equalkey.exit.thread
+  %63 = tail call i32 @luaS_eqlngstr(ptr noundef %60, ptr noundef %62) #13
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %equalkey.exit.thread, label %equalkey.exit.thread18
 
 .thread.i:                                        ; preds = %45, %42
-  %63 = load ptr, ptr %1, align 8, !tbaa !16
-  %64 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !16
-  %.not29 = icmp eq ptr %63, %65
+  %65 = load ptr, ptr %1, align 8, !tbaa !16
+  %66 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !16
+  %.not29 = icmp eq ptr %65, %67
   br i1 %.not29, label %equalkey.exit.thread18, label %equalkey.exit.thread
 
 equalkey.exit:                                    ; preds = %45
-  %66 = load ptr, ptr %1, align 8, !tbaa !16
-  %67 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !16
-  %69 = tail call i32 @luaS_eqlngstr(ptr noundef %66, ptr noundef %68) #13
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %equalkey.exit.thread, label %equalkey.exit.thread18
+  %68 = load i64, ptr %1, align 8, !tbaa !16
+  %69 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %70 = load i64, ptr %69, align 8, !tbaa !16
+  %.not28 = icmp eq i64 %68, %70
+  br i1 %.not28, label %equalkey.exit.thread18, label %equalkey.exit.thread
 
-equalkey.exit.thread:                             ; preds = %59, %55, %50, %46, %.thread.i, %42, %equalkey.exit
+equalkey.exit.thread:                             ; preds = %46, %51, %55, %59, %.thread.i, %42, %equalkey.exit
   %71 = getelementptr inbounds nuw i8, ptr %.012, i64 12
   %72 = load i32, ptr %71, align 4, !tbaa !16
   %.not15 = icmp eq i32 %72, 0
@@ -1429,8 +1429,8 @@ equalkey.exit.thread:                             ; preds = %59, %55, %50, %46, 
   %74 = getelementptr inbounds %union.Node, ptr %.012, i64 %73
   br i1 %.not15, label %equalkey.exit.thread18, label %.split
 
-equalkey.exit.thread18:                           ; preds = %equalkey.exit.thread, %equalkey.exit, %45, %45, %45, %.thread.i, %46, %50, %55, %59, %9, %9, %9, %equalkey.exit.us, %equalkey.exit.thread.us, %.thread.i.us, %23, %18, %14, %10
-  %.us-phi = phi ptr [ %.012.us, %10 ], [ %.012.us, %14 ], [ %.012.us, %18 ], [ %.012.us, %23 ], [ %.012.us, %.thread.i.us ], [ @absentkey, %equalkey.exit.thread.us ], [ %.012.us, %equalkey.exit.us ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012, %59 ], [ %.012, %55 ], [ %.012, %50 ], [ %.012, %46 ], [ %.012, %.thread.i ], [ @absentkey, %equalkey.exit.thread ], [ %.012, %equalkey.exit ], [ %.012, %45 ], [ %.012, %45 ], [ %.012, %45 ]
+equalkey.exit.thread18:                           ; preds = %equalkey.exit.thread, %equalkey.exit, %45, %45, %45, %.thread.i, %59, %55, %51, %46, %9, %9, %9, %equalkey.exit.us, %equalkey.exit.thread.us, %.thread.i.us, %10, %16, %20, %24
+  %.us-phi = phi ptr [ %.012.us, %24 ], [ %.012.us, %20 ], [ %.012.us, %16 ], [ %.012.us, %10 ], [ %.012.us, %.thread.i.us ], [ %.012.us, %9 ], [ @absentkey, %equalkey.exit.thread.us ], [ %.012.us, %equalkey.exit.us ], [ %.012.us, %9 ], [ %.012.us, %9 ], [ %.012, %46 ], [ %.012, %51 ], [ %.012, %55 ], [ %.012, %59 ], [ %.012, %.thread.i ], [ @absentkey, %equalkey.exit.thread ], [ %.012, %equalkey.exit ], [ %.012, %45 ], [ %.012, %45 ], [ %.012, %45 ]
   ret ptr %.us-phi
 }
 
@@ -1657,7 +1657,7 @@ luaH_Hgetshortstr.exit:                           ; preds = %20, %24
   br label %retpsetcode.exit
 
 retpsetcode.exit:                                 ; preds = %56, %73, %70, %66, %45, %33
-  %.0 = phi i32 [ 0, %66 ], [ 0, %33 ], [ 0, %45 ], [ %80, %73 ], [ 1, %70 ], [ 1, %56 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %45 ], [ 0, %66 ], [ %80, %73 ], [ 1, %70 ], [ 1, %56 ]
   ret i32 %.0
 }
 
@@ -1963,7 +1963,7 @@ define hidden i32 @luaH_pset(ptr noundef captures(none) %0, ptr noundef readonly
   br label %finishnodeset.exit
 
 finishnodeset.exit:                               ; preds = %32, %30, %26, %17, %3, %11, %8
-  %.015 = phi i32 [ %10, %8 ], [ %13, %11 ], [ %19, %17 ], [ 1, %3 ], [ 0, %26 ], [ %40, %32 ], [ 1, %30 ]
+  %.015 = phi i32 [ 1, %3 ], [ %10, %8 ], [ %13, %11 ], [ %19, %17 ], [ 0, %26 ], [ %40, %32 ], [ 1, %30 ]
   ret i32 %.015
 }
 
@@ -2101,7 +2101,7 @@ getintfromhash.exit.i:                            ; preds = %66, %62
   br label %luaH_psetint.exit
 
 luaH_psetint.exit:                                ; preds = %82, %80, %76, %25, %33
-  %.1 = phi i32 [ 0, %25 ], [ %35, %33 ], [ 0, %76 ], [ %88, %82 ], [ 1, %80 ]
+  %.1 = phi i32 [ %35, %33 ], [ 0, %25 ], [ 0, %76 ], [ %88, %82 ], [ 1, %80 ]
   ret i32 %.1
 }
 
@@ -2291,9 +2291,9 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   br label %countint.exit.i.i
 
 countint.exit.i.i:                                ; preds = %54, %49, %44, %35
-  %62 = phi i32 [ %36, %44 ], [ %36, %49 ], [ %36, %54 ], [ 1, %35 ]
-  %63 = phi i32 [ %37, %44 ], [ %37, %49 ], [ %61, %54 ], [ %37, %35 ]
-  %.1.i.i = phi i32 [ %45, %44 ], [ %45, %49 ], [ %45, %54 ], [ %.01112.i.i, %35 ]
+  %62 = phi i32 [ %36, %54 ], [ %36, %44 ], [ %36, %49 ], [ 1, %35 ]
+  %63 = phi i32 [ %61, %54 ], [ %37, %44 ], [ %37, %49 ], [ %37, %35 ]
+  %.1.i.i = phi i32 [ %45, %54 ], [ %45, %44 ], [ %45, %49 ], [ %.01112.i.i, %35 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not.i.i, label %numusehash.exit.i, label %35

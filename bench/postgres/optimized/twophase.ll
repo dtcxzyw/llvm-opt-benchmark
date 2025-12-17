@@ -704,7 +704,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   br label %98
 
 98:                                               ; preds = %.thread, %.critedge
-  %.2 = phi i64 [ 0, %.critedge ], [ %86, %.thread ]
+  %.2 = phi i64 [ %86, %.thread ], [ 0, %.critedge ]
   ret i64 %.2
 }
 
@@ -3113,7 +3113,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %78, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.lr.ph.split, %52, %30, %34, %18, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ]
+  %.0 = phi ptr [ null, %30 ], [ null, %18 ], [ null, %22 ], [ null, %34 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -3945,8 +3945,8 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-45:                                               ; preds = %19, %.lr.ph, %43
-  %46 = phi ptr [ %12, %19 ], [ %12, %.lr.ph ], [ %.pre31, %43 ]
+45:                                               ; preds = %.lr.ph, %19, %43
+  %46 = phi ptr [ %12, %.lr.ph ], [ %12, %19 ], [ %.pre31, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8

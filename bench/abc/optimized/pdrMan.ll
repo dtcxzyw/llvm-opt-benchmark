@@ -126,8 +126,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink291 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
-  %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
+  %.sink291 = phi ptr [ %43, %42 ], [ %41, %40 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink = phi i32 [ 16, %42 ], [ 16, %40 ], [ %45, %48 ], [ %45, %50 ]
   store ptr %.sink291, ptr %13, align 8, !tbaa !30
   store i32 %.sink, ptr %5, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -690,7 +690,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %.critedge
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %.critedge, %Vec_IntAlloc.exit.i, %9
-  %.val159 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %8, %9 ], [ null, %.critedge ]
+  %.val159 = phi ptr [ %8, %9 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %.critedge ]
   tail call void @Gia_ManCreateRefs(ptr noundef nonnull %0) #14
   %.val129175 = load i32, ptr %4, align 8, !tbaa !3
   %12 = icmp sgt i32 %.val129175, 0
@@ -1423,7 +1423,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %Vec_PtrStart.exit
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %195, %Vec_IntAlloc.exit
-  %198 = phi ptr [ %197, %195 ], [ %177, %Vec_IntAlloc.exit ]
+  %198 = phi ptr [ %177, %Vec_IntAlloc.exit ], [ %197, %195 ]
   %199 = icmp sgt i32 %.val80, 0
   br i1 %199, label %.lr.ph.i, label %Vec_IntFill.exit
 

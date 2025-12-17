@@ -416,7 +416,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   br label %128
 
 128:                                              ; preds = %96, %93, %86, %54, %34, %.critedge, %.critedge119, %._crit_edge
-  %.1 = phi i32 [ %124, %._crit_edge ], [ -22, %.critedge119 ], [ -558323010, %.critedge ], [ %52, %34 ], [ -12, %54 ], [ -12, %86 ], [ 0, %93 ], [ %103, %96 ]
+  %.1 = phi i32 [ -558323010, %.critedge ], [ 0, %93 ], [ %124, %._crit_edge ], [ -12, %86 ], [ -12, %54 ], [ %52, %34 ], [ -22, %.critedge119 ], [ %103, %96 ]
   ret i32 %.1
 }
 
@@ -800,7 +800,7 @@ define internal noundef i32 @median_frames8(ptr noundef readonly captures(none) 
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.loopexit, %95, %110, %107
-  %.1237275.us = phi i32 [ %108, %107 ], [ %108, %110 ], [ %96, %95 ], [ %.1237275.us.ph, %.thread.us.loopexit ]
+  %.1237275.us = phi i32 [ %108, %110 ], [ %108, %107 ], [ %96, %95 ], [ %.1237275.us.ph, %.thread.us.loopexit ]
   %.not243.us = icmp eq i32 %.1237275.us, 0
   br i1 %.not243.us, label %170, label %95, !llvm.loop !95
 
@@ -1274,7 +1274,7 @@ define internal noundef i32 @median_frames16(ptr noundef readonly captures(none)
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.loopexit, %96, %111, %108
-  %.1237275.us = phi i32 [ %109, %108 ], [ %109, %111 ], [ %97, %96 ], [ %.1237275.us.ph, %.thread.us.loopexit ]
+  %.1237275.us = phi i32 [ %109, %111 ], [ %109, %108 ], [ %97, %96 ], [ %.1237275.us.ph, %.thread.us.loopexit ]
   %.not243.us = icmp eq i32 %.1237275.us, 0
   br i1 %.not243.us, label %171, label %96, !llvm.loop !109
 
@@ -1668,7 +1668,7 @@ update_index.exit:                                ; preds = %2, %22
   br label %79
 
 79:                                               ; preds = %57, %52, %31, %63, %55
-  %.0 = phi i32 [ %56, %55 ], [ %78, %63 ], [ 0, %31 ], [ -12, %52 ], [ -12, %57 ]
+  %.0 = phi i32 [ -12, %52 ], [ %56, %55 ], [ 0, %31 ], [ %78, %63 ], [ -12, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

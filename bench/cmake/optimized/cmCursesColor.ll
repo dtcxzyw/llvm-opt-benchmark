@@ -147,7 +147,7 @@ select.unfold:                                    ; preds = %33
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %28
-  %.148 = phi ptr [ %39, %select.unfold ], [ %32, %28 ]
+  %.148 = phi ptr [ %32, %28 ], [ %39, %select.unfold ]
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
   %.not39 = icmp ne i32 %41, 0
@@ -241,8 +241,8 @@ _ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit:
   %76 = load i16, ptr %75, align 2, !tbaa !29
   br label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread
 
-_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %55, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
-  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %55 ], [ %1, %..loopexit_crit_edge21.i.i.i.i ], [ %1, %.preheader ], [ %1, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %55, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
+  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %..loopexit_crit_edge21.i.i.i.i ], [ %1, %55 ], [ %1, %.preheader ], [ %1, %.lr.ph.i.i.i.i ]
   ret i16 %77
 }
 

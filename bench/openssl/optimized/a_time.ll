@@ -375,7 +375,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %or.cond159, label %.thread, label %153
 
 153:                                              ; preds = %.critedge, %135, %.split.loop.exit220
-  %.1127 = phi i32 [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit220 ], [ %150, %.critedge ]
+  %.1127 = phi i32 [ %150, %.critedge ], [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit220 ]
   %154 = sext i32 %.1127 to i64
   %155 = getelementptr inbounds i8, ptr %10, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !15
@@ -552,8 +552,8 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !30
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %.preheader.split, %203, %224, %209, %194, %179, %173, %.preheader.split.us, %238, %162, %7, %140, %141, %.critedge, %160, %243, %161, %245, %246, %2
-  %.0122 = phi i32 [ 0, %2 ], [ 1, %246 ], [ 1, %245 ], [ 0, %161 ], [ 0, %243 ], [ 0, %160 ], [ 0, %.critedge ], [ 0, %141 ], [ 0, %140 ], [ 0, %7 ], [ 0, %162 ], [ 0, %238 ], [ 0, %.preheader.split.us ], [ 0, %173 ], [ 0, %179 ], [ 0, %194 ], [ 0, %209 ], [ 0, %224 ], [ 0, %203 ], [ 0, %.preheader.split ], [ 0, %149 ], [ 0, %leap_year.exit ], [ 0, %50 ], [ 0, %59 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %209, %203, %.preheader.split, %224, %194, %179, %173, %.preheader.split.us, %238, %162, %7, %140, %141, %.critedge, %160, %243, %161, %245, %246, %2
+  %.0122 = phi i32 [ 1, %245 ], [ 0, %2 ], [ 1, %246 ], [ 0, %7 ], [ 0, %161 ], [ 0, %243 ], [ 0, %160 ], [ 0, %.critedge ], [ 0, %141 ], [ 0, %140 ], [ 0, %162 ], [ 0, %238 ], [ 0, %149 ], [ 0, %194 ], [ 0, %209 ], [ 0, %.preheader.split.us ], [ 0, %173 ], [ 0, %179 ], [ 0, %224 ], [ 0, %.preheader.split ], [ 0, %203 ], [ 0, %leap_year.exit ], [ 0, %50 ], [ 0, %59 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0122
 }
@@ -592,8 +592,8 @@ define dso_local noundef ptr @ossl_asn1_time_from_tm(ptr noundef %0, ptr noundef
   br i1 %or.cond.i46, label %54, label %12
 
 12:                                               ; preds = %3, %4, %8
-  %13 = phi i1 [ false, %8 ], [ %or.cond.i, %4 ], [ true, %3 ]
-  %.036 = phi i32 [ 23, %8 ], [ %.45, %4 ], [ %2, %3 ]
+  %13 = phi i1 [ %or.cond.i, %4 ], [ true, %3 ], [ false, %8 ]
+  %.036 = phi i32 [ %.45, %4 ], [ %2, %3 ], [ 23, %8 ]
   %14 = icmp eq ptr %0, null
   br i1 %14, label %15, label %.thread
 
@@ -1304,7 +1304,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
   br label %27
 
 27:                                               ; preds = %10, %24, %19, %17, %15, %ASN1_TIME_to_tm.exit
-  %.0 = phi i32 [ -2, %ASN1_TIME_to_tm.exit ], [ -2, %15 ], [ -2, %17 ], [ 1, %19 ], [ %., %24 ], [ -2, %10 ]
+  %.0 = phi i32 [ -2, %17 ], [ %., %24 ], [ 1, %19 ], [ -2, %15 ], [ -2, %ASN1_TIME_to_tm.exit ], [ -2, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1386,7 +1386,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %1
   br label %ossl_asn1_time_from_tm.exit
 
 ossl_asn1_time_from_tm.exit:                      ; preds = %41, %17, %9, %.thread.i, %1, %ASN1_TIME_to_tm.exit
-  %.0 = phi i32 [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %1 ], [ 1, %41 ], [ 0, %17 ], [ 0, %9 ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %ASN1_TIME_to_tm.exit ], [ 1, %41 ], [ 0, %17 ], [ 0, %9 ], [ 0, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1417,7 +1417,7 @@ define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef readonly ca
   br label %14
 
 14:                                               ; preds = %11, %6, %2
-  %.0 = phi i32 [ -2, %2 ], [ 1, %6 ], [ %., %11 ]
+  %.0 = phi i32 [ -2, %2 ], [ %., %11 ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

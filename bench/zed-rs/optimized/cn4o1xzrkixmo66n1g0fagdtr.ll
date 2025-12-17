@@ -1140,7 +1140,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   ret void
 
 67:                                               ; preds = %54, %49, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %lpad.phi.i.i, %46 ], [ %lpad.phi.i.i, %49 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %49 ], [ %55, %54 ], [ %lpad.phi.i.i, %46 ]
   %.val19 = load ptr, ptr %2, align 8, !nonnull !7, !align !28, !noundef !7
   %.val20 = load i64, ptr %20, align 8, !noundef !7
   store i64 %.val20, ptr %.val19, align 8

@@ -237,7 +237,7 @@ define internal i32 @mms_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br i1 %.not31, label %9, label %.thread34, !llvm.loop !34
 
 .thread34:                                        ; preds = %33, %27, %28, %31, %32
-  %.3 = phi i32 [ 0, %31 ], [ 0, %32 ], [ %29, %28 ], [ -5, %27 ], [ %.4, %33 ]
+  %.3 = phi i32 [ 0, %32 ], [ 0, %31 ], [ %29, %28 ], [ -5, %27 ], [ %.4, %33 ]
   ret i32 %.3
 }
 
@@ -651,8 +651,8 @@ get_tcp_server_response.exit:                     ; preds = %137, %get_tcp_serve
   %.not15 = icmp eq i32 %.1.i, %2
   br i1 %.not15, label %175, label %get_tcp_server_response.exit.thread
 
-get_tcp_server_response.exit.thread:              ; preds = %100, %111, %61, %70, %79, %87, %46, %43, %get_tcp_server_response.exit
-  %.1.i18 = phi i32 [ %.1.i, %get_tcp_server_response.exit ], [ -1094995529, %100 ], [ %112, %111 ], [ %62, %61 ], [ -1094995529, %70 ], [ %80, %79 ], [ -22, %87 ], [ -2, %46 ], [ -1, %43 ]
+get_tcp_server_response.exit.thread:              ; preds = %70, %79, %87, %61, %100, %43, %46, %111, %get_tcp_server_response.exit
+  %.1.i18 = phi i32 [ %.1.i, %get_tcp_server_response.exit ], [ -1094995529, %70 ], [ %80, %79 ], [ -22, %87 ], [ %62, %61 ], [ -1094995529, %100 ], [ -1, %43 ], [ -2, %46 ], [ %112, %111 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %.1.i18, i32 noundef %2) #7
   br label %175
 

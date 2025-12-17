@@ -2992,7 +2992,7 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   br label %26
 
 26:                                               ; preds = %.sink.split, %21, %16
-  %.065 = phi ptr [ %15, %16 ], [ %20, %21 ], [ %.sink73, %.sink.split ]
+  %.065 = phi ptr [ %20, %21 ], [ %15, %16 ], [ %.sink73, %.sink.split ]
   %27 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
   %28 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
   %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
@@ -3005,7 +3005,7 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.9, i32 noundef %11)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %23, %22, %17
+.critedge:                                        ; preds = %.critedge.sink.split, %22, %17, %23
   %32 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
   %33 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
   %34 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
@@ -3398,8 +3398,8 @@ define internal noundef zeroext i1 @dissect_s7comm(ptr noundef %0, ptr noundef %
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %62, %59, %56, %50, %15
-  %.091 = phi i32 [ 12, %50 ], [ 10, %15 ], [ 12, %56 ], [ 12, %59 ], [ 12, %62 ]
-  %.0 = phi i16 [ 0, %50 ], [ 0, %15 ], [ %51, %56 ], [ %51, %59 ], [ %51, %62 ]
+  %.091 = phi i32 [ 10, %15 ], [ 12, %50 ], [ 12, %56 ], [ 12, %59 ], [ 12, %62 ]
+  %.0 = phi i16 [ 0, %15 ], [ 0, %50 ], [ %51, %56 ], [ %51, %59 ], [ %51, %62 ]
   switch i8 %20, label %s7comm_decode_req_resp.exit [
     i8 1, label %66
     i8 3, label %66
@@ -3791,7 +3791,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   br label %95
 
 95:                                               ; preds = %92, %85
-  %.080.i = phi i16 [ %89, %85 ], [ %spec.select.i, %92 ]
+  %.080.i = phi i16 [ %spec.select.i, %92 ], [ %89, %85 ]
   %96 = zext i16 %.080.i to i32
   %97 = and i32 %96, 1
   %.not83.i = icmp eq i32 %97, 0
@@ -4170,10 +4170,10 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
   br label %319
 
 319:                                              ; preds = %.sink.split.i, %314, %313, %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
-  %320 = phi i8 [ %307, %314 ], [ %307, %313 ], [ %305, %302 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %307, %.sink.split.i ]
-  %321 = phi ptr [ %308, %314 ], [ %308, %313 ], [ %304, %302 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %308, %.sink.split.i ]
-  %.0172.i = phi ptr [ %312, %314 ], [ %312, %313 ], [ %0, %302 ], [ %0, %298 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %.0172.ph.i, %.sink.split.i ]
-  %.3.i = phi i32 [ 0, %314 ], [ 0, %313 ], [ %.2.i, %302 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ 0, %.sink.split.i ]
+  %320 = phi i8 [ %307, %313 ], [ %307, %314 ], [ %305, %302 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %307, %.sink.split.i ]
+  %321 = phi ptr [ %308, %313 ], [ %308, %314 ], [ %304, %302 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %308, %.sink.split.i ]
+  %.0172.i = phi ptr [ %312, %313 ], [ %312, %314 ], [ %0, %302 ], [ %0, %298 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %.0172.ph.i, %.sink.split.i ]
+  %.3.i = phi i32 [ 0, %313 ], [ 0, %314 ], [ %.2.i, %302 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ 0, %.sink.split.i ]
   store i8 %320, ptr %321, align 8
   %322 = call i32 @tvb_reported_length_remaining(ptr noundef %.0172.i, i32 noundef %.3.i)
   %323 = icmp eq i8 %.0200, 0
@@ -4746,7 +4746,7 @@ define internal fastcc i32 @s7comm_decode_response_read_data(ptr noundef %0, ptr
   br label %30
 
 30:                                               ; preds = %27, %22
-  %.2103 = phi i16 [ %25, %22 ], [ %spec.select131, %27 ]
+  %.2103 = phi i16 [ %spec.select131, %27 ], [ %25, %22 ]
   %31 = and i16 %.2103, 1
   %.not108 = icmp ne i16 %31, 0
   %32 = icmp samesign ugt i32 %9, %indvars.iv
@@ -6345,8 +6345,8 @@ s7comm_decode_ud_readrec.exit:                    ; preds = %64, %65, %74, %76, 
   %123 = add i32 %7, %6
   br label %.thread
 
-.thread:                                          ; preds = %34, %26, %41, %43, %s7comm_decode_ud_readrec.exit, %49, %120
-  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %59, %49 ], [ %32, %26 ], [ %.2, %34 ]
+.thread:                                          ; preds = %34, %26, %41, %43, %49, %s7comm_decode_ud_readrec.exit, %120
+  %.4 = phi i32 [ %123, %120 ], [ %24, %41 ], [ %47, %43 ], [ %59, %49 ], [ %.0.i, %s7comm_decode_ud_readrec.exit ], [ %32, %26 ], [ %.2, %34 ]
   ret i32 %.4
 }
 
@@ -6627,8 +6627,8 @@ define internal fastcc i32 @s7comm_decode_ud_block_subfunc(ptr noundef %0, ptr n
   %198 = add i32 %8, %7
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph250, %47, %16, %98, %100, %66, %91, %46, %34, %35, %195
-  %.7 = phi i32 [ %198, %195 ], [ %8, %98 ], [ %194, %100 ], [ %8, %66 ], [ %97, %91 ], [ %8, %46 ], [ %8, %34 ], [ %45, %35 ], [ %8, %16 ], [ %8, %47 ], [ %32, %.lr.ph250 ], [ %64, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph250, %47, %16, %98, %100, %91, %35, %66, %46, %34, %195
+  %.7 = phi i32 [ %198, %195 ], [ %8, %98 ], [ %194, %100 ], [ %97, %91 ], [ %45, %35 ], [ %8, %66 ], [ %8, %46 ], [ %8, %34 ], [ %8, %16 ], [ %8, %47 ], [ %32, %.lr.ph250 ], [ %64, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -6945,7 +6945,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %158, %29
-  %.1.lcssa = phi i32 [ %37, %29 ], [ %.5.us, %158 ], [ %171, %.lr.ph.split.split.us ], [ %37, %.lr.ph.split.split ]
+  %.1.lcssa = phi i32 [ %37, %29 ], [ %171, %.lr.ph.split.split.us ], [ %.5.us, %158 ], [ %37, %.lr.ph.split.split ]
   %177 = sub i32 %.1.lcssa, %5
   tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %177)
   ret i32 %.1.lcssa
@@ -7347,8 +7347,8 @@ define internal fastcc noundef i32 @s7comm_decode_ud_time_subfunc(ptr noundef %0
   %23 = add i32 %6, %5
   br label %.thread
 
-.thread:                                          ; preds = %16, %18, %10, %12, %20
-  %.3 = phi i32 [ %23, %20 ], [ %6, %16 ], [ %19, %18 ], [ %6, %10 ], [ %13, %12 ]
+.thread:                                          ; preds = %16, %18, %12, %10, %20
+  %.3 = phi i32 [ %23, %20 ], [ %6, %16 ], [ %19, %18 ], [ %13, %12 ], [ %6, %10 ]
   ret i32 %.3
 }
 
@@ -8798,7 +8798,7 @@ default.unreachable:                              ; preds = %592
   unreachable
 
 s7comm_decode_ud_tis_istack.exit:                 ; preds = %631, %tailrecurse, %.lr.ph68.i94, %.lr.ph68.i, %.lr.ph, %.lr.ph.i70, %.lr.ph36.i, %388, %.preheader, %730, %._crit_edge.i86, %712, %702, %701, %697, %._crit_edge.i, %679, %669, %668, %659, %658, %632, %603, %.loopexit, %582, %574, %573, %478, %477, %.sink.split.i, %427, %399, %392, %383, %330, %326, %324, %312, %15, %14, %s7comm_decode_ud_tis_blockstat.exit, %734
-  %.0 = phi i32 [ %737, %734 ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %14 ], [ %18, %15 ], [ %323, %312 ], [ %.tr102, %324 ], [ %329, %326 ], [ %387, %383 ], [ %.tr102, %330 ], [ %398, %392 ], [ %426, %399 ], [ %.tr102, %427 ], [ %476, %.sink.split.i ], [ %484, %478 ], [ %.tr102, %477 ], [ %.tr102, %573 ], [ %579, %574 ], [ %587, %582 ], [ %602, %.loopexit ], [ %609, %603 ], [ %.tr102, %632 ], [ %667, %659 ], [ %.4.i, %658 ], [ %.tr102, %668 ], [ %700, %697 ], [ %695, %._crit_edge.i ], [ %674, %669 ], [ %684, %679 ], [ %.tr102, %701 ], [ %733, %730 ], [ %728, %._crit_edge.i86 ], [ %707, %702 ], [ %717, %712 ], [ %.tr102, %.preheader ], [ %.2.i, %388 ], [ %580, %.lr.ph36.i ], [ %588, %.lr.ph.i70 ], [ %646, %.lr.ph ], [ %677, %.lr.ph68.i ], [ %710, %.lr.ph68.i94 ], [ %.1.i75, %631 ], [ %.tr102, %tailrecurse ]
+  %.0 = phi i32 [ %737, %734 ], [ %323, %312 ], [ %426, %399 ], [ %476, %.sink.split.i ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %477 ], [ %.4.i, %658 ], [ %.tr102, %14 ], [ %18, %15 ], [ %.tr102, %324 ], [ %329, %326 ], [ %387, %383 ], [ %.tr102, %330 ], [ %398, %392 ], [ %.tr102, %427 ], [ %484, %478 ], [ %.tr102, %573 ], [ %579, %574 ], [ %587, %582 ], [ %602, %.loopexit ], [ %609, %603 ], [ %717, %712 ], [ %.tr102, %632 ], [ %667, %659 ], [ %.tr102, %668 ], [ %700, %697 ], [ %695, %._crit_edge.i ], [ %674, %669 ], [ %684, %679 ], [ %.tr102, %701 ], [ %733, %730 ], [ %728, %._crit_edge.i86 ], [ %707, %702 ], [ %.tr102, %.preheader ], [ %646, %.lr.ph ], [ %677, %.lr.ph68.i ], [ %710, %.lr.ph68.i94 ], [ %.2.i, %388 ], [ %580, %.lr.ph36.i ], [ %588, %.lr.ph.i70 ], [ %.1.i75, %631 ], [ %.tr102, %tailrecurse ]
   ret i32 %.0
 }
 

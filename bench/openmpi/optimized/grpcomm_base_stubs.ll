@@ -291,7 +291,7 @@ pack_xcast.exit:                                  ; preds = %37, %42, %47, %63, 
   br label %86
 
 86:                                               ; preds = %.loopexit, %85, %72, %74, %31
-  %.024 = phi i32 [ %30, %31 ], [ %.0.i, %74 ], [ %.0.i, %72 ], [ %.1, %85 ], [ %.1, %.loopexit ]
+  %.024 = phi i32 [ %30, %31 ], [ %.0.i, %72 ], [ %.0.i, %74 ], [ %.1, %85 ], [ %.1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.024
@@ -577,7 +577,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %129, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %pmix_obj_new_tma.exit, %pmix_pointer_array_get_item.exit
-  %151 = phi ptr [ %.pre172, %pmix_obj_new_tma.exit ], [ %89, %pmix_pointer_array_get_item.exit ], [ %89, %104 ]
+  %151 = phi ptr [ %89, %pmix_pointer_array_get_item.exit ], [ %.pre172, %pmix_obj_new_tma.exit ], [ %89, %104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 160
   %153 = load ptr, ptr %152, align 8, !tbaa !66
@@ -727,7 +727,7 @@ pmix_obj_new_tma.exit125:                         ; preds = %.lr.ph.i.i122, %207
   br i1 %228, label %48, label %.loopexit152, !llvm.loop !91
 
 .loopexit152.sink.split:                          ; preds = %188, %184, %pmix_pointer_array_get_item.exit118, %175, %170, %48, %96, %61
-  %.sink207 = phi i32 [ 411, %61 ], [ 426, %96 ], [ 399, %48 ], [ 457, %170 ], [ 457, %175 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 462, %184 ], [ 462, %188 ]
+  %.sink207 = phi i32 [ 411, %61 ], [ 426, %96 ], [ 399, %48 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 457, %170 ], [ 457, %175 ], [ 462, %184 ], [ 462, %188 ]
   %229 = call ptr @prte_strerror(i32 noundef -13) #14
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %229, ptr noundef nonnull @.str.2, i32 noundef %.sink207) #14
   br label %.loopexit152
@@ -2350,7 +2350,7 @@ pmix_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %._cri
   br label %461
 
 461:                                              ; preds = %.loopexit241, %._crit_edge273, %pmix_obj_run_destructors.exit235, %308, %206, %208, %214, %34, %281
-  %.0 = phi ptr [ null, %281 ], [ %.0146249, %34 ], [ null, %214 ], [ null, %208 ], [ null, %206 ], [ %.1, %308 ], [ %.1, %pmix_obj_run_destructors.exit235 ], [ %.1, %._crit_edge273 ], [ %.1, %.loopexit241 ]
+  %.0 = phi ptr [ %.0146249, %34 ], [ null, %206 ], [ null, %281 ], [ null, %214 ], [ null, %208 ], [ %.1, %308 ], [ %.1, %pmix_obj_run_destructors.exit235 ], [ %.1, %._crit_edge273 ], [ %.1, %.loopexit241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -2411,14 +2411,14 @@ define noundef i32 @prte_pack_ctrl_options(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 .sink.split:                                      ; preds = %12, %9, %3
-  %.sink26 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ]
-  %.sink25 = phi i32 [ 581, %3 ], [ 588, %9 ], [ 598, %12 ]
+  %.sink26 = phi i32 [ %11, %9 ], [ %6, %3 ], [ %13, %12 ]
+  %.sink25 = phi i32 [ 588, %9 ], [ 581, %3 ], [ 598, %12 ]
   %14 = call ptr @PMIx_Error_string(i32 noundef %.sink26) #14
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %.sink25) #14
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %12, %9, %3
-  %.0 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ], [ %13, %12 ], [ %.sink26, %.sink.split ]
+  %.0 = phi i32 [ %11, %9 ], [ %13, %12 ], [ %13, %12 ], [ %6, %3 ], [ %.sink26, %.sink.split ]
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

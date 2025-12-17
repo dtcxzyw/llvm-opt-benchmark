@@ -708,7 +708,7 @@ define noundef zeroext i1 @_ZN4raft7storage9RaftState11initialized17h641513b01fb
           to label %37 unwind label %35
 
 "_ZN79_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26072f5ee8a8a0a9E.exit": ; preds = %25, %20, %.noexc17, %.noexc16, %.noexc15, %.noexc, %30
-  %.sroa.0.0.i = phi i1 [ false, %20 ], [ false, %.noexc17 ], [ false, %.noexc16 ], [ false, %.noexc15 ], [ false, %.noexc ], [ %.mux.i, %25 ], [ %31, %30 ]
+  %.sroa.0.0.i = phi i1 [ false, %.noexc ], [ %.mux.i, %25 ], [ false, %20 ], [ false, %.noexc17 ], [ false, %.noexc16 ], [ false, %.noexc15 ], [ %31, %30 ]
   %34 = xor i1 %.sroa.0.0.i, true
   call void @"_ZN4core3ptr59drop_in_place$LT$raft_proto..protos..eraftpb..ConfState$GT$17ha377c4a61da832f2E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -751,7 +751,7 @@ define noundef zeroext i1 @_ZN4raft7storage17GetEntriesContext9can_async17h6db9f
   br label %8
 
 8:                                                ; preds = %1, %4, %3
-  %.sroa.0.0 = phi i1 [ true, %3 ], [ %7, %4 ], [ false, %1 ]
+  %.sroa.0.0 = phi i1 [ %7, %4 ], [ true, %3 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 
@@ -959,7 +959,7 @@ define void @_ZN4raft7storage14MemStorageCore14apply_snapshot17h72956bdf1a3439f8
   br label %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit
 
 .body:                                            ; preds = %83, %39, %.body.i, %26, %93, %68
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %69, %68 ], [ %27, %26 ], [ %40, %39 ], [ %.pn.i, %.body.i ], [ %86, %83 ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %69, %68 ], [ %.pn.i, %.body.i ], [ %27, %26 ], [ %40, %39 ], [ %86, %83 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$raft_proto..protos..eraftpb..SnapshotMetadata$GT$17hf25c2512d821b307E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #21
           to label %10 unwind label %97
 
@@ -1813,7 +1813,7 @@ define void @"_ZN68_$LT$raft..storage..MemStorage$u20$as$u20$raft..storage..Stor
   br label %.body
 
 .body:                                            ; preds = %23, %29, %37, %41
-  %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %24, %23 ], [ %30, %29 ], [ %38, %37 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %30, %29 ], [ %24, %23 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$raft..storage..MemStorageCore$GT$$GT$17h2dd74bb6dc5a8dc2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #21
           to label %47 unwind label %45
 
@@ -2507,7 +2507,7 @@ define noundef zeroext i1 @_ZN4raft7tracker8progress8Progress13maybe_decr_to17h7
   br label %27
 
 27:                                               ; preds = %28, %22, %24, %8, %18, %40
-  %.sroa.0.0 = phi i1 [ true, %40 ], [ false, %18 ], [ false, %8 ], [ true, %24 ], [ true, %22 ], [ false, %28 ]
+  %.sroa.0.0 = phi i1 [ true, %40 ], [ false, %8 ], [ true, %22 ], [ false, %18 ], [ true, %24 ], [ false, %28 ]
   ret i1 %.sroa.0.0
 
 28:                                               ; preds = %12

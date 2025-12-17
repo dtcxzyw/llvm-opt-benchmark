@@ -289,9 +289,9 @@ define internal range(i32 -2147483648, 268435453) i32 @decode_frame(ptr noundef 
   br label %get_vlc2.exit.i.i.i
 
 get_vlc2.exit.i.i.i:                              ; preds = %137, %129
-  %.064.i.i.i.i = phi i32 [ %139, %137 ], [ %117, %129 ]
-  %.062.i.i.i.i = phi i32 [ %153, %137 ], [ %132, %129 ]
-  %.0.i.i.i.i = phi i32 [ %156, %137 ], [ %135, %129 ]
+  %.064.i.i.i.i = phi i32 [ %117, %129 ], [ %139, %137 ]
+  %.062.i.i.i.i = phi i32 [ %132, %129 ], [ %153, %137 ]
+  %.0.i.i.i.i = phi i32 [ %135, %129 ], [ %156, %137 ]
   %157 = add i32 %.0.i.i.i.i, %.064.i.i.i.i
   br label %187
 
@@ -328,9 +328,9 @@ get_vlc2.exit.i.i.i:                              ; preds = %137, %129
   br label %get_vlc2.exit10.i.i.i
 
 get_vlc2.exit10.i.i.i:                            ; preds = %166, %158
-  %.064.i7.i.i.i = phi i32 [ %168, %166 ], [ %117, %158 ]
-  %.062.i8.i.i.i = phi i32 [ %182, %166 ], [ %161, %158 ]
-  %.0.i9.i.i.i = phi i32 [ %185, %166 ], [ %164, %158 ]
+  %.064.i7.i.i.i = phi i32 [ %117, %158 ], [ %168, %166 ]
+  %.062.i8.i.i.i = phi i32 [ %161, %158 ], [ %182, %166 ]
+  %.0.i9.i.i.i = phi i32 [ %164, %158 ], [ %185, %166 ]
   %186 = add i32 %.0.i9.i.i.i, %.064.i7.i.i.i
   br label %187
 
@@ -620,7 +620,7 @@ idct_put.exit:                                    ; preds = %decode_mb.exit, %35
   br label %decode_mb.exit.thread
 
 decode_mb.exit.thread:                            ; preds = %316, %mdec_decode_block_intra.exit.thread.sink.split.i, %18, %13, %4, %._crit_edge55
-  %.0 = phi i32 [ %379, %._crit_edge55 ], [ %11, %4 ], [ -12, %13 ], [ -1094995529, %18 ], [ -1094995529, %mdec_decode_block_intra.exit.thread.sink.split.i ], [ -1094995529, %316 ]
+  %.0 = phi i32 [ %11, %4 ], [ -12, %13 ], [ -1094995529, %18 ], [ %379, %._crit_edge55 ], [ -1094995529, %mdec_decode_block_intra.exit.thread.sink.split.i ], [ -1094995529, %316 ]
   ret i32 %.0
 }
 

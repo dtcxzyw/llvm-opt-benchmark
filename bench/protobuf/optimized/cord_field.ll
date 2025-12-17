@@ -804,7 +804,7 @@ lpad:                                             ; preds = %invoke.cont50.i, %c
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad.i45.i, %ehcleanup.i, %lpad16.i, %lpad25.i, %lpad31.i, %ehcleanup63.i, %cleanup.action72.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %62, %lpad ], [ %14, %lpad.i.i ], [ %29, %lpad.i45.i ], [ %.pn15.pn.ph.i, %cleanup.action72.i ], [ %58, %lpad31.i ], [ %57, %lpad25.i ], [ %56, %lpad16.i ], [ %.pn.i, %ehcleanup.i ], [ %61, %ehcleanup63.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %62, %lpad ], [ %14, %lpad.i.i ], [ %29, %lpad.i45.i ], [ %.pn15.pn.ph.i, %cleanup.action72.i ], [ %.pn.i, %ehcleanup.i ], [ %58, %lpad31.i ], [ %57, %lpad25.i ], [ %56, %lpad16.i ], [ %61, %ehcleanup63.i ]
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this) #27
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -2433,8 +2433,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

@@ -629,10 +629,6 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit:    ; preds = %23
   %34 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0, i32 noundef %33)
           to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
-_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge: ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit, %_ZN6icu_7713UnicodeString6appendEDs.exit58, %_ZN6icu_7713UnicodeString6appendEDs.exit, %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit, %.preheader.i
-  %.046.ph.be = phi i32 [ %63, %.preheader.i ], [ %.pre, %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit ], [ %37, %_ZN6icu_7713UnicodeString6appendEDs.exit ], [ %37, %_ZN6icu_7713UnicodeString6appendEDs.exit58 ], [ %27, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit ]
-  br label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer, !llvm.loop !15
-
 35:                                               ; preds = %21
   %36 = load i32, ptr %15, align 4, !tbaa !13
   %37 = load i32, ptr %16, align 8, !tbaa !14
@@ -665,6 +661,10 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit56:  ; preds = %44
 _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit56
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge
+
+_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge: ; preds = %_ZN6icu_7713UnicodeString6appendEDs.exit, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit, %_ZN6icu_7713UnicodeString6appendEDs.exit58, %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit, %.preheader.i
+  %.046.ph.be = phi i32 [ %63, %.preheader.i ], [ %.pre, %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit ], [ %37, %_ZN6icu_7713UnicodeString6appendEDs.exit58 ], [ %27, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit ], [ %37, %_ZN6icu_7713UnicodeString6appendEDs.exit ]
+  br label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer, !llvm.loop !15
 
 48:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit57, %55, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit56, %44, %52, %50, %41, %39, %35
   %49 = landingpad { ptr, i32 }

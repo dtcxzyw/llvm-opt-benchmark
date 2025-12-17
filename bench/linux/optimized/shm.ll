@@ -2051,7 +2051,7 @@ define dso_local noundef range(i64 -22, 1) i64 @ksys_shmdt(ptr noundef %0) local
   br i1 %79, label %.thread, label %.preheader, !llvm.loop !28
 
 .thread:                                          ; preds = %38, %77, %.preheader, %24, %41
-  %80 = phi i64 [ 0, %41 ], [ -22, %24 ], [ 0, %.preheader ], [ 0, %77 ], [ -22, %38 ]
+  %80 = phi i64 [ 0, %41 ], [ -22, %24 ], [ 0, %77 ], [ 0, %.preheader ], [ -22, %38 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #12
           to label %82 [label %81], !srcloc !25
 
@@ -3012,7 +3012,7 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   br label %99
 
 .thread:                                          ; preds = %45, %39, %.thread7, %82, %79, %74, %.thread8, %51, %23
-  %96 = phi i32 [ 0, %51 ], [ 0, %82 ], [ -43, %23 ], [ 0, %79 ], [ 0, %74 ], [ %72, %.thread8 ], [ 0, %.thread7 ], [ -1, %39 ], [ -1, %45 ]
+  %96 = phi i32 [ 0, %51 ], [ 0, %82 ], [ 0, %.thread7 ], [ -43, %23 ], [ 0, %79 ], [ 0, %74 ], [ %72, %.thread8 ], [ -1, %39 ], [ -1, %45 ]
   tail call void @_raw_spin_unlock(ptr noundef %5) #12
   br label %97
 

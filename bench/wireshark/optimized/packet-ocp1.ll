@@ -1350,7 +1350,7 @@ dissect_ocp1_msg_keepalive.exit:                  ; preds = %298, %303
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %dissect_ocp1_msg_response.exit.i, %dissect_ocp1_msg_notification.exit.i, %dissect_ocp1_msg_command.exit.i, %.preheader151.i, %.preheader149.i, %.preheader.i, %dissect_ocp1_msg_keepalive.exit, %306, %297, %295, %242, %159, %73
-  %.2134.i = phi i32 [ 0, %73 ], [ 0, %159 ], [ 0, %242 ], [ 0, %295 ], [ 0, %297 ], [ %50, %306 ], [ %50, %dissect_ocp1_msg_keepalive.exit ], [ %50, %.preheader.i ], [ %50, %.preheader149.i ], [ %50, %.preheader151.i ], [ %50, %dissect_ocp1_msg_command.exit.i ], [ %50, %dissect_ocp1_msg_notification.exit.i ], [ %50, %dissect_ocp1_msg_response.exit.i ]
+  %.2134.i = phi i32 [ 0, %297 ], [ 0, %73 ], [ 0, %159 ], [ 0, %242 ], [ 0, %295 ], [ %50, %306 ], [ %50, %dissect_ocp1_msg_keepalive.exit ], [ %50, %.preheader.i ], [ %50, %.preheader149.i ], [ %50, %.preheader151.i ], [ %50, %dissect_ocp1_msg_notification.exit.i ], [ %50, %dissect_ocp1_msg_command.exit.i ], [ %50, %dissect_ocp1_msg_response.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_ocp1_pdu.exit
 
@@ -4428,7 +4428,7 @@ define internal fastcc noundef zeroext i1 @test_ocp1(ptr noundef %0) unnamed_add
   br label %25
 
 25:                                               ; preds = %24, %21, %11, %9, %7, %4, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ false, %11 ], [ true, %24 ], [ false, %21 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %1 ], [ false, %4 ], [ false, %7 ], [ false, %9 ], [ true, %24 ], [ false, %21 ]
   ret i1 %.0
 }
 

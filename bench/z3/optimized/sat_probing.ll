@@ -738,7 +738,7 @@ _ZNK6vectorIN3sat7probing11cache_entryELb1EjE8capacityEv.exit.thread.i.i: ; pred
   br i1 %.not12.i.i, label %_ZN6vectorIN3sat7probing11cache_entryELb1EjE7reserveEj.exit, label %.lr.ph.i.i, !llvm.loop !68
 
 _ZN6vectorIN3sat7probing11cache_entryELb1EjE7reserveEj.exit: ; preds = %.lr.ph.i.i, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.thread.i, %26
-  %34 = phi ptr [ %16, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.thread.i ], [ %21, %26 ], [ %21, %.lr.ph.i.i ]
+  %34 = phi ptr [ %21, %26 ], [ %16, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.thread.i ], [ %21, %.lr.ph.i.i ]
   %35 = zext i32 %1 to i64
   %36 = getelementptr inbounds nuw %"struct.sat::probing::cache_entry", ptr %34, i64 %35
   store i8 1, ptr %36, align 8, !tbaa !63
@@ -1921,9 +1921,9 @@ _ZNK6vectorIN3sat7watchedELb1EjE4sizeEv.exit:     ; preds = %191
   %233 = load i32, ptr %232, align 4, !tbaa !52
   br label %234
 
-234:                                              ; preds = %.lr.ph71, %211, %215, %228, %231
-  %235 = phi ptr [ %224, %228 ], [ %224, %231 ], [ %201, %215 ], [ %201, %211 ], [ %201, %.lr.ph71 ]
-  %.134.ph = phi i32 [ 0, %228 ], [ %233, %231 ], [ %.03370, %215 ], [ %.03370, %211 ], [ %.03370, %.lr.ph71 ]
+234:                                              ; preds = %.lr.ph71, %215, %211, %228, %231
+  %235 = phi ptr [ %224, %228 ], [ %224, %231 ], [ %201, %211 ], [ %201, %215 ], [ %201, %.lr.ph71 ]
+  %.134.ph = phi i32 [ 0, %228 ], [ %233, %231 ], [ %.03370, %211 ], [ %.03370, %215 ], [ %.03370, %.lr.ph71 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %236 = zext i32 %.134.ph to i64
   %237 = icmp samesign ult i64 %indvars.iv.next77, %236
@@ -2190,7 +2190,7 @@ _ZN3sat7probing11reset_cacheENS_7literalE.exit:   ; preds = %119
   br i1 %121, label %_ZN3sat7probing11reset_cacheENS_7literalE.exit.thread, label %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i61
 
 _ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i61: ; preds = %115, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i, %_ZN3sat7probing11reset_cacheENS_7literalE.exit
-  %.pr159 = phi ptr [ %.pr.pre.pre, %_ZN3sat7probing11reset_cacheENS_7literalE.exit ], [ %110, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i ], [ %110, %115 ]
+  %.pr159 = phi ptr [ %110, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i ], [ %.pr.pre.pre, %_ZN3sat7probing11reset_cacheENS_7literalE.exit ], [ %110, %115 ]
   %122 = or disjoint i32 %94, 1
   %123 = getelementptr inbounds i8, ptr %.pr159, i64 -4
   %124 = load i32, ptr %123, align 4, !tbaa !52
@@ -2234,7 +2234,7 @@ _ZN6vectorIN3sat7literalELb0EjE8finalizeEv.exit.i63: ; preds = %131, %126
   store i32 %135, ptr %18, align 8, !tbaa !39
   br label %_ZN3sat7probing11reset_cacheENS_7literalE.exit.thread
 
-_ZN3sat7probing11reset_cacheENS_7literalE.exit.thread: ; preds = %109, %106, %_ZN3sat7probing11reset_cacheENS_7literalE.exit, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i61, %_ZN6vectorIN3sat7literalELb0EjE8finalizeEv.exit.i63, %.noexc66, %139
+_ZN3sat7probing11reset_cacheENS_7literalE.exit.thread: ; preds = %109, %106, %_ZN6vectorIN3sat7literalELb0EjE8finalizeEv.exit.i63, %_ZN3sat7probing11reset_cacheENS_7literalE.exit, %_ZNK6vectorIN3sat7probing11cache_entryELb1EjE4sizeEv.exit.i61, %.noexc66, %139
   %140 = add nuw i32 %.042115, 1
   %exitcond.not = icmp eq i32 %140, %72
   br i1 %exitcond.not, label %_ZN3sat7probing11reset_cacheENS_7literalE.exit65, label %75, !llvm.loop !249
@@ -2712,7 +2712,7 @@ _ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE5emptyEv.exit.thread: ; preds = %152
   resume { ptr, i32 } %.pn51.pn.pn.pn.pn
 
 339:                                              ; preds = %17, %10, %2, %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE5emptyEv.exit.thread
-  %.0 = phi i1 [ %144, %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE5emptyEv.exit.thread ], [ true, %2 ], [ true, %10 ], [ true, %17 ]
+  %.0 = phi i1 [ true, %2 ], [ %144, %_ZNK6vectorISt4pairIN3sat7literalES2_ELb0EjE5emptyEv.exit.thread ], [ true, %10 ], [ true, %17 ]
   ret i1 %.0
 }
 

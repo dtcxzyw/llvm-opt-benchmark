@@ -567,7 +567,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi2EE10IsI
   br i1 %.not22, label %.preheader, label %.thread, !llvm.loop !34
 
 .thread:                                          ; preds = %14, %6, %9
-  %15 = phi i1 [ false, %9 ], [ false, %6 ], [ true, %14 ]
+  %15 = phi i1 [ false, %6 ], [ false, %9 ], [ true, %14 ]
   ret i1 %15
 }
 
@@ -795,7 +795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit43:                                      ; preds = %.loopexit43.loopexit, %.loopexit43.loopexit.split-lp, %.loopexit48, %.loopexit.split-lp49, %.loopexit.split-lp44, %.body, %65
-  %.pn19.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ], [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ], [ %lpad.loopexit76, %.loopexit43.loopexit ], [ %lpad.loopexit.split-lp77, %.loopexit43.loopexit.split-lp ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ], [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit76, %.loopexit43.loopexit ], [ %lpad.loopexit.split-lp77, %.loopexit43.loopexit.split-lp ]
   %67 = load ptr, ptr %0, align 8, !tbaa !24
   %68 = icmp eq ptr %67, %3
   br i1 %68, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
@@ -1427,7 +1427,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi3EE10IsI
   br i1 %exitcond27, label %.thread, label %.preheader, !llvm.loop !70
 
 .thread:                                          ; preds = %14, %6, %9
-  %15 = phi i1 [ false, %9 ], [ false, %6 ], [ true, %14 ]
+  %15 = phi i1 [ false, %6 ], [ false, %9 ], [ true, %14 ]
   ret i1 %15
 }
 
@@ -1660,7 +1660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit44:                                      ; preds = %.loopexit44.loopexit, %.loopexit44.loopexit.split-lp, %.loopexit49, %.loopexit.split-lp50, %.loopexit.split-lp45, %.body, %63
-  %.pn20.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
   %65 = load ptr, ptr %0, align 8, !tbaa !24
   %66 = icmp eq ptr %65, %3
   br i1 %66, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
@@ -2026,7 +2026,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EE10IsI
   br i1 %exitcond27, label %.thread, label %.preheader, !llvm.loop !93
 
 .thread:                                          ; preds = %14, %6, %9
-  %15 = phi i1 [ false, %9 ], [ false, %6 ], [ true, %14 ]
+  %15 = phi i1 [ false, %6 ], [ false, %9 ], [ true, %14 ]
   ret i1 %15
 }
 
@@ -2259,7 +2259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit44:                                      ; preds = %.loopexit44.loopexit, %.loopexit44.loopexit.split-lp, %.loopexit49, %.loopexit.split-lp50, %.loopexit.split-lp45, %.body, %63
-  %.pn20.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
   %65 = load ptr, ptr %0, align 8, !tbaa !24
   %66 = icmp eq ptr %65, %3
   br i1 %66, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
@@ -2582,7 +2582,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
   br label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit": ; preds = %19, %._crit_edge.i
-  %34 = phi i64 [ 0, %19 ], [ %spec.select.i, %._crit_edge.i ]
+  %34 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %19 ]
   %35 = trunc i64 %34 to i32
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %3, align 4, !tbaa !8
@@ -2666,7 +2666,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
   br label %85
 
 85:                                               ; preds = %.sink.split, %11, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %11 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %11 ], [ false, %14 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2786,7 +2786,7 @@ define dso_local noundef float @_ZN4pbrt10CatmullRomEN4pstd4spanIKfEES3_f(ptr re
   br label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %18, %._crit_edge.i
-  %33 = phi i64 [ 0, %18 ], [ %spec.select.i, %._crit_edge.i ]
+  %33 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %18 ]
   %34 = trunc i64 %33 to i32
   %sext = shl i64 %33, 32
   %35 = ashr exact i64 %sext, 32
@@ -2982,7 +2982,7 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   br label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 "_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %19, %._crit_edge.i
-  %34 = phi i64 [ 0, %19 ], [ %spec.select.i, %._crit_edge.i ]
+  %34 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %19 ]
   %35 = trunc i64 %34 to i32
   %sext = shl i64 %34, 32
   %36 = ashr exact i64 %sext, 32
@@ -3131,7 +3131,7 @@ define dso_local noundef float @_ZN4pbrt16InvertCatmullRomEN4pstd4spanIKfEES3_f(
   br label %100, !llvm.loop !113
 
 "_ZN4pbrt15NewtonBisectionIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_1EEfffT_ff.exit": ; preds = %100, %76, %92
-  %.0.i = phi float [ 0.000000e+00, %76 ], [ 1.000000e+00, %92 ], [ %.139.i, %100 ]
+  %.0.i = phi float [ 1.000000e+00, %92 ], [ 0.000000e+00, %76 ], [ %.139.i, %100 ]
   %149 = fmul float %46, %.0.i
   %150 = fadd float %38, %149
   br label %151

@@ -799,10 +799,10 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %spec.select159 = select i1 %.not150, i32 %.0131226, i32 %190
   br label %.thread
 
-.thread:                                          ; preds = %151, %104, %138, %202, %213, %211, %220, %228, %214, %191, %200
-  %.2133.ph = phi i32 [ %spec.select159, %228 ], [ %190, %202 ], [ %.0131226, %214 ], [ %.0131226, %220 ], [ %.0131226, %211 ], [ %190, %213 ], [ %.0131226, %191 ], [ %.0131226, %200 ], [ %.0131226, %138 ], [ %.0131226, %104 ], [ %.0131226, %151 ]
-  %.1127.ph = phi i32 [ %227, %228 ], [ -1, %202 ], [ %.0126227, %214 ], [ %.0126227, %220 ], [ %.0126227, %211 ], [ -1, %213 ], [ %.0126227, %191 ], [ %.0126227, %200 ], [ %.0126227, %138 ], [ %.0126227, %104 ], [ %.0126227, %151 ]
-  %.2104.ph = phi i32 [ %.0102229, %228 ], [ %195, %202 ], [ %.0102229, %214 ], [ %.0102229, %220 ], [ %.0102229, %211 ], [ %188, %213 ], [ %.0102229, %191 ], [ %.0102229, %200 ], [ %.0102229, %138 ], [ %.0102229, %104 ], [ %.0102229, %151 ]
+.thread:                                          ; preds = %151, %104, %138, %200, %202, %213, %211, %220, %228, %214, %191
+  %.2133.ph = phi i32 [ %.0131226, %220 ], [ %spec.select159, %228 ], [ %190, %202 ], [ %.0131226, %211 ], [ %190, %213 ], [ %.0131226, %191 ], [ %.0131226, %200 ], [ %.0131226, %214 ], [ %.0131226, %138 ], [ %.0131226, %104 ], [ %.0131226, %151 ]
+  %.1127.ph = phi i32 [ %.0126227, %220 ], [ %227, %228 ], [ -1, %202 ], [ %.0126227, %211 ], [ -1, %213 ], [ %.0126227, %191 ], [ %.0126227, %200 ], [ %.0126227, %214 ], [ %.0126227, %138 ], [ %.0126227, %104 ], [ %.0126227, %151 ]
+  %.2104.ph = phi i32 [ %.0102229, %220 ], [ %.0102229, %228 ], [ %195, %202 ], [ %.0102229, %211 ], [ %188, %213 ], [ %.0102229, %191 ], [ %.0102229, %200 ], [ %.0102229, %214 ], [ %.0102229, %138 ], [ %.0102229, %104 ], [ %.0102229, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread192, label %64, !llvm.loop !59
@@ -827,7 +827,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   ret i32 %.5
 
 236:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit198, %.loopexit.split-lp199, %204, %185, %136
-  %.pn.pn.pn = phi { ptr, i32 } [ %205, %204 ], [ %186, %185 ], [ %137, %136 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %205, %204 ], [ %186, %185 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %11) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn
@@ -910,8 +910,8 @@ define noundef i32 @_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb(ptr 
   %.not25.not = icmp eq i32 %30, 0
   br i1 %.not25.not, label %.thread, label %.preheader, !llvm.loop !55
 
-.thread:                                          ; preds = %27, %14, %26, %24, %3
-  %.017 = phi i32 [ -1, %3 ], [ 0, %24 ], [ -1, %26 ], [ %spec.select, %14 ], [ -1, %27 ]
+.thread:                                          ; preds = %27, %26, %24, %14, %3
+  %.017 = phi i32 [ -1, %3 ], [ -1, %26 ], [ %spec.select, %14 ], [ 0, %24 ], [ -1, %27 ]
   ret i32 %.017
 }
 
@@ -1194,8 +1194,8 @@ define noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_
   br i1 %.not93, label %.thread123, label %.thread116
 
 .thread116:                                       ; preds = %86, %92, %94
-  %.571 = phi i32 [ %.066, %92 ], [ %spec.select96, %94 ], [ %spec.select, %86 ]
-  %.464 = phi i8 [ 1, %92 ], [ 1, %94 ], [ %.262, %86 ]
+  %.571 = phi i32 [ %spec.select96, %94 ], [ %.066, %92 ], [ %spec.select, %86 ]
+  %.464 = phi i8 [ 1, %94 ], [ 1, %92 ], [ %.262, %86 ]
   %104 = load i8, ptr %.058, align 1, !tbaa !54
   %.not95 = icmp eq i8 %104, 0
   br i1 %.not95, label %.thread123, label %105

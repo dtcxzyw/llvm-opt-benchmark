@@ -106,7 +106,7 @@ select.unfold.i.i:                                ; preds = %11, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %15, %select.unfold.i.i
-  %19 = phi i1 [ true, %select.unfold.i.i ], [ %18, %15 ]
+  %19 = phi i1 [ %18, %15 ], [ true, %select.unfold.i.i ]
   %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %1, ptr %21, align 8, !tbaa !15

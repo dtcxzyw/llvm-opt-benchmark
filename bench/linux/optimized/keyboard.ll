@@ -1389,7 +1389,7 @@ define dso_local i32 @vt_do_kdsk_ioctl(i32 noundef %0, ptr noundef %1, i32 nound
   br label %141
 
 141:                                              ; preds = %.critedge, %140, %130, %92, %87, %78, %74, %46, %44, %35, %10, %4
-  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ], [ -1, %.critedge ]
+  %142 = phi i32 [ %43, %35 ], [ -14, %4 ], [ -1, %46 ], [ -1, %44 ], [ 0, %10 ], [ 0, %74 ], [ 0, %140 ], [ -1, %130 ], [ -1, %.critedge ], [ %86, %78 ], [ %91, %87 ], [ -12, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %142
 }
@@ -1485,7 +1485,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %52, %46, %40, %38, %3
-  %55 = phi i32 [ %53, %52 ], [ %48, %46 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ], [ -12, %17 ]
+  %55 = phi i32 [ %53, %52 ], [ %48, %46 ], [ -12, %17 ], [ -14, %3 ], [ -1, %40 ], [ -1, %38 ]
   ret i32 %55
 }
 
@@ -4628,8 +4628,8 @@ define internal void @k_shift(ptr noundef %0, i8 noundef zeroext %1, i8 noundef 
   br label %45
 
 45:                                               ; preds = %32, %.thread7
-  %46 = phi i1 [ false, %.thread7 ], [ %36, %32 ]
-  %47 = phi i32 [ %31, %.thread7 ], [ %spec.select, %32 ]
+  %46 = phi i1 [ %36, %32 ], [ false, %.thread7 ]
+  %47 = phi i32 [ %spec.select, %32 ], [ %31, %.thread7 ]
   store i32 %47, ptr @shift_state, align 4
   %48 = icmp eq i32 %47, %6
   %49 = select i1 %46, i1 true, i1 %48

@@ -166,7 +166,7 @@ define hidden i32 @_ZN21StackSlotAnalysisData5mergeES_(ptr noundef nonnull reado
   br label %25
 
 25:                                               ; preds = %8, %18, %11, %22, %15
-  %.sroa.05.0 = phi i32 [ %24, %22 ], [ %17, %15 ], [ 1703935, %11 ], [ %3, %18 ], [ 2621439, %8 ]
+  %.sroa.05.0 = phi i32 [ 2621439, %8 ], [ %24, %22 ], [ %17, %15 ], [ 1703935, %11 ], [ %3, %18 ]
   ret i32 %.sroa.05.0
 }
 
@@ -501,7 +501,7 @@ define hidden void @_ZN21SimulatedOperandStack5mergeERKS_(ptr noundef nonnull al
   br label %_ZN21StackSlotAnalysisData5mergeES_.exit
 
 _ZN21StackSlotAnalysisData5mergeES_.exit:         ; preds = %18, %21, %25, %28, %32
-  %.sroa.05.0.i = phi i32 [ %34, %32 ], [ %27, %25 ], [ 1703935, %21 ], [ %13, %28 ], [ 2621439, %18 ]
+  %.sroa.05.0.i = phi i32 [ 2621439, %18 ], [ %34, %32 ], [ %27, %25 ], [ 1703935, %21 ], [ %13, %28 ]
   store i32 %.sroa.05.0.i, ptr %10, align 4
   %35 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %35, label %8, label %._crit_edge, !llvm.loop !9
@@ -1762,8 +1762,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %409
   br i1 %exitcond580.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !16
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %409, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.14.4 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.14.1564, %409 ]
-  %.sroa.25.4 = phi ptr [ %424, %.lr.ph19.preheader.i ], [ %424, %.preheader16.i ], [ %.sroa.25.1565, %409 ]
+  %.sroa.14.4 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.14.1564, %409 ]
+  %.sroa.25.4 = phi ptr [ %424, %.preheader16.i ], [ %424, %.lr.ph19.preheader.i ], [ %.sroa.25.1565, %409 ]
   %437 = getelementptr inbounds nuw i32, ptr %.sroa.25.4, i64 %indvars.iv578
   store i32 %414, ptr %437, align 4
   %438 = add nsw i64 %.0335566, 1
@@ -1850,8 +1850,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i464:       ; preds = %451
   br i1 %exitcond.not, label %.preheader16.loopexit.i478, label %.lr.ph.i475, !llvm.loop !16
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds = %451, %.lr.ph19.preheader.i471, %.preheader16.i466
-  %.sroa.14.5 = phi i32 [ %.0.i.i.i.i.i420, %.lr.ph19.preheader.i471 ], [ %.0.i.i.i.i.i420, %.preheader16.i466 ], [ %.sroa.14.2558, %451 ]
-  %.sroa.25.5 = phi ptr [ %465, %.lr.ph19.preheader.i471 ], [ %465, %.preheader16.i466 ], [ %.sroa.25.2559, %451 ]
+  %.sroa.14.5 = phi i32 [ %.0.i.i.i.i.i420, %.preheader16.i466 ], [ %.0.i.i.i.i.i420, %.lr.ph19.preheader.i471 ], [ %.sroa.14.2558, %451 ]
+  %.sroa.25.5 = phi ptr [ %465, %.preheader16.i466 ], [ %465, %.lr.ph19.preheader.i471 ], [ %.sroa.25.2559, %451 ]
   %478 = getelementptr inbounds nuw i32, ptr %.sroa.25.5, i64 %indvars.iv
   store i32 %455, ptr %478, align 4
   %exitcond577.not = icmp eq i64 %458, %wide.trip.count
@@ -2128,10 +2128,10 @@ _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %623, %629
   %630 = trunc nuw i64 %417 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422, %.loopexit.loopexit, %439, %394, %119, %72, %125, %128, %131, %134, %137, %140, %219, %226, %236, %249, %261, %274, %290, %_ZN21SimulatedOperandStack3popEi.exit388, %_ZN21SimulatedOperandStack3popEi.exit391, %_ZN21SimulatedOperandStack3popEi.exit394, %340, %349, %_ZN21SimulatedOperandStack3popEi.exit401, %_ZN21SimulatedOperandStack3popEi.exit404, %_ZN21SimulatedOperandStack3popEi.exit429, %_ZN21SimulatedOperandStack3popEi.exit440, %582, %591, %71, %_ZN21SimulatedOperandStack3popEi.exit447, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit, %.lr.ph.preheader.i, %172, %.lr.ph.preheader.i345, %182, %.lr.ph.preheader.i348, %192, %.lr.ph.preheader.i351, %202, %.lr.ph.preheader.i354, %212, %.lr.ph.preheader.i357, %516, %.lr.ph.preheader.i431
-  %.sroa.0497.0.ph = phi i32 [ 0, %.lr.ph.preheader.i431 ], [ 0, %516 ], [ 0, %.lr.ph.preheader.i357 ], [ 0, %212 ], [ 0, %.lr.ph.preheader.i354 ], [ 0, %202 ], [ 0, %.lr.ph.preheader.i351 ], [ 0, %192 ], [ 0, %.lr.ph.preheader.i348 ], [ 0, %182 ], [ 0, %.lr.ph.preheader.i345 ], [ 0, %172 ], [ 0, %.lr.ph.preheader.i ], [ 0, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ 0, %71 ], [ 0, %591 ], [ 0, %582 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ 0, %349 ], [ 0, %340 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ 0, %290 ], [ 0, %274 ], [ 0, %261 ], [ 0, %249 ], [ 0, %236 ], [ 0, %226 ], [ 0, %219 ], [ 0, %140 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %125 ], [ 0, %72 ], [ 0, %119 ], [ 0, %394 ], [ 0, %439 ], [ %630, %.loopexit.loopexit ], [ %448, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
-  %.sroa.25.0.ph = phi ptr [ %43, %.lr.ph.preheader.i431 ], [ %43, %516 ], [ %43, %.lr.ph.preheader.i357 ], [ %43, %212 ], [ %43, %.lr.ph.preheader.i354 ], [ %43, %202 ], [ %43, %.lr.ph.preheader.i351 ], [ %43, %192 ], [ %43, %.lr.ph.preheader.i348 ], [ %43, %182 ], [ %43, %.lr.ph.preheader.i345 ], [ %43, %172 ], [ %43, %.lr.ph.preheader.i ], [ %43, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ %43, %71 ], [ %43, %591 ], [ %43, %582 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ %43, %349 ], [ %43, %340 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ %43, %290 ], [ %43, %274 ], [ %43, %261 ], [ %43, %249 ], [ %43, %236 ], [ %43, %226 ], [ %43, %219 ], [ %43, %140 ], [ %43, %137 ], [ %43, %134 ], [ %43, %131 ], [ %43, %128 ], [ %43, %125 ], [ %43, %72 ], [ %43, %119 ], [ %43, %394 ], [ %43, %439 ], [ %.sroa.25.4, %.loopexit.loopexit ], [ %.sroa.25.5, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
-  %.0327.ph = phi i32 [ -1, %.lr.ph.preheader.i431 ], [ -1, %516 ], [ -1, %.lr.ph.preheader.i357 ], [ -1, %212 ], [ -1, %.lr.ph.preheader.i354 ], [ -1, %202 ], [ -1, %.lr.ph.preheader.i351 ], [ -1, %192 ], [ -1, %.lr.ph.preheader.i348 ], [ -1, %182 ], [ -1, %.lr.ph.preheader.i345 ], [ -1, %172 ], [ -1, %.lr.ph.preheader.i ], [ -1, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ -1, %71 ], [ -1, %591 ], [ -1, %582 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ %378, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ -1, %349 ], [ -1, %340 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ -1, %290 ], [ -1, %274 ], [ -1, %261 ], [ -1, %249 ], [ -1, %236 ], [ -1, %226 ], [ -1, %219 ], [ -1, %140 ], [ -1, %137 ], [ -1, %134 ], [ -1, %131 ], [ -1, %128 ], [ -1, %125 ], [ -1, %72 ], [ -1, %119 ], [ %401, %394 ], [ %446, %439 ], [ %401, %.loopexit.loopexit ], [ %446, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
+.loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422, %.loopexit.loopexit, %439, %394, %119, %72, %125, %128, %131, %134, %137, %140, %.lr.ph.preheader.i, %.lr.ph.preheader.i345, %.lr.ph.preheader.i348, %.lr.ph.preheader.i351, %.lr.ph.preheader.i354, %219, %226, %236, %249, %261, %274, %290, %_ZN21SimulatedOperandStack3popEi.exit388, %_ZN21SimulatedOperandStack3popEi.exit391, %_ZN21SimulatedOperandStack3popEi.exit394, %340, %349, %_ZN21SimulatedOperandStack3popEi.exit401, %_ZN21SimulatedOperandStack3popEi.exit404, %.lr.ph.preheader.i357, %_ZN21SimulatedOperandStack3popEi.exit429, %_ZN21SimulatedOperandStack3popEi.exit440, %582, %591, %71, %_ZN21SimulatedOperandStack3popEi.exit447, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit, %172, %182, %192, %202, %212, %516, %.lr.ph.preheader.i431
+  %.sroa.0497.0.ph = phi i32 [ 0, %.lr.ph.preheader.i431 ], [ 0, %516 ], [ 0, %212 ], [ 0, %202 ], [ 0, %192 ], [ 0, %182 ], [ 0, %172 ], [ 0, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ 0, %71 ], [ 0, %591 ], [ 0, %582 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ 0, %.lr.ph.preheader.i357 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ 0, %349 ], [ 0, %340 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ 0, %290 ], [ 0, %274 ], [ 0, %261 ], [ 0, %249 ], [ 0, %236 ], [ 0, %226 ], [ 0, %219 ], [ 0, %.lr.ph.preheader.i354 ], [ 0, %.lr.ph.preheader.i351 ], [ 0, %.lr.ph.preheader.i348 ], [ 0, %.lr.ph.preheader.i345 ], [ 0, %.lr.ph.preheader.i ], [ 0, %140 ], [ 0, %119 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %125 ], [ 0, %72 ], [ 0, %394 ], [ 0, %439 ], [ %630, %.loopexit.loopexit ], [ %448, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
+  %.sroa.25.0.ph = phi ptr [ %43, %.lr.ph.preheader.i431 ], [ %43, %516 ], [ %43, %212 ], [ %43, %202 ], [ %43, %192 ], [ %43, %182 ], [ %43, %172 ], [ %43, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ %43, %71 ], [ %43, %591 ], [ %43, %582 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ %43, %.lr.ph.preheader.i357 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ %43, %349 ], [ %43, %340 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ %43, %290 ], [ %43, %274 ], [ %43, %261 ], [ %43, %249 ], [ %43, %236 ], [ %43, %226 ], [ %43, %219 ], [ %43, %.lr.ph.preheader.i354 ], [ %43, %.lr.ph.preheader.i351 ], [ %43, %.lr.ph.preheader.i348 ], [ %43, %.lr.ph.preheader.i345 ], [ %43, %.lr.ph.preheader.i ], [ %43, %140 ], [ %43, %119 ], [ %43, %137 ], [ %43, %134 ], [ %43, %131 ], [ %43, %128 ], [ %43, %125 ], [ %43, %72 ], [ %43, %394 ], [ %43, %439 ], [ %.sroa.25.4, %.loopexit.loopexit ], [ %.sroa.25.5, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
+  %.0327.ph = phi i32 [ -1, %.lr.ph.preheader.i431 ], [ -1, %516 ], [ -1, %212 ], [ -1, %202 ], [ -1, %192 ], [ -1, %182 ], [ -1, %172 ], [ -1, %_ZN21SimulatedOperandStack22set_local_slot_writtenEi.exit ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit447 ], [ -1, %71 ], [ -1, %591 ], [ -1, %582 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit440 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit429 ], [ -1, %.lr.ph.preheader.i357 ], [ %378, %_ZN21SimulatedOperandStack3popEi.exit404 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit401 ], [ -1, %349 ], [ -1, %340 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit394 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit391 ], [ -1, %_ZN21SimulatedOperandStack3popEi.exit388 ], [ -1, %290 ], [ -1, %274 ], [ -1, %261 ], [ -1, %249 ], [ -1, %236 ], [ -1, %226 ], [ -1, %219 ], [ -1, %.lr.ph.preheader.i354 ], [ -1, %.lr.ph.preheader.i351 ], [ -1, %.lr.ph.preheader.i348 ], [ -1, %.lr.ph.preheader.i345 ], [ -1, %.lr.ph.preheader.i ], [ -1, %140 ], [ -1, %119 ], [ -1, %137 ], [ -1, %134 ], [ -1, %131 ], [ -1, %128 ], [ -1, %125 ], [ -1, %72 ], [ %401, %394 ], [ %446, %439 ], [ %401, %.loopexit.loopexit ], [ %446, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422 ]
   %631 = load ptr, ptr %0, align 8
   %632 = add nsw i32 %27, %1
   %633 = getelementptr inbounds nuw i8, ptr %631, i64 8
@@ -2152,9 +2152,9 @@ _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %623, %629
   br label %_ZN21SimulatedOperandStack3popEi.exit
 
 _ZN21SimulatedOperandStack3popEi.exit:            ; preds = %379, %387, %_ZN21SimulatedOperandStack3popEi.exit450, %_ZN21SimulatedOperandStack3popEi.exit454, %641
-  %.0327540 = phi i32 [ %.0327.ph, %641 ], [ %386, %379 ], [ %393, %387 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ]
-  %.sroa.25.0538 = phi ptr [ %.sroa.25.0.ph, %641 ], [ %43, %379 ], [ %43, %387 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ]
-  %.sroa.0497.0534 = phi i32 [ %.sroa.0497.0.ph, %641 ], [ 0, %379 ], [ 0, %387 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ]
+  %.0327540 = phi i32 [ %.0327.ph, %641 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %386, %379 ], [ %393, %387 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ]
+  %.sroa.25.0538 = phi ptr [ %.sroa.25.0.ph, %641 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %43, %379 ], [ %43, %387 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ]
+  %.sroa.0497.0534 = phi i32 [ %.sroa.0497.0.ph, %641 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ 0, %379 ], [ 0, %387 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ]
   %.not339 = icmp eq i32 %.0327540, -1
   br i1 %.not339, label %_ZN21SimulatedOperandStack3popEi.exit.thread542, label %642
 
@@ -2215,7 +2215,7 @@ _ZN21SimulatedOperandStack3popEi.exit.thread542:  ; preds = %652, %_ZN21Simulate
   %668 = icmp eq ptr %37, null
   br i1 %668, label %_ZN13GrowableArrayIiED2Ev.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %479, %.lr.ph.preheader.i423, %71, %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph.preheader.i423, %479, %71, %._crit_edge
   %669 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %670 = load i64, ptr %669, align 8
   %671 = and i64 %670, 1
@@ -2356,7 +2356,7 @@ define hidden void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack
   br label %_ZN21StackSlotAnalysisData5mergeES_.exit.i
 
 _ZN21StackSlotAnalysisData5mergeES_.exit.i:       ; preds = %40, %36, %33, %29, %26
-  %.sroa.05.0.i.i = phi i32 [ %42, %40 ], [ %35, %33 ], [ 1703935, %29 ], [ %21, %36 ], [ 2621439, %26 ]
+  %.sroa.05.0.i.i = phi i32 [ 2621439, %26 ], [ %42, %40 ], [ %35, %33 ], [ 1703935, %29 ], [ %21, %36 ]
   store i32 %.sroa.05.0.i.i, ptr %18, align 4
   %43 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %43, label %16, label %_ZN21SimulatedOperandStack5mergeERKS_.exit, !llvm.loop !9
@@ -2570,7 +2570,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit39:   ; preds = %21, %25
   br label %85
 
 85:                                               ; preds = %60, %33, %33, %33, %33, %33, %84, %77, %37, %36, %35, %34
-  %.0 = phi i32 [ -1, %84 ], [ 1, %34 ], [ 2, %35 ], [ 3, %36 ], [ %59, %37 ], [ %83, %77 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ -2, %60 ]
+  %.0 = phi i32 [ -1, %84 ], [ 0, %33 ], [ 1, %34 ], [ 2, %35 ], [ 3, %36 ], [ %59, %37 ], [ %83, %77 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ -2, %60 ]
   ret i32 %.0
 }
 
@@ -2904,7 +2904,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit115:  ; preds = %44, %48
   br label %154
 
 154:                                              ; preds = %62, %17, %9, %7, %150, %136, %125, %124, %113, %109, %108, %107, %106, %105, %104, %103, %102, %101, %92, %78, %73, %68, %63
-  %.0 = phi i1 [ true, %63 ], [ true, %68 ], [ true, %73 ], [ true, %78 ], [ true, %92 ], [ true, %101 ], [ true, %102 ], [ true, %103 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %107 ], [ true, %108 ], [ true, %109 ], [ true, %113 ], [ true, %124 ], [ true, %125 ], [ true, %136 ], [ true, %150 ], [ false, %7 ], [ false, %9 ], [ false, %17 ], [ false, %62 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %7 ], [ false, %17 ], [ true, %63 ], [ true, %68 ], [ true, %73 ], [ true, %78 ], [ true, %92 ], [ true, %101 ], [ true, %102 ], [ true, %103 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %107 ], [ true, %108 ], [ true, %109 ], [ true, %113 ], [ true, %124 ], [ true, %125 ], [ true, %136 ], [ true, %150 ], [ false, %62 ]
   ret i1 %.0
 }
 
@@ -3223,7 +3223,7 @@ define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Byt
   br label %.critedge38.i
 
 .critedge38.i:                                    ; preds = %54, %51, %43, %.preheader.i
-  %.1.i = phi i64 [ %55, %54 ], [ %.03340.i, %51 ], [ 0, %43 ], [ %.03340.i, %.preheader.i ]
+  %.1.i = phi i64 [ %55, %54 ], [ %.03340.i, %51 ], [ %.03340.i, %.preheader.i ], [ 0, %43 ]
   %.not36.i = icmp eq i64 %.041.i, %.1.i
   br i1 %.not36.i, label %60, label %56
 

@@ -664,7 +664,7 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   br i1 %or.cond, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %272, %24, %268, %find_lcs.exit, %263, %38, %30, %6, %.preheader, %247
-  %.048 = phi i32 [ %250, %247 ], [ 0, %.preheader ], [ 0, %6 ], [ 0, %30 ], [ 0, %38 ], [ 0, %263 ], [ 0, %272 ], [ -1, %24 ], [ %271, %268 ], [ -1, %find_lcs.exit ]
+  %.048 = phi i32 [ 0, %.preheader ], [ %250, %247 ], [ 0, %6 ], [ 0, %38 ], [ 0, %263 ], [ 0, %30 ], [ -1, %24 ], [ %271, %268 ], [ 0, %272 ], [ -1, %find_lcs.exit ]
   ret i32 %.048
 }
 

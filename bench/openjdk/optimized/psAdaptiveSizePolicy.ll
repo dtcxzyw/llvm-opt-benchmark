@@ -849,7 +849,7 @@ _ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit: ; preds = %66, %
   br label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
 _ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread: ; preds = %41, %80, %86, %90, %77, %104, %100, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
-  %108 = phi i64 [ %98, %104 ], [ %98, %100 ], [ %98, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit ], [ %13, %77 ], [ %13, %90 ], [ %13, %86 ], [ %13, %80 ], [ %13, %41 ]
+  %108 = phi i64 [ %98, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit ], [ %98, %104 ], [ %98, %100 ], [ %13, %77 ], [ %13, %90 ], [ %13, %86 ], [ %13, %80 ], [ %13, %41 ]
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
@@ -1739,8 +1739,8 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
   br label %36
 
 36:                                               ; preds = %10, %31, %35, %32
-  %.not4 = phi i1 [ true, %31 ], [ false, %35 ], [ true, %32 ], [ true, %10 ]
-  %.031 = phi i1 [ true, %31 ], [ false, %35 ], [ false, %32 ], [ true, %10 ]
+  %.not4 = phi i1 [ true, %32 ], [ true, %31 ], [ false, %35 ], [ true, %10 ]
+  %.031 = phi i1 [ false, %32 ], [ true, %31 ], [ false, %35 ], [ true, %10 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
@@ -1788,7 +1788,7 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
   br label %63
 
 63:                                               ; preds = %59, %56
-  %.pn = phi i32 [ %58, %56 ], [ %62, %59 ]
+  %.pn = phi i32 [ %62, %59 ], [ %58, %56 ]
   %.030 = add i32 %.pn, %2
   %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not45 = icmp eq ptr %64, null

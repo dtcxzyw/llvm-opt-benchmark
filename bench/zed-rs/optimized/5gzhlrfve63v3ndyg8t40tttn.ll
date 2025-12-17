@@ -774,7 +774,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.threa
   br label %.loopexit
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit15: ; preds = %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread.i10, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i7, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread6.i14, %.loopexit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.thread17
-  %.sroa.0.0 = phi i32 [ %32, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.thread17 ], [ 1114112, %.loopexit ], [ %212, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i7 ], [ 1114112, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread.i10 ], [ %188, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread6.i14 ], [ %56, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i ]
+  %.sroa.0.0 = phi i32 [ %32, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.thread17 ], [ %188, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread6.i14 ], [ 1114112, %.loopexit ], [ %212, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i7 ], [ 1114112, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.thread.i10 ], [ %56, %_ZN4core3ops8function6FnOnce9call_once17he696c5fe9e29bc20E.exit.i ]
   ret i32 %.sroa.0.0
 
 .loopexit:                                        ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.thread, %"_ZN4core3ptr322drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2406bc2537e2b525E.exit.i.i"
@@ -1029,7 +1029,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loo
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19, %28, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8", %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i6", %.loopexit
-  %.sroa.0.0 = phi i32 [ 1114112, %.loopexit ], [ %117, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9 ], [ 1114112, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10 ], [ %97, %96 ], [ %106, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8" ], [ %94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i6" ], [ %29, %28 ], [ %72, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit ], [ %74, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19 ], [ %47, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i ]
+  %.sroa.0.0 = phi i32 [ %94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i6" ], [ %29, %28 ], [ 1114112, %.loopexit ], [ %117, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9 ], [ 1114112, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.thread6.i10 ], [ %97, %96 ], [ %106, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8" ], [ %74, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19 ], [ %72, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit ], [ %47, %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i ]
   ret i32 %.sroa.0.0
 
 .loopexit:                                        ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit.thread14, %"_ZN4core3ptr338drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1fa5f5060284dbc2E.exit.i.i"
@@ -1145,7 +1145,7 @@ define hidden void @"_ZN157_$LT$editor.._..$LT$impl$u20$serde..de..Deserialize$u
   br label %7
 
 7:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8.thread"
-  %.sink = phi i8 [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8" ]
+  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit4" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit8" ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %8, align 1
   store i8 0, ptr %0, align 8
@@ -46462,7 +46462,7 @@ _ZN10serde_json3ser9Formatter10end_object17h895ae4acf2509ee7E.exit.i.i: ; preds 
   br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17he58c33f13dccfc58E.exit"
 
 "_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17he58c33f13dccfc58E.exit": ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3e4512314422f702E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7e46af81fbf9647dE.exit", %9, %23, %31, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit.thread.sink.split", %_ZN10serde_json3ser9Formatter10end_object17h895ae4acf2509ee7E.exit.i.i, %36
-  %.sroa.0.1 = phi ptr [ null, %36 ], [ null, %_ZN10serde_json3ser9Formatter10end_object17h895ae4acf2509ee7E.exit.i.i ], [ %18, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit" ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3e4512314422f702E.exit" ], [ %34, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7e46af81fbf9647dE.exit" ], [ %16, %9 ], [ %24, %23 ], [ %32, %31 ], [ %50, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit.thread.sink.split" ]
+  %.sroa.0.1 = phi ptr [ null, %_ZN10serde_json3ser9Formatter10end_object17h895ae4acf2509ee7E.exit.i.i ], [ null, %36 ], [ %32, %31 ], [ %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3e4512314422f702E.exit" ], [ %18, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit" ], [ %34, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7e46af81fbf9647dE.exit" ], [ %16, %9 ], [ %24, %23 ], [ %50, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h861ad3cc93961ca3E.exit.thread.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.1
 
@@ -46894,7 +46894,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h010b52020ea0c74
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13734, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13734
@@ -47033,7 +47033,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ConvertToUpperCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..convert_to_upper_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7630ad67a13905b4E.exit" unwind label %93
 
 "_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ConvertToUpperCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..convert_to_upper_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7630ad67a13905b4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -47142,7 +47142,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h02507e2603335c0
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13763, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13763
@@ -47281,7 +47281,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteRight$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h076f15730d2b53a7E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteRight$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h076f15730d2b53a7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -47390,7 +47390,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h05a25f64bfd1dce
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13792, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13792
@@ -47529,7 +47529,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr198drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertEndOfLine$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_end_of_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22f6824a872e509eE.exit" unwind label %93
 
 "_ZN4core3ptr198drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertEndOfLine$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_end_of_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22f6824a872e509eE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -47638,7 +47638,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h05c0568d503bcb5
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13821, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13821
@@ -47777,7 +47777,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..indent..Outdent$C$vim..indent..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c53911ef40f80d7E.exit" unwind label %93
 
 "_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..indent..Outdent$C$vim..indent..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c53911ef40f80d7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -47886,7 +47886,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h0620815cf0b0e70
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13850, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13850
@@ -48025,7 +48025,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousWordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ad764d1426b9eb7E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousWordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ad764d1426b9eb7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -48134,7 +48134,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h067dbe03a346770
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13879, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13879
@@ -48273,7 +48273,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..ScrollUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a7274bbdbd1a448E.exit" unwind label %93
 
 "_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..ScrollUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a7274bbdbd1a448E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -48382,7 +48382,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h06bd749a7b3d820
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13908, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13908
@@ -48521,7 +48521,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowBottom$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha5316ee42eede3c6E.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowBottom$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha5316ee42eede3c6E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -48630,7 +48630,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h07950cca25ec2cb
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13937, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13937
@@ -48769,7 +48769,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr198drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Enter$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0892aed820491fa3E.exit" unwind label %93
 
 "_ZN4core3ptr198drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Enter$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0892aed820491fa3E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -48878,7 +48878,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h0913fdf1698f2ae
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13966, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13966
@@ -49017,7 +49017,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToPrev$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_prev$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58f52ad482fc11a8E.exit" unwind label %93
 
 "_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToPrev$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_prev$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58f52ad482fc11a8E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -49126,7 +49126,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h0bf2aa3c423e3b1
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !13995, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !13995
@@ -49265,7 +49265,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectNext$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..select_next$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69f1105e881ec001E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectNext$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..select_next$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69f1105e881ec001E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -49374,7 +49374,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h118f0a8ecad6f03
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14024, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14024
@@ -49513,7 +49513,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..replace..ToggleReplace$C$vim..replace..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6830b0eabf652180E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..replace..ToggleReplace$C$vim..replace..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6830b0eabf652180E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -49622,7 +49622,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h12794c6d6ff9a1f
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14053, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14053
@@ -49761,7 +49761,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..RestoreVisualSelection$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcf26a01c12f0e18dE.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..RestoreVisualSelection$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcf26a01c12f0e18dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -49870,7 +49870,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h13e4d8426a83527
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14082, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14082
@@ -50009,7 +50009,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Number$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he8839442048330cdE.exit" unwind label %93
 
 "_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Number$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he8839442048330cdE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -50118,7 +50118,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h144408f2a07a340
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14111, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14111
@@ -50257,7 +50257,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfParagraph$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00210d8dcd370672E.exit" unwind label %93
 
 "_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfParagraph$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00210d8dcd370672E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -50366,7 +50366,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h1665a24ea4830c0
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14140, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14140
@@ -50505,7 +50505,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..BackQuotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca3d3e523f2df44dE.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..BackQuotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca3d3e523f2df44dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -50614,7 +50614,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h19d800e23eeca39
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14169, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14169
@@ -50753,7 +50753,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr207drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..ClearOperators$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9be403768f0f5291E.exit" unwind label %93
 
 "_ZN4core3ptr207drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..ClearOperators$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9be403768f0f5291E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -50862,7 +50862,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h1a044340ac2b939
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14198, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14198
@@ -51001,7 +51001,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Paragraph$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd827dae47f27b092E.exit" unwind label %93
 
 "_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Paragraph$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd827dae47f27b092E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -51110,7 +51110,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h1a6aab624adb018
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14227, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14227
@@ -51249,7 +51249,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..ReplayLastRecording$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd473e42d8e5abae6E.exit" unwind label %93
 
 "_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..ReplayLastRecording$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd473e42d8e5abae6E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -51358,7 +51358,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h20f242202fdf873
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14256, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14256
@@ -51497,7 +51497,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectNextMatch$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2951bdcfa9df080aE.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectNextMatch$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2951bdcfa9df080aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -51606,7 +51606,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h21f116cb372c6b8
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14285, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14285
@@ -51745,7 +51745,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56082ce3cdfd9faeE.exit" unwind label %93
 
 "_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56082ce3cdfd9faeE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -51854,7 +51854,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h23ee026a85f1bfa
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14314, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14314
@@ -51993,7 +51993,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..insert..NormalBefore$C$vim..insert..$LT$impl$u20$vim..Vim$GT$..normal_before$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcba6e346fcfa1049E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..insert..NormalBefore$C$vim..insert..$LT$impl$u20$vim..Vim$GT$..normal_before$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcba6e346fcfa1049E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -52102,7 +52102,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h244f2abd5b56ac9
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14343, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14343
@@ -52241,7 +52241,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..Undo$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02355c83b1805802E.exit" unwind label %93
 
 "_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..Undo$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h02355c83b1805802E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -52350,7 +52350,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h27106452aad1479
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14372, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14372
@@ -52489,7 +52489,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..FirstNonWhitespace$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdc302470036df6c4E.exit" unwind label %93
 
 "_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..FirstNonWhitespace$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdc302470036df6c4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -52598,7 +52598,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h27939d99ed2984d
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14401, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14401
@@ -52737,7 +52737,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertAtPrevious$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_at_previous$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc2b65c360407a373E.exit" unwind label %93
 
 "_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertAtPrevious$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_at_previous$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc2b65c360407a373E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -52846,7 +52846,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h2c899a331915bd9
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14430, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14430
@@ -52985,7 +52985,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisual$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3f6a9e57cbec4d9E.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisual$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3f6a9e57cbec4d9E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -53094,7 +53094,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h3085cbc9789b327
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14459, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14459
@@ -53233,7 +53233,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousWordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed55571e811d1781E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousWordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed55571e811d1781E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -53342,7 +53342,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h346a5e4696d8d4d
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14488, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14488
@@ -53481,7 +53481,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertAfter$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_after$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8401fbc28b91608cE.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertAfter$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_after$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8401fbc28b91608cE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -53590,7 +53590,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h34e67f8a7997475
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14517, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14517
@@ -53729,7 +53729,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfDocument$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612db659033d76f4E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfDocument$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h612db659033d76f4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -53838,7 +53838,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h35dc62184970869
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14546, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14546
@@ -53977,7 +53977,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f46b586b644f39dE.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f46b586b644f39dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -54086,7 +54086,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h373dbc841dd2889
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14575, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14575
@@ -54225,7 +54225,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousLineStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed0fa55dd94a3ba7E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousLineStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed0fa55dd94a3ba7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -54334,7 +54334,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h3b9d0efdab553fe
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14604, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14604
@@ -54473,7 +54473,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr180drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Right$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h381834b3a96c9131E.exit" unwind label %93
 
 "_ZN4core3ptr180drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Right$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h381834b3a96c9131E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -54582,7 +54582,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h3e02e09a99fe541
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14633, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14633
@@ -54721,7 +54721,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextSubwordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18b3b0541e2e9aceE.exit" unwind label %93
 
 "_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextSubwordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18b3b0541e2e9aceE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -54830,7 +54830,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4170f56e0dbeb34
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14662, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14662
@@ -54969,7 +54969,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr202drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$search..buffer_search..Deploy$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..search_deploy$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h031d0fa7beb7cc67E.exit" unwind label %93
 
 "_ZN4core3ptr202drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$search..buffer_search..Deploy$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..search_deploy$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h031d0fa7beb7cc67E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -55078,7 +55078,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4334ecd3dd70fb6
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14691, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14691
@@ -55217,7 +55217,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ToggleComments$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..toggle_comments$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h683a7bc683f2c4e9E.exit" unwind label %93
 
 "_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ToggleComments$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..toggle_comments$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h683a7bc683f2c4e9E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -55326,7 +55326,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h46bf4f86fca2470
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14720, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14720
@@ -55465,7 +55465,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..CurlyBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h284c745641b51e94E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..CurlyBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h284c745641b51e94E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -55574,7 +55574,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4784b331bdb8541
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14749, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14749
@@ -55713,7 +55713,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..Repeat$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0b4dbbed6e4440b7E.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..Repeat$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0b4dbbed6e4440b7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -55822,7 +55822,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h48992ffda9bd8ac
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14778, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14778
@@ -55961,7 +55961,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr214drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToNextMatch$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_next_match$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96c13a67495a4543E.exit" unwind label %93
 
 "_ZN4core3ptr214drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToNextMatch$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_next_match$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h96c13a67495a4543E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -56070,7 +56070,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h48e507c4a63db04
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14807, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14807
@@ -56209,7 +56209,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr204drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..FindCommand$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..find_command$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f41c3fd9863eda4E.exit" unwind label %93
 
 "_ZN4core3ptr204drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..FindCommand$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..find_command$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f41c3fd9863eda4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -56318,7 +56318,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4cc71e4637d8ef5
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14836, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14836
@@ -56457,7 +56457,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteToEndOfLine$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd459743f141b9732E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteToEndOfLine$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd459743f141b9732E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -56566,7 +56566,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4dafa2eb1a4364b
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14865, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14865
@@ -56705,7 +56705,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..CountCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h975dbdd0f72f7f57E.exit" unwind label %93
 
 "_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..CountCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h975dbdd0f72f7f57E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -56814,7 +56814,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4eae134ab5bfd57
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14894, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14894
@@ -56953,7 +56953,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisualBlock$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha262602bbb4d73a5E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisualBlock$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha262602bbb4d73a5E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -57062,7 +57062,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4ecaa208b924ff0
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14923, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14923
@@ -57201,7 +57201,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..WithRange$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h211727523b18d08fE.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..WithRange$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h211727523b18d08fE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -57310,7 +57310,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h4f2dcb85453da51
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14952, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14952
@@ -57449,7 +57449,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..LineDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58d1e1c67c0e53c6E.exit" unwind label %93
 
 "_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..LineDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58d1e1c67c0e53c6E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -57558,7 +57558,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h5071bdff73f06fe
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !14981, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !14981
@@ -57697,7 +57697,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..change_list..ChangeListOlder$C$vim..change_list..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h34300f5b5cd24c6aE.exit" unwind label %93
 
 "_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..change_list..ChangeListOlder$C$vim..change_list..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h34300f5b5cd24c6aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -57806,7 +57806,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h50cfdfc444e7ef4
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15010, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15010
@@ -57945,7 +57945,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..replace..UndoReplace$C$vim..replace..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha089b1cdd7cca4dfE.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..replace..UndoReplace$C$vim..replace..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha089b1cdd7cca4dfE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -58054,7 +58054,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h51601392d6e30c5
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15039, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15039
@@ -58193,7 +58193,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr196drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Tab$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h747196c2daa4464bE.exit" unwind label %93
 
 "_ZN4core3ptr196drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..Tab$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h747196c2daa4464bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -58302,7 +58302,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h548758664be81b4
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15068, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15068
@@ -58441,7 +58441,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..ToggleRecord$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf9c12145e00e22c7E.exit" unwind label %93
 
 "_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..ToggleRecord$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf9c12145e00e22c7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -58550,7 +58550,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h55de513522a09dd
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15097, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15097
@@ -58689,7 +58689,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextLineStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h156b7559a5f20ef2E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextLineStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h156b7559a5f20ef2E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -58798,7 +58798,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h5af5b5c9e3e7245
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15126, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15126
@@ -58937,7 +58937,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..SquareBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21e13088f0d849fcE.exit" unwind label %93
 
 "_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..SquareBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h21e13088f0d849fcE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -59046,7 +59046,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h5edaa5b272ab67b
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15155, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15155
@@ -59185,7 +59185,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertLineAbove$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_line_above$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c8881fa6a8591f6E.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertLineAbove$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_line_above$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c8881fa6a8591f6E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -59294,7 +59294,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h602d33b9dc73ce3
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15184, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15184
@@ -59433,7 +59433,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr213drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..substitute..SubstituteLine$C$vim..normal..substitute..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha19ce62b9e312e37E.exit" unwind label %93
 
 "_ZN4core3ptr213drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..substitute..SubstituteLine$C$vim..normal..substitute..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha19ce62b9e312e37E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -59542,7 +59542,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h60b1640ae45c0f2
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15213, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15213
@@ -59681,7 +59681,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..GoToLine$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h495312b1f6243b2aE.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..GoToLine$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h495312b1f6243b2aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -59790,7 +59790,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h638d24d37a98d6f
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15242, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15242
@@ -59929,7 +59929,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr180drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Space$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h228ed6bc37d83b0cE.exit" unwind label %93
 
 "_ZN4core3ptr180drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Space$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h228ed6bc37d83b0cE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -60038,7 +60038,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h666eeaca3a31c5f
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15271, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15271
@@ -60177,7 +60177,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Quotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0189accb517e96a8E.exit" unwind label %93
 
 "_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Quotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0189accb517e96a8E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -60286,7 +60286,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h689c55a9fac2d30
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15300, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15300
@@ -60425,7 +60425,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertBefore$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_before$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e51ba6f615a2c04E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertBefore$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_before$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e51ba6f615a2c04E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -60534,7 +60534,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h6abada1d8dd3e98
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15329, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15329
@@ -60673,7 +60673,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..PageDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h70ed5e44b5556573E.exit" unwind label %93
 
 "_ZN4core3ptr199drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..PageDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h70ed5e44b5556573E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -60782,7 +60782,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h6c694c4a967dcf7
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15358, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15358
@@ -60921,7 +60921,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..OtherEnd$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..other_end$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h975eaf22bcbcc1d0E.exit" unwind label %93
 
 "_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..OtherEnd$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..other_end$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h975eaf22bcbcc1d0E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -61030,7 +61030,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h6ee525ca0492ac6
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15387, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15387
@@ -61169,7 +61169,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr205drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..PushOperator$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd027a6d9f1fc6b3eE.exit" unwind label %93
 
 "_ZN4core3ptr205drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..PushOperator$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd027a6d9f1fc6b3eE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -61278,7 +61278,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h7525112b3e646b5
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15416, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15416
@@ -61417,7 +61417,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Sentence$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6f76e3bdef33939E.exit" unwind label %93
 
 "_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Sentence$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6f76e3bdef33939E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -61526,7 +61526,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h7cb851fbdd9bacb
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15445, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15445
@@ -61665,7 +61665,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr209drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..substitute..Substitute$C$vim..normal..substitute..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3dd6289debc022edE.exit" unwind label %93
 
 "_ZN4core3ptr209drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..substitute..Substitute$C$vim..normal..substitute..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3dd6289debc022edE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -61774,7 +61774,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h7cd4e7f77401bd1
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15474, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15474
@@ -61913,7 +61913,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertLineBelow$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_line_below$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66a3b20385a5c53fE.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertLineBelow$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_line_below$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66a3b20385a5c53fE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -62022,7 +62022,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h7fec52885f5b41c
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15503, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15503
@@ -62161,7 +62161,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..SentenceBackward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2a7c761bbd4dd0a3E.exit" unwind label %93
 
 "_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..SentenceBackward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2a7c761bbd4dd0a3E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -62270,7 +62270,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h832b7dbcd6d1581
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15532, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15532
@@ -62409,7 +62409,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..PageUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdc6fe8ecf5fc091E.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..PageUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcdc6fe8ecf5fc091E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -62518,7 +62518,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h835e8dcc8d5cdbc
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15561, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15561
@@ -62657,7 +62657,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Parentheses$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h57464a391e449e69E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Parentheses$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h57464a391e449e69E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -62766,7 +62766,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h84d699e4d9ce7ed
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15590, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15590
@@ -62905,7 +62905,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextSubwordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1e961c17889bed0dE.exit" unwind label %93
 
 "_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextSubwordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1e961c17889bed0dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -63014,7 +63014,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h84dd6d3bbac05b6
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15619, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15619
@@ -63153,7 +63153,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousSubwordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94670d87e9e5d027E.exit" unwind label %93
 
 "_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousSubwordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94670d87e9e5d027E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -63262,7 +63262,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h8754c2161f5ef12
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15648, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15648
@@ -63401,7 +63401,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteLeft$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he42932a626843e04E.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..DeleteLeft$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he42932a626843e04E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -63510,7 +63510,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h8abf8d16fc9e92a
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15677, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15677
@@ -63649,7 +63649,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Argument$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb9cb5e4714ce4377E.exit" unwind label %93
 
 "_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Argument$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb9cb5e4714ce4377E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -63758,7 +63758,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h8b192ee261a3a68
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15706, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15706
@@ -63897,7 +63897,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..Search$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..search$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c48526a169dca18E.exit" unwind label %93
 
 "_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..Search$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..search$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5c48526a169dca18E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -64006,7 +64006,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h93b9246da8d22a5
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15735, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15735
@@ -64145,7 +64145,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..indent..Indent$C$vim..indent..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h475cbee2462659ecE.exit" unwind label %93
 
 "_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..indent..Indent$C$vim..indent..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h475cbee2462659ecE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -64254,7 +64254,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h96be521c1613fec
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15764, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15764
@@ -64393,7 +64393,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowTop$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h65c78eede6f89bc6E.exit" unwind label %93
 
 "_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowTop$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h65c78eede6f89bc6E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -64502,7 +64502,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h9c2240053680404
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15793, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15793
@@ -64641,7 +64641,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfDocument$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h33d1764ebef9a272E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfDocument$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h33d1764ebef9a272E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -64750,7 +64750,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17h9f87a4d376f044b
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15822, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15822
@@ -64889,7 +64889,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr195drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousSubwordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h29c0603f2a4c5988E.exit" unwind label %93
 
 "_ZN4core3ptr195drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..PreviousSubwordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h29c0603f2a4c5988E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -64998,7 +64998,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17ha0ad125d49d4d82
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15851, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15851
@@ -65137,7 +65137,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..RepeatFindReversed$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha77adfe936d7dfebE.exit" unwind label %93
 
 "_ZN4core3ptr193drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..RepeatFindReversed$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha77adfe936d7dfebE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -65246,7 +65246,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17ha361a978b134c5e
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15880, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15880
@@ -65385,7 +65385,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Word$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b6bad2b6edb7c40E.exit" unwind label %93
 
 "_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Word$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b6bad2b6edb7c40E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -65494,7 +65494,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17ha8691f7b72027ec
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15909, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15909
@@ -65633,7 +65633,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualDelete$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf3b080279aa64b4E.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualDelete$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haf3b080279aa64b4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -65742,7 +65742,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17ha8dd2f92c94d38e
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15938, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15938
@@ -65881,7 +65881,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextWordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb2994849a6ddea12E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextWordEnd$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb2994849a6ddea12E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -65990,7 +65990,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hb0206d448e274c1
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15967, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15967
@@ -66129,7 +66129,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr214drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToPrevMatch$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_prev_match$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h15b7631b24cc65a4E.exit" unwind label %93
 
 "_ZN4core3ptr214drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToPrevMatch$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_prev_match$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h15b7631b24cc65a4E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -66238,7 +66238,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hb0a802c09754207
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !15996, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !15996
@@ -66377,7 +66377,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..change_list..ChangeListNewer$C$vim..change_list..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h52903001a0945dfbE.exit" unwind label %93
 
 "_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..change_list..ChangeListNewer$C$vim..change_list..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h52903001a0945dfbE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -66486,7 +66486,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hb4e8af3461da194
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16025, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16025
@@ -66625,7 +66625,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectPreviousMatch$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c1de3bf5a75afb7E.exit" unwind label %93
 
 "_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectPreviousMatch$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3c1de3bf5a75afb7E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -66734,7 +66734,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hb6c5ec2a7a6b320
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16054, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16054
@@ -66873,7 +66873,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Down$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc69f1f6c07b0e22bE.exit" unwind label %93
 
 "_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Down$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc69f1f6c07b0e22bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -66982,7 +66982,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbac71a16c628cd7
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16083, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16083
@@ -67121,7 +67121,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..SwitchMode$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h058104c2ee411a49E.exit" unwind label %93
 
 "_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..SwitchMode$C$vim..Vim..activate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h058104c2ee411a49E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -67230,7 +67230,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbd7968fd291a8bf
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16112, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16112
@@ -67369,7 +67369,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualYank$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb95aaad27c3effE.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualYank$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb95aaad27c3effE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -67478,7 +67478,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbe1801a5501c444
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16141, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16141
@@ -67617,7 +67617,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Matching$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h83e469232ded477eE.exit" unwind label %93
 
 "_ZN4core3ptr183drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Matching$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h83e469232ded477eE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -67726,7 +67726,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbe7407d21953913
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16170, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16170
@@ -67865,7 +67865,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextWordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb754d434c8ae2260E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..NextWordStart$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb754d434c8ae2260E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -67974,7 +67974,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbecb6a3e1c104a3
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16199, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16199
@@ -68113,7 +68113,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfParagraph$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2aa5c12a4caf91aE.exit" unwind label %93
 
 "_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfParagraph$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd2aa5c12a4caf91aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -68222,7 +68222,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hbfbd3b7855c4aa3
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16228, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16228
@@ -68361,7 +68361,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..LineUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0302648d631b6b0E.exit" unwind label %93
 
 "_ZN4core3ptr197drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..LineUp$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0302648d631b6b0E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -68470,7 +68470,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hc2310543275ac10
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16257, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16257
@@ -68609,7 +68609,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Left$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h35c11d236c233b2aE.exit" unwind label %93
 
 "_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Left$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h35c11d236c233b2aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -68718,7 +68718,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hc65eb680b4793bc
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16286, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16286
@@ -68857,7 +68857,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..CurrentLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b936e4161bbd9f1E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..CurrentLine$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b936e4161bbd9f1E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -68966,7 +68966,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hc80a77fdd82c857
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16315, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16315
@@ -69105,7 +69105,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..EndRepeat$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00ead483979fa31bE.exit" unwind label %93
 
 "_ZN4core3ptr200drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..repeat..EndRepeat$C$vim..normal..repeat..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00ead483979fa31bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -69214,7 +69214,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hca9a5aee5f9027c
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16344, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16344
@@ -69353,7 +69353,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr216drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertFirstNonWhitespace$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_first_non_whitespace$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b5ff8cf6b85abd8E.exit" unwind label %93
 
 "_ZN4core3ptr216drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..InsertFirstNonWhitespace$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..insert_first_non_whitespace$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3b5ff8cf6b85abd8E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -69462,7 +69462,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hcb533acb50e617e
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16373, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16373
@@ -69601,7 +69601,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..VisualCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46d554d628ff3df8E.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..VisualCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46d554d628ff3df8E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -69710,7 +69710,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hcf9f9afb0abea16
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16402, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16402
@@ -69849,7 +69849,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..DoubleQuotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6132c2664895dbd0E.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..DoubleQuotes$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6132c2664895dbd0E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -69958,7 +69958,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd11448a98a4c376
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16431, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16431
@@ -70097,7 +70097,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr206drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..increment..Decrement$C$vim..normal..increment..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc637884ac9ddac2bE.exit" unwind label %93
 
 "_ZN4core3ptr206drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..increment..Decrement$C$vim..normal..increment..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc637884ac9ddac2bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -70206,7 +70206,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd22a91b525acad9
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16460, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16460
@@ -70345,7 +70345,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Backspace$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha5196a274c29a0bcE.exit" unwind label %93
 
 "_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Backspace$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha5196a274c29a0bcE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -70454,7 +70454,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd4abce853fc62bb
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16489, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16489
@@ -70593,7 +70593,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..GoToColumn$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4b624e20fde90544E.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..GoToColumn$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4b624e20fde90544E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -70702,7 +70702,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd70092c3eb8d717
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16518, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16518
@@ -70841,7 +70841,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToNext$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_next$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9d85b699fb8fb5e0E.exit" unwind label %93
 
 "_ZN4core3ptr203drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..MoveToNext$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..move_to_next$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9d85b699fb8fb5e0E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -70950,7 +70950,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd77fe98dd2ac3dc
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16547, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16547
@@ -71089,7 +71089,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..RepeatFind$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31bbe55ceecb42deE.exit" unwind label %93
 
 "_ZN4core3ptr185drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..RepeatFind$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h31bbe55ceecb42deE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -71198,7 +71198,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hd7f0eb11b74b832
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16576, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16576
@@ -71337,7 +71337,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr177drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Up$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h906bc2d00d8148c0E.exit" unwind label %93
 
 "_ZN4core3ptr177drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..Up$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h906bc2d00d8148c0E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -71446,7 +71446,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hda5286e7ee62078
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16605, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16605
@@ -71585,7 +71585,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectPrevious$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..select_previous$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb91d640c1e20e85E.exit" unwind label %93
 
 "_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..SelectPrevious$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..select_previous$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb91d640c1e20e85E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -71694,7 +71694,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hdaad0568dfbd7ea
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16634, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16634
@@ -71833,7 +71833,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..ReplaceCommand$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..replace_command$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0dbf1d806421a2cE.exit" unwind label %93
 
 "_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..search..ReplaceCommand$C$vim..normal..search..$LT$impl$u20$vim..Vim$GT$..replace_command$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0dbf1d806421a2cE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -71942,7 +71942,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hdb70ea879415d21
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16663, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16663
@@ -72081,7 +72081,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowMiddle$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf61b309a8406550dE.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..WindowMiddle$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf61b309a8406550dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -72190,7 +72190,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hdce7fb0a4ded545
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16692, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16692
@@ -72329,7 +72329,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..AngleBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a79a16adff94228E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..AngleBrackets$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a79a16adff94228E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -72438,7 +72438,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hdf173d3bec9c50d
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16721, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16721
@@ -72577,7 +72577,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr206drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..increment..Increment$C$vim..normal..increment..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e8ebb1e730b287bE.exit" unwind label %93
 
 "_ZN4core3ptr206drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..increment..Increment$C$vim..normal..increment..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e8ebb1e730b287bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -72686,7 +72686,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he4dfa33685adc48
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16750, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16750
@@ -72825,7 +72825,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr230drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualInsertFirstNonWhiteSpace$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..visual_insert_first_non_white_space$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99d837e9ffb50d2eE.exit" unwind label %93
 
 "_ZN4core3ptr230drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualInsertFirstNonWhiteSpace$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..visual_insert_first_non_white_space$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99d837e9ffb50d2eE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -72934,7 +72934,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he644196ba042a13
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16779, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16779
@@ -73073,7 +73073,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ChangeToEndOfLine$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aff9beb65ff5335E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ChangeToEndOfLine$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0aff9beb65ff5335E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -73182,7 +73182,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he719a1f5c5dce82
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16808, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16808
@@ -73321,7 +73321,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualDeleteLine$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a2512477a4ab740E.exit" unwind label %93
 
 "_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualDeleteLine$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6a2512477a4ab740E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -73430,7 +73430,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he7c4ce167eff226
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16837, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16837
@@ -73569,7 +73569,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..paste..Paste$C$vim..normal..paste..$LT$impl$u20$vim..Vim$GT$..paste$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e24356776c2655cE.exit" unwind label %93
 
 "_ZN4core3ptr189drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..paste..Paste$C$vim..normal..paste..$LT$impl$u20$vim..Vim$GT$..paste$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6e24356776c2655cE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -73678,7 +73678,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he8623ddc9407bcc
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16866, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16866
@@ -73817,7 +73817,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he10d4e81d2450893E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..EndOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he10d4e81d2450893E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -73926,7 +73926,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17he8d25d8a7a58225
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16895, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16895
@@ -74065,7 +74065,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..SentenceForward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a3cbc0d9f54f47bE.exit" unwind label %93
 
 "_ZN4core3ptr190drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..SentenceForward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9a3cbc0d9f54f47bE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -74174,7 +74174,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hea7edd14204ff52
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16924, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16924
@@ -74313,7 +74313,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..rewrap..Rewrap$C$vim..rewrap..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1134d8005ca6fc3E.exit" unwind label %93
 
 "_ZN4core3ptr181drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..rewrap..Rewrap$C$vim..rewrap..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1134d8005ca6fc3E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -74422,7 +74422,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hee4d298627f8876
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16953, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16953
@@ -74561,7 +74561,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr201drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..ScrollDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdfcb84e158185421E.exit" unwind label %93
 
 "_ZN4core3ptr201drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..scroll..ScrollDown$C$vim..normal..scroll..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdfcb84e158185421E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -74670,7 +74670,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17heecb8dbb96abc64
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !16982, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !16982
@@ -74809,7 +74809,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ChangeCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..change_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he66746d7984b4823E.exit" unwind label %93
 
 "_ZN4core3ptr192drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ChangeCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..change_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he66746d7984b4823E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -74918,7 +74918,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hef3b45b59c868f2
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17011, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17011
@@ -75057,7 +75057,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..VerticalBars$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e89a672ac1d249eE.exit" unwind label %93
 
 "_ZN4core3ptr187drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..VerticalBars$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e89a672ac1d249eE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -75166,7 +75166,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hefb3fc0be6610fb
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17040, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17040
@@ -75305,7 +75305,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr211drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualInsertEndOfLine$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..visual_insert_end_of_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc1c2e1782a05b39E.exit" unwind label %93
 
 "_ZN4core3ptr211drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..VisualInsertEndOfLine$C$vim..visual..$LT$impl$u20$vim..Vim$GT$..visual_insert_end_of_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc1c2e1782a05b39E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -75414,7 +75414,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hf288f142c30b1b8
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17069, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17069
@@ -75553,7 +75553,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..WithCount$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h778c14cab0f58e52E.exit" unwind label %93
 
 "_ZN4core3ptr186drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..WithCount$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h778c14cab0f58e52E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -75662,7 +75662,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hf2b95cd1c1ae481
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17098, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17098
@@ -75801,7 +75801,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisualLine$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6afb58f35830ae3E.exit" unwind label %93
 
 "_ZN4core3ptr191drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..visual..ToggleVisualLine$C$vim..visual..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6afb58f35830ae3E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -75910,7 +75910,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hf546ec2049be872
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17127, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17127
@@ -76049,7 +76049,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr178drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Tag$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdee8fcf29d504174E.exit" unwind label %93
 
 "_ZN4core3ptr178drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..object..Tag$C$vim..object..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdee8fcf29d504174E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -76158,7 +76158,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hf6f2ffb7377beae
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17156, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17156
@@ -76297,7 +76297,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..JoinLines$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04a0c418bfeeec5aE.exit" unwind label %93
 
 "_ZN4core3ptr184drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..JoinLines$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04a0c418bfeeec5aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -76406,7 +76406,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hf72bc8756351bb4
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17185, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17185
@@ -76545,7 +76545,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..YankLine$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..yank_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9942b375ee0e37aE.exit" unwind label %93
 
 "_ZN4core3ptr182drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..YankLine$C$vim..normal..$LT$impl$u20$vim..Vim$GT$..yank_line$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9942b375ee0e37aE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -76654,7 +76654,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hfb7279ab460fed1
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17214, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17214
@@ -76793,7 +76793,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..Redo$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h310365cb3f5811bbE.exit" unwind label %93
 
 "_ZN4core3ptr179drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..Redo$C$vim..normal..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h310365cb3f5811bbE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -76902,7 +76902,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hfbcd210f49222bc
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17243, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17243
@@ -77041,7 +77041,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ConvertToLowerCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..convert_to_lower_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e0b42be7056729dE.exit" unwind label %93
 
 "_ZN4core3ptr210drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..normal..ConvertToLowerCase$C$vim..normal..case..$LT$impl$u20$vim..Vim$GT$..convert_to_lower_case$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3e0b42be7056729dE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -77150,7 +77150,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hfc5b79743861486
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17272, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17272
@@ -77289,7 +77289,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..YankCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc0034523c823a609E.exit" unwind label %93
 
 "_ZN4core3ptr188drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..command..YankCommand$C$vim..command..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc0034523c823a609E.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body11, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -77398,7 +77398,7 @@ define hidden { ptr, ptr } @_ZN6editor6Editor15register_action17hfd2474b378855c7
   br label %.thread34
 
 .thread34:                                        ; preds = %31, %35, %39, %70, %62
-  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %32, %35 ], [ %32, %31 ], [ %40, %39 ], [ %63, %70 ], [ %63, %62 ]
   %41 = load i64, ptr %24, align 8, !noalias !17301, !noundef !22
   %42 = add i64 %41, 1
   store i64 %42, ptr %24, align 8, !noalias !17301
@@ -77537,7 +77537,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h739761b518a9e06aE.exit: ; preds = %71
           to label %"_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3230ff20dcf4b6cfE.exit" unwind label %93
 
 "_ZN4core3ptr194drop_in_place$LT$gpui..window..ViewContext$LT$vim..Vim$GT$..listener$LT$vim..motion..StartOfLineDownward$C$vim..motion..register..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3230ff20dcf4b6cfE.exit": ; preds = %96, %100, %85, %.thread34, %101, %16
-  %.pn.pn29 = phi { ptr, i32 } [ %17, %16 ], [ %102, %101 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
+  %.pn.pn29 = phi { ptr, i32 } [ %102, %101 ], [ %17, %16 ], [ %eh.lpad-body13, %.thread34 ], [ %86, %85 ], [ %97, %100 ], [ %97, %96 ]
   resume { ptr, i32 } %.pn.pn29
 
 101:                                              ; preds = %2
@@ -89421,7 +89421,7 @@ define hidden void @_ZN6editor6Editor23change_selections_inner17haad9bc4720f6845
   br label %53
 
 .thread12:                                        ; preds = %66, %63, %40, %37, %24
-  %.pn11 = phi { ptr, i32 } [ %25, %24 ], [ %38, %37 ], [ %38, %40 ], [ %lpad.thr_comm.split-lp, %63 ], [ %lpad.thr_comm.split-lp, %66 ]
+  %.pn11 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %66 ], [ %38, %37 ], [ %lpad.thr_comm.split-lp, %63 ], [ %38, %40 ], [ %25, %24 ]
   resume { ptr, i32 } %.pn11
 
 63:                                               ; preds = %19, %15, %6
@@ -92923,7 +92923,7 @@ define hidden void @"_ZN3vim6normal4case26_$LT$impl$u20$vim..Vim$GT$15manipulate
   br label %.thread
 
 .body24:                                          ; preds = %.loopexit, %.loopexit.split-lp, %107, %112, %99
-  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %112 ], [ %108, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %107 ], [ %108, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$rope..point..Point$GT$$GT$$GT$$GT$17h56f693bcd6df6dbbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #28
           to label %.thread unwind label %122
 
@@ -93235,11 +93235,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   unreachable
 
 .thread48:                                        ; preds = %127, %.thread, %70, %68
-  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %68 ], [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %.thread ], [ %.pn444, %127 ]
+  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %127 ], [ %lpad.thr_comm.split-lp.i, %68 ], [ %.pn444, %.thread ]
   resume { ptr, i32 } %.pn443
 
 .thread:                                          ; preds = %23, %.body24, %21
-  %.pn444 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %.pn, %.body24 ], [ %24, %23 ]
+  %.pn444 = phi { ptr, i32 } [ %.pn, %.body24 ], [ %lpad.thr_comm.split-lp, %21 ], [ %24, %23 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !19935)
   call void @llvm.experimental.noalias.scope.decl(metadata !19938)
@@ -93300,7 +93300,7 @@ define hidden void @"_ZN3vim6normal4case26_$LT$impl$u20$vim..Vim$GT$15manipulate
   br label %.thread
 
 .body24:                                          ; preds = %.loopexit, %.loopexit.split-lp, %107, %112, %99
-  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %112 ], [ %108, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %107 ], [ %108, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$rope..point..Point$GT$$GT$$GT$$GT$17h56f693bcd6df6dbbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #28
           to label %.thread unwind label %122
 
@@ -93612,11 +93612,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   unreachable
 
 .thread48:                                        ; preds = %127, %.thread, %70, %68
-  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %68 ], [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %.thread ], [ %.pn444, %127 ]
+  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %127 ], [ %lpad.thr_comm.split-lp.i, %68 ], [ %.pn444, %.thread ]
   resume { ptr, i32 } %.pn443
 
 .thread:                                          ; preds = %23, %.body24, %21
-  %.pn444 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %.pn, %.body24 ], [ %24, %23 ]
+  %.pn444 = phi { ptr, i32 } [ %.pn, %.body24 ], [ %lpad.thr_comm.split-lp, %21 ], [ %24, %23 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !20039)
   call void @llvm.experimental.noalias.scope.decl(metadata !20042)
@@ -93677,7 +93677,7 @@ define hidden void @"_ZN3vim6normal4case26_$LT$impl$u20$vim..Vim$GT$15manipulate
   br label %.thread
 
 .body24:                                          ; preds = %.loopexit, %.loopexit.split-lp, %107, %112, %99
-  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %112 ], [ %108, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %108, %107 ], [ %108, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..into_iter..IntoIter$LT$core..ops..range..Range$LT$rope..point..Point$GT$$GT$$GT$$GT$17h56f693bcd6df6dbbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #28
           to label %.thread unwind label %122
 
@@ -93989,11 +93989,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   unreachable
 
 .thread48:                                        ; preds = %127, %.thread, %70, %68
-  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %68 ], [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %.thread ], [ %.pn444, %127 ]
+  %.pn443 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %70 ], [ %.pn444, %127 ], [ %lpad.thr_comm.split-lp.i, %68 ], [ %.pn444, %.thread ]
   resume { ptr, i32 } %.pn443
 
 .thread:                                          ; preds = %23, %.body24, %21
-  %.pn444 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %.pn, %.body24 ], [ %24, %23 ]
+  %.pn444 = phi { ptr, i32 } [ %.pn, %.body24 ], [ %lpad.thr_comm.split-lp, %21 ], [ %24, %23 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !20143)
   call void @llvm.experimental.noalias.scope.decl(metadata !20146)
@@ -94785,7 +94785,7 @@ define hidden void @"_ZN3vim6normal9increment26_$LT$impl$u20$vim..Vim$GT$9increm
   br label %_ZN6editor6Editor4edit17h773acd8af5baf142E.llvm.15176112197741344593.exit
 
 common.resume:                                    ; preds = %39, %52, %58, %14
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i, %14 ], [ %53, %58 ], [ %53, %52 ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.i, %14 ], [ %53, %58 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %8, %3
@@ -95051,7 +95051,7 @@ define hidden void @"_ZN3vim6normal5paste26_$LT$impl$u20$vim..Vim$GT$5paste28_$u
   br label %.thread.i
 
 common.resume:                                    ; preds = %93, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$editor..ClipboardSelection$GT$$GT$$GT$17h3b5728189e292555E.exit", %89, %56, %61, %63
-  %common.resume.op = phi { ptr, i32 } [ %57, %63 ], [ %57, %61 ], [ %57, %56 ], [ %.pn91.pn.pn.pn, %89 ], [ %.pn91.pn.pn.pn, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$editor..ClipboardSelection$GT$$GT$$GT$17h3b5728189e292555E.exit" ], [ %.pn91.pn.pn.pn, %93 ]
+  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %57, %63 ], [ %57, %61 ], [ %.pn91.pn.pn.pn, %89 ], [ %.pn91.pn.pn.pn, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$editor..ClipboardSelection$GT$$GT$$GT$17h3b5728189e292555E.exit" ], [ %.pn91.pn.pn.pn, %93 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i:                                        ; preds = %72, %70, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h891ad5288ddfe95cE.exit.i.i"
@@ -95118,9 +95118,9 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
           to label %common.resume unwind label %474
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h3286767551a63d89E.exit": ; preds = %79, %84, %82, %76
-  %.sroa.9.0 = phi ptr [ undef, %84 ], [ undef, %82 ], [ undef, %76 ], [ %.sroa.8.0.copyload, %79 ]
-  %.sroa.14.0 = phi i64 [ undef, %84 ], [ undef, %82 ], [ undef, %76 ], [ %.sroa.9.0.copyload, %79 ]
-  %.sroa.0186.0 = phi i64 [ -9223372036854775808, %84 ], [ -9223372036854775808, %82 ], [ -9223372036854775808, %76 ], [ %.sroa.7466.0.copyload, %79 ]
+  %.sroa.9.0 = phi ptr [ undef, %76 ], [ undef, %84 ], [ undef, %82 ], [ %.sroa.8.0.copyload, %79 ]
+  %.sroa.14.0 = phi i64 [ undef, %76 ], [ undef, %84 ], [ undef, %82 ], [ %.sroa.9.0.copyload, %79 ]
+  %.sroa.0186.0 = phi i64 [ -9223372036854775808, %76 ], [ -9223372036854775808, %84 ], [ -9223372036854775808, %82 ], [ %.sroa.7466.0.copyload, %79 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8, !nonnull !22, !align !207, !noundef !22
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
@@ -95235,7 +95235,7 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
           to label %143 unwind label %.loopexit.split-lp328.loopexit.split-lp
 
 .thread288:                                       ; preds = %.loopexit327, %.loopexit.split-lp328.loopexit.split-lp, %.loopexit.split-lp328.loopexit, %581, %293
-  %.pn91 = phi { ptr, i32 } [ %.pn87271, %581 ], [ %.pn87271, %293 ], [ %lpad.loopexit329, %.loopexit327 ], [ %lpad.loopexit332, %.loopexit.split-lp328.loopexit ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp328.loopexit.split-lp ]
+  %.pn91 = phi { ptr, i32 } [ %.pn87271, %293 ], [ %.pn87271, %581 ], [ %lpad.loopexit329, %.loopexit327 ], [ %lpad.loopexit332, %.loopexit.split-lp328.loopexit ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp328.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20407)
   call void @llvm.experimental.noalias.scope.decl(metadata !20410)
   call void @llvm.experimental.noalias.scope.decl(metadata !20413)
@@ -95265,10 +95265,10 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
   br label %.thread288
 
 143:                                              ; preds = %.thread500, %.noexc106
-  %144 = phi ptr [ %123, %.noexc106 ], [ %121, %.thread500 ]
-  %.sroa.01.0.lcssa499503 = phi i64 [ %.sroa.10.0.copyload, %.noexc106 ], [ 0, %.thread500 ]
-  %145 = phi { i32, i32 } [ %136, %.noexc106 ], [ { i32 0, i32 undef }, %.thread500 ]
-  %.sroa.3.0.i = phi i32 [ %137, %.noexc106 ], [ undef, %.thread500 ]
+  %144 = phi ptr [ %121, %.thread500 ], [ %123, %.noexc106 ]
+  %.sroa.01.0.lcssa499503 = phi i64 [ 0, %.thread500 ], [ %.sroa.10.0.copyload, %.noexc106 ]
+  %145 = phi { i32, i32 } [ { i32 0, i32 undef }, %.thread500 ], [ %136, %.noexc106 ]
+  %.sroa.3.0.i = phi i32 [ undef, %.thread500 ], [ %137, %.noexc106 ]
   %146 = extractvalue { i32, i32 } %145, 0
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %.invoke, label %148
@@ -95353,9 +95353,9 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
   br i1 %exitcond461.not, label %.cont195, label %.lr.ph410
 
 .thread:                                          ; preds = %._crit_edge.thread, %._crit_edge, %.cont195
-  %181 = phi i1 [ false, %.cont195 ], [ true, %._crit_edge ], [ true, %._crit_edge.thread ]
-  %.sroa.7.0 = phi i32 [ %185, %.cont195 ], [ undef, %._crit_edge ], [ undef, %._crit_edge.thread ]
-  %.sroa.023.0 = phi i32 [ 1, %.cont195 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %181 = phi i1 [ true, %._crit_edge ], [ false, %.cont195 ], [ true, %._crit_edge.thread ]
+  %.sroa.7.0 = phi i32 [ undef, %._crit_edge ], [ %185, %.cont195 ], [ undef, %._crit_edge.thread ]
+  %.sroa.023.0 = phi i32 [ 0, %._crit_edge ], [ 1, %.cont195 ], [ 0, %._crit_edge.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %182 = load i8, ptr %95, align 1, !range !57, !noundef !22
   %183 = trunc nuw i8 %182 to i1
@@ -95440,7 +95440,7 @@ common.resume:                                    ; preds = %93, %"_ZN4core3ptr9
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %246
 
-.thread279:                                       ; preds = %_ZN6editor6Editor22edit_with_block_indent17h8ed560f2d34de9a9E.exit, %230, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17hd98a44294c9cf4e0E.exit.i", %250, %.noexc113, %.noexc114, %.noexc115, %.noexc116, %269, %273, %282, %.noexc120, %.noexc121, %.noexc122, %286, %.noexc124
+.thread279:                                       ; preds = %.noexc124, %_ZN6editor6Editor22edit_with_block_indent17h8ed560f2d34de9a9E.exit, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17hd98a44294c9cf4e0E.exit.i", %286, %.noexc122, %230, %250, %.noexc113, %.noexc114, %.noexc115, %.noexc116, %269, %273, %282, %.noexc120, %.noexc121
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread273
@@ -95939,7 +95939,7 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17h8ff338ad2
   br label %.critedge
 
 .body164:                                         ; preds = %.loopexit322, %.loopexit.split-lp323, %555, %448, %413, %472, %466, %431
-  %.pn85 = phi { ptr, i32 } [ %473, %472 ], [ %467, %466 ], [ %432, %431 ], [ %414, %413 ], [ %449, %448 ], [ %556, %555 ], [ %lpad.loopexit324, %.loopexit322 ], [ %lpad.loopexit.split-lp325, %.loopexit.split-lp323 ]
+  %.pn85 = phi { ptr, i32 } [ %432, %431 ], [ %473, %472 ], [ %414, %413 ], [ %467, %466 ], [ %449, %448 ], [ %556, %555 ], [ %lpad.loopexit324, %.loopexit322 ], [ %lpad.loopexit.split-lp325, %.loopexit.split-lp323 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #28
           to label %.thread276 unwind label %474
 
@@ -96249,10 +96249,10 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17h8ff338ad2
   unreachable
 
 .critedge:                                        ; preds = %375, %.thread504, %.noexc150, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit"
-  %.sroa.464.1519 = phi i32 [ %.sroa.464.1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.464.1, %.noexc150 ], [ %.sroa.7.0, %.thread504 ], [ %.sroa.464.1, %375 ]
-  %.sroa.063.1516 = phi i32 [ %.sroa.063.1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.063.1, %.noexc150 ], [ %.sroa.023.0, %.thread504 ], [ %.sroa.063.1, %375 ]
-  %.sroa.038.2513 = phi i64 [ %.sroa.038.2, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.038.2, %.noexc150 ], [ %.sroa.038.0414, %.thread504 ], [ %.sroa.038.2, %375 ]
-  %.sroa.0.0.i.i149304 = phi i1 [ %386, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %383, %.noexc150 ], [ false, %.thread504 ], [ false, %375 ]
+  %.sroa.464.1519 = phi i32 [ %.sroa.464.1, %.noexc150 ], [ %.sroa.464.1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.7.0, %.thread504 ], [ %.sroa.464.1, %375 ]
+  %.sroa.063.1516 = phi i32 [ %.sroa.063.1, %.noexc150 ], [ %.sroa.063.1, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.023.0, %.thread504 ], [ %.sroa.063.1, %375 ]
+  %.sroa.038.2513 = phi i64 [ %.sroa.038.2, %.noexc150 ], [ %.sroa.038.2, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ %.sroa.038.0414, %.thread504 ], [ %.sroa.038.2, %375 ]
+  %.sroa.0.0.i.i149304 = phi i1 [ %383, %.noexc150 ], [ %386, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h3b6902ca1ed2d4d8E.exit" ], [ false, %.thread504 ], [ false, %375 ]
   %476 = load i8, ptr %77, align 8, !range !20395, !noundef !22
   %477 = icmp eq i8 %476, 4
   br i1 %477, label %478, label %469
@@ -96469,8 +96469,8 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17h8ff338ad2
   br i1 %.not316, label %._crit_edge418.loopexit, label %246
 
 .thread273:                                       ; preds = %578, %.thread276, %245, %.thread279
-  %.not316382 = phi i1 [ true, %.thread279 ], [ true, %245 ], [ false, %.thread276 ], [ false, %578 ]
-  %.pn87271 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread279 ], [ %lpad.thr_comm.i, %245 ], [ %.pn87272, %.thread276 ], [ %.pn87272, %578 ]
+  %.not316382 = phi i1 [ true, %245 ], [ true, %.thread279 ], [ false, %.thread276 ], [ false, %578 ]
+  %.pn87271 = phi { ptr, i32 } [ %lpad.thr_comm.i, %245 ], [ %lpad.thr_comm, %.thread279 ], [ %.pn87272, %.thread276 ], [ %.pn87272, %578 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20636)
   call void @llvm.experimental.noalias.scope.decl(metadata !20639)
   call void @llvm.experimental.noalias.scope.decl(metadata !20642)
@@ -97270,10 +97270,10 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17h2dd65d867
   unreachable
 
 .thread:                                          ; preds = %115, %112, %102, %96, %.body
-  %.pn48 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %97, %96 ], [ %97, %102 ], [ %lpad.thr_comm, %112 ], [ %lpad.thr_comm, %115 ]
+  %.pn48 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %97, %102 ], [ %lpad.thr_comm, %115 ], [ %97, %96 ], [ %lpad.thr_comm, %112 ]
   resume { ptr, i32 } %.pn48
 
-112:                                              ; preds = %38, %_ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit, %16, %2, %18, %.noexc, %25, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h145331b269c9b3aeE.llvm.2370907772506617092.exit.i", %36
+112:                                              ; preds = %38, %_ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit, %36, %16, %2, %18, %.noexc, %25, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h145331b269c9b3aeE.llvm.2370907772506617092.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20746)
@@ -97373,7 +97373,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
           to label %44 unwind label %116
 
 .body.thread:                                     ; preds = %113, %91, %.body, %42
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp63, %.body ], [ %43, %42 ], [ %lpad.thr_comm.i, %91 ], [ %lpad.thr_comm62, %113 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.i, %91 ], [ %lpad.thr_comm.split-lp63, %.body ], [ %43, %42 ], [ %lpad.thr_comm62, %113 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17ha7f30677deb2c761E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #28
           to label %.thread unwind label %114
 
@@ -97658,7 +97658,7 @@ _ZN6editor6Editor20edit_with_autoindent17ha5d9d2d4d00e2e6eE.exit: ; preds = %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-113:                                              ; preds = %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h88424e133ea16704E.exit", %49, %.noexc14, %.noexc15, %.noexc16, %.noexc17, %63, %67, %76, %.noexc21, %.noexc22, %.noexc23, %80, %.noexc25
+113:                                              ; preds = %.noexc25, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h88424e133ea16704E.exit", %49, %.noexc14, %.noexc15, %.noexc16, %.noexc17, %63, %67, %76, %.noexc21, %.noexc22, %.noexc23, %80
   %lpad.thr_comm62 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea9e0911a2b8fb86E.llvm.16203528845727909344"(ptr noalias noundef nonnull align 8 dereferenceable(80) %11)
@@ -97671,10 +97671,10 @@ _ZN6editor6Editor20edit_with_autoindent17ha5d9d2d4d00e2e6eE.exit: ; preds = %.no
   unreachable
 
 .thread:                                          ; preds = %119, %116, %105, %99, %.body.thread
-  %.pn552 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %100, %99 ], [ %100, %105 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %119 ]
+  %.pn552 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %100, %105 ], [ %lpad.thr_comm, %119 ], [ %100, %99 ], [ %lpad.thr_comm, %116 ]
   resume { ptr, i32 } %.pn552
 
-116:                                              ; preds = %41, %_ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit, %19, %3, %21, %.noexc, %28, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h145331b269c9b3aeE.llvm.2370907772506617092.exit.i", %39
+116:                                              ; preds = %41, %_ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit, %39, %19, %3, %21, %.noexc, %28, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h145331b269c9b3aeE.llvm.2370907772506617092.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20842)
@@ -97738,7 +97738,7 @@ define hidden void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$15toggle_comments
   unreachable
 
 .body.thread:                                     ; preds = %18, %9
-  %eh.lpad-body4 = phi { ptr, i32 } [ %10, %9 ], [ %19, %18 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %19, %18 ], [ %10, %9 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 18:                                               ; preds = %3
@@ -97810,7 +97810,7 @@ define hidden void @"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$14normal_replace2
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f9dd0ff3d248fceE.exit"
 
-.thread35:                                        ; preds = %36, %35, %37, %.noexc, %.noexc14, %.noexc15, %.noexc16, %49, %53, %60, %.noexc20, %.noexc21, %64, %.noexc23
+.thread35:                                        ; preds = %.noexc23, %36, %35, %37, %.noexc, %.noexc14, %.noexc15, %.noexc16, %49, %53, %60, %.noexc20, %.noexc21, %64
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %98
@@ -98064,7 +98064,7 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17hb0d7a86ea
           to label %66 unwind label %99
 
 98:                                               ; preds = %.thread35, %.thread, %99
-  %.pn.pn = phi { ptr, i32 } [ %.pn34, %.thread ], [ %100, %99 ], [ %lpad.thr_comm, %.thread35 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn34, %.thread ], [ %lpad.thr_comm, %.thread35 ], [ %100, %99 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$editor..display_map..DisplaySnapshot$GT$17hadd2b8ee046e5887E"(ptr noalias noundef nonnull align 8 dereferenceable(632) %14) #28
           to label %103 unwind label %101
 
@@ -98214,7 +98214,7 @@ define hidden void @"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$13multi_replace2
   unreachable
 
 common.resume:                                    ; preds = %10, %27, %32, %35
-  %common.resume.op = phi { ptr, i32 } [ %28, %35 ], [ %28, %32 ], [ %28, %27 ], [ %.pn, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %28, %35 ], [ %28, %32 ], [ %.pn, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$editor..EditorSnapshot$GT$17hc4f61fc3b8d8edabE.exit": ; preds = %36, %40, %43
@@ -98247,7 +98247,7 @@ define hidden void @"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$12undo_replace28
           to label %18 unwind label %16
 
 "_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit": ; preds = %59, %57, %.body.thread.thread43, %89, %.body.thread.thread37, %16
-  %.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn27, %.body.thread.thread37 ], [ %.pn27, %89 ], [ %lpad.thr_comm41, %.body.thread.thread43 ], [ %lpad.thr_comm.split-lp.i, %57 ], [ %lpad.thr_comm.split-lp.i, %59 ]
+  %.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %lpad.thr_comm41, %.body.thread.thread43 ], [ %.pn27, %.body.thread.thread37 ], [ %.pn27, %89 ], [ %lpad.thr_comm.split-lp.i, %57 ], [ %lpad.thr_comm.split-lp.i, %59 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$editor..EditorSnapshot$GT$17hc4f61fc3b8d8edabE"(ptr noalias noundef nonnull align 8 dereferenceable(768) %14) #28
           to label %common.resume unwind label %85
 
@@ -98261,7 +98261,7 @@ define hidden void @"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$12undo_replace28
   invoke void @_ZN6editor21selections_collection20SelectionsCollection3all17h8aa33c9acdc55937E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(320) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %15)
           to label %21 unwind label %16
 
-.body.thread.thread43:                            ; preds = %.noexc12, %56, %.noexc10, %.noexc9, %52, %.noexc8.i, %.noexc7.i, %.noexc, %.noexc.i, %62
+.body.thread.thread43:                            ; preds = %56, %.noexc10, %.noexc9, %52, %.noexc8.i, %.noexc7.i, %.noexc, %.noexc.i, %.noexc12, %62
   %lpad.thr_comm41 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit"
@@ -98493,7 +98493,7 @@ define hidden void @"_ZN3vim7replace26_$LT$impl$u20$vim..Vim$GT$12undo_replace28
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit", %65, %70, %73
-  %common.resume.op = phi { ptr, i32 } [ %66, %73 ], [ %66, %70 ], [ %66, %65 ], [ %.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %66, %73 ], [ %66, %70 ], [ %.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$GT$$GT$17h35dc8577cc4745dcE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$editor..EditorSnapshot$GT$17hc4f61fc3b8d8edabE.exit": ; preds = %74, %78, %81
@@ -98768,7 +98768,7 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$13add_surround
   br i1 %72, label %.loopexit, label %.lr.ph.i.i
 
 .body:                                            ; preds = %89, %83, %73, %.body56
-  %.pn = phi { ptr, i32 } [ %113, %.body56 ], [ %74, %73 ], [ %84, %83 ], [ %90, %89 ]
+  %.pn = phi { ptr, i32 } [ %113, %.body56 ], [ %84, %83 ], [ %74, %73 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$language..BracketPair$GT$$GT$17h0087972184200fe8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #28
           to label %382 unwind label %145
 
@@ -99144,7 +99144,7 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   %spec.select215 = zext i1 %not..sroa.0.0.i to i64
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit"
 
-.thread168.loopexit:                              ; preds = %368, %311, %310, %.noexc78, %.noexc77, %.noexc76, %270, %286, %254, %358, %363, %299, %305
+.thread168.loopexit:                              ; preds = %.noexc76, %270, %286, %254, %.noexc78, %.noexc77, %358, %363, %368, %299, %305, %311, %310
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -99738,8 +99738,8 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   br i1 %.sroa.010.1160, label %381, label %.thread163.thread
 
 .thread:                                          ; preds = %.thread168.loopexit, %.thread168.loopexit.split-lp, %339, %.body87, %319, %313, %.body87.thread181, %357
-  %.pn38162 = phi { ptr, i32 } [ %320, %319 ], [ %314, %313 ], [ %eh.lpad-body88180, %.body87.thread181 ], [ %eh.lpad-body88180, %357 ], [ %340, %339 ], [ %322, %.body87 ], [ %lpad.loopexit, %.thread168.loopexit ], [ %lpad.loopexit.split-lp, %.thread168.loopexit.split-lp ]
-  %.sroa.010.1160 = phi i1 [ true, %319 ], [ true, %313 ], [ true, %.body87.thread181 ], [ true, %357 ], [ true, %339 ], [ true, %.body87 ], [ true, %.thread168.loopexit ], [ %.sroa.010.0.ph.ph, %.thread168.loopexit.split-lp ]
+  %.pn38162 = phi { ptr, i32 } [ %322, %.body87 ], [ %320, %319 ], [ %314, %313 ], [ %eh.lpad-body88180, %.body87.thread181 ], [ %eh.lpad-body88180, %357 ], [ %340, %339 ], [ %lpad.loopexit, %.thread168.loopexit ], [ %lpad.loopexit.split-lp, %.thread168.loopexit.split-lp ]
+  %.sroa.010.1160 = phi i1 [ true, %.body87 ], [ true, %319 ], [ true, %313 ], [ true, %.body87.thread181 ], [ true, %357 ], [ true, %339 ], [ true, %.thread168.loopexit ], [ %.sroa.010.0.ph.ph, %.thread168.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21162)
   call void @llvm.experimental.noalias.scope.decl(metadata !21165)
   call void @llvm.experimental.noalias.scope.decl(metadata !21168)
@@ -99754,7 +99754,7 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   br label %.thread163
 
 .thread163.thread:                                ; preds = %238, %236, %203, %381, %.thread163
-  %.pn38161192 = phi { ptr, i32 } [ %.pn38162, %381 ], [ %.pn38162, %.thread163 ], [ %lpad.thr_comm.i, %238 ], [ %lpad.thr_comm.i, %236 ], [ %lpad.thr_comm.split-lp, %203 ]
+  %.pn38161192 = phi { ptr, i32 } [ %.pn38162, %.thread163 ], [ %.pn38162, %381 ], [ %lpad.thr_comm.i, %238 ], [ %lpad.thr_comm.i, %236 ], [ %lpad.thr_comm.split-lp, %203 ]
   %378 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %378, label %"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit97", label %379
 
@@ -100274,7 +100274,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
           to label %203 unwind label %.loopexit173, !range !20302
 
 "_ZN4core3ptr544drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..reverse_buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h2edacabf0524a6f9E.exit": ; preds = %.loopexit173, %.loopexit.split-lp174.loopexit.split-lp, %.loopexit.split-lp174.loopexit, %340, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i", %.loopexit.split-lp
-  %.pn37 = phi { ptr, i32 } [ %lpad.phi172, %.loopexit.split-lp ], [ %lpad.phi172, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i" ], [ %lpad.phi172, %340 ], [ %lpad.loopexit175, %.loopexit173 ], [ %lpad.loopexit183, %.loopexit.split-lp174.loopexit ], [ %lpad.loopexit.split-lp184, %.loopexit.split-lp174.loopexit.split-lp ]
+  %.pn37 = phi { ptr, i32 } [ %lpad.loopexit.split-lp184, %.loopexit.split-lp174.loopexit.split-lp ], [ %lpad.phi172, %340 ], [ %lpad.phi172, %.loopexit.split-lp ], [ %lpad.phi172, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit175, %.loopexit173 ], [ %lpad.loopexit183, %.loopexit.split-lp174.loopexit ]
   invoke void @"_ZN4core3ptr514drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hded627592f6b0eaeE"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %22) #28
           to label %.thread unwind label %324
 
@@ -100312,7 +100312,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %212
 
 212:                                              ; preds = %210, %208, %205
-  %.sroa.0.0.i.i = phi i64 [ 1, %205 ], [ %..i.i, %210 ], [ 2, %208 ]
+  %.sroa.0.0.i.i = phi i64 [ 2, %208 ], [ %..i.i, %210 ], [ 1, %205 ]
   %213 = add i64 %.sroa.0.0.i.i, %206
   store i64 %213, ptr %52, align 8, !alias.scope !21242
   br label %214
@@ -100532,7 +100532,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i": ; preds = %304, %302, %299
-  %.sroa.0.0.i.i.i.i.i = phi i64 [ 1, %299 ], [ %..i.i.i.i.i, %304 ], [ 2, %302 ]
+  %.sroa.0.0.i.i.i.i.i = phi i64 [ 2, %302 ], [ %..i.i.i.i.i, %304 ], [ 1, %299 ]
   %306 = add i64 %.sroa.0.0.i.i.i.i.i, %300
   store i64 %306, ptr %52, align 8, !alias.scope !21288, !noalias !21282
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hf8abd951ee7f8fc6E.exit.i"
@@ -100672,7 +100672,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %351
 
 351:                                              ; preds = %349, %347, %345
-  %.sroa.0.0.neg.i.i = phi i64 [ -1, %345 ], [ %..i.i78, %349 ], [ -2, %347 ]
+  %.sroa.0.0.neg.i.i = phi i64 [ -2, %347 ], [ %..i.i78, %349 ], [ -1, %345 ]
   %352 = load i64, ptr %65, align 8, !alias.scope !21349, !noundef !22
   %353 = add i64 %352, %.sroa.0.0.neg.i.i
   store i64 %353, ptr %65, align 8, !alias.scope !21349
@@ -100892,7 +100892,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i"
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i": ; preds = %444, %442, %440
-  %.sroa.0.0.neg.i.i.i.i.i = phi i64 [ -1, %440 ], [ %..i.i.i.i.i100, %444 ], [ -2, %442 ]
+  %.sroa.0.0.neg.i.i.i.i.i = phi i64 [ -2, %442 ], [ %..i.i.i.i.i100, %444 ], [ -1, %440 ]
   %446 = load i64, ptr %65, align 8, !alias.scope !21407, !noalias !21402, !noundef !22
   %447 = add i64 %446, %.sroa.0.0.neg.i.i.i.i.i
   store i64 %447, ptr %65, align 8, !alias.scope !21407, !noalias !21402
@@ -100955,7 +100955,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
           cleanup
   br label %.thread139.thread
 
-.thread139.thread166.loopexit.split-lp:           ; preds = %.loopexit, %.noexc.i, %.noexc, %.noexc7.i, %.noexc8.i, %118, %.noexc55, %.noexc56, %.noexc57, %122, %.noexc59, %134
+.thread139.thread166.loopexit.split-lp:           ; preds = %.loopexit, %.noexc59, %122, %134, %.noexc.i, %.noexc, %.noexc7.i, %.noexc8.i, %118, %.noexc55, %.noexc56, %.noexc57
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread139.thread
@@ -100991,7 +100991,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit106"
 
 .thread139.thread:                                ; preds = %.thread139.thread166.loopexit, %.thread139.thread166.loopexit.split-lp, %464, %.thread, %125, %123
-  %.pn39137162 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %125 ], [ %lpad.thr_comm.split-lp.i, %123 ], [ %.pn39138, %.thread ], [ %.pn39138, %464 ], [ %lpad.loopexit, %.thread139.thread166.loopexit ], [ %lpad.loopexit.split-lp, %.thread139.thread166.loopexit.split-lp ]
+  %.pn39137162 = phi { ptr, i32 } [ %.pn39138, %464 ], [ %lpad.thr_comm.split-lp.i, %125 ], [ %lpad.thr_comm.split-lp.i, %123 ], [ %.pn39138, %.thread ], [ %lpad.loopexit, %.thread139.thread166.loopexit ], [ %lpad.loopexit.split-lp, %.thread139.thread166.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21458)
   call void @llvm.experimental.noalias.scope.decl(metadata !21461)
   call void @llvm.experimental.noalias.scope.decl(metadata !21464)
@@ -101117,7 +101117,7 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$16change_surro
   br i1 %78, label %.loopexit290, label %.lr.ph.i.i
 
 .body:                                            ; preds = %94, %88, %79, %.body82
-  %.pn = phi { ptr, i32 } [ %118, %.body82 ], [ %80, %79 ], [ %89, %88 ], [ %95, %94 ]
+  %.pn = phi { ptr, i32 } [ %118, %.body82 ], [ %89, %88 ], [ %80, %79 ], [ %95, %94 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$language..BracketPair$GT$$GT$17h0087972184200fe8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #28
           to label %844 unwind label %150
 
@@ -101518,8 +101518,8 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit"
 
 "_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit": ; preds = %.loopexit273, %.loopexit.split-lp274, %330, %327, %314, %312, %.body105.thread220, %255, %260, %.thread236
-  %.sroa.021.0 = phi i1 [ true, %.thread236 ], [ true, %260 ], [ true, %255 ], [ false, %.body105.thread220 ], [ false, %312 ], [ false, %314 ], [ %.sroa.021.2.ph, %327 ], [ %.sroa.021.2.ph, %330 ], [ true, %.loopexit.split-lp274 ], [ true, %.loopexit273 ]
-  %.pn53 = phi { ptr, i32 } [ %.pn51, %.thread236 ], [ %256, %260 ], [ %256, %255 ], [ %lpad.thr_comm, %.body105.thread220 ], [ %lpad.thr_comm.split-lp.i, %312 ], [ %lpad.thr_comm.split-lp.i, %314 ], [ %lpad.phi, %327 ], [ %lpad.phi, %330 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %lpad.loopexit275, %.loopexit273 ]
+  %.sroa.021.0 = phi i1 [ false, %314 ], [ false, %.body105.thread220 ], [ true, %.thread236 ], [ %.sroa.021.2.ph, %330 ], [ true, %260 ], [ true, %255 ], [ false, %312 ], [ %.sroa.021.2.ph, %327 ], [ true, %.loopexit.split-lp274 ], [ true, %.loopexit273 ]
+  %.pn53 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %314 ], [ %lpad.thr_comm, %.body105.thread220 ], [ %.pn51, %.thread236 ], [ %lpad.phi, %330 ], [ %256, %260 ], [ %256, %255 ], [ %lpad.thr_comm.split-lp.i, %312 ], [ %lpad.phi, %327 ], [ %lpad.loopexit.split-lp276, %.loopexit.split-lp274 ], [ %lpad.loopexit275, %.loopexit273 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !21539)
   call void @llvm.experimental.noalias.scope.decl(metadata !21542)
   call void @llvm.experimental.noalias.scope.decl(metadata !21545)
@@ -101604,7 +101604,7 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc8c4cc9f18c178b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
           to label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit91" unwind label %.loopexit.split-lp
 
-.body105.thread220:                               ; preds = %.noexc.i94, %.noexc95, %.noexc7.i, %.noexc8.i, %307, %.noexc99, %.noexc100, %.noexc101, %311, %.noexc103
+.body105.thread220:                               ; preds = %.noexc103, %.noexc.i94, %.noexc95, %.noexc7.i, %.noexc8.i, %307, %.noexc99, %.noexc100, %.noexc101, %311
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit"
@@ -102020,7 +102020,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
           to label %392 unwind label %.loopexit268, !range !20302
 
 .thread236:                                       ; preds = %.loopexit268, %.loopexit.split-lp269.loopexit.split-lp, %.loopexit.split-lp269.loopexit, %629, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i", %.loopexit.split-lp264, %498, %489, %.thread241
-  %.pn51 = phi { ptr, i32 } [ %lpad.phi283, %.thread241 ], [ %lpad.thr_comm.split-lp240, %489 ], [ %499, %498 ], [ %.pn48.pn, %.loopexit.split-lp264 ], [ %.pn48.pn, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i" ], [ %.pn48.pn, %629 ], [ %lpad.loopexit270, %.loopexit268 ], [ %lpad.loopexit278, %.loopexit.split-lp269.loopexit ], [ %lpad.loopexit.split-lp279, %.loopexit.split-lp269.loopexit.split-lp ]
+  %.pn51 = phi { ptr, i32 } [ %lpad.loopexit.split-lp279, %.loopexit.split-lp269.loopexit.split-lp ], [ %499, %498 ], [ %lpad.phi283, %.thread241 ], [ %lpad.thr_comm.split-lp240, %489 ], [ %.pn48.pn, %629 ], [ %.pn48.pn, %.loopexit.split-lp264 ], [ %.pn48.pn, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit270, %.loopexit268 ], [ %lpad.loopexit278, %.loopexit.split-lp269.loopexit ]
   invoke void @"_ZN4core3ptr514drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hded627592f6b0eaeE"(ptr noalias noundef nonnull align 8 dereferenceable(1232) %44) #28
           to label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit" unwind label %150
 
@@ -102058,7 +102058,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %401
 
 401:                                              ; preds = %399, %397, %394
-  %.sroa.0.0.i.i112 = phi i64 [ 1, %394 ], [ %..i.i, %399 ], [ 2, %397 ]
+  %.sroa.0.0.i.i112 = phi i64 [ 2, %397 ], [ %..i.i, %399 ], [ 1, %394 ]
   %402 = add i64 %.sroa.0.0.i.i112, %395
   store i64 %402, ptr %187, align 8, !alias.scope !21656
   br label %403
@@ -102267,7 +102267,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i"
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3d837c78b48a213aE.exit.i.i.i": ; preds = %486, %484, %481
-  %.sroa.0.0.i.i.i.i.i = phi i64 [ 1, %481 ], [ %..i.i.i.i.i, %486 ], [ 2, %484 ]
+  %.sroa.0.0.i.i.i.i.i = phi i64 [ 2, %484 ], [ %..i.i.i.i.i, %486 ], [ 1, %481 ]
   %488 = add i64 %.sroa.0.0.i.i.i.i.i, %482
   store i64 %488, ptr %187, align 8, !alias.scope !21696, !noalias !21691
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hf8abd951ee7f8fc6E.exit.i"
@@ -102278,7 +102278,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   store i64 %.sroa.3.0.i.i.i, ptr %186, align 8, !alias.scope !21691, !noalias !21694
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h68e579a33123e1f2E.exit"
 
-.thread241.loopexit:                              ; preds = %589, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit136.thread", %573, %527, %478
+.thread241.loopexit:                              ; preds = %573, %527, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit136.thread", %589, %478
   %lpad.loopexit281 = landingpad { ptr, i32 }
           cleanup
   br label %.thread241
@@ -102307,7 +102307,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %.sroa.0.0.i, label %.critedge, label %502
 
 493:                                              ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit, %502, %502, %502, %502, %502, %502, %531, %597, %598, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h68e579a33123e1f2E.exit"
-  %.sroa.010.0 = phi i64 [ %475, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h68e579a33123e1f2E.exit" ], [ %599, %598 ], [ %475, %597 ], [ %475, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit ], [ %475, %502 ], [ %475, %531 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ]
+  %.sroa.010.0 = phi i64 [ %475, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h68e579a33123e1f2E.exit" ], [ %475, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit ], [ %599, %598 ], [ %475, %597 ], [ %475, %502 ], [ %475, %531 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ], [ %475, %502 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   store i64 %.sroa.527.0, ptr %39, align 8
@@ -102400,7 +102400,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %527, %.thread2
   br label %493
 
 531:                                              ; preds = %518, %513, %510, %507
-  %.sroa.0.0.i124 = phi i8 [ %517, %513 ], [ %509, %507 ], [ %523, %518 ], [ %512, %510 ]
+  %.sroa.0.0.i124 = phi i8 [ %512, %510 ], [ %517, %513 ], [ %509, %507 ], [ %523, %518 ]
   %532 = trunc i8 %.sroa.0.0.i124 to i1
   br i1 %532, label %493, label %.thread244
 
@@ -102666,7 +102666,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %527, %.thread2
   br label %638
 
 638:                                              ; preds = %636, %634, %632
-  %.sroa.0.0.neg.i.i = phi i64 [ -1, %632 ], [ %..i.i143, %636 ], [ -2, %634 ]
+  %.sroa.0.0.neg.i.i = phi i64 [ -2, %634 ], [ %..i.i143, %636 ], [ -1, %632 ]
   %639 = load i64, ptr %208, align 8, !alias.scope !21797, !noundef !22
   %640 = add i64 %639, %.sroa.0.0.neg.i.i
   store i64 %640, ptr %208, align 8, !alias.scope !21797
@@ -102875,7 +102875,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %527, %.thread2
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i"
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3a889f96d4afc3afE.exit.i.i.i": ; preds = %724, %722, %720
-  %.sroa.0.0.neg.i.i.i.i.i = phi i64 [ -1, %720 ], [ %..i.i.i.i.i163, %724 ], [ -2, %722 ]
+  %.sroa.0.0.neg.i.i.i.i.i = phi i64 [ -2, %722 ], [ %..i.i.i.i.i163, %724 ], [ -1, %720 ]
   %726 = load i64, ptr %208, align 8, !alias.scope !21850, !noalias !21845, !noundef !22
   %727 = add i64 %726, %.sroa.0.0.neg.i.i.i.i.i
   store i64 %727, ptr %208, align 8, !alias.scope !21850, !noalias !21845
@@ -102911,7 +102911,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %527, %.thread2
   br i1 %.sroa.0.0.i, label %.critedge2, label %740
 
 731:                                              ; preds = %_ZN5alloc6string6String6insert17h281bb881751646d7E.exit, %740, %740, %740, %740, %740, %740, %762, %828, %829, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hcb59a0282189a5bcE.exit"
-  %.sroa.014.0 = phi i64 [ %.sroa.536.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hcb59a0282189a5bcE.exit" ], [ %830, %829 ], [ %.sroa.536.0, %828 ], [ %.sroa.536.0, %_ZN5alloc6string6String6insert17h281bb881751646d7E.exit ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %762 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ]
+  %.sroa.014.0 = phi i64 [ %.sroa.536.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hcb59a0282189a5bcE.exit" ], [ %.sroa.536.0, %_ZN5alloc6string6String6insert17h281bb881751646d7E.exit ], [ %830, %829 ], [ %.sroa.536.0, %828 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %762 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ], [ %.sroa.536.0, %740 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   store i64 %.sroa.014.0, ptr %33, align 8
@@ -102996,7 +102996,7 @@ _ZN5alloc6string6String6insert17h281bb881751646d7E.exit: ; preds = %.thread259
   br label %731
 
 762:                                              ; preds = %756, %751, %748, %745
-  %.sroa.0.0.i169 = phi i8 [ %755, %751 ], [ %747, %745 ], [ %761, %756 ], [ %750, %748 ]
+  %.sroa.0.0.i169 = phi i8 [ %750, %748 ], [ %755, %751 ], [ %747, %745 ], [ %761, %756 ]
   %763 = trunc i8 %.sroa.0.0.i169 to i1
   br i1 %763, label %731, label %.thread259
 
@@ -103284,7 +103284,7 @@ define hidden void @"_ZN3vim9surrounds26_$LT$impl$u20$vim..Vim$GT$36check_and_mo
   %.sroa.0.1..sroa_idx119 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit"
 
-.thread72.loopexit:                               ; preds = %171, %132, %122, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit", %102, %_ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37, %137, %141, %145, %_ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread, %149
+.thread72.loopexit:                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit", %102, %122, %_ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37, %137, %141, %145, %132, %_ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread, %149, %171
   %lpad.loopexit81 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -103680,7 +103680,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37.thread: ; preds =
           to label %"_ZN4core3ptr514drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hded627592f6b0eaeE.exit" unwind label %.thread72.loopexit
 
 172:                                              ; preds = %163, %161, %158
-  %.sroa.0.0.i.i = phi i64 [ 1, %158 ], [ %..i.i, %163 ], [ 2, %161 ]
+  %.sroa.0.0.i.i = phi i64 [ 2, %161 ], [ %..i.i, %163 ], [ 1, %158 ]
   %173 = add i64 %.sroa.0.0.i.i, %159
   store i64 %173, ptr %39, align 8, !alias.scope !21975
   br label %174
@@ -103879,7 +103879,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37.thread: ; preds =
   unreachable
 
 .thread69:                                        ; preds = %259, %.thread, %94, %92, %51
-  %.pn1767 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %51 ], [ %lpad.thr_comm.split-lp.i, %92 ], [ %lpad.thr_comm.split-lp.i, %94 ], [ %.pn1768, %.thread ], [ %.pn1768, %259 ]
+  %.pn1767 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %94 ], [ %lpad.thr_comm.split-lp, %51 ], [ %lpad.thr_comm.split-lp.i, %92 ], [ %.pn1768, %.thread ], [ %.pn1768, %259 ]
   %254 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %254, label %"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit50", label %255
 
@@ -103976,7 +103976,7 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$14visual_replace2
           to label %30 unwind label %28
 
 "_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit": ; preds = %102, %100, %.thread64.thread92, %141, %.thread64.thread86, %39, %44, %28
-  %.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %40, %44 ], [ %40, %39 ], [ %.pn.pn57, %.thread64.thread86 ], [ %.pn.pn57, %141 ], [ %lpad.thr_comm90, %.thread64.thread92 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i, %102 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm90, %.thread64.thread92 ], [ %29, %28 ], [ %40, %44 ], [ %.pn.pn57, %.thread64.thread86 ], [ %.pn.pn57, %141 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i, %102 ]
   %24 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %24, label %"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$text..selection..Selection$LT$editor..display_map..DisplayPoint$GT$$GT$$GT$17h929c785749dc2916E.exit", label %25
 
@@ -104037,7 +104037,7 @@ define hidden void @"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$14visual_replace2
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc8c4cc9f18c178b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
           to label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit12" unwind label %.thread
 
-.thread64.thread92:                               ; preds = %.noexc21, %99, %.noexc19, %.noexc18, %95, %.noexc8.i, %.noexc7.i, %.noexc14, %.noexc.i
+.thread64.thread92:                               ; preds = %.noexc19, %.noexc18, %95, %.noexc8.i, %.noexc7.i, %.noexc14, %.noexc.i, %99, %.noexc21
   %lpad.thr_comm90 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr117drop_in_place$LT$alloc..sync..Arc$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$GT$$GT$17he36be33d06e2202bE.exit"

@@ -97,7 +97,7 @@ slave_seek.exit:                                  ; preds = %28
   br label %45
 
 45:                                               ; preds = %slave_seek.exit.thread, %slave_seek.exit, %17, %43, %16
-  %.0 = phi i32 [ -22, %16 ], [ %40, %43 ], [ %26, %17 ], [ 0, %slave_seek.exit ], [ 0, %slave_seek.exit.thread ]
+  %.0 = phi i32 [ -22, %16 ], [ %26, %17 ], [ %40, %43 ], [ 0, %slave_seek.exit ], [ 0, %slave_seek.exit.thread ]
   ret i32 %.0
 }
 
@@ -235,7 +235,7 @@ slave_seek.exit:                                  ; preds = %29
   br label %49
 
 49:                                               ; preds = %25, %11, %45, %43, %17
-  %.0 = phi i64 [ %20, %17 ], [ %44, %43 ], [ %48, %45 ], [ %14, %11 ], [ -22, %25 ]
+  %.0 = phi i64 [ %48, %45 ], [ %20, %17 ], [ %14, %11 ], [ %44, %43 ], [ -22, %25 ]
   ret i64 %.0
 }
 

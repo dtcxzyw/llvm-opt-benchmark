@@ -182,7 +182,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -663,7 +663,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl32LocalizedNumberFormatterAsFo
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %20, %15
-  %.0.i = phi i1 [ %19, %15 ], [ false, %20 ], [ %44, %.noexc ]
+  %.0.i = phi i1 [ %19, %15 ], [ %44, %.noexc ], [ false, %20 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
@@ -1138,7 +1138,7 @@ define noundef ptr @_ZNK6icu_776number24LocalizedNumberFormatter8toFormatER10UEr
   resume { ptr, i32 } %15
 
 _ZN6icu_7712LocalPointerINS_6number4impl32LocalizedNumberFormatterAsFormatEED2Ev.exit: ; preds = %8, %10, %13, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %13 ], [ %6, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ null, %10 ], [ %6, %8 ]
   ret ptr %.0
 }
 

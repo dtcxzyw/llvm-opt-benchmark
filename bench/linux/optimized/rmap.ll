@@ -1052,9 +1052,9 @@ define dso_local range(i32 -12, 1) i32 @anon_vma_clone(ptr noundef %0, ptr nound
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread, %36, %34
-  %38 = phi ptr [ %15, %36 ], [ %15, %34 ], [ %23, %.thread ]
-  %39 = phi ptr [ %27, %36 ], [ %27, %34 ], [ %31, %.thread ]
-  %40 = phi ptr [ %28, %36 ], [ %28, %34 ], [ %32, %.thread ]
+  %38 = phi ptr [ %15, %34 ], [ %15, %36 ], [ %23, %.thread ]
+  %39 = phi ptr [ %27, %34 ], [ %27, %36 ], [ %31, %.thread ]
+  %40 = phi ptr [ %28, %34 ], [ %28, %36 ], [ %32, %.thread ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   tail call void @down_write(ptr noundef nonnull %41) #17
   br label %42
@@ -1676,7 +1676,7 @@ define dso_local noundef ptr @folio_lock_anon_vma_read(ptr noundef %0, ptr nound
   br label %113
 
 .thread2:                                         ; preds = %39, %24, %64, %74, %62, %57, %52, %49, %2
-  %112 = phi ptr [ %30, %52 ], [ null, %57 ], [ null, %62 ], [ %30, %49 ], [ null, %2 ], [ null, %74 ], [ null, %64 ], [ %40, %39 ], [ %17, %24 ]
+  %112 = phi ptr [ %30, %52 ], [ null, %57 ], [ null, %62 ], [ %30, %49 ], [ null, %2 ], [ null, %74 ], [ null, %64 ], [ %17, %24 ], [ %40, %39 ]
   tail call void @__rcu_read_unlock() #17
   br label %113
 
@@ -2735,7 +2735,7 @@ define internal fastcc i32 @page_vma_mkclean_one(ptr noundef %0) unnamed_addr #1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %17, %15
-  %29 = phi i64 [ %16, %15 ], [ %.pre, %17 ], [ %spec.select, %28 ]
+  %29 = phi i64 [ %16, %15 ], [ %spec.select, %28 ], [ %.pre, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 3, ptr %30, align 4
   store ptr %11, ptr %4, align 8
@@ -3430,7 +3430,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   br label %._crit_edge49
 
 ._crit_edge49:                                    ; preds = %57, %48, %46
-  %58 = phi i64 [ %47, %46 ], [ %.pre, %48 ], [ %spec.select, %57 ]
+  %58 = phi i64 [ %47, %46 ], [ %spec.select, %57 ], [ %.pre, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 1, ptr %60, align 4
@@ -4299,7 +4299,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   br i1 %561, label %117, label %.thread, !llvm.loop !90
 
 .thread:                                          ; preds = %560, %192, %195, %230, %233, %378, %414, %417, %432, %435, %460, %463, %143, %140, %82
-  %562 = phi i1 [ false, %140 ], [ false, %143 ], [ true, %82 ], [ true, %233 ], [ true, %230 ], [ false, %195 ], [ false, %192 ], [ false, %378 ], [ false, %414 ], [ false, %417 ], [ false, %432 ], [ false, %435 ], [ false, %460 ], [ false, %463 ], [ true, %560 ]
+  %562 = phi i1 [ false, %140 ], [ false, %143 ], [ true, %82 ], [ false, %192 ], [ true, %233 ], [ true, %230 ], [ false, %195 ], [ false, %378 ], [ false, %414 ], [ false, %417 ], [ false, %432 ], [ false, %435 ], [ false, %460 ], [ false, %463 ], [ true, %560 ]
   %563 = load i32, ptr %62, align 8
   %564 = and i32 %563, 1
   %565 = icmp eq i32 %564, 0
@@ -4525,7 +4525,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br label %._crit_edge32
 
 ._crit_edge32:                                    ; preds = %57, %48, %46
-  %58 = phi i64 [ %47, %46 ], [ %.pre, %48 ], [ %spec.select51, %57 ]
+  %58 = phi i64 [ %47, %46 ], [ %spec.select51, %57 ], [ %.pre, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 1, ptr %60, align 4
@@ -5037,8 +5037,8 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br label %364
 
 364:                                              ; preds = %357, %.thread20, %.thread22
-  %.in = phi i64 [ %351, %.thread22 ], [ %355, %.thread20 ], [ %362, %357 ]
-  %365 = phi i64 [ 8646911284551352320, %.thread22 ], [ %356, %.thread20 ], [ %spec.select, %357 ]
+  %.in = phi i64 [ %351, %.thread22 ], [ %362, %357 ], [ %355, %.thread20 ]
+  %365 = phi i64 [ 8646911284551352320, %.thread22 ], [ %spec.select, %357 ], [ %356, %.thread20 ]
   %366 = lshr exact i64 %.in, 6
   %367 = or disjoint i64 %366, %365
   %368 = and i64 %.fr, 32
@@ -5260,13 +5260,13 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   br i1 %483, label %105, label %.thread, !llvm.loop !100
 
 .thread.sink.split:                               ; preds = %343, %316, %190, %153
-  %.sink = phi ptr [ %154, %153 ], [ %191, %190 ], [ %317, %316 ], [ %344, %343 ]
-  %.ph = phi i1 [ false, %153 ], [ true, %190 ], [ false, %316 ], [ false, %343 ]
+  %.sink = phi ptr [ %317, %316 ], [ %191, %190 ], [ %154, %153 ], [ %344, %343 ]
+  %.ph = phi i1 [ false, %316 ], [ true, %190 ], [ false, %153 ], [ false, %343 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #17
   br label %.thread
 
 .thread:                                          ; preds = %482, %.thread.sink.split, %343, %316, %153, %190, %82
-  %484 = phi i1 [ true, %82 ], [ false, %316 ], [ false, %343 ], [ true, %190 ], [ false, %153 ], [ %.ph, %.thread.sink.split ], [ true, %482 ]
+  %484 = phi i1 [ true, %82 ], [ true, %190 ], [ false, %316 ], [ false, %343 ], [ false, %153 ], [ %.ph, %.thread.sink.split ], [ true, %482 ]
   %485 = load i32, ptr %62, align 8
   %486 = and i32 %485, 1
   %487 = icmp eq i32 %486, 0

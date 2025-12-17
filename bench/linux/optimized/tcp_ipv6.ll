@@ -140,8 +140,8 @@ define internal void @tcp_v6_reqsk_send_ack(ptr noundef %0, ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %9, %4, %3
-  %.sroa.52.0 = phi i32 [ 0, %3 ], [ 0, %4 ], [ %spec.select, %9 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %4 ], [ %13, %9 ]
+  %.sroa.52.0 = phi i32 [ 0, %3 ], [ %spec.select, %9 ], [ 0, %4 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %13, %9 ], [ null, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %16 = load volatile i8, ptr %15, align 2
   %17 = icmp eq i8 %16, 10
@@ -323,8 +323,8 @@ define internal void @tcp_v6_send_reset(ptr noundef %0, ptr noundef %1) #1 align
   br i1 %75, label %.thread, label %.thread7
 
 .thread:                                          ; preds = %49, %48, %73, %53
-  %.sroa.66.0 = phi i32 [ 0, %53 ], [ 1, %73 ], [ 0, %48 ], [ %spec.select, %49 ]
-  %.sroa.0.0 = phi ptr [ null, %53 ], [ %68, %73 ], [ null, %48 ], [ %51, %49 ]
+  %.sroa.66.0 = phi i32 [ 0, %53 ], [ 1, %73 ], [ %spec.select, %49 ], [ 0, %48 ]
+  %.sroa.0.0 = phi ptr [ null, %53 ], [ %68, %73 ], [ %51, %49 ], [ null, %48 ]
   %76 = load i16, ptr %16, align 4
   %77 = and i16 %76, 4096
   %78 = icmp eq i16 %77, 0
@@ -1803,7 +1803,7 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   br label %187
 
 187:                                              ; preds = %174, %181
-  %188 = phi i8 [ 1, %174 ], [ %186, %181 ]
+  %188 = phi i8 [ %186, %181 ], [ 1, %174 ]
   store ptr null, ptr %131, align 8
   store ptr null, ptr %130, align 8
   %189 = load volatile i8, ptr %175, align 2
@@ -1848,8 +1848,8 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   br label %210
 
 210:                                              ; preds = %.thread32, %209, %207, %203, %200, %197, %194, %187
-  %211 = phi i8 [ %188, %187 ], [ %188, %197 ], [ %188, %200 ], [ %188, %194 ], [ %188, %203 ], [ 1, %209 ], [ 0, %207 ], [ 1, %.thread32 ]
-  %212 = phi ptr [ %170, %187 ], [ %170, %197 ], [ %170, %200 ], [ %170, %194 ], [ %170, %203 ], [ %205, %209 ], [ %205, %207 ], [ %170, %.thread32 ]
+  %211 = phi i8 [ 1, %.thread32 ], [ %188, %187 ], [ %188, %197 ], [ %188, %200 ], [ %188, %194 ], [ %188, %203 ], [ 1, %209 ], [ 0, %207 ]
+  %212 = phi ptr [ %170, %.thread32 ], [ %170, %187 ], [ %170, %197 ], [ %170, %200 ], [ %170, %194 ], [ %170, %203 ], [ %205, %209 ], [ %205, %207 ]
   %213 = icmp ugt ptr %212, inttoptr (i64 -4096 to ptr)
   br i1 %213, label %.thread37, label %.thread36
 
@@ -3476,7 +3476,7 @@ define dso_local void @tcp_v6_early_demux(ptr noundef %0) local_unnamed_addr #1 
   br label %dst_check.exit
 
 dst_check.exit:                                   ; preds = %91, %89, %85
-  %93 = phi ptr [ %86, %85 ], [ %90, %89 ], [ %92, %91 ]
+  %93 = phi ptr [ %92, %91 ], [ %90, %89 ], [ %86, %85 ]
   %94 = icmp eq ptr %93, null
   br i1 %94, label %dst_check.exit.thread, label %dst_check.exit.thread5
 
@@ -4176,7 +4176,7 @@ define internal ptr @tcp_v6_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr no
   br label %311
 
 311:                                              ; preds = %304, %294, %289, %286, %281, %274, %55, %13
-  %312 = phi ptr [ %14, %55 ], [ null, %304 ], [ null, %13 ], [ %72, %286 ], [ %72, %281 ], [ %72, %274 ], [ %72, %289 ], [ null, %294 ]
+  %312 = phi ptr [ %14, %55 ], [ null, %304 ], [ null, %294 ], [ null, %13 ], [ %72, %286 ], [ %72, %281 ], [ %72, %274 ], [ %72, %289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %312
@@ -4701,7 +4701,7 @@ define internal i32 @tcp_v6_connect(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread8
 
 .thread8:                                         ; preds = %33, %.thread11, %229, %225, %220, %77, %70, %57, %12, %3
-  %233 = phi i32 [ %230, %229 ], [ -22, %3 ], [ -97, %12 ], [ -101, %57 ], [ -22, %70 ], [ -22, %77 ], [ 0, %225 ], [ %222, %220 ], [ %.ph, %.thread11 ], [ -22, %33 ]
+  %233 = phi i32 [ %230, %229 ], [ %.ph, %.thread11 ], [ -22, %3 ], [ -97, %12 ], [ -101, %57 ], [ -22, %70 ], [ -22, %77 ], [ 0, %225 ], [ -22, %33 ], [ %222, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

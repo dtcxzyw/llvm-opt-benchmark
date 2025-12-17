@@ -153,7 +153,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
   br label %_ZN6Square9EdgeIndexEii.exit
 
 _ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread, %4, %.thread16
-  %.0 = phi i32 [ %.mux, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %.5.i, %4 ], [ 0, %.thread16 ], [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread ]
+  %.0 = phi i32 [ %.mux, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread ], [ %.5.i, %4 ], [ 0, %.thread16 ]
   ret i32 %.0
 }
 
@@ -176,7 +176,7 @@ define noundef range(i32 -1, 4) i32 @_ZN6Square18ReflectCornerIndexEii(i32 nound
   br label %9
 
 9:                                                ; preds = %2, %7, %4
-  %.0 = phi i32 [ %6, %4 ], [ %8, %7 ], [ -1, %2 ]
+  %.0 = phi i32 [ %8, %7 ], [ %6, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -250,7 +250,7 @@ define noundef range(i32 -1, 6) i32 @_ZN4Cube9FaceIndexEiii(i32 noundef %0, i32 
   br label %12
 
 12:                                               ; preds = %11, %9, %8, %6, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ 2, %6 ], [ 3, %8 ], [ 4, %9 ], [ %., %11 ]
+  %.0 = phi i32 [ 4, %9 ], [ 0, %3 ], [ 1, %5 ], [ 2, %6 ], [ 3, %8 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -354,7 +354,7 @@ define noundef zeroext i1 @_ZN4Cube12IsEdgeCornerEii(i32 noundef %0, i32 noundef
   br label %30
 
 30:                                               ; preds = %2, %22, %15, %7
-  %.0 = phi i1 [ %14, %7 ], [ %21, %15 ], [ %29, %22 ], [ false, %2 ]
+  %.0 = phi i1 [ %29, %22 ], [ %14, %7 ], [ %21, %15 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -607,7 +607,7 @@ define noundef i32 @_ZN4Cube20FaceReflectFaceIndexEii(i32 noundef %0, i32 nounde
   br label %11
 
 11:                                               ; preds = %2, %9, %7
-  %.0 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %0, %2 ]
+  %.0 = phi i32 [ %10, %9 ], [ %8, %7 ], [ %0, %2 ]
   ret i32 %.0
 }
 
@@ -662,7 +662,7 @@ define noundef i32 @_ZN4Cube20FaceReflectEdgeIndexEii(i32 noundef %0, i32 nounde
   br label %30
 
 30:                                               ; preds = %8, %2, %25, %20, %15, %9
-  %.0 = phi i32 [ %13, %9 ], [ %29, %25 ], [ %19, %15 ], [ %24, %20 ], [ %0, %2 ], [ -1, %8 ]
+  %.0 = phi i32 [ %24, %20 ], [ %0, %2 ], [ %13, %9 ], [ %29, %25 ], [ %19, %15 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -691,7 +691,7 @@ define noundef range(i32 -1, 8) i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 nou
   br label %11
 
 11:                                               ; preds = %2, %9, %7, %4
-  %.0 = phi i32 [ %6, %4 ], [ %8, %7 ], [ %10, %9 ], [ -1, %2 ]
+  %.0 = phi i32 [ %10, %9 ], [ %6, %4 ], [ %8, %7 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -720,7 +720,7 @@ define noundef range(i32 -1, 8) i32 @_ZN4Cube22EdgeReflectCornerIndexEii(i32 nou
   br label %11
 
 11:                                               ; preds = %2, %9, %7, %4
-  %.0 = phi i32 [ %6, %4 ], [ %8, %7 ], [ %10, %9 ], [ -1, %2 ]
+  %.0 = phi i32 [ %10, %9 ], [ %6, %4 ], [ %8, %7 ], [ -1, %2 ]
   ret i32 %.0
 }
 

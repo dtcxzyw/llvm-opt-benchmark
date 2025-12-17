@@ -191,7 +191,7 @@ define hidden void @MateParser(ptr noundef captures(address) initializes((16, 24
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %12, %22, %25
-  %.0.i = phi i16 [ %24, %22 ], [ %27, %25 ], [ %.037, %12 ]
+  %.0.i = phi i16 [ %27, %25 ], [ %24, %22 ], [ %.037, %12 ]
   %28 = icmp ugt i16 %.0.i, 438
   br i1 %28, label %29, label %1007
 

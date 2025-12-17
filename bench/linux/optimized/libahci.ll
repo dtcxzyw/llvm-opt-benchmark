@@ -1067,7 +1067,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %3, %21, %26
-  %32 = phi i32 [ 0, %26 ], [ -22, %21 ], [ -22, %3 ]
+  %32 = phi i32 [ 0, %26 ], [ -22, %3 ], [ -22, %21 ]
   ret i32 %32
 }
 
@@ -1110,7 +1110,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %3, %21, %26
-  %31 = phi i32 [ 0, %26 ], [ -22, %21 ], [ -22, %3 ]
+  %31 = phi i32 [ 0, %26 ], [ -22, %3 ], [ -22, %21 ]
   ret i32 %31
 }
 
@@ -3812,7 +3812,7 @@ define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr noundef writ
   br label %ahci_disable_fbs.exit
 
 ahci_disable_fbs.exit:                            ; preds = %124, %108, %106, %87, %83, %79, %75
-  %127 = phi i1 [ false, %79 ], [ false, %83 ], [ false, %75 ], [ true, %87 ], [ true, %106 ], [ true, %108 ], [ true, %124 ]
+  %127 = phi i1 [ false, %79 ], [ false, %75 ], [ false, %83 ], [ true, %87 ], [ true, %106 ], [ true, %108 ], [ true, %124 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %129 = load ptr, ptr %128, align 64
@@ -4184,7 +4184,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %197, %217, %221, %2
   br label %ahci_enable_fbs.exit
 
 ahci_enable_fbs.exit:                             ; preds = %360, %343, %340, %321, %380, %374, %319
-  %384 = phi i32 [ 0, %319 ], [ %364, %380 ], [ %364, %374 ], [ 0, %321 ], [ 0, %340 ], [ 0, %343 ], [ 0, %360 ]
+  %384 = phi i32 [ %364, %374 ], [ 0, %319 ], [ %364, %380 ], [ 0, %321 ], [ 0, %340 ], [ 0, %343 ], [ 0, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %384
 }

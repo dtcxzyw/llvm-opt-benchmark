@@ -137,9 +137,9 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i.i: ; preds = %_
   br label %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i
 
 _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i: ; preds = %42, %39
-  %.sroa.02.0.i.i = phi ptr [ %.0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i, %39 ], [ %.sroa.02.0.i.i.i.i, %42 ]
-  %.sroa.6.0.i.i = phi i64 [ %.8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i, %39 ], [ %.sroa.43.0.copyload, %42 ]
-  %.sroa.7.0.i.i = phi i64 [ %.16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i, %39 ], [ %32, %42 ]
+  %.sroa.02.0.i.i = phi ptr [ %.sroa.02.0.i.i.i.i, %42 ], [ %.0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i, %39 ]
+  %.sroa.6.0.i.i = phi i64 [ %.sroa.43.0.copyload, %42 ], [ %.8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i, %39 ]
+  %.sroa.7.0.i.i = phi i64 [ %32, %42 ], [ %.16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = and i64 %.sroa.7.0.i.i, -72057594037927936
   %or.cond.i = icmp eq i64 %43, -2738188573441261568
@@ -348,9 +348,9 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i.i: ; preds = %_
   br label %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i
 
 _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i.i: ; preds = %42, %39
-  %.sroa.02.0.i.i = phi ptr [ %.0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i, %39 ], [ %.sroa.02.0.i.i.i.i, %42 ]
-  %.sroa.6.0.i.i = phi i64 [ %.8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i, %39 ], [ %.sroa.43.0.copyload, %42 ]
-  %.sroa.7.0.i.i = phi i64 [ %.16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i, %39 ], [ %32, %42 ]
+  %.sroa.02.0.i.i = phi ptr [ %.sroa.02.0.i.i.i.i, %42 ], [ %.0..0..0..0..0..0..0..sroa.02.0.copyload3.i.i, %39 ]
+  %.sroa.6.0.i.i = phi i64 [ %.sroa.43.0.copyload, %42 ], [ %.8..8..8..8..8..8..8..sroa.6.0.copyload6.i.i, %39 ]
+  %.sroa.7.0.i.i = phi i64 [ %32, %42 ], [ %.16..16..16..16..16..16..16..sroa.7.0.copyload9.i.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = and i64 %.sroa.7.0.i.i, -72057594037927936
   %or.cond.i = icmp eq i64 %43, -2738188573441261568
@@ -1148,7 +1148,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h0ab679df3fa4879cE"
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h45eace5a3e4475e7E.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
+  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }

@@ -448,7 +448,7 @@ split:                                            ; preds = %123, %._crit_edge
   br label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 _ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %.lr.ph.i61, %163, %150, %.critedge.loopexit15.i, %.critedge.thread
-  %.not161164 = phi i1 [ true, %150 ], [ true, %.critedge.loopexit15.i ], [ false, %.critedge.thread ], [ true, %163 ], [ true, %.lr.ph.i61 ]
+  %.not161164 = phi i1 [ false, %.critedge.thread ], [ true, %150 ], [ true, %.critedge.loopexit15.i ], [ true, %163 ], [ true, %.lr.ph.i61 ]
   ret i1 %.not161164
 }
 

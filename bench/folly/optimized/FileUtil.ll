@@ -1205,7 +1205,7 @@ define internal fastcc noundef i32 @_ZN5folly12_GLOBAL__N_126writeFileAtomicNoTh
   br i1 %.not31.i.i, label %_ZN5folly10writevFullEiP5ioveci.exit, label %46, !llvm.loop !35
 
 _ZN5folly10writevFullEiP5ioveci.exit:             ; preds = %.loopexit.i.i, %52, %.noexc21
-  %.026.i.i = phi i64 [ %.122.i.i, %.loopexit.i.i ], [ %.021.i.i, %.noexc21 ], [ %53, %52 ]
+  %.026.i.i = phi i64 [ %53, %52 ], [ %.122.i.i, %.loopexit.i.i ], [ %.021.i.i, %.noexc21 ]
   %67 = icmp eq i64 %.026.i.i, -1
   br i1 %67, label %_ZN5folly10writevFullEiP5ioveci.exit._ZN5folly10writevFullEiP5ioveci.exit.thread_crit_edge, label %69
 
@@ -1308,7 +1308,7 @@ _ZN5folly10fsyncNoIntEi.exit:                     ; preds = %.noexc22, %77
   br label %.loopexit68
 
 .loopexit68:                                      ; preds = %86, %_ZN5folly10writevFullEiP5ioveci.exit.thread, %74, %101, %104
-  %.116.ph = phi i32 [ 0, %104 ], [ %103, %101 ], [ %76, %74 ], [ %68, %_ZN5folly10writevFullEiP5ioveci.exit.thread ], [ %88, %86 ]
+  %.116.ph = phi i32 [ 0, %104 ], [ %103, %101 ], [ %68, %_ZN5folly10writevFullEiP5ioveci.exit.thread ], [ %76, %74 ], [ %88, %86 ]
   %.pr = load i32, ptr %9, align 4, !tbaa !7
   %.not.i.i.i = icmp eq i32 %.pr, -1
   br i1 %.not.i.i.i, label %107, label %105

@@ -93,12 +93,12 @@ av_isspace.exit.thread.i:                         ; preds = %.preheader, %.prehe
   br label %av_isspace.exit27.i
 
 av_isspace.exit27.i:                              ; preds = %26, %24, %17, %15, %15, %15, %15, %15
-  %.117.i = phi i32 [ 1, %15 ], [ %19, %17 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ %.016.i, %26 ], [ %.016.i, %24 ]
-  %.1.i = phi ptr [ %.015.i, %15 ], [ %.015.i, %17 ], [ %.015.i, %15 ], [ %.015.i, %15 ], [ %.015.i, %15 ], [ %.015.i, %15 ], [ %21, %26 ], [ %21, %24 ]
+  %.117.i = phi i32 [ 1, %15 ], [ 1, %15 ], [ %19, %17 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ %.016.i, %26 ], [ %.016.i, %24 ]
+  %.1.i = phi ptr [ %.015.i, %15 ], [ %.015.i, %15 ], [ %.015.i, %17 ], [ %.015.i, %15 ], [ %.015.i, %15 ], [ %.015.i, %15 ], [ %21, %26 ], [ %21, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   br label %.preheader, !llvm.loop !31
 
-.thread:                                          ; preds = %10, %4
+.thread:                                          ; preds = %4, %10
   %28 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %36
 

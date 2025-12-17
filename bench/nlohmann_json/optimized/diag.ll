@@ -568,7 +568,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   br label %171
 
 171:                                              ; preds = %106, %170, %55, %105
-  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn, %105 ], [ %56, %55 ], [ %.pn53.pn.pn, %170 ], [ %107, %106 ]
+  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn40.pn.pn.pn, %105 ], [ %.pn53.pn.pn, %170 ], [ %107, %106 ]
   resume { ptr, i32 } %.pn53.pn.pn.pn.pn
 
 172:                                              ; preds = %158, %124

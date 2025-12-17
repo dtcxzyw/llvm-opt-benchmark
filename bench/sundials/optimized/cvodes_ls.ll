@@ -822,7 +822,7 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %23
 
 23:                                               ; preds = %20, %17, %14, %.thread117
-  %.sink = phi i64 [ 1832, %.thread117 ], [ 1848, %14 ], [ 1864, %17 ], [ 1880, %20 ]
+  %.sink = phi i64 [ 1848, %14 ], [ 1832, %.thread117 ], [ 1864, %17 ], [ 1880, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %25 = load ptr, ptr %24, align 8, !tbaa !92
   %26 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %25, ptr noundef nonnull %6) #14
@@ -1059,7 +1059,7 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %139
 
 139:                                              ; preds = %126, %126, %126, %126, %126, %126, %131, %67, %138, %137, %136, %135, %134, %85, %57, %40, %10
-  %.0 = phi i32 [ -2, %10 ], [ 0, %40 ], [ -9, %57 ], [ %86, %85 ], [ 0, %138 ], [ -1, %134 ], [ -1, %135 ], [ -1, %136 ], [ -1, %137 ], [ -1, %67 ], [ %., %131 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ]
+  %.0 = phi i32 [ -2, %10 ], [ 0, %40 ], [ -9, %57 ], [ -1, %137 ], [ %86, %85 ], [ 0, %138 ], [ -1, %67 ], [ %., %131 ], [ -1, %136 ], [ -1, %135 ], [ -1, %134 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1290,7 +1290,7 @@ cvLs_AccessLMem.exit:                             ; preds = %10
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %29, %31, %14, %9, %.thread
-  %.024 = phi i32 [ 0, %.thread ], [ -2, %14 ], [ -1, %9 ], [ 1, %31 ], [ -1, %29 ]
+  %.024 = phi i32 [ -1, %9 ], [ 0, %.thread ], [ -2, %14 ], [ 1, %31 ], [ -1, %29 ]
   ret i32 %.024
 }
 
@@ -1400,7 +1400,7 @@ cvLs_AccessLMem.exit:                             ; preds = %14
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %18, %13, %52, %55, %50, %44, %41, %32, %23
-  %.0 = phi i32 [ -8, %23 ], [ -8, %55 ], [ -8, %32 ], [ -1, %41 ], [ 1, %44 ], [ -8, %50 ], [ 0, %52 ], [ -2, %18 ], [ -1, %13 ]
+  %.0 = phi i32 [ -8, %50 ], [ -8, %23 ], [ -8, %55 ], [ 0, %52 ], [ -8, %32 ], [ -1, %41 ], [ 1, %44 ], [ -2, %18 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -1541,7 +1541,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %22, %14
-  %.0 = phi i32 [ -3, %14 ], [ 0, %22 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %22 ], [ -3, %14 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1607,7 +1607,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %13 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1646,7 +1646,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %11
-  %.0 = phi i32 [ -3, %11 ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ -3, %11 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1722,7 +1722,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %11, %36, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %36 ], [ 0, %11 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %25 ], [ 0, %36 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1765,7 +1765,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %12, %11
-  %.0 = phi i32 [ -3, %11 ], [ 0, %12 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ -3, %11 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1806,7 +1806,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %cvLs_AccessLMem.exit, %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ -3, %12 ], [ -3, %cvLs_AccessLMem.exit ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %15 ], [ -3, %cvLs_AccessLMem.exit ], [ -3, %12 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1861,7 +1861,7 @@ cvLs_AccessLMem.exit:                             ; preds = %6
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %10, %5, %21, %27, %20
-  %.0 = phi i32 [ -3, %20 ], [ -9, %27 ], [ 0, %21 ], [ -2, %10 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %21 ], [ -3, %20 ], [ -9, %27 ], [ -2, %10 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -2017,7 +2017,7 @@ cvLs_AccessLMem.exit:                             ; preds = %6
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %10, %5, %23, %27, %18
-  %.0 = phi i32 [ -3, %18 ], [ 0, %27 ], [ 0, %23 ], [ -2, %10 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %23 ], [ -3, %18 ], [ 0, %27 ], [ -2, %10 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -2067,7 +2067,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %14, %16, %12
-  %.0 = phi i32 [ -3, %12 ], [ 0, %16 ], [ 0, %14 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ -3, %12 ], [ 0, %14 ], [ 0, %16 ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -2125,7 +2125,7 @@ cvLs_AccessLMem.exit:                             ; preds = %5
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %9, %4, %15, %.critedge, %14
-  %.0 = phi i32 [ -3, %14 ], [ 0, %.critedge ], [ 0, %15 ], [ -2, %9 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %15 ], [ -3, %14 ], [ 0, %.critedge ], [ -2, %9 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -2329,7 +2329,7 @@ cvLs_AccessLMem.exit:                             ; preds = %10
   br label %cvLs_AccessLMem.exit.thread
 
 cvLs_AccessLMem.exit.thread:                      ; preds = %14, %9, %48, %58, %55
-  %.0 = phi i32 [ 0, %55 ], [ 0, %58 ], [ 0, %48 ], [ -2, %14 ], [ -1, %9 ]
+  %.0 = phi i32 [ 0, %48 ], [ 0, %55 ], [ 0, %58 ], [ -2, %14 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3392,7 +3392,7 @@ cvLs_AccessLMem.exit.i12:                         ; preds = %37
   br label %CVodeSetJacFn.exit
 
 CVodeSetJacFn.exit:                               ; preds = %cvLs_AccessLMem.exit.i12, %41, %36, %26, %25, %21, %16, %3
-  %.09 = phi i32 [ %8, %3 ], [ -3, %25 ], [ 0, %26 ], [ -2, %21 ], [ -1, %16 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -2, %41 ], [ -1, %36 ]
+  %.09 = phi i32 [ %8, %3 ], [ -1, %16 ], [ 0, %26 ], [ -3, %25 ], [ -2, %21 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -1, %36 ], [ -2, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3528,7 +3528,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %23
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %27, %22, %15, %10, %34, %33
-  %.0 = phi i32 [ -1, %33 ], [ %39, %34 ], [ -102, %27 ], [ -102, %22 ], [ -101, %15 ], [ -1, %10 ]
+  %.0 = phi i32 [ %39, %34 ], [ -1, %33 ], [ -102, %27 ], [ -102, %22 ], [ -101, %15 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -3634,7 +3634,7 @@ cvLs_AccessLMem.exit.i12:                         ; preds = %38
   br label %CVodeSetJacFn.exit
 
 CVodeSetJacFn.exit:                               ; preds = %cvLs_AccessLMem.exit.i12, %42, %37, %27, %26, %22, %17, %3
-  %.09 = phi i32 [ %8, %3 ], [ -3, %26 ], [ 0, %27 ], [ -2, %22 ], [ -1, %17 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -2, %42 ], [ -1, %37 ]
+  %.09 = phi i32 [ %8, %3 ], [ -1, %17 ], [ 0, %27 ], [ -3, %26 ], [ -2, %22 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -1, %37 ], [ -2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3721,7 +3721,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %23
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %27, %22, %15, %10, %40, %39
-  %.013 = phi i32 [ -1, %39 ], [ %49, %40 ], [ -102, %27 ], [ -102, %22 ], [ -101, %15 ], [ -1, %10 ]
+  %.013 = phi i32 [ %49, %40 ], [ -1, %39 ], [ -102, %27 ], [ -102, %22 ], [ -101, %15 ], [ -1, %10 ]
   ret i32 %.013
 }
 
@@ -3776,7 +3776,7 @@ cvLs_AccessLMem.exit.i:                           ; preds = %15
   br label %CVodeSetEpsLin.exit
 
 CVodeSetEpsLin.exit:                              ; preds = %22, %21, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ -3, %21 ], [ 0, %22 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ 0, %22 ], [ -3, %21 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3867,7 +3867,7 @@ cvLs_AccessLMem.exit.i:                           ; preds = %15
   br label %CVodeSetLinearSolutionScaling.exit
 
 CVodeSetLinearSolutionScaling.exit:               ; preds = %25, %22, %cvLs_AccessLMem.exit.i, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ 0, %25 ], [ -3, %22 ], [ -3, %cvLs_AccessLMem.exit.i ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ 0, %25 ], [ -3, %cvLs_AccessLMem.exit.i ], [ -3, %22 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3978,7 +3978,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %22
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %26, %21, %14, %9, %33, %32
-  %.0 = phi i32 [ -1, %32 ], [ %39, %33 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
+  %.0 = phi i32 [ %39, %33 ], [ -1, %32 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -4046,7 +4046,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %24
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %28, %23, %16, %11, %35, %34
-  %.0 = phi i32 [ -1, %34 ], [ %41, %35 ], [ -102, %28 ], [ -102, %23 ], [ -101, %16 ], [ -1, %11 ]
+  %.0 = phi i32 [ %41, %35 ], [ -1, %34 ], [ -102, %28 ], [ -102, %23 ], [ -101, %16 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -4168,7 +4168,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %22
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %26, %21, %14, %9, %39, %38
-  %.012 = phi i32 [ -1, %38 ], [ %48, %39 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
+  %.012 = phi i32 [ %48, %39 ], [ -1, %38 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
   ret i32 %.012
 }
 
@@ -4251,7 +4251,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %24
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %28, %23, %16, %11, %41, %40
-  %.014 = phi i32 [ -1, %40 ], [ %50, %41 ], [ -102, %28 ], [ -102, %23 ], [ -101, %16 ], [ -1, %11 ]
+  %.014 = phi i32 [ %50, %41 ], [ -1, %40 ], [ -102, %28 ], [ -102, %23 ], [ -101, %16 ], [ -1, %11 ]
   ret i32 %.014
 }
 
@@ -4358,7 +4358,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %19
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %23, %18, %11, %6, %30, %29
-  %.0 = phi i32 [ -1, %29 ], [ %36, %30 ], [ -102, %23 ], [ -102, %18 ], [ -101, %11 ], [ -1, %6 ]
+  %.0 = phi i32 [ %36, %30 ], [ -1, %29 ], [ -102, %23 ], [ -102, %18 ], [ -101, %11 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -4426,7 +4426,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %22
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %26, %21, %14, %9, %33, %32
-  %.0 = phi i32 [ -1, %32 ], [ %39, %33 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
+  %.0 = phi i32 [ %39, %33 ], [ -1, %32 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -4548,7 +4548,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %19
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %23, %18, %11, %6, %36, %35
-  %.09 = phi i32 [ -1, %35 ], [ %45, %36 ], [ -102, %23 ], [ -102, %18 ], [ -101, %11 ], [ -1, %6 ]
+  %.09 = phi i32 [ %45, %36 ], [ -1, %35 ], [ -102, %23 ], [ -102, %18 ], [ -101, %11 ], [ -1, %6 ]
   ret i32 %.09
 }
 
@@ -4631,7 +4631,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %22
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %26, %21, %14, %9, %39, %38
-  %.012 = phi i32 [ -1, %38 ], [ %48, %39 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
+  %.012 = phi i32 [ %48, %39 ], [ -1, %38 ], [ -102, %26 ], [ -102, %21 ], [ -101, %14 ], [ -1, %9 ]
   ret i32 %.012
 }
 
@@ -4697,7 +4697,7 @@ cvLs_AccessLMem.exit.i:                           ; preds = %15
   br label %CVodeSetJacTimesRhsFn.exit
 
 CVodeSetJacTimesRhsFn.exit:                       ; preds = %26, %24, %22, %19, %14, %3
-  %.0 = phi i32 [ %8, %3 ], [ -3, %22 ], [ 0, %26 ], [ 0, %24 ], [ -2, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ %8, %3 ], [ -3, %22 ], [ 0, %24 ], [ 0, %26 ], [ -2, %19 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4795,7 +4795,7 @@ cvLs_AccessLMem.exit.i12:                         ; preds = %35
   br label %CVodeSetLinSysFn.exit
 
 CVodeSetLinSysFn.exit:                            ; preds = %cvLs_AccessLMem.exit.i12, %39, %34, %27, %26, %22, %17, %3
-  %.09 = phi i32 [ %8, %3 ], [ -3, %26 ], [ 0, %27 ], [ -2, %22 ], [ -1, %17 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -2, %39 ], [ -1, %34 ]
+  %.09 = phi i32 [ %8, %3 ], [ -2, %22 ], [ 0, %27 ], [ -3, %26 ], [ -1, %17 ], [ -2, %39 ], [ -1, %34 ], [ 0, %cvLs_AccessLMem.exit.i12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4867,7 +4867,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %26
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %30, %25, %18, %13, %37, %36
-  %.0 = phi i32 [ -1, %36 ], [ %43, %37 ], [ -102, %30 ], [ -102, %25 ], [ -101, %18 ], [ -1, %13 ]
+  %.0 = phi i32 [ %43, %37 ], [ -1, %36 ], [ -102, %30 ], [ -102, %25 ], [ -101, %18 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -4961,7 +4961,7 @@ cvLs_AccessLMem.exit.i12:                         ; preds = %35
   br label %CVodeSetLinSysFn.exit
 
 CVodeSetLinSysFn.exit:                            ; preds = %cvLs_AccessLMem.exit.i12, %39, %34, %27, %26, %22, %17, %3
-  %.09 = phi i32 [ %8, %3 ], [ -3, %26 ], [ 0, %27 ], [ -2, %22 ], [ -1, %17 ], [ 0, %cvLs_AccessLMem.exit.i12 ], [ -2, %39 ], [ -1, %34 ]
+  %.09 = phi i32 [ %8, %3 ], [ -2, %22 ], [ 0, %27 ], [ -3, %26 ], [ -1, %17 ], [ -2, %39 ], [ -1, %34 ], [ 0, %cvLs_AccessLMem.exit.i12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5048,7 +5048,7 @@ cvLs_AccessLMemBCur.exit:                         ; preds = %26
   br label %cvLs_AccessLMemBCur.exit.thread
 
 cvLs_AccessLMemBCur.exit.thread:                  ; preds = %30, %25, %18, %13, %43, %42
-  %.016 = phi i32 [ -1, %42 ], [ %52, %43 ], [ -102, %30 ], [ -102, %25 ], [ -101, %18 ], [ -1, %13 ]
+  %.016 = phi i32 [ %52, %43 ], [ -1, %42 ], [ -102, %30 ], [ -102, %25 ], [ -101, %18 ], [ -1, %13 ]
   ret i32 %.016
 }
 

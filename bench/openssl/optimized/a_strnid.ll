@@ -70,12 +70,12 @@ define range(i32 0, 2) i32 @ASN1_STRING_set_default_mask_asc(ptr noundef %0) loc
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %22, %19, %16, %13, %9
-  %.0 = phi i64 [ %10, %9 ], [ -10241, %13 ], [ -5, %16 ], [ 8192, %19 ], [ 4294967295, %22 ]
+  %.0 = phi i64 [ %10, %9 ], [ 8192, %19 ], [ -10241, %13 ], [ -5, %16 ], [ 4294967295, %22 ]
   store i64 %.0, ptr @global_mask, align 8, !tbaa !3
   br label %26
 
 26:                                               ; preds = %22, %9, %5, %25
-  %.09 = phi i32 [ 1, %25 ], [ 0, %5 ], [ 0, %9 ], [ 0, %22 ]
+  %.09 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 1, %25 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }

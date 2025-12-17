@@ -854,10 +854,10 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br label %235
 
 235:                                              ; preds = %232, %217
-  %.0395447 = phi ptr [ %200, %217 ], [ null, %232 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %217 ], [ %233, %232 ]
-  %.sroa.21.0 = phi i32 [ %.sroa.21.0.copyload, %217 ], [ %234, %232 ]
-  %.0397 = phi ptr [ null, %217 ], [ %219, %232 ]
+  %.0395447 = phi ptr [ null, %232 ], [ %200, %217 ]
+  %.sroa.0.0 = phi i32 [ %233, %232 ], [ %.sroa.0.0.copyload, %217 ]
+  %.sroa.21.0 = phi i32 [ %234, %232 ], [ %.sroa.21.0.copyload, %217 ]
+  %.0397 = phi ptr [ %219, %232 ], [ null, %217 ]
   %.sroa.0.0.fr = freeze i32 %.sroa.0.0
   %spec.select = call i32 @llvm.umax.i32(i32 %.sroa.0.0.fr, i32 1)
   %.sroa.21.0.fr = freeze i32 %.sroa.21.0
@@ -1018,33 +1018,33 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   %333 = fdiv reassoc nsz arcp contract afn float %332, %247
   br label %342
 
-334:                                              ; preds = %.thread450.thread554, %.thread450.thread550, %.thread450.thread, %.thread464, %.thread458, %.thread450
-  %.0407497 = phi float [ %327, %.thread450 ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %282, %.thread450.thread ], [ %292, %.thread450.thread550 ], [ %306, %.thread450.thread554 ]
-  %.0402454496 = phi float [ %241, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread554 ]
-  %.0401456495 = phi float [ %238, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread554 ]
-  %335 = phi ptr [ %320, %.thread450 ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %277, %.thread450.thread ], [ %287, %.thread450.thread550 ], [ %299, %.thread450.thread554 ]
-  %336 = phi float [ %324, %.thread450 ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %281, %.thread450.thread ], [ %291, %.thread450.thread550 ], [ %303, %.thread450.thread554 ]
+334:                                              ; preds = %.thread464, %.thread450.thread, %.thread450.thread550, %.thread450.thread554, %.thread450, %.thread458
+  %.0407497 = phi float [ %263, %.thread464 ], [ %256, %.thread458 ], [ %327, %.thread450 ], [ %306, %.thread450.thread554 ], [ %292, %.thread450.thread550 ], [ %282, %.thread450.thread ]
+  %.0402454496 = phi float [ %260, %.thread464 ], [ %253, %.thread458 ], [ %241, %.thread450 ], [ %241, %.thread450.thread554 ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread ]
+  %.0401456495 = phi float [ %260, %.thread464 ], [ %253, %.thread458 ], [ %238, %.thread450 ], [ %238, %.thread450.thread554 ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread ]
+  %335 = phi ptr [ %261, %.thread464 ], [ %254, %.thread458 ], [ %320, %.thread450 ], [ %299, %.thread450.thread554 ], [ %287, %.thread450.thread550 ], [ %277, %.thread450.thread ]
+  %336 = phi float [ %265, %.thread464 ], [ %258, %.thread458 ], [ %324, %.thread450 ], [ %303, %.thread450.thread554 ], [ %291, %.thread450.thread550 ], [ %281, %.thread450.thread ]
   %.pn = fmul reassoc nsz arcp contract afn float %.0407497, %247
   %337 = fdiv reassoc nsz arcp contract afn float %.pn, %246
   br label %342
 
-338:                                              ; preds = %.thread450.thread554, %.thread450.thread550, %.thread450.thread, %.thread464, %.thread458, %.thread450
-  %.0407487 = phi float [ %327, %.thread450 ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %282, %.thread450.thread ], [ %292, %.thread450.thread550 ], [ %306, %.thread450.thread554 ]
-  %.0402454486 = phi float [ %241, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450.thread ], [ %241, %.thread450.thread550 ], [ %241, %.thread450.thread554 ]
-  %.0401456485 = phi float [ %238, %.thread450 ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450.thread ], [ %238, %.thread450.thread550 ], [ %238, %.thread450.thread554 ]
-  %339 = phi ptr [ %320, %.thread450 ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %277, %.thread450.thread ], [ %287, %.thread450.thread550 ], [ %299, %.thread450.thread554 ]
-  %340 = phi float [ %324, %.thread450 ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %281, %.thread450.thread ], [ %291, %.thread450.thread550 ], [ %303, %.thread450.thread554 ]
+338:                                              ; preds = %.thread464, %.thread450.thread, %.thread450.thread550, %.thread450.thread554, %.thread450, %.thread458
+  %.0407487 = phi float [ %282, %.thread450.thread ], [ %256, %.thread458 ], [ %263, %.thread464 ], [ %327, %.thread450 ], [ %306, %.thread450.thread554 ], [ %292, %.thread450.thread550 ]
+  %.0402454486 = phi float [ %241, %.thread450.thread ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %241, %.thread450 ], [ %241, %.thread450.thread554 ], [ %241, %.thread450.thread550 ]
+  %.0401456485 = phi float [ %238, %.thread450.thread ], [ %253, %.thread458 ], [ %260, %.thread464 ], [ %238, %.thread450 ], [ %238, %.thread450.thread554 ], [ %238, %.thread450.thread550 ]
+  %339 = phi ptr [ %277, %.thread450.thread ], [ %254, %.thread458 ], [ %261, %.thread464 ], [ %320, %.thread450 ], [ %299, %.thread450.thread554 ], [ %287, %.thread450.thread550 ]
+  %340 = phi float [ %281, %.thread450.thread ], [ %258, %.thread458 ], [ %265, %.thread464 ], [ %324, %.thread450 ], [ %303, %.thread450.thread554 ], [ %291, %.thread450.thread550 ]
   %.pn530 = fmul reassoc nsz arcp contract afn float %.0407487, %246
   %341 = fdiv reassoc nsz arcp contract afn float %.pn530, %247
   br label %342
 
 342:                                              ; preds = %.thread520, %334, %338, %.thread504
-  %343 = phi float [ %.0407487, %338 ], [ %.0407.ph.pre-phi, %.thread504 ], [ %337, %334 ], [ %331, %.thread520 ]
-  %344 = phi float [ %340, %338 ], [ %.ph, %.thread504 ], [ %336, %334 ], [ %314, %.thread520 ]
-  %345 = phi ptr [ %339, %338 ], [ %.ph478, %.thread504 ], [ %335, %334 ], [ %311, %.thread520 ]
-  %.0401456485511 = phi float [ %.0401456485, %338 ], [ %238, %.thread504 ], [ %.0401456495, %334 ], [ %238, %.thread520 ]
-  %.0402454486510 = phi float [ %.0402454486, %338 ], [ %241, %.thread504 ], [ %.0402454496, %334 ], [ %241, %.thread520 ]
-  %346 = phi float [ %341, %338 ], [ %333, %.thread504 ], [ %.0407497, %334 ], [ %329, %.thread520 ]
+  %343 = phi float [ %.0407.ph.pre-phi, %.thread504 ], [ %.0407487, %338 ], [ %337, %334 ], [ %331, %.thread520 ]
+  %344 = phi float [ %.ph, %.thread504 ], [ %340, %338 ], [ %336, %334 ], [ %314, %.thread520 ]
+  %345 = phi ptr [ %.ph478, %.thread504 ], [ %339, %338 ], [ %335, %334 ], [ %311, %.thread520 ]
+  %.0401456485511 = phi float [ %238, %.thread504 ], [ %.0401456485, %338 ], [ %.0401456495, %334 ], [ %238, %.thread520 ]
+  %.0402454486510 = phi float [ %241, %.thread504 ], [ %.0402454486, %338 ], [ %.0402454496, %334 ], [ %241, %.thread520 ]
+  %346 = phi float [ %333, %.thread504 ], [ %341, %338 ], [ %.0407497, %334 ], [ %329, %.thread520 ]
   br i1 %.not423.not, label %347, label %384
 
 347:                                              ; preds = %342
@@ -1153,7 +1153,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br label %417
 
 417:                                              ; preds = %384, %409, %414, %412
-  %.0400 = phi nsz float [ %411, %409 ], [ %416, %414 ], [ 0.000000e+00, %412 ], [ %404, %384 ]
+  %.0400 = phi nsz float [ 0.000000e+00, %412 ], [ %411, %409 ], [ %416, %414 ], [ %404, %384 ]
   switch i32 %406, label %.fold.split [
     i32 0, label %424
     i32 3, label %424
@@ -2582,7 +2582,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %67
 
 67:                                               ; preds = %64, %2, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %64 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %64 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -2677,7 +2677,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %35
 
 35:                                               ; preds = %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ %., %33 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ %., %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

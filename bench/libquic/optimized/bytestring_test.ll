@@ -185,7 +185,7 @@ _ZL8TestSkipv.exit:                               ; preds = %29
   %or.cond9.i = select i1 %50, i1 %52, i1 false
   br i1 %or.cond9.i, label %_ZL11TestGetUintv.exit, label %_ZL11TestGetUintv.exit.thread
 
-_ZL11TestGetUintv.exit.thread:                    ; preds = %48, %43, %38, %33
+_ZL11TestGetUintv.exit.thread:                    ; preds = %38, %48, %43, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -258,7 +258,7 @@ _ZL11TestGetUintv.exit:                           ; preds = %48
   %.not8.i = icmp eq i32 %80, 0
   br i1 %.not8.i, label %_ZL15TestGetPrefixedv.exit.thread, label %_ZL15TestGetPrefixedv.exit
 
-_ZL15TestGetPrefixedv.exit.thread:                ; preds = %79, %76, %74, %69, %66, %64, %59, %56, %54
+_ZL15TestGetPrefixedv.exit.thread:                ; preds = %79, %76, %74, %54, %69, %66, %64, %59, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -290,7 +290,7 @@ _ZL15TestGetPrefixedv.exit:                       ; preds = %79
   %.not1.i6 = icmp eq i32 %86, 0
   br i1 %.not1.i6, label %_ZL18TestGetPrefixedBadv.exit, label %_ZL18TestGetPrefixedBadv.exit.thread
 
-_ZL18TestGetPrefixedBadv.exit.thread:             ; preds = %83, %85
+_ZL18TestGetPrefixedBadv.exit.thread:             ; preds = %85, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %219
@@ -494,7 +494,7 @@ _ZL18TestGetPrefixedBadv.exit:                    ; preds = %85
   %or.cond17.i = select i1 %171, i1 true, i1 %173
   br i1 %or.cond17.i, label %_ZL11TestGetASN1v.exit.thread, label %_ZL11TestGetASN1v.exit
 
-_ZL11TestGetASN1v.exit.thread:                    ; preds = %90, %88, %96, %94, %92, %98, %100, %102, %104, %106, %108, %126, %124, %122, %120, %115, %110, %143, %141, %136, %131, %159, %157, %152, %150, %145, %162, %169, %164
+_ZL11TestGetASN1v.exit.thread:                    ; preds = %164, %88, %92, %98, %100, %102, %104, %106, %108, %110, %131, %145, %162, %90, %96, %94, %126, %124, %122, %120, %115, %143, %141, %136, %159, %157, %152, %150, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -571,7 +571,7 @@ _ZL12TestCBBBasicv.exit.thread23:                 ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %219
 
-_ZL12TestCBBBasicv.exit.thread:                   ; preds = %189, %175, %177, %194
+_ZL12TestCBBBasicv.exit.thread:                   ; preds = %177, %189, %175, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -702,7 +702,7 @@ define internal fastcc noundef zeroext i1 @_ZL12TestCBBFixedv() unnamed_addr #0 
   br label %30
 
 30:                                               ; preds = %21, %15, %17, %19, %0, %6, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %0 ], [ false, %19 ], [ false, %17 ], [ false, %15 ], [ %or.cond12.not, %21 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %0 ], [ false, %8 ], [ false, %6 ], [ %or.cond12.not, %21 ], [ false, %19 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -878,7 +878,7 @@ define internal fastcc noundef zeroext i1 @_ZL13TestCBBMisusev() unnamed_addr #0
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %38, %37, %0, %33, %28, %13
-  %.0 = phi i1 [ false, %28 ], [ false, %33 ], [ false, %13 ], [ false, %0 ], [ false, %37 ], [ %.116, %38 ]
+  %.0 = phi i1 [ false, %28 ], [ false, %0 ], [ false, %33 ], [ false, %13 ], [ false, %37 ], [ %.116, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1214,7 +1214,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %66, %65, %57
   br label %68
 
 68:                                               ; preds = %17, %20, %23, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %8, %11, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  %.03 = phi i1 [ %.1, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ false, %11 ], [ false, %8 ], [ false, %53 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %41 ], [ false, %38 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ]
+  %.03 = phi i1 [ %.1, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ false, %8 ], [ false, %11 ], [ false, %53 ], [ false, %50 ], [ false, %47 ], [ false, %44 ], [ false, %41 ], [ false, %38 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1543,7 +1543,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %85, %86
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit46:  ; preds = %.thread70, %87, %0, %13
-  %.03 = phi i1 [ false, %13 ], [ false, %0 ], [ %.1, %87 ], [ %.175, %.thread70 ]
+  %.03 = phi i1 [ false, %0 ], [ false, %13 ], [ %.1, %87 ], [ %.175, %.thread70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1804,7 +1804,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
   %or.cond.not = select i1 %.not34, i1 %exitcond50, i1 false
   br i1 %or.cond.not, label %.preheader, label %.thread, !llvm.loop !36
 
-.thread.sink.split:                               ; preds = %19, %17, %10, %22, %34, %.critedge38, %28
+.thread.sink.split:                               ; preds = %10, %19, %17, %22, %34, %.critedge38, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1859,7 +1859,7 @@ define internal fastcc noundef zeroext i1 @_ZL23TestGetOptionalASN1Boolv() unnam
   br label %19
 
 19:                                               ; preds = %17, %12, %7, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %7 ], [ false, %12 ], [ %.not, %17 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %0 ], [ false, %7 ], [ %.not, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
@@ -1952,7 +1952,7 @@ _ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.ex
   resume { ptr, i32 } %26
 
 30:                                               ; preds = %21, %6, %9, %12, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %12 ], [ false, %9 ], [ false, %6 ], [ %or.cond4.not, %21 ]
+  %.0 = phi i1 [ false, %6 ], [ %or.cond4.not, %21 ], [ false, %18 ], [ false, %12 ], [ false, %9 ]
   invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit8 unwind label %31
 

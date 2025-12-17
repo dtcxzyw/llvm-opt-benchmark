@@ -120,7 +120,7 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   br label %.preheader
 
 .preheader:                                       ; preds = %46, %45, %29
-  %.3.i.ph = phi ptr [ %30, %29 ], [ %47, %46 ], [ %30, %45 ]
+  %.3.i.ph = phi ptr [ %47, %46 ], [ %30, %45 ], [ %30, %29 ]
   br label %48
 
 48:                                               ; preds = %.backedge, %.preheader
@@ -358,7 +358,7 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
   br label %.outer, !llvm.loop !35
 
 .loopexit:                                        ; preds = %134, %111, %.critedge
-  %.126 = phi i32 [ %.025.ph, %.critedge ], [ %.025.ph, %111 ], [ -1, %134 ]
+  %.126 = phi i32 [ %.025.ph, %111 ], [ %.025.ph, %.critedge ], [ -1, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1991,8 +1991,8 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %.critedge.loopexit.split.loop.exit81, %.critedge.loopexit.split.loop.exit84, %.critedge.loopexit.split.loop.exit87, %.preheader
-  %.037.lcssa = phi i32 [ 0, %.preheader ], [ %74, %.critedge.loopexit.split.loop.exit81 ], [ %75, %.critedge.loopexit.split.loop.exit84 ], [ %76, %.critedge.loopexit.split.loop.exit87 ], [ %indvars, %70 ]
-  %.1 = phi i8 [ 0, %.preheader ], [ %40, %.critedge.loopexit.split.loop.exit81 ], [ 1, %.critedge.loopexit.split.loop.exit84 ], [ 1, %.critedge.loopexit.split.loop.exit87 ], [ 1, %70 ]
+  %.037.lcssa = phi i32 [ 0, %.preheader ], [ %75, %.critedge.loopexit.split.loop.exit84 ], [ %76, %.critedge.loopexit.split.loop.exit87 ], [ %74, %.critedge.loopexit.split.loop.exit81 ], [ %indvars, %70 ]
+  %.1 = phi i8 [ 0, %.preheader ], [ 1, %.critedge.loopexit.split.loop.exit84 ], [ 1, %.critedge.loopexit.split.loop.exit87 ], [ %40, %.critedge.loopexit.split.loop.exit81 ], [ 1, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load i8, ptr %77, align 4, !tbaa !19
   %.not48 = icmp eq i8 %78, 0
@@ -2039,7 +2039,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
   br label %98
 
 98:                                               ; preds = %30, %94, %69
-  %.039 = phi i32 [ -1, %69 ], [ %97, %94 ], [ -1, %30 ]
+  %.039 = phi i32 [ %97, %94 ], [ -1, %69 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

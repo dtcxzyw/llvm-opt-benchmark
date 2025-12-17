@@ -138,8 +138,8 @@ _ZN5alloc5slice11stable_sort17h94a17f4a52719898E.exit: ; preds = %"_ZN67_$LT$all
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread"
 
-"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread": ; preds = %19, %.critedge.i, %21, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit", %2, %59
-  %.0 = phi i1 [ %.0.i13, %59 ], [ false, %2 ], [ false, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit" ], [ false, %21 ], [ false, %.critedge.i ], [ false, %19 ]
+"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.thread": ; preds = %.critedge.i, %21, %19, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit", %2, %59
+  %.0 = phi i1 [ %.0.i13, %59 ], [ false, %2 ], [ false, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit" ], [ false, %19 ], [ false, %21 ], [ false, %.critedge.i ]
   ret i1 %.0
 
 60:                                               ; preds = %47, %40
@@ -328,7 +328,7 @@ default.unreachable15:                            ; preds = %1
   br label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit
 
 _ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit: ; preds = %54, %51, %50, %38, %37, %20, %17, %10
-  %.0.in = phi i1 [ false, %10 ], [ false, %17 ], [ true, %20 ], [ false, %37 ], [ true, %38 ], [ false, %50 ], [ false, %51 ], [ true, %54 ]
+  %.0.in = phi i1 [ true, %38 ], [ true, %20 ], [ false, %10 ], [ false, %17 ], [ false, %37 ], [ false, %50 ], [ false, %51 ], [ true, %54 ]
   ret i1 %.0.in
 }
 

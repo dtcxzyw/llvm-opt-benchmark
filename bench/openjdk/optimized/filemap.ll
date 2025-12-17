@@ -595,9 +595,9 @@ define hidden void @_ZN11FileMapInfo15populate_headerEm(ptr noundef nonnull alig
   br label %13
 
 13:                                               ; preds = %2, %5, %9
-  %.019 = phi i64 [ 0, %5 ], [ 816, %9 ], [ 0, %2 ]
-  %.018 = phi i64 [ 0, %5 ], [ %11, %9 ], [ 0, %2 ]
-  %.0 = phi i64 [ 816, %5 ], [ %12, %9 ], [ 792, %2 ]
+  %.019 = phi i64 [ 816, %9 ], [ 0, %5 ], [ 0, %2 ]
+  %.018 = phi i64 [ %11, %9 ], [ 0, %5 ], [ 0, %2 ]
+  %.0 = phi i64 [ %12, %9 ], [ 816, %5 ], [ 792, %2 ]
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 800
@@ -1825,8 +1825,8 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %7, %13
   store i8 1, ptr @_ZN15MetaspaceShared23_archive_loading_failedE, align 1
   br label %.thread
 
-.thread:                                          ; preds = %33, %28, %70, %67
-  %.1 = phi i1 [ false, %67 ], [ true, %70 ], [ true, %28 ], [ true, %33 ]
+.thread:                                          ; preds = %28, %33, %70, %67
+  %.1 = phi i1 [ false, %67 ], [ true, %70 ], [ true, %33 ], [ true, %28 ]
   ret i1 %.1
 }
 
@@ -2573,8 +2573,8 @@ _ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge: ; preds = %_ZNK6Symbol11st
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16: ; preds = %.thread28, %_ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge, %.thread, %_ZNK6Symbol11starts_withEPKci.exit.thread
-  %.in = phi i16 [ %14, %_ZNK6Symbol11starts_withEPKci.exit.thread ], [ %10, %.thread ], [ %13, %.thread28 ], [ %14, %_ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge ]
-  %16 = phi i32 [ 0, %_ZNK6Symbol11starts_withEPKci.exit.thread ], [ 0, %.thread ], [ %11, %.thread28 ], [ %.pre, %_ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge ]
+  %.in = phi i16 [ %10, %.thread ], [ %14, %_ZNK6Symbol11starts_withEPKci.exit.thread ], [ %13, %.thread28 ], [ %14, %_ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge ]
+  %16 = phi i32 [ 0, %.thread ], [ 0, %_ZNK6Symbol11starts_withEPKci.exit.thread ], [ %11, %.thread28 ], [ %.pre, %_ZNK6Symbol11starts_withEPKci.exit.thread._crit_edge ]
   %17 = sext i16 %.in to i32
   %.not = icmp sle i32 %16, %17
   %18 = icmp ult i16 %3, 5
@@ -2723,7 +2723,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit23:         ; preds = %74, %80
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %91, %_ZNK6Symbol11starts_withEPKci.exit19, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
-  %.0 = phi i32 [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16 ], [ -1, %_ZNK6Symbol11starts_withEPKci.exit19 ], [ %.1, %91 ], [ %.1, %93 ]
+  %.0 = phi i32 [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16 ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ %.1, %93 ], [ -1, %_ZNK6Symbol11starts_withEPKci.exit19 ], [ %.1, %91 ]
   ret i32 %.0
 }
 
@@ -3269,7 +3269,7 @@ _ZN11FileMapInfo11check_pathsEiiP13GrowableArrayIPKcEjj.exit: ; preds = %._crit_
   br i1 %.1, label %111, label %.critedge
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %108, %56
-  %.2 = phi i1 [ %47, %56 ], [ %.1, %108 ]
+  %.2 = phi i1 [ %.1, %108 ], [ %47, %56 ]
   br i1 %.2, label %111, label %.critedge
 
 111:                                              ; preds = %110, %58, %_ZN12ResourceMarkD2Ev.exit
@@ -3283,7 +3283,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %108, %56
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %111, %110, %58, %_ZN12ResourceMarkD2Ev.exit, %59, %24, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %24 ], [ true, %59 ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %58 ], [ true, %110 ], [ false, %111 ], [ false, %114 ]
+  %.0 = phi i1 [ true, %24 ], [ true, %1 ], [ true, %110 ], [ true, %59 ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %58 ], [ false, %111 ], [ false, %114 ]
   ret i1 %.0
 }
 
@@ -3580,7 +3580,7 @@ _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split: ; preds = %.crited
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38: ; preds = %81, %146, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split, %45, %.critedge, %42, %37
-  %150 = phi i1 [ false, %37 ], [ false, %42 ], [ false, %.critedge ], [ true, %45 ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ true, %146 ], [ true, %81 ]
+  %150 = phi i1 [ true, %45 ], [ false, %37 ], [ false, %42 ], [ false, %.critedge ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ true, %146 ], [ true, %81 ]
   %151 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i, label %153, label %152
@@ -3608,7 +3608,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %153, %155
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit:  ; preds = %17, %14, %_ZN12ResourceMarkD2Ev.exit, %156
-  %.0 = phi i1 [ true, %156 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %14 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %156 ], [ false, %14 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -3949,7 +3949,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo26validate_shared_path_tableEv
   br label %73
 
 73:                                               ; preds = %.sink.split, %67, %71
-  %.2 = phi i32 [ %.1, %67 ], [ %.01936, %71 ], [ %.2.ph, %.sink.split ]
+  %.2 = phi i32 [ %.01936, %71 ], [ %.1, %67 ], [ %.2.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load ptr, ptr %2, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 716
@@ -4266,7 +4266,7 @@ _ZN16FileHeaderHelper10initializeEv.exit:         ; preds = %2
   br label %_ZN16FileHeaderHelper10initializeEv.exit.thread
 
 _ZN16FileHeaderHelper10initializeEv.exit.thread:  ; preds = %13, %11, %18, %21, %23, %_ZN16FileHeaderHelper10initializeEv.exit, %31
-  %.0.i12 = phi i1 [ true, %18 ], [ true, %21 ], [ true, %23 ], [ false, %_ZN16FileHeaderHelper10initializeEv.exit ], [ true, %31 ], [ false, %11 ], [ false, %13 ]
+  %.0.i12 = phi i1 [ true, %31 ], [ true, %18 ], [ true, %21 ], [ true, %23 ], [ false, %_ZN16FileHeaderHelper10initializeEv.exit ], [ false, %11 ], [ false, %13 ]
   %32 = load ptr, ptr %5, align 8
   %.not.i10 = icmp eq ptr %32, null
   br i1 %.not.i10, label %34, label %33
@@ -4592,7 +4592,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo14init_from_fileEi(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %144, %142, %121, %119, %110, %108, %103, %101, %69, %67, %62, %60, %46, %44, %31, %29, %26, %24, %17, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %17 ], [ false, %24 ], [ false, %26 ], [ false, %29 ], [ false, %31 ], [ false, %44 ], [ false, %46 ], [ false, %60 ], [ false, %62 ], [ false, %67 ], [ false, %69 ], [ false, %101 ], [ false, %103 ], [ false, %108 ], [ false, %110 ], [ false, %119 ], [ false, %121 ], [ false, %142 ], [ false, %144 ], [ true, %131 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %31 ], [ false, %46 ], [ false, %62 ], [ false, %69 ], [ false, %103 ], [ false, %110 ], [ false, %121 ], [ false, %144 ], [ false, %26 ], [ false, %15 ], [ false, %24 ], [ false, %29 ], [ false, %44 ], [ false, %60 ], [ false, %67 ], [ false, %101 ], [ false, %108 ], [ false, %119 ], [ false, %142 ], [ true, %131 ]
   %145 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %145, null
   br i1 %.not.i, label %147, label %146
@@ -4765,7 +4765,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16FileHeaderHelper10initialize
   br label %_ZNK16FileHeaderHelper16check_header_crcEv.exit
 
 _ZNK16FileHeaderHelper16check_header_crcEv.exit:  ; preds = %62, %60, %63, %41, %39, %32, %30, %20, %18, %13, %11, %8, %6, %65
-  %.0 = phi i1 [ true, %65 ], [ false, %6 ], [ false, %8 ], [ false, %11 ], [ false, %13 ], [ false, %18 ], [ false, %20 ], [ false, %30 ], [ false, %32 ], [ false, %39 ], [ false, %41 ], [ false, %63 ], [ false, %60 ], [ false, %62 ]
+  %.0 = phi i1 [ false, %41 ], [ false, %8 ], [ false, %13 ], [ false, %20 ], [ false, %32 ], [ true, %65 ], [ false, %63 ], [ false, %6 ], [ false, %11 ], [ false, %18 ], [ false, %30 ], [ false, %39 ], [ false, %60 ], [ false, %62 ]
   ret i1 %.0
 }
 
@@ -5191,7 +5191,7 @@ define hidden noundef zeroext i1 @_ZNK13FileMapRegion16check_region_crcEPc(ptr n
   br label %13
 
 13:                                               ; preds = %6, %12, %10, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %10 ], [ false, %12 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %12 ], [ true, %2 ], [ false, %10 ], [ true, %6 ]
   ret i1 %.0
 }
 
@@ -5365,7 +5365,7 @@ _ZNK13FileMapRegion16check_region_crcEPc.exit.thread: ; preds = %39, %36, %33
   br label %72
 
 72:                                               ; preds = %1, %60, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread, %48, %32, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %48 ], [ %23, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ %23, %60 ], [ %6, %1 ]
+  %.0 = phi ptr [ %23, %60 ], [ null, %32 ], [ null, %48 ], [ null, %30 ], [ %23, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ %6, %1 ]
   ret ptr %.0
 }
 
@@ -6504,7 +6504,7 @@ _ZNK13FileMapRegion16check_region_crcEPc.exit.thread: ; preds = %67, %64, %61
   br label %_ZNK13FileMapRegion16check_region_crcEPc.exit
 
 _ZNK13FileMapRegion16check_region_crcEPc.exit:    ; preds = %73, %71, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread, %60
-  %.0 = phi i32 [ 1, %60 ], [ 0, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ 2, %71 ], [ 2, %73 ]
+  %.0 = phi i32 [ 0, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ 1, %60 ], [ 2, %71 ], [ 2, %73 ]
   ret i32 %.0
 }
 
@@ -6677,7 +6677,7 @@ _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11p
   br i1 %109, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %106, %90
-  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %90 ], [ %108, %106 ]
+  %.0.i.i.i.i.i = phi i64 [ %108, %106 ], [ %.0917.i.i.i, %90 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %17
   br i1 %.not.not.i.i.i, label %110, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit
 
@@ -6739,7 +6739,7 @@ _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitM
   br i1 %137, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i32, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i32:  ; preds = %134, %118
-  %.0.i.i.i.i.i33 = phi i64 [ %.0917.i.i.i30, %118 ], [ %136, %134 ]
+  %.0.i.i.i.i.i33 = phi i64 [ %136, %134 ], [ %.0917.i.i.i30, %118 ]
   %.not.not.i.i.i34 = icmp ult i64 %.0.i.i.i.i.i33, %27
   br i1 %.not.not.i.i.i34, label %138, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41
 
@@ -6902,7 +6902,7 @@ _ZNK13FileMapRegion16check_region_crcEPc.exit.thread: ; preds = %68, %64, %61
   br label %_ZNK13FileMapRegion16check_region_crcEPc.exit
 
 _ZNK13FileMapRegion16check_region_crcEPc.exit:    ; preds = %74, %72, %36, %_ZN11FileMapInfo10read_bytesEPvm.exit, %31, %29, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread
-  %.0 = phi i1 [ true, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ false, %29 ], [ false, %31 ], [ false, %_ZN11FileMapInfo10read_bytesEPvm.exit ], [ false, %36 ], [ false, %72 ], [ false, %74 ]
+  %.0 = phi i1 [ false, %31 ], [ true, %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread ], [ false, %36 ], [ false, %29 ], [ false, %_ZN11FileMapInfo10read_bytesEPvm.exit ], [ false, %72 ], [ false, %74 ]
   ret i1 %.0
 }
 
@@ -7718,7 +7718,7 @@ _ZN11FileMapInfo12unmap_regionEi.exit:            ; preds = %106, %130
   br label %139
 
 139:                                              ; preds = %138, %136, %73, %_ZNK13FileMapRegion16check_region_crcEPc.exit, %54, %51, %26, %24, %1, %_ZN11FileMapInfo12unmap_regionEi.exit
-  %.0 = phi i1 [ false, %_ZN11FileMapInfo12unmap_regionEi.exit ], [ false, %1 ], [ false, %24 ], [ false, %26 ], [ false, %51 ], [ false, %54 ], [ false, %_ZNK13FileMapRegion16check_region_crcEPc.exit ], [ false, %73 ], [ true, %136 ], [ true, %138 ]
+  %.0 = phi i1 [ false, %54 ], [ false, %1 ], [ false, %26 ], [ false, %_ZN11FileMapInfo12unmap_regionEi.exit ], [ false, %73 ], [ false, %24 ], [ false, %51 ], [ false, %_ZNK13FileMapRegion16check_region_crcEPc.exit ], [ true, %136 ], [ true, %138 ]
   ret i1 %.0
 }
 
@@ -7971,7 +7971,7 @@ _ZN11FileMapInfo15validate_headerEv.exit.thread3: ; preds = %15, %_ZN11FileMapIn
   br label %_ZN11FileMapInfo15validate_headerEv.exit.thread
 
 _ZN11FileMapInfo15validate_headerEv.exit.thread:  ; preds = %19, %_ZN11FileMapInfo15validate_headerEv.exit, %30, %33, %27, %26, %8, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %8 ], [ false, %26 ], [ false, %27 ], [ false, %33 ], [ false, %30 ], [ true, %_ZN11FileMapInfo15validate_headerEv.exit ], [ true, %19 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %30 ], [ false, %8 ], [ false, %6 ], [ false, %26 ], [ false, %33 ], [ true, %_ZN11FileMapInfo15validate_headerEv.exit ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -7992,7 +7992,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo15validate_headerEv(ptr nounde
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i1 [ %9, %8 ], [ false, %1 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %1 ], [ %9, %8 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -8264,7 +8264,7 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
   br label %113
 
 113:                                              ; preds = %106, %112, %98, %96, %89, %87, %59, %57, %36, %34, %16, %14, %7, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %7 ], [ false, %14 ], [ false, %16 ], [ false, %34 ], [ false, %36 ], [ false, %57 ], [ false, %59 ], [ false, %87 ], [ false, %89 ], [ false, %96 ], [ false, %98 ], [ true, %112 ], [ true, %106 ]
+  %.0 = phi i1 [ false, %36 ], [ false, %7 ], [ false, %16 ], [ false, %59 ], [ false, %89 ], [ false, %98 ], [ false, %5 ], [ false, %14 ], [ false, %34 ], [ false, %57 ], [ false, %87 ], [ false, %96 ], [ true, %112 ], [ true, %106 ]
   ret i1 %.0
 }
 
@@ -8792,7 +8792,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16FileHeaderHelper32check_and_
   br label %60
 
 60:                                               ; preds = %22, %58, %35, %57, %55, %52, %50, %40, %38, %34, %32, %25, %23, %21, %19, %14, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %14 ], [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ false, %32 ], [ false, %34 ], [ false, %38 ], [ false, %40 ], [ false, %50 ], [ false, %52 ], [ false, %55 ], [ false, %57 ], [ true, %35 ], [ true, %58 ], [ true, %22 ]
+  %.0 = phi i1 [ false, %52 ], [ false, %14 ], [ false, %21 ], [ false, %57 ], [ false, %25 ], [ false, %34 ], [ false, %40 ], [ false, %12 ], [ false, %19 ], [ false, %23 ], [ false, %32 ], [ false, %38 ], [ false, %50 ], [ false, %55 ], [ true, %35 ], [ true, %58 ], [ true, %22 ]
   ret i1 %.0
 }
 

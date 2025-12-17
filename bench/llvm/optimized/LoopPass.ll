@@ -2040,7 +2040,7 @@ _ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit26:  ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit:    ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm4LoopES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !40
   %60 = load ptr, ptr %.0, align 8, !tbaa !39
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2235,8 +2235,8 @@ _ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120Prin
   br label %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit
 
 _ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit25, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit28, %25, %28, %31
-  %35 = phi ptr [ %.029.val32.i.i.i.i, %25 ], [ %.1.val.i.i.i.i, %28 ], [ %.2.val.i.i.i.i, %31 ], [ %.val.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %.val30.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit25 ], [ %.val31.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit28 ], [ %.029.val.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %25 ], [ %.1.i.i.i.i, %28 ], [ %.2.i.i.i.i, %31 ], [ %32, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %33, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit25 ], [ %34, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit28 ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %35 = phi ptr [ %.1.val.i.i.i.i, %28 ], [ %.029.val32.i.i.i.i, %25 ], [ %.2.val.i.i.i.i, %31 ], [ %.val31.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit28 ], [ %.val30.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit25 ], [ %.val.i.i.i.i, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %.029.val.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %28 ], [ %.029.lcssa.i.i.i.i, %25 ], [ %.2.i.i.i.i, %31 ], [ %34, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit28 ], [ %33, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit25 ], [ %32, %_ZN4llvm7find_ifINS_14iterator_rangeIPKPNS_10BasicBlockEEEZN12_GLOBAL__N_120PrintLoopPassWrapper9runOnLoopEPNS_4LoopERNS_13LPPassManagerEEUlS3_E_EEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not = icmp eq ptr %.028.i.i.i.i, %7
   br i1 %.not, label %.critedge, label %36
 
@@ -2509,10 +2509,10 @@ _ZSt9__fill_a1IPPN4llvm4LoopES2_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE
   br i1 %.not.i31.i.i.i.i.i.i, label %_ZSt22__uninitialized_fill_aISt15_Deque_iteratorIPN4llvm4LoopERS3_PS3_ES3_S3_EvT_S7_RKT0_RSaIT1_E.exit, label %.lr.ph.i29.i.i.i.i.i.i, !llvm.loop !402
 
 _ZSt22__uninitialized_fill_aISt15_Deque_iteratorIPN4llvm4LoopERS3_PS3_ES3_S3_EvT_S7_RKT0_RSaIT1_E.exit: ; preds = %.lr.ph.i19.i.i.i.i.i.i, %.lr.ph.i29.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %52
-  %storemerge.i.i.i.i85 = phi ptr [ %.ptr107, %._crit_edge.i.i.i.i.i.i ], [ %storemerge.i.i.i.i86, %52 ], [ %storemerge.i.i.i.i86, %.lr.ph.i29.i.i.i.i.i.i ], [ %.ptr107, %.lr.ph.i19.i.i.i.i.i.i ]
-  %.sroa.1151.083 = phi ptr [ %39, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.1151.084, %52 ], [ %.sroa.1151.084, %.lr.ph.i29.i.i.i.i.i.i ], [ %39, %.lr.ph.i19.i.i.i.i.i.i ]
-  %.sroa.850.081 = phi ptr [ %41, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.850.082, %52 ], [ %.sroa.850.082, %.lr.ph.i29.i.i.i.i.i.i ], [ %41, %.lr.ph.i19.i.i.i.i.i.i ]
-  %.sroa.549.079 = phi ptr [ %40, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.549.080, %52 ], [ %.sroa.549.080, %.lr.ph.i29.i.i.i.i.i.i ], [ %40, %.lr.ph.i19.i.i.i.i.i.i ]
+  %storemerge.i.i.i.i85 = phi ptr [ %storemerge.i.i.i.i86, %52 ], [ %.ptr107, %._crit_edge.i.i.i.i.i.i ], [ %storemerge.i.i.i.i86, %.lr.ph.i29.i.i.i.i.i.i ], [ %.ptr107, %.lr.ph.i19.i.i.i.i.i.i ]
+  %.sroa.1151.083 = phi ptr [ %.sroa.1151.084, %52 ], [ %39, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.1151.084, %.lr.ph.i29.i.i.i.i.i.i ], [ %39, %.lr.ph.i19.i.i.i.i.i.i ]
+  %.sroa.850.081 = phi ptr [ %.sroa.850.082, %52 ], [ %41, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.850.082, %.lr.ph.i29.i.i.i.i.i.i ], [ %41, %.lr.ph.i19.i.i.i.i.i.i ]
+  %.sroa.549.079 = phi ptr [ %.sroa.549.080, %52 ], [ %40, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.549.080, %.lr.ph.i29.i.i.i.i.i.i ], [ %40, %.lr.ph.i19.i.i.i.i.i.i ]
   store ptr %storemerge.i.i.i.i85, ptr %7, align 8, !tbaa !39
   store ptr %.sroa.549.079, ptr %11, align 8, !tbaa !39
   store ptr %.sroa.850.081, ptr %23, align 8, !tbaa !39
@@ -2658,10 +2658,10 @@ _ZSt9__fill_a1IPPN4llvm4LoopES2_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE
   br i1 %.not.i31.i.i.i.i.i.i33, label %_ZSt22__uninitialized_fill_aISt15_Deque_iteratorIPN4llvm4LoopERS3_PS3_ES3_S3_EvT_S7_RKT0_RSaIT1_E.exit34, label %.lr.ph.i29.i.i.i.i.i.i31, !llvm.loop !402
 
 _ZSt22__uninitialized_fill_aISt15_Deque_iteratorIPN4llvm4LoopERS3_PS3_ES3_S3_EvT_S7_RKT0_RSaIT1_E.exit34: ; preds = %.lr.ph.i19.i.i.i.i.i.i18, %.lr.ph.i29.i.i.i.i.i.i31, %._crit_edge.i.i.i.i.i.i16, %105
-  %.sroa.11.0.ptr99 = phi ptr [ %.sroa.11.0.ptr, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.11.0.ptr100, %105 ], [ %.sroa.11.0.ptr100, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %.sroa.11.0.ptr, %.lr.ph.i19.i.i.i.i.i.i18 ]
-  %storemerge.i.i.i97 = phi ptr [ %95, %._crit_edge.i.i.i.i.i.i16 ], [ %storemerge.i.i.i98, %105 ], [ %storemerge.i.i.i98, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %95, %.lr.ph.i19.i.i.i.i.i.i18 ]
-  %.sroa.8.095 = phi ptr [ %92, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.8.096, %105 ], [ %.sroa.8.096, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %92, %.lr.ph.i19.i.i.i.i.i.i18 ]
-  %.sroa.539.093 = phi ptr [ %91, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.539.094, %105 ], [ %.sroa.539.094, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %91, %.lr.ph.i19.i.i.i.i.i.i18 ]
+  %.sroa.11.0.ptr99 = phi ptr [ %.sroa.11.0.ptr100, %105 ], [ %.sroa.11.0.ptr, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.11.0.ptr100, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %.sroa.11.0.ptr, %.lr.ph.i19.i.i.i.i.i.i18 ]
+  %storemerge.i.i.i97 = phi ptr [ %storemerge.i.i.i98, %105 ], [ %95, %._crit_edge.i.i.i.i.i.i16 ], [ %storemerge.i.i.i98, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %95, %.lr.ph.i19.i.i.i.i.i.i18 ]
+  %.sroa.8.095 = phi ptr [ %.sroa.8.096, %105 ], [ %92, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.8.096, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %92, %.lr.ph.i19.i.i.i.i.i.i18 ]
+  %.sroa.539.093 = phi ptr [ %.sroa.539.094, %105 ], [ %91, %._crit_edge.i.i.i.i.i.i16 ], [ %.sroa.539.094, %.lr.ph.i29.i.i.i.i.i.i31 ], [ %91, %.lr.ph.i19.i.i.i.i.i.i18 ]
   store ptr %storemerge.i.i.i97, ptr %56, align 8, !tbaa !39
   store ptr %.sroa.539.093, ptr %73, align 8, !tbaa !39
   store ptr %.sroa.8.095, ptr %60, align 8, !tbaa !39

@@ -799,8 +799,8 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   br i1 %53, label %.thread, label %102
 
 54:                                               ; preds = %30, %27, %26, %16, %20, %233, %223, %216, %185, %174, %167, %57, %33
-  %.0145385 = phi ptr [ %.0145384, %57 ], [ %.0145, %20 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %233 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
-  %.3 = phi ptr [ %.10, %57 ], [ %.0145, %20 ], [ %186, %185 ], [ %217, %216 ], [ %224, %223 ], [ %168, %167 ], [ %175, %174 ], [ %234, %233 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
+  %.0145385 = phi ptr [ %.0145, %16 ], [ %.0145384, %57 ], [ %.0145, %20 ], [ %.0145, %26 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %27 ], [ %.0145, %223 ], [ %.0145, %167 ], [ %.0145, %30 ], [ %.0145, %174 ], [ %.0145, %233 ], [ %.0145, %33 ]
+  %.3 = phi ptr [ %.0145, %16 ], [ %.10, %57 ], [ %.0145, %20 ], [ %.0145, %26 ], [ %186, %185 ], [ %217, %216 ], [ %.0145, %27 ], [ %224, %223 ], [ %168, %167 ], [ %.0145, %30 ], [ %175, %174 ], [ %234, %233 ], [ %.0145, %33 ]
   %55 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !23
   br label %57
@@ -880,9 +880,9 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   br label %.thread
 
 99:                                               ; preds = %102, %49
-  %.0148 = phi ptr [ %.1149, %102 ], [ %43, %49 ]
-  %.7 = phi ptr [ %.9, %102 ], [ %43, %49 ]
-  %.0140 = phi i32 [ %.1, %102 ], [ 0, %49 ]
+  %.0148 = phi ptr [ %43, %49 ], [ %.1149, %102 ]
+  %.7 = phi ptr [ %43, %49 ], [ %.9, %102 ]
+  %.0140 = phi i32 [ 0, %49 ], [ %.1, %102 ]
   %100 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !23
   br label %102
@@ -1108,18 +1108,18 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   br label %4
 
 242:                                              ; preds = %39, %93, %47, %12, %38
-  %.2147.sink = phi ptr [ %.0145, %12 ], [ %43, %47 ], [ %.0145, %38 ], [ %94, %93 ], [ %40, %39 ]
-  %.1144.ph = phi i32 [ 15, %12 ], [ 8, %47 ], [ 8, %38 ], [ 8, %93 ], [ 8, %39 ]
+  %.2147.sink = phi ptr [ %.0145, %12 ], [ %.0145, %38 ], [ %43, %47 ], [ %94, %93 ], [ %40, %39 ]
+  %.1144.ph = phi i32 [ 15, %12 ], [ 8, %38 ], [ 8, %47 ], [ 8, %93 ], [ 8, %39 ]
   %243 = getelementptr inbounds nuw i8, ptr %.2147.sink, i64 1
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0145, ptr %244, align 8, !tbaa !12
   store ptr %243, ptr %2, align 8, !tbaa !32
   br label %_ZN5Lexer13EatWhitespaceEv.exit
 
-.thread:                                          ; preds = %49, %50, %97, %93, %233, %223, %216, %185, %174, %167, %90, %57, %47, %.loopexit, %39, %129, %127, %64, %62
-  %.0145382 = phi ptr [ %.0145, %62 ], [ %.0145, %64 ], [ %.0145, %127 ], [ %.0145, %129 ], [ %.0145, %.loopexit ], [ %.0145, %39 ], [ %.0145, %47 ], [ %.0145384, %57 ], [ %.0145, %90 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %233 ], [ %.0145, %93 ], [ %.0145, %97 ], [ %.0145, %50 ], [ %.0145, %49 ]
-  %.4.ph.ph = phi ptr [ %63, %62 ], [ %65, %64 ], [ %128, %127 ], [ %130, %129 ], [ %37, %.loopexit ], [ %40, %39 ], [ %43, %47 ], [ %.10, %57 ], [ %91, %90 ], [ %168, %167 ], [ %175, %174 ], [ %186, %185 ], [ %217, %216 ], [ %224, %223 ], [ %234, %233 ], [ %43, %93 ], [ %.1149, %97 ], [ %43, %49 ], [ %51, %50 ]
-  %.1144.ph.ph = phi i32 [ 2, %62 ], [ 4, %64 ], [ 11, %127 ], [ 10, %129 ], [ 0, %.loopexit ], [ 0, %39 ], [ 7, %47 ], [ 5, %57 ], [ 9, %90 ], [ 12, %167 ], [ 13, %174 ], [ 1, %185 ], [ 3, %216 ], [ 6, %223 ], [ 14, %233 ], [ 7, %93 ], [ %spec.select, %97 ], [ 7, %49 ], [ 0, %50 ]
+.thread:                                          ; preds = %49, %50, %97, %93, %39, %47, %129, %127, %223, %167, %90, %216, %185, %174, %64, %62, %233, %57, %.loopexit
+  %.0145382 = phi ptr [ %.0145, %97 ], [ %.0145384, %57 ], [ %.0145, %233 ], [ %.0145, %62 ], [ %.0145, %64 ], [ %.0145, %174 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %90 ], [ %.0145, %167 ], [ %.0145, %223 ], [ %.0145, %127 ], [ %.0145, %129 ], [ %.0145, %93 ], [ %.0145, %.loopexit ], [ %.0145, %39 ], [ %.0145, %47 ], [ %.0145, %50 ], [ %.0145, %49 ]
+  %.4.ph.ph = phi ptr [ %.1149, %97 ], [ %.10, %57 ], [ %234, %233 ], [ %63, %62 ], [ %65, %64 ], [ %175, %174 ], [ %186, %185 ], [ %217, %216 ], [ %91, %90 ], [ %168, %167 ], [ %224, %223 ], [ %128, %127 ], [ %130, %129 ], [ %43, %93 ], [ %37, %.loopexit ], [ %40, %39 ], [ %43, %47 ], [ %43, %49 ], [ %51, %50 ]
+  %.1144.ph.ph = phi i32 [ %spec.select, %97 ], [ 5, %57 ], [ 14, %233 ], [ 2, %62 ], [ 4, %64 ], [ 13, %174 ], [ 1, %185 ], [ 3, %216 ], [ 9, %90 ], [ 12, %167 ], [ 6, %223 ], [ 11, %127 ], [ 10, %129 ], [ 7, %93 ], [ 0, %.loopexit ], [ 0, %39 ], [ 7, %47 ], [ 7, %49 ], [ 0, %50 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0145382, ptr %245, align 8, !tbaa !12
   br label %select.unfold.i
@@ -1213,7 +1213,7 @@ select.unfold.backedge:                           ; preds = %.preheader, %12, %1
   %.018.be = phi ptr [ %11, %10 ], [ %16, %12 ], [ %5, %.preheader ]
   br label %select.unfold, !llvm.loop !33
 
-17:                                               ; preds = %select.unfold, %7, %12
+17:                                               ; preds = %select.unfold, %12, %7
   ret void
 }
 
@@ -1713,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.preheader156, %.preheader, %168, %150, %145, %137, %135, %57, %47
-  %.093.be = phi ptr [ %41, %47 ], [ %52, %57 ], [ %139, %145 ], [ %136, %135 ], [ %138, %137 ], [ %151, %150 ], [ %169, %168 ], [ %129, %.preheader ], [ %158, %.preheader156 ]
+  %.093.be = phi ptr [ %41, %47 ], [ %138, %137 ], [ %169, %168 ], [ %52, %57 ], [ %151, %150 ], [ %139, %145 ], [ %136, %135 ], [ %129, %.preheader ], [ %158, %.preheader156 ]
   br label %.loopexit, !llvm.loop !37
 
 173:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
@@ -1771,7 +1771,7 @@ select.unfold.i.backedge:                         ; preds = %.preheader.i, %184,
   br label %select.unfold.i, !llvm.loop !33
 
 _ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %184, %179, %select.unfold.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread154, %174
-  %.292 = phi i1 [ true, %174 ], [ true, %.thread154 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
+  %.292 = phi i1 [ true, %.thread154 ], [ true, %174 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
   ret i1 %.292
 }
 

@@ -353,8 +353,8 @@ default.unreachable163:                           ; preds = %4
   unreachable
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
-  %.0144 = phi i32 [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ], [ 6, %90 ], [ 6, %85 ]
-  %.0143 = phi i32 [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ], [ %79, %90 ], [ %79, %85 ]
+  %.0144 = phi i32 [ 6, %90 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ], [ 6, %85 ]
+  %.0143 = phi i32 [ %79, %90 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ], [ %79, %85 ]
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 57
@@ -406,7 +406,7 @@ default.unreachable163:                           ; preds = %4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %.0143)
   br label %.thread
 
-.thread:                                          ; preds = %110, %112, %71, %139, %136, %131, %120, %122, %114
+.thread:                                          ; preds = %112, %71, %110, %139, %136, %131, %120, %122, %114
   %140 = call i32 @tvb_reported_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

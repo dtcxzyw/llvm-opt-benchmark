@@ -387,7 +387,7 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph139, %129
   br label %.thread
 
 .thread:                                          ; preds = %.thread.critedge, %77, %85, %89, %97, %101, %110, %113, %pkcs7_encode_rinfo.exit.thread
-  %.2100.ph = phi ptr [ null, %pkcs7_encode_rinfo.exit.thread ], [ null, %113 ], [ null, %110 ], [ null, %101 ], [ null, %97 ], [ %92, %89 ], [ null, %85 ], [ null, %77 ], [ null, %.thread.critedge ]
+  %.2100.ph = phi ptr [ null, %pkcs7_encode_rinfo.exit.thread ], [ null, %113 ], [ null, %110 ], [ null, %101 ], [ null, %97 ], [ %92, %89 ], [ null, %85 ], [ null, %.thread.critedge ], [ null, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -475,9 +475,9 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph139, %129
   br label %199
 
 .thread131:                                       ; preds = %.lr.ph, %172, %182, %.thread, %189, %183, %70, %59, %53, %41
-  %.098 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ %.2100.ph, %.thread ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
-  %.192 = phi ptr [ null, %59 ], [ %.091, %189 ], [ %.091, %183 ], [ %.091, %70 ], [ null, %41 ], [ null, %53 ], [ %.091, %.thread ], [ %.091, %182 ], [ %.091, %172 ], [ %.091, %.lr.ph ]
-  %.088 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ %75, %.thread ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
+  %.098 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ %.2100.ph, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
+  %.192 = phi ptr [ null, %59 ], [ %.091, %189 ], [ %.091, %183 ], [ %.091, %.thread ], [ %.091, %70 ], [ null, %41 ], [ null, %53 ], [ %.091, %182 ], [ %.091, %172 ], [ %.091, %.lr.ph ]
+  %.088 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ %75, %.thread ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
   call void @ASN1_OCTET_STRING_free(ptr noundef %.192) #4
   call void @EVP_CIPHER_free(ptr noundef %.098) #4
   %198 = load ptr, ptr %4, align 8, !tbaa !17
@@ -645,7 +645,7 @@ PKCS7_get_octet_string.exit.thread:               ; preds = %12, %16, %19, %PKCS
   br label %67
 
 67:                                               ; preds = %66, %PKCS7_get_octet_string.exit.thread, %34, %37, %40, %43, %.critedge, %24, %26, %30
-  %.0 = phi ptr [ %25, %30 ], [ %25, %26 ], [ null, %24 ], [ null, %.critedge ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %34 ], [ null, %PKCS7_get_octet_string.exit.thread ], [ %.123, %66 ]
+  %.0 = phi ptr [ %.123, %66 ], [ null, %.critedge ], [ %25, %30 ], [ %25, %26 ], [ null, %24 ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %34 ], [ null, %PKCS7_get_octet_string.exit.thread ]
   ret ptr %.0
 }
 
@@ -1689,8 +1689,8 @@ PKCS7_get_octet_string.exit108:                   ; preds = %103, %106, %110, %1
   br label %139
 
 139:                                              ; preds = %.sink.split, %PKCS7_get_octet_string.exit, %91, %29
-  %.079 = phi ptr [ %32, %29 ], [ %61, %91 ], [ %61, %PKCS7_get_octet_string.exit ], [ %.079.ph, %.sink.split ]
-  %.078 = phi ptr [ %36, %29 ], [ %.0.i, %91 ], [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.sink, %.sink.split ]
+  %.079 = phi ptr [ %61, %91 ], [ %32, %29 ], [ %61, %PKCS7_get_octet_string.exit ], [ %.079.ph, %.sink.split ]
+  %.078 = phi ptr [ %.0.i, %91 ], [ %36, %29 ], [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.sink, %.sink.split ]
   %.not91 = icmp eq ptr %.079, null
   br i1 %.not91, label %.thread120, label %.preheader
 
@@ -1851,7 +1851,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   %.not94 = icmp eq i32 %211, 0
   br i1 %.not94, label %.thread127, label %212
 
-.thread127:                                       ; preds = %196, %203, %206
+.thread127:                                       ; preds = %203, %196, %206
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
@@ -1862,7 +1862,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %.thread120
 
 .thread120:                                       ; preds = %192, %.preheader, %139, %212, %42, %53, %27
-  %.078113 = phi ptr [ %.078.ph.ph, %212 ], [ %47, %42 ], [ %50, %53 ], [ %28, %27 ], [ %.078, %139 ], [ %.078, %.preheader ], [ %.078, %192 ]
+  %.078113 = phi ptr [ %.078.ph.ph, %212 ], [ %28, %27 ], [ %47, %42 ], [ %50, %53 ], [ %.078, %139 ], [ %.078, %.preheader ], [ %.078, %192 ]
   %213 = load ptr, ptr %23, align 8, !tbaa !3
   %214 = call i32 @OBJ_obj2nid(ptr noundef %213) #4
   %215 = icmp eq i32 %214, 22
@@ -1908,7 +1908,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %do_pkcs7_signed_attrib.exit, %153, %146, %216, %220, %.thread129, %231, %.thread127, %.thread118, %do_pkcs7_signed_attrib.exit.thread, %218, %134, %52, %41
-  %.077 = phi i32 [ 0, %134 ], [ 0, %218 ], [ 0, %231 ], [ 0, %41 ], [ 0, %52 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %.thread118 ], [ 0, %.thread127 ], [ 1, %.thread129 ], [ 1, %220 ], [ 1, %216 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
+  %.077 = phi i32 [ 0, %134 ], [ 0, %.thread118 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %218 ], [ 0, %231 ], [ 0, %.thread127 ], [ 0, %41 ], [ 0, %52 ], [ 1, %.thread129 ], [ 1, %220 ], [ 1, %216 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #4
   br label %232
 
@@ -2076,7 +2076,7 @@ define range(i32 0, 2) i32 @PKCS7_SIGNER_INFO_sign(ptr noundef readonly captures
   br label %57
 
 57:                                               ; preds = %1, %55, %49
-  %.0 = phi i32 [ 0, %55 ], [ 1, %49 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %49 ], [ 0, %55 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2406,9 +2406,9 @@ PKCS7_digest_from_attributes.exit.thread:         ; preds = %60, %get_attribute.
   %.not76 = icmp eq i32 %97, 0
   br i1 %.not76, label %.thread82, label %98
 
-.thread82:                                        ; preds = %75, %85, %94, %PKCS7_digest_from_attributes.exit.thread, %58, %95
-  %.155.ph = phi i32 [ 0, %58 ], [ 0, %PKCS7_digest_from_attributes.exit.thread ], [ -1, %94 ], [ 0, %85 ], [ -1, %75 ], [ 0, %95 ]
-  %.2.ph = phi ptr [ null, %58 ], [ null, %PKCS7_digest_from_attributes.exit.thread ], [ %79, %94 ], [ %79, %85 ], [ null, %75 ], [ %79, %95 ]
+.thread82:                                        ; preds = %75, %85, %94, %58, %PKCS7_digest_from_attributes.exit.thread, %95
+  %.155.ph = phi i32 [ -1, %75 ], [ 0, %PKCS7_digest_from_attributes.exit.thread ], [ 0, %58 ], [ -1, %94 ], [ 0, %85 ], [ 0, %95 ]
+  %.2.ph = phi ptr [ null, %75 ], [ null, %PKCS7_digest_from_attributes.exit.thread ], [ null, %58 ], [ %79, %94 ], [ %79, %85 ], [ %79, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %111
@@ -2441,8 +2441,8 @@ PKCS7_digest_from_attributes.exit.thread:         ; preds = %60, %get_attribute.
   br label %111
 
 111:                                              ; preds = %.thread82, %104, %99, %50, %110, %37, %._crit_edge, %24, %14
-  %.054 = phi i32 [ 0, %14 ], [ 0, %._crit_edge ], [ 0, %37 ], [ -1, %110 ], [ 0, %50 ], [ 0, %24 ], [ -1, %99 ], [ 1, %104 ], [ %.155.ph, %.thread82 ]
-  %.053 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %37 ], [ %.1, %110 ], [ null, %50 ], [ null, %24 ], [ %.1, %99 ], [ %.1, %104 ], [ %.2.ph, %.thread82 ]
+  %.054 = phi i32 [ 0, %14 ], [ 0, %._crit_edge ], [ 0, %37 ], [ 0, %24 ], [ -1, %110 ], [ -1, %99 ], [ %.155.ph, %.thread82 ], [ 0, %50 ], [ 1, %104 ]
+  %.053 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %37 ], [ null, %24 ], [ %.1, %110 ], [ %.1, %99 ], [ %.2.ph, %.thread82 ], [ null, %50 ], [ %.1, %104 ]
   %112 = load ptr, ptr %6, align 8, !tbaa !66
   call void @CRYPTO_free(ptr noundef %112, ptr noundef nonnull @.str, i32 noundef 1181) #4
   call void @EVP_MD_CTX_free(ptr noundef %12) #4
@@ -2666,7 +2666,7 @@ define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr noundef captures(n
   br label %35
 
 35:                                               ; preds = %25, %27, %._crit_edge, %7, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %27 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ 1, %30 ], [ 0, %27 ], [ 0, %25 ]
   ret i32 %.0
 }
 

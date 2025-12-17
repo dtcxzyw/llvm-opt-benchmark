@@ -211,7 +211,7 @@ add_user.exit.i:                                  ; preds = %66
   br label %mqtt_connect.exit
 
 77:                                               ; preds = %add_user.exit.thread.i, %62
-  %.066.i = phi i64 [ %65, %62 ], [ %68, %add_user.exit.thread.i ]
+  %.066.i = phi i64 [ %68, %add_user.exit.thread.i ], [ %65, %62 ]
   br i1 %.not79.i, label %88, label %78
 
 78:                                               ; preds = %77
@@ -274,7 +274,7 @@ add_passwd.exit.i:                                ; preds = %78
   br label %mqtt_send.exit
 
 mqtt_send.exit:                                   ; preds = %89, %96, %100, %102
-  %.0.i9 = phi i32 [ %92, %89 ], [ 27, %96 ], [ 0, %100 ], [ 0, %102 ]
+  %.0.i9 = phi i32 [ 27, %96 ], [ %92, %89 ], [ 0, %100 ], [ 0, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mqtt_connect.exit
 
@@ -396,7 +396,7 @@ mqtt_send.exit.thread:                            ; preds = %30, %32
   br label %35
 
 mqtt_send.exit:                                   ; preds = %19, %26
-  %.0.i = phi i32 [ %22, %19 ], [ 27, %26 ]
+  %.0.i = phi i32 [ 27, %26 ], [ %22, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %34(ptr noundef %20) #8
@@ -970,12 +970,12 @@ mqtt_verify_suback.exit.i:                        ; preds = %197, %196
   br label %277
 
 277:                                              ; preds = %274, %270, %268, %267, %263, %257, %254, %250, %244, %240
-  %.1.i = phi i32 [ 81, %244 ], [ 81, %250 ], [ 81, %254 ], [ 18, %267 ], [ 18, %263 ], [ 18, %257 ], [ %269, %268 ], [ 0, %274 ], [ 0, %270 ], [ %243, %240 ]
+  %.1.i = phi i32 [ %243, %240 ], [ 0, %270 ], [ %269, %268 ], [ 81, %244 ], [ 81, %250 ], [ 81, %254 ], [ 18, %267 ], [ 18, %263 ], [ 18, %257 ], [ 0, %274 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mqtt_read_publish.exit
 
 mqtt_read_publish.exit:                           ; preds = %158, %.thread.i.i.i, %175, %192, %mqtt_verify_suback.exit.i, %202, %218, %236, %277
-  %.062.i = phi i32 [ 0, %mqtt_verify_suback.exit.i ], [ 63, %236 ], [ %.1.i, %277 ], [ 0, %218 ], [ 8, %202 ], [ 8, %158 ], [ 81, %175 ], [ %.014.ph.i.i.i, %.thread.i.i.i ], [ 8, %192 ]
+  %.062.i = phi i32 [ 0, %218 ], [ 8, %158 ], [ 0, %mqtt_verify_suback.exit.i ], [ 63, %236 ], [ 8, %202 ], [ %.1.i, %277 ], [ 81, %175 ], [ %.014.ph.i.i.i, %.thread.i.i.i ], [ 8, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mqstate.exit
 
@@ -985,7 +985,7 @@ mqtt_read_publish.exit:                           ; preds = %158, %.thread.i.i.i
   br label %mqstate.exit.thread
 
 mqstate.exit:                                     ; preds = %.thread.i.i, %151, %153, %.critedge, %50, %mqtt_read_publish.exit
-  %.174 = phi i32 [ %52, %50 ], [ %.2, %.critedge ], [ %.3, %151 ], [ %154, %153 ], [ %.062.i, %mqtt_read_publish.exit ], [ %.014.ph.i.i, %.thread.i.i ]
+  %.174 = phi i32 [ %154, %153 ], [ %52, %50 ], [ %.2, %.critedge ], [ %.062.i, %mqtt_read_publish.exit ], [ %.3, %151 ], [ %.014.ph.i.i, %.thread.i.i ]
   %.174.fr = freeze i32 %.174
   %279 = icmp eq i32 %.174.fr, 81
   br i1 %279, label %mqstate.exit.thread116, label %mqstate.exit.thread
@@ -1172,13 +1172,13 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i, %mqtt_get
   br label %mqtt_send.exit
 
 mqtt_send.exit:                                   ; preds = %38, %62, %66, %68
-  %.0.i50 = phi i32 [ %58, %38 ], [ 27, %62 ], [ 0, %66 ], [ 0, %68 ]
+  %.0.i50 = phi i32 [ 27, %62 ], [ %58, %38 ], [ 0, %66 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mqtt_get_topic.exit.thread
 
 mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %19, %mqtt_encode_len.exit, %mqtt_send.exit
-  %.040 = phi ptr [ %37, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %19 ], [ null, %.sink.split.i ]
-  %.038 = phi i32 [ %.0.i50, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ %21, %19 ], [ 3, %.sink.split.i ]
+  %.040 = phi ptr [ null, %mqtt_encode_len.exit ], [ %37, %mqtt_send.exit ], [ null, %19 ], [ null, %.sink.split.i ]
+  %.038 = phi i32 [ 27, %mqtt_encode_len.exit ], [ %.0.i50, %mqtt_send.exit ], [ %21, %19 ], [ 3, %.sink.split.i ]
   %69 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %69(ptr noundef %.040) #8
   %70 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -1229,7 +1229,7 @@ define internal fastcc i32 @mqtt_disconnect(ptr noundef %0) unnamed_addr #0 {
   br label %mqtt_send.exit
 
 mqtt_send.exit:                                   ; preds = %1, %9, %13, %15
-  %.0.i = phi i32 [ %5, %1 ], [ 27, %9 ], [ 0, %13 ], [ 0, %15 ]
+  %.0.i = phi i32 [ 27, %9 ], [ %5, %1 ], [ 0, %13 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %17 = load ptr, ptr %4, align 8, !tbaa !86
@@ -1369,13 +1369,13 @@ mqtt_encode_len.exit:                             ; preds = %.lr.ph.i
   br label %mqtt_send.exit
 
 mqtt_send.exit:                                   ; preds = %33, %61, %65, %67
-  %.0.i37 = phi i32 [ %57, %33 ], [ 27, %61 ], [ 0, %65 ], [ 0, %67 ]
+  %.0.i37 = phi i32 [ 27, %61 ], [ %57, %33 ], [ 0, %65 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mqtt_get_topic.exit.thread
 
 mqtt_get_topic.exit.thread:                       ; preds = %.sink.split.i, %12, %mqtt_encode_len.exit, %mqtt_send.exit
-  %.030 = phi ptr [ %32, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %12 ], [ null, %.sink.split.i ]
-  %.0 = phi i32 [ %.0.i37, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ %14, %12 ], [ 3, %.sink.split.i ]
+  %.030 = phi ptr [ null, %mqtt_encode_len.exit ], [ %32, %mqtt_send.exit ], [ null, %12 ], [ null, %.sink.split.i ]
+  %.0 = phi i32 [ 27, %mqtt_encode_len.exit ], [ %.0.i37, %mqtt_send.exit ], [ %14, %12 ], [ 3, %.sink.split.i ]
   %68 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %69 = load ptr, ptr %3, align 8, !tbaa !105
   call void %68(ptr noundef %69) #8

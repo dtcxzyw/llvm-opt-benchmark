@@ -910,10 +910,10 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %209, %.lr.ph, %.lr.ph, %.lr.ph, %206, %219, %214
-  %.170 = phi i32 [ %.069106, %.lr.ph ], [ %.271, %219 ], [ %.271, %214 ], [ %.271, %206 ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.271, %209 ]
-  %.168 = phi i32 [ %.067107, %.lr.ph ], [ 0, %219 ], [ 0, %214 ], [ %207, %206 ], [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ 0, %209 ]
-  %.4 = phi i32 [ %.3108, %.lr.ph ], [ 0, %219 ], [ 1, %214 ], [ %.5, %206 ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.5, %209 ]
-  %.1 = phi ptr [ %.0109, %.lr.ph ], [ %221, %219 ], [ %217, %214 ], [ %.0109, %206 ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %212, %209 ]
+  %.170 = phi i32 [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.271, %219 ], [ %.271, %214 ], [ %.271, %206 ], [ %.271, %209 ]
+  %.168 = phi i32 [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ 0, %219 ], [ 0, %214 ], [ %207, %206 ], [ 0, %209 ]
+  %.4 = phi i32 [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ 0, %219 ], [ 1, %214 ], [ %.5, %206 ], [ %.5, %209 ]
+  %.1 = phi ptr [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %221, %219 ], [ %217, %214 ], [ %.0109, %206 ], [ %212, %209 ]
   %222 = add i64 %.377105, -1
   %223 = getelementptr inbounds nuw i8, ptr %.079104, i64 1
   %.not87 = icmp eq i64 %222, 0
@@ -927,8 +927,8 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %114, %.critedge._crit_edge, %5, %._crit_edge110
-  %.sink = phi i64 [ %226, %._crit_edge110 ], [ 0, %5 ], [ 0, %.critedge._crit_edge ], [ %123, %114 ]
-  %.078.ph = phi i32 [ 0, %._crit_edge110 ], [ 0, %5 ], [ 0, %.critedge._crit_edge ], [ -42, %114 ]
+  %.sink = phi i64 [ %226, %._crit_edge110 ], [ 0, %.critedge._crit_edge ], [ 0, %5 ], [ %123, %114 ]
+  %.078.ph = phi i32 [ 0, %._crit_edge110 ], [ 0, %.critedge._crit_edge ], [ 0, %5 ], [ -42, %114 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %.loopexit
 
@@ -987,13 +987,13 @@ define hidden range(i32 0, 2) i32 @mbedtls_base64_self_test(i32 noundef %0) loca
   br i1 %.not, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %17, %16, %9
-  %str.sink = phi ptr [ @str.2, %9 ], [ @str.2, %16 ], [ @str, %17 ]
-  %.0.ph = phi i32 [ 1, %9 ], [ 1, %16 ], [ 0, %17 ]
+  %str.sink = phi ptr [ @str.2, %16 ], [ @str.2, %9 ], [ @str, %17 ]
+  %.0.ph = phi i32 [ 1, %16 ], [ 1, %9 ], [ 0, %17 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   br label %18
 
 18:                                               ; preds = %.sink.split, %17, %16, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %16 ], [ 0, %17 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %9 ], [ 0, %17 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

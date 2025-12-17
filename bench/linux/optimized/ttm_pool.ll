@@ -365,11 +365,11 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br label %.thread33
 
 .thread33:                                        ; preds = %156, %.thread33.sink.split, %65, %82
-  %173 = phi i64 [ %53, %82 ], [ %53, %65 ], [ %.ph290, %.thread33.sink.split ], [ %157, %156 ]
-  %174 = phi ptr [ %52, %82 ], [ %52, %65 ], [ %.ph291, %.thread33.sink.split ], [ %147, %156 ]
-  %175 = phi ptr [ %51, %82 ], [ %51, %65 ], [ %.ph292, %.thread33.sink.split ], [ %153, %156 ]
-  %176 = phi i1 [ true, %82 ], [ true, %65 ], [ true, %.thread33.sink.split ], [ false, %156 ]
-  %177 = phi ptr [ %49, %82 ], [ %49, %65 ], [ %.ph293, %.thread33.sink.split ], [ %153, %156 ]
+  %173 = phi i64 [ %53, %65 ], [ %53, %82 ], [ %.ph290, %.thread33.sink.split ], [ %157, %156 ]
+  %174 = phi ptr [ %52, %65 ], [ %52, %82 ], [ %.ph291, %.thread33.sink.split ], [ %147, %156 ]
+  %175 = phi ptr [ %51, %65 ], [ %51, %82 ], [ %.ph292, %.thread33.sink.split ], [ %153, %156 ]
+  %176 = phi i1 [ true, %65 ], [ true, %82 ], [ true, %.thread33.sink.split ], [ false, %156 ]
+  %177 = phi ptr [ %49, %65 ], [ %49, %82 ], [ %.ph293, %.thread33.sink.split ], [ %153, %156 ]
   %178 = shl nuw nsw i32 1, %50
   %179 = zext nneg i32 %178 to i64
   %180 = icmp ult i64 %173, %179
@@ -535,10 +535,10 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br label %.thread46
 
 .thread46:                                        ; preds = %188, %275, %270
-  %.ph = phi i64 [ %173, %270 ], [ %273, %275 ], [ %189, %188 ]
-  %.ph48 = phi ptr [ %174, %270 ], [ %272, %275 ], [ %261, %188 ]
-  %.ph49 = phi ptr [ %175, %270 ], [ %271, %275 ], [ %267, %188 ]
-  %.ph52 = phi i32 [ %50, %270 ], [ %276, %275 ], [ %50, %188 ]
+  %.ph = phi i64 [ %273, %275 ], [ %173, %270 ], [ %189, %188 ]
+  %.ph48 = phi ptr [ %272, %275 ], [ %174, %270 ], [ %261, %188 ]
+  %.ph49 = phi ptr [ %271, %275 ], [ %175, %270 ], [ %267, %188 ]
+  %.ph52 = phi i32 [ %276, %275 ], [ %50, %270 ], [ %50, %188 ]
   %277 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.ph) #8, !srcloc !16
   %278 = trunc i64 %277 to i32
   %279 = tail call i32 @llvm.umin.i32(i32 %.ph52, i32 %278)
@@ -591,10 +591,10 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br label %.thread66
 
 .thread66:                                        ; preds = %249, %300, %.loopexit
-  %.ph6275 = phi ptr [ %.ph62, %300 ], [ %.ph62, %.loopexit ], [ %177, %249 ]
-  %.ph6074 = phi ptr [ %.ph60, %300 ], [ %.ph60, %.loopexit ], [ %242, %249 ]
-  %.ph5973 = phi i32 [ %.ph59, %300 ], [ %.ph59, %.loopexit ], [ -14, %249 ]
-  %.ph5672 = phi i64 [ %.ph56, %300 ], [ %.ph56, %.loopexit ], [ %194, %249 ]
+  %.ph6275 = phi ptr [ %.ph62, %.loopexit ], [ %.ph62, %300 ], [ %177, %249 ]
+  %.ph6074 = phi ptr [ %.ph60, %.loopexit ], [ %.ph60, %300 ], [ %242, %249 ]
+  %.ph5973 = phi i32 [ %.ph59, %.loopexit ], [ %.ph59, %300 ], [ -14, %249 ]
+  %.ph5672 = phi i64 [ %.ph56, %.loopexit ], [ %.ph56, %300 ], [ %194, %249 ]
   %303 = icmp eq ptr %0, null
   br i1 %303, label %307, label %304
 

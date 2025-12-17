@@ -1432,7 +1432,7 @@ align_get_bits.exit:                              ; preds = %135, %138
   br i1 %or.cond, label %skip_hdr_extension.exit, label %.lr.ph.i.preheader, !llvm.loop !108
 
 skip_hdr_extension.exit:                          ; preds = %160, %align_get_bits.exit, %122
-  %.val.i56 = phi i32 [ %150, %align_get_bits.exit ], [ %132, %122 ], [ %169, %160 ]
+  %.val.i56 = phi i32 [ %132, %122 ], [ %150, %align_get_bits.exit ], [ %169, %160 ]
   %173 = sub nsw i32 0, %.val.i56
   %174 = and i32 %173, 7
   %.not.i57 = icmp eq i32 %174, 0
@@ -1820,7 +1820,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   br label %237
 
 237:                                              ; preds = %.sink.split, %208, %206, %204, %199, %178
-  %238 = phi i32 [ %192, %199 ], [ %192, %208 ], [ %192, %206 ], [ %192, %204 ], [ %192, %178 ], [ %.ph291, %.sink.split ]
+  %238 = phi i32 [ %192, %204 ], [ %192, %199 ], [ %192, %178 ], [ %192, %208 ], [ %192, %206 ], [ %.ph291, %.sink.split ]
   %.not206.us = icmp eq i8 %.sink, 0
   br i1 %.not206.us, label %315, label %239
 
@@ -2011,7 +2011,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   br label %align_get_bits.exit
 
 align_get_bits.exit:                              ; preds = %364, %._crit_edge245, %23, %26, %.split247.us, %.split.us, %42
-  %.0 = phi i32 [ -1094995529, %42 ], [ -1094995529, %.split.us ], [ -1094995529, %.split247.us ], [ -1094995529, %26 ], [ -1094995529, %23 ], [ 0, %._crit_edge245 ], [ 0, %364 ]
+  %.0 = phi i32 [ -1094995529, %42 ], [ -1094995529, %.split.us ], [ -1094995529, %.split247.us ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ 0, %._crit_edge245 ], [ 0, %364 ]
   ret i32 %.0
 }
 

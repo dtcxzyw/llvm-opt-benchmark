@@ -207,7 +207,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br label %_ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit
 
 _ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit: ; preds = %13, %17
-  %.sroa.0.0.i.i.pn.i = phi ptr [ %16, %13 ], [ %19, %17 ]
+  %.sroa.0.0.i.i.pn.i = phi ptr [ %19, %17 ], [ %16, %13 ]
   %.not = icmp eq ptr %.sroa.0.0.i.i.pn.i, null
   %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.0.i.i.pn.i
   %20 = ptrtoint ptr %.sink1.i.i to i64
@@ -263,7 +263,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h
   br label %_ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit.i: ; preds = %16, %12
-  %.sroa.0.0.i.i.pn.i.i = phi ptr [ %15, %12 ], [ %18, %16 ]
+  %.sroa.0.0.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %15, %12 ]
   %.not.i = icmp eq ptr %.sroa.0.0.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.0.i.i.pn.i.i
   %19 = ptrtoint ptr %.sink1.i.i.i to i64
@@ -385,7 +385,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   br label %_ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17hfff761cf058f9d6eE.exit.i: ; preds = %17, %13
-  %.sroa.0.0.i.i.pn.i.i = phi ptr [ %16, %13 ], [ %19, %17 ]
+  %.sroa.0.0.i.i.pn.i.i = phi ptr [ %19, %17 ], [ %16, %13 ]
   %.not.i = icmp eq ptr %.sroa.0.0.i.i.pn.i.i, null
   %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.0.i.i.pn.i.i
   %20 = ptrtoint ptr %.sink1.i.i.i to i64

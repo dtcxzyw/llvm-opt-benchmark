@@ -709,7 +709,7 @@ define internal fastcc noundef ptr @_ZN4abslL10ForceBtreeEPNS_13cord_internal7Co
   br label %_ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit: ; preds = %1, %10, %12, %17
-  %.0.i = phi ptr [ %6, %10 ], [ %6, %12 ], [ %6, %17 ], [ %0, %1 ]
+  %.0.i = phi ptr [ %6, %10 ], [ %0, %1 ], [ %6, %12 ], [ %6, %17 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %19 = load i8, ptr %18, align 4, !tbaa !23
   %or.cond.i.i = icmp ugt i8 %19, 4
@@ -2002,8 +2002,8 @@ _ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit: ; preds 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr align 1 %2, i64 %1, i1 false)
   br label %_ZN4absl4Cord9InlineRep10CommitTreeEPKNS_13cord_internal7CordRepEPS3_RKNS2_16CordzUpdateScopeENS2_18CordzUpdateTracker16MethodIdentifierE.exit
 
-_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit.thread: ; preds = %67, %60, %63, %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit
-  %.089 = phi i64 [ %storemerge.i, %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit ], [ 0, %63 ], [ 0, %60 ], [ 0, %67 ]
+_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit.thread: ; preds = %67, %63, %60, %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit
+  %.089 = phi i64 [ %storemerge.i, %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit ], [ 0, %60 ], [ 0, %63 ], [ 0, %67 ]
   %107 = sub i64 %1, %.089
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %131, label %137
@@ -2241,7 +2241,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
   br label %_ZN4abslL19ExtractAppendBufferEPNS_13cord_internal7CordRepEm.exit
 
 _ZN4abslL19ExtractAppendBufferEPNS_13cord_internal7CordRepEm.exit: ; preds = %39, %37, %18
-  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %38, %37 ], [ %41, %39 ], [ %19, %18 ]
+  %.fca.1.insert.merged.i = phi { ptr, ptr } [ %41, %39 ], [ %38, %37 ], [ %19, %18 ]
   %42 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i, 1
   %.not14 = icmp eq ptr %42, null
   br i1 %.not14, label %50, label %43
@@ -2319,7 +2319,7 @@ _ZN4absl10CordBuffer6IsPow2Em.exit.i.i:           ; preds = %53
   br label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i
 
 _ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i: ; preds = %63, %57, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i, %53, %51
-  %.0.i.i = phi i64 [ %3, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i ], [ %.sroa.speculated21.i.i, %51 ], [ %52, %53 ], [ %66, %63 ], [ %61, %57 ]
+  %.0.i.i = phi i64 [ %.sroa.speculated21.i.i, %51 ], [ %3, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i ], [ %52, %53 ], [ %66, %63 ], [ %61, %57 ]
   %67 = add i64 %.0.i.i, -13
   %68 = icmp ult i64 %67, 20
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %67, i64 262131)
@@ -2457,7 +2457,7 @@ _ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i:         ; preds = %116
   br label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i
 
 _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i: ; preds = %126, %120, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i, %116, %114
-  %.0.i.i.i24 = phi i64 [ %113, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i ], [ %.sroa.speculated21.i.i.i, %114 ], [ %115, %116 ], [ %129, %126 ], [ %124, %120 ]
+  %.0.i.i.i24 = phi i64 [ %.sroa.speculated21.i.i.i, %114 ], [ %113, %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i ], [ %115, %116 ], [ %129, %126 ], [ %124, %120 ]
   %130 = add i64 %.0.i.i.i24, -13
   %131 = icmp ult i64 %130, 20
   %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %130, i64 262131)
@@ -3143,10 +3143,10 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i: ; preds = %243, %24
   br label %_ZN4absl4Cord13ChunkIteratorppEv.exit
 
 _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %178, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i, %184, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i
-  %246 = phi i64 [ %.pre70.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %177, %184 ], [ %177, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %177, %178 ]
-  %247 = phi i64 [ %229, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %184 ], [ %175, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %175, %178 ]
-  %.sroa.2.0.copyload.i68 = phi ptr [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %184 ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %178 ]
-  %.sroa.0.0.copyload.i65 = phi i64 [ %228, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %184 ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %178 ]
+  %246 = phi i64 [ %177, %184 ], [ %.pre70.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %177, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %177, %178 ]
+  %247 = phi i64 [ 0, %184 ], [ %229, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %175, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %175, %178 ]
+  %.sroa.2.0.copyload.i68 = phi ptr [ null, %184 ], [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %178 ]
+  %.sroa.0.0.copyload.i65 = phi i64 [ 0, %184 ], [ %228, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %178 ]
   %.not = icmp eq i64 %246, 0
   br i1 %.not, label %._crit_edge, label %174
 
@@ -3737,10 +3737,10 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i: ; preds = %238, %23
   br label %_ZN4absl4Cord13ChunkIteratorppEv.exit
 
 _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %173, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i, %179, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i
-  %241 = phi i64 [ %.pre74.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %172, %179 ], [ %172, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %172, %173 ]
-  %242 = phi i64 [ %224, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %179 ], [ %170, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %170, %173 ]
-  %.sroa.2.0.copyload.i72 = phi ptr [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %179 ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %173 ]
-  %.sroa.0.0.copyload.i69 = phi i64 [ %223, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %179 ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %173 ]
+  %241 = phi i64 [ %172, %179 ], [ %.pre74.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %172, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %172, %173 ]
+  %242 = phi i64 [ 0, %179 ], [ %224, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %170, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %170, %173 ]
+  %.sroa.2.0.copyload.i72 = phi ptr [ null, %179 ], [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %173 ]
+  %.sroa.0.0.copyload.i69 = phi i64 [ 0, %179 ], [ %223, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %173 ]
   %.not = icmp eq i64 %241, 0
   br i1 %.not, label %._crit_edge, label %169
 
@@ -3756,7 +3756,7 @@ _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %173, %_ZNK4absl13co
   br label %_ZNO4absl4Cord7TakeRepEv.exit45
 
 _ZNO4absl4Cord7TakeRepEv.exit45:                  ; preds = %_ZNK4absl4Cord9InlineRep4sizeEv.exit, %243, %246
-  %.0.i.i44 = phi ptr [ %82, %243 ], [ %82, %246 ], [ null, %_ZNK4absl4Cord9InlineRep4sizeEv.exit ]
+  %.0.i.i44 = phi ptr [ %82, %246 ], [ %82, %243 ], [ null, %_ZNK4absl4Cord9InlineRep4sizeEv.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 12
   %249 = load i8, ptr %248, align 4, !tbaa !23
@@ -4665,7 +4665,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %170, %173
   %.not.i.i79 = icmp eq ptr %215, null
   br i1 %.not.i.i79, label %_ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit, label %217, !prof !27
 
-.split6.i:                                        ; preds = %158, %161, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
+.split6.i:                                        ; preds = %161, %158, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %216 = load ptr, ptr %10, align 8, !tbaa !35
   %.not.i7.i = icmp eq ptr %216, null
@@ -5902,7 +5902,7 @@ _ZN4absl13cord_internal16CordRepSubstring9SubstringEPNS0_7CordRepEmm.exit: ; pre
           to label %_ZN4absl4Cord9InlineRep8set_dataEPKcm.exit unwind label %56
 
 324:                                              ; preds = %56, %260
-  %.pn50.pn = phi { ptr, i32 } [ %57, %56 ], [ %261, %260 ]
+  %.pn50.pn = phi { ptr, i32 } [ %261, %260 ], [ %57, %56 ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   resume { ptr, i32 } %.pn50.pn
 
@@ -6577,8 +6577,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i: ; preds = %63, %61
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %11, %23, %27, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %75, %.thread.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
-  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
+  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
+  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
   %.sroa.06.0.copyload = load i64, ptr %1, align 8, !tbaa !123
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.27.0.copyload = load ptr, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !128
@@ -6761,8 +6761,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i: ; preds = %63, %61
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %11, %23, %27, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %75, %.thread.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
-  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
+  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
+  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
   %81 = load i8, ptr %1, align 8, !tbaa !13
   %82 = and i8 %81, 1
   %.not.i.i.i.i14 = icmp eq i8 %82, 0
@@ -6917,8 +6917,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28: ; preds = %140, %138
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit45
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit45:        ; preds = %_ZNK4absl4Cord5emptyEv.exit.i44, %_ZNK4absl4Cord5emptyEv.exit.thread.i15, %88, %100, %104, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28, %152, %.thread.i.i37
-  %.sroa.0.0.i31 = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ %102, %100 ], [ %107, %104 ], [ %126, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %144, %152 ], [ %144, %.thread.i.i37 ], [ %91, %88 ]
-  %.sroa.3.0.i32 = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ %101, %100 ], [ %106, %104 ], [ %.sroa.3.0.i.i.i.i30, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %154, %152 ], [ %157, %.thread.i.i37 ], [ %89, %88 ]
+  %.sroa.0.0.i31 = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ %102, %100 ], [ %107, %104 ], [ %126, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %144, %152 ], [ %144, %.thread.i.i37 ], [ %91, %88 ]
+  %.sroa.3.0.i32 = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ %101, %100 ], [ %106, %104 ], [ %.sroa.3.0.i.i.i.i30, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %154, %152 ], [ %157, %.thread.i.i37 ], [ %89, %88 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.i31, i64 %.sroa.0.0.i)
   %bcmp = tail call i32 @bcmp(ptr %.sroa.3.0.i, ptr %.sroa.3.0.i32, i64 %.sroa.speculated)
   %158 = icmp eq i64 %.sroa.speculated, %2
@@ -7818,10 +7818,10 @@ _ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i: ; preds = %_ZNK
   br label %_ZN4absl4Cord13ChunkIteratorppEv.exit
 
 _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i
-  %173 = phi i64 [ %.pre31, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ], [ %103, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ]
-  %174 = phi i64 [ %172, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ], [ %100, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ]
-  %.sroa.2.0.copyload.i29 = phi ptr [ %.sroa.3.0.i.i.i, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ]
-  %.sroa.0.0.copyload.i26 = phi i64 [ %.sroa.0.0.i.i.i, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ]
+  %173 = phi i64 [ %103, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ], [ %.pre31, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ]
+  %174 = phi i64 [ %100, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ], [ %172, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ]
+  %.sroa.2.0.copyload.i29 = phi ptr [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ], [ %.sroa.3.0.i.i.i, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ]
+  %.sroa.0.0.copyload.i26 = phi i64 [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.thread.i ], [ %.sroa.0.0.i.i.i, %_ZN4absl4Cord13ChunkIterator12AdvanceBtreeEv.exit.i ]
   %.not = icmp eq i64 %173, 0
   br i1 %.not, label %._crit_edge, label %99
 
@@ -8037,7 +8037,7 @@ _ZN4absl13cord_internal11SkipCrcNodeEPNS0_7CordRepE.exit: ; preds = %6, %10
   br label %.thread
 
 .thread:                                          ; preds = %37, %18, %45, %38, %31, %23, %19, %15, %5
-  %.032 = phi i1 [ true, %5 ], [ true, %15 ], [ true, %19 ], [ %24, %23 ], [ %49, %45 ], [ true, %38 ], [ true, %31 ], [ false, %18 ], [ false, %37 ]
+  %.032 = phi i1 [ true, %5 ], [ true, %15 ], [ true, %19 ], [ %24, %23 ], [ false, %18 ], [ false, %37 ], [ %49, %45 ], [ true, %38 ], [ true, %31 ]
   ret i1 %.032
 }
 
@@ -8885,7 +8885,7 @@ _ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpda
   br label %405
 
 405:                                              ; preds = %228, %316, %403, %337
-  %.pn52 = phi { ptr, i32 } [ %338, %337 ], [ %404, %403 ], [ %229, %228 ], [ %.pn, %316 ]
+  %.pn52 = phi { ptr, i32 } [ %.pn, %316 ], [ %404, %403 ], [ %338, %337 ], [ %229, %228 ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   resume { ptr, i32 } %.pn52
 
@@ -9854,7 +9854,7 @@ _ZN4absl12_GLOBAL__N_117IsSubcordInCordAtENS_4Cord12CharIteratorERKS1_.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread57
 
-.loopexit:                                        ; preds = %216, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i.i18.i.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i, %178
+.loopexit:                                        ; preds = %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i.i18.i.i, %216, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10360,10 +10360,10 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i: ; preds = %130, %12
   br label %_ZN4absl4Cord13ChunkIteratorppEv.exit
 
 _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %65, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i, %71, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i
-  %133 = phi i64 [ %.pre40.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %64, %71 ], [ %64, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %64, %65 ]
-  %134 = phi i64 [ %116, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %71 ], [ %62, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %62, %65 ]
-  %.sroa.2.0.copyload.i39 = phi ptr [ %.sroa.3.0.i.i.i.i12, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %71 ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %65 ]
-  %.sroa.0.0.copyload.i37 = phi i64 [ %115, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %71 ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %65 ]
+  %133 = phi i64 [ %64, %71 ], [ %.pre40.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %64, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %64, %65 ]
+  %134 = phi i64 [ 0, %71 ], [ %116, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %62, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %62, %65 ]
+  %.sroa.2.0.copyload.i39 = phi ptr [ null, %71 ], [ %.sroa.3.0.i.i.i.i12, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %65 ]
+  %.sroa.0.0.copyload.i37 = phi i64 [ 0, %71 ], [ %115, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %65 ]
   %.not = icmp eq i64 %133, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
 
@@ -10730,10 +10730,10 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i: ; preds = %158, %15
   br label %_ZN4absl4Cord13ChunkIteratorppEv.exit
 
 _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %93, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i, %99, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i
-  %161 = phi i64 [ %.pre27.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %92, %99 ], [ %92, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %92, %93 ]
-  %162 = phi i64 [ %144, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %99 ], [ %89, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %89, %93 ]
-  %.sroa.2.0.copyload.i25 = phi ptr [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %99 ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %93 ]
-  %.sroa.0.0.copyload.i22 = phi i64 [ %143, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %99 ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %93 ]
+  %161 = phi i64 [ %92, %99 ], [ %.pre27.pre, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %92, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %92, %93 ]
+  %162 = phi i64 [ 0, %99 ], [ %144, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %89, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ %89, %93 ]
+  %.sroa.2.0.copyload.i25 = phi ptr [ null, %99 ], [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ null, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ null, %93 ]
+  %.sroa.0.0.copyload.i22 = phi i64 [ 0, %99 ], [ %143, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ 0, %_ZNK4absl13cord_internal18CordRepBtreeReadercvbEv.exit.i ], [ 0, %93 ]
   %.not = icmp eq i64 %161, 0
   br i1 %.not, label %._crit_edge, label %88
 }
@@ -11128,8 +11128,8 @@ default.unreachable:                              ; preds = %59
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %49, %45, %35, %25, %15, %5, %76
-  %.sroa.9.0 = phi i64 [ %79, %76 ], [ 0, %5 ], [ 0, %15 ], [ 0, %25 ], [ 0, %35 ], [ 0, %45 ], [ %.sroa.speculated, %73 ], [ 0, %49 ]
-  %.sroa.0.0 = phi ptr [ %78, %76 ], [ null, %5 ], [ null, %15 ], [ null, %25 ], [ null, %35 ], [ null, %45 ], [ %62, %73 ], [ null, %49 ]
+  %.sroa.9.0 = phi i64 [ %79, %76 ], [ 0, %35 ], [ 0, %45 ], [ 0, %25 ], [ 0, %15 ], [ 0, %5 ], [ %.sroa.speculated, %73 ], [ 0, %49 ]
+  %.sroa.0.0 = phi ptr [ %78, %76 ], [ null, %35 ], [ null, %45 ], [ null, %25 ], [ null, %15 ], [ null, %5 ], [ %62, %73 ], [ null, %49 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -12999,10 +12999,10 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit: ; preds = %269, %263
-  %.sroa.0269.0 = phi ptr [ %276, %269 ], [ %264, %263 ]
-  %.sroa.10273.2 = phi ptr [ %272, %269 ], [ %249, %263 ]
-  %.sroa.17276.2 = phi ptr [ %273, %269 ], [ %251, %263 ]
-  %.sroa.24279.2 = phi ptr [ %271, %269 ], [ %253, %263 ]
+  %.sroa.0269.0 = phi ptr [ %264, %263 ], [ %276, %269 ]
+  %.sroa.10273.2 = phi ptr [ %249, %263 ], [ %272, %269 ]
+  %.sroa.17276.2 = phi ptr [ %251, %263 ], [ %273, %269 ]
+  %.sroa.24279.2 = phi ptr [ %253, %263 ], [ %271, %269 ]
   %277 = load ptr, ptr %30, align 8, !tbaa !198
   %.not12.i.i.i.i.i.i = icmp eq ptr %277, %storemerge.i.i
   br i1 %.not12.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i.preheader
@@ -13150,7 +13150,7 @@ _ZSt25__uninitialized_move_copyISt15_Deque_iteratorIN4absl12crc_internal12CrcCor
   br label %335
 
 335:                                              ; preds = %333, %242, %244
-  %.pn31.pn = phi { ptr, i32 } [ %245, %244 ], [ %243, %242 ], [ %334, %333 ]
+  %.pn31.pn = phi { ptr, i32 } [ %334, %333 ], [ %245, %244 ], [ %243, %242 ]
   %.1 = extractvalue { ptr, i32 } %.pn31.pn, 0
   %336 = call ptr @__cxa_begin_catch(ptr %.1) #28
   %337 = load ptr, ptr %33, align 8, !tbaa !143
@@ -13523,10 +13523,10 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit77
 
 _ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit77: ; preds = %515, %509
-  %.sroa.0146.0 = phi ptr [ %522, %515 ], [ %510, %509 ]
-  %.sroa.10.2 = phi ptr [ %518, %515 ], [ %496, %509 ]
-  %.sroa.17.2 = phi ptr [ %519, %515 ], [ %498, %509 ]
-  %.sroa.24.2 = phi ptr [ %517, %515 ], [ %500, %509 ]
+  %.sroa.0146.0 = phi ptr [ %510, %509 ], [ %522, %515 ]
+  %.sroa.10.2 = phi ptr [ %496, %509 ], [ %518, %515 ]
+  %.sroa.17.2 = phi ptr [ %498, %509 ], [ %519, %515 ]
+  %.sroa.24.2 = phi ptr [ %500, %509 ], [ %517, %515 ]
   %523 = load ptr, ptr %3, align 8, !tbaa !208
   %524 = load ptr, ptr %58, align 8, !tbaa !198
   %525 = load ptr, ptr %345, align 8, !tbaa !196
@@ -13673,7 +13673,7 @@ _ZSt25__uninitialized_copy_moveISt15_Deque_iteratorIN4absl12crc_internal12CrcCor
   br label %583
 
 583:                                              ; preds = %581, %489, %491
-  %.pn29.pn = phi { ptr, i32 } [ %492, %491 ], [ %490, %489 ], [ %582, %581 ]
+  %.pn29.pn = phi { ptr, i32 } [ %582, %581 ], [ %492, %491 ], [ %490, %489 ]
   %.5 = extractvalue { ptr, i32 } %.pn29.pn, 0
   %584 = call ptr @__cxa_begin_catch(ptr %.5) #28
   %585 = load ptr, ptr %59, align 8, !tbaa !144
@@ -13938,7 +13938,7 @@ _ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit26:
   br label %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !194
   %58 = load ptr, ptr %.0, align 8, !tbaa !145
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15710,9 +15710,9 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i: ; preds = %81, %79
   br label %_ZNK4absl4Cord11chunk_beginEv.exit
 
 _ZNK4absl4Cord11chunk_beginEv.exit:               ; preds = %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i, %84, %85
-  %89 = phi i64 [ 0, %84 ], [ 0, %85 ], [ 0, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %51, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
-  %.sroa.2.0.copyload.i = phi ptr [ null, %84 ], [ %spec.select.i.i.i, %85 ], [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %.sroa.3.0.i.i.i.i.i, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
-  %.sroa.0.0.copyload.i = phi i64 [ 0, %84 ], [ %87, %85 ], [ %69, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %50, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
+  %89 = phi i64 [ 0, %85 ], [ 0, %84 ], [ 0, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %51, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
+  %.sroa.2.0.copyload.i = phi ptr [ %spec.select.i.i.i, %85 ], [ null, %84 ], [ %.sroa.3.0.i.i.i.i, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %.sroa.3.0.i.i.i.i.i, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
+  %.sroa.0.0.copyload.i = phi i64 [ %87, %85 ], [ 0, %84 ], [ %69, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i ], [ %50, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -15879,10 +15879,10 @@ _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20: ; preds = %163, %
   br label %_ZNK4absl4Cord11chunk_beginEv.exit50
 
 _ZNK4absl4Cord11chunk_beginEv.exit50:             ; preds = %97, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20, %166
-  %170 = phi i64 [ 0, %166 ], [ 0, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ %133, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ 0, %97 ]
-  %.sroa.2.0.copyload.i53 = phi ptr [ %spec.select.i.i.i48, %166 ], [ %.sroa.3.0.i.i.i.i22, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ %.sroa.3.0.i.i.i.i.i43, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ null, %97 ]
-  %.sroa.0.0.copyload.i51 = phi i64 [ %168, %166 ], [ %151, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ %132, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ 0, %97 ]
-  %171 = phi i64 [ %168, %166 ], [ %98, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ %.pre.pre, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ 0, %97 ]
+  %170 = phi i64 [ 0, %166 ], [ %133, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ 0, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ 0, %97 ]
+  %.sroa.2.0.copyload.i53 = phi ptr [ %spec.select.i.i.i48, %166 ], [ %.sroa.3.0.i.i.i.i.i43, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ %.sroa.3.0.i.i.i.i22, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ null, %97 ]
+  %.sroa.0.0.copyload.i51 = phi i64 [ %168, %166 ], [ %132, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ %151, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ 0, %97 ]
+  %171 = phi i64 [ %168, %166 ], [ %.pre.pre, %_ZN4absl13cord_internal18CordRepBtreeReader4InitEPNS0_12CordRepBtreeE.exit.i.i.i41 ], [ %98, %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit.i.i.i20 ], [ 0, %97 ]
   %172 = load i64, ptr %8, align 8, !tbaa !101
   %.not = icmp eq i64 %172, 0
   %.sroa.0113.0 = select i1 %.not, i64 0, i64 %.sroa.0.0.copyload.i
@@ -16228,8 +16228,8 @@ _ZN4absl12_GLOBAL__N_113CompareChunksEPSt17basic_string_viewIcSt11char_traitsIcE
   br i1 %.not146, label %_ZN4absl12_GLOBAL__N_113CompareChunksEPSt17basic_string_viewIcSt11char_traitsIcEES5_Pm.exit.thread, label %182, !llvm.loop !471
 
 .critedge:                                        ; preds = %_ZN4absl4Cord13ChunkIteratorppEv.exit.i82, %265, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i, %190
-  %.sroa.0113.2131 = phi i64 [ 0, %190 ], [ 0, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i ], [ %.sroa.0113.2.ph, %265 ], [ %.sroa.0113.2.ph, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i82 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %190 ], [ %.sroa.0.1, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i ], [ 0, %265 ], [ 0, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i82 ]
+  %.sroa.0113.2131 = phi i64 [ 0, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i ], [ 0, %190 ], [ %.sroa.0113.2.ph, %265 ], [ %.sroa.0113.2.ph, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i82 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i ], [ %.sroa.0.1, %190 ], [ 0, %265 ], [ 0, %_ZN4absl4Cord13ChunkIteratorppEv.exit.i82 ]
   %345 = icmp eq i64 %.sroa.0.2, 0
   %346 = zext i1 %345 to i32
   %347 = icmp eq i64 %.sroa.0113.2131, 0
@@ -16400,8 +16400,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i: ; preds = %63, %61
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %11, %23, %27, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %75, %.thread.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
-  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
+  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
+  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
   %.sroa.06.0.copyload = load i64, ptr %1, align 8, !tbaa !123
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.27.0.copyload = load ptr, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !128
@@ -16582,8 +16582,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i: ; preds = %63, %61
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %11, %23, %27, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %75, %.thread.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
-  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
+  %.sroa.0.0.i = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %25, %23 ], [ %30, %27 ], [ %49, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %67, %75 ], [ %67, %.thread.i.i ], [ %14, %11 ]
+  %.sroa.3.0.i = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i ], [ %24, %23 ], [ %29, %27 ], [ %.sroa.3.0.i.i.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i ], [ %77, %75 ], [ %80, %.thread.i.i ], [ %12, %11 ]
   %81 = load i8, ptr %1, align 8, !tbaa !13
   %82 = and i8 %81, 1
   %.not.i.i.i.i14 = icmp eq i8 %82, 0
@@ -16738,8 +16738,8 @@ _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28: ; preds = %140, %138
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit45
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit45:        ; preds = %_ZNK4absl4Cord5emptyEv.exit.i44, %_ZNK4absl4Cord5emptyEv.exit.thread.i15, %88, %100, %104, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28, %152, %.thread.i.i37
-  %.sroa.0.0.i31 = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ %102, %100 ], [ %107, %104 ], [ %126, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %144, %152 ], [ %144, %.thread.i.i37 ], [ %91, %88 ]
-  %.sroa.3.0.i32 = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ %101, %100 ], [ %106, %104 ], [ %.sroa.3.0.i.i.i.i30, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %154, %152 ], [ %157, %.thread.i.i37 ], [ %89, %88 ]
+  %.sroa.0.0.i31 = phi i64 [ 0, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ 0, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ %102, %100 ], [ %107, %104 ], [ %126, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %144, %152 ], [ %144, %.thread.i.i37 ], [ %91, %88 ]
+  %.sroa.3.0.i32 = phi ptr [ null, %_ZNK4absl4Cord5emptyEv.exit.thread.i15 ], [ null, %_ZNK4absl4Cord5emptyEv.exit.i44 ], [ %101, %100 ], [ %106, %104 ], [ %.sroa.3.0.i.i.i.i30, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i28 ], [ %154, %152 ], [ %157, %.thread.i.i37 ], [ %89, %88 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.i31, i64 %.sroa.0.0.i)
   %158 = tail call i32 @memcmp(ptr noundef %.sroa.3.0.i, ptr noundef %.sroa.3.0.i32, i64 noundef %.sroa.speculated) #30
   %159 = icmp eq i64 %.sroa.speculated, %2

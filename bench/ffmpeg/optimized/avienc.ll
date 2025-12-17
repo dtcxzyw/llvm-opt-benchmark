@@ -622,7 +622,7 @@ split:                                            ; preds = %172
   call void @av_free(ptr noundef nonnull %264) #10
   br label %.thread348
 
-.thread348:                                       ; preds = %259, %249, %252, %.thread355, %185
+.thread348:                                       ; preds = %259, %252, %249, %.thread355, %185
   %266 = load i32, ptr %111, align 8, !tbaa !66
   %267 = and i32 %266, 1
   %.not337 = icmp eq i32 %267, 0
@@ -794,7 +794,7 @@ split:                                            ; preds = %172
   br label %.thread359
 
 .thread359:                                       ; preds = %25, %232, %263, %231, %238, %141, %split, %341, %14
-  %.0286 = phi i32 [ -22, %14 ], [ 0, %341 ], [ -1163346256, %141 ], [ -22, %split ], [ -22, %231 ], [ -22, %238 ], [ %236, %232 ], [ -12, %263 ], [ -12, %25 ]
+  %.0286 = phi i32 [ -22, %14 ], [ 0, %341 ], [ -22, %238 ], [ -1163346256, %141 ], [ -22, %split ], [ -22, %231 ], [ -12, %263 ], [ %236, %232 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1125,8 +1125,8 @@ avi_stream2fourcc.exit:                           ; preds = %123
   %165 = call fastcc i32 @avi_write_packet_internal(ptr noundef %0, ptr noundef %164)
   br label %.thread147
 
-.thread147:                                       ; preds = %161, %162, %79, %write_skip_frames.exit, %24, %163, %60
-  %.0 = phi i32 [ %165, %163 ], [ %61, %60 ], [ %25, %24 ], [ -22, %write_skip_frames.exit ], [ %.0102, %161 ], [ %.0102145, %162 ], [ %90, %79 ]
+.thread147:                                       ; preds = %162, %79, %161, %write_skip_frames.exit, %24, %163, %60
+  %.0 = phi i32 [ %61, %60 ], [ %25, %24 ], [ %165, %163 ], [ -22, %write_skip_frames.exit ], [ %.0102145, %162 ], [ %90, %79 ], [ %.0102, %161 ]
   ret i32 %.0
 }
 
@@ -1289,7 +1289,7 @@ write_skip_frames.exit:                           ; preds = %28, %32, %37, %9, %
   br label %91
 
 91:                                               ; preds = %83, %80, %87
-  %.166 = phi i32 [ %90, %87 ], [ %spec.select, %80 ], [ %.06575, %83 ]
+  %.166 = phi i32 [ %.06575, %83 ], [ %spec.select, %80 ], [ %90, %87 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge79, label %71, !llvm.loop !104

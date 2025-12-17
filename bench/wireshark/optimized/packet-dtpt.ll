@@ -500,7 +500,7 @@ define internal i32 @dissect_dtpt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %74
 
 74:                                               ; preds = %6, %11, %9, %4, %72
-  %.0 = phi i32 [ %73, %72 ], [ 0, %4 ], [ 0, %9 ], [ 0, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %4 ], [ %73, %72 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -675,7 +675,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not.i, label %.loopexit296.i, label %112, !llvm.loop !6
 
 .loopexit296.i:                                   ; preds = %112, %105, %101, %100
-  %.pre-phi.i = phi i32 [ %.pre.i, %101 ], [ 4, %105 ], [ %.pre.i, %100 ], [ 8, %112 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %100 ], [ %.pre.i, %101 ], [ 4, %105 ], [ 8, %112 ]
   %123 = add i32 %.pre308.i, %phi.call.i
   %124 = add i32 %123, %.pre-phi.i
   %125 = load i32, ptr @hf_dtpt_query_string, align 4
@@ -859,7 +859,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   br label %dissect_dtpt_data.exit
 
 dissect_dtpt_data.exit:                           ; preds = %9, %11, %205, %220, %223
-  %.0.i = phi i32 [ 0, %9 ], [ 0, %11 ], [ %207, %205 ], [ %222, %223 ], [ %222, %220 ]
+  %.0.i = phi i32 [ 0, %11 ], [ 0, %9 ], [ %207, %205 ], [ %222, %223 ], [ %222, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %224
 

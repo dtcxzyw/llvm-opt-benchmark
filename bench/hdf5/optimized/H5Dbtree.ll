@@ -444,7 +444,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr noundef readonly
   br label %54
 
 54:                                               ; preds = %1, %10, %53
-  %.012 = phi i32 [ %.1, %53 ], [ 0, %10 ], [ 0, %1 ]
+  %.012 = phi i32 [ 0, %1 ], [ %.1, %53 ], [ 0, %10 ]
   ret i32 %.012
 }
 
@@ -532,7 +532,7 @@ H5D__btree_idx_create.exit.thread:                ; preds = %42, %35
   br label %57
 
 57:                                               ; preds = %H5D__btree_idx_create.exit.thread, %19, %31, %50, %2
-  %.0 = phi i32 [ -1, %19 ], [ -1, %31 ], [ -1, %50 ], [ 0, %2 ], [ 0, %H5D__btree_idx_create.exit.thread ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %31 ], [ -1, %50 ], [ 0, %H5D__btree_idx_create.exit.thread ], [ 0, %2 ]
   %58 = load i64, ptr %4, align 8, !tbaa !20
   call void @H5AC_tag(i64 noundef %58, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -880,7 +880,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__btree_shared_create(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %25, %18, %29, %34, %3
-  %.0 = phi i32 [ -1, %34 ], [ 0, %3 ], [ 0, %29 ], [ -1, %25 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %34 ], [ -1, %18 ], [ 0, %3 ], [ 0, %29 ], [ -1, %25 ]
   ret i32 %.0
 }
 
@@ -1133,7 +1133,7 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captu
   br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit:                           ; preds = %25, %23, %.lr.ph.i, %.preheader.i, %17, %15, %10, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %10 ], [ -1, %15 ], [ 1, %17 ], [ 0, %.preheader.i ], [ 1, %23 ], [ -1, %.lr.ph.i ], [ 0, %25 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %10 ], [ 1, %17 ], [ -1, %15 ], [ 0, %.preheader.i ], [ 1, %23 ], [ -1, %.lr.ph.i ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -1247,7 +1247,7 @@ H5VM_vector_cmp_u.exit33.thread:                  ; preds = %52, %H5VM_vector_cm
   br label %H5VM_vector_cmp_u.exit33
 
 H5VM_vector_cmp_u.exit33:                         ; preds = %40, %.lr.ph.i27, %H5VM_vector_cmp_u.exit.thread35, %35, %31, %H5VM_vector_cmp_u.exit33.thread, %28, %23, %17, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 1, %23 ], [ %spec.select, %28 ], [ 0, %H5VM_vector_cmp_u.exit33.thread ], [ 1, %31 ], [ 1, %35 ], [ -1, %H5VM_vector_cmp_u.exit.thread35 ], [ -1, %.lr.ph.i27 ], [ 1, %40 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 1, %23 ], [ %spec.select, %28 ], [ 0, %H5VM_vector_cmp_u.exit33.thread ], [ -1, %H5VM_vector_cmp_u.exit.thread35 ], [ 1, %31 ], [ 1, %35 ], [ -1, %.lr.ph.i27 ], [ 1, %40 ]
   ret i32 %.0
 }
 
@@ -1544,7 +1544,7 @@ H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i46
   br label %113
 
 113:                                              ; preds = %77, %H5D__btree_cmp3.exit.thread50, %.loopexit, %107, %81, %9
-  %.0 = phi i32 [ -1, %H5D__btree_cmp3.exit.thread50 ], [ 3, %81 ], [ 2, %107 ], [ -1, %.loopexit ], [ -1, %9 ], [ 0, %77 ]
+  %.0 = phi i32 [ -1, %H5D__btree_cmp3.exit.thread50 ], [ 3, %81 ], [ -1, %9 ], [ 2, %107 ], [ -1, %.loopexit ], [ 0, %77 ]
   ret i32 %.0
 }
 

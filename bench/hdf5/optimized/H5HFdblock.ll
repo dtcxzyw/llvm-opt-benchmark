@@ -335,7 +335,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_create(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %15, %156, %157, %158, %161, %5
-  %.0 = phi i32 [ -1, %161 ], [ -1, %158 ], [ 0, %5 ], [ 0, %156 ], [ 0, %157 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %161 ], [ -1, %158 ], [ -1, %15 ], [ 0, %5 ], [ 0, %156 ], [ 0, %157 ]
   ret i32 %.0
 }
 
@@ -573,8 +573,8 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_destroy(ptr noundef %0, ptr nounde
   br label %94
 
 94:                                               ; preds = %89, %84, %69, %57, %38
-  %.1 = phi i32 [ -1, %38 ], [ -1, %57 ], [ -1, %69 ], [ -1, %84 ], [ 0, %89 ]
-  %.045 = phi i32 [ 0, %38 ], [ 0, %57 ], [ 0, %69 ], [ 0, %84 ], [ %spec.select, %89 ]
+  %.1 = phi i32 [ -1, %38 ], [ 0, %89 ], [ -1, %84 ], [ -1, %57 ], [ -1, %69 ]
+  %.045 = phi i32 [ 0, %38 ], [ %spec.select, %89 ], [ 0, %84 ], [ 0, %57 ], [ 0, %69 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %96 = load ptr, ptr %95, align 8, !tbaa !52
   %97 = tail call i32 @H5AC_unprotect(ptr noundef %96, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %2, ptr noundef %1, i32 noundef %.045) #5
@@ -716,7 +716,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41, %50, %55, %62, %67
-  %.0.i = phi i64 [ %28, %24 ], [ %33, %29 ], [ %40, %36 ], [ %45, %41 ], [ %54, %50 ], [ %59, %55 ], [ %66, %62 ], [ %70, %67 ]
+  %.0.i = phi i64 [ %59, %55 ], [ %33, %29 ], [ %45, %41 ], [ %28, %24 ], [ %40, %36 ], [ %54, %50 ], [ %66, %62 ], [ %70, %67 ]
   %71 = shl nuw i64 2, %.0.i
   br label %72
 
@@ -865,7 +865,7 @@ H5VM_log2_gen.exit:                               ; preds = %24, %29, %36, %41, 
   br label %162
 
 162:                                              ; preds = %3, %106, %112, %94, %161
-  %.046 = phi i32 [ %.1, %161 ], [ -1, %94 ], [ -1, %112 ], [ 0, %106 ], [ 0, %3 ]
+  %.046 = phi i32 [ 0, %3 ], [ %.1, %161 ], [ -1, %94 ], [ -1, %112 ], [ 0, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.046
 }
@@ -1123,7 +1123,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %53, %58, %65, %70, %79, %84, %91, %96
-  %.0.i = phi i32 [ %57, %53 ], [ %62, %58 ], [ %69, %65 ], [ %74, %70 ], [ %83, %79 ], [ %88, %84 ], [ %95, %91 ], [ %99, %96 ]
+  %.0.i = phi i32 [ %88, %84 ], [ %62, %58 ], [ %74, %70 ], [ %57, %53 ], [ %69, %65 ], [ %83, %79 ], [ %95, %91 ], [ %99, %96 ]
   %100 = load i32, ptr %37, align 8, !tbaa !89
   %101 = sub i32 %.0.i, %100
   %102 = add i32 %101, 1
@@ -1229,7 +1229,7 @@ H5VM_log2_gen.exit:                               ; preds = %53, %58, %65, %70, 
   br label %157
 
 157:                                              ; preds = %.thread, %6, %155, %38, %22
-  %.046 = phi i32 [ -1, %22 ], [ -1, %38 ], [ 0, %155 ], [ 0, %6 ], [ -1, %.thread ]
+  %.046 = phi i32 [ -1, %22 ], [ -1, %38 ], [ -1, %.thread ], [ 0, %155 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

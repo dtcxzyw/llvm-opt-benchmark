@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @test_legacy_provider_unloaded() #1 {
   br label %12
 
 12:                                               ; preds = %9, %3, %0
-  %.0 = phi i32 [ 0, %3 ], [ 0, %0 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %3 ]
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #7
   ret i32 %.0
 }
@@ -605,7 +605,7 @@ define internal fastcc range(i32 0, 2) i32 @test_md(ptr noundef %0) unnamed_addr
   br label %calculate_digest.exit
 
 calculate_digest.exit:                            ; preds = %11, %14, %19, %24, %29, %31
-  %.0.i = phi i32 [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ %spec.select.i, %31 ]
+  %.0.i = phi i32 [ 0, %11 ], [ %spec.select.i, %31 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ]
   call void @EVP_MD_CTX_free(ptr noundef %12) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = call i32 @test_true(ptr noundef nonnull @.str.33, i32 noundef 172, ptr noundef nonnull @.str.43, i32 noundef %.0.i) #7
@@ -860,7 +860,7 @@ define internal fastcc range(i32 0, 2) i32 @test_cipher(ptr noundef %0) unnamed_
   br label %encrypt_decrypt.exit
 
 encrypt_decrypt.exit:                             ; preds = %9, %12, %17, %22, %27, %32, %38, %43
-  %.0.i = phi i32 [ 0, %38 ], [ 0, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ %spec.select.i, %43 ]
+  %.0.i = phi i32 [ 0, %9 ], [ %spec.select.i, %43 ], [ 0, %38 ], [ 0, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -653,7 +653,7 @@ ascii2index.exit155.thread164:                    ; preds = %201, %ascii2index.e
   br label %.thread
 
 .thread:                                          ; preds = %ascii2index.exit, %150, %mod_strcspn.exit146, %ascii2index.exit.thread157, %.lr.ph.i, %182, %178, %ascii2index.exit155, %.lr.ph201, %.lr.ph.i148, %101, %98, %84, %82, %66, %4, %._crit_edge207, %96, %81, %74, %65, %._crit_edge
-  %.0 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %65 ], [ -1094995529, %74 ], [ -1094995529, %81 ], [ %97, %96 ], [ %230, %._crit_edge207 ], [ -12, %4 ], [ %69, %66 ], [ -12, %82 ], [ -1094995529, %84 ], [ %99, %98 ], [ -12, %101 ], [ -1094995529, %.lr.ph.i148 ], [ %210, %ascii2index.exit155 ], [ -1094995529, %.lr.ph201 ], [ -1094995529, %178 ], [ -1094995529, %182 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %mod_strcspn.exit146 ], [ -1094995529, %150 ], [ %164, %ascii2index.exit ], [ -1094995529, %ascii2index.exit.thread157 ]
+  %.0 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %65 ], [ -12, %4 ], [ -1094995529, %74 ], [ -1094995529, %81 ], [ %69, %66 ], [ -12, %82 ], [ %97, %96 ], [ -1094995529, %84 ], [ -12, %101 ], [ %230, %._crit_edge207 ], [ %99, %98 ], [ -1094995529, %182 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %.lr.ph.i148 ], [ -1094995529, %.lr.ph201 ], [ %210, %ascii2index.exit155 ], [ -1094995529, %178 ], [ %164, %ascii2index.exit ], [ -1094995529, %mod_strcspn.exit146 ], [ -1094995529, %150 ], [ -1094995529, %ascii2index.exit.thread157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -759,7 +759,7 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %6, %.critedge6.us.loopexit, %.lr.ph77.split.us.split, %.critedge2.us
-  %.3.us = phi i32 [ %26, %.critedge2.us ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %27, %.critedge6.us.loopexit ], [ %.04874.us, %6 ]
+  %.3.us = phi i32 [ %26, %.critedge2.us ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %.04874.us, %6 ], [ %27, %.critedge6.us.loopexit ]
   %28 = add nsw i32 %.3.us, 1
   br label %.lr.ph77.split.us.split
 
@@ -856,7 +856,7 @@ define internal fastcc range(i64 -2147483647, 2147483648) i64 @mod_strcspn(ptr n
   br label %.lr.ph77.split
 
 .critedge:                                        ; preds = %.lr.ph77.split, %.lr.ph73, %.lr.ph77.split.us.split, %2
-  %.04868 = phi i32 [ 0, %2 ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %.04874, %.lr.ph73 ], [ %.04874, %.lr.ph77.split ]
+  %.04868 = phi i32 [ 0, %2 ], [ %.04874, %.lr.ph73 ], [ %.04874.us, %.lr.ph77.split.us.split ], [ %.04874, %.lr.ph77.split ]
   %61 = sext i32 %.04868 to i64
   ret i64 %61
 }
@@ -1103,7 +1103,7 @@ bsearch.exit:                                     ; preds = %183
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %186, %bsearch.exit, %32, %110, %63, %8, %6
-  %.0 = phi i32 [ %31, %8 ], [ %62, %32 ], [ %109, %63 ], [ %171, %110 ], [ %190, %bsearch.exit ], [ -16777216, %6 ], [ -16777216, %186 ]
+  %.0 = phi i32 [ %190, %bsearch.exit ], [ %31, %8 ], [ %62, %32 ], [ %109, %63 ], [ %171, %110 ], [ -16777216, %6 ], [ -16777216, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

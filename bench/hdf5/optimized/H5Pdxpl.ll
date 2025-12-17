@@ -328,7 +328,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_reg_prop(ptr noundef %0) #0 {
   br i1 %91, label %.sink.split, label %95
 
 .sink.split:                                      ; preds = %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %.sink = phi i32 [ 322, %8 ], [ 328, %11 ], [ 334, %14 ], [ 340, %17 ], [ 346, %20 ], [ 352, %23 ], [ 359, %26 ], [ 365, %29 ], [ 372, %32 ], [ 378, %35 ], [ 384, %38 ], [ 389, %41 ], [ 393, %44 ], [ 397, %47 ], [ 402, %50 ], [ 409, %53 ], [ 416, %56 ], [ 423, %59 ], [ 430, %62 ], [ 435, %65 ], [ 441, %68 ], [ 447, %71 ], [ 454, %74 ], [ 461, %77 ], [ 466, %80 ], [ 473, %83 ], [ 480, %86 ], [ 486, %89 ]
+  %.sink = phi i32 [ 480, %86 ], [ 322, %8 ], [ 328, %11 ], [ 334, %14 ], [ 340, %17 ], [ 346, %20 ], [ 352, %23 ], [ 359, %26 ], [ 365, %29 ], [ 372, %32 ], [ 378, %35 ], [ 384, %38 ], [ 389, %41 ], [ 393, %44 ], [ 397, %47 ], [ 402, %50 ], [ 409, %53 ], [ 416, %56 ], [ 423, %59 ], [ 430, %62 ], [ 435, %65 ], [ 441, %68 ], [ 447, %71 ], [ 454, %74 ], [ 461, %77 ], [ 466, %80 ], [ 473, %83 ], [ 486, %89 ]
   %92 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %93 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %94 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__dxfr_reg_prop, i32 noundef %.sink, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.61) #10
@@ -2788,32 +2788,32 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   br i1 %.181117, label %139, label %.thread177
 
 124:                                              ; preds = %.thread120, %116
-  %125 = phi ptr [ %.pr, %116 ], [ %119, %.thread120 ]
-  %.181116 = phi i1 [ false, %116 ], [ %.181117, %.thread120 ]
-  %.185 = phi i1 [ false, %116 ], [ true, %.thread120 ]
+  %125 = phi ptr [ %119, %.thread120 ], [ %.pr, %116 ]
+  %.181116 = phi i1 [ %.181117, %.thread120 ], [ false, %116 ]
+  %.185 = phi i1 [ true, %.thread120 ], [ false, %116 ]
   %126 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %125, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6) #10
   %127 = icmp slt i32 %126, 0
-  br i1 %127, label %135, label %128
+  br i1 %127, label %128, label %132
 
 128:                                              ; preds = %124
-  %129 = call i32 @H5P_poke(ptr noundef nonnull %78, ptr noundef nonnull @.str.45, ptr noundef nonnull %8) #10
-  %130 = icmp slt i32 %129, 0
-  br i1 %130, label %131, label %157
-
-131:                                              ; preds = %128
-  %132 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
-  %133 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !10
-  %134 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2327, i64 noundef %132, i64 noundef %133, ptr noundef nonnull @.str.52) #10
+  %129 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
+  %130 = load i64, ptr @H5E_CANTSELECT_g, align 8, !tbaa !10
+  %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2323, i64 noundef %129, i64 noundef %130, ptr noundef nonnull @.str.51) #10
   br i1 %.181116, label %139, label %146
 
-135:                                              ; preds = %124
+132:                                              ; preds = %124
+  %133 = call i32 @H5P_poke(ptr noundef nonnull %78, ptr noundef nonnull @.str.45, ptr noundef nonnull %8) #10
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %135, label %157
+
+135:                                              ; preds = %132
   %136 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
-  %137 = load i64, ptr @H5E_CANTSELECT_g, align 8, !tbaa !10
-  %138 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2323, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.51) #10
+  %137 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !10
+  %138 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2327, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.52) #10
   br i1 %.181116, label %139, label %146
 
-139:                                              ; preds = %131, %120, %135
-  %.084.ph203 = phi i1 [ false, %120 ], [ %.185, %135 ], [ %.185, %131 ]
+139:                                              ; preds = %128, %120, %135
+  %.084.ph203 = phi i1 [ false, %120 ], [ %.185, %135 ], [ %.185, %128 ]
   %140 = call i32 @H5P_poke(ptr noundef nonnull %78, ptr noundef nonnull @.str.45, ptr noundef nonnull %8) #10
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %146
@@ -2824,8 +2824,8 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %145 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2334, i64 noundef %143, i64 noundef %144, ptr noundef nonnull @.str.52) #10
   br i1 %.084.ph203, label %147, label %.thread177, !prof !37
 
-146:                                              ; preds = %131, %139, %135
-  %.084.ph204 = phi i1 [ %.084.ph203, %139 ], [ %.185, %135 ], [ %.185, %131 ]
+146:                                              ; preds = %128, %139, %135
+  %.084.ph204 = phi i1 [ %.185, %128 ], [ %.084.ph203, %139 ], [ %.185, %135 ]
   br i1 %.084.ph204, label %147, label %.thread177
 
 147:                                              ; preds = %142, %146
@@ -2840,7 +2840,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %154 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2336, i64 noundef %152, i64 noundef %153, ptr noundef nonnull @.str.48) #10
   br label %.thread177
 
-.thread173:                                       ; preds = %112, %107, %96, %51, %66, %87, %80, %72, %57, %46
+.thread173:                                       ; preds = %112, %107, %96, %66, %51, %87, %80, %72, %57, %46
   %155 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %.thread168
 
@@ -2848,7 +2848,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %156 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %.thread168
 
-157:                                              ; preds = %128
+157:                                              ; preds = %132
   %158 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %160
 
@@ -4176,7 +4176,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_xform_enc(ptr noundef readonly c
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %29, %34, %41, %46, %55, %60, %67, %72
-  %.0.i.i = phi i32 [ %33, %29 ], [ %38, %34 ], [ %45, %41 ], [ %50, %46 ], [ %59, %55 ], [ %64, %60 ], [ %71, %67 ], [ %75, %72 ]
+  %.0.i.i = phi i32 [ %64, %60 ], [ %38, %34 ], [ %50, %46 ], [ %33, %29 ], [ %45, %41 ], [ %59, %55 ], [ %71, %67 ], [ %75, %72 ]
   %76 = lshr i32 %.0.i.i, 3
   %77 = add nuw nsw i32 %76, 1
   %78 = trunc nuw nsw i32 %77 to i8
@@ -4303,7 +4303,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %29, %34, %41, %46, 
   br label %H5VM_limit_enc_size.exit52
 
 H5VM_limit_enc_size.exit52:                       ; preds = %97, %102, %109, %114, %123, %128, %135, %140
-  %.0.i.i47 = phi i32 [ %101, %97 ], [ %106, %102 ], [ %113, %109 ], [ %118, %114 ], [ %127, %123 ], [ %132, %128 ], [ %139, %135 ], [ %143, %140 ]
+  %.0.i.i47 = phi i32 [ %132, %128 ], [ %106, %102 ], [ %118, %114 ], [ %101, %97 ], [ %113, %109 ], [ %127, %123 ], [ %139, %135 ], [ %143, %140 ]
   %144 = lshr i32 %.0.i.i47, 3
   %145 = add nuw nsw i32 %144, 2
   %146 = zext nneg i32 %145 to i64
@@ -4496,7 +4496,7 @@ define internal i32 @H5P__dxfr_xform_cmp(ptr noundef readonly captures(none) %0,
   br label %.thread24
 
 .thread24:                                        ; preds = %14, %23, %17, %15, %26, %3
-  %.0 = phi i32 [ %27, %26 ], [ 0, %3 ], [ 1, %15 ], [ -1, %17 ], [ %.mux, %23 ], [ %spec.select, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %14 ], [ 1, %15 ], [ -1, %17 ], [ %27, %26 ], [ %.mux, %23 ]
   ret i32 %.0
 }
 
@@ -4600,7 +4600,7 @@ define internal range(i32 -1, 2) i32 @H5P__dxfr_dset_io_hyp_sel_cmp(ptr noundef 
   br label %.thread16
 
 .thread16:                                        ; preds = %14, %19, %17, %15, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %15 ], [ -1, %17 ], [ %spec.select, %19 ], [ %spec.select17, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select17, %14 ], [ 1, %15 ], [ -1, %17 ], [ %spec.select, %19 ]
   ret i32 %.0
 }
 

@@ -1060,25 +1060,25 @@ define internal fastcc void @"_ZZL13TestOpenAssetvENK3$_0clERKNSt7__cxx1112basic
   %.sink144.sroa.gep209 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sink144.sroa.gep211 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sink144.sroa.gep212 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink152.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink152.sroa.gep213 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink152.sroa.gep214 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink152.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink152.sroa.gep213 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink152.sroa.gep214 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sink152.sroa.gep215 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink152.sroa.gep217 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink152.sroa.gep218 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink152.sroa.gep219 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink152.sroa.gep217 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink152.sroa.gep218 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink152.sroa.gep219 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink152.sroa.gep220 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink152.sroa.gep222 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink152.sroa.gep223 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink152.sroa.gep224 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink152.sroa.gep222 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink152.sroa.gep223 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink152.sroa.gep224 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sink152.sroa.gep225 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink152.sroa.gep227 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink152.sroa.gep228 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink152.sroa.gep229 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink152.sroa.gep227 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink152.sroa.gep228 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink152.sroa.gep229 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sink152.sroa.gep230 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink152.sroa.gep232 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sink152.sroa.gep233 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink152.sroa.gep234 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink152.sroa.gep232 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink152.sroa.gep233 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sink152.sroa.gep234 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sink152.sroa.gep235 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.sink160.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sink160.sroa.gep236 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1322,14 +1322,14 @@ _ZSt5equalIPcPKcEbT_S3_T0_.exit60:                ; preds = %74
   br i1 %88, label %90, label %.invoke109
 
 .invoke109:                                       ; preds = %86, %84, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60, %74
-  %.sink152.sroa.phi = phi ptr [ %.sink152.sroa.gep, %74 ], [ %.sink152.sroa.gep213, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep214, %84 ], [ %.sink152.sroa.gep215, %86 ]
-  %.sink152.sroa.phi216 = phi ptr [ %.sink152.sroa.gep217, %74 ], [ %.sink152.sroa.gep218, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep219, %84 ], [ %.sink152.sroa.gep220, %86 ]
-  %.sink152.sroa.phi221 = phi ptr [ %.sink152.sroa.gep222, %74 ], [ %.sink152.sroa.gep223, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep224, %84 ], [ %.sink152.sroa.gep225, %86 ]
-  %.sink152.sroa.phi226 = phi ptr [ %.sink152.sroa.gep227, %74 ], [ %.sink152.sroa.gep228, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep229, %84 ], [ %.sink152.sroa.gep230, %86 ]
-  %.sink152.sroa.phi231 = phi ptr [ %.sink152.sroa.gep232, %74 ], [ %.sink152.sroa.gep233, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep234, %84 ], [ %.sink152.sroa.gep235, %86 ]
-  %.sink152 = phi ptr [ %10, %74 ], [ %9, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %8, %84 ], [ %7, %86 ]
-  %.sink149 = phi i64 [ 69, %74 ], [ 71, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ 74, %84 ], [ 75, %86 ]
-  %89 = phi ptr [ @.str.27, %74 ], [ @.str.28, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ @.str.29, %84 ], [ @.str.30, %86 ]
+  %.sink152.sroa.phi = phi ptr [ %.sink152.sroa.gep, %84 ], [ %.sink152.sroa.gep213, %74 ], [ %.sink152.sroa.gep214, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep215, %86 ]
+  %.sink152.sroa.phi216 = phi ptr [ %.sink152.sroa.gep217, %84 ], [ %.sink152.sroa.gep218, %74 ], [ %.sink152.sroa.gep219, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep220, %86 ]
+  %.sink152.sroa.phi221 = phi ptr [ %.sink152.sroa.gep222, %84 ], [ %.sink152.sroa.gep223, %74 ], [ %.sink152.sroa.gep224, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep225, %86 ]
+  %.sink152.sroa.phi226 = phi ptr [ %.sink152.sroa.gep227, %84 ], [ %.sink152.sroa.gep228, %74 ], [ %.sink152.sroa.gep229, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep230, %86 ]
+  %.sink152.sroa.phi231 = phi ptr [ %.sink152.sroa.gep232, %84 ], [ %.sink152.sroa.gep233, %74 ], [ %.sink152.sroa.gep234, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %.sink152.sroa.gep235, %86 ]
+  %.sink152 = phi ptr [ %8, %84 ], [ %10, %74 ], [ %9, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ %7, %86 ]
+  %.sink149 = phi i64 [ 74, %84 ], [ 69, %74 ], [ 71, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ 75, %86 ]
+  %89 = phi ptr [ @.str.29, %84 ], [ @.str.27, %74 ], [ @.str.28, %_ZSt5equalIPcPKcEbT_S3_T0_.exit60 ], [ @.str.30, %86 ]
   store ptr @.str.3, ptr %.sink152, align 8
   store ptr @"__func__._ZZL13TestOpenAssetvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mm", ptr %.sink152.sroa.phi, align 8
   store i64 %.sink149, ptr %.sink152.sroa.phi216, align 8
@@ -1588,7 +1588,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit: ; pred
   br label %190
 
 186:                                              ; preds = %.invoke111, %.invoke109, %90, %78, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, %66, %56
-  %.sroa.043.0 = phi ptr [ %68, %90 ], [ %68, %78 ], [ %68, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ], [ %55, %66 ], [ %55, %56 ], [ %68, %.invoke109 ], [ %55, %.invoke111 ]
+  %.sroa.043.0 = phi ptr [ %68, %90 ], [ %68, %.invoke109 ], [ %55, %56 ], [ %68, %78 ], [ %55, %66 ], [ %55, %.invoke111 ], [ %68, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ]
   %187 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit89

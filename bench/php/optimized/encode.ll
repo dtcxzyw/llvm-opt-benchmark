@@ -237,13 +237,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr noundef captur
   br i1 %127, label %11, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %125, %75, %46, %25, %14, %3
-  %.0.lcssa.sink = phi ptr [ %4, %3 ], [ %.078, %14 ], [ %.078, %25 ], [ %.078, %46 ], [ %.078, %75 ], [ %126, %125 ]
-  %.069.ph = phi i32 [ 0, %3 ], [ 15, %14 ], [ 15, %25 ], [ 15, %46 ], [ 15, %75 ], [ 0, %125 ]
+  %.0.lcssa.sink = phi ptr [ %4, %3 ], [ %.078, %75 ], [ %.078, %46 ], [ %.078, %25 ], [ %.078, %14 ], [ %126, %125 ]
+  %.069.ph = phi i32 [ 0, %3 ], [ 15, %75 ], [ 15, %46 ], [ 15, %25 ], [ 15, %14 ], [ 0, %125 ]
   store ptr %.0.lcssa.sink, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %110, %.loopexit.sink.split
-  %.069 = phi i32 [ %.069.ph, %.loopexit.sink.split ], [ 15, %113 ], [ 1, %110 ]
+  %.069 = phi i32 [ %.069.ph, %.loopexit.sink.split ], [ 1, %110 ], [ 15, %113 ]
   ret i32 %.069
 }
 
@@ -385,7 +385,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %28
   br i1 %78, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %36, %39, %lexbor_shs_hash_get_static.exit, %75, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %75 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %39 ], [ 1, %36 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %75 ], [ 1, %36 ], [ 15, %39 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -573,7 +573,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %64
   br i1 %110, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %25, %33, %44, %72, %75, %lexbor_shs_hash_get_static.exit, %107, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %107 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %75 ], [ 1, %72 ], [ 15, %44 ], [ 15, %33 ], [ 15, %25 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %107 ], [ 15, %25 ], [ 15, %33 ], [ 15, %44 ], [ 1, %72 ], [ 15, %75 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -694,7 +694,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %28
   br i1 %74, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %36, %39, %lexbor_shs_hash_get_static.exit, %71, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %71 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %39 ], [ 1, %36 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %71 ], [ 1, %36 ], [ 15, %39 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -871,7 +871,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %52
   br i1 %102, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %25, %28, %40, %60, %63, %lexbor_shs_hash_get_static.exit, %99, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %63 ], [ 1, %60 ], [ 15, %40 ], [ 15, %28 ], [ 1, %25 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %25 ], [ 15, %28 ], [ 15, %40 ], [ 1, %60 ], [ 15, %63 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -978,7 +978,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -1314,7 +1314,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %139
   br label %191
 
 .loopexit:                                        ; preds = %106, %91, %59, %31, %147, %121
-  %172 = phi i64 [ %122, %121 ], [ %122, %147 ], [ %107, %106 ], [ %92, %91 ], [ %50, %59 ], [ %32, %31 ]
+  %172 = phi i64 [ %122, %147 ], [ %122, %121 ], [ %107, %106 ], [ %92, %91 ], [ %50, %59 ], [ %32, %31 ]
   store i32 %5, ptr %4, align 8, !tbaa !25
   %173 = sext i8 %.1128 to i64
   %174 = sub i64 %172, %173
@@ -1359,7 +1359,7 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %142, %lexbor_shs_ha
   br i1 %194, label %13, label %.loopexit139
 
 .loopexit139:                                     ; preds = %21, %51, %73, %81, %lexbor_shs_hash_get_static.exit.thread, %180, %191, %3, %.loopexit
-  %.0 = phi i32 [ 15, %.loopexit ], [ 0, %3 ], [ 15, %21 ], [ 15, %51 ], [ 15, %73 ], [ 15, %81 ], [ 1, %lexbor_shs_hash_get_static.exit.thread ], [ 15, %180 ], [ 0, %191 ]
+  %.0 = phi i32 [ 15, %.loopexit ], [ 0, %3 ], [ 15, %180 ], [ 15, %51 ], [ 15, %21 ], [ 1, %lexbor_shs_hash_get_static.exit.thread ], [ 15, %81 ], [ 15, %73 ], [ 0, %191 ]
   ret i32 %.0
 }
 
@@ -1497,7 +1497,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -1609,7 +1609,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -1721,7 +1721,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -1833,7 +1833,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -1945,7 +1945,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2057,7 +2057,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2169,7 +2169,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2281,7 +2281,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2393,7 +2393,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2505,7 +2505,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2617,7 +2617,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2729,7 +2729,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2841,7 +2841,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -2953,7 +2953,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3065,7 +3065,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3260,7 +3260,7 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %63
   br i1 %113, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %27, %38, %46, %73, %76, %lxb_encoding_encode_shift_jis_index.exit, %110, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %110 ], [ 15, %lxb_encoding_encode_shift_jis_index.exit ], [ 15, %76 ], [ 1, %73 ], [ 15, %46 ], [ 15, %38 ], [ 15, %27 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %110 ], [ 15, %27 ], [ 1, %73 ], [ 15, %76 ], [ 15, %lxb_encoding_encode_shift_jis_index.exit ], [ 15, %38 ], [ 15, %46 ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -3624,8 +3624,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %45
   br i1 %108, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %107, %103, %101, %99, %94
-  %109 = phi i32 [ %89, %107 ], [ %106, %103 ], [ %89, %99 ], [ %89, %94 ], [ %89, %101 ]
-  %.133.i = phi i64 [ %86, %107 ], [ %102, %103 ], [ %86, %99 ], [ %86, %94 ], [ 1, %101 ]
+  %109 = phi i32 [ %89, %107 ], [ %89, %94 ], [ %106, %103 ], [ %89, %99 ], [ %89, %101 ]
+  %.133.i = phi i64 [ %86, %107 ], [ %86, %94 ], [ %102, %103 ], [ %86, %99 ], [ 1, %101 ]
   %110 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
   %111 = load i32, ptr %110, align 8, !tbaa !30
   %112 = sub i32 %13, %109
@@ -3682,7 +3682,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %82, %._crit_edge.i
   br i1 %146, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %26, %29, %lexbor_shs_hash_get_static.exit, %77, %143, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %143 ], [ 15, %77 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %29 ], [ 1, %26 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %143 ], [ 1, %26 ], [ 15, %29 ], [ 15, %lexbor_shs_hash_get_static.exit ], [ 15, %77 ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -3789,7 +3789,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -3907,7 +3907,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4019,7 +4019,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4131,7 +4131,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4243,7 +4243,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4355,7 +4355,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4467,7 +4467,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4579,7 +4579,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4691,7 +4691,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4803,7 +4803,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -4915,7 +4915,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5027,7 +5027,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %27
   br i1 %62, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %38, %35, %14
-  %.0.ph = phi i32 [ 15, %14 ], [ 1, %35 ], [ 15, %38 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  %.0.ph = phi i32 [ 15, %38 ], [ 1, %35 ], [ 15, %14 ], [ 15, %lexbor_shs_hash_get_static.exit ]
   store ptr %.03648, ptr %1, align 8, !tbaa !4
   br label %.loopexit
 
@@ -5122,7 +5122,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_x_user_defined(ptr nound
   br i1 %53, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %26, %35, %38, %50, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %50 ], [ 15, %38 ], [ 1, %35 ], [ 15, %26 ], [ 15, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %50 ], [ 15, %26 ], [ 1, %35 ], [ 15, %38 ], [ 15, %15 ]
   ret i32 %.0
 }
 
@@ -5235,7 +5235,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_default_single(ptr
   br label %lxb_encoding_encode_utf_8_single.exit
 
 lxb_encoding_encode_utf_8_single.exit:            ; preds = %10, %24, %42, %44, %.sink.split.i
-  %.0.i = phi i8 [ -2, %10 ], [ -2, %24 ], [ -2, %44 ], [ -1, %42 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi i8 [ -1, %42 ], [ -2, %44 ], [ -2, %24 ], [ -2, %10 ], [ %.0.ph.i, %.sink.split.i ]
   ret i8 %.0.i
 }
 
@@ -5348,7 +5348,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_8_single(ptr n
   br label %70
 
 70:                                               ; preds = %.sink.split, %42, %44, %24, %10
-  %.0 = phi i8 [ -2, %10 ], [ -2, %24 ], [ -2, %44 ], [ -1, %42 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i8 [ -1, %42 ], [ -2, %44 ], [ -2, %24 ], [ -2, %10 ], [ %.0.ph, %.sink.split ]
   ret i8 %.0
 }
 
@@ -5431,7 +5431,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %14
   br label %lexbor_shs_hash_get_static.exit.thread
 
 lexbor_shs_hash_get_static.exit.thread:           ; preds = %17, %37, %39, %lexbor_shs_hash_get_static.exit, %6
-  %.0 = phi i8 [ 1, %6 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %39 ], [ 2, %37 ], [ -1, %17 ]
+  %.0 = phi i8 [ 1, %6 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %37 ], [ 2, %39 ], [ -1, %17 ]
   ret i8 %.0
 }
 
@@ -5532,7 +5532,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %33
   br label %lexbor_shs_hash_get_static.exit.thread
 
 lexbor_shs_hash_get_static.exit.thread:           ; preds = %36, %16, %lexbor_shs_hash_get_static.exit, %22, %14, %12, %6
-  %.0 = phi i8 [ 1, %6 ], [ 1, %12 ], [ 1, %14 ], [ 2, %22 ], [ 2, %lexbor_shs_hash_get_static.exit ], [ -2, %16 ], [ -1, %36 ]
+  %.0 = phi i8 [ 1, %6 ], [ 1, %12 ], [ 1, %14 ], [ 2, %lexbor_shs_hash_get_static.exit ], [ 2, %22 ], [ -2, %16 ], [ -1, %36 ]
   ret i8 %.0
 }
 
@@ -5687,7 +5687,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %18
   br label %lexbor_shs_hash_get_static.exit.thread
 
 lexbor_shs_hash_get_static.exit.thread:           ; preds = %21, %41, %43, %lexbor_shs_hash_get_static.exit, %10, %11, %6
-  %.0 = phi i8 [ 1, %6 ], [ 1, %11 ], [ -1, %10 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %43 ], [ 2, %41 ], [ -1, %21 ]
+  %.0 = phi i8 [ 1, %6 ], [ 2, %41 ], [ 1, %11 ], [ -1, %10 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %43 ], [ -1, %21 ]
   ret i8 %.0
 }
 
@@ -6006,7 +6006,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %102
   br label %138
 
 .loopexit:                                        ; preds = %110, %85, %72, %61, %40, %18
-  %130 = phi ptr [ %73, %72 ], [ %62, %61 ], [ %41, %40 ], [ %19, %18 ], [ %86, %85 ], [ %86, %110 ]
+  %130 = phi ptr [ %19, %18 ], [ %73, %72 ], [ %62, %61 ], [ %41, %40 ], [ %86, %85 ], [ %86, %110 ]
   store i32 %6, ptr %5, align 8, !tbaa !25
   %131 = sext i8 %.0110 to i64
   %132 = sub nsw i64 0, %131
@@ -6053,7 +6053,7 @@ define hidden signext range(i8 -2, 4) i8 @lxb_encoding_encode_iso_2022_jp_eof_si
   br label %13
 
 13:                                               ; preds = %3, %6, %10
-  %.0 = phi i8 [ 3, %10 ], [ -2, %6 ], [ 0, %3 ]
+  %.0 = phi i8 [ -2, %6 ], [ 3, %10 ], [ 0, %3 ]
   ret i8 %.0
 }
 
@@ -6832,8 +6832,8 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %25
   br label %lxb_encoding_encode_shift_jis_index.exit.thread.sink.split
 
 lxb_encoding_encode_shift_jis_index.exit.thread.sink.split: ; preds = %14, %6, %11, %15, %38
-  %.sink = phi i8 [ %49, %38 ], [ 126, %15 ], [ %13, %11 ], [ %7, %6 ], [ 92, %14 ]
-  %.0.ph = phi i8 [ 2, %38 ], [ 1, %15 ], [ 1, %11 ], [ 1, %6 ], [ 1, %14 ]
+  %.sink = phi i8 [ %49, %38 ], [ 126, %15 ], [ %7, %6 ], [ %13, %11 ], [ 92, %14 ]
+  %.0.ph = phi i8 [ 2, %38 ], [ 1, %15 ], [ 1, %6 ], [ 1, %11 ], [ 1, %14 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !31
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %51, ptr %1, align 8, !tbaa !31
@@ -6990,7 +6990,7 @@ define hidden signext range(i8 0, 5) i8 @lxb_encoding_encode_utf_8_length(i32 no
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i8 [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ %., %7 ]
+  %.0 = phi i8 [ 3, %5 ], [ 1, %1 ], [ 2, %3 ], [ %., %7 ]
   ret i8 %.0
 }
 
@@ -7123,8 +7123,8 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %16
   br i1 %73, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %72, %68, %66, %64, %59
-  %74 = phi i32 [ %54, %72 ], [ %71, %68 ], [ %54, %64 ], [ %54, %59 ], [ %54, %66 ]
-  %.133.i = phi i64 [ %51, %72 ], [ %67, %68 ], [ %51, %64 ], [ %51, %59 ], [ 1, %66 ]
+  %74 = phi i32 [ %54, %72 ], [ %54, %59 ], [ %71, %68 ], [ %54, %64 ], [ %54, %66 ]
+  %.133.i = phi i64 [ %51, %72 ], [ %51, %59 ], [ %67, %68 ], [ %51, %64 ], [ 1, %66 ]
   %75 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.133.i
   %76 = load i32, ptr %75, align 8, !tbaa !30
   %77 = sub i32 %3, %74
@@ -7166,7 +7166,7 @@ lxb_encoding_encode_gb18030_range.exit:           ; preds = %47, %._crit_edge.i
   br label %100
 
 100:                                              ; preds = %43, %39, %41, %lexbor_shs_hash_get_static.exit, %10, %lxb_encoding_encode_gb18030_range.exit, %6
-  %.0 = phi i8 [ 1, %6 ], [ 4, %lxb_encoding_encode_gb18030_range.exit ], [ -1, %10 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %41 ], [ 2, %39 ], [ -2, %43 ]
+  %.0 = phi i8 [ 1, %6 ], [ 4, %lxb_encoding_encode_gb18030_range.exit ], [ -1, %10 ], [ -2, %lexbor_shs_hash_get_static.exit ], [ 2, %39 ], [ 2, %41 ], [ -2, %43 ]
   ret i8 %.0
 }
 
@@ -7747,7 +7747,7 @@ define hidden signext range(i8 -1, 2) i8 @lxb_encoding_encode_x_user_defined_sin
   br label %10
 
 10:                                               ; preds = %4, %.sink.split
-  %.0 = phi i8 [ 1, %.sink.split ], [ -1, %4 ]
+  %.0 = phi i8 [ -1, %4 ], [ 1, %.sink.split ]
   ret i8 %.0
 }
 

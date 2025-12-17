@@ -341,7 +341,7 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   br label %53
 
 53:                                               ; preds = %51, %43, %36, %32, %.preheader.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %.preheader.i ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
   br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
@@ -558,7 +558,7 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   br label %53
 
 53:                                               ; preds = %51, %43, %36, %32, %.preheader.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.preheader.i ]
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %.preheader.i ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 19
   br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
@@ -1161,7 +1161,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   br label %44
 
 44:                                               ; preds = %42, %34, %27, %23, %.preheader
-  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.preheader ]
+  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %.preheader ], [ %.04855.i, %27 ], [ %.04855.i, %23 ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, 19
   br i1 %exitcond64.not.i, label %45, label %.preheader, !llvm.loop !59
@@ -1298,7 +1298,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   br label %120
 
 120:                                              ; preds = %118, %110, %103, %99, %.preheader27
-  %.149.i20 = phi i32 [ %119, %118 ], [ %.04855.i19, %110 ], [ %.04855.i19, %103 ], [ %.04855.i19, %99 ], [ %.04855.i19, %.preheader27 ]
+  %.149.i20 = phi i32 [ %119, %118 ], [ %.04855.i19, %110 ], [ %.04855.i19, %.preheader27 ], [ %.04855.i19, %103 ], [ %.04855.i19, %99 ]
   %indvars.iv.next61.i21 = add nuw nsw i64 %indvars.iv60.i16, 1
   %exitcond64.not.i22 = icmp eq i64 %indvars.iv.next61.i21, 12
   br i1 %exitcond64.not.i22, label %121, label %.preheader27, !llvm.loop !59
@@ -1467,9 +1467,9 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   %90 = srem i32 %89, 4
   br label %114
 
-91:                                               ; preds = %16, %13, %11, %19
-  %.sroa.039.0.ph = phi i32 [ 2, %16 ], [ 1, %13 ], [ 0, %11 ], [ 3, %19 ]
-  %.sroa.2144.0.ph = phi double [ 0x3FE921FB54442D18, %16 ], [ 0xBFE921FB54442D18, %13 ], [ 0xC002D97C7F3321D2, %11 ], [ 0x4002D97C7F3321D2, %19 ]
+91:                                               ; preds = %16, %19, %13, %11
+  %.sroa.039.0.ph = phi i32 [ 1, %13 ], [ 0, %11 ], [ 2, %16 ], [ 3, %19 ]
+  %.sroa.2144.0.ph = phi double [ 0xBFE921FB54442D18, %13 ], [ 0xC002D97C7F3321D2, %11 ], [ 0x3FE921FB54442D18, %16 ], [ 0x4002D97C7F3321D2, %19 ]
   br i1 %7, label %92, label %100
 
 92:                                               ; preds = %91
@@ -1530,8 +1530,8 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
 106:                                              ; preds = %100
   br label %_ZL16get_rotate_indexi.exit
 
-107:                                              ; preds = %54, %45, %35, %50, %48
-  %.sroa.039.0.ph.ph.ph = phi i32 [ %2, %48 ], [ %2, %50 ], [ %37, %35 ], [ %47, %45 ], [ %56, %54 ]
+107:                                              ; preds = %54, %45, %35, %48, %50
+  %.sroa.039.0.ph.ph.ph = phi i32 [ %2, %50 ], [ %2, %48 ], [ %37, %35 ], [ %47, %45 ], [ %56, %54 ]
   %.neg = sub nsw i32 %2, %.sroa.039.0.ph.ph.ph
   switch i32 %.neg, label %113 [
     i32 -3, label %112
@@ -1561,7 +1561,7 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   br label %_ZL16get_rotate_indexi.exit
 
 114:                                              ; preds = %82, %84, %69, %79, %88
-  %.sroa.039.0.ph.ph = phi i32 [ %90, %88 ], [ %81, %79 ], [ %71, %69 ], [ %3, %84 ], [ %3, %82 ]
+  %.sroa.039.0.ph.ph = phi i32 [ %81, %79 ], [ %71, %69 ], [ %3, %82 ], [ %3, %84 ], [ %90, %88 ]
   %115 = sub nsw i32 %.sroa.039.0.ph.ph, %3
   switch i32 %115, label %121 [
     i32 -3, label %120
@@ -1591,11 +1591,11 @@ define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef
   br label %_ZL16get_rotate_indexi.exit
 
 _ZL16get_rotate_indexi.exit:                      ; preds = %121, %120, %119, %118, %117, %116, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %92
-  %.0.i23.sink = phi i64 [ 0, %99 ], [ 2, %94 ], [ 3, %95 ], [ 4, %96 ], [ 5, %97 ], [ 6, %98 ], [ 1, %92 ], [ 0, %106 ], [ 2, %101 ], [ 3, %102 ], [ 4, %103 ], [ 5, %104 ], [ 6, %105 ], [ 1, %100 ], [ 0, %113 ], [ 2, %108 ], [ 3, %109 ], [ 4, %110 ], [ 5, %111 ], [ 6, %112 ], [ 1, %107 ], [ 0, %121 ], [ 2, %116 ], [ 3, %117 ], [ 4, %118 ], [ 5, %119 ], [ 6, %120 ], [ 1, %114 ]
-  %122 = phi i32 [ %2, %99 ], [ %2, %94 ], [ %2, %95 ], [ %2, %96 ], [ %2, %97 ], [ %2, %98 ], [ %2, %92 ], [ %3, %106 ], [ %3, %101 ], [ %3, %102 ], [ %3, %103 ], [ %3, %104 ], [ %3, %105 ], [ %3, %100 ], [ %.sroa.039.0.ph.ph.ph, %113 ], [ %.sroa.039.0.ph.ph.ph, %108 ], [ %.sroa.039.0.ph.ph.ph, %109 ], [ %.sroa.039.0.ph.ph.ph, %110 ], [ %.sroa.039.0.ph.ph.ph, %111 ], [ %.sroa.039.0.ph.ph.ph, %112 ], [ %.sroa.039.0.ph.ph.ph, %107 ], [ %.sroa.039.0.ph.ph, %121 ], [ %.sroa.039.0.ph.ph, %116 ], [ %.sroa.039.0.ph.ph, %117 ], [ %.sroa.039.0.ph.ph, %118 ], [ %.sroa.039.0.ph.ph, %119 ], [ %.sroa.039.0.ph.ph, %120 ], [ %.sroa.039.0.ph.ph, %114 ]
-  %123 = phi double [ 0x3FF921FB54442D18, %99 ], [ 0x3FF921FB54442D18, %94 ], [ 0x3FF921FB54442D18, %95 ], [ 0x3FF921FB54442D18, %96 ], [ 0x3FF921FB54442D18, %97 ], [ 0x3FF921FB54442D18, %98 ], [ 0x3FF921FB54442D18, %92 ], [ 0xBFF921FB54442D18, %106 ], [ 0xBFF921FB54442D18, %101 ], [ 0xBFF921FB54442D18, %102 ], [ 0xBFF921FB54442D18, %103 ], [ 0xBFF921FB54442D18, %104 ], [ 0xBFF921FB54442D18, %105 ], [ 0xBFF921FB54442D18, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %114 ]
-  %.sroa.30.0.ph78 = phi double [ %.0.i, %99 ], [ %.0.i, %94 ], [ %.0.i, %95 ], [ %.0.i, %96 ], [ %.0.i, %97 ], [ %.0.i, %98 ], [ %.0.i, %92 ], [ %.0.i, %106 ], [ %.0.i, %101 ], [ %.0.i, %102 ], [ %.0.i, %103 ], [ %.0.i, %104 ], [ %.0.i, %105 ], [ %.0.i, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %114 ]
-  %.sroa.2144.0.ph76 = phi double [ %.sroa.2144.0.ph, %99 ], [ %.sroa.2144.0.ph, %94 ], [ %.sroa.2144.0.ph, %95 ], [ %.sroa.2144.0.ph, %96 ], [ %.sroa.2144.0.ph, %97 ], [ %.sroa.2144.0.ph, %98 ], [ %.sroa.2144.0.ph, %92 ], [ %.sroa.2144.0.ph, %106 ], [ %.sroa.2144.0.ph, %101 ], [ %.sroa.2144.0.ph, %102 ], [ %.sroa.2144.0.ph, %103 ], [ %.sroa.2144.0.ph, %104 ], [ %.sroa.2144.0.ph, %105 ], [ %.sroa.2144.0.ph, %100 ], [ %25, %113 ], [ %25, %108 ], [ %25, %109 ], [ %25, %110 ], [ %25, %111 ], [ %25, %112 ], [ %25, %107 ], [ %59, %121 ], [ %59, %116 ], [ %59, %117 ], [ %59, %118 ], [ %59, %119 ], [ %59, %120 ], [ %59, %114 ]
+  %.0.i23.sink = phi i64 [ 1, %100 ], [ 1, %107 ], [ 1, %92 ], [ 0, %99 ], [ 6, %98 ], [ 5, %97 ], [ 2, %94 ], [ 3, %95 ], [ 4, %96 ], [ 0, %106 ], [ 6, %105 ], [ 5, %104 ], [ 2, %101 ], [ 3, %102 ], [ 4, %103 ], [ 0, %113 ], [ 6, %112 ], [ 5, %111 ], [ 2, %108 ], [ 3, %109 ], [ 4, %110 ], [ 0, %121 ], [ 6, %120 ], [ 5, %119 ], [ 2, %116 ], [ 3, %117 ], [ 4, %118 ], [ 1, %114 ]
+  %122 = phi i32 [ %3, %100 ], [ %.sroa.039.0.ph.ph.ph, %107 ], [ %2, %92 ], [ %2, %99 ], [ %2, %98 ], [ %2, %97 ], [ %2, %94 ], [ %2, %95 ], [ %2, %96 ], [ %3, %106 ], [ %3, %105 ], [ %3, %104 ], [ %3, %101 ], [ %3, %102 ], [ %3, %103 ], [ %.sroa.039.0.ph.ph.ph, %113 ], [ %.sroa.039.0.ph.ph.ph, %112 ], [ %.sroa.039.0.ph.ph.ph, %111 ], [ %.sroa.039.0.ph.ph.ph, %108 ], [ %.sroa.039.0.ph.ph.ph, %109 ], [ %.sroa.039.0.ph.ph.ph, %110 ], [ %.sroa.039.0.ph.ph, %121 ], [ %.sroa.039.0.ph.ph, %120 ], [ %.sroa.039.0.ph.ph, %119 ], [ %.sroa.039.0.ph.ph, %116 ], [ %.sroa.039.0.ph.ph, %117 ], [ %.sroa.039.0.ph.ph, %118 ], [ %.sroa.039.0.ph.ph, %114 ]
+  %123 = phi double [ 0xBFF921FB54442D18, %100 ], [ 0x3FF921FB54442D18, %107 ], [ 0x3FF921FB54442D18, %92 ], [ 0x3FF921FB54442D18, %99 ], [ 0x3FF921FB54442D18, %98 ], [ 0x3FF921FB54442D18, %97 ], [ 0x3FF921FB54442D18, %94 ], [ 0x3FF921FB54442D18, %95 ], [ 0x3FF921FB54442D18, %96 ], [ 0xBFF921FB54442D18, %106 ], [ 0xBFF921FB54442D18, %105 ], [ 0xBFF921FB54442D18, %104 ], [ 0xBFF921FB54442D18, %101 ], [ 0xBFF921FB54442D18, %102 ], [ 0xBFF921FB54442D18, %103 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %114 ]
+  %.sroa.30.0.ph78 = phi double [ %.0.i, %100 ], [ 0x3FF921FB54442D18, %107 ], [ %.0.i, %92 ], [ %.0.i, %99 ], [ %.0.i, %98 ], [ %.0.i, %97 ], [ %.0.i, %94 ], [ %.0.i, %95 ], [ %.0.i, %96 ], [ %.0.i, %106 ], [ %.0.i, %105 ], [ %.0.i, %104 ], [ %.0.i, %101 ], [ %.0.i, %102 ], [ %.0.i, %103 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %110 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %114 ]
+  %.sroa.2144.0.ph76 = phi double [ %.sroa.2144.0.ph, %100 ], [ %25, %107 ], [ %.sroa.2144.0.ph, %92 ], [ %.sroa.2144.0.ph, %99 ], [ %.sroa.2144.0.ph, %98 ], [ %.sroa.2144.0.ph, %97 ], [ %.sroa.2144.0.ph, %94 ], [ %.sroa.2144.0.ph, %95 ], [ %.sroa.2144.0.ph, %96 ], [ %.sroa.2144.0.ph, %106 ], [ %.sroa.2144.0.ph, %105 ], [ %.sroa.2144.0.ph, %104 ], [ %.sroa.2144.0.ph, %101 ], [ %.sroa.2144.0.ph, %102 ], [ %.sroa.2144.0.ph, %103 ], [ %25, %113 ], [ %25, %112 ], [ %25, %111 ], [ %25, %108 ], [ %25, %109 ], [ %25, %110 ], [ %59, %121 ], [ %59, %120 ], [ %59, %119 ], [ %59, %116 ], [ %59, %117 ], [ %59, %118 ], [ %59, %114 ]
   %124 = getelementptr inbounds nuw [2 x [2 x double]], ptr @_ZL3rot, i64 %.0.i23.sink
   %125 = fsub double %0, %.sroa.2144.0.ph76
   %126 = fsub double %1, %.sroa.30.0.ph78

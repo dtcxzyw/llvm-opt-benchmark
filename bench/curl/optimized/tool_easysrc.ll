@@ -283,7 +283,7 @@ easysrc_add.exit72:                               ; preds = %.lr.ph
   br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %31, %.preheader, %21
-  %33 = phi ptr [ %14, %.preheader ], [ %14, %21 ], [ %25, %31 ]
+  %33 = phi ptr [ %14, %21 ], [ %14, %.preheader ], [ %25, %31 ]
   %34 = tail call ptr @slist_wc_append(ptr noundef nonnull %33, ptr noundef nonnull @.str.1) #5
   %.not.i73 = icmp eq ptr %34, null
   br i1 %.not.i73, label %easysrc_add.exit75, label %40
@@ -414,7 +414,7 @@ easysrc_add.exit84:                               ; preds = %57
   br label %.thread
 
 .thread:                                          ; preds = %72, %66, %easysrc_add.exit.thread, %easysrc_add.exit75, %easysrc_add.exit78, %easysrc_add.exit72, %easysrc_add.exit69, %easysrc_add.exit84, %easysrc_add.exit81
-  %.9 = phi i32 [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit72 ], [ 27, %easysrc_add.exit69 ], [ 0, %72 ], [ 27, %66 ]
+  %.9 = phi i32 [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit69 ], [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit72 ], [ 0, %72 ], [ 27, %66 ]
   ret i32 %.9
 }
 

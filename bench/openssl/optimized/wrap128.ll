@@ -207,7 +207,7 @@ crypto_128_unwrap_raw.exit:                       ; preds = %._crit_edge.us.i
   br label %52
 
 52:                                               ; preds = %crypto_128_unwrap_raw.exit.thread14, %crypto_128_unwrap_raw.exit.thread, %crypto_128_unwrap_raw.exit, %51
-  %.0 = phi i64 [ 0, %51 ], [ %9, %crypto_128_unwrap_raw.exit ], [ 0, %crypto_128_unwrap_raw.exit.thread ], [ 0, %crypto_128_unwrap_raw.exit.thread14 ]
+  %.0 = phi i64 [ 0, %crypto_128_unwrap_raw.exit.thread14 ], [ 0, %51 ], [ %9, %crypto_128_unwrap_raw.exit ], [ 0, %crypto_128_unwrap_raw.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }
@@ -527,7 +527,7 @@ crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
   br label %92
 
 92:                                               ; preds = %87, %6, %91, %86, %63, %58
-  %.0 = phi i64 [ 0, %63 ], [ 0, %86 ], [ 0, %91 ], [ 0, %58 ], [ 0, %6 ], [ %82, %87 ]
+  %.0 = phi i64 [ 0, %58 ], [ 0, %63 ], [ 0, %86 ], [ 0, %91 ], [ 0, %6 ], [ %82, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }

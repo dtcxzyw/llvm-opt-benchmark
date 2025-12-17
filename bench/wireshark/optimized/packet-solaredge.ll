@@ -1337,7 +1337,7 @@ tailrecurse.i:                                    ; preds = %380, %108
   br label %dissect_solaredge_devicedata.exit
 
 dissect_solaredge_devicedata.exit:                ; preds = %378, %382, %420, %390, %386, %422, %106
-  %.0113 = phi i32 [ %423, %422 ], [ %107, %106 ], [ 20, %382 ], [ %.1, %420 ], [ 20, %390 ], [ 20, %386 ], [ 20, %378 ]
+  %.0113 = phi i32 [ %423, %422 ], [ %107, %106 ], [ 20, %386 ], [ 20, %382 ], [ %.1, %420 ], [ 20, %390 ], [ 20, %378 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   %424 = add nuw nsw i32 %28, 20
   %425 = load i32, ptr @hf_solaredge_crc_type, align 4

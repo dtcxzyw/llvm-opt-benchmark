@@ -200,7 +200,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   br label %124
 
 124:                                              ; preds = %121, %115
-  %125 = phi i1 [ true, %115 ], [ %123, %121 ]
+  %125 = phi i1 [ %123, %121 ], [ true, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @VP8IteratorInit(ptr noundef nonnull %0, ptr noundef nonnull %4) #9
   call fastcc void @SetLoopParams(ptr noundef nonnull %0, float noundef %.sroa.10.094.i)
@@ -432,7 +432,7 @@ FinalizeSkipProba.exit.i.i:                       ; preds = %196, %CalcSkipProba
   br label %OneStatPass.exit.i
 
 OneStatPass.exit.i:                               ; preds = %216, %214, %FinalizeSkipProba.exit.i.i
-  %.sroa.22.1.i = phi double [ %213, %FinalizeSkipProba.exit.i.i ], [ %220, %216 ], [ 9.900000e+01, %214 ]
+  %.sroa.22.1.i = phi double [ 9.900000e+01, %214 ], [ %213, %FinalizeSkipProba.exit.i.i ], [ %220, %216 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %221 = icmp eq i64 %181, 0
   br i1 %221, label %StatLoop.exit, label %222
@@ -956,7 +956,7 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %95, %91, %114, %103, %99, %82, %78, %75
-  %.sink = phi i8 [ %77, %75 ], [ %81, %78 ], [ %90, %82 ], [ %102, %99 ], [ %113, %103 ], [ %116, %114 ], [ %98, %95 ], [ -1, %91 ], [ 0, %63 ]
+  %.sink = phi i8 [ %77, %75 ], [ %81, %78 ], [ %90, %82 ], [ -1, %91 ], [ %102, %99 ], [ %113, %103 ], [ %116, %114 ], [ %98, %95 ], [ 0, %63 ]
   store i8 %.sink, ptr %72, align 1, !tbaa !24
   br label %117
 
@@ -1208,7 +1208,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   br label %99
 
 99:                                               ; preds = %96, %90
-  %100 = phi i1 [ true, %90 ], [ %98, %96 ]
+  %100 = phi i1 [ %98, %96 ], [ true, %90 ]
   %101 = add nuw nsw i32 %.082181, 1
   %102 = sdiv i32 %.088180, %101
   %103 = sub nsw i32 %.088180, %102

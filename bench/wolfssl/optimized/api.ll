@@ -2398,7 +2398,7 @@ select.unfold907.i:                               ; preds = %30, %26
   br label %.thread705.sink.split.i
 
 .thread705.sink.split.i:                          ; preds = %56, %45, %.thread702.i
-  %.sink.i = phi i32 [ %37, %.thread702.i ], [ %43, %45 ], [ %54, %56 ]
+  %.sink.i = phi i32 [ %43, %45 ], [ %37, %.thread702.i ], [ %54, %56 ]
   %61 = load ptr, ptr @stdout, align 8, !tbaa !22
   %62 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %61)
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.sink.i, i32 noundef 1)
@@ -2409,8 +2409,8 @@ select.unfold907.i:                               ; preds = %30, %26
   br label %.thread705.i
 
 .thread705.i:                                     ; preds = %.thread705.sink.split.i, %53, %50, %30, %29, %26, %25
-  %68 = phi i1 [ true, %50 ], [ true, %53 ], [ false, %30 ], [ false, %26 ], [ false, %29 ], [ false, %25 ], [ false, %.thread705.sink.split.i ]
-  %.10.i = phi i32 [ 1, %50 ], [ 1, %53 ], [ -2001, %30 ], [ -2001, %26 ], [ -2000, %29 ], [ -2000, %25 ], [ 0, %.thread705.sink.split.i ]
+  %68 = phi i1 [ true, %50 ], [ true, %53 ], [ false, %29 ], [ false, %30 ], [ false, %25 ], [ false, %26 ], [ false, %.thread705.sink.split.i ]
+  %.10.i = phi i32 [ 1, %50 ], [ 1, %53 ], [ -2000, %29 ], [ -2001, %30 ], [ -2000, %25 ], [ -2001, %26 ], [ 0, %.thread705.sink.split.i ]
   %.not662.i = icmp eq ptr %13, null
   br i1 %.not662.i, label %73, label %69
 
@@ -2459,8 +2459,8 @@ select.unfold907.i:                               ; preds = %30, %26
   br label %.thread711.i
 
 .thread711.i:                                     ; preds = %82, %80, %79
-  %.pre.i = phi ptr [ null, %79 ], [ null, %82 ], [ %81, %80 ]
-  %.13714.i = phi i32 [ %.10.i, %79 ], [ 0, %82 ], [ 1, %80 ]
+  %.pre.i = phi ptr [ %81, %80 ], [ null, %79 ], [ null, %82 ]
+  %.13714.i = phi i32 [ 1, %80 ], [ %.10.i, %79 ], [ 0, %82 ]
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 188
   %95 = load i8, ptr %94, align 4
   %96 = and i8 %95, -2
@@ -2656,7 +2656,7 @@ select.unfold907.i:                               ; preds = %30, %26
   br label %.thread798.i
 
 .thread798.i:                                     ; preds = %.thread798.sink.split.i, %.thread785.thread.i, %.thread785.i
-  %.28803.i = phi i1 [ false, %.thread785.i ], [ true, %.thread785.thread.i ], [ false, %.thread798.sink.split.i ]
+  %.28803.i = phi i1 [ true, %.thread785.thread.i ], [ false, %.thread785.i ], [ false, %.thread798.sink.split.i ]
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !32
   call void @wolfSSL_SetIOWriteCtx(ptr noundef %208, ptr noundef nonnull %7) #27
@@ -2733,9 +2733,9 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %test_ssl_memio_setu
   br i1 %.not67.i, label %244, label %264
 
 244:                                              ; preds = %239, %235, %231, %test_ssl_memio_setup.exit.thread
-  %245 = phi i1 [ false, %test_ssl_memio_setup.exit.thread ], [ false, %239 ], [ true, %235 ], [ false, %231 ]
-  %.155.i = phi i32 [ 1, %test_ssl_memio_setup.exit.thread ], [ 1, %239 ], [ 0, %235 ], [ 1, %231 ]
-  %.2.i = phi i32 [ %.0476.i, %test_ssl_memio_setup.exit.thread ], [ 1, %239 ], [ %.0476.i, %235 ], [ %.0476.i, %231 ]
+  %245 = phi i1 [ false, %test_ssl_memio_setup.exit.thread ], [ true, %235 ], [ false, %239 ], [ false, %231 ]
+  %.155.i = phi i32 [ 1, %test_ssl_memio_setup.exit.thread ], [ 0, %235 ], [ 1, %239 ], [ 1, %231 ]
+  %.2.i = phi i32 [ %.0476.i, %test_ssl_memio_setup.exit.thread ], [ %.0476.i, %235 ], [ 1, %239 ], [ %.0476.i, %231 ]
   %.not68.i = icmp eq i32 %.0524.i, 0
   br i1 %.not68.i, label %246, label %259
 
@@ -2765,9 +2765,9 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %test_ssl_memio_setu
   br i1 %.not69.i, label %259, label %264
 
 259:                                              ; preds = %254, %250, %246, %244
-  %260 = phi i1 [ false, %244 ], [ false, %254 ], [ true, %250 ], [ false, %246 ]
-  %.153.i = phi i32 [ 1, %244 ], [ 1, %254 ], [ 0, %250 ], [ 1, %246 ]
-  %.251.i = phi i32 [ %.0495.i, %244 ], [ 1, %254 ], [ %.0495.i, %250 ], [ %.0495.i, %246 ]
+  %260 = phi i1 [ false, %244 ], [ true, %250 ], [ false, %254 ], [ false, %246 ]
+  %.153.i = phi i32 [ 1, %244 ], [ 0, %250 ], [ 1, %254 ], [ 1, %246 ]
+  %.251.i = phi i32 [ %.0495.i, %244 ], [ %.0495.i, %250 ], [ 1, %254 ], [ %.0495.i, %246 ]
   %261 = add nsw i32 %.0581.i, -1
   %.not66.i = or i1 %245, %260
   %262 = icmp samesign ugt i32 %.0581.i, 1
@@ -2984,8 +2984,8 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %test_ssl_memio_setu
   br label %384
 
 384:                                              ; preds = %372, %.thread344.thread.i
-  %.1308.i = phi i32 [ %370, %372 ], [ %.0307336.i, %.thread344.thread.i ]
-  %.9.i = phi i32 [ 0, %372 ], [ %.ph.i, %.thread344.thread.i ]
+  %.1308.i = phi i32 [ %.0307336.i, %.thread344.thread.i ], [ %370, %372 ]
+  %.9.i = phi i32 [ %.ph.i, %.thread344.thread.i ], [ 0, %372 ]
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #27
   %385 = icmp sgt i32 %.1308.i, -1
   br i1 %385, label %386, label %389
@@ -3058,7 +3058,7 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %test_ssl_memio_setu
   br label %.thread365.i
 
 .thread365.i:                                     ; preds = %415, %411, %408, %.thread380.i, %.thread403.i
-  %.12.i236 = phi i32 [ 1, %408 ], [ 0, %415 ], [ 1, %411 ], [ 0, %.thread380.i ], [ %390, %.thread403.i ]
+  %.12.i236 = phi i32 [ 1, %408 ], [ 1, %411 ], [ 0, %415 ], [ 0, %.thread380.i ], [ %390, %.thread403.i ]
   %427 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %428 = load ptr, ptr %427, align 8, !tbaa !41
   %.not327.i = icmp eq ptr %428, null
@@ -3093,8 +3093,8 @@ test_ssl_memio_read_write.exit.thread:            ; preds = %432
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread262
 
-test_ssl_memio_read_write.exit.thread269:         ; preds = %436, %429
-  %.ph268 = phi i32 [ %.12.i236, %429 ], [ 0, %436 ]
+test_ssl_memio_read_write.exit.thread269:         ; preds = %429, %436
+  %.ph268 = phi i32 [ 0, %436 ], [ %.12.i236, %429 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %449
 
@@ -3118,8 +3118,8 @@ test_ssl_memio_read_write.exit:                   ; preds = %.thread365.i
   %461 = call i32 @fflush(ptr noundef %460)
   br label %.thread262
 
-.thread262:                                       ; preds = %219, %214, %test_ssl_memio_setup.exit, %272, %291, %310, %test_ssl_memio_read_write.exit.thread, %test_ssl_memio_read_write.exit, %449, %322
-  %.11 = phi i32 [ %.6, %322 ], [ 0, %449 ], [ 1, %test_ssl_memio_read_write.exit ], [ 1, %test_ssl_memio_read_write.exit.thread ], [ 0, %310 ], [ 0, %291 ], [ 0, %272 ], [ -1000, %test_ssl_memio_setup.exit ], [ -1000, %214 ], [ -1000, %219 ]
+.thread262:                                       ; preds = %214, %219, %test_ssl_memio_setup.exit, %272, %291, %310, %test_ssl_memio_read_write.exit.thread, %test_ssl_memio_read_write.exit, %449, %322
+  %.11 = phi i32 [ %.6, %322 ], [ 0, %449 ], [ 1, %test_ssl_memio_read_write.exit ], [ 1, %test_ssl_memio_read_write.exit.thread ], [ 0, %310 ], [ 0, %291 ], [ 0, %272 ], [ -1000, %test_ssl_memio_setup.exit ], [ -1000, %219 ], [ -1000, %214 ]
   %462 = load ptr, ptr %177, align 8, !tbaa !30
   %463 = call i32 @wolfSSL_get_error(ptr noundef %462, i32 noundef 0) #27
   %464 = getelementptr inbounds nuw i8, ptr %7, i64 296
@@ -3378,8 +3378,8 @@ define internal noalias noundef ptr @test_server_nofail(ptr noundef captures(add
   br label %50
 
 .thread137:                                       ; preds = %.thread144, %12, %27
-  %.not127134142 = phi i1 [ true, %27 ], [ false, %12 ], [ true, %.thread144 ]
-  %.0136140 = phi ptr [ %19, %27 ], [ %14, %12 ], [ %22, %.thread144 ]
+  %.not127134142 = phi i1 [ false, %12 ], [ true, %27 ], [ true, %.thread144 ]
+  %.0136140 = phi ptr [ %14, %12 ], [ %19, %27 ], [ %22, %.thread144 ]
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 92
   %29 = load i8, ptr %28, align 4
   %30 = lshr i8 %29, 3
@@ -4213,7 +4213,7 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %38, %26, %37, %25
-  %.5 = phi i32 [ 0, %25 ], [ 0, %37 ], [ 1, %26 ], [ 1, %38 ], [ 0, %.thread.sink.split ]
+  %.5 = phi i32 [ 0, %37 ], [ 0, %25 ], [ 1, %26 ], [ 1, %38 ], [ 0, %.thread.sink.split ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 32
   br i1 %exitcond154.not, label %55, label %23, !llvm.loop !95
@@ -4593,7 +4593,7 @@ define internal range(i32 0, 2) i32 @test_wc_Md5HmacSetKey() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge221, %56, %59, %.critedge223
-  %.12 = phi i32 [ 0, %.critedge221 ], [ 0, %.critedge223 ], [ 0, %59 ], [ 1, %56 ]
+  %.12 = phi i32 [ 0, %.critedge223 ], [ 0, %.critedge221 ], [ 0, %59 ], [ 1, %56 ]
   call void @wc_HmacFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -4985,7 +4985,7 @@ define internal range(i32 0, 2) i32 @test_wc_ShaHmacSetKey() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge220, %56, %59, %.critedge222
-  %.12 = phi i32 [ 0, %.critedge220 ], [ 0, %.critedge222 ], [ 0, %59 ], [ 1, %56 ]
+  %.12 = phi i32 [ 0, %.critedge222 ], [ 0, %.critedge220 ], [ 0, %59 ], [ 1, %56 ]
   call void @wc_HmacFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -5377,7 +5377,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha224HmacSetKey() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge220, %56, %59, %.critedge222
-  %.12 = phi i32 [ 0, %.critedge220 ], [ 0, %.critedge222 ], [ 0, %59 ], [ 1, %56 ]
+  %.12 = phi i32 [ 0, %.critedge222 ], [ 0, %.critedge220 ], [ 0, %59 ], [ 1, %56 ]
   call void @wc_HmacFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -5769,7 +5769,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha256HmacSetKey() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge220, %56, %59, %.critedge222
-  %.12 = phi i32 [ 0, %.critedge220 ], [ 0, %.critedge222 ], [ 0, %59 ], [ 1, %56 ]
+  %.12 = phi i32 [ 0, %.critedge222 ], [ 0, %.critedge220 ], [ 0, %59 ], [ 1, %56 ]
   call void @wc_HmacFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -6161,7 +6161,7 @@ define internal range(i32 0, 2) i32 @test_wc_Sha384HmacSetKey() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge220, %56, %59, %.critedge222
-  %.12 = phi i32 [ 0, %.critedge220 ], [ 0, %.critedge222 ], [ 0, %59 ], [ 1, %56 ]
+  %.12 = phi i32 [ 0, %.critedge222 ], [ 0, %.critedge220 ], [ 0, %59 ], [ 1, %56 ]
   call void @wc_HmacFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -6651,9 +6651,9 @@ define internal range(i32 0, 2) i32 @test_wc_Chacha_Process() #0 {
   br i1 %36, label %.critedge889, label %.critedge889.sink.split
 
 .critedge889.sink.split:                          ; preds = %.critedge890, %.critedge888, %.critedge886, %.critedge884, %.critedge882, %.critedge880, %.critedge878, %.critedge876, %.critedge874, %.critedge872, %.critedge870, %.critedge868, %.critedge, %0
-  %.sink938 = phi i32 [ 16746, %0 ], [ 16747, %.critedge ], [ 16748, %.critedge868 ], [ 16749, %.critedge870 ], [ 16752, %.critedge872 ], [ 16753, %.critedge874 ], [ 16754, %.critedge876 ], [ 16758, %.critedge878 ], [ 16759, %.critedge880 ], [ 16762, %.critedge882 ], [ 16764, %.critedge884 ], [ 16766, %.critedge886 ], [ 16768, %.critedge888 ], [ 16769, %.critedge890 ]
-  %.str.1141.sink = phi ptr [ @.str.1131, %0 ], [ @.str.1132, %.critedge ], [ @.str.1133, %.critedge868 ], [ @.str.1134, %.critedge870 ], [ @.str.1135, %.critedge872 ], [ @.str.1136, %.critedge874 ], [ @.str.1137, %.critedge876 ], [ @.str.1133, %.critedge878 ], [ @.str.1134, %.critedge880 ], [ @.str.1138, %.critedge882 ], [ @.str.1139, %.critedge884 ], [ @.str.1140, %.critedge886 ], [ @.str.1141, %.critedge888 ], [ @.str.1137, %.critedge890 ]
-  %.sink = phi i32 [ %8, %0 ], [ %10, %.critedge ], [ %12, %.critedge868 ], [ %14, %.critedge870 ], [ %16, %.critedge872 ], [ %18, %.critedge874 ], [ %20, %.critedge876 ], [ %22, %.critedge878 ], [ %24, %.critedge880 ], [ %26, %.critedge882 ], [ %29, %.critedge884 ], [ %31, %.critedge886 ], [ %33, %.critedge888 ], [ %35, %.critedge890 ]
+  %.sink938 = phi i32 [ 16766, %.critedge886 ], [ 16764, %.critedge884 ], [ 16762, %.critedge882 ], [ 16759, %.critedge880 ], [ 16758, %.critedge878 ], [ 16754, %.critedge876 ], [ 16753, %.critedge874 ], [ 16752, %.critedge872 ], [ 16749, %.critedge870 ], [ 16748, %.critedge868 ], [ 16747, %.critedge ], [ 16746, %0 ], [ 16768, %.critedge888 ], [ 16769, %.critedge890 ]
+  %.str.1141.sink = phi ptr [ @.str.1140, %.critedge886 ], [ @.str.1139, %.critedge884 ], [ @.str.1138, %.critedge882 ], [ @.str.1134, %.critedge880 ], [ @.str.1133, %.critedge878 ], [ @.str.1137, %.critedge876 ], [ @.str.1136, %.critedge874 ], [ @.str.1135, %.critedge872 ], [ @.str.1134, %.critedge870 ], [ @.str.1133, %.critedge868 ], [ @.str.1132, %.critedge ], [ @.str.1131, %0 ], [ @.str.1141, %.critedge888 ], [ @.str.1137, %.critedge890 ]
+  %.sink = phi i32 [ %31, %.critedge886 ], [ %29, %.critedge884 ], [ %26, %.critedge882 ], [ %24, %.critedge880 ], [ %22, %.critedge878 ], [ %20, %.critedge876 ], [ %18, %.critedge874 ], [ %16, %.critedge872 ], [ %14, %.critedge870 ], [ %12, %.critedge868 ], [ %10, %.critedge ], [ %8, %0 ], [ %33, %.critedge888 ], [ %35, %.critedge890 ]
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink938)
   %38 = load ptr, ptr @stdout, align 8, !tbaa !22
   %39 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %38)
@@ -6772,9 +6772,9 @@ define internal range(i32 0, 2) i32 @test_wc_Chacha_Process() #0 {
   br label %110
 
 .critedge909.sink.split:                          ; preds = %.critedge906, %.critedge904, %.critedge902, %.critedge900, %.critedge898, %.critedge896, %.critedge894, %52
-  %.sink944 = phi i32 [ 16818, %52 ], [ 16820, %.critedge894 ], [ 16821, %.critedge896 ], [ 16823, %.critedge898 ], [ 16824, %.critedge900 ], [ 16827, %.critedge902 ], [ 16828, %.critedge904 ], [ 16830, %.critedge906 ]
-  %.str.1149.sink = phi ptr [ @.str.1142, %52 ], [ @.str.1143, %.critedge894 ], [ @.str.1144, %.critedge896 ], [ @.str.1145, %.critedge898 ], [ @.str.1146, %.critedge900 ], [ @.str.1147, %.critedge902 ], [ @.str.1148, %.critedge904 ], [ @.str.1149, %.critedge906 ]
-  %.sink941 = phi i32 [ %53, %52 ], [ %55, %.critedge894 ], [ %57, %.critedge896 ], [ %60, %.critedge898 ], [ %62, %.critedge900 ], [ %65, %.critedge902 ], [ %67, %.critedge904 ], [ %70, %.critedge906 ]
+  %.sink944 = phi i32 [ 16828, %.critedge904 ], [ 16827, %.critedge902 ], [ 16824, %.critedge900 ], [ 16823, %.critedge898 ], [ 16821, %.critedge896 ], [ 16820, %.critedge894 ], [ 16818, %52 ], [ 16830, %.critedge906 ]
+  %.str.1149.sink = phi ptr [ @.str.1148, %.critedge904 ], [ @.str.1147, %.critedge902 ], [ @.str.1146, %.critedge900 ], [ @.str.1145, %.critedge898 ], [ @.str.1144, %.critedge896 ], [ @.str.1143, %.critedge894 ], [ @.str.1142, %52 ], [ @.str.1149, %.critedge906 ]
+  %.sink941 = phi i32 [ %67, %.critedge904 ], [ %65, %.critedge902 ], [ %62, %.critedge900 ], [ %60, %.critedge898 ], [ %57, %.critedge896 ], [ %55, %.critedge894 ], [ %53, %52 ], [ %70, %.critedge906 ]
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink944)
   %100 = load ptr, ptr @stdout, align 8, !tbaa !22
   %101 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %100)
@@ -6794,7 +6794,7 @@ define internal range(i32 0, 2) i32 @test_wc_Chacha_Process() #0 {
   br label %110
 
 110:                                              ; preds = %.critedge907, %.critedge910, %87, %.critedge909
-  %.47 = phi i32 [ 0, %.critedge907 ], [ 0, %.critedge909 ], [ 0, %87 ], [ 1, %.critedge910 ]
+  %.47 = phi i32 [ 0, %.critedge909 ], [ 0, %.critedge907 ], [ 0, %87 ], [ 1, %.critedge910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7388,7 +7388,7 @@ define internal i32 @test_wc_AesSetIV() #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %12, %15, %9
-  %.1 = phi i32 [ %18, %15 ], [ 0, %9 ], [ 0, %12 ], [ 0, %6 ]
+  %.1 = phi i32 [ %18, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ]
   call void @wc_AesFree(ptr noundef nonnull %1) #27
   br label %19
 
@@ -7622,7 +7622,7 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br label %.backedge896.preheader
 
 .backedge896.preheader:                           ; preds = %.critedge833, %.critedge836, %115, %.critedge835
-  %.ph906 = phi i1 [ false, %.critedge835 ], [ false, %115 ], [ true, %.critedge836 ], [ false, %.critedge833 ]
+  %.ph906 = phi i1 [ false, %115 ], [ true, %.critedge836 ], [ false, %.critedge833 ], [ false, %.critedge835 ]
   br label %.backedge896
 
 .backedge896:                                     ; preds = %.backedge896.backedge, %.backedge896.preheader
@@ -7722,9 +7722,9 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br label %.backedge.preheader
 
 .critedge845.sink.split:                          ; preds = %.critedge842, %.critedge840, %150
-  %.sink899 = phi i32 [ 17326, %150 ], [ 17328, %.critedge840 ], [ 17330, %.critedge842 ]
-  %.str.1190.sink = phi ptr [ @.str.1188, %150 ], [ @.str.1189, %.critedge840 ], [ @.str.1190, %.critedge842 ]
-  %.sink = phi i32 [ %151, %150 ], [ %153, %.critedge840 ], [ %155, %.critedge842 ]
+  %.sink899 = phi i32 [ 17328, %.critedge840 ], [ 17326, %150 ], [ 17330, %.critedge842 ]
+  %.str.1190.sink = phi ptr [ @.str.1189, %.critedge840 ], [ @.str.1188, %150 ], [ @.str.1190, %.critedge842 ]
+  %.sink = phi i32 [ %153, %.critedge840 ], [ %151, %150 ], [ %155, %.critedge842 ]
   %184 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink899)
   %185 = load ptr, ptr @stdout, align 8, !tbaa !22
   %186 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %185)
@@ -7743,7 +7743,7 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br label %.backedge.preheader
 
 .backedge.preheader:                              ; preds = %.critedge843, %.critedge846, %172, %.critedge845
-  %.ph = phi i1 [ false, %.critedge845 ], [ false, %172 ], [ true, %.critedge846 ], [ false, %.critedge843 ]
+  %.ph = phi i1 [ false, %172 ], [ true, %.critedge846 ], [ false, %.critedge843 ], [ false, %.critedge845 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
@@ -7808,9 +7808,9 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br i1 %222, label %.critedge853, label %.critedge853.sink.split
 
 .critedge853.sink.split:                          ; preds = %.critedge854, %.critedge852, %.critedge850, %214
-  %.sink905 = phi i32 [ 17350, %214 ], [ 17352, %.critedge850 ], [ 17354, %.critedge852 ], [ 17356, %.critedge854 ]
-  %.str.1196.sink = phi ptr [ @.str.1194, %214 ], [ @.str.1195, %.critedge850 ], [ @.str.1196, %.critedge852 ], [ @.str.1197, %.critedge854 ]
-  %.sink902 = phi i32 [ %215, %214 ], [ %217, %.critedge850 ], [ %219, %.critedge852 ], [ %221, %.critedge854 ]
+  %.sink905 = phi i32 [ 17352, %.critedge850 ], [ 17350, %214 ], [ 17354, %.critedge852 ], [ 17356, %.critedge854 ]
+  %.str.1196.sink = phi ptr [ @.str.1195, %.critedge850 ], [ @.str.1194, %214 ], [ @.str.1196, %.critedge852 ], [ @.str.1197, %.critedge854 ]
+  %.sink902 = phi i32 [ %217, %.critedge850 ], [ %215, %214 ], [ %219, %.critedge852 ], [ %221, %.critedge854 ]
   %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink905)
   %224 = load ptr, ptr @stdout, align 8, !tbaa !22
   %225 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %224)
@@ -8812,7 +8812,7 @@ define internal range(i32 0, 2) i32 @test_wc_GmacUpdate() #0 {
   br label %.critedge628
 
 .critedge628:                                     ; preds = %.critedge626, %.critedge623, %150, %.critedge618, %.critedge620, %.critedge629, %190
-  %.33 = phi i32 [ 0, %.critedge626 ], [ 0, %190 ], [ 1, %.critedge629 ], [ 0, %150 ], [ 0, %.critedge620 ], [ 0, %.critedge618 ], [ 0, %.critedge623 ]
+  %.33 = phi i32 [ 1, %.critedge629 ], [ 0, %.critedge626 ], [ 0, %190 ], [ 0, %150 ], [ 0, %.critedge618 ], [ 0, %.critedge620 ], [ 0, %.critedge623 ]
   call void @wc_AesFree(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -9146,7 +9146,7 @@ define internal range(i32 0, 2) i32 @test_wc_InitRsaKey() #0 {
   br label %46
 
 46:                                               ; preds = %18, %34, %.critedge96, %31
-  %.4 = phi i32 [ 0, %34 ], [ 0, %18 ], [ 0, %.critedge96 ], [ 1, %31 ]
+  %.4 = phi i32 [ 0, %34 ], [ 0, %.critedge96 ], [ 0, %18 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.4
 }
@@ -9301,7 +9301,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   br label %102
 
 102:                                              ; preds = %.critedge270, %.thread267, %89, %86
-  %.11 = phi i32 [ 0, %89 ], [ 1, %86 ], [ 0, %.thread267 ], [ 0, %.critedge270 ]
+  %.11 = phi i32 [ 0, %89 ], [ 0, %.critedge270 ], [ 1, %86 ], [ 0, %.thread267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.11
@@ -9628,7 +9628,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPublicKeyDecode() #0 {
   br label %216
 
 .thread629:                                       ; preds = %.thread, %182, %186, %169, %.thread645, %.thread641, %.thread637
-  %.25634 = phi i32 [ 0, %.thread637 ], [ 0, %.thread641 ], [ 0, %.thread645 ], [ 1, %182 ], [ 0, %186 ], [ 0, %169 ], [ 0, %.thread ]
+  %.25634 = phi i32 [ 0, %.thread645 ], [ 0, %.thread ], [ 0, %.thread637 ], [ 0, %.thread641 ], [ 1, %182 ], [ 0, %186 ], [ 0, %169 ]
   call void @wolfSSL_Free(ptr noundef nonnull %5) #27
   br label %216
 
@@ -9758,7 +9758,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPublicKeyDecodeRaw() #0 {
   br label %76
 
 76:                                               ; preds = %.critedge214, %59, %.critedge216, %56
-  %.10 = phi i32 [ 0, %59 ], [ 0, %.critedge214 ], [ 0, %.critedge216 ], [ 1, %56 ]
+  %.10 = phi i32 [ 0, %59 ], [ 0, %.critedge216 ], [ 0, %.critedge214 ], [ 1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -10095,7 +10095,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecodeRaw() #0 {
   br label %199
 
 199:                                              ; preds = %.critedge687, %182, %.critedge689, %179
-  %.36 = phi i32 [ 0, %182 ], [ 0, %.critedge687 ], [ 0, %.critedge689 ], [ 1, %179 ]
+  %.36 = phi i32 [ 0, %182 ], [ 0, %.critedge689 ], [ 0, %.critedge687 ], [ 1, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10574,7 +10574,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_make_key() #0 {
   br label %90
 
 90:                                               ; preds = %.critedge207, %77, %.critedge209, %74
-  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge207 ], [ 0, %.critedge209 ], [ 1, %74 ]
+  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge209 ], [ 0, %.critedge207 ], [ 1, %74 ]
   %91 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -10758,7 +10758,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_check_key() #0 {
   br label %90
 
 90:                                               ; preds = %.critedge207, %77, %.critedge209, %74
-  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge207 ], [ 0, %.critedge209 ], [ 1, %74 ]
+  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge209 ], [ 0, %.critedge207 ], [ 1, %74 ]
   %91 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -10899,7 +10899,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_size() #0 {
   br label %90
 
 90:                                               ; preds = %.critedge207, %77, %.critedge209, %74
-  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge207 ], [ 0, %.critedge209 ], [ 1, %74 ]
+  %.10 = phi i32 [ 0, %77 ], [ 0, %.critedge209 ], [ 0, %.critedge207 ], [ 1, %74 ]
   %91 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -11363,7 +11363,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   br label %259
 
 259:                                              ; preds = %.critedge628, %246, %.critedge630, %243
-  %.32 = phi i32 [ 0, %246 ], [ 0, %.critedge628 ], [ 0, %.critedge630 ], [ 1, %243 ]
+  %.32 = phi i32 [ 0, %246 ], [ 0, %.critedge630 ], [ 0, %.critedge628 ], [ 1, %243 ]
   %260 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11623,7 +11623,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_shared_secret() #0 {
   br label %153
 
 153:                                              ; preds = %120, %136, %.critedge512, %133
-  %.26 = phi i32 [ 0, %136 ], [ 0, %120 ], [ 0, %.critedge512 ], [ 1, %133 ]
+  %.26 = phi i32 [ 0, %136 ], [ 0, %.critedge512 ], [ 0, %120 ], [ 1, %133 ]
   %154 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   %155 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11830,7 +11830,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_export_x963() #0 {
   br label %134
 
 134:                                              ; preds = %104, %120, %.critedge321, %117
-  %.16 = phi i32 [ 0, %120 ], [ 0, %104 ], [ 0, %.critedge321 ], [ 1, %117 ]
+  %.16 = phi i32 [ 0, %120 ], [ 0, %.critedge321 ], [ 0, %104 ], [ 1, %117 ]
   %135 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12054,7 +12054,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_export_x963_ex() #0 {
   br label %147
 
 147:                                              ; preds = %117, %133, %.critedge358, %130
-  %.18 = phi i32 [ 0, %133 ], [ 0, %117 ], [ 0, %.critedge358 ], [ 1, %130 ]
+  %.18 = phi i32 [ 0, %133 ], [ 0, %.critedge358 ], [ 0, %117 ], [ 1, %130 ]
   %148 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12271,7 +12271,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_import_x963() #0 {
   br label %138
 
 138:                                              ; preds = %.critedge356, %125, %.critedge358, %122
-  %.18 = phi i32 [ 0, %125 ], [ 0, %.critedge356 ], [ 0, %.critedge358 ], [ 1, %122 ]
+  %.18 = phi i32 [ 0, %125 ], [ 0, %.critedge358 ], [ 0, %.critedge356 ], [ 1, %122 ]
   %139 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   %140 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -12497,7 +12497,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_import_private_key() #0 {
   br label %141
 
 141:                                              ; preds = %.critedge356, %128, %.critedge358, %125
-  %.18 = phi i32 [ 0, %128 ], [ 0, %.critedge356 ], [ 0, %.critedge358 ], [ 1, %125 ]
+  %.18 = phi i32 [ 0, %128 ], [ 0, %.critedge358 ], [ 0, %.critedge356 ], [ 1, %125 ]
   %142 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   %143 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -12683,7 +12683,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_export_private_only() #0 {
   br label %118
 
 118:                                              ; preds = %.critedge281, %105, %.critedge283, %102
-  %.14 = phi i32 [ 0, %105 ], [ 0, %.critedge281 ], [ 0, %.critedge283 ], [ 1, %102 ]
+  %.14 = phi i32 [ 0, %105 ], [ 0, %.critedge283 ], [ 0, %.critedge281 ], [ 1, %102 ]
   %119 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -13135,7 +13135,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_import_raw() #0 {
   br label %111
 
 111:                                              ; preds = %76, %.critedge358, %97, %.critedge356
-  %.17 = phi i32 [ 0, %76 ], [ 0, %.critedge356 ], [ 0, %97 ], [ 1, %.critedge358 ]
+  %.17 = phi i32 [ 0, %.critedge356 ], [ 0, %76 ], [ 0, %97 ], [ 1, %.critedge358 ]
   %112 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.17
@@ -13371,7 +13371,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_sig_size() #0 {
   br label %77
 
 77:                                               ; preds = %.critedge171, %64, %.critedge174, %61
-  %.8 = phi i32 [ 0, %64 ], [ 0, %.critedge171 ], [ 0, %.critedge174 ], [ 1, %61 ]
+  %.8 = phi i32 [ 0, %64 ], [ 0, %.critedge174 ], [ 0, %.critedge171 ], [ 1, %61 ]
   %78 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -13960,9 +13960,9 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %371 = call i32 @fflush(ptr noundef %370)
   br label %374
 
-.critedge943:                                     ; preds = %22, %.critedge902, %38, %51, %64, %82, %.critedge908, %97, %.critedge912, %125, %154, %.critedge939, %.critedge937, %.critedge935, %.critedge933, %.critedge931, %.critedge929, %.critedge927, %.critedge925, %.critedge923, %.critedge921, %.critedge919, %.critedge916, %169
-  %.0866958 = phi ptr [ %63, %82 ], [ %63, %.critedge908 ], [ %63, %97 ], [ %63, %.critedge912 ], [ %63, %125 ], [ %63, %154 ], [ %63, %.critedge939 ], [ %63, %.critedge937 ], [ %63, %.critedge935 ], [ %63, %.critedge933 ], [ %63, %.critedge931 ], [ %63, %.critedge929 ], [ %63, %.critedge927 ], [ %63, %.critedge925 ], [ %63, %.critedge923 ], [ %63, %.critedge921 ], [ %63, %.critedge919 ], [ %63, %.critedge916 ], [ %63, %169 ], [ null, %64 ], [ null, %51 ], [ null, %38 ], [ null, %.critedge902 ], [ null, %22 ]
-  %.0865953957 = phi ptr [ %50, %82 ], [ %50, %.critedge908 ], [ %50, %97 ], [ %50, %.critedge912 ], [ %50, %125 ], [ %50, %154 ], [ %50, %.critedge939 ], [ %50, %.critedge937 ], [ %50, %.critedge935 ], [ %50, %.critedge933 ], [ %50, %.critedge931 ], [ %50, %.critedge929 ], [ %50, %.critedge927 ], [ %50, %.critedge925 ], [ %50, %.critedge923 ], [ %50, %.critedge921 ], [ %50, %.critedge919 ], [ %50, %.critedge916 ], [ %50, %169 ], [ %50, %64 ], [ null, %51 ], [ null, %38 ], [ null, %.critedge902 ], [ null, %22 ]
+.critedge943:                                     ; preds = %.critedge902, %22, %38, %51, %64, %82, %.critedge908, %97, %.critedge912, %125, %154, %.critedge939, %.critedge937, %.critedge935, %.critedge933, %.critedge931, %.critedge929, %.critedge927, %.critedge925, %.critedge923, %.critedge921, %.critedge919, %.critedge916, %169
+  %.0866958 = phi ptr [ %63, %.critedge916 ], [ %63, %82 ], [ %63, %169 ], [ %63, %.critedge908 ], [ %63, %97 ], [ %63, %.critedge912 ], [ %63, %125 ], [ %63, %154 ], [ %63, %.critedge939 ], [ %63, %.critedge937 ], [ %63, %.critedge935 ], [ %63, %.critedge933 ], [ %63, %.critedge931 ], [ %63, %.critedge929 ], [ %63, %.critedge927 ], [ %63, %.critedge925 ], [ %63, %.critedge923 ], [ %63, %.critedge921 ], [ %63, %.critedge919 ], [ null, %64 ], [ null, %51 ], [ null, %38 ], [ null, %22 ], [ null, %.critedge902 ]
+  %.0865953957 = phi ptr [ %50, %.critedge916 ], [ %50, %82 ], [ %50, %169 ], [ %50, %.critedge908 ], [ %50, %97 ], [ %50, %.critedge912 ], [ %50, %125 ], [ %50, %154 ], [ %50, %.critedge939 ], [ %50, %.critedge937 ], [ %50, %.critedge935 ], [ %50, %.critedge933 ], [ %50, %.critedge931 ], [ %50, %.critedge929 ], [ %50, %.critedge927 ], [ %50, %.critedge925 ], [ %50, %.critedge923 ], [ %50, %.critedge921 ], [ %50, %.critedge919 ], [ %50, %64 ], [ null, %51 ], [ null, %38 ], [ null, %22 ], [ null, %.critedge902 ]
   call void @wc_ecc_del_point(ptr noundef %.0865953957) #27
   call void @wc_ecc_del_point(ptr noundef %.0866958) #27
   %372 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
@@ -13970,7 +13970,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   br label %374
 
 374:                                              ; preds = %.critedge941, %360, %.critedge943, %358
-  %.48 = phi i32 [ 0, %360 ], [ 0, %.critedge941 ], [ 0, %.critedge943 ], [ 1, %358 ]
+  %.48 = phi i32 [ 0, %360 ], [ 0, %.critedge943 ], [ 0, %.critedge941 ], [ 1, %358 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -14286,7 +14286,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_shared_secret_ssh() #0 {
   br label %208
 
 208:                                              ; preds = %179, %195, %.critedge535, %192
-  %.27 = phi i32 [ 0, %195 ], [ 0, %179 ], [ 0, %.critedge535 ], [ 1, %192 ]
+  %.27 = phi i32 [ 0, %195 ], [ 0, %.critedge535 ], [ 0, %179 ], [ 1, %192 ]
   %209 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   %210 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -14375,9 +14375,9 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_mulmod() #0 {
   br label %.critedge466
 
 .critedge453:                                     ; preds = %0, %.critedge, %.critedge448, %.critedge450
-  %.sink488 = phi i32 [ 24499, %.critedge450 ], [ 24496, %0 ], [ 24497, %.critedge ], [ 24498, %.critedge448 ]
-  %.str.1239.sink = phi ptr [ @.str.1239, %.critedge450 ], [ @.str.1448, %0 ], [ @.str.1442, %.critedge ], [ @.str.1449, %.critedge448 ]
-  %.sink485 = phi i32 [ %11, %.critedge450 ], [ %5, %0 ], [ %7, %.critedge ], [ %9, %.critedge448 ]
+  %.sink488 = phi i32 [ 24499, %.critedge450 ], [ 24497, %.critedge ], [ 24496, %0 ], [ 24498, %.critedge448 ]
+  %.str.1239.sink = phi ptr [ @.str.1239, %.critedge450 ], [ @.str.1442, %.critedge ], [ @.str.1448, %0 ], [ @.str.1449, %.critedge448 ]
+  %.sink485 = phi i32 [ %11, %.critedge450 ], [ %7, %.critedge ], [ %5, %0 ], [ %9, %.critedge448 ]
   %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink488)
   %45 = load ptr, ptr @stdout, align 8, !tbaa !22
   %46 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %45)
@@ -14547,7 +14547,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_mulmod() #0 {
   br label %.critedge466
 
 .critedge466:                                     ; preds = %16, %.critedge464, %.critedge462, %.critedge460, %.critedge458, %.critedge456, %.critedge455, %32, %.critedge453, %.critedge467, %158
-  %.24 = phi i32 [ 0, %.critedge464 ], [ 0, %158 ], [ 1, %.critedge467 ], [ 0, %.critedge460 ], [ 0, %.critedge456 ], [ 0, %.critedge453 ], [ 0, %16 ], [ 0, %32 ], [ 0, %.critedge455 ], [ 0, %.critedge458 ], [ 0, %.critedge462 ]
+  %.24 = phi i32 [ 1, %.critedge467 ], [ 0, %.critedge464 ], [ 0, %158 ], [ 0, %.critedge460 ], [ 0, %.critedge456 ], [ 0, %16 ], [ 0, %.critedge453 ], [ 0, %32 ], [ 0, %.critedge455 ], [ 0, %.critedge458 ], [ 0, %.critedge462 ]
   %170 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   %171 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
   %172 = call i32 @wc_ecc_free(ptr noundef nonnull %3) #27
@@ -14708,7 +14708,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_is_valid_idx() #0 {
   br label %105
 
 105:                                              ; preds = %.critedge246, %92, %.critedge248, %89
-  %.12 = phi i32 [ 0, %92 ], [ 0, %.critedge246 ], [ 0, %.critedge248 ], [ 1, %89 ]
+  %.12 = phi i32 [ 0, %92 ], [ 0, %.critedge248 ], [ 0, %.critedge246 ], [ 1, %89 ]
   %106 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -14777,7 +14777,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_get_curve_id_from_oid() #0 {
   br label %.critedge108
 
 .critedge108:                                     ; preds = %18, %4, %.critedge110, %32
-  %.5 = phi i32 [ 0, %18 ], [ 0, %32 ], [ 1, %.critedge110 ], [ 0, %4 ]
+  %.5 = phi i32 [ 1, %.critedge110 ], [ 0, %18 ], [ 0, %32 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.5
 }
@@ -14895,7 +14895,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_sig_size_calc() #0 {
   br label %80
 
 80:                                               ; preds = %.critedge170, %67, %.critedge173, %64
-  %.8 = phi i32 [ 0, %67 ], [ 0, %.critedge170 ], [ 0, %.critedge173 ], [ 1, %64 ]
+  %.8 = phi i32 [ 0, %67 ], [ 0, %.critedge173 ], [ 0, %.critedge170 ], [ 1, %64 ]
   %81 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15099,7 +15099,7 @@ define internal range(i32 0, 2) i32 @test_wc_EccPrivateKeyToDer() #0 {
   br label %136
 
 136:                                              ; preds = %.critedge321, %121, %.critedge323, %119
-  %.16 = phi i32 [ 0, %121 ], [ 0, %.critedge321 ], [ 0, %.critedge323 ], [ 1, %119 ]
+  %.16 = phi i32 [ 0, %121 ], [ 0, %.critedge323 ], [ 0, %.critedge321 ], [ 1, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15553,7 +15553,7 @@ define internal range(i32 0, 2) i32 @test_wc_SignatureGetSize_ecc() #0 {
   br label %83
 
 83:                                               ; preds = %.critedge253, %66, %.critedge255, %63
-  %.12 = phi i32 [ 0, %66 ], [ 0, %.critedge253 ], [ 0, %.critedge255 ], [ 1, %63 ]
+  %.12 = phi i32 [ 0, %66 ], [ 0, %.critedge255 ], [ 0, %.critedge253 ], [ 1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
 }
@@ -15913,8 +15913,8 @@ thread-pre-split:                                 ; preds = %9, %25, %.critedge
   br label %108
 
 .critedge242:                                     ; preds = %77, %.critedge245, %94
-  %106 = phi ptr [ %90, %94 ], [ %90, %.critedge245 ], [ %.pre, %77 ]
-  %.12 = phi i32 [ 0, %94 ], [ 1, %.critedge245 ], [ 0, %77 ]
+  %106 = phi ptr [ %90, %.critedge245 ], [ %.pre, %77 ], [ %90, %94 ]
+  %.12 = phi i32 [ 1, %.critedge245 ], [ 0, %77 ], [ 0, %94 ]
   call void @wc_FreeDer(ptr noundef nonnull %1) #27
   %.not236 = icmp eq ptr %106, null
   br i1 %.not236, label %108, label %107
@@ -15996,7 +15996,7 @@ define internal range(i32 0, 2) i32 @test_wc_AllocDer() #0 {
   br label %.critedge93
 
 .critedge93:                                      ; preds = %18, %4, %31, %.critedge95
-  %.4 = phi i32 [ 0, %31 ], [ 0, %18 ], [ 1, %.critedge95 ], [ 0, %4 ]
+  %.4 = phi i32 [ 0, %31 ], [ 1, %.critedge95 ], [ 0, %18 ], [ 0, %4 ]
   call void @wc_FreeDer(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.4
@@ -16739,7 +16739,7 @@ define internal range(i32 0, 2) i32 @test_wc_GetPubKeyDerFromCert() #0 {
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %219, label %206
 
-202:                                              ; preds = %145, %.critedge625, %173, %159
+202:                                              ; preds = %.critedge625, %145, %173, %159
   %203 = call i32 @wc_ecc_init(ptr noundef nonnull %6) #27
   store i32 0, ptr %1, align 4, !tbaa !67
   %204 = icmp eq i32 %203, 0
@@ -16811,7 +16811,7 @@ define internal range(i32 0, 2) i32 @test_wc_GetPubKeyDerFromCert() #0 {
   br label %.critedge637
 
 .critedge637:                                     ; preds = %206, %.thread662, %.thread660, %223, %.critedge639, %237
-  %.33 = phi i32 [ 0, %223 ], [ 0, %237 ], [ 1, %.critedge639 ], [ 0, %206 ], [ 0, %.thread660 ], [ 0, %.thread662 ]
+  %.33 = phi i32 [ 1, %.critedge639 ], [ 0, %223 ], [ 0, %237 ], [ 0, %206 ], [ 0, %.thread660 ], [ 0, %.thread662 ]
   call void @wc_FreeDecodedCert(ptr noundef nonnull %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17898,7 +17898,7 @@ define internal range(i32 0, 2) i32 @test_wc_i2d_PKCS12() #0 {
   br label %.critedge596
 
 .critedge596:                                     ; preds = %.critedge593, %209, %.critedge588, %.critedge590, %.critedge597, %238
-  %.30 = phi i32 [ 0, %.critedge593 ], [ 0, %238 ], [ 1, %.critedge597 ], [ 0, %.critedge588 ], [ 0, %.critedge590 ], [ 0, %209 ]
+  %.30 = phi i32 [ 1, %.critedge597 ], [ 0, %.critedge593 ], [ 0, %238 ], [ 0, %.critedge590 ], [ 0, %.critedge588 ], [ 0, %209 ]
   %250 = load ptr, ptr %1, align 8, !tbaa !135
   call void @wc_PKCS12_free(ptr noundef %250) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19720,7 +19720,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   call void @wait_tcp_ready(ptr noundef nonnull %3) #27
   br label %.thread495
 
-.thread495:                                       ; preds = %42, %.critedge485, %.critedge486
+.thread495:                                       ; preds = %42, %.critedge486, %.critedge485
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !65
   call fastcc void @tcp_connect(ptr noundef %1, i16 noundef zeroext %63, i32 noundef 0, ptr noundef null)
@@ -19750,8 +19750,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   br label %82
 
 82:                                               ; preds = %.thread495, %64, %70
-  %.0455499 = phi ptr [ %41, %70 ], [ %41, %64 ], [ null, %.thread495 ]
-  %.7 = phi i1 [ false, %70 ], [ true, %64 ], [ false, %.thread495 ]
+  %.0455499 = phi ptr [ null, %.thread495 ], [ %41, %70 ], [ %41, %64 ]
+  %.7 = phi i1 [ false, %.thread495 ], [ false, %70 ], [ true, %64 ]
   br label %83
 
 83:                                               ; preds = %83, %82
@@ -21468,7 +21468,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CertManagerSetVerify() #0 {
   br label %44
 
 44:                                               ; preds = %7, %.critedge99, %21, %.critedge
-  %.4 = phi i32 [ 0, %7 ], [ 0, %.critedge ], [ 0, %21 ], [ 1, %.critedge99 ]
+  %.4 = phi i32 [ 0, %.critedge ], [ 0, %7 ], [ 0, %21 ], [ 1, %.critedge99 ]
   tail call void @wolfSSL_CertManagerFree(ptr noundef %3) #27
   store i32 %2, ptr %1, align 4, !tbaa !67
   ret i32 %.4
@@ -21633,9 +21633,9 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   br i1 %.not85.i, label %.critedge562, label %64
 
 .sink.split:                                      ; preds = %36, %33, %30, %27, %24, %21, %18, %16
-  %.sink706 = phi ptr [ %3, %16 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ], [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ]
-  %.sink705 = phi i32 [ %17, %16 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
-  %.0.i.ph.ph = phi i32 [ -1, %16 ], [ -2, %18 ], [ -3, %21 ], [ -4, %24 ], [ -5, %27 ], [ -6, %30 ], [ -7, %33 ], [ -8, %36 ]
+  %.sink706 = phi ptr [ %34, %33 ], [ %3, %16 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ], [ %28, %27 ], [ %31, %30 ], [ %37, %36 ]
+  %.sink705 = phi i32 [ %35, %33 ], [ %17, %16 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %38, %36 ]
+  %.0.i.ph.ph = phi i32 [ -7, %33 ], [ -1, %16 ], [ -2, %18 ], [ -3, %21 ], [ -4, %24 ], [ -5, %27 ], [ -6, %30 ], [ -8, %36 ]
   %58 = load ptr, ptr @stderr, align 8, !tbaa !22
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.1671, ptr noundef nonnull %.sink706) #28
   %60 = load ptr, ptr @stderr, align 8, !tbaa !22
@@ -21644,8 +21644,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.1672, i32 noundef %.sink705, ptr noundef %62) #28
   br label %64
 
-64:                                               ; preds = %.sink.split, %39, %41, %43, %45, %47, %49, %51, %53, %56
-  %.0.i.ph = phi i32 [ -17, %56 ], [ -16, %53 ], [ -15, %51 ], [ -14, %49 ], [ -13, %47 ], [ -12, %45 ], [ -11, %43 ], [ -10, %41 ], [ -9, %39 ], [ %.0.i.ph.ph, %.sink.split ]
+64:                                               ; preds = %.sink.split, %53, %39, %41, %43, %45, %47, %49, %51, %56
+  %.0.i.ph = phi i32 [ -17, %56 ], [ -15, %51 ], [ -14, %49 ], [ -13, %47 ], [ -12, %45 ], [ -11, %43 ], [ -10, %41 ], [ -9, %39 ], [ -16, %53 ], [ %.0.i.ph.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 88744)
   %66 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -21778,8 +21778,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   br label %.critedge569
 
 .critedge568.sink.split:                          ; preds = %113, %110, %107, %104, %102
-  %.sink711 = phi ptr [ %2, %102 ], [ %105, %104 ], [ %108, %107 ], [ %111, %110 ], [ %114, %113 ]
-  %.sink710 = phi i32 [ %103, %102 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %115, %113 ]
+  %.sink711 = phi ptr [ %111, %110 ], [ %2, %102 ], [ %105, %104 ], [ %108, %107 ], [ %114, %113 ]
+  %.sink710 = phi i32 [ %112, %110 ], [ %103, %102 ], [ %106, %104 ], [ %109, %107 ], [ %115, %113 ]
   %139 = load ptr, ptr @stderr, align 8, !tbaa !22
   %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.1671, ptr noundef nonnull %.sink711) #28
   %141 = load ptr, ptr @stderr, align 8, !tbaa !22
@@ -21788,7 +21788,7 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.1672, i32 noundef %.sink710, ptr noundef %143) #28
   br label %.critedge568
 
-.critedge568:                                     ; preds = %.critedge568.sink.split, %116, %118, %120, %122, %124
+.critedge568:                                     ; preds = %.critedge568.sink.split, %122, %116, %118, %120, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %145 = call i32 @wolfSSL_CertManagerUnloadCAs(ptr noundef nonnull %89) #27
   %146 = icmp eq i32 %145, 1
@@ -21829,8 +21829,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %170 = call i32 @fflush(ptr noundef %169)
   br label %.critedge572
 
-.critedge569:                                     ; preds = %.critedge563, %.critedge, %90, %127
-  %.1525641 = phi ptr [ %89, %127 ], [ %4, %.critedge563 ], [ %4, %.critedge ], [ null, %90 ]
+.critedge569:                                     ; preds = %.critedge, %.critedge563, %90, %127
+  %.1525641 = phi ptr [ %89, %127 ], [ %4, %.critedge ], [ %4, %.critedge563 ], [ null, %90 ]
   call void @wolfSSL_CertManagerFree(ptr noundef %.1525641) #27
   br label %.critedge572
 
@@ -21874,8 +21874,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %198 = call i32 @fflush(ptr noundef %197)
   br label %.critedge579
 
-.critedge572:                                     ; preds = %159, %.critedge566, %.critedge569
-  %.2526.ph = phi ptr [ %.1525641, %.critedge569 ], [ %89, %.critedge566 ], [ null, %159 ]
+.critedge572:                                     ; preds = %159, %.critedge569, %.critedge566
+  %.2526.ph = phi ptr [ %89, %.critedge566 ], [ %.1525641, %.critedge569 ], [ null, %159 ]
   call void @wolfSSL_CertManagerFree(ptr noundef %.2526.ph) #27
   br label %.critedge579
 
@@ -21938,8 +21938,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %239 = call i32 @fflush(ptr noundef %238)
   br label %.critedge582
 
-.critedge579:                                     ; preds = %.critedge572, %174, %187, %202
-  %.3527653 = phi ptr [ %186, %202 ], [ %.2526.ph, %.critedge572 ], [ %158, %174 ], [ null, %187 ]
+.critedge579:                                     ; preds = %174, %.critedge572, %187, %202
+  %.3527653 = phi ptr [ %186, %202 ], [ %158, %174 ], [ %.2526.ph, %.critedge572 ], [ null, %187 ]
   call void @wolfSSL_CertManagerFree(ptr noundef %.3527653) #27
   br label %.critedge582
 
@@ -21983,7 +21983,7 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %267 = call i32 @fflush(ptr noundef %266)
   br label %.critedge589
 
-.critedge582:                                     ; preds = %228, %.critedge576, %.critedge579
+.critedge582:                                     ; preds = %228, %.critedge579, %.critedge576
   call void @wolfSSL_CertManagerFree(ptr noundef null) #27
   br label %.critedge589
 
@@ -22060,8 +22060,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   br label %.critedge589
 
 .critedge588.sink.split:                          ; preds = %279, %276, %273, %270, %268
-  %.sink716 = phi ptr [ %1, %268 ], [ %271, %270 ], [ %274, %273 ], [ %277, %276 ], [ %280, %279 ]
-  %.sink715 = phi i32 [ %269, %268 ], [ %272, %270 ], [ %275, %273 ], [ %278, %276 ], [ %281, %279 ]
+  %.sink716 = phi ptr [ %277, %276 ], [ %1, %268 ], [ %271, %270 ], [ %274, %273 ], [ %280, %279 ]
+  %.sink715 = phi i32 [ %278, %276 ], [ %269, %268 ], [ %272, %270 ], [ %275, %273 ], [ %281, %279 ]
   %305 = load ptr, ptr @stderr, align 8, !tbaa !22
   %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.1671, ptr noundef nonnull %.sink716) #28
   %307 = load ptr, ptr @stderr, align 8, !tbaa !22
@@ -22070,7 +22070,7 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %310 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef nonnull @.str.1672, i32 noundef %.sink715, ptr noundef %309) #28
   br label %.critedge588
 
-.critedge588:                                     ; preds = %.critedge588.sink.split, %282, %284, %286, %288, %290
+.critedge588:                                     ; preds = %.critedge588.sink.split, %288, %282, %284, %286, %290
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %311 = call i32 @wolfSSL_CertManagerUnloadCAs(ptr noundef nonnull %255) #27
   %312 = icmp eq i32 %311, 1
@@ -22111,8 +22111,8 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %336 = call i32 @fflush(ptr noundef %335)
   br label %.thread667
 
-.critedge589:                                     ; preds = %.critedge582, %243, %256, %293
-  %.5529661 = phi ptr [ %255, %293 ], [ null, %256 ], [ null, %243 ], [ null, %.critedge582 ]
+.critedge589:                                     ; preds = %243, %.critedge582, %256, %293
+  %.5529661 = phi ptr [ %255, %293 ], [ null, %256 ], [ null, %.critedge582 ], [ null, %243 ]
   call void @wolfSSL_CertManagerFree(ptr noundef %.5529661) #27
   br label %.thread667
 
@@ -22135,9 +22135,9 @@ define internal range(i32 0, 2) i32 @test_various_pathlen_chains() #0 {
   %351 = call i32 @fflush(ptr noundef %350)
   br label %.thread667
 
-.thread667:                                       ; preds = %.critedge589, %.critedge586, %325, %337, %340
-  %.6530669 = phi ptr [ %324, %340 ], [ %324, %337 ], [ null, %325 ], [ null, %.critedge586 ], [ null, %.critedge589 ]
-  %.28 = phi i32 [ 0, %340 ], [ 1, %337 ], [ 0, %325 ], [ 0, %.critedge586 ], [ 0, %.critedge589 ]
+.thread667:                                       ; preds = %.critedge586, %.critedge589, %325, %337, %340
+  %.6530669 = phi ptr [ %324, %337 ], [ %324, %340 ], [ null, %325 ], [ null, %.critedge589 ], [ null, %.critedge586 ]
+  %.28 = phi i32 [ 1, %337 ], [ 0, %340 ], [ 0, %325 ], [ 0, %.critedge589 ], [ 0, %.critedge586 ]
   call void @wolfSSL_CertManagerFree(ptr noundef %.6530669) #27
   ret i32 %.28
 }
@@ -22358,7 +22358,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_new() #0 {
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %21, %11, %2
-  %.172.ph = phi ptr [ %1, %2 ], [ null, %11 ], [ null, %21 ]
+  %.172.ph = phi ptr [ null, %11 ], [ null, %21 ], [ %1, %2 ]
   %29 = load ptr, ptr @stdout, align 8, !tbaa !22
   %30 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %29)
   %31 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -22481,8 +22481,8 @@ define internal range(i32 0, 2) i32 @test_server_wolfSSL_new() #0 {
   br label %.thread199.sink.split
 
 .thread199.sink.split:                            ; preds = %61, %51, %42, %23, %33, %13, %.thread
-  %.0170191196205.ph = phi ptr [ null, %.thread ], [ null, %13 ], [ %12, %42 ], [ %12, %23 ], [ %12, %33 ], [ %12, %51 ], [ %12, %61 ]
-  %.2168.ph = phi ptr [ null, %.thread ], [ null, %13 ], [ %41, %42 ], [ null, %23 ], [ null, %33 ], [ %50, %51 ], [ null, %61 ]
+  %.0170191196205.ph = phi ptr [ null, %.thread ], [ null, %13 ], [ %12, %23 ], [ %12, %42 ], [ %12, %33 ], [ %12, %51 ], [ %12, %61 ]
+  %.2168.ph = phi ptr [ null, %.thread ], [ null, %13 ], [ null, %23 ], [ %41, %42 ], [ null, %33 ], [ %50, %51 ], [ null, %61 ]
   %69 = load ptr, ptr @stdout, align 8, !tbaa !22
   %70 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %69)
   %71 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -22785,7 +22785,7 @@ define internal range(i32 0, 2) i32 @test_for_double_Free() #0 {
   br label %.critedge423
 
 .critedge418:                                     ; preds = %.critedge414, %30, %65, %51, %78
-  %.1374431 = phi ptr [ %29, %65 ], [ %29, %51 ], [ %29, %78 ], [ null, %30 ], [ null, %.critedge414 ]
+  %.1374431 = phi ptr [ %29, %51 ], [ %29, %65 ], [ %29, %78 ], [ null, %30 ], [ null, %.critedge414 ]
   tail call void @wolfSSL_CTX_free(ptr noundef %.1374431) #27
   tail call void @wolfSSL_free(ptr noundef null) #27
   br label %.critedge423
@@ -22889,7 +22889,7 @@ define internal range(i32 0, 2) i32 @test_for_double_Free() #0 {
   br label %.critedge426.thread
 
 .critedge423:                                     ; preds = %.critedge418, %92, %133, %106, %120, %146
-  %.2375435 = phi ptr [ %91, %133 ], [ %91, %106 ], [ %91, %120 ], [ %91, %146 ], [ null, %92 ], [ null, %.critedge418 ]
+  %.2375435 = phi ptr [ %91, %120 ], [ %91, %133 ], [ %91, %106 ], [ %91, %146 ], [ null, %92 ], [ null, %.critedge418 ]
   call void @wolfSSL_CTX_free(ptr noundef %.2375435) #27
   call void @wolfSSL_free(ptr noundef null) #27
   br label %.critedge426.thread
@@ -22995,7 +22995,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %7 = load ptr, ptr @stdout, align 8, !tbaa !22
   %8 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %7)
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1579)
-  br label %.critedge462
+  br label %.critedge461
 
 10:                                               ; preds = %0
   %11 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.987, i32 noundef 1) #27
@@ -23010,7 +23010,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %17 = load ptr, ptr @stdout, align 8, !tbaa !22
   %18 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %17)
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1698)
-  br label %.critedge462
+  br label %.critedge461
 
 20:                                               ; preds = %10
   %21 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.988, i32 noundef 1) #27
@@ -23025,7 +23025,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %27 = load ptr, ptr @stdout, align 8, !tbaa !22
   %28 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %27)
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1700)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge:                                        ; preds = %20
   %30 = tail call i64 @wolfSSL_CTX_set_options(ptr noundef nonnull %2, i64 noundef 8192) #27
@@ -23040,7 +23040,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %37 = load ptr, ptr @stdout, align 8, !tbaa !22
   %38 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %37)
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1721)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge454:                                     ; preds = %.critedge
   %40 = tail call i64 @wolfSSL_CTX_get_options(ptr noundef nonnull %2) #27
@@ -23055,7 +23055,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %47 = load ptr, ptr @stdout, align 8, !tbaa !22
   %48 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %47)
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1723)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge455:                                     ; preds = %.critedge454
   %50 = tail call i64 @wolfSSL_CTX_set_options(ptr noundef nonnull %2, i64 noundef 1077936128) #27
@@ -23071,7 +23071,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %57 = load ptr, ptr @stdout, align 8, !tbaa !22
   %58 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %57)
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1025, i32 noundef %51, i32 noundef 0)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge458:                                     ; preds = %.critedge455
   %60 = tail call i64 @wolfSSL_CTX_set_options(ptr noundef nonnull %2, i64 noundef 4194304) #27
@@ -23087,7 +23087,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %67 = load ptr, ptr @stdout, align 8, !tbaa !22
   %68 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %67)
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1726)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge457:                                     ; preds = %.critedge458
   %70 = tail call i64 @wolfSSL_CTX_set_options(ptr noundef nonnull %2, i64 noundef 134217728) #27
@@ -23103,7 +23103,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %77 = load ptr, ptr @stdout, align 8, !tbaa !22
   %78 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %77)
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1728)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge459:                                     ; preds = %.critedge457
   %80 = tail call i64 @wolfSSL_CTX_set_options(ptr noundef nonnull %2, i64 noundef 268435456) #27
@@ -23119,13 +23119,13 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %87 = load ptr, ptr @stdout, align 8, !tbaa !22
   %88 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %87)
   %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1730)
-  br label %.critedge462
+  br label %.critedge461
 
 .critedge460:                                     ; preds = %.critedge459
   %90 = tail call i64 @wolfSSL_CTX_clear_options(ptr noundef nonnull %2, i64 noundef 268435456) #27
   %91 = and i64 %90, 268435456
   %.not446 = icmp eq i64 %91, 0
-  br i1 %.not446, label %.critedge461, label %92
+  br i1 %.not446, label %.critedge462, label %92
 
 92:                                               ; preds = %.critedge460
   %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 60938)
@@ -23135,39 +23135,39 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %97 = load ptr, ptr @stdout, align 8, !tbaa !22
   %98 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %97)
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1733)
-  br label %.critedge462
+  br label %.critedge461
 
-.critedge461:                                     ; preds = %.critedge460
-  tail call void @wolfSSL_CTX_free(ptr noundef nonnull %2) #27
-  %100 = tail call ptr @wolfSSLv23_server_method() #27
-  %101 = tail call ptr @wolfSSL_CTX_new(ptr noundef %100) #27
-  %.not447 = icmp eq ptr %101, null
-  br i1 %.not447, label %102, label %118
-
-102:                                              ; preds = %.critedge461
-  %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 60944)
-  %104 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %105 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %104)
-  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.989, ptr noundef nonnull @.str.1578)
-  %107 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %107)
-  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1579)
-  %110 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %111 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %110)
-  %112 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %113 = tail call i32 @fflush(ptr noundef %112)
+.critedge461:                                     ; preds = %.thread, %.critedge456, %92, %72, %32, %12, %22, %42, %62, %82
+  %100 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %101 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %100)
+  %102 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %103 = tail call i32 @fflush(ptr noundef %102)
+  tail call void @wolfSSL_CTX_free(ptr noundef %2) #27
   br label %.critedge472
 
-.critedge462:                                     ; preds = %.thread, %.critedge456, %82, %62, %42, %22, %12, %32, %72, %92
+.critedge462:                                     ; preds = %.critedge460
+  tail call void @wolfSSL_CTX_free(ptr noundef nonnull %2) #27
+  %104 = tail call ptr @wolfSSLv23_server_method() #27
+  %105 = tail call ptr @wolfSSL_CTX_new(ptr noundef %104) #27
+  %.not447 = icmp eq ptr %105, null
+  br i1 %.not447, label %106, label %118
+
+106:                                              ; preds = %.critedge462
+  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 60944)
+  %108 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %109 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %108)
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.989, ptr noundef nonnull @.str.1578)
+  %111 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %112 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %111)
+  %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1579)
   %114 = load ptr, ptr @stdout, align 8, !tbaa !22
   %115 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %114)
   %116 = load ptr, ptr @stdout, align 8, !tbaa !22
   %117 = tail call i32 @fflush(ptr noundef %116)
-  tail call void @wolfSSL_CTX_free(ptr noundef %2) #27
   br label %.critedge472
 
-118:                                              ; preds = %.critedge461
-  %119 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %101, ptr noundef nonnull @.str.987, i32 noundef 1) #27
+118:                                              ; preds = %.critedge462
+  %119 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %105, ptr noundef nonnull @.str.987, i32 noundef 1) #27
   %.not448 = icmp eq i32 %119, 0
   br i1 %.not448, label %120, label %132
 
@@ -23186,7 +23186,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   br label %.critedge472
 
 132:                                              ; preds = %118
-  %133 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %101, ptr noundef nonnull @.str.988, i32 noundef 1) #27
+  %133 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %105, ptr noundef nonnull @.str.988, i32 noundef 1) #27
   %.not449 = icmp eq i32 %133, 0
   br i1 %.not449, label %134, label %.critedge464
 
@@ -23205,7 +23205,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   br label %.critedge472
 
 .critedge464:                                     ; preds = %132
-  %146 = tail call ptr @wolfSSL_new(ptr noundef nonnull %101) #27
+  %146 = tail call ptr @wolfSSL_new(ptr noundef nonnull %105) #27
   %.not450 = icmp eq ptr %146, null
   br i1 %.not450, label %147, label %.critedge465
 
@@ -23341,10 +23341,10 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_set_options() #0 {
   %243 = tail call i32 @fflush(ptr noundef %242)
   br label %.critedge472
 
-.critedge472:                                     ; preds = %.critedge462, %102, %134, %120, %147, %.critedge468, %232, %.critedge471, %204, %176, %161, %218
-  %.0431481 = phi ptr [ %146, %232 ], [ %146, %.critedge471 ], [ %146, %204 ], [ %146, %.critedge468 ], [ %146, %176 ], [ %146, %161 ], [ %146, %218 ], [ null, %147 ], [ null, %120 ], [ null, %134 ], [ null, %102 ], [ null, %.critedge462 ]
-  %.1433477480 = phi ptr [ %101, %232 ], [ %101, %.critedge471 ], [ %101, %204 ], [ %101, %.critedge468 ], [ %101, %176 ], [ %101, %161 ], [ %101, %218 ], [ %101, %147 ], [ %101, %120 ], [ %101, %134 ], [ null, %102 ], [ null, %.critedge462 ]
-  %.21 = phi i32 [ 0, %232 ], [ 1, %.critedge471 ], [ 0, %204 ], [ 0, %.critedge468 ], [ 0, %176 ], [ 0, %161 ], [ 0, %218 ], [ 0, %147 ], [ 0, %120 ], [ 0, %134 ], [ 0, %102 ], [ 0, %.critedge462 ]
+.critedge472:                                     ; preds = %.critedge461, %106, %134, %120, %147, %.critedge468, %232, %.critedge471, %204, %176, %161, %218
+  %.0431481 = phi ptr [ %146, %232 ], [ %146, %.critedge471 ], [ %146, %204 ], [ %146, %.critedge468 ], [ %146, %176 ], [ %146, %218 ], [ %146, %161 ], [ null, %147 ], [ null, %120 ], [ null, %134 ], [ null, %106 ], [ null, %.critedge461 ]
+  %.1433477480 = phi ptr [ %105, %232 ], [ %105, %.critedge471 ], [ %105, %204 ], [ %105, %.critedge468 ], [ %105, %176 ], [ %105, %218 ], [ %105, %161 ], [ %105, %147 ], [ %105, %120 ], [ %105, %134 ], [ null, %106 ], [ null, %.critedge461 ]
+  %.21 = phi i32 [ 0, %232 ], [ 1, %.critedge471 ], [ 0, %204 ], [ 0, %.critedge468 ], [ 0, %176 ], [ 0, %218 ], [ 0, %161 ], [ 0, %147 ], [ 0, %120 ], [ 0, %134 ], [ 0, %106 ], [ 0, %.critedge461 ]
   tail call void @wolfSSL_free(ptr noundef %.0431481) #27
   tail call void @wolfSSL_CTX_free(ptr noundef %.1433477480) #27
   ret i32 %.21
@@ -24471,7 +24471,7 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
   br label %.critedge2125
 
 .critedge2125:                                    ; preds = %.critedge2123, %.critedge2121, %.critedge2119, %.critedge2117, %.critedge2115, %.critedge2113, %.critedge2111, %.critedge2109, %.critedge2107, %.critedge2105, %.critedge2103, %.critedge2101, %.critedge2099, %.critedge2097, %.critedge2095, %.critedge2093, %.critedge2091, %.critedge2089, %.critedge2087, %.critedge2085, %.critedge2083, %.critedge2081, %.critedge2079, %.critedge2077, %.critedge2075, %.critedge2073, %.critedge2071, %.critedge2069, %.critedge2067, %.critedge2065, %.critedge2063, %.critedge2061, %.critedge2059, %.critedge2057, %.critedge2055, %.critedge2053, %.critedge2051, %.critedge2049, %.critedge2047, %.critedge2045, %.critedge2043, %.critedge2041, %.critedge2039, %.critedge2037, %.critedge2035, %.critedge2033, %.critedge2031, %.critedge2029, %.critedge2027, %.critedge2024, %87, %84, %.critedge2126, %751
-  %.110 = phi i32 [ 0, %.critedge2123 ], [ 0, %751 ], [ 1, %.critedge2126 ], [ 0, %.critedge2119 ], [ 0, %.critedge2115 ], [ 0, %.critedge2111 ], [ 0, %.critedge2107 ], [ 0, %.critedge2103 ], [ 0, %.critedge2099 ], [ 0, %.critedge2095 ], [ 0, %.critedge2091 ], [ 0, %.critedge2087 ], [ 0, %.critedge2083 ], [ 0, %.critedge2079 ], [ 0, %.critedge2075 ], [ 0, %.critedge2071 ], [ 0, %.critedge2067 ], [ 0, %.critedge2063 ], [ 0, %.critedge2059 ], [ 0, %.critedge2055 ], [ 0, %.critedge2051 ], [ 0, %.critedge2047 ], [ 0, %.critedge2043 ], [ 0, %.critedge2039 ], [ 0, %.critedge2035 ], [ 0, %.critedge2031 ], [ 0, %.critedge2027 ], [ 0, %87 ], [ 0, %84 ], [ 0, %.critedge2024 ], [ 0, %.critedge2029 ], [ 0, %.critedge2033 ], [ 0, %.critedge2037 ], [ 0, %.critedge2041 ], [ 0, %.critedge2045 ], [ 0, %.critedge2049 ], [ 0, %.critedge2053 ], [ 0, %.critedge2057 ], [ 0, %.critedge2061 ], [ 0, %.critedge2065 ], [ 0, %.critedge2069 ], [ 0, %.critedge2073 ], [ 0, %.critedge2077 ], [ 0, %.critedge2081 ], [ 0, %.critedge2085 ], [ 0, %.critedge2089 ], [ 0, %.critedge2093 ], [ 0, %.critedge2097 ], [ 0, %.critedge2101 ], [ 0, %.critedge2105 ], [ 0, %.critedge2109 ], [ 0, %.critedge2113 ], [ 0, %.critedge2117 ], [ 0, %.critedge2121 ]
+  %.110 = phi i32 [ 1, %.critedge2126 ], [ 0, %.critedge2123 ], [ 0, %751 ], [ 0, %.critedge2119 ], [ 0, %.critedge2115 ], [ 0, %.critedge2111 ], [ 0, %.critedge2107 ], [ 0, %.critedge2103 ], [ 0, %.critedge2099 ], [ 0, %.critedge2095 ], [ 0, %.critedge2091 ], [ 0, %.critedge2087 ], [ 0, %.critedge2083 ], [ 0, %.critedge2079 ], [ 0, %.critedge2075 ], [ 0, %.critedge2071 ], [ 0, %.critedge2067 ], [ 0, %.critedge2063 ], [ 0, %.critedge2059 ], [ 0, %.critedge2055 ], [ 0, %.critedge2051 ], [ 0, %.critedge2047 ], [ 0, %.critedge2043 ], [ 0, %.critedge2039 ], [ 0, %.critedge2035 ], [ 0, %.critedge2031 ], [ 0, %.critedge2027 ], [ 0, %87 ], [ 0, %84 ], [ 0, %.critedge2024 ], [ 0, %.critedge2029 ], [ 0, %.critedge2033 ], [ 0, %.critedge2037 ], [ 0, %.critedge2041 ], [ 0, %.critedge2045 ], [ 0, %.critedge2049 ], [ 0, %.critedge2053 ], [ 0, %.critedge2057 ], [ 0, %.critedge2061 ], [ 0, %.critedge2065 ], [ 0, %.critedge2069 ], [ 0, %.critedge2073 ], [ 0, %.critedge2077 ], [ 0, %.critedge2081 ], [ 0, %.critedge2085 ], [ 0, %.critedge2089 ], [ 0, %.critedge2093 ], [ 0, %.critedge2097 ], [ 0, %.critedge2101 ], [ 0, %.critedge2105 ], [ 0, %.critedge2109 ], [ 0, %.critedge2113 ], [ 0, %.critedge2117 ], [ 0, %.critedge2121 ]
   call void @wolfSSL_free(ptr noundef %19) #27
   call void @wolfSSL_CTX_free(ptr noundef %16) #27
   call void @wolfSSL_free(ptr noundef %14) #27
@@ -25020,8 +25020,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_PKCS8() #0 {
   br label %.critedge507
 
 .critedge507:                                     ; preds = %.thread, %20, %36, %54, %67, %82, %100, %113, %128, %146, %.critedge509, %160
-  %.3469 = phi i32 [ %126, %146 ], [ %158, %160 ], [ %158, %.critedge509 ], [ %126, %128 ], [ %80, %113 ], [ %80, %100 ], [ %80, %82 ], [ %34, %67 ], [ %34, %54 ], [ %34, %36 ], [ 0, %20 ], [ 0, %.thread ]
-  %.17 = phi i1 [ false, %146 ], [ false, %160 ], [ true, %.critedge509 ], [ false, %128 ], [ false, %113 ], [ false, %100 ], [ false, %82 ], [ false, %67 ], [ false, %54 ], [ false, %36 ], [ false, %20 ], [ false, %.thread ]
+  %.3469 = phi i32 [ %158, %.critedge509 ], [ %126, %146 ], [ %158, %160 ], [ %126, %128 ], [ %80, %113 ], [ %80, %100 ], [ %80, %82 ], [ %34, %67 ], [ %34, %54 ], [ %34, %36 ], [ 0, %20 ], [ 0, %.thread ]
+  %.17 = phi i1 [ true, %.critedge509 ], [ false, %146 ], [ false, %160 ], [ false, %128 ], [ false, %113 ], [ false, %100 ], [ false, %82 ], [ false, %67 ], [ false, %54 ], [ false, %36 ], [ false, %20 ], [ false, %.thread ]
   %172 = call i32 @wc_ecc_init(ptr noundef nonnull %3) #27
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %177
@@ -25336,7 +25336,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_certificate_file() #0 
 14:                                               ; preds = %7
   %15 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.1847, i32 noundef 1) #27
   %.not102 = icmp eq i32 %15, 0
-  br i1 %.not102, label %.critedge, label %16
+  br i1 %.not102, label %.critedge105, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 1938)
@@ -25345,32 +25345,32 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_certificate_file() #0 
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1731, ptr noundef nonnull @.str.1843)
   br label %.critedge106.sink.split
 
-.critedge:                                        ; preds = %14
+.critedge105:                                     ; preds = %14
   %21 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.987, i32 noundef 9999) #27
   %.not103 = icmp eq i32 %21, 0
-  br i1 %.not103, label %.critedge105, label %22
+  br i1 %.not103, label %.critedge, label %22
 
-22:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge105
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 1940)
   %24 = load ptr, ptr @stdout, align 8, !tbaa !22
   %25 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %24)
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1731, ptr noundef nonnull @.str.1845)
   br label %.critedge106.sink.split
 
-.critedge105:                                     ; preds = %.critedge
+.critedge:                                        ; preds = %.critedge105
   %27 = tail call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.987, i32 noundef 1) #27
   %.not104 = icmp eq i32 %27, 0
   br i1 %.not104, label %28, label %.critedge106
 
-28:                                               ; preds = %.critedge105
+28:                                               ; preds = %.critedge
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 1949)
   %30 = load ptr, ptr @stdout, align 8, !tbaa !22
   %31 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %30)
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1267, ptr noundef nonnull @.str.1697)
   br label %.critedge106.sink.split
 
-.critedge106.sink.split:                          ; preds = %22, %9, %16, %28, %.thread
-  %.str.1579.sink = phi ptr [ @.str.1579, %.thread ], [ @.str.1698, %28 ], [ @.str.1844, %16 ], [ @.str.1842, %9 ], [ @.str.1846, %22 ]
+.critedge106.sink.split:                          ; preds = %22, %16, %9, %28, %.thread
+  %.str.1579.sink = phi ptr [ @.str.1579, %.thread ], [ @.str.1698, %28 ], [ @.str.1842, %9 ], [ @.str.1844, %16 ], [ @.str.1846, %22 ]
   %33 = load ptr, ptr @stdout, align 8, !tbaa !22
   %34 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %33)
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.1579.sink)
@@ -25380,8 +25380,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_certificate_file() #0 
   %39 = tail call i32 @fflush(ptr noundef %38)
   br label %.critedge106
 
-.critedge106:                                     ; preds = %.critedge106.sink.split, %.critedge105
-  %.4 = phi i32 [ 1, %.critedge105 ], [ 0, %.critedge106.sink.split ]
+.critedge106:                                     ; preds = %.critedge106.sink.split, %.critedge
+  %.4 = phi i32 [ 1, %.critedge ], [ 0, %.critedge106.sink.split ]
   tail call void @wolfSSL_CTX_free(ptr noundef %2) #27
   ret i32 %.4
 }
@@ -25599,7 +25599,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_use_certificate_buffer() #0 {
   br label %.critedge230.sink.split
 
 .critedge230.sink.split:                          ; preds = %60, %23, %.critedge, %.critedge226, %.critedge228, %12, %.thread
-  %.0214238.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ %11, %.critedge226 ], [ %11, %23 ], [ %11, %.critedge ], [ %11, %60 ], [ %11, %.critedge228 ]
+  %.0214238.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ %11, %23 ], [ %11, %.critedge226 ], [ %11, %.critedge ], [ %11, %60 ], [ %11, %.critedge228 ]
   %68 = load ptr, ptr @stdout, align 8, !tbaa !22
   %69 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %68)
   %70 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -25643,7 +25643,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_PrivateKey_file() #0 {
 14:                                               ; preds = %7
   %15 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.1847, i32 noundef 1) #27
   %.not102 = icmp eq i32 %15, 0
-  br i1 %.not102, label %.critedge, label %16
+  br i1 %.not102, label %.critedge105, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 2066)
@@ -25652,32 +25652,32 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_PrivateKey_file() #0 {
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1731, ptr noundef nonnull @.str.1860)
   br label %.critedge106.sink.split
 
-.critedge:                                        ; preds = %14
+.critedge105:                                     ; preds = %14
   %21 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.988, i32 noundef 9999) #27
   %.not103 = icmp eq i32 %21, 0
-  br i1 %.not103, label %.critedge105, label %22
+  br i1 %.not103, label %.critedge, label %22
 
-22:                                               ; preds = %.critedge
+22:                                               ; preds = %.critedge105
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 2068)
   %24 = load ptr, ptr @stdout, align 8, !tbaa !22
   %25 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %24)
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1731, ptr noundef nonnull @.str.1862)
   br label %.critedge106.sink.split
 
-.critedge105:                                     ; preds = %.critedge
+.critedge:                                        ; preds = %.critedge105
   %27 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef nonnull %2, ptr noundef nonnull @.str.988, i32 noundef 1) #27
   %.not104 = icmp eq i32 %27, 0
   br i1 %.not104, label %28, label %.critedge106
 
-28:                                               ; preds = %.critedge105
+28:                                               ; preds = %.critedge
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 2078)
   %30 = load ptr, ptr @stdout, align 8, !tbaa !22
   %31 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %30)
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1267, ptr noundef nonnull @.str.1699)
   br label %.critedge106.sink.split
 
-.critedge106.sink.split:                          ; preds = %22, %9, %16, %28, %.thread
-  %.str.1579.sink = phi ptr [ @.str.1579, %.thread ], [ @.str.1700, %28 ], [ @.str.1861, %16 ], [ @.str.1859, %9 ], [ @.str.1863, %22 ]
+.critedge106.sink.split:                          ; preds = %22, %16, %9, %28, %.thread
+  %.str.1579.sink = phi ptr [ @.str.1579, %.thread ], [ @.str.1700, %28 ], [ @.str.1859, %9 ], [ @.str.1861, %16 ], [ @.str.1863, %22 ]
   %33 = load ptr, ptr @stdout, align 8, !tbaa !22
   %34 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %33)
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.1579.sink)
@@ -25687,8 +25687,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_PrivateKey_file() #0 {
   %39 = tail call i32 @fflush(ptr noundef %38)
   br label %.critedge106
 
-.critedge106:                                     ; preds = %.critedge106.sink.split, %.critedge105
-  %.4 = phi i32 [ 1, %.critedge105 ], [ 0, %.critedge106.sink.split ]
+.critedge106:                                     ; preds = %.critedge106.sink.split, %.critedge
+  %.4 = phi i32 [ 1, %.critedge ], [ 0, %.critedge106.sink.split ]
   tail call void @wolfSSL_CTX_free(ptr noundef %2) #27
   ret i32 %.4
 }
@@ -25985,7 +25985,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_load_system_CA_certs() #0 
   br label %26
 
 26:                                               ; preds = %.thread29, %.thread25, %.thread, %23, %21
-  %27 = phi i32 [ 0, %23 ], [ 1, %21 ], [ 0, %.thread ], [ 0, %.thread25 ], [ 1, %.thread29 ]
+  %27 = phi i32 [ 0, %23 ], [ 1, %21 ], [ 1, %.thread29 ], [ 0, %.thread ], [ 0, %.thread25 ]
   call void @wolfSSL_CTX_free(ptr noundef %4) #27
   ret i32 %27
 }
@@ -26076,7 +26076,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CertRsaPss() #0 {
   %55 = tail call i32 @fclose(ptr noundef nonnull %31)
   br label %.critedge303
 
-.thread326:                                       ; preds = %32, %.critedge, %14, %.thread
+.thread326:                                       ; preds = %32, %.critedge, %.thread, %14
   %56 = load ptr, ptr @stdout, align 8, !tbaa !22
   %57 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %56)
   %58 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -26153,8 +26153,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CertRsaPss() #0 {
   call void @wc_InitDecodedCert(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %90, ptr noundef null) #27
   br label %120
 
-.thread356:                                       ; preds = %76, %63, %.critedge303
-  %.1281352.ph = phi i32 [ %41, %76 ], [ %41, %63 ], [ %.sink, %.critedge303 ]
+.thread356:                                       ; preds = %76, %.critedge303, %63
+  %.1281352.ph = phi i32 [ %41, %76 ], [ %.sink, %.critedge303 ], [ %41, %63 ]
   call void @wc_InitDecodedCert(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %.1281352.ph, ptr noundef null) #27
   br label %120
 
@@ -26432,7 +26432,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_load_verify_buffer_ex() #0
   br label %113
 
 113:                                              ; preds = %.critedge257, %.critedge260, %100, %.critedge259
-  %.12 = phi i32 [ 0, %.critedge257 ], [ 0, %.critedge259 ], [ 0, %100 ], [ 1, %.critedge260 ]
+  %.12 = phi i32 [ 0, %.critedge259 ], [ 0, %.critedge257 ], [ 0, %100 ], [ 1, %.critedge260 ]
   call void @wolfSSL_CTX_free(ptr noundef %3) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.12
@@ -26731,8 +26731,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_CTX_use_certificate_chain_buff
   br label %.critedge651.sink.split
 
 .critedge651.sink.split:                          ; preds = %166, %36, %.critedge624, %.critedge627, %.critedge629, %.critedge631, %.critedge633, %.critedge635, %.critedge637, %.critedge639, %.critedge641, %.critedge643, %.critedge645, %.critedge647, %.critedge649, %25, %15, %5
-  %.0595660.ph = phi ptr [ null, %5 ], [ null, %15 ], [ null, %25 ], [ %24, %.critedge647 ], [ %24, %.critedge643 ], [ %24, %.critedge639 ], [ %24, %.critedge635 ], [ %24, %.critedge631 ], [ %24, %.critedge627 ], [ %24, %36 ], [ %24, %.critedge624 ], [ %24, %.critedge629 ], [ %24, %.critedge633 ], [ %24, %.critedge637 ], [ %24, %.critedge641 ], [ %24, %.critedge645 ], [ %24, %166 ], [ %24, %.critedge649 ]
-  %.0594654659.ph = phi ptr [ null, %5 ], [ null, %15 ], [ %14, %25 ], [ %14, %.critedge647 ], [ %14, %.critedge643 ], [ %14, %.critedge639 ], [ %14, %.critedge635 ], [ %14, %.critedge631 ], [ %14, %.critedge627 ], [ %14, %36 ], [ %14, %.critedge624 ], [ %14, %.critedge629 ], [ %14, %.critedge633 ], [ %14, %.critedge637 ], [ %14, %.critedge641 ], [ %14, %.critedge645 ], [ %14, %166 ], [ %14, %.critedge649 ]
+  %.0595660.ph = phi ptr [ null, %5 ], [ null, %15 ], [ null, %25 ], [ %24, %.critedge643 ], [ %24, %.critedge639 ], [ %24, %.critedge635 ], [ %24, %.critedge631 ], [ %24, %.critedge627 ], [ %24, %36 ], [ %24, %.critedge647 ], [ %24, %.critedge624 ], [ %24, %.critedge629 ], [ %24, %.critedge633 ], [ %24, %.critedge637 ], [ %24, %.critedge641 ], [ %24, %.critedge645 ], [ %24, %166 ], [ %24, %.critedge649 ]
+  %.0594654659.ph = phi ptr [ null, %5 ], [ null, %15 ], [ %14, %25 ], [ %14, %.critedge643 ], [ %14, %.critedge639 ], [ %14, %.critedge635 ], [ %14, %.critedge631 ], [ %14, %.critedge627 ], [ %14, %36 ], [ %14, %.critedge647 ], [ %14, %.critedge624 ], [ %14, %.critedge629 ], [ %14, %.critedge633 ], [ %14, %.critedge637 ], [ %14, %.critedge641 ], [ %14, %.critedge645 ], [ %14, %166 ], [ %14, %.critedge649 ]
   %174 = load ptr, ptr @stdout, align 8, !tbaa !22
   %175 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %174)
   %176 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -27002,7 +27002,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_use_certificate_chain_file() #
   br label %.critedge424.sink.split
 
 .critedge424.sink.split:                          ; preds = %105, %23, %.critedge, %.critedge410, %.critedge412, %.critedge414, %.critedge416, %.critedge418, %.critedge420, %.critedge422, %12, %.thread
-  %.0393432.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ %11, %.critedge420 ], [ %11, %.critedge416 ], [ %11, %.critedge412 ], [ %11, %.critedge ], [ %11, %23 ], [ %11, %.critedge410 ], [ %11, %.critedge414 ], [ %11, %.critedge418 ], [ %11, %105 ], [ %11, %.critedge422 ]
+  %.0393432.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ %11, %.critedge416 ], [ %11, %.critedge412 ], [ %11, %.critedge ], [ %11, %.critedge420 ], [ %11, %23 ], [ %11, %.critedge410 ], [ %11, %.critedge414 ], [ %11, %.critedge418 ], [ %11, %105 ], [ %11, %.critedge422 ]
   %113 = load ptr, ptr @stdout, align 8, !tbaa !22
   %114 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %113)
   %115 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -27601,8 +27601,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SetTmpDH_file() #0 {
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 1, i32 noundef %73)
   br label %.critedge280.sink.split
 
-.critedge280.sink.split:                          ; preds = %75, %40, %.critedge273, %.critedge276, %.critedge278, %31, %12, %22, %.thread
-  %.0256287.ph = phi ptr [ null, %.thread ], [ null, %22 ], [ null, %12 ], [ null, %31 ], [ %30, %.critedge276 ], [ %30, %40 ], [ %30, %.critedge273 ], [ %30, %75 ], [ %30, %.critedge278 ]
+.critedge280.sink.split:                          ; preds = %75, %40, %.critedge273, %.critedge276, %.critedge278, %31, %12, %.thread, %22
+  %.0256287.ph = phi ptr [ null, %22 ], [ null, %.thread ], [ null, %12 ], [ null, %31 ], [ %30, %40 ], [ %30, %.critedge276 ], [ %30, %.critedge273 ], [ %30, %75 ], [ %30, %.critedge278 ]
   %83 = load ptr, ptr @stdout, align 8, !tbaa !22
   %84 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %83)
   %85 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -27754,8 +27754,8 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SetTmpDH_buffer() #0 {
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 1, i32 noundef %72)
   br label %.critedge279.sink.split
 
-.critedge279.sink.split:                          ; preds = %74, %40, %.critedge272, %.critedge275, %.critedge277, %31, %12, %22, %.thread
-  %.0254286.ph = phi ptr [ null, %.thread ], [ null, %22 ], [ null, %12 ], [ null, %31 ], [ %30, %.critedge275 ], [ %30, %40 ], [ %30, %.critedge272 ], [ %30, %74 ], [ %30, %.critedge277 ]
+.critedge279.sink.split:                          ; preds = %74, %40, %.critedge272, %.critedge275, %.critedge277, %31, %12, %.thread, %22
+  %.0254286.ph = phi ptr [ null, %22 ], [ null, %.thread ], [ null, %12 ], [ null, %31 ], [ %30, %40 ], [ %30, %.critedge275 ], [ %30, %.critedge272 ], [ %30, %74 ], [ %30, %.critedge277 ]
   %82 = load ptr, ptr @stdout, align 8, !tbaa !22
   %83 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %82)
   %84 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -28073,10 +28073,10 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SetMinMaxDhKey_Sz() #0 {
   %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef -401, i32 noundef %178)
   br label %.critedge637.sink.split
 
-.critedge637.sink.split:                          ; preds = %180, %98, %.critedge620, %.critedge623, %.critedge625, %.critedge627, %.critedge629, %.critedge631, %.critedge633, %.critedge635, %88, %.critedge616, %70, %60, %50, %40, %.critedge611, %22, %12, %.thread
-  %.0584659.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %.critedge616 ], [ null, %88 ], [ %87, %.critedge633 ], [ %87, %.critedge629 ], [ %87, %.critedge625 ], [ %87, %.critedge620 ], [ %87, %98 ], [ %87, %.critedge623 ], [ %87, %.critedge627 ], [ %87, %.critedge631 ], [ %87, %180 ], [ %87, %.critedge635 ]
-  %.0583644649658.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ %39, %50 ], [ %39, %60 ], [ %39, %70 ], [ %39, %.critedge616 ], [ %39, %88 ], [ %39, %.critedge633 ], [ %39, %.critedge629 ], [ %39, %.critedge625 ], [ %39, %.critedge620 ], [ %39, %98 ], [ %39, %.critedge623 ], [ %39, %.critedge627 ], [ %39, %.critedge631 ], [ %39, %180 ], [ %39, %.critedge635 ]
-  %.0582651656.ph = phi ptr [ null, %.thread ], [ null, %12 ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ null, %50 ], [ %49, %60 ], [ %49, %70 ], [ %49, %.critedge616 ], [ %49, %88 ], [ %49, %.critedge633 ], [ %49, %.critedge629 ], [ %49, %.critedge625 ], [ %49, %.critedge620 ], [ %49, %98 ], [ %49, %.critedge623 ], [ %49, %.critedge627 ], [ %49, %.critedge631 ], [ %49, %180 ], [ %49, %.critedge635 ]
+.critedge637.sink.split:                          ; preds = %180, %98, %.critedge620, %.critedge623, %.critedge625, %.critedge627, %.critedge629, %.critedge631, %.critedge633, %.critedge635, %88, %.critedge616, %70, %60, %50, %40, %.critedge611, %22, %.thread, %12
+  %.0584659.ph = phi ptr [ null, %12 ], [ null, %.thread ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %.critedge616 ], [ null, %88 ], [ %87, %.critedge629 ], [ %87, %.critedge625 ], [ %87, %.critedge620 ], [ %87, %.critedge633 ], [ %87, %98 ], [ %87, %.critedge623 ], [ %87, %.critedge627 ], [ %87, %.critedge631 ], [ %87, %180 ], [ %87, %.critedge635 ]
+  %.0583644649658.ph = phi ptr [ null, %12 ], [ null, %.thread ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ %39, %50 ], [ %39, %60 ], [ %39, %70 ], [ %39, %.critedge616 ], [ %39, %88 ], [ %39, %.critedge629 ], [ %39, %.critedge625 ], [ %39, %.critedge620 ], [ %39, %.critedge633 ], [ %39, %98 ], [ %39, %.critedge623 ], [ %39, %.critedge627 ], [ %39, %.critedge631 ], [ %39, %180 ], [ %39, %.critedge635 ]
+  %.0582651656.ph = phi ptr [ null, %12 ], [ null, %.thread ], [ null, %22 ], [ null, %.critedge611 ], [ null, %40 ], [ null, %50 ], [ %49, %60 ], [ %49, %70 ], [ %49, %.critedge616 ], [ %49, %88 ], [ %49, %.critedge629 ], [ %49, %.critedge625 ], [ %49, %.critedge620 ], [ %49, %.critedge633 ], [ %49, %98 ], [ %49, %.critedge623 ], [ %49, %.critedge627 ], [ %49, %.critedge631 ], [ %49, %180 ], [ %49, %.critedge635 ]
   %188 = load ptr, ptr @stdout, align 8, !tbaa !22
   %189 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %188)
   %190 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -29266,13 +29266,13 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SNI_GetFromBuffer() #0 {
   %182 = call i32 @fflush(ptr noundef %181)
   br label %183
 
-.critedge582:                                     ; preds = %140, %.critedge579.thread
-  %.ph = phi ptr [ %135, %.critedge579.thread ], [ %137, %140 ]
+.critedge582:                                     ; preds = %.critedge579.thread, %140
+  %.ph = phi ptr [ %137, %140 ], [ %135, %.critedge579.thread ]
   store i8 1, ptr %.ph, align 2, !tbaa !39
   br label %183
 
 183:                                              ; preds = %156, %.critedge584, %171, %.critedge582
-  %.29 = phi i32 [ 0, %156 ], [ 0, %.critedge582 ], [ 0, %171 ], [ 1, %.critedge584 ]
+  %.29 = phi i32 [ 0, %.critedge582 ], [ 0, %156 ], [ 0, %171 ], [ 1, %.critedge584 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -29688,7 +29688,7 @@ define internal range(i32 0, 2) i32 @test_tls_ext_duplicate() #0 {
   br label %79
 
 79:                                               ; preds = %61, %.thread170, %64, %67
-  %.6 = phi i32 [ 0, %67 ], [ 1, %64 ], [ 1, %.thread170 ], [ 0, %61 ]
+  %.6 = phi i32 [ 0, %61 ], [ 1, %.thread170 ], [ 0, %67 ], [ 1, %64 ]
   call void @wolfSSL_free(ptr noundef %31) #27
   call void @wolfSSL_CTX_free(ptr noundef %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -29991,7 +29991,7 @@ define internal range(i32 0, 2) i32 @test_wrong_cs_downgrade() #0 {
   br label %.critedge220
 
 .critedge220:                                     ; preds = %54, %.critedge215, %.critedge217, %.critedge222, %75
-  %.11 = phi i32 [ 0, %54 ], [ 0, %75 ], [ 1, %.critedge222 ], [ 0, %.critedge217 ], [ 0, %.critedge215 ]
+  %.11 = phi i32 [ 1, %.critedge222 ], [ 0, %54 ], [ 0, %75 ], [ 0, %.critedge215 ], [ 0, %.critedge217 ]
   %87 = load ptr, ptr %3, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %87) #27
   %88 = load ptr, ptr %2, align 8, !tbaa !144
@@ -30210,7 +30210,7 @@ define internal range(i32 0, 2) i32 @test_tls_alert_no_server_hello() #0 {
   br label %.critedge106
 
 .critedge106:                                     ; preds = %23, %6, %.critedge108, %38
-  %.5 = phi i32 [ 0, %23 ], [ 0, %38 ], [ 1, %.critedge108 ], [ 0, %6 ]
+  %.5 = phi i32 [ 1, %.critedge108 ], [ 0, %23 ], [ 0, %38 ], [ 0, %6 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %50) #27
   %51 = load ptr, ptr %2, align 8, !tbaa !144
@@ -30457,7 +30457,7 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   br label %.critedge602
 
 .critedge602:                                     ; preds = %.critedge600, %.critedge598, %.critedge596, %.critedge593, %42, %25, %.critedge589, %.critedge603, %113
-  %.15 = phi i32 [ 0, %.critedge600 ], [ 0, %113 ], [ 1, %.critedge603 ], [ 0, %.critedge596 ], [ 0, %42 ], [ 0, %.critedge589 ], [ 0, %25 ], [ 0, %.critedge593 ], [ 0, %.critedge598 ]
+  %.15 = phi i32 [ 1, %.critedge603 ], [ 0, %.critedge600 ], [ 0, %113 ], [ 0, %.critedge596 ], [ 0, %42 ], [ 0, %25 ], [ 0, %.critedge589 ], [ 0, %.critedge593 ], [ 0, %.critedge598 ]
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 65536
   %126 = load i32, ptr %125, align 8, !tbaa !158
   %127 = icmp sgt i32 %126, 0
@@ -30623,8 +30623,8 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge165, %.critedge602, %.critedge.loopexit, %165
-  %.6569 = phi i32 [ %178, %165 ], [ %221, %.critedge.loopexit ], [ 0, %.critedge602 ], [ %218, %.critedge165 ]
-  %.28 = phi i32 [ %.22, %165 ], [ %.26659, %.critedge.loopexit ], [ %.15, %.critedge602 ], [ %.22, %.critedge165 ]
+  %.6569 = phi i32 [ %221, %.critedge.loopexit ], [ %178, %165 ], [ 0, %.critedge602 ], [ %218, %.critedge165 ]
+  %.28 = phi i32 [ %.26659, %.critedge.loopexit ], [ %.22, %165 ], [ %.15, %.critedge602 ], [ %.22, %.critedge165 ]
   %222 = icmp eq i32 %.28, 1
   br i1 %222, label %223, label %.critedge607
 
@@ -31023,9 +31023,9 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br i1 %32, label %.thread.thread, label %.thread987
 
 .thread.thread:                                   ; preds = %29, %.thread
-  %34 = phi i1 [ %33, %.thread ], [ false, %29 ]
-  %.2983 = phi i32 [ %.0849.fr1645, %.thread ], [ %spec.select, %29 ]
-  %.2851982 = phi i32 [ %spec.select1564, %.thread ], [ %spec.select1563, %29 ]
+  %34 = phi i1 [ false, %29 ], [ %33, %.thread ]
+  %.2983 = phi i32 [ %spec.select, %29 ], [ %.0849.fr1645, %.thread ]
+  %.2851982 = phi i32 [ %spec.select1563, %29 ], [ %spec.select1564, %.thread ]
   %35 = load ptr, ptr %3, align 8, !tbaa !145
   %36 = call i32 @wolfSSL_set_group_messages(ptr noundef %35) #27
   %37 = icmp eq i32 %36, 1
@@ -31063,8 +31063,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread987
 
 .thread987:                                       ; preds = %9, %53, %51, %39, %.thread.thread1318, %.thread
-  %.4853 = phi i32 [ %spec.select1564, %.thread ], [ %.0849.fr1645, %.thread.thread1318 ], [ %.2851982, %39 ], [ %spec.select1565, %51 ], [ %spec.select1567, %53 ], [ %.0849.fr1645, %9 ]
-  %.4 = phi i32 [ %.0849.fr1645, %.thread ], [ 0, %.thread.thread1318 ], [ 0, %39 ], [ %spec.select1566, %51 ], [ %.2851982, %53 ], [ %.0.fr1644, %9 ]
+  %.4853 = phi i32 [ %spec.select1564, %.thread ], [ %.0849.fr1645, %.thread.thread1318 ], [ %spec.select1565, %51 ], [ %.2851982, %39 ], [ %spec.select1567, %53 ], [ %.0849.fr1645, %9 ]
+  %.4 = phi i32 [ %.0849.fr1645, %.thread ], [ 0, %.thread.thread1318 ], [ %spec.select1566, %51 ], [ 0, %39 ], [ %.2851982, %53 ], [ %.0.fr1644, %9 ]
   %.4853.fr = freeze i32 %.4853
   %55 = icmp eq i32 %.4, 4
   %56 = add i32 %.4, -1
@@ -31152,8 +31152,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread998
 
 .thread998:                                       ; preds = %98, %77, %79, %58
-  %.7856 = phi i32 [ %.4853.fr, %58 ], [ %.4853.fr, %79 ], [ %spec.select1570, %77 ], [ %spec.select1573, %98 ]
-  %.7 = phi i32 [ %.4, %58 ], [ %.4, %79 ], [ %.4853.fr, %77 ], [ %.4853.fr, %98 ]
+  %.7856 = phi i32 [ %.4853.fr, %79 ], [ %.4853.fr, %58 ], [ %spec.select1570, %77 ], [ %spec.select1573, %98 ]
+  %.7 = phi i32 [ %.4, %79 ], [ %.4, %58 ], [ %.4853.fr, %77 ], [ %.4853.fr, %98 ]
   %100 = icmp eq i32 %.7, 4
   %101 = add i32 %.7, -1
   %102 = icmp ult i32 %101, 4
@@ -31290,8 +31290,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1037
 
 .thread1037:                                      ; preds = %167, %146, %148, %127
-  %.12861 = phi i32 [ %.9858, %127 ], [ %.9858, %148 ], [ %spec.select1579, %146 ], [ %spec.select1582, %167 ]
-  %.12 = phi i32 [ %.9, %127 ], [ %.9, %148 ], [ %.9858, %146 ], [ %.9858, %167 ]
+  %.12861 = phi i32 [ %.9858, %148 ], [ %.9858, %127 ], [ %spec.select1579, %146 ], [ %spec.select1582, %167 ]
+  %.12 = phi i32 [ %.9, %148 ], [ %.9, %127 ], [ %.9858, %146 ], [ %.9858, %167 ]
   %169 = icmp eq i32 %.12, 4
   %170 = add i32 %.12, -1
   %171 = icmp ult i32 %170, 4
@@ -31428,8 +31428,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1076
 
 .thread1076:                                      ; preds = %238, %216, %218, %196
-  %.17866 = phi i32 [ %.14863.fr, %196 ], [ %.14863.fr, %218 ], [ %spec.select1588, %216 ], [ %spec.select1591, %238 ]
-  %.17 = phi i32 [ %.14, %196 ], [ %.14, %218 ], [ %.14863.fr, %216 ], [ %.14863.fr, %238 ]
+  %.17866 = phi i32 [ %.14863.fr, %218 ], [ %.14863.fr, %196 ], [ %spec.select1588, %216 ], [ %spec.select1591, %238 ]
+  %.17 = phi i32 [ %.14, %218 ], [ %.14, %196 ], [ %.14863.fr, %216 ], [ %.14863.fr, %238 ]
   %240 = icmp eq i32 %.17, 4
   %241 = add i32 %.17, -1
   %242 = icmp ult i32 %241, 4
@@ -31478,8 +31478,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1104
 
 .thread1104:                                      ; preds = %262, %260, %.thread1499, %.thread1496, %.thread1415, %.thread1412, %224, %202, %248, %.thread1076
-  %.19868 = phi i32 [ %.17866, %.thread1076 ], [ %.178661099.fr, %248 ], [ %.14863.fr, %224 ], [ %.14863.fr, %202 ], [ %.9858, %.thread1415 ], [ %.9858, %.thread1412 ], [ %.4853.fr, %.thread1496 ], [ %.4853.fr, %.thread1499 ], [ %spec.select1592, %260 ], [ %spec.select1594, %262 ]
-  %.19 = phi i32 [ %.17, %.thread1076 ], [ 0, %248 ], [ 0, %224 ], [ 0, %202 ], [ 0, %.thread1415 ], [ 0, %.thread1412 ], [ 0, %.thread1496 ], [ 0, %.thread1499 ], [ %spec.select1593, %260 ], [ %.178661099.fr, %262 ]
+  %.19868 = phi i32 [ %.17866, %.thread1076 ], [ %.178661099.fr, %248 ], [ %.4853.fr, %.thread1496 ], [ %.4853.fr, %.thread1499 ], [ %spec.select1594, %262 ], [ %spec.select1592, %260 ], [ %.14863.fr, %224 ], [ %.14863.fr, %202 ], [ %.9858, %.thread1415 ], [ %.9858, %.thread1412 ]
+  %.19 = phi i32 [ %.17, %.thread1076 ], [ 0, %248 ], [ 0, %.thread1496 ], [ 0, %.thread1499 ], [ %.178661099.fr, %262 ], [ %spec.select1593, %260 ], [ 0, %224 ], [ 0, %202 ], [ 0, %.thread1415 ], [ 0, %.thread1412 ]
   %264 = load ptr, ptr %3, align 8, !tbaa !145
   %.not = icmp eq ptr %264, null
   br i1 %.not, label %269, label %265
@@ -31581,8 +31581,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1115
 
 .thread1115:                                      ; preds = %311, %291, %293, %273
-  %.22871 = phi i32 [ %.19868, %273 ], [ %.19868, %293 ], [ %spec.select1597, %291 ], [ %spec.select1600, %311 ]
-  %.22 = phi i32 [ %.19, %273 ], [ %.19, %293 ], [ %.19868, %291 ], [ %.19868, %311 ]
+  %.22871 = phi i32 [ %.19868, %293 ], [ %.19868, %273 ], [ %spec.select1597, %291 ], [ %spec.select1600, %311 ]
+  %.22 = phi i32 [ %.19, %293 ], [ %.19, %273 ], [ %.19868, %291 ], [ %.19868, %311 ]
   %313 = icmp eq i32 %.22, 4
   %314 = add i32 %.22, -1
   %315 = icmp ult i32 %314, 4
@@ -31721,8 +31721,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1154
 
 .thread1154:                                      ; preds = %380, %359, %361, %340
-  %.27876 = phi i32 [ %.24873.fr, %340 ], [ %.24873.fr, %361 ], [ %spec.select1606, %359 ], [ %spec.select1609, %380 ]
-  %.27 = phi i32 [ %.24, %340 ], [ %.24, %361 ], [ %.24873.fr, %359 ], [ %.24873.fr, %380 ]
+  %.27876 = phi i32 [ %.24873.fr, %361 ], [ %.24873.fr, %340 ], [ %spec.select1606, %359 ], [ %spec.select1609, %380 ]
+  %.27 = phi i32 [ %.24, %361 ], [ %.24, %340 ], [ %.24873.fr, %359 ], [ %.24873.fr, %380 ]
   %382 = icmp eq i32 %.27, 4
   %383 = add i32 %.27, -1
   %384 = icmp ult i32 %383, 4
@@ -31774,9 +31774,9 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br i1 %405, label %.thread1182.thread1353, label %.thread1198
 
 .thread1182.thread1353:                           ; preds = %402, %.thread1182
-  %407 = phi i1 [ %406, %.thread1182 ], [ false, %402 ]
-  %.291194 = phi i32 [ %.278761177.fr, %.thread1182 ], [ %spec.select1610, %402 ]
-  %.298781193 = phi i32 [ %spec.select1612, %.thread1182 ], [ %spec.select1611, %402 ]
+  %407 = phi i1 [ false, %402 ], [ %406, %.thread1182 ]
+  %.291194 = phi i32 [ %spec.select1610, %402 ], [ %.278761177.fr, %.thread1182 ]
+  %.298781193 = phi i32 [ %spec.select1611, %402 ], [ %spec.select1612, %.thread1182 ]
   %408 = load i32, ptr %7, align 8, !tbaa !158
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %423, label %410
@@ -31813,8 +31813,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1198
 
 .thread1198:                                      ; preds = %.thread1154, %425, %423, %390, %411, %.thread1182
-  %.31880 = phi i32 [ %spec.select1612, %.thread1182 ], [ %.298781193, %411 ], [ %.278761177.fr, %390 ], [ %spec.select1613, %423 ], [ %spec.select1615, %425 ], [ %.27876, %.thread1154 ]
-  %.31 = phi i32 [ %.278761177.fr, %.thread1182 ], [ 0, %411 ], [ 0, %390 ], [ %spec.select1614, %423 ], [ %.298781193, %425 ], [ %.27, %.thread1154 ]
+  %.31880 = phi i32 [ %spec.select1612, %.thread1182 ], [ %.298781193, %411 ], [ %spec.select1613, %423 ], [ %.278761177.fr, %390 ], [ %spec.select1615, %425 ], [ %.27876, %.thread1154 ]
+  %.31 = phi i32 [ %.278761177.fr, %.thread1182 ], [ 0, %411 ], [ %spec.select1614, %423 ], [ 0, %390 ], [ %.298781193, %425 ], [ %.27, %.thread1154 ]
   %.31.fr = freeze i32 %.31
   %427 = icmp eq i32 %.31.fr, 4
   %428 = add i32 %.31.fr, -1
@@ -31865,9 +31865,9 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br i1 %450, label %.thread1209.thread, label %.thread1225
 
 .thread1209.thread:                               ; preds = %447, %.thread1209
-  %452 = phi i1 [ %451, %.thread1209 ], [ false, %447 ]
-  %.331221 = phi i32 [ %.31880, %.thread1209 ], [ %spec.select1616, %447 ]
-  %.338821220 = phi i32 [ %spec.select1618, %.thread1209 ], [ %spec.select1617, %447 ]
+  %452 = phi i1 [ false, %447 ], [ %451, %.thread1209 ]
+  %.331221 = phi i32 [ %spec.select1616, %447 ], [ %.31880, %.thread1209 ]
+  %.338821220 = phi i32 [ %spec.select1617, %447 ], [ %spec.select1618, %.thread1209 ]
   %453 = load ptr, ptr %3, align 8, !tbaa !145
   %454 = call i32 @wolfSSL_get_error(ptr noundef %453, i32 noundef -1) #27
   %455 = icmp eq i32 %454, 2
@@ -31945,8 +31945,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1225
 
 .thread1225:                                      ; preds = %430, %492, %471, %473, %.thread1209
-  %.36885 = phi i32 [ %spec.select1618, %.thread1209 ], [ %.31880, %473 ], [ %spec.select1621, %471 ], [ %spec.select1624, %492 ], [ %.31880, %430 ]
-  %.36 = phi i32 [ %.31880, %.thread1209 ], [ %.31.fr, %473 ], [ %.338821220, %471 ], [ %.31880, %492 ], [ %.31.fr, %430 ]
+  %.36885 = phi i32 [ %.31880, %473 ], [ %spec.select1618, %.thread1209 ], [ %spec.select1621, %471 ], [ %spec.select1624, %492 ], [ %.31880, %430 ]
+  %.36 = phi i32 [ %.31.fr, %473 ], [ %.31880, %.thread1209 ], [ %.338821220, %471 ], [ %.31880, %492 ], [ %.31.fr, %430 ]
   %494 = icmp eq i32 %.36, 4
   %495 = add i32 %.36, -1
   %496 = icmp ult i32 %495, 4
@@ -32046,9 +32046,9 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br i1 %540, label %.thread1264.thread, label %.thread1280
 
 .thread1264.thread:                               ; preds = %537, %.thread1264
-  %542 = phi i1 [ %541, %.thread1264 ], [ false, %537 ]
-  %.401276 = phi i32 [ %.38887.fr, %.thread1264 ], [ %spec.select1628, %537 ]
-  %.408891275 = phi i32 [ %spec.select1630, %.thread1264 ], [ %spec.select1629, %537 ]
+  %542 = phi i1 [ false, %537 ], [ %541, %.thread1264 ]
+  %.401276 = phi i32 [ %spec.select1628, %537 ], [ %.38887.fr, %.thread1264 ]
+  %.408891275 = phi i32 [ %spec.select1629, %537 ], [ %spec.select1630, %.thread1264 ]
   %543 = load ptr, ptr %3, align 8, !tbaa !145
   %544 = call i32 @wolfSSL_read(ptr noundef %543, ptr noundef nonnull %6, i32 noundef 16) #27
   %545 = icmp eq i32 %544, 5
@@ -32126,8 +32126,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1280
 
 .thread1280:                                      ; preds = %520, %583, %561, %563, %.thread1264
-  %.43892 = phi i32 [ %spec.select1630, %.thread1264 ], [ %.38887.fr, %563 ], [ %spec.select1633, %561 ], [ %spec.select1636, %583 ], [ %.38887.fr, %520 ]
-  %.43 = phi i32 [ %.38887.fr, %.thread1264 ], [ %.38, %563 ], [ %.408891275, %561 ], [ %.38887.fr, %583 ], [ %.38, %520 ]
+  %.43892 = phi i32 [ %.38887.fr, %563 ], [ %spec.select1630, %.thread1264 ], [ %spec.select1633, %561 ], [ %spec.select1636, %583 ], [ %.38887.fr, %520 ]
+  %.43 = phi i32 [ %.38, %563 ], [ %.38887.fr, %.thread1264 ], [ %.408891275, %561 ], [ %.38887.fr, %583 ], [ %.38, %520 ]
   %585 = icmp eq i32 %.43, 4
   %586 = add i32 %.43, -1
   %587 = icmp ult i32 %586, 4
@@ -32174,8 +32174,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1308
 
 .thread1308:                                      ; preds = %605, %603, %.thread1556, %.thread1264.thread1553, %.thread1537, %.thread1264.thread1534, %.thread1209.thread1358, %457, %.thread1483, %569, %547, %.thread1264.thread1370, %591, %.thread1280
-  %.45894 = phi i32 [ %.43892, %.thread1280 ], [ %.438921303.fr, %591 ], [ %.38887.fr, %569 ], [ %.408891275, %547 ], [ %.38887.fr, %.thread1264.thread1370 ], [ %.31880, %.thread1483 ], [ %.31880, %.thread1209.thread1358 ], [ %.338821220, %457 ], [ %.24873.fr, %.thread1537 ], [ %.24873.fr, %.thread1264.thread1534 ], [ %.19868, %.thread1264.thread1553 ], [ %.19868, %.thread1556 ], [ %spec.select1637, %603 ], [ %spec.select1639, %605 ]
-  %.45 = phi i32 [ %.43, %.thread1280 ], [ 0, %591 ], [ 0, %569 ], [ 0, %547 ], [ 0, %.thread1264.thread1370 ], [ 0, %.thread1483 ], [ 0, %.thread1209.thread1358 ], [ 0, %457 ], [ 0, %.thread1537 ], [ 0, %.thread1264.thread1534 ], [ 0, %.thread1264.thread1553 ], [ 0, %.thread1556 ], [ %spec.select1638, %603 ], [ %.438921303.fr, %605 ]
+  %.45894 = phi i32 [ %.43892, %.thread1280 ], [ %.438921303.fr, %591 ], [ %.19868, %.thread1264.thread1553 ], [ %.19868, %.thread1556 ], [ %spec.select1639, %605 ], [ %spec.select1637, %603 ], [ %.38887.fr, %569 ], [ %.408891275, %547 ], [ %.38887.fr, %.thread1264.thread1370 ], [ %.31880, %.thread1483 ], [ %.31880, %.thread1209.thread1358 ], [ %.338821220, %457 ], [ %.24873.fr, %.thread1537 ], [ %.24873.fr, %.thread1264.thread1534 ]
+  %.45 = phi i32 [ %.43, %.thread1280 ], [ 0, %591 ], [ 0, %.thread1264.thread1553 ], [ 0, %.thread1556 ], [ %.438921303.fr, %605 ], [ %spec.select1638, %603 ], [ 0, %569 ], [ 0, %547 ], [ 0, %.thread1264.thread1370 ], [ 0, %.thread1483 ], [ 0, %.thread1209.thread1358 ], [ 0, %457 ], [ 0, %.thread1537 ], [ 0, %.thread1264.thread1534 ]
   %607 = load ptr, ptr %4, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %607) #27
   %608 = load ptr, ptr %3, align 8, !tbaa !145
@@ -32303,7 +32303,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged() #0 {
   br label %.thread99
 
 .thread99:                                        ; preds = %.thread99.sink.split, %.thread.thread, %18
-  %.4 = phi i32 [ %.0119, %18 ], [ 1, %.thread.thread ], [ 0, %.thread99.sink.split ]
+  %.4 = phi i32 [ 1, %.thread.thread ], [ %.0119, %18 ], [ 0, %.thread99.sink.split ]
   br i1 %15, label %14, label %43, !llvm.loop !175
 
 43:                                               ; preds = %.thread99
@@ -32386,9 +32386,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %36, label %.thread.thread, label %.thread474
 
 .thread.thread:                                   ; preds = %30, %.thread
-  %37 = phi i1 [ %34, %.thread ], [ false, %30 ]
-  %.fr = phi i32 [ %spec.select521, %.thread ], [ %spec.select, %30 ]
-  %.1351358 = phi i32 [ %.0303.fr548, %.thread ], [ %spec.select520, %30 ]
+  %37 = phi i1 [ false, %30 ], [ %34, %.thread ]
+  %.fr = phi i32 [ %spec.select, %30 ], [ %spec.select521, %.thread ]
+  %.1351358 = phi i32 [ %spec.select520, %30 ], [ %.0303.fr548, %.thread ]
   %38 = load ptr, ptr %3, align 8, !tbaa !145
   %39 = call i32 @wolfSSL_negotiate(ptr noundef %38) #27
   %40 = icmp eq i32 %39, -1
@@ -32429,9 +32429,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %57, label %.thread362.thread487, label %.thread474
 
 .thread362.thread487:                             ; preds = %54, %.thread362
-  %59 = phi i1 [ %58, %.thread362 ], [ false, %54 ]
-  %.4374 = phi i32 [ %.fr, %.thread362 ], [ %spec.select522, %54 ]
-  %.4307373 = phi i32 [ %spec.select524, %.thread362 ], [ %spec.select523, %54 ]
+  %59 = phi i1 [ false, %54 ], [ %58, %.thread362 ]
+  %.4374 = phi i32 [ %spec.select522, %54 ], [ %.fr, %.thread362 ]
+  %.4307373 = phi i32 [ %spec.select523, %54 ], [ %spec.select524, %.thread362 ]
   %.4307373.fr = freeze i32 %.4307373
   %60 = load ptr, ptr %3, align 8, !tbaa !145
   %61 = call i32 @wolfSSL_get_error(ptr noundef %60, i32 noundef -1) #27
@@ -32474,9 +32474,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %79, label %.thread378.thread492, label %.thread474
 
 .thread378.thread492:                             ; preds = %76, %.thread378
-  %81 = phi i1 [ %80, %.thread378 ], [ false, %76 ]
-  %.6390 = phi i32 [ %.4307373.fr, %.thread378 ], [ %spec.select525, %76 ]
-  %.6309389 = phi i32 [ %spec.select527, %.thread378 ], [ %spec.select526, %76 ]
+  %81 = phi i1 [ false, %76 ], [ %80, %.thread378 ]
+  %.6390 = phi i32 [ %spec.select525, %76 ], [ %.4307373.fr, %.thread378 ]
+  %.6309389 = phi i32 [ %spec.select526, %76 ], [ %spec.select527, %.thread378 ]
   %82 = load ptr, ptr %4, align 8, !tbaa !145
   %83 = call i32 @wolfSSL_SendUserCanceled(ptr noundef %82) #27
   %84 = icmp eq i32 %83, 2
@@ -32517,9 +32517,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %101, label %.thread394.thread497, label %.thread474
 
 .thread394.thread497:                             ; preds = %98, %.thread394
-  %103 = phi i1 [ %102, %.thread394 ], [ false, %98 ]
-  %.8406 = phi i32 [ %.6309389, %.thread394 ], [ %spec.select528, %98 ]
-  %.8311405 = phi i32 [ %spec.select530, %.thread394 ], [ %spec.select529, %98 ]
+  %103 = phi i1 [ false, %98 ], [ %102, %.thread394 ]
+  %.8406 = phi i32 [ %spec.select528, %98 ], [ %.6309389, %.thread394 ]
+  %.8311405 = phi i32 [ %spec.select529, %98 ], [ %spec.select530, %.thread394 ]
   %104 = load ptr, ptr %3, align 8, !tbaa !145
   %105 = call i32 @wolfSSL_negotiate(ptr noundef %104) #27
   %106 = icmp eq i32 %105, -1
@@ -32560,9 +32560,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %123, label %.thread410.thread502, label %.thread474
 
 .thread410.thread502:                             ; preds = %120, %.thread410
-  %125 = phi i1 [ %124, %.thread410 ], [ false, %120 ]
-  %.10422 = phi i32 [ %.8311405, %.thread410 ], [ %spec.select531, %120 ]
-  %.10313421 = phi i32 [ %spec.select533, %.thread410 ], [ %spec.select532, %120 ]
+  %125 = phi i1 [ false, %120 ], [ %124, %.thread410 ]
+  %.10422 = phi i32 [ %spec.select531, %120 ], [ %.8311405, %.thread410 ]
+  %.10313421 = phi i32 [ %spec.select532, %120 ], [ %spec.select533, %.thread410 ]
   %.10313421.fr = freeze i32 %.10313421
   %126 = load ptr, ptr %3, align 8, !tbaa !145
   %127 = call i32 @wolfSSL_get_error(ptr noundef %126, i32 noundef -1) #27
@@ -32605,9 +32605,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %145, label %.thread426.thread507, label %.thread474
 
 .thread426.thread507:                             ; preds = %142, %.thread426
-  %147 = phi i1 [ %146, %.thread426 ], [ false, %142 ]
-  %.12438 = phi i32 [ %.10313421.fr, %.thread426 ], [ %spec.select534, %142 ]
-  %.12315437 = phi i32 [ %spec.select536, %.thread426 ], [ %spec.select535, %142 ]
+  %147 = phi i1 [ false, %142 ], [ %146, %.thread426 ]
+  %.12438 = phi i32 [ %spec.select534, %142 ], [ %.10313421.fr, %.thread426 ]
+  %.12315437 = phi i32 [ %spec.select535, %142 ], [ %spec.select536, %.thread426 ]
   %148 = load ptr, ptr %3, align 8, !tbaa !145
   %149 = call i32 @wolfSSL_get_alert_history(ptr noundef %148, ptr noundef nonnull %6) #27
   %150 = icmp eq i32 %149, 1
@@ -32648,9 +32648,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %167, label %.thread442.thread512, label %.thread474
 
 .thread442.thread512:                             ; preds = %164, %.thread442
-  %169 = phi i1 [ %168, %.thread442 ], [ false, %164 ]
-  %.14454 = phi i32 [ %.12315437, %.thread442 ], [ %spec.select537, %164 ]
-  %.14317453 = phi i32 [ %spec.select539, %.thread442 ], [ %spec.select538, %164 ]
+  %169 = phi i1 [ false, %164 ], [ %168, %.thread442 ]
+  %.14454 = phi i32 [ %spec.select537, %164 ], [ %.12315437, %.thread442 ]
+  %.14317453 = phi i32 [ %spec.select538, %164 ], [ %spec.select539, %.thread442 ]
   %170 = load i32, ptr %6, align 4, !tbaa !176
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %185, label %172
@@ -32690,9 +32690,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %188, label %.thread458.thread517, label %.thread474
 
 .thread458.thread517:                             ; preds = %185, %.thread458
-  %190 = phi i1 [ %189, %.thread458 ], [ false, %185 ]
-  %.16470 = phi i32 [ %.14317453, %.thread458 ], [ %spec.select540, %185 ]
-  %.16319469 = phi i32 [ %spec.select542, %.thread458 ], [ %spec.select541, %185 ]
+  %190 = phi i1 [ false, %185 ], [ %189, %.thread458 ]
+  %.16470 = phi i32 [ %spec.select540, %185 ], [ %.14317453, %.thread458 ]
+  %.16319469 = phi i32 [ %spec.select541, %185 ], [ %spec.select542, %.thread458 ]
   %.16319469.fr = freeze i32 %.16319469
   %191 = load i32, ptr %7, align 4, !tbaa !179
   %192 = icmp eq i32 %191, 1
@@ -32730,8 +32730,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %.thread474
 
 .thread474:                                       ; preds = %.thread, %.thread362, %.thread378, %.thread394, %.thread410, %.thread426, %.thread442, %208, %206, %42, %.thread.thread483, %64, %86, %108, %130, %152, %173, %194, %.thread458
-  %.18321 = phi i32 [ %spec.select542, %.thread458 ], [ %.16319469.fr, %194 ], [ %.14317453, %173 ], [ %.12315437, %152 ], [ %.10313421.fr, %130 ], [ %.8311405, %108 ], [ %.6309389, %86 ], [ %.4307373.fr, %64 ], [ %.fr, %42 ], [ %.0303.fr548, %.thread.thread483 ], [ %spec.select543, %206 ], [ %spec.select545, %208 ], [ %spec.select539, %.thread442 ], [ %spec.select536, %.thread426 ], [ %spec.select533, %.thread410 ], [ %spec.select530, %.thread394 ], [ %spec.select527, %.thread378 ], [ %spec.select524, %.thread362 ], [ %spec.select521, %.thread ]
-  %.18 = phi i32 [ %.14317453, %.thread458 ], [ 0, %194 ], [ 0, %173 ], [ 0, %152 ], [ 0, %130 ], [ 0, %108 ], [ 0, %86 ], [ 0, %64 ], [ 0, %42 ], [ 0, %.thread.thread483 ], [ %spec.select544, %206 ], [ %.16319469.fr, %208 ], [ %.12315437, %.thread442 ], [ %.10313421.fr, %.thread426 ], [ %.8311405, %.thread410 ], [ %.6309389, %.thread394 ], [ %.4307373.fr, %.thread378 ], [ %.fr, %.thread362 ], [ %.0303.fr548, %.thread ]
+  %.18321 = phi i32 [ %spec.select542, %.thread458 ], [ %.16319469.fr, %194 ], [ %.fr, %42 ], [ %.0303.fr548, %.thread.thread483 ], [ %spec.select545, %208 ], [ %spec.select543, %206 ], [ %.14317453, %173 ], [ %.12315437, %152 ], [ %.10313421.fr, %130 ], [ %.8311405, %108 ], [ %.6309389, %86 ], [ %.4307373.fr, %64 ], [ %spec.select539, %.thread442 ], [ %spec.select536, %.thread426 ], [ %spec.select533, %.thread410 ], [ %spec.select530, %.thread394 ], [ %spec.select527, %.thread378 ], [ %spec.select524, %.thread362 ], [ %spec.select521, %.thread ]
+  %.18 = phi i32 [ %.14317453, %.thread458 ], [ 0, %194 ], [ 0, %42 ], [ 0, %.thread.thread483 ], [ %.16319469.fr, %208 ], [ %spec.select544, %206 ], [ 0, %173 ], [ 0, %152 ], [ 0, %130 ], [ 0, %108 ], [ 0, %86 ], [ 0, %64 ], [ %.12315437, %.thread442 ], [ %.10313421.fr, %.thread426 ], [ %.8311405, %.thread410 ], [ %.6309389, %.thread394 ], [ %.4307373.fr, %.thread378 ], [ %.fr, %.thread362 ], [ %.0303.fr548, %.thread ]
   %210 = load ptr, ptr %3, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %210) #27
   %211 = load ptr, ptr %4, align 8, !tbaa !145
@@ -32890,7 +32890,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SSLDisableRead() #0 {
   br label %.critedge182
 
 .critedge182:                                     ; preds = %56, %.critedge176, %.critedge179, %.critedge184, %72
-  %.9 = phi i32 [ 0, %56 ], [ 0, %72 ], [ 1, %.critedge184 ], [ 0, %.critedge179 ], [ 0, %.critedge176 ]
+  %.9 = phi i32 [ 1, %.critedge184 ], [ 0, %56 ], [ 0, %72 ], [ 0, %.critedge176 ], [ 0, %.critedge179 ]
   %84 = load ptr, ptr %2, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %84) #27
   %85 = load ptr, ptr %1, align 8, !tbaa !144
@@ -32971,8 +32971,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread.preheader
 
 .thread.preheader:                                ; preds = %35, %32, %20
-  %.3258.fr407.ph = phi i32 [ %spec.select382, %35 ], [ %spec.select381, %32 ], [ %.0255.fr410, %20 ]
-  %.3.fr406.ph = phi i32 [ %.0255.fr410, %35 ], [ %spec.select, %32 ], [ 0, %20 ]
+  %.3258.fr407.ph = phi i32 [ %spec.select381, %32 ], [ %spec.select382, %35 ], [ %.0255.fr410, %20 ]
+  %.3.fr406.ph = phi i32 [ %spec.select, %32 ], [ %.0255.fr410, %35 ], [ 0, %20 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %146
@@ -33029,8 +33029,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread308
 
 .thread308:                                       ; preds = %61, %59, %47, %.critedge25
-  %.4259 = phi i32 [ %.3258.fr407, %.critedge25 ], [ %.3258.fr407, %47 ], [ %spec.select383, %59 ], [ %spec.select385, %61 ]
-  %.4 = phi i32 [ %.3.fr406, %.critedge25 ], [ 0, %47 ], [ %spec.select384, %59 ], [ %.3258.fr407, %61 ]
+  %.4259 = phi i32 [ %.3258.fr407, %.critedge25 ], [ %spec.select383, %59 ], [ %spec.select385, %61 ], [ %.3258.fr407, %47 ]
+  %.4 = phi i32 [ %.3.fr406, %.critedge25 ], [ %spec.select384, %59 ], [ %.3258.fr407, %61 ], [ 0, %47 ]
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1017) #27
   %63 = load i32, ptr %6, align 8, !tbaa !156
   %64 = icmp sgt i32 %63, 0
@@ -33080,8 +33080,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread319
 
 .thread319:                                       ; preds = %88, %86, %74, %65
-  %.8263 = phi i32 [ %.4259, %65 ], [ %.4259, %74 ], [ %spec.select386, %86 ], [ %spec.select388, %88 ]
-  %.8 = phi i32 [ %.4, %65 ], [ 0, %74 ], [ %spec.select387, %86 ], [ %.4259, %88 ]
+  %.8263 = phi i32 [ %.4259, %65 ], [ %spec.select386, %86 ], [ %spec.select388, %88 ], [ %.4259, %74 ]
+  %.8 = phi i32 [ %.4, %65 ], [ %spec.select387, %86 ], [ %.4259, %88 ], [ 0, %74 ]
   store i32 0, ptr %6, align 8, !tbaa !156
   %90 = freeze i32 %.8263
   br label %91
@@ -33138,8 +33138,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread330
 
 .thread330:                                       ; preds = %117, %115, %103, %94, %91
-  %.9264 = phi i32 [ %.6261, %94 ], [ %.6261, %91 ], [ %.6261, %103 ], [ %spec.select389, %115 ], [ %spec.select391, %117 ]
-  %.9 = phi i32 [ %.6, %94 ], [ %.6, %91 ], [ 0, %103 ], [ %spec.select390, %115 ], [ %.6261, %117 ]
+  %.9264 = phi i32 [ %.6261, %91 ], [ %.6261, %94 ], [ %spec.select389, %115 ], [ %spec.select391, %117 ], [ %.6261, %103 ]
+  %.9 = phi i32 [ %.6, %91 ], [ %.6, %94 ], [ %spec.select390, %115 ], [ %.6261, %117 ], [ 0, %103 ]
   %.9.fr = freeze i32 %.9
   %.9264.fr = freeze i32 %.9264
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1015) #27
@@ -33191,8 +33191,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread341
 
 .thread341:                                       ; preds = %144, %142, %130, %121
-  %.13268 = phi i32 [ %.9264.fr, %121 ], [ %.9264.fr, %130 ], [ %spec.select392, %142 ], [ %spec.select394, %144 ]
-  %.13 = phi i32 [ %.9.fr, %121 ], [ 0, %130 ], [ %spec.select393, %142 ], [ %.9264.fr, %144 ]
+  %.13268 = phi i32 [ %.9264.fr, %121 ], [ %spec.select392, %142 ], [ %spec.select394, %144 ], [ %.9264.fr, %130 ]
+  %.13 = phi i32 [ %.9.fr, %121 ], [ %spec.select393, %142 ], [ %.9264.fr, %144 ], [ 0, %130 ]
   store i32 0, ptr %8, align 8, !tbaa !158
   br label %146
 
@@ -33251,9 +33251,9 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br i1 %170, label %.critedge23.thread.thread, label %.thread368
 
 .critedge23.thread.thread:                        ; preds = %167, %.critedge23.thread
-  %172 = phi i1 [ %171, %.critedge23.thread ], [ false, %167 ]
-  %.15364 = phi i32 [ %.11266, %.critedge23.thread ], [ %spec.select395, %167 ]
-  %.15270363 = phi i32 [ %spec.select397, %.critedge23.thread ], [ %spec.select396, %167 ]
+  %172 = phi i1 [ false, %167 ], [ %171, %.critedge23.thread ]
+  %.15364 = phi i32 [ %spec.select395, %167 ], [ %.11266, %.critedge23.thread ]
+  %.15270363 = phi i32 [ %spec.select396, %167 ], [ %spec.select397, %.critedge23.thread ]
   %173 = load ptr, ptr %4, align 8, !tbaa !145
   %174 = call i32 @wolfSSL_negotiate(ptr noundef %173) #27
   %175 = icmp eq i32 %174, 1
@@ -33291,8 +33291,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread368
 
 .thread368:                                       ; preds = %.thread, %.critedge23, %191, %189, %177, %.critedge23.thread.thread378, %.critedge23.thread
-  %.17272 = phi i32 [ %spec.select397, %.critedge23.thread ], [ %.11266, %.critedge23.thread.thread378 ], [ %.15270363, %177 ], [ %spec.select398, %189 ], [ %spec.select400, %191 ], [ %.11266, %.critedge23 ], [ %.3258.fr407, %.thread ]
-  %.17 = phi i32 [ %.11266, %.critedge23.thread ], [ 0, %.critedge23.thread.thread378 ], [ 0, %177 ], [ %spec.select399, %189 ], [ %.15270363, %191 ], [ %.11, %.critedge23 ], [ %.3.fr406, %.thread ]
+  %.17272 = phi i32 [ %spec.select397, %.critedge23.thread ], [ %.11266, %.critedge23.thread.thread378 ], [ %spec.select398, %189 ], [ %.15270363, %177 ], [ %spec.select400, %191 ], [ %.11266, %.critedge23 ], [ %.3258.fr407, %.thread ]
+  %.17 = phi i32 [ %.11266, %.critedge23.thread ], [ 0, %.critedge23.thread.thread378 ], [ %spec.select399, %189 ], [ 0, %177 ], [ %.15270363, %191 ], [ %.11, %.critedge23 ], [ %.3.fr406, %.thread ]
   %193 = load ptr, ptr %3, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %193) #27
   %194 = load ptr, ptr %4, align 8, !tbaa !145
@@ -34575,7 +34575,7 @@ define internal fastcc range(i32 -244, 1) i32 @load_file(ptr noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %3, %39, %7
-  %.0 = phi i32 [ %.029, %39 ], [ -244, %7 ], [ -173, %3 ]
+  %.0 = phi i32 [ -244, %7 ], [ %.029, %39 ], [ -173, %3 ]
   ret i32 %.0
 }
 
@@ -34770,9 +34770,9 @@ test_cm_load_ca_buffer.exit17:                    ; preds = %41, %44
   call void @wc_FreeDer(ptr noundef nonnull %4) #27
   br label %test_cm_load_ca_buffer.exit14.thread
 
-test_cm_load_ca_buffer.exit14.thread:             ; preds = %24, %test_cm_load_ca_buffer.exit.thread, %16, %test_cm_load_ca_buffer.exit, %test_cm_load_ca_buffer.exit14, %test_cm_load_ca_buffer.exit17, %30, %1
-  %47 = phi ptr [ %18, %test_cm_load_ca_buffer.exit17 ], [ %18, %30 ], [ %18, %test_cm_load_ca_buffer.exit14 ], [ %.pre, %1 ], [ %18, %24 ], [ %.pre, %test_cm_load_ca_buffer.exit.thread ], [ %.pre, %16 ], [ %.pre, %test_cm_load_ca_buffer.exit ]
-  %.0 = phi i32 [ %.0.i16, %test_cm_load_ca_buffer.exit17 ], [ %31, %30 ], [ %28, %test_cm_load_ca_buffer.exit14 ], [ %5, %1 ], [ -1, %24 ], [ -1, %test_cm_load_ca_buffer.exit.thread ], [ -125, %16 ], [ %14, %test_cm_load_ca_buffer.exit ]
+test_cm_load_ca_buffer.exit14.thread:             ; preds = %24, %16, %test_cm_load_ca_buffer.exit.thread, %test_cm_load_ca_buffer.exit, %test_cm_load_ca_buffer.exit14, %test_cm_load_ca_buffer.exit17, %30, %1
+  %47 = phi ptr [ %18, %test_cm_load_ca_buffer.exit17 ], [ %18, %30 ], [ %18, %test_cm_load_ca_buffer.exit14 ], [ %.pre, %1 ], [ %18, %24 ], [ %.pre, %16 ], [ %.pre, %test_cm_load_ca_buffer.exit.thread ], [ %.pre, %test_cm_load_ca_buffer.exit ]
+  %.0 = phi i32 [ %.0.i16, %test_cm_load_ca_buffer.exit17 ], [ %31, %30 ], [ %28, %test_cm_load_ca_buffer.exit14 ], [ %5, %1 ], [ -1, %24 ], [ -125, %16 ], [ -1, %test_cm_load_ca_buffer.exit.thread ], [ %14, %test_cm_load_ca_buffer.exit ]
   call void @free(ptr noundef %47) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -34880,9 +34880,9 @@ test_cm_load_ca_buffer_ex.exit20:                 ; preds = %42, %45
   call void @wc_FreeDer(ptr noundef nonnull %5) #27
   br label %test_cm_load_ca_buffer_ex.exit17.thread
 
-test_cm_load_ca_buffer_ex.exit17.thread:          ; preds = %25, %test_cm_load_ca_buffer_ex.exit.thread, %17, %test_cm_load_ca_buffer_ex.exit, %test_cm_load_ca_buffer_ex.exit17, %test_cm_load_ca_buffer_ex.exit20, %31, %2
-  %48 = phi ptr [ %19, %test_cm_load_ca_buffer_ex.exit20 ], [ %19, %31 ], [ %19, %test_cm_load_ca_buffer_ex.exit17 ], [ %.pre, %2 ], [ %19, %25 ], [ %.pre, %test_cm_load_ca_buffer_ex.exit.thread ], [ %.pre, %17 ], [ %.pre, %test_cm_load_ca_buffer_ex.exit ]
-  %.0 = phi i32 [ %.0.i19, %test_cm_load_ca_buffer_ex.exit20 ], [ %32, %31 ], [ %29, %test_cm_load_ca_buffer_ex.exit17 ], [ %6, %2 ], [ -1, %25 ], [ -1, %test_cm_load_ca_buffer_ex.exit.thread ], [ -125, %17 ], [ %15, %test_cm_load_ca_buffer_ex.exit ]
+test_cm_load_ca_buffer_ex.exit17.thread:          ; preds = %25, %17, %test_cm_load_ca_buffer_ex.exit.thread, %test_cm_load_ca_buffer_ex.exit, %test_cm_load_ca_buffer_ex.exit17, %test_cm_load_ca_buffer_ex.exit20, %31, %2
+  %48 = phi ptr [ %19, %test_cm_load_ca_buffer_ex.exit20 ], [ %19, %31 ], [ %19, %test_cm_load_ca_buffer_ex.exit17 ], [ %.pre, %2 ], [ %19, %25 ], [ %.pre, %17 ], [ %.pre, %test_cm_load_ca_buffer_ex.exit.thread ], [ %.pre, %test_cm_load_ca_buffer_ex.exit ]
+  %.0 = phi i32 [ %.0.i19, %test_cm_load_ca_buffer_ex.exit20 ], [ %32, %31 ], [ %29, %test_cm_load_ca_buffer_ex.exit17 ], [ %6, %2 ], [ -1, %25 ], [ -125, %17 ], [ -1, %test_cm_load_ca_buffer_ex.exit.thread ], [ %15, %test_cm_load_ca_buffer_ex.exit ]
   call void @free(ptr noundef %48) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -34944,13 +34944,13 @@ define internal noundef i32 @myVerify(i32 noundef %0, ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %27, %23
-  %.fr = phi i32 [ %28, %27 ], [ %19, %23 ]
+  %.fr = phi i32 [ %19, %23 ], [ %28, %27 ]
   %29 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %29, i32 1, i32 %0
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %20, %2, %22
-  %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ %0, %20 ], [ %spec.select, %.thread ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %22 ], [ %0, %20 ], [ %spec.select, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -35041,7 +35041,7 @@ load_ca_into_cm.exit49:                           ; preds = %28
   br label %46
 
 46:                                               ; preds = %load_ca_into_cm.exit49, %load_ca_into_cm.exit46, %load_ca_into_cm.exit43, %load_ca_into_cm.exit, %43, %41, %39, %37
-  %.0 = phi i32 [ -1, %load_ca_into_cm.exit ], [ -2, %load_ca_into_cm.exit43 ], [ -3, %load_ca_into_cm.exit46 ], [ -4, %load_ca_into_cm.exit49 ], [ -5, %37 ], [ -6, %39 ], [ -7, %41 ], [ %., %43 ]
+  %.0 = phi i32 [ -7, %41 ], [ -1, %load_ca_into_cm.exit ], [ -2, %load_ca_into_cm.exit43 ], [ -3, %load_ca_into_cm.exit46 ], [ -4, %load_ca_into_cm.exit49 ], [ -5, %37 ], [ -6, %39 ], [ %., %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -35146,7 +35146,7 @@ define internal fastcc i32 @verify_sig_cm(ptr noundef %0, ptr noundef %1, i64 no
   br label %16
 
 16:                                               ; preds = %14, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ %10, %11 ], [ %15, %14 ]
+  %.0 = phi i32 [ %15, %14 ], [ -1, %6 ], [ %10, %11 ]
   ret i32 %.0
 }
 

@@ -357,7 +357,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %10, %3, %16
-  %DiffVarCounter.promoted39 = phi i32 [ 0, %3 ], [ 1, %16 ], [ 0, %10 ]
+  %DiffVarCounter.promoted39 = phi i32 [ 1, %16 ], [ 0, %3 ], [ 0, %10 ]
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8, !tbaa !17
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph45, label %.sink.split
@@ -474,7 +474,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr noundef writeonly capture
   br i1 %77, label %.sink.split, label %.thread83
 
 .sink.split:                                      ; preds = %.thread83, %75, %60, %52, %38, %.loopexit33
-  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %75 ], [ 5, %60 ], [ 5, %52 ], [ 5, %38 ], [ %.lcssa374185, %.thread83 ]
+  %.025 = phi i32 [ %DiffVarCounter.promoted39, %.loopexit33 ], [ 5, %75 ], [ 5, %38 ], [ 5, %52 ], [ 5, %60 ], [ %.lcssa374185, %.thread83 ]
   ret i32 %.025
 }
 

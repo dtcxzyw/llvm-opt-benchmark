@@ -458,7 +458,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit177: ; preds = %54
   br label %78
 
 78:                                               ; preds = %76, %52, %50
-  %.pn47.pn = phi { ptr, i32 } [ %77, %76 ], [ %51, %50 ], [ %53, %52 ]
+  %.pn47.pn = phi { ptr, i32 } [ %53, %52 ], [ %77, %76 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body
 
@@ -530,7 +530,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 .body:                                            ; preds = %41, %78
-  %.pn50.pn = phi { ptr, i32 } [ %.pn47.pn, %78 ], [ %42, %41 ]
+  %.pn50.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn47.pn, %78 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   resume { ptr, i32 } %.pn50.pn
 
@@ -2360,8 +2360,8 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateE
   tail call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #22
   br label %71
 
-66:                                               ; preds = %38, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.0.ph = phi ptr [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %22, %38 ]
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %38
+  %.0.ph = phi ptr [ %22, %38 ], [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %lpad.thr_comm, 0

@@ -2654,8 +2654,8 @@ widen_string.exit.thread.i:                       ; preds = %99
   br i1 %exitcond104.i, label %widen_string.exit26.thread.i, label %.preheader6.i.preheader
 
 widen_string.exit26.i:                            ; preds = %201, %232, %263, %294, %.preheader9.i, %285, %254, %223, %192
-  %316 = phi ptr [ %189, %192 ], [ %220, %223 ], [ %251, %254 ], [ %282, %285 ], [ %305, %.preheader9.i ], [ %295, %294 ], [ %264, %263 ], [ %233, %232 ], [ %202, %201 ]
-  %317 = phi ptr [ @resource_string.io_spec, %192 ], [ @resource_string.mem_spec, %223 ], [ @default_dec_spec, %254 ], [ @default_dec_spec, %285 ], [ @resource_string.bus_spec, %.preheader9.i ], [ @default_dec_spec, %294 ], [ @default_dec_spec, %263 ], [ @resource_string.mem_spec, %232 ], [ @resource_string.io_spec, %201 ]
+  %316 = phi ptr [ %189, %192 ], [ %220, %223 ], [ %251, %254 ], [ %282, %285 ], [ %233, %232 ], [ %305, %.preheader9.i ], [ %295, %294 ], [ %264, %263 ], [ %202, %201 ]
+  %317 = phi ptr [ @resource_string.io_spec, %192 ], [ @resource_string.mem_spec, %223 ], [ @default_dec_spec, %254 ], [ @default_dec_spec, %285 ], [ @resource_string.mem_spec, %232 ], [ @resource_string.bus_spec, %.preheader9.i ], [ @default_dec_spec, %294 ], [ @default_dec_spec, %263 ], [ @resource_string.io_spec, %201 ]
   br i1 %101, label %318, label %widen_string.exit26.thread.i
 
 318:                                              ; preds = %widen_string.exit26.i
@@ -2728,9 +2728,9 @@ widen_string.exit36.i:                            ; preds = %347, %338
   br label %373
 
 widen_string.exit26.thread.i:                     ; preds = %.preheader6.i, %318, %widen_string.exit26.i
-  %358 = phi ptr [ %317, %318 ], [ %317, %widen_string.exit26.i ], [ @resource_string.mem_spec, %.preheader6.i ]
-  %359 = phi i1 [ true, %318 ], [ false, %widen_string.exit26.i ], [ false, %.preheader6.i ]
-  %360 = phi ptr [ %316, %318 ], [ %316, %widen_string.exit26.i ], [ %313, %.preheader6.i ]
+  %358 = phi ptr [ %317, %widen_string.exit26.i ], [ %317, %318 ], [ @resource_string.mem_spec, %.preheader6.i ]
+  %359 = phi i1 [ false, %widen_string.exit26.i ], [ true, %318 ], [ false, %.preheader6.i ]
+  %360 = phi ptr [ %316, %widen_string.exit26.i ], [ %316, %318 ], [ %313, %.preheader6.i ]
   %361 = load i64, ptr %3, align 8
   %362 = load i64, ptr %358, align 1
   %363 = call fastcc ptr @number(ptr noundef %360, ptr noundef nonnull %100, i64 noundef %361, i64 %362)
@@ -3049,7 +3049,7 @@ widen_string.exit46.i:                            ; preds = %527, %518
   br label %widen_string.exit44.i
 
 widen_string.exit44.i:                            ; preds = %499, %widen_string.exit46.i, %490, %widen_string.exit42.i
-  %533 = phi ptr [ %470, %widen_string.exit42.i ], [ %532, %widen_string.exit46.i ], [ %487, %490 ], [ %500, %499 ]
+  %533 = phi ptr [ %532, %widen_string.exit46.i ], [ %470, %widen_string.exit42.i ], [ %487, %490 ], [ %500, %499 ]
   %534 = getelementptr i8, ptr %533, i64 1
   store i8 93, ptr %533, align 1
   store i8 0, ptr %534, align 1
@@ -5660,7 +5660,7 @@ uuid_string.exit:                                 ; preds = %1789, %1879, %.thre
   br label %widen_string.exit.thread.i77
 
 widen_string.exit.thread.i77:                     ; preds = %2033, %2027, %1929
-  %2034 = phi ptr [ null, %1929 ], [ %3, %2027 ], [ null, %2033 ]
+  %2034 = phi ptr [ %3, %2027 ], [ null, %1929 ], [ null, %2033 ]
   %2035 = and i64 %4, -280512904036353
   %2036 = or disjoint i64 %2035, 17729624997888
   %2037 = shl i64 %4, 32
@@ -8341,7 +8341,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3393, %3385, %3382
   br label %hex_string.exit
 
 hex_string.exit:                                  ; preds = %3610, %3515, %3306, %3376, %3441, %3169, %3230, %2863, %3082, %3065, %2769, %2695, %2625, %2554, %2446, %2113, %2190, %2012, %1692, %989, %1554, %1618, %663, %698, %730, %3603, %3572, %3508, %3477, %3434, %fwnode_full_name_string.exit.i, %3369, %.thread.i164, %3299, %3268, %3223, %3192, %3162, %3131, %._crit_edge.i, %3068, %3058, %3027, %2990, %2946, %2856, %.thread.i140, %2791, %widen_string.exit.thread.i137, %2762, %.thread.i130, %widen_string.exit.thread.i126, %2688, %.thread.i118, %2618, %2587, %2547, %2516, %2459, %2457, %widen_string.exit.thread.i105, %2439, %.thread.i97, %2183, %2152, %2119, %2106, %.thread.i80, %widen_string.exit.thread.i77, %2005, %1974, %1931, %1709, %1621, %1685, %.thread.i49, %1611, %.thread45.i, %1547, %1516, %ip6_addr_string_sa.exit.i, %ip4_addr_string_sa.exit.i, %ip4_addr_string.exit.i, %ip6_addr_string.exit.i, %982, %.thread.i40, %656, %.thread.i19, %591, %3613, %3540, %3534, %3532, %3518, %2451, %fourcc_string.exit, %1927, %uuid_string.exit, %mac_address_string.exit, %740, %738, %resource_string.exit, %symbol_string.exit
-  %3615 = phi ptr [ %3614, %3613 ], [ %3541, %3540 ], [ %3535, %3534 ], [ %3533, %3532 ], [ %3529, %3518 ], [ %2453, %2451 ], [ %2378, %fourcc_string.exit ], [ %1928, %1927 ], [ %1882, %uuid_string.exit ], [ %921, %mac_address_string.exit ], [ %739, %738 ], [ %741, %740 ], [ %590, %resource_string.exit ], [ %98, %symbol_string.exit ], [ %1, %591 ], [ %657, %656 ], [ %.lcssa11.i, %.thread.i19 ], [ %1157, %ip4_addr_string.exit.i ], [ %1098, %ip6_addr_string.exit.i ], [ %1485, %ip6_addr_string_sa.exit.i ], [ %1257, %ip4_addr_string_sa.exit.i ], [ %1548, %1547 ], [ %1517, %1516 ], [ %1612, %1611 ], [ %.lcssa50.i, %.thread45.i ], [ %983, %982 ], [ %.lcssa67.i, %.thread.i40 ], [ %1721, %1709 ], [ %1, %1621 ], [ %1686, %1685 ], [ %.lcssa7.i, %.thread.i49 ], [ %2045, %widen_string.exit.thread.i77 ], [ %1932, %1931 ], [ %2006, %2005 ], [ %1975, %1974 ], [ %2121, %2119 ], [ %2184, %2183 ], [ %2153, %2152 ], [ %2107, %2106 ], [ %.lcssa13.i81, %.thread.i80 ], [ %2450, %widen_string.exit.thread.i105 ], [ %2440, %2439 ], [ %.lcssa4.i98, %.thread.i97 ], [ %2485, %2459 ], [ %2458, %2457 ], [ %2548, %2547 ], [ %2517, %2516 ], [ %2619, %2618 ], [ %2588, %2587 ], [ %2701, %widen_string.exit.thread.i126 ], [ %2689, %2688 ], [ %.lcssa4.i119, %.thread.i118 ], [ %2775, %widen_string.exit.thread.i137 ], [ %2795, %2791 ], [ %2763, %2762 ], [ %.lcssa5.i, %.thread.i130 ], [ %2991, %2990 ], [ %2947, %2946 ], [ %3099, %._crit_edge.i ], [ %1, %3068 ], [ %3059, %3058 ], [ %3028, %3027 ], [ %2857, %2856 ], [ %.lcssa59.i, %.thread.i140 ], [ %3163, %3162 ], [ %3132, %3131 ], [ %3224, %3223 ], [ %3193, %3192 ], [ %3300, %3299 ], [ %3269, %3268 ], [ %3435, %3434 ], [ %3401, %fwnode_full_name_string.exit.i ], [ %3370, %3369 ], [ %.lcssa21.i165, %.thread.i164 ], [ %3509, %3508 ], [ %3478, %3477 ], [ %3604, %3603 ], [ %3573, %3572 ], [ %731, %730 ], [ %699, %698 ], [ %664, %663 ], [ %1619, %1618 ], [ %1555, %1554 ], [ %990, %989 ], [ %1693, %1692 ], [ %2013, %2012 ], [ %2191, %2190 ], [ %2114, %2113 ], [ %2447, %2446 ], [ %2555, %2554 ], [ %2626, %2625 ], [ %2696, %2695 ], [ %2770, %2769 ], [ %3066, %3065 ], [ %3083, %3082 ], [ %2864, %2863 ], [ %3231, %3230 ], [ %3170, %3169 ], [ %3442, %3441 ], [ %3377, %3376 ], [ %3307, %3306 ], [ %3516, %3515 ], [ %3611, %3610 ]
+  %3615 = phi ptr [ %3614, %3613 ], [ %3541, %3540 ], [ %3535, %3534 ], [ %3533, %3532 ], [ %3529, %3518 ], [ %2453, %2451 ], [ %2378, %fourcc_string.exit ], [ %1928, %1927 ], [ %1882, %uuid_string.exit ], [ %921, %mac_address_string.exit ], [ %739, %738 ], [ %741, %740 ], [ %98, %symbol_string.exit ], [ %590, %resource_string.exit ], [ %1, %591 ], [ %657, %656 ], [ %.lcssa11.i, %.thread.i19 ], [ %1157, %ip4_addr_string.exit.i ], [ %1098, %ip6_addr_string.exit.i ], [ %1485, %ip6_addr_string_sa.exit.i ], [ %1257, %ip4_addr_string_sa.exit.i ], [ %1548, %1547 ], [ %1517, %1516 ], [ %1612, %1611 ], [ %.lcssa50.i, %.thread45.i ], [ %983, %982 ], [ %.lcssa67.i, %.thread.i40 ], [ %1721, %1709 ], [ %1, %1621 ], [ %1686, %1685 ], [ %.lcssa7.i, %.thread.i49 ], [ %2045, %widen_string.exit.thread.i77 ], [ %1932, %1931 ], [ %2006, %2005 ], [ %1975, %1974 ], [ %2121, %2119 ], [ %2184, %2183 ], [ %2153, %2152 ], [ %2107, %2106 ], [ %.lcssa13.i81, %.thread.i80 ], [ %2450, %widen_string.exit.thread.i105 ], [ %2440, %2439 ], [ %.lcssa4.i98, %.thread.i97 ], [ %2458, %2457 ], [ %2485, %2459 ], [ %2548, %2547 ], [ %2517, %2516 ], [ %2619, %2618 ], [ %2588, %2587 ], [ %2701, %widen_string.exit.thread.i126 ], [ %2689, %2688 ], [ %.lcssa4.i119, %.thread.i118 ], [ %2775, %widen_string.exit.thread.i137 ], [ %2795, %2791 ], [ %2763, %2762 ], [ %.lcssa5.i, %.thread.i130 ], [ %2991, %2990 ], [ %2947, %2946 ], [ %3099, %._crit_edge.i ], [ %1, %3068 ], [ %3059, %3058 ], [ %3028, %3027 ], [ %2857, %2856 ], [ %.lcssa59.i, %.thread.i140 ], [ %3163, %3162 ], [ %3132, %3131 ], [ %3224, %3223 ], [ %3193, %3192 ], [ %3300, %3299 ], [ %3269, %3268 ], [ %3435, %3434 ], [ %3401, %fwnode_full_name_string.exit.i ], [ %3370, %3369 ], [ %.lcssa21.i165, %.thread.i164 ], [ %3509, %3508 ], [ %3478, %3477 ], [ %3604, %3603 ], [ %3573, %3572 ], [ %3516, %3515 ], [ %731, %730 ], [ %699, %698 ], [ %664, %663 ], [ %1619, %1618 ], [ %1555, %1554 ], [ %990, %989 ], [ %1693, %1692 ], [ %2013, %2012 ], [ %2191, %2190 ], [ %2114, %2113 ], [ %2447, %2446 ], [ %2555, %2554 ], [ %2626, %2625 ], [ %2696, %2695 ], [ %2770, %2769 ], [ %3066, %3065 ], [ %3083, %3082 ], [ %2864, %2863 ], [ %3231, %3230 ], [ %3170, %3169 ], [ %3442, %3441 ], [ %3377, %3376 ], [ %3307, %3306 ], [ %3611, %3610 ]
   ret ptr %3615
 }
 
@@ -9304,8 +9304,8 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br label %.loopexitthread-pre-split
 
 .loopexitthread-pre-split:                        ; preds = %179, %55, %56, %74, %78, %92, %107, %203, %207, %224, %228, %245, %249, %266, %270, %283, %287, %305, %309, %327, %331, %.lr.ph, %.lr.ph
-  %.ph = phi ptr [ %13, %.lr.ph ], [ %13, %.lr.ph ], [ %37, %56 ], [ %37, %55 ], [ %329, %327 ], [ %329, %331 ], [ %307, %305 ], [ %307, %309 ], [ %285, %283 ], [ %285, %287 ], [ %268, %266 ], [ %268, %270 ], [ %247, %245 ], [ %247, %249 ], [ %226, %224 ], [ %226, %228 ], [ %205, %203 ], [ %205, %207 ], [ %105, %92 ], [ %105, %107 ], [ %76, %74 ], [ %76, %78 ], [ %178, %179 ]
-  %.ph77 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %56 ], [ %16, %55 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
+  %.ph = phi ptr [ %13, %.lr.ph ], [ %13, %.lr.ph ], [ %37, %55 ], [ %37, %56 ], [ %329, %327 ], [ %329, %331 ], [ %307, %305 ], [ %307, %309 ], [ %285, %283 ], [ %285, %287 ], [ %268, %266 ], [ %268, %270 ], [ %247, %245 ], [ %247, %249 ], [ %226, %224 ], [ %226, %228 ], [ %205, %203 ], [ %205, %207 ], [ %105, %92 ], [ %105, %107 ], [ %76, %74 ], [ %76, %78 ], [ %178, %179 ]
+  %.ph77 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %55 ], [ %16, %56 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
   %.pr = load i8, ptr %.ph77, align 1
   br label %.loopexit
 
@@ -10695,7 +10695,7 @@ simple_strntoull.exit:                            ; preds = %303, %310
   br i1 %471, label %.loopexit46, label %.loopexit
 
 .loopexit46:                                      ; preds = %287, %468, %291, %290, %284, %277, %272, %267, %257, %124, %121, %.loopexit, %96, %skip_atoi.exit, %39, %30, %27, %.preheader, %.thread, %3
-  %472 = phi i32 [ 0, %3 ], [ %16, %.thread ], [ %16, %.preheader ], [ %16, %287 ], [ %16, %257 ], [ %16, %124 ], [ %16, %96 ], [ %469, %468 ], [ %16, %272 ], [ %16, %277 ], [ %16, %284 ], [ %16, %290 ], [ %16, %291 ], [ %16, %267 ], [ %16, %121 ], [ %16, %skip_atoi.exit ], [ %16, %39 ], [ %16, %30 ], [ %118, %.loopexit ], [ %16, %27 ]
+  %472 = phi i32 [ %16, %.thread ], [ 0, %3 ], [ %16, %.preheader ], [ %16, %287 ], [ %16, %257 ], [ %16, %124 ], [ %16, %96 ], [ %469, %468 ], [ %16, %272 ], [ %16, %277 ], [ %16, %284 ], [ %16, %290 ], [ %16, %291 ], [ %16, %267 ], [ %16, %121 ], [ %16, %skip_atoi.exit ], [ %16, %39 ], [ %16, %30 ], [ %118, %.loopexit ], [ %16, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %472
 }
@@ -11381,7 +11381,7 @@ widen_string.exit.thread:                         ; preds = %22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %100, %95, %92
-  %102 = phi i32 [ %101, %100 ], [ %93, %95 ], [ 0, %92 ], [ -1, %4 ]
+  %102 = phi i32 [ 0, %92 ], [ %101, %100 ], [ %93, %95 ], [ -1, %4 ]
   %103 = trunc nsw i64 %12 to i32
   %104 = icmp eq i64 %12, 0
   br i1 %104, label %.critedge, label %105

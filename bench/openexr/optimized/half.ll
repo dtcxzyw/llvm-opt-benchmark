@@ -114,7 +114,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZrsRSiRN9Imath_3_24half
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %15, %18, %28, %30, %39, %53, %56
-  %.0.i.i = phi i16 [ %25, %18 ], [ %29, %28 ], [ %38, %30 ], [ %16, %15 ], [ %11, %39 ], [ %57, %56 ], [ %51, %53 ]
+  %.0.i.i = phi i16 [ %11, %39 ], [ %25, %18 ], [ %29, %28 ], [ %38, %30 ], [ %16, %15 ], [ %57, %56 ], [ %51, %53 ]
   store i16 %.0.i.i, ptr %1, align 2, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0

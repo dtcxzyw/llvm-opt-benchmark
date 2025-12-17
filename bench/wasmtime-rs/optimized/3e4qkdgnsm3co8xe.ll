@@ -286,7 +286,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %55
 
 55:                                               ; preds = %53, %51, %49
-  %.013.neg.i = phi i64 [ -1, %49 ], [ %..i, %53 ], [ -2, %51 ]
+  %.013.neg.i = phi i64 [ -2, %51 ], [ %..i, %53 ], [ -1, %49 ]
   %56 = load i64, ptr %17, align 8, !noalias !7, !noundef !3
   %57 = add i64 %56, %.013.neg.i
   store i64 %57, ptr %17, align 8, !noalias !7

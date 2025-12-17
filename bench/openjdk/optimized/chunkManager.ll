@@ -366,7 +366,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
   br label %.thread64
 
 56:                                               ; preds = %.thread58.thread, %29, %43, %45
-  %.4.ph = phi ptr [ %35, %43 ], [ %35, %45 ], [ %.386, %29 ], [ %.386, %.thread58.thread ]
+  %.4.ph = phi ptr [ %35, %45 ], [ %35, %43 ], [ %.386, %29 ], [ %.386, %.thread58.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 24
   %58 = load i8, ptr %57, align 8
   %59 = icmp slt i8 %58, %1

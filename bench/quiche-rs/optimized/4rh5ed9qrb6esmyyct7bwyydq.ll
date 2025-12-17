@@ -836,7 +836,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr180dro
   unreachable
 
 "_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread29.i": ; preds = %93, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i", %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread.i", %82
-  %.pn7.pn.i = phi { ptr, i32 } [ %.pn728.i, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread.i" ], [ %83, %82 ], [ %23, %93 ], [ %23, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i" ]
+  %.pn7.pn.i = phi { ptr, i32 } [ %.pn728.i, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread.i" ], [ %23, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i" ], [ %83, %82 ], [ %23, %93 ]
   resume { ptr, i32 } %.pn7.pn.i
 
 "_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread.i": ; preds = %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit20.thread32.i", %71, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit16.i"
@@ -1240,7 +1240,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-.loopexit101:                                     ; preds = %59, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", %35, %._crit_edge.i
+.loopexit101:                                     ; preds = %59, %31, %._crit_edge.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd23a799ddb71a7d3E.exit._crit_edge.i", %35
   %86 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0125)
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
@@ -1342,8 +1342,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
 123:                                              ; preds = %116
   resume { ptr, i32 } %117
 
-_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit.thread: ; preds = %94, %91, %99
-  %.sroa.0.1.i.ph = phi i8 [ %100, %99 ], [ %92, %91 ], [ %96, %94 ]
+_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit.thread: ; preds = %99, %91, %94
+  %.sroa.0.1.i.ph = phi i8 [ %96, %94 ], [ %92, %91 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !91
   br label %.loopexit103
 
@@ -1391,8 +1391,8 @@ _ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread90: ; pre
   %141 = call noundef i8 @"_ZN99_$LT$quiche..h3..qpack..Error$u20$as$u20$core..convert..From$LT$octets..BufferTooShortError$GT$$GT$4from17hcccc1a3a5a90db25E"()
   br label %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread
 
-_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread: ; preds = %133, %130, %136, %140
-  %.sroa.0.1.i70.ph = phi i8 [ %141, %140 ], [ %135, %133 ], [ %131, %130 ], [ %137, %136 ]
+_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread: ; preds = %130, %133, %136, %140
+  %.sroa.0.1.i70.ph = phi i8 [ %141, %140 ], [ %131, %130 ], [ %135, %133 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !114
   br label %.loopexit103
 
@@ -1461,8 +1461,8 @@ _ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread96: ; p
   %165 = call noundef i8 @"_ZN99_$LT$quiche..h3..qpack..Error$u20$as$u20$core..convert..From$LT$octets..BufferTooShortError$GT$$GT$4from17hcccc1a3a5a90db25E"()
   br label %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread
 
-_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread: ; preds = %157, %154, %160, %164
-  %.sroa.0.1.i72.ph = phi i8 [ %165, %164 ], [ %159, %157 ], [ %155, %154 ], [ %161, %160 ]
+_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread: ; preds = %154, %157, %160, %164
+  %.sroa.0.1.i72.ph = phi i8 [ %165, %164 ], [ %155, %154 ], [ %159, %157 ], [ %161, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !119
   br label %.loopexit103
 
@@ -1473,7 +1473,7 @@ _ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74: ; preds = %1
   br i1 %.not58, label %143, label %.loopexit103
 
 .loopexit103:                                     ; preds = %146, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74, %.loopexit, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit.thread, %15, %6
-  %.sroa.0.1.i86.sink = phi i8 [ %14, %6 ], [ %16, %15 ], [ %.sroa.0.1.i.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit.thread ], [ %.sroa.0.1.i70.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread ], [ %.sroa.0.1.i72.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread ], [ %.sroa.0.1.i, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit ], [ %142, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit ], [ %145, %.loopexit ], [ %166, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74 ], [ %147, %146 ]
+  %.sroa.0.1.i86.sink = phi i8 [ %16, %15 ], [ %14, %6 ], [ %.sroa.0.1.i.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit.thread ], [ %.sroa.0.1.i70.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit.thread ], [ %.sroa.0.1.i72.ph, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74.thread ], [ %.sroa.0.1.i, %_ZN6quiche2h35qpack7encoder10encode_str17hf1902156feb89743E.exit ], [ %142, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit ], [ %145, %.loopexit ], [ %166, %_ZN6quiche2h35qpack7encoder10encode_str17hb7c8a6c47212f59dE.exit74 ], [ %147, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.0.1.i86.sink, ptr %167, align 1
   br label %85
@@ -1909,8 +1909,8 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   unreachable
 
 .body91.i:                                        ; preds = %.thread150.i, %146, %115, %90
-  %.sroa.051.1.i = phi i8 [ %.sroa.051.2.i, %.thread150.i ], [ %.sroa.051.2.i, %146 ], [ %.sroa.051.0.i, %115 ], [ 1, %90 ]
-  %.pn79.i = phi { ptr, i32 } [ %.pn153.i, %.thread150.i ], [ %lpad.thr_comm.split-lp.i, %146 ], [ %116, %115 ], [ %91, %90 ]
+  %.sroa.051.1.i = phi i8 [ %.sroa.051.2.i, %146 ], [ %.sroa.051.2.i, %.thread150.i ], [ %.sroa.051.0.i, %115 ], [ 1, %90 ]
+  %.pn79.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %146 ], [ %.pn153.i, %.thread150.i ], [ %116, %115 ], [ %91, %90 ]
   %112 = load ptr, ptr %22, align 8, !noalias !129, !noundef !3
   %113 = icmp ne ptr %112, null
   %114 = trunc nuw i8 %.sroa.051.1.i to i1
@@ -1918,7 +1918,7 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   br i1 %or.cond5.i, label %322, label %.body
 
 115:                                              ; preds = %318, %128, %107, %.invoke.i, %81, %76, %72, %67
-  %.sroa.051.0.i = phi i8 [ %.sroa.051.2.i, %318 ], [ 0, %67 ], [ 1, %72 ], [ 1, %76 ], [ 1, %81 ], [ 1, %107 ], [ 0, %128 ], [ 1, %.invoke.i ]
+  %.sroa.051.0.i = phi i8 [ 0, %128 ], [ %.sroa.051.2.i, %318 ], [ 0, %67 ], [ 1, %107 ], [ 1, %72 ], [ 1, %.invoke.i ], [ 1, %76 ], [ 1, %81 ]
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %.body91.i
@@ -2588,7 +2588,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %391, %.body, %426, %423, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i", %327
-  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %327 ], [ %.pn2.i, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i" ], [ %eh.lpad-body, %391 ], [ %eh.lpad-body, %.body ], [ %419, %426 ], [ %419, %423 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit.i" ], [ %.pn2.i, %327 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %391 ], [ %419, %426 ], [ %419, %423 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN12tokio_quiche8settings6config6Config3new28_$u7b$$u7b$closure$u7d$$u7d$17h06ca5bd8bd68a50eE.exit": ; preds = %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit13.i", %384
@@ -2611,9 +2611,9 @@ common.resume:                                    ; preds = %391, %.body, %426, 
   invoke void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h464df4f081b716d5E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %26)
           to label %common.resume unwind label %421
 
-.thread:                                          ; preds = %137, %.thread127.i, %321
-  %.sroa.13.1.ph = phi ptr [ %.sroa.13.0, %321 ], [ @anon.7374cd21b91d9246b4a7cc38cadcd57a.264, %.thread127.i ], [ %.sroa.13.0, %137 ]
-  %.sroa.8.1.ph = phi ptr [ %.sroa.8.0, %321 ], [ %126, %.thread127.i ], [ %.sroa.8.0, %137 ]
+.thread:                                          ; preds = %.thread127.i, %137, %321
+  %.sroa.13.1.ph = phi ptr [ %.sroa.13.0, %321 ], [ %.sroa.13.0, %137 ], [ @anon.7374cd21b91d9246b4a7cc38cadcd57a.264, %.thread127.i ]
+  %.sroa.8.1.ph = phi ptr [ %.sroa.8.0, %321 ], [ %.sroa.8.0, %137 ], [ %126, %.thread127.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !129
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %394
@@ -3692,7 +3692,7 @@ define void @"_ZN94_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$fo
           to label %common.resume unwind label %299, !noalias !222
 
 common.resume:                                    ; preds = %.thread995, %350, %.thread1011, %397, %.thread1030, %444, %.thread1049, %491, %.thread1068, %538, %.thread1087, %585, %.thread1106, %632, %.thread1125, %679, %.thread1144, %726, %.thread1163, %773, %.thread1182, %820, %.thread1201, %867, %.thread1220, %914, %.thread1239, %961, %.thread1258, %1008, %.thread1277, %1055, %.thread1296, %1102, %.thread1315, %1149, %.thread1334, %1196, %.thread1353, %1243, %.thread1372, %1290, %.thread1391, %1337, %.thread1410, %1384, %.thread1429, %1431, %.thread1448, %1478, %.thread1467, %1525, %.thread1486, %1572, %.thread1505, %1619, %.thread1524, %1666, %.thread1543, %1713, %.thread1562, %1760, %.thread1581, %1807, %.thread1600, %1854, %.thread1619, %1901, %.thread1638, %1948, %.thread1657, %1995, %.thread1676, %2042, %.thread1695, %2089, %.body875.thread, %301
-  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.i, %301 ], [ %eh.lpad-body998, %.thread995 ], [ %lpad.loopexit.i85, %350 ], [ %eh.lpad-body991014, %.thread1011 ], [ %lpad.loopexit.i106, %397 ], [ %eh.lpad-body1201033, %.thread1030 ], [ %lpad.loopexit.i127, %444 ], [ %eh.lpad-body1411052, %.thread1049 ], [ %lpad.loopexit.i148, %491 ], [ %eh.lpad-body1621071, %.thread1068 ], [ %lpad.loopexit.i169, %538 ], [ %eh.lpad-body1831090, %.thread1087 ], [ %lpad.loopexit.i190, %585 ], [ %eh.lpad-body2041109, %.thread1106 ], [ %lpad.loopexit.i211, %632 ], [ %eh.lpad-body2251128, %.thread1125 ], [ %lpad.loopexit.i232, %679 ], [ %eh.lpad-body2461147, %.thread1144 ], [ %lpad.loopexit.i253, %726 ], [ %eh.lpad-body2671166, %.thread1163 ], [ %lpad.loopexit.i274, %773 ], [ %eh.lpad-body2881185, %.thread1182 ], [ %lpad.loopexit.i295, %820 ], [ %eh.lpad-body3091204, %.thread1201 ], [ %lpad.loopexit.i316, %867 ], [ %eh.lpad-body3301223, %.thread1220 ], [ %lpad.loopexit.i337, %914 ], [ %eh.lpad-body3511242, %.thread1239 ], [ %lpad.loopexit.i358, %961 ], [ %eh.lpad-body3721261, %.thread1258 ], [ %lpad.loopexit.i379, %1008 ], [ %eh.lpad-body3931280, %.thread1277 ], [ %lpad.loopexit.i400, %1055 ], [ %eh.lpad-body4141299, %.thread1296 ], [ %lpad.loopexit.i421, %1102 ], [ %eh.lpad-body4351318, %.thread1315 ], [ %lpad.loopexit.i442, %1149 ], [ %eh.lpad-body4561337, %.thread1334 ], [ %lpad.loopexit.i463, %1196 ], [ %eh.lpad-body4771356, %.thread1353 ], [ %lpad.loopexit.i484, %1243 ], [ %eh.lpad-body4981375, %.thread1372 ], [ %lpad.loopexit.i505, %1290 ], [ %eh.lpad-body5191394, %.thread1391 ], [ %lpad.loopexit.i526, %1337 ], [ %eh.lpad-body5401413, %.thread1410 ], [ %lpad.loopexit.i547, %1384 ], [ %eh.lpad-body5611432, %.thread1429 ], [ %lpad.loopexit.i568, %1431 ], [ %eh.lpad-body5821451, %.thread1448 ], [ %lpad.loopexit.i589, %1478 ], [ %eh.lpad-body6031470, %.thread1467 ], [ %lpad.loopexit.i610, %1525 ], [ %eh.lpad-body6241489, %.thread1486 ], [ %lpad.loopexit.i631, %1572 ], [ %eh.lpad-body6451508, %.thread1505 ], [ %lpad.loopexit.i652, %1619 ], [ %eh.lpad-body6661527, %.thread1524 ], [ %lpad.loopexit.i673, %1666 ], [ %eh.lpad-body6871546, %.thread1543 ], [ %lpad.loopexit.i694, %1713 ], [ %eh.lpad-body7081565, %.thread1562 ], [ %lpad.loopexit.i715, %1760 ], [ %eh.lpad-body7291584, %.thread1581 ], [ %lpad.loopexit.i736, %1807 ], [ %eh.lpad-body7501603, %.thread1600 ], [ %lpad.loopexit.i757, %1854 ], [ %eh.lpad-body7711622, %.thread1619 ], [ %lpad.loopexit.i778, %1901 ], [ %eh.lpad-body7921641, %.thread1638 ], [ %lpad.loopexit.i799, %1948 ], [ %eh.lpad-body8131660, %.thread1657 ], [ %lpad.loopexit.i820, %1995 ], [ %eh.lpad-body8341679, %.thread1676 ], [ %lpad.loopexit.i841, %2042 ], [ %eh.lpad-body8551698, %.thread1695 ], [ %lpad.loopexit.i862, %2089 ], [ %eh.lpad-body8761712, %.body875.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.i, %301 ], [ %lpad.loopexit.i85, %350 ], [ %eh.lpad-body998, %.thread995 ], [ %eh.lpad-body8761712, %.body875.thread ], [ %lpad.loopexit.i106, %397 ], [ %eh.lpad-body6031470, %.thread1467 ], [ %eh.lpad-body991014, %.thread1011 ], [ %lpad.loopexit.i127, %444 ], [ %eh.lpad-body8551698, %.thread1695 ], [ %eh.lpad-body1201033, %.thread1030 ], [ %lpad.loopexit.i148, %491 ], [ %lpad.loopexit.i631, %1572 ], [ %eh.lpad-body1411052, %.thread1049 ], [ %lpad.loopexit.i169, %538 ], [ %lpad.loopexit.i862, %2089 ], [ %eh.lpad-body1621071, %.thread1068 ], [ %lpad.loopexit.i190, %585 ], [ %eh.lpad-body8341679, %.thread1676 ], [ %eh.lpad-body1831090, %.thread1087 ], [ %lpad.loopexit.i211, %632 ], [ %eh.lpad-body6871546, %.thread1543 ], [ %eh.lpad-body2041109, %.thread1106 ], [ %lpad.loopexit.i232, %679 ], [ %lpad.loopexit.i841, %2042 ], [ %eh.lpad-body2251128, %.thread1125 ], [ %lpad.loopexit.i253, %726 ], [ %eh.lpad-body8131660, %.thread1657 ], [ %eh.lpad-body2461147, %.thread1144 ], [ %lpad.loopexit.i274, %773 ], [ %eh.lpad-body6241489, %.thread1486 ], [ %eh.lpad-body2671166, %.thread1163 ], [ %lpad.loopexit.i295, %820 ], [ %lpad.loopexit.i820, %1995 ], [ %eh.lpad-body2881185, %.thread1182 ], [ %lpad.loopexit.i316, %867 ], [ %eh.lpad-body7921641, %.thread1638 ], [ %eh.lpad-body3091204, %.thread1201 ], [ %lpad.loopexit.i337, %914 ], [ %lpad.loopexit.i652, %1619 ], [ %eh.lpad-body3301223, %.thread1220 ], [ %lpad.loopexit.i358, %961 ], [ %lpad.loopexit.i799, %1948 ], [ %eh.lpad-body3511242, %.thread1239 ], [ %lpad.loopexit.i379, %1008 ], [ %eh.lpad-body7711622, %.thread1619 ], [ %eh.lpad-body3721261, %.thread1258 ], [ %lpad.loopexit.i400, %1055 ], [ %eh.lpad-body6661527, %.thread1524 ], [ %eh.lpad-body3931280, %.thread1277 ], [ %lpad.loopexit.i421, %1102 ], [ %lpad.loopexit.i778, %1901 ], [ %eh.lpad-body4141299, %.thread1296 ], [ %lpad.loopexit.i442, %1149 ], [ %eh.lpad-body7501603, %.thread1600 ], [ %eh.lpad-body4351318, %.thread1315 ], [ %lpad.loopexit.i463, %1196 ], [ %eh.lpad-body6451508, %.thread1505 ], [ %eh.lpad-body4561337, %.thread1334 ], [ %lpad.loopexit.i484, %1243 ], [ %lpad.loopexit.i757, %1854 ], [ %eh.lpad-body4771356, %.thread1353 ], [ %lpad.loopexit.i505, %1290 ], [ %eh.lpad-body7291584, %.thread1581 ], [ %eh.lpad-body4981375, %.thread1372 ], [ %lpad.loopexit.i526, %1337 ], [ %lpad.loopexit.i673, %1666 ], [ %eh.lpad-body5191394, %.thread1391 ], [ %lpad.loopexit.i547, %1384 ], [ %lpad.loopexit.i736, %1807 ], [ %eh.lpad-body5401413, %.thread1410 ], [ %lpad.loopexit.i568, %1431 ], [ %eh.lpad-body7081565, %.thread1562 ], [ %eh.lpad-body5611432, %.thread1429 ], [ %lpad.loopexit.i589, %1478 ], [ %lpad.loopexit.i694, %1713 ], [ %eh.lpad-body5821451, %.thread1448 ], [ %lpad.loopexit.i610, %1525 ], [ %lpad.loopexit.i715, %1760 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc55fb6cd4c6844aeE.exit": ; preds = %.lr.ph.i, %294, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hd8ed47540bd207d1E.exit.i"

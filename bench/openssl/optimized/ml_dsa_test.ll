@@ -313,7 +313,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_test(i32 noundef %0) #1 {
   br label %42
 
 42:                                               ; preds = %39, %1, %14, %19, %24, %29, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %1 ], [ %spec.select, %39 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ]
   call void @EVP_PKEY_free(ptr noundef %12) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -468,10 +468,10 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   br label %76
 
 76:                                               ; preds = %71, %23, %28, %33, %37, %40, %47, %53, %59, %63, %66
-  %.030 = phi i32 [ 0, %66 ], [ 0, %63 ], [ 0, %59 ], [ 0, %53 ], [ 0, %47 ], [ 0, %40 ], [ 0, %37 ], [ 0, %33 ], [ 0, %28 ], [ 0, %23 ], [ %spec.select, %71 ]
-  %.029 = phi ptr [ %31, %66 ], [ %31, %63 ], [ %31, %59 ], [ %31, %53 ], [ %31, %47 ], [ %31, %40 ], [ %31, %37 ], [ %31, %33 ], [ %31, %28 ], [ null, %23 ], [ %31, %71 ]
-  %.028 = phi ptr [ %35, %66 ], [ %35, %63 ], [ %35, %59 ], [ %35, %53 ], [ %35, %47 ], [ %35, %40 ], [ %35, %37 ], [ %35, %33 ], [ null, %28 ], [ null, %23 ], [ %35, %71 ]
-  %.0 = phi ptr [ %61, %66 ], [ %61, %63 ], [ %61, %59 ], [ null, %53 ], [ null, %47 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %23 ], [ %61, %71 ]
+  %.030 = phi i32 [ 0, %23 ], [ %spec.select, %71 ], [ 0, %66 ], [ 0, %63 ], [ 0, %59 ], [ 0, %53 ], [ 0, %47 ], [ 0, %40 ], [ 0, %37 ], [ 0, %33 ], [ 0, %28 ]
+  %.029 = phi ptr [ null, %23 ], [ %31, %71 ], [ %31, %66 ], [ %31, %63 ], [ %31, %59 ], [ %31, %53 ], [ %31, %47 ], [ %31, %40 ], [ %31, %37 ], [ %31, %33 ], [ %31, %28 ]
+  %.028 = phi ptr [ null, %23 ], [ %35, %71 ], [ %35, %66 ], [ %35, %63 ], [ %35, %59 ], [ %35, %53 ], [ %35, %47 ], [ %35, %40 ], [ %35, %37 ], [ %35, %33 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %23 ], [ %61, %71 ], [ %61, %66 ], [ %61, %63 ], [ %61, %59 ], [ null, %53 ], [ null, %47 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %28 ]
   call void @EVP_SIGNATURE_free(ptr noundef %.028) #5
   %77 = load ptr, ptr %2, align 8, !tbaa !16
   call void @EVP_PKEY_free(ptr noundef %77) #5
@@ -539,9 +539,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_sigver_test(i32 %0) #1 {
   br label %24
 
 24:                                               ; preds = %21, %18, %14, %9, %1
-  %.018 = phi ptr [ %12, %18 ], [ %12, %14 ], [ %12, %9 ], [ null, %1 ], [ %12, %21 ]
-  %.017 = phi ptr [ %16, %18 ], [ %16, %14 ], [ null, %9 ], [ null, %1 ], [ %16, %21 ]
-  %.0 = phi i32 [ 0, %18 ], [ 0, %14 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %21 ]
+  %.018 = phi ptr [ null, %1 ], [ %12, %21 ], [ %12, %18 ], [ %12, %14 ], [ %12, %9 ]
+  %.017 = phi ptr [ null, %1 ], [ %16, %21 ], [ %16, %18 ], [ %16, %14 ], [ null, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %21 ], [ 0, %18 ], [ 0, %14 ], [ 0, %9 ]
   call void @EVP_SIGNATURE_free(ptr noundef %.017) #5
   %25 = load ptr, ptr %2, align 8, !tbaa !16
   call void @EVP_PKEY_free(ptr noundef %25) #5
@@ -588,9 +588,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_key_dup_test() #1 {
   br label %16
 
 16:                                               ; preds = %13, %0, %3, %6, %9
-  %.012 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %13 ]
-  %.011 = phi ptr [ %4, %9 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %13 ]
-  %.0 = phi ptr [ %11, %9 ], [ null, %6 ], [ null, %3 ], [ null, %0 ], [ %11, %13 ]
+  %.012 = phi i32 [ 0, %0 ], [ %spec.select, %13 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ]
+  %.011 = phi ptr [ null, %0 ], [ %4, %13 ], [ %4, %9 ], [ %4, %6 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %0 ], [ %11, %13 ], [ %11, %9 ], [ null, %6 ], [ null, %3 ]
   tail call void @EVP_PKEY_free(ptr noundef %1) #5
   tail call void @EVP_PKEY_free(ptr noundef %.011) #5
   tail call void @EVP_PKEY_CTX_free(ptr noundef %.0) #5
@@ -665,9 +665,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_key_internal_test() #1 {
   br label %37
 
 37:                                               ; preds = %32, %0, %3, %7, %10, %14, %17, %22, %27
-  %.08 = phi i32 [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ], [ 0, %7 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %32 ]
-  %.07 = phi ptr [ %12, %27 ], [ %12, %22 ], [ %12, %17 ], [ %12, %14 ], [ %12, %10 ], [ %5, %7 ], [ %5, %3 ], [ %1, %0 ], [ %12, %32 ]
-  %.0 = phi ptr [ %15, %27 ], [ %15, %22 ], [ %15, %17 ], [ %15, %14 ], [ %8, %10 ], [ %8, %7 ], [ null, %3 ], [ null, %0 ], [ %15, %32 ]
+  %.08 = phi i32 [ 0, %0 ], [ %spec.select, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ], [ 0, %7 ], [ 0, %3 ]
+  %.07 = phi ptr [ %1, %0 ], [ %12, %32 ], [ %12, %27 ], [ %12, %22 ], [ %12, %17 ], [ %12, %14 ], [ %12, %10 ], [ %5, %7 ], [ %5, %3 ]
+  %.0 = phi ptr [ null, %0 ], [ %15, %32 ], [ %15, %27 ], [ %15, %22 ], [ %15, %17 ], [ %15, %14 ], [ %8, %10 ], [ %8, %7 ], [ null, %3 ]
   tail call void @ossl_ml_dsa_key_free(ptr noundef %.0) #5
   tail call void @ossl_ml_dsa_key_free(ptr noundef %.07) #5
   ret i32 %.08
@@ -778,11 +778,11 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   br label %53
 
 53:                                               ; preds = %49, %0, %5, %8, %11, %14, %17, %20, %24, %28, %31, %34, %38, %42, %45
-  %.020 = phi i32 [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %49 ]
-  %.019 = phi ptr [ %6, %45 ], [ %6, %42 ], [ %6, %38 ], [ %6, %34 ], [ %6, %31 ], [ %6, %28 ], [ %6, %24 ], [ %6, %20 ], [ %6, %17 ], [ %6, %14 ], [ %6, %11 ], [ %6, %8 ], [ %6, %5 ], [ null, %0 ], [ %6, %49 ]
-  %.018 = phi ptr [ %9, %45 ], [ %9, %42 ], [ %9, %38 ], [ %9, %34 ], [ %9, %31 ], [ %9, %28 ], [ %9, %24 ], [ %9, %20 ], [ %9, %17 ], [ %9, %14 ], [ %9, %11 ], [ %9, %8 ], [ null, %5 ], [ null, %0 ], [ %9, %49 ]
-  %.017 = phi ptr [ %26, %45 ], [ %26, %42 ], [ %26, %38 ], [ %26, %34 ], [ %26, %31 ], [ %26, %28 ], [ %26, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ null, %0 ], [ %26, %49 ]
-  %.0 = phi ptr [ %40, %45 ], [ %40, %42 ], [ %40, %38 ], [ null, %34 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ null, %0 ], [ %40, %49 ]
+  %.020 = phi i32 [ 0, %0 ], [ %spec.select, %49 ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ]
+  %.019 = phi ptr [ null, %0 ], [ %6, %49 ], [ %6, %45 ], [ %6, %42 ], [ %6, %38 ], [ %6, %34 ], [ %6, %31 ], [ %6, %28 ], [ %6, %24 ], [ %6, %20 ], [ %6, %17 ], [ %6, %14 ], [ %6, %11 ], [ %6, %8 ], [ %6, %5 ]
+  %.018 = phi ptr [ null, %0 ], [ %9, %49 ], [ %9, %45 ], [ %9, %42 ], [ %9, %38 ], [ %9, %34 ], [ %9, %31 ], [ %9, %28 ], [ %9, %24 ], [ %9, %20 ], [ %9, %17 ], [ %9, %14 ], [ %9, %11 ], [ %9, %8 ], [ null, %5 ]
+  %.017 = phi ptr [ null, %0 ], [ %26, %49 ], [ %26, %45 ], [ %26, %42 ], [ %26, %38 ], [ %26, %34 ], [ %26, %31 ], [ %26, %28 ], [ %26, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %0 ], [ %40, %49 ], [ %40, %45 ], [ %40, %42 ], [ %40, %38 ], [ null, %34 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %5 ]
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.29, i32 noundef 338) #5
   call void @CRYPTO_free(ptr noundef %.017, ptr noundef nonnull @.str.29, i32 noundef 339) #5
   call void @EVP_PKEY_free(ptr noundef %3) #5
@@ -864,7 +864,7 @@ define internal range(i32 0, 2) i32 @from_data_invalid_public_test() #1 {
   br label %24
 
 24:                                               ; preds = %21, %4, %9, %12, %15, %18, %0
-  %.0 = phi i32 [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.29, i32 noundef 274) #5
   %25 = load ptr, ptr %1, align 8, !tbaa !16
   call void @EVP_PKEY_free(ptr noundef %25) #5
@@ -937,7 +937,7 @@ define internal range(i32 0, 2) i32 @from_data_bad_input_test() #1 {
   br label %26
 
 26:                                               ; preds = %23, %19, %0, %10, %13, %16
-  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %0 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ]
   %27 = load ptr, ptr %2, align 8, !tbaa !16
   call void @EVP_PKEY_free(ptr noundef %27) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %8) #5
@@ -1076,9 +1076,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
   br label %68
 
 68:                                               ; preds = %62, %24, %43, %49, %54, %58, %36, %27, %32, %13, %16, %20, %0
-  %.039 = phi ptr [ %34, %58 ], [ %34, %54 ], [ %34, %49 ], [ %34, %43 ], [ %34, %36 ], [ %34, %32 ], [ null, %27 ], [ null, %20 ], [ null, %16 ], [ null, %13 ], [ null, %0 ], [ null, %24 ], [ %34, %62 ]
-  %.037 = phi i32 [ 0, %58 ], [ 0, %54 ], [ 0, %49 ], [ 0, %43 ], [ 0, %36 ], [ 0, %32 ], [ 0, %27 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %0 ], [ 1, %24 ], [ %spec.select, %62 ]
-  %.0 = phi ptr [ %14, %58 ], [ %14, %54 ], [ %14, %49 ], [ %14, %43 ], [ %14, %36 ], [ %14, %32 ], [ %14, %27 ], [ %14, %20 ], [ %14, %16 ], [ %14, %13 ], [ null, %0 ], [ %14, %24 ], [ %14, %62 ]
+  %.039 = phi ptr [ null, %0 ], [ null, %24 ], [ %34, %62 ], [ %34, %58 ], [ %34, %54 ], [ %34, %49 ], [ %34, %43 ], [ %34, %36 ], [ %34, %32 ], [ null, %27 ], [ null, %20 ], [ null, %16 ], [ null, %13 ]
+  %.037 = phi i32 [ 0, %0 ], [ 1, %24 ], [ %spec.select, %62 ], [ 0, %58 ], [ 0, %54 ], [ 0, %49 ], [ 0, %43 ], [ 0, %36 ], [ 0, %32 ], [ 0, %27 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ]
+  %.0 = phi ptr [ null, %0 ], [ %14, %24 ], [ %14, %62 ], [ %14, %58 ], [ %14, %54 ], [ %14, %49 ], [ %14, %43 ], [ %14, %36 ], [ %14, %32 ], [ %14, %27 ], [ %14, %20 ], [ %14, %16 ], [ %14, %13 ]
   call void @EVP_PKEY_free(ptr noundef %5) #5
   call void @EVP_MD_CTX_free(ptr noundef %.0) #5
   call void @CRYPTO_free(ptr noundef %.039, ptr noundef nonnull @.str.29, i32 noundef 495) #5
@@ -1117,7 +1117,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_priv_pub_bad_t0_test() #1 {
   br label %13
 
 13:                                               ; preds = %8, %4, %0
-  %.0 = phi i32 [ 0, %4 ], [ 0, %0 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %8 ], [ 0, %4 ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.29, i32 noundef 524) #5
   %14 = load ptr, ptr %1, align 8, !tbaa !16
   call void @EVP_PKEY_free(ptr noundef %14) #5
@@ -1293,7 +1293,7 @@ define internal fastcc range(i32 0, 2) i32 @ml_dsa_create_keypair(ptr noundef no
   br label %27
 
 27:                                               ; preds = %24, %17, %21
-  %.019 = phi i32 [ 0, %21 ], [ 0, %17 ], [ %spec.select, %24 ]
+  %.019 = phi i32 [ 0, %17 ], [ %spec.select, %24 ], [ 0, %21 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %19) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
@@ -1482,11 +1482,11 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   br label %73
 
 73:                                               ; preds = %67, %33, %53, %60, %64, %46, %36, %42, %20, %24, %28, %2
-  %.042 = phi i32 [ 0, %64 ], [ 0, %60 ], [ 0, %53 ], [ 0, %46 ], [ 0, %42 ], [ 0, %36 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 0, %2 ], [ 1, %33 ], [ %spec.select, %67 ]
-  %.041 = phi ptr [ %22, %64 ], [ %22, %60 ], [ %22, %53 ], [ %22, %46 ], [ %22, %42 ], [ %22, %36 ], [ %22, %28 ], [ %22, %24 ], [ %22, %20 ], [ null, %2 ], [ %22, %33 ], [ %22, %67 ]
-  %.040 = phi ptr [ %62, %64 ], [ %62, %60 ], [ null, %53 ], [ null, %46 ], [ null, %42 ], [ null, %36 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %2 ], [ null, %33 ], [ %62, %67 ]
-  %.039 = phi ptr [ %26, %64 ], [ %26, %60 ], [ %26, %53 ], [ %26, %46 ], [ %26, %42 ], [ %26, %36 ], [ %26, %28 ], [ %26, %24 ], [ null, %20 ], [ null, %2 ], [ %26, %33 ], [ %26, %67 ]
-  %.038 = phi ptr [ %44, %64 ], [ %44, %60 ], [ %44, %53 ], [ %44, %46 ], [ %44, %42 ], [ null, %36 ], [ null, %28 ], [ null, %24 ], [ null, %20 ], [ null, %2 ], [ null, %33 ], [ %44, %67 ]
+  %.042 = phi i32 [ 0, %2 ], [ 1, %33 ], [ %spec.select, %67 ], [ 0, %64 ], [ 0, %60 ], [ 0, %53 ], [ 0, %46 ], [ 0, %42 ], [ 0, %36 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
+  %.041 = phi ptr [ null, %2 ], [ %22, %33 ], [ %22, %67 ], [ %22, %64 ], [ %22, %60 ], [ %22, %53 ], [ %22, %46 ], [ %22, %42 ], [ %22, %36 ], [ %22, %28 ], [ %22, %24 ], [ %22, %20 ]
+  %.040 = phi ptr [ null, %2 ], [ null, %33 ], [ %62, %67 ], [ %62, %64 ], [ %62, %60 ], [ null, %53 ], [ null, %46 ], [ null, %42 ], [ null, %36 ], [ null, %28 ], [ null, %24 ], [ null, %20 ]
+  %.039 = phi ptr [ null, %2 ], [ %26, %33 ], [ %26, %67 ], [ %26, %64 ], [ %26, %60 ], [ %26, %53 ], [ %26, %46 ], [ %26, %42 ], [ %26, %36 ], [ %26, %28 ], [ %26, %24 ], [ null, %20 ]
+  %.038 = phi ptr [ null, %2 ], [ null, %33 ], [ %44, %67 ], [ %44, %64 ], [ %44, %60 ], [ %44, %53 ], [ %44, %46 ], [ %44, %42 ], [ null, %36 ], [ null, %28 ], [ null, %24 ], [ null, %20 ]
   call void @EVP_PKEY_free(ptr noundef %9) #5
   call void @EVP_SIGNATURE_free(ptr noundef %.039) #5
   call void @CRYPTO_free(ptr noundef %.038, ptr noundef nonnull @.str.29, i32 noundef 421) #5

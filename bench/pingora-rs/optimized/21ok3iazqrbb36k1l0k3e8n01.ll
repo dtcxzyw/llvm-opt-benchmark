@@ -108,8 +108,8 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
   ]
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %55, %51, %48
-  %.sroa.01.153.i.i.i.i.ph = phi ptr [ %52, %51 ], [ %45, %48 ], [ %45, %55 ]
-  %.sroa.14.152.i.i.i.i.ph = phi i64 [ %53, %51 ], [ 1, %48 ], [ %47, %55 ]
+  %.sroa.01.153.i.i.i.i.ph = phi ptr [ %52, %51 ], [ %45, %55 ], [ %45, %48 ]
+  %.sroa.14.152.i.i.i.i.ph = phi i64 [ %53, %51 ], [ %47, %55 ], [ 1, %48 ]
   br label %.lr.ph.i.i.i.i
 
 50:                                               ; preds = %43
@@ -187,7 +187,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
   unreachable
 
 "_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53719d0f9ea92c25E.exit.i.i": ; preds = %68, %66, %57, %.preheader44.i.i.i.i, %77, %.lr.ph.i.i.i.i, %48, %48, %43, %42
-  %.sroa.0.0.i.i.i = phi i64 [ 2097152, %42 ], [ 2097152, %48 ], [ 2097152, %48 ], [ 2097152, %43 ], [ %82, %77 ], [ 2097152, %.lr.ph.i.i.i.i ], [ %.sroa.013.0.i.i.i.i, %.preheader44.i.i.i.i ], [ 2097152, %57 ], [ 2097152, %66 ], [ 2097152, %68 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 2097152, %42 ], [ 2097152, %43 ], [ %82, %77 ], [ 2097152, %48 ], [ 2097152, %48 ], [ 2097152, %.lr.ph.i.i.i.i ], [ 2097152, %66 ], [ 2097152, %68 ], [ %.sroa.013.0.i.i.i.i, %.preheader44.i.i.i.i ], [ 2097152, %57 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17hf1280bdbba57959fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %.noexc36.i unwind label %.thread12.i, !noalias !6
 
@@ -241,8 +241,8 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
   br label %95
 
 .critedge.i:                                      ; preds = %155, %149, %.body32.thread.i, %112, %93
-  %.sroa.017.2.i = phi i1 [ false, %155 ], [ true, %93 ], [ false, %112 ], [ false, %.body32.thread.i ], [ false, %149 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %108, %155 ], [ %94, %93 ], [ %113, %112 ], [ %eh.lpad-body3326.i, %.body32.thread.i ], [ %eh.lpad-body3326.i, %149 ]
+  %.sroa.017.2.i = phi i1 [ false, %155 ], [ false, %149 ], [ true, %93 ], [ false, %112 ], [ false, %.body32.thread.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %108, %155 ], [ %eh.lpad-body3326.i, %149 ], [ %94, %93 ], [ %113, %112 ], [ %eh.lpad-body3326.i, %.body32.thread.i ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h2a73996740fb3b11E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #16
           to label %.thread.i unwind label %152, !noalias !6
 
@@ -389,7 +389,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
           to label %164 unwind label %112, !noalias !6
 
 .body32.thread.i:                                 ; preds = %150, %.body32.i, %130
-  %eh.lpad-body3326.i = phi { ptr, i32 } [ %151, %150 ], [ %134, %.body32.i ], [ %131, %130 ]
+  %eh.lpad-body3326.i = phi { ptr, i32 } [ %134, %.body32.i ], [ %151, %150 ], [ %131, %130 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %146 = load ptr, ptr %9, align 8, !alias.scope !44, !noalias !6, !nonnull !10, !noundef !10
@@ -452,7 +452,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h3ea71c826ec0e562E.exit.i" unwind label %152, !noalias !6
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h3ea71c826ec0e562E.exit.i": ; preds = %.thread6.i, %158, %163, %160, %.thread.thread.i, %.thread.i
-  %.pn30531.i = phi { ptr, i32 } [ %.pn.pn.i, %.thread.i ], [ %.pn.pn.i, %163 ], [ %.pn.pn.i, %.thread.thread.i ], [ %.pn.pn.i, %160 ], [ %eh.lpad-body3511.i, %158 ], [ %eh.lpad-body3511.i, %.thread6.i ]
+  %.pn30531.i = phi { ptr, i32 } [ %.pn.pn.i, %160 ], [ %.pn.pn.i, %.thread.i ], [ %.pn.pn.i, %163 ], [ %.pn.pn.i, %.thread.thread.i ], [ %eh.lpad-body3511.i, %158 ], [ %eh.lpad-body3511.i, %.thread6.i ]
   resume { ptr, i32 } %.pn30531.i
 
 164:                                              ; preds = %141, %145
@@ -523,7 +523,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %86 unwind label %31
 
 16:                                               ; preds = %85, %37, %33, %12
-  %.sroa.013.0.i = phi i1 [ true, %37 ], [ true, %33 ], [ true, %12 ], [ false, %85 ]
+  %.sroa.013.0.i = phi i1 [ false, %85 ], [ true, %37 ], [ true, %33 ], [ true, %12 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %15

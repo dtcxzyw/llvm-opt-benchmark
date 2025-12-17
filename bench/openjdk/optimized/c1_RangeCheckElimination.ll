@@ -553,7 +553,7 @@ _ZN11Compilation12is_profilingEv.exit.i:          ; preds = %57
   br label %_ZN11Compilation13is_optimisticEv.exit
 
 _ZN11Compilation13is_optimisticEv.exit:           ; preds = %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %57, %_ZN11Compilation12is_profilingEv.exit.i, %65, %70
-  %78 = phi i8 [ 0, %_ZN11Compilation12is_profilingEv.exit.i ], [ %77, %70 ], [ 0, %65 ], [ 0, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ 0, %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit ], [ 0, %57 ]
+  %78 = phi i8 [ 0, %65 ], [ 0, %_ZN11Compilation12is_profilingEv.exit.i ], [ 0, %57 ], [ %77, %70 ], [ 0, %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit ], [ 0, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %78, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1049,12 +1049,12 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   br label %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit57
 
 _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit57: ; preds = %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i, %155, %42, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62, %139, %31
-  %217 = phi ptr [ %37, %42 ], [ %107, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %107, %139 ], [ %37, %31 ], [ %107, %155 ], [ %107, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
-  %218 = phi i32 [ %36, %42 ], [ %108, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %108, %139 ], [ %36, %31 ], [ %108, %155 ], [ %108, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
-  %219 = phi i32 [ %35, %42 ], [ %109, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %109, %139 ], [ %35, %31 ], [ %109, %155 ], [ %109, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
-  %220 = phi ptr [ %34, %42 ], [ %70, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %70, %139 ], [ %34, %31 ], [ %70, %155 ], [ %70, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
-  %221 = phi i32 [ %33, %42 ], [ %71, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %71, %139 ], [ %33, %31 ], [ %71, %155 ], [ %71, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
-  %222 = phi i32 [ %32, %42 ], [ %49, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %49, %139 ], [ %32, %31 ], [ %49, %155 ], [ %49, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %217 = phi ptr [ %37, %42 ], [ %37, %31 ], [ %107, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %107, %139 ], [ %107, %155 ], [ %107, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %218 = phi i32 [ %36, %42 ], [ %36, %31 ], [ %108, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %108, %139 ], [ %108, %155 ], [ %108, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %219 = phi i32 [ %35, %42 ], [ %35, %31 ], [ %109, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %109, %139 ], [ %109, %155 ], [ %109, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %220 = phi ptr [ %34, %42 ], [ %34, %31 ], [ %70, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %70, %139 ], [ %70, %155 ], [ %70, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %221 = phi i32 [ %33, %42 ], [ %33, %31 ], [ %71, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %71, %139 ], [ %71, %155 ], [ %71, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
+  %222 = phi i32 [ %32, %42 ], [ %32, %31 ], [ %49, %_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i.exit62 ], [ %49, %139 ], [ %49, %155 ], [ %49, %_ZN20RangeCheckEliminator5BoundC2EN11Instruction9ConditionEPS1_i.exit.i ]
   %223 = getelementptr inbounds nuw i8, ptr %.037138, i64 32
   %224 = load ptr, ptr %223, align 8
   %.not45 = icmp eq ptr %224, null
@@ -1700,9 +1700,9 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %168, %169
   br label %171
 
 171:                                              ; preds = %68, %66, %56, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit, %_ZN20RangeCheckEliminator5Bound4copyEv.exit, %20
-  %.2 = phi ptr [ %.06098, %20 ], [ %.06098, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.0.i.i.i.i, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.06098, %56 ], [ %.06098, %66 ], [ %.06098, %68 ]
-  %.159 = phi i1 [ %.058100, %20 ], [ %.058100, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.058100, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.058100, %56 ], [ false, %66 ], [ %spec.select82, %68 ]
-  %.1 = phi i1 [ %.057101, %20 ], [ %.057101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.057101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057101, %68 ]
+  %.2 = phi ptr [ %.06098, %20 ], [ %.0.i.i.i.i, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.06098, %56 ], [ %.06098, %66 ], [ %.06098, %68 ], [ %.06098, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ]
+  %.159 = phi i1 [ %.058100, %20 ], [ %.058100, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.058100, %56 ], [ false, %66 ], [ %spec.select82, %68 ], [ %.058100, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ]
+  %.1 = phi i1 [ %.057101, %20 ], [ %.057101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057101, %68 ], [ %.057101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ]
   %172 = add nuw nsw i32 %.06297, 1
   %exitcond.not = icmp eq i32 %172, %16
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !15
@@ -1777,7 +1777,7 @@ _ZN22CompilationResourceObjnwEm.exit87:           ; preds = %193, %195
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN22CompilationResourceObjnwEm.exit87, %198, %176, %177
-  %.0.i.i.i86.sink = phi ptr [ %.2, %177 ], [ %.2, %176 ], [ %.0.i.i.i86, %198 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ]
+  %.0.i.i.i86.sink = phi ptr [ %.2, %176 ], [ %.2, %177 ], [ %.0.i.i.i86, %198 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i86.sink, ptr %202, align 8
   br label %203
@@ -2036,7 +2036,7 @@ _ZN22CompilationResourceObjnwEm.exit27:           ; preds = %131, %133
   br label %149
 
 149:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit27, %136, %2, %10, %140
-  %.0 = phi ptr [ %148, %140 ], [ null, %10 ], [ null, %2 ], [ %.0.i.i.i26, %136 ], [ null, %_ZN22CompilationResourceObjnwEm.exit27 ]
+  %.0 = phi ptr [ null, %2 ], [ %148, %140 ], [ null, %10 ], [ %.0.i.i.i26, %136 ], [ null, %_ZN22CompilationResourceObjnwEm.exit27 ]
   ret ptr %.0
 }
 
@@ -2749,7 +2749,7 @@ _ZN22CompilationResourceObjnwEm.exit103:          ; preds = %324, %326
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN22CompilationResourceObjnwEm.exit103, %_ZN22CompilationResourceObjnwEm.exit100, %_ZN22CompilationResourceObjnwEm.exit97, %_ZN22CompilationResourceObjnwEm.exit94, %_ZN22CompilationResourceObjnwEm.exit91, %211, %.critedge, %_ZN22CompilationResourceObjnwEm.exit86, %_ZN22CompilationResourceObjnwEm.exit83, %_ZN22CompilationResourceObjnwEm.exit
-  %.0.i.i.i102.sink = phi ptr [ %.0.i.i.i, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i82, %_ZN22CompilationResourceObjnwEm.exit83 ], [ %.0.i.i.i85, %_ZN22CompilationResourceObjnwEm.exit86 ], [ %206, %.critedge ], [ %212, %211 ], [ %.0.i.i.i90, %_ZN22CompilationResourceObjnwEm.exit91 ], [ %.0.i.i.i93, %_ZN22CompilationResourceObjnwEm.exit94 ], [ %.0.i.i.i96, %_ZN22CompilationResourceObjnwEm.exit97 ], [ %.0.i.i.i99, %_ZN22CompilationResourceObjnwEm.exit100 ], [ %.0.i.i.i102, %_ZN22CompilationResourceObjnwEm.exit103 ], [ %.0.i.i.i102.sink112, %.sink.split.sink.split ]
+  %.0.i.i.i102.sink = phi ptr [ %.0.i.i.i99, %_ZN22CompilationResourceObjnwEm.exit100 ], [ %.0.i.i.i96, %_ZN22CompilationResourceObjnwEm.exit97 ], [ %.0.i.i.i93, %_ZN22CompilationResourceObjnwEm.exit94 ], [ %.0.i.i.i90, %_ZN22CompilationResourceObjnwEm.exit91 ], [ %.0.i.i.i85, %_ZN22CompilationResourceObjnwEm.exit86 ], [ %206, %.critedge ], [ %212, %211 ], [ %.0.i.i.i, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i82, %_ZN22CompilationResourceObjnwEm.exit83 ], [ %.0.i.i.i102, %_ZN22CompilationResourceObjnwEm.exit103 ], [ %.0.i.i.i102.sink112, %.sink.split.sink.split ]
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i102.sink, ptr %333, align 8
   br label %334
@@ -2916,8 +2916,8 @@ define hidden void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP
   br label %19
 
 19:                                               ; preds = %15, %9, %6, %17, %11
-  %.016 = phi i32 [ %12, %11 ], [ %18, %17 ], [ %5, %6 ], [ -2147483648, %9 ], [ 2147483647, %15 ]
-  %.0 = phi i32 [ 5, %11 ], [ 3, %17 ], [ %3, %6 ], [ 5, %9 ], [ 3, %15 ]
+  %.016 = phi i32 [ %5, %6 ], [ %12, %11 ], [ -2147483648, %9 ], [ %18, %17 ], [ 2147483647, %15 ]
+  %.0 = phi i32 [ %3, %6 ], [ 5, %11 ], [ 5, %9 ], [ 3, %17 ], [ 3, %15 ]
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1808
@@ -5568,7 +5568,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator24is_ok_for_deoptimiz
   br i1 %23, label %49, label %24
 
 24:                                               ; preds = %22, %14, %9, %8
-  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %8 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %14 ], [ true, %9 ], [ false, %22 ]
   %.not21 = icmp eq ptr %4, null
   br i1 %.not21, label %39, label %25
 
@@ -6544,8 +6544,8 @@ thread-pre-split:                                 ; preds = %47
   br label %96
 
 96:                                               ; preds = %94, %28, %36, %54, %91, %19
-  %.029 = phi ptr [ null, %19 ], [ %2, %36 ], [ %.130, %91 ], [ %2, %54 ], [ %2, %28 ], [ %spec.select, %94 ]
-  %.0 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %.1, %91 ], [ 0, %54 ], [ 0, %28 ], [ %spec.select43, %94 ]
+  %.029 = phi ptr [ null, %19 ], [ %2, %36 ], [ %spec.select, %94 ], [ %2, %28 ], [ %.130, %91 ], [ %2, %54 ]
+  %.0 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %spec.select43, %94 ], [ 0, %28 ], [ %.1, %91 ], [ 0, %54 ]
   tail call void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %.029, i32 noundef %.0)
   br label %97
 
@@ -6735,7 +6735,7 @@ _ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit: ; preds = %56
   %68 = icmp sgt i32 %67, -1
   br i1 %68, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread: ; preds = %44, %52, %66
+_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread: ; preds = %52, %44, %66
   %69 = load i32, ptr %5, align 8
   %70 = and i32 %69, -131073
   store i32 %70, ptr %5, align 8
@@ -6797,7 +6797,7 @@ define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator14in_array_boundEPNS_
   br label %31
 
 31:                                               ; preds = %18, %26, %3, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %3 ], [ true, %26 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %30 ], [ true, %26 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -7958,7 +7958,7 @@ _ZN11Instruction5substEv.exit18:                  ; preds = %tailrecurse.i16
   br label %35
 
 35:                                               ; preds = %30, %_ZN11Instruction5substEv.exit18, %_ZN11Instruction5substEv.exit12, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ false, %_ZN11Instruction5substEv.exit18 ], [ %.not9, %30 ]
+  %.0 = phi i1 [ false, %_ZN11Instruction5substEv.exit18 ], [ false, %2 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ %.not9, %30 ]
   ret i1 %.0
 }
 

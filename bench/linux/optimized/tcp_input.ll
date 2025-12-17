@@ -1890,7 +1890,7 @@ define dso_local zeroext i16 @tcp_parse_mss_option(ptr noundef readonly captures
   br i1 %84, label %.split, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %80, %.split, %55, %57, %43, %22, %20, %.split.us, %2
-  %85 = phi i16 [ 0, %2 ], [ %13, %22 ], [ %13, %20 ], [ %13, %.split.us ], [ %46, %43 ], [ %48, %57 ], [ %48, %55 ], [ %48, %.split ], [ %83, %80 ]
+  %85 = phi i16 [ 0, %2 ], [ %46, %43 ], [ %13, %22 ], [ %13, %20 ], [ %13, %.split.us ], [ %48, %57 ], [ %48, %55 ], [ %48, %.split ], [ %83, %80 ]
   ret i16 %85
 }
 
@@ -4197,7 +4197,7 @@ tcp_rcv_rtt_measure_ts.exit:                      ; preds = %176, %182, %202, %2
   br label %440
 
 440:                                              ; preds = %.thread14, %430, %347, %338
-  %441 = phi i32 [ 5, %430 ], [ %348, %347 ], [ 27, %338 ], [ 4, %.thread14 ]
+  %441 = phi i32 [ 5, %430 ], [ %348, %347 ], [ 4, %.thread14 ], [ 27, %338 ]
   %442 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %443 = load ptr, ptr %442, align 8
   %444 = getelementptr inbounds nuw i8, ptr %1, i64 188
@@ -4393,8 +4393,8 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   br label %._crit_edge90
 
 ._crit_edge90:                                    ; preds = %103, %109, %111
-  %117 = phi i32 [ %.pre91, %111 ], [ 0, %109 ], [ %.pre91, %103 ]
-  %118 = phi i32 [ %.pre, %111 ], [ %11, %109 ], [ %11, %103 ]
+  %117 = phi i32 [ 0, %109 ], [ %.pre91, %111 ], [ %.pre91, %103 ]
+  %118 = phi i32 [ %11, %109 ], [ %.pre, %111 ], [ %11, %103 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1428
   %121 = load i32, ptr %120, align 4
@@ -5220,9 +5220,9 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   br label %665
 
 665:                                              ; preds = %653, %647, %635, %629
-  %666 = phi i32 [ %630, %647 ], [ %630, %635 ], [ %630, %629 ], [ %664, %653 ]
-  %667 = phi i64 [ %643, %647 ], [ %643, %635 ], [ -1, %629 ], [ %643, %653 ]
-  %668 = phi i64 [ %640, %647 ], [ %640, %635 ], [ -1, %629 ], [ %640, %653 ]
+  %666 = phi i32 [ %664, %653 ], [ %630, %647 ], [ %630, %635 ], [ %630, %629 ]
+  %667 = phi i64 [ %643, %653 ], [ %643, %647 ], [ %643, %635 ], [ -1, %629 ]
+  %668 = phi i64 [ %640, %653 ], [ %640, %647 ], [ %640, %635 ], [ -1, %629 ]
   %669 = load i64, ptr %6, align 8
   %670 = icmp eq i64 %669, 0
   br i1 %670, label %682, label %671
@@ -5963,7 +5963,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   br label %tcp_send_challenge_ack.exit
 
 tcp_send_challenge_ack.exit:                      ; preds = %88, %82, %59, %1142, %1130, %1124, %1121, %1100, %1099, %1095, %1026, %1016, %1010, %1007, %92, %42
-  %1143 = phi i32 [ -41, %92 ], [ 1, %1099 ], [ 1, %1095 ], [ 0, %1100 ], [ -40, %42 ], [ 1, %1007 ], [ 1, %1010 ], [ 1, %1016 ], [ 1, %1026 ], [ 0, %1121 ], [ 0, %1124 ], [ 0, %1130 ], [ 0, %1142 ], [ -40, %59 ], [ -40, %82 ], [ -40, %88 ]
+  %1143 = phi i32 [ -41, %92 ], [ 1, %1099 ], [ 1, %1095 ], [ 0, %1100 ], [ -40, %42 ], [ 0, %1142 ], [ 1, %1007 ], [ 1, %1010 ], [ 1, %1016 ], [ 1, %1026 ], [ 0, %1121 ], [ 0, %1124 ], [ 0, %1130 ], [ -40, %59 ], [ -40, %82 ], [ -40, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -7153,7 +7153,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %tcp_send_challenge_ack.exit
 
 tcp_send_challenge_ack.exit:                      ; preds = %419, %413, %390, %359, %353, %330, %253, %248, %247, %240, %187, %180
-  %423 = phi i32 [ %.ph, %253 ], [ %.ph, %240 ], [ %.ph, %247 ], [ 32, %187 ], [ 32, %180 ], [ %.ph, %248 ], [ 35, %330 ], [ 35, %353 ], [ 35, %359 ], [ 36, %390 ], [ 36, %413 ], [ 36, %419 ]
+  %423 = phi i32 [ %.ph, %253 ], [ 35, %359 ], [ %.ph, %240 ], [ %.ph, %247 ], [ %.ph, %248 ], [ 32, %187 ], [ 32, %180 ], [ 35, %330 ], [ 35, %353 ], [ 36, %390 ], [ 36, %413 ], [ 36, %419 ]
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 188
@@ -10494,7 +10494,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   br label %.thread13
 
 .thread13:                                        ; preds = %562, %531, %.thread, %671, %659, %658, %641, %403, %397, %374, %32, %24, %13
-  %672 = phi i32 [ 1, %641 ], [ 0, %671 ], [ 0, %374 ], [ 0, %32 ], [ 1, %13 ], [ 1, %24 ], [ 0, %397 ], [ 1, %403 ], [ 0, %659 ], [ 0, %658 ], [ %.ph, %.thread ], [ 1, %531 ], [ 1, %562 ]
+  %672 = phi i32 [ 1, %641 ], [ 0, %671 ], [ 0, %658 ], [ 0, %374 ], [ 0, %32 ], [ 1, %13 ], [ 1, %24 ], [ %.ph, %.thread ], [ 0, %397 ], [ 1, %403 ], [ 0, %659 ], [ 1, %531 ], [ 1, %562 ]
   ret i32 %672
 }
 
@@ -10788,7 +10788,7 @@ define dso_local ptr @inet_reqsk_alloc(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %.thread4
 
 .thread4:                                         ; preds = %3, %29, %32
-  %56 = phi ptr [ %6, %32 ], [ null, %29 ], [ null, %3 ]
+  %56 = phi ptr [ null, %3 ], [ %6, %32 ], [ null, %29 ]
   ret ptr %56
 }
 
@@ -10965,7 +10965,7 @@ define dso_local zeroext i16 @tcp_get_syncookie_mss(ptr noundef readonly capture
   br i1 %115, label %.split, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %111, %.split, %86, %88, %.split.us, %51, %53, %74
-  %.us-phi = phi i16 [ %77, %74 ], [ %44, %.split.us ], [ %44, %51 ], [ %44, %53 ], [ %114, %111 ], [ %79, %.split ], [ %79, %86 ], [ %79, %88 ]
+  %.us-phi = phi i16 [ %44, %53 ], [ %77, %74 ], [ %44, %.split.us ], [ %44, %51 ], [ %114, %111 ], [ %79, %.split ], [ %79, %86 ], [ %79, %88 ]
   %116 = icmp eq i16 %.us-phi, 0
   br i1 %116, label %.thread8, label %118
 
@@ -12128,9 +12128,9 @@ define internal fastcc void @tcp_collapse(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %123, label %.thread, label %.thread18, !llvm.loop !170
 
 .split61.us:                                      ; preds = %116, %108, %96, %51, %43, %31
-  %124 = phi i8 [ %28, %31 ], [ %28, %43 ], [ %28, %51 ], [ %93, %96 ], [ %93, %108 ], [ %93, %116 ]
-  %.us-phi62 = phi i32 [ %18, %31 ], [ %18, %43 ], [ %18, %51 ], [ %70, %96 ], [ %70, %108 ], [ %70, %116 ]
-  %.us-phi63 = phi ptr [ %19, %31 ], [ %19, %43 ], [ %19, %51 ], [ %71, %96 ], [ %71, %108 ], [ %71, %116 ]
+  %124 = phi i8 [ %28, %51 ], [ %28, %31 ], [ %28, %43 ], [ %93, %96 ], [ %93, %108 ], [ %93, %116 ]
+  %.us-phi62 = phi i32 [ %18, %51 ], [ %18, %31 ], [ %18, %43 ], [ %70, %96 ], [ %70, %108 ], [ %70, %116 ]
+  %.us-phi63 = phi ptr [ %19, %51 ], [ %19, %31 ], [ %19, %43 ], [ %71, %96 ], [ %71, %108 ], [ %71, %116 ]
   %125 = and i8 %124, 3
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %127, label %.thread18
@@ -14247,7 +14247,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %327, %321, %349, %221, %216, %175
-  %357 = phi i8 [ %39, %175 ], [ %39, %216 ], [ %39, %221 ], [ %39, %327 ], [ %39, %321 ], [ %356, %349 ]
+  %357 = phi i8 [ %39, %175 ], [ %39, %221 ], [ %39, %216 ], [ %39, %327 ], [ %39, %321 ], [ %356, %349 ]
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %359 = load i32, ptr %358, align 8
   %360 = icmp eq i32 %359, 0
@@ -15773,8 +15773,8 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   store ptr %387, ptr %16, align 8
   br label %.thread41
 
-.thread41:                                        ; preds = %312, %290, %381, %386, %347, %.thread34
-  %.ph43 = phi ptr [ %19, %.thread34 ], [ %19, %347 ], [ %19, %386 ], [ %19, %381 ], [ %103, %290 ], [ %19, %312 ]
+.thread41:                                        ; preds = %312, %290, %347, %381, %386, %.thread34
+  %.ph43 = phi ptr [ %103, %290 ], [ %19, %.thread34 ], [ %19, %386 ], [ %19, %381 ], [ %19, %347 ], [ %19, %312 ]
   %388 = tail call ptr @rb_next(ptr noundef nonnull %.ph43) #20
   %389 = icmp eq ptr %388, null
   br i1 %389, label %.loopexit, label %18, !llvm.loop !228

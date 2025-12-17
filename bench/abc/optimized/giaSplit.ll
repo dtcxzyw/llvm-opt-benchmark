@@ -319,8 +319,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %Vec_WecSizeUsed.exi
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %39, %Vec_IntAlloc.exit
-  %42 = phi ptr [ %41, %39 ], [ %25, %Vec_IntAlloc.exit ]
-  %43 = phi ptr [ %40, %39 ], [ %26, %Vec_IntAlloc.exit ]
+  %42 = phi ptr [ %25, %Vec_IntAlloc.exit ], [ %41, %39 ]
+  %43 = phi ptr [ %26, %Vec_IntAlloc.exit ], [ %40, %39 ]
   %44 = icmp sgt i32 %.val28, 0
   br i1 %44, label %.lr.ph.i47, label %Vec_IntFill.exit
 
@@ -332,9 +332,9 @@ Vec_IntGrow.exit.i:                               ; preds = %39, %Vec_IntAlloc.e
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i, %.lr.ph.i47
-  %.val3681 = phi ptr [ %42, %Vec_IntGrow.exit.i ], [ %42, %.lr.ph.i47 ], [ null, %Vec_IntAlloc.exit.thread ]
-  %.val3170 = phi i32 [ %.val8.i, %Vec_IntGrow.exit.i ], [ %.val3170.pre, %.lr.ph.i47 ], [ %.val8.i, %Vec_IntAlloc.exit.thread ]
-  %47 = phi ptr [ %43, %Vec_IntGrow.exit.i ], [ %43, %.lr.ph.i47 ], [ %27, %Vec_IntAlloc.exit.thread ]
+  %.val3681 = phi ptr [ %42, %.lr.ph.i47 ], [ %42, %Vec_IntGrow.exit.i ], [ null, %Vec_IntAlloc.exit.thread ]
+  %.val3170 = phi i32 [ %.val3170.pre, %.lr.ph.i47 ], [ %.val8.i, %Vec_IntGrow.exit.i ], [ %.val8.i, %Vec_IntAlloc.exit.thread ]
+  %47 = phi ptr [ %43, %.lr.ph.i47 ], [ %43, %Vec_IntGrow.exit.i ], [ %27, %Vec_IntAlloc.exit.thread ]
   store i32 %.val28, ptr %22, align 4, !tbaa !35
   %48 = icmp sgt i32 %.val3170, 0
   br i1 %48, label %.lr.ph72, label %.critedge
@@ -469,8 +469,8 @@ Vec_IntPush.exit56:                               ; preds = %Vec_IntPush.exit56.
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %101, %103, %93, %95
-  %.sink105 = phi ptr [ %94, %93 ], [ %96, %95 ], [ %102, %101 ], [ %104, %103 ]
-  %.sink104 = phi i32 [ 16, %93 ], [ 16, %95 ], [ %98, %101 ], [ %98, %103 ]
+  %.sink105 = phi ptr [ %96, %95 ], [ %94, %93 ], [ %102, %101 ], [ %104, %103 ]
+  %.sink104 = phi i32 [ 16, %95 ], [ 16, %93 ], [ %98, %101 ], [ %98, %103 ]
   store ptr %.sink105, ptr %47, align 8, !tbaa !33
   store i32 %.sink104, ptr %20, align 8, !tbaa !36
   br label %Vec_IntPush.exit63
@@ -1329,7 +1329,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %166, label %.preheader123, label %.critedge4, !llvm.loop !77
 
 .critedge4:                                       ; preds = %.critedge6, %.lr.ph135, %.critedge2
-  %.val95143176 = phi i32 [ %.val98133, %.lr.ph135 ], [ %.val98133, %.critedge2 ], [ %.val98, %.critedge6 ]
+  %.val95143176 = phi i32 [ %.val98133, %.critedge2 ], [ %.val98133, %.lr.ph135 ], [ %.val98, %.critedge6 ]
   %167 = getelementptr i8, ptr %135, i64 4
   %.val96137 = load i32, ptr %167, align 4, !tbaa !35
   %168 = icmp sgt i32 %.val96137, 0
@@ -2608,8 +2608,8 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge11, !llvm.loop !95
 
 .critedge11:                                      ; preds = %241, %.critedge13..critedge11_crit_edge, %.lr.ph286
-  %.val182288.pre = phi i32 [ %.val184, %.critedge13..critedge11_crit_edge ], [ %.val184284, %.lr.ph286 ], [ %.val184, %241 ]
-  %346 = phi ptr [ %342, %.critedge13..critedge11_crit_edge ], [ %228, %.lr.ph286 ], [ %342, %241 ]
+  %.val182288.pre = phi i32 [ %.val184284, %.lr.ph286 ], [ %.val184, %.critedge13..critedge11_crit_edge ], [ %.val184, %241 ]
+  %346 = phi ptr [ %228, %.lr.ph286 ], [ %342, %.critedge13..critedge11_crit_edge ], [ %342, %241 ]
   %347 = icmp sgt i32 %.val182288.pre, 0
   br i1 %347, label %.lr.ph290, label %.critedge15
 
@@ -2840,7 +2840,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   br label %460
 
 460:                                              ; preds = %.sink.split, %454, %.critedge15, %.critedge7
-  %.0 = phi i32 [ %222, %.critedge7 ], [ 0, %454 ], [ %452, %.critedge15 ], [ %459, %.sink.split ]
+  %.0 = phi i32 [ %452, %.critedge15 ], [ %222, %.critedge7 ], [ 0, %454 ], [ %459, %.sink.split ]
   %461 = load ptr, ptr %2, align 8, !tbaa !57
   %462 = getelementptr i8, ptr %461, i64 4
   %.val180294 = load i32, ptr %462, align 4, !tbaa !35

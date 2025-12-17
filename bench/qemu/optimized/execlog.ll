@@ -169,9 +169,9 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %parse_insn_match.ex
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 66:                                               ; preds = %55, %59
-  %.str.5.sink = phi ptr [ @.str.5, %59 ], [ @.str.6, %55 ]
+  %.str.6.sink = phi ptr [ @.str.5, %59 ], [ @.str.6, %55 ]
   %67 = load ptr, ptr @stderr, align 8
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull %.str.5.sink, ptr noundef %17) #8
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull %.str.6.sink, ptr noundef %17) #8
   call void @g_strfreev(ptr noundef nonnull %18) #7
   br label %69
 

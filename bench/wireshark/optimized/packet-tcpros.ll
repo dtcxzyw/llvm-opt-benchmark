@@ -215,7 +215,7 @@ test_tcpros.exit:                                 ; preds = %is_rosclock.exit.th
   %21 = tail call fastcc zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef 0)
   br i1 %21, label %test_tcpros.exit.thread, label %test_tcpros.exit.thread13
 
-test_tcpros.exit.thread:                          ; preds = %15, %is_rosclock.exit.i, %test_tcpros.exit
+test_tcpros.exit.thread:                          ; preds = %is_rosclock.exit.i, %15, %test_tcpros.exit
   %22 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %23 = load ptr, ptr @tcpros_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef %22, ptr noundef %23)
@@ -509,7 +509,7 @@ define internal fastcc noundef zeroext i1 @is_rosconnection_header(ptr noundef %
   br i1 %or.cond.not, label %18, label %is_rosheaderfield.exit, !llvm.loop !10
 
 is_rosheaderfield.exit:                           ; preds = %18, %.preheader.i, %12, %8, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %8 ], [ false, %12 ], [ true, %.preheader.i ], [ %or.cond.not.i, %18 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %12 ], [ false, %8 ], [ true, %.preheader.i ], [ %or.cond.not.i, %18 ]
   ret i1 %.0
 }
 

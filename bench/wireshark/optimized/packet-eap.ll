@@ -1030,12 +1030,12 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   br label %158
 
 158:                                              ; preds = %._crit_edge168, %152, %143, %137, %129, %121, %113, %106
-  %159 = phi i32 [ %81, %106 ], [ %81, %113 ], [ %81, %121 ], [ %81, %129 ], [ %81, %137 ], [ %81, %143 ], [ %81, %152 ], [ %.pre, %._crit_edge168 ]
-  %.0148 = phi ptr [ %89, %106 ], [ %89, %113 ], [ %89, %121 ], [ %89, %129 ], [ %89, %137 ], [ %89, %143 ], [ %89, %152 ], [ %33, %._crit_edge168 ]
-  %.1147 = phi ptr [ %73, %106 ], [ %73, %113 ], [ %73, %121 ], [ %73, %129 ], [ %73, %137 ], [ %73, %143 ], [ %73, %152 ], [ %22, %._crit_edge168 ]
-  %.3 = phi ptr [ %78, %106 ], [ %78, %113 ], [ %78, %121 ], [ %78, %129 ], [ %78, %137 ], [ %78, %143 ], [ %78, %152 ], [ %65, %._crit_edge168 ]
-  %.0142 = phi i32 [ %4, %106 ], [ %4, %113 ], [ %4, %121 ], [ %4, %129 ], [ %4, %137 ], [ %4, %143 ], [ %4, %152 ], [ %16, %._crit_edge168 ]
-  %.0137 = phi i32 [ %3, %106 ], [ %3, %113 ], [ %3, %121 ], [ %3, %129 ], [ %3, %137 ], [ %3, %143 ], [ %3, %152 ], [ %49, %._crit_edge168 ]
+  %159 = phi i32 [ %81, %152 ], [ %81, %106 ], [ %81, %113 ], [ %81, %121 ], [ %81, %129 ], [ %81, %137 ], [ %81, %143 ], [ %.pre, %._crit_edge168 ]
+  %.0148 = phi ptr [ %89, %152 ], [ %89, %106 ], [ %89, %113 ], [ %89, %121 ], [ %89, %129 ], [ %89, %137 ], [ %89, %143 ], [ %33, %._crit_edge168 ]
+  %.1147 = phi ptr [ %73, %152 ], [ %73, %106 ], [ %73, %113 ], [ %73, %121 ], [ %73, %129 ], [ %73, %137 ], [ %73, %143 ], [ %22, %._crit_edge168 ]
+  %.3 = phi ptr [ %78, %152 ], [ %78, %106 ], [ %78, %113 ], [ %78, %121 ], [ %78, %129 ], [ %78, %137 ], [ %78, %143 ], [ %65, %._crit_edge168 ]
+  %.0142 = phi i32 [ %4, %152 ], [ %4, %106 ], [ %4, %113 ], [ %4, %121 ], [ %4, %129 ], [ %4, %137 ], [ %4, %143 ], [ %16, %._crit_edge168 ]
+  %.0137 = phi i32 [ %3, %152 ], [ %3, %106 ], [ %3, %113 ], [ %3, %121 ], [ %3, %129 ], [ %3, %137 ], [ %3, %143 ], [ %49, %._crit_edge168 ]
   %160 = add i32 %159, -4
   %161 = zext i32 %160 to i64
   %162 = getelementptr ptr, ptr %.3, i64 %161
@@ -1112,10 +1112,10 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %.not161 = icmp eq ptr %210, %163
   br i1 %.not161, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.thread:                                          ; preds = %63, %60, %29, %56, %173, %._crit_edge, %158, %170, %75, %69, %67, %18, %25, %12, %14
-  %.0146 = phi ptr [ null, %12 ], [ null, %14 ], [ %22, %18 ], [ %22, %25 ], [ %.1147, %._crit_edge ], [ %.1147, %173 ], [ %.1147, %170 ], [ %.1147, %158 ], [ null, %67 ], [ %73, %69 ], [ %73, %75 ], [ %22, %56 ], [ %22, %29 ], [ %22, %60 ], [ %22, %63 ]
-  %.0144 = phi ptr [ null, %12 ], [ null, %14 ], [ null, %18 ], [ null, %25 ], [ %.3, %._crit_edge ], [ %.3, %173 ], [ %.3, %170 ], [ %.3, %158 ], [ null, %67 ], [ null, %69 ], [ %78, %75 ], [ null, %56 ], [ null, %29 ], [ null, %60 ], [ %65, %63 ]
-  %.0140 = phi i1 [ false, %12 ], [ false, %14 ], [ false, %18 ], [ false, %25 ], [ true, %._crit_edge ], [ true, %173 ], [ true, %170 ], [ true, %158 ], [ false, %67 ], [ false, %69 ], [ false, %75 ], [ true, %56 ], [ true, %29 ], [ true, %60 ], [ true, %63 ]
+.thread:                                          ; preds = %63, %60, %56, %29, %173, %._crit_edge, %158, %170, %75, %69, %67, %18, %25, %12, %14
+  %.0146 = phi ptr [ null, %12 ], [ null, %14 ], [ %22, %18 ], [ %22, %25 ], [ %.1147, %._crit_edge ], [ %.1147, %173 ], [ %.1147, %170 ], [ %.1147, %158 ], [ %73, %75 ], [ null, %67 ], [ %73, %69 ], [ %22, %29 ], [ %22, %56 ], [ %22, %60 ], [ %22, %63 ]
+  %.0144 = phi ptr [ null, %12 ], [ null, %14 ], [ null, %18 ], [ null, %25 ], [ %.3, %._crit_edge ], [ %.3, %173 ], [ %.3, %170 ], [ %.3, %158 ], [ %78, %75 ], [ null, %67 ], [ null, %69 ], [ null, %29 ], [ null, %56 ], [ null, %60 ], [ %65, %63 ]
+  %.0140 = phi i1 [ false, %12 ], [ false, %14 ], [ false, %18 ], [ false, %25 ], [ true, %._crit_edge ], [ true, %173 ], [ true, %170 ], [ true, %158 ], [ false, %75 ], [ false, %67 ], [ false, %69 ], [ true, %29 ], [ true, %56 ], [ true, %60 ], [ true, %63 ]
   call void @g_strfreev(ptr noundef %.0146)
   call void @g_strfreev(ptr noundef %.0144)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1215,7 +1215,7 @@ define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef wri
   br label %31
 
 31:                                               ; preds = %25, %5, %7, %13, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %7 ], [ false, %5 ], [ %.not18, %25 ]
+  %.0 = phi i1 [ false, %5 ], [ %.not18, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1919,8 +1919,8 @@ proto_item_set_generated.exit:                    ; preds = %320, %317, %314, %3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %333, %344, %327, %328
-  %teap_handle.sink = phi ptr [ @peap_handle, %328 ], [ @diameter_avps_handle, %327 ], [ @teap_handle, %344 ], [ @teap_handle, %333 ]
-  %.2.ph = phi ptr [ %.1473, %328 ], [ %.1473, %327 ], [ %346, %344 ], [ %.1473, %333 ]
+  %teap_handle.sink = phi ptr [ @diameter_avps_handle, %327 ], [ @peap_handle, %328 ], [ @teap_handle, %344 ], [ @teap_handle, %333 ]
+  %.2.ph = phi ptr [ %.1473, %327 ], [ %.1473, %328 ], [ %346, %344 ], [ %.1473, %333 ]
   %347 = load ptr, ptr @tls_handle, align 8
   %348 = load ptr, ptr %teap_handle.sink, align 8
   call void @tls_set_appdata_dissector(ptr noundef %347, ptr noundef %1, ptr noundef %348)

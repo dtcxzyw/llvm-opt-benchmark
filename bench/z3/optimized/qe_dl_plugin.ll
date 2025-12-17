@@ -1655,7 +1655,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe9dl_plugin10update_eqsER12c
   %.136.i.i.i.be = phi ptr [ %.old.i.i.i, %60 ], [ %59, %57 ]
   br label %.lr.ph37.i.i.i, !llvm.loop !87
 
-.loopexit:                                        ; preds = %41, %60, %57, %.preheader.i.i.i
+.loopexit:                                        ; preds = %41, %57, %60, %.preheader.i.i.i
   %61 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !88
@@ -1804,7 +1804,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %_ZNK12obj_pair_mapI3app4exprPN2qe8eq_atomsEE4findEPS0_PS1_RS4_.exit
 
 _ZNK12obj_pair_mapI3app4exprPN2qe8eq_atomsEE4findEPS0_PS1_RS4_.exit: ; preds = %35, %51, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit18, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit12, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit
-  %.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit18 ], [ false, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit12 ], [ false, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit ], [ true, %51 ], [ true, %35 ]
+  %.0 = phi i1 [ false, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit18 ], [ false, %_Z7deallocIN2qe8eq_atomsEEvPT_.exit12 ], [ true, %51 ], [ true, %35 ]
   ret i1 %.0
 }
 
@@ -1912,7 +1912,7 @@ _ZNK12obj_pair_mapI3app4exprPN2qe8eq_atomsEE4findEPS0_PS1_RS4_.exit: ; preds = %
   %60 = load ptr, ptr %59, align 8, !tbaa !64
   ret ptr %60
 
-.loopexit:                                        ; preds = %39, %58, %55, %.preheader.i.i.i
+.loopexit:                                        ; preds = %39, %55, %58, %.preheader.i.i.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @.str.8)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   unreachable
@@ -2148,7 +2148,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %127, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i27, %122, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i, %95
-  %.sink94 = phi ptr [ %23, %95 ], [ %23, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i ], [ %21, %122 ], [ %21, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i27 ]
+  %.sink94 = phi ptr [ %23, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i ], [ %23, %95 ], [ %21, %122 ], [ %21, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i27 ]
   tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink94)
   %.pre.i.i4.i28.sink = load ptr, ptr %.sink94, align 8, !tbaa !15
   %.phi.trans.insert.i.i5.i29 = getelementptr inbounds i8, ptr %.pre.i.i4.i28.sink, i64 -4

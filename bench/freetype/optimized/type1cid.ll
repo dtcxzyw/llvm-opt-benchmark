@@ -540,7 +540,7 @@ cid_parser_new.exit.thread101.i:                  ; preds = %163
   br i1 %.not175.i.i, label %.thread.sink.split.i, label %121, !llvm.loop !87
 
 cid_parser_new.exit.thread98.i:                   ; preds = %163, %159
-  %.8.i.ph.i = phi i32 [ %164, %163 ], [ %162, %159 ]
+  %.8.i.ph.i = phi i32 [ %162, %159 ], [ %164, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread.sink.split.i
 
@@ -710,7 +710,7 @@ cid_load_keyword.exit.thread.i.i:                 ; preds = %244
   br label %250
 
 250:                                              ; preds = %.thread.i.i.i, %243, %242, %241, %238
-  %.2.i.i.i = phi ptr [ %185, %241 ], [ %184, %242 ], [ %183, %243 ], [ %182, %238 ], [ %249, %.thread.i.i.i ]
+  %.2.i.i.i = phi ptr [ %249, %.thread.i.i.i ], [ %183, %243 ], [ %185, %241 ], [ %184, %242 ], [ %182, %238 ]
   store ptr %.2.i.i.i, ptr %6, align 8, !tbaa !97
   %.off.i.i.i = add i32 %232, -9
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 2
@@ -738,7 +738,7 @@ cid_load_keyword.exit..thread104_crit_edge.i.i:   ; preds = %cid_load_keyword.ex
   br label %.thread104.i.i.backedge
 
 .thread104.i.i.backedge:                          ; preds = %257, %cid_load_keyword.exit..thread104_crit_edge.i.i, %215, %210
-  %.068.i.i.be = phi ptr [ %.pre.i.i, %cid_load_keyword.exit..thread104_crit_edge.i.i ], [ %208, %215 ], [ %208, %210 ], [ %208, %257 ]
+  %.068.i.i.be = phi ptr [ %.pre.i.i, %cid_load_keyword.exit..thread104_crit_edge.i.i ], [ %208, %210 ], [ %208, %215 ], [ %208, %257 ]
   br label %.thread104.i.i
 
 257:                                              ; preds = %226, %223
@@ -927,7 +927,7 @@ cid_parse_dict.exit.i:                            ; preds = %260
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %173, %170, %121, %cid_load_keyword.exit.i.i, %345, %340, %335, %._crit_edge.i, %317, %313, %305, %300, %295, %260, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread98.i, %cid_parser_new.exit.thread159.i, %102, %99, %96, %.thread192.i.i, %45, %32
-  %.sink168.i = phi i32 [ 3, %cid_parser_new.exit.thread159.i ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %350, %._crit_edge.i ], [ 3, %102 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 2, %32 ], [ %101, %99 ], [ %98, %96 ], [ 2, %45 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %295 ], [ 3, %300 ], [ 3, %305 ], [ 3, %313 ], [ 3, %317 ], [ 3, %335 ], [ 3, %340 ], [ 3, %345 ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ %122, %121 ], [ 2, %170 ], [ 3, %173 ]
+  %.sink168.i = phi i32 [ 3, %cid_parser_new.exit.thread159.i ], [ 3, %317 ], [ 3, %313 ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %350, %._crit_edge.i ], [ 3, %305 ], [ 3, %300 ], [ 3, %295 ], [ %98, %96 ], [ 2, %45 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 3, %102 ], [ 2, %32 ], [ %101, %99 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %345 ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ 3, %335 ], [ 3, %340 ], [ 2, %170 ], [ 3, %173 ], [ %122, %121 ]
   store i32 %.sink168.i, ptr %10, align 4, !tbaa !19
   br label %.thread.i
 
@@ -1148,7 +1148,7 @@ cid_face_open.exit:                               ; preds = %.thread.i, %353
   br label %456
 
 456:                                              ; preds = %360, %14, %cid_face_open.exit, %30, %435
-  %.095 = phi i32 [ %31, %30 ], [ %357, %cid_face_open.exit ], [ 0, %435 ], [ 11, %14 ], [ 6, %360 ]
+  %.095 = phi i32 [ %31, %30 ], [ %357, %cid_face_open.exit ], [ 11, %14 ], [ 0, %435 ], [ 6, %360 ]
   ret i32 %.095
 }
 
@@ -1752,8 +1752,8 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
   call void %221(ptr noundef nonnull %5) #14
   br label %.thread
 
-.thread:                                          ; preds = %4, %217, %52, %15, %218
-  %.0117132 = phi i32 [ %43, %218 ], [ 6, %4 ], [ 0, %217 ], [ 0, %52 ], [ %38, %15 ]
+.thread:                                          ; preds = %4, %52, %15, %217, %218
+  %.0117132 = phi i32 [ %43, %218 ], [ 6, %4 ], [ 0, %52 ], [ %38, %15 ], [ 0, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0117132
@@ -2040,8 +2040,8 @@ cid_get_offset.exit73:                            ; preds = %.lr.ph.i64, %cid_ge
   %spec.select = select i1 %67, i32 9, i32 0
   br label %68
 
-68:                                               ; preds = %58, %62, %66
-  %.0.ph = phi i32 [ %spec.select, %66 ], [ 9, %62 ], [ 9, %58 ]
+68:                                               ; preds = %66, %58, %62
+  %.0.ph = phi i32 [ 9, %62 ], [ 9, %58 ], [ %spec.select, %66 ]
   tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %7) #14
   br label %69
 
@@ -2192,7 +2192,7 @@ define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i6
   br i1 %or.cond, label %.lr.ph.split.us.preheader, label %.thread, !llvm.loop !260
 
 .thread:                                          ; preds = %44, %32, %10, %14, %7, %4
-  %.060 = phi ptr [ %0, %4 ], [ %0, %7 ], [ %.161.ph68, %14 ], [ %.161.ph68, %10 ], [ %.161.ph68, %32 ], [ %.3, %44 ]
+  %.060 = phi ptr [ %0, %4 ], [ %0, %7 ], [ %.161.ph68, %32 ], [ %.161.ph68, %14 ], [ %.161.ph68, %10 ], [ %.3, %44 ]
   %.053 = phi i32 [ %6, %4 ], [ 0, %7 ], [ 160, %32 ], [ 160, %10 ], [ %17, %14 ], [ 0, %44 ]
   %48 = ptrtoint ptr %.060 to i64
   %49 = ptrtoint ptr %0 to i64
@@ -2450,7 +2450,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %.pre229 = load i32, ptr %9, align 8, !tbaa !95
   br label %.thread162
 
-.thread162:                                       ; preds = %21, %.loopexit
+.thread162:                                       ; preds = %.loopexit, %21
   %118 = phi i32 [ %22, %21 ], [ %.pre229, %.loopexit ]
   %.1121167 = phi i32 [ %.0120189, %21 ], [ %.2, %.loopexit ]
   %.1123166 = phi ptr [ %.0122188, %21 ], [ %.2124, %.loopexit ]
@@ -2473,8 +2473,8 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   store i32 %.sink, ptr %2, align 4, !tbaa !19
   br label %.thread155
 
-.thread155:                                       ; preds = %35, %90, %95, %79, %86, %40, %46, %.thread155.sink.split
-  %.1123159 = phi ptr [ %.1123159.ph, %.thread155.sink.split ], [ %38, %35 ], [ %.2124, %46 ], [ %.2124, %40 ], [ %.2124, %86 ], [ %.2124, %79 ], [ %.2124, %95 ], [ %.2124, %90 ]
+.thread155:                                       ; preds = %35, %90, %95, %86, %46, %79, %40, %.thread155.sink.split
+  %.1123159 = phi ptr [ %.1123159.ph, %.thread155.sink.split ], [ %.2124, %86 ], [ %.2124, %95 ], [ %.2124, %90 ], [ %38, %35 ], [ %.2124, %40 ], [ %.2124, %79 ], [ %.2124, %46 ]
   %123 = load ptr, ptr %13, align 8, !tbaa !158
   %.not147 = icmp eq ptr %123, null
   br i1 %.not147, label %.loopexit171, label %.preheader
@@ -2846,8 +2846,8 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %.not113 = icmp eq i32 %58, 0
   br i1 %.not113, label %59, label %.thread
 
-.thread:                                          ; preds = %30, %24, %53
-  %.093.ph = phi ptr [ %46, %53 ], [ null, %24 ], [ null, %30 ]
+.thread:                                          ; preds = %24, %53, %30
+  %.093.ph = phi ptr [ null, %30 ], [ %46, %53 ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %176
 
@@ -2885,8 +2885,8 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %.not110 = icmp eq i32 %74, 0
   br i1 %.not110, label %75, label %.thread127
 
-.thread127:                                       ; preds = %60, %67, %62, %70
-  %.2.ph = phi ptr [ %68, %70 ], [ %68, %67 ], [ null, %62 ], [ null, %60 ]
+.thread127:                                       ; preds = %62, %60, %70, %67
+  %.2.ph = phi ptr [ %68, %67 ], [ null, %62 ], [ null, %60 ], [ %68, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %176

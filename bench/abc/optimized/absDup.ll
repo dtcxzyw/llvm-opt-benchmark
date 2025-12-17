@@ -201,7 +201,7 @@ Abc_UtilStrsav.exit110:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %58, label %39, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %39, %56
-  %.val99124 = phi i32 [ %.val98, %56 ], [ %.val98159, %39 ]
+  %.val99124 = phi i32 [ %.val98159, %39 ], [ %.val98, %56 ]
   %59 = icmp sgt i32 %.val99124, 0
   br i1 %59, label %.lr.ph127, label %.critedge4
 
@@ -700,8 +700,8 @@ define noalias noundef ptr @Gia_GlaCollectAssigned(ptr noundef readonly captures
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %36, %38, %28, %30
-  %.sink97 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
-  %.sink = phi i32 [ 16, %28 ], [ 16, %30 ], [ %33, %36 ], [ %33, %38 ]
+  %.sink97 = phi ptr [ %31, %30 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ]
+  %.sink = phi i32 [ 16, %30 ], [ 16, %28 ], [ %33, %36 ], [ %33, %38 ]
   store ptr %.sink97, ptr %6, align 8, !tbaa !37
   store i32 %.sink, ptr %3, align 8, !tbaa !44
   br label %Vec_IntPush.exit
@@ -877,10 +877,10 @@ Gia_ObjIsRo.exit:                                 ; preds = %96
   br label %Gia_ObjIsRo.exit.thread.sink.split.sink.split
 
 Gia_ObjIsRo.exit.thread.sink.split.sink.split:    ; preds = %124, %122, %132, %130, %86, %84, %94, %92
-  %.sink106.sink = phi ptr [ %85, %84 ], [ %87, %86 ], [ %93, %92 ], [ %95, %94 ], [ %123, %122 ], [ %125, %124 ], [ %131, %130 ], [ %133, %132 ]
-  %.sink105.sink = phi i32 [ 16, %84 ], [ 16, %86 ], [ %89, %92 ], [ %89, %94 ], [ 16, %122 ], [ 16, %124 ], [ %127, %130 ], [ %127, %132 ]
-  %.sink112.ph = phi i32 [ %78, %84 ], [ %78, %86 ], [ %78, %92 ], [ %78, %94 ], [ %116, %122 ], [ %116, %124 ], [ %116, %130 ], [ %116, %132 ]
-  %.sink107.ph = phi i32 [ %77, %84 ], [ %77, %86 ], [ %77, %92 ], [ %77, %94 ], [ %115, %122 ], [ %115, %124 ], [ %115, %130 ], [ %115, %132 ]
+  %.sink106.sink = phi ptr [ %95, %94 ], [ %87, %86 ], [ %85, %84 ], [ %93, %92 ], [ %125, %124 ], [ %123, %122 ], [ %131, %130 ], [ %133, %132 ]
+  %.sink105.sink = phi i32 [ %89, %94 ], [ 16, %86 ], [ 16, %84 ], [ %89, %92 ], [ 16, %124 ], [ 16, %122 ], [ %127, %130 ], [ %127, %132 ]
+  %.sink112.ph = phi i32 [ %78, %94 ], [ %78, %86 ], [ %78, %84 ], [ %78, %92 ], [ %116, %124 ], [ %116, %122 ], [ %116, %130 ], [ %116, %132 ]
+  %.sink107.ph = phi i32 [ %77, %94 ], [ %77, %86 ], [ %77, %84 ], [ %77, %92 ], [ %115, %124 ], [ %115, %122 ], [ %115, %130 ], [ %115, %132 ]
   store ptr %.sink106.sink, ptr %6, align 8, !tbaa !37
   store i32 %.sink105.sink, ptr %3, align 8, !tbaa !44
   br label %Gia_ObjIsRo.exit.thread.sink.split
@@ -898,9 +898,9 @@ Gia_ObjIsRo.exit.thread.sink.split:               ; preds = %Gia_ObjIsRo.exit.th
   br label %Gia_ObjIsRo.exit.thread
 
 Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.thread.sink.split, %96, %Gia_ObjIsRo.exit, %14
-  %.pre.i5576 = phi ptr [ %40, %96 ], [ %40, %Gia_ObjIsRo.exit ], [ %.pre.i5575, %14 ], [ %.pre.i5576.ph, %Gia_ObjIsRo.exit.thread.sink.split ]
-  %.pre.i4572 = phi ptr [ %.pre.i4570, %96 ], [ %.pre.i4570, %Gia_ObjIsRo.exit ], [ %.pre.i4571, %14 ], [ %.pre.i4573.sink, %Gia_ObjIsRo.exit.thread.sink.split ]
-  %.pre.i69 = phi ptr [ %41, %96 ], [ %41, %Gia_ObjIsRo.exit ], [ %15, %14 ], [ %.pre.i4573.sink, %Gia_ObjIsRo.exit.thread.sink.split ]
+  %.pre.i5576 = phi ptr [ %40, %96 ], [ %.pre.i5575, %14 ], [ %40, %Gia_ObjIsRo.exit ], [ %.pre.i5576.ph, %Gia_ObjIsRo.exit.thread.sink.split ]
+  %.pre.i4572 = phi ptr [ %.pre.i4570, %96 ], [ %.pre.i4571, %14 ], [ %.pre.i4570, %Gia_ObjIsRo.exit ], [ %.pre.i4573.sink, %Gia_ObjIsRo.exit.thread.sink.split ]
+  %.pre.i69 = phi ptr [ %41, %96 ], [ %15, %14 ], [ %41, %Gia_ObjIsRo.exit ], [ %.pre.i4573.sink, %Gia_ObjIsRo.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %7, align 4, !tbaa !34
   %137 = sext i32 %.val to i64
@@ -1951,7 +1951,7 @@ Abc_UtilStrsav.exit127:                           ; preds = %Abc_UtilStrsav.exit
   br label %.critedge10, !llvm.loop !58
 
 .critedge10:                                      ; preds = %131, %.lr.ph181, %..critedge10.loopexit_crit_edge, %.critedge8
-  %.val99.lcssa = phi i32 [ %.val99178, %.critedge8 ], [ %.val99, %..critedge10.loopexit_crit_edge ], [ %.val99178, %.lr.ph181 ], [ %.val99, %131 ]
+  %.val99.lcssa = phi i32 [ %.val99178, %.critedge8 ], [ %.val99178, %.lr.ph181 ], [ %.val99, %..critedge10.loopexit_crit_edge ], [ %.val99, %131 ]
   call void @Gia_ManSetRegNum(ptr noundef nonnull %7, i32 noundef %.val99.lcssa) #18
   %176 = call ptr @Gia_ManSeqCleanup(ptr noundef nonnull %7) #18
   %177 = getelementptr i8, ptr %7, i64 24
@@ -2318,7 +2318,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %5
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %5, %Vec_IntAlloc.exit.i, %24
-  %27 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %23, %24 ], [ null, %5 ]
+  %27 = phi ptr [ %23, %24 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %5 ]
   %28 = icmp ult i32 %.val79, 2
   %29 = add i32 %.val79, -1
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)

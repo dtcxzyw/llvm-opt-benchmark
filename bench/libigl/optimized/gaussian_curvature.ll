@@ -122,7 +122,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
   br i1 %exitcond.not, label %32, label %33, !llvm.loop !24
 
 44:                                               ; preds = %30, %28
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
   %45 = load ptr, ptr %4, align 8, !tbaa !12
   call void @free(ptr noundef %45) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -231,7 +231,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
   br i1 %exitcond.not, label %31, label %32, !llvm.loop !29
 
 43:                                               ; preds = %29, %27
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   %44 = load ptr, ptr %4, align 8, !tbaa !12
   call void @free(ptr noundef %44) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

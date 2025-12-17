@@ -272,8 +272,8 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %parse_size_field.exit
 
 parse_size_field.exit:                            ; preds = %48, %.split, %.split224
-  %.0255 = phi i16 [ %43, %.split224 ], [ %51, %48 ], [ %46, %.split ]
-  %phi.call = phi i32 [ 1, %.split224 ], [ 2, %48 ], [ 1, %.split ]
+  %.0255 = phi i16 [ %43, %.split224 ], [ %46, %.split ], [ %51, %48 ]
+  %phi.call = phi i32 [ 1, %.split224 ], [ 1, %.split ], [ 2, %48 ]
   %52 = zext nneg i16 %.0255 to i32
   %53 = icmp samesign ult i32 %13, %52
   br i1 %53, label %parse_size_field.exit.thread, label %55
@@ -493,8 +493,8 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader287, %._crit_edge.loopexit
-  %.4210.lcssa = phi i32 [ %146, %._crit_edge.loopexit ], [ %.0206, %.preheader287 ]
-  %.1201.lcssa = phi i64 [ %147, %._crit_edge.loopexit ], [ 0, %.preheader287 ]
+  %.4210.lcssa = phi i32 [ %.0206, %.preheader287 ], [ %146, %._crit_edge.loopexit ]
+  %.1201.lcssa = phi i64 [ 0, %.preheader287 ], [ %147, %._crit_edge.loopexit ]
   %148 = icmp sgt i32 %.4210.lcssa, %.0204
   br i1 %148, label %149, label %151
 

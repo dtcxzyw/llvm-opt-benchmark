@@ -481,7 +481,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr noundef captures(none)
   br label %286
 
 286:                                              ; preds = %278, %280, %282
-  %.1234 = phi i32 [ %.0233, %282 ], [ %.0233, %280 ], [ 256, %278 ]
+  %.1234 = phi i32 [ %.0233, %280 ], [ %.0233, %282 ], [ 256, %278 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %288 = load ptr, ptr %287, align 8, !tbaa !32
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
@@ -884,7 +884,7 @@ read_byte.exit:                                   ; preds = %447, %452
   br label %485
 
 485:                                              ; preds = %480, %.thread259, %483
-  %486 = phi i32 [ %482, %483 ], [ 8, %.thread259 ], [ %482, %480 ]
+  %486 = phi i32 [ %482, %483 ], [ %482, %480 ], [ 8, %.thread259 ]
   %487 = zext nneg i32 %486 to i64
   %488 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %487
   %489 = load i32, ptr %488, align 4, !tbaa !50
@@ -945,7 +945,7 @@ read_byte.exit:                                   ; preds = %447, %452
   br label %514
 
 514:                                              ; preds = %509, %.thread263, %512
-  %515 = phi i32 [ %511, %512 ], [ 13, %.thread263 ], [ %511, %509 ]
+  %515 = phi i32 [ %511, %512 ], [ %511, %509 ], [ 13, %.thread263 ]
   %516 = zext nneg i32 %515 to i64
   %517 = getelementptr inbounds nuw i32, ptr @rgb_pixelsize, i64 %516
   %518 = load i32, ptr %517, align 4, !tbaa !50
@@ -995,7 +995,7 @@ read_byte.exit:                                   ; preds = %447, %452
   br label %539
 
 539:                                              ; preds = %465, %474, %476, %472, %535, %533, %507
-  %.0228 = phi i32 [ 0, %535 ], [ %508, %507 ], [ %534, %533 ], [ %.0, %472 ], [ %.0, %476 ], [ %.0, %474 ], [ %.0, %465 ]
+  %.0228 = phi i32 [ 0, %535 ], [ %534, %533 ], [ %508, %507 ], [ %.0, %472 ], [ %.0, %476 ], [ %.0, %474 ], [ %.0, %465 ]
   %540 = sub i32 0, %.0228
   %541 = and i32 %540, 3
   %542 = add i32 %.0228, %541

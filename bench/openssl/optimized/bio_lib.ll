@@ -169,7 +169,7 @@ bio_call_callback.exit:                           ; preds = %16, %.thread
   br label %30
 
 30:                                               ; preds = %bio_call_callback.exit, %CRYPTO_DOWN_REF.exit, %1, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %1 ], [ 1, %CRYPTO_DOWN_REF.exit ], [ 0, %bio_call_callback.exit ]
+  %.0 = phi i32 [ 1, %CRYPTO_DOWN_REF.exit ], [ 1, %28 ], [ 0, %1 ], [ 0, %bio_call_callback.exit ]
   ret i32 %.0
 }
 
@@ -455,7 +455,7 @@ bio_call_callback.exit:                           ; preds = %24, %.thread
   br label %bio_call_callback.exit39
 
 bio_call_callback.exit39:                         ; preds = %.thread56, %51, %55, %58, %61
-  %.0.i38 = phi i64 [ %50, %.thread56 ], [ -1, %51 ], [ -1, %55 ], [ 1, %61 ], [ %59, %58 ]
+  %.0.i38 = phi i64 [ %50, %.thread56 ], [ -1, %55 ], [ -1, %51 ], [ 1, %61 ], [ %59, %58 ]
   %62 = trunc i64 %.0.i38 to i32
   br label %63
 
@@ -470,9 +470,9 @@ bio_call_callback.exit39:                         ; preds = %.thread56, %51, %55
   br i1 %67, label %bio_call_callback.exit.thread.sink.split, label %bio_call_callback.exit.thread
 
 bio_call_callback.exit.thread.sink.split:         ; preds = %65, %29, %6, %10, %4
-  %.sink58 = phi i32 [ 267, %4 ], [ 271, %10 ], [ 271, %6 ], [ 281, %29 ], [ 296, %65 ]
-  %.sink = phi i32 [ 786690, %4 ], [ 121, %10 ], [ 121, %6 ], [ 120, %29 ], [ 786691, %65 ]
-  %.029.ph = phi i32 [ -1, %4 ], [ -2, %10 ], [ -2, %6 ], [ -1, %29 ], [ -1, %65 ]
+  %.sink58 = phi i32 [ 281, %29 ], [ 271, %6 ], [ 267, %4 ], [ 271, %10 ], [ 296, %65 ]
+  %.sink = phi i32 [ 120, %29 ], [ 121, %6 ], [ 786690, %4 ], [ 121, %10 ], [ 786691, %65 ]
+  %.029.ph = phi i32 [ -1, %29 ], [ -2, %6 ], [ -1, %4 ], [ -2, %10 ], [ -1, %65 ]
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink58, ptr noundef nonnull @__func__.bio_read_intern) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef %.sink, ptr noundef null) #14
@@ -652,7 +652,7 @@ bio_call_callback.exit:                           ; preds = %28, %.thread
   br label %bio_call_callback.exit39
 
 bio_call_callback.exit39:                         ; preds = %.thread58, %56, %60, %63, %66
-  %.0.i38 = phi i64 [ %55, %.thread58 ], [ -1, %56 ], [ -1, %60 ], [ 1, %66 ], [ %64, %63 ]
+  %.0.i38 = phi i64 [ %55, %.thread58 ], [ -1, %60 ], [ -1, %56 ], [ 1, %66 ], [ %64, %63 ]
   %67 = trunc i64 %.0.i38 to i32
   br label %68
 
@@ -666,7 +666,7 @@ bio_call_callback.exit39:                         ; preds = %.thread58, %56, %60
   br label %bio_call_callback.exit.thread
 
 bio_call_callback.exit.thread:                    ; preds = %26, %68, %69, %bio_call_callback.exit, %7, %36, %17
-  %.027 = phi i32 [ -2, %17 ], [ -1, %36 ], [ 0, %7 ], [ %31, %bio_call_callback.exit ], [ %.0, %69 ], [ %.0, %68 ], [ -1, %26 ]
+  %.027 = phi i32 [ -1, %36 ], [ -2, %17 ], [ 0, %7 ], [ %31, %bio_call_callback.exit ], [ %.0, %69 ], [ %.0, %68 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.027
 }
@@ -1049,7 +1049,7 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   br label %bio_call_callback.exit33
 
 bio_call_callback.exit33:                         ; preds = %36, %.thread47, %32, %bio_call_callback.exit, %4, %14
-  %.024 = phi i64 [ -2, %14 ], [ -1, %4 ], [ %.0.i, %bio_call_callback.exit ], [ %28, %32 ], [ %35, %.thread47 ], [ %37, %36 ]
+  %.024 = phi i64 [ %.0.i, %bio_call_callback.exit ], [ -2, %14 ], [ -1, %4 ], [ %28, %32 ], [ %35, %.thread47 ], [ %37, %36 ]
   ret i64 %.024
 }
 
@@ -1601,7 +1601,7 @@ bio_call_callback.exit._crit_edge:                ; preds = %bio_call_callback.e
   br label %bio_call_callback.exit30
 
 bio_call_callback.exit30:                         ; preds = %38, %.thread45, %34, %bio_call_callback.exit, %3, %15
-  %.020 = phi i64 [ -2, %15 ], [ -2, %3 ], [ %.0.i, %bio_call_callback.exit ], [ %30, %34 ], [ %37, %.thread45 ], [ %39, %38 ]
+  %.020 = phi i64 [ %.0.i, %bio_call_callback.exit ], [ -2, %15 ], [ -2, %3 ], [ %30, %34 ], [ %37, %.thread45 ], [ %39, %38 ]
   ret i64 %.020
 }
 
@@ -1794,7 +1794,7 @@ define ptr @BIO_find_type(ptr noundef readonly captures(address_is_null, ret: ad
   br i1 %.not19, label %.loopexit, label %.split, !llvm.loop !60
 
 .loopexit:                                        ; preds = %17, %20, %12, %9, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ %.013.us, %9 ], [ null, %20 ], [ %.013, %17 ]
+  %.0 = phi ptr [ null, %4 ], [ %.013.us, %9 ], [ null, %12 ], [ null, %20 ], [ %.013, %17 ]
   ret ptr %.0
 }
 
@@ -2095,7 +2095,7 @@ bio_wait.exit.thread7:                            ; preds = %15
   call void @OSSL_sleep(i64 noundef %30) #14
   br label %bio_wait.exit.thread
 
-bio_wait.exit.thread:                             ; preds = %29, %3
+bio_wait.exit.thread:                             ; preds = %3, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
@@ -2292,7 +2292,7 @@ bio_wait.exit.thread38:                           ; preds = %68
   br label %bio_wait.exit.thread
 
 bio_wait.exit.thread:                             ; preds = %72, %77, %74
-  %.016.i = phi i32 [ %79, %77 ], [ %spec.store.select, %74 ], [ %spec.store.select.i, %72 ]
+  %.016.i = phi i32 [ %spec.store.select, %74 ], [ %79, %77 ], [ %spec.store.select.i, %72 ]
   %80 = zext i32 %.016.i to i64
   call void @OSSL_sleep(i64 noundef %80) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2313,7 +2313,7 @@ bio_wait.exit:                                    ; preds = %62
   br label %.thread
 
 .split.us:                                        ; preds = %57, %42, %30, %29, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %24, %30 ], [ %24, %29 ], [ %24, %.lr.ph.split.us ], [ %33, %42 ], [ %48, %57 ]
+  %.us-phi = phi i64 [ %24, %.lr.ph.split.us ], [ %24, %30 ], [ %24, %29 ], [ %33, %42 ], [ %48, %57 ]
   %83 = call i32 @ERR_clear_last_mark() #14
   %84 = and i64 %.us-phi, 4294967295
   %85 = icmp eq i64 %84, 0

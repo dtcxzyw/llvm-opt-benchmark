@@ -1350,8 +1350,8 @@ read_uint64.exit.i:                               ; preds = %fread.inline.exit.i
   br label %512
 
 512:                                              ; preds = %510, %507, %498, %487, %477, %read_uint64.exit.thread.i, %read_uint32.exit345.thread.i, %460
-  %.3208.i = phi i32 [ 1, %510 ], [ 0, %507 ], [ 0, %487 ], [ 0, %477 ], [ 0, %460 ], [ 0, %498 ], [ 0, %read_uint32.exit345.thread.i ], [ 0, %read_uint64.exit.thread.i ]
-  %.3.i = phi i32 [ 3, %510 ], [ 1, %507 ], [ 1, %487 ], [ 1, %477 ], [ 1, %460 ], [ 1, %498 ], [ 1, %read_uint32.exit345.thread.i ], [ 1, %read_uint64.exit.thread.i ]
+  %.3208.i = phi i32 [ 0, %read_uint64.exit.thread.i ], [ 1, %510 ], [ 0, %507 ], [ 0, %487 ], [ 0, %460 ], [ 0, %477 ], [ 0, %read_uint32.exit345.thread.i ], [ 0, %498 ]
+  %.3.i = phi i32 [ 1, %read_uint64.exit.thread.i ], [ 3, %510 ], [ 1, %507 ], [ 1, %487 ], [ 1, %460 ], [ 1, %477 ], [ 1, %read_uint32.exit345.thread.i ], [ 1, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %594
@@ -1534,14 +1534,14 @@ fskip_ahead.exit363.i:                            ; preds = %586, %583
   br label %.loopexit566
 
 594:                                              ; preds = %593, %512, %.loopexit564, %.loopexit
-  %.2211.i = phi i32 [ %.0209.i, %512 ], [ %.0209.i, %593 ], [ 1, %.loopexit564 ], [ 0, %.loopexit ]
-  %.2207.i = phi i32 [ %.3208.i, %512 ], [ 0, %593 ], [ 0, %.loopexit564 ], [ 0, %.loopexit ]
-  %.1202.i = phi i32 [ %.0201.i, %512 ], [ %.0201.i, %593 ], [ %.0201.i, %.loopexit564 ], [ 1, %.loopexit ]
-  %.2198.i = phi i32 [ %.0196.i, %512 ], [ %.0196.i, %593 ], [ %336, %.loopexit564 ], [ %.0196.i, %.loopexit ]
-  %.2193.i = phi i32 [ %.0191.i, %512 ], [ %.0191.i, %593 ], [ %330, %.loopexit564 ], [ %.0191.i, %.loopexit ]
-  %.2188.i = phi i32 [ %.0186.i, %512 ], [ %.0186.i, %593 ], [ %355, %.loopexit564 ], [ %.0186.i, %.loopexit ]
-  %.2183.i = phi i32 [ %.0181.i, %512 ], [ %.0181.i, %593 ], [ %.5.i, %.loopexit564 ], [ %.0181.i, %.loopexit ]
-  %.0178.i = phi i32 [ %.3.i, %512 ], [ 0, %593 ], [ 0, %.loopexit564 ], [ 0, %.loopexit ]
+  %.2211.i = phi i32 [ 0, %.loopexit ], [ 1, %.loopexit564 ], [ %.0209.i, %593 ], [ %.0209.i, %512 ]
+  %.2207.i = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit564 ], [ 0, %593 ], [ %.3208.i, %512 ]
+  %.1202.i = phi i32 [ 1, %.loopexit ], [ %.0201.i, %.loopexit564 ], [ %.0201.i, %593 ], [ %.0201.i, %512 ]
+  %.2198.i = phi i32 [ %.0196.i, %.loopexit ], [ %336, %.loopexit564 ], [ %.0196.i, %593 ], [ %.0196.i, %512 ]
+  %.2193.i = phi i32 [ %.0191.i, %.loopexit ], [ %330, %.loopexit564 ], [ %.0191.i, %593 ], [ %.0191.i, %512 ]
+  %.2188.i = phi i32 [ %.0186.i, %.loopexit ], [ %355, %.loopexit564 ], [ %.0186.i, %593 ], [ %.0186.i, %512 ]
+  %.2183.i = phi i32 [ %.0181.i, %.loopexit ], [ %.5.i, %.loopexit564 ], [ %.0181.i, %593 ], [ %.0181.i, %512 ]
+  %.0178.i = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit564 ], [ 0, %593 ], [ %.3.i, %512 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   switch i32 %.0178.i, label %.loopexit566 [
     i32 0, label %194
@@ -2297,14 +2297,14 @@ fread.inline.exit.i256.i:                         ; preds = %919
   br label %943
 
 927:                                              ; preds = %.critedge215.i, %.loopexit.i362, %.loopexit567
-  %.2171.i = phi i32 [ %.0169579.i, %.loopexit.i362 ], [ %727, %.loopexit567 ], [ %.0169579.i, %.critedge215.i ]
-  %.2166.i = phi i32 [ %.0164580.i, %.loopexit.i362 ], [ %726, %.loopexit567 ], [ %.0164580.i, %.critedge215.i ]
-  %.2161.i = phi i64 [ %.0159581.i, %.loopexit.i362 ], [ %713, %.loopexit567 ], [ %.0159581.i, %.critedge215.i ]
-  %.2156.i = phi i32 [ %.0154582.i, %.loopexit.i362 ], [ %698, %.loopexit567 ], [ %.0154582.i, %.critedge215.i ]
-  %.2146.i = phi i32 [ %.0144583.i, %.loopexit.i362 ], [ %760, %.loopexit567 ], [ %.0144583.i, %.critedge215.i ]
-  %928 = phi i1 [ true, %.loopexit.i362 ], [ false, %.loopexit567 ], [ false, %.critedge215.i ]
-  %929 = phi i1 [ false, %.loopexit.i362 ], [ true, %.loopexit567 ], [ true, %.critedge215.i ]
-  %.2136.i = phi i32 [ 1, %.loopexit.i362 ], [ 1, %.loopexit567 ], [ %.0134585.i, %.critedge215.i ]
+  %.2171.i = phi i32 [ %727, %.loopexit567 ], [ %.0169579.i, %.loopexit.i362 ], [ %.0169579.i, %.critedge215.i ]
+  %.2166.i = phi i32 [ %726, %.loopexit567 ], [ %.0164580.i, %.loopexit.i362 ], [ %.0164580.i, %.critedge215.i ]
+  %.2161.i = phi i64 [ %713, %.loopexit567 ], [ %.0159581.i, %.loopexit.i362 ], [ %.0159581.i, %.critedge215.i ]
+  %.2156.i = phi i32 [ %698, %.loopexit567 ], [ %.0154582.i, %.loopexit.i362 ], [ %.0154582.i, %.critedge215.i ]
+  %.2146.i = phi i32 [ %760, %.loopexit567 ], [ %.0144583.i, %.loopexit.i362 ], [ %.0144583.i, %.critedge215.i ]
+  %928 = phi i1 [ false, %.loopexit567 ], [ true, %.loopexit.i362 ], [ false, %.critedge215.i ]
+  %929 = phi i1 [ true, %.loopexit567 ], [ false, %.loopexit.i362 ], [ true, %.critedge215.i ]
+  %.2136.i = phi i32 [ 1, %.loopexit567 ], [ 1, %.loopexit.i362 ], [ %.0134585.i, %.critedge215.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %930 = load ptr, ptr %71, align 8, !tbaa !31
   %931 = call i32 @feof(ptr noundef %930) #20
@@ -2352,7 +2352,7 @@ get_sample_info_aiff.exit:                        ; preds = %934
   store i32 0, ptr %942, align 4, !tbaa !51
   br label %1085
 
-943:                                              ; preds = %936, %.loopexit317.thread.i, %.thread295.i
+943:                                              ; preds = %.thread295.i, %936, %.loopexit317.thread.i
   %944 = load i64, ptr %53, align 8, !tbaa !43
   %.not.i369 = icmp eq i64 %944, 0
   br i1 %.not.i369, label %947, label %945
@@ -2576,7 +2576,7 @@ get_sample_info_flac.exit:                        ; preds = %1041
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1056, i8 0, i64 20, i1 false)
   br label %1085
 
-1057:                                             ; preds = %1002, %1031, %1038, %1045, %1009, %993, %1022, %.thread.i378
+1057:                                             ; preds = %1002, %993, %1031, %1038, %1045, %1009, %1022, %.thread.i378
   %1058 = load i64, ptr %53, align 8, !tbaa !43
   %.not.i379 = icmp eq i64 %1058, 0
   br i1 %.not.i379, label %1061, label %1059
@@ -2861,8 +2861,8 @@ get_sample_info_flac.exit:                        ; preds = %1041
   call fastcc void @EncoderSession_finish_error(ptr noundef %32)
   br label %EncoderSession_finish_error.exit355
 
-.critedge315:                                     ; preds = %1183, %1185, %1178, %1170, %1150, %1157, %1152, %1190
-  %.0227 = phi i64 [ %1156, %1152 ], [ %1163, %1157 ], [ %1194, %1190 ], [ 0, %1150 ], [ %1163, %1170 ], [ %1163, %1178 ], [ %1163, %1185 ], [ %1163, %1183 ]
+.critedge315:                                     ; preds = %1170, %1183, %1185, %1178, %1150, %1157, %1152, %1190
+  %.0227 = phi i64 [ %1194, %1190 ], [ %1156, %1152 ], [ 0, %1150 ], [ %1163, %1157 ], [ %1163, %1178 ], [ %1163, %1185 ], [ %1163, %1183 ], [ %1163, %1170 ]
   %1196 = load i32, ptr %.sroa.7461.0..sroa_idx, align 4, !tbaa !37
   %1197 = and i32 %1196, -2
   %or.cond30 = icmp eq i32 %1197, 6
@@ -2951,7 +2951,7 @@ get_sample_info_flac.exit:                        ; preds = %1041
   br i1 %1235, label %1236, label %canonicalize_until_specification.exit
 
 1236:                                             ; preds = %1234, %1233, %1230, %1225, %.thread.i395, %1211
-  %.str.160.sink = phi ptr [ @.str.159, %1211 ], [ @.str.160, %.thread.i395 ], [ @.str.160, %1225 ], [ @.str.161, %1230 ], [ @.str.162, %1233 ], [ @.str.163, %1234 ]
+  %.str.160.sink = phi ptr [ @.str.159, %1211 ], [ @.str.160, %1225 ], [ @.str.161, %1230 ], [ @.str.162, %1233 ], [ @.str.160, %.thread.i395 ], [ @.str.163, %1234 ]
   %1237 = load ptr, ptr @stderr, align 8, !tbaa !33
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %1237, i32 noundef 1, ptr noundef nonnull %.str.160.sink, ptr noundef %1215) #20
   call fastcc void @EncoderSession_finish_error(ptr noundef %32)
@@ -3154,9 +3154,9 @@ default.unreachable:                              ; preds = %1296
   unreachable
 
 thread-pre-split:                                 ; preds = %1326, %1324, %1318, %1312, %1306, %1300, %.thread525, %1328
-  %.sink2368 = phi i64 [ %1323, %1318 ], [ %1317, %1312 ], [ %1311, %1306 ], [ %1305, %1300 ], [ %1299, %.thread525 ], [ %1330, %1328 ], [ 0, %1324 ], [ %.1192, %1326 ]
-  %1331 = phi i64 [ %1297, %1318 ], [ %1297, %1312 ], [ %1297, %1306 ], [ %1297, %1300 ], [ %1298, %.thread525 ], [ %1297, %1328 ], [ %1297, %1324 ], [ %1297, %1326 ]
-  %.1192528 = phi i64 [ %.1192, %1318 ], [ %.1192, %1312 ], [ %.1192, %1306 ], [ %.1192, %1300 ], [ %.1192529, %.thread525 ], [ %.1192, %1328 ], [ %.1192, %1324 ], [ %.1192, %1326 ]
+  %.sink2368 = phi i64 [ %1330, %1328 ], [ %.1192, %1326 ], [ 0, %1324 ], [ %1323, %1318 ], [ %1317, %1312 ], [ %1311, %1306 ], [ %1305, %1300 ], [ %1299, %.thread525 ]
+  %1331 = phi i64 [ %1297, %1328 ], [ %1297, %1326 ], [ %1297, %1324 ], [ %1297, %1318 ], [ %1297, %1312 ], [ %1297, %1306 ], [ %1297, %1300 ], [ %1298, %.thread525 ]
+  %.1192528 = phi i64 [ %.1192, %1328 ], [ %.1192, %1326 ], [ %.1192, %1324 ], [ %.1192, %1318 ], [ %.1192, %1312 ], [ %.1192, %1306 ], [ %.1192, %1300 ], [ %.1192529, %.thread525 ]
   %1332 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store i64 %.sink2368, ptr %1332, align 8, !tbaa !66
   %1333 = icmp eq i64 %1331, 0
@@ -3288,8 +3288,8 @@ thread-pre-split:                                 ; preds = %1326, %1324, %1318,
   br label %EncoderSession_finish_error.exit355
 
 .thread530:                                       ; preds = %1365, %1361, %1372, %1382, %1351
-  %.0197 = phi i32 [ %5, %1372 ], [ %5, %1382 ], [ %5, %1351 ], [ %1368, %1365 ], [ 0, %1361 ]
-  %.0194 = phi ptr [ %4, %1372 ], [ %4, %1382 ], [ %4, %1351 ], [ %1366, %1365 ], [ %4, %1361 ]
+  %.0197 = phi i32 [ %5, %1351 ], [ %5, %1372 ], [ %5, %1382 ], [ %1368, %1365 ], [ 0, %1361 ]
+  %.0194 = phi ptr [ %4, %1351 ], [ %4, %1372 ], [ %4, %1382 ], [ %1366, %1365 ], [ %4, %1361 ]
   %1392 = load i32, ptr %.sroa.7461.0..sroa_idx, align 4, !tbaa !37
   switch i32 %1392, label %1603 [
     i32 0, label %1393
@@ -3557,7 +3557,7 @@ fread.inline.exit338:                             ; preds = %fread.inline.exit33
   br label %1508
 
 1508:                                             ; preds = %1506, %1478
-  %.1220 = phi i64 [ %.02191151, %1478 ], [ %1507, %1506 ]
+  %.1220 = phi i64 [ %1507, %1506 ], [ %.02191151, %1478 ]
   %.not303 = icmp ult i64 %.1220, %.1192528
   br i1 %.not303, label %1451, label %.critedge314, !llvm.loop !81
 
@@ -3778,8 +3778,8 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %EncoderSession_finish_error.exit355
 
-EncoderSession_finish_error.exit355:              ; preds = %.tail.i, %80, %75, %1502, %1505, %.thread556, %1475, %1486, %1491, %fread.inline.exit338, %1413, %1426, %1434, %1445, %1448, %1526, %1541, %1547, %1561, %1558, %1189, %1182, %1205, %1236, %1256, %1350, %1386, %1379, %1369, %1598, %1603, %1391, %1245, %1272, %1195, %1145, %1143, %1142, %1122, %1120, %1119, %1103, %1101, %1100, %1082, %1080, %1079, %1068, %1066, %1065, %974, %972, %971, %954, %952, %951, %617, %615, %614, %.critedge, %.critedge314
-  %.0 = phi i32 [ %1609, %.critedge314 ], [ 1, %.critedge ], [ 1, %614 ], [ 1, %615 ], [ 1, %617 ], [ 1, %951 ], [ 1, %952 ], [ 1, %954 ], [ 1, %971 ], [ 1, %972 ], [ 1, %974 ], [ 1, %1065 ], [ 1, %1066 ], [ 1, %1068 ], [ 1, %1079 ], [ 1, %1080 ], [ 1, %1082 ], [ 1, %1100 ], [ 1, %1101 ], [ 1, %1103 ], [ 1, %1119 ], [ 1, %1120 ], [ 1, %1122 ], [ 1, %1142 ], [ 1, %1143 ], [ 1, %1145 ], [ 1, %1195 ], [ 1, %1272 ], [ 1, %1245 ], [ 1, %1391 ], [ 1, %1603 ], [ 1, %1598 ], [ 1, %1369 ], [ 1, %1379 ], [ 1, %1386 ], [ 1, %1350 ], [ 1, %1256 ], [ 1, %1236 ], [ 1, %1205 ], [ 1, %1182 ], [ 1, %1189 ], [ 1, %1558 ], [ 1, %1561 ], [ 1, %1547 ], [ 1, %1541 ], [ 1, %1526 ], [ 1, %1448 ], [ 1, %1445 ], [ 1, %1434 ], [ 1, %1426 ], [ 1, %1413 ], [ 1, %fread.inline.exit338 ], [ 1, %1491 ], [ 1, %1486 ], [ 1, %1475 ], [ 1, %.thread556 ], [ 1, %1505 ], [ 1, %1502 ], [ 1, %75 ], [ 1, %80 ], [ 1, %.tail.i ]
+EncoderSession_finish_error.exit355:              ; preds = %80, %75, %.tail.i, %1502, %1505, %1486, %1491, %fread.inline.exit338, %1426, %1434, %1448, %1445, %1558, %1541, %1547, %1561, %1182, %1205, %1236, %1256, %1350, %1386, %1379, %1369, %1598, %.thread556, %1189, %1413, %1526, %1475, %1603, %1391, %1245, %1272, %1195, %1145, %1143, %1142, %1122, %1120, %1119, %1103, %1101, %1100, %1082, %1080, %1079, %1068, %1066, %1065, %974, %972, %971, %954, %952, %951, %617, %615, %614, %.critedge, %.critedge314
+  %.0 = phi i32 [ 1, %1068 ], [ 1, %1082 ], [ 1, %1122 ], [ %1609, %.critedge314 ], [ 1, %1145 ], [ 1, %1103 ], [ 1, %.critedge ], [ 1, %1505 ], [ 1, %617 ], [ 1, %954 ], [ 1, %974 ], [ 1, %614 ], [ 1, %615 ], [ 1, %951 ], [ 1, %952 ], [ 1, %971 ], [ 1, %972 ], [ 1, %1065 ], [ 1, %1066 ], [ 1, %1079 ], [ 1, %1080 ], [ 1, %1100 ], [ 1, %1101 ], [ 1, %1119 ], [ 1, %1120 ], [ 1, %1142 ], [ 1, %1143 ], [ 1, %1195 ], [ 1, %1272 ], [ 1, %1245 ], [ 1, %1502 ], [ 1, %1391 ], [ 1, %1603 ], [ 1, %1475 ], [ 1, %1526 ], [ 1, %1413 ], [ 1, %1189 ], [ 1, %.thread556 ], [ 1, %1598 ], [ 1, %1369 ], [ 1, %1379 ], [ 1, %1386 ], [ 1, %1350 ], [ 1, %1256 ], [ 1, %1236 ], [ 1, %1205 ], [ 1, %1182 ], [ 1, %1561 ], [ 1, %1547 ], [ 1, %1541 ], [ 1, %1558 ], [ 1, %1445 ], [ 1, %1448 ], [ 1, %1434 ], [ 1, %1426 ], [ 1, %fread.inline.exit338 ], [ 1, %1491 ], [ 1, %1486 ], [ 1, %.tail.i ], [ 1, %75 ], [ 1, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   ret i32 %.0
@@ -4025,7 +4025,7 @@ define internal fastcc range(i32 0, 2) i32 @EncoderSession_init_encoder(ptr noun
   store i32 0, ptr %99, align 8, !tbaa !30
   br label %100
 
-parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, %94
+parse_cuesheet.exit.thread:                       ; preds = %87, %65, %70, %80, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge503
@@ -4701,7 +4701,7 @@ parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, 
   br label %.critedge503
 
 .thread610:                                       ; preds = %350, %347, %318, %357, %308
-  %386 = phi i1 [ false, %308 ], [ true, %357 ], [ true, %318 ], [ false, %347 ], [ false, %350 ]
+  %386 = phi i1 [ false, %308 ], [ true, %357 ], [ false, %350 ], [ true, %318 ], [ false, %347 ]
   %387 = load ptr, ptr %309, align 8, !tbaa !91
   %388 = load i32, ptr %387, align 8, !tbaa !62
   %389 = icmp eq i32 %388, 5
@@ -4802,7 +4802,7 @@ parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, 
   br label %428
 
 428:                                              ; preds = %425, %423
-  %.1402 = phi i64 [ %.0401677, %423 ], [ %426, %425 ]
+  %.1402 = phi i64 [ %426, %425 ], [ %.0401677, %423 ]
   %429 = add nuw i64 %.0404676, 1
   %430 = load i64, ptr %193, align 8, !tbaa !111
   %431 = icmp ult i64 %429, %430
@@ -5554,14 +5554,14 @@ static_metadata_append.exit583:                   ; preds = %606
   br label %.critedge.critedge.i
 
 793:                                              ; preds = %789, %785, %783
-  %.335.i = phi i32 [ 1, %785 ], [ %.03244.i, %783 ], [ %.03244.i, %789 ]
-  %.330.i = phi i32 [ %.02745.i, %785 ], [ %.02745.i, %783 ], [ 1, %789 ]
+  %.335.i = phi i32 [ %.03244.i, %783 ], [ 1, %785 ], [ %.03244.i, %789 ]
+  %.330.i = phi i32 [ %.02745.i, %783 ], [ %.02745.i, %785 ], [ 1, %789 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %794
 
 794:                                              ; preds = %793, %768, %762, %.lr.ph.i589
-  %.133.i = phi i32 [ %.03244.i, %762 ], [ %.03244.i, %768 ], [ %.03244.i, %.lr.ph.i589 ], [ %.335.i, %793 ]
-  %.128.i = phi i32 [ %.02745.i, %762 ], [ %.02745.i, %768 ], [ %.02745.i, %.lr.ph.i589 ], [ %.330.i, %793 ]
+  %.133.i = phi i32 [ %.03244.i, %768 ], [ %.03244.i, %.lr.ph.i589 ], [ %.335.i, %793 ], [ %.03244.i, %762 ]
+  %.128.i = phi i32 [ %.02745.i, %768 ], [ %.02745.i, %.lr.ph.i589 ], [ %.330.i, %793 ], [ %.02745.i, %762 ]
   %indvars.iv.next.i593 = add nuw nsw i64 %indvars.iv.i590, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i593, %wide.trip.count.i
   br i1 %exitcond.not.i, label %verify_metadata.exit, label %.lr.ph.i589, !llvm.loop !130
@@ -5975,8 +5975,8 @@ verify_metadata.exit:                             ; preds = %794, %758
   call fastcc void @static_metadata_clear(ptr noundef %8)
   br label %.critedge503
 
-.critedge503:                                     ; preds = %819, %817, %422, %420, %385, %383, %346, %344, %270, %268, %227, %229, %186, %184, %688, %707, %592, %620, %643, %633, %638, %751, %669, %.thread618, %.thread617, %parse_cuesheet.exit.thread, %979, %984, %467, %473, %.critedge501, %.critedge512, %1015, %1014, %968, %958, %872, %48, %39, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %872 ], [ 0, %968 ], [ 0, %1014 ], [ 1, %1015 ], [ 0, %958 ], [ 0, %48 ], [ 0, %39 ], [ 0, %.critedge512 ], [ 0, %.critedge501 ], [ 0, %473 ], [ 0, %467 ], [ 0, %984 ], [ 0, %979 ], [ 0, %parse_cuesheet.exit.thread ], [ 0, %.thread617 ], [ 0, %.thread618 ], [ 0, %669 ], [ 0, %751 ], [ 0, %638 ], [ 0, %633 ], [ 0, %643 ], [ 0, %620 ], [ 0, %592 ], [ 0, %707 ], [ 0, %688 ], [ 0, %184 ], [ 0, %186 ], [ 0, %229 ], [ 0, %227 ], [ 0, %268 ], [ 0, %270 ], [ 0, %344 ], [ 0, %346 ], [ 0, %383 ], [ 0, %385 ], [ 0, %420 ], [ 0, %422 ], [ 0, %817 ], [ 0, %819 ]
+.critedge503:                                     ; preds = %819, %817, %422, %420, %385, %383, %346, %344, %270, %268, %227, %229, %186, %184, %688, %707, %620, %643, %633, %638, %751, %592, %669, %.thread618, %.thread617, %parse_cuesheet.exit.thread, %979, %984, %467, %473, %.critedge501, %.critedge512, %1015, %1014, %968, %958, %872, %48, %39, %33
+  %.0 = phi i32 [ 0, %33 ], [ 0, %872 ], [ 0, %968 ], [ 0, %1014 ], [ 1, %1015 ], [ 0, %467 ], [ 0, %958 ], [ 0, %422 ], [ 0, %.critedge512 ], [ 0, %.thread618 ], [ 0, %227 ], [ 0, %parse_cuesheet.exit.thread ], [ 0, %979 ], [ 0, %270 ], [ 0, %620 ], [ 0, %39 ], [ 0, %48 ], [ 0, %.critedge501 ], [ 0, %707 ], [ 0, %688 ], [ 0, %473 ], [ 0, %984 ], [ 0, %186 ], [ 0, %.thread617 ], [ 0, %385 ], [ 0, %346 ], [ 0, %669 ], [ 0, %592 ], [ 0, %751 ], [ 0, %638 ], [ 0, %633 ], [ 0, %643 ], [ 0, %184 ], [ 0, %229 ], [ 0, %268 ], [ 0, %344 ], [ 0, %383 ], [ 0, %420 ], [ 0, %817 ], [ 0, %819 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6024,7 +6024,7 @@ fread.inline.exit:                                ; preds = %17
   br i1 %20, label %.loopexit, label %17, !llvm.loop !56
 
 .loopexit:                                        ; preds = %17, %fread.inline.exit, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %14 ], [ 1, %17 ], [ 0, %fread.inline.exit ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %2 ], [ 1, %17 ], [ 0, %fread.inline.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -6735,7 +6735,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond330.not, label %.critedge, label %.preheader, !llvm.loop !174
 
 .critedge:                                        ; preds = %._crit_edge121, %243, %.loopexit, %250, %241
-  %.0 = phi i32 [ 0, %250 ], [ 0, %241 ], [ 1, %.loopexit ], [ 1, %243 ], [ 1, %._crit_edge121 ]
+  %.0 = phi i32 [ 0, %241 ], [ 0, %250 ], [ 1, %.loopexit ], [ 1, %243 ], [ 1, %._crit_edge121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6960,8 +6960,8 @@ define internal fastcc range(i32 0, 2) i32 @EncoderSession_finish_ok(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge55.thread
 
-.critedge55.thread:                               ; preds = %19, %27, %.critedge55.critedge, %28, %45, %63, %.critedge55
-  %.5 = phi i32 [ %.6, %63 ], [ 0, %.critedge55 ], [ 1, %45 ], [ 1, %28 ], [ 1, %.critedge55.critedge ], [ 1, %27 ], [ 1, %19 ]
+.critedge55.thread:                               ; preds = %19, %27, %28, %.critedge55.critedge, %45, %63, %.critedge55
+  %.5 = phi i32 [ %.6, %63 ], [ 0, %.critedge55 ], [ 1, %45 ], [ 1, %.critedge55.critedge ], [ 1, %28 ], [ 1, %27 ], [ 1, %19 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8440
   %65 = load double, ptr %64, align 8, !tbaa !28
   %66 = fcmp oge double %65, 1.000000e+00
@@ -7015,7 +7015,7 @@ read_bytes.exit:                                  ; preds = %fread.inline.exit.i
   br label %15
 
 15:                                               ; preds = %read_bytes.exit.thread, %read_bytes.exit, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %read_bytes.exit ], [ 0, %read_bytes.exit.thread ]
+  %.0 = phi i32 [ 0, %read_bytes.exit.thread ], [ 1, %7 ], [ 1, %read_bytes.exit ]
   ret i32 %.0
 }
 
@@ -7044,7 +7044,7 @@ read_bytes.exit:                                  ; preds = %fread.inline.exit.i
   br label %11
 
 11:                                               ; preds = %read_bytes.exit.thread, %read_bytes.exit, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %read_bytes.exit ], [ 0, %read_bytes.exit.thread ]
+  %.0 = phi i32 [ 0, %read_bytes.exit.thread ], [ 1, %7 ], [ 1, %read_bytes.exit ]
   ret i32 %.0
 }
 
@@ -7109,7 +7109,7 @@ fread.inline.exit:                                ; preds = %21
   br label %33
 
 33:                                               ; preds = %21, %31, %fread.inline.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 2, %fread.inline.exit ], [ %.35, %31 ], [ 0, %21 ]
+  %.0 = phi i32 [ 2, %fread.inline.exit ], [ 2, %4 ], [ %.35, %31 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -7854,7 +7854,7 @@ define internal fastcc void @print_error_with_init_status(ptr noundef nonnull re
   br i1 %24, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %2, %21, %13
-  %.str.157.sink = phi ptr [ @.str.155, %13 ], [ @.str.156, %21 ], [ @.str.157, %2 ]
+  %.str.157.sink = phi ptr [ @.str.156, %21 ], [ @.str.155, %13 ], [ @.str.157, %2 ]
   %25 = load ptr, ptr @stderr, align 8, !tbaa !33
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %25, i32 noundef 1, ptr noundef nonnull %.str.157.sink) #20
   br label %26

@@ -166,9 +166,9 @@ Vec_IntAlloc.exit.i120:                           ; preds = %53, %47
   br i1 %exitcond.not.i126, label %Vec_IntStartNatural.exit127, label %.lr.ph.i123, !llvm.loop !32
 
 Vec_IntStartNatural.exit127:                      ; preds = %.lr.ph.i123, %Vec_IntAlloc.exit.i120, %Vec_IntDup.exit116
-  %.pre-phi = phi i32 [ %51, %Vec_IntAlloc.exit.i120 ], [ %.pre227, %Vec_IntDup.exit116 ], [ %51, %.lr.ph.i123 ]
-  %.val = phi i32 [ %.val88.val, %Vec_IntAlloc.exit.i120 ], [ %37, %Vec_IntDup.exit116 ], [ %.val88.val, %.lr.ph.i123 ]
-  %62 = phi ptr [ %50, %Vec_IntAlloc.exit.i120 ], [ %35, %Vec_IntDup.exit116 ], [ %50, %.lr.ph.i123 ]
+  %.pre-phi = phi i32 [ %.pre227, %Vec_IntDup.exit116 ], [ %51, %Vec_IntAlloc.exit.i120 ], [ %51, %.lr.ph.i123 ]
+  %.val = phi i32 [ %37, %Vec_IntDup.exit116 ], [ %.val88.val, %Vec_IntAlloc.exit.i120 ], [ %.val88.val, %.lr.ph.i123 ]
+  %62 = phi ptr [ %35, %Vec_IntDup.exit116 ], [ %50, %Vec_IntAlloc.exit.i120 ], [ %50, %.lr.ph.i123 ]
   %63 = getelementptr i8, ptr %62, i64 4
   %64 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %or.cond.i.i128 = icmp ult i32 %.pre-phi, 7
@@ -848,8 +848,8 @@ Vec_IntPush.exit.i:                               ; preds = %351, %Vec_IntGrow.e
   br i1 %359, label %327, label %Vec_IntAppend.exit, !llvm.loop !47
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i, %Vec_IntFlopBit.exit180.thread, %Vec_IntFlopBit.exit180
-  %360 = phi ptr [ %323, %Vec_IntFlopBit.exit180 ], [ %304, %Vec_IntFlopBit.exit180.thread ], [ %323, %Vec_IntPush.exit.i ]
-  %361 = phi i32 [ %.val7.i181, %Vec_IntFlopBit.exit180 ], [ %.val7.i181.pre, %Vec_IntFlopBit.exit180.thread ], [ %.val.i186, %Vec_IntPush.exit.i ]
+  %360 = phi ptr [ %304, %Vec_IntFlopBit.exit180.thread ], [ %323, %Vec_IntFlopBit.exit180 ], [ %323, %Vec_IntPush.exit.i ]
+  %361 = phi i32 [ %.val7.i181.pre, %Vec_IntFlopBit.exit180.thread ], [ %.val7.i181, %Vec_IntFlopBit.exit180 ], [ %.val.i186, %Vec_IntPush.exit.i ]
   %.val108 = load i64, ptr %295, align 4
   %362 = and i64 %.val108, 536870912
   %.not79 = icmp ne i64 %362, 0
@@ -1013,7 +1013,7 @@ define i32 @Gia_ManCheckUnate_rec(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %31
 
 31:                                               ; preds = %28, %17
-  %32 = phi i32 [ %21, %17 ], [ %spec.select, %28 ]
+  %32 = phi i32 [ %spec.select, %28 ], [ %21, %17 ]
   %33 = add i32 %26, -1
   %or.cond3 = icmp ult i32 %33, 2
   br i1 %or.cond3, label %34, label %37
@@ -1027,7 +1027,7 @@ define i32 @Gia_ManCheckUnate_rec(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %37
 
 37:                                               ; preds = %34, %31
-  %38 = phi i32 [ %26, %31 ], [ %spec.select42, %34 ]
+  %38 = phi i32 [ %spec.select42, %34 ], [ %26, %31 ]
   %39 = load i32, ptr %3, align 8, !tbaa !50
   %40 = and i32 %38, %32
   %41 = sub nsw i32 %39, %40
@@ -1092,7 +1092,7 @@ define i32 @Gia_ManCheckUnate(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   br label %29
 
 29:                                               ; preds = %26, %3
-  %30 = phi i32 [ %24, %3 ], [ %spec.select, %26 ]
+  %30 = phi i32 [ %spec.select, %26 ], [ %24, %3 ]
   ret i32 %30
 }
 
@@ -1588,7 +1588,7 @@ Abc_Clock.exit:                                   ; preds = %7, %10
   br label %Gia_ManCheckUnate.exit.us
 
 Gia_ManCheckUnate.exit.us:                        ; preds = %56, %40
-  %59 = phi i32 [ %54, %40 ], [ %spec.select, %56 ]
+  %59 = phi i32 [ %spec.select, %56 ], [ %54, %40 ]
   switch i32 %59, label %71 [
     i32 3, label %69
     i32 2, label %66

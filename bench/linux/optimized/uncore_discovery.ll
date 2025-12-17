@@ -558,7 +558,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   call void @kfree(ptr noundef nonnull %248) #9
   br label %.thread38
 
-.thread38:                                        ; preds = %150, %._crit_edge54, %241, %320, %315, %.loopexit, %188, %182, %._crit_edge, %159, %116
+.thread38:                                        ; preds = %150, %241, %._crit_edge54, %320, %315, %.loopexit, %188, %182, %._crit_edge, %159, %116
   %321 = load i64, ptr %2, align 8
   %322 = trunc i64 %321 to i32
   %323 = lshr i32 %322, 16

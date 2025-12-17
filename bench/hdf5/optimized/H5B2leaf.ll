@@ -273,7 +273,7 @@ define range(i32 -1, 1) i32 @H5B2__create_leaf(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %103, %126, %13, %69, %76, %128, %3
-  %.0 = phi i32 [ -1, %128 ], [ 0, %3 ], [ 0, %69 ], [ 0, %76 ], [ -1, %13 ], [ -1, %126 ], [ -1, %103 ]
+  %.0 = phi i32 [ -1, %128 ], [ 0, %69 ], [ -1, %13 ], [ 0, %3 ], [ 0, %76 ], [ -1, %126 ], [ -1, %103 ]
   ret i32 %.0
 }
 
@@ -461,7 +461,7 @@ define ptr @H5B2__protect_leaf(ptr noundef %0, ptr noundef %1, ptr noundef captu
   br label %.thread
 
 .thread:                                          ; preds = %24, %45, %46, %64, %69, %5
-  %.0 = phi ptr [ null, %69 ], [ null, %64 ], [ null, %5 ], [ %22, %45 ], [ %22, %46 ], [ null, %24 ]
+  %.0 = phi ptr [ null, %69 ], [ null, %64 ], [ null, %24 ], [ null, %5 ], [ %22, %45 ], [ %22, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -525,7 +525,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_leaf(ptr noundef nonnu
   br label %40
 
 40:                                               ; preds = %2, %9, %37, %33, %24
-  %.017 = phi i32 [ 0, %9 ], [ 0, %2 ], [ -1, %24 ], [ -1, %33 ], [ 0, %37 ]
+  %.017 = phi i32 [ 0, %2 ], [ 0, %9 ], [ -1, %24 ], [ -1, %33 ], [ 0, %37 ]
   ret i32 %.017
 }
 
@@ -628,7 +628,7 @@ define range(i32 -1, 1) i32 @H5B2__neighbor_leaf(ptr noundef %0, ptr noundef cap
   br label %60
 
 60:                                               ; preds = %.sink.split, %51, %48
-  %.029 = phi ptr [ %2, %48 ], [ %2, %51 ], [ %59, %.sink.split ]
+  %.029 = phi ptr [ %2, %51 ], [ %2, %48 ], [ %59, %.sink.split ]
   %.not35 = icmp eq ptr %.029, null
   br i1 %.not35, label %68, label %61
 
@@ -921,9 +921,9 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr noundef captu
   %161 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__insert_leaf, i32 noundef 411, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.24) #6
   br label %.thread84
 
-.thread84:                                        ; preds = %84, %32, %39, %151, %155, %158
-  %.064.ph90 = phi i32 [ 2, %158 ], [ 2, %155 ], [ 2, %151 ], [ 0, %39 ], [ 0, %32 ], [ 0, %84 ]
-  %.2 = phi i32 [ -1, %158 ], [ %.1.ph, %155 ], [ %.1.ph, %151 ], [ -1, %39 ], [ -1, %32 ], [ -1, %84 ]
+.thread84:                                        ; preds = %84, %39, %32, %151, %155, %158
+  %.064.ph90 = phi i32 [ 2, %158 ], [ 2, %155 ], [ 2, %151 ], [ 0, %32 ], [ 0, %39 ], [ 0, %84 ]
+  %.2 = phi i32 [ -1, %158 ], [ %.1.ph, %155 ], [ %.1.ph, %151 ], [ -1, %32 ], [ -1, %39 ], [ -1, %84 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %163 = load ptr, ptr %162, align 8, !tbaa !43
   %164 = load i64, ptr %1, align 8, !tbaa !45
@@ -1137,7 +1137,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   br label %123
 
 123:                                              ; preds = %.thread98, %114
-  %.281 = phi i32 [ 2, %114 ], [ %91, %.thread98 ]
+  %.281 = phi i32 [ %91, %.thread98 ], [ 2, %114 ]
   %.not90 = icmp eq i32 %3, 3
   br i1 %.not90, label %186, label %124
 
@@ -1236,7 +1236,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   br label %211
 
 186:                                              ; preds = %123, %._crit_edge122, %152, %169, %139
-  %.1.ph = phi i32 [ 0, %123 ], [ 0, %152 ], [ 0, %._crit_edge122 ], [ -1, %169 ], [ -1, %139 ]
+  %.1.ph = phi i32 [ -1, %139 ], [ 0, %._crit_edge122 ], [ -1, %169 ], [ 0, %123 ], [ 0, %152 ]
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %188 = load i8, ptr %187, align 8, !tbaa !61, !range !7, !noundef !8
   %189 = trunc nuw i8 %188 to i1
@@ -1266,9 +1266,9 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   store i32 2, ptr %2, align 4, !tbaa !54
   br label %.thread108
 
-.thread108:                                       ; preds = %92, %110, %36, %51, %198, %201, %186
-  %.079.ph114 = phi i32 [ 2, %201 ], [ 2, %198 ], [ %.281, %186 ], [ 0, %51 ], [ 0, %36 ], [ 0, %110 ], [ 0, %92 ]
-  %.4 = phi i32 [ %.5, %201 ], [ %.5, %198 ], [ %.1.ph, %186 ], [ 0, %51 ], [ -1, %36 ], [ -1, %110 ], [ -1, %92 ]
+.thread108:                                       ; preds = %51, %92, %110, %36, %198, %201, %186
+  %.079.ph114 = phi i32 [ 2, %201 ], [ 2, %198 ], [ %.281, %186 ], [ 0, %36 ], [ 0, %110 ], [ 0, %92 ], [ 0, %51 ]
+  %.4 = phi i32 [ %.5, %201 ], [ %.5, %198 ], [ %.1.ph, %186 ], [ -1, %36 ], [ -1, %110 ], [ -1, %92 ], [ 0, %51 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %203 = load ptr, ptr %202, align 8, !tbaa !43
   %204 = load i64, ptr %1, align 8, !tbaa !45

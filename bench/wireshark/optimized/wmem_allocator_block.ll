@@ -931,7 +931,7 @@ wmem_block_split_used_chunk.exit:                 ; preds = %129, %156
   br label %wmem_block_cycle_recycler.exit
 
 wmem_block_cycle_recycler.exit:                   ; preds = %181, %170, %wmem_block_split_used_chunk.exit, %126, %115, %100, %wmem_block_free_jumbo.exit.i, %80, %69, %55, %127, %wmem_block_realloc_jumbo.exit
-  %.0 = phi ptr [ %20, %wmem_block_realloc_jumbo.exit ], [ %1, %127 ], [ %1, %55 ], [ %1, %69 ], [ %1, %80 ], [ %82, %wmem_block_free_jumbo.exit.i ], [ %82, %100 ], [ %82, %115 ], [ %82, %126 ], [ %1, %wmem_block_split_used_chunk.exit ], [ %1, %170 ], [ %1, %181 ]
+  %.0 = phi ptr [ %20, %wmem_block_realloc_jumbo.exit ], [ %1, %127 ], [ %82, %126 ], [ %1, %80 ], [ %1, %55 ], [ %1, %69 ], [ %82, %wmem_block_free_jumbo.exit.i ], [ %82, %100 ], [ %82, %115 ], [ %1, %wmem_block_split_used_chunk.exit ], [ %1, %170 ], [ %1, %181 ]
   ret ptr %.0
 }
 

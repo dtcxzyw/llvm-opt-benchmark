@@ -1338,7 +1338,7 @@ _time_days_in_month.exit.i.i:                     ; preds = %187
   br label %_block_get_bar_count.exit.thread49.i
 
 _block_get_bar_count.exit.thread49.i:             ; preds = %209, %203, %_time_days_in_month.exit.i.i
-  %.0.i13.i.i = phi i32 [ 30, %209 ], [ 31, %_time_days_in_month.exit.i.i ], [ %spec.select.i17.i.i, %203 ]
+  %.0.i13.i.i = phi i32 [ 30, %209 ], [ %spec.select.i17.i.i, %203 ], [ 31, %_time_days_in_month.exit.i.i ]
   %210 = add i32 %201, -4
   %switch.selectcmp4.i.i = icmp ult i32 %210, 8
   %211 = select i1 %switch.selectcmp4.i.i, i32 31, i32 30
@@ -1411,7 +1411,7 @@ _block_get_bar_count.exit.thread54.i:             ; preds = %187
   br label %_block_get_bar_count.exit.i
 
 _block_get_bar_count.exit.thread.i:               ; preds = %228, %222, %221, %221, %221, %221, %221, %221, %221
-  %.0.i124.ph.i = phi i32 [ %spec.select.i35.i.i, %222 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 30, %228 ]
+  %.0.i124.ph.i = phi i32 [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ 31, %221 ], [ %spec.select.i35.i.i, %222 ], [ 30, %228 ]
   %241 = getelementptr inbounds nuw i8, ptr %188, i64 24
   store i32 %.0.i124.ph.i, ptr %241, align 8, !tbaa !116
   %242 = zext nneg i32 %.0.i124.ph.i to i64
@@ -1576,7 +1576,7 @@ _time_compare_at_zoom.exit137.thread.i:           ; preds = %_time_compare_at_zo
   br label %_block_get_bar_width.exit139.i
 
 _block_get_bar_width.exit139.i:                   ; preds = %_time_compare_at_zoom.exit137.thread.i, %300, %294, %292, %283
-  %.0.i138.i = phi i32 [ 10, %283 ], [ %switch.select184.i, %_time_compare_at_zoom.exit137.thread.i ], [ 5, %294 ], [ 1, %300 ], [ 1, %292 ]
+  %.0.i138.i = phi i32 [ 5, %294 ], [ 10, %283 ], [ %switch.select184.i, %_time_compare_at_zoom.exit137.thread.i ], [ 1, %300 ], [ 1, %292 ]
   %302 = trunc nuw nsw i64 %indvars.iv.i to i32
   %303 = mul nuw nsw i32 %.0.i138.i, %302
   %304 = add nsw i32 %303, %.0101.i
@@ -1652,7 +1652,7 @@ _time_compare_at_zoom.exit151.thread.i:           ; preds = %_time_compare_at_zo
   br label %_block_get_bar_width.exit153.i
 
 _block_get_bar_width.exit153.i:                   ; preds = %_time_compare_at_zoom.exit151.thread.i, %324, %318, %316, %307
-  %.0.i152.i = phi i32 [ 10, %307 ], [ %switch.select188.i, %_time_compare_at_zoom.exit151.thread.i ], [ 5, %318 ], [ 1, %316 ], [ 1, %324 ]
+  %.0.i152.i = phi i32 [ 5, %318 ], [ 10, %307 ], [ %switch.select188.i, %_time_compare_at_zoom.exit151.thread.i ], [ 1, %316 ], [ 1, %324 ]
   %326 = trunc i64 %indvars.iv.i to i32
   %327 = add i32 %326, 1
   %328 = mul nuw nsw i32 %.0.i152.i, %327
@@ -1864,7 +1864,7 @@ _time_add.exit113.i.i:                            ; preds = %_time_add.exit113.i
   br label %_time_days_in_month.exit105.i.i
 
 _time_days_in_month.exit105.i.i:                  ; preds = %411, %405, %_time_add.exit113.i.i, %_time_add.exit113.i.i, %_time_add.exit113.i.i, %_time_add.exit113.i.i, %_time_add.exit113.i.i, %_time_add.exit113.i.i, %_time_add.exit113.i.i
-  %.0.i100.i.i = phi i32 [ 30, %411 ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ %spec.select.i104.i.i, %405 ]
+  %.0.i100.i.i = phi i32 [ 30, %411 ], [ %spec.select.i104.i.i, %405 ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ], [ 31, %_time_add.exit113.i.i ]
   %412 = icmp sgt i32 %.pr123.i.i, %.0.i100.i.i
   br i1 %412, label %413, label %thread-pre-split122.i.i
 
@@ -2051,7 +2051,7 @@ _time_add.exit115.i.i:                            ; preds = %469, %467
   br label %_time_days_in_month.exit121.i.i
 
 _time_days_in_month.exit121.i.i:                  ; preds = %476, %470, %_time_add.exit115.i.i, %_time_add.exit115.i.i, %_time_add.exit115.i.i, %_time_add.exit115.i.i, %_time_add.exit115.i.i, %_time_add.exit115.i.i, %_time_add.exit115.i.i
-  %.0.i116.i.i = phi i32 [ 30, %476 ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ %spec.select.i120.i.i, %470 ]
+  %.0.i116.i.i = phi i32 [ 30, %476 ], [ %spec.select.i120.i.i, %470 ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ], [ 31, %_time_add.exit115.i.i ]
   %477 = add nsw i32 %.0.i116.i.i, %446
   %478 = icmp slt i32 %477, 1
   br i1 %478, label %.lr.ph182.i.i, label %thread-pre-split127.i166.thread.i
@@ -2603,7 +2603,7 @@ _block_get_bar_width.exit:                        ; preds = %_block_get_at_zoom.
   br label %_time_compare.exit
 
 _time_compare.exit:                               ; preds = %724, %729, %734
-  %.0.i186 = phi i32 [ %725, %724 ], [ %730, %729 ], [ %736, %734 ]
+  %.0.i186 = phi i32 [ %736, %734 ], [ %725, %724 ], [ %730, %729 ]
   %.not184 = icmp eq i32 %.0.i186, 0
   br i1 %.not184, label %763, label %_time_compare.exit.thread
 
@@ -2768,7 +2768,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr readnone ca
   br label %_time_compare.exit
 
 _time_compare.exit:                               ; preds = %44, %49, %54
-  %.0.i = phi i32 [ %45, %44 ], [ %50, %49 ], [ %56, %54 ]
+  %.0.i = phi i32 [ %56, %54 ], [ %45, %44 ], [ %50, %49 ]
   %57 = icmp eq i32 %.0.i, 0
   br i1 %57, label %58, label %_time_compare.exit.thread
 
@@ -2887,7 +2887,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr readnone 
   br label %_time_compare.exit
 
 _time_compare.exit:                               ; preds = %18, %23, %28
-  %.0.i = phi i32 [ %19, %18 ], [ %24, %23 ], [ %30, %28 ]
+  %.0.i = phi i32 [ %30, %28 ], [ %19, %18 ], [ %24, %23 ]
   %31 = icmp eq i32 %.0.i, 0
   br i1 %31, label %32, label %_time_compare.exit.thread
 
@@ -2948,7 +2948,7 @@ _time_compare.exit.thread:                        ; preds = %25, %9, %_time_comp
   br label %_time_days_in_month.exit
 
 _time_days_in_month.exit:                         ; preds = %45, %45, %45, %45, %45, %45, %45, %48, %55
-  %.0.i25 = phi i32 [ 30, %55 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ %spec.select.i, %48 ]
+  %.0.i25 = phi i32 [ 30, %55 ], [ %spec.select.i, %48 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ], [ 31, %45 ]
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 %.0.i25, ptr %56, align 8, !tbaa !145
   br label %57
@@ -3032,7 +3032,7 @@ define internal range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr readnone 
   br label %29
 
 29:                                               ; preds = %25, %23, %16
-  %.038 = phi i32 [ %18, %16 ], [ %spec.select, %23 ], [ %spec.select47, %25 ]
+  %.038 = phi i32 [ %18, %16 ], [ %spec.select47, %25 ], [ %spec.select, %23 ]
   %30 = load i32, ptr %17, align 8, !tbaa !64
   %.not46 = icmp eq i32 %.038, %30
   br i1 %.not46, label %69, label %31
@@ -3393,7 +3393,7 @@ dt_action_lib.exit:                               ; preds = %.lr.ph.i, %1
   br label %_time_compare.exit
 
 _time_compare.exit:                               ; preds = %17, %22, %27
-  %.0.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %29, %27 ]
+  %.0.i = phi i32 [ %29, %27 ], [ %18, %17 ], [ %23, %22 ]
   %30 = icmp eq i32 %.0.i, 0
   br i1 %30, label %31, label %_time_compare.exit.thread
 
@@ -3491,7 +3491,7 @@ dt_action_lib.exit:                               ; preds = %.lr.ph.i, %1
   br label %_time_compare.exit
 
 _time_compare.exit:                               ; preds = %16, %21, %26
-  %.0.i = phi i32 [ %17, %16 ], [ %22, %21 ], [ %28, %26 ]
+  %.0.i = phi i32 [ %28, %26 ], [ %17, %16 ], [ %22, %21 ]
   %29 = icmp eq i32 %.0.i, 0
   br i1 %29, label %30, label %_time_compare.exit.thread
 
@@ -3552,7 +3552,7 @@ _time_compare.exit.thread:                        ; preds = %23, %dt_action_lib.
   br label %_time_days_in_month.exit
 
 _time_days_in_month.exit:                         ; preds = %43, %43, %43, %43, %43, %43, %43, %46, %53
-  %.0.i20 = phi i32 [ 30, %53 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ %spec.select.i, %46 ]
+  %.0.i20 = phi i32 [ 30, %53 ], [ %spec.select.i, %46 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ], [ 31, %43 ]
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 184
   store i32 %.0.i20, ptr %54, align 8, !tbaa !145
   br label %55
@@ -3787,7 +3787,7 @@ _time_add.exit:                                   ; preds = %_time_add.exit.back
   br label %_time_days_in_month.exit
 
 _time_days_in_month.exit:                         ; preds = %_time_add.exit, %_time_add.exit, %_time_add.exit, %_time_add.exit, %_time_add.exit, %_time_add.exit, %_time_add.exit, %60, %66
-  %.0.i = phi i32 [ 30, %66 ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ %spec.select.i, %60 ]
+  %.0.i = phi i32 [ 30, %66 ], [ %spec.select.i, %60 ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ], [ 31, %_time_add.exit ]
   %67 = icmp sgt i32 %.pr, %.0.i
   br i1 %67, label %68, label %thread-pre-split
 
@@ -3974,7 +3974,7 @@ _time_add.exit93:                                 ; preds = %125, %127
   br label %_time_days_in_month.exit99
 
 _time_days_in_month.exit99:                       ; preds = %_time_add.exit93, %_time_add.exit93, %_time_add.exit93, %_time_add.exit93, %_time_add.exit93, %_time_add.exit93, %_time_add.exit93, %128, %134
-  %.0.i94 = phi i32 [ 30, %134 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ %spec.select.i98, %128 ]
+  %.0.i94 = phi i32 [ 30, %134 ], [ %spec.select.i98, %128 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ], [ 31, %_time_add.exit93 ]
   %135 = add nsw i32 %.0.i94, %103
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %.lr.ph226, label %.thread-pre-split127.loopexit132_crit_edge
@@ -4020,7 +4020,7 @@ _time_add.exit113:                                ; preds = %_time_add.exit113.b
   br label %_time_days_in_month.exit105
 
 _time_days_in_month.exit105:                      ; preds = %_time_add.exit113, %_time_add.exit113, %_time_add.exit113, %_time_add.exit113, %_time_add.exit113, %_time_add.exit113, %_time_add.exit113, %142, %148
-  %.0.i100 = phi i32 [ 30, %148 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ %spec.select.i104, %142 ]
+  %.0.i100 = phi i32 [ 30, %148 ], [ %spec.select.i104, %142 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ], [ 31, %_time_add.exit113 ]
   %149 = icmp sgt i32 %.pr123, %.0.i100
   br i1 %149, label %150, label %thread-pre-split122
 
@@ -4207,7 +4207,7 @@ _time_add.exit115:                                ; preds = %207, %209
   br label %_time_days_in_month.exit121
 
 _time_days_in_month.exit121:                      ; preds = %_time_add.exit115, %_time_add.exit115, %_time_add.exit115, %_time_add.exit115, %_time_add.exit115, %_time_add.exit115, %_time_add.exit115, %210, %216
-  %.0.i116 = phi i32 [ 30, %216 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ %spec.select.i120, %210 ]
+  %.0.i116 = phi i32 [ 30, %216 ], [ %spec.select.i120, %210 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ], [ 31, %_time_add.exit115 ]
   %217 = add nsw i32 %.0.i116, %185
   %218 = icmp slt i32 %217, 1
   br i1 %218, label %.lr.ph182, label %.thread-pre-split127.loopexit135_crit_edge
@@ -4603,8 +4603,8 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr noundef readonly byv
   br label %_time_days_in_month.exit
 
 _time_days_in_month.exit:                         ; preds = %21, %40, %33, %32, %32, %32, %32, %32, %32, %32
-  %41 = phi i32 [ %31, %40 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ 2, %33 ], [ %31, %21 ]
-  %.0 = phi i32 [ 30, %40 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ %spec.select.i, %33 ], [ %28, %21 ]
+  %41 = phi i32 [ %31, %32 ], [ %31, %40 ], [ 2, %33 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %32 ], [ %31, %21 ]
+  %.0 = phi i32 [ 31, %32 ], [ 30, %40 ], [ %spec.select.i, %33 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ 31, %32 ], [ %28, %21 ]
   %42 = load i32, ptr %0, align 8, !tbaa !71
   %43 = srem i32 %42, 100
   %44 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.24, i32 noundef %27, i32 noundef %.0, i32 noundef %41, i32 noundef %43) #18
@@ -4753,7 +4753,7 @@ define internal fastcc void @_selection_collect(ptr noundef readonly captures(no
   br label %26
 
 26:                                               ; preds = %23, %21, %8
-  %.1 = phi i32 [ %9, %8 ], [ %9, %21 ], [ %spec.select, %23 ]
+  %.1 = phi i32 [ %9, %21 ], [ %9, %8 ], [ %spec.select, %23 ]
   call void @g_free(ptr noundef %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27

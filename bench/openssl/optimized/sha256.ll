@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
   br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader103, %.preheader101, %.preheader99, %.lr.ph, %.preheader, %83
-  %102 = phi i32 [ 0, %83 ], [ 1, %.preheader ], [ 1, %.lr.ph ], [ 1, %.preheader99 ], [ 1, %.preheader101 ], [ 1, %.preheader103 ]
+  %102 = phi i32 [ 0, %83 ], [ 1, %.preheader ], [ 1, %.preheader101 ], [ 1, %.lr.ph ], [ 1, %.preheader99 ], [ 1, %.preheader103 ]
   ret i32 %102
 }
 

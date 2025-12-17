@@ -2685,7 +2685,7 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   br label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %34, %31, %._crit_edge.loopexit.split.loop.exit186, %._crit_edge.loopexit.split.loop.exit
-  %.175.ph = phi i32 [ %40, %._crit_edge.loopexit.split.loop.exit ], [ %41, %._crit_edge.loopexit.split.loop.exit186 ], [ 33, %31 ], [ %32, %34 ]
+  %.175.ph = phi i32 [ %41, %._crit_edge.loopexit.split.loop.exit186 ], [ 33, %31 ], [ %40, %._crit_edge.loopexit.split.loop.exit ], [ %32, %34 ]
   %42 = add i32 %.175.ph, 1
   %43 = icmp slt i32 %42, 32
   br label %._crit_edge
@@ -4044,7 +4044,7 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   br label %.critedge
 
 61:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %17, %18, %19, %20, %22, %23, %24, %25, %26, %32, %33, %34, %44, %45, %46, %56
-  %.0 = phi i32 [ 7, %17 ], [ 2, %18 ], [ 3, %19 ], [ 3, %20 ], [ 3, %22 ], [ 3, %23 ], [ 2, %24 ], [ 2, %25 ], [ 2, %26 ], [ 2, %32 ], [ 2, %33 ], [ 3, %34 ], [ 2, %44 ], [ 2, %45 ], [ 2, %46 ], [ 3, %56 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+  %.0 = phi i32 [ 2, %46 ], [ 3, %56 ], [ 7, %17 ], [ 2, %18 ], [ 3, %19 ], [ 3, %20 ], [ 2, %32 ], [ 3, %22 ], [ 3, %23 ], [ 2, %45 ], [ 2, %33 ], [ 2, %24 ], [ 2, %25 ], [ 2, %26 ], [ 3, %34 ], [ 2, %44 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
   %.not182 = icmp eq i8 %62, 0
   br i1 %.not182, label %69, label %63
@@ -4067,7 +4067,7 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %.not181 = icmp eq i8 %5, 49
   br i1 %.not181, label %.critedge.thread186, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %55, %51, %53, %43, %42, %41, %35, %31, %30, %29, %28, %27, %21, %.critedge
+.critedge.thread:                                 ; preds = %55, %51, %53, %43, %42, %41, %35, %31, %30, %29, %28, %27, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %21, %.critedge
   %72 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_isup_message_type_no_optional_parameters)
   br label %.critedge.thread186
 
@@ -4393,7 +4393,7 @@ switch.lookup:                                    ; preds = %5
   br i1 %.not239, label %.critedge, label %.critedge.sink.split
 
 92:                                               ; preds = %85, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %22, %23, %24, %25, %40, %41, %42, %43, %44, %50, %51, %52, %62, %63, %64, %89, %77, %76
-  %.0233 = phi i32 [ 3, %77 ], [ 3, %89 ], [ 7, %22 ], [ 2, %23 ], [ 3, %24 ], [ 3, %25 ], [ 3, %40 ], [ 3, %41 ], [ 2, %42 ], [ 2, %43 ], [ 2, %44 ], [ 2, %50 ], [ 2, %51 ], [ 3, %52 ], [ 2, %62 ], [ 2, %63 ], [ 2, %64 ], [ 1, %76 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %85 ]
+  %.0233 = phi i32 [ 2, %23 ], [ 3, %24 ], [ 3, %25 ], [ 1, %76 ], [ 3, %40 ], [ 3, %77 ], [ 3, %41 ], [ 7, %22 ], [ 2, %50 ], [ 2, %42 ], [ 2, %43 ], [ 2, %44 ], [ 2, %51 ], [ 3, %52 ], [ 2, %62 ], [ 1, %14 ], [ 3, %89 ], [ 2, %63 ], [ 2, %64 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %85 ]
   %93 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0233)
   %.not245 = icmp eq i8 %93, 0
   br i1 %.not245, label %100, label %94
@@ -4420,7 +4420,7 @@ switch.lookup:                                    ; preds = %5
   %.not244 = icmp eq i8 %7, 49
   br i1 %.not244, label %.critedge.thread249, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %69, %71, %14, %14, %14, %14, %14, %14, %14, %14, %14, %61, %60, %59, %53, %49, %48, %47, %46, %45, %26, %85, %80, %82, %81, %.critedge
+.critedge.thread:                                 ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %61, %60, %59, %53, %49, %48, %47, %46, %45, %71, %69, %26, %85, %80, %82, %81, %.critedge
   %104 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0, ptr noundef nonnull @ei_isup_message_type_no_optional_parameters)
   br label %.critedge.thread249
 
@@ -7106,7 +7106,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph287.i, %209, %333, %327, %321, %306, %302, %290, %280, %239, %221, %196, %190, %185, %169, %.preheader.i, %150, %.thread.i
-  %.3.i = phi i32 [ %336, %333 ], [ %176, %169 ], [ %189, %185 ], [ %195, %190 ], [ %149, %.thread.i ], [ %246, %239 ], [ %281, %280 ], [ %291, %290 ], [ %305, %302 ], [ %167, %150 ], [ %311, %306 ], [ %326, %321 ], [ %332, %327 ], [ %167, %196 ], [ %.6283.i, %221 ], [ %167, %.preheader.i ], [ %219, %209 ], [ %.6.i, %.lr.ph287.i ], [ %317, %.lr.ph.i ]
+  %.3.i = phi i32 [ %336, %333 ], [ %176, %169 ], [ %189, %185 ], [ %195, %190 ], [ %149, %.thread.i ], [ %246, %239 ], [ %281, %280 ], [ %291, %290 ], [ %305, %302 ], [ %167, %150 ], [ %311, %306 ], [ %326, %321 ], [ %332, %327 ], [ %167, %196 ], [ %.6283.i, %221 ], [ %167, %.preheader.i ], [ %.6.i, %.lr.ph287.i ], [ %219, %209 ], [ %317, %.lr.ph.i ]
   %337 = call i32 @tvb_reported_length_remaining(ptr noundef %.0, i32 noundef %.3.i)
   %338 = icmp sgt i32 %337, 0
   br i1 %338, label %.lr.ph294.i, label %dissect_bat_ase_Encapsulated_Application_Information.exit, !llvm.loop !19
@@ -8340,7 +8340,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %412, %420
   br label %dissect_isup_access_transport_parameter.exit
 
 dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %530, %527, %450, %445, %334, %70, %66, %572, %571, %570, %569, %567, %565, %564, %563, %562, %560, %559, %556, %553, %552, %551, %550, %547, %543, %541, %533, %519, %513, %509, %500, %496, %487, %479, %470, %466, %462, %453, %437, %433, %425, %423, %dissect_isup_loop_prevention_indicators_parameter.exit, %406, %400, %398, %391, %384, %378, %372, %370, %369, %365, %358, %352, %345, %341, %330, %325, %321, %317, %310, %304, %294, %287, %278, %274, %266, %259, %257, %250, %238, %230, %223, %215, %211, %204, %200, %198, %193, %191, %184, %182, %177, %171, %164, %160, %156, %154, %146, %138, %124, %117, %111, %104, %97, %86, %72, %59, %49
-  %.1 = phi i16 [ %.0.ph.ph, %572 ], [ %.0.ph.ph, %571 ], [ %.0.ph.ph, %550 ], [ %.0.ph.ph, %551 ], [ %.0.ph.ph, %552 ], [ %.0.ph.ph, %553 ], [ %.0.ph.ph, %556 ], [ %.0.ph.ph, %559 ], [ %.0.ph.ph, %560 ], [ %.0.ph.ph, %562 ], [ %.0.ph.ph, %563 ], [ %.0.ph.ph, %564 ], [ %.0.ph.ph, %565 ], [ %568, %567 ], [ %.0.ph.ph, %569 ], [ %.0.ph.ph, %570 ], [ %.0.ph.ph, %49 ], [ %.0.ph.ph, %59 ], [ %.0.ph.ph, %72 ], [ %.0.ph.ph, %86 ], [ %.0.ph.ph, %97 ], [ %.0.ph.ph, %104 ], [ %.0.ph.ph, %111 ], [ %.0.ph.ph, %117 ], [ %.0.ph.ph, %124 ], [ %.0.ph.ph, %138 ], [ %.0.ph.ph, %146 ], [ %.0.ph.ph, %154 ], [ %.0.ph.ph, %156 ], [ %.0.ph.ph, %160 ], [ %.0.ph.ph, %164 ], [ %.0.ph.ph, %171 ], [ %.0.ph.ph, %177 ], [ %.0.ph.ph, %182 ], [ %.0.ph.ph, %184 ], [ %.0.ph.ph, %191 ], [ %.0.ph.ph, %193 ], [ %.0.ph.ph, %198 ], [ %.0.ph.ph, %200 ], [ %.0.ph.ph, %204 ], [ %.0.ph.ph, %211 ], [ %.0.ph.ph, %215 ], [ %.0.ph.ph, %223 ], [ %.0.ph.ph, %230 ], [ %.0.ph.ph, %238 ], [ %.0.ph.ph, %250 ], [ %.0.ph.ph, %257 ], [ %.0.ph.ph, %259 ], [ %.0.ph.ph, %266 ], [ %.0.ph.ph, %274 ], [ %.0.ph.ph, %278 ], [ %.0.ph.ph, %287 ], [ %.0.ph.ph, %294 ], [ %.0.ph.ph, %304 ], [ %.0.ph.ph, %310 ], [ %.0.ph.ph, %317 ], [ %.0.ph.ph, %321 ], [ %.0.ph.ph, %325 ], [ %.0.ph.ph, %330 ], [ %.0.ph.ph, %341 ], [ %.0.ph.ph, %345 ], [ %.0.ph.ph, %352 ], [ %.0.ph.ph, %358 ], [ %.0.ph.ph, %365 ], [ %.0.ph.ph, %369 ], [ %.0.ph.ph, %370 ], [ %.0.ph.ph, %372 ], [ %.0.ph.ph, %378 ], [ %.0.ph.ph, %384 ], [ %.0.ph.ph, %391 ], [ %.0.ph.ph, %398 ], [ %.0.ph.ph, %400 ], [ %.0.ph.ph, %406 ], [ %.0.ph.ph, %dissect_isup_loop_prevention_indicators_parameter.exit ], [ %.0.ph.ph, %423 ], [ %.0.ph.ph, %425 ], [ %.0.ph.ph, %433 ], [ %.0.ph.ph, %437 ], [ %.0.ph.ph, %453 ], [ %.0.ph.ph, %462 ], [ %.0.ph.ph, %466 ], [ %.0.ph.ph, %470 ], [ %.0.ph.ph, %479 ], [ %.0.ph.ph, %487 ], [ %.0.ph.ph, %496 ], [ %.0.ph.ph, %500 ], [ %.0.ph.ph, %509 ], [ %.0.ph.ph, %513 ], [ %.0.ph.ph, %519 ], [ %.0.ph.ph, %533 ], [ %.0.ph.ph, %541 ], [ %.0.ph.ph, %543 ], [ %.0.ph.ph, %547 ], [ %.0.ph.ph, %66 ], [ %.0.ph.ph, %70 ], [ %.0.ph.ph, %334 ], [ %.0.ph.ph, %445 ], [ %.0.ph.ph, %450 ], [ %.0.ph.ph, %527 ], [ %.0.ph.ph, %530 ], [ %.0.ph.ph, %.lr.ph.i ]
+  %.1 = phi i16 [ %.0.ph.ph, %572 ], [ %.0.ph.ph, %571 ], [ %.0.ph.ph, %550 ], [ %.0.ph.ph, %551 ], [ %.0.ph.ph, %552 ], [ %.0.ph.ph, %553 ], [ %.0.ph.ph, %556 ], [ %.0.ph.ph, %559 ], [ %.0.ph.ph, %560 ], [ %.0.ph.ph, %562 ], [ %.0.ph.ph, %563 ], [ %.0.ph.ph, %564 ], [ %.0.ph.ph, %565 ], [ %568, %567 ], [ %.0.ph.ph, %569 ], [ %.0.ph.ph, %570 ], [ %.0.ph.ph, %49 ], [ %.0.ph.ph, %59 ], [ %.0.ph.ph, %547 ], [ %.0.ph.ph, %72 ], [ %.0.ph.ph, %86 ], [ %.0.ph.ph, %97 ], [ %.0.ph.ph, %104 ], [ %.0.ph.ph, %111 ], [ %.0.ph.ph, %117 ], [ %.0.ph.ph, %124 ], [ %.0.ph.ph, %138 ], [ %.0.ph.ph, %146 ], [ %.0.ph.ph, %154 ], [ %.0.ph.ph, %156 ], [ %.0.ph.ph, %160 ], [ %.0.ph.ph, %164 ], [ %.0.ph.ph, %171 ], [ %.0.ph.ph, %177 ], [ %.0.ph.ph, %182 ], [ %.0.ph.ph, %184 ], [ %.0.ph.ph, %191 ], [ %.0.ph.ph, %193 ], [ %.0.ph.ph, %198 ], [ %.0.ph.ph, %200 ], [ %.0.ph.ph, %204 ], [ %.0.ph.ph, %211 ], [ %.0.ph.ph, %215 ], [ %.0.ph.ph, %223 ], [ %.0.ph.ph, %230 ], [ %.0.ph.ph, %238 ], [ %.0.ph.ph, %250 ], [ %.0.ph.ph, %257 ], [ %.0.ph.ph, %259 ], [ %.0.ph.ph, %266 ], [ %.0.ph.ph, %274 ], [ %.0.ph.ph, %278 ], [ %.0.ph.ph, %287 ], [ %.0.ph.ph, %294 ], [ %.0.ph.ph, %304 ], [ %.0.ph.ph, %310 ], [ %.0.ph.ph, %317 ], [ %.0.ph.ph, %321 ], [ %.0.ph.ph, %325 ], [ %.0.ph.ph, %330 ], [ %.0.ph.ph, %70 ], [ %.0.ph.ph, %341 ], [ %.0.ph.ph, %345 ], [ %.0.ph.ph, %352 ], [ %.0.ph.ph, %358 ], [ %.0.ph.ph, %365 ], [ %.0.ph.ph, %369 ], [ %.0.ph.ph, %370 ], [ %.0.ph.ph, %372 ], [ %.0.ph.ph, %378 ], [ %.0.ph.ph, %384 ], [ %.0.ph.ph, %391 ], [ %.0.ph.ph, %398 ], [ %.0.ph.ph, %400 ], [ %.0.ph.ph, %406 ], [ %.0.ph.ph, %dissect_isup_loop_prevention_indicators_parameter.exit ], [ %.0.ph.ph, %423 ], [ %.0.ph.ph, %425 ], [ %.0.ph.ph, %433 ], [ %.0.ph.ph, %437 ], [ %.0.ph.ph, %453 ], [ %.0.ph.ph, %462 ], [ %.0.ph.ph, %466 ], [ %.0.ph.ph, %470 ], [ %.0.ph.ph, %479 ], [ %.0.ph.ph, %487 ], [ %.0.ph.ph, %496 ], [ %.0.ph.ph, %500 ], [ %.0.ph.ph, %509 ], [ %.0.ph.ph, %513 ], [ %.0.ph.ph, %519 ], [ %.0.ph.ph, %450 ], [ %.0.ph.ph, %533 ], [ %.0.ph.ph, %541 ], [ %.0.ph.ph, %543 ], [ %.0.ph.ph, %66 ], [ %.0.ph.ph, %334 ], [ %.0.ph.ph, %445 ], [ %.0.ph.ph, %527 ], [ %.0.ph.ph, %530 ], [ %.0.ph.ph, %.lr.ph.i ]
   %576 = add i32 %47, %42
   br label %.outer.outer, !llvm.loop !20
 

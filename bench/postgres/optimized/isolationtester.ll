@@ -1212,7 +1212,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   br i1 %154, label %127, label %try_complete_steps.exit, !llvm.loop !32
 
 try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i, %152
-  %.125.lcssa7.i = phi i32 [ %.226.i, %._crit_edge.i ], [ %.226.i, %152 ], [ %.024.i, %127 ]
+  %.125.lcssa7.i = phi i32 [ %.226.i, %152 ], [ %.226.i, %._crit_edge.i ], [ %.024.i, %127 ]
   %155 = load ptr, ptr %99, align 8
   %.not145 = icmp eq ptr %155, null
   br i1 %.not145, label %._crit_edge34, label %156
@@ -1419,7 +1419,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   br i1 %264, label %237, label %try_complete_steps.exit162, !llvm.loop !32
 
 try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i159, %262
-  %.125.lcssa7.i151 = phi i32 [ %.226.i156, %._crit_edge.i159 ], [ %.226.i156, %262 ], [ %.024.i150, %237 ]
+  %.125.lcssa7.i151 = phi i32 [ %.226.i156, %262 ], [ %.226.i156, %._crit_edge.i159 ], [ %.024.i150, %237 ]
   br i1 %236, label %265, label %269
 
 265:                                              ; preds = %try_complete_steps.exit162
@@ -1499,7 +1499,7 @@ try_complete_steps.exit162:                       ; preds = %237, %._crit_edge.i
   br i1 %296, label %.preheader1, label %try_complete_steps.exit175, !llvm.loop !32
 
 try_complete_steps.exit175:                       ; preds = %.preheader1, %._crit_edge.i172, %294
-  %.125.lcssa7.i164 = phi i32 [ %.226.i169, %._crit_edge.i172 ], [ %.226.i169, %294 ], [ %.024.i163, %.preheader1 ]
+  %.125.lcssa7.i164 = phi i32 [ %.226.i169, %294 ], [ %.226.i169, %._crit_edge.i172 ], [ %.024.i163, %.preheader1 ]
   %.not = icmp eq i32 %.125.lcssa7.i164, 0
   br i1 %.not, label %.preheader, label %301
 
@@ -2113,7 +2113,7 @@ step_has_blocker.exit:                            ; preds = %.critedge.i, %.loop
   br label %249
 
 249:                                              ; preds = %135, %.thread5, %28, %180, %181, %._crit_edge21
-  %.4 = phi i1 [ true, %135 ], [ false, %._crit_edge21 ], [ true, %28 ], [ true, %181 ], [ true, %180 ], [ true, %.thread5 ]
+  %.4 = phi i1 [ true, %135 ], [ true, %28 ], [ false, %._crit_edge21 ], [ true, %181 ], [ true, %180 ], [ true, %.thread5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

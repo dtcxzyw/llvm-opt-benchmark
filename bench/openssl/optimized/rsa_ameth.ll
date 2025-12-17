@@ -323,7 +323,7 @@ define range(i32 -1, 2) i32 @ossl_rsa_pss_to_ctx(ptr noundef %0, ptr noundef %1,
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 158, ptr noundef null) #7
   br label %.thread
 
-.thread:                                          ; preds = %34, %26
+.thread:                                          ; preds = %26, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %50
 
@@ -353,7 +353,7 @@ define range(i32 -1, 2) i32 @ossl_rsa_pss_to_ctx(ptr noundef %0, ptr noundef %1,
   br label %50
 
 50:                                               ; preds = %.thread, %45, %40, %36, %23, %21
-  %.010 = phi i32 [ -1, %36 ], [ -1, %40 ], [ -1, %23 ], [ -1, %21 ], [ %spec.select, %45 ], [ -1, %.thread ]
+  %.010 = phi i32 [ -1, %36 ], [ -1, %40 ], [ %spec.select, %45 ], [ -1, %21 ], [ -1, %23 ], [ -1, %.thread ]
   call void @RSA_PSS_PARAMS_free(ptr noundef %15) #7
   br label %51
 
@@ -590,7 +590,7 @@ define internal range(i32 0, 2) i32 @rsa_pub_cmp(ptr noundef readonly captures(n
   br label %28
 
 28:                                               ; preds = %20, %12, %2, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %2 ], [ 0, %12 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %2 ], [ 1, %7 ], [ %spec.select, %20 ]
   ret i32 %.0
 }
 
@@ -682,7 +682,7 @@ define internal range(i32 0, 2) i32 @rsa_priv_encode(ptr noundef %0, ptr noundef
   br label %rsa_param_encode.exit
 
 rsa_param_encode.exit:                            ; preds = %11, %20, %28, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %28 ], [ 1, %20 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %18 ], [ 1, %20 ], [ 0, %28 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -748,7 +748,7 @@ define internal i32 @rsa_sig_print(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %18
 
 18:                                               ; preds = %9, %15, %12, %16
-  %.1 = phi i32 [ %17, %16 ], [ 0, %9 ], [ 0, %12 ], [ 1, %15 ]
+  %.1 = phi i32 [ %17, %16 ], [ 0, %12 ], [ 0, %9 ], [ 1, %15 ]
   ret i32 %.1
 }
 
@@ -997,13 +997,13 @@ define internal range(i32 0, 4) i32 @rsa_item_sign(ptr noundef %0, ptr readnone 
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %40, %39, %24, %36, %35, %31, %49, %52, %54
-  %.3 = phi i32 [ 3, %54 ], [ 0, %52 ], [ 0, %49 ], [ 0, %39 ], [ 0, %24 ], [ 3, %36 ], [ 0, %35 ], [ 0, %31 ], [ 0, %40 ], [ 0, %44 ]
+  %.3 = phi i32 [ 0, %49 ], [ 0, %31 ], [ 0, %40 ], [ 3, %54 ], [ 0, %52 ], [ 3, %36 ], [ 0, %24 ], [ 0, %39 ], [ 0, %35 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
 55:                                               ; preds = %18, %6, %.critedge
-  %.0 = phi i32 [ %.3, %.critedge ], [ 0, %6 ], [ 2, %18 ]
+  %.0 = phi i32 [ 2, %18 ], [ 0, %6 ], [ %.3, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1398,7 +1398,7 @@ default.unreachable105:                           ; preds = %80
   unreachable
 
 90:                                               ; preds = %87, %84, %81
-  %.175.in = phi ptr [ %72, %81 ], [ %75, %84 ], [ %74, %87 ]
+  %.175.in = phi ptr [ %75, %84 ], [ %72, %81 ], [ %74, %87 ]
   %.175 = load ptr, ptr %.175.in, align 8, !tbaa !74
   %91 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %.175, ptr noundef null, i32 noundef %2) #7
   %.not94 = icmp eq i32 %91, 0
@@ -1427,8 +1427,8 @@ default.unreachable105:                           ; preds = %80
 104:                                              ; preds = %100, %.loopexit
   br label %.thread99
 
-.thread99:                                        ; preds = %78, %81, %84, %87, %90, %64, %60, %56, %52, %48, %44, %104, %11, %16, %28, %33, %36, %39, %100
-  %.079 = phi i32 [ 0, %16 ], [ 0, %28 ], [ 1, %104 ], [ 0, %100 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %11 ], [ 0, %44 ], [ 0, %48 ], [ 0, %52 ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ]
+.thread99:                                        ; preds = %78, %81, %84, %87, %90, %44, %48, %52, %56, %60, %64, %104, %11, %16, %28, %33, %36, %39, %100
+  %.079 = phi i32 [ 0, %16 ], [ 0, %28 ], [ 1, %104 ], [ 0, %100 ], [ 0, %11 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %44 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ]
   ret i32 %.079
 }
 
@@ -1628,7 +1628,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %0, 
   br label %102
 
 102:                                              ; preds = %16, %12, %9, %101
-  %.054 = phi i32 [ %.052, %101 ], [ %., %9 ], [ 0, %12 ], [ %.71, %16 ]
+  %.054 = phi i32 [ %., %9 ], [ 0, %12 ], [ %.71, %16 ], [ %.052, %101 ]
   ret i32 %.054
 }
 
@@ -1762,7 +1762,7 @@ define internal fastcc i32 @rsa_int_export_to(ptr %.32.val, ptr noundef %0, ptr 
   %.not38 = icmp eq i32 %38, 0
   br i1 %.not38, label %.thread, label %39
 
-.thread:                                          ; preds = %22, %34, %32, %30, %24, %37
+.thread:                                          ; preds = %24, %22, %34, %32, %30, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1790,14 +1790,14 @@ define internal fastcc i32 @rsa_int_export_to(ptr %.32.val, ptr noundef %0, ptr 
   br label %46
 
 46:                                               ; preds = %.thread, %41, %16, %10, %13, %44
-  %.026 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 0, %41 ], [ %45, %44 ], [ 0, %16 ], [ 0, %.thread ]
-  %.024 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %41 ], [ %42, %44 ], [ null, %16 ], [ null, %.thread ]
+  %.026 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 0, %41 ], [ %45, %44 ], [ 0, %.thread ], [ 0, %16 ]
+  %.024 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %41 ], [ %42, %44 ], [ null, %.thread ], [ null, %16 ]
   call void @OSSL_PARAM_free(ptr noundef %.024) #7
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %8) #7
   br label %47
 
 47:                                               ; preds = %2, %46
-  %.0 = phi i32 [ %.026, %46 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.026, %46 ]
   ret i32 %.0
 }
 
@@ -1911,7 +1911,7 @@ define internal fastcc i32 @rsa_int_import_from(ptr noundef %0, ptr noundef %1, 
   br label %37
 
 37:                                               ; preds = %35, %.thread, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.thread ], [ %36, %35 ]
+  %.0 = phi i32 [ 0, %11 ], [ %36, %35 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

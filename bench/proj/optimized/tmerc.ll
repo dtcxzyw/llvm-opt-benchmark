@@ -347,7 +347,7 @@ _ZL12setup_approxP8PJconsts.exit27.thread:        ; preds = %54, %64, %_ZL12setu
   br label %73
 
 73:                                               ; preds = %7, %42, %_ZL12setup_approxP8PJconsts.exit27.thread, %41, %40, %_ZL12setup_approxP8PJconsts.exit27, %_ZL12setup_approxP8PJconsts.exit, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %_ZL12setup_approxP8PJconsts.exit ], [ null, %_ZL12setup_approxP8PJconsts.exit27 ], [ %0, %40 ], [ %0, %41 ], [ %0, %_ZL12setup_approxP8PJconsts.exit27.thread ], [ %0, %42 ], [ %0, %7 ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %_ZL12setup_approxP8PJconsts.exit27 ], [ null, %_ZL12setup_approxP8PJconsts.exit ], [ %0, %40 ], [ %0, %41 ], [ %0, %_ZL12setup_approxP8PJconsts.exit27.thread ], [ %0, %42 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -390,7 +390,7 @@ define hidden noundef ptr @pj_etmerc(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z35pj_projection_specific_setup_etmercP8PJconsts.exit
 
 _Z35pj_projection_specific_setup_etmercP8PJconsts.exit: ; preds = %8, %6, %10, %13
-  %.0 = phi ptr [ %11, %13 ], [ null, %10 ], [ %7, %6 ], [ %9, %8 ]
+  %.0 = phi ptr [ null, %10 ], [ %11, %13 ], [ %7, %6 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -522,7 +522,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_utmP8PJconsts(ptr no
   br label %46
 
 46:                                               ; preds = %27, %35, %44
-  %.036 = phi i64 [ %45, %44 ], [ 0, %35 ], [ %32, %27 ]
+  %.036 = phi i64 [ 0, %35 ], [ %45, %44 ], [ %32, %27 ]
   %47 = uitofp nneg i64 %.036 to double
   %48 = fadd double %47, 5.000000e-01
   %49 = fmul double %48, 0x400921FB54442D18

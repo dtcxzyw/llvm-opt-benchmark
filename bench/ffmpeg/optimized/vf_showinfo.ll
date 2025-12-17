@@ -751,7 +751,7 @@ av_ts_make_string.exit:                           ; preds = %127, %128
   br i1 %.not22.i, label %242, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %236
-  %237 = phi double [ 0.000000e+00, %236 ], [ %235, %.._crit_edge.i_crit_edge ]
+  %237 = phi double [ %235, %.._crit_edge.i_crit_edge ], [ 0.000000e+00, %236 ]
   %238 = sitofp i32 %229 to double
   %239 = fmul nsz double %238, 0x3EF0000000000000
   %240 = sitofp i32 %233 to double

@@ -4647,7 +4647,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %110, %_ZN17QArrayDa
   br label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit35
 
 _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit35: ; preds = %59, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i33, %61, %_ZN7QStringD2Ev.exit60
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7QStringD2Ev.exit60 ], [ %.pn17.pn, %59 ], [ %.pn17.pn, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i33 ], [ %.pn17.pn, %61 ]
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7QStringD2Ev.exit60 ], [ %.pn17.pn, %61 ], [ %.pn17.pn, %59 ], [ %.pn17.pn, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i33 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %111
@@ -6312,7 +6312,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 _ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit:  ; preds = %._crit_edge, %._crit_edge90, %.lr.ph.i, %5, %3
-  %.041 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %31, %._crit_edge90 ], [ %31, %._crit_edge ]
+  %.041 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %31, %._crit_edge90 ], [ %31, %._crit_edge ]
   ret ptr %.041
 }
 

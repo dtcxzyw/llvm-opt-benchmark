@@ -2145,8 +2145,8 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit105, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !134
 
 .loopexit105:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i
-  %20 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %17, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.noexc84 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %17, %.noexc84 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %21, align 8, !tbaa !38
   %22 = load i32, ptr %1, align 4, !tbaa !107
@@ -3544,8 +3544,8 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit105, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !178
 
 .loopexit105:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i
-  %20 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %17, %.noexc84 ], [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %20 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %14, %.noexc84 ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %17, %.noexc84 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %21, align 8, !tbaa !56
   %22 = load i32, ptr %1, align 4, !tbaa !107

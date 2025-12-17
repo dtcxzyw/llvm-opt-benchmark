@@ -209,7 +209,7 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   unreachable
 
 100:                                              ; preds = %91, %95, %.lr.ph, %87
-  %.162 = phi ptr [ %.06182, %87 ], [ %.06182, %.lr.ph ], [ %.06182, %91 ], [ %85, %95 ]
+  %.162 = phi ptr [ %.06182, %.lr.ph ], [ %.06182, %87 ], [ %.06182, %91 ], [ %85, %95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -327,7 +327,7 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br label %161
 
 161:                                              ; preds = %.sink.split, %141, %145
-  %.2 = phi i1 [ false, %145 ], [ false, %141 ], [ true, %.sink.split ]
+  %.2 = phi i1 [ false, %141 ], [ false, %145 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %162
 
@@ -447,8 +447,8 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   store i8 1, ptr %2, align 1
   br label %.thread
 
-.thread:                                          ; preds = %17, %.preheader, %13, %10, %5, %.loopexit, %.thread49, %32, %3
-  %.0 = phi ptr [ null, %3 ], [ %.13252, %32 ], [ %.13252, %.thread49 ], [ null, %.loopexit ], [ null, %5 ], [ null, %10 ], [ null, %13 ], [ null, %.preheader ], [ null, %17 ]
+.thread:                                          ; preds = %17, %.preheader, %10, %13, %5, %.loopexit, %.thread49, %32, %3
+  %.0 = phi ptr [ null, %3 ], [ %.13252, %32 ], [ %.13252, %.thread49 ], [ null, %.loopexit ], [ null, %5 ], [ null, %13 ], [ null, %10 ], [ null, %.preheader ], [ null, %17 ]
   ret ptr %.0
 }
 

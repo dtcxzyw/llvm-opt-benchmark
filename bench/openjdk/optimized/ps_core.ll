@@ -468,8 +468,8 @@ core_handle_note.exit:                            ; preds = %core_handle_prstatu
   %137 = icmp samesign ult i32 %134, %136
   br i1 %137, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
-.sink.split:                                      ; preds = %121, %132, %39, %18, %117, %.thread.i, %.preheader
-  %.020.ph = phi i32 [ 1, %.preheader ], [ 0, %.thread.i ], [ 0, %117 ], [ 0, %18 ], [ 0, %39 ], [ 1, %132 ], [ 0, %121 ]
+.sink.split:                                      ; preds = %121, %132, %39, %18, %.thread.i, %117, %.preheader
+  %.020.ph = phi i32 [ 1, %.preheader ], [ 0, %18 ], [ 0, %117 ], [ 0, %.thread.i ], [ 0, %39 ], [ 1, %132 ], [ 0, %121 ]
   tail call void @free(ptr noundef %6) #15
   br label %138
 
@@ -612,7 +612,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef nonnull %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %33, %72, %.loopexit.sink.split, %.preheader
-  %.038.ph = phi i64 [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ %.1, %72 ], [ 0, %33 ], [ 0, %23 ]
+  %.038.ph = phi i64 [ 0, %.loopexit.sink.split ], [ 0, %.preheader ], [ %.1, %72 ], [ 0, %33 ], [ 0, %23 ]
   call void @free(ptr noundef %8) #15
   br label %78
 
@@ -932,7 +932,7 @@ thread-pre-split:                                 ; preds = %.thread
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %thread-pre-split, %49, %read_interp_segments.exit.thread, %47, %101, %90, %81, %61, %55, %31, %27, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %27 ], [ 0, %31 ], [ 0, %55 ], [ 0, %61 ], [ 0, %101 ], [ 0, %81 ], [ 0, %90 ], [ 0, %47 ], [ 0, %read_interp_segments.exit.thread ], [ 1, %49 ], [ 0, %92 ], [ 1, %thread-pre-split ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %27 ], [ 0, %31 ], [ 0, %90 ], [ 0, %read_interp_segments.exit.thread ], [ 0, %55 ], [ 0, %61 ], [ 0, %101 ], [ 0, %81 ], [ 0, %47 ], [ 1, %49 ], [ 0, %92 ], [ 1, %thread-pre-split ]
   ret i32 %.0
 }
 

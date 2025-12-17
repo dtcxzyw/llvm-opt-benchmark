@@ -1291,7 +1291,7 @@ check_size_impl.exit30.thread:                    ; preds = %57, %check_size_imp
   br label %59
 
 59:                                               ; preds = %57, %43, %48, %24, %29, %check_size_impl.exit30.thread
-  %.0 = phi i32 [ 0, %check_size_impl.exit30.thread ], [ 5, %29 ], [ 5, %24 ], [ 4, %48 ], [ 4, %43 ], [ 3, %57 ]
+  %.0 = phi i32 [ 4, %43 ], [ 5, %24 ], [ 0, %check_size_impl.exit30.thread ], [ 5, %29 ], [ 4, %48 ], [ 3, %57 ]
   ret i32 %.0
 }
 
@@ -3748,7 +3748,7 @@ default.unreachable321:                           ; preds = %12
   unreachable
 
 dup_const.exit:                                   ; preds = %19, %16, %13, %12
-  %22 = phi i64 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %.tr221272390, %12 ]
+  %22 = phi i64 [ %.tr221272390, %12 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -3868,7 +3868,7 @@ check_size_impl.exit188.thread:                   ; preds = %56
   br label %65
 
 65:                                               ; preds = %62, %51
-  %.0152 = phi ptr [ %52, %51 ], [ %64, %62 ]
+  %.0152 = phi ptr [ %64, %62 ], [ %52, %51 ]
   %.not172 = icmp eq ptr %.0152, null
   br i1 %.not172, label %check_size_impl.exit.thread, label %.preheader
 
@@ -6553,7 +6553,7 @@ define dso_local void @tcg_gen_gvec_andi(i32 noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
+  %17 = phi i64 [ %3, %6 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ands)
   ret void
@@ -6623,7 +6623,7 @@ define dso_local void @tcg_gen_gvec_xori(i32 noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
+  %17 = phi i64 [ %3, %6 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_xors)
   ret void
@@ -6667,7 +6667,7 @@ define dso_local void @tcg_gen_gvec_ori(i32 noundef %0, i32 noundef %1, i32 noun
   unreachable
 
 dup_const.exit:                                   ; preds = %13, %10, %7, %6
-  %17 = phi i64 [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %3, %6 ]
+  %17 = phi i64 [ %3, %6 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ]
   %18 = tail call ptr @tcg_constant_i64(i64 noundef %17) #11
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %18, ptr noundef nonnull @gop_ors)
   ret void
@@ -7784,9 +7784,9 @@ expand_2s_i64.exit:                               ; preds = %.lr.ph.split.i185
   br label %186
 
 expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.ph.i157, %expand_2sh_vec.exit, %41, %54, %expand_2s_vec.exit170, %expand_2s_i32.exit, %expand_2s_i64.exit
-  %.2142 = phi i32 [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2s_i64.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %41 ], [ %5, %54 ], [ %.0140, %.lr.ph.i157 ], [ %5, %.lr.ph.i161 ]
-  %.2137 = phi i32 [ %.4139, %expand_2s_vec.exit170 ], [ %4, %expand_2s_i32.exit ], [ %4, %expand_2s_i64.exit ], [ %4, %expand_2sh_vec.exit ], [ 0, %41 ], [ 0, %54 ], [ %.0135, %.lr.ph.i157 ], [ %4, %.lr.ph.i161 ]
-  %.2 = phi i32 [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2s_i64.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %41 ], [ %1, %54 ], [ %.0, %.lr.ph.i157 ], [ %1, %.lr.ph.i161 ]
+  %.2142 = phi i32 [ %5, %expand_2s_i64.exit ], [ %.4144, %expand_2s_vec.exit170 ], [ %5, %expand_2s_i32.exit ], [ %5, %expand_2sh_vec.exit ], [ %.0140, %41 ], [ %5, %54 ], [ %.0140, %.lr.ph.i157 ], [ %5, %.lr.ph.i161 ]
+  %.2137 = phi i32 [ %4, %expand_2s_i64.exit ], [ %.4139, %expand_2s_vec.exit170 ], [ %4, %expand_2s_i32.exit ], [ %4, %expand_2sh_vec.exit ], [ 0, %41 ], [ 0, %54 ], [ %.0135, %.lr.ph.i157 ], [ %4, %.lr.ph.i161 ]
+  %.2 = phi i32 [ %1, %expand_2s_i64.exit ], [ %.4, %expand_2s_vec.exit170 ], [ %1, %expand_2s_i32.exit ], [ %1, %expand_2sh_vec.exit ], [ %.0, %41 ], [ %1, %54 ], [ %.0, %.lr.ph.i157 ], [ %1, %.lr.ph.i161 ]
   %182 = icmp ult i32 %.2137, %.2142
   br i1 %182, label %183, label %186
 

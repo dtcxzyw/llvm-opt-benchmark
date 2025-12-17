@@ -1395,7 +1395,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit:                   ; preds = %201, %203, %208
   br label %224
 
 212:                                              ; preds = %_ZN5zxing12ErrorHandlerD2Ev.exit91, %182
-  %.pn79 = phi { ptr, i32 } [ %.pn, %_ZN5zxing12ErrorHandlerD2Ev.exit91 ], [ %183, %182 ]
+  %.pn79 = phi { ptr, i32 } [ %183, %182 ], [ %.pn, %_ZN5zxing12ErrorHandlerD2Ev.exit91 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %6, align 8, !tbaa !43
   %213 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %214 = load ptr, ptr %213, align 8, !tbaa !62

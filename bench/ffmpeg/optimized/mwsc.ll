@@ -54,7 +54,7 @@ define internal i32 @decode_init(ptr noundef initializes((136, 140)) %0) #0 {
   br label %25
 
 25:                                               ; preds = %19, %14, %1, %22
-  %.0 = phi i32 [ %24, %22 ], [ -1094995529, %1 ], [ -12, %14 ], [ -12, %19 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ %24, %22 ], [ -12, %14 ], [ -12, %19 ]
   ret i32 %.0
 }
 
@@ -485,11 +485,11 @@ bytestream2_put_le24.exit94.i:                    ; preds = %bytestream2_seek_p.
   br i1 %exitcond141.not.i, label %.loopexit.i, label %197, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %bytestream2_put_le24.exit92.i, %bytestream2_put_le24.exit94.i, %bytestream2_put_le24.exit.i, %bytestream2_get_byte.exit.thread.i, %.preheader112.i, %.preheader.i
-  %.sroa.40.5 = phi i32 [ %.sroa.40.1, %.preheader.i ], [ %.sroa.40.1, %.preheader112.i ], [ %.sroa.40.1, %bytestream2_get_byte.exit.thread.i ], [ %.sroa.40.8, %bytestream2_put_le24.exit.i ], [ %.sroa.40.11, %bytestream2_put_le24.exit94.i ], [ %.sroa.40.4, %bytestream2_put_le24.exit92.i ]
-  %.sroa.083.0 = phi ptr [ %97, %.preheader.i ], [ %91, %.preheader112.i ], [ %34, %bytestream2_get_byte.exit.thread.i ], [ %97, %bytestream2_put_le24.exit.i ], [ %91, %bytestream2_put_le24.exit94.i ], [ %91, %bytestream2_put_le24.exit92.i ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.0, %.preheader112.i ], [ %.sroa.0.0, %bytestream2_get_byte.exit.thread.i ], [ %.sroa.0.7, %bytestream2_put_le24.exit.i ], [ %.sroa.0.10, %bytestream2_put_le24.exit94.i ], [ %.sroa.0.3, %bytestream2_put_le24.exit92.i ]
-  %.174.i = phi i32 [ %.073124.i, %.preheader.i ], [ %.073124.i, %.preheader112.i ], [ %.073124.i, %bytestream2_get_byte.exit.thread.i ], [ %.376.i109, %bytestream2_put_le24.exit.i ], [ %.9.i112, %bytestream2_put_le24.exit94.i ], [ %.7.i, %bytestream2_put_le24.exit92.i ]
-  %.170.i = phi i32 [ %.069125.i, %.preheader.i ], [ 0, %.preheader112.i ], [ %.069125.i, %bytestream2_get_byte.exit.thread.i ], [ %.069125.i, %bytestream2_put_le24.exit.i ], [ %.069125.i, %bytestream2_put_le24.exit94.i ], [ 0, %bytestream2_put_le24.exit92.i ]
+  %.sroa.40.5 = phi i32 [ %.sroa.40.1, %.preheader.i ], [ %.sroa.40.1, %.preheader112.i ], [ %.sroa.40.1, %bytestream2_get_byte.exit.thread.i ], [ %.sroa.40.11, %bytestream2_put_le24.exit94.i ], [ %.sroa.40.8, %bytestream2_put_le24.exit.i ], [ %.sroa.40.4, %bytestream2_put_le24.exit92.i ]
+  %.sroa.083.0 = phi ptr [ %97, %.preheader.i ], [ %91, %.preheader112.i ], [ %34, %bytestream2_get_byte.exit.thread.i ], [ %91, %bytestream2_put_le24.exit94.i ], [ %97, %bytestream2_put_le24.exit.i ], [ %91, %bytestream2_put_le24.exit92.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.0, %.preheader112.i ], [ %.sroa.0.0, %bytestream2_get_byte.exit.thread.i ], [ %.sroa.0.10, %bytestream2_put_le24.exit94.i ], [ %.sroa.0.7, %bytestream2_put_le24.exit.i ], [ %.sroa.0.3, %bytestream2_put_le24.exit92.i ]
+  %.174.i = phi i32 [ %.073124.i, %.preheader.i ], [ %.073124.i, %.preheader112.i ], [ %.073124.i, %bytestream2_get_byte.exit.thread.i ], [ %.9.i112, %bytestream2_put_le24.exit94.i ], [ %.376.i109, %bytestream2_put_le24.exit.i ], [ %.7.i, %bytestream2_put_le24.exit92.i ]
+  %.170.i = phi i32 [ %.069125.i, %.preheader.i ], [ 0, %.preheader112.i ], [ %.069125.i, %bytestream2_get_byte.exit.thread.i ], [ %.069125.i, %bytestream2_put_le24.exit94.i ], [ %.069125.i, %bytestream2_put_le24.exit.i ], [ 0, %bytestream2_put_le24.exit92.i ]
   %.073.neg.i = sub nsw i32 0, %.174.i
   %222 = ptrtoint ptr %.sroa.083.0 to i64
   %223 = sub i64 %59, %222
@@ -501,7 +501,7 @@ rle_uncompress.exit:                              ; preds = %.loopexit.i
   %.not50 = icmp eq i32 %.170.i, 0
   br i1 %.not50, label %229, label %rle_uncompress.exit.thread
 
-rle_uncompress.exit.thread:                       ; preds = %187, %bytestream2_get_le32.exit.i, %133, %bytestream2_init_writer.exit, %rle_uncompress.exit
+rle_uncompress.exit.thread:                       ; preds = %133, %bytestream2_get_le32.exit.i, %187, %bytestream2_init_writer.exit, %rle_uncompress.exit
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %227 = load i32, ptr %226, align 4, !tbaa !54
   %228 = or i32 %227, 2

@@ -83,7 +83,7 @@ _ZL14mod_ster_setupP8PJconsts.exit.i:             ; preds = %2
   br label %_Z35pj_projection_specific_setup_mil_osP8PJconsts.exit
 
 _Z35pj_projection_specific_setup_mil_osP8PJconsts.exit: ; preds = %_ZL14mod_ster_setupP8PJconsts.exit.i, %5, %16, %19
-  %.0 = phi ptr [ %17, %19 ], [ null, %16 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
+  %.0 = phi ptr [ null, %16 ], [ %17, %19 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
   ret ptr %.0
 }
 
@@ -186,7 +186,7 @@ _ZL14mod_ster_setupP8PJconsts.exit.i:             ; preds = %2
   br label %_Z35pj_projection_specific_setup_lee_osP8PJconsts.exit
 
 _Z35pj_projection_specific_setup_lee_osP8PJconsts.exit: ; preds = %_ZL14mod_ster_setupP8PJconsts.exit.i, %5, %16, %19
-  %.0 = phi ptr [ %17, %19 ], [ null, %16 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
+  %.0 = phi ptr [ null, %16 ], [ %17, %19 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
   ret ptr %.0
 }
 
@@ -284,7 +284,7 @@ _ZL14mod_ster_setupP8PJconsts.exit.i:             ; preds = %2
   br label %_Z33pj_projection_specific_setup_gs48P8PJconsts.exit
 
 _Z33pj_projection_specific_setup_gs48P8PJconsts.exit: ; preds = %_ZL14mod_ster_setupP8PJconsts.exit.i, %5, %17, %20
-  %.0 = phi ptr [ %18, %20 ], [ null, %17 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
+  %.0 = phi ptr [ null, %17 ], [ %18, %20 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
   ret ptr %.0
 }
 
@@ -399,7 +399,7 @@ _ZL14mod_ster_setupP8PJconsts.exit.i:             ; preds = %7, %16
   br label %_Z33pj_projection_specific_setup_alskP8PJconsts.exit
 
 _Z33pj_projection_specific_setup_alskP8PJconsts.exit: ; preds = %_ZL14mod_ster_setupP8PJconsts.exit.i, %5, %24, %27
-  %.0 = phi ptr [ %25, %27 ], [ null, %24 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
+  %.0 = phi ptr [ null, %24 ], [ %25, %27 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
   ret ptr %.0
 }
 
@@ -532,7 +532,7 @@ _ZL14mod_ster_setupP8PJconsts.exit.i:             ; preds = %7, %16
   br label %_Z33pj_projection_specific_setup_gs50P8PJconsts.exit
 
 _Z33pj_projection_specific_setup_gs50P8PJconsts.exit: ; preds = %_ZL14mod_ster_setupP8PJconsts.exit.i, %5, %24, %27
-  %.0 = phi ptr [ %25, %27 ], [ null, %24 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
+  %.0 = phi ptr [ null, %24 ], [ %25, %27 ], [ %6, %5 ], [ %0, %_ZL14mod_ster_setupP8PJconsts.exit.i ]
   ret ptr %.0
 }
 

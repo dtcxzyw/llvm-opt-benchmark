@@ -472,7 +472,7 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
   br label %.thread
 
 .thread:                                          ; preds = %14, %16, %._crit_edge75, %138, %135
-  %.3 = phi i32 [ 1, %135 ], [ 1, %138 ], [ 1, %._crit_edge75 ], [ 0, %16 ], [ 0, %14 ]
+  %.3 = phi i32 [ 1, %._crit_edge75 ], [ 1, %135 ], [ 1, %138 ], [ 0, %16 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3
 }

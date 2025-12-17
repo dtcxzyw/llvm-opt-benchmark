@@ -772,7 +772,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.exit: ; preds = %.lr.ph.i.i.i, %12, %14
-  %17 = phi ptr [ %.pre6, %14 ], [ %.pre6, %12 ], [ %13, %.lr.ph.i.i.i ]
+  %17 = phi ptr [ %.pre6, %12 ], [ %.pre6, %14 ], [ %13, %.lr.ph.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i16, ptr %17, i64 %1
@@ -1749,7 +1749,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %14, %12
-  %17 = phi ptr [ %.pre6.i, %14 ], [ %.pre6.i, %12 ], [ %13, %.lr.ph.i.i.i.i ]
+  %17 = phi ptr [ %.pre6.i, %12 ], [ %.pre6.i, %14 ], [ %13, %.lr.ph.i.i.i.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i16, ptr %17, i64 %1

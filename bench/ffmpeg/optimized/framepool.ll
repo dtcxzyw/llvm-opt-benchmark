@@ -247,7 +247,7 @@ define ptr @ff_frame_pool_audio_init(ptr noundef readnone captures(none) %0, i32
   br label %ff_frame_pool_uninit.exit
 
 ff_frame_pool_uninit.exit:                        ; preds = %30, %23, %5
-  %.0 = phi ptr [ null, %5 ], [ %7, %23 ], [ null, %30 ]
+  %.0 = phi ptr [ %7, %23 ], [ null, %5 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

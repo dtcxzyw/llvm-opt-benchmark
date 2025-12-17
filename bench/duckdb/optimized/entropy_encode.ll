@@ -662,9 +662,9 @@ define void @_ZN13duckdb_brotli33BrotliOptimizeHuffmanCountsForRleEmPjPh(i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %136, %.thread176, %131, %127
-  %143 = phi i64 [ 1, %127 ], [ 1, %.thread176 ], [ %132, %131 ], [ %132, %136 ]
-  %.3147 = phi i64 [ %.1145, %127 ], [ %.1145, %.thread176 ], [ %.0144205, %131 ], [ %spec.select236, %136 ]
-  %.2143 = phi i64 [ 0, %127 ], [ %130, %.thread176 ], [ %134, %131 ], [ %134, %136 ]
+  %143 = phi i64 [ 1, %127 ], [ %132, %131 ], [ %132, %136 ], [ 1, %.thread176 ]
+  %.3147 = phi i64 [ %.1145, %127 ], [ %.0144205, %131 ], [ %spec.select236, %136 ], [ %.1145, %.thread176 ]
+  %.2143 = phi i64 [ 0, %127 ], [ %134, %131 ], [ %134, %136 ], [ %130, %.thread176 ]
   %144 = add nuw i64 %.4207, 1
   %.not156.not = icmp ult i64 %.4207, %.0131187
   br i1 %.not156.not, label %73, label %.critedge167, !llvm.loop !32
@@ -812,7 +812,7 @@ _ZL16DecideOverRleUsePKhmPiS1_.exit:              ; preds = %._crit_edge
   br i1 %exitcond114.not, label %.critedge, label %.lr.ph100, !llvm.loop !36
 
 .critedge:                                        ; preds = %47, %.lr.ph100
-  %.1.lcssa = phi i64 [ %43, %47 ], [ %.198, %.lr.ph100 ]
+  %.1.lcssa = phi i64 [ %.198, %.lr.ph100 ], [ %43, %47 ]
   br i1 %41, label %49, label %97
 
 .critedge.thread138:                              ; preds = %.preheader
@@ -1069,8 +1069,8 @@ _ZL7ReversePhmm.exit.i57:                         ; preds = %_ZL7ReversePhmm.exi
   br i1 %153, label %.lr.ph.i45.i, label %_ZL38BrotliWriteHuffmanTreeRepetitionsZerosmPmPhS0_.exit, !llvm.loop !39
 
 _ZL38BrotliWriteHuffmanTreeRepetitionsZerosmPmPhS0_.exit: ; preds = %.lr.ph.i67, %.lr.ph.i45.i, %.lr.ph.i52, %.lr.ph.i36.i, %_ZL7ReversePhmm.exit.i57, %.preheader.i64, %_ZL7ReversePhmm.exit.i, %.preheader.i
-  %.04174 = phi i64 [ 0, %.preheader.i ], [ %.0417679, %_ZL7ReversePhmm.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %_ZL7ReversePhmm.exit.i57 ], [ %.0417679, %.lr.ph.i36.i ], [ %.04176808386, %.lr.ph.i52 ], [ %.04175, %.lr.ph.i45.i ], [ %.04175, %.lr.ph.i67 ]
-  %.143 = phi i8 [ %.042106, %.preheader.i ], [ %.042106, %_ZL7ReversePhmm.exit.i ], [ %39, %.preheader.i64 ], [ %39, %_ZL7ReversePhmm.exit.i57 ], [ %.042106, %.lr.ph.i36.i ], [ %.042106, %.lr.ph.i52 ], [ %39, %.lr.ph.i45.i ], [ %39, %.lr.ph.i67 ]
+  %.04174 = phi i64 [ 0, %.preheader.i ], [ %.0417679, %_ZL7ReversePhmm.exit.i ], [ %.04175, %.preheader.i64 ], [ %.04175, %_ZL7ReversePhmm.exit.i57 ], [ %.04175, %.lr.ph.i45.i ], [ %.0417679, %.lr.ph.i36.i ], [ %.04176808386, %.lr.ph.i52 ], [ %.04175, %.lr.ph.i67 ]
+  %.143 = phi i8 [ %.042106, %.preheader.i ], [ %.042106, %_ZL7ReversePhmm.exit.i ], [ %39, %.preheader.i64 ], [ %39, %_ZL7ReversePhmm.exit.i57 ], [ %39, %.lr.ph.i45.i ], [ %.042106, %.lr.ph.i36.i ], [ %.042106, %.lr.ph.i52 ], [ %39, %.lr.ph.i67 ]
   %154 = add i64 %.04174, %.146104
   %155 = icmp ult i64 %154, %.04494
   br i1 %155, label %.lr.ph107, label %._crit_edge108, !llvm.loop !42

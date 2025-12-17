@@ -260,7 +260,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %88
 
 88:                                               ; preds = %78, %84, %39, %45, %25, %31, %86
-  %.pn27.pn = phi { ptr, i32 } [ %87, %86 ], [ %32, %31 ], [ %26, %25 ], [ %46, %45 ], [ %40, %39 ], [ %85, %84 ], [ %79, %78 ]
+  %.pn27.pn = phi { ptr, i32 } [ %87, %86 ], [ %26, %25 ], [ %40, %39 ], [ %32, %31 ], [ %46, %45 ], [ %85, %84 ], [ %79, %78 ]
   %89 = load ptr, ptr %8, align 8, !tbaa !10
   call void @free(ptr noundef %89) #28
   %90 = load ptr, ptr %7, align 8, !tbaa !36
@@ -928,8 +928,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %4
   unreachable
 
 25:                                               ; preds = %17, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit, %20
-  %26 = phi ptr [ %19, %17 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %21, %20 ]
-  %27 = phi ptr [ %19, %17 ], [ %13, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %21, %20 ]
+  %26 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %19, %17 ], [ %21, %20 ]
+  %27 = phi ptr [ %13, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %19, %17 ], [ %21, %20 ]
   %28 = icmp samesign ugt i64 %9, 16384
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !16

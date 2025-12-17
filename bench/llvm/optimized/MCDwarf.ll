@@ -3015,7 +3015,7 @@ _ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit: ; preds = %_ZN4llvm15Small
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %_ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
-  %66 = phi i64 [ %65, %_ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit ], [ %31, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %.pre, %32 ]
+  %66 = phi i64 [ %31, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %65, %_ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit ], [ %.pre, %32 ]
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %68 = add i64 %66, 1
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3502,7 +3502,7 @@ define dso_local void @_ZN4llvm14MCGenDwarfInfo4EmitEPNS_10MCStreamerE(ptr nound
   br label %35
 
 35:                                               ; preds = %26, %31
-  %36 = phi i1 [ %34, %31 ], [ false, %26 ]
+  %36 = phi i1 [ false, %26 ], [ %34, %31 ]
   %37 = or i1 %36, %20
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %39 = load ptr, ptr %38, align 8, !tbaa !238
@@ -4740,7 +4740,7 @@ define dso_local void @_ZN4llvm19MCDwarfFrameEmitter4EmitERNS_16MCObjectStreamer
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i: ; preds = %77, %76, %71, %58, %58
-  %.0.i.i = phi i32 [ %75, %71 ], [ 4, %76 ], [ 8, %77 ], [ 2, %58 ], [ 2, %58 ]
+  %.0.i.i = phi i32 [ %75, %71 ], [ 8, %77 ], [ 4, %76 ], [ 2, %58 ], [ 2, %58 ]
   %78 = load ptr, ptr %.057129, align 8, !tbaa !436
   tail call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %78, i32 noundef %.0.i.i, i1 noundef zeroext false) #20
   %79 = load ptr, ptr %.057129, align 8, !tbaa !436
@@ -4833,7 +4833,7 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit.i: ; preds = %93, %_ZL1
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i: ; preds = %126, %125, %120, %115, %115
-  %.0.i41.i = phi i32 [ %124, %120 ], [ 4, %125 ], [ 8, %126 ], [ 2, %115 ], [ 2, %115 ]
+  %.0.i41.i = phi i32 [ %124, %120 ], [ 8, %126 ], [ 4, %125 ], [ 2, %115 ], [ 2, %115 ]
   br i1 %63, label %130, label %127
 
 127:                                              ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit42.i
@@ -4868,7 +4868,7 @@ _ZN12_GLOBAL__N_116FrameEmitterImpl17EmitCompactUnwindERKN4llvm16MCDwarfFrameInf
   br i1 %22, label %647, label %.thread99
 
 .thread99:                                        ; preds = %3, %.thread96, %._crit_edge
-  %.sink = phi i64 [ 464, %._crit_edge ], [ 464, %.thread96 ], [ 112, %3 ]
+  %.sink = phi i64 [ 464, %.thread96 ], [ 464, %._crit_edge ], [ 112, %3 ]
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink
   %137 = load ptr, ptr %136, align 8, !tbaa !268
   %138 = load ptr, ptr %0, align 8, !tbaa !204
@@ -5247,9 +5247,9 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i99.i: ; preds = %304, %300
   br label %.sink.split
 
 317:                                              ; preds = %260, %259, %256
-  %.ph = phi i1 [ false, %256 ], [ true, %260 ], [ false, %259 ]
-  %.ph100 = phi i1 [ true, %256 ], [ false, %260 ], [ false, %259 ]
-  %.0.i.i63.ph = phi i64 [ 1, %256 ], [ 4, %260 ], [ 3, %259 ]
+  %.ph = phi i1 [ false, %256 ], [ false, %259 ], [ true, %260 ]
+  %.ph100 = phi i1 [ true, %256 ], [ false, %259 ], [ false, %260 ]
+  %.0.i.i63.ph = phi i64 [ 1, %256 ], [ 3, %259 ], [ 4, %260 ]
   %318 = load ptr, ptr %175, align 8, !tbaa !204
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 544
   %320 = load ptr, ptr %319, align 8
@@ -5371,7 +5371,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i99.i: ; preds = %304, %300
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65: ; preds = %382, %381, %375, %371, %371, %369
-  %.059.i = phi i32 [ 1, %369 ], [ %380, %375 ], [ 6, %381 ], [ 10, %382 ], [ 4, %371 ], [ 4, %371 ]
+  %.059.i = phi i32 [ 1, %369 ], [ %380, %375 ], [ 10, %382 ], [ 6, %381 ], [ 4, %371 ], [ 4, %371 ]
   %383 = getelementptr inbounds nuw i8, ptr %.sroa.076.0133, i64 24
   %384 = load ptr, ptr %383, align 8, !tbaa !440
   %.not63.i = icmp ne ptr %384, null
@@ -5429,7 +5429,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i65: ; preds = %382, %381, %37
   br label %_ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i
 
 _ZL15EmitPersonalityRN4llvm10MCStreamerERKNS_8MCSymbolEj.exit.i: ; preds = %413, %412, %407, %390, %390
-  %.0.i.i107.i = phi i32 [ %411, %407 ], [ 4, %412 ], [ 8, %413 ], [ 2, %390 ], [ 2, %390 ]
+  %.0.i.i107.i = phi i32 [ %411, %407 ], [ 8, %413 ], [ 4, %412 ], [ 2, %390 ], [ 2, %390 ]
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(296) %175, ptr noundef %404, i32 noundef %.0.i.i107.i, ptr null) #20
   br label %414
 
@@ -5505,16 +5505,16 @@ _ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit: ; 
   br label %461
 
 461:                                              ; preds = %201, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit, %200
-  %462 = phi ptr [ %444, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %175, %200 ], [ %175, %201 ]
-  %.sroa.080.2 = phi ptr [ %185, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.080.0134, %200 ], [ %.sroa.080.0134, %201 ]
-  %.sroa.581.2 = phi i32 [ %187, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.581.0135, %200 ], [ %.sroa.581.0135, %201 ]
-  %.sroa.8.2 = phi i32 [ %189, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.8.0136, %200 ], [ %.sroa.8.0136, %201 ]
-  %.sroa.1182.2 = phi i8 [ %191, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.1182.0137, %200 ], [ %.sroa.1182.0137, %201 ]
-  %.sroa.14.2 = phi i8 [ %193, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.14.0138, %200 ], [ %.sroa.14.0138, %201 ]
-  %.sroa.18.2 = phi i32 [ %195, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.18.0139, %200 ], [ %.sroa.18.0139, %201 ]
-  %.sroa.21.2 = phi i8 [ %197, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.21.0140, %200 ], [ %.sroa.21.0140, %201 ]
-  %.sroa.24.2 = phi i8 [ %199, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.24.0141, %200 ], [ %.sroa.24.0141, %201 ]
-  %.253 = phi ptr [ %216, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.051142, %200 ], [ %.051142, %201 ]
+  %462 = phi ptr [ %444, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %175, %201 ], [ %175, %200 ]
+  %.sroa.080.2 = phi ptr [ %185, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.080.0134, %201 ], [ %.sroa.080.0134, %200 ]
+  %.sroa.581.2 = phi i32 [ %187, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.581.0135, %201 ], [ %.sroa.581.0135, %200 ]
+  %.sroa.8.2 = phi i32 [ %189, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.8.0136, %201 ], [ %.sroa.8.0136, %200 ]
+  %.sroa.1182.2 = phi i8 [ %191, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.1182.0137, %201 ], [ %.sroa.1182.0137, %200 ]
+  %.sroa.14.2 = phi i8 [ %193, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.14.0138, %201 ], [ %.sroa.14.0138, %200 ]
+  %.sroa.18.2 = phi i32 [ %195, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.18.0139, %201 ], [ %.sroa.18.0139, %200 ]
+  %.sroa.21.2 = phi i8 [ %197, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.21.0140, %201 ], [ %.sroa.21.0140, %200 ]
+  %.sroa.24.2 = phi i8 [ %199, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.sroa.24.0141, %201 ], [ %.sroa.24.0141, %200 ]
+  %.253 = phi ptr [ %216, %_ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit ], [ %.051142, %201 ], [ %.051142, %200 ]
   %463 = icmp eq ptr %176, %.pre148
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %465 = load ptr, ptr %464, align 8, !tbaa !3
@@ -5545,7 +5545,7 @@ _ZN12_GLOBAL__N_116FrameEmitterImpl7EmitCIEERKN4llvm16MCDwarfFrameInfoE.exit: ; 
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %478, %473, %461
-  %482 = phi i32 [ %spec.select.i, %478 ], [ %spec.select.i, %473 ], [ 4, %461 ]
+  %482 = phi i32 [ %spec.select.i, %473 ], [ %spec.select.i, %478 ], [ 4, %461 ]
   %483 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(32) %467, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %465, ptr null) #20
   %484 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(32) %466, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %465, ptr null) #20
   %485 = call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %483, ptr noundef %484, ptr noundef nonnull align 8 dereferenceable(2432) %465, ptr null) #20
@@ -5700,9 +5700,9 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit56.i: ; preds = %543, %5
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i69
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit.i69: ; preds = %573, %572, %565, %558, %558
-  %574 = phi ptr [ %566, %565 ], [ %561, %572 ], [ %561, %573 ], [ %561, %558 ], [ %561, %558 ]
-  %575 = phi i32 [ %567, %565 ], [ %560, %572 ], [ %560, %573 ], [ %560, %558 ], [ %560, %558 ]
-  %.0.i.i70 = phi i32 [ %571, %565 ], [ 4, %572 ], [ 8, %573 ], [ 2, %558 ], [ 2, %558 ]
+  %574 = phi ptr [ %566, %565 ], [ %561, %573 ], [ %561, %572 ], [ %561, %558 ], [ %561, %558 ]
+  %575 = phi i32 [ %567, %565 ], [ %560, %573 ], [ %560, %572 ], [ %560, %558 ], [ %560, %558 ]
+  %.0.i.i70 = phi i32 [ %571, %565 ], [ 8, %573 ], [ 4, %572 ], [ 2, %558 ], [ 2, %558 ]
   %576 = load ptr, ptr %.sroa.076.0133, align 8, !tbaa !436
   call fastcc void @_ZL13emitFDESymbolRN4llvm16MCObjectStreamerERKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(432) %574, ptr noundef nonnull align 8 dereferenceable(32) %576, i32 noundef %575, i1 noundef zeroext %555)
   %577 = load ptr, ptr %.sroa.076.0133, align 8, !tbaa !436
@@ -5778,7 +5778,7 @@ _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit58.i: ; preds = %593, %_
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit60.i: ; preds = %615, %614, %608, %604, %604, %601
-  %.0.i72 = phi i64 [ 0, %601 ], [ %613, %608 ], [ 4, %614 ], [ 8, %615 ], [ 2, %604 ], [ 2, %604 ]
+  %.0.i72 = phi i64 [ 0, %601 ], [ %613, %608 ], [ 8, %615 ], [ 4, %614 ], [ 2, %604 ], [ 2, %604 ]
   %616 = call noundef i32 @_ZN4llvm10MCStreamer19emitULEB128IntValueEmj(ptr noundef nonnull align 8 dereferenceable(296) %585, i64 noundef %.0.i72, i32 noundef 0) #20
   %617 = load ptr, ptr %602, align 8, !tbaa !440
   %.not51.i = icmp eq ptr %617, null
@@ -6211,7 +6211,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt1
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_Auto_node9_M_insertES0_IPSt18_Rb_tree_node_baseSD_E.exit: ; preds = %35, %38
-  %43 = phi i1 [ true, %35 ], [ %42, %38 ]
+  %43 = phi i1 [ %42, %38 ], [ true, %35 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %8, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %36) #20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !305
@@ -6432,8 +6432,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineT
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -7495,7 +7495,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread: ; preds = %18, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit137, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit139, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit141, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit143, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit145, %62, %54, %46, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71.thread97
-  %.028 = phi ptr [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71.thread97 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57 ], [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64 ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71 ], [ %.029.lcssa, %46 ], [ %.1, %54 ], [ %.2, %62 ], [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit137 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit139 ], [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit141 ], [ %69, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit143 ], [ %70, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit145 ], [ %.029120, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit ], [ %.029120, %18 ]
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit64 ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71 ], [ %.1, %54 ], [ %.029.lcssa, %46 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit71.thread97 ], [ %.2, %62 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit57 ], [ %70, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit145 ], [ %68, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit141 ], [ %69, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit143 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit139 ], [ %65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit.thread.loopexit.split.loop.exit137 ], [ %.029120, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbT_.exit ], [ %.029120, %18 ]
   ret ptr %.028
 }
 
@@ -8007,7 +8007,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %10, %_ZNK4llvm8MCSy
   unreachable
 
 _ZN12_GLOBAL__N_116FrameEmitterImpl18emitCFIInstructionERKN4llvm16MCCFIInstructionE.exit: ; preds = %12, %267, %261, %238, %227, %221, %214, %208, %191, %187, %183, %174, %166, %153, %124, %109, %92, %76, %69, %65, %61, %57, %46, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
-  %.1 = phi ptr [ %.040, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %.2, %46 ], [ %.2, %57 ], [ %.2, %61 ], [ %.2, %65 ], [ %.2, %69 ], [ %.2, %76 ], [ %.2, %92 ], [ %.2, %109 ], [ %.2, %124 ], [ %.2, %153 ], [ %.2, %166 ], [ %.2, %174 ], [ %.2, %183 ], [ %.2, %187 ], [ %.2, %191 ], [ %.2, %208 ], [ %.2, %214 ], [ %.2, %221 ], [ %.2, %227 ], [ %.2, %238 ], [ %.2, %261 ], [ %.2, %267 ], [ %.040, %12 ]
+  %.1 = phi ptr [ %.2, %267 ], [ %.040, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %.2, %46 ], [ %.2, %57 ], [ %.2, %61 ], [ %.2, %65 ], [ %.2, %69 ], [ %.2, %76 ], [ %.2, %92 ], [ %.2, %109 ], [ %.2, %124 ], [ %.2, %153 ], [ %.2, %166 ], [ %.2, %174 ], [ %.2, %183 ], [ %.2, %187 ], [ %.2, %191 ], [ %.2, %208 ], [ %.2, %214 ], [ %.2, %221 ], [ %.2, %227 ], [ %.2, %238 ], [ %.2, %261 ], [ %.040, %12 ]
   %274 = getelementptr inbounds nuw i8, ptr %.02139, i64 104
   %.not = icmp eq ptr %274, %5
   br i1 %.not, label %._crit_edge, label %8
@@ -8059,7 +8059,7 @@ define internal fastcc void @_ZL13emitFDESymbolRN4llvm16MCObjectStreamerERKNS_8M
   br label %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit
 
 _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit: ; preds = %4, %4, %15, %20, %21
-  %.0.i = phi i32 [ %19, %15 ], [ 4, %20 ], [ 8, %21 ], [ 2, %4 ], [ 2, %4 ]
+  %.0.i = phi i32 [ %19, %15 ], [ 8, %21 ], [ 4, %20 ], [ 2, %4 ], [ 2, %4 ]
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 401
   %23 = load i8, ptr %22, align 1, !tbaa !521, !range !235, !noundef !236
   %24 = trunc nuw i8 %23 to i1
@@ -8084,7 +8084,7 @@ _ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit: ; preds = %4, %4, %15, %20, %
   br label %_ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit
 
 _ZL12emitAbsValueRN4llvm10MCStreamerEPKNS_6MCExprEj.exit: ; preds = %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit, %31, %25
-  %.sink = phi ptr [ %36, %31 ], [ %12, %25 ], [ %12, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit ]
+  %.sink = phi ptr [ %12, %25 ], [ %36, %31 ], [ %12, %_ZL18getSizeForEncodingRN4llvm10MCStreamerEj.exit ]
   tail call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %.sink, i32 noundef %.0.i, ptr null) #20
   ret void
 }
@@ -9168,7 +9168,7 @@ _ZN4llvmltENS_9StringRefES0_.exit20.thread.i:     ; preds = %_ZN4llvmltENS_9Stri
   %or.cond = select i1 %115, i1 %116, i1 false
   br i1 %or.cond, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm0ELm8EE6__lessERKS3_S6_.exit.thread, label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm0ELm8EE6__lessERKS3_S6_.exit.thread42
 
-_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm0ELm8EE6__lessERKS3_S6_.exit.thread: ; preds = %114, %.thread.i.i.thread.i, %.thread.i.i.i, %112, %108, %104, %100, %96, %_ZN4llvmltENS_9StringRefES0_.exit20.thread.i, %_ZN4llvmltENS_9StringRefES0_.exit.i
+_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm0ELm8EE6__lessERKS3_S6_.exit.thread: ; preds = %114, %.thread.i.i.thread.i, %112, %108, %104, %100, %96, %_ZN4llvmltENS_9StringRefES0_.exit20.thread.i, %.thread.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %.sroa.046.0.i, ptr noundef nonnull align 8 dereferenceable(90) %.sroa.0.0.i, i64 32, i1 false)
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i, i64 32
   %118 = getelementptr inbounds i8, ptr %.sroa.046.0.i, i64 -64
@@ -9731,7 +9731,7 @@ _ZN4llvmltENS_9StringRefES0_.exit20.thread:       ; preds = %.thread.i.i19, %_ZN
   br label %_ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJN4llvm9StringRefEjjbbjbbEES3_Lm1ELm8EE6__lessERKS3_S6_.exit: ; preds = %.thread.i.i.thread, %.thread.i.i19, %.thread.i.i, %60, %58, %52, %50, %44, %42, %36, %34, %28, %26, %20, %18, %_ZN4llvmltENS_9StringRefES0_.exit20.thread, %_ZN4llvmltENS_9StringRefES0_.exit20, %_ZN4llvmltENS_9StringRefES0_.exit
-  %64 = phi i1 [ true, %_ZN4llvmltENS_9StringRefES0_.exit ], [ false, %_ZN4llvmltENS_9StringRefES0_.exit20 ], [ true, %_ZN4llvmltENS_9StringRefES0_.exit20.thread ], [ false, %18 ], [ true, %20 ], [ false, %26 ], [ true, %28 ], [ false, %34 ], [ true, %36 ], [ false, %42 ], [ true, %44 ], [ false, %50 ], [ true, %52 ], [ false, %58 ], [ %63, %60 ], [ true, %.thread.i.i ], [ false, %.thread.i.i19 ], [ true, %.thread.i.i.thread ]
+  %64 = phi i1 [ true, %_ZN4llvmltENS_9StringRefES0_.exit ], [ false, %_ZN4llvmltENS_9StringRefES0_.exit20 ], [ true, %.thread.i.i ], [ %63, %60 ], [ true, %_ZN4llvmltENS_9StringRefES0_.exit20.thread ], [ false, %18 ], [ true, %20 ], [ false, %26 ], [ true, %28 ], [ false, %34 ], [ true, %36 ], [ false, %42 ], [ true, %44 ], [ false, %50 ], [ true, %52 ], [ false, %58 ], [ false, %.thread.i.i19 ], [ true, %.thread.i.i.thread ]
   ret i1 %64
 }
 
@@ -10385,7 +10385,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN4llvm16MCDwarfFrameInfoESt6vecto
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !572
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge80, %17, %5, %3
-  %.sroa.015.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %17 ], [ %21, %._crit_edge80 ], [ %21, %._crit_edge ]
+  %.sroa.015.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %17 ], [ %21, %._crit_edge80 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.015.0
 }
 
@@ -11832,7 +11832,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   br label %30
 
 30:                                               ; preds = %19, %9, %28, %20, %10
-  %.sroa.032.0 = phi ptr [ %17, %10 ], [ %27, %20 ], [ %29, %28 ], [ %0, %9 ], [ %2, %19 ]
+  %.sroa.032.0 = phi ptr [ %17, %10 ], [ %29, %28 ], [ %27, %20 ], [ %0, %9 ], [ %2, %19 ]
   ret ptr %.sroa.032.0
 }
 

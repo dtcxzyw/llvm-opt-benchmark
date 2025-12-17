@@ -325,7 +325,7 @@ define internal noundef i32 @do_lumakey_slice8(ptr noundef readonly captures(non
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %57, %51
-  %.sink = phi i8 [ %56, %51 ], [ %61, %57 ], [ 0, %.lr.ph ]
+  %.sink = phi i8 [ %61, %57 ], [ %56, %51 ], [ 0, %.lr.ph ]
   %62 = getelementptr inbounds nuw i8, ptr %.06070, i64 %indvars.iv
   store i8 %.sink, ptr %62, align 1, !tbaa !55
   br label %63

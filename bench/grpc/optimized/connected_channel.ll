@@ -230,7 +230,7 @@ define internal void @_ZL49connected_channel_start_transport_stream_op_batchP17g
   unreachable
 
 _ZL19get_state_for_batchP27connected_channel_call_dataP30grpc_transport_stream_op_batch.exit: ; preds = %60, %62, %64, %66, %68, %70
-  %.sink.i = phi i64 [ 8, %60 ], [ 64, %62 ], [ 120, %64 ], [ 176, %66 ], [ 232, %68 ], [ 288, %70 ]
+  %.sink.i = phi i64 [ 232, %68 ], [ 176, %66 ], [ 120, %64 ], [ 64, %62 ], [ 8, %60 ], [ 288, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink.i
   br label %.sink.split
 

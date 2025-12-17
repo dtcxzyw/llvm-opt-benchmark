@@ -404,7 +404,7 @@ parse_tristate.exit:                              ; preds = %71, %73
   br label %parse_funcname.exit
 
 parse_funcname.exit:                              ; preds = %64, %58, %53, %47, %112, %2, %114, %106, %101, %93, %83, %77, %parse_tristate.exit
-  %.0 = phi i32 [ %117, %114 ], [ %109, %106 ], [ 0, %101 ], [ %96, %93 ], [ 0, %83 ], [ %80, %77 ], [ 0, %parse_tristate.exit ], [ 0, %2 ], [ 0, %112 ], [ 0, %53 ], [ -1, %47 ], [ 0, %64 ], [ -1, %58 ]
+  %.0 = phi i32 [ 0, %2 ], [ %117, %114 ], [ %109, %106 ], [ 0, %101 ], [ %96, %93 ], [ 0, %83 ], [ %80, %77 ], [ 0, %parse_tristate.exit ], [ -1, %47 ], [ 0, %112 ], [ 0, %53 ], [ 0, %64 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -578,7 +578,7 @@ define dso_local noundef ptr @userdiff_find_by_path(ptr noundef %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %17, %15, %8, %6, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %6 ], [ @driver_true, %8 ], [ @driver_false, %15 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %6 ], [ @driver_true, %8 ], [ @driver_false, %15 ], [ %20, %19 ], [ null, %17 ]
   ret ptr %.0
 }
 

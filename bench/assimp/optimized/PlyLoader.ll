@@ -1103,7 +1103,7 @@ _ZN6Assimp14IOStreamBufferIcE5closeEv.exit97:     ; preds = %182, %184
           to label %.invoke unwind label %192
 
 .invoke:                                          ; preds = %189, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit96, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit95, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit93
-  %191 = phi ptr [ %136, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit93 ], [ %168, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit95 ], [ %179, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit96 ], [ %190, %189 ]
+  %191 = phi ptr [ %179, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit96 ], [ %168, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit95 ], [ %136, %_ZN6Assimp14IOStreamBufferIcE5closeEv.exit93 ], [ %190, %189 ]
   invoke void @__cxa_throw(ptr nonnull %191, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #23
           to label %.cont unwind label %130
 
@@ -1429,7 +1429,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit115:                 ; preds = %312, %314
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i120
 
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i120: ; preds = %328, %40, %38, %.thread152
-  %.pn74.pn150 = phi { ptr, i32 } [ %.pn70.pn, %328 ], [ %327, %.thread152 ], [ %41, %40 ], [ %39, %38 ]
+  %.pn74.pn150 = phi { ptr, i32 } [ %327, %.thread152 ], [ %.pn70.pn, %328 ], [ %39, %38 ], [ %41, %40 ]
   %329 = load ptr, ptr %18, align 8
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8
@@ -1804,7 +1804,7 @@ _ZN6Assimp14IOStreamBufferIcE13readNextBlockEv.exit21.thread: ; preds = %119, %1
   br i1 %exitcond.not, label %.critedge, label %134, !llvm.loop !15
 
 .critedge:                                        ; preds = %51, %105, %.critedge2, %134, %130, %11
-  %.013 = phi i1 [ false, %11 ], [ true, %130 ], [ true, %134 ], [ true, %.critedge2 ], [ false, %105 ], [ false, %51 ]
+  %.013 = phi i1 [ false, %11 ], [ true, %130 ], [ false, %105 ], [ true, %.critedge2 ], [ true, %134 ], [ false, %51 ]
   ret i1 %.013
 }
 
@@ -2054,34 +2054,34 @@ define hidden void @_ZN6Assimp11PLYImporter12LoadMaterialEPSt6vectorIP10aiMateri
   br label %.thread270
 
 .thread270:                                       ; preds = %77, %.thread, %81, %83, %87, %91, %95, %99, %103, %105, %101, %97, %93, %89, %85, %61
-  %107 = phi i32 [ %62, %61 ], [ %62, %83 ], [ %86, %85 ], [ %62, %87 ], [ %62, %89 ], [ %62, %91 ], [ %62, %93 ], [ %62, %95 ], [ %62, %97 ], [ %62, %99 ], [ %62, %101 ], [ %62, %103 ], [ %62, %105 ], [ %62, %.thread ], [ %62, %81 ], [ %62, %77 ]
-  %.047309369 = phi i32 [ %.047309368, %61 ], [ %.047309368, %83 ], [ %.047309, %85 ], [ %.047309368, %87 ], [ %.047309368, %89 ], [ %.047309368, %91 ], [ %.047309368, %93 ], [ %.047309368, %95 ], [ %.047309368, %97 ], [ %.047309368, %99 ], [ %.047309368, %101 ], [ %.047309368, %103 ], [ %.047309368, %105 ], [ %.047309368, %.thread ], [ %.047309368, %81 ], [ %.047309368, %77 ]
-  %108 = phi i32 [ %63, %61 ], [ %63, %83 ], [ %63, %85 ], [ %88, %87 ], [ %63, %89 ], [ %63, %91 ], [ %63, %93 ], [ %63, %95 ], [ %63, %97 ], [ %63, %99 ], [ %63, %101 ], [ %63, %103 ], [ %63, %105 ], [ %63, %.thread ], [ %63, %81 ], [ %63, %77 ]
-  %.047309364 = phi i32 [ %.047309363, %61 ], [ %.047309363, %83 ], [ %.047309363, %85 ], [ %.047309, %87 ], [ %.047309363, %89 ], [ %.047309363, %91 ], [ %.047309363, %93 ], [ %.047309363, %95 ], [ %.047309363, %97 ], [ %.047309363, %99 ], [ %.047309363, %101 ], [ %.047309363, %103 ], [ %.047309363, %105 ], [ %.047309363, %.thread ], [ %.047309363, %81 ], [ %.047309363, %77 ]
-  %109 = phi i32 [ %64, %61 ], [ %64, %83 ], [ %64, %85 ], [ %64, %87 ], [ %90, %89 ], [ %64, %91 ], [ %64, %93 ], [ %64, %95 ], [ %64, %97 ], [ %64, %99 ], [ %64, %101 ], [ %64, %103 ], [ %64, %105 ], [ %64, %.thread ], [ %64, %81 ], [ %64, %77 ]
-  %.047309359 = phi i32 [ %.047309358, %61 ], [ %.047309358, %83 ], [ %.047309358, %85 ], [ %.047309358, %87 ], [ %.047309, %89 ], [ %.047309358, %91 ], [ %.047309358, %93 ], [ %.047309358, %95 ], [ %.047309358, %97 ], [ %.047309358, %99 ], [ %.047309358, %101 ], [ %.047309358, %103 ], [ %.047309358, %105 ], [ %.047309358, %.thread ], [ %.047309358, %81 ], [ %.047309358, %77 ]
-  %110 = phi i32 [ %65, %61 ], [ %65, %83 ], [ %65, %85 ], [ %65, %87 ], [ %65, %89 ], [ %92, %91 ], [ %65, %93 ], [ %65, %95 ], [ %65, %97 ], [ %65, %99 ], [ %65, %101 ], [ %65, %103 ], [ %65, %105 ], [ %65, %.thread ], [ %65, %81 ], [ %65, %77 ]
-  %.047309354 = phi i32 [ %.047309353, %61 ], [ %.047309353, %83 ], [ %.047309353, %85 ], [ %.047309353, %87 ], [ %.047309353, %89 ], [ %.047309, %91 ], [ %.047309353, %93 ], [ %.047309353, %95 ], [ %.047309353, %97 ], [ %.047309353, %99 ], [ %.047309353, %101 ], [ %.047309353, %103 ], [ %.047309353, %105 ], [ %.047309353, %.thread ], [ %.047309353, %81 ], [ %.047309353, %77 ]
-  %111 = phi i32 [ %66, %61 ], [ %66, %83 ], [ %66, %85 ], [ %66, %87 ], [ %66, %89 ], [ %66, %91 ], [ %94, %93 ], [ %66, %95 ], [ %66, %97 ], [ %66, %99 ], [ %66, %101 ], [ %66, %103 ], [ %66, %105 ], [ %66, %.thread ], [ %66, %81 ], [ %66, %77 ]
-  %.047309349 = phi i32 [ %.047309348, %61 ], [ %.047309348, %83 ], [ %.047309348, %85 ], [ %.047309348, %87 ], [ %.047309348, %89 ], [ %.047309348, %91 ], [ %.047309, %93 ], [ %.047309348, %95 ], [ %.047309348, %97 ], [ %.047309348, %99 ], [ %.047309348, %101 ], [ %.047309348, %103 ], [ %.047309348, %105 ], [ %.047309348, %.thread ], [ %.047309348, %81 ], [ %.047309348, %77 ]
-  %112 = phi i32 [ %67, %61 ], [ %67, %83 ], [ %67, %85 ], [ %67, %87 ], [ %67, %89 ], [ %67, %91 ], [ %67, %93 ], [ %96, %95 ], [ %67, %97 ], [ %67, %99 ], [ %67, %101 ], [ %67, %103 ], [ %67, %105 ], [ %67, %.thread ], [ %67, %81 ], [ %67, %77 ]
-  %.047309344 = phi i32 [ %.047309343, %61 ], [ %.047309343, %83 ], [ %.047309343, %85 ], [ %.047309343, %87 ], [ %.047309343, %89 ], [ %.047309343, %91 ], [ %.047309343, %93 ], [ %.047309, %95 ], [ %.047309343, %97 ], [ %.047309343, %99 ], [ %.047309343, %101 ], [ %.047309343, %103 ], [ %.047309343, %105 ], [ %.047309343, %.thread ], [ %.047309343, %81 ], [ %.047309343, %77 ]
-  %113 = phi i32 [ %68, %61 ], [ %68, %83 ], [ %68, %85 ], [ %68, %87 ], [ %68, %89 ], [ %68, %91 ], [ %68, %93 ], [ %68, %95 ], [ %98, %97 ], [ %68, %99 ], [ %68, %101 ], [ %68, %103 ], [ %68, %105 ], [ %68, %.thread ], [ %68, %81 ], [ %68, %77 ]
-  %.047309339 = phi i32 [ %.047309338, %61 ], [ %.047309338, %83 ], [ %.047309338, %85 ], [ %.047309338, %87 ], [ %.047309338, %89 ], [ %.047309338, %91 ], [ %.047309338, %93 ], [ %.047309338, %95 ], [ %.047309, %97 ], [ %.047309338, %99 ], [ %.047309338, %101 ], [ %.047309338, %103 ], [ %.047309338, %105 ], [ %.047309338, %.thread ], [ %.047309338, %81 ], [ %.047309338, %77 ]
-  %114 = phi i32 [ %69, %61 ], [ %69, %83 ], [ %69, %85 ], [ %69, %87 ], [ %69, %89 ], [ %69, %91 ], [ %69, %93 ], [ %69, %95 ], [ %69, %97 ], [ %100, %99 ], [ %69, %101 ], [ %69, %103 ], [ %69, %105 ], [ %69, %.thread ], [ %69, %81 ], [ %69, %77 ]
-  %.047309334 = phi i32 [ %.047309333, %61 ], [ %.047309333, %83 ], [ %.047309333, %85 ], [ %.047309333, %87 ], [ %.047309333, %89 ], [ %.047309333, %91 ], [ %.047309333, %93 ], [ %.047309333, %95 ], [ %.047309333, %97 ], [ %.047309, %99 ], [ %.047309333, %101 ], [ %.047309333, %103 ], [ %.047309333, %105 ], [ %.047309333, %.thread ], [ %.047309333, %81 ], [ %.047309333, %77 ]
-  %115 = phi i32 [ %70, %61 ], [ %70, %83 ], [ %70, %85 ], [ %70, %87 ], [ %70, %89 ], [ %70, %91 ], [ %70, %93 ], [ %70, %95 ], [ %70, %97 ], [ %70, %99 ], [ %102, %101 ], [ %70, %103 ], [ %70, %105 ], [ %70, %.thread ], [ %70, %81 ], [ %70, %77 ]
-  %.047309329 = phi i32 [ %.047309328, %61 ], [ %.047309328, %83 ], [ %.047309328, %85 ], [ %.047309328, %87 ], [ %.047309328, %89 ], [ %.047309328, %91 ], [ %.047309328, %93 ], [ %.047309328, %95 ], [ %.047309328, %97 ], [ %.047309328, %99 ], [ %.047309, %101 ], [ %.047309328, %103 ], [ %.047309328, %105 ], [ %.047309328, %.thread ], [ %.047309328, %81 ], [ %.047309328, %77 ]
-  %116 = phi i32 [ %71, %61 ], [ %71, %83 ], [ %71, %85 ], [ %71, %87 ], [ %71, %89 ], [ %71, %91 ], [ %71, %93 ], [ %71, %95 ], [ %71, %97 ], [ %71, %99 ], [ %71, %101 ], [ %104, %103 ], [ %71, %105 ], [ %71, %.thread ], [ %71, %81 ], [ %71, %77 ]
-  %.047309324 = phi i32 [ %.047309323, %61 ], [ %.047309323, %83 ], [ %.047309323, %85 ], [ %.047309323, %87 ], [ %.047309323, %89 ], [ %.047309323, %91 ], [ %.047309323, %93 ], [ %.047309323, %95 ], [ %.047309323, %97 ], [ %.047309323, %99 ], [ %.047309323, %101 ], [ %.047309, %103 ], [ %.047309323, %105 ], [ %.047309323, %.thread ], [ %.047309323, %81 ], [ %.047309323, %77 ]
-  %117 = phi i32 [ %72, %61 ], [ %72, %83 ], [ %72, %85 ], [ %72, %87 ], [ %72, %89 ], [ %72, %91 ], [ %72, %93 ], [ %72, %95 ], [ %72, %97 ], [ %72, %99 ], [ %72, %101 ], [ %72, %103 ], [ %106, %105 ], [ %72, %.thread ], [ %72, %81 ], [ %72, %77 ]
-  %.047309319 = phi i32 [ %.047309318, %61 ], [ %.047309318, %83 ], [ %.047309318, %85 ], [ %.047309318, %87 ], [ %.047309318, %89 ], [ %.047309318, %91 ], [ %.047309318, %93 ], [ %.047309318, %95 ], [ %.047309318, %97 ], [ %.047309318, %99 ], [ %.047309318, %101 ], [ %.047309318, %103 ], [ %.047309, %105 ], [ %.047309318, %.thread ], [ %.047309318, %81 ], [ %.047309318, %77 ]
-  %118 = phi i32 [ %73, %61 ], [ %84, %83 ], [ %73, %85 ], [ %73, %87 ], [ %73, %89 ], [ %73, %91 ], [ %73, %93 ], [ %73, %95 ], [ %73, %97 ], [ %73, %99 ], [ %73, %101 ], [ %73, %103 ], [ %73, %105 ], [ %73, %.thread ], [ %73, %81 ], [ %73, %77 ]
-  %.047299 = phi i32 [ %.047300304, %61 ], [ %.047309, %83 ], [ %.047300304, %85 ], [ %.047300304, %87 ], [ %.047300304, %89 ], [ %.047300304, %91 ], [ %.047300304, %93 ], [ %.047300304, %95 ], [ %.047300304, %97 ], [ %.047300304, %99 ], [ %.047300304, %101 ], [ %.047300304, %103 ], [ %.047300304, %105 ], [ %.047300304, %.thread ], [ %.047300304, %81 ], [ %.047300304, %77 ]
-  %.259 = phi i32 [ %.158306, %61 ], [ %.158306, %83 ], [ %.158306, %85 ], [ %.158306, %87 ], [ %.158306, %89 ], [ %.158306, %91 ], [ %.158306, %93 ], [ %.158306, %95 ], [ %.158306, %97 ], [ %.158306, %99 ], [ %.158306, %101 ], [ %.158306, %103 ], [ %.158306, %105 ], [ %80, %.thread ], [ %.158306, %81 ], [ %.158306, %77 ]
-  %.255 = phi i32 [ %.154307, %61 ], [ %.154307, %83 ], [ %.154307, %85 ], [ %.154307, %87 ], [ %.154307, %89 ], [ %.154307, %91 ], [ %.154307, %93 ], [ %.154307, %95 ], [ %.154307, %97 ], [ %.154307, %99 ], [ %.154307, %101 ], [ %.154307, %103 ], [ %.154307, %105 ], [ %.154307, %.thread ], [ %.047309, %81 ], [ %.154307, %77 ]
-  %.251 = phi i32 [ %.150308, %61 ], [ %.150308, %83 ], [ %.150308, %85 ], [ %.150308, %87 ], [ %.150308, %89 ], [ %.150308, %91 ], [ %.150308, %93 ], [ %.150308, %95 ], [ %.150308, %97 ], [ %.150308, %99 ], [ %.150308, %101 ], [ %.150308, %103 ], [ %.150308, %105 ], [ %.150308, %.thread ], [ %82, %81 ], [ %.150308, %77 ]
-  %.2 = phi i32 [ %.1310, %61 ], [ %.1310, %83 ], [ %.1310, %85 ], [ %.1310, %87 ], [ %.1310, %89 ], [ %.1310, %91 ], [ %.1310, %93 ], [ %.1310, %95 ], [ %.1310, %97 ], [ %.1310, %99 ], [ %.1310, %101 ], [ %.1310, %103 ], [ %.1310, %105 ], [ %.047309, %.thread ], [ %.1310, %81 ], [ %.1310, %77 ]
+  %107 = phi i32 [ %62, %61 ], [ %62, %83 ], [ %86, %85 ], [ %62, %87 ], [ %62, %89 ], [ %62, %91 ], [ %62, %93 ], [ %62, %95 ], [ %62, %97 ], [ %62, %99 ], [ %62, %101 ], [ %62, %103 ], [ %62, %105 ], [ %62, %77 ], [ %62, %.thread ], [ %62, %81 ]
+  %.047309369 = phi i32 [ %.047309368, %61 ], [ %.047309368, %83 ], [ %.047309, %85 ], [ %.047309368, %87 ], [ %.047309368, %89 ], [ %.047309368, %91 ], [ %.047309368, %93 ], [ %.047309368, %95 ], [ %.047309368, %97 ], [ %.047309368, %99 ], [ %.047309368, %101 ], [ %.047309368, %103 ], [ %.047309368, %105 ], [ %.047309368, %77 ], [ %.047309368, %.thread ], [ %.047309368, %81 ]
+  %108 = phi i32 [ %63, %61 ], [ %63, %83 ], [ %63, %85 ], [ %88, %87 ], [ %63, %89 ], [ %63, %91 ], [ %63, %93 ], [ %63, %95 ], [ %63, %97 ], [ %63, %99 ], [ %63, %101 ], [ %63, %103 ], [ %63, %105 ], [ %63, %77 ], [ %63, %.thread ], [ %63, %81 ]
+  %.047309364 = phi i32 [ %.047309363, %61 ], [ %.047309363, %83 ], [ %.047309363, %85 ], [ %.047309, %87 ], [ %.047309363, %89 ], [ %.047309363, %91 ], [ %.047309363, %93 ], [ %.047309363, %95 ], [ %.047309363, %97 ], [ %.047309363, %99 ], [ %.047309363, %101 ], [ %.047309363, %103 ], [ %.047309363, %105 ], [ %.047309363, %77 ], [ %.047309363, %.thread ], [ %.047309363, %81 ]
+  %109 = phi i32 [ %64, %61 ], [ %64, %83 ], [ %64, %85 ], [ %64, %87 ], [ %90, %89 ], [ %64, %91 ], [ %64, %93 ], [ %64, %95 ], [ %64, %97 ], [ %64, %99 ], [ %64, %101 ], [ %64, %103 ], [ %64, %105 ], [ %64, %77 ], [ %64, %.thread ], [ %64, %81 ]
+  %.047309359 = phi i32 [ %.047309358, %61 ], [ %.047309358, %83 ], [ %.047309358, %85 ], [ %.047309358, %87 ], [ %.047309, %89 ], [ %.047309358, %91 ], [ %.047309358, %93 ], [ %.047309358, %95 ], [ %.047309358, %97 ], [ %.047309358, %99 ], [ %.047309358, %101 ], [ %.047309358, %103 ], [ %.047309358, %105 ], [ %.047309358, %77 ], [ %.047309358, %.thread ], [ %.047309358, %81 ]
+  %110 = phi i32 [ %65, %61 ], [ %65, %83 ], [ %65, %85 ], [ %65, %87 ], [ %65, %89 ], [ %92, %91 ], [ %65, %93 ], [ %65, %95 ], [ %65, %97 ], [ %65, %99 ], [ %65, %101 ], [ %65, %103 ], [ %65, %105 ], [ %65, %77 ], [ %65, %.thread ], [ %65, %81 ]
+  %.047309354 = phi i32 [ %.047309353, %61 ], [ %.047309353, %83 ], [ %.047309353, %85 ], [ %.047309353, %87 ], [ %.047309353, %89 ], [ %.047309, %91 ], [ %.047309353, %93 ], [ %.047309353, %95 ], [ %.047309353, %97 ], [ %.047309353, %99 ], [ %.047309353, %101 ], [ %.047309353, %103 ], [ %.047309353, %105 ], [ %.047309353, %77 ], [ %.047309353, %.thread ], [ %.047309353, %81 ]
+  %111 = phi i32 [ %66, %61 ], [ %66, %83 ], [ %66, %85 ], [ %66, %87 ], [ %66, %89 ], [ %66, %91 ], [ %94, %93 ], [ %66, %95 ], [ %66, %97 ], [ %66, %99 ], [ %66, %101 ], [ %66, %103 ], [ %66, %105 ], [ %66, %77 ], [ %66, %.thread ], [ %66, %81 ]
+  %.047309349 = phi i32 [ %.047309348, %61 ], [ %.047309348, %83 ], [ %.047309348, %85 ], [ %.047309348, %87 ], [ %.047309348, %89 ], [ %.047309348, %91 ], [ %.047309, %93 ], [ %.047309348, %95 ], [ %.047309348, %97 ], [ %.047309348, %99 ], [ %.047309348, %101 ], [ %.047309348, %103 ], [ %.047309348, %105 ], [ %.047309348, %77 ], [ %.047309348, %.thread ], [ %.047309348, %81 ]
+  %112 = phi i32 [ %67, %61 ], [ %67, %83 ], [ %67, %85 ], [ %67, %87 ], [ %67, %89 ], [ %67, %91 ], [ %67, %93 ], [ %96, %95 ], [ %67, %97 ], [ %67, %99 ], [ %67, %101 ], [ %67, %103 ], [ %67, %105 ], [ %67, %77 ], [ %67, %.thread ], [ %67, %81 ]
+  %.047309344 = phi i32 [ %.047309343, %61 ], [ %.047309343, %83 ], [ %.047309343, %85 ], [ %.047309343, %87 ], [ %.047309343, %89 ], [ %.047309343, %91 ], [ %.047309343, %93 ], [ %.047309, %95 ], [ %.047309343, %97 ], [ %.047309343, %99 ], [ %.047309343, %101 ], [ %.047309343, %103 ], [ %.047309343, %105 ], [ %.047309343, %77 ], [ %.047309343, %.thread ], [ %.047309343, %81 ]
+  %113 = phi i32 [ %68, %61 ], [ %68, %83 ], [ %68, %85 ], [ %68, %87 ], [ %68, %89 ], [ %68, %91 ], [ %68, %93 ], [ %68, %95 ], [ %98, %97 ], [ %68, %99 ], [ %68, %101 ], [ %68, %103 ], [ %68, %105 ], [ %68, %77 ], [ %68, %.thread ], [ %68, %81 ]
+  %.047309339 = phi i32 [ %.047309338, %61 ], [ %.047309338, %83 ], [ %.047309338, %85 ], [ %.047309338, %87 ], [ %.047309338, %89 ], [ %.047309338, %91 ], [ %.047309338, %93 ], [ %.047309338, %95 ], [ %.047309, %97 ], [ %.047309338, %99 ], [ %.047309338, %101 ], [ %.047309338, %103 ], [ %.047309338, %105 ], [ %.047309338, %77 ], [ %.047309338, %.thread ], [ %.047309338, %81 ]
+  %114 = phi i32 [ %69, %61 ], [ %69, %83 ], [ %69, %85 ], [ %69, %87 ], [ %69, %89 ], [ %69, %91 ], [ %69, %93 ], [ %69, %95 ], [ %69, %97 ], [ %100, %99 ], [ %69, %101 ], [ %69, %103 ], [ %69, %105 ], [ %69, %77 ], [ %69, %.thread ], [ %69, %81 ]
+  %.047309334 = phi i32 [ %.047309333, %61 ], [ %.047309333, %83 ], [ %.047309333, %85 ], [ %.047309333, %87 ], [ %.047309333, %89 ], [ %.047309333, %91 ], [ %.047309333, %93 ], [ %.047309333, %95 ], [ %.047309333, %97 ], [ %.047309, %99 ], [ %.047309333, %101 ], [ %.047309333, %103 ], [ %.047309333, %105 ], [ %.047309333, %77 ], [ %.047309333, %.thread ], [ %.047309333, %81 ]
+  %115 = phi i32 [ %70, %61 ], [ %70, %83 ], [ %70, %85 ], [ %70, %87 ], [ %70, %89 ], [ %70, %91 ], [ %70, %93 ], [ %70, %95 ], [ %70, %97 ], [ %70, %99 ], [ %102, %101 ], [ %70, %103 ], [ %70, %105 ], [ %70, %77 ], [ %70, %.thread ], [ %70, %81 ]
+  %.047309329 = phi i32 [ %.047309328, %61 ], [ %.047309328, %83 ], [ %.047309328, %85 ], [ %.047309328, %87 ], [ %.047309328, %89 ], [ %.047309328, %91 ], [ %.047309328, %93 ], [ %.047309328, %95 ], [ %.047309328, %97 ], [ %.047309328, %99 ], [ %.047309, %101 ], [ %.047309328, %103 ], [ %.047309328, %105 ], [ %.047309328, %77 ], [ %.047309328, %.thread ], [ %.047309328, %81 ]
+  %116 = phi i32 [ %71, %61 ], [ %71, %83 ], [ %71, %85 ], [ %71, %87 ], [ %71, %89 ], [ %71, %91 ], [ %71, %93 ], [ %71, %95 ], [ %71, %97 ], [ %71, %99 ], [ %71, %101 ], [ %104, %103 ], [ %71, %105 ], [ %71, %77 ], [ %71, %.thread ], [ %71, %81 ]
+  %.047309324 = phi i32 [ %.047309323, %61 ], [ %.047309323, %83 ], [ %.047309323, %85 ], [ %.047309323, %87 ], [ %.047309323, %89 ], [ %.047309323, %91 ], [ %.047309323, %93 ], [ %.047309323, %95 ], [ %.047309323, %97 ], [ %.047309323, %99 ], [ %.047309323, %101 ], [ %.047309, %103 ], [ %.047309323, %105 ], [ %.047309323, %77 ], [ %.047309323, %.thread ], [ %.047309323, %81 ]
+  %117 = phi i32 [ %72, %61 ], [ %72, %83 ], [ %72, %85 ], [ %72, %87 ], [ %72, %89 ], [ %72, %91 ], [ %72, %93 ], [ %72, %95 ], [ %72, %97 ], [ %72, %99 ], [ %72, %101 ], [ %72, %103 ], [ %106, %105 ], [ %72, %77 ], [ %72, %.thread ], [ %72, %81 ]
+  %.047309319 = phi i32 [ %.047309318, %61 ], [ %.047309318, %83 ], [ %.047309318, %85 ], [ %.047309318, %87 ], [ %.047309318, %89 ], [ %.047309318, %91 ], [ %.047309318, %93 ], [ %.047309318, %95 ], [ %.047309318, %97 ], [ %.047309318, %99 ], [ %.047309318, %101 ], [ %.047309318, %103 ], [ %.047309, %105 ], [ %.047309318, %77 ], [ %.047309318, %.thread ], [ %.047309318, %81 ]
+  %118 = phi i32 [ %73, %61 ], [ %84, %83 ], [ %73, %85 ], [ %73, %87 ], [ %73, %89 ], [ %73, %91 ], [ %73, %93 ], [ %73, %95 ], [ %73, %97 ], [ %73, %99 ], [ %73, %101 ], [ %73, %103 ], [ %73, %105 ], [ %73, %77 ], [ %73, %.thread ], [ %73, %81 ]
+  %.047299 = phi i32 [ %.047300304, %61 ], [ %.047309, %83 ], [ %.047300304, %85 ], [ %.047300304, %87 ], [ %.047300304, %89 ], [ %.047300304, %91 ], [ %.047300304, %93 ], [ %.047300304, %95 ], [ %.047300304, %97 ], [ %.047300304, %99 ], [ %.047300304, %101 ], [ %.047300304, %103 ], [ %.047300304, %105 ], [ %.047300304, %77 ], [ %.047300304, %.thread ], [ %.047300304, %81 ]
+  %.259 = phi i32 [ %.158306, %61 ], [ %.158306, %83 ], [ %.158306, %85 ], [ %.158306, %87 ], [ %.158306, %89 ], [ %.158306, %91 ], [ %.158306, %93 ], [ %.158306, %95 ], [ %.158306, %97 ], [ %.158306, %99 ], [ %.158306, %101 ], [ %.158306, %103 ], [ %.158306, %105 ], [ %.158306, %77 ], [ %80, %.thread ], [ %.158306, %81 ]
+  %.255 = phi i32 [ %.154307, %61 ], [ %.154307, %83 ], [ %.154307, %85 ], [ %.154307, %87 ], [ %.154307, %89 ], [ %.154307, %91 ], [ %.154307, %93 ], [ %.154307, %95 ], [ %.154307, %97 ], [ %.154307, %99 ], [ %.154307, %101 ], [ %.154307, %103 ], [ %.154307, %105 ], [ %.154307, %77 ], [ %.154307, %.thread ], [ %.047309, %81 ]
+  %.251 = phi i32 [ %.150308, %61 ], [ %.150308, %83 ], [ %.150308, %85 ], [ %.150308, %87 ], [ %.150308, %89 ], [ %.150308, %91 ], [ %.150308, %93 ], [ %.150308, %95 ], [ %.150308, %97 ], [ %.150308, %99 ], [ %.150308, %101 ], [ %.150308, %103 ], [ %.150308, %105 ], [ %.150308, %77 ], [ %.150308, %.thread ], [ %82, %81 ]
+  %.2 = phi i32 [ %.1310, %61 ], [ %.1310, %83 ], [ %.1310, %85 ], [ %.1310, %87 ], [ %.1310, %89 ], [ %.1310, %91 ], [ %.1310, %93 ], [ %.1310, %95 ], [ %.1310, %97 ], [ %.1310, %99 ], [ %.1310, %101 ], [ %.1310, %103 ], [ %.1310, %105 ], [ %.1310, %77 ], [ %.047309, %.thread ], [ %.1310, %81 ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0305, i64 48
   %120 = add i32 %.047309, 1
   %.not284 = icmp eq ptr %119, %38
@@ -2246,7 +2246,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %165, %167, %170, %172
-  %.0.i = phi float [ %166, %165 ], [ %169, %167 ], [ %171, %170 ], [ %173, %172 ]
+  %.0.i = phi float [ %173, %172 ], [ %166, %165 ], [ %169, %167 ], [ %171, %170 ]
   %174 = fcmp une float %.0.i, 0.000000e+00
   br i1 %174, label %175, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread
 
@@ -2332,7 +2332,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit75
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit75: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit72, %195, %197, %200, %202
-  %.0.i74 = phi float [ %196, %195 ], [ %199, %197 ], [ %201, %200 ], [ %203, %202 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit72 ]
+  %.0.i74 = phi float [ %203, %202 ], [ %196, %195 ], [ %199, %197 ], [ %201, %200 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit72 ]
   store float %.0.i74, ptr %12, align 4
   %204 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull %12, i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3003,7 +3003,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %76, %74, %71, %69, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %54
-  %.sroa.0202.0 = phi float [ 0.000000e+00, %54 ], [ %70, %69 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
+  %.sroa.0202.0 = phi float [ 0.000000e+00, %54 ], [ %77, %76 ], [ %70, %69 ], [ %73, %71 ], [ %75, %74 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
   %.not107 = icmp eq i32 %.sroa.768.1, -1
   br i1 %.not107, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145, label %78
 
@@ -3067,7 +3067,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145: ; preds = %99, %97, %94, %92, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit142, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-  %.sroa.6203.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %93, %92 ], [ %96, %94 ], [ %98, %97 ], [ %100, %99 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit142 ]
+  %.sroa.6203.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %100, %99 ], [ %93, %92 ], [ %96, %94 ], [ %98, %97 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit142 ]
   %.not108 = icmp eq i32 %.sroa.1070.1, -1
   br i1 %.not108, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150, label %101
 
@@ -3131,7 +3131,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150: ; preds = %122, %120, %117, %115, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit147, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145
-  %.sroa.8204.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145 ], [ %116, %115 ], [ %119, %117 ], [ %121, %120 ], [ %123, %122 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit147 ]
+  %.sroa.8204.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit145 ], [ %123, %122 ], [ %116, %115 ], [ %119, %117 ], [ %121, %120 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit147 ]
   %.not109 = icmp ne i32 %.sroa.057.1, -1
   br i1 %.not109, label %124, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155
 
@@ -3195,7 +3195,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155: ; preds = %145, %143, %140, %138, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit152, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150
-  %.sroa.0199.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150 ], [ %139, %138 ], [ %142, %140 ], [ %144, %143 ], [ %146, %145 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit152 ]
+  %.sroa.0199.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit150 ], [ %146, %145 ], [ %139, %138 ], [ %142, %140 ], [ %144, %143 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit152 ]
   %.not110 = icmp eq i32 %.sroa.759.1, -1
   br i1 %.not110, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160, label %147
 
@@ -3259,8 +3259,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160: ; preds = %168, %166, %163, %161, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit157, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155
-  %.sroa.6200.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155 ], [ %162, %161 ], [ %165, %163 ], [ %167, %166 ], [ %169, %168 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit157 ]
-  %.196 = phi i1 [ %.not109, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155 ], [ true, %161 ], [ true, %163 ], [ true, %166 ], [ true, %168 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit157 ]
+  %.sroa.6200.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155 ], [ %169, %168 ], [ %162, %161 ], [ %165, %163 ], [ %167, %166 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit157 ]
+  %.196 = phi i1 [ %.not109, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit155 ], [ true, %168 ], [ true, %161 ], [ true, %163 ], [ true, %166 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit157 ]
   %.not111 = icmp eq i32 %.sroa.1061.1, -1
   br i1 %.not111, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165, label %170
 
@@ -3324,8 +3324,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165: ; preds = %191, %189, %186, %184, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit162, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160
-  %.sroa.8201.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160 ], [ %185, %184 ], [ %188, %186 ], [ %190, %189 ], [ %192, %191 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit162 ]
-  %.297 = phi i1 [ %.196, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160 ], [ true, %184 ], [ true, %186 ], [ true, %189 ], [ true, %191 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit162 ]
+  %.sroa.8201.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160 ], [ %192, %191 ], [ %185, %184 ], [ %188, %186 ], [ %190, %189 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit162 ]
+  %.297 = phi i1 [ %.196, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit160 ], [ true, %191 ], [ true, %184 ], [ true, %186 ], [ true, %189 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit162 ]
   %.not112 = icmp ne i32 %.sroa.047.1, -1
   br i1 %.not112, label %193, label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit
 
@@ -3414,7 +3414,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit: ; preds = %229, %226, %222, %219, %215, %212, %209, %207, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit167, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165
-  %.sroa.0196.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165 ], [ %208, %207 ], [ %211, %209 ], [ %214, %212 ], [ %218, %215 ], [ %221, %219 ], [ %225, %222 ], [ %228, %226 ], [ %232, %229 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit167 ]
+  %.sroa.0196.0 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit165 ], [ %232, %229 ], [ %208, %207 ], [ %211, %209 ], [ %214, %212 ], [ %218, %215 ], [ %221, %219 ], [ %225, %222 ], [ %228, %226 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit167 ]
   %.not113 = icmp eq i32 %.sroa.749.1, -1
   br i1 %.not113, label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174, label %233
 
@@ -3503,8 +3503,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174: ; preds = %269, %266, %262, %259, %255, %252, %249, %247, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit171, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit
-  %.sroa.6197.0 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ %248, %247 ], [ %251, %249 ], [ %254, %252 ], [ %258, %255 ], [ %261, %259 ], [ %265, %262 ], [ %268, %266 ], [ %272, %269 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit171 ]
-  %.194 = phi i1 [ %.not112, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ true, %247 ], [ true, %249 ], [ true, %252 ], [ true, %255 ], [ true, %259 ], [ true, %262 ], [ true, %266 ], [ true, %269 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit171 ]
+  %.sroa.6197.0 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ %272, %269 ], [ %248, %247 ], [ %251, %249 ], [ %254, %252 ], [ %258, %255 ], [ %261, %259 ], [ %265, %262 ], [ %268, %266 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit171 ]
+  %.194 = phi i1 [ %.not112, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ true, %269 ], [ true, %247 ], [ true, %249 ], [ true, %252 ], [ true, %255 ], [ true, %259 ], [ true, %262 ], [ true, %266 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit171 ]
   %.not114 = icmp eq i32 %.sroa.1051.1, -1
   br i1 %.not114, label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179, label %273
 
@@ -3593,8 +3593,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179: ; preds = %309, %306, %302, %299, %295, %292, %289, %287, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit176, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174
-  %.sroa.7.0234 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174 ], [ %288, %287 ], [ %291, %289 ], [ %294, %292 ], [ %298, %295 ], [ %301, %299 ], [ %305, %302 ], [ %308, %306 ], [ %312, %309 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit176 ]
-  %.2 = phi i1 [ %.194, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174 ], [ true, %287 ], [ true, %289 ], [ true, %292 ], [ true, %295 ], [ true, %299 ], [ true, %302 ], [ true, %306 ], [ true, %309 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit176 ]
+  %.sroa.7.0234 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174 ], [ %312, %309 ], [ %288, %287 ], [ %291, %289 ], [ %294, %292 ], [ %298, %295 ], [ %301, %299 ], [ %305, %302 ], [ %308, %306 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit176 ]
+  %.2 = phi i1 [ %.194, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit174 ], [ true, %309 ], [ true, %287 ], [ true, %289 ], [ true, %292 ], [ true, %295 ], [ true, %299 ], [ true, %302 ], [ true, %306 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit176 ]
   %313 = icmp eq i32 %.sroa.13.1, -1
   br i1 %313, label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184, label %314
 
@@ -3683,8 +3683,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184: ; preds = %350, %347, %343, %340, %336, %333, %330, %328, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit181, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179
-  %.sroa.8198.0 = phi float [ 1.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179 ], [ %329, %328 ], [ %332, %330 ], [ %335, %333 ], [ %339, %336 ], [ %342, %340 ], [ %346, %343 ], [ %349, %347 ], [ %353, %350 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit181 ]
-  %.3 = phi i1 [ %.2, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179 ], [ true, %328 ], [ true, %330 ], [ true, %333 ], [ true, %336 ], [ true, %340 ], [ true, %343 ], [ true, %347 ], [ true, %350 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit181 ]
+  %.sroa.8198.0 = phi float [ 1.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179 ], [ %353, %350 ], [ %329, %328 ], [ %332, %330 ], [ %335, %333 ], [ %339, %336 ], [ %342, %340 ], [ %346, %343 ], [ %349, %347 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit181 ]
+  %.3 = phi i1 [ %.2, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit179 ], [ true, %350 ], [ true, %328 ], [ true, %330 ], [ true, %333 ], [ true, %336 ], [ true, %340 ], [ true, %343 ], [ true, %347 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit181 ]
   %.not115 = icmp ne i32 %.sroa.042.1, -1
   br i1 %.not115, label %354, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189
 
@@ -3748,7 +3748,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189: ; preds = %375, %373, %370, %368, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit186, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184
-  %.sroa.0.0 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184 ], [ %369, %368 ], [ %372, %370 ], [ %374, %373 ], [ %376, %375 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit186 ]
+  %.sroa.0.0 = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit184 ], [ %376, %375 ], [ %369, %368 ], [ %372, %370 ], [ %374, %373 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit186 ]
   %.not116 = icmp eq i32 %.sroa.7.1, -1
   br i1 %.not116, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit194, label %377
 
@@ -3812,8 +3812,8 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit194
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit194: ; preds = %398, %396, %393, %391, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit191, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189
-  %.sroa.6.0233 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189 ], [ %392, %391 ], [ %395, %393 ], [ %397, %396 ], [ %399, %398 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit191 ]
-  %.1 = phi i1 [ %.not115, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189 ], [ true, %391 ], [ true, %393 ], [ true, %396 ], [ true, %398 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit191 ]
+  %.sroa.6.0233 = phi float [ 0.000000e+00, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189 ], [ %399, %398 ], [ %392, %391 ], [ %395, %393 ], [ %397, %396 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit191 ]
+  %.1 = phi i1 [ %.not115, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit189 ], [ true, %398 ], [ true, %391 ], [ true, %393 ], [ true, %396 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit191 ]
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %401 = load ptr, ptr %400, align 8
   %402 = icmp eq ptr %401, null
@@ -4103,7 +4103,7 @@ define hidden noundef float @_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PL
   br label %29
 
 29:                                               ; preds = %2, %25, %22, %18, %15, %11, %8, %5, %3
-  %.0 = phi float [ %4, %3 ], [ %7, %5 ], [ %10, %8 ], [ %14, %11 ], [ %17, %15 ], [ %21, %18 ], [ %24, %22 ], [ %28, %25 ], [ 0.000000e+00, %2 ]
+  %.0 = phi float [ %28, %25 ], [ %4, %3 ], [ %7, %5 ], [ %10, %8 ], [ %14, %11 ], [ %17, %15 ], [ %21, %18 ], [ %24, %22 ], [ 0.000000e+00, %2 ]
   ret float %.0
 }
 
@@ -4421,7 +4421,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %.lr.ph192, %134, %137, %140
-  %.0.i = phi i32 [ %136, %134 ], [ %139, %137 ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %140 ], [ 0, %.lr.ph192 ]
+  %.0.i = phi i32 [ 0, %.lr.ph192 ], [ %136, %134 ], [ %139, %137 ], [ %.sroa.0.sroa.0.0.extract.trunc.i, %140 ]
   %141 = load ptr, ptr %5, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 208
   %143 = load ptr, ptr %142, align 8
@@ -4569,7 +4569,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %207, %208, %210, %213, %215
-  %.0.i125 = phi float [ %209, %208 ], [ %212, %210 ], [ %214, %213 ], [ %216, %215 ], [ 0.000000e+00, %207 ]
+  %.0.i125 = phi float [ %216, %215 ], [ %209, %208 ], [ %212, %210 ], [ %214, %213 ], [ 0.000000e+00, %207 ]
   %217 = load ptr, ptr %5, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 112
   %219 = load ptr, ptr %218, align 8
@@ -4608,7 +4608,7 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit128
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit128: ; preds = %222, %223, %225, %228, %230
-  %.0.i127 = phi float [ %224, %223 ], [ %227, %225 ], [ %229, %228 ], [ %231, %230 ], [ 0.000000e+00, %222 ]
+  %.0.i127 = phi float [ %231, %230 ], [ %224, %223 ], [ %227, %225 ], [ %229, %228 ], [ 0.000000e+00, %222 ]
   %232 = load ptr, ptr %5, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 112
   %234 = load ptr, ptr %233, align 8
@@ -4702,7 +4702,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 _ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %265, %265, %265, %265, %265, %265, %266, %269
-  %.0.i132 = phi i32 [ %268, %266 ], [ %271, %269 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ]
+  %.0.i132 = phi i32 [ %271, %269 ], [ %268, %266 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ], [ %.sroa.0.sroa.0.0.extract.trunc.i131, %265 ]
   %272 = icmp eq i32 %.0.i132, -1
   br i1 %272, label %340, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread
 
@@ -4810,9 +4810,9 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE
   br label %340
 
 340:                                              ; preds = %301, %330, %274, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-  %.180 = phi i1 [ false, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.079199, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ %.079199, %274 ], [ true, %330 ], [ false, %301 ]
-  %.sroa.8.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.sroa.8.0200, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ %.0.i132162, %274 ], [ %.0.i132162, %330 ], [ %.0.i132162, %301 ]
-  %.sroa.05.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.0.i132162, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ %.sroa.05.0201, %274 ], [ %.sroa.8.0200, %330 ], [ %.sroa.8.0200, %301 ]
+  %.180 = phi i1 [ %.079199, %274 ], [ false, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.079199, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ true, %330 ], [ false, %301 ]
+  %.sroa.8.1 = phi i32 [ %.0.i132162, %274 ], [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.sroa.8.0200, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ %.0.i132162, %330 ], [ %.0.i132162, %301 ]
+  %.sroa.05.1 = phi i32 [ %.sroa.05.0201, %274 ], [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %.0.i132162, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread ], [ %.sroa.8.0200, %330 ], [ %.sroa.8.0200, %301 ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0133.0198, i64 8
   %342 = load ptr, ptr %261, align 8
   %.not165 = icmp eq ptr %341, %342
@@ -4920,7 +4920,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit: ; preds = %44, %41, %37, %34, %30, %27, %24, %22, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %4
-  %storemerge = phi float [ 0.000000e+00, %4 ], [ %23, %22 ], [ %26, %24 ], [ %29, %27 ], [ %33, %30 ], [ %36, %34 ], [ %40, %37 ], [ %43, %41 ], [ %47, %44 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
+  %storemerge = phi float [ 0.000000e+00, %4 ], [ %47, %44 ], [ %23, %22 ], [ %26, %24 ], [ %29, %27 ], [ %33, %30 ], [ %36, %34 ], [ %40, %37 ], [ %43, %41 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
   store float %storemerge, ptr %3, align 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %49 = load i32, ptr %48, align 4
@@ -5014,7 +5014,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit41
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit41: ; preds = %89, %86, %82, %79, %75, %72, %69, %67, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit38, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit
-  %.0.i40.sink = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ %68, %67 ], [ %71, %69 ], [ %74, %72 ], [ %78, %75 ], [ %81, %79 ], [ %85, %82 ], [ %88, %86 ], [ %92, %89 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit38 ]
+  %.0.i40.sink = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit ], [ %92, %89 ], [ %68, %67 ], [ %71, %69 ], [ %74, %72 ], [ %78, %75 ], [ %81, %79 ], [ %85, %82 ], [ %88, %86 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit38 ]
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %.0.i40.sink, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5109,7 +5109,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit46
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit46: ; preds = %135, %132, %128, %125, %121, %118, %115, %113, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit41
-  %.0.i45.sink = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit41 ], [ %114, %113 ], [ %117, %115 ], [ %120, %118 ], [ %124, %121 ], [ %127, %125 ], [ %131, %128 ], [ %134, %132 ], [ %138, %135 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43 ]
+  %.0.i45.sink = phi float [ 0.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit41 ], [ %138, %135 ], [ %114, %113 ], [ %117, %115 ], [ %120, %118 ], [ %124, %121 ], [ %127, %125 ], [ %131, %128 ], [ %134, %132 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43 ]
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %.0.i45.sink, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5204,7 +5204,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   br label %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit51
 
 _ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit51: ; preds = %181, %178, %174, %171, %167, %164, %161, %159, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit48, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit46
-  %.0.i50.sink = phi float [ 1.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit46 ], [ %160, %159 ], [ %163, %161 ], [ %166, %164 ], [ %170, %167 ], [ %173, %171 ], [ %177, %174 ], [ %180, %178 ], [ %184, %181 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit48 ]
+  %.0.i50.sink = phi float [ 1.000000e+00, %_ZN6Assimp11PLYImporter19NormalizeColorValueENS_3PLY16PropertyInstance10ValueUnionENS1_9EDataTypeE.exit46 ], [ %184, %181 ], [ %160, %159 ], [ %163, %161 ], [ %166, %164 ], [ %170, %167 ], [ %173, %171 ], [ %177, %174 ], [ %180, %178 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit48 ]
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %.0.i50.sink, ptr %185, align 4
   ret void
@@ -6381,7 +6381,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 

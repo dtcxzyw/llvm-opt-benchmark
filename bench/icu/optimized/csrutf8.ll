@@ -67,7 +67,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   br i1 %21, label %.lr.ph.preheader, label %.thread97
 
 .lr.ph.preheader:                                 ; preds = %9, %12, %16, %20
-  %.05179 = phi i1 [ false, %20 ], [ %19, %16 ], [ false, %9 ], [ false, %12 ]
+  %.05179 = phi i1 [ false, %20 ], [ false, %9 ], [ false, %12 ], [ %19, %16 ]
   %22 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
@@ -102,7 +102,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   br label %.loopexit
 
 39:                                               ; preds = %34, %31, %28
-  %.048 = phi i32 [ 1, %28 ], [ 2, %31 ], [ 3, %34 ]
+  %.048 = phi i32 [ 2, %31 ], [ 1, %28 ], [ 3, %34 ]
   %40 = add i32 %.04969, %.048
   br label %41
 
@@ -180,8 +180,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717CharsetRecog_UTF85matchEP
   br label %68
 
 68:                                               ; preds = %67, %.thread97, %62, %60, %57, %._crit_edge
-  %69 = phi i8 [ 1, %._crit_edge ], [ 1, %57 ], [ 1, %60 ], [ 1, %62 ], [ 1, %.thread97 ], [ %spec.select63, %67 ]
-  %.0 = phi i32 [ 100, %._crit_edge ], [ 80, %57 ], [ 100, %60 ], [ 80, %62 ], [ 15, %.thread97 ], [ %spec.select64, %67 ]
+  %69 = phi i8 [ %spec.select63, %67 ], [ 1, %._crit_edge ], [ 1, %57 ], [ 1, %60 ], [ 1, %62 ], [ 1, %.thread97 ]
+  %.0 = phi i32 [ %spec.select64, %67 ], [ 100, %._crit_edge ], [ 80, %57 ], [ 100, %60 ], [ 80, %62 ], [ 15, %.thread97 ]
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, ptr noundef nonnull %0, i32 noundef %.0, ptr noundef null, ptr noundef null)
   ret i8 %69
 }

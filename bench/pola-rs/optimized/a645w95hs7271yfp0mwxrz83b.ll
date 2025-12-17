@@ -4163,7 +4163,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.i.i: ;
   br label %.body
 
 .body:                                            ; preds = %430, %387, %346, %305, %262, %221, %179, %138, %89
-  %eh.lpad-body = phi { ptr, i32 } [ %90, %89 ], [ %lpad.phi.i, %138 ], [ %lpad.phi.i31, %179 ], [ %lpad.phi.i61, %221 ], [ %lpad.phi.i91, %262 ], [ %lpad.phi.i121, %305 ], [ %lpad.phi.i151, %346 ], [ %lpad.phi.i181, %387 ], [ %lpad.phi.i211, %430 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i181, %387 ], [ %lpad.phi.i, %138 ], [ %lpad.phi.i31, %179 ], [ %lpad.phi.i61, %221 ], [ %lpad.phi.i91, %262 ], [ %lpad.phi.i121, %305 ], [ %lpad.phi.i151, %346 ], [ %90, %89 ], [ %lpad.phi.i211, %430 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..Vec$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$$GT$17h4f9920851dd79724E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #10
           to label %448 unwind label %446
 
@@ -4187,7 +4187,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.i.i: ;
   br label %99
 
 99:                                               ; preds = %93, %.thread, %106, %97
-  %.sroa.0.0 = phi i64 [ %108, %106 ], [ %98, %97 ], [ 0, %.thread ], [ %96, %93 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ %108, %106 ], [ %98, %97 ], [ %96, %93 ]
   %100 = trunc i64 %.sroa.0.0 to i32
   %101 = icmp eq i8 %4, 2
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -5627,7 +5627,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.i.i: ;
   br label %.body
 
 .body:                                            ; preds = %430, %387, %346, %305, %262, %221, %179, %138, %89
-  %eh.lpad-body = phi { ptr, i32 } [ %90, %89 ], [ %lpad.phi.i, %138 ], [ %lpad.phi.i31, %179 ], [ %lpad.phi.i61, %221 ], [ %lpad.phi.i91, %262 ], [ %lpad.phi.i121, %305 ], [ %lpad.phi.i151, %346 ], [ %lpad.phi.i181, %387 ], [ %lpad.phi.i211, %430 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i181, %387 ], [ %lpad.phi.i, %138 ], [ %lpad.phi.i31, %179 ], [ %lpad.phi.i61, %221 ], [ %lpad.phi.i91, %262 ], [ %lpad.phi.i121, %305 ], [ %lpad.phi.i151, %346 ], [ %90, %89 ], [ %lpad.phi.i211, %430 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..Vec$LT$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$$GT$17h6945ceef12c1774eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #10
           to label %448 unwind label %446
 
@@ -5651,7 +5651,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.i.i: ;
   br label %99
 
 99:                                               ; preds = %93, %.thread, %106, %97
-  %.sroa.0.0 = phi i64 [ %108, %106 ], [ %98, %97 ], [ 0, %.thread ], [ %96, %93 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ %108, %106 ], [ %98, %97 ], [ %96, %93 ]
   %100 = trunc i64 %.sroa.0.0 to i32
   %101 = icmp eq i8 %4, 2
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 8

@@ -302,7 +302,7 @@ define hidden ptr @_xmlreader_get_valid_file_path(ptr noundef %0, ptr noundef %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %16, %.thread
-  %.023.ph = phi ptr [ %spec.select, %16 ], [ %1, %.thread ], [ %spec.select32, %20 ]
+  %.023.ph = phi ptr [ %spec.select32, %20 ], [ %spec.select, %16 ], [ %1, %.thread ]
   tail call void @xmlFreeURI(ptr noundef nonnull %4) #11
   br label %22
 
@@ -3758,11 +3758,11 @@ zend_parse_arg_path_str.exit:                     ; preds = %50, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
-57:                                               ; preds = %10, %zend_parse_arg_resource.exit, %zend_parse_arg_path.exit, %zend_parse_arg_long_ex.exit, %56
-  %.088.ph = phi i32 [ 9, %56 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_resource.exit ], [ 1, %10 ]
-  %.087.ph = phi i32 [ 17, %56 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 17, %zend_parse_arg_path.exit ], [ 14, %zend_parse_arg_resource.exit ], [ 0, %10 ]
-  %.086.ph = phi ptr [ %42, %56 ], [ %34, %zend_parse_arg_long_ex.exit ], [ %18, %zend_parse_arg_path.exit ], [ %11, %zend_parse_arg_resource.exit ], [ null, %10 ]
-  %.0.ph = phi i32 [ 4, %56 ], [ 3, %zend_parse_arg_long_ex.exit ], [ 2, %zend_parse_arg_path.exit ], [ 1, %zend_parse_arg_resource.exit ], [ 0, %10 ]
+57:                                               ; preds = %10, %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %zend_parse_arg_resource.exit, %56
+  %.088.ph = phi i32 [ 9, %56 ], [ 9, %zend_parse_arg_resource.exit ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %10 ]
+  %.087.ph = phi i32 [ 17, %56 ], [ 14, %zend_parse_arg_resource.exit ], [ 17, %zend_parse_arg_path.exit ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %10 ]
+  %.086.ph = phi ptr [ %42, %56 ], [ %11, %zend_parse_arg_resource.exit ], [ %18, %zend_parse_arg_path.exit ], [ %34, %zend_parse_arg_long_ex.exit ], [ null, %10 ]
+  %.0.ph = phi i32 [ 4, %56 ], [ 1, %zend_parse_arg_resource.exit ], [ 2, %zend_parse_arg_path.exit ], [ 3, %zend_parse_arg_long_ex.exit ], [ 0, %10 ]
   call void @zend_wrong_parameter_error(i32 noundef %.088.ph, i32 noundef %.0.ph, ptr noundef null, i32 noundef %.087.ph, ptr noundef %.086.ph) #11
   br label %103
 
@@ -4892,7 +4892,7 @@ xmlreader_get_prop_handler.exit.thread:           ; preds = %.thread.i, %10, %xm
   br label %62
 
 62:                                               ; preds = %xmlreader_get_prop_handler.exit.thread22, %xmlreader_get_prop_handler.exit.thread, %60
-  %.014 = phi i32 [ %.1, %60 ], [ %61, %xmlreader_get_prop_handler.exit.thread ], [ 1, %xmlreader_get_prop_handler.exit.thread22 ]
+  %.014 = phi i32 [ %61, %xmlreader_get_prop_handler.exit.thread ], [ %.1, %60 ], [ 1, %xmlreader_get_prop_handler.exit.thread22 ]
   ret i32 %.014
 }
 
@@ -4947,7 +4947,7 @@ xmlreader_get_prop_handler.exit.thread:           ; preds = %.thread.i, %10, %xm
   br label %22
 
 22:                                               ; preds = %xmlreader_get_prop_handler.exit.thread17, %xmlreader_get_prop_handler.exit.thread
-  %.0 = phi ptr [ %21, %xmlreader_get_prop_handler.exit.thread ], [ %executor_globals., %xmlreader_get_prop_handler.exit.thread17 ]
+  %.0 = phi ptr [ %executor_globals., %xmlreader_get_prop_handler.exit.thread17 ], [ %21, %xmlreader_get_prop_handler.exit.thread ]
   ret ptr %.0
 }
 
@@ -5051,7 +5051,7 @@ define internal ptr @xmlreader_get_method(ptr noundef %0, ptr noundef %1, ptr no
   br label %17
 
 17:                                               ; preds = %12, %16, %15
-  %.0 = phi ptr [ @xmlreader_open_fn, %15 ], [ %4, %16 ], [ @xmlreader_xml_fn, %12 ]
+  %.0 = phi ptr [ %4, %16 ], [ @xmlreader_open_fn, %15 ], [ @xmlreader_xml_fn, %12 ]
   ret ptr %.0
 }
 

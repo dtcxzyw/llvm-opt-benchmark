@@ -1464,7 +1464,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit265: ; preds = %214, %_ZNKSt7__cxx1
   br i1 %221, label %269, label %229
 
 224:                                              ; preds = %175, %177, %162, %_ZN7testing7MessageD2Ev.exit262, %126
-  %.pn136.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %127, %126 ], [ %163, %162 ], [ %176, %175 ], [ %.pn132, %177 ]
+  %.pn136.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn, %_ZN7testing7MessageD2Ev.exit262 ], [ %163, %162 ], [ %127, %126 ], [ %176, %175 ], [ %.pn132, %177 ]
   %225 = load ptr, ptr %4, align 8, !tbaa !48
   %226 = icmp eq ptr %225, %123
   br i1 %226, label %_ZN7testing8internal14TrueWithStringD2Ev.exit268, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i266
@@ -26803,7 +26803,7 @@ _ZN7testing15AssertionResultD2Ev.exit524:         ; preds = %991, %_ZNKSt14defau
   br label %1003
 
 1003:                                             ; preds = %_ZN7testing7MessageD2Ev.exit433, %_ZN7testing7MessageD2Ev.exit458, %1002, %_ZN7testing7MessageD2Ev.exit503, %768, %715, %628, %541, %490, %436, %371
-  %.pn174.pn.pn.pn = phi { ptr, i32 } [ %.pn174.pn.pn, %1002 ], [ %.pn169.pn.pn, %_ZN7testing7MessageD2Ev.exit503 ], [ %.pn154.pn.pn, %768 ], [ %.pn150.pn.pn, %715 ], [ %.pn146.pn.pn, %628 ], [ %.pn142.pn.pn, %541 ], [ %.pn138.pn.pn, %490 ], [ %.pn132.pn.pn, %436 ], [ %.pn126.pn.pn, %371 ], [ %.pn163.pn.pn, %_ZN7testing7MessageD2Ev.exit433 ], [ %.pn158.pn.pn, %_ZN7testing7MessageD2Ev.exit458 ]
+  %.pn174.pn.pn.pn = phi { ptr, i32 } [ %.pn174.pn.pn, %1002 ], [ %.pn169.pn.pn, %_ZN7testing7MessageD2Ev.exit503 ], [ %.pn163.pn.pn, %_ZN7testing7MessageD2Ev.exit433 ], [ %.pn158.pn.pn, %_ZN7testing7MessageD2Ev.exit458 ], [ %.pn154.pn.pn, %768 ], [ %.pn150.pn.pn, %715 ], [ %.pn146.pn.pn, %628 ], [ %.pn142.pn.pn, %541 ], [ %.pn138.pn.pn, %490 ], [ %.pn132.pn.pn, %436 ], [ %.pn126.pn.pn, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1004
 
@@ -27368,7 +27368,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %160, %15
   br label %_ZN4entt8resourceIiED2Ev.exit
 
 _ZN4entt8resourceIiED2Ev.exit:                    ; preds = %_ZN4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread, %148, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %163
-  %164 = phi ptr [ %141, %_ZN4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread ], [ %144, %148 ], [ %144, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %144, %163 ]
+  %164 = phi ptr [ %141, %_ZN4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread ], [ %144, %163 ], [ %144, %148 ], [ %144, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ]
   %165 = load i8, ptr %8, align 8, !tbaa !53, !range !65, !noundef !66
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %.critedge76, label %167
@@ -27640,7 +27640,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i148: ; preds = %264, 
   br label %_ZN4entt8resourceIKiED2Ev.exit
 
 _ZN4entt8resourceIKiED2Ev.exit:                   ; preds = %_ZNK4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread, %252, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i148, %267
-  %268 = phi ptr [ %245, %_ZNK4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread ], [ %248, %252 ], [ %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i148 ], [ %248, %267 ]
+  %268 = phi ptr [ %245, %_ZNK4entt14resource_cacheIiNS_15resource_loaderIiEESaIiEEixEj.exit.thread ], [ %248, %267 ], [ %248, %252 ], [ %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i148 ]
   %269 = load i8, ptr %12, align 8, !tbaa !53, !range !65, !noundef !66
   %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %.critedge78, label %271
@@ -29532,7 +29532,7 @@ _ZN7testing15AssertionResultD2Ev.exit201:         ; preds = %375, %_ZNKSt14defau
   br label %.body
 
 .body:                                            ; preds = %258, %235, %385, %_ZN7testing7MessageD2Ev.exit156, %257, %_ZN7testing7MessageD2Ev.exit72, %75
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %385 ], [ %.pn41.pn.pn, %_ZN7testing7MessageD2Ev.exit156 ], [ %.pn37.pn.pn, %257 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit72 ], [ %76, %75 ], [ %259, %258 ], [ %236, %235 ]
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn, %385 ], [ %.pn41.pn.pn, %_ZN7testing7MessageD2Ev.exit156 ], [ %76, %75 ], [ %.pn37.pn.pn, %257 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit72 ], [ %259, %258 ], [ %236, %235 ]
   call void @_ZN4entt9dense_mapIjSt10shared_ptrIiENS_8identityESt8equal_toIvESaISt4pairIKjS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
@@ -29997,7 +29997,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %155, %15
   br label %_ZN4entt8resourceIiED2Ev.exit
 
 _ZN4entt8resourceIiED2Ev.exit:                    ; preds = %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit.thread, %143, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %158
-  %159 = phi ptr [ %136, %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit.thread ], [ %139, %143 ], [ %139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %139, %158 ]
+  %159 = phi ptr [ %136, %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit.thread ], [ %139, %158 ], [ %139, %143 ], [ %139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ]
   %160 = load i8, ptr %9, align 8, !tbaa !53, !range !65, !noundef !66
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %.critedge52, label %162
@@ -30445,7 +30445,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180: ; preds = %315, 
   br label %_ZN4entt8resourceIiED2Ev.exit182
 
 _ZN4entt8resourceIiED2Ev.exit182:                 ; preds = %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit177.thread, %303, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180, %318
-  %319 = phi ptr [ %295, %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit177.thread ], [ %299, %303 ], [ %299, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180 ], [ %299, %318 ]
+  %319 = phi ptr [ %295, %_ZN4entt14resource_cacheIi6loaderIiESaIiEEixEj.exit177.thread ], [ %299, %318 ], [ %299, %303 ], [ %299, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i180 ]
   %320 = load i8, ptr %18, align 8, !tbaa !53, !range !65, !noundef !66
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %355, label %322
@@ -30992,7 +30992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %11
           cleanup
   br label %175
 
-129:                                              ; preds = %108, %105, %.critedge
+129:                                              ; preds = %105, %108, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %130 unwind label %138
@@ -31525,7 +31525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %31
           cleanup
   br label %371
 
-328:                                              ; preds = %307, %304, %.critedge101
+328:                                              ; preds = %304, %307, %.critedge101
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %329 unwind label %337
@@ -31792,7 +31792,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit212
 
 _ZN7testing15AssertionResultD2Ev.exit212:         ; preds = %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192, %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192.thread, %409, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i210
-  %416 = phi ptr [ %370, %409 ], [ %370, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i210 ], [ %370, %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192 ], [ %363, %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192.thread ]
+  %416 = phi ptr [ %370, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i210 ], [ %370, %409 ], [ %370, %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192 ], [ %363, %_ZNK4entt14resource_cacheImNS_15resource_loaderImEEN4test18throwing_allocatorImEEE8containsEj.exit192.thread ]
   store ptr null, ptr %416, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %417
@@ -32101,23 +32101,23 @@ _ZN4test18throwing_allocatorImEC2ISt4pairIKjSt10shared_ptrImEEEERKNS0_IT_EE.exit
   store ptr null, ptr %41, align 8, !tbaa !96
   br label %_ZN4test18throwing_allocatorISt4pairIKjSt10shared_ptrImEEED2Ev.exit
 
-42:                                               ; preds = %24, %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+42:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %24, %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %43, align 8, !tbaa !562
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %44, align 8, !tbaa !96
   %45 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !49
   %.not.i.i.i.i.i.i2 = icmp eq i8 %45, 0
-  br i1 %.not.i.i.i.i.i.i2, label %_ZN4test18throwing_allocatorImEC2ISt4pairIKjSt10shared_ptrImEEEERKNS0_IT_EE.exit, label %46
+  br i1 %.not.i.i.i.i.i.i2, label %46, label %_ZN4test18throwing_allocatorImEC2ISt4pairIKjSt10shared_ptrImEEEERKNS0_IT_EE.exit
 
 46:                                               ; preds = %42
-  %47 = load i32, ptr %8, align 4, !tbaa !68
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %8, align 4, !tbaa !68
+  %47 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %50
 
 _ZN4test18throwing_allocatorImEC2ISt4pairIKjSt10shared_ptrImEEEERKNS0_IT_EE.exit: ; preds = %42
-  %49 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
+  %48 = load i32, ptr %8, align 4, !tbaa !68
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %8, align 4, !tbaa !68
   br label %50
 
 50:                                               ; preds = %46, %_ZN4test18throwing_allocatorImEC2ISt4pairIKjSt10shared_ptrImEEEERKNS0_IT_EE.exit
@@ -34721,7 +34721,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !39
   br label %41
 

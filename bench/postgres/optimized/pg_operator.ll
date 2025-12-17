@@ -126,8 +126,8 @@ OperatorGet.exit:                                 ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %21, %48, %45, %44
-  %.not123 = phi i1 [ true, %48 ], [ true, %45 ], [ false, %44 ], [ false, %21 ]
-  %.0.i119122 = phi i32 [ %37, %48 ], [ %37, %45 ], [ 0, %44 ], [ 0, %21 ]
+  %.not123 = phi i1 [ false, %44 ], [ true, %48 ], [ true, %45 ], [ false, %21 ]
+  %.0.i119122 = phi i32 [ 0, %44 ], [ %37, %48 ], [ %37, %45 ], [ 0, %21 ]
   br i1 %23, label %49, label %56
 
 49:                                               ; preds = %.thread
@@ -361,7 +361,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %sub_2, %sub_1, %sub_0, %6, %8, %4, %1
-  %.022 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %6 ], [ true, %sub_0 ], [ true, %sub_1 ], [ %29, %sub_2 ], [ false, %18 ]
+  %.022 = phi i1 [ false, %8 ], [ false, %1 ], [ false, %4 ], [ %29, %sub_2 ], [ false, %6 ], [ true, %sub_0 ], [ true, %sub_1 ], [ false, %18 ]
   ret i1 %.022
 }
 

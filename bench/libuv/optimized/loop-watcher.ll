@@ -76,7 +76,7 @@ define dso_local range(i32 -22, 1) i32 @uv_prepare_start(ptr noundef %0, ptr nou
   br label %27
 
 27:                                               ; preds = %8, %22, %19, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ -22, %6 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %6 ], [ 0, %2 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -291,7 +291,7 @@ define dso_local range(i32 -22, 1) i32 @uv_check_start(ptr noundef %0, ptr nound
   br label %27
 
 27:                                               ; preds = %8, %22, %19, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ -22, %6 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %6 ], [ 0, %2 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -506,7 +506,7 @@ define dso_local range(i32 -22, 1) i32 @uv_idle_start(ptr noundef %0, ptr nounde
   br label %27
 
 27:                                               ; preds = %8, %22, %19, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ -22, %6 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %6 ], [ 0, %2 ], [ 0, %19 ], [ 0, %22 ], [ 0, %8 ]
   ret i32 %.0
 }
 

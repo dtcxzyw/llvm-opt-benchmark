@@ -3987,7 +3987,7 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr noundef readonly captu
   br label %81
 
 81:                                               ; preds = %63, %65, %76, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %76 ], [ 1, %65 ], [ 0, %63 ]
+  %.0 = phi i32 [ 1, %65 ], [ 0, %5 ], [ 1, %76 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -4694,7 +4694,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   br label %64
 
 64:                                               ; preds = %27, %23, %51, %55, %35, %12, %5, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %12 ], [ 1, %35 ], [ 1, %55 ], [ 1, %51 ], [ 1, %23 ], [ 1, %27 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %27 ], [ 0, %12 ], [ 0, %7 ], [ 1, %35 ], [ 1, %55 ], [ 1, %51 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -4746,7 +4746,7 @@ define internal i32 @dissect_h225_NonStandardIdentifier(ptr noundef %0, i32 noun
   br label %18
 
 18:                                               ; preds = %5, %14, %10
-  %.sink = phi ptr [ %17, %14 ], [ %13, %10 ], [ null, %5 ]
+  %.sink = phi ptr [ %13, %10 ], [ %17, %14 ], [ null, %5 ]
   store ptr %.sink, ptr @nsp_handle, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8

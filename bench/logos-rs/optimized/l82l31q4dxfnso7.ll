@@ -438,7 +438,7 @@ tailrecurse:                                      ; preds = %116, %6
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
 
 "_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit": ; preds = %tailrecurse, %239, %269, %267, %174, %176, %90, %88, %220, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112", %109
-  %.sroa.021.0 = phi i32 [ %113, %109 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" ], [ %219, %220 ], [ %242, %239 ], [ %89, %88 ], [ %91, %90 ], [ %175, %174 ], [ %177, %176 ], [ %268, %267 ], [ %270, %269 ], [ %2, %tailrecurse ]
+  %.sroa.021.0 = phi i32 [ %177, %176 ], [ %113, %109 ], [ %270, %269 ], [ %.sroa.021.1, %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit112" ], [ %242, %239 ], [ %219, %220 ], [ %91, %90 ], [ %89, %88 ], [ %175, %174 ], [ %268, %267 ], [ %2, %tailrecurse ]
   ret i32 %.sroa.021.0
 
 92:                                               ; preds = %47
@@ -611,7 +611,7 @@ tailrecurse:                                      ; preds = %116, %6
   unreachable
 
 .thread124:                                       ; preds = %.thread127, %.thread139, %246, %188, %119
-  %.pn108 = phi { ptr, i32 } [ %lpad.phi, %119 ], [ %lpad.phi159, %188 ], [ %.pn106142, %.thread139 ], [ %247, %246 ], [ %.pn131, %.thread127 ]
+  %.pn108 = phi { ptr, i32 } [ %lpad.phi, %119 ], [ %lpad.phi159, %188 ], [ %.pn131, %.thread127 ], [ %.pn106142, %.thread139 ], [ %247, %246 ]
   resume { ptr, i32 } %.pn108
 
 162:                                              ; preds = %66
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
           to label %.thread unwind label %53
 
 .thread:                                          ; preds = %43, %20, %61, %60, %63
-  %.pn10.pn15 = phi { ptr, i32 } [ %64, %63 ], [ %21, %20 ], [ %62, %61 ], [ %lpad.thr_comm, %60 ], [ %44, %43 ]
+  %.pn10.pn15 = phi { ptr, i32 } [ %44, %43 ], [ %64, %63 ], [ %21, %20 ], [ %62, %61 ], [ %lpad.thr_comm, %60 ]
   resume { ptr, i32 } %.pn10.pn15
 
 63:                                               ; preds = %4
@@ -1224,7 +1224,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
           to label %.thread unwind label %51
 
 .thread:                                          ; preds = %41, %18, %59, %58, %61
-  %.pn10.pn15 = phi { ptr, i32 } [ %62, %61 ], [ %19, %18 ], [ %60, %59 ], [ %lpad.thr_comm, %58 ], [ %42, %41 ]
+  %.pn10.pn15 = phi { ptr, i32 } [ %42, %41 ], [ %62, %61 ], [ %19, %18 ], [ %60, %59 ], [ %lpad.thr_comm, %58 ]
   resume { ptr, i32 } %.pn10.pn15
 
 61:                                               ; preds = %3
@@ -1314,7 +1314,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
   %37 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %7)
           to label %44 unwind label %69
 
-"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %52, %54, %57, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
+"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %52, %57, %54, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i64, ptr %25, align 8
@@ -1401,10 +1401,10 @@ select.unfold.i:                                  ; preds = %52, %.noexc10
   br label %23
 
 .body.thread:                                     ; preds = %40, %18, %69
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %69 ], [ %19, %18 ], [ %41, %40 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm, %69 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-69:                                               ; preds = %33, %35, %28, %24, %22, %44, %.noexc, %select.unfold.i, %60, %64
+69:                                               ; preds = %33, %64, %select.unfold.i, %35, %28, %24, %22, %44, %.noexc, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$17he1a4f87bf1ac6dd9E"(ptr nonnull align 8 %11) #12
@@ -1497,7 +1497,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
   %38 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %8)
           to label %45 unwind label %70
 
-"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %53, %55, %58, %34, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
+"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %53, %58, %55, %34, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load i64, ptr %26, align 8
@@ -1584,10 +1584,10 @@ select.unfold.i:                                  ; preds = %53, %.noexc10
   br label %24
 
 .body.thread:                                     ; preds = %41, %19, %70
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %20, %19 ], [ %42, %41 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm, %70 ], [ %20, %19 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-70:                                               ; preds = %34, %36, %29, %25, %23, %45, %.noexc, %select.unfold.i, %61, %65
+70:                                               ; preds = %34, %65, %select.unfold.i, %36, %29, %25, %23, %45, %.noexc, %61
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$17he1a4f87bf1ac6dd9E"(ptr nonnull align 8 %12) #12
@@ -1680,7 +1680,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
   %37 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %7)
           to label %44 unwind label %69
 
-"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %52, %54, %57, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
+"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %52, %57, %54, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i64, ptr %25, align 8
@@ -1767,10 +1767,10 @@ select.unfold.i:                                  ; preds = %52, %.noexc10
   br label %23
 
 .body.thread:                                     ; preds = %40, %18, %69
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %69 ], [ %19, %18 ], [ %41, %40 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm, %69 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-69:                                               ; preds = %33, %35, %28, %24, %22, %44, %.noexc, %select.unfold.i, %60, %64
+69:                                               ; preds = %33, %64, %select.unfold.i, %35, %28, %24, %22, %44, %.noexc, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$17he1a4f87bf1ac6dd9E"(ptr nonnull align 8 %11) #12
@@ -1857,7 +1857,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %43, label %.thread, label %.thread25
 
 44:                                               ; preds = %112, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %117, %115, %94, %.thread25, %51
-  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %115 ], [ %1, %117 ], [ %111, %94 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %112 ]
+  %.sroa.0.0 = phi i32 [ %111, %94 ], [ %1, %3 ], [ %54, %51 ], [ %73, %.thread25 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %1, %115 ], [ %1, %117 ], [ %2, %112 ]
   ret i32 %.sroa.0.0
 
 45:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18"
@@ -2219,8 +2219,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %164 unwind label %.loopexit.split-lp
 
 114:                                              ; preds = %.loopexit, %.loopexit.split-lp, %160, %161
-  %.sroa.010.3 = phi i1 [ true, %161 ], [ true, %160 ], [ true, %.loopexit ], [ %.sroa.010.2.ph, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm51, %161 ], [ %lpad.thr_comm.split-lp52, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.010.3 = phi i1 [ true, %160 ], [ true, %161 ], [ true, %.loopexit ], [ %.sroa.010.2.ph, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp52, %160 ], [ %lpad.thr_comm51, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..NodeId$GT$$GT$17h3d4d8f99168ace9aE"(ptr nonnull align 8 %13) #12
           to label %84 unwind label %162
 
@@ -2348,7 +2348,7 @@ select.unfold57:                                  ; preds = %155, %.noexc35
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %10)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread" unwind label %.loopexit.split-lp
 
-161:                                              ; preds = %149, %.noexc34
+161:                                              ; preds = %.noexc34, %149
   %lpad.thr_comm51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %10) #12
@@ -2369,7 +2369,7 @@ select.unfold57:                                  ; preds = %155, %.noexc35
   br label %78
 
 .thread40:                                        ; preds = %93, %.thread44, %84
-  %.pn2143 = phi { ptr, i32 } [ %.pn, %84 ], [ %lpad.thr_comm, %.thread44 ], [ %94, %93 ]
+  %.pn2143 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread44 ], [ %.pn, %84 ], [ %94, %93 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %14) #12
           to label %73 unwind label %162
 
@@ -2612,7 +2612,7 @@ define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge
           to label %.thread47 unwind label %66
 
 .thread47:                                        ; preds = %102, %90, %73, %106
-  %.pn.pn50 = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %106 ], [ %103, %102 ], [ %91, %90 ]
+  %.pn.pn50 = phi { ptr, i32 } [ %.pn, %106 ], [ %74, %73 ], [ %103, %102 ], [ %91, %90 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..graph..rope..Pattern$GT$17h695bea186d767e7aE"(ptr nonnull align 8 %16) #12
           to label %.thread unwind label %66
 
@@ -2631,10 +2631,10 @@ define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge
   br label %62
 
 .thread:                                          ; preds = %97, %.thread47, %63, %109
-  %.pn2530 = phi { ptr, i32 } [ %lpad.thr_comm, %109 ], [ %.pn.pn50, %.thread47 ], [ %64, %63 ], [ %98, %97 ]
+  %.pn2530 = phi { ptr, i32 } [ %98, %97 ], [ %lpad.thr_comm, %109 ], [ %64, %63 ], [ %.pn.pn50, %.thread47 ]
   resume { ptr, i32 } %.pn2530
 
-109:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread", %43, %41, %34, %38, %4, %.noexc
+109:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread", %43, %41, %34, %38, %.noexc, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E"(ptr nonnull align 8 %2) #12
@@ -2856,10 +2856,10 @@ select.unfold.i:                                  ; preds = %20, %.noexc11
   unreachable
 
 .thread:                                          ; preds = %32, %52
-  %.pn917 = phi { ptr, i32 } [ %lpad.thr_comm, %52 ], [ %.pn.pn, %32 ]
+  %.pn917 = phi { ptr, i32 } [ %.pn.pn, %32 ], [ %lpad.thr_comm, %52 ]
   resume { ptr, i32 } %.pn917
 
-52:                                               ; preds = %11, %2, %13, %.noexc, %select.unfold.i, %27, %29
+52:                                               ; preds = %29, %select.unfold.i, %11, %2, %13, %.noexc, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$bool$GT$$GT$17he90771a91f32396cE"(ptr nonnull align 8 %7) #12

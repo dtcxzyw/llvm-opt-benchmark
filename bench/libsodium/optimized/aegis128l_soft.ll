@@ -1203,7 +1203,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br label %513
 
 513:                                              ; preds = %508, %509, %511, %505
-  %.0 = phi i32 [ %510, %509 ], [ %512, %511 ], [ -1, %505 ], [ -1, %508 ]
+  %.0 = phi i32 [ %510, %509 ], [ %512, %511 ], [ -1, %508 ], [ -1, %505 ]
   %514 = icmp ne i32 %.0, 0
   %or.cond = and i1 %293, %514
   br i1 %or.cond, label %515, label %516

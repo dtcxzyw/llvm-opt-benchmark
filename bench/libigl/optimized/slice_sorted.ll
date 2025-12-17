@@ -509,7 +509,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %140, %_ZNSt6vectorI
   ret void
 
 .body:                                            ; preds = %144, %146, %184
-  %.pn84.pn = phi { ptr, i32 } [ %147, %146 ], [ %145, %144 ], [ %185, %184 ]
+  %.pn84.pn = phi { ptr, i32 } [ %145, %144 ], [ %185, %184 ], [ %147, %146 ]
   %196 = load ptr, ptr %5, align 8, !tbaa !21
   call void @free(ptr noundef %196) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -524,7 +524,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %140, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit122
 
 _ZNSt6vectorIiSaIiEED2Ev.exit122:                 ; preds = %82, %.body, %197
-  %.pn91 = phi { ptr, i32 } [ %83, %82 ], [ %.pn84.pn, %.body ], [ %.pn84.pn.pn289, %197 ]
+  %.pn91 = phi { ptr, i32 } [ %.pn84.pn.pn289, %197 ], [ %83, %82 ], [ %.pn84.pn, %.body ]
   %.not.i.i.i123 = icmp eq ptr %.sroa.0148.0, null
   br i1 %.not.i.i.i123, label %_ZNSt6vectorIiSaIiEED2Ev.exit124, label %200
 
@@ -549,7 +549,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit124:                 ; preds = %200, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit126
 
 _ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %203, %_ZNSt6vectorIiSaIiEED2Ev.exit124
-  %.pn91.pn.pn = phi { ptr, i32 } [ %.pn91, %_ZNSt6vectorIiSaIiEED2Ev.exit124 ], [ %.pn91.pn200, %203 ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %.pn91.pn200, %203 ], [ %.pn91, %_ZNSt6vectorIiSaIiEED2Ev.exit124 ]
   resume { ptr, i32 } %.pn91.pn.pn
 }
 
@@ -708,7 +708,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !43
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %39, %.preheader ], [ %calloc, %30 ], [ %6, %3 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !41

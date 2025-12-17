@@ -573,8 +573,8 @@ select.unfold.i:                                  ; preds = %69, %63, %57, %44, 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %select.unfold.i, %80
-  %.220.i = phi ptr [ %82, %80 ], [ %.01831.i, %select.unfold.i ], [ %78, %.preheader.i ]
-  %.2.i = phi ptr [ %82, %80 ], [ %83, %select.unfold.i ], [ %76, %.preheader.i ]
+  %.220.i = phi ptr [ %.01831.i, %select.unfold.i ], [ %82, %80 ], [ %78, %.preheader.i ]
+  %.2.i = phi ptr [ %83, %select.unfold.i ], [ %82, %80 ], [ %76, %.preheader.i ]
   %84 = load i8, ptr %.2.i, align 1
   %.not.i = icmp eq i8 %84, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9

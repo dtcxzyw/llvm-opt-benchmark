@@ -441,7 +441,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
 
 .critedge.i:                                      ; preds = %text_getc.exit26.i, %text_getc.exit.i, %.lr.ph.i
   %.0.lcssa.i = phi i32 [ %.022.i, %.lr.ph.i ], [ -1, %text_getc.exit.i ], [ -1, %text_getc.exit26.i ]
-  %.lcssa21.i = phi i1 [ %.not19.i, %.lr.ph.i ], [ %.not19.i, %text_getc.exit.i ], [ false, %text_getc.exit26.i ]
+  %.lcssa21.i = phi i1 [ %.not19.i, %text_getc.exit.i ], [ %.not19.i, %.lr.ph.i ], [ false, %text_getc.exit26.i ]
   %66 = load ptr, ptr %30, align 8, !tbaa !13
   %67 = sext i32 %.0.lcssa.i to i64
   %68 = getelementptr inbounds i16, ptr %66, i64 %67
@@ -463,7 +463,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
   br label %select.unfold
 
 select.unfold:                                    ; preds = %74, %71
-  %.1.i = phi i32 [ 32, %71 ], [ %spec.select, %74 ]
+  %.1.i = phi i32 [ %spec.select, %74 ], [ 32, %71 ]
   %77 = trunc i64 %.0.i to i32
   %78 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !11
@@ -675,7 +675,7 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
   br label %28
 
 28:                                               ; preds = %21, %3, %27
-  %.018 = phi i32 [ 1, %27 ], [ 0, %3 ], [ 0, %21 ]
+  %.018 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 0, %21 ]
   ret i32 %.018
 }
 
@@ -826,7 +826,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.critedge, %8, %14
-  %.012 = phi i32 [ 0, %14 ], [ 1, %.critedge ], [ 0, %8 ]
+  %.012 = phi i32 [ 0, %14 ], [ 0, %8 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012
@@ -919,7 +919,7 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.critedge, %13, %10, %24
-  %.026 = phi i32 [ 0, %24 ], [ 1, %.critedge ], [ 0, %13 ], [ 0, %10 ]
+  %.026 = phi i32 [ 0, %24 ], [ 1, %.critedge ], [ 0, %10 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

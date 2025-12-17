@@ -403,7 +403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i: ; preds = %8
   resume { ptr, i32 } %.pn84.pn.i
 
 _ZN2cv5arucoL21zmaxheap_remove_indexEPNS0_8zmaxheapEiPvPf.exit: ; preds = %60, %88, %3, %21, %25
-  %.068.i = phi i32 [ 0, %3 ], [ 1, %21 ], [ 1, %25 ], [ 1, %88 ], [ 1, %60 ]
+  %.068.i = phi i32 [ 1, %21 ], [ 0, %3 ], [ 1, %25 ], [ 1, %88 ], [ 1, %60 ]
   ret i32 %.068.i
 }
 

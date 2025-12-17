@@ -4115,7 +4115,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i116:             ; preds = %_ZN5Eigen6MatrixIdL
   br i1 %338, label %.lr.ph.i.i.i.i.i.i.i.i13.i122, label %._crit_edge.i.i.i.i.i.i.i.i9.i118, !llvm.loop !49
 
 .sink.split:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i10.i, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97, %._crit_edge.i.i.i.i.i.i.i.i9.i96, %._crit_edge.i.i.i.i.i.i.i.i9.i118, %._crit_edge.i.i.i.i.i.i.i.i9.i
-  %.sink193.sink.sroa.phi = phi ptr [ %.sink193.sink.sroa.gep, %._crit_edge.i.i.i.i.i.i.i.i9.i ], [ %.sink193.sink.sroa.gep199, %._crit_edge.i.i.i.i.i.i.i.i9.i96 ], [ %.sink193.sink.sroa.gep200, %._crit_edge.i.i.i.i.i.i.i.i9.i118 ], [ %.sink193.sink.sroa.gep201, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97 ], [ %.sink193.sink.sroa.gep202, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119 ], [ %.sink193.sink.sroa.gep203, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ]
+  %.sink193.sink.sroa.phi = phi ptr [ %.sink193.sink.sroa.gep, %._crit_edge.i.i.i.i.i.i.i.i9.i ], [ %.sink193.sink.sroa.gep199, %._crit_edge.i.i.i.i.i.i.i.i9.i96 ], [ %.sink193.sink.sroa.gep200, %._crit_edge.i.i.i.i.i.i.i.i9.i118 ], [ %.sink193.sink.sroa.gep202, %.lr.ph.i.i.i.i.i.i.i.i.i10.i119 ], [ %.sink193.sink.sroa.gep201, %.lr.ph.i.i.i.i.i.i.i.i.i10.i97 ], [ %.sink193.sink.sroa.gep203, %.lr.ph.i.i.i.i.i.i.i.i.i10.i ]
   %339 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %339, ptr noundef nonnull align 8 dereferenceable(17) %.sink193.sink.sroa.phi, i64 17, i1 false)
   store i8 1, ptr %4, align 8, !tbaa !74
@@ -6275,7 +6275,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i379:             ; preds = %_ZN5Eigen6MatrixIdL
   ret i1 %.2
 
 830:                                              ; preds = %518, %524, %411, %420, %291, %300, %289, %552, %641, %647, %814, %287
-  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %290, %289 ], [ %.pn113, %552 ], [ %.pn111, %647 ], [ %642, %641 ], [ %.pn.pn.pn.pn, %814 ], [ %.pn122.pn, %300 ], [ %292, %291 ], [ %.pn118.pn, %420 ], [ %412, %411 ], [ %.pn115, %524 ], [ %519, %518 ]
+  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn, %814 ], [ %290, %289 ], [ %292, %291 ], [ %412, %411 ], [ %.pn113, %552 ], [ %.pn111, %647 ], [ %642, %641 ], [ %.pn122.pn, %300 ], [ %.pn118.pn, %420 ], [ %.pn115, %524 ], [ %519, %518 ]
   %831 = load ptr, ptr %.sroa.gep420, align 8, !tbaa !45
   call void @free(ptr noundef %831) #35
   %832 = load ptr, ptr %.sroa.gep411, align 8, !tbaa !45
@@ -7981,7 +7981,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   %704 = icmp slt i64 %703, %693
   br i1 %704, label %.lr.ph.i.i.i.i.i.i.i.i13.i291, label %._crit_edge.i.i.i.i.i.i.i.i9.i287, !llvm.loop !49
 
-.critedge139.thread328:                           ; preds = %497, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223
+.critedge139.thread328:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223, %497
   %705 = load ptr, ptr %266, align 8, !tbaa !45
   call void @free(ptr noundef %705) #35
   %706 = load ptr, ptr %267, align 8, !tbaa !45
@@ -8001,7 +8001,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   br label %270
 
 709:                                              ; preds = %610, %619, %579, %585, %500, %510, %504, %502, %498
-  %.pn120.pn.pn = phi { ptr, i32 } [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %.pn, %510 ], [ %505, %504 ], [ %.pn113, %585 ], [ %580, %579 ], [ %.pn116.pn, %619 ], [ %611, %610 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %580, %579 ], [ %505, %504 ], [ %.pn, %510 ], [ %.pn113, %585 ], [ %.pn116.pn, %619 ], [ %611, %610 ]
   %710 = load ptr, ptr %266, align 8, !tbaa !45
   call void @free(ptr noundef %710) #35
   %711 = load ptr, ptr %267, align 8, !tbaa !45
@@ -8018,7 +8018,7 @@ thread-pre-split.i.i.i.i.i.i.i7.i285:             ; preds = %_ZN5Eigen6MatrixIdL
   br label %715
 
 715:                                              ; preds = %712, %360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189, %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206, %.critedge139.thread328, %180
-  %.085 = phi i1 [ false, %180 ], [ true, %712 ], [ false, %360 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ false, %419 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ], [ false, %.critedge139.thread328 ]
+  %.085 = phi i1 [ false, %180 ], [ true, %712 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189 ], [ false, %.critedge139.thread328 ], [ false, %360 ], [ false, %419 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206 ]
   ret i1 %.085
 
 716:                                              ; preds = %361, %420, %709, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173

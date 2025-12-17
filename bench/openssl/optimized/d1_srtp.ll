@@ -128,8 +128,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %0
   br label %34
 
 find_profile_by_name.exit:                        ; preds = %28, %25, %22
-  %.sink34 = phi i32 [ 125, %22 ], [ 115, %25 ], [ 121, %28 ]
-  %.sink = phi i32 [ 364, %22 ], [ 353, %25 ], [ 362, %28 ]
+  %.sink34 = phi i32 [ 125, %22 ], [ 121, %28 ], [ 115, %25 ]
+  %.sink = phi i32 [ 364, %22 ], [ 362, %28 ], [ 353, %25 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink34, ptr noundef nonnull @__func__.ssl_ctx_make_profiles) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #5

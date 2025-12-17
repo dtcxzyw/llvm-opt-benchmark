@@ -3058,7 +3058,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit: ; preds = %if.then, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %4 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %4 = phi i1 [ %cmp.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %if.then ]
   %5 = load ptr, ptr %__node_gen, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #35
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__v)
@@ -3385,8 +3385,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %return
 
 return:                                           ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105, %if.then.i113, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51, %if.then.i59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i, %if.then64, %if.then32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70, %if.then50, %if.then18, %if.then9
-  %retval.sroa.0.0 = phi ptr [ null, %if.then9 ], [ %12, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select, %if.then32 ], [ %spec.select135, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ null, %if.then.i59 ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ null, %if.then.i113 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
-  %retval.sroa.12.0 = phi ptr [ %4, %if.then9 ], [ %12, %if.then18 ], [ %23, %if.then50 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %spec.select134, %if.then32 ], [ %spec.select136, %if.then64 ], [ %__y.0.lcssa31.i, %if.then.i ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %__y.0.lcssa31.i60, %if.then.i59 ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %__y.0.lcssa31.i114, %if.then.i113 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ]
+  %retval.sroa.0.0 = phi ptr [ %spec.select, %if.then32 ], [ null, %if.then9 ], [ null, %if.then.i59 ], [ %12, %if.then18 ], [ %__position.coerce, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ null, %if.then.i ], [ %spec.select135, %if.then64 ], [ null, %if.then50 ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %spec.select.i53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %spec.select.i107, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ], [ null, %if.then.i113 ]
+  %retval.sroa.12.0 = phi ptr [ %spec.select134, %if.then32 ], [ %4, %if.then9 ], [ %__y.0.lcssa31.i60, %if.then.i59 ], [ %12, %if.then18 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit70 ], [ %__y.0.lcssa31.i, %if.then.i ], [ %spec.select136, %if.then64 ], [ %23, %if.then50 ], [ %spec.select20.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ], [ %spec.select20.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i51 ], [ %spec.select20.i108, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i105 ], [ %__y.0.lcssa31.i114, %if.then.i113 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3736,7 +3736,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #33
   br label %lpad.body
 
@@ -5019,7 +5019,7 @@ if.then3.i.i.i.us23.i:                            ; preds = %if.end.i.i.i.us16.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i: ; preds = %if.then3.i.i.i.us23.i, %if.end4.i.i.i.us19.i, %if.then.us11.i
-  %retval.0.i.i.i.us26.i = phi i32 [ %52, %if.then3.i.i.i.us23.i ], [ %51, %if.end4.i.i.i.us19.i ], [ %48, %if.then.us11.i ]
+  %retval.0.i.i.i.us26.i = phi i32 [ %51, %if.end4.i.i.i.us19.i ], [ %52, %if.then3.i.i.i.us23.i ], [ %48, %if.then.us11.i ]
   %idxprom.i.i9.us27.i = sext i32 %retval.0.i.i.i.us26.i to i64
   %arrayidx.i.i10.us28.i = getelementptr inbounds i8, ptr %47, i64 %idxprom.i.i9.us27.i
   %53 = load i8, ptr %arrayidx.i.i10.us28.i, align 1
@@ -5033,7 +5033,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1
   br label %for.inc.us31.i
 
 for.inc.us31.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us30.i, %for.body.us8.i
-  %sum.1.us32.i = phi i64 [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us30.i ], [ %sum.05.us10.i, %for.body.us8.i ]
+  %sum.1.us32.i = phi i64 [ %sum.05.us10.i, %for.body.us8.i ], [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us30.i ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %cmp.us34.i = icmp slt i64 %indvars.iv.next113.i, %45
   br i1 %cmp.us34.i, label %for.body.us8.i, label %invoke.cont46.sink.split, !llvm.loop !48
@@ -5141,7 +5141,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont39, %if.
           to label %invoke.cont46 unwind label %lpad40
 
 invoke.cont46.sink.split:                         ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i, %for.inc.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us59.us82.i, %for.inc.us31.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.us.i, %if.then28, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then28 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us14.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.i ]
+  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then28 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us14.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.us.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlaE_clESZ_a.exit.i ]
   store i64 %sum.0.lcssa.i144.sink, ptr %sum, align 8
   br label %invoke.cont46
 
@@ -5824,7 +5824,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %186 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -5933,7 +5933,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %lpad12.i.i.i.i.i ], [ %200, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %if.then.i19.i.i.i.i ], [ %200, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -6276,7 +6276,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -6507,7 +6507,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -6704,7 +6704,7 @@ if.then26.i.i.i.i.i.i.i507:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i225
 
 land.end.i.i.i.i.i225:                            ; preds = %for.body.i.i.i.i.i.i.i516, %if.then26.i.i.i.i.i.i.i507, %for.end.i.i.i.i.i.i.i505, %land.rhs.i.i.i.i.i499, %land.lhs.true.i.i.i.i.i495, %if.end.i7.i.i.i.i222
-  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
+  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
   store i16 %frombool.i.i.i.i.i226, ptr %allSelected_.i.i.i.i.i219, align 4
   %307 = trunc i16 %frombool.i.i.i.i.i226 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i227
@@ -6813,7 +6813,7 @@ if.then.i19.i.i.i.i492:                           ; preds = %lpad12.i.i.i.i.i490
   br label %ehcleanup.i.i.i.i.i482
 
 ehcleanup.i.i.i.i.i482:                           ; preds = %if.then.i19.i.i.i.i492, %lpad12.i.i.i.i.i490, %lpad9.i.loopexit.split-lp.i.i.i.i486, %lpad9.i.loopexit.i.i.i.i480
-  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %lpad12.i.i.i.i.i490 ], [ %321, %if.then.i19.i.i.i.i492 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
+  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %if.then.i19.i.i.i.i492 ], [ %321, %lpad12.i.i.i.i.i490 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i469
 
@@ -7139,7 +7139,7 @@ if.then.i35.i.i.i.i.i.i.i.i328:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i317
 
 ehcleanup.i35.i.i.i.i.i.i.i.i317:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i328, %lpad13.i.i.i.i.i.i.i.i.i326, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315
-  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
+  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i305
 
@@ -7353,7 +7353,7 @@ if.then.i51.i.i.i.i.i.i.i.i411:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i401
 
 ehcleanup.i.i.i.i.i.i.i.i.i401:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i411, %lpad12.i.i.i.i.i.i.i.i.i409, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399
-  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
+  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i390
 
@@ -7578,7 +7578,7 @@ if.then26.i.i.i.i.i.i.i815:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i580
 
 land.end.i.i.i.i.i580:                            ; preds = %for.body.i.i.i.i.i.i.i824, %if.then26.i.i.i.i.i.i.i815, %for.end.i.i.i.i.i.i.i813, %land.rhs.i.i.i.i.i807, %land.lhs.true.i.i.i.i.i803, %if.end.i7.i.i.i.i577
-  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
+  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
   store i16 %frombool.i.i.i.i.i581, ptr %allSelected_.i.i.i.i.i574, align 4
   %430 = trunc i16 %frombool.i.i.i.i.i581 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i582
@@ -7759,7 +7759,7 @@ if.then.i19.i.i.i.i800:                           ; preds = %lpad12.i.i.i.i.i798
   br label %ehcleanup.i.i.i.i.i790
 
 ehcleanup.i.i.i.i.i790:                           ; preds = %if.then.i19.i.i.i.i800, %lpad12.i.i.i.i.i798, %lpad9.i.loopexit.split-lp.i.i.i.i794, %lpad9.i.loopexit.i.i.i.i788
-  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %lpad12.i.i.i.i.i798 ], [ %463, %if.then.i19.i.i.i.i800 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
+  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %if.then.i19.i.i.i.i800 ], [ %463, %lpad12.i.i.i.i.i798 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i.i.i.i.i778
 
@@ -8052,7 +8052,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i665
 
 ehcleanup.i35.i.i.i.i.i.i.i.i665:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i673, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663
-  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
+  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i654
 
@@ -8233,7 +8233,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i724
 
 ehcleanup.i.i.i.i.i.i.i.i.i724:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i731, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723
-  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
+  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i715
 
@@ -8338,7 +8338,7 @@ lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad113.body
 
 lpad113.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i930, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019, %catch.fallthrough.i.i.i.i.i1092, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648, %catch.fallthrough.i.i.i.i.i.i.i.i.i711, %catch.fallthrough.i.i.i.i.i771, %lpad113.loopexit, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad113.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098, %ehcleanup.i.i.i.i.i1112, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939, %ehcleanup.i35.i.i.i.i.i.i.i.i952, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025, %ehcleanup.i.i.i.i.i.i.i.i.i1036, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777, %ehcleanup.i.i.i.i.i790, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i665, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i724
-  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit1308, %lpad113.loopexit ], [ %lpad.loopexit1311, %lpad113.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1335, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
+  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit.split-lp1335, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1308, %lpad113.loopexit ], [ %lpad.loopexit1311, %lpad113.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad113.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements106) #33
   br label %ehcleanup122
 
@@ -8427,7 +8427,7 @@ if.then26.i.i.i.i.i.i.i1137:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i860
 
 land.end.i.i.i.i.i860:                            ; preds = %for.body.i.i.i.i.i.i.i1146, %if.then26.i.i.i.i.i.i.i1137, %for.end.i.i.i.i.i.i.i1135, %land.rhs.i.i.i.i.i1129, %land.lhs.true.i.i.i.i.i1125, %if.end.i7.i.i.i.i857
-  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
+  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
   store i16 %frombool.i.i.i.i.i861, ptr %allSelected_.i.i.i.i.i574, align 4
   %555 = trunc i16 %frombool.i.i.i.i.i861 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i862
@@ -8536,7 +8536,7 @@ if.then.i19.i.i.i.i1122:                          ; preds = %lpad12.i.i.i.i.i112
   br label %ehcleanup.i.i.i.i.i1112
 
 ehcleanup.i.i.i.i.i1112:                          ; preds = %if.then.i19.i.i.i.i1122, %lpad12.i.i.i.i.i1120, %lpad9.i.loopexit.split-lp.i.i.i.i1116, %lpad9.i.loopexit.i.i.i.i1110
-  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %lpad12.i.i.i.i.i1120 ], [ %569, %if.then.i19.i.i.i.i1122 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
+  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %if.then.i19.i.i.i.i1122 ], [ %569, %lpad12.i.i.i.i.i1120 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i.i.i.i.i1099
 
@@ -8771,7 +8771,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i996, label %for.body.i.i.i.i.i.i.i.i.i.i988, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !75
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i909
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i920 = getelementptr inbounds nuw i8, ptr %581, i64 152
   %612 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i920, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i921 = icmp eq ptr %612, null
@@ -8925,7 +8925,7 @@ if.then.i35.i.i.i.i.i.i.i.i963:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i952
 
 ehcleanup.i35.i.i.i.i.i.i.i.i952:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i963, %lpad13.i.i.i.i.i.i.i.i.i961, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950
-  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
+  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i940
 
@@ -9058,7 +9058,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1070, label %for.body.i.i.i.i.i.i.i.i.i1065, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !75
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i1000
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i.i.i.i.i.i.i.i.i ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1010 = getelementptr inbounds nuw i8, ptr %637, i64 152
   %668 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1010, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %668, null
@@ -9202,7 +9202,7 @@ if.then.i51.i.i.i.i.i.i.i.i1045:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1036
 
 ehcleanup.i.i.i.i.i.i.i.i.i1036:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1045, %lpad12.i.i.i.i.i.i.i.i.i1043, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035
-  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
+  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
   invoke void @__cxa_end_catch()
           to label %lpad113.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1026
 
@@ -9490,7 +9490,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i136,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128
-  %.sink1745 = phi ptr [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %.sink1749, %return.sink.split.sink.split ]
+  %.sink1745 = phi ptr [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %.sink1749, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1210 = load ptr, ptr %.sink1745, align 8
   %vfn3.i.i.i.i.i.i1211 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1210, i64 24
   %720 = load ptr, ptr %vfn3.i.i.i.i.i.i1211, align 8
@@ -9501,8 +9501,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i295, %catch.fallthrough.i.i.i.i.i.i.i.i.i383, %catch.fallthrough.i.i.i.i.i462, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i401, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389, %ehcleanup.i35.i.i.i.i.i.i.i.i317, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304, %ehcleanup.i.i.i.i.i482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468, %if.then.i.i.i.i543, %lpad.i541, %ehcleanup122, %if.then.i.i.i.i1184, %lpad78.loopexit.split-lp.loopexit, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad78.loopexit, %lpad.i, %ehcleanup55, %ehcleanup56.sink.split
-  %elementsVector75.sink = phi ptr [ %elementsVector, %ehcleanup56.sink.split ], [ %elementsVector, %ehcleanup55 ], [ %elementsVector, %lpad.i ], [ %elementsVector75, %lpad78.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit ], [ %elementsVector75, %if.then.i.i.i.i1184 ], [ %elementsVector75, %ehcleanup122 ], [ %elementsVector75, %lpad.i541 ], [ %elementsVector75, %if.then.i.i.i.i543 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector75, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector75, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector75, %ehcleanup.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector75, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup56.sink.split ], [ %.pn42.pn, %ehcleanup55 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad78.loopexit ], [ %lpad.loopexit1293, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad78.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup122 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %elementsVector75.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup56.sink.split ], [ %elementsVector, %ehcleanup55 ], [ %elementsVector75, %lpad78.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector75, %lpad78.loopexit.split-lp.loopexit ], [ %elementsVector75, %if.then.i.i.i.i1184 ], [ %elementsVector75, %ehcleanup122 ], [ %elementsVector75, %lpad.i541 ], [ %elementsVector75, %if.then.i.i.i.i543 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector75, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector75, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector75, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector75, %ehcleanup.i.i.i.i.i ], [ %elementsVector75, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector75, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector75, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup56.sink.split ], [ %.pn42.pn, %ehcleanup55 ], [ %lpad.loopexit, %lpad78.loopexit ], [ %lpad.loopexit1293, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad78.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad78.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup122 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector75.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -10407,7 +10407,7 @@ if.then26:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.body, %for.end, %if.then11, %entry, %if.then26, %if.then3
-  %retval.0 = phi i1 [ %cmp.i, %if.then3 ], [ %cmp.i44, %if.then26 ], [ true, %entry ], [ false, %if.then11 ], [ true, %for.end ], [ false, %for.body ]
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.then3 ], [ false, %if.then11 ], [ %cmp.i44, %if.then26 ], [ true, %for.end ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -11784,8 +11784,8 @@ if.end.i26:                                       ; preds = %if.end15
   br label %return
 
 return:                                           ; preds = %if.end.i26, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i28, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
-  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux41, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i26 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.then.i.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i27, %if.end.i26 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 0, %if.then.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %.mux41, %if.then5 ], [ 1, %if.end ], [ 1, %if.then18.i ], [ 0, %if.then5.thread ], [ 1, %if.end.i ], [ 1, %if.end.i26 ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.end.i.i ], [ 1, %if.then.i.i ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.then5 ], [ %cond, %if.end ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5.thread ], [ %cond.i, %if.end.i ], [ %cond.i27, %if.end.i26 ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ %cond.i.i, %if.end.i.i ], [ 0, %if.then.i.i ]
   %retval.sroa.4.0.insert.ext = shl nuw nsw i64 %retval.sroa.4.0, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.ext, %retval.sroa.0.0.insert.ext
@@ -12943,8 +12943,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then18.i, %if.then, %if.then.i, %if.end
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.end ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.then.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ 0, %if.then.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.end ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ %cond.i, %if.end.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -16227,8 +16227,8 @@ if.end.i26:                                       ; preds = %if.end15
   br label %return
 
 return:                                           ; preds = %if.end.i26, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i28, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
-  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux41, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i26 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.then.i.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i27, %if.end.i26 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 0, %if.then.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %.mux41, %if.then5 ], [ 1, %if.end ], [ 1, %if.then18.i ], [ 0, %if.then5.thread ], [ 1, %if.end.i ], [ 1, %if.end.i26 ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.end.i.i ], [ 1, %if.then.i.i ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.then5 ], [ %cond, %if.end ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5.thread ], [ %cond.i, %if.end.i ], [ %cond.i27, %if.end.i26 ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ %cond.i.i, %if.end.i.i ], [ 0, %if.then.i.i ]
   %retval.sroa.4.0.insert.ext = shl nuw nsw i64 %retval.sroa.4.0, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.ext, %retval.sroa.0.0.insert.ext
@@ -17219,8 +17219,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then18.i, %if.then, %if.then.i, %if.end
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.end ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.then.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ 0, %if.then.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.end ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ %cond.i, %if.end.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -19553,7 +19553,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -19819,7 +19819,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -20075,7 +20075,7 @@ if.then3.i.i.i.us23:                              ; preds = %if.end.i.i.i.us16
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25: ; preds = %if.then3.i.i.i.us23, %if.end4.i.i.i.us19, %if.then.us11
-  %retval.0.i.i.i.us26 = phi i32 [ %32, %if.then3.i.i.i.us23 ], [ %31, %if.end4.i.i.i.us19 ], [ %28, %if.then.us11 ]
+  %retval.0.i.i.i.us26 = phi i32 [ %31, %if.end4.i.i.i.us19 ], [ %32, %if.then3.i.i.i.us23 ], [ %28, %if.then.us11 ]
   %idxprom.i.i9.us27 = sext i32 %retval.0.i.i.i.us26 to i64
   %arrayidx.i.i10.us28 = getelementptr inbounds i8, ptr %26, i64 %idxprom.i.i9.us27
   %33 = load i8, ptr %arrayidx.i.i10.us28, align 1
@@ -20089,7 +20089,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1
   br label %for.inc.us31
 
 for.inc.us31:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us30, %for.body.us8
-  %sum.1.us32 = phi i64 [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us30 ], [ %sum.05.us10, %for.body.us8 ]
+  %sum.1.us32 = phi i64 [ %sum.05.us10, %for.body.us8 ], [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us30 ]
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %cmp.us34 = icmp slt i64 %indvars.iv.next113, %24
   br i1 %cmp.us34, label %for.body.us8, label %for.end, !llvm.loop !172
@@ -20239,7 +20239,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %70, %if.then3.i.i.i ], [ %72, %if.end4.i.i.i ], [ %68, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %72, %if.end4.i.i.i ], [ %70, %if.then3.i.i.i ], [ %68, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds i8, ptr %66, i64 %idxprom.i.i9
   %73 = load i8, ptr %arrayidx.i.i10, align 1
@@ -20263,7 +20263,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !172
 
 for.end:                                          ; preds = %for.inc, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us82, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us, %for.inc.us31, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us82 ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59 ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us59.us82 ], [ %sum.1, %for.inc ]
   ret i64 %sum.0.lcssa
 }
 
@@ -20388,7 +20388,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -20540,7 +20540,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit, !llvm.loop !75
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i, %entry
-  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i ]
+  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us14.i ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.us.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlaE_clESU_a.exit.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %35 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %35, null
@@ -20714,7 +20714,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -21155,7 +21155,7 @@ if.then3.i.i.i.us23.i:                            ; preds = %if.end.i.i.i.us16.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i: ; preds = %if.then3.i.i.i.us23.i, %if.end4.i.i.i.us19.i, %if.then.us11.i
-  %retval.0.i.i.i.us26.i = phi i32 [ %52, %if.then3.i.i.i.us23.i ], [ %51, %if.end4.i.i.i.us19.i ], [ %48, %if.then.us11.i ]
+  %retval.0.i.i.i.us26.i = phi i32 [ %51, %if.end4.i.i.i.us19.i ], [ %52, %if.then3.i.i.i.us23.i ], [ %48, %if.then.us11.i ]
   %idxprom.i.i9.us27.i = sext i32 %retval.0.i.i.i.us26.i to i64
   %arrayidx.i.i10.us28.i = getelementptr inbounds i16, ptr %47, i64 %idxprom.i.i9.us27.i
   %53 = load i16, ptr %arrayidx.i.i10.us28.i, align 2
@@ -21169,7 +21169,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1
   br label %for.inc.us31.i
 
 for.inc.us31.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us30.i, %for.body.us8.i
-  %sum.1.us32.i = phi i64 [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us30.i ], [ %sum.05.us10.i, %for.body.us8.i ]
+  %sum.1.us32.i = phi i64 [ %sum.05.us10.i, %for.body.us8.i ], [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us30.i ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %cmp.us34.i = icmp slt i64 %indvars.iv.next113.i, %45
   br i1 %cmp.us34.i, label %for.body.us8.i, label %invoke.cont45.sink.split, !llvm.loop !173
@@ -21277,7 +21277,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont38, %if.
           to label %invoke.cont45 unwind label %lpad39
 
 invoke.cont45.sink.split:                         ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i, %for.inc.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us59.us82.i, %for.inc.us31.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.us.i, %if.then27, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us14.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.i ]
+  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us14.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.us.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRlsE_clESZ_s.exit.i ]
   store i64 %sum.0.lcssa.i144.sink, ptr %sum, align 8
   br label %invoke.cont45
 
@@ -21960,7 +21960,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %186 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -22069,7 +22069,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %lpad12.i.i.i.i.i ], [ %200, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %if.then.i19.i.i.i.i ], [ %200, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -22412,7 +22412,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -22643,7 +22643,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -22840,7 +22840,7 @@ if.then26.i.i.i.i.i.i.i507:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i225
 
 land.end.i.i.i.i.i225:                            ; preds = %for.body.i.i.i.i.i.i.i516, %if.then26.i.i.i.i.i.i.i507, %for.end.i.i.i.i.i.i.i505, %land.rhs.i.i.i.i.i499, %land.lhs.true.i.i.i.i.i495, %if.end.i7.i.i.i.i222
-  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
+  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
   store i16 %frombool.i.i.i.i.i226, ptr %allSelected_.i.i.i.i.i219, align 4
   %307 = trunc i16 %frombool.i.i.i.i.i226 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i227
@@ -22949,7 +22949,7 @@ if.then.i19.i.i.i.i492:                           ; preds = %lpad12.i.i.i.i.i490
   br label %ehcleanup.i.i.i.i.i482
 
 ehcleanup.i.i.i.i.i482:                           ; preds = %if.then.i19.i.i.i.i492, %lpad12.i.i.i.i.i490, %lpad9.i.loopexit.split-lp.i.i.i.i486, %lpad9.i.loopexit.i.i.i.i480
-  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %lpad12.i.i.i.i.i490 ], [ %321, %if.then.i19.i.i.i.i492 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
+  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %if.then.i19.i.i.i.i492 ], [ %321, %lpad12.i.i.i.i.i490 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i469
 
@@ -23275,7 +23275,7 @@ if.then.i35.i.i.i.i.i.i.i.i328:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i317
 
 ehcleanup.i35.i.i.i.i.i.i.i.i317:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i328, %lpad13.i.i.i.i.i.i.i.i.i326, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315
-  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
+  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i305
 
@@ -23489,7 +23489,7 @@ if.then.i51.i.i.i.i.i.i.i.i411:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i401
 
 ehcleanup.i.i.i.i.i.i.i.i.i401:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i411, %lpad12.i.i.i.i.i.i.i.i.i409, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399
-  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
+  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i390
 
@@ -23714,7 +23714,7 @@ if.then26.i.i.i.i.i.i.i815:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i580
 
 land.end.i.i.i.i.i580:                            ; preds = %for.body.i.i.i.i.i.i.i824, %if.then26.i.i.i.i.i.i.i815, %for.end.i.i.i.i.i.i.i813, %land.rhs.i.i.i.i.i807, %land.lhs.true.i.i.i.i.i803, %if.end.i7.i.i.i.i577
-  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
+  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
   store i16 %frombool.i.i.i.i.i581, ptr %allSelected_.i.i.i.i.i574, align 4
   %430 = trunc i16 %frombool.i.i.i.i.i581 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i582
@@ -23895,7 +23895,7 @@ if.then.i19.i.i.i.i800:                           ; preds = %lpad12.i.i.i.i.i798
   br label %ehcleanup.i.i.i.i.i790
 
 ehcleanup.i.i.i.i.i790:                           ; preds = %if.then.i19.i.i.i.i800, %lpad12.i.i.i.i.i798, %lpad9.i.loopexit.split-lp.i.i.i.i794, %lpad9.i.loopexit.i.i.i.i788
-  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %lpad12.i.i.i.i.i798 ], [ %463, %if.then.i19.i.i.i.i800 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
+  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %if.then.i19.i.i.i.i800 ], [ %463, %lpad12.i.i.i.i.i798 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i778
 
@@ -24188,7 +24188,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i665
 
 ehcleanup.i35.i.i.i.i.i.i.i.i665:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i673, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663
-  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
+  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i654
 
@@ -24369,7 +24369,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i724
 
 ehcleanup.i.i.i.i.i.i.i.i.i724:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i731, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723
-  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
+  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i715
 
@@ -24474,7 +24474,7 @@ lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad108.body
 
 lpad108.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i930, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019, %catch.fallthrough.i.i.i.i.i1092, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648, %catch.fallthrough.i.i.i.i.i.i.i.i.i711, %catch.fallthrough.i.i.i.i.i771, %lpad108.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098, %ehcleanup.i.i.i.i.i1112, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939, %ehcleanup.i35.i.i.i.i.i.i.i.i952, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025, %ehcleanup.i.i.i.i.i.i.i.i.i1036, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777, %ehcleanup.i.i.i.i.i790, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i665, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i724
-  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit1308, %lpad108.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1335, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
+  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit.split-lp1335, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1308, %lpad108.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements101) #33
   br label %ehcleanup117
 
@@ -24563,7 +24563,7 @@ if.then26.i.i.i.i.i.i.i1137:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i860
 
 land.end.i.i.i.i.i860:                            ; preds = %for.body.i.i.i.i.i.i.i1146, %if.then26.i.i.i.i.i.i.i1137, %for.end.i.i.i.i.i.i.i1135, %land.rhs.i.i.i.i.i1129, %land.lhs.true.i.i.i.i.i1125, %if.end.i7.i.i.i.i857
-  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
+  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
   store i16 %frombool.i.i.i.i.i861, ptr %allSelected_.i.i.i.i.i574, align 4
   %555 = trunc i16 %frombool.i.i.i.i.i861 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i862
@@ -24672,7 +24672,7 @@ if.then.i19.i.i.i.i1122:                          ; preds = %lpad12.i.i.i.i.i112
   br label %ehcleanup.i.i.i.i.i1112
 
 ehcleanup.i.i.i.i.i1112:                          ; preds = %if.then.i19.i.i.i.i1122, %lpad12.i.i.i.i.i1120, %lpad9.i.loopexit.split-lp.i.i.i.i1116, %lpad9.i.loopexit.i.i.i.i1110
-  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %lpad12.i.i.i.i.i1120 ], [ %569, %if.then.i19.i.i.i.i1122 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
+  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %if.then.i19.i.i.i.i1122 ], [ %569, %lpad12.i.i.i.i.i1120 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i1099
 
@@ -24907,7 +24907,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i996, label %for.body.i.i.i.i.i.i.i.i.i.i988, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !198
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i909
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i920 = getelementptr inbounds nuw i8, ptr %581, i64 152
   %612 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i920, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i921 = icmp eq ptr %612, null
@@ -25061,7 +25061,7 @@ if.then.i35.i.i.i.i.i.i.i.i963:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i952
 
 ehcleanup.i35.i.i.i.i.i.i.i.i952:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i963, %lpad13.i.i.i.i.i.i.i.i.i961, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950
-  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
+  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i940
 
@@ -25194,7 +25194,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1070, label %for.body.i.i.i.i.i.i.i.i.i1065, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !198
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i1000
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i.i.i.i.i.i.i.i.i ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1010 = getelementptr inbounds nuw i8, ptr %637, i64 152
   %668 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1010, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %668, null
@@ -25338,7 +25338,7 @@ if.then.i51.i.i.i.i.i.i.i.i1045:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1036
 
 ehcleanup.i.i.i.i.i.i.i.i.i1036:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1045, %lpad12.i.i.i.i.i.i.i.i.i1043, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035
-  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
+  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1026
 
@@ -25626,7 +25626,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i136,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128
-  %.sink1745 = phi ptr [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %.sink1749, %return.sink.split.sink.split ]
+  %.sink1745 = phi ptr [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %.sink1749, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1210 = load ptr, ptr %.sink1745, align 8
   %vfn3.i.i.i.i.i.i1211 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1210, i64 24
   %720 = load ptr, ptr %vfn3.i.i.i.i.i.i1211, align 8
@@ -25637,8 +25637,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i295, %catch.fallthrough.i.i.i.i.i.i.i.i.i383, %catch.fallthrough.i.i.i.i.i462, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i401, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389, %ehcleanup.i35.i.i.i.i.i.i.i.i317, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304, %ehcleanup.i.i.i.i.i482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468, %if.then.i.i.i.i543, %lpad.i541, %ehcleanup117, %if.then.i.i.i.i1184, %lpad79.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit, %lpad.i, %ehcleanup53, %ehcleanup54.sink.split
-  %elementsVector73.sink = phi ptr [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector, %lpad.i ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1184 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %elementsVector73.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1184 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector73.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -25894,7 +25894,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -26157,7 +26157,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -26413,7 +26413,7 @@ if.then3.i.i.i.us23:                              ; preds = %if.end.i.i.i.us16
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25: ; preds = %if.then3.i.i.i.us23, %if.end4.i.i.i.us19, %if.then.us11
-  %retval.0.i.i.i.us26 = phi i32 [ %32, %if.then3.i.i.i.us23 ], [ %31, %if.end4.i.i.i.us19 ], [ %28, %if.then.us11 ]
+  %retval.0.i.i.i.us26 = phi i32 [ %31, %if.end4.i.i.i.us19 ], [ %32, %if.then3.i.i.i.us23 ], [ %28, %if.then.us11 ]
   %idxprom.i.i9.us27 = sext i32 %retval.0.i.i.i.us26 to i64
   %arrayidx.i.i10.us28 = getelementptr inbounds i16, ptr %26, i64 %idxprom.i.i9.us27
   %33 = load i16, ptr %arrayidx.i.i10.us28, align 2
@@ -26427,7 +26427,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1
   br label %for.inc.us31
 
 for.inc.us31:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us30, %for.body.us8
-  %sum.1.us32 = phi i64 [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us30 ], [ %sum.05.us10, %for.body.us8 ]
+  %sum.1.us32 = phi i64 [ %sum.05.us10, %for.body.us8 ], [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us30 ]
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %cmp.us34 = icmp slt i64 %indvars.iv.next113, %24
   br i1 %cmp.us34, label %for.body.us8, label %for.end, !llvm.loop !207
@@ -26577,7 +26577,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %70, %if.then3.i.i.i ], [ %72, %if.end4.i.i.i ], [ %68, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %72, %if.end4.i.i.i ], [ %70, %if.then3.i.i.i ], [ %68, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds i16, ptr %66, i64 %idxprom.i.i9
   %73 = load i16, ptr %arrayidx.i.i10, align 2
@@ -26601,7 +26601,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !207
 
 for.end:                                          ; preds = %for.inc, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us82, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us, %for.inc.us31, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us82 ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59 ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us59.us82 ], [ %sum.1, %for.inc ]
   ret i64 %sum.0.lcssa
 }
 
@@ -26726,7 +26726,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -26878,7 +26878,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit, !llvm.loop !198
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i, %entry
-  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i ]
+  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us14.i ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.us.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRlsE_clESU_s.exit.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %35 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %35, null
@@ -27052,7 +27052,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -27493,7 +27493,7 @@ if.then3.i.i.i.us23.i:                            ; preds = %if.end.i.i.i.us16.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i: ; preds = %if.then3.i.i.i.us23.i, %if.end4.i.i.i.us19.i, %if.then.us11.i
-  %retval.0.i.i.i.us26.i = phi i32 [ %52, %if.then3.i.i.i.us23.i ], [ %51, %if.end4.i.i.i.us19.i ], [ %48, %if.then.us11.i ]
+  %retval.0.i.i.i.us26.i = phi i32 [ %51, %if.end4.i.i.i.us19.i ], [ %52, %if.then3.i.i.i.us23.i ], [ %48, %if.then.us11.i ]
   %idxprom.i.i9.us27.i = sext i32 %retval.0.i.i.i.us26.i to i64
   %arrayidx.i.i10.us28.i = getelementptr inbounds i32, ptr %47, i64 %idxprom.i.i9.us27.i
   %53 = load i32, ptr %arrayidx.i.i10.us28.i, align 4
@@ -27507,7 +27507,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1
   br label %for.inc.us31.i
 
 for.inc.us31.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us30.i, %for.body.us8.i
-  %sum.1.us32.i = phi i64 [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us30.i ], [ %sum.05.us10.i, %for.body.us8.i ]
+  %sum.1.us32.i = phi i64 [ %sum.05.us10.i, %for.body.us8.i ], [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us30.i ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %cmp.us34.i = icmp slt i64 %indvars.iv.next113.i, %45
   br i1 %cmp.us34.i, label %for.body.us8.i, label %invoke.cont45.sink.split, !llvm.loop !208
@@ -27615,7 +27615,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont38, %if.
           to label %invoke.cont45 unwind label %lpad39
 
 invoke.cont45.sink.split:                         ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i, %for.inc.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us59.us82.i, %for.inc.us31.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.us.i, %if.then27, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us14.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.i ]
+  %sum.0.lcssa.i144.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us14.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i ], [ %sum.1.us32.i, %for.inc.us31.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us59.us82.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.us.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRliE_clESZ_i.exit.i ]
   store i64 %sum.0.lcssa.i144.sink, ptr %sum, align 8
   br label %invoke.cont45
 
@@ -28298,7 +28298,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %186 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -28407,7 +28407,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %lpad12.i.i.i.i.i ], [ %200, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %if.then.i19.i.i.i.i ], [ %200, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -28750,7 +28750,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -28981,7 +28981,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -29178,7 +29178,7 @@ if.then26.i.i.i.i.i.i.i507:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i225
 
 land.end.i.i.i.i.i225:                            ; preds = %for.body.i.i.i.i.i.i.i516, %if.then26.i.i.i.i.i.i.i507, %for.end.i.i.i.i.i.i.i505, %land.rhs.i.i.i.i.i499, %land.lhs.true.i.i.i.i.i495, %if.end.i7.i.i.i.i222
-  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
+  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ %306, %if.then26.i.i.i.i.i.i.i507 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
   store i16 %frombool.i.i.i.i.i226, ptr %allSelected_.i.i.i.i.i219, align 4
   %307 = trunc i16 %frombool.i.i.i.i.i226 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i227
@@ -29287,7 +29287,7 @@ if.then.i19.i.i.i.i492:                           ; preds = %lpad12.i.i.i.i.i490
   br label %ehcleanup.i.i.i.i.i482
 
 ehcleanup.i.i.i.i.i482:                           ; preds = %if.then.i19.i.i.i.i492, %lpad12.i.i.i.i.i490, %lpad9.i.loopexit.split-lp.i.i.i.i486, %lpad9.i.loopexit.i.i.i.i480
-  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %lpad12.i.i.i.i.i490 ], [ %321, %if.then.i19.i.i.i.i492 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
+  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %321, %if.then.i19.i.i.i.i492 ], [ %321, %lpad12.i.i.i.i.i490 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i469
 
@@ -29613,7 +29613,7 @@ if.then.i35.i.i.i.i.i.i.i.i328:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i317
 
 ehcleanup.i35.i.i.i.i.i.i.i.i317:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i328, %lpad13.i.i.i.i.i.i.i.i.i326, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315
-  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
+  %.pn19.i.i.i.i.i.i.i.i318 = phi { ptr, i32 } [ %366, %if.then.i35.i.i.i.i.i.i.i.i328 ], [ %366, %lpad13.i.i.i.i.i.i.i.i.i326 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i315 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i322, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i321 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i305
 
@@ -29827,7 +29827,7 @@ if.then.i51.i.i.i.i.i.i.i.i411:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i401
 
 ehcleanup.i.i.i.i.i.i.i.i.i401:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i411, %lpad12.i.i.i.i.i.i.i.i.i409, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399
-  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
+  %.pn.i.i.i.i.i.i.i.i402 = phi { ptr, i32 } [ %406, %if.then.i51.i.i.i.i.i.i.i.i411 ], [ %406, %lpad12.i.i.i.i.i.i.i.i.i409 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i399 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i406, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i405 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i390
 
@@ -30052,7 +30052,7 @@ if.then26.i.i.i.i.i.i.i815:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i580
 
 land.end.i.i.i.i.i580:                            ; preds = %for.body.i.i.i.i.i.i.i824, %if.then26.i.i.i.i.i.i.i815, %for.end.i.i.i.i.i.i.i813, %land.rhs.i.i.i.i.i807, %land.lhs.true.i.i.i.i.i803, %if.end.i7.i.i.i.i577
-  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
+  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i803 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i807 ], [ 257, %for.end.i.i.i.i.i.i.i813 ], [ %429, %if.then26.i.i.i.i.i.i.i815 ], [ 256, %for.body.i.i.i.i.i.i.i824 ]
   store i16 %frombool.i.i.i.i.i581, ptr %allSelected_.i.i.i.i.i574, align 4
   %430 = trunc i16 %frombool.i.i.i.i.i581 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i582
@@ -30233,7 +30233,7 @@ if.then.i19.i.i.i.i800:                           ; preds = %lpad12.i.i.i.i.i798
   br label %ehcleanup.i.i.i.i.i790
 
 ehcleanup.i.i.i.i.i790:                           ; preds = %if.then.i19.i.i.i.i800, %lpad12.i.i.i.i.i798, %lpad9.i.loopexit.split-lp.i.i.i.i794, %lpad9.i.loopexit.i.i.i.i788
-  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %lpad12.i.i.i.i.i798 ], [ %463, %if.then.i19.i.i.i.i800 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
+  %.pn.i.i.i.i791 = phi { ptr, i32 } [ %463, %if.then.i19.i.i.i.i800 ], [ %463, %lpad12.i.i.i.i.i798 ], [ %lpad.loopexit.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i788 ], [ %lpad.loopexit.split-lp.i.i.i.i795, %lpad9.i.loopexit.split-lp.i.i.i.i794 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i778
 
@@ -30526,7 +30526,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i665
 
 ehcleanup.i35.i.i.i.i.i.i.i.i665:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i673, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663
-  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
+  %.pn19.i.i.i.i.i.i.i.i666 = phi { ptr, i32 } [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %504, %lpad13.i.i.i.i.i.i.i.i.i673 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i663 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i670, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i669 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i654
 
@@ -30707,7 +30707,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i724
 
 ehcleanup.i.i.i.i.i.i.i.i.i724:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i731, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723
-  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
+  %.pn.i.i.i.i.i.i.i.i725 = phi { ptr, i32 } [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %537, %lpad12.i.i.i.i.i.i.i.i.i731 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i723 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i728 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i715
 
@@ -30812,7 +30812,7 @@ lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad108.body
 
 lpad108.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i930, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019, %catch.fallthrough.i.i.i.i.i1092, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648, %catch.fallthrough.i.i.i.i.i.i.i.i.i711, %catch.fallthrough.i.i.i.i.i771, %lpad108.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098, %ehcleanup.i.i.i.i.i1112, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939, %ehcleanup.i35.i.i.i.i.i.i.i.i952, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025, %ehcleanup.i.i.i.i.i.i.i.i.i1036, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777, %ehcleanup.i.i.i.i.i790, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i665, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i724
-  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit1308, %lpad108.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1335, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
+  %eh.lpad-body830 = phi { ptr, i32 } [ %.pn.i.i.i.i791, %ehcleanup.i.i.i.i.i790 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i777 ], [ %.pn19.i.i.i.i.i.i.i.i666, %ehcleanup.i35.i.i.i.i.i.i.i.i665 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i725, %ehcleanup.i.i.i.i.i.i.i.i.i724 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1113, %ehcleanup.i.i.i.i.i1112 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1098 ], [ %.pn19.i.i.i.i.i.i.i.i953, %ehcleanup.i35.i.i.i.i.i.i.i.i952 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i939 ], [ %.pn.i.i.i.i.i.i.i.i1037, %ehcleanup.i.i.i.i.i.i.i.i.i1036 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1025 ], [ %lpad.loopexit.split-lp1335, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1308, %lpad108.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1331, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1334, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1019 ], [ %452, %catch.fallthrough.i.i.i.i.i771 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i711 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i648 ], [ %558, %catch.fallthrough.i.i.i.i.i1092 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i930 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements101) #33
   br label %ehcleanup117
 
@@ -30901,7 +30901,7 @@ if.then26.i.i.i.i.i.i.i1137:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i860
 
 land.end.i.i.i.i.i860:                            ; preds = %for.body.i.i.i.i.i.i.i1146, %if.then26.i.i.i.i.i.i.i1137, %for.end.i.i.i.i.i.i.i1135, %land.rhs.i.i.i.i.i1129, %land.lhs.true.i.i.i.i.i1125, %if.end.i7.i.i.i.i857
-  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
+  %frombool.i.i.i.i.i861 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1125 ], [ 256, %if.end.i7.i.i.i.i857 ], [ 257, %land.rhs.i.i.i.i.i1129 ], [ 257, %for.end.i.i.i.i.i.i.i1135 ], [ %554, %if.then26.i.i.i.i.i.i.i1137 ], [ 256, %for.body.i.i.i.i.i.i.i1146 ]
   store i16 %frombool.i.i.i.i.i861, ptr %allSelected_.i.i.i.i.i574, align 4
   %555 = trunc i16 %frombool.i.i.i.i.i861 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i862
@@ -31010,7 +31010,7 @@ if.then.i19.i.i.i.i1122:                          ; preds = %lpad12.i.i.i.i.i112
   br label %ehcleanup.i.i.i.i.i1112
 
 ehcleanup.i.i.i.i.i1112:                          ; preds = %if.then.i19.i.i.i.i1122, %lpad12.i.i.i.i.i1120, %lpad9.i.loopexit.split-lp.i.i.i.i1116, %lpad9.i.loopexit.i.i.i.i1110
-  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %lpad12.i.i.i.i.i1120 ], [ %569, %if.then.i19.i.i.i.i1122 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
+  %.pn.i.i.i.i1113 = phi { ptr, i32 } [ %569, %if.then.i19.i.i.i.i1122 ], [ %569, %lpad12.i.i.i.i.i1120 ], [ %lpad.loopexit.i.i.i.i1111, %lpad9.i.loopexit.i.i.i.i1110 ], [ %lpad.loopexit.split-lp.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1116 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i1099
 
@@ -31245,7 +31245,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i996, label %for.body.i.i.i.i.i.i.i.i.i.i988, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !233
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i909
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i919 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i909 ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i.i ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i920 = getelementptr inbounds nuw i8, ptr %581, i64 152
   %612 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i920, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i921 = icmp eq ptr %612, null
@@ -31399,7 +31399,7 @@ if.then.i35.i.i.i.i.i.i.i.i963:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i952
 
 ehcleanup.i35.i.i.i.i.i.i.i.i952:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i963, %lpad13.i.i.i.i.i.i.i.i.i961, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950
-  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
+  %.pn19.i.i.i.i.i.i.i.i953 = phi { ptr, i32 } [ %631, %if.then.i35.i.i.i.i.i.i.i.i963 ], [ %631, %lpad13.i.i.i.i.i.i.i.i.i961 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i950 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i957, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i956 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i940
 
@@ -31532,7 +31532,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1070, label %for.body.i.i.i.i.i.i.i.i.i1065, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !233
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i1000
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1009 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i1000 ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i.i.i.i.i.i.i.i.i ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1010 = getelementptr inbounds nuw i8, ptr %637, i64 152
   %668 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1010, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %668, null
@@ -31676,7 +31676,7 @@ if.then.i51.i.i.i.i.i.i.i.i1045:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1036
 
 ehcleanup.i.i.i.i.i.i.i.i.i1036:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1045, %lpad12.i.i.i.i.i.i.i.i.i1043, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035
-  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
+  %.pn.i.i.i.i.i.i.i.i1037 = phi { ptr, i32 } [ %688, %if.then.i51.i.i.i.i.i.i.i.i1045 ], [ %688, %lpad12.i.i.i.i.i.i.i.i.i1043 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1035 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1040 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1026
 
@@ -31964,7 +31964,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i136,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128
-  %.sink1745 = phi ptr [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %.sink1749, %return.sink.split.sink.split ]
+  %.sink1745 = phi ptr [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1206 ], [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i128 ], [ %.sink1749, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1210 = load ptr, ptr %.sink1745, align 8
   %vfn3.i.i.i.i.i.i1211 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1210, i64 24
   %720 = load ptr, ptr %vfn3.i.i.i.i.i.i1211, align 8
@@ -31975,8 +31975,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i295, %catch.fallthrough.i.i.i.i.i.i.i.i.i383, %catch.fallthrough.i.i.i.i.i462, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i401, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389, %ehcleanup.i35.i.i.i.i.i.i.i.i317, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304, %ehcleanup.i.i.i.i.i482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468, %if.then.i.i.i.i543, %lpad.i541, %ehcleanup117, %if.then.i.i.i.i1184, %lpad79.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit, %lpad.i, %ehcleanup53, %ehcleanup54.sink.split
-  %elementsVector73.sink = phi ptr [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector, %lpad.i ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1184 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %elementsVector73.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1184 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1301, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1305, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1304, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1184 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i541 ], [ %413, %if.then.i.i.i.i543 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i304 ], [ %.pn19.i.i.i.i.i.i.i.i318, %ehcleanup.i35.i.i.i.i.i.i.i.i317 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i389 ], [ %.pn.i.i.i.i.i.i.i.i402, %ehcleanup.i.i.i.i.i.i.i.i.i401 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i383 ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i462 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i295 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector73.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -32232,7 +32232,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -32495,7 +32495,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -32751,7 +32751,7 @@ if.then3.i.i.i.us23:                              ; preds = %if.end.i.i.i.us16
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25: ; preds = %if.then3.i.i.i.us23, %if.end4.i.i.i.us19, %if.then.us11
-  %retval.0.i.i.i.us26 = phi i32 [ %32, %if.then3.i.i.i.us23 ], [ %31, %if.end4.i.i.i.us19 ], [ %28, %if.then.us11 ]
+  %retval.0.i.i.i.us26 = phi i32 [ %31, %if.end4.i.i.i.us19 ], [ %32, %if.then3.i.i.i.us23 ], [ %28, %if.then.us11 ]
   %idxprom.i.i9.us27 = sext i32 %retval.0.i.i.i.us26 to i64
   %arrayidx.i.i10.us28 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i.i9.us27
   %33 = load i32, ptr %arrayidx.i.i10.us28, align 4
@@ -32765,7 +32765,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1
   br label %for.inc.us31
 
 for.inc.us31:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us30, %for.body.us8
-  %sum.1.us32 = phi i64 [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us30 ], [ %sum.05.us10, %for.body.us8 ]
+  %sum.1.us32 = phi i64 [ %sum.05.us10, %for.body.us8 ], [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us30 ]
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %cmp.us34 = icmp slt i64 %indvars.iv.next113, %24
   br i1 %cmp.us34, label %for.body.us8, label %for.end, !llvm.loop !242
@@ -32915,7 +32915,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %70, %if.then3.i.i.i ], [ %72, %if.end4.i.i.i ], [ %68, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %72, %if.end4.i.i.i ], [ %70, %if.then3.i.i.i ], [ %68, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i.i9
   %73 = load i32, ptr %arrayidx.i.i10, align 4
@@ -32939,7 +32939,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !242
 
 for.end:                                          ; preds = %for.inc, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us82, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us, %for.inc.us31, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us82 ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59 ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us ], [ %sum.1.us32, %for.inc.us31 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us59.us82 ], [ %sum.1, %for.inc ]
   ret i64 %sum.0.lcssa
 }
 
@@ -33064,7 +33064,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -33216,7 +33216,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit, !llvm.loop !233
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i, %entry
-  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i ]
+  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us14.i ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.us.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRliE_clESU_i.exit.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %35 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %35, null
@@ -33390,7 +33390,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -33829,7 +33829,7 @@ if.then3.i.i.i.us23.i:                            ; preds = %if.end.i.i.i.us16.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us25.i: ; preds = %if.then3.i.i.i.us23.i, %if.end4.i.i.i.us19.i, %if.then.us11.i
-  %retval.0.i.i.i.us26.i = phi i32 [ %52, %if.then3.i.i.i.us23.i ], [ %51, %if.end4.i.i.i.us19.i ], [ %48, %if.then.us11.i ]
+  %retval.0.i.i.i.us26.i = phi i32 [ %51, %if.end4.i.i.i.us19.i ], [ %52, %if.then3.i.i.i.us23.i ], [ %48, %if.then.us11.i ]
   %idxprom.i.i9.us27.i = sext i32 %retval.0.i.i.i.us26.i to i64
   %arrayidx.i.i10.us28.i = getelementptr inbounds i64, ptr %47, i64 %idxprom.i.i9.us27.i
   %53 = load i64, ptr %arrayidx.i.i10.us28.i, align 8
@@ -33842,7 +33842,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1
   br label %for.inc.us30.i
 
 for.inc.us30.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us29.i, %for.body.us8.i
-  %sum.1.us31.i = phi i64 [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us29.i ], [ %sum.05.us10.i, %for.body.us8.i ]
+  %sum.1.us31.i = phi i64 [ %sum.05.us10.i, %for.body.us8.i ], [ %56, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us29.i ]
   %indvars.iv.next110.i = add nsw i64 %indvars.iv109.i, 1
   %cmp.us33.i = icmp slt i64 %indvars.iv.next110.i, %45
   br i1 %cmp.us33.i, label %for.body.us8.i, label %invoke.cont45.sink.split, !llvm.loop !243
@@ -33948,7 +33948,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont38, %if.
           to label %invoke.cont45 unwind label %lpad39
 
 invoke.cont45.sink.split:                         ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us13.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i, %for.inc.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us57.us79.i, %for.inc.us30.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.us.i, %if.then27, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i143.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i ], [ %sum.1.us31.i, %for.inc.us30.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us57.us79.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us13.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.i ]
+  %sum.0.lcssa.i143.sink = phi i64 [ 0, %if.else ], [ 0, %if.then27 ], [ 0, %for.body.lr.ph.split.split.split.us.i ], [ %142, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us13.i ], [ %33, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.us.i ], [ %41, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i ], [ %sum.1.us31.i, %for.inc.us30.i ], [ %64, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E0_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us57.us79.i ], [ %sum.1.i, %for.inc.i ], [ %136, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.us.i ], [ %150, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS4_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E1_ZNKS4_5applyES8_SF_SK_SN_SO_EUlSP_E2_EEliPKNS0_11ArrayVectorEOT0_OT1_ENKUlRllE_clESZ_l.exit.i ]
   store i64 %sum.0.lcssa.i143.sink, ptr %sum, align 8
   br label %invoke.cont45
 
@@ -34628,7 +34628,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %185, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %186 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -34737,7 +34737,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %lpad12.i.i.i.i.i ], [ %200, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %200, %if.then.i19.i.i.i.i ], [ %200, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -35079,7 +35079,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %247, %if.then.i35.i.i.i.i.i.i.i.i ], [ %247, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -35309,7 +35309,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %289, %if.then.i51.i.i.i.i.i.i.i.i ], [ %289, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -35506,7 +35506,7 @@ if.then26.i.i.i.i.i.i.i502:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i222
 
 land.end.i.i.i.i.i222:                            ; preds = %for.body.i.i.i.i.i.i.i511, %if.then26.i.i.i.i.i.i.i502, %for.end.i.i.i.i.i.i.i500, %land.rhs.i.i.i.i.i494, %land.lhs.true.i.i.i.i.i490, %if.end.i7.i.i.i.i219
-  %frombool.i.i.i.i.i223 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i490 ], [ 256, %if.end.i7.i.i.i.i219 ], [ 257, %land.rhs.i.i.i.i.i494 ], [ %306, %if.then26.i.i.i.i.i.i.i502 ], [ 257, %for.end.i.i.i.i.i.i.i500 ], [ 256, %for.body.i.i.i.i.i.i.i511 ]
+  %frombool.i.i.i.i.i223 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i490 ], [ 256, %if.end.i7.i.i.i.i219 ], [ 257, %land.rhs.i.i.i.i.i494 ], [ 257, %for.end.i.i.i.i.i.i.i500 ], [ %306, %if.then26.i.i.i.i.i.i.i502 ], [ 256, %for.body.i.i.i.i.i.i.i511 ]
   store i16 %frombool.i.i.i.i.i223, ptr %allSelected_.i.i.i.i.i216, align 4
   %307 = trunc i16 %frombool.i.i.i.i.i223 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i224
@@ -35615,7 +35615,7 @@ if.then.i19.i.i.i.i487:                           ; preds = %lpad12.i.i.i.i.i485
   br label %ehcleanup.i.i.i.i.i477
 
 ehcleanup.i.i.i.i.i477:                           ; preds = %if.then.i19.i.i.i.i487, %lpad12.i.i.i.i.i485, %lpad9.i.loopexit.split-lp.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i475
-  %.pn.i.i.i.i478 = phi { ptr, i32 } [ %321, %lpad12.i.i.i.i.i485 ], [ %321, %if.then.i19.i.i.i.i487 ], [ %lpad.loopexit.i.i.i.i476, %lpad9.i.loopexit.i.i.i.i475 ], [ %lpad.loopexit.split-lp.i.i.i.i482, %lpad9.i.loopexit.split-lp.i.i.i.i481 ]
+  %.pn.i.i.i.i478 = phi { ptr, i32 } [ %321, %if.then.i19.i.i.i.i487 ], [ %321, %lpad12.i.i.i.i.i485 ], [ %lpad.loopexit.i.i.i.i476, %lpad9.i.loopexit.i.i.i.i475 ], [ %lpad.loopexit.split-lp.i.i.i.i482, %lpad9.i.loopexit.split-lp.i.i.i.i481 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i464
 
@@ -35940,7 +35940,7 @@ if.then.i35.i.i.i.i.i.i.i.i325:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i314
 
 ehcleanup.i35.i.i.i.i.i.i.i.i314:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i325, %lpad13.i.i.i.i.i.i.i.i.i323, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i318, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i312
-  %.pn19.i.i.i.i.i.i.i.i315 = phi { ptr, i32 } [ %366, %lpad13.i.i.i.i.i.i.i.i.i323 ], [ %366, %if.then.i35.i.i.i.i.i.i.i.i325 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i313, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i312 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i319, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i318 ]
+  %.pn19.i.i.i.i.i.i.i.i315 = phi { ptr, i32 } [ %366, %if.then.i35.i.i.i.i.i.i.i.i325 ], [ %366, %lpad13.i.i.i.i.i.i.i.i.i323 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i313, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i312 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i319, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i318 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i302
 
@@ -36153,7 +36153,7 @@ if.then.i51.i.i.i.i.i.i.i.i407:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i397
 
 ehcleanup.i.i.i.i.i.i.i.i.i397:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i407, %lpad12.i.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i401, %lpad9.i.loopexit.i.i.i.i.i.i.i.i395
-  %.pn.i.i.i.i.i.i.i.i398 = phi { ptr, i32 } [ %406, %lpad12.i.i.i.i.i.i.i.i.i405 ], [ %406, %if.then.i51.i.i.i.i.i.i.i.i407 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i396, %lpad9.i.loopexit.i.i.i.i.i.i.i.i395 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i402, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i401 ]
+  %.pn.i.i.i.i.i.i.i.i398 = phi { ptr, i32 } [ %406, %if.then.i51.i.i.i.i.i.i.i.i407 ], [ %406, %lpad12.i.i.i.i.i.i.i.i.i405 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i396, %lpad9.i.loopexit.i.i.i.i.i.i.i.i395 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i402, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i401 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i386
 
@@ -36378,7 +36378,7 @@ if.then26.i.i.i.i.i.i.i810:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i575
 
 land.end.i.i.i.i.i575:                            ; preds = %for.body.i.i.i.i.i.i.i819, %if.then26.i.i.i.i.i.i.i810, %for.end.i.i.i.i.i.i.i808, %land.rhs.i.i.i.i.i802, %land.lhs.true.i.i.i.i.i798, %if.end.i7.i.i.i.i572
-  %frombool.i.i.i.i.i576 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i798 ], [ 256, %if.end.i7.i.i.i.i572 ], [ 257, %land.rhs.i.i.i.i.i802 ], [ %429, %if.then26.i.i.i.i.i.i.i810 ], [ 257, %for.end.i.i.i.i.i.i.i808 ], [ 256, %for.body.i.i.i.i.i.i.i819 ]
+  %frombool.i.i.i.i.i576 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i798 ], [ 256, %if.end.i7.i.i.i.i572 ], [ 257, %land.rhs.i.i.i.i.i802 ], [ 257, %for.end.i.i.i.i.i.i.i808 ], [ %429, %if.then26.i.i.i.i.i.i.i810 ], [ 256, %for.body.i.i.i.i.i.i.i819 ]
   store i16 %frombool.i.i.i.i.i576, ptr %allSelected_.i.i.i.i.i569, align 4
   %430 = trunc i16 %frombool.i.i.i.i.i576 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i577
@@ -36559,7 +36559,7 @@ if.then.i19.i.i.i.i795:                           ; preds = %lpad12.i.i.i.i.i793
   br label %ehcleanup.i.i.i.i.i785
 
 ehcleanup.i.i.i.i.i785:                           ; preds = %if.then.i19.i.i.i.i795, %lpad12.i.i.i.i.i793, %lpad9.i.loopexit.split-lp.i.i.i.i789, %lpad9.i.loopexit.i.i.i.i783
-  %.pn.i.i.i.i786 = phi { ptr, i32 } [ %463, %lpad12.i.i.i.i.i793 ], [ %463, %if.then.i19.i.i.i.i795 ], [ %lpad.loopexit.i.i.i.i784, %lpad9.i.loopexit.i.i.i.i783 ], [ %lpad.loopexit.split-lp.i.i.i.i790, %lpad9.i.loopexit.split-lp.i.i.i.i789 ]
+  %.pn.i.i.i.i786 = phi { ptr, i32 } [ %463, %if.then.i19.i.i.i.i795 ], [ %463, %lpad12.i.i.i.i.i793 ], [ %lpad.loopexit.i.i.i.i784, %lpad9.i.loopexit.i.i.i.i783 ], [ %lpad.loopexit.split-lp.i.i.i.i790, %lpad9.i.loopexit.split-lp.i.i.i.i789 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i773
 
@@ -36852,7 +36852,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i660
 
 ehcleanup.i35.i.i.i.i.i.i.i.i660:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i668, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i658
-  %.pn19.i.i.i.i.i.i.i.i661 = phi { ptr, i32 } [ %504, %lpad13.i.i.i.i.i.i.i.i.i668 ], [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i659, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i658 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i665, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i664 ]
+  %.pn19.i.i.i.i.i.i.i.i661 = phi { ptr, i32 } [ %504, %if.then.i36.i.i.i.i.i.i.i.i ], [ %504, %lpad13.i.i.i.i.i.i.i.i.i668 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i659, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i658 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i665, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i664 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i649
 
@@ -37033,7 +37033,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i719
 
 ehcleanup.i.i.i.i.i.i.i.i.i719:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i726, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i723, %lpad9.i.loopexit.i.i.i.i.i.i.i.i718
-  %.pn.i.i.i.i.i.i.i.i720 = phi { ptr, i32 } [ %537, %lpad12.i.i.i.i.i.i.i.i.i726 ], [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i718 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i723 ]
+  %.pn.i.i.i.i.i.i.i.i720 = phi { ptr, i32 } [ %537, %if.then.i52.i.i.i.i.i.i.i.i ], [ %537, %lpad12.i.i.i.i.i.i.i.i.i726 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i718 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i723 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i710
 
@@ -37138,7 +37138,7 @@ lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad108.body
 
 lpad108.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i925, %catch.fallthrough.i.i.i.i.i.i.i.i.i1013, %catch.fallthrough.i.i.i.i.i1085, %catch.fallthrough.i21.i.i.i.i.i.i.i.i643, %catch.fallthrough.i.i.i.i.i.i.i.i.i706, %catch.fallthrough.i.i.i.i.i766, %lpad108.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1091, %ehcleanup.i.i.i.i.i1105, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i934, %ehcleanup.i35.i.i.i.i.i.i.i.i947, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1019, %ehcleanup.i.i.i.i.i.i.i.i.i1030, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i772, %ehcleanup.i.i.i.i.i785, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i660, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i719
-  %eh.lpad-body825 = phi { ptr, i32 } [ %.pn.i.i.i.i786, %ehcleanup.i.i.i.i.i785 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i772 ], [ %.pn19.i.i.i.i.i.i.i.i661, %ehcleanup.i35.i.i.i.i.i.i.i.i660 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i720, %ehcleanup.i.i.i.i.i.i.i.i.i719 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1106, %ehcleanup.i.i.i.i.i1105 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1091 ], [ %.pn19.i.i.i.i.i.i.i.i948, %ehcleanup.i35.i.i.i.i.i.i.i.i947 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i934 ], [ %.pn.i.i.i.i.i.i.i.i1031, %ehcleanup.i.i.i.i.i.i.i.i.i1030 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1019 ], [ %lpad.loopexit1301, %lpad108.loopexit ], [ %lpad.loopexit1304, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1308, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1312, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1324, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1327, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1328, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %452, %catch.fallthrough.i.i.i.i.i766 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i706 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i643 ], [ %558, %catch.fallthrough.i.i.i.i.i1085 ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1013 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i925 ]
+  %eh.lpad-body825 = phi { ptr, i32 } [ %.pn.i.i.i.i786, %ehcleanup.i.i.i.i.i785 ], [ %460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i772 ], [ %.pn19.i.i.i.i.i.i.i.i661, %ehcleanup.i35.i.i.i.i.i.i.i.i660 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i720, %ehcleanup.i.i.i.i.i.i.i.i.i719 ], [ %534, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1106, %ehcleanup.i.i.i.i.i1105 ], [ %566, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1091 ], [ %.pn19.i.i.i.i.i.i.i.i948, %ehcleanup.i35.i.i.i.i.i.i.i.i947 ], [ %628, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i934 ], [ %.pn.i.i.i.i.i.i.i.i1031, %ehcleanup.i.i.i.i.i.i.i.i.i1030 ], [ %685, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1019 ], [ %lpad.loopexit.split-lp1328, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1301, %lpad108.loopexit ], [ %lpad.loopexit1304, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1308, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1312, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1324, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1327, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %677, %catch.fallthrough.i.i.i.i.i.i.i.i.i1013 ], [ %452, %catch.fallthrough.i.i.i.i.i766 ], [ %526, %catch.fallthrough.i.i.i.i.i.i.i.i.i706 ], [ %493, %catch.fallthrough.i21.i.i.i.i.i.i.i.i643 ], [ %558, %catch.fallthrough.i.i.i.i.i1085 ], [ %620, %catch.fallthrough.i21.i.i.i.i.i.i.i.i925 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements101) #33
   br label %ehcleanup117
 
@@ -37227,7 +37227,7 @@ if.then26.i.i.i.i.i.i.i1130:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i855
 
 land.end.i.i.i.i.i855:                            ; preds = %for.body.i.i.i.i.i.i.i1139, %if.then26.i.i.i.i.i.i.i1130, %for.end.i.i.i.i.i.i.i1128, %land.rhs.i.i.i.i.i1122, %land.lhs.true.i.i.i.i.i1118, %if.end.i7.i.i.i.i852
-  %frombool.i.i.i.i.i856 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1118 ], [ 256, %if.end.i7.i.i.i.i852 ], [ 257, %land.rhs.i.i.i.i.i1122 ], [ %554, %if.then26.i.i.i.i.i.i.i1130 ], [ 257, %for.end.i.i.i.i.i.i.i1128 ], [ 256, %for.body.i.i.i.i.i.i.i1139 ]
+  %frombool.i.i.i.i.i856 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1118 ], [ 256, %if.end.i7.i.i.i.i852 ], [ 257, %land.rhs.i.i.i.i.i1122 ], [ 257, %for.end.i.i.i.i.i.i.i1128 ], [ %554, %if.then26.i.i.i.i.i.i.i1130 ], [ 256, %for.body.i.i.i.i.i.i.i1139 ]
   store i16 %frombool.i.i.i.i.i856, ptr %allSelected_.i.i.i.i.i569, align 4
   %555 = trunc i16 %frombool.i.i.i.i.i856 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i857
@@ -37336,7 +37336,7 @@ if.then.i19.i.i.i.i1115:                          ; preds = %lpad12.i.i.i.i.i111
   br label %ehcleanup.i.i.i.i.i1105
 
 ehcleanup.i.i.i.i.i1105:                          ; preds = %if.then.i19.i.i.i.i1115, %lpad12.i.i.i.i.i1113, %lpad9.i.loopexit.split-lp.i.i.i.i1109, %lpad9.i.loopexit.i.i.i.i1103
-  %.pn.i.i.i.i1106 = phi { ptr, i32 } [ %569, %lpad12.i.i.i.i.i1113 ], [ %569, %if.then.i19.i.i.i.i1115 ], [ %lpad.loopexit.i.i.i.i1104, %lpad9.i.loopexit.i.i.i.i1103 ], [ %lpad.loopexit.split-lp.i.i.i.i1110, %lpad9.i.loopexit.split-lp.i.i.i.i1109 ]
+  %.pn.i.i.i.i1106 = phi { ptr, i32 } [ %569, %if.then.i19.i.i.i.i1115 ], [ %569, %lpad12.i.i.i.i.i1113 ], [ %lpad.loopexit.i.i.i.i1104, %lpad9.i.loopexit.i.i.i.i1103 ], [ %lpad.loopexit.split-lp.i.i.i.i1110, %lpad9.i.loopexit.split-lp.i.i.i.i1109 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i1092
 
@@ -37568,7 +37568,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i990, label %for.body.i.i.i.i.i.i.i.i.i.i983, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !268
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i904
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i914 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i904 ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i914 = phi i64 [ 0, %for.body.i.i.i.i.i.i.i.i904 ], [ %603, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i.i ], [ %597, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i.i ], [ %611, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i915 = getelementptr inbounds nuw i8, ptr %581, i64 152
   %612 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i915, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i916 = icmp eq ptr %612, null
@@ -37722,7 +37722,7 @@ if.then.i35.i.i.i.i.i.i.i.i958:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i947
 
 ehcleanup.i35.i.i.i.i.i.i.i.i947:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i958, %lpad13.i.i.i.i.i.i.i.i.i956, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i951, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i945
-  %.pn19.i.i.i.i.i.i.i.i948 = phi { ptr, i32 } [ %631, %lpad13.i.i.i.i.i.i.i.i.i956 ], [ %631, %if.then.i35.i.i.i.i.i.i.i.i958 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i946, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i945 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i952, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i951 ]
+  %.pn19.i.i.i.i.i.i.i.i948 = phi { ptr, i32 } [ %631, %if.then.i35.i.i.i.i.i.i.i.i958 ], [ %631, %lpad13.i.i.i.i.i.i.i.i.i956 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i946, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i945 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i952, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i951 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i935
 
@@ -37852,7 +37852,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1063, label %for.body.i.i.i.i.i.i.i.i.i1059, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !268
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i994
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1003 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i994 ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1003 = phi i64 [ 0, %while.body.i.i.i.i.i.i.i.i994 ], [ %659, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i.i.i.i.i.i.i.i.i ], [ %653, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i.i.i.i.i.i.i.i.i ], [ %667, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i.i.i.i.i.i.i.i.i ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1004 = getelementptr inbounds nuw i8, ptr %637, i64 152
   %668 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1004, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %668, null
@@ -37996,7 +37996,7 @@ if.then.i51.i.i.i.i.i.i.i.i1039:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1030
 
 ehcleanup.i.i.i.i.i.i.i.i.i1030:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1039, %lpad12.i.i.i.i.i.i.i.i.i1037, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1034, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1029
-  %.pn.i.i.i.i.i.i.i.i1031 = phi { ptr, i32 } [ %688, %lpad12.i.i.i.i.i.i.i.i.i1037 ], [ %688, %if.then.i51.i.i.i.i.i.i.i.i1039 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1029 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1034 ]
+  %.pn.i.i.i.i.i.i.i.i1031 = phi { ptr, i32 } [ %688, %if.then.i51.i.i.i.i.i.i.i.i1039 ], [ %688, %lpad12.i.i.i.i.i.i.i.i.i1037 ], [ %lpad.loopexit60.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1029 ], [ %lpad.loopexit.split-lp61.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1034 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1020
 
@@ -38284,7 +38284,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i135,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127
-  %.sink1738 = phi ptr [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127 ], [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1199 ], [ %.sink1742, %return.sink.split.sink.split ]
+  %.sink1738 = phi ptr [ %710, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1199 ], [ %120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127 ], [ %.sink1742, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1203 = load ptr, ptr %.sink1738, align 8
   %vfn3.i.i.i.i.i.i1204 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1203, i64 24
   %720 = load ptr, ptr %vfn3.i.i.i.i.i.i1204, align 8
@@ -38295,8 +38295,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i292, %catch.fallthrough.i.i.i.i.i.i.i.i.i379, %catch.fallthrough.i.i.i.i.i457, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i397, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i385, %ehcleanup.i35.i.i.i.i.i.i.i.i314, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i301, %ehcleanup.i.i.i.i.i477, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463, %if.then.i.i.i.i538, %lpad.i536, %ehcleanup117, %if.then.i.i.i.i1177, %lpad79.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit, %lpad.i, %ehcleanup53, %ehcleanup54.sink.split
-  %elementsVector73.sink = phi ptr [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector, %lpad.i ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1177 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i536 ], [ %elementsVector73, %if.then.i.i.i.i538 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i477 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i301 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i314 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i385 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i397 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i457 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i379 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i292 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1286, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1294, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1298, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1290, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1282, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1177 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i536 ], [ %413, %if.then.i.i.i.i538 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %.pn.i.i.i.i478, %ehcleanup.i.i.i.i.i477 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i301 ], [ %.pn19.i.i.i.i.i.i.i.i315, %ehcleanup.i35.i.i.i.i.i.i.i.i314 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i385 ], [ %.pn.i.i.i.i.i.i.i.i398, %ehcleanup.i.i.i.i.i.i.i.i.i397 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i457 ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i379 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i292 ]
+  %elementsVector73.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1177 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i536 ], [ %elementsVector73, %if.then.i.i.i.i538 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i477 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i301 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i314 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i385 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i397 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i379 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i457 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i292 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1286, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1294, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1298, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1290, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1282, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1177 ], [ %.pn, %ehcleanup117 ], [ %413, %lpad.i536 ], [ %413, %if.then.i.i.i.i538 ], [ %318, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %.pn.i.i.i.i478, %ehcleanup.i.i.i.i.i477 ], [ %363, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i301 ], [ %.pn19.i.i.i.i.i.i.i.i315, %ehcleanup.i35.i.i.i.i.i.i.i.i314 ], [ %403, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i385 ], [ %.pn.i.i.i.i.i.i.i.i398, %ehcleanup.i.i.i.i.i.i.i.i.i397 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %286, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %244, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %197, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %395, %catch.fallthrough.i.i.i.i.i.i.i.i.i379 ], [ %189, %catch.fallthrough.i.i.i.i.i ], [ %278, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %236, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %310, %catch.fallthrough.i.i.i.i.i457 ], [ %355, %catch.fallthrough.i21.i.i.i.i.i.i.i.i292 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector73.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -38551,7 +38551,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -38813,7 +38813,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -39067,7 +39067,7 @@ if.then3.i.i.i.us23:                              ; preds = %if.end.i.i.i.us16
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit.us25: ; preds = %if.then3.i.i.i.us23, %if.end4.i.i.i.us19, %if.then.us11
-  %retval.0.i.i.i.us26 = phi i32 [ %32, %if.then3.i.i.i.us23 ], [ %31, %if.end4.i.i.i.us19 ], [ %28, %if.then.us11 ]
+  %retval.0.i.i.i.us26 = phi i32 [ %31, %if.end4.i.i.i.us19 ], [ %32, %if.then3.i.i.i.us23 ], [ %28, %if.then.us11 ]
   %idxprom.i.i9.us27 = sext i32 %retval.0.i.i.i.us26 to i64
   %arrayidx.i.i10.us28 = getelementptr inbounds i64, ptr %26, i64 %idxprom.i.i9.us27
   %33 = load i64, ptr %arrayidx.i.i10.us28, align 8
@@ -39080,7 +39080,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1
   br label %for.inc.us30
 
 for.inc.us30:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us29, %for.body.us8
-  %sum.1.us31 = phi i64 [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us29 ], [ %sum.05.us10, %for.body.us8 ]
+  %sum.1.us31 = phi i64 [ %sum.05.us10, %for.body.us8 ], [ %36, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us29 ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
   %cmp.us33 = icmp slt i64 %indvars.iv.next110, %24
   br i1 %cmp.us33, label %for.body.us8, label %for.end, !llvm.loop !277
@@ -39227,7 +39227,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIlEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %70, %if.then3.i.i.i ], [ %72, %if.end4.i.i.i ], [ %68, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %72, %if.end4.i.i.i ], [ %70, %if.then3.i.i.i ], [ %68, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds i64, ptr %66, i64 %idxprom.i.i9
   %73 = load i64, ptr %arrayidx.i.i10, align 8
@@ -39250,7 +39250,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !277
 
 for.end:                                          ; preds = %for.inc, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us79, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us, %for.inc.us30, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us ], [ %sum.1.us31, %for.inc.us30 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us79 ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi i64 [ 0, %entry ], [ 0, %for.body.lr.ph.split.split.split.us ], [ %60, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57 ], [ %12, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.us ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us ], [ %sum.1.us31, %for.inc.us30 ], [ %46, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us ], [ %52, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1ERZNKS4_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb1EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us57.us79 ], [ %sum.1, %for.inc ]
   ret i64 %sum.0.lcssa
 }
 
@@ -39375,7 +39375,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -39524,7 +39524,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit, !llvm.loop !268
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_.exit: ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i, %entry
-  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i ]
+  %sum.0.lcssa.i = phi i64 [ 0, %entry ], [ %26, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us13.i ], [ %20, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.us.i ], [ %34, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEliPKSD_OT0_OT1_ENKUlRllE_clESU_l.exit.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %35 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %35, null
@@ -39698,7 +39698,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -40141,7 +40141,7 @@ if.then3.i.i.i.us22.i:                            ; preds = %if.end.i.i.i.us15.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i: ; preds = %if.then3.i.i.i.us22.i, %if.end4.i.i.i.us18.i, %if.then.us10.i
-  %retval.0.i.i.i.us25.i = phi i32 [ %49, %if.then3.i.i.i.us22.i ], [ %48, %if.end4.i.i.i.us18.i ], [ %45, %if.then.us10.i ]
+  %retval.0.i.i.i.us25.i = phi i32 [ %48, %if.end4.i.i.i.us18.i ], [ %49, %if.then3.i.i.i.us22.i ], [ %45, %if.then.us10.i ]
   %idxprom.i.i9.us26.i = sext i32 %retval.0.i.i.i.us25.i to i64
   %arrayidx.i.i10.us27.i = getelementptr inbounds float, ptr %44, i64 %idxprom.i.i9.us26.i
   %50 = load float, ptr %arrayidx.i.i10.us27.i, align 4
@@ -40150,7 +40150,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_1
   br label %for.inc.us30.i
 
 for.inc.us30.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i, %for.body.us7.i
-  %sum.1.us31.i = phi double [ %add.i.us29.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i ], [ %sum.04.us9.i, %for.body.us7.i ]
+  %sum.1.us31.i = phi double [ %sum.04.us9.i, %for.body.us7.i ], [ %add.i.us29.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i ]
   %indvars.iv.next116.i = add nsw i64 %indvars.iv115.i, 1
   %cmp.us33.i = icmp slt i64 %indvars.iv.next116.i, %42
   br i1 %cmp.us33.i, label %for.body.us7.i, label %invoke.cont45.sink.split, !llvm.loop !278
@@ -40244,7 +40244,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont38, %if.
           to label %invoke.cont45 unwind label %lpad39
 
 invoke.cont45.sink.split:                         ; preds = %for.body.i155, %for.body.us5.i, %for.body.us.i163, %for.inc.i, %for.body.us36.us73.i, %for.inc.us30.i, %for.body.us.i, %for.body.us.us87.i, %for.body.us.us.i, %if.then27, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i143.sink = phi double [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then27 ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us.i ], [ %add.i.us.us.i, %for.body.us.us.i ], [ %add.i.us.us95.i, %for.body.us.us87.i ], [ %add.i.us.i, %for.body.us.i ], [ %sum.1.us31.i, %for.inc.us30.i ], [ %add.i.us58.us81.i, %for.body.us36.us73.i ], [ %sum.1.i, %for.inc.i ], [ %add.i.us.i165, %for.body.us.i163 ], [ %add.i.us13.i, %for.body.us5.i ], [ %add.i.i160, %for.body.i155 ]
+  %sum.0.lcssa.i143.sink = phi double [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then27 ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us.i ], [ %add.i.us13.i, %for.body.us5.i ], [ %add.i.us.us.i, %for.body.us.us.i ], [ %add.i.us.us95.i, %for.body.us.us87.i ], [ %add.i.us.i, %for.body.us.i ], [ %sum.1.us31.i, %for.inc.us30.i ], [ %add.i.us58.us81.i, %for.body.us36.us73.i ], [ %sum.1.i, %for.inc.i ], [ %add.i.us.i165, %for.body.us.i163 ], [ %add.i.i160, %for.body.i155 ]
   store double %sum.0.lcssa.i143.sink, ptr %sum, align 8
   br label %invoke.cont45
 
@@ -40908,7 +40908,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %164, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %164, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %165 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -41017,7 +41017,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %179, %lpad12.i.i.i.i.i ], [ %179, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %179, %if.then.i19.i.i.i.i ], [ %179, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -41351,7 +41351,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %223, %lpad13.i.i.i.i.i.i.i.i.i ], [ %223, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %223, %if.then.i35.i.i.i.i.i.i.i.i ], [ %223, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -41573,7 +41573,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %262, %lpad12.i.i.i.i.i.i.i.i.i ], [ %262, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %262, %if.then.i51.i.i.i.i.i.i.i.i ], [ %262, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -41770,7 +41770,7 @@ if.then26.i.i.i.i.i.i.i507:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i225
 
 land.end.i.i.i.i.i225:                            ; preds = %for.body.i.i.i.i.i.i.i516, %if.then26.i.i.i.i.i.i.i507, %for.end.i.i.i.i.i.i.i505, %land.rhs.i.i.i.i.i499, %land.lhs.true.i.i.i.i.i495, %if.end.i7.i.i.i.i222
-  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ %279, %if.then26.i.i.i.i.i.i.i507 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
+  %frombool.i.i.i.i.i226 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i495 ], [ 256, %if.end.i7.i.i.i.i222 ], [ 257, %land.rhs.i.i.i.i.i499 ], [ 257, %for.end.i.i.i.i.i.i.i505 ], [ %279, %if.then26.i.i.i.i.i.i.i507 ], [ 256, %for.body.i.i.i.i.i.i.i516 ]
   store i16 %frombool.i.i.i.i.i226, ptr %allSelected_.i.i.i.i.i219, align 4
   %280 = trunc i16 %frombool.i.i.i.i.i226 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i227
@@ -41879,7 +41879,7 @@ if.then.i19.i.i.i.i492:                           ; preds = %lpad12.i.i.i.i.i490
   br label %ehcleanup.i.i.i.i.i482
 
 ehcleanup.i.i.i.i.i482:                           ; preds = %if.then.i19.i.i.i.i492, %lpad12.i.i.i.i.i490, %lpad9.i.loopexit.split-lp.i.i.i.i486, %lpad9.i.loopexit.i.i.i.i480
-  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %294, %lpad12.i.i.i.i.i490 ], [ %294, %if.then.i19.i.i.i.i492 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
+  %.pn.i.i.i.i483 = phi { ptr, i32 } [ %294, %if.then.i19.i.i.i.i492 ], [ %294, %lpad12.i.i.i.i.i490 ], [ %lpad.loopexit.i.i.i.i481, %lpad9.i.loopexit.i.i.i.i480 ], [ %lpad.loopexit.split-lp.i.i.i.i487, %lpad9.i.loopexit.split-lp.i.i.i.i486 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i469
 
@@ -42196,7 +42196,7 @@ if.then.i35.i.i.i.i.i.i.i.i326:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i315
 
 ehcleanup.i35.i.i.i.i.i.i.i.i315:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i326, %lpad13.i.i.i.i.i.i.i.i.i324, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i319, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i313
-  %.pn19.i.i.i.i.i.i.i.i316 = phi { ptr, i32 } [ %336, %lpad13.i.i.i.i.i.i.i.i.i324 ], [ %336, %if.then.i35.i.i.i.i.i.i.i.i326 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i314, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i313 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i320, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i319 ]
+  %.pn19.i.i.i.i.i.i.i.i316 = phi { ptr, i32 } [ %336, %if.then.i35.i.i.i.i.i.i.i.i326 ], [ %336, %lpad13.i.i.i.i.i.i.i.i.i324 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i314, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i313 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i320, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i319 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i303
 
@@ -42401,7 +42401,7 @@ if.then.i51.i.i.i.i.i.i.i.i410:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i400
 
 ehcleanup.i.i.i.i.i.i.i.i.i400:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i410, %lpad12.i.i.i.i.i.i.i.i.i408, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i404, %lpad9.i.loopexit.i.i.i.i.i.i.i.i398
-  %.pn.i.i.i.i.i.i.i.i401 = phi { ptr, i32 } [ %373, %lpad12.i.i.i.i.i.i.i.i.i408 ], [ %373, %if.then.i51.i.i.i.i.i.i.i.i410 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i399, %lpad9.i.loopexit.i.i.i.i.i.i.i.i398 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i404 ]
+  %.pn.i.i.i.i.i.i.i.i401 = phi { ptr, i32 } [ %373, %if.then.i51.i.i.i.i.i.i.i.i410 ], [ %373, %lpad12.i.i.i.i.i.i.i.i.i408 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i399, %lpad9.i.loopexit.i.i.i.i.i.i.i.i398 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i405, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i404 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i389
 
@@ -42626,7 +42626,7 @@ if.then26.i.i.i.i.i.i.i813:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i580
 
 land.end.i.i.i.i.i580:                            ; preds = %for.body.i.i.i.i.i.i.i822, %if.then26.i.i.i.i.i.i.i813, %for.end.i.i.i.i.i.i.i811, %land.rhs.i.i.i.i.i805, %land.lhs.true.i.i.i.i.i801, %if.end.i7.i.i.i.i577
-  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i801 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i805 ], [ %396, %if.then26.i.i.i.i.i.i.i813 ], [ 257, %for.end.i.i.i.i.i.i.i811 ], [ 256, %for.body.i.i.i.i.i.i.i822 ]
+  %frombool.i.i.i.i.i581 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i801 ], [ 256, %if.end.i7.i.i.i.i577 ], [ 257, %land.rhs.i.i.i.i.i805 ], [ 257, %for.end.i.i.i.i.i.i.i811 ], [ %396, %if.then26.i.i.i.i.i.i.i813 ], [ 256, %for.body.i.i.i.i.i.i.i822 ]
   store i16 %frombool.i.i.i.i.i581, ptr %allSelected_.i.i.i.i.i574, align 4
   %397 = trunc i16 %frombool.i.i.i.i.i581 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i582
@@ -42807,7 +42807,7 @@ if.then.i19.i.i.i.i798:                           ; preds = %lpad12.i.i.i.i.i796
   br label %ehcleanup.i.i.i.i.i788
 
 ehcleanup.i.i.i.i.i788:                           ; preds = %if.then.i19.i.i.i.i798, %lpad12.i.i.i.i.i796, %lpad9.i.loopexit.split-lp.i.i.i.i792, %lpad9.i.loopexit.i.i.i.i786
-  %.pn.i.i.i.i789 = phi { ptr, i32 } [ %430, %lpad12.i.i.i.i.i796 ], [ %430, %if.then.i19.i.i.i.i798 ], [ %lpad.loopexit.i.i.i.i787, %lpad9.i.loopexit.i.i.i.i786 ], [ %lpad.loopexit.split-lp.i.i.i.i793, %lpad9.i.loopexit.split-lp.i.i.i.i792 ]
+  %.pn.i.i.i.i789 = phi { ptr, i32 } [ %430, %if.then.i19.i.i.i.i798 ], [ %430, %lpad12.i.i.i.i.i796 ], [ %lpad.loopexit.i.i.i.i787, %lpad9.i.loopexit.i.i.i.i786 ], [ %lpad.loopexit.split-lp.i.i.i.i793, %lpad9.i.loopexit.split-lp.i.i.i.i792 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i776
 
@@ -43100,7 +43100,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i664
 
 ehcleanup.i35.i.i.i.i.i.i.i.i664:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i672, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i668, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i662
-  %.pn19.i.i.i.i.i.i.i.i665 = phi { ptr, i32 } [ %471, %lpad13.i.i.i.i.i.i.i.i.i672 ], [ %471, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i663, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i662 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i669, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i668 ]
+  %.pn19.i.i.i.i.i.i.i.i665 = phi { ptr, i32 } [ %471, %if.then.i36.i.i.i.i.i.i.i.i ], [ %471, %lpad13.i.i.i.i.i.i.i.i.i672 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i663, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i662 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i669, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i668 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i653
 
@@ -43281,7 +43281,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i722
 
 ehcleanup.i.i.i.i.i.i.i.i.i722:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i729, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i726, %lpad9.i.loopexit.i.i.i.i.i.i.i.i721
-  %.pn.i.i.i.i.i.i.i.i723 = phi { ptr, i32 } [ %504, %lpad12.i.i.i.i.i.i.i.i.i729 ], [ %504, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i721 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i726 ]
+  %.pn.i.i.i.i.i.i.i.i723 = phi { ptr, i32 } [ %504, %if.then.i52.i.i.i.i.i.i.i.i ], [ %504, %lpad12.i.i.i.i.i.i.i.i.i729 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i721 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i726 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i713
 
@@ -43386,7 +43386,7 @@ lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad108.body
 
 lpad108.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i928, %catch.fallthrough.i.i.i.i.i.i.i.i.i1017, %catch.fallthrough.i.i.i.i.i1089, %catch.fallthrough.i21.i.i.i.i.i.i.i.i647, %catch.fallthrough.i.i.i.i.i.i.i.i.i709, %catch.fallthrough.i.i.i.i.i769, %lpad108.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1095, %ehcleanup.i.i.i.i.i1109, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i937, %ehcleanup.i35.i.i.i.i.i.i.i.i950, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1023, %ehcleanup.i.i.i.i.i.i.i.i.i1034, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i775, %ehcleanup.i.i.i.i.i788, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i664, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i722
-  %eh.lpad-body828 = phi { ptr, i32 } [ %.pn.i.i.i.i789, %ehcleanup.i.i.i.i.i788 ], [ %427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i775 ], [ %.pn19.i.i.i.i.i.i.i.i665, %ehcleanup.i35.i.i.i.i.i.i.i.i664 ], [ %468, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i723, %ehcleanup.i.i.i.i.i.i.i.i.i722 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1110, %ehcleanup.i.i.i.i.i1109 ], [ %533, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1095 ], [ %.pn19.i.i.i.i.i.i.i.i951, %ehcleanup.i35.i.i.i.i.i.i.i.i950 ], [ %586, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i937 ], [ %.pn.i.i.i.i.i.i.i.i1035, %ehcleanup.i.i.i.i.i.i.i.i.i1034 ], [ %634, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1023 ], [ %lpad.loopexit1300, %lpad108.loopexit ], [ %lpad.loopexit1303, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1307, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1322, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1323, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %419, %catch.fallthrough.i.i.i.i.i769 ], [ %493, %catch.fallthrough.i.i.i.i.i.i.i.i.i709 ], [ %460, %catch.fallthrough.i21.i.i.i.i.i.i.i.i647 ], [ %525, %catch.fallthrough.i.i.i.i.i1089 ], [ %626, %catch.fallthrough.i.i.i.i.i.i.i.i.i1017 ], [ %578, %catch.fallthrough.i21.i.i.i.i.i.i.i.i928 ]
+  %eh.lpad-body828 = phi { ptr, i32 } [ %.pn.i.i.i.i789, %ehcleanup.i.i.i.i.i788 ], [ %427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i775 ], [ %.pn19.i.i.i.i.i.i.i.i665, %ehcleanup.i35.i.i.i.i.i.i.i.i664 ], [ %468, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i723, %ehcleanup.i.i.i.i.i.i.i.i.i722 ], [ %501, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1110, %ehcleanup.i.i.i.i.i1109 ], [ %533, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1095 ], [ %.pn19.i.i.i.i.i.i.i.i951, %ehcleanup.i35.i.i.i.i.i.i.i.i950 ], [ %586, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i937 ], [ %.pn.i.i.i.i.i.i.i.i1035, %ehcleanup.i.i.i.i.i.i.i.i.i1034 ], [ %634, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1023 ], [ %lpad.loopexit.split-lp1323, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1300, %lpad108.loopexit ], [ %lpad.loopexit1303, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1307, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1311, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1319, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1322, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %626, %catch.fallthrough.i.i.i.i.i.i.i.i.i1017 ], [ %419, %catch.fallthrough.i.i.i.i.i769 ], [ %493, %catch.fallthrough.i.i.i.i.i.i.i.i.i709 ], [ %460, %catch.fallthrough.i21.i.i.i.i.i.i.i.i647 ], [ %525, %catch.fallthrough.i.i.i.i.i1089 ], [ %578, %catch.fallthrough.i21.i.i.i.i.i.i.i.i928 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements101) #33
   br label %ehcleanup117
 
@@ -43475,7 +43475,7 @@ if.then26.i.i.i.i.i.i.i1134:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i858
 
 land.end.i.i.i.i.i858:                            ; preds = %for.body.i.i.i.i.i.i.i1143, %if.then26.i.i.i.i.i.i.i1134, %for.end.i.i.i.i.i.i.i1132, %land.rhs.i.i.i.i.i1126, %land.lhs.true.i.i.i.i.i1122, %if.end.i7.i.i.i.i855
-  %frombool.i.i.i.i.i859 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1122 ], [ 256, %if.end.i7.i.i.i.i855 ], [ 257, %land.rhs.i.i.i.i.i1126 ], [ %521, %if.then26.i.i.i.i.i.i.i1134 ], [ 257, %for.end.i.i.i.i.i.i.i1132 ], [ 256, %for.body.i.i.i.i.i.i.i1143 ]
+  %frombool.i.i.i.i.i859 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1122 ], [ 256, %if.end.i7.i.i.i.i855 ], [ 257, %land.rhs.i.i.i.i.i1126 ], [ 257, %for.end.i.i.i.i.i.i.i1132 ], [ %521, %if.then26.i.i.i.i.i.i.i1134 ], [ 256, %for.body.i.i.i.i.i.i.i1143 ]
   store i16 %frombool.i.i.i.i.i859, ptr %allSelected_.i.i.i.i.i574, align 4
   %522 = trunc i16 %frombool.i.i.i.i.i859 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i860
@@ -43584,7 +43584,7 @@ if.then.i19.i.i.i.i1119:                          ; preds = %lpad12.i.i.i.i.i111
   br label %ehcleanup.i.i.i.i.i1109
 
 ehcleanup.i.i.i.i.i1109:                          ; preds = %if.then.i19.i.i.i.i1119, %lpad12.i.i.i.i.i1117, %lpad9.i.loopexit.split-lp.i.i.i.i1113, %lpad9.i.loopexit.i.i.i.i1107
-  %.pn.i.i.i.i1110 = phi { ptr, i32 } [ %536, %lpad12.i.i.i.i.i1117 ], [ %536, %if.then.i19.i.i.i.i1119 ], [ %lpad.loopexit.i.i.i.i1108, %lpad9.i.loopexit.i.i.i.i1107 ], [ %lpad.loopexit.split-lp.i.i.i.i1114, %lpad9.i.loopexit.split-lp.i.i.i.i1113 ]
+  %.pn.i.i.i.i1110 = phi { ptr, i32 } [ %536, %if.then.i19.i.i.i.i1119 ], [ %536, %lpad12.i.i.i.i.i1117 ], [ %lpad.loopexit.i.i.i.i1108, %lpad9.i.loopexit.i.i.i.i1107 ], [ %lpad.loopexit.split-lp.i.i.i.i1114, %lpad9.i.loopexit.split-lp.i.i.i.i1113 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i1096
 
@@ -43800,7 +43800,7 @@ for.body.i.i.i.i.i.i.i.i.i.i986:                  ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i995, label %for.body.i.i.i.i.i.i.i.i.i.i986, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !303
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i986, %for.body.us5.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i907
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i917 = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i.i907 ], [ %add.i.us.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i ], [ %add.i.us13.i.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i.i.i993, %for.body.i.i.i.i.i.i.i.i.i.i986 ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i917 = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i.i907 ], [ %add.i.us13.i.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i.i ], [ %add.i.us.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i.i.i993, %for.body.i.i.i.i.i.i.i.i.i.i986 ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i918 = getelementptr inbounds nuw i8, ptr %548, i64 152
   %570 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i918, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i919 = icmp eq ptr %570, null
@@ -43954,7 +43954,7 @@ if.then.i35.i.i.i.i.i.i.i.i961:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i950
 
 ehcleanup.i35.i.i.i.i.i.i.i.i950:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i961, %lpad13.i.i.i.i.i.i.i.i.i959, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i954, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i948
-  %.pn19.i.i.i.i.i.i.i.i951 = phi { ptr, i32 } [ %589, %lpad13.i.i.i.i.i.i.i.i.i959 ], [ %589, %if.then.i35.i.i.i.i.i.i.i.i961 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i949, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i948 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i955, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i954 ]
+  %.pn19.i.i.i.i.i.i.i.i951 = phi { ptr, i32 } [ %589, %if.then.i35.i.i.i.i.i.i.i.i961 ], [ %589, %lpad13.i.i.i.i.i.i.i.i.i959 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i949, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i948 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i955, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i954 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i938
 
@@ -44068,7 +44068,7 @@ for.body.i.i.i.i.i.i.i.i.i1063:                   ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i1068, label %for.body.i.i.i.i.i.i.i.i.i1063, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !303
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i1063, %for.body.us5.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i998
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1007 = phi double [ 0.000000e+00, %while.body.i.i.i.i.i.i.i.i998 ], [ %add.i.us.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i ], [ %add.i.us13.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i43.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i1063 ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1007 = phi double [ 0.000000e+00, %while.body.i.i.i.i.i.i.i.i998 ], [ %add.i.us13.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i ], [ %add.i.us.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i43.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i1063 ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1008 = getelementptr inbounds nuw i8, ptr %595, i64 152
   %617 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1008, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %617, null
@@ -44212,7 +44212,7 @@ if.then.i51.i.i.i.i.i.i.i.i1043:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1034
 
 ehcleanup.i.i.i.i.i.i.i.i.i1034:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1043, %lpad12.i.i.i.i.i.i.i.i.i1041, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1038, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1033
-  %.pn.i.i.i.i.i.i.i.i1035 = phi { ptr, i32 } [ %637, %lpad12.i.i.i.i.i.i.i.i.i1041 ], [ %637, %if.then.i51.i.i.i.i.i.i.i.i1043 ], [ %lpad.loopexit58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1033 ], [ %lpad.loopexit.split-lp59.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1038 ]
+  %.pn.i.i.i.i.i.i.i.i1035 = phi { ptr, i32 } [ %637, %if.then.i51.i.i.i.i.i.i.i.i1043 ], [ %637, %lpad12.i.i.i.i.i.i.i.i.i1041 ], [ %lpad.loopexit58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1033 ], [ %lpad.loopexit.split-lp59.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1038 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1024
 
@@ -44500,7 +44500,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i135,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1203, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127
-  %.sink1673 = phi ptr [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127 ], [ %659, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1203 ], [ %.sink1677, %return.sink.split.sink.split ]
+  %.sink1673 = phi ptr [ %659, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1203 ], [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i127 ], [ %.sink1677, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1207 = load ptr, ptr %.sink1673, align 8
   %vfn3.i.i.i.i.i.i1208 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1207, i64 24
   %669 = load ptr, ptr %vfn3.i.i.i.i.i.i1208, align 8
@@ -44511,8 +44511,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i293, %catch.fallthrough.i.i.i.i.i.i.i.i.i382, %catch.fallthrough.i.i.i.i.i462, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i400, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i388, %ehcleanup.i35.i.i.i.i.i.i.i.i315, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i302, %ehcleanup.i.i.i.i.i482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468, %if.then.i.i.i.i543, %lpad.i541, %ehcleanup117, %if.then.i.i.i.i1181, %lpad79.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit, %lpad.i, %ehcleanup53, %ehcleanup54.sink.split
-  %elementsVector73.sink = phi ptr [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector, %lpad.i ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1181 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i302 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i315 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i388 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i400 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i382 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i293 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1285, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1296, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1281, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1181 ], [ %.pn, %ehcleanup117 ], [ %380, %lpad.i541 ], [ %380, %if.then.i.i.i.i543 ], [ %291, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %333, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i302 ], [ %.pn19.i.i.i.i.i.i.i.i316, %ehcleanup.i35.i.i.i.i.i.i.i.i315 ], [ %370, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i388 ], [ %.pn.i.i.i.i.i.i.i.i401, %ehcleanup.i.i.i.i.i.i.i.i.i400 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %259, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %220, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %168, %catch.fallthrough.i.i.i.i.i ], [ %251, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %212, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %283, %catch.fallthrough.i.i.i.i.i462 ], [ %362, %catch.fallthrough.i.i.i.i.i.i.i.i.i382 ], [ %325, %catch.fallthrough.i21.i.i.i.i.i.i.i.i293 ]
+  %elementsVector73.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1181 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i541 ], [ %elementsVector73, %if.then.i.i.i.i543 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i482 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i302 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i315 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i388 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i400 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i382 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i462 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i293 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1285, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1293, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1297, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1296, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1289, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1281, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1181 ], [ %.pn, %ehcleanup117 ], [ %380, %lpad.i541 ], [ %380, %if.then.i.i.i.i543 ], [ %291, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i468 ], [ %.pn.i.i.i.i483, %ehcleanup.i.i.i.i.i482 ], [ %333, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i302 ], [ %.pn19.i.i.i.i.i.i.i.i316, %ehcleanup.i35.i.i.i.i.i.i.i.i315 ], [ %370, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i388 ], [ %.pn.i.i.i.i.i.i.i.i401, %ehcleanup.i.i.i.i.i.i.i.i.i400 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %259, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %220, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %362, %catch.fallthrough.i.i.i.i.i.i.i.i.i382 ], [ %168, %catch.fallthrough.i.i.i.i.i ], [ %251, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %212, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %283, %catch.fallthrough.i.i.i.i.i462 ], [ %325, %catch.fallthrough.i21.i.i.i.i.i.i.i.i293 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector73.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -45784,8 +45784,8 @@ _ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i: ; preds 
   br label %return
 
 return:                                           ; preds = %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i32, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit
-  %retval.sroa.4.0 = phi i64 [ 1, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux45, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i32 ], [ 1, %if.then.i.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i31, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i32 ], [ 0, %if.then.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %.mux45, %if.then5 ], [ 1, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ 1, %if.then18.i ], [ 0, %if.then5.thread ], [ 1, %if.end.i ], [ 1, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i32 ], [ 1, %if.end.i.i ], [ 1, %if.then.i.i ]
+  %retval.sroa.0.0 = phi i32 [ 0, %if.then5 ], [ %cond, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5.thread ], [ %cond.i, %if.end.i ], [ %cond.i31, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i32 ], [ %cond.i.i, %if.end.i.i ], [ 0, %if.then.i.i ]
   %retval.sroa.4.0.insert.ext = shl nuw nsw i64 %retval.sroa.4.0, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.ext, %retval.sroa.0.0.insert.ext
@@ -46805,8 +46805,8 @@ _ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit: ; preds = 
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then18.i, %if.then, %if.then.i, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.then.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ 0, %if.then.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %_ZN8facebook5velox12SimpleVectorIdE19comparePrimitiveAscERKdS4_.exit ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ %cond.i, %if.end.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -48166,7 +48166,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -48420,7 +48420,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -48678,7 +48678,7 @@ if.then3.i.i.i.us22:                              ; preds = %if.end.i.i.i.us15
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24: ; preds = %if.then3.i.i.i.us22, %if.end4.i.i.i.us18, %if.then.us10
-  %retval.0.i.i.i.us25 = phi i32 [ %29, %if.then3.i.i.i.us22 ], [ %28, %if.end4.i.i.i.us18 ], [ %25, %if.then.us10 ]
+  %retval.0.i.i.i.us25 = phi i32 [ %28, %if.end4.i.i.i.us18 ], [ %29, %if.then3.i.i.i.us22 ], [ %25, %if.then.us10 ]
   %idxprom.i.i9.us26 = sext i32 %retval.0.i.i.i.us25 to i64
   %arrayidx.i.i10.us27 = getelementptr inbounds float, ptr %23, i64 %idxprom.i.i9.us26
   %30 = load float, ptr %arrayidx.i.i10.us27, align 4
@@ -48687,7 +48687,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlat
   br label %for.inc.us30
 
 for.inc.us30:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24, %for.body.us7
-  %sum.1.us31 = phi double [ %add.i.us29, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24 ], [ %sum.04.us9, %for.body.us7 ]
+  %sum.1.us31 = phi double [ %sum.04.us9, %for.body.us7 ], [ %add.i.us29, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24 ]
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %cmp.us33 = icmp slt i64 %indvars.iv.next116, %21
   br i1 %cmp.us33, label %for.body.us7, label %for.end, !llvm.loop !333
@@ -48822,7 +48822,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %55, %if.then3.i.i.i ], [ %57, %if.end4.i.i.i ], [ %53, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %57, %if.end4.i.i.i ], [ %55, %if.then3.i.i.i ], [ %53, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds float, ptr %51, i64 %idxprom.i.i9
   %58 = load float, ptr %arrayidx.i.i10, align 4
@@ -48837,7 +48837,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !333
 
 for.end:                                          ; preds = %for.inc, %for.body.us36, %for.body.us36.us73, %for.body.us36.us66, %for.inc.us30, %for.body.us, %for.body.us.us87, %for.body.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us ], [ %add.i.us.us, %for.body.us.us ], [ %add.i.us.us95, %for.body.us.us87 ], [ %add.i.us, %for.body.us ], [ %sum.1.us31, %for.inc.us30 ], [ %add.i.us58.us, %for.body.us36.us66 ], [ %add.i.us58.us81, %for.body.us36.us73 ], [ %add.i.us58, %for.body.us36 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us ], [ %add.i.us58, %for.body.us36 ], [ %add.i.us.us, %for.body.us.us ], [ %add.i.us.us95, %for.body.us.us87 ], [ %add.i.us, %for.body.us ], [ %sum.1.us31, %for.inc.us30 ], [ %add.i.us58.us, %for.body.us36.us66 ], [ %add.i.us58.us81, %for.body.us36.us73 ], [ %sum.1, %for.inc ]
   ret double %sum.0.lcssa
 }
 
@@ -48962,7 +48962,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -49095,7 +49095,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit, !llvm.loop !303
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit: ; preds = %for.body.i, %for.body.us5.i, %for.body.us.i, %entry
-  %sum.0.lcssa.i = phi double [ 0.000000e+00, %entry ], [ %add.i.us.i, %for.body.us.i ], [ %add.i.us13.i, %for.body.us5.i ], [ %add.i.i, %for.body.i ]
+  %sum.0.lcssa.i = phi double [ 0.000000e+00, %entry ], [ %add.i.us13.i, %for.body.us5.i ], [ %add.i.us.i, %for.body.us.i ], [ %add.i.i, %for.body.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %26 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %26, null
@@ -49269,7 +49269,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -49709,7 +49709,7 @@ if.then3.i.i.i.us22.i:                            ; preds = %if.end.i.i.i.us15.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i: ; preds = %if.then3.i.i.i.us22.i, %if.end4.i.i.i.us18.i, %if.then.us10.i
-  %retval.0.i.i.i.us25.i = phi i32 [ %49, %if.then3.i.i.i.us22.i ], [ %48, %if.end4.i.i.i.us18.i ], [ %45, %if.then.us10.i ]
+  %retval.0.i.i.i.us25.i = phi i32 [ %48, %if.end4.i.i.i.us18.i ], [ %49, %if.then3.i.i.i.us22.i ], [ %45, %if.then.us10.i ]
   %idxprom.i.i9.us26.i = sext i32 %retval.0.i.i.i.us25.i to i64
   %arrayidx.i.i10.us27.i = getelementptr inbounds double, ptr %44, i64 %idxprom.i.i9.us26.i
   %50 = load double, ptr %arrayidx.i.i10.us27.i, align 8
@@ -49717,7 +49717,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_1
   br label %for.inc.us29.i
 
 for.inc.us29.i:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i, %for.body.us7.i
-  %sum.1.us30.i = phi double [ %add.i.us28.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i ], [ %sum.04.us9.i, %for.body.us7.i ]
+  %sum.1.us30.i = phi double [ %sum.04.us9.i, %for.body.us7.i ], [ %add.i.us28.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUlT_E_clIiEEDaSO_.exit.us24.i ]
   %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, 1
   %cmp.us32.i = icmp slt i64 %indvars.iv.next112.i, %42
   br i1 %cmp.us32.i, label %for.body.us7.i, label %invoke.cont45.sink.split, !llvm.loop !334
@@ -49809,7 +49809,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont38, %if.
           to label %invoke.cont45 unwind label %lpad39
 
 invoke.cont45.sink.split:                         ; preds = %for.body.i154, %for.body.us5.i, %for.body.us.i161, %for.inc.i, %for.body.us35.us71.i, %for.inc.us29.i, %for.body.us.i, %for.body.us.us84.i, %for.body.us.us.i, %if.then27, %for.body.lr.ph.split.split.split.us.i, %if.else
-  %sum.0.lcssa.i142.sink = phi double [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then27 ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us.i ], [ %add.i.us.us.i, %for.body.us.us.i ], [ %add.i.us.us91.i, %for.body.us.us84.i ], [ %add.i.us.i, %for.body.us.i ], [ %sum.1.us30.i, %for.inc.us29.i ], [ %add.i.us56.us78.i, %for.body.us35.us71.i ], [ %sum.1.i, %for.inc.i ], [ %add.i.us.i162, %for.body.us.i161 ], [ %add.i.us12.i, %for.body.us5.i ], [ %add.i.i158, %for.body.i154 ]
+  %sum.0.lcssa.i142.sink = phi double [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then27 ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us.i ], [ %add.i.us12.i, %for.body.us5.i ], [ %add.i.us.us.i, %for.body.us.us.i ], [ %add.i.us.us91.i, %for.body.us.us84.i ], [ %add.i.us.i, %for.body.us.i ], [ %sum.1.us30.i, %for.inc.us29.i ], [ %add.i.us56.us78.i, %for.body.us35.us71.i ], [ %sum.1.i, %for.inc.i ], [ %add.i.us.i162, %for.body.us.i161 ], [ %add.i.i158, %for.body.i154 ]
   store double %sum.0.lcssa.i142.sink, ptr %sum, align 8
   br label %invoke.cont45
 
@@ -50470,7 +50470,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i
 
 land.end.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.end.i7.i.i.i.i
-  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ %164, %if.then26.i.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
+  %frombool.i.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i.i ], [ 256, %if.end.i7.i.i.i.i ], [ 257, %land.rhs.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i.i ], [ %164, %if.then26.i.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i.i, ptr %allSelected_.i.i.i.i.i, align 4
   %165 = trunc i16 %frombool.i.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i
@@ -50579,7 +50579,7 @@ if.then.i19.i.i.i.i:                              ; preds = %lpad12.i.i.i.i.i
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i19.i.i.i.i, %lpad12.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %179, %lpad12.i.i.i.i.i ], [ %179, %if.then.i19.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %179, %if.then.i19.i.i.i.i ], [ %179, %lpad12.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %lpad9.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i
 
@@ -50912,7 +50912,7 @@ if.then.i35.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i
 
 ehcleanup.i35.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i35.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %223, %lpad13.i.i.i.i.i.i.i.i.i ], [ %223, %if.then.i35.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %223, %if.then.i35.i.i.i.i.i.i.i.i ], [ %223, %lpad13.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i
 
@@ -51133,7 +51133,7 @@ if.then.i51.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i51.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %262, %lpad12.i.i.i.i.i.i.i.i.i ], [ %262, %if.then.i51.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %262, %if.then.i51.i.i.i.i.i.i.i.i ], [ %262, %lpad12.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -51330,7 +51330,7 @@ if.then26.i.i.i.i.i.i.i502:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i222
 
 land.end.i.i.i.i.i222:                            ; preds = %for.body.i.i.i.i.i.i.i511, %if.then26.i.i.i.i.i.i.i502, %for.end.i.i.i.i.i.i.i500, %land.rhs.i.i.i.i.i494, %land.lhs.true.i.i.i.i.i490, %if.end.i7.i.i.i.i219
-  %frombool.i.i.i.i.i223 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i490 ], [ 256, %if.end.i7.i.i.i.i219 ], [ 257, %land.rhs.i.i.i.i.i494 ], [ %279, %if.then26.i.i.i.i.i.i.i502 ], [ 257, %for.end.i.i.i.i.i.i.i500 ], [ 256, %for.body.i.i.i.i.i.i.i511 ]
+  %frombool.i.i.i.i.i223 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i490 ], [ 256, %if.end.i7.i.i.i.i219 ], [ 257, %land.rhs.i.i.i.i.i494 ], [ 257, %for.end.i.i.i.i.i.i.i500 ], [ %279, %if.then26.i.i.i.i.i.i.i502 ], [ 256, %for.body.i.i.i.i.i.i.i511 ]
   store i16 %frombool.i.i.i.i.i223, ptr %allSelected_.i.i.i.i.i216, align 4
   %280 = trunc i16 %frombool.i.i.i.i.i223 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i224
@@ -51535,7 +51535,7 @@ if.then.i19.i.i.i.i486:                           ; preds = %lpad12.i.i.i.i.i484
   br label %ehcleanup.i.i.i.i.i476
 
 ehcleanup.i.i.i.i.i476:                           ; preds = %if.then.i19.i.i.i.i486, %lpad12.i.i.i.i.i484, %lpad9.i.loopexit.split-lp.i.i.i.i480, %lpad9.i.loopexit.i.i.i.i474
-  %.pn.i.i.i.i477 = phi { ptr, i32 } [ %318, %lpad12.i.i.i.i.i484 ], [ %318, %if.then.i19.i.i.i.i486 ], [ %lpad.loopexit.i.i.i.i475, %lpad9.i.loopexit.i.i.i.i474 ], [ %lpad.loopexit.split-lp.i.i.i.i481, %lpad9.i.loopexit.split-lp.i.i.i.i480 ]
+  %.pn.i.i.i.i477 = phi { ptr, i32 } [ %318, %if.then.i19.i.i.i.i486 ], [ %318, %lpad12.i.i.i.i.i484 ], [ %lpad.loopexit.i.i.i.i475, %lpad9.i.loopexit.i.i.i.i474 ], [ %lpad.loopexit.split-lp.i.i.i.i481, %lpad9.i.loopexit.split-lp.i.i.i.i480 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i464
 
@@ -51852,7 +51852,7 @@ if.then.i35.i.i.i.i.i.i.i.i323:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i312
 
 ehcleanup.i35.i.i.i.i.i.i.i.i312:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i323, %lpad13.i.i.i.i.i.i.i.i.i321, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i316, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i310
-  %.pn19.i.i.i.i.i.i.i.i313 = phi { ptr, i32 } [ %361, %lpad13.i.i.i.i.i.i.i.i.i321 ], [ %361, %if.then.i35.i.i.i.i.i.i.i.i323 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i311, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i310 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i317, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i316 ]
+  %.pn19.i.i.i.i.i.i.i.i313 = phi { ptr, i32 } [ %361, %if.then.i35.i.i.i.i.i.i.i.i323 ], [ %361, %lpad13.i.i.i.i.i.i.i.i.i321 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i311, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i310 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i317, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i316 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i300
 
@@ -52056,7 +52056,7 @@ if.then.i51.i.i.i.i.i.i.i.i406:                   ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i396
 
 ehcleanup.i.i.i.i.i.i.i.i.i396:                   ; preds = %if.then.i51.i.i.i.i.i.i.i.i406, %lpad12.i.i.i.i.i.i.i.i.i404, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i400, %lpad9.i.loopexit.i.i.i.i.i.i.i.i394
-  %.pn.i.i.i.i.i.i.i.i397 = phi { ptr, i32 } [ %398, %lpad12.i.i.i.i.i.i.i.i.i404 ], [ %398, %if.then.i51.i.i.i.i.i.i.i.i406 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i395, %lpad9.i.loopexit.i.i.i.i.i.i.i.i394 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i401, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i400 ]
+  %.pn.i.i.i.i.i.i.i.i397 = phi { ptr, i32 } [ %398, %if.then.i51.i.i.i.i.i.i.i.i406 ], [ %398, %lpad12.i.i.i.i.i.i.i.i.i404 ], [ %lpad.loopexit56.i.i.i.i.i.i.i.i395, %lpad9.i.loopexit.i.i.i.i.i.i.i.i394 ], [ %lpad.loopexit.split-lp57.i.i.i.i.i.i.i.i401, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i400 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i385
 
@@ -52281,7 +52281,7 @@ if.then26.i.i.i.i.i.i.i837:                       ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i575
 
 land.end.i.i.i.i.i575:                            ; preds = %for.body.i.i.i.i.i.i.i846, %if.then26.i.i.i.i.i.i.i837, %for.end.i.i.i.i.i.i.i835, %land.rhs.i.i.i.i.i829, %land.lhs.true.i.i.i.i.i825, %if.end.i7.i.i.i.i572
-  %frombool.i.i.i.i.i576 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i825 ], [ 256, %if.end.i7.i.i.i.i572 ], [ 257, %land.rhs.i.i.i.i.i829 ], [ %421, %if.then26.i.i.i.i.i.i.i837 ], [ 257, %for.end.i.i.i.i.i.i.i835 ], [ 256, %for.body.i.i.i.i.i.i.i846 ]
+  %frombool.i.i.i.i.i576 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i825 ], [ 256, %if.end.i7.i.i.i.i572 ], [ 257, %land.rhs.i.i.i.i.i829 ], [ 257, %for.end.i.i.i.i.i.i.i835 ], [ %421, %if.then26.i.i.i.i.i.i.i837 ], [ 256, %for.body.i.i.i.i.i.i.i846 ]
   store i16 %frombool.i.i.i.i.i576, ptr %allSelected_.i.i.i.i.i569, align 4
   %422 = trunc i16 %frombool.i.i.i.i.i576 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i577
@@ -52462,7 +52462,7 @@ if.then.i19.i.i.i.i806:                           ; preds = %lpad12.i.i.i.i.i804
   br label %ehcleanup.i.i.i.i.i796
 
 ehcleanup.i.i.i.i.i796:                           ; preds = %if.then.i19.i.i.i.i806, %lpad12.i.i.i.i.i804, %lpad9.i.loopexit.split-lp.i.i.i.i800, %lpad9.i.loopexit.i.i.i.i794
-  %.pn.i.i.i.i797 = phi { ptr, i32 } [ %455, %lpad12.i.i.i.i.i804 ], [ %455, %if.then.i19.i.i.i.i806 ], [ %lpad.loopexit.i.i.i.i795, %lpad9.i.loopexit.i.i.i.i794 ], [ %lpad.loopexit.split-lp.i.i.i.i801, %lpad9.i.loopexit.split-lp.i.i.i.i800 ]
+  %.pn.i.i.i.i797 = phi { ptr, i32 } [ %455, %if.then.i19.i.i.i.i806 ], [ %455, %lpad12.i.i.i.i.i804 ], [ %lpad.loopexit.i.i.i.i795, %lpad9.i.loopexit.i.i.i.i794 ], [ %lpad.loopexit.split-lp.i.i.i.i801, %lpad9.i.loopexit.split-lp.i.i.i.i800 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i783
 
@@ -52755,7 +52755,7 @@ if.then.i36.i.i.i.i.i.i.i.i:                      ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i659
 
 ehcleanup.i35.i.i.i.i.i.i.i.i659:                 ; preds = %if.then.i36.i.i.i.i.i.i.i.i, %lpad13.i.i.i.i.i.i.i.i.i667, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i663, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i657
-  %.pn19.i.i.i.i.i.i.i.i660 = phi { ptr, i32 } [ %496, %lpad13.i.i.i.i.i.i.i.i.i667 ], [ %496, %if.then.i36.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i658, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i657 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i663 ]
+  %.pn19.i.i.i.i.i.i.i.i660 = phi { ptr, i32 } [ %496, %if.then.i36.i.i.i.i.i.i.i.i ], [ %496, %lpad13.i.i.i.i.i.i.i.i.i667 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i658, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i657 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i664, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i663 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i648
 
@@ -52936,7 +52936,7 @@ if.then.i52.i.i.i.i.i.i.i.i:                      ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i717
 
 ehcleanup.i.i.i.i.i.i.i.i.i717:                   ; preds = %if.then.i52.i.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i.i724, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i721, %lpad9.i.loopexit.i.i.i.i.i.i.i.i716
-  %.pn.i.i.i.i.i.i.i.i718 = phi { ptr, i32 } [ %529, %lpad12.i.i.i.i.i.i.i.i.i724 ], [ %529, %if.then.i52.i.i.i.i.i.i.i.i ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i716 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i721 ]
+  %.pn.i.i.i.i.i.i.i.i718 = phi { ptr, i32 } [ %529, %if.then.i52.i.i.i.i.i.i.i.i ], [ %529, %lpad12.i.i.i.i.i.i.i.i.i724 ], [ %lpad.loopexit57.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i716 ], [ %lpad.loopexit.split-lp58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i721 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i708
 
@@ -53041,7 +53041,7 @@ lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %lpad108.body
 
 lpad108.body:                                     ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i952, %catch.fallthrough.i.i.i.i.i.i.i.i.i1040, %catch.fallthrough.i.i.i.i.i1111, %catch.fallthrough.i21.i.i.i.i.i.i.i.i642, %catch.fallthrough.i.i.i.i.i.i.i.i.i704, %catch.fallthrough.i.i.i.i.i776, %lpad108.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad108.loopexit.split-lp.loopexit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1117, %ehcleanup.i.i.i.i.i1131, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i961, %ehcleanup.i35.i.i.i.i.i.i.i.i974, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1046, %ehcleanup.i.i.i.i.i.i.i.i.i1057, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i782, %ehcleanup.i.i.i.i.i796, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i659, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i717
-  %eh.lpad-body852 = phi { ptr, i32 } [ %.pn.i.i.i.i797, %ehcleanup.i.i.i.i.i796 ], [ %452, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i782 ], [ %.pn19.i.i.i.i.i.i.i.i660, %ehcleanup.i35.i.i.i.i.i.i.i.i659 ], [ %493, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i718, %ehcleanup.i.i.i.i.i.i.i.i.i717 ], [ %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1132, %ehcleanup.i.i.i.i.i1131 ], [ %558, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1117 ], [ %.pn19.i.i.i.i.i.i.i.i975, %ehcleanup.i35.i.i.i.i.i.i.i.i974 ], [ %611, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i961 ], [ %.pn.i.i.i.i.i.i.i.i1058, %ehcleanup.i.i.i.i.i.i.i.i.i1057 ], [ %659, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1046 ], [ %lpad.loopexit1322, %lpad108.loopexit ], [ %lpad.loopexit1325, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1329, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1333, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1341, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1344, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1345, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %444, %catch.fallthrough.i.i.i.i.i776 ], [ %518, %catch.fallthrough.i.i.i.i.i.i.i.i.i704 ], [ %485, %catch.fallthrough.i21.i.i.i.i.i.i.i.i642 ], [ %550, %catch.fallthrough.i.i.i.i.i1111 ], [ %651, %catch.fallthrough.i.i.i.i.i.i.i.i.i1040 ], [ %603, %catch.fallthrough.i21.i.i.i.i.i.i.i.i952 ]
+  %eh.lpad-body852 = phi { ptr, i32 } [ %.pn.i.i.i.i797, %ehcleanup.i.i.i.i.i796 ], [ %452, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i782 ], [ %.pn19.i.i.i.i.i.i.i.i660, %ehcleanup.i35.i.i.i.i.i.i.i.i659 ], [ %493, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit30.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i.i718, %ehcleanup.i.i.i.i.i.i.i.i.i717 ], [ %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit46.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i1132, %ehcleanup.i.i.i.i.i1131 ], [ %558, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i1117 ], [ %.pn19.i.i.i.i.i.i.i.i975, %ehcleanup.i35.i.i.i.i.i.i.i.i974 ], [ %611, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i961 ], [ %.pn.i.i.i.i.i.i.i.i1058, %ehcleanup.i.i.i.i.i.i.i.i.i1057 ], [ %659, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i1046 ], [ %lpad.loopexit.split-lp1345, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1322, %lpad108.loopexit ], [ %lpad.loopexit1325, %lpad108.loopexit.split-lp.loopexit ], [ %lpad.loopexit1329, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1333, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1341, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1344, %lpad108.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %651, %catch.fallthrough.i.i.i.i.i.i.i.i.i1040 ], [ %444, %catch.fallthrough.i.i.i.i.i776 ], [ %518, %catch.fallthrough.i.i.i.i.i.i.i.i.i704 ], [ %485, %catch.fallthrough.i21.i.i.i.i.i.i.i.i642 ], [ %550, %catch.fallthrough.i.i.i.i.i1111 ], [ %603, %catch.fallthrough.i21.i.i.i.i.i.i.i.i952 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elements101) #33
   br label %ehcleanup117
 
@@ -53130,7 +53130,7 @@ if.then26.i.i.i.i.i.i.i1156:                      ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i.i882
 
 land.end.i.i.i.i.i882:                            ; preds = %for.body.i.i.i.i.i.i.i1165, %if.then26.i.i.i.i.i.i.i1156, %for.end.i.i.i.i.i.i.i1154, %land.rhs.i.i.i.i.i1148, %land.lhs.true.i.i.i.i.i1144, %if.end.i7.i.i.i.i879
-  %frombool.i.i.i.i.i883 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1144 ], [ 256, %if.end.i7.i.i.i.i879 ], [ 257, %land.rhs.i.i.i.i.i1148 ], [ %546, %if.then26.i.i.i.i.i.i.i1156 ], [ 257, %for.end.i.i.i.i.i.i.i1154 ], [ 256, %for.body.i.i.i.i.i.i.i1165 ]
+  %frombool.i.i.i.i.i883 = phi i16 [ 256, %land.lhs.true.i.i.i.i.i1144 ], [ 256, %if.end.i7.i.i.i.i879 ], [ 257, %land.rhs.i.i.i.i.i1148 ], [ 257, %for.end.i.i.i.i.i.i.i1154 ], [ %546, %if.then26.i.i.i.i.i.i.i1156 ], [ 256, %for.body.i.i.i.i.i.i.i1165 ]
   store i16 %frombool.i.i.i.i.i883, ptr %allSelected_.i.i.i.i.i569, align 4
   %547 = trunc i16 %frombool.i.i.i.i.i883 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i.i884
@@ -53239,7 +53239,7 @@ if.then.i19.i.i.i.i1141:                          ; preds = %lpad12.i.i.i.i.i113
   br label %ehcleanup.i.i.i.i.i1131
 
 ehcleanup.i.i.i.i.i1131:                          ; preds = %if.then.i19.i.i.i.i1141, %lpad12.i.i.i.i.i1139, %lpad9.i.loopexit.split-lp.i.i.i.i1135, %lpad9.i.loopexit.i.i.i.i1129
-  %.pn.i.i.i.i1132 = phi { ptr, i32 } [ %561, %lpad12.i.i.i.i.i1139 ], [ %561, %if.then.i19.i.i.i.i1141 ], [ %lpad.loopexit.i.i.i.i1130, %lpad9.i.loopexit.i.i.i.i1129 ], [ %lpad.loopexit.split-lp.i.i.i.i1136, %lpad9.i.loopexit.split-lp.i.i.i.i1135 ]
+  %.pn.i.i.i.i1132 = phi { ptr, i32 } [ %561, %if.then.i19.i.i.i.i1141 ], [ %561, %lpad12.i.i.i.i.i1139 ], [ %lpad.loopexit.i.i.i.i1130, %lpad9.i.loopexit.i.i.i.i1129 ], [ %lpad.loopexit.split-lp.i.i.i.i1136, %lpad9.i.loopexit.split-lp.i.i.i.i1135 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i1118
 
@@ -53452,7 +53452,7 @@ for.body.i.i.i.i.i.i.i.i.i.i1010:                 ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i1018, label %for.body.i.i.i.i.i.i.i.i.i.i1010, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !359
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i1010, %for.body.us5.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i931
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i941 = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i.i931 ], [ %add.i.us.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i ], [ %add.i.us12.i.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i.i.i1016, %for.body.i.i.i.i.i.i.i.i.i.i1010 ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i.i941 = phi double [ 0.000000e+00, %for.body.i.i.i.i.i.i.i.i931 ], [ %add.i.us12.i.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i.i ], [ %add.i.us.i.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i.i.i1016, %for.body.i.i.i.i.i.i.i.i.i.i1010 ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i.i942 = getelementptr inbounds nuw i8, ptr %573, i64 152
   %595 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i.i942, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i943 = icmp eq ptr %595, null
@@ -53606,7 +53606,7 @@ if.then.i35.i.i.i.i.i.i.i.i985:                   ; preds = %lpad13.i.i.i.i.i.i.
   br label %ehcleanup.i35.i.i.i.i.i.i.i.i974
 
 ehcleanup.i35.i.i.i.i.i.i.i.i974:                 ; preds = %if.then.i35.i.i.i.i.i.i.i.i985, %lpad13.i.i.i.i.i.i.i.i.i983, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i978, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i972
-  %.pn19.i.i.i.i.i.i.i.i975 = phi { ptr, i32 } [ %614, %lpad13.i.i.i.i.i.i.i.i.i983 ], [ %614, %if.then.i35.i.i.i.i.i.i.i.i985 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i973, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i972 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i979, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i978 ]
+  %.pn19.i.i.i.i.i.i.i.i975 = phi { ptr, i32 } [ %614, %if.then.i35.i.i.i.i.i.i.i.i985 ], [ %614, %lpad13.i.i.i.i.i.i.i.i.i983 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i973, %lpad9.i34.loopexit.i.i.i.i.i.i.i.i972 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i979, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i.i978 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i28.i.i.i.i.i.i.i.i962
 
@@ -53717,7 +53717,7 @@ for.body.i.i.i.i.i.i.i.i.i1086:                   ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i1090, label %for.body.i.i.i.i.i.i.i.i.i1086, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i, !llvm.loop !359
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i1086, %for.body.us5.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i1021
-  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1030 = phi double [ 0.000000e+00, %while.body.i.i.i.i.i.i.i.i1021 ], [ %add.i.us.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i ], [ %add.i.us12.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i43.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i1086 ]
+  %sum.0.lcssa.i.i.i.i.i.i.i.i.i1030 = phi double [ 0.000000e+00, %while.body.i.i.i.i.i.i.i.i1021 ], [ %add.i.us12.i.i.i.i.i.i.i.i.i, %for.body.us5.i.i.i.i.i.i.i.i.i ], [ %add.i.us.i.i.i.i.i.i.i.i.i, %for.body.us.i.i.i.i.i.i.i.i.i ], [ %add.i.i.i43.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i1086 ]
   %rawValues_.i.i.i.i.i.i.i.i.i.i1031 = getelementptr inbounds nuw i8, ptr %620, i64 152
   %642 = load ptr, ptr %rawValues_.i.i.i.i.i.i.i.i.i.i1031, align 8
   %cmp.i.i.i37.i.i.i.i.i.i.i = icmp eq ptr %642, null
@@ -53861,7 +53861,7 @@ if.then.i51.i.i.i.i.i.i.i.i1066:                  ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i.i1057
 
 ehcleanup.i.i.i.i.i.i.i.i.i1057:                  ; preds = %if.then.i51.i.i.i.i.i.i.i.i1066, %lpad12.i.i.i.i.i.i.i.i.i1064, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1061, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1056
-  %.pn.i.i.i.i.i.i.i.i1058 = phi { ptr, i32 } [ %662, %lpad12.i.i.i.i.i.i.i.i.i1064 ], [ %662, %if.then.i51.i.i.i.i.i.i.i.i1066 ], [ %lpad.loopexit58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1056 ], [ %lpad.loopexit.split-lp59.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1061 ]
+  %.pn.i.i.i.i.i.i.i.i1058 = phi { ptr, i32 } [ %662, %if.then.i51.i.i.i.i.i.i.i.i1066 ], [ %662, %lpad12.i.i.i.i.i.i.i.i.i1064 ], [ %lpad.loopexit58.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i.i1056 ], [ %lpad.loopexit.split-lp59.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i.i1061 ]
   invoke void @__cxa_end_catch()
           to label %lpad108.body unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i1047
 
@@ -54149,7 +54149,7 @@ return.sink.split.sink.split:                     ; preds = %if.then.i.i.i.i134,
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i126
-  %.sink1697 = phi ptr [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i126 ], [ %684, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1225 ], [ %.sink1701, %return.sink.split.sink.split ]
+  %.sink1697 = phi ptr [ %684, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1225 ], [ %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i126 ], [ %.sink1701, %return.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i1229 = load ptr, ptr %.sink1697, align 8
   %vfn3.i.i.i.i.i.i1230 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i1229, i64 24
   %694 = load ptr, ptr %vfn3.i.i.i.i.i.i1230, align 8
@@ -54160,8 +54160,8 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume:                                        ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i.i290, %catch.fallthrough.i.i.i.i.i.i.i.i.i378, %catch.fallthrough.i.i.i.i.i457, %catch.fallthrough.i21.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i, %ehcleanup.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i396, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i384, %ehcleanup.i35.i.i.i.i.i.i.i.i312, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i299, %ehcleanup.i.i.i.i.i476, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463, %if.then.i.i.i.i538, %lpad.i536, %ehcleanup117, %if.then.i.i.i.i1203, %lpad79.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad79.loopexit, %lpad.i, %ehcleanup53, %ehcleanup54.sink.split
-  %elementsVector73.sink = phi ptr [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector, %lpad.i ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1203 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i536 ], [ %elementsVector73, %if.then.i.i.i.i538 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i476 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i299 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i312 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i384 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i396 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i457 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i378 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i290 ]
-  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %16, %lpad.i ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1307, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1319, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1318, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1311, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1303, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1203 ], [ %.pn, %ehcleanup117 ], [ %405, %lpad.i536 ], [ %405, %if.then.i.i.i.i538 ], [ %314, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %.pn.i.i.i.i477, %ehcleanup.i.i.i.i.i476 ], [ %358, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i299 ], [ %.pn19.i.i.i.i.i.i.i.i313, %ehcleanup.i35.i.i.i.i.i.i.i.i312 ], [ %395, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i384 ], [ %.pn.i.i.i.i.i.i.i.i397, %ehcleanup.i.i.i.i.i.i.i.i.i396 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %259, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %220, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %168, %catch.fallthrough.i.i.i.i.i ], [ %251, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %212, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %305, %catch.fallthrough.i.i.i.i.i457 ], [ %387, %catch.fallthrough.i.i.i.i.i.i.i.i.i378 ], [ %350, %catch.fallthrough.i21.i.i.i.i.i.i.i.i290 ]
+  %elementsVector73.sink = phi ptr [ %elementsVector, %lpad.i ], [ %elementsVector, %ehcleanup54.sink.split ], [ %elementsVector, %ehcleanup53 ], [ %elementsVector73, %lpad79.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %elementsVector73, %lpad79.loopexit.split-lp.loopexit ], [ %elementsVector73, %if.then.i.i.i.i1203 ], [ %elementsVector73, %ehcleanup117 ], [ %elementsVector73, %lpad.i536 ], [ %elementsVector73, %if.then.i.i.i.i538 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i476 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i299 ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i312 ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i384 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i396 ], [ %elementsVector73, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %elementsVector73, %ehcleanup.i.i.i.i.i ], [ %elementsVector73, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i378 ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %elementsVector73, %catch.fallthrough.i.i.i.i.i457 ], [ %elementsVector73, %catch.fallthrough.i21.i.i.i.i.i.i.i.i290 ]
+  %.pn42.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad.i ], [ %.pn42.pn.pn.ph, %ehcleanup54.sink.split ], [ %.pn42.pn, %ehcleanup53 ], [ %lpad.loopexit, %lpad79.loopexit ], [ %lpad.loopexit1307, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1319, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1318, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1311, %lpad79.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1303, %lpad79.loopexit.split-lp.loopexit ], [ %.pn, %if.then.i.i.i.i1203 ], [ %.pn, %ehcleanup117 ], [ %405, %lpad.i536 ], [ %405, %if.then.i.i.i.i538 ], [ %314, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i463 ], [ %.pn.i.i.i.i477, %ehcleanup.i.i.i.i.i476 ], [ %358, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i299 ], [ %.pn19.i.i.i.i.i.i.i.i313, %ehcleanup.i35.i.i.i.i.i.i.i.i312 ], [ %395, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i384 ], [ %.pn.i.i.i.i.i.i.i.i397, %ehcleanup.i.i.i.i.i.i.i.i.i396 ], [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i.i ], [ %259, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit45.i.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i.i ], [ %220, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit29.i.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i.i ], [ %176, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i.i ], [ %387, %catch.fallthrough.i.i.i.i.i.i.i.i.i378 ], [ %168, %catch.fallthrough.i.i.i.i.i ], [ %251, %catch.fallthrough.i.i.i.i.i.i.i.i.i ], [ %212, %catch.fallthrough.i21.i.i.i.i.i.i.i.i ], [ %305, %catch.fallthrough.i.i.i.i.i457 ], [ %350, %catch.fallthrough.i21.i.i.i.i.i.i.i.i290 ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %elementsVector73.sink) #33
   resume { ptr, i32 } %.pn42.pn.pn.pn
 
@@ -54407,7 +54407,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -54660,7 +54660,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -54915,7 +54915,7 @@ if.then3.i.i.i.us22:                              ; preds = %if.end.i.i.i.us15
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24: ; preds = %if.then3.i.i.i.us22, %if.end4.i.i.i.us18, %if.then.us10
-  %retval.0.i.i.i.us25 = phi i32 [ %29, %if.then3.i.i.i.us22 ], [ %28, %if.end4.i.i.i.us18 ], [ %25, %if.then.us10 ]
+  %retval.0.i.i.i.us25 = phi i32 [ %28, %if.end4.i.i.i.us18 ], [ %29, %if.then3.i.i.i.us22 ], [ %25, %if.then.us10 ]
   %idxprom.i.i9.us26 = sext i32 %retval.0.i.i.i.us25 to i64
   %arrayidx.i.i10.us27 = getelementptr inbounds double, ptr %23, i64 %idxprom.i.i9.us26
   %30 = load double, ptr %arrayidx.i.i10.us27, align 8
@@ -54923,7 +54923,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlat
   br label %for.inc.us29
 
 for.inc.us29:                                     ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24, %for.body.us7
-  %sum.1.us30 = phi double [ %add.i.us28, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24 ], [ %sum.04.us9, %for.body.us7 ]
+  %sum.1.us30 = phi double [ %sum.04.us9, %for.body.us7 ], [ %add.i.us28, %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit.us24 ]
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %cmp.us32 = icmp slt i64 %indvars.iv.next112, %21
   br i1 %cmp.us32, label %for.body.us7, label %for.end, !llvm.loop !368
@@ -55055,7 +55055,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNS9_18LocalDecodedVectorEPNS0_10FlatVectorIdEEENKUliE_clEi.exit: ; preds = %if.then, %if.then3.i.i.i, %if.end4.i.i.i
-  %retval.0.i.i.i = phi i32 [ %55, %if.then3.i.i.i ], [ %57, %if.end4.i.i.i ], [ %53, %if.then ]
+  %retval.0.i.i.i = phi i32 [ %57, %if.end4.i.i.i ], [ %55, %if.then3.i.i.i ], [ %53, %if.then ]
   %idxprom.i.i9 = sext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i10 = getelementptr inbounds double, ptr %51, i64 %idxprom.i.i9
   %58 = load double, ptr %arrayidx.i.i10, align 8
@@ -55069,7 +55069,7 @@ for.inc:                                          ; preds = %for.body, %_ZZNK8fa
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !368
 
 for.end:                                          ; preds = %for.inc, %for.body.us35, %for.body.us35.us71, %for.body.us35.us64, %for.inc.us29, %for.body.us, %for.body.us.us84, %for.body.us.us, %for.body.lr.ph.split.split.split.us, %entry
-  %sum.0.lcssa = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us ], [ %add.i.us.us, %for.body.us.us ], [ %add.i.us.us91, %for.body.us.us84 ], [ %add.i.us, %for.body.us ], [ %sum.1.us30, %for.inc.us29 ], [ %add.i.us56.us, %for.body.us35.us64 ], [ %add.i.us56.us78, %for.body.us35.us71 ], [ %add.i.us56, %for.body.us35 ], [ %sum.1, %for.inc ]
+  %sum.0.lcssa = phi double [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.body.lr.ph.split.split.split.us ], [ %add.i.us56, %for.body.us35 ], [ %add.i.us.us, %for.body.us.us ], [ %add.i.us.us91, %for.body.us.us84 ], [ %add.i.us, %for.body.us ], [ %sum.1.us30, %for.inc.us29 ], [ %add.i.us56.us, %for.body.us35.us64 ], [ %add.i.us56.us78, %for.body.us35.us71 ], [ %sum.1, %for.inc ]
   ret double %sum.0.lcssa
 }
 
@@ -55194,7 +55194,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -55324,7 +55324,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit, !llvm.loop !359
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0ERZNKS4_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_11ArrayVectorERNSA_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_RZNKS6_ILb0EEEvS9_SC_SE_SG_SJ_EUliE0_EEdiPKSD_OT0_OT1_.exit: ; preds = %for.body.i, %for.body.us5.i, %for.body.us.i, %entry
-  %sum.0.lcssa.i = phi double [ 0.000000e+00, %entry ], [ %add.i.us.i, %for.body.us.i ], [ %add.i.us12.i, %for.body.us5.i ], [ %add.i.i, %for.body.i ]
+  %sum.0.lcssa.i = phi double [ 0.000000e+00, %entry ], [ %add.i.us12.i, %for.body.us5.i ], [ %add.i.us.i, %for.body.us.i ], [ %add.i.i, %for.body.i ]
   %rawValues_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %26 = load ptr, ptr %rawValues_.i.i, align 8
   %cmp.i.i = icmp eq ptr %26, null
@@ -55498,7 +55498,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 

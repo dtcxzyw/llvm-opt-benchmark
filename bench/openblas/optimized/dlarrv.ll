@@ -1229,16 +1229,16 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %668
 
 668:                                              ; preds = %.split.loop.exit1174, %144, %171, %._crit_edge1021
-  %.9739 = phi double [ %.07301026, %144 ], [ %.07301026, %171 ], [ %.1731.lcssa, %._crit_edge1021 ], [ %.07301026, %.split.loop.exit1174 ]
-  %.1706 = phi i32 [ %145, %144 ], [ %187, %171 ], [ %667, %._crit_edge1021 ], [ %.07051030, %.split.loop.exit1174 ]
-  %.9 = phi double [ %.06851031, %144 ], [ %.06851031, %171 ], [ %.1.lcssa, %._crit_edge1021 ], [ %.06851031, %.split.loop.exit1174 ]
+  %.9739 = phi double [ %.1731.lcssa, %._crit_edge1021 ], [ %.07301026, %144 ], [ %.07301026, %171 ], [ %.07301026, %.split.loop.exit1174 ]
+  %.1706 = phi i32 [ %667, %._crit_edge1021 ], [ %145, %144 ], [ %187, %171 ], [ %.07051030, %.split.loop.exit1174 ]
+  %.9 = phi double [ %.1.lcssa, %._crit_edge1021 ], [ %.06851031, %144 ], [ %.06851031, %171 ], [ %.06851031, %.split.loop.exit1174 ]
   %.1719 = add nsw i32 %122, 1
   %indvars.iv.next1106 = add nuw nsw i64 %indvars.iv1105, 1
   %exitcond1109.not = icmp eq i64 %indvars.iv.next1106, %wide.trip.count1108
   br i1 %exitcond1109.not, label %.loopexit849, label %120, !llvm.loop !18
 
 .loopexit849.sink.split:                          ; preds = %213, %269, %406, %584, %524
-  %.sink = phi i32 [ -3, %524 ], [ 5, %584 ], [ -2, %406 ], [ -1, %269 ], [ -2, %213 ]
+  %.sink = phi i32 [ -1, %269 ], [ -3, %524 ], [ -2, %406 ], [ 5, %584 ], [ -2, %213 ]
   store i32 %.sink, ptr %24, align 4, !tbaa !3
   br label %.loopexit849
 

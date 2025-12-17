@@ -831,7 +831,7 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   ]
 
 handshake_status.exit:                            ; preds = %290, %292, %293, %294
-  %.0.i = phi i32 [ 4, %293 ], [ 4, %294 ], [ 3, %292 ], [ 3, %290 ]
+  %.0.i = phi i32 [ 4, %293 ], [ 3, %292 ], [ 4, %294 ], [ 3, %290 ]
   %296 = icmp eq i32 %288, 3
   br i1 %296, label %handshake_status.exit.thread199, label %handshake_status.exit171
 
@@ -915,8 +915,8 @@ next_phase.exit:                                  ; preds = %handshake_status.ex
   store i32 0, ptr %31, align 8, !tbaa !27
   br label %342
 
-312:                                              ; preds = %311, %309, %310, %303, %handshake_status.exit171.thread206, %307, %305
-  %.0.i172.ph = phi i32 [ %spec.select.i, %305 ], [ %..i, %307 ], [ 2, %handshake_status.exit171.thread206 ], [ 1, %303 ], [ 5, %310 ], [ 4, %309 ], [ -1, %311 ]
+312:                                              ; preds = %311, %305, %303, %307, %handshake_status.exit171.thread206, %309, %310
+  %.0.i172.ph = phi i32 [ 5, %310 ], [ 4, %309 ], [ 2, %handshake_status.exit171.thread206 ], [ %..i, %307 ], [ 1, %303 ], [ %spec.select.i, %305 ], [ -1, %311 ]
   store i32 1, ptr %280, align 4, !tbaa !58
   store i32 1, ptr %279, align 4, !tbaa !58
   br label %.outer.outer.outer253
@@ -932,7 +932,7 @@ handshake_status.exit171.thread210:               ; preds = %295, %300
 .unreachabledefault:                              ; preds = %295
   unreachable
 
-handshake_status.exit171.thread:                  ; preds = %handshake_status.exit171, %297, %299, %300
+handshake_status.exit171.thread:                  ; preds = %handshake_status.exit171, %299, %297, %300
   store i32 3, ptr %31, align 8, !tbaa !27
   br label %342
 
@@ -1450,7 +1450,7 @@ peer_pkey_type.exit195:                           ; preds = %peer_pkey_type.exit
   br label %562
 
 562:                                              ; preds = %9, %peer_pkey_type.exit195, %206
-  %.0 = phi ptr [ %31, %peer_pkey_type.exit195 ], [ null, %206 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %206 ], [ %31, %peer_pkey_type.exit195 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -1654,7 +1654,7 @@ define internal fastcc void @do_connect_step(ptr noundef readonly captures(none)
   ]
 
 .sink.split.i:                                    ; preds = %13, %12, %9, %5
-  %.sink.i = phi i32 [ 2, %12 ], [ 4, %5 ], [ 0, %9 ], [ 2, %13 ]
+  %.sink.i = phi i32 [ 4, %5 ], [ 2, %12 ], [ 0, %9 ], [ 2, %13 ]
   store i32 %.sink.i, ptr %6, align 4, !tbaa !58
   br label %do_handshake_step.exit
 
@@ -1830,7 +1830,7 @@ thread-pre-split.i:                               ; preds = %45
   ]
 
 .sink.split.i113.i:                               ; preds = %90, %89, %86, %83
-  %.sink.i114.i = phi i32 [ 2, %89 ], [ 4, %83 ], [ 0, %86 ], [ 2, %90 ]
+  %.sink.i114.i = phi i32 [ 4, %83 ], [ 2, %89 ], [ 0, %86 ], [ 2, %90 ]
   store i32 %.sink.i114.i, ptr %18, align 4, !tbaa !58
   br label %do_handshake_step.exit115.i
 
@@ -1899,7 +1899,7 @@ do_handshake_step.exit115.i:                      ; preds = %do_handshake_step.e
   ]
 
 .sink.split.i117.i:                               ; preds = %115, %114, %111, %108
-  %.sink.i118.i = phi i32 [ 2, %114 ], [ 4, %108 ], [ 0, %111 ], [ 2, %115 ]
+  %.sink.i118.i = phi i32 [ 4, %108 ], [ 2, %114 ], [ 0, %111 ], [ 2, %115 ]
   store i32 %.sink.i118.i, ptr %18, align 4, !tbaa !58
   br label %do_handshake_step.exit119.i
 
@@ -1970,7 +1970,7 @@ do_handshake_step.exit119.i:                      ; preds = %do_handshake_step.e
   ]
 
 .sink.split.i121.i:                               ; preds = %142, %141, %138, %135
-  %.sink.i122.i = phi i32 [ 2, %141 ], [ 4, %135 ], [ 0, %138 ], [ 2, %142 ]
+  %.sink.i122.i = phi i32 [ 4, %135 ], [ 2, %141 ], [ 0, %138 ], [ 2, %142 ]
   store i32 %.sink.i122.i, ptr %18, align 4, !tbaa !58
   br label %do_handshake_step.exit123.i
 
@@ -2002,7 +2002,7 @@ do_handshake_step.exit123.i:                      ; preds = %do_handshake_step.e
   br i1 %.not107.not.i, label %do_reneg_setup_step.exit, label %.critedge109.sink.split.i
 
 .critedge109.sink.split.i:                        ; preds = %153, %150, %146, %do_handshake_step.exit123.i, %133, %125, %122, %do_handshake_step.exit119.i, %103, %97, %94, %do_handshake_step.exit115.i, %82, %73, %32, %30, %27, %26, %23, %21
-  %.sink.i.sink.i = phi i32 [ 1, %94 ], [ 2, %26 ], [ 4, %21 ], [ 0, %23 ], [ 2, %27 ], [ 4, %32 ], [ 4, %30 ], [ 2, %73 ], [ 2, %82 ], [ 0, %do_handshake_step.exit115.i ], [ 0, %97 ], [ 2, %103 ], [ 2, %do_handshake_step.exit119.i ], [ 2, %122 ], [ 2, %125 ], [ 2, %133 ], [ 2, %do_handshake_step.exit123.i ], [ 2, %146 ], [ 2, %150 ], [ 0, %153 ]
+  %.sink.i.sink.i = phi i32 [ 2, %27 ], [ 2, %do_handshake_step.exit119.i ], [ 2, %125 ], [ 2, %146 ], [ 2, %133 ], [ 2, %103 ], [ 2, %82 ], [ 1, %94 ], [ 4, %30 ], [ 2, %150 ], [ 2, %do_handshake_step.exit123.i ], [ 0, %97 ], [ 0, %do_handshake_step.exit115.i ], [ 2, %73 ], [ 4, %21 ], [ 2, %26 ], [ 0, %23 ], [ 4, %32 ], [ 2, %122 ], [ 0, %153 ]
   store i32 %.sink.i.sink.i, ptr %18, align 4, !tbaa !58
   br label %do_reneg_setup_step.exit
 
@@ -2037,7 +2037,7 @@ do_reneg_setup_step.exit:                         ; preds = %27, %27, %do_handsh
   ]
 
 .sink.split.i9:                                   ; preds = %164, %163, %160, %156
-  %.sink.i10 = phi i32 [ 2, %163 ], [ 4, %156 ], [ 0, %160 ], [ 2, %164 ]
+  %.sink.i10 = phi i32 [ 4, %156 ], [ 2, %163 ], [ 0, %160 ], [ 2, %164 ]
   store i32 %.sink.i10, ptr %157, align 4, !tbaa !58
   br label %do_handshake_step.exit
 
@@ -2151,7 +2151,7 @@ define internal range(i32 0, 2) i32 @verify_retry_cb(ptr noundef %0, ptr readnon
   br label %16
 
 16:                                               ; preds = %8, %2, %5, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %5 ], [ 0, %2 ], [ 1, %8 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %2 ], [ 0, %5 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -2246,7 +2246,7 @@ define internal range(i32 0, 2) i32 @client_hello_nov12_cb(ptr noundef %0, ptr n
   br i1 %.not, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %20, %7, %11, %14, %17, %3
-  %.sink = phi i32 [ 70, %3 ], [ 80, %17 ], [ 80, %14 ], [ 80, %11 ], [ 80, %7 ], [ 112, %20 ]
+  %.sink = phi i32 [ 80, %7 ], [ 70, %3 ], [ 80, %17 ], [ 80, %14 ], [ 80, %11 ], [ 112, %20 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !31
   br label %23
 
@@ -2542,8 +2542,8 @@ define internal fastcc range(i32 0, 4) i32 @select_server_ctx(ptr noundef %0, pt
   br i1 %.not, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %16, %3, %11
-  %.sink = phi i32 [ 2, %11 ], [ 1, %3 ], [ 1, %16 ], [ 1, %19 ]
-  %.0.ph = phi i32 [ 0, %11 ], [ 3, %3 ], [ 0, %16 ], [ 3, %19 ]
+  %.sink = phi i32 [ 1, %16 ], [ 1, %3 ], [ 2, %11 ], [ 1, %19 ]
+  %.0.ph = phi i32 [ 0, %16 ], [ 3, %3 ], [ 0, %11 ], [ 3, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sink, ptr %20, align 4, !tbaa !71
   br label %21
@@ -2657,13 +2657,13 @@ define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr n
   br i1 %.not24.old, label %54, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %50, %45
-  %.sink = phi i32 [ 2, %45 ], [ 1, %50 ], [ 1, %.critedge ]
+  %.sink = phi i32 [ 1, %50 ], [ 2, %45 ], [ 1, %.critedge ]
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %.sink, ptr %53, align 4, !tbaa !71
   br label %54
 
 54:                                               ; preds = %50, %.sink.split, %.critedge, %29, %26, %23, %12, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %.critedge ], [ 1, %.sink.split ], [ 0, %50 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %3 ], [ 0, %12 ], [ 0, %.critedge ], [ 0, %26 ], [ 0, %23 ], [ 1, %.sink.split ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2793,7 +2793,7 @@ thread-pre-split:                                 ; preds = %.critedge, %35
   br i1 %42, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %13, %40, %27, %33, %18, %16, %1
-  %.sink = phi i32 [ 4, %1 ], [ 2, %16 ], [ 2, %18 ], [ 4, %33 ], [ 2, %27 ], [ 0, %40 ], [ 4, %13 ]
+  %.sink = phi i32 [ 2, %16 ], [ 2, %27 ], [ 4, %33 ], [ 2, %18 ], [ 4, %1 ], [ 0, %40 ], [ 4, %13 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !58
   br label %43
 

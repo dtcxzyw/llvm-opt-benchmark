@@ -534,7 +534,7 @@ _ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIj
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
-  %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
+  %70 = phi ptr [ %.pr.pre.i.i.i.i.i.i24, %68 ], [ %58, %65 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
   br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
@@ -923,7 +923,7 @@ _ZN4llvm14VarStreamArrayINS_8codeview21CrossModuleImportItemENS_23VarStreamArray
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i: ; preds = %33, %30
-  %35 = phi ptr [ %22, %30 ], [ %.pr.pre.i.i.i.i.i.i, %33 ]
+  %35 = phi ptr [ %.pr.pre.i.i.i.i.i.i, %33 ], [ %22, %30 ]
   %.not8.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not8.i.i.i.i.i.i, label %_ZN4llvm14VarStreamArrayINS_8codeview21CrossModuleImportItemENS_23VarStreamArrayExtractorIS2_EEE19setUnderlyingStreamENS_15BinaryStreamRefEj.exit.thread23, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i.thread
 
@@ -1821,8 +1821,8 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %108, %_ZNK4llvm9Str
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %.critedge25, %.critedge.thread52, %_ZN4llvm5ErrorD2Ev.exit31
-  %.sroa.17.0.lcssa8191 = phi ptr [ %.sroa.17.2, %.critedge25 ], [ %.sroa.17.2, %.critedge.thread52 ], [ %.sroa.17.0.lcssa8192, %_ZN4llvm5ErrorD2Ev.exit31 ], [ %.sroa.17.2, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
-  %.sroa.043.0.lcssa8389 = phi ptr [ %.sroa.043.2, %.critedge25 ], [ %.sroa.043.2, %.critedge.thread52 ], [ %.sroa.043.0.lcssa8390, %_ZN4llvm5ErrorD2Ev.exit31 ], [ %.sroa.043.2, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
+  %.sroa.17.0.lcssa8191 = phi ptr [ %.sroa.17.0.lcssa8192, %_ZN4llvm5ErrorD2Ev.exit31 ], [ %.sroa.17.2, %.critedge25 ], [ %.sroa.17.2, %.critedge.thread52 ], [ %.sroa.17.2, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
+  %.sroa.043.0.lcssa8389 = phi ptr [ %.sroa.043.0.lcssa8390, %_ZN4llvm5ErrorD2Ev.exit31 ], [ %.sroa.043.2, %.critedge25 ], [ %.sroa.043.2, %.critedge.thread52 ], [ %.sroa.043.2, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
   %.not.i.i.i = icmp eq ptr %.sroa.043.0.lcssa8389, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EED2Ev.exit, label %110
 

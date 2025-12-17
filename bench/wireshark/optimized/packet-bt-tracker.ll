@@ -267,7 +267,7 @@ define internal i32 @dissect_bt_tracker(ptr noundef %0, ptr noundef readonly cap
   br label %get_message_type.exit
 
 get_message_type.exit:                            ; preds = %11, %14, %17, %20, %23, %26, %29
-  %.0.i = phi i32 [ 0, %11 ], [ 1, %14 ], [ 2, %17 ], [ 3, %20 ], [ 4, %23 ], [ 5, %26 ], [ %..i, %29 ]
+  %.0.i = phi i32 [ 5, %26 ], [ 0, %11 ], [ 1, %14 ], [ 2, %17 ], [ 3, %20 ], [ 4, %23 ], [ %..i, %29 ]
   %32 = load ptr, ptr %6, align 8
   %33 = tail call ptr @val_to_str_const(i32 noundef %.0.i, ptr noundef nonnull @bt_tracker_msg_type_vals, ptr noundef nonnull @.str.88)
   tail call void @col_append_str(ptr noundef %32, i32 noundef 25, ptr noundef %33)

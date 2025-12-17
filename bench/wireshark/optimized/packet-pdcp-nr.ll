@@ -646,7 +646,7 @@ check_valid_key_string.exit.preheader:            ; preds = %31, %hex_ascii_to_b
   br label %hex_ascii_to_binary.exit
 
 hex_ascii_to_binary.exit:                         ; preds = %check_valid_key_string.exit.preheader, %39, %41
-  %.0.i10 = phi i8 [ %40, %39 ], [ %spec.select.i, %41 ], [ %36, %check_valid_key_string.exit.preheader ]
+  %.0.i10 = phi i8 [ %spec.select.i, %41 ], [ %40, %39 ], [ %36, %check_valid_key_string.exit.preheader ]
   %44 = shl nuw i8 %.0.i10, 4
   %45 = getelementptr i8, ptr %34, i64 1
   %46 = load i8, ptr %45, align 1
@@ -671,7 +671,7 @@ hex_ascii_to_binary.exit:                         ; preds = %check_valid_key_str
   br label %hex_ascii_to_binary.exit16
 
 hex_ascii_to_binary.exit16:                       ; preds = %hex_ascii_to_binary.exit, %50, %52
-  %.0.i15 = phi i8 [ %51, %50 ], [ %spec.select.i14, %52 ], [ %47, %hex_ascii_to_binary.exit ]
+  %.0.i15 = phi i8 [ %spec.select.i14, %52 ], [ %51, %50 ], [ %47, %hex_ascii_to_binary.exit ]
   %55 = add nuw nsw i8 %.0.i15, %44
   %56 = lshr exact i64 %indvars.iv, 1
   %57 = getelementptr i8, ptr %1, i64 %56
@@ -2149,8 +2149,8 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
   br label %.thread522
 
 .thread522:                                       ; preds = %497, %501, %491, %495
-  %hf_pdcp_nr_seq_num_12.sink = phi ptr [ @hf_pdcp_nr_seq_num_12, %495 ], [ @hf_pdcp_nr_seq_num_12, %491 ], [ @hf_pdcp_nr_seq_num_18, %501 ], [ @hf_pdcp_nr_seq_num_18, %497 ]
-  %.sink729 = phi i32 [ 2, %495 ], [ 2, %491 ], [ 3, %501 ], [ 3, %497 ]
+  %hf_pdcp_nr_seq_num_12.sink = phi ptr [ @hf_pdcp_nr_seq_num_12, %491 ], [ @hf_pdcp_nr_seq_num_12, %495 ], [ @hf_pdcp_nr_seq_num_18, %501 ], [ @hf_pdcp_nr_seq_num_18, %497 ]
+  %.sink729 = phi i32 [ 2, %491 ], [ 2, %495 ], [ 3, %501 ], [ 3, %497 ]
   %503 = load i32, ptr %hf_pdcp_nr_seq_num_12.sink, align 4
   %504 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0341507, i32 noundef %503, ptr noundef %0, i32 noundef 0, i32 noundef %.sink729, i32 noundef 0, ptr noundef nonnull %14)
   %505 = load i32, ptr %14, align 4
@@ -2301,7 +2301,7 @@ proto_item_set_generated.exit433:                 ; preds = %proto_item_set_gene
   br label %.thread518
 
 .thread518:                                       ; preds = %._crit_edge, %573, %516
-  %.0363513 = phi i32 [ %.1364.lcssa, %573 ], [ %.1364.lcssa, %._crit_edge ], [ 0, %516 ]
+  %.0363513 = phi i32 [ %.1364.lcssa, %._crit_edge ], [ %.1364.lcssa, %573 ], [ 0, %516 ]
   %574 = load i32, ptr %18, align 4
   call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0342506, ptr noundef %1, ptr noundef nonnull @.str.292, i32 noundef %574, i32 noundef %.0363513)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -3371,7 +3371,7 @@ look_up_keys_record.exit.thread.i:                ; preds = %1013, %proto_item_s
   br label %1117
 
 1117:                                             ; preds = %1104, %1108, %1112, %.thread532
-  %.0350 = phi i1 [ %not., %1104 ], [ false, %.thread532 ], [ false, %1108 ], [ %1116, %1112 ]
+  %.0350 = phi i1 [ %not., %1104 ], [ false, %.thread532 ], [ %1116, %1112 ], [ false, %1108 ]
   switch i32 %.sroa.0.0, label %1118 [
     i32 0, label %decipher_payload.exit.thread
     i32 999, label %decipher_payload.exit.thread
@@ -3667,8 +3667,8 @@ proto_item_set_generated.exit.i442:               ; preds = %1243, %1240, %1206
   br label %calculate_digest.exit
 
 calculate_digest.exit:                            ; preds = %1272, %1196, %1193, %1189, %1186
-  %.0495 = phi i1 [ false, %1189 ], [ false, %1186 ], [ %.1496, %1272 ], [ false, %1196 ], [ true, %1193 ]
-  %.0348 = phi i32 [ 0, %1189 ], [ 0, %1186 ], [ %.1.i, %1272 ], [ 0, %1196 ], [ 0, %1193 ]
+  %.0495 = phi i1 [ false, %1186 ], [ false, %1189 ], [ false, %1196 ], [ %.1496, %1272 ], [ true, %1193 ]
+  %.0348 = phi i32 [ 0, %1186 ], [ 0, %1189 ], [ 0, %1196 ], [ %.1.i, %1272 ], [ 0, %1193 ]
   %1273 = load i32, ptr %33, align 4
   %1274 = icmp eq i32 %1273, 1
   br i1 %1274, label %1275, label %1352
@@ -3765,7 +3765,7 @@ calculate_digest.exit:                            ; preds = %1272, %1196, %1193,
   br label %lookup_rrc_dissector_handle.exit
 
 lookup_rrc_dissector_handle.exit:                 ; preds = %1306, %1311, %1313, %1315, %1317, %1322, %1324
-  %.0.i443 = phi ptr [ %1310, %1306 ], [ %1312, %1311 ], [ %1314, %1313 ], [ %1316, %1315 ], [ %1318, %1317 ], [ %1323, %1322 ], [ %1325, %1324 ]
+  %.0.i443 = phi ptr [ %1325, %1324 ], [ %1310, %1306 ], [ %1312, %1311 ], [ %1314, %1313 ], [ %1316, %1315 ], [ %1318, %1317 ], [ %1323, %1322 ]
   %.not417 = icmp eq ptr %.0.i443, null
   br i1 %.not417, label %lookup_rrc_dissector_handle.exit.thread, label %1326
 
@@ -4467,7 +4467,7 @@ define internal noundef zeroext i1 @dissect_pdcp_nr_heur(ptr noundef %0, ptr nou
   br label %90
 
 90:                                               ; preds = %7, %4, %87, %68, %.split.us
-  %.0 = phi i1 [ true, %.split.us ], [ true, %68 ], [ true, %87 ], [ false, %4 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %87 ], [ false, %4 ], [ true, %.split.us ], [ true, %68 ], [ false, %7 ]
   ret i1 %.0
 }
 

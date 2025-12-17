@@ -280,7 +280,7 @@ avifROStreamReadU64.exit.thread:                  ; preds = %56
   br label %78
 
 78:                                               ; preds = %avifROStreamReadU64.exit.thread, %avifROStreamReadU32.exit.thread, %avifROStreamReadU16.exit.thread, %avifROStreamRead.exit.thread, %4, %31, %67, %49, %15, %73
-  %.0 = phi i32 [ 0, %73 ], [ 1, %15 ], [ 1, %49 ], [ 1, %67 ], [ 1, %31 ], [ 1, %4 ], [ 0, %avifROStreamRead.exit.thread ], [ 0, %avifROStreamReadU16.exit.thread ], [ 0, %avifROStreamReadU32.exit.thread ], [ 0, %avifROStreamReadU64.exit.thread ]
+  %.0 = phi i32 [ 0, %avifROStreamReadU64.exit.thread ], [ 0, %73 ], [ 0, %avifROStreamRead.exit.thread ], [ 0, %avifROStreamReadU16.exit.thread ], [ 0, %avifROStreamReadU32.exit.thread ], [ 1, %15 ], [ 1, %49 ], [ 1, %67 ], [ 1, %31 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -1002,7 +1002,7 @@ avifROStreamReadBits.exit51:                      ; preds = %152
   br label %174
 
 174:                                              ; preds = %avifROStreamReadBits.exit51.thread, %avifROStreamReadBits.exit39.thread, %avifROStreamReadBits.exit27.thread, %avifROStreamReadBits.exit.thread, %40, %115, %163, %155, %76, %160
-  %.0 = phi i32 [ 0, %160 ], [ 1, %76 ], [ 1, %155 ], [ 1, %163 ], [ 1, %115 ], [ 1, %40 ], [ 0, %avifROStreamReadBits.exit.thread ], [ 0, %avifROStreamReadBits.exit27.thread ], [ 0, %avifROStreamReadBits.exit39.thread ], [ 0, %avifROStreamReadBits.exit51.thread ]
+  %.0 = phi i32 [ 0, %160 ], [ 0, %avifROStreamReadBits.exit51.thread ], [ 0, %avifROStreamReadBits.exit39.thread ], [ 0, %avifROStreamReadBits.exit27.thread ], [ 0, %avifROStreamReadBits.exit.thread ], [ 1, %76 ], [ 1, %155 ], [ 1, %163 ], [ 1, %115 ], [ 1, %40 ]
   ret i32 %.0
 }
 
@@ -1195,7 +1195,7 @@ avifROStreamSkip.exit:                            ; preds = %52
   br label %73
 
 73:                                               ; preds = %avifROStreamSkip.exit.thread, %avifROStreamReadU64.exit.thread, %avifROStreamRead.exit.thread, %avifROStreamReadU32.exit.thread, %71, %66
-  %.0 = phi i32 [ 0, %66 ], [ 1, %71 ], [ 0, %avifROStreamReadU32.exit.thread ], [ 0, %avifROStreamRead.exit.thread ], [ 0, %avifROStreamReadU64.exit.thread ], [ 0, %avifROStreamSkip.exit.thread ]
+  %.0 = phi i32 [ 0, %66 ], [ 1, %71 ], [ 0, %avifROStreamReadU64.exit.thread ], [ 0, %avifROStreamRead.exit.thread ], [ 0, %avifROStreamReadU32.exit.thread ], [ 0, %avifROStreamSkip.exit.thread ]
   ret i32 %.0
 }
 
@@ -1283,7 +1283,7 @@ avifROStreamRead.exit.thread:                     ; preds = %3
   br label %28
 
 28:                                               ; preds = %avifROStreamRead.exit.thread, %19, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %19 ], [ 0, %avifROStreamRead.exit.thread ]
+  %.0 = phi i32 [ 0, %avifROStreamRead.exit.thread ], [ 1, %20 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -1326,7 +1326,7 @@ avifROStreamReadVersionAndFlags.exit.thread:      ; preds = %2
   br label %24
 
 24:                                               ; preds = %avifROStreamReadVersionAndFlags.exit.thread, %13, %17
-  %.0 = phi i32 [ 0, %17 ], [ 1, %13 ], [ 0, %avifROStreamReadVersionAndFlags.exit.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %avifROStreamReadVersionAndFlags.exit.thread ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -2605,7 +2605,7 @@ avifRWStreamWriteBits.exit.thread:                ; preds = %146, %49, %342, %44
   br label %avifRWStreamWriteBits.exit
 
 avifRWStreamWriteBits.exit:                       ; preds = %347, %392, %252, %297, %156, %202, %62, %107, %10, %441, %437, %433, %342, %338, %243, %avifRWStreamWriteBits.exit.thread
-  %.0 = phi i32 [ 0, %avifRWStreamWriteBits.exit.thread ], [ %245, %243 ], [ %341, %338 ], [ %344, %342 ], [ %436, %433 ], [ %440, %437 ], [ %443, %441 ], [ %17, %10 ], [ %114, %107 ], [ %69, %62 ], [ %209, %202 ], [ %163, %156 ], [ %304, %297 ], [ %259, %252 ], [ %399, %392 ], [ %354, %347 ]
+  %.0 = phi i32 [ %440, %437 ], [ 0, %avifRWStreamWriteBits.exit.thread ], [ %443, %441 ], [ %245, %243 ], [ %341, %338 ], [ %344, %342 ], [ %436, %433 ], [ %399, %392 ], [ %17, %10 ], [ %114, %107 ], [ %69, %62 ], [ %209, %202 ], [ %163, %156 ], [ %304, %297 ], [ %259, %252 ], [ %354, %347 ]
   ret i32 %.0
 }
 

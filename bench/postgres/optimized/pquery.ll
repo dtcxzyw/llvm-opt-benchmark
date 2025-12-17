@@ -261,8 +261,8 @@ list_length.exit:                                 ; preds = %1
   %80 = select i1 %.not148, i32 4, i32 1
   br label %.thread90
 
-.thread90:                                        ; preds = %60, %73, %54, %56, %67, %69, %.lr.ph, %1, %._crit_edge.loopexit, %31, %35, %16, %20
-  %.5 = phi i32 [ %.78, %35 ], [ %.77, %31 ], [ %.76, %20 ], [ %., %16 ], [ 4, %.lr.ph ], [ 4, %1 ], [ %80, %._crit_edge.loopexit ], [ 4, %69 ], [ 4, %67 ], [ 4, %56 ], [ 4, %54 ], [ 4, %73 ], [ 4, %60 ]
+.thread90:                                        ; preds = %60, %73, %56, %54, %69, %67, %.lr.ph, %1, %._crit_edge.loopexit, %35, %20, %16, %31
+  %.5 = phi i32 [ 4, %1 ], [ %.77, %31 ], [ %., %16 ], [ %.78, %35 ], [ %.76, %20 ], [ 4, %.lr.ph ], [ %80, %._crit_edge.loopexit ], [ 4, %67 ], [ 4, %69 ], [ 4, %54 ], [ 4, %56 ], [ 4, %73 ], [ 4, %60 ]
   ret i32 %.5
 }
 
@@ -399,7 +399,7 @@ tailrecurse:                                      ; preds = %42
   br label %FetchPortalTargetList.exit
 
 FetchPortalTargetList.exit:                       ; preds = %tailrecurse, %40, %42, %1, %23, %32, %28, %8, %11, %51
-  %.0 = phi ptr [ %55, %51 ], [ %13, %11 ], [ %10, %8 ], [ null, %28 ], [ %36, %32 ], [ %27, %23 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
+  %.0 = phi ptr [ %55, %51 ], [ %10, %8 ], [ %27, %23 ], [ %13, %11 ], [ null, %28 ], [ %36, %32 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 
@@ -1726,7 +1726,7 @@ PortalRunSelect.exit122:                          ; preds = %111, %113
   unreachable
 
 170:                                              ; preds = %7, %5
-  %171 = phi i1 [ %6, %5 ], [ %8, %7 ]
+  %171 = phi i1 [ %8, %7 ], [ %6, %5 ]
   %172 = icmp eq i64 %2, 0
   br i1 %172, label %.thread, label %193
 
@@ -1793,18 +1793,18 @@ PortalRunSelect.exit122:                          ; preds = %111, %113
   br label %207
 
 207:                                              ; preds = %202, %199
-  %.0 = phi i64 [ 0, %199 ], [ %spec.select103, %202 ]
+  %.0 = phi i64 [ %spec.select103, %202 ], [ 0, %199 ]
   tail call fastcc void @DoPortalRewind(ptr noundef nonnull %0)
   br label %PortalRunSelect.exit
 
 .thread146:                                       ; preds = %187, %186, %.thread134, %195, %193
-  %.076151 = phi i1 [ false, %195 ], [ %171, %193 ], [ %173, %186 ], [ true, %187 ], [ %173, %.thread134 ]
-  %.180150 = phi i64 [ 9223372036854775807, %195 ], [ %spec.select100, %193 ], [ 0, %186 ], [ 1, %187 ], [ 0, %.thread134 ]
+  %.076151 = phi i1 [ %171, %193 ], [ false, %195 ], [ true, %187 ], [ %173, %186 ], [ %173, %.thread134 ]
+  %.180150 = phi i64 [ %spec.select100, %193 ], [ 9223372036854775807, %195 ], [ 1, %187 ], [ 0, %186 ], [ 0, %.thread134 ]
   %208 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext %.076151, i64 noundef %.180150, ptr noundef %3)
   br label %PortalRunSelect.exit
 
 PortalRunSelect.exit:                             ; preds = %190, %154, %148, %63, %57, %.thread146, %207, %165, %PortalRunSelect.exit122, %102
-  %.073 = phi i64 [ %.0, %207 ], [ %208, %.thread146 ], [ %192, %190 ], [ %103, %102 ], [ %120, %PortalRunSelect.exit122 ], [ %166, %165 ], [ %58, %57 ], [ %58, %63 ], [ %149, %148 ], [ %149, %154 ]
+  %.073 = phi i64 [ %.0, %207 ], [ %208, %.thread146 ], [ %192, %190 ], [ %166, %165 ], [ %103, %102 ], [ %120, %PortalRunSelect.exit122 ], [ %58, %63 ], [ %58, %57 ], [ %149, %148 ], [ %149, %154 ]
   ret i64 %.073
 }
 
@@ -1945,11 +1945,11 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %44 = icmp eq i64 %2, %43
   br i1 %44, label %.thread, label %.split
 
-.thread:                                          ; preds = %.split, %36, %39, %23, %.lr.ph, %.split.us, %4
-  %.024 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us30, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
+.thread:                                          ; preds = %36, %.split, %39, %23, %.lr.ph, %.split.us, %4
+  %.024 = phi i64 [ 0, %4 ], [ %27, %23 ], [ 0, %.split.us ], [ %.1.us30, %.lr.ph ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull %3) #10
+  tail call void %46(ptr noundef %3) #10
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %7) #10
   ret i64 %.024
 }

@@ -466,7 +466,7 @@ define ptr @cli_ole2_get_property_name2(ptr noundef readonly captures(none) %0, 
   br label %79
 
 79:                                               ; preds = %22, %78, %._crit_edge, %5, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %22 ], [ null, %78 ], [ %17, %._crit_edge ]
+  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ null, %22 ], [ null, %78 ], [ %17, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -829,7 +829,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr noundef writeon
   br label %.thread
 
 .thread:                                          ; preds = %88, %71, %38, %162, %161
-  %.061103 = phi i32 [ %.061.ph, %162 ], [ %.061.ph, %161 ], [ 20, %38 ], [ %85, %71 ], [ %85, %88 ]
+  %.061103 = phi i32 [ %.061.ph, %161 ], [ %.061.ph, %162 ], [ %85, %88 ], [ %85, %71 ], [ 20, %38 ]
   %163 = load ptr, ptr %14, align 8, !tbaa !22
   %.not98 = icmp eq ptr %163, null
   br i1 %.not98, label %165, label %164
@@ -844,7 +844,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr noundef writeon
   br label %168
 
 168:                                              ; preds = %26, %20, %6, %165
-  %.0 = phi i32 [ %167, %165 ], [ 2, %6 ], [ 24, %20 ], [ 0, %26 ]
+  %.0 = phi i32 [ 24, %20 ], [ %167, %165 ], [ 2, %6 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1105,7 +1105,7 @@ key_length_valid_aes_bits.exit:                   ; preds = %35
   br label %77
 
 77:                                               ; preds = %69, %76, %75, %68, %60, %56, %51, %49, %48, %47, %45, %43, %42, %39, %38, %34, %31, %29, %26, %21, %16, %13, %10
-  %.030 = phi i1 [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %21 ], [ false, %29 ], [ false, %31 ], [ false, %47 ], [ false, %34 ], [ false, %48 ], [ false, %49 ], [ false, %51 ], [ false, %56 ], [ false, %60 ], [ false, %68 ], [ false, %69 ], [ true, %76 ], [ false, %75 ], [ false, %38 ], [ false, %39 ], [ false, %42 ], [ false, %43 ], [ false, %45 ], [ false, %26 ]
+  %.030 = phi i1 [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %21 ], [ false, %29 ], [ false, %31 ], [ false, %47 ], [ false, %34 ], [ false, %48 ], [ false, %49 ], [ false, %51 ], [ false, %56 ], [ false, %60 ], [ false, %68 ], [ false, %69 ], [ true, %76 ], [ false, %75 ], [ false, %26 ], [ false, %45 ], [ false, %38 ], [ false, %39 ], [ false, %42 ], [ false, %43 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !89
   %.not49 = icmp eq ptr %79, null
@@ -1317,7 +1317,7 @@ ole2_list_push.exit:                              ; preds = %28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #23
   br label %ole2_list_delete.exit
 
-thread-pre-splitthread-pre-split:                 ; preds = %161, %94, %170, %112, %60, %314, %316, %246, %248, %189, %191, %323, %._crit_edge, %.thread.i, %76, %89
+thread-pre-splitthread-pre-split:                 ; preds = %161, %94, %170, %112, %60, %314, %316, %246, %248, %189, %191, %323, %76, %._crit_edge, %.thread.i, %89
   %.pr.pr = load ptr, ptr %16, align 8, !tbaa !3
   br label %thread-pre-split
 
@@ -2025,7 +2025,7 @@ ole2_list_pop.exit.i365:                          ; preds = %318, %ole2_list_pop
   br label %thread-pre-splitthread-pre-split
 
 ole2_list_delete.exit:                            ; preds = %thread-pre-split, %ole2_list_pop.exit.i277, %ole2_list_pop.exit.i300, %ole2_list_pop.exit.i350, %ole2_list_pop.exit.i345, %ole2_list_pop.exit.i360, %ole2_list_pop.exit.i365, %ole2_list_pop.exit.i320, %ole2_list_pop.exit.i325, %ole2_list_pop.exit.i330, %ole2_list_pop.exit.i335, %ole2_list_pop.exit.i340, %ole2_list_pop.exit.i305, %ole2_list_pop.exit.i310, %ole2_list_pop.exit.i315, %44, %318, %309, %289, %280, %250, %241, %233, %224, %209, %193, %184, %176, %157, %ole2_list_delete.exit358, %302, %10, %18, %27
-  %.0 = phi i32 [ 23, %27 ], [ 0, %18 ], [ 0, %10 ], [ %297, %302 ], [ %297, %ole2_list_delete.exit358 ], [ 20, %44 ], [ 22, %157 ], [ %175, %176 ], [ %183, %184 ], [ %192, %193 ], [ 25, %209 ], [ %223, %224 ], [ %232, %233 ], [ %240, %241 ], [ %249, %250 ], [ 20, %280 ], [ 22, %289 ], [ %308, %309 ], [ %317, %318 ], [ %192, %ole2_list_pop.exit.i315 ], [ %183, %ole2_list_pop.exit.i310 ], [ %175, %ole2_list_pop.exit.i305 ], [ %249, %ole2_list_pop.exit.i340 ], [ %240, %ole2_list_pop.exit.i335 ], [ %232, %ole2_list_pop.exit.i330 ], [ %223, %ole2_list_pop.exit.i325 ], [ 25, %ole2_list_pop.exit.i320 ], [ %317, %ole2_list_pop.exit.i365 ], [ %308, %ole2_list_pop.exit.i360 ], [ 20, %ole2_list_pop.exit.i345 ], [ 22, %ole2_list_pop.exit.i350 ], [ 22, %ole2_list_pop.exit.i300 ], [ 21, %ole2_list_pop.exit.i277 ], [ 0, %thread-pre-split ]
+  %.0 = phi i32 [ 23, %27 ], [ %297, %ole2_list_delete.exit358 ], [ 0, %10 ], [ 0, %18 ], [ %297, %302 ], [ 20, %44 ], [ %317, %318 ], [ 22, %157 ], [ %175, %176 ], [ %183, %184 ], [ %192, %193 ], [ 25, %209 ], [ %223, %224 ], [ %232, %233 ], [ %240, %241 ], [ %249, %250 ], [ 20, %280 ], [ 22, %289 ], [ %308, %309 ], [ 21, %ole2_list_pop.exit.i277 ], [ %192, %ole2_list_pop.exit.i315 ], [ %183, %ole2_list_pop.exit.i310 ], [ %175, %ole2_list_pop.exit.i305 ], [ %249, %ole2_list_pop.exit.i340 ], [ %240, %ole2_list_pop.exit.i335 ], [ %232, %ole2_list_pop.exit.i330 ], [ %223, %ole2_list_pop.exit.i325 ], [ 25, %ole2_list_pop.exit.i320 ], [ %317, %ole2_list_pop.exit.i365 ], [ %308, %ole2_list_pop.exit.i360 ], [ 20, %ole2_list_pop.exit.i345 ], [ 22, %ole2_list_pop.exit.i350 ], [ 22, %ole2_list_pop.exit.i300 ], [ 0, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2166,7 +2166,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   br i1 %.not110128, label %.thread130, label %125
 
 .thread130:                                       ; preds = %.thread189, %.thread126
-  %68 = phi ptr [ %66, %.thread126 ], [ %64, %.thread189 ]
+  %68 = phi ptr [ %64, %.thread189 ], [ %66, %.thread126 ]
   %69 = load i16, ptr %8, align 1, !tbaa !108
   %70 = zext i16 %69 to i32
   %71 = tail call ptr @cli_ole2_get_property_name2(ptr noundef nonnull %1, i32 noundef %70)
@@ -2260,8 +2260,8 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   br label %125
 
 125:                                              ; preds = %.thread189, %.thread137, %.thread126, %.thread130, %82, %86, %96, %98, %110, %116, %.thread133, %61
-  %.2 = phi ptr [ %.087, %61 ], [ %.3136, %.thread133 ], [ %.3136, %82 ], [ %.3136, %86 ], [ %.3136, %98 ], [ %.3136, %116 ], [ %.3136, %96 ], [ %.3136, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %.3136, %.thread137 ], [ null, %.thread189 ]
-  %.086 = phi ptr [ null, %61 ], [ null, %.thread133 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ %80, %.thread137 ], [ null, %.thread189 ]
+  %.2 = phi ptr [ %.087, %61 ], [ %.3136, %.thread133 ], [ %.3136, %82 ], [ %.3136, %86 ], [ %.3136, %98 ], [ %.3136, %116 ], [ %.3136, %.thread137 ], [ %.3136, %96 ], [ %.3136, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ null, %.thread189 ]
+  %.086 = phi ptr [ null, %61 ], [ null, %.thread133 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %.thread137 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread130 ], [ null, %.thread126 ], [ null, %.thread189 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 553
   %127 = load i8, ptr %126, align 1, !tbaa !76, !range !81, !noundef !82
   %128 = trunc nuw i8 %127 to i1
@@ -2481,7 +2481,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   br label %ole2_get_next_sbat_block.exit.i
 
 ole2_get_next_sbat_block.exit.i:                  ; preds = %239, %234, %.thread.i.i.i, %221, %._crit_edge.i.i
-  %.011.i.i = phi i32 [ %243, %239 ], [ -1, %._crit_edge.i.i ], [ -1, %.thread.i.i.i ], [ -1, %221 ], [ -1, %234 ]
+  %.011.i.i = phi i32 [ -1, %234 ], [ %243, %239 ], [ -1, %221 ], [ -1, %._crit_edge.i.i ], [ -1, %.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %284
 
@@ -2866,7 +2866,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr noundef readonly cap
   br label %ole2_get_next_sbat_block.exit
 
 ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %119, %.thread.i.i, %132, %137
-  %.011.i = phi i32 [ %141, %137 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ], [ -1, %119 ], [ -1, %132 ]
+  %.011.i = phi i32 [ -1, %132 ], [ %141, %137 ], [ -1, %119 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %188
 
@@ -2957,10 +2957,10 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %119
   %191 = select i1 %189, i1 %190, i1 false
   br i1 %191, label %69, label %ole2_read_block.exit.thread
 
-ole2_read_block.exit.thread:                      ; preds = %86, %171, %77, %188, %159, %153, %166, %.preheader, %72, %76, %85, %39, %52, %68
-  %.092 = phi i32 [ 0, %39 ], [ 20, %52 ], [ 22, %68 ], [ 0, %85 ], [ 0, %76 ], [ 0, %72 ], [ 0, %.preheader ], [ 22, %86 ], [ 14, %171 ], [ 0, %77 ], [ 0, %188 ], [ 0, %159 ], [ 0, %153 ], [ 0, %166 ]
-  %.090 = phi ptr [ null, %39 ], [ null, %52 ], [ %50, %68 ], [ %50, %85 ], [ %50, %76 ], [ %50, %72 ], [ %50, %.preheader ], [ %50, %166 ], [ %50, %153 ], [ %50, %159 ], [ %50, %188 ], [ %50, %77 ], [ %50, %171 ], [ %50, %86 ]
-  %.0 = phi ptr [ null, %39 ], [ null, %52 ], [ null, %68 ], [ %58, %85 ], [ %58, %76 ], [ %58, %72 ], [ %58, %.preheader ], [ %58, %166 ], [ %58, %153 ], [ %58, %159 ], [ %58, %188 ], [ %58, %77 ], [ %58, %171 ], [ %58, %86 ]
+ole2_read_block.exit.thread:                      ; preds = %86, %171, %77, %188, %153, %166, %159, %.preheader, %72, %76, %85, %39, %52, %68
+  %.092 = phi i32 [ 0, %76 ], [ 0, %72 ], [ 0, %85 ], [ 0, %39 ], [ 20, %52 ], [ 22, %68 ], [ 0, %.preheader ], [ 0, %166 ], [ 0, %153 ], [ 0, %188 ], [ 14, %171 ], [ 0, %77 ], [ 22, %86 ], [ 0, %159 ]
+  %.090 = phi ptr [ %50, %76 ], [ %50, %72 ], [ %50, %85 ], [ null, %39 ], [ null, %52 ], [ %50, %68 ], [ %50, %.preheader ], [ %50, %159 ], [ %50, %166 ], [ %50, %153 ], [ %50, %188 ], [ %50, %77 ], [ %50, %171 ], [ %50, %86 ]
+  %.0 = phi ptr [ %58, %76 ], [ %58, %72 ], [ %58, %85 ], [ null, %39 ], [ null, %52 ], [ null, %68 ], [ %58, %.preheader ], [ %58, %159 ], [ %58, %166 ], [ %58, %153 ], [ %58, %188 ], [ %58, %77 ], [ %58, %171 ], [ %58, %86 ]
   br i1 %.not108, label %193, label %192
 
 192:                                              ; preds = %.thread135, %ole2_read_block.exit.thread
@@ -2972,10 +2972,10 @@ ole2_read_block.exit.thread:                      ; preds = %86, %171, %77, %188
   br label %193
 
 193:                                              ; preds = %192, %ole2_read_block.exit.thread
-  %.0134 = phi ptr [ %.0146, %192 ], [ %.0, %ole2_read_block.exit.thread ]
-  %.086133 = phi i32 [ %.086145, %192 ], [ %37, %ole2_read_block.exit.thread ]
-  %.090132 = phi ptr [ %.090144, %192 ], [ %.090, %ole2_read_block.exit.thread ]
-  %.092131 = phi i32 [ %.092142, %192 ], [ %.092, %ole2_read_block.exit.thread ]
+  %.0134 = phi ptr [ %.0, %ole2_read_block.exit.thread ], [ %.0146, %192 ]
+  %.086133 = phi i32 [ %37, %ole2_read_block.exit.thread ], [ %.086145, %192 ]
+  %.090132 = phi ptr [ %.090, %ole2_read_block.exit.thread ], [ %.090144, %192 ]
+  %.092131 = phi i32 [ %.092, %ole2_read_block.exit.thread ], [ %.092142, %192 ]
   %.not117 = icmp eq i32 %.086133, -1
   br i1 %.not117, label %196, label %194
 
@@ -2999,8 +2999,8 @@ ole2_read_block.exit.thread:                      ; preds = %86, %171, %77, %188
   call void @cli_bitset_free(ptr noundef nonnull %.0134) #23
   br label %.thread163
 
-.thread163:                                       ; preds = %17, %30, %5, %199, %198
-  %.092131155161167 = phi i32 [ %.092131, %199 ], [ %.092131, %198 ], [ 0, %5 ], [ 22, %30 ], [ 0, %17 ]
+.thread163:                                       ; preds = %30, %17, %5, %199, %198
+  %.092131155161167 = phi i32 [ %.092131, %198 ], [ %.092131, %199 ], [ 0, %5 ], [ 0, %17 ], [ 22, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3262,7 +3262,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr noundef readonly
   br label %ole2_get_next_sbat_block.exit
 
 ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i, %119, %.thread.i.i, %132, %137
-  %.011.i = phi i32 [ %141, %137 ], [ -1, %101 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ], [ -1, %119 ], [ -1, %132 ]
+  %.011.i = phi i32 [ -1, %101 ], [ %141, %137 ], [ -1, %119 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ], [ -1, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %208
 
@@ -3412,7 +3412,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   %210 = icmp ugt i64 %.1192, %209
   br i1 %210, label %65, label %.loopexit
 
-.loopexit:                                        ; preds = %208, %74, %142, %.thread.i, %157, %171, %.preheader, %82, %73, %69
+.loopexit:                                        ; preds = %208, %74, %157, %142, %.thread.i, %171, %.preheader, %82, %73, %69
   %211 = tail call fastcc i32 @likely_mso_stream(i32 noundef %28)
   %212 = tail call i64 @lseek(i32 noundef %28, i64 noundef 0, i32 noundef 0) #23
   %213 = icmp eq i64 %212, -1
@@ -3468,7 +3468,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br i1 %236, label %.thread296, label %237
 
 237:                                              ; preds = %234, %232, %219, %214
-  %.2199 = phi ptr [ %.3200268, %232 ], [ %.3200268, %234 ], [ %.0197, %219 ], [ %.0197, %214 ]
+  %.2199 = phi ptr [ %.3200268, %232 ], [ %.3200268, %234 ], [ %.0197, %214 ], [ %.0197, %219 ]
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %239 = load ptr, ptr %238, align 8, !tbaa !22
   %.not235 = icmp eq ptr %239, null
@@ -3513,17 +3513,17 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br label %256
 
 256:                                              ; preds = %254, %252, %248
-  %.5 = phi ptr [ %.4, %248 ], [ %.2199273, %252 ], [ %.2199273, %254 ]
-  %.0168 = phi i32 [ %250, %248 ], [ %253, %252 ], [ %255, %254 ]
+  %.5 = phi ptr [ %.4, %248 ], [ %.2199273, %254 ], [ %.2199273, %252 ]
+  %.0168 = phi i32 [ %250, %248 ], [ %255, %254 ], [ %253, %252 ]
   %257 = icmp eq i32 %.0168, 1
   %258 = zext i1 %257 to i32
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %83, %200, %.loopexit, %52, %43, %64, %256
-  %.6 = phi ptr [ %.5, %256 ], [ %.0197, %64 ], [ %.0197, %43 ], [ %.0197, %52 ], [ %.0197, %.loopexit ], [ %.0197, %200 ], [ %.0197, %83 ], [ %.0197, %._crit_edge ]
-  %.0189 = phi ptr [ %56, %256 ], [ null, %64 ], [ null, %43 ], [ null, %52 ], [ %56, %.loopexit ], [ %56, %200 ], [ %56, %83 ], [ %56, %._crit_edge ]
-  %.0188 = phi ptr [ %53, %256 ], [ %53, %64 ], [ null, %43 ], [ null, %52 ], [ %53, %.loopexit ], [ %53, %200 ], [ %53, %83 ], [ %53, %._crit_edge ]
-  %.1169 = phi i32 [ %258, %256 ], [ 22, %64 ], [ 20, %43 ], [ 20, %52 ], [ 13, %.loopexit ], [ 22, %200 ], [ 22, %83 ], [ 22, %._crit_edge ]
+  %.6 = phi ptr [ %.0197, %43 ], [ %.0197, %52 ], [ %.5, %256 ], [ %.0197, %.loopexit ], [ %.0197, %64 ], [ %.0197, %200 ], [ %.0197, %83 ], [ %.0197, %._crit_edge ]
+  %.0189 = phi ptr [ null, %43 ], [ null, %52 ], [ %56, %256 ], [ %56, %.loopexit ], [ null, %64 ], [ %56, %200 ], [ %56, %83 ], [ %56, %._crit_edge ]
+  %.0188 = phi ptr [ null, %43 ], [ null, %52 ], [ %53, %256 ], [ %53, %.loopexit ], [ %53, %64 ], [ %53, %200 ], [ %53, %83 ], [ %53, %._crit_edge ]
+  %.1169 = phi i32 [ 20, %43 ], [ 20, %52 ], [ %258, %256 ], [ 13, %.loopexit ], [ 22, %64 ], [ 22, %200 ], [ 22, %83 ], [ 22, %._crit_edge ]
   %.not238 = icmp eq ptr %.6, null
   br i1 %.not238, label %.thread278, label %.thread296
 
@@ -3536,10 +3536,10 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br label %.thread278
 
 .thread278:                                       ; preds = %30, %.thread296, %.thread
-  %.1169294 = phi i32 [ %.1169313, %.thread296 ], [ %.1169, %.thread ], [ 9, %30 ]
-  %.0188291 = phi ptr [ %.0188310, %.thread296 ], [ %.0188, %.thread ], [ null, %30 ]
-  %.0189290 = phi ptr [ %.0189309, %.thread296 ], [ %.0189, %.thread ], [ null, %30 ]
-  %.0196288 = phi ptr [ %50, %.thread296 ], [ %50, %.thread ], [ null, %30 ]
+  %.1169294 = phi i32 [ %.1169, %.thread ], [ %.1169313, %.thread296 ], [ 9, %30 ]
+  %.0188291 = phi ptr [ %.0188, %.thread ], [ %.0188310, %.thread296 ], [ null, %30 ]
+  %.0189290 = phi ptr [ %.0189, %.thread ], [ %.0189309, %.thread296 ], [ null, %30 ]
+  %.0196288 = phi ptr [ %50, %.thread ], [ %50, %.thread296 ], [ null, %30 ]
   %.not239 = icmp eq i32 %28, -1
   br i1 %.not239, label %261, label %259
 
@@ -3592,8 +3592,8 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   tail call void @free(ptr noundef nonnull %19) #23
   br label %.thread360.thread
 
-.thread360.thread:                                ; preds = %12, %9, %8, %.thread360.thread371
-  %.3366370 = phi i32 [ %.3366375, %.thread360.thread371 ], [ 20, %12 ], [ 0, %9 ], [ 22, %8 ]
+.thread360.thread:                                ; preds = %9, %12, %8, %.thread360.thread371
+  %.3366370 = phi i32 [ %.3366375, %.thread360.thread371 ], [ 22, %8 ], [ 0, %9 ], [ 20, %12 ]
   ret i32 %.3366370
 }
 
@@ -3813,7 +3813,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr noundef readonly captures(
   br label %ole2_get_next_sbat_block.exit
 
 ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98, %.thread.i.i, %111, %116
-  %.011.i = phi i32 [ %120, %116 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ], [ -1, %98 ], [ -1, %111 ]
+  %.011.i = phi i32 [ -1, %111 ], [ %120, %116 ], [ -1, %98 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %167
 
@@ -3904,7 +3904,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98,
   %170 = select i1 %168, i1 %169, i1 false
   br i1 %170, label %49, label %ole2_read_block.exit.thread
 
-ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %132, %145, %.preheader, %65, %56, %52
+ole2_read_block.exit.thread:                      ; preds = %167, %57, %132, %145, %138, %.preheader, %65, %56, %52
   %171 = tail call fastcc i32 @likely_mso_stream(i32 noundef %14)
   %172 = tail call i64 @lseek(i32 noundef %14, i64 noundef 0, i32 noundef 0) #23
   %173 = icmp eq i64 %172, -1
@@ -3960,7 +3960,7 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
   br i1 %196, label %.thread194, label %197
 
 197:                                              ; preds = %194, %192, %179, %174
-  %.2 = phi ptr [ %.3171, %192 ], [ %.3171, %194 ], [ %.1121, %179 ], [ %.1121, %174 ]
+  %.2 = phi ptr [ %.3171, %192 ], [ %.3171, %194 ], [ %.1121, %174 ], [ %.1121, %179 ]
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %199 = load ptr, ptr %198, align 8, !tbaa !22
   %.not154 = icmp eq ptr %199, null
@@ -4005,16 +4005,16 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
   br label %216
 
 216:                                              ; preds = %214, %212, %208
-  %.0123 = phi i32 [ %210, %208 ], [ %213, %212 ], [ %215, %214 ]
-  %.5 = phi ptr [ %.4, %208 ], [ %.2176, %212 ], [ %.2176, %214 ]
+  %.0123 = phi i32 [ %210, %208 ], [ %215, %214 ], [ %213, %212 ]
+  %.5 = phi ptr [ %.4, %208 ], [ %.2176, %214 ], [ %.2176, %212 ]
   %217 = icmp eq i32 %.0123, 1
   %218 = zext i1 %217 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %66, %ole2_read_block.exit.thread, %29, %48, %216
-  %.1124 = phi i32 [ %218, %216 ], [ 22, %48 ], [ 20, %29 ], [ 13, %ole2_read_block.exit.thread ], [ 14, %150 ], [ 22, %66 ]
-  %.6 = phi ptr [ %.5, %216 ], [ %.1121, %48 ], [ %.1121, %29 ], [ %.1121, %ole2_read_block.exit.thread ], [ %.1121, %66 ], [ %.1121, %150 ]
-  %.0 = phi ptr [ %38, %216 ], [ null, %48 ], [ null, %29 ], [ %38, %ole2_read_block.exit.thread ], [ %38, %66 ], [ %38, %150 ]
+  %.1124 = phi i32 [ 20, %29 ], [ 22, %48 ], [ 13, %ole2_read_block.exit.thread ], [ %218, %216 ], [ 22, %66 ], [ 14, %150 ]
+  %.6 = phi ptr [ %.1121, %29 ], [ %.1121, %48 ], [ %.1121, %ole2_read_block.exit.thread ], [ %.5, %216 ], [ %.1121, %66 ], [ %.1121, %150 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %48 ], [ %38, %ole2_read_block.exit.thread ], [ %38, %216 ], [ %38, %66 ], [ %38, %150 ]
   %.not157 = icmp eq ptr %.6, null
   br i1 %.not157, label %.thread180, label %.thread194
 
@@ -4026,9 +4026,9 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
   br label %.thread180
 
 .thread180:                                       ; preds = %16, %.thread194, %.loopexit
-  %.0192 = phi ptr [ %.0207, %.thread194 ], [ %.0, %.loopexit ], [ null, %16 ]
-  %.0119190 = phi ptr [ %35, %.thread194 ], [ %35, %.loopexit ], [ null, %16 ]
-  %.1124188 = phi i32 [ %.1124202, %.thread194 ], [ %.1124, %.loopexit ], [ 9, %16 ]
+  %.0192 = phi ptr [ %.0, %.loopexit ], [ %.0207, %.thread194 ], [ null, %16 ]
+  %.0119190 = phi ptr [ %35, %.loopexit ], [ %35, %.thread194 ], [ null, %16 ]
+  %.1124188 = phi i32 [ %.1124, %.loopexit ], [ %.1124202, %.thread194 ], [ 9, %16 ]
   %.not158 = icmp eq i32 %14, -1
   br i1 %.not158, label %221, label %219
 
@@ -4072,7 +4072,7 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
   br label %.thread234
 
 .thread234:                                       ; preds = %9, %5, %232
-  %.2125 = phi i32 [ %.3126, %232 ], [ 0, %5 ], [ 20, %9 ]
+  %.2125 = phi i32 [ %.3126, %232 ], [ 20, %9 ], [ 0, %5 ]
   ret i32 %.2125
 }
 
@@ -4218,7 +4218,7 @@ key_length_valid_aes_bits.exit:                   ; preds = %2
   br label %.thread
 
 .thread:                                          ; preds = %key_length_valid_aes_bits.exit, %18, %62
-  %.0545 = phi i32 [ 0, %62 ], [ 34, %key_length_valid_aes_bits.exit ], [ 20, %18 ]
+  %.0545 = phi i32 [ 20, %18 ], [ 0, %62 ], [ 34, %key_length_valid_aes_bits.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4540,7 +4540,7 @@ ole2_read_block.exit.i:                           ; preds = %41
   br label %ole2_get_next_xbat_block.exit
 
 ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i17.i, %73, %9, %27, %.thread.i.i, %41, %._crit_edge.i, %93, %.thread.i28.i, %106, %111
-  %.0.i = phi i32 [ %114, %111 ], [ -1, %9 ], [ -1, %.thread.i.i ], [ -1, %27 ], [ -1, %41 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i28.i ], [ -1, %93 ], [ -1, %106 ], [ -1, %73 ], [ -1, %.thread.i17.i ], [ -1, %60 ], [ -1, %49 ]
+  %.0.i = phi i32 [ -1, %41 ], [ %114, %111 ], [ -1, %27 ], [ -1, %9 ], [ -1, %.thread.i.i ], [ -1, %93 ], [ -1, %._crit_edge.i ], [ -1, %.thread.i28.i ], [ -1, %106 ], [ -1, %73 ], [ -1, %.thread.i17.i ], [ -1, %60 ], [ -1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %161
@@ -4625,12 +4625,12 @@ ole2_get_next_xbat_block.exit:                    ; preds = %49, %60, %.thread.i
   br label %ole2_get_next_bat_block.exit
 
 ole2_get_next_bat_block.exit:                     ; preds = %120, %121, %136, %.thread.i.i9, %150, %156
-  %.0.i13 = phi i32 [ -10, %120 ], [ %160, %156 ], [ -1, %121 ], [ -1, %.thread.i.i9 ], [ -1, %136 ], [ -1, %150 ]
+  %.0.i13 = phi i32 [ %160, %156 ], [ -10, %120 ], [ -1, %136 ], [ -1, %121 ], [ -1, %.thread.i.i9 ], [ -1, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %161
 
 161:                                              ; preds = %2, %ole2_get_next_bat_block.exit, %ole2_get_next_xbat_block.exit
-  %.0 = phi i32 [ %.0.i, %ole2_get_next_xbat_block.exit ], [ %.0.i13, %ole2_get_next_bat_block.exit ], [ -1, %2 ]
+  %.0 = phi i32 [ %.0.i13, %ole2_get_next_bat_block.exit ], [ %.0.i, %ole2_get_next_xbat_block.exit ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -4700,7 +4700,7 @@ define internal fastcc noundef zeroext i1 @ole2_read_block(ptr noundef readonly 
   br label %39
 
 39:                                               ; preds = %32, %16, %24, %4, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %4 ], [ false, %24 ], [ false, %16 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %4 ], [ true, %38 ], [ false, %24 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -5044,7 +5044,7 @@ define internal fastcc void @print_ole2_property(ptr noundef readonly captures(n
   br label %get_property_name.exit
 
 get_property_name.exit:                           ; preds = %8, %16, %.thread.i, %._crit_edge.i
-  %.0.i = phi ptr [ null, %8 ], [ null, %16 ], [ %13, %._crit_edge.i ], [ %22, %.thread.i ]
+  %.0.i = phi ptr [ %22, %.thread.i ], [ null, %8 ], [ null, %16 ], [ %13, %._crit_edge.i ]
   %.not = icmp eq ptr %.0.i, null
   %39 = select i1 %.not, ptr @.str.99, ptr %.0.i
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.98, ptr noundef nonnull %39) #23
@@ -5230,7 +5230,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr noundef 
   br label %ole2_read_block.exit
 
 ole2_read_block.exit:                             ; preds = %52, %46, %38, %32, %._crit_edge, %3, %9
-  %.015 = phi i1 [ false, %9 ], [ false, %3 ], [ true, %52 ], [ false, %._crit_edge ], [ false, %38 ], [ false, %32 ], [ false, %46 ]
+  %.015 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %32 ], [ false, %._crit_edge ], [ true, %52 ], [ false, %38 ], [ false, %46 ]
   ret i1 %.015
 }
 
@@ -5548,7 +5548,7 @@ define internal fastcc range(i32 0, 2) i32 @likely_mso_stream(i32 noundef range(
   br label %21
 
 21:                                               ; preds = %15, %6, %14, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ 0, %14 ], [ 0, %6 ], [ %., %15 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %11 ], [ 0, %14 ], [ %., %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -5694,7 +5694,7 @@ fmap_readn.exit84.thread:                         ; preds = %45, %43
   br label %79
 
 51:                                               ; preds = %fmap_readn.exit84, %38
-  %.151 = phi i64 [ %.050, %38 ], [ %50, %fmap_readn.exit84 ]
+  %.151 = phi i64 [ %50, %fmap_readn.exit84 ], [ %.050, %38 ]
   %52 = call i32 @inflate(ptr noundef nonnull %4, i32 noundef 2) #23
   %53 = load i32, ptr %27, align 8, !tbaa !142
   %54 = sub i32 8192, %53
@@ -5744,7 +5744,7 @@ fmap_readn.exit84.thread:                         ; preds = %45, %43
   br label %.thread104
 
 .thread104:                                       ; preds = %41, %70, %66
-  %.147108 = phi i64 [ %.147, %70 ], [ %.147, %66 ], [ %.046, %41 ]
+  %.147108 = phi i64 [ %.147, %66 ], [ %.147, %70 ], [ %.046, %41 ]
   %71 = load ptr, ptr %5, align 8, !tbaa !118
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.182, i64 noundef %.147108, ptr noundef %71) #23
   %72 = zext i32 %.0..0..0. to i64
@@ -5796,7 +5796,7 @@ fmap_readn.exit84.thread:                         ; preds = %45, %43
   br label %94
 
 94:                                               ; preds = %.thread, %90, %20
-  %.0 = phi i32 [ %19, %20 ], [ %.5, %90 ], [ %.1.ph, %.thread ]
+  %.0 = phi i32 [ %.1.ph, %.thread ], [ %19, %20 ], [ %.5, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

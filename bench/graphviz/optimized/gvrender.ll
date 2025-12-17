@@ -117,7 +117,7 @@ define range(i32 300, 1000) i32 @gvrender_select(ptr noundef captures(none) %0, 
   br label %48
 
 48:                                               ; preds = %41, %44, %2, %46
-  %.0 = phi i32 [ 999, %46 ], [ 999, %2 ], [ 300, %44 ], [ 300, %41 ]
+  %.0 = phi i32 [ 999, %2 ], [ 999, %46 ], [ 300, %44 ], [ 300, %41 ]
   ret i32 %.0
 }
 
@@ -2029,7 +2029,7 @@ get_imagescale.exit.thread:                       ; preds = %get_imagescale.exit
   br label %get_imagepos.exit
 
 get_imagepos.exit:                                ; preds = %get_imagescale.exit.thread, %82, %84, %86, %88, %90, %92, %94, %96, %98
-  %.0.i101 = phi i32 [ 4, %get_imagescale.exit.thread ], [ 0, %82 ], [ 1, %84 ], [ 2, %86 ], [ 3, %88 ], [ 4, %90 ], [ 5, %92 ], [ 6, %94 ], [ 7, %96 ], [ %..i100, %98 ]
+  %.0.i101 = phi i32 [ 4, %get_imagescale.exit.thread ], [ 7, %96 ], [ %..i100, %98 ], [ 6, %94 ], [ 5, %92 ], [ 4, %90 ], [ 3, %88 ], [ 2, %86 ], [ 1, %84 ], [ 0, %82 ]
   %100 = fcmp olt double %.0, %37
   br i1 %100, label %101, label %113
 

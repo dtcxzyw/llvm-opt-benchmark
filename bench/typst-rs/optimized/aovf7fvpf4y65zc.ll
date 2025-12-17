@@ -1346,7 +1346,7 @@ define hidden void @"_ZN4core3ptr429drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..node..SyntaxError$GT$$GT$$GT$17h3210ef787222dd84E.llvm.18157932453617260866.exit2"
 
 common.resume:                                    ; preds = %.body, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %40, %44 ], [ %40, %39 ], [ %14, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %44 ], [ %14, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..node..SyntaxError$GT$$GT$$GT$17h3210ef787222dd84E.llvm.18157932453617260866.exit2": ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$typst_syntax..node..SyntaxError$GT$$GT$$GT$17h3210ef787222dd84E.llvm.18157932453617260866.exit", %46, %50

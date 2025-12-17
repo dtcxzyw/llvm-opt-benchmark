@@ -470,7 +470,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
           cleanup
   br label %86
 
-.loopexit.split-lp:                               ; preds = %44, %32
+.loopexit.split-lp:                               ; preds = %32, %44
   %.2.ph.ph = phi ptr [ null, %32 ], [ %.3, %44 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup

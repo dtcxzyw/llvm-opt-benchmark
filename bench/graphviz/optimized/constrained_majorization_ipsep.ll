@@ -496,8 +496,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %109
   br label %171
 
 171:                                              ; preds = %170, %169, %164
-  %.2 = phi i32 [ %165, %164 ], [ %.1409585, %170 ], [ %.1409585, %169 ]
-  %.0406 = phi float [ %168, %164 ], [ %.0420.lcssa, %170 ], [ 0.000000e+00, %169 ]
+  %.2 = phi i32 [ %165, %164 ], [ %.1409585, %169 ], [ %.1409585, %170 ]
+  %.0406 = phi float [ %168, %164 ], [ 0.000000e+00, %169 ], [ %.0420.lcssa, %170 ]
   %indvars.iv.next770 = add nsw i64 %indvars.iv769, 1
   %172 = getelementptr inbounds float, ptr %116, i64 %indvars.iv769
   store float %.0406, ptr %172, align 4, !tbaa !14
@@ -1006,8 +1006,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %325
   br label %._crit_edge659
 
 ._crit_edge659:                                   ; preds = %.preheader540.thread, %._crit_edge659.loopexit
-  %.1436.lcssa = phi double [ %370, %._crit_edge659.loopexit ], [ 0.000000e+00, %.preheader540.thread ]
-  %.4441.lcssa = phi i32 [ %360, %._crit_edge659.loopexit ], [ %.4441654920, %.preheader540.thread ]
+  %.1436.lcssa = phi double [ 0.000000e+00, %.preheader540.thread ], [ %370, %._crit_edge659.loopexit ]
+  %.4441.lcssa = phi i32 [ %.4441654920, %.preheader540.thread ], [ %360, %._crit_edge659.loopexit ]
   %361 = getelementptr inbounds nuw double, ptr %209, i64 %indvars.iv843
   %362 = load double, ptr %361, align 8, !tbaa !22
   %363 = fsub double %362, %.1436.lcssa
@@ -1158,10 +1158,10 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %325
   br label %427
 
 427:                                              ; preds = %421, %424, %415, %418
-  %428 = phi i32 [ %.pre882, %418 ], [ %.pre882, %415 ], [ %.pre, %424 ], [ 1, %421 ]
-  %.1428 = phi i1 [ %416, %418 ], [ false, %415 ], [ false, %424 ], [ false, %421 ]
-  %.1423 = phi double [ %.0422684, %418 ], [ %.0422684, %415 ], [ %422, %424 ], [ %422, %421 ]
-  %.2414 = phi i32 [ %.1413685, %418 ], [ %.1413685, %415 ], [ 0, %424 ], [ 0, %421 ]
+  %428 = phi i32 [ %.pre882, %415 ], [ %.pre882, %418 ], [ %.pre, %424 ], [ 1, %421 ]
+  %.1428 = phi i1 [ false, %415 ], [ %416, %418 ], [ false, %424 ], [ false, %421 ]
+  %.1423 = phi double [ %.0422684, %415 ], [ %.0422684, %418 ], [ %422, %424 ], [ %422, %421 ]
+  %.2414 = phi i32 [ %.1413685, %415 ], [ %.1413685, %418 ], [ 0, %424 ], [ 0, %421 ]
   %429 = icmp eq i32 %428, 1
   %430 = fcmp ogt double %.1423, 1.000000e-03
   %or.cond5 = select i1 %429, i1 %430, i1 false
@@ -1252,8 +1252,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %325
   br label %.loopexit
 
 .loopexit:                                        ; preds = %314, %gv_calloc.exit527, %471, %475
-  %.0452 = phi ptr [ %332, %475 ], [ %332, %471 ], [ null, %gv_calloc.exit527 ], [ null, %314 ]
-  %.0412 = phi i32 [ %.1413.lcssa, %475 ], [ %.1413.lcssa, %471 ], [ -1, %gv_calloc.exit527 ], [ -1, %314 ]
+  %.0452 = phi ptr [ %332, %471 ], [ null, %gv_calloc.exit527 ], [ null, %314 ], [ %332, %475 ]
+  %.0412 = phi i32 [ %.1413.lcssa, %471 ], [ -1, %gv_calloc.exit527 ], [ -1, %314 ], [ %.1413.lcssa, %475 ]
   %.not487 = icmp eq ptr %225, null
   br i1 %.not487, label %486, label %.preheader539
 

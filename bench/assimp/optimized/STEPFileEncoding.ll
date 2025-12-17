@@ -155,7 +155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i:           ; preds = %57, %55, %49
-  %.0.i.i = phi i8 [ %56, %55 ], [ %spec.select.i.i188, %57 ], [ %52, %49 ]
+  %.0.i.i = phi i8 [ %spec.select.i.i188, %57 ], [ %56, %55 ], [ %52, %49 ]
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %61 = load i8, ptr %60, align 1
   %62 = add i8 %61, -48
@@ -179,7 +179,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i:           ; preds = %57, %55, %49
   br label %_ZN6Assimp17HexOctetToDecimalEPKc.exit
 
 _ZN6Assimp17HexOctetToDecimalEPKc.exit:           ; preds = %_ZN6Assimp17HexDigitToDecimalEc.exit.i, %65, %67
-  %.0.i6.i = phi i8 [ %66, %65 ], [ %spec.select.i5.i, %67 ], [ %62, %_ZN6Assimp17HexDigitToDecimalEc.exit.i ]
+  %.0.i6.i = phi i8 [ %spec.select.i5.i, %67 ], [ %66, %65 ], [ %62, %_ZN6Assimp17HexDigitToDecimalEc.exit.i ]
   %70 = shl i8 %.0.i.i, 4
   %71 = add i8 %.0.i6.i, %70
   %72 = icmp ugt i8 %71, 31
@@ -346,7 +346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit192: ; preds 
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i197
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i197:        ; preds = %142, %140, %.lr.ph412
-  %.0.i.i198 = phi i8 [ %141, %140 ], [ %spec.select.i.i196, %142 ], [ %137, %.lr.ph412 ]
+  %.0.i.i198 = phi i8 [ %spec.select.i.i196, %142 ], [ %141, %140 ], [ %137, %.lr.ph412 ]
   %145 = getelementptr inbounds nuw i8, ptr %.0156410, i64 1
   %146 = load i8, ptr %145, align 1
   %147 = add i8 %146, -48
@@ -370,7 +370,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i197:        ; preds = %142, %140, %.lr.ph4
   br label %155
 
 155:                                              ; preds = %152, %150, %_ZN6Assimp17HexDigitToDecimalEc.exit.i197
-  %.0.i6.i203 = phi i8 [ %151, %150 ], [ %spec.select.i5.i202, %152 ], [ %147, %_ZN6Assimp17HexDigitToDecimalEc.exit.i197 ]
+  %.0.i6.i203 = phi i8 [ %spec.select.i5.i202, %152 ], [ %151, %150 ], [ %147, %_ZN6Assimp17HexDigitToDecimalEc.exit.i197 ]
   %156 = shl i8 %.0.i.i198, 4
   %157 = add i8 %.0.i6.i203, %156
   %158 = getelementptr inbounds nuw i8, ptr %.0156410, i64 2
@@ -396,7 +396,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i197:        ; preds = %142, %140, %.lr.ph4
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i209
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %165, %163, %155
-  %.0.i.i210 = phi i8 [ %164, %163 ], [ %spec.select.i.i208, %165 ], [ %160, %155 ]
+  %.0.i.i210 = phi i8 [ %spec.select.i.i208, %165 ], [ %164, %163 ], [ %160, %155 ]
   %168 = getelementptr inbounds nuw i8, ptr %.0156410, i64 3
   %169 = load i8, ptr %168, align 1
   %170 = add i8 %169, -48
@@ -420,7 +420,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %165, %163, %155
   br label %178
 
 178:                                              ; preds = %175, %173, %_ZN6Assimp17HexDigitToDecimalEc.exit.i209
-  %.0.i6.i215 = phi i8 [ %174, %173 ], [ %spec.select.i5.i214, %175 ], [ %170, %_ZN6Assimp17HexDigitToDecimalEc.exit.i209 ]
+  %.0.i6.i215 = phi i8 [ %spec.select.i5.i214, %175 ], [ %174, %173 ], [ %170, %_ZN6Assimp17HexDigitToDecimalEc.exit.i209 ]
   %179 = shl i8 %.0.i.i210, 4
   %180 = add i8 %.0.i6.i215, %179
   %181 = zext i8 %157 to i16
@@ -517,7 +517,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221: ; preds = %200, %198
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i229
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i229:        ; preds = %217, %215, %.lr.ph407
-  %.0.i.i230 = phi i8 [ %216, %215 ], [ %spec.select.i.i228, %217 ], [ %212, %.lr.ph407 ]
+  %.0.i.i230 = phi i8 [ %spec.select.i.i228, %217 ], [ %216, %215 ], [ %212, %.lr.ph407 ]
   %220 = getelementptr inbounds nuw i8, ptr %.0155404, i64 1
   %221 = load i8, ptr %220, align 1
   %222 = add i8 %221, -48
@@ -541,7 +541,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i229:        ; preds = %217, %215, %.lr.ph4
   br label %230
 
 230:                                              ; preds = %227, %225, %_ZN6Assimp17HexDigitToDecimalEc.exit.i229
-  %.0.i6.i235 = phi i8 [ %226, %225 ], [ %spec.select.i5.i234, %227 ], [ %222, %_ZN6Assimp17HexDigitToDecimalEc.exit.i229 ]
+  %.0.i6.i235 = phi i8 [ %spec.select.i5.i234, %227 ], [ %226, %225 ], [ %222, %_ZN6Assimp17HexDigitToDecimalEc.exit.i229 ]
   %231 = shl i8 %.0.i.i230, 4
   %232 = add i8 %.0.i6.i235, %231
   %233 = getelementptr inbounds nuw i8, ptr %.0155404, i64 2
@@ -567,7 +567,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i229:        ; preds = %217, %215, %.lr.ph4
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i241
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i241:        ; preds = %240, %238, %230
-  %.0.i.i242 = phi i8 [ %239, %238 ], [ %spec.select.i.i240, %240 ], [ %235, %230 ]
+  %.0.i.i242 = phi i8 [ %spec.select.i.i240, %240 ], [ %239, %238 ], [ %235, %230 ]
   %243 = getelementptr inbounds nuw i8, ptr %.0155404, i64 3
   %244 = load i8, ptr %243, align 1
   %245 = add i8 %244, -48
@@ -591,7 +591,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i241:        ; preds = %240, %238, %230
   br label %253
 
 253:                                              ; preds = %250, %248, %_ZN6Assimp17HexDigitToDecimalEc.exit.i241
-  %.0.i6.i247 = phi i8 [ %249, %248 ], [ %spec.select.i5.i246, %250 ], [ %245, %_ZN6Assimp17HexDigitToDecimalEc.exit.i241 ]
+  %.0.i6.i247 = phi i8 [ %spec.select.i5.i246, %250 ], [ %249, %248 ], [ %245, %_ZN6Assimp17HexDigitToDecimalEc.exit.i241 ]
   %254 = shl i8 %.0.i.i242, 4
   %255 = add i8 %.0.i6.i247, %254
   %256 = getelementptr inbounds nuw i8, ptr %.0155404, i64 4
@@ -617,7 +617,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i241:        ; preds = %240, %238, %230
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i253
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i253:        ; preds = %263, %261, %253
-  %.0.i.i254 = phi i8 [ %262, %261 ], [ %spec.select.i.i252, %263 ], [ %258, %253 ]
+  %.0.i.i254 = phi i8 [ %spec.select.i.i252, %263 ], [ %262, %261 ], [ %258, %253 ]
   %266 = getelementptr inbounds nuw i8, ptr %.0155404, i64 5
   %267 = load i8, ptr %266, align 1
   %268 = add i8 %267, -48
@@ -641,7 +641,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i253:        ; preds = %263, %261, %253
   br label %276
 
 276:                                              ; preds = %273, %271, %_ZN6Assimp17HexDigitToDecimalEc.exit.i253
-  %.0.i6.i259 = phi i8 [ %272, %271 ], [ %spec.select.i5.i258, %273 ], [ %268, %_ZN6Assimp17HexDigitToDecimalEc.exit.i253 ]
+  %.0.i6.i259 = phi i8 [ %spec.select.i5.i258, %273 ], [ %272, %271 ], [ %268, %_ZN6Assimp17HexDigitToDecimalEc.exit.i253 ]
   %277 = shl i8 %.0.i.i254, 4
   %278 = add i8 %.0.i6.i259, %277
   %279 = getelementptr inbounds nuw i8, ptr %.0155404, i64 6
@@ -667,7 +667,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i253:        ; preds = %263, %261, %253
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i265
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %286, %284, %276
-  %.0.i.i266 = phi i8 [ %285, %284 ], [ %spec.select.i.i264, %286 ], [ %281, %276 ]
+  %.0.i.i266 = phi i8 [ %spec.select.i.i264, %286 ], [ %285, %284 ], [ %281, %276 ]
   %289 = getelementptr inbounds nuw i8, ptr %.0155404, i64 7
   %290 = load i8, ptr %289, align 1
   %291 = add i8 %290, -48
@@ -691,7 +691,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %286, %284, %276
   br label %299
 
 299:                                              ; preds = %296, %294, %_ZN6Assimp17HexDigitToDecimalEc.exit.i265
-  %.0.i6.i271 = phi i8 [ %295, %294 ], [ %spec.select.i5.i270, %296 ], [ %291, %_ZN6Assimp17HexDigitToDecimalEc.exit.i265 ]
+  %.0.i6.i271 = phi i8 [ %spec.select.i5.i270, %296 ], [ %295, %294 ], [ %291, %_ZN6Assimp17HexDigitToDecimalEc.exit.i265 ]
   %300 = shl i8 %.0.i.i266, 4
   %301 = add i8 %.0.i6.i271, %300
   %302 = zext i8 %232 to i32
@@ -768,19 +768,19 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284: ; preds = %328, %326
   br i1 %.not429, label %10, label %.critedge
 
 _ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit224: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284, %324, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221, %196
-  %.sink = phi ptr [ %132, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221 ], [ %132, %196 ], [ %207, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284 ], [ %207, %324 ]
-  %.pn185.pn = phi { ptr, i32 } [ %.pn182, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221 ], [ %197, %196 ], [ %.pn, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284 ], [ %325, %324 ]
+  %.sink = phi ptr [ %132, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221 ], [ %132, %196 ], [ %207, %324 ], [ %207, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284 ]
+  %.pn185.pn = phi { ptr, i32 } [ %.pn182, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit221 ], [ %197, %196 ], [ %325, %324 ], [ %.pn, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit284 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #13
   resume { ptr, i32 } %.pn185.pn
 
 .thread307:                                       ; preds = %126, %88, %89, %93, %98, %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKcm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
-  %.pre-phi = phi i64 [ %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKcm.exit ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %7, %10 ], [ %7, %98 ], [ %7, %93 ], [ %7, %89 ], [ %7, %88 ], [ %7, %126 ]
+  %.pre-phi = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKcm.exit ], [ %7, %10 ], [ %7, %98 ], [ %7, %93 ], [ %7, %89 ], [ %7, %88 ], [ %7, %126 ]
   %332 = load i64, ptr %3, align 8
   %.not427.not = icmp ult i64 %.pre-phi, %332
   br i1 %.not427.not, label %.lr.ph416, label %.critedge, !llvm.loop !5
 
-.critedge:                                        ; preds = %.thread307, %_ZN6Assimp17HexOctetToDecimalEPKc.exit, %330, %97, %._crit_edge, %127, %202, %120, %1
-  %333 = phi i1 [ true, %1 ], [ false, %120 ], [ true, %330 ], [ false, %97 ], [ false, %._crit_edge ], [ false, %127 ], [ false, %202 ], [ false, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ], [ true, %.thread307 ]
+.critedge:                                        ; preds = %.thread307, %_ZN6Assimp17HexOctetToDecimalEPKc.exit, %330, %97, %202, %._crit_edge, %127, %120, %1
+  %333 = phi i1 [ false, %._crit_edge ], [ true, %1 ], [ false, %120 ], [ false, %127 ], [ true, %330 ], [ false, %97 ], [ false, %202 ], [ false, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ], [ true, %.thread307 ]
   ret i1 %333
 }
 

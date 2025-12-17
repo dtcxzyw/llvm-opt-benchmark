@@ -240,14 +240,14 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %99 = add nsw i32 %.0181.ph321, %.4191.ph319
   br label %.loopexit251
 
-.outer.thread:                                    ; preds = %82, %80, %.split, %87, %85, %.split303, %92, %90, %.split308, %97, %95, %.split313
+.outer.thread:                                    ; preds = %.split, %.split303, %.split308, %82, %80, %87, %85, %92, %90, %97, %95, %.split313
   %.5406 = add nsw i32 %.0181.ph321, %.4191.ph319
   br label %.loopexit251
 
 .outer:                                           ; preds = %97, %92, %87, %82
-  %.sink451 = phi i32 [ 1, %82 ], [ 2, %87 ], [ 4, %92 ], [ 8, %97 ]
-  %.sink = phi i32 [ -29, %82 ], [ -29, %87 ], [ -179, %92 ], [ -179, %97 ]
-  %.0181.pn = phi i32 [ 29, %82 ], [ 29, %87 ], [ 179, %92 ], [ 179, %97 ]
+  %.sink451 = phi i32 [ 4, %92 ], [ 2, %87 ], [ 1, %82 ], [ 8, %97 ]
+  %.sink = phi i32 [ -179, %92 ], [ -29, %87 ], [ -29, %82 ], [ -179, %97 ]
+  %.0181.pn = phi i32 [ 179, %92 ], [ 29, %87 ], [ 29, %82 ], [ 179, %97 ]
   %100 = or i32 %.3.ph320, %.sink451
   %101 = add nsw i32 %.0181.ph321, %.sink
   %.5 = add nsw i32 %.0181.pn, %.4191.ph319
@@ -265,10 +265,10 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %109, label %.thread.sink.split, label %.loopexit254
 
 .loopexit251:                                     ; preds = %.outer, %52, %.outer.thread, %..loopexit253_crit_edge, %.preheader, %30, %65, %61, %64, %.lr.ph330
-  %.1199 = phi i8 [ %.0198326, %.lr.ph330 ], [ 1, %64 ], [ 0, %61 ], [ %.0198326, %65 ], [ %.0198326, %30 ], [ %.0198326, %.preheader ], [ %.0198326, %..loopexit253_crit_edge ], [ %.0198326, %.outer.thread ], [ %.0198326, %52 ], [ %.0198326, %.outer ]
-  %.1196 = phi i32 [ %.0195327, %.lr.ph330 ], [ %.0195327, %64 ], [ %.0195327, %61 ], [ %.0195327, %65 ], [ %.0195327, %30 ], [ %48, %.preheader ], [ %.0195327, %..loopexit253_crit_edge ], [ %.0195327, %.outer.thread ], [ %48, %52 ], [ %.0195327, %.outer ]
-  %.2189 = phi i32 [ %.0187328, %.lr.ph330 ], [ %.0187328, %64 ], [ %.0187328, %61 ], [ %71, %65 ], [ %.0187328, %30 ], [ %.0187328, %.preheader ], [ %99, %..loopexit253_crit_edge ], [ %.5406, %.outer.thread ], [ %.0187328, %52 ], [ %.5, %.outer ]
-  %.1186 = phi i32 [ %.0185329, %.lr.ph330 ], [ %.0185329, %64 ], [ %.0185329, %61 ], [ %70, %65 ], [ %.0185329, %30 ], [ %.0185329, %.preheader ], [ %.3.ph320, %..loopexit253_crit_edge ], [ %.3.ph320, %.outer.thread ], [ %.0185329, %52 ], [ %100, %.outer ]
+  %.1199 = phi i8 [ %.0198326, %.lr.ph330 ], [ %.0198326, %65 ], [ %.0198326, %30 ], [ 1, %64 ], [ 0, %61 ], [ %.0198326, %.preheader ], [ %.0198326, %..loopexit253_crit_edge ], [ %.0198326, %.outer.thread ], [ %.0198326, %52 ], [ %.0198326, %.outer ]
+  %.1196 = phi i32 [ %.0195327, %.lr.ph330 ], [ %.0195327, %65 ], [ %.0195327, %30 ], [ %.0195327, %64 ], [ %.0195327, %61 ], [ %48, %.preheader ], [ %.0195327, %..loopexit253_crit_edge ], [ %.0195327, %.outer.thread ], [ %48, %52 ], [ %.0195327, %.outer ]
+  %.2189 = phi i32 [ %.0187328, %.lr.ph330 ], [ %71, %65 ], [ %.0187328, %30 ], [ %.0187328, %64 ], [ %.0187328, %61 ], [ %.0187328, %.preheader ], [ %99, %..loopexit253_crit_edge ], [ %.5406, %.outer.thread ], [ %.0187328, %52 ], [ %.5, %.outer ]
+  %.1186 = phi i32 [ %.0185329, %.lr.ph330 ], [ %70, %65 ], [ %.0185329, %30 ], [ %.0185329, %64 ], [ %.0185329, %61 ], [ %.0185329, %.preheader ], [ %.3.ph320, %..loopexit253_crit_edge ], [ %.3.ph320, %.outer.thread ], [ %.0185329, %52 ], [ %100, %.outer ]
   %110 = add nsw i32 %.2189, 1
   %111 = icmp slt i32 %110, %2
   br i1 %111, label %.lr.ph330, label %.loopexit254, !llvm.loop !49
@@ -465,7 +465,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %198, label %.lr.ph350.split, label %.thread, !llvm.loop !52
 
 .thread.sink.split:                               ; preds = %61, %55, %58, %47, %37, %112, %.loopexit254, %3, %102
-  %.str.2.sink = phi ptr [ @.str.5, %102 ], [ @.str.6, %3 ], [ @.str.6, %.loopexit254 ], [ @.str.7, %112 ], [ @.str.1, %37 ], [ @.str.2, %47 ], [ @.str.3, %58 ], [ @.str.3, %55 ], [ @.str.4, %61 ]
+  %.str.2.sink = phi ptr [ @.str.7, %112 ], [ @.str.6, %3 ], [ @.str.6, %.loopexit254 ], [ @.str.5, %102 ], [ @.str.1, %37 ], [ @.str.2, %47 ], [ @.str.4, %61 ], [ @.str.3, %55 ], [ @.str.3, %58 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.2.sink) #7
   br label %.thread
 

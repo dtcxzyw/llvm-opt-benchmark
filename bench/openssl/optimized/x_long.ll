@@ -103,9 +103,9 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %17, %.thread87, %25
-  %.181 = phi i64 [ %spec.select59, %25 ], [ %spec.select5989, %.thread87 ], [ %.0, %17 ]
-  %.031414780 = phi ptr [ %1, %25 ], [ %1, %.thread87 ], [ %19, %17 ]
-  %.032404979 = phi i32 [ 1, %25 ], [ %2, %.thread87 ], [ %18, %17 ]
+  %.181 = phi i64 [ %spec.select5989, %.thread87 ], [ %spec.select59, %25 ], [ %.0, %17 ]
+  %.031414780 = phi ptr [ %1, %.thread87 ], [ %1, %25 ], [ %19, %17 ]
+  %.032404979 = phi i32 [ %2, %.thread87 ], [ 1, %25 ], [ %18, %17 ]
   %wide.trip.count = zext nneg i32 %.032404979 to i64
   br label %.lr.ph
 

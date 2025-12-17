@@ -330,7 +330,7 @@ sodium_strnlen.exit:                              ; preds = %6
   br label %sodium_strnlen.exit.thread
 
 sodium_strnlen.exit.thread:                       ; preds = %9, %13, %11, %sodium_strnlen.exit, %17
-  %.0 = phi i32 [ %18, %17 ], [ -1, %sodium_strnlen.exit ], [ -1, %11 ], [ -1, %13 ], [ -1, %9 ]
+  %.0 = phi i32 [ %18, %17 ], [ -1, %sodium_strnlen.exit ], [ -1, %13 ], [ -1, %11 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -453,7 +453,7 @@ sodium_strnlen.exit.thread:                       ; preds = %28, %sodium_strnlen
   br label %41
 
 41:                                               ; preds = %39, %36, %34, %sodium_strnlen.exit.thread
-  %.0 = phi i32 [ -1, %sodium_strnlen.exit.thread ], [ -1, %34 ], [ 1, %36 ], [ %spec.select, %39 ]
+  %.0 = phi i32 [ 1, %36 ], [ -1, %sodium_strnlen.exit.thread ], [ -1, %34 ], [ %spec.select, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

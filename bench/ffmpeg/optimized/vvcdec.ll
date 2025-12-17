@@ -123,7 +123,7 @@ check_temporal_id.exit:                           ; preds = %21, %19
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %19, %15, %.thread, %35, %._crit_edge
-  %.2 = phi i32 [ 51, %._crit_edge ], [ 25, %35 ], [ %., %.thread ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
+  %.2 = phi i32 [ %., %.thread ], [ 25, %35 ], [ 51, %._crit_edge ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
   ret i32 %.2
 }
 

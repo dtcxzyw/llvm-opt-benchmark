@@ -119,8 +119,8 @@ _ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit: ; preds = %27
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit.thread, label %.lr.ph, !llvm.loop !6
 
-_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit.thread: ; preds = %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit, %7, %.lr.ph, %39, %15, %27, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ %.05, %27 ], [ %.05, %15 ], [ null, %39 ], [ %.05, %.lr.ph ], [ %.05, %7 ], [ %.05, %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit ]
+_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit.thread: ; preds = %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit, %39, %7, %.lr.ph, %15, %27, %1
+  %.0.lcssa = phi ptr [ null, %1 ], [ %.05, %27 ], [ %.05, %15 ], [ %.05, %.lr.ph ], [ %.05, %7 ], [ null, %39 ], [ %.05, %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit ]
   ret ptr %.0.lcssa
 }
 
@@ -178,7 +178,7 @@ define hidden noundef zeroext i1 @_ZN26AssertionPredicateWithHalt12is_predicateE
   br label %_ZN26AssertionPredicateWithHalt8has_haltEPK4Node.exit
 
 _ZN26AssertionPredicateWithHalt8has_haltEPK4Node.exit: ; preds = %33, %28, %16, %1, %3, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %1 ], [ false, %16 ], [ false, %28 ], [ %40, %33 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %3 ], [ false, %16 ], [ false, %28 ], [ %40, %33 ]
   ret i1 %.0
 }
 
@@ -868,7 +868,7 @@ switch.early.test:                                ; preds = %1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %15, %1
-  %16 = phi i1 [ true, %switch.early.test ], [ true, %1 ], [ false, %15 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+  %16 = phi i1 [ true, %1 ], [ false, %15 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
   ret i1 %16
 }
 
@@ -999,7 +999,7 @@ switch.early.test.i:                              ; preds = %1
     i32 55, label %16
   ]
 
-16:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %1
+16:                                               ; preds = %1, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 800
@@ -1140,7 +1140,7 @@ switch.early.test.i15:                            ; preds = %74
     i32 55, label %87
   ]
 
-87:                                               ; preds = %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %74
+87:                                               ; preds = %74, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15
   %88 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %89 = load i32, ptr %88, align 8
   %90 = icmp ugt i32 %89, 1
@@ -1331,7 +1331,7 @@ _ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit: ; preds = %23
     i32 8, label %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit
   ]
 
-_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread: ; preds = %20, %23, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit, %18, %14
+_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread: ; preds = %20, %23, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit, %14, %18
   %.pr = load ptr, ptr %0, align 8
   %29 = icmp eq ptr %.pr, null
   br i1 %29, label %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit, label %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread._ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread.thread_crit_edge
@@ -1390,7 +1390,7 @@ _ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread.thread: ; preds = 
   br label %_ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit
 
 _ZN26AssertionPredicateWithHalt12is_predicateEPK4Node.exit: ; preds = %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit, %59, %54, %42, %34, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread.thread, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread, %_ZN14ParsePredicate12is_predicateEP4Node.exit
-  %67 = phi i1 [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ], [ true, %_ZN14ParsePredicate12is_predicateEP4Node.exit ], [ false, %34 ], [ false, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread.thread ], [ false, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread ], [ false, %42 ], [ false, %54 ], [ %66, %59 ], [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ], [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ]
+  %67 = phi i1 [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ], [ true, %_ZN14ParsePredicate12is_predicateEP4Node.exit ], [ false, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread ], [ false, %34 ], [ false, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit.thread.thread ], [ false, %42 ], [ false, %54 ], [ %66, %59 ], [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ], [ true, %_ZN23RegularPredicateWithUCT12is_predicateEP4Node.exit ]
   ret i1 %67
 }
 
@@ -1660,8 +1660,8 @@ _ZN9VectorSet8test_setEj.exit.i21:                ; preds = %88, %83
   br label %_ZN16Unique_Node_List4pushEP4Node.exit19.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit19.sink.split: ; preds = %97, %101, %75, %79
-  %.sink = phi i32 [ %76, %79 ], [ %76, %75 ], [ %98, %101 ], [ %98, %97 ]
-  %.sink40.in = phi ptr [ %40, %79 ], [ %40, %75 ], [ %33, %101 ], [ %33, %97 ]
+  %.sink = phi i32 [ %76, %75 ], [ %76, %79 ], [ %98, %101 ], [ %98, %97 ]
+  %.sink40.in = phi ptr [ %40, %75 ], [ %40, %79 ], [ %33, %101 ], [ %33, %97 ]
   %.sink40 = load ptr, ptr %.sink40.in, align 8
   %102 = zext i32 %.sink to i64
   %103 = getelementptr inbounds nuw ptr, ptr %.sink40, i64 %102

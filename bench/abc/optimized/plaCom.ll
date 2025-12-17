@@ -627,15 +627,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef captures(none) %
   br label %67
 
 .loopexit.sink.split:                             ; preds = %6, %26, %36, %16
-  %.str.47.sink = phi ptr [ @.str.47, %36 ], [ @.str.46, %26 ], [ @.str.45, %16 ], [ @.str.44, %6 ]
+  %.str.47.sink = phi ptr [ @.str.45, %16 ], [ @.str.46, %26 ], [ @.str.47, %36 ], [ @.str.44, %6 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.47.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %38, %4, %28, %8, %.loopexit.sink.split
-  %.152 = phi i32 [ %.051.ph, %.loopexit.sink.split ], [ %.051.ph, %18 ], [ %.051.ph, %38 ], [ %.051.ph, %4 ], [ %.051.ph, %28 ], [ %13, %8 ]
-  %.149 = phi i32 [ %.048.ph228, %.loopexit.sink.split ], [ %.048.ph228, %28 ], [ %.048.ph228, %4 ], [ %.048.ph228, %38 ], [ %23, %18 ], [ %.048.ph228, %8 ]
-  %.146 = phi i32 [ %.045.ph235, %.loopexit.sink.split ], [ %.045.ph235, %38 ], [ %.045.ph235, %4 ], [ %33, %28 ], [ %.045.ph235, %18 ], [ %.045.ph235, %8 ]
-  %.144 = phi i32 [ %.043.ph241, %.loopexit.sink.split ], [ %.043.ph241, %4 ], [ %43, %38 ], [ %.043.ph241, %28 ], [ %.043.ph241, %18 ], [ %.043.ph241, %8 ]
+  %.152 = phi i32 [ %.051.ph, %.loopexit.sink.split ], [ %.051.ph, %28 ], [ %.051.ph, %18 ], [ %.051.ph, %38 ], [ %.051.ph, %4 ], [ %13, %8 ]
+  %.149 = phi i32 [ %.048.ph228, %.loopexit.sink.split ], [ %23, %18 ], [ %.048.ph228, %38 ], [ %.048.ph228, %28 ], [ %.048.ph228, %4 ], [ %.048.ph228, %8 ]
+  %.146 = phi i32 [ %.045.ph235, %.loopexit.sink.split ], [ %.045.ph235, %18 ], [ %33, %28 ], [ %.045.ph235, %4 ], [ %.045.ph235, %38 ], [ %.045.ph235, %8 ]
+  %.144 = phi i32 [ %.043.ph241, %.loopexit.sink.split ], [ %.043.ph241, %18 ], [ %.043.ph241, %28 ], [ %43, %38 ], [ %.043.ph241, %4 ], [ %.043.ph241, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.48)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.49)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.50, i32 noundef %.152)

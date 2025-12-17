@@ -322,9 +322,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.tail.thread, %11, %36
-  %.sink = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select64, %.tail.thread ]
-  %.ph = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select65, %.tail.thread ]
-  %.047.ph = phi ptr [ %34, %36 ], [ %2, %11 ], [ %0, %.tail.thread ]
+  %.sink = phi i64 [ %37, %36 ], [ %spec.select64, %.tail.thread ], [ %12, %11 ]
+  %.ph = phi i64 [ %37, %36 ], [ %spec.select65, %.tail.thread ], [ %12, %11 ]
+  %.047.ph = phi ptr [ %34, %36 ], [ %0, %.tail.thread ], [ %2, %11 ]
   store i64 %.sink, ptr %5, align 8
   br label %42
 
@@ -2269,7 +2269,7 @@ _ZN10fileStreamC2EPKc.exit26:                     ; preds = %30, %39
   br label %49
 
 49:                                               ; preds = %_ZN10fileStreamC2EPKc.exit26, %_ZN10fileStreamC2EPKc.exit, %45, %28, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %28 ], [ null, %45 ], [ %7, %_ZN10fileStreamC2EPKc.exit ], [ %32, %_ZN10fileStreamC2EPKc.exit26 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %45 ], [ null, %28 ], [ %7, %_ZN10fileStreamC2EPKc.exit ], [ %32, %_ZN10fileStreamC2EPKc.exit26 ]
   ret ptr %.0
 }
 
@@ -2709,7 +2709,7 @@ _ZN12outputStream3bolEv.exit:                     ; preds = %40, %45
   br label %52
 
 52:                                               ; preds = %31, %_ZN13defaultStream12has_log_fileEv.exit, %14, %20, %25, %51
-  %.0 = phi i64 [ %1, %51 ], [ -1, %25 ], [ -1, %20 ], [ -1, %14 ], [ -1, %_ZN13defaultStream12has_log_fileEv.exit ], [ -1, %31 ]
+  %.0 = phi i64 [ %1, %51 ], [ -1, %_ZN13defaultStream12has_log_fileEv.exit ], [ -1, %25 ], [ -1, %20 ], [ -1, %14 ], [ -1, %31 ]
   ret i64 %.0
 }
 
@@ -2835,8 +2835,8 @@ _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %16, %20, %22
   br label %44
 
 44:                                               ; preds = %42, %36
-  %45 = phi i64 [ %41, %36 ], [ %32, %42 ]
-  %46 = phi i32 [ %38, %36 ], [ %43, %42 ]
+  %45 = phi i64 [ %32, %42 ], [ %41, %36 ]
+  %46 = phi i32 [ %43, %42 ], [ %38, %36 ]
   %47 = add nuw i64 %.01012.i, 1
   %exitcond.not.i = icmp eq i64 %47, %2
   br i1 %exitcond.not.i, label %_ZN12outputStream15update_positionEPKcm.exit, label %31, !llvm.loop !6

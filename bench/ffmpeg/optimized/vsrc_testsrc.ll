@@ -393,7 +393,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %75
 
 75:                                               ; preds = %49, %30, %1, %68, %18
-  %.0 = phi i32 [ 0, %18 ], [ %74, %68 ], [ -1497649742, %1 ], [ -12, %30 ], [ -12, %49 ]
+  %.0 = phi i32 [ 0, %18 ], [ %74, %68 ], [ -12, %30 ], [ -1497649742, %1 ], [ -12, %49 ]
   ret i32 %.0
 }
 
@@ -2051,8 +2051,8 @@ color_gradient.exit:                              ; preds = %72, %75, %78, %80, 
   br label %168
 
 168:                                              ; preds = %140, %160, %162
-  %169 = phi i32 [ %121, %160 ], [ %165, %162 ], [ %156, %140 ]
-  %170 = phi i32 [ %161, %160 ], [ %167, %162 ], [ 0, %140 ]
+  %169 = phi i32 [ %165, %162 ], [ %121, %160 ], [ %156, %140 ]
+  %170 = phi i32 [ %167, %162 ], [ %161, %160 ], [ 0, %140 ]
   %171 = sub nsw i32 %169, %137
   %172 = sub nsw i32 %170, %137
   %173 = sext i32 %171 to i64
@@ -2263,7 +2263,7 @@ color_gradient.exit:                              ; preds = %72, %75, %78, %80, 
   br label %._crit_edge348
 
 ._crit_edge348:                                   ; preds = %.preheader335.lr.ph, %._crit_edge348.loopexit, %.thread330
-  %284 = phi i32 [ %.pre361, %._crit_edge348.loopexit ], [ %243, %.thread330 ], [ %243, %.preheader335.lr.ph ]
+  %284 = phi i32 [ %243, %.thread330 ], [ %.pre361, %._crit_edge348.loopexit ], [ %243, %.preheader335.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %285 = icmp sgt i32 %284, 15
   br i1 %285, label %286, label %316
@@ -4267,10 +4267,10 @@ define internal void @colorspectrum_fill_picture(ptr noundef readonly captures(n
 
 .thread.us:                                       ; preds = %.lr.ph53.split.us
   %44 = fcmp nsz ogt float %41, 5.000000e-01
-  %45 = tail call nsz float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float 1.000000e+00)
-  %46 = fadd nsz float %41, -5.000000e-01
-  %47 = fmul nsz float %46, 2.000000e+00
-  %48 = select i1 %44, float %47, float %45
+  %45 = fadd nsz float %41, -5.000000e-01
+  %46 = fmul nsz float %45, 2.000000e+00
+  %47 = tail call nsz float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float 1.000000e+00)
+  %48 = select i1 %44, float %46, float %47
   %49 = select nsz i1 %44, float 0.000000e+00, float 1.000000e+00
   br label %.lr.ph.us
 
@@ -4630,7 +4630,7 @@ switch.lookup:                                    ; preds = %.loopexit
   br label %81
 
 81:                                               ; preds = %19, %1, %62
-  %.041 = phi i32 [ 0, %62 ], [ -22, %1 ], [ -12, %19 ]
+  %.041 = phi i32 [ -22, %1 ], [ 0, %62 ], [ -12, %19 ]
   ret i32 %.041
 }
 

@@ -230,12 +230,12 @@ thread-pre-split.thread:                          ; preds = %31, %33, %thread-pr
   br label %114
 
 .thread.sink.split:                               ; preds = %29, %15, %4
-  %.sink = phi i32 [ 18, %4 ], [ 19, %15 ], [ 98, %29 ]
+  %.sink = phi i32 [ 19, %15 ], [ 18, %4 ], [ 98, %29 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !21
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %36, %thread-pre-split
-  %101 = phi i32 [ %50, %36 ], [ %100, %thread-pre-split ], [ %.sink, %.thread.sink.split ]
+  %101 = phi i32 [ %100, %thread-pre-split ], [ %50, %36 ], [ %.sink, %.thread.sink.split ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %103 = load ptr, ptr %102, align 8, !tbaa !39
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -295,7 +295,7 @@ define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %4, %12, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %12 ], [ 6, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %13 ], [ 6, %4 ]
   ret i32 %.0
 }
 
@@ -474,7 +474,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
   br label %87
 
 .thread.sink.split:                               ; preds = %22, %16, %15, %4
-  %.sink = phi i32 [ 18, %4 ], [ 19, %15 ], [ 7, %16 ], [ 6, %22 ]
+  %.sink = phi i32 [ 7, %16 ], [ 18, %4 ], [ 19, %15 ], [ 6, %22 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !21
   br label %.thread
 
@@ -619,7 +619,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly captures(address_is
   br label %.thread
 
 .thread:                                          ; preds = %18, %16, %10, %7, %2, %46, %44
-  %47 = phi i32 [ %.pre, %46 ], [ %45, %44 ], [ 6, %2 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %18 ]
+  %47 = phi i32 [ %45, %44 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %2 ], [ %.pre, %46 ], [ 6, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %47
@@ -769,7 +769,7 @@ sdf_outline_decompose.exit:                       ; preds = %29
   br label %sdf_outline_decompose.exit.thread
 
 sdf_outline_decompose.exit.thread:                ; preds = %sdf_shape_new.exit, %27, %23, %17, %20, %7, %2, %48, %46, %44, %sdf_outline_decompose.exit, %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ 0, %14 ], [ %36, %sdf_shape_new.exit ], [ %38, %sdf_outline_decompose.exit ], [ %45, %44 ], [ 0, %48 ], [ %47, %46 ], [ 6, %2 ], [ 20, %7 ], [ 20, %20 ], [ 20, %17 ], [ 6, %23 ], [ 32, %27 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %14 ], [ 20, %17 ], [ %36, %sdf_shape_new.exit ], [ %38, %sdf_outline_decompose.exit ], [ %45, %44 ], [ 0, %48 ], [ 32, %27 ], [ %47, %46 ], [ 6, %23 ], [ 20, %7 ], [ 6, %2 ], [ 20, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -838,7 +838,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
   br label %32
 
 32:                                               ; preds = %15, %29, %22, %7, %10, %26
-  %.1 = phi i32 [ 0, %15 ], [ 0, %22 ], [ 0, %29 ], [ 0, %10 ], [ 6, %7 ], [ 12, %26 ]
+  %.1 = phi i32 [ 6, %7 ], [ 0, %29 ], [ 0, %15 ], [ 0, %22 ], [ 0, %10 ], [ 12, %26 ]
   ret i32 %.1
 }
 
@@ -1118,7 +1118,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
   br i1 %exitcond169.not, label %._crit_edge.us142, label %.lr.ph.split.us.us143, !llvm.loop !110
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us142, %.preheader.lr.ph, %.preheader128.lr.ph, %.preheader129, %.preheader127, %17, %13, %2, %8
-  %.099 = phi i32 [ 6, %8 ], [ 6, %2 ], [ 6, %13 ], [ 7, %17 ], [ 0, %.preheader127 ], [ 0, %.preheader129 ], [ 0, %.preheader128.lr.ph ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us142 ], [ 0, %._crit_edge.us ]
+  %.099 = phi i32 [ 6, %2 ], [ 6, %13 ], [ 6, %8 ], [ 7, %17 ], [ 0, %.preheader127 ], [ 0, %.preheader129 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader128.lr.ph ], [ 0, %._crit_edge.us142 ], [ 0, %._crit_edge.us ]
   ret i32 %.099
 }
 
@@ -2369,7 +2369,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   br label %get_contour_orientation.exit
 
 get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, %51, %117
-  %.038.i = phi i32 [ 0, %51 ], [ 0, %50 ], [ %..i, %117 ], [ 0, %.preheader.i ]
+  %.038.i = phi i32 [ 0, %50 ], [ %..i, %117 ], [ 0, %51 ], [ 0, %.preheader.i ]
   %118 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %.038.i, ptr %118, align 4, !tbaa !21
   %119 = icmp eq i32 %.038.i, 2
@@ -2731,7 +2731,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
   br label %72
 
 72:                                               ; preds = %67, %._crit_edge.i
-  %.3.i = phi i32 [ %66, %._crit_edge.i ], [ %71, %67 ]
+  %.3.i = phi i32 [ %71, %67 ], [ %66, %._crit_edge.i ]
   %.not70.i = icmp eq i32 %.3.i, 0
   br i1 %.not70.i, label %73, label %.thread107.i
 
@@ -3885,9 +3885,9 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %711, %648
   br i1 %.not162.i, label %.preheader.i, label %172
 
 .loopexit.sink.split.i:                           ; preds = %224, %101, %90, %.loopexit
-  %.sink.i = phi i32 [ 6, %.loopexit ], [ 6, %90 ], [ 19, %101 ], [ 6, %224 ]
-  %.0140.ph.i = phi ptr [ null, %.loopexit ], [ null, %90 ], [ %99, %101 ], [ %99, %224 ]
-  %.0135.ph.i = phi ptr [ null, %.loopexit ], [ null, %90 ], [ %91, %101 ], [ %91, %224 ]
+  %.sink.i = phi i32 [ 6, %90 ], [ 6, %.loopexit ], [ 19, %101 ], [ 6, %224 ]
+  %.0140.ph.i = phi ptr [ null, %90 ], [ null, %.loopexit ], [ %99, %101 ], [ %99, %224 ]
+  %.0135.ph.i = phi ptr [ null, %90 ], [ null, %.loopexit ], [ %91, %101 ], [ %91, %224 ]
   store i32 %.sink.i, ptr %14, align 4, !tbaa !21
   br label %sdf_generate_bounding_box.exit
 
@@ -3899,8 +3899,8 @@ sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge247.spli
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %split_sdf_shape.exit.thread
 
-split_sdf_shape.exit.thread:                      ; preds = %.thread107.i, %5, %20, %sdf_generate_bounding_box.exit
-  %.0 = phi i32 [ %763, %sdf_generate_bounding_box.exit ], [ %.4.ph.i, %.thread107.i ], [ 6, %5 ], [ 6, %20 ]
+split_sdf_shape.exit.thread:                      ; preds = %5, %20, %.thread107.i, %sdf_generate_bounding_box.exit
+  %.0 = phi i32 [ %763, %sdf_generate_bounding_box.exit ], [ 6, %5 ], [ 6, %20 ], [ %.4.ph.i, %.thread107.i ]
   ret i32 %.0
 }
 
@@ -3997,7 +3997,7 @@ sdf_contour_new.exit.thread:                      ; preds = %6, %4
   br label %13
 
 13:                                               ; preds = %sdf_contour_new.exit.thread, %2, %9
-  %.0 = phi i32 [ 0, %9 ], [ 6, %2 ], [ %.ph, %sdf_contour_new.exit.thread ]
+  %.0 = phi i32 [ %.ph, %sdf_contour_new.exit.thread ], [ 0, %9 ], [ 6, %2 ]
   ret i32 %.0
 }
 
@@ -4058,7 +4058,7 @@ sdf_edge_new.exit.thread:                         ; preds = %18, %17
   br label %27
 
 27:                                               ; preds = %sdf_edge_new.exit.thread, %2, %11, %21
-  %.0 = phi i32 [ 0, %11 ], [ 0, %21 ], [ 6, %2 ], [ %.ph, %sdf_edge_new.exit.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ %.ph, %sdf_edge_new.exit.thread ], [ 0, %21 ], [ 6, %2 ]
   ret i32 %.0
 }
 
@@ -4186,7 +4186,7 @@ sdf_edge_new.exit.thread:                         ; preds = %50, %49
   br label %sdf_line_to.exit
 
 sdf_line_to.exit:                                 ; preds = %sdf_edge_new.exit.thread, %43, %sdf_edge_new.exit.thread.i, %33, %3, %53
-  %.0 = phi i32 [ 0, %53 ], [ 6, %3 ], [ 0, %33 ], [ 0, %sdf_edge_new.exit.thread.i ], [ 0, %43 ], [ %.ph, %sdf_edge_new.exit.thread ]
+  %.0 = phi i32 [ 6, %3 ], [ %.ph, %sdf_edge_new.exit.thread ], [ 0, %53 ], [ 0, %33 ], [ 0, %sdf_edge_new.exit.thread.i ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -4241,7 +4241,7 @@ sdf_edge_new.exit.thread:                         ; preds = %13, %9
   br label %24
 
 24:                                               ; preds = %sdf_edge_new.exit.thread, %4, %16
-  %.0 = phi i32 [ 0, %16 ], [ 6, %4 ], [ %.ph, %sdf_edge_new.exit.thread ]
+  %.0 = phi i32 [ %.ph, %sdf_edge_new.exit.thread ], [ 0, %16 ], [ 6, %4 ]
   ret i32 %.0
 }
 

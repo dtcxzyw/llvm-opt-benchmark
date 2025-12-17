@@ -80,7 +80,7 @@ define hidden i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr noundef captur
   br i1 %.not20.i, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !18
 
 .critedge2.i:                                     ; preds = %27, %33, %.lr.ph.i, %22
-  %.0.i = phi i64 [ 0, %22 ], [ %.226.i, %.lr.ph.i ], [ 0, %33 ], [ 0, %27 ]
+  %.0.i = phi i64 [ 0, %22 ], [ 0, %33 ], [ %.226.i, %.lr.ph.i ], [ 0, %27 ]
   %35 = call i32 @Curl_dyn_addn(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %.0.i) #6
   %.not21.i = icmp eq i32 %35, 0
   br i1 %.not21.i, label %36, label %dirslash.exit.thread
@@ -133,14 +133,14 @@ dirslash.exit:                                    ; preds = %36, %37
   br label %.thread44
 
 .thread44:                                        ; preds = %dirslash.exit.thread, %dirslash.exit, %40, %4, %43, %18, %50
-  %.02650 = phi ptr [ %41, %50 ], [ null, %40 ], [ null, %4 ], [ %41, %43 ], [ null, %18 ], [ null, %dirslash.exit ], [ null, %dirslash.exit.thread ]
-  %.02749 = phi i32 [ 23, %50 ], [ 27, %40 ], [ 23, %4 ], [ 23, %43 ], [ %21, %18 ], [ 27, %dirslash.exit ], [ 27, %dirslash.exit.thread ]
+  %.02650 = phi ptr [ %41, %50 ], [ null, %18 ], [ null, %40 ], [ null, %4 ], [ %41, %43 ], [ null, %dirslash.exit ], [ null, %dirslash.exit.thread ]
+  %.02749 = phi i32 [ 23, %50 ], [ %21, %18 ], [ 27, %40 ], [ 23, %4 ], [ 23, %43 ], [ 27, %dirslash.exit ], [ 27, %dirslash.exit.thread ]
   %53 = load ptr, ptr @Curl_cfree, align 8, !tbaa !19
   call void %53(ptr noundef %.02650) #6
   br label %54
 
 54:                                               ; preds = %9, %13, %.thread44, %49
-  %.028 = phi i32 [ %.02749, %.thread44 ], [ 0, %49 ], [ 0, %13 ], [ 0, %9 ]
+  %.028 = phi i32 [ 0, %49 ], [ %.02749, %.thread44 ], [ 0, %13 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.028

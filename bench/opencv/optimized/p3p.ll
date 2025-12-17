@@ -2076,7 +2076,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit53: ; preds = %.noexc51, %117
   br label %131
 
 131:                                              ; preds = %93, %95, %130, %97, %24
-  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn43, %130 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ]
+  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %98, %97 ], [ %.pn43, %130 ], [ %96, %95 ], [ %94, %93 ]
   %132 = load ptr, ptr %9, align 8, !tbaa !33
   %.not.i.i.i54 = icmp eq ptr %132, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIdSaIdEED2Ev.exit55, label %133
@@ -3311,7 +3311,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !43
   br label %40
 

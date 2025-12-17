@@ -2618,7 +2618,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refineme
   br i1 %103, label %81, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit, !llvm.loop !37
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit: ; preds = %99, %74, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge, %.preheader.i, %70
-  %104 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge ], [ %64, %.preheader.i ], [ %64, %70 ], [ %78, %74 ], [ %100, %99 ]
+  %104 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEm.exit._ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentFacesEPA4_KNS3_8ChildTagE.exit_crit_edge ], [ %64, %70 ], [ %64, %.preheader.i ], [ %78, %74 ], [ %100, %99 ]
   %105 = load i8, ptr %3, align 4
   %106 = trunc i8 %105 to i1
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2702,7 +2702,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentF
   br i1 %148, label %126, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentEdgesEPA4_KNS3_8ChildTagE.exit, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement35populateVertexParentFromParentEdgesEPA4_KNS3_8ChildTagE.exit: ; preds = %143, %118, %.preheader.i9, %114
-  %149 = phi ptr [ %104, %.preheader.i9 ], [ %104, %114 ], [ %122, %118 ], [ %144, %143 ]
+  %149 = phi ptr [ %104, %114 ], [ %104, %.preheader.i9 ], [ %122, %118 ], [ %144, %143 ]
   %150 = load i8, ptr %3, align 4
   %151 = trunc i8 %150 to i1
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -3132,7 +3132,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -5327,7 +5327,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease25SubdivideUniformSharpnessEf.exit.thread: ; p
   br label %140
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease25SubdivideUniformSharpnessEf.exit: ; preds = %98, %94, %._crit_edge
-  %storemerge = phi float [ %138, %._crit_edge ], [ %99, %98 ], [ %60, %94 ]
+  %storemerge = phi float [ %138, %._crit_edge ], [ %60, %94 ], [ %99, %98 ]
   store float %storemerge, ptr %71, align 4
   %139 = fcmp ogt float %storemerge, %64
   br i1 %139, label %143, label %140
@@ -5478,7 +5478,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24SubdivideVertexSharpnessEf.exit.thread: ; pr
   br label %72
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24SubdivideVertexSharpnessEf.exit: ; preds = %69, %65
-  %.0.i.i = phi float [ %70, %69 ], [ %35, %65 ]
+  %.0.i.i = phi float [ %35, %65 ], [ %70, %69 ]
   store float %.0.i.i, ptr %45, align 4
   %71 = fcmp ogt float %.0.i.i, %38
   br i1 %71, label %75, label %72
@@ -5583,8 +5583,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   br label %.thread126
 
 .thread126:                                       ; preds = %45, %38, %48
-  %57 = phi i16 [ %56, %48 ], [ 64, %38 ], [ 0, %45 ]
-  %58 = phi i16 [ %spec.select, %48 ], [ 512, %38 ], [ 128, %45 ]
+  %57 = phi i16 [ 64, %38 ], [ %56, %48 ], [ 0, %45 ]
+  %58 = phi i16 [ 512, %38 ], [ %spec.select, %48 ], [ 128, %45 ]
   %59 = and i16 %22, -1985
   %60 = or i16 %57, %59
   %61 = or disjoint i16 %60, %58
@@ -5798,9 +5798,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27reclassifySemishar
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %161, %136
-  %.1174 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.1, %.loopexit ]
-  %.188173 = phi i32 [ 0, %136 ], [ 0, %161 ], [ %.188.fr, %.loopexit ]
-  %203 = phi i16 [ 0, %136 ], [ 0, %161 ], [ %spec.select179, %.loopexit ]
+  %.1174 = phi i32 [ 0, %161 ], [ %.1, %.loopexit ], [ 0, %136 ]
+  %.188173 = phi i32 [ 0, %161 ], [ %.188.fr, %.loopexit ], [ 0, %136 ]
+  %203 = phi i16 [ 0, %161 ], [ %spec.select179, %.loopexit ], [ 0, %136 ]
   %204 = and i16 %121, -65
   %205 = or disjoint i16 %203, %204
   store i16 %205, ptr %120, align 2

@@ -1249,8 +1249,8 @@ SSL_do_handshake.exit:                            ; preds = %26
   %38 = tail call i32 %37(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #21
   br label %.thread24
 
-.thread24:                                        ; preds = %SSL_do_handshake.exit.thread, %SSL_do_handshake.exit, %33, %.thread, %13, %8
-  %.014 = phi i32 [ -1, %8 ], [ -1, %13 ], [ %38, %.thread ], [ -1, %SSL_do_handshake.exit.thread ], [ %29, %SSL_do_handshake.exit ], [ -1, %33 ]
+.thread24:                                        ; preds = %SSL_do_handshake.exit.thread, %33, %SSL_do_handshake.exit, %.thread, %13, %8
+  %.014 = phi i32 [ -1, %8 ], [ -1, %13 ], [ %38, %.thread ], [ -1, %SSL_do_handshake.exit.thread ], [ -1, %33 ], [ %29, %SSL_do_handshake.exit ]
   ret i32 %.014
 }
 
@@ -1374,7 +1374,7 @@ thread-pre-split:                                 ; preds = %21, %39, %33
   br label %57
 
 57:                                               ; preds = %33, %51, %41, %21, %56, %17, %11, %6
-  %.021 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 1, %17 ], [ 0, %56 ], [ -1, %33 ], [ -1, %21 ], [ -1, %41 ], [ 1, %51 ]
+  %.021 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 1, %17 ], [ 0, %56 ], [ -1, %41 ], [ -1, %33 ], [ -1, %21 ], [ 1, %51 ]
   ret i32 %.021
 }
 
@@ -1506,7 +1506,7 @@ switch.lookup:                                    ; preds = %46
   br label %50
 
 50:                                               ; preds = %46, %switch.lookup, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
-  %.0 = phi i32 [ 5, %19 ], [ 0, %2 ], [ %., %6 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ 3, %36 ], [ 2, %40 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ 12, %.fold.split ], [ %switch.load, %switch.lookup ], [ 5, %46 ]
+  %.0 = phi i32 [ %., %6 ], [ 0, %2 ], [ 5, %46 ], [ 5, %19 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ %switch.select41, %31 ], [ %switch.load, %switch.lookup ], [ 3, %36 ], [ 2, %40 ], [ %switch.select45, %44 ], [ 12, %.fold.split ]
   ret i32 %.0
 }
 
@@ -2698,7 +2698,7 @@ define hidden ptr @SSL_get_ciphers(ptr noundef readonly captures(address_is_null
   br i1 %.not19, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %.thread, %9, %3
-  %.sink = phi ptr [ %5, %3 ], [ %13, %9 ], [ %18, %.thread ], [ %21, %._crit_edge ]
+  %.sink = phi ptr [ %18, %.thread ], [ %13, %9 ], [ %5, %3 ], [ %21, %._crit_edge ]
   %22 = load ptr, ptr %.sink, align 8, !tbaa !43
   br label %23
 
@@ -2726,7 +2726,7 @@ define hidden ptr @ssl_get_ciphers_by_id(ptr noundef readonly captures(address_i
   br label %11
 
 11:                                               ; preds = %6, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ %5, %3 ], [ %10, %6 ]
+  %.0 = phi ptr [ %5, %3 ], [ null, %1 ], [ %10, %6 ]
   ret ptr %.0
 }
 
@@ -2775,7 +2775,7 @@ define hidden ptr @SSL_get_cipher_list(ptr noundef readonly captures(address_is_
   br i1 %.not19.i, label %SSL_get_ciphers.exit.thread, label %SSL_get_ciphers.exit
 
 SSL_get_ciphers.exit:                             ; preds = %4, %10, %.thread.i, %._crit_edge.i
-  %.sink.i = phi ptr [ %6, %4 ], [ %14, %10 ], [ %19, %.thread.i ], [ %22, %._crit_edge.i ]
+  %.sink.i = phi ptr [ %19, %.thread.i ], [ %14, %10 ], [ %6, %4 ], [ %22, %._crit_edge.i ]
   %23 = load ptr, ptr %.sink.i, align 8, !tbaa !43
   %24 = icmp eq ptr %23, null
   %25 = icmp slt i32 %1, 0
@@ -2798,7 +2798,7 @@ SSL_get_ciphers.exit:                             ; preds = %4, %10, %.thread.i,
   br label %SSL_get_ciphers.exit.thread
 
 SSL_get_ciphers.exit.thread:                      ; preds = %._crit_edge.i, %29, %SSL_get_ciphers.exit, %26, %2, %32
-  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ null, %26 ], [ null, %SSL_get_ciphers.exit ], [ null, %29 ], [ null, %._crit_edge.i ]
+  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ null, %SSL_get_ciphers.exit ], [ null, %26 ], [ null, %29 ], [ null, %._crit_edge.i ]
   ret ptr %.0
 }
 
@@ -2823,7 +2823,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr n
   br label %12
 
 12:                                               ; preds = %8, %2, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %2 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -2845,7 +2845,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_set_cipher_list_tls10(ptr noundef %0,
   br label %11
 
 11:                                               ; preds = %7, %2, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -2867,7 +2867,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_set_cipher_list_tls11(ptr noundef %0,
   br label %11
 
 11:                                               ; preds = %7, %2, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -2892,7 +2892,7 @@ define hidden range(i32 0, 2) i32 @SSL_set_cipher_list(ptr noundef %0, ptr nound
   br label %14
 
 14:                                               ; preds = %10, %2, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %2 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -3043,7 +3043,7 @@ ssl3_get_max_server_version.exit:                 ; preds = %48, %46
   br i1 %70, label %75, label %82, !llvm.loop !187
 
 71:                                               ; preds = %53, %55, %59, %63
-  %.0.i.ph = phi i32 [ %67, %63 ], [ 769, %59 ], [ 770, %55 ], [ 771, %53 ]
+  %.0.i.ph = phi i32 [ 770, %55 ], [ 771, %53 ], [ %67, %63 ], [ 769, %59 ]
   %72 = load i32, ptr %0, align 8, !tbaa !159
   %73 = and i32 %72, 65535
   %74 = icmp samesign ult i32 %73, %.0.i.ph
@@ -3068,7 +3068,7 @@ ssl3_get_max_server_version.exit:                 ; preds = %48, %46
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1460) #21
   br label %.thread
 
-.thread:                                          ; preds = %32, %81, %23, %75
+.thread:                                          ; preds = %32, %23, %81, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
@@ -3151,7 +3151,7 @@ define hidden zeroext range(i16 -259, 772) i16 @ssl3_get_max_server_version(ptr 
   br label %32
 
 32:                                               ; preds = %28, %24, %20, %18, %14, %12
-  %.0 = phi i16 [ -259, %12 ], [ %., %14 ], [ 771, %18 ], [ 770, %20 ], [ 769, %24 ], [ %.39, %28 ]
+  %.0 = phi i16 [ 769, %24 ], [ %., %14 ], [ -259, %12 ], [ %.39, %28 ], [ 771, %18 ], [ 770, %20 ]
   ret i16 %.0
 }
 
@@ -3398,8 +3398,8 @@ define hidden range(i32 1, 3) i32 @SSL_select_next_proto(ptr noundef writeonly c
   br label %.loopexit32
 
 .loopexit32:                                      ; preds = %._crit_edge.us, %.loopexit32.loopexit, %6
-  %.029 = phi ptr [ %4, %6 ], [ %30, %.loopexit32.loopexit ], [ %4, %._crit_edge.us ]
-  %.0 = phi i32 [ 2, %6 ], [ 1, %.loopexit32.loopexit ], [ 2, %._crit_edge.us ]
+  %.029 = phi ptr [ %30, %.loopexit32.loopexit ], [ %4, %6 ], [ %4, %._crit_edge.us ]
+  %.0 = phi i32 [ 1, %.loopexit32.loopexit ], [ 2, %6 ], [ 2, %._crit_edge.us ]
   %31 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   store ptr %31, ptr %0, align 8, !tbaa !186
   %32 = load i8, ptr %.029, align 1, !tbaa !157
@@ -3638,9 +3638,9 @@ define hidden void @ssl_get_compatible_server_ciphers(ptr noundef %0, ptr nounde
   %spec.select47 = select i1 %.not41, i32 0, i32 2
   br label %.thread64
 
-.thread64:                                        ; preds = %15, %13, %.thread61, %34, %21
-  %36 = phi i32 [ %spec.select445066, %21 ], [ %spec.select445066, %34 ], [ %20, %.thread61 ], [ %spec.select445066, %13 ], [ %spec.select445066, %15 ]
-  %.1 = phi i32 [ 0, %21 ], [ %spec.select47, %34 ], [ 1, %.thread61 ], [ 0, %13 ], [ 0, %15 ]
+.thread64:                                        ; preds = %13, %15, %.thread61, %34, %21
+  %36 = phi i32 [ %spec.select445066, %21 ], [ %spec.select445066, %34 ], [ %20, %.thread61 ], [ %spec.select445066, %15 ], [ %spec.select445066, %13 ]
+  %.1 = phi i32 [ 0, %21 ], [ %spec.select47, %34 ], [ 1, %.thread61 ], [ 0, %15 ], [ 0, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = call i32 @tls1_get_shared_curve(ptr noundef nonnull %0, ptr noundef nonnull %4) #21
   %.not42 = icmp eq i32 %37, 0
@@ -3805,7 +3805,7 @@ define hidden noundef nonnull ptr @SSL_get_version(ptr noundef readonly captures
   br label %ssl_get_version.exit
 
 ssl_get_version.exit:                             ; preds = %1, %3, %4, %5, %6, %7, %8
-  %.0.i = phi ptr [ @.str.13, %8 ], [ @.str.8, %3 ], [ @.str.9, %4 ], [ @.str.10, %5 ], [ @.str.11, %6 ], [ @.str.12, %7 ], [ @.str.7, %1 ]
+  %.0.i = phi ptr [ @.str.13, %8 ], [ @.str.12, %7 ], [ @.str.8, %3 ], [ @.str.9, %4 ], [ @.str.10, %5 ], [ @.str.11, %6 ], [ @.str.7, %1 ]
   ret ptr %.0.i
 }
 
@@ -3841,7 +3841,7 @@ define hidden noundef nonnull ptr @SSL_SESSION_get_version(ptr noundef readonly 
   br label %ssl_get_version.exit
 
 ssl_get_version.exit:                             ; preds = %1, %4, %5, %6, %7, %8, %9
-  %.0.i = phi ptr [ @.str.13, %9 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.12, %8 ], [ @.str.7, %1 ]
+  %.0.i = phi ptr [ @.str.13, %9 ], [ @.str.12, %8 ], [ @.str.8, %4 ], [ @.str.9, %5 ], [ @.str.10, %6 ], [ @.str.11, %7 ], [ @.str.7, %1 ]
   ret ptr %.0.i
 }
 
@@ -4420,7 +4420,7 @@ define hidden range(i32 0, 2) i32 @SSL_use_psk_identity_hint(ptr noundef capture
   br label %17
 
 17:                                               ; preds = %9, %2, %16, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %16 ], [ 0, %2 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %8 ], [ 0, %2 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -4673,7 +4673,7 @@ cbb_add_hex.exit20:                               ; preds = %45
   br label %74
 
 74:                                               ; preds = %5, %73, %18
-  %.0 = phi i32 [ 0, %18 ], [ %.1, %73 ], [ 1, %5 ]
+  %.0 = phi i32 [ %.1, %73 ], [ 0, %18 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -4837,7 +4837,7 @@ cbb_add_hex.exit21:                               ; preds = %44
   br label %73
 
 73:                                               ; preds = %5, %72, %17
-  %.0 = phi i32 [ 0, %17 ], [ %.1, %72 ], [ 1, %5 ]
+  %.0 = phi i32 [ %.1, %72 ], [ 0, %17 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -5058,8 +5058,8 @@ define hidden zeroext range(i16 -259, 772) i16 @ssl3_get_mutual_version(ptr noun
   %.not44.not = icmp eq i32 %39, 0
   br i1 %.not44.not, label %.thread69, label %.thread58
 
-.thread69:                                        ; preds = %.thread67, %.thread66, %24, %.thread68
-  %.172 = phi i16 [ 768, %.thread68 ], [ 769, %.thread67 ], [ 770, %.thread66 ], [ 771, %24 ]
+.thread69:                                        ; preds = %24, %.thread66, %.thread67, %.thread68
+  %.172 = phi i16 [ 768, %.thread68 ], [ 771, %24 ], [ 770, %.thread66 ], [ 769, %.thread67 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %41 = load i16, ptr %40, align 2, !tbaa !70
   %42 = icmp ult i16 %.172, %41
@@ -5067,7 +5067,7 @@ define hidden zeroext range(i16 -259, 772) i16 @ssl3_get_mutual_version(ptr noun
   br label %.thread58
 
 .thread58:                                        ; preds = %.thread69, %.thread62, %36, %14, %.thread68, %.thread
-  %.033 = phi i16 [ 0, %.thread ], [ 0, %.thread68 ], [ 0, %14 ], [ 0, %36 ], [ %spec.select77, %.thread62 ], [ %spec.select78, %.thread69 ]
+  %.033 = phi i16 [ 0, %36 ], [ 0, %14 ], [ %spec.select78, %.thread69 ], [ %spec.select77, %.thread62 ], [ 0, %.thread ], [ 0, %.thread68 ]
   ret i16 %.033
 }
 
@@ -5176,7 +5176,7 @@ switch.lookup:                                    ; preds = %22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %14, %15
-  %.sink45 = phi i32 [ 27, %15 ], [ 26, %14 ], [ %switch.load, %switch.lookup ]
+  %.sink45 = phi i32 [ 26, %14 ], [ 27, %15 ], [ %switch.load, %switch.lookup ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %26 = load i32, ptr %25, align 8, !tbaa !81
   %27 = lshr i32 %26, %.sink45
@@ -5185,7 +5185,7 @@ switch.lookup:                                    ; preds = %22
   br label %29
 
 29:                                               ; preds = %22, %.sink.split, %18, %16, %14, %10, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 0, %14 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ %28, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %8 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 0, %14 ], [ %28, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5337,7 +5337,7 @@ define hidden range(i32 0, 2) i32 @SSL_get_rc4_state(ptr noundef readonly captur
   br label %24
 
 24:                                               ; preds = %13, %16, %3, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %3 ], [ 0, %13 ], [ %23, %16 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %13 ], [ %23, %16 ]
   ret i32 %.0
 }
 
@@ -5383,7 +5383,7 @@ define hidden range(i32 0, 2) i32 @SSL_get_ivs(ptr noundef readonly captures(non
   br label %27
 
 27:                                               ; preds = %24, %15, %18
-  %.1 = phi i32 [ 0, %18 ], [ 0, %15 ], [ %spec.select, %24 ]
+  %.1 = phi i32 [ 0, %15 ], [ %spec.select, %24 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 

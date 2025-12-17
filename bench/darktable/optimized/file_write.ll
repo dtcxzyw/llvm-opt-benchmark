@@ -1272,8 +1272,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %59
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %79, %.noexc74, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.12.0 = phi ptr [ %76, %.noexc74 ], [ %76, %79 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.096.0 = phi ptr [ %75, %.noexc74 ], [ %75, %79 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.12.0 = phi ptr [ %76, %79 ], [ %76, %.noexc74 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.096.0 = phi ptr [ %75, %79 ], [ %75, %.noexc74 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 5348
   %82 = load i32, ptr %81, align 4, !tbaa !112
   %.not63 = icmp eq i32 %82, 0
@@ -1582,7 +1582,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %79, %.noexc74, %_ZN
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader108.preheader, %._crit_edge.loopexit145, %._crit_edge.loopexit, %.preheader110
-  %.150.lcssa = phi i32 [ %.049139, %.preheader110 ], [ %238, %._crit_edge.loopexit ], [ %239, %._crit_edge.loopexit145 ], [ %225, %.preheader108.preheader ]
+  %.150.lcssa = phi i32 [ %.049139, %.preheader110 ], [ %238, %._crit_edge.loopexit ], [ %225, %.preheader108.preheader ], [ %239, %._crit_edge.loopexit145 ]
   %240 = icmp eq i32 %.pre, 16
   %241 = load i32, ptr %81, align 4
   %.not70 = icmp eq i32 %241, 0

@@ -141,7 +141,7 @@ define dso_local zeroext i1 @intel_vrr_is_in_range(ptr noundef readonly captures
   br label %40
 
 40:                                               ; preds = %29, %25, %19, %6, %2
-  %41 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %19 ], [ false, %6 ], [ %spec.select, %29 ]
+  %41 = phi i1 [ false, %6 ], [ %spec.select, %29 ], [ false, %19 ], [ false, %25 ], [ false, %2 ]
   ret i1 %41
 }
 

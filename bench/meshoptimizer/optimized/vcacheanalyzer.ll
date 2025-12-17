@@ -146,9 +146,9 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   br i1 %exitcond122.not, label %40, label %44, !llvm.loop !12
 
 .preheader:                                       ; preds = %95, %16, %40, %13
-  %.077.lcssa = phi i32 [ 0, %13 ], [ %.3.us, %40 ], [ %.3.us.us, %16 ], [ %.3, %95 ]
-  %.sroa.0.sroa.6.0.lcssa = phi i32 [ 0, %13 ], [ %.sroa.0.sroa.6.1.us, %40 ], [ 0, %16 ], [ %.sroa.0.sroa.6.1, %95 ]
-  %.sroa.0.sroa.0.0.lcssa = phi i32 [ 0, %13 ], [ %.sroa.0.sroa.0.2.us, %40 ], [ %.sroa.0.sroa.0.2.us.us, %16 ], [ %.sroa.0.sroa.0.2, %95 ]
+  %.077.lcssa = phi i32 [ 0, %13 ], [ %.3.us.us, %16 ], [ %.3.us, %40 ], [ %.3, %95 ]
+  %.sroa.0.sroa.6.0.lcssa = phi i32 [ 0, %13 ], [ 0, %16 ], [ %.sroa.0.sroa.6.1.us, %40 ], [ %.sroa.0.sroa.6.1, %95 ]
+  %.sroa.0.sroa.0.0.lcssa = phi i32 [ 0, %13 ], [ %.sroa.0.sroa.0.2.us.us, %16 ], [ %.sroa.0.sroa.0.2.us, %40 ], [ %.sroa.0.sroa.0.2, %95 ]
   %.not111 = icmp eq i64 %2, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph108
 

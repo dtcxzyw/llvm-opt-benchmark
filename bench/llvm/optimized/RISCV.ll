@@ -6625,8 +6625,8 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %157, %_ZNK4llvm9
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread151
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread151:      ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit72.thread227, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sroa.0137.0 = phi ptr [ %91, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ %91, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %87, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %87, %_ZN4llvm9StringRefC2EPKc.exit ], [ %91, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ null, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit72.thread227 ]
-  %.sroa.8.0 = phi i64 [ %92, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ %92, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %88, %_ZN4llvm9StringRefC2EPKc.exit ], [ %92, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit72.thread227 ]
+  %.sroa.0137.0 = phi ptr [ %91, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ %91, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %87, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %91, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %87, %_ZN4llvm9StringRefC2EPKc.exit ], [ null, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit72.thread227 ]
+  %.sroa.8.0 = phi i64 [ %92, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ %92, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %92, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %88, %_ZN4llvm9StringRefC2EPKc.exit ], [ 0, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit72.thread227 ]
   %159 = call { ptr, i64 } @_ZN4llvm5RISCV16getMArchFromMcpuENS_9StringRefE(ptr %.sroa.0137.0, i64 %.sroa.8.0) #15
   %160 = extractvalue { ptr, i64 } %159, 0
   %161 = extractvalue { ptr, i64 } %159, 1
@@ -7212,8 +7212,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9tak
   br label %61
 
 61:                                               ; preds = %60, %59, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge
-  %.sroa.013.2 = phi ptr [ %42, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge ], [ %.str.38..str.39, %59 ], [ %.str.40..str.41, %60 ]
-  %.sroa.7.2 = phi i64 [ %43, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge ], [ %., %59 ], [ %.22, %60 ]
+  %.sroa.013.2 = phi ptr [ %.str.38..str.39, %59 ], [ %42, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge ], [ %.str.40..str.41, %60 ]
+  %.sroa.7.2 = phi i64 [ %., %59 ], [ %43, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread._ZN4llvm8ExpectedISt10unique_ptrINS_12RISCVISAInfoESt14default_deleteIS2_EEE9takeErrorEv.exit.thread_crit_edge ], [ %.22, %60 ]
   %62 = load i8, ptr %38, align 8
   %63 = trunc i8 %62 to i1
   %64 = load ptr, ptr %8, align 8, !tbaa !87
@@ -7680,8 +7680,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ 0, %9 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ null, %9 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !53
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8

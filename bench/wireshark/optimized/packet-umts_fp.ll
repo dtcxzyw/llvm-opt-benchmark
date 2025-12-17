@@ -979,7 +979,7 @@ define internal noundef zeroext i1 @heur_dissect_fp(ptr noundef %0, ptr noundef 
   br label %heur_dissect_fp_dcch_over_dch.exit
 
 26:                                               ; preds = %20, %17, %4
-  %.082.i = phi ptr [ null, %17 ], [ null, %4 ], [ %19, %20 ]
+  %.082.i = phi ptr [ %19, %20 ], [ null, %17 ], [ null, %4 ]
   %27 = tail call ptr @wmem_file_scope()
   %28 = load i32, ptr @proto_fp, align 4
   %29 = tail call ptr @p_get_proto_data(ptr noundef %27, ptr noundef %1, i32 noundef %28, i32 noundef 0)
@@ -1109,7 +1109,7 @@ define internal noundef zeroext i1 @heur_dissect_fp(ptr noundef %0, ptr noundef 
   %91 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-92:                                               ; preds = %20, %26, %30, %33, %40, %42, %44, %46, %36, %53, %55, %57, %59
+92:                                               ; preds = %53, %20, %26, %30, %33, %44, %42, %40, %59, %36, %57, %55, %46
   %93 = load i32, ptr %5, align 4
   %94 = load i32, ptr %9, align 8
   %95 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %94)
@@ -1134,7 +1134,7 @@ define internal noundef zeroext i1 @heur_dissect_fp(ptr noundef %0, ptr noundef 
   ]
 
 105:                                              ; preds = %102, %99, %92
-  %.074.i = phi ptr [ null, %99 ], [ null, %92 ], [ %101, %102 ]
+  %.074.i = phi ptr [ %101, %102 ], [ null, %99 ], [ null, %92 ]
   %106 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %107 = icmp ult i32 %106, 6
   br i1 %107, label %163, label %108
@@ -1256,7 +1256,7 @@ heur_dissect_fp_fach1.exit:                       ; preds = %102, %134
   %162 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-163:                                              ; preds = %102, %105, %108, %110, %114, %117, %124, %126, %128
+163:                                              ; preds = %124, %102, %105, %108, %110, %114, %117, %126, %128
   %164 = load i32, ptr %5, align 4
   %165 = load i32, ptr %9, align 8
   %166 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %165)
@@ -1281,7 +1281,7 @@ heur_dissect_fp_fach1.exit:                       ; preds = %102, %134
   ]
 
 176:                                              ; preds = %173, %170, %163
-  %.088.i = phi ptr [ null, %170 ], [ null, %163 ], [ %172, %173 ]
+  %.088.i = phi ptr [ %172, %173 ], [ null, %170 ], [ null, %163 ]
   %177 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %178 = icmp ult i32 %177, 6
   br i1 %178, label %241, label %179
@@ -1417,7 +1417,7 @@ heur_dissect_fp_fach2.exit:                       ; preds = %173, %210
   %240 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-241:                                              ; preds = %173, %176, %179, %181, %185, %188, %193, %200, %202, %204
+241:                                              ; preds = %200, %173, %176, %179, %181, %185, %188, %193, %202, %204
   %242 = load i32, ptr %5, align 4
   %243 = load i32, ptr %9, align 8
   %244 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %243)
@@ -1442,7 +1442,7 @@ heur_dissect_fp_fach2.exit:                       ; preds = %173, %210
   ]
 
 254:                                              ; preds = %251, %248, %241
-  %.077.i = phi ptr [ null, %248 ], [ null, %241 ], [ %250, %251 ]
+  %.077.i = phi ptr [ %250, %251 ], [ null, %248 ], [ null, %241 ]
   %255 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %256 = icmp ult i32 %255, 6
   br i1 %256, label %315, label %257
@@ -1561,7 +1561,7 @@ heur_dissect_fp_rach.exit:                        ; preds = %251, %284
   %314 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-315:                                              ; preds = %251, %254, %257, %259, %263, %266, %271, %274, %276, %278
+315:                                              ; preds = %274, %251, %254, %257, %259, %263, %266, %271, %276, %278
   %316 = load i32, ptr %5, align 4
   %317 = load i32, ptr %9, align 8
   %318 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %317)
@@ -1603,11 +1603,11 @@ heur_dissect_fp_rach.exit:                        ; preds = %251, %284
   br i1 %.not135.i, label %341, label %428
 
 341:                                              ; preds = %340, %332, %322, %315
-  %.0130.i = phi i1 [ true, %332 ], [ false, %340 ], [ false, %322 ], [ false, %315 ]
-  %.0128.i = phi ptr [ %327, %332 ], [ %327, %340 ], [ null, %322 ], [ null, %315 ]
-  %.0126.i = phi i8 [ %339, %332 ], [ 0, %340 ], [ 0, %322 ], [ 0, %315 ]
-  %.0123.i = phi i8 [ %335, %332 ], [ 0, %340 ], [ 0, %322 ], [ 0, %315 ]
-  %.0121.i = phi ptr [ %324, %332 ], [ %324, %340 ], [ null, %322 ], [ null, %315 ]
+  %.0130.i = phi i1 [ true, %332 ], [ false, %322 ], [ false, %340 ], [ false, %315 ]
+  %.0128.i = phi ptr [ %327, %332 ], [ null, %322 ], [ %327, %340 ], [ null, %315 ]
+  %.0126.i = phi i8 [ %339, %332 ], [ 0, %322 ], [ 0, %340 ], [ 0, %315 ]
+  %.0123.i = phi i8 [ %335, %332 ], [ 0, %322 ], [ 0, %340 ], [ 0, %315 ]
+  %.0121.i = phi ptr [ %324, %332 ], [ null, %322 ], [ %324, %340 ], [ null, %315 ]
   %342 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %343 = icmp ult i32 %342, 6
   br i1 %343, label %428, label %344
@@ -1689,7 +1689,7 @@ heur_dissect_fp_rach.exit:                        ; preds = %251, %284
   br i1 %380, label %428, label %.thread.i
 
 .thread.i:                                        ; preds = %378, %375, %373, %372, %371, %369
-  %.03.i = phi i32 [ 144, %375 ], [ 144, %378 ], [ 144, %373 ], [ 18, %369 ], [ 72, %372 ], [ 36, %371 ]
+  %.03.i = phi i32 [ 144, %373 ], [ 144, %375 ], [ 144, %378 ], [ 18, %369 ], [ 72, %372 ], [ 36, %371 ]
   %.not141.i = icmp eq ptr %.0121.i, null
   br i1 %.not141.i, label %381, label %384
 
@@ -1816,7 +1816,7 @@ heur_dissect_fp_pch.exit:                         ; preds = %332, %424
   %427 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-428:                                              ; preds = %340, %341, %344, %348, %351, %354, %359, %361, %421, %369, %378, %400, %415
+428:                                              ; preds = %340, %341, %344, %348, %351, %361, %378, %359, %354, %421, %369, %400, %415
   %429 = load i32, ptr %5, align 4
   %430 = load i32, ptr %9, align 8
   %431 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %430)
@@ -1848,7 +1848,7 @@ heur_dissect_fp_pch.exit:                         ; preds = %332, %424
   br i1 %445, label %heur_dissect_fp_hsdsch_type_1.exit, label %.loopexit
 
 446:                                              ; preds = %438, %435, %428
-  %.090.i = phi ptr [ null, %435 ], [ null, %428 ], [ %437, %438 ]
+  %.090.i = phi ptr [ %437, %438 ], [ null, %435 ], [ null, %428 ]
   %447 = tail call ptr @wmem_file_scope()
   %448 = load i32, ptr @proto_fp, align 4
   %449 = tail call ptr @p_get_proto_data(ptr noundef %447, ptr noundef %1, i32 noundef %448, i32 noundef 0)
@@ -1987,7 +1987,7 @@ heur_dissect_fp_hsdsch_type_1.exit:               ; preds = %441, %494
   %516 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-.loopexit:                                        ; preds = %482, %446, %450, %453, %456, %459, %463, %470, %467, %473, %.critedge.i, %488, %441, %438
+.loopexit:                                        ; preds = %482, %438, %446, %450, %453, %456, %459, %463, %467, %.critedge.i, %473, %470, %488, %441
   %517 = tail call fastcc zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %517, label %heur_dissect_fp_dcch_over_dch.exit, label %518
 
@@ -2000,7 +2000,7 @@ heur_dissect_fp_hsdsch_type_1.exit:               ; preds = %441, %494
   br label %heur_dissect_fp_dcch_over_dch.exit
 
 heur_dissect_fp_dcch_over_dch.exit:               ; preds = %heur_dissect_fp_hsdsch_type_1.exit, %heur_dissect_fp_pch.exit, %heur_dissect_fp_rach.exit, %heur_dissect_fp_fach2.exit, %heur_dissect_fp_fach1.exit, %66, %23, %520, %518, %.loopexit
-  %.0 = phi i1 [ true, %heur_dissect_fp_fach1.exit ], [ true, %heur_dissect_fp_fach2.exit ], [ true, %heur_dissect_fp_rach.exit ], [ true, %heur_dissect_fp_pch.exit ], [ true, %heur_dissect_fp_hsdsch_type_1.exit ], [ true, %.loopexit ], [ true, %518 ], [ %521, %520 ], [ true, %23 ], [ true, %66 ]
+  %.0 = phi i1 [ true, %518 ], [ %521, %520 ], [ true, %heur_dissect_fp_fach1.exit ], [ true, %heur_dissect_fp_fach2.exit ], [ true, %heur_dissect_fp_rach.exit ], [ true, %heur_dissect_fp_pch.exit ], [ true, %heur_dissect_fp_hsdsch_type_1.exit ], [ true, %.loopexit ], [ true, %23 ], [ true, %66 ]
   ret i1 %.0
 }
 
@@ -2783,9 +2783,9 @@ make_fake_lchid.exit.i:                           ; preds = %328, %323
   br i1 %450, label %432, label %fp_set_per_packet_inf_from_conv.exit, !llvm.loop !15
 
 fp_set_per_packet_inf_from_conv.exit:             ; preds = %432, %.thread, %425, %.critedge.i, %390, %363, %247, %237, %._crit_edge379.i, %.loopexit.i, %proto_item_set_generated.exit, %43
-  %.not236304 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %43 ], [ false, %.loopexit.i ], [ false, %._crit_edge379.i ], [ false, %237 ], [ false, %247 ], [ false, %363 ], [ false, %390 ], [ false, %.critedge.i ], [ false, %425 ], [ true, %.thread ], [ false, %432 ]
-  %.1301 = phi ptr [ %.1300, %proto_item_set_generated.exit ], [ null, %43 ], [ %.1300, %.loopexit.i ], [ %.1300, %._crit_edge379.i ], [ %.1300, %237 ], [ %.1300, %247 ], [ %.1300, %363 ], [ %.1300, %390 ], [ %.1300, %.critedge.i ], [ %.1300, %425 ], [ null, %.thread ], [ %.1300, %432 ]
-  %.0222 = phi ptr [ %21, %proto_item_set_generated.exit ], [ %21, %43 ], [ %88, %.loopexit.i ], [ %88, %._crit_edge379.i ], [ %88, %237 ], [ %88, %247 ], [ %88, %363 ], [ %88, %390 ], [ null, %.critedge.i ], [ %88, %425 ], [ %21, %.thread ], [ %88, %432 ]
+  %.not236304 = phi i1 [ true, %43 ], [ false, %proto_item_set_generated.exit ], [ false, %.loopexit.i ], [ false, %._crit_edge379.i ], [ false, %237 ], [ false, %247 ], [ false, %363 ], [ false, %390 ], [ false, %.critedge.i ], [ false, %425 ], [ true, %.thread ], [ false, %432 ]
+  %.1301 = phi ptr [ null, %43 ], [ %.1300, %proto_item_set_generated.exit ], [ %.1300, %.loopexit.i ], [ %.1300, %._crit_edge379.i ], [ %.1300, %237 ], [ %.1300, %247 ], [ %.1300, %363 ], [ %.1300, %390 ], [ %.1300, %.critedge.i ], [ %.1300, %425 ], [ null, %.thread ], [ %.1300, %432 ]
+  %.0222 = phi ptr [ %21, %43 ], [ %21, %proto_item_set_generated.exit ], [ %88, %.loopexit.i ], [ %88, %._crit_edge379.i ], [ %88, %237 ], [ %88, %247 ], [ %88, %363 ], [ %88, %390 ], [ null, %.critedge.i ], [ %88, %425 ], [ %21, %.thread ], [ %88, %432 ]
   %451 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %452 = load i32, ptr %451, align 4
   %453 = icmp eq i32 %452, -1
@@ -3298,12 +3298,12 @@ proto_item_set_generated.exit272:                 ; preds = %proto_item_set_gene
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %704, %700, %708, %707, %706, %703, %702
-  %.sink.in.i = phi ptr [ @hf_fp_rach_angle_of_arrival_present, %706 ], [ @hf_fp_rach_ext_rx_timing_deviation_present, %707 ], [ @hf_fp_rach_ext_rx_sync_ul_timing_deviation_present, %702 ], [ getelementptr inbounds nuw (i8, ptr @hf_fp_rach_new_ie_flag_unused, i64 24), %703 ], [ %709, %708 ], [ @hf_fp_rach_ext_propagation_delay_present, %700 ], [ @hf_fp_rach_cell_portion_id_present, %704 ]
-  %.1176.ph.i = phi i1 [ %.0175184.i, %706 ], [ %.0175184.i, %707 ], [ %.0175184.i, %702 ], [ %.0175184.i, %703 ], [ %.0175184.i, %708 ], [ %.0175184.i, %700 ], [ true, %704 ]
-  %.1174.ph.i = phi i1 [ %.0173185.i, %706 ], [ %.0173185.i, %707 ], [ %.0173185.i, %702 ], [ %.0173185.i, %703 ], [ %.0173185.i, %708 ], [ true, %700 ], [ %.0173185.i, %704 ]
-  %.1172.ph.i = phi i1 [ true, %706 ], [ %.0171186.i, %707 ], [ %.0171186.i, %702 ], [ %.0171186.i, %703 ], [ %.0171186.i, %708 ], [ %.0171186.i, %700 ], [ %.0171186.i, %704 ]
-  %.1170.ph.i = phi i1 [ %.0169187.i, %706 ], [ %.0169187.i, %707 ], [ true, %702 ], [ %.0169187.i, %703 ], [ %.0169187.i, %708 ], [ %.0169187.i, %700 ], [ %.0169187.i, %704 ]
-  %.1168.ph.i = phi i1 [ %.0167188.i, %706 ], [ true, %707 ], [ %.0167188.i, %702 ], [ %.0167188.i, %703 ], [ %.0167188.i, %708 ], [ %.0167188.i, %700 ], [ %.0167188.i, %704 ]
+  %.sink.in.i = phi ptr [ @hf_fp_rach_ext_propagation_delay_present, %700 ], [ @hf_fp_rach_angle_of_arrival_present, %706 ], [ @hf_fp_rach_ext_rx_timing_deviation_present, %707 ], [ %709, %708 ], [ @hf_fp_rach_ext_rx_sync_ul_timing_deviation_present, %702 ], [ getelementptr inbounds nuw (i8, ptr @hf_fp_rach_new_ie_flag_unused, i64 24), %703 ], [ @hf_fp_rach_cell_portion_id_present, %704 ]
+  %.1176.ph.i = phi i1 [ %.0175184.i, %700 ], [ %.0175184.i, %706 ], [ %.0175184.i, %707 ], [ %.0175184.i, %708 ], [ %.0175184.i, %702 ], [ %.0175184.i, %703 ], [ true, %704 ]
+  %.1174.ph.i = phi i1 [ true, %700 ], [ %.0173185.i, %706 ], [ %.0173185.i, %707 ], [ %.0173185.i, %708 ], [ %.0173185.i, %702 ], [ %.0173185.i, %703 ], [ %.0173185.i, %704 ]
+  %.1172.ph.i = phi i1 [ %.0171186.i, %700 ], [ true, %706 ], [ %.0171186.i, %707 ], [ %.0171186.i, %708 ], [ %.0171186.i, %702 ], [ %.0171186.i, %703 ], [ %.0171186.i, %704 ]
+  %.1170.ph.i = phi i1 [ %.0169187.i, %700 ], [ %.0169187.i, %706 ], [ %.0169187.i, %707 ], [ %.0169187.i, %708 ], [ true, %702 ], [ %.0169187.i, %703 ], [ %.0169187.i, %704 ]
+  %.1168.ph.i = phi i1 [ %.0167188.i, %700 ], [ %.0167188.i, %706 ], [ true, %707 ], [ %.0167188.i, %708 ], [ %.0167188.i, %702 ], [ %.0167188.i, %703 ], [ %.0167188.i, %704 ]
   %.sink.i275 = load i32, ptr %.sink.in.i, align 4
   %710 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %.sink.i275, ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0)
   br label %711
@@ -3401,7 +3401,7 @@ proto_item_set_generated.exit272:                 ; preds = %proto_item_set_gene
   br label %760
 
 760:                                              ; preds = %751, %750, %687, %682
-  %.3.i = phi i32 [ %684, %687 ], [ %684, %682 ], [ %759, %751 ], [ %.7.i, %750 ]
+  %.3.i = phi i32 [ %684, %682 ], [ %684, %687 ], [ %759, %751 ], [ %.7.i, %750 ]
   %761 = load i8, ptr @preferences_header_checksum, align 1, !range !10, !noundef !11
   %762 = trunc nuw i8 %761 to i1
   br i1 %762, label %763, label %verify_header_crc.exit.i
@@ -3508,7 +3508,7 @@ dissect_rach_channel_info.exit:                   ; preds = %642, %645, %verify_
   br label %822
 
 822:                                              ; preds = %818, %814, %811, %795
-  %.0.i281 = phi i32 [ %808, %811 ], [ %808, %795 ], [ %821, %818 ], [ %817, %814 ]
+  %.0.i281 = phi i32 [ %808, %795 ], [ %808, %811 ], [ %821, %818 ], [ %817, %814 ]
   %823 = load i8, ptr @preferences_header_checksum, align 1, !range !10, !noundef !11
   %824 = trunc nuw i8 %823 to i1
   br i1 %824, label %825, label %verify_header_crc.exit.i282
@@ -4664,8 +4664,8 @@ define internal fastcc void @dissect_hsdsch_channel_info(ptr noundef %0, ptr nou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %194, %166, %._crit_edge, %._crit_edge.split.us.split.us.i
-  %.054.lcssa.i = phi i32 [ %.155.us.us.i, %._crit_edge.split.us.split.us.i ], [ 0, %._crit_edge ], [ %.155.us.i, %166 ], [ %.155.i, %194 ]
-  %.053.lcssa.i = phi i8 [ 0, %._crit_edge.split.us.split.us.i ], [ %66, %._crit_edge ], [ %.1.us.i, %166 ], [ %.1.i, %194 ]
+  %.054.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.155.us.us.i, %._crit_edge.split.us.split.us.i ], [ %.155.us.i, %166 ], [ %.155.i, %194 ]
+  %.053.lcssa.i = phi i8 [ %66, %._crit_edge ], [ 0, %._crit_edge.split.us.split.us.i ], [ %.1.us.i, %166 ], [ %.1.i, %194 ]
   %198 = sdiv i32 %.054.lcssa.i, 8
   call void @proto_item_set_len(ptr noundef %142, i32 noundef %198)
   %199 = add nsw i32 %198, 7
@@ -7247,7 +7247,7 @@ proto_item_set_generated.exit157.sink.split:      ; preds = %113, %104
   br label %proto_item_set_generated.exit157
 
 proto_item_set_generated.exit157:                 ; preds = %proto_item_set_generated.exit157.sink.split, %113, %107, %104, %98, %89
-  %.3135 = phi i8 [ %.1133172, %89 ], [ %100, %98 ], [ %100, %104 ], [ %109, %107 ], [ %109, %113 ], [ %.3135.ph, %proto_item_set_generated.exit157.sink.split ]
+  %.3135 = phi i8 [ %.1133172, %89 ], [ %109, %113 ], [ %100, %98 ], [ %100, %104 ], [ %109, %107 ], [ %.3135.ph, %proto_item_set_generated.exit157.sink.split ]
   %119 = icmp eq i8 %.3135, 0
   br i1 %119, label %proto_item_set_generated.exit157._crit_edge, label %120
 
@@ -7286,8 +7286,8 @@ proto_item_set_generated.exit157._crit_edge:      ; preds = %proto_item_set_gene
   br label %143
 
 143:                                              ; preds = %123, %135, %86, %83
-  %.2134 = phi i8 [ %.1133172, %86 ], [ %.1133172, %83 ], [ %.3135, %135 ], [ %.3135, %123 ]
-  %.2 = phi i8 [ %.1131173, %86 ], [ %.1131173, %83 ], [ %.1131173, %135 ], [ 1, %123 ]
+  %.2134 = phi i8 [ %.1133172, %83 ], [ %.1133172, %86 ], [ %.3135, %135 ], [ %.3135, %123 ]
+  %.2 = phi i8 [ %.1131173, %83 ], [ %.1131173, %86 ], [ %.1131173, %135 ], [ 1, %123 ]
   %144 = add i32 %.1146168, 1
   %145 = load i32, ptr %67, align 4
   %146 = add i32 %145, %.1143169
@@ -8019,7 +8019,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr nou
   br i1 %26, label %.thread.sink.split, label %.thread
 
 27:                                               ; preds = %19, %16, %3
-  %.0101 = phi ptr [ null, %16 ], [ null, %3 ], [ %18, %19 ]
+  %.0101 = phi ptr [ %18, %19 ], [ null, %16 ], [ null, %3 ]
   %28 = tail call ptr @wmem_file_scope()
   %29 = load i32, ptr @proto_fp, align 4
   %30 = tail call ptr @p_get_proto_data(ptr noundef %28, ptr noundef %1, i32 noundef %29, i32 noundef 0)
@@ -8191,7 +8191,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %60, %71, %74, %.thread.sink.split, %19, %22, %91, %88, %83, %46, %41, %38, %35, %31, %27
-  %.099 = phi i1 [ false, %27 ], [ false, %31 ], [ false, %35 ], [ false, %38 ], [ false, %41 ], [ false, %46 ], [ false, %83 ], [ false, %88 ], [ false, %91 ], [ false, %22 ], [ false, %19 ], [ true, %.thread.sink.split ], [ false, %74 ], [ false, %71 ], [ false, %60 ], [ false, %.preheader ]
+  %.099 = phi i1 [ false, %22 ], [ false, %19 ], [ false, %27 ], [ false, %31 ], [ false, %35 ], [ false, %38 ], [ false, %41 ], [ false, %46 ], [ false, %88 ], [ false, %83 ], [ false, %91 ], [ true, %.thread.sink.split ], [ false, %74 ], [ false, %71 ], [ false, %60 ], [ false, %.preheader ]
   ret i1 %.099
 }
 
@@ -8235,7 +8235,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
   br i1 %27, label %.thread.sink.split, label %.thread
 
 28:                                               ; preds = %19, %16, %3
-  %.0112 = phi ptr [ null, %16 ], [ null, %3 ], [ %18, %19 ]
+  %.0112 = phi ptr [ %18, %19 ], [ null, %16 ], [ null, %3 ]
   %29 = tail call ptr @wmem_file_scope()
   %30 = load i32, ptr @proto_fp, align 4
   %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %1, i32 noundef %30, i32 noundef 0)
@@ -8420,7 +8420,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %54, %48, %44, %.preheader2, %.thread.sink.split, %19, %22, %87, %84, %81, %40, %38, %35, %32, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %40 ], [ false, %81 ], [ false, %84 ], [ false, %87 ], [ false, %22 ], [ false, %19 ], [ true, %.thread.sink.split ], [ false, %.preheader2 ], [ false, %44 ], [ false, %48 ], [ false, %54 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %28 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %40 ], [ false, %84 ], [ false, %81 ], [ false, %87 ], [ false, %22 ], [ true, %.thread.sink.split ], [ false, %.preheader2 ], [ false, %44 ], [ false, %48 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -8537,7 +8537,7 @@ check_control_frame_crc_for_heur.exit.thread.sink.split: ; preds = %35, %19, %65
   br label %check_control_frame_crc_for_heur.exit.thread
 
 check_control_frame_crc_for_heur.exit.thread:     ; preds = %check_control_frame_crc_for_heur.exit.thread.sink.split, %49, %52, %check_control_frame_crc_for_heur.exit, %46, %43, %40, %30, %35, %27, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %27 ], [ false, %35 ], [ false, %30 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %check_control_frame_crc_for_heur.exit ], [ false, %52 ], [ false, %49 ], [ true, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %check_control_frame_crc_for_heur.exit ], [ false, %19 ], [ false, %27 ], [ false, %30 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %35 ], [ false, %52 ], [ false, %49 ], [ true, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
   ret i1 %.0
 }
 

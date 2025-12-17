@@ -1481,7 +1481,7 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %277, %682, %708, %8, %3
-  %.0 = phi i32 [ -1, %3 ], [ -2, %8 ], [ 0, %708 ], [ 0, %682 ], [ 0, %277 ]
+  %.0 = phi i32 [ -2, %8 ], [ -1, %3 ], [ 0, %708 ], [ 0, %682 ], [ 0, %277 ]
   ret i32 %.0
 }
 

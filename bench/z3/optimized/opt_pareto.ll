@@ -451,7 +451,7 @@ _ZN6solver11scoped_pushD2Ev.exit47:               ; preds = %.critedge
           to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %37
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN6solver11scoped_pushD2Ev.exit47, %158, %11, %138
-  %.118 = phi i32 [ 0, %_ZN6solver11scoped_pushD2Ev.exit47 ], [ 1, %158 ], [ %10, %11 ], [ 0, %138 ]
+  %.118 = phi i32 [ %10, %11 ], [ 0, %_ZN6solver11scoped_pushD2Ev.exit47 ], [ 1, %158 ], [ 0, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.118
 
@@ -1027,7 +1027,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit67:       ; preds = %_ZN15ref_vector_cor
   ret void
 
 213:                                              ; preds = %81, %86, %139, %137, %136
-  %.pn18.pn.pn = phi { ptr, i32 } [ %140, %139 ], [ %138, %137 ], [ %.pn, %136 ], [ %.pn18, %86 ], [ %.pn16, %81 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %.pn, %136 ], [ %140, %139 ], [ %138, %137 ], [ %.pn18, %86 ], [ %.pn16, %81 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19

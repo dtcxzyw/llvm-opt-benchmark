@@ -716,7 +716,7 @@ define internal void @_brush_get_distance(float noundef %0, float noundef %1, fl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.thread
-  %.not207 = phi i1 [ %165, %.loopexit.loopexit ], [ false, %._crit_edge.thread ]
+  %.not207 = phi i1 [ false, %._crit_edge.thread ], [ %165, %.loopexit.loopexit ]
   %166 = load i32, ptr %6, align 4, !tbaa !97
   %.not158 = icmp eq i32 %166, 0
   br i1 %.not158, label %170, label %167
@@ -2450,7 +2450,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
   br label %481
 
 481:                                              ; preds = %478, %475
-  %.9 = phi i32 [ 0, %475 ], [ %., %478 ]
+  %.9 = phi i32 [ %., %478 ], [ 0, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2459,7 +2459,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
   br label %.critedge341
 
 .critedge341:                                     ; preds = %109, %114, %g_list_next_wraparound.exit, %212, %247, %.loopexit, %423, %.critedge, %481, %457, %442, %21, %10
-  %.0297 = phi i32 [ 0, %10 ], [ 0, %21 ], [ 1, %109 ], [ 1, %114 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %212 ], [ 1, %247 ], [ 1, %.loopexit ], [ %.9, %481 ], [ 1, %.critedge ], [ 1, %423 ], [ 1, %457 ], [ 1, %442 ]
+  %.0297 = phi i32 [ 0, %10 ], [ 0, %21 ], [ 1, %109 ], [ 1, %114 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %212 ], [ 1, %247 ], [ 1, %.loopexit ], [ %.9, %481 ], [ 1, %423 ], [ 1, %.critedge ], [ 1, %457 ], [ 1, %442 ]
   ret i32 %.0297
 }
 
@@ -2808,7 +2808,7 @@ define internal range(i32 0, 2) i32 @_brush_events_mouse_scrolled(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %145, %113, %.lr.ph.split.split.us, %80, %98, %183, %67
-  %.0 = phi i32 [ 1, %67 ], [ 1, %183 ], [ 1, %98 ], [ 0, %80 ], [ 1, %.lr.ph.split.split.us ], [ 1, %113 ], [ 1, %145 ], [ 1, %150 ]
+  %.0 = phi i32 [ 1, %67 ], [ 1, %98 ], [ 0, %80 ], [ 1, %183 ], [ 1, %113 ], [ 1, %.lr.ph.split.split.us ], [ 1, %145 ], [ 1, %150 ]
   ret i32 %.0
 }
 
@@ -3017,7 +3017,7 @@ define internal range(i32 0, 2) i32 @_brush_events_button_pressed(ptr noundef %0
   br i1 %.not317, label %.sink.split, label %116
 
 .sink.split:                                      ; preds = %114, %112, %110, %108, %106
-  %.sink = phi i32 [ 2, %106 ], [ 1, %108 ], [ 4, %110 ], [ 3, %112 ], [ 5, %114 ]
+  %.sink = phi i32 [ 2, %106 ], [ 1, %108 ], [ 3, %112 ], [ 4, %110 ], [ 5, %114 ]
   store i32 %.sink, ptr %104, align 8, !tbaa !178
   br label %116
 
@@ -3653,7 +3653,7 @@ g_list_shorter_than.exit335:                      ; preds = %.preheader357
   br label %.thread390
 
 .thread390:                                       ; preds = %238, %116, %150, %194, %208, %215, %221, %dt_masks_dynbuf_free.exit322, %392, %393, %441, %76, %73, %83, %88, %124, %127, %305, %306, %239, %g_list_shorter_than.exit, %408, %403, %324, %410, %412, %15, %14, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %14 ], [ 0, %15 ], [ 1, %116 ], [ 1, %150 ], [ 1, %194 ], [ 1, %208 ], [ 1, %215 ], [ 1, %221 ], [ 1, %dt_masks_dynbuf_free.exit322 ], [ 1, %392 ], [ 1, %393 ], [ 1, %441 ], [ 1, %76 ], [ 1, %73 ], [ 1, %83 ], [ 1, %88 ], [ 1, %127 ], [ 0, %124 ], [ 1, %305 ], [ 1, %306 ], [ 1, %239 ], [ 1, %g_list_shorter_than.exit ], [ 1, %408 ], [ 1, %403 ], [ 0, %324 ], [ 0, %410 ], [ 0, %412 ], [ 1, %238 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %14 ], [ 0, %15 ], [ 1, %441 ], [ 1, %116 ], [ 1, %83 ], [ 1, %73 ], [ 1, %88 ], [ 1, %150 ], [ 1, %194 ], [ 1, %208 ], [ 1, %215 ], [ 1, %221 ], [ 0, %124 ], [ 1, %403 ], [ 1, %dt_masks_dynbuf_free.exit322 ], [ 1, %392 ], [ 1, %239 ], [ 1, %393 ], [ 1, %g_list_shorter_than.exit ], [ 1, %76 ], [ 1, %127 ], [ 1, %305 ], [ 1, %306 ], [ 1, %408 ], [ 0, %324 ], [ 0, %410 ], [ 0, %412 ], [ 1, %238 ]
   ret i32 %.0
 }
 
@@ -4013,7 +4013,7 @@ dt_masks_dynbuf_add_2.exit350:                    ; preds = %127, %129, %133
   br label %196
 
 196:                                              ; preds = %194, %192, %._crit_edge401
-  %.0275 = phi nsz float [ 0x3F647AE140000000, %._crit_edge401 ], [ 0x3F847AE140000000, %192 ], [ %spec.select, %194 ]
+  %.0275 = phi nsz float [ %spec.select, %194 ], [ 0x3F847AE140000000, %192 ], [ 0x3F647AE140000000, %._crit_edge401 ]
   %197 = fcmp reassoc nsz arcp contract afn olt float %45, 0x3F0A36E2E0000000
   %198 = select reassoc nsz arcp contract afn i1 %197, float 0x3F0A36E2E0000000, float %45
   %199 = fmul reassoc nsz arcp contract afn float %198, %198
@@ -4584,8 +4584,8 @@ dt_masks_dynbuf_free.exit361:                     ; preds = %dt_masks_dynbuf_fre
   tail call void @dt_dev_add_masks_history_item(ptr noundef %502, ptr noundef %0, i32 noundef 1) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %313, %.preheader, %.critedge323, %._crit_edge, %392, %415, %465, %501, %55, %50, %._crit_edge408, %305, %301, %433, %431, %497, %14, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 1, %.critedge323 ], [ 1, %._crit_edge ], [ 1, %392 ], [ 1, %415 ], [ 1, %465 ], [ 1, %501 ], [ 1, %55 ], [ 1, %50 ], [ 1, %._crit_edge408 ], [ 1, %305 ], [ 1, %301 ], [ 1, %433 ], [ 1, %431 ], [ 0, %497 ], [ 1, %.preheader ], [ 1, %313 ]
+.critedge:                                        ; preds = %313, %.preheader, %.critedge323, %._crit_edge, %392, %415, %465, %501, %55, %50, %._crit_edge408, %301, %305, %433, %431, %497, %14, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 1, %431 ], [ 1, %.critedge323 ], [ 1, %50 ], [ 1, %._crit_edge ], [ 1, %392 ], [ 1, %415 ], [ 0, %497 ], [ 1, %465 ], [ 1, %501 ], [ 1, %55 ], [ 1, %._crit_edge408 ], [ 1, %301 ], [ 1, %305 ], [ 1, %433 ], [ 1, %.preheader ], [ 1, %313 ]
   ret i32 %.0
 }
 
@@ -4906,9 +4906,9 @@ define internal void @_brush_events_post_expose(ptr noundef %0, float noundef %1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %124, %185, %._crit_edge
-  %.1.lcssa434 = phi float [ %.2, %185 ], [ %.2, %._crit_edge ], [ %.0321, %124 ]
-  %.0332.lcssa433 = phi float [ %171, %185 ], [ %171, %._crit_edge ], [ %126, %124 ]
-  %.0339.lcssa432 = phi float [ %.1330, %185 ], [ %.1330, %._crit_edge ], [ %.0329, %124 ]
+  %.1.lcssa434 = phi float [ %.2, %._crit_edge ], [ %.2, %185 ], [ %.0321, %124 ]
+  %.0332.lcssa433 = phi float [ %171, %._crit_edge ], [ %171, %185 ], [ %126, %124 ]
+  %.0339.lcssa432 = phi float [ %.1330, %._crit_edge ], [ %.1330, %185 ], [ %.0329, %124 ]
   %186 = fdiv reassoc nsz arcp contract afn double 3.000000e+00, %26
   tail call void @cairo_set_line_width(ptr noundef %0, double noundef %186) #20
   tail call void @dt_gui_gtk_set_source_rgba(ptr noundef %0, i32 noundef 7, float noundef %.0339.lcssa432) #20
@@ -6110,7 +6110,7 @@ dt_masks_dynbuf_free.exit614:                     ; preds = %._crit_edge745, %22
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %324, %322, %319
-  %.0.i.i = phi ptr [ %327, %324 ], [ null, %322 ], [ null, %319 ]
+  %.0.i.i = phi ptr [ null, %322 ], [ %327, %324 ], [ null, %319 ]
   %328 = load i64, ptr %207, align 8, !tbaa !92
   %329 = add i64 %328, %316
   %330 = load i64, ptr %210, align 8, !tbaa !151
@@ -6266,7 +6266,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %_dt_masks_dynbuf_gr
   br i1 %382, label %.split, label %.loopexit728
 
 .loopexit728:                                     ; preds = %dt_masks_dynbuf_add_2.exit, %.split464, %287, %_brush_points_stamp.exit, %286, %285
-  %.1462 = phi i32 [ %.0461741, %_brush_points_stamp.exit ], [ 1, %286 ], [ 0, %285 ], [ 1, %287 ], [ %.0461741, %.split464 ], [ %.0461741, %dt_masks_dynbuf_add_2.exit ]
+  %.1462 = phi i32 [ 0, %285 ], [ %.0461741, %_brush_points_stamp.exit ], [ 1, %286 ], [ 1, %287 ], [ %.0461741, %.split464 ], [ %.0461741, %dt_masks_dynbuf_add_2.exit ]
   %383 = load float, ptr %.sroa.730.0..sroa_idx, align 16, !tbaa !93
   %384 = load float, ptr %.sroa.723.0..sroa_idx, align 16, !tbaa !93
   %385 = fsub reassoc nsz arcp contract afn float %383, %384
@@ -7159,7 +7159,7 @@ dt_masks_dynbuf_free.exit671:                     ; preds = %673, %680
   br label %dt_masks_dynbuf_free.exit599
 
 dt_masks_dynbuf_free.exit599:                     ; preds = %81, %dt_masks_dynbuf_free.exit597, %739, %736, %762, %759, %779, %778, %.critedge520, %dt_masks_dynbuf_free.exit
-  %.0451 = phi i32 [ 0, %dt_masks_dynbuf_free.exit ], [ 0, %.critedge520 ], [ 1, %739 ], [ 1, %736 ], [ 1, %762 ], [ 1, %759 ], [ 0, %779 ], [ 0, %778 ], [ 0, %dt_masks_dynbuf_free.exit597 ], [ 0, %81 ]
+  %.0451 = phi i32 [ 0, %.critedge520 ], [ 0, %dt_masks_dynbuf_free.exit ], [ 0, %778 ], [ 1, %736 ], [ 1, %759 ], [ 1, %739 ], [ 1, %762 ], [ 0, %779 ], [ 0, %dt_masks_dynbuf_free.exit597 ], [ 0, %81 ]
   ret i32 %.0451
 }
 
@@ -7378,7 +7378,7 @@ define internal fastcc void @_brush_points_recurs_border_gaps(ptr noundef nonnul
   br label %dt_masks_dynbuf_reserve_n.exit
 
 dt_masks_dynbuf_reserve_n.exit:                   ; preds = %53, %56, %58
-  %.0.i = phi ptr [ %61, %58 ], [ null, %56 ], [ null, %53 ]
+  %.0.i = phi ptr [ null, %56 ], [ %61, %58 ], [ null, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %63 = load i64, ptr %62, align 8, !tbaa !92
   %64 = add i64 %63, %49
@@ -7917,7 +7917,7 @@ dt_masks_dynbuf_add_2.exit:                       ; preds = %239, %241, %245
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %336, %334, %331
-  %.0.i.i = phi ptr [ %339, %336 ], [ null, %334 ], [ null, %331 ]
+  %.0.i.i = phi ptr [ null, %334 ], [ %339, %336 ], [ null, %331 ]
   %340 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %341 = load i64, ptr %340, align 8, !tbaa !92
   %342 = add i64 %341, %328
@@ -8480,7 +8480,7 @@ define internal fastcc void @_brush_init_ctrl_points(ptr noundef readonly captur
   br label %25
 
 25:                                               ; preds = %22, %19
-  %26 = phi ptr [ %24, %22 ], [ null, %19 ]
+  %26 = phi ptr [ null, %19 ], [ %24, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %.085126, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !155
   %.not96 = icmp eq ptr %28, null
@@ -8492,7 +8492,7 @@ define internal fastcc void @_brush_init_ctrl_points(ptr noundef readonly captur
   br label %32
 
 32:                                               ; preds = %25, %29
-  %33 = phi ptr [ %31, %29 ], [ null, %25 ]
+  %33 = phi ptr [ null, %25 ], [ %31, %29 ]
   %.not97 = icmp eq ptr %26, null
   br i1 %.not97, label %36, label %34
 
@@ -8569,7 +8569,7 @@ define internal fastcc void @_brush_init_ctrl_points(ptr noundef readonly captur
   br label %75
 
 75:                                               ; preds = %63, %64
-  %.084 = phi ptr [ %2, %64 ], [ %37, %63 ]
+  %.084 = phi ptr [ %37, %63 ], [ %2, %64 ]
   %76 = icmp eq ptr %45, null
   %77 = icmp eq ptr %49, null
   %or.cond3 = select i1 %76, i1 %77, i1 false
@@ -9012,11 +9012,11 @@ _brush_point_line_distance2.exit.us:              ; preds = %_brush_point_line_d
   br label %_brush_point_line_distance2.exit
 
 _brush_point_line_distance2.exit:                 ; preds = %62, %79, %82
-  %.0108.i = phi nsz float [ %80, %79 ], [ %85, %82 ], [ %73, %62 ]
-  %.0107.i = phi nsz float [ %81, %79 ], [ %88, %82 ], [ %74, %62 ]
-  %.pn.i = phi float [ %24, %79 ], [ %90, %82 ], [ %10, %62 ]
-  %.pn110.i = phi float [ %26, %79 ], [ %92, %82 ], [ %12, %62 ]
-  %.pn111.i = phi float [ %28, %79 ], [ %94, %82 ], [ %14, %62 ]
+  %.0108.i = phi nsz float [ %85, %82 ], [ %73, %62 ], [ %80, %79 ]
+  %.0107.i = phi nsz float [ %88, %82 ], [ %74, %62 ], [ %81, %79 ]
+  %.pn.i = phi float [ %90, %82 ], [ %10, %62 ], [ %24, %79 ]
+  %.pn110.i = phi float [ %92, %82 ], [ %12, %62 ], [ %26, %79 ]
+  %.pn111.i = phi float [ %94, %82 ], [ %14, %62 ], [ %28, %79 ]
   %.0.i = fsub reassoc nsz arcp contract afn float %72, %.pn111.i
   %.0105.i = fsub reassoc nsz arcp contract afn float %70, %.pn110.i
   %.0106.i = fsub reassoc nsz arcp contract afn float %68, %.pn.i

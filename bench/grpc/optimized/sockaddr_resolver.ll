@@ -363,8 +363,8 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120VSockResolverFactoryESt14default_de
   br i1 %.not.i49, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split: ; preds = %50, %47, %44, %41, %38
-  %.sink81 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
-  %.pn.ph = phi { ptr, i32 } [ %39, %38 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ]
+  %.sink81 = phi ptr [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %52, %50 ]
+  %.pn.ph = phi { ptr, i32 } [ %48, %47 ], [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %51, %50 ]
   %53 = load ptr, ptr %.sink81, align 8, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -372,7 +372,7 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_del
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30: ; preds = %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split, %50, %47, %44, %41, %38
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ], [ %.pn.ph, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %51, %50 ], [ %.pn.ph, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1082,7 +1082,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
-  %.pn.pn = phi { ptr, i32 } [ %144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ]
+  %.pn.pn = phi { ptr, i32 } [ %144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ]
   %153 = load ptr, ptr %11, align 8, !tbaa !84
   %154 = icmp eq ptr %153, %61
   br i1 %154, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
@@ -1156,8 +1156,8 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_reso
   br label %214
 
 176:                                              ; preds = %142, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_resolved_addressNS0_11ChannelArgsEEEERS1_DpOT_.exit
-  %.3.ph = phi i1 [ %.015138, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_resolved_addressNS0_11ChannelArgsEEEERS1_DpOT_.exit ], [ %.mux, %142 ]
-  %.1.ph = phi i32 [ 0, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_resolved_addressNS0_11ChannelArgsEEEERS1_DpOT_.exit ], [ %.mux142, %142 ]
+  %.3.ph = phi i1 [ %.mux, %142 ], [ %.015138, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_resolved_addressNS0_11ChannelArgsEEEERS1_DpOT_.exit ]
+  %.1.ph = phi i32 [ %.mux142, %142 ], [ 0, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_resolved_addressNS0_11ChannelArgsEEEERS1_DpOT_.exit ]
   %.pr = load i64, ptr %9, align 8, !tbaa !113
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %177 = icmp eq i64 %.pr, 1
@@ -1199,8 +1199,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %176
   br label %.thread82
 
 .thread82:                                        ; preds = %..thread82_crit_edge, %72
-  %187 = phi i32 [ %.pre144, %..thread82_crit_edge ], [ %73, %72 ]
-  %.285 = phi i1 [ %.378, %..thread82_crit_edge ], [ %.015138, %72 ]
+  %187 = phi i32 [ %73, %72 ], [ %.pre144, %..thread82_crit_edge ]
+  %.285 = phi i1 [ %.015138, %72 ], [ %.378, %..thread82_crit_edge ]
   %188 = icmp eq i32 %187, 1
   br i1 %188, label %189, label %190
 

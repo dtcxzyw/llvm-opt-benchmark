@@ -159,7 +159,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -555,7 +555,7 @@ define range(i32 0, 4) i32 @uscript_getCode_77(ptr noundef %0, ptr noundef write
   br label %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit.thread
 
 _ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit: ; preds = %32, %26, %.thread, %29
-  %.not66 = phi i1 [ true, %29 ], [ true, %.thread ], [ true, %26 ], [ false, %32 ]
+  %.not66 = phi i1 [ true, %26 ], [ true, %29 ], [ true, %.thread ], [ false, %32 ]
   store i32 0, ptr %5, align 4, !tbaa !13
   %41 = tail call fastcc noundef i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   %42 = load i32, ptr %3, align 4, !tbaa !13
@@ -625,7 +625,7 @@ _ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit: ; preds = %32, %26, %.thread
   br label %71
 
 _ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit70: ; preds = %52, %62, %67, %68, %58, %61
-  %.4 = phi i32 [ %51, %52 ], [ 0, %61 ], [ 0, %58 ], [ 0, %62 ], [ 1, %68 ], [ 1, %67 ]
+  %.4 = phi i32 [ 0, %58 ], [ %51, %52 ], [ 0, %61 ], [ 0, %62 ], [ 1, %67 ], [ 1, %68 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit.thread
@@ -638,7 +638,7 @@ _ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit70: ; preds = %52, %62, %67, %
   resume { ptr, i32 } %.pn
 
 _ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit.thread: ; preds = %34, %39, %40, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit70, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit, %4, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %4 ], [ %.4, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit70 ], [ %41, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit ], [ 0, %34 ], [ 1, %40 ], [ 1, %39 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ %41, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit ], [ %.4, %_ZL10setOneCode11UScriptCodePS_iP10UErrorCode.exit70 ], [ 0, %34 ], [ 1, %39 ], [ 1, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -912,7 +912,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60: ; preds = %_ZNK6icu
   br label %115
 
 _ZL8setCodesPK11UScriptCodeiPS_iP10UErrorCode.exit: ; preds = %.preheader.i53, %.preheader.i42, %.preheader.i, %105, %111, %112, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60, %104, %96, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread, %66, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread, %47, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread, %28
-  %.129 = phi i32 [ 0, %28 ], [ 3, %47 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread ], [ 2, %66 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread ], [ 2, %96 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread ], [ 0, %104 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60 ], [ 0, %105 ], [ 1, %112 ], [ 1, %111 ], [ 3, %.preheader.i ], [ 2, %.preheader.i42 ], [ 2, %.preheader.i53 ]
+  %.129 = phi i32 [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread60 ], [ 0, %28 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread ], [ 3, %47 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread ], [ 2, %66 ], [ 0, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread ], [ 2, %96 ], [ 0, %104 ], [ 0, %105 ], [ 1, %111 ], [ 1, %112 ], [ 2, %.preheader.i42 ], [ 3, %.preheader.i ], [ 2, %.preheader.i53 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #13

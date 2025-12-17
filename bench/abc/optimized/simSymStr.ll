@@ -669,7 +669,7 @@ Vec_IntPush.exit.i.i.i:                           ; preds = %308, %Vec_IntGrow.e
   br label %Vec_IntPushUnique.exit.i.i
 
 Vec_IntPushUnique.exit.i.i:                       ; preds = %._crit_edge.i.i.i, %222, %284, %236, %Vec_IntPush.exit.i.i.i, %Sim_SymmsIsCompatibleWithGroup.exit39.i.i, %Sim_SymmsIsCompatibleWithGroup.exit.i.i
-  %314 = phi i32 [ %.pre.i.i, %Vec_IntPush.exit.i.i.i ], [ %184, %Sim_SymmsIsCompatibleWithGroup.exit.i.i ], [ %184, %Sim_SymmsIsCompatibleWithGroup.exit39.i.i ], [ %184, %236 ], [ %184, %284 ], [ %184, %222 ], [ %184, %._crit_edge.i.i.i ]
+  %314 = phi i32 [ %184, %Sim_SymmsIsCompatibleWithGroup.exit39.i.i ], [ %.pre.i.i, %Vec_IntPush.exit.i.i.i ], [ %184, %Sim_SymmsIsCompatibleWithGroup.exit.i.i ], [ %184, %284 ], [ %184, %236 ], [ %184, %222 ], [ %184, %._crit_edge.i.i.i ]
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %315 = sext i32 %314 to i64
   %316 = icmp slt i64 %indvars.iv.next.i35.i, %315
@@ -1444,9 +1444,9 @@ Vec_IntPush.exit.i:                               ; preds = %129, %Vec_IntGrow.e
   %.pre = load i32, ptr %6, align 4, !tbaa !25
   br label %Vec_IntPushUnique.exit
 
-Vec_IntPushUnique.exit:                           ; preds = %._crit_edge.i, %83, %105, %97, %Vec_IntPush.exit.i
-  %136 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %20, %97 ], [ %20, %105 ], [ %20, %83 ], [ %20, %._crit_edge.i ]
-  %137 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %21, %97 ], [ %21, %105 ], [ %21, %83 ], [ %21, %._crit_edge.i ]
+Vec_IntPushUnique.exit:                           ; preds = %83, %._crit_edge.i, %105, %97, %Vec_IntPush.exit.i
+  %136 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %20, %105 ], [ %20, %97 ], [ %20, %._crit_edge.i ], [ %20, %83 ]
+  %137 = phi i32 [ %.pre, %Vec_IntPush.exit.i ], [ %21, %105 ], [ %21, %97 ], [ %21, %._crit_edge.i ], [ %21, %83 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %138 = trunc nuw i64 %indvars.iv.next53 to i32
   %139 = icmp sgt i32 %137, %138

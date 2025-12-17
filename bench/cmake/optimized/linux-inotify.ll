@@ -953,7 +953,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   br label %.critedge.i.i
 
 278:                                              ; preds = %220, %216, %124, %120
-  %.2.sink.i.i = phi ptr [ %.0.i.i, %124 ], [ %.0.i.i, %120 ], [ %.2.i.i, %220 ], [ %.2.i.i, %216 ]
+  %.2.sink.i.i = phi ptr [ %.0.i.i, %120 ], [ %.0.i.i, %124 ], [ %.2.i.i, %220 ], [ %.2.i.i, %216 ]
   %279 = getelementptr inbounds nuw i8, ptr %.2.sink.i.i, i64 24
   store i32 1, ptr %279, align 8, !tbaa !46
   %.1180.in.i.i = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 16
@@ -1105,7 +1105,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not.i54, label %58, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %56, %.thread
-  %.02636.i.be = phi ptr [ %.026.i, %56 ], [ %.026.i62, %.thread ]
+  %.02636.i.be = phi ptr [ %.026.i62, %.thread ], [ %.026.i, %56 ]
   br label %.lr.ph.i, !llvm.loop !55
 
 .thread:                                          ; preds = %55
@@ -1461,7 +1461,7 @@ find_watcher.exit:                                ; preds = %35, %55, %watcher_r
   br label %202
 
 202:                                              ; preds = %.loopexit, %init_inotify.exit, %4, %191, %26
-  %.0 = phi i32 [ %29, %26 ], [ 0, %191 ], [ -22, %4 ], [ %20, %init_inotify.exit ], [ -12, %.loopexit ]
+  %.0 = phi i32 [ %20, %init_inotify.exit ], [ -22, %4 ], [ %29, %26 ], [ 0, %191 ], [ -12, %.loopexit ]
   ret i32 %.0
 }
 

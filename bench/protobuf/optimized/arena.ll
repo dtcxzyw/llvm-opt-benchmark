@@ -381,7 +381,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
   br label %return
 
 return:                                           ; preds = %for.end.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, %for.end.i.i, %if.end.i.i, %if.end.i
-  %retval.0.in = phi i64 [ %0, %if.end.i ], [ %0, %if.end.i.i ], [ %0, %for.end.i.i ], [ %19, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i ], [ %19, %for.end.i.i.i ]
+  %retval.0.in = phi i64 [ %0, %for.end.i.i ], [ %0, %if.end.i ], [ %0, %if.end.i.i ], [ %19, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i ], [ %19, %for.end.i.i.i ]
   %retval.0 = inttoptr i64 %retval.0.in to ptr
   ret ptr %retval.0
 }
@@ -1511,7 +1511,7 @@ for.end.i:                                        ; preds = %for.end.i.loopexit,
   br label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 _ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit: ; preds = %for.end.i, %if.end.i26
-  %16 = phi ptr [ %.pre, %for.end.i ], [ %add.ptr.i, %if.end.i26 ]
+  %16 = phi ptr [ %add.ptr.i, %if.end.i26 ], [ %.pre, %for.end.i ]
   %17 = ptrtoint ptr %elem to i64
   switch i64 %retval.i11.0, label %sw.default.i32 [
     i64 1, label %sw.bb.i34

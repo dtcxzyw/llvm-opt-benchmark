@@ -357,7 +357,7 @@ _ZN6icu_779UVector647setSizeEi.exit:              ; preds = %39, %45, %49, %.loo
   br i1 %exitcond.not, label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread, label %73, !llvm.loop !20
 
 _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.sink.split: ; preds = %25, %21, %19, %14, %12
-  %.sink = phi i32 [ 1, %12 ], [ 15, %14 ], [ 1, %19 ], [ 1, %21 ], [ 7, %25 ]
+  %.sink = phi i32 [ 1, %21 ], [ 1, %19 ], [ 15, %14 ], [ 1, %12 ], [ 7, %25 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !16
   br label %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread
 
@@ -438,7 +438,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %28, %8
   store i32 %1, ptr %5, align 8, !tbaa !6
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %17, %11, %2, %.loopexit
+.critedge:                                        ; preds = %21, %11, %17, %2, %.loopexit
   ret void
 }
 
@@ -605,7 +605,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
   %52 = icmp samesign ugt i64 %indvars.iv.next, %44
   br i1 %52, label %48, label %._crit_edge, !llvm.loop !23
 
-_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %13, %24, %21, %._crit_edge, %6, %4
+_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread: ; preds = %37, %29, %24, %21, %13, %._crit_edge, %6, %4
   ret void
 }
 
@@ -687,7 +687,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_779UVector6414expandCapacityEi
   br label %35
 
 35:                                               ; preds = %25, %34, %33, %9, %3, %20, %17, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %17 ], [ 0, %20 ], [ 0, %3 ], [ 1, %9 ], [ 0, %25 ], [ 0, %33 ], [ 1, %34 ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %8 ], [ 0, %3 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ], [ 0, %33 ], [ 1, %34 ]
   ret i8 %.0
 }
 

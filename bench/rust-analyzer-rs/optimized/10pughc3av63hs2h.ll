@@ -1582,7 +1582,7 @@ default.unreachable35:                            ; preds = %2
   br label %17
 
 17:                                               ; preds = %22, %7, %9, %11, %_ZN4core4iter6traits8iterator8Iterator5eq_by17h92acb3e9b048a3f7E.exit, %18, %13
-  %.0.shrunk = phi i1 [ %16, %13 ], [ %21, %18 ], [ %49, %_ZN4core4iter6traits8iterator8Iterator5eq_by17h92acb3e9b048a3f7E.exit ], [ false, %11 ], [ false, %9 ], [ false, %7 ], [ false, %22 ]
+  %.0.shrunk = phi i1 [ %16, %13 ], [ %49, %_ZN4core4iter6traits8iterator8Iterator5eq_by17h92acb3e9b048a3f7E.exit ], [ %21, %18 ], [ false, %7 ], [ false, %11 ], [ false, %9 ], [ false, %22 ]
   ret i1 %.0.shrunk
 
 18:                                               ; preds = %9
@@ -1690,7 +1690,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit: ; pr
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit10"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit10": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit", %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit, %17
-  %.0 = phi i1 [ %18, %17 ], [ %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit" ], [ false, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ]
+  %.0 = phi i1 [ %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h99d9439ed15623b0E.exit" ], [ %18, %17 ], [ false, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ]
   ret i1 %.0
 }
 
@@ -2294,9 +2294,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit: ; pr
   %95 = extractvalue { i64, i64 } %92, 1
   br i1 %94, label %_ZN3mbe6parser13try_eat_comma17h930e043ad53e7703E.exit.thread, label %111
 
-_ZN3mbe6parser13try_eat_comma17h930e043ad53e7703E.exit.thread: ; preds = %75, %78, %82, %85, %90
-  %.sroa.030.0 = phi i64 [ 1, %90 ], [ 0, %85 ], [ 0, %82 ], [ 0, %78 ], [ 0, %75 ]
-  %.sroa.3.0 = phi i64 [ %95, %90 ], [ undef, %85 ], [ undef, %82 ], [ undef, %78 ], [ undef, %75 ]
+_ZN3mbe6parser13try_eat_comma17h930e043ad53e7703E.exit.thread: ; preds = %78, %82, %85, %75, %90
+  %.sroa.030.0 = phi i64 [ 1, %90 ], [ 0, %75 ], [ 0, %85 ], [ 0, %82 ], [ 0, %78 ]
+  %.sroa.3.0 = phi i64 [ %95, %90 ], [ undef, %75 ], [ undef, %85 ], [ undef, %82 ], [ undef, %78 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
   call void @llvm.experimental.noalias.scope.decl(metadata !638)
   %96 = load i8, ptr %62, align 8, !range !76, !alias.scope !638, !noalias !635, !noundef !4
@@ -2582,9 +2582,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread"
 
-"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread": ; preds = %5, %14, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i", %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit", %1
-  %.sroa.5.0 = phi i64 [ 0, %1 ], [ %.sroa.3.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ], [ undef, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ undef, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ undef, %14 ], [ undef, %5 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %.sroa.0.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ], [ 1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ 1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ 1, %14 ], [ 1, %5 ]
+"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread": ; preds = %5, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i", %14, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit", %1
+  %.sroa.5.0 = phi i64 [ undef, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ 0, %1 ], [ %.sroa.3.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ], [ undef, %14 ], [ undef, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ 0, %1 ], [ %.sroa.0.0.i, %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.5225291548100380042.exit ], [ 1, %14 ], [ 1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ 1, %5 ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.5.0, 1
   ret { i64, i64 } %36

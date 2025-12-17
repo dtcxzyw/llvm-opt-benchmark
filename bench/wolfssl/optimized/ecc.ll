@@ -190,7 +190,7 @@ define range(i32 -173, 1) i32 @wc_ecc_set_curve(ptr noundef captures(address_is_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %10, %.thread29, %8, %3, %5
-  %.022 = phi i32 [ -173, %5 ], [ -173, %3 ], [ -170, %8 ], [ 0, %.thread29 ], [ 0, %10 ], [ -172, %20 ], [ -172, %.lr.ph ]
+  %.022 = phi i32 [ -170, %8 ], [ -173, %3 ], [ -173, %5 ], [ 0, %.thread29 ], [ 0, %10 ], [ -172, %20 ], [ -172, %.lr.ph ]
   ret i32 %.022
 }
 
@@ -564,13 +564,13 @@ define internal fastcc i32 @_ecc_projective_add_point(ptr noundef %0, ptr nounde
   br label %.thread130
 
 .thread130:                                       ; preds = %63, %66, %69, %72, %75, %78, %46, %51, %55, %81, %84, %.thread29, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %119, %122, %125, %131, %134, %.thread76, %139, %142, %145, %148, %151, %154, %157, %160, %163, %166, %169, %172, %175, %178, %181, %184, %24, %187, %190
-  %.2 = phi i32 [ %191, %190 ], [ %188, %187 ], [ %26, %24 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ], [ %170, %169 ], [ %167, %166 ], [ %164, %163 ], [ %161, %160 ], [ %158, %157 ], [ %155, %154 ], [ %152, %151 ], [ %149, %148 ], [ %146, %145 ], [ %143, %142 ], [ %140, %139 ], [ %137, %.thread76 ], [ %135, %134 ], [ %126, %125 ], [ %132, %131 ], [ %123, %122 ], [ %120, %119 ], [ %117, %116 ], [ %114, %113 ], [ %111, %110 ], [ %108, %107 ], [ %105, %104 ], [ %102, %101 ], [ %99, %98 ], [ %96, %95 ], [ %93, %92 ], [ %90, %89 ], [ %87, %.thread29 ], [ %85, %84 ], [ %57, %55 ], [ %82, %81 ], [ %53, %51 ], [ %49, %46 ], [ %79, %78 ], [ %76, %75 ], [ %73, %72 ], [ %70, %69 ], [ %67, %66 ], [ %64, %63 ]
+  %.2 = phi i32 [ %26, %24 ], [ %191, %190 ], [ %188, %187 ], [ %185, %184 ], [ %182, %181 ], [ %179, %178 ], [ %176, %175 ], [ %173, %172 ], [ %170, %169 ], [ %167, %166 ], [ %164, %163 ], [ %161, %160 ], [ %158, %157 ], [ %155, %154 ], [ %152, %151 ], [ %149, %148 ], [ %146, %145 ], [ %143, %142 ], [ %140, %139 ], [ %137, %.thread76 ], [ %135, %134 ], [ %132, %131 ], [ %126, %125 ], [ %123, %122 ], [ %120, %119 ], [ %117, %116 ], [ %114, %113 ], [ %111, %110 ], [ %108, %107 ], [ %105, %104 ], [ %102, %101 ], [ %99, %98 ], [ %96, %95 ], [ %93, %92 ], [ %90, %89 ], [ %87, %.thread29 ], [ %85, %84 ], [ %49, %46 ], [ %82, %81 ], [ %57, %55 ], [ %53, %51 ], [ %79, %78 ], [ %76, %75 ], [ %73, %72 ], [ %70, %69 ], [ %67, %66 ], [ %64, %63 ]
   call void @sp_clear(ptr noundef nonnull %10) #19
   call void @sp_clear(ptr noundef nonnull %11) #19
   br label %.thread
 
 .thread:                                          ; preds = %5, %18, %.thread130, %44
-  %.0 = phi i32 [ %45, %44 ], [ %.2, %.thread130 ], [ %23, %18 ], [ %16, %5 ]
+  %.0 = phi i32 [ %.2, %.thread130 ], [ %45, %44 ], [ %23, %18 ], [ %16, %5 ]
   ret i32 %.0
 }
 
@@ -933,7 +933,7 @@ define i32 @ecc_map_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nound
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %25, %35, %19, %23, %4, %.thread114
-  %.0 = phi i32 [ %.12, %.thread114 ], [ -170, %4 ], [ %24, %23 ], [ %21, %19 ], [ -125, %35 ], [ -125, %25 ], [ %17, %16 ]
+  %.0 = phi i32 [ %.12, %.thread114 ], [ -170, %4 ], [ %21, %19 ], [ %24, %23 ], [ -125, %35 ], [ -125, %25 ], [ %17, %16 ]
   ret i32 %.0
 }
 
@@ -1089,7 +1089,7 @@ wc_ecc_new_point_ex.exit55:                       ; preds = %40
   br label %60
 
 60:                                               ; preds = %wc_ecc_new_point_ex.exit55, %50, %57, %52
-  %.0 = phi i32 [ %49, %wc_ecc_new_point_ex.exit55 ], [ %51, %50 ], [ %59, %57 ], [ %54, %52 ]
+  %.0 = phi i32 [ %54, %52 ], [ %49, %wc_ecc_new_point_ex.exit55 ], [ %51, %50 ], [ %59, %57 ]
   call void @sp_clear(ptr noundef nonnull %38) #19
   call void @sp_clear(ptr noundef nonnull %42) #19
   call void @sp_clear(ptr noundef nonnull %43) #19
@@ -1103,7 +1103,7 @@ wc_ecc_new_point_ex.exit55:                       ; preds = %40
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %22, %45, %48, %37, %wc_ecc_new_point_ex.exit.thread71, %14, %7, %60, %63
-  %.080 = phi i32 [ %.0, %60 ], [ %.0, %63 ], [ %30, %wc_ecc_new_point_ex.exit.thread71 ], [ -217, %14 ], [ -170, %7 ], [ %44, %45 ], [ %44, %48 ], [ -125, %37 ], [ -125, %22 ]
+  %.080 = phi i32 [ %.0, %60 ], [ %.0, %63 ], [ -170, %7 ], [ -217, %14 ], [ %30, %wc_ecc_new_point_ex.exit.thread71 ], [ %44, %45 ], [ %44, %48 ], [ -125, %37 ], [ -125, %22 ]
   br label %64
 
 64:                                               ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit59
@@ -1553,7 +1553,7 @@ define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %0, ptr noundef %1, p
   br label %.thread261
 
 .thread261:                                       ; preds = %88, %98, %107, %116, %64, %62, %39, %34, %28, %22, %18, %8, %._crit_edge.loopexit, %170, %181, %190, %199, %204, %._crit_edge, %128, %136, %145, %154, %158, %164, %211, %220, %229, %239, %233
-  %.31 = phi i32 [ %243, %239 ], [ %237, %233 ], [ %231, %229 ], [ %227, %220 ], [ %168, %164 ], [ %218, %211 ], [ %162, %158 ], [ %156, %154 ], [ %152, %145 ], [ %143, %136 ], [ %134, %128 ], [ %74, %._crit_edge ], [ %209, %204 ], [ %202, %199 ], [ %197, %190 ], [ %188, %181 ], [ %179, %170 ], [ %122, %._crit_edge.loopexit ], [ %16, %8 ], [ %20, %18 ], [ %26, %22 ], [ %32, %28 ], [ %37, %34 ], [ %42, %39 ], [ %.8, %62 ], [ %69, %64 ], [ %96, %88 ], [ %105, %98 ], [ %114, %107 ], [ %118, %116 ]
+  %.31 = phi i32 [ %243, %239 ], [ %237, %233 ], [ %231, %229 ], [ %227, %220 ], [ %74, %._crit_edge ], [ %218, %211 ], [ %168, %164 ], [ %162, %158 ], [ %156, %154 ], [ %152, %145 ], [ %143, %136 ], [ %134, %128 ], [ %209, %204 ], [ %202, %199 ], [ %197, %190 ], [ %188, %181 ], [ %179, %170 ], [ %122, %._crit_edge.loopexit ], [ %16, %8 ], [ %20, %18 ], [ %26, %22 ], [ %32, %28 ], [ %37, %34 ], [ %42, %39 ], [ %.8, %62 ], [ %69, %64 ], [ %96, %88 ], [ %105, %98 ], [ %114, %107 ], [ %118, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.31
@@ -1689,7 +1689,7 @@ wc_ecc_new_point_ex.exit65:                       ; preds = %43
   br label %.thread
 
 .thread:                                          ; preds = %55, %63, %59, %53, %wc_ecc_new_point_ex.exit65
-  %.0.ph = phi i32 [ %60, %59 ], [ %65, %63 ], [ %54, %53 ], [ %52, %wc_ecc_new_point_ex.exit65 ], [ %57, %55 ]
+  %.0.ph = phi i32 [ %52, %wc_ecc_new_point_ex.exit65 ], [ %60, %59 ], [ %65, %63 ], [ %54, %53 ], [ %57, %55 ]
   call void @sp_clear(ptr noundef nonnull %41) #19
   call void @sp_clear(ptr noundef nonnull %45) #19
   call void @sp_clear(ptr noundef nonnull %46) #19
@@ -1703,7 +1703,7 @@ wc_ecc_new_point_ex.exit65:                       ; preds = %43
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %25, %48, %51, %40, %wc_ecc_new_point_ex.exit.thread82, %.thread, %68
-  %.096 = phi i32 [ %.0.ph, %.thread ], [ %.0.ph, %68 ], [ %33, %wc_ecc_new_point_ex.exit.thread82 ], [ %47, %48 ], [ %47, %51 ], [ -125, %40 ], [ -125, %25 ]
+  %.096 = phi i32 [ %.0.ph, %68 ], [ %.0.ph, %.thread ], [ %33, %wc_ecc_new_point_ex.exit.thread82 ], [ %47, %48 ], [ %47, %51 ], [ -125, %40 ], [ -125, %25 ]
   br label %69
 
 69:                                               ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit69
@@ -1735,7 +1735,7 @@ wc_ecc_del_point_ex.exit69:                       ; preds = %69, %72, %78
   br i1 %exitcond110.not, label %.loopexit, label %69, !llvm.loop !32
 
 .loopexit:                                        ; preds = %wc_ecc_del_point_ex.exit69, %16, %9
-  %.046 = phi i32 [ -170, %9 ], [ -217, %16 ], [ %.096, %wc_ecc_del_point_ex.exit69 ]
+  %.046 = phi i32 [ -217, %16 ], [ -170, %9 ], [ %.096, %wc_ecc_del_point_ex.exit69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.046
@@ -1989,7 +1989,7 @@ define i32 @wc_ecc_copy_point(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %15
 
 15:                                               ; preds = %11, %7, %5, %2
-  %.0 = phi i32 [ -170, %2 ], [ %6, %5 ], [ %10, %7 ], [ %14, %11 ]
+  %.0 = phi i32 [ %10, %7 ], [ -170, %2 ], [ %6, %5 ], [ %14, %11 ]
   ret i32 %.0
 }
 
@@ -2021,7 +2021,7 @@ define i32 @wc_ecc_cmp_point(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %15
 
 15:                                               ; preds = %11, %7, %5, %2
-  %.0 = phi i32 [ -173, %2 ], [ %6, %5 ], [ %10, %7 ], [ %14, %11 ]
+  %.0 = phi i32 [ %10, %7 ], [ -173, %2 ], [ %6, %5 ], [ %14, %11 ]
   ret i32 %.0
 }
 
@@ -2311,13 +2311,13 @@ define internal fastcc i32 @wc_ecc_cmp_param(ptr noundef %0, ptr noundef %1, i32
   br label %.thread
 
 .thread:                                          ; preds = %21, %27, %24
-  %.2 = phi i32 [ %25, %24 ], [ %., %27 ], [ %22, %21 ]
+  %.2 = phi i32 [ %., %27 ], [ %25, %24 ], [ %22, %21 ]
   call void @sp_clear(ptr noundef nonnull %5) #19
   call void @sp_clear(ptr noundef nonnull %6) #19
   br label %29
 
 29:                                               ; preds = %19, %11, %4, %.thread, %14
-  %.017 = phi i32 [ %18, %14 ], [ %.2, %.thread ], [ -173, %4 ], [ -1, %11 ], [ %20, %19 ]
+  %.017 = phi i32 [ %.2, %.thread ], [ -173, %4 ], [ %18, %14 ], [ -1, %11 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
@@ -2482,7 +2482,7 @@ wc_ecc_cmp_param.exit.thread:                     ; preds = %63, %53, %43, %33, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %wc_ecc_cmp_param.exit.thread, %1, %3, %7, %11, %15, %19, %23, %94
-  %.033 = phi i32 [ %96, %94 ], [ -173, %23 ], [ -173, %19 ], [ -173, %15 ], [ -173, %11 ], [ -173, %7 ], [ -173, %3 ], [ -173, %1 ], [ -1, %wc_ecc_cmp_param.exit.thread ]
+  %.033 = phi i32 [ %96, %94 ], [ -173, %1 ], [ -173, %23 ], [ -173, %19 ], [ -173, %15 ], [ -173, %11 ], [ -173, %7 ], [ -173, %3 ], [ -1, %wc_ecc_cmp_param.exit.thread ]
   ret i32 %.033
 }
 
@@ -2598,7 +2598,7 @@ define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret(ptr noundef %0, ptr n
   br label %36
 
 36:                                               ; preds = %9, %28, %12, %16, %20, %24, %4, %33
-  %.0 = phi i32 [ %35, %33 ], [ -173, %4 ], [ -170, %9 ], [ -170, %24 ], [ -170, %20 ], [ -170, %16 ], [ -170, %12 ], [ -170, %28 ]
+  %.0 = phi i32 [ %35, %33 ], [ -173, %4 ], [ -170, %9 ], [ -170, %12 ], [ -170, %24 ], [ -170, %20 ], [ -170, %16 ], [ -170, %28 ]
   ret i32 %.0
 }
 
@@ -2660,7 +2660,7 @@ define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret_ex(ptr noundef %0, pt
   br label %29
 
 29:                                               ; preds = %9, %27, %16, %12, %4, %.thread
-  %.025 = phi i32 [ %.034, %.thread ], [ -173, %4 ], [ -170, %9 ], [ -170, %12 ], [ -170, %16 ], [ -108, %27 ]
+  %.025 = phi i32 [ %.034, %.thread ], [ -173, %4 ], [ -170, %9 ], [ -170, %16 ], [ -170, %12 ], [ -108, %27 ]
   ret i32 %.025
 }
 
@@ -2758,8 +2758,8 @@ wc_ecc_new_point_ex.exit:                         ; preds = %17
   br label %.thread59
 
 .thread59:                                        ; preds = %wc_ecc_new_point_ex.exit, %45, %49, %27, %36, %41, %52
-  %.02862 = phi i32 [ %46, %52 ], [ 0, %41 ], [ 0, %36 ], [ 0, %27 ], [ %46, %49 ], [ %46, %45 ], [ 0, %wc_ecc_new_point_ex.exit ]
-  %.7 = phi i32 [ %58, %52 ], [ %43, %41 ], [ %39, %36 ], [ %34, %27 ], [ -132, %49 ], [ -132, %45 ], [ -236, %wc_ecc_new_point_ex.exit ]
+  %.02862 = phi i32 [ %46, %52 ], [ 0, %27 ], [ 0, %41 ], [ 0, %36 ], [ %46, %49 ], [ %46, %45 ], [ 0, %wc_ecc_new_point_ex.exit ]
+  %.7 = phi i32 [ %58, %52 ], [ %34, %27 ], [ %43, %41 ], [ %39, %36 ], [ -132, %49 ], [ -132, %45 ], [ -236, %wc_ecc_new_point_ex.exit ]
   store i32 %.02862, ptr %3, align 4, !tbaa !56
   call void @sp_forcezero(ptr noundef nonnull %15) #19
   call void @sp_forcezero(ptr noundef nonnull %19) #19
@@ -2777,7 +2777,7 @@ wc_ecc_new_point_ex.exit:                         ; preds = %17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread59, %22, %14
-  %.1.ph = phi i32 [ %21, %22 ], [ -125, %14 ], [ %.7, %.thread59 ], [ %.1.ph.ph, %.sink.split.sink.split ]
+  %.1.ph = phi i32 [ -125, %14 ], [ %21, %22 ], [ %.7, %.thread59 ], [ %.1.ph.ph, %.sink.split.sink.split ]
   call fastcc void @wc_ecc_curve_free(ptr noundef nonnull %7)
   br label %61
 
@@ -3251,7 +3251,7 @@ define i32 @wc_ecc_gen_k(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !65
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %4, %8
-  %.025 = phi i32 [ -173, %8 ], [ -173, %4 ], [ %.2, %.lr.ph35.i ]
+  %.025 = phi i32 [ -173, %4 ], [ -173, %8 ], [ %.2, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
@@ -3449,7 +3449,7 @@ define internal fastcc i32 @ecc_make_pub_ex(ptr noundef %0, ptr noundef readonly
   br label %.thread106
 
 .thread106:                                       ; preds = %53, %.thread106.fold.split, %50, %59, %45, %40, %35
-  %.895 = phi i32 [ %38, %35 ], [ %43, %40 ], [ %48, %45 ], [ %62, %59 ], [ %51, %50 ], [ -125, %53 ], [ %58, %.thread106.fold.split ]
+  %.895 = phi i32 [ %48, %45 ], [ %38, %35 ], [ %62, %59 ], [ %43, %40 ], [ %51, %50 ], [ -125, %53 ], [ %58, %.thread106.fold.split ]
   call void @sp_clear(ptr noundef nonnull %24) #19
   call void @sp_clear(ptr noundef nonnull %28) #19
   call void @sp_clear(ptr noundef nonnull %29) #19
@@ -3468,7 +3468,7 @@ define internal fastcc i32 @ecc_make_pub_ex(ptr noundef %0, ptr noundef readonly
   br i1 %.not50, label %69, label %.thread115
 
 .thread115:                                       ; preds = %14, %10, %18, %.thread120, %66
-  %.2118 = phi i32 [ %.895, %66 ], [ %.0.i.ph, %.thread120 ], [ %21, %18 ], [ -216, %10 ], [ -216, %14 ]
+  %.2118 = phi i32 [ %.0.i.ph, %.thread120 ], [ %.895, %66 ], [ %21, %18 ], [ -216, %10 ], [ -216, %14 ]
   call void @sp_clear(ptr noundef nonnull %.0) #19
   %67 = getelementptr inbounds nuw i8, ptr %.0, i64 1040
   call void @sp_clear(ptr noundef nonnull %67) #19
@@ -3629,8 +3629,8 @@ wc_ecc_set_curve.exit:                            ; preds = %.thread29.i, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %wc_ecc_set_curve.exit.thread
 
-wc_ecc_set_curve.exit.thread:                     ; preds = %.lr.ph.i, %26, %14, %10, %5, %55
-  %.029 = phi i32 [ %.244, %55 ], [ -173, %5 ], [ -170, %14 ], [ -173, %10 ], [ -172, %26 ], [ -172, %.lr.ph.i ]
+wc_ecc_set_curve.exit.thread:                     ; preds = %.lr.ph.i, %26, %10, %14, %5, %55
+  %.029 = phi i32 [ %.244, %55 ], [ -173, %5 ], [ -173, %10 ], [ -170, %14 ], [ -172, %26 ], [ -172, %.lr.ph.i ]
   ret i32 %.029
 }
 
@@ -3666,7 +3666,7 @@ wc_ecc_init_ex.exit:                              ; preds = %3
   br label %10
 
 10:                                               ; preds = %wc_ecc_init_ex.exit.thread, %wc_ecc_init_ex.exit, %1
-  %.0 = phi ptr [ null, %wc_ecc_init_ex.exit ], [ null, %1 ], [ %2, %wc_ecc_init_ex.exit.thread ]
+  %.0 = phi ptr [ null, %wc_ecc_init_ex.exit ], [ %2, %wc_ecc_init_ex.exit.thread ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -3973,7 +3973,7 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %76
 
 76:                                               ; preds = %.sink.split, %68, %56, %.critedge89
-  %.0 = phi i32 [ -170, %.critedge89 ], [ %58, %56 ], [ %70, %68 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %58, %56 ], [ -170, %.critedge89 ], [ %70, %68 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4124,7 +4124,7 @@ wc_ecc_init_ex.exit:                              ; preds = %74, %82
   br label %86
 
 86:                                               ; preds = %32, %43, %35, %39, %.critedge81, %.thread85
-  %.0 = phi i32 [ %.2, %.thread85 ], [ -170, %.critedge81 ], [ -170, %32 ], [ -170, %39 ], [ -170, %35 ], [ %53, %43 ]
+  %.0 = phi i32 [ %.2, %.thread85 ], [ -170, %.critedge81 ], [ -170, %32 ], [ -170, %35 ], [ -170, %39 ], [ %53, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -4292,8 +4292,8 @@ define internal fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %0, ptr noundef
   %exitcond144 = icmp eq i32 %52, 64
   br i1 %exitcond144, label %.thread118, label %51
 
-.thread118:                                       ; preds = %36, %51, %58, %86, %63, %66, %69, %72, %75, %78, %81, %84, %30, %.loopexit
-  %.4 = phi i32 [ %42, %.loopexit ], [ %33, %30 ], [ %57, %51 ], [ %60, %58 ], [ -199, %86 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ 0, %84 ], [ -199, %36 ]
+.thread118:                                       ; preds = %36, %51, %58, %86, %81, %63, %66, %69, %72, %75, %78, %84, %30, %.loopexit
+  %.4 = phi i32 [ %42, %.loopexit ], [ %33, %30 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ 0, %84 ], [ %83, %81 ], [ -199, %86 ], [ %60, %58 ], [ %57, %51 ], [ -199, %36 ]
   call void @sp_forcezero(ptr noundef nonnull %31) #19
   ret i32 %.4
 }
@@ -4482,7 +4482,7 @@ define i32 @ecc_projective_add_point_safe(ptr noundef %0, ptr noundef %1, ptr no
   br label %wc_ecc_copy_point.exit
 
 wc_ecc_copy_point.exit:                           ; preds = %102, %105, %92, %61, %64, %42, %38, %36, %34, %23, %19, %17, %14, %74, %77, %109, %113, %100, %98, %95, %59, %73, %68
-  %.0 = phi i32 [ %60, %59 ], [ 0, %73 ], [ %70, %68 ], [ %99, %98 ], [ %96, %95 ], [ %101, %100 ], [ 0, %113 ], [ %110, %109 ], [ 0, %77 ], [ %75, %74 ], [ -170, %14 ], [ %18, %17 ], [ %22, %19 ], [ %26, %23 ], [ -170, %34 ], [ %37, %36 ], [ %41, %38 ], [ %45, %42 ], [ %66, %64 ], [ %62, %61 ], [ %93, %92 ], [ %107, %105 ], [ %103, %102 ]
+  %.0 = phi i32 [ %75, %74 ], [ %26, %23 ], [ %60, %59 ], [ 0, %73 ], [ %70, %68 ], [ %99, %98 ], [ %96, %95 ], [ %101, %100 ], [ 0, %113 ], [ %110, %109 ], [ 0, %77 ], [ %22, %19 ], [ -170, %14 ], [ %18, %17 ], [ %41, %38 ], [ -170, %34 ], [ %37, %36 ], [ %45, %42 ], [ %93, %92 ], [ %62, %61 ], [ %66, %64 ], [ %107, %105 ], [ %103, %102 ]
   ret i32 %.0
 }
 
@@ -4548,7 +4548,7 @@ define i32 @ecc_projective_dbl_point_safe(ptr noundef %0, ptr noundef %1, ptr re
   br label %wc_ecc_copy_point.exit
 
 wc_ecc_copy_point.exit:                           ; preds = %30, %19, %16, %14, %12, %23, %26, %37, %33
-  %.0 = phi i32 [ %38, %37 ], [ %35, %33 ], [ 0, %26 ], [ %24, %23 ], [ -170, %12 ], [ %15, %14 ], [ %18, %16 ], [ %22, %19 ], [ %31, %30 ]
+  %.0 = phi i32 [ %24, %23 ], [ %38, %37 ], [ %35, %33 ], [ 0, %26 ], [ %18, %16 ], [ -170, %12 ], [ %15, %14 ], [ %22, %19 ], [ %31, %30 ]
   ret i32 %.0
 }
 
@@ -4950,8 +4950,8 @@ wc_ecc_new_point_ex.exit.thread204:               ; preds = %55, %59
   %209 = call i32 @ecc_map_ex(ptr noundef %4, ptr noundef %6, i64 noundef %208, i32 noundef 0)
   br label %.thread243
 
-.thread243:                                       ; preds = %46, %198, %183, %185, %200, %191, %168, %170, %25, %37, %wc_ecc_new_point_ex.exit.thread204, %31, %61, %64, %71, %77, %83, %89, %108, %207, %.split.us
-  %.24 = phi i32 [ %209, %207 ], [ %.15.ph, %.split.us ], [ %.13, %108 ], [ %93, %89 ], [ %87, %83 ], [ %81, %77 ], [ %75, %71 ], [ %69, %64 ], [ %62, %61 ], [ %54, %wc_ecc_new_point_ex.exit.thread204 ], [ %41, %37 ], [ %35, %31 ], [ -173, %25 ], [ %.16, %198 ], [ %.16, %183 ], [ %189, %185 ], [ %193, %191 ], [ %205, %200 ], [ %.15.ph, %168 ], [ %172, %170 ], [ -125, %46 ]
+.thread243:                                       ; preds = %46, %198, %183, %185, %191, %200, %168, %170, %25, %wc_ecc_new_point_ex.exit.thread204, %37, %31, %61, %64, %71, %77, %83, %89, %108, %207, %.split.us
+  %.24 = phi i32 [ %209, %207 ], [ %.15.ph, %.split.us ], [ %54, %wc_ecc_new_point_ex.exit.thread204 ], [ %.13, %108 ], [ %41, %37 ], [ %93, %89 ], [ %87, %83 ], [ %81, %77 ], [ %75, %71 ], [ %69, %64 ], [ %62, %61 ], [ %35, %31 ], [ -173, %25 ], [ %.15.ph, %168 ], [ %.16, %198 ], [ %.16, %183 ], [ %189, %185 ], [ %193, %191 ], [ %205, %200 ], [ %172, %170 ], [ -125, %46 ]
   br label %210
 
 210:                                              ; preds = %.thread243, %wc_ecc_del_point_ex.exit
@@ -5076,7 +5076,7 @@ ForceZero.exit197:                                ; preds = %.lr.ph35.i193, %.pr
   br label %245
 
 245:                                              ; preds = %18, %8, %ForceZero.exit197, %24
-  %.0 = phi i32 [ -97, %24 ], [ %.24, %ForceZero.exit197 ], [ -170, %8 ], [ -97, %18 ]
+  %.0 = phi i32 [ %.24, %ForceZero.exit197 ], [ -170, %8 ], [ -97, %24 ], [ -97, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5300,7 +5300,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %79
 
 79:                                               ; preds = %69, %75, %72, %78
-  %.063 = phi i32 [ %73, %72 ], [ %76, %75 ], [ 0, %78 ], [ -192, %69 ]
+  %.063 = phi i32 [ 0, %78 ], [ %73, %72 ], [ %76, %75 ], [ -192, %69 ]
   store i32 0, ptr %70, align 8, !tbaa !47
   br label %80
 
@@ -5427,7 +5427,7 @@ wc_ecc_check_r_s_range.exit.thread74:             ; preds = %40, %33, %30, %36
   br label %52
 
 52:                                               ; preds = %wc_ecc_check_r_s_range.exit.thread74, %wc_ecc_check_r_s_range.exit.thread, %.critedge, %46, %18, %22, %6, %50, %49
-  %.052 = phi i32 [ %48, %49 ], [ %51, %50 ], [ -170, %6 ], [ -170, %22 ], [ -170, %18 ], [ %45, %46 ], [ %45, %.critedge ], [ %29, %wc_ecc_check_r_s_range.exit.thread ], [ %.3.i.ph, %wc_ecc_check_r_s_range.exit.thread74 ]
+  %.052 = phi i32 [ %51, %50 ], [ -170, %6 ], [ -170, %18 ], [ %45, %46 ], [ %.3.i.ph, %wc_ecc_check_r_s_range.exit.thread74 ], [ %48, %49 ], [ -170, %22 ], [ %45, %.critedge ], [ %29, %wc_ecc_check_r_s_range.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.052
@@ -5677,8 +5677,8 @@ wc_ecc_new_point_ex.exit:                         ; preds = %82
   br label %.thread361
 
 .thread361:                                       ; preds = %97, %100, %wc_ecc_new_point_ex.exit, %143, %150, %147, %138, %134, %130, %126, %123, %118, %113, %109, %105, %101
-  %.0147189196210218232240254262276284295302314 = phi ptr [ %90, %101 ], [ %90, %105 ], [ %90, %109 ], [ %90, %113 ], [ %90, %118 ], [ %90, %123 ], [ %90, %126 ], [ %90, %130 ], [ %90, %134 ], [ %90, %138 ], [ %90, %147 ], [ %90, %150 ], [ %90, %143 ], [ null, %wc_ecc_new_point_ex.exit ], [ null, %100 ], [ null, %97 ]
-  %.14304311 = phi i32 [ %103, %101 ], [ %107, %105 ], [ %111, %109 ], [ %116, %113 ], [ %121, %118 ], [ %124, %123 ], [ %128, %126 ], [ %132, %130 ], [ %136, %134 ], [ %141, %138 ], [ 0, %147 ], [ 0, %150 ], [ %145, %143 ], [ -125, %wc_ecc_new_point_ex.exit ], [ %96, %100 ], [ %96, %97 ]
+  %.0147189196210218232240254262276284295302314 = phi ptr [ %90, %138 ], [ %90, %143 ], [ %90, %134 ], [ %90, %130 ], [ %90, %126 ], [ %90, %123 ], [ %90, %118 ], [ %90, %113 ], [ %90, %109 ], [ %90, %105 ], [ %90, %101 ], [ %90, %147 ], [ %90, %150 ], [ null, %wc_ecc_new_point_ex.exit ], [ null, %100 ], [ null, %97 ]
+  %.14304311 = phi i32 [ %141, %138 ], [ %145, %143 ], [ %136, %134 ], [ %132, %130 ], [ %128, %126 ], [ %124, %123 ], [ %121, %118 ], [ %116, %113 ], [ %111, %109 ], [ %107, %105 ], [ %103, %101 ], [ 0, %147 ], [ 0, %150 ], [ -125, %wc_ecc_new_point_ex.exit ], [ %96, %100 ], [ %96, %97 ]
   call void @sp_clear(ptr noundef nonnull %80) #19
   call void @sp_clear(ptr noundef nonnull %84) #19
   call void @sp_clear(ptr noundef nonnull %85) #19
@@ -5714,7 +5714,7 @@ wc_ecc_del_point_ex.exit132.sink.split:           ; preds = %154, %87
   br label %wc_ecc_del_point_ex.exit132
 
 wc_ecc_del_point_ex.exit132:                      ; preds = %wc_ecc_del_point_ex.exit132.sink.split, %.thread155, %62, %87, %79, %.thread162, %wc_ecc_del_point_ex.exit, %154
-  %.14304312374 = phi i32 [ %.14304311, %wc_ecc_del_point_ex.exit ], [ %.14304311, %154 ], [ %77, %.thread162 ], [ -125, %79 ], [ %86, %87 ], [ %51, %62 ], [ %51, %.thread155 ], [ %.14304312374.ph, %wc_ecc_del_point_ex.exit132.sink.split ]
+  %.14304312374 = phi i32 [ %51, %62 ], [ %.14304311, %wc_ecc_del_point_ex.exit ], [ %.14304311, %154 ], [ %86, %87 ], [ %77, %.thread162 ], [ -125, %79 ], [ %51, %.thread155 ], [ %.14304312374.ph, %wc_ecc_del_point_ex.exit132.sink.split ]
   call void @sp_clear(ptr noundef nonnull %40) #19
   call void @sp_clear(ptr noundef nonnull %39) #19
   br label %160
@@ -5789,7 +5789,7 @@ define i32 @wc_ecc_import_point_der_ex(ptr noundef %0, i32 noundef %1, i32 nound
   br label %34
 
 34:                                               ; preds = %.thread61, %32, %12, %5, %9
-  %.0 = phi i32 [ -170, %9 ], [ -170, %5 ], [ -125, %12 ], [ 0, %32 ], [ %.464, %.thread61 ]
+  %.0 = phi i32 [ -125, %12 ], [ -170, %5 ], [ %.464, %.thread61 ], [ -170, %9 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -5896,7 +5896,7 @@ define i32 @wc_ecc_export_point_der(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %46
 
 46:                                               ; preds = %.sink.split, %30, %36, %23, %26, %16, %4
-  %.0 = phi i32 [ -170, %4 ], [ -170, %16 ], [ -170, %26 ], [ -170, %23 ], [ %35, %30 ], [ %43, %36 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -170, %23 ], [ -170, %26 ], [ -170, %4 ], [ %35, %30 ], [ -170, %16 ], [ %43, %36 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -6013,7 +6013,7 @@ define i32 @wc_ecc_export_x963(ptr noundef %0, ptr noundef writeonly captures(ad
   br label %60
 
 60:                                               ; preds = %58, %46, %51, %39, %22, %18, %38, %32, %16
-  %.0 = phi i32 [ -202, %16 ], [ -170, %32 ], [ -132, %38 ], [ -170, %18 ], [ -246, %22 ], [ -132, %39 ], [ %50, %46 ], [ %57, %51 ], [ 0, %58 ]
+  %.0 = phi i32 [ -202, %16 ], [ -132, %39 ], [ -170, %18 ], [ -170, %32 ], [ -132, %38 ], [ -246, %22 ], [ %50, %46 ], [ %57, %51 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -6071,7 +6071,7 @@ define i32 @wc_ecc_is_point(ptr noundef %0, ptr noundef readnone captures(addres
   br label %.thread40
 
 .thread40:                                        ; preds = %4, %13, %17, %9, %.thread, %21
-  %.4 = phi i32 [ %22, %21 ], [ -217, %.thread ], [ -217, %9 ], [ -170, %17 ], [ -170, %13 ], [ -173, %4 ]
+  %.4 = phi i32 [ %22, %21 ], [ -170, %13 ], [ -217, %9 ], [ -217, %.thread ], [ -170, %17 ], [ -173, %4 ]
   ret i32 %.4
 }
 
@@ -6329,7 +6329,7 @@ ecc_check_pubkey_order.exit.i:                    ; preds = %wc_ecc_del_point_ex
   br label %ecc_check_pubkey_order.exit.thread.i
 
 ecc_check_pubkey_order.exit.thread.i:             ; preds = %90, %88, %81, %ecc_check_pubkey_order.exit.i, %65, %57, %52, %48, %40, %37, %34, %30, %24, %21, %16
-  %.7.i = phi i32 [ -216, %90 ], [ 0, %88 ], [ 0, %81 ], [ %.6.i, %ecc_check_pubkey_order.exit.i ], [ -125, %57 ], [ %64, %65 ], [ -214, %40 ], [ -214, %48 ], [ -214, %52 ], [ %38, %37 ], [ -217, %34 ], [ -217, %30 ], [ %28, %24 ], [ %22, %21 ], [ %19, %16 ]
+  %.7.i = phi i32 [ -216, %90 ], [ 0, %88 ], [ 0, %81 ], [ %.6.i, %ecc_check_pubkey_order.exit.i ], [ %64, %65 ], [ -125, %57 ], [ -214, %48 ], [ -214, %52 ], [ -214, %40 ], [ %38, %37 ], [ -217, %34 ], [ %28, %24 ], [ -217, %30 ], [ %22, %21 ], [ %19, %16 ]
   call fastcc void @wc_ecc_curve_free(ptr noundef nonnull %4)
   call void @sp_clear(ptr noundef nonnull %2) #19
   br label %_ecc_validate_public_key.exit
@@ -6446,8 +6446,8 @@ define i32 @wc_ecc_import_x963_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %.us-phi33.i, ptr %34, align 8, !tbaa !18
   br label %46
 
-.thread59:                                        ; preds = %.lr.ph.i, %40, %23, %28
-  %.022.i.ph = phi i32 [ -170, %28 ], [ -173, %23 ], [ -172, %40 ], [ -172, %.lr.ph.i ]
+.thread59:                                        ; preds = %.lr.ph.i, %40, %28, %23
+  %.022.i.ph = phi i32 [ -173, %23 ], [ -170, %28 ], [ -172, %40 ], [ -172, %.lr.ph.i ]
   store i32 1, ptr %2, align 8, !tbaa !46
   br label %.thread69
 
@@ -6478,7 +6478,7 @@ define i32 @wc_ecc_import_x963_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %56
 
 56:                                               ; preds = %.thread69, %54, %10, %7, %4
-  %.0 = phi i32 [ -173, %4 ], [ -170, %7 ], [ -125, %10 ], [ 0, %54 ], [ %.572, %.thread69 ]
+  %.0 = phi i32 [ -125, %10 ], [ -173, %4 ], [ -170, %7 ], [ 0, %54 ], [ %.572, %.thread69 ]
   ret i32 %.0
 }
 
@@ -6569,7 +6569,7 @@ define i32 @wc_ecc_export_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %47
 
 47:                                               ; preds = %22, %43, %38, %40, %34, %29, %31, %25, %20, %10, %14, %8, %46
-  %.0 = phi i32 [ 0, %46 ], [ -173, %8 ], [ -170, %14 ], [ -170, %10 ], [ -173, %22 ], [ -173, %20 ], [ %27, %25 ], [ -173, %31 ], [ -173, %29 ], [ %36, %34 ], [ -173, %40 ], [ -173, %38 ], [ %45, %43 ]
+  %.0 = phi i32 [ 0, %46 ], [ -173, %8 ], [ -170, %10 ], [ -173, %20 ], [ %27, %25 ], [ -173, %29 ], [ %36, %34 ], [ -173, %38 ], [ -170, %14 ], [ -173, %22 ], [ -173, %31 ], [ -173, %40 ], [ %45, %43 ]
   ret i32 %.0
 }
 
@@ -6610,7 +6610,7 @@ define i32 @wc_ecc_export_private_only(ptr noundef %0, ptr noundef %1, ptr nound
   br label %wc_ecc_export_ex.exit
 
 wc_ecc_export_ex.exit:                            ; preds = %18, %15, %11, %7, %3
-  %.0 = phi i32 [ -173, %3 ], [ -170, %11 ], [ -170, %7 ], [ -173, %15 ], [ %21, %18 ]
+  %.0 = phi i32 [ -173, %3 ], [ %21, %18 ], [ -173, %15 ], [ -170, %7 ], [ -170, %11 ]
   ret i32 %.0
 }
 
@@ -6663,7 +6663,7 @@ define i32 @wc_ecc_export_public_raw(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %wc_ecc_export_ex.exit
 
 wc_ecc_export_ex.exit:                            ; preds = %29, %26, %23, %19, %15, %11, %5
-  %.0 = phi i32 [ -173, %5 ], [ -170, %15 ], [ -170, %11 ], [ -173, %19 ], [ %25, %23 ], [ -173, %26 ], [ %31, %29 ]
+  %.0 = phi i32 [ -173, %5 ], [ %25, %23 ], [ -170, %15 ], [ -170, %11 ], [ -173, %19 ], [ -173, %26 ], [ %31, %29 ]
   ret i32 %.0
 }
 
@@ -6772,7 +6772,7 @@ define i32 @wc_ecc_import_private_key_ex(ptr noundef %0, i32 noundef %1, ptr nou
   br label %wc_ecc_set_curve.exit
 
 wc_ecc_set_curve.exit:                            ; preds = %.lr.ph.i, %33, %17, %21, %23, %.thread29.i
-  %.022.i = phi i32 [ -173, %17 ], [ -170, %21 ], [ 0, %.thread29.i ], [ 0, %23 ], [ -172, %33 ], [ -172, %.lr.ph.i ]
+  %.022.i = phi i32 [ -170, %21 ], [ -173, %17 ], [ 0, %.thread29.i ], [ 0, %23 ], [ -172, %33 ], [ -172, %.lr.ph.i ]
   store i32 3, ptr %4, align 8, !tbaa !46
   br label %39
 
@@ -6842,7 +6842,7 @@ define i32 @wc_ecc_rs_to_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %.thread30
 
 .thread30:                                        ; preds = %19, %13, %16, %24
-  %.2 = phi i32 [ %25, %24 ], [ %17, %16 ], [ %14, %13 ], [ -121, %19 ]
+  %.2 = phi i32 [ %25, %24 ], [ %14, %13 ], [ %17, %16 ], [ -121, %19 ]
   call void @sp_clear(ptr noundef nonnull %5) #19
   call void @sp_clear(ptr noundef nonnull %6) #19
   br label %26
@@ -6960,7 +6960,7 @@ define internal fastcc i32 @wc_ecc_import_raw_private(ptr noundef %0, ptr nounde
   store ptr %.us-phi33.i, ptr %17, align 8, !tbaa !18
   br label %24
 
-24:                                               ; preds = %.thread29.i, %13
+24:                                               ; preds = %13, %.thread29.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3160
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -7066,7 +7066,7 @@ define internal fastcc i32 @wc_ecc_import_raw_private(ptr noundef %0, ptr nounde
   br i1 %.not65, label %wc_ecc_set_curve.exit, label %.thread80
 
 .thread80:                                        ; preds = %75, %56, %39, %51, %61, %64, %78
-  %.683 = phi i32 [ %.7, %78 ], [ %65, %64 ], [ %.3, %56 ], [ %spec.select, %39 ], [ -173, %51 ], [ -215, %61 ], [ -173, %75 ]
+  %.683 = phi i32 [ %.7, %78 ], [ -215, %61 ], [ %65, %64 ], [ -173, %51 ], [ %.3, %56 ], [ %spec.select, %39 ], [ -173, %75 ]
   tail call void @sp_clear(ptr noundef nonnull %26) #19
   tail call void @sp_clear(ptr noundef nonnull %27) #19
   tail call void @sp_clear(ptr noundef nonnull %28) #19
@@ -7074,7 +7074,7 @@ define internal fastcc i32 @wc_ecc_import_raw_private(ptr noundef %0, ptr nounde
   br label %wc_ecc_set_curve.exit
 
 wc_ecc_set_curve.exit:                            ; preds = %22, %.thread84, %10, %78, %.thread80, %24, %6
-  %.056 = phi i32 [ -173, %6 ], [ -125, %24 ], [ %.683, %.thread80 ], [ 0, %78 ], [ -173, %10 ], [ 0, %.thread84 ], [ -172, %22 ]
+  %.056 = phi i32 [ -125, %24 ], [ -173, %6 ], [ 0, %78 ], [ %.683, %.thread80 ], [ -173, %10 ], [ 0, %.thread84 ], [ -172, %22 ]
   ret i32 %.056
 }
 

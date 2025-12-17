@@ -1381,7 +1381,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br label %.loopexit82.sink.split
 
 .loopexit82.sink.split:                           ; preds = %._crit_edge96, %find_histogram_index.exit, %._crit_edge, %3, %._crit_edge105
-  %.sink = phi double [ %77, %._crit_edge105 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
+  %.sink = phi double [ %77, %._crit_edge105 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
   store double %.sink, ptr %2, align 8, !tbaa !29
   br label %.loopexit82
 
@@ -1501,7 +1501,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   br label %36
 
 36:                                               ; preds = %35, %32, %27
-  %.1115.us = phi nsz double [ %33, %35 ], [ %.0114122.us, %32 ], [ %30, %27 ]
+  %.1115.us = phi nsz double [ %.0114122.us, %32 ], [ %33, %35 ], [ %30, %27 ]
   %37 = add nuw i64 %.0123.us, 1
   %exitcond.not = icmp eq i64 %37, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !60

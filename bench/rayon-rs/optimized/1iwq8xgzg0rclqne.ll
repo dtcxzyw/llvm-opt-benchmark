@@ -480,7 +480,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
           to label %35 unwind label %33
 
 .body62:                                          ; preds = %223, %"_ZN4core3ptr53drop_in_place$LT$rayon_core..registry..Terminator$GT$17h74632eb0ac268153E.exit", %48, %38, %33, %.thread205
-  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn150208, %.thread205 ], [ %34, %33 ], [ %39, %38 ], [ %.pn53.pn, %223 ], [ %.pn53.pn, %"_ZN4core3ptr53drop_in_place$LT$rayon_core..registry..Terminator$GT$17h74632eb0ac268153E.exit" ], [ %49, %48 ]
+  %.pn53.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn150208, %.thread205 ], [ %39, %38 ], [ %34, %33 ], [ %.pn53.pn, %223 ], [ %.pn53.pn, %"_ZN4core3ptr53drop_in_place$LT$rayon_core..registry..Terminator$GT$17h74632eb0ac268153E.exit" ], [ %49, %48 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$rayon_core..ThreadPoolBuilder$GT$17hcb7fac54d4dd854fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1) #18
           to label %239 unwind label %230
 
@@ -710,7 +710,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   unreachable
 
 .body79:                                          ; preds = %211, %119, %87, %.critedge
-  %.pn53 = phi { ptr, i32 } [ %.pn50.pn, %.critedge ], [ %88, %87 ], [ %120, %119 ], [ %212, %211 ]
+  %.pn53 = phi { ptr, i32 } [ %.pn50.pn, %.critedge ], [ %120, %119 ], [ %88, %87 ], [ %212, %211 ]
   %85 = load ptr, ptr %24, align 8, !noalias !77, !nonnull !8, !noundef !8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 128
   invoke void @_ZN10rayon_core8registry8Registry9terminate17h483558ace8b06c66E(ptr noundef nonnull align 128 %86)
@@ -823,7 +823,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
           to label %.loopexit unwind label %117
 
 .critedge:                                        ; preds = %.body.thread197.loopexit, %.body.thread197.loopexit.split-lp, %184, %191, %157, %.noexc110, %236, %.thread188, %117
-  %.pn50.pn = phi { ptr, i32 } [ %118, %117 ], [ %lpad.thr_comm, %.thread188 ], [ %lpad.thr_comm.split-lp, %236 ], [ %lpad.thr_comm.split-lp, %.noexc110 ], [ %158, %157 ], [ %185, %184 ], [ %192, %191 ], [ %lpad.loopexit, %.body.thread197.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread197.loopexit.split-lp ]
+  %.pn50.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread188 ], [ %lpad.thr_comm.split-lp, %.noexc110 ], [ %118, %117 ], [ %lpad.thr_comm.split-lp, %236 ], [ %192, %191 ], [ %185, %184 ], [ %158, %157 ], [ %lpad.loopexit, %.body.thread197.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread197.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr313drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..zip..Zip$LT$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$$GT$17h753ee94a17486503E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %19) #18
           to label %.body79 unwind label %230
 
@@ -958,12 +958,12 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   %149 = invoke noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$rayon_core..registry..ThreadSpawn$GT$5spawn17hecc5d1e121db80fbE"(ptr noalias noundef nonnull align 1 %105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %13)
           to label %215 unwind label %.body.thread197.loopexit
 
-.body.thread197.loopexit:                         ; preds = %203, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit.i", %176, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i, %172, %161, %148, %151
+.body.thread197.loopexit:                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit.i", %176, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i, %172, %161, %151, %148, %203
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.critedge
 
-.body.thread197.loopexit.split-lp:                ; preds = %167, %163
+.body.thread197.loopexit.split-lp:                ; preds = %163, %167
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.critedge
@@ -1271,8 +1271,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %200, %.
   br i1 %.139157, label %237, label %.thread205
 
 .thread151:                                       ; preds = %81, %55, %.thread171
-  %.pn53.pn.pn161 = phi { ptr, i32 } [ %53, %.thread171 ], [ %.pn, %55 ], [ %82, %81 ]
-  %.139157 = phi i1 [ true, %.thread171 ], [ true, %55 ], [ false, %81 ]
+  %.pn53.pn.pn161 = phi { ptr, i32 } [ %.pn, %55 ], [ %53, %.thread171 ], [ %82, %81 ]
+  %.139157 = phi i1 [ true, %55 ], [ true, %.thread171 ], [ false, %81 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$17h1892be553737073aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #18
           to label %.thread162 unwind label %230
 

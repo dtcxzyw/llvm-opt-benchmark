@@ -363,7 +363,7 @@ _ZN4FLAC8Metadata7UnknownC2ERKS1_.exit:           ; preds = %82
   br label %91
 
 .thread65:                                        ; preds = %1, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit, %81
-  %.027 = phi ptr [ %13, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit ], [ %23, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit ], [ %33, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit ], [ %43, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit ], [ %53, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit ], [ %63, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit ], [ %73, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit ], [ %83, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit ], [ null, %81 ], [ null, %1 ]
+  %.027 = phi ptr [ %83, %_ZN4FLAC8Metadata7UnknownC2ERKS1_.exit ], [ %13, %_ZN4FLAC8Metadata10StreamInfoC2ERKS1_.exit ], [ %23, %_ZN4FLAC8Metadata7PaddingC2ERKS1_.exit ], [ %33, %_ZN4FLAC8Metadata11ApplicationC2ERKS1_.exit ], [ %43, %_ZN4FLAC8Metadata9SeekTableC2ERKS1_.exit ], [ %53, %_ZN4FLAC8Metadata13VorbisCommentC2ERKS1_.exit ], [ %63, %_ZN4FLAC8Metadata8CueSheetC2ERKS1_.exit ], [ %73, %_ZN4FLAC8Metadata7PictureC2ERKS1_.exit ], [ null, %81 ], [ null, %1 ]
   ret ptr %.027
 
 91:                                               ; preds = %89, %79, %69, %59, %49, %39, %29, %19
@@ -1718,7 +1718,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   br label %46
 
 46:                                               ; preds = %34, %30, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %45
-  %.sink = phi i8 [ 1, %45 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %30 ], [ 0, %34 ]
+  %.sink = phi i8 [ 1, %45 ], [ 0, %30 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %34 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %47, align 8, !tbaa !25
   ret void

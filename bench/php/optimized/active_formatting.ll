@@ -120,7 +120,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %.critedge
-  %.not1720 = phi i1 [ true, %12 ], [ false, %.critedge ], [ %.not1720.ph, %.sink.split ]
+  %.not1720 = phi i1 [ false, %.critedge ], [ true, %12 ], [ %.not1720.ph, %.sink.split ]
   ret i1 %.not1720
 }
 
@@ -342,8 +342,8 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr nou
   br label %29
 
 29:                                               ; preds = %26, %21, %16
-  %.124 = phi i64 [ %.02331, %21 ], [ %.02331, %16 ], [ %spec.select, %26 ]
-  %.1 = phi i64 [ %.032, %21 ], [ %.032, %16 ], [ %spec.select27, %26 ]
+  %.124 = phi i64 [ %.02331, %16 ], [ %spec.select, %26 ], [ %.02331, %21 ]
+  %.1 = phi i64 [ %.032, %16 ], [ %spec.select27, %26 ], [ %.032, %21 ]
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %._crit_edge, label %11
 

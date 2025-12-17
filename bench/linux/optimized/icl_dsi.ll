@@ -5089,7 +5089,7 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   br label %.thread7
 
 .thread7:                                         ; preds = %42, %.thread6, %.thread, %75, %6
-  %114 = phi i64 [ %7, %6 ], [ %113, %75 ], [ -22, %.thread ], [ -16, %.thread6 ], [ -16, %42 ]
+  %114 = phi i64 [ %7, %6 ], [ %113, %75 ], [ -16, %.thread6 ], [ -22, %.thread ], [ -16, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %114
 }

@@ -246,7 +246,7 @@ strview.exit51:                                   ; preds = %42, %46
   %.not39 = icmp slt i32 %3, %53
   br i1 %.not39, label %.thread, label %.thread58
 
-.thread58:                                        ; preds = %51, %strview.exit51, %.thread
+.thread58:                                        ; preds = %strview.exit51, %51, %.thread
   %54 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #26
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %gv_alloc.exit
@@ -516,7 +516,7 @@ gv_alloc.exit:                                    ; preds = %79
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %97, %95, %94, %92, %78, %76, %64, %62, %32, %29
-  %.1 = phi ptr [ null, %29 ], [ null, %32 ], [ null, %62 ], [ null, %64 ], [ null, %76 ], [ null, %78 ], [ null, %92 ], [ null, %94 ], [ %91, %95 ], [ %91, %97 ]
+  %.1 = phi ptr [ null, %78 ], [ null, %64 ], [ null, %32 ], [ null, %94 ], [ null, %29 ], [ null, %62 ], [ null, %76 ], [ null, %92 ], [ %91, %95 ], [ %91, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %98
 
@@ -872,7 +872,7 @@ strview.exit135:                                  ; preds = %strview.exit130
   %.not = icmp eq ptr %.092, null
   br i1 %.not, label %.critedge114.thread, label %37, !llvm.loop !46
 
-80:                                               ; preds = %74, %75
+80:                                               ; preds = %75, %74
   %81 = getelementptr inbounds nuw i8, ptr %.092148, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.092148, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !21
@@ -1019,7 +1019,7 @@ gvplugin_activate.exit:                           ; preds = %127, %125
   br label %.critedge114.thread
 
 .critedge114.thread:                              ; preds = %79, %30, %144, %148, %.critedge114
-  %.093142 = phi ptr [ %.092148, %148 ], [ %.092148, %.critedge114 ], [ null, %144 ], [ null, %30 ], [ null, %79 ]
+  %.093142 = phi ptr [ %.092148, %.critedge114 ], [ %.092148, %148 ], [ null, %144 ], [ null, %30 ], [ null, %79 ]
   %.not110 = icmp eq ptr %3, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 31
   %.val115.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !42
@@ -2035,8 +2035,8 @@ sub_1901:                                         ; preds = %sub_0900
   br label %.tail899.thread
 
 .tail899.thread:                                  ; preds = %sub_1901, %sub_0900, %.tail895.thread, %129, %.tail895, %.tail, %.tail899, %138
-  %.0314 = phi ptr [ %108, %.tail899 ], [ @.str.51, %138 ], [ @.str.43, %.tail ], [ @.str.45, %.tail895 ], [ @.str.47, %129 ], [ @.str.47, %.tail895.thread ], [ %108, %sub_0900 ], [ %108, %sub_1901 ]
-  %.0312 = phi ptr [ %108, %.tail899 ], [ @.str.52, %138 ], [ @.str.44, %.tail ], [ @.str.46, %.tail895 ], [ @.str.49, %129 ], [ @.str.49, %.tail895.thread ], [ %108, %sub_0900 ], [ %108, %sub_1901 ]
+  %.0314 = phi ptr [ @.str.45, %.tail895 ], [ @.str.43, %.tail ], [ %108, %.tail899 ], [ @.str.51, %138 ], [ @.str.47, %129 ], [ @.str.47, %.tail895.thread ], [ %108, %sub_0900 ], [ %108, %sub_1901 ]
+  %.0312 = phi ptr [ @.str.46, %.tail895 ], [ @.str.44, %.tail ], [ %108, %.tail899 ], [ @.str.52, %138 ], [ @.str.49, %129 ], [ @.str.49, %.tail895.thread ], [ %108, %sub_0900 ], [ %108, %sub_1901 ]
   %139 = load ptr, ptr %26, align 8, !tbaa !44
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.53, ptr noundef %139, ptr noundef %56, ptr noundef nonnull %.0314)
   %.val.i396 = load i8, ptr %21, align 1, !tbaa !42
@@ -2573,11 +2573,11 @@ default.unreachable:                              ; preds = %118
   unreachable
 
 329:                                              ; preds = %186, %194, %agxbuse.exit455, %agxbuse.exit440, %agxbuse.exit425
-  %.2338 = phi ptr [ %.13371132, %186 ], [ %.13371132, %194 ], [ %236, %agxbuse.exit425 ], [ %.13371132, %agxbuse.exit440 ], [ %.13371132, %agxbuse.exit455 ]
-  %.3333 = phi ptr [ %..1331, %186 ], [ %..1331, %194 ], [ %.13311133, %agxbuse.exit425 ], [ %.13311133, %agxbuse.exit440 ], [ %.13311133, %agxbuse.exit455 ]
-  %.2328 = phi ptr [ %.13271134, %186 ], [ %.13271134, %194 ], [ %.13271134, %agxbuse.exit425 ], [ %279, %agxbuse.exit440 ], [ %.13271134, %agxbuse.exit455 ]
-  %.2324 = phi ptr [ %.13231135, %186 ], [ %.13231135, %194 ], [ %.13231135, %agxbuse.exit425 ], [ %.13231135, %agxbuse.exit440 ], [ %324, %agxbuse.exit455 ]
-  %.3302 = phi ptr [ %.1300., %186 ], [ %.1300., %194 ], [ %.13001136, %agxbuse.exit425 ], [ %.13001136, %agxbuse.exit440 ], [ %.13001136, %agxbuse.exit455 ]
+  %.2338 = phi ptr [ %.13371132, %agxbuse.exit455 ], [ %.13371132, %186 ], [ %.13371132, %194 ], [ %236, %agxbuse.exit425 ], [ %.13371132, %agxbuse.exit440 ]
+  %.3333 = phi ptr [ %.13311133, %agxbuse.exit455 ], [ %..1331, %186 ], [ %..1331, %194 ], [ %.13311133, %agxbuse.exit425 ], [ %.13311133, %agxbuse.exit440 ]
+  %.2328 = phi ptr [ %.13271134, %agxbuse.exit455 ], [ %.13271134, %186 ], [ %.13271134, %194 ], [ %.13271134, %agxbuse.exit425 ], [ %279, %agxbuse.exit440 ]
+  %.2324 = phi ptr [ %324, %agxbuse.exit455 ], [ %.13231135, %186 ], [ %.13231135, %194 ], [ %.13231135, %agxbuse.exit425 ], [ %.13231135, %agxbuse.exit440 ]
+  %.3302 = phi ptr [ %.13001136, %agxbuse.exit455 ], [ %.1300., %186 ], [ %.1300., %194 ], [ %.13001136, %agxbuse.exit425 ], [ %.13001136, %agxbuse.exit440 ]
   call void @free(ptr noundef nonnull %108) #25
   br label %330
 
@@ -3317,8 +3317,8 @@ sub_1915:                                         ; preds = %sub_0914
   br label %.tail913.thread
 
 .tail913.thread:                                  ; preds = %sub_1915, %sub_0914, %.tail908.thread, %588, %.tail908, %.tail904, %.tail913, %597
-  %.1315 = phi ptr [ %568, %.tail913 ], [ @.str.51, %597 ], [ @.str.43, %.tail904 ], [ @.str.45, %.tail908 ], [ @.str.47, %588 ], [ @.str.47, %.tail908.thread ], [ %568, %sub_0914 ], [ %568, %sub_1915 ]
-  %.1313 = phi ptr [ %568, %.tail913 ], [ @.str.52, %597 ], [ @.str.44, %.tail904 ], [ @.str.46, %.tail908 ], [ @.str.49, %588 ], [ @.str.49, %.tail908.thread ], [ %568, %sub_0914 ], [ %568, %sub_1915 ]
+  %.1315 = phi ptr [ @.str.45, %.tail908 ], [ @.str.43, %.tail904 ], [ %568, %.tail913 ], [ @.str.51, %597 ], [ @.str.47, %588 ], [ @.str.47, %.tail908.thread ], [ %568, %sub_0914 ], [ %568, %sub_1915 ]
+  %.1313 = phi ptr [ @.str.46, %.tail908 ], [ @.str.44, %.tail904 ], [ %568, %.tail913 ], [ @.str.52, %597 ], [ @.str.49, %588 ], [ @.str.49, %.tail908.thread ], [ %568, %sub_0914 ], [ %568, %sub_1915 ]
   switch i64 %.03041162, label %881 [
     i64 3, label %598
     i64 4, label %741

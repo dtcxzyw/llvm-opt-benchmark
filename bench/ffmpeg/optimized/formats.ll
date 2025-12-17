@@ -115,7 +115,7 @@ define ptr @ff_make_format_list(ptr noundef readonly captures(address_is_null) %
   br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7, %.loopexit, %12
-  %.011 = phi ptr [ null, %12 ], [ null, %.loopexit ], [ %6, %7 ], [ %6, %.lr.ph ]
+  %.011 = phi ptr [ null, %.loopexit ], [ null, %12 ], [ %6, %7 ], [ %6, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.011
 }
@@ -440,8 +440,8 @@ define range(i32 -2147483648, 1) i32 @ff_add_channel_layout(ptr noundef captures
   store i32 %33, ptr %31, align 8, !tbaa !34
   br label %.thread
 
-.thread:                                          ; preds = %15, %4, %14, %29
-  %34 = phi i32 [ 0, %29 ], [ %27, %15 ], [ -12, %4 ], [ -12, %14 ]
+.thread:                                          ; preds = %15, %14, %4, %29
+  %34 = phi i32 [ 0, %29 ], [ %27, %15 ], [ -12, %14 ], [ -12, %4 ]
   ret i32 %34
 }
 
@@ -586,7 +586,7 @@ define ptr @ff_make_formats_list_singleton(i32 noundef %0) local_unnamed_addr #2
   br label %ff_make_format_list.exit
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i.preheader, %.loopexit.loopexit.i, %8, %15
-  %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i.preheader ]
+  %.011.i = phi ptr [ null, %.loopexit.loopexit.i ], [ null, %15 ], [ %7, %8 ], [ %7, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.011.i
@@ -629,7 +629,7 @@ define ptr @ff_all_formats(i32 noundef %0) local_unnamed_addr #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %.preheader, %.critedge.loopexit, %4
-  %.07 = phi ptr [ %5, %4 ], [ %.pre, %.critedge.loopexit ], [ null, %.preheader ], [ null, %1 ], [ null, %.lr.ph ]
+  %.07 = phi ptr [ %5, %4 ], [ null, %1 ], [ %.pre, %.critedge.loopexit ], [ null, %.preheader ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.07
 }
@@ -683,7 +683,7 @@ define noundef ptr @ff_formats_pixdesc_filter(i32 noundef %0, i32 noundef %1) lo
   br label %23
 
 23:                                               ; preds = %21, %18, %.lr.ph.split.us
-  %.022.us = phi i32 [ %13, %.lr.ph.split.us ], [ %22, %21 ], [ %13, %18 ]
+  %.022.us = phi i32 [ %13, %.lr.ph.split.us ], [ %13, %18 ], [ %22, %21 ]
   %24 = and i32 %.022.us, %4
   %.not33.us = icmp eq i32 %24, %0
   %25 = zext i1 %.not33.us to i32
@@ -721,7 +721,7 @@ define noundef ptr @ff_formats_pixdesc_filter(i32 noundef %0, i32 noundef %1) lo
   br label %41
 
 41:                                               ; preds = %39, %36, %.lr.ph.split
-  %.022 = phi i32 [ %31, %.lr.ph.split ], [ %40, %39 ], [ %31, %36 ]
+  %.022 = phi i32 [ %31, %.lr.ph.split ], [ %31, %36 ], [ %40, %39 ]
   %42 = and i32 %.022, %4
   %.not33 = icmp eq i32 %42, %0
   br i1 %.not33, label %43, label %48
@@ -834,7 +834,7 @@ define ptr @ff_planar_sample_fmts() local_unnamed_addr #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %0, %._crit_edge.loopexit
-  %.04 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %0 ], [ null, %6 ]
+  %.04 = phi ptr [ null, %0 ], [ %.pre, %._crit_edge.loopexit ], [ null, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.04
 }
@@ -1460,7 +1460,7 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   br label %.thread59
 
 .thread59:                                        ; preds = %.thread59.sink.split, %.preheader.i.i50, %.preheader.i.i, %._crit_edge, %2
-  %.0 = phi i32 [ -12, %2 ], [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %2 ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
   ret i32 %.0
 }
 
@@ -1518,7 +1518,7 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list(ptr noundef re
   br i1 %17, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
-  %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %13 ], [ %7, %8 ], [ %7, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_samplerates(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
@@ -1702,7 +1702,7 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   br label %.thread59
 
 .thread59:                                        ; preds = %.thread59.sink.split, %.preheader.i.i50, %.preheader.i.i, %._crit_edge, %2
-  %.0 = phi i32 [ -12, %2 ], [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %2 ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
   ret i32 %.0
 }
 
@@ -1760,7 +1760,7 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list(ptr noundef r
   br i1 %17, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
-  %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %13 ], [ %7, %8 ], [ %7, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_color_spaces(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
@@ -1973,7 +1973,7 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   br label %.thread59
 
 .thread59:                                        ; preds = %.thread59.sink.split, %.preheader.i.i50, %.preheader.i.i, %._crit_edge, %2
-  %.0 = phi i32 [ -12, %2 ], [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %2 ], [ -12, %.preheader.i.i50 ], [ %.0.ph, %.thread59.sink.split ]
   ret i32 %.0
 }
 
@@ -2031,7 +2031,7 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list(ptr noundef r
   br i1 %17, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
-  %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %13 ], [ %7, %8 ], [ %7, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_color_ranges(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
@@ -2220,7 +2220,7 @@ ff_formats_unref.exit:                            ; preds = %._crit_edge
   br label %.thread57
 
 .thread57:                                        ; preds = %.thread57.sink.split, %.preheader.i.i48, %.preheader.i.i, %._crit_edge, %2
-  %.0 = phi i32 [ -12, %2 ], [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %.preheader.i.i48 ], [ %.0.ph, %.thread57.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -12, %.preheader.i.i ], [ -12, %2 ], [ -12, %.preheader.i.i48 ], [ %.0.ph, %.thread57.sink.split ]
   ret i32 %.0
 }
 
@@ -2278,7 +2278,7 @@ define range(i32 -12, 1) i32 @ff_set_common_formats_from_list(ptr noundef readon
   br i1 %17, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %8, %13
-  %.011.i = phi ptr [ null, %13 ], [ null, %.loopexit.i ], [ %7, %8 ], [ %7, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %13 ], [ %7, %8 ], [ %7, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @ff_set_common_formats(ptr noundef %0, ptr noundef %.011.i)
   ret i32 %18
@@ -2438,7 +2438,7 @@ define range(i32 -12, 1) i32 @ff_set_common_channel_layouts2(ptr noundef readonl
   br label %74
 
 74:                                               ; preds = %70, %.thread58, %._crit_edge, %73, %4
-  %.0 = phi i32 [ -12, %70 ], [ -12, %4 ], [ 0, %73 ], [ 0, %._crit_edge ], [ -12, %.thread58 ]
+  %.0 = phi i32 [ -12, %4 ], [ -12, %70 ], [ -12, %.thread58 ], [ 0, %73 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2692,7 +2692,7 @@ define range(i32 -12, 1) i32 @ff_set_common_samplerates_from_list2(ptr noundef r
   br i1 %19, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
-  %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %15 ], [ %9, %10 ], [ %9, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_samplerates2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
@@ -2930,7 +2930,7 @@ define range(i32 -12, 1) i32 @ff_set_common_color_spaces_from_list2(ptr noundef 
   br i1 %19, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
-  %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %15 ], [ %9, %10 ], [ %9, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_color_spaces2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
@@ -3197,7 +3197,7 @@ define range(i32 -12, 1) i32 @ff_set_common_color_ranges_from_list2(ptr noundef 
   br i1 %19, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
-  %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %15 ], [ %9, %10 ], [ %9, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_color_ranges2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
@@ -3430,7 +3430,7 @@ define range(i32 -12, 1) i32 @ff_set_common_formats_from_list2(ptr noundef reado
   br i1 %19, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %10, %15
-  %.011.i = phi ptr [ null, %15 ], [ null, %.loopexit.i ], [ %9, %10 ], [ %9, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %15 ], [ %9, %10 ], [ %9, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.011.i)
   ret i32 %20
@@ -3512,7 +3512,7 @@ define range(i32 -12, 1) i32 @ff_default_query_formats(ptr noundef readonly capt
   br i1 %31, label %ff_make_format_list.exit, label %.lr.ph.i, !llvm.loop !30
 
 ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexit.i, %22, %27
-  %.011.i = phi ptr [ null, %27 ], [ null, %.loopexit.i ], [ %21, %22 ], [ %21, %.lr.ph.i ]
+  %.011.i = phi ptr [ null, %.loopexit.i ], [ null, %27 ], [ %21, %22 ], [ %21, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %96
 
@@ -3570,7 +3570,7 @@ ff_make_format_list.exit:                         ; preds = %.lr.ph.i, %.loopexi
   br i1 %48, label %ff_make_format_list.exit53, label %.lr.ph.i49, !llvm.loop !30
 
 ff_make_format_list.exit53:                       ; preds = %.lr.ph.i49, %.loopexit.i44, %39, %44
-  %.011.i52 = phi ptr [ null, %44 ], [ null, %.loopexit.i44 ], [ %38, %39 ], [ %38, %.lr.ph.i49 ]
+  %.011.i52 = phi ptr [ null, %.loopexit.i44 ], [ null, %44 ], [ %38, %39 ], [ %38, %.lr.ph.i49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %96
 
@@ -3622,7 +3622,7 @@ ff_make_format_list.exit53:                       ; preds = %.lr.ph.i49, %.loope
   br label %ff_make_formats_list_singleton.exit
 
 ff_make_formats_list_singleton.exit:              ; preds = %.loopexit.loopexit.i.i, %56, %.lr.ph.i.preheader.i, %63
-  %.011.i.i = phi ptr [ null, %63 ], [ null, %.loopexit.loopexit.i.i ], [ %55, %56 ], [ %55, %.lr.ph.i.preheader.i ]
+  %.011.i.i = phi ptr [ null, %.loopexit.loopexit.i.i ], [ null, %63 ], [ %55, %56 ], [ %55, %.lr.ph.i.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %96
@@ -3675,7 +3675,7 @@ ff_make_formats_list_singleton.exit:              ; preds = %.loopexit.loopexit.
   br label %ff_make_formats_list_singleton.exit64
 
 ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.i.i58, %71, %.lr.ph.i.preheader.i62, %78
-  %.011.i.i63 = phi ptr [ null, %78 ], [ null, %.loopexit.loopexit.i.i58 ], [ %70, %71 ], [ %70, %.lr.ph.i.preheader.i62 ]
+  %.011.i.i63 = phi ptr [ null, %.loopexit.loopexit.i.i58 ], [ null, %78 ], [ %70, %71 ], [ %70, %.lr.ph.i.preheader.i62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
@@ -3737,7 +3737,7 @@ ff_make_formats_list_singleton.exit64:            ; preds = %.loopexit.loopexit.
   br label %ff_all_formats.exit
 
 ff_all_formats.exit:                              ; preds = %.lr.ph.i66, %85, %.preheader.i65, %89, %.critedge.loopexit.i
-  %.07.i = phi ptr [ %90, %89 ], [ %.pre.i, %.critedge.loopexit.i ], [ null, %.preheader.i65 ], [ null, %85 ], [ null, %.lr.ph.i66 ]
+  %.07.i = phi ptr [ %90, %89 ], [ null, %85 ], [ %.pre.i, %.critedge.loopexit.i ], [ null, %.preheader.i65 ], [ null, %.lr.ph.i66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
@@ -4005,7 +4005,7 @@ define range(i32 -22, 1) i32 @ff_formats_check_sample_rates(ptr noundef %0, ptr 
   br label %check_list.exit
 
 check_list.exit:                                  ; preds = %.loopexit.i, %.loopexit21.sink.split.i, %2, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ -22, %.loopexit21.sink.split.i ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -4256,7 +4256,7 @@ layouts_compatible.exit:                          ; preds = %40, %.thread.i
   %.not29 = icmp eq i32 %45, %43
   br i1 %.not29, label %.loopexit30.sink.split, label %layouts_compatible.exit.thread
 
-layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %.thread23.i, %.thread.i, %layouts_compatible.exit
+layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %.thread.i, %.thread23.i, %layouts_compatible.exit
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %46 = load i32, ptr %14, align 8, !tbaa !34
   %47 = zext i32 %46 to i64
@@ -4264,7 +4264,7 @@ layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %
   br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !127
 
 .loopexit30.sink.split:                           ; preds = %layouts_compatible.exit, %36, %.lr.ph, %12, %3
-  %.str.11.sink = phi ptr [ @.str.9, %3 ], [ @.str.10, %12 ], [ @.str.11, %.lr.ph ], [ @.str.11, %36 ], [ @.str.11, %layouts_compatible.exit ]
+  %.str.11.sink = phi ptr [ @.str.10, %12 ], [ @.str.9, %3 ], [ @.str.11, %.lr.ph ], [ @.str.11, %36 ], [ @.str.11, %layouts_compatible.exit ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.11.sink) #10
   br label %.loopexit30
 
@@ -4526,7 +4526,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %76, %.preheader89, %.preheader.lr.ph, %.preheader88, %84, %._crit_edge117, %._crit_edge122, %.loopexit90, %4
-  %.059 = phi i32 [ 1, %4 ], [ 0, %.loopexit90 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader89 ], [ 1, %76 ]
+  %.059 = phi i32 [ 0, %.loopexit90 ], [ 1, %4 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader89 ], [ 1, %76 ]
   ret i32 %.059
 }
 
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br i1 %127, label %.lr.ph223.us.us, label %.loopexit182.us.us
 
 .loopexit182.us.us:                               ; preds = %141, %._crit_edge310, %124, %114
-  %.4135.ph.us.us = phi i32 [ %.3134227.us.us, %114 ], [ %.3134227.us.us, %124 ], [ %.3134227.us.us, %._crit_edge310 ], [ %.6.us.us.us, %141 ]
+  %.4135.ph.us.us = phi i32 [ %.3134227.us.us, %124 ], [ %.3134227.us.us, %114 ], [ %.3134227.us.us, %._crit_edge310 ], [ %.6.us.us.us, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %128 = load ptr, ptr %4, align 8, !tbaa !33
@@ -5135,7 +5135,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit180
 
-.loopexit182:                                     ; preds = %207, %._crit_edge308, %200, %190
+.loopexit182:                                     ; preds = %207, %._crit_edge308, %190, %200
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %212 = load ptr, ptr %4, align 8, !tbaa !33
@@ -5317,7 +5317,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_channel_layouts_internal(ptr
   br label %.loopexit180
 
 .loopexit180:                                     ; preds = %60, %164, %.lr.ph242.split, %.preheader187, %._crit_edge210, %66, %.thread178, %211, %97, %._crit_edge, %3, %._crit_edge254, %261
-  %.0124 = phi i32 [ 1, %211 ], [ 1, %._crit_edge254 ], [ 0, %261 ], [ 1, %3 ], [ 0, %._crit_edge ], [ -12, %97 ], [ -12, %.thread178 ], [ -12, %66 ], [ 1, %._crit_edge210 ], [ 0, %.preheader187 ], [ 1, %.lr.ph242.split ], [ 1, %164 ], [ 1, %60 ]
+  %.0124 = phi i32 [ 0, %._crit_edge ], [ 0, %261 ], [ 1, %3 ], [ -12, %97 ], [ 1, %211 ], [ 1, %._crit_edge254 ], [ -12, %.thread178 ], [ -12, %66 ], [ 1, %._crit_edge210 ], [ 0, %.preheader187 ], [ 1, %164 ], [ 1, %.lr.ph242.split ], [ 1, %60 ]
   ret i32 %.0124
 }
 
@@ -5467,8 +5467,8 @@ define internal fastcc range(i32 -12, 2) i32 @merge_samplerates_internal(ptr nou
   call void @av_freep(ptr noundef nonnull %4) #10
   br label %.thread65
 
-.thread65:                                        ; preds = %25, %.thread, %.thread60, %._crit_edge, %12, %._crit_edge79, %3
-  %.037 = phi i32 [ 1, %3 ], [ 1, %._crit_edge79 ], [ 1, %.thread ], [ -12, %.thread60 ], [ 0, %._crit_edge ], [ 1, %12 ], [ 1, %25 ]
+.thread65:                                        ; preds = %25, %.thread, %.thread60, %12, %._crit_edge, %._crit_edge79, %3
+  %.037 = phi i32 [ 1, %3 ], [ 1, %._crit_edge79 ], [ 1, %.thread ], [ -12, %.thread60 ], [ 1, %12 ], [ 0, %._crit_edge ], [ 1, %25 ]
   ret i32 %.037
 }
 

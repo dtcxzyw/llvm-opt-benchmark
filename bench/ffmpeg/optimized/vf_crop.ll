@@ -187,7 +187,7 @@ config_output.exit:                               ; preds = %44, %54
   br label %.tail46.thread
 
 .tail46.thread:                                   ; preds = %sub_039, %.tail38, %.thread, %.tail42, %43, %config_output.exit, %.tail46
-  %.1 = phi i32 [ -38, %.tail46 ], [ 0, %config_output.exit ], [ %41, %43 ], [ -38, %.tail42 ], [ -38, %.thread ], [ -38, %.tail38 ], [ -38, %sub_039 ]
+  %.1 = phi i32 [ -38, %.tail46 ], [ 0, %config_output.exit ], [ %41, %43 ], [ -38, %sub_039 ], [ -38, %.tail42 ], [ -38, %.thread ], [ -38, %.tail38 ]
   ret i32 %.1
 }
 
@@ -790,7 +790,7 @@ normalize_double.exit139:                         ; preds = %.sink.split.i134
   br label %186
 
 186:                                              ; preds = %172, %180, %115, %124, %185, %171, %normalize_double.exit.thread
-  %.0 = phi i32 [ %.0119, %185 ], [ -22, %normalize_double.exit.thread ], [ -22, %171 ], [ -22, %124 ], [ -22, %115 ], [ 0, %180 ], [ 0, %172 ]
+  %.0 = phi i32 [ %.0119, %185 ], [ -22, %normalize_double.exit.thread ], [ -22, %115 ], [ -22, %171 ], [ -22, %124 ], [ 0, %180 ], [ 0, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

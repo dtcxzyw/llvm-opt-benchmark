@@ -494,7 +494,7 @@ _ZN7testing15AssertionResultD2Ev.exit101:         ; preds = %_ZNKSt14default_del
   ret void
 
 77:                                               ; preds = %_ZN7testing7MessageD2Ev.exit48, %_ZN7testing7MessageD2Ev.exit38
-  %.pn30.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit38 ]
+  %.pn30.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit38 ], [ %.pn19.pn, %_ZN7testing7MessageD2Ev.exit48 ]
   resume { ptr, i32 } %.pn30.pn.pn.pn
 }
 

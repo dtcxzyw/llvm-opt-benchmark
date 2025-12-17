@@ -619,7 +619,7 @@ define internal i32 @lut2_config_output(ptr noundef captures(none) initializes((
   br label %162
 
 162:                                              ; preds = %141, %137, %158, %130, %122, %._crit_edge169, %._crit_edge164, %86, %79, %._crit_edge, %62
-  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %79 ], [ -22, %86 ], [ -22, %._crit_edge164 ], [ -22, %._crit_edge169 ], [ -22, %122 ], [ -22, %130 ], [ %159, %158 ], [ -22, %62 ], [ %139, %137 ], [ %156, %141 ]
+  %.0 = phi i32 [ -22, %._crit_edge ], [ -22, %79 ], [ -22, %86 ], [ -22, %._crit_edge164 ], [ -22, %._crit_edge169 ], [ -22, %122 ], [ -22, %130 ], [ -22, %62 ], [ %139, %137 ], [ %159, %158 ], [ %156, %141 ]
   ret i32 %.0
 }
 
@@ -717,7 +717,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #0 {
   br label %56
 
 56:                                               ; preds = %.critedge, %24, %1, %15, %46
-  %.030 = phi i32 [ %55, %46 ], [ %13, %1 ], [ %16, %15 ], [ -12, %24 ], [ -12, %.critedge ]
+  %.030 = phi i32 [ %16, %15 ], [ %55, %46 ], [ -12, %.critedge ], [ %13, %1 ], [ -12, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.030
@@ -1256,7 +1256,7 @@ define internal noundef i32 @lut2_8_8_8(ptr noundef readonly captures(none) %0, 
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %.preheader.lr.ph, %._crit_edge69.loopexit, %26
-  %96 = phi i32 [ %.pre81, %._crit_edge69.loopexit ], [ %27, %26 ], [ %27, %.preheader.lr.ph ]
+  %96 = phi i32 [ %27, %26 ], [ %.pre81, %._crit_edge69.loopexit ], [ %27, %.preheader.lr.ph ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next77, %97
@@ -1788,7 +1788,7 @@ define internal noundef i32 @lut2_8_16_8(ptr noundef readonly captures(none) %0,
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %.preheader.lr.ph, %._crit_edge69.loopexit, %26
-  %97 = phi i32 [ %.pre81, %._crit_edge69.loopexit ], [ %27, %26 ], [ %27, %.preheader.lr.ph ]
+  %97 = phi i32 [ %27, %26 ], [ %.pre81, %._crit_edge69.loopexit ], [ %27, %.preheader.lr.ph ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next77, %98
@@ -1937,7 +1937,7 @@ define internal noundef i32 @lut2_8_8_16(ptr noundef readonly captures(none) %0,
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %.preheader.lr.ph, %._crit_edge69.loopexit, %26
-  %97 = phi i32 [ %.pre81, %._crit_edge69.loopexit ], [ %27, %26 ], [ %27, %.preheader.lr.ph ]
+  %97 = phi i32 [ %27, %26 ], [ %.pre81, %._crit_edge69.loopexit ], [ %27, %.preheader.lr.ph ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next77, %98
@@ -2087,7 +2087,7 @@ define internal noundef i32 @lut2_8_16_16(ptr noundef readonly captures(none) %0
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %.preheader.lr.ph, %._crit_edge69.loopexit, %26
-  %98 = phi i32 [ %.pre81, %._crit_edge69.loopexit ], [ %27, %26 ], [ %27, %.preheader.lr.ph ]
+  %98 = phi i32 [ %27, %26 ], [ %.pre81, %._crit_edge69.loopexit ], [ %27, %.preheader.lr.ph ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next77, %99

@@ -89,7 +89,7 @@ define internal fastcc i32 @cuddZddCountStep(ptr noundef %0, ptr noundef nonnull
   br label %30
 
 30:                                               ; preds = %23, %29, %27, %14, %7, %4, %11
-  %.0 = phi i32 [ %13, %11 ], [ 0, %4 ], [ 1, %7 ], [ -1, %14 ], [ -1, %27 ], [ -1, %29 ], [ %24, %23 ]
+  %.0 = phi i32 [ -1, %29 ], [ 0, %4 ], [ %13, %11 ], [ 1, %7 ], [ -1, %14 ], [ -1, %27 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -191,7 +191,7 @@ define internal fastcc double @cuddZddCountDoubleStep(ptr noundef %0, ptr nounde
   br label %30
 
 30:                                               ; preds = %23, %29, %27, %14, %7, %4, %11
-  %.0 = phi double [ %13, %11 ], [ 0.000000e+00, %4 ], [ 1.000000e+00, %7 ], [ -1.000000e+00, %14 ], [ -1.000000e+00, %27 ], [ -1.000000e+00, %29 ], [ %24, %23 ]
+  %.0 = phi double [ -1.000000e+00, %29 ], [ 0.000000e+00, %4 ], [ %13, %11 ], [ 1.000000e+00, %7 ], [ -1.000000e+00, %14 ], [ -1.000000e+00, %27 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0
 }

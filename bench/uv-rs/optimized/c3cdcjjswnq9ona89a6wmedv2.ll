@@ -6160,7 +6160,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   unreachable
 
 common.resume:                                    ; preds = %19, %36, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %36 ], [ %20, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %25, %24 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hf9ca491b0089f768E.exit": ; preds = %26
@@ -11967,7 +11967,7 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   unreachable
 
 common.resume:                                    ; preds = %21, %41, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %42, %41 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %32, %31 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hf9ca491b0089f768E.exit": ; preds = %33
@@ -12136,7 +12136,7 @@ define hidden void @"_ZN169_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   unreachable
 
 common.resume:                                    ; preds = %21, %41, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %42, %41 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %32, %31 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hf9ca491b0089f768E.exit": ; preds = %33

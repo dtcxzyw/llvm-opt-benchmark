@@ -40,8 +40,8 @@ define void @ff_rtp_send_raw_rfc4175(ptr noundef %0, ptr noundef readonly captur
   br label %25
 
 25:                                               ; preds = %5, %24, %23, %22
-  %.097 = phi i32 [ 5, %22 ], [ 6, %23 ], [ 3, %24 ], [ 4, %5 ]
-  %.0 = phi i32 [ 2, %22 ], [ 4, %23 ], [ 1, %24 ], [ 2, %5 ]
+  %.097 = phi i32 [ 4, %5 ], [ 5, %22 ], [ 6, %23 ], [ 3, %24 ]
+  %.0 = phi i32 [ 2, %5 ], [ 2, %22 ], [ 4, %23 ], [ 1, %24 ]
   %.095 = shl nuw i32 1, %3
   %26 = icmp sgt i32 %16, 0
   br i1 %26, label %.lr.ph, label %.loopexit

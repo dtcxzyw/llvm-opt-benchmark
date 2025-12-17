@@ -204,7 +204,7 @@ lzma2_bound.exit.thread:                          ; preds = %40, %44
   br label %75
 
 75:                                               ; preds = %lzma2_bound.exit.thread, %33, %._crit_edge, %66, %55, %.thread, %31, %22, %27, %19, %8, %16, %11
-  %.069 = phi i32 [ 11, %11 ], [ 11, %16 ], [ 11, %8 ], [ 8, %19 ], [ 11, %27 ], [ 11, %22 ], [ 3, %31 ], [ 10, %33 ], [ %57, %.thread ], [ %56, %55 ], [ 0, %66 ], [ 0, %._crit_edge ], [ 9, %lzma2_bound.exit.thread ]
+  %.069 = phi i32 [ 11, %22 ], [ 11, %8 ], [ 8, %19 ], [ 3, %31 ], [ 11, %11 ], [ 11, %16 ], [ 11, %27 ], [ 9, %lzma2_bound.exit.thread ], [ 10, %33 ], [ %57, %.thread ], [ %56, %55 ], [ 0, %66 ], [ 0, %._crit_edge ]
   ret i32 %.069
 }
 
@@ -290,7 +290,7 @@ select.unfold50:                                  ; preds = %34
   br label %43
 
 43:                                               ; preds = %34, %35, %select.unfold50
-  %.1.ph = phi i32 [ 10, %select.unfold50 ], [ 11, %35 ], [ %.0, %34 ]
+  %.1.ph = phi i32 [ 10, %select.unfold50 ], [ %.0, %34 ], [ 11, %35 ]
   store i64 %12, ptr %5, align 8, !tbaa !4
   br label %44
 
@@ -300,7 +300,7 @@ select.unfold50:                                  ; preds = %34
   br label %45
 
 45:                                               ; preds = %7, %11, %44
-  %.141 = phi i32 [ %.154, %44 ], [ %10, %7 ], [ 10, %11 ]
+  %.141 = phi i32 [ %10, %7 ], [ %.154, %44 ], [ 10, %11 ]
   ret i32 %.141
 }
 

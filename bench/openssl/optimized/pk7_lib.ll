@@ -682,7 +682,7 @@ define i32 @PKCS7_SIGNER_INFO_set(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %pkcs7_ecdsa_or_dsa_sign_verify_setup.exit
 
 pkcs7_ecdsa_or_dsa_sign_verify_setup.exit:        ; preds = %33, %39, %42, %45, %48
-  %.0.i = phi i32 [ %51, %48 ], [ -1, %39 ], [ -1, %33 ], [ -1, %42 ], [ -1, %45 ]
+  %.0.i = phi i32 [ -1, %42 ], [ -1, %33 ], [ %51, %48 ], [ -1, %39 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
@@ -731,7 +731,7 @@ pkcs7_ecdsa_or_dsa_sign_verify_setup.exit:        ; preds = %33, %39, %42, %45, 
   br label %69
 
 69:                                               ; preds = %63, %21, %13, %8, %4, %68, %67, %54, %pkcs7_ecdsa_or_dsa_sign_verify_setup.exit
-  %.0 = phi i32 [ %.0.i, %pkcs7_ecdsa_or_dsa_sign_verify_setup.exit ], [ %56, %54 ], [ 0, %67 ], [ 0, %68 ], [ 0, %4 ], [ 0, %8 ], [ 0, %13 ], [ 0, %21 ], [ 1, %63 ]
+  %.0 = phi i32 [ %.0.i, %pkcs7_ecdsa_or_dsa_sign_verify_setup.exit ], [ %56, %54 ], [ 0, %21 ], [ 0, %67 ], [ 0, %68 ], [ 0, %13 ], [ 0, %8 ], [ 0, %4 ], [ 1, %63 ]
   ret i32 %.0
 }
 
@@ -793,7 +793,7 @@ define ptr @PKCS7_add_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 151, ptr noundef null) #7
   br label %.thread
 
-.thread:                                          ; preds = %15, %7
+.thread:                                          ; preds = %7, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
@@ -1071,7 +1071,7 @@ define ptr @PKCS7_get_signer_info(ptr noundef readonly captures(address_is_null)
   br label %19
 
 19:                                               ; preds = %.sink.split, %12, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ null, %12 ], [ %18, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %12 ], [ %18, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1413,7 +1413,7 @@ pkcs7_rsa_encrypt_decrypt_setup.exit.thread:      ; preds = %25, %43, %pkcs7_rsa
   br label %48
 
 48:                                               ; preds = %38, %42, %45, %pkcs7_rsa_encrypt_decrypt_setup.exit, %21, %18, %10, %5, %2, %pkcs7_rsa_encrypt_decrypt_setup.exit.thread
-  %.0 = phi i32 [ 1, %pkcs7_rsa_encrypt_decrypt_setup.exit.thread ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %18 ], [ -2, %21 ], [ 0, %pkcs7_rsa_encrypt_decrypt_setup.exit ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %18 ], [ -2, %21 ], [ 1, %pkcs7_rsa_encrypt_decrypt_setup.exit.thread ], [ 0, %5 ], [ 0, %2 ], [ 0, %pkcs7_rsa_encrypt_decrypt_setup.exit ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -1601,7 +1601,7 @@ define range(i32 0, 2) i32 @PKCS7_stream(ptr noundef writeonly captures(none) %0
   br label %44
 
 44:                                               ; preds = %31, %17, %37, %6
-  %.0 = phi ptr [ %8, %6 ], [ %18, %17 ], [ %32, %31 ], [ %43, %37 ]
+  %.0 = phi ptr [ %43, %37 ], [ %8, %6 ], [ %18, %17 ], [ %32, %31 ]
   %45 = icmp eq ptr %.0, null
   br i1 %45, label %.thread20, label %.thread
 

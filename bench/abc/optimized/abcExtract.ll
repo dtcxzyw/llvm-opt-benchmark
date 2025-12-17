@@ -4481,7 +4481,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %221
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %221, %Vec_IntAlloc.exit.i, %229
-  %232 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %228, %229 ], [ null, %221 ]
+  %232 = phi ptr [ %228, %229 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %221 ]
   %233 = icmp sgt i32 %.val137, 0
   %.pre239 = load ptr, ptr %24, align 8, !tbaa !21
   br i1 %233, label %.lr.ph202, label %.critedge6

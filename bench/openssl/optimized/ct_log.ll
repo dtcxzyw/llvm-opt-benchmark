@@ -59,7 +59,7 @@ CTLOG_STORE_free.exit:                            ; preds = %6, %14
   br label %18
 
 18:                                               ; preds = %10, %2, %CTLOG_STORE_free.exit
-  %.0 = phi ptr [ null, %CTLOG_STORE_free.exit ], [ null, %2 ], [ %3, %10 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %CTLOG_STORE_free.exit ], [ %3, %10 ]
   ret ptr %.0
 }
 
@@ -174,7 +174,7 @@ define range(i32 0, 2) i32 @CTLOG_STORE_load_file(ptr noundef %0, ptr noundef %1
   br i1 %.not19, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %16, %18, %12, %9
-  %.sink = phi i32 [ 229, %9 ], [ 235, %12 ], [ 241, %18 ], [ 241, %16 ]
+  %.sink = phi i32 [ 235, %12 ], [ 229, %9 ], [ 241, %18 ], [ 241, %16 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.CTLOG_STORE_load_file) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef 109, ptr noundef null) #6
@@ -290,7 +290,7 @@ CTLOG_free.exit:                                  ; preds = %36, %38
   br label %45
 
 45:                                               ; preds = %30, %ctlog_new_from_conf.exit, %6, %3, %CTLOG_free.exit, %26
-  %.0 = phi i32 [ 1, %26 ], [ -1, %CTLOG_free.exit ], [ 1, %3 ], [ -1, %6 ], [ %22, %ctlog_new_from_conf.exit ], [ 1, %30 ]
+  %.0 = phi i32 [ -1, %CTLOG_free.exit ], [ 1, %3 ], [ -1, %6 ], [ 1, %26 ], [ %22, %ctlog_new_from_conf.exit ], [ 1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -385,7 +385,7 @@ CTLOG_free.exit:                                  ; preds = %CTLOG_free.exit.cri
   br label %42
 
 42:                                               ; preds = %4, %CTLOG_free.exit, %33
-  %.0 = phi ptr [ null, %CTLOG_free.exit ], [ %7, %33 ], [ null, %4 ]
+  %.0 = phi ptr [ %7, %33 ], [ null, %CTLOG_free.exit ], [ null, %4 ]
   ret ptr %.0
 }
 

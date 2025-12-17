@@ -216,7 +216,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   br label %zlib_deflateReset.exit
 
 zlib_deflateReset.exit:                           ; preds = %94, %24, %8, %6
-  %141 = phi i32 [ -2, %6 ], [ -2, %8 ], [ 0, %94 ], [ -2, %24 ]
+  %141 = phi i32 [ -2, %8 ], [ -2, %6 ], [ 0, %94 ], [ -2, %24 ]
   ret i32 %141
 }
 

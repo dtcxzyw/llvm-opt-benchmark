@@ -184,7 +184,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
   br i1 %exitcond31.not, label %.loopexit, label %.lr.ph25, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %26, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.lr.ph25 ], [ 1, %26 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %26 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -319,7 +319,7 @@ shake_xof.exit:                                   ; preds = %9
   br i1 %.not24, label %shake_xof.exit.thread, label %.preheader.backedge
 
 shake_xof.exit.thread:                            ; preds = %30, %26, %20, %5, %9, %shake_xof.exit
-  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %9 ], [ 0, %5 ], [ 0, %30 ], [ 1, %26 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %9 ], [ 0, %5 ], [ 0, %30 ], [ 1, %20 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

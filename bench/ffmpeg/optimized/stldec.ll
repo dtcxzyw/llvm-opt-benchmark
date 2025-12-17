@@ -239,7 +239,7 @@ get_pts.exit:                                     ; preds = %26
   br label %73
 
 73:                                               ; preds = %.critedge.thread, %1, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.critedge.thread ]
+  %.0 = phi i32 [ -12, %.critedge.thread ], [ 0, %.loopexit ], [ -12, %1 ]
   ret i32 %.0
 }
 

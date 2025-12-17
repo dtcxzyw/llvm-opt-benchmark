@@ -363,7 +363,7 @@ _ZNK4ncnn3Mat5emptyEv.exit81:                     ; preds = %124
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %124, %_ZN4ncnn3Mat7releaseEv.exit, %77, %139, %142, %136, %_ZNK4ncnn3Mat5emptyEv.exit81
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %136 ], [ 0, %142 ], [ 0, %139 ], [ 0, %77 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %124 ]
+  %.1 = phi i32 [ 0, %139 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit81 ], [ 0, %136 ], [ 0, %142 ], [ 0, %77 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit ], [ -100, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -506,8 +506,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc99
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc99, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.9.0 = phi ptr [ %214, %.noexc99 ], [ %214, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0100.0 = phi ptr [ %213, %.noexc99 ], [ %213, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.9.0 = phi ptr [ %214, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %214, %.noexc99 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0100.0 = phi ptr [ %213, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %213, %.noexc99 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %.sroa.0100.0, ptr %19, align 8, !tbaa !68
   %218 = load i32, ptr %5, align 4, !tbaa !48
@@ -772,7 +772,7 @@ _ZN4ncnn3MatD2Ev.exit84:                          ; preds = %308, %306, %314, %3
   resume { ptr, i32 } %.pn.pn
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %36, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MataSERKS0_.exit, %56
-  %.060 = phi i32 [ 0, %56 ], [ %.1, %_ZN4ncnn3MataSERKS0_.exit ], [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %36 ]
+  %.060 = phi i32 [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %56 ], [ %.1, %_ZN4ncnn3MataSERKS0_.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

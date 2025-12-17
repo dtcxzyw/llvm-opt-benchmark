@@ -1860,7 +1860,7 @@ if.then.i.i21.i.i:                                ; preds = %ehcleanup.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %ehcleanup.i.i, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN21ClientMediaDownloader10FileStatusEED2Ev.exit155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %if.then.i.i21.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %if.then.i.i21.i.i ], [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %69, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN21ClientMediaDownloader10FileStatusEED2Ev.exit155 ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %if.then.i.i21.i.i ], [ %69, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN21ClientMediaDownloader10FileStatusEED2Ev.exit155 ], [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143 ], [ %.pn.i.i, %ehcleanup.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL10hex_encodeB5cxx11St17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %invoke.cont12.i.i, %invoke.cont.i.i
@@ -3969,7 +3969,7 @@ if.then.i.i402:                                   ; preds = %lpad98
   br label %ehcleanup102
 
 ehcleanup102:                                     ; preds = %lpad98, %if.then.i.i402, %lpad96.loopexit.split-lp, %lpad96.loopexit
-  %.pn144 = phi { ptr, i32 } [ %174, %if.then.i.i402 ], [ %lpad.loopexit478, %lpad96.loopexit ], [ %lpad.loopexit.split-lp479, %lpad96.loopexit.split-lp ], [ %174, %lpad98 ]
+  %.pn144 = phi { ptr, i32 } [ %lpad.loopexit.split-lp479, %lpad96.loopexit.split-lp ], [ %174, %if.then.i.i402 ], [ %lpad.loopexit478, %lpad96.loopexit ], [ %174, %lpad98 ]
   %176 = load ptr, ptr %ref.tmp89, align 8, !tbaa !11
   %cmp.i.i.i407 = icmp eq ptr %176, %24
   br i1 %cmp.i.i.i407, label %ehcleanup103, label %if.then.i.i408
@@ -3991,7 +3991,7 @@ if.then.i.i414:                                   ; preds = %ehcleanup103
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %ehcleanup103, %if.then.i.i414, %lpad87.loopexit.split-lp, %lpad87.loopexit
-  %.pn144.pn.pn = phi { ptr, i32 } [ %.pn144.pn, %if.then.i.i414 ], [ %lpad.loopexit475, %lpad87.loopexit ], [ %lpad.loopexit.split-lp476, %lpad87.loopexit.split-lp ], [ %.pn144.pn, %ehcleanup103 ]
+  %.pn144.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp476, %lpad87.loopexit.split-lp ], [ %.pn144.pn, %if.then.i.i414 ], [ %lpad.loopexit475, %lpad87.loopexit ], [ %.pn144.pn, %ehcleanup103 ]
   %178 = load ptr, ptr %ref.tmp80, align 8, !tbaa !11
   %cmp.i.i.i419 = icmp eq ptr %178, %22
   br i1 %cmp.i.i.i419, label %ehcleanup107, label %if.then.i.i420
@@ -4001,7 +4001,7 @@ if.then.i.i420:                                   ; preds = %ehcleanup106
   br label %ehcleanup107
 
 ehcleanup107:                                     ; preds = %ehcleanup106, %if.then.i.i420, %lpad85.loopexit.split-lp, %lpad85.loopexit
-  %.pn144.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn, %if.then.i.i420 ], [ %lpad.loopexit472, %lpad85.loopexit ], [ %lpad.loopexit.split-lp473, %lpad85.loopexit.split-lp ], [ %.pn144.pn.pn, %ehcleanup106 ]
+  %.pn144.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp473, %lpad85.loopexit.split-lp ], [ %.pn144.pn.pn, %if.then.i.i420 ], [ %lpad.loopexit472, %lpad85.loopexit ], [ %.pn144.pn.pn, %ehcleanup106 ]
   %179 = load ptr, ptr %ref.tmp81, align 8, !tbaa !11
   %cmp.i.i.i425 = icmp eq ptr %179, %21
   br i1 %cmp.i.i.i425, label %ehcleanup108, label %if.then.i.i426
@@ -6100,7 +6100,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   ret void
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad9.loopexit.split-lp, %lpad9.loopexit, %lpad, %if.then.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %5, %if.then.i.i.i.i ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %5, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %5, %if.then.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ], [ %lpad.loopexit, %lpad9.loopexit ], [ %5, %lpad.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %os)
   resume { ptr, i32 } %.pn

@@ -194,10 +194,10 @@ define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %0, ptr nou
   br label %74
 
 74:                                               ; preds = %.thread, %35
-  %.1154.i.i = phi i32 [ %.0153.i.i, %35 ], [ %73, %.thread ]
-  %.1145.i.i = phi i32 [ %.0144.i.i, %35 ], [ %.5149.i.i, %.thread ]
-  %.1141.i.i = phi i32 [ %.0140.i.i, %35 ], [ %59, %.thread ]
-  %.1135.i.i = phi ptr [ %.0134.i.i, %35 ], [ %.5.i.i, %.thread ]
+  %.1154.i.i = phi i32 [ %73, %.thread ], [ %.0153.i.i, %35 ]
+  %.1145.i.i = phi i32 [ %.5149.i.i, %.thread ], [ %.0144.i.i, %35 ]
+  %.1141.i.i = phi i32 [ %59, %.thread ], [ %.0140.i.i, %35 ]
+  %.1135.i.i = phi ptr [ %.5.i.i, %.thread ], [ %.0134.i.i, %35 ]
   %75 = shl nuw nsw i32 %.0158.i.i, 1
   %76 = add nsw i32 %75, -1
   %77 = sub nsw i32 %76, %.0161.i.i
@@ -461,10 +461,10 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   br label %70
 
 70:                                               ; preds = %.thread, %31
-  %.1154.i = phi i32 [ %.0153.i, %31 ], [ %69, %.thread ]
-  %.1145.i = phi i32 [ %.0144.i, %31 ], [ %.5149.i, %.thread ]
-  %.1141.i = phi i32 [ %.0140.i, %31 ], [ %55, %.thread ]
-  %.1135.i = phi ptr [ %.0134.i, %31 ], [ %.5.i, %.thread ]
+  %.1154.i = phi i32 [ %69, %.thread ], [ %.0153.i, %31 ]
+  %.1145.i = phi i32 [ %.5149.i, %.thread ], [ %.0144.i, %31 ]
+  %.1141.i = phi i32 [ %55, %.thread ], [ %.0140.i, %31 ]
+  %.1135.i = phi ptr [ %.5.i, %.thread ], [ %.0134.i, %31 ]
   %71 = shl nuw nsw i32 %.0158.i, 1
   %72 = add nsw i32 %71, -1
   %73 = sub nsw i32 %72, %.0161.i
@@ -747,7 +747,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef
   br label %HUF_readStats_body_default.exit
 
 HUF_readStats_body_default.exit:                  ; preds = %.lr.ph13.i, %79, %67, %60, %56, %.critedge.i.i, %.loopexit.i, %35, %34, %23, %19, %14, %12
-  %.0 = phi i64 [ %13, %12 ], [ %82, %79 ], [ -72, %14 ], [ -72, %19 ], [ -20, %23 ], [ -72, %34 ], [ %38, %35 ], [ -20, %.critedge.i.i ], [ -20, %67 ], [ -20, %56 ], [ -20, %60 ], [ -20, %.loopexit.i ], [ -20, %.lr.ph13.i ]
+  %.0 = phi i64 [ %13, %12 ], [ -72, %14 ], [ -72, %19 ], [ %38, %35 ], [ -20, %56 ], [ %82, %79 ], [ -20, %60 ], [ -20, %67 ], [ -20, %23 ], [ -72, %34 ], [ -20, %.critedge.i.i ], [ -20, %.loopexit.i ], [ -20, %.lr.ph13.i ]
   ret i64 %.0
 }
 
@@ -893,7 +893,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   br label %HUF_readStats_body.exit
 
 HUF_readStats_body.exit:                          ; preds = %.lr.ph13, %.loopexit, %9, %14, %18, %31, %32, %.critedge.i, %53, %57, %64, %76
-  %.0.i = phi i64 [ %79, %76 ], [ -72, %9 ], [ -72, %14 ], [ -20, %18 ], [ -72, %31 ], [ %35, %32 ], [ -20, %.critedge.i ], [ -20, %64 ], [ -20, %53 ], [ -20, %57 ], [ -20, %.loopexit ], [ -20, %.lr.ph13 ]
+  %.0.i = phi i64 [ -72, %9 ], [ -72, %14 ], [ %35, %32 ], [ -20, %53 ], [ %79, %76 ], [ -20, %57 ], [ -20, %64 ], [ -20, %18 ], [ -72, %31 ], [ -20, %.critedge.i ], [ -20, %.loopexit ], [ -20, %.lr.ph13 ]
   ret i64 %.0.i
 }
 

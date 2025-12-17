@@ -255,7 +255,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   br label %121
 
 121:                                              ; preds = %95, %92, %120, %14
-  %.062 = phi i32 [ %16, %14 ], [ %.4, %120 ], [ %93, %95 ], [ %93, %92 ]
+  %.062 = phi i32 [ %16, %14 ], [ %.4, %120 ], [ %93, %92 ], [ %93, %95 ]
   %.not70 = icmp eq i32 %.062, 0
   br i1 %.not70, label %.thread, label %122
 
@@ -1179,7 +1179,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr noundef
   br label %40
 
 40:                                               ; preds = %38, %34, %32, %17, %19, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %19 ], [ false, %17 ], [ false, %32 ], [ false, %34 ], [ true, %38 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %4 ], [ false, %17 ], [ false, %32 ], [ false, %34 ], [ true, %38 ]
   ret i1 %.0
 }
 

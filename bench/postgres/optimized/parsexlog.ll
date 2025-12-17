@@ -457,7 +457,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   br label %102
 
 102:                                              ; preds = %92, %93, %.critedge38, %94, %85
-  %.1 = phi i32 [ -1, %85 ], [ 8192, %94 ], [ -1, %.critedge38 ], [ -1, %93 ], [ -1, %92 ]
+  %.1 = phi i32 [ -1, %85 ], [ -1, %.critedge38 ], [ 8192, %94 ], [ -1, %93 ], [ -1, %92 ]
   ret i32 %.1
 }
 

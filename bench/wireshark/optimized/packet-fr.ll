@@ -550,7 +550,7 @@ define internal zeroext i1 @capture_fr(ptr noundef %0, i32 noundef %1, i32 nound
   br label %.loopexit129
 
 .loopexit129:                                     ; preds = %42, %51, %85, %79, %68, %60, %53, %35, %26, %13, %7, %5, %86, %82, %75
-  %.088 = phi i1 [ %78, %75 ], [ %84, %82 ], [ %88, %86 ], [ false, %5 ], [ false, %7 ], [ false, %13 ], [ false, %26 ], [ false, %35 ], [ false, %53 ], [ false, %60 ], [ false, %68 ], [ false, %79 ], [ false, %85 ], [ false, %51 ], [ false, %42 ]
+  %.088 = phi i1 [ false, %5 ], [ false, %85 ], [ %78, %75 ], [ false, %60 ], [ false, %53 ], [ false, %68 ], [ false, %79 ], [ %84, %82 ], [ false, %51 ], [ %88, %86 ], [ false, %7 ], [ false, %35 ], [ false, %26 ], [ false, %13 ], [ false, %42 ]
   ret i1 %.088
 }
 
@@ -984,7 +984,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   tail call fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %146, ptr noundef %1, ptr noundef %2, ptr noundef %.0223, ptr noundef %.0226, i8 noundef zeroext %85)
   br label %196
 
-.critedge:                                        ; preds = %124, %108, %137
+.critedge:                                        ; preds = %108, %124, %137
   %147 = add i32 %.0, 12
   %148 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %147, i32 noundef 2)
   br i1 %148, label %149, label %159

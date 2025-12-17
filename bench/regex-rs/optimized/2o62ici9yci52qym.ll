@@ -99,7 +99,7 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   br label %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit
 
 _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit: ; preds = %23, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %24, %23 ], [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha33df075c2aa9364E.exit.i" ], [ %24, %23 ]
   %36 = add i64 %.sroa.4.0.i, 1
   br label %40
 
@@ -119,7 +119,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit: ; pre
   br i1 %44, label %46, label %.critedge
 
 .critedge:                                        ; preds = %14, %3, %46, %40, %51, %16, %55
-  %.sink = phi i64 [ 1, %55 ], [ 0, %16 ], [ 0, %51 ], [ 0, %40 ], [ 0, %46 ], [ 0, %3 ], [ 0, %14 ]
+  %.sink = phi i64 [ 0, %51 ], [ 0, %16 ], [ 1, %55 ], [ 0, %46 ], [ 0, %3 ], [ 0, %14 ], [ 0, %40 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -711,7 +711,7 @@ define noundef zeroext i1 @"_ZN112_$LT$$LT$regex..regex..bytes..Captures$u20$as$
   br label %27
 
 27:                                               ; preds = %2, %17, %15
-  %.0 = phi i1 [ false, %15 ], [ %26, %17 ], [ true, %2 ]
+  %.0 = phi i1 [ %26, %17 ], [ false, %15 ], [ true, %2 ]
   ret i1 %.0
 }
 

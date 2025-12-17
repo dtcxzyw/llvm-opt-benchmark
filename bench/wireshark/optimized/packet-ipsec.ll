@@ -2103,7 +2103,7 @@ switch.lookup906:                                 ; preds = %257
   unreachable
 
 358:                                              ; preds = %349, %355, %354
-  %.1397 = phi i32 [ 8, %354 ], [ 9, %355 ], [ 7, %349 ]
+  %.1397 = phi i32 [ 9, %355 ], [ 8, %354 ], [ 7, %349 ]
   %359 = icmp eq i32 %.0606, 8
   br i1 %359, label %360, label %401
 
@@ -2429,7 +2429,7 @@ switch.lookup906:                                 ; preds = %257
   br label %528
 
 528:                                              ; preds = %478, %483, %490, %524, %511
-  %.1399 = phi i32 [ %508, %490 ], [ %523, %511 ], [ %527, %524 ], [ %482, %478 ], [ %487, %483 ]
+  %.1399 = phi i32 [ %527, %524 ], [ %508, %490 ], [ %523, %511 ], [ %482, %478 ], [ %487, %483 ]
   %.not484 = icmp eq i32 %.1399, 0
   br i1 %.not484, label %535, label %529
 
@@ -2578,12 +2578,12 @@ switch.lookup906:                                 ; preds = %257
 609:                                              ; preds = %443
   br i1 %.0418, label %.thread, label %.thread648
 
-.thread:                                          ; preds = %604, %601, %579, %609
-  %.4642 = phi ptr [ %.1389, %609 ], [ %.1389, %601 ], [ %606, %604 ], [ %.1389, %579 ]
-  %.4409641 = phi i1 [ %.1406, %609 ], [ true, %601 ], [ false, %604 ], [ %.1406, %579 ]
-  %.4414640 = phi i1 [ %.1411, %609 ], [ true, %601 ], [ true, %604 ], [ %.1411, %579 ]
-  %.1427638 = phi i32 [ %.0426, %609 ], [ %404, %601 ], [ %404, %604 ], [ %404, %579 ]
-  %.1442636 = phi ptr [ %.0441, %609 ], [ %446, %601 ], [ %446, %604 ], [ %446, %579 ]
+.thread:                                          ; preds = %601, %604, %579, %609
+  %.4642 = phi ptr [ %.1389, %609 ], [ %606, %604 ], [ %.1389, %601 ], [ %.1389, %579 ]
+  %.4409641 = phi i1 [ %.1406, %609 ], [ false, %604 ], [ true, %601 ], [ %.1406, %579 ]
+  %.4414640 = phi i1 [ %.1411, %609 ], [ true, %604 ], [ true, %601 ], [ %.1411, %579 ]
+  %.1427638 = phi i32 [ %.0426, %609 ], [ %404, %604 ], [ %404, %601 ], [ %404, %579 ]
+  %.1442636 = phi ptr [ %.0441, %609 ], [ %446, %604 ], [ %446, %601 ], [ %446, %579 ]
   %610 = load ptr, ptr %131, align 8
   %611 = sext i32 %.1427638 to i64
   %612 = call ptr @wmem_memdup(ptr noundef %610, ptr noundef %.1442636, i64 noundef %611) #24
@@ -2748,14 +2748,14 @@ export_ipsec_pdu.exit505:                         ; preds = %683, %689
   br label %701
 
 701:                                              ; preds = %._crit_edge795, %.thread648.thread
-  %702 = phi i8 [ %.pre796, %._crit_edge795 ], [ %607, %.thread648.thread ]
-  %.0580674691 = phi i8 [ %216, %._crit_edge795 ], [ %.1581.lcssa, %.thread648.thread ]
-  %.0430676690 = phi i32 [ %.0430, %._crit_edge795 ], [ 8, %.thread648.thread ]
-  %.0421677689 = phi i32 [ %.0421, %._crit_edge795 ], [ 0, %.thread648.thread ]
-  %.0410679688 = phi i1 [ %.0410, %._crit_edge795 ], [ false, %.thread648.thread ]
-  %.0405681687 = phi i1 [ %.0405, %._crit_edge795 ], [ false, %.thread648.thread ]
-  %.0388683686 = phi ptr [ %.0388, %._crit_edge795 ], [ null, %.thread648.thread ]
-  %.0382684685 = phi ptr [ %.0382, %._crit_edge795 ], [ null, %.thread648.thread ]
+  %702 = phi i8 [ %607, %.thread648.thread ], [ %.pre796, %._crit_edge795 ]
+  %.0580674691 = phi i8 [ %.1581.lcssa, %.thread648.thread ], [ %216, %._crit_edge795 ]
+  %.0430676690 = phi i32 [ 8, %.thread648.thread ], [ %.0430, %._crit_edge795 ]
+  %.0421677689 = phi i32 [ 0, %.thread648.thread ], [ %.0421, %._crit_edge795 ]
+  %.0410679688 = phi i1 [ false, %.thread648.thread ], [ %.0410, %._crit_edge795 ]
+  %.0405681687 = phi i1 [ false, %.thread648.thread ], [ %.0405, %._crit_edge795 ]
+  %.0388683686 = phi ptr [ null, %.thread648.thread ], [ %.0388, %._crit_edge795 ]
+  %.0382684685 = phi ptr [ null, %.thread648.thread ], [ %.0382, %._crit_edge795 ]
   %703 = trunc nuw i8 %702 to i1
   br i1 %703, label %.thread836, label %esp_null_heur.exit
 
@@ -2984,8 +2984,8 @@ esp_null_heur.exit.thread:                        ; preds = %export_ipsec_pdu.ex
   br label %801
 
 801:                                              ; preds = %789, %795, %797, %799, %785, %800
-  %.0381 = phi i64 [ 1, %785 ], [ 0, %799 ], [ 0, %800 ], [ 1, %797 ], [ 1, %795 ], [ 1, %789 ]
-  %.0380 = phi i64 [ 0, %785 ], [ 1, %799 ], [ 0, %800 ], [ 0, %797 ], [ 0, %795 ], [ 0, %789 ]
+  %.0381 = phi i64 [ 0, %800 ], [ 1, %785 ], [ 0, %799 ], [ 1, %797 ], [ 1, %795 ], [ 1, %789 ]
+  %.0380 = phi i64 [ 0, %800 ], [ 0, %785 ], [ 1, %799 ], [ 0, %797 ], [ 0, %795 ], [ 0, %789 ]
   %802 = load i32, ptr @hf_esp_icv_good, align 4
   %803 = call ptr @proto_tree_add_boolean(ptr noundef %783, i32 noundef %802, ptr noundef %0, i32 noundef %.4434, i32 noundef %.5, i64 noundef %.0381)
   %.not.i508 = icmp eq ptr %803, null
@@ -3765,7 +3765,7 @@ define internal fastcc noundef zeroext i1 @filter_address_match(ptr noundef %0, 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 .loopexit:                                        ; preds = %32, %35, %27, %23, %20, %3, %12, %10, %8, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %8 ], [ false, %10 ], [ false, %12 ], [ false, %3 ], [ true, %20 ], [ false, %23 ], [ false, %27 ], [ false, %32 ], [ true, %35 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %10 ], [ false, %3 ], [ true, %20 ], [ false, %23 ], [ false, %8 ], [ false, %27 ], [ false, %6 ], [ false, %32 ], [ true, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -3956,8 +3956,8 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %.lr.ph, %.preheader113, %74, %91, %90
-  %.187 = phi i32 [ 1, %90 ], [ %94, %91 ], [ 0, %74 ], [ 0, %.preheader113 ], [ 0, %.lr.ph ]
-  %.4 = phi i32 [ %.083131193, %90 ], [ %.083131193, %91 ], [ %.083131193, %74 ], [ %70, %.preheader113 ], [ %84, %.lr.ph ]
+  %.187 = phi i32 [ %94, %91 ], [ 1, %90 ], [ 0, %74 ], [ 0, %.preheader113 ], [ 0, %.lr.ph ]
+  %.4 = phi i32 [ %.083131193, %91 ], [ %.083131193, %90 ], [ %.083131193, %74 ], [ %70, %.preheader113 ], [ %84, %.lr.ph ]
   %95 = add i32 %.088129195, 1
   %96 = zext i32 %95 to i64
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
@@ -3967,7 +3967,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br i1 %or.cond9, label %25, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit111, %.lr.ph125, %.preheader110, %42
-  %.083.lcssa = phi i32 [ %.083131193, %42 ], [ %38, %.preheader110 ], [ %52, %.lr.ph125 ], [ %.4, %.loopexit111 ]
+  %.083.lcssa = phi i32 [ %.083131193, %42 ], [ %52, %.lr.ph125 ], [ %38, %.preheader110 ], [ %.4, %.loopexit111 ]
   br label %100
 
 100:                                              ; preds = %.critedge, %125
@@ -4028,7 +4028,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %113, %.loopexit.sink.split, %39, %2, %8
-  %.096 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %39 ], [ %.096.ph, %.loopexit.sink.split ], [ false, %113 ], [ false, %71 ]
+  %.096 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %39 ], [ %.096.ph, %.loopexit.sink.split ], [ false, %113 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4207,7 +4207,7 @@ define internal fastcc i32 @get_full_ipv6_addr(ptr noundef %0, ptr noundef %1) u
   br label %86
 
 86:                                               ; preds = %2, %8, %84, %81, %.preheader.preheader
-  %.056 = phi i32 [ 0, %.preheader.preheader ], [ %83, %81 ], [ %85, %84 ], [ -1, %8 ], [ -1, %2 ]
+  %.056 = phi i32 [ %85, %84 ], [ 0, %.preheader.preheader ], [ %83, %81 ], [ -1, %8 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4301,10 +4301,10 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
   br label %41
 
 41:                                               ; preds = %._crit_edge, %31, %29, %33
-  %.252 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %40, %33 ], [ %.15160, %._crit_edge ]
-  %.3 = phi i32 [ %.249.lcssa, %29 ], [ %.249.lcssa, %31 ], [ %39, %33 ], [ %.249.lcssa, %._crit_edge ]
-  %.146 = phi i32 [ 0, %29 ], [ 0, %31 ], [ %38, %33 ], [ 0, %._crit_edge ]
-  %.1 = phi i8 [ 1, %29 ], [ 0, %31 ], [ 0, %33 ], [ 1, %._crit_edge ]
+  %.252 = phi i32 [ %40, %33 ], [ %30, %29 ], [ %32, %31 ], [ %.15160, %._crit_edge ]
+  %.3 = phi i32 [ %39, %33 ], [ %.249.lcssa, %29 ], [ %.249.lcssa, %31 ], [ %.249.lcssa, %._crit_edge ]
+  %.146 = phi i32 [ %38, %33 ], [ 0, %29 ], [ 0, %31 ], [ 0, %._crit_edge ]
+  %.1 = phi i8 [ 0, %33 ], [ 1, %29 ], [ 0, %31 ], [ 1, %._crit_edge ]
   %42 = icmp slt i32 %.3, 32
   br i1 %42, label %.preheader57, label %.critedge, !llvm.loop !54
 

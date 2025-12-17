@@ -210,7 +210,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPP8PJconstsPKS0_dP
   br label %123
 
 123:                                              ; preds = %6, %108, %46, %21, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %21 ], [ 1, %46 ], [ 0, %108 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %108 ], [ 1, %16 ], [ 1, %21 ], [ 1, %46 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -360,8 +360,8 @@ define void @proj_factors(ptr dead_on_unwind noalias writable writeonly sret(%st
   br label %102
 
 62:                                               ; preds = %9, %45, %56
-  %.076 = phi ptr [ %.177, %45 ], [ %.177, %56 ], [ null, %9 ]
-  %.0 = phi ptr [ %53, %45 ], [ %.1, %56 ], [ %12, %9 ]
+  %.076 = phi ptr [ %.177, %56 ], [ %.177, %45 ], [ null, %9 ]
+  %.0 = phi ptr [ %.1, %56 ], [ %53, %45 ], [ %12, %9 ]
   %.sroa.0.0.copyload = load double, ptr %2, align 8, !tbaa !39
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !39

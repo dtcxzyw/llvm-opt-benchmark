@@ -196,7 +196,7 @@ if.end.i:                                         ; preds = %land.rhs.i
   br i1 %8, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then17, %if.else, %if.then24, %if.end.i
-  %FirstTombstone.1 = phi i32 [ %FirstTombstone.0, %if.end.i ], [ %FirstTombstone.0, %if.then24 ], [ %FirstTombstone.0, %if.else ], [ %spec.select, %if.then17 ]
+  %FirstTombstone.1 = phi i32 [ %FirstTombstone.0, %if.else ], [ %spec.select, %if.then17 ], [ %FirstTombstone.0, %if.end.i ], [ %FirstTombstone.0, %if.then24 ]
   %add = add i32 %BucketNo.0, %ProbeAmt.0
   %inc = add i32 %ProbeAmt.0, 1
   br label %while.body, !llvm.loop !4

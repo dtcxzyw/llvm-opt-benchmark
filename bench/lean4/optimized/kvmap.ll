@@ -280,7 +280,7 @@ _ZNK4lean10data_value8get_boolEv.exit22:          ; preds = %41, %47, %49, %50
   br label %_ZN4leanltERKNS_3natES2_.exit
 
 _ZN4leanltERKNS_3natES2_.exit:                    ; preds = %.critedge.i.i.i, %27, %11, %_ZNK4lean10data_value8get_boolEv.exit, %_ZNK4lean10data_value8get_boolEv.exit22, %54, %12, %9
-  %.0 = phi i1 [ %10, %9 ], [ %17, %12 ], [ %60, %54 ], [ false, %_ZNK4lean10data_value8get_boolEv.exit ], [ %53, %_ZNK4lean10data_value8get_boolEv.exit22 ], [ false, %11 ], [ %28, %27 ], [ %29, %.critedge.i.i.i ]
+  %.0 = phi i1 [ %10, %9 ], [ %53, %_ZNK4lean10data_value8get_boolEv.exit22 ], [ %17, %12 ], [ false, %11 ], [ %60, %54 ], [ false, %_ZNK4lean10data_value8get_boolEv.exit ], [ %28, %27 ], [ %29, %.critedge.i.i.i ]
   ret i1 %.0
 }
 

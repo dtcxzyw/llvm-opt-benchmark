@@ -843,7 +843,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr noundef c
   br label %69
 
 69:                                               ; preds = %67, %64, %56, %42
-  %70 = phi i32 [ 0, %56 ], [ 0, %42 ], [ -12, %64 ], [ -12, %67 ]
+  %70 = phi i32 [ 0, %56 ], [ 0, %42 ], [ -12, %67 ], [ -12, %64 ]
   ret i32 %70
 }
 
@@ -4975,7 +4975,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   br label %.thread12
 
 .thread12:                                        ; preds = %63, %59, %55, %42, %27, %17, %113, %.loopexit, %102, %71, %69
-  %119 = phi ptr [ @vlbr_constraint, %17 ], [ %47, %69 ], [ %72, %71 ], [ %91, %102 ], [ @unconstrained, %.loopexit ], [ %118, %113 ], [ @bts_constraint, %27 ], [ @emptyconstraint, %42 ], [ @emptyconstraint, %55 ], [ @emptyconstraint, %59 ], [ @emptyconstraint, %63 ]
+  %119 = phi ptr [ @vlbr_constraint, %17 ], [ %118, %113 ], [ %47, %69 ], [ %72, %71 ], [ %91, %102 ], [ @unconstrained, %.loopexit ], [ @bts_constraint, %27 ], [ @emptyconstraint, %42 ], [ @emptyconstraint, %55 ], [ @emptyconstraint, %59 ], [ @emptyconstraint, %63 ]
   %120 = icmp eq ptr %7, null
   br i1 %120, label %132, label %121
 
@@ -5174,7 +5174,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   br i1 %236, label %.split17, label %.thread14, !prof !15, !llvm.loop !82
 
 .thread14:                                        ; preds = %219, %232, %.split17, %.split17.us, %196, %208
-  %.us-phi = phi i32 [ %191, %.split17.us ], [ %209, %208 ], [ %191, %196 ], [ %214, %.split17 ], [ %233, %232 ], [ %214, %219 ]
+  %.us-phi = phi i32 [ %191, %196 ], [ %191, %.split17.us ], [ %209, %208 ], [ %214, %.split17 ], [ %233, %232 ], [ %214, %219 ]
   %237 = icmp eq i32 %.us-phi, 0
   %238 = select i1 %237, ptr @emptyconstraint, ptr %165
   br label %270
@@ -8222,7 +8222,7 @@ define internal i32 @intel_pmu_hw_config(ptr noundef %0) #1 align 16 {
   br label %.thread11
 
 .thread11:                                        ; preds = %.preheader, %319, %293, %22, %26, %30, %333, %330, %327, %322, %259, %254, %248, %235, %231, %206, %206, %200, %191, %168, %160, %.loopexit, %111, %107, %103, %40, %1
-  %337 = phi i32 [ 0, %333 ], [ -22, %160 ], [ %2, %1 ], [ -22, %40 ], [ %169, %168 ], [ -16, %191 ], [ -22, %200 ], [ 0, %206 ], [ 0, %206 ], [ -22, %235 ], [ -22, %231 ], [ -22, %259 ], [ -22, %254 ], [ -22, %248 ], [ 0, %322 ], [ -22, %327 ], [ %331, %330 ], [ -22, %.loopexit ], [ -22, %111 ], [ -22, %103 ], [ -22, %107 ], [ -95, %22 ], [ -95, %26 ], [ -16, %30 ], [ -61, %293 ], [ -61, %319 ], [ -22, %.preheader ]
+  %337 = phi i32 [ 0, %333 ], [ -16, %30 ], [ -22, %160 ], [ %2, %1 ], [ -22, %40 ], [ %169, %168 ], [ -16, %191 ], [ -22, %200 ], [ 0, %206 ], [ 0, %206 ], [ -22, %235 ], [ -22, %231 ], [ -22, %259 ], [ -22, %254 ], [ -22, %248 ], [ 0, %322 ], [ -22, %327 ], [ %331, %330 ], [ -22, %.loopexit ], [ -22, %111 ], [ -22, %103 ], [ -22, %107 ], [ -95, %22 ], [ -95, %26 ], [ -61, %293 ], [ -61, %319 ], [ -22, %.preheader ]
   ret i32 %337
 }
 

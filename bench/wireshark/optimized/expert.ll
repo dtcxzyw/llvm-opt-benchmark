@@ -1249,7 +1249,7 @@ proto_item_set_generated.exit90:                  ; preds = %proto_item_set_gene
   br label %.thread
 
 .thread:                                          ; preds = %12, %proto_item_set_generated.exit90, %18, %20, %160
-  %.0 = phi ptr [ %96, %160 ], [ null, %20 ], [ null, %18 ], [ %96, %proto_item_set_generated.exit90 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %18 ], [ %96, %160 ], [ null, %20 ], [ %96, %proto_item_set_generated.exit90 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }

@@ -2869,7 +2869,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalE
   br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERS8_.exit, label %20, !llvm.loop !162
 
 _ZNK4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE4findERS8_.exit: ; preds = %20, %24, %26, %2, %6
-  %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
   %.not = icmp eq ptr %.0.i, null
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = select i1 %.not, ptr null, ptr %29
@@ -2921,7 +2921,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExpr
   br i1 %.not.i, label %_ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit, label %20, !llvm.loop !169
 
 _ZNK4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE4findERS6_.exit: ; preds = %20, %24, %26, %2, %6
-  %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ null, %26 ], [ null, %24 ], [ %21, %20 ]
   %.not = icmp eq ptr %.0.i, null
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = select i1 %.not, ptr null, ptr %29
@@ -4203,7 +4203,7 @@ define internal fastcc noundef zeroext i1 @_ZN4Luau7CompileL14constantsEqualERKN
   br label %68
 
 68:                                               ; preds = %2, %52, %55, %61, %25, %28, %34, %40, %46, %16, %7, %4
-  %.0 = phi i1 [ %6, %4 ], [ %15, %7 ], [ %24, %16 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %25 ], [ %51, %46 ], [ false, %55 ], [ false, %52 ], [ %67, %61 ], [ false, %2 ]
+  %.0 = phi i1 [ %67, %61 ], [ %6, %4 ], [ %15, %7 ], [ %24, %16 ], [ %51, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %25 ], [ false, %55 ], [ false, %52 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4266,7 +4266,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br label %_ZN4Luau6detail14DenseHashTableIPNS_7AstExprESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit
 
 _ZN4Luau6detail14DenseHashTableIPNS_7AstExprESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit: ; preds = %23, %2, %.loopexit.i
-  %32 = phi i64 [ %6, %2 ], [ %.pre, %.loopexit.i ], [ %6, %23 ]
+  %32 = phi i64 [ %.pre, %.loopexit.i ], [ %6, %2 ], [ %6, %23 ]
   %33 = add i64 %32, -1
   %34 = load ptr, ptr %1, align 8, !tbaa !56
   %35 = ptrtoint ptr %34 to i64
@@ -4486,7 +4486,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile15ConstantVisitor11recordVal
   br i1 %.not.i.i, label %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, label %23, !llvm.loop !195
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit: ; preds = %23, %27, %29, %3, %10
-  %.0.i.i = phi ptr [ null, %3 ], [ null, %10 ], [ %24, %23 ], [ null, %27 ], [ null, %29 ]
+  %.0.i.i = phi ptr [ null, %10 ], [ null, %3 ], [ %24, %23 ], [ null, %27 ], [ null, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %33 = load i8, ptr %32, align 8, !tbaa !196, !range !75, !noundef !76
   %34 = trunc nuw i8 %33 to i1
@@ -4625,7 +4625,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br label %_ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit
 
 _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_NS_7Compile8ConstantEES4_IKS3_S6_ENS0_16ItemInterfaceMapIS3_S6_EENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS8_.exit: ; preds = %23, %2, %.loopexit.i
-  %32 = phi i64 [ %6, %2 ], [ %.pre, %.loopexit.i ], [ %6, %23 ]
+  %32 = phi i64 [ %.pre, %.loopexit.i ], [ %6, %2 ], [ %6, %23 ]
   %33 = add i64 %32, -1
   %34 = load ptr, ptr %1, align 8, !tbaa !58
   %35 = ptrtoint ptr %34 to i64

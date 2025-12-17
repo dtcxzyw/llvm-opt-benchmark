@@ -1878,7 +1878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN28
   ret void
 
 86:                                               ; preds = %36, %27, %25
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %37, %36 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %37, %36 ]
   resume { ptr, i32 } %.pn
 }
 

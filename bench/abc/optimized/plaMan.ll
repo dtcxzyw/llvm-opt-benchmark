@@ -281,8 +281,8 @@ define noalias noundef ptr @Pla_GenPrimes(i32 noundef %0) local_unnamed_addr #0 
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %34, %36, %26, %28
-  %.sink22 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %35, %34 ], [ %37, %36 ]
-  %.sink = phi i32 [ 16, %26 ], [ 16, %28 ], [ %31, %34 ], [ %31, %36 ]
+  %.sink22 = phi ptr [ %29, %28 ], [ %27, %26 ], [ %35, %34 ], [ %37, %36 ]
+  %.sink = phi i32 [ 16, %28 ], [ 16, %26 ], [ %31, %34 ], [ %31, %36 ]
   store ptr %.sink22, ptr %6, align 8, !tbaa !24
   store i32 %.sink, ptr %3, align 8, !tbaa !23
   br label %Vec_IntPush.exit
@@ -1757,7 +1757,7 @@ define i32 @Pla_ManDist1Num(ptr noundef readonly captures(none) %0) local_unname
   br i1 %exitcond.not.i.us.us, label %Pla_CubesAreDistance1.exit.loopexit.us.us, label %.lr.ph.i.us.us, !llvm.loop !63
 
 Pla_CubesAreDistance1.exit.loopexit.us.us:        ; preds = %25, %19, %18
-  %.019.i.ph.us.us = phi i32 [ 0, %18 ], [ %.1.i.us.us, %25 ], [ 0, %19 ]
+  %.019.i.ph.us.us = phi i32 [ 0, %18 ], [ 0, %19 ], [ %.1.i.us.us, %25 ]
   %26 = add nsw i32 %.019.i.ph.us.us, %.126.us.us
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count39
@@ -1861,7 +1861,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %exitcond.not.i.us.us.i, label %Pla_CubesAreDistance1.exit.loopexit.us.us.i, label %.lr.ph.i.us.us.i, !llvm.loop !63
 
 Pla_CubesAreDistance1.exit.loopexit.us.us.i:      ; preds = %33, %27, %26
-  %.019.i.ph.us.us.i = phi i32 [ 0, %26 ], [ %.1.i.us.us.i, %33 ], [ 0, %27 ]
+  %.019.i.ph.us.us.i = phi i32 [ 0, %26 ], [ 0, %27 ], [ %.1.i.us.us.i, %33 ]
   %34 = add nsw i32 %.019.i.ph.us.us.i, %.126.us.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %15

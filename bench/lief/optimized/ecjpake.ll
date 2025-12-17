@@ -147,7 +147,7 @@ mbedtls_ecjpake_free.exit:                        ; preds = %11, %14
   br label %25
 
 25:                                               ; preds = %14, %mbedtls_ecjpake_free.exit, %7, %6
-  %.016 = phi i32 [ -20352, %6 ], [ -20608, %7 ], [ %.021, %mbedtls_ecjpake_free.exit ], [ 0, %14 ]
+  %.016 = phi i32 [ -20608, %7 ], [ -20352, %6 ], [ %.021, %mbedtls_ecjpake_free.exit ], [ 0, %14 ]
   ret i32 %.016
 }
 
@@ -192,7 +192,7 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr noundef readon
   br label %12
 
 12:                                               ; preds = %8, %1, %4
-  %.0 = phi i32 [ -20352, %4 ], [ -20352, %1 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ -20352, %1 ], [ %spec.select, %8 ], [ -20352, %4 ]
   ret i32 %.0
 }
 
@@ -411,7 +411,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
   br label %39
 
 39:                                               ; preds = %ecjpake_ecp_add3.exit.thread, %37, %23, %26, %21, %ecjpake_ecp_add3.exit
-  %.0 = phi i32 [ %16, %ecjpake_ecp_add3.exit ], [ %22, %21 ], [ %36, %26 ], [ -20096, %23 ], [ %spec.select, %37 ], [ %.0.i.ph, %ecjpake_ecp_add3.exit.thread ]
+  %.0 = phi i32 [ %16, %ecjpake_ecp_add3.exit ], [ %22, %21 ], [ %spec.select, %37 ], [ %36, %26 ], [ -20096, %23 ], [ %.0.i.ph, %ecjpake_ecp_add3.exit.thread ]
   call void @mbedtls_ecp_group_free(ptr noundef nonnull %6) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -507,7 +507,7 @@ define internal fastcc i32 @ecjpake_kkp_read(i32 noundef %0, ptr noundef %1, i32
   br label %49
 
 49:                                               ; preds = %47, %45, %41, %39, %31, %29, %25
-  %.032.i = phi i32 [ %28, %25 ], [ %40, %39 ], [ %44, %41 ], [ %46, %45 ], [ -20352, %29 ], [ -20352, %31 ], [ %spec.select.i, %47 ]
+  %.032.i = phi i32 [ %28, %25 ], [ %spec.select.i, %47 ], [ -20352, %29 ], [ %40, %39 ], [ %44, %41 ], [ %46, %45 ], [ -20352, %31 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %10) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #15
@@ -640,7 +640,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   br label %63
 
 63:                                               ; preds = %ecjpake_ecp_add3.exit.thread, %38, %48, %41, %33, %27, %22, %ecjpake_ecp_add3.exit, %58
-  %.0 = phi i32 [ %21, %ecjpake_ecp_add3.exit ], [ %26, %22 ], [ %28, %27 ], [ %34, %33 ], [ %47, %41 ], [ %57, %48 ], [ 0, %58 ], [ -20224, %38 ], [ %.0.i.ph, %ecjpake_ecp_add3.exit.thread ]
+  %.0 = phi i32 [ %21, %ecjpake_ecp_add3.exit ], [ %26, %22 ], [ %28, %27 ], [ 0, %58 ], [ %34, %33 ], [ %.0.i.ph, %ecjpake_ecp_add3.exit.thread ], [ %47, %41 ], [ %57, %48 ], [ -20224, %38 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %8) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #15
@@ -789,7 +789,7 @@ define internal fastcc i32 @ecjpake_zkp_write(i32 noundef %0, ptr noundef %1, i3
   br label %58
 
 58:                                               ; preds = %35, %42, %48, %29, %26, %24, %22, %20, %18, %54
-  %.0 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ], [ %34, %29 ], [ %53, %48 ], [ 0, %54 ], [ -20224, %42 ], [ -20224, %35 ]
+  %.0 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %28, %26 ], [ %34, %29 ], [ 0, %54 ], [ %53, %48 ], [ -20224, %42 ], [ -20224, %35 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %12) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %13) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %14) #15
@@ -1191,7 +1191,7 @@ mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
   call void @mbedtls_ecjpake_free(ptr noundef nonnull %4)
   br label %139
 
-.critedge30:                                      ; preds = %mbedtls_ecjpake_read_round_one.exit.thread, %135, %130, %128, %123, %121, %116, %114, %109, %106, %103, %100, %97, %89, %85, %82, %78, %75, %72, %68, %65, %61, %58, %.critedge, %34, %31, %95, %.critedge28
+.critedge30:                                      ; preds = %mbedtls_ecjpake_read_round_one.exit.thread, %135, %31, %34, %.critedge, %58, %61, %65, %68, %72, %75, %78, %82, %85, %89, %97, %100, %103, %106, %109, %114, %116, %121, %123, %128, %130, %95, %.critedge28
   store i32 0, ptr %3, align 8, !tbaa !3
   call void @mbedtls_ecp_group_free(ptr noundef nonnull %9) #15
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %11) #15
@@ -1229,7 +1229,7 @@ mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
   br label %.thread
 
 .thread:                                          ; preds = %.thread.critedge, %.critedge30, %139
-  %.140 = phi i32 [ %.143, %139 ], [ 1, %.critedge30 ], [ 0, %.thread.critedge ]
+  %.140 = phi i32 [ 0, %.thread.critedge ], [ %.143, %139 ], [ 1, %.critedge30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1440,7 +1440,7 @@ ecjpake_write_len_point.exit47.thread:            ; preds = %29, %37
   br label %75
 
 75:                                               ; preds = %ecjpake_write_len_point.exit47.thread, %ecjpake_write_len_point.exit44.thread, %ecjpake_write_len_point.exit, %60, %67, %72, %52, %43
-  %.0 = phi i32 [ -20224, %43 ], [ -20224, %52 ], [ %17, %ecjpake_write_len_point.exit ], [ %66, %60 ], [ %71, %67 ], [ %74, %72 ], [ %.0.i43.ph, %ecjpake_write_len_point.exit44.thread ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ]
+  %.0 = phi i32 [ -20224, %52 ], [ -20224, %43 ], [ %17, %ecjpake_write_len_point.exit ], [ %.0.i43.ph, %ecjpake_write_len_point.exit44.thread ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ], [ %66, %60 ], [ %71, %67 ], [ %74, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0

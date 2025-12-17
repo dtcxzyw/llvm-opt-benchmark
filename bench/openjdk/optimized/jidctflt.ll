@@ -82,7 +82,7 @@ define hidden void @jRDfloat(ptr noundef readonly captures(none) %0, ptr noundef
   br label %133
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
-  %51 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
+  %51 = phi i16 [ %18, %13 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
   %52 = load i16, ptr %.0199201, align 2
   %53 = sitofp i16 %52 to float
   %54 = load float, ptr %.0197202, align 4

@@ -149,7 +149,7 @@ define internal range(i32 0, 2) i32 @test_b64(i32 noundef %0) #0 {
   br label %49
 
 49:                                               ; preds = %44, %34, %38, %1, %14, %19, %24, %29
-  %.0 = phi i32 [ 0, %38 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %1 ], [ %spec.select, %44 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %44 ], [ 0, %38 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ]
   %50 = call i32 @BIO_free(ptr noundef %7) #4
   %51 = load ptr, ptr %2, align 8, !tbaa !4
   call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 57) #4

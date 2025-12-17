@@ -994,8 +994,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !57
   %38 = add i64 %37, 2

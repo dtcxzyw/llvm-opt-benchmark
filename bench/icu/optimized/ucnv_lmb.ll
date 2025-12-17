@@ -614,10 +614,10 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %137
 
 137:                                              ; preds = %82, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit, %_ZL17FindLMBCSUniRangeDs.exit.thread
-  %.06.i373 = phi i8 [ %59, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ 20, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ 15, %82 ]
-  %.2358 = phi i8 [ %.10366, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.0356450, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %.0356450, %82 ]
-  %.2188 = phi i32 [ %.0.i237, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %69, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %85, %82 ]
-  %.1 = phi ptr [ %.0184371, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %66, %_ZL17FindLMBCSUniRangeDs.exit.thread ], [ %.2, %82 ]
+  %.06.i373 = phi i8 [ %59, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ 15, %82 ], [ 20, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
+  %.2358 = phi i8 [ %.10366, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.0356450, %82 ], [ %.0356450, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
+  %.2188 = phi i32 [ %.0.i237, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %85, %82 ], [ %69, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
+  %.1 = phi ptr [ %.0184371, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %.2, %82 ], [ %66, %_ZL17FindLMBCSUniRangeDs.exit.thread ]
   %.not210 = icmp eq i32 %.2188, 0
   br i1 %.not210, label %.thread376, label %.thread432
 
@@ -677,7 +677,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %99,
   br label %161
 
 161:                                              ; preds = %159, %153
-  %.034.i242 = phi ptr [ %160, %159 ], [ %.1384, %153 ]
+  %.034.i242 = phi ptr [ %.1384, %153 ], [ %160, %159 ]
   %162 = icmp eq i32 %151, 1
   %163 = shl i32 224, %156
   %164 = and i32 %154, %163
@@ -1034,8 +1034,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
   %.not214 = icmp eq i32 %.4190, 0
   br i1 %.not214, label %.thread400, label %.thread432
 
-.thread400:                                       ; preds = %142, %.thread376, %143, %319
-  %.3359404 = phi i8 [ %.3359, %319 ], [ %.2358383, %143 ], [ %.2358383, %.thread376 ], [ %.2358383, %142 ]
+.thread400:                                       ; preds = %.thread376, %142, %143, %319
+  %.3359404 = phi i8 [ %.3359, %319 ], [ %.2358383, %143 ], [ %.2358383, %142 ], [ %.2358383, %.thread376 ]
   %320 = load i8, ptr %23, align 1, !tbaa !38
   %.not215 = icmp eq i8 %320, 0
   br i1 %.not215, label %375, label %321
@@ -1275,7 +1275,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %392, %405, %428
-  %.0.i300 = phi i32 [ %432, %428 ], [ 0, %392 ], [ 0, %405 ]
+  %.0.i300 = phi i32 [ 0, %392 ], [ %432, %428 ], [ 0, %405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %433
 
@@ -1518,8 +1518,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit335: ; preds = %
   br label %.thread432
 
 .thread432:                                       ; preds = %319, %219, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250, %433, %.thread437, %137, %529, %528, %switch.early.test225, %switch.early.test225, %switch.early.test225, %switch.early.test225, %switch.early.test225
-  %.1357 = phi i8 [ %.7363, %529 ], [ %.7363, %528 ], [ %.2358, %137 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %.thread437 ], [ %.5361, %433 ], [ %.3359, %319 ], [ 0, %219 ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250 ]
-  %.1187 = phi i32 [ %537, %529 ], [ %.8, %528 ], [ %.2188, %137 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %.thread437 ], [ %.7, %433 ], [ %.4190, %319 ], [ %223, %219 ], [ %187, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250 ]
+  %.1357 = phi i8 [ %.7363, %529 ], [ %.7363, %528 ], [ %.2358, %137 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ %.0356450, %switch.early.test225 ], [ 0, %219 ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250 ], [ %.0356450, %.thread437 ], [ %.5361, %433 ], [ %.3359, %319 ]
+  %.1187 = phi i32 [ %537, %529 ], [ %.8, %528 ], [ %.2188, %137 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ 1, %switch.early.test225 ], [ %223, %219 ], [ %187, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250 ], [ 1, %.thread437 ], [ %.7, %433 ], [ %.4190, %319 ]
   %538 = load ptr, ptr %18, align 8, !tbaa !36
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 2
   store ptr %539, ptr %18, align 8, !tbaa !36
@@ -1783,7 +1783,7 @@ _ZL11_LMBCSCloseP10UConverter.exit:               ; preds = %.critedge29, %33, %
   br i1 %.not18.i, label %_ZL15FindLMBCSLocalePKc.exit, label %.preheader.i31, !llvm.loop !67
 
 _ZL15FindLMBCSLocalePKc.exit:                     ; preds = %54, %56, %38, %42, %51
-  %.012.i = phi i8 [ %53, %51 ], [ 0, %42 ], [ 0, %38 ], [ 1, %56 ], [ 1, %54 ]
+  %.012.i = phi i8 [ %53, %51 ], [ 0, %38 ], [ 0, %42 ], [ 1, %56 ], [ 1, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 161
   store i8 %.012.i, ptr %59, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2053,8 +2053,8 @@ switch.early.test:                                ; preds = %9
   store ptr %7, ptr %4, align 8, !tbaa !25
   br label %.thread
 
-.thread:                                          ; preds = %101, %109, %69, %52, %24, %23, %62, %57, %80, %73, %46, %115, %110, %102, %122, %.thread135, %9, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %8
-  %.0 = phi i32 [ 65535, %8 ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %9 ], [ 65535, %122 ], [ %19, %.thread135 ], [ %121, %115 ], [ %104, %102 ], [ %112, %110 ], [ %83, %80 ], [ %79, %73 ], [ %63, %62 ], [ %59, %57 ], [ 0, %46 ], [ 65535, %101 ], [ 65535, %109 ], [ 65535, %69 ], [ 65535, %52 ], [ %32, %24 ], [ 65535, %23 ]
+.thread:                                          ; preds = %109, %69, %52, %24, %23, %101, %62, %57, %80, %73, %46, %115, %110, %102, %122, %.thread135, %9, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %8
+  %.0 = phi i32 [ 65535, %8 ], [ %12, %9 ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ %12, %switch.early.test ], [ 0, %46 ], [ 65535, %122 ], [ %19, %.thread135 ], [ 65535, %101 ], [ %121, %115 ], [ %104, %102 ], [ %112, %110 ], [ %83, %80 ], [ %79, %73 ], [ %63, %62 ], [ %59, %57 ], [ 65535, %109 ], [ 65535, %69 ], [ 65535, %52 ], [ %32, %24 ], [ 65535, %23 ]
   ret i32 %.0
 }
 

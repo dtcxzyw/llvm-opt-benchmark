@@ -196,7 +196,7 @@ define internal range(i32 0, 2) i32 @test_HDR_get0_senderNonce() #1 {
   br label %execute_HDR_get0_senderNonce_test.exit
 
 execute_HDR_get0_senderNonce_test.exit:           ; preds = %3, %7, %13, %19
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %7 ], [ 0, %3 ], [ %spec.select.i, %19 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %19 ], [ 0, %13 ], [ 0, %7 ]
   tail call void @X509_NAME_free(ptr noundef %5) #8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !13
@@ -257,7 +257,7 @@ define internal range(i32 0, 2) i32 @test_HDR_set1_sender() #1 {
   br label %execute_HDR_set1_sender_test.exit
 
 execute_HDR_set1_sender_test.exit:                ; preds = %3, %7, %13, %19
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %7 ], [ 0, %3 ], [ %spec.select.i, %19 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %19 ], [ 0, %13 ], [ 0, %7 ]
   tail call void @X509_NAME_free(ptr noundef %5) #8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !13
@@ -318,7 +318,7 @@ define internal range(i32 0, 2) i32 @test_HDR_set1_recipient() #1 {
   br label %execute_HDR_set1_recipient_test.exit
 
 execute_HDR_set1_recipient_test.exit:             ; preds = %3, %7, %13, %19
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %7 ], [ 0, %3 ], [ %spec.select.i, %19 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %19 ], [ 0, %13 ], [ 0, %7 ]
   tail call void @X509_NAME_free(ptr noundef %5) #8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !13
@@ -390,7 +390,7 @@ define internal i32 @test_HDR_update_messageTime() #1 {
   br label %execute_HDR_update_messageTime_test.exit
 
 execute_HDR_update_messageTime_test.exit:         ; preds = %6, %17, %25, %28
-  %.0.i = phi i32 [ %32, %28 ], [ 0, %6 ], [ 0, %17 ], [ 0, %25 ]
+  %.0.i = phi i32 [ %32, %28 ], [ 0, %17 ], [ 0, %6 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -446,7 +446,7 @@ define internal range(i32 0, 2) i32 @test_HDR_set1_senderKID() #1 {
   br label %execute_HDR_set1_senderKID_test.exit
 
 execute_HDR_set1_senderKID_test.exit:             ; preds = %3, %7, %10, %15
-  %.0.i = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %3 ], [ %spec.select.i, %15 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %15 ], [ 0, %10 ], [ 0, %7 ]
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %5) #8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !13
@@ -505,7 +505,7 @@ define internal range(i32 0, 2) i32 @test_HDR_push0_freeText() #1 {
   br label %execute_HDR_push0_freeText_test.exit
 
 execute_HDR_push0_freeText_test.exit:             ; preds = %3, %14, %22
-  %.0.i = phi i32 [ 0, %22 ], [ 0, %3 ], [ 1, %14 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %22 ], [ 1, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   tail call void @OSSL_CMP_PKIHEADER_free(ptr noundef %24) #8
@@ -559,7 +559,7 @@ define internal range(i32 0, 2) i32 @test_HDR_push1_freeText() #1 {
   br label %execute_HDR_push1_freeText_test.exit
 
 execute_HDR_push1_freeText_test.exit:             ; preds = %3, %7, %9, %14
-  %.0.i = phi i32 [ 0, %9 ], [ 0, %7 ], [ 0, %3 ], [ %spec.select.i, %14 ]
+  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %14 ], [ 0, %9 ], [ 0, %7 ]
   tail call void @ASN1_UTF8STRING_free(ptr noundef %5) #8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !13
@@ -610,7 +610,7 @@ define internal range(i32 0, 2) i32 @test_HDR_generalInfo_push0_item() #1 {
   br label %execute_HDR_generalInfo_push0_item_test.exit
 
 execute_HDR_generalInfo_push0_item_test.exit:     ; preds = %3, %7, %12
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %7 ], [ %..i, %12 ]
+  %.0.i = phi i32 [ 0, %7 ], [ %..i, %12 ], [ 0, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !13
   tail call void @OSSL_CMP_PKIHEADER_free(ptr noundef %21) #8
@@ -722,7 +722,7 @@ define internal range(i32 0, 2) i32 @test_HDR_generalInfo_push1_items() #1 {
   br label %52
 
 52:                                               ; preds = %45, %36, %30
-  %.0.i = phi i32 [ 0, %36 ], [ 0, %30 ], [ %spec.select.i, %45 ]
+  %.0.i = phi i32 [ 0, %30 ], [ %spec.select.i, %45 ], [ 0, %36 ]
   %53 = load ptr, ptr %3, align 8, !tbaa !49
   call void @OPENSSL_sk_pop_free(ptr noundef %53, ptr noundef nonnull @OSSL_CMP_ITAV_free) #8
   br label %execute_HDR_generalInfo_push1_items_test.exit
@@ -943,7 +943,7 @@ define internal fastcc noundef ptr @set_up(ptr noundef %0) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %8, %1, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %1 ], [ %2, %8 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %12 ], [ %2, %8 ]
   ret ptr %.0
 }
 
@@ -1149,7 +1149,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_HDR_init_test(ptr noundef no
   br label %47
 
 47:                                               ; preds = %41, %43, %25, %17, %13, %10, %1, %46
-  %.0 = phi i32 [ 1, %46 ], [ 0, %1 ], [ 1, %10 ], [ 0, %13 ], [ 0, %17 ], [ 0, %25 ], [ 0, %43 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %46 ], [ 0, %25 ], [ 0, %17 ], [ 0, %13 ], [ 1, %10 ], [ 0, %43 ], [ 0, %41 ]
   ret i32 %.0
 }
 

@@ -78,7 +78,7 @@ define internal i32 @amr_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noun
   br label %28
 
 28:                                               ; preds = %7, %24, %4, %27
-  %.0 = phi i32 [ -1, %27 ], [ 0, %4 ], [ %16, %24 ], [ 0, %7 ]
+  %.0 = phi i32 [ %16, %24 ], [ -1, %27 ], [ 0, %4 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -239,7 +239,7 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   br label %86
 
 86:                                               ; preds = %.thread, %71, %73, %33, %28, %19, %15
-  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %28 ], [ %31, %33 ], [ -1094995529, %15 ], [ 0, %73 ], [ 0, %71 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %28 ], [ %31, %33 ], [ 0, %.thread ], [ -1094995529, %15 ], [ 0, %73 ], [ 0, %71 ]
   ret i32 %.0
 }
 

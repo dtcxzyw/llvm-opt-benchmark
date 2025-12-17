@@ -69,7 +69,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not368, label %47, label %.thread
 
 .thread.sink.split:                               ; preds = %40, %37, %34, %31, %29
-  %.sink = phi i32 [ -1, %29 ], [ -2, %31 ], [ -3, %34 ], [ -7, %37 ], [ -9, %40 ]
+  %.sink = phi i32 [ -1, %29 ], [ -2, %31 ], [ -7, %37 ], [ -3, %34 ], [ -9, %40 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread
 

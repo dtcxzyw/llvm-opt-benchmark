@@ -79,13 +79,13 @@ define noundef range(i8 0, 4) i8 @_ZN18ruff_python_trivia8comments15SuppressionK
   store i8 0, ptr %.sroa.521.0..sroa_idx, align 1
   br label %34
 
-.sink.split:                                      ; preds = %90, %97, %.loopexit.i, %80
-  %.sroa.0.1.ph = phi i8 [ 3, %80 ], [ 3, %.loopexit.i ], [ 3, %97 ], [ 2, %90 ]
+.sink.split:                                      ; preds = %90, %97, %80, %.loopexit.i
+  %.sroa.0.1.ph = phi i8 [ 3, %97 ], [ 3, %.loopexit.i ], [ 3, %80 ], [ 2, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %.sink.split, %25, %32, %11, %20, %22
-  %.sroa.0.1 = phi i8 [ 0, %11 ], [ 1, %20 ], [ 2, %22 ], [ 0, %25 ], [ 1, %32 ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi i8 [ 2, %22 ], [ 0, %25 ], [ 1, %32 ], [ 1, %20 ], [ 0, %11 ], [ %.sroa.0.1.ph, %.sink.split ]
   ret i8 %.sroa.0.1
 
 25:                                               ; preds = %18
@@ -443,7 +443,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition
   br i1 %74, label %32, label %_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE.exit
 
 _ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE.exit: ; preds = %32, %73, %71, %71
-  %.sroa.0.0 = phi i1 [ true, %71 ], [ true, %71 ], [ false, %73 ], [ true, %32 ]
+  %.sroa.0.0 = phi i1 [ true, %71 ], [ false, %73 ], [ true, %71 ], [ true, %32 ]
   ret i1 %.sroa.0.0
 }
 

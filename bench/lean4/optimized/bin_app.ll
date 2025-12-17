@@ -181,7 +181,7 @@ _ZN4lean4expraSERKS0_.exit14:                     ; preds = %_ZN4lean3incEP11lea
   br label %_ZN4lean10is_bin_appERKNS_4exprES2_.exit.thread
 
 _ZN4lean10is_bin_appERKNS_4exprES2_.exit.thread:  ; preds = %4, %8, %_ZN4lean10is_bin_appERKNS_4exprES2_.exit, %_ZN4lean4expraSERKS0_.exit14
-  %62 = phi i1 [ false, %_ZN4lean10is_bin_appERKNS_4exprES2_.exit ], [ true, %_ZN4lean4expraSERKS0_.exit14 ], [ false, %8 ], [ false, %4 ]
+  %62 = phi i1 [ true, %_ZN4lean4expraSERKS0_.exit14 ], [ false, %_ZN4lean10is_bin_appERKNS_4exprES2_.exit ], [ false, %8 ], [ false, %4 ]
   ret i1 %62
 }
 
@@ -445,7 +445,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   ret void
 
 54:                                               ; preds = %34, %24
-  %.06 = phi ptr [ %15, %24 ], [ %25, %34 ]
+  %.06 = phi ptr [ %25, %34 ], [ %15, %24 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %56

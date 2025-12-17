@@ -580,7 +580,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %.thread13
 
 .thread13:                                        ; preds = %76, %.thread, %72
-  %79 = phi i32 [ 16384, %.thread ], [ 16384, %72 ], [ %spec.select, %76 ]
+  %79 = phi i32 [ 16384, %72 ], [ %spec.select, %76 ], [ 16384, %.thread ]
   %80 = getelementptr i8, ptr %0, i64 1488
   store i32 %79, ptr %80, align 4
   %81 = load i32, ptr %5, align 8
@@ -1595,7 +1595,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg32(ptr noundef
   br label %31
 
 select.unfold:                                    ; preds = %16, %3, %14
-  %.ph = phi i32 [ -71, %14 ], [ %12, %3 ], [ -126, %16 ]
+  %.ph = phi i32 [ %12, %3 ], [ -71, %14 ], [ -126, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = getelementptr i8, ptr %0, i64 -632
   %20 = load ptr, ptr %19, align 8
@@ -1650,7 +1650,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg64(ptr noundef
   br label %29
 
 select.unfold:                                    ; preds = %14, %3, %12
-  %.ph = phi i32 [ -71, %12 ], [ %10, %3 ], [ -126, %14 ]
+  %.ph = phi i32 [ %10, %3 ], [ -71, %12 ], [ -126, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr i8, ptr %0, i64 -632
   %18 = load ptr, ptr %17, align 8

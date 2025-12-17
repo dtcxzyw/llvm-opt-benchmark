@@ -318,7 +318,7 @@ newpass_p12.exit:                                 ; preds = %122, %118
   br label %135
 
 135:                                              ; preds = %newpass_p12.exit, %.critedge, %23, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %.critedge ], [ 0, %23 ], [ 1, %newpass_p12.exit ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %23 ], [ 0, %.critedge ], [ 1, %newpass_p12.exit ]
   ret i32 %.0
 }
 

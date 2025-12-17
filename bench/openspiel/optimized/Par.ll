@@ -261,7 +261,7 @@ switch.lookup91:                                  ; preds = %86
   br label %_Z18CalcMultiContractsii.exit
 
 _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup91, %84, %switch.lookup, %72, %88, %89
-  %.0.i = phi i32 [ %..i, %89 ], [ %switch.select14.i, %88 ], [ %83, %72 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ %switch.load93, %switch.lookup91 ], [ 4, %86 ]
+  %.0.i = phi i32 [ %..i, %89 ], [ %83, %72 ], [ %switch.select14.i, %88 ], [ %switch.load93, %switch.lookup91 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ 4, %86 ]
   %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.i) #14
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %95 = load i32, ptr %94, align 4
@@ -297,7 +297,7 @@ _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup9
   br i1 %36, label %35, label %.loopexit74, !llvm.loop !7
 
 .loopexit74:                                      ; preds = %.loopexit, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ 1, %8 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %8 ], [ %7, %3 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -479,7 +479,7 @@ _Z8rawscoreiii.exit487:                           ; preds = %42
   br label %_Z8rawscoreiii.exit
 
 _Z8rawscoreiii.exit:                              ; preds = %60, %58, %56, %_Z8rawscoreiii.exit487
-  %.sink832 = phi i32 [ %66, %_Z8rawscoreiii.exit487 ], [ %59, %58 ], [ %61, %60 ], [ %.1.i, %56 ]
+  %.sink832 = phi i32 [ %66, %_Z8rawscoreiii.exit487 ], [ %.1.i, %56 ], [ %61, %60 ], [ %59, %58 ]
   %67 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %.sink832, ptr %67, align 4
   %68 = add nsw i32 %.0433617, 1
@@ -663,8 +663,8 @@ _Z8rawscoreiii.exit:                              ; preds = %60, %58, %56, %_Z8r
   br label %_Z8rawscoreiii.exit496
 
 _Z8rawscoreiii.exit496:                           ; preds = %144, %141, %136, %126, %124, %122, %108, %105, %100
-  %.3444 = phi i32 [ %.2443624, %100 ], [ %.2443624, %105 ], [ %.2443624, %108 ], [ %.2443624, %122 ], [ %.2443624, %124 ], [ %.2443624, %126 ], [ %.4445, %136 ], [ %.4445, %141 ], [ %.4445, %144 ]
-  %.0439 = phi i32 [ %102, %100 ], [ %107, %105 ], [ %110, %108 ], [ %.1.i493, %122 ], [ %125, %124 ], [ %127, %126 ], [ %138, %136 ], [ %143, %141 ], [ %146, %144 ]
+  %.3444 = phi i32 [ %.2443624, %126 ], [ %.2443624, %100 ], [ %.2443624, %105 ], [ %.2443624, %108 ], [ %.2443624, %122 ], [ %.2443624, %124 ], [ %.4445, %136 ], [ %.4445, %141 ], [ %.4445, %144 ]
+  %.0439 = phi i32 [ %127, %126 ], [ %102, %100 ], [ %107, %105 ], [ %110, %108 ], [ %.1.i493, %122 ], [ %125, %124 ], [ %138, %136 ], [ %143, %141 ], [ %146, %144 ]
   %147 = sub nsw i32 0, %.0439
   %spec.select = select i1 %72, i32 %147, i32 %.0439
   br i1 %73, label %148, label %151
@@ -693,10 +693,10 @@ _Z8rawscoreiii.exit496:                           ; preds = %144, %141, %136, %1
   br label %.thread542
 
 .thread542:                                       ; preds = %.thread542.sink.split, %148, %151, %133, %130
-  %157 = phi i32 [ %87, %151 ], [ %87, %130 ], [ %87, %133 ], [ %87, %148 ], [ %90, %.thread542.sink.split ]
-  %158 = phi i32 [ %88, %151 ], [ %88, %130 ], [ %88, %133 ], [ %88, %148 ], [ %.ph, %.thread542.sink.split ]
-  %.1451 = phi i32 [ %.0450623, %151 ], [ %.0450623, %130 ], [ %.0450623, %133 ], [ %.0450623, %148 ], [ 1, %.thread542.sink.split ]
-  %.5 = phi i32 [ %.3444, %151 ], [ %129, %130 ], [ %.4445, %133 ], [ %.3444, %148 ], [ %.3444, %.thread542.sink.split ]
+  %157 = phi i32 [ %87, %151 ], [ %90, %.thread542.sink.split ], [ %87, %130 ], [ %87, %133 ], [ %87, %148 ]
+  %158 = phi i32 [ %88, %151 ], [ %.ph, %.thread542.sink.split ], [ %88, %130 ], [ %88, %133 ], [ %88, %148 ]
+  %.1451 = phi i32 [ %.0450623, %151 ], [ 1, %.thread542.sink.split ], [ %.0450623, %130 ], [ %.0450623, %133 ], [ %.0450623, %148 ]
+  %.5 = phi i32 [ %.3444, %151 ], [ %.3444, %.thread542.sink.split ], [ %129, %130 ], [ %.4445, %133 ], [ %.3444, %148 ]
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond726.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count725
   br i1 %exitcond726.not, label %._crit_edge.loopexit, label %86, !llvm.loop !11
@@ -1102,11 +1102,11 @@ _Z13VulnerDefSideii.exit.thread.us:               ; preds = %_Z13VulnerDefSideii
   br label %_Z8rawscoreiii.exit506.us
 
 _Z8rawscoreiii.exit506.us:                        ; preds = %_Z13VulnerDefSideii.exit.thread.us, %320, %_Z13VulnerDefSideii.exit.us
-  %.sink836 = phi i32 [ 300, %_Z13VulnerDefSideii.exit.us ], [ 300, %320 ], [ %.843, %_Z13VulnerDefSideii.exit.thread.us ]
-  %.sink835 = phi i32 [ -100, %_Z13VulnerDefSideii.exit.us ], [ -100, %320 ], [ %.844, %_Z13VulnerDefSideii.exit.thread.us ]
-  %.neg579.us = mul i32 %.reass652, %.sink836
-  %.neg580.us = add i32 %.neg579.us, %.sink835
-  %322 = icmp slt i32 %262, %.neg580.us
+  %.sink836 = phi i32 [ 300, %320 ], [ %.843, %_Z13VulnerDefSideii.exit.thread.us ], [ 300, %_Z13VulnerDefSideii.exit.us ]
+  %.sink835 = phi i32 [ -100, %320 ], [ %.844, %_Z13VulnerDefSideii.exit.thread.us ], [ -100, %_Z13VulnerDefSideii.exit.us ]
+  %.neg581.us = mul i32 %.reass652, %.sink836
+  %.neg582.us = add i32 %.neg581.us, %.sink835
+  %322 = icmp slt i32 %262, %.neg582.us
   br i1 %322, label %.lr.ph655, label %323
 
 323:                                              ; preds = %_Z8rawscoreiii.exit506.us
@@ -1140,8 +1140,8 @@ _Z13VulnerDefSideii.exit510.thread:               ; preds = %326, %_Z13VulnerDef
   br label %_Z8rawscoreiii.exit506
 
 _Z8rawscoreiii.exit506:                           ; preds = %_Z13VulnerDefSideii.exit510.thread, %_Z13VulnerDefSideii.exit510, %326
-  %.sink838 = phi i32 [ 300, %326 ], [ 300, %_Z13VulnerDefSideii.exit510 ], [ %.845, %_Z13VulnerDefSideii.exit510.thread ]
-  %.sink837 = phi i32 [ -100, %326 ], [ -100, %_Z13VulnerDefSideii.exit510 ], [ %.846, %_Z13VulnerDefSideii.exit510.thread ]
+  %.sink838 = phi i32 [ 300, %_Z13VulnerDefSideii.exit510 ], [ %.845, %_Z13VulnerDefSideii.exit510.thread ], [ 300, %326 ]
+  %.sink837 = phi i32 [ -100, %_Z13VulnerDefSideii.exit510 ], [ %.846, %_Z13VulnerDefSideii.exit510.thread ], [ -100, %326 ]
   %.neg587 = mul i32 %327, %.sink838
   %.neg588 = add i32 %.neg587, %.sink837
   %329 = icmp slt i32 %262, %.neg588
@@ -1182,8 +1182,8 @@ _Z13VulnerDefSideii.exit518.thread:               ; preds = %.lr.ph655.split, %_
   br label %_Z8rawscoreiii.exit521
 
 _Z8rawscoreiii.exit521:                           ; preds = %_Z13VulnerDefSideii.exit518.thread, %_Z13VulnerDefSideii.exit518, %.lr.ph655.split
-  %.sink840 = phi i32 [ 300, %.lr.ph655.split ], [ 300, %_Z13VulnerDefSideii.exit518 ], [ %.847, %_Z13VulnerDefSideii.exit518.thread ]
-  %.sink839 = phi i32 [ -100, %.lr.ph655.split ], [ -100, %_Z13VulnerDefSideii.exit518 ], [ %.848, %_Z13VulnerDefSideii.exit518.thread ]
+  %.sink840 = phi i32 [ 300, %_Z13VulnerDefSideii.exit518 ], [ %.847, %_Z13VulnerDefSideii.exit518.thread ], [ 300, %.lr.ph655.split ]
+  %.sink839 = phi i32 [ -100, %_Z13VulnerDefSideii.exit518 ], [ %.848, %_Z13VulnerDefSideii.exit518.thread ], [ -100, %.lr.ph655.split ]
   %.neg590 = mul i32 %.reass660, %.sink840
   %.neg591 = add i32 %.neg590, %.sink839
   %341 = icmp sgt i32 %262, %.neg591
@@ -1195,7 +1195,7 @@ _Z8rawscoreiii.exit521:                           ; preds = %_Z13VulnerDefSideii
   br i1 %344, label %.lr.ph655.split, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !19
 
 _Z8rawscoreiii.exit521._crit_edge:                ; preds = %330, %323, %342, %_Z8rawscoreiii.exit521, %.thread, %315, %.lr.ph655
-  %.1540.lcssa = phi i32 [ %.0539.lcssa, %.lr.ph655 ], [ %318, %.thread ], [ %316, %315 ], [ %.1540653, %_Z8rawscoreiii.exit521 ], [ 0, %342 ], [ 0, %323 ], [ 0, %330 ]
+  %.1540.lcssa = phi i32 [ %318, %.thread ], [ %.0539.lcssa, %.lr.ph655 ], [ %316, %315 ], [ 0, %323 ], [ %.1540653, %_Z8rawscoreiii.exit521 ], [ 0, %342 ], [ 0, %330 ]
   %345 = icmp ult i32 %277, 5
   br i1 %345, label %switch.lookup, label %.loopexit
 
@@ -1386,7 +1386,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   br label %419
 
 419:                                              ; preds = %418, %413, %410, %408
-  %420 = phi i32 [ %398, %413 ], [ %406, %418 ], [ %398, %410 ], [ %398, %408 ]
+  %420 = phi i32 [ %398, %413 ], [ %398, %408 ], [ %406, %418 ], [ %398, %410 ]
   %indvars.iv.next756 = add nuw nsw i64 %indvars.iv755, 1
   %exitcond759.not = icmp eq i64 %indvars.iv.next756, %wide.trip.count763
   br i1 %exitcond759.not, label %._crit_edge683, label %.lr.ph682.split.us, !llvm.loop !22
@@ -1427,7 +1427,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %357, %358, %359, %3
   br label %443
 
 443:                                              ; preds = %436, %442, %433, %431
-  %444 = phi i32 [ %421, %436 ], [ %429, %442 ], [ %421, %433 ], [ %421, %431 ]
+  %444 = phi i32 [ %421, %431 ], [ %421, %436 ], [ %429, %442 ], [ %421, %433 ]
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count763
   br i1 %exitcond764.not, label %._crit_edge683, label %.lr.ph682.split, !llvm.loop !22
@@ -1599,7 +1599,7 @@ switch.lookup16:                                  ; preds = %5
   br label %14
 
 14:                                               ; preds = %5, %switch.lookup16, %3, %switch.lookup, %7, %8, %10
-  %.0 = phi i32 [ %11, %10 ], [ %., %8 ], [ %switch.select14, %7 ], [ %switch.load, %switch.lookup ], [ 5, %3 ], [ %switch.load18, %switch.lookup16 ], [ 4, %5 ]
+  %.0 = phi i32 [ %11, %10 ], [ %., %8 ], [ %switch.select14, %7 ], [ %switch.load18, %switch.lookup16 ], [ %switch.load, %switch.lookup ], [ 5, %3 ], [ 4, %5 ]
   ret i32 %.0
 }
 
@@ -1777,7 +1777,7 @@ define noundef range(i32 0, 2) i32 @_Z13VulnerDefSideii(i32 noundef %0, i32 noun
   br label %9
 
 9:                                                ; preds = %7, %5, %2, %3
-  %.0.shrunk = phi i1 [ true, %3 ], [ false, %2 ], [ %6, %5 ], [ %8, %7 ]
+  %.0.shrunk = phi i1 [ %8, %7 ], [ true, %3 ], [ %6, %5 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1980,7 +1980,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader103, %25, %27, %28, %26
-  %.sink130 = phi i32 [ 2, %26 ], [ 4, %28 ], [ 3, %27 ], [ 1, %25 ], [ 0, %.preheader103 ]
+  %.sink130 = phi i32 [ 1, %25 ], [ 2, %26 ], [ 4, %28 ], [ 3, %27 ], [ 0, %.preheader103 ]
   %29 = getelementptr inbounds nuw %struct.parContr2Type, ptr %6, i64 %indvar
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %.sink130, ptr %30, align 4
@@ -2104,8 +2104,8 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   br i1 %.not100, label %77, label %.sink.split135
 
 .sink.split135:                                   ; preds = %74, %72, %70, %68, %66, %63
-  %.sink136 = phi i32 [ 4, %63 ], [ 5, %66 ], [ 0, %68 ], [ 1, %70 ], [ 2, %72 ], [ 3, %74 ]
-  %.092.ph = phi i64 [ 1, %63 ], [ 1, %66 ], [ 0, %68 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ]
+  %.sink136 = phi i32 [ 4, %63 ], [ 0, %68 ], [ 2, %72 ], [ 1, %70 ], [ 5, %66 ], [ 3, %74 ]
+  %.092.ph = phi i64 [ 1, %63 ], [ 0, %68 ], [ 0, %72 ], [ 0, %70 ], [ 1, %66 ], [ 0, %74 ]
   %76 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 %.sink136, ptr %76, align 4
   br label %77
@@ -2151,7 +2151,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   br i1 %exitcond128.not, label %.loopexit, label %50, !llvm.loop !30
 
 .loopexit:                                        ; preds = %50, %95, %._crit_edge.thread, %4, %17
-  %.088 = phi i32 [ 1, %17 ], [ %7, %4 ], [ 1, %._crit_edge.thread ], [ -1, %50 ], [ 1, %95 ]
+  %.088 = phi i32 [ %7, %4 ], [ 1, %17 ], [ 1, %._crit_edge.thread ], [ 1, %95 ], [ -1, %50 ]
   ret i32 %.088
 }
 
@@ -2702,7 +2702,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   br label %13, !llvm.loop !36
 
 .loopexit154:                                     ; preds = %._crit_edge, %35, %25, %12
-  %.0120 = phi i32 [ 1, %12 ], [ -1, %25 ], [ -1, %35 ], [ 1, %._crit_edge ]
+  %.0120 = phi i32 [ 1, %12 ], [ -1, %35 ], [ -1, %25 ], [ 1, %._crit_edge ]
   ret i32 %.0120
 }
 

@@ -127,7 +127,7 @@ define internal fastcc range(i32 -173, 1) i32 @_ffc_validate_public_key(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   %21 = load i16, ptr %20, align 8, !tbaa !12
   %.not34 = icmp eq i16 %21, 0
-  br i1 %.not34, label %select.unfold53, label %22
+  br i1 %.not34, label %select.unfold, label %22
 
 22:                                               ; preds = %19
   %23 = call i32 @sp_copy(ptr noundef nonnull %20, ptr noundef nonnull %9) #14
@@ -137,10 +137,10 @@ define internal fastcc range(i32 -173, 1) i32 @_ffc_validate_public_key(ptr noun
   %.mux = select i1 %.not35, i32 %spec.select, i32 -110
   br i1 %brmerge.not, label %.thread55, label %.thread71
 
-select.unfold53:                                  ; preds = %19
+select.unfold:                                    ; preds = %19
   br i1 %.not33, label %.thread55, label %.thread71
 
-.thread55:                                        ; preds = %22, %17, %select.unfold53
+.thread55:                                        ; preds = %22, %17, %select.unfold
   %25 = call i32 @sp_cmp_d(ptr noundef nonnull %7, i64 noundef 2) #14
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %.thread76, label %27
@@ -161,8 +161,8 @@ select.unfold53:                                  ; preds = %19
   %spec.select49 = select i1 %33, i32 -120, i32 0
   br label %.thread71
 
-.thread71:                                        ; preds = %22, %select.unfold53, %31
-  %.5 = phi i32 [ %spec.select49, %31 ], [ -111, %select.unfold53 ], [ %.mux, %22 ]
+.thread71:                                        ; preds = %22, %select.unfold, %31
+  %.5 = phi i32 [ -111, %select.unfold ], [ %spec.select49, %31 ], [ %.mux, %22 ]
   %.not39 = icmp eq i32 %5, 0
   %34 = icmp eq i32 %.5, 0
   %or.cond79 = select i1 %.not39, i1 %34, i1 false
@@ -196,7 +196,7 @@ select.unfold53:                                  ; preds = %19
   br label %.thread76
 
 .thread76:                                        ; preds = %.thread55, %17, %27, %29, %36, %43, %39, %41, %.thread71
-  %.6 = phi i32 [ %.5, %.thread71 ], [ -112, %41 ], [ %spec.select50, %39 ], [ %spec.select52, %43 ], [ 0, %36 ], [ -120, %.thread55 ], [ -111, %17 ], [ -110, %27 ], [ -114, %29 ]
+  %.6 = phi i32 [ %.5, %.thread71 ], [ %spec.select50, %39 ], [ %spec.select52, %43 ], [ -112, %41 ], [ 0, %36 ], [ -120, %.thread55 ], [ -111, %17 ], [ -110, %27 ], [ -114, %29 ]
   call void @sp_clear(ptr noundef nonnull %7) #14
   call void @sp_clear(ptr noundef nonnull %8) #14
   call void @sp_clear(ptr noundef nonnull %9) #14
@@ -322,7 +322,7 @@ define range(i32 -98, 1) i32 @wc_DhCheckPubValue(ptr noundef readonly captures(n
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %8, %4, %47, %40, %.critedge2.thread, %.critedge, %16
-  %.039 = phi i32 [ -98, %16 ], [ -98, %.critedge ], [ -98, %.critedge2.thread ], [ %spec.select, %40 ], [ %spec.select47, %47 ], [ -98, %4 ], [ -98, %8 ]
+  %.039 = phi i32 [ -98, %16 ], [ -98, %.critedge ], [ -98, %.critedge2.thread ], [ %spec.select47, %47 ], [ %spec.select, %40 ], [ -98, %4 ], [ -98, %8 ]
   ret i32 %.039
 }
 
@@ -395,7 +395,7 @@ define range(i32 -263, 1) i32 @wc_DhCheckPrivKey_ex(ptr noundef %0, ptr noundef 
   br label %.thread42
 
 .thread42:                                        ; preds = %26, %12, %29, %.thread, %20, %15, %.thread47, %24
-  %.3 = phi i32 [ 0, %24 ], [ %spec.select34, %.thread47 ], [ -110, %20 ], [ -111, %15 ], [ -120, %.thread ], [ -114, %29 ], [ -111, %12 ], [ -110, %26 ]
+  %.3 = phi i32 [ -120, %.thread ], [ %spec.select34, %.thread47 ], [ -111, %12 ], [ 0, %24 ], [ -114, %29 ], [ -111, %15 ], [ -110, %20 ], [ -110, %26 ]
   call void @sp_forcezero(ptr noundef nonnull %6) #14
   call void @sp_clear(ptr noundef nonnull %7) #14
   br label %33
@@ -547,19 +547,19 @@ define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %33 = shl i32 %28, 3
   %34 = and i32 %29, 536870911
   switch i32 %34, label %GeneratePrivateDh.exit.thread36.i [
-    i32 128, label %35
-    i32 256, label %CheckDhLN.exit.i.i.i
+    i32 128, label %CheckDhLN.exit.i.i.i
+    i32 256, label %35
   ]
 
 35:                                               ; preds = %32
-  %.not68.i.i.i = icmp eq i32 %33, 160
-  br i1 %.not68.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
-
-CheckDhLN.exit.i.i.i:                             ; preds = %32
   %36 = add i32 %33, -224
   %switch.and.i.i.i.i = and i32 %36, -40
   %switch.selectcmp.i.not.i.i.i = icmp eq i32 %switch.and.i.i.i.i, 0
   br i1 %switch.selectcmp.i.not.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
+
+CheckDhLN.exit.i.i.i:                             ; preds = %32
+  %.not68.i.i.i = icmp eq i32 %33, 160
+  br i1 %.not68.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
 
 37:                                               ; preds = %CheckDhLN.exit.i.i.i, %35, %27
   %38 = load i32, ptr %3, align 4, !tbaa !21
@@ -718,14 +718,14 @@ GeneratePrivateDh.exit.thread33.i:                ; preds = %100
   br label %106
 
 GeneratePrivateDh.exit.thread36.i:                ; preds = %37, %CheckDhLN.exit.i.i.i, %35, %32
-  %.030.i.i.ph.i = phi i32 [ -173, %35 ], [ -173, %32 ], [ %40, %37 ], [ -173, %CheckDhLN.exit.i.i.i ]
+  %.030.i.i.ph.i = phi i32 [ %40, %37 ], [ -173, %35 ], [ -173, %32 ], [ -173, %CheckDhLN.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %wc_DhGenerateKeyPair_Sync.exit
 
 GeneratePrivateDh.exit.i:                         ; preds = %75, %71, %68, %65, %.thread44.i.i.i, %60, %ForceZero.exit.i.i.i
-  %.6.i.i.i = phi i32 [ %76, %75 ], [ %69, %68 ], [ -173, %71 ], [ %66, %65 ], [ %63, %.thread44.i.i.i ], [ %61, %60 ], [ %55, %ForceZero.exit.i.i.i ]
+  %.6.i.i.i = phi i32 [ %69, %68 ], [ %76, %75 ], [ -173, %71 ], [ %66, %65 ], [ %63, %.thread44.i.i.i ], [ %61, %60 ], [ %55, %ForceZero.exit.i.i.i ]
   call void @sp_forcezero(ptr noundef nonnull %10) #14
   call void @sp_clear(ptr noundef nonnull %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -774,7 +774,7 @@ GeneratePrivateDh.exit._crit_edge.i:              ; preds = %GeneratePrivateDh.e
   br label %.thread22.i.i
 
 .thread22.i.i:                                    ; preds = %119, %.thread.i.i, %115, %113
-  %.224.i.i = phi i32 [ 0, %119 ], [ -113, %.thread.i.i ], [ -112, %115 ], [ -111, %113 ]
+  %.224.i.i = phi i32 [ -112, %115 ], [ 0, %119 ], [ -113, %.thread.i.i ], [ -111, %113 ]
   call void @sp_clear(ptr noundef nonnull %8) #14
   call void @sp_forcezero(ptr noundef nonnull %7) #14
   br label %GeneratePublicDh.exit.i
@@ -786,7 +786,7 @@ GeneratePublicDh.exit.i:                          ; preds = %.thread22.i.i, %111
   br label %wc_DhGenerateKeyPair_Sync.exit
 
 wc_DhGenerateKeyPair_Sync.exit:                   ; preds = %GeneratePublicDh.exit.i, %GeneratePrivateDh.exit.i, %GeneratePrivateDh.exit.thread36.i, %100, %98, %GeneratePrivateDh.exit.thread38.i, %20, %6
-  %.0 = phi i32 [ -173, %6 ], [ %.012.i.i, %GeneratePublicDh.exit.i ], [ %.6.i.i.i, %GeneratePrivateDh.exit.i ], [ %.030.i.i.ph.i, %GeneratePrivateDh.exit.thread36.i ], [ %.043.i.i.i, %GeneratePrivateDh.exit.thread38.i ], [ -234, %98 ], [ -98, %20 ], [ %101, %100 ]
+  %.0 = phi i32 [ -173, %6 ], [ %101, %100 ], [ %.012.i.i, %GeneratePublicDh.exit.i ], [ %.6.i.i.i, %GeneratePrivateDh.exit.i ], [ %.043.i.i.i, %GeneratePrivateDh.exit.thread38.i ], [ %.030.i.i.ph.i, %GeneratePrivateDh.exit.thread36.i ], [ -234, %98 ], [ -98, %20 ]
   ret i32 %.0
 }
 
@@ -897,7 +897,7 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
   br label %.thread43
 
 .thread43:                                        ; preds = %21, %33, %23, %32, %37, %43, %40
-  %.5 = phi i32 [ %39, %37 ], [ 0, %43 ], [ %41, %40 ], [ -112, %32 ], [ -111, %23 ], [ -98, %33 ], [ -111, %21 ]
+  %.5 = phi i32 [ %39, %37 ], [ 0, %43 ], [ %41, %40 ], [ -98, %33 ], [ -111, %23 ], [ -112, %32 ], [ -111, %21 ]
   call void @sp_forcezero(ptr noundef nonnull %11) #14
   call void @sp_clear(ptr noundef nonnull %9) #14
   call void @sp_forcezero(ptr noundef nonnull %10) #14
@@ -1152,7 +1152,7 @@ define internal fastcc i32 @_DhSetKey(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread164
 
 .thread164:                                       ; preds = %52, %.thread158, %70, %69
-  %.8163168 = phi i32 [ %.8, %70 ], [ %.8, %69 ], [ %.5.ph, %.thread158 ], [ -110, %52 ]
+  %.8163168 = phi i32 [ %.8, %69 ], [ %.8, %70 ], [ %.5.ph, %.thread158 ], [ -110, %52 ]
   %.not103 = icmp eq ptr %.071, null
   br i1 %.not103, label %72, label %71
 
@@ -1273,9 +1273,9 @@ define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly capt
   br label %.thread
 
 .thread:                                          ; preds = %7, %9, %8
-  %.02946 = phi i32 [ 1, %9 ], [ 1, %8 ], [ 0, %7 ]
-  %.03045 = phi i32 [ 256, %9 ], [ 256, %8 ], [ 0, %7 ]
-  %.03144 = phi ptr [ @dh_ffdhe2048_g, %9 ], [ @dh_ffdhe2048_g, %8 ], [ null, %7 ]
+  %.02946 = phi i32 [ 1, %8 ], [ 1, %9 ], [ 0, %7 ]
+  %.03045 = phi i32 [ 256, %8 ], [ 256, %9 ], [ 0, %7 ]
+  %.03144 = phi ptr [ @dh_ffdhe2048_g, %8 ], [ @dh_ffdhe2048_g, %9 ], [ null, %7 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %10
 

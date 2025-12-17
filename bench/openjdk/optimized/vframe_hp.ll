@@ -377,7 +377,7 @@ define hidden noundef zeroext i1 @_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6
   br label %17
 
 17:                                               ; preds = %11, %2, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %2 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %11 ]
   ret i1 %.0
 }
 

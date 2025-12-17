@@ -195,7 +195,7 @@ define hidden i32 @lj_debug_line(ptr noundef readonly captures(none) %0, i32 nou
   br label %43
 
 43:                                               ; preds = %2, %14, %25, %34, %39, %18
-  %.1 = phi i32 [ %17, %14 ], [ %30, %25 ], [ %38, %34 ], [ %42, %39 ], [ %12, %18 ], [ 0, %2 ]
+  %.1 = phi i32 [ %12, %18 ], [ %17, %14 ], [ %42, %39 ], [ %30, %25 ], [ %38, %34 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -311,8 +311,8 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
   store ptr %9, ptr %3, align 8, !tbaa !30
   br label %lj_debug_uvname.exit.thread
 
-lj_debug_uvname.exit.thread:                      ; preds = %35, %4, %37, %13, %20, %31, %42
-  %.3 = phi ptr [ %32, %31 ], [ @.str, %20 ], [ @.str, %42 ], [ null, %13 ], [ null, %37 ], [ null, %4 ], [ %33, %35 ]
+lj_debug_uvname.exit.thread:                      ; preds = %35, %4, %13, %37, %20, %31, %42
+  %.3 = phi ptr [ @.str, %42 ], [ %32, %31 ], [ @.str, %20 ], [ null, %37 ], [ null, %13 ], [ null, %4 ], [ %33, %35 ]
   ret ptr %.3
 }
 
@@ -637,8 +637,8 @@ lj_debug_uvname.exit:                             ; preds = %131, %.split105.us,
   %.be283 = phi ptr [ %.old262, %133 ], [ %84, %82 ]
   br label %.lr.ph, !llvm.loop !33
 
-.thread67:                                        ; preds = %88, %debug_varname.exit, %82, %133, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %lj_debug_uvname.exit, %.split98.us, %.loopexit
-  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.2, %.split98.us ], [ null, %debug_varname.exit.us.preheader ], [ null, %31 ], [ null, %35 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %29 ], [ null, %133 ], [ null, %82 ], [ null, %debug_varname.exit ], [ null, %88 ]
+.thread67:                                        ; preds = %88, %debug_varname.exit, %82, %133, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %.split98.us, %lj_debug_uvname.exit, %.loopexit
+  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ @.str.2, %.split98.us ], [ null, %debug_varname.exit.us.preheader ], [ null, %82 ], [ null, %35 ], [ null, %29 ], [ null, %31 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %133 ], [ null, %debug_varname.exit ], [ null, %88 ]
   ret ptr %.1
 }
 
@@ -733,7 +733,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %57, %50, %31, %38, %3
-  %.032 = phi ptr [ null, %3 ], [ null, %38 ], [ null, %31 ], [ @.str.6, %57 ], [ %56, %50 ]
+  %.032 = phi ptr [ null, %31 ], [ null, %3 ], [ null, %38 ], [ @.str.6, %57 ], [ %56, %50 ]
   ret ptr %.032
 }
 
@@ -892,7 +892,7 @@ define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %0
   br i1 %.not66, label %.critedge, label %97
 
 97:                                               ; preds = %94, %22, %15, %29
-  %.254.in = phi i64 [ %31, %29 ], [ %18, %15 ], [ %23, %22 ], [ %96, %94 ]
+  %.254.in = phi i64 [ %18, %15 ], [ %23, %22 ], [ %31, %29 ], [ %96, %94 ]
   %.254 = inttoptr i64 %.254.in to ptr
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %99 = load i64, ptr %98, align 8, !tbaa !15
@@ -922,8 +922,8 @@ define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %0
   %118 = trunc i64 %117 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %92, %53, %32, %15, %9, %94, %97, %113, %108, %3
-  %.0 = phi i32 [ -1, %3 ], [ %118, %113 ], [ %104, %97 ], [ -1, %108 ], [ -1, %94 ], [ -1, %9 ], [ -1, %15 ], [ -1, %32 ], [ -1, %53 ], [ -1, %92 ]
+.critedge:                                        ; preds = %92, %53, %32, %9, %15, %94, %97, %113, %108, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %9 ], [ -1, %108 ], [ %118, %113 ], [ %104, %97 ], [ -1, %94 ], [ -1, %15 ], [ -1, %32 ], [ -1, %53 ], [ -1, %92 ]
   ret i32 %.0
 }
 
@@ -1106,7 +1106,7 @@ define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %debug_frameline.exit
 
 debug_frameline.exit:                             ; preds = %31, %35, %42, %51, %56
-  %.0.i = phi i32 [ %34, %31 ], [ %47, %42 ], [ %55, %51 ], [ %59, %56 ], [ %28, %35 ]
+  %.0.i = phi i32 [ %55, %51 ], [ %28, %35 ], [ %34, %31 ], [ %59, %56 ], [ %47, %42 ]
   %60 = icmp slt i32 %.0.i, 0
   br i1 %60, label %.critedge.thread, label %.critedge
 
@@ -1199,7 +1199,7 @@ define hidden void @lj_debug_pushloc(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %lj_debug_line.exit
 
 lj_debug_line.exit:                               ; preds = %3, %21, %25, %32, %41, %46
-  %.1.i = phi i32 [ %24, %21 ], [ %37, %32 ], [ %45, %41 ], [ %49, %46 ], [ %18, %25 ], [ 0, %3 ]
+  %.1.i = phi i32 [ %18, %25 ], [ %24, %21 ], [ %49, %46 ], [ %37, %32 ], [ %45, %41 ], [ 0, %3 ]
   %50 = icmp eq i32 %18, -1
   br i1 %50, label %51, label %53
 
@@ -1609,7 +1609,7 @@ debug_varname.exit:                               ; preds = %59, %.loopexit.i, %
   br label %.thread
 
 .thread:                                          ; preds = %27, %34, %26, %48, %91
-  %.1 = phi ptr [ %45, %48 ], [ %93, %91 ], [ null, %26 ], [ null, %34 ], [ null, %27 ]
+  %.1 = phi ptr [ %93, %91 ], [ %45, %48 ], [ null, %26 ], [ null, %34 ], [ null, %27 ]
   ret ptr %.1
 }
 
@@ -1835,7 +1835,7 @@ define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %0, ptr noundef 
   br label %debug_frameline.exit
 
 debug_frameline.exit:                             ; preds = %109, %104, %95, %88, %84, %70, %68, %67
-  %113 = phi i32 [ -1, %67 ], [ -1, %68 ], [ %87, %84 ], [ %100, %95 ], [ %108, %104 ], [ %112, %109 ], [ %82, %88 ], [ 0, %70 ]
+  %113 = phi i32 [ -1, %67 ], [ -1, %68 ], [ %82, %88 ], [ %87, %84 ], [ %112, %109 ], [ %100, %95 ], [ %108, %104 ], [ 0, %70 ]
   store i32 %113, ptr %38, align 8, !tbaa !68
   br label %136
 
@@ -2071,7 +2071,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %7, %149, %232, %225
-  %.1 = phi i32 [ 1, %225 ], [ 1, %232 ], [ 1, %149 ], [ 0, %7 ], [ 0, %47 ]
+  %.1 = phi i32 [ 1, %149 ], [ 0, %7 ], [ 1, %225 ], [ 1, %232 ], [ 0, %47 ]
   ret i32 %.1
 }
 
@@ -2471,8 +2471,8 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   br i1 %.not66.i, label %.thread122, label %174
 
 174:                                              ; preds = %83, %171, %112
-  %175 = phi ptr [ %106, %112 ], [ %106, %171 ], [ %96, %83 ]
-  %.254.in.i = phi i64 [ %114, %112 ], [ %173, %171 ], [ %80, %83 ]
+  %175 = phi ptr [ %106, %171 ], [ %106, %112 ], [ %96, %83 ]
+  %.254.in.i = phi i64 [ %173, %171 ], [ %114, %112 ], [ %80, %83 ]
   %.254.i = inttoptr i64 %.254.in.i to ptr
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load i64, ptr %176, align 8, !tbaa !15
@@ -2585,7 +2585,7 @@ lj_buf_more.exit96:                               ; preds = %230, %239
   store ptr %241, ptr %1, align 8, !tbaa !81
   br label %242
 
-.thread122:                                       ; preds = %169, %130, %lj_debug_funcname.exit, %70, %197, %debug_framepc.exit, %83, %186, %171, %115, %.thread
+.thread122:                                       ; preds = %169, %130, %lj_debug_funcname.exit, %debug_framepc.exit, %70, %197, %83, %186, %171, %115, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %247
 
@@ -2774,7 +2774,7 @@ debug_putchunkname.exit:                          ; preds = %256, %266
   br label %debug_frameline.exit
 
 debug_frameline.exit:                             ; preds = %335, %330, %321, %314, %310, %296, %294, %339
-  %341 = phi i32 [ %340, %339 ], [ -1, %294 ], [ %313, %310 ], [ %326, %321 ], [ %334, %330 ], [ %338, %335 ], [ %308, %314 ], [ 0, %296 ]
+  %341 = phi i32 [ %340, %339 ], [ -1, %294 ], [ %308, %314 ], [ %313, %310 ], [ %338, %335 ], [ %326, %321 ], [ %334, %330 ], [ 0, %296 ]
   %342 = load ptr, ptr %13, align 8, !tbaa !79
   %343 = load ptr, ptr %1, align 8, !tbaa !81
   %344 = ptrtoint ptr %342 to i64
@@ -2900,7 +2900,7 @@ lj_buf_more.exit:                                 ; preds = %393, %401
   br i1 %.not, label %.thread126, label %14
 
 .thread126:                                       ; preds = %.loopexit, %.loopexit134
-  %.068.lcssa = phi i32 [ %.472, %.loopexit ], [ %.068147, %.loopexit134 ]
+  %.068.lcssa = phi i32 [ %.068147, %.loopexit134 ], [ %.472, %.loopexit ]
   %.not83 = icmp eq i32 %.068.lcssa, 0
   br i1 %.not83, label %.thread126.thread, label %407
 
@@ -3389,8 +3389,8 @@ lua_getstack.exit87:                              ; preds = %.loopexit, %.loopex
   br label %234
 
 234:                                              ; preds = %lua_getstack.exit69.thread, %223, %233, %lua_getstack.exit87
-  %.139 = phi i32 [ 2147483647, %lua_getstack.exit87 ], [ %.038108, %233 ], [ %.038108, %223 ], [ 2147483647, %lua_getstack.exit69.thread ]
-  %.2 = phi i32 [ %182, %lua_getstack.exit87 ], [ %38, %233 ], [ %38, %223 ], [ %.0109, %lua_getstack.exit69.thread ]
+  %.139 = phi i32 [ 2147483647, %lua_getstack.exit87 ], [ 2147483647, %lua_getstack.exit69.thread ], [ %.038108, %233 ], [ %.038108, %223 ]
+  %.2 = phi i32 [ %182, %lua_getstack.exit87 ], [ %.0109, %lua_getstack.exit69.thread ], [ %38, %233 ], [ %38, %223 ]
   %235 = load i64, ptr %18, align 8, !tbaa !4
   %236 = inttoptr i64 %235 to ptr
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8

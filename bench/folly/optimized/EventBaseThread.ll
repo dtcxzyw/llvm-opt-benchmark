@@ -675,7 +675,7 @@ _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %32, %34
   unreachable
 
 .body:                                            ; preds = %42, %39, %23, %20
-  %.pn = phi { ptr, i32 } [ %21, %23 ], [ %21, %20 ], [ %40, %39 ], [ %40, %42 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %40, %42 ], [ %21, %23 ], [ %40, %39 ]
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 688) #16
   resume { ptr, i32 } %.pn
 }

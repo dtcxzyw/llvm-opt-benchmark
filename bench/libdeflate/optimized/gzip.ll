@@ -329,8 +329,8 @@ get_suffix.exit.i:                                ; preds = %99
   br label %.thread.i
 
 .thread.i:                                        ; preds = %125, %get_suffix.exit.i, %119, %117, %93
-  %.078.i = phi ptr [ null, %93 ], [ %spec.select.i, %117 ], [ %123, %125 ], [ null, %get_suffix.exit.i ], [ null, %119 ]
-  %.073.i = phi ptr [ null, %93 ], [ %115, %117 ], [ %95, %125 ], [ %95, %get_suffix.exit.i ], [ %95, %119 ]
+  %.078.i = phi ptr [ null, %93 ], [ null, %get_suffix.exit.i ], [ null, %119 ], [ %123, %125 ], [ %spec.select.i, %117 ]
+  %.073.i = phi ptr [ null, %93 ], [ %95, %get_suffix.exit.i ], [ %95, %119 ], [ %95, %125 ], [ %115, %117 ]
   br i1 %86, label %127, label %.thread
 
 127:                                              ; preds = %.thread.i
@@ -361,7 +361,7 @@ get_suffix.exit.i:                                ; preds = %99
   br label %.thread130.i
 
 .thread130.i:                                     ; preds = %127, %134
-  %137 = phi i1 [ %spec.select102.i, %134 ], [ true, %127 ]
+  %137 = phi i1 [ true, %127 ], [ %spec.select102.i, %134 ]
   %138 = load i32, ptr %6, align 8, !tbaa !17
   %139 = call i32 @fstat64(i32 noundef %138, ptr noundef nonnull %8) #11
   %.not.i104.i = icmp eq i32 %139, 0
@@ -446,7 +446,7 @@ stat_file.exit.i:                                 ; preds = %152
   br label %stat_file.exit.thread.i
 
 stat_file.exit.thread.i:                          ; preds = %175, %171, %stat_file.exit.i, %155, %148, %140, %133
-  %.176.i = phi i32 [ %157, %stat_file.exit.i ], [ %172, %175 ], [ %172, %171 ], [ -1, %133 ], [ -2, %148 ], [ -2, %155 ], [ -1, %140 ]
+  %.176.i = phi i32 [ -1, %133 ], [ %157, %stat_file.exit.i ], [ %172, %175 ], [ %172, %171 ], [ -2, %155 ], [ -2, %148 ], [ -1, %140 ]
   %177 = call i32 @xclose(ptr noundef nonnull %6) #11
   %178 = icmp ne i32 %.176.i, 0
   %179 = icmp eq ptr %.073.i, null
@@ -462,7 +462,7 @@ stat_file.exit.thread.i:                          ; preds = %175, %171, %stat_fi
   br label %183
 
 183:                                              ; preds = %stat_file.exit.thread.i, %.thread, %181, %127
-  %.075.i = phi i32 [ %128, %127 ], [ 0, %181 ], [ %.176.i.mux, %stat_file.exit.thread.i ], [ %129, %.thread ]
+  %.075.i = phi i32 [ %128, %127 ], [ %129, %.thread ], [ 0, %181 ], [ %.176.i.mux, %stat_file.exit.thread.i ]
   %.not100.i = icmp eq ptr %.078.i, %95
   br i1 %.not100.i, label %185, label %184
 
@@ -479,7 +479,7 @@ stat_file.exit.thread.i:                          ; preds = %175, %171, %stat_fi
   br label %decompress_file.exit
 
 decompress_file.exit:                             ; preds = %110, %120, %121, %185, %186
-  %.1.i = phi i32 [ %.075.i, %186 ], [ %.075.i, %185 ], [ -2, %120 ], [ -1, %121 ], [ -1, %110 ]
+  %.1.i = phi i32 [ %.075.i, %185 ], [ %.075.i, %186 ], [ -2, %120 ], [ -1, %121 ], [ -1, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -564,7 +564,7 @@ append_suffix.exit.i:                             ; preds = %has_suffix.exit.thr
   br label %220
 
 220:                                              ; preds = %append_suffix.exit.i, %200
-  %.051.i = phi ptr [ %217, %append_suffix.exit.i ], [ null, %200 ]
+  %.051.i = phi ptr [ null, %200 ], [ %217, %append_suffix.exit.i ]
   br i1 %193, label %221, label %.thread74
 
 221:                                              ; preds = %220
@@ -682,7 +682,7 @@ stat_file.exit.i64:                               ; preds = %244
   br label %stat_file.exit.thread.i60
 
 stat_file.exit.thread.i60:                        ; preds = %270, %266, %stat_file.exit.i64, %247, %240, %232
-  %.1.i61 = phi i32 [ %249, %stat_file.exit.i64 ], [ %267, %270 ], [ %267, %266 ], [ -2, %240 ], [ -2, %247 ], [ -1, %232 ]
+  %.1.i61 = phi i32 [ %267, %266 ], [ %249, %stat_file.exit.i64 ], [ %267, %270 ], [ -2, %247 ], [ -2, %240 ], [ -1, %232 ]
   %272 = call i32 @xclose(ptr noundef nonnull %3) #11
   %273 = icmp eq i32 %.1.i61, 0
   %274 = icmp ne ptr %.051.i, null
@@ -698,7 +698,7 @@ stat_file.exit.thread.i60:                        ; preds = %270, %266, %stat_fi
   br label %278
 
 278:                                              ; preds = %stat_file.exit.thread.i60, %.thread74, %276, %221
-  %.050.i = phi i32 [ %222, %221 ], [ 0, %276 ], [ %.1.i61.mux, %stat_file.exit.thread.i60 ], [ %223, %.thread74 ]
+  %.050.i = phi i32 [ %222, %221 ], [ %223, %.thread74 ], [ 0, %276 ], [ %.1.i61.mux, %stat_file.exit.thread.i60 ]
   call void @free(ptr noundef %.051.i) #11
   br label %compress_file.exit
 
@@ -735,7 +735,7 @@ compress_file.exit:                               ; preds = %212, %has_suffix.ex
   br label %.thread71
 
 .thread71:                                        ; preds = %39, %189, %82, %282, %281, %285, %60, %59, %57, %47
-  %.0 = phi i32 [ 1, %60 ], [ 0, %47 ], [ 1, %57 ], [ 0, %59 ], [ 1, %285 ], [ %.244, %281 ], [ %., %282 ], [ 1, %82 ], [ 1, %189 ], [ 1, %39 ]
+  %.0 = phi i32 [ 1, %60 ], [ 1, %82 ], [ 0, %47 ], [ 1, %57 ], [ 0, %59 ], [ 1, %285 ], [ %., %282 ], [ %.244, %281 ], [ 1, %189 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -944,8 +944,8 @@ define internal fastcc i32 @do_decompress(ptr noundef nonnull %0, ptr noundef no
   br i1 %.not78, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %73, %67, %63, %54, %49, %47, %41
-  %.257 = phi ptr [ null, %41 ], [ %.156, %47 ], [ %.156, %49 ], [ %.156, %54 ], [ %.156, %63 ], [ %.156, %67 ], [ %.358, %73 ]
-  %.1 = phi i32 [ -1, %41 ], [ -1, %47 ], [ -1, %49 ], [ -1, %54 ], [ -1, %63 ], [ %68, %67 ], [ 0, %73 ]
+  %.257 = phi ptr [ null, %41 ], [ %.156, %47 ], [ %.156, %49 ], [ %.156, %63 ], [ %.156, %54 ], [ %.156, %67 ], [ %.358, %73 ]
+  %.1 = phi i32 [ -1, %41 ], [ -1, %47 ], [ -1, %49 ], [ -1, %63 ], [ -1, %54 ], [ %68, %67 ], [ 0, %73 ]
   call void @free(ptr noundef %.257) #11
   br label %74
 

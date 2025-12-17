@@ -722,9 +722,9 @@ define dso_local i32 @thinplate_match(ptr noundef readnone captures(none) %0, i3
   br label %.loopexit753.i.i
 
 .loopexit753.i.i:                                 ; preds = %.loopexit753.i.loopexit.i, %._crit_edge791.i.i, %.loopexit758.i.i
-  %280 = phi double [ %200, %._crit_edge791.i.i ], [ %200, %.loopexit758.i.i ], [ %.pre148.i, %.loopexit753.i.loopexit.i ]
-  %.2678.i.i = phi nsz double [ 0.000000e+00, %._crit_edge791.i.i ], [ 0.000000e+00, %.loopexit758.i.i ], [ %255, %.loopexit753.i.loopexit.i ]
-  %.3674.i.i = phi nsz double [ %250, %._crit_edge791.i.i ], [ 0.000000e+00, %.loopexit758.i.i ], [ %250, %.loopexit753.i.loopexit.i ]
+  %280 = phi double [ %200, %.loopexit758.i.i ], [ %200, %._crit_edge791.i.i ], [ %.pre148.i, %.loopexit753.i.loopexit.i ]
+  %.2678.i.i = phi nsz double [ 0.000000e+00, %.loopexit758.i.i ], [ 0.000000e+00, %._crit_edge791.i.i ], [ %255, %.loopexit753.i.loopexit.i ]
+  %.3674.i.i = phi nsz double [ 0.000000e+00, %.loopexit758.i.i ], [ %250, %._crit_edge791.i.i ], [ %250, %.loopexit753.i.loopexit.i ]
   %281 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %241)
   %282 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %280)
   %283 = fadd reassoc nsz arcp contract afn double %282, %281

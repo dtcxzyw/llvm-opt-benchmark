@@ -1080,7 +1080,7 @@ define hidden noundef zeroext i1 @_ZNK2cv10PFMDecoder14checkSignatureERKNSt7__cx
   br label %19
 
 19:                                               ; preds = %10, %13, %6, %2
-  %20 = phi i1 [ false, %6 ], [ false, %2 ], [ %18, %13 ], [ false, %10 ]
+  %20 = phi i1 [ false, %10 ], [ false, %6 ], [ false, %2 ], [ %18, %13 ]
   ret i1 %20
 }
 
@@ -1644,13 +1644,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %160, %157, %142
   br i1 %175, label %.loopexit, label %122, !llvm.loop !104
 
 .loopexit:                                        ; preds = %173, %174, %_ZNSt6vectorIfSaIfEED2Ev.exit58, %116, %115, %110, %107, %104, %100, %97, %93, %74, %65, %56
-  %.1 = phi i1 [ false, %56 ], [ false, %65 ], [ false, %74 ], [ false, %93 ], [ false, %97 ], [ false, %100 ], [ false, %104 ], [ false, %107 ], [ false, %110 ], [ false, %115 ], [ true, %116 ], [ false, %173 ], [ true, %174 ], [ false, %_ZNSt6vectorIfSaIfEED2Ev.exit58 ]
+  %.1 = phi i1 [ false, %107 ], [ false, %115 ], [ false, %65 ], [ false, %110 ], [ false, %104 ], [ false, %100 ], [ false, %97 ], [ false, %93 ], [ false, %74 ], [ false, %56 ], [ true, %116 ], [ true, %174 ], [ false, %173 ], [ false, %_ZNSt6vectorIfSaIfEED2Ev.exit58 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %177
 
 176:                                              ; preds = %140, %_ZNSt6vectorIfSaIfEED2Ev.exit, %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %79, %70, %57
-  %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %58, %57 ], [ %112, %111 ], [ %71, %70 ], [ %80, %79 ], [ %.pn49, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %141, %140 ]
+  %.pn52.pn = phi { ptr, i32 } [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %80, %79 ], [ %58, %57 ], [ %112, %111 ], [ %71, %70 ], [ %.pn49, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %141, %140 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %178
@@ -2096,7 +2096,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ], [ %11, %6 ], [ %14, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %16, align 8, !tbaa !139
   ret void

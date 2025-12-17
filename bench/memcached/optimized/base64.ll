@@ -258,7 +258,7 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
   br label %.loopexit52
 
 .loopexit52:                                      ; preds = %36, %4, %15, %._crit_edge, %.loopexit
-  %.036 = phi i64 [ %60, %.loopexit ], [ 0, %._crit_edge ], [ 0, %15 ], [ 0, %4 ], [ 0, %36 ]
+  %.036 = phi i64 [ 0, %._crit_edge ], [ 0, %15 ], [ %60, %.loopexit ], [ 0, %4 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.036
 }

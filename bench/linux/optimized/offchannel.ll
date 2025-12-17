@@ -471,9 +471,9 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
   br i1 %48, label %49, label %19, !llvm.loop !40
 
 49:                                               ; preds = %43, %30, %25
-  %50 = phi i32 [ %44, %43 ], [ %23, %30 ], [ %23, %25 ]
-  %51 = phi i32 [ %45, %43 ], [ %22, %30 ], [ %22, %25 ]
-  %52 = phi i32 [ %46, %43 ], [ %21, %30 ], [ %21, %25 ]
+  %50 = phi i32 [ %23, %25 ], [ %44, %43 ], [ %23, %30 ]
+  %51 = phi i32 [ %22, %25 ], [ %45, %43 ], [ %22, %30 ]
+  %52 = phi i32 [ %21, %25 ], [ %46, %43 ], [ %21, %30 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 456
@@ -933,12 +933,12 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br label %152
 
 152:                                              ; preds = %150, %149
-  %153 = phi i64 [ %151, %150 ], [ %127, %149 ]
+  %153 = phi i64 [ %127, %149 ], [ %151, %150 ]
   %154 = icmp eq ptr %128, %43
   br i1 %154, label %.thread, label %.lr.ph, !llvm.loop !48
 
 .thread:                                          ; preds = %152, %.lr.ph
-  %.lcssa = phi i64 [ %153, %152 ], [ %127, %.lr.ph ]
+  %.lcssa = phi i64 [ %127, %.lr.ph ], [ %153, %152 ]
   %155 = icmp eq i64 %.lcssa, 9223372036854775807
   br i1 %155, label %.thread11, label %156
 
@@ -995,7 +995,7 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br label %.thread11
 
 .thread8:                                         ; preds = %162, %167, %107, %99, %88, %82
-  %184 = phi i8 [ %84, %82 ], [ %84, %88 ], [ 0, %99 ], [ 0, %107 ], [ 0, %167 ], [ 0, %162 ]
+  %184 = phi i8 [ %84, %82 ], [ %84, %88 ], [ 0, %107 ], [ 0, %99 ], [ 0, %167 ], [ 0, %162 ]
   %185 = load ptr, ptr %83, align 8
   %186 = icmp eq ptr %185, %43
   br i1 %186, label %.loopexit, label %82, !llvm.loop !49
@@ -1011,7 +1011,7 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br label %.thread11
 
 .thread11:                                        ; preds = %119, %.thread, %156, %177, %183, %.loopexit, %96, %68, %67, %58, %22, %16, %7
-  %190 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %96 ], [ 0, %183 ], [ 0, %177 ], [ 0, %156 ], [ 0, %.thread ], [ 0, %119 ]
+  %190 = phi i32 [ %65, %67 ], [ -95, %7 ], [ -95, %16 ], [ -12, %22 ], [ 0, %68 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %.thread ], [ 0, %96 ], [ 0, %177 ], [ 0, %183 ], [ 0, %156 ], [ 0, %119 ]
   ret i32 %190
 }
 
@@ -1190,7 +1190,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
   br label %ieee80211_start_next_roc.exit
 
 ieee80211_start_next_roc.exit:                    ; preds = %23, %16, %6, %82, %81, %75, %67, %66, %86, %43, %31, %.split.us, %3
-  %90 = phi i32 [ -2, %3 ], [ -2, %.split.us ], [ %41, %43 ], [ 0, %86 ], [ 0, %31 ], [ 0, %66 ], [ 0, %67 ], [ 0, %75 ], [ 0, %81 ], [ 0, %82 ], [ -2, %6 ], [ -2, %16 ], [ -2, %23 ]
+  %90 = phi i32 [ -2, %3 ], [ -2, %.split.us ], [ %41, %43 ], [ 0, %82 ], [ 0, %86 ], [ 0, %31 ], [ 0, %66 ], [ 0, %67 ], [ 0, %75 ], [ 0, %81 ], [ -2, %6 ], [ -2, %16 ], [ -2, %23 ]
   ret i32 %90
 }
 
@@ -1233,7 +1233,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   br label %26
 
 26:                                               ; preds = %.thread, %22
-  %.in.in = phi ptr [ %25, %22 ], [ %21, %.thread ]
+  %.in.in = phi ptr [ %21, %.thread ], [ %25, %22 ]
   %.in = load i8, ptr %.in.in, align 1, !range !6, !noundef !7
   tail call void @__rcu_read_lock() #13
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1352,7 +1352,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   br label %.thread14
 
 102:                                              ; preds = %44, %48, %34, %39, %39, %39
-  %103 = phi i32 [ -1, %39 ], [ -1, %39 ], [ -1, %39 ], [ -1, %34 ], [ %46, %48 ], [ %46, %44 ]
+  %103 = phi i32 [ -1, %34 ], [ -1, %39 ], [ -1, %39 ], [ -1, %39 ], [ %46, %48 ], [ %46, %44 ]
   tail call void @__rcu_read_unlock() #13
   %.not.not = icmp eq i8 %.in, 0
   br i1 %.not.not, label %.thread12, label %.thread14
@@ -1519,15 +1519,15 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   br i1 %.not, label %.thread21, label %.thread22
 
 .thread22:                                        ; preds = %.thread12, %.thread24, %197
-  %199 = phi i32 [ %195, %197 ], [ %190, %.thread24 ], [ %104, %.thread12 ]
+  %199 = phi i32 [ %190, %.thread24 ], [ %195, %197 ], [ %104, %.thread12 ]
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %201 = load i8, ptr %200, align 8, !range !6, !noundef !7
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %299, label %.thread21
 
 .thread21:                                        ; preds = %.thread14, %.thread23, %.thread22, %197
-  %203 = phi i1 [ false, %.thread22 ], [ true, %197 ], [ true, %.thread23 ], [ true, %.thread14 ]
-  %204 = phi i32 [ %199, %.thread22 ], [ %195, %197 ], [ %195, %.thread23 ], [ %110, %.thread14 ]
+  %203 = phi i1 [ true, %.thread23 ], [ false, %.thread22 ], [ true, %197 ], [ true, %.thread14 ]
+  %204 = phi i32 [ %195, %.thread23 ], [ %199, %.thread22 ], [ %195, %197 ], [ %110, %.thread14 ]
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %206 = load i32, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2246,7 +2246,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br label %53
 
 53:                                               ; preds = %51, %50
-  %54 = phi i64 [ %52, %51 ], [ %28, %50 ]
+  %54 = phi i64 [ %28, %50 ], [ %52, %51 ]
   %55 = icmp eq ptr %29, %9
   br i1 %55, label %.thread, label %.lr.ph, !llvm.loop !48
 

@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @valid_cron_entry(ptr noundef readonly captu
   br label %95
 
 95:                                               ; preds = %90, %83, %32, %39, %50, %57, %43, %1, %5, %9, %13, %17, %94
-  %.0 = phi i1 [ true, %94 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %1 ], [ false, %43 ], [ false, %57 ], [ false, %50 ], [ false, %39 ], [ false, %32 ], [ false, %83 ], [ false, %90 ]
+  %.0 = phi i1 [ false, %83 ], [ false, %1 ], [ true, %94 ], [ false, %32 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %43 ], [ false, %57 ], [ false, %50 ], [ false, %39 ], [ false, %90 ]
   ret i1 %.0
 }
 
@@ -794,7 +794,7 @@ _next_day_of_week.exit101:                        ; preds = %136, %.lr.ph33.i95,
   br label %_next_day_of_week.exit
 
 _next_day_of_week.exit:                           ; preds = %65, %.lr.ph33.i, %93, %.lr.ph38.i, %_next_day_of_week.exit101
-  %.0 = phi i32 [ %147, %_next_day_of_week.exit101 ], [ %.12536.i, %.lr.ph38.i ], [ %.02433.i, %93 ], [ %.12031.i, %.lr.ph33.i ], [ %.01928.i, %65 ]
+  %.0 = phi i32 [ %147, %_next_day_of_week.exit101 ], [ %.12031.i, %.lr.ph33.i ], [ %.12536.i, %.lr.ph38.i ], [ %.02433.i, %93 ], [ %.01928.i, %65 ]
   %.not33 = icmp eq i32 %.0, 0
   br i1 %.not33, label %_next_day_of_week.exit.thread.preheader, label %_next_day_of_week.exit._next_day_of_week.exit.thread105_crit_edge
 

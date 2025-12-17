@@ -524,7 +524,7 @@ _ZNSt6vectorIN2cv3gtr14TrainingSampleESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %.body
 
 .body:                                            ; preds = %199, %204, %179, %193, %192, %186
-  %.pn63.pn = phi { ptr, i32 } [ %.pn57, %192 ], [ %187, %186 ], [ %.pn61, %204 ], [ %.pn59, %199 ], [ %194, %193 ], [ %180, %179 ]
+  %.pn63.pn = phi { ptr, i32 } [ %187, %186 ], [ %.pn57, %192 ], [ %.pn59, %199 ], [ %.pn61, %204 ], [ %194, %193 ], [ %180, %179 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %17) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

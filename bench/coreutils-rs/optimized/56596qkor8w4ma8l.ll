@@ -1050,16 +1050,16 @@ define internal fastcc void @_ZN5uu_od9prn_float12format_float17haa184c61f310365
   %30 = bitcast double %1 to i64
   %31 = and i64 %30, 4503599627370495
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit"
+  br i1 %32, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit", label %33
 
 33:                                               ; preds = %29
-  %switch.selectcmp.i = tail call i1 @llvm.is.fpclass.f64(double %1, i32 264)
-  br i1 %switch.selectcmp.i, label %36, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit.thread"
-
-"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit": ; preds = %29
   %34 = and i64 %30, 9218868437227405312
   %.not164 = icmp eq i64 %34, 0
   br i1 %.not164, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit.thread", label %36
+
+"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit": ; preds = %29
+  %switch.selectcmp.i = tail call i1 @llvm.is.fpclass.f64(double %1, i32 264)
+  br i1 %switch.selectcmp.i, label %36, label %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit.thread"
 
 "_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit.thread": ; preds = %4, %33, %"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_normal17hc6d6702abbe0926fE.exit"
   %35 = fcmp oeq double %1, 0.000000e+00

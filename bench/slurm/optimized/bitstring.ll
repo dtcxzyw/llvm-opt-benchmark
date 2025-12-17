@@ -1432,7 +1432,7 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt(ptr noundef captures(none) %0, 
   br label %12
 
 12:                                               ; preds = %7, %2, %4, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %4 ], [ 0, %2 ], [ -1, %7 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %2 ], [ 0, %4 ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1781,7 +1781,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   br i1 %.not79, label %.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %82, %69, %57, %26, %.backedge, %93, %bit_nclear.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %93 ], [ -1, %82 ], [ -1, %69 ], [ -1, %57 ], [ -1, %26 ], [ 0, %.backedge ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %93 ], [ -1, %57 ], [ -1, %69 ], [ -1, %82 ], [ -1, %26 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 
@@ -1986,7 +1986,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   br i1 %34, label %.lr.ph33.i.i, label %bit_fls.exit, !llvm.loop !33
 
 bit_fls.exit:                                     ; preds = %16, %23, %.outer.i.i, %.lr.ph33.split.i.i
-  %.0.i.i = phi i64 [ %31, %.lr.ph33.split.i.i ], [ -1, %.outer.i.i ], [ -1, %23 ], [ %.02025.i.i, %16 ]
+  %.0.i.i = phi i64 [ %31, %.lr.ph33.split.i.i ], [ -1, %.outer.i.i ], [ %.02025.i.i, %16 ], [ -1, %23 ]
   %.not20.i = icmp sle i64 %9, %.0.i.i
   %35 = and i64 %9, -9223372036854775801
   %36 = icmp sgt i64 %35, 0
@@ -2095,7 +2095,7 @@ define dso_local range(i32 0, 2) i32 @bit_super_set(ptr noundef readonly capture
   br i1 %20, label %8, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %17, %._crit_edge, %16, %2
-  %.2 = phi i32 [ 1, %2 ], [ 0, %16 ], [ 1, %._crit_edge ], [ 0, %17 ]
+  %.2 = phi i32 [ 1, %2 ], [ 1, %._crit_edge ], [ 0, %16 ], [ 0, %17 ]
   ret i32 %.2
 }
 
@@ -2248,7 +2248,7 @@ define dso_local range(i32 0, 2) i32 @bit_equal(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %2, %17, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %17 ], [ 0, %2 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %2 ], [ 1, %28 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3543,7 +3543,7 @@ bit_nset.exit:                                    ; preds = %.critedge2.i26, %60
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %bit_nset.exit, %29, %26, %bit_nclear.exit
-  %.0 = phi i32 [ 0, %bit_nclear.exit ], [ -1, %26 ], [ -1, %29 ], [ 0, %bit_nset.exit ]
+  %.0 = phi i32 [ 0, %bit_nclear.exit ], [ -1, %29 ], [ -1, %26 ], [ 0, %bit_nset.exit ]
   ret i32 %.0
 }
 

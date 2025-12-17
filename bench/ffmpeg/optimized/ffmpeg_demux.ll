@@ -613,7 +613,7 @@ define range(i32 -2147483648, 1) i32 @ist_use(ptr noundef %0, i32 noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %134, %127, %110, %150, %26, %156, %16, %10
-  %.0 = phi i32 [ -22, %10 ], [ 0, %156 ], [ -22, %16 ], [ %31, %26 ], [ %153, %150 ], [ %139, %134 ], [ %132, %127 ], [ -12, %110 ]
+  %.0 = phi i32 [ -22, %10 ], [ -22, %16 ], [ %31, %26 ], [ 0, %156 ], [ %153, %150 ], [ %139, %134 ], [ %132, %127 ], [ -12, %110 ]
   ret i32 %.0
 }
 
@@ -952,7 +952,7 @@ define range(i32 -2147483648, 1) i32 @ist_filter_add(ptr noundef %0, ptr noundef
   br label %187
 
 187:                                              ; preds = %163, %132, %125, %121, %12, %6, %171
-  %.0 = phi i32 [ 0, %171 ], [ %10, %6 ], [ %17, %12 ], [ -12, %121 ], [ %130, %125 ], [ %146, %132 ], [ -12, %163 ]
+  %.0 = phi i32 [ %17, %12 ], [ %10, %6 ], [ -12, %121 ], [ %130, %125 ], [ 0, %171 ], [ %146, %132 ], [ -12, %163 ]
   ret i32 %.0
 }
 
@@ -1064,7 +1064,7 @@ define range(i32 -2147483648, 1) i32 @ifile_open(ptr noundef %0, ptr noundef %1,
   br label %demux_alloc.exit.thread
 
 64:                                               ; preds = %.thread394, %.thread, %57
-  %.0290 = phi i64 [ %43, %57 ], [ %43, %.thread ], [ %62, %.thread394 ]
+  %.0290 = phi i64 [ %62, %.thread394 ], [ %43, %57 ], [ %43, %.thread ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !168
   %.not326 = icmp eq ptr %66, null
@@ -1591,7 +1591,7 @@ err_merge.exit385.thread:                         ; preds = %224, %err_merge.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %demux_alloc.exit.thread
 
-351:                                              ; preds = %347, %346, %342, %335
+351:                                              ; preds = %335, %347, %346, %342
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1698,7 +1698,7 @@ err_merge.exit385.thread:                         ; preds = %224, %err_merge.exi
   br label %395
 
 395:                                              ; preds = %.sink.split, %392, %383
-  %.0270 = phi i64 [ %393, %392 ], [ %37, %383 ], [ %.0270.ph, %.sink.split ]
+  %.0270 = phi i64 [ %37, %383 ], [ %393, %392 ], [ %.0270.ph, %.sink.split ]
   %396 = icmp eq i64 %.0270, -9223372036854775808
   %397 = select i1 %396, i64 0, i64 %.0270
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1808,8 +1808,8 @@ err_merge.exit385.thread:                         ; preds = %224, %err_merge.exi
   br label %447
 
 447:                                              ; preds = %._crit_edge541, %444, %442
-  %448 = phi ptr [ %.pre543, %442 ], [ %.pre543, %444 ], [ %.pre542, %._crit_edge541 ]
-  %449 = phi i64 [ 0, %442 ], [ %spec.select372, %444 ], [ %.0268, %._crit_edge541 ]
+  %448 = phi ptr [ %.pre542, %._crit_edge541 ], [ %.pre543, %442 ], [ %.pre543, %444 ]
+  %449 = phi i64 [ %.0268, %._crit_edge541 ], [ 0, %442 ], [ %spec.select372, %444 ]
   %450 = sub nsw i64 %439, %449
   %451 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store i64 %450, ptr %451, align 8, !tbaa !223
@@ -2714,8 +2714,8 @@ add_display_matrix_to_stream.exit.i:              ; preds = %618
   %872 = icmp slt i32 %871, 0
   br i1 %872, label %.thread412, label %873
 
-.thread412:                                       ; preds = %544, %866, %848, %824, %699, %689, %686, %.thread326.i, %add_display_matrix_to_stream.exit.i, %591, %._crit_edge.i, %821, %864, %845, %830, %791, %761, %719
-  %.0244.i.ph = phi i32 [ %.6.ph.i, %.thread326.i ], [ -12, %add_display_matrix_to_stream.exit.i ], [ %589, %591 ], [ -22, %._crit_edge.i ], [ %819, %821 ], [ %862, %864 ], [ %843, %845 ], [ %828, %830 ], [ %789, %791 ], [ %759, %761 ], [ -22, %719 ], [ -12, %686 ], [ %695, %689 ], [ %709, %699 ], [ -12, %824 ], [ %853, %848 ], [ %871, %866 ], [ -12, %544 ]
+.thread412:                                       ; preds = %544, %699, %848, %824, %689, %686, %866, %591, %._crit_edge.i, %add_display_matrix_to_stream.exit.i, %821, %.thread326.i, %864, %845, %830, %791, %761, %719
+  %.0244.i.ph = phi i32 [ %828, %830 ], [ %589, %591 ], [ -22, %._crit_edge.i ], [ -12, %add_display_matrix_to_stream.exit.i ], [ %819, %821 ], [ %.6.ph.i, %.thread326.i ], [ %789, %791 ], [ %759, %761 ], [ %862, %864 ], [ -22, %719 ], [ %843, %845 ], [ %871, %866 ], [ -12, %686 ], [ %695, %689 ], [ -12, %824 ], [ %853, %848 ], [ %709, %699 ], [ -12, %544 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2891,7 +2891,7 @@ dump_attachment.exit:                             ; preds = %921, %949
   br label %953
 
 .thread420:                                       ; preds = %939, %.thread.i390, %932, %938
-  %.0.i391.ph = phi i32 [ -22, %932 ], [ %936, %938 ], [ %933, %.thread.i390 ], [ %947, %939 ]
+  %.0.i391.ph = phi i32 [ %936, %938 ], [ -22, %932 ], [ %933, %.thread.i390 ], [ %947, %939 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %demux_alloc.exit.thread
 
@@ -2915,7 +2915,7 @@ dump_attachment.exit:                             ; preds = %921, %949
   br i1 %.not369, label %.preheader, label %demux_alloc.exit.thread, !llvm.loop !283
 
 demux_alloc.exit.thread:                          ; preds = %._crit_edge480, %.preheader.lr.ph, %.preheader423, %.thread420, %3, %.thread412, %.thread403, %.thread401, %63, %292, %._crit_edge476, %310, %293, %296, %83, %45, %499, %488, %470, %386, %err_merge.exit385.thread, %69
-  %.0 = phi i32 [ %.3267397, %err_merge.exit385.thread ], [ -22, %386 ], [ -22, %470 ], [ -22, %488 ], [ -22, %499 ], [ -22, %69 ], [ -22, %63 ], [ %51, %45 ], [ -12, %83 ], [ -1414092869, %292 ], [ -1330794744, %296 ], [ %290, %293 ], [ %318, %310 ], [ %889, %._crit_edge476 ], [ %333, %.thread401 ], [ %.7.ph, %.thread403 ], [ %.0244.i.ph, %.thread412 ], [ -12, %3 ], [ %.0.i391.ph, %.thread420 ], [ 0, %.preheader423 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge480 ]
+  %.0 = phi i32 [ -1330794744, %296 ], [ %.3267397, %err_merge.exit385.thread ], [ -12, %83 ], [ %290, %293 ], [ -22, %386 ], [ -22, %470 ], [ -22, %488 ], [ -22, %499 ], [ %318, %310 ], [ %889, %._crit_edge476 ], [ -12, %3 ], [ %.0244.i.ph, %.thread412 ], [ %.7.ph, %.thread403 ], [ %333, %.thread401 ], [ %51, %45 ], [ -22, %69 ], [ -22, %63 ], [ -1414092869, %292 ], [ %.0.i391.ph, %.thread420 ], [ 0, %.preheader423 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge480 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret i32 %.0
@@ -4464,8 +4464,8 @@ readrate_sleep.exit:                              ; preds = %785, %708
   %791 = icmp slt i32 %790, 0
   br i1 %791, label %seek_to_start.exit, label %select.unfold101.outer.backedge
 
-seek_to_start.exit:                               ; preds = %789, %128, %135, %err_merge.exit, %227, %input_packet_process.exit
-  %.1.ph = phi i32 [ -12, %input_packet_process.exit ], [ -1094995529, %227 ], [ %790, %789 ], [ %142, %135 ], [ %133, %128 ], [ %.0.i70, %err_merge.exit ]
+seek_to_start.exit:                               ; preds = %789, %128, %135, %err_merge.exit, %input_packet_process.exit, %227
+  %.1.ph = phi i32 [ -1094995529, %227 ], [ -12, %input_packet_process.exit ], [ %790, %789 ], [ %133, %128 ], [ %.0.i70, %err_merge.exit ], [ %142, %135 ]
   %792 = icmp eq i32 %.1.ph, -541478725
   %793 = icmp eq i32 %.1.ph, -1414092869
   %or.cond = or i1 %792, %793
@@ -4632,7 +4632,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @choose_decoder(ptr noundef
   br label %61
 
 61:                                               ; preds = %53, %15, %29, %25, %18, %56
-  %.1 = phi i32 [ 0, %56 ], [ 0, %53 ], [ %16, %15 ], [ 0, %29 ], [ 0, %25 ], [ 0, %18 ]
+  %.1 = phi i32 [ 0, %53 ], [ 0, %56 ], [ %16, %15 ], [ 0, %29 ], [ 0, %25 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
@@ -4757,8 +4757,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @demux_send(ptr noundef %0,
   %.pre = load i32, ptr %20, align 8, !tbaa !58
   br label %44
 
-44:                                               ; preds = %._crit_edge, %31, %24
-  %45 = phi i32 [ %.pre, %._crit_edge ], [ %25, %31 ], [ %25, %24 ]
+44:                                               ; preds = %._crit_edge, %24, %31
+  %45 = phi i32 [ %.pre, %._crit_edge ], [ %25, %24 ], [ %25, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %.not77 = icmp slt i64 %indvars.iv.next, %46
@@ -4801,7 +4801,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @demux_send(ptr noundef %0,
   br label %.thread87
 
 .thread87:                                        ; preds = %.thread86, %60
-  %61 = phi i32 [ %55, %60 ], [ %57, %.thread86 ]
+  %61 = phi i32 [ %57, %.thread86 ], [ %55, %60 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %62 = call i32 @av_strerror(i32 noundef %61, ptr noundef nonnull %6, i64 noundef 64) #15
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef nonnull %6) #15
@@ -4850,7 +4850,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @demux_send(ptr noundef %0,
   br label %.thread84
 
 .thread84:                                        ; preds = %34, %63, %84, %70, %71, %82, %.thread87
-  %.3 = phi i32 [ %61, %.thread87 ], [ %80, %82 ], [ %66, %71 ], [ -541478725, %70 ], [ %85, %84 ], [ 0, %63 ], [ %42, %34 ]
+  %.3 = phi i32 [ %61, %.thread87 ], [ %66, %71 ], [ %80, %82 ], [ %85, %84 ], [ -541478725, %70 ], [ 0, %63 ], [ %42, %34 ]
   ret i32 %.3
 }
 
@@ -4935,7 +4935,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @do_send(ptr noundef %0, pt
   br label %30
 
 30:                                               ; preds = %16, %25, %27, %28, %24
-  %.0 = phi i32 [ -541478725, %24 ], [ %14, %28 ], [ -1414092869, %27 ], [ 0, %25 ], [ 0, %16 ]
+  %.0 = phi i32 [ -541478725, %24 ], [ -1414092869, %27 ], [ %14, %28 ], [ 0, %25 ], [ 0, %16 ]
   ret i32 %.0
 }
 

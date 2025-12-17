@@ -254,8 +254,8 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer6margin6Margin3new17h2bf
   br label %_ZN22ruff_annotate_snippets8renderer6margin6Margin7compute17h6c3d971b1bf041fcE.exit
 
 _ZN22ruff_annotate_snippets8renderer6margin6Margin7compute17h6c3d971b1bf041fcE.exit: ; preds = %22, %20, %24, %29, %7
-  %.sroa.9.1 = phi i64 [ %.sroa.0.0.i, %7 ], [ %33, %29 ], [ %27, %24 ], [ %8, %20 ], [ %9, %22 ]
-  %.sroa.15.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %7 ], [ %34, %29 ], [ %28, %24 ], [ %21, %20 ], [ %10, %22 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.0.0.i, %7 ], [ %8, %20 ], [ %33, %29 ], [ %27, %24 ], [ %9, %22 ]
+  %.sroa.15.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %7 ], [ %21, %20 ], [ %34, %29 ], [ %28, %24 ], [ %10, %22 ]
   store i64 %8, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.5.0..sroa_idx, align 8

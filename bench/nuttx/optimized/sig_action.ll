@@ -327,7 +327,7 @@ nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit
   br label %nxsig_release_action.exit
 
 nxsig_release_action.exit:                        ; preds = %87, %.loopexit, %122, %65, %41, %18, %4
-  %.0 = phi i32 [ -22, %4 ], [ -22, %18 ], [ 0, %41 ], [ 0, %65 ], [ 0, %122 ], [ 0, %.loopexit ], [ 0, %87 ]
+  %.0 = phi i32 [ -22, %18 ], [ 0, %87 ], [ 0, %41 ], [ -22, %4 ], [ 0, %65 ], [ 0, %122 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

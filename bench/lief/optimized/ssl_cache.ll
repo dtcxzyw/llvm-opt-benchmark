@@ -246,13 +246,13 @@ ssl_cache_entry_zeroize.exit.i:                   ; preds = %.loopexit.i
   br label %.thread38
 
 66:                                               ; preds = %57, %59
-  %.018 = phi i32 [ %58, %57 ], [ -28928, %59 ]
+  %.018 = phi i32 [ -28928, %59 ], [ %58, %57 ]
   %67 = load i64, ptr %5, align 8, !tbaa !21
   call void @mbedtls_zeroize_and_free(ptr noundef nonnull %55, i64 noundef %67) #10
   br label %.thread38
 
 .thread38:                                        ; preds = %.thread43, %._crit_edge.i.thread, %43, %36, %53, %61, %51, %66
-  %.01842 = phi i32 [ %.018, %66 ], [ -32512, %53 ], [ 0, %61 ], [ %52, %51 ], [ -27648, %43 ], [ -32512, %36 ], [ -27648, %._crit_edge.i.thread ], [ -32512, %.thread43 ]
+  %.01842 = phi i32 [ %.018, %66 ], [ -32512, %53 ], [ 0, %61 ], [ %52, %51 ], [ -32512, %36 ], [ -27648, %43 ], [ -27648, %._crit_edge.i.thread ], [ -32512, %.thread43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.01842
 }

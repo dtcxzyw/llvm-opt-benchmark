@@ -726,7 +726,7 @@ select.unfold:                                    ; preds = %21
   br i1 %92, label %.thread9, label %.preheader, !llvm.loop !28
 
 .thread9:                                         ; preds = %.preheader10, %86, %.preheader, %11, %71, %67, %57, %.thread, %select.unfold, %2
-  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ %82, %.preheader ], [ null, %86 ], [ %36, %.preheader10 ]
+  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ null, %86 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
   ret ptr %93
 }
 
@@ -863,7 +863,7 @@ select.unfold:                                    ; preds = %21
   br i1 %92, label %.thread9, label %.preheader, !llvm.loop !28
 
 .thread9:                                         ; preds = %.preheader10, %86, %.preheader, %11, %71, %67, %57, %.thread, %select.unfold, %2
-  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ %82, %.preheader ], [ null, %86 ], [ %36, %.preheader10 ]
+  %93 = phi ptr [ null, %2 ], [ %6, %select.unfold ], [ null, %.thread ], [ %61, %57 ], [ %52, %67 ], [ null, %71 ], [ %6, %11 ], [ null, %86 ], [ %82, %.preheader ], [ %36, %.preheader10 ]
   ret ptr %93
 }
 
@@ -2057,7 +2057,7 @@ define internal i32 @tc_modify_qdisc(ptr noundef readonly captures(address_is_nu
   br i1 %78, label %.thread65, label %.thread44
 
 .thread39:                                        ; preds = %70, %46, %40, %55, %66
-  %.ph38 = phi ptr [ %68, %66 ], [ %36, %46 ], [ %36, %40 ], [ null, %55 ], [ %68, %70 ]
+  %.ph38 = phi ptr [ null, %55 ], [ %68, %66 ], [ %36, %46 ], [ %36, %40 ], [ %68, %70 ]
   %.pr = load i32, ptr %16, align 4
   %79 = icmp eq i32 %.pr, 0
   br i1 %79, label %.thread39._crit_edge, label %85
@@ -2411,7 +2411,7 @@ check_loop.exit:                                  ; preds = %127
   store ptr %qdisc_change.__msg.sink, ptr %2, align 8
   br label %.loopexit
 
-.thread70:                                        ; preds = %233, %242, %237
+.thread70:                                        ; preds = %242, %237, %233
   store i32 0, ptr %6, align 4
   br label %252
 
@@ -2538,7 +2538,7 @@ check_loop.exit:                                  ; preds = %127
   br label %.loopexit
 
 .loopexit:                                        ; preds = %304, %28, %24, %207, %206, %197, %.thread68.sink.split, %22, %23, %248, %252, %310, %307, %260, %259, %186, %185, %175, %174, %169, %168, %164, %163, %140, %139, %136, %135, %115, %114, %108, %107, %97, %96, %89, %88, %84, %83, %39, %38
-  %312 = phi i32 [ %311, %310 ], [ -2, %39 ], [ -2, %38 ], [ -17, %84 ], [ -17, %83 ], [ -22, %89 ], [ -22, %88 ], [ -17, %97 ], [ -17, %96 ], [ -22, %108 ], [ -22, %107 ], [ -22, %115 ], [ -22, %114 ], [ -40, %136 ], [ -40, %135 ], [ -22, %140 ], [ -22, %139 ], [ -22, %164 ], [ -22, %163 ], [ -2, %169 ], [ -2, %168 ], [ -17, %175 ], [ -17, %174 ], [ -22, %186 ], [ -22, %185 ], [ -2, %260 ], [ -2, %259 ], [ 0, %307 ], [ %.pre, %252 ], [ %250, %248 ], [ -22, %23 ], [ -22, %22 ], [ %208, %207 ], [ -95, %206 ], [ -22, %197 ], [ %.ph67.ph, %.thread68.sink.split ], [ %305, %304 ], [ -19, %28 ], [ %26, %24 ]
+  %312 = phi i32 [ %311, %310 ], [ %250, %248 ], [ -2, %39 ], [ -2, %38 ], [ -17, %84 ], [ -17, %83 ], [ -22, %89 ], [ -22, %88 ], [ -17, %97 ], [ -17, %96 ], [ -22, %108 ], [ -22, %107 ], [ -22, %115 ], [ -22, %114 ], [ -40, %136 ], [ -40, %135 ], [ -22, %140 ], [ -22, %139 ], [ -22, %164 ], [ -22, %163 ], [ -2, %169 ], [ -2, %168 ], [ -17, %175 ], [ -17, %174 ], [ -22, %186 ], [ -22, %185 ], [ -2, %260 ], [ -2, %259 ], [ 0, %307 ], [ -22, %22 ], [ -95, %206 ], [ %.pre, %252 ], [ -22, %23 ], [ -22, %197 ], [ %.ph67.ph, %.thread68.sink.split ], [ %208, %207 ], [ %26, %24 ], [ %305, %304 ], [ -19, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %312
@@ -3437,7 +3437,7 @@ tclass_del_notify.exit:                           ; preds = %113, %128, %136, %1
   br label %.critedge
 
 .critedge:                                        ; preds = %199, %14, %16, %180, %179, %170, %39, %224, %206, %203, %198, %196, %164, %103, %102, %97, %93, %68, %63, %22, %17
-  %225 = phi i32 [ %20, %17 ], [ -19, %22 ], [ -2, %63 ], [ -22, %68 ], [ -95, %198 ], [ -95, %196 ], [ -2, %93 ], [ 0, %224 ], [ 0, %206 ], [ %204, %203 ], [ -2, %97 ], [ %150, %164 ], [ -17, %103 ], [ -22, %102 ], [ -22, %39 ], [ -22, %179 ], [ %185, %180 ], [ -105, %170 ], [ -22, %16 ], [ -22, %14 ], [ -95, %199 ]
+  %225 = phi i32 [ -22, %102 ], [ %20, %17 ], [ -19, %22 ], [ -2, %63 ], [ -22, %68 ], [ -95, %198 ], [ -95, %196 ], [ -2, %93 ], [ 0, %224 ], [ 0, %206 ], [ %204, %203 ], [ -2, %97 ], [ -22, %14 ], [ %150, %164 ], [ -17, %103 ], [ -22, %39 ], [ -22, %179 ], [ %185, %180 ], [ -105, %170 ], [ -22, %16 ], [ -95, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %225
@@ -3777,7 +3777,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %tc_dump_tclass_root.exit
 
 ._crit_edge35.i:                                  ; preds = %187, %178, %169, %.preheader.i
-  %199 = phi i32 [ %162, %178 ], [ %162, %169 ], [ %162, %.preheader.i ], [ %.2, %187 ]
+  %199 = phi i32 [ %162, %.preheader.i ], [ %162, %178 ], [ %162, %169 ], [ %.2, %187 ]
   %200 = add i32 %199, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %201 = getelementptr inbounds nuw i8, ptr %163, i64 40
@@ -3893,7 +3893,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %tc_dump_tclass_root.exit
 
 tc_dump_tclass_root.exit:                         ; preds = %198, %149, %70, %260, %259, %213, %.loopexit
-  %.0 = phi i32 [ %.4.ph, %.loopexit ], [ %.4.ph, %213 ], [ %261, %260 ], [ %.4.ph, %259 ], [ %.2, %198 ], [ 1, %149 ], [ 0, %70 ]
+  %.0 = phi i32 [ %.4.ph, %259 ], [ %.4.ph, %.loopexit ], [ %.4.ph, %213 ], [ %261, %260 ], [ %.2, %198 ], [ 1, %149 ], [ 0, %70 ]
   %262 = sext i32 %.0 to i64
   store i64 %262, ptr %22, align 8
   %263 = getelementptr inbounds nuw i8, ptr %19, i64 1280
@@ -4136,7 +4136,7 @@ define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1,
   call void @_raw_read_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
   br label %.thread28
 
-.thread28:                                        ; preds = %.loopexit, %.thread26
+.thread28:                                        ; preds = %.thread26, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread30
 
@@ -4456,7 +4456,7 @@ define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1,
   br label %.thread33
 
 .thread33:                                        ; preds = %134, %136, %125, %127, %113, %115, %104, %106, %198, %193, %189, %145, %75, %.thread31, %60, %58
-  %204 = phi i32 [ %147, %145 ], [ -22, %60 ], [ -22, %58 ], [ -28, %75 ], [ -28, %.thread31 ], [ %184, %189 ], [ %184, %193 ], [ %184, %198 ], [ -95, %134 ], [ -95, %136 ], [ -22, %125 ], [ -22, %127 ], [ -95, %113 ], [ -95, %115 ], [ -22, %104 ], [ -22, %106 ]
+  %204 = phi i32 [ %184, %198 ], [ %147, %145 ], [ -22, %60 ], [ -22, %58 ], [ -28, %75 ], [ -28, %.thread31 ], [ %184, %189 ], [ %184, %193 ], [ -95, %134 ], [ -95, %136 ], [ -22, %125 ], [ -22, %127 ], [ -95, %113 ], [ -95, %115 ], [ -22, %104 ], [ -22, %106 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %206 = load ptr, ptr %205, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %206, ptr elementtype(i32) %206) #19, !srcloc !60
@@ -4942,7 +4942,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   br label %.thread26
 
 .thread26:                                        ; preds = %251, %248, %250, %240, %242, %229, %231, %255, %47, %49, %34, %36, %201, %197, %261, %260
-  %262 = phi i32 [ 0, %260 ], [ 0, %261 ], [ 0, %197 ], [ 0, %201 ], [ -16, %47 ], [ -16, %49 ], [ -2, %34 ], [ -2, %36 ], [ 0, %255 ], [ %253, %251 ], [ -22, %248 ], [ -22, %250 ], [ -2, %240 ], [ -2, %242 ], [ -95, %229 ], [ -95, %231 ]
+  %262 = phi i32 [ 0, %255 ], [ 0, %201 ], [ 0, %260 ], [ 0, %261 ], [ -2, %36 ], [ 0, %197 ], [ -16, %47 ], [ -16, %49 ], [ -2, %34 ], [ %253, %251 ], [ -22, %248 ], [ -22, %250 ], [ -2, %240 ], [ -2, %242 ], [ -95, %229 ], [ -95, %231 ]
   ret i32 %262
 }
 
@@ -5088,7 +5088,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   br i1 %or.cond, label %56, label %.thread27
 
 .thread27:                                        ; preds = %31, %20
-  %39 = phi ptr [ null, %20 ], [ %32, %31 ]
+  %39 = phi ptr [ %32, %31 ], [ null, %20 ]
   %40 = load ptr, ptr @qdisc_stab_list, align 8
   %41 = icmp eq ptr %40, @qdisc_stab_list
   br i1 %41, label %.loopexit, label %42

@@ -380,7 +380,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %19, %18
   br label %ff_amf_get_string.exit
 
 ff_amf_get_string.exit:                           ; preds = %35, %bytestream2_get_be16.exit.i, %bytestream2_get_byte.exit.thread, %bytestream2_get_byte.exit
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ 0, %35 ], [ -22, %bytestream2_get_be16.exit.i ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_get_byte.exit ], [ 0, %35 ], [ -22, %bytestream2_get_be16.exit.i ]
   ret i32 %.0
 }
 
@@ -440,7 +440,7 @@ define range(i32 -12, 1) i32 @ff_rtmp_check_alloc_array(ptr noundef captures(non
   br label %18
 
 18:                                               ; preds = %6, %3, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -12, %6 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -535,7 +535,7 @@ define i32 @ff_rtmp_packet_read_internal(ptr noundef %0, ptr noundef %1, i32 nou
   br label %46
 
 46:                                               ; preds = %39, %32
-  %47 = phi ptr [ %38, %39 ], [ %.pre.i, %32 ]
+  %47 = phi ptr [ %.pre.i, %32 ], [ %38, %39 ]
   %48 = zext nneg i32 %.0137.i to i64
   %49 = getelementptr inbounds nuw %struct.RTMPPacket, ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -750,8 +750,8 @@ rtmp_packet_read_one_chunk.exit.thread15:         ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %154
 
-rtmp_packet_read_one_chunk.exit.thread:           ; preds = %24, %61, %75, %77, %94, %101, %35, %118, %ff_rtmp_packet_destroy.exit.i, %ff_rtmp_packet_destroy.exit168.i
-  %.0.i.ph = phi i32 [ -5, %ff_rtmp_packet_destroy.exit168.i ], [ -1094995529, %ff_rtmp_packet_destroy.exit.i ], [ -5, %24 ], [ -5, %61 ], [ -5, %75 ], [ -5, %77 ], [ -5, %94 ], [ -5, %101 ], [ -12, %35 ], [ -12, %118 ]
+rtmp_packet_read_one_chunk.exit.thread:           ; preds = %77, %24, %94, %101, %35, %61, %75, %118, %ff_rtmp_packet_destroy.exit.i, %ff_rtmp_packet_destroy.exit168.i
+  %.0.i.ph = phi i32 [ -1094995529, %ff_rtmp_packet_destroy.exit.i ], [ -5, %ff_rtmp_packet_destroy.exit168.i ], [ -5, %77 ], [ -5, %24 ], [ -5, %94 ], [ -5, %101 ], [ -12, %35 ], [ -5, %61 ], [ -5, %75 ], [ -12, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -807,9 +807,9 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %.pr = load i32, ptr %1, align 8, !tbaa !27
   br label %23
 
-23:                                               ; preds = %16, %5
-  %24 = phi ptr [ %15, %16 ], [ %.pre, %5 ]
-  %25 = phi i32 [ %.pr, %16 ], [ %9, %5 ]
+23:                                               ; preds = %5, %16
+  %24 = phi ptr [ %.pre, %5 ], [ %15, %16 ]
+  %25 = phi i32 [ %9, %5 ], [ %.pr, %16 ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %26
   %28 = load i32, ptr %27, align 8, !tbaa !27
@@ -1069,18 +1069,18 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %171, label %.outer.backedge, label %ff_rtmp_check_alloc_array.exit
 
+.outer.backedge:                                  ; preds = %169, %173
+  %.0109.ph.be = phi i32 [ %174, %173 ], [ %172, %169 ]
+  %.pre179.pre = load i32, ptr %127, align 8, !tbaa !19
+  br label %.outer, !llvm.loop !29
+
 173:                                              ; preds = %166
   %174 = add nsw i32 %.0109.ph, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %173, %169
-  %.0109.ph.be = phi i32 [ %172, %169 ], [ %174, %173 ]
-  %.pre179.pre = load i32, ptr %127, align 8, !tbaa !19
-  br label %.outer, !llvm.loop !29
-
 ff_rtmp_check_alloc_array.exit:                   ; preds = %169, %149, %146, %.thread163, %12, %116
-  %.0 = phi i32 [ %139, %116 ], [ -12, %12 ], [ %164, %.thread163 ], [ %.0109.ph, %146 ], [ %154, %149 ], [ %170, %169 ]
+  %.0 = phi i32 [ %139, %116 ], [ -12, %12 ], [ %164, %.thread163 ], [ %154, %149 ], [ %.0109.ph, %146 ], [ %170, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1196,7 +1196,7 @@ bytestream2_init.exit:                            ; preds = %4
   unreachable
 
 33:                                               ; preds = %25, %bytestream2_init.exit, %17, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %17 ], [ -1, %bytestream2_init.exit ], [ %29, %25 ]
+  %.0 = phi i32 [ -1, %bytestream2_init.exit ], [ -1, %2 ], [ -1, %17 ], [ %29, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1345,8 +1345,8 @@ bytestream2_get_be32.exit:                        ; preds = %39, %43
   br label %bytestream2_get_be32.exit49
 
 bytestream2_get_be32.exit49:                      ; preds = %60, %59
-  %64 = phi ptr [ %3, %59 ], [ %61, %60 ]
-  %.027 = phi i32 [ 0, %59 ], [ %63, %60 ]
+  %64 = phi ptr [ %61, %60 ], [ %3, %59 ]
+  %.027 = phi i32 [ %63, %60 ], [ 0, %59 ]
   %.not = icmp eq i8 %13, 10
   br i1 %.not, label %bytestream2_get_byte.exit.thread.us, label %bytestream2_get_byte.exit.thread.preheader
 
@@ -1443,7 +1443,7 @@ bytestream2_get_byte.exit:                        ; preds = %91
   br label %bytestream2_get_be64.exit
 
 bytestream2_get_be64.exit:                        ; preds = %bytestream2_get_byte.exit, %100, %91, %68, %.critedge.thread.us, %bytestream2_get_byte.exit.thread.us, %88, %89, %25, %24, %18, %17, %bytestream2_get_byte.exit39, %bytestream2_get_byte.exit39, %1, %108, %51, %bytestream2_get_be32.exit, %bytestream2_get_be16.exit43
-  %.0 = phi i32 [ -1, %108 ], [ 0, %bytestream2_get_be16.exit43 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %51 ], [ -1, %1 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %17 ], [ 0, %18 ], [ 0, %24 ], [ 0, %25 ], [ 0, %89 ], [ 0, %88 ], [ 0, %bytestream2_get_byte.exit.thread.us ], [ -1, %68 ], [ -1, %.critedge.thread.us ], [ -1, %91 ], [ -1, %100 ], [ -1, %bytestream2_get_byte.exit ]
+  %.0 = phi i32 [ 0, %bytestream2_get_byte.exit39 ], [ -1, %108 ], [ 0, %bytestream2_get_byte.exit39 ], [ 0, %18 ], [ 0, %bytestream2_get_be16.exit43 ], [ 0, %bytestream2_get_be32.exit ], [ -1, %1 ], [ 0, %51 ], [ 0, %89 ], [ 0, %88 ], [ 0, %17 ], [ 0, %24 ], [ 0, %25 ], [ -1, %68 ], [ 0, %bytestream2_get_byte.exit.thread.us ], [ -1, %.critedge.thread.us ], [ -1, %91 ], [ -1, %100 ], [ -1, %bytestream2_get_byte.exit ]
   ret i32 %.0
 }
 
@@ -1665,7 +1665,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %84, %88
   br i1 %113, label %amf_get_field_value2.exit, label %37
 
 amf_get_field_value2.exit:                        ; preds = %30, %bytestream2_peek_byte.exit.thread.i, %106, %103, %48, %bytestream2_get_be16.exit62.i, %37, %95, %bytestream2_get_be16.exit.i, %81, %bytestream2_get_be64.exit.i, %bytestream2_get_byte.exit56.i, %.critedge.thread.i, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %.critedge.thread.i ], [ 0, %bytestream2_get_be64.exit.i ], [ 0, %81 ], [ 0, %95 ], [ -1, %bytestream2_get_byte.exit56.i ], [ -1, %bytestream2_get_be16.exit.i ], [ -1, %37 ], [ -1, %bytestream2_get_be16.exit62.i ], [ -1, %48 ], [ -1, %103 ], [ -1, %106 ], [ -1, %bytestream2_peek_byte.exit.thread.i ], [ -1, %30 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %.critedge.thread.i ], [ 0, %bytestream2_get_be64.exit.i ], [ 0, %81 ], [ 0, %95 ], [ -1, %bytestream2_get_byte.exit56.i ], [ -1, %bytestream2_get_be16.exit.i ], [ -1, %106 ], [ -1, %37 ], [ -1, %bytestream2_get_be16.exit62.i ], [ -1, %48 ], [ -1, %103 ], [ -1, %bytestream2_peek_byte.exit.thread.i ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1726,7 +1726,7 @@ define range(i32 0, 2) i32 @ff_amf_match_string(ptr noundef readonly captures(no
   br label %30
 
 30:                                               ; preds = %25, %17, %10, %7, %3, %27
-  %.0 = phi i32 [ %29, %27 ], [ 0, %3 ], [ 0, %7 ], [ 0, %10 ], [ 0, %17 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ], [ 0, %25 ], [ %29, %27 ]
   ret i32 %.0
 }
 

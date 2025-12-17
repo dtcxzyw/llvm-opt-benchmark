@@ -231,8 +231,8 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %46
 
 46:                                               ; preds = %34, %31, %29, %.lr.ph
-  %.044 = phi i16 [ 64, %.lr.ph ], [ %24, %29 ], [ 0, %31 ], [ %44, %34 ]
-  %.0 = phi i8 [ 66, %.lr.ph ], [ 0, %29 ], [ 66, %31 ], [ %spec.select54, %34 ]
+  %.044 = phi i16 [ %44, %34 ], [ 64, %.lr.ph ], [ %24, %29 ], [ 0, %31 ]
+  %.0 = phi i8 [ %spec.select54, %34 ], [ 66, %.lr.ph ], [ 0, %29 ], [ 66, %31 ]
   %47 = trunc i16 %27 to i8
   %48 = load ptr, ptr %16, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %48, i64 %indvars.iv

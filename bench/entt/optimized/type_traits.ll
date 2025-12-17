@@ -2902,7 +2902,7 @@ _ZN7testing7MessageD2Ev.exit204:                  ; preds = %_ZNKSt14default_del
   ret void
 
 273:                                              ; preds = %_ZN7testing7MessageD2Ev.exit204, %_ZN7testing7MessageD2Ev.exit196, %_ZN7testing7MessageD2Ev.exit188, %_ZN7testing7MessageD2Ev.exit180, %_ZN7testing7MessageD2Ev.exit172, %_ZN7testing7MessageD2Ev.exit164, %_ZN7testing7MessageD2Ev.exit108, %_ZN7testing7MessageD2Ev.exit98
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %_ZN7testing7MessageD2Ev.exit204 ], [ %.pn78.pn, %_ZN7testing7MessageD2Ev.exit196 ], [ %.pn75.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit180 ], [ %.pn69.pn, %_ZN7testing7MessageD2Ev.exit172 ], [ %.pn66.pn, %_ZN7testing7MessageD2Ev.exit164 ], [ %.pn51.pn, %_ZN7testing7MessageD2Ev.exit108 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit98 ]
+  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %_ZN7testing7MessageD2Ev.exit204 ], [ %.pn78.pn, %_ZN7testing7MessageD2Ev.exit196 ], [ %.pn75.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn72.pn, %_ZN7testing7MessageD2Ev.exit180 ], [ %.pn69.pn, %_ZN7testing7MessageD2Ev.exit172 ], [ %.pn66.pn, %_ZN7testing7MessageD2Ev.exit164 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit98 ], [ %.pn51.pn, %_ZN7testing7MessageD2Ev.exit108 ]
   resume { ptr, i32 } %.pn81.pn.pn
 }
 
@@ -4036,7 +4036,7 @@ _ZN7testing7MessageD2Ev.exit252:                  ; preds = %_ZNKSt14default_del
   ret void
 
 369:                                              ; preds = %_ZN7testing7MessageD2Ev.exit252, %_ZN7testing7MessageD2Ev.exit244, %_ZN7testing7MessageD2Ev.exit236, %_ZN7testing7MessageD2Ev.exit228, %_ZN7testing7MessageD2Ev.exit220, %_ZN7testing7MessageD2Ev.exit212, %_ZN7testing7MessageD2Ev.exit204, %_ZN7testing7MessageD2Ev.exit196, %_ZN7testing7MessageD2Ev.exit188, %_ZN7testing7MessageD2Ev.exit132, %_ZN7testing7MessageD2Ev.exit122
-  %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102.pn, %_ZN7testing7MessageD2Ev.exit252 ], [ %.pn99.pn, %_ZN7testing7MessageD2Ev.exit244 ], [ %.pn96.pn, %_ZN7testing7MessageD2Ev.exit236 ], [ %.pn93.pn, %_ZN7testing7MessageD2Ev.exit228 ], [ %.pn90.pn, %_ZN7testing7MessageD2Ev.exit220 ], [ %.pn87.pn, %_ZN7testing7MessageD2Ev.exit212 ], [ %.pn84.pn, %_ZN7testing7MessageD2Ev.exit204 ], [ %.pn81.pn, %_ZN7testing7MessageD2Ev.exit196 ], [ %.pn78.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit132 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit122 ]
+  %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102.pn, %_ZN7testing7MessageD2Ev.exit252 ], [ %.pn99.pn, %_ZN7testing7MessageD2Ev.exit244 ], [ %.pn96.pn, %_ZN7testing7MessageD2Ev.exit236 ], [ %.pn93.pn, %_ZN7testing7MessageD2Ev.exit228 ], [ %.pn90.pn, %_ZN7testing7MessageD2Ev.exit220 ], [ %.pn87.pn, %_ZN7testing7MessageD2Ev.exit212 ], [ %.pn84.pn, %_ZN7testing7MessageD2Ev.exit204 ], [ %.pn81.pn, %_ZN7testing7MessageD2Ev.exit196 ], [ %.pn78.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit122 ], [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit132 ]
   resume { ptr, i32 } %.pn102.pn.pn
 }
 

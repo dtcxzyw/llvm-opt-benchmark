@@ -163,7 +163,7 @@ define hidden i64 @png_process_data_pause(ptr noalias noundef %0, i32 noundef %1
   br label %10
 
 10:                                               ; preds = %5, %2, %4
-  %.0 = phi i64 [ 0, %4 ], [ 0, %2 ], [ %spec.select, %5 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %4 ], [ %spec.select, %5 ]
   ret i64 %.0
 }
 
@@ -1684,7 +1684,7 @@ png_push_have_row.exit167:                        ; preds = %101, %103
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.preheader210, %.critedge, %.critedge2thread-pre-split.loopexit
-  %106 = phi i8 [ %.pr203.pre, %.critedge2thread-pre-split.loopexit ], [ %97, %.critedge ], [ %99, %.preheader210 ]
+  %106 = phi i8 [ %97, %.critedge ], [ %.pr203.pre, %.critedge2thread-pre-split.loopexit ], [ %99, %.preheader210 ]
   %107 = icmp eq i8 %106, 4
   br i1 %107, label %108, label %.critedge4
 

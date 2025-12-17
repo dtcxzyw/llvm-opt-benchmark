@@ -1202,7 +1202,7 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -1574,7 +1574,7 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSW(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -1657,7 +1657,7 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSA(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -1937,7 +1937,7 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
+  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %35, label %31
 
@@ -2041,7 +2041,7 @@ define hidden i32 @svcctl_dissect_struct_ArgumentString(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -2120,7 +2120,7 @@ define hidden i32 @svcctl_dissect_struct_ArgumentStringA(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -3172,7 +3172,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.071 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
+  %.071 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %29, %27 ], [ %1, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.599, ptr %31, align 8
   %32 = load i32, ptr @ett_svcctl_service, align 4
@@ -3249,7 +3249,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   br label %69
 
 69:                                               ; preds = %66, %64, %61, %59
-  %.0.i = phi i32 [ %.07080, %59 ], [ %63, %61 ], [ %.07080, %64 ], [ %68, %66 ]
+  %.0.i = phi i32 [ %.07080, %59 ], [ %63, %61 ], [ %68, %66 ], [ %.07080, %64 ]
   br i1 %.not64.i, label %74, label %70
 
 70:                                               ; preds = %69

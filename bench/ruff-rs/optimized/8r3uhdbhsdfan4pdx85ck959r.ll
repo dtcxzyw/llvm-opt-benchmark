@@ -221,7 +221,7 @@ define hidden void @"_ZN8schemars17json_schema_impls5tuple66_$LT$impl$u20$schema
           to label %common.resume unwind label %53
 
 common.resume:                                    ; preds = %30, %.body33, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb454b4da3d426d8dE.exit"
-  %common.resume.op = phi { ptr, i32 } [ %50, %.body33 ], [ %31, %30 ], [ %.pn, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb454b4da3d426d8dE.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hb454b4da3d426d8dE.exit" ], [ %50, %.body33 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hf954d0e66f7da79dE.exit": ; preds = %32

@@ -1157,7 +1157,7 @@ define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %23, %.thread._crit_edge, %19, %.thread6
-  %29 = phi ptr [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %23 ]
+  %29 = phi ptr [ %spec.select, %23 ], [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ]
   %30 = tail call i64 @strlen(ptr noundef %29) #24
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, 1
@@ -1200,7 +1200,7 @@ define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nound
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
+  %54 = phi ptr [ %spec.select18, %48 ], [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -1249,7 +1249,7 @@ define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %14, %.thread._crit_edge, %10, %.thread6
-  %20 = phi ptr [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %14 ]
+  %20 = phi ptr [ %spec.select, %14 ], [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ]
   %21 = tail call i64 @strlen(ptr noundef %20) #24
   %22 = trunc i64 %21 to i32
   %23 = shl i32 %22, 16
@@ -1320,7 +1320,7 @@ define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr noundef readonly
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
+  %64 = phi ptr [ %spec.select18, %58 ], [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -1392,7 +1392,7 @@ define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %24, %.thread._crit_edge, %20, %.thread6
-  %30 = phi ptr [ @.str.18, %.thread6 ], [ %22, %20 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %24 ]
+  %30 = phi ptr [ %spec.select, %24 ], [ @.str.18, %.thread6 ], [ %22, %20 ], [ %.pre, %.thread._crit_edge ]
   %31 = tail call i64 @strlen(ptr noundef %30) #24
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, 1
@@ -1441,7 +1441,7 @@ define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noun
   br label %.thread8
 
 .thread8:                                         ; preds = %54, %.thread8._crit_edge, %50, %.thread9
-  %60 = phi ptr [ @.str.18, %.thread9 ], [ %52, %50 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %54 ]
+  %60 = phi ptr [ %spec.select18, %54 ], [ @.str.18, %.thread9 ], [ %52, %50 ], [ %.pre11, %.thread8._crit_edge ]
   %61 = call ptr @strcpy(ptr noundef %47, ptr noundef %60) #24
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %2, ptr %62, align 4
@@ -1495,7 +1495,7 @@ define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %15, %.thread._crit_edge, %11, %.thread6
-  %21 = phi ptr [ @.str.18, %.thread6 ], [ %13, %11 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %15 ]
+  %21 = phi ptr [ %spec.select, %15 ], [ @.str.18, %.thread6 ], [ %13, %11 ], [ %.pre, %.thread._crit_edge ]
   %22 = tail call i64 @strlen(ptr noundef %21) #24
   %23 = trunc i64 %22 to i32
   %24 = add i32 %23, 1
@@ -1574,7 +1574,7 @@ define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr noundef readonl
   br label %.thread8
 
 .thread8:                                         ; preds = %66, %.thread8._crit_edge, %62, %.thread9
-  %72 = phi ptr [ @.str.18, %.thread9 ], [ %64, %62 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %66 ]
+  %72 = phi ptr [ %spec.select18, %66 ], [ @.str.18, %.thread9 ], [ %64, %62 ], [ %.pre11, %.thread8._crit_edge ]
   %73 = call ptr @strcpy(ptr noundef %59, ptr noundef %72) #24
   %74 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %2, ptr %74, align 4
@@ -1645,7 +1645,7 @@ define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %23, %.thread._crit_edge, %19, %.thread6
-  %29 = phi ptr [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %23 ]
+  %29 = phi ptr [ %spec.select, %23 ], [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ]
   %30 = tail call i64 @strlen(ptr noundef %29) #24
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, 1
@@ -1688,7 +1688,7 @@ define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr nou
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
+  %54 = phi ptr [ %spec.select18, %48 ], [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -1737,7 +1737,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %14, %.thread._crit_edge, %10, %.thread6
-  %20 = phi ptr [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %14 ]
+  %20 = phi ptr [ %spec.select, %14 ], [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ]
   %21 = tail call i64 @strlen(ptr noundef %20) #24
   %22 = trunc i64 %21 to i32
   %23 = shl i32 %22, 16
@@ -1808,7 +1808,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readon
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
+  %64 = phi ptr [ %spec.select18, %58 ], [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -1874,7 +1874,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %23, %.thread._crit_edge, %19, %.thread6
-  %29 = phi ptr [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %23 ]
+  %29 = phi ptr [ %spec.select, %23 ], [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ]
   %30 = tail call i64 @strlen(ptr noundef %29) #24
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, 1
@@ -1939,7 +1939,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
   br label %.thread8
 
 .thread8:                                         ; preds = %68, %.thread8._crit_edge, %64, %.thread9
-  %74 = phi ptr [ @.str.18, %.thread9 ], [ %66, %64 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %68 ]
+  %74 = phi ptr [ %spec.select18, %68 ], [ @.str.18, %.thread9 ], [ %66, %64 ], [ %.pre11, %.thread8._crit_edge ]
   %75 = call ptr @strcpy(ptr noundef %61, ptr noundef %74) #24
   %76 = and i32 %54, 65535
   %77 = zext nneg i32 %76 to i64
@@ -1993,7 +1993,7 @@ define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %14, %.thread._crit_edge, %10, %.thread6
-  %20 = phi ptr [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %14 ]
+  %20 = phi ptr [ %spec.select, %14 ], [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ]
   %21 = tail call i64 @strlen(ptr noundef %20) #24
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, 1
@@ -2088,7 +2088,7 @@ define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef reado
   br label %.thread8
 
 .thread8:                                         ; preds = %80, %.thread8._crit_edge, %76, %.thread9
-  %86 = phi ptr [ @.str.18, %.thread9 ], [ %78, %76 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %80 ]
+  %86 = phi ptr [ %spec.select18, %80 ], [ @.str.18, %.thread9 ], [ %78, %76 ], [ %.pre11, %.thread8._crit_edge ]
   %87 = call ptr @strcpy(ptr noundef %73, ptr noundef %86) #24
   %88 = and i32 %31, 65535
   %89 = zext nneg i32 %88 to i64
@@ -2159,7 +2159,7 @@ define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %22, %.thread._crit_edge, %18, %.thread6
-  %28 = phi ptr [ @.str.18, %.thread6 ], [ %20, %18 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %22 ]
+  %28 = phi ptr [ %spec.select, %22 ], [ @.str.18, %.thread6 ], [ %20, %18 ], [ %.pre, %.thread._crit_edge ]
   %29 = tail call i64 @strlen(ptr noundef %28) #24
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, 1
@@ -2202,7 +2202,7 @@ define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noun
   br label %.thread8
 
 .thread8:                                         ; preds = %47, %.thread8._crit_edge, %43, %.thread9
-  %53 = phi ptr [ @.str.18, %.thread9 ], [ %45, %43 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %47 ]
+  %53 = phi ptr [ %spec.select18, %47 ], [ @.str.18, %.thread9 ], [ %45, %43 ], [ %.pre11, %.thread8._crit_edge ]
   %54 = call ptr @strcpy(ptr noundef %40, ptr noundef %53) #24
   %55 = zext i1 %2 to i32
   %56 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -2250,7 +2250,7 @@ define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %13, %.thread._crit_edge, %9, %.thread6
-  %19 = phi ptr [ @.str.18, %.thread6 ], [ %11, %9 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %13 ]
+  %19 = phi ptr [ %spec.select, %13 ], [ @.str.18, %.thread6 ], [ %11, %9 ], [ %.pre, %.thread._crit_edge ]
   %20 = tail call i64 @strlen(ptr noundef %19) #24
   %21 = trunc i64 %20 to i32
   %22 = shl i32 %21, 16
@@ -2322,7 +2322,7 @@ define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr noundef readonl
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
+  %64 = phi ptr [ %spec.select18, %58 ], [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = zext i1 %2 to i32
   %67 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -2387,7 +2387,7 @@ define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %21, %.thread._crit_edge, %17, %.thread6
-  %27 = phi ptr [ @.str.18, %.thread6 ], [ %19, %17 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %21 ]
+  %27 = phi ptr [ %spec.select, %21 ], [ @.str.18, %.thread6 ], [ %19, %17 ], [ %.pre, %.thread._crit_edge ]
   %28 = tail call i64 @strlen(ptr noundef %27) #24
   %29 = trunc i64 %28 to i32
   %30 = add i32 %29, 1
@@ -2430,7 +2430,7 @@ define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr nou
   br label %.thread8
 
 .thread8:                                         ; preds = %46, %.thread8._crit_edge, %42, %.thread9
-  %52 = phi ptr [ @.str.18, %.thread9 ], [ %44, %42 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %46 ]
+  %52 = phi ptr [ %spec.select18, %46 ], [ @.str.18, %.thread9 ], [ %44, %42 ], [ %.pre11, %.thread8._crit_edge ]
   %53 = call ptr @strcpy(ptr noundef %39, ptr noundef %52) #24
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #24
   br label %54
@@ -2475,7 +2475,7 @@ define internal void @perf_trace_regmap_async(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %12, %.thread._crit_edge, %8, %.thread6
-  %18 = phi ptr [ @.str.18, %.thread6 ], [ %10, %8 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %12 ]
+  %18 = phi ptr [ %spec.select, %12 ], [ @.str.18, %.thread6 ], [ %10, %8 ], [ %.pre, %.thread._crit_edge ]
   %19 = tail call i64 @strlen(ptr noundef %18) #24
   %20 = trunc i64 %19 to i32
   %21 = shl i32 %20, 16
@@ -2546,7 +2546,7 @@ define internal void @perf_trace_regmap_async(ptr noundef %0, ptr noundef readon
   br label %.thread8
 
 .thread8:                                         ; preds = %56, %.thread8._crit_edge, %52, %.thread9
-  %62 = phi ptr [ @.str.18, %.thread9 ], [ %54, %52 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %56 ]
+  %62 = phi ptr [ %spec.select18, %56 ], [ @.str.18, %.thread9 ], [ %54, %52 ], [ %.pre11, %.thread8._crit_edge ]
   %63 = call ptr @strcpy(ptr noundef %49, ptr noundef %62) #24
   %64 = load i32, ptr %4, align 4
   %65 = load ptr, ptr %3, align 8
@@ -2608,7 +2608,7 @@ define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0,
   br label %.thread
 
 .thread:                                          ; preds = %23, %.thread._crit_edge, %19, %.thread6
-  %29 = phi ptr [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %23 ]
+  %29 = phi ptr [ %spec.select, %23 ], [ @.str.18, %.thread6 ], [ %21, %19 ], [ %.pre, %.thread._crit_edge ]
   %30 = tail call i64 @strlen(ptr noundef %29) #24
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, 1
@@ -2651,7 +2651,7 @@ define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0,
   br label %.thread8
 
 .thread8:                                         ; preds = %48, %.thread8._crit_edge, %44, %.thread9
-  %54 = phi ptr [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %48 ]
+  %54 = phi ptr [ %spec.select18, %48 ], [ @.str.18, %.thread9 ], [ %46, %44 ], [ %.pre11, %.thread8._crit_edge ]
   %55 = call ptr @strcpy(ptr noundef %41, ptr noundef %54) #24
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %2, ptr %56, align 4
@@ -2700,7 +2700,7 @@ define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %14, %.thread._crit_edge, %10, %.thread6
-  %20 = phi ptr [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ], [ %spec.select, %14 ]
+  %20 = phi ptr [ %spec.select, %14 ], [ @.str.18, %.thread6 ], [ %12, %10 ], [ %.pre, %.thread._crit_edge ]
   %21 = tail call i64 @strlen(ptr noundef %20) #24
   %22 = trunc i64 %21 to i32
   %23 = shl i32 %22, 16
@@ -2771,7 +2771,7 @@ define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nounde
   br label %.thread8
 
 .thread8:                                         ; preds = %58, %.thread8._crit_edge, %54, %.thread9
-  %64 = phi ptr [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ], [ %spec.select18, %58 ]
+  %64 = phi ptr [ %spec.select18, %58 ], [ @.str.18, %.thread9 ], [ %56, %54 ], [ %.pre11, %.thread8._crit_edge ]
   %65 = call ptr @strcpy(ptr noundef %51, ptr noundef %64) #24
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %2, ptr %66, align 4
@@ -3256,7 +3256,7 @@ define dso_local zeroext i1 @regmap_volatile(ptr noundef readonly captures(none)
   br i1 %70, label %71, label %56, !llvm.loop !35
 
 71:                                               ; preds = %66, %62
-  %72 = phi i1 [ %57, %62 ], [ %69, %66 ]
+  %72 = phi i1 [ %69, %66 ], [ %57, %62 ]
   br i1 %72, label %73, label %.loopexit
 
 73:                                               ; preds = %20, %71, %.critedge, %24, %2
@@ -3462,7 +3462,7 @@ define dso_local zeroext i1 @regmap_precious(ptr noundef readonly captures(none)
   br i1 %70, label %71, label %56, !llvm.loop !35
 
 71:                                               ; preds = %66, %62
-  %72 = phi i1 [ %57, %62 ], [ %69, %66 ]
+  %72 = phi i1 [ %69, %66 ], [ %57, %62 ]
   br i1 %72, label %73, label %.loopexit
 
 73:                                               ; preds = %20, %71, %.critedge, %24
@@ -4280,7 +4280,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %279, label %282, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %218, %276
-  %280 = phi i64 [ 0, %276 ], [ %274, %218 ]
+  %280 = phi i64 [ %274, %218 ], [ 0, %276 ]
   %281 = getelementptr inbounds nuw i8, ptr %10, i64 488
   store i64 %271, ptr %281, align 8
   br label %287
@@ -6488,7 +6488,7 @@ define dso_local i32 @_regmap_write(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %75, label %76, label %61, !llvm.loop !35
 
 76:                                               ; preds = %71, %67
-  %77 = phi i1 [ %62, %67 ], [ %74, %71 ]
+  %77 = phi i1 [ %74, %71 ], [ %62, %67 ]
   br i1 %77, label %78, label %121
 
 78:                                               ; preds = %25, %76, %.critedge, %29
@@ -6818,7 +6818,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %69, label %70, label %55, !llvm.loop !35
 
 70:                                               ; preds = %65, %61
-  %71 = phi i1 [ %56, %61 ], [ %68, %65 ]
+  %71 = phi i1 [ %68, %65 ], [ %56, %61 ]
   br i1 %71, label %.loopexit83, label %72
 
 72:                                               ; preds = %19, %70, %48
@@ -6944,7 +6944,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %151, label %152, label %137, !llvm.loop !35
 
 152:                                              ; preds = %147, %143
-  %153 = phi i1 [ %138, %143 ], [ %150, %147 ]
+  %153 = phi i1 [ %150, %147 ], [ %138, %143 ]
   br i1 %153, label %154, label %.thread
 
 154:                                              ; preds = %103, %152, %.critedge69, %106
@@ -7030,7 +7030,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %205, label %206, label %191, !llvm.loop !35
 
 206:                                              ; preds = %201, %197
-  %207 = phi i1 [ %192, %197 ], [ %204, %201 ]
+  %207 = phi i1 [ %204, %201 ], [ %192, %197 ]
   br i1 %207, label %.thread, label %208
 
 208:                                              ; preds = %157, %206, %184
@@ -7116,7 +7116,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br label %261
 
 261:                                              ; preds = %258, %256
-  %262 = phi i32 [ %257, %256 ], [ %260, %258 ]
+  %262 = phi i32 [ %260, %258 ], [ %257, %256 ]
   %263 = add i32 %262, %1
   %264 = tail call i32 @regcache_write(ptr noundef %0, i32 noundef %263, i32 noundef %252) #24
   %265 = icmp eq i32 %264, 0
@@ -7718,7 +7718,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %157, %103, %206, %.critedge71, %160, %152, %130, %93, %.preheader, %271, %.split96.us, %.thread77, %633, %629, %616, %611, %.thread79, %511, %508, %475, %464
-  %636 = phi i32 [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ %.ph76, %.thread77 ], [ 0, %271 ], [ %.us-phi97, %.split96.us ], [ %311, %.preheader ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
+  %636 = phi i32 [ %.ph76, %.thread77 ], [ %.us-phi97, %.split96.us ], [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ 0, %271 ], [ %311, %.preheader ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
   ret i32 %636
 }
 
@@ -7980,7 +7980,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %89, label %90, label %75, !llvm.loop !35
 
 90:                                               ; preds = %85, %81
-  %91 = phi i1 [ %76, %81 ], [ %88, %85 ]
+  %91 = phi i1 [ %88, %85 ], [ %76, %81 ]
   br i1 %91, label %92, label %.thread20
 
 92:                                               ; preds = %39, %90, %.critedge, %43
@@ -8160,7 +8160,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %201, label %.thread20, label %143, !llvm.loop !88
 
 .thread20:                                        ; preds = %143, %.thread21, %196, %169, %39, %138, %136, %129, %102, %90, %68, %29
-  %202 = phi i32 [ -22, %90 ], [ -22, %29 ], [ 0, %136 ], [ -22, %102 ], [ %130, %129 ], [ 0, %138 ], [ -22, %68 ], [ -22, %39 ], [ %174, %169 ], [ -22, %143 ], [ %197, %196 ], [ 0, %.thread21 ]
+  %202 = phi i32 [ -22, %90 ], [ -22, %29 ], [ 0, %136 ], [ -22, %102 ], [ %130, %129 ], [ 0, %138 ], [ -22, %68 ], [ -22, %39 ], [ %174, %169 ], [ -22, %143 ], [ 0, %.thread21 ], [ %197, %196 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %204 = load ptr, ptr %203, align 8
   %205 = load ptr, ptr %32, align 8
@@ -8314,7 +8314,7 @@ define dso_local i32 @regmap_field_read(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %2, %22, %12
-  %30 = phi i32 [ 0, %22 ], [ %17, %12 ], [ -22, %2 ]
+  %30 = phi i32 [ %17, %12 ], [ 0, %22 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %30
 }
@@ -8500,7 +8500,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %91, label %.split9.split, label %.thread, !llvm.loop !89
 
 .thread:                                          ; preds = %88, %83, %67, %62, %40, %45, %26, %20
-  %92 = phi i32 [ 0, %20 ], [ -22, %26 ], [ %43, %40 ], [ 0, %45 ], [ %65, %62 ], [ 0, %67 ], [ %86, %83 ], [ 0, %88 ]
+  %92 = phi i32 [ 0, %20 ], [ -22, %26 ], [ %65, %62 ], [ %43, %40 ], [ 0, %45 ], [ 0, %67 ], [ 0, %88 ], [ %86, %83 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %23, align 8
@@ -8587,7 +8587,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %96, %135, %131, %118, %115, %112, %4
-  %138 = phi i32 [ -22, %4 ], [ %113, %112 ], [ 0, %115 ], [ 0, %118 ], [ 0, %131 ], [ 0, %135 ], [ -12, %96 ]
+  %138 = phi i32 [ -12, %96 ], [ -22, %4 ], [ %113, %112 ], [ 0, %115 ], [ 0, %118 ], [ 0, %131 ], [ 0, %135 ]
   ret i32 %138
 }
 
@@ -8918,10 +8918,10 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br i1 %190, label %251, label %.thread24
 
 .thread24:                                        ; preds = %..thread24_crit_edge, %.thread23
-  %191 = phi i1 [ true, %.thread23 ], [ %185, %..thread24_crit_edge ]
-  %192 = phi ptr [ %186, %.thread23 ], [ %164, %..thread24_crit_edge ]
-  %193 = phi i1 [ true, %.thread23 ], [ false, %..thread24_crit_edge ]
-  %194 = phi i32 [ %187, %.thread23 ], [ %181, %..thread24_crit_edge ]
+  %191 = phi i1 [ %185, %..thread24_crit_edge ], [ true, %.thread23 ]
+  %192 = phi ptr [ %164, %..thread24_crit_edge ], [ %186, %.thread23 ]
+  %193 = phi i1 [ false, %..thread24_crit_edge ], [ true, %.thread23 ]
+  %194 = phi i32 [ %181, %..thread24_crit_edge ], [ %187, %.thread23 ]
   %195 = icmp eq i32 %159, 0
   %196 = and i1 %195, %191
   %197 = sext i32 %158 to i64
@@ -9047,7 +9047,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br label %.thread31
 
 .thread31:                                        ; preds = %70, %62, %41, %12, %107, %.loopexit, %.loopexit34, %95, %.split1, %100, %45, %8
-  %262 = phi i32 [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %93, %95 ], [ %131, %.split1 ], [ %261, %.loopexit ], [ -12, %.loopexit34 ], [ -22, %107 ], [ %19, %12 ], [ 0, %41 ], [ -22, %62 ], [ -22, %70 ]
+  %262 = phi i32 [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %261, %.loopexit ], [ -22, %107 ], [ %131, %.split1 ], [ %93, %95 ], [ -12, %.loopexit34 ], [ 0, %41 ], [ %19, %12 ], [ -22, %62 ], [ -22, %70 ]
   ret i32 %262
 }
 
@@ -9363,7 +9363,7 @@ define internal fastcc i32 @_regmap_read(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %94, label %95, label %80, !llvm.loop !35
 
 95:                                               ; preds = %90, %86
-  %96 = phi i1 [ %81, %86 ], [ %93, %90 ]
+  %96 = phi i1 [ %93, %90 ], [ %81, %86 ]
   br i1 %96, label %97, label %129
 
 97:                                               ; preds = %._crit_edge, %95, %.critedge, %48
@@ -9634,7 +9634,7 @@ define dso_local i32 @regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %131, label %109, label %.loopexit, !llvm.loop !109
 
 .loopexit:                                        ; preds = %124, %119, %77, %108, %104, %.thread40, %.thread39
-  %132 = phi i32 [ 0, %108 ], [ -16, %.thread39 ], [ -524, %.thread40 ], [ %106, %104 ], [ %82, %77 ], [ %122, %119 ], [ 0, %124 ]
+  %132 = phi i32 [ 0, %108 ], [ -16, %.thread39 ], [ -524, %.thread40 ], [ %106, %104 ], [ %82, %77 ], [ 0, %124 ], [ %122, %119 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %22, align 8
@@ -9928,7 +9928,7 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   br label %183
 
 183:                                              ; preds = %.thread12, %180, %176, %163, %150, %5
-  %184 = phi i32 [ -22, %5 ], [ %159, %150 ], [ %159, %163 ], [ %159, %176 ], [ %159, %180 ], [ %.ph, %.thread12 ]
+  %184 = phi i32 [ -22, %5 ], [ %.ph, %.thread12 ], [ %159, %150 ], [ %159, %163 ], [ %159, %176 ], [ %159, %180 ]
   ret i32 %184
 }
 
@@ -10051,7 +10051,7 @@ define dso_local i32 @regmap_noinc_read(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %81, label %82, label %67, !llvm.loop !35
 
 82:                                               ; preds = %77, %73
-  %83 = phi i1 [ %68, %73 ], [ %80, %77 ]
+  %83 = phi i1 [ %80, %77 ], [ %68, %73 ]
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %31, %82, %.critedge, %35
@@ -10115,7 +10115,7 @@ define dso_local i32 @regmap_noinc_read(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %120, label %.loopexit, label %107, !llvm.loop !118
 
 .loopexit:                                        ; preds = %117, %107, %31, %102, %100, %88, %82, %60, %21
-  %121 = phi i32 [ -22, %82 ], [ -22, %21 ], [ -16, %88 ], [ -22, %100 ], [ 0, %102 ], [ -22, %60 ], [ -22, %31 ], [ %115, %107 ], [ 0, %117 ]
+  %121 = phi i32 [ -22, %82 ], [ -22, %21 ], [ -16, %88 ], [ -22, %100 ], [ 0, %102 ], [ -22, %60 ], [ -22, %31 ], [ 0, %117 ], [ %115, %107 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %24, align 8

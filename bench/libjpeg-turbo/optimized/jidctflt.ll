@@ -83,7 +83,7 @@ define void @jpeg_idct_float(ptr noundef readonly captures(none) %0, ptr noundef
   br label %142
 
 ._crit_edge:                                      ; preds = %12, %35, %31, %27, %23, %19
-  %51 = phi i16 [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ], [ %17, %12 ]
+  %51 = phi i16 [ %17, %12 ], [ 0, %35 ], [ 0, %31 ], [ 0, %27 ], [ 0, %23 ], [ 0, %19 ]
   %52 = load i16, ptr %.0200202, align 2, !tbaa !32
   %53 = sitofp i16 %52 to float
   %54 = load float, ptr %.0198203, align 4, !tbaa !33

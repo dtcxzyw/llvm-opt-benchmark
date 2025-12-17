@@ -335,7 +335,7 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %switch.lookup250, %switch.lookup, %144, %.fold.split, %151, %160, %156, %152, %143, %142, %127, %127
-  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ 1, %142 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 2, %.fold.split ], [ 3, %151 ], [ 4, %144 ], [ %switch.load, %switch.lookup ], [ %switch.load255, %switch.lookup250 ], [ 1, %.preheader ]
+  %.2150 = phi i32 [ %.0148216, %127 ], [ %.0148216, %127 ], [ %switch.load, %switch.lookup ], [ 1, %142 ], [ 2, %.fold.split ], [ %switch.load255, %switch.lookup250 ], [ 3, %151 ], [ 4, %144 ], [ 2, %143 ], [ 3, %152 ], [ 4, %156 ], [ 5, %160 ], [ 1, %.preheader ]
   %179 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %180 = load i8, ptr %179, align 1, !tbaa !14
   %181 = icmp eq i8 %180, 13
@@ -516,8 +516,8 @@ switch.lookup250:                                 ; preds = %switch.hole_check24
   %305 = icmp eq i8 %304, 98
   br i1 %305, label %.thread197, label %120
 
-.thread197:                                       ; preds = %.loopexit, %290, %193, %152, %156, %160, %144, %164, %.preheader207.preheader, %103, %3
-  %.0134 = phi i32 [ 1, %3 ], [ 1, %103 ], [ 0, %.preheader207.preheader ], [ 0, %164 ], [ 0, %.loopexit ], [ 0, %290 ], [ 1, %193 ], [ 0, %152 ], [ 0, %156 ], [ 0, %160 ], [ %.3142, %144 ]
+.thread197:                                       ; preds = %290, %193, %.loopexit, %160, %152, %156, %144, %164, %.preheader207.preheader, %103, %3
+  %.0134 = phi i32 [ 1, %103 ], [ 1, %3 ], [ 0, %.preheader207.preheader ], [ 0, %164 ], [ 0, %156 ], [ 0, %152 ], [ 0, %160 ], [ 0, %.loopexit ], [ 0, %290 ], [ 1, %193 ], [ %.3142, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0134

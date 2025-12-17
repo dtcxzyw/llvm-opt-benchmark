@@ -320,7 +320,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN4llvm7find_ifINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEEPFbRS3_EEEDaOT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !212
 
 _ZN4llvm7find_ifINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb1EEEEEPFbRS3_EEEDaOT_T0_.exit: ; preds = %53, %46, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i44, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit
-  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i.i.i.i, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit ], [ %.sroa.03.05.i.i.i.i, %53 ], [ %.sroa.03.05.i.i.i.i, %46 ], [ %.sroa.03.05.i.i.i.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i44 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i30, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ]
+  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i.i.i.i, %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit ], [ %.sroa.03.05.i.i.i.i, %46 ], [ %.sroa.03.05.i.i.i.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i44 ], [ %.sroa.0.0.i.i.i.i.i.i.i.i30, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ], [ %.sroa.03.05.i.i.i.i, %53 ]
   %67 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i, %28
   br i1 %67, label %.thread, label %68
 
@@ -485,8 +485,8 @@ _ZN4llvm8DebugLocD2Ev.exit42:                     ; preds = %_ZN4llvm8DebugLocD2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %87, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %75, %_ZN4llvm8DebugLocD2Ev.exit42, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i, %23
-  %.1 = phi i1 [ %.02675, %23 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit42 ], [ %.02675, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i ], [ %.02675, %75 ], [ %.02675, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ %.02675, %87 ]
+.critedge:                                        ; preds = %87, %75, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %_ZN4llvm8DebugLocD2Ev.exit42, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i, %23
+  %.1 = phi i1 [ %.02675, %23 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit42 ], [ %.02675, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i ], [ %.02675, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ %.02675, %75 ], [ %.02675, %87 ]
   %.sroa.054.0 = load ptr, ptr %20, align 8, !tbaa !147
   %.not68 = icmp eq ptr %.sroa.054.0, %13
   br i1 %.not68, label %.loopexit, label %16

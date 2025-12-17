@@ -1585,7 +1585,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   br label %.thread5, !llvm.loop !44
 
 .thread5:                                         ; preds = %.lr.ph, %64, %..thread5_crit_edge9, %56
-  %116 = phi i64 [ %112, %..thread5_crit_edge9 ], [ 0, %56 ], [ %69, %.lr.ph ], [ %112, %64 ]
+  %116 = phi i64 [ 0, %56 ], [ %112, %..thread5_crit_edge9 ], [ %69, %.lr.ph ], [ %112, %64 ]
   %117 = load i64, ptr %59, align 8
   %118 = load i64, ptr %60, align 8
   %119 = load i64, ptr %58, align 8
@@ -2684,7 +2684,7 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   br label %.thread7, !llvm.loop !44
 
 .thread7:                                         ; preds = %.lr.ph, %87, %..thread7_crit_edge13, %83
-  %139 = phi i64 [ %135, %..thread7_crit_edge13 ], [ 0, %83 ], [ %92, %.lr.ph ], [ %135, %87 ]
+  %139 = phi i64 [ 0, %83 ], [ %135, %..thread7_crit_edge13 ], [ %92, %.lr.ph ], [ %135, %87 ]
   %140 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %141 = load i32, ptr %140, align 4
   %142 = lshr i32 %141, 20
@@ -2784,7 +2784,7 @@ define internal ptr @show_partition_start(ptr noundef %0, ptr noundef readonly c
   br label %.thread
 
 .thread:                                          ; preds = %9, %2, %25, %22, %16
-  %26 = phi ptr [ %18, %25 ], [ %18, %22 ], [ %18, %16 ], [ inttoptr (i64 -12 to ptr), %2 ], [ null, %9 ]
+  %26 = phi ptr [ %18, %16 ], [ %18, %25 ], [ %18, %22 ], [ inttoptr (i64 -12 to ptr), %2 ], [ null, %9 ]
   ret ptr %26
 }
 

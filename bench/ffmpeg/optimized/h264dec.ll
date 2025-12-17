@@ -594,8 +594,8 @@ define range(i32 -12, 1) i32 @ff_h264_alloc_tables(ptr noundef initializes((7308
   %191 = icmp slt i64 %indvars.iv.next, %139
   br i1 %191, label %.lr.ph168, label %.thread, !llvm.loop !137
 
-.thread:                                          ; preds = %.lr.ph168, %._crit_edge163, %._crit_edge158, %130, %134, %138, %1, %17, %21, %25, %28, %31, %34, %37, %42, %45, %48
-  %.0127 = phi i32 [ -12, %48 ], [ -12, %45 ], [ -12, %42 ], [ -12, %37 ], [ -12, %34 ], [ -12, %31 ], [ -12, %28 ], [ -12, %25 ], [ -12, %21 ], [ -12, %17 ], [ -12, %1 ], [ -12, %138 ], [ -12, %134 ], [ -12, %130 ], [ -12, %._crit_edge158 ], [ 0, %._crit_edge163 ], [ 0, %.lr.ph168 ]
+.thread:                                          ; preds = %.lr.ph168, %._crit_edge163, %130, %134, %138, %._crit_edge158, %1, %17, %21, %25, %28, %31, %34, %37, %42, %45, %48
+  %.0127 = phi i32 [ -12, %1 ], [ -12, %17 ], [ -12, %48 ], [ -12, %45 ], [ -12, %42 ], [ -12, %37 ], [ -12, %34 ], [ -12, %31 ], [ -12, %28 ], [ -12, %25 ], [ -12, %21 ], [ -12, %._crit_edge158 ], [ -12, %138 ], [ -12, %134 ], [ -12, %130 ], [ 0, %._crit_edge163 ], [ 0, %.lr.ph168 ]
   ret i32 %.0127
 }
 
@@ -1106,8 +1106,8 @@ thread-pre-split.thread:                          ; preds = %114, %thread-pre-sp
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.21) #11
   br label %h264_init_context.exit.thread
 
-h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %64, %h264_init_pic.exit60.i, %59, %56, %33, %49, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
-  %.0 = phi i32 [ -1313558101, %72 ], [ %90, %92 ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ 0, %.thread ], [ -12, %49 ], [ -12, %33 ], [ -12, %56 ], [ -12, %59 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %64 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
+h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %64, %h264_init_pic.exit60.i, %56, %49, %59, %33, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
+  %.0 = phi i32 [ %90, %92 ], [ -1313558101, %72 ], [ 0, %.thread ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ -12, %33 ], [ -12, %59 ], [ -12, %49 ], [ -12, %56 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %64 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
   ret i32 %.0
 }
 
@@ -1363,7 +1363,7 @@ is_avcc_extradata.exit:                           ; preds = %133
   %139 = call i32 @ff_h264_decode_extradata(ptr noundef nonnull %9, i32 noundef %11, ptr noundef nonnull %135, ptr noundef nonnull %78, ptr noundef nonnull %136, i32 noundef %138, ptr noundef %0) #11
   br label %send_next_delayed_frame.exit
 
-is_avcc_extradata.exit.thread:                    ; preds = %110, %101, %120, %129, %116, %93, %89, %85, %82, %77
+is_avcc_extradata.exit.thread:                    ; preds = %110, %101, %120, %129, %93, %116, %89, %85, %82, %77
   %140 = load ptr, ptr %3, align 8, !tbaa !212
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !79
@@ -1606,10 +1606,10 @@ get_ue_golomb_long.exit.i.i:                      ; preds = %234, %231, %203
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %..thread_crit_edge.i.i, %get_ue_golomb_long.exit.i.i, %195, %.lr.ph.i.i
-  %275 = phi i32 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %190, %195 ], [ %190, %.lr.ph.i.i ], [ %190, %get_ue_golomb_long.exit.i.i ]
-  %.23355.i.i = phi i32 [ %.03165.i.i, %..thread_crit_edge.i.i ], [ %196, %195 ], [ %.03165.i.i, %.lr.ph.i.i ], [ %.3.i.i, %get_ue_golomb_long.exit.i.i ]
-  %.23754.i.i = phi i32 [ %.03563.i.i, %..thread_crit_edge.i.i ], [ %.03563.i.i, %195 ], [ %.03563.i.i, %.lr.ph.i.i ], [ %spec.select58.i.i, %get_ue_golomb_long.exit.i.i ]
-  %.24053.i.i = phi i32 [ %.03862.i.i, %..thread_crit_edge.i.i ], [ %.03862.i.i, %195 ], [ %.03862.i.i, %.lr.ph.i.i ], [ %268, %get_ue_golomb_long.exit.i.i ]
+  %275 = phi i32 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %190, %.lr.ph.i.i ], [ %190, %get_ue_golomb_long.exit.i.i ], [ %190, %195 ]
+  %.23355.i.i = phi i32 [ %.03165.i.i, %..thread_crit_edge.i.i ], [ %.03165.i.i, %.lr.ph.i.i ], [ %.3.i.i, %get_ue_golomb_long.exit.i.i ], [ %196, %195 ]
+  %.23754.i.i = phi i32 [ %.03563.i.i, %..thread_crit_edge.i.i ], [ %.03563.i.i, %.lr.ph.i.i ], [ %spec.select58.i.i, %get_ue_golomb_long.exit.i.i ], [ %.03563.i.i, %195 ]
+  %.24053.i.i = phi i32 [ %.03862.i.i, %..thread_crit_edge.i.i ], [ %.03862.i.i, %.lr.ph.i.i ], [ %268, %get_ue_golomb_long.exit.i.i ], [ %.03862.i.i, %195 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next.i.i, %276
@@ -2096,7 +2096,7 @@ debug_green_metadata.exit.i:                      ; preds = %440, %435, %418, %4
   br label %.thread286.i
 
 .thread281.i:                                     ; preds = %521, %513, %510, %505, %499, %.thread277.i, %446, %debug_green_metadata.exit.i, %392, %389, %384, %382, %364, %._crit_edge299.i, %._crit_edge299.i, %._crit_edge299.i, %._crit_edge299.i, %._crit_edge299.i, %._crit_edge299.i, %323
-  %.1.i = phi i32 [ %.0197295.i, %323 ], [ %.2.i, %521 ], [ %.2.i, %513 ], [ %.0197295.i, %.thread277.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %499 ], [ %.0197295.i, %505 ], [ %.0197295.i, %debug_green_metadata.exit.i ], [ %.0197295.i, %446 ], [ %.0197295.i, %392 ], [ %.0197295.i, %389 ], [ %.2.i, %364 ], [ %.2.i, %382 ], [ %.2.i, %384 ], [ %.0197295.i, %510 ]
+  %.1.i = phi i32 [ %.0197295.i, %323 ], [ %.2.i, %513 ], [ %.2.i, %521 ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %._crit_edge299.i ], [ %.0197295.i, %499 ], [ %.0197295.i, %505 ], [ %.0197295.i, %.thread277.i ], [ %.0197295.i, %debug_green_metadata.exit.i ], [ %.0197295.i, %446 ], [ %.0197295.i, %392 ], [ %.0197295.i, %389 ], [ %.2.i, %364 ], [ %.2.i, %382 ], [ %.2.i, %384 ], [ %.0197295.i, %510 ]
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
   %527 = load i32, ptr %281, align 8, !tbaa !218
   %528 = sext i32 %527 to i64
@@ -2147,7 +2147,7 @@ debug_green_metadata.exit.i:                      ; preds = %440, %435, %418, %4
   br label %.thread286.i
 
 .thread286.i:                                     ; preds = %505, %492, %446, %384, %355, %547, %545, %539, %.critedge.i100, %532, %526, %486, %331
-  %.7.i = phi i32 [ %530, %532 ], [ 0, %545 ], [ 0, %547 ], [ 0, %539 ], [ 0, %.critedge.i100 ], [ %463, %486 ], [ -1, %331 ], [ %339, %526 ], [ %503, %505 ], [ %497, %492 ], [ %395, %446 ], [ %.4.i, %384 ], [ %358, %355 ]
+  %.7.i = phi i32 [ 0, %.critedge.i100 ], [ %530, %532 ], [ 0, %545 ], [ 0, %547 ], [ 0, %539 ], [ %339, %526 ], [ %463, %486 ], [ -1, %331 ], [ %395, %446 ], [ %.4.i, %384 ], [ %358, %355 ], [ %503, %505 ], [ %497, %492 ]
   %552 = getelementptr inbounds nuw i8, ptr %13, i64 731772
   %553 = load i32, ptr %552, align 4, !tbaa !82
   %.not259.i = icmp eq i32 %553, 3
@@ -2524,7 +2524,7 @@ decode_nal_units.exit:                            ; preds = %625, %628, %631, %6
   br label %send_next_delayed_frame.exit
 
 send_next_delayed_frame.exit:                     ; preds = %269, %689, %._crit_edge.i127, %653, %63, %._crit_edge.i, %27, %get_last_needed_nal.exit.i, %182, %721, %713, %700, %706, %decode_nal_units.exit, %730, %707, %is_avcc_extradata.exit
-  %.0 = phi i32 [ %139, %is_avcc_extradata.exit ], [ %11, %730 ], [ -1094995529, %707 ], [ -1094995529, %decode_nal_units.exit ], [ %11, %706 ], [ %11, %700 ], [ %716, %713 ], [ %722, %721 ], [ -1094995529, %182 ], [ -1094995529, %get_last_needed_nal.exit.i ], [ 0, %27 ], [ 0, %63 ], [ %61, %._crit_edge.i ], [ %639, %653 ], [ %639, %689 ], [ %687, %._crit_edge.i127 ], [ -1094995529, %269 ]
+  %.0 = phi i32 [ %722, %721 ], [ %139, %is_avcc_extradata.exit ], [ %639, %653 ], [ %11, %700 ], [ %716, %713 ], [ %11, %730 ], [ -1094995529, %decode_nal_units.exit ], [ -1094995529, %707 ], [ %11, %706 ], [ -1094995529, %182 ], [ -1094995529, %get_last_needed_nal.exit.i ], [ %61, %._crit_edge.i ], [ 0, %27 ], [ 0, %63 ], [ %639, %689 ], [ %687, %._crit_edge.i127 ], [ -1094995529, %269 ]
   ret i32 %.0
 }
 
@@ -3073,8 +3073,8 @@ output_frame.exit:                                ; preds = %178, %h264_export_e
   call void @ff_print_debug_info2(ptr noundef %179, ptr noundef %1, ptr noundef %181, ptr noundef %183, ptr noundef nonnull %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef 1) #11
   br label %output_frame.exit.thread
 
-output_frame.exit.thread:                         ; preds = %89, %81, %h264_export_enc_params.exit.i, %17, %output_frame.exit, %30
-  %.0 = phi i32 [ 0, %30 ], [ 0, %output_frame.exit ], [ 0, %17 ], [ %91, %89 ], [ %85, %81 ], [ -12, %h264_export_enc_params.exit.i ]
+output_frame.exit.thread:                         ; preds = %h264_export_enc_params.exit.i, %81, %89, %17, %output_frame.exit, %30
+  %.0 = phi i32 [ 0, %30 ], [ 0, %17 ], [ 0, %output_frame.exit ], [ -12, %h264_export_enc_params.exit.i ], [ %85, %81 ], [ %91, %89 ]
   ret i32 %.0
 }
 

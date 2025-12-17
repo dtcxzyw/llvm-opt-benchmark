@@ -950,7 +950,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit": ; preds = %10, %12
-  %.sroa.0.0.i = phi i8 [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.i = phi i8 [ %11, %10 ], [ %13, %12 ]
   %.not = icmp eq i8 %.sroa.0.0.i, 3
   br i1 %.not, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.thread", label %14
 
@@ -12525,7 +12525,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit: ; preds = %
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9789e88b8c221205E.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9789e88b8c221205E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8dbe45fdc4ef681cE.exit.i, %111, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit, %83, %80, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit25.i
-  %.sroa.0.0 = phi i8 [ 3, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit25.i ], [ %82, %80 ], [ 2, %83 ], [ %121, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit ], [ 3, %111 ], [ 3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8dbe45fdc4ef681cE.exit.i ]
+  %.sroa.0.0 = phi i8 [ 2, %83 ], [ 3, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit25.i ], [ %82, %80 ], [ %121, %_ZN4core4iter6traits8iterator8Iterator3nth17he3635512589e36dcE.exit ], [ 3, %111 ], [ 3, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8dbe45fdc4ef681cE.exit.i ]
   ret i8 %.sroa.0.0
 }
 
@@ -13195,7 +13195,7 @@ define internal fastcc noundef range(i8 0, 4) i8 @"_ZN130_$LT$polars_arrow..bitm
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbe7e4585983919bE.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbe7e4585983919bE.exit": ; preds = %57, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit", %51, %48, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i"
-  %.sroa.0.0 = phi i8 [ 3, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i" ], [ %50, %48 ], [ 2, %51 ], [ %73, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit" ], [ 3, %57 ]
+  %.sroa.0.0 = phi i8 [ 2, %51 ], [ 3, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i" ], [ %50, %48 ], [ %73, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit" ], [ 3, %57 ]
   ret i8 %.sroa.0.0
 }
 
@@ -13379,7 +13379,7 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator3nth17h3
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i.i": ; preds = %17, %15
-  %.sroa.0.0.i.i.i = phi i8 [ %18, %17 ], [ %16, %15 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %16, %15 ], [ %18, %17 ]
   %.not.i.i = icmp eq i8 %.sroa.0.0.i.i.i, 3
   br i1 %.not.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.thread.i.i", label %19
 
@@ -13440,7 +13440,7 @@ _ZN18streaming_iterator17StreamingIterator4next17h561b25b73dbd86c2E.exit: ; pred
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i": ; preds = %37, %35
-  %.sroa.0.0.i.i3 = phi i8 [ %38, %37 ], [ %36, %35 ]
+  %.sroa.0.0.i.i3 = phi i8 [ %36, %35 ], [ %38, %37 ]
   %.not.i = icmp eq i8 %.sroa.0.0.i.i3, 3
   br i1 %.not.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.thread.i", label %39
 
@@ -16748,7 +16748,7 @@ define internal { ptr, i64 } @_ZN18streaming_iterator17StreamingIterator4next17h
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.i": ; preds = %12, %10
-  %.sroa.0.0.i.i = phi i8 [ %13, %12 ], [ %11, %10 ]
+  %.sroa.0.0.i.i = phi i8 [ %11, %10 ], [ %13, %12 ]
   %.not.i = icmp eq i8 %.sroa.0.0.i.i, 3
   br i1 %.not.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93678aafaaab0e01E.exit.thread.i", label %14
 
@@ -20495,7 +20495,7 @@ define hidden { ptr, ptr } @_ZN11polars_json4json5write9serialize15list_serializ
   ret { ptr, ptr } %61
 
 .body:                                            ; preds = %54, %41, %62
-  %eh.lpad-body17 = phi { ptr, i32 } [ %63, %62 ], [ %42, %41 ], [ %55, %54 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %63, %62 ], [ %55, %54 ], [ %42, %41 ]
   resume { ptr, i32 } %eh.lpad-body17
 
 62:                                               ; preds = %10

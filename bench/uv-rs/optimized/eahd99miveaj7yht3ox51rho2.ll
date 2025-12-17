@@ -1092,7 +1092,7 @@ default.unreachable29:                            ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %62, %52, %43, %34, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %35, %34 ], [ %44, %43 ], [ %53, %52 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %26, %25 ], [ %35, %34 ], [ %44, %43 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN90_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h5d4a3b43620ec7e9E.exit": ; preds = %21

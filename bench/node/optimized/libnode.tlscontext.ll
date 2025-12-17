@@ -1960,7 +1960,7 @@ sw.epilog:                                        ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end, %if.end, %entry, %sw.epilog
-  %retval.0 = phi i32 [ %call5, %sw.epilog ], [ -502, %entry ], [ 0, %if.end ], [ 0, %if.end ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ -502, %entry ], [ %call5, %sw.epilog ], [ 0, %if.end ], [ 0, %if.end ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -4160,7 +4160,7 @@ if.else.i40:                                      ; preds = %do.end82
   br label %return
 
 return:                                           ; preds = %for.body, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.end48, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit, %if.then23, %if.else.i40, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37, %if.else65, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24 ], [ false, %if.else65 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37 ], [ true, %if.else.i40 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ false, %if.end48 ], [ true, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit ]
+  %retval.0 = phi i1 [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24 ], [ false, %entry ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37 ], [ true, %if.else.i40 ], [ false, %if.else65 ], [ true, %if.then23 ], [ false, %if.end48 ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ false, %for.body ], [ true, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit ]
   ret i1 %retval.0
 }
 
@@ -4309,7 +4309,7 @@ if.else.i41:                                      ; preds = %if.then85
   br label %return
 
 return:                                           ; preds = %for.body, %if.else, %for.inc, %if.then23, %if.else.i41, %if.then.i37, %if.else.i31, %if.then.i27, %if.else82, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.else82 ], [ true, %if.then.i27 ], [ true, %if.else.i31 ], [ true, %if.then.i37 ], [ true, %if.else.i41 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ true, %if.then.i27 ], [ false, %entry ], [ true, %if.then.i37 ], [ false, %if.else82 ], [ true, %if.else.i41 ], [ true, %if.else.i31 ], [ true, %if.then23 ], [ false, %if.else ], [ false, %for.body ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -4458,7 +4458,7 @@ if.else.i41:                                      ; preds = %if.then85
   br label %return
 
 return:                                           ; preds = %for.body, %if.else, %for.inc, %if.then23, %if.else.i41, %if.then.i37, %if.else.i31, %if.then.i27, %if.else82, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.else82 ], [ true, %if.then.i27 ], [ true, %if.else.i31 ], [ true, %if.then.i37 ], [ true, %if.else.i41 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ true, %if.then.i27 ], [ false, %entry ], [ true, %if.then.i37 ], [ false, %if.else82 ], [ true, %if.else.i41 ], [ true, %if.else.i31 ], [ true, %if.then23 ], [ false, %if.else ], [ false, %for.body ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -4607,7 +4607,7 @@ if.else.i41:                                      ; preds = %if.then85
   br label %return
 
 return:                                           ; preds = %for.body, %if.else, %for.inc, %if.then23, %if.else.i41, %if.then.i37, %if.else.i31, %if.then.i27, %if.else82, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.else82 ], [ true, %if.then.i27 ], [ true, %if.else.i31 ], [ true, %if.then.i37 ], [ true, %if.else.i41 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %if.else ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ true, %if.then.i27 ], [ false, %entry ], [ true, %if.then.i37 ], [ false, %if.else82 ], [ true, %if.else.i41 ], [ true, %if.else.i31 ], [ true, %if.then23 ], [ false, %if.else ], [ false, %for.body ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -5068,7 +5068,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23, ptr noundef %24, ptr noundef %edge_name) #19
   br label %cleanup
 
-if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
+if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
@@ -5258,7 +5258,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   %11 = load ptr, ptr %second, align 8
   br label %return
 
-if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
+if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
   %call9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   tail call void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryTrackerEPKNS_14MemoryRetainerE(ptr noundef nonnull align 8 dereferenceable(49) %call9, ptr noundef nonnull %this, ptr noundef %retainer)
   %graph_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5908,7 +5908,7 @@ _ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

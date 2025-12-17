@@ -287,7 +287,7 @@ default.unreachable48:                            ; preds = %32
   br label %snprint_abs_time_iso8601.exit
 
 snprint_abs_time_iso8601.exit:                    ; preds = %118, %104, %74, %52, %36, %23, %16, %8
-  %.032 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %24, %23 ], [ %51, %36 ], [ %69, %52 ], [ %89, %74 ], [ %117, %104 ], [ %135, %118 ]
+  %.032 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %24, %23 ], [ %89, %74 ], [ %51, %36 ], [ %69, %52 ], [ %117, %104 ], [ %135, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }
@@ -665,7 +665,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br label %19
 
 19:                                               ; preds = %15, %.lr.ph
-  %.1 = phi i32 [ %18, %15 ], [ %.05474, %.lr.ph ]
+  %.1 = phi i32 [ %.05474, %.lr.ph ], [ %18, %15 ]
   %20 = sext i32 %.1 to i64
   %21 = getelementptr i8, ptr %12, i64 %20
   store i8 46, ptr %21, align 1
@@ -704,7 +704,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br label %31
 
 31:                                               ; preds = %27, %.lr.ph80
-  %.3 = phi i32 [ %30, %27 ], [ %.277, %.lr.ph80 ]
+  %.3 = phi i32 [ %.277, %.lr.ph80 ], [ %30, %27 ]
   %32 = and i32 %.15676, 7
   %.not63 = icmp eq i32 %32, 0
   %or.cond69 = and i1 %.not61, %.not63
@@ -718,7 +718,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br label %37
 
 37:                                               ; preds = %33, %31
-  %.4 = phi i32 [ %36, %33 ], [ %.3, %31 ]
+  %.4 = phi i32 [ %.3, %31 ], [ %36, %33 ]
   %38 = add nuw nsw i32 %.15676, 1
   %39 = and i64 %.05279, %3
   %.not64 = icmp eq i64 %39, 0
@@ -747,7 +747,7 @@ define noalias noundef ptr @decode_bits_in_field(ptr noundef %0, i32 noundef %1,
   br label %49
 
 49:                                               ; preds = %45, %.lr.ph86
-  %.7 = phi i32 [ %48, %45 ], [ %.685, %.lr.ph86 ]
+  %.7 = phi i32 [ %.685, %.lr.ph86 ], [ %48, %45 ]
   %50 = sext i32 %.7 to i64
   %51 = getelementptr i8, ptr %12, i64 %50
   store i8 46, ptr %51, align 1

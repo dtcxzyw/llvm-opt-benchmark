@@ -214,8 +214,8 @@ define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnam
   br label %43
 
 43:                                               ; preds = %37, %.split.us
-  %44 = phi i8 [ %19, %.split.us ], [ %42, %37 ]
-  %45 = phi i32 [ %18, %.split.us ], [ %39, %37 ]
+  %44 = phi i8 [ %42, %37 ], [ %19, %.split.us ]
+  %45 = phi i32 [ %39, %37 ], [ %18, %.split.us ]
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
@@ -1116,7 +1116,7 @@ default.unreachable55:                            ; preds = %59
   unreachable
 
 68:                                               ; preds = %59, %66, %64
-  %69 = phi ptr [ %67, %66 ], [ %65, %64 ], [ %50, %59 ]
+  %69 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %50, %59 ]
   %70 = icmp eq ptr %69, null
   br i1 %70, label %73, label %71
 
@@ -1267,7 +1267,7 @@ default.unreachable55:                            ; preds = %59
   br i1 %149, label %.loopexit, label %157
 
 .loopexit:                                        ; preds = %139, %141, %146, %135, %.split25.us
-  %150 = phi ptr [ %.us-phi, %135 ], [ %.us-phi, %.split25.us ], [ %127, %146 ], [ %127, %141 ], [ %127, %139 ]
+  %150 = phi ptr [ %.us-phi, %.split25.us ], [ %.us-phi, %135 ], [ %127, %146 ], [ %127, %141 ], [ %127, %139 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 48

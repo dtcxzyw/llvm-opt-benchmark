@@ -494,7 +494,7 @@ define noundef ptr @_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2I
   br label %31
 
 31:                                               ; preds = %14, %27, %25, %5, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ null, %27 ], [ null, %25 ], [ %12, %14 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %25 ], [ null, %27 ], [ %12, %14 ]
   ret ptr %.0
 }
 
@@ -572,7 +572,7 @@ define noundef ptr @_ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode(p
   br label %_ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode.exit
 
 _ZN6icu_7713Norm2AllModes14createInstanceEPNS_15Normalizer2ImplER10UErrorCode.exit: ; preds = %31, %20, %13, %7, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ null, %13 ], [ null, %31 ], [ %18, %20 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %18, %20 ], [ null, %13 ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -1126,7 +1126,7 @@ define noundef i32 @unorm2_normalize_77(ptr noundef %0, ptr noundef %1, i32 noun
   resume { ptr, i32 } %.pn52
 
 73:                                               ; preds = %6, %67, %27
-  %.040 = phi i32 [ 0, %27 ], [ %66, %67 ], [ 0, %6 ]
+  %.040 = phi i32 [ %66, %67 ], [ 0, %27 ], [ 0, %6 ]
   ret i32 %.040
 }
 
@@ -1411,13 +1411,13 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %75
   br label %114
 
 114:                                              ; preds = %93, %106, %111
-  %.pn80 = phi { ptr, i32 } [ %112, %111 ], [ %.pn76, %93 ], [ %.pn, %106 ]
+  %.pn80 = phi { ptr, i32 } [ %112, %111 ], [ %.pn, %106 ], [ %.pn76, %93 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn80
 
 115:                                              ; preds = %8, %109, %30
-  %.0 = phi i32 [ 0, %30 ], [ %108, %109 ], [ 0, %8 ]
+  %.0 = phi i32 [ %108, %109 ], [ 0, %30 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1499,7 +1499,7 @@ define noundef i32 @unorm2_getDecomposition_77(ptr noundef %0, i32 noundef %1, p
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %31, %15
-  %.015 = phi i32 [ 0, %15 ], [ %.1, %31 ], [ 0, %5 ]
+  %.015 = phi i32 [ %.1, %31 ], [ 0, %15 ], [ 0, %5 ]
   ret i32 %.015
 }
 
@@ -1575,7 +1575,7 @@ define noundef i32 @unorm2_getRawDecomposition_77(ptr noundef %0, i32 noundef %1
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %5, %31, %15
-  %.015 = phi i32 [ 0, %15 ], [ %.1, %31 ], [ 0, %5 ]
+  %.015 = phi i32 [ %.1, %31 ], [ 0, %15 ], [ 0, %5 ]
   ret i32 %.015
 }
 
@@ -1658,7 +1658,7 @@ define noundef signext i8 @unorm2_isNormalized_77(ptr noundef %0, ptr noundef %1
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %4, %22, %13
-  %.016 = phi i8 [ 0, %13 ], [ %21, %22 ], [ 0, %4 ]
+  %.016 = phi i8 [ %21, %22 ], [ 0, %13 ], [ 0, %4 ]
   ret i8 %.016
 }
 
@@ -1723,7 +1723,7 @@ define noundef i32 @unorm2_quickCheck_77(ptr noundef %0, ptr noundef %1, i32 nou
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %4, %22, %13
-  %.016 = phi i32 [ 0, %13 ], [ %21, %22 ], [ 0, %4 ]
+  %.016 = phi i32 [ %21, %22 ], [ 0, %13 ], [ 0, %4 ]
   ret i32 %.016
 }
 
@@ -1788,7 +1788,7 @@ define noundef i32 @unorm2_spanQuickCheckYes_77(ptr noundef %0, ptr noundef %1, 
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %4, %22, %13
-  %.016 = phi i32 [ 0, %13 ], [ %21, %22 ], [ 0, %4 ]
+  %.016 = phi i32 [ %21, %22 ], [ 0, %13 ], [ 0, %4 ]
   ret i32 %.016
 }
 
@@ -1895,7 +1895,7 @@ _ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10: ; preds = %
   %35 = tail call noundef zeroext i8 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %0)
   br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
 
-_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge: ; preds = %5, %23
+_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge: ; preds = %23, %5
   store ptr null, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
   tail call void @ucln_common_registerCleanup_77(i32 noundef 15, ptr noundef nonnull @_ZN6icu_77L24uprv_normalizer2_cleanupEv)
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
@@ -1903,7 +1903,7 @@ _ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge: ; pr
   br label %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread
 
 _ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread: ; preds = %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge, %27, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10
-  %.0 = phi i8 [ %35, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10 ], [ 0, %27 ], [ 0, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge ]
+  %.0 = phi i8 [ %35, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread10 ], [ 0, %_ZN6icu_7711Normalizer214getNFDInstanceER10UErrorCode.exit.thread.critedge ], [ 0, %27 ]
   ret i8 %.0
 }
 
@@ -1966,8 +1966,8 @@ define noundef zeroext i16 @unorm_getFCD16_77(i32 noundef %0) local_unnamed_addr
   br label %_ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit
 
 _ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit: ; preds = %5, %13, %24
-  %.2 = phi i32 [ 7, %24 ], [ 0, %13 ], [ 7, %5 ]
-  %.0.i3 = phi ptr [ null, %24 ], [ %11, %13 ], [ null, %5 ]
+  %.2 = phi i32 [ 7, %5 ], [ 7, %24 ], [ 0, %13 ]
+  %.0.i3 = phi ptr [ null, %5 ], [ null, %24 ], [ %11, %13 ]
   store ptr %.0.i3, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
   tail call void @ucln_common_registerCleanup_77(i32 noundef 15, ptr noundef nonnull @_ZN6icu_77L24uprv_normalizer2_cleanupEv)
   store i32 %.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L11nfcInitOnceE, i64 4), align 4, !tbaa !16
@@ -1980,7 +1980,7 @@ _ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit: ; preds = %5, %
   br label %_ZN6icu_7713Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i
 
 _ZN6icu_7713Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i: ; preds = %28, %_ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit
-  %.08 = phi i32 [ %.2, %_ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit ], [ %spec.select, %28 ]
+  %.08 = phi i32 [ %spec.select, %28 ], [ %.2, %_ZN6icu_7713Norm2AllModes17createNFCInstanceER10UErrorCode.exit ]
   %30 = load ptr, ptr @_ZN6icu_77L12nfcSingletonE, align 8, !tbaa !41
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZN6icu_7718Normalizer2Factory10getNFCImplER10UErrorCode.exit, label %31
@@ -2027,7 +2027,7 @@ _ZN6icu_7718Normalizer2Factory10getNFCImplER10UErrorCode.exit: ; preds = %_ZN6ic
   br label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit
 
 _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %54, %41, %34, %_ZN6icu_7718Normalizer2Factory10getNFCImplER10UErrorCode.exit
-  %.0 = phi i16 [ 0, %_ZN6icu_7718Normalizer2Factory10getNFCImplER10UErrorCode.exit ], [ %55, %54 ], [ 0, %34 ], [ 0, %41 ]
+  %.0 = phi i16 [ 0, %_ZN6icu_7718Normalizer2Factory10getNFCImplER10UErrorCode.exit ], [ 0, %34 ], [ %55, %54 ], [ 0, %41 ]
   ret i16 %.0
 }
 
@@ -2056,10 +2056,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_77
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9
   %13 = and i16 %11, 2
   %.not2.i = icmp eq i16 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %.0.i = select i1 %.not2.i, ptr %16, ptr %14
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %.0.i = select i1 %.not2.i, ptr %15, ptr %16
   %17 = icmp eq ptr %2, %1
   %18 = icmp eq ptr %.0.i, null
   %or.cond = or i1 %17, %18
@@ -2711,7 +2711,7 @@ _ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i:  ; preds = %37, %2
   br label %_ZNK6icu_7715Normalizer2Impl13isDecompInertEi.exit
 
 _ZNK6icu_7715Normalizer2Impl13isDecompInertEi.exit: ; preds = %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i, %47
-  %54 = phi i8 [ 1, %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i ], [ %53, %47 ]
+  %54 = phi i8 [ %53, %47 ], [ 1, %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i ]
   ret i8 %54
 }
 
@@ -3334,7 +3334,7 @@ _ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i:  ; preds = %39, %2
   br label %_ZNK6icu_7715Normalizer2Impl11isCompInertEia.exit
 
 _ZNK6icu_7715Normalizer2Impl11isCompInertEia.exit: ; preds = %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i, %49, %50
-  %59 = phi i8 [ 0, %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i ], [ 1, %49 ], [ %58, %50 ]
+  %59 = phi i8 [ %58, %50 ], [ 0, %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit.i ], [ 1, %49 ]
   ret i8 %59
 }
 
@@ -3497,7 +3497,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7714FCDNormalizer27isInertEi(pt
   br label %_ZNK6icu_7715Normalizer2Impl10isFCDInertEi.exit
 
 _ZNK6icu_7715Normalizer2Impl10isFCDInertEi.exit:  ; preds = %2, %11, %24
-  %.0.i.i = phi i8 [ %27, %24 ], [ 1, %2 ], [ 1, %11 ]
+  %.0.i.i = phi i8 [ 1, %2 ], [ %27, %24 ], [ 1, %11 ]
   ret i8 %.0.i.i
 }
 
@@ -3793,10 +3793,10 @@ _Z22uprv_checkCanGetBufferRKN6icu_7713UnicodeStringER10UErrorCode.exit: ; preds 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_Z22uprv_checkCanGetBufferRKN6icu_7713UnicodeStringER10UErrorCode.exit
   %18 = and i16 %16, 2
   %.not2.i = icmp eq i16 %18, 0
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %.0.i = select i1 %.not2.i, ptr %21, ptr %19
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %.0.i = select i1 %.not2.i, ptr %20, ptr %21
   %22 = icmp eq ptr %1, %2
   %23 = icmp eq ptr %.0.i, null
   %or.cond = or i1 %22, %23

@@ -689,7 +689,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18: ; preds = %
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %40, %60
-  %.0.i.i = phi i64 [ %1, %40 ], [ %62, %60 ]
+  %.0.i.i = phi i64 [ %62, %60 ], [ %1, %40 ]
   %64 = icmp ult i64 %.0.i.i, %4
   br i1 %64, label %65, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
@@ -702,7 +702,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %40, %60
   br label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.thread:   ; preds = %52, %60, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18, %_ZNK6BitMap18find_first_set_bitEmm.exit, %65, %66
-  %.0 = phi i1 [ false, %65 ], [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit ], [ true, %66 ], [ true, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18 ], [ true, %60 ], [ true, %52 ]
+  %.0 = phi i1 [ false, %65 ], [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit ], [ true, %66 ], [ true, %60 ], [ true, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread18 ], [ true, %52 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef %1, i64 noundef %4, i1 noundef zeroext true) #10
   ret i1 %.0

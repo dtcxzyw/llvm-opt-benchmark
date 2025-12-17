@@ -453,7 +453,7 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   %.not37 = icmp eq ptr %76, null
   br i1 %.not37, label %68, label %.thread55
 
-77:                                               ; preds = %37, %18
+77:                                               ; preds = %18, %37
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %79 = load ptr, ptr %78, align 8, !tbaa !77
   %sext = shl i64 %13, 32
@@ -490,7 +490,7 @@ _ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41: ; preds
   br label %_ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit
 
 _ZL23tMPI_Prep_recv_envelopeP11tmpi_threadP10tmpi_comm_S0_S0_PviP14tmpi_datatype_ii.exit: ; preds = %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41, %.thread55, %.thread50
-  %.030 = phi ptr [ %phi.call.ph4754, %.thread50 ], [ %phi.call.ph4759, %.thread55 ], [ null, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41 ], [ null, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i ]
+  %.030 = phi ptr [ %phi.call.ph4759, %.thread55 ], [ %phi.call.ph4754, %.thread50 ], [ null, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i41 ], [ null, %_ZL29tMPI_Free_env_list_fetch_recvP18free_envelope_list.exit.thread.i ]
   ret ptr %.030
 }
 
@@ -1373,7 +1373,7 @@ _ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i: ; preds = %_ZL12tMPI_Set_r
   br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
 _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %10, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i
-  %40 = phi i32 [ %.pre.i, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i ], [ %.pre18.i, %10 ]
+  %40 = phi i32 [ %.pre18.i, %10 ], [ %.pre.i, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i ]
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread, label %.loopexit
 
@@ -1479,7 +1479,7 @@ _ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i: ; preds = %_ZL12tMPI_Set_r
   br label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit
 
 _Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit: ; preds = %7, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i
-  %44 = phi i32 [ %.pre.i, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i ], [ %.pre18.i, %7 ]
+  %44 = phi i32 [ %.pre18.i, %7 ], [ %.pre.i, %_ZL12tMPI_Set_reqP8envelopeP9tmpi_req_.exit.thread.i ]
   %.not22 = icmp eq i32 %44, 0
   br i1 %.not22, label %_Z16tMPI_Test_singleP11tmpi_threadP9tmpi_req_.exit.thread, label %45
 

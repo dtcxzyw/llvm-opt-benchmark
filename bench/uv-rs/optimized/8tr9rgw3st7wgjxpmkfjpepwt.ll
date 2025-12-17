@@ -1977,7 +1977,7 @@ define internal void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$uv_py
   ret void
 
 90:                                               ; preds = %81, %76, %62, %57, %43, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %38, %43 ], [ %.pn.i, %57 ], [ %.pn.i, %62 ], [ %.pn2.i, %76 ], [ %.pn2.i, %81 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn2.i, %81 ], [ %.pn.i, %62 ], [ %38, %43 ], [ %38, %37 ], [ %.pn.i, %57 ], [ %.pn2.i, %76 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 104, i64 noundef 8) #10
   resume { ptr, i32 } %eh.lpad-body
 }

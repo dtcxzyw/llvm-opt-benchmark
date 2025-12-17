@@ -703,12 +703,12 @@ thread-pre-split:                                 ; preds = %33
   br label %.thread70
 
 .thread70:                                        ; preds = %49, %45, %30, %33, %44
-  %54 = phi i1 [ false, %44 ], [ false, %33 ], [ false, %30 ], [ true, %45 ], [ true, %49 ]
-  %.03975 = phi i32 [ %.0.i56, %44 ], [ 0, %33 ], [ 0, %30 ], [ %.0.i56, %45 ], [ %.0.i56, %49 ]
-  %.16674 = phi i64 [ 1, %44 ], [ 2, %33 ], [ 2, %30 ], [ 0, %45 ], [ 0, %49 ]
-  %55 = phi i1 [ true, %44 ], [ false, %33 ], [ false, %30 ], [ true, %45 ], [ true, %49 ]
-  %.244 = phi ptr [ %37, %44 ], [ %17, %33 ], [ %17, %30 ], [ %46, %45 ], [ %46, %49 ]
-  %.038 = phi i32 [ 0, %44 ], [ 0, %33 ], [ 0, %30 ], [ 255, %45 ], [ %53, %49 ]
+  %54 = phi i1 [ false, %30 ], [ false, %44 ], [ false, %33 ], [ true, %45 ], [ true, %49 ]
+  %.03975 = phi i32 [ 0, %30 ], [ %.0.i56, %44 ], [ 0, %33 ], [ %.0.i56, %45 ], [ %.0.i56, %49 ]
+  %.16674 = phi i64 [ 2, %30 ], [ 1, %44 ], [ 2, %33 ], [ 0, %45 ], [ 0, %49 ]
+  %55 = phi i1 [ false, %30 ], [ true, %44 ], [ false, %33 ], [ true, %45 ], [ true, %49 ]
+  %.244 = phi ptr [ %17, %30 ], [ %37, %44 ], [ %17, %33 ], [ %46, %45 ], [ %46, %49 ]
+  %.038 = phi i32 [ 0, %30 ], [ 0, %44 ], [ 0, %33 ], [ 255, %45 ], [ %53, %49 ]
   %56 = zext i8 %.0.i53 to i32
   %.not46 = icmp sgt i8 %.0.i53, -1
   br i1 %.not46, label %57, label %EVP_DecodedLength.exit.thread
@@ -876,7 +876,7 @@ conv_ascii2bin.exit117.thread:                    ; preds = %22, %conv_ascii2bin
   br i1 %.not111, label %.thread, label %126
 
 .thread:                                          ; preds = %44, %45, %46
-  %.5 = phi i32 [ 0, %46 ], [ 0, %45 ], [ %.281, %44 ]
+  %.5 = phi i32 [ 0, %46 ], [ %.281, %44 ], [ 0, %45 ]
   %47 = add i32 %.088162, 1
   %48 = zext i32 %47 to i64
   %49 = icmp eq i64 %4, %48
@@ -906,7 +906,7 @@ conv_ascii2bin.exit117.thread:                    ; preds = %22, %conv_ascii2bin
   br label %67
 
 65:                                               ; preds = %50, %.thread
-  %.3102 = phi i32 [ 0, %50 ], [ %.1100, %.thread ]
+  %.3102 = phi i32 [ %.1100, %.thread ], [ 0, %50 ]
   %66 = icmp eq i32 %38, 242
   br i1 %66, label %._crit_edge, label %70
 
@@ -1059,23 +1059,23 @@ EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.prehe
   br label %126
 
 126:                                              ; preds = %46, %70, %123, %67, %45
-  %.2101 = phi i32 [ %.1100, %45 ], [ %.5104, %123 ], [ %.3102128, %67 ], [ %.3102, %70 ], [ %.1100, %46 ]
-  %.293 = phi i32 [ %.192159, %45 ], [ %spec.select114139, %123 ], [ 0, %67 ], [ 0, %70 ], [ 0, %46 ]
-  %.190 = phi ptr [ %.089160, %45 ], [ %125, %123 ], [ %.089160, %67 ], [ %.089160, %70 ], [ %.089160, %46 ]
-  %.386 = phi i32 [ %.285, %45 ], [ 0, %123 ], [ %.285, %67 ], [ %.285, %70 ], [ %.285, %46 ]
-  %.4 = phi i32 [ 0, %45 ], [ %.5, %123 ], [ %.5, %67 ], [ %.5, %70 ], [ 0, %46 ]
-  %.2 = phi i32 [ %.1165, %45 ], [ %.3, %123 ], [ %.1165, %67 ], [ %.1165, %70 ], [ %.1165, %46 ]
+  %.2101 = phi i32 [ %.1100, %45 ], [ %.3102, %70 ], [ %.5104, %123 ], [ %.3102128, %67 ], [ %.1100, %46 ]
+  %.293 = phi i32 [ %.192159, %45 ], [ 0, %70 ], [ %spec.select114139, %123 ], [ 0, %67 ], [ 0, %46 ]
+  %.190 = phi ptr [ %.089160, %45 ], [ %.089160, %70 ], [ %125, %123 ], [ %.089160, %67 ], [ %.089160, %46 ]
+  %.386 = phi i32 [ %.285, %45 ], [ %.285, %70 ], [ 0, %123 ], [ %.285, %67 ], [ %.285, %46 ]
+  %.4 = phi i32 [ 0, %45 ], [ %.5, %70 ], [ %.5, %123 ], [ %.5, %67 ], [ 0, %46 ]
+  %.2 = phi i32 [ %.1165, %45 ], [ %.1165, %70 ], [ %.3, %123 ], [ %.1165, %67 ], [ %.1165, %46 ]
   %127 = add i32 %.088162, 1
   %128 = zext i32 %127 to i64
   %129 = icmp ugt i64 %4, %128
   br i1 %129, label %20, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %126, %121, %117, %112, %EVP_DecodeBlock.exit, %40, %20, %16, %EVP_DecodeBlock.exit.thread, %5
-  %.098 = phi i32 [ 0, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ 1, %126 ], [ 0, %121 ], [ 0, %117 ], [ -1, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %40 ], [ -1, %20 ]
-  %.091 = phi i32 [ %12, %5 ], [ %spec.select114138, %EVP_DecodeBlock.exit.thread ], [ %12, %16 ], [ %.293, %126 ], [ %spec.select114139, %121 ], [ %spec.select114139, %117 ], [ %spec.select114138, %112 ], [ %spec.select114138, %EVP_DecodeBlock.exit ], [ %.192159, %40 ], [ %.192159, %20 ]
-  %.083 = phi i32 [ %7, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.386, %126 ], [ 0, %121 ], [ 0, %117 ], [ 0, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ %.285, %40 ], [ %.184163, %20 ]
-  %.079 = phi i32 [ %10, %5 ], [ %.5, %EVP_DecodeBlock.exit.thread ], [ %10, %16 ], [ %.4, %126 ], [ %.5, %121 ], [ %.5, %117 ], [ %.5, %112 ], [ %.5, %EVP_DecodeBlock.exit ], [ %.281, %40 ], [ %.180164, %20 ]
-  %.0 = phi i32 [ 0, %5 ], [ %.1165, %EVP_DecodeBlock.exit.thread ], [ 0, %16 ], [ %.2, %126 ], [ %.3, %121 ], [ %.3, %117 ], [ %.1165, %112 ], [ %.1165, %EVP_DecodeBlock.exit ], [ %.1165, %40 ], [ %.1165, %20 ]
+  %.098 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 1, %126 ], [ -1, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %40 ], [ -1, %20 ], [ 0, %121 ], [ 0, %117 ]
+  %.091 = phi i32 [ %12, %16 ], [ %12, %5 ], [ %spec.select114138, %EVP_DecodeBlock.exit.thread ], [ %.293, %126 ], [ %spec.select114138, %112 ], [ %spec.select114138, %EVP_DecodeBlock.exit ], [ %.192159, %40 ], [ %.192159, %20 ], [ %spec.select114139, %121 ], [ %spec.select114139, %117 ]
+  %.083 = phi i32 [ 0, %16 ], [ %7, %5 ], [ 0, %EVP_DecodeBlock.exit.thread ], [ %.386, %126 ], [ 0, %112 ], [ 0, %EVP_DecodeBlock.exit ], [ %.285, %40 ], [ %.184163, %20 ], [ 0, %121 ], [ 0, %117 ]
+  %.079 = phi i32 [ %10, %16 ], [ %10, %5 ], [ %.5, %EVP_DecodeBlock.exit.thread ], [ %.4, %126 ], [ %.5, %112 ], [ %.5, %EVP_DecodeBlock.exit ], [ %.281, %40 ], [ %.180164, %20 ], [ %.5, %121 ], [ %.5, %117 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ %.1165, %EVP_DecodeBlock.exit.thread ], [ %.2, %126 ], [ %.1165, %112 ], [ %.1165, %EVP_DecodeBlock.exit ], [ %.1165, %40 ], [ %.1165, %20 ], [ %.3, %121 ], [ %.3, %117 ]
   store i32 %.0, ptr %2, align 4, !tbaa !13
   store i32 %.083, ptr %0, align 4, !tbaa !11
   store i32 %.079, ptr %9, align 4, !tbaa !12
@@ -1175,7 +1175,7 @@ EVP_DecodedLength.exit:                           ; preds = %.critedge
   br label %EVP_DecodedLength.exit.thread
 
 EVP_DecodedLength.exit.thread:                    ; preds = %28, %.critedge, %35, %EVP_DecodedLength.exit, %._crit_edge
-  %.015 = phi i32 [ %42, %._crit_edge ], [ -1, %EVP_DecodedLength.exit ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %28 ]
+  %.015 = phi i32 [ -1, %EVP_DecodedLength.exit ], [ %42, %._crit_edge ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
@@ -1291,7 +1291,7 @@ EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.prehe
   br label %49
 
 49:                                               ; preds = %EVP_DecodeBlock.exit.thread, %3, %EVP_DecodeBlock.exit, %48
-  %.0 = phi i32 [ 1, %48 ], [ -1, %EVP_DecodeBlock.exit ], [ 1, %3 ], [ -1, %EVP_DecodeBlock.exit.thread ]
+  %.0 = phi i32 [ -1, %EVP_DecodeBlock.exit ], [ 1, %48 ], [ 1, %3 ], [ -1, %EVP_DecodeBlock.exit.thread ]
   ret i32 %.0
 }
 

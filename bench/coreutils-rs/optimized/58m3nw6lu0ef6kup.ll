@@ -252,7 +252,7 @@ define internal fastcc void @"_ZN140_$LT$clap_builder..builder..value_parser..Ra
   br label %123
 
 common.resume:                                    ; preds = %424, %156, %86, %122, %60, %69
-  %common.resume.op = phi { ptr, i32 } [ %61, %69 ], [ %61, %60 ], [ %87, %86 ], [ %.pn.ph.i.i, %122 ], [ %157, %156 ], [ %.pn.pn.ph, %424 ]
+  %common.resume.op = phi { ptr, i32 } [ %157, %156 ], [ %61, %60 ], [ %.pn.ph.i.i, %122 ], [ %61, %69 ], [ %87, %86 ], [ %.pn.pn.ph, %424 ]
   resume { ptr, i32 } %common.resume.op
 
 69:                                               ; preds = %60
@@ -818,7 +818,7 @@ _ZN4core3ops5range11RangeBounds8contains17hef2d1ba133f522f4E.exit.thread: ; pred
   br label %243
 
 .body.i:                                          ; preds = %378, %350, %320, %301, %282, %268, %241
-  %.pn.i = phi { ptr, i32 } [ %321, %320 ], [ %351, %350 ], [ %379, %378 ], [ %242, %241 ], [ %269, %268 ], [ %283, %282 ], [ %302, %301 ]
+  %.pn.i = phi { ptr, i32 } [ %379, %378 ], [ %321, %320 ], [ %351, %350 ], [ %283, %282 ], [ %269, %268 ], [ %242, %241 ], [ %302, %301 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd2d2e8113ebe320dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #21
           to label %.thread87 unwind label %335, !noalias !133
 
@@ -1323,7 +1323,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %395
   unreachable
 
 .thread87:                                        ; preds = %194, %211, %225, %.body.i, %393, %406, %413
-  %.pn86 = phi { ptr, i32 } [ %414, %413 ], [ %394, %393 ], [ %407, %406 ], [ %.pn.i, %.body.i ], [ %226, %225 ], [ %212, %211 ], [ %195, %194 ]
+  %.pn86 = phi { ptr, i32 } [ %414, %413 ], [ %407, %406 ], [ %394, %393 ], [ %.pn.i, %.body.i ], [ %212, %211 ], [ %195, %194 ], [ %226, %225 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd2d2e8113ebe320dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #21
           to label %424 unwind label %422
 
@@ -1437,7 +1437,7 @@ define internal fastcc void @"_ZN140_$LT$clap_builder..builder..value_parser..Ra
   br label %123
 
 common.resume:                                    ; preds = %424, %156, %86, %122, %60, %69
-  %common.resume.op = phi { ptr, i32 } [ %61, %69 ], [ %61, %60 ], [ %87, %86 ], [ %.pn.ph.i.i, %122 ], [ %157, %156 ], [ %.pn.pn.ph, %424 ]
+  %common.resume.op = phi { ptr, i32 } [ %157, %156 ], [ %61, %60 ], [ %.pn.ph.i.i, %122 ], [ %61, %69 ], [ %87, %86 ], [ %.pn.pn.ph, %424 ]
   resume { ptr, i32 } %common.resume.op
 
 69:                                               ; preds = %60
@@ -2003,7 +2003,7 @@ _ZN4core3ops5range11RangeBounds8contains17h84204717f3806306E.exit.thread: ; pred
   br label %243
 
 .body.i:                                          ; preds = %378, %350, %320, %301, %282, %268, %241
-  %.pn.i = phi { ptr, i32 } [ %321, %320 ], [ %351, %350 ], [ %379, %378 ], [ %242, %241 ], [ %269, %268 ], [ %283, %282 ], [ %302, %301 ]
+  %.pn.i = phi { ptr, i32 } [ %379, %378 ], [ %321, %320 ], [ %351, %350 ], [ %283, %282 ], [ %269, %268 ], [ %242, %241 ], [ %302, %301 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd2d2e8113ebe320dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #21
           to label %.thread87 unwind label %335, !noalias !353
 
@@ -2508,7 +2508,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %395
   unreachable
 
 .thread87:                                        ; preds = %194, %211, %225, %.body.i, %393, %406, %413
-  %.pn86 = phi { ptr, i32 } [ %414, %413 ], [ %394, %393 ], [ %407, %406 ], [ %.pn.i, %.body.i ], [ %226, %225 ], [ %212, %211 ], [ %195, %194 ]
+  %.pn86 = phi { ptr, i32 } [ %414, %413 ], [ %407, %406 ], [ %394, %393 ], [ %.pn.i, %.body.i ], [ %212, %211 ], [ %195, %194 ], [ %226, %225 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd2d2e8113ebe320dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #21
           to label %424 unwind label %422
 
@@ -4292,7 +4292,7 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   br label %78
 
 common.resume:                                    ; preds = %50, %77, %23, %32
-  %common.resume.op = phi { ptr, i32 } [ %24, %32 ], [ %24, %23 ], [ %51, %50 ], [ %.pn.ph.i.i, %77 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %32 ], [ %51, %50 ], [ %.pn.ph.i.i, %77 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %23

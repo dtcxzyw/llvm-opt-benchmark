@@ -936,7 +936,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit157:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %230
 
 230:                                              ; preds = %140, %_ZNSt6vectorIlSaIlEED2Ev.exit157, %139, %66
-  %.pn86.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %139 ], [ %67, %66 ], [ %.pn86.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit157 ], [ %141, %140 ]
+  %.pn86.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn, %139 ], [ %.pn86.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit157 ], [ %141, %140 ]
   call void @_ZN5faiss23ResidualCoarseQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(516) %4) #16
   br label %231
 

@@ -918,7 +918,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !37
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i32 %1, 31
   %20 = add i32 %.0.i, %.lobit
   %21 = zext i32 %20 to i64
@@ -1055,7 +1055,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %.critedge, %_ZNKSt1
   br label %35
 
 35:                                               ; preds = %31, %29
-  %.0.i = phi i64 [ %34, %31 ], [ %16, %29 ]
+  %.0.i = phi i64 [ %16, %29 ], [ %34, %31 ]
   br i1 %.not65, label %38, label %36, !prof !69
 
 .thread.i:                                        ; preds = %24
@@ -1298,7 +1298,7 @@ _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %16, %_ZNKSt14defaul
   br label %30
 
 30:                                               ; preds = %26, %24
-  %.0.i = phi i64 [ %29, %26 ], [ %10, %24 ]
+  %.0.i = phi i64 [ %10, %24 ], [ %29, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not19.i = icmp eq i64 %.0.i, 0
@@ -1660,7 +1660,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit: ; preds = %21, %82, %80, %18, %._crit_edge, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit
-  %.0 = phi i1 [ true, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit ], [ true, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit ], [ false, %._crit_edge ], [ false, %18 ], [ false, %80 ], [ false, %82 ], [ false, %21 ]
+  %.0 = phi i1 [ true, %_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE.exit ], [ false, %18 ], [ true, %_ZN7rocksdb11clock_cache12_GLOBAL__N_117FreeDataMarkEmptyERNS0_11ClockHandleEPNS_15MemoryAllocatorE.exit ], [ false, %._crit_edge ], [ false, %80 ], [ false, %82 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -2784,7 +2784,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %.critedge, %_ZNKSt1
   br label %40
 
 40:                                               ; preds = %36, %34
-  %.0.i = phi i64 [ %39, %36 ], [ %21, %34 ]
+  %.0.i = phi i64 [ %21, %34 ], [ %39, %36 ]
   br i1 %.not.not.not.i.not, label %43, label %41, !prof !69
 
 .thread.i:                                        ; preds = %29
@@ -3031,7 +3031,7 @@ _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %18, %_ZNKSt14defaul
   br label %32
 
 32:                                               ; preds = %28, %26
-  %.0.i = phi i64 [ %31, %28 ], [ %12, %26 ]
+  %.0.i = phi i64 [ %12, %26 ], [ %31, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not19.i = icmp eq i64 %.0.i, 0
@@ -3318,25 +3318,25 @@ define noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable6LookupERKSt5ar
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split: ; preds = %103, %84, %85, %107, %64
-  %.sink = phi ptr [ %65, %64 ], [ %108, %107 ], [ %77, %85 ], [ %77, %84 ], [ %77, %103 ]
-  %.1109.ph.ph = phi i64 [ %63, %64 ], [ %.0108146, %107 ], [ %.0108146, %85 ], [ %.0108146, %84 ], [ %.0108146, %103 ]
-  %.1107.ph.ph = phi i32 [ %60, %64 ], [ %.0106147, %107 ], [ %.0106147, %85 ], [ %.0106147, %84 ], [ %.0106147, %103 ]
-  %.171.ph.ph = phi ptr [ null, %64 ], [ %76, %107 ], [ %.065149, %85 ], [ %.065149, %84 ], [ %76, %103 ]
-  %.267.ph.ph = phi ptr [ null, %64 ], [ %76, %107 ], [ %.065149, %85 ], [ %.065149, %84 ], [ %.065149, %103 ]
+  %.sink = phi ptr [ %108, %107 ], [ %65, %64 ], [ %77, %84 ], [ %77, %85 ], [ %77, %103 ]
+  %.1109.ph.ph = phi i64 [ %.0108146, %107 ], [ %63, %64 ], [ %.0108146, %84 ], [ %.0108146, %85 ], [ %.0108146, %103 ]
+  %.1107.ph.ph = phi i32 [ %.0106147, %107 ], [ %60, %64 ], [ %.0106147, %84 ], [ %.0106147, %85 ], [ %.0106147, %103 ]
+  %.171.ph.ph = phi ptr [ %76, %107 ], [ null, %64 ], [ %.065149, %84 ], [ %.065149, %85 ], [ %76, %103 ]
+  %.267.ph.ph = phi ptr [ %76, %107 ], [ null, %64 ], [ %.065149, %84 ], [ %.065149, %85 ], [ %.065149, %103 ]
   %109 = atomicrmw sub ptr %.sink, i64 1 acq_rel, align 8
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit
 
-_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split, %75, %59, %57, %69, %106
-  %.1109.ph = phi i64 [ %.0108146, %106 ], [ %.0108146, %57 ], [ %63, %59 ], [ %.0108146, %69 ], [ %.0108146, %75 ], [ %.1109.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
-  %.1107.ph = phi i32 [ %.0106147, %106 ], [ %.0106147, %57 ], [ %60, %59 ], [ %.0106147, %69 ], [ %.0106147, %75 ], [ %.1107.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
-  %.171.ph = phi ptr [ %76, %106 ], [ %.065149, %57 ], [ null, %59 ], [ %.065149, %69 ], [ %76, %75 ], [ %.171.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
-  %.267.ph = phi ptr [ %76, %106 ], [ %.065149, %57 ], [ null, %59 ], [ %.065149, %69 ], [ %.065149, %75 ], [ %.267.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
+_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit: ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split, %75, %57, %69, %59, %106
+  %.1109.ph = phi i64 [ %.0108146, %106 ], [ %63, %59 ], [ %.0108146, %57 ], [ %.0108146, %69 ], [ %.0108146, %75 ], [ %.1109.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
+  %.1107.ph = phi i32 [ %.0106147, %106 ], [ %60, %59 ], [ %.0106147, %57 ], [ %.0106147, %69 ], [ %.0106147, %75 ], [ %.1107.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
+  %.171.ph = phi ptr [ %76, %106 ], [ null, %59 ], [ %.065149, %57 ], [ %.065149, %69 ], [ %76, %75 ], [ %.171.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
+  %.267.ph = phi ptr [ %76, %106 ], [ null, %59 ], [ %.065149, %57 ], [ %.065149, %69 ], [ %.065149, %75 ], [ %.267.ph.ph, %_ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11ClockHandleEimPb.exit.sink.split ]
   %110 = add nuw nsw i64 %.064150, 1
   %exitcond = icmp eq i64 %110, 4096
   br i1 %exitcond, label %40, label %.preheader, !prof !141, !llvm.loop !142
 
 .thread118:                                       ; preds = %30, %72, %71, %95, %100
-  %.5 = phi ptr [ null, %72 ], [ null, %71 ], [ %76, %100 ], [ %76, %95 ], [ %24, %30 ]
+  %.5 = phi ptr [ %76, %100 ], [ null, %71 ], [ null, %72 ], [ %76, %95 ], [ %24, %30 ]
   ret ptr %.5
 }
 
@@ -4946,7 +4946,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   br label %149
 
 123:                                              ; preds = %107, %._crit_edge, %101
-  %.036 = phi i8 [ %spec.select, %107 ], [ 3, %._crit_edge ], [ 2, %101 ]
+  %.036 = phi i8 [ 2, %101 ], [ 3, %._crit_edge ], [ %spec.select, %107 ]
   %124 = fmul double %.144, 1.000000e+02
   %125 = load i64, ptr %5, align 8, !tbaa !17
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext %.036, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 93), ptr noundef nonnull %0, double noundef %124, i32 noundef %.142, i32 noundef %7, i64 noundef %125)
@@ -5007,7 +5007,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.critedge, %143
   ret void
 
 149:                                              ; preds = %140, %126, %121, %89, %_ZNSt14_Function_baseD2Ev.exit54
-  %.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %lpad.phi, %_ZNSt14_Function_baseD2Ev.exit54 ], [ %141, %140 ], [ %127, %126 ], [ %122, %121 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt14_Function_baseD2Ev.exit54 ], [ %90, %89 ], [ %141, %140 ], [ %127, %126 ], [ %122, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %150 = load ptr, ptr %4, align 8, !tbaa !196
   %.not.i.i.i59 = icmp eq ptr %150, null
@@ -5775,7 +5775,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13Re
   br label %72
 
 72:                                               ; preds = %60, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
-  %.sink.i266.ph = phi i64 [ %71, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i ], [ %61, %60 ]
+  %.sink.i266.ph = phi i64 [ %61, %60 ], [ %71, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i ]
   %73 = add nsw i32 %.1101336, 1
   %74 = icmp sgt i32 %.1101336, 4094
   br i1 %74, label %29, label %.preheader304, !prof !141, !llvm.loop !220
@@ -6025,10 +6025,10 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClo
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit140
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit140: ; preds = %.cont161, %.cont161.us, %.split347.us, %.else166, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143
-  %.7240 = phi i64 [ %.13246, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ %.us-phi348, %.else166 ], [ -1, %.split347.us ], [ %131, %.cont161.us ], [ %.6239360, %.cont161 ]
-  %.7 = phi i64 [ %.13, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ -1, %.else166 ], [ %.us-phi349, %.split347.us ], [ %.6361, %.cont161.us ], [ %141, %.cont161 ]
-  %.5 = phi i32 [ %182, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ %.4363, %.else166 ], [ 0, %.split347.us ], [ 0, %.cont161.us ], [ %.4363, %.cont161 ]
-  %.3 = phi i64 [ %147, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ %.294364, %.else166 ], [ %.294364, %.split347.us ], [ %.294364, %.cont161.us ], [ %.294364, %.cont161 ]
+  %.7240 = phi i64 [ %.us-phi348, %.else166 ], [ %.13246, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ -1, %.split347.us ], [ %131, %.cont161.us ], [ %.6239360, %.cont161 ]
+  %.7 = phi i64 [ -1, %.else166 ], [ %.13, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ %.us-phi349, %.split347.us ], [ %.6361, %.cont161.us ], [ %141, %.cont161 ]
+  %.5 = phi i32 [ %.4363, %.else166 ], [ %182, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ 0, %.split347.us ], [ 0, %.cont161.us ], [ %.4363, %.cont161 ]
+  %.3 = phi i64 [ %.294364, %.else166 ], [ %147, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit143 ], [ %.294364, %.split347.us ], [ %.294364, %.cont161.us ], [ %.294364, %.cont161 ]
   br i1 %.not303, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit140.thread284, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit.thread
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit140.thread284: ; preds = %146, %_ZN7rocksdb11clock_cache12_GLOBAL__N_120UpgradeShiftsOnRangeEPNS0_19AutoHyperClockTable10HandleImplERmmii.exit140
@@ -6398,7 +6398,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERN
   br label %88, !llvm.loop !223
 
 125:                                              ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit143, %.thread169, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit, %51
-  %.092 = phi i64 [ %20, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit ], [ %52, %51 ], [ %.8, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit143 ], [ %spec.select, %.thread169 ]
+  %.092 = phi i64 [ %20, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit ], [ %52, %51 ], [ %spec.select, %.thread169 ], [ %.8, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit143 ]
   %126 = shl i64 %.092, 8
   %127 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %22, i64 %.092
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
@@ -6522,7 +6522,7 @@ _ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit:    ; preds = %174, %169
   br i1 %exitcond232, label %.split215.us, label %.split, !prof !141, !llvm.loop !224
 
 .critedge:                                        ; preds = %95, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us, %.thread178, %112, %116, %65, %69, %34, %38
-  %.1 = phi ptr [ null, %38 ], [ null, %34 ], [ null, %69 ], [ null, %65 ], [ null, %116 ], [ null, %112 ], [ %127, %.thread178 ], [ %127, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us ], [ null, %95 ]
+  %.1 = phi ptr [ null, %112 ], [ null, %34 ], [ null, %65 ], [ null, %38 ], [ null, %69 ], [ null, %116 ], [ %127, %.thread178 ], [ %127, %_ZN7rocksdb12AcqRelAtomicImE7CasWeakERmm.exit.us ], [ null, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 }
@@ -6586,7 +6586,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicI
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.thread
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmPb.exit.thread: ; preds = %5, %23, %21, %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i, %9, %25
-  %30 = phi i1 [ true, %25 ], [ false, %9 ], [ false, %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i ], [ false, %21 ], [ false, %23 ], [ false, %5 ]
+  %30 = phi i1 [ false, %5 ], [ true, %25 ], [ false, %9 ], [ false, %_ZN7rocksdb11clock_cache12_GLOBAL__N_119CorrectNearOverflowEmRNS_12AcqRelAtomicImEE.exit.i ], [ false, %21 ], [ false, %23 ]
   ret i1 %30
 }
 
@@ -6757,13 +6757,13 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13Re
   br label %79
 
 79:                                               ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i.i, %67
-  %.sink.i.ph.i = phi i64 [ %68, %67 ], [ %78, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i.i ]
+  %.sink.i.ph.i = phi i64 [ %78, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i.i ], [ %68, %67 ]
   %80 = lshr i64 %.sink.i.ph.i, 8
   %81 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %50, i64 %80
   br label %88
 
 _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i: ; preds = %63, %61, %.critedge.i
-  %.sroa.13.4 = phi i64 [ %.sroa.13.3, %61 ], [ %.sroa.13.3, %.critedge.i ], [ %64, %63 ]
+  %.sroa.13.4 = phi i64 [ %.sroa.13.3, %.critedge.i ], [ %.sroa.13.3, %61 ], [ %64, %63 ]
   br i1 %.not.i, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable15PurgeImplLockedIvEEvPT_RNS1_16ChainRewriteLockEmPNS0_14BaseClockTable12EvictionDataE.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_13RelaxedAtomicImEE.exit.i, %55
@@ -6961,8 +6961,8 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EvictEmRNS1_11InsertS
   br label %45
 
 45:                                               ; preds = %44, %34
-  %.pre-phi = phi i64 [ %.pre111, %44 ], [ %37, %34 ]
-  %.1 = phi i64 [ %42, %44 ], [ %.0, %34 ]
+  %.pre-phi = phi i64 [ %37, %34 ], [ %.pre111, %44 ]
+  %.1 = phi i64 [ %.0, %34 ], [ %42, %44 ]
   %46 = add i64 %.1, 1
   %47 = icmp ult i64 %.pre-phi, %18
   br i1 %47, label %.preheader.preheader, label %._crit_edge
@@ -7266,7 +7266,7 @@ _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn64.pn
 
-.critedge68:                                      ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit, %134, %144
+.critedge68:                                      ; preds = %134, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit, %144
   %.not1.i.i75 = icmp eq i64 %.pr.i.i74, 0
   br i1 %.not1.i.i75, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE5clearEv.exit.i78, label %.lr.ph.preheader.i.i76
 
@@ -7825,7 +7825,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br i1 %78, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %75, %73, %69, %65, %58
-  %.0.i.i = phi i32 [ %66, %65 ], [ %70, %69 ], [ %74, %73 ], [ 1, %58 ], [ %77, %75 ]
+  %.0.i.i = phi i32 [ %74, %73 ], [ %66, %65 ], [ %70, %69 ], [ 1, %58 ], [ %77, %75 ]
   %79 = zext i32 %.0.i.i to i64
   %80 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %80, ptr %18, align 8, !tbaa !36, !alias.scope !263
@@ -8101,7 +8101,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
   br i1 %199, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i72, label %.lr.ph.i.i69, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i72:  ; preds = %196, %194, %190, %186, %179
-  %.0.i.i73 = phi i32 [ %187, %186 ], [ %191, %190 ], [ %195, %194 ], [ 1, %179 ], [ %198, %196 ]
+  %.0.i.i73 = phi i32 [ %195, %194 ], [ %187, %186 ], [ %191, %190 ], [ 1, %179 ], [ %198, %196 ]
   %200 = zext i32 %.0.i.i73 to i64
   %201 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %201, ptr %19, align 8, !tbaa !36, !alias.scope !274
@@ -8935,7 +8935,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br i1 %548, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i184, label %.lr.ph.i.i181, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i184: ; preds = %545, %543, %539, %535, %527
-  %.0.i.i185 = phi i32 [ %536, %535 ], [ %540, %539 ], [ %544, %543 ], [ 1, %527 ], [ %547, %545 ]
+  %.0.i.i185 = phi i32 [ %544, %543 ], [ %536, %535 ], [ %540, %539 ], [ 1, %527 ], [ %547, %545 ]
   %549 = zext i32 %.0.i.i185 to i64
   %550 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %550, ptr %23, align 8, !tbaa !36, !alias.scope !305
@@ -9212,7 +9212,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br i1 %670, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i219, label %.lr.ph.i.i216, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i219: ; preds = %667, %665, %661, %657, %649
-  %.0.i.i220 = phi i32 [ %658, %657 ], [ %662, %661 ], [ %666, %665 ], [ 1, %649 ], [ %669, %667 ]
+  %.0.i.i220 = phi i32 [ %666, %665 ], [ %658, %657 ], [ %662, %661 ], [ 1, %649 ], [ %669, %667 ]
   %671 = zext i32 %.0.i.i220 to i64
   %672 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %672, ptr %24, align 8, !tbaa !36, !alias.scope !315
@@ -10413,7 +10413,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i25: ; preds = %147,
   br label %.body
 
 .body:                                            ; preds = %151, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %119, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, %87, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %120, %119 ], [ %94, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %152, %151 ], [ %127, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %94, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache20FixedHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %62, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11clock_cache19AutoHyperClockCacheESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %88, %87 ], [ %120, %119 ], [ %152, %151 ], [ %127, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
   call void @_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   br label %153
 
@@ -10687,7 +10687,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -13547,7 +13547,7 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageM
   br i1 %37, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %34, %32, %28, %24, %21
-  %.0.i.i = phi i32 [ %25, %24 ], [ %29, %28 ], [ %33, %32 ], [ 1, %21 ], [ %36, %34 ]
+  %.0.i.i = phi i32 [ %33, %32 ], [ %25, %24 ], [ %29, %28 ], [ 1, %21 ], [ %36, %34 ]
   %38 = zext i32 %.0.i.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %39, ptr %12, align 8, !tbaa !36, !alias.scope !379
@@ -13731,7 +13731,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   br i1 %120, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i48, label %.lr.ph.i.i45, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i48:  ; preds = %117, %115, %111, %107, %101
-  %.0.i.i49 = phi i32 [ %108, %107 ], [ %112, %111 ], [ %116, %115 ], [ 1, %101 ], [ %119, %117 ]
+  %.0.i.i49 = phi i32 [ %116, %115 ], [ %108, %107 ], [ %112, %111 ], [ 1, %101 ], [ %119, %117 ]
   %121 = zext i32 %.0.i.i49 to i64
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %122, ptr %13, align 8, !tbaa !36, !alias.scope !388
@@ -14204,7 +14204,7 @@ _ZN7rocksdb13RelaxedAtomicImE14CasWeakRelaxedERmm.exit.thread: ; preds = %_ZN7ro
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !394
   br label %306
 
-.critedge:                                        ; preds = %297, %291
+.critedge:                                        ; preds = %291, %297
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %306
 
@@ -14518,7 +14518,7 @@ _ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11Clo
   store atomic i64 0, ptr %36 release, align 8
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_111ClockUpdateERNS0_11ClockHandleEPNS0_14BaseClockTable12EvictionDataEPb.exit.thread
 
-_ZN7rocksdb11clock_cache12_GLOBAL__N_111ClockUpdateERNS0_11ClockHandleEPNS0_14BaseClockTable12EvictionDataEPb.exit.thread: ; preds = %29, %50, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i, %44, %_ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11ClockHandleE.exit
+_ZN7rocksdb11clock_cache12_GLOBAL__N_111ClockUpdateERNS0_11ClockHandleEPNS0_14BaseClockTable12EvictionDataEPb.exit.thread: ; preds = %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i, %44, %50, %29, %_ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11ClockHandleE.exit
   %112 = add nuw nsw i64 %.01721, 1
   %exitcond.not = icmp eq i64 %112, 4
   br i1 %exitcond.not, label %27, label %29, !llvm.loop !397
@@ -14612,7 +14612,7 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache14BaseClockTable27ChargeUsageM
   br i1 %37, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %34, %32, %28, %24, %21
-  %.0.i.i = phi i32 [ %25, %24 ], [ %29, %28 ], [ %33, %32 ], [ 1, %21 ], [ %36, %34 ]
+  %.0.i.i = phi i32 [ %33, %32 ], [ %25, %24 ], [ %29, %28 ], [ 1, %21 ], [ %36, %34 ]
   %38 = zext i32 %.0.i.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %39, ptr %12, align 8, !tbaa !36, !alias.scope !399
@@ -14796,7 +14796,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
   br i1 %120, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i48, label %.lr.ph.i.i45, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i48:  ; preds = %117, %115, %111, %107, %101
-  %.0.i.i49 = phi i32 [ %108, %107 ], [ %112, %111 ], [ %116, %115 ], [ 1, %101 ], [ %119, %117 ]
+  %.0.i.i49 = phi i32 [ %116, %115 ], [ %108, %107 ], [ %112, %111 ], [ 1, %101 ], [ %119, %117 ]
   %121 = zext i32 %.0.i.i49 to i64
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %122, ptr %13, align 8, !tbaa !36, !alias.scope !408
@@ -15269,7 +15269,7 @@ _ZN7rocksdb13RelaxedAtomicImE14CasWeakRelaxedERmm.exit.thread: ; preds = %_ZN7ro
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !414
   br label %306
 
-.critedge:                                        ; preds = %297, %291
+.critedge:                                        ; preds = %291, %297
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %306
 
@@ -16009,7 +16009,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !431
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw double, ptr %.fr15, i64 %.0.lcssa.i.i.us
   store double %21, ptr %42, align 8, !tbaa !188
   %.not.us = icmp eq i64 %.07.us, 0
@@ -16244,7 +16244,7 @@ _ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17
   store ptr %85, ptr %16, align 8, !tbaa !247
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57
 
-_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread49: ; preds = %36, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i, %30, %20
+_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread49: ; preds = %30, %36, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i, %20
   br i1 %.02575, label %86, label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit
 
 86:                                               ; preds = %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread49
@@ -16300,7 +16300,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock9CasUpdateEmRNS_1
   br label %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit
 
 110:                                              ; preds = %95, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i
-  %.sink.i.ph = phi i64 [ %96, %95 ], [ %109, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i ]
+  %.sink.i.ph = phi i64 [ %109, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLock7AcquireERNS_13RelaxedAtomicImEE.exit.i ], [ %96, %95 ]
   store i64 %.sink.i.ph, ptr %8, align 8, !tbaa !238
   %111 = lshr i64 %.sink.i.ph, 8
   %112 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %7, i64 %111
@@ -16705,7 +16705,7 @@ define linkonce_odr void @_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE10P
   br i1 %27, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !266
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %22, %18, %14, %9
-  %.0.i.i = phi i32 [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ 1, %9 ], [ %26, %24 ]
+  %.0.i.i = phi i32 [ %23, %22 ], [ %15, %14 ], [ %19, %18 ], [ 1, %9 ], [ %26, %24 ]
   %28 = zext i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %29, ptr %4, align 8, !tbaa !36, !alias.scope !450

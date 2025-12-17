@@ -571,7 +571,7 @@ _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI13DICTIONARY_IDTnPFiRKS2_RKT_EXad
   br label %45
 
 45:                                               ; preds = %.sink.split, %43, %40, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit, %39
-  %.0 = phi i32 [ -30996, %39 ], [ %.0.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit ], [ %42, %40 ], [ 0, %43 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %42, %40 ], [ -30996, %39 ], [ %.0.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit ], [ 0, %43 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1849,7 +1849,7 @@ define noundef range(i32 -100000, 1) i32 @_ZN4toku16locktree_manager30check_curr
   br label %19
 
 19:                                               ; preds = %.thread.thread, %14, %.thread, %8
-  %.1 = phi i32 [ 0, %.thread ], [ -100000, %8 ], [ %spec.select4, %14 ], [ 0, %.thread.thread ]
+  %.1 = phi i32 [ -100000, %8 ], [ %spec.select4, %14 ], [ 0, %.thread ], [ 0, %.thread.thread ]
   ret i32 %.1
 }
 
@@ -2455,7 +2455,7 @@ _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   br label %52
 
 52:                                               ; preds = %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37, %50, %38, %tailrecurse._crit_edge
-  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %23, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %39, %38 ], [ 0, %50 ], [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ]
+  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %23, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ], [ %39, %38 ], [ 0, %50 ]
   ret i32 %.030
 }
 
@@ -2502,7 +2502,7 @@ _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread: ; preds = %3
   br label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit16
 
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit16: ; preds = %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread, %21
-  %.0.i15 = phi i32 [ %27, %21 ], [ %19, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread ], [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ]
+  %.0.i15 = phi i32 [ %19, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread ], [ %27, %21 ], [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ]
   %28 = add i32 %.0.i15, 1
   tail call void @_ZN4toku3omtIPNS_8locktreeES2_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %28)
   %29 = load i8, ptr %0, align 8, !tbaa !35, !range !42, !noundef !43
@@ -2693,7 +2693,7 @@ _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   br label %_ZN4toku3omtIPNS_8locktreeES2_Lb0EE16convert_to_arrayEv.exit
 
 _ZN4toku3omtIPNS_8locktreeES2_Lb0EE16convert_to_arrayEv.exit: ; preds = %51, %52
-  %.0.i.i = phi i32 [ %58, %52 ], [ 0, %51 ]
+  %.0.i.i = phi i32 [ 0, %51 ], [ %58, %52 ]
   %59 = shl i32 %.0.i.i, 1
   %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 4)
   %61 = zext i32 %60 to i64
@@ -2933,7 +2933,7 @@ define linkonce_odr void @_ZN4toku3omtIPNS_8locktreeES2_Lb0EE9rebalanceEPNS_12om
   br label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i
 
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i: ; preds = %12, %10
-  %.0.i.i = phi i32 [ %18, %12 ], [ 0, %10 ]
+  %.0.i.i = phi i32 [ 0, %10 ], [ %18, %12 ]
   %19 = shl i32 %.0.i.i, 1
   %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 4)
   %21 = zext i32 %20 to i64

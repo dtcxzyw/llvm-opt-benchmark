@@ -208,7 +208,7 @@ define zeroext i1 @test_for_regular_file(ptr noundef readonly captures(address_i
   br label %10
 
 10:                                               ; preds = %3, %1, %5
-  %.0 = phi i1 [ %9, %5 ], [ false, %1 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %1 ], [ %9, %5 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -309,7 +309,7 @@ configuration_environment_variable.exit.i:        ; preds = %6, %1
   br label %get_current_executable_path.exit.i
 
 get_current_executable_path.exit.i:               ; preds = %30, %27, %25, %23, %21, %19, %16, %13
-  %spec.select.i = phi ptr [ @get_current_executable_path.executable_path, %30 ], [ %0, %13 ], [ %0, %16 ], [ %0, %25 ], [ %0, %23 ], [ %0, %21 ], [ %0, %19 ], [ %0, %27 ]
+  %spec.select.i = phi ptr [ @get_current_executable_path.executable_path, %30 ], [ %0, %13 ], [ %0, %16 ], [ %0, %19 ], [ %0, %25 ], [ %0, %23 ], [ %0, %21 ], [ %0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i8, ptr %spec.select.i, align 1
   %33 = icmp eq i8 %32, 47
@@ -527,7 +527,7 @@ trim_last_dir_from_path.exit.i:                   ; preds = %129, %126
   br label %configuration_init_posix.exit
 
 configuration_init_posix.exit:                    ; preds = %41, %50, %.thread.i, %87, %124, %trim_last_dir_from_path.exit.i, %130
-  %.0.i = phi ptr [ %125, %124 ], [ %45, %41 ], [ %54, %50 ], [ %86, %.thread.i ], [ %88, %87 ], [ null, %130 ], [ null, %trim_last_dir_from_path.exit.i ]
+  %.0.i = phi ptr [ %88, %87 ], [ %125, %124 ], [ %45, %41 ], [ %54, %50 ], [ %86, %.thread.i ], [ null, %130 ], [ null, %trim_last_dir_from_path.exit.i ]
   ret ptr %.0.i
 }
 
@@ -1325,7 +1325,7 @@ create_persconffile_profile.exit.thread:          ; preds = %10, %7
   br label %23
 
 23:                                               ; preds = %create_persconffile_profile.exit.thread, %22, %.critedge, %19
-  %.0 = phi i32 [ -1, %19 ], [ 0, %.critedge ], [ -1, %22 ], [ -1, %create_persconffile_profile.exit.thread ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %19 ], [ 0, %.critedge ], [ -1, %create_persconffile_profile.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1382,7 +1382,7 @@ define i32 @create_persconffile_profile(ptr noundef %0, ptr noundef writeonly ca
   br label %20
 
 20:                                               ; preds = %19, %.thread, %6, %15
-  %.012 = phi i32 [ -1, %15 ], [ -1, %6 ], [ %.018, %.thread ], [ -1, %19 ]
+  %.012 = phi i32 [ -1, %6 ], [ -1, %15 ], [ %.018, %.thread ], [ -1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012
 }
@@ -2081,7 +2081,7 @@ define noalias ptr @get_docfile_path(ptr noundef %0) local_unnamed_addr #6 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %8
-  %.sink.i = phi ptr [ %12, %10 ], [ %9, %8 ]
+  %.sink.i = phi ptr [ %9, %8 ], [ %12, %10 ]
   store ptr %.sink.i, ptr @doc_dir, align 8
   br label %get_doc_dir.exit
 
@@ -2135,7 +2135,7 @@ define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef z
   br label %14
 
 14:                                               ; preds = %9, %2, %4, %3, %10, %8, %7, %6, %5
-  %.0 = phi ptr [ @file_open_error_message.errmsg_errno, %10 ], [ @.str.16, %5 ], [ @.str.17, %6 ], [ @.str.18, %7 ], [ @.str.19, %8 ], [ %.str.11..str.12, %3 ], [ %.str.13..str.14, %4 ], [ @.str.15, %2 ], [ %.str.20..str.21, %9 ]
+  %.0 = phi ptr [ @file_open_error_message.errmsg_errno, %10 ], [ %.str.11..str.12, %3 ], [ @.str.15, %2 ], [ %.str.13..str.14, %4 ], [ %.str.20..str.21, %9 ], [ @.str.19, %8 ], [ @.str.16, %5 ], [ @.str.17, %6 ], [ @.str.18, %7 ]
   ret ptr %.0
 }
 
@@ -2187,7 +2187,7 @@ define noundef zeroext i1 @file_exists(ptr noundef readonly captures(address_is_
   br label %10
 
 10:                                               ; preds = %5, %1, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %1 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %9 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -2291,7 +2291,7 @@ getc_unlocked.exit27.backedge:                    ; preds = %37, %39
   br label %45
 
 45:                                               ; preds = %3, %2, %43
-  %.0 = phi i1 [ %.015, %43 ], [ false, %2 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %2 ], [ %.015, %43 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -2373,7 +2373,7 @@ define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr noundef readonly captur
   br label %22
 
 22:                                               ; preds = %8, %11, %16, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %11 ], [ true, %8 ], [ %21, %16 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %2 ], [ true, %11 ], [ true, %8 ], [ %21, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

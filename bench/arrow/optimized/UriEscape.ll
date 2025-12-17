@@ -165,7 +165,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %36
 
 36:                                               ; preds = %27, %24, %23, %19, %15, %11
-  %.2.us.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
+  %.2.us.us = phi ptr [ %35, %27 ], [ %18, %15 ], [ %20, %19 ], [ %26, %24 ], [ %22, %23 ], [ %14, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %.06376.us.us, i64 1
   br label %.lr.ph.split.us.split.us
 
@@ -300,7 +300,7 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %64
 
 64:                                               ; preds = %55, %52, %51, %47, %43, %39
-  %.2.us = phi ptr [ %63, %55 ], [ %48, %47 ], [ %50, %51 ], [ %54, %52 ], [ %46, %43 ], [ %42, %39 ]
+  %.2.us = phi ptr [ %63, %55 ], [ %46, %43 ], [ %48, %47 ], [ %54, %52 ], [ %50, %51 ], [ %42, %39 ]
   %65 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 1
   %.not67.us = icmp ult ptr %65, %1
   br i1 %.not67.us, label %.lr.ph.split.us.split, label %.sink.split
@@ -452,8 +452,8 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %97
 
 97:                                               ; preds = %88, %84, %82, %75, %74, %67
-  %.2.us95.us = phi ptr [ %96, %88 ], [ %83, %82 ], [ %87, %84 ], [ %.06177.us92.us, %74 ], [ %81, %75 ], [ %73, %67 ]
-  %.1.us96.us = phi i32 [ 0, %88 ], [ 0, %82 ], [ 0, %84 ], [ 0, %74 ], [ 0, %75 ], [ 1, %67 ]
+  %.2.us95.us = phi ptr [ %96, %88 ], [ %73, %67 ], [ %83, %82 ], [ %87, %84 ], [ %81, %75 ], [ %.06177.us92.us, %74 ]
+  %.1.us96.us = phi i32 [ 0, %88 ], [ 1, %67 ], [ 0, %82 ], [ 0, %84 ], [ 0, %75 ], [ 0, %74 ]
   %98 = getelementptr inbounds nuw i8, ptr %.06376.us93.us, i64 1
   br label %.lr.ph.split.split.split.us.split.us
 
@@ -598,8 +598,8 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %130
 
 130:                                              ; preds = %121, %117, %115, %108, %107, %100
-  %.2.us95 = phi ptr [ %129, %121 ], [ %116, %115 ], [ %120, %117 ], [ %.06177.us92, %107 ], [ %114, %108 ], [ %106, %100 ]
-  %.1.us96 = phi i32 [ 0, %121 ], [ 0, %115 ], [ 0, %117 ], [ 0, %107 ], [ 0, %108 ], [ 1, %100 ]
+  %.2.us95 = phi ptr [ %129, %121 ], [ %106, %100 ], [ %116, %115 ], [ %120, %117 ], [ %114, %108 ], [ %.06177.us92, %107 ]
+  %.1.us96 = phi i32 [ 0, %121 ], [ 1, %100 ], [ 0, %115 ], [ 0, %117 ], [ 0, %108 ], [ 0, %107 ]
   %131 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 1
   %.not67.us97 = icmp ult ptr %131, %1
   br i1 %.not67.us97, label %.lr.ph.split.split.split.us.split, label %.sink.split
@@ -744,8 +744,8 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %161
 
 161:                                              ; preds = %152, %150, %148, %141, %140, %133
-  %.2.us107 = phi ptr [ %160, %152 ], [ %149, %148 ], [ %151, %150 ], [ %.06177.us104, %140 ], [ %147, %141 ], [ %139, %133 ]
-  %.1.us108 = phi i32 [ 0, %152 ], [ 0, %148 ], [ 0, %150 ], [ 0, %140 ], [ 0, %141 ], [ 1, %133 ]
+  %.2.us107 = phi ptr [ %160, %152 ], [ %139, %133 ], [ %149, %148 ], [ %147, %141 ], [ %151, %150 ], [ %.06177.us104, %140 ]
+  %.1.us108 = phi i32 [ 0, %152 ], [ 1, %133 ], [ 0, %148 ], [ 0, %141 ], [ 0, %150 ], [ 0, %140 ]
   %162 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 1
   br label %.lr.ph.split.split.split.split.us
 
@@ -886,14 +886,14 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
   br label %192
 
 192:                                              ; preds = %176, %169, %168, %164, %183, %166
-  %.2 = phi ptr [ %191, %183 ], [ %167, %166 ], [ %165, %164 ], [ %.06177, %168 ], [ %175, %169 ], [ %182, %176 ]
-  %.1 = phi i32 [ 0, %183 ], [ 0, %166 ], [ 0, %164 ], [ 0, %168 ], [ 0, %169 ], [ 1, %176 ]
+  %.2 = phi ptr [ %191, %183 ], [ %182, %176 ], [ %167, %166 ], [ %175, %169 ], [ %165, %164 ], [ %.06177, %168 ]
+  %.1 = phi i32 [ 0, %183 ], [ 1, %176 ], [ 0, %166 ], [ 0, %169 ], [ 0, %164 ], [ 0, %168 ]
   %193 = getelementptr inbounds nuw i8, ptr %.06376, i64 1
   %.not67 = icmp ult ptr %193, %1
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.2.us, %64 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.2.us95, %130 ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %192 ], [ %.06177, %.lr.ph.split.split.split.split ]
+  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us, %64 ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
   store i8 0, ptr %.us-phi.sink, align 1, !tbaa !3
   br label %194
 
@@ -1081,8 +1081,8 @@ define ptr @uriUnescapeInPlaceExA(ptr noundef captures(address, ret: address, pr
   br label %47
 
 47:                                               ; preds = %39, %40, %42, %43, %35, %26, %25, %29, %28, %33, %32, %44
-  %.174 = phi i32 [ 0, %44 ], [ 0, %32 ], [ 0, %33 ], [ 0, %28 ], [ 0, %29 ], [ 0, %25 ], [ 0, %26 ], [ 0, %35 ], [ 1, %43 ], [ 1, %42 ], [ 1, %40 ], [ 1, %39 ]
-  %.2 = phi ptr [ %46, %44 ], [ %.071, %32 ], [ %34, %33 ], [ %.071, %28 ], [ %31, %29 ], [ %.071, %25 ], [ %27, %26 ], [ %36, %35 ], [ %38, %43 ], [ %38, %42 ], [ %41, %40 ], [ %38, %39 ]
+  %.174 = phi i32 [ 0, %44 ], [ 0, %35 ], [ 0, %32 ], [ 0, %33 ], [ 0, %28 ], [ 0, %29 ], [ 0, %25 ], [ 0, %26 ], [ 1, %43 ], [ 1, %42 ], [ 1, %40 ], [ 1, %39 ]
+  %.2 = phi ptr [ %46, %44 ], [ %36, %35 ], [ %.071, %32 ], [ %34, %33 ], [ %.071, %28 ], [ %31, %29 ], [ %.071, %25 ], [ %27, %26 ], [ %38, %43 ], [ %38, %42 ], [ %41, %40 ], [ %38, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %.070, i64 3
   br label %.backedge
 
@@ -1318,7 +1318,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %36
 
 36:                                               ; preds = %27, %24, %23, %19, %15, %11
-  %.2.us.us = phi ptr [ %35, %27 ], [ %20, %19 ], [ %22, %23 ], [ %26, %24 ], [ %18, %15 ], [ %14, %11 ]
+  %.2.us.us = phi ptr [ %35, %27 ], [ %18, %15 ], [ %20, %19 ], [ %26, %24 ], [ %22, %23 ], [ %14, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %.06376.us.us, i64 4
   br label %.lr.ph.split.us.split.us
 
@@ -1453,7 +1453,7 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %64
 
 64:                                               ; preds = %55, %52, %51, %47, %43, %39
-  %.2.us = phi ptr [ %63, %55 ], [ %48, %47 ], [ %50, %51 ], [ %54, %52 ], [ %46, %43 ], [ %42, %39 ]
+  %.2.us = phi ptr [ %63, %55 ], [ %46, %43 ], [ %48, %47 ], [ %54, %52 ], [ %50, %51 ], [ %42, %39 ]
   %65 = getelementptr inbounds nuw i8, ptr %.06376.us, i64 4
   %.not67.us = icmp ult ptr %65, %1
   br i1 %.not67.us, label %.lr.ph.split.us.split, label %.sink.split
@@ -1605,8 +1605,8 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %97
 
 97:                                               ; preds = %88, %84, %82, %75, %74, %67
-  %.2.us95.us = phi ptr [ %96, %88 ], [ %83, %82 ], [ %87, %84 ], [ %.06177.us92.us, %74 ], [ %81, %75 ], [ %73, %67 ]
-  %.1.us96.us = phi i32 [ 0, %88 ], [ 0, %82 ], [ 0, %84 ], [ 0, %74 ], [ 0, %75 ], [ 1, %67 ]
+  %.2.us95.us = phi ptr [ %96, %88 ], [ %73, %67 ], [ %83, %82 ], [ %87, %84 ], [ %81, %75 ], [ %.06177.us92.us, %74 ]
+  %.1.us96.us = phi i32 [ 0, %88 ], [ 1, %67 ], [ 0, %82 ], [ 0, %84 ], [ 0, %75 ], [ 0, %74 ]
   %98 = getelementptr inbounds nuw i8, ptr %.06376.us93.us, i64 4
   br label %.lr.ph.split.split.split.us.split.us
 
@@ -1751,8 +1751,8 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %130
 
 130:                                              ; preds = %121, %117, %115, %108, %107, %100
-  %.2.us95 = phi ptr [ %129, %121 ], [ %116, %115 ], [ %120, %117 ], [ %.06177.us92, %107 ], [ %114, %108 ], [ %106, %100 ]
-  %.1.us96 = phi i32 [ 0, %121 ], [ 0, %115 ], [ 0, %117 ], [ 0, %107 ], [ 0, %108 ], [ 1, %100 ]
+  %.2.us95 = phi ptr [ %129, %121 ], [ %106, %100 ], [ %116, %115 ], [ %120, %117 ], [ %114, %108 ], [ %.06177.us92, %107 ]
+  %.1.us96 = phi i32 [ 0, %121 ], [ 1, %100 ], [ 0, %115 ], [ 0, %117 ], [ 0, %108 ], [ 0, %107 ]
   %131 = getelementptr inbounds nuw i8, ptr %.06376.us93, i64 4
   %.not67.us97 = icmp ult ptr %131, %1
   br i1 %.not67.us97, label %.lr.ph.split.split.split.us.split, label %.sink.split
@@ -1897,8 +1897,8 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %161
 
 161:                                              ; preds = %152, %150, %148, %141, %140, %133
-  %.2.us107 = phi ptr [ %160, %152 ], [ %149, %148 ], [ %151, %150 ], [ %.06177.us104, %140 ], [ %147, %141 ], [ %139, %133 ]
-  %.1.us108 = phi i32 [ 0, %152 ], [ 0, %148 ], [ 0, %150 ], [ 0, %140 ], [ 0, %141 ], [ 1, %133 ]
+  %.2.us107 = phi ptr [ %160, %152 ], [ %139, %133 ], [ %149, %148 ], [ %147, %141 ], [ %151, %150 ], [ %.06177.us104, %140 ]
+  %.1.us108 = phi i32 [ 0, %152 ], [ 1, %133 ], [ 0, %148 ], [ 0, %141 ], [ 0, %150 ], [ 0, %140 ]
   %162 = getelementptr inbounds nuw i8, ptr %.06376.us105, i64 4
   br label %.lr.ph.split.split.split.split.us
 
@@ -2039,14 +2039,14 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
   br label %192
 
 192:                                              ; preds = %176, %169, %168, %164, %183, %166
-  %.2 = phi ptr [ %191, %183 ], [ %167, %166 ], [ %165, %164 ], [ %.06177, %168 ], [ %175, %169 ], [ %182, %176 ]
-  %.1 = phi i32 [ 0, %183 ], [ 0, %166 ], [ 0, %164 ], [ 0, %168 ], [ 0, %169 ], [ 1, %176 ]
+  %.2 = phi ptr [ %191, %183 ], [ %182, %176 ], [ %167, %166 ], [ %175, %169 ], [ %165, %164 ], [ %.06177, %168 ]
+  %.1 = phi i32 [ 0, %183 ], [ 1, %176 ], [ 0, %166 ], [ 0, %169 ], [ 0, %164 ], [ 0, %168 ]
   %193 = getelementptr inbounds nuw i8, ptr %.06376, i64 4
   %.not67 = icmp ult ptr %193, %1
   br i1 %.not67, label %.lr.ph.split.split.split.split, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.split.split.split.split, %192, %.lr.ph.split.split.split.split.us, %.lr.ph.split.split.split.us.split, %130, %.lr.ph.split.split.split.us.split.us, %.lr.ph.split.us.split, %64, %.lr.ph.split.us.split.us, %.preheader, %8
-  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.2.us, %64 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.2.us95, %130 ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2, %192 ], [ %.06177, %.lr.ph.split.split.split.split ]
+  %.us-phi.sink = phi ptr [ %2, %8 ], [ %2, %.preheader ], [ %.06177.us.us, %.lr.ph.split.us.split.us ], [ %.06177.us92.us, %.lr.ph.split.split.split.us.split.us ], [ %.06177.us104, %.lr.ph.split.split.split.split.us ], [ %.2.us, %64 ], [ %.2.us95, %130 ], [ %.06177.us, %.lr.ph.split.us.split ], [ %.06177.us92, %.lr.ph.split.split.split.us.split ], [ %.06177, %.lr.ph.split.split.split.split ], [ %.2, %192 ]
   store i32 0, ptr %.us-phi.sink, align 4, !tbaa !6
   br label %194
 
@@ -2233,8 +2233,8 @@ define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, pr
   br label %46
 
 46:                                               ; preds = %39, %40, %42, %43, %35, %26, %25, %29, %28, %33, %32, %44
-  %.174 = phi i32 [ 0, %44 ], [ 0, %32 ], [ 0, %33 ], [ 0, %28 ], [ 0, %29 ], [ 0, %25 ], [ 0, %26 ], [ 0, %35 ], [ 1, %43 ], [ 1, %42 ], [ 1, %40 ], [ 1, %39 ]
-  %.2 = phi ptr [ %45, %44 ], [ %.071, %32 ], [ %34, %33 ], [ %.071, %28 ], [ %31, %29 ], [ %.071, %25 ], [ %27, %26 ], [ %36, %35 ], [ %38, %43 ], [ %38, %42 ], [ %41, %40 ], [ %38, %39 ]
+  %.174 = phi i32 [ 0, %44 ], [ 0, %35 ], [ 0, %32 ], [ 0, %33 ], [ 0, %28 ], [ 0, %29 ], [ 0, %25 ], [ 0, %26 ], [ 1, %43 ], [ 1, %42 ], [ 1, %40 ], [ 1, %39 ]
+  %.2 = phi ptr [ %45, %44 ], [ %36, %35 ], [ %.071, %32 ], [ %34, %33 ], [ %.071, %28 ], [ %31, %29 ], [ %.071, %25 ], [ %27, %26 ], [ %38, %43 ], [ %38, %42 ], [ %41, %40 ], [ %38, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.070, i64 12
   br label %.backedge
 

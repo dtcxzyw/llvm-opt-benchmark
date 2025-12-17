@@ -2065,7 +2065,7 @@ define hidden void @_Z12filter2DFreqRKN2cv3MatERS0_S2_(ptr noundef nonnull align
   br i1 %134, label %.loopexit90, label %131
 
 .loopexit90:                                      ; preds = %131, %.loopexit90.loopexit93, %.thread87, %.thread83
-  %.pn60.pn.pn = phi { ptr, i32 } [ %117, %.thread83 ], [ %60, %.thread87 ], [ %.pn47, %.loopexit90.loopexit93 ], [ %.pn60.pn, %131 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %60, %.thread87 ], [ %117, %.thread83 ], [ %.pn47, %.loopexit90.loopexit93 ], [ %.pn60.pn, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %135
 

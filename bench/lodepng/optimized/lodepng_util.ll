@@ -706,14 +706,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IhSa
   br label %.body
 
 .body:                                            ; preds = %.thread, %114, %111, %89, %88
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %89 ], [ %lpad.loopexit.split-lp, %88 ], [ %112, %111 ], [ %112, %114 ], [ %lpad.loopexit, %.thread ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %88 ], [ %112, %114 ], [ %lpad.loopexit.split-lp, %89 ], [ %112, %111 ], [ %lpad.loopexit, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %124
 
 119:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %40, %45, %48, %54, %51, %33
-  %.132 = phi ptr [ %.031, %33 ], [ %.031, %51 ], [ %.031, %54 ], [ %39, %48 ], [ %39, %45 ], [ %39, %40 ], [ %39, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
-  %.126 = phi i32 [ %.025, %33 ], [ %.025, %51 ], [ %.025, %54 ], [ 2, %48 ], [ 1, %45 ], [ 0, %40 ], [ %.025, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
-  %.0 = phi i32 [ 1, %33 ], [ 3, %51 ], [ 1, %54 ], [ 0, %48 ], [ 0, %45 ], [ 0, %40 ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.132 = phi ptr [ %.031, %51 ], [ %.031, %54 ], [ %.031, %33 ], [ %39, %48 ], [ %39, %45 ], [ %39, %40 ], [ %39, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.126 = phi i32 [ %.025, %51 ], [ %.025, %54 ], [ %.025, %33 ], [ 2, %48 ], [ 1, %45 ], [ 0, %40 ], [ %.025, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
+  %.0 = phi i32 [ 3, %51 ], [ 1, %54 ], [ 1, %33 ], [ 0, %48 ], [ 0, %45 ], [ 0, %40 ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %120 = load ptr, ptr %7, align 8, !tbaa !21
   %121 = icmp eq ptr %120, %14
   br i1 %121, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1178,7 +1178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %.c
   br label %212
 
 212:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.2 = phi i32 [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ]
+  %.2 = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ 0, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   ret i32 %.2
 
 213:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1564,7 +1564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %72
   br i1 %121, label %39, label %._crit_edge.loopexit, !llvm.loop !50
 
 122:                                              ; preds = %101, %113, %103, %99, %61, %59
-  %.pn97 = phi { ptr, i32 } [ %60, %59 ], [ %100, %99 ], [ %62, %61 ], [ %102, %101 ], [ %114, %113 ], [ %104, %103 ]
+  %.pn97 = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ], [ %100, %99 ], [ %102, %101 ], [ %114, %113 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %297
 
@@ -1939,7 +1939,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.loopexit, %275
   br label %289
 
 281:                                              ; preds = %.loopexit141, %.loopexit.split-lp142, %.loopexit139, %.loopexit.split-lp, %235, %147, %131
-  %.pn90.pn = phi { ptr, i32 } [ %132, %131 ], [ %148, %147 ], [ %236, %235 ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit143, %.loopexit141 ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp142 ]
+  %.pn90.pn = phi { ptr, i32 } [ %148, %147 ], [ %132, %131 ], [ %236, %235 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit143, %.loopexit141 ], [ %lpad.loopexit.split-lp144, %.loopexit.split-lp142 ]
   %282 = load ptr, ptr %12, align 8, !tbaa !37
   %.not.i.i.i127 = icmp eq ptr %282, null
   br i1 %.not.i.i.i127, label %_ZNSt6vectorIhSaIhEED2Ev.exit128, label %283
@@ -1957,12 +1957,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit128:                 ; preds = %281, %283
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %297
 
-.critedge102:                                     ; preds = %91, %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.critedge102:                                     ; preds = %86, %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %289
 
 289:                                              ; preds = %.critedge102, %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %.5 = phi i32 [ %.6, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ 1, %.critedge102 ]
+  %.5 = phi i32 [ 1, %.critedge102 ], [ %.6, %_ZNSt6vectorIhSaIhEED2Ev.exit ]
   %290 = load ptr, ptr %8, align 8, !tbaa !37
   %.not.i.i.i129 = icmp eq ptr %290, null
   br i1 %.not.i.i.i129, label %_ZNSt6vectorIhSaIhEED2Ev.exit130, label %291
@@ -2564,8 +2564,8 @@ define noundef i32 @_ZN7lodepng12convertToXYZEPfS0_PKhjjPK12LodePNGState(ptr nou
   br label %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
 
 _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28, %6
-  %39 = phi i32 [ undef, %6 ], [ %29, %28 ], [ 2, %30 ], [ %29, %35 ], [ %29, %36 ]
-  %.0109 = phi i32 [ 0, %6 ], [ %29, %28 ], [ 0, %30 ], [ 0, %35 ], [ %..i, %36 ]
+  %39 = phi i32 [ undef, %6 ], [ %29, %28 ], [ %29, %35 ], [ %29, %36 ], [ 2, %30 ]
+  %.0109 = phi i32 [ 0, %6 ], [ %29, %28 ], [ 0, %35 ], [ %..i, %36 ], [ 0, %30 ]
   %40 = zext i32 %3 to i64
   %41 = zext i32 %4 to i64
   %mul.i141 = mul nuw i64 %41, %40
@@ -2757,9 +2757,9 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   br label %153
 
 153:                                              ; preds = %.loopexit, %43, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
-  %.0115 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %44, %43 ], [ %44, %.loopexit ]
-  %.0113 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %43 ], [ %.0108, %.loopexit ]
-  %.1 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %45, %43 ], [ %152, %.loopexit ]
+  %.0115 = phi ptr [ null, %21 ], [ %44, %.loopexit ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %44, %43 ]
+  %.0113 = phi ptr [ null, %21 ], [ %.0108, %.loopexit ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %43 ]
+  %.1 = phi i32 [ 1, %21 ], [ %152, %.loopexit ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %45, %43 ]
   %154 = load ptr, ptr %16, align 8, !tbaa !66
   call void @free(ptr noundef %154) #29
   %155 = load ptr, ptr %17, align 8, !tbaa !66
@@ -3936,12 +3936,12 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313:  ; preds = %_ZN7lodepngL18decod
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301, %716, %742, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313, %769, %.loopexit, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290, %552, %545, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266
-  %.0363 = phi i64 [ %.0.i256, %552 ], [ %.2, %.loopexit ], [ %520, %545 ], [ %493, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290 ], [ %412, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282 ], [ %331, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274 ], [ %250, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266 ], [ %797, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313 ], [ %746, %769 ], [ %719, %742 ], [ %693, %716 ], [ %643, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301 ]
+  %.0363 = phi i64 [ %.0.i256, %552 ], [ %.2, %.loopexit ], [ %250, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266 ], [ %520, %545 ], [ %493, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290 ], [ %412, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282 ], [ %331, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274 ], [ %797, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313 ], [ %746, %769 ], [ %719, %742 ], [ %693, %716 ], [ %643, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301 ]
   %.not395 = icmp ugt i64 %.0363, %2
   br i1 %.not395, label %.critedge243, label %138
 
-.critedge243:                                     ; preds = %.critedge, %138, %602, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit299, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit259, %184, %.preheader, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit ], [ 0, %.preheader ], [ 1, %.critedge ], [ 0, %138 ], [ 1, %602 ], [ 1, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit299 ], [ 1, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit259 ], [ 1, %184 ]
+.critedge243:                                     ; preds = %.critedge, %138, %602, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit299, %184, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit259, %.preheader, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit, %3
+  %.0 = phi i32 [ 1, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit ], [ 1, %3 ], [ 0, %.preheader ], [ 1, %184 ], [ 1, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit299 ], [ 1, %602 ], [ 0, %138 ], [ 1, %.critedge ], [ 1, %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit259 ]
   ret i32 %.0
 }
 
@@ -4196,7 +4196,7 @@ define noundef range(i32 0, 2) i32 @_ZN7lodepng17convertToXYZFloatEPfS0_PKfjjPK1
   br label %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
 
 _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21, %6
-  %.0 = phi i32 [ 0, %6 ], [ %22, %21 ], [ 0, %23 ], [ 0, %28 ], [ %..i, %29 ]
+  %.0 = phi i32 [ 0, %6 ], [ %22, %21 ], [ 0, %28 ], [ %..i, %29 ], [ 0, %23 ]
   %32 = zext i32 %3 to i64
   %33 = zext i32 %4 to i64
   %mul.i68.i = mul nuw i64 %33, %32
@@ -4422,7 +4422,7 @@ define noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr 
   br label %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
 
 _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28, %7
-  %.092 = phi i32 [ 0, %7 ], [ %29, %28 ], [ 0, %30 ], [ 0, %35 ], [ %..i, %36 ]
+  %.092 = phi i32 [ 0, %7 ], [ %29, %28 ], [ 0, %35 ], [ %..i, %36 ], [ 0, %30 ]
   %39 = zext i32 %2 to i64
   %40 = zext i32 %3 to i64
   %mul.i133 = mul nuw i64 %40, %39
@@ -4532,9 +4532,9 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   br label %87
 
 87:                                               ; preds = %._crit_edge, %._crit_edge144, %45, %41, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
-  %.094 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %43, %41 ], [ %43, %45 ], [ %43, %._crit_edge144 ], [ %43, %._crit_edge ]
-  %.093 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %41 ], [ null, %45 ], [ %48, %._crit_edge144 ], [ %48, %._crit_edge ]
-  %.191 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 1, %41 ], [ %46, %45 ], [ %70, %._crit_edge144 ], [ %86, %._crit_edge ]
+  %.094 = phi ptr [ null, %21 ], [ %43, %._crit_edge144 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %43, %._crit_edge ], [ %43, %41 ], [ %43, %45 ]
+  %.093 = phi ptr [ null, %21 ], [ %48, %._crit_edge144 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %48, %._crit_edge ], [ null, %41 ], [ null, %45 ]
+  %.191 = phi i32 [ 1, %21 ], [ %70, %._crit_edge144 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %86, %._crit_edge ], [ 1, %41 ], [ %46, %45 ]
   %88 = load ptr, ptr %16, align 8, !tbaa !66
   call void @free(ptr noundef %88) #29
   %89 = load ptr, ptr %17, align 8, !tbaa !66
@@ -4787,7 +4787,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.lr.ph, %151, %.preheader, %124, %16, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %16 ], [ 0, %124 ], [ 0, %.preheader ], [ 0, %151 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %9 ], [ 0, %124 ], [ 0, %.preheader ], [ 0, %151 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -5026,7 +5026,7 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
 _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %11, %16, %._crit_edge.i, %28, %35, %50, %52, %57, %61, %72, %79, %85, %97, %111, %122, %133, %145, %148
-  %.0.i = phi float [ 0.000000e+00, %148 ], [ %14, %11 ], [ %25, %._crit_edge.i ], [ %14, %16 ], [ %41, %35 ], [ %31, %28 ], [ %56, %52 ], [ %14, %50 ], [ %14, %57 ], [ %71, %61 ], [ %78, %72 ], [ %14, %79 ], [ %96, %85 ], [ %103, %97 ], [ %121, %111 ], [ %123, %122 ], [ %144, %133 ], [ %147, %145 ]
+  %.0.i = phi float [ 0.000000e+00, %148 ], [ %14, %11 ], [ %31, %28 ], [ %14, %50 ], [ %14, %57 ], [ %78, %72 ], [ %14, %79 ], [ %103, %97 ], [ %123, %122 ], [ %147, %145 ], [ %14, %16 ], [ %25, %._crit_edge.i ], [ %41, %35 ], [ %56, %52 ], [ %71, %61 ], [ %96, %85 ], [ %121, %111 ], [ %144, %133 ]
   store float %.0.i, ptr %13, align 4, !tbaa !79
   %149 = add nuw nsw i64 %.04568, 1
   %exitcond.not = icmp eq i64 %149, 3
@@ -5191,7 +5191,7 @@ define noundef range(i32 0, 93) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK1
   br label %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
 
 _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %30, %29, %24, %22, %7
-  %.0 = phi i32 [ 0, %7 ], [ %23, %22 ], [ 0, %24 ], [ 0, %29 ], [ %..i, %30 ]
+  %.0 = phi i32 [ 0, %7 ], [ %23, %22 ], [ 0, %29 ], [ %..i, %30 ], [ 0, %24 ]
   %33 = call fastcc noundef i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, i32 noundef %.0, ptr noundef %8, ptr noundef %5, i32 noundef %6)
   %.not23 = icmp eq i32 %33, 0
   br i1 %.not23, label %34, label %36
@@ -5295,8 +5295,8 @@ define noundef i32 @_ZN7lodepng15convertRGBModelEPhPKhjjPK12LodePNGStateS5_j(ptr
   br label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
 
 _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i:       ; preds = %45, %42, %39, %36, %33, %30, %27, %24, %21, %15, %12, %9, %7
-  %46 = phi i1 [ true, %45 ], [ true, %7 ], [ false, %9 ], [ true, %12 ], [ false, %15 ], [ false, %24 ], [ false, %21 ], [ false, %30 ], [ false, %27 ], [ false, %36 ], [ false, %33 ], [ false, %42 ], [ false, %39 ]
-  %.0.i.i = phi i32 [ 1, %45 ], [ 1, %7 ], [ 0, %9 ], [ 1, %12 ], [ 0, %15 ], [ 0, %24 ], [ 0, %21 ], [ 0, %30 ], [ 0, %27 ], [ 0, %36 ], [ 0, %33 ], [ 0, %42 ], [ 0, %39 ]
+  %46 = phi i1 [ true, %7 ], [ false, %9 ], [ true, %12 ], [ false, %15 ], [ false, %21 ], [ false, %27 ], [ false, %33 ], [ true, %45 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ false, %42 ], [ false, %39 ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ 0, %9 ], [ 1, %12 ], [ 0, %15 ], [ 0, %21 ], [ 0, %27 ], [ 0, %33 ], [ 1, %45 ], [ 0, %24 ], [ 0, %30 ], [ 0, %36 ], [ 0, %42 ], [ 0, %39 ]
   br i1 %.not57.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i, label %47
 
 47:                                               ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
@@ -5375,8 +5375,8 @@ _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i:       ; preds = %45, %42, %39, %36, 
   br label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
 
 _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i:     ; preds = %83, %80, %77, %74, %71, %68, %65, %62, %59, %53, %50, %47, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i
-  %84 = phi i1 [ true, %83 ], [ true, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ false, %47 ], [ true, %50 ], [ false, %53 ], [ false, %62 ], [ false, %59 ], [ false, %68 ], [ false, %65 ], [ false, %74 ], [ false, %71 ], [ false, %80 ], [ false, %77 ]
-  %.0.i79.i = phi i32 [ 1, %83 ], [ 1, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ 0, %47 ], [ 1, %50 ], [ 0, %53 ], [ 0, %62 ], [ 0, %59 ], [ 0, %68 ], [ 0, %65 ], [ 0, %74 ], [ 0, %71 ], [ 0, %80 ], [ 0, %77 ]
+  %84 = phi i1 [ true, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ false, %47 ], [ true, %50 ], [ false, %53 ], [ false, %59 ], [ false, %65 ], [ false, %71 ], [ true, %83 ], [ false, %62 ], [ false, %68 ], [ false, %74 ], [ false, %80 ], [ false, %77 ]
+  %.0.i79.i = phi i32 [ 1, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i ], [ 0, %47 ], [ 1, %50 ], [ 0, %53 ], [ 0, %59 ], [ 0, %65 ], [ 0, %71 ], [ 1, %83 ], [ 0, %62 ], [ 0, %68 ], [ 0, %74 ], [ 0, %80 ], [ 0, %77 ]
   %.not58.i = icmp eq i32 %.0.i.i, %.0.i79.i
   br i1 %.not58.i, label %85, label %.loopexit
 
@@ -5544,7 +5544,7 @@ _ZN7lodepngL11modelsEqualEPK12LodePNGStateS2_.exit: ; preds = %102, %131, %167, 
   %174 = tail call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %172, ptr noundef nonnull %173, i32 noundef %2, i32 noundef %3)
   br label %183
 
-.loopexit:                                        ; preds = %104, %167, %162, %157, %152, %147, %142, %137, %132, %126, %121, %115, %109, %92, %86, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
+.loopexit:                                        ; preds = %104, %157, %152, %147, %142, %137, %132, %126, %121, %115, %109, %167, %162, %92, %86, %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit91.i
   %175 = zext i32 %2 to i64
   %176 = zext i32 %3 to i64
   %mul.i35 = mul nuw i64 %176, %175
@@ -5826,7 +5826,7 @@ define internal fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNG
   br label %117
 
 117:                                              ; preds = %98, %110, %2, %81, %90, %66, %74, %56, %48, %40, %38, %34, %32, %24, %4, %7, %9, %116
-  %.0 = phi float [ 0.000000e+00, %116 ], [ %1, %2 ], [ %31, %24 ], [ 0.000000e+00, %4 ], [ %1, %7 ], [ %1, %9 ], [ %37, %34 ], [ %1, %32 ], [ %1, %38 ], [ %55, %48 ], [ 0.000000e+00, %40 ], [ %1, %56 ], [ %73, %66 ], [ %76, %74 ], [ %89, %81 ], [ %93, %90 ], [ %109, %98 ], [ %115, %110 ]
+  %.0 = phi float [ 0.000000e+00, %116 ], [ %1, %2 ], [ %1, %9 ], [ %1, %32 ], [ %1, %38 ], [ 0.000000e+00, %40 ], [ %1, %56 ], [ %76, %74 ], [ %93, %90 ], [ 0.000000e+00, %4 ], [ %1, %7 ], [ %31, %24 ], [ %37, %34 ], [ %55, %48 ], [ %73, %66 ], [ %89, %81 ], [ %109, %98 ], [ %115, %110 ]
   ret float %.0
 }
 
@@ -5914,7 +5914,7 @@ define internal fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float nounde
   br label %common.ret231
 
 common.ret231:                                    ; preds = %120, %._crit_edge160.thread, %67, %64, %60, %57, %55, %40, %28, %33, %31, %5, %2, %97, %50, %19, %14, %44
-  %common.ret231.op = phi float [ %47, %44 ], [ %101, %97 ], [ %15, %14 ], [ %., %19 ], [ %52, %50 ], [ 1.000000e+00, %2 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ 0x7FF8000000000000, %31 ], [ %43, %40 ], [ %59, %57 ], [ 0.000000e+00, %55 ], [ 1.000000e+00, %60 ], [ %70, %67 ], [ 0.000000e+00, %64 ], [ %125, %120 ], [ %129, %._crit_edge160.thread ]
+  %common.ret231.op = phi float [ %47, %44 ], [ %125, %120 ], [ 0x7FF8000000000000, %31 ], [ 1.000000e+00, %2 ], [ %101, %97 ], [ 0.000000e+00, %64 ], [ %15, %14 ], [ %., %19 ], [ 1.000000e+00, %60 ], [ %52, %50 ], [ %129, %._crit_edge160.thread ], [ 0.000000e+00, %55 ], [ %0, %5 ], [ %30, %28 ], [ %35, %33 ], [ %43, %40 ], [ %59, %57 ], [ %70, %67 ]
   ret float %common.ret231.op
 
 44:                                               ; preds = %38
@@ -6583,7 +6583,7 @@ _ZN7lodepngL15getChrmMatrixXYEPfffffffff.exit:    ; preds = %243
   br label %.critedge
 
 .critedge:                                        ; preds = %218, %201, %148, %327, %277, %_ZN7lodepngL15getChrmMatrixXYEPfffffffff.exit, %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit
-  %.0 = phi i32 [ 1, %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit ], [ 1, %_ZN7lodepngL15getChrmMatrixXYEPfffffffff.exit ], [ 0, %277 ], [ 0, %327 ], [ 0, %148 ], [ 0, %201 ], [ 1, %218 ]
+  %.0 = phi i32 [ 1, %_ZN7lodepngL15getChrmMatrixXYEPfffffffff.exit ], [ 0, %201 ], [ 1, %_ZN7lodepngL10getICCChrmEPfS0_PKNS_10LodePNGICCE.exit ], [ 0, %327 ], [ 0, %277 ], [ 0, %148 ], [ 1, %218 ]
   ret i32 %.0
 }
 

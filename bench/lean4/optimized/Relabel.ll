@@ -256,7 +256,7 @@ lean_alloc_ctor.exit54:                           ; preds = %lean_dec.exit35
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %11, %17, %19, %20, %lean_alloc_ctor.exit54, %lean_dec.exit34, %25, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %1, %25 ], [ %44, %lean_alloc_ctor.exit ], [ %88, %lean_alloc_ctor.exit54 ], [ %1, %lean_dec.exit34 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %19 ], [ inttoptr (i64 1 to ptr), %17 ], [ inttoptr (i64 1 to ptr), %11 ]
+  %.0 = phi ptr [ %44, %lean_alloc_ctor.exit ], [ %1, %lean_dec.exit34 ], [ %1, %25 ], [ %88, %lean_alloc_ctor.exit54 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %19 ], [ inttoptr (i64 1 to ptr), %17 ], [ inttoptr (i64 1 to ptr), %11 ]
   ret ptr %.0
 }
 

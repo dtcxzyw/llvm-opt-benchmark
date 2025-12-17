@@ -232,7 +232,7 @@ define void @twopi_layout(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %findRootNode.exit, label %.lr.ph.i, !llvm.loop !60
 
 findRootNode.exit:                                ; preds = %39, %.lr.ph.i, %33, %35
-  %.082 = phi ptr [ %.083, %33 ], [ null, %35 ], [ null, %39 ], [ %.010.i, %.lr.ph.i ]
+  %.082 = phi ptr [ null, %35 ], [ %.083, %33 ], [ null, %39 ], [ %.010.i, %.lr.ph.i ]
   %41 = call ptr @circleLayout(ptr noundef %0, ptr noundef %.082) #8
   %or.cond = or i1 %16, %34
   %spec.select = select i1 %or.cond, ptr %.083, ptr %41
@@ -330,7 +330,7 @@ findRootNode.exit114.us:                          ; preds = %.lr.ph.split.us.spl
   br i1 %84, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %110, %findRootNode.exit114.us, %findRootNode.exit114.us.us.us, %findRootNode.exit114.us.us, %54
-  %.4.lcssa = phi ptr [ %.083, %54 ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select128, %findRootNode.exit114.us ], [ %spec.select107, %110 ]
+  %.4.lcssa = phi ptr [ %.083, %54 ], [ %spec.select128, %findRootNode.exit114.us ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select107, %110 ]
   %85 = call ptr @agfstnode(ptr noundef %0) #8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !3
@@ -376,7 +376,7 @@ findRootNode.exit114.us:                          ; preds = %.lr.ph.split.us.spl
   br i1 %.not.i112, label %findRootNode.exit114, label %.lr.ph.i110, !llvm.loop !60
 
 findRootNode.exit114:                             ; preds = %103, %.lr.ph.i110, %97, %99
-  %.1 = phi ptr [ %.4120, %97 ], [ null, %99 ], [ null, %103 ], [ %.010.i111, %.lr.ph.i110 ]
+  %.1 = phi ptr [ null, %99 ], [ %.4120, %97 ], [ null, %103 ], [ %.010.i111, %.lr.ph.i110 ]
   %105 = call i64 @graphviz_node_induce(ptr noundef %95, ptr noundef null) #8
   %106 = call ptr @circleLayout(ptr noundef %95, ptr noundef %.1) #8
   %or.cond5 = or i1 %16, %96

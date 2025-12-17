@@ -1648,7 +1648,7 @@ get_TypeIdLength.exit:                            ; preds = %31, %28
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %183, %180, %175, %197, %166
-  %.0301411 = phi ptr [ %.0301412, %197 ], [ %154, %166 ], [ %.0301412, %175 ], [ %.0301412, %180 ], [ %.0301412, %183 ]
+  %.0301411 = phi ptr [ %154, %166 ], [ %.0301412, %197 ], [ %.0301412, %175 ], [ %.0301412, %180 ], [ %.0301412, %183 ]
   %204 = load ptr, ptr %10, align 8
   %205 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %204, ptr noundef nonnull @.str.730, i32 noundef %205)
@@ -2822,7 +2822,7 @@ get_HAL.exit.i:                                   ; preds = %819
   br label %get_HMAC.exit.i
 
 get_HMAC.exit.i:                                  ; preds = %931, %995, %get_HAL.exit.i, %912, %get_TypeIdLength.exit.i, %886, %838, %846, %1008, %918, %821
-  %.1 = phi i8 [ %1009, %1008 ], [ %837, %821 ], [ %930, %918 ], [ 8, %838 ], [ %851, %846 ], [ %883, %get_TypeIdLength.exit.i ], [ %890, %886 ], [ %911, %get_HAL.exit.i ], [ %917, %912 ], [ 18, %931 ], [ %1000, %995 ]
+  %.1 = phi i8 [ %1009, %1008 ], [ %837, %821 ], [ %917, %912 ], [ %851, %846 ], [ %890, %886 ], [ %930, %918 ], [ 8, %838 ], [ %883, %get_TypeIdLength.exit.i ], [ %911, %get_HAL.exit.i ], [ 18, %931 ], [ %1000, %995 ]
   %1010 = zext i8 %.1 to i32
   %.not98.i = icmp eq i32 %820, %1010
   br i1 %.not98.i, label %dissect_iec60870_segment.exit, label %1011
@@ -3902,7 +3902,7 @@ define internal i32 @dissect_iec60870_101(ptr noundef %0, ptr noundef %1, ptr no
   br label %97
 
 97:                                               ; preds = %4, %95, %39, %28
-  %.081 = phi i32 [ %31, %28 ], [ %42, %39 ], [ %96, %95 ], [ 1, %4 ]
+  %.081 = phi i32 [ %96, %95 ], [ %31, %28 ], [ %42, %39 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4258,7 +4258,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split.us119, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
-  %.lcssa136.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
+  %.lcssa136.sink = phi i8 [ %194, %.lr.ph.split.split.us117 ], [ %185, %.lr.ph.split.split.us115 ], [ %200, %.lr.ph.split.split.us119 ]
   store i8 %.lcssa136.sink, ptr %7, align 1
   br label %.loopexit
 

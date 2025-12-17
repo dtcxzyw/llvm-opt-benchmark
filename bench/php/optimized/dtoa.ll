@@ -440,7 +440,7 @@ default.unreachable.i.i:                          ; preds = %lexbor_dec_count.ex
   unreachable
 
 lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.i.i, %241, %.critedge2.i124.i.i, %167, %176, %210, %.thread.i.i, %225
-  %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %233, %225 ], [ %224, %.thread.i.i ], [ %233, %.critedge2.i124.i.i ], [ %233, %241 ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
+  %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %233, %225 ], [ %224, %.thread.i.i ], [ %233, %241 ], [ %233, %.critedge2.i124.i.i ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
   %249 = load i32, ptr %6, align 4, !tbaa !7
   %250 = trunc i64 %.0.i.i to i32
   %251 = add nsw i32 %249, %250
@@ -661,12 +661,12 @@ lexbor_write_exponent.exit126.i:                  ; preds = %343, %327
   br label %lexbor_prettify.exit
 
 lexbor_prettify.exit:                             ; preds = %263, %274, %276, %281, %287, %291, %296, %301, %lexbor_write_exponent.exit.i, %325, %lexbor_write_exponent.exit126.i
-  %.0.i = phi i64 [ %264, %263 ], [ %275, %274 ], [ %278, %276 ], [ %298, %296 ], [ %.017.i.i, %lexbor_write_exponent.exit.i ], [ %326, %325 ], [ %350, %lexbor_write_exponent.exit126.i ], [ %285, %287 ], [ %285, %281 ], [ %285, %291 ], [ 1, %301 ]
+  %.0.i = phi i64 [ %264, %263 ], [ %275, %274 ], [ %278, %276 ], [ %350, %lexbor_write_exponent.exit126.i ], [ %285, %281 ], [ %298, %296 ], [ %285, %291 ], [ %.017.i.i, %lexbor_write_exponent.exit.i ], [ %326, %325 ], [ %285, %287 ], [ 1, %301 ]
   %351 = add i64 %.0.i, %.020
   br label %352
 
 352:                                              ; preds = %15, %3, %lexbor_prettify.exit, %11
-  %.0 = phi i64 [ 1, %11 ], [ %351, %lexbor_prettify.exit ], [ 0, %3 ], [ 1, %15 ]
+  %.0 = phi i64 [ %351, %lexbor_prettify.exit ], [ 1, %11 ], [ 0, %3 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }

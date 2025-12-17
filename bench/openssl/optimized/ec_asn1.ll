@@ -421,13 +421,13 @@ define noundef ptr @EC_GROUP_get_ecparameters(ptr noundef %0, ptr noundef %1) lo
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 131, ptr noundef null) #8
   br label %ec_asn1_group2fieldid.exit.thread51
 
-ec_asn1_group2fieldid.exit.thread51:              ; preds = %24, %29, %36, %32, %83, %40, %45, %50, %82, %.thread.i, %.thread64.i
-  %.046.i.ph = phi ptr [ null, %.thread64.i ], [ null, %.thread.i ], [ null, %82 ], [ null, %50 ], [ null, %45 ], [ null, %40 ], [ null, %83 ], [ %27, %32 ], [ %27, %36 ], [ null, %29 ], [ null, %24 ]
+ec_asn1_group2fieldid.exit.thread51:              ; preds = %24, %29, %36, %83, %32, %40, %45, %50, %82, %.thread.i, %.thread64.i
+  %.046.i.ph = phi ptr [ null, %.thread64.i ], [ null, %.thread.i ], [ null, %82 ], [ null, %50 ], [ null, %45 ], [ null, %40 ], [ %27, %32 ], [ null, %83 ], [ %27, %36 ], [ null, %29 ], [ null, %24 ]
   call void @BN_free(ptr noundef %.046.i.ph) #8
   br label %ec_asn1_group2fieldid.exit.thread
 
 84:                                               ; preds = %78, %70, %62, %33
-  %.046.i = phi ptr [ %27, %33 ], [ null, %78 ], [ null, %62 ], [ null, %70 ]
+  %.046.i = phi ptr [ null, %70 ], [ %27, %33 ], [ null, %78 ], [ null, %62 ]
   call void @BN_free(ptr noundef %.046.i) #8
   %85 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !27
@@ -542,20 +542,20 @@ ec_asn1_group2curve.exit:                         ; preds = %132, %140
   br i1 %142, label %ec_asn1_group2fieldid.exit.thread, label %143
 
 ec_asn1_group2curve.exit.thread.critedge.sink.split: ; preds = %132, %129, %117, %120, %110, %114, %98, %92, %95
-  %.sink81 = phi i32 [ 321, %95 ], [ 321, %92 ], [ 327, %98 ], [ 342, %114 ], [ 342, %110 ], [ 349, %120 ], [ 349, %117 ], [ 357, %129 ], [ 363, %132 ]
-  %.sink = phi i32 [ 524291, %95 ], [ 524291, %92 ], [ 524304, %98 ], [ 524291, %114 ], [ 524291, %110 ], [ 524301, %120 ], [ 524301, %117 ], [ 524301, %129 ], [ 524301, %132 ]
-  %.1.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ %96, %98 ], [ %96, %114 ], [ %96, %110 ], [ %96, %120 ], [ %96, %117 ], [ %96, %129 ], [ %96, %132 ]
-  %.038.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ null, %98 ], [ %105, %114 ], [ %105, %110 ], [ %105, %120 ], [ %105, %117 ], [ %105, %129 ], [ %105, %132 ]
-  %.037.i.ph.ph = phi ptr [ null, %95 ], [ null, %92 ], [ null, %98 ], [ %108, %114 ], [ %108, %110 ], [ %108, %120 ], [ %108, %117 ], [ %108, %129 ], [ %108, %132 ]
+  %.sink81 = phi i32 [ 342, %110 ], [ 349, %117 ], [ 357, %129 ], [ 321, %92 ], [ 327, %98 ], [ 321, %95 ], [ 342, %114 ], [ 349, %120 ], [ 363, %132 ]
+  %.sink = phi i32 [ 524291, %110 ], [ 524301, %117 ], [ 524301, %129 ], [ 524291, %92 ], [ 524304, %98 ], [ 524291, %95 ], [ 524291, %114 ], [ 524301, %120 ], [ 524301, %132 ]
+  %.1.i.ph.ph = phi ptr [ %96, %110 ], [ %96, %117 ], [ %96, %129 ], [ null, %92 ], [ %96, %98 ], [ null, %95 ], [ %96, %114 ], [ %96, %120 ], [ %96, %132 ]
+  %.038.i.ph.ph = phi ptr [ %105, %110 ], [ %105, %117 ], [ %105, %129 ], [ null, %92 ], [ null, %98 ], [ null, %95 ], [ %105, %114 ], [ %105, %120 ], [ %105, %132 ]
+  %.037.i.ph.ph = phi ptr [ %108, %110 ], [ %108, %117 ], [ %108, %129 ], [ null, %92 ], [ null, %98 ], [ null, %95 ], [ %108, %114 ], [ %108, %120 ], [ %108, %132 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink81, ptr noundef nonnull @__func__.ec_asn1_group2curve) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %ec_asn1_group2curve.exit.thread.critedge
 
 ec_asn1_group2curve.exit.thread.critedge:         ; preds = %ec_asn1_group2curve.exit.thread.critedge.sink.split, %107, %100
-  %.1.i.ph = phi ptr [ %96, %107 ], [ %96, %100 ], [ %.1.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
-  %.038.i.ph = phi ptr [ %105, %107 ], [ null, %100 ], [ %.038.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
-  %.037.i.ph = phi ptr [ null, %107 ], [ null, %100 ], [ %.037.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
+  %.1.i.ph = phi ptr [ %96, %100 ], [ %96, %107 ], [ %.1.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
+  %.038.i.ph = phi ptr [ null, %100 ], [ %105, %107 ], [ %.038.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
+  %.037.i.ph = phi ptr [ null, %100 ], [ null, %107 ], [ %.037.i.ph.ph, %ec_asn1_group2curve.exit.thread.critedge.sink.split ]
   call void @CRYPTO_free(ptr noundef %.038.i.ph, ptr noundef nonnull @.str.2, i32 noundef 374) #8
   call void @CRYPTO_free(ptr noundef %.037.i.ph, ptr noundef nonnull @.str.2, i32 noundef 375) #8
   call void @BN_free(ptr noundef %93) #8
@@ -624,8 +624,8 @@ ec_asn1_group2curve.exit.thread.critedge:         ; preds = %ec_asn1_group2curve
   br label %ec_asn1_group2fieldid.exit.thread
 
 ec_asn1_group2fieldid.exit.thread:                ; preds = %156, %143, %ec_asn1_group2curve.exit, %89, %87, %84, %ec_asn1_group2curve.exit.thread.critedge, %ec_asn1_group2fieldid.exit.thread51, %12, %175, %167, %154
-  %.sink83 = phi i32 [ 454, %175 ], [ 444, %167 ], [ 430, %154 ], [ 405, %12 ], [ 405, %ec_asn1_group2fieldid.exit.thread51 ], [ 411, %ec_asn1_group2curve.exit.thread.critedge ], [ 411, %84 ], [ 411, %87 ], [ 411, %89 ], [ 417, %ec_asn1_group2curve.exit ], [ 425, %143 ], [ 438, %156 ]
-  %.sink82 = phi i32 [ 524301, %175 ], [ 524301, %167 ], [ 524301, %154 ], [ 524304, %12 ], [ 524304, %ec_asn1_group2fieldid.exit.thread51 ], [ 524304, %ec_asn1_group2curve.exit.thread.critedge ], [ 524304, %84 ], [ 524304, %87 ], [ 524304, %89 ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %143 ], [ 524304, %156 ]
+  %.sink83 = phi i32 [ 454, %175 ], [ 444, %167 ], [ 425, %143 ], [ 430, %154 ], [ 417, %ec_asn1_group2curve.exit ], [ 411, %89 ], [ 405, %ec_asn1_group2fieldid.exit.thread51 ], [ 405, %12 ], [ 411, %ec_asn1_group2curve.exit.thread.critedge ], [ 411, %84 ], [ 411, %87 ], [ 438, %156 ]
+  %.sink82 = phi i32 [ 524301, %175 ], [ 524301, %167 ], [ 524304, %143 ], [ 524301, %154 ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %89 ], [ 524304, %ec_asn1_group2fieldid.exit.thread51 ], [ 524304, %12 ], [ 524304, %ec_asn1_group2curve.exit.thread.critedge ], [ 524304, %84 ], [ 524304, %87 ], [ 524304, %156 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink83, ptr noundef nonnull @__func__.EC_GROUP_get_ecparameters) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink82, ptr noundef null) #8
@@ -637,7 +637,7 @@ ec_asn1_group2fieldid.exit.thread:                ; preds = %156, %143, %ec_asn1
   br label %177
 
 177:                                              ; preds = %ec_asn1_group2fieldid.exit.thread, %176, %168, %170
-  %.0 = phi ptr [ %.1, %170 ], [ %.1, %168 ], [ null, %176 ], [ null, %ec_asn1_group2fieldid.exit.thread ]
+  %.0 = phi ptr [ %.1, %168 ], [ %.1, %170 ], [ null, %176 ], [ null, %ec_asn1_group2fieldid.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -714,7 +714,7 @@ define ptr @EC_GROUP_get_ecpkparameters(ptr noundef %0, ptr noundef %1) local_un
 20:                                               ; preds = %17
   %21 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef %0) #8
   %.not31 = icmp eq i32 %21, 0
-  br i1 %.not31, label %.critedge, label %22
+  br i1 %.not31, label %.critedge34, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @OBJ_nid2obj(i32 noundef %21) #8
@@ -724,16 +724,16 @@ define ptr @EC_GROUP_get_ecpkparameters(ptr noundef %0, ptr noundef %1) local_un
 25:                                               ; preds = %22
   %26 = tail call i64 @OBJ_length(ptr noundef nonnull %23) #8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.critedge34
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %25, %22
   tail call void @ASN1_OBJECT_free(ptr noundef %23) #8
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 496, ptr noundef nonnull @__func__.EC_GROUP_get_ecpkparameters) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 167, ptr noundef null) #8
-  br label %.critedge
+  br label %.critedge34
 
-.critedge34:                                      ; preds = %25
+.critedge:                                        ; preds = %25
   store i32 0, ptr %.023, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   store ptr %23, ptr %29, align 8, !tbaa !18
@@ -745,14 +745,14 @@ define ptr @EC_GROUP_get_ecpkparameters(ptr noundef %0, ptr noundef %1) local_un
   %32 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !18
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %.critedge, label %34
+  br i1 %33, label %.critedge34, label %34
 
-.critedge:                                        ; preds = %28, %20, %30
+.critedge34:                                      ; preds = %20, %28, %30
   tail call void @ASN1_item_free(ptr noundef nonnull %.023, ptr noundef nonnull @ECPKPARAMETERS_it.local_it) #8
   br label %34
 
-34:                                               ; preds = %30, %.critedge34, %.critedge, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %.critedge ], [ %.023, %.critedge34 ], [ %.023, %30 ]
+34:                                               ; preds = %30, %.critedge, %.critedge34, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %.critedge34 ], [ %.023, %.critedge ], [ %.023, %30 ]
   ret ptr %.0
 }
 
@@ -986,9 +986,9 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   br label %126
 
 126:                                              ; preds = %.thread218, %124
-  %.2143 = phi ptr [ %125, %124 ], [ %108, %.thread218 ]
-  %.2139 = phi ptr [ %115, %124 ], [ %55, %.thread218 ]
-  %.0132.in = phi i32 [ %122, %124 ], [ %52, %.thread218 ]
+  %.2143 = phi ptr [ %108, %.thread218 ], [ %125, %124 ]
+  %.2139 = phi ptr [ %55, %.thread218 ], [ %115, %124 ]
+  %.0132.in = phi i32 [ %52, %.thread218 ], [ %122, %124 ]
   %127 = icmp eq ptr %.2143, null
   br i1 %127, label %.thread214.sink.split, label %128
 
@@ -1167,28 +1167,28 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   br i1 %.not198, label %232, label %.thread214
 
 .thread214.sink.split:                            ; preds = %222, %213, %216, %218, %210, %208, %205, %196, %192, %194, %188, %175, %157, %161, %165, %169, %132, %126, %44, %121, %117, %119, %114, %109, %57, %81, %86, %90, %77, %64, %61, %54, %48, %35, %31, %12, %16, %19, %23, %27, %1, %5, %8, %107
-  %.sink281 = phi i32 [ 642, %107 ], [ 533, %8 ], [ 533, %5 ], [ 533, %1 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 546, %12 ], [ 551, %31 ], [ 556, %35 ], [ 576, %48 ], [ 581, %54 ], [ 592, %61 ], [ 599, %64 ], [ 615, %77 ], [ 622, %90 ], [ 622, %86 ], [ 622, %81 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 664, %119 ], [ 664, %117 ], [ 670, %121 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 710, %157 ], [ 724, %175 ], [ 730, %188 ], [ 734, %194 ], [ 734, %192 ], [ 738, %196 ], [ 747, %205 ], [ 752, %208 ], [ 769, %210 ], [ 775, %218 ], [ 775, %216 ], [ 775, %213 ], [ 800, %222 ]
-  %.sink = phi i32 [ 115, %107 ], [ 115, %8 ], [ 115, %5 ], [ 115, %1 ], [ 115, %27 ], [ 115, %23 ], [ 115, %19 ], [ 115, %16 ], [ 115, %12 ], [ 524291, %31 ], [ 524291, %35 ], [ 143, %48 ], [ 524291, %54 ], [ 115, %61 ], [ 137, %64 ], [ 115, %77 ], [ 132, %90 ], [ 132, %86 ], [ 132, %81 ], [ 126, %57 ], [ 115, %109 ], [ 524301, %114 ], [ 103, %119 ], [ 103, %117 ], [ 143, %121 ], [ 103, %44 ], [ 524304, %126 ], [ 115, %132 ], [ 115, %169 ], [ 115, %165 ], [ 115, %161 ], [ 115, %157 ], [ 524304, %175 ], [ 524301, %188 ], [ 122, %194 ], [ 122, %192 ], [ 122, %196 ], [ 524301, %205 ], [ 524304, %208 ], [ 524291, %210 ], [ 524304, %218 ], [ 524304, %216 ], [ 524304, %213 ], [ 524304, %222 ]
-  %.0141.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ %.2143, %132 ], [ %.2143, %169 ], [ %.2143, %165 ], [ %.2143, %161 ], [ %.2143, %157 ], [ %.2143, %175 ], [ %.2143, %188 ], [ %.2143, %194 ], [ %.2143, %192 ], [ %.2143, %196 ], [ %.2143, %205 ], [ %.2143, %208 ], [ %.2143, %210 ], [ %.2143, %218 ], [ %.2143, %216 ], [ %.2143, %213 ], [ %.2143, %222 ]
-  %.0140.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %214, %218 ], [ %214, %216 ], [ %214, %213 ], [ %214, %222 ]
-  %.0137.ph.ph = phi ptr [ %55, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ %55, %61 ], [ %55, %64 ], [ %55, %77 ], [ %55, %90 ], [ %55, %86 ], [ %55, %81 ], [ %55, %57 ], [ null, %109 ], [ null, %114 ], [ %115, %119 ], [ %115, %117 ], [ %115, %121 ], [ null, %44 ], [ %.2139, %126 ], [ %.2139, %132 ], [ %.2139, %169 ], [ %.2139, %165 ], [ %.2139, %161 ], [ %.2139, %157 ], [ %.2139, %175 ], [ %.2139, %188 ], [ %.2139, %194 ], [ %.2139, %192 ], [ %.2139, %196 ], [ %.2139, %205 ], [ %.2139, %208 ], [ %.2139, %210 ], [ %.2139, %218 ], [ %.2139, %216 ], [ %.2139, %213 ], [ %.2139, %222 ]
-  %.0136.ph.ph = phi ptr [ %33, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ %33, %35 ], [ %33, %48 ], [ %33, %54 ], [ %33, %61 ], [ %33, %64 ], [ %33, %77 ], [ %33, %90 ], [ %33, %86 ], [ %33, %81 ], [ %33, %57 ], [ %33, %109 ], [ %33, %114 ], [ %33, %119 ], [ %33, %117 ], [ %33, %121 ], [ %33, %44 ], [ %33, %126 ], [ %33, %132 ], [ %33, %169 ], [ %33, %165 ], [ %33, %161 ], [ %33, %157 ], [ %33, %175 ], [ %33, %188 ], [ %33, %194 ], [ %33, %192 ], [ %33, %196 ], [ %33, %205 ], [ %33, %208 ], [ %33, %210 ], [ %33, %218 ], [ %33, %216 ], [ %33, %213 ], [ %33, %222 ]
-  %.0134.ph.ph = phi ptr [ %42, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ %42, %48 ], [ %42, %54 ], [ %42, %61 ], [ %42, %64 ], [ %42, %77 ], [ %42, %90 ], [ %42, %86 ], [ %42, %81 ], [ %42, %57 ], [ %42, %109 ], [ %42, %114 ], [ %42, %119 ], [ %42, %117 ], [ %42, %121 ], [ %42, %44 ], [ %42, %126 ], [ %42, %132 ], [ %42, %169 ], [ %42, %165 ], [ %42, %161 ], [ %42, %157 ], [ %42, %175 ], [ %42, %188 ], [ %42, %194 ], [ %42, %192 ], [ %42, %196 ], [ %42, %205 ], [ %.1135, %208 ], [ %.1135, %210 ], [ %.1135, %218 ], [ %.1135, %216 ], [ %.1135, %213 ], [ %.1135, %222 ]
-  %.0133.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ %173, %175 ], [ %173, %188 ], [ %173, %194 ], [ %173, %192 ], [ %173, %196 ], [ %173, %205 ], [ %173, %208 ], [ %173, %210 ], [ %173, %218 ], [ %173, %216 ], [ %173, %213 ], [ %173, %222 ]
-  %.0131.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %211, %218 ], [ %211, %216 ], [ %211, %213 ], [ %211, %222 ]
+  %.sink281 = phi i32 [ 775, %213 ], [ 615, %77 ], [ 599, %64 ], [ 592, %61 ], [ 581, %54 ], [ 642, %107 ], [ 622, %81 ], [ 576, %48 ], [ 556, %35 ], [ 664, %117 ], [ 533, %1 ], [ 546, %12 ], [ 551, %31 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 724, %175 ], [ 730, %188 ], [ 734, %192 ], [ 752, %208 ], [ 769, %210 ], [ 670, %121 ], [ 747, %205 ], [ 738, %196 ], [ 710, %157 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 533, %8 ], [ 533, %5 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 622, %90 ], [ 622, %86 ], [ 664, %119 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 734, %194 ], [ 775, %218 ], [ 775, %216 ], [ 800, %222 ]
+  %.sink = phi i32 [ 524304, %213 ], [ 115, %77 ], [ 137, %64 ], [ 115, %61 ], [ 524291, %54 ], [ 115, %107 ], [ 132, %81 ], [ 143, %48 ], [ 524291, %35 ], [ 103, %117 ], [ 115, %1 ], [ 115, %12 ], [ 524291, %31 ], [ 103, %44 ], [ 524304, %126 ], [ 115, %132 ], [ 524304, %175 ], [ 524301, %188 ], [ 122, %192 ], [ 524304, %208 ], [ 524291, %210 ], [ 143, %121 ], [ 524301, %205 ], [ 122, %196 ], [ 115, %157 ], [ 126, %57 ], [ 115, %109 ], [ 524301, %114 ], [ 115, %8 ], [ 115, %5 ], [ 115, %27 ], [ 115, %23 ], [ 115, %19 ], [ 115, %16 ], [ 132, %90 ], [ 132, %86 ], [ 103, %119 ], [ 115, %169 ], [ 115, %165 ], [ 115, %161 ], [ 122, %194 ], [ 524304, %218 ], [ 524304, %216 ], [ 524304, %222 ]
+  %.0141.ph.ph = phi ptr [ %.2143, %213 ], [ null, %77 ], [ null, %64 ], [ null, %61 ], [ null, %54 ], [ null, %107 ], [ null, %81 ], [ null, %48 ], [ null, %35 ], [ null, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ null, %44 ], [ null, %126 ], [ %.2143, %132 ], [ %.2143, %175 ], [ %.2143, %188 ], [ %.2143, %192 ], [ %.2143, %208 ], [ %.2143, %210 ], [ null, %121 ], [ %.2143, %205 ], [ %.2143, %196 ], [ %.2143, %157 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %90 ], [ null, %86 ], [ null, %119 ], [ %.2143, %169 ], [ %.2143, %165 ], [ %.2143, %161 ], [ %.2143, %194 ], [ %.2143, %218 ], [ %.2143, %216 ], [ %.2143, %222 ]
+  %.0140.ph.ph = phi ptr [ %214, %213 ], [ null, %77 ], [ null, %64 ], [ null, %61 ], [ null, %54 ], [ null, %107 ], [ null, %81 ], [ null, %48 ], [ null, %35 ], [ null, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %175 ], [ null, %188 ], [ null, %192 ], [ null, %208 ], [ null, %210 ], [ null, %121 ], [ null, %205 ], [ null, %196 ], [ null, %157 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %90 ], [ null, %86 ], [ null, %119 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %194 ], [ %214, %218 ], [ %214, %216 ], [ %214, %222 ]
+  %.0137.ph.ph = phi ptr [ %.2139, %213 ], [ %55, %77 ], [ %55, %64 ], [ %55, %61 ], [ null, %54 ], [ %55, %107 ], [ %55, %81 ], [ null, %48 ], [ null, %35 ], [ %115, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ null, %44 ], [ %.2139, %126 ], [ %.2139, %132 ], [ %.2139, %175 ], [ %.2139, %188 ], [ %.2139, %192 ], [ %.2139, %208 ], [ %.2139, %210 ], [ %115, %121 ], [ %.2139, %205 ], [ %.2139, %196 ], [ %.2139, %157 ], [ %55, %57 ], [ null, %109 ], [ null, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ %55, %90 ], [ %55, %86 ], [ %115, %119 ], [ %.2139, %169 ], [ %.2139, %165 ], [ %.2139, %161 ], [ %.2139, %194 ], [ %.2139, %218 ], [ %.2139, %216 ], [ %.2139, %222 ]
+  %.0136.ph.ph = phi ptr [ %33, %213 ], [ %33, %77 ], [ %33, %64 ], [ %33, %61 ], [ %33, %54 ], [ %33, %107 ], [ %33, %81 ], [ %33, %48 ], [ %33, %35 ], [ %33, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ %33, %44 ], [ %33, %126 ], [ %33, %132 ], [ %33, %175 ], [ %33, %188 ], [ %33, %192 ], [ %33, %208 ], [ %33, %210 ], [ %33, %121 ], [ %33, %205 ], [ %33, %196 ], [ %33, %157 ], [ %33, %57 ], [ %33, %109 ], [ %33, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ %33, %90 ], [ %33, %86 ], [ %33, %119 ], [ %33, %169 ], [ %33, %165 ], [ %33, %161 ], [ %33, %194 ], [ %33, %218 ], [ %33, %216 ], [ %33, %222 ]
+  %.0134.ph.ph = phi ptr [ %.1135, %213 ], [ %42, %77 ], [ %42, %64 ], [ %42, %61 ], [ %42, %54 ], [ %42, %107 ], [ %42, %81 ], [ %42, %48 ], [ null, %35 ], [ %42, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ %42, %44 ], [ %42, %126 ], [ %42, %132 ], [ %42, %175 ], [ %42, %188 ], [ %42, %192 ], [ %.1135, %208 ], [ %.1135, %210 ], [ %42, %121 ], [ %42, %205 ], [ %42, %196 ], [ %42, %157 ], [ %42, %57 ], [ %42, %109 ], [ %42, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ %42, %90 ], [ %42, %86 ], [ %42, %119 ], [ %42, %169 ], [ %42, %165 ], [ %42, %161 ], [ %42, %194 ], [ %.1135, %218 ], [ %.1135, %216 ], [ %.1135, %222 ]
+  %.0133.ph.ph = phi ptr [ %173, %213 ], [ null, %77 ], [ null, %64 ], [ null, %61 ], [ null, %54 ], [ null, %107 ], [ null, %81 ], [ null, %48 ], [ null, %35 ], [ null, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ %173, %175 ], [ %173, %188 ], [ %173, %192 ], [ %173, %208 ], [ %173, %210 ], [ null, %121 ], [ %173, %205 ], [ %173, %196 ], [ null, %157 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %90 ], [ null, %86 ], [ null, %119 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ %173, %194 ], [ %173, %218 ], [ %173, %216 ], [ %173, %222 ]
+  %.0131.ph.ph = phi ptr [ %211, %213 ], [ null, %77 ], [ null, %64 ], [ null, %61 ], [ null, %54 ], [ null, %107 ], [ null, %81 ], [ null, %48 ], [ null, %35 ], [ null, %117 ], [ null, %1 ], [ null, %12 ], [ null, %31 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %175 ], [ null, %188 ], [ null, %192 ], [ null, %208 ], [ null, %210 ], [ null, %121 ], [ null, %205 ], [ null, %196 ], [ null, %157 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %90 ], [ null, %86 ], [ null, %119 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %194 ], [ %211, %218 ], [ %211, %216 ], [ %211, %222 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink281, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %.thread214
 
-.thread214:                                       ; preds = %.thread214.sink.split, %105, %75, %230, %102, %99, %96, %94, %72, %70, %135, %172
-  %.0141.ph = phi ptr [ %.2143, %172 ], [ %.2143, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %223, %230 ], [ null, %75 ], [ null, %105 ], [ %.0141.ph.ph, %.thread214.sink.split ]
-  %.0140.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %214, %230 ], [ null, %75 ], [ null, %105 ], [ %.0140.ph.ph, %.thread214.sink.split ]
-  %.0137.ph = phi ptr [ %.2139, %172 ], [ %.2139, %135 ], [ %55, %70 ], [ %55, %72 ], [ %55, %94 ], [ %55, %96 ], [ %55, %99 ], [ %55, %102 ], [ %.2139, %230 ], [ %55, %75 ], [ %55, %105 ], [ %.0137.ph.ph, %.thread214.sink.split ]
-  %.0136.ph = phi ptr [ %33, %172 ], [ %33, %135 ], [ %33, %70 ], [ %33, %72 ], [ %33, %94 ], [ %33, %96 ], [ %33, %99 ], [ %33, %102 ], [ %33, %230 ], [ %33, %75 ], [ %33, %105 ], [ %.0136.ph.ph, %.thread214.sink.split ]
-  %.0134.ph = phi ptr [ %42, %172 ], [ %42, %135 ], [ %42, %70 ], [ %42, %72 ], [ %42, %94 ], [ %42, %96 ], [ %42, %99 ], [ %42, %102 ], [ %.1135, %230 ], [ %42, %75 ], [ %42, %105 ], [ %.0134.ph.ph, %.thread214.sink.split ]
-  %.0133.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %173, %230 ], [ null, %75 ], [ null, %105 ], [ %.0133.ph.ph, %.thread214.sink.split ]
-  %.0131.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %211, %230 ], [ null, %75 ], [ null, %105 ], [ %.0131.ph.ph, %.thread214.sink.split ]
+.thread214:                                       ; preds = %.thread214.sink.split, %105, %75, %230, %94, %96, %99, %102, %70, %72, %135, %172
+  %.0141.ph = phi ptr [ null, %75 ], [ null, %105 ], [ null, %102 ], [ null, %99 ], [ null, %96 ], [ %.2143, %172 ], [ null, %94 ], [ %.2143, %135 ], [ null, %72 ], [ null, %70 ], [ %223, %230 ], [ %.0141.ph.ph, %.thread214.sink.split ]
+  %.0140.ph = phi ptr [ null, %75 ], [ null, %105 ], [ null, %102 ], [ null, %99 ], [ null, %96 ], [ null, %172 ], [ null, %94 ], [ null, %135 ], [ null, %72 ], [ null, %70 ], [ %214, %230 ], [ %.0140.ph.ph, %.thread214.sink.split ]
+  %.0137.ph = phi ptr [ %55, %75 ], [ %55, %105 ], [ %55, %102 ], [ %55, %99 ], [ %55, %96 ], [ %.2139, %172 ], [ %55, %94 ], [ %.2139, %135 ], [ %55, %72 ], [ %55, %70 ], [ %.2139, %230 ], [ %.0137.ph.ph, %.thread214.sink.split ]
+  %.0136.ph = phi ptr [ %33, %75 ], [ %33, %105 ], [ %33, %102 ], [ %33, %99 ], [ %33, %96 ], [ %33, %172 ], [ %33, %94 ], [ %33, %135 ], [ %33, %72 ], [ %33, %70 ], [ %33, %230 ], [ %.0136.ph.ph, %.thread214.sink.split ]
+  %.0134.ph = phi ptr [ %42, %75 ], [ %42, %105 ], [ %42, %102 ], [ %42, %99 ], [ %42, %96 ], [ %42, %172 ], [ %42, %94 ], [ %42, %135 ], [ %42, %72 ], [ %42, %70 ], [ %.1135, %230 ], [ %.0134.ph.ph, %.thread214.sink.split ]
+  %.0133.ph = phi ptr [ null, %75 ], [ null, %105 ], [ null, %102 ], [ null, %99 ], [ null, %96 ], [ null, %172 ], [ null, %94 ], [ null, %135 ], [ null, %72 ], [ null, %70 ], [ %173, %230 ], [ %.0133.ph.ph, %.thread214.sink.split ]
+  %.0131.ph = phi ptr [ null, %75 ], [ null, %105 ], [ null, %102 ], [ null, %99 ], [ null, %96 ], [ null, %172 ], [ null, %94 ], [ null, %135 ], [ null, %72 ], [ null, %70 ], [ %211, %230 ], [ %.0131.ph.ph, %.thread214.sink.split ]
   tail call void @EC_GROUP_free(ptr noundef %.0141.ph) #8
   br label %232
 
@@ -1325,7 +1325,7 @@ define ptr @EC_GROUP_new_from_ecpkparameters(ptr noundef readonly captures(addre
   br label %21
 
 21:                                               ; preds = %13, %19, %4, %20, %18, %12, %3
-  %.011 = phi ptr [ null, %3 ], [ null, %12 ], [ null, %18 ], [ null, %20 ], [ null, %4 ], [ %10, %13 ], [ %17, %19 ]
+  %.011 = phi ptr [ null, %3 ], [ null, %12 ], [ null, %4 ], [ null, %18 ], [ null, %20 ], [ %10, %13 ], [ %17, %19 ]
   ret ptr %.011
 }
 
@@ -1564,16 +1564,16 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   br label %85
 
 .sink.split:                                      ; preds = %55, %46, %.thread80, %28, %19, %13
-  %.sink82 = phi i32 [ 944, %13 ], [ 959, %19 ], [ 959, %28 ], [ 971, %.thread80 ], [ 981, %46 ], [ 992, %55 ]
-  %.sink = phi i32 [ 524304, %13 ], [ 524304, %19 ], [ 524304, %28 ], [ 125, %.thread80 ], [ 524304, %46 ], [ 524304, %55 ]
-  %.050.ph = phi ptr [ null, %13 ], [ %.1, %19 ], [ %.1, %28 ], [ %.1, %.thread80 ], [ %.1, %46 ], [ %.1, %55 ]
+  %.sink82 = phi i32 [ 981, %46 ], [ 971, %.thread80 ], [ 959, %28 ], [ 944, %13 ], [ 959, %19 ], [ 992, %55 ]
+  %.sink = phi i32 [ 524304, %46 ], [ 125, %.thread80 ], [ 524304, %28 ], [ 524304, %13 ], [ 524304, %19 ], [ 524304, %55 ]
+  %.050.ph = phi ptr [ %.1, %46 ], [ %.1, %.thread80 ], [ %.1, %28 ], [ null, %13 ], [ %.1, %19 ], [ %.1, %55 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink82, ptr noundef nonnull @__func__.d2i_ECPrivateKey) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %80
 
 80:                                               ; preds = %.sink.split, %35, %61, %67
-  %.050 = phi ptr [ %.1, %61 ], [ %.1, %67 ], [ %.1, %35 ], [ %.050.ph, %.sink.split ]
+  %.050 = phi ptr [ %.1, %35 ], [ %.1, %61 ], [ %.1, %67 ], [ %.050.ph, %.sink.split ]
   br i1 %9, label %83, label %81
 
 81:                                               ; preds = %80
@@ -1590,7 +1590,7 @@ define ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, ptr nound
   br label %85
 
 85:                                               ; preds = %3, %84, %75
-  %.0 = phi ptr [ null, %84 ], [ %.1, %75 ], [ null, %3 ]
+  %.0 = phi ptr [ %.1, %75 ], [ null, %84 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1757,9 +1757,9 @@ define i32 @i2d_ECPrivateKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %66
 
 66:                                               ; preds = %62, %65, %56, %50, %42, %28, %22, %18
-  %.not40 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %28 ], [ 0, %65 ], [ 0, %50 ], [ 0, %56 ], [ 0, %42 ], [ %63, %62 ]
-  %.028 = phi i64 [ 0, %18 ], [ 0, %22 ], [ 0, %28 ], [ %26, %65 ], [ %26, %50 ], [ %26, %56 ], [ %26, %42 ], [ %26, %62 ]
-  %.0 = phi ptr [ null, %18 ], [ null, %22 ], [ %20, %28 ], [ %20, %65 ], [ %20, %50 ], [ %20, %56 ], [ %20, %42 ], [ %20, %62 ]
+  %.not40 = phi i32 [ 0, %18 ], [ 0, %22 ], [ 0, %28 ], [ 0, %65 ], [ 0, %42 ], [ 0, %50 ], [ 0, %56 ], [ %63, %62 ]
+  %.028 = phi i64 [ 0, %18 ], [ 0, %22 ], [ 0, %28 ], [ %26, %65 ], [ %26, %42 ], [ %26, %50 ], [ %26, %56 ], [ %26, %62 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %22 ], [ %20, %28 ], [ %20, %65 ], [ %20, %42 ], [ %20, %50 ], [ %20, %56 ], [ %20, %62 ]
   %67 = load ptr, ptr %3, align 8, !tbaa !3
   call void @CRYPTO_clear_free(ptr noundef %67, i64 noundef %.028, ptr noundef nonnull @.str.2, i32 noundef 1082) #8
   %68 = load ptr, ptr %4, align 8, !tbaa !3
@@ -1895,7 +1895,7 @@ define ptr @d2i_ECParameters(ptr noundef captures(address_is_null) %0, ptr nound
   br label %41
 
 41:                                               ; preds = %36, %40, %25, %26, %17, %8
-  %.020 = phi ptr [ null, %8 ], [ null, %17 ], [ null, %26 ], [ null, %25 ], [ %.029, %40 ], [ %.029, %36 ]
+  %.020 = phi ptr [ null, %8 ], [ null, %17 ], [ null, %25 ], [ null, %26 ], [ %.029, %40 ], [ %.029, %36 ]
   ret ptr %.020
 }
 
@@ -2022,7 +2022,7 @@ define i32 @i2o_ECPublicKey(ptr noundef readonly captures(address_is_null) %0, p
   br label %39
 
 39:                                               ; preds = %30, %31, %21, %37, %17, %8
-  %.024 = phi i32 [ 0, %8 ], [ %18, %17 ], [ %38, %37 ], [ 0, %21 ], [ 0, %31 ], [ 0, %30 ]
+  %.024 = phi i32 [ 0, %8 ], [ %18, %17 ], [ 0, %21 ], [ %38, %37 ], [ 0, %31 ], [ 0, %30 ]
   ret i32 %.024
 }
 
@@ -2141,7 +2141,7 @@ define noundef ptr @d2i_ECDSA_SIG(ptr noundef captures(address_is_null) %0, ptr 
   br label %43
 
 43:                                               ; preds = %38, %39, %42, %32, %35, %8, %3
-  %.023 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %35 ], [ null, %32 ], [ %.0, %42 ], [ %.0, %39 ], [ %.0, %38 ]
+  %.023 = phi ptr [ null, %3 ], [ null, %8 ], [ null, %32 ], [ null, %35 ], [ %.0, %42 ], [ %.0, %39 ], [ %.0, %38 ]
   ret ptr %.023
 }
 
@@ -2237,7 +2237,7 @@ define i32 @i2d_ECDSA_SIG(ptr noundef readonly captures(none) %0, ptr noundef ca
   br label %42
 
 42:                                               ; preds = %17, %6, %39, %28, %16
-  %.015 = phi i32 [ %41, %39 ], [ -1, %28 ], [ -1, %16 ], [ -1, %6 ], [ -1, %17 ]
+  %.015 = phi i32 [ %41, %39 ], [ -1, %28 ], [ -1, %6 ], [ -1, %16 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015

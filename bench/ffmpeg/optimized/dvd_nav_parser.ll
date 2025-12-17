@@ -86,7 +86,7 @@ define internal noundef i32 @dvd_nav_parse(ptr noundef captures(none) initialize
   store i32 980, ptr %46, align 4, !tbaa !14
   br label %.thread66
 
-.thread63:                                        ; preds = %31, %17, %6, %25, %27, %15, %13
+.thread63:                                        ; preds = %31, %25, %27, %17, %15, %6, %13
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 2004
   store i32 0, ptr %47, align 4, !tbaa !14
   store i32 -1, ptr %7, align 4, !tbaa !12

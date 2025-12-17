@@ -259,8 +259,8 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   br label %95
 
 95:                                               ; preds = %47, %92, %13, %19
-  %96 = phi i32 [ %14, %19 ], [ %14, %13 ], [ %.pre, %47 ], [ %14, %92 ]
-  %.1 = phi i64 [ %.0110, %19 ], [ %.0110, %13 ], [ %50, %47 ], [ %94, %92 ]
+  %96 = phi i32 [ %14, %13 ], [ %14, %19 ], [ %.pre, %47 ], [ %14, %92 ]
+  %.1 = phi i64 [ %.0110, %13 ], [ %.0110, %19 ], [ %50, %47 ], [ %94, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
@@ -426,7 +426,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   br label %210
 
 210:                                              ; preds = %137, %203, %111, %116
-  %.194 = phi ptr [ %.093112, %116 ], [ %.093112, %111 ], [ %151, %137 ], [ %209, %203 ]
+  %.194 = phi ptr [ %.093112, %111 ], [ %.093112, %116 ], [ %151, %137 ], [ %209, %203 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %211 = load i32, ptr %3, align 8
   %212 = sext i32 %211 to i64
@@ -717,9 +717,9 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   br label %._crit_edge200
 
 ._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ -1, %53 ], [ %.pre202, %63 ], [ -1, %57 ], [ -1, %54 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %.11136, %53 ], [ %70, %63 ], [ %62, %57 ], [ %.11136, %54 ], [ %39, %36 ]
-  %.290.i22 = phi i1 [ false, %53 ], [ false, %63 ], [ true, %57 ], [ true, %54 ], [ false, %36 ]
+  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+  %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 6
@@ -938,9 +938,9 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ -1, %176 ], [ %.pre, %186 ], [ -1, %180 ], [ -1, %177 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %.363134, %176 ], [ %193, %186 ], [ %185, %180 ], [ %.363134, %177 ], [ %162, %160 ]
-  %.290.i = phi i1 [ false, %176 ], [ false, %186 ], [ true, %180 ], [ true, %177 ], [ false, %160 ]
+  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+  %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %146, i64 6
@@ -1062,7 +1062,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread78, %156, %.thread73, %17
+slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
   %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
@@ -1736,9 +1736,9 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   br label %._crit_edge200
 
 ._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ -1, %53 ], [ %.pre202, %63 ], [ -1, %57 ], [ -1, %54 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %.11136, %53 ], [ %70, %63 ], [ %62, %57 ], [ %.11136, %54 ], [ %39, %36 ]
-  %.290.i22 = phi i1 [ false, %53 ], [ false, %63 ], [ true, %57 ], [ true, %54 ], [ false, %36 ]
+  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+  %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 6
@@ -1957,9 +1957,9 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ -1, %176 ], [ %.pre, %186 ], [ -1, %180 ], [ -1, %177 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %.363134, %176 ], [ %193, %186 ], [ %185, %180 ], [ %.363134, %177 ], [ %162, %160 ]
-  %.290.i = phi i1 [ false, %176 ], [ false, %186 ], [ true, %180 ], [ true, %177 ], [ false, %160 ]
+  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+  %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %146, i64 6
@@ -2081,7 +2081,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread78, %156, %.thread73, %17
+slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
   %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
@@ -2771,9 +2771,9 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   br label %._crit_edge200
 
 ._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ -1, %53 ], [ %.pre202, %63 ], [ -1, %57 ], [ -1, %54 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %.11136, %53 ], [ %70, %63 ], [ %62, %57 ], [ %.11136, %54 ], [ %39, %36 ]
-  %.290.i22 = phi i1 [ false, %53 ], [ false, %63 ], [ true, %57 ], [ true, %54 ], [ false, %36 ]
+  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+  %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %37, i64 6
@@ -2992,9 +2992,9 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ -1, %176 ], [ %.pre, %186 ], [ -1, %180 ], [ -1, %177 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %.363134, %176 ], [ %193, %186 ], [ %185, %180 ], [ %.363134, %177 ], [ %162, %160 ]
-  %.290.i = phi i1 [ false, %176 ], [ false, %186 ], [ true, %180 ], [ true, %177 ], [ false, %160 ]
+  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+  %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %146, i64 6
@@ -3116,7 +3116,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit29:           ; preds = %.thread78, %156, %.thread73, %17
+slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
   %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
@@ -5528,7 +5528,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   br i1 %52, label %.lr.ph32, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph32, %30, %.thread, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %53 = phi ptr [ %8, %.thread ], [ %6, %.lr.ph.split.us.split ], [ %8, %.lr.ph.split.split ], [ %6, %4 ], [ %6, %30 ], [ %8, %.lr.ph32 ]
+  %53 = phi ptr [ %8, %.thread ], [ %6, %4 ], [ %6, %.lr.ph.split.us.split ], [ %8, %.lr.ph.split.split ], [ %6, %30 ], [ %8, %.lr.ph32 ]
   ret ptr %53
 }
 

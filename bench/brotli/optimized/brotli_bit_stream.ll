@@ -911,8 +911,8 @@ SortHuffmanTreeItems.exit:                        ; preds = %._crit_edge282, %71
   br label %.loopexit256.sink.split
 
 .loopexit256.sink.split:                          ; preds = %308, %267, %319
-  %.lcssa.sink = phi i64 [ %333, %319 ], [ %280, %267 ], [ %318, %308 ]
-  %.1183.ph = phi i8 [ %258, %319 ], [ %.0182303, %267 ], [ %258, %308 ]
+  %.lcssa.sink = phi i64 [ %280, %267 ], [ %333, %319 ], [ %318, %308 ]
+  %.1183.ph = phi i8 [ %.0182303, %267 ], [ %258, %319 ], [ %258, %308 ]
   store i64 %.lcssa.sink, ptr %6, align 8, !tbaa !3, !noalias !150
   br label %.loopexit256
 
@@ -1387,7 +1387,7 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
   br label %GetInsertLengthCode.exit
 
 GetInsertLengthCode.exit:                         ; preds = %245, %259, %271, %275, %277
-  %.0.i = phi i64 [ %268, %259 ], [ %274, %271 ], [ 21, %275 ], [ %..i195, %277 ], [ %255, %245 ]
+  %.0.i = phi i64 [ %..i195, %277 ], [ %268, %259 ], [ %274, %271 ], [ 21, %275 ], [ %255, %245 ]
   %279 = zext i32 %254 to i64
   %280 = icmp ult i32 %254, 10
   br i1 %280, label %281, label %283
@@ -2776,7 +2776,7 @@ IndexOf.exit.i:                                   ; preds = %.lr.ph.i.i
   br label %MoveToFront.exit.i
 
 MoveToFront.exit.i:                               ; preds = %.lr.ph.preheader.i.i, %IndexOf.exit.i
-  %80 = phi i8 [ %69, %IndexOf.exit.i ], [ %79, %.lr.ph.preheader.i.i ]
+  %80 = phi i8 [ %79, %.lr.ph.preheader.i.i ], [ %69, %IndexOf.exit.i ]
   store i8 %80, ptr %9, align 16, !tbaa !7, !noalias !450
   %81 = add nuw i64 %.239.i, 1
   %exitcond46.not.i = icmp eq i64 %81, %3
@@ -2898,7 +2898,7 @@ MoveToFrontTransform.exit:                        ; preds = %MoveToFront.exit.i,
   br i1 %exitcond102.not.i, label %.critedge4.i, label %.lr.ph92.i, !llvm.loop !466
 
 .critedge4.i:                                     ; preds = %122, %.lr.ph92.i
-  %.066.lcssa.i = phi i32 [ %.06690.i, %.lr.ph92.i ], [ %114, %122 ]
+  %.066.lcssa.i = phi i32 [ %114, %122 ], [ %.06690.i, %.lr.ph92.i ]
   %124 = zext i32 %.066.lcssa.i to i64
   %125 = add i64 %.399.i, %124
   %.not7496.i = icmp eq i32 %.066.lcssa.i, 0
@@ -3779,7 +3779,7 @@ define internal fastcc void @StoreDataWithHuffmanCodes(ptr noundef readonly capt
   br label %GetInsertLengthCode.exit
 
 GetInsertLengthCode.exit:                         ; preds = %.lr.ph55, %42, %54, %58, %60
-  %.0.i = phi i64 [ %51, %42 ], [ %57, %54 ], [ 21, %58 ], [ %..i, %60 ], [ %38, %.lr.ph55 ]
+  %.0.i = phi i64 [ %..i, %60 ], [ %51, %42 ], [ %57, %54 ], [ 21, %58 ], [ %38, %.lr.ph55 ]
   %62 = zext i32 %37 to i64
   %63 = icmp ult i32 %37, 10
   br i1 %63, label %64, label %66

@@ -332,7 +332,7 @@ switch.early.test.i:                              ; preds = %42
   br label %162
 
 162:                                              ; preds = %.sink.split.i, %153, %142, %139, %126, %111, %98, %88, %79, %72
-  %.3110.i = phi i32 [ 1, %72 ], [ 1, %79 ], [ 1, %88 ], [ 1, %98 ], [ 1, %111 ], [ 3, %126 ], [ %.2109187.i, %139 ], [ %.2109187.i, %142 ], [ %.2109187.i, %153 ], [ %.3110.ph.i, %.sink.split.i ]
+  %.3110.i = phi i32 [ 1, %111 ], [ 1, %72 ], [ %.2109187.i, %153 ], [ 1, %79 ], [ %.2109187.i, %142 ], [ 1, %88 ], [ 3, %126 ], [ 1, %98 ], [ %.2109187.i, %139 ], [ %.3110.ph.i, %.sink.split.i ]
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next233.i to i32
   %exitcond235.not.i = icmp eq i32 %5, %lftr.wideiv.i
@@ -673,9 +673,9 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   br i1 %.not66.i, label %376, label %.sink.split113.i
 
 .sink.split113.i:                                 ; preds = %242, %324, %374, %370
-  %.035 = phi i32 [ %340, %374 ], [ %340, %370 ], [ %249, %242 ], [ %329, %324 ]
-  %.034 = phi i32 [ %345, %374 ], [ %345, %370 ], [ %245, %242 ], [ %326, %324 ]
-  %.sink114.i = phi i32 [ 50, %374 ], [ 60, %370 ], [ 70, %242 ], [ 60, %324 ]
+  %.035 = phi i32 [ %340, %370 ], [ %340, %374 ], [ %249, %242 ], [ %329, %324 ]
+  %.034 = phi i32 [ %345, %370 ], [ %345, %374 ], [ %245, %242 ], [ %326, %324 ]
+  %.sink114.i = phi i32 [ 60, %370 ], [ 50, %374 ], [ 70, %242 ], [ 60, %324 ]
   store i32 %.sink114.i, ptr %181, align 4, !tbaa !21
   br label %376
 
@@ -702,7 +702,7 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   %386 = trunc i64 %385 to i32
   br label %388
 
-387:                                              ; preds = %178, %187, %194, %204, %216, %239, %252, %262, %274, %284, %250, %330, %333
+387:                                              ; preds = %178, %187, %194, %204, %216, %239, %284, %250, %330, %333, %252, %262, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %388

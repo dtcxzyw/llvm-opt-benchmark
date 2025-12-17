@@ -609,7 +609,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %178, %170, %162, %153, %.critedge, %1, %._crit_edge220
-  %.0 = phi i32 [ %181, %._crit_edge220 ], [ %12, %1 ], [ -22, %.critedge ], [ -22, %153 ], [ -22, %162 ], [ -22, %170 ], [ -22, %178 ]
+  %.0 = phi i32 [ %181, %._crit_edge220 ], [ -22, %.critedge ], [ %12, %1 ], [ -22, %153 ], [ -22, %162 ], [ -22, %170 ], [ -22, %178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

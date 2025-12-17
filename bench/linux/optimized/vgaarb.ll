@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone ca
   br i1 %62, label %.thread, label %64
 
 .thread:                                          ; preds = %61, %53, %42, %34
-  %63 = phi i64 [ %33, %34 ], [ %33, %42 ], [ %52, %53 ], [ %52, %61 ]
+  %63 = phi i64 [ %52, %53 ], [ %33, %34 ], [ %33, %42 ], [ %52, %61 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %63) #14
   br label %.loopexit
 
@@ -1718,8 +1718,8 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %65, %68, %71, %62, %58
-  %75 = phi i1 [ false, %58 ], [ true, %62 ], [ false, %71 ], [ false, %68 ], [ false, %65 ]
-  %76 = phi i32 [ 3, %58 ], [ 0, %62 ], [ 3, %71 ], [ 3, %68 ], [ 3, %65 ]
+  %75 = phi i1 [ true, %62 ], [ false, %58 ], [ false, %71 ], [ false, %68 ], [ false, %65 ]
+  %76 = phi i32 [ 0, %62 ], [ 3, %58 ], [ 3, %71 ], [ 3, %68 ], [ 3, %65 ]
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
@@ -1995,7 +1995,7 @@ define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %141, %40, %20, %30, %33, %48, %71, %74, %91, %96, %101, %110, %111, %128, %131, %136, %156, %157, %213, %217, %221, %225, %215, %13, %4
-  %227 = phi i64 [ -22, %4 ], [ -14, %13 ], [ -71, %215 ], [ %214, %213 ], [ %2, %225 ], [ -19, %33 ], [ %2, %48 ], [ -19, %74 ], [ -22, %91 ], [ -22, %96 ], [ -22, %101 ], [ %2, %111 ], [ %2, %110 ], [ -19, %131 ], [ %2, %156 ], [ %2, %157 ], [ -16, %136 ], [ -71, %217 ], [ -19, %221 ], [ -71, %30 ], [ -71, %71 ], [ -71, %128 ], [ -71, %20 ], [ %2, %40 ], [ %2, %141 ]
+  %227 = phi i64 [ -71, %215 ], [ -22, %4 ], [ -14, %13 ], [ %214, %213 ], [ %2, %225 ], [ -19, %33 ], [ %2, %48 ], [ -19, %74 ], [ -22, %91 ], [ -22, %96 ], [ -22, %101 ], [ %2, %111 ], [ %2, %110 ], [ -19, %131 ], [ %2, %156 ], [ %2, %157 ], [ -16, %136 ], [ -71, %217 ], [ -19, %221 ], [ -71, %30 ], [ -71, %71 ], [ -71, %128 ], [ -71, %20 ], [ %2, %40 ], [ %2, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %227
@@ -2338,7 +2338,7 @@ sub_13:                                           ; preds = %sub_0
   br label %.tail1.thread
 
 .tail1.thread:                                    ; preds = %sub_0, %.tail, %sub_13, %17, %.tail1
-  %19 = phi i32 [ 0, %.tail1 ], [ 1, %17 ], [ 0, %sub_13 ], [ 0, %.tail ], [ 0, %sub_0 ]
+  %19 = phi i32 [ 0, %.tail1 ], [ 1, %17 ], [ 0, %sub_0 ], [ 0, %sub_13 ], [ 0, %.tail ]
   ret i32 %19
 }
 
@@ -2478,7 +2478,7 @@ define internal noundef i32 @pci_notify(ptr readnone captures(none) %0, i64 noun
   %14 = phi ptr [ @vga_list, %11 ], [ %15, %17 ]
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, @vga_list
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2488,7 +2488,7 @@ define internal noundef i32 @pci_notify(ptr readnone captures(none) %0, i64 noun
 
 21:                                               ; preds = %17
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.thread, label %22
+  br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr @vga_default, align 8
@@ -2508,15 +2508,15 @@ define internal noundef i32 @pci_notify(ptr readnone captures(none) %0, i64 noun
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 3
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.critedge, label %34
+  br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %29
   %35 = load i32, ptr @vga_decode_count, align 4
   %36 = add i32 %35, -1
   store i32 %36, ptr @vga_decode_count, align 4
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %34, %29
+.thread:                                          ; preds = %34, %29
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %15, align 8
@@ -2533,12 +2533,7 @@ define internal noundef i32 @pci_notify(ptr readnone captures(none) %0, i64 noun
   tail call void @kfree(ptr noundef nonnull %15) #14
   br label %44
 
-.thread:                                          ; preds = %13, %21
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
-  tail call void @kfree(ptr noundef null) #14
-  br label %63
-
-44:                                               ; preds = %.critedge, %9
+44:                                               ; preds = %.thread, %9
   %45 = load i1, ptr @vga_arbiter_used, align 1
   br i1 %45, label %46, label %63
 
@@ -2573,7 +2568,12 @@ define internal noundef i32 @pci_notify(ptr readnone captures(none) %0, i64 noun
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %49) #14
   br label %63
 
-63:                                               ; preds = %.thread, %9, %.loopexit, %44, %8, %3
+.critedge:                                        ; preds = %13, %21
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #14
+  tail call void @kfree(ptr noundef null) #14
+  br label %63
+
+63:                                               ; preds = %.critedge, %9, %.loopexit, %44, %8, %3
   ret i32 0
 }
 

@@ -522,7 +522,7 @@ zval_get_long.exit:                               ; preds = %159, %161
   store i32 %187, ptr %185, align 4, !tbaa !85
   br label %190
 
-.thread164:                                       ; preds = %182, %177, %173, %142, %137, %133, %114, %109, %105, %102, %101, %130, %129, %170, %169
+.thread164:                                       ; preds = %182, %177, %173, %142, %137, %133, %114, %109, %105, %102, %101, %129, %130, %170, %169
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %188 = load ptr, ptr %12, align 8, !tbaa !12
@@ -548,7 +548,7 @@ zval_get_long.exit:                               ; preds = %159, %161
   unreachable
 
 .critedge129:                                     ; preds = %.thread164, %22, %59, %190, %58, %57
-  %.074 = phi ptr [ null, %57 ], [ null, %58 ], [ %.pre, %190 ], [ null, %59 ], [ null, %.thread164 ], [ %26, %22 ]
+  %.074 = phi ptr [ null, %.thread164 ], [ null, %57 ], [ null, %58 ], [ %.pre, %190 ], [ null, %59 ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

@@ -147,7 +147,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %.thread, %30
-  %37 = phi i32 [ %29, %.thread ], [ %36, %30 ], [ 0, %20 ]
+  %37 = phi i32 [ %36, %30 ], [ %29, %.thread ], [ 0, %20 ]
   %38 = icmp ugt i32 %22, 1
   %39 = add nuw nsw i32 %.pre11, 7
   %40 = select i1 %38, i32 %39, i32 0
@@ -203,7 +203,7 @@ define internal range(i32 -1, 2) i32 @H5F__cache_superblock_verify_chksum(ptr no
   br label %26
 
 26:                                               ; preds = %23, %19, %12, %3
-  %.0 = phi i32 [ -1, %19 ], [ 1, %12 ], [ 1, %3 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ -1, %19 ], [ 1, %3 ], [ %spec.select, %23 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -806,7 +806,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br label %.thread209
 
 .thread209:                                       ; preds = %17, %368, %374, %4, %.thread, %380
-  %.0151 = phi ptr [ null, %380 ], [ null, %.thread ], [ null, %4 ], [ %15, %368 ], [ %15, %374 ], [ null, %17 ]
+  %.0151 = phi ptr [ null, %380 ], [ null, %.thread ], [ null, %17 ], [ null, %4 ], [ %15, %368 ], [ %15, %374 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0151
 }
@@ -1259,7 +1259,7 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
   br label %.thread
 
 .thread:                                          ; preds = %16, %27, %39, %4
-  %.0 = phi ptr [ null, %39 ], [ null, %4 ], [ %14, %27 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %39 ], [ null, %16 ], [ null, %4 ], [ %14, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -1530,7 +1530,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   br label %.thread117
 
 .thread117:                                       ; preds = %96, %5, %100, %71, %63, %51, %43, %34, %24, %16
-  %.082 = phi i32 [ -1, %16 ], [ -1, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %63 ], [ -1, %71 ], [ 0, %100 ], [ -1, %51 ], [ 0, %5 ], [ -1, %96 ]
+  %.082 = phi i32 [ -1, %16 ], [ -1, %24 ], [ -1, %34 ], [ 0, %5 ], [ -1, %43 ], [ -1, %63 ], [ -1, %71 ], [ 0, %100 ], [ -1, %51 ], [ -1, %96 ]
   ret i32 %.082
 }
 

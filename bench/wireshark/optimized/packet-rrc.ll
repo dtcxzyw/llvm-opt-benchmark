@@ -51420,7 +51420,7 @@ private_data_get_cn_domain.exit:                  ; preds = %19, %23
   br label %get_or_create_cipher_info.exit
 
 get_or_create_cipher_info.exit:                   ; preds = %31, %48
-  %.0.i = phi ptr [ %43, %48 ], [ %40, %31 ]
+  %.0.i = phi ptr [ %40, %31 ], [ %43, %48 ]
   %58 = load ptr, ptr %20, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %private_data_set_ciphering_info.exit
@@ -96410,7 +96410,7 @@ define internal i32 @dissect_rrc_SecurityModeCommand(ptr noundef %0, i32 noundef
   br label %get_or_create_cipher_info.exit
 
 get_or_create_cipher_info.exit:                   ; preds = %22, %39
-  %.0.i = phi ptr [ %34, %39 ], [ %31, %22 ]
+  %.0.i = phi ptr [ %31, %22 ], [ %34, %39 ]
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null

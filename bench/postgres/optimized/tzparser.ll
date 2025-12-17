@@ -397,7 +397,7 @@ switch.early.test.i:                              ; preds = %113
   br i1 %.not46.i, label %.thread95, label %splitTzLine.exit
 
 splitTzLine.exit:                                 ; preds = %108, %110, %120, %125, %.thread101
-  %.str.19.sink.i = phi ptr [ @.str.15, %108 ], [ @.str.16, %110 ], [ @.str.17, %125 ], [ @.str.17, %120 ], [ @.str.19, %.thread101 ]
+  %.str.19.sink.i = phi ptr [ @.str.17, %120 ], [ @.str.16, %110 ], [ @.str.15, %108 ], [ @.str.17, %125 ], [ @.str.19, %.thread101 ]
   %137 = tail call ptr @__errno_location() #10
   %138 = load i32, ptr %137, align 4
   call void @pre_format_elog_string(i32 noundef %138, ptr noundef null) #9
@@ -408,9 +408,9 @@ splitTzLine.exit:                                 ; preds = %108, %110, %120, %1
   br label %.loopexit127
 
 .thread95:                                        ; preds = %127, %134, %.thread101
-  %.sroa.17.3.ph = phi i8 [ %.sroa.17.2107, %.thread101 ], [ %.sroa.17.2, %134 ], [ 0, %127 ]
-  %.sroa.11.3.ph = phi i32 [ %.sroa.11.2108, %.thread101 ], [ %.sroa.11.2, %134 ], [ %122, %127 ]
-  %.sroa.8.3.ph = phi ptr [ %.sroa.8.2109, %.thread101 ], [ %.sroa.8.2, %134 ], [ null, %127 ]
+  %.sroa.17.3.ph = phi i8 [ %.sroa.17.2, %134 ], [ %.sroa.17.2107, %.thread101 ], [ 0, %127 ]
+  %.sroa.11.3.ph = phi i32 [ %.sroa.11.2, %134 ], [ %.sroa.11.2108, %.thread101 ], [ %122, %127 ]
+  %.sroa.8.3.ph = phi ptr [ %.sroa.8.2, %134 ], [ %.sroa.8.2109, %.thread101 ], [ null, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %140 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #11
@@ -590,17 +590,17 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   br label %addToArray.exit
 
 addToArray.exit:                                  ; preds = %181, %186, %190, %210
-  %.2.i = phi i32 [ %218, %210 ], [ %.053.ph130173, %181 ], [ %.053.ph130173, %186 ], [ %.053.ph130173, %190 ]
+  %.2.i = phi i32 [ %218, %210 ], [ %.053.ph130173, %186 ], [ %.053.ph130173, %190 ], [ %.053.ph130173, %181 ]
   %219 = icmp slt i32 %.2.i, 0
   br i1 %219, label %.loopexit127, label %.outer128.backedge
 
 .loopexit127:                                     ; preds = %.outer.loopexit, %.outer128.backedge, %addToArray.exit, %.backedge, %.preheader126, %addToArray.exit.thread, %validateTzEntry.exit, %splitTzLine.exit, %.thread, %60, %72, %62
-  %.154 = phi i32 [ -1, %62 ], [ %.053.ph130173, %60 ], [ -1, %72 ], [ -1, %splitTzLine.exit ], [ -1, %validateTzEntry.exit ], [ %.2.ph, %.thread ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader126 ], [ %.053.ph130173, %.backedge ], [ %.053.ph130.be, %.outer128.backedge ], [ %.2.i, %addToArray.exit ], [ %.053.ph130173, %.outer.loopexit ]
+  %.154 = phi i32 [ -1, %62 ], [ %.053.ph130173, %60 ], [ -1, %72 ], [ %.2.ph, %.thread ], [ -1, %validateTzEntry.exit ], [ -1, %splitTzLine.exit ], [ -1, %addToArray.exit.thread ], [ %4, %.preheader126 ], [ %.053.ph130.be, %.outer128.backedge ], [ %.053.ph130173, %.backedge ], [ %.2.i, %addToArray.exit ], [ %.053.ph130173, %.outer.loopexit ]
   %220 = call i32 @FreeFile(ptr noundef nonnull %36) #9
   br label %221
 
 221:                                              ; preds = %45, %50, %54, %24, %25, %.loopexit127, %30
-  %.0 = phi i32 [ -1, %30 ], [ %.154, %.loopexit127 ], [ -1, %25 ], [ -1, %24 ], [ -1, %54 ], [ -1, %50 ], [ -1, %45 ]
+  %.0 = phi i32 [ -1, %24 ], [ -1, %30 ], [ %.154, %.loopexit127 ], [ -1, %25 ], [ -1, %54 ], [ -1, %50 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

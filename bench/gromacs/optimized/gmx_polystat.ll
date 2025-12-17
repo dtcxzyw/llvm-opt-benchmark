@@ -2075,7 +2075,7 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %652
   br label %._crit_edge728.thread
 
 ._crit_edge728.thread:                            ; preds = %.preheader640, %._crit_edge728, %._crit_edge728.thread986, %826
-  %.0273 = phi double [ %840, %826 ], [ %824, %._crit_edge728 ], [ %822, %._crit_edge728.thread986 ], [ 0.000000e+00, %.preheader640 ]
+  %.0273 = phi double [ %840, %826 ], [ %822, %._crit_edge728.thread986 ], [ %824, %._crit_edge728 ], [ 0.000000e+00, %.preheader640 ]
   %841 = load float, ptr %14, align 4, !tbaa !77
   %842 = load ptr, ptr %9, align 8, !tbaa !56
   %843 = invoke noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr noundef %842)
@@ -2365,7 +2365,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm8EED2Ev.exit: 
   br label %976
 
 .loopexit.split-lp:                               ; preds = %.loopexit643, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %472, %442, %380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436, %309, %292, %291, %166
-  %.pn349.pn = phi { ptr, i32 } [ %.pn349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436 ], [ %.pn343, %472 ], [ %.pn339.pn.pn, %442 ], [ %.pn335.pn.pn, %380 ], [ %.pn331.pn.pn, %309 ], [ %293, %292 ], [ %.pn327.pn.pn, %291 ], [ %.pn325, %166 ], [ %lpad.loopexit, %.loopexit643 ], [ %lpad.loopexit648, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit651, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn349.pn = phi { ptr, i32 } [ %.pn349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436 ], [ %.pn325, %166 ], [ %.pn343, %472 ], [ %.pn339.pn.pn, %442 ], [ %.pn335.pn.pn, %380 ], [ %.pn331.pn.pn, %309 ], [ %293, %292 ], [ %.pn327.pn.pn, %291 ], [ %lpad.loopexit, %.loopexit643 ], [ %lpad.loopexit648, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit651, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %965 = getelementptr inbounds nuw i8, ptr %23, i64 256

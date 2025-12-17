@@ -296,7 +296,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   br label %throwOutOfMemoryError.exit
 
 throwOutOfMemoryError.exit:                       ; preds = %20, %15, %.loopexit, %65, %55, %37
-  %.045 = phi ptr [ null, %37 ], [ null, %55 ], [ null, %65 ], [ %42, %.loopexit ], [ null, %15 ], [ null, %20 ]
+  %.045 = phi ptr [ %42, %.loopexit ], [ null, %37 ], [ null, %55 ], [ null, %65 ], [ null, %15 ], [ null, %20 ]
   ret ptr %.045
 }
 
@@ -423,7 +423,7 @@ handleRV.exit21:                                  ; preds = %45
   br label %throwOutOfMemoryError.exit
 
 throwOutOfMemoryError.exit:                       ; preds = %26, %20, %14, %8, %40, %35, %handleRV.exit, %handleRV.exit21, %72
-  %.0 = phi ptr [ null, %72 ], [ %73, %handleRV.exit21 ], [ null, %handleRV.exit ], [ null, %35 ], [ null, %40 ], [ null, %8 ], [ null, %14 ], [ null, %20 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %40 ], [ null, %handleRV.exit ], [ null, %72 ], [ %73, %handleRV.exit21 ], [ null, %35 ], [ null, %8 ], [ null, %14 ], [ null, %20 ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -680,7 +680,7 @@ handleRV.exit:                                    ; preds = %4
   br label %handleRV.exit.thread
 
 handleRV.exit.thread:                             ; preds = %33, %27, %21, %16, %54, %44, %handleRV.exit
-  %.0 = phi ptr [ null, %handleRV.exit ], [ null, %44 ], [ %., %54 ], [ null, %16 ], [ null, %21 ], [ null, %27 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %44 ], [ %., %54 ], [ null, %handleRV.exit ], [ null, %16 ], [ null, %21 ], [ null, %27 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -943,7 +943,7 @@ throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
   br label %.lr.ph112.preheader
 
 throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
-  %.089 = phi ptr [ null, %handleRV.exit ], [ null, %55 ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph108 ], [ null, %.lr.ph106 ], [ null, %42 ]
+  %.089 = phi ptr [ null, %60 ], [ null, %handleRV.exit ], [ null, %55 ], [ null, %.lr.ph108 ], [ %103, %108 ], [ null, %.lr.ph106 ], [ null, %42 ]
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1560
   %126 = load ptr, ptr %125, align 8
@@ -965,12 +965,12 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !13
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.exit98.thread144, %throwOutOfMemoryError.exit98
-  %.089142 = phi ptr [ %.089, %throwOutOfMemoryError.exit98 ], [ %103, %throwOutOfMemoryError.exit98.thread144 ], [ %.089143, %.lr.ph112 ]
+  %.089142 = phi ptr [ %103, %throwOutOfMemoryError.exit98.thread144 ], [ %.089, %throwOutOfMemoryError.exit98 ], [ %.089143, %.lr.ph112 ]
   call void @free(ptr noundef %13) #7
   br label %throwOutOfMemoryError.exit
 
 throwOutOfMemoryError.exit:                       ; preds = %21, %17, %._crit_edge113, %31
-  %.0 = phi ptr [ null, %31 ], [ %.089142, %._crit_edge113 ], [ null, %17 ], [ null, %21 ]
+  %.0 = phi ptr [ %.089142, %._crit_edge113 ], [ null, %31 ], [ null, %17 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -1152,7 +1152,7 @@ handleRV.exit:                                    ; preds = %17
   br label %handleRV.exit.thread
 
 handleRV.exit.thread:                             ; preds = %44, %38, %32, %27, %55, %handleRV.exit, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %handleRV.exit ], [ %., %55 ], [ null, %27 ], [ null, %32 ], [ null, %38 ], [ null, %44 ]
+  %.0 = phi ptr [ null, %handleRV.exit ], [ null, %5 ], [ %., %55 ], [ null, %27 ], [ null, %32 ], [ null, %38 ], [ null, %44 ]
   ret ptr %.0
 }
 

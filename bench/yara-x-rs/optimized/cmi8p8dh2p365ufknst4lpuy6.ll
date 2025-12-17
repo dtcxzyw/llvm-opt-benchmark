@@ -310,7 +310,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1a47a42356618
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6548b138a2c1fa96E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6548b138a2c1fa96E.exit": ; preds = %3, %10, %5
-  %storemerge = phi i64 [ 2, %10 ], [ 13, %5 ], [ 13, %3 ]
+  %storemerge = phi i64 [ 13, %5 ], [ 2, %10 ], [ 13, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -344,7 +344,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17hb1e304c67e650
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf841dbceb7e43fe4E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf841dbceb7e43fe4E.exit": ; preds = %3, %10, %5
-  %storemerge = phi i64 [ 10, %10 ], [ 13, %5 ], [ 13, %3 ]
+  %storemerge = phi i64 [ 13, %5 ], [ 10, %10 ], [ 13, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -707,7 +707,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 86:                                               ; preds = %47, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2f13204a6fe38682E.exit6.i.i", %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %47 ], [ %.pn.pn.pn.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2f13204a6fe38682E.exit6.i.i" ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2f13204a6fe38682E.exit6.i.i" ], [ %.pn.pn.pn.i.i, %47 ], [ %lpad.loopexit.i, %.loopexit.i ]
   store i64 %.sroa.7.039.i, ptr %27, align 8, !noalias !45
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$yara_x_proto..yara..AclEntry$GT$$GT$17h6ddba88bdb0ae988E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #18
           to label %87 unwind label %84, !noalias !45

@@ -278,7 +278,7 @@ _ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit: ; preds = %if.end20, %cond.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit, %if.end9, %_ZNK4node11Environment16can_call_into_jsEv.exit
-  %retval.sroa.0.0 = phi i16 [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 0, %if.end9 ], [ %spec.select, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ]
+  %retval.sroa.0.0 = phi i16 [ 0, %if.end9 ], [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ %spec.select, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i20) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   %19 = load ptr, ptr %trace_event_unique_tracer34, align 8
@@ -398,7 +398,7 @@ cond.false.i14:                                   ; preds = %if.end30
   br label %cleanup
 
 cleanup:                                          ; preds = %cond.false.i14, %if.end30, %entry, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit, %_ZNK4node11Environment16can_call_into_jsEv.exit
-  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 0, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ], [ 0, %entry ], [ %14, %cond.false.i14 ], [ 1, %if.end30 ]
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 0, %entry ], [ 0, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ], [ %14, %cond.false.i14 ], [ 1, %if.end30 ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret i64 %retval.sroa.0.0
@@ -541,7 +541,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %do.body3.sink.split
 
@@ -626,7 +626,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %do.body3.sink.split
 
@@ -697,7 +697,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread56
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread56: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread56: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %do.body3.sink.split
 
@@ -1158,7 +1158,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %return
@@ -1220,7 +1220,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %return
@@ -1301,7 +1301,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %cmp12.not.i.i.i = icmp eq ptr %6, %5
   br i1 %cmp12.not.i.i.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread11
 
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread11: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
+_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread11: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %do.body8.sink.split
 
@@ -1341,7 +1341,7 @@ if.then.i:                                        ; preds = %if.then11
   br label %if.end13
 
 if.end13:                                         ; preds = %do.end9, %if.then.i, %if.then11
-  %trigger_async_id.addr.0 = phi double [ %12, %if.then.i ], [ %11, %if.then11 ], [ %trigger_async_id, %do.end9 ]
+  %trigger_async_id.addr.0 = phi double [ %11, %if.then11 ], [ %12, %if.then.i ], [ %trigger_async_id, %do.end9 ]
   %buffer_.i.i.i7 = getelementptr inbounds nuw i8, ptr %9, i64 1032
   %arrayidx.i.i.i8 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load double, ptr %arrayidx.i.i.i8, align 8
@@ -1398,7 +1398,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i: ; preds = %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
-  %retval.0.i.i = phi ptr [ %9, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %9, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %if.end.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
 

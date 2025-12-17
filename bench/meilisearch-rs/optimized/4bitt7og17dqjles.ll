@@ -1450,7 +1450,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br i1 %trunc1, label %9, label %8
 
 8:                                                ; preds = %7, %5, %9
-  %.sroa.0.0 = phi i1 [ %14, %9 ], [ %6, %5 ], [ false, %7 ]
+  %.sroa.0.0 = phi i1 [ %6, %5 ], [ %14, %9 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %7
@@ -2430,7 +2430,7 @@ common.resume.sink.split:                         ; preds = %207, %242
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %228, %187
-  %common.resume.op = phi { ptr, i32 } [ %188, %187 ], [ %229, %228 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %229, %228 ], [ %188, %187 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 207:                                              ; preds = %205, %200, %198

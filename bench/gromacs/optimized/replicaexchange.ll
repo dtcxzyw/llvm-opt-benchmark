@@ -1167,7 +1167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %345, 
   ret ptr %48
 
 511:                                              ; preds = %114, %134, %144, %233, %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %45, %39, %32, %24
-  %.pn188 = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %46, %45 ], [ %40, %39 ], [ %115, %114 ], [ %135, %134 ], [ %145, %144 ], [ %234, %233 ], [ %244, %243 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn188 = phi { ptr, i32 } [ %25, %24 ], [ %33, %32 ], [ %40, %39 ], [ %46, %45 ], [ %115, %114 ], [ %135, %134 ], [ %145, %144 ], [ %234, %233 ], [ %244, %243 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn188
 }
 
@@ -1371,7 +1371,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph31, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.lr.ph31, %4, %22, %._crit_edge
-  %.022.lcssa39 = phi i1 [ true, %22 ], [ false, %._crit_edge ], [ false, %4 ], [ true, %.lr.ph31 ]
+  %.022.lcssa39 = phi i1 [ false, %._crit_edge ], [ true, %22 ], [ false, %4 ], [ true, %.lr.ph31 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull %7)
   ret i1 %.022.lcssa39
 }
@@ -2082,8 +2082,8 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.i:   ; preds = %28
   br label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %.sink.split.i284.i, %512, %.sink.split.i.i, %391
-  %.sink471.i = phi ptr [ %505, %.sink.split.i284.i ], [ %505, %512 ], [ %384, %.sink.split.i.i ], [ %384, %391 ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn.pn23.ph.i285.i, %.sink.split.i284.i ], [ %513, %512 ], [ %.pn.pn23.ph.i.i, %.sink.split.i.i ], [ %392, %391 ]
+  %.sink471.i = phi ptr [ %505, %512 ], [ %505, %.sink.split.i284.i ], [ %384, %.sink.split.i.i ], [ %384, %391 ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %513, %512 ], [ %.pn.pn23.ph.i285.i, %.sink.split.i284.i ], [ %.pn.pn23.ph.i.i, %.sink.split.i.i ], [ %392, %391 ]
   call void @__cxa_free_exception(ptr %.sink471.i) #22
   br label %common.resume.i
 
@@ -3941,13 +3941,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   ret void
 
 .sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
+  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn39.pn50.ph, %.sink.split ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #22
   br label %37
 
 37:                                               ; preds = %.sink.split63, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %19, %18 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

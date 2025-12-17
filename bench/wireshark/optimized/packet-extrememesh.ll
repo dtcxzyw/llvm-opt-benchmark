@@ -1318,16 +1318,16 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   br label %.backedge.sink.split.i65
 
 .backedge.sink.split.i65:                         ; preds = %126, %119, %114, %102
-  %hf_extrememesh_ps_breq_old_mpr.sink.i = phi ptr [ @hf_extrememesh_ps_breq_orig_pri, %114 ], [ @hf_extrememesh_ps_breq_vlan_id, %119 ], [ @hf_extrememesh_ps_breq_seq, %126 ], [ @hf_extrememesh_ps_breq_old_mpr, %102 ]
-  %.sink23.i = phi i32 [ 1, %114 ], [ 2, %119 ], [ 4, %126 ], [ 6, %102 ]
-  %.sink.i66 = phi i32 [ 3, %114 ], [ 4, %119 ], [ 6, %126 ], [ 8, %102 ]
+  %hf_extrememesh_ps_breq_old_mpr.sink.i = phi ptr [ @hf_extrememesh_ps_breq_seq, %126 ], [ @hf_extrememesh_ps_breq_orig_pri, %114 ], [ @hf_extrememesh_ps_breq_vlan_id, %119 ], [ @hf_extrememesh_ps_breq_old_mpr, %102 ]
+  %.sink23.i = phi i32 [ 4, %126 ], [ 1, %114 ], [ 2, %119 ], [ 6, %102 ]
+  %.sink.i66 = phi i32 [ 6, %126 ], [ 3, %114 ], [ 4, %119 ], [ 8, %102 ]
   %127 = load i32, ptr %hf_extrememesh_ps_breq_old_mpr.sink.i, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %106, i32 noundef %.sink23.i, i32 noundef 0)
   %129 = add i32 %.sink.i66, %.0799.i
   br label %.backedge.i67
 
 .backedge.i67:                                    ; preds = %.preheader3.i, %.lr.ph.i68, %.preheader.i, %.backedge.sink.split.i65, %120, %108, %.preheader1.i, %102, %.lr.ph10.i
-  %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %108 ], [ %106, %102 ], [ %106, %120 ], [ %106, %.preheader1.i ], [ %129, %.backedge.sink.split.i65 ], [ %112, %.preheader.i ], [ %118, %.lr.ph.i68 ], [ %124, %.preheader3.i ]
+  %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %108 ], [ %106, %.preheader1.i ], [ %106, %102 ], [ %106, %120 ], [ %129, %.backedge.sink.split.i65 ], [ %118, %.lr.ph.i68 ], [ %112, %.preheader.i ], [ %124, %.preheader3.i ]
   %130 = call i32 @tvb_captured_length(ptr noundef %0)
   %131 = icmp ugt i32 %130, %.079.be.i
   br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !30
@@ -1453,9 +1453,9 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   br label %.backedge.sink.split.i74
 
 .backedge.sink.split.i74:                         ; preds = %195, %194, %182
-  %hf_extrememesh_ps_bann_old_root.sink.i = phi ptr [ @hf_extrememesh_ps_bann_vlan_id, %194 ], [ @hf_extrememesh_ps_bann_seq, %195 ], [ @hf_extrememesh_ps_bann_old_root, %182 ]
-  %.sink5.i = phi i32 [ 2, %194 ], [ 4, %195 ], [ 6, %182 ]
-  %.sink.i75 = phi i32 [ 4, %194 ], [ 6, %195 ], [ 8, %182 ]
+  %hf_extrememesh_ps_bann_old_root.sink.i = phi ptr [ @hf_extrememesh_ps_bann_seq, %195 ], [ @hf_extrememesh_ps_bann_vlan_id, %194 ], [ @hf_extrememesh_ps_bann_old_root, %182 ]
+  %.sink5.i = phi i32 [ 4, %195 ], [ 2, %194 ], [ 6, %182 ]
+  %.sink.i75 = phi i32 [ 6, %195 ], [ 4, %194 ], [ 8, %182 ]
   %196 = load i32, ptr %hf_extrememesh_ps_bann_old_root.sink.i, align 4
   %197 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %196, ptr noundef %0, i32 noundef %186, i32 noundef %.sink5.i, i32 noundef 0)
   %198 = add i32 %.sink.i75, %.0571.i

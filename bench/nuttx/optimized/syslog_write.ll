@@ -118,7 +118,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %syslog_default_write.exit, !llvm.loop !8
 
 syslog_default_write.exit:                        ; preds = %.preheader43.split.us.i, %..loopexit44.split.us_crit_edge.i, %.preheader43.split.i, %.split.us.i, %..loopexit40.split.us_crit_edge.i, %.split.i, %.lr.ph58.i, %39, %.lr.ph.i, %44
-  %.3.i = phi i64 [ %split63.i, %..loopexit40.split.us_crit_edge.i ], [ 0, %.split.us.i ], [ 0, %.split.i ], [ %40, %39 ], [ 0, %.lr.ph58.i ], [ %split50.i, %..loopexit44.split.us_crit_edge.i ], [ 0, %.preheader43.split.us.i ], [ 0, %.preheader43.split.i ], [ %45, %44 ], [ 0, %.lr.ph.i ]
+  %.3.i = phi i64 [ 0, %.lr.ph58.i ], [ %split63.i, %..loopexit40.split.us_crit_edge.i ], [ 0, %.split.us.i ], [ 0, %.split.i ], [ %40, %39 ], [ %split50.i, %..loopexit44.split.us_crit_edge.i ], [ 0, %.preheader43.split.us.i ], [ 0, %.preheader43.split.i ], [ %45, %44 ], [ 0, %.lr.ph.i ]
   ret i64 %.3.i
 }
 

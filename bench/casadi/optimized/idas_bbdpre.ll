@@ -569,7 +569,7 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
   br i1 %exitcond.not.i, label %.loopexit, label %61, !llvm.loop !59
 
 IBBDDQJac.exit:                                   ; preds = %._crit_edge.i, %33, %39
-  %.0.i = phi i32 [ %38, %33 ], [ %46, %39 ], [ %135, %._crit_edge.i ]
+  %.0.i = phi i32 [ %46, %39 ], [ %38, %33 ], [ %135, %._crit_edge.i ]
   %230 = icmp slt i32 %.0.i, 0
   br i1 %230, label %231, label %237
 
@@ -817,7 +817,7 @@ define i32 @IDABBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
   br label %40
 
 40:                                               ; preds = %._crit_edge, %36, %35, %23, %17, %12
-  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ -4, %35 ], [ 0, %36 ], [ %31, %._crit_edge ]
+  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ 0, %36 ], [ -4, %35 ], [ %31, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -915,7 +915,7 @@ define internal i32 @IDAAgcomm(i64 noundef %0, double noundef %1, ptr noundef %2
   br label %37
 
 37:                                               ; preds = %5, %28, %27
-  %.0 = phi i32 [ -1, %27 ], [ %36, %28 ], [ 0, %5 ]
+  %.0 = phi i32 [ %36, %28 ], [ -1, %27 ], [ 0, %5 ]
   ret i32 %.0
 }
 

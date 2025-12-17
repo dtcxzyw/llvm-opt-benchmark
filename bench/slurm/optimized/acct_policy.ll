@@ -527,8 +527,8 @@ define internal fastcc void @_adjust_limit_usage(i32 noundef range(i32 0, 4) %0,
   br label %_set_highest_prio_qos_ptr.exit.thread257
 
 _set_highest_prio_qos_ptr.exit.thread257:         ; preds = %55, %71, %79, %._crit_edge, %146, %117
-  %147 = phi i1 [ false, %._crit_edge ], [ false, %146 ], [ false, %117 ], [ %58, %79 ], [ %58, %71 ], [ %57, %55 ]
-  %.0177249259 = phi ptr [ null, %._crit_edge ], [ null, %146 ], [ null, %117 ], [ %60, %79 ], [ %60, %71 ], [ null, %55 ]
+  %147 = phi i1 [ %57, %55 ], [ false, %._crit_edge ], [ false, %146 ], [ false, %117 ], [ %58, %79 ], [ %58, %71 ]
+  %.0177249259 = phi ptr [ null, %55 ], [ null, %._crit_edge ], [ null, %146 ], [ null, %117 ], [ %60, %79 ], [ %60, %71 ]
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %149 = load ptr, ptr %148, align 8
   %.not.i236 = icmp eq ptr %149, null
@@ -566,8 +566,8 @@ _set_highest_prio_qos_ptr.exit.thread257:         ; preds = %55, %71, %79, %._cr
   br label %acct_policy_set_qos_order.exit
 
 acct_policy_set_qos_order.exit:                   ; preds = %163, %152, %153, %156, %162
-  %.1242 = phi ptr [ null, %162 ], [ %spec.select260, %156 ], [ %149, %153 ], [ %149, %152 ], [ %165, %163 ]
-  %.0240 = phi ptr [ null, %162 ], [ %spec.store.select.i, %156 ], [ null, %153 ], [ null, %152 ], [ null, %163 ]
+  %.1242 = phi ptr [ null, %162 ], [ %165, %163 ], [ %149, %152 ], [ %spec.select260, %156 ], [ %149, %153 ]
+  %.0240 = phi ptr [ null, %162 ], [ null, %163 ], [ null, %152 ], [ %spec.store.select.i, %156 ], [ null, %153 ]
   call fastcc void @_qos_adjust_limit_usage(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %.1242, ptr noundef %8, i32 noundef %.0182)
   call fastcc void @_qos_adjust_limit_usage(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %.0240, ptr noundef %8, i32 noundef %.0182)
   br label %166
@@ -1091,8 +1091,8 @@ define dso_local void @acct_policy_alter_job(ptr noundef %0, i32 noundef %1) loc
   br label %acct_policy_set_qos_order.exit
 
 acct_policy_set_qos_order.exit:                   ; preds = %76, %65, %66, %69, %75
-  %.171 = phi ptr [ null, %75 ], [ %spec.select, %69 ], [ %62, %66 ], [ %62, %65 ], [ %78, %76 ]
-  %.069 = phi ptr [ null, %75 ], [ %spec.store.select.i, %69 ], [ null, %66 ], [ null, %65 ], [ null, %76 ]
+  %.171 = phi ptr [ null, %75 ], [ %78, %76 ], [ %62, %65 ], [ %spec.select, %69 ], [ %62, %66 ]
+  %.069 = phi ptr [ null, %75 ], [ null, %76 ], [ null, %65 ], [ %spec.store.select.i, %69 ], [ null, %66 ]
   call fastcc void @_qos_alter_job(ptr noundef nonnull %0, ptr noundef %.171, ptr noundef %7, ptr noundef %10)
   call fastcc void @_qos_alter_job(ptr noundef nonnull %0, ptr noundef %.069, ptr noundef %7, ptr noundef %10)
   %.0.in78 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1272,7 +1272,7 @@ define internal fastcc noundef zeroext i1 @_valid_job_assoc(ptr noundef %0) unna
   br label %44
 
 44:                                               ; preds = %11, %40, %35, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %35 ], [ true, %40 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %35 ], [ false, %38 ], [ true, %40 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
@@ -1532,8 +1532,8 @@ define dso_local zeroext i1 @acct_policy_validate(ptr noundef %0, ptr noundef re
   br label %_list_acct_policy_validate.exit
 
 _list_acct_policy_validate.exit:                  ; preds = %19, %20, %23, %28, %29
-  %.018.i = phi ptr [ null, %28 ], [ %spec.store.select.i.i, %23 ], [ null, %20 ], [ null, %19 ], [ null, %29 ]
-  %.1.i = phi ptr [ null, %28 ], [ %spec.select.i, %23 ], [ %4, %20 ], [ %4, %19 ], [ %31, %29 ]
+  %.018.i = phi ptr [ null, %28 ], [ null, %29 ], [ null, %19 ], [ %spec.store.select.i.i, %23 ], [ null, %20 ]
+  %.1.i = phi ptr [ null, %28 ], [ %31, %29 ], [ %4, %19 ], [ %spec.select.i, %23 ], [ %4, %20 ]
   %32 = call fastcc zeroext i1 @_acct_policy_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %3, ptr noundef %.1.i, ptr noundef %.018.i, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7)
   br label %36
 
@@ -1587,8 +1587,8 @@ define internal noundef range(i32 -1, 2) i32 @_list_acct_policy_validate(ptr nou
   br label %acct_policy_set_qos_order.exit
 
 acct_policy_set_qos_order.exit:                   ; preds = %15, %5, %6, %9, %14
-  %.018 = phi ptr [ null, %14 ], [ %spec.store.select.i, %9 ], [ null, %6 ], [ null, %5 ], [ null, %15 ]
-  %.1 = phi ptr [ null, %14 ], [ %spec.select, %9 ], [ %4, %6 ], [ %4, %5 ], [ %17, %15 ]
+  %.018 = phi ptr [ null, %14 ], [ null, %15 ], [ null, %5 ], [ %spec.store.select.i, %9 ], [ null, %6 ]
+  %.1 = phi ptr [ null, %14 ], [ %17, %15 ], [ %4, %5 ], [ %spec.select, %9 ], [ %4, %6 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2268,7 +2268,7 @@ _set_time_limit.exit141:                          ; preds = %191, %187
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %acct_policy_set_qos_order.exit.thread167, %211, %215, %163, %167, %143, %147, %130, %134, %78, %82, %43, %41
-  %.1 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %82 ], [ false, %78 ], [ false, %134 ], [ false, %130 ], [ false, %147 ], [ false, %143 ], [ false, %167 ], [ false, %163 ], [ false, %215 ], [ false, %211 ], [ true, %acct_policy_set_qos_order.exit.thread167 ], [ true, %.backedge ]
+  %.1 = phi i1 [ false, %41 ], [ false, %78 ], [ false, %130 ], [ false, %143 ], [ false, %163 ], [ false, %43 ], [ false, %82 ], [ false, %134 ], [ false, %147 ], [ false, %167 ], [ false, %215 ], [ false, %211 ], [ true, %acct_policy_set_qos_order.exit.thread167 ], [ true, %.backedge ]
   br i1 %1, label %218, label %217
 
 217:                                              ; preds = %.loopexit
@@ -2280,7 +2280,7 @@ _set_time_limit.exit141:                          ; preds = %191, %187
   br label %219
 
 219:                                              ; preds = %11, %2, %218, %8
-  %.096 = phi i1 [ %.1, %218 ], [ false, %8 ], [ true, %2 ], [ true, %11 ]
+  %.096 = phi i1 [ %.1, %218 ], [ true, %2 ], [ false, %8 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.096
@@ -2653,7 +2653,7 @@ _set_time_limit.exit143:                          ; preds = %174, %169, %163
   br label %202
 
 202:                                              ; preds = %192, %160, %156, %154, %40, %35, %93, %88, %106, %101, %126, %121, %149, %144, %200, %195, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %192 ], [ 1, %160 ], [ 1, %156 ], [ 1, %154 ], [ 0, %40 ], [ 0, %35 ], [ 0, %93 ], [ 0, %88 ], [ 0, %106 ], [ 0, %101 ], [ 0, %126 ], [ 0, %121 ], [ 0, %149 ], [ 0, %144 ], [ 0, %200 ], [ 0, %195 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %154 ], [ 0, %35 ], [ 0, %88 ], [ 0, %101 ], [ 0, %121 ], [ 0, %144 ], [ 1, %192 ], [ 1, %160 ], [ 1, %156 ], [ 0, %40 ], [ 0, %93 ], [ 0, %106 ], [ 0, %126 ], [ 0, %149 ], [ 0, %200 ], [ 0, %195 ]
   ret i32 %.0
 }
 
@@ -2858,7 +2858,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %83
   br label %.thread289
 
 .thread289:                                       ; preds = %87, %80, %79, %92, %97
-  %.0164 = phi double [ %94, %97 ], [ -1.000000e+00, %92 ], [ %.mux, %87 ], [ -1.000000e+00, %79 ], [ -1.000000e+00, %80 ]
+  %.0164 = phi double [ -1.000000e+00, %92 ], [ %94, %97 ], [ -1.000000e+00, %80 ], [ %.mux, %87 ], [ -1.000000e+00, %79 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.0171404 = load ptr, ptr %98, align 8
   %.not192405 = icmp eq ptr %.0171404, null
@@ -2962,7 +2962,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %83
   br label %157
 
 157:                                              ; preds = %156, %155, %154, %153
-  %storemerge.i196 = phi i64 [ -1, %154 ], [ -1, %153 ], [ %149, %156 ], [ %149, %155 ]
+  %storemerge.i196 = phi i64 [ -1, %153 ], [ -1, %154 ], [ %149, %156 ], [ %149, %155 ]
   store i64 %storemerge.i196, ptr %140, align 8
   br label %158
 
@@ -2994,7 +2994,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %83
   br label %170
 
 170:                                              ; preds = %169, %168, %167, %166
-  %storemerge.i198 = phi i64 [ -1, %167 ], [ -1, %166 ], [ %162, %169 ], [ %162, %168 ]
+  %storemerge.i198 = phi i64 [ -1, %166 ], [ -1, %167 ], [ %162, %169 ], [ %162, %168 ]
   store i64 %storemerge.i198, ptr %144, align 8
   br label %_apply_limit_factor.exit199
 
@@ -3065,7 +3065,7 @@ switch.lookup:                                    ; preds = %179
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %199, %192, %184
-  %.0.i = phi i32 [ 100, %184 ], [ 106, %192 ], [ %spec.select306, %199 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select306, %199 ], [ 100, %184 ], [ 106, %192 ]
   store i32 %.0.i, ptr %23, align 8
   %207 = call i32 @get_log_level() #15
   %208 = icmp sgt i32 %207, 5
@@ -3139,7 +3139,7 @@ switch.lookup606:                                 ; preds = %227
   br label %_get_tres_state_reason.exit206
 
 _get_tres_state_reason.exit206:                   ; preds = %switch.lookup606, %247, %240, %232
-  %.0.i202 = phi i32 [ 100, %232 ], [ 106, %240 ], [ %spec.select307, %247 ], [ %switch.load608, %switch.lookup606 ]
+  %.0.i202 = phi i32 [ %switch.load608, %switch.lookup606 ], [ 100, %232 ], [ %spec.select307, %247 ], [ 106, %240 ]
   store i32 %.0.i202, ptr %23, align 8
   %255 = call i32 @get_log_level() #15
   %256 = icmp sgt i32 %255, 5
@@ -3213,7 +3213,7 @@ switch.lookup609:                                 ; preds = %275
   br label %_get_tres_state_reason.exit211
 
 _get_tres_state_reason.exit211:                   ; preds = %switch.lookup609, %295, %288, %280
-  %.0.i207 = phi i32 [ 100, %280 ], [ 106, %288 ], [ %spec.select308, %295 ], [ %switch.load611, %switch.lookup609 ]
+  %.0.i207 = phi i32 [ 100, %280 ], [ %spec.select308, %295 ], [ %switch.load611, %switch.lookup609 ], [ 106, %288 ]
   store i32 %.0.i207, ptr %23, align 8
   %303 = call i32 @get_log_level() #15
   %304 = icmp sgt i32 %303, 5
@@ -3786,7 +3786,7 @@ _validate_tres_limits_for_assoc.exit227:          ; preds = %606, %588
   br label %.backedge
 
 .loopexit314:                                     ; preds = %.backedge, %.thread289, %_validate_tres_limits_for_assoc.exit227, %614, %_validate_tres_limits_for_assoc.exit218, %558, %_validate_tres_limits_for_assoc.exit, %517, %463, %469, %_validate_tres_usage_limits.exit247, %444, %390, %396, %367, %373, %_get_tres_state_reason.exit211, %305, %_get_tres_state_reason.exit206, %257, %_get_tres_state_reason.exit, %209, %85, %83
-  %.1169 = phi i1 [ false, %85 ], [ false, %83 ], [ false, %209 ], [ false, %_get_tres_state_reason.exit ], [ false, %257 ], [ false, %_get_tres_state_reason.exit206 ], [ false, %305 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %373 ], [ false, %367 ], [ false, %396 ], [ false, %390 ], [ false, %444 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %469 ], [ false, %463 ], [ false, %517 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %558 ], [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %614 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ true, %.thread289 ], [ true, %.backedge ]
+  %.1169 = phi i1 [ false, %_validate_tres_limits_for_assoc.exit218 ], [ false, %_validate_tres_limits_for_assoc.exit ], [ false, %463 ], [ false, %_validate_tres_usage_limits.exit247 ], [ false, %390 ], [ false, %367 ], [ false, %_get_tres_state_reason.exit211 ], [ false, %83 ], [ false, %_get_tres_state_reason.exit ], [ false, %_get_tres_state_reason.exit206 ], [ false, %85 ], [ false, %209 ], [ false, %257 ], [ false, %305 ], [ false, %373 ], [ false, %396 ], [ false, %444 ], [ false, %469 ], [ false, %517 ], [ false, %558 ], [ false, %614 ], [ false, %_validate_tres_limits_for_assoc.exit227 ], [ true, %.thread289 ], [ true, %.backedge ]
   br i1 %2, label %634, label %633
 
 633:                                              ; preds = %.loopexit314
@@ -3982,7 +3982,7 @@ switch.lookup:                                    ; preds = %86
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %105, %98, %90
-  %.0.i = phi i32 [ 145, %90 ], [ 153, %98 ], [ %spec.select, %105 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ 153, %98 ], [ %switch.load, %switch.lookup ], [ %spec.select, %105 ], [ 145, %90 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i, ptr %113, align 8
   %114 = call i32 @get_log_level() #15
@@ -4050,7 +4050,7 @@ switch.lookup444:                                 ; preds = %128
   br label %_get_tres_state_reason.exit255
 
 _get_tres_state_reason.exit255:                   ; preds = %switch.lookup444, %147, %140, %132
-  %.0.i251 = phi i32 [ 145, %132 ], [ 153, %140 ], [ %spec.select323, %147 ], [ %switch.load446, %switch.lookup444 ]
+  %.0.i251 = phi i32 [ %spec.select323, %147 ], [ %switch.load446, %switch.lookup444 ], [ 153, %140 ], [ 145, %132 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i251, ptr %155, align 8
   %156 = call i32 @get_log_level() #15
@@ -4118,7 +4118,7 @@ switch.lookup447:                                 ; preds = %170
   br label %_get_tres_state_reason.exit260
 
 _get_tres_state_reason.exit260:                   ; preds = %switch.lookup447, %189, %182, %174
-  %.0.i256 = phi i32 [ 145, %174 ], [ 153, %182 ], [ %spec.select324, %189 ], [ %switch.load449, %switch.lookup447 ]
+  %.0.i256 = phi i32 [ 145, %174 ], [ %switch.load449, %switch.lookup447 ], [ 153, %182 ], [ %spec.select324, %189 ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i256, ptr %197, align 8
   %198 = call i32 @get_log_level() #15
@@ -4216,7 +4216,7 @@ default.unreachable:                              ; preds = %._crit_edge
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %249, %.thread.i
-  %.pre122.i = phi i64 [ %.pre122.i.pre, %249 ], [ %247, %.thread.i ]
+  %.pre122.i = phi i64 [ %247, %.thread.i ], [ %.pre122.i.pre, %249 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv118.i
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %250 = icmp ugt i64 %.pre.i, %.pre122.i
@@ -4287,7 +4287,7 @@ switch.lookup450:                                 ; preds = %261
   br label %_get_tres_state_reason.exit265
 
 _get_tres_state_reason.exit265:                   ; preds = %switch.lookup450, %279, %272, %264
-  %.0.i261 = phi i32 [ 144, %264 ], [ 152, %272 ], [ %spec.select325, %279 ], [ %switch.load452, %switch.lookup450 ]
+  %.0.i261 = phi i32 [ %spec.select325, %279 ], [ 144, %264 ], [ %switch.load452, %switch.lookup450 ], [ 152, %272 ]
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i261, ptr %286, align 8
   %287 = call i32 @get_log_level() #15
@@ -4356,7 +4356,7 @@ switch.lookup453:                                 ; preds = %301
   br label %_get_tres_state_reason.exit270
 
 _get_tres_state_reason.exit270:                   ; preds = %switch.lookup453, %319, %312, %304
-  %.0.i266 = phi i32 [ 144, %304 ], [ 152, %312 ], [ %spec.select326, %319 ], [ %switch.load455, %switch.lookup453 ]
+  %.0.i266 = phi i32 [ 152, %312 ], [ %switch.load455, %switch.lookup453 ], [ %spec.select326, %319 ], [ 144, %304 ]
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i266, ptr %326, align 8
   %327 = call i32 @get_log_level() #15
@@ -5101,7 +5101,7 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %560
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.101, ptr noundef nonnull %0, ptr noundef %776, ptr noundef %780, i64 noundef %783, i64 noundef %785, i64 noundef %787) #15
   br label %788
 
-788:                                              ; preds = %116, %_get_tres_state_reason.exit, %158, %_get_tres_state_reason.exit255, %200, %_get_tres_state_reason.exit260, %289, %_get_tres_state_reason.exit265, %329, %_get_tres_state_reason.exit270, %387, %_validate_tres_usage_limits.exit304, %405, %.split.us, %452, %_validate_tres_limits_for_qos.exit, %496, %_validate_tres_limits_for_qos.exit279, %531, %528, %574, %_validate_tres_limits_for_qos.exit283, %606, %599, %627, %620, %662, %655, %681, %674, %709, %702, %728, %721, %755, %748, %774, %767
+788:                                              ; preds = %748, %721, %702, %674, %655, %620, %599, %_validate_tres_limits_for_qos.exit283, %528, %_validate_tres_limits_for_qos.exit279, %_validate_tres_limits_for_qos.exit, %.split.us, %_validate_tres_usage_limits.exit304, %_get_tres_state_reason.exit270, %_get_tres_state_reason.exit265, %_get_tres_state_reason.exit260, %_get_tres_state_reason.exit255, %_get_tres_state_reason.exit, %116, %158, %200, %289, %329, %387, %405, %452, %496, %531, %574, %606, %627, %662, %681, %709, %728, %755, %774, %767
   %789 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %1, ptr %789, align 8
   br label %790
@@ -5722,7 +5722,7 @@ define internal fastcc range(i32 40, 219) i32 @_get_tres_state_reason(i32 nounde
   br label %165
 
 165:                                              ; preds = %140, %147, %124, %99, %73, %57, %39, %21, %3, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ %1, %164 ], [ 111, %148 ], [ 112, %149 ], [ 113, %150 ], [ 115, %151 ], [ 114, %152 ], [ 159, %153 ], [ 160, %154 ], [ 161, %155 ], [ 162, %156 ], [ 163, %157 ], [ 168, %158 ], [ 164, %159 ], [ 165, %160 ], [ 201, %161 ], [ 210, %162 ], [ 166, %163 ], [ %1, %139 ], [ 106, %125 ], [ 107, %126 ], [ 108, %127 ], [ 109, %128 ], [ 152, %129 ], [ 153, %130 ], [ 154, %131 ], [ 155, %132 ], [ 173, %133 ], [ 156, %134 ], [ 157, %135 ], [ 207, %136 ], [ 216, %137 ], [ 158, %138 ], [ %1, %116 ], [ 100, %100 ], [ 101, %101 ], [ 102, %102 ], [ 104, %103 ], [ 103, %104 ], [ 144, %105 ], [ 145, %106 ], [ 146, %107 ], [ 147, %108 ], [ 148, %109 ], [ 171, %110 ], [ 149, %111 ], [ 150, %112 ], [ 205, %113 ], [ 214, %114 ], [ 151, %115 ], [ %1, %20 ], [ 58, %4 ], [ 59, %5 ], [ 66, %6 ], [ 67, %7 ], [ 84, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 48, %12 ], [ 124, %13 ], [ 169, %14 ], [ 52, %15 ], [ 49, %16 ], [ 203, %17 ], [ 212, %18 ], [ 56, %19 ], [ %1, %38 ], [ 85, %22 ], [ 86, %23 ], [ 87, %24 ], [ 89, %25 ], [ 88, %26 ], [ 44, %27 ], [ 125, %28 ], [ 126, %29 ], [ 128, %30 ], [ 129, %31 ], [ 174, %32 ], [ 130, %33 ], [ 127, %34 ], [ 208, %35 ], [ 217, %36 ], [ 131, %37 ], [ %1, %56 ], [ 94, %40 ], [ 95, %41 ], [ 96, %42 ], [ 98, %43 ], [ 97, %44 ], [ 132, %45 ], [ 133, %46 ], [ 134, %47 ], [ 135, %48 ], [ 136, %49 ], [ 170, %50 ], [ 137, %51 ], [ 138, %52 ], [ 204, %53 ], [ 213, %54 ], [ 139, %55 ], [ %1, %72 ], [ 90, %58 ], [ 91, %59 ], [ 68, %60 ], [ 92, %61 ], [ 45, %62 ], [ 140, %63 ], [ 141, %64 ], [ 50, %65 ], [ 172, %66 ], [ 54, %67 ], [ 142, %68 ], [ 206, %69 ], [ 215, %70 ], [ 143, %71 ], [ %1, %90 ], [ 184, %74 ], [ 185, %75 ], [ 186, %76 ], [ 188, %77 ], [ 187, %78 ], [ 189, %79 ], [ 190, %80 ], [ 191, %81 ], [ 192, %82 ], [ 193, %83 ], [ 196, %84 ], [ 194, %85 ], [ 195, %86 ], [ 202, %87 ], [ 211, %88 ], [ 197, %89 ], [ 57, %3 ], [ 61, %21 ], [ 93, %39 ], [ 62, %57 ], [ 183, %73 ], [ 99, %99 ], [ 105, %124 ], [ 110, %147 ], [ %1, %140 ]
+  %.0 = phi i32 [ 110, %147 ], [ %1, %164 ], [ 105, %124 ], [ 111, %148 ], [ 112, %149 ], [ 113, %150 ], [ 115, %151 ], [ 114, %152 ], [ 159, %153 ], [ 160, %154 ], [ 161, %155 ], [ 162, %156 ], [ 163, %157 ], [ 168, %158 ], [ 164, %159 ], [ 165, %160 ], [ 201, %161 ], [ 210, %162 ], [ 166, %163 ], [ %1, %139 ], [ 99, %99 ], [ 106, %125 ], [ 107, %126 ], [ 108, %127 ], [ 109, %128 ], [ 152, %129 ], [ 153, %130 ], [ 154, %131 ], [ 155, %132 ], [ 173, %133 ], [ 156, %134 ], [ 157, %135 ], [ 207, %136 ], [ 216, %137 ], [ 158, %138 ], [ %1, %116 ], [ 183, %73 ], [ 100, %100 ], [ 101, %101 ], [ 102, %102 ], [ 104, %103 ], [ 103, %104 ], [ 144, %105 ], [ 145, %106 ], [ 146, %107 ], [ 147, %108 ], [ 148, %109 ], [ 171, %110 ], [ 149, %111 ], [ 150, %112 ], [ 205, %113 ], [ 214, %114 ], [ 151, %115 ], [ %1, %20 ], [ 197, %89 ], [ 58, %4 ], [ 59, %5 ], [ 66, %6 ], [ 67, %7 ], [ 84, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 48, %12 ], [ 124, %13 ], [ 169, %14 ], [ 52, %15 ], [ 49, %16 ], [ 203, %17 ], [ 212, %18 ], [ 56, %19 ], [ %1, %38 ], [ 57, %3 ], [ 85, %22 ], [ 86, %23 ], [ 87, %24 ], [ 89, %25 ], [ 88, %26 ], [ 44, %27 ], [ 125, %28 ], [ 126, %29 ], [ 128, %30 ], [ 129, %31 ], [ 174, %32 ], [ 130, %33 ], [ 127, %34 ], [ 208, %35 ], [ 217, %36 ], [ 131, %37 ], [ %1, %56 ], [ 61, %21 ], [ 94, %40 ], [ 95, %41 ], [ 96, %42 ], [ 98, %43 ], [ 97, %44 ], [ 132, %45 ], [ 133, %46 ], [ 134, %47 ], [ 135, %48 ], [ 136, %49 ], [ 170, %50 ], [ 137, %51 ], [ 138, %52 ], [ 204, %53 ], [ 213, %54 ], [ 139, %55 ], [ %1, %72 ], [ 93, %39 ], [ 90, %58 ], [ 91, %59 ], [ 68, %60 ], [ 92, %61 ], [ 45, %62 ], [ 140, %63 ], [ 141, %64 ], [ 50, %65 ], [ 172, %66 ], [ 54, %67 ], [ 142, %68 ], [ 206, %69 ], [ 215, %70 ], [ 143, %71 ], [ %1, %90 ], [ 62, %57 ], [ 184, %74 ], [ 185, %75 ], [ 186, %76 ], [ 188, %77 ], [ 187, %78 ], [ 189, %79 ], [ 190, %80 ], [ 191, %81 ], [ 192, %82 ], [ 193, %83 ], [ 196, %84 ], [ 194, %85 ], [ 195, %86 ], [ 202, %87 ], [ 211, %88 ], [ %1, %140 ]
   ret i32 %.0
 }
 
@@ -5962,7 +5962,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
   br i1 %89, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %83, %86, %60, %65, %41, %45, %22, %26, %8
-  %.028 = phi i1 [ true, %8 ], [ false, %22 ], [ true, %26 ], [ false, %41 ], [ true, %45 ], [ false, %60 ], [ true, %65 ], [ false, %83 ], [ true, %86 ]
+  %.028 = phi i1 [ true, %8 ], [ true, %65 ], [ false, %41 ], [ false, %22 ], [ true, %26 ], [ true, %45 ], [ false, %60 ], [ false, %83 ], [ true, %86 ]
   ret i1 %.028
 }
 
@@ -6018,8 +6018,8 @@ define dso_local i32 @acct_policy_get_max_nodes(ptr noundef readonly captures(no
   br i1 %.not28.i, label %acct_policy_set_qos_order.exit, label %select.unfold
 
 select.unfold:                                    ; preds = %17, %24, %14, %13
-  %.1115.ph = phi ptr [ %10, %13 ], [ %10, %14 ], [ %26, %24 ], [ %spec.select145, %17 ]
-  %.0113.ph = phi ptr [ null, %13 ], [ null, %14 ], [ null, %24 ], [ %spec.select216, %17 ]
+  %.1115.ph = phi ptr [ %10, %13 ], [ %10, %14 ], [ %spec.select145, %17 ], [ %26, %24 ]
+  %.0113.ph = phi ptr [ null, %13 ], [ null, %14 ], [ %spec.select216, %17 ], [ null, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1115.ph, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -6106,11 +6106,11 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %81
 
 81:                                               ; preds = %77, %75, %78, %select.unfold
-  %.162 = phi i64 [ %.263, %78 ], [ %.263, %75 ], [ %42, %select.unfold ], [ %.263, %77 ]
-  %.2 = phi double [ %80, %78 ], [ %.154, %75 ], [ %.154, %select.unfold ], [ -1.000000e+00, %77 ]
-  %.050 = phi i64 [ %.151, %78 ], [ %.151, %75 ], [ %30, %select.unfold ], [ %.151, %77 ]
-  %.048 = phi i64 [ %.149, %78 ], [ %.149, %75 ], [ %34, %select.unfold ], [ %.149, %77 ]
-  %.0 = phi i64 [ %.1, %78 ], [ %.1, %75 ], [ %38, %select.unfold ], [ %.1, %77 ]
+  %.162 = phi i64 [ %.263, %77 ], [ %.263, %78 ], [ %.263, %75 ], [ %42, %select.unfold ]
+  %.2 = phi double [ -1.000000e+00, %77 ], [ %80, %78 ], [ %.154, %75 ], [ %.154, %select.unfold ]
+  %.050 = phi i64 [ %.151, %77 ], [ %.151, %78 ], [ %.151, %75 ], [ %30, %select.unfold ]
+  %.048 = phi i64 [ %.149, %77 ], [ %.149, %78 ], [ %.149, %75 ], [ %34, %select.unfold ]
+  %.0 = phi i64 [ %.1, %77 ], [ %.1, %78 ], [ %.1, %75 ], [ %38, %select.unfold ]
   %.0.fr = freeze i64 %.0
   %.050.fr = freeze i64 %.050
   %.048.fr = freeze i64 %.048
@@ -6298,7 +6298,7 @@ _apply_limit_factor.exit96.thread.us:             ; preds = %131, %_apply_limit_
   br label %_apply_limit_factor.exit
 
 _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.split
-  %.0111 = phi i64 [ %140, %.lr.ph.split ], [ %144, %151 ], [ %144, %150 ]
+  %.0111 = phi i64 [ %144, %150 ], [ %140, %.lr.ph.split ], [ %144, %151 ]
   %152 = icmp ne i64 %.0111, -1
   %or.cond3 = select i1 %.not80122, i1 %152, i1 false
   %153 = icmp ult i64 %.0111, %.5150
@@ -6309,7 +6309,7 @@ _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.
   store i32 62, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %154, %_apply_limit_factor.exit, %149, %148
+.thread:                                          ; preds = %154, %_apply_limit_factor.exit, %148, %149
   %.156132 = phi i1 [ false, %148 ], [ false, %149 ], [ false, %_apply_limit_factor.exit ], [ true, %154 ]
   %.7130 = phi i64 [ %.5150, %148 ], [ %.5150, %149 ], [ %.5150, %_apply_limit_factor.exit ], [ %.0111, %154 ]
   %.pn.in = getelementptr inbounds nuw i8, ptr %.059151, i64 216
@@ -6343,7 +6343,7 @@ _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.
   br label %_apply_limit_factor.exit96
 
 _apply_limit_factor.exit96:                       ; preds = %165, %166, %.thread
-  %.1112 = phi i64 [ %155, %.thread ], [ %159, %166 ], [ %159, %165 ]
+  %.1112 = phi i64 [ %155, %.thread ], [ %159, %165 ], [ %159, %166 ]
   %or.cond5 = and i1 %.064, %.not155
   %167 = icmp ne i64 %.1112, -1
   %or.cond7 = select i1 %or.cond5, i1 %167, i1 false
@@ -6355,8 +6355,8 @@ _apply_limit_factor.exit96:                       ; preds = %165, %166, %.thread
   store i32 68, ptr %1, align 4
   br label %_apply_limit_factor.exit96.thread
 
-_apply_limit_factor.exit96.thread:                ; preds = %163, %164, %169, %_apply_limit_factor.exit96
-  %.8 = phi i64 [ %.1112, %169 ], [ %.7130, %_apply_limit_factor.exit96 ], [ %.7130, %164 ], [ %.7130, %163 ]
+_apply_limit_factor.exit96.thread:                ; preds = %164, %163, %169, %_apply_limit_factor.exit96
+  %.8 = phi i64 [ %.1112, %169 ], [ %.7130, %_apply_limit_factor.exit96 ], [ %.7130, %163 ], [ %.7130, %164 ]
   br i1 %.156132, label %.thread141, label %170
 
 170:                                              ; preds = %_apply_limit_factor.exit96.thread
@@ -6368,7 +6368,7 @@ _apply_limit_factor.exit96.thread:                ; preds = %163, %164, %169, %_
   br i1 %.not83, label %.thread141, label %.lr.ph.split
 
 .thread141:                                       ; preds = %_apply_limit_factor.exit.us.us.us, %_apply_limit_factor.exit96.thread.us.us, %_apply_limit_factor.exit96.us.us166, %132, %_apply_limit_factor.exit96.thread.us, %170, %_apply_limit_factor.exit96.thread, %_apply_limit_factor.exit96.us.us166.thread, %acct_policy_set_qos_order.exit
-  %.6 = phi i64 [ %.065, %acct_policy_set_qos_order.exit ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8, %170 ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.8.us, %132 ], [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
+  %.6 = phi i64 [ %.065, %acct_policy_set_qos_order.exit ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.8, %170 ], [ %.8.us, %132 ], [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #15
   %175 = trunc i64 %.6 to i32
   br label %176
@@ -6522,7 +6522,7 @@ define dso_local range(i32 -1, 1) i32 @acct_policy_update_pending_job(ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %.critedge.critedge, %70, %49, %52, %1, %9, %18
-  %.0 = phi i32 [ -1, %18 ], [ 0, %9 ], [ 0, %1 ], [ -1, %52 ], [ -1, %49 ], [ 0, %70 ], [ 0, %.critedge.critedge ], [ 0, %53 ]
+  %.0 = phi i32 [ -1, %49 ], [ 0, %1 ], [ -1, %18 ], [ 0, %9 ], [ -1, %52 ], [ 0, %53 ], [ 0, %70 ], [ 0, %.critedge.critedge ]
   call void @llvm.stackrestore.p0(ptr %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6595,8 +6595,8 @@ define dso_local zeroext i1 @acct_policy_job_time_out(ptr noundef %0) local_unna
   br label %acct_policy_set_qos_order.exit
 
 acct_policy_set_qos_order.exit:                   ; preds = %26, %15, %16, %19, %25
-  %.1113 = phi ptr [ null, %25 ], [ %spec.select, %19 ], [ %12, %16 ], [ %12, %15 ], [ %28, %26 ]
-  %.0111 = phi ptr [ null, %25 ], [ %spec.store.select.i, %19 ], [ null, %16 ], [ null, %15 ], [ null, %26 ]
+  %.1113 = phi ptr [ null, %25 ], [ %28, %26 ], [ %12, %15 ], [ %spec.select, %19 ], [ %12, %16 ]
+  %.0111 = phi ptr [ null, %25 ], [ null, %26 ], [ null, %15 ], [ %spec.store.select.i, %19 ], [ null, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = call i64 @time(ptr noundef null) #15
@@ -7498,7 +7498,7 @@ define dso_local range(i32 -1, 1) i32 @acct_policy_handle_accrue_time(ptr nounde
   br label %80
 
 80:                                               ; preds = %78, %79, %42, %28, %31, %35, %22, %25, %13, %16, %8
-  %.0 = phi i32 [ -1, %8 ], [ 0, %16 ], [ 0, %13 ], [ 0, %25 ], [ 0, %22 ], [ 0, %35 ], [ 0, %31 ], [ 0, %28 ], [ 0, %42 ], [ %.033, %79 ], [ %.033, %78 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %22 ], [ 0, %42 ], [ 0, %28 ], [ 0, %13 ], [ 0, %16 ], [ 0, %25 ], [ 0, %35 ], [ 0, %31 ], [ %.033, %79 ], [ %.033, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -8467,7 +8467,7 @@ define dso_local range(i32 0, -1) i32 @acct_policy_get_prio_thresh(ptr noundef %
   br i1 %.not28.i, label %_get_prio_thresh.exit14, label %acct_policy_set_qos_order.exit.thread
 
 acct_policy_set_qos_order.exit.thread:            ; preds = %20, %21, %30, %24
-  %.125.ph.ph = phi ptr [ %32, %30 ], [ %17, %21 ], [ %17, %20 ], [ %spec.select, %24 ]
+  %.125.ph.ph = phi ptr [ %17, %20 ], [ %32, %30 ], [ %17, %21 ], [ %spec.select, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %.125.ph.ph, i64 244
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, -1
@@ -8488,8 +8488,8 @@ acct_policy_set_qos_order.exit.thread:            ; preds = %20, %21, %30, %24
   %spec.select39 = select i1 %or.cond.i13, i32 %spec.select38, i32 %42
   br label %_get_prio_thresh.exit14
 
-_get_prio_thresh.exit14:                          ; preds = %acct_policy_set_qos_order.exit.thread, %36, %30, %29
-  %.2 = phi i32 [ 0, %29 ], [ 0, %30 ], [ %spec.select39, %36 ], [ %spec.select3848, %acct_policy_set_qos_order.exit.thread ]
+_get_prio_thresh.exit14:                          ; preds = %acct_policy_set_qos_order.exit.thread, %36, %29, %30
+  %.2 = phi i32 [ %spec.select3848, %acct_policy_set_qos_order.exit.thread ], [ 0, %29 ], [ %spec.select39, %36 ], [ 0, %30 ]
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 244
   %46 = load i32, ptr %45, align 4
   %47 = icmp ne i32 %.2, 0
@@ -8558,8 +8558,8 @@ acct_policy_set_qos_order.exit:                   ; preds = %12
   br label %acct_policy_set_qos_order.exit.thread36
 
 acct_policy_set_qos_order.exit.thread36:          ; preds = %12, %18, %9, %8, %acct_policy_set_qos_order.exit
-  %spec.select.pn = phi ptr [ %spec.select, %acct_policy_set_qos_order.exit ], [ %5, %9 ], [ %5, %8 ], [ %20, %18 ], [ %spec.select, %12 ]
-  %24 = phi i32 [ %23, %acct_policy_set_qos_order.exit ], [ -1, %9 ], [ -1, %8 ], [ -1, %18 ], [ -1, %12 ]
+  %spec.select.pn = phi ptr [ %spec.select, %acct_policy_set_qos_order.exit ], [ %20, %18 ], [ %5, %8 ], [ %5, %9 ], [ %spec.select, %12 ]
+  %24 = phi i32 [ %23, %acct_policy_set_qos_order.exit ], [ -1, %18 ], [ -1, %8 ], [ -1, %9 ], [ -1, %12 ]
   %.in = getelementptr inbounds nuw i8, ptr %spec.select.pn, i64 292
   %25 = load i32, ptr %.in, align 4
   %.not18 = icmp eq i32 %25, -1
@@ -8645,8 +8645,8 @@ acct_policy_set_qos_order.exit.i:                 ; preds = %14
   br label %acct_policy_set_qos_order.exit.thread36.i
 
 acct_policy_set_qos_order.exit.thread36.i:        ; preds = %acct_policy_set_qos_order.exit.i, %20, %14, %11, %10
-  %spec.select.pn.i = phi ptr [ %spec.select.i, %acct_policy_set_qos_order.exit.i ], [ %7, %11 ], [ %7, %10 ], [ %22, %20 ], [ %spec.select.i, %14 ]
-  %26 = phi i32 [ %25, %acct_policy_set_qos_order.exit.i ], [ -1, %11 ], [ -1, %10 ], [ -1, %20 ], [ -1, %14 ]
+  %spec.select.pn.i = phi ptr [ %spec.select.i, %acct_policy_set_qos_order.exit.i ], [ %22, %20 ], [ %7, %10 ], [ %7, %11 ], [ %spec.select.i, %14 ]
+  %26 = phi i32 [ %25, %acct_policy_set_qos_order.exit.i ], [ -1, %20 ], [ -1, %10 ], [ -1, %11 ], [ -1, %14 ]
   %.in.i = getelementptr inbounds nuw i8, ptr %spec.select.pn.i, i64 292
   %27 = load i32, ptr %.in.i, align 4
   %.not18.i = icmp eq i32 %27, -1
@@ -9620,8 +9620,8 @@ define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef cap
   br label %56
 
 56:                                               ; preds = %45, %50, %.thread, %55
-  %.1199325 = phi i8 [ %.1199326, %55 ], [ %.1199326, %.thread ], [ %.1199326, %50 ], [ %.0198, %45 ]
-  %.0197 = phi double [ %52, %55 ], [ -1.000000e+00, %.thread ], [ -1.000000e+00, %50 ], [ %47, %45 ]
+  %.1199325 = phi i8 [ %.1199326, %50 ], [ %.1199326, %55 ], [ %.1199326, %.thread ], [ %.0198, %45 ]
+  %.0197 = phi double [ -1.000000e+00, %50 ], [ %52, %55 ], [ -1.000000e+00, %.thread ], [ %47, %45 ]
   %57 = fcmp ugt double %.0197, 0.000000e+00
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -9770,7 +9770,7 @@ define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef cap
   br label %137
 
 137:                                              ; preds = %136, %135, %134, %133
-  %storemerge.i = phi i64 [ -1, %134 ], [ -1, %133 ], [ %129, %136 ], [ %129, %135 ]
+  %storemerge.i = phi i64 [ -1, %133 ], [ -1, %134 ], [ %129, %136 ], [ %129, %135 ]
   store i64 %storemerge.i, ptr %120, align 8
   br label %138
 
@@ -9802,7 +9802,7 @@ define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr noundef cap
   br label %150
 
 150:                                              ; preds = %149, %148, %147, %146
-  %storemerge.i242 = phi i64 [ -1, %147 ], [ -1, %146 ], [ %142, %149 ], [ %142, %148 ]
+  %storemerge.i242 = phi i64 [ -1, %146 ], [ -1, %147 ], [ %142, %149 ], [ %142, %148 ]
   store i64 %storemerge.i242, ptr %124, align 8
   br label %_apply_limit_factor.exit243
 
@@ -9863,7 +9863,7 @@ switch.lookup:                                    ; preds = %154
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %171, %164, %156
-  %.0.i = phi i32 [ 99, %156 ], [ 105, %164 ], [ %spec.select, %171 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ 105, %164 ], [ %switch.load, %switch.lookup ], [ 99, %156 ], [ %spec.select, %171 ]
   store i32 %.0.i, ptr %5, align 4
   br label %179
 
@@ -10088,7 +10088,7 @@ switch.lookup28:                                  ; preds = %271
   br label %_get_tres_state_reason.exit250
 
 _get_tres_state_reason.exit250:                   ; preds = %switch.lookup28, %288, %281, %273
-  %.0.i246 = phi i32 [ 100, %273 ], [ 106, %281 ], [ %spec.select353, %288 ], [ %switch.load30, %switch.lookup28 ]
+  %.0.i246 = phi i32 [ 100, %273 ], [ %spec.select353, %288 ], [ %switch.load30, %switch.lookup28 ], [ 106, %281 ]
   store i32 %.0.i246, ptr %5, align 4
   br label %295
 
@@ -10263,7 +10263,7 @@ switch.lookup31:                                  ; preds = %358
   br label %_get_tres_state_reason.exit275
 
 _get_tres_state_reason.exit275:                   ; preds = %switch.lookup31, %375, %368, %360
-  %.0.i271 = phi i32 [ 101, %360 ], [ 107, %368 ], [ %spec.select354, %375 ], [ %switch.load33, %switch.lookup31 ]
+  %.0.i271 = phi i32 [ 107, %368 ], [ %spec.select354, %375 ], [ %switch.load33, %switch.lookup31 ], [ 101, %360 ]
   store i32 %.0.i271, ptr %5, align 4
   br label %382
 
@@ -10523,7 +10523,7 @@ switch.lookup34:                                  ; preds = %488
   br label %_get_tres_state_reason.exit295
 
 _get_tres_state_reason.exit295:                   ; preds = %switch.lookup34, %505, %498, %490
-  %.0.i291 = phi i32 [ 102, %490 ], [ 108, %498 ], [ %spec.select355, %505 ], [ %switch.load36, %switch.lookup34 ]
+  %.0.i291 = phi i32 [ 102, %490 ], [ %switch.load36, %switch.lookup34 ], [ 108, %498 ], [ %spec.select355, %505 ]
   store i32 %.0.i291, ptr %5, align 4
   br label %513
 
@@ -10609,7 +10609,7 @@ switch.lookup37:                                  ; preds = %538
   br label %_get_tres_state_reason.exit300
 
 _get_tres_state_reason.exit300:                   ; preds = %switch.lookup37, %556, %549, %541
-  %.0.i296 = phi i32 [ 103, %541 ], [ 82, %549 ], [ %spec.select356, %556 ], [ %switch.load39, %switch.lookup37 ]
+  %.0.i296 = phi i32 [ %switch.load39, %switch.lookup37 ], [ 103, %541 ], [ 82, %549 ], [ %spec.select356, %556 ]
   store i32 %.0.i296, ptr %5, align 4
   br label %564
 
@@ -10857,7 +10857,7 @@ _validate_tres_time_limits.exit320:               ; preds = %_validate_time_limi
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.61, ptr noundef %22, i32 noundef %696, i32 noundef %697, i32 noundef %698, ptr noundef %700) #15
   br label %.thread343
 
-.thread343:                                       ; preds = %182, %179, %215, %212, %298, %295, %385, %382, %444, %441, %516, %513, %567, %564, %608, %605, %665, %662, %694, %691
+.thread343:                                       ; preds = %179, %564, %662, %605, %513, %441, %382, %295, %212, %182, %215, %298, %385, %444, %516, %567, %608, %665, %694, %691
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit365
 
@@ -10871,12 +10871,12 @@ _validate_tres_time_limits.exit320:               ; preds = %_validate_time_limi
   br i1 %.not221, label %.loopexit365, label %75
 
 .loopexit365:                                     ; preds = %.critedge240, %.thread343, %40, %43
-  %.0200 = phi i1 [ false, %43 ], [ false, %40 ], [ false, %.thread343 ], [ true, %.critedge240 ]
+  %.0200 = phi i1 [ false, %.thread343 ], [ false, %40 ], [ false, %43 ], [ true, %.critedge240 ]
   call void @slurmdb_free_qos_rec_members(ptr noundef nonnull %9) #15
   br label %701
 
 701:                                              ; preds = %.loopexit365, %18
-  %.0193 = phi i1 [ %.0200, %.loopexit365 ], [ false, %18 ]
+  %.0193 = phi i1 [ false, %18 ], [ %.0200, %.loopexit365 ]
   call void @llvm.stackrestore.p0(ptr %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0193
@@ -11003,7 +11003,7 @@ switch.lookup:                                    ; preds = %55
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %71, %64, %57
-  %.0.i = phi i32 [ 171, %57 ], [ 173, %64 ], [ %spec.select, %71 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ 173, %64 ], [ %spec.select, %71 ], [ 171, %57 ], [ %switch.load, %switch.lookup ]
   store i32 %.0.i, ptr %5, align 4
   br label %78
 
@@ -11107,7 +11107,7 @@ switch.lookup559:                                 ; preds = %118
   br label %_get_tres_state_reason.exit289
 
 _get_tres_state_reason.exit289:                   ; preds = %switch.lookup559, %134, %127, %120
-  %.0.i285 = phi i32 [ 149, %120 ], [ 156, %127 ], [ %spec.select425, %134 ], [ %switch.load561, %switch.lookup559 ]
+  %.0.i285 = phi i32 [ %spec.select425, %134 ], [ 149, %120 ], [ %switch.load561, %switch.lookup559 ], [ 156, %127 ]
   store i32 %.0.i285, ptr %5, align 4
   br label %142
 
@@ -11186,7 +11186,7 @@ switch.lookup562:                                 ; preds = %165
   br label %_get_tres_state_reason.exit294
 
 _get_tres_state_reason.exit294:                   ; preds = %switch.lookup562, %181, %174, %167
-  %.0.i290 = phi i32 [ 144, %167 ], [ 152, %174 ], [ %spec.select426, %181 ], [ %switch.load564, %switch.lookup562 ]
+  %.0.i290 = phi i32 [ 144, %167 ], [ %switch.load564, %switch.lookup562 ], [ 152, %174 ], [ %spec.select426, %181 ]
   store i32 %.0.i290, ptr %5, align 4
   br label %189
 
@@ -11404,7 +11404,7 @@ switch.lookup565:                                 ; preds = %280
   br label %_get_tres_state_reason.exit301
 
 _get_tres_state_reason.exit301:                   ; preds = %switch.lookup565, %297, %290, %282
-  %.0.i297 = phi i32 [ 150, %282 ], [ 157, %290 ], [ %spec.select427, %297 ], [ %switch.load567, %switch.lookup565 ]
+  %.0.i297 = phi i32 [ %switch.load567, %switch.lookup565 ], [ 150, %282 ], [ 157, %290 ], [ %spec.select427, %297 ]
   store i32 %.0.i297, ptr %5, align 4
   br label %304
 
@@ -11574,7 +11574,7 @@ switch.lookup568:                                 ; preds = %363
   br label %_get_tres_state_reason.exit326
 
 _get_tres_state_reason.exit326:                   ; preds = %switch.lookup568, %380, %373, %365
-  %.0.i322 = phi i32 [ 145, %365 ], [ 153, %373 ], [ %spec.select428, %380 ], [ %switch.load570, %switch.lookup568 ]
+  %.0.i322 = phi i32 [ %spec.select428, %380 ], [ %switch.load570, %switch.lookup568 ], [ 153, %373 ], [ 145, %365 ]
   store i32 %.0.i322, ptr %5, align 4
   br label %387
 
@@ -12176,7 +12176,7 @@ switch.lookup571:                                 ; preds = %664
   br label %_get_tres_state_reason.exit389
 
 _get_tres_state_reason.exit389:                   ; preds = %switch.lookup571, %681, %674, %666
-  %.0.i385 = phi i32 [ 147, %666 ], [ 155, %674 ], [ %spec.select429, %681 ], [ %switch.load573, %switch.lookup571 ]
+  %.0.i385 = phi i32 [ 147, %666 ], [ %spec.select429, %681 ], [ 155, %674 ], [ %switch.load573, %switch.lookup571 ]
   store i32 %.0.i385, ptr %5, align 4
   br label %688
 
@@ -12461,8 +12461,8 @@ _validate_tres_limits_for_qos.exit399:            ; preds = %.thread.us115.i
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.73, ptr noundef %8, i32 noundef %843, ptr noundef %848, i64 noundef %851, i64 noundef %854, ptr noundef %856) #15
   br label %.thread418
 
-.thread418:                                       ; preds = %817, %820, %787, %790, %826, %81, %78, %145, %142, %192, %189, %226, %223, %307, %304, %390, %387, %456, %453, %522, %519, %555, %552, %599, %596, %629, %626, %691, %688, %747, %744, %841, %838, %11
-  %.0 = phi i32 [ 1, %11 ], [ 1, %826 ], [ 0, %81 ], [ 0, %78 ], [ 0, %145 ], [ 0, %142 ], [ 0, %192 ], [ 0, %189 ], [ 0, %226 ], [ 0, %223 ], [ 0, %307 ], [ 0, %304 ], [ 0, %390 ], [ 0, %387 ], [ 0, %456 ], [ 0, %453 ], [ 0, %522 ], [ 0, %519 ], [ 0, %555 ], [ 0, %552 ], [ 0, %599 ], [ 0, %596 ], [ 0, %629 ], [ 0, %626 ], [ 0, %691 ], [ 0, %688 ], [ 0, %747 ], [ 0, %744 ], [ 0, %841 ], [ 0, %838 ], [ 0, %790 ], [ 0, %787 ], [ 0, %820 ], [ 0, %817 ]
+.thread418:                                       ; preds = %820, %817, %790, %787, %826, %81, %78, %145, %142, %192, %189, %226, %223, %307, %304, %390, %387, %456, %453, %522, %519, %555, %552, %599, %596, %629, %626, %691, %688, %747, %744, %841, %838, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %189 ], [ 0, %552 ], [ 0, %596 ], [ 1, %826 ], [ 0, %744 ], [ 0, %790 ], [ 0, %838 ], [ 0, %688 ], [ 0, %626 ], [ 0, %519 ], [ 0, %453 ], [ 0, %387 ], [ 0, %304 ], [ 0, %223 ], [ 0, %78 ], [ 0, %142 ], [ 0, %81 ], [ 0, %145 ], [ 0, %192 ], [ 0, %226 ], [ 0, %307 ], [ 0, %390 ], [ 0, %456 ], [ 0, %522 ], [ 0, %555 ], [ 0, %599 ], [ 0, %629 ], [ 0, %691 ], [ 0, %747 ], [ 0, %841 ], [ 0, %787 ], [ 0, %817 ], [ 0, %820 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -12546,7 +12546,7 @@ _validate_time_limit.exit:                        ; preds = %33, %36, %40
   %.not = icmp ugt i32 %42, %41
   br i1 %.not, label %.loopexit, label %_validate_time_limit.exit.thread
 
-_validate_time_limit.exit.thread:                 ; preds = %.thread, %26, %.lr.ph, %23, %_validate_time_limit.exit
+_validate_time_limit.exit.thread:                 ; preds = %.thread, %23, %.lr.ph, %26, %_validate_time_limit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr @g_tres_count, align 4
   %44 = zext i32 %43 to i64
@@ -12648,7 +12648,7 @@ _set_time_limit.exit:                             ; preds = %31, %32, %33, %34, 
   br label %44
 
 44:                                               ; preds = %41, %21, %17, %8, %12, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %12 ], [ true, %8 ], [ true, %17 ], [ true, %21 ], [ %43, %41 ]
+  %.0 = phi i1 [ true, %17 ], [ true, %8 ], [ %43, %41 ], [ true, %21 ], [ true, %13 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -12904,7 +12904,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr nou
   br i1 %136, label %.lr.ph.split.split.split, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.thread83, %133, %.thread.us115, %110, %.thread.us104, %.thread83.us103, %87, %53, %49, %.thread.us, %.thread83.us, %57, %10
-  %.073 = phi i1 [ true, %10 ], [ false, %53 ], [ false, %49 ], [ false, %.thread.us ], [ false, %.thread83.us ], [ true, %57 ], [ false, %.thread.us104 ], [ false, %.thread83.us103 ], [ true, %87 ], [ false, %.thread.us115 ], [ true, %110 ], [ false, %.thread83 ], [ true, %133 ]
+  %.073 = phi i1 [ true, %10 ], [ false, %.thread.us115 ], [ false, %49 ], [ true, %87 ], [ false, %53 ], [ false, %.thread.us ], [ false, %.thread83.us ], [ true, %57 ], [ false, %.thread.us104 ], [ false, %.thread83.us103 ], [ true, %110 ], [ false, %.thread83 ], [ true, %133 ]
   ret i1 %.073
 }
 
@@ -12965,7 +12965,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noun
   br label %.thread139
 
 .thread139:                                       ; preds = %.thread, %29, %28
-  %31 = phi ptr [ %22, %29 ], [ %22, %28 ], [ %25, %.thread ]
+  %31 = phi ptr [ %22, %28 ], [ %22, %29 ], [ %25, %.thread ]
   %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv118
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not55, label %36, label %32
@@ -13098,7 +13098,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noun
   br label %.thread147
 
 .thread147:                                       ; preds = %.thread146, %83, %82
-  %85 = phi ptr [ %76, %83 ], [ %76, %82 ], [ %79, %.thread146 ]
+  %85 = phi ptr [ %76, %82 ], [ %76, %83 ], [ %79, %.thread146 ]
   %86 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv112
   %87 = load i64, ptr %86, align 8
   %.not56.us78 = icmp eq i64 %87, 0
@@ -13204,7 +13204,7 @@ define internal fastcc range(i32 0, 4) i32 @_validate_tres_usage_limits(ptr noun
   br i1 %137, label %.lr.ph.split.split.split.split.split, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %131, %134, %112, %116, %88, %92, %.thread144, %33, %36, %43, %49, %.thread142, %9
-  %.045 = phi i32 [ 0, %9 ], [ 2, %.thread142 ], [ 0, %49 ], [ 3, %43 ], [ 2, %36 ], [ 1, %33 ], [ 0, %.thread144 ], [ 0, %92 ], [ 1, %88 ], [ 0, %116 ], [ 1, %112 ], [ 0, %134 ], [ 1, %131 ]
+  %.045 = phi i32 [ 0, %9 ], [ 0, %.thread144 ], [ 1, %112 ], [ 1, %88 ], [ 2, %.thread142 ], [ 2, %36 ], [ 3, %43 ], [ 0, %49 ], [ 1, %33 ], [ 0, %92 ], [ 0, %116 ], [ 1, %131 ], [ 0, %134 ]
   ret i32 %.045
 }
 

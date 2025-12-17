@@ -202,8 +202,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %52
   br label %.outer.outer
 
 .thread:                                          ; preds = %.outer83.split, %.outer83.split.us.split, %.outer83.split.us.split.us, %..thread_crit_edge
-  %62 = phi i32 [ %.pre, %..thread_crit_edge ], [ %18, %.outer83.split.us.split.us ], [ %28, %.outer83.split.us.split ], [ %31, %.outer83.split ]
-  %.1 = phi i8 [ %.0.ph84.mux, %..thread_crit_edge ], [ %.0.ph84.fr, %.outer83.split.us.split.us ], [ %.0.ph84.fr, %.outer83.split.us.split ], [ %.0.ph84.fr, %.outer83.split ]
+  %62 = phi i32 [ %.pre, %..thread_crit_edge ], [ %28, %.outer83.split.us.split ], [ %18, %.outer83.split.us.split.us ], [ %31, %.outer83.split ]
+  %.1 = phi i8 [ %.0.ph84.mux, %..thread_crit_edge ], [ %.0.ph84.fr, %.outer83.split.us.split ], [ %.0.ph84.fr, %.outer83.split.us.split.us ], [ %.0.ph84.fr, %.outer83.split ]
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %117
 
@@ -321,16 +321,16 @@ thread-pre-split:                                 ; preds = %105, %96
 112:                                              ; preds = %109
   br i1 %110, label %113, label %.outer.outer239.backedge
 
+.outer.outer239.backedge:                         ; preds = %112, %113
+  %.0.ph.ph241.be = phi i8 [ %spec.select, %113 ], [ 0, %112 ]
+  br label %.outer.outer239, !llvm.loop !27
+
 113:                                              ; preds = %112
   %114 = load ptr, ptr %3, align 8, !tbaa !30
   %115 = load i64, ptr %6, align 8, !tbaa !16
   %116 = call fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEN4llvm9StringRefE(ptr %114, i64 %115)
   %spec.select = zext i1 %116 to i8
   br label %.outer.outer239.backedge
-
-.outer.outer239.backedge:                         ; preds = %113, %112
-  %.0.ph.ph241.be = phi i8 [ 0, %112 ], [ %spec.select, %113 ]
-  br label %.outer.outer239, !llvm.loop !27
 
 117:                                              ; preds = %.thread
   %118 = load ptr, ptr %1, align 8, !tbaa !25
@@ -369,7 +369,7 @@ thread-pre-split:                                 ; preds = %105, %96
   br label %128
 
 128:                                              ; preds = %.sink.split.i, %.lr.ph.i
-  %.sroa.016.1.i = phi ptr [ %127, %.sink.split.i ], [ %.sroa.016.026.i, %.lr.ph.i ]
+  %.sroa.016.1.i = phi ptr [ %.sroa.016.026.i, %.lr.ph.i ], [ %127, %.sink.split.i ]
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.013.025.i, i64 1
   %.not.i = icmp eq ptr %129, %121
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
@@ -444,7 +444,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   br label %158
 
 158:                                              ; preds = %.sink.split.i59, %.lr.ph.i53
-  %.sroa.016.1.i61 = phi ptr [ %157, %.sink.split.i59 ], [ %.sroa.016.026.i55, %.lr.ph.i53 ]
+  %.sroa.016.1.i61 = phi ptr [ %.sroa.016.026.i55, %.lr.ph.i53 ], [ %157, %.sink.split.i59 ]
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.013.025.i56, i64 1
   %.not.i62 = icmp eq ptr %159, %151
   br i1 %.not.i62, label %._crit_edge.i63, label %.lr.ph.i53, !llvm.loop !33
@@ -650,7 +650,7 @@ _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21: ;
   br label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21, %39, %47, %55, %61
-  %.028.i.i.i.i.i = phi ptr [ %3, %61 ], [ %.029.lcssa.i.i.i.i.i, %39 ], [ %.1.i.i.i.i.i, %47 ], [ %.2.i.i.i.i.i, %55 ], [ %62, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19 ], [ %64, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %47 ], [ %3, %61 ], [ %.2.i.i.i.i.i, %55 ], [ %.029.lcssa.i.i.i.i.i, %39 ], [ %64, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21 ], [ %63, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19 ], [ %62, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %65 = icmp eq ptr %3, %.028.i.i.i.i.i
   ret i1 %65
 }

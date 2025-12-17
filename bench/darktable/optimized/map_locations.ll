@@ -404,7 +404,7 @@ define ptr @dt_map_location_get_locations_by_path(ptr noundef %0, i32 noundef %1
   br label %69
 
 69:                                               ; preds = %59, %57, %51, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.02942.us, %51 ], [ %.02942.us, %.lr.ph.split.us ], [ %68, %59 ], [ %.02942.us, %57 ]
+  %.1.us = phi ptr [ %.02942.us, %.lr.ph.split.us ], [ %.02942.us, %51 ], [ %68, %59 ], [ %.02942.us, %57 ]
   %70 = load ptr, ptr %3, align 8, !tbaa !53
   %71 = call i32 @sqlite3_step(ptr noundef %70) #10
   %72 = icmp eq i32 %71, 100
@@ -447,7 +447,7 @@ define ptr @dt_map_location_get_locations_by_path(ptr noundef %0, i32 noundef %1
   br label %93
 
 93:                                               ; preds = %81, %83, %75, %.lr.ph.split
-  %.1 = phi ptr [ %.02942, %75 ], [ %.02942, %.lr.ph.split ], [ %92, %83 ], [ %.02942, %81 ]
+  %.1 = phi ptr [ %.02942, %.lr.ph.split ], [ %.02942, %75 ], [ %92, %83 ], [ %.02942, %81 ]
   %94 = load ptr, ptr %3, align 8, !tbaa !53
   %95 = call i32 @sqlite3_step(ptr noundef %94) #10
   %96 = icmp eq i32 %95, 100
@@ -1394,7 +1394,7 @@ define ptr @dt_map_location_find_locations(i32 noundef %0) local_unnamed_addr #0
   br label %124
 
 124:                                              ; preds = %115, %112, %106
-  %.1.i = phi i32 [ %.2.i, %115 ], [ %.05.i, %106 ], [ %.05.i, %112 ]
+  %.1.i = phi i32 [ %.05.i, %106 ], [ %.05.i, %112 ], [ %.2.i, %115 ]
   %125 = add nuw nsw i32 %.0334.i, 1
   %exitcond.not.i = icmp eq i32 %125, %98
   br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %106
@@ -1625,7 +1625,7 @@ define ptr @_map_location_find_images(ptr noundef readonly captures(none) %0) lo
   br label %107
 
 107:                                              ; preds = %98, %95, %89
-  %.1.i = phi i32 [ %.2.i, %98 ], [ %.05.i, %89 ], [ %.05.i, %95 ]
+  %.1.i = phi i32 [ %.05.i, %89 ], [ %.05.i, %95 ], [ %.2.i, %98 ]
   %108 = add nuw nsw i32 %.0334.i, 1
   %exitcond.not.i = icmp eq i32 %108, %81
   br i1 %exitcond.not.i, label %_is_point_in_polygon.exit, label %89
@@ -1917,7 +1917,7 @@ define range(i32 0, 2) i32 @dt_map_location_included(float noundef %0, float nou
   br label %.thread
 
 .thread:                                          ; preds = %3, %6, %45, %35, %26
-  %.0 = phi i32 [ 1, %45 ], [ 0, %35 ], [ 0, %26 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %45 ], [ 0, %26 ], [ 0, %35 ], [ 0, %3 ], [ 0, %6 ]
   ret i32 %.0
 }
 

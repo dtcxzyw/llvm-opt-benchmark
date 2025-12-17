@@ -530,7 +530,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i: ; preds = %.thre
   br i1 %.not75.i, label %_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit.thread, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit32.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit29.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit26.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i
-  %.023.i = phi ptr [ @_ZN4llvm5RISCV12GPRCRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i ], [ @_ZN4llvm5RISCV15GPRF16CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit26.i ], [ @_ZN4llvm5RISCV15GPRF32CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit29.i ], [ @_ZN4llvm5RISCV14FPR32CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit32.i ], [ @_ZN4llvm5RISCV14FPR64CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i ]
+  %.023.i = phi ptr [ @_ZN4llvm5RISCV14FPR32CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit32.i ], [ @_ZN4llvm5RISCV12GPRCRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i ], [ @_ZN4llvm5RISCV15GPRF16CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit26.i ], [ @_ZN4llvm5RISCV15GPRF32CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit29.i ], [ @_ZN4llvm5RISCV14FPR64CRegClassE, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, i8 0, i64 40, i1 false)
   store ptr %45, ptr %44, align 8, !tbaa !278
@@ -1063,7 +1063,7 @@ _ZN4llvm8DebugLocD2Ev.exit108:                    ; preds = %_ZN4llvm10MIMetadat
   br label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i
 
 _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %388, %384, %377, %373, %365, %361, %353
-  %.0.i.i = phi i1 [ %364, %361 ], [ %372, %365 ], [ %395, %388 ], [ false, %353 ], [ false, %373 ], [ true, %377 ], [ %387, %384 ]
+  %.0.i.i = phi i1 [ %395, %388 ], [ %364, %361 ], [ %372, %365 ], [ false, %353 ], [ false, %373 ], [ %387, %384 ], [ true, %377 ]
   %or.cond.i109 = select i1 %.0.i.i, i1 %352, i1 false
   %spec.select.i = zext i1 %or.cond.i109 to i64
   %396 = getelementptr inbounds nuw i8, ptr %354, i64 32
@@ -1142,7 +1142,7 @@ _ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit: ; p
   br label %_ZL10offsetMaskj.exit.i
 
 _ZL10offsetMaskj.exit.i:                          ; preds = %419, %418, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit
-  %.0.i.i114 = phi i8 [ 1, %418 ], [ 31, %419 ], [ 3, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit ], [ 3, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit ]
+  %.0.i.i114 = phi i8 [ 31, %419 ], [ 1, %418 ], [ 3, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit ], [ 3, %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit ]
   switch i16 %356, label %420 [
     i16 12662, label %_ZL24compressedLDSTOffsetMaskj.exit
     i16 12855, label %_ZL24compressedLDSTOffsetMaskj.exit
@@ -1176,7 +1176,7 @@ _ZL10offsetMaskj.exit.i:                          ; preds = %419, %418, %_ZL14up
   br label %_ZL24compressedLDSTOffsetMaskj.exit
 
 _ZL24compressedLDSTOffsetMaskj.exit:              ; preds = %_ZL10offsetMaskj.exit.i, %_ZL10offsetMaskj.exit.i, %421, %422, %423
-  %.0.i2.i = phi i8 [ 1, %421 ], [ 2, %422 ], [ 3, %423 ], [ 0, %_ZL10offsetMaskj.exit.i ], [ 0, %_ZL10offsetMaskj.exit.i ]
+  %.0.i2.i = phi i8 [ 3, %423 ], [ 1, %421 ], [ 2, %422 ], [ 0, %_ZL10offsetMaskj.exit.i ], [ 0, %_ZL10offsetMaskj.exit.i ]
   %424 = shl nuw i8 %.0.i.i114, %.0.i2.i
   %425 = zext i8 %424 to i64
   %426 = and i64 %416, %425
@@ -1185,7 +1185,7 @@ _ZL24compressedLDSTOffsetMaskj.exit:              ; preds = %_ZL10offsetMaskj.ex
   %.not62 = icmp eq ptr %427, %351
   br i1 %.not62, label %_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit.thread, label %353
 
-_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit.thread: ; preds = %_ZL24compressedLDSTOffsetMaskj.exit, %347, %123, %.thread62.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i, %._crit_edge.i, %_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit
+_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit.thread: ; preds = %_ZL24compressedLDSTOffsetMaskj.exit, %347, %.thread62.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit35.i, %123, %._crit_edge.i, %_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit
   %428 = load ptr, ptr %10, align 8, !tbaa !278
   %429 = icmp eq ptr %428, %41
   br i1 %429, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit, label %430
@@ -1229,7 +1229,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br i1 %.not169, label %._crit_edge, label %.lr.ph181
 
 .loopexit:                                        ; preds = %._crit_edge, %38, %24, %2, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %24 ], [ true, %38 ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ false, %2 ], [ false, %21 ], [ false, %24 ], [ true, %38 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -1263,48 +1263,48 @@ define internal fastcc { i32, i64 } @_ZL34getRegImmPairPreventingCompressionRKN4
   %7 = load ptr, ptr %6, align 8, !tbaa !144
   %8 = load i16, ptr %2, align 4, !tbaa !382
   switch i16 %8, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread [
-    i16 12662, label %9
-    i16 12668, label %9
-    i16 12672, label %9
-    i16 12669, label %9
-    i16 12682, label %13
-    i16 12686, label %13
-    i16 12665, label %13
-    i16 12512, label %21
+    i16 12662, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+    i16 12668, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+    i16 12672, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+    i16 12669, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+    i16 12682, label %9
+    i16 12686, label %9
+    i16 12665, label %9
+    i16 12512, label %17
     i16 12487, label %32
   ]
 
-9:                                                ; preds = %1, %1, %1, %1
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 403
-  %11 = load i8, ptr %10, align 1, !tbaa !383, !range !270, !noundef !271
+9:                                                ; preds = %1, %1, %1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 333
+  %11 = load i8, ptr %10, align 1, !tbaa !145, !range !270, !noundef !271
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 402
+  %14 = load i8, ptr %13, align 2, !range !270
+  %15 = trunc nuw i8 %14 to i1
+  %16 = select i1 %12, i1 true, i1 %15
+  br i1 %16, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
 
-13:                                               ; preds = %1, %1, %1
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 333
-  %15 = load i8, ptr %14, align 1, !tbaa !145, !range !270, !noundef !271
-  %16 = trunc nuw i8 %15 to i1
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 402
-  %18 = load i8, ptr %17, align 2, !range !270
-  %19 = trunc nuw i8 %18 to i1
-  %20 = select i1 %16, i1 true, i1 %19
-  br i1 %20, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 519
+  %19 = load i8, ptr %18, align 1, !tbaa !384, !range !270, !noundef !271
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, label %21
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 519
-  %23 = load i8, ptr %22, align 1, !tbaa !384, !range !270, !noundef !271
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 333
+  %23 = load i8, ptr %22, align 1, !tbaa !145, !range !270, !noundef !271
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 406
+  %26 = load i8, ptr %25, align 2, !range !270
+  %27 = trunc nuw i8 %26 to i1
+  %or.cond.i.i = select i1 %24, i1 true, i1 %27
+  br i1 %or.cond.i.i, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %28
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 333
-  %27 = load i8, ptr %26, align 1, !tbaa !145, !range !270, !noundef !271
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 406
-  %30 = load i8, ptr %29, align 2, !range !270
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 405
+  %30 = load i8, ptr %29, align 1, !tbaa !385, !range !270, !noundef !271
   %31 = trunc nuw i8 %30 to i1
-  %or.cond.i.i = select i1 %28, i1 true, i1 %31
-  br i1 %or.cond.i.i, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+  br i1 %31, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 333
@@ -1316,59 +1316,59 @@ define internal fastcc { i32, i64 } @_ZL34getRegImmPairPreventingCompressionRKN4
   %39 = select i1 %35, i1 true, i1 %38
   br i1 %39, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
 
-_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit: ; preds = %25
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 405
-  %41 = load i8, ptr %40, align 1, !tbaa !385, !range !270, !noundef !271
+_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit: ; preds = %1, %1, %1, %1
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 403
+  %41 = load i8, ptr %40, align 1, !tbaa !383, !range !270, !noundef !271
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
 
-_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread: ; preds = %21, %1, %32, %13, %9, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread: ; preds = %17, %1, %9, %28, %32, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
   %43 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %0) #13
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !144
   %46 = load i16, ptr %2, align 4, !tbaa !382
   switch i16 %46, label %.critedge51 [
-    i16 12855, label %47
-    i16 12878, label %47
-    i16 12900, label %47
-    i16 12938, label %51
-    i16 12940, label %51
-    i16 12867, label %51
-    i16 12620, label %59
+    i16 12855, label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit
+    i16 12878, label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit
+    i16 12900, label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit
+    i16 12938, label %47
+    i16 12940, label %47
+    i16 12867, label %47
+    i16 12620, label %55
     i16 12583, label %70
   ]
 
 47:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 403
-  %49 = load i8, ptr %48, align 1, !tbaa !383, !range !270, !noundef !271
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 333
+  %49 = load i8, ptr %48, align 1, !tbaa !145, !range !270, !noundef !271
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 402
+  %52 = load i8, ptr %51, align 2, !range !270
+  %53 = trunc nuw i8 %52 to i1
+  %54 = select i1 %50, i1 true, i1 %53
+  br i1 %54, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
 
-51:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 333
-  %53 = load i8, ptr %52, align 1, !tbaa !145, !range !270, !noundef !271
-  %54 = trunc nuw i8 %53 to i1
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 402
-  %56 = load i8, ptr %55, align 2, !range !270
-  %57 = trunc nuw i8 %56 to i1
-  %58 = select i1 %54, i1 true, i1 %57
-  br i1 %58, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
+55:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 519
+  %57 = load i8, ptr %56, align 1, !tbaa !384, !range !270, !noundef !271
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %.critedge51, label %59
 
-59:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
-  %60 = getelementptr inbounds nuw i8, ptr %45, i64 519
-  %61 = load i8, ptr %60, align 1, !tbaa !384, !range !270, !noundef !271
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 333
+  %61 = load i8, ptr %60, align 1, !tbaa !145, !range !270, !noundef !271
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.critedge51, label %63
+  %63 = getelementptr inbounds nuw i8, ptr %45, i64 406
+  %64 = load i8, ptr %63, align 2, !range !270
+  %65 = trunc nuw i8 %64 to i1
+  %or.cond.i.i55 = select i1 %62, i1 true, i1 %65
+  br i1 %or.cond.i.i55, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %66
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %45, i64 333
-  %65 = load i8, ptr %64, align 1, !tbaa !145, !range !270, !noundef !271
-  %66 = trunc nuw i8 %65 to i1
-  %67 = getelementptr inbounds nuw i8, ptr %45, i64 406
-  %68 = load i8, ptr %67, align 2, !range !270
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds nuw i8, ptr %45, i64 405
+  %68 = load i8, ptr %67, align 1, !tbaa !385, !range !270, !noundef !271
   %69 = trunc nuw i8 %68 to i1
-  %or.cond.i.i55 = select i1 %66, i1 true, i1 %69
-  br i1 %or.cond.i.i55, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit
+  br i1 %69, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
 
 70:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
   %71 = getelementptr inbounds nuw i8, ptr %45, i64 333
@@ -1380,13 +1380,13 @@ _ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread: ; preds = %21, %1, %
   %77 = select i1 %73, i1 true, i1 %76
   br i1 %77, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
 
-_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit: ; preds = %63
-  %78 = getelementptr inbounds nuw i8, ptr %45, i64 405
-  %79 = load i8, ptr %78, align 1, !tbaa !385, !range !270, !noundef !271
+_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit: ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
+  %78 = getelementptr inbounds nuw i8, ptr %45, i64 403
+  %79 = load i8, ptr %78, align 1, !tbaa !383, !range !270, !noundef !271
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, label %.critedge51
 
-_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71: ; preds = %63, %25, %70, %51, %47, %32, %13, %9, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
+_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71: ; preds = %59, %21, %47, %66, %70, %9, %28, %32, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !386
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
@@ -1465,7 +1465,7 @@ _ZL13log2LdstWidthj.exit.i:                       ; preds = %113, %113, %113, %1
   br label %_ZL20compressibleSPOffsetlj.exit
 
 _ZL20compressibleSPOffsetlj.exit:                 ; preds = %113, %113, %113, %113, %113, %113, %113, %115, %_ZL13log2LdstWidthj.exit.i
-  %.0.i57 = phi i1 [ %117, %115 ], [ %119, %_ZL13log2LdstWidthj.exit.i ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ]
+  %.0.i57 = phi i1 [ %119, %_ZL13log2LdstWidthj.exit.i ], [ %117, %115 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ], [ false, %113 ]
   %120 = icmp eq i64 %93, 0
   %or.cond.not = or i1 %120, %.0.i57
   br i1 %or.cond.not, label %.critedge51, label %.critedge53
@@ -1546,7 +1546,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread: ; preds = %98
   br label %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60
 
 _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60: ; preds = %131, %135, %147, %154, %158
-  %.0.i58 = phi i1 [ %134, %131 ], [ %142, %135 ], [ %165, %158 ], [ true, %147 ], [ %157, %154 ]
+  %.0.i58 = phi i1 [ %165, %158 ], [ %134, %131 ], [ %142, %135 ], [ %157, %154 ], [ true, %147 ]
   %.not11 = xor i1 %.0.i58, true
   %or.cond14 = or i1 %123, %.not11
   br i1 %or.cond14, label %.critedge51, label %166
@@ -1567,9 +1567,9 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60: ; preds = %131, %135, %1
   %.sroa.7.2 = phi i64 [ %93, %_ZL20compressibleSPOffsetlj.exit ], [ %93, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread ], [ 0, %167 ], [ 0, %169 ]
   br label %.critedge51
 
-.critedge51:                                      ; preds = %143, %126, %59, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit, %47, %51, %70, %167, %169, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60, %_ZL20compressibleSPOffsetlj.exit, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, %.critedge53
-  %.sroa.069.0 = phi i32 [ %.sroa.069.2, %.critedge53 ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71 ], [ 0, %_ZL20compressibleSPOffsetlj.exit ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60 ], [ 0, %169 ], [ 0, %167 ], [ 0, %70 ], [ 0, %51 ], [ 0, %47 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread ], [ 0, %59 ], [ 0, %126 ], [ 0, %143 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.2, %.critedge53 ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71 ], [ 0, %_ZL20compressibleSPOffsetlj.exit ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60 ], [ 0, %169 ], [ 0, %167 ], [ 0, %70 ], [ 0, %51 ], [ 0, %47 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread ], [ 0, %59 ], [ 0, %126 ], [ 0, %143 ]
+.critedge51:                                      ; preds = %143, %126, %55, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit, %70, %66, %47, %167, %169, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60, %_ZL20compressibleSPOffsetlj.exit, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71, %.critedge53
+  %.sroa.069.0 = phi i32 [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71 ], [ %.sroa.069.2, %.critedge53 ], [ 0, %_ZL20compressibleSPOffsetlj.exit ], [ 0, %55 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60 ], [ 0, %169 ], [ 0, %167 ], [ 0, %47 ], [ 0, %66 ], [ 0, %70 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread ], [ 0, %126 ], [ 0, %143 ]
+  %.sroa.7.0 = phi i64 [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread71 ], [ %.sroa.7.2, %.critedge53 ], [ 0, %_ZL20compressibleSPOffsetlj.exit ], [ 0, %55 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit60 ], [ 0, %169 ], [ 0, %167 ], [ 0, %47 ], [ 0, %66 ], [ 0, %70 ], [ 0, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit ], [ 0, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread ], [ 0, %126 ], [ 0, %143 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.069.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1690,7 +1690,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18: ; preds = %.thread
   br label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit21
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit21: ; preds = %62, %.thread32, %1, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit12, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
-  %73 = phi i1 [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit12 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit ], [ %72, %62 ], [ false, %.thread32 ], [ false, %1 ]
+  %73 = phi i1 [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit15 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit12 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit ], [ false, %.thread32 ], [ %72, %62 ], [ false, %1 ]
   ret i1 %73
 }
 
@@ -1728,7 +1728,7 @@ define internal fastcc noundef zeroext range(i8 1, -7) i8 @_ZL24compressedLDSTOf
   br label %_ZL10offsetMaskj.exit
 
 _ZL10offsetMaskj.exit:                            ; preds = %1, %1, %3, %4
-  %.0.i = phi i8 [ 1, %3 ], [ 31, %4 ], [ 3, %1 ], [ 3, %1 ]
+  %.0.i = phi i8 [ 31, %4 ], [ 1, %3 ], [ 3, %1 ], [ 3, %1 ]
   switch i32 %0, label %5 [
     i32 12662, label %_ZL13log2LdstWidthj.exit
     i32 12855, label %_ZL13log2LdstWidthj.exit
@@ -1762,7 +1762,7 @@ _ZL10offsetMaskj.exit:                            ; preds = %1, %1, %3, %4
   br label %_ZL13log2LdstWidthj.exit
 
 _ZL13log2LdstWidthj.exit:                         ; preds = %_ZL10offsetMaskj.exit, %_ZL10offsetMaskj.exit, %6, %7, %8
-  %.0.i2 = phi i8 [ 1, %6 ], [ 2, %7 ], [ 3, %8 ], [ 0, %_ZL10offsetMaskj.exit ], [ 0, %_ZL10offsetMaskj.exit ]
+  %.0.i2 = phi i8 [ 3, %8 ], [ 1, %6 ], [ 2, %7 ], [ 0, %_ZL10offsetMaskj.exit ], [ 0, %_ZL10offsetMaskj.exit ]
   %9 = shl nuw i8 %.0.i, %.0.i2
   ret i8 %9
 }

@@ -1233,8 +1233,8 @@ sub_0.i.i:                                        ; preds = %36
   br label %.preheader34.i, !llvm.loop !101
 
 .critedge.i:                                      ; preds = %.preheader34.i, %.preheader34.i, %.tail.thread.i.i, %.tail.i.i
-  %45 = phi i8 [ %30, %.tail.i.i ], [ %.pr.pre.i, %.tail.thread.i.i ], [ %42, %.preheader34.i ], [ %42, %.preheader34.i ]
-  %.0.i = phi ptr [ %.01420.i.ptr.i.le, %.tail.i.i ], [ %.01420.i.ptr.i.le, %.tail.thread.i.i ], [ %.1.i, %.preheader34.i ], [ %.1.i, %.preheader34.i ]
+  %45 = phi i8 [ %.pr.pre.i, %.tail.thread.i.i ], [ %30, %.tail.i.i ], [ %42, %.preheader34.i ], [ %42, %.preheader34.i ]
+  %.0.i = phi ptr [ %.01420.i.ptr.i.le, %.tail.thread.i.i ], [ %.01420.i.ptr.i.le, %.tail.i.i ], [ %.1.i, %.preheader34.i ], [ %.1.i, %.preheader34.i ]
   %.not25.i = icmp eq i8 %45, 62
   br i1 %.not25.i, label %46, label %.critedge.thread.i
 
@@ -2580,8 +2580,8 @@ define internal range(i32 0, 2) i32 @cell_halignfn(ptr noundef captures(none) %0
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.85, ptr noundef %1) #19
   br label %.thread
 
-.thread:                                          ; preds = %4, %10, %16, %22, %20
-  %.016 = phi i32 [ 1, %22 ], [ 0, %20 ], [ 0, %16 ], [ 0, %10 ], [ 0, %4 ]
+.thread:                                          ; preds = %10, %16, %4, %22, %20
+  %.016 = phi i32 [ 0, %20 ], [ 1, %22 ], [ 0, %4 ], [ 0, %16 ], [ 0, %10 ]
   ret i32 %.016
 }
 
@@ -2619,8 +2619,8 @@ define internal range(i32 0, 2) i32 @balignfn(ptr noundef captures(none) %0, ptr
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.86, ptr noundef %1) #19
   br label %.thread
 
-.thread:                                          ; preds = %4, %10, %16, %14
-  %.013 = phi i32 [ 1, %16 ], [ 0, %14 ], [ 0, %10 ], [ 0, %4 ]
+.thread:                                          ; preds = %10, %4, %16, %14
+  %.013 = phi i32 [ 0, %14 ], [ 1, %16 ], [ 0, %4 ], [ 0, %10 ]
   ret i32 %.013
 }
 
@@ -2673,7 +2673,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
   br label %20
 
 20:                                               ; preds = %doInt.exit.thread, %17, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %17 ], [ 1, %doInt.exit.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ 1, %16 ], [ 1, %doInt.exit.thread ]
   ret i32 %.0
 }
 
@@ -2726,7 +2726,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
   br label %20
 
 20:                                               ; preds = %doInt.exit.thread, %17, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %17 ], [ 1, %doInt.exit.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ 1, %16 ], [ 1, %doInt.exit.thread ]
   ret i32 %.0
 }
 

@@ -121,7 +121,7 @@ define i32 @ERKStepSetTable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %57
 
 57:                                               ; preds = %2, %47, %45, %10
-  %.0 = phi i32 [ -21, %10 ], [ -21, %45 ], [ 0, %47 ], [ %7, %2 ]
+  %.0 = phi i32 [ 0, %47 ], [ -21, %10 ], [ -21, %45 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -230,7 +230,7 @@ define i32 @ERKStepSetTableNum(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %56
 
 56:                                               ; preds = %2, %38, %36, %9
-  %.0 = phi i32 [ -22, %9 ], [ -22, %36 ], [ 0, %38 ], [ %7, %2 ]
+  %.0 = phi i32 [ 0, %38 ], [ -22, %9 ], [ -22, %36 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -282,7 +282,7 @@ define i32 @erkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %16
 
 16:                                               ; preds = %3, %12, %11, %8
-  %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ 0, %12 ], [ %5, %3 ]
+  %.0 = phi i32 [ 0, %12 ], [ -22, %8 ], [ -22, %11 ], [ %5, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -517,7 +517,7 @@ define i32 @erkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   br label %89
 
 89:                                               ; preds = %1, %80, %66, %59
-  %.0 = phi i32 [ -20, %59 ], [ -20, %66 ], [ 0, %80 ], [ %7, %1 ]
+  %.0 = phi i32 [ 0, %80 ], [ -20, %59 ], [ -20, %66 ], [ %7, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -662,7 +662,7 @@ define i32 @erkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
   br label %18
 
 18:                                               ; preds = %7, %12, %3, %17
-  %.0 = phi i32 [ -22, %17 ], [ %5, %3 ], [ 0, %12 ], [ 0, %7 ]
+  %.0 = phi i32 [ %5, %3 ], [ -22, %17 ], [ 0, %12 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1236,7 +1236,7 @@ define i32 @ERKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %20
 
 20:                                               ; preds = %2, %13, %11
-  %.0 = phi i32 [ -21, %11 ], [ 0, %13 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ -21, %11 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

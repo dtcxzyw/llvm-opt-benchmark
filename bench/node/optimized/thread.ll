@@ -49,7 +49,7 @@ uv__min_stack_size.exit:                          ; preds = %if.end4, %if.then.i
   br label %return
 
 return:                                           ; preds = %uv__min_stack_size.exit, %if.end, %entry
-  %retval.0 = phi i64 [ 2097152, %entry ], [ 2097152, %if.end ], [ %spec.select, %uv__min_stack_size.exit ]
+  %retval.0 = phi i64 [ 2097152, %if.end ], [ 2097152, %entry ], [ %spec.select, %uv__min_stack_size.exit ]
   ret i64 %retval.0
 }
 
@@ -117,7 +117,7 @@ uv__min_stack_size.exit.i:                        ; preds = %if.then.i.i, %if.en
   br label %uv__thread_stack_size.exit
 
 uv__thread_stack_size.exit:                       ; preds = %if.then, %if.end.i, %uv__min_stack_size.exit.i
-  %retval.0.i = phi i64 [ 2097152, %if.then ], [ 2097152, %if.end.i ], [ %spec.select.i, %uv__min_stack_size.exit.i ]
+  %retval.0.i = phi i64 [ 2097152, %if.end.i ], [ 2097152, %if.then ], [ %spec.select.i, %uv__min_stack_size.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %lim.i)
   br label %if.end10
 
@@ -257,8 +257,8 @@ cond.end.i:                                       ; preds = %cond.true.i, %for.b
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
   br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
 
-uv_thread_getaffinity.exit.thread:                ; preds = %if.then7, %if.end.i
-  %retval.0.i.ph = phi i32 [ -22, %if.end.i ], [ %call.i, %if.then7 ]
+uv_thread_getaffinity.exit.thread:                ; preds = %if.end.i, %if.then7
+  %retval.0.i.ph = phi i32 [ %call.i, %if.then7 ], [ -22, %if.end.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %cpuset.i)
   br label %return
 
@@ -371,7 +371,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   br i1 %exitcond.not, label %return, label %for.body
 
 return:                                           ; preds = %cond.end, %for.cond.preheader, %if.end, %entry, %if.then6
-  %retval.0 = phi i32 [ %sub, %if.then6 ], [ %call, %entry ], [ -22, %if.end ], [ 0, %for.cond.preheader ], [ 0, %cond.end ]
+  %retval.0 = phi i32 [ -22, %if.end ], [ %call, %entry ], [ %sub, %if.then6 ], [ 0, %for.cond.preheader ], [ 0, %cond.end ]
   ret i32 %retval.0
 }
 
@@ -839,7 +839,7 @@ if.then.i6:                                       ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.then.i6, %if.else, %uv_mutex_destroy.exit.i, %uv_cond_init.exit.thread.i, %if.then3.i, %if.then
-  %retval.0 = phi i32 [ %sub.i.i, %if.then3.i ], [ %retval.0.i.i, %uv_mutex_destroy.exit.i ], [ 0, %uv_cond_init.exit.thread.i ], [ -12, %if.then ], [ %sub.i, %if.then.i6 ], [ 0, %if.else ]
+  %retval.0 = phi i32 [ -12, %if.then ], [ 0, %uv_cond_init.exit.thread.i ], [ %sub.i.i, %if.then3.i ], [ %retval.0.i.i, %uv_mutex_destroy.exit.i ], [ %sub.i, %if.then.i6 ], [ 0, %if.else ]
   ret i32 %retval.0
 }
 
@@ -1113,7 +1113,7 @@ if.end.i3:                                        ; preds = %if.then.i
   unreachable
 
 return:                                           ; preds = %do.body.i, %if.then.i, %if.end4.i, %if.then2.i, %if.then, %if.then
-  %retval.0 = phi i32 [ -11, %if.then ], [ -11, %if.then ], [ -11, %if.then2.i ], [ 0, %if.end4.i ], [ -11, %if.then.i ], [ %call.i, %do.body.i ]
+  %retval.0 = phi i32 [ 0, %if.end4.i ], [ -11, %if.then2.i ], [ -11, %if.then ], [ -11, %if.then ], [ -11, %if.then.i ], [ %call.i, %do.body.i ]
   ret i32 %retval.0
 }
 

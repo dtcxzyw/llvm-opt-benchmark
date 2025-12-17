@@ -162,7 +162,7 @@ check_bloom_offset.exit43:                        ; preds = %check_bloom_offset.
   br label %89
 
 89:                                               ; preds = %check_bloom_offset.exit43.thread, %check_bloom_offset.exit.thread, %._crit_edge, %76, %71
-  %.0 = phi i32 [ 0, %71 ], [ 1, %76 ], [ 0, %._crit_edge ], [ 0, %check_bloom_offset.exit.thread ], [ 0, %check_bloom_offset.exit43.thread ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %71 ], [ 1, %76 ], [ 0, %check_bloom_offset.exit43.thread ], [ 0, %check_bloom_offset.exit.thread ]
   ret i32 %.0
 }
 
@@ -967,7 +967,7 @@ upgrade_filter.exit:                              ; preds = %72, %commit_tree_ha
   %.not101 = icmp eq i32 %2, 0
   br i1 %.not101, label %.thread128, label %.thread131
 
-.thread131:                                       ; preds = %62, %commit_tree_has_high_bit_paths.exit.i, %commit_tree_has_high_bit_paths.exit15.i, %64, %69, %73, %76, %.thread124
+.thread131:                                       ; preds = %62, %commit_tree_has_high_bit_paths.exit.i, %commit_tree_has_high_bit_paths.exit15.i, %69, %64, %73, %76, %.thread124
   call void @repo_diff_setup(ptr noundef %0, ptr noundef nonnull %6) #15
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %82, align 8, !tbaa !92
@@ -1237,8 +1237,8 @@ add_key_to_filter.exit:                           ; preds = %.lr.ph.i, %160
   call void @diff_queue_clear(ptr noundef nonnull @diff_queued_diff) #15
   br label %.thread128
 
-.thread128:                                       ; preds = %upgrade_filter.exit, %61, %79, %55, %56, %.thread124, %12, %.critedge
-  %.0 = phi ptr [ %41, %.critedge ], [ null, %12 ], [ null, %.thread124 ], [ %41, %56 ], [ %41, %55 ], [ %41, %79 ], [ null, %61 ], [ %41, %upgrade_filter.exit ]
+.thread128:                                       ; preds = %upgrade_filter.exit, %61, %79, %56, %55, %.thread124, %12, %.critedge
+  %.0 = phi ptr [ %41, %.critedge ], [ null, %12 ], [ null, %61 ], [ null, %.thread124 ], [ %41, %55 ], [ %41, %56 ], [ %41, %79 ], [ %41, %upgrade_filter.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

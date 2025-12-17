@@ -98,9 +98,6 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader.preheader, label %10
 
-.preheader.preheader:                             ; preds = %18, %15, %8
-  br label %.preheader
-
 10:                                               ; preds = %8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.2) #6
   %12 = icmp eq i32 %11, 0
@@ -115,6 +112,9 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(4) @.str.4) #6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %18, %8, %15
+  br label %.preheader
 
 18:                                               ; preds = %15
   %19 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #5

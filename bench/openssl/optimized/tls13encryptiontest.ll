@@ -400,7 +400,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %27, %11, %39
-  %.0 = phi ptr [ null, %27 ], [ %13, %39 ], [ null, %11 ], [ null, %5 ]
+  %.0 = phi ptr [ %13, %39 ], [ null, %27 ], [ null, %11 ], [ null, %5 ]
   ret ptr %.0
 }
 

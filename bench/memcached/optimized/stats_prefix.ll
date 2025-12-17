@@ -147,8 +147,8 @@ define dso_local noundef ptr @stats_prefix_find(ptr noundef %0, i64 noundef %1) 
   store i32 %38, ptr @total_prefix_size, align 4, !tbaa !18
   br label %.critedge42
 
-.critedge42:                                      ; preds = %9, %4, %.lr.ph51, %2, %29, %28, %23
-  %.036 = phi ptr [ null, %23 ], [ null, %28 ], [ %21, %29 ], [ null, %2 ], [ %.03750, %.lr.ph51 ], [ null, %4 ], [ null, %9 ]
+.critedge42:                                      ; preds = %4, %9, %.lr.ph51, %2, %29, %28, %23
+  %.036 = phi ptr [ %21, %29 ], [ null, %23 ], [ null, %28 ], [ null, %2 ], [ %.03750, %.lr.ph51 ], [ null, %9 ], [ null, %4 ]
   ret ptr %.036
 }
 

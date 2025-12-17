@@ -629,7 +629,7 @@ define hidden void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDes
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %23, %44
-  %spec.select.i.sink = phi ptr [ %spec.select.i39, %44 ], [ %1, %23 ], [ %spec.select.i, %31 ]
+  %spec.select.i.sink = phi ptr [ %1, %23 ], [ %spec.select.i39, %44 ], [ %spec.select.i, %31 ]
   call void @_ZN17ShenandoahAsserts14print_obj_safeER12FormatBufferILm8192EEPv(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef %spec.select.i.sink)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %9, ptr noundef nonnull @.str)
   br label %45

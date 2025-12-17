@@ -1702,8 +1702,8 @@ getTocEntryByDumpId.exit:                         ; preds = %152
   %spec.select = select i1 %374, i32 %.2126, i32 %375
   br label %_tocEntryIsACL.exit.thread
 
-_tocEntryIsACL.exit.thread:                       ; preds = %.thread.us, %.thread, %114, %27, %30, %321, %256, %265, %259, %252, %246, %233, %227, %220, %214, %184, %176, %173, %103, %81, %65, %74, %70, %66, %62, %56, %44, %47, %50, %38, %_tocEntryIsACL.exit, %22, %3, %10, %13, %371
-  %.0 = phi i32 [ %spec.select, %371 ], [ 4, %13 ], [ 4, %10 ], [ 4, %3 ], [ %., %22 ], [ 0, %_tocEntryIsACL.exit ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %44 ], [ 0, %56 ], [ 0, %62 ], [ 0, %66 ], [ 0, %70 ], [ 0, %74 ], [ 0, %65 ], [ 0, %81 ], [ 0, %103 ], [ 0, %173 ], [ 0, %176 ], [ 0, %184 ], [ 0, %214 ], [ 0, %220 ], [ 0, %227 ], [ 0, %233 ], [ 0, %246 ], [ 0, %252 ], [ 0, %259 ], [ 0, %265 ], [ 0, %256 ], [ 0, %321 ], [ 0, %30 ], [ 0, %27 ], [ 0, %114 ], [ 0, %.thread ], [ 0, %.thread.us ]
+_tocEntryIsACL.exit.thread:                       ; preds = %.thread.us, %.thread, %114, %30, %27, %321, %256, %265, %259, %252, %246, %233, %227, %220, %214, %184, %176, %173, %103, %81, %65, %74, %70, %66, %62, %56, %44, %47, %50, %38, %_tocEntryIsACL.exit, %22, %3, %10, %13, %371
+  %.0 = phi i32 [ 0, %70 ], [ %., %22 ], [ 4, %3 ], [ 4, %10 ], [ 0, %_tocEntryIsACL.exit ], [ 0, %38 ], [ 0, %44 ], [ 0, %56 ], [ 0, %74 ], [ 0, %256 ], [ %spec.select, %371 ], [ 0, %81 ], [ 0, %30 ], [ 0, %176 ], [ 0, %214 ], [ 0, %184 ], [ 0, %227 ], [ 0, %220 ], [ 0, %246 ], [ 0, %233 ], [ 0, %259 ], [ 0, %252 ], [ 0, %265 ], [ 0, %173 ], [ 0, %103 ], [ 0, %65 ], [ 0, %62 ], [ 0, %66 ], [ 4, %13 ], [ 0, %50 ], [ 0, %47 ], [ 0, %321 ], [ 0, %27 ], [ 0, %114 ], [ 0, %.thread ], [ 0, %.thread.us ]
   ret i32 %.0
 }
 
@@ -1848,7 +1848,7 @@ define dso_local void @RestoreArchive(ptr noundef initializes((668, 672)) %0) lo
   br label %.thread
 
 .thread:                                          ; preds = %1, %31, %14
-  %32 = phi i1 [ true, %31 ], [ false, %14 ], [ false, %1 ]
+  %32 = phi i1 [ false, %14 ], [ true, %31 ], [ false, %1 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
@@ -2578,7 +2578,7 @@ repoint_table_dependencies.exit.i.i:              ; preds = %.loopexit.i.i.i, %.
   br i1 %.not89.i.i, label %.loopexit116.i.i, label %.lr.ph133.i.i, !llvm.loop !19
 
 .loopexit116.i.i:                                 ; preds = %350, %.preheader115.i.i, %340, %325, %repoint_table_dependencies.exit.i.i
-  %351 = phi ptr [ %321, %325 ], [ %.pre.i.i, %340 ], [ %321, %repoint_table_dependencies.exit.i.i ], [ %321, %.preheader115.i.i ], [ %321, %350 ]
+  %351 = phi ptr [ %321, %repoint_table_dependencies.exit.i.i ], [ %321, %325 ], [ %.pre.i.i, %340 ], [ %321, %.preheader115.i.i ], [ %321, %350 ]
   %.2.in136.i.i = getelementptr inbounds nuw i8, ptr %351, i64 8
   %.2137.i.i = load ptr, ptr %.2.in136.i.i, align 8
   %.not92138.i.i = icmp eq ptr %.2137.i.i, %351
@@ -2876,7 +2876,7 @@ identify_locking_dependencies.exit.i.i:           ; preds = %475, %._crit_edge.t
   br i1 %.not95.i.i, label %fix_dependencies.exit.i, label %.lr.ph159.i.i, !llvm.loop !26
 
 fix_dependencies.exit.i:                          ; preds = %identify_locking_dependencies.exit.i.i, %.preheader.i.i, %.preheader111.i.i
-  %480 = phi ptr [ %383, %.preheader111.i.i ], [ %395, %.preheader.i.i ], [ %479, %identify_locking_dependencies.exit.i.i ]
+  %480 = phi ptr [ %395, %.preheader.i.i ], [ %383, %.preheader111.i.i ], [ %479, %identify_locking_dependencies.exit.i.i ]
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 676
   store i32 0, ptr %481, align 4
   %.031.in55.i = getelementptr inbounds nuw i8, ptr %480, i64 8
@@ -2900,7 +2900,7 @@ fix_dependencies.exit.i:                          ; preds = %identify_locking_de
   br label %485
 
 485:                                              ; preds = %484, %.lr.ph.i
-  %.0.i = phi i1 [ true, %.lr.ph.i ], [ %not..i, %484 ]
+  %.0.i = phi i1 [ %not..i, %484 ], [ true, %.lr.ph.i ]
   %486 = call fastcc i32 @_tocEntryRestorePass(ptr noundef nonnull %.03159.i)
   %.not36.i = icmp eq i32 %486, 0
   %spec.select37.i = select i1 %.not36.i, i1 %.0.i, i1 false
@@ -3364,7 +3364,7 @@ pop_next_work_item.exit.thread.i:                 ; preds = %pop_next_work_item.
   br label %_tocEntryRestorePass.exit.i
 
 _tocEntryRestorePass.exit.i:                      ; preds = %701, %696, %690, %687, %684, %681, %676
-  %.0.i.i255 = phi i32 [ 0, %701 ], [ 1, %684 ], [ 1, %681 ], [ 1, %676 ], [ 2, %690 ], [ 2, %687 ], [ 2, %696 ]
+  %.0.i.i255 = phi i32 [ 0, %701 ], [ 1, %676 ], [ 2, %687 ], [ 1, %684 ], [ 1, %681 ], [ 2, %690 ], [ 2, %696 ]
   %702 = icmp eq i32 %.0.i.i255, %669
   br i1 %702, label %703, label %709
 
@@ -3468,9 +3468,9 @@ default.unreachable400:                           ; preds = %733
   unreachable
 
 738:                                              ; preds = %733, %735, %737, %.lr.ph304
-  %739 = phi ptr [ %728, %.lr.ph304 ], [ %.pre, %735 ], [ %728, %737 ], [ %728, %733 ]
-  %.1194 = phi i1 [ %.0193300, %.lr.ph304 ], [ %.0193300, %735 ], [ %.0193300, %737 ], [ true, %733 ]
-  %.1 = phi i1 [ %.0301, %.lr.ph304 ], [ %.0301, %735 ], [ true, %737 ], [ %.0301, %733 ]
+  %739 = phi ptr [ %728, %.lr.ph304 ], [ %728, %737 ], [ %.pre, %735 ], [ %728, %733 ]
+  %.1194 = phi i1 [ %.0193300, %.lr.ph304 ], [ %.0193300, %737 ], [ %.0193300, %735 ], [ true, %733 ]
+  %.1 = phi i1 [ %.0301, %.lr.ph304 ], [ true, %737 ], [ %.0301, %735 ], [ %.0301, %733 ]
   %.3.in = getelementptr inbounds nuw i8, ptr %.3302, i64 8
   %.3 = load ptr, ptr %.3.in, align 8
   %.not223 = icmp eq ptr %.3, %739
@@ -3764,14 +3764,14 @@ sub_0:                                            ; preds = %3
   br label %.tail.thread.sink.split
 
 .tail.thread.sink.split:                          ; preds = %10, %8, %16
-  %.sink = phi ptr [ %17, %16 ], [ %9, %8 ], [ %12, %10 ]
-  %.016.ph = phi ptr [ null, %16 ], [ %1, %8 ], [ null, %10 ]
+  %.sink = phi ptr [ %9, %8 ], [ %17, %16 ], [ %12, %10 ]
+  %.016.ph = phi ptr [ %1, %8 ], [ null, %16 ], [ null, %10 ]
   %18 = tail call i32 @fileno(ptr noundef %.sink) #23
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail.thread.sink.split, %sub_0, %13, %.tail
-  %.016 = phi ptr [ %1, %.tail ], [ %15, %13 ], [ %1, %sub_0 ], [ %.016.ph, %.tail.thread.sink.split ]
-  %.0 = phi i32 [ -1, %.tail ], [ -1, %13 ], [ -1, %sub_0 ], [ %18, %.tail.thread.sink.split ]
+  %.016 = phi ptr [ %1, %sub_0 ], [ %1, %.tail ], [ %15, %13 ], [ %.016.ph, %.tail.thread.sink.split ]
+  %.0 = phi i32 [ -1, %sub_0 ], [ -1, %.tail ], [ -1, %13 ], [ %18, %.tail.thread.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
@@ -4110,7 +4110,7 @@ define internal fastcc range(i32 0, 3) i32 @_tocEntryRestorePass(ptr noundef rea
   br label %27
 
 27:                                               ; preds = %21, %12, %15, %1, %6, %9, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %9 ], [ 1, %6 ], [ 1, %1 ], [ 2, %15 ], [ 2, %12 ], [ 2, %21 ]
+  %.0 = phi i32 [ 0, %26 ], [ 1, %1 ], [ 2, %12 ], [ 1, %9 ], [ 1, %6 ], [ 2, %15 ], [ 2, %21 ]
   ret i32 %.0
 }
 
@@ -4293,7 +4293,7 @@ define internal fastcc range(i32 0, 13) i32 @restore_toc_entry(ptr noundef initi
   br label %inhibit_data_for_failed_table.exit
 
 inhibit_data_for_failed_table.exit:               ; preds = %93, %86, %78, %68, %65, %85, %57
-  %.1 = phi i32 [ %.mux, %65 ], [ 0, %57 ], [ 10, %85 ], [ 0, %68 ], [ 0, %78 ], [ 0, %86 ], [ 0, %93 ]
+  %.1 = phi i32 [ 0, %57 ], [ 0, %78 ], [ %.mux, %65 ], [ 10, %85 ], [ 0, %68 ], [ 0, %86 ], [ 0, %93 ]
   br i1 %.0108, label %100, label %121
 
 100:                                              ; preds = %inhibit_data_for_failed_table.exit
@@ -4479,7 +4479,7 @@ _becomeOwner.exit:                                ; preds = %_disableTriggersIfN
   br label %.thread
 
 .thread:                                          ; preds = %_becomeOwner.exit, %178, %184, %182
-  %189 = phi i1 [ true, %184 ], [ false, %182 ], [ false, %178 ], [ false, %_becomeOwner.exit ]
+  %189 = phi i1 [ false, %182 ], [ true, %184 ], [ false, %178 ], [ false, %_becomeOwner.exit ]
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %191 = load ptr, ptr %190, align 8
   %.not127 = icmp eq ptr %191, null
@@ -5957,7 +5957,7 @@ define dso_local void @warn_or_exit_horribly(ptr noundef captures(none) %0, ptr 
   br i1 %.not31, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %12, %9, %6
-  %.str.80.sink = phi ptr [ @.str.78, %6 ], [ @.str.79, %9 ], [ @.str.80, %12 ]
+  %.str.80.sink = phi ptr [ @.str.79, %9 ], [ @.str.78, %6 ], [ @.str.80, %12 ]
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull %.str.80.sink) #23
   br label %15
 
@@ -6207,7 +6207,7 @@ ReadInt.exit:                                     ; preds = %17, %13
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %54, %.preheader, %30, %ReadInt.exit, %32
-  %.0 = phi i32 [ 2, %32 ], [ 1, %ReadInt.exit ], [ 3, %30 ], [ %38, %.preheader ], [ %38, %54 ]
+  %.0 = phi i32 [ 3, %30 ], [ 1, %ReadInt.exit ], [ 2, %32 ], [ %38, %.preheader ], [ %38, %54 ]
   ret i32 %.0
 }
 
@@ -6654,7 +6654,7 @@ define internal range(i32 -1, 2) i32 @TocEntrySizeCompareQsort(ptr noundef reado
   br label %20
 
 20:                                               ; preds = %18, %12, %10, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ %., %18 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %2 ], [ 1, %10 ], [ %., %18 ]
   ret i32 %.0
 }
 
@@ -7671,7 +7671,7 @@ ReadInt.exit210:                                  ; preds = %.lr.ph.i202, %204
   br label %256
 
 256:                                              ; preds = %253, %238, %241, %244, %247, %250, %229, %232, %235, %220, %223, %226, %ReadInt.exit210
-  %.sink = phi i32 [ %spec.select.i209, %ReadInt.exit210 ], [ 1, %226 ], [ 1, %223 ], [ 1, %220 ], [ 3, %235 ], [ 3, %232 ], [ 3, %229 ], [ 4, %250 ], [ 4, %247 ], [ 4, %244 ], [ 4, %241 ], [ 4, %238 ], [ %spec.select, %253 ]
+  %.sink = phi i32 [ %spec.select.i209, %ReadInt.exit210 ], [ 3, %229 ], [ 4, %238 ], [ 1, %220 ], [ 1, %226 ], [ 1, %223 ], [ 3, %235 ], [ 3, %232 ], [ %spec.select, %253 ], [ 4, %250 ], [ 4, %247 ], [ 4, %244 ], [ 4, %241 ]
   %257 = getelementptr inbounds nuw i8, ptr %37, i64 28
   store i32 %.sink, ptr %257, align 4
   %258 = load i32, ptr %2, align 8
@@ -8880,7 +8880,7 @@ ReadInt.exit:                                     ; preds = %.lr.ph.i, %74
   br i1 %.not89, label %91, label %.sink.split
 
 .sink.split:                                      ; preds = %68, %88, %65
-  %.sink219 = phi i32 [ %67, %65 ], [ 1, %88 ], [ 1, %68 ]
+  %.sink219 = phi i32 [ 1, %88 ], [ %67, %65 ], [ 1, %68 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.sink219, ptr %90, align 8
   br label %91
@@ -10206,7 +10206,7 @@ _tocEntryIsACL.exit:                              ; preds = %315
   %319 = icmp eq i32 %318, 0
   br i1 %319, label %_tocEntryIsACL.exit.thread, label %322
 
-_tocEntryIsACL.exit.thread:                       ; preds = %_printTableAccessMethodNoStorage.exit, %315, %_tocEntryIsACL.exit
+_tocEntryIsACL.exit.thread:                       ; preds = %315, %_printTableAccessMethodNoStorage.exit, %_tocEntryIsACL.exit
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %321 = load ptr, ptr %320, align 8
   call void @free(ptr noundef %321) #23
@@ -10258,7 +10258,7 @@ define internal fastcc zeroext i1 @is_load_via_partition_root(ptr noundef readon
   br label %25
 
 25:                                               ; preds = %7, %10, %4, %12
-  %.0 = phi i1 [ %24, %12 ], [ true, %4 ], [ false, %10 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %4 ], [ %24, %12 ], [ false, %10 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -10821,7 +10821,7 @@ define internal range(i32 -1, 2) i32 @TocEntrySizeCompareBinaryheap(ptr noundef 
   br label %TocEntrySizeCompareQsort.exit
 
 TocEntrySizeCompareQsort.exit:                    ; preds = %3, %9, %11, %17
-  %.0.i.neg = phi i32 [ 1, %3 ], [ -1, %9 ], [ 1, %11 ], [ %..i.neg, %17 ]
+  %.0.i.neg = phi i32 [ 1, %11 ], [ 1, %3 ], [ -1, %9 ], [ %..i.neg, %17 ]
   ret i32 %.0.i.neg
 }
 

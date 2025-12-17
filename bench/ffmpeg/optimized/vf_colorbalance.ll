@@ -420,7 +420,7 @@ define internal noundef i32 @color_balance8_p(ptr noundef readonly captures(none
   br label %212
 
 212:                                              ; preds = %206, %204, %198, %191, %180
-  %.065.i = phi nsz float [ %195, %191 ], [ %203, %198 ], [ %211, %206 ], [ 0.000000e+00, %204 ], [ 0.000000e+00, %180 ]
+  %.065.i = phi nsz float [ 0.000000e+00, %180 ], [ %195, %191 ], [ %203, %198 ], [ %211, %206 ], [ 0.000000e+00, %204 ]
   %213 = fcmp nsz oeq float %183, 1.000000e+00
   %214 = fcmp nsz oeq float %185, 0.000000e+00
   %or.cond.i = or i1 %213, %214
@@ -873,7 +873,7 @@ define internal noundef i32 @color_balance16_p(ptr noundef readonly captures(non
   br label %230
 
 230:                                              ; preds = %225, %219, %213, %211, %198
-  %.065.i.us = phi nsz float [ %229, %225 ], [ %224, %219 ], [ %218, %213 ], [ 0.000000e+00, %211 ], [ 0.000000e+00, %198 ]
+  %.065.i.us = phi nsz float [ 0.000000e+00, %198 ], [ %229, %225 ], [ %224, %219 ], [ %218, %213 ], [ 0.000000e+00, %211 ]
   %231 = fcmp nsz oeq float %201, 1.000000e+00
   %232 = fcmp nsz oeq float %203, 0.000000e+00
   %or.cond.i.us = or i1 %231, %232
@@ -1239,7 +1239,7 @@ define internal noundef i32 @color_balance8(ptr noundef readonly captures(none) 
   br label %186
 
 186:                                              ; preds = %180, %178, %172, %165, %154
-  %.065.i = phi nsz float [ %169, %165 ], [ %177, %172 ], [ %185, %180 ], [ 0.000000e+00, %178 ], [ 0.000000e+00, %154 ]
+  %.065.i = phi nsz float [ 0.000000e+00, %154 ], [ %169, %165 ], [ %177, %172 ], [ %185, %180 ], [ 0.000000e+00, %178 ]
   %187 = fcmp nsz oeq float %157, 1.000000e+00
   %188 = fcmp nsz oeq float %159, 0.000000e+00
   %or.cond.i = or i1 %187, %188
@@ -1623,7 +1623,7 @@ define internal noundef i32 @color_balance16(ptr noundef readonly captures(none)
   br label %197
 
 197:                                              ; preds = %192, %186, %180, %178, %165
-  %.065.i.us = phi nsz float [ %196, %192 ], [ %191, %186 ], [ %185, %180 ], [ 0.000000e+00, %178 ], [ 0.000000e+00, %165 ]
+  %.065.i.us = phi nsz float [ 0.000000e+00, %165 ], [ %196, %192 ], [ %191, %186 ], [ %185, %180 ], [ 0.000000e+00, %178 ]
   %198 = fcmp nsz oeq float %168, 1.000000e+00
   %199 = fcmp nsz oeq float %170, 0.000000e+00
   %or.cond.i.us = or i1 %198, %199

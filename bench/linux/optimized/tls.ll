@@ -236,7 +236,7 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
   br label %95
 
 ._crit_edge:                                      ; preds = %22, %11
-  %27 = phi i32 [ %20, %11 ], [ 0, %22 ]
+  %27 = phi i32 [ 0, %22 ], [ %20, %11 ]
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = trunc i32 %27 to i16
   store i16 %29, ptr %14, align 1

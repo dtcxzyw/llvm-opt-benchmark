@@ -1706,7 +1706,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17ha18abddbfb9023d0E(pt
   br i1 %exitcond51.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h02928510f98989c3E.exit.i, label %.lr.ph43.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h02928510f98989c3E.exit.i: ; preds = %55, %.lr.ph.i, %65, %.lr.ph43.i
-  %.sroa.0.0.i.i = phi i64 [ %34, %65 ], [ %.sroa.01.0.i42.i, %.lr.ph43.i ], [ %34, %55 ], [ %.sroa.01.1.i39.i, %.lr.ph.i ]
+  %.sroa.0.0.i.i = phi i64 [ %34, %65 ], [ %.sroa.01.0.i42.i, %.lr.ph43.i ], [ %.sroa.01.1.i39.i, %.lr.ph.i ], [ %34, %55 ]
   %67 = icmp ule i64 %.sroa.0.0.i.i, %34
   call void @llvm.assume(i1 %67)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -2448,8 +2448,8 @@ _ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17h856a2542c2dfec8bE.exit78.thread
 
 _ZN8smallvec12layout_array17h856a2542c2dfec8bE.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 8, %28 ], [ 8, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17ha33dddd6ff4721a7E.exit ], [ 8, %25 ], [ 8, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -2548,8 +2548,8 @@ _ZN8smallvec10deallocate17h486b9508d6605f6eE.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17h934726c8d61d49cbE.exit78.thread
 
 _ZN8smallvec12layout_array17h934726c8d61d49cbE.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17h486b9508d6605f6eE.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h486b9508d6605f6eE.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
-  %.sroa.0.0 = phi i64 [ 4, %28 ], [ 4, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h486b9508d6605f6eE.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h486b9508d6605f6eE.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h486b9508d6605f6eE.exit ], [ 4, %25 ], [ 4, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41

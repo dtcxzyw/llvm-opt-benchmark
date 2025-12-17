@@ -481,7 +481,7 @@ default.unreachable27:                            ; preds = %14, %3
   unreachable
 
 28:                                               ; preds = %18, %14, %24
-  %.0 = phi i64 [ %26, %24 ], [ %1, %14 ], [ %22, %18 ]
+  %.0 = phi i64 [ %1, %14 ], [ %26, %24 ], [ %22, %18 ]
   %29 = icmp ugt i64 %.020, %.0
   br i1 %29, label %32, label %30
 

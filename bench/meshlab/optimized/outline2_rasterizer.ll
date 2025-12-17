@@ -196,10 +196,10 @@ define void @_ZN20QtOutline2Rasterizer9rasterizeERN3vcg18RasterizedOutline2Efiii
   br label %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit
 
 _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %.lr.ph, %73, %68
-  %.sroa.0321.2 = phi float [ %.sroa.0321.1, %73 ], [ %.sroa.0321.1, %68 ], [ %62, %.lr.ph ]
-  %.sroa.7325.2 = phi float [ %.sroa.7325.1, %73 ], [ %.sroa.7325.1, %68 ], [ %64, %.lr.ph ]
-  %.sroa.14.2 = phi float [ %.sroa.14.1, %73 ], [ %.sroa.14.1, %68 ], [ %62, %.lr.ph ]
-  %.sroa.19.1 = phi float [ %64, %73 ], [ %.sroa.19.0407, %68 ], [ %64, %.lr.ph ]
+  %.sroa.0321.2 = phi float [ %.sroa.0321.1, %68 ], [ %.sroa.0321.1, %73 ], [ %62, %.lr.ph ]
+  %.sroa.7325.2 = phi float [ %.sroa.7325.1, %68 ], [ %.sroa.7325.1, %73 ], [ %64, %.lr.ph ]
+  %.sroa.14.2 = phi float [ %.sroa.14.1, %68 ], [ %.sroa.14.1, %73 ], [ %62, %.lr.ph ]
+  %.sroa.19.1 = phi float [ %.sroa.19.0407, %68 ], [ %64, %73 ], [ %64, %.lr.ph ]
   %74 = add nuw i64 %.0108408, 1
   %exitcond.not = icmp eq i64 %74, %54
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -1720,8 +1720,8 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit269: ; preds = %_ZN7QVectorI7QPoin
   ret void
 
 .loopexit.split-lp358:                            ; preds = %.loopexit357, %.loopexit.split-lp358.loopexit.split-lp.loopexit, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp358.loopexit, %.loopexit.split-lp, %517, %385
-  %.sroa.0.2 = phi ptr [ %.sroa.0.6, %.loopexit.split-lp ], [ %.sroa.0.6, %517 ], [ %.sroa.0.6, %385 ], [ %.sroa.0.6, %.loopexit357 ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph.ph.ph, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph.ph.ph376, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn151 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %518, %517 ], [ %.pn143, %385 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit362, %.loopexit.split-lp358.loopexit ], [ %lpad.loopexit366, %.loopexit.split-lp358.loopexit.split-lp.loopexit ], [ %lpad.loopexit369, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit373, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.6, %385 ], [ %.sroa.0.6, %.loopexit.split-lp ], [ %.sroa.0.6, %517 ], [ %.sroa.0.6, %.loopexit357 ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.6, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph.ph.ph, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph.ph.ph.ph.ph376, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn151 = phi { ptr, i32 } [ %.pn143, %385 ], [ %lpad.phi, %.loopexit.split-lp ], [ %518, %517 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit362, %.loopexit.split-lp358.loopexit ], [ %lpad.loopexit366, %.loopexit.split-lp358.loopexit.split-lp.loopexit ], [ %lpad.loopexit369, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit373, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp358.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i270 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i270, label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271, label %590
 
@@ -1730,7 +1730,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit269: ; preds = %_ZN7QVectorI7QPoin
   br label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271
 
 _ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271:        ; preds = %590, %.loopexit.split-lp358, %266, %257
-  %.pn151.pn = phi { ptr, i32 } [ %258, %257 ], [ %.pn.pn, %266 ], [ %.pn151, %.loopexit.split-lp358 ], [ %.pn151, %590 ]
+  %.pn151.pn = phi { ptr, i32 } [ %.pn.pn, %266 ], [ %258, %257 ], [ %.pn151, %.loopexit.split-lp358 ], [ %.pn151, %590 ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #22
   br label %591
 
@@ -1752,8 +1752,8 @@ _ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271:        ; preds = %590, %.loopexit.spl
   br label %596
 
 596:                                              ; preds = %592, %593
-  %597 = phi ptr [ %116, %592 ], [ %594, %593 ]
-  %.pn155.pn = phi { ptr, i32 } [ %.pn155, %592 ], [ %.pn155576, %593 ]
+  %597 = phi ptr [ %594, %593 ], [ %116, %592 ]
+  %.pn155.pn = phi { ptr, i32 } [ %.pn155576, %593 ], [ %.pn155, %592 ]
   call void @_ZN7QVectorI7QPointFED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %.not.i.i.i274 = icmp eq ptr %597, null
   br i1 %.not.i.i.i274, label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275, label %.thread341

@@ -1474,8 +1474,8 @@ Vec_PtrFree.exit:                                 ; preds = %Cec_ManSeqResimulat
   br i1 %144, label %39, label %.loopexit, !llvm.loop !107
 
 .loopexit.sink.split:                             ; preds = %133, %41, %39
-  %.str.12.sink = phi ptr [ @.str.12, %39 ], [ @.str.13, %41 ], [ @.str.18, %133 ]
-  %.1.ph = phi i32 [ 0, %39 ], [ 0, %41 ], [ 1, %133 ]
+  %.str.12.sink = phi ptr [ @.str.13, %41 ], [ @.str.12, %39 ], [ @.str.18, %133 ]
+  %.1.ph = phi i32 [ 0, %41 ], [ 0, %39 ], [ 1, %133 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.12.sink)
   br label %.loopexit
 

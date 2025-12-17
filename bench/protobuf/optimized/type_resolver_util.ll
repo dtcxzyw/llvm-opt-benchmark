@@ -474,8 +474,8 @@ common.resume.i:                                  ; preds = %lpad22.i, %lpad14.i
   resume { ptr, i32 } %common.resume.op.i
 
 common.resume.i.i:                                ; preds = %lpad28.i.i, %lpad.i135.i, %lpad.i.i, %lpad.i44.i.i, %lpad.i41.i.i, %lpad.i31.i.i, %lpad.i21.i.i, %lpad.i.i.i
-  %ref.tmp17.sink.i.i = phi ptr [ %ref.tmp.i39.i.i, %lpad.i41.i.i ], [ %ref.tmp.i29.i.i, %lpad.i31.i.i ], [ %ref.tmp.i19.i.i, %lpad.i21.i.i ], [ %ref.tmp.i.i.i, %lpad.i.i.i ], [ %ref.tmp17.i.i, %lpad.i44.i.i ], [ %ref.tmp17.i.i, %lpad.i.i ], [ %ref.tmp27.i.i, %lpad.i135.i ], [ %ref.tmp27.i.i, %lpad28.i.i ]
-  %common.resume.op.i.i = phi { ptr, i32 } [ %48, %lpad.i41.i.i ], [ %45, %lpad.i31.i.i ], [ %42, %lpad.i21.i.i ], [ %39, %lpad.i.i.i ], [ %55, %lpad.i44.i.i ], [ %56, %lpad.i.i ], [ %70, %lpad.i135.i ], [ %71, %lpad28.i.i ]
+  %ref.tmp17.sink.i.i = phi ptr [ %ref.tmp.i.i.i, %lpad.i.i.i ], [ %ref.tmp17.i.i, %lpad.i.i ], [ %ref.tmp.i39.i.i, %lpad.i41.i.i ], [ %ref.tmp.i29.i.i, %lpad.i31.i.i ], [ %ref.tmp.i19.i.i, %lpad.i21.i.i ], [ %ref.tmp17.i.i, %lpad.i44.i.i ], [ %ref.tmp27.i.i, %lpad.i135.i ], [ %ref.tmp27.i.i, %lpad28.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %39, %lpad.i.i.i ], [ %56, %lpad.i.i ], [ %48, %lpad.i41.i.i ], [ %45, %lpad.i31.i.i ], [ %42, %lpad.i21.i.i ], [ %55, %lpad.i44.i.i ], [ %70, %lpad.i135.i ], [ %71, %lpad28.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17.sink.i.i) #14
   br label %common.resume.i
 

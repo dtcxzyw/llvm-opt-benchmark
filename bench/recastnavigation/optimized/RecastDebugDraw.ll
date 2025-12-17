@@ -682,7 +682,7 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   br label %62
 
 62:                                               ; preds = %49, %55, %56
-  %.061 = phi i32 [ 1073741824, %55 ], [ %61, %56 ], [ 1090502656, %49 ]
+  %.061 = phi i32 [ %61, %56 ], [ 1073741824, %55 ], [ 1090502656, %49 ]
   %63 = load float, ptr %19, align 8
   %64 = load i16, ptr %51, align 4
   %65 = zext i16 %64 to i32
@@ -1606,7 +1606,7 @@ _ZL16getContourCenterPK9rcContourPKfffPf.exit66:  ; preds = %_ZL18findContourFro
   br label %_ZL18findContourFromSetRK12rcContourSett.exit.thread
 
 _ZL18findContourFromSetRK12rcContourSett.exit.thread: ; preds = %79, %76, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66, %64, %71
-  %121 = phi i32 [ %65, %76 ], [ %.pre119, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66 ], [ %65, %64 ], [ %65, %71 ], [ %65, %79 ]
+  %121 = phi i32 [ %65, %71 ], [ %65, %76 ], [ %.pre119, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66 ], [ %65, %64 ], [ %65, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
@@ -2287,7 +2287,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %35, %34, %.lr.ph185.split.us
-  %.0157.us = phi i32 [ 1073741824, %34 ], [ %40, %35 ], [ 1090502656, %.lr.ph185.split.us ]
+  %.0157.us = phi i32 [ %40, %35 ], [ 1073741824, %34 ], [ 1090502656, %.lr.ph185.split.us ]
   br label %41
 
 41:                                               ; preds = %.lr.ph.us, %49

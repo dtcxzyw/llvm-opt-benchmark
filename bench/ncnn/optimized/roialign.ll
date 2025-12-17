@@ -153,8 +153,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   br label %69
 
 69:                                               ; preds = %.thread, %64
-  %.048 = phi nsz float [ %.sroa.speculated37, %64 ], [ %63, %.thread ]
-  %.047 = phi nsz float [ %.sroa.speculated39, %64 ], [ %62, %.thread ]
+  %.048 = phi nsz float [ %63, %.thread ], [ %.sroa.speculated37, %64 ]
+  %.047 = phi nsz float [ %62, %.thread ], [ %.sroa.speculated39, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %70 = load i32, ptr %27, align 8, !tbaa !4
   %71 = sitofp i32 %70 to float
@@ -752,8 +752,8 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   br label %141
 
 141:                                              ; preds = %100, %96, %89
-  %.259.us.us.us.us.us.us.us = phi nsz float [ %140, %100 ], [ %.158100.us.us.us.us.us.us.us, %96 ], [ %.158100.us.us.us.us.us.us.us, %89 ]
-  %.1.us.us.us.us.us.us.us = phi nsz float [ %.2.us.us.us.us.us.us.us, %100 ], [ %.055101.us.us.us.us.us.us.us, %96 ], [ %.055101.us.us.us.us.us.us.us, %89 ]
+  %.259.us.us.us.us.us.us.us = phi nsz float [ %140, %100 ], [ %.158100.us.us.us.us.us.us.us, %89 ], [ %.158100.us.us.us.us.us.us.us, %96 ]
+  %.1.us.us.us.us.us.us.us = phi nsz float [ %.2.us.us.us.us.us.us.us, %100 ], [ %.055101.us.us.us.us.us.us.us, %89 ], [ %.055101.us.us.us.us.us.us.us, %96 ]
   %142 = add nuw nsw i32 %.054102.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %142, %62
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us.us, label %89, !llvm.loop !70

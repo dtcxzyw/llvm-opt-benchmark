@@ -81,7 +81,7 @@ define void @_ZN2cv12cornerSubPixERKNS_11_InputArrayERKNS_17_InputOutputArrayENS
   br label %33
 
 33:                                               ; preds = %6, %31, %29
-  %34 = phi i32 [ %32, %31 ], [ 100, %29 ], [ 100, %6 ]
+  %34 = phi i32 [ 100, %29 ], [ %32, %31 ], [ 100, %6 ]
   %35 = and i32 %.sroa.0140.0.extract.trunc, 2
   %.not217 = icmp eq i32 %35, 0
   br i1 %.not217, label %40, label %36
@@ -700,7 +700,7 @@ _ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269: ; preds = %268
   br i1 %301, label %.preheader, label %.thread296, !llvm.loop !46
 
 .thread296:                                       ; preds = %_ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269, %268, %._crit_edge356, %297
-  %.sroa.054.1302 = phi <2 x float> [ %.sroa.0271.4.vec.insert, %297 ], [ %.sroa.054.0.fr, %._crit_edge356 ], [ %.sroa.054.0.fr, %268 ], [ %.sroa.054.0.fr, %_ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269 ]
+  %.sroa.054.1302 = phi <2 x float> [ %.sroa.0271.4.vec.insert, %297 ], [ %.sroa.054.0.fr, %268 ], [ %.sroa.054.0.fr, %._crit_edge356 ], [ %.sroa.054.0.fr, %_ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269 ]
   %foldExtExtBinop = fsub <2 x float> %.sroa.054.1302, %191
   %302 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %303 = call noundef float @llvm.fabs.f32(float %302)
@@ -725,7 +725,7 @@ _ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269: ; preds = %268
   br i1 %exitcond413.not, label %._crit_edge369, label %189, !llvm.loop !47
 
 311:                                              ; preds = %258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266
-  %.pn235.pn = phi { ptr, i32 } [ %.pn229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %259, %258 ]
+  %.pn235.pn = phi { ptr, i32 } [ %259, %258 ], [ %.pn229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16
   br label %319
 
@@ -766,7 +766,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %312, %315
   br label %321
 
 321:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263, %320, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %61
-  %.pn235.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %62, %61 ], [ %.pn235.pn.pn.pn, %320 ], [ %.pn225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.pn223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260 ], [ %.pn219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ]
+  %.pn235.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn235.pn.pn.pn, %320 ], [ %.pn225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.pn223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260 ], [ %.pn219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #16
   br label %322
 

@@ -305,7 +305,7 @@ define dso_local i32 @Curl_ossl_add_session(ptr noundef %0, ptr noundef %1, ptr 
   br label %28
 
 28:                                               ; preds = %16, %13, %8, %25, %4, %23
-  %.0 = phi i32 [ 27, %23 ], [ %27, %25 ], [ 0, %8 ], [ 0, %4 ], [ 27, %13 ], [ 27, %16 ]
+  %.0 = phi i32 [ 0, %4 ], [ 27, %23 ], [ %27, %25 ], [ 27, %13 ], [ 0, %8 ], [ 27, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -593,7 +593,7 @@ load_cacert_from_memory.exit.i:                   ; preds = %120, %113, %._crit_
   br i1 %.not136.i, label %131, label %load_cacert_from_memory.exit.thread.i
 
 load_cacert_from_memory.exit.thread.i:            ; preds = %load_cacert_from_memory.exit.i, %load_cacert_from_memory.exit.thread161.i, %102, %98
-  %.024.i160.i = phi i32 [ %.1.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread161.i ], [ 27, %102 ], [ 77, %98 ]
+  %.024.i160.i = phi i32 [ 77, %load_cacert_from_memory.exit.thread161.i ], [ %.1.i.i, %load_cacert_from_memory.exit.i ], [ 27, %102 ], [ 77, %98 ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.42) #13
   br label %set_cached_x509_store.exit
 
@@ -901,8 +901,8 @@ populate_x509_store.exit:                         ; preds = %224, %225, %231
   store ptr %.023.i, ptr %.0.i38, align 8, !tbaa !87
   br label %set_cached_x509_store.exit
 
-set_cached_x509_store.exit:                       ; preds = %95, %149, %165, %200, %load_cacert_from_memory.exit.thread.i, %.critedge.i39, %254, %246, %244, %239, %233, %populate_x509_store.exit, %57
-  %.0 = phi i32 [ 0, %57 ], [ 0, %populate_x509_store.exit ], [ 0, %233 ], [ 0, %239 ], [ 0, %244 ], [ 0, %246 ], [ 0, %254 ], [ 0, %.critedge.i39 ], [ 27, %95 ], [ 77, %149 ], [ 77, %165 ], [ 82, %200 ], [ %.024.i160.i, %load_cacert_from_memory.exit.thread.i ]
+set_cached_x509_store.exit:                       ; preds = %149, %165, %200, %95, %load_cacert_from_memory.exit.thread.i, %.critedge.i39, %254, %246, %244, %239, %233, %populate_x509_store.exit, %57
+  %.0 = phi i32 [ 0, %57 ], [ 0, %.critedge.i39 ], [ 0, %populate_x509_store.exit ], [ 0, %233 ], [ 0, %239 ], [ 0, %244 ], [ 0, %246 ], [ 0, %254 ], [ 77, %149 ], [ 77, %165 ], [ 82, %200 ], [ 27, %95 ], [ %.024.i160.i, %load_cacert_from_memory.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -1500,7 +1500,7 @@ ossl_set_ssl_version_min_max.exit:                ; preds = %105
   br label %ossl_set_ssl_version_min_max.exit.thread
 
 ossl_set_ssl_version_min_max.exit.thread:         ; preds = %105, %.thread.i, %ossl_seed.exit, %239, %273, %202, %.critedge250, %.critedge, %129, %92, %92, %79, %272, %254, %238, %222, %214, %146, %124, %113, %ossl_strerror.exit, %56, %53, %49, %48, %47
-  %.0 = phi i32 [ 35, %56 ], [ 35, %49 ], [ 35, %113 ], [ 35, %124 ], [ %213, %214 ], [ 35, %254 ], [ 35, %272 ], [ 35, %238 ], [ 27, %222 ], [ 59, %146 ], [ 27, %ossl_strerror.exit ], [ 4, %47 ], [ 4, %48 ], [ 35, %53 ], [ 35, %ossl_seed.exit ], [ %80, %79 ], [ 4, %92 ], [ 4, %92 ], [ 58, %129 ], [ 59, %.critedge ], [ 59, %.critedge250 ], [ %204, %202 ], [ 0, %273 ], [ 0, %239 ], [ 35, %.thread.i ], [ 35, %105 ]
+  %.0 = phi i32 [ 35, %53 ], [ 35, %56 ], [ 35, %49 ], [ 35, %ossl_seed.exit ], [ 35, %113 ], [ %80, %79 ], [ 4, %92 ], [ 35, %124 ], [ 0, %239 ], [ %213, %214 ], [ %204, %202 ], [ 35, %254 ], [ 35, %272 ], [ 35, %238 ], [ 27, %222 ], [ 58, %129 ], [ 59, %.critedge250 ], [ 59, %.critedge ], [ 59, %146 ], [ 27, %ossl_strerror.exit ], [ 4, %47 ], [ 4, %48 ], [ 4, %92 ], [ 0, %273 ], [ 35, %.thread.i ], [ 35, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1620,7 +1620,7 @@ define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %27
 
 27:                                               ; preds = %19, %25, %24, %23, %22, %21, %20
-  %.045 = phi ptr [ %8, %25 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.62, %24 ], [ @.str.57, %19 ]
+  %.045 = phi ptr [ %8, %25 ], [ @.str.62, %24 ], [ @.str.58, %20 ], [ @.str.59, %21 ], [ @.str.60, %22 ], [ @.str.61, %23 ], [ @.str.57, %19 ]
   %28 = icmp ne i32 %1, 0
   %29 = add i32 %2, -258
   %30 = icmp ult i32 %29, -2
@@ -1757,9 +1757,9 @@ tls_rt_type.exit.thread62:                        ; preds = %34, %tls_rt_type.ex
   br label %ssl_msg_type.exit
 
 ssl_msg_type.exit:                                ; preds = %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %51, %48, %tls_rt_type.exit.thread62, %tls_rt_type.exit.thread59
-  %.04357 = phi ptr [ %.04361, %tls_rt_type.exit.thread59 ], [ %.04364, %tls_rt_type.exit.thread62 ], [ %.0435869, %53 ], [ %.0435869, %54 ], [ %.0435869, %55 ], [ %.0435869, %56 ], [ %.0435869, %57 ], [ %.0435869, %58 ], [ %.0435869, %59 ], [ %.0435869, %60 ], [ %.0435869, %61 ], [ %.0435869, %62 ], [ %.0435869, %63 ], [ %.0435869, %64 ], [ %.0435869, %65 ], [ %.0435869, %66 ], [ %.0435869, %67 ], [ %.0435869, %68 ], [ %.0435869, %51 ], [ %.043, %48 ], [ %.0435869, %69 ]
-  %.044 = phi ptr [ @.str.65, %tls_rt_type.exit.thread59 ], [ %47, %tls_rt_type.exit.thread62 ], [ @.str.76, %53 ], [ @.str.77, %54 ], [ @.str.78, %55 ], [ @.str.79, %56 ], [ @.str.80, %57 ], [ @.str.81, %58 ], [ @.str.82, %59 ], [ @.str.83, %60 ], [ @.str.84, %61 ], [ @.str.85, %62 ], [ @.str.86, %63 ], [ @.str.87, %64 ], [ @.str.88, %65 ], [ @.str.89, %66 ], [ @.str.90, %67 ], [ @.str.91, %68 ], [ @.str.75, %51 ], [ @.str.93, %48 ], [ @.str.93, %69 ]
-  %.0 = phi i32 [ %39, %tls_rt_type.exit.thread59 ], [ %46, %tls_rt_type.exit.thread62 ], [ %52, %53 ], [ %52, %54 ], [ %52, %55 ], [ %52, %56 ], [ %52, %57 ], [ %52, %58 ], [ %52, %59 ], [ %52, %60 ], [ %52, %61 ], [ %52, %62 ], [ %52, %63 ], [ %52, %64 ], [ %52, %65 ], [ %52, %66 ], [ %52, %67 ], [ %52, %68 ], [ %52, %51 ], [ %50, %48 ], [ %52, %69 ]
+  %.04357 = phi ptr [ %.04361, %tls_rt_type.exit.thread59 ], [ %.04364, %tls_rt_type.exit.thread62 ], [ %.0435869, %51 ], [ %.0435869, %68 ], [ %.0435869, %53 ], [ %.0435869, %54 ], [ %.0435869, %55 ], [ %.0435869, %56 ], [ %.0435869, %57 ], [ %.0435869, %58 ], [ %.0435869, %59 ], [ %.0435869, %60 ], [ %.0435869, %61 ], [ %.0435869, %62 ], [ %.0435869, %63 ], [ %.0435869, %64 ], [ %.0435869, %65 ], [ %.0435869, %66 ], [ %.0435869, %67 ], [ %.043, %48 ], [ %.0435869, %69 ]
+  %.044 = phi ptr [ @.str.65, %tls_rt_type.exit.thread59 ], [ %47, %tls_rt_type.exit.thread62 ], [ @.str.75, %51 ], [ @.str.91, %68 ], [ @.str.76, %53 ], [ @.str.77, %54 ], [ @.str.78, %55 ], [ @.str.79, %56 ], [ @.str.80, %57 ], [ @.str.81, %58 ], [ @.str.82, %59 ], [ @.str.83, %60 ], [ @.str.84, %61 ], [ @.str.85, %62 ], [ @.str.86, %63 ], [ @.str.87, %64 ], [ @.str.88, %65 ], [ @.str.89, %66 ], [ @.str.90, %67 ], [ @.str.93, %48 ], [ @.str.93, %69 ]
+  %.0 = phi i32 [ %39, %tls_rt_type.exit.thread59 ], [ %46, %tls_rt_type.exit.thread62 ], [ %52, %51 ], [ %52, %68 ], [ %52, %53 ], [ %52, %54 ], [ %52, %55 ], [ %52, %56 ], [ %52, %57 ], [ %52, %58 ], [ %52, %59 ], [ %52, %60 ], [ %52, %61 ], [ %52, %62 ], [ %52, %63 ], [ %52, %64 ], [ %52, %65 ], [ %52, %66 ], [ %52, %67 ], [ %50, %48 ], [ %52, %69 ]
   %70 = select i1 %.not52, ptr @.str.68, ptr @.str.67
   %71 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.66, ptr noundef nonnull %.045, ptr noundef nonnull %70, ptr noundef %.04357, ptr noundef %.044, i32 noundef %.0) #13
   %72 = sext i32 %71 to i64
@@ -1826,7 +1826,7 @@ ossl_do_file_type.exit.thread:                    ; preds = %21
   br label %ossl_do_file_type.exit
 
 ossl_do_file_type.exit:                           ; preds = %9, %15, %17, %19, %24
-  %.0.i = phi i32 [ 1, %15 ], [ 1, %9 ], [ 1, %17 ], [ 2, %19 ], [ %..i, %24 ]
+  %.0.i = phi i32 [ 1, %9 ], [ 1, %17 ], [ 2, %19 ], [ %..i, %24 ], [ 1, %15 ]
   %26 = icmp ne ptr %2, null
   %27 = icmp ne ptr %3, null
   %or.cond = or i1 %26, %27
@@ -1908,7 +1908,7 @@ ossl_do_file_type.exit:                           ; preds = %9, %15, %17, %19, %
   br label %52
 
 52:                                               ; preds = %51, %48, %47, %42, %39, %37
-  %.022.i = phi i32 [ 0, %39 ], [ 0, %37 ], [ 0, %47 ], [ 0, %42 ], [ %spec.select.i, %51 ], [ 0, %48 ]
+  %.022.i = phi i32 [ 0, %37 ], [ 0, %39 ], [ 0, %47 ], [ 0, %42 ], [ %spec.select.i, %51 ], [ 0, %48 ]
   tail call void @X509_free(ptr noundef %38) #13
   %53 = tail call i32 @BIO_free(ptr noundef nonnull %36) #13
   br label %use_certificate_chain_blob.exit
@@ -2306,7 +2306,7 @@ ossl_strerror.exit256:                            ; preds = %155, %157, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %217
 
-.thread285.critedge:                              ; preds = %206, %209, %197, %194, %188
+.thread285.critedge:                              ; preds = %209, %206, %197, %194, %188
   %213 = load ptr, ptr %13, align 8, !tbaa !153
   call void @EVP_PKEY_free(ptr noundef %213) #13
   %214 = load ptr, ptr %11, align 8, !tbaa !152
@@ -2315,7 +2315,7 @@ ossl_strerror.exit256:                            ; preds = %155, %157, %160
   call void @OPENSSL_sk_pop_free(ptr noundef %215, ptr noundef nonnull @X509_free) #13
   br label %.thread285
 
-.thread285:                                       ; preds = %.thread285.critedge, %182, %178, %ossl_strerror.exit256, %173, %166
+.thread285:                                       ; preds = %.thread285.critedge, %173, %ossl_strerror.exit256, %166, %182, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.sink.split
@@ -2368,9 +2368,9 @@ ossl_do_file_type.exit265:                        ; preds = %217
     i32 43, label %ossl_do_file_type.exit265.thread311
   ]
 
-ossl_do_file_type.exit265.thread:                 ; preds = %223, %220, %221, %ossl_do_file_type.exit265
-  %.0168297 = phi ptr [ %2, %ossl_do_file_type.exit265 ], [ %5, %221 ], [ %5, %220 ], [ %5, %223 ]
-  %.0169295 = phi ptr [ %3, %ossl_do_file_type.exit265 ], [ %6, %221 ], [ %6, %220 ], [ %6, %223 ]
+ossl_do_file_type.exit265.thread:                 ; preds = %221, %223, %220, %ossl_do_file_type.exit265
+  %.0168297 = phi ptr [ %2, %ossl_do_file_type.exit265 ], [ %5, %220 ], [ %5, %223 ], [ %5, %221 ]
+  %.0169295 = phi ptr [ %3, %ossl_do_file_type.exit265 ], [ %6, %220 ], [ %6, %223 ], [ %6, %221 ]
   br i1 %.not214, label %ossl_do_file_type.exit265.thread302, label %277
 
 ossl_do_file_type.exit265.thread302:              ; preds = %225, %ossl_do_file_type.exit265.thread, %ossl_do_file_type.exit265
@@ -2570,8 +2570,8 @@ ossl_do_file_type.exit265.thread298:              ; preds = %229, %ossl_do_file_
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %294, %290, %.thread285, %.thread318, %255, %274, %271, %259, %.critedge, %114, %.thread, %ossl_strerror.exit250, %276, %use_privatekey_blob.exit.thread, %279, %296, %ossl_do_file_type.exit265.thread298, %ossl_strerror.exit, %216
-  %.7.ph = phi i32 [ 0, %216 ], [ 0, %ossl_strerror.exit ], [ 0, %ossl_do_file_type.exit265.thread298 ], [ 0, %296 ], [ 0, %279 ], [ 0, %use_privatekey_blob.exit.thread ], [ 0, %276 ], [ 0, %ossl_strerror.exit250 ], [ 0, %.thread ], [ 0, %114 ], [ 0, %.critedge ], [ 0, %259 ], [ 0, %271 ], [ 0, %274 ], [ 0, %255 ], [ 0, %.thread318 ], [ 0, %.thread285 ], [ 1, %290 ], [ 1, %294 ]
+.sink.split:                                      ; preds = %294, %290, %255, %.thread318, %274, %271, %259, %.thread285, %.thread, %.critedge, %ossl_strerror.exit250, %276, %use_privatekey_blob.exit.thread, %279, %296, %114, %ossl_do_file_type.exit265.thread298, %ossl_strerror.exit, %216
+  %.7.ph = phi i32 [ 0, %255 ], [ 0, %216 ], [ 0, %ossl_strerror.exit ], [ 0, %ossl_do_file_type.exit265.thread298 ], [ 0, %114 ], [ 0, %296 ], [ 0, %279 ], [ 0, %use_privatekey_blob.exit.thread ], [ 0, %276 ], [ 0, %ossl_strerror.exit250 ], [ 0, %.critedge ], [ 0, %.thread ], [ 0, %.thread285 ], [ 0, %259 ], [ 0, %271 ], [ 0, %274 ], [ 0, %.thread318 ], [ 1, %290 ], [ 1, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %297
 
@@ -3396,9 +3396,9 @@ ossl_certchain.exit:                              ; preds = %._crit_edge253.i.lo
   br label %ossl_verifyhost.exit.thread
 
 394:                                              ; preds = %391, %389, %383
-  %.0102.i = phi i64 [ 4, %389 ], [ 16, %391 ], [ 0, %383 ]
-  %395 = phi i1 [ false, %389 ], [ false, %391 ], [ true, %383 ]
-  %.094.i = phi i32 [ 7, %389 ], [ 7, %391 ], [ 2, %383 ]
+  %.0102.i = phi i64 [ 16, %391 ], [ 4, %389 ], [ 0, %383 ]
+  %395 = phi i1 [ false, %391 ], [ false, %389 ], [ true, %383 ]
+  %.094.i = phi i32 [ 7, %391 ], [ 7, %389 ], [ 2, %383 ]
   %396 = call ptr @X509_get_ext_d2i(ptr noundef %384, i32 noundef 85, ptr noundef null, ptr noundef null) #13
   %.not136.i = icmp eq ptr %396, null
   br i1 %.not136.i, label %.thread4.i, label %397
@@ -3603,15 +3603,15 @@ subj_alt_hostcheck.exit.us.i:                     ; preds = %417, %408, %406
   br label %474
 
 474:                                              ; preds = %472, %468, %463, %462, %454, %452
-  %.1113.i = phi i1 [ %.011226.i, %452 ], [ %.011226.i, %462 ], [ true, %472 ], [ true, %468 ], [ true, %463 ], [ %.011226.i, %454 ]
+  %.1113.i = phi i1 [ %.011226.i, %452 ], [ %.011226.i, %454 ], [ true, %472 ], [ true, %463 ], [ true, %468 ], [ %.011226.i, %462 ]
   %475 = add nuw nsw i32 %.011824.i, 1
   %exitcond.not.i = icmp eq i32 %475, %398
   br i1 %exitcond.not.i, label %._crit_edge.i250, label %.lr.ph.split.split.i, !llvm.loop !181
 
 ._crit_edge.i250:                                 ; preds = %474, %447, %subj_alt_hostcheck.exit.us.i
-  %.0115.lcssa.i = phi i1 [ %.1116.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.1113.us42.i, %447 ], [ %.1113.i, %474 ]
-  %.1110.lcssa.i = phi i1 [ %.2111.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2111.us40.i, %447 ], [ %.2111.i, %474 ]
-  %.1107.lcssa.i = phi i1 [ %.2108.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2108.us41.i, %447 ], [ %.2108.i, %474 ]
+  %.0115.lcssa.i = phi i1 [ %.1113.us42.i, %447 ], [ %.1116.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.1113.i, %474 ]
+  %.1110.lcssa.i = phi i1 [ %.2111.us40.i, %447 ], [ %.2111.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2111.i, %474 ]
+  %.1107.lcssa.i = phi i1 [ %.2108.us41.i, %447 ], [ %.2108.us.i, %subj_alt_hostcheck.exit.us.i ], [ %.2108.i, %474 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %396) #13
   br i1 %.0115.lcssa.i, label %.sink.split, label %476
 
@@ -3763,17 +3763,17 @@ subj_alt_hostcheck.exit.us.i:                     ; preds = %417, %408, %406
 545:                                              ; preds = %539, %532, %531
   br i1 %.not90.i, label %ossl_verifyhost.exit.thread289, label %ossl_verifyhost.exit
 
-ossl_verifyhost.exit.thread285:                   ; preds = %527, %.thread8.thread84.i, %523, %.thread.i253
-  %.322.i.ph = phi i32 [ 27, %.thread.i253 ], [ 60, %523 ], [ 60, %.thread8.thread84.i ], [ 60, %527 ]
+ossl_verifyhost.exit.thread285:                   ; preds = %.thread.i253, %.thread8.thread84.i, %527, %523
+  %.322.i.ph = phi i32 [ 60, %523 ], [ 60, %527 ], [ 60, %.thread8.thread84.i ], [ 27, %.thread.i253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %ossl_verifyhost.exit.thread
 
-ossl_verifyhost.exit.thread289:                   ; preds = %545, %543
+ossl_verifyhost.exit.thread289:                   ; preds = %543, %545
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.sink.split
 
-ossl_verifyhost.exit.thread293:                   ; preds = %527, %523, %511
-  %.323.i.ph = phi i32 [ 27, %511 ], [ 60, %523 ], [ 60, %527 ]
+ossl_verifyhost.exit.thread293:                   ; preds = %523, %527, %511
+  %.323.i.ph = phi i32 [ 27, %511 ], [ 60, %527 ], [ 60, %523 ]
   %546 = load ptr, ptr %23, align 8, !tbaa !8
   call void @CRYPTO_free(ptr noundef %546, ptr noundef nonnull @.str.168, i32 noundef 2304) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -3785,8 +3785,8 @@ ossl_verifyhost.exit:                             ; preds = %543, %545
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.sink.split
 
-ossl_verifyhost.exit.thread:                      ; preds = %498, %391, %389, %393, %ossl_verifyhost.exit.thread293, %ossl_verifyhost.exit.thread285
-  %.0.i252280 = phi i32 [ %.322.i.ph, %ossl_verifyhost.exit.thread285 ], [ %.323.i.ph, %ossl_verifyhost.exit.thread293 ], [ 60, %393 ], [ 60, %389 ], [ 60, %391 ], [ 60, %498 ]
+ossl_verifyhost.exit.thread:                      ; preds = %498, %389, %391, %393, %ossl_verifyhost.exit.thread293, %ossl_verifyhost.exit.thread285
+  %.0.i252280 = phi i32 [ %.322.i.ph, %ossl_verifyhost.exit.thread285 ], [ %.323.i.ph, %ossl_verifyhost.exit.thread293 ], [ 60, %393 ], [ 60, %391 ], [ 60, %389 ], [ 60, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %548 = load ptr, ptr %297, align 8, !tbaa !137
   call void @X509_free(ptr noundef %548) #13
@@ -4098,7 +4098,7 @@ ossl_strerror.exit260:                            ; preds = %592, %594, %597
   br label %689
 
 689:                                              ; preds = %659, %660, %553, %554, %662, %663, %670, %674, %688, %684, %677, %676
-  %.0174 = phi i32 [ 0, %674 ], [ 0, %670 ], [ 0, %663 ], [ 0, %662 ], [ 0, %688 ], [ 0, %684 ], [ 0, %677 ], [ 0, %676 ], [ 60, %554 ], [ 60, %553 ], [ 60, %660 ], [ 60, %659 ]
+  %.0174 = phi i32 [ 0, %676 ], [ 60, %553 ], [ 0, %674 ], [ 0, %670 ], [ 0, %663 ], [ 0, %662 ], [ 0, %688 ], [ 0, %684 ], [ 0, %677 ], [ 60, %554 ], [ 60, %660 ], [ 60, %659 ]
   %690 = load ptr, ptr %294, align 8, !tbaa !136
   %691 = call i64 @SSL_get_verify_result(ptr noundef %690) #13
   %.not.i261 = icmp eq i64 %691, 0
@@ -4408,8 +4408,8 @@ infof_certstack.exit:                             ; preds = %734, %.lr.ph.split.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.179) #13
   br label %verifystatus.exit
 
-verifystatus.exit.thread:                         ; preds = %752, %757, %749, %746
-  %.05414.i.ph = phi ptr [ null, %746 ], [ null, %749 ], [ %748, %757 ], [ %748, %752 ]
+verifystatus.exit.thread:                         ; preds = %746, %752, %757, %749
+  %.05414.i.ph = phi ptr [ null, %749 ], [ %748, %757 ], [ %748, %752 ], [ null, %746 ]
   call void @OCSP_RESPONSE_free(ptr noundef %.05414.i.ph) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5417,7 +5417,7 @@ ossl_seed.exit.thread:                            ; preds = %13, %15, %7, %19
   br label %25
 
 25:                                               ; preds = %ossl_seed.exit, %19, %ossl_seed.exit.thread
-  %.0 = phi i32 [ %24, %ossl_seed.exit.thread ], [ 2, %ossl_seed.exit ], [ 2, %19 ]
+  %.0 = phi i32 [ 2, %ossl_seed.exit ], [ %24, %ossl_seed.exit.thread ], [ 2, %19 ]
   ret i32 %.0
 }
 
@@ -5644,7 +5644,7 @@ define internal range(i32 0, 55) i32 @ossl_set_engine_default(ptr noundef %0) #0
   br label %24
 
 24:                                               ; preds = %1, %18, %14, %7, %21
-  %.0 = phi i32 [ 54, %21 ], [ 0, %7 ], [ 0, %14 ], [ 0, %18 ], [ 0, %1 ]
+  %.0 = phi i32 [ 54, %21 ], [ 0, %1 ], [ 0, %7 ], [ 0, %14 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -5807,7 +5807,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr noundef re
   br label %54
 
 54:                                               ; preds = %5, %21, %28, %24, %36, %53, %35, %30, %29
-  %.1 = phi i64 [ %19, %5 ], [ -1, %35 ], [ -1, %53 ], [ -1, %29 ], [ -1, %30 ], [ 0, %36 ], [ %19, %24 ], [ %19, %28 ], [ %19, %21 ]
+  %.1 = phi i64 [ %19, %5 ], [ -1, %35 ], [ -1, %53 ], [ -1, %30 ], [ -1, %29 ], [ 0, %36 ], [ %19, %24 ], [ %19, %28 ], [ %19, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1
 }
@@ -5988,7 +5988,7 @@ ossl_strerror.exit45:                             ; preds = %62, %64, %67
   br label %SSL_ERROR_to_str.exit
 
 SSL_ERROR_to_str.exit:                            ; preds = %18, %70, %71, %72, %73, %74, %75, %76
-  %.0.i46 = phi ptr [ @.str.208, %76 ], [ @.str.201, %70 ], [ @.str.203, %71 ], [ @.str.204, %72 ], [ @.str.205, %73 ], [ @.str.206, %74 ], [ @.str.207, %75 ], [ @.str.197, %18 ]
+  %.0.i46 = phi ptr [ @.str.208, %76 ], [ @.str.207, %75 ], [ @.str.197, %18 ], [ @.str.206, %74 ], [ @.str.205, %73 ], [ @.str.201, %70 ], [ @.str.204, %72 ], [ @.str.203, %71 ]
   %77 = tail call ptr @__errno_location() #15
   %78 = load i32, ptr %77, align 4, !tbaa !112
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.234, ptr noundef nonnull %.0.i46, i32 noundef %78) #13
@@ -6126,7 +6126,7 @@ define internal range(i32 0, 92) i32 @ossl_get_channel_binding(ptr noundef %0, i
   br label %58
 
 58:                                               ; preds = %54, %52, %29, %51, %44, %36, %.thread55
-  %.028 = phi i32 [ 91, %51 ], [ 91, %44 ], [ 91, %36 ], [ 43, %.thread55 ], [ 0, %29 ], [ 27, %52 ], [ %., %54 ]
+  %.028 = phi i32 [ 0, %29 ], [ %., %54 ], [ 27, %52 ], [ 91, %51 ], [ 91, %44 ], [ 91, %36 ], [ 43, %.thread55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7159,7 +7159,7 @@ switch.lookup:                                    ; preds = %.thread203.i
   br label %SSL_ERROR_to_str.exit
 
 SSL_ERROR_to_str.exit:                            ; preds = %259, %.thread203.i, %switch.lookup
-  %264 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.208, %.thread203.i ], [ %spec.select, %259 ]
+  %264 = phi ptr [ %spec.select, %259 ], [ @.str.208, %.thread203.i ], [ %switch.load, %switch.lookup ]
   %265 = load ptr, ptr %95, align 8, !tbaa !210
   %266 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %267 = load i32, ptr %266, align 4, !tbaa !211
@@ -7168,7 +7168,7 @@ SSL_ERROR_to_str.exit:                            ; preds = %259, %.thread203.i,
   br label %.thread185.i
 
 .thread185.i:                                     ; preds = %SSL_ERROR_to_str.exit, %252, %ossl_strerror.exit.i, %216, %213
-  %.0141188.i = phi i32 [ 35, %SSL_ERROR_to_str.exit ], [ 35, %252 ], [ 98, %ossl_strerror.exit.i ], [ 60, %216 ], [ 60, %213 ]
+  %.0141188.i = phi i32 [ 35, %252 ], [ 35, %SSL_ERROR_to_str.exit ], [ 98, %ossl_strerror.exit.i ], [ 60, %216 ], [ 60, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ossl_connect_step3.exit
 
@@ -7281,13 +7281,13 @@ ossl_connect_step3.exit.thread:                   ; preds = %306
   store i32 0, ptr %20, align 4, !tbaa !206
   br label %ossl_connect_step3.exit
 
-316:                                              ; preds = %ossl_bio_cf_method_create.exit.thread.i, %42, %36, %35
-  %.0.i.ph = phi i32 [ 27, %ossl_bio_cf_method_create.exit.thread.i ], [ 27, %42 ], [ %38, %36 ], [ 35, %35 ]
+316:                                              ; preds = %42, %ossl_bio_cf_method_create.exit.thread.i, %36, %35
+  %.0.i.ph = phi i32 [ 27, %42 ], [ 27, %ossl_bio_cf_method_create.exit.thread.i ], [ %38, %36 ], [ 35, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ossl_connect_step3.exit
 
 ossl_connect_step3.exit:                          ; preds = %106, %ossl_connect_step2.exit, %303, %.thread185.i, %93, %88, %77, %306, %.thread, %315, %316, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %315 ], [ %.0.i.ph, %316 ], [ 28, %.thread ], [ %310, %306 ], [ 28, %77 ], [ 28, %93 ], [ 35, %88 ], [ %.0141188.i, %.thread185.i ], [ %108, %106 ], [ 0, %303 ], [ %302, %ossl_connect_step2.exit ]
+  %.0 = phi i32 [ 0, %18 ], [ 28, %.thread ], [ %310, %306 ], [ %.0.i.ph, %316 ], [ 0, %315 ], [ 35, %88 ], [ 28, %93 ], [ %.0141188.i, %.thread185.i ], [ 28, %77 ], [ %108, %106 ], [ 0, %303 ], [ %302, %ossl_connect_step2.exit ]
   ret i32 %.0
 }
 
@@ -7317,8 +7317,8 @@ define internal noundef i32 @ossl_new_session_cb(ptr noundef %0, ptr noundef %1)
   br label %.thread
 
 .thread:                                          ; preds = %2, %4, %7
-  %10 = phi ptr [ %6, %7 ], [ null, %4 ], [ null, %2 ]
-  %11 = phi ptr [ %9, %7 ], [ null, %4 ], [ null, %2 ]
+  %10 = phi ptr [ null, %4 ], [ %6, %7 ], [ null, %2 ]
+  %11 = phi ptr [ null, %4 ], [ %9, %7 ], [ null, %2 ]
   %12 = tail call i32 @Curl_ossl_add_session(ptr noundef %3, ptr noundef %11, ptr noundef %10, ptr noundef %1)
   ret i32 0
 }
@@ -7528,7 +7528,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
   br label %63
 
 63:                                               ; preds = %3, %61, %57
-  %.0 = phi i32 [ %62, %61 ], [ -1, %57 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %62, %61 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -7574,7 +7574,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_bio_cf_ctrl(ptr nou
   br label %21
 
 21:                                               ; preds = %6, %9, %20, %4, %4, %11, %14
-  %.08 = phi i64 [ 1, %11 ], [ %19, %14 ], [ 0, %20 ], [ %8, %6 ], [ 1, %9 ], [ 1, %4 ], [ 1, %4 ]
+  %.08 = phi i64 [ %19, %14 ], [ 1, %11 ], [ 0, %20 ], [ %8, %6 ], [ 1, %9 ], [ 1, %4 ], [ 1, %4 ]
   ret i64 %.08
 }
 

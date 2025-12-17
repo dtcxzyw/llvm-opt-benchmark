@@ -107,7 +107,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %17
   br label %30
 
 30:                                               ; preds = %26, %28
-  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
+  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

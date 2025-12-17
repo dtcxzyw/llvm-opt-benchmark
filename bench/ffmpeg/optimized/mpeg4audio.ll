@@ -559,7 +559,7 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   br i1 %356, label %.lr.ph, label %.loopexit.thread, !llvm.loop !25
 
 .loopexit:                                        ; preds = %340, %328, %325
-  %.pr113 = phi i32 [ %351, %340 ], [ %.pr113134, %328 ], [ %.pr113134, %325 ]
+  %.pr113 = phi i32 [ %.pr113134, %328 ], [ %.pr113134, %325 ], [ %351, %340 ]
   br i1 %.not81, label %.thread114, label %.loopexit.thread
 
 .thread114:                                       ; preds = %.loopexit
@@ -593,13 +593,13 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   br i1 %98, label %.thread, label %371
 
 371:                                              ; preds = %.loopexit.thread.thread, %.thread114, %.loopexit.thread
-  %372 = phi i32 [ %238, %.thread114 ], [ %357, %.loopexit.thread ], [ %81, %.loopexit.thread.thread ]
-  %.074158167 = phi i32 [ %.074, %.thread114 ], [ %.074158168, %.loopexit.thread ], [ %369, %.loopexit.thread.thread ]
+  %372 = phi i32 [ %238, %.thread114 ], [ %81, %.loopexit.thread.thread ], [ %357, %.loopexit.thread ]
+  %.074158167 = phi i32 [ %.074, %.thread114 ], [ %369, %.loopexit.thread.thread ], [ %.074158168, %.loopexit.thread ]
   %.not83 = icmp ult i32 %372, 2
   br i1 %.not83, label %373, label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread, %.loopexit.thread.thread, %371
-  %.074158165 = phi i32 [ %.074158167, %371 ], [ %369, %.loopexit.thread.thread ], [ %.074158168, %.loopexit.thread ]
+  %.074158165 = phi i32 [ %.074158167, %371 ], [ %.074158168, %.loopexit.thread ], [ %369, %.loopexit.thread.thread ]
   store i32 0, ptr %84, align 4, !tbaa !21
   br label %373
 
@@ -608,8 +608,8 @@ get_sample_rate.exit104:                          ; preds = %304, %317
   %374 = sub nsw i32 %.074158166, %.val
   br label %parse_config_ALS.exit.thread
 
-parse_config_ALS.exit.thread:                     ; preds = %177, %173, %222, %373, %85
-  %.0 = phi i32 [ %374, %373 ], [ -1094995529, %85 ], [ -1094995529, %222 ], [ -1094995529, %173 ], [ -1094995529, %177 ]
+parse_config_ALS.exit.thread:                     ; preds = %177, %222, %173, %373, %85
+  %.0 = phi i32 [ -1094995529, %85 ], [ %374, %373 ], [ -1094995529, %173 ], [ -1094995529, %222 ], [ -1094995529, %177 ]
   ret i32 %.0
 }
 

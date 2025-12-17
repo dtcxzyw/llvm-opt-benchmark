@@ -26,7 +26,7 @@ define hidden void @zend_optimize_func_calls(ptr noundef %0, ptr noundef capture
   %.idx = shl nuw nsw i64 %8, 5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = icmp ult i32 %7, 2
-  br i1 %10, label %544, label %11
+  br i1 %10, label %545, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8, !tbaa !24
@@ -86,7 +86,7 @@ zend_arena_calloc.exit:                           ; preds = %11
   br label %43
 
 43:                                               ; preds = %.lr.ph, %has_known_send_mode.exit.thread278
-  %.0319 = phi ptr [ %5, %.lr.ph ], [ %533, %has_known_send_mode.exit.thread278 ]
+  %.0319 = phi ptr [ %5, %.lr.ph ], [ %534, %has_known_send_mode.exit.thread278 ]
   %.0203318 = phi i32 [ 0, %.lr.ph ], [ %.1, %has_known_send_mode.exit.thread278 ]
   %44 = getelementptr inbounds nuw i8, ptr %.0319, i64 28
   %45 = load i8, ptr %44, align 4, !tbaa !38
@@ -105,21 +105,21 @@ zend_arena_calloc.exit:                           ; preds = %11
     i8 -126, label %68
     i8 -125, label %68
     i8 -54, label %68
-    i8 92, label %299
-    i8 -79, label %299
-    i8 94, label %299
-    i8 93, label %299
-    i8 116, label %351
-    i8 100, label %386
-    i8 -71, label %412
-    i8 66, label %434
-    i8 50, label %475
-    i8 65, label %521
-    i8 117, label %521
-    i8 67, label %521
-    i8 -91, label %529
-    i8 120, label %529
-    i8 119, label %529
+    i8 92, label %300
+    i8 -79, label %300
+    i8 94, label %300
+    i8 93, label %300
+    i8 116, label %352
+    i8 100, label %387
+    i8 -71, label %413
+    i8 66, label %435
+    i8 50, label %476
+    i8 65, label %522
+    i8 117, label %522
+    i8 67, label %522
+    i8 -91, label %530
+    i8 120, label %530
+    i8 119, label %530
   ]
 
 46:                                               ; preds = %43, %43, %43, %43, %43, %43, %43
@@ -395,8 +395,8 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %199 = load i32, ptr %198, align 4, !tbaa !51
   %200 = and i32 %199, 1050944
-  %or.cond.i256 = icmp eq i32 %200, 0
-  br i1 %or.cond.i256, label %201, label %zend_try_inline_call.exit
+  %or.cond.i257 = icmp eq i32 %200, 0
+  br i1 %or.cond.i257, label %201, label %zend_try_inline_call.exit
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %75, i64 20
@@ -433,13 +433,13 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   %225 = and i32 %199, 16
   %.not68.i = icmp eq i32 %225, 0
   %or.cond74.i = and i1 %.not68.i, %224
-  br i1 %or.cond74.i, label %zend_try_inline_call.exit, label %.preheader76.i
+  br i1 %or.cond74.i, label %zend_try_inline_call.exit, label %.preheader75.i
 
-.preheader76.i:                                   ; preds = %220
-  %.not.i257 = icmp eq i32 %222, 0
-  br i1 %.not.i257, label %._crit_edge.i, label %.lr.ph.i
+.preheader75.i:                                   ; preds = %220
+  %.not.i258 = icmp eq i32 %222, 0
+  br i1 %.not.i258, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader76.i
+.lr.ph.i:                                         ; preds = %.preheader75.i
   %226 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %227 = load ptr, ptr %226, align 8, !tbaa !51
   %wide.trip.count.i = zext i32 %222 to i64
@@ -459,9 +459,9 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   %.not73.i = icmp eq i32 %233, 0
   br i1 %.not73.i, label %228, label %zend_try_inline_call.exit
 
-._crit_edge.i:                                    ; preds = %228, %.preheader76.i
+._crit_edge.i:                                    ; preds = %228, %.preheader75.i
   %234 = icmp ult i32 %203, %210
-  br i1 %234, label %.preheader.i, label %.loopexit75.i
+  br i1 %234, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %235 = and i32 %199, 33554432
@@ -479,8 +479,8 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   br label %240
 
 240:                                              ; preds = %249, %.preheader.split.us.i
-  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %249 ], [ %239, %.preheader.split.us.i ]
-  %241 = getelementptr inbounds nuw %struct._zend_op, ptr %208, i64 %indvars.iv87.i
+  %indvars.iv86.i = phi i64 [ %indvars.iv.next87.i, %249 ], [ %239, %.preheader.split.us.i ]
+  %241 = getelementptr inbounds nuw %struct._zend_op, ptr %208, i64 %indvars.iv86.i
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 12
   %243 = load i32, ptr %242, align 4, !tbaa !51
   %244 = zext i32 %243 to i64
@@ -491,14 +491,14 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   br i1 %248, label %zend_try_inline_call.exit, label %249
 
 249:                                              ; preds = %240
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %lftr.wideiv90.i = trunc i64 %indvars.iv.next88.i to i32
-  %exitcond91.not.i = icmp eq i32 %210, %lftr.wideiv90.i
-  br i1 %exitcond91.not.i, label %.loopexit75.i, label %240
+  %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
+  %lftr.wideiv89.i = trunc i64 %indvars.iv.next87.i to i32
+  %exitcond90.not.i = icmp eq i32 %210, %lftr.wideiv89.i
+  br i1 %exitcond90.not.i, label %.loopexit.i, label %240
 
 .preheader.split.i:                               ; preds = %258, %.preheader.split.preheader.i
-  %indvars.iv83.i = phi i64 [ %236, %.preheader.split.preheader.i ], [ %indvars.iv.next84.i, %258 ]
-  %250 = getelementptr inbounds nuw %struct._zend_op, ptr %208, i64 %indvars.iv83.i
+  %indvars.iv82.i = phi i64 [ %236, %.preheader.split.preheader.i ], [ %indvars.iv.next83.i, %258 ]
+  %250 = getelementptr inbounds nuw %struct._zend_op, ptr %208, i64 %indvars.iv82.i
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 12
   %252 = load i32, ptr %251, align 4, !tbaa !51
   %253 = sext i32 %252 to i64
@@ -509,18 +509,18 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   br i1 %257, label %zend_try_inline_call.exit, label %258
 
 258:                                              ; preds = %.preheader.split.i
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next84.i to i32
-  %exitcond86.not.i = icmp eq i32 %210, %lftr.wideiv.i
-  br i1 %exitcond86.not.i, label %.loopexit75.i, label %.preheader.split.i
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next83.i to i32
+  %exitcond85.not.i = icmp eq i32 %210, %lftr.wideiv.i
+  br i1 %exitcond85.not.i, label %.loopexit.i, label %.preheader.split.i
 
-.loopexit75.i:                                    ; preds = %258, %249, %._crit_edge.i
+.loopexit.i:                                      ; preds = %258, %249, %._crit_edge.i
   %259 = getelementptr inbounds nuw i8, ptr %.0319, i64 31
   %260 = load i8, ptr %259, align 1, !tbaa !60
   %.not70.i = icmp eq i8 %260, 0
   br i1 %.not70.i, label %290, label %261
 
-261:                                              ; preds = %.loopexit75.i
+261:                                              ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %262 = and i32 %199, 33554432
   %.not71.i = icmp eq i32 %262, 0
@@ -571,9 +571,9 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   %289 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
   store i32 -1, ptr %289, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge.i258
+  br label %296
 
-290:                                              ; preds = %.loopexit75.i
+290:                                              ; preds = %.loopexit.i
   store i8 0, ptr %44, align 4, !tbaa !38
   %291 = getelementptr inbounds nuw i8, ptr %.0319, i64 29
   store i8 0, ptr %291, align 1, !tbaa !56
@@ -585,521 +585,521 @@ zval_ptr_dtor_nogc.exit231:                       ; preds = %zval_ptr_dtor_nogc.
   store i32 -1, ptr %294, align 4, !tbaa !51
   %295 = getelementptr inbounds nuw i8, ptr %.0319, i64 16
   store i32 -1, ptr %295, align 8, !tbaa !51
-  br label %.critedge.i258
+  br label %296
 
-.critedge.i258:                                   ; preds = %290, %284
-  %296 = getelementptr inbounds i8, ptr %.0319, i64 -32
-  call fastcc void @zend_delete_call_instructions(ptr noundef %0, ptr noundef nonnull %296)
+296:                                              ; preds = %290, %284
+  %297 = getelementptr inbounds i8, ptr %.0319, i64 -32
+  call fastcc void @zend_delete_call_instructions(ptr noundef %0, ptr noundef nonnull %297)
   br label %zend_try_inline_call.exit
 
-zend_try_inline_call.exit:                        ; preds = %229, %.preheader.split.i, %240, %.critedge.i258, %220, %216, %206, %201, %197, %193, %185, %189, %73, %68
-  %297 = getelementptr inbounds nuw i8, ptr %71, i64 25
-  store i8 0, ptr %297, align 1, !tbaa !47
-  %298 = getelementptr inbounds nuw i8, ptr %71, i64 28
+zend_try_inline_call.exit:                        ; preds = %229, %.preheader.split.i, %240, %296, %220, %216, %206, %201, %197, %193, %185, %189, %73, %68
+  %298 = getelementptr inbounds nuw i8, ptr %71, i64 25
+  store i8 0, ptr %298, align 1, !tbaa !47
+  %299 = getelementptr inbounds nuw i8, ptr %71, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %298, align 4, !tbaa !49
+  store i32 -1, ptr %299, align 4, !tbaa !49
   br label %has_known_send_mode.exit.thread278
 
-299:                                              ; preds = %43, %43, %43, %43
-  %300 = sext i32 %.0203318 to i64
-  %301 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %300
-  %302 = getelementptr i8, ptr %301, i64 -4
-  %303 = load i32, ptr %302, align 4, !tbaa !49
-  %.not = icmp eq i32 %303, -1
-  br i1 %.not, label %has_known_send_mode.exit.thread278, label %304
+300:                                              ; preds = %43, %43, %43, %43
+  %301 = sext i32 %.0203318 to i64
+  %302 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %301
+  %303 = getelementptr i8, ptr %302, i64 -4
+  %304 = load i32, ptr %303, align 4, !tbaa !49
+  %.not = icmp eq i32 %304, -1
+  br i1 %.not, label %has_known_send_mode.exit.thread278, label %305
 
-304:                                              ; preds = %299
-  %305 = getelementptr i8, ptr %301, i64 -32
-  %306 = load ptr, ptr %305, align 8, !tbaa !41
-  %.not.i259 = icmp eq ptr %306, null
-  br i1 %.not.i259, label %has_known_send_mode.exit.thread278, label %307
+305:                                              ; preds = %300
+  %306 = getelementptr i8, ptr %302, i64 -32
+  %307 = load ptr, ptr %306, align 8, !tbaa !41
+  %.not.i259 = icmp eq ptr %307, null
+  br i1 %.not.i259, label %has_known_send_mode.exit.thread278, label %308
 
-307:                                              ; preds = %304
-  %308 = getelementptr i8, ptr %301, i64 -8
-  %309 = load i8, ptr %308, align 8, !tbaa !44, !range !45, !noundef !46
-  %310 = trunc nuw i8 %309 to i1
-  %311 = getelementptr inbounds nuw i8, ptr %306, i64 32
-  %312 = load i32, ptr %311, align 8, !tbaa !51
-  %.not6.i = icmp ugt i32 %303, %312
-  %or.cond376 = select i1 %310, i1 %.not6.i, i1 false
+308:                                              ; preds = %305
+  %309 = getelementptr i8, ptr %302, i64 -8
+  %310 = load i8, ptr %309, align 8, !tbaa !44, !range !45, !noundef !46
+  %311 = trunc nuw i8 %310 to i1
+  %312 = getelementptr inbounds nuw i8, ptr %307, i64 32
+  %313 = load i32, ptr %312, align 8, !tbaa !51
+  %.not6.i = icmp ugt i32 %304, %313
+  %or.cond376 = select i1 %311, i1 %.not6.i, i1 false
   br i1 %or.cond376, label %has_known_send_mode.exit, label %has_known_send_mode.exit.thread
 
-has_known_send_mode.exit:                         ; preds = %307
-  %313 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  %314 = load i32, ptr %313, align 4, !tbaa !51
-  %315 = and i32 %314, 16384
-  %.not313 = icmp eq i32 %315, 0
+has_known_send_mode.exit:                         ; preds = %308
+  %314 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  %315 = load i32, ptr %314, align 4, !tbaa !51
+  %316 = and i32 %315, 16384
+  %.not313 = icmp eq i32 %316, 0
   br i1 %.not313, label %has_known_send_mode.exit.thread278, label %has_known_send_mode.exit.thread
 
-has_known_send_mode.exit.thread:                  ; preds = %307, %has_known_send_mode.exit
-  %316 = add i32 %303, -1
-  %.not.i232 = icmp ult i32 %316, %312
-  br i1 %.not.i232, label %zend_check_arg_send_type.exit, label %317, !prof !33
+has_known_send_mode.exit.thread:                  ; preds = %308, %has_known_send_mode.exit
+  %317 = add i32 %304, -1
+  %.not.i232 = icmp ult i32 %317, %313
+  br i1 %.not.i232, label %zend_check_arg_send_type.exit, label %318, !prof !33
 
-317:                                              ; preds = %has_known_send_mode.exit.thread
-  %318 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  %319 = load i32, ptr %318, align 4, !tbaa !51
-  %320 = and i32 %319, 16384
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %zend_check_arg_send_type.exit.thread, label %zend_check_arg_send_type.exit, !prof !33
+318:                                              ; preds = %has_known_send_mode.exit.thread
+  %319 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  %320 = load i32, ptr %319, align 4, !tbaa !51
+  %321 = and i32 %320, 16384
+  %322 = icmp eq i32 %321, 0
+  br i1 %322, label %zend_check_arg_send_type.exit.thread, label %zend_check_arg_send_type.exit, !prof !33
 
-zend_check_arg_send_type.exit:                    ; preds = %has_known_send_mode.exit.thread, %317
-  %.08.i = phi i32 [ %316, %has_known_send_mode.exit.thread ], [ %312, %317 ]
-  %322 = getelementptr inbounds nuw i8, ptr %306, i64 40
-  %323 = load ptr, ptr %322, align 8, !tbaa !51
-  %324 = zext i32 %.08.i to i64
-  %325 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %323, i64 %324
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
-  %327 = load i32, ptr %326, align 8, !tbaa !57
-  %328 = and i32 %327, 100663296
-  %.not314 = icmp eq i32 %328, 0
-  br i1 %.not314, label %zend_check_arg_send_type.exit.thread, label %329
+zend_check_arg_send_type.exit:                    ; preds = %has_known_send_mode.exit.thread, %318
+  %.08.i = phi i32 [ %317, %has_known_send_mode.exit.thread ], [ %313, %318 ]
+  %323 = getelementptr inbounds nuw i8, ptr %307, i64 40
+  %324 = load ptr, ptr %323, align 8, !tbaa !51
+  %325 = zext i32 %.08.i to i64
+  %326 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %324, i64 %325
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
+  %328 = load i32, ptr %327, align 8, !tbaa !57
+  %329 = and i32 %328, 100663296
+  %.not314 = icmp eq i32 %329, 0
+  br i1 %.not314, label %zend_check_arg_send_type.exit.thread, label %330
 
-329:                                              ; preds = %zend_check_arg_send_type.exit
+330:                                              ; preds = %zend_check_arg_send_type.exit
   %.off = add i8 %45, -93
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %330, label %340
+  br i1 %switch, label %331, label %341
 
-330:                                              ; preds = %329
-  %331 = getelementptr inbounds nuw i8, ptr %.0319, i64 29
-  %332 = load i8, ptr %331, align 1, !tbaa !56
-  %333 = icmp eq i8 %332, 2
-  br i1 %333, label %338, label %334
+331:                                              ; preds = %330
+  %332 = getelementptr inbounds nuw i8, ptr %.0319, i64 29
+  %333 = load i8, ptr %332, align 1, !tbaa !56
+  %334 = icmp eq i8 %333, 2
+  br i1 %334, label %339, label %335
 
-334:                                              ; preds = %330
-  %335 = getelementptr i8, ptr %301, i64 -16
-  %336 = load ptr, ptr %335, align 8, !tbaa !62
-  %337 = icmp eq ptr %336, null
-  br i1 %337, label %338, label %.thread
+335:                                              ; preds = %331
+  %336 = getelementptr i8, ptr %302, i64 -16
+  %337 = load ptr, ptr %336, align 8, !tbaa !62
+  %338 = icmp eq ptr %337, null
+  br i1 %338, label %339, label %.thread
 
-338:                                              ; preds = %334, %330
-  %339 = getelementptr i8, ptr %301, i64 -16
-  store ptr null, ptr %339, align 8, !tbaa !62
+339:                                              ; preds = %335, %331
+  %340 = getelementptr i8, ptr %302, i64 -16
+  store ptr null, ptr %340, align 8, !tbaa !62
   br label %has_known_send_mode.exit.thread278
 
-340:                                              ; preds = %329
+341:                                              ; preds = %330
   %.not213 = icmp eq i8 %45, -79
-  br i1 %.not213, label %342, label %.thread
+  br i1 %.not213, label %343, label %.thread
 
-.thread:                                          ; preds = %334, %340
-  %341 = add i8 %45, -9
-  store i8 %341, ptr %44, align 4, !tbaa !38
+.thread:                                          ; preds = %335, %341
+  %342 = add i8 %45, -9
+  store i8 %342, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-342:                                              ; preds = %340
+343:                                              ; preds = %341
   store i8 -82, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-zend_check_arg_send_type.exit.thread:             ; preds = %317, %zend_check_arg_send_type.exit
+zend_check_arg_send_type.exit.thread:             ; preds = %318, %zend_check_arg_send_type.exit
   switch i8 %45, label %.thread282 [
-    i8 93, label %343
-    i8 -79, label %350
+    i8 93, label %344
+    i8 -79, label %351
   ]
 
-343:                                              ; preds = %zend_check_arg_send_type.exit.thread
-  %344 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %345 = load i8, ptr %344, align 2, !tbaa !61
-  %346 = icmp eq i8 %345, 0
-  br i1 %346, label %347, label %.thread282
+344:                                              ; preds = %zend_check_arg_send_type.exit.thread
+  %345 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %346 = load i8, ptr %345, align 2, !tbaa !61
+  %347 = icmp eq i8 %346, 0
+  br i1 %347, label %348, label %.thread282
 
-347:                                              ; preds = %343
-  %348 = getelementptr i8, ptr %301, i64 -7
-  store i8 0, ptr %348, align 1, !tbaa !47
+348:                                              ; preds = %344
+  %349 = getelementptr i8, ptr %302, i64 -7
+  store i8 0, ptr %349, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-.thread282:                                       ; preds = %zend_check_arg_send_type.exit.thread, %343
-  %349 = add i8 %45, -12
-  store i8 %349, ptr %44, align 4, !tbaa !38
+.thread282:                                       ; preds = %zend_check_arg_send_type.exit.thread, %344
+  %350 = add i8 %45, -12
+  store i8 %350, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-350:                                              ; preds = %zend_check_arg_send_type.exit.thread
+351:                                              ; preds = %zend_check_arg_send_type.exit.thread
   store i8 -83, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-351:                                              ; preds = %43
-  %352 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %353 = load i8, ptr %352, align 2, !tbaa !61
-  %354 = icmp eq i8 %353, 1
-  %355 = sext i32 %.0203318 to i64
-  %356 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %355
-  br i1 %354, label %357, label %359
+352:                                              ; preds = %43
+  %353 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %354 = load i8, ptr %353, align 2, !tbaa !61
+  %355 = icmp eq i8 %354, 1
+  %356 = sext i32 %.0203318 to i64
+  %357 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %356
+  br i1 %355, label %358, label %360
 
-357:                                              ; preds = %351
-  %358 = getelementptr i8, ptr %356, i64 -7
-  store i8 0, ptr %358, align 1, !tbaa !47
+358:                                              ; preds = %352
+  %359 = getelementptr i8, ptr %357, i64 -7
+  store i8 0, ptr %359, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-359:                                              ; preds = %351
-  %360 = getelementptr i8, ptr %356, i64 -32
-  %361 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
-  %362 = load i32, ptr %361, align 4, !tbaa !51
-  %363 = load ptr, ptr %360, align 8, !tbaa !41
-  %.not.i261 = icmp eq ptr %363, null
-  br i1 %.not.i261, label %has_known_send_mode.exit.thread278, label %364
+360:                                              ; preds = %352
+  %361 = getelementptr i8, ptr %357, i64 -32
+  %362 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
+  %363 = load i32, ptr %362, align 4, !tbaa !51
+  %364 = load ptr, ptr %361, align 8, !tbaa !41
+  %.not.i261 = icmp eq ptr %364, null
+  br i1 %.not.i261, label %has_known_send_mode.exit.thread278, label %365
 
-364:                                              ; preds = %359
-  %365 = getelementptr i8, ptr %356, i64 -8
-  %366 = load i8, ptr %365, align 8, !tbaa !44, !range !45, !noundef !46
-  %367 = trunc nuw i8 %366 to i1
-  %368 = getelementptr inbounds nuw i8, ptr %363, i64 32
-  %369 = load i32, ptr %368, align 8, !tbaa !51
-  %.not6.i263 = icmp ugt i32 %362, %369
-  %or.cond377 = select i1 %367, i1 %.not6.i263, i1 false
+365:                                              ; preds = %360
+  %366 = getelementptr i8, ptr %357, i64 -8
+  %367 = load i8, ptr %366, align 8, !tbaa !44, !range !45, !noundef !46
+  %368 = trunc nuw i8 %367 to i1
+  %369 = getelementptr inbounds nuw i8, ptr %364, i64 32
+  %370 = load i32, ptr %369, align 8, !tbaa !51
+  %.not6.i263 = icmp ugt i32 %363, %370
+  %or.cond377 = select i1 %368, i1 %.not6.i263, i1 false
   br i1 %or.cond377, label %has_known_send_mode.exit264, label %has_known_send_mode.exit264.thread
 
-has_known_send_mode.exit264:                      ; preds = %364
-  %370 = getelementptr inbounds nuw i8, ptr %363, i64 4
-  %371 = load i32, ptr %370, align 4, !tbaa !51
-  %372 = and i32 %371, 16384
-  %.not311 = icmp eq i32 %372, 0
+has_known_send_mode.exit264:                      ; preds = %365
+  %371 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  %372 = load i32, ptr %371, align 4, !tbaa !51
+  %373 = and i32 %372, 16384
+  %.not311 = icmp eq i32 %373, 0
   br i1 %.not311, label %has_known_send_mode.exit.thread278, label %has_known_send_mode.exit264.thread
 
-has_known_send_mode.exit264.thread:               ; preds = %364, %has_known_send_mode.exit264
-  %373 = add i32 %362, -1
-  %.not.i234 = icmp ult i32 %373, %369
-  br i1 %.not.i234, label %zend_check_arg_send_type.exit237, label %374, !prof !33
+has_known_send_mode.exit264.thread:               ; preds = %365, %has_known_send_mode.exit264
+  %374 = add i32 %363, -1
+  %.not.i234 = icmp ult i32 %374, %370
+  br i1 %.not.i234, label %zend_check_arg_send_type.exit237, label %375, !prof !33
 
-374:                                              ; preds = %has_known_send_mode.exit264.thread
-  %375 = getelementptr inbounds nuw i8, ptr %363, i64 4
-  %376 = load i32, ptr %375, align 4, !tbaa !51
-  %377 = and i32 %376, 16384
-  %378 = icmp eq i32 %377, 0
-  br i1 %378, label %zend_check_arg_send_type.exit237.thread, label %zend_check_arg_send_type.exit237, !prof !33
+375:                                              ; preds = %has_known_send_mode.exit264.thread
+  %376 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  %377 = load i32, ptr %376, align 4, !tbaa !51
+  %378 = and i32 %377, 16384
+  %379 = icmp eq i32 %378, 0
+  br i1 %379, label %zend_check_arg_send_type.exit237.thread, label %zend_check_arg_send_type.exit237, !prof !33
 
-zend_check_arg_send_type.exit237:                 ; preds = %has_known_send_mode.exit264.thread, %374
-  %.08.i235 = phi i32 [ %373, %has_known_send_mode.exit264.thread ], [ %369, %374 ]
-  %379 = getelementptr inbounds nuw i8, ptr %363, i64 40
-  %380 = load ptr, ptr %379, align 8, !tbaa !51
-  %381 = zext i32 %.08.i235 to i64
-  %382 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %380, i64 %381
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  %384 = load i32, ptr %383, align 8, !tbaa !57
-  %385 = and i32 %384, 33554432
-  %.not312 = icmp eq i32 %385, 0
+zend_check_arg_send_type.exit237:                 ; preds = %has_known_send_mode.exit264.thread, %375
+  %.08.i235 = phi i32 [ %374, %has_known_send_mode.exit264.thread ], [ %370, %375 ]
+  %380 = getelementptr inbounds nuw i8, ptr %364, i64 40
+  %381 = load ptr, ptr %380, align 8, !tbaa !51
+  %382 = zext i32 %.08.i235 to i64
+  %383 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %381, i64 %382
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
+  %385 = load i32, ptr %384, align 8, !tbaa !57
+  %386 = and i32 %385, 33554432
+  %.not312 = icmp eq i32 %386, 0
   br i1 %.not312, label %zend_check_arg_send_type.exit237.thread, label %has_known_send_mode.exit.thread278
 
-zend_check_arg_send_type.exit237.thread:          ; preds = %374, %zend_check_arg_send_type.exit237
+zend_check_arg_send_type.exit237.thread:          ; preds = %375, %zend_check_arg_send_type.exit237
   store i8 65, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-386:                                              ; preds = %43
-  %387 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %388 = load i8, ptr %387, align 2, !tbaa !61
-  %389 = icmp eq i8 %388, 1
-  %390 = sext i32 %.0203318 to i64
-  %391 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %390
-  br i1 %389, label %392, label %395
+387:                                              ; preds = %43
+  %388 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %389 = load i8, ptr %388, align 2, !tbaa !61
+  %390 = icmp eq i8 %389, 1
+  %391 = sext i32 %.0203318 to i64
+  %392 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %391
+  br i1 %390, label %393, label %396
 
-392:                                              ; preds = %386
-  %393 = getelementptr i8, ptr %391, i64 -7
-  store i8 0, ptr %393, align 1, !tbaa !47
-  %394 = getelementptr i8, ptr %391, i64 -4
-  store i32 -1, ptr %394, align 4, !tbaa !49
+393:                                              ; preds = %387
+  %394 = getelementptr i8, ptr %392, i64 -7
+  store i8 0, ptr %394, align 1, !tbaa !47
+  %395 = getelementptr i8, ptr %392, i64 -4
+  store i32 -1, ptr %395, align 4, !tbaa !49
   br label %has_known_send_mode.exit.thread278
 
-395:                                              ; preds = %386
-  %396 = getelementptr i8, ptr %391, i64 -32
-  %397 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
-  %398 = load i32, ptr %397, align 4, !tbaa !51
-  %399 = load ptr, ptr %396, align 8, !tbaa !41
-  %.not.i265 = icmp eq ptr %399, null
-  br i1 %.not.i265, label %has_known_send_mode.exit.thread278, label %400
+396:                                              ; preds = %387
+  %397 = getelementptr i8, ptr %392, i64 -32
+  %398 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
+  %399 = load i32, ptr %398, align 4, !tbaa !51
+  %400 = load ptr, ptr %397, align 8, !tbaa !41
+  %.not.i265 = icmp eq ptr %400, null
+  br i1 %.not.i265, label %has_known_send_mode.exit.thread278, label %401
 
-400:                                              ; preds = %395
-  %401 = getelementptr i8, ptr %391, i64 -8
-  %402 = load i8, ptr %401, align 8, !tbaa !44, !range !45, !noundef !46
-  %403 = trunc nuw i8 %402 to i1
-  br i1 %403, label %404, label %has_known_send_mode.exit268.thread
+401:                                              ; preds = %396
+  %402 = getelementptr i8, ptr %392, i64 -8
+  %403 = load i8, ptr %402, align 8, !tbaa !44, !range !45, !noundef !46
+  %404 = trunc nuw i8 %403 to i1
+  br i1 %404, label %405, label %has_known_send_mode.exit268.thread
 
-404:                                              ; preds = %400
-  %405 = getelementptr inbounds nuw i8, ptr %399, i64 32
-  %406 = load i32, ptr %405, align 8, !tbaa !51
-  %.not6.i267 = icmp ugt i32 %398, %406
+405:                                              ; preds = %401
+  %406 = getelementptr inbounds nuw i8, ptr %400, i64 32
+  %407 = load i32, ptr %406, align 8, !tbaa !51
+  %.not6.i267 = icmp ugt i32 %399, %407
   br i1 %.not6.i267, label %has_known_send_mode.exit268, label %has_known_send_mode.exit268.thread
 
-has_known_send_mode.exit268:                      ; preds = %404
-  %407 = getelementptr inbounds nuw i8, ptr %399, i64 4
-  %408 = load i32, ptr %407, align 4, !tbaa !51
-  %409 = and i32 %408, 16384
-  %.not310 = icmp eq i32 %409, 0
+has_known_send_mode.exit268:                      ; preds = %405
+  %408 = getelementptr inbounds nuw i8, ptr %400, i64 4
+  %409 = load i32, ptr %408, align 4, !tbaa !51
+  %410 = and i32 %409, 16384
+  %.not310 = icmp eq i32 %410, 0
   br i1 %.not310, label %has_known_send_mode.exit.thread278, label %has_known_send_mode.exit268.thread
 
-has_known_send_mode.exit268.thread:               ; preds = %400, %404, %has_known_send_mode.exit268
-  %410 = getelementptr i8, ptr %391, i64 -4
-  store i32 %398, ptr %410, align 4, !tbaa !49
-  %411 = getelementptr i8, ptr %391, i64 -16
-  store ptr %.0319, ptr %411, align 8, !tbaa !62
+has_known_send_mode.exit268.thread:               ; preds = %401, %405, %has_known_send_mode.exit268
+  %411 = getelementptr i8, ptr %392, i64 -4
+  store i32 %399, ptr %411, align 4, !tbaa !49
+  %412 = getelementptr i8, ptr %392, i64 -16
+  store ptr %.0319, ptr %412, align 8, !tbaa !62
   br label %has_known_send_mode.exit.thread278
 
-412:                                              ; preds = %43
-  %413 = sext i32 %.0203318 to i64
-  %414 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %413
-  %415 = getelementptr i8, ptr %414, i64 -16
-  %416 = load ptr, ptr %415, align 8, !tbaa !62
-  %417 = icmp eq ptr %416, null
-  br i1 %417, label %418, label %424
+413:                                              ; preds = %43
+  %414 = sext i32 %.0203318 to i64
+  %415 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %414
+  %416 = getelementptr i8, ptr %415, i64 -16
+  %417 = load ptr, ptr %416, align 8, !tbaa !62
+  %418 = icmp eq ptr %417, null
+  br i1 %418, label %419, label %425
 
-418:                                              ; preds = %412
-  %419 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %420 = load i8, ptr %419, align 2, !tbaa !61
-  %421 = icmp eq i8 %420, 1
-  br i1 %421, label %422, label %has_known_send_mode.exit.thread278
+419:                                              ; preds = %413
+  %420 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %421 = load i8, ptr %420, align 2, !tbaa !61
+  %422 = icmp eq i8 %421, 1
+  br i1 %422, label %423, label %has_known_send_mode.exit.thread278
 
-422:                                              ; preds = %418
-  %423 = getelementptr i8, ptr %414, i64 -7
-  store i8 0, ptr %423, align 1, !tbaa !47
+423:                                              ; preds = %419
+  %424 = getelementptr i8, ptr %415, i64 -7
+  store i8 0, ptr %424, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-424:                                              ; preds = %412
-  %425 = getelementptr inbounds nuw i8, ptr %416, i64 28
-  store i8 0, ptr %425, align 4, !tbaa !38
-  %426 = getelementptr inbounds nuw i8, ptr %416, i64 29
-  store i8 0, ptr %426, align 1, !tbaa !56
-  %427 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  store i32 -1, ptr %427, align 8, !tbaa !51
-  %428 = load ptr, ptr %415, align 8, !tbaa !62
-  %429 = getelementptr inbounds nuw i8, ptr %428, i64 30
-  store i8 0, ptr %429, align 2, !tbaa !61
-  %430 = getelementptr inbounds nuw i8, ptr %428, i64 12
-  store i32 -1, ptr %430, align 4, !tbaa !51
-  %431 = load ptr, ptr %415, align 8, !tbaa !62
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 31
-  store i8 0, ptr %432, align 1, !tbaa !60
-  %433 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  store i32 -1, ptr %433, align 8, !tbaa !51
-  store ptr null, ptr %415, align 8, !tbaa !62
-  br label %434
+425:                                              ; preds = %413
+  %426 = getelementptr inbounds nuw i8, ptr %417, i64 28
+  store i8 0, ptr %426, align 4, !tbaa !38
+  %427 = getelementptr inbounds nuw i8, ptr %417, i64 29
+  store i8 0, ptr %427, align 1, !tbaa !56
+  %428 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  store i32 -1, ptr %428, align 8, !tbaa !51
+  %429 = load ptr, ptr %416, align 8, !tbaa !62
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 30
+  store i8 0, ptr %430, align 2, !tbaa !61
+  %431 = getelementptr inbounds nuw i8, ptr %429, i64 12
+  store i32 -1, ptr %431, align 4, !tbaa !51
+  %432 = load ptr, ptr %416, align 8, !tbaa !62
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 31
+  store i8 0, ptr %433, align 1, !tbaa !60
+  %434 = getelementptr inbounds nuw i8, ptr %432, i64 16
+  store i32 -1, ptr %434, align 8, !tbaa !51
+  store ptr null, ptr %416, align 8, !tbaa !62
+  br label %435
 
-434:                                              ; preds = %424, %43
-  %435 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %436 = load i8, ptr %435, align 2, !tbaa !61
-  %437 = icmp eq i8 %436, 1
-  %438 = sext i32 %.0203318 to i64
-  %439 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %438
-  br i1 %437, label %440, label %442
+435:                                              ; preds = %425, %43
+  %436 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %437 = load i8, ptr %436, align 2, !tbaa !61
+  %438 = icmp eq i8 %437, 1
+  %439 = sext i32 %.0203318 to i64
+  %440 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %439
+  br i1 %438, label %441, label %443
 
-440:                                              ; preds = %434
-  %441 = getelementptr i8, ptr %439, i64 -7
-  store i8 0, ptr %441, align 1, !tbaa !47
+441:                                              ; preds = %435
+  %442 = getelementptr i8, ptr %440, i64 -7
+  store i8 0, ptr %442, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-442:                                              ; preds = %434
-  %443 = getelementptr i8, ptr %439, i64 -32
-  %444 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
-  %445 = load i32, ptr %444, align 4, !tbaa !51
-  %446 = load ptr, ptr %443, align 8, !tbaa !41
-  %.not.i269 = icmp eq ptr %446, null
-  br i1 %.not.i269, label %has_known_send_mode.exit.thread278, label %447
+443:                                              ; preds = %435
+  %444 = getelementptr i8, ptr %440, i64 -32
+  %445 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
+  %446 = load i32, ptr %445, align 4, !tbaa !51
+  %447 = load ptr, ptr %444, align 8, !tbaa !41
+  %.not.i269 = icmp eq ptr %447, null
+  br i1 %.not.i269, label %has_known_send_mode.exit.thread278, label %448
 
-447:                                              ; preds = %442
-  %448 = getelementptr i8, ptr %439, i64 -8
-  %449 = load i8, ptr %448, align 8, !tbaa !44, !range !45, !noundef !46
-  %450 = trunc nuw i8 %449 to i1
-  br i1 %450, label %451, label %has_known_send_mode.exit272.thread
+448:                                              ; preds = %443
+  %449 = getelementptr i8, ptr %440, i64 -8
+  %450 = load i8, ptr %449, align 8, !tbaa !44, !range !45, !noundef !46
+  %451 = trunc nuw i8 %450 to i1
+  br i1 %451, label %452, label %has_known_send_mode.exit272.thread
 
-451:                                              ; preds = %447
-  %452 = getelementptr inbounds nuw i8, ptr %446, i64 32
-  %453 = load i32, ptr %452, align 8, !tbaa !51
-  %.not6.i271 = icmp ugt i32 %445, %453
+452:                                              ; preds = %448
+  %453 = getelementptr inbounds nuw i8, ptr %447, i64 32
+  %454 = load i32, ptr %453, align 8, !tbaa !51
+  %.not6.i271 = icmp ugt i32 %446, %454
   br i1 %.not6.i271, label %has_known_send_mode.exit272, label %has_known_send_mode.exit272.thread
 
-has_known_send_mode.exit272:                      ; preds = %451
-  %454 = getelementptr inbounds nuw i8, ptr %446, i64 4
-  %455 = load i32, ptr %454, align 4, !tbaa !51
-  %456 = and i32 %455, 16384
-  %.not308 = icmp eq i32 %456, 0
+has_known_send_mode.exit272:                      ; preds = %452
+  %455 = getelementptr inbounds nuw i8, ptr %447, i64 4
+  %456 = load i32, ptr %455, align 4, !tbaa !51
+  %457 = and i32 %456, 16384
+  %.not308 = icmp eq i32 %457, 0
   br i1 %.not308, label %has_known_send_mode.exit.thread278, label %has_known_send_mode.exit272.thread
 
-has_known_send_mode.exit272.thread:               ; preds = %447, %451, %has_known_send_mode.exit272
-  %457 = getelementptr i8, ptr %439, i64 -4
-  store i32 -1, ptr %457, align 4, !tbaa !49
-  %458 = load i32, ptr %444, align 4, !tbaa !51
-  %459 = add i32 %458, -1
-  %460 = getelementptr inbounds nuw i8, ptr %446, i64 32
-  %461 = load i32, ptr %460, align 8, !tbaa !51
-  %.not.i238 = icmp ult i32 %459, %461
-  br i1 %.not.i238, label %zend_check_arg_send_type.exit241, label %462, !prof !33
+has_known_send_mode.exit272.thread:               ; preds = %448, %452, %has_known_send_mode.exit272
+  %458 = getelementptr i8, ptr %440, i64 -4
+  store i32 -1, ptr %458, align 4, !tbaa !49
+  %459 = load i32, ptr %445, align 4, !tbaa !51
+  %460 = add i32 %459, -1
+  %461 = getelementptr inbounds nuw i8, ptr %447, i64 32
+  %462 = load i32, ptr %461, align 8, !tbaa !51
+  %.not.i238 = icmp ult i32 %460, %462
+  br i1 %.not.i238, label %zend_check_arg_send_type.exit241, label %463, !prof !33
 
-462:                                              ; preds = %has_known_send_mode.exit272.thread
-  %463 = getelementptr inbounds nuw i8, ptr %446, i64 4
-  %464 = load i32, ptr %463, align 4, !tbaa !51
-  %465 = and i32 %464, 16384
-  %466 = icmp eq i32 %465, 0
-  br i1 %466, label %zend_check_arg_send_type.exit241.thread, label %zend_check_arg_send_type.exit241, !prof !33
+463:                                              ; preds = %has_known_send_mode.exit272.thread
+  %464 = getelementptr inbounds nuw i8, ptr %447, i64 4
+  %465 = load i32, ptr %464, align 4, !tbaa !51
+  %466 = and i32 %465, 16384
+  %467 = icmp eq i32 %466, 0
+  br i1 %467, label %zend_check_arg_send_type.exit241.thread, label %zend_check_arg_send_type.exit241, !prof !33
 
-zend_check_arg_send_type.exit241:                 ; preds = %has_known_send_mode.exit272.thread, %462
-  %.08.i239 = phi i32 [ %459, %has_known_send_mode.exit272.thread ], [ %461, %462 ]
-  %467 = getelementptr inbounds nuw i8, ptr %446, i64 40
-  %468 = load ptr, ptr %467, align 8, !tbaa !51
-  %469 = zext i32 %.08.i239 to i64
-  %470 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %468, i64 %469
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
-  %472 = load i32, ptr %471, align 8, !tbaa !57
-  %473 = and i32 %472, 100663296
-  %.not309 = icmp eq i32 %473, 0
-  br i1 %.not309, label %zend_check_arg_send_type.exit241.thread, label %474
+zend_check_arg_send_type.exit241:                 ; preds = %has_known_send_mode.exit272.thread, %463
+  %.08.i239 = phi i32 [ %460, %has_known_send_mode.exit272.thread ], [ %462, %463 ]
+  %468 = getelementptr inbounds nuw i8, ptr %447, i64 40
+  %469 = load ptr, ptr %468, align 8, !tbaa !51
+  %470 = zext i32 %.08.i239 to i64
+  %471 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %469, i64 %470
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
+  %473 = load i32, ptr %472, align 8, !tbaa !57
+  %474 = and i32 %473, 100663296
+  %.not309 = icmp eq i32 %474, 0
+  br i1 %.not309, label %zend_check_arg_send_type.exit241.thread, label %475
 
-474:                                              ; preds = %zend_check_arg_send_type.exit241
+475:                                              ; preds = %zend_check_arg_send_type.exit241
   store i8 67, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-zend_check_arg_send_type.exit241.thread:          ; preds = %462, %zend_check_arg_send_type.exit241
+zend_check_arg_send_type.exit241.thread:          ; preds = %463, %zend_check_arg_send_type.exit241
   store i8 117, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-475:                                              ; preds = %43
-  %476 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %477 = load i8, ptr %476, align 2, !tbaa !61
-  %478 = icmp eq i8 %477, 1
-  %479 = sext i32 %.0203318 to i64
-  %480 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %479
-  br i1 %478, label %481, label %483
+476:                                              ; preds = %43
+  %477 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %478 = load i8, ptr %477, align 2, !tbaa !61
+  %479 = icmp eq i8 %478, 1
+  %480 = sext i32 %.0203318 to i64
+  %481 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %480
+  br i1 %479, label %482, label %484
 
-481:                                              ; preds = %475
-  %482 = getelementptr i8, ptr %480, i64 -7
-  store i8 0, ptr %482, align 1, !tbaa !47
+482:                                              ; preds = %476
+  %483 = getelementptr i8, ptr %481, i64 -7
+  store i8 0, ptr %483, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-483:                                              ; preds = %475
-  %484 = getelementptr i8, ptr %480, i64 -32
-  %485 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
-  %486 = load i32, ptr %485, align 4, !tbaa !51
-  %487 = load ptr, ptr %484, align 8, !tbaa !41
-  %.not.i273 = icmp eq ptr %487, null
-  br i1 %.not.i273, label %has_known_send_mode.exit.thread278, label %488
+484:                                              ; preds = %476
+  %485 = getelementptr i8, ptr %481, i64 -32
+  %486 = getelementptr inbounds nuw i8, ptr %.0319, i64 12
+  %487 = load i32, ptr %486, align 4, !tbaa !51
+  %488 = load ptr, ptr %485, align 8, !tbaa !41
+  %.not.i273 = icmp eq ptr %488, null
+  br i1 %.not.i273, label %has_known_send_mode.exit.thread278, label %489
 
-488:                                              ; preds = %483
-  %489 = getelementptr i8, ptr %480, i64 -8
-  %490 = load i8, ptr %489, align 8, !tbaa !44, !range !45, !noundef !46
-  %491 = trunc nuw i8 %490 to i1
-  %492 = getelementptr inbounds nuw i8, ptr %487, i64 32
-  %493 = load i32, ptr %492, align 8, !tbaa !51
-  %.not6.i275 = icmp ugt i32 %486, %493
-  %or.cond378 = select i1 %491, i1 %.not6.i275, i1 false
+489:                                              ; preds = %484
+  %490 = getelementptr i8, ptr %481, i64 -8
+  %491 = load i8, ptr %490, align 8, !tbaa !44, !range !45, !noundef !46
+  %492 = trunc nuw i8 %491 to i1
+  %493 = getelementptr inbounds nuw i8, ptr %488, i64 32
+  %494 = load i32, ptr %493, align 8, !tbaa !51
+  %.not6.i275 = icmp ugt i32 %487, %494
+  %or.cond378 = select i1 %492, i1 %.not6.i275, i1 false
   br i1 %or.cond378, label %has_known_send_mode.exit276, label %has_known_send_mode.exit276.thread
 
-has_known_send_mode.exit276:                      ; preds = %488
-  %494 = getelementptr inbounds nuw i8, ptr %487, i64 4
-  %495 = load i32, ptr %494, align 4, !tbaa !51
-  %496 = and i32 %495, 16384
-  %.not304 = icmp eq i32 %496, 0
+has_known_send_mode.exit276:                      ; preds = %489
+  %495 = getelementptr inbounds nuw i8, ptr %488, i64 4
+  %496 = load i32, ptr %495, align 4, !tbaa !51
+  %497 = and i32 %496, 16384
+  %.not304 = icmp eq i32 %497, 0
   br i1 %.not304, label %has_known_send_mode.exit.thread278, label %has_known_send_mode.exit276.thread
 
-has_known_send_mode.exit276.thread:               ; preds = %488, %has_known_send_mode.exit276
-  %497 = add i32 %486, -1
-  %.not.i242 = icmp ult i32 %497, %493
-  br i1 %.not.i242, label %zend_check_arg_send_type.exit245, label %498, !prof !33
+has_known_send_mode.exit276.thread:               ; preds = %489, %has_known_send_mode.exit276
+  %498 = add i32 %487, -1
+  %.not.i242 = icmp ult i32 %498, %494
+  br i1 %.not.i242, label %zend_check_arg_send_type.exit245, label %499, !prof !33
 
-498:                                              ; preds = %has_known_send_mode.exit276.thread
-  %499 = getelementptr inbounds nuw i8, ptr %487, i64 4
-  %500 = load i32, ptr %499, align 4, !tbaa !51
-  %501 = and i32 %500, 16384
-  %502 = icmp eq i32 %501, 0
-  br i1 %502, label %zend_check_arg_send_type.exit249.thread, label %zend_check_arg_send_type.exit245.thread300, !prof !33
+499:                                              ; preds = %has_known_send_mode.exit276.thread
+  %500 = getelementptr inbounds nuw i8, ptr %488, i64 4
+  %501 = load i32, ptr %500, align 4, !tbaa !51
+  %502 = and i32 %501, 16384
+  %503 = icmp eq i32 %502, 0
+  br i1 %503, label %zend_check_arg_send_type.exit249.thread, label %zend_check_arg_send_type.exit245.thread300, !prof !33
 
 zend_check_arg_send_type.exit245:                 ; preds = %has_known_send_mode.exit276.thread
-  %503 = getelementptr inbounds nuw i8, ptr %487, i64 40
-  %504 = load ptr, ptr %503, align 8, !tbaa !51
-  %505 = zext i32 %497 to i64
-  %506 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %504, i64 %505
-  %507 = getelementptr inbounds nuw i8, ptr %506, i64 16
-  %508 = load i32, ptr %507, align 8, !tbaa !57
-  %509 = and i32 %508, 33554432
-  %.not306 = icmp eq i32 %509, 0
-  br i1 %.not306, label %zend_check_arg_send_type.exit249, label %517
+  %504 = getelementptr inbounds nuw i8, ptr %488, i64 40
+  %505 = load ptr, ptr %504, align 8, !tbaa !51
+  %506 = zext i32 %498 to i64
+  %507 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %505, i64 %506
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 16
+  %509 = load i32, ptr %508, align 8, !tbaa !57
+  %510 = and i32 %509, 33554432
+  %.not306 = icmp eq i32 %510, 0
+  br i1 %.not306, label %zend_check_arg_send_type.exit249, label %518
 
-zend_check_arg_send_type.exit245.thread300:       ; preds = %498
-  %510 = getelementptr inbounds nuw i8, ptr %487, i64 40
-  %511 = load ptr, ptr %510, align 8, !tbaa !51
-  %512 = zext i32 %493 to i64
-  %513 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %511, i64 %512
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 16
-  %515 = load i32, ptr %514, align 8, !tbaa !57
-  %516 = and i32 %515, 33554432
-  %.not305 = icmp eq i32 %516, 0
-  br i1 %.not305, label %.thread299.zend_check_arg_send_type.exit249_crit_edge, label %517
+zend_check_arg_send_type.exit245.thread300:       ; preds = %499
+  %511 = getelementptr inbounds nuw i8, ptr %488, i64 40
+  %512 = load ptr, ptr %511, align 8, !tbaa !51
+  %513 = zext i32 %494 to i64
+  %514 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %512, i64 %513
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 16
+  %516 = load i32, ptr %515, align 8, !tbaa !57
+  %517 = and i32 %516, 33554432
+  %.not305 = icmp eq i32 %517, 0
+  br i1 %.not305, label %.thread299.zend_check_arg_send_type.exit249_crit_edge, label %518
 
-517:                                              ; preds = %zend_check_arg_send_type.exit245.thread300, %zend_check_arg_send_type.exit245
+518:                                              ; preds = %zend_check_arg_send_type.exit245.thread300, %zend_check_arg_send_type.exit245
   store i8 106, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
 .thread299.zend_check_arg_send_type.exit249_crit_edge: ; preds = %zend_check_arg_send_type.exit245.thread300
-  %.phi.trans.insert327 = getelementptr inbounds nuw i8, ptr %487, i64 40
+  %.phi.trans.insert327 = getelementptr inbounds nuw i8, ptr %488, i64 40
   %.pre328 = load ptr, ptr %.phi.trans.insert327, align 8, !tbaa !51
-  %.phi.trans.insert329 = zext i32 %493 to i64
+  %.phi.trans.insert329 = zext i32 %494 to i64
   %.phi.trans.insert330 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %.pre328, i64 %.phi.trans.insert329
   %.phi.trans.insert331 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert330, i64 16
   %.pre332 = load i32, ptr %.phi.trans.insert331, align 8, !tbaa !57
   br label %zend_check_arg_send_type.exit249
 
 zend_check_arg_send_type.exit249:                 ; preds = %.thread299.zend_check_arg_send_type.exit249_crit_edge, %zend_check_arg_send_type.exit245
-  %518 = phi i32 [ %.pre332, %.thread299.zend_check_arg_send_type.exit249_crit_edge ], [ %508, %zend_check_arg_send_type.exit245 ]
-  %519 = and i32 %518, 67108864
-  %.not307 = icmp eq i32 %519, 0
-  br i1 %.not307, label %zend_check_arg_send_type.exit249.thread, label %520
+  %519 = phi i32 [ %.pre332, %.thread299.zend_check_arg_send_type.exit249_crit_edge ], [ %509, %zend_check_arg_send_type.exit245 ]
+  %520 = and i32 %519, 67108864
+  %.not307 = icmp eq i32 %520, 0
+  br i1 %.not307, label %zend_check_arg_send_type.exit249.thread, label %521
 
-520:                                              ; preds = %zend_check_arg_send_type.exit249
+521:                                              ; preds = %zend_check_arg_send_type.exit249
   store i8 65, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-zend_check_arg_send_type.exit249.thread:          ; preds = %498, %zend_check_arg_send_type.exit249
+zend_check_arg_send_type.exit249.thread:          ; preds = %499, %zend_check_arg_send_type.exit249
   store i8 117, ptr %44, align 4, !tbaa !38
   br label %has_known_send_mode.exit.thread278
 
-521:                                              ; preds = %43, %43, %43
-  %522 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
-  %523 = load i8, ptr %522, align 2, !tbaa !61
-  %524 = icmp eq i8 %523, 1
-  br i1 %524, label %525, label %has_known_send_mode.exit.thread278
+522:                                              ; preds = %43, %43, %43
+  %523 = getelementptr inbounds nuw i8, ptr %.0319, i64 30
+  %524 = load i8, ptr %523, align 2, !tbaa !61
+  %525 = icmp eq i8 %524, 1
+  br i1 %525, label %526, label %has_known_send_mode.exit.thread278
 
-525:                                              ; preds = %521
-  %526 = sext i32 %.0203318 to i64
-  %527 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %526
-  %528 = getelementptr i8, ptr %527, i64 -7
-  store i8 0, ptr %528, align 1, !tbaa !47
+526:                                              ; preds = %522
+  %527 = sext i32 %.0203318 to i64
+  %528 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %527
+  %529 = getelementptr i8, ptr %528, i64 -7
+  store i8 0, ptr %529, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-529:                                              ; preds = %43, %43, %43
-  %530 = sext i32 %.0203318 to i64
-  %531 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %530
-  %532 = getelementptr i8, ptr %531, i64 -7
-  store i8 0, ptr %532, align 1, !tbaa !47
+530:                                              ; preds = %43, %43, %43
+  %531 = sext i32 %.0203318 to i64
+  %532 = getelementptr %struct._optimizer_call_info, ptr %.0.i254, i64 %531
+  %533 = getelementptr i8, ptr %532, i64 -7
+  store i8 0, ptr %533, align 1, !tbaa !47
   br label %has_known_send_mode.exit.thread278
 
-has_known_send_mode.exit.thread278:               ; preds = %483, %442, %395, %359, %304, %43, %521, %has_known_send_mode.exit276, %520, %zend_check_arg_send_type.exit249.thread, %517, %has_known_send_mode.exit272, %zend_check_arg_send_type.exit241.thread, %474, %418, %422, %has_known_send_mode.exit268, %has_known_send_mode.exit268.thread, %has_known_send_mode.exit264, %zend_check_arg_send_type.exit237.thread, %zend_check_arg_send_type.exit237, %299, %has_known_send_mode.exit, %.thread282, %350, %.thread, %342, %529, %525, %481, %440, %392, %357, %347, %338, %zend_try_inline_call.exit, %62
-  %.1 = phi i32 [ %.0203318, %43 ], [ %67, %62 ], [ %69, %zend_try_inline_call.exit ], [ %.0203318, %338 ], [ %.0203318, %.thread ], [ %.0203318, %342 ], [ %.0203318, %347 ], [ %.0203318, %.thread282 ], [ %.0203318, %350 ], [ %.0203318, %has_known_send_mode.exit ], [ %.0203318, %299 ], [ %.0203318, %357 ], [ %.0203318, %zend_check_arg_send_type.exit237 ], [ %.0203318, %zend_check_arg_send_type.exit237.thread ], [ %.0203318, %has_known_send_mode.exit264 ], [ %.0203318, %392 ], [ %.0203318, %has_known_send_mode.exit268.thread ], [ %.0203318, %has_known_send_mode.exit268 ], [ %.0203318, %422 ], [ %.0203318, %418 ], [ %.0203318, %440 ], [ %.0203318, %474 ], [ %.0203318, %zend_check_arg_send_type.exit241.thread ], [ %.0203318, %has_known_send_mode.exit272 ], [ %.0203318, %481 ], [ %.0203318, %517 ], [ %.0203318, %520 ], [ %.0203318, %zend_check_arg_send_type.exit249.thread ], [ %.0203318, %has_known_send_mode.exit276 ], [ %.0203318, %525 ], [ %.0203318, %521 ], [ %.0203318, %529 ], [ %.0203318, %304 ], [ %.0203318, %359 ], [ %.0203318, %395 ], [ %.0203318, %442 ], [ %.0203318, %483 ]
-  %533 = getelementptr inbounds nuw i8, ptr %.0319, i64 32
-  %534 = icmp ult ptr %533, %9
-  br i1 %534, label %43, label %._crit_edge
+has_known_send_mode.exit.thread278:               ; preds = %484, %443, %396, %360, %305, %43, %522, %has_known_send_mode.exit276, %521, %zend_check_arg_send_type.exit249.thread, %518, %has_known_send_mode.exit272, %zend_check_arg_send_type.exit241.thread, %475, %419, %423, %has_known_send_mode.exit268, %has_known_send_mode.exit268.thread, %has_known_send_mode.exit264, %zend_check_arg_send_type.exit237.thread, %zend_check_arg_send_type.exit237, %300, %has_known_send_mode.exit, %.thread282, %351, %.thread, %343, %530, %526, %482, %441, %393, %358, %348, %339, %zend_try_inline_call.exit, %62
+  %.1 = phi i32 [ %.0203318, %43 ], [ %67, %62 ], [ %69, %zend_try_inline_call.exit ], [ %.0203318, %339 ], [ %.0203318, %.thread ], [ %.0203318, %343 ], [ %.0203318, %348 ], [ %.0203318, %.thread282 ], [ %.0203318, %351 ], [ %.0203318, %has_known_send_mode.exit ], [ %.0203318, %300 ], [ %.0203318, %358 ], [ %.0203318, %zend_check_arg_send_type.exit237 ], [ %.0203318, %zend_check_arg_send_type.exit237.thread ], [ %.0203318, %has_known_send_mode.exit264 ], [ %.0203318, %393 ], [ %.0203318, %has_known_send_mode.exit268.thread ], [ %.0203318, %has_known_send_mode.exit268 ], [ %.0203318, %423 ], [ %.0203318, %419 ], [ %.0203318, %441 ], [ %.0203318, %475 ], [ %.0203318, %zend_check_arg_send_type.exit241.thread ], [ %.0203318, %has_known_send_mode.exit272 ], [ %.0203318, %482 ], [ %.0203318, %518 ], [ %.0203318, %521 ], [ %.0203318, %zend_check_arg_send_type.exit249.thread ], [ %.0203318, %has_known_send_mode.exit276 ], [ %.0203318, %526 ], [ %.0203318, %522 ], [ %.0203318, %530 ], [ %.0203318, %443 ], [ %.0203318, %305 ], [ %.0203318, %360 ], [ %.0203318, %396 ], [ %.0203318, %484 ]
+  %534 = getelementptr inbounds nuw i8, ptr %.0319, i64 32
+  %535 = icmp ult ptr %534, %9
+  br i1 %535, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %has_known_send_mode.exit.thread278
-  %535 = load ptr, ptr %1, align 8, !tbaa !37
-  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
-  %537 = load ptr, ptr %536, align 8, !tbaa !34
-  %538 = icmp ule ptr %13, %537
-  %.not.i251321 = icmp ugt ptr %13, %535
-  %or.cond.i322 = and i1 %.not.i251321, %538
+  %536 = load ptr, ptr %1, align 8, !tbaa !37
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
+  %538 = load ptr, ptr %537, align 8, !tbaa !34
+  %539 = icmp ule ptr %13, %538
+  %.not.i251321 = icmp ugt ptr %13, %536
+  %or.cond.i322 = and i1 %.not.i251321, %539
   br i1 %or.cond.i322, label %zend_arena_release.exit, label %.critedge.i, !prof !63
 
 .critedge.i:                                      ; preds = %._crit_edge, %.critedge.i
-  %.0.i250323 = phi ptr [ %540, %.critedge.i ], [ %535, %._crit_edge ]
-  %539 = getelementptr inbounds nuw i8, ptr %.0.i250323, i64 16
-  %540 = load ptr, ptr %539, align 8, !tbaa !36
+  %.0.i250323 = phi ptr [ %541, %.critedge.i ], [ %536, %._crit_edge ]
+  %540 = getelementptr inbounds nuw i8, ptr %.0.i250323, i64 16
+  %541 = load ptr, ptr %540, align 8, !tbaa !36
   call void @_efree(ptr noundef nonnull %.0.i250323) #11
-  store ptr %540, ptr %1, align 8, !tbaa !37
-  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
-  %542 = load ptr, ptr %541, align 8, !tbaa !34
-  %543 = icmp ule ptr %13, %542
-  %.not.i251 = icmp ugt ptr %13, %540
-  %or.cond.i = and i1 %.not.i251, %543
+  store ptr %541, ptr %1, align 8, !tbaa !37
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
+  %543 = load ptr, ptr %542, align 8, !tbaa !34
+  %544 = icmp ule ptr %13, %543
+  %.not.i251 = icmp ugt ptr %13, %541
+  %or.cond.i = and i1 %.not.i251, %544
   br i1 %or.cond.i, label %zend_arena_release.exit, label %.critedge.i, !prof !64
 
 zend_arena_release.exit:                          ; preds = %.critedge.i, %._crit_edge
-  %.0.i250.lcssa = phi ptr [ %535, %._crit_edge ], [ %540, %.critedge.i ]
+  %.0.i250.lcssa = phi ptr [ %536, %._crit_edge ], [ %541, %.critedge.i ]
   store ptr %13, ptr %.0.i250.lcssa, align 8, !tbaa !29
-  br label %544
+  br label %545
 
-544:                                              ; preds = %2, %zend_arena_release.exit
+545:                                              ; preds = %2, %zend_arena_release.exit
   ret void
 }
 

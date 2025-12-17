@@ -549,7 +549,7 @@ redact_arg.exit77.thread:                         ; preds = %.lr.ph98, %redact_a
   br i1 %.not53, label %.thread, label %.lr.ph98, !llvm.loop !35
 
 .thread:                                          ; preds = %redact_arg.exit.thread, %redact_arg.exit77.thread, %.preheader84, %._crit_edge, %27, %1
-  %.0 = phi ptr [ %0, %1 ], [ %0, %27 ], [ %34, %._crit_edge ], [ %0, %.preheader84 ], [ %34, %redact_arg.exit77.thread ], [ %0, %redact_arg.exit.thread ]
+  %.0 = phi ptr [ %0, %27 ], [ %0, %1 ], [ %34, %._crit_edge ], [ %0, %.preheader84 ], [ %34, %redact_arg.exit77.thread ], [ %0, %redact_arg.exit.thread ]
   ret ptr %.0
 }
 
@@ -1553,7 +1553,7 @@ skip_prefix.exit.thread.i:                        ; preds = %.preheader.i, %skip
   br label %redact_arg.exit
 
 redact_arg.exit:                                  ; preds = %13, %23, %21, %skip_prefix.exit.thread.i, %7, %6
-  %29 = phi ptr [ null, %6 ], [ %28, %23 ], [ %3, %7 ], [ %3, %skip_prefix.exit.thread.i ], [ %3, %21 ], [ %3, %13 ]
+  %29 = phi ptr [ null, %6 ], [ %3, %7 ], [ %28, %23 ], [ %3, %skip_prefix.exit.thread.i ], [ %3, %21 ], [ %3, %13 ]
   br label %30
 
 30:                                               ; preds = %redact_arg.exit, %37

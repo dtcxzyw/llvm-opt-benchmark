@@ -663,7 +663,7 @@ wbuf_new.exit:                                    ; preds = %.lr.ph180, %wbuf_ne
   br label %174
 
 174:                                              ; preds = %28, %.critedge, %._crit_edge187, %62, %56, %40, %24, %20, %17, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %40 ], [ null, %56 ], [ null, %62 ], [ %26, %._crit_edge187 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %10 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %40 ], [ null, %.critedge ], [ null, %56 ], [ null, %62 ], [ %26, %._crit_edge187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -958,7 +958,7 @@ _read_from_wbuf.exit:                             ; preds = %90, %70, %83
   br label %170
 
 170:                                              ; preds = %.thread, %112, %154
-  %.072 = phi i32 [ %.173, %112 ], [ %169, %154 ], [ -2, %.thread ]
+  %.072 = phi i32 [ %169, %154 ], [ %.173, %112 ], [ -2, %.thread ]
   %171 = getelementptr inbounds nuw i8, ptr %.07698, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !133
   tail call void %172(ptr noundef nonnull %3, ptr noundef nonnull %.07698, i32 noundef %.072) #13
@@ -1354,7 +1354,7 @@ _evict_page.exit96:                               ; preds = %145, %134, %._crit_
   br label %188
 
 188:                                              ; preds = %_allocate_page.exit76, %_evict_page.exit96, %4, %.thread127, %180, %_evict_page.exit
-  %.0 = phi i32 [ -1, %.thread127 ], [ 0, %180 ], [ -1, %_evict_page.exit ], [ -1, %4 ], [ -1, %_evict_page.exit96 ], [ -1, %_allocate_page.exit76 ]
+  %.0 = phi i32 [ -1, %_evict_page.exit ], [ -1, %4 ], [ -1, %.thread127 ], [ 0, %180 ], [ -1, %_evict_page.exit96 ], [ -1, %_allocate_page.exit76 ]
   ret i32 %.0
 }
 
@@ -1757,7 +1757,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_delete(ptr noundef %0, i32 nound
   br label %46
 
 46:                                               ; preds = %5, %14, %19, %37, %41, %45
-  %.0 = phi i32 [ 0, %41 ], [ 0, %45 ], [ 0, %37 ], [ 0, %19 ], [ -1, %14 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %41 ], [ 0, %45 ], [ 0, %37 ], [ -1, %14 ], [ -1, %5 ]
   %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #13
   ret i32 %.0
 }

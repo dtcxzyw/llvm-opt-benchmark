@@ -162,7 +162,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit: ; preds = %.lr.ph
   br label %_ZN17duckdb_libpgqueryL11list_lengthEPKNS_6PGListE.exit.thread
 
 _ZN17duckdb_libpgqueryL11list_lengthEPKNS_6PGListE.exit.thread: ; preds = %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.preheader, %_ZN17duckdb_libpgqueryL11list_lengthEPKNS_6PGListE.exit, %2, %8
-  %.018 = phi ptr [ %0, %8 ], [ null, %2 ], [ %0, %_ZN17duckdb_libpgqueryL11list_lengthEPKNS_6PGListE.exit ], [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.preheader ], [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit ]
+  %.018 = phi ptr [ %0, %_ZN17duckdb_libpgqueryL11list_lengthEPKNS_6PGListE.exit ], [ null, %2 ], [ %0, %8 ], [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.preheader ], [ %0, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit ]
   ret ptr %.018
 }
 

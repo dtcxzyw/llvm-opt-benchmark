@@ -1136,9 +1136,9 @@ switch.edge371:                                   ; preds = %190
   br i1 %.not364, label %.critedge, label %.thread409.thread423
 
 .thread409.thread423:                             ; preds = %120, %129, %141, %153, %.thread409
-  %.5319408415430 = phi i32 [ %.4318393, %.thread409 ], [ 7, %120 ], [ 9, %129 ], [ 6, %141 ], [ 9, %153 ]
-  %.1330406416429 = phi i8 [ %.0329, %.thread409 ], [ 1, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
-  %.2333405417428 = phi i32 [ %.1332, %.thread409 ], [ %121, %120 ], [ 1, %129 ], [ 1, %141 ], [ 1, %153 ]
+  %.5319408415430 = phi i32 [ %.4318393, %.thread409 ], [ 7, %120 ], [ 6, %141 ], [ 9, %129 ], [ 9, %153 ]
+  %.1330406416429 = phi i8 [ %.0329, %.thread409 ], [ 1, %120 ], [ 1, %141 ], [ 1, %129 ], [ 1, %153 ]
+  %.2333405417428 = phi i32 [ %.1332, %.thread409 ], [ %121, %120 ], [ 1, %141 ], [ 1, %129 ], [ 1, %153 ]
   %199 = zext nneg i8 %.1330406416429 to i32
   %200 = sub nuw nsw i32 %.5319408415430, %199
   %201 = add nuw nsw i32 %200, %.2333405417428
@@ -1171,8 +1171,8 @@ switch.edge371:                                   ; preds = %190
   %or.cond376 = select i1 %.not366, i1 true, i1 %.not368
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread409.thread, %.thread384, %.thread, %._crit_edge, %190, %181, %.thread409, %.thread409.thread423, %203, %209, %10, %10, %10, %10, %10, %10, %178, %176, %172, %167, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread395, %64, %41, %36, %26, %19, %16, %11, %6, %3, %switch.edge, %switch.edge371
-  %.0 = phi i1 [ false, %switch.edge371 ], [ false, %switch.edge ], [ false, %3 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ false, %19 ], [ false, %26 ], [ false, %36 ], [ false, %41 ], [ false, %64 ], [ false, %.thread395 ], [ false, %89 ], [ false, %94 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %117 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %131 ], [ false, %132 ], [ false, %134 ], [ false, %138 ], [ false, %143 ], [ false, %144 ], [ false, %146 ], [ false, %150 ], [ false, %155 ], [ false, %156 ], [ false, %157 ], [ false, %158 ], [ false, %162 ], [ false, %164 ], [ false, %167 ], [ false, %172 ], [ false, %176 ], [ false, %178 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %209 ], [ false, %203 ], [ false, %.thread409.thread423 ], [ true, %.thread409 ], [ false, %181 ], [ false, %190 ], [ %or.cond376, %._crit_edge ], [ false, %.thread ], [ false, %.thread384 ], [ true, %.thread409.thread ]
+.critedge:                                        ; preds = %.thread409.thread, %.thread384, %.thread, %._crit_edge, %.thread409.thread423, %203, %209, %190, %181, %.thread409, %10, %10, %10, %10, %10, %10, %178, %176, %172, %167, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread395, %64, %41, %36, %26, %19, %16, %11, %6, %3, %switch.edge, %switch.edge371
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ false, %26 ], [ false, %36 ], [ false, %41 ], [ false, %64 ], [ false, %.thread395 ], [ false, %94 ], [ false, %181 ], [ false, %190 ], [ false, %switch.edge371 ], [ false, %switch.edge ], [ false, %100 ], [ false, %19 ], [ false, %105 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %117 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %131 ], [ false, %134 ], [ false, %138 ], [ false, %132 ], [ false, %143 ], [ false, %146 ], [ false, %150 ], [ false, %144 ], [ false, %155 ], [ false, %156 ], [ false, %157 ], [ false, %158 ], [ false, %162 ], [ false, %164 ], [ false, %167 ], [ false, %172 ], [ false, %176 ], [ false, %178 ], [ false, %89 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ true, %.thread409 ], [ false, %.thread409.thread423 ], [ %or.cond376, %._crit_edge ], [ false, %209 ], [ false, %203 ], [ false, %.thread ], [ false, %.thread384 ], [ true, %.thread409.thread ]
   ret i1 %.0
 }
 
@@ -1263,7 +1263,7 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   br label %34
 
 34:                                               ; preds = %30, %22, %15, %13, %11, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %13 ], [ false, %15 ], [ false, %22 ], [ %33, %30 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %13 ], [ false, %15 ], [ false, %22 ], [ %33, %30 ]
   ret i1 %.0
 }
 
@@ -1767,7 +1767,7 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not117, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %257, %236, %238
-  %.0123.lcssa.sink = phi ptr [ %223, %238 ], [ %223, %236 ], [ %.0123, %257 ]
+  %.0123.lcssa.sink = phi ptr [ %223, %236 ], [ %223, %238 ], [ %.0123, %257 ]
   %263 = load ptr, ptr %16, align 8
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store ptr %.0123.lcssa.sink, ptr %264, align 8
@@ -4006,7 +4006,7 @@ define internal fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef 
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %35, %32, %24, %29
-  %.1 = phi i16 [ %.039, %29 ], [ %spec.select, %24 ], [ %.039, %32 ], [ %.039, %35 ]
+  %.1 = phi i16 [ %.039, %29 ], [ %spec.select, %24 ], [ %.039, %35 ], [ %.039, %32 ]
   %39 = tail call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %19, i16 noundef zeroext %.1, ptr noundef %6)
   %40 = trunc nuw nsw i32 %.0 to i16
   %41 = add i16 %.1, %40
@@ -4123,8 +4123,8 @@ sccp_reassembly_get_id.exit:                      ; preds = %32, %41
   br label %66
 
 66:                                               ; preds = %64, %.thread
-  %.str.508.sink = phi ptr [ @.str.507, %.thread ], [ %spec.select, %64 ]
-  %67 = phi ptr [ %63, %.thread ], [ %65, %64 ]
+  %.str.508.sink = phi ptr [ %spec.select, %64 ], [ @.str.507, %.thread ]
+  %67 = phi ptr [ %65, %64 ], [ %63, %.thread ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull %.str.508.sink)
@@ -4913,7 +4913,7 @@ proto_item_set_generated.exit:                    ; preds = %155, %158, %161
   br label %proto_item_set_hidden.exit286
 
 proto_item_set_hidden.exit286:                    ; preds = %231, %228, %221, %.thread, %199
-  %.2 = phi i32 [ 1, %199 ], [ 1, %.thread ], [ 2, %221 ], [ 2, %228 ], [ 2, %231 ]
+  %.2 = phi i32 [ 1, %.thread ], [ 1, %199 ], [ 2, %221 ], [ 2, %228 ], [ 2, %231 ]
   %.not270 = icmp eq i8 %183, 0
   br i1 %.not270, label %251, label %235
 
@@ -5018,7 +5018,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   br i1 %or.cond5, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %7, %18, %21
-  %.pre106.pre-phi = phi i8 [ %20, %18 ], [ -2, %21 ], [ -1, %7 ]
+  %.pre106.pre-phi = phi i8 [ -2, %21 ], [ %20, %18 ], [ -1, %7 ]
   %24 = load i32, ptr @hf_sccp_called_gt_tt, align 4
   %25 = load i32, ptr @hf_sccp_calling_gt_tt, align 4
   %26 = select i1 %5, i32 %24, i32 %25

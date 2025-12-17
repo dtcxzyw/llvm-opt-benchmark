@@ -188,8 +188,8 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   call void @lua_pushnil(ptr noundef %0) #3
   br label %71
 
-.critedge.thread:                                 ; preds = %29, %.lr.ph, %.preheader57, %.critedge
-  %.295 = phi i64 [ %.2, %.critedge ], [ %.056, %.preheader57 ], [ 0, %29 ], [ %.175, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %29, %.preheader57, %.critedge
+  %.295 = phi i64 [ %.2, %.critedge ], [ %.056, %.preheader57 ], [ %.175, %.lr.ph ], [ 0, %29 ]
   %63 = add nsw i64 %.295, 1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %63) #3
   %64 = getelementptr inbounds i8, ptr %3, i64 %.295
@@ -453,7 +453,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   br i1 %112, label %.lr.ph.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %101, %._crit_edge.i, %.lr.ph.i, %._crit_edge.i.us, %64, %71, %.lr.ph.i.us, %32
-  %.str.11.sink = phi ptr [ @.str.10, %32 ], [ @.str.11, %.lr.ph.i.us ], [ @.str.11, %71 ], [ @.str.11, %64 ], [ @.str.11, %._crit_edge.i.us ], [ @.str.11, %.lr.ph.i ], [ @.str.11, %._crit_edge.i ], [ @.str.11, %101 ]
+  %.str.11.sink = phi ptr [ @.str.10, %32 ], [ @.str.11, %.lr.ph.i ], [ @.str.11, %.lr.ph.i.us ], [ @.str.11, %._crit_edge.i.us ], [ @.str.11, %71 ], [ @.str.11, %64 ], [ @.str.11, %._crit_edge.i ], [ @.str.11, %101 ]
   %113 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull %.str.11.sink) #3
   br label %.loopexit
 
@@ -740,7 +740,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   br i1 %.not33.not, label %.lr.ph.split, label %._crit_edge
 
 .thread:                                          ; preds = %._crit_edge.i, %97, %.lr.ph.i, %66, %59, %._crit_edge.i.us, %.lr.ph.i.us
-  %.12852 = phi i64 [ %.12854.us, %.lr.ph.i.us ], [ %.12854.us, %._crit_edge.i.us ], [ %.12854.us, %59 ], [ %.12854.us, %66 ], [ %.12854, %.lr.ph.i ], [ %.12854, %97 ], [ %.12854, %._crit_edge.i ]
+  %.12852 = phi i64 [ %.12854, %.lr.ph.i ], [ %.12854.us, %.lr.ph.i.us ], [ %.12854.us, %66 ], [ %.12854.us, %._crit_edge.i.us ], [ %.12854.us, %59 ], [ %.12854, %97 ], [ %.12854, %._crit_edge.i ]
   call void @lua_pushnil(ptr noundef %0) #3
   %109 = add nsw i64 %.12852, 1
   br label %._crit_edge

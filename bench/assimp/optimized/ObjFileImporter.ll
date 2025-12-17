@@ -1269,12 +1269,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   br label %.body
 
 .body:                                            ; preds = %65, %269, %267
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn29.pn.pn, %267 ], [ %.pn29.pn.pn, %269 ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn29.pn.pn, %269 ], [ %.pn29.pn.pn, %267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %274
 
 274:                                              ; preds = %56, %58, %.body, %44, %42
-  %.pn34.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %57, %56 ], [ %59, %58 ], [ %.pn29.pn.pn.pn, %.body ]
+  %.pn34.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %57, %56 ], [ %59, %58 ], [ %.pn29.pn.pn.pn, %.body ]
   call fastcc void @"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_15ObjFileImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %8) #22
   br label %275
 
@@ -1804,7 +1804,7 @@ _ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EED2Ev.exit: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit97.thread, %.loopexit.loopexit, %156
-  %193 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %8, %156 ], [ %8, %.loopexit97.thread ]
+  %193 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %8, %.loopexit97.thread ], [ %8, %156 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1120
   store i32 1, ptr %194, align 8
   %195 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #25
@@ -2818,7 +2818,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread
 
-_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %.lr.ph.split, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %323
+_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp7ObjFile8MaterialEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %.lr.ph.split, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8MaterialESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %323
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit175, label %.lr.ph.splitthread-pre-split, !llvm.loop !28
@@ -3586,7 +3586,7 @@ _ZNSt6vectorIjSaIjEE2atEm.exit183:                ; preds = %144
   br label %163
 
 163:                                              ; preds = %159, %_ZNSt6vectorIjSaIjEE2atEm.exit183, %144, %140, %134
-  %.2 = phi i8 [ 1, %140 ], [ 1, %144 ], [ 0, %134 ], [ 1, %159 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit183 ]
+  %.2 = phi i8 [ 1, %140 ], [ 0, %134 ], [ 1, %144 ], [ 1, %159 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit183 ]
   %164 = load ptr, ptr %66, align 8
   %165 = load ptr, ptr %64, align 8
   %166 = ptrtoint ptr %164 to i64
@@ -3662,7 +3662,7 @@ _ZNSt6vectorIjSaIjEE2atEm.exit185:                ; preds = %186
   br label %210
 
 210:                                              ; preds = %201, %_ZNSt6vectorIjSaIjEE2atEm.exit185, %186, %182, %180
-  %.2143 = phi i8 [ 1, %182 ], [ 1, %186 ], [ 0, %180 ], [ 1, %201 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit185 ]
+  %.2143 = phi i8 [ 1, %182 ], [ 0, %180 ], [ 1, %186 ], [ 1, %201 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit185 ]
   %211 = load ptr, ptr %98, align 8
   %212 = zext i32 %.1150215 to i64
   %213 = getelementptr inbounds nuw %struct.aiFace, ptr %211, i64 %212

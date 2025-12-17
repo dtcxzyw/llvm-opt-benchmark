@@ -259,8 +259,8 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   br label %67
 
 67:                                               ; preds = %._crit_edge154, %63
-  %68 = phi ptr [ %64, %63 ], [ %.pre155, %._crit_edge154 ]
-  %69 = phi i1 [ %66, %63 ], [ false, %._crit_edge154 ]
+  %68 = phi ptr [ %.pre155, %._crit_edge154 ], [ %64, %63 ]
+  %69 = phi i1 [ false, %._crit_edge154 ], [ %66, %63 ]
   %70 = getelementptr i8, ptr %68, i64 %62
   store ptr %70, ptr %4, align 8, !tbaa !16
   %71 = load ptr, ptr %23, align 8, !tbaa !17
@@ -604,7 +604,7 @@ pm_regexp_char_expect.exit:                       ; preds = %179
   tail call void %.val154.i(ptr noundef %16, ptr noundef %178, ptr noundef nonnull @.str.4, ptr noundef %.val155.i) #5
   br label %pm_regexp_parse_group.exit.thread
 
-pm_regexp_parse_group.exit.thread:                ; preds = %133, %127, %125, %142, %144, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit87, %73, %29, %36, %89, %122, %183, %.loopexit, %96, %113
+pm_regexp_parse_group.exit.thread:                ; preds = %133, %127, %125, %144, %142, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit87, %73, %29, %36, %122, %89, %183, %.loopexit, %96, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %242
 
@@ -727,7 +727,7 @@ pm_regexp_char_find.exit:                         ; preds = %204
   br label %242
 
 242:                                              ; preds = %pm_regexp_char_find.exit, %pm_regexp_parse_group.exit.thread, %239, %238, %215, %186, %189, %.loopexit84, %194, %190, %14, %7
-  %.039 = phi i1 [ true, %7 ], [ true, %14 ], [ true, %190 ], [ true, %194 ], [ true, %.loopexit84 ], [ true, %189 ], [ false, %186 ], [ true, %215 ], [ true, %pm_regexp_char_find.exit ], [ false, %238 ], [ true, %239 ], [ false, %pm_regexp_parse_group.exit.thread ]
+  %.039 = phi i1 [ true, %pm_regexp_char_find.exit ], [ true, %7 ], [ true, %14 ], [ false, %186 ], [ false, %pm_regexp_parse_group.exit.thread ], [ true, %190 ], [ true, %194 ], [ true, %.loopexit84 ], [ true, %189 ], [ true, %215 ], [ false, %238 ], [ true, %239 ]
   ret i1 %.039
 }
 
@@ -847,7 +847,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %23
 
 23:                                               ; preds = %switch.lookup, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %18, %15, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
-  %.1.i = phi i32 [ 2, %15 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 2, %18 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ %switch.load, %switch.lookup ]
+  %.1.i = phi i32 [ 2, %18 ], [ 1, %14 ], [ 2, %19 ], [ %switch.load, %switch.lookup ], [ 2, %15 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ], [ 1, %14 ]
   %24 = getelementptr i8, ptr %10, i64 1
   store ptr %24, ptr %2, align 8, !tbaa !16
   %exitcond.not = icmp eq ptr %24, %scevgep19
@@ -939,7 +939,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_lbracket(ptr noundef 
   br label %pm_regexp_char_accept.exit.i
 
 pm_regexp_char_accept.exit.i:                     ; preds = %39, %36
-  %.val.i10.i = phi ptr [ %23, %36 ], [ %40, %39 ]
+  %.val.i10.i = phi ptr [ %40, %39 ], [ %23, %36 ]
   %.not.i11.i = icmp ult ptr %.val.i10.i, %5
   br i1 %.not.i11.i, label %41, label %62
 
@@ -984,8 +984,8 @@ pm_regexp_parse_posix_class.exit:                 ; preds = %58
   store ptr %61, ptr %12, align 8, !tbaa !16
   br label %pm_regexp_char_expect.exit
 
-62:                                               ; preds = %58, %56, %33, %32, %pm_regexp_char_accept.exit.i, %41, %53, %51
-  %.val4.i30.pre = phi ptr [ %.val4.i30.pre.pre, %58 ], [ %.val4.i30.pre.pre, %56 ], [ %5, %33 ], [ %5, %32 ], [ %5, %pm_regexp_char_accept.exit.i ], [ %.val4.i30.pre.pre, %41 ], [ %.val4.i30.pre.pre, %53 ], [ %.val4.i30.pre.pre, %51 ]
+62:                                               ; preds = %56, %41, %32, %58, %33, %pm_regexp_char_accept.exit.i, %53, %51
+  %.val4.i30.pre = phi ptr [ %.val4.i30.pre.pre, %56 ], [ %.val4.i30.pre.pre, %41 ], [ %5, %32 ], [ %.val4.i30.pre.pre, %58 ], [ %5, %33 ], [ %5, %pm_regexp_char_accept.exit.i ], [ %.val4.i30.pre.pre, %53 ], [ %.val4.i30.pre.pre, %51 ]
   store ptr %13, ptr %12, align 8, !tbaa !16
   br label %63
 

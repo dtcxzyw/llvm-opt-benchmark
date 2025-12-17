@@ -269,7 +269,7 @@ usbms_bot_bulk_is_cbw.exit92.thread:              ; preds = %.usbms_bot_bulk_is_
   br label %92
 
 92:                                               ; preds = %25, %6, %4, %90, %85, %79, %66, %54, %46, %40
-  %.0 = phi i32 [ %41, %40 ], [ %47, %46 ], [ %82, %79 ], [ %89, %85 ], [ %91, %90 ], [ %67, %66 ], [ %59, %54 ], [ 0, %4 ], [ 0, %6 ], [ 0, %25 ]
+  %.0 = phi i32 [ %59, %54 ], [ 0, %4 ], [ 0, %6 ], [ %41, %40 ], [ %47, %46 ], [ %82, %79 ], [ %89, %85 ], [ %91, %90 ], [ %67, %66 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -335,7 +335,7 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %4, %6, %37
-  %.0 = phi i32 [ %38, %37 ], [ 0, %6 ], [ 0, %4 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ %38, %37 ], [ 0, %6 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -377,7 +377,7 @@ define internal noundef zeroext i1 @dissect_usbms_bot_bulk_heur(ptr noundef %0, 
   br label %15
 
 15:                                               ; preds = %10, %4, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %13 ], [ false, %10 ]
   ret i1 %.0
 }
 

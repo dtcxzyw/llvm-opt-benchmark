@@ -107,8 +107,8 @@ define noundef range(i32 0, 24) i32 @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBui
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %22, %51, %53, %55, %56
-  %.014.i = phi i32 [ 16, %56 ], [ 0, %55 ], [ 0, %53 ], [ 0, %22 ], [ 8, %51 ]
-  %.0.i = phi i32 [ %32, %56 ], [ %32, %55 ], [ %32, %53 ], [ %32, %22 ], [ %50, %51 ]
+  %.014.i = phi i32 [ 0, %22 ], [ 16, %56 ], [ 0, %55 ], [ 0, %53 ], [ 8, %51 ]
+  %.0.i = phi i32 [ %32, %22 ], [ %32, %56 ], [ %32, %55 ], [ %32, %53 ], [ %50, %51 ]
   %57 = or disjoint i32 %.0.i, %.014.i
   br label %58
 
@@ -221,8 +221,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilderC2ERKNS1_11FaceSurfa
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds = %63, %69, %71, %73, %74
-  %.014.i = phi i32 [ 16, %74 ], [ 0, %73 ], [ 0, %71 ], [ 0, %63 ], [ 8, %69 ]
-  %.0.i = phi i32 [ %51, %74 ], [ %51, %73 ], [ %51, %71 ], [ %51, %63 ], [ %68, %69 ]
+  %.014.i = phi i32 [ 0, %63 ], [ 16, %74 ], [ 0, %73 ], [ 0, %71 ], [ 8, %69 ]
+  %.0.i = phi i32 [ %51, %63 ], [ %51, %74 ], [ %51, %73 ], [ %51, %71 ], [ %68, %69 ]
   %75 = or disjoint i32 %.0.i, %.014.i
   br label %76
 
@@ -718,7 +718,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder26gatherBoundaryPat
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit: ; preds = %105, %103, %94, %84, %82, %67, %45, %39, %87
-  %.098 = phi i32 [ %32, %87 ], [ %44, %39 ], [ %59, %45 ], [ %75, %67 ], [ %83, %82 ], [ %86, %84 ], [ %101, %94 ], [ %104, %103 ], [ %111, %105 ]
+  %.098 = phi i32 [ %59, %45 ], [ %86, %84 ], [ %32, %87 ], [ %44, %39 ], [ %75, %67 ], [ %83, %82 ], [ %101, %94 ], [ %104, %103 ], [ %111, %105 ]
   %112 = getelementptr inbounds nuw i8, ptr %26, i64 156
   %113 = load i16, ptr %112, align 4
   %.not.i110 = icmp eq i16 %113, 0
@@ -1537,7 +1537,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr19RegularPatchBuilder26gatherBoundaryPat
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit: ; preds = %135, %133, %118, %104, %97, %74, %68, %41, %35, %56
-  %.0100 = phi i32 [ %28, %56 ], [ %40, %35 ], [ %55, %41 ], [ %73, %68 ], [ %88, %74 ], [ %103, %97 ], [ %116, %104 ], [ %126, %118 ], [ %134, %133 ], [ %137, %135 ]
+  %.0100 = phi i32 [ %28, %56 ], [ %55, %41 ], [ %88, %74 ], [ %116, %104 ], [ %40, %35 ], [ %73, %68 ], [ %103, %97 ], [ %126, %118 ], [ %134, %133 ], [ %137, %135 ]
   %138 = getelementptr inbounds nuw i8, ptr %22, i64 156
   %139 = load i16, ptr %138, align 4
   %.not.i112 = icmp eq i16 %139, 0

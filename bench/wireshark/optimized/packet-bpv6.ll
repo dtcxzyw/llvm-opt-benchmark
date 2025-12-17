@@ -731,7 +731,7 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_version_4_primary_header.exit
 
 138:                                              ; preds = %131, %130
-  %.0.i.ph.i = phi i32 [ %132, %131 ], [ 2147483647, %130 ]
+  %.0.i.ph.i = phi i32 [ 2147483647, %130 ], [ %132, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %139 = load i32, ptr @hf_bundle_primary_header_len, align 4
   %140 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %139, ptr noundef %0, i32 noundef 4, i32 noundef %125, i32 noundef %.0.i.ph.i)
@@ -843,7 +843,7 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %evaluate_sdnv.exit144.i
 
 evaluate_sdnv.exit144.i:                          ; preds = %214, %213, %138
-  %.0.i143.i = phi i32 [ 2147483647, %213 ], [ %215, %214 ], [ -1, %138 ]
+  %.0.i143.i = phi i32 [ %215, %214 ], [ 2147483647, %213 ], [ -1, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   store i32 %.0.i143.i, ptr %68, align 4
   %216 = load i32, ptr @hf_bundle_primary_dictionary_len, align 4
@@ -944,7 +944,7 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
   br label %dissect_version_5_and_6_primary_header.exit
 
 277:                                              ; preds = %270, %269
-  %.0.i197.ph.i = phi i32 [ %271, %270 ], [ 2147483647, %269 ]
+  %.0.i197.ph.i = phi i32 [ 2147483647, %269 ], [ %271, %270 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %278 = load i32, ptr @hf_bundle_primary_header_len, align 4
   %279 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %278, ptr noundef %0, i32 noundef %263, i32 noundef %264, i32 noundef %.0.i197.ph.i)
@@ -970,7 +970,7 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
   br label %evaluate_sdnv.exit199.i
 
 evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
-  %289 = phi i32 [ 2147483647, %286 ], [ %288, %287 ], [ -1, %277 ]
+  %289 = phi i32 [ %288, %287 ], [ 2147483647, %286 ], [ -1, %277 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %290 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %289, ptr %290, align 4
@@ -1001,7 +1001,7 @@ evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
   br label %evaluate_sdnv.exit201.i
 
 evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluate_sdnv.exit199.i
-  %304 = phi i32 [ 2147483647, %301 ], [ %303, %302 ], [ -1, %evaluate_sdnv.exit199.i ]
+  %304 = phi i32 [ %303, %302 ], [ 2147483647, %301 ], [ -1, %evaluate_sdnv.exit199.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %305 = getelementptr inbounds nuw i8, ptr %65, i64 52
   store i32 %304, ptr %305, align 4
@@ -1031,7 +1031,7 @@ evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluat
   br label %evaluate_sdnv.exit203.i
 
 evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluate_sdnv.exit201.i
-  %318 = phi i32 [ 2147483647, %315 ], [ %317, %316 ], [ -1, %evaluate_sdnv.exit201.i ]
+  %318 = phi i32 [ %317, %316 ], [ 2147483647, %315 ], [ -1, %evaluate_sdnv.exit201.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %319 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %318, ptr %319, align 4
@@ -1062,7 +1062,7 @@ evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluat
   br label %evaluate_sdnv.exit205.i
 
 evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluate_sdnv.exit203.i
-  %333 = phi i32 [ 2147483647, %330 ], [ %332, %331 ], [ -1, %evaluate_sdnv.exit203.i ]
+  %333 = phi i32 [ %332, %331 ], [ 2147483647, %330 ], [ -1, %evaluate_sdnv.exit203.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %334 = getelementptr inbounds nuw i8, ptr %65, i64 60
   store i32 %333, ptr %334, align 4
@@ -1092,7 +1092,7 @@ evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluat
   br label %evaluate_sdnv.exit207.i
 
 evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluate_sdnv.exit205.i
-  %347 = phi i32 [ 2147483647, %344 ], [ %346, %345 ], [ -1, %evaluate_sdnv.exit205.i ]
+  %347 = phi i32 [ %346, %345 ], [ 2147483647, %344 ], [ -1, %evaluate_sdnv.exit205.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %348 = getelementptr inbounds nuw i8, ptr %65, i64 28
   store i32 %347, ptr %348, align 4
@@ -1123,7 +1123,7 @@ evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluat
   br label %evaluate_sdnv.exit209.i
 
 evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluate_sdnv.exit207.i
-  %362 = phi i32 [ 2147483647, %359 ], [ %361, %360 ], [ -1, %evaluate_sdnv.exit207.i ]
+  %362 = phi i32 [ %361, %360 ], [ 2147483647, %359 ], [ -1, %evaluate_sdnv.exit207.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %363 = getelementptr inbounds nuw i8, ptr %65, i64 68
   store i32 %362, ptr %363, align 4
@@ -1152,7 +1152,7 @@ evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluat
   br label %evaluate_sdnv.exit211.i
 
 evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluate_sdnv.exit209.i
-  %376 = phi i32 [ 2147483647, %373 ], [ %375, %374 ], [ -1, %evaluate_sdnv.exit209.i ]
+  %376 = phi i32 [ %375, %374 ], [ 2147483647, %373 ], [ -1, %evaluate_sdnv.exit209.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %377 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i32 %376, ptr %377, align 4
@@ -1183,7 +1183,7 @@ evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluat
   br label %evaluate_sdnv.exit213.i
 
 evaluate_sdnv.exit213.i:                          ; preds = %389, %388, %evaluate_sdnv.exit211.i
-  %391 = phi i32 [ 2147483647, %388 ], [ %390, %389 ], [ -1, %evaluate_sdnv.exit211.i ]
+  %391 = phi i32 [ %390, %389 ], [ 2147483647, %388 ], [ -1, %evaluate_sdnv.exit211.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %392 = getelementptr inbounds nuw i8, ptr %65, i64 76
   store i32 %391, ptr %392, align 4
@@ -1212,7 +1212,7 @@ evaluate_sdnv.exit213.i:                          ; preds = %389, %388, %evaluat
   br label %evaluate_sdnv.exit215.i
 
 evaluate_sdnv.exit215.i:                          ; preds = %403, %402, %evaluate_sdnv.exit213.i
-  %.0.i214.i = phi i32 [ 2147483647, %402 ], [ %404, %403 ], [ -1, %evaluate_sdnv.exit213.i ]
+  %.0.i214.i = phi i32 [ %404, %403 ], [ 2147483647, %402 ], [ -1, %evaluate_sdnv.exit213.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %405 = load i32, ptr @hf_bundle_primary_timestamp, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -1243,7 +1243,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   br label %dissect_version_5_and_6_primary_header.exit
 
 415:                                              ; preds = %412, %411
-  %.0.i.ph.i.i = phi i64 [ %414, %412 ], [ -1200798849, %411 ]
+  %.0.i.ph.i.i = phi i64 [ -1200798849, %411 ], [ %414, %412 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   store i64 %.0.i.ph.i.i, ptr %53, align 8
   %416 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1289,7 +1289,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   br label %439
 
 436:                                              ; preds = %425, %424
-  %.0.i216.ph.i = phi i32 [ %426, %425 ], [ 2147483647, %424 ]
+  %.0.i216.ph.i = phi i32 [ 2147483647, %424 ], [ %426, %425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %437 = load i32, ptr @hf_bundle_primary_timestamp_seq_num32, align 4
   %438 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %437, ptr noundef %0, i32 noundef %418, i32 noundef %419, i32 noundef %.0.i216.ph.i)
@@ -1322,7 +1322,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   br label %evaluate_sdnv.exit220.i
 
 evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
-  %452 = phi i32 [ 2147483647, %449 ], [ %451, %450 ], [ -1, %439 ]
+  %452 = phi i32 [ %451, %450 ], [ 2147483647, %449 ], [ -1, %439 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   store i32 %452, ptr %65, align 4
   %453 = load i32, ptr @hf_bundle_primary_dictionary_len, align 4
@@ -1453,7 +1453,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
   br label %dissect_version_5_and_6_primary_header.exit
 
 dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdnv_time_to_tree.exit.thread.i, %456, %515
-  %.0.i52 = phi i32 [ 0, %233 ], [ %276, %272 ], [ %458, %456 ], [ %516, %515 ], [ 0, %add_sdnv_time_to_tree.exit.thread.i ]
+  %.0.i52 = phi i32 [ 0, %233 ], [ %276, %272 ], [ %516, %515 ], [ %458, %456 ], [ 0, %add_sdnv_time_to_tree.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %517
 
@@ -1529,7 +1529,7 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
   br label %evaluate_sdnv.exit.i
 
 evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
-  %.0.i.i = phi i8 [ 1, %551 ], [ %555, %552 ], [ 1, %545 ]
+  %.0.i.i = phi i8 [ %555, %552 ], [ 1, %551 ], [ 1, %545 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %556 = load i32, ptr @hf_block_control_flags, align 4
   %557 = call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %556, ptr noundef %0, i32 noundef %537, i32 noundef %546, i32 noundef 0)
@@ -1582,7 +1582,7 @@ evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
   br label %dissect_payload_header.exit
 
 588:                                              ; preds = %582, %581
-  %.0.i103.ph.i = phi i32 [ %583, %582 ], [ 2147483647, %581 ]
+  %.0.i103.ph.i = phi i32 [ 2147483647, %581 ], [ %583, %582 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %589 = load i32, ptr @hf_bundle_payload_length, align 4
   %590 = call ptr @proto_tree_add_int(ptr noundef %534, i32 noundef %589, ptr noundef %0, i32 noundef %.096.i, i32 noundef %576, i32 noundef %.0.i103.ph.i)
@@ -1784,7 +1784,7 @@ add_sdnv_time_to_tree.exit.thread.i.i:            ; preds = %690
   br label %909
 
 add_sdnv_time_to_tree.exit.i.i:                   ; preds = %698, %697
-  %.0.i.ph.i.i.i = phi i64 [ %700, %698 ], [ -1200798849, %697 ]
+  %.0.i.ph.i.i.i = phi i64 [ -1200798849, %697 ], [ %700, %698 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   store i64 %.0.i.ph.i.i.i, ptr %43, align 8
   store i32 0, ptr %526, align 8
@@ -1833,7 +1833,7 @@ add_sdnv_time_to_tree.exit.i.i:                   ; preds = %698, %697
   br label %909
 
 721:                                              ; preds = %711, %710
-  %.0.i.ph.i.i53 = phi i32 [ %712, %711 ], [ 2147483647, %710 ]
+  %.0.i.ph.i.i53 = phi i32 [ 2147483647, %710 ], [ %712, %711 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %722 = load i32, ptr @hf_bundle_admin_timestamp_seq_num32, align 4
   %723 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %722, ptr noundef %0, i32 noundef %704, i32 noundef %705, i32 noundef %.0.i.ph.i.i53)
@@ -1867,7 +1867,7 @@ add_sdnv_time_to_tree.exit.i.i:                   ; preds = %698, %697
   br label %909
 
 735:                                              ; preds = %731, %730
-  %.0.i349.ph.i.i = phi i32 [ %732, %731 ], [ 2147483647, %730 ]
+  %.0.i349.ph.i.i = phi i32 [ 2147483647, %730 ], [ %732, %731 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %736 = load i32, ptr @hf_bundle_admin_endpoint_length, align 4
   %737 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %736, ptr noundef %0, i32 noundef %724, i32 noundef %725, i32 noundef %.0.i349.ph.i.i)
@@ -1945,7 +1945,7 @@ add_sdnv_time_to_tree.exit354.thread.i.i:         ; preds = %767
   br label %909
 
 add_sdnv_time_to_tree.exit354.i.i:                ; preds = %776, %775
-  %.0.i.ph.i352.i.i = phi i64 [ %778, %776 ], [ -1200798849, %775 ]
+  %.0.i.ph.i352.i.i = phi i64 [ -1200798849, %775 ], [ %778, %776 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   store i64 %.0.i.ph.i352.i.i, ptr %38, align 8
   store i32 0, ptr %525, align 8
@@ -1994,7 +1994,7 @@ add_sdnv_time_to_tree.exit354.i.i:                ; preds = %776, %775
   br label %909
 
 799:                                              ; preds = %789, %788
-  %.0.i355.ph.i.i = phi i32 [ %790, %789 ], [ 2147483647, %788 ]
+  %.0.i355.ph.i.i = phi i32 [ 2147483647, %788 ], [ %790, %789 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %800 = load i32, ptr @hf_bundle_admin_timestamp_seq_num32, align 4
   %801 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %800, ptr noundef %0, i32 noundef %782, i32 noundef %783, i32 noundef %.0.i355.ph.i.i)
@@ -2028,7 +2028,7 @@ add_sdnv_time_to_tree.exit354.i.i:                ; preds = %776, %775
   br label %909
 
 813:                                              ; preds = %809, %808
-  %.0.i358.ph.i.i = phi i32 [ %810, %809 ], [ 2147483647, %808 ]
+  %.0.i358.ph.i.i = phi i32 [ 2147483647, %808 ], [ %810, %809 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %814 = load i32, ptr @hf_bundle_admin_endpoint_length, align 4
   %815 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %814, ptr noundef %0, i32 noundef %802, i32 noundef %803, i32 noundef %.0.i358.ph.i.i)
@@ -2067,7 +2067,7 @@ add_sdnv_time_to_tree.exit354.i.i:                ; preds = %776, %775
   br label %evaluate_sdnv.exit361.i.i
 
 evaluate_sdnv.exit361.i.i:                        ; preds = %835, %834, %820
-  %.0.i360.i.i = phi i32 [ 2147483647, %834 ], [ %836, %835 ], [ -1, %820 ]
+  %.0.i360.i.i = phi i32 [ %836, %835 ], [ 2147483647, %834 ], [ -1, %820 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %837 = load i32, ptr @hf_bundle_custody_id_range_start, align 4
   %838 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %837, ptr noundef %0, i32 noundef %828, i32 noundef %829, i32 noundef %.0.i360.i.i)
@@ -2101,7 +2101,7 @@ evaluate_sdnv.exit361.i.i:                        ; preds = %835, %834, %820
   br label %evaluate_sdnv.exit363.i.i
 
 evaluate_sdnv.exit363.i.i:                        ; preds = %850, %849, %842
-  %.0.i362.i.i = phi i32 [ 2147483647, %849 ], [ %851, %850 ], [ -1, %842 ]
+  %.0.i362.i.i = phi i32 [ %851, %850 ], [ 2147483647, %849 ], [ -1, %842 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %852 = load i32, ptr @hf_bundle_custody_id_range_end, align 4
   %853 = add i32 %844, %829
@@ -2147,7 +2147,7 @@ evaluate_sdnv.exit363.i.i:                        ; preds = %850, %849, %842
   br label %evaluate_sdnv.exit365.i.i
 
 evaluate_sdnv.exit365.i.i:                        ; preds = %871, %870, %.lr.ph.i.i
-  %.0.i364.i.i = phi i32 [ 2147483647, %870 ], [ %872, %871 ], [ -1, %.lr.ph.i.i ]
+  %.0.i364.i.i = phi i32 [ %872, %871 ], [ 2147483647, %870 ], [ -1, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %873 = load i32, ptr @hf_bundle_custody_id_range_start, align 4
   %874 = call ptr @proto_tree_add_int(ptr noundef %598, i32 noundef %873, ptr noundef %0, i32 noundef %.11426.i.i, i32 noundef %865, i32 noundef %.0.i364.i.i)
@@ -2181,7 +2181,7 @@ evaluate_sdnv.exit365.i.i:                        ; preds = %871, %870, %.lr.ph.
   br label %evaluate_sdnv.exit367.i.i
 
 evaluate_sdnv.exit367.i.i:                        ; preds = %886, %885, %878
-  %.0.i366.i.i = phi i32 [ 2147483647, %885 ], [ %887, %886 ], [ -1, %878 ]
+  %.0.i366.i.i = phi i32 [ %887, %886 ], [ 2147483647, %885 ], [ -1, %878 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %888 = load i32, ptr @hf_bundle_custody_id_range_end, align 4
   %889 = add i32 %880, %865
@@ -2222,7 +2222,7 @@ evaluate_sdnv.exit367.i.i:                        ; preds = %886, %885, %878
   br label %910
 
 909:                                              ; preds = %905, %895, %876, %858, %840, %811, %797, %add_sdnv_time_to_tree.exit354.i.i, %add_sdnv_time_to_tree.exit354.thread.i.i, %763, %756, %752, %733, %719, %add_sdnv_time_to_tree.exit.i.i, %add_sdnv_time_to_tree.exit.thread.i.i, %684, %676, %668, %660, %652, %644, %634, %630
-  %.3.i.ph.i = phi i32 [ %.11426.i.i, %876 ], [ %897, %895 ], [ %828, %840 ], [ %860, %858 ], [ %.11.lcssa.i.i, %905 ], [ %734, %733 ], [ %704, %719 ], [ %628, %630 ], [ %635, %634 ], [ %.0295.i.i, %644 ], [ %.2297.i.i, %652 ], [ %.3298.i.i, %660 ], [ %.4299.i.i, %668 ], [ %.5300.i.i, %676 ], [ %.6301.i.i, %684 ], [ %.7302.i.i, %add_sdnv_time_to_tree.exit.i.i ], [ %.7302.i.i, %add_sdnv_time_to_tree.exit.thread.i.i ], [ %768, %add_sdnv_time_to_tree.exit354.thread.i.i ], [ %768, %add_sdnv_time_to_tree.exit354.i.i ], [ %.9.i.i, %763 ], [ %757, %756 ], [ %750, %752 ], [ %782, %797 ], [ %812, %811 ]
+  %.3.i.ph.i = phi i32 [ %.11426.i.i, %876 ], [ %897, %895 ], [ %860, %858 ], [ %828, %840 ], [ %.11.lcssa.i.i, %905 ], [ %628, %630 ], [ %635, %634 ], [ %.0295.i.i, %644 ], [ %.2297.i.i, %652 ], [ %.3298.i.i, %660 ], [ %.4299.i.i, %668 ], [ %.5300.i.i, %676 ], [ %.6301.i.i, %684 ], [ %734, %733 ], [ %.7302.i.i, %add_sdnv_time_to_tree.exit.i.i ], [ %.7302.i.i, %add_sdnv_time_to_tree.exit.thread.i.i ], [ %768, %add_sdnv_time_to_tree.exit354.i.i ], [ %782, %797 ], [ %812, %811 ], [ %.9.i.i, %763 ], [ %757, %756 ], [ %750, %752 ], [ %704, %719 ], [ %768, %add_sdnv_time_to_tree.exit354.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %dissect_payload_header.exit
 
@@ -2309,7 +2309,7 @@ dissect_payload_header.exit:                      ; preds = %584, %909, %910, %9
   br label %evaluate_sdnv.exit.i55
 
 evaluate_sdnv.exit.i55:                           ; preds = %947, %946, %933
-  %.0.i.i56 = phi i32 [ 2147483647, %946 ], [ %948, %947 ], [ -1, %933 ]
+  %.0.i.i56 = phi i32 [ %948, %947 ], [ 2147483647, %946 ], [ -1, %933 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %949 = trunc i32 %.0.i.i56 to i8
   %950 = lshr i8 %949, 3
@@ -2456,7 +2456,7 @@ evaluate_sdnv.exit408.i:                          ; preds = %988
   br label %display_extension_block.exit
 
 1013:                                             ; preds = %1007, %1006
-  %.0.i409.ph.i = phi i32 [ %1008, %1007 ], [ 2147483647, %1006 ]
+  %.0.i409.ph.i = phi i32 [ 2147483647, %1006 ], [ %1008, %1007 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1014 = load i32, ptr @hf_block_control_block_length, align 4
   %1015 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1014, ptr noundef %0, i32 noundef %.0356.i, i32 noundef %1001, i32 noundef %.0.i409.ph.i)
@@ -2505,7 +2505,7 @@ evaluate_sdnv.exit408.i:                          ; preds = %988
   br label %evaluate_sdnv.exit412.i
 
 evaluate_sdnv.exit412.i:                          ; preds = %1031, %1030, %1024
-  %.0.i411.i = phi i32 [ 2147, %1030 ], [ %1033, %1031 ], [ 0, %1024 ]
+  %.0.i411.i = phi i32 [ %1033, %1031 ], [ 2147, %1030 ], [ 0, %1024 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1034 = load i32, ptr @hf_bundle_age_extension_block_code, align 4
   %1035 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1034, ptr noundef %0, i32 noundef %1016, i32 noundef %1025, i32 noundef %.0.i411.i)
@@ -2557,7 +2557,7 @@ evaluate_sdnv.exit412.i:                          ; preds = %1031, %1030, %1024
   br label %evaluate_sdnv.exit414.i
 
 evaluate_sdnv.exit414.i:                          ; preds = %1058, %1057, %1051
-  %.0.i413.i = phi i32 [ 2147483647, %1057 ], [ %1059, %1058 ], [ -1, %1051 ]
+  %.0.i413.i = phi i32 [ %1059, %1058 ], [ 2147483647, %1057 ], [ -1, %1051 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1060 = load i32, ptr @hf_bundle_target_block_type, align 4
   %1061 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1060, ptr noundef %0, i32 noundef %1016, i32 noundef %1052, i32 noundef %.0.i413.i)
@@ -2582,7 +2582,7 @@ evaluate_sdnv.exit414.i:                          ; preds = %1058, %1057, %1051
   br label %evaluate_sdnv.exit416.i
 
 evaluate_sdnv.exit416.i:                          ; preds = %1069, %1068, %evaluate_sdnv.exit414.i
-  %.0.i415.i = phi i32 [ 2147483647, %1068 ], [ %1070, %1069 ], [ -1, %evaluate_sdnv.exit414.i ]
+  %.0.i415.i = phi i32 [ %1070, %1069 ], [ 2147483647, %1068 ], [ -1, %evaluate_sdnv.exit414.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %1071 = load i32, ptr @hf_bundle_target_block_occurrence, align 4
   %1072 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1071, ptr noundef %0, i32 noundef %1062, i32 noundef %1063, i32 noundef %.0.i415.i)
@@ -2607,7 +2607,7 @@ evaluate_sdnv.exit416.i:                          ; preds = %1069, %1068, %evalu
   br label %evaluate_sdnv.exit418.i
 
 evaluate_sdnv.exit418.i:                          ; preds = %1080, %1079, %evaluate_sdnv.exit416.i
-  %.0.i417.i = phi i32 [ 2147483647, %1079 ], [ %1081, %1080 ], [ -1, %evaluate_sdnv.exit416.i ]
+  %.0.i417.i = phi i32 [ %1081, %1080 ], [ 2147483647, %1079 ], [ -1, %evaluate_sdnv.exit416.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %1082 = load i32, ptr @hf_bundle_ciphersuite_type, align 4
   %1083 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1082, ptr noundef %0, i32 noundef %1073, i32 noundef %1074, i32 noundef %.0.i417.i)
@@ -2632,7 +2632,7 @@ evaluate_sdnv.exit418.i:                          ; preds = %1080, %1079, %evalu
   br label %evaluate_sdnv.exit420.i
 
 evaluate_sdnv.exit420.i:                          ; preds = %1091, %1090, %evaluate_sdnv.exit418.i
-  %.0.i419.i = phi i32 [ 2147483647, %1090 ], [ %1092, %1091 ], [ -1, %evaluate_sdnv.exit418.i ]
+  %.0.i419.i = phi i32 [ %1092, %1091 ], [ 2147483647, %1090 ], [ -1, %evaluate_sdnv.exit418.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %1093 = load i32, ptr @hf_bundle_ciphersuite_flags, align 4
   %1094 = call ptr @proto_tree_add_uint(ptr noundef %937, i32 noundef %1093, ptr noundef %0, i32 noundef %1084, i32 noundef %1085, i32 noundef %.0.i419.i)
@@ -2706,7 +2706,7 @@ evaluate_sdnv.exit420.i:                          ; preds = %1091, %1090, %evalu
   br label %evaluate_sdnv.exit422.i
 
 evaluate_sdnv.exit422.i:                          ; preds = %1126, %1125, %.lr.ph555.i
-  %.0.i421.i = phi i32 [ 2147483647, %1125 ], [ %1127, %1126 ], [ -1, %.lr.ph555.i ]
+  %.0.i421.i = phi i32 [ %1127, %1126 ], [ 2147483647, %1125 ], [ -1, %.lr.ph555.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1128 = load i32, ptr @hf_block_ciphersuite_param_type, align 4
   %1129 = call ptr @proto_tree_add_int(ptr noundef %1116, i32 noundef %1128, ptr noundef %0, i32 noundef %.7363554.i, i32 noundef %1120, i32 noundef %.0.i421.i)
@@ -2779,7 +2779,7 @@ evaluate_sdnv.exit422.i:                          ; preds = %1126, %1125, %.lr.p
   br label %evaluate_sdnv.exit426.i
 
 evaluate_sdnv.exit426.i:                          ; preds = %1158, %1157, %1151
-  %.0.i425.i = phi i32 [ 2147483647, %1157 ], [ %1159, %1158 ], [ -1, %1151 ]
+  %.0.i425.i = phi i32 [ %1159, %1158 ], [ 2147483647, %1157 ], [ -1, %1151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1160 = load i32, ptr @hf_block_ciphersuite_range_offset, align 4
   %1161 = call ptr @proto_tree_add_int(ptr noundef %1116, i32 noundef %1160, ptr noundef %0, i32 noundef %1146, i32 noundef %1152, i32 noundef %.0.i425.i)
@@ -2804,7 +2804,7 @@ evaluate_sdnv.exit426.i:                          ; preds = %1158, %1157, %1151
   br label %evaluate_sdnv.exit428.i
 
 evaluate_sdnv.exit428.i:                          ; preds = %1169, %1168, %evaluate_sdnv.exit426.i
-  %.0.i427.i = phi i32 [ 2147483647, %1168 ], [ %1170, %1169 ], [ -1, %evaluate_sdnv.exit426.i ]
+  %.0.i427.i = phi i32 [ %1170, %1169 ], [ 2147483647, %1168 ], [ -1, %evaluate_sdnv.exit426.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1171 = load i32, ptr @hf_block_ciphersuite_range_length, align 4
   %1172 = call ptr @proto_tree_add_int(ptr noundef %1116, i32 noundef %1171, ptr noundef %0, i32 noundef %1162, i32 noundef %1163, i32 noundef %.0.i427.i)
@@ -2840,7 +2840,7 @@ evaluate_sdnv.exit428.i:                          ; preds = %1169, %1168, %evalu
   br label %evaluate_sdnv.exit430.i
 
 evaluate_sdnv.exit430.i:                          ; preds = %1183, %1182, %.loopexit.i
-  %.0.i429.i = phi i32 [ 2147483647, %1182 ], [ %1184, %1183 ], [ -1, %.loopexit.i ]
+  %.0.i429.i = phi i32 [ %1184, %1183 ], [ 2147483647, %1182 ], [ -1, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1185 = add i32 %.0.i429.i, 1
   %1186 = load i32, ptr @ett_sec_block_param_data, align 4
@@ -2874,7 +2874,7 @@ evaluate_sdnv.exit430.i:                          ; preds = %1183, %1182, %.loop
   br label %evaluate_sdnv.exit432.i
 
 evaluate_sdnv.exit432.i:                          ; preds = %1197, %1196, %.lr.ph560.i
-  %.0.i431.i = phi i32 [ 2147483647, %1196 ], [ %1198, %1197 ], [ -1, %.lr.ph560.i ]
+  %.0.i431.i = phi i32 [ %1198, %1197 ], [ 2147483647, %1196 ], [ -1, %.lr.ph560.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1199 = load i32, ptr @hf_block_ciphersuite_result_type, align 4
   %1200 = call ptr @proto_tree_add_int(ptr noundef %1187, i32 noundef %1199, ptr noundef %0, i32 noundef %.11367559.i, i32 noundef %1191, i32 noundef %.0.i431.i)
@@ -2940,7 +2940,7 @@ evaluate_sdnv.exit432.i:                          ; preds = %1197, %1196, %.lr.p
   br label %evaluate_sdnv.exit436.i
 
 evaluate_sdnv.exit436.i:                          ; preds = %1225, %1224, %1218
-  %.0.i435.i = phi i32 [ 2147483647, %1224 ], [ %1226, %1225 ], [ -1, %1218 ]
+  %.0.i435.i = phi i32 [ %1226, %1225 ], [ 2147483647, %1224 ], [ -1, %1218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %1227 = load i32, ptr @hf_block_ciphersuite_range_offset, align 4
   %1228 = call ptr @proto_tree_add_int(ptr noundef %1187, i32 noundef %1227, ptr noundef %0, i32 noundef %1213, i32 noundef %1219, i32 noundef %.0.i435.i)
@@ -2965,7 +2965,7 @@ evaluate_sdnv.exit436.i:                          ; preds = %1225, %1224, %1218
   br label %evaluate_sdnv.exit438.i
 
 evaluate_sdnv.exit438.i:                          ; preds = %1236, %1235, %evaluate_sdnv.exit436.i
-  %.0.i437.i = phi i32 [ 2147483647, %1235 ], [ %1237, %1236 ], [ -1, %evaluate_sdnv.exit436.i ]
+  %.0.i437.i = phi i32 [ %1237, %1236 ], [ 2147483647, %1235 ], [ -1, %evaluate_sdnv.exit436.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1238 = load i32, ptr @hf_block_ciphersuite_range_length, align 4
   %1239 = call ptr @proto_tree_add_int(ptr noundef %1187, i32 noundef %1238, ptr noundef %0, i32 noundef %1229, i32 noundef %1230, i32 noundef %.0.i437.i)
@@ -3024,7 +3024,7 @@ evaluate_sdnv.exit438.i:                          ; preds = %1236, %1235, %evalu
   br label %evaluate_sdnv.exit440.i
 
 evaluate_sdnv.exit440.i:                          ; preds = %1262, %1261, %1255
-  %.0.i439.i = phi i32 [ 2147483647, %1261 ], [ %1263, %1262 ], [ -1, %1255 ]
+  %.0.i439.i = phi i32 [ %1263, %1262 ], [ 2147483647, %1261 ], [ -1, %1255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1264 = load i32, ptr @hf_block_control_block_cteb_custody_id, align 4
   %1265 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1264, ptr noundef %0, i32 noundef %1016, i32 noundef %1256, i32 noundef %.0.i439.i)
@@ -3135,7 +3135,7 @@ evaluate_sdnv.exit440.i:                          ; preds = %1262, %1261, %1255
   br label %display_extension_block.exit
 
 1320:                                             ; preds = %1315, %1314
-  %.0.i441.ph.i = phi i32 [ %1316, %1315 ], [ 2147483647, %1314 ]
+  %.0.i441.ph.i = phi i32 [ 2147483647, %1314 ], [ %1316, %1315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1321 = load i32, ptr @hf_ecos_flow_label, align 4
   %1322 = call ptr @proto_tree_add_int(ptr noundef %937, i32 noundef %1321, ptr noundef %0, i32 noundef %1306, i32 noundef %1309, i32 noundef %.0.i441.ph.i)
@@ -3165,7 +3165,7 @@ display_extension_block.exit:                     ; preds = %1245, %1009, %1020,
   br label %1331
 
 1331:                                             ; preds = %4, %1330, %519
-  %.0 = phi i32 [ 0, %519 ], [ %.1, %1330 ], [ 0, %4 ]
+  %.0 = phi i32 [ %.1, %1330 ], [ 0, %519 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   ret i32 %.0
@@ -3729,8 +3729,8 @@ define internal fastcc i32 @add_sdnv_to_tree(ptr noundef %0, ptr noundef %1, ptr
   %17 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %16, ptr noundef nonnull @ei_bundle_sdnv_length)
   br label %20
 
-18:                                               ; preds = %12, %13
-  %.0.i.ph = phi i32 [ %14, %13 ], [ 2147483647, %12 ]
+18:                                               ; preds = %13, %12
+  %.0.i.ph = phi i32 [ 2147483647, %12 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = call ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %3, i32 noundef %7, i32 noundef %.0.i.ph)
   br label %20
@@ -3794,8 +3794,8 @@ evaluate_sdnv.exit:                               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
-17:                                               ; preds = %13, %14
-  %.0.i.ph = phi i64 [ %16, %14 ], [ -1200798849, %13 ]
+17:                                               ; preds = %14, %13
+  %.0.i.ph = phi i64 [ -1200798849, %13 ], [ %16, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.0.i.ph, ptr %7, align 8
   %18 = add i32 %8, %2
@@ -3822,8 +3822,8 @@ evaluate_sdnv.exit14:                             ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
-27:                                               ; preds = %24, %25
-  %.0.i13.ph = phi i32 [ %26, %25 ], [ 2147483647, %24 ]
+27:                                               ; preds = %25, %24
+  %.0.i13.ph = phi i32 [ 2147483647, %24 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.0.i13.ph, ptr %28, align 8

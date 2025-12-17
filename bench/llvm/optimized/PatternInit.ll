@@ -364,7 +364,7 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63: ; preds = %._crit_edge, %1
   br i1 %.not, label %._crit_edge.loopexit, label %135, !llvm.loop !704
 
 145:                                              ; preds = %28, %_ZN4llvm5APIntD2Ev.exit44, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit, %_ZN4llvm5APIntD2Ev.exit61, %_ZNK4llvm4Type13getScalarTypeEv.exit52
-  %.1 = phi ptr [ %60, %_ZNK4llvm4Type13getScalarTypeEv.exit52 ], [ %82, %_ZN4llvm5APIntD2Ev.exit61 ], [ %110, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ %131, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63 ], [ %29, %28 ], [ %33, %_ZN4llvm5APIntD2Ev.exit44 ]
+  %.1 = phi ptr [ %131, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63 ], [ %60, %_ZNK4llvm4Type13getScalarTypeEv.exit52 ], [ %82, %_ZN4llvm5APIntD2Ev.exit61 ], [ %110, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ %29, %28 ], [ %33, %_ZN4llvm5APIntD2Ev.exit44 ]
   ret ptr %.1
 }
 

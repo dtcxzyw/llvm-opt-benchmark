@@ -76,7 +76,7 @@ define noundef i32 @Bmc_GiaGenerateJust_rec(ptr noundef readonly captures(none) 
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %88, %76, %34, %70
-  %.tr89.be = phi i32 [ %37, %34 ], [ %75, %70 ], [ %69, %76 ], [ %92, %88 ]
+  %.tr89.be = phi i32 [ %75, %70 ], [ %37, %34 ], [ %69, %76 ], [ %92, %88 ]
   %.val = load i32, ptr %6, align 8, !tbaa !3
   %38 = mul nsw i32 %.val, %.tr88.ph112
   %39 = add nsw i32 %38, %.tr89.be
@@ -751,8 +751,8 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
   br label %193
 
 193:                                              ; preds = %.sink.split, %189, %123
-  %194 = phi i64 [ %101, %123 ], [ %.val132, %189 ], [ %.sink, %.sink.split ]
-  %.3 = phi i32 [ %.2163191, %123 ], [ %.2163191, %189 ], [ %.3.ph, %.sink.split ]
+  %194 = phi i64 [ %.val132, %189 ], [ %101, %123 ], [ %.sink, %.sink.split ]
+  %.3 = phi i32 [ %.2163191, %189 ], [ %.2163191, %123 ], [ %.3.ph, %.sink.split ]
   %195 = and i64 %194, 1073741824
   %.not112 = icmp eq i64 %195, 0
   br i1 %.not112, label %206, label %196
@@ -1633,7 +1633,7 @@ Vec_BitStart.exit:                                ; preds = %.critedge, %43
   br i1 %82, label %60, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %80, %.lr.ph479, %55
-  %.val384481 = phi i32 [ %.val401476, %.lr.ph479 ], [ %.val401476, %55 ], [ %.val401, %80 ]
+  %.val384481 = phi i32 [ %.val401476, %55 ], [ %.val401476, %.lr.ph479 ], [ %.val401, %80 ]
   %.val385482 = load ptr, ptr %51, align 8, !tbaa !34
   %83 = getelementptr i8, ptr %.val385482, i64 4
   %.val385.val483 = load i32, ptr %83, align 4, !tbaa !33
@@ -2763,7 +2763,7 @@ Vec_BitStart.exit:                                ; preds = %.critedge, %43
   br i1 %82, label %60, label %.critedge2, !llvm.loop !84
 
 .critedge2:                                       ; preds = %80, %.lr.ph311, %55
-  %.val249313 = phi i32 [ %.val260308, %.lr.ph311 ], [ %.val260308, %55 ], [ %.val260, %80 ]
+  %.val249313 = phi i32 [ %.val260308, %55 ], [ %.val260308, %.lr.ph311 ], [ %.val260, %80 ]
   %.val250314 = load ptr, ptr %51, align 8, !tbaa !34
   %83 = getelementptr i8, ptr %.val250314, i64 4
   %.val250.val315 = load i32, ptr %83, align 4, !tbaa !33

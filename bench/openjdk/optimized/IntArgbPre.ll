@@ -1135,7 +1135,7 @@ define hidden void @ByteIndexedBmToIntArgbPreXparBgCopy(ptr noundef %0, ptr noun
   br label %57
 
 57:                                               ; preds = %22, %28, %30
-  %.sink = phi i32 [ %56, %30 ], [ %26, %28 ], [ %4, %22 ]
+  %.sink = phi i32 [ %26, %28 ], [ %56, %30 ], [ %4, %22 ]
   store i32 %.sink, ptr %.142, align 4
   %58 = ptrtoint ptr %.1 to i64
   %59 = add nsw i64 %58, 1
@@ -1862,10 +1862,10 @@ define hidden void @IntArgbPreAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   br i1 %115, label %154, label %116
 
 116:                                              ; preds = %114, %98, %99
-  %.0114 = phi i32 [ %104, %99 ], [ %18, %98 ], [ 0, %114 ]
-  %.0112 = phi i32 [ %107, %99 ], [ %.0124, %98 ], [ 0, %114 ]
-  %.0110 = phi i32 [ %110, %99 ], [ %.0125, %98 ], [ 0, %114 ]
-  %.0109 = phi i32 [ %113, %99 ], [ %.0133, %98 ], [ 0, %114 ]
+  %.0114 = phi i32 [ %18, %98 ], [ %104, %99 ], [ 0, %114 ]
+  %.0112 = phi i32 [ %.0124, %98 ], [ %107, %99 ], [ 0, %114 ]
+  %.0110 = phi i32 [ %.0125, %98 ], [ %110, %99 ], [ 0, %114 ]
+  %.0109 = phi i32 [ %.0133, %98 ], [ %113, %99 ], [ 0, %114 ]
   %.not158 = icmp eq i32 %.4143, 0
   br i1 %.not158, label %147, label %117
 

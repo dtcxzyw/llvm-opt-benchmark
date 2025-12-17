@@ -344,7 +344,7 @@ adjust_monotonic_time.exit:                       ; preds = %29, %33, %49
   br label %59
 
 59:                                               ; preds = %50, %6, %53, %adjust_monotonic_time.exit
-  %.0 = phi i32 [ 0, %adjust_monotonic_time.exit ], [ 0, %53 ], [ -1, %6 ], [ -1, %50 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %adjust_monotonic_time.exit ], [ -1, %6 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

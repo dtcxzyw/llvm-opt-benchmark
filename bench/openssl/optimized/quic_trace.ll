@@ -699,7 +699,7 @@ trace_frame_data.exit:                            ; preds = %289, %290
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %PACKET_buf_init.exit63.thread
 
-292:                                              ; preds = %128, %133, %frame_ack.exit.i, %194, %197, %200, %203, %225, %228, %239, %242, %253, %256, %259, %262, %286, %131, %frame_ack.exit.thread.i, %frame_stream.exit.thread.i, %frame_max_streams.exit.thread.i, %frame_streams_blocked.exit.thread.i, %frame_conn_closed.exit.thread.i
+292:                                              ; preds = %286, %131, %128, %133, %frame_ack.exit.i, %194, %197, %200, %203, %frame_stream.exit.thread.i, %225, %228, %frame_max_streams.exit.thread.i, %239, %242, %frame_streams_blocked.exit.thread.i, %253, %256, %259, %262, %frame_conn_closed.exit.thread.i, %frame_ack.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %293 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.14) #3
   br label %PACKET_buf_init.exit63.thread
@@ -709,7 +709,7 @@ trace_frame_data.exit:                            ; preds = %289, %290
   br label %PACKET_buf_init.exit63.thread
 
 PACKET_buf_init.exit63.thread:                    ; preds = %123, %trace_frame_data.exit, %17, %122, %7, %.critedge, %292
-  %.1 = phi i32 [ 0, %292 ], [ 0, %.critedge ], [ 0, %7 ], [ 1, %122 ], [ 1, %trace_frame_data.exit ], [ 1, %17 ], [ 0, %123 ]
+  %.1 = phi i32 [ 1, %17 ], [ 0, %7 ], [ 0, %.critedge ], [ 0, %292 ], [ 1, %122 ], [ 1, %trace_frame_data.exit ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1
 }

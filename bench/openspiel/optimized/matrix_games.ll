@@ -941,7 +941,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -957,8 +957,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -972,14 +972,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -1013,8 +1013,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -2057,7 +2057,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body89
 
 187:                                              ; preds = %123, %119
-  %.0 = phi i1 [ true, %119 ], [ false, %123 ]
+  %.0 = phi i1 [ false, %123 ], [ true, %119 ]
   %188 = landingpad { ptr, i32 }
           cleanup
   %189 = load ptr, ptr %17, align 8
@@ -2073,8 +2073,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body101
 
 .body101:                                         ; preds = %117, %190, %187
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %187 ], [ %188, %190 ]
-  %.12 = phi i1 [ true, %117 ], [ %.0, %187 ], [ %.0, %190 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %190 ], [ %188, %187 ]
+  %.12 = phi i1 [ true, %117 ], [ %.0, %190 ], [ %.0, %187 ]
   %195 = load ptr, ptr %16, align 8
   %.not.i.i.i126 = icmp eq ptr %195, null
   br i1 %.not.i.i.i126, label %.body97, label %196
@@ -2088,14 +2088,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body97
 
 .body97:                                          ; preds = %110, %196, %.body101
-  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %.body101 ], [ %.pn, %196 ]
-  %.11 = phi i1 [ true, %110 ], [ %.12, %.body101 ], [ %.12, %196 ]
+  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %196 ], [ %.pn, %.body101 ]
+  %.11 = phi i1 [ true, %110 ], [ %.12, %196 ], [ %.12, %.body101 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #19
   br label %.body94
 
 .body94:                                          ; preds = %.body145.thread, %101, %.body145, %.body97
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %101 ], [ %95, %.body145 ], [ %100, %.body145.thread ]
-  %.10 = phi i1 [ %.11, %.body97 ], [ true, %101 ], [ true, %.body145 ], [ true, %.body145.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %.body145 ], [ %95, %101 ], [ %100, %.body145.thread ]
+  %.10 = phi i1 [ %.11, %.body97 ], [ true, %.body145 ], [ true, %101 ], [ true, %.body145.thread ]
   br label %201
 
 201:                                              ; preds = %201, %.body94
@@ -2140,8 +2140,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body75
 
 .body75:                                          ; preds = %.body131.thread, %65, %.body131, %.loopexit171
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %65 ], [ %59, %.body131 ], [ %64, %.body131.thread ]
-  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %65 ], [ true, %.body131 ], [ true, %.body131.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %.body131 ], [ %59, %65 ], [ %64, %.body131.thread ]
+  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %.body131 ], [ true, %65 ], [ true, %.body131.thread ]
   br label %209
 
 209:                                              ; preds = %209, %.body75
@@ -2776,7 +2776,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body89
 
 187:                                              ; preds = %123, %119
-  %.0 = phi i1 [ true, %119 ], [ false, %123 ]
+  %.0 = phi i1 [ false, %123 ], [ true, %119 ]
   %188 = landingpad { ptr, i32 }
           cleanup
   %189 = load ptr, ptr %17, align 8
@@ -2792,8 +2792,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body101
 
 .body101:                                         ; preds = %117, %190, %187
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %187 ], [ %188, %190 ]
-  %.12 = phi i1 [ true, %117 ], [ %.0, %187 ], [ %.0, %190 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %190 ], [ %188, %187 ]
+  %.12 = phi i1 [ true, %117 ], [ %.0, %190 ], [ %.0, %187 ]
   %195 = load ptr, ptr %16, align 8
   %.not.i.i.i126 = icmp eq ptr %195, null
   br i1 %.not.i.i.i126, label %.body97, label %196
@@ -2807,14 +2807,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body97
 
 .body97:                                          ; preds = %110, %196, %.body101
-  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %.body101 ], [ %.pn, %196 ]
-  %.11 = phi i1 [ true, %110 ], [ %.12, %.body101 ], [ %.12, %196 ]
+  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %196 ], [ %.pn, %.body101 ]
+  %.11 = phi i1 [ true, %110 ], [ %.12, %196 ], [ %.12, %.body101 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #19
   br label %.body94
 
 .body94:                                          ; preds = %.body145.thread, %101, %.body145, %.body97
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %101 ], [ %95, %.body145 ], [ %100, %.body145.thread ]
-  %.10 = phi i1 [ %.11, %.body97 ], [ true, %101 ], [ true, %.body145 ], [ true, %.body145.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %.body145 ], [ %95, %101 ], [ %100, %.body145.thread ]
+  %.10 = phi i1 [ %.11, %.body97 ], [ true, %.body145 ], [ true, %101 ], [ true, %.body145.thread ]
   br label %201
 
 201:                                              ; preds = %201, %.body94
@@ -2859,8 +2859,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body75
 
 .body75:                                          ; preds = %.body131.thread, %65, %.body131, %.loopexit171
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %65 ], [ %59, %.body131 ], [ %64, %.body131.thread ]
-  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %65 ], [ true, %.body131 ], [ true, %.body131.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %.body131 ], [ %59, %65 ], [ %64, %.body131.thread ]
+  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %.body131 ], [ true, %65 ], [ true, %.body131.thread ]
   br label %209
 
 209:                                              ; preds = %209, %.body75
@@ -3549,7 +3549,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body109
 
 201:                                              ; preds = %133, %129
-  %.0 = phi i1 [ true, %129 ], [ false, %133 ]
+  %.0 = phi i1 [ false, %133 ], [ true, %129 ]
   %202 = landingpad { ptr, i32 }
           cleanup
   %203 = load ptr, ptr %19, align 8
@@ -3565,8 +3565,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body121
 
 .body121:                                         ; preds = %127, %204, %201
-  %.pn = phi { ptr, i32 } [ %128, %127 ], [ %202, %201 ], [ %202, %204 ]
-  %.14 = phi i1 [ true, %127 ], [ %.0, %201 ], [ %.0, %204 ]
+  %.pn = phi { ptr, i32 } [ %128, %127 ], [ %202, %204 ], [ %202, %201 ]
+  %.14 = phi i1 [ true, %127 ], [ %.0, %204 ], [ %.0, %201 ]
   %209 = load ptr, ptr %18, align 8
   %.not.i.i.i146 = icmp eq ptr %209, null
   br i1 %.not.i.i.i146, label %.body117, label %210
@@ -3580,14 +3580,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body117
 
 .body117:                                         ; preds = %120, %210, %.body121
-  %.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn, %.body121 ], [ %.pn, %210 ]
-  %.13 = phi i1 [ true, %120 ], [ %.14, %.body121 ], [ %.14, %210 ]
+  %.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn, %210 ], [ %.pn, %.body121 ]
+  %.13 = phi i1 [ true, %120 ], [ %.14, %210 ], [ %.14, %.body121 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #19
   br label %.body114
 
 .body114:                                         ; preds = %.body165.thread, %111, %.body165, %.body117
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body117 ], [ %105, %111 ], [ %105, %.body165 ], [ %110, %.body165.thread ]
-  %.12 = phi i1 [ %.13, %.body117 ], [ true, %111 ], [ true, %.body165 ], [ true, %.body165.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body117 ], [ %105, %.body165 ], [ %105, %111 ], [ %110, %.body165.thread ]
+  %.12 = phi i1 [ %.13, %.body117 ], [ true, %.body165 ], [ true, %111 ], [ true, %.body165.thread ]
   br label %215
 
 215:                                              ; preds = %215, %.body114
@@ -3640,8 +3640,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body90
 
 .body90:                                          ; preds = %.body151.thread, %71, %.body151, %.loopexit191
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn174, %.loopexit191 ], [ %65, %71 ], [ %65, %.body151 ], [ %70, %.body151.thread ]
-  %.7 = phi i1 [ %.8175, %.loopexit191 ], [ true, %71 ], [ true, %.body151 ], [ true, %.body151.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn174, %.loopexit191 ], [ %65, %.body151 ], [ %65, %71 ], [ %70, %.body151.thread ]
+  %.7 = phi i1 [ %.8175, %.loopexit191 ], [ true, %.body151 ], [ true, %71 ], [ true, %.body151.thread ]
   br label %223
 
 223:                                              ; preds = %223, %.body90
@@ -4284,7 +4284,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body89
 
 187:                                              ; preds = %123, %119
-  %.0 = phi i1 [ true, %119 ], [ false, %123 ]
+  %.0 = phi i1 [ false, %123 ], [ true, %119 ]
   %188 = landingpad { ptr, i32 }
           cleanup
   %189 = load ptr, ptr %17, align 8
@@ -4300,8 +4300,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body101
 
 .body101:                                         ; preds = %117, %190, %187
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %187 ], [ %188, %190 ]
-  %.12 = phi i1 [ true, %117 ], [ %.0, %187 ], [ %.0, %190 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %188, %190 ], [ %188, %187 ]
+  %.12 = phi i1 [ true, %117 ], [ %.0, %190 ], [ %.0, %187 ]
   %195 = load ptr, ptr %16, align 8
   %.not.i.i.i126 = icmp eq ptr %195, null
   br i1 %.not.i.i.i126, label %.body97, label %196
@@ -4315,14 +4315,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body97
 
 .body97:                                          ; preds = %110, %196, %.body101
-  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %.body101 ], [ %.pn, %196 ]
-  %.11 = phi i1 [ true, %110 ], [ %.12, %.body101 ], [ %.12, %196 ]
+  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn, %196 ], [ %.pn, %.body101 ]
+  %.11 = phi i1 [ true, %110 ], [ %.12, %196 ], [ %.12, %.body101 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #19
   br label %.body94
 
 .body94:                                          ; preds = %.body145.thread, %101, %.body145, %.body97
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %101 ], [ %95, %.body145 ], [ %100, %.body145.thread ]
-  %.10 = phi i1 [ %.11, %.body97 ], [ true, %101 ], [ true, %.body145 ], [ true, %.body145.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body97 ], [ %95, %.body145 ], [ %95, %101 ], [ %100, %.body145.thread ]
+  %.10 = phi i1 [ %.11, %.body97 ], [ true, %.body145 ], [ true, %101 ], [ true, %.body145.thread ]
   br label %201
 
 201:                                              ; preds = %201, %.body94
@@ -4367,8 +4367,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body75
 
 .body75:                                          ; preds = %.body131.thread, %65, %.body131, %.loopexit171
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %65 ], [ %59, %.body131 ], [ %64, %.body131.thread ]
-  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %65 ], [ true, %.body131 ], [ true, %.body131.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn154, %.loopexit171 ], [ %59, %.body131 ], [ %59, %65 ], [ %64, %.body131.thread ]
+  %.6 = phi i1 [ %.7155, %.loopexit171 ], [ true, %.body131 ], [ true, %65 ], [ true, %.body131.thread ]
   br label %209
 
 209:                                              ; preds = %209, %.body75
@@ -4949,7 +4949,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -4965,8 +4965,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -4980,14 +4980,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -5021,8 +5021,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -5592,7 +5592,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -5608,8 +5608,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -5623,14 +5623,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -5664,8 +5664,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -6235,7 +6235,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -6251,8 +6251,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -6266,14 +6266,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -6307,8 +6307,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -6878,7 +6878,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -6894,8 +6894,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -6909,14 +6909,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -6950,8 +6950,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -7521,7 +7521,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body64
 
 173:                                              ; preds = %113, %109
-  %.0 = phi i1 [ true, %109 ], [ false, %113 ]
+  %.0 = phi i1 [ false, %113 ], [ true, %109 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %175 = load ptr, ptr %15, align 8
@@ -7537,8 +7537,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body81
 
 .body81:                                          ; preds = %107, %176, %173
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %173 ], [ %174, %176 ]
-  %.10 = phi i1 [ true, %107 ], [ %.0, %173 ], [ %.0, %176 ]
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %174, %176 ], [ %174, %173 ]
+  %.10 = phi i1 [ true, %107 ], [ %.0, %176 ], [ %.0, %173 ]
   %181 = load ptr, ptr %14, align 8
   %.not.i.i.i106 = icmp eq ptr %181, null
   br i1 %.not.i.i.i106, label %.body77, label %182
@@ -7552,14 +7552,14 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body77
 
 .body77:                                          ; preds = %100, %182, %.body81
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %.body81 ], [ %.pn, %182 ]
-  %.9 = phi i1 [ true, %100 ], [ %.10, %.body81 ], [ %.10, %182 ]
+  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %182 ], [ %.pn, %.body81 ]
+  %.9 = phi i1 [ true, %100 ], [ %.10, %182 ], [ %.10, %.body81 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
   br label %.body74
 
 .body74:                                          ; preds = %.body125.thread, %91, %.body125, %.body77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %91 ], [ %85, %.body125 ], [ %90, %.body125.thread ]
-  %.8 = phi i1 [ %.9, %.body77 ], [ true, %91 ], [ true, %.body125 ], [ true, %.body125.thread ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body77 ], [ %85, %.body125 ], [ %85, %91 ], [ %90, %.body125.thread ]
+  %.8 = phi i1 [ %.9, %.body77 ], [ true, %.body125 ], [ true, %91 ], [ true, %.body125.thread ]
   br label %187
 
 187:                                              ; preds = %187, %.body74
@@ -7593,8 +7593,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body60
 
 .body60:                                          ; preds = %.body111.thread, %59, %.body111, %.loopexit151
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %59 ], [ %53, %.body111 ], [ %58, %.body111.thread ]
-  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %59 ], [ true, %.body111 ], [ true, %.body111.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn134, %.loopexit151 ], [ %53, %.body111 ], [ %53, %59 ], [ %58, %.body111.thread ]
+  %.5 = phi i1 [ %.6135, %.loopexit151 ], [ true, %.body111 ], [ true, %59 ], [ true, %.body111.thread ]
   br label %192
 
 192:                                              ; preds = %192, %.body60
@@ -8767,7 +8767,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit.thread, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit.thread: ; preds = %.noexc, %31, %22, %16
-  %34 = phi i1 [ true, %22 ], [ false, %16 ], [ %30, %31 ], [ %30, %.noexc ]
+  %34 = phi i1 [ false, %16 ], [ true, %22 ], [ %30, %31 ], [ %30, %.noexc ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = load ptr, ptr %35, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %36)
@@ -8794,7 +8794,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Gam
   unreachable
 
 .critedge:                                        ; preds = %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
-  %45 = phi i1 [ %34, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %2 ]
+  %45 = phi i1 [ false, %2 ], [ %34, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ]
   ret i1 %45
 
 46:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
@@ -9772,7 +9772,7 @@ _ZNK10open_spiel13GameParameter10game_valueB5cxx11Ev.exit: ; preds = %50
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %68, %.lr.ph, %59, %_ZNK10open_spiel13GameParameter10game_valueB5cxx11Ev.exit, %37, %32, %_ZNK10open_spiel13GameParameter12string_valueB5cxx11Ev.exit, %50, %39, %_ZNK10open_spiel13GameParameter10bool_valueEv.exit, %23, %14, %_ZNK10open_spiel13GameParameter12double_valueEv.exit, %5, %_ZNK10open_spiel13GameParameter9int_valueEv.exit, %75, %71
-  %.0 = phi i1 [ false, %75 ], [ %74, %71 ], [ false, %5 ], [ %13, %_ZNK10open_spiel13GameParameter9int_valueEv.exit ], [ false, %14 ], [ %22, %_ZNK10open_spiel13GameParameter12double_valueEv.exit ], [ false, %23 ], [ false, %39 ], [ %49, %_ZNK10open_spiel13GameParameter10bool_valueEv.exit ], [ false, %50 ], [ false, %_ZNK10open_spiel13GameParameter12string_valueB5cxx11Ev.exit ], [ %38, %37 ], [ true, %32 ], [ false, %_ZNK10open_spiel13GameParameter10game_valueB5cxx11Ev.exit ], [ true, %59 ], [ %67, %.lr.ph ], [ %67, %68 ]
+  %.0 = phi i1 [ false, %75 ], [ %74, %71 ], [ %13, %_ZNK10open_spiel13GameParameter9int_valueEv.exit ], [ %22, %_ZNK10open_spiel13GameParameter12double_valueEv.exit ], [ true, %32 ], [ %49, %_ZNK10open_spiel13GameParameter10bool_valueEv.exit ], [ false, %5 ], [ false, %14 ], [ false, %23 ], [ false, %39 ], [ false, %50 ], [ false, %_ZNK10open_spiel13GameParameter12string_valueB5cxx11Ev.exit ], [ %38, %37 ], [ false, %_ZNK10open_spiel13GameParameter10game_valueB5cxx11Ev.exit ], [ true, %59 ], [ %67, %.lr.ph ], [ %67, %68 ]
   ret i1 %.0
 }
 
@@ -10097,8 +10097,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
-  %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.078.0 = phi ptr [ %spec.select, %59 ], [ null, %18 ], [ null, %._crit_edge.thread.i31 ], [ %49, %47 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ null, %._crit_edge.thread.i ], [ %spec.select80, %100 ], [ null, %88 ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ null, %._crit_edge.thread.i55 ]
+  %.sroa.12.0 = phi ptr [ %spec.select79, %59 ], [ %19, %18 ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %49, %47 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select81, %100 ], [ %90, %88 ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10129,7 +10129,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %15
 
 15:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %5
-  %16 = phi i1 [ true, %5 ], [ %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
+  %16 = phi i1 [ %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ true, %5 ]
   %17 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(144) %18, ptr noundef nonnull align 8 dereferenceable(144) %3)
@@ -10621,13 +10621,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %.body139, %383, %.body7.i102, %.body136, %348, %.body7.i90, %296, %307, %.body7.i78, %.body127, %272, %.body7.i66, %.body121, %231, %.body7.i54, %185, %196, %.body7.i42, %.body115, %161, %.body7.i30, %.body112, %126, %.body7.i18, %.body109, %91, %.body7.i6, %.body, %56, %.body7.i
-  %.sink = phi ptr [ %41, %.body7.i ], [ %41, %56 ], [ %41, %.body ], [ %38, %.body7.i6 ], [ %38, %91 ], [ %38, %.body109 ], [ %35, %.body7.i18 ], [ %35, %126 ], [ %35, %.body112 ], [ %32, %.body7.i30 ], [ %32, %161 ], [ %32, %.body115 ], [ %29, %.body7.i42 ], [ %29, %196 ], [ %29, %185 ], [ %26, %.body7.i54 ], [ %26, %231 ], [ %26, %.body121 ], [ %23, %.body7.i66 ], [ %23, %272 ], [ %23, %.body127 ], [ %20, %.body7.i78 ], [ %20, %307 ], [ %20, %296 ], [ %17, %.body7.i90 ], [ %17, %348 ], [ %17, %.body136 ], [ %14, %.body7.i102 ], [ %14, %383 ], [ %14, %.body139 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %eh.lpad-body8.i, %.body7.i ], [ %57, %56 ], [ %52, %.body ], [ %eh.lpad-body8.i7, %.body7.i6 ], [ %92, %91 ], [ %87, %.body109 ], [ %eh.lpad-body8.i19, %.body7.i18 ], [ %127, %126 ], [ %122, %.body112 ], [ %eh.lpad-body8.i31, %.body7.i30 ], [ %162, %161 ], [ %157, %.body115 ], [ %eh.lpad-body8.i43, %.body7.i42 ], [ %197, %196 ], [ %186, %185 ], [ %eh.lpad-body8.i55, %.body7.i54 ], [ %232, %231 ], [ %227, %.body121 ], [ %eh.lpad-body8.i67, %.body7.i66 ], [ %273, %272 ], [ %262, %.body127 ], [ %eh.lpad-body8.i79, %.body7.i78 ], [ %308, %307 ], [ %297, %296 ], [ %eh.lpad-body8.i91, %.body7.i90 ], [ %349, %348 ], [ %338, %.body136 ], [ %eh.lpad-body8.i103, %.body7.i102 ], [ %384, %383 ], [ %379, %.body139 ]
+  %.sink = phi ptr [ %17, %.body136 ], [ %20, %296 ], [ %23, %.body127 ], [ %26, %.body121 ], [ %29, %185 ], [ %32, %.body115 ], [ %35, %.body112 ], [ %38, %.body109 ], [ %41, %.body ], [ %41, %.body7.i ], [ %41, %56 ], [ %38, %.body7.i6 ], [ %38, %91 ], [ %35, %.body7.i18 ], [ %35, %126 ], [ %32, %.body7.i30 ], [ %32, %161 ], [ %29, %.body7.i42 ], [ %29, %196 ], [ %26, %.body7.i54 ], [ %26, %231 ], [ %23, %.body7.i66 ], [ %23, %272 ], [ %20, %.body7.i78 ], [ %20, %307 ], [ %17, %.body7.i90 ], [ %17, %348 ], [ %14, %.body7.i102 ], [ %14, %383 ], [ %14, %.body139 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %338, %.body136 ], [ %297, %296 ], [ %262, %.body127 ], [ %227, %.body121 ], [ %186, %185 ], [ %157, %.body115 ], [ %122, %.body112 ], [ %87, %.body109 ], [ %52, %.body ], [ %eh.lpad-body8.i, %.body7.i ], [ %57, %56 ], [ %eh.lpad-body8.i7, %.body7.i6 ], [ %92, %91 ], [ %eh.lpad-body8.i19, %.body7.i18 ], [ %127, %126 ], [ %eh.lpad-body8.i31, %.body7.i30 ], [ %162, %161 ], [ %eh.lpad-body8.i43, %.body7.i42 ], [ %197, %196 ], [ %eh.lpad-body8.i55, %.body7.i54 ], [ %232, %231 ], [ %eh.lpad-body8.i67, %.body7.i66 ], [ %273, %272 ], [ %eh.lpad-body8.i79, %.body7.i78 ], [ %308, %307 ], [ %eh.lpad-body8.i91, %.body7.i90 ], [ %349, %348 ], [ %eh.lpad-body8.i103, %.body7.i102 ], [ %384, %383 ], [ %379, %.body139 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %398, %401, %363, %366, %322, %325, %287, %290, %246, %249, %211, %214, %176, %179, %141, %144, %106, %109, %71, %74
-  %common.resume.op = phi { ptr, i32 } [ %72, %74 ], [ %72, %71 ], [ %107, %109 ], [ %107, %106 ], [ %142, %144 ], [ %142, %141 ], [ %177, %179 ], [ %177, %176 ], [ %212, %214 ], [ %212, %211 ], [ %247, %249 ], [ %247, %246 ], [ %288, %290 ], [ %288, %287 ], [ %323, %325 ], [ %323, %322 ], [ %364, %366 ], [ %364, %363 ], [ %399, %401 ], [ %399, %398 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %107, %109 ], [ %364, %363 ], [ %142, %144 ], [ %72, %71 ], [ %177, %179 ], [ %107, %106 ], [ %212, %214 ], [ %142, %141 ], [ %247, %249 ], [ %177, %176 ], [ %288, %290 ], [ %212, %211 ], [ %323, %325 ], [ %247, %246 ], [ %364, %366 ], [ %288, %287 ], [ %399, %401 ], [ %323, %322 ], [ %399, %398 ], [ %72, %74 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %.noexc6.i

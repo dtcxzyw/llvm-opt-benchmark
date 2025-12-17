@@ -168,7 +168,7 @@ ossl_property_find_property.exit:                 ; preds = %7
   br label %.thread
 
 .thread:                                          ; preds = %27, %26, %ossl_property_find_property.exit.thread, %22, %31, %ossl_property_find_property.exit, %14, %18
-  %.0.shrunk = phi i1 [ false, %18 ], [ false, %14 ], [ false, %ossl_property_find_property.exit ], [ false, %22 ], [ %34, %31 ], [ false, %ossl_property_find_property.exit.thread ], [ %30, %27 ], [ false, %26 ]
+  %.0.shrunk = phi i1 [ false, %ossl_property_find_property.exit ], [ false, %18 ], [ false, %14 ], [ false, %22 ], [ %30, %27 ], [ false, %26 ], [ %34, %31 ], [ false, %ossl_property_find_property.exit.thread ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

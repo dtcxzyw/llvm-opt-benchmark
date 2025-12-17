@@ -505,7 +505,7 @@ _ZL12isNumberCharc.exit21.thread.i:               ; preds = %_ZL12isNumberCharc.
   br label %.lr.ph.i, !llvm.loop !38
 
 _ZL12BackupNumberPKcS0_.exit:                     ; preds = %_ZL12isNumberCharc.exit21.i, %_ZL12isNumberCharc.exit21.thread.i, %158, %159, %162, %151, %.preheader.i
-  %.013.i = phi ptr [ %139, %151 ], [ %139, %.preheader.i ], [ %.01423.i, %_ZL12isNumberCharc.exit21.thread.i ], [ %.01423.i, %_ZL12isNumberCharc.exit21.i ], [ %.01423.i, %158 ], [ %154, %162 ], [ %154, %159 ]
+  %.013.i = phi ptr [ %139, %151 ], [ %139, %.preheader.i ], [ %.01423.i, %_ZL12isNumberCharc.exit21.thread.i ], [ %154, %162 ], [ %.01423.i, %_ZL12isNumberCharc.exit21.i ], [ %.01423.i, %158 ], [ %154, %159 ]
   store ptr %.013.i, ptr %14, align 8, !tbaa !35
   %166 = load i8, ptr %140, align 1, !tbaa !9
   switch i8 %166, label %167 [
@@ -598,7 +598,7 @@ _ZL12isNumberCharc.exit21.thread.i115:            ; preds = %_ZL12isNumberCharc.
   br label %.lr.ph.i105, !llvm.loop !38
 
 _ZL12BackupNumberPKcS0_.exit121:                  ; preds = %_ZL12isNumberCharc.exit21.i112, %_ZL12isNumberCharc.exit21.thread.i115, %174, %175, %178, %167, %.preheader.i101
-  %.013.i103 = phi ptr [ %140, %167 ], [ %140, %.preheader.i101 ], [ %.01423.i107, %_ZL12isNumberCharc.exit21.thread.i115 ], [ %.01423.i107, %_ZL12isNumberCharc.exit21.i112 ], [ %.01423.i107, %174 ], [ %170, %178 ], [ %170, %175 ]
+  %.013.i103 = phi ptr [ %140, %167 ], [ %140, %.preheader.i101 ], [ %.01423.i107, %_ZL12isNumberCharc.exit21.thread.i115 ], [ %170, %178 ], [ %.01423.i107, %_ZL12isNumberCharc.exit21.i112 ], [ %.01423.i107, %174 ], [ %170, %175 ]
   store ptr %.013.i103, ptr %15, align 8, !tbaa !35
   %182 = call fastcc noundef zeroext i1 @_ZL14CompareNumbersRPKcS1_S0_S0_ddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %117, ptr noundef nonnull %120, double noundef %4, double noundef %5, ptr noundef %6)
   br i1 %182, label %.thread, label %.preheader, !llvm.loop !39
@@ -776,7 +776,7 @@ _ZL12isNumberCharc.exit21.thread.i142:            ; preds = %_ZL12isNumberCharc.
   br label %.lr.ph.i132, !llvm.loop !38
 
 _ZL12BackupNumberPKcS0_.exit148:                  ; preds = %_ZL12isNumberCharc.exit21.i139, %_ZL12isNumberCharc.exit21.thread.i142, %206, %207, %210, %199, %.preheader.i128
-  %.013.i130 = phi ptr [ %191, %199 ], [ %191, %.preheader.i128 ], [ %.01423.i134, %_ZL12isNumberCharc.exit21.thread.i142 ], [ %.01423.i134, %_ZL12isNumberCharc.exit21.i139 ], [ %.01423.i134, %206 ], [ %202, %210 ], [ %202, %207 ]
+  %.013.i130 = phi ptr [ %191, %199 ], [ %191, %.preheader.i128 ], [ %.01423.i134, %_ZL12isNumberCharc.exit21.thread.i142 ], [ %202, %210 ], [ %.01423.i134, %_ZL12isNumberCharc.exit21.i139 ], [ %.01423.i134, %206 ], [ %202, %207 ]
   store ptr %.013.i130, ptr %14, align 8, !tbaa !35
   %214 = load i8, ptr %197, align 1, !tbaa !9
   switch i8 %214, label %215 [
@@ -869,7 +869,7 @@ _ZL12isNumberCharc.exit21.thread.i163:            ; preds = %_ZL12isNumberCharc.
   br label %.lr.ph.i153, !llvm.loop !38
 
 _ZL12BackupNumberPKcS0_.exit169:                  ; preds = %_ZL12isNumberCharc.exit21.i160, %_ZL12isNumberCharc.exit21.thread.i163, %222, %223, %226, %215, %.preheader.i149
-  %.013.i151 = phi ptr [ %197, %215 ], [ %197, %.preheader.i149 ], [ %.01423.i155, %_ZL12isNumberCharc.exit21.thread.i163 ], [ %.01423.i155, %_ZL12isNumberCharc.exit21.i160 ], [ %.01423.i155, %222 ], [ %218, %226 ], [ %218, %223 ]
+  %.013.i151 = phi ptr [ %197, %215 ], [ %197, %.preheader.i149 ], [ %.01423.i155, %_ZL12isNumberCharc.exit21.thread.i163 ], [ %218, %226 ], [ %.01423.i155, %_ZL12isNumberCharc.exit21.i160 ], [ %.01423.i155, %222 ], [ %218, %223 ]
   store ptr %.013.i151, ptr %15, align 8, !tbaa !35
   %230 = call fastcc noundef zeroext i1 @_ZL14CompareNumbersRPKcS1_S0_S0_ddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %117, ptr noundef %120, double noundef %4, double noundef %5, ptr noundef %6)
   %231 = load ptr, ptr %14, align 8, !tbaa !35
@@ -882,7 +882,7 @@ _ZL12BackupNumberPKcS0_.exit169:                  ; preds = %_ZL12isNumberCharc.
   br label %.thread
 
 .thread:                                          ; preds = %_ZL12BackupNumberPKcS0_.exit121, %.critedge.thread, %_ZL12BackupNumberPKcS0_.exit169, %132, %133, %127
-  %.4 = phi i32 [ 0, %127 ], [ 1, %133 ], [ 1, %132 ], [ 0, %.critedge.thread ], [ %235, %_ZL12BackupNumberPKcS0_.exit169 ], [ 1, %_ZL12BackupNumberPKcS0_.exit121 ]
+  %.4 = phi i32 [ 1, %132 ], [ 0, %127 ], [ 1, %133 ], [ 0, %.critedge.thread ], [ %235, %_ZL12BackupNumberPKcS0_.exit169 ], [ 1, %_ZL12BackupNumberPKcS0_.exit121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %236
@@ -1584,7 +1584,7 @@ _ZN4llvmlsINS_18raw_string_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_v
   br label %272
 
 272:                                              ; preds = %_ZN4llvmlsINS_18raw_string_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit82, %184, %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit73, %.critedge50
-  %.037 = phi i1 [ false, %.critedge50 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit73 ], [ true, %119 ], [ true, %184 ], [ true, %_ZN4llvmlsINS_18raw_string_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit82 ]
+  %.037 = phi i1 [ true, %119 ], [ false, %.critedge50 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit73 ], [ true, %184 ], [ true, %_ZN4llvmlsINS_18raw_string_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.037
@@ -2478,7 +2478,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
   br label %_ZN4llvm5ErrorD2Ev.exit7
 
 _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i, %25, %.lr.ph
-  %storemerge.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ null, %25 ], [ %20, %.lr.ph ]
+  %storemerge.i = phi ptr [ null, %25 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ %20, %.lr.ph ]
   store ptr %storemerge.i, ptr %6, align 8, !tbaa !65, !alias.scope !122
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %31 = load ptr, ptr %4, align 8, !tbaa !65
@@ -2535,7 +2535,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12: ; pr
   br label %.thread
 
 .thread:                                          ; preds = %45, %50, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12
-  %storemerge.i10 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ null, %50 ], [ %7, %45 ]
+  %storemerge.i10 = phi ptr [ null, %50 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ %7, %45 ]
   store ptr %storemerge.i10, ptr %0, align 8, !tbaa !65, !alias.scope !132
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit19
 

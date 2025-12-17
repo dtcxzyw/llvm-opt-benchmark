@@ -116,7 +116,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   br label %47
 
 47:                                               ; preds = %37, %40, %46, %9, %4, %36, %28, %19, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ false, %28 ], [ false, %36 ], [ false, %4 ], [ false, %9 ], [ true, %46 ], [ true, %40 ], [ true, %37 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %4 ], [ false, %14 ], [ false, %19 ], [ false, %28 ], [ false, %36 ], [ true, %46 ], [ true, %40 ], [ true, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -264,7 +264,7 @@ define internal fastcc noundef zeroext i1 @doit(ptr noundef writeonly captures(n
   br label %21
 
 21:                                               ; preds = %4, %20, %19, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %19 ], [ false, %20 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %20 ], [ false, %9 ], [ true, %19 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

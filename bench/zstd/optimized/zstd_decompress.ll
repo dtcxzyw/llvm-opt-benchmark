@@ -447,7 +447,7 @@ ZSTD_freeDDictHashSet.exit:                       ; preds = %32, %33
   br label %ZSTD_customFree.exit26
 
 ZSTD_customFree.exit26:                           ; preds = %36, %35, %3, %1
-  %.0 = phi i64 [ 0, %1 ], [ -64, %3 ], [ 0, %35 ], [ 0, %36 ]
+  %.0 = phi i64 [ -64, %3 ], [ 0, %1 ], [ 0, %35 ], [ 0, %36 ]
   ret i64 %.0
 }
 
@@ -480,7 +480,7 @@ ZSTD_isLegacy.exit:                               ; preds = %4
   br label %.thread
 
 .thread:                                          ; preds = %4, %ZSTD_isLegacy.exit, %2
-  %.07 = phi i32 [ 0, %2 ], [ %.10, %ZSTD_isLegacy.exit ], [ 1, %4 ]
+  %.07 = phi i32 [ 1, %4 ], [ %.10, %ZSTD_isLegacy.exit ], [ 0, %2 ]
   ret i32 %.07
 }
 
@@ -497,7 +497,7 @@ define range(i32 0, 2) i32 @ZSTD_isSkippableFrame(ptr noundef readonly captures(
   br label %6
 
 6:                                                ; preds = %4, %2
-  %.04 = phi i32 [ 0, %2 ], [ %spec.select, %4 ]
+  %.04 = phi i32 [ %spec.select, %4 ], [ 0, %2 ]
   ret i32 %.04
 }
 
@@ -774,7 +774,7 @@ default.unreachable:                              ; preds = %93, %80
   br label %.critedge119
 
 .critedge119:                                     ; preds = %66, %52, %108, %ZSTD_frameHeaderSize_internal.exit, %21, %24, %11, %.critedge, %16, %4, %26
-  %.0 = phi i64 [ -10, %16 ], [ 0, %26 ], [ -1, %4 ], [ %6, %.critedge ], [ %6, %11 ], [ 8, %24 ], [ -10, %21 ], [ %51, %ZSTD_frameHeaderSize_internal.exit ], [ 0, %108 ], [ -16, %66 ], [ -14, %52 ]
+  %.0 = phi i64 [ %51, %ZSTD_frameHeaderSize_internal.exit ], [ -1, %4 ], [ -10, %16 ], [ %6, %11 ], [ 0, %26 ], [ 8, %24 ], [ -10, %21 ], [ %6, %.critedge ], [ 0, %108 ], [ -16, %66 ], [ -14, %52 ]
   ret i64 %.0
 }
 
@@ -832,16 +832,16 @@ define i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnam
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i, label %ZSTD_getDecompressedSize_legacy.exit, label %ZSTD_getDecompressedSize_legacy.exit.thread
 
-ZSTD_getDecompressedSize_legacy.exit:             ; preds = %18, %15, %12
-  %.0.i9 = phi i64 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
+ZSTD_getDecompressedSize_legacy.exit:             ; preds = %15, %12, %18
+  %.0.i9 = phi i64 [ %14, %12 ], [ %20, %18 ], [ %17, %15 ]
   %.0.i9.fr = freeze i64 %.0.i9
   %21 = icmp eq i64 %.0.i9.fr, 0
   br i1 %21, label %ZSTD_getDecompressedSize_legacy.exit.thread, label %27
 
-ZSTD_getDecompressedSize_legacy.exit.thread:      ; preds = %18, %15, %12, %ZSTD_getDecompressedSize_legacy.exit
+ZSTD_getDecompressedSize_legacy.exit.thread:      ; preds = %15, %12, %18, %ZSTD_getDecompressedSize_legacy.exit
   br label %27
 
-ZSTD_isLegacy.exit.thread:                        ; preds = %8, %2
+ZSTD_isLegacy.exit.thread:                        ; preds = %2, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %6, ptr noundef readonly %0, i64 noundef %1, i32 noundef 0)
   %.not8 = icmp eq i64 %22, 0
@@ -964,8 +964,8 @@ define i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %22, label %23, label %.thread59
 
 23:                                               ; preds = %10, %20
-  %.145 = phi i64 [ %19, %20 ], [ %.04470, %10 ]
-  %..i.pn = phi i64 [ %21, %20 ], [ %14, %10 ]
+  %.145 = phi i64 [ %.04470, %10 ], [ %19, %20 ]
+  %..i.pn = phi i64 [ %14, %10 ], [ %21, %20 ]
   %.234 = getelementptr inbounds nuw i8, ptr %.03272, i64 %..i.pn
   %.242 = sub i64 %.04071, %..i.pn
   %.not = icmp ult i64 %.242, 5
@@ -979,7 +979,7 @@ define i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) local_unna
   br label %.thread59
 
 .thread59:                                        ; preds = %15, %10, %8, %20, %18, %._crit_edge
-  %.5 = phi i64 [ %.044.53, %._crit_edge ], [ %16, %15 ], [ -2, %10 ], [ -2, %8 ], [ -2, %18 ], [ -2, %20 ]
+  %.5 = phi i64 [ %.044.53, %._crit_edge ], [ -2, %8 ], [ %16, %15 ], [ -2, %20 ], [ -2, %18 ], [ -2, %10 ]
   ret i64 %.5
 }
 
@@ -1543,8 +1543,8 @@ ZSTD_isLegacy.exit.i:                             ; preds = %84
 default.unreachable.i:                            ; preds = %ZSTD_isLegacy.exit.i
   unreachable
 
-ZSTD_decompressLegacy.exit.thread:                ; preds = %87, %93, %99, %ZSTD_isLegacy.exit.thread.i
-  %.1.i.ph = phi i64 [ -10, %ZSTD_isLegacy.exit.thread.i ], [ -64, %99 ], [ -64, %93 ], [ -64, %87 ]
+ZSTD_decompressLegacy.exit.thread:                ; preds = %99, %93, %87, %ZSTD_isLegacy.exit.thread.i
+  %.1.i.ph = phi i64 [ -10, %ZSTD_isLegacy.exit.thread.i ], [ -64, %87 ], [ -64, %93 ], [ -64, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread152
 
@@ -1606,8 +1606,8 @@ readSkippableFrameSize.exit:                      ; preds = %120
   br i1 %.not97, label %.outer184._crit_edge, label %.lr.ph.split
 
 .thread159:                                       ; preds = %.lr.ph, %.lr.ph.split, %ZSTD_isLegacy.exit.thread
-  %.us-phi228 = phi ptr [ %.0140222, %ZSTD_isLegacy.exit.thread ], [ %.0140222, %.lr.ph.split ], [ %.0140.ph185269, %.lr.ph ]
-  %.us-phi229 = phi i64 [ %.0135223, %ZSTD_isLegacy.exit.thread ], [ %.0135223, %.lr.ph.split ], [ %.0135.ph186270, %.lr.ph ]
+  %.us-phi228 = phi ptr [ %.0140222, %.lr.ph.split ], [ %.0140222, %ZSTD_isLegacy.exit.thread ], [ %.0140.ph185269, %.lr.ph ]
+  %.us-phi229 = phi i64 [ %.0135223, %.lr.ph.split ], [ %.0135223, %ZSTD_isLegacy.exit.thread ], [ %.0135.ph186270, %.lr.ph ]
   br i1 %.not, label %143, label %130
 
 130:                                              ; preds = %.thread159
@@ -1795,7 +1795,7 @@ ZSTD_copyRawBlock.exit.i:                         ; preds = %197
   br i1 %226, label %ZSTD_copyRawBlock.exit.thread.i, label %.thread172.i
 
 ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.exit.i, %ZSTD_copyRawBlock.exit.thread165.i, %221, %211, %209
-  %.0121169.i = phi i64 [ %217, %ZSTD_copyRawBlock.exit.thread165.i ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ %193, %211 ], [ 0, %209 ], [ 0, %221 ]
+  %.0121169.i = phi i64 [ %217, %ZSTD_copyRawBlock.exit.thread165.i ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ 0, %209 ], [ %193, %211 ], [ 0, %221 ]
   %227 = load i32, ptr %48, align 8, !tbaa !100
   %.not142.i = icmp eq i32 %227, 0
   br i1 %.not142.i, label %230, label %228
@@ -1814,7 +1814,7 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
   br i1 %.not144.i, label %235, label %238
 
 .thread172.i:                                     ; preds = %235, %ZSTD_copyRawBlock.exit.i, %221, %212, %209, %204, %197, %192, %188
-  %.4.ph.i = phi i64 [ %189, %188 ], [ -70, %212 ], [ -70, %204 ], [ -20, %197 ], [ -72, %192 ], [ %236, %235 ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ -74, %209 ], [ -74, %221 ]
+  %.4.ph.i = phi i64 [ %189, %188 ], [ -70, %212 ], [ -70, %204 ], [ -20, %197 ], [ %225, %ZSTD_copyRawBlock.exit.i ], [ %236, %235 ], [ -72, %192 ], [ -74, %221 ], [ -74, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ZSTD_decompressFrame.exit
 
@@ -1901,9 +1901,9 @@ ZSTD_copyRawBlock.exit.thread.i:                  ; preds = %ZSTD_copyRawBlock.e
   br label %ZSTD_decompressFrame.exit
 
 ZSTD_decompressFrame.exit:                        ; preds = %255, %268, %146, %ZSTD_frameHeaderSize_internal.exit.i, %176, %179, %.thread172.i, %238, %245, %249
-  %.4144 = phi ptr [ %.us-phi228, %146 ], [ %.us-phi228, %176 ], [ %.us-phi228, %.thread172.i ], [ %.us-phi228, %245 ], [ %.us-phi228, %249 ], [ %.us-phi228, %238 ], [ %.us-phi228, %179 ], [ %.us-phi228, %ZSTD_frameHeaderSize_internal.exit.i ], [ %.3113.i, %268 ], [ %.3113.i, %255 ]
-  %.4139 = phi i64 [ %.us-phi229, %146 ], [ %.us-phi229, %176 ], [ %.us-phi229, %.thread172.i ], [ %.us-phi229, %245 ], [ %.us-phi229, %249 ], [ %.us-phi229, %238 ], [ %.us-phi229, %179 ], [ %.us-phi229, %ZSTD_frameHeaderSize_internal.exit.i ], [ %.3120.i, %268 ], [ %.3120.i, %255 ]
-  %.0.i114 = phi i64 [ -72, %146 ], [ -72, %176 ], [ %.4.ph.i, %.thread172.i ], [ -22, %245 ], [ -22, %249 ], [ -20, %238 ], [ %180, %179 ], [ %174, %ZSTD_frameHeaderSize_internal.exit.i ], [ %242, %268 ], [ %242, %255 ]
+  %.4144 = phi ptr [ %.us-phi228, %146 ], [ %.us-phi228, %176 ], [ %.us-phi228, %.thread172.i ], [ %.us-phi228, %ZSTD_frameHeaderSize_internal.exit.i ], [ %.us-phi228, %245 ], [ %.us-phi228, %249 ], [ %.us-phi228, %238 ], [ %.us-phi228, %179 ], [ %.3113.i, %268 ], [ %.3113.i, %255 ]
+  %.4139 = phi i64 [ %.us-phi229, %146 ], [ %.us-phi229, %176 ], [ %.us-phi229, %.thread172.i ], [ %.us-phi229, %ZSTD_frameHeaderSize_internal.exit.i ], [ %.us-phi229, %245 ], [ %.us-phi229, %249 ], [ %.us-phi229, %238 ], [ %.us-phi229, %179 ], [ %.3120.i, %268 ], [ %.3120.i, %255 ]
+  %.0.i114 = phi i64 [ -72, %146 ], [ -72, %176 ], [ %.4.ph.i, %.thread172.i ], [ %174, %ZSTD_frameHeaderSize_internal.exit.i ], [ -22, %245 ], [ -22, %249 ], [ -20, %238 ], [ %180, %179 ], [ %242, %268 ], [ %242, %255 ]
   %270 = call i32 @ZSTD_getErrorCode(i64 noundef %.0.i114) #17
   %271 = icmp eq i32 %270, 10
   %or.cond8 = and i1 %65, %271
@@ -1923,8 +1923,8 @@ ZSTD_decompressFrame.exit:                        ; preds = %255, %268, %146, %Z
   br i1 %.not97221268, label %.outer184._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !116
 
 .outer184._crit_edge:                             ; preds = %.outer, %.outer184, %127, %16
-  %.075.ph188.lcssa211 = phi ptr [ %1, %16 ], [ %.075.ph188272, %127 ], [ %109, %.outer184 ], [ %274, %.outer ]
-  %.0135.lcssa = phi i64 [ %4, %16 ], [ %129, %127 ], [ %112, %.outer184 ], [ %.4139, %.outer ]
+  %.075.ph188.lcssa211 = phi ptr [ %1, %16 ], [ %109, %.outer184 ], [ %.075.ph188272, %127 ], [ %274, %.outer ]
+  %.0135.lcssa = phi i64 [ %4, %16 ], [ %112, %.outer184 ], [ %129, %127 ], [ %.4139, %.outer ]
   %.not98 = icmp eq i64 %.0135.lcssa, 0
   br i1 %.not98, label %279, label %.thread152
 
@@ -1935,7 +1935,7 @@ ZSTD_decompressFrame.exit:                        ; preds = %255, %268, %146, %Z
   br label %.thread152
 
 .thread152:                                       ; preds = %272, %ZSTD_decompressFrame.exit, %143, %108, %106, %ZSTD_decompressLegacy.exit, %80, %ZSTD_findFrameCompressedSizeLegacy.exit, %120, %118, %readSkippableFrameSize.exit, %ZSTD_decompressLegacy.exit.thread, %.outer184._crit_edge, %279
-  %.3 = phi i64 [ %282, %279 ], [ -72, %.outer184._crit_edge ], [ %.1.i.ph, %ZSTD_decompressLegacy.exit.thread ], [ -72, %118 ], [ -14, %120 ], [ %..i, %readSkippableFrameSize.exit ], [ -20, %108 ], [ -20, %106 ], [ %78, %ZSTD_findFrameCompressedSizeLegacy.exit ], [ -64, %80 ], [ %.1.i, %ZSTD_decompressLegacy.exit ], [ %144, %143 ], [ %.0.i114, %272 ], [ -72, %ZSTD_decompressFrame.exit ]
+  %.3 = phi i64 [ %282, %279 ], [ -72, %.outer184._crit_edge ], [ %.1.i.ph, %ZSTD_decompressLegacy.exit.thread ], [ -20, %108 ], [ -72, %118 ], [ -14, %120 ], [ %..i, %readSkippableFrameSize.exit ], [ %78, %ZSTD_findFrameCompressedSizeLegacy.exit ], [ -64, %80 ], [ %.1.i, %ZSTD_decompressLegacy.exit ], [ -20, %106 ], [ %144, %143 ], [ %.0.i114, %272 ], [ -72, %ZSTD_decompressFrame.exit ]
   ret i64 %.3
 }
 
@@ -2152,7 +2152,7 @@ define range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr noundef %0, 
   br label %ZSTD_nextSrcSizeToDecompressWithInputSize.exit
 
 ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %10, %13, %18
-  %.0.i = phi i64 [ %12, %10 ], [ %spec.select.i, %18 ], [ %17, %13 ]
+  %.0.i = phi i64 [ %spec.select.i, %18 ], [ %12, %10 ], [ %17, %13 ]
   %.not = icmp eq i64 %4, %.0.i
   br i1 %.not, label %19, label %ZSTD_copyRawBlock.exit.thread
 
@@ -2321,7 +2321,7 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %35
   br label %104
 
 104:                                              ; preds = %.sink.split, %80, %77
-  %.2 = phi i64 [ %78, %77 ], [ -20, %80 ], [ 0, %.sink.split ]
+  %.2 = phi i64 [ -20, %80 ], [ %78, %77 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ZSTD_copyRawBlock.exit.thread
 
@@ -2383,7 +2383,7 @@ ZSTD_copyRawBlock.exit:                           ; preds = %112
   br label %ZSTD_setRleBlock.exit
 
 ZSTD_setRleBlock.exit:                            ; preds = %129, %127, %120, %108
-  %.0140 = phi i64 [ %109, %108 ], [ %123, %129 ], [ -70, %120 ], [ %..i168, %127 ]
+  %.0140 = phi i64 [ %109, %108 ], [ %123, %129 ], [ %..i168, %127 ], [ -70, %120 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 29920
   store i64 0, ptr %130, align 8, !tbaa !87
   %131 = icmp ult i64 %.0140, -119
@@ -2552,7 +2552,7 @@ ZSTD_DCtx_trace_end.exit:                         ; preds = %175, %195
   br label %ZSTD_copyRawBlock.exit.thread
 
 ZSTD_copyRawBlock.exit.thread:                    ; preds = %114, %110, %ZSTD_frameHeaderSize_internal.exit, %ZSTD_frameHeaderSize_internal.exit.thread, %171, %67, %19, %ZSTD_setRleBlock.exit, %ZSTD_copyRawBlock.exit, %105, %132, %148, %158, %163, %164, %167, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %208, %201, %ZSTD_DCtx_trace_end.exit, %104, %75, %63, %31
-  %.0 = phi i64 [ 0, %31 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ -22, %171 ], [ 0, %201 ], [ 0, %208 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ %.0140, %ZSTD_setRleBlock.exit ], [ %4, %ZSTD_copyRawBlock.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140193, %148 ], [ -20, %158 ], [ %.0140193, %163 ], [ %.0140193, %164 ], [ %.0140193, %167 ], [ -1, %19 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %60, %ZSTD_frameHeaderSize_internal.exit ], [ -70, %110 ], [ -74, %114 ]
+  %.0 = phi i64 [ 0, %208 ], [ %.0140193, %167 ], [ 0, %31 ], [ -1, %19 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ -72, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ], [ 0, %ZSTD_DCtx_trace_end.exit ], [ -22, %171 ], [ 0, %201 ], [ %4, %ZSTD_copyRawBlock.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140193, %148 ], [ -20, %158 ], [ %.0140, %ZSTD_setRleBlock.exit ], [ %.0140193, %163 ], [ %.0140193, %164 ], [ -72, %ZSTD_frameHeaderSize_internal.exit.thread ], [ %60, %ZSTD_frameHeaderSize_internal.exit ], [ -70, %110 ], [ -74, %114 ]
   ret i64 %.0
 }
 
@@ -2904,7 +2904,7 @@ define i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %57, %.critedge92, %.critedge90, %.critedge, %3, %15, %71
-  %.0 = phi i64 [ %74, %71 ], [ -30, %15 ], [ -30, %3 ], [ -30, %.critedge ], [ -30, %.critedge90 ], [ -30, %.critedge92 ], [ -30, %57 ], [ -30, %65 ]
+  %.0 = phi i64 [ -30, %15 ], [ -30, %3 ], [ %74, %71 ], [ -30, %57 ], [ -30, %.critedge92 ], [ -30, %.critedge90 ], [ -30, %.critedge ], [ -30, %65 ]
   ret i64 %.0
 }
 
@@ -3050,9 +3050,9 @@ define range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr noundef %0, ptr
   br label %ZSTD_decompress_insertDictionary.exit.thread
 
 ZSTD_decompress_insertDictionary.exit.thread:     ; preds = %32, %34, %39
-  %42 = phi i64 [ %41, %39 ], [ 0, %32 ], [ 0, %34 ]
-  %43 = phi ptr [ %.pre, %39 ], [ null, %32 ], [ null, %34 ]
-  %.sink42.i = phi ptr [ %40, %39 ], [ %1, %32 ], [ %1, %34 ]
+  %42 = phi i64 [ 0, %32 ], [ %41, %39 ], [ 0, %34 ]
+  %43 = phi ptr [ null, %32 ], [ %.pre, %39 ], [ null, %34 ]
+  %.sink42.i = phi ptr [ %1, %32 ], [ %40, %39 ], [ %1, %34 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 29912
   store ptr %43, ptr %44, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 29896
@@ -3067,7 +3067,7 @@ ZSTD_decompress_insertDictionary.exit.thread:     ; preds = %32, %34, %39
   br label %ZSTD_decompress_insertDictionary.exit
 
 ZSTD_decompress_insertDictionary.exit:            ; preds = %35, %6, %ZSTD_decompress_insertDictionary.exit.thread
-  %.1 = phi i64 [ 0, %ZSTD_decompress_insertDictionary.exit.thread ], [ 0, %6 ], [ -30, %35 ]
+  %.1 = phi i64 [ 0, %6 ], [ 0, %ZSTD_decompress_insertDictionary.exit.thread ], [ -30, %35 ]
   ret i64 %.1
 }
 
@@ -3508,7 +3508,7 @@ define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_advanced(ptr noundef capt
   br label %21
 
 21:                                               ; preds = %8, %19, %15, %5
-  %.0 = phi i64 [ -60, %5 ], [ -64, %15 ], [ 0, %19 ], [ 0, %8 ]
+  %.0 = phi i64 [ -64, %15 ], [ -60, %5 ], [ 0, %19 ], [ 0, %8 ]
   ret i64 %.0
 }
 
@@ -3547,7 +3547,7 @@ define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary_byReference(ptr noundef c
   br label %ZSTD_DCtx_loadDictionary_advanced.exit
 
 ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %3, %6, %13, %17
-  %.0.i = phi i64 [ -60, %3 ], [ -64, %13 ], [ 0, %17 ], [ 0, %6 ]
+  %.0.i = phi i64 [ -64, %13 ], [ -60, %3 ], [ 0, %17 ], [ 0, %6 ]
   ret i64 %.0.i
 }
 
@@ -3584,7 +3584,7 @@ define range(i64 -64, 1) i64 @ZSTD_DCtx_loadDictionary(ptr noundef captures(none
   br label %ZSTD_DCtx_loadDictionary_advanced.exit
 
 ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %3, %6, %13, %17
-  %.0.i = phi i64 [ -60, %3 ], [ -64, %13 ], [ 0, %17 ], [ 0, %6 ]
+  %.0.i = phi i64 [ -64, %13 ], [ -60, %3 ], [ 0, %17 ], [ 0, %6 ]
   ret i64 %.0.i
 }
 
@@ -3624,7 +3624,7 @@ define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix_advanced(ptr noundef captures(
   br label %ZSTD_DCtx_loadDictionary_advanced.exit
 
 ZSTD_DCtx_loadDictionary_advanced.exit:           ; preds = %14, %4, %20
-  %.1 = phi i64 [ 0, %20 ], [ -60, %4 ], [ -64, %14 ]
+  %.1 = phi i64 [ 0, %20 ], [ -64, %14 ], [ -60, %4 ]
   ret i64 %.1
 }
 
@@ -3664,7 +3664,7 @@ define range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef captures(none) %0,
   br label %ZSTD_DCtx_refPrefix_advanced.exit
 
 ZSTD_DCtx_refPrefix_advanced.exit:                ; preds = %3, %13, %19
-  %.1.i = phi i64 [ 0, %19 ], [ -60, %3 ], [ -64, %13 ]
+  %.1.i = phi i64 [ 0, %19 ], [ -64, %13 ], [ -60, %3 ]
   ret i64 %.1.i
 }
 
@@ -3700,7 +3700,7 @@ define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef captures(no
   store i32 -1, ptr %10, align 8, !tbaa !23
   br label %19
 
-19:                                               ; preds = %17, %3
+19:                                               ; preds = %3, %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 30104
   %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = icmp eq i32 %21, 0
@@ -3866,7 +3866,7 @@ ZSTD_customCalloc.exit.i:                         ; preds = %ZSTD_customMalloc.e
   tail call void @free(ptr noundef nonnull %23) #17
   br label %ZSTD_createDDictHashSet.exit.thread
 
-ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_customMalloc.exit.thread.i, %28, %29
+ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.exit.thread.i, %ZSTD_customMalloc.exit.i, %28, %29
   store ptr null, ptr %18, align 8, !tbaa !33
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
@@ -4072,7 +4072,7 @@ ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, 
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
 ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i21.i, %95, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
-  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %12 ], [ 0, %7 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %95 ], [ 0, %._crit_edge.i21.i ], [ -1, %52 ]
+  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %7 ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %12 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ 0, %95 ], [ 0, %._crit_edge.i21.i ], [ -1, %52 ]
   ret i64 %.017
 }
 
@@ -4159,8 +4159,8 @@ define { i64, i64 } @ZSTD_dParam_getBounds(i32 noundef %0) local_unnamed_addr #2
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %4 ], [ 4294967296, %2 ], [ 562949953422336, %3 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %4 ], [ 0, %2 ], [ 0, %3 ], [ 0, %1 ]
+  %.sroa.3.0 = phi i64 [ 0, %4 ], [ 562949953422336, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4183,7 +4183,7 @@ define range(i64 -60, 1) i64 @ZSTD_DCtx_setFormat(ptr noundef captures(none) %0,
   br label %ZSTD_DCtx_setParameter.exit
 
 ZSTD_DCtx_setParameter.exit:                      ; preds = %2, %5, %7
-  %.0.i = phi i64 [ 0, %7 ], [ -60, %2 ], [ -42, %5 ]
+  %.0.i = phi i64 [ 0, %7 ], [ -42, %5 ], [ -60, %2 ]
   ret i64 %.0.i
 }
 
@@ -4283,7 +4283,7 @@ define range(i64 -60, 1) i64 @ZSTD_DCtx_setParameter(ptr noundef captures(none) 
   br label %41
 
 41:                                               ; preds = %37, %6, %33, %28, %26, %22, %18, %14, %7, %3, %39, %35, %31, %24, %20, %16, %10
-  %.0 = phi i64 [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ], [ -60, %3 ], [ -42, %7 ], [ -42, %14 ], [ -42, %18 ], [ -42, %22 ], [ -42, %26 ], [ -40, %28 ], [ -42, %33 ], [ -40, %6 ], [ -42, %37 ]
+  %.0 = phi i64 [ -42, %33 ], [ -42, %37 ], [ 0, %10 ], [ -60, %3 ], [ 0, %16 ], [ -42, %7 ], [ 0, %20 ], [ -42, %14 ], [ 0, %24 ], [ -42, %18 ], [ -42, %26 ], [ 0, %31 ], [ -42, %22 ], [ 0, %35 ], [ -40, %28 ], [ 0, %39 ], [ -40, %6 ]
   ret i64 %.0
 }
 
@@ -4804,7 +4804,7 @@ default.unreachable:                              ; preds = %ZSTD_freeLegacyStre
   %191 = icmp eq i64 %190, 0
   br i1 %191, label %192, label %ZSTD_checkOutBuffer.exit.thread
 
-ZSTD_initLegacyStream.exit.thread:                ; preds = %165, %175, %185
+ZSTD_initLegacyStream.exit.thread:                ; preds = %175, %165, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ZSTD_checkOutBuffer.exit.thread
 
@@ -5171,7 +5171,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit.thread: ; preds = %331
   br label %335
 
 ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %329, %331
-  %.0.i475 = phi i64 [ %330, %329 ], [ %333, %331 ]
+  %.0.i475 = phi i64 [ %333, %331 ], [ %330, %329 ]
   %334 = icmp eq i64 %.0.i475, 0
   br i1 %334, label %.loopexit.sink.split, label %335
 
@@ -5356,9 +5356,9 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %378, %387, %ZSTD_li
   store i32 %.sink.i486, ptr %36, align 4, !tbaa !127
   br label %.thread562.outer.backedge
 
-.thread562.outer.backedge:                        ; preds = %422, %216, %select.unfold560
-  %.0343654.ph.be = phi ptr [ %366, %select.unfold560 ], [ %218, %216 ], [ %.11354, %422 ]
-  %.0505651.ph.be = phi ptr [ %.8, %select.unfold560 ], [ %.0505651, %216 ], [ %.10509, %422 ]
+.thread562.outer.backedge:                        ; preds = %422, %select.unfold560, %216
+  %.0343654.ph.be = phi ptr [ %218, %216 ], [ %366, %select.unfold560 ], [ %.11354, %422 ]
+  %.0505651.ph.be = phi ptr [ %.0505651, %216 ], [ %.8, %select.unfold560 ], [ %.10509, %422 ]
   br label %.thread562.outer, !llvm.loop !149
 
 423:                                              ; preds = %.thread562
@@ -5395,15 +5395,15 @@ ZSTD_limitCopy.exit493:                           ; preds = %423, %430
   %440 = icmp ult i64 %438, %439
   br i1 %440, label %441, label %.thread562.backedge
 
-.thread562.backedge:                              ; preds = %437, %441, %446
-  br label %.thread562, !llvm.loop !149
-
 441:                                              ; preds = %437
   %442 = load i32, ptr %43, align 8, !tbaa !97
   %443 = zext i32 %442 to i64
   %444 = add i64 %436, %443
   %445 = icmp ugt i64 %444, %438
   br i1 %445, label %446, label %.thread562.backedge
+
+.thread562.backedge:                              ; preds = %441, %446, %437
+  br label %.thread562, !llvm.loop !149
 
 446:                                              ; preds = %441
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
@@ -5417,7 +5417,7 @@ ZSTD_limitCopy.exit493:                           ; preds = %423, %430
 
 .loopexit:                                        ; preds = %ZSTD_limitCopy.exit493, %367, %ZSTD_limitCopy.exit.thread, %.loopexit.sink.split
   %.2506.ph = phi ptr [ %.2506.ph.ph, %.loopexit.sink.split ], [ %435, %ZSTD_limitCopy.exit493 ], [ %.0505651, %367 ], [ %.0505651, %ZSTD_limitCopy.exit.thread ]
-  %.4347.ph = phi ptr [ %.4347.ph.ph, %.loopexit.sink.split ], [ %.0343654.ph, %ZSTD_limitCopy.exit493 ], [ %.11354, %ZSTD_limitCopy.exit.thread ], [ %13, %367 ]
+  %.4347.ph = phi ptr [ %.4347.ph.ph, %.loopexit.sink.split ], [ %.0343654.ph, %ZSTD_limitCopy.exit493 ], [ %13, %367 ], [ %.11354, %ZSTD_limitCopy.exit.thread ]
   %447 = load ptr, ptr %2, align 8, !tbaa !131
   %448 = ptrtoint ptr %.4347.ph to i64
   %449 = ptrtoint ptr %447 to i64
@@ -5504,8 +5504,8 @@ ZSTD_nextInputType.exit:                          ; preds = %467
   %488 = add i64 %487, %spec.select616
   br label %ZSTD_checkOutBuffer.exit.thread
 
-ZSTD_checkOutBuffer.exit.thread:                  ; preds = %.thread562, %414, %402, %358, %346, %241, %374, %ZSTD_customMalloc.exit, %309, %277, %273, %229, %134, %132, %ZSTD_initLegacyStream.exit.thread, %204, %210, %.sink.split.i, %192, %.thread, %32, %478, %ZSTD_nextInputType.exit, %479, %474, %482, %481, %464, %462, %94, %99, %92, %22, %3
-  %.0 = phi i64 [ -72, %3 ], [ -70, %22 ], [ -64, %92 ], [ 0, %99 ], [ %97, %94 ], [ -80, %462 ], [ -82, %464 ], [ %488, %ZSTD_nextInputType.exit ], [ 1, %478 ], [ 0, %479 ], [ 0, %474 ], [ 1, %482 ], [ 1, %481 ], [ -104, %32 ], [ -64, %ZSTD_initLegacyStream.exit.thread ], [ %208, %204 ], [ %215, %210 ], [ %190, %.sink.split.i ], [ 0, %192 ], [ -64, %.thread ], [ %103, %132 ], [ %103, %134 ], [ %231, %229 ], [ -1, %.thread562 ], [ %275, %273 ], [ -16, %277 ], [ -64, %309 ], [ -64, %ZSTD_customMalloc.exit ], [ -20, %374 ], [ -70, %241 ], [ %362, %358 ], [ %351, %346 ], [ %418, %414 ], [ %407, %402 ]
+ZSTD_checkOutBuffer.exit.thread:                  ; preds = %.thread562, %402, %414, %346, %358, %241, %374, %ZSTD_customMalloc.exit, %309, %277, %273, %229, %132, %134, %204, %210, %192, %.thread, %ZSTD_initLegacyStream.exit.thread, %.sink.split.i, %32, %478, %ZSTD_nextInputType.exit, %479, %474, %482, %481, %464, %462, %94, %99, %92, %22, %3
+  %.0 = phi i64 [ %215, %210 ], [ -72, %3 ], [ 0, %192 ], [ -70, %22 ], [ -64, %92 ], [ %103, %134 ], [ %103, %132 ], [ %97, %94 ], [ -104, %32 ], [ -64, %ZSTD_initLegacyStream.exit.thread ], [ -64, %.thread ], [ 1, %482 ], [ %190, %.sink.split.i ], [ 1, %481 ], [ %208, %204 ], [ -80, %462 ], [ -82, %464 ], [ 0, %99 ], [ %488, %ZSTD_nextInputType.exit ], [ 1, %478 ], [ 0, %474 ], [ 0, %479 ], [ %231, %229 ], [ -1, %.thread562 ], [ -16, %277 ], [ -70, %241 ], [ %362, %358 ], [ %275, %273 ], [ -64, %309 ], [ -64, %ZSTD_customMalloc.exit ], [ -20, %374 ], [ %351, %346 ], [ %407, %402 ], [ %418, %414 ]
   ret i64 %.0
 }
 
@@ -5634,7 +5634,7 @@ define internal fastcc i64 @ZSTD_decompressLegacyStream(ptr noundef %0, i32 noun
   br label %81
 
 81:                                               ; preds = %19, %61, %41, %21
-  %.0 = phi i64 [ %74, %61 ], [ %54, %41 ], [ %34, %21 ], [ -12, %19 ]
+  %.0 = phi i64 [ %34, %21 ], [ %74, %61 ], [ %54, %41 ], [ -12, %19 ]
   ret i64 %.0
 }
 

@@ -586,7 +586,7 @@ ehcleanup46:                                      ; preds = %ehcleanup, %if.then
   %59 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %60 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i71 = icmp eq ptr %59, %60
-  br i1 %cmp.i.i.i71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74, label %ehcleanup50
+  br i1 %cmp.i.i.i71, label %ehcleanup50, label %if.then.i.i72
 
 ehcleanup46.thread:                               ; preds = %invoke.cont35
   %61 = landingpad { ptr, i32 }
@@ -596,20 +596,15 @@ ehcleanup46.thread:                               ; preds = %invoke.cont35
   %62 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i7183 = icmp eq ptr %62, %63
-  br i1 %cmp.i.i.i7183, label %cleanup.action.sink.split, label %ehcleanup50.thread92
+  br i1 %cmp.i.i.i7183, label %cleanup.action.sink.split, label %if.then.i.i72.thread
 
-ehcleanup50.thread92:                             ; preds = %ehcleanup46.thread
+if.then.i.i72.thread:                             ; preds = %ehcleanup46.thread
   %64 = load i64, ptr %63, align 8, !tbaa !26
   %add.i.i.i7395 = add i64 %64, 1
   call void @_ZdlPvm(ptr noundef %62, i64 noundef %add.i.i.i7395) #23
   br label %cleanup.action.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74: ; preds = %ehcleanup46
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup54
-
-ehcleanup50:                                      ; preds = %ehcleanup46
+if.then.i.i72:                                    ; preds = %ehcleanup46
   %65 = load i64, ptr %60, align 8, !tbaa !26
   %add.i.i.i73 = add i64 %65, 1
   call void @_ZdlPvm(ptr noundef %59, i64 noundef %add.i.i.i73) #23
@@ -617,19 +612,24 @@ ehcleanup50:                                      ; preds = %ehcleanup46
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup54
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup46.thread, %ehcleanup50.thread, %ehcleanup50.thread92
-  %.pn.pn.pn80.ph = phi { ptr, i32 } [ %61, %ehcleanup50.thread92 ], [ %50, %ehcleanup50.thread ], [ %61, %ehcleanup46.thread ]
+ehcleanup50:                                      ; preds = %ehcleanup46
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup54
+
+cleanup.action.sink.split:                        ; preds = %ehcleanup46.thread, %ehcleanup50.thread, %if.then.i.i72.thread
+  %.pn.pn.pn80.ph = phi { ptr, i32 } [ %61, %if.then.i.i72.thread ], [ %50, %ehcleanup50.thread ], [ %61, %ehcleanup46.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74, %ehcleanup50
-  %.pn.pn.pn80 = phi { ptr, i32 } [ %.pn, %ehcleanup50 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74 ], [ %.pn.pn.pn80.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i72, %ehcleanup50
+  %.pn.pn.pn80 = phi { ptr, i32 } [ %.pn, %if.then.i.i72 ], [ %.pn, %ehcleanup50 ], [ %.pn.pn.pn80.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #19
   br label %ehcleanup54
 
-ehcleanup54:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74, %ehcleanup50, %cleanup.action, %lpad30
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn80, %cleanup.action ], [ %.pn, %ehcleanup50 ], [ %49, %lpad30 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74 ]
+ehcleanup54:                                      ; preds = %if.then.i.i72, %ehcleanup50, %cleanup.action, %lpad30
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn80, %cleanup.action ], [ %.pn, %ehcleanup50 ], [ %49, %lpad30 ], [ %.pn, %if.then.i.i72 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #19
   br label %ehcleanup55
 
@@ -1028,7 +1028,7 @@ lor.lhs.false41:                                  ; preds = %land.lhs.true29, %l
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false41, %entry, %land.lhs.true13, %lor.lhs.false15, %lor.lhs.false19, %land.lhs.true29, %land.lhs.true39, %lor.lhs.false8, %land.lhs.true25, %land.lhs.true35
-  %retval.0 = phi i1 [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ], [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ]
+  %retval.0 = phi i1 [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ], [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ]
   ret i1 %retval.0
 }
 
@@ -1125,7 +1125,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false63
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true11, %land.lhs.true11, %lor.lhs.false63, %lor.lhs.false57, %lor.lhs.false43, %lor.lhs.false35, %lor.lhs.false27, %lor.lhs.false15, %entry
-  %10 = phi i1 [ true, %land.lhs.true11 ], [ true, %entry ], [ true, %lor.lhs.false15 ], [ true, %lor.lhs.false27 ], [ true, %lor.lhs.false35 ], [ true, %lor.lhs.false43 ], [ true, %lor.lhs.false57 ], [ true, %lor.lhs.false63 ], [ true, %land.lhs.true11 ], [ %spec.select, %lor.rhs ]
+  %10 = phi i1 [ true, %lor.lhs.false63 ], [ true, %lor.lhs.false57 ], [ true, %land.lhs.true11 ], [ true, %lor.lhs.false43 ], [ true, %lor.lhs.false35 ], [ true, %lor.lhs.false27 ], [ true, %lor.lhs.false15 ], [ true, %entry ], [ true, %land.lhs.true11 ], [ %spec.select, %lor.rhs ]
   ret i1 %10
 }
 
@@ -1224,7 +1224,7 @@ lor.lhs.false41:                                  ; preds = %land.lhs.true29, %l
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false41, %entry, %land.lhs.true13, %lor.lhs.false15, %lor.lhs.false19, %land.lhs.true29, %land.lhs.true39, %lor.lhs.false8, %land.lhs.true25, %land.lhs.true35
-  %retval.0 = phi i1 [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ], [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ]
+  %retval.0 = phi i1 [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ], [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ]
   ret i1 %retval.0
 }
 
@@ -1323,7 +1323,7 @@ lor.lhs.false41:                                  ; preds = %land.lhs.true29, %l
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false41, %entry, %land.lhs.true13, %lor.lhs.false15, %lor.lhs.false19, %land.lhs.true29, %land.lhs.true39, %lor.lhs.false8, %land.lhs.true25, %land.lhs.true35
-  %retval.0 = phi i1 [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ], [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ]
+  %retval.0 = phi i1 [ false, %entry ], [ %or.cond14.not, %lor.lhs.false41 ], [ false, %land.lhs.true35 ], [ false, %land.lhs.true25 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true29 ], [ false, %lor.lhs.false19 ], [ false, %lor.lhs.false15 ], [ false, %land.lhs.true13 ]
   ret i1 %retval.0
 }
 

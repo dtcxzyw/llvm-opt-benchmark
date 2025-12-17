@@ -133,7 +133,7 @@ define ptr @exeval(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br label %31
 
 31:                                               ; preds = %26, %18, %16, %12, %21
-  %.sroa.016.0 = phi ptr [ %22, %21 ], [ %15, %12 ], [ %17, %16 ], [ %20, %18 ], [ %.sroa.016.0.pre, %26 ]
+  %.sroa.016.0 = phi ptr [ %20, %18 ], [ %22, %21 ], [ %.sroa.016.0.pre, %26 ], [ %15, %12 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01)
   ret ptr %.sroa.016.0
 }
@@ -1102,7 +1102,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.lcssa1011, label %.thread1253.sink.split, label %.thread1253
 
 .thread1253.sink.split:                           ; preds = %._crit_edge1040, %._crit_edge1040.thread
-  %.str.4.sink = phi ptr [ @.str.3, %._crit_edge1040.thread ], [ %.str.3.mux, %._crit_edge1040 ]
+  %.str.4.sink = phi ptr [ %.str.3.mux, %._crit_edge1040 ], [ @.str.3, %._crit_edge1040.thread ]
   tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.4.sink) #25
   br label %.thread1253
 
@@ -2720,7 +2720,7 @@ thread-pre-split:                                 ; preds = %1009, %856
   br label %.loopexit1005, !llvm.loop !68
 
 .loopexit1005:                                    ; preds = %797, %.lr.ph1046, %422, %418, %420, %387, %383, %385, %339, %335, %337, %304, %300, %302, %.thread, %194, %196, %202, %793, %.critedge3..loopexit1005.loopexit1291_crit_edge, %130, %1205, %1210, %._crit_edge1174, %1204, %1191, %1185, %._crit_edge1176, %1049, %1062, %._crit_edge1200, %868, %880, %._crit_edge1196, %437, %441, %395, %347, %312, %264, %181, %3, %10, %1131, %1132, %1123, %1124, %951, %952, %943, %944, %._crit_edge1091, %258, %254, %246, %.thread1253, %828, %826, %822, %820, %812, %816, %.critedge, %13, %1297, %1272, %1268, %1264, %1261, %1254, %1252, %1250, %1248, %1246, %1243, %1235, %1226, %1173, %1167, %1163, %1159, %1155, %1150, %1145, %1141, %1137, %1116, %1111, %1106, %1101, %1096, %1090, %1086, %1083, %1082, %1036, %1030, %1026, %1022, %1018, %1015, %1003, %1000, %998, %996, %994, %987, %982, %978, %974, %970, %966, %962, %958, %937, %930, %923, %916, %912, %907, %901, %896, %895, %861, %855, %623, %595, %590, %586, %584, %574, %._crit_edge, %._crit_edge1025, %430, %424, %174, %158, %157, %144, %142, %140, %138, %136, %134, %18
-  %.sroa.0841.0 = phi ptr [ %1299, %1297 ], [ %1043, %1036 ], [ %.sroa.0841.0.copyload853, %1082 ], [ %1085, %1083 ], [ %1089, %1086 ], [ %storemerge981, %1090 ], [ %1100, %1096 ], [ %1105, %1101 ], [ %1110, %1106 ], [ %1115, %1111 ], [ %1120, %1116 ], [ %1140, %1137 ], [ %1144, %1141 ], [ %1149, %1145 ], [ %1154, %1150 ], [ %1158, %1155 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1170, %1167 ], [ %.sroa.0841.0.copyload851, %1015 ], [ %.sroa.0841.0.copyload846, %994 ], [ %.sroa.0841.0.copyload847, %996 ], [ %.sroa.0841.0.copyload848, %998 ], [ %.sroa.0841.0.copyload849, %1000 ], [ %.sroa.0841.0.copyload850, %1003 ], [ %863, %861 ], [ %.sroa.0841.0.copyload845, %895 ], [ %900, %896 ], [ %906, %901 ], [ %911, %907 ], [ %915, %912 ], [ %922, %916 ], [ %929, %923 ], [ %936, %930 ], [ %940, %937 ], [ %961, %958 ], [ %965, %962 ], [ %969, %966 ], [ %973, %970 ], [ %977, %974 ], [ %981, %978 ], [ %986, %982 ], [ %991, %987 ], [ %1021, %1018 ], [ %1025, %1022 ], [ %1029, %1026 ], [ %1033, %1030 ], [ %1263, %1261 ], [ %1267, %1264 ], [ %1271, %1268 ], [ %1275, %1272 ], [ %1177, %1173 ], [ %.sroa.0841.0.copyload856, %1226 ], [ %1242, %1235 ], [ %1245, %1243 ], [ %1247, %1246 ], [ %1249, %1248 ], [ %1251, %1250 ], [ %1253, %1252 ], [ %1256, %1254 ], [ %.sroa.0841.0.copyload843, %855 ], [ %19, %18 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %148, %157 ], [ %161, %158 ], [ inttoptr (i64 1 to ptr), %174 ], [ %429, %424 ], [ %433, %430 ], [ %538, %._crit_edge1025 ], [ %557, %._crit_edge ], [ %582, %574 ], [ null, %584 ], [ %589, %586 ], [ %592, %590 ], [ %598, %595 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload263, %623 ], [ %15, %13 ], [ %807, %.critedge ], [ %815, %812 ], [ %819, %816 ], [ %825, %822 ], [ null, %820 ], [ %831, %828 ], [ %827, %826 ], [ %504, %.thread1253 ], [ %243, %246 ], [ %255, %254 ], [ %255, %258 ], [ %.lcssa1084, %._crit_edge1091 ], [ %947, %944 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload294.pre, %943 ], [ %957, %952 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload295.pre, %951 ], [ %1128, %1124 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload340.pre, %1123 ], [ %1136, %1132 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload342.pre, %1131 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %3 ], [ %spec.select, %130 ], [ inttoptr (i64 1 to ptr), %181 ], [ null, %264 ], [ null, %312 ], [ null, %347 ], [ %storemerge9301050, %395 ], [ null, %441 ], [ %440, %437 ], [ %.sroa.0841.0.copyload844.pre, %._crit_edge1196 ], [ %883, %880 ], [ %873, %868 ], [ %.sroa.0841.0.copyload852.pre, %._crit_edge1200 ], [ %1069, %1062 ], [ %1055, %1049 ], [ %.sroa.0841.0.copyload854.pre, %._crit_edge1176 ], [ %1190, %1185 ], [ %1196, %1191 ], [ %.sroa.0841.0.copyload855.pre, %._crit_edge1174 ], [ %1214, %1210 ], [ %1209, %1205 ], [ null, %1204 ], [ %805, %.critedge3..loopexit1005.loopexit1291_crit_edge ], [ %794, %793 ], [ inttoptr (i64 1 to ptr), %202 ], [ null, %196 ], [ null, %194 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %385 ], [ null, %383 ], [ %364, %387 ], [ null, %420 ], [ null, %418 ], [ %storemerge930, %422 ], [ %504, %.lr.ph1046 ], [ %805, %797 ]
+  %.sroa.0841.0 = phi ptr [ %1299, %1297 ], [ %1043, %1036 ], [ %873, %868 ], [ %.sroa.0841.0.copyload853, %1082 ], [ %1085, %1083 ], [ %1089, %1086 ], [ %storemerge981, %1090 ], [ %1100, %1096 ], [ %1105, %1101 ], [ %1110, %1106 ], [ %1115, %1111 ], [ %1120, %1116 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload295.pre, %951 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload340.pre, %1123 ], [ %1140, %1137 ], [ %1144, %1141 ], [ %1149, %1145 ], [ %1154, %1150 ], [ %1158, %1155 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1170, %1167 ], [ %.sroa.0841.0.copyload851, %1015 ], [ %.sroa.0841.0.copyload846, %994 ], [ %.sroa.0841.0.copyload847, %996 ], [ %.sroa.0841.0.copyload848, %998 ], [ %.sroa.0841.0.copyload849, %1000 ], [ %.sroa.0841.0.copyload850, %1003 ], [ %863, %861 ], [ %440, %437 ], [ %.sroa.0841.0.copyload845, %895 ], [ %900, %896 ], [ %906, %901 ], [ %911, %907 ], [ %915, %912 ], [ %922, %916 ], [ %929, %923 ], [ %936, %930 ], [ %940, %937 ], [ null, %1204 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload294.pre, %943 ], [ %961, %958 ], [ %965, %962 ], [ %969, %966 ], [ %973, %970 ], [ %977, %974 ], [ %981, %978 ], [ %986, %982 ], [ %991, %987 ], [ %1021, %1018 ], [ %1025, %1022 ], [ %1029, %1026 ], [ %1033, %1030 ], [ %1263, %1261 ], [ %1267, %1264 ], [ %1271, %1268 ], [ %1275, %1272 ], [ %1177, %1173 ], [ %1055, %1049 ], [ %1196, %1191 ], [ %.sroa.0841.0.copyload856, %1226 ], [ %1242, %1235 ], [ %1245, %1243 ], [ %1247, %1246 ], [ %1249, %1248 ], [ %1251, %1250 ], [ %1253, %1252 ], [ %1256, %1254 ], [ %.sroa.0841.0.copyload843, %855 ], [ %19, %18 ], [ null, %820 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %148, %157 ], [ %161, %158 ], [ inttoptr (i64 1 to ptr), %174 ], [ inttoptr (i64 1 to ptr), %181 ], [ inttoptr (i64 1 to ptr), %.thread ], [ %spec.select, %130 ], [ %1209, %1205 ], [ %429, %424 ], [ %433, %430 ], [ %.sroa.0841.0.copyload844.pre, %._crit_edge1196 ], [ %827, %826 ], [ %538, %._crit_edge1025 ], [ %557, %._crit_edge ], [ %582, %574 ], [ null, %584 ], [ %589, %586 ], [ %592, %590 ], [ %598, %595 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload263, %623 ], [ %15, %13 ], [ %.sroa.0841.0.copyload854.pre, %._crit_edge1176 ], [ %819, %816 ], [ %807, %.critedge ], [ %815, %812 ], [ %825, %822 ], [ %831, %828 ], [ %504, %.thread1253 ], [ %.sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0..sroa.0165.0.copyload342.pre, %1131 ], [ inttoptr (i64 1 to ptr), %3 ], [ %.lcssa1084, %._crit_edge1091 ], [ %243, %246 ], [ %255, %254 ], [ %255, %258 ], [ %.sroa.0841.0.copyload855.pre, %._crit_edge1174 ], [ %1190, %1185 ], [ %.sroa.0841.0.copyload852.pre, %._crit_edge1200 ], [ %883, %880 ], [ %1069, %1062 ], [ %947, %944 ], [ %957, %952 ], [ %1128, %1124 ], [ %1136, %1132 ], [ inttoptr (i64 1 to ptr), %10 ], [ %1214, %1210 ], [ null, %194 ], [ %805, %.critedge3..loopexit1005.loopexit1291_crit_edge ], [ null, %264 ], [ null, %312 ], [ %341, %339 ], [ %281, %304 ], [ null, %347 ], [ %storemerge9301050, %395 ], [ null, %441 ], [ %794, %793 ], [ %504, %.lr.ph1046 ], [ %364, %387 ], [ %storemerge930, %422 ], [ inttoptr (i64 1 to ptr), %202 ], [ null, %196 ], [ null, %300 ], [ null, %302 ], [ null, %335 ], [ null, %337 ], [ null, %385 ], [ null, %383 ], [ null, %420 ], [ null, %418 ], [ %805, %797 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3841,7 +3841,7 @@ define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr noundef 
   br label %46
 
 46:                                               ; preds = %39, %40, %15, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %15 ], [ 1, %40 ], [ 1, %39 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %33 ], [ 1, %40 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -4020,8 +4020,8 @@ define internal fastcc i32 @scan(ptr noundef %0, ptr noundef nonnull readonly ca
   br label %56
 
 23:                                               ; preds = %20, %16, %7
-  %.sroa.04.0 = phi ptr [ %8, %7 ], [ %.sroa.04.1, %16 ], [ %.sroa.04.1, %20 ]
-  %.030 = phi ptr [ null, %7 ], [ %19, %16 ], [ %21, %20 ]
+  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %20 ], [ %8, %7 ], [ %.sroa.04.1, %16 ]
+  %.030 = phi ptr [ %21, %20 ], [ null, %7 ], [ %19, %16 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, i8 0, i64 80, i1 false)
   store ptr @scformat, ptr %4, align 8, !tbaa !82
@@ -5089,7 +5089,7 @@ agxbsizeof.exit.i29:                              ; preds = %71, %agxblen.exit.i
   br label %agxbputc.exit.backedge
 
 agxbputc.exit.backedge:                           ; preds = %81, %76, %63, %58, %agxbput_n.exit
-  %.0.be = phi ptr [ %50, %agxbput_n.exit ], [ %9, %58 ], [ %9, %63 ], [ %9, %76 ], [ %9, %81 ]
+  %.0.be = phi ptr [ %50, %agxbput_n.exit ], [ %9, %63 ], [ %9, %58 ], [ %9, %76 ], [ %9, %81 ]
   br label %agxbputc.exit, !llvm.loop !110
 
 87:                                               ; preds = %agxbputc.exit
@@ -5282,7 +5282,7 @@ define internal noundef i32 @prformat(ptr noundef captures(none) initializes((0,
   br label %exeval.exit
 
 exeval.exit:                                      ; preds = %.then, %50, %34, %38, %40, %43
-  %.sroa.016.0.i = phi ptr [ %46, %43 ], [ %37, %34 ], [ %39, %38 ], [ %42, %40 ], [ %.sroa.016.0.pre.i.then.val, %.then ], [ %46, %50 ]
+  %.sroa.016.0.i = phi ptr [ %42, %40 ], [ %46, %43 ], [ %39, %38 ], [ %37, %34 ], [ %.sroa.016.0.pre.i.then.val, %.then ], [ %46, %50 ]
   store ptr %.sroa.016.0.i, ptr %22, align 8, !tbaa !3
   %.pre = load ptr, ptr %7, align 8, !tbaa !92
   br label %56
@@ -5333,7 +5333,7 @@ exeval.exit:                                      ; preds = %.then, %50, %34, %3
   br label %74
 
 74:                                               ; preds = %73, %66, %66, %72
-  %.1135 = phi i64 [ 263, %72 ], [ 262, %66 ], [ 262, %66 ], [ %., %73 ]
+  %.1135 = phi i64 [ 262, %66 ], [ %., %73 ], [ 263, %72 ], [ 262, %66 ]
   %75 = icmp eq i64 %.1135, %69
   br i1 %75, label %76, label %108
 
@@ -5393,7 +5393,7 @@ exeval.exit:                                      ; preds = %.then, %50, %34, %3
   br label %exeval.exit162
 
 exeval.exit162:                                   ; preds = %.then182, %103, %87, %91, %93, %96
-  %.sroa.016.0.i159 = phi ptr [ %99, %96 ], [ %90, %87 ], [ %92, %91 ], [ %95, %93 ], [ %.sroa.016.0.pre.i161.then.val, %.then182 ], [ %99, %103 ]
+  %.sroa.016.0.i159 = phi ptr [ %95, %93 ], [ %99, %96 ], [ %92, %91 ], [ %90, %87 ], [ %.sroa.016.0.pre.i161.then.val, %.then182 ], [ %99, %103 ]
   store ptr %.sroa.016.0.i159, ptr %77, align 8, !tbaa !3
   br label %161
 
@@ -5456,7 +5456,7 @@ exeval.exit162:                                   ; preds = %.then182, %103, %87
   br label %exeval.exit168
 
 exeval.exit168:                                   ; preds = %.then184, %138, %122, %126, %128, %131
-  %.sroa.016.0.i165 = phi ptr [ %134, %131 ], [ %125, %122 ], [ %127, %126 ], [ %130, %128 ], [ %.sroa.016.0.pre.i167.then.val, %.then184 ], [ %134, %138 ]
+  %.sroa.016.0.i165 = phi ptr [ %130, %128 ], [ %134, %131 ], [ %127, %126 ], [ %125, %122 ], [ %.sroa.016.0.pre.i167.then.val, %.then184 ], [ %134, %138 ]
   store ptr %.sroa.016.0.i165, ptr %112, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr null, ptr %143, align 8, !tbaa !3
@@ -5495,7 +5495,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   br label %.thread186
 
 161:                                              ; preds = %exeval.exit162, %exeval.exit168, %56
-  %.0134 = phi i64 [ %60, %56 ], [ %.1135, %exeval.exit168 ], [ %69, %exeval.exit162 ]
+  %.0134 = phi i64 [ %60, %56 ], [ %69, %exeval.exit162 ], [ %.1135, %exeval.exit168 ]
   switch i64 %.0134, label %174 [
     i64 263, label %..thread186_crit_edge
     i64 262, label %169
@@ -5516,7 +5516,7 @@ exeval.exit168:                                   ; preds = %.then184, %138, %12
   br label %.thread186
 
 .thread186:                                       ; preds = %.thread186.critedge, %..thread186_crit_edge, %.thread
-  %166 = phi ptr [ %.pre208, %..thread186_crit_edge ], [ @.str.22, %.thread ], [ %154, %.thread186.critedge ]
+  %166 = phi ptr [ %.pre208, %..thread186_crit_edge ], [ %154, %.thread186.critedge ], [ @.str.22, %.thread ]
   store ptr %166, ptr %0, align 8, !tbaa !74
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %167, align 8, !tbaa !115

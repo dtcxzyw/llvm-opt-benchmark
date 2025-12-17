@@ -728,7 +728,7 @@ H5C__write_cache_image.exit.thread:               ; preds = %305, %312, %H5C__fr
   br label %328
 
 328:                                              ; preds = %268, %319, %H5C__write_cache_image.exit.thread, %2
-  %.0 = phi i32 [ -1, %268 ], [ -1, %319 ], [ 0, %H5C__write_cache_image.exit.thread ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %268 ], [ 0, %2 ], [ -1, %319 ], [ 0, %H5C__write_cache_image.exit.thread ]
   ret i32 %.0
 }
 
@@ -2027,7 +2027,7 @@ H5C__reconstruct_cache_contents.exit.thread:      ; preds = %625, %._crit_edge.i
   %715 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__load_cache_image, i32 noundef 629, i64 noundef %713, i64 noundef %714, ptr noundef nonnull @.str.9) #15
   br label %.critedge
 
-H5C__reconstruct_cache_contents.exit.thread28:    ; preds = %H5C__read_cache_image.exit, %H5C__decode_cache_image_header.exit._crit_edge.i, %H5C__reconstruct_cache_contents.exit
+H5C__reconstruct_cache_contents.exit.thread28:    ; preds = %H5C__decode_cache_image_header.exit._crit_edge.i, %H5C__read_cache_image.exit, %H5C__reconstruct_cache_contents.exit
   %716 = load ptr, ptr %22, align 8, !tbaa !52
   %717 = call ptr @H5MM_xfree(ptr noundef %716) #15
   store ptr %717, ptr %22, align 8, !tbaa !52

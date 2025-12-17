@@ -611,7 +611,7 @@ define dso_local noundef range(i32 -2, 1) i32 @__ipv6_dev_mc_dec(ptr noundef %0,
   br label %ma_put.exit
 
 ma_put.exit:                                      ; preds = %.thread4.i, %56, %54, %69, %68
-  %70 = phi i32 [ 0, %68 ], [ -2, %69 ], [ 0, %54 ], [ 0, %56 ], [ 0, %.thread4.i ]
+  %70 = phi i32 [ -2, %69 ], [ 0, %68 ], [ 0, %54 ], [ 0, %56 ], [ 0, %.thread4.i ]
   ret i32 %70
 }
 
@@ -999,8 +999,8 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br label %.thread25
 
 .thread25:                                        ; preds = %150, %141
-  %157 = phi i32 [ 10, %141 ], [ %151, %150 ]
-  %158 = phi i32 [ 184, %141 ], [ %spec.select, %150 ]
+  %157 = phi i32 [ %151, %150 ], [ 10, %141 ]
+  %158 = phi i32 [ %spec.select, %150 ], [ 184, %141 ]
   %159 = tail call ptr @sock_kmalloc(ptr noundef %2, i32 noundef %158, i32 noundef 3264) #13
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.critedge.thread, label %161
@@ -1108,8 +1108,8 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %219 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 1), !range !41
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %80, %63, %194, %119, %.loopexit29, %.loopexit, %99, %90, %142, %44, %100, %.thread25
-  %.ph = phi i32 [ -105, %.thread25 ], [ -99, %100 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ 0, %.loopexit29 ], [ -99, %119 ], [ -99, %194 ], [ -22, %63 ], [ -22, %80 ]
+.critedge.thread:                                 ; preds = %80, %63, %194, %119, %100, %.loopexit29, %.loopexit, %99, %90, %142, %44, %.thread25
+  %.ph = phi i32 [ -105, %.thread25 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ -99, %100 ], [ 0, %.loopexit29 ], [ -22, %63 ], [ -99, %119 ], [ -99, %194 ], [ -22, %80 ]
   tail call void @mutex_unlock(ptr noundef nonnull %45) #13
   br label %.thread23
 
@@ -1120,7 +1120,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br label %.thread23
 
 .thread23:                                        ; preds = %26, %40, %36, %33, %.critedge.thread, %220, %14
-  %223 = phi i32 [ -22, %14 ], [ %222, %220 ], [ %.ph, %.critedge.thread ], [ -19, %33 ], [ -19, %36 ], [ -19, %40 ], [ -19, %26 ]
+  %223 = phi i32 [ %.ph, %.critedge.thread ], [ -22, %14 ], [ %222, %220 ], [ -19, %33 ], [ -19, %36 ], [ -19, %40 ], [ -19, %26 ]
   ret i32 %223
 }
 
@@ -1875,7 +1875,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip6_mc_msfilter(ptr noundef %0,
   br label %.thread11
 
 .thread11:                                        ; preds = %74, %53, %82, %137, %109, %28, %42, %38, %35, %139, %21, %13
-  %142 = phi i32 [ -22, %13 ], [ -22, %21 ], [ %141, %139 ], [ -19, %35 ], [ -19, %38 ], [ -19, %42 ], [ -19, %28 ], [ -22, %53 ], [ -105, %82 ], [ 0, %137 ], [ %107, %109 ], [ -22, %74 ]
+  %142 = phi i32 [ -22, %13 ], [ -22, %21 ], [ -19, %28 ], [ %141, %139 ], [ -19, %35 ], [ -19, %38 ], [ -19, %42 ], [ -22, %53 ], [ -105, %82 ], [ 0, %137 ], [ %107, %109 ], [ -22, %74 ]
   ret i32 %142
 }
 
@@ -2011,7 +2011,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip6_mc_msfget(ptr noundef %0, pt
   br i1 %86, label %.loopexit, label %.critedge, !llvm.loop !64
 
 .loopexit:                                        ; preds = %43, %.critedge, %76, %.split.us, %57, %22, %16
-  %87 = phi i32 [ -22, %16 ], [ 0, %57 ], [ -99, %22 ], [ -14, %.split.us ], [ 0, %76 ], [ 0, %.critedge ], [ -99, %43 ]
+  %87 = phi i32 [ -22, %16 ], [ 0, %57 ], [ -99, %22 ], [ 0, %.critedge ], [ 0, %76 ], [ -14, %.split.us ], [ -99, %43 ]
   ret i32 %87
 }
 
@@ -2414,7 +2414,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__ipv6_dev_mc_inc(ptr noun
   br label %ma_put.exit
 
 ma_put.exit:                                      ; preds = %100, %102, %58, %60, %30, %32, %.thread4.i, %120, %118, %131, %103, %61, %33
-  %132 = phi i32 [ -22, %131 ], [ -19, %33 ], [ 0, %61 ], [ -12, %103 ], [ 0, %118 ], [ 0, %120 ], [ 0, %.thread4.i ], [ -19, %32 ], [ -19, %30 ], [ 0, %60 ], [ 0, %58 ], [ -12, %102 ], [ -12, %100 ]
+  %132 = phi i32 [ 0, %58 ], [ -12, %103 ], [ -22, %131 ], [ 0, %.thread4.i ], [ -19, %33 ], [ -19, %30 ], [ 0, %61 ], [ 0, %118 ], [ 0, %120 ], [ -19, %32 ], [ 0, %60 ], [ -12, %102 ], [ -12, %100 ]
   ret i32 %132
 }
 
@@ -6289,7 +6289,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %56
 
 56:                                               ; preds = %47, %43
-  %57 = phi i32 [ %55, %47 ], [ 0, %43 ]
+  %57 = phi i32 [ 0, %43 ], [ %55, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -6508,13 +6508,13 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   tail call void @kvfree_call_rcu(ptr noundef nonnull %192, ptr noundef nonnull %90) #13
   br label %193
 
-193:                                              ; preds = %188, %88, %178, %169, %174
-  %.2.ph = phi ptr [ %.1, %88 ], [ %.4.ph, %169 ], [ %.3, %178 ], [ %.3, %188 ], [ %.4.ph, %174 ]
-  %.ph28 = phi i32 [ %94, %88 ], [ 0, %169 ], [ %180, %178 ], [ %180, %188 ], [ 0, %174 ]
-  %.ph29 = phi i32 [ %93, %88 ], [ %173, %169 ], [ %181, %178 ], [ %181, %188 ], [ %173, %174 ]
-  %.ph30 = phi i32 [ %92, %88 ], [ %172, %169 ], [ %182, %178 ], [ %182, %188 ], [ %172, %174 ]
-  %.ph31 = phi ptr [ %90, %88 ], [ %90, %169 ], [ %90, %178 ], [ %91, %188 ], [ %90, %174 ]
-  %.ph32 = phi ptr [ %89, %88 ], [ %.ph22, %169 ], [ %183, %178 ], [ %183, %188 ], [ %.ph22, %174 ]
+193:                                              ; preds = %188, %88, %174, %178, %169
+  %.2.ph = phi ptr [ %.4.ph, %169 ], [ %.3, %178 ], [ %.3, %188 ], [ %.4.ph, %174 ], [ %.1, %88 ]
+  %.ph28 = phi i32 [ 0, %169 ], [ %180, %178 ], [ %180, %188 ], [ 0, %174 ], [ %94, %88 ]
+  %.ph29 = phi i32 [ %173, %169 ], [ %181, %178 ], [ %181, %188 ], [ %173, %174 ], [ %93, %88 ]
+  %.ph30 = phi i32 [ %172, %169 ], [ %182, %178 ], [ %182, %188 ], [ %172, %174 ], [ %92, %88 ]
+  %.ph31 = phi ptr [ %90, %169 ], [ %90, %178 ], [ %91, %188 ], [ %90, %174 ], [ %90, %88 ]
+  %.ph32 = phi ptr [ %.ph22, %169 ], [ %183, %178 ], [ %183, %188 ], [ %.ph22, %174 ], [ %89, %88 ]
   %194 = icmp eq ptr %95, null
   br i1 %194, label %195, label %88, !llvm.loop !133
 
@@ -6606,9 +6606,9 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %add_grhead.exit
 
 add_grhead.exit:                                  ; preds = %235, %231, %.thread41.thread, %195
-  %253 = phi i16 [ %206, %.thread41.thread ], [ %201, %195 ], [ %206, %231 ], [ %206, %235 ]
-  %.5 = phi ptr [ %.04371, %.thread41.thread ], [ %.235, %195 ], [ %.04371, %231 ], [ %237, %235 ]
-  %254 = phi ptr [ %207, %.thread41.thread ], [ %196, %195 ], [ null, %231 ], [ %236, %235 ]
+  %253 = phi i16 [ %201, %195 ], [ %206, %.thread41.thread ], [ %206, %231 ], [ %206, %235 ]
+  %.5 = phi ptr [ %.235, %195 ], [ %.04371, %.thread41.thread ], [ %.04371, %231 ], [ %237, %235 ]
+  %254 = phi ptr [ %196, %195 ], [ %207, %.thread41.thread ], [ null, %231 ], [ %236, %235 ]
   %255 = icmp eq ptr %.5, null
   br i1 %255, label %258, label %256
 
@@ -7776,7 +7776,7 @@ define internal range(i32 -2147483648, 1) i32 @igmp6_net_init(ptr noundef %0) #0
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %49, %45, %5
-  %52 = phi i32 [ %3, %5 ], [ %46, %45 ], [ %46, %49 ], [ 0, %33 ]
+  %52 = phi i32 [ %46, %49 ], [ %3, %5 ], [ %46, %45 ], [ 0, %33 ]
   ret i32 %52
 }
 

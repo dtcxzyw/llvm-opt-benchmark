@@ -113,7 +113,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   br i1 %51, label %.lr.ph66, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge, %20, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %20 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph66 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %20 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %.lr.ph66 ]
   ret i32 %.0
 }
 
@@ -791,7 +791,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   br i1 %43, label %.lr.ph55, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph55, %.preheader, %._crit_edge, %.thread
-  %.044 = phi i32 [ 0, %.thread ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph55 ]
+  %.044 = phi i32 [ 0, %._crit_edge ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %.lr.ph55 ]
   ret i32 %.044
 }
 

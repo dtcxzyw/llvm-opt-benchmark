@@ -220,7 +220,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %87
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %87
-  %.0.i.i.i.i = phi ptr [ %88, %87 ], [ %91, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %91, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %88, %87 ]
   store ptr %.0.i.i.i.i, ptr %69, align 8, !tbaa !31
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
@@ -589,7 +589,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i95: ; preds = %242
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit.i97
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit.i97: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i95, %242
-  %.0.i.i.i.i98 = phi ptr [ %243, %242 ], [ %246, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i95 ]
+  %.0.i.i.i.i98 = phi ptr [ %246, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i95 ], [ %243, %242 ]
   store ptr %.0.i.i.i.i98, ptr %224, align 8, !tbaa !31
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit85
 
@@ -709,7 +709,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit85:             ; preds = %268, %266, %264, %_
   ret void
 
 285:                                              ; preds = %.loopexit111, %.loopexit.split-lp112, %.loopexit116, %.loopexit.split-lp117, %.loopexit, %.loopexit.split-lp, %60, %283, %15
-  %.pn45.pn = phi { ptr, i32 } [ %16, %15 ], [ %284, %283 ], [ %61, %60 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit118, %.loopexit116 ], [ %lpad.loopexit.split-lp119, %.loopexit.split-lp117 ], [ %lpad.loopexit113, %.loopexit111 ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp112 ]
+  %.pn45.pn = phi { ptr, i32 } [ %284, %283 ], [ %16, %15 ], [ %61, %60 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp119, %.loopexit.split-lp117 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit118, %.loopexit116 ], [ %lpad.loopexit113, %.loopexit111 ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp112 ]
   tail call void @_ZNSt6vectorIS_IS_ImSaImEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   resume { ptr, i32 } %.pn45.pn
 
@@ -1543,7 +1543,7 @@ define noundef zeroext i1 @_ZNK7Imf_3_411TileOffsets11isValidTileEiiii(ptr nound
   br label %130
 
 130:                                              ; preds = %9, %117, %69, %27, %5, %129
-  %.0 = phi i1 [ false, %129 ], [ false, %5 ], [ true, %27 ], [ true, %69 ], [ true, %117 ], [ false, %9 ]
+  %.0 = phi i1 [ true, %69 ], [ true, %117 ], [ false, %5 ], [ false, %129 ], [ true, %27 ], [ false, %9 ]
   ret i1 %.0
 }
 

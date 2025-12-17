@@ -331,7 +331,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
   br label %21
 
 21:                                               ; preds = %13, %18, %17, %8
-  %.052 = phi i64 [ %20, %18 ], [ 65536, %17 ], [ 65536, %8 ], [ %15, %13 ]
+  %.052 = phi i64 [ 65536, %8 ], [ %20, %18 ], [ 65536, %17 ], [ %15, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store i64 %.052, ptr %22, align 8, !tbaa !33
   %23 = tail call noalias ptr @malloc(i64 noundef %.052) #15
@@ -560,7 +560,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %138, i32 noundef -1, ptr noundef nonnull @.str.14) #13
   br label %archive_compressor_xz_init_stream.exit.thread
 
-archive_compressor_xz_init_stream.exit.thread:    ; preds = %136, %133, %.thread.i
+archive_compressor_xz_init_stream.exit.thread:    ; preds = %.thread.i, %136, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %140
 
@@ -720,7 +720,7 @@ define internal range(i32 -20, 1) i32 @archive_compressor_xz_options(ptr noundef
   br label %38
 
 38:                                               ; preds = %19, %9, %11, %14, %37, %17
-  %.0 = phi i32 [ 0, %17 ], [ %.1, %37 ], [ -20, %14 ], [ -20, %11 ], [ -20, %9 ], [ -20, %19 ]
+  %.0 = phi i32 [ -20, %9 ], [ 0, %17 ], [ %.1, %37 ], [ -20, %14 ], [ -20, %11 ], [ -20, %19 ]
   ret i32 %.0
 }
 
@@ -872,7 +872,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
   br label %.split37.us
 
 .split37.us:                                      ; preds = %34, %44, %29, %24, %14, %.split34.us, %.split40.us, %.critedge
-  %.0 = phi i32 [ -30, %.split34.us ], [ -30, %.critedge ], [ -30, %.split40.us ], [ 0, %29 ], [ 0, %24 ], [ -30, %14 ], [ 0, %44 ], [ -30, %34 ]
+  %.0 = phi i32 [ -30, %.critedge ], [ -30, %.split34.us ], [ -30, %.split40.us ], [ -30, %14 ], [ 0, %29 ], [ 0, %24 ], [ -30, %34 ], [ 0, %44 ]
   ret i32 %.0
 }
 

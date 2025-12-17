@@ -176,11 +176,11 @@ define dso_local range(i32 0, 2) i32 @cmd_mailsplit(i32 noundef %0, ptr noundef 
   br i1 %.not100, label %.thread112, label %.lr.ph, !llvm.loop !10
 
 .thread112:                                       ; preds = %47, %.lr.ph, %44
-  %.091160 = phi i32 [ %.091165, %44 ], [ %.293, %47 ], [ %.091165, %.lr.ph ]
-  %.085157 = phi i32 [ %.085166, %44 ], [ %.287, %47 ], [ %.085166, %.lr.ph ]
-  %.080154 = phi ptr [ %.080167, %44 ], [ %.282, %47 ], [ %.080167, %.lr.ph ]
-  %.072149 = phi i32 [ %.072169, %44 ], [ %.274, %47 ], [ %.072169, %.lr.ph ]
-  %.176 = phi ptr [ %45, %44 ], [ %.075, %47 ], [ %.075170, %.lr.ph ]
+  %.091160 = phi i32 [ %.091165, %44 ], [ %.091165, %.lr.ph ], [ %.293, %47 ]
+  %.085157 = phi i32 [ %.085166, %44 ], [ %.085166, %.lr.ph ], [ %.287, %47 ]
+  %.080154 = phi ptr [ %.080167, %44 ], [ %.080167, %.lr.ph ], [ %.282, %47 ]
+  %.072149 = phi i32 [ %.072169, %44 ], [ %.072169, %.lr.ph ], [ %.274, %47 ]
+  %.176 = phi ptr [ %45, %44 ], [ %.075170, %.lr.ph ], [ %.075, %47 ]
   %.not107 = icmp eq ptr %.080154, null
   br i1 %.not107, label %.thread112.thread, label %62
 
@@ -433,7 +433,7 @@ split_maildir.exit:                               ; preds = %128, %populate_mail
   br label %148
 
 148:                                              ; preds = %.thread120, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread120 ]
+  %.2 = phi i32 [ 1, %.thread120 ], [ 0, %._crit_edge ]
   ret i32 %.2
 }
 
@@ -573,7 +573,7 @@ _.exit42:                                         ; preds = %28, %31
   br label %53
 
 53:                                               ; preds = %._crit_edge, %51, %25, %_.exit42, %45, %21
-  %.029 = phi i32 [ -1, %_.exit42 ], [ -1, %45 ], [ -1, %21 ], [ %4, %25 ], [ %.0.lcssa, %51 ], [ %.0.lcssa, %._crit_edge ]
+  %.029 = phi i32 [ -1, %21 ], [ -1, %_.exit42 ], [ -1, %45 ], [ %4, %25 ], [ %.0.lcssa, %51 ], [ %.0.lcssa, %._crit_edge ]
   ret i32 %.029
 }
 
@@ -866,7 +866,7 @@ define internal fastcc range(i32 0, 2) i32 @is_from_line(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %47, %12, %19, %26, %33, %40, %2, %4
-  %.014 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 0, %40 ], [ 0, %33 ], [ 0, %26 ], [ 0, %19 ], [ 0, %12 ], [ %., %47 ], [ 0, %7 ]
+  %.014 = phi i32 [ 0, %2 ], [ %., %47 ], [ 0, %12 ], [ 0, %4 ], [ 0, %40 ], [ 0, %33 ], [ 0, %26 ], [ 0, %19 ], [ 0, %7 ]
   ret i32 %.014
 }
 

@@ -552,7 +552,7 @@ define internal fastcc zeroext i1 @_test_core_dumping(ptr noundef %0) unnamed_ad
   br label %.sink.split
 
 .sink.split:                                      ; preds = %76, %79, %61, %64, %68
-  %.021.ph = phi i1 [ false, %68 ], [ false, %64 ], [ false, %61 ], [ false, %76 ], [ %.not25, %79 ]
+  %.021.ph = phi i1 [ false, %68 ], [ false, %61 ], [ false, %64 ], [ false, %76 ], [ %.not25, %79 ]
   call void @slurm_xfree(ptr noundef nonnull %36) #10
   br label %82
 

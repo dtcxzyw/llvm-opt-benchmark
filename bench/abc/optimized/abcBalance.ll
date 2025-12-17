@@ -1046,7 +1046,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %27, %26, %.preheader53, %79, %109, %Vec_PtrPush.exit
-  %.038 = phi i32 [ %113, %109 ], [ 0, %Vec_PtrPush.exit ], [ -1, %79 ], [ 0, %.preheader53 ], [ -1, %27 ], [ 0, %26 ], [ 1, %22 ]
+  %.038 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %113, %109 ], [ -1, %79 ], [ 0, %.preheader53 ], [ 0, %26 ], [ -1, %27 ], [ 1, %22 ]
   ret i32 %.038
 }
 
@@ -1693,7 +1693,7 @@ Abc_NodeBalancePermute.exit:                      ; preds = %166, %Abc_NodeBalan
   br label %194
 
 194:                                              ; preds = %7, %._crit_edge68, %96
-  %.0 = phi ptr [ %100, %96 ], [ %193, %._crit_edge68 ], [ %11, %7 ]
+  %.0 = phi ptr [ %193, %._crit_edge68 ], [ %100, %96 ], [ %11, %7 ]
   ret ptr %.0
 }
 

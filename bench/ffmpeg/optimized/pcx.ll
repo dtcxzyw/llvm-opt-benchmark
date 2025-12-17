@@ -251,9 +251,9 @@ bytestream2_get_byte.exit.i:                      ; preds = %114
   br label %bytestream2_get_byte.exit29.i
 
 bytestream2_get_byte.exit29.i:                    ; preds = %124, %114, %127, %119, %bytestream2_get_byte.exit.i
-  %130 = phi ptr [ %116, %119 ], [ %116, %bytestream2_get_byte.exit.i ], [ %128, %127 ], [ %15, %114 ], [ %15, %124 ]
-  %.021.i = phi i8 [ 1, %119 ], [ 1, %bytestream2_get_byte.exit.i ], [ %125, %127 ], [ 1, %114 ], [ %125, %124 ]
-  %.0.in.shrunk.i = phi i8 [ %117, %119 ], [ %117, %bytestream2_get_byte.exit.i ], [ %129, %127 ], [ 0, %114 ], [ 0, %124 ]
+  %130 = phi ptr [ %128, %127 ], [ %116, %119 ], [ %116, %bytestream2_get_byte.exit.i ], [ %15, %114 ], [ %15, %124 ]
+  %.021.i = phi i8 [ %125, %127 ], [ 1, %119 ], [ 1, %bytestream2_get_byte.exit.i ], [ 1, %114 ], [ %125, %124 ]
+  %.0.in.shrunk.i = phi i8 [ %129, %127 ], [ %117, %119 ], [ %117, %bytestream2_get_byte.exit.i ], [ 0, %114 ], [ 0, %124 ]
   %131 = icmp uge i32 %.02235.i, %60
   %.not2731.i = icmp eq i8 %.021.i, 0
   %or.cond32.i = or i1 %131, %.not2731.i
@@ -588,13 +588,13 @@ bytestream2_get_byte.exit.thread:                 ; preds = %196, %bytestream2_g
   store i32 1, ptr %2, align 4, !tbaa !43
   br label %pcx_rle_decode.exit.thread
 
-pcx_rle_decode.exit.thread:                       ; preds = %.preheader238.split.us, %.preheader238.split, %235, %176, %101, %205, %bytestream2_get_byte.exit.thread, %174, %170, %286
-  %.0163 = phi i32 [ %.7, %286 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %206, %205 ], [ -1094995529, %170 ], [ %175, %174 ], [ -1094995529, %101 ], [ %177, %176 ], [ %236, %235 ], [ %253, %.preheader238.split ], [ %212, %.preheader238.split.us ]
+pcx_rle_decode.exit.thread:                       ; preds = %.preheader238.split.us, %.preheader238.split, %235, %176, %101, %bytestream2_get_byte.exit.thread, %170, %174, %205, %286
+  %.0163 = phi i32 [ %.7, %286 ], [ %206, %205 ], [ %175, %174 ], [ -1094995529, %170 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %253, %.preheader238.split ], [ -1094995529, %101 ], [ %177, %176 ], [ %236, %235 ], [ %212, %.preheader238.split.us ]
   tail call void @av_free(ptr noundef nonnull %92) #8
   br label %287
 
 287:                                              ; preds = %84, %81, %76, %pcx_rle_decode.exit.thread, %75, %70, %48, %22, %9
-  %.0161 = phi i32 [ -1094995529, %9 ], [ -1094995529, %22 ], [ -1094995529, %48 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ %.0163, %pcx_rle_decode.exit.thread ], [ %79, %76 ], [ %82, %81 ], [ -12, %84 ]
+  %.0161 = phi i32 [ -1094995529, %9 ], [ -1094995529, %22 ], [ -1094995529, %48 ], [ -1094995529, %70 ], [ -1094995529, %75 ], [ %82, %81 ], [ %79, %76 ], [ %.0163, %pcx_rle_decode.exit.thread ], [ -12, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0161
 }
@@ -689,8 +689,8 @@ bytestream2_get_byte.exit:                        ; preds = %24
   br label %bytestream2_get_byte.exit29
 
 bytestream2_get_byte.exit29:                      ; preds = %38, %37, %bytestream2_get_byte.exit.thread, %29, %bytestream2_get_byte.exit
-  %.021 = phi i8 [ 1, %29 ], [ 1, %bytestream2_get_byte.exit ], [ 1, %bytestream2_get_byte.exit.thread ], [ %35, %37 ], [ %35, %38 ]
-  %.0.in.shrunk = phi i8 [ %27, %29 ], [ %27, %bytestream2_get_byte.exit ], [ 0, %bytestream2_get_byte.exit.thread ], [ 0, %37 ], [ %40, %38 ]
+  %.021 = phi i8 [ 1, %bytestream2_get_byte.exit.thread ], [ 1, %29 ], [ 1, %bytestream2_get_byte.exit ], [ %35, %37 ], [ %35, %38 ]
+  %.0.in.shrunk = phi i8 [ 0, %bytestream2_get_byte.exit.thread ], [ %27, %29 ], [ %27, %bytestream2_get_byte.exit ], [ 0, %37 ], [ %40, %38 ]
   %41 = icmp uge i32 %.02235, %2
   %.not2731 = icmp eq i8 %.021, 0
   %or.cond32 = or i1 %41, %.not2731

@@ -211,7 +211,7 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %68, %.loopexit49, %16, %2, %87, %66, %62, %54, %52
-  %.036 = phi i32 [ 1, %66 ], [ 1, %52 ], [ 1, %54 ], [ 0, %87 ], [ 1, %62 ], [ 2, %2 ], [ 0, %16 ], [ 1, %.loopexit49 ], [ 1, %68 ], [ 1, %28 ]
+  %.036 = phi i32 [ 2, %2 ], [ 0, %16 ], [ 1, %66 ], [ 1, %52 ], [ 1, %54 ], [ 0, %87 ], [ 1, %62 ], [ 1, %.loopexit49 ], [ 1, %68 ], [ 1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.036

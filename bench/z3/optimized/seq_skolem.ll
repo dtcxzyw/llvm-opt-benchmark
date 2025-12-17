@@ -752,7 +752,7 @@ _ZNK9parameter7get_astEv.exit:                    ; preds = %_ZNK9parameter7get_
   br label %_ZNK3seq6skolem15is_length_limitEP4expr.exit.thread
 
 _ZNK3seq6skolem15is_length_limitEP4expr.exit.thread: ; preds = %12, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i, %_ZNK3seq6skolem15is_length_limitEP4expr.exit, %_ZNK9parameter7get_astEv.exit
-  %48 = phi i1 [ false, %_ZNK3seq6skolem15is_length_limitEP4expr.exit ], [ true, %_ZNK9parameter7get_astEv.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %4 ], [ false, %12 ]
+  %48 = phi i1 [ true, %_ZNK9parameter7get_astEv.exit ], [ false, %_ZNK3seq6skolem15is_length_limitEP4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %4 ], [ false, %12 ]
   ret i1 %48
 }
 
@@ -1857,7 +1857,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %468, %462, %459
   br label %552
 
 _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread: ; preds = %.thread200, %364, %_ZNK8seq_util9is_skolemEPK4expr.exit.i, %391, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit
-  %481 = phi ptr [ %367, %391 ], [ %367, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ %366, %.thread200 ], [ %365, %364 ], [ %367, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ]
+  %481 = phi ptr [ %367, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ %367, %391 ], [ %366, %.thread200 ], [ %365, %364 ], [ %367, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ]
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %483 = invoke noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %482, i32 noundef 0)
           to label %484 unwind label %.loopexit.split-lp
@@ -2048,7 +2048,7 @@ _ZN7zstringD2Ev.exit174:                          ; preds = %_ZN8rationalD2Ev.ex
   ret void
 
 552:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %477, %.body143, %.body163, %294, %134
-  %.pn54 = phi { ptr, i32 } [ %.pn52, %134 ], [ %.pn50, %294 ], [ %eh.lpad-body164, %.body163 ], [ %478, %477 ], [ %eh.lpad-body144, %.body143 ], [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn54 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn52, %134 ], [ %.pn50, %294 ], [ %eh.lpad-body164, %.body163 ], [ %478, %477 ], [ %eh.lpad-body144, %.body143 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN7zstringD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %18) #20
@@ -2327,7 +2327,7 @@ _ZNK3seq6skolem7is_stepEP4expr.exit:              ; preds = %27
   br label %_ZNK3seq6skolem7is_stepEP4expr.exit.thread
 
 _ZNK3seq6skolem7is_stepEP4expr.exit.thread:       ; preds = %16, %8, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i, %_ZNK3seq6skolem7is_stepEP4expr.exit, %37
-  %50 = phi i1 [ false, %_ZNK3seq6skolem7is_stepEP4expr.exit ], [ true, %37 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %8 ], [ false, %16 ]
+  %50 = phi i1 [ true, %37 ], [ false, %_ZNK3seq6skolem7is_stepEP4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %8 ], [ false, %16 ]
   ret i1 %50
 }
 
@@ -2450,7 +2450,7 @@ _ZNK8rational11is_unsignedEv.exit:                ; preds = %57
   br label %_ZNK3seq6skolem7is_tailEP4exprRS2_S3_.exit.thread
 
 _ZNK3seq6skolem7is_tailEP4exprRS2_S3_.exit.thread: ; preds = %48, %.noexc6, %19, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i, %_ZNK3seq6skolem7is_tailEP4expr.exit.i, %64, %_ZNK8rational11is_unsignedEv.exit, %47
-  %66 = phi i1 [ false, %_ZNK8rational11is_unsignedEv.exit ], [ false, %47 ], [ true, %64 ], [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit.i ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i ], [ false, %4 ], [ false, %19 ], [ false, %.noexc6 ], [ false, %48 ]
+  %66 = phi i1 [ false, %_ZNK8rational11is_unsignedEv.exit ], [ false, %47 ], [ false, %19 ], [ true, %64 ], [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit.i ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i ], [ false, %4 ], [ false, %.noexc6 ], [ false, %48 ]
   %67 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !174
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i unwind label %68
@@ -2538,7 +2538,7 @@ _ZNK3seq6skolem7is_tailEP4expr.exit:              ; preds = %23
   br label %_ZNK3seq6skolem7is_tailEP4expr.exit.thread
 
 _ZNK3seq6skolem7is_tailEP4expr.exit.thread:       ; preds = %12, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i, %33, %_ZNK3seq6skolem7is_tailEP4expr.exit
-  %38 = phi i1 [ true, %33 ], [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %4 ], [ false, %12 ]
+  %38 = phi i1 [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit ], [ true, %33 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i ], [ false, %4 ], [ false, %12 ]
   ret i1 %38
 }
 
@@ -2599,7 +2599,7 @@ _ZNK3seq6skolem7is_tailEP4expr.exit.i:            ; preds = %22
   br label %_ZNK3seq6skolem7is_tailEP4exprRS2_S3_.exit
 
 _ZNK3seq6skolem7is_tailEP4exprRS2_S3_.exit:       ; preds = %3, %11, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i, %_ZNK3seq6skolem7is_tailEP4expr.exit.i, %32
-  %35 = phi i1 [ true, %32 ], [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit.i ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i ], [ false, %3 ], [ false, %11 ]
+  %35 = phi i1 [ false, %_ZNK3seq6skolem7is_tailEP4expr.exit.i ], [ true, %32 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i.i.i ], [ false, %3 ], [ false, %11 ]
   ret i1 %35
 }
 
@@ -2715,7 +2715,7 @@ _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21: ; preds = %41
   br label %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21.thread
 
 _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21.thread: ; preds = %13, %5, %51, %54, %_ZNK8seq_util9is_skolemEPK4expr.exit.i17, %57, %61, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21
-  %.0 = phi i1 [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21 ], [ true, %61 ], [ true, %57 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i17 ], [ true, %54 ], [ true, %51 ], [ false, %5 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit21 ], [ true, %61 ], [ true, %57 ], [ false, %5 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i17 ], [ true, %51 ], [ true, %54 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -2779,7 +2779,7 @@ _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit:  ; preds = %23
   br label %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread
 
 _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread: ; preds = %12, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i, %33, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit
-  %38 = phi i1 [ true, %33 ], [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
+  %38 = phi i1 [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ true, %33 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
   ret i1 %38
 }
 
@@ -2843,7 +2843,7 @@ _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit:  ; preds = %23
   br label %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread
 
 _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread: ; preds = %12, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i, %33, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit
-  %38 = phi i1 [ true, %33 ], [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
+  %38 = phi i1 [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ true, %33 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
   ret i1 %38
 }
 
@@ -2907,7 +2907,7 @@ _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit:  ; preds = %23
   br label %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread
 
 _ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit.thread: ; preds = %12, %4, %_ZNK8seq_util9is_skolemEPK4expr.exit.i, %33, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit
-  %38 = phi i1 [ true, %33 ], [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
+  %38 = phi i1 [ false, %_ZNK3seq6skolem9is_skolemERK6symbolPK4expr.exit ], [ true, %33 ], [ false, %_ZNK8seq_util9is_skolemEPK4expr.exit.i ], [ false, %4 ], [ false, %12 ]
   ret i1 %38
 }
 

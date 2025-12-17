@@ -2462,7 +2462,7 @@ _ZNK4llvm16AsmWriterOperandneERKS0_.exit:         ; preds = %49, %_ZStneIcSt11ch
   %.not21 = icmp eq i8 %54, %56
   br i1 %.not21, label %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread19, label %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread
 
-_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread:  ; preds = %41, %23, %36, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit9.i, %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZNK4llvm16AsmWriterOperandneERKS0_.exit
+_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread:  ; preds = %41, %23, %36, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit9.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %.lr.ph, %_ZNK4llvm16AsmWriterOperandneERKS0_.exit
   %.not17 = icmp eq i32 %.01423, -1
   %57 = trunc nuw i64 %indvars.iv to i32
   br i1 %.not17, label %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread19, label %.loopexit

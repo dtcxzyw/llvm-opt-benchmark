@@ -719,7 +719,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph8.split, !llvm.loop !37
 
 .loopexit:                                        ; preds = %51, %35, %.preheader, %19, %._crit_edge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %._crit_edge ], [ 1, %19 ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %19 ], [ 1, %._crit_edge ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -1041,7 +1041,7 @@ define i32 @Dsd_TreeSuppSize_rec(ptr noundef readonly captures(none) %0) local_u
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !44
 
 .loopexit:                                        ; preds = %9, %.preheader, %1, %8
-  %.010 = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %.preheader ], [ %16, %9 ]
+  %.010 = phi i32 [ 0, %1 ], [ 1, %8 ], [ 0, %.preheader ], [ %16, %9 ]
   ret i32 %.010
 }
 
@@ -3251,7 +3251,7 @@ tailrecurse:                                      ; preds = %10
   br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
 
 common.ret38:                                     ; preds = %._crit_edge.loopexit, %2, %17
-  %common.ret38.op = phi i64 [ %accumulator.ret.tr, %17 ], [ 0, %2 ], [ %37, %._crit_edge.loopexit ]
+  %common.ret38.op = phi i64 [ %accumulator.ret.tr, %17 ], [ %37, %._crit_edge.loopexit ], [ 0, %2 ]
   ret i64 %common.ret38.op
 
 17:                                               ; preds = %10

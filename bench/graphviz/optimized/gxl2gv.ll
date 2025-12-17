@@ -316,7 +316,7 @@ get_xml_attr.exit163.thread:                      ; preds = %45, %get_xml_attr.e
   br label %65
 
 65:                                               ; preds = %57, %54, %60
-  %Agundirected.sink = phi ptr [ @Agdirected, %60 ], [ @Agdirected, %54 ], [ @Agundirected, %57 ]
+  %Agundirected.sink = phi ptr [ @Agdirected, %54 ], [ @Agdirected, %60 ], [ @Agundirected, %57 ]
   %66 = load i32, ptr %Agundirected.sink, align 4
   %67 = tail call ptr @agopen(ptr noundef %41, i32 %66, ptr noundef nonnull @AgDefaultDisc) #24
   tail call fastcc void @push_subg(ptr noundef %67)
@@ -2004,7 +2004,7 @@ define internal fastcc void @setEdgeAttr(ptr noundef %0, ptr noundef %1, ptr nou
   br label %28
 
 28:                                               ; preds = %.sink.split, %17, %23, %8
-  %.019 = phi ptr [ %13, %8 ], [ %22, %17 ], [ %25, %23 ], [ %27, %.sink.split ]
+  %.019 = phi ptr [ %13, %8 ], [ %25, %23 ], [ %22, %17 ], [ %27, %.sink.split ]
   br i1 %4, label %29, label %31
 
 29:                                               ; preds = %28

@@ -6109,8 +6109,8 @@ if.then.i21.i:                                    ; preds = %invoke.cont5.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i21.i, %cleanup.thread.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit, %lor.lhs.false.i.i, %lor.rhs.i
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %lor.lhs.false.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs.i ], [ %__y.addr.1.i.i.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %14, %if.then.i21.i ]
-  %retval.sroa.3.0 = phi i8 [ 0, %lor.lhs.false.i.i ], [ 0, %lor.rhs.i ], [ 0, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ 1, %cleanup.thread.i ], [ 1, %if.then.i21.i ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %__y.addr.1.i.i.i, %lor.lhs.false.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs.i ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %14, %if.then.i21.i ]
+  %retval.sroa.3.0 = phi i8 [ 0, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ 0, %lor.lhs.false.i.i ], [ 0, %lor.rhs.i ], [ 1, %cleanup.thread.i ], [ 1, %if.then.i21.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -6365,8 +6365,8 @@ if.then.i21.i:                                    ; preds = %invoke.cont5.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i21.i, %cleanup.thread.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit, %lor.lhs.false.i.i, %lor.rhs.i
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %lor.lhs.false.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs.i ], [ %__y.addr.1.i.i.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %14, %if.then.i21.i ]
-  %retval.sroa.3.0 = phi i8 [ 0, %lor.lhs.false.i.i ], [ 0, %lor.rhs.i ], [ 0, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ 1, %cleanup.thread.i ], [ 1, %if.then.i21.i ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %__y.addr.1.i.i.i, %lor.lhs.false.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs.i ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %14, %if.then.i21.i ]
+  %retval.sroa.3.0 = phi i8 [ 0, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ 0, %lor.lhs.false.i.i ], [ 0, %lor.rhs.i ], [ 1, %cleanup.thread.i ], [ 1, %if.then.i21.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -7972,7 +7972,7 @@ if.then.i.i696:                                   ; preds = %lpad188
   br label %ehcleanup196
 
 ehcleanup196:                                     ; preds = %lpad188, %if.then.i.i696, %lpad186.loopexit.split-lp, %lpad186.loopexit
-  %.pn612 = phi { ptr, i32 } [ %lpad.phi1202, %if.then.i.i696 ], [ %lpad.loopexit1368, %lpad186.loopexit ], [ %lpad.loopexit.split-lp1369, %lpad186.loopexit.split-lp ], [ %lpad.phi1202, %lpad188 ]
+  %.pn612 = phi { ptr, i32 } [ %lpad.loopexit.split-lp1369, %lpad186.loopexit.split-lp ], [ %lpad.phi1202, %if.then.i.i696 ], [ %lpad.loopexit1368, %lpad186.loopexit ], [ %lpad.phi1202, %lpad188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp185)
   br label %_ZN3irr5video9SMaterialD2Ev.exit1053
 
@@ -10973,8 +10973,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.end170.thread, %
   ret i32 %ret.1417
 
 if.then.i.i.i297:                                 ; preds = %lpad110, %lpad146, %lpad70.loopexit.split-lp.loopexit.split-lp, %lpad70.loopexit.split-lp.loopexit, %lpad70.loopexit
-  %values.sroa.0.5 = phi ptr [ %values.sroa.0.4, %lpad110 ], [ %values.sroa.0.4, %lpad146 ], [ %values.sroa.0.1382, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %values.sroa.0.1382, %lpad70.loopexit.split-lp.loopexit ], [ %values.sroa.0.1382, %lpad70.loopexit ]
-  %.pn231.pn.pn = phi { ptr, i32 } [ %107, %lpad110 ], [ %125, %lpad146 ], [ %lpad.loopexit.split-lp359, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit358, %lpad70.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %lpad70.loopexit ]
+  %values.sroa.0.5 = phi ptr [ %values.sroa.0.4, %lpad146 ], [ %values.sroa.0.4, %lpad110 ], [ %values.sroa.0.1382, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %values.sroa.0.1382, %lpad70.loopexit.split-lp.loopexit ], [ %values.sroa.0.1382, %lpad70.loopexit ]
+  %.pn231.pn.pn = phi { ptr, i32 } [ %125, %lpad146 ], [ %107, %lpad110 ], [ %lpad.loopexit.split-lp359, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit358, %lpad70.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %lpad70.loopexit ]
   call void @_ZdlPv(ptr noundef nonnull %values.sroa.0.5) #30
   br label %ehcleanup192
 
@@ -11581,10 +11581,10 @@ for.inc128:                                       ; preds = %invoke.cont56, %if.
   br i1 %cmp.i.not, label %cleanup130, label %for.body
 
 cleanup130:                                       ; preds = %for.inc128, %if.end33, %for.inc128.us, %if.end33.us, %if.end20.thread, %if.end20
-  %retval.sroa.0.0.copyload.i1187 = phi i16 [ %retval.sroa.0.0.copyload.i, %if.end20 ], [ %retval.sroa.0.0.copyload.i1181, %if.end20.thread ], [ %retval.sroa.0.0.copyload.i, %if.end33.us ], [ %retval.sroa.0.0.copyload.i, %for.inc128.us ], [ %retval.sroa.0.0.copyload.i1181, %if.end33 ], [ %retval.sroa.0.0.copyload.i1181, %for.inc128 ]
-  %draw_order.sroa.32.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %if.end33.us ], [ null, %for.inc128.us ], [ %draw_order.sroa.32.4.ph, %for.inc128 ], [ %draw_order.sroa.32.01090, %if.end33 ]
-  %draw_order.sroa.15.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %if.end33.us ], [ null, %for.inc128.us ], [ %draw_order.sroa.15.4.ph, %for.inc128 ], [ %draw_order.sroa.15.01091, %if.end33 ]
-  %draw_order.sroa.0.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %if.end33.us ], [ null, %for.inc128.us ], [ %draw_order.sroa.0.4.ph, %for.inc128 ], [ %draw_order.sroa.0.01092, %if.end33 ]
+  %retval.sroa.0.0.copyload.i1187 = phi i16 [ %retval.sroa.0.0.copyload.i, %if.end20 ], [ %retval.sroa.0.0.copyload.i1181, %if.end20.thread ], [ %retval.sroa.0.0.copyload.i, %for.inc128.us ], [ %retval.sroa.0.0.copyload.i, %if.end33.us ], [ %retval.sroa.0.0.copyload.i1181, %if.end33 ], [ %retval.sroa.0.0.copyload.i1181, %for.inc128 ]
+  %draw_order.sroa.32.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.32.4.ph, %for.inc128 ], [ %draw_order.sroa.32.01090, %if.end33 ]
+  %draw_order.sroa.15.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.15.4.ph, %for.inc128 ], [ %draw_order.sroa.15.01091, %if.end33 ]
+  %draw_order.sroa.0.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.0.4.ph, %for.inc128 ], [ %draw_order.sroa.0.01092, %if.end33 ]
   %__begin2.sroa.0.01115 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !132
   %cmp.i594.not1116 = icmp eq ptr %__begin2.sroa.0.01115, null
   br i1 %cmp.i594.not1116, label %for.cond.cleanup154, label %for.body155
@@ -16712,8 +16712,8 @@ if.else74:                                        ; preds = %_ZNK9ClientMap16Map
   br label %cleanup80
 
 cleanup80:                                        ; preds = %if.else44, %if.else44.thread20, %if.else74, %if.then64, %if.then50, %if.else44.thread, %if.else42, %if.then32, %if.then18, %if.else, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit, %land.lhs.true.i.i, %land.rhs.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ %30, %if.else ], [ null, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %68, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %75, %if.else74 ], [ null, %if.then50 ], [ null, %land.lhs.true ], [ null, %land.lhs.true.i.i ], [ null, %land.rhs.i ], [ %spec.select, %if.then32 ], [ %spec.select276, %if.then64 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread20 ], [ %__position.coerce, %if.else44 ]
-  %retval.sroa.12.2 = phi ptr [ %31, %if.else ], [ %1, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %69, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %76, %if.else74 ], [ %__position.coerce, %if.then50 ], [ %1, %land.lhs.true ], [ %1, %land.lhs.true.i.i ], [ %1, %land.rhs.i ], [ %spec.select275, %if.then32 ], [ %spec.select277, %if.then64 ], [ null, %if.else44.thread ], [ null, %if.else44.thread20 ], [ null, %if.else44 ]
+  %retval.sroa.0.2 = phi ptr [ %30, %if.else ], [ null, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %68, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %75, %if.else74 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %land.lhs.true ], [ null, %land.lhs.true.i.i ], [ null, %land.rhs.i ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread20 ], [ %spec.select, %if.then32 ], [ %spec.select276, %if.then64 ]
+  %retval.sroa.12.2 = phi ptr [ %31, %if.else ], [ %1, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %69, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %76, %if.else74 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %1, %land.lhs.true ], [ %1, %land.lhs.true.i.i ], [ %1, %land.rhs.i ], [ null, %if.else44.thread ], [ null, %if.else44.thread20 ], [ %spec.select275, %if.then32 ], [ %spec.select277, %if.then64 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -18717,8 +18717,8 @@ if.end18.i249:                                    ; preds = %_ZNKSt4lessIN3irr4c
   br label %cleanup80
 
 cleanup80:                                        ; preds = %if.else44.thread87, %if.end18.i249, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %if.end18.i155, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %if.end18.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i150, %if.end18.i155 ], [ null, %if.then.i170 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ %__j.sroa.0.0.i244, %if.end18.i249 ], [ null, %if.then.i264 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread87 ]
-  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ null, %if.end18.i155 ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ null, %if.end18.i249 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %if.else44.thread87 ]
+  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i150, %if.end18.i155 ], [ null, %if.then.i170 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ %__j.sroa.0.0.i244, %if.end18.i249 ], [ null, %if.then.i264 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %land.lhs.true.i.i30.i254 ], [ %__position.coerce, %if.else44.thread87 ]
+  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ null, %if.end18.i155 ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ null, %if.end18.i249 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ null, %if.else44.thread87 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -108,8 +108,8 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   br i1 %.not45, label %36, label %._crit_edge
 
 36:                                               ; preds = %20, %18, %27, %31
-  %.135 = phi i64 [ %.03453, %31 ], [ %.03453, %27 ], [ %.03453, %18 ], [ %spec.select48, %20 ]
-  %.1 = phi i1 [ false, %31 ], [ true, %27 ], [ true, %18 ], [ %24, %20 ]
+  %.135 = phi i64 [ %.03453, %31 ], [ %spec.select48, %20 ], [ %.03453, %27 ], [ %.03453, %18 ]
+  %.1 = phi i1 [ false, %31 ], [ %24, %20 ], [ true, %27 ], [ true, %18 ]
   %37 = add i64 %.135, 1
   %38 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !3

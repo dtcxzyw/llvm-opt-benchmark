@@ -538,8 +538,8 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %28
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %57, %59, %49, %51
-  %.sink69 = phi ptr [ %50, %49 ], [ %52, %51 ], [ %58, %57 ], [ %60, %59 ]
-  %.sink = phi i32 [ 16, %49 ], [ 16, %51 ], [ %54, %57 ], [ %54, %59 ]
+  %.sink69 = phi ptr [ %52, %51 ], [ %50, %49 ], [ %58, %57 ], [ %60, %59 ]
+  %.sink = phi i32 [ 16, %51 ], [ 16, %49 ], [ %54, %57 ], [ %54, %59 ]
   store ptr %.sink69, ptr %33, align 8, !tbaa !43
   store i32 %.sink, ptr %25, align 8, !tbaa !42
   br label %Vec_IntPush.exit
@@ -961,8 +961,8 @@ Sml_NodeNotImpWeight.exit:                        ; preds = %.lr.ph.i167
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %156, %158, %148, %150
-  %.sink385 = phi ptr [ %149, %148 ], [ %151, %150 ], [ %157, %156 ], [ %159, %158 ]
-  %.sink = phi i32 [ 16, %148 ], [ 16, %150 ], [ %153, %156 ], [ %153, %158 ]
+  %.sink385 = phi ptr [ %151, %150 ], [ %149, %148 ], [ %157, %156 ], [ %159, %158 ]
+  %.sink = phi i32 [ 16, %150 ], [ 16, %148 ], [ %153, %156 ], [ %153, %158 ]
   store ptr %.sink385, ptr %47, align 8, !tbaa !43
   store i32 %.sink, ptr %39, align 8, !tbaa !42
   br label %Vec_IntPush.exit

@@ -217,7 +217,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %82
 
 82:                                               ; preds = %46, %81, %79
-  %83 = phi reassoc nsz arcp contract afn float [ %77, %81 ], [ 1.000000e+00, %79 ], [ 0.000000e+00, %46 ]
+  %83 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %79 ], [ %77, %81 ], [ 0.000000e+00, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %48, i64 16, i1 false), !tbaa !41, !alias.scope !42
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -288,7 +288,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %113
 
 113:                                              ; preds = %100, %112, %110
-  %114 = phi reassoc nsz arcp contract afn float [ %108, %112 ], [ 1.000000e+00, %110 ], [ 0.000000e+00, %100 ]
+  %114 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %110 ], [ %108, %112 ], [ 0.000000e+00, %100 ]
   %115 = getelementptr inbounds nuw float, ptr %11, i64 %.0107
   store float %114, ptr %115, align 4, !tbaa !41
   %116 = add nuw nsw i64 %.0107, 1

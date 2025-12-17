@@ -270,7 +270,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
   br i1 %or.cond.i.i, label %98, label %common.resume.i
 
 39:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i24.i.i", %84, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit15.i.i", %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i.i.i", %64, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit.i.i", %33
-  %.0.i.i = phi i1 [ true, %33 ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit.i.i" ], [ true, %64 ], [ false, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i.i.i" ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit15.i.i" ], [ true, %84 ], [ false, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i24.i.i" ]
+  %.0.i.i = phi i1 [ false, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i24.i.i" ], [ true, %84 ], [ false, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i.i.i" ], [ true, %64 ], [ true, %33 ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit.i.i" ], [ true, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit15.i.i" ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -497,7 +497,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
   br label %110
 
 common.resume.i:                                  ; preds = %108, %98, %92, %75, %68, %.body.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %109, %108 ], [ %.pn8.i.i, %98 ], [ %.pn8.i.i, %.body.i.i ], [ %69, %68 ], [ %93, %92 ], [ %76, %75 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %109, %108 ], [ %.pn8.i.i, %.body.i.i ], [ %.pn8.i.i, %98 ], [ %69, %68 ], [ %93, %92 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op.i
 
 98:                                               ; preds = %.body.i.i

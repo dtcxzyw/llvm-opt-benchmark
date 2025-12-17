@@ -154,7 +154,7 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %45, %40, %36, %.loopexit48, %33, %22, %18, %59, %20
-  %.037 = phi i32 [ 0, %20 ], [ 1, %59 ], [ -1, %18 ], [ 0, %22 ], [ %., %33 ], [ -1, %.loopexit48 ], [ -1, %45 ], [ 0, %40 ], [ 0, %36 ], [ 0, %24 ]
+  %.037 = phi i32 [ 0, %22 ], [ -1, %18 ], [ -1, %.loopexit48 ], [ %., %33 ], [ 0, %20 ], [ 1, %59 ], [ -1, %45 ], [ 0, %36 ], [ 0, %40 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -221,7 +221,7 @@ define internal fastcc zeroext i1 @ipfix_read_message_header(ptr noundef %0, ptr
   br label %32
 
 32:                                               ; preds = %29, %4, %25, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %25 ], [ false, %4 ], [ %31, %29 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %25 ], [ %31, %29 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -331,7 +331,7 @@ ipfix_read_message.exit:                          ; preds = %11
   br label %33
 
 33:                                               ; preds = %ipfix_read_message.exit, %29, %32, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %32 ], [ false, %29 ], [ true, %ipfix_read_message.exit ]
+  %.0 = phi i1 [ false, %5 ], [ false, %29 ], [ false, %32 ], [ true, %ipfix_read_message.exit ]
   ret i1 %.0
 }
 

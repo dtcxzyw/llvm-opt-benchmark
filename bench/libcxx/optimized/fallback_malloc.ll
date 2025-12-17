@@ -153,8 +153,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115fallback_mallocEm(i64 nou
   %.not = icmp eq i16 %56, 128
   br i1 %.not, label %.thread, label %11, !llvm.loop !14
 
-.thread:                                          ; preds = %55, %8, %30, %54
-  %.2 = phi ptr [ %37, %30 ], [ %12, %54 ], [ null, %8 ], [ null, %55 ]
+.thread:                                          ; preds = %55, %8, %54, %30
+  %.2 = phi ptr [ %12, %54 ], [ %37, %30 ], [ null, %8 ], [ null, %55 ]
   %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN12_GLOBAL__N_110heap_mutexE) #10
   ret ptr %.2
 

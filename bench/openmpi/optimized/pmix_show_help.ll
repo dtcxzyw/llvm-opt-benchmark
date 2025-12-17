@@ -982,7 +982,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %83
   br label %128
 
 128:                                              ; preds = %._crit_edge72, %open_file.exit.thread, %.thread
-  %.011 = phi i32 [ %.040, %.thread ], [ 0, %._crit_edge72 ], [ %.019.i.ph, %open_file.exit.thread ]
+  %.011 = phi i32 [ %.019.i.ph, %open_file.exit.thread ], [ %.040, %.thread ], [ 0, %._crit_edge72 ]
   ret i32 %.011
 }
 
@@ -1207,7 +1207,7 @@ define internal fastcc range(i32 -29, 1) i32 @match(ptr noundef readonly %0, ptr
   br label %30
 
 30:                                               ; preds = %.sink.split, %7, %9, %2
-  %.026 = phi i32 [ 0, %2 ], [ -29, %9 ], [ -1, %7 ], [ %.026.ph, %.sink.split ]
+  %.026 = phi i32 [ -29, %9 ], [ 0, %2 ], [ -1, %7 ], [ %.026.ph, %.sink.split ]
   ret i32 %.026
 }
 

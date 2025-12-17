@@ -53,7 +53,7 @@ get_x86_cpu_features.exit.i:                      ; preds = %6, %3
   br label %arch_select_adler32_func.exit
 
 arch_select_adler32_func.exit:                    ; preds = %get_x86_cpu_features.exit.i, %9, %11
-  %.0.i = phi ptr [ @adler32_x86_avx512_vl512_vnni, %get_x86_cpu_features.exit.i ], [ @adler32_x86_avx512_vl256_vnni, %9 ], [ %spec.select.i, %11 ]
+  %.0.i = phi ptr [ %spec.select.i, %11 ], [ @adler32_x86_avx512_vl512_vnni, %get_x86_cpu_features.exit.i ], [ @adler32_x86_avx512_vl256_vnni, %9 ]
   store volatile ptr %.0.i, ptr @adler32_impl, align 8, !tbaa !4
   %14 = tail call i32 %.0.i(i32 noundef %0, ptr noundef %1, i64 noundef %2) #12
   ret i32 %14

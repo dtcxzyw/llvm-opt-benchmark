@@ -249,7 +249,7 @@ _ZNKSt4lessISt4pairIPK3NFAjEEclERKS4_S7_.exit5.i.i.i: ; preds = %68
   br label %.thread28.i.i
 
 .thread28.i.i:                                    ; preds = %81, %79, %75, %73
-  %85 = phi i1 [ true, %73 ], [ true, %75 ], [ false, %79 ], [ %84, %81 ]
+  %85 = phi i1 [ %84, %81 ], [ true, %73 ], [ true, %75 ], [ false, %79 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %85, ptr noundef nonnull %48, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   %86 = load i64, ptr %12, align 8
   %87 = add i64 %86, 1
@@ -515,7 +515,7 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %160
   br label %198
 
 198:                                              ; preds = %195, %_ZN3ue210verify_u32IlEEjT_.exit.i
-  %.1.i = phi i8 [ 0, %195 ], [ 1, %_ZN3ue210verify_u32IlEEjT_.exit.i ]
+  %.1.i = phi i8 [ 1, %_ZN3ue210verify_u32IlEEjT_.exit.i ], [ 0, %195 ]
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.06.022.i, i64 8
   %.not17.i = icmp eq ptr %199, %.val42
   br i1 %.not17.i, label %._crit_edge.i59, label %160
@@ -545,8 +545,8 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %160
   br label %.body
 
 209:                                              ; preds = %200, %._crit_edge.i59, %_ZN3ue210copy_bytesIjSaIjEEEPvS2_RKSt6vectorIT_T0_E.exit
-  %.015.lcssa38.i = phi i32 [ %.sroa.speculated3.i, %200 ], [ %.sroa.speculated3.i, %._crit_edge.i59 ], [ 0, %_ZN3ue210copy_bytesIjSaIjEEEPvS2_RKSt6vectorIT_T0_E.exit ]
-  %.016.lcssa37.i = phi i32 [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %._crit_edge.i59 ], [ 0, %_ZN3ue210copy_bytesIjSaIjEEEPvS2_RKSt6vectorIT_T0_E.exit ]
+  %.015.lcssa38.i = phi i32 [ %.sroa.speculated3.i, %._crit_edge.i59 ], [ %.sroa.speculated3.i, %200 ], [ 0, %_ZN3ue210copy_bytesIjSaIjEEEPvS2_RKSt6vectorIT_T0_E.exit ]
+  %.016.lcssa37.i = phi i32 [ %.sroa.speculated.i, %._crit_edge.i59 ], [ %.sroa.speculated.i, %200 ], [ 0, %_ZN3ue210copy_bytesIjSaIjEEEPvS2_RKSt6vectorIT_T0_E.exit ]
   %210 = getelementptr inbounds nuw i8, ptr %146, i64 11
   store i8 0, ptr %210, align 1
   %211 = add i32 %.015.lcssa38.i, %99
@@ -565,7 +565,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %209, %214
   ret void
 
 .body:                                            ; preds = %207, %177, %128, %135, %205, %203, %116
-  %.pn.pn = phi { ptr, i32 } [ %204, %203 ], [ %117, %116 ], [ %129, %128 ], [ %206, %205 ], [ %136, %135 ], [ %208, %207 ], [ %178, %177 ]
+  %.pn.pn = phi { ptr, i32 } [ %117, %116 ], [ %136, %135 ], [ %204, %203 ], [ %129, %128 ], [ %206, %205 ], [ %208, %207 ], [ %178, %177 ]
   tail call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   br label %.loopexit.split-lp
 
@@ -1492,7 +1492,7 @@ _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit5.i:      ; preds = %31
   br label %.thread28
 
 .thread28:                                        ; preds = %36, %38, %42, %44
-  %48 = phi i1 [ true, %36 ], [ true, %38 ], [ false, %42 ], [ %47, %44 ]
+  %48 = phi i1 [ %47, %44 ], [ true, %36 ], [ true, %38 ], [ false, %42 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %48, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load i64, ptr %49, align 8

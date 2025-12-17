@@ -207,7 +207,7 @@ logger_link_q.exit:                               ; preds = %19, %22
   br label %26
 
 26:                                               ; preds = %0, %logger_link_q.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %1, %logger_link_q.exit ], [ null, %0 ]
+  %.0 = phi ptr [ %1, %logger_link_q.exit ], [ null, %8 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -432,7 +432,7 @@ logger_set_flags.exit:                            ; preds = %.lr.ph.i, %.prehead
   br label %50
 
 50:                                               ; preds = %.split.loop.exit31, %3, %logger_set_flags.exit, %28
-  %.024 = phi i32 [ 2, %28 ], [ 1, %logger_set_flags.exit ], [ 0, %3 ], [ 2, %.split.loop.exit31 ]
+  %.024 = phi i32 [ 1, %logger_set_flags.exit ], [ 0, %3 ], [ 2, %28 ], [ 2, %.split.loop.exit31 ]
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @logger_stack_lock) #18
   ret i32 %.024
 }
@@ -889,7 +889,7 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   br i1 %exitcond.not, label %.split91.us, label %.split.split, !llvm.loop !73
 
 .split91.us:                                      ; preds = %51, %37, %22
-  %.us-phi = phi i32 [ %.160.us, %22 ], [ %.160.us98, %37 ], [ %.160, %51 ]
+  %.us-phi = phi i32 [ %.160.us98, %37 ], [ %.160.us, %22 ], [ %.160, %51 ]
   %52 = icmp eq i32 %.us-phi, 0
   br i1 %52, label %.loopexit, label %53
 
@@ -1004,7 +1004,7 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   br label %105
 
 105:                                              ; preds = %98, %93
-  %.0.in = phi i64 [ %97, %93 ], [ %104, %98 ]
+  %.0.in = phi i64 [ %104, %98 ], [ %97, %93 ]
   %.0 = trunc i64 %.0.in to i32
   switch i32 %.0, label %110 [
     i32 -1, label %106
@@ -1032,13 +1032,13 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   br label %114
 
 114:                                              ; preds = %109, %106, %110, %.thread86, %87, %88, %80
-  %.264 = phi i32 [ %.062101, %87 ], [ %.062101, %88 ], [ %.062101, %80 ], [ %.062101, %109 ], [ %.062101, %106 ], [ %.062101, %.thread86 ], [ %113, %110 ]
+  %.264 = phi i32 [ %.062101, %87 ], [ %.062101, %80 ], [ %.062101, %88 ], [ %.062101, %109 ], [ %113, %110 ], [ %.062101, %106 ], [ %.062101, %.thread86 ]
   %115 = add nsw i32 %.3102, 1
   br label %116
 
 116:                                              ; preds = %78, %59, %114
-  %.163 = phi i32 [ %.264, %114 ], [ %.062101, %78 ], [ %.062101, %59 ]
-  %.4 = phi i32 [ %115, %114 ], [ %79, %78 ], [ %.3102, %59 ]
+  %.163 = phi i32 [ %.062101, %78 ], [ %.264, %114 ], [ %.062101, %59 ]
+  %.4 = phi i32 [ %79, %78 ], [ %115, %114 ], [ %.3102, %59 ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 20
   br i1 %exitcond120.not, label %.loopexit, label %59, !llvm.loop !89

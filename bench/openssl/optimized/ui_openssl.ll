@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @open_console(ptr noundef readonly captures(
   br label %31
 
 31:                                               ; preds = %15, %24, %26, %28, %27, %25, %23, %1, %29
-  %.0 = phi i32 [ 0, %29 ], [ 0, %1 ], [ 1, %23 ], [ 1, %25 ], [ 1, %27 ], [ 1, %28 ], [ 1, %26 ], [ 1, %24 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %29 ], [ 1, %23 ], [ 1, %25 ], [ 1, %27 ], [ 1, %28 ], [ 1, %26 ], [ 1, %24 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -215,7 +215,7 @@ define internal range(i32 -1, 2) i32 @read_string(ptr noundef %0, ptr noundef %1
   br label %44
 
 44:                                               ; preds = %2, %35, %25, %39, %16, %4
-  %.0 = phi i32 [ %15, %4 ], [ %24, %16 ], [ 0, %39 ], [ %33, %25 ], [ 1, %35 ], [ 1, %2 ]
+  %.0 = phi i32 [ %33, %25 ], [ %15, %4 ], [ %24, %16 ], [ 0, %39 ], [ 1, %35 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -402,7 +402,7 @@ read_till_nl.exit:                                ; preds = %43
   br label %49
 
 49:                                               ; preds = %read_till_nl.exit.thread, %46, %33, %30, %noecho_console.exit
-  %.0 = phi i32 [ 0, %noecho_console.exit ], [ 0, %30 ], [ 0, %33 ], [ %spec.select, %46 ], [ 0, %read_till_nl.exit.thread ]
+  %.0 = phi i32 [ 0, %noecho_console.exit ], [ 0, %30 ], [ 0, %33 ], [ 0, %read_till_nl.exit.thread ], [ %spec.select, %46 ]
   %50 = load volatile i32, ptr @intr_signal, align 4, !tbaa !17
   %51 = icmp eq i32 %50, 2
   %spec.select20 = select i1 %51, i32 -1, i32 %.0
@@ -431,7 +431,7 @@ read_till_nl.exit:                                ; preds = %43
   br label %echo_console.exitthread-pre-split
 
 echo_console.exitthread-pre-split:                ; preds = %57, %49, %56
-  %.2.ph = phi i32 [ %spec.select2034, %56 ], [ %spec.select20, %49 ], [ %spec.select41, %57 ]
+  %.2.ph = phi i32 [ %spec.select41, %57 ], [ %spec.select2034, %56 ], [ %spec.select20, %49 ]
   %.pr = load i32, ptr @read_string_inner.ps, align 4, !tbaa !17
   br label %echo_console.exit
 

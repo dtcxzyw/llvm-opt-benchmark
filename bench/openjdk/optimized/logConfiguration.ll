@@ -603,7 +603,7 @@ define hidden noundef ptr @_ZN16LogConfiguration10new_outputEPKcS1_P12outputStre
   br label %19
 
 19:                                               ; preds = %8, %15, %14
-  %.0 = phi ptr [ null, %15 ], [ null, %14 ], [ %9, %8 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %15 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -726,8 +726,8 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %23, %17
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread
 
 _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit, %19
-  %.03247 = phi i64 [ 0, %19 ], [ %27, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
-  %28 = phi i1 [ %.03451, %19 ], [ %spec.select, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
+  %.03247 = phi i64 [ %27, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ], [ 0, %19 ]
+  %28 = phi i1 [ %spec.select, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ], [ %.03451, %19 ]
   %29 = getelementptr inbounds nuw i64, ptr %4, i64 %.03247
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
@@ -1126,7 +1126,7 @@ sub_268:                                          ; preds = %sub_167
   br i1 %70, label %.thread, label %72
 
 .thread:                                          ; preds = %.tail65, %67, %50, %51, %68
-  %.04662 = phi ptr [ null, %68 ], [ null, %51 ], [ %31, %50 ], [ %31, %67 ], [ %31, %.tail65 ]
+  %.04662 = phi ptr [ null, %51 ], [ null, %68 ], [ %31, %50 ], [ %31, %67 ], [ %31, %.tail65 ]
   %71 = call noundef zeroext i1 @_ZN16LogConfiguration19parse_log_argumentsEPKcS1_S1_S1_P12outputStream(ptr noundef %27, ptr noundef %25, ptr noundef %29, ptr noundef %.04662, ptr noundef nonnull %4)
   br label %72
 

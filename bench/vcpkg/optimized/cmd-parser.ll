@@ -1428,7 +1428,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %31, %28, %113
-  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %29, %31 ], [ %29, %28 ]
+  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %29, %28 ], [ %29, %31 ]
   br label %115
 
 115:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %.body
@@ -2364,7 +2364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit715: ; preds = %.b
   br label %.body684
 
 .body684:                                         ; preds = %353, %350, %436
-  %.pn480.pn = phi { ptr, i32 } [ %437, %436 ], [ %351, %353 ], [ %351, %350 ]
+  %.pn480.pn = phi { ptr, i32 } [ %437, %436 ], [ %351, %350 ], [ %351, %353 ]
   br label %438
 
 438:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit721, %.body684
@@ -3294,7 +3294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit876: ; preds = %.b
   br label %.body845
 
 .body845:                                         ; preds = %696, %693, %780
-  %.pn498.pn = phi { ptr, i32 } [ %781, %780 ], [ %694, %696 ], [ %694, %693 ]
+  %.pn498.pn = phi { ptr, i32 } [ %781, %780 ], [ %694, %693 ], [ %694, %696 ]
   br label %782
 
 782:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit882, %.body845
@@ -3843,7 +3843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit979: ; preds = %.b
   br label %.body948
 
 .body948:                                         ; preds = %906, %903, %990
-  %.pn508.pn = phi { ptr, i32 } [ %991, %990 ], [ %904, %906 ], [ %904, %903 ]
+  %.pn508.pn = phi { ptr, i32 } [ %991, %990 ], [ %904, %903 ], [ %904, %906 ]
   br label %992
 
 992:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit985, %.body948
@@ -4392,7 +4392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1082: ; preds = %.
   br label %.body1051
 
 .body1051:                                        ; preds = %1116, %1113, %1200
-  %.pn518.pn = phi { ptr, i32 } [ %1201, %1200 ], [ %1114, %1116 ], [ %1114, %1113 ]
+  %.pn518.pn = phi { ptr, i32 } [ %1201, %1200 ], [ %1114, %1113 ], [ %1114, %1116 ]
   br label %1202
 
 1202:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088, %.body1051
@@ -5011,7 +5011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1195: ; preds = %.
   br label %.body1161
 
 .body1161:                                        ; preds = %1345, %1342, %1430
-  %.pn530.pn = phi { ptr, i32 } [ %1431, %1430 ], [ %1343, %1345 ], [ %1343, %1342 ]
+  %.pn530.pn = phi { ptr, i32 } [ %1431, %1430 ], [ %1343, %1342 ], [ %1343, %1345 ]
   %1432 = load ptr, ptr %98, align 8, !tbaa !43
   %1433 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %1434 = icmp eq ptr %1432, %1433
@@ -5611,7 +5611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1306: ; preds = %.
   br label %.body1275
 
 .body1275:                                        ; preds = %1571, %1568, %1657
-  %.pn542.pn = phi { ptr, i32 } [ %1658, %1657 ], [ %1569, %1571 ], [ %1569, %1568 ]
+  %.pn542.pn = phi { ptr, i32 } [ %1658, %1657 ], [ %1569, %1568 ], [ %1569, %1571 ]
   br label %1659
 
 1659:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1312, %.body1275
@@ -6220,7 +6220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1423: ; preds = %.
   br label %.body1392
 
 .body1392:                                        ; preds = %1802, %1799, %1888
-  %.pn554.pn = phi { ptr, i32 } [ %1889, %1888 ], [ %1800, %1802 ], [ %1800, %1799 ]
+  %.pn554.pn = phi { ptr, i32 } [ %1889, %1888 ], [ %1800, %1799 ], [ %1800, %1802 ]
   br label %1890
 
 1890:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1429, %.body1392
@@ -6835,7 +6835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1540: ; preds = %.
   br label %.body1509
 
 .body1509:                                        ; preds = %2038, %2035, %2124
-  %.pn566.pn = phi { ptr, i32 } [ %2125, %2124 ], [ %2036, %2038 ], [ %2036, %2035 ]
+  %.pn566.pn = phi { ptr, i32 } [ %2125, %2124 ], [ %2036, %2035 ], [ %2036, %2038 ]
   br label %2126
 
 2126:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1546, %.body1509
@@ -7497,7 +7497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1668: ; preds = %.
   br label %.body1631
 
 .body1631:                                        ; preds = %2281, %2278, %2374
-  %.pn579.pn = phi { ptr, i32 } [ %2375, %2374 ], [ %2279, %2281 ], [ %2279, %2278 ]
+  %.pn579.pn = phi { ptr, i32 } [ %2375, %2374 ], [ %2279, %2278 ], [ %2279, %2281 ]
   br label %2376
 
 2376:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1671, %.body1631
@@ -8114,7 +8114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1786: ; preds = %.
   br label %.body1755
 
 .body1755:                                        ; preds = %2523, %2520, %2609
-  %.pn591.pn = phi { ptr, i32 } [ %2610, %2609 ], [ %2521, %2523 ], [ %2521, %2520 ]
+  %.pn591.pn = phi { ptr, i32 } [ %2610, %2609 ], [ %2521, %2520 ], [ %2521, %2523 ]
   br label %2611
 
 2611:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1792, %.body1755
@@ -8731,7 +8731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1907: ; preds = %.
   br label %.body1876
 
 .body1876:                                        ; preds = %2758, %2755, %2844
-  %.pn603.pn = phi { ptr, i32 } [ %2845, %2844 ], [ %2756, %2758 ], [ %2756, %2755 ]
+  %.pn603.pn = phi { ptr, i32 } [ %2845, %2844 ], [ %2756, %2755 ], [ %2756, %2758 ]
   br label %2846
 
 2846:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1913, %.body1876
@@ -9354,7 +9354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2028: ; preds = %.
   br label %.body1997
 
 .body1997:                                        ; preds = %2998, %2995, %3084
-  %.pn615.pn = phi { ptr, i32 } [ %3085, %3084 ], [ %2996, %2998 ], [ %2996, %2995 ]
+  %.pn615.pn = phi { ptr, i32 } [ %3085, %3084 ], [ %2996, %2995 ], [ %2996, %2998 ]
   br label %3086
 
 3086:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2034, %.body1997
@@ -10088,7 +10088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2184: ; preds = %.
   br label %.body2147
 
 .body2147:                                        ; preds = %3273, %3270, %3369
-  %.pn633.pn = phi { ptr, i32 } [ %3370, %3369 ], [ %3271, %3273 ], [ %3271, %3270 ]
+  %.pn633.pn = phi { ptr, i32 } [ %3370, %3369 ], [ %3271, %3270 ], [ %3271, %3273 ]
   br label %3371
 
 3371:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2190, %.body2147
@@ -14681,7 +14681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body411
 
 .body411:                                         ; preds = %1541, %1538, %1625
-  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn, %1625 ], [ %1539, %1541 ], [ %1539, %1538 ]
+  %.pn193.pn.pn = phi { ptr, i32 } [ %.pn193.pn, %1625 ], [ %1539, %1538 ], [ %1539, %1541 ]
   %1626 = load ptr, ptr %174, align 8, !tbaa !43
   %1627 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %1628 = icmp eq ptr %1626, %1627
@@ -19694,7 +19694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit369: ; preds = %_Z
   br label %.body364
 
 .body364:                                         ; preds = %.thread, %1212, %1271
-  %.pn173 = phi { ptr, i32 } [ %1272, %1271 ], [ %1213, %1212 ], [ %1207, %.thread ]
+  %.pn173 = phi { ptr, i32 } [ %1272, %1271 ], [ %1207, %.thread ], [ %1213, %1212 ]
   %1273 = load ptr, ptr %134, align 8, !tbaa !43
   %1274 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1275 = icmp eq ptr %1273, %1274
@@ -20918,7 +20918,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body423
 
 .body423:                                         ; preds = %1641, %1638, %1727
-  %.pn204.pn = phi { ptr, i32 } [ %1728, %1727 ], [ %1639, %1641 ], [ %1639, %1638 ]
+  %.pn204.pn = phi { ptr, i32 } [ %1728, %1727 ], [ %1639, %1638 ], [ %1639, %1641 ]
   %1729 = load ptr, ptr %176, align 8, !tbaa !43
   %1730 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %1731 = icmp eq ptr %1729, %1730
@@ -21168,7 +21168,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494: ; preds = %18
   br label %1814
 
 1814:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494, %1268, %1178, %1126, %1077, %1025, %977, %925, %863
-  %.pn205.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %.pn170.pn, %1268 ], [ %.pn166.pn, %1178 ], [ %.pn163.pn, %1126 ], [ %.pn159.pn, %1077 ], [ %.pn156.pn, %1025 ], [ %.pn152.pn, %977 ], [ %.pn149.pn, %925 ], [ %.pn146.pn, %863 ]
+  %.pn205.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494 ], [ %.pn170.pn, %1268 ], [ %.pn166.pn, %1178 ], [ %.pn149.pn, %925 ], [ %.pn163.pn, %1126 ], [ %.pn159.pn, %1077 ], [ %.pn156.pn, %1025 ], [ %.pn152.pn, %977 ], [ %.pn146.pn, %863 ]
   %1815 = load i8, ptr %91, align 8, !tbaa !264, !range !40, !noundef !41
   %1816 = trunc nuw i8 %1815 to i1
   br i1 %1816, label %1817, label %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit497
@@ -24562,7 +24562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body43
 
 .body43:                                          ; preds = %140, %137, %225
-  %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %225 ], [ %138, %140 ], [ %138, %137 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %225 ], [ %138, %137 ], [ %138, %140 ]
   %226 = load ptr, ptr %24, align 8, !tbaa !43
   %227 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %228 = icmp eq ptr %226, %227
@@ -25641,7 +25641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body75
 
 .body75:                                          ; preds = %204, %201, %289
-  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %289 ], [ %202, %204 ], [ %202, %201 ]
+  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %289 ], [ %202, %201 ], [ %202, %204 ]
   %290 = load ptr, ptr %29, align 8, !tbaa !43
   %291 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %292 = icmp eq ptr %290, %291
@@ -25975,7 +25975,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body96
 
 .body96:                                          ; preds = %328, %325, %414
-  %.pn44.pn = phi { ptr, i32 } [ %415, %414 ], [ %326, %328 ], [ %326, %325 ]
+  %.pn44.pn = phi { ptr, i32 } [ %415, %414 ], [ %326, %325 ], [ %326, %328 ]
   %416 = load ptr, ptr %37, align 8, !tbaa !43
   %417 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %418 = icmp eq ptr %416, %417
@@ -27039,7 +27039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body339
 
 .body339:                                         ; preds = %338, %335, %407
-  %.pn171.pn = phi { ptr, i32 } [ %408, %407 ], [ %336, %338 ], [ %336, %335 ]
+  %.pn171.pn = phi { ptr, i32 } [ %408, %407 ], [ %336, %335 ], [ %336, %338 ]
   %409 = load ptr, ptr %47, align 8, !tbaa !43
   %410 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %411 = icmp eq ptr %409, %410
@@ -27694,7 +27694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394: ; preds = %_Z
   br label %.body366
 
 .body366:                                         ; preds = %581, %578, %651
-  %.pn184.pn = phi { ptr, i32 } [ %652, %651 ], [ %579, %581 ], [ %579, %578 ]
+  %.pn184.pn = phi { ptr, i32 } [ %652, %651 ], [ %579, %578 ], [ %579, %581 ]
   %653 = load ptr, ptr %66, align 8, !tbaa !43
   %654 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %655 = icmp eq ptr %653, %654
@@ -29200,7 +29200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   br label %.body485
 
 .body485:                                         ; preds = %1130, %1127, %1198
-  %.pn217.pn = phi { ptr, i32 } [ %1199, %1198 ], [ %1128, %1130 ], [ %1128, %1127 ]
+  %.pn217.pn = phi { ptr, i32 } [ %1199, %1198 ], [ %1128, %1127 ], [ %1128, %1130 ]
   %1200 = load ptr, ptr %113, align 8, !tbaa !43
   %1201 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1202 = icmp eq ptr %1200, %1201
@@ -29684,7 +29684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit575: ; preds = %_Z
   br label %.body547
 
 .body547:                                         ; preds = %1307, %1304, %1379
-  %.pn224.pn = phi { ptr, i32 } [ %1380, %1379 ], [ %1305, %1307 ], [ %1305, %1304 ]
+  %.pn224.pn = phi { ptr, i32 } [ %1380, %1379 ], [ %1305, %1304 ], [ %1305, %1307 ]
   br label %1381
 
 1381:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit578, %.body547
@@ -30216,7 +30216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit665: ; preds = %_Z
   br label %.body637
 
 .body637:                                         ; preds = %1506, %1503, %1574
-  %.pn233.pn = phi { ptr, i32 } [ %1575, %1574 ], [ %1504, %1506 ], [ %1504, %1503 ]
+  %.pn233.pn = phi { ptr, i32 } [ %1575, %1574 ], [ %1504, %1503 ], [ %1504, %1506 ]
   %1576 = load ptr, ptr %138, align 8, !tbaa !43
   %1577 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %1578 = icmp eq ptr %1576, %1577
@@ -30475,7 +30475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit695: ; preds = %_Z
   br label %.body677
 
 .body677:                                         ; preds = %.thread1301, %1608, %1667
-  %.pn237 = phi { ptr, i32 } [ %1668, %1667 ], [ %1609, %1608 ], [ %1603, %.thread1301 ]
+  %.pn237 = phi { ptr, i32 } [ %1668, %1667 ], [ %1603, %.thread1301 ], [ %1609, %1608 ]
   %1669 = load ptr, ptr %142, align 8, !tbaa !43
   %1670 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %1671 = icmp eq ptr %1669, %1670
@@ -30912,7 +30912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit751: ; preds = %_Z
   br label %.body723
 
 .body723:                                         ; preds = %1760, %1757, %1833
-  %.pn247.pn = phi { ptr, i32 } [ %1834, %1833 ], [ %1758, %1760 ], [ %1758, %1757 ]
+  %.pn247.pn = phi { ptr, i32 } [ %1834, %1833 ], [ %1758, %1757 ], [ %1758, %1760 ]
   br label %1835
 
 1835:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit754, %.body723
@@ -31402,7 +31402,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body777
 
 .body777:                                         ; preds = %1935, %1932, %2021
-  %.pn255.pn = phi { ptr, i32 } [ %2022, %2021 ], [ %1933, %1935 ], [ %1933, %1932 ]
+  %.pn255.pn = phi { ptr, i32 } [ %2022, %2021 ], [ %1933, %1932 ], [ %1933, %1935 ]
   %2023 = load ptr, ptr %171, align 8, !tbaa !43
   %2024 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %2025 = icmp eq ptr %2023, %2024
@@ -32550,7 +32550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %_Z
   br label %.body250
 
 .body250:                                         ; preds = %264, %261, %332
-  %.pn106.pn = phi { ptr, i32 } [ %333, %332 ], [ %262, %264 ], [ %262, %261 ]
+  %.pn106.pn = phi { ptr, i32 } [ %333, %332 ], [ %262, %261 ], [ %262, %264 ]
   %334 = load ptr, ptr %34, align 8, !tbaa !43
   %335 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %336 = icmp eq ptr %334, %335
@@ -32959,7 +32959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301: ; preds = %_Z
   br label %.body273
 
 .body273:                                         ; preds = %419, %416, %487
-  %.pn113.pn = phi { ptr, i32 } [ %488, %487 ], [ %417, %419 ], [ %417, %416 ]
+  %.pn113.pn = phi { ptr, i32 } [ %488, %487 ], [ %417, %416 ], [ %417, %419 ]
   %489 = load ptr, ptr %45, align 8, !tbaa !43
   %490 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %491 = icmp eq ptr %489, %490
@@ -33968,7 +33968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389: ; preds = %_Z
   br label %.body361
 
 .body361:                                         ; preds = %785, %782, %853
-  %.pn136.pn = phi { ptr, i32 } [ %854, %853 ], [ %783, %785 ], [ %783, %782 ]
+  %.pn136.pn = phi { ptr, i32 } [ %854, %853 ], [ %783, %782 ], [ %783, %785 ]
   %855 = load ptr, ptr %74, align 8, !tbaa !43
   %856 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %857 = icmp eq ptr %855, %856
@@ -35133,7 +35133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit474: ; preds = %_Z
   br label %.body446
 
 .body446:                                         ; preds = %1211, %1208, %1279
-  %.pn163.pn = phi { ptr, i32 } [ %1280, %1279 ], [ %1209, %1211 ], [ %1209, %1208 ]
+  %.pn163.pn = phi { ptr, i32 } [ %1280, %1279 ], [ %1209, %1208 ], [ %1209, %1211 ]
   %1281 = load ptr, ptr %110, align 8, !tbaa !43
   %1282 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %1283 = icmp eq ptr %1281, %1282
@@ -35995,7 +35995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body43
 
 .body43:                                          ; preds = %140, %137, %225
-  %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %225 ], [ %138, %140 ], [ %138, %137 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %225 ], [ %138, %137 ], [ %138, %140 ]
   %226 = load ptr, ptr %24, align 8, !tbaa !43
   %227 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %228 = icmp eq ptr %226, %227
@@ -37093,7 +37093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body75
 
 .body75:                                          ; preds = %204, %201, %289
-  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %289 ], [ %202, %204 ], [ %202, %201 ]
+  %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %289 ], [ %202, %201 ], [ %202, %204 ]
   %290 = load ptr, ptr %29, align 8, !tbaa !43
   %291 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %292 = icmp eq ptr %290, %291
@@ -37427,7 +37427,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body96
 
 .body96:                                          ; preds = %328, %325, %414
-  %.pn44.pn = phi { ptr, i32 } [ %415, %414 ], [ %326, %328 ], [ %326, %325 ]
+  %.pn44.pn = phi { ptr, i32 } [ %415, %414 ], [ %326, %325 ], [ %326, %328 ]
   %416 = load ptr, ptr %37, align 8, !tbaa !43
   %417 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %418 = icmp eq ptr %416, %417
@@ -39715,7 +39715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %_Z
   br label %.body122
 
 .body122:                                         ; preds = %183, %180, %321
-  %.pn75 = phi { ptr, i32 } [ %322, %321 ], [ %181, %183 ], [ %181, %180 ]
+  %.pn75 = phi { ptr, i32 } [ %322, %321 ], [ %181, %180 ], [ %181, %183 ]
   %323 = load ptr, ptr %25, align 8, !tbaa !43
   %324 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %325 = icmp eq ptr %323, %324
@@ -39767,7 +39767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %.b
   br label %.body148
 
 .body148:                                         ; preds = %238, %235, %338
-  %.pn78.pn.pn = phi { ptr, i32 } [ %.pn78.pn, %338 ], [ %236, %238 ], [ %236, %235 ]
+  %.pn78.pn.pn = phi { ptr, i32 } [ %.pn78.pn, %338 ], [ %236, %235 ], [ %236, %238 ]
   br label %339
 
 339:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %.body148
@@ -40461,7 +40461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285: ; preds = %_Z
   br label %.body211
 
 .body211:                                         ; preds = %445, %442, %595
-  %.pn88 = phi { ptr, i32 } [ %596, %595 ], [ %443, %445 ], [ %443, %442 ]
+  %.pn88 = phi { ptr, i32 } [ %596, %595 ], [ %443, %442 ], [ %443, %445 ]
   br label %597
 
 597:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288, %.body211
@@ -40532,7 +40532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %59
   br label %.body245
 
 .body245:                                         ; preds = %512, %509, %620
-  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %620 ], [ %510, %512 ], [ %510, %509 ]
+  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %620 ], [ %510, %509 ], [ %510, %512 ]
   br label %621
 
 621:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294, %.body245
@@ -40554,12 +40554,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294: ; preds = %62
   br i1 %629, label %.thread357, label %621
 
 630:                                              ; preds = %612, %614
-  %.pn92.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %613, %612 ], [ %615, %614 ]
-  %.031 = phi ptr [ %490, %612 ], [ %497, %614 ]
+  %.pn92.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %615, %614 ], [ %613, %612 ]
+  %.031 = phi ptr [ %497, %614 ], [ %490, %612 ]
   br label %631
 
 631:                                              ; preds = %630, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297
-  %632 = phi ptr [ %633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297 ], [ %.031, %630 ]
+  %632 = phi ptr [ %.031, %630 ], [ %633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297 ]
   %633 = getelementptr inbounds i8, ptr %632, i64 -32
   %634 = load ptr, ptr %633, align 8, !tbaa !43
   %635 = getelementptr inbounds i8, ptr %632, i64 -16
@@ -41406,7 +41406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %_Z
   br label %.body186
 
 .body186:                                         ; preds = %183, %180, %268
-  %.pn114.pn.pn = phi { ptr, i32 } [ %.pn114.pn, %268 ], [ %181, %183 ], [ %181, %180 ]
+  %.pn114.pn.pn = phi { ptr, i32 } [ %.pn114.pn, %268 ], [ %181, %180 ], [ %181, %183 ]
   %269 = load ptr, ptr %33, align 8, !tbaa !43
   %270 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %271 = icmp eq ptr %269, %270
@@ -41840,7 +41840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260: ; preds = %40
   br label %.body238
 
 .body238:                                         ; preds = %360, %357, %420
-  %.pn124 = phi { ptr, i32 } [ %421, %420 ], [ %358, %360 ], [ %358, %357 ]
+  %.pn124 = phi { ptr, i32 } [ %421, %420 ], [ %358, %357 ], [ %358, %360 ]
   %422 = load ptr, ptr %41, align 8, !tbaa !43
   %423 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %424 = icmp eq ptr %422, %423
@@ -42430,7 +42430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324: ; preds = %62
   br label %.body300
 
 .body300:                                         ; preds = %570, %567, %634
-  %.pn140 = phi { ptr, i32 } [ %635, %634 ], [ %568, %570 ], [ %568, %567 ]
+  %.pn140 = phi { ptr, i32 } [ %635, %634 ], [ %568, %567 ], [ %568, %570 ]
   br label %636
 
 636:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit327, %.body300
@@ -42831,7 +42831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386: ; preds = %_Z
   br label %.body346
 
 .body346:                                         ; preds = %694, %691, %783
-  %.pn148.pn.pn = phi { ptr, i32 } [ %.pn148.pn, %783 ], [ %692, %694 ], [ %692, %691 ]
+  %.pn148.pn.pn = phi { ptr, i32 } [ %.pn148.pn, %783 ], [ %692, %691 ], [ %692, %694 ]
   br label %784
 
 784:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389, %.body346
@@ -43311,7 +43311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %94
   br label %.body426
 
 .body426:                                         ; preds = %894, %891, %958
-  %.pn158 = phi { ptr, i32 } [ %959, %958 ], [ %892, %894 ], [ %892, %891 ]
+  %.pn158 = phi { ptr, i32 } [ %959, %958 ], [ %892, %891 ], [ %892, %894 ]
   br label %960
 
 960:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453, %.body426
@@ -43741,7 +43741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit516: ; preds = %_Z
   br label %.body476
 
 .body476:                                         ; preds = %1025, %1022, %1118
-  %.pn167.pn.pn = phi { ptr, i32 } [ %.pn167.pn, %1118 ], [ %1023, %1025 ], [ %1023, %1022 ]
+  %.pn167.pn.pn = phi { ptr, i32 } [ %.pn167.pn, %1118 ], [ %1023, %1022 ], [ %1023, %1025 ]
   br label %1119
 
 1119:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit519, %.body476
@@ -43763,12 +43763,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit519: ; preds = %11
   br i1 %1127, label %.thread610, label %1119
 
 1128:                                             ; preds = %1110, %1112
-  %.pn167.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1111, %1110 ], [ %1113, %1112 ]
-  %.051 = phi ptr [ %1003, %1110 ], [ %1010, %1112 ]
+  %.pn167.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1113, %1112 ], [ %1111, %1110 ]
+  %.051 = phi ptr [ %1010, %1112 ], [ %1003, %1110 ]
   br label %1129
 
 1129:                                             ; preds = %1128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522
-  %1130 = phi ptr [ %1131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ], [ %.051, %1128 ]
+  %1130 = phi ptr [ %.051, %1128 ], [ %1131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ]
   %1131 = getelementptr inbounds i8, ptr %1130, i64 -32
   %1132 = load ptr, ptr %1131, align 8, !tbaa !43
   %1133 = getelementptr inbounds i8, ptr %1130, i64 -16
@@ -44847,7 +44847,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body195
 
 .body195:                                         ; preds = %278, %275, %349
-  %.pn115 = phi { ptr, i32 } [ %350, %349 ], [ %276, %278 ], [ %276, %275 ]
+  %.pn115 = phi { ptr, i32 } [ %350, %349 ], [ %276, %275 ], [ %276, %278 ]
   %351 = load ptr, ptr %36, align 8, !tbaa !43
   %352 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %353 = icmp eq ptr %351, %352
@@ -45446,7 +45446,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body252
 
 .body252:                                         ; preds = %502, %499, %567
-  %.pn131 = phi { ptr, i32 } [ %568, %567 ], [ %500, %502 ], [ %500, %499 ]
+  %.pn131 = phi { ptr, i32 } [ %568, %567 ], [ %500, %499 ], [ %500, %502 ]
   br label %569
 
 569:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279, %.body252
@@ -45854,7 +45854,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit323: ; preds = %_Z
   br label %.body298
 
 .body298:                                         ; preds = %632, %629, %721
-  %.pn139.pn.pn = phi { ptr, i32 } [ %.pn139.pn, %721 ], [ %630, %632 ], [ %630, %629 ]
+  %.pn139.pn.pn = phi { ptr, i32 } [ %.pn139.pn, %721 ], [ %630, %629 ], [ %630, %632 ]
   br label %722
 
 722:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326, %.body298
@@ -46337,7 +46337,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body363
 
 .body363:                                         ; preds = %832, %829, %897
-  %.pn149 = phi { ptr, i32 } [ %898, %897 ], [ %830, %832 ], [ %830, %829 ]
+  %.pn149 = phi { ptr, i32 } [ %898, %897 ], [ %830, %829 ], [ %830, %832 ]
   br label %899
 
 899:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390, %.body363
@@ -46774,7 +46774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %_Z
   br label %.body413
 
 .body413:                                         ; preds = %969, %966, %1062
-  %.pn158.pn.pn = phi { ptr, i32 } [ %.pn158.pn, %1062 ], [ %967, %969 ], [ %967, %966 ]
+  %.pn158.pn.pn = phi { ptr, i32 } [ %.pn158.pn, %1062 ], [ %967, %966 ], [ %967, %969 ]
   br label %1063
 
 1063:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456, %.body413
@@ -46796,12 +46796,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit456: ; preds = %10
   br i1 %1071, label %.thread545, label %1063
 
 1072:                                             ; preds = %1054, %1056
-  %.pn158.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1055, %1054 ], [ %1057, %1056 ]
-  %.044 = phi ptr [ %947, %1054 ], [ %954, %1056 ]
+  %.pn158.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1057, %1056 ], [ %1055, %1054 ]
+  %.044 = phi ptr [ %954, %1056 ], [ %947, %1054 ]
   br label %1073
 
 1073:                                             ; preds = %1072, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit459
-  %1074 = phi ptr [ %1075, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit459 ], [ %.044, %1072 ]
+  %1074 = phi ptr [ %.044, %1072 ], [ %1075, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit459 ]
   %1075 = getelementptr inbounds i8, ptr %1074, i64 -32
   %1076 = load ptr, ptr %1075, align 8, !tbaa !43
   %1077 = getelementptr inbounds i8, ptr %1074, i64 -16
@@ -48472,7 +48472,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1186
 
 .body1186:                                        ; preds = %713, %710, %842
-  %.pn718 = phi { ptr, i32 } [ %843, %842 ], [ %711, %713 ], [ %711, %710 ]
+  %.pn718 = phi { ptr, i32 } [ %843, %842 ], [ %711, %710 ], [ %711, %713 ]
   %844 = load ptr, ptr %104, align 8, !tbaa !43
   %845 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %846 = icmp eq ptr %844, %845
@@ -48509,7 +48509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1242: ; preds = %.
   br label %.body1208
 
 .body1208:                                        ; preds = %758, %755, %853
-  %.pn721.pn = phi { ptr, i32 } [ %854, %853 ], [ %756, %758 ], [ %756, %755 ]
+  %.pn721.pn = phi { ptr, i32 } [ %854, %853 ], [ %756, %755 ], [ %756, %758 ]
   %855 = load ptr, ptr %112, align 8, !tbaa !43
   %856 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %857 = icmp eq ptr %855, %856
@@ -49261,7 +49261,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1279
 
 .body1279:                                        ; preds = %993, %990, %1134
-  %.pn734 = phi { ptr, i32 } [ %1135, %1134 ], [ %991, %993 ], [ %991, %990 ]
+  %.pn734 = phi { ptr, i32 } [ %1135, %1134 ], [ %991, %990 ], [ %991, %993 ]
   br label %1136
 
 1136:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1353, %.body1279
@@ -49307,7 +49307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1353: ; preds = %1
   br label %.body1309
 
 .body1309:                                        ; preds = %1046, %1043, %1149
-  %.pn738.pn = phi { ptr, i32 } [ %1150, %1149 ], [ %1044, %1046 ], [ %1044, %1043 ]
+  %.pn738.pn = phi { ptr, i32 } [ %1150, %1149 ], [ %1044, %1043 ], [ %1044, %1046 ]
   br label %1151
 
 1151:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359, %.body1309
@@ -50182,7 +50182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1449: ; preds = %_
   br label %.body1422
 
 .body1422:                                        ; preds = %1377, %1374, %1462
-  %.pn755.pn.pn = phi { ptr, i32 } [ %.pn755.pn, %1462 ], [ %1375, %1377 ], [ %1375, %1374 ]
+  %.pn755.pn.pn = phi { ptr, i32 } [ %.pn755.pn, %1462 ], [ %1375, %1374 ], [ %1375, %1377 ]
   %1463 = load ptr, ptr %156, align 8, !tbaa !43
   %1464 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %1465 = icmp eq ptr %1463, %1464
@@ -50835,7 +50835,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1486
 
 .body1486:                                        ; preds = %1562, %1559, %1707
-  %.pn765 = phi { ptr, i32 } [ %1708, %1707 ], [ %1560, %1562 ], [ %1560, %1559 ]
+  %.pn765 = phi { ptr, i32 } [ %1708, %1707 ], [ %1560, %1559 ], [ %1560, %1562 ]
   br label %1709
 
 1709:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1564, %.body1486
@@ -50881,7 +50881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1564: ; preds = %1
   br label %.body1520
 
 .body1520:                                        ; preds = %1619, %1616, %1722
-  %.pn770.pn = phi { ptr, i32 } [ %1723, %1722 ], [ %1617, %1619 ], [ %1617, %1616 ]
+  %.pn770.pn = phi { ptr, i32 } [ %1723, %1722 ], [ %1617, %1616 ], [ %1617, %1619 ]
   br label %1724
 
 1724:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1570, %.body1520
@@ -51499,7 +51499,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1615
 
 .body1615:                                        ; preds = %1874, %1871, %1946
-  %.pn783 = phi { ptr, i32 } [ %1947, %1946 ], [ %1872, %1874 ], [ %1872, %1871 ]
+  %.pn783 = phi { ptr, i32 } [ %1947, %1946 ], [ %1872, %1871 ], [ %1872, %1874 ]
   br label %1948
 
 1948:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1652, %.body1615
@@ -51893,7 +51893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1708: ; preds = %_
   br label %.body1668
 
 .body1668:                                        ; preds = %2004, %2001, %2093
-  %.pn793.pn.pn = phi { ptr, i32 } [ %.pn793.pn, %2093 ], [ %2002, %2004 ], [ %2002, %2001 ]
+  %.pn793.pn.pn = phi { ptr, i32 } [ %.pn793.pn, %2093 ], [ %2002, %2001 ], [ %2002, %2004 ]
   br label %2094
 
 2094:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1711, %.body1668
@@ -52667,7 +52667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1810: ; preds = %_
   br label %.body1770
 
 .body1770:                                        ; preds = %2284, %2281, %2369
-  %.pn807.pn.pn = phi { ptr, i32 } [ %.pn807.pn, %2369 ], [ %2282, %2284 ], [ %2282, %2281 ]
+  %.pn807.pn.pn = phi { ptr, i32 } [ %.pn807.pn, %2369 ], [ %2282, %2281 ], [ %2282, %2284 ]
   %2370 = load ptr, ptr %217, align 8, !tbaa !43
   %2371 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %2372 = icmp eq ptr %2370, %2371
@@ -53128,7 +53128,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1839
 
 .body1839:                                        ; preds = %2461, %2458, %2529
-  %.pn817 = phi { ptr, i32 } [ %2530, %2529 ], [ %2459, %2461 ], [ %2459, %2458 ]
+  %.pn817 = phi { ptr, i32 } [ %2530, %2529 ], [ %2459, %2458 ], [ %2459, %2461 ]
   %2531 = load ptr, ptr %225, align 8, !tbaa !43
   %2532 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %2533 = icmp eq ptr %2531, %2532
@@ -53485,7 +53485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1925: ; preds = %_
   br label %.body1885
 
 .body1885:                                        ; preds = %2576, %2573, %2661
-  %.pn824.pn.pn = phi { ptr, i32 } [ %.pn824.pn, %2661 ], [ %2574, %2576 ], [ %2574, %2573 ]
+  %.pn824.pn.pn = phi { ptr, i32 } [ %.pn824.pn, %2661 ], [ %2574, %2573 ], [ %2574, %2576 ]
   %2662 = load ptr, ptr %238, align 8, !tbaa !43
   %2663 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %2664 = icmp eq ptr %2662, %2663
@@ -54122,7 +54122,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1958
 
 .body1958:                                        ; preds = %2757, %2754, %2898
-  %.pn834 = phi { ptr, i32 } [ %2899, %2898 ], [ %2755, %2757 ], [ %2755, %2754 ]
+  %.pn834 = phi { ptr, i32 } [ %2899, %2898 ], [ %2755, %2754 ], [ %2755, %2757 ]
   br label %2900
 
 2900:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2032, %.body1958
@@ -54168,7 +54168,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2032: ; preds = %2
   br label %.body1988
 
 .body1988:                                        ; preds = %2810, %2807, %2913
-  %.pn838.pn = phi { ptr, i32 } [ %2914, %2913 ], [ %2808, %2810 ], [ %2808, %2807 ]
+  %.pn838.pn = phi { ptr, i32 } [ %2914, %2913 ], [ %2808, %2807 ], [ %2808, %2810 ]
   br label %2915
 
 2915:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2038, %.body1988
@@ -54945,7 +54945,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body2079
 
 .body2079:                                        ; preds = %3061, %3058, %3206
-  %.pn851 = phi { ptr, i32 } [ %3207, %3206 ], [ %3059, %3061 ], [ %3059, %3058 ]
+  %.pn851 = phi { ptr, i32 } [ %3207, %3206 ], [ %3059, %3058 ], [ %3059, %3061 ]
   br label %3208
 
 3208:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2157, %.body2079
@@ -54991,7 +54991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2157: ; preds = %3
   br label %.body2113
 
 .body2113:                                        ; preds = %3118, %3115, %3221
-  %.pn856.pn = phi { ptr, i32 } [ %3222, %3221 ], [ %3116, %3118 ], [ %3116, %3115 ]
+  %.pn856.pn = phi { ptr, i32 } [ %3222, %3221 ], [ %3116, %3115 ], [ %3116, %3118 ]
   br label %3223
 
 3223:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2163, %.body2113
@@ -55609,7 +55609,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body2208
 
 .body2208:                                        ; preds = %3373, %3370, %3445
-  %.pn869 = phi { ptr, i32 } [ %3446, %3445 ], [ %3371, %3373 ], [ %3371, %3370 ]
+  %.pn869 = phi { ptr, i32 } [ %3446, %3445 ], [ %3371, %3370 ], [ %3371, %3373 ]
   br label %3447
 
 3447:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2245, %.body2208
@@ -56003,7 +56003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2301: ; preds = %_
   br label %.body2261
 
 .body2261:                                        ; preds = %3503, %3500, %3592
-  %.pn879.pn.pn = phi { ptr, i32 } [ %.pn879.pn, %3592 ], [ %3501, %3503 ], [ %3501, %3500 ]
+  %.pn879.pn.pn = phi { ptr, i32 } [ %.pn879.pn, %3592 ], [ %3501, %3500 ], [ %3501, %3503 ]
   br label %3593
 
 3593:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2304, %.body2261
@@ -56538,7 +56538,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body2333
 
 .body2333:                                        ; preds = %3695, %3692, %3781
-  %.pn889 = phi { ptr, i32 } [ %3782, %3781 ], [ %3693, %3695 ], [ %3693, %3692 ]
+  %.pn889 = phi { ptr, i32 } [ %3782, %3781 ], [ %3693, %3692 ], [ %3693, %3695 ]
   %3783 = load ptr, ptr %307, align 8, !tbaa !43
   %3784 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %3785 = icmp eq ptr %3783, %3784
@@ -56820,7 +56820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2417: ; preds = %_
   br label %.body2399
 
 .body2399:                                        ; preds = %.thread5222, %3822, %3881
-  %.pn896 = phi { ptr, i32 } [ %3882, %3881 ], [ %3823, %3822 ], [ %3817, %.thread5222 ]
+  %.pn896 = phi { ptr, i32 } [ %3882, %3881 ], [ %3817, %.thread5222 ], [ %3823, %3822 ]
   %3883 = load ptr, ptr %317, align 8, !tbaa !43
   %3884 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %3885 = icmp eq ptr %3883, %3884
@@ -57338,7 +57338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2493: ; preds = %_
   br label %.body2468
 
 .body2468:                                        ; preds = %3993, %3990, %4061
-  %.pn911 = phi { ptr, i32 } [ %4062, %4061 ], [ %3991, %3993 ], [ %3991, %3990 ]
+  %.pn911 = phi { ptr, i32 } [ %4062, %4061 ], [ %3991, %3990 ], [ %3991, %3993 ]
   %4063 = load ptr, ptr %330, align 8, !tbaa !43
   %4064 = getelementptr inbounds nuw i8, ptr %330, i64 16
   %4065 = icmp eq ptr %4063, %4064
@@ -57667,7 +57667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2533: ; preds = %4
   br label %.body2515
 
 .body2515:                                        ; preds = %.thread5224, %4118, %4182
-  %.pn918 = phi { ptr, i32 } [ %4183, %4182 ], [ %4119, %4118 ], [ %4114, %.thread5224 ]
+  %.pn918 = phi { ptr, i32 } [ %4183, %4182 ], [ %4114, %.thread5224 ], [ %4119, %4118 ]
   br label %4184
 
 4184:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2546, %.body2515
@@ -58190,7 +58190,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body2587
 
 .body2587:                                        ; preds = %4305, %4302, %4368
-  %.pn934 = phi { ptr, i32 } [ %4369, %4368 ], [ %4303, %4305 ], [ %4303, %4302 ]
+  %.pn934 = phi { ptr, i32 } [ %4369, %4368 ], [ %4303, %4302 ], [ %4303, %4305 ]
   %4370 = load ptr, ptr %353, align 8, !tbaa !43
   %4371 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %4372 = icmp eq ptr %4370, %4371
@@ -58475,7 +58475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2641: ; preds = %_
   br label %.body2623
 
 .body2623:                                        ; preds = %.thread5226, %4413, %4472
-  %.pn941 = phi { ptr, i32 } [ %4473, %4472 ], [ %4414, %4413 ], [ %4408, %.thread5226 ]
+  %.pn941 = phi { ptr, i32 } [ %4473, %4472 ], [ %4408, %.thread5226 ], [ %4414, %4413 ]
   %4474 = load ptr, ptr %361, align 8, !tbaa !43
   %4475 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %4476 = icmp eq ptr %4474, %4475
@@ -58992,7 +58992,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body2696
 
 .body2696:                                        ; preds = %4588, %4585, %4655
-  %.pn956 = phi { ptr, i32 } [ %4656, %4655 ], [ %4586, %4588 ], [ %4586, %4585 ]
+  %.pn956 = phi { ptr, i32 } [ %4656, %4655 ], [ %4586, %4585 ], [ %4586, %4588 ]
   br label %4657
 
 4657:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2723, %.body2696
@@ -59286,7 +59286,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2756: ; preds = %_
   br label %.body2738
 
 .body2738:                                        ; preds = %.thread5228, %4704, %4763
-  %.pn964 = phi { ptr, i32 } [ %4764, %4763 ], [ %4705, %4704 ], [ %4699, %.thread5228 ]
+  %.pn964 = phi { ptr, i32 } [ %4764, %4763 ], [ %4699, %.thread5228 ], [ %4705, %4704 ]
   %4765 = load ptr, ptr %382, align 8, !tbaa !43
   %4766 = getelementptr inbounds nuw i8, ptr %382, i64 16
   %4767 = icmp eq ptr %4765, %4766
@@ -59811,7 +59811,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body2815
 
 .body2815:                                        ; preds = %4883, %4880, %4950
-  %.pn979 = phi { ptr, i32 } [ %4951, %4950 ], [ %4881, %4883 ], [ %4881, %4880 ]
+  %.pn979 = phi { ptr, i32 } [ %4951, %4950 ], [ %4881, %4880 ], [ %4881, %4883 ]
   br label %4952
 
 4952:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2842, %.body2815
@@ -60163,7 +60163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2883: ; preds = %5
   br label %.body2865
 
 .body2865:                                        ; preds = %.thread5230, %5014, %5082
-  %.pn988 = phi { ptr, i32 } [ %5083, %5082 ], [ %5015, %5014 ], [ %5010, %.thread5230 ]
+  %.pn988 = phi { ptr, i32 } [ %5083, %5082 ], [ %5010, %.thread5230 ], [ %5015, %5014 ]
   br label %5084
 
 5084:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2896, %.body2865
@@ -60185,12 +60185,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2896: ; preds = %5
   br i1 %5092, label %.thread4035, label %5084
 
 5093:                                             ; preds = %5078, %5080
-  %.0665 = phi ptr [ %4994, %5078 ], [ %5001, %5080 ]
-  %.pn988.pn.pn.pn = phi { ptr, i32 } [ %5079, %5078 ], [ %5081, %5080 ]
+  %.0665 = phi ptr [ %5001, %5080 ], [ %4994, %5078 ]
+  %.pn988.pn.pn.pn = phi { ptr, i32 } [ %5081, %5080 ], [ %5079, %5078 ]
   br label %5094
 
 5094:                                             ; preds = %5093, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2899
-  %5095 = phi ptr [ %5096, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2899 ], [ %.0665, %5093 ]
+  %5095 = phi ptr [ %.0665, %5093 ], [ %5096, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2899 ]
   %5096 = getelementptr inbounds i8, ptr %5095, i64 -32
   %5097 = load ptr, ptr %5096, align 8, !tbaa !43
   %5098 = getelementptr inbounds i8, ptr %5095, i64 -16
@@ -60797,7 +60797,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body2945
 
 .body2945:                                        ; preds = %5216, %5213, %5308
-  %.pn1005 = phi { ptr, i32 } [ %5309, %5308 ], [ %5214, %5216 ], [ %5214, %5213 ]
+  %.pn1005 = phi { ptr, i32 } [ %5309, %5308 ], [ %5214, %5213 ], [ %5214, %5216 ]
   br label %5310
 
 5310:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3002, %.body2945
@@ -61088,7 +61088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3032: ; preds = %_
   br label %.body3014
 
 .body3014:                                        ; preds = %.thread5232, %5353, %5412
-  %.pn1014 = phi { ptr, i32 } [ %5413, %5412 ], [ %5354, %5353 ], [ %5348, %.thread5232 ]
+  %.pn1014 = phi { ptr, i32 } [ %5413, %5412 ], [ %5348, %.thread5232 ], [ %5354, %5353 ]
   %5414 = load ptr, ptr %426, align 8, !tbaa !43
   %5415 = getelementptr inbounds nuw i8, ptr %426, i64 16
   %5416 = icmp eq ptr %5414, %5415
@@ -61690,7 +61690,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body3091
 
 .body3091:                                        ; preds = %5532, %5529, %5624
-  %.pn1029 = phi { ptr, i32 } [ %5625, %5624 ], [ %5530, %5532 ], [ %5530, %5529 ]
+  %.pn1029 = phi { ptr, i32 } [ %5625, %5624 ], [ %5530, %5529 ], [ %5530, %5532 ]
   br label %5626
 
 5626:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3148, %.body3091
@@ -62009,7 +62009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3182: ; preds = %5
   br label %.body3164
 
 .body3164:                                        ; preds = %.thread5234, %5676, %5740
-  %.pn1038 = phi { ptr, i32 } [ %5741, %5740 ], [ %5677, %5676 ], [ %5672, %.thread5234 ]
+  %.pn1038 = phi { ptr, i32 } [ %5741, %5740 ], [ %5672, %.thread5234 ], [ %5677, %5676 ]
   br label %5742
 
 5742:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3195, %.body3164
@@ -62626,7 +62626,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body3240
 
 .body3240:                                        ; preds = %5867, %5864, %5959
-  %.pn1054 = phi { ptr, i32 } [ %5960, %5959 ], [ %5865, %5867 ], [ %5865, %5864 ]
+  %.pn1054 = phi { ptr, i32 } [ %5960, %5959 ], [ %5865, %5864 ], [ %5865, %5867 ]
   br label %5961
 
 5961:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3297, %.body3240
@@ -62917,7 +62917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3327: ; preds = %_
   br label %.body3309
 
 .body3309:                                        ; preds = %.thread5236, %6004, %6063
-  %.pn1062 = phi { ptr, i32 } [ %6064, %6063 ], [ %6005, %6004 ], [ %5999, %.thread5236 ]
+  %.pn1062 = phi { ptr, i32 } [ %6064, %6063 ], [ %5999, %.thread5236 ], [ %6005, %6004 ]
   %6065 = load ptr, ptr %472, align 8, !tbaa !43
   %6066 = getelementptr inbounds nuw i8, ptr %472, i64 16
   %6067 = icmp eq ptr %6065, %6066
@@ -63511,7 +63511,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body3382
 
 .body3382:                                        ; preds = %6179, %6176, %6271
-  %.pn1077 = phi { ptr, i32 } [ %6272, %6271 ], [ %6177, %6179 ], [ %6177, %6176 ]
+  %.pn1077 = phi { ptr, i32 } [ %6272, %6271 ], [ %6177, %6176 ], [ %6177, %6179 ]
   br label %6273
 
 6273:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3439, %.body3382
@@ -63830,7 +63830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3473: ; preds = %6
   br label %.body3455
 
 .body3455:                                        ; preds = %.thread5238, %6323, %6387
-  %.pn1085 = phi { ptr, i32 } [ %6388, %6387 ], [ %6324, %6323 ], [ %6319, %.thread5238 ]
+  %.pn1085 = phi { ptr, i32 } [ %6388, %6387 ], [ %6319, %.thread5238 ], [ %6324, %6323 ]
   br label %6389
 
 6389:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3486, %.body3455
@@ -64447,7 +64447,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body3531
 
 .body3531:                                        ; preds = %6514, %6511, %6606
-  %.pn1101 = phi { ptr, i32 } [ %6607, %6606 ], [ %6512, %6514 ], [ %6512, %6511 ]
+  %.pn1101 = phi { ptr, i32 } [ %6607, %6606 ], [ %6512, %6511 ], [ %6512, %6514 ]
   br label %6608
 
 6608:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3588, %.body3531
@@ -64738,7 +64738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3618: ; preds = %_
   br label %.body3600
 
 .body3600:                                        ; preds = %.thread5240, %6651, %6710
-  %.pn1109 = phi { ptr, i32 } [ %6711, %6710 ], [ %6652, %6651 ], [ %6646, %.thread5240 ]
+  %.pn1109 = phi { ptr, i32 } [ %6711, %6710 ], [ %6646, %.thread5240 ], [ %6652, %6651 ]
   %6712 = load ptr, ptr %518, align 8, !tbaa !43
   %6713 = getelementptr inbounds nuw i8, ptr %518, i64 16
   %6714 = icmp eq ptr %6712, %6713
@@ -65595,7 +65595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %.b
   br label %.body253
 
 .body253:                                         ; preds = %161, %158, %237
-  %.pn188.pn = phi { ptr, i32 } [ %238, %237 ], [ %159, %161 ], [ %159, %158 ]
+  %.pn188.pn = phi { ptr, i32 } [ %238, %237 ], [ %159, %158 ], [ %159, %161 ]
   %239 = load ptr, ptr %21, align 8, !tbaa !43
   %240 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %241 = icmp eq ptr %239, %240
@@ -66063,7 +66063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %.b
   br label %.body328
 
 .body328:                                         ; preds = %336, %333, %420
-  %.pn198.pn = phi { ptr, i32 } [ %421, %420 ], [ %334, %336 ], [ %334, %333 ]
+  %.pn198.pn = phi { ptr, i32 } [ %421, %420 ], [ %334, %333 ], [ %334, %336 ]
   br label %422
 
 422:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit365, %.body328
@@ -66532,7 +66532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit446: ; preds = %.b
   br label %.body415
 
 .body415:                                         ; preds = %519, %516, %603
-  %.pn208.pn = phi { ptr, i32 } [ %604, %603 ], [ %517, %519 ], [ %517, %516 ]
+  %.pn208.pn = phi { ptr, i32 } [ %604, %603 ], [ %517, %516 ], [ %517, %519 ]
   br label %605
 
 605:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452, %.body415
@@ -67009,7 +67009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit537: ; preds = %.b
   br label %.body506
 
 .body506:                                         ; preds = %706, %703, %790
-  %.pn218.pn = phi { ptr, i32 } [ %791, %790 ], [ %704, %706 ], [ %704, %703 ]
+  %.pn218.pn = phi { ptr, i32 } [ %791, %790 ], [ %704, %703 ], [ %704, %706 ]
   br label %792
 
 792:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit543, %.body506
@@ -67494,7 +67494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit632: ; preds = %.b
   br label %.body601
 
 .body601:                                         ; preds = %897, %894, %981
-  %.pn228.pn = phi { ptr, i32 } [ %982, %981 ], [ %895, %897 ], [ %895, %894 ]
+  %.pn228.pn = phi { ptr, i32 } [ %982, %981 ], [ %895, %894 ], [ %895, %897 ]
   br label %983
 
 983:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit638, %.body601
@@ -67971,7 +67971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit723: ; preds = %.b
   br label %.body692
 
 .body692:                                         ; preds = %1084, %1081, %1168
-  %.pn237.pn = phi { ptr, i32 } [ %1169, %1168 ], [ %1082, %1084 ], [ %1082, %1081 ]
+  %.pn237.pn = phi { ptr, i32 } [ %1169, %1168 ], [ %1082, %1081 ], [ %1082, %1084 ]
   br label %1170
 
 1170:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit729, %.body692
@@ -68735,7 +68735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566: ; preds = %_Z
   br label %.body
 
 .body:                                            ; preds = %232, %229, %367
-  %.pn = phi { ptr, i32 } [ %368, %367 ], [ %230, %232 ], [ %230, %229 ]
+  %.pn = phi { ptr, i32 } [ %368, %367 ], [ %230, %229 ], [ %230, %232 ]
   br label %369
 
 369:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569, %.body
@@ -68796,7 +68796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit569: ; preds = %36
   br label %.body542
 
 .body542:                                         ; preds = %292, %289, %388
-  %.pn356.pn.pn = phi { ptr, i32 } [ %.pn356.pn, %388 ], [ %290, %292 ], [ %290, %289 ]
+  %.pn356.pn.pn = phi { ptr, i32 } [ %.pn356.pn, %388 ], [ %290, %289 ], [ %290, %292 ]
   br label %389
 
 389:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit575, %.body542
@@ -69471,7 +69471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   br label %.body606
 
 .body606:                                         ; preds = %495, %492, %638
-  %.pn366 = phi { ptr, i32 } [ %639, %638 ], [ %493, %495 ], [ %493, %492 ]
+  %.pn366 = phi { ptr, i32 } [ %639, %638 ], [ %493, %492 ], [ %493, %495 ]
   br label %640
 
 640:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit679, %.body606
@@ -69532,7 +69532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit679: ; preds = %64
   br label %.body636
 
 .body636:                                         ; preds = %555, %552, %659
-  %.pn370.pn.pn = phi { ptr, i32 } [ %.pn370.pn, %659 ], [ %553, %555 ], [ %553, %552 ]
+  %.pn370.pn.pn = phi { ptr, i32 } [ %.pn370.pn, %659 ], [ %553, %552 ], [ %553, %555 ]
   br label %660
 
 660:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit685, %.body636
@@ -70280,7 +70280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit808: ; preds = %_Z
   br label %.body726
 
 .body726:                                         ; preds = %774, %771, %938
-  %.pn380 = phi { ptr, i32 } [ %939, %938 ], [ %772, %774 ], [ %772, %771 ]
+  %.pn380 = phi { ptr, i32 } [ %939, %938 ], [ %772, %771 ], [ %772, %774 ]
   br label %940
 
 940:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit811, %.body726
@@ -70361,7 +70361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit811: ; preds = %94
   br label %.body768
 
 .body768:                                         ; preds = %855, %852, %967
-  %.pn386.pn.pn = phi { ptr, i32 } [ %.pn386.pn, %967 ], [ %853, %855 ], [ %853, %852 ]
+  %.pn386.pn.pn = phi { ptr, i32 } [ %.pn386.pn, %967 ], [ %853, %852 ], [ %853, %855 ]
   br label %968
 
 968:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817, %.body768
@@ -70383,12 +70383,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817: ; preds = %96
   br i1 %976, label %.thread1836, label %968
 
 977:                                              ; preds = %955, %959, %961, %957
-  %.0315 = phi ptr [ %819, %955 ], [ %826, %957 ], [ %833, %959 ], [ %840, %961 ]
-  %.pn386.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %956, %955 ], [ %958, %957 ], [ %960, %959 ], [ %962, %961 ]
+  %.0315 = phi ptr [ %840, %961 ], [ %819, %955 ], [ %826, %957 ], [ %833, %959 ]
+  %.pn386.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %962, %961 ], [ %956, %955 ], [ %958, %957 ], [ %960, %959 ]
   br label %978
 
 978:                                              ; preds = %977, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820
-  %979 = phi ptr [ %980, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ], [ %.0315, %977 ]
+  %979 = phi ptr [ %.0315, %977 ], [ %980, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ]
   %980 = getelementptr inbounds i8, ptr %979, i64 -32
   %981 = load ptr, ptr %980, align 8, !tbaa !43
   %982 = getelementptr inbounds i8, ptr %979, i64 -16
@@ -71076,7 +71076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit927: ; preds = %_Z
   br label %.body850
 
 .body850:                                         ; preds = %1077, %1074, %1232
-  %.pn396 = phi { ptr, i32 } [ %1233, %1232 ], [ %1075, %1077 ], [ %1075, %1074 ]
+  %.pn396 = phi { ptr, i32 } [ %1233, %1232 ], [ %1075, %1074 ], [ %1075, %1077 ]
   br label %1234
 
 1234:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit930, %.body850
@@ -71147,7 +71147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit930: ; preds = %12
   br label %.body887
 
 .body887:                                         ; preds = %1149, %1146, %1257
-  %.pn400.pn.pn = phi { ptr, i32 } [ %.pn400.pn, %1257 ], [ %1147, %1149 ], [ %1147, %1146 ]
+  %.pn400.pn.pn = phi { ptr, i32 } [ %.pn400.pn, %1257 ], [ %1147, %1146 ], [ %1147, %1149 ]
   br label %1258
 
 1258:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit936, %.body887
@@ -71169,12 +71169,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit936: ; preds = %12
   br i1 %1266, label %.thread1850, label %1258
 
 1267:                                             ; preds = %1249, %1251
-  %.0341 = phi ptr [ %1127, %1249 ], [ %1134, %1251 ]
-  %.pn400.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1250, %1249 ], [ %1252, %1251 ]
+  %.0341 = phi ptr [ %1134, %1251 ], [ %1127, %1249 ]
+  %.pn400.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1252, %1251 ], [ %1250, %1249 ]
   br label %1268
 
 1268:                                             ; preds = %1267, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit939
-  %1269 = phi ptr [ %1270, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit939 ], [ %.0341, %1267 ]
+  %1269 = phi ptr [ %.0341, %1267 ], [ %1270, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit939 ]
   %1270 = getelementptr inbounds i8, ptr %1269, i64 -32
   %1271 = load ptr, ptr %1270, align 8, !tbaa !43
   %1272 = getelementptr inbounds i8, ptr %1269, i64 -16
@@ -71897,7 +71897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1058: ; preds = %_
   br label %.body977
 
 .body977:                                         ; preds = %1375, %1372, %1537
-  %.pn410 = phi { ptr, i32 } [ %1538, %1537 ], [ %1373, %1375 ], [ %1373, %1372 ]
+  %.pn410 = phi { ptr, i32 } [ %1538, %1537 ], [ %1373, %1372 ], [ %1373, %1375 ]
   br label %1539
 
 1539:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1061, %.body977
@@ -71973,7 +71973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1061: ; preds = %1
   br label %.body1018
 
 .body1018:                                        ; preds = %1454, %1451, %1564
-  %.pn416.pn.pn = phi { ptr, i32 } [ %.pn416.pn, %1564 ], [ %1452, %1454 ], [ %1452, %1451 ]
+  %.pn416.pn.pn = phi { ptr, i32 } [ %.pn416.pn, %1564 ], [ %1452, %1451 ], [ %1452, %1454 ]
   br label %1565
 
 1565:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1067, %.body1018
@@ -71995,12 +71995,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1067: ; preds = %1
   br i1 %1573, label %.thread1864, label %1565
 
 1574:                                             ; preds = %1554, %1558, %1556
-  %.0338 = phi ptr [ %1425, %1554 ], [ %1432, %1556 ], [ %1439, %1558 ]
-  %.pn416.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1555, %1554 ], [ %1557, %1556 ], [ %1559, %1558 ]
+  %.0338 = phi ptr [ %1439, %1558 ], [ %1425, %1554 ], [ %1432, %1556 ]
+  %.pn416.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1559, %1558 ], [ %1555, %1554 ], [ %1557, %1556 ]
   br label %1575
 
 1575:                                             ; preds = %1574, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1070
-  %1576 = phi ptr [ %1577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1070 ], [ %.0338, %1574 ]
+  %1576 = phi ptr [ %.0338, %1574 ], [ %1577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1070 ]
   %1577 = getelementptr inbounds i8, ptr %1576, i64 -32
   %1578 = load ptr, ptr %1577, align 8, !tbaa !43
   %1579 = getelementptr inbounds i8, ptr %1576, i64 -16
@@ -72499,7 +72499,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1108
 
 .body1108:                                        ; preds = %1682, %1679, %1754
-  %.pn426 = phi { ptr, i32 } [ %1755, %1754 ], [ %1680, %1682 ], [ %1680, %1679 ]
+  %.pn426 = phi { ptr, i32 } [ %1755, %1754 ], [ %1680, %1679 ], [ %1680, %1682 ]
   br label %1756
 
 1756:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1145, %.body1108
@@ -73063,7 +73063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1218: ; preds = %_
   br label %.body1178
 
 .body1178:                                        ; preds = %1872, %1869, %1961
-  %.pn440.pn.pn = phi { ptr, i32 } [ %.pn440.pn, %1961 ], [ %1870, %1872 ], [ %1870, %1869 ]
+  %.pn440.pn.pn = phi { ptr, i32 } [ %.pn440.pn, %1961 ], [ %1870, %1869 ], [ %1870, %1872 ]
   br label %1962
 
 1962:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1221, %.body1178
@@ -73419,7 +73419,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1249
 
 .body1249:                                        ; preds = %2021, %2018, %2093
-  %.pn446 = phi { ptr, i32 } [ %2094, %2093 ], [ %2019, %2021 ], [ %2019, %2018 ]
+  %.pn446 = phi { ptr, i32 } [ %2094, %2093 ], [ %2019, %2018 ], [ %2019, %2021 ]
   br label %2095
 
 2095:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1286, %.body1249
@@ -74036,7 +74036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1367: ; preds = %_
   br label %.body1327
 
 .body1327:                                        ; preds = %2225, %2222, %2320
-  %.pn461.pn.pn = phi { ptr, i32 } [ %.pn461.pn, %2320 ], [ %2223, %2225 ], [ %2223, %2222 ]
+  %.pn461.pn.pn = phi { ptr, i32 } [ %.pn461.pn, %2320 ], [ %2223, %2222 ], [ %2223, %2225 ]
   br label %2321
 
 2321:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1370, %.body1327
@@ -74058,12 +74058,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1370: ; preds = %2
   br i1 %2329, label %.thread1892, label %2321
 
 2330:                                             ; preds = %2310, %2314, %2312
-  %.0290 = phi ptr [ %2196, %2310 ], [ %2203, %2312 ], [ %2210, %2314 ]
-  %.pn461.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2311, %2310 ], [ %2313, %2312 ], [ %2315, %2314 ]
+  %.0290 = phi ptr [ %2210, %2314 ], [ %2196, %2310 ], [ %2203, %2312 ]
+  %.pn461.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2315, %2314 ], [ %2311, %2310 ], [ %2313, %2312 ]
   br label %2331
 
 2331:                                             ; preds = %2330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1373
-  %2332 = phi ptr [ %2333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1373 ], [ %.0290, %2330 ]
+  %2332 = phi ptr [ %.0290, %2330 ], [ %2333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1373 ]
   %2333 = getelementptr inbounds i8, ptr %2332, i64 -32
   %2334 = load ptr, ptr %2333, align 8, !tbaa !43
   %2335 = getelementptr inbounds i8, ptr %2332, i64 -16
@@ -74385,7 +74385,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1390
 
 .body1390:                                        ; preds = %2375, %2372, %2447
-  %.pn467 = phi { ptr, i32 } [ %2448, %2447 ], [ %2373, %2375 ], [ %2373, %2372 ]
+  %.pn467 = phi { ptr, i32 } [ %2448, %2447 ], [ %2373, %2372 ], [ %2373, %2375 ]
   br label %2449
 
 2449:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1427, %.body1390
@@ -74977,7 +74977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1504: ; preds = %_
   br label %.body1464
 
 .body1464:                                        ; preds = %2571, %2568, %2664
-  %.pn480.pn.pn = phi { ptr, i32 } [ %.pn480.pn, %2664 ], [ %2569, %2571 ], [ %2569, %2568 ]
+  %.pn480.pn.pn = phi { ptr, i32 } [ %.pn480.pn, %2664 ], [ %2569, %2568 ], [ %2569, %2571 ]
   br label %2665
 
 2665:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1507, %.body1464
@@ -74999,12 +74999,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1507: ; preds = %2
   br i1 %2673, label %.thread1906, label %2665
 
 2674:                                             ; preds = %2656, %2658
-  %.0273 = phi ptr [ %2550, %2656 ], [ %2557, %2658 ]
-  %.pn480.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2657, %2656 ], [ %2659, %2658 ]
+  %.0273 = phi ptr [ %2557, %2658 ], [ %2550, %2656 ]
+  %.pn480.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2659, %2658 ], [ %2657, %2656 ]
   br label %2675
 
 2675:                                             ; preds = %2674, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510
-  %2676 = phi ptr [ %2677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510 ], [ %.0273, %2674 ]
+  %2676 = phi ptr [ %.0273, %2674 ], [ %2677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1510 ]
   %2677 = getelementptr inbounds i8, ptr %2676, i64 -32
   %2678 = load ptr, ptr %2677, align 8, !tbaa !43
   %2679 = getelementptr inbounds i8, ptr %2676, i64 -16
@@ -75350,7 +75350,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1539
 
 .body1539:                                        ; preds = %2731, %2728, %2803
-  %.pn486 = phi { ptr, i32 } [ %2804, %2803 ], [ %2729, %2731 ], [ %2729, %2728 ]
+  %.pn486 = phi { ptr, i32 } [ %2804, %2803 ], [ %2729, %2728 ], [ %2729, %2731 ]
   br label %2805
 
 2805:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1576, %.body1539
@@ -75943,7 +75943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1657: ; preds = %2
   br label %.body1617
 
 .body1617:                                        ; preds = %.thread2425, %2933, %3017
-  %.pn502.pn.pn = phi { ptr, i32 } [ %.pn502.pn, %3017 ], [ %2934, %2933 ], [ %2929, %.thread2425 ]
+  %.pn502.pn.pn = phi { ptr, i32 } [ %.pn502.pn, %3017 ], [ %2929, %.thread2425 ], [ %2934, %2933 ]
   br label %3018
 
 3018:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1660, %.body1617
@@ -75965,12 +75965,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1660: ; preds = %3
   br i1 %3026, label %.thread1920, label %3018
 
 3027:                                             ; preds = %3007, %3011, %3009
-  %.pn502.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3008, %3007 ], [ %3010, %3009 ], [ %3012, %3011 ]
-  %.0145 = phi ptr [ %2906, %3007 ], [ %2913, %3009 ], [ %2920, %3011 ]
+  %.pn502.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3012, %3011 ], [ %3008, %3007 ], [ %3010, %3009 ]
+  %.0145 = phi ptr [ %2920, %3011 ], [ %2906, %3007 ], [ %2913, %3009 ]
   br label %3028
 
 3028:                                             ; preds = %3027, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1663
-  %3029 = phi ptr [ %3030, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1663 ], [ %.0145, %3027 ]
+  %3029 = phi ptr [ %.0145, %3027 ], [ %3030, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1663 ]
   %3030 = getelementptr inbounds i8, ptr %3029, i64 -32
   %3031 = load ptr, ptr %3030, align 8, !tbaa !43
   %3032 = getelementptr inbounds i8, ptr %3029, i64 -16
@@ -76585,7 +76585,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body
 
 .body:                                            ; preds = %286, %283, %353
-  %.pn = phi { ptr, i32 } [ %354, %353 ], [ %284, %286 ], [ %284, %283 ]
+  %.pn = phi { ptr, i32 } [ %354, %353 ], [ %284, %283 ], [ %284, %286 ]
   br label %355
 
 355:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit500, %.body
@@ -77316,7 +77316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit550: ; preds = %_Z
   br label %.body525
 
 .body525:                                         ; preds = %538, %535, %622
-  %.pn317.pn.pn = phi { ptr, i32 } [ %.pn317.pn, %622 ], [ %536, %538 ], [ %536, %535 ]
+  %.pn317.pn.pn = phi { ptr, i32 } [ %.pn317.pn, %622 ], [ %536, %535 ], [ %536, %538 ]
   %623 = load ptr, ptr %76, align 8, !tbaa !43
   %624 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %625 = icmp eq ptr %623, %624
@@ -77909,7 +77909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628: ; preds = %_Z
   br label %.body588
 
 .body588:                                         ; preds = %743, %740, %839
-  %.pn325.pn.pn = phi { ptr, i32 } [ %.pn325.pn, %839 ], [ %741, %743 ], [ %741, %740 ]
+  %.pn325.pn.pn = phi { ptr, i32 } [ %.pn325.pn, %839 ], [ %741, %740 ], [ %741, %743 ]
   br label %840
 
 840:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit631, %.body588
@@ -77931,12 +77931,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit631: ; preds = %84
   br i1 %848, label %.thread1446, label %840
 
 849:                                              ; preds = %827, %831, %833, %829
-  %.0251 = phi ptr [ %707, %827 ], [ %714, %829 ], [ %721, %831 ], [ %728, %833 ]
-  %.pn325.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %828, %827 ], [ %830, %829 ], [ %832, %831 ], [ %834, %833 ]
+  %.0251 = phi ptr [ %728, %833 ], [ %707, %827 ], [ %714, %829 ], [ %721, %831 ]
+  %.pn325.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %834, %833 ], [ %828, %827 ], [ %830, %829 ], [ %832, %831 ]
   br label %850
 
 850:                                              ; preds = %849, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634
-  %851 = phi ptr [ %852, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634 ], [ %.0251, %849 ]
+  %851 = phi ptr [ %.0251, %849 ], [ %852, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634 ]
   %852 = getelementptr inbounds i8, ptr %851, i64 -32
   %853 = load ptr, ptr %852, align 8, !tbaa !43
   %854 = getelementptr inbounds i8, ptr %851, i64 -16
@@ -78476,7 +78476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit709: ; preds = %10
   br label %.body683
 
 .body683:                                         ; preds = %969, %966, %1049
-  %.pn336 = phi { ptr, i32 } [ %1050, %1049 ], [ %967, %969 ], [ %967, %966 ]
+  %.pn336 = phi { ptr, i32 } [ %1050, %1049 ], [ %967, %966 ], [ %967, %969 ]
   br label %1051
 
 1051:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit712, %.body683
@@ -79207,7 +79207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit779: ; preds = %_Z
   br label %.body739
 
 .body739:                                         ; preds = %1234, %1231, %1318
-  %.pn357.pn.pn = phi { ptr, i32 } [ %.pn357.pn, %1318 ], [ %1232, %1234 ], [ %1232, %1231 ]
+  %.pn357.pn.pn = phi { ptr, i32 } [ %.pn357.pn, %1318 ], [ %1232, %1231 ], [ %1232, %1234 ]
   %1319 = load ptr, ptr %125, align 8, !tbaa !43
   %1320 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %1321 = icmp eq ptr %1319, %1320
@@ -79870,7 +79870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853: ; preds = %_Z
   br label %.body813
 
 .body813:                                         ; preds = %1466, %1463, %1558
-  %.pn368.pn.pn = phi { ptr, i32 } [ %.pn368.pn, %1558 ], [ %1464, %1466 ], [ %1464, %1463 ]
+  %.pn368.pn.pn = phi { ptr, i32 } [ %.pn368.pn, %1558 ], [ %1464, %1463 ], [ %1464, %1466 ]
   br label %1559
 
 1559:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit856, %.body813
@@ -79892,12 +79892,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit856: ; preds = %15
   br i1 %1567, label %.thread1460, label %1559
 
 1568:                                             ; preds = %1550, %1552
-  %.0274 = phi ptr [ %1444, %1550 ], [ %1451, %1552 ]
-  %.pn368.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1551, %1550 ], [ %1553, %1552 ]
+  %.0274 = phi ptr [ %1451, %1552 ], [ %1444, %1550 ]
+  %.pn368.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1553, %1552 ], [ %1551, %1550 ]
   br label %1569
 
 1569:                                             ; preds = %1568, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859
-  %1570 = phi ptr [ %1571, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859 ], [ %.0274, %1568 ]
+  %1570 = phi ptr [ %.0274, %1568 ], [ %1571, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit859 ]
   %1571 = getelementptr inbounds i8, ptr %1570, i64 -32
   %1572 = load ptr, ptr %1571, align 8, !tbaa !43
   %1573 = getelementptr inbounds i8, ptr %1570, i64 -16
@@ -80437,7 +80437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit934: ; preds = %17
   br label %.body908
 
 .body908:                                         ; preds = %1688, %1685, %1768
-  %.pn379 = phi { ptr, i32 } [ %1769, %1768 ], [ %1686, %1688 ], [ %1686, %1685 ]
+  %.pn379 = phi { ptr, i32 } [ %1769, %1768 ], [ %1686, %1685 ], [ %1686, %1688 ]
   br label %1770
 
 1770:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit937, %.body908
@@ -81396,7 +81396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1012: ; preds = %_
   br label %.body972
 
 .body972:                                         ; preds = %2035, %2032, %2119
-  %.pn406.pn.pn = phi { ptr, i32 } [ %.pn406.pn, %2119 ], [ %2033, %2035 ], [ %2033, %2032 ]
+  %.pn406.pn.pn = phi { ptr, i32 } [ %.pn406.pn, %2119 ], [ %2033, %2032 ], [ %2033, %2035 ]
   %2120 = load ptr, ptr %186, align 8, !tbaa !43
   %2121 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %2122 = icmp eq ptr %2120, %2121
@@ -81941,7 +81941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1082: ; preds = %_
   br label %.body1042
 
 .body1042:                                        ; preds = %2226, %2223, %2318
-  %.pn414.pn.pn = phi { ptr, i32 } [ %.pn414.pn, %2318 ], [ %2224, %2226 ], [ %2224, %2223 ]
+  %.pn414.pn.pn = phi { ptr, i32 } [ %.pn414.pn, %2318 ], [ %2224, %2223 ], [ %2224, %2226 ]
   br label %2319
 
 2319:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1085, %.body1042
@@ -81963,12 +81963,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1085: ; preds = %2
   br i1 %2327, label %.thread1474, label %2319
 
 2328:                                             ; preds = %2310, %2312
-  %.0295 = phi ptr [ %2204, %2310 ], [ %2211, %2312 ]
-  %.pn414.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2311, %2310 ], [ %2313, %2312 ]
+  %.0295 = phi ptr [ %2211, %2312 ], [ %2204, %2310 ]
+  %.pn414.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2313, %2312 ], [ %2311, %2310 ]
   br label %2329
 
 2329:                                             ; preds = %2328, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088
-  %2330 = phi ptr [ %2331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088 ], [ %.0295, %2328 ]
+  %2330 = phi ptr [ %.0295, %2328 ], [ %2331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1088 ]
   %2331 = getelementptr inbounds i8, ptr %2330, i64 -32
   %2332 = load ptr, ptr %2331, align 8, !tbaa !43
   %2333 = getelementptr inbounds i8, ptr %2330, i64 -16
@@ -82459,7 +82459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1143: ; preds = %2
   br label %.body1117
 
 .body1117:                                        ; preds = %2428, %2425, %2504
-  %.pn425 = phi { ptr, i32 } [ %2505, %2504 ], [ %2426, %2428 ], [ %2426, %2425 ]
+  %.pn425 = phi { ptr, i32 } [ %2505, %2504 ], [ %2426, %2425 ], [ %2426, %2428 ]
   %2506 = load ptr, ptr %207, align 8, !tbaa !43
   %2507 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %2508 = icmp eq ptr %2506, %2507
@@ -82780,7 +82780,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body1158
 
 .body1158:                                        ; preds = %2552, %2549, %2622
-  %.pn433 = phi { ptr, i32 } [ %2623, %2622 ], [ %2550, %2552 ], [ %2550, %2549 ]
+  %.pn433 = phi { ptr, i32 } [ %2623, %2622 ], [ %2550, %2549 ], [ %2550, %2552 ]
   %2624 = load ptr, ptr %217, align 8, !tbaa !43
   %2625 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %2626 = icmp eq ptr %2624, %2625
@@ -83101,7 +83101,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body1196
 
 .body1196:                                        ; preds = %2670, %2667, %2740
-  %.pn441 = phi { ptr, i32 } [ %2741, %2740 ], [ %2668, %2670 ], [ %2668, %2667 ]
+  %.pn441 = phi { ptr, i32 } [ %2741, %2740 ], [ %2668, %2667 ], [ %2668, %2670 ]
   %2742 = load ptr, ptr %227, align 8, !tbaa !43
   %2743 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %2744 = icmp eq ptr %2742, %2743
@@ -83422,7 +83422,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body1234
 
 .body1234:                                        ; preds = %2788, %2785, %2858
-  %.pn449 = phi { ptr, i32 } [ %2859, %2858 ], [ %2786, %2788 ], [ %2786, %2785 ]
+  %.pn449 = phi { ptr, i32 } [ %2859, %2858 ], [ %2786, %2785 ], [ %2786, %2788 ]
   %2860 = load ptr, ptr %237, align 8, !tbaa !43
   %2861 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %2862 = icmp eq ptr %2860, %2861
@@ -83743,7 +83743,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body1272
 
 .body1272:                                        ; preds = %2906, %2903, %2976
-  %.pn457 = phi { ptr, i32 } [ %2977, %2976 ], [ %2904, %2906 ], [ %2904, %2903 ]
+  %.pn457 = phi { ptr, i32 } [ %2977, %2976 ], [ %2904, %2903 ], [ %2904, %2906 ]
   %2978 = load ptr, ptr %247, align 8, !tbaa !43
   %2979 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %2980 = icmp eq ptr %2978, %2979
@@ -84282,7 +84282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %258, %255, %301
-  %.pn = phi { ptr, i32 } [ %302, %301 ], [ %256, %258 ], [ %256, %255 ]
+  %.pn = phi { ptr, i32 } [ %302, %301 ], [ %256, %255 ], [ %256, %258 ]
   %303 = load ptr, ptr %42, align 8, !tbaa !43
   %304 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %305 = icmp eq ptr %303, %304
@@ -84819,7 +84819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit517: ; preds = %_Z
   br label %.body499
 
 .body499:                                         ; preds = %441, %438, %493
-  %.pn296 = phi { ptr, i32 } [ %494, %493 ], [ %439, %441 ], [ %439, %438 ]
+  %.pn296 = phi { ptr, i32 } [ %494, %493 ], [ %439, %438 ], [ %439, %441 ]
   %495 = load ptr, ptr %58, align 8, !tbaa !43
   %496 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %497 = icmp eq ptr %495, %496
@@ -85825,7 +85825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit609: ; preds = %_Z
   br label %.body591
 
 .body591:                                         ; preds = %798, %795, %849
-  %.pn323 = phi { ptr, i32 } [ %850, %849 ], [ %796, %798 ], [ %796, %795 ]
+  %.pn323 = phi { ptr, i32 } [ %850, %849 ], [ %796, %795 ], [ %796, %798 ]
   %851 = load ptr, ptr %89, align 8, !tbaa !43
   %852 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %853 = icmp eq ptr %851, %852
@@ -86362,7 +86362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit663: ; preds = %_Z
   br label %.body645
 
 .body645:                                         ; preds = %989, %986, %1041
-  %.pn338 = phi { ptr, i32 } [ %1042, %1041 ], [ %987, %989 ], [ %987, %986 ]
+  %.pn338 = phi { ptr, i32 } [ %1042, %1041 ], [ %987, %986 ], [ %987, %989 ]
   %1043 = load ptr, ptr %105, align 8, !tbaa !43
   %1044 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %1045 = icmp eq ptr %1043, %1044
@@ -87393,7 +87393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit763: ; preds = %_Z
   br label %.body745
 
 .body745:                                         ; preds = %1354, %1351, %1409
-  %.pn365 = phi { ptr, i32 } [ %1410, %1409 ], [ %1352, %1354 ], [ %1352, %1351 ]
+  %.pn365 = phi { ptr, i32 } [ %1410, %1409 ], [ %1352, %1351 ], [ %1352, %1354 ]
   br label %1411
 
 1411:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769, %.body745
@@ -87758,7 +87758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit805: ; preds = %_Z
   br label %.body781
 
 .body781:                                         ; preds = %1460, %1457, %1545
-  %.pn373.pn.pn = phi { ptr, i32 } [ %.pn373.pn, %1545 ], [ %1458, %1460 ], [ %1458, %1457 ]
+  %.pn373.pn.pn = phi { ptr, i32 } [ %.pn373.pn, %1545 ], [ %1458, %1457 ], [ %1458, %1460 ]
   %1546 = load ptr, ptr %148, align 8, !tbaa !43
   %1547 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1548 = icmp eq ptr %1546, %1547
@@ -88170,7 +88170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit852: ; preds = %_Z
   br label %.body834
 
 .body834:                                         ; preds = %1637, %1634, %1688
-  %.pn383 = phi { ptr, i32 } [ %1689, %1688 ], [ %1635, %1637 ], [ %1635, %1634 ]
+  %.pn383 = phi { ptr, i32 } [ %1689, %1688 ], [ %1635, %1634 ], [ %1635, %1637 ]
   %1690 = load ptr, ptr %156, align 8, !tbaa !43
   %1691 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %1692 = icmp eq ptr %1690, %1691
@@ -88731,7 +88731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit914: ; preds = %_Z
   br label %.body896
 
 .body896:                                         ; preds = %1836, %1833, %1891
-  %.pn398 = phi { ptr, i32 } [ %1892, %1891 ], [ %1834, %1836 ], [ %1834, %1833 ]
+  %.pn398 = phi { ptr, i32 } [ %1892, %1891 ], [ %1834, %1833 ], [ %1834, %1836 ]
   br label %1893
 
 1893:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit920, %.body896
@@ -89096,7 +89096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972: ; preds = %_Z
   br label %.body932
 
 .body932:                                         ; preds = %1942, %1939, %2027
-  %.pn406.pn.pn = phi { ptr, i32 } [ %.pn406.pn, %2027 ], [ %1940, %1942 ], [ %1940, %1939 ]
+  %.pn406.pn.pn = phi { ptr, i32 } [ %.pn406.pn, %2027 ], [ %1940, %1939 ], [ %1940, %1942 ]
   %2028 = load ptr, ptr %184, align 8, !tbaa !43
   %2029 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %2030 = icmp eq ptr %2028, %2029
@@ -89525,7 +89525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1019: ; preds = %_
   br label %.body1001
 
 .body1001:                                        ; preds = %2122, %2119, %2176
-  %.pn416 = phi { ptr, i32 } [ %2177, %2176 ], [ %2120, %2122 ], [ %2120, %2119 ]
+  %.pn416 = phi { ptr, i32 } [ %2177, %2176 ], [ %2120, %2119 ], [ %2120, %2122 ]
   %2178 = load ptr, ptr %192, align 8, !tbaa !43
   %2179 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %2180 = icmp eq ptr %2178, %2179
@@ -90000,7 +90000,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1038
 
 .body1038:                                        ; preds = %2266, %2263, %2354
-  %.pn425.pn = phi { ptr, i32 } [ %2355, %2354 ], [ %2264, %2266 ], [ %2264, %2263 ]
+  %.pn425.pn = phi { ptr, i32 } [ %2355, %2354 ], [ %2264, %2263 ], [ %2264, %2266 ]
   %2356 = load ptr, ptr %208, align 8, !tbaa !43
   %2357 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %2358 = icmp eq ptr %2356, %2357
@@ -90249,7 +90249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1102: ; preds = %_
   br label %.body1084
 
 .body1084:                                        ; preds = %2389, %2386, %2441
-  %.pn431 = phi { ptr, i32 } [ %2442, %2441 ], [ %2387, %2389 ], [ %2387, %2386 ]
+  %.pn431 = phi { ptr, i32 } [ %2442, %2441 ], [ %2387, %2386 ], [ %2387, %2389 ]
   %2443 = load ptr, ptr %211, align 8, !tbaa !43
   %2444 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %2445 = icmp eq ptr %2443, %2444
@@ -90707,7 +90707,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1121
 
 .body1121:                                        ; preds = %2528, %2525, %2614
-  %.pn440.pn = phi { ptr, i32 } [ %2615, %2614 ], [ %2526, %2528 ], [ %2526, %2525 ]
+  %.pn440.pn = phi { ptr, i32 } [ %2615, %2614 ], [ %2526, %2525 ], [ %2526, %2528 ]
   %2616 = load ptr, ptr %227, align 8, !tbaa !43
   %2617 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %2618 = icmp eq ptr %2616, %2617
@@ -90955,7 +90955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1192: ; preds = %_
   br label %.body1174
 
 .body1174:                                        ; preds = %2649, %2646, %2701
-  %.pn446 = phi { ptr, i32 } [ %2702, %2701 ], [ %2647, %2649 ], [ %2647, %2646 ]
+  %.pn446 = phi { ptr, i32 } [ %2702, %2701 ], [ %2647, %2646 ], [ %2647, %2649 ]
   %2703 = load ptr, ptr %230, align 8, !tbaa !43
   %2704 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %2705 = icmp eq ptr %2703, %2704
@@ -91413,7 +91413,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body1211
 
 .body1211:                                        ; preds = %2788, %2785, %2874
-  %.pn455.pn = phi { ptr, i32 } [ %2875, %2874 ], [ %2786, %2788 ], [ %2786, %2785 ]
+  %.pn455.pn = phi { ptr, i32 } [ %2875, %2874 ], [ %2786, %2785 ], [ %2786, %2788 ]
   %2876 = load ptr, ptr %246, align 8, !tbaa !43
   %2877 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %2878 = icmp eq ptr %2876, %2877
@@ -91795,7 +91795,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body
 
 .body:                                            ; preds = %66, %63, %133
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %64, %66 ], [ %64, %63 ]
+  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %64, %63 ], [ %64, %66 ]
   br label %135
 
 135:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86, %.body
@@ -92751,7 +92751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159: ; preds = %_Z
   br label %.body134
 
 .body134:                                         ; preds = %.thread251, %402, %475
-  %.pn66.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %475 ], [ %403, %402 ], [ %397, %.thread251 ]
+  %.pn66.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %475 ], [ %397, %.thread251 ], [ %403, %402 ]
   %476 = load ptr, ptr %46, align 8, !tbaa !43
   %477 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %478 = icmp eq ptr %476, %477
@@ -93160,7 +93160,7 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body
 
 .body:                                            ; preds = %68, %65, %135
-  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %66, %68 ], [ %66, %65 ]
+  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %66, %65 ], [ %66, %68 ]
   br label %137
 
 137:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91, %.body
@@ -94083,7 +94083,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162: ; preds = %_Z
   br label %.body137
 
 .body137:                                         ; preds = %.thread263, %393, %466
-  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %466 ], [ %394, %393 ], [ %388, %.thread263 ]
+  %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %466 ], [ %388, %.thread263 ], [ %394, %393 ]
   %467 = load ptr, ptr %44, align 8, !tbaa !43
   %468 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %469 = icmp eq ptr %467, %468

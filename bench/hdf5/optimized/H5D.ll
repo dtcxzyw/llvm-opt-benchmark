@@ -497,7 +497,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5D__create_api_
   br label %.thread
 
 .thread:                                          ; preds = %21, %27, %45, %56, %66, %34, %70, %83, %75, %9
-  %.0 = phi i64 [ -1, %83 ], [ -1, %75 ], [ -1, %9 ], [ -1, %21 ], [ -1, %27 ], [ -1, %45 ], [ -1, %56 ], [ %73, %70 ], [ -1, %66 ], [ -1, %34 ]
+  %.0 = phi i64 [ -1, %83 ], [ -1, %75 ], [ -1, %34 ], [ -1, %9 ], [ -1, %21 ], [ -1, %27 ], [ -1, %45 ], [ -1, %56 ], [ %73, %70 ], [ -1, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
@@ -1024,7 +1024,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5D__open_api_co
   br label %.thread
 
 .thread:                                          ; preds = %17, %23, %40, %30, %44, %57, %49, %5
-  %.0 = phi i64 [ -1, %57 ], [ -1, %49 ], [ -1, %5 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ], [ -1, %30 ]
+  %.0 = phi i64 [ -1, %57 ], [ -1, %49 ], [ -1, %30 ], [ -1, %5 ], [ -1, %17 ], [ -1, %23 ], [ %47, %44 ], [ -1, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -1411,7 +1411,7 @@ define range(i32 -1, 1) i32 @H5Dclose_async(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.0, label %.thread54, label %88, !prof !27
 
 .thread54:                                        ; preds = %36, %29, %16, %.thread63, %.thread60, %85
-  %.1284758 = phi i32 [ %.027, %85 ], [ -1, %.thread60 ], [ -1, %.thread63 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+  %.1284758 = phi i32 [ -1, %.thread63 ], [ %.027, %85 ], [ -1, %.thread60 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %87 = call i32 @H5E_dump_api_stack() #7
   br label %88
 
@@ -2666,7 +2666,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
   br label %.thread86
 
 .thread86:                                        ; preds = %92, %87, %77, %106, %109, %102, %61
-  %.1 = phi i32 [ -1, %61 ], [ -1, %109 ], [ 0, %106 ], [ -1, %102 ], [ -1, %77 ], [ -1, %87 ], [ -1, %92 ]
+  %.1 = phi i32 [ -1, %102 ], [ -1, %61 ], [ 0, %106 ], [ -1, %109 ], [ -1, %77 ], [ -1, %87 ], [ -1, %92 ]
   %.not78 = icmp eq ptr %.157, %10
   br i1 %.not78, label %.thread90, label %113
 
@@ -3488,7 +3488,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
   br label %.thread86
 
 .thread86:                                        ; preds = %92, %87, %77, %106, %109, %102, %61
-  %.1 = phi i32 [ -1, %61 ], [ -1, %109 ], [ 0, %106 ], [ -1, %102 ], [ -1, %77 ], [ -1, %87 ], [ -1, %92 ]
+  %.1 = phi i32 [ -1, %102 ], [ -1, %61 ], [ 0, %106 ], [ -1, %109 ], [ -1, %77 ], [ -1, %87 ], [ -1, %92 ]
   %.not78 = icmp eq ptr %.157, %10
   br i1 %.not78, label %.thread90, label %113
 
@@ -4297,7 +4297,7 @@ define range(i32 -1, -2147483648) i32 @H5Dscatter(ptr noundef readonly captures(
   br label %.thread116
 
 .thread116:                                       ; preds = %18, %31, %38, %.thread121, %.thread78
-  %.35592110120 = phi i32 [ %.355102, %.thread78 ], [ -1, %.thread121 ], [ -1, %38 ], [ -1, %31 ], [ -1, %18 ]
+  %.35592110120 = phi i32 [ -1, %.thread121 ], [ %.355102, %.thread78 ], [ -1, %38 ], [ -1, %31 ], [ -1, %18 ]
   %156 = call i32 @H5E_dump_api_stack() #7
   br label %157
 
@@ -4611,7 +4611,7 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
   br label %.thread128
 
 .thread128:                                       ; preds = %18, %31, %38, %.thread133, %.thread90
-  %.467104122132 = phi i32 [ %.467114, %.thread90 ], [ -1, %.thread133 ], [ -1, %38 ], [ -1, %31 ], [ -1, %18 ]
+  %.467104122132 = phi i32 [ -1, %.thread133 ], [ %.467114, %.thread90 ], [ -1, %38 ], [ -1, %31 ], [ -1, %18 ]
   %162 = call i32 @H5E_dump_api_stack() #7
   br label %163
 

@@ -299,8 +299,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit45:                  ; preds = %._crit_edge81, %._c
   br i1 %79, label %.lr.ph80, label %._crit_edge81.thread, !llvm.loop !17
 
 80:                                               ; preds = %.loopexit, %.loopexit.split-lp, %56, %_ZNSt6vectorIiSaIiEED2Ev.exit43
-  %81 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEED2Ev.exit43 ], [ %41, %56 ], [ %15, %.loopexit ], [ %15, %.loopexit.split-lp ]
-  %.pn.pn = phi { ptr, i32 } [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit43 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %81 = phi ptr [ %41, %56 ], [ %15, %.loopexit.split-lp ], [ %.pre, %_ZNSt6vectorIiSaIiEED2Ev.exit43 ], [ %15, %.loopexit ]
+  %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit43 ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i46 = icmp eq ptr %81, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIiSaIiEED2Ev.exit47, label %82
 

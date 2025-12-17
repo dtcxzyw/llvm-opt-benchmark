@@ -562,7 +562,7 @@ if.then4.i.i36:                                   ; preds = %if.end7
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit41
 
 _ZN4llvh11raw_ostreamlsEPKc.exit41:               ; preds = %if.then.i.i39, %if.then4.i.i36
-  %phi.call.i38 = phi ptr [ %call3.i.i40, %if.then.i.i39 ], [ %Out, %if.then4.i.i36 ]
+  %phi.call.i38 = phi ptr [ %Out, %if.then4.i.i36 ], [ %call3.i.i40, %if.then.i.i39 ]
   %call16 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i38, i64 noundef %cond.i) #12
   %OutBufCur.i = getelementptr inbounds nuw i8, ptr %call16, i64 24
   %12 = load ptr, ptr %OutBufCur.i, align 8

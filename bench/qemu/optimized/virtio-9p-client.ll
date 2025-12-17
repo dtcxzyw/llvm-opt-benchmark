@@ -597,7 +597,7 @@ define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef z
   br label %49
 
 49:                                               ; preds = %40, %33
-  %50 = phi i8 [ %.pre, %40 ], [ %38, %33 ]
+  %50 = phi i8 [ %38, %33 ], [ %.pre, %40 ]
   %51 = icmp eq i8 %50, %1
   br i1 %51, label %.thread, label %52
 

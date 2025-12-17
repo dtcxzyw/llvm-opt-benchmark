@@ -93,9 +93,9 @@ define dso_local void @slurm_chk_memset(ptr noundef readonly captures(none) %0, 
   br label %27
 
 27:                                               ; preds = %26, %24, %22, %20, %17, %15
-  %.018 = phi ptr [ @.str, %15 ], [ %.str..str.4, %17 ], [ %.str..str.4, %20 ], [ %.str..str.4, %22 ], [ %.str..str.4, %24 ], [ %.str..str.4, %26 ]
-  %.017 = phi ptr [ @.str.2, %15 ], [ @.str.5, %17 ], [ @.str.6, %20 ], [ @.str.7, %22 ], [ @.str.8, %24 ], [ %.str.10..str.9, %26 ]
-  %.0 = phi ptr [ @.str.1, %15 ], [ @.str.3, %17 ], [ @.str.3, %20 ], [ @.str.3, %22 ], [ @.str.3, %24 ], [ %.str.1..str.3, %26 ]
+  %.018 = phi ptr [ %.str..str.4, %24 ], [ @.str, %15 ], [ %.str..str.4, %17 ], [ %.str..str.4, %20 ], [ %.str..str.4, %22 ], [ %.str..str.4, %26 ]
+  %.017 = phi ptr [ @.str.8, %24 ], [ @.str.2, %15 ], [ @.str.5, %17 ], [ @.str.6, %20 ], [ @.str.7, %22 ], [ %.str.10..str.9, %26 ]
+  %.0 = phi ptr [ @.str.3, %24 ], [ @.str.1, %15 ], [ @.str.3, %17 ], [ @.str.3, %20 ], [ @.str.3, %22 ], [ %.str.1..str.3, %26 ]
   %28 = load ptr, ptr @stderr, align 8
   %29 = load ptr, ptr @conf, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4128
@@ -443,7 +443,7 @@ select.unfold.loopexit.split.loop.exit95.i:       ; preds = %116
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.loopexit.split.loop.exit95.i, %select.unfold.loopexit.split.loop.exit93.i, %select.unfold.loopexit.split.loop.exit.i, %110
-  %.048.ph.i = phi i32 [ %111, %110 ], [ %120, %select.unfold.loopexit.split.loop.exit.i ], [ %indvars89.le100.i, %select.unfold.loopexit.split.loop.exit93.i ], [ %121, %select.unfold.loopexit.split.loop.exit95.i ]
+  %.048.ph.i = phi i32 [ %111, %110 ], [ %indvars89.le100.i, %select.unfold.loopexit.split.loop.exit93.i ], [ %120, %select.unfold.loopexit.split.loop.exit.i ], [ %121, %select.unfold.loopexit.split.loop.exit95.i ]
   %122 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26, i32 noundef %.048.ph.i, i32 noundef %15, ptr noundef nonnull %.050.i.idx.sroa.sel.idx.sroa.sel) #8
   br label %_str_to_memset.exit.thread
 
@@ -622,7 +622,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br label %_str_to_memset.exit.thread
 
 _str_to_memset.exit.thread:                       ; preds = %103, %select.unfold.i, %163, %45, %47, %204, %203, %._crit_edge118.thread, %60, %27
-  %.063 = phi i32 [ 1, %27 ], [ %.3, %203 ], [ 0, %204 ], [ 0, %._crit_edge118.thread ], [ 0, %60 ], [ 0, %45 ], [ 1, %47 ], [ %spec.select98, %163 ], [ 0, %select.unfold.i ], [ 0, %103 ]
+  %.063 = phi i32 [ 1, %27 ], [ 0, %60 ], [ 1, %47 ], [ 0, %45 ], [ %spec.select98, %163 ], [ %.3, %203 ], [ 0, %204 ], [ 0, %._crit_edge118.thread ], [ 0, %select.unfold.i ], [ 0, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.063
 }
@@ -752,7 +752,7 @@ define dso_local zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_
   br label %53
 
 53:                                               ; preds = %8, %._crit_edge, %38, %29, %4
-  %.0 = phi i16 [ %7, %4 ], [ 0, %29 ], [ 0, %38 ], [ %52, %._crit_edge ], [ 0, %8 ]
+  %.0 = phi i16 [ %7, %4 ], [ %52, %._crit_edge ], [ 0, %29 ], [ 0, %38 ], [ 0, %8 ]
   ret i16 %.0
 }
 

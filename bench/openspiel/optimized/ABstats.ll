@@ -716,7 +716,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -1416,8 +1416,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40: ; 
   ret void
 
 .body:                                            ; preds = %43, %28, %41, %39, %24, %37
-  %.sink = phi ptr [ %5, %37 ], [ %5, %24 ], [ %5, %39 ], [ %7, %41 ], [ %7, %28 ], [ %7, %43 ]
-  %.pn32.pn = phi { ptr, i32 } [ %38, %37 ], [ %25, %24 ], [ %40, %39 ], [ %42, %41 ], [ %29, %28 ], [ %44, %43 ]
+  %.sink = phi ptr [ %5, %39 ], [ %5, %37 ], [ %5, %24 ], [ %7, %41 ], [ %7, %28 ], [ %7, %43 ]
+  %.pn32.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ], [ %25, %24 ], [ %42, %41 ], [ %29, %28 ], [ %44, %43 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #13
   resume { ptr, i32 } %.pn32.pn
 }

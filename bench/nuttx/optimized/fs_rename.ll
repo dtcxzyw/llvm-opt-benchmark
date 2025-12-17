@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %98
 
 98:                                               ; preds = %.loopexit.i, %82, %73, %49, %45
-  %.035.i = phi i32 [ -12, %73 ], [ %86, %82 ], [ %97, %.loopexit.i ], [ -18, %45 ], [ 0, %49 ]
+  %.035.i = phi i32 [ %97, %.loopexit.i ], [ -18, %45 ], [ -12, %73 ], [ %86, %82 ], [ 0, %49 ]
   call void @inode_release(ptr noundef %47) #6
   br label %99
 
@@ -350,7 +350,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br label %168
 
 168:                                              ; preds = %167, %165, %146
-  %.022.i = phi i32 [ %162, %165 ], [ 0, %167 ], [ -17, %146 ]
+  %.022.i = phi i32 [ 0, %167 ], [ %162, %165 ], [ -17, %146 ]
   call void @inode_unlock() #6
   br label %169
 

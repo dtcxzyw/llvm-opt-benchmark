@@ -339,7 +339,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br label %118
 
 118:                                              ; preds = %116, %102, %70
-  %.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %117, %116 ], [ %71, %70 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %103, %102 ], [ %117, %116 ]
   %119 = load ptr, ptr %4, align 8, !tbaa !19
   call void @free(ptr noundef %119) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -501,7 +501,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !41
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %39, %.preheader ], [ %calloc, %30 ], [ %6, %3 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !39

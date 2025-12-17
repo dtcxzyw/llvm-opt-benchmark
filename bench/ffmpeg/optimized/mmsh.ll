@@ -416,7 +416,7 @@ define internal fastcc i32 @mmsh_open_internal(ptr noundef initializes((40, 44))
   br label %105
 
 105:                                              ; preds = %55, %20, %100, %99
-  %.044 = phi i32 [ %.046, %100 ], [ 0, %99 ], [ -5, %20 ], [ -12, %55 ]
+  %.044 = phi i32 [ -5, %20 ], [ %.046, %100 ], [ -12, %55 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -569,7 +569,7 @@ define internal fastcc i32 @get_http_header_data(ptr noundef %0) unnamed_addr #0
   br i1 %47, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %.backedge, %18, %1, %44, %40, %33, %31, %28, %23
-  %.0 = phi i32 [ -5, %23 ], [ -5, %28 ], [ %32, %31 ], [ %35, %33 ], [ -5, %40 ], [ -5, %44 ], [ %3, %1 ], [ %46, %.backedge ], [ -12, %18 ]
+  %.0 = phi i32 [ -5, %44 ], [ -5, %23 ], [ -5, %28 ], [ %32, %31 ], [ -5, %40 ], [ %35, %33 ], [ %3, %1 ], [ %46, %.backedge ], [ -12, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

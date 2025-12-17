@@ -916,7 +916,7 @@ define void @_ZN10rayon_core5scope9ScopeBase12job_panicked17ha07ba80861f6462eE(p
   br label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h93e5c1defc8d1675E.exit"
 
 common.resume:                                    ; preds = %11, %39, %42, %50
-  %common.resume.op = phi { ptr, i32 } [ %43, %50 ], [ %43, %42 ], [ %23, %39 ], [ %12, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %43, %50 ], [ %23, %39 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 }
 

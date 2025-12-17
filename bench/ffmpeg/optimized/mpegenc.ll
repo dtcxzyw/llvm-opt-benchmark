@@ -312,7 +312,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   br label %.thread264
 
 .thread264:                                       ; preds = %106, %107, %108, %103
-  %.0203 = phi i32 [ 16, %106 ], [ 32, %107 ], [ 48, %108 ], [ 0, %103 ]
+  %.0203 = phi i32 [ 48, %108 ], [ 16, %106 ], [ 32, %107 ], [ 0, %103 ]
   %109 = getelementptr inbounds nuw i8, ptr %43, i64 52
   store i8 12, ptr %109, align 4, !tbaa !62
   %110 = load ptr, ptr %46, align 8, !tbaa !47
@@ -366,10 +366,10 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   br label %142
 
 142:                                              ; preds = %.thread264, %63, %139, %86, %60
-  %.1230 = phi i8 [ %.0229303, %60 ], [ %.0229303, %63 ], [ %.0229303, %86 ], [ %140, %139 ], [ %.0229303, %.thread264 ]
-  %.1219 = phi i8 [ %61, %60 ], [ %.0218307, %63 ], [ %.0218307, %86 ], [ %.0218307, %139 ], [ %.0218307, %.thread264 ]
-  %.1216 = phi i8 [ %.0215308, %60 ], [ %64, %63 ], [ %.0215308, %86 ], [ %.0215308, %139 ], [ %.0215308, %.thread264 ]
-  %.1212 = phi i32 [ %.0211309, %60 ], [ %.0211309, %63 ], [ %67, %86 ], [ %.0211309, %139 ], [ %124, %.thread264 ]
+  %.1230 = phi i8 [ %.0229303, %60 ], [ %.0229303, %63 ], [ %.0229303, %86 ], [ %.0229303, %.thread264 ], [ %140, %139 ]
+  %.1219 = phi i8 [ %61, %60 ], [ %.0218307, %63 ], [ %.0218307, %86 ], [ %.0218307, %.thread264 ], [ %.0218307, %139 ]
+  %.1216 = phi i8 [ %.0215308, %60 ], [ %64, %63 ], [ %.0215308, %86 ], [ %.0215308, %.thread264 ], [ %.0215308, %139 ]
+  %.1212 = phi i32 [ %.0211309, %60 ], [ %.0211309, %63 ], [ %67, %86 ], [ %124, %.thread264 ], [ %.0211309, %139 ]
   %143 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 4096, ptr %143, align 4, !tbaa !65
   %144 = load i32, ptr %32, align 4, !tbaa !34
@@ -700,7 +700,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   br i1 %exitcond.not.i, label %get_system_header_size.exit, label %286, !llvm.loop !83
 
 get_system_header_size.exit:                      ; preds = %297, %._crit_edge321, %._crit_edge321.thread
-  %.0.i = phi i32 [ 18, %._crit_edge321.thread ], [ %spec.select402, %._crit_edge321 ], [ %.1.i, %297 ]
+  %.0.i = phi i32 [ %spec.select402, %._crit_edge321 ], [ 18, %._crit_edge321.thread ], [ %.1.i, %297 ]
   %298 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %.0.i, ptr %298, align 8, !tbaa !84
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -1654,7 +1654,7 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   br i1 %288, label %.lr.ph26.i197, label %.critedge195, !llvm.loop !114
 
 .critedge195:                                     ; preds = %136, %remove_decoded_packets.exit, %.preheader221, %43, %.critedge.i201, %2, %252
-  %.3 = phi i32 [ 1, %252 ], [ 0, %2 ], [ 1, %.critedge.i201 ], [ 0, %43 ], [ 0, %.preheader221 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
+  %.3 = phi i32 [ 1, %252 ], [ 0, %2 ], [ 0, %43 ], [ 1, %.critedge.i201 ], [ 0, %.preheader221 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
   ret i32 %.3
 }
 
@@ -1832,8 +1832,8 @@ define internal fastcc i32 @flush_packet(ptr noundef %0, i32 noundef range(i32 0
   br label %113
 
 113:                                              ; preds = %100, %73, %43, %39, %103, %109, %53, %29
-  %.0291 = phi ptr [ %46, %43 ], [ %35, %39 ], [ %35, %53 ], [ %112, %109 ], [ %35, %103 ], [ %7, %29 ], [ %99, %73 ], [ %35, %100 ]
-  %.0265 = phi i32 [ 0, %43 ], [ 0, %39 ], [ 0, %53 ], [ 0, %109 ], [ 0, %103 ], [ 0, %29 ], [ 0, %73 ], [ %spec.select, %100 ]
+  %.0291 = phi ptr [ %46, %43 ], [ %35, %39 ], [ %7, %29 ], [ %35, %53 ], [ %112, %109 ], [ %35, %103 ], [ %99, %73 ], [ %35, %100 ]
+  %.0265 = phi i32 [ 0, %43 ], [ 0, %39 ], [ 0, %29 ], [ 0, %53 ], [ 0, %109 ], [ 0, %103 ], [ 0, %73 ], [ %spec.select, %100 ]
   %114 = ptrtoint ptr %.0291 to i64
   %115 = ptrtoint ptr %7 to i64
   %116 = sub i64 %114, %115
@@ -1934,8 +1934,8 @@ define internal fastcc i32 @flush_packet(ptr noundef %0, i32 noundef range(i32 0
   br label %163
 
 163:                                              ; preds = %159, %156, %161
-  %.0285 = phi i32 [ %157, %156 ], [ %154, %161 ], [ %spec.select335, %159 ]
-  %.0284 = phi i32 [ 445, %156 ], [ %162, %161 ], [ 445, %159 ]
+  %.0285 = phi i32 [ %154, %161 ], [ %spec.select335, %159 ], [ %157, %156 ]
+  %.0284 = phi i32 [ %162, %161 ], [ 445, %159 ], [ 445, %156 ]
   %164 = load ptr, ptr %17, align 8, !tbaa !72
   %165 = call i64 @av_fifo_can_read(ptr noundef %164) #8
   %166 = trunc i64 %165 to i32
@@ -2766,8 +2766,8 @@ put_bits.exit142:                                 ; preds = %put_bits.exit126, %
   br label %put_bits.exit206
 
 put_bits.exit206:                                 ; preds = %76, %.thread
-  %.062.lcssa516 = phi i32 [ 0, %.thread ], [ %.163, %76 ]
-  %85 = phi i32 [ -1071596096, %.thread ], [ %spec.select534, %76 ]
+  %.062.lcssa516 = phi i32 [ %.163, %76 ], [ 0, %.thread ]
+  %85 = phi i32 [ %spec.select534, %76 ], [ -1071596096, %.thread ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = lshr i32 %.062.lcssa516, 15
   %88 = or i32 %85, %87
@@ -3022,10 +3022,10 @@ put_bits.exit242:                                 ; preds = %167
   br label %put_bits.exit238
 
 put_bits.exit238:                                 ; preds = %96, %197, %183, %165, %151, %105
-  %.sroa.188.7.idx = phi i64 [ %.sroa.188.6474.idx, %105 ], [ %.sroa.188.86521.idx, %151 ], [ %.sroa.188.87.idx, %165 ], [ %.sroa.188.90527.idx, %183 ], [ %.sroa.188.91.idx, %197 ], [ %.sroa.188.6474.idx, %96 ]
-  %.sroa.95.7 = phi i32 [ %.sroa.95.6475, %105 ], [ %155, %151 ], [ %166, %165 ], [ %187, %183 ], [ %198, %197 ], [ %.sroa.95.6475, %96 ]
-  %.sroa.0.7 = phi i32 [ %.sroa.0.6476, %105 ], [ %154, %151 ], [ %149, %165 ], [ %186, %183 ], [ %181, %197 ], [ %.sroa.0.6476, %96 ]
-  %.3 = phi i32 [ 1, %105 ], [ %.2, %151 ], [ %.2, %165 ], [ %.2, %183 ], [ %.2, %197 ], [ %.060477, %96 ]
+  %.sroa.188.7.idx = phi i64 [ %.sroa.188.6474.idx, %96 ], [ %.sroa.188.87.idx, %165 ], [ %.sroa.188.6474.idx, %105 ], [ %.sroa.188.86521.idx, %151 ], [ %.sroa.188.90527.idx, %183 ], [ %.sroa.188.91.idx, %197 ]
+  %.sroa.95.7 = phi i32 [ %.sroa.95.6475, %96 ], [ %166, %165 ], [ %.sroa.95.6475, %105 ], [ %155, %151 ], [ %187, %183 ], [ %198, %197 ]
+  %.sroa.0.7 = phi i32 [ %.sroa.0.6476, %96 ], [ %149, %165 ], [ %.sroa.0.6476, %105 ], [ %154, %151 ], [ %186, %183 ], [ %181, %197 ]
+  %.3 = phi i32 [ %.060477, %96 ], [ %.2, %165 ], [ 1, %105 ], [ %.2, %151 ], [ %.2, %183 ], [ %.2, %197 ]
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %199 = load i32, ptr %46, align 4, !tbaa !36
   %200 = zext i32 %199 to i64

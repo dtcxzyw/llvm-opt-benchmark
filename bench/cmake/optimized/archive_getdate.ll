@@ -459,8 +459,8 @@ nexttoken.exit.thread:                            ; preds = %.lr.ph120.i, %.preh
   br label %162
 
 nexttoken.exit:                                   ; preds = %132, %159
-  %.1 = phi ptr [ %160, %159 ], [ %.058.lcssa.i, %132 ]
-  %.2.i = phi i32 [ %161, %159 ], [ %136, %132 ]
+  %.1 = phi ptr [ %.058.lcssa.i, %132 ], [ %160, %159 ]
+  %.2.i = phi i32 [ %136, %132 ], [ %161, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.2.i, ptr %.072.ptr, align 16, !tbaa !26
   %.not81 = icmp eq i32 %.2.i, 0
@@ -1086,8 +1086,8 @@ phrase.exit:                                      ; preds = %.thread460, %229, %
   br label %.thread297
 
 .thread297:                                       ; preds = %._crit_edge, %468
-  %.sroa.181.1302 = phi i32 [ %.sroa.181.4, %468 ], [ %.mux, %._crit_edge ]
-  %.sroa.117178.1301 = phi i64 [ %.sroa.117178.4, %468 ], [ %spec.select.mux, %._crit_edge ]
+  %.sroa.181.1302 = phi i32 [ %.mux, %._crit_edge ], [ %.sroa.181.4, %468 ]
+  %.sroa.117178.1301 = phi i64 [ %spec.select.mux, %._crit_edge ], [ %.sroa.117178.4, %468 ]
   %.not84 = icmp eq i32 %.sroa.14.3, 0
   br i1 %.not84, label %.thread297.thread, label %475
 
@@ -1219,13 +1219,13 @@ phrase.exit:                                      ; preds = %.thread460, %229, %
   br label %521
 
 521:                                              ; preds = %518, %513
-  %.171 = phi i64 [ %520, %518 ], [ %516, %513 ]
+  %.171 = phi i64 [ %516, %513 ], [ %520, %518 ]
   %522 = icmp eq i64 %.171, -1
   %523 = select i1 %522, i64 0, i64 %.171
   br label %phrase.exit.thread
 
 phrase.exit.thread:                               ; preds = %162, %362, %376, %366, %380, %.lr.ph, %305, %454, %498, %486, %2, %521
-  %.069 = phi i64 [ %523, %521 ], [ -1, %2 ], [ -1, %486 ], [ -1, %498 ], [ -1, %454 ], [ -1, %305 ], [ -1, %.lr.ph ], [ -1, %380 ], [ -1, %366 ], [ -1, %376 ], [ -1, %362 ], [ -1, %162 ]
+  %.069 = phi i64 [ %523, %521 ], [ -1, %2 ], [ -1, %498 ], [ -1, %486 ], [ -1, %362 ], [ -1, %454 ], [ -1, %305 ], [ -1, %.lr.ph ], [ -1, %380 ], [ -1, %366 ], [ -1, %376 ], [ -1, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.127)

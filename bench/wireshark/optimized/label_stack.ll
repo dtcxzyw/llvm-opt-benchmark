@@ -520,7 +520,7 @@ _ZN10LabelStack10_StackItemD2Ev.exit:             ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 .body:                                            ; preds = %22, %_ZN7QStringD2Ev.exit5.i, %102, %_ZN17QArrayDataPointerIDsED2Ev.exit36
-  %.pn7 = phi { ptr, i32 } [ %103, %102 ], [ %.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit36 ], [ %23, %22 ], [ %87, %_ZN7QStringD2Ev.exit5.i ]
+  %.pn7 = phi { ptr, i32 } [ %.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit36 ], [ %103, %102 ], [ %23, %22 ], [ %87, %_ZN7QStringD2Ev.exit5.i ]
   %120 = load ptr, ptr %5, align 8
   %.not.i.i.i52 = icmp eq ptr %120, null
   br i1 %.not.i.i.i52, label %_ZN7QStringD2Ev.exit55, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53

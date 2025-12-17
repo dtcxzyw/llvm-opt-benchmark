@@ -3209,7 +3209,7 @@ _ZNSt15__new_allocatorISt6vectorIiSaIiEEE8allocateEmPKv.exit.i.i.i.i.i: ; preds 
   br label %common.resume
 
 common.resume:                                    ; preds = %.loopexit.split-lp, %195, %33, %36
-  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %lpad.phi, %.loopexit.split-lp ], [ %196, %195 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %36 ], [ %lpad.phi, %.loopexit.split-lp ], [ %196, %195 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit: ; preds = %.noexc4.i
@@ -4489,7 +4489,7 @@ _ZNSt15__new_allocatorISt6vectorIiSaIiEEE8allocateEmPKv.exit.i.i.i.i.i: ; preds 
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %22, %25
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %23, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #24
   invoke void @_ZSt8_DestroyIPSt6vectorIS0_IiSaIiEESaIS2_EEEvT_S6_(ptr noundef %0, ptr noundef nonnull %.021)
@@ -12412,7 +12412,7 @@ _ZNSt15__new_allocatorISt6vectorIlSaIlEEE8allocateEmPKv.exit.i.i.i.i.i: ; preds 
   br label %common.resume
 
 common.resume:                                    ; preds = %.loopexit.split-lp, %195, %33, %36
-  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %lpad.phi, %.loopexit.split-lp ], [ %196, %195 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %36 ], [ %lpad.phi, %.loopexit.split-lp ], [ %196, %195 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIS_IS_IlSaIlEESaIS1_EESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit: ; preds = %.noexc4.i
@@ -13686,7 +13686,7 @@ _ZNSt15__new_allocatorISt6vectorIlSaIlEEE8allocateEmPKv.exit.i.i.i.i.i: ; preds 
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %22, %25
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %23, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #24
   invoke void @_ZSt8_DestroyIPSt6vectorIS0_IlSaIlEESaIS2_EEEvT_S6_(ptr noundef %0, ptr noundef nonnull %.021)

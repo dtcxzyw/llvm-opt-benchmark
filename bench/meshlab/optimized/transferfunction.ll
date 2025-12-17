@@ -154,7 +154,7 @@ define void @_ZN9TfChannelD2Ev(ptr noundef nonnull align 8 captures(none) derefe
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit:       ; preds = %1, %._crit_edge, %14
-  %15 = phi ptr [ %.pre10, %._crit_edge ], [ %.pre10, %14 ], [ %3, %1 ]
+  %15 = phi ptr [ %.pre10, %14 ], [ %.pre10, %._crit_edge ], [ %3, %1 ]
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit, label %16
 
@@ -1370,7 +1370,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP6TF
   br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_T0_SF_T1_T2_.exit.us, !llvm.loop !16
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP6TF_KEYSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_T0_SF_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %37, %.split.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.0920.i.i.us, %37 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %37 ]
   %41 = getelementptr inbounds nuw ptr, ptr %.fr18, i64 %.0.lcssa.i.i.us
   store ptr %19, ptr %41, align 8
   %42 = icmp eq i64 %.0.us, 0
@@ -2718,9 +2718,9 @@ _ZN9TfChannel6addKeyEff.exit224:                  ; preds = %.noexc222
           to label %.noexc225.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc225.invoke:                                 ; preds = %_ZN9TfChannel6addKeyEff.exit224, %_ZN9TfChannel6addKeyEff.exit206, %_ZN9TfChannel6addKeyEff.exit188, %_ZN9TfChannel6addKeyEff.exit170, %_ZN9TfChannel6addKeyEff.exit152, %_ZN9TfChannel6addKeyEff.exit125, %_ZN9TfChannel6addKeyEff.exit98, %_ZN9TfChannel6addKeyEff.exit44
-  %.sink284 = phi ptr [ %40, %_ZN9TfChannel6addKeyEff.exit44 ], [ %95, %_ZN9TfChannel6addKeyEff.exit98 ], [ %123, %_ZN9TfChannel6addKeyEff.exit125 ], [ %151, %_ZN9TfChannel6addKeyEff.exit152 ], [ %170, %_ZN9TfChannel6addKeyEff.exit170 ], [ %189, %_ZN9TfChannel6addKeyEff.exit188 ], [ %208, %_ZN9TfChannel6addKeyEff.exit206 ], [ %227, %_ZN9TfChannel6addKeyEff.exit224 ]
-  %.sink = phi float [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit44 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit98 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit125 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit152 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit170 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit188 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit206 ], [ 5.000000e-01, %_ZN9TfChannel6addKeyEff.exit224 ]
-  %228 = phi ptr [ %36, %_ZN9TfChannel6addKeyEff.exit44 ], [ %79, %_ZN9TfChannel6addKeyEff.exit98 ], [ %116, %_ZN9TfChannel6addKeyEff.exit125 ], [ %144, %_ZN9TfChannel6addKeyEff.exit152 ], [ %166, %_ZN9TfChannel6addKeyEff.exit170 ], [ %185, %_ZN9TfChannel6addKeyEff.exit188 ], [ %204, %_ZN9TfChannel6addKeyEff.exit206 ], [ %223, %_ZN9TfChannel6addKeyEff.exit224 ]
+  %.sink284 = phi ptr [ %208, %_ZN9TfChannel6addKeyEff.exit206 ], [ %40, %_ZN9TfChannel6addKeyEff.exit44 ], [ %95, %_ZN9TfChannel6addKeyEff.exit98 ], [ %123, %_ZN9TfChannel6addKeyEff.exit125 ], [ %151, %_ZN9TfChannel6addKeyEff.exit152 ], [ %170, %_ZN9TfChannel6addKeyEff.exit170 ], [ %189, %_ZN9TfChannel6addKeyEff.exit188 ], [ %227, %_ZN9TfChannel6addKeyEff.exit224 ]
+  %.sink = phi float [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit206 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit44 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit98 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit125 ], [ 1.000000e+00, %_ZN9TfChannel6addKeyEff.exit152 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit170 ], [ 0.000000e+00, %_ZN9TfChannel6addKeyEff.exit188 ], [ 5.000000e-01, %_ZN9TfChannel6addKeyEff.exit224 ]
+  %228 = phi ptr [ %204, %_ZN9TfChannel6addKeyEff.exit206 ], [ %36, %_ZN9TfChannel6addKeyEff.exit44 ], [ %79, %_ZN9TfChannel6addKeyEff.exit98 ], [ %116, %_ZN9TfChannel6addKeyEff.exit125 ], [ %144, %_ZN9TfChannel6addKeyEff.exit152 ], [ %166, %_ZN9TfChannel6addKeyEff.exit170 ], [ %185, %_ZN9TfChannel6addKeyEff.exit188 ], [ %223, %_ZN9TfChannel6addKeyEff.exit224 ]
   store float 1.000000e+00, ptr %.sink284, align 4
   %229 = getelementptr inbounds nuw i8, ptr %.sink284, i64 4
   store float %.sink, ptr %229, align 4
@@ -3664,7 +3664,7 @@ _ZN7QStringD2Ev.exit73:                           ; preds = %_ZN11QStringListD2E
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit109, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %227
-  %.pn = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ], [ %lpad.loopexit, %.loopexit109 ], [ %lpad.loopexit110, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %228, %227 ], [ %230, %229 ], [ %lpad.loopexit, %.loopexit109 ], [ %lpad.loopexit110, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
@@ -4774,8 +4774,8 @@ _ZlsR11QTextStreamPFS0_S0_E.exit85:               ; preds = %152
   br label %157
 
 157:                                              ; preds = %79, %156, %67, %78
-  %.sink = phi ptr [ %5, %78 ], [ %5, %67 ], [ %0, %156 ], [ %0, %79 ]
-  %.pn34.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %78 ], [ %68, %67 ], [ %.pn34, %156 ], [ %80, %79 ]
+  %.sink = phi ptr [ %5, %67 ], [ %5, %78 ], [ %0, %156 ], [ %0, %79 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn, %78 ], [ %.pn34, %156 ], [ %80, %79 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #27
   resume { ptr, i32 } %.pn34.pn.pn
 }

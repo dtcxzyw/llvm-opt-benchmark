@@ -38,7 +38,7 @@ define internal range(i32 -12, 1) i32 @cinvideo_decode_init(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %7, %1
-  %.0 = phi i32 [ -12, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ %., %7 ], [ -12, %1 ]
   ret i32 %.0
 }
 
@@ -1090,7 +1090,7 @@ cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.p
   br label %cin_decode_rle.exit.thread
 
 cin_decode_rle.exit.thread:                       ; preds = %483, %423, %.critedge._crit_edge.i216, %.critedge._crit_edge.i, %._crit_edge.i169, %324, %._crit_edge.i139, %238, %._crit_edge.i118, %142, %._crit_edge.i, %92, %._crit_edge, %cin_decode_rle.exit, %cin_decode_huffman.exit204, %27, %4, %570
-  %.0 = phi i32 [ %11, %570 ], [ -1094995529, %4 ], [ -1094995529, %27 ], [ -1094995529, %cin_decode_huffman.exit204 ], [ %527, %cin_decode_rle.exit ], [ %568, %._crit_edge ], [ -1094995529, %92 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %142 ], [ -1094995529, %._crit_edge.i118 ], [ -1094995529, %238 ], [ -1094995529, %._crit_edge.i139 ], [ -1094995529, %324 ], [ -1094995529, %._crit_edge.i169 ], [ -1094995529, %.critedge._crit_edge.i ], [ -1094995529, %.critedge._crit_edge.i216 ], [ -1094995529, %423 ], [ -1094995529, %483 ]
+  %.0 = phi i32 [ -1094995529, %._crit_edge.i169 ], [ -1094995529, %4 ], [ -1094995529, %.critedge._crit_edge.i ], [ %527, %cin_decode_rle.exit ], [ %11, %570 ], [ -1094995529, %27 ], [ %568, %._crit_edge ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %._crit_edge.i118 ], [ -1094995529, %._crit_edge.i139 ], [ -1094995529, %cin_decode_huffman.exit204 ], [ -1094995529, %92 ], [ -1094995529, %142 ], [ -1094995529, %238 ], [ -1094995529, %324 ], [ -1094995529, %.critedge._crit_edge.i216 ], [ -1094995529, %423 ], [ -1094995529, %483 ]
   ret i32 %.0
 }
 

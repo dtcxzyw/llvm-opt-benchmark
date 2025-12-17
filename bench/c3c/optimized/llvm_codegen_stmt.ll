@@ -334,7 +334,7 @@ define dso_local void @llvm_emit_local_decl(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %74, %87, %85
-  %.0154180 = phi i1 [ true, %87 ], [ false, %85 ], [ false, %74 ]
+  %.0154180 = phi i1 [ false, %85 ], [ true, %87 ], [ false, %74 ]
   %.not166 = icmp eq ptr %76, null
   br i1 %.not166, label %101, label %93
 
@@ -569,7 +569,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -1508,8 +1508,8 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   br label %90
 
 90:                                               ; preds = %89, %86, %85, %83
-  %.2.i = phi ptr [ %40, %83 ], [ %.074.i, %85 ], [ %.074.i, %89 ], [ %.074.i, %86 ]
-  %.1.shrunk.i = phi i1 [ true, %83 ], [ true, %85 ], [ true, %89 ], [ false, %86 ]
+  %.2.i = phi ptr [ %40, %83 ], [ %.074.i, %86 ], [ %.074.i, %85 ], [ %.074.i, %89 ]
+  %.1.shrunk.i = phi i1 [ true, %83 ], [ false, %86 ], [ true, %85 ], [ true, %89 ]
   %.not84.i = icmp eq ptr %.072.i, %40
   br i1 %.not84.i, label %92, label %91
 
@@ -1519,9 +1519,9 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %76, %91
-  %.074.i.sink = phi ptr [ %40, %91 ], [ %40, %76 ], [ %.074.i, %79 ]
-  %.175.i.ph = phi ptr [ %.2.i, %91 ], [ %.074.i, %76 ], [ %.074.i, %79 ]
-  %.0.shrunk.i.ph = phi i1 [ %.1.shrunk.i, %91 ], [ true, %76 ], [ true, %79 ]
+  %.074.i.sink = phi ptr [ %40, %76 ], [ %40, %91 ], [ %.074.i, %79 ]
+  %.175.i.ph = phi ptr [ %.074.i, %76 ], [ %.2.i, %91 ], [ %.074.i, %79 ]
+  %.0.shrunk.i.ph = phi i1 [ true, %76 ], [ %.1.shrunk.i, %91 ], [ true, %79 ]
   call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %.074.i.sink) #9
   br label %92
 
@@ -3626,7 +3626,7 @@ codegen_append_constraints.exit227:               ; preds = %.lr.ph.i219
   unreachable
 
 codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexit.i, %145, %codegen_append_constraints.exit215, %codegen_append_constraints.exit227, %codegen_append_constraints.exit194
-  %.0.lcssa.i.sink = phi i32 [ %indvars.iv.next.i211, %codegen_append_constraints.exit215 ], [ %indvars.iv.next.i223, %codegen_append_constraints.exit227 ], [ %138, %codegen_append_constraints.exit194 ], [ %118, %145 ], [ %158, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i.sink = phi i32 [ %138, %codegen_append_constraints.exit194 ], [ %indvars.iv.next.i211, %codegen_append_constraints.exit215 ], [ %indvars.iv.next.i223, %codegen_append_constraints.exit227 ], [ %118, %145 ], [ %158, %._crit_edge.loopexit.i ]
   store i32 %.0.lcssa.i.sink, ptr %105, align 4
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %10) #9
   %171 = load ptr, ptr %107, align 8

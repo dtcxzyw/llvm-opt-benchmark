@@ -1078,7 +1078,7 @@ dissect_tns_accept.exit:                          ; preds = %132, %157
   br label %get_data_func_id.exit.i
 
 get_data_func_id.exit.i:                          ; preds = %229, %224, %.thread.i.i
-  %.0.i.i102 = phi i32 [ 0, %.thread.i.i ], [ %226, %224 ], [ %spec.select.i.i, %229 ]
+  %.0.i.i102 = phi i32 [ %spec.select.i.i, %229 ], [ 0, %.thread.i.i ], [ %226, %224 ]
   %232 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10)
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %234, label %274
@@ -1412,7 +1412,7 @@ switch.early.test279.i:                           ; preds = %391
   br label %408
 
 .thread370.i:                                     ; preds = %switch.early.test279.i, %switch.early.test279.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test279.thread.i
-  %storemerge368373.i = phi i32 [ %storemerge366.i, %switch.early.test279.i ], [ %storemerge366.i, %switch.early.test279.i ], [ 0, %switch.early.test279.thread.i ], [ %storemerge.i, %switch.early.test.i ], [ %storemerge.i, %switch.early.test.i ], [ %storemerge.i, %switch.early.test.i ]
+  %storemerge368373.i = phi i32 [ 0, %switch.early.test279.thread.i ], [ %storemerge366.i, %switch.early.test279.i ], [ %storemerge366.i, %switch.early.test279.i ], [ %storemerge.i, %switch.early.test.i ], [ %storemerge.i, %switch.early.test.i ], [ %storemerge.i, %switch.early.test.i ]
   %407 = add i32 %390, 1
   br label %408
 
@@ -1498,7 +1498,7 @@ switch.early.test279.i:                           ; preds = %391
   br label %451
 
 451:                                              ; preds = %.thread.i, %436, %._crit_edge.i, %._crit_edge356.i, %335, %316, %312, %.loopexit.i, %274
-  %.1.i = phi i32 [ %.0254.i, %274 ], [ %311, %.loopexit.i ], [ %315, %312 ], [ %439, %436 ], [ %.0254282.i, %.thread.i ], [ %353, %._crit_edge356.i ], [ %.9.lcssa.i, %._crit_edge.i ], [ %.0254.i, %335 ], [ %.0254.i, %316 ]
+  %.1.i = phi i32 [ %.0254.i, %274 ], [ %311, %.loopexit.i ], [ %315, %312 ], [ %.0254282.i, %.thread.i ], [ %439, %436 ], [ %353, %._crit_edge356.i ], [ %.9.lcssa.i, %._crit_edge.i ], [ %.0254.i, %316 ], [ %.0254.i, %335 ]
   %452 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i)
   %453 = call i32 @call_data_dissector(ptr noundef %452, ptr noundef %1, ptr noundef %217)
   br label %dissect_tns_data.exit

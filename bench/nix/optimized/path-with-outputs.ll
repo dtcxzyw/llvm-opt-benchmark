@@ -1273,8 +1273,8 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %152, %_ZN3nix11Outp
   ret void
 
 .body:                                            ; preds = %111, %158, %102, %20, %100
-  %.sink49 = phi ptr [ %7, %100 ], [ %7, %20 ], [ %7, %102 ], [ %10, %158 ], [ %10, %111 ]
-  %.pn10.pn = phi { ptr, i32 } [ %101, %100 ], [ %21, %20 ], [ %103, %102 ], [ %159, %158 ], [ %112, %111 ]
+  %.sink49 = phi ptr [ %7, %102 ], [ %7, %100 ], [ %7, %20 ], [ %10, %158 ], [ %10, %111 ]
+  %.pn10.pn = phi { ptr, i32 } [ %103, %102 ], [ %101, %100 ], [ %21, %20 ], [ %159, %158 ], [ %112, %111 ]
   call void @_ZN3nix9StorePathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink49) #21
   resume { ptr, i32 } %.pn10.pn
 }
@@ -2162,7 +2162,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt
   call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
-.critedge:                                        ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %10, %3, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
+.critedge:                                        ; preds = %10, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %3, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

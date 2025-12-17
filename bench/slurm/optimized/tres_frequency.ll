@@ -98,7 +98,7 @@ define dso_local range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) 
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
-_valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
+_valid_gpu_freq.exit.thread20:                    ; preds = %28, %30, %26
   call void @slurm_xfree(ptr noundef nonnull %3) #6
   br label %.loopexit23.sink.split
 
@@ -116,7 +116,7 @@ _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %.loopexit, %.lr.ph, %14, %.loopexit23.sink.split, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %.loopexit23.sink.split ], [ 0, %.loopexit ], [ -1, %.lr.ph ], [ -1, %14 ]
+  %.0 = phi i32 [ 0, %10 ], [ -1, %.loopexit23.sink.split ], [ -1, %.lr.ph ], [ 0, %.loopexit ], [ -1, %14 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %35
 
@@ -190,7 +190,7 @@ define internal fastcc range(i32 -1, 1) i32 @_test_val(ptr noundef nonnull %0) u
   br label %21
 
 21:                                               ; preds = %19, %12, %9, %17, %15, %13, %1
-  %.013 = phi i32 [ -1, %1 ], [ -1, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ %spec.select, %19 ]
+  %.013 = phi i32 [ -1, %1 ], [ -1, %12 ], [ 0, %9 ], [ 0, %13 ], [ %spec.select, %19 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.013
 }

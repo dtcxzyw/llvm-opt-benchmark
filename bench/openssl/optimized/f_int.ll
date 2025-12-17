@@ -87,7 +87,7 @@ define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_INTEGER(ptr noundef %0,
   br i1 %37, label %19, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %33, %27, %23, %.preheader, %16, %9, %2
-  %.019 = phi i32 [ 0, %2 ], [ -1, %9 ], [ %spec.select, %16 ], [ %.0, %.preheader ], [ %34, %33 ], [ -1, %27 ], [ -1, %23 ]
+  %.019 = phi i32 [ 0, %2 ], [ %spec.select, %16 ], [ -1, %9 ], [ %.0, %.preheader ], [ -1, %27 ], [ %34, %33 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.019
 }
@@ -206,8 +206,8 @@ define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef writeon
   br label %46
 
 46:                                               ; preds = %42, %39, %38
-  %.3 = phi i32 [ %.288.ph, %39 ], [ %.288.ph, %38 ], [ %spec.select, %42 ]
-  %.081 = phi ptr [ %2, %39 ], [ %2, %38 ], [ %spec.select130, %42 ]
+  %.3 = phi i32 [ %.288.ph, %38 ], [ %spec.select, %42 ], [ %.288.ph, %39 ]
+  %.081 = phi ptr [ %2, %38 ], [ %spec.select130, %42 ], [ %2, %39 ]
   %47 = add nsw i32 %.3, %.neg
   %48 = and i32 %47, 1
   %.not96 = icmp eq i32 %48, 0

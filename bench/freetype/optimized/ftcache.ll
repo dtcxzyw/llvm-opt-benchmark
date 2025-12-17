@@ -237,7 +237,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   store ptr %.082, ptr %66, align 8, !tbaa !74
   br label %71
 
-ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %46, %50, %54, %ftc_basic_family_compare.exit
+ftc_basic_family_compare.exit.thread:             ; preds = %46, %50, %54, %.preheader, %ftc_basic_family_compare.exit
   %67 = load ptr, ptr %.082, align 8, !tbaa !73
   %.not103 = icmp eq ptr %67, %42
   br i1 %.not103, label %.loopexit, label %.preheader, !llvm.loop !75
@@ -655,7 +655,7 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
   %10 = call i32 %9(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #13
   %11 = and i32 %10, 255
   %.not2735 = icmp eq i32 %11, 64
-  br i1 %.not2735, label %.lr.ph, label %._crit_edge
+  br i1 %.not2735, label %.lr.ph, label %FTC_Manager_FlushN.exit._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -700,7 +700,7 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
 
 FTC_Manager_FlushN.exit:                          ; preds = %30
   %34 = icmp eq i32 %.1.i, 0
-  br i1 %34, label %._crit_edge, label %35
+  br i1 %34, label %FTC_Manager_FlushN.exit._crit_edge, label %35
 
 35:                                               ; preds = %FTC_Manager_FlushN.exit
   %36 = icmp eq i32 %.1.i, %.02336
@@ -720,19 +720,19 @@ FTC_Manager_FlushN.exit:                          ; preds = %30
   %43 = call i32 %42(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #13
   %44 = and i32 %43, 255
   %.not27 = icmp eq i32 %44, 64
-  br i1 %.not27, label %14, label %._crit_edge
+  br i1 %.not27, label %14, label %FTC_Manager_FlushN.exit._crit_edge
 
-._crit_edge:                                      ; preds = %FTC_Manager_FlushN.exit, %41, %4
-  %.lcssa34 = phi i32 [ %10, %4 ], [ %43, %41 ], [ %15, %FTC_Manager_FlushN.exit ]
+FTC_Manager_FlushN.exit._crit_edge:               ; preds = %41, %FTC_Manager_FlushN.exit, %4
+  %.lcssa34 = phi i32 [ %10, %4 ], [ %15, %FTC_Manager_FlushN.exit ], [ %43, %41 ]
   %.not.le = icmp eq i32 %.lcssa34, 0
   br i1 %.not.le, label %46, label %.thread31
 
-.thread31:                                        ; preds = %14, %._crit_edge
-  %45 = phi i32 [ %.lcssa34, %._crit_edge ], [ %15, %14 ]
+.thread31:                                        ; preds = %14, %FTC_Manager_FlushN.exit._crit_edge
+  %45 = phi i32 [ %.lcssa34, %FTC_Manager_FlushN.exit._crit_edge ], [ %15, %14 ]
   store ptr null, ptr %5, align 8, !tbaa !44
   br label %ftc_cache_add.exit
 
-46:                                               ; preds = %._crit_edge
+46:                                               ; preds = %FTC_Manager_FlushN.exit._crit_edge
   %47 = load ptr, ptr %5, align 8, !tbaa !44
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %1, ptr %48, align 8, !tbaa !78
@@ -1419,7 +1419,7 @@ FTC_MruNode_Up.exit:                              ; preds = %61
   store ptr %.084, ptr %68, align 8, !tbaa !74
   br label %73
 
-ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %52, %56, %ftc_basic_family_compare.exit
+ftc_basic_family_compare.exit.thread:             ; preds = %48, %52, %56, %.preheader, %ftc_basic_family_compare.exit
   %69 = load ptr, ptr %.084, align 8, !tbaa !73
   %.not105 = icmp eq ptr %69, %44
   br i1 %.not105, label %.loopexit132, label %.preheader, !llvm.loop !111
@@ -1840,8 +1840,8 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
   %.not56 = icmp eq i32 %98, 64
   br i1 %.not56, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %FTC_Manager_FlushN.exit, %95, %FTC_Manager_FlushN.exit.us, %65, %29
-  %.lcssa = phi i32 [ %35, %29 ], [ %67, %65 ], [ %39, %FTC_Manager_FlushN.exit.us ], [ %97, %95 ], [ %69, %FTC_Manager_FlushN.exit ]
+._crit_edge:                                      ; preds = %95, %FTC_Manager_FlushN.exit, %65, %FTC_Manager_FlushN.exit.us, %29
+  %.lcssa = phi i32 [ %35, %29 ], [ %39, %FTC_Manager_FlushN.exit.us ], [ %67, %65 ], [ %69, %FTC_Manager_FlushN.exit ], [ %97, %95 ]
   %.not55.le = icmp eq i32 %.lcssa, 0
   %99 = load i16, ptr %30, align 2, !tbaa !90
   %100 = add i16 %99, -1
@@ -1863,7 +1863,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %20, %26, %107, %14
-  %.043 = phi i8 [ 0, %14 ], [ 1, %20 ], [ %.2, %107 ], [ 1, %26 ], [ 0, %8 ]
+  %.043 = phi i8 [ 1, %26 ], [ 0, %14 ], [ 1, %20 ], [ %.2, %107 ], [ 0, %8 ]
   ret i8 %.043
 }
 
@@ -2666,7 +2666,7 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
   br label %132
 
 132:                                              ; preds = %126, %FTC_Manager_LookupFace.exit.thread, %._crit_edge, %75, %73, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %73 ], [ 0, %._crit_edge ], [ %82, %75 ], [ %.2, %126 ], [ 0, %FTC_Manager_LookupFace.exit.thread ]
+  %.0 = phi i32 [ 0, %73 ], [ 0, %4 ], [ 0, %._crit_edge ], [ %82, %75 ], [ %.2, %126 ], [ 0, %FTC_Manager_LookupFace.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2778,7 +2778,7 @@ FTC_MruNode_Up.exit:                              ; preds = %12
   br label %25
 
 25:                                               ; preds = %.loopexit, %.thread, %5, %3
-  %.023 = phi i32 [ 6, %3 ], [ 39, %5 ], [ 0, %.thread ], [ %21, %.loopexit ]
+  %.023 = phi i32 [ 39, %5 ], [ 6, %3 ], [ 0, %.thread ], [ %21, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
@@ -2912,7 +2912,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
   br label %69
 
 69:                                               ; preds = %.loopexit, %.thread, %7, %3
-  %.025 = phi i32 [ 6, %3 ], [ 39, %7 ], [ 0, %.thread ], [ %65, %.loopexit ]
+  %.025 = phi i32 [ 39, %7 ], [ 6, %3 ], [ 0, %.thread ], [ %65, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }
@@ -3062,7 +3062,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   br label %40
 
 40:                                               ; preds = %16, %12, %9, %7
-  %.0 = phi i32 [ 33, %7 ], [ 6, %9 ], [ %15, %12 ], [ 0, %16 ]
+  %.0 = phi i32 [ 6, %9 ], [ 33, %7 ], [ %15, %12 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -4277,8 +4277,8 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   br label %FTC_SNode_New.exit
 
 FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %37
-  %38 = phi i32 [ %20, %18 ], [ %.pre.i, %37 ], [ 0, %._crit_edge.i ], [ 6, %3 ]
-  %.0.i = phi ptr [ %19, %18 ], [ null, %37 ], [ %19, %._crit_edge.i ], [ null, %3 ]
+  %38 = phi i32 [ 0, %._crit_edge.i ], [ %20, %18 ], [ %.pre.i, %37 ], [ 6, %3 ]
+  %.0.i = phi ptr [ %19, %._crit_edge.i ], [ %19, %18 ], [ null, %37 ], [ null, %3 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !216
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %38
@@ -4584,7 +4584,7 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   %.not92 = icmp eq i32 %113, 64
   br i1 %.not92, label %117, label %.thread
 
-.thread:                                          ; preds = %65, %60, %55, %50, %45, %40, %29, %22, %112, %13
+.thread:                                          ; preds = %60, %55, %50, %45, %40, %29, %65, %22, %112, %13
   store i8 -1, ptr %16, align 8, !tbaa !118
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 0, ptr %114, align 1, !tbaa !214
@@ -5299,8 +5299,8 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   %50 = call i32 @FT_Done_Size(ptr noundef %.pre.i) #13
   br label %ftc_scaler_lookup_size.exit.thread
 
-ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manager_LookupFace.exit.thread.i
-  %.0.i.ph = phi i32 [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ], [ %.1.i, %49 ], [ %27, %23 ]
+ftc_scaler_lookup_size.exit.thread:               ; preds = %FTC_Manager_LookupFace.exit.thread.i, %23, %49
+  %.0.i.ph = phi i32 [ %.1.i, %49 ], [ %27, %23 ], [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 

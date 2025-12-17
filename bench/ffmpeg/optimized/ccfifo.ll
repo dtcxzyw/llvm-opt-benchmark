@@ -193,7 +193,7 @@ define range(i32 -22, 1) i32 @ff_ccfifo_injectbytes(ptr noundef readonly capture
   br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %6, %3
-  %.035 = phi i32 [ 0, %3 ], [ -22, %6 ], [ 0, %40 ], [ 0, %.lr.ph ]
+  %.035 = phi i32 [ -22, %6 ], [ 0, %3 ], [ 0, %40 ], [ 0, %.lr.ph ]
   ret i32 %.035
 }
 
@@ -237,7 +237,7 @@ define range(i32 -22, 1) i32 @ff_ccfifo_inject(ptr noundef readonly captures(non
   br label %23
 
 23:                                               ; preds = %10, %15, %2, %6, %22
-  %.0 = phi i32 [ %20, %22 ], [ 0, %6 ], [ 0, %2 ], [ 0, %15 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ %20, %22 ], [ 0, %6 ], [ 0, %15 ], [ 0, %10 ]
   ret i32 %.0
 }
 

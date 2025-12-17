@@ -101,7 +101,7 @@ define noundef range(i32 0, 10) i32 @_ZN7rocksdb12GetEntryTypeENS_9ValueTypeE(i8
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 9, %10 ], [ 1, %2 ], [ 6, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 7, %8 ], [ 8, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ 9, %10 ], [ 8, %9 ], [ 1, %2 ], [ 6, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 7, %8 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1069,7 +1069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit69: ; preds = %_
   br i1 %135, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !40
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %132, %130, %126, %122, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit69
-  %.0.i.i = phi i32 [ %123, %122 ], [ %127, %126 ], [ %131, %130 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit69 ], [ %134, %132 ]
+  %.0.i.i = phi i32 [ %131, %130 ], [ %123, %122 ], [ %127, %126 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit69 ], [ %134, %132 ]
   %136 = zext i32 %.0.i.i to i64
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %137, ptr %11, align 8, !tbaa !20, !alias.scope !37
@@ -2186,7 +2186,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit: ; preds = %_ZT
   br label %42
 
 42:                                               ; preds = %40, %27, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit
-  %.0 = phi i32 [ %25, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit ], [ -1, %27 ], [ %spec.select, %40 ]
+  %.0 = phi i32 [ %25, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit ], [ %spec.select, %40 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -2263,7 +2263,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i: ; preds = %_
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceERKNS_17ParsedInternalKeyE.exit
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceERKNS_17ParsedInternalKeyE.exit: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %27, %40
-  %.0.i = phi i32 [ %25, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ -1, %27 ], [ %spec.select.i, %40 ]
+  %.0.i = phi i32 [ %25, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %40 ], [ -1, %27 ]
   %42 = sub nsw i32 0, %.0.i
   ret i32 %42
 }

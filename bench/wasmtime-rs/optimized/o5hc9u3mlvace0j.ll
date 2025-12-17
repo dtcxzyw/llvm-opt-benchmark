@@ -807,7 +807,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock4read17h6e07bcfccebc1fafE.llvm.21
   br i1 %114, label %.thread66, label %.body45
 
 115:                                              ; preds = %120, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.2108000528430856095.exit, %112, %182, %179
-  %.05 = phi i8 [ 0, %179 ], [ 1, %182 ], [ 1, %112 ], [ 1, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.2108000528430856095.exit ], [ 1, %120 ]
+  %.05 = phi i8 [ 0, %179 ], [ 1, %182 ], [ 1, %120 ], [ 1, %112 ], [ 1, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.2108000528430856095.exit ]
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -963,7 +963,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.
           to label %"_ZN4core3ptr242drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h5f70d1ee8a6efe55E.exit" unwind label %173
 
 173:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.2108000528430856095.exit35.thread, %139, %164, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i, %169, %172
-  %.0 = phi i8 [ 1, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.2108000528430856095.exit35.thread ], [ 1, %139 ], [ 0, %164 ], [ 0, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i ], [ 0, %169 ], [ 0, %172 ]
+  %.0 = phi i8 [ 0, %172 ], [ 1, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.2108000528430856095.exit35.thread ], [ 1, %139 ], [ 0, %164 ], [ 0, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i ], [ 0, %169 ]
   %174 = landingpad { ptr, i32 }
           cleanup
   %.pre = load i64, ptr %13, align 8, !range !209
@@ -1084,7 +1084,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.210800052
           to label %.body45 unwind label %180
 
 "_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h0e095646c001436eE.exit": ; preds = %209, %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h0e095646c001436eE.exit.sink.split.i50", %.body45, %100
-  %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %100 ], [ %.pn8.pn, %.body45 ], [ %210, %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h0e095646c001436eE.exit.sink.split.i50" ], [ %210, %209 ]
+  %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %.body45 ], [ %.pn8.pn, %100 ], [ %210, %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h0e095646c001436eE.exit.sink.split.i50" ], [ %210, %209 ]
   resume { ptr, i32 } %.pn8.pn.pn
 
 209:                                              ; preds = %28, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.2108000528430856095.exit.thread
@@ -1208,7 +1208,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock4read17h6e07bcfccebc1fafE.llvm.21
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h555b1bdff16ebcb4E.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h555b1bdff16ebcb4E.exit": ; preds = %38, %43
-  %.1.i = phi ptr [ %44, %43 ], [ %39, %38 ]
+  %.1.i = phi ptr [ %39, %38 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %45 = load i64, ptr %.1.i, align 8, !noundef !4
@@ -1313,7 +1313,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock4read17h6e07bcfccebc1fafE.llvm.21
   br label %87
 
 87:                                               ; preds = %11, %70, %88, %85
-  %.0 = phi i1 [ %86, %85 ], [ true, %88 ], [ true, %70 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %88 ], [ %86, %85 ], [ true, %70 ], [ false, %11 ]
   ret i1 %.0
 
 88:                                               ; preds = %80
@@ -1364,7 +1364,7 @@ define hidden void @_ZN18tracing_subscriber6filter3env9EnvFilter7on_exit17h4576c
   br label %"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h555b1bdff16ebcb4E.exit"
 
 "_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h555b1bdff16ebcb4E.exit": ; preds = %15, %20
-  %.1.i = phi ptr [ %21, %20 ], [ %16, %15 ]
+  %.1.i = phi ptr [ %16, %15 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = load i64, ptr %.1.i, align 8, !noundef !4
@@ -1430,7 +1430,7 @@ define hidden void @_ZN18tracing_subscriber6filter3env9EnvFilter8from_env17h92c8
           to label %15 unwind label %13
 
 common.resume:                                    ; preds = %20, %24, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %21, %24 ], [ %21, %20 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %21, %20 ], [ %21, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %3
@@ -1908,7 +1908,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.210800052
           to label %"_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h63440129e765275aE.exit.thread" unwind label %77
 
 "_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h63440129e765275aE.exit.thread": ; preds = %26, %30, %84
-  %.pn.pn30 = phi { ptr, i32 } [ %lpad.thr_comm, %84 ], [ %.pn, %26 ], [ %.pn, %30 ]
+  %.pn.pn30 = phi { ptr, i32 } [ %lpad.thr_comm, %84 ], [ %.pn, %30 ], [ %.pn, %26 ]
   resume { ptr, i32 } %.pn.pn30
 }
 
@@ -2026,7 +2026,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.210800052
           to label %"_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h63440129e765275aE.exit.thread" unwind label %37
 
 "_ZN4core3ptr241drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h63440129e765275aE.exit.thread": ; preds = %25, %30, %44
-  %.pn16 = phi { ptr, i32 } [ %lpad.thr_comm, %44 ], [ %26, %25 ], [ %26, %30 ]
+  %.pn16 = phi { ptr, i32 } [ %lpad.thr_comm, %44 ], [ %26, %30 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn16
 }
 

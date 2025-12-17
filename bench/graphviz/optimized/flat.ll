@@ -136,7 +136,7 @@ checkFlatAdjacent.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %.not122, label %.loopexit156, label %.lr.ph, !llvm.loop !62
 
 .loopexit156:                                     ; preds = %checkFlatAdjacent.exit, %.preheader155, %.lr.ph172
-  %66 = phi ptr [ %6, %.preheader155 ], [ %6, %.lr.ph172 ], [ %61, %checkFlatAdjacent.exit ]
+  %66 = phi ptr [ %6, %.lr.ph172 ], [ %6, %.preheader155 ], [ %61, %checkFlatAdjacent.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 328
   %68 = load i64, ptr %67, align 8, !tbaa !63
   %.not197 = icmp eq i64 %68, 0
@@ -615,8 +615,8 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   br label %311
 
 311:                                              ; preds = %292, %310, %301, %.lr.ph187
-  %312 = phi ptr [ %264, %.lr.ph187 ], [ %264, %301 ], [ %.pre206, %310 ], [ %264, %292 ]
-  %.4 = phi i8 [ %.3185, %.lr.ph187 ], [ %.3185, %301 ], [ 1, %310 ], [ %.3185, %292 ]
+  %312 = phi ptr [ %264, %292 ], [ %264, %.lr.ph187 ], [ %264, %301 ], [ %.pre206, %310 ]
+  %.4 = phi i8 [ %.3185, %292 ], [ %.3185, %.lr.ph187 ], [ %.3185, %301 ], [ 1, %310 ]
   %313 = add nuw i64 %.085186, 1
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 328
   %315 = load i64, ptr %314, align 8, !tbaa !63
@@ -641,7 +641,7 @@ gv_recalloc.exit.i:                               ; preds = %185, %183, %176
   br label %._crit_edge195.thread
 
 ._crit_edge195.thread:                            ; preds = %.loopexit154, %320, %._crit_edge195
-  %.092.lcssa228 = phi i32 [ 1, %320 ], [ 0, %._crit_edge195 ], [ 0, %.loopexit154 ]
+  %.092.lcssa228 = phi i32 [ 0, %._crit_edge195 ], [ 1, %320 ], [ 0, %.loopexit154 ]
   ret i32 %.092.lcssa228
 }
 

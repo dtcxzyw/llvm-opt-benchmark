@@ -1812,15 +1812,15 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EED2Ev.exit:
   br label %568
 
 568:                                              ; preds = %561, %567, %522, %479
-  %.pn74 = phi { ptr, i32 } [ %480, %479 ], [ %523, %522 ], [ %.pn, %567 ], [ %562, %561 ]
+  %.pn74 = phi { ptr, i32 } [ %480, %479 ], [ %523, %522 ], [ %562, %561 ], [ %.pn, %567 ]
   call void @_ZNSt10unique_ptrIN5ceres8internal13WeightedGraphIiEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #32
   br label %569
 
 569:                                              ; preds = %408, %568, %466
-  %.sroa.0267.0469479 = phi ptr [ %.sroa.0267.0469480, %568 ], [ %.sroa.0267.0469480, %466 ], [ %.sroa.0267.0, %408 ]
-  %.0.lcssa.i.i.i.i.i471477 = phi ptr [ %.0.lcssa.i.i.i.i.i471478, %568 ], [ %.0.lcssa.i.i.i.i.i471478, %466 ], [ %.0.lcssa.i.i.i.i.i, %408 ]
-  %.sroa.16274.0465 = phi i64 [ %.sroa.16274.0463481, %568 ], [ %.sroa.16274.0463481, %466 ], [ %.sroa.16274.0, %408 ]
-  %.pn76.pn.pn = phi { ptr, i32 } [ %.pn74, %568 ], [ %467, %466 ], [ %409, %408 ]
+  %.sroa.0267.0469479 = phi ptr [ %.sroa.0267.0469480, %466 ], [ %.sroa.0267.0469480, %568 ], [ %.sroa.0267.0, %408 ]
+  %.0.lcssa.i.i.i.i.i471477 = phi ptr [ %.0.lcssa.i.i.i.i.i471478, %466 ], [ %.0.lcssa.i.i.i.i.i471478, %568 ], [ %.0.lcssa.i.i.i.i.i, %408 ]
+  %.sroa.16274.0465 = phi i64 [ %.sroa.16274.0463481, %466 ], [ %.sroa.16274.0463481, %568 ], [ %.sroa.16274.0, %408 ]
+  %.pn76.pn.pn = phi { ptr, i32 } [ %467, %466 ], [ %.pn74, %568 ], [ %409, %408 ]
   %570 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %571 = load i64, ptr %570, align 8, !tbaa !77
   %572 = icmp eq i64 %571, 0
@@ -3082,7 +3082,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   br label %13
 
 13:                                               ; preds = %4, %9, %5
-  %.sink = phi i8 [ %12, %9 ], [ %8, %5 ], [ 0, %4 ]
+  %.sink = phi i8 [ %8, %5 ], [ %12, %9 ], [ 0, %4 ]
   %14 = getelementptr i8, ptr %2, i64 10
   store i8 %.sink, ptr %14, align 1, !tbaa !40
   %15 = getelementptr i8, ptr %0, i64 10
@@ -3283,8 +3283,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -4236,8 +4236,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -4574,8 +4574,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -5022,8 +5022,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2
@@ -5458,8 +5458,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
-  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
+  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
+  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !99
   %38 = add i64 %37, 2

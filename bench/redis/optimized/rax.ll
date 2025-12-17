@@ -81,7 +81,7 @@ raxNewNode.exit.i:                                ; preds = %3
   br label %raxNewWithMetadata.exit
 
 raxNewWithMetadata.exit:                          ; preds = %0, %raxNewNode.exit.i, %8
-  %.0.i = phi ptr [ null, %8 ], [ null, %0 ], [ %1, %raxNewNode.exit.i ]
+  %.0.i = phi ptr [ null, %0 ], [ null, %8 ], [ %1, %raxNewNode.exit.i ]
   ret ptr %.0.i
 }
 
@@ -113,7 +113,7 @@ raxNewNode.exit:                                  ; preds = %6
   br label %12
 
 12:                                               ; preds = %raxNewNode.exit, %1, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ %4, %raxNewNode.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %11 ], [ %4, %raxNewNode.exit ]
   ret ptr %.0
 }
 
@@ -391,7 +391,7 @@ define dso_local ptr @raxAddChild(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   br label %raxNewNode.exit.thread
 
 raxNewNode.exit.thread:                           ; preds = %9, %44, %76
-  %.0 = phi ptr [ null, %44 ], [ %39, %76 ], [ null, %9 ]
+  %.0 = phi ptr [ %39, %76 ], [ null, %44 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -466,8 +466,8 @@ raxGetData.exit:                                  ; preds = %19, %21
   br label %34
 
 34:                                               ; preds = %raxGetData.exit, %11
-  %.037 = phi ptr [ null, %11 ], [ %.0.i, %raxGetData.exit ]
-  %.036 = phi i64 [ %16, %11 ], [ %spec.select48, %raxGetData.exit ]
+  %.037 = phi ptr [ %.0.i, %raxGetData.exit ], [ null, %11 ]
+  %.036 = phi i64 [ %spec.select48, %raxGetData.exit ], [ %16, %11 ]
   %35 = tail call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %.036) #27
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
@@ -550,7 +550,7 @@ raxSetData.exit:                                  ; preds = %49, %57
   br label %81
 
 81:                                               ; preds = %raxNewNode.exit.thread, %37, %59
-  %.0 = phi ptr [ null, %37 ], [ %35, %59 ], [ null, %raxNewNode.exit.thread ]
+  %.0 = phi ptr [ null, %raxNewNode.exit.thread ], [ null, %37 ], [ %35, %59 ]
   ret ptr %.0
 }
 
@@ -1427,8 +1427,8 @@ raxSetData.exit401:                               ; preds = %446, %460
   br label %589
 
 .thread487:                                       ; preds = %143, %319
-  %.1470 = phi ptr [ %165, %319 ], [ %.0.lcssa.i, %143 ]
-  %.1 = phi ptr [ %.0466, %319 ], [ %.052.lcssa.i, %143 ]
+  %.1470 = phi ptr [ %.0.lcssa.i, %143 ], [ %165, %319 ]
+  %.1 = phi ptr [ %.052.lcssa.i, %143 ], [ %.0466, %319 ]
   %487 = icmp ult i64 %.159.i, %2
   br i1 %487, label %.lr.ph, label %._crit_edge
 
@@ -1641,7 +1641,7 @@ raxSetData.exit414:                               ; preds = %560, %574
   br label %589
 
 589:                                              ; preds = %360, %463, %.critedge, %587, %raxSetData.exit414, %raxSetData.exit354, %121, %82
-  %.0 = phi i32 [ 0, %82 ], [ 0, %121 ], [ 1, %raxSetData.exit354 ], [ 0, %587 ], [ 1, %raxSetData.exit414 ], [ 0, %.critedge ], [ 0, %360 ], [ 1, %463 ]
+  %.0 = phi i32 [ 0, %82 ], [ 0, %121 ], [ 1, %raxSetData.exit354 ], [ 1, %463 ], [ 0, %587 ], [ 1, %raxSetData.exit414 ], [ 0, %.critedge ], [ 0, %360 ]
   ret i32 %.0
 }
 
@@ -2092,9 +2092,9 @@ raxStackPop.exit172:                              ; preds = %91
   br i1 %or.cond157, label %91, label %raxStackPop.exit172.thread
 
 raxStackPop.exit172.thread:                       ; preds = %91, %101, %raxStackPop.exit172, %.lr.ph288, %raxStackPop.exit172.lr.ph, %.preheader
-  %.lcssa = phi ptr [ %.promoted212, %.preheader ], [ %.promoted212, %raxStackPop.exit172.lr.ph ], [ %98, %.lr.ph288 ], [ %96, %raxStackPop.exit172 ], [ %98, %101 ], [ %96, %91 ]
-  %.not114187 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit172.lr.ph ], [ false, %.lr.ph288 ], [ true, %raxStackPop.exit172 ], [ false, %101 ], [ true, %91 ]
-  %.0.i171186 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit172.lr.ph ], [ %96, %.lr.ph288 ], [ null, %raxStackPop.exit172 ], [ %96, %101 ], [ null, %91 ]
+  %.lcssa = phi ptr [ %.promoted212, %.preheader ], [ %.promoted212, %raxStackPop.exit172.lr.ph ], [ %98, %.lr.ph288 ], [ %96, %91 ], [ %98, %101 ], [ %96, %raxStackPop.exit172 ]
+  %.not114187 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit172.lr.ph ], [ false, %.lr.ph288 ], [ true, %91 ], [ false, %101 ], [ true, %raxStackPop.exit172 ]
+  %.0.i171186 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit172.lr.ph ], [ %96, %.lr.ph288 ], [ null, %91 ], [ %96, %101 ], [ null, %raxStackPop.exit172 ]
   store ptr %.lcssa, ptr %5, align 8
   %103 = load i32, ptr %.lcssa, align 4
   %104 = lshr i32 %103, 3
@@ -2165,7 +2165,7 @@ raxStackPop.exit172.thread:                       ; preds = %91, %101, %raxStack
   %.not119 = icmp eq i32 %133, 0
   br i1 %.not119, label %.thread189.thread268, label %.lr.ph230
 
-.thread189:                                       ; preds = %130, %.lr.ph230, %132
+.thread189:                                       ; preds = %.lr.ph230, %130, %132
   %139 = icmp samesign ugt i32 %.090228, 1
   br i1 %139, label %.thread189.thread268, label %.critedge
 
@@ -2321,7 +2321,7 @@ raxStackPop.exit172.thread:                       ; preds = %91, %101, %raxStack
   store ptr %144, ptr %.sink, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %.preheader200, %raxStackPop.exit172.thread, %37, %81, %.thread189, %84
+.critedge:                                        ; preds = %.critedge.sink.split, %.preheader200, %raxStackPop.exit172.thread, %81, %37, %.thread189, %84
   %226 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i179 = icmp eq ptr %226, %8
   br i1 %.not.i179, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
@@ -2333,7 +2333,7 @@ raxStackFree.exit.sink.split:                     ; preds = %.critedge, %145, %2
   br label %raxStackFree.exit
 
 raxStackFree.exit:                                ; preds = %raxStackFree.exit.sink.split, %145, %.critedge, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %.critedge ], [ 1, %145 ], [ %.0.ph, %raxStackFree.exit.sink.split ]
+  %.0 = phi i32 [ 1, %.critedge ], [ 1, %145 ], [ 0, %21 ], [ %.0.ph, %raxStackFree.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2499,7 +2499,7 @@ raxGetData.exit:                                  ; preds = %55, %57
   br label %68
 
 68:                                               ; preds = %54, %raxGetData.exit, %.thread.i, %51
-  %.0 = phi i32 [ 0, %51 ], [ 0, %.thread.i ], [ 1, %raxGetData.exit ], [ 1, %54 ]
+  %.0 = phi i32 [ 0, %.thread.i ], [ 0, %51 ], [ 1, %raxGetData.exit ], [ 1, %54 ]
   ret i32 %.0
 }
 
@@ -2982,7 +2982,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorAddChars(ptr noundef %0, ptr no
   br label %33
 
 33:                                               ; preds = %23, %3, %26
-  %.030 = phi i32 [ 1, %26 ], [ 0, %23 ], [ 1, %3 ]
+  %.030 = phi i32 [ 0, %23 ], [ 1, %26 ], [ 1, %3 ]
   ret i32 %.030
 }
 
@@ -3513,7 +3513,7 @@ raxGetData.exit144:                               ; preds = %244, %246
   br label %.thread158
 
 .thread158:                                       ; preds = %220, %211, %raxGetData.exit144, %raxIteratorAddChars.exit, %raxGetData.exit, %47, %38, %.thread154, %2, %7
-  %.087 = phi i32 [ 1, %7 ], [ 1, %2 ], [ 1, %.thread154 ], [ 0, %38 ], [ 0, %47 ], [ 0, %raxIteratorAddChars.exit ], [ 1, %raxGetData.exit ], [ 1, %raxGetData.exit144 ], [ 0, %211 ], [ 0, %220 ]
+  %.087 = phi i32 [ 1, %2 ], [ 1, %7 ], [ 1, %raxGetData.exit ], [ 1, %.thread154 ], [ 0, %47 ], [ 0, %38 ], [ 0, %raxIteratorAddChars.exit ], [ 1, %raxGetData.exit144 ], [ 0, %211 ], [ 0, %220 ]
   ret i32 %.087
 }
 
@@ -4028,8 +4028,8 @@ raxIteratorAddChars.exit.thread:                  ; preds = %99
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %._crit_edge, %64, %52
-  %149 = phi i32 [ %.pre131, %._crit_edge ], [ %62, %64 ], [ %62, %52 ], [ %62, %92 ]
-  %150 = phi ptr [ %.pre130, %._crit_edge ], [ %53, %64 ], [ %53, %52 ], [ %53, %92 ]
+  %149 = phi i32 [ %.pre131, %._crit_edge ], [ %62, %52 ], [ %62, %64 ], [ %62, %92 ]
+  %150 = phi ptr [ %.pre130, %._crit_edge ], [ %53, %52 ], [ %53, %64 ], [ %53, %92 ]
   %151 = and i32 %149, 1
   %.not83 = icmp eq i32 %151, 0
   br i1 %.not83, label %24, label %152
@@ -4064,7 +4064,7 @@ raxGetData.exit:                                  ; preds = %152, %154
   br label %.thread99
 
 .thread99:                                        ; preds = %142, %135, %126, %raxIteratorAddChars.exit.thread, %raxGetData.exit, %30, %2, %7
-  %.061 = phi i32 [ 1, %7 ], [ 1, %2 ], [ 1, %raxGetData.exit ], [ 1, %30 ], [ 0, %raxIteratorAddChars.exit.thread ], [ 0, %126 ], [ 0, %135 ], [ 0, %142 ]
+  %.061 = phi i32 [ 1, %2 ], [ 1, %7 ], [ 1, %30 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit.thread ], [ 0, %126 ], [ 0, %135 ], [ 0, %142 ]
   ret i32 %.061
 }
 
@@ -4479,12 +4479,12 @@ raxGetData.exit159:                               ; preds = %186, %188
   br label %210
 
 210:                                              ; preds = %raxGetData.exit145, %118, %204, %.critedge138, %202, %199, %131, %133, %138, %143, %166, %173, %116, %113, %107, %74, %59, %207
-  %.1 = phi i32 [ 1, %207 ], [ 0, %59 ], [ 0, %74 ], [ 0, %107 ], [ 0, %113 ], [ 0, %116 ], [ 0, %173 ], [ 0, %166 ], [ 0, %143 ], [ 0, %138 ], [ 0, %133 ], [ 0, %131 ], [ 0, %199 ], [ 0, %202 ], [ 1, %.critedge138 ], [ 1, %204 ], [ 1, %118 ], [ 1, %raxGetData.exit145 ]
+  %.1 = phi i32 [ 1, %207 ], [ 0, %202 ], [ 0, %59 ], [ 0, %116 ], [ 0, %199 ], [ 0, %131 ], [ 0, %113 ], [ 0, %107 ], [ 0, %74 ], [ 0, %173 ], [ 0, %166 ], [ 0, %143 ], [ 0, %138 ], [ 0, %133 ], [ 1, %.critedge138 ], [ 1, %204 ], [ 1, %118 ], [ 1, %raxGetData.exit145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %211
 
 211:                                              ; preds = %36, %210, %raxGetData.exit, %.loopexit175, %16
-  %.0 = phi i32 [ 1, %.loopexit175 ], [ 1, %raxGetData.exit ], [ %.1, %210 ], [ 0, %16 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %.loopexit175 ], [ 0, %36 ], [ 1, %raxGetData.exit ], [ 0, %16 ], [ %.1, %210 ]
   ret i32 %.0
 }
 
@@ -4864,7 +4864,7 @@ raxGetData.exit:                                  ; preds = %153, %156
   br label %.critedge67
 
 .critedge67:                                      ; preds = %126, %117, %raxIteratorAddChars.exit74.thread, %raxIteratorAddChars.exit, %raxGetData.exit, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit ], [ 0, %raxIteratorAddChars.exit74.thread ], [ 0, %117 ], [ 0, %126 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit74.thread ], [ 0, %raxIteratorAddChars.exit ], [ 0, %117 ], [ 0, %126 ]
   ret i32 %.0
 }
 
@@ -4957,7 +4957,7 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
   br label %41
 
 41:                                               ; preds = %38, %37, %31, %34, %27, %26, %15
-  %.0 = phi i32 [ 0, %15 ], [ %36, %34 ], [ 0, %26 ], [ %29, %27 ], [ 1, %31 ], [ %spec.select, %37 ], [ %spec.select45, %38 ]
+  %.0 = phi i32 [ 0, %15 ], [ %spec.select, %37 ], [ %29, %27 ], [ %36, %34 ], [ %spec.select45, %38 ], [ 1, %31 ], [ 0, %26 ]
   ret i32 %.0
 }
 

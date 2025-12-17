@@ -397,7 +397,7 @@ if.end40thread-pre-split.sink.split:              ; preds = %if.then29, %if.then
   br label %if.end40thread-pre-split
 
 if.end40thread-pre-split:                         ; preds = %if.end40thread-pre-split.sink.split, %land.lhs.true, %land.lhs.true26, %if.then15, %if.then
-  %re.addr.0.ph = phi ptr [ %re, %if.then ], [ %re, %land.lhs.true ], [ %re, %if.then15 ], [ %re, %land.lhs.true26 ], [ %call30.sink, %if.end40thread-pre-split.sink.split ]
+  %re.addr.0.ph = phi ptr [ %re, %land.lhs.true ], [ %re, %if.then ], [ %re, %if.then15 ], [ %re, %land.lhs.true26 ], [ %call30.sink, %if.end40thread-pre-split.sink.split ]
   %.pr = load i8, ptr %re.addr.0.ph, align 8
   br label %if.end40
 
@@ -544,7 +544,7 @@ if.end47:                                         ; preds = %if.end41
   br label %return
 
 return:                                           ; preds = %if.end8, %if.end, %if.end17, %entry, %lor.lhs.false, %if.end47, %if.then43
-  %retval.0 = phi i1 [ true, %if.then43 ], [ false, %if.end47 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ false, %if.end8 ], [ false, %if.end17 ]
+  %retval.0 = phi i1 [ false, %if.end47 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end8 ], [ true, %if.then43 ], [ false, %lor.lhs.false ], [ false, %if.end17 ]
   ret i1 %retval.0
 }
 
@@ -668,7 +668,7 @@ if.end20:                                         ; preds = %sw.bb15
   br label %return
 
 return:                                           ; preds = %sw.bb8, %sw.bb, %if.end20, %if.then18, %if.end6, %if.then4, %sw.default
-  %retval.0 = phi i32 [ %add, %sw.default ], [ %add5, %if.then4 ], [ %sub7, %if.end6 ], [ %add19, %if.then18 ], [ %sub21, %if.end20 ], [ %r, %sw.bb ], [ %r, %sw.bb8 ]
+  %retval.0 = phi i32 [ %add, %sw.default ], [ %sub21, %if.end20 ], [ %add5, %if.then4 ], [ %sub7, %if.end6 ], [ %r, %sw.bb ], [ %add19, %if.then18 ], [ %r, %sw.bb8 ]
   ret i32 %retval.0
 }
 
@@ -776,7 +776,7 @@ if.end20.i:                                       ; preds = %sw.bb15.i
   br label %return
 
 return:                                           ; preds = %entry, %while.end.i, %if.end20.i, %if.then18.i, %sw.bb8.i, %if.end6.i, %if.then4.i, %sw.bb.i, %sw.default.i, %lor.lhs.false
-  %retval.0 = phi i32 [ %r, %lor.lhs.false ], [ %add.i9, %sw.default.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %add19.i, %if.then18.i ], [ %sub21.i, %if.end20.i ], [ %r, %sw.bb.i ], [ %r, %sw.bb8.i ], [ %r, %while.end.i ], [ %r, %entry ]
+  %retval.0 = phi i32 [ %r, %sw.bb8.i ], [ %r, %lor.lhs.false ], [ %r, %while.end.i ], [ %add.i9, %sw.default.i ], [ %sub21.i, %if.end20.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %r, %sw.bb.i ], [ %add19.i, %if.then18.i ], [ %r, %entry ]
   ret i32 %retval.0
 }
 
@@ -1215,7 +1215,7 @@ lpad:                                             ; preds = %if.end33
   resume { ptr, i32 } %19
 
 return:                                           ; preds = %land.lhs.true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit, %if.then31, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.then31 ], [ true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit ], [ true, %land.lhs.true ]
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %_ZN3re26Regexp10ParseState12FinishRegexpEPS0_.exit ], [ true, %if.then31 ], [ true, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -2069,7 +2069,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %entry, %_ZN3re216CharClassBuilderD2Ev.exit.i, %land.lhs.true.i, %if.end.i, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %2, %if.end.i ], [ %2, %land.lhs.true.i ], [ %2, %_ZN3re216CharClassBuilderD2Ev.exit.i ], [ null, %entry ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %2, %_ZN3re216CharClassBuilderD2Ev.exit.i ], [ %2, %if.end.i ], [ %2, %land.lhs.true.i ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -2101,7 +2101,7 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.then5, %entry, %return.fold.split, %land.lhs.true
-  %retval.0 = phi ptr [ null, %entry ], [ %re, %land.lhs.true ], [ %re, %return.fold.split ], [ %spec.select, %if.then5 ]
+  %retval.0 = phi ptr [ %spec.select, %if.then5 ], [ null, %entry ], [ %re, %return.fold.split ], [ %re, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -2167,7 +2167,7 @@ lpad:                                             ; preds = %if.end20
   resume { ptr, i32 } %9
 
 return:                                           ; preds = %entry, %if.end20, %if.then5, %if.end18, %if.then15
-  %retval.0 = phi ptr [ %7, %if.then15 ], [ %re, %if.end18 ], [ %re, %entry ], [ %re, %if.then5 ], [ %call22, %if.end20 ]
+  %retval.0 = phi ptr [ %re, %if.then5 ], [ %re, %entry ], [ %7, %if.then15 ], [ %re, %if.end18 ], [ %call22, %if.end20 ]
   ret ptr %retval.0
 }
 
@@ -3013,9 +3013,9 @@ if.then8.i:                                       ; preds = %while.end.i
   br label %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit
 
 _ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit: ; preds = %while.end.i.thread, %while.end.i, %if.then.i, %if.then8.i
-  %and.i73.in.in = phi i16 [ %11, %if.then.i ], [ %11, %if.then8.i ], [ %11, %while.end.i ], [ %5, %while.end.i.thread ]
-  %nrune_i.1 = phi i32 [ 1, %if.then.i ], [ %16, %if.then8.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
-  %retval.0.i = phi ptr [ %12, %if.then.i ], [ %15, %if.then8.i ], [ null, %while.end.i ], [ null, %while.end.i.thread ]
+  %and.i73.in.in = phi i16 [ %11, %if.then8.i ], [ %11, %if.then.i ], [ %11, %while.end.i ], [ %5, %while.end.i.thread ]
+  %nrune_i.1 = phi i32 [ %16, %if.then8.i ], [ 1, %if.then.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
+  %retval.0.i = phi ptr [ %15, %if.then8.i ], [ %12, %if.then.i ], [ null, %while.end.i ], [ null, %while.end.i.thread ]
   %and.i73.in = and i16 %and.i73.in.in, 1
   %and.i73 = zext nneg i16 %and.i73.in to i32
   %cmp2 = icmp eq i32 %runeflags.050, %and.i73
@@ -3170,10 +3170,10 @@ if.then33:                                        ; preds = %if.end31
   br label %for.inc35
 
 for.inc35:                                        ; preds = %while.end, %if.end31, %if.then33
-  %start.1 = phi i32 [ %30, %if.then33 ], [ %start.046, %if.end31 ], [ %start.046, %while.end ]
-  %rune.1 = phi ptr [ %rune_i.0, %if.then33 ], [ %rune.048, %if.end31 ], [ %rune.048, %while.end ]
-  %nrune.1 = phi i32 [ %nrune_i.0, %if.then33 ], [ %nrune.049, %if.end31 ], [ %same.0.lcssa, %while.end ]
-  %runeflags.1 = phi i32 [ %runeflags_i.0, %if.then33 ], [ %runeflags.050, %if.end31 ], [ %runeflags.050, %while.end ]
+  %start.1 = phi i32 [ %start.046, %if.end31 ], [ %30, %if.then33 ], [ %start.046, %while.end ]
+  %rune.1 = phi ptr [ %rune.048, %if.end31 ], [ %rune_i.0, %if.then33 ], [ %rune.048, %while.end ]
+  %nrune.1 = phi i32 [ %nrune.049, %if.end31 ], [ %nrune_i.0, %if.then33 ], [ %same.0.lcssa, %while.end ]
+  %runeflags.1 = phi i32 [ %runeflags.050, %if.end31 ], [ %runeflags_i.0, %if.then33 ], [ %runeflags.050, %while.end ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %for.end37, label %for.body, !llvm.loop !29
@@ -3231,7 +3231,7 @@ return.fold.split.i:                              ; preds = %if.then
   br label %_ZN3re26Regexp13LeadingRegexpEPS0_.exit
 
 _ZN3re26Regexp13LeadingRegexpEPS0_.exit:          ; preds = %if.then, %land.lhs.true.i, %if.then5.i, %return.fold.split.i
-  %retval.0.i = phi ptr [ null, %if.then ], [ %2, %land.lhs.true.i ], [ %2, %return.fold.split.i ], [ %spec.select.i, %if.then5.i ]
+  %retval.0.i = phi ptr [ %spec.select.i, %if.then5.i ], [ null, %if.then ], [ %2, %return.fold.split.i ], [ %2, %land.lhs.true.i ]
   %cmp2.not = icmp eq ptr %first.080, null
   br i1 %cmp2.not, label %if.end58, label %land.lhs.true
 
@@ -3279,7 +3279,7 @@ land.lhs.true55:                                  ; preds = %land.lhs.true35, %l
   br i1 %call56, label %for.inc81, label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true35, %land.lhs.true, %_ZN3re26Regexp13LeadingRegexpEPS0_.exit, %land.lhs.true31, %land.lhs.true55, %for.body
-  %spec.select41 = phi ptr [ %retval.0.i, %land.lhs.true55 ], [ %retval.0.i, %land.lhs.true31 ], [ %retval.0.i, %_ZN3re26Regexp13LeadingRegexpEPS0_.exit ], [ %first.080, %for.body ], [ %retval.0.i, %land.lhs.true ], [ %retval.0.i, %land.lhs.true35 ]
+  %spec.select41 = phi ptr [ %retval.0.i, %land.lhs.true55 ], [ %retval.0.i, %land.lhs.true35 ], [ %retval.0.i, %land.lhs.true31 ], [ %retval.0.i, %land.lhs.true ], [ %retval.0.i, %_ZN3re26Regexp13LeadingRegexpEPS0_.exit ], [ %first.080, %for.body ]
   %18 = zext i32 %start.078 to i64
   %cmp59 = icmp eq i64 %indvars.iv83, %18
   %add = add nsw i32 %start.078, 1
@@ -3361,7 +3361,7 @@ lpad.i:                                           ; preds = %if.end20.i
   resume { ptr, i32 } %31
 
 _ZN3re26Regexp19RemoveLeadingRegexpEPS0_.exit:    ; preds = %for.body67, %if.then5.i69, %if.then15.i, %if.end18.i, %if.end20.i
-  %retval.0.i68 = phi ptr [ %29, %if.then15.i ], [ %21, %if.end18.i ], [ %21, %for.body67 ], [ %21, %if.then5.i69 ], [ %call22.i, %if.end20.i ]
+  %retval.0.i68 = phi ptr [ %21, %if.then5.i69 ], [ %21, %for.body67 ], [ %29, %if.then15.i ], [ %21, %if.end18.i ], [ %call22.i, %if.end20.i ]
   store ptr %retval.0.i68, ptr %arrayidx69, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = and i64 %indvars.iv.next, 4294967295
@@ -3518,7 +3518,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true, %lan
   ]
 
 if.end13:                                         ; preds = %land.lhs.true6, %land.lhs.true, %if.then, %for.body
-  %spec.select = phi ptr [ %2, %if.then ], [ %first.098, %for.body ], [ %2, %land.lhs.true ], [ %2, %land.lhs.true6 ]
+  %spec.select = phi ptr [ %2, %land.lhs.true6 ], [ %2, %land.lhs.true ], [ %2, %if.then ], [ %first.098, %for.body ]
   %5 = zext i32 %start.099 to i64
   %cmp14 = icmp eq i64 %indvars.iv102, %5
   %add = add nsw i32 %start.099, 1
@@ -3881,7 +3881,7 @@ terminate.lpad.i.i.i74:                           ; preds = %invoke.cont98
   unreachable
 
 ehcleanup100:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i, %ehcleanup, %lpad49
-  %.pn41 = phi { ptr, i32 } [ %28, %lpad49 ], [ %.pn, %ehcleanup ], [ %31, %lpad.i ], [ %lpad.loopexit79, %lpad.loopexit ], [ %lpad.loopexit81, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %28, %lpad49 ], [ %31, %lpad.i ], [ %lpad.loopexit79, %lpad.loopexit ], [ %lpad.loopexit81, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN3re216CharClassBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ccb) #28
   resume { ptr, i32 } %.pn41
 
@@ -3891,8 +3891,8 @@ if.end102:                                        ; preds = %if.end13.if.end102_
   br label %for.inc106
 
 for.inc106:                                       ; preds = %land.lhs.true6, %land.lhs.true6, %if.end102
-  %first.1 = phi ptr [ %first.098, %land.lhs.true6 ], [ %spec.select, %if.end102 ], [ %first.098, %land.lhs.true6 ]
-  %start.1 = phi i32 [ %start.099, %land.lhs.true6 ], [ %spec.select43, %if.end102 ], [ %start.099, %land.lhs.true6 ]
+  %first.1 = phi ptr [ %first.098, %land.lhs.true6 ], [ %first.098, %land.lhs.true6 ], [ %spec.select, %if.end102 ]
+  %start.1 = phi i32 [ %start.099, %land.lhs.true6 ], [ %start.099, %land.lhs.true6 ], [ %spec.select43, %if.end102 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
   br i1 %exitcond105.not, label %for.end108, label %for.body, !llvm.loop !42
@@ -4463,7 +4463,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %_ZN4absl7debian2
   br label %return
 
 return:                                           ; preds = %for.inc.i.i, %if.end5, %if.end, %_ZNK4absl7debian211string_viewixEm.exit, %entry, %_ZN4absl7debian211string_view13remove_prefixEm.exit
-  %retval.0 = phi ptr [ %arrayidx.i.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ null, %entry ], [ null, %_ZNK4absl7debian211string_viewixEm.exit ], [ null, %if.end ], [ null, %if.end5 ], [ null, %for.inc.i.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %arrayidx.i.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ null, %_ZNK4absl7debian211string_viewixEm.exit ], [ null, %if.end5 ], [ null, %for.inc.i.i ]
   ret ptr %retval.0
 }
 
@@ -4756,13 +4756,13 @@ if.then56:                                        ; preds = %for.inc.i.i, %for.i
   br label %return
 
 if.end58:                                         ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i, %for.body.us.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i
-  %sign.184 = phi i32 [ %sign.1, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ], [ %sign.186119126, %for.body.us.i.i ], [ %sign.186119126, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i ], [ %sign.1, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i ]
-  %retval.0.i63 = phi ptr [ @_ZN3re2L8anygroupE, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ], [ %arrayidx.us.i.i, %for.body.us.i.i ], [ %arrayidx.us.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i ], [ %arrayidx.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i ]
+  %sign.184 = phi i32 [ %sign.1, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ], [ %sign.186119126, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i ], [ %sign.186119126, %for.body.us.i.i ], [ %sign.1, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i ]
+  %retval.0.i63 = phi ptr [ @_ZN3re2L8anygroupE, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ], [ %arrayidx.us.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i ], [ %arrayidx.us.i.i, %for.body.us.i.i ], [ %arrayidx.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i ]
   call fastcc void @_ZN3re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %cc, ptr noundef nonnull %retval.0.i63, i32 noundef %sign.184, i32 noundef %parse_flags)
   br label %return
 
 return:                                           ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit43, %if.then25, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %_ZNK4absl7debian211string_viewixEm.exit27, %if.end, %_ZNK4absl7debian211string_viewixEm.exit, %entry, %if.end58, %if.then56, %if.end28
-  %retval.0 = phi i32 [ 1, %if.then56 ], [ 0, %if.end58 ], [ 1, %if.end28 ], [ 2, %entry ], [ 2, %_ZNK4absl7debian211string_viewixEm.exit ], [ 2, %if.end ], [ 2, %_ZNK4absl7debian211string_viewixEm.exit27 ], [ 1, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ 1, %if.then25 ], [ 1, %_ZN4absl7debian211string_view13remove_prefixEm.exit43 ]
+  %retval.0 = phi i32 [ 2, %entry ], [ 2, %if.end ], [ 1, %if.then56 ], [ 0, %if.end58 ], [ 1, %if.end28 ], [ 1, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ 1, %if.then25 ], [ 2, %_ZNK4absl7debian211string_viewixEm.exit27 ], [ 2, %_ZNK4absl7debian211string_viewixEm.exit ], [ 1, %_ZN4absl7debian211string_view13remove_prefixEm.exit43 ]
   ret i32 %retval.0
 }
 
@@ -4888,7 +4888,7 @@ _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.ex
   br i1 %cmp, label %return, label %while.cond, !llvm.loop !48
 
 return:                                           ; preds = %while.cond, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %if.end13.i, %if.then15.i
-  %cmp.i25 = phi i1 [ false, %if.end13.i ], [ false, %if.then15.i ], [ %cmp.i, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ %cmp.i, %while.cond ]
+  %cmp.i25 = phi i1 [ false, %if.then15.i ], [ false, %if.end13.i ], [ %cmp.i, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ %cmp.i, %while.cond ]
   ret i1 %cmp.i25
 }
 
@@ -5568,7 +5568,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %BadEscape
   br label %return
 
 return:                                           ; preds = %if.end78, %if.end13.i, %if.then15.i, %if.end91, %if.then64, %if.end58, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %_ZN4absl7debian211string_viewC2EPKcm.exit, %sw.bb112, %sw.bb111, %sw.bb110, %sw.bb109, %sw.bb108, %sw.bb107, %if.end102, %if.end87, %if.end54, %if.then15, %if.then5, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %if.then15 ], [ true, %if.end54 ], [ true, %if.end87 ], [ true, %if.end102 ], [ true, %sw.bb107 ], [ true, %sw.bb108 ], [ true, %sw.bb109 ], [ true, %sw.bb110 ], [ true, %sw.bb111 ], [ true, %sw.bb112 ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ false, %if.end58 ], [ false, %if.then64 ], [ false, %if.end91 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %if.end78 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ true, %sw.bb112 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ true, %if.then15 ], [ true, %if.end54 ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ], [ false, %if.end58 ], [ false, %if.then64 ], [ true, %if.end87 ], [ true, %if.end102 ], [ true, %sw.bb107 ], [ true, %sw.bb108 ], [ true, %sw.bb109 ], [ true, %sw.bb110 ], [ true, %sw.bb111 ], [ false, %if.end91 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %if.end78 ]
   ret i1 %retval.0
 }
 
@@ -5638,7 +5638,7 @@ if.else:                                          ; preds = %_ZNK4absl7debian211
   br label %return
 
 return:                                           ; preds = %if.else, %if.end13, %_ZN4absl7debian211string_view13remove_prefixEm.exit, %entry, %_ZN4absl7debian211string_viewC2EPKcm.exit
-  %retval.0 = phi i1 [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ false, %entry ], [ false, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ true, %if.end13 ], [ true, %if.else ]
+  %retval.0 = phi i1 [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit ], [ false, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ false, %entry ], [ true, %if.end13 ], [ true, %if.else ]
   ret i1 %retval.0
 }
 
@@ -5727,7 +5727,7 @@ lpad9:                                            ; preds = %invoke.cont7
   br label %eh.resume
 
 if.end26:                                         ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit69, %if.then22
-  %9 = phi i64 [ %.pre, %if.then22 ], [ %sub.i67, %_ZN4absl7debian211string_view13remove_prefixEm.exit69 ]
+  %9 = phi i64 [ %sub.i67, %_ZN4absl7debian211string_view13remove_prefixEm.exit69 ], [ %.pre, %if.then22 ]
   %cmp.i73250 = icmp eq i64 %9, 0
   br i1 %cmp.i73250, label %if.then112, label %_ZNK4absl7debian211string_viewixEm.exit77.lr.ph
 
@@ -5820,7 +5820,7 @@ _ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.ex
   %cmp50 = icmp slt i32 %call6.i, 0
   br i1 %cmp50, label %if.then51, label %if.end52
 
-if.then51:                                        ; preds = %if.end13.i, %if.then15.i, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit
+if.then51:                                        ; preds = %if.then15.i, %if.end13.i, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
@@ -5949,7 +5949,7 @@ for.inc.i.i.i:                                    ; preds = %_ZN4absl7debian2eqE
   br i1 %exitcond.not.i.i.i, label %sw.bb71, label %for.body.i.i.i, !llvm.loop !47
 
 if.end28.i:                                       ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i, %for.body.us.i.i.i
-  %retval.0.i.i.i = phi ptr [ %arrayidx.us.i.i.i, %for.body.us.i.i.i ], [ %arrayidx.us.i.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i ], [ %arrayidx.i.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %arrayidx.us.i.i.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i.i.i ], [ %arrayidx.us.i.i.i, %for.body.us.i.i.i ], [ %arrayidx.i.i.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i.i.i ]
   %cmp.not.i.i117 = icmp ugt i64 %sub.ptr.sub23.i, %13
   br i1 %cmp.not.i.i117, label %cond.false.i.i121, label %_ZN3re2L11ParseCCNameEPN4absl7debian211string_viewENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit
 
@@ -6072,7 +6072,7 @@ while.cond.backedge:                              ; preds = %if.then100, %if.end
   br i1 %cmp.i73, label %if.then112, label %_ZNK4absl7debian211string_viewixEm.exit77, !llvm.loop !55
 
 if.end103:                                        ; preds = %for.inc.i.i.i157, %if.end96.if.end103_crit_edge, %_ZNK4absl7debian211string_viewixEm.exit.i, %if.end.i139
-  %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre298, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre298, %if.end.i139 ], [ %os.sroa.0.0.copyload.i.pre298, %for.inc.i.i.i157 ]
+  %os.sroa.0.0.copyload.i = phi ptr [ %os.sroa.0.0.copyload.i.pre, %if.end96.if.end103_crit_edge ], [ %os.sroa.0.0.copyload.i.pre298, %if.end.i139 ], [ %os.sroa.0.0.copyload.i.pre298, %_ZNK4absl7debian211string_viewixEm.exit.i ], [ %os.sroa.0.0.copyload.i.pre298, %for.inc.i.i.i157 ]
   store i32 0, ptr %rr, align 4
   store i32 0, ptr %hi.i, align 4
   %call.i = call noundef zeroext i1 @_ZN3re26Regexp10ParseState16ParseCCCharacterEPN4absl7debian211string_viewEPiS4_PNS_12RegexpStatusE(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull %s, ptr noundef nonnull %rr, ptr nonnull %whole_class.sroa.0.0.copyload, i64 %whole_class.sroa.3.0.copyload, ptr noundef %status)
@@ -6133,7 +6133,7 @@ if.else.i:                                        ; preds = %_ZNK4absl7debian211
   store i32 %47, ptr %hi.i, align 4
   br label %if.end107
 
-if.then106:                                       ; preds = %if.end103, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i170, %_ZN4absl7debian211string_viewC2EPKcm.exit.i177
+if.then106:                                       ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit.i170, %if.end103, %_ZN4absl7debian211string_viewC2EPKcm.exit.i177
   call void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call3)
   br label %return
 
@@ -6556,7 +6556,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit74:      ; preds = %BadPerlOp
   br label %return
 
 return:                                           ; preds = %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit, %if.end13.i, %if.then15.i, %_ZN4absl7debian211string_viewC2EPKcm.exit53, %if.then36, %_ZN4absl7debian211string_viewC2EPKcm.exit74, %if.end116, %_ZN4absl7debian211string_view13remove_prefixEm.exit, %if.then54, %if.end40, %invoke.cont11
-  %retval.0 = phi i1 [ false, %invoke.cont11 ], [ false, %if.end40 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ false, %if.then54 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit74 ], [ true, %if.end116 ], [ false, %if.then36 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit53 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ]
+  %retval.0 = phi i1 [ false, %invoke.cont11 ], [ false, %if.end40 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit53 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit ], [ true, %if.end116 ], [ false, %if.then54 ], [ false, %if.then36 ], [ false, %_ZN4absl7debian211string_viewC2EPKcm.exit74 ], [ false, %if.then15.i ], [ false, %if.end13.i ], [ false, %_ZN3re2L16StringViewToRuneEPiPN4absl7debian211string_viewEPNS_12RegexpStatusE.exit ]
   ret i1 %retval.0
 }
 
@@ -7189,7 +7189,7 @@ sw.bb119:                                         ; preds = %invoke.cont31
   br label %invoke.cont120
 
 invoke.cont120:                                   ; preds = %sw.bb118, %sw.bb119, %invoke.cont31
-  %op.0 = phi i32 [ 8, %sw.bb118 ], [ 9, %sw.bb119 ], [ 7, %invoke.cont31 ]
+  %op.0 = phi i32 [ 9, %sw.bb119 ], [ 8, %sw.bb118 ], [ 7, %invoke.cont31 ]
   %add.ptr.i117 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %add.ptr.i117, ptr %t, align 8
   %sub.i118 = add i64 %11, -1
@@ -7369,7 +7369,7 @@ _ZNK4absl7debian211string_viewixEm.exit34.i:      ; preds = %if.else.i._ZNK4absl
   %cmp29.not.i = icmp eq i8 %60, 125
   br i1 %cmp29.not.i, label %if.end171, label %if.then165
 
-if.then165:                                       ; preds = %while.body.i.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i.i, %_ZNK4absl7debian211string_viewixEm.exit.i146, %sw.bb161, %_ZN4absl7debian211string_view13remove_prefixEm.exit22.i, %if.else.i, %_ZNK4absl7debian211string_viewixEm.exit34.i, %_ZNK4absl7debian211string_viewixEm.exit.i.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i150, %_ZNK4absl7debian211string_viewixEm.exit19.i.i
+if.then165:                                       ; preds = %while.body.i.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i.i, %sw.bb161, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i150, %if.else.i, %_ZN4absl7debian211string_view13remove_prefixEm.exit22.i, %_ZNK4absl7debian211string_viewixEm.exit.i146, %_ZNK4absl7debian211string_viewixEm.exit34.i, %_ZNK4absl7debian211string_viewixEm.exit.i.i, %_ZNK4absl7debian211string_viewixEm.exit19.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   %call167 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState11PushLiteralEi(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef 123)
           to label %if.end169 unwind label %lpad1.loopexit.split-lp.loopexit
@@ -7907,7 +7907,7 @@ invoke.cont388:                                   ; preds = %invoke.cont385
           to label %invoke.cont393.invoke unwind label %lpad1.loopexit.split-lp.loopexit
 
 invoke.cont393.invoke:                            ; preds = %invoke.cont388, %invoke.cont356, %if.end112
-  %103 = phi ptr [ %37, %if.end112 ], [ %call340, %invoke.cont356 ], [ %call376, %invoke.cont388 ]
+  %103 = phi ptr [ %call340, %invoke.cont356 ], [ %37, %if.end112 ], [ %call376, %invoke.cont388 ]
   %104 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %ps, ptr noundef %103)
           to label %Break2thread-pre-split unwind label %lpad1.loopexit.split-lp.loopexit
 
@@ -7941,8 +7941,8 @@ if.end405.invoke:                                 ; preds = %invoke.cont34, %if.
           to label %Break2thread-pre-split unwind label %lpad1.loopexit.split-lp.loopexit
 
 Break2thread-pre-split:                           ; preds = %while.cond293, %invoke.cont393.invoke, %if.end405.invoke, %invoke.cont56, %invoke.cont157, %invoke.cont212
-  %isunary.sroa.4.1.ph = phi i64 [ %sub.ptr.sub208, %invoke.cont212 ], [ %sub.ptr.sub153, %invoke.cont157 ], [ 0, %invoke.cont56 ], [ 0, %if.end405.invoke ], [ 0, %invoke.cont393.invoke ], [ %83, %while.cond293 ]
-  %isunary.sroa.0.1.ph = phi ptr [ %12, %invoke.cont212 ], [ %12, %invoke.cont157 ], [ null, %invoke.cont56 ], [ null, %if.end405.invoke ], [ null, %invoke.cont393.invoke ], [ null, %while.cond293 ]
+  %isunary.sroa.4.1.ph = phi i64 [ %sub.ptr.sub208, %invoke.cont212 ], [ 0, %invoke.cont393.invoke ], [ 0, %if.end405.invoke ], [ 0, %invoke.cont56 ], [ %sub.ptr.sub153, %invoke.cont157 ], [ %83, %while.cond293 ]
+  %isunary.sroa.0.1.ph = phi ptr [ %12, %invoke.cont212 ], [ null, %invoke.cont393.invoke ], [ null, %if.end405.invoke ], [ null, %invoke.cont56 ], [ %12, %invoke.cont157 ], [ null, %while.cond293 ]
   %.pr597 = load i64, ptr %s.sroa.3.0.t.sroa_idx, align 8
   br label %Break2
 
@@ -7958,7 +7958,7 @@ while.end411.invoke:                              ; preds = %while.cond, %Break2
           to label %cleanup unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont15, %invoke.cont402, %invoke.cont212, %invoke.cont157, %invoke.cont109, %invoke.cont85, %invoke.cont56, %invoke.cont34, %invoke.cont313, %while.end411.invoke, %invoke.cont313.thread, %invoke.cont34.thread, %invoke.cont15.thread, %sw.bb363, %invoke.cont198, %invoke.cont143
-  %retval.0 = phi ptr [ null, %invoke.cont143 ], [ null, %invoke.cont198 ], [ null, %sw.bb363 ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont313.thread ], [ %112, %while.end411.invoke ], [ null, %invoke.cont313 ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont402 ], [ null, %invoke.cont15 ]
+  %retval.0 = phi ptr [ null, %invoke.cont198 ], [ null, %invoke.cont143 ], [ null, %sw.bb363 ], [ %112, %while.end411.invoke ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont313.thread ], [ null, %invoke.cont402 ], [ null, %invoke.cont313 ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont15 ]
   call void @_ZN3re26Regexp10ParseStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ps) #28
   %tmp_.i354 = getelementptr inbounds nuw i8, ptr %xstatus, i64 24
   %113 = load ptr, ptr %tmp_.i354, align 8
@@ -7974,7 +7974,7 @@ _ZN3re212RegexpStatusD2Ev.exit:                   ; preds = %cleanup, %delete.no
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad1.loopexit.split-lp.loopexit, %lpad.i, %common.resume.i205, %lpad.i247, %lpad.i228, %common.resume.i, %lpad387, %lpad377, %lpad351, %lpad341
-  %.pn = phi { ptr, i32 } [ %106, %lpad387 ], [ %105, %lpad377 ], [ %95, %lpad351 ], [ %94, %lpad341 ], [ %21, %lpad.i ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i206, %common.resume.i205 ], [ %75, %lpad.i228 ], [ %78, %lpad.i247 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit406, %lpad1.loopexit.split-lp.loopexit ], [ %lpad.loopexit410, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit413, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp414, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %94, %lpad341 ], [ %106, %lpad387 ], [ %105, %lpad377 ], [ %95, %lpad351 ], [ %21, %lpad.i ], [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i206, %common.resume.i205 ], [ %75, %lpad.i228 ], [ %78, %lpad.i247 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit406, %lpad1.loopexit.split-lp.loopexit ], [ %lpad.loopexit410, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit413, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp414, %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN3re26Regexp10ParseStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ps) #28
   br label %ehcleanup415
 
@@ -8538,7 +8538,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZN10
   br label %common.resume
 
 return:                                           ; preds = %entry, %invoke.cont16, %if.then11, %if.then5
-  %retval.0 = phi i32 [ %add, %if.then5 ], [ %add13, %if.then11 ], [ 0, %invoke.cont16 ], [ %0, %entry ]
+  %retval.0 = phi i32 [ 0, %invoke.cont16 ], [ %add, %if.then5 ], [ %add13, %if.then11 ], [ %0, %entry ]
   ret i32 %retval.0
 }
 
@@ -8636,7 +8636,7 @@ for.inc.i:                                        ; preds = %_ZN4absl7debian2eqE
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !47
 
 invoke.cont4:                                     ; preds = %for.inc.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i, %for.inc.us.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i, %for.body.us.i, %invoke.cont.thread, %invoke.cont
-  %retval.0.i = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont.thread ], [ %arrayidx.us.i, %for.body.us.i ], [ null, %for.inc.us.i ], [ %arrayidx.us.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i ], [ null, %for.inc.i ], [ %arrayidx.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ]
+  %retval.0.i = phi ptr [ null, %invoke.cont.thread ], [ null, %invoke.cont ], [ %arrayidx.us.i, %_ZN4absl7debian211string_viewC2EPKc.exit.us.i ], [ %arrayidx.us.i, %for.body.us.i ], [ null, %for.inc.us.i ], [ null, %for.inc.i ], [ %arrayidx.i, %_ZN4absl7debian2eqENS0_11string_viewES1_.exit.i ]
   %nr16.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 24
   %4 = load i32, ptr %nr16.i, align 8
   %cmp166.i = icmp sgt i32 %4, 0
@@ -8847,7 +8847,7 @@ while.end:                                        ; preds = %_ZNK4absl7debian211
   br label %return
 
 return:                                           ; preds = %while.body, %_ZNK4absl7debian211string_viewixEm.exit19, %entry, %_ZNK4absl7debian211string_viewixEm.exit, %while.end
-  %retval.0 = phi i1 [ true, %while.end ], [ false, %_ZNK4absl7debian211string_viewixEm.exit ], [ false, %entry ], [ false, %_ZNK4absl7debian211string_viewixEm.exit19 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ false, %_ZNK4absl7debian211string_viewixEm.exit19 ], [ false, %entry ], [ true, %while.end ], [ false, %_ZNK4absl7debian211string_viewixEm.exit ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -9138,7 +9138,7 @@ delete.notnull:                                   ; preds = %if.then86
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end10, %if.end75, %delete.notnull, %if.then86, %if.then8
-  %t.0 = phi i32 [ %call9, %if.then8 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call82, %if.end75 ], [ %call14, %if.end10 ]
+  %t.0 = phi i32 [ %call9, %if.then8 ], [ %call82, %if.end75 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call14, %if.end10 ]
   %42 = load ptr, ptr %_M_finish.i.i.i, align 8
   %43 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %42, %43
@@ -9385,7 +9385,7 @@ _ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11_Deque_
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

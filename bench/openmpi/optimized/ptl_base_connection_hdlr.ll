@@ -423,7 +423,7 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %170
 
 170:                                              ; preds = %81, %168, %169, %167
-  %.sink954 = phi i32 [ -2147483646, %168 ], [ 1, %169 ], [ 268435462, %167 ], [ 4, %81 ]
+  %.sink954 = phi i32 [ 268435462, %167 ], [ -2147483646, %168 ], [ 1, %169 ], [ 4, %81 ]
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 744
   %172 = load i32, ptr %171, align 8, !tbaa !41
   %173 = or i32 %172, %.sink954
@@ -569,8 +569,8 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %.thread853.thread
 
 247:                                              ; preds = %239, %201, %.thread746, %.thread736, %104, %161
-  %.22517 = phi i64 [ %108, %104 ], [ %157, %161 ], [ %205, %201 ], [ %243, %239 ], [ %120, %.thread736 ], [ %138, %.thread746 ]
-  %.22 = phi ptr [ %107, %104 ], [ %165, %161 ], [ %204, %201 ], [ %242, %239 ], [ %125, %.thread736 ], [ %143, %.thread746 ]
+  %.22517 = phi i64 [ %108, %104 ], [ %120, %.thread736 ], [ %138, %.thread746 ], [ %157, %161 ], [ %205, %201 ], [ %243, %239 ]
+  %.22 = phi ptr [ %107, %104 ], [ %125, %.thread736 ], [ %143, %.thread746 ], [ %165, %161 ], [ %204, %201 ], [ %242, %239 ]
   %248 = call i64 @strnlen(ptr noundef nonnull %.22, i64 noundef %.22517) #18
   %249 = icmp ult i64 %248, %.22517
   br i1 %249, label %252, label %250
@@ -1037,7 +1037,7 @@ pmix_obj_update.exit675:                          ; preds = %pmix_obj_update.exi
   call void (i32, ptr, ...) @pmix_output(i32 noundef %491, ptr noundef nonnull @.str.11) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %477, %471, %470, %498, %492, %490, %487
+.critedge:                                        ; preds = %477, %471, %470, %490, %498, %492, %487
   %499 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !3
   %or.cond18 = icmp ult i32 %499, 64
   br i1 %or.cond18, label %500, label %620
@@ -1274,7 +1274,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %604
   br label %707
 
 620:                                              ; preds = %356, %pmix_obj_update.exit675, %399, %406, %428, %506, %500, %.critedge, %519, %526, %565, %516, %521, %554
-  %.0490 = phi ptr [ %calloc, %356 ], [ %calloc, %pmix_obj_update.exit675 ], [ %calloc, %399 ], [ %calloc, %406 ], [ %calloc, %428 ], [ null, %506 ], [ null, %500 ], [ null, %.critedge ], [ null, %519 ], [ null, %526 ], [ null, %565 ], [ null, %516 ], [ null, %521 ], [ null, %554 ]
+  %.0490 = phi ptr [ %calloc, %406 ], [ %calloc, %428 ], [ null, %506 ], [ null, %500 ], [ null, %.critedge ], [ null, %519 ], [ null, %516 ], [ null, %521 ], [ null, %565 ], [ null, %554 ], [ null, %526 ], [ %calloc, %356 ], [ %calloc, %pmix_obj_update.exit675 ], [ %calloc, %399 ]
   %621 = getelementptr inbounds nuw i8, ptr %.0529893, i64 180
   %622 = load i32, ptr %621, align 4, !tbaa !87
   %623 = add nsw i32 %622, -1
@@ -1333,15 +1333,15 @@ pmix_obj_run_destructors.exit685:                 ; preds = %.lr.ph.i682, %633
   br label %.thread853
 
 .thread853:                                       ; preds = %334, %347, %338, %336, %pmix_obj_update.exit677, %646, %644
-  %.0861 = phi ptr [ %357, %pmix_obj_update.exit677 ], [ %357, %646 ], [ %357, %644 ], [ null, %336 ], [ null, %338 ], [ null, %347 ], [ null, %334 ]
-  %.0490860 = phi ptr [ %.0490, %pmix_obj_update.exit677 ], [ %.0490, %646 ], [ %.0490, %644 ], [ %calloc, %336 ], [ %calloc, %338 ], [ %calloc, %347 ], [ %calloc, %334 ]
+  %.0861 = phi ptr [ %357, %644 ], [ %357, %pmix_obj_update.exit677 ], [ %357, %646 ], [ null, %336 ], [ null, %338 ], [ null, %347 ], [ null, %334 ]
+  %.0490860 = phi ptr [ %.0490, %644 ], [ %.0490, %pmix_obj_update.exit677 ], [ %.0490, %646 ], [ %calloc, %336 ], [ %calloc, %338 ], [ %calloc, %347 ], [ %calloc, %334 ]
   %.not635 = icmp eq ptr %.0490860, null
   br i1 %.not635, label %647, label %.thread853.thread
 
-.thread853.thread:                                ; preds = %.preheader, %229, %237, %191, %199, %94, %102, %46, %40, %38, %75, %245, %324, %316, %304, %302, %287, %250, %126, %115, %144, %133, %159, %152, %182, %175, %220, %213, %86, %62, %53, %322, %.thread853
-  %.0493859869 = phi ptr [ %.1494, %.thread853 ], [ null, %229 ], [ null, %237 ], [ null, %191 ], [ null, %199 ], [ null, %94 ], [ null, %102 ], [ null, %46 ], [ null, %40 ], [ null, %38 ], [ null, %75 ], [ null, %245 ], [ %.1494, %324 ], [ null, %316 ], [ null, %304 ], [ null, %302 ], [ null, %287 ], [ null, %250 ], [ null, %126 ], [ null, %115 ], [ null, %144 ], [ null, %133 ], [ null, %159 ], [ null, %152 ], [ null, %182 ], [ null, %175 ], [ null, %220 ], [ null, %213 ], [ null, %86 ], [ null, %62 ], [ null, %53 ], [ %.1494, %322 ], [ %.1494, %.preheader ]
-  %.0490860868 = phi ptr [ %.0490860, %.thread853 ], [ %calloc, %229 ], [ %calloc, %237 ], [ %calloc, %191 ], [ %calloc, %199 ], [ %calloc, %94 ], [ %calloc, %102 ], [ %calloc, %46 ], [ %calloc, %40 ], [ %calloc, %38 ], [ %calloc, %75 ], [ %calloc, %245 ], [ %calloc, %324 ], [ %calloc, %316 ], [ %calloc, %304 ], [ %calloc, %302 ], [ %calloc, %287 ], [ %calloc, %250 ], [ %calloc, %126 ], [ %calloc, %115 ], [ %calloc, %144 ], [ %calloc, %133 ], [ %calloc, %159 ], [ %calloc, %152 ], [ %calloc, %182 ], [ %calloc, %175 ], [ %calloc, %220 ], [ %calloc, %213 ], [ %calloc, %86 ], [ %calloc, %62 ], [ %calloc, %53 ], [ %calloc, %322 ], [ %calloc, %.preheader ]
-  %.0861866 = phi ptr [ %.0861, %.thread853 ], [ null, %229 ], [ null, %237 ], [ null, %191 ], [ null, %199 ], [ null, %94 ], [ null, %102 ], [ null, %46 ], [ null, %40 ], [ null, %38 ], [ null, %75 ], [ null, %245 ], [ null, %324 ], [ null, %316 ], [ null, %304 ], [ null, %302 ], [ null, %287 ], [ null, %250 ], [ null, %126 ], [ null, %115 ], [ null, %144 ], [ null, %133 ], [ null, %159 ], [ null, %152 ], [ null, %182 ], [ null, %175 ], [ null, %220 ], [ null, %213 ], [ null, %86 ], [ null, %62 ], [ null, %53 ], [ null, %322 ], [ null, %.preheader ]
+.thread853.thread:                                ; preds = %.preheader, %237, %199, %102, %46, %40, %38, %75, %245, %324, %322, %213, %86, %62, %53, %316, %304, %302, %287, %250, %126, %115, %144, %133, %159, %152, %94, %182, %175, %191, %220, %229, %.thread853
+  %.0493859869 = phi ptr [ %.1494, %.thread853 ], [ null, %237 ], [ null, %199 ], [ null, %102 ], [ null, %46 ], [ null, %40 ], [ null, %38 ], [ null, %75 ], [ null, %245 ], [ %.1494, %324 ], [ %.1494, %322 ], [ null, %213 ], [ null, %86 ], [ null, %62 ], [ null, %53 ], [ null, %316 ], [ null, %304 ], [ null, %302 ], [ null, %287 ], [ null, %250 ], [ null, %126 ], [ null, %115 ], [ null, %144 ], [ null, %133 ], [ null, %159 ], [ null, %152 ], [ null, %94 ], [ null, %182 ], [ null, %175 ], [ null, %191 ], [ null, %220 ], [ null, %229 ], [ %.1494, %.preheader ]
+  %.0490860868 = phi ptr [ %.0490860, %.thread853 ], [ %calloc, %237 ], [ %calloc, %199 ], [ %calloc, %102 ], [ %calloc, %46 ], [ %calloc, %40 ], [ %calloc, %38 ], [ %calloc, %75 ], [ %calloc, %245 ], [ %calloc, %324 ], [ %calloc, %322 ], [ %calloc, %213 ], [ %calloc, %86 ], [ %calloc, %62 ], [ %calloc, %53 ], [ %calloc, %316 ], [ %calloc, %304 ], [ %calloc, %302 ], [ %calloc, %287 ], [ %calloc, %250 ], [ %calloc, %126 ], [ %calloc, %115 ], [ %calloc, %144 ], [ %calloc, %133 ], [ %calloc, %159 ], [ %calloc, %152 ], [ %calloc, %94 ], [ %calloc, %182 ], [ %calloc, %175 ], [ %calloc, %191 ], [ %calloc, %220 ], [ %calloc, %229 ], [ %calloc, %.preheader ]
+  %.0861866 = phi ptr [ %.0861, %.thread853 ], [ null, %237 ], [ null, %199 ], [ null, %102 ], [ null, %46 ], [ null, %40 ], [ null, %38 ], [ null, %75 ], [ null, %245 ], [ null, %324 ], [ null, %322 ], [ null, %213 ], [ null, %86 ], [ null, %62 ], [ null, %53 ], [ null, %316 ], [ null, %304 ], [ null, %302 ], [ null, %287 ], [ null, %250 ], [ null, %126 ], [ null, %115 ], [ null, %144 ], [ null, %133 ], [ null, %159 ], [ null, %152 ], [ null, %94 ], [ null, %182 ], [ null, %175 ], [ null, %191 ], [ null, %220 ], [ null, %229 ], [ null, %.preheader ]
   call void @free(ptr noundef nonnull %.0490860868) #17
   br label %647
 
@@ -1416,7 +1416,7 @@ pmix_obj_run_destructors.exit691:                 ; preds = %.lr.ph.i688, %663
   call void @free(ptr noundef nonnull %.0861867) #17
   br label %.thread882
 
-.thread882:                                       ; preds = %20, %30, %pmix_obj_update.exit678, %676, %674, %649
+.thread882:                                       ; preds = %30, %20, %pmix_obj_update.exit678, %676, %674, %649
   %677 = load i32, ptr %21, align 4, !tbaa !21
   %678 = icmp sgt i32 %677, -1
   br i1 %678, label %679, label %683
@@ -2243,8 +2243,8 @@ pmix_obj_run_destructors.exit230:                 ; preds = %.lr.ph.i227, %314
   call void @free(ptr noundef nonnull %7) #17
   br label %.thread247
 
-.thread247:                                       ; preds = %268, %269, %pmix_obj_update.exit184, %323, %324, %pmix_obj_update.exit185
-  %.1.ph = phi i32 [ %.1158246, %pmix_obj_update.exit185 ], [ %.1158246, %324 ], [ %.1158246, %323 ], [ %.0157242, %pmix_obj_update.exit184 ], [ %.0157242, %269 ], [ %.0157242, %268 ]
+.thread247:                                       ; preds = %pmix_obj_update.exit184, %268, %269, %323, %324, %pmix_obj_update.exit185
+  %.1.ph = phi i32 [ %.1158246, %pmix_obj_update.exit185 ], [ %.1158246, %324 ], [ %.1158246, %323 ], [ %.0157242, %269 ], [ %.0157242, %268 ], [ %.0157242, %pmix_obj_update.exit184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %400
 
@@ -2377,7 +2377,7 @@ pmix_obj_run_destructors.exit236:                 ; preds = %.lr.ph.i233, %351
   br label %400
 
 400:                                              ; preds = %.thread247, %pmix_obj_update.exit186, %361, %360, %395, %362, %200, %171, %pmix_obj_new_tma.exit193, %pmix_obj_new_tma.exit
-  %.0 = phi i32 [ -32, %pmix_obj_new_tma.exit ], [ -32, %pmix_obj_new_tma.exit193 ], [ -64, %200 ], [ 0, %362 ], [ 0, %395 ], [ -32, %171 ], [ -47, %360 ], [ -47, %361 ], [ -47, %pmix_obj_update.exit186 ], [ %.1.ph, %.thread247 ]
+  %.0 = phi i32 [ -32, %pmix_obj_new_tma.exit ], [ -32, %pmix_obj_new_tma.exit193 ], [ -64, %200 ], [ -32, %171 ], [ 0, %362 ], [ 0, %395 ], [ %.1.ph, %.thread247 ], [ -47, %360 ], [ -47, %361 ], [ -47, %pmix_obj_update.exit186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3958,7 +3958,7 @@ pmix_obj_update.exit245:                          ; preds = %173
   br label %234
 
 234:                                              ; preds = %222, %225, %227, %233, %212, %206, %205, %221, %215, %214
-  %.0 = phi i32 [ 0, %214 ], [ 0, %215 ], [ 0, %221 ], [ %203, %205 ], [ %203, %206 ], [ %203, %212 ], [ -14, %233 ], [ -14, %227 ], [ -14, %225 ], [ -47, %222 ]
+  %.0 = phi i32 [ -14, %225 ], [ %203, %212 ], [ 0, %214 ], [ 0, %215 ], [ 0, %221 ], [ %203, %205 ], [ %203, %206 ], [ -14, %233 ], [ -14, %227 ], [ -47, %222 ]
   %235 = call noundef i32 @llvm.bswap.i32(i32 %.0)
   store i32 %235, ptr %4, align 4, !tbaa !77
   %236 = load i32, ptr %16, align 4, !tbaa !21
@@ -4191,7 +4191,7 @@ pmix_obj_run_destructors.exit253:                 ; preds = %.lr.ph.i250, %338
   br label %492
 
 352:                                              ; preds = %234, %46, %41, %33, %27, %3, %19, %21, %31, %39, %44, %51, %105, %131, %170, %238, %269, %263, %261, %271
-  %.0191 = phi ptr [ null, %19 ], [ null, %21 ], [ null, %31 ], [ null, %39 ], [ null, %44 ], [ null, %51 ], [ null, %105 ], [ null, %131 ], [ null, %170 ], [ %171, %238 ], [ %171, %269 ], [ %171, %263 ], [ %171, %261 ], [ %171, %271 ], [ null, %3 ], [ null, %27 ], [ null, %33 ], [ null, %41 ], [ null, %46 ], [ %171, %234 ]
+  %.0191 = phi ptr [ null, %19 ], [ null, %3 ], [ null, %21 ], [ null, %31 ], [ null, %27 ], [ null, %39 ], [ null, %33 ], [ null, %44 ], [ null, %41 ], [ null, %51 ], [ null, %46 ], [ null, %105 ], [ null, %131 ], [ null, %170 ], [ %171, %238 ], [ %171, %234 ], [ %171, %269 ], [ %171, %263 ], [ %171, %261 ], [ %171, %271 ]
   %353 = load i32, ptr %16, align 4, !tbaa !21
   %354 = icmp sgt i32 %353, -1
   br i1 %354, label %355, label %359

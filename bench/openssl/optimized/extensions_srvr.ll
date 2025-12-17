@@ -154,7 +154,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_server_name(ptr noundef %0, ptr nound
   %20 = icmp eq i64 %15, 0
   br i1 %20, label %PACKET_as_length_prefixed_2.exit.thread, label %PACKET_get_1.exit
 
-PACKET_as_length_prefixed_2.exit.thread:          ; preds = %8, %5, %17
+PACKET_as_length_prefixed_2.exit.thread:          ; preds = %5, %8, %17
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @__func__.tls_parse_ctos_server_name) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -281,7 +281,7 @@ PACKET_equal.exit:                                ; preds = %69, %67, %62
   br label %75
 
 75:                                               ; preds = %60, %PACKET_equal.exit, %59, %54, %51, %PACKET_as_length_prefixed_2.exit40.thread, %PACKET_as_length_prefixed_2.exit.thread
-  %.0 = phi i32 [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 0, %PACKET_as_length_prefixed_2.exit40.thread ], [ 0, %51 ], [ 0, %54 ], [ 0, %59 ], [ 1, %PACKET_equal.exit ], [ 1, %60 ]
+  %.0 = phi i32 [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 0, %PACKET_as_length_prefixed_2.exit40.thread ], [ 0, %59 ], [ 0, %51 ], [ 0, %54 ], [ 1, %PACKET_equal.exit ], [ 1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -375,7 +375,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_srp(ptr noundef %0, ptr noundef captu
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %PACKET_as_length_prefixed_1.exit.thread
 
-PACKET_as_length_prefixed_1.exit.thread:          ; preds = %6, %5, %10
+PACKET_as_length_prefixed_1.exit.thread:          ; preds = %5, %6, %10
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.tls_parse_ctos_srp) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_ec_pt_formats(ptr noundef %0, ptr nou
   %13 = icmp eq i64 %8, 0
   br i1 %13, label %PACKET_as_length_prefixed_1.exit.thread, label %14
 
-PACKET_as_length_prefixed_1.exit.thread:          ; preds = %6, %5, %10
+PACKET_as_length_prefixed_1.exit.thread:          ; preds = %5, %6, %10
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.tls_parse_ctos_ec_pt_formats) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -526,7 +526,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_sig_algs_cert(ptr noundef %0, ptr nou
   %21 = icmp eq i64 %15, 0
   br i1 %21, label %PACKET_as_length_prefixed_2.exit.thread, label %22
 
-PACKET_as_length_prefixed_2.exit.thread:          ; preds = %8, %5, %17
+PACKET_as_length_prefixed_2.exit.thread:          ; preds = %5, %8, %17
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 288, ptr noundef nonnull @__func__.tls_parse_ctos_sig_algs_cert) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -590,7 +590,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_sig_algs(ptr noundef %0, ptr noundef 
   %21 = icmp eq i64 %15, 0
   br i1 %21, label %PACKET_as_length_prefixed_2.exit.thread, label %22
 
-PACKET_as_length_prefixed_2.exit.thread:          ; preds = %8, %5, %17
+PACKET_as_length_prefixed_2.exit.thread:          ; preds = %5, %8, %17
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.tls_parse_ctos_sig_algs) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -801,7 +801,7 @@ PACKET_get_length_prefixed_2.exit66.thread:       ; preds = %45, %.lr.ph, %55
   %.not5.i = icmp eq i64 %81, %80
   br i1 %.not5.i, label %83, label %82
 
-82:                                               ; preds = %._crit_edge, %73
+82:                                               ; preds = %73, %._crit_edge
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @__func__.tls_parse_ctos_status_request) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -845,7 +845,7 @@ PACKET_get_length_prefixed_2.exit66.thread:       ; preds = %45, %.lr.ph, %55
   br label %93
 
 93:                                               ; preds = %83, %92, %.critedge49, %.critedge, %5, %82, %43, %33, %20, %13
-  %.0 = phi i32 [ 1, %20 ], [ 0, %43 ], [ 0, %82 ], [ 0, %33 ], [ 0, %13 ], [ 1, %5 ], [ 0, %.critedge ], [ 0, %.critedge49 ], [ 1, %92 ], [ 1, %83 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %5 ], [ 1, %20 ], [ 0, %43 ], [ 0, %.critedge ], [ 1, %83 ], [ 0, %.critedge49 ], [ 0, %82 ], [ 0, %33 ], [ 1, %92 ]
   ret i32 %.0
 }
 
@@ -925,7 +925,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_alpn(ptr noundef %0, ptr noundef capt
   %27 = icmp samesign ult i64 %22, 2
   br i1 %27, label %PACKET_as_length_prefixed_2.exit.thread, label %.preheader
 
-PACKET_as_length_prefixed_2.exit.thread:          ; preds = %15, %13, %24
+PACKET_as_length_prefixed_2.exit.thread:          ; preds = %13, %15, %24
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @__func__.tls_parse_ctos_alpn) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -979,7 +979,7 @@ PACKET_memdup.exit:                               ; preds = %37
   br label %44
 
 44:                                               ; preds = %PACKET_memdup.exit, %9, %43, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_as_length_prefixed_2.exit.thread
-  %.0 = phi i32 [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %43 ], [ 1, %9 ], [ 1, %PACKET_memdup.exit ]
+  %.0 = phi i32 [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 1, %9 ], [ 0, %43 ], [ 1, %PACKET_memdup.exit ]
   ret i32 %.0
 }
 
@@ -1095,15 +1095,15 @@ PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
   br i1 %.not32, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %49, %._crit_edge, %11, %8, %20
-  %.sink85 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %._crit_edge ], [ 540, %49 ], [ 540, %56 ]
-  %.sink = phi i32 [ 353, %20 ], [ 353, %8 ], [ 353, %11 ], [ 353, %._crit_edge ], [ 352, %49 ], [ 352, %56 ]
+  %.sink85 = phi i32 [ 534, %._crit_edge ], [ 497, %11 ], [ 497, %20 ], [ 497, %8 ], [ 540, %49 ], [ 540, %56 ]
+  %.sink = phi i32 [ 353, %._crit_edge ], [ 353, %11 ], [ 353, %20 ], [ 353, %8 ], [ 352, %49 ], [ 352, %56 ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink85, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #12
   br label %59
 
 59:                                               ; preds = %.sink.split, %56, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %56 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %56 ], [ 1, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1157,7 +1157,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_psk_kex_modes(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   br label %15
 
-PACKET_as_length_prefixed_1.exit.thread:          ; preds = %6, %5, %10
+PACKET_as_length_prefixed_1.exit.thread:          ; preds = %5, %6, %10
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 571, ptr noundef nonnull @__func__.tls_parse_ctos_psk_kex_modes) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -1273,7 +1273,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_key_share(ptr noundef initializes((12
   %.not5.i = icmp eq i64 %38, %37
   br i1 %.not5.i, label %40, label %39
 
-39:                                               ; preds = %28, %30
+39:                                               ; preds = %30, %28
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 837, ptr noundef nonnull @__func__.tls_parse_ctos_key_share) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 159, ptr noundef null) #12
@@ -1787,13 +1787,13 @@ check_overlap.exit87:                             ; preds = %228
   br i1 %235, label %132, label %select.unfold, !llvm.loop !125
 
 select.unfold:                                    ; preds = %232, %128, %207, %160, %extract_keyshares.exit, %.thread172
-  %.043 = phi i32 [ 1, %.thread172 ], [ 1, %extract_keyshares.exit ], [ 0, %160 ], [ 0, %207 ], [ 1, %128 ], [ 1, %232 ]
+  %.043 = phi i32 [ 0, %160 ], [ 1, %.thread172 ], [ 1, %extract_keyshares.exit ], [ 0, %207 ], [ 1, %128 ], [ 1, %232 ]
   call void @CRYPTO_free(ptr noundef nonnull %.0135.ph, ptr noundef nonnull @.str, i32 noundef 977) #12
   call void @CRYPTO_free(ptr noundef nonnull %.0139.ph, ptr noundef nonnull @.str, i32 noundef 978) #12
   br label %236
 
 236:                                              ; preds = %extract_keyshares.exit.thread158, %19, %select.unfold, %51, %46, %39, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %46 ], [ 0, %51 ], [ %.043, %select.unfold ], [ 0, %39 ], [ 1, %19 ], [ 0, %extract_keyshares.exit.thread158 ]
+  %.0 = phi i32 [ 0, %39 ], [ 0, %27 ], [ 0, %46 ], [ 0, %51 ], [ 1, %19 ], [ %.043, %select.unfold ], [ 0, %extract_keyshares.exit.thread158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1898,7 +1898,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_cookie(ptr noundef %0, ptr noundef ca
   %.not5.i = icmp eq i64 %34, %33
   br i1 %.not5.i, label %36, label %35
 
-35:                                               ; preds = %24, %26
+35:                                               ; preds = %26, %24
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1009, ptr noundef nonnull @__func__.tls_parse_ctos_cookie) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 159, ptr noundef null) #12
@@ -2307,7 +2307,7 @@ PACKET_get_1.exit.thread:                         ; preds = %126, %123, %113, %1
   br label %223
 
 223:                                              ; preds = %217, %135, %69, %5, %19, %220, %216, %199, %187, %175, %150, %147, %PACKET_get_1.exit.thread, %105, %86, %68, %65, %54, %PACKET_forward.exit.thread, %35
-  %.0 = phi i32 [ 0, %PACKET_forward.exit.thread ], [ 0, %54 ], [ 0, %65 ], [ 0, %68 ], [ 0, %86 ], [ 0, %105 ], [ 0, %PACKET_get_1.exit.thread ], [ 0, %147 ], [ 1, %220 ], [ 0, %216 ], [ 0, %199 ], [ 0, %187 ], [ 0, %175 ], [ 0, %150 ], [ 0, %35 ], [ 1, %19 ], [ 1, %5 ], [ 1, %69 ], [ 1, %135 ], [ 0, %217 ]
+  %.0 = phi i32 [ 0, %35 ], [ 0, %PACKET_forward.exit.thread ], [ 0, %54 ], [ 0, %65 ], [ 0, %68 ], [ 1, %5 ], [ 0, %86 ], [ 0, %105 ], [ 0, %PACKET_get_1.exit.thread ], [ 1, %69 ], [ 0, %147 ], [ 1, %220 ], [ 1, %135 ], [ 0, %216 ], [ 0, %199 ], [ 0, %187 ], [ 0, %175 ], [ 0, %150 ], [ 1, %19 ], [ 0, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2460,7 +2460,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_supported_groups(ptr noundef %0, ptr 
   %or.cond21 = and i1 %21, %.not13
   br i1 %or.cond21, label %23, label %PACKET_as_length_prefixed_2.exit.thread
 
-PACKET_as_length_prefixed_2.exit.thread:          ; preds = %8, %5, %17
+PACKET_as_length_prefixed_2.exit.thread:          ; preds = %5, %8, %17
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1206, ptr noundef nonnull @__func__.tls_parse_ctos_supported_groups) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -3114,8 +3114,8 @@ PACKET_get_length_prefixed_2.exit186:             ; preds = %198
   call void @SSL_SESSION_free(ptr noundef %238) #12
   br label %.thread247
 
-.thread247:                                       ; preds = %139, %tls_get_stateful_ticket.exit.thread236, %PACKET_get_length_prefixed_2.exit174.thread, %83, %.thread285, %.thread283, %.thread276, %5, %.thread270, %233, %29
-  %.0 = phi i32 [ 0, %.thread270 ], [ 1, %233 ], [ 0, %29 ], [ 1, %5 ], [ 1, %.thread276 ], [ 0, %.thread283 ], [ 0, %.thread285 ], [ 0, %83 ], [ 0, %PACKET_get_length_prefixed_2.exit174.thread ], [ 0, %tls_get_stateful_ticket.exit.thread236 ], [ 0, %139 ]
+.thread247:                                       ; preds = %139, %tls_get_stateful_ticket.exit.thread236, %83, %PACKET_get_length_prefixed_2.exit174.thread, %.thread285, %.thread283, %.thread276, %5, %.thread270, %233, %29
+  %.0 = phi i32 [ 0, %29 ], [ 0, %.thread285 ], [ 1, %5 ], [ 0, %.thread270 ], [ 1, %233 ], [ 1, %.thread276 ], [ 0, %.thread283 ], [ 0, %PACKET_get_length_prefixed_2.exit174.thread ], [ 0, %83 ], [ 0, %tls_get_stateful_ticket.exit.thread236 ], [ 0, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -3230,7 +3230,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_renegotiate(ptr noundef %0, ptr n
   br label %29
 
 29:                                               ; preds = %26, %5, %28
-  %.0 = phi i32 [ 0, %28 ], [ 2, %5 ], [ 1, %26 ]
+  %.0 = phi i32 [ 2, %5 ], [ 0, %28 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -3282,7 +3282,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_server_name(ptr noundef %0, ptr n
   br label %27
 
 27:                                               ; preds = %24, %11, %19, %5, %26
-  %.0 = phi i32 [ 0, %26 ], [ 2, %5 ], [ 2, %19 ], [ 2, %11 ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %26 ], [ 2, %5 ], [ 2, %11 ], [ 2, %19 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -3327,7 +3327,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_maxfragmentlen(ptr noundef %0, pt
   br label %24
 
 24:                                               ; preds = %21, %5, %23
-  %.0 = phi i32 [ 0, %23 ], [ 2, %5 ], [ 1, %21 ]
+  %.0 = phi i32 [ 2, %5 ], [ 0, %23 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -3393,7 +3393,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_ec_pt_formats(ptr noundef %0, ptr
   br label %31
 
 31:                                               ; preds = %28, %17, %.critedge, %30
-  %.0 = phi i32 [ 0, %30 ], [ 2, %.critedge ], [ 2, %17 ], [ 1, %28 ]
+  %.0 = phi i32 [ 2, %17 ], [ 0, %30 ], [ 2, %.critedge ], [ 1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3487,14 +3487,14 @@ define range(i32 0, 3) i32 @tls_construct_stoc_supported_groups(ptr noundef %0, 
   br i1 %.not32, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %33, %27, %29, %31, %._crit_edge, %41, %11
-  %.sink = phi i32 [ 1660, %11 ], [ 1698, %41 ], [ 1698, %._crit_edge ], [ 1684, %31 ], [ 1684, %29 ], [ 1684, %27 ], [ 1691, %33 ]
+  %.sink = phi i32 [ 1660, %11 ], [ 1698, %41 ], [ 1698, %._crit_edge ], [ 1684, %27 ], [ 1691, %33 ], [ 1684, %31 ], [ 1684, %29 ]
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.loopexit.sink.split, %41, %5
-  %.0 = phi i32 [ 2, %5 ], [ 1, %41 ], [ 0, %.loopexit.sink.split ], [ 2, %24 ]
+  %.0 = phi i32 [ 1, %41 ], [ 2, %5 ], [ 0, %.loopexit.sink.split ], [ 2, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3539,7 +3539,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_session_ticket(ptr noundef %0, pt
   br label %16
 
 16:                                               ; preds = %13, %15, %10
-  %.0 = phi i32 [ 0, %15 ], [ 2, %10 ], [ 1, %13 ]
+  %.0 = phi i32 [ 2, %10 ], [ 0, %15 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -3616,14 +3616,14 @@ define range(i32 0, 3) i32 @tls_construct_stoc_status_request(ptr noundef %0, pt
   br i1 %.not25, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %40, %24, %26
-  %.sink = phi i32 [ 1740, %26 ], [ 1740, %24 ], [ 1754, %40 ]
+  %.sink = phi i32 [ 1740, %24 ], [ 1740, %26 ], [ 1754, %40 ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_status_request) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %42
 
 42:                                               ; preds = %.sink.split, %40, %38, %21, %7, %5
-  %.0 = phi i32 [ 2, %5 ], [ 2, %7 ], [ 2, %21 ], [ 0, %38 ], [ 1, %40 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 2, %5 ], [ 0, %38 ], [ 2, %21 ], [ 2, %7 ], [ 1, %40 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3682,7 +3682,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_next_proto_neg(ptr noundef %0, pt
   br label %32
 
 32:                                               ; preds = %16, %5, %12, %31, %30
-  %.0 = phi i32 [ 1, %31 ], [ 0, %30 ], [ 2, %12 ], [ 2, %5 ], [ 2, %16 ]
+  %.0 = phi i32 [ 2, %5 ], [ 1, %31 ], [ 0, %30 ], [ 2, %12 ], [ 2, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3837,7 +3837,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_etm(ptr noundef %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %20, %5, %22, %17
-  %.0 = phi i32 [ 2, %17 ], [ 0, %22 ], [ 2, %5 ], [ 1, %20 ]
+  %.0 = phi i32 [ 2, %17 ], [ 2, %5 ], [ 0, %22 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -3913,7 +3913,7 @@ define range(i32 0, 2) i32 @tls_construct_stoc_supported_versions(ptr noundef %0
   br i1 %.not14, label %.sink.split, label %28
 
 .sink.split:                                      ; preds = %17, %19, %21, %26, %13, %5
-  %.sink = phi i32 [ 1887, %5 ], [ 1887, %13 ], [ 1895, %26 ], [ 1895, %21 ], [ 1895, %19 ], [ 1895, %17 ]
+  %.sink = phi i32 [ 1887, %13 ], [ 1887, %5 ], [ 1895, %26 ], [ 1895, %21 ], [ 1895, %19 ], [ 1895, %17 ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_supported_versions) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
@@ -4155,7 +4155,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_key_share(ptr noundef %0, ptr nou
   br label %101
 
 101:                                              ; preds = %.critedge, %75, %35, %31, %24, %14, %91, %98, %73, %67, %63, %56, %49, %33, %26
-  %.053 = phi i32 [ 0, %26 ], [ 0, %33 ], [ 0, %56 ], [ 1, %98 ], [ 0, %91 ], [ 0, %63 ], [ 0, %67 ], [ 0, %73 ], [ 0, %49 ], [ 2, %14 ], [ 1, %24 ], [ 2, %31 ], [ 2, %35 ], [ 0, %75 ], [ 0, %.critedge ]
+  %.053 = phi i32 [ 0, %49 ], [ 2, %14 ], [ 0, %26 ], [ 1, %24 ], [ 0, %33 ], [ 2, %31 ], [ 0, %56 ], [ 1, %98 ], [ 0, %91 ], [ 0, %63 ], [ 0, %67 ], [ 2, %35 ], [ 0, %73 ], [ 0, %75 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.053
 }
@@ -4480,8 +4480,8 @@ define range(i32 0, 3) i32 @tls_construct_stoc_cookie(ptr noundef %0, ptr nounde
   br i1 %.not89, label %.sink.split, label %161
 
 .sink.split:                                      ; preds = %145, %147, %151, %157, %159, %140, %129, %134, %118
-  %.sink93 = phi i32 [ 2130, %118 ], [ 2138, %134 ], [ 2138, %129 ], [ 2143, %140 ], [ 2152, %159 ], [ 2152, %157 ], [ 2152, %151 ], [ 2152, %147 ], [ 2152, %145 ]
-  %.sink = phi i32 [ 524294, %118 ], [ 786691, %134 ], [ 786691, %129 ], [ 786691, %140 ], [ 786691, %159 ], [ 786691, %157 ], [ 786691, %151 ], [ 786691, %147 ], [ 786691, %145 ]
+  %.sink93 = phi i32 [ 2143, %140 ], [ 2138, %129 ], [ 2130, %118 ], [ 2138, %134 ], [ 2152, %159 ], [ 2152, %157 ], [ 2152, %151 ], [ 2152, %147 ], [ 2152, %145 ]
+  %.sink = phi i32 [ 786691, %140 ], [ 786691, %129 ], [ 524294, %118 ], [ 786691, %134 ], [ 786691, %159 ], [ 786691, %157 ], [ 786691, %151 ], [ 786691, %147 ], [ 786691, %145 ]
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink93, ptr noundef nonnull @__func__.tls_construct_stoc_cookie) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #12
@@ -4494,7 +4494,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_cookie(ptr noundef %0, ptr nounde
   br label %162
 
 162:                                              ; preds = %73, %75, %5, %161, %117, %111, %97, %91, %72, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %97 ], [ %.061, %161 ], [ 0, %117 ], [ 0, %111 ], [ 0, %91 ], [ 0, %72 ], [ 2, %5 ], [ 0, %75 ], [ 0, %73 ]
+  %.0 = phi i32 [ 0, %72 ], [ 0, %31 ], [ 0, %97 ], [ %.061, %161 ], [ 0, %117 ], [ 0, %111 ], [ 0, %91 ], [ 2, %5 ], [ 0, %75 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -4550,7 +4550,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_cryptopro_bug(ptr noundef %0, ptr
   br label %19
 
 19:                                               ; preds = %5, %16, %12, %18
-  %.0 = phi i32 [ 0, %18 ], [ 2, %5 ], [ 2, %12 ], [ 1, %16 ]
+  %.0 = phi i32 [ 0, %18 ], [ 2, %12 ], [ 2, %5 ], [ 1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -4612,7 +4612,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_early_data(ptr noundef %0, ptr no
   br i1 %.not15, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %24, %26, %28, %11, %13, %15, %19
-  %.sink = phi i32 [ 2206, %19 ], [ 2206, %15 ], [ 2206, %13 ], [ 2206, %11 ], [ 2219, %28 ], [ 2219, %26 ], [ 2219, %24 ]
+  %.sink = phi i32 [ 2206, %11 ], [ 2206, %19 ], [ 2206, %15 ], [ 2206, %13 ], [ 2219, %28 ], [ 2219, %26 ], [ 2219, %24 ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_early_data) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
@@ -4660,7 +4660,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_psk(ptr noundef %0, ptr noundef %
   br label %20
 
 20:                                               ; preds = %17, %5, %19
-  %.0 = phi i32 [ 0, %19 ], [ 2, %5 ], [ 1, %17 ]
+  %.0 = phi i32 [ 2, %5 ], [ 0, %19 ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -4788,7 +4788,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_client_cert_type(ptr noundef %0, ptr 
   %.not5.i = icmp eq i64 %15, %16
   br i1 %.not5.i, label %19, label %17
 
-17:                                               ; preds = %12, %13
+17:                                               ; preds = %13, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2897
   store i8 2, ptr %18, align 1, !tbaa !195
   tail call void @ERR_new() #12
@@ -4937,7 +4937,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_server_cert_type(ptr noundef %0, ptr 
   %.not5.i = icmp eq i64 %15, %16
   br i1 %.not5.i, label %18, label %17
 
-17:                                               ; preds = %12, %13
+17:                                               ; preds = %13, %12
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2381, ptr noundef nonnull @__func__.tls_parse_ctos_server_cert_type) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 110, ptr noundef null) #12
@@ -4994,7 +4994,7 @@ reconcile_cert_type.exit:                         ; preds = %.lr.ph.i
   br label %35
 
 35:                                               ; preds = %reconcile_cert_type.exit, %.loopexit, %22, %17, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %22 ], [ 0, %.loopexit ], [ 0, %17 ], [ 1, %reconcile_cert_type.exit ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %22 ], [ 0, %17 ], [ 0, %.loopexit ], [ 1, %reconcile_cert_type.exit ]
   ret i32 %.0
 }
 

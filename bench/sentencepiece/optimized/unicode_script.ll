@@ -114,7 +114,7 @@ _ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt
   br label %_ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit
 
 _ZNK13sentencepiece14unicode_script12_GLOBAL__N_117GetScriptInternal9GetScriptEj.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader.i, %15, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i
-  %.0.i.sroa.speculated.i = phi i32 [ %.0.i.sroa.speculate.load._ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i ], [ 23, %15 ], [ 23, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ 23, %.preheader.i ], [ 23, %.lr.ph.i.i.i.i.i.i ]
+  %.0.i.sroa.speculated.i = phi i32 [ %.0.i.sroa.speculate.load._ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i, %_ZNKSt13unordered_mapIjN13sentencepiece14unicode_script10ScriptTypeESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i.i ], [ 23, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ 23, %15 ], [ 23, %.preheader.i ], [ 23, %.lr.ph.i.i.i.i.i.i ]
   ret i32 %.0.i.sroa.speculated.i
 
 36:                                               ; preds = %6

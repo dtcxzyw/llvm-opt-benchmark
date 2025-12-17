@@ -479,7 +479,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   br label %96
 
 96:                                               ; preds = %94, %85, %82, %79, %77, %71, %59
-  %.1.i.ph.us = phi i64 [ %72, %71 ], [ %78, %77 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %60, %59 ], [ %95, %94 ]
+  %.1.i.ph.us = phi i64 [ %78, %77 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %60, %59 ], [ %95, %94 ], [ %72, %71 ]
   %97 = load i32, ptr %11, align 8
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds %struct.GISTENTRY, ptr %18, i64 %98
@@ -1400,7 +1400,7 @@ gistMakeUnionKey.exit.thread:                     ; preds = %113
   br label %.thread
 
 .thread:                                          ; preds = %gistMakeUnionKey.exit.thread, %gistMakeUnionKey.exit, %140, %132
-  %.1 = phi i8 [ %.mux, %gistMakeUnionKey.exit ], [ 1, %140 ], [ 0, %132 ], [ %spec.select, %gistMakeUnionKey.exit.thread ]
+  %.1 = phi i8 [ %.mux, %gistMakeUnionKey.exit ], [ %spec.select, %gistMakeUnionKey.exit.thread ], [ 0, %132 ], [ 1, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = load ptr, ptr %16, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 10
@@ -1747,8 +1747,8 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %138 = call i64 @nocache_index_getattr(ptr noundef nonnull %78, i32 noundef %137, ptr noundef %87) #11
   br label %139
 
-139:                                              ; preds = %136, %107, %110, %113, %116, %121, %123
-  %.1.i.ph = phi i64 [ %122, %121 ], [ %117, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %125, %123 ], [ %138, %136 ]
+139:                                              ; preds = %123, %136, %107, %110, %113, %116, %121
+  %.1.i.ph = phi i64 [ %117, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %125, %123 ], [ %138, %136 ], [ %122, %121 ]
   store i64 %.1.i.ph, ptr %7, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8
@@ -1831,7 +1831,7 @@ gistdentryinit.exit:                              ; preds = %139, %143, %.sink.s
   br label %gistpenalty.exit
 
 gistpenalty.exit:                                 ; preds = %168, %175, %176
-  %177 = phi float [ %174, %168 ], [ 0.000000e+00, %175 ], [ %..i, %176 ]
+  %177 = phi float [ %174, %168 ], [ %..i, %176 ], [ 0.000000e+00, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %178 = fcmp ule float %177, 0.000000e+00
   %.256 = select i1 %178, i1 %.05492, i1 false
@@ -1931,8 +1931,8 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   %217 = icmp eq i32 %.8, 1
   br i1 %217, label %._crit_edge, label %218
 
-218:                                              ; preds = %210, %216
-  %.9.ph = phi i32 [ 0, %216 ], [ %.563, %210 ]
+218:                                              ; preds = %216, %210
+  %.9.ph = phi i32 [ %.563, %210 ], [ 0, %216 ]
   %219 = add i16 %.052105, 1
   %.not = icmp ugt i16 %219, %61
   br i1 %.not, label %._crit_edge, label %73, !llvm.loop !20
@@ -1982,7 +1982,7 @@ define dso_local float @gistpenalty(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %25
 
 25:                                               ; preds = %24, %14, %23
-  %26 = phi float [ %22, %14 ], [ 0.000000e+00, %23 ], [ %., %24 ]
+  %26 = phi float [ %22, %14 ], [ %., %24 ], [ 0.000000e+00, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret float %26
 }
@@ -2551,7 +2551,7 @@ GistPageGetDeleteXid.exit:                        ; preds = %12, %16
   br label %19
 
 19:                                               ; preds = %4, %1, %GistPageGetDeleteXid.exit
-  %.0 = phi i1 [ %18, %GistPageGetDeleteXid.exit ], [ true, %1 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %1 ], [ %18, %GistPageGetDeleteXid.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -2628,7 +2628,7 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %24, %16, %14, %12
-  %.sink = phi i8 [ 1, %12 ], [ 1, %14 ], [ 0, %16 ], [ 0, %24 ]
+  %.sink = phi i8 [ 1, %14 ], [ 1, %12 ], [ 0, %16 ], [ 0, %24 ]
   store i8 %.sink, ptr %5, align 1
   br label %32
 

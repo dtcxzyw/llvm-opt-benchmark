@@ -149,7 +149,7 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
   br label %26
 
 26:                                               ; preds = %14, %6, %4, %2
-  %.020 = phi i32 [ 0, %2 ], [ -151, %4 ], [ 0, %14 ], [ -151, %6 ]
+  %.020 = phi i32 [ -151, %4 ], [ 0, %2 ], [ 0, %14 ], [ -151, %6 ]
   ret i32 %.020
 }
 
@@ -256,8 +256,8 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   %spec.select = select i1 %51, ptr null, ptr %37
   br label %52
 
-52:                                               ; preds = %47, %45, %43, %41
-  %.2.ph = phi ptr [ %spec.select, %47 ], [ %.03077, %41 ], [ null, %43 ], [ null, %45 ]
+52:                                               ; preds = %41, %47, %45, %43
+  %.2.ph = phi ptr [ null, %43 ], [ %.03077, %41 ], [ %spec.select, %47 ], [ null, %45 ]
   %53 = add nuw nsw i64 %.03576, 1
   %exitcond.not = icmp eq i64 %53, 32
   br i1 %exitcond.not, label %54, label %36, !llvm.loop !27
@@ -303,12 +303,12 @@ psa_register_read.exit:                           ; preds = %55, %58, %62
   br label %psa_allocate_volatile_key_slot.exit
 
 psa_key_slot_state_transition.exit:               ; preds = %.thread55, %54, %2, %psa_register_read.exit
-  %.036 = phi i32 [ %64, %psa_register_read.exit ], [ -137, %2 ], [ -141, %54 ], [ -151, %.thread55 ]
+  %.036 = phi i32 [ %64, %psa_register_read.exit ], [ -141, %54 ], [ -137, %2 ], [ -151, %.thread55 ]
   store ptr null, ptr %1, align 8, !tbaa !3
   br label %psa_allocate_volatile_key_slot.exit
 
 psa_allocate_volatile_key_slot.exit:              ; preds = %8, %33, %.thread._crit_edge.i, %17, %psa_key_slot_state_transition.exit, %.thread55.thread
-  %.0 = phi i32 [ %.036, %psa_key_slot_state_transition.exit ], [ 0, %.thread55.thread ], [ -141, %17 ], [ 0, %33 ], [ -151, %.thread._crit_edge.i ], [ -141, %8 ]
+  %.0 = phi i32 [ 0, %.thread55.thread ], [ %.036, %psa_key_slot_state_transition.exit ], [ -141, %17 ], [ -151, %.thread._crit_edge.i ], [ 0, %33 ], [ -141, %8 ]
   ret i32 %.0
 }
 
@@ -399,7 +399,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   store ptr %.0.i, ptr %1, align 8, !tbaa !3
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
-.loopexit48:                                      ; preds = %39, %26, %17, %14, %9, %22
+.loopexit48:                                      ; preds = %39, %17, %14, %9, %22, %26
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 176), align 8, !tbaa !3
   br label %47
 
@@ -435,7 +435,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   br label %63
 
 63:                                               ; preds = %58, %56, %54, %52
-  %.2.ph.i = phi ptr [ %spec.select.i, %58 ], [ %.03077.i, %52 ], [ null, %54 ], [ null, %56 ]
+  %.2.ph.i = phi ptr [ null, %54 ], [ %.03077.i, %52 ], [ %spec.select.i, %58 ], [ null, %56 ]
   %64 = add nuw nsw i64 %.03576.i, 1
   %exitcond.not.i31 = icmp eq i64 %64, 32
   br i1 %exitcond.not.i31, label %65, label %47, !llvm.loop !27
@@ -556,12 +556,12 @@ psa_register_read.exit:                           ; preds = %101
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
 106:                                              ; preds = %psa_extend_key_usage_flags.exit, %89, %101
-  %.1.ph = phi i32 [ -151, %101 ], [ %spec.store.select, %89 ], [ -151, %psa_extend_key_usage_flags.exit ]
+  %.1.ph = phi i32 [ -151, %psa_extend_key_usage_flags.exit ], [ -151, %101 ], [ %spec.store.select, %89 ]
   store ptr null, ptr %1, align 8, !tbaa !3
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
 psa_get_and_lock_key_slot_in_memory.exit:         ; preds = %psa_register_read.exit, %psa_reserve_free_key_slot.exit, %44, %.loopexit.i, %29, %106, %2
-  %.022 = phi i32 [ -137, %2 ], [ %.036.i, %psa_reserve_free_key_slot.exit ], [ %.1.ph, %106 ], [ 0, %psa_register_read.exit ], [ -136, %29 ], [ 0, %44 ], [ -151, %.loopexit.i ]
+  %.022 = phi i32 [ -137, %2 ], [ 0, %psa_register_read.exit ], [ %.036.i, %psa_reserve_free_key_slot.exit ], [ %.1.ph, %106 ], [ -136, %29 ], [ 0, %44 ], [ -151, %.loopexit.i ]
   ret i32 %.022
 }
 
@@ -600,7 +600,7 @@ define hidden i32 @psa_unregister_read(ptr noundef %0) local_unnamed_addr #3 {
   br label %17
 
 17:                                               ; preds = %3, %._crit_edge, %1, %14, %12
-  %.0 = phi i32 [ %13, %12 ], [ 0, %14 ], [ 0, %1 ], [ -151, %3 ], [ -151, %._crit_edge ]
+  %.0 = phi i32 [ -151, %3 ], [ 0, %1 ], [ %13, %12 ], [ 0, %14 ], [ -151, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -638,7 +638,7 @@ define hidden i32 @psa_unregister_read_under_mutex(ptr noundef %0) local_unnamed
   br label %psa_unregister_read.exit
 
 psa_unregister_read.exit:                         ; preds = %1, %3, %12, %._crit_edge.i, %14
-  %.0.i = phi i32 [ %13, %12 ], [ 0, %14 ], [ 0, %1 ], [ -151, %3 ], [ -151, %._crit_edge.i ]
+  %.0.i = phi i32 [ -151, %3 ], [ 0, %1 ], [ %13, %12 ], [ 0, %14 ], [ -151, %._crit_edge.i ]
   ret i32 %.0.i
 }
 
@@ -704,7 +704,7 @@ define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(n
   br label %psa_unregister_read_under_mutex.exit
 
 psa_unregister_read_under_mutex.exit:             ; preds = %21, %._crit_edge.i.i, %19, %10, %7, %5
-  %.0 = phi i32 [ %spec.store.select, %5 ], [ %20, %19 ], [ 0, %21 ], [ 0, %7 ], [ -151, %10 ], [ -151, %._crit_edge.i.i ]
+  %.0 = phi i32 [ %spec.store.select, %5 ], [ -151, %10 ], [ 0, %7 ], [ %20, %19 ], [ 0, %21 ], [ -151, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -800,8 +800,8 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #3 {
   store i64 %38, ptr %37, align 8, !tbaa !18
   br label %psa_unregister_read.exit
 
-psa_unregister_read.exit:                         ; preds = %35, %45, %25, %.loopexit.i, %22, %13, %10, %5, %18, %43, %1
-  %.07 = phi i32 [ 0, %1 ], [ %44, %43 ], [ -151, %.loopexit.i ], [ -136, %25 ], [ -136, %22 ], [ -136, %13 ], [ -136, %10 ], [ -136, %5 ], [ -136, %18 ], [ 0, %45 ], [ -136, %35 ]
+psa_unregister_read.exit:                         ; preds = %35, %45, %25, %.loopexit.i, %13, %10, %5, %18, %22, %43, %1
+  %.07 = phi i32 [ 0, %1 ], [ -136, %22 ], [ %44, %43 ], [ -136, %25 ], [ -151, %.loopexit.i ], [ -136, %13 ], [ -136, %10 ], [ -136, %5 ], [ -136, %18 ], [ 0, %45 ], [ -136, %35 ]
   ret i32 %.07
 }
 
@@ -897,8 +897,8 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #3 {
   store i64 %37, ptr %36, align 8, !tbaa !18
   br label %psa_unregister_read.exit
 
-psa_unregister_read.exit:                         ; preds = %34, %.loopexit.i, %21, %12, %9, %4, %17, %24, %._crit_edge.i, %46
-  %.05 = phi i32 [ %47, %46 ], [ 0, %._crit_edge.i ], [ -151, %.loopexit.i ], [ -140, %21 ], [ -140, %12 ], [ -140, %9 ], [ -140, %4 ], [ -140, %17 ], [ -136, %24 ], [ -140, %34 ]
+psa_unregister_read.exit:                         ; preds = %34, %12, %9, %4, %.loopexit.i, %17, %21, %24, %._crit_edge.i, %46
+  %.05 = phi i32 [ 0, %._crit_edge.i ], [ %47, %46 ], [ -140, %17 ], [ -140, %21 ], [ -136, %24 ], [ -140, %12 ], [ -140, %9 ], [ -140, %4 ], [ -151, %.loopexit.i ], [ -140, %34 ]
   ret i32 %.05
 }
 
@@ -1027,13 +1027,13 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %65, %.preheader, %9
-  %74 = phi i64 [ %10, %.preheader ], [ %10, %9 ], [ %66, %65 ]
-  %75 = phi i32 [ %11, %.preheader ], [ %11, %9 ], [ %67, %65 ]
-  %76 = phi i64 [ %12, %.preheader ], [ %12, %9 ], [ %68, %65 ]
-  %77 = phi i64 [ %13, %.preheader ], [ %13, %9 ], [ %69, %65 ]
-  %78 = phi i32 [ %14, %.preheader ], [ %14, %9 ], [ %70, %65 ]
-  %79 = phi i64 [ %15, %.preheader ], [ %15, %9 ], [ %71, %65 ]
-  %80 = phi i64 [ %16, %.preheader ], [ %16, %9 ], [ %72, %65 ]
+  %74 = phi i64 [ %10, %9 ], [ %10, %.preheader ], [ %66, %65 ]
+  %75 = phi i32 [ %11, %9 ], [ %11, %.preheader ], [ %67, %65 ]
+  %76 = phi i64 [ %12, %9 ], [ %12, %.preheader ], [ %68, %65 ]
+  %77 = phi i64 [ %13, %9 ], [ %13, %.preheader ], [ %69, %65 ]
+  %78 = phi i32 [ %14, %9 ], [ %14, %.preheader ], [ %70, %65 ]
+  %79 = phi i64 [ %15, %9 ], [ %15, %.preheader ], [ %71, %65 ]
+  %80 = phi i64 [ %16, %9 ], [ %16, %.preheader ], [ %72, %65 ]
   %81 = add nuw nsw i64 %.033, 1
   %exitcond34.not = icmp eq i64 %81, 23
   br i1 %exitcond34.not, label %8, label %9, !llvm.loop !40

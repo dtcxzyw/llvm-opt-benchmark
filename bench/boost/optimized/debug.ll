@@ -330,7 +330,7 @@ _ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit: ; preds = %18
   %.not7 = icmp eq i64 %24, -1
   br i1 %.not7, label %_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.thread, label %.critedge
 
-_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.thread: ; preds = %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i, %5, %7, %_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit
+_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.thread: ; preds = %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i, %7, %5, %_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit
   %.val9 = load i32, ptr %1, align 8, !tbaa !21
   %25 = icmp eq i32 %.val9, %.0418
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1340,7 +1340,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16
   br label %14
 
 14:                                               ; preds = %._crit_edge.i.i.i.us72.i.i, %.preheader.i.i
-  %.0.us70.i.i = phi ptr [ %9, %.preheader.i.i ], [ %15, %._crit_edge.i.i.i.us72.i.i ]
+  %.0.us70.i.i = phi ptr [ %15, %._crit_edge.i.i.i.us72.i.i ], [ %9, %.preheader.i.i ]
   %15 = getelementptr inbounds i8, ptr %.0.us70.i.i, i64 -1
   %.not.us71.i.i = icmp eq ptr %15, %7
   br i1 %.not.us71.i.i, label %.critedge.thread.i.i, label %._crit_edge.i.i.i.us72.i.i
@@ -1363,7 +1363,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16
   br label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i
 
 _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit.i: ; preds = %._crit_edge.i.i.i.us72.i.i, %._crit_edge.i.i.i.us72.i.i, %17, %.critedge.thread.i.i, %4
-  %.021.i.i = phi ptr [ %9, %4 ], [ %scevgep132.i.i, %.critedge.thread.i.i ], [ %spec.select.i, %17 ], [ %15, %._crit_edge.i.i.i.us72.i.i ], [ %15, %._crit_edge.i.i.i.us72.i.i ]
+  %.021.i.i = phi ptr [ %9, %4 ], [ %spec.select.i, %17 ], [ %scevgep132.i.i, %.critedge.thread.i.i ], [ %15, %._crit_edge.i.i.i.us72.i.i ], [ %15, %._crit_edge.i.i.i.us72.i.i ]
   %19 = icmp eq ptr %.021.i.i, %9
   %20 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 1
   %.0.i.i = select i1 %19, ptr %7, ptr %20
@@ -1412,7 +1412,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16
   br label %10
 
 10:                                               ; preds = %._crit_edge.i.i.i.us72.i, %.preheader.i
-  %.0.us70.i = phi ptr [ %5, %.preheader.i ], [ %11, %._crit_edge.i.i.i.us72.i ]
+  %.0.us70.i = phi ptr [ %11, %._crit_edge.i.i.i.us72.i ], [ %5, %.preheader.i ]
   %11 = getelementptr inbounds i8, ptr %.0.us70.i, i64 -1
   %.not.us71.i = icmp eq ptr %11, %3
   br i1 %.not.us71.i, label %.critedge.thread.i, label %._crit_edge.i.i.i.us72.i
@@ -1435,7 +1435,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16
   br label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit
 
 _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %._crit_edge.i.i.i.us72.i, %._crit_edge.i.i.i.us72.i, %13, %.critedge.thread.i, %1
-  %.021.i = phi ptr [ %5, %1 ], [ %scevgep132.i, %.critedge.thread.i ], [ %spec.select, %13 ], [ %11, %._crit_edge.i.i.i.us72.i ], [ %11, %._crit_edge.i.i.i.us72.i ]
+  %.021.i = phi ptr [ %5, %1 ], [ %spec.select, %13 ], [ %scevgep132.i, %.critedge.thread.i ], [ %11, %._crit_edge.i.i.i.us72.i ], [ %11, %._crit_edge.i.i.i.us72.i ]
   %15 = icmp eq ptr %.021.i, %5
   %16 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %15, ptr %3, ptr %16
@@ -1506,7 +1506,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16
   br label %11
 
 11:                                               ; preds = %._crit_edge.i.i.i.us72.i, %.preheader.i
-  %.0.us70.i = phi ptr [ %6, %.preheader.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
+  %.0.us70.i = phi ptr [ %12, %._crit_edge.i.i.i.us72.i ], [ %6, %.preheader.i ]
   %12 = getelementptr inbounds i8, ptr %.0.us70.i, i64 -1
   %.not.us71.i = icmp eq ptr %12, %4
   br i1 %.not.us71.i, label %.critedge.thread.i, label %._crit_edge.i.i.i.us72.i
@@ -1529,7 +1529,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16
   br label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit
 
 _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %._crit_edge.i.i.i.us72.i, %._crit_edge.i.i.i.us72.i, %14, %.critedge.thread.i, %1
-  %.021.i = phi ptr [ %6, %1 ], [ %scevgep132.i, %.critedge.thread.i ], [ %spec.select, %14 ], [ %12, %._crit_edge.i.i.i.us72.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
+  %.021.i = phi ptr [ %6, %1 ], [ %spec.select, %14 ], [ %scevgep132.i, %.critedge.thread.i ], [ %12, %._crit_edge.i.i.i.us72.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
   %16 = icmp eq ptr %.021.i, %6
   %17 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %16, ptr %4, ptr %17
@@ -1579,7 +1579,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16db
   br label %11
 
 11:                                               ; preds = %._crit_edge.i.i.i.us72.i, %.preheader.i
-  %.0.us70.i = phi ptr [ %6, %.preheader.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
+  %.0.us70.i = phi ptr [ %12, %._crit_edge.i.i.i.us72.i ], [ %6, %.preheader.i ]
   %12 = getelementptr inbounds i8, ptr %.0.us70.i, i64 -1
   %.not.us71.i = icmp eq ptr %12, %4
   br i1 %.not.us71.i, label %.critedge.thread.i, label %._crit_edge.i.i.i.us72.i
@@ -1602,7 +1602,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16db
   br label %_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit
 
 _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %._crit_edge.i.i.i.us72.i, %._crit_edge.i.i.i.us72.i, %14, %.critedge.thread.i, %1
-  %.021.i = phi ptr [ %6, %1 ], [ %scevgep132.i, %.critedge.thread.i ], [ %spec.select, %14 ], [ %12, %._crit_edge.i.i.i.us72.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
+  %.021.i = phi ptr [ %6, %1 ], [ %spec.select, %14 ], [ %scevgep132.i, %.critedge.thread.i ], [ %12, %._crit_edge.i.i.i.us72.i ], [ %12, %._crit_edge.i.i.i.us72.i ]
   %16 = icmp eq ptr %.021.i, %6
   %17 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %.0.i = select i1 %16, ptr %4, ptr %17
@@ -1780,7 +1780,7 @@ define internal fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_c
   br label %81
 
 81:                                               ; preds = %79, %75, %71, %67, %63, %59, %51, %47, %36, %32, %28, %24, %13
-  %.0.ph = phi ptr [ %._ZZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoEE13cmd_file_name, %79 ], [ null, %75 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %59 ], [ null, %51 ], [ null, %47 ], [ null, %36 ], [ null, %32 ], [ null, %28 ], [ null, %24 ], [ null, %13 ]
+  %.0.ph = phi ptr [ %._ZZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoEE13cmd_file_name, %79 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %59 ], [ null, %51 ], [ null, %47 ], [ null, %36 ], [ null, %32 ], [ null, %28 ], [ null, %24 ], [ null, %13 ], [ null, %75 ]
   %82 = invoke i32 @close(i32 noundef %6)
           to label %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit unwind label %83
 
@@ -2049,7 +2049,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %45 = phi i1 [ true, %31 ], [ %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %45 = phi i1 [ %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %31 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %45, ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(32) %32) #32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8, !tbaa !57
@@ -2314,8 +2314,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %87, %68, %61, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %89, %87 ], [ null, %68 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %90, %87 ], [ %70, %68 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2485,8 +2485,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2708,7 +2708,7 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJRKNS_5debug16dbg_startu
           to label %30 unwind label %31
 
 _ZN5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEE5clearEv.exit.sink.split: ; preds = %21, %24, %26, %10, %16
-  %.sink = phi ptr [ %1, %16 ], [ %1, %10 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
+  %.sink = phi ptr [ %1, %10 ], [ %1, %16 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
   store ptr null, ptr %.sink, align 8, !tbaa !30
   br label %_ZN5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEE5clearEv.exit
 
@@ -2801,7 +2801,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %29 = phi i1 [ true, %14 ], [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %29 = phi i1 [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %14 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !57

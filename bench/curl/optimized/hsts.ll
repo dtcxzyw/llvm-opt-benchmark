@@ -286,7 +286,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %49, %51, %45, %.critedge114, %3, %58, %62
-  %.0 = phi i32 [ 0, %58 ], [ %65, %62 ], [ 0, %3 ], [ 43, %.critedge114 ], [ 43, %45 ], [ 0, %51 ], [ 0, %49 ], [ 43, %34 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %58 ], [ %65, %62 ], [ 43, %45 ], [ 43, %.critedge114 ], [ 0, %51 ], [ 0, %49 ], [ 43, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -430,7 +430,7 @@ define hidden ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 
   br i1 %.not57, label %.thread74, label %.lr.ph.split, !llvm.loop !36
 
 .thread74:                                        ; preds = %62, %60, %45, %42, %8, %5, %4
-  %.3 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %8 ], [ %.346.ph.us, %45 ], [ %14, %42 ], [ null, %62 ], [ %46, %60 ]
+  %.3 = phi ptr [ null, %4 ], [ null, %5 ], [ %.346.ph.us, %45 ], [ null, %8 ], [ %14, %42 ], [ null, %62 ], [ %46, %60 ]
   ret ptr %.3
 }
 
@@ -482,7 +482,7 @@ define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.thread31, %18, %5, %12, %20
-  %.1 = phi i32 [ 0, %20 ], [ 0, %12 ], [ 0, %5 ], [ 27, %18 ], [ 27, %.thread31 ]
+  %.1 = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %12 ], [ 27, %18 ], [ 27, %.thread31 ]
   ret i32 %.1
 }
 
@@ -1082,7 +1082,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
   br label %.thread45.sink.split.i
 
 .thread45.sink.split.i:                           ; preds = %.thread31.i.i, %18, %12, %.thread45.sink.split.i.loopexit, %41
-  %.4.ph.i = phi i32 [ 27, %41 ], [ 42, %12 ], [ 43, %18 ], [ 27, %.thread31.i.i ], [ 0, %.thread45.sink.split.i.loopexit ]
+  %.4.ph.i = phi i32 [ 42, %12 ], [ 27, %41 ], [ 43, %18 ], [ 27, %.thread31.i.i ], [ 0, %.thread45.sink.split.i.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %hsts_pull.exit

@@ -58,7 +58,7 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %20, label %.split17.us, label %23
 
 .split17.us:                                      ; preds = %18, %.split.split.us, %.split.us.split, %.split.us
-  %.us-phi = phi ptr [ @ff_fmt_conversion_table, %.split.us ], [ %5, %.split.us.split ], [ %10, %.split.split.us ], [ %14, %18 ]
+  %.us-phi = phi ptr [ @ff_fmt_conversion_table, %.split.us ], [ %10, %.split.split.us ], [ %5, %.split.us.split ], [ %14, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !12
   br label %.loopexit
@@ -69,7 +69,7 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %.loopexit, label %.split.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %23, %13, %9, %.split17.us
-  %.010 = phi i32 [ %22, %.split17.us ], [ 0, %9 ], [ 0, %13 ], [ 0, %23 ]
+  %.010 = phi i32 [ %22, %.split17.us ], [ 0, %13 ], [ 0, %9 ], [ 0, %23 ]
   ret i32 %.010
 }
 

@@ -102,7 +102,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   br label %43
 
 43:                                               ; preds = %3, %.critedge, %19
-  %.031 = phi i64 [ %21, %19 ], [ %42, %.critedge ], [ -22, %3 ]
+  %.031 = phi i64 [ %42, %.critedge ], [ %21, %19 ], [ -22, %3 ]
   ret i64 %.031
 }
 
@@ -199,7 +199,7 @@ parse_memory_region.exit20:                       ; preds = %35, %.preheader.i
   br label %parse_memory_region.exit.thread
 
 parse_memory_region.exit.thread:                  ; preds = %1, %parse_memory_region.exit.thread22, %parse_memory_region.exit20
-  %.0 = phi ptr [ %17, %parse_memory_region.exit20 ], [ null, %parse_memory_region.exit.thread22 ], [ null, %1 ]
+  %.0 = phi ptr [ %17, %parse_memory_region.exit20 ], [ null, %1 ], [ null, %parse_memory_region.exit.thread22 ]
   ret ptr %.0
 }
 

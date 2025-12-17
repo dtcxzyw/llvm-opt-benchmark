@@ -81,7 +81,7 @@ define ptr @ossl_quic_tls_new(ptr noundef readonly captures(none) %0) local_unna
   br label %26
 
 26:                                               ; preds = %14, %25, %24, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %24 ], [ %15, %25 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %13 ], [ %15, %25 ], [ null, %24 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -140,8 +140,8 @@ define range(i32 0, 2) i32 @ossl_quic_tls_configure(ptr noundef %0) local_unname
   br label %11
 
 11:                                               ; preds = %4, %7, %9, %1
-  %12 = phi ptr [ null, %1 ], [ %.pre, %9 ], [ %2, %7 ], [ %2, %4 ]
-  %13 = phi ptr [ null, %1 ], [ %10, %9 ], [ null, %7 ], [ %2, %4 ]
+  %12 = phi ptr [ null, %1 ], [ %2, %7 ], [ %.pre, %9 ], [ %2, %4 ]
+  %13 = phi ptr [ null, %1 ], [ null, %7 ], [ %10, %9 ], [ %2, %4 ]
   %14 = tail call i64 @SSL_ctrl(ptr noundef %12, i32 noundef 123, i64 noundef 772, ptr noundef null) #9
   %.not17 = icmp eq i64 %14, 0
   br i1 %.not17, label %15, label %27
@@ -305,7 +305,7 @@ define i32 @ossl_quic_tls_tick(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %14, %17, %19, %11
-  %22 = phi ptr [ null, %11 ], [ %20, %19 ], [ null, %17 ], [ %12, %14 ]
+  %22 = phi ptr [ null, %11 ], [ null, %17 ], [ %20, %19 ], [ %12, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load i32, ptr %23, align 8, !tbaa !86
   %.not48 = icmp eq i32 %24, 0
@@ -554,7 +554,7 @@ define i32 @ossl_quic_tls_tick(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %129, %126, %81, %78, %66, %63, %53, %50, %34, %31, %1, %146, %137, %116, %114
-  %.0 = phi i32 [ 0, %116 ], [ 1, %114 ], [ 1, %146 ], [ %145, %137 ], [ 0, %1 ], [ 0, %31 ], [ 0, %34 ], [ 0, %50 ], [ 0, %53 ], [ 0, %63 ], [ 0, %66 ], [ 0, %78 ], [ 0, %81 ], [ 0, %126 ], [ 0, %129 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %116 ], [ 1, %114 ], [ 1, %146 ], [ 0, %81 ], [ %145, %137 ], [ 0, %34 ], [ 0, %53 ], [ 0, %66 ], [ 0, %31 ], [ 0, %50 ], [ 0, %63 ], [ 0, %78 ], [ 0, %126 ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -648,7 +648,7 @@ define range(i32 0, 2) i32 @ossl_quic_tls_is_cert_request(ptr noundef readonly c
   br label %8
 
 8:                                                ; preds = %1, %5
-  %9 = phi ptr [ %7, %5 ], [ %2, %1 ]
+  %9 = phi ptr [ %2, %1 ], [ %7, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 760
   %11 = load i32, ptr %10, align 8, !tbaa !116
   %12 = icmp eq i32 %11, 13
@@ -784,7 +784,7 @@ define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr readnone captures
   br label %quic_free.exit
 
 76:                                               ; preds = %68, %66, %64
-  %.1 = phi i32 [ 1, %64 ], [ 2, %66 ], [ 3, %68 ]
+  %.1 = phi i32 [ 2, %66 ], [ 1, %64 ], [ 3, %68 ]
   %77 = tail call i32 @EVP_MD_up_ref(ptr noundef %20) #9
   %.not68 = icmp eq i32 %77, 0
   br i1 %.not68, label %78, label %._crit_edge
@@ -1127,7 +1127,7 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   br label %120
 
 120:                                              ; preds = %113, %59, %114, %53, %8, %.critedge, %110, %104, %91, %70
-  %.0 = phi i32 [ -2, %70 ], [ 0, %110 ], [ -2, %104 ], [ -2, %91 ], [ -2, %.critedge ], [ -2, %8 ], [ -2, %53 ], [ -2, %114 ], [ 1, %59 ], [ 1, %113 ]
+  %.0 = phi i32 [ 1, %59 ], [ 1, %113 ], [ -2, %114 ], [ -2, %70 ], [ 0, %110 ], [ -2, %104 ], [ -2, %91 ], [ -2, %.critedge ], [ -2, %8 ], [ -2, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1230,7 +1230,7 @@ define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr nound
   br label %56
 
 56:                                               ; preds = %35, %39, %8, %12, %33, %24
-  %.0 = phi i32 [ 0, %33 ], [ -2, %24 ], [ -2, %12 ], [ -2, %8 ], [ 1, %39 ], [ 1, %35 ]
+  %.0 = phi i32 [ -2, %24 ], [ 0, %33 ], [ -2, %8 ], [ -2, %12 ], [ 1, %39 ], [ 1, %35 ]
   ret i32 %.0
 }
 
@@ -1298,7 +1298,7 @@ define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef captures(a
   br label %32
 
 32:                                               ; preds = %16, %10, %31, %25
-  %.0 = phi i32 [ 1, %31 ], [ -2, %25 ], [ -2, %10 ], [ 1, %16 ]
+  %.0 = phi i32 [ -2, %10 ], [ 1, %31 ], [ -2, %25 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -1360,7 +1360,7 @@ define internal range(i32 0, 2) i32 @quic_set_protocol_version(ptr noundef captu
   br label %11
 
 11:                                               ; preds = %2, %5, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %.critedge ], [ 1, %2 ]
   ret i32 %.0
 }
 

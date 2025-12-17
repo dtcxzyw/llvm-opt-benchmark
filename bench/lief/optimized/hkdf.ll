@@ -184,7 +184,7 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
   br label %42
 
 42:                                               ; preds = %17, %12, %7, %.loopexit
-  %.0 = phi i32 [ %.043, %.loopexit ], [ -24448, %7 ], [ -24448, %12 ], [ -24448, %17 ]
+  %.0 = phi i32 [ -24448, %17 ], [ -24448, %7 ], [ -24448, %12 ], [ %.043, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

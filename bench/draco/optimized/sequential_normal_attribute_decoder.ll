@@ -455,7 +455,7 @@ define noundef zeroext i1 @_ZN5draco32SequentialNormalAttributeDecoder4InitEPNS_
   br label %13
 
 13:                                               ; preds = %10, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ %.not3, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ %.not3, %10 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -999,7 +999,7 @@ common.resume:                                    ; preds = %75, %56
   br label %common.resume
 
 .critedge58:                                      ; preds = %6, %39, %58, %59, %40, %20
-  %.sink87 = phi ptr [ null, %20 ], [ %42, %40 ], [ %61, %59 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
+  %.sink87 = phi ptr [ %61, %59 ], [ null, %20 ], [ %42, %40 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
   store ptr %.sink87, ptr %0, align 8, !tbaa !70
   ret void
 }
@@ -1082,7 +1082,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
 _ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
-  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %8 ], [ %21, %18 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1213,8 +1213,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %38
   %46 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull %1)
   br label %_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread
 
-_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %36, %38, %22, %18, %16, %2, %44
-  %.06 = phi i1 [ %46, %44 ], [ false, %2 ], [ false, %16 ], [ false, %18 ], [ false, %22 ], [ false, %38 ], [ false, %36 ]
+_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %38, %36, %22, %18, %2, %16, %44
+  %.06 = phi i1 [ false, %22 ], [ %46, %44 ], [ false, %16 ], [ false, %2 ], [ false, %18 ], [ false, %36 ], [ false, %38 ]
   ret i1 %.06
 }
 
@@ -1497,8 +1497,8 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %89
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %122, %126, %128, %134, %140, %146, %148, %149, %152
-  %.025.i.i = phi i32 [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.0.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
-  %.0.i.i = phi i32 [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %.025.i.i = phi i32 [ %.0.i, %148 ], [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.013.i, %128 ], [ %.0.i, %126 ], [ %.pre.i.i, %122 ]
+  %.0.i.i = phi i32 [ %.013.i, %148 ], [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %128 ], [ %.0.i, %126 ], [ %.pre.i.i, %122 ]
   %154 = shl nuw nsw i64 %indvars.iv, 1
   %155 = getelementptr inbounds nuw i32, ptr %1, i64 %154
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1605,7 +1605,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit5.thread.i: ; preds = %16
   br label %_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
 _ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %2, %16, %18, %21, %24
-  %.0.i = phi i1 [ false, %2 ], [ false, %16 ], [ false, %18 ], [ false, %21 ], [ true, %24 ]
+  %.0.i = phi i1 [ false, %16 ], [ false, %2 ], [ false, %18 ], [ false, %21 ], [ true, %24 ]
   ret i1 %.0.i
 }
 
@@ -1771,8 +1771,8 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSch
   br label %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %68, %82, %80
-  %.sroa.080.0 = phi i32 [ %81, %80 ], [ %83, %82 ], [ %spec.select, %68 ]
-  %.sroa.081.0 = phi i32 [ %spec.select.i.i36, %80 ], [ %spec.select.i.i36, %82 ], [ %spec.select109, %68 ]
+  %.sroa.080.0 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %spec.select, %68 ]
+  %.sroa.081.0 = phi i32 [ %spec.select.i.i36, %82 ], [ %spec.select.i.i36, %80 ], [ %spec.select109, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %84 = load ptr, ptr %13, align 8, !tbaa !161, !noalias !200
@@ -2827,7 +2827,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %297, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split: ; preds = %.critedge.i169, %.critedge.i155, %.critedge.i137, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i
-  %.lcssa.i170.sink = phi i8 [ %.lcssa.i, %.critedge.i ], [ %.lcssa.i56, %.critedge.i55 ], [ %.lcssa.i69, %.critedge.i68 ], [ %.lcssa.i82, %.critedge.i81 ], [ %.lcssa.i95, %.critedge.i94 ], [ %.lcssa.i108, %.critedge.i107 ], [ %.lcssa.i121, %.critedge.i120 ], [ %.lcssa.i130, %.critedge.i129 ], [ %.lcssa.i138, %.critedge.i137 ], [ %.lcssa.i156, %.critedge.i155 ], [ %.lcssa.i170, %.critedge.i169 ]
+  %.lcssa.i170.sink = phi i8 [ %.lcssa.i156, %.critedge.i155 ], [ %.lcssa.i138, %.critedge.i137 ], [ %.lcssa.i130, %.critedge.i129 ], [ %.lcssa.i121, %.critedge.i120 ], [ %.lcssa.i108, %.critedge.i107 ], [ %.lcssa.i95, %.critedge.i94 ], [ %.lcssa.i82, %.critedge.i81 ], [ %.lcssa.i69, %.critedge.i68 ], [ %.lcssa.i56, %.critedge.i55 ], [ %.lcssa.i, %.critedge.i ], [ %.lcssa.i170, %.critedge.i169 ]
   %298 = zext i8 %2 to i64
   %299 = zext i8 %.lcssa.i170.sink to i64
   %300 = shl nuw nsw i64 %299, 3
@@ -2841,7 +2841,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %288, %.lr.ph42.i146, %260, %.lr.ph42.i, %228, %200, %198, %174, %149, %124, %99, %74, %49, %24, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i169, %.critedge.i155, %.lr.ph.i143, %.critedge.i137, %.lr.ph.i132, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.critedge.i55 ], [ true, %.critedge.i68 ], [ true, %.critedge.i81 ], [ true, %.critedge.i94 ], [ true, %.critedge.i107 ], [ true, %.critedge.i120 ], [ true, %.critedge.i129 ], [ true, %.critedge.i137 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i155 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i169 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ false, %174 ], [ false, %198 ], [ false, %200 ], [ false, %228 ], [ false, %.lr.ph42.i ], [ false, %260 ], [ false, %.lr.ph42.i146 ], [ false, %288 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.critedge.i ], [ true, %.critedge.i55 ], [ true, %.critedge.i68 ], [ true, %.critedge.i81 ], [ true, %.critedge.i94 ], [ true, %.critedge.i107 ], [ true, %.critedge.i120 ], [ true, %.critedge.i129 ], [ true, %.critedge.i137 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i155 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i169 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %.lr.ph42.i146 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ false, %174 ], [ false, %200 ], [ false, %.lr.ph42.i ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
   ret i1 %.0
 }
 
@@ -3105,7 +3105,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
 _ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
-  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %8 ], [ %21, %18 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -3226,8 +3226,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %38
   %46 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull %1)
   br label %_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread
 
-_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %36, %38, %22, %18, %16, %2, %44
-  %.06 = phi i1 [ %46, %44 ], [ false, %2 ], [ false, %16 ], [ false, %18 ], [ false, %22 ], [ false, %38 ], [ false, %36 ]
+_ZN5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %38, %36, %22, %18, %2, %16, %44
+  %.06 = phi i1 [ false, %22 ], [ %46, %44 ], [ false, %16 ], [ false, %2 ], [ false, %18 ], [ false, %36 ], [ false, %38 ]
   ret i1 %.06
 }
 
@@ -3510,8 +3510,8 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %89
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %122, %126, %128, %134, %140, %146, %148, %149, %152
-  %.025.i.i = phi i32 [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.0.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
-  %.0.i.i = phi i32 [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %.025.i.i = phi i32 [ %.0.i, %148 ], [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.013.i, %128 ], [ %.0.i, %126 ], [ %.pre.i.i, %122 ]
+  %.0.i.i = phi i32 [ %.013.i, %148 ], [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %128 ], [ %.0.i, %126 ], [ %.pre.i.i, %122 ]
   %154 = shl nuw nsw i64 %indvars.iv, 1
   %155 = getelementptr inbounds nuw i32, ptr %1, i64 %154
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3709,8 +3709,8 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %75, %83, %81
-  %.sroa.086.0 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %., %75 ]
-  %.sroa.087.0 = phi i32 [ %spec.select.i36, %81 ], [ %spec.select.i36, %83 ], [ %spec.select.i, %75 ]
+  %.sroa.086.0 = phi i32 [ %84, %83 ], [ %82, %81 ], [ %., %75 ]
+  %.sroa.087.0 = phi i32 [ %spec.select.i36, %83 ], [ %spec.select.i36, %81 ], [ %spec.select.i, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
   %85 = icmp eq i32 %.sroa.087.0, -1
@@ -4457,7 +4457,7 @@ common.resume:                                    ; preds = %75, %56
   br label %common.resume
 
 .critedge58:                                      ; preds = %6, %39, %58, %59, %40, %20
-  %.sink87 = phi ptr [ null, %20 ], [ %42, %40 ], [ %61, %59 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
+  %.sink87 = phi ptr [ %61, %59 ], [ null, %20 ], [ %42, %40 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
   store ptr %.sink87, ptr %0, align 8, !tbaa !88
   ret void
 }
@@ -4532,7 +4532,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
 _ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
-  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %8 ], [ %21, %18 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -4656,8 +4656,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %36
   %44 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %43, ptr noundef nonnull %1)
   br label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread
 
-_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %34, %36, %17, %14, %9, %2, %42
-  %.06 = phi i1 [ %44, %42 ], [ false, %2 ], [ false, %9 ], [ false, %14 ], [ false, %17 ], [ false, %36 ], [ false, %34 ]
+_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %36, %34, %14, %2, %17, %9, %42
+  %.06 = phi i1 [ false, %14 ], [ %44, %42 ], [ false, %9 ], [ false, %17 ], [ false, %2 ], [ false, %34 ], [ false, %36 ]
   ret i1 %.06
 }
 
@@ -4940,8 +4940,8 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %88
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %121, %125, %127, %133, %139, %145, %147, %148, %151
-  %.025.i.i = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.0.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
-  %.0.i.i = phi i32 [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %.025.i.i = phi i32 [ %.0.i, %147 ], [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.013.i, %127 ], [ %.0.i, %125 ], [ %.pre.i.i, %121 ]
+  %.0.i.i = phi i32 [ %.013.i, %147 ], [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %127 ], [ %.0.i, %125 ], [ %.pre.i.i, %121 ]
   %153 = shl nuw nsw i64 %indvars.iv, 1
   %154 = getelementptr inbounds nuw i32, ptr %1, i64 %153
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5036,7 +5036,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco23PredictionSchemeDecoderIiNS_6
   br label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
 _ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %2, %9, %14, %17, %20
-  %.0.i = phi i1 [ false, %2 ], [ false, %9 ], [ false, %14 ], [ false, %17 ], [ true, %20 ]
+  %.0.i = phi i1 [ false, %9 ], [ false, %17 ], [ true, %20 ], [ false, %2 ], [ false, %14 ]
   ret i1 %.0.i
 }
 
@@ -5199,8 +5199,8 @@ _ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSch
   br label %_ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco24MeshAttributeCornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %68, %82, %80
-  %.sroa.080.0 = phi i32 [ %81, %80 ], [ %83, %82 ], [ %spec.select, %68 ]
-  %.sroa.081.0 = phi i32 [ %spec.select.i.i36, %80 ], [ %spec.select.i.i36, %82 ], [ %spec.select109, %68 ]
+  %.sroa.080.0 = phi i32 [ %83, %82 ], [ %81, %80 ], [ %spec.select, %68 ]
+  %.sroa.081.0 = phi i32 [ %spec.select.i.i36, %82 ], [ %spec.select.i.i36, %80 ], [ %spec.select109, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %84 = load ptr, ptr %13, align 8, !tbaa !161, !noalias !355
@@ -5605,7 +5605,7 @@ _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE14IsInB
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit: ; preds = %52, %54, %57, %59
-  %.0.i8 = phi i32 [ 0, %52 ], [ %..i, %54 ], [ %.9.i, %57 ], [ %.10.i, %59 ]
+  %.0.i8 = phi i32 [ %.10.i, %59 ], [ %..i, %54 ], [ 0, %52 ], [ %.9.i, %57 ]
   %.0.i8.fr = freeze i32 %.0.i8
   br i1 %.0.i, label %70, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
 
@@ -5637,8 +5637,8 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.unreachabledefault: ; preds = %_ZN5draco
   unreachable
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge, %63, %65, %68
-  %.sroa.755.0..sroa.755.0..sroa.755.4. = phi i32 [ %64, %63 ], [ %67, %65 ], [ %60, %68 ], [ %62, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
-  %.sroa.054.0..sroa.054.0..sroa.054.0. = phi i32 [ %62, %63 ], [ %66, %65 ], [ %69, %68 ], [ %60, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
+  %.sroa.755.0..sroa.755.0..sroa.755.4. = phi i32 [ %60, %68 ], [ %64, %63 ], [ %67, %65 ], [ %62, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
+  %.sroa.054.0..sroa.054.0..sroa.054.0. = phi i32 [ %69, %68 ], [ %62, %63 ], [ %66, %65 ], [ %60, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
   store i32 %.sroa.054.0..sroa.054.0..sroa.054.0., ptr %2, align 4, !tbaa !159
   store i32 %.sroa.755.0..sroa.755.0..sroa.755.4., ptr %.sroa_idx59, align 4, !tbaa !159
   br label %70
@@ -5729,8 +5729,8 @@ _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge: ; preds = %_ZNK5draco45Predict
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit18
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit18: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge, %109, %111, %114
-  %.sroa.7.0..sroa.7.0..sroa.7.4. = phi i32 [ %110, %109 ], [ %113, %111 ], [ %104, %114 ], [ %106, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
-  %.sroa.039.0..sroa.039.0..sroa.039.0. = phi i32 [ %106, %109 ], [ %112, %111 ], [ %115, %114 ], [ %104, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  %.sroa.7.0..sroa.7.0..sroa.7.4. = phi i32 [ %104, %114 ], [ %110, %109 ], [ %113, %111 ], [ %106, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  %.sroa.039.0..sroa.039.0..sroa.039.0. = phi i32 [ %115, %114 ], [ %106, %109 ], [ %112, %111 ], [ %104, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
   store i32 %.sroa.039.0..sroa.039.0..sroa.039.0., ptr %0, align 4, !tbaa !159
   store i32 %.sroa.7.0..sroa.7.0..sroa.7.4., ptr %103, align 4, !tbaa !159
   br label %116
@@ -5859,7 +5859,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
 _ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
-  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %8 ], [ %21, %18 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -5973,8 +5973,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %36
   %44 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %43, ptr noundef nonnull %1)
   br label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread
 
-_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %34, %36, %17, %14, %9, %2, %42
-  %.06 = phi i1 [ %44, %42 ], [ false, %2 ], [ false, %9 ], [ false, %14 ], [ false, %17 ], [ false, %36 ], [ false, %34 ]
+_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE19DecodeTransformDataEPNS_13DecoderBufferE.exit.thread: ; preds = %36, %34, %14, %2, %17, %9, %42
+  %.06 = phi i1 [ false, %14 ], [ %44, %42 ], [ false, %9 ], [ false, %17 ], [ false, %2 ], [ false, %34 ], [ false, %36 ]
   ret i1 %.06
 }
 
@@ -6257,8 +6257,8 @@ _ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %88
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %121, %125, %127, %133, %139, %145, %147, %148, %151
-  %.025.i.i = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.0.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
-  %.0.i.i = phi i32 [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %.025.i.i = phi i32 [ %.0.i, %147 ], [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.013.i, %127 ], [ %.0.i, %125 ], [ %.pre.i.i, %121 ]
+  %.0.i.i = phi i32 [ %.013.i, %147 ], [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %127 ], [ %.0.i, %125 ], [ %.pre.i.i, %121 ]
   %153 = shl nuw nsw i64 %indvars.iv, 1
   %154 = getelementptr inbounds nuw i32, ptr %1, i64 %153
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6456,8 +6456,8 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %75, %83, %81
-  %.sroa.086.0 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %., %75 ]
-  %.sroa.087.0 = phi i32 [ %spec.select.i36, %81 ], [ %spec.select.i36, %83 ], [ %spec.select.i, %75 ]
+  %.sroa.086.0 = phi i32 [ %84, %83 ], [ %82, %81 ], [ %., %75 ]
+  %.sroa.087.0 = phi i32 [ %spec.select.i36, %83 ], [ %spec.select.i36, %81 ], [ %spec.select.i, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
   %85 = icmp eq i32 %.sroa.087.0, -1

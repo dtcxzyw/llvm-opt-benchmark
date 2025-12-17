@@ -385,7 +385,7 @@ define internal range(i32 0, 2) i32 @CVAhermiteMalloc(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph108, !llvm.loop !60
 
 .loopexit:                                        ; preds = %66, %94, %21, %78, %1, %19
-  %.073 = phi i32 [ 0, %19 ], [ 0, %1 ], [ 0, %78 ], [ 1, %21 ], [ 0, %94 ], [ 1, %66 ]
+  %.073 = phi i32 [ 0, %1 ], [ 0, %19 ], [ 0, %78 ], [ 1, %21 ], [ 0, %94 ], [ 1, %66 ]
   ret i32 %.073
 }
 
@@ -1021,7 +1021,7 @@ define internal range(i32 0, 2) i32 @CVApolynomialMalloc(ptr noundef readonly ca
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph75, !llvm.loop !86
 
 .loopexit:                                        ; preds = %44, %67, %21, %56, %1, %19
-  %.053 = phi i32 [ 0, %19 ], [ 0, %1 ], [ 0, %56 ], [ 1, %21 ], [ 0, %67 ], [ 1, %44 ]
+  %.053 = phi i32 [ 0, %1 ], [ 0, %19 ], [ 0, %56 ], [ 1, %21 ], [ 0, %67 ], [ 1, %44 ]
   ret i32 %.053
 }
 
@@ -2202,7 +2202,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %108, label %100, label %.loopexit83.i, !llvm.loop !139
 
 .loopexit83.i:                                    ; preds = %100, %.preheader82.i, %82
-  %109 = phi ptr [ %92, %.preheader82.i ], [ undef, %82 ], [ %92, %100 ]
+  %109 = phi ptr [ undef, %82 ], [ %92, %.preheader82.i ], [ %92, %100 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %111 = load i32, ptr %110, align 8, !tbaa !140
   %.not79.i = icmp eq i32 %111, 0
@@ -2761,7 +2761,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not424.not.i, label %367, label %.loopexit445.i, !llvm.loop !158
 
 .loopexit445.i:                                   ; preds = %367, %364, %._crit_edge506.i
-  %372 = phi i32 [ %365, %364 ], [ %.pre732.i, %._crit_edge506.i ], [ %370, %367 ]
+  %372 = phi i32 [ %.pre732.i, %._crit_edge506.i ], [ %365, %364 ], [ %370, %367 ]
   %373 = icmp slt i32 %372, %253
   br i1 %373, label %374, label %379
 
@@ -3011,7 +3011,7 @@ define i32 @CVodeF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not417.not.i, label %469, label %.loopexit440.i, !llvm.loop !166
 
 .loopexit440.i:                                   ; preds = %469, %466, %._crit_edge541.i
-  %474 = phi i32 [ %467, %466 ], [ %.lcssa455.i, %._crit_edge541.i ], [ %472, %469 ]
+  %474 = phi i32 [ %.lcssa455.i, %._crit_edge541.i ], [ %467, %466 ], [ %472, %469 ]
   %475 = icmp slt i32 %474, %253
   br i1 %475, label %476, label %481
 
@@ -4593,7 +4593,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %155, label %.loopexit, label %.lr.ph185
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %142, %..critedge_crit_edge.split.us202, %.lr.ph185.split.split.us201, %.lr.ph185.split.split.us.us
-  %.0133177 = phi ptr [ %.0133.us196, %.lr.ph185.split.split.us.us ], [ %.0133.us196, %.lr.ph185.split.split.us201 ], [ %.0133.us196, %..critedge_crit_edge.split.us202 ], [ %.0133, %142 ], [ %.0133, %..critedge_crit_edge.split.us ]
+  %.0133177 = phi ptr [ %.0133, %142 ], [ %.0133.us196, %.lr.ph185.split.split.us.us ], [ %.0133.us196, %.lr.ph185.split.split.us201 ], [ %.0133.us196, %..critedge_crit_edge.split.us202 ], [ %.0133, %..critedge_crit_edge.split.us ]
   %156 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %158 = icmp eq i32 %2, 2
@@ -4756,7 +4756,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %.split221.split.split
 
 .critedge163:                                     ; preds = %190, %225, %186, %161, %159, %.split221.us.split.us, %164, %.split221.us.split.split.us, %.thread, %102, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %.us-phi232, %.thread ], [ -22, %102 ], [ -22, %70 ], [ 0, %.split221.us.split.split.us ], [ 0, %.split221.us.split.us ], [ %165, %164 ], [ %160, %159 ], [ %162, %161 ], [ %.5.us, %186 ], [ %.5, %225 ], [ %191, %190 ]
+  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ -22, %70 ], [ %.us-phi232, %.thread ], [ -22, %102 ], [ 0, %.split221.us.split.split.us ], [ %162, %161 ], [ %160, %159 ], [ 0, %.split221.us.split.us ], [ %165, %164 ], [ %.5, %225 ], [ %.5.us, %186 ], [ %191, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0128
 }

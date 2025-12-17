@@ -195,7 +195,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %30, %2, %33, %25, %22, %16
-  %.018 = phi i32 [ -2, %16 ], [ -2, %22 ], [ -2, %25 ], [ 0, %33 ], [ -1, %2 ], [ -2, %30 ]
+  %.018 = phi i32 [ 0, %33 ], [ -2, %16 ], [ -2, %22 ], [ -2, %25 ], [ -1, %2 ], [ -2, %30 ]
   ret i32 %.018
 }
 
@@ -312,7 +312,7 @@ get_jvmticks.exit:                                ; preds = %21
   br label %49
 
 49:                                               ; preds = %get_jvmticks.exit.thread, %26, %11, %29, %3
-  %.034 = phi double [ -1.000000e+00, %11 ], [ %48, %29 ], [ -1.000000e+00, %3 ], [ 0.000000e+00, %26 ], [ -1.000000e+00, %get_jvmticks.exit.thread ]
+  %.034 = phi double [ -1.000000e+00, %11 ], [ -1.000000e+00, %3 ], [ %48, %29 ], [ 0.000000e+00, %26 ], [ -1.000000e+00, %get_jvmticks.exit.thread ]
   %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #9
   ret double %.034
 }
@@ -474,7 +474,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpu
   br label %18
 
 18:                                               ; preds = %2, %12, %15, %5
-  %.0 = phi i64 [ -1, %5 ], [ %14, %12 ], [ %17, %15 ], [ -1, %2 ]
+  %.0 = phi i64 [ %17, %15 ], [ -1, %5 ], [ %14, %12 ], [ -1, %2 ]
   ret i64 %.0
 }
 

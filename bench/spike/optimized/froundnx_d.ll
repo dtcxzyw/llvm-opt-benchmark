@@ -177,7 +177,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_froundnx_d
   br label %54
 
 54:                                               ; preds = %45, %43
-  %.sroa.023.0 = phi i64 [ %53, %45 ], [ 0, %43 ]
+  %.sroa.023.0 = phi i64 [ 0, %43 ], [ %53, %45 ]
   %55 = trunc i64 %1 to i32
   %56 = lshr i32 %55, 12
   %57 = and i32 %56, 7
@@ -695,7 +695,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_froundnx
   br label %57
 
 57:                                               ; preds = %48, %46
-  %.sroa.028.0 = phi i64 [ %56, %48 ], [ 0, %46 ]
+  %.sroa.028.0 = phi i64 [ 0, %46 ], [ %56, %48 ]
   %58 = trunc i64 %1 to i32
   %59 = lshr i32 %58, 12
   %60 = and i32 %59, 7
@@ -953,7 +953,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !44
@@ -1337,7 +1337,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_froundnx_d
   br label %62
 
 62:                                               ; preds = %53, %43
-  %.sroa.035.0 = phi i64 [ %61, %53 ], [ 0, %43 ]
+  %.sroa.035.0 = phi i64 [ 0, %43 ], [ %61, %53 ]
   %63 = trunc i64 %1 to i32
   %64 = lshr i32 %63, 12
   %65 = and i32 %64, 7
@@ -1882,7 +1882,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_froundnx
   br label %65
 
 65:                                               ; preds = %56, %46
-  %.sroa.040.0 = phi i64 [ %64, %56 ], [ 0, %46 ]
+  %.sroa.040.0 = phi i64 [ 0, %46 ], [ %64, %56 ]
   %66 = trunc i64 %1 to i32
   %67 = lshr i32 %66, 12
   %68 = and i32 %67, 7
@@ -2623,8 +2623,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

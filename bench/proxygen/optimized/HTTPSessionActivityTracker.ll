@@ -168,7 +168,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %while.body, %if.t
   br i1 %cmp15.not, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit", label %while.body, !llvm.loop !4
 
 "_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit": ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge", %if.end, %lor.lhs.false3
-  %add.i.i.i.pre-phi = phi i64 [ %.pre12, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge" ], [ %add, %if.end ], [ %add, %lor.lhs.false3 ], [ %add12, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
+  %add.i.i.i.pre-phi = phi i64 [ %.pre12, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge" ], [ %add, %lor.lhs.false3 ], [ %add, %if.end ], [ %add12, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
   %sessionBodyOffset_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %add.i.i.i.pre-phi, ptr %sessionBodyOffset_.i.i.i, align 8
   ret void

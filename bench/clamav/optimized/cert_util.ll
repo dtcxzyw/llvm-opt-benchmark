@@ -452,8 +452,8 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph82.split, %.lr.ph82.split.us, %78, %80, %16
-  %.ph = phi i1 [ true, %16 ], [ false, %80 ], [ true, %78 ], [ true, %.lr.ph82.split.us ], [ true, %.lr.ph82.split ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ]
-  %.047.ph = phi i32 [ 8, %16 ], [ 0, %80 ], [ 8, %78 ], [ 8, %.lr.ph82.split.us ], [ 8, %.lr.ph82.split ], [ 8, %.lr.ph.split.us ], [ 8, %.lr.ph.split ]
+  %.ph = phi i1 [ true, %16 ], [ false, %80 ], [ true, %78 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph82.split.us ], [ true, %.lr.ph82.split ], [ true, %.lr.ph.split ]
+  %.047.ph = phi i32 [ 8, %16 ], [ 0, %80 ], [ 8, %78 ], [ 8, %.lr.ph.split.us ], [ 8, %.lr.ph82.split.us ], [ 8, %.lr.ph82.split ], [ 8, %.lr.ph.split ]
   %81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cert_store) #15
   %.not67 = icmp eq i32 %81, 0
   br i1 %.not67, label %84, label %82
@@ -549,7 +549,7 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
   call void @BIO_free_all(ptr noundef nonnull %14) #15
   br label %28
 
-28:                                               ; preds = %27, %23, %15
+28:                                               ; preds = %15, %27, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.31) #15
   br label %56
@@ -683,7 +683,7 @@ define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, 
   br label %.thread29
 
 .thread29:                                        ; preds = %3, %33, %35
-  %.0152633 = phi i32 [ %.015.ph.ph, %35 ], [ 20, %33 ], [ 20, %3 ]
+  %.0152633 = phi i32 [ 20, %33 ], [ %.015.ph.ph, %35 ], [ 20, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0152633
@@ -756,7 +756,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly capt
   br label %28
 
 28:                                               ; preds = %._crit_edge, %26, %25
-  %.sroa.9.1 = phi i64 [ %27, %26 ], [ %.sroa.9.033, %25 ], [ %.sroa.9.033, %._crit_edge ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %25 ], [ %27, %26 ], [ %.sroa.9.033, %._crit_edge ]
   %29 = add nuw i64 %.02332, 1
   %exitcond.not = icmp eq i64 %29, %1
   br i1 %exitcond.not, label %._crit_edge34, label %.preheader
@@ -1180,7 +1180,7 @@ define range(i32 0, 35) i32 @set_tls_client_certificate(ptr noundef %0) local_un
   br label %36
 
 36:                                               ; preds = %30, %31, %1, %33, %27, %22, %17, %12, %7
-  %.0 = phi i32 [ 34, %7 ], [ 34, %12 ], [ 34, %17 ], [ 34, %22 ], [ 34, %27 ], [ 34, %33 ], [ 0, %1 ], [ 0, %31 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %1 ], [ 34, %7 ], [ 34, %12 ], [ 34, %17 ], [ 34, %22 ], [ 34, %27 ], [ 34, %33 ], [ 0, %31 ], [ 0, %30 ]
   ret i32 %.0
 }
 

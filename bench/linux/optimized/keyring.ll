@@ -2097,9 +2097,9 @@ __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_lin
   call void @assoc_array_apply_edit(ptr noundef %.113) #20
   br label %__key_link_begin.exit.thread
 
-__key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, %81, %__key_link_begin.exit
-  %.0 = phi ptr [ null, %__key_link_begin.exit ], [ null, %81 ], [ null, %39 ], [ null, %19 ], [ %.113, %49 ], [ %.113, %58 ]
-  %88 = phi i32 [ %41, %__key_link_begin.exit ], [ 0, %81 ], [ %37, %39 ], [ -128, %19 ], [ %54, %49 ], [ %71, %58 ]
+__key_link_begin.exit.thread:                     ; preds = %58, %49, %39, %19, %81, %__key_link_begin.exit
+  %.0 = phi ptr [ null, %__key_link_begin.exit ], [ null, %81 ], [ %.113, %58 ], [ null, %39 ], [ null, %19 ], [ %.113, %49 ]
+  %88 = phi i32 [ %41, %__key_link_begin.exit ], [ 0, %81 ], [ %71, %58 ], [ %37, %39 ], [ -128, %19 ], [ %54, %49 ]
   %89 = load ptr, ptr %10, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %92, !prof !13
@@ -2142,7 +2142,7 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
   br label %109
 
 109:                                              ; preds = %2, %108, %105
-  %110 = phi i32 [ %88, %105 ], [ %88, %108 ], [ -20, %2 ]
+  %110 = phi i32 [ %88, %108 ], [ %88, %105 ], [ -20, %2 ]
   ret i32 %110
 }
 
@@ -2394,10 +2394,10 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
   call void @assoc_array_apply_edit(ptr noundef %.118) #20
   br label %__key_link_begin.exit.thread
 
-__key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100, %79, %__key_link_begin.exit.thread16, %__key_link_begin.exit, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %__key_link_begin.exit ], [ %.118, %79 ], [ %.118, %100 ], [ null, %118 ], [ %.118, %__key_link_begin.exit.thread16 ], [ null, %62 ], [ null, %42 ]
-  %125 = phi ptr [ %34, %26 ], [ %34, %__key_link_begin.exit ], [ %34, %79 ], [ %34, %100 ], [ null, %118 ], [ %34, %__key_link_begin.exit.thread16 ], [ %34, %62 ], [ %34, %42 ]
-  %126 = phi i32 [ %35, %26 ], [ %64, %__key_link_begin.exit ], [ %84, %79 ], [ %102, %100 ], [ %104, %118 ], [ -17, %__key_link_begin.exit.thread16 ], [ %60, %62 ], [ -128, %42 ]
+__key_link_begin.exit.thread:                     ; preds = %62, %42, %118, %100, %79, %__key_link_begin.exit.thread16, %__key_link_begin.exit, %26
+  %.0 = phi ptr [ null, %26 ], [ null, %__key_link_begin.exit ], [ %.118, %79 ], [ %.118, %100 ], [ null, %118 ], [ %.118, %__key_link_begin.exit.thread16 ], [ null, %42 ], [ null, %62 ]
+  %125 = phi ptr [ %34, %26 ], [ %34, %__key_link_begin.exit ], [ %34, %79 ], [ %34, %100 ], [ null, %118 ], [ %34, %__key_link_begin.exit.thread16 ], [ %34, %42 ], [ %34, %62 ]
+  %126 = phi i32 [ %35, %26 ], [ %64, %__key_link_begin.exit ], [ %84, %79 ], [ %102, %100 ], [ %104, %118 ], [ -17, %__key_link_begin.exit.thread16 ], [ -128, %42 ], [ %60, %62 ]
   %127 = load ptr, ptr %22, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %130, !prof !13
@@ -2642,7 +2642,7 @@ define internal noundef zeroext i1 @keyring_gc_select_iterator(ptr noundef %0, p
   br label %.thread
 
 .thread:                                          ; preds = %22, %9, %42, %38, %27
-  %44 = phi i1 [ false, %42 ], [ false, %38 ], [ %32, %27 ], [ true, %9 ], [ true, %22 ]
+  %44 = phi i1 [ %32, %27 ], [ false, %42 ], [ false, %38 ], [ true, %9 ], [ true, %22 ]
   %45 = xor i1 %44, true
   ret i1 %45
 }

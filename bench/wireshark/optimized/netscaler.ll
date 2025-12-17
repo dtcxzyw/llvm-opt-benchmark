@@ -422,9 +422,9 @@ default.unreachable:                              ; preds = %103
   unreachable
 
 nstrace_set_start_time.exit.threadthread-pre-split.sink.split: ; preds = %137, %116, %123
-  %.str.9.sink = phi ptr [ @.str.9, %123 ], [ @.str.9, %116 ], [ @.str.8, %137 ]
+  %.str.8.sink = phi ptr [ @.str.9, %123 ], [ @.str.9, %116 ], [ @.str.8, %137 ]
   store i32 -13, ptr %1, align 4
-  %171 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.9.sink)
+  %171 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.8.sink)
   store ptr %171, ptr %2, align 8
   br label %nstrace_set_start_time.exit.threadthread-pre-split
 
@@ -468,7 +468,7 @@ nstrace_set_start_time.exit.thread:               ; preds = %nstrace_set_start_t
   br label %186
 
 186:                                              ; preds = %179, %173, %nstrace_set_start_time.exit.thread, %98, %3, %184, %182, %102, %87, %.loopexit, %16, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %11 ], [ 0, %16 ], [ 0, %.loopexit ], [ -1, %87 ], [ 1, %184 ], [ 0, %182 ], [ 0, %102 ], [ -1, %3 ], [ -1, %98 ], [ -1, %nstrace_set_start_time.exit.thread ], [ -1, %173 ], [ -1, %179 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %5 ], [ -1, %11 ], [ 0, %16 ], [ 0, %.loopexit ], [ -1, %87 ], [ -1, %98 ], [ -1, %nstrace_set_start_time.exit.thread ], [ 1, %184 ], [ 0, %182 ], [ -1, %173 ], [ 0, %102 ], [ -1, %179 ]
   ret i32 %.0
 }
 
@@ -900,7 +900,7 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
   br label %.critedge
 
 205:                                              ; preds = %197, %177, %161
-  %.sink375 = phi i16 [ %.val208, %177 ], [ %.val204, %161 ], [ %203, %197 ]
+  %.sink375 = phi i16 [ %.val204, %161 ], [ %.val208, %177 ], [ %203, %197 ]
   %206 = zext i16 %.sink375 to i32
   %207 = add i32 %.1174278, %206
   %208 = icmp ult i32 %207, %.0179
@@ -951,7 +951,7 @@ nstrace_read_page.exit:                           ; preds = %228
   br label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge, %230, %225, %.thread232, %nstrace_ensure_buflen.exit227, %.thread230, %nstrace_ensure_buflen.exit225, %.thread, %nstrace_ensure_buflen.exit, %97, %140, %142, %36, %76, %78, %91, %30
-  %.2 = phi i1 [ false, %30 ], [ false, %91 ], [ false, %36 ], [ false, %76 ], [ true, %78 ], [ false, %97 ], [ false, %140 ], [ true, %142 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit225 ], [ false, %nstrace_ensure_buflen.exit227 ], [ false, %.thread ], [ false, %.thread230 ], [ false, %.thread232 ], [ false, %225 ], [ false, %230 ], [ false, %._crit_edge ]
+  %.2 = phi i1 [ false, %.thread232 ], [ false, %nstrace_ensure_buflen.exit225 ], [ false, %30 ], [ false, %nstrace_ensure_buflen.exit227 ], [ false, %91 ], [ true, %78 ], [ false, %.thread ], [ true, %142 ], [ false, %.thread230 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %36 ], [ false, %76 ], [ false, %97 ], [ false, %140 ], [ false, %225 ], [ false, %230 ], [ false, %._crit_edge ]
   ret i1 %.2
 }
 
@@ -1069,7 +1069,7 @@ define internal noundef zeroext i1 @nstrace_seek_read_v10(ptr noundef readonly c
   br label %63
 
 63:                                               ; preds = %.sink.split, %33, %27, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %27 ], [ true, %33 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %27 ], [ false, %11 ], [ true, %33 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -3624,7 +3624,7 @@ nstrace_read_page.exit:                           ; preds = %1397
   br label %20, !llvm.loop !13
 
 .critedge:                                        ; preds = %._crit_edge, %1399, %1394, %1328, %nstrace_ensure_buflen.exit1129, %1286, %.thread1152, %nstrace_ensure_buflen.exit1135, %nstrace_ensure_buflen.exit1131, %nstrace_ensure_buflen.exit, %1181, %1197, %1245, %1265, %1094, %1110, %1155, %1175, %1005, %1021, %1068, %1088, %919, %935, %979, %999, %833, %849, %893, %913, %750, %766, %807, %827, %667, %683, %724, %744, %587, %603, %641, %661, %491, %507, %561, %581, %398, %414, %465, %485, %303, %319, %372, %392, %211, %227, %277, %297, %118, %134, %185, %205, %28, %44, %92, %112
-  %.3 = phi i1 [ false, %28 ], [ false, %44 ], [ false, %92 ], [ true, %112 ], [ false, %118 ], [ false, %134 ], [ false, %185 ], [ true, %205 ], [ false, %211 ], [ false, %227 ], [ false, %277 ], [ true, %297 ], [ false, %303 ], [ false, %319 ], [ false, %372 ], [ true, %392 ], [ false, %398 ], [ false, %414 ], [ false, %465 ], [ true, %485 ], [ false, %491 ], [ false, %507 ], [ false, %561 ], [ true, %581 ], [ false, %587 ], [ false, %603 ], [ false, %641 ], [ true, %661 ], [ false, %667 ], [ false, %683 ], [ false, %724 ], [ true, %744 ], [ false, %750 ], [ false, %766 ], [ false, %807 ], [ true, %827 ], [ false, %833 ], [ false, %849 ], [ false, %893 ], [ true, %913 ], [ false, %919 ], [ false, %935 ], [ false, %979 ], [ true, %999 ], [ false, %1005 ], [ false, %1021 ], [ false, %1068 ], [ true, %1088 ], [ false, %1094 ], [ false, %1110 ], [ false, %1155 ], [ true, %1175 ], [ false, %1181 ], [ false, %1197 ], [ false, %1245 ], [ true, %1265 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit1131 ], [ false, %nstrace_ensure_buflen.exit1135 ], [ false, %.thread1152 ], [ false, %1286 ], [ false, %nstrace_ensure_buflen.exit1129 ], [ false, %1328 ], [ false, %1394 ], [ false, %1399 ], [ false, %._crit_edge ]
+  %.3 = phi i1 [ false, %.thread1152 ], [ false, %nstrace_ensure_buflen.exit1131 ], [ false, %nstrace_ensure_buflen.exit1135 ], [ true, %112 ], [ true, %205 ], [ true, %297 ], [ true, %392 ], [ true, %485 ], [ true, %581 ], [ true, %661 ], [ true, %744 ], [ true, %827 ], [ true, %913 ], [ true, %999 ], [ true, %1088 ], [ true, %1175 ], [ false, %1399 ], [ true, %1265 ], [ false, %nstrace_ensure_buflen.exit1129 ], [ false, %nstrace_ensure_buflen.exit ], [ false, %28 ], [ false, %44 ], [ false, %92 ], [ false, %118 ], [ false, %134 ], [ false, %185 ], [ false, %211 ], [ false, %227 ], [ false, %277 ], [ false, %303 ], [ false, %319 ], [ false, %372 ], [ false, %398 ], [ false, %414 ], [ false, %465 ], [ false, %491 ], [ false, %507 ], [ false, %561 ], [ false, %587 ], [ false, %603 ], [ false, %641 ], [ false, %667 ], [ false, %683 ], [ false, %724 ], [ false, %750 ], [ false, %766 ], [ false, %807 ], [ false, %833 ], [ false, %849 ], [ false, %893 ], [ false, %919 ], [ false, %935 ], [ false, %979 ], [ false, %1005 ], [ false, %1021 ], [ false, %1068 ], [ false, %1094 ], [ false, %1110 ], [ false, %1155 ], [ false, %1181 ], [ false, %1197 ], [ false, %1245 ], [ false, %1286 ], [ false, %1394 ], [ false, %1328 ], [ false, %._crit_edge ]
   ret i1 %.3
 }
 
@@ -4571,7 +4571,7 @@ define internal noundef zeroext i1 @nstrace_seek_read_v20(ptr noundef readonly c
   br label %526
 
 526:                                              ; preds = %.sink.split, %42, %37, %17, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %17 ], [ false, %37 ], [ true, %42 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ false, %17 ], [ false, %11 ], [ true, %42 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -5332,7 +5332,7 @@ select.unfold394:                                 ; preds = %._crit_edge
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge472, %21, %48, %64, %69, %191, %314, %327, %.critedge11.thread, %._crit_edge484, %134, %125, %._crit_edge465, %245, %236
-  %.0.ph = phi i1 [ true, %._crit_edge465 ], [ false, %245 ], [ false, %236 ], [ true, %._crit_edge484 ], [ false, %134 ], [ false, %125 ], [ false, %.critedge11.thread ], [ false, %48 ], [ false, %327 ], [ false, %314 ], [ false, %191 ], [ false, %69 ], [ false, %64 ], [ false, %21 ], [ false, %._crit_edge472 ], [ false, %._crit_edge ]
+  %.0.ph = phi i1 [ false, %245 ], [ false, %236 ], [ false, %.critedge11.thread ], [ false, %134 ], [ false, %125 ], [ false, %48 ], [ false, %327 ], [ false, %314 ], [ true, %._crit_edge484 ], [ false, %191 ], [ false, %69 ], [ true, %._crit_edge465 ], [ false, %64 ], [ false, %21 ], [ false, %._crit_edge472 ], [ false, %._crit_edge ]
   tail call void @g_free(ptr noundef %15)
   br label %383
 
@@ -5579,7 +5579,7 @@ define internal noundef zeroext i1 @nstrace_seek_read_v30(ptr noundef readonly c
   br label %136
 
 136:                                              ; preds = %.sink.split, %42, %37, %17, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %17 ], [ false, %37 ], [ true, %42 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ false, %17 ], [ false, %11 ], [ true, %42 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -5829,8 +5829,8 @@ nstrace_read_page.exit:                           ; preds = %84
   store i32 %79, ptr %87, align 4
   br label %13, !llvm.loop !23
 
-.critedge:                                        ; preds = %._crit_edge, %86, %81, %nstrace_ensure_buflen.exit67, %46, %63, %nstrace_ensure_buflen.exit
-  %.2 = phi i1 [ false, %nstrace_ensure_buflen.exit ], [ false, %nstrace_ensure_buflen.exit67 ], [ true, %46 ], [ false, %63 ], [ false, %81 ], [ false, %86 ], [ false, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %86, %81, %46, %nstrace_ensure_buflen.exit67, %63, %nstrace_ensure_buflen.exit
+  %.2 = phi i1 [ false, %63 ], [ false, %nstrace_ensure_buflen.exit ], [ true, %46 ], [ false, %nstrace_ensure_buflen.exit67 ], [ false, %81 ], [ false, %86 ], [ false, %._crit_edge ]
   ret i1 %.2
 }
 
@@ -6230,7 +6230,7 @@ nstrace_add_abstime.exit.thread:                  ; preds = %49, %73, %19
   unreachable
 
 nstrace_add_abstime.exit:                         ; preds = %.critedge24.i, %.critedge.i, %160, %102, %131, %80, %108, %156, %154, %149, %127, %125, %120, %98, %96, %91, %23, %139, %138, %110, %107, %18, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %107 ], [ false, %110 ], [ false, %138 ], [ false, %139 ], [ false, %23 ], [ false, %91 ], [ false, %96 ], [ false, %98 ], [ false, %120 ], [ false, %125 ], [ false, %127 ], [ false, %149 ], [ false, %154 ], [ false, %156 ], [ true, %108 ], [ true, %80 ], [ true, %131 ], [ true, %102 ], [ true, %160 ], [ false, %.critedge.i ], [ false, %.critedge24.i ]
+  %.0 = phi i1 [ false, %11 ], [ false, %18 ], [ false, %23 ], [ false, %156 ], [ false, %96 ], [ false, %91 ], [ false, %107 ], [ false, %110 ], [ false, %98 ], [ false, %125 ], [ false, %120 ], [ false, %138 ], [ false, %139 ], [ false, %127 ], [ false, %154 ], [ false, %149 ], [ true, %160 ], [ true, %108 ], [ true, %80 ], [ true, %131 ], [ true, %102 ], [ false, %.critedge.i ], [ false, %.critedge24.i ]
   ret i1 %.0
 }
 
@@ -6350,7 +6350,7 @@ define internal fastcc noundef zeroext i1 @nstrace_add_signature(ptr noundef %0,
   br label %50
 
 50:                                               ; preds = %15, %23, %33, %43, %.critedge34, %.critedge32, %.critedge30, %.critedge
-  %.125 = phi i1 [ false, %.critedge ], [ false, %.critedge30 ], [ false, %.critedge32 ], [ false, %.critedge34 ], [ true, %43 ], [ true, %33 ], [ true, %23 ], [ true, %15 ]
+  %.125 = phi i1 [ false, %.critedge ], [ false, %.critedge34 ], [ false, %.critedge32 ], [ false, %.critedge30 ], [ true, %43 ], [ true, %33 ], [ true, %23 ], [ true, %15 ]
   ret i1 %.125
 }
 

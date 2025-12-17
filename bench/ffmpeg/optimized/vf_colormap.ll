@@ -1186,7 +1186,7 @@ build_map.exit:                                   ; preds = %.loopexit.i
   br label %520
 
 520:                                              ; preds = %493, %511, %519
-  %.1 = phi ptr [ %.034, %519 ], [ %.034, %511 ], [ %496, %493 ]
+  %.1 = phi ptr [ %.034, %511 ], [ %.034, %519 ], [ %496, %493 ]
   %521 = getelementptr inbounds nuw i8, ptr %18, i64 4240
   %522 = load i64, ptr %521, align 8, !tbaa !91
   %523 = getelementptr inbounds nuw i8, ptr %18, i64 4228
@@ -1200,7 +1200,7 @@ build_map.exit:                                   ; preds = %.loopexit.i
   br label %530
 
 530:                                              ; preds = %25, %30, %33, %1, %520, %507
-  %.035 = phi i32 [ %529, %520 ], [ -12, %507 ], [ -558323010, %1 ], [ %28, %25 ], [ %31, %30 ], [ %34, %33 ]
+  %.035 = phi i32 [ -12, %507 ], [ -558323010, %1 ], [ %529, %520 ], [ %28, %25 ], [ %31, %30 ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1424,8 +1424,8 @@ define internal fastcc void @import_map(ptr %.16.val.24.val, ptr captures(none) 
   store i32 1, ptr %79, align 4, !tbaa !55
   br label %.split40.us.thread
 
-.split40.us.thread:                               ; preds = %.split.us, %1, %76, %.split40.us
-  %.us-phi4183 = phi i32 [ %75, %76 ], [ %75, %.split40.us ], [ 0, %1 ], [ 0, %.split.us ]
+.split40.us.thread:                               ; preds = %1, %.split.us, %76, %.split40.us
+  %.us-phi4183 = phi i32 [ %75, %.split40.us ], [ %75, %76 ], [ 0, %.split.us ], [ 0, %1 ]
   %80 = getelementptr inbounds nuw i8, ptr %.16.val.72.val, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !100
   %.not68 = icmp eq i32 %81, 0

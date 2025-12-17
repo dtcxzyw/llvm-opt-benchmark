@@ -458,7 +458,7 @@ cf_hc_baller_reply_ms.exit.thread.i:              ; preds = %cf_hc_baller_reply_
   tail call void @Curl_expire(ptr noundef %1, i64 noundef %181, i32 noundef 14) #4
   br label %time_to_start_h21.exit
 
-182:                                              ; preds = %cf_hc_baller_is_active.exit.i, %112, %147, %142, %138, %131, %130, %179, %174, %170, %163, %162, %116
+182:                                              ; preds = %112, %130, %162, %cf_hc_baller_is_active.exit.i, %147, %142, %138, %131, %179, %174, %170, %163, %116
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = load ptr, ptr %184, align 8, !tbaa !104
@@ -694,7 +694,7 @@ cf_hc_baller_is_active.exit141.thread:            ; preds = %time_to_start_h21.e
   br label %301
 
 301:                                              ; preds = %281, %282, %289, %293, %298, %10
-  %.0 = phi i32 [ 0, %10 ], [ %.0107, %298 ], [ %.0107, %293 ], [ %.0107, %289 ], [ %.0107, %282 ], [ %.0107, %281 ]
+  %.0 = phi i32 [ 0, %10 ], [ %.0107, %298 ], [ %.0107, %293 ], [ %.0107, %281 ], [ %.0107, %289 ], [ %.0107, %282 ]
   ret i32 %.0
 }
 
@@ -900,7 +900,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %19, %33, %25, 
   br label %46
 
 46:                                               ; preds = %37, %45
-  %47 = phi i8 [ %38, %37 ], [ 0, %45 ]
+  %47 = phi i8 [ 0, %45 ], [ %38, %37 ]
   br i1 %39, label %37, label %48, !llvm.loop !123
 
 48:                                               ; preds = %46
@@ -1145,7 +1145,7 @@ cf_hc_baller_data_pending.exit26.sink.split:      ; preds = %41, %8
   br label %cf_hc_baller_data_pending.exit26
 
 cf_hc_baller_data_pending.exit26:                 ; preds = %cf_hc_baller_data_pending.exit26.sink.split, %41, %cf_hc_baller_data_pending.exit.thread, %cf_hc_baller_data_pending.exit
-  %.0 = phi i1 [ true, %cf_hc_baller_data_pending.exit ], [ false, %41 ], [ false, %cf_hc_baller_data_pending.exit.thread ], [ %47, %cf_hc_baller_data_pending.exit26.sink.split ]
+  %.0 = phi i1 [ false, %cf_hc_baller_data_pending.exit.thread ], [ true, %cf_hc_baller_data_pending.exit ], [ false, %41 ], [ %47, %cf_hc_baller_data_pending.exit26.sink.split ]
   ret i1 %.0
 }
 
@@ -1206,7 +1206,7 @@ cf_hc_baller_cntrl.exit20:                        ; preds = %23, %cf_hc_baller_c
   br label %cf_hc_baller_cntrl.exit20.thread
 
 cf_hc_baller_cntrl.exit20.thread:                 ; preds = %cf_hc_baller_cntrl.exit20, %cf_hc_baller_cntrl.exit.thread, %20, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %20 ], [ 0, %cf_hc_baller_cntrl.exit.thread ], [ %spec.select, %cf_hc_baller_cntrl.exit20 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %cf_hc_baller_cntrl.exit.thread ], [ %spec.select, %cf_hc_baller_cntrl.exit20 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -1299,7 +1299,7 @@ cf_hc_baller_needs_flush.exit31.thread:           ; preds = %cf_hc_baller_needs_
   br label %41
 
 41:                                               ; preds = %36, %cf_hc_baller_needs_flush.exit31.thread, %33, %16, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %33 ], [ %40, %36 ], [ 48, %cf_hc_baller_needs_flush.exit31.thread ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %12 ], [ 0, %16 ], [ %40, %36 ], [ 48, %cf_hc_baller_needs_flush.exit31.thread ]
   ret i32 %.0
 }
 
@@ -1334,7 +1334,7 @@ define dso_local i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 no
   br label %21
 
 21:                                               ; preds = %13, %15, %17
-  %.015 = phi i8 [ %20, %17 ], [ 0, %15 ], [ 1, %13 ]
+  %.015 = phi i8 [ 0, %15 ], [ %20, %17 ], [ 1, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !129
   %22 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !96
@@ -1414,7 +1414,7 @@ cf_hc_baller_reset.exit13.i.i.i:                  ; preds = %47, %cf_hc_baller_r
   br label %57
 
 cf_hc_create.exit.i:                              ; preds = %24, %21
-  %.025.i.i = phi i32 [ %35, %24 ], [ 27, %21 ]
+  %.025.i.i = phi i32 [ 27, %21 ], [ %35, %24 ]
   %56 = load ptr, ptr @Curl_cfree, align 8, !tbaa !96
   call void %56(ptr noundef %23) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

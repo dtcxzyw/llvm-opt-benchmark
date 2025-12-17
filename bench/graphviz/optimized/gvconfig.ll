@@ -632,7 +632,7 @@ is_plugin.exit65.us.i:                            ; preds = %.critedge.i62.us.i
   br i1 %.not19.i64.us.i, label %is_plugin.exit65.thread.us.i, label %.lr.ph.i60.us.i, !llvm.loop !63
 
 is_plugin.exit65.thread.us.i:                     ; preds = %168, %166, %is_plugin.exit65.us.i, %.critedge.i62.us.i, %150, %146, %.lr.ph80.split.us.i
-  %170 = phi i64 [ %.pre.i48, %166 ], [ %141, %is_plugin.exit65.us.i ], [ %141, %.critedge.i62.us.i ], [ %141, %150 ], [ %141, %146 ], [ %141, %.lr.ph80.split.us.i ], [ %141, %168 ]
+  %170 = phi i64 [ %141, %.lr.ph80.split.us.i ], [ %.pre.i48, %166 ], [ %141, %is_plugin.exit65.us.i ], [ %141, %.critedge.i62.us.i ], [ %141, %150 ], [ %141, %146 ], [ %141, %168 ]
   %171 = add nuw i64 %.03979.us.i, 1
   %172 = icmp ult i64 %171, %170
   br i1 %172, label %.lr.ph80.split.us.i, label %.loopexit.i, !llvm.loop !64

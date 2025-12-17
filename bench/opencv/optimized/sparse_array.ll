@@ -64,7 +64,7 @@ define hidden noundef ptr @opj_sparse_array_int32_create(i32 noundef %0, i32 nou
   br label %39
 
 39:                                               ; preds = %.sink.split, %32, %9, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ %14, %32 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ null, %4 ], [ %14, %32 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -150,7 +150,7 @@ define hidden range(i32 0, 2) i32 @opj_sparse_array_is_region_valid(ptr noundef 
   br label %14
 
 14:                                               ; preds = %11, %8, %5
-  %15 = phi i32 [ 0, %8 ], [ 0, %5 ], [ %13, %11 ]
+  %15 = phi i32 [ %13, %11 ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %15
 }
 
@@ -780,7 +780,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   br i1 %288, label %.split.us, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %..critedge412_crit_edge.us, %172, %10, %15
-  %.0375 = phi i32 [ %8, %15 ], [ %8, %10 ], [ 0, %172 ], [ 1, %..critedge412_crit_edge.us ]
+  %.0375 = phi i32 [ %8, %10 ], [ %8, %15 ], [ 0, %172 ], [ 1, %..critedge412_crit_edge.us ]
   ret i32 %.0375
 }
 

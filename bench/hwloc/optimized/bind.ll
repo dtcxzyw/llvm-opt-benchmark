@@ -105,7 +105,7 @@ hwloc_fix_cpubind.exit:                           ; preds = %12
   br label %hwloc_fix_cpubind.exit.thread
 
 hwloc_fix_cpubind.exit.thread:                    ; preds = %37, %34, %14, %10, %hwloc_fix_cpubind.exit, %45, %43, %29, %22, %4
-  %.029 = phi i32 [ -1, %4 ], [ %23, %22 ], [ -1, %45 ], [ %30, %29 ], [ %44, %43 ], [ -1, %hwloc_fix_cpubind.exit ], [ -1, %10 ], [ -1, %14 ], [ %35, %34 ], [ %35, %37 ]
+  %.029 = phi i32 [ -1, %4 ], [ %23, %22 ], [ -1, %45 ], [ %30, %29 ], [ %44, %43 ], [ -1, %14 ], [ -1, %hwloc_fix_cpubind.exit ], [ -1, %10 ], [ %35, %34 ], [ %35, %37 ]
   ret i32 %.029
 }
 
@@ -608,7 +608,7 @@ hwloc_fix_membind.exit:                           ; preds = %13
   br label %hwloc_fix_membind.exit.thread
 
 hwloc_fix_membind.exit.thread:                    ; preds = %38, %35, %15, %11, %hwloc_fix_membind.exit, %46, %44, %30, %23, %5
-  %.034 = phi i32 [ -1, %5 ], [ %24, %23 ], [ -1, %46 ], [ %31, %30 ], [ %45, %44 ], [ -1, %hwloc_fix_membind.exit ], [ -1, %11 ], [ -1, %15 ], [ %36, %35 ], [ %36, %38 ]
+  %.034 = phi i32 [ -1, %5 ], [ %24, %23 ], [ -1, %46 ], [ %31, %30 ], [ %45, %44 ], [ -1, %15 ], [ -1, %hwloc_fix_membind.exit ], [ -1, %11 ], [ %36, %35 ], [ %36, %38 ]
   ret i32 %.034
 }
 
@@ -673,7 +673,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_fix_membind_cpuset(ptr nounde
   br label %hwloc_get_next_obj_by_depth.exit.i.i
 
 hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %26, %21
-  %.0.i.i.i = phi ptr [ %28, %26 ], [ %22, %21 ]
+  %.0.i.i.i = phi ptr [ %22, %21 ], [ %28, %26 ]
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i, label %hwloc_cpuset_to_nodeset.exit, label %.preheader.i.i
 
@@ -747,7 +747,7 @@ define i32 @hwloc_get_membind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 hwloc_get_next_obj_by_depth.exit.i:               ; preds = %19, %14
-  %.0.i.i = phi ptr [ %21, %19 ], [ %15, %14 ]
+  %.0.i.i = phi ptr [ %15, %14 ], [ %21, %19 ]
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %hwloc_cpuset_from_nodeset.exit, label %22
 
@@ -1017,7 +1017,7 @@ hwloc_get_proc_membind_by_nodeset.exit20:         ; preds = %19
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 hwloc_get_next_obj_by_depth.exit.i:               ; preds = %31, %26
-  %.0.i.i = phi ptr [ %33, %31 ], [ %27, %26 ]
+  %.0.i.i = phi ptr [ %27, %26 ], [ %33, %31 ]
   %.not.i22 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i22, label %hwloc_cpuset_from_nodeset.exit, label %34
 
@@ -1232,7 +1232,7 @@ hwloc_get_area_membind_by_nodeset.exit23:         ; preds = %23
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 hwloc_get_next_obj_by_depth.exit.i:               ; preds = %35, %30
-  %.0.i.i = phi ptr [ %37, %35 ], [ %31, %30 ]
+  %.0.i.i = phi ptr [ %31, %30 ], [ %37, %35 ]
   %.not.i25 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i25, label %hwloc_cpuset_from_nodeset.exit, label %38
 
@@ -1349,7 +1349,7 @@ hwloc_get_area_memlocation_by_nodeset.exit21.thread28: ; preds = %20, %hwloc_get
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 hwloc_get_next_obj_by_depth.exit.i:               ; preds = %32, %27
-  %.0.i.i = phi ptr [ %34, %32 ], [ %28, %27 ]
+  %.0.i.i = phi ptr [ %28, %27 ], [ %34, %32 ]
   %.not.i23 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i23, label %hwloc_cpuset_from_nodeset.exit, label %35
 
@@ -1666,7 +1666,7 @@ hwloc_fix_membind.exit.thread:                    ; preds = %hwloc_fix_membind.e
   br label %hwloc_alloc.exit49
 
 hwloc_alloc.exit49:                               ; preds = %32, %50, %48, %hwloc_fix_membind.exit.thread, %36, %hwloc_alloc.exit, %40, %22, %8
-  %.0 = phi ptr [ null, %8 ], [ %23, %22 ], [ null, %40 ], [ null, %hwloc_alloc.exit ], [ %.0.i44, %36 ], [ null, %hwloc_fix_membind.exit.thread ], [ %49, %48 ], [ %54, %50 ], [ null, %32 ]
+  %.0 = phi ptr [ null, %8 ], [ %.0.i44, %36 ], [ %54, %50 ], [ %23, %22 ], [ null, %40 ], [ null, %hwloc_alloc.exit ], [ null, %hwloc_fix_membind.exit.thread ], [ %49, %48 ], [ null, %32 ]
   ret ptr %.0
 }
 

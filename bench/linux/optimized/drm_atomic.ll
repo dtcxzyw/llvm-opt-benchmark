@@ -3424,7 +3424,7 @@ define dso_local i32 @__drm_atomic_helper_set_config(ptr noundef readonly captur
   br i1 %186, label %159, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %122, %155, %180, %175, %152, %.loopexit19, %93, %85, %52, %48, %36, %33, %17, %9
-  %187 = phi i32 [ %11, %9 ], [ %19, %17 ], [ %34, %33 ], [ %38, %36 ], [ %50, %48 ], [ %54, %52 ], [ %154, %152 ], [ %91, %85 ], [ %95, %93 ], [ 0, %.loopexit19 ], [ %176, %175 ], [ 0, %180 ], [ %157, %155 ], [ %123, %122 ]
+  %187 = phi i32 [ %11, %9 ], [ %19, %17 ], [ %34, %33 ], [ %38, %36 ], [ %50, %48 ], [ %54, %52 ], [ %154, %152 ], [ %91, %85 ], [ %95, %93 ], [ 0, %.loopexit19 ], [ %157, %155 ], [ 0, %180 ], [ %176, %175 ], [ %123, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %187

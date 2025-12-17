@@ -40,7 +40,7 @@ define internal noalias ptr @dh_newctx(ptr noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @dh_init(ptr noundef captures(address_is_nul
   br label %15
 
 15:                                               ; preds = %10, %3, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ %14, %10 ]
+  %.0 = phi i32 [ %14, %10 ], [ 0, %3 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -182,12 +182,12 @@ dh_plain_derive.exit.thread.i:                    ; preds = %28, %24
   br label %dh_X9_42_kdf_derive.exit
 
 dh_X9_42_kdf_derive.exit:                         ; preds = %20, %23, %dh_plain_derive.exit.thread.i, %32, %57
-  %.022.i = phi i32 [ 1, %20 ], [ 0, %23 ], [ %.0.i, %57 ], [ 0, %32 ], [ 0, %dh_plain_derive.exit.thread.i ]
+  %.022.i = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %dh_plain_derive.exit.thread.i ], [ %.0.i, %57 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %7, %4, %dh_X9_42_kdf_derive.exit, %10
-  %.0 = phi i32 [ %15, %10 ], [ %.022.i, %dh_X9_42_kdf_derive.exit ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %15, %10 ], [ %.022.i, %dh_X9_42_kdf_derive.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -235,7 +235,7 @@ dh_match_params.exit:                             ; preds = %14
   br label %20
 
 20:                                               ; preds = %dh_match_params.exit.thread, %2, %dh_match_params.exit, %17
-  %.0 = phi i32 [ 1, %17 ], [ 0, %dh_match_params.exit ], [ 0, %2 ], [ 0, %dh_match_params.exit.thread ]
+  %.0 = phi i32 [ 1, %17 ], [ 0, %dh_match_params.exit ], [ 0, %dh_match_params.exit.thread ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -379,7 +379,7 @@ define internal ptr @dh_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %51
 
 51:                                               ; preds = %38, %41, %3, %1, %44
-  %.0 = phi ptr [ null, %44 ], [ null, %1 ], [ null, %3 ], [ %4, %41 ], [ %4, %38 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %44 ], [ null, %3 ], [ %4, %41 ], [ %4, %38 ]
   ret ptr %.0
 }
 
@@ -602,7 +602,7 @@ ossl_param_is_empty.exit:                         ; preds = %11
 92:                                               ; preds = %79, %84, %89, %77
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %32, %30, %26, %40
+.critedge:                                        ; preds = %26, %32, %40, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ossl_param_is_empty.exit.thread
 
@@ -616,7 +616,7 @@ ossl_param_is_empty.exit:                         ; preds = %11
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %11, %89, %87, %68, %.critedge86, %.critedge84, %.critedge, %21, %16, %ossl_param_is_empty.exit, %2, %92
-  %.051 = phi i32 [ 1, %92 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %16 ], [ 0, %21 ], [ 0, %.critedge ], [ 0, %.critedge84 ], [ 0, %.critedge86 ], [ 0, %68 ], [ 0, %87 ], [ 0, %89 ], [ 1, %11 ]
+  %.051 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ 0, %87 ], [ 1, %92 ], [ 0, %68 ], [ 0, %.critedge84 ], [ 0, %.critedge86 ], [ 0, %89 ], [ 0, %.critedge ], [ 0, %16 ], [ 0, %21 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -720,7 +720,7 @@ define internal range(i32 0, 2) i32 @dh_get_ctx_params(ptr noundef readonly capt
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %39, %31, %25, %20, %2, %10, %44
-  %.028 = phi i32 [ 1, %44 ], [ 0, %10 ], [ 0, %2 ], [ 0, %20 ], [ 0, %25 ], [ 0, %31 ], [ 0, %39 ], [ 0, %6 ]
+  %.028 = phi i32 [ 0, %10 ], [ 1, %44 ], [ 0, %31 ], [ 0, %25 ], [ 0, %20 ], [ 0, %39 ], [ 0, %2 ], [ 0, %6 ]
   ret i32 %.028
 }
 

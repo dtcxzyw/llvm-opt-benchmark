@@ -317,8 +317,8 @@ sw.default:                                       ; preds = %_ZNK6google8protobu
   unreachable
 
 return:                                           ; preds = %sw.bb, %sw.bb13, %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4
-  %retval.sroa.8.0 = phi i64 [ %call5, %sw.bb4 ], [ %conv, %sw.bb6 ], [ %call9, %sw.bb8 ], [ %conv12, %sw.bb10 ], [ %conv15, %sw.bb13 ], [ %2, %sw.bb ]
-  %retval.sroa.0.0 = phi ptr [ null, %sw.bb4 ], [ null, %sw.bb6 ], [ null, %sw.bb8 ], [ null, %sw.bb10 ], [ null, %sw.bb13 ], [ %spec.select, %sw.bb ]
+  %retval.sroa.8.0 = phi i64 [ %conv15, %sw.bb13 ], [ %call5, %sw.bb4 ], [ %conv, %sw.bb6 ], [ %call9, %sw.bb8 ], [ %conv12, %sw.bb10 ], [ %2, %sw.bb ]
+  %retval.sroa.0.0 = phi ptr [ null, %sw.bb13 ], [ null, %sw.bb4 ], [ null, %sw.bb6 ], [ null, %sw.bb8 ], [ null, %sw.bb10 ], [ %spec.select, %sw.bb ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1629,7 +1629,7 @@ _ZN6google8protobuf8internal12MapFieldBase17ReflectionPayloadD2Ev.exit: ; preds 
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal12MapFieldBase17ReflectionPayloadEJRPS5_EEEPT_SA_DpOT0_EUlDpOT_E_ZNS6_IS9_JSB_EEESD_SA_SG_EUlSJ_E0_JSB_EEEDaOT0_OT1_DpOT2_.exit, %_ZN6google8protobuf8internal12MapFieldBase17ReflectionPayloadD2Ev.exit, %if.else, %entry
-  %p.0 = phi i64 [ %0, %entry ], [ %5, %if.else ], [ %5, %_ZN6google8protobuf8internal12MapFieldBase17ReflectionPayloadD2Ev.exit ], [ %add.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal12MapFieldBase17ReflectionPayloadEJRPS5_EEEPT_SA_DpOT0_EUlDpOT_E_ZNS6_IS9_JSB_EEESD_SA_SG_EUlSJ_E0_JSB_EEEDaOT0_OT1_DpOT2_.exit ]
+  %p.0 = phi i64 [ %0, %entry ], [ %5, %_ZN6google8protobuf8internal12MapFieldBase17ReflectionPayloadD2Ev.exit ], [ %5, %if.else ], [ %add.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal12MapFieldBase17ReflectionPayloadEJRPS5_EEEPT_SA_DpOT0_EUlDpOT_E_ZNS6_IS9_JSB_EEESD_SA_SG_EUlSJ_E0_JSB_EEEDaOT0_OT1_DpOT2_.exit ]
   %sub.i = add i64 %p.0, -1
   %9 = inttoptr i64 %sub.i to ptr
   %cmp.i = icmp ne i64 %sub.i, 0
@@ -2485,7 +2485,7 @@ _ZN6google8protobuf11MapIteratorD2Ev.exit119:     ; preds = %_ZN6google8protobuf
   ret void
 
 ehcleanup:                                        ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad61, %lpad29
-  %.pn = phi { ptr, i32 } [ %48, %lpad61 ], [ %40, %lpad29 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %40, %lpad29 ], [ %48, %lpad61 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %type_.i.i120 = getelementptr inbounds nuw i8, ptr %end, i64 64
   %67 = load i32, ptr %type_.i.i120, align 8
   %cmp.i.i121 = icmp eq i32 %67, 9
@@ -5972,7 +5972,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body.i.i, %entry, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
-  %size.0 = phi i64 [ %cond9.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ 0, %entry ], [ %add7.i.i, %for.body.i.i ]
+  %size.0 = phi i64 [ 0, %entry ], [ %cond9.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ %add7.i.i, %for.body.i.i ]
   %8 = getelementptr inbounds nuw i8, ptr %map, i64 16
   %9 = load i32, ptr %8, align 8
   %conv.i = zext i32 %9 to i64
@@ -7358,7 +7358,7 @@ if.end.i.i:                                       ; preds = %if.then4.i
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit, %cond.true.i, %if.then.i, %if.then.i.i, %if.then4.i, %if.end.i.i
-  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ null, %if.then.i ], [ %call.i, %if.then4.i ], [ %call.i, %if.end.i.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
+  %value.addr.0.i = phi ptr [ %value, %if.then.i.i ], [ null, %if.then.i ], [ %call.i, %if.end.i.i ], [ %call.i, %if.then4.i ], [ %value, %cond.true.i ], [ %value, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %value.addr.0.i)
   br label %if.end21
 
@@ -7658,9 +7658,9 @@ _ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessary
   br i1 %cmp.i.not.i.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body.i, %entry, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit
-  %10 = phi i64 [ %2, %entry ], [ %9, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %2, %while.body.i ]
-  %idxprom.pre-phi = phi i64 [ %idxprom.i, %entry ], [ %idxprom.i10.i, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %idxprom.i, %while.body.i ]
-  %b.addr.012 = phi i32 [ %and.i, %entry ], [ %7, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %and.i, %while.body.i ]
+  %10 = phi i64 [ %9, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %2, %entry ], [ %2, %while.body.i ]
+  %idxprom.pre-phi = phi i64 [ %idxprom.i10.i, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %idxprom.i, %entry ], [ %idxprom.i, %while.body.i ]
+  %b.addr.012 = phi i32 [ %7, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %and.i, %entry ], [ %and.i, %while.body.i ]
   %11 = inttoptr i64 %10 to ptr
   %call3 = call noundef ptr @_ZN6google8protobuf8internal19EraseFromLinkedListEPNS1_8NodeBaseES3_(ptr noundef %node, ptr noundef %11)
   %12 = ptrtoint ptr %call3 to i64
@@ -8074,7 +8074,7 @@ lpad42:                                           ; preds = %sw.epilog
   unreachable
 
 return:                                           ; preds = %if.end.i.i, %land.rhs.i, %sw.bb12, %sw.bb33, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17
-  %retval.0 = phi i1 [ %cmp20, %sw.bb17 ], [ %cmp24, %sw.bb21 ], [ %cmp28, %sw.bb25 ], [ %cmp32, %sw.bb29 ], [ %cmp38, %sw.bb33 ], [ false, %sw.bb12 ], [ %5, %if.end.i.i ], [ true, %land.rhs.i ]
+  %retval.0 = phi i1 [ %cmp38, %sw.bb33 ], [ %cmp20, %sw.bb17 ], [ %cmp24, %sw.bb21 ], [ %cmp28, %sw.bb25 ], [ %cmp32, %sw.bb29 ], [ false, %sw.bb12 ], [ %5, %if.end.i.i ], [ true, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -8378,8 +8378,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %for.body.i.i.i
-  %agg.tmp3.sroa.6.1.i.i = phi i32 [ %28, %if.then5.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ], [ %agg.tmp3.sroa.6.0.i.i, %for.body.i.i.i ]
-  %34 = phi ptr [ %29, %if.then5.i.i.i.i.i.i ], [ %33, %if.else.i.i.i.i.i.i ], [ %23, %for.body.i.i.i ]
+  %agg.tmp3.sroa.6.1.i.i = phi i32 [ %agg.tmp3.sroa.6.0.i.i, %for.body.i.i.i ], [ %28, %if.then5.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ]
+  %34 = phi ptr [ %23, %for.body.i.i.i ], [ %29, %if.then5.i.i.i.i.i.i ], [ %33, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.not.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i.not.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit, label %for.body.i.i.i, !llvm.loop !52
 
@@ -8498,8 +8498,8 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i: ; preds = %if.else.i.i.i.i.i12, %if.then5.i.i.i.i.i, %.noexc15
-  %agg.tmp3.sroa.6.1.i = phi i32 [ %51, %if.then5.i.i.i.i.i ], [ %51, %if.else.i.i.i.i.i12 ], [ %agg.tmp3.sroa.6.0.i, %.noexc15 ]
-  %57 = phi ptr [ %52, %if.then5.i.i.i.i.i ], [ %56, %if.else.i.i.i.i.i12 ], [ %46, %.noexc15 ]
+  %agg.tmp3.sroa.6.1.i = phi i32 [ %agg.tmp3.sroa.6.0.i, %.noexc15 ], [ %51, %if.then5.i.i.i.i.i ], [ %51, %if.else.i.i.i.i.i12 ]
+  %57 = phi ptr [ %46, %.noexc15 ], [ %52, %if.then5.i.i.i.i.i ], [ %56, %if.else.i.i.i.i.i12 ]
   %cmp.i.i.not.i.i = icmp eq ptr %57, null
   br i1 %cmp.i.i.not.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, label %for.body.i.i, !llvm.loop !52
 
@@ -8655,8 +8655,8 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, label %for.body.i.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i: ; preds = %if.else.i.i.i.i, %if.then5.i.i.i.i, %for.body.i
-  %agg.tmp3.sroa.6.1 = phi i32 [ %16, %if.then5.i.i.i.i ], [ %16, %if.else.i.i.i.i ], [ %agg.tmp3.sroa.6.0, %for.body.i ]
-  %22 = phi ptr [ %17, %if.then5.i.i.i.i ], [ %21, %if.else.i.i.i.i ], [ %11, %for.body.i ]
+  %agg.tmp3.sroa.6.1 = phi i32 [ %agg.tmp3.sroa.6.0, %for.body.i ], [ %16, %if.then5.i.i.i.i ], [ %16, %if.else.i.i.i.i ]
+  %22 = phi ptr [ %11, %for.body.i ], [ %17, %if.then5.i.i.i.i ], [ %21, %if.else.i.i.i.i ]
   %cmp.i.i.not.i = icmp eq ptr %22, null
   br i1 %cmp.i.i.not.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, label %for.body.i, !llvm.loop !52
 

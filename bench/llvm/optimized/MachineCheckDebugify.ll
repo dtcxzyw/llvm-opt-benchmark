@@ -771,7 +771,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit108: ; pred
   br i1 %.not206, label %._crit_edge242, label %.lr.ph241
 
 ._crit_edge246:                                   ; preds = %138, %336, %_ZN4llvm11raw_ostreamlsEPKc.exit134, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %362, %._crit_edge242, %_ZNK4llvm9BitVector8set_bitsEv.exit
-  %.054.lcssa = phi ptr [ @.str.11, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ @.str.11, %._crit_edge242 ], [ @.str.10, %362 ], [ @.str.10, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ @.str.10, %_ZN4llvm11raw_ostreamlsEPKc.exit134 ], [ @.str.10, %336 ], [ @.str.11, %138 ]
+  %.054.lcssa = phi ptr [ @.str.11, %_ZNK4llvm9BitVector8set_bitsEv.exit ], [ @.str.11, %._crit_edge242 ], [ @.str.10, %336 ], [ @.str.10, %362 ], [ @.str.10, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ], [ @.str.10, %_ZN4llvm11raw_ostreamlsEPKc.exit134 ], [ @.str.11, %138 ]
   %284 = load i32, ptr %109, align 8, !tbaa !68, !noalias !104
   %285 = icmp eq i32 %284, 0
   br i1 %285, label %._crit_edge250, label %286
@@ -919,7 +919,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %355
   br i1 %.not207, label %._crit_edge246, label %.lr.ph245
 
 ._crit_edge250:                                   ; preds = %301, %442, %_ZN4llvm11raw_ostreamlsEPKc.exit151, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit162, %468, %._crit_edge246, %_ZNK4llvm9BitVector8set_bitsEv.exit118
-  %.155.lcssa = phi ptr [ %.054.lcssa, %_ZNK4llvm9BitVector8set_bitsEv.exit118 ], [ %.054.lcssa, %._crit_edge246 ], [ @.str.10, %468 ], [ @.str.10, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit162 ], [ @.str.10, %_ZN4llvm11raw_ostreamlsEPKc.exit151 ], [ @.str.10, %442 ], [ %.054.lcssa, %301 ]
+  %.155.lcssa = phi ptr [ %.054.lcssa, %_ZNK4llvm9BitVector8set_bitsEv.exit118 ], [ %.054.lcssa, %._crit_edge246 ], [ @.str.10, %442 ], [ @.str.10, %468 ], [ @.str.10, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit162 ], [ @.str.10, %_ZN4llvm11raw_ostreamlsEPKc.exit151 ], [ %.054.lcssa, %301 ]
   %368 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #13
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 24
   %370 = load ptr, ptr %369, align 8, !tbaa !40

@@ -110,7 +110,7 @@ define internal fastcc range(i32 0, 2) i32 @ossl_obj_find_sigid_algs(i32 noundef
   br label %40
 
 40:                                               ; preds = %36, %37, %30, %10, %4, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %4 ], [ 0, %10 ], [ 0, %30 ], [ 1, %37 ], [ 1, %36 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %30 ], [ 0, %17 ], [ 1, %37 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @OBJ_find_sigid_by_algs(ptr noundef writeonly capture
   br label %35
 
 35:                                               ; preds = %.thread, %31, %32, %12, %3, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %3 ], [ 0, %12 ], [ 1, %32 ], [ 1, %31 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %.thread ], [ 0, %18 ], [ 1, %32 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -348,7 +348,7 @@ define range(i32 0, 2) i32 @OBJ_add_sigid(i32 noundef %0, i32 noundef %1, i32 no
   br label %66
 
 66:                                               ; preds = %10, %7, %3, %63, %18
-  %.018 = phi i32 [ %.0, %63 ], [ 0, %18 ], [ 0, %3 ], [ 0, %7 ], [ 0, %10 ]
+  %.018 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.0, %63 ], [ 0, %18 ], [ 0, %10 ]
   ret i32 %.018
 }
 

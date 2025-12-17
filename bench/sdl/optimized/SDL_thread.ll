@@ -484,7 +484,7 @@ define hidden ptr @SDL_GetErrBuf(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %SDL_GetTLS_REAL.exit
 
 SDL_GetTLS_REAL.exit:                             ; preds = %1, %8, %10
-  %.0.i = phi ptr [ %14, %10 ], [ null, %8 ], [ null, %1 ]
+  %.0.i = phi ptr [ null, %1 ], [ %14, %10 ], [ null, %8 ]
   %.not = icmp eq ptr %.0.i, null
   %brmerge.not = and i1 %0, %.not
   br i1 %brmerge.not, label %15, label %26
@@ -714,7 +714,7 @@ define hidden noundef ptr @SDL_CreateThreadWithPropertiesRuntime_REAL(i32 nounde
   br label %33
 
 33:                                               ; preds = %13, %25, %30, %15, %24, %6
-  %.030 = phi ptr [ null, %6 ], [ null, %13 ], [ null, %24 ], [ null, %15 ], [ %16, %25 ], [ null, %30 ]
+  %.030 = phi ptr [ null, %6 ], [ null, %13 ], [ null, %15 ], [ null, %24 ], [ %16, %25 ], [ null, %30 ]
   ret ptr %.030
 }
 

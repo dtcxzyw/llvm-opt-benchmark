@@ -898,7 +898,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond66.not, label %.lr.ph26.us, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge.split.us.us, %._crit_edge.split.us.us.thread
-  %.012720.us.be = phi i32 [ %71, %._crit_edge.split.us.us ], [ %72, %._crit_edge.split.us.us.thread ]
+  %.012720.us.be = phi i32 [ %72, %._crit_edge.split.us.us.thread ], [ %71, %._crit_edge.split.us.us ]
   br label %.backedge
 
 ._crit_edge.split.us.us.thread:                   ; preds = %.backedge
@@ -1282,7 +1282,7 @@ sub_0:                                            ; preds = %24
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %sub_0, %2, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ null, %sub_0 ], [ %spec.select, %.tail ]
+  %.0 = phi ptr [ %0, %2 ], [ %7, %6 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ null, %sub_0 ], [ %spec.select, %.tail ]
   ret ptr %.0
 }
 
@@ -1332,7 +1332,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ %., %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

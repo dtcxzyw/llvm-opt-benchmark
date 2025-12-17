@@ -183,7 +183,7 @@ _ZN5folly10canNallocxEv.exit.i.i:                 ; preds = %55, %53, %50
   br label %_ZN5folly17IOBufIovecBuilder11RefCountMemC2Em.exit
 
 _ZN5folly17IOBufIovecBuilder11RefCountMemC2Em.exit: ; preds = %45, %_ZN5folly10canNallocxEv.exit.i.i, %61
-  %.0.i.i = phi i64 [ %63, %61 ], [ 0, %45 ], [ %47, %_ZN5folly10canNallocxEv.exit.i.i ]
+  %.0.i.i = phi i64 [ 0, %45 ], [ %63, %61 ], [ %47, %_ZN5folly10canNallocxEv.exit.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %.0.i.i, ptr %64, align 8, !tbaa !36
   %65 = call noalias ptr @malloc(i64 noundef %.0.i.i) #24
@@ -588,7 +588,7 @@ _ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit26: ; p
   br label %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN5folly17IOBufIovecBuilder11RefCountMemES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !14
   %58 = load ptr, ptr %.0, align 8, !tbaa !48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -758,7 +758,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34

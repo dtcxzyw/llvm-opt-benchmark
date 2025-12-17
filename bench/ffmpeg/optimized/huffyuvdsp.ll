@@ -116,7 +116,7 @@ define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly capture
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %22, %24, %25, %27
-  %.0.i = phi i32 [ %16, %22 ], [ %16, %25 ], [ %..i, %24 ], [ %.20.i, %27 ]
+  %.0.i = phi i32 [ %..i, %24 ], [ %16, %25 ], [ %16, %22 ], [ %.20.i, %27 ]
   %28 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !15
   %30 = zext i16 %29 to i32

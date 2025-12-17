@@ -1235,7 +1235,7 @@ define hidden void @"_ZN83_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$rayon..iter
   %.not.i = icmp ult i64 %13, %spec.select.i.i
   br i1 %.not.i, label %16, label %17
 
-14:                                               ; preds = %"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i", %.noexc4, %.noexc3, %.noexc4.i.i.i, %.invoke.i.i.i, %16
+14:                                               ; preds = %"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i", %.invoke.i.i.i, %.noexc3, %.noexc2, %.noexc4.i.i.i, %16
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$rayon..vec..Drain$LT$rope..Chunk$GT$$GT$17h4f36f154df9fe330E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #34
@@ -1262,34 +1262,34 @@ define hidden void @"_ZN83_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$rayon..iter
   %21 = icmp eq i64 %.sroa.5.0.copyload, 0
   br i1 %21, label %.invoke.i.i.i, label %.noexc4.i.i.i
 
-.invoke.i.i.i:                                    ; preds = %.noexc5, %17
-  %22 = phi ptr [ @anon.2454c690f9382c453569fe29a40bbf54.8.llvm.9961257463504560153, %17 ], [ @anon.f8c792ed9dd53316948c4ac1287b26a0.10.llvm.11069259139419292640, %.noexc5 ]
-  invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22) #33
+.noexc4.i.i.i:                                    ; preds = %17
+  %22 = udiv i64 -1, %.sroa.5.0.copyload
+  %23 = invoke noundef i64 @_ZN10rayon_core19current_num_threads17hae88df6cfec25b8bE()
           to label %.noexc2 unwind label %14
 
-.noexc2:                                          ; preds = %.invoke.i.i.i
-  unreachable
-
-.noexc4.i.i.i:                                    ; preds = %17
-  %23 = udiv i64 -1, %.sroa.5.0.copyload
-  %24 = invoke noundef i64 @_ZN10rayon_core19current_num_threads17hae88df6cfec25b8bE()
+.noexc2:                                          ; preds = %.noexc4.i.i.i
+  %24 = invoke noundef i64 @_ZN4core3cmp6max_by17h9e98106ef1e90819E.llvm.11069259139419292640(i64 noundef 1, i64 noundef 1)
           to label %.noexc3 unwind label %14
 
-.noexc3:                                          ; preds = %.noexc4.i.i.i
-  %25 = invoke noundef i64 @_ZN4core3cmp6max_by17h9e98106ef1e90819E.llvm.11069259139419292640(i64 noundef 1, i64 noundef 1)
+.noexc3:                                          ; preds = %.noexc2
+  %25 = invoke noundef i64 @_ZN4core3cmp6max_by17h9e98106ef1e90819E.llvm.11069259139419292640(i64 noundef %22, i64 noundef 1)
           to label %.noexc4 unwind label %14
 
 .noexc4:                                          ; preds = %.noexc3
-  %26 = invoke noundef i64 @_ZN4core3cmp6max_by17h9e98106ef1e90819E.llvm.11069259139419292640(i64 noundef %23, i64 noundef 1)
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %.invoke.i.i.i, label %"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i"
+
+.invoke.i.i.i:                                    ; preds = %.noexc4, %17
+  %27 = phi ptr [ @anon.2454c690f9382c453569fe29a40bbf54.8.llvm.9961257463504560153, %17 ], [ @anon.f8c792ed9dd53316948c4ac1287b26a0.10.llvm.11069259139419292640, %.noexc4 ]
+  invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27) #33
           to label %.noexc5 unwind label %14
 
-.noexc5:                                          ; preds = %.noexc4
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.invoke.i.i.i, label %"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i"
+.noexc5:                                          ; preds = %.invoke.i.i.i
+  unreachable
 
-"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i": ; preds = %.noexc5
-  %28 = udiv i64 %.sroa.4.0.copyload, %26
-  %spec.store.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %24)
+"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i": ; preds = %.noexc4
+  %28 = udiv i64 %.sroa.4.0.copyload, %25
+  %spec.store.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !320
   store ptr %20, ptr %5, align 8, !noalias !333
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1298,7 +1298,7 @@ define hidden void @"_ZN83_$LT$rayon..vec..Drain$LT$T$GT$$u20$as$u20$rayon..iter
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !333
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %.sroa.6.0.copyload, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !333
-  invoke void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17had4ffc3411bab8d3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %.sroa.4.0.copyload, i1 noundef zeroext false, i64 noundef %spec.store.select.i.i.i.i, i64 noundef %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.copyload)
+  invoke void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17had4ffc3411bab8d3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %.sroa.4.0.copyload, i1 noundef zeroext false, i64 noundef %spec.store.select.i.i.i.i, i64 noundef %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.copyload)
           to label %29 unwind label %14
 
 29:                                               ; preds = %"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h9554644fb13fbc61E.exit.i"

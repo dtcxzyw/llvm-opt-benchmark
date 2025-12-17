@@ -315,7 +315,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %47
 
 47:                                               ; preds = %40, %26, %33, %11
-  %.0257 = phi i1 [ false, %33 ], [ false, %26 ], [ false, %11 ], [ %.not266, %40 ]
+  %.0257 = phi i1 [ false, %11 ], [ %.not266, %40 ], [ false, %33 ], [ false, %26 ]
   %48 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %48)
@@ -862,7 +862,7 @@ define internal fastcc zeroext i1 @check_msrp_header(ptr noundef %0) unnamed_add
   br label %16
 
 16:                                               ; preds = %11, %7, %1, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %7 ], [ %spec.select, %11 ]
+  %.0 = phi i1 [ %spec.select, %11 ], [ false, %1 ], [ false, %7 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

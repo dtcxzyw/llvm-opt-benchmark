@@ -279,7 +279,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %68
 
 68:                                               ; preds = %66, %62, %57, %49
-  %.2.i = phi i32 [ %67, %66 ], [ %.1.i, %57 ], [ 0, %49 ], [ 0, %62 ]
+  %.2.i = phi i32 [ %67, %66 ], [ 0, %49 ], [ %.1.i, %57 ], [ 0, %62 ]
   %69 = load ptr, ptr %13, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.60, i32 noundef %.2.i)
   br label %70
@@ -372,7 +372,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %121
 
 121:                                              ; preds = %118, %71, %71, %71, %71, %71, %70
-  %.0115.i = phi ptr [ %75, %118 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ null, %70 ]
+  %.0115.i = phi ptr [ %75, %118 ], [ null, %70 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ]
   switch i8 %10, label %dissect_soupbintcp_common.exit [
     i8 85, label %122
     i8 83, label %122

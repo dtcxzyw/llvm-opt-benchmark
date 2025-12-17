@@ -190,10 +190,10 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %113
 
 113:                                              ; preds = %79, %110, %107
-  %.0399 = phi i32 [ %112, %110 ], [ 1, %107 ], [ 1, %79 ]
-  %.0391 = phi i32 [ %.1392, %110 ], [ %.1392, %107 ], [ 1, %79 ]
-  %.0388 = phi i32 [ %86, %110 ], [ %86, %107 ], [ 1, %79 ]
-  %.1 = phi i32 [ %101, %110 ], [ %101, %107 ], [ undef, %79 ]
+  %.0399 = phi i32 [ 1, %107 ], [ %112, %110 ], [ 1, %79 ]
+  %.0391 = phi i32 [ %.1392, %107 ], [ %.1392, %110 ], [ 1, %79 ]
+  %.0388 = phi i32 [ %86, %107 ], [ %86, %110 ], [ 1, %79 ]
+  %.1 = phi i32 [ %101, %107 ], [ %101, %110 ], [ undef, %79 ]
   store i32 %.0399, ptr %16, align 4, !tbaa !3
   %114 = sitofp i32 %.0391 to double
   store double %114, ptr %14, align 8, !tbaa !7
@@ -214,7 +214,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not428, label %123, label %.thread444
 
 .thread444.sink.split:                            ; preds = %117, %113, %73, %70, %67, %61, %59, %56
-  %.sink = phi i32 [ -1, %56 ], [ -2, %59 ], [ -4, %61 ], [ -5, %67 ], [ -7, %70 ], [ -12, %73 ], [ -16, %113 ], [ -18, %117 ]
+  %.sink = phi i32 [ -1, %56 ], [ -4, %61 ], [ -7, %70 ], [ -5, %67 ], [ -2, %59 ], [ -12, %73 ], [ -16, %113 ], [ -18, %117 ]
   store i32 %.sink, ptr %19, align 4, !tbaa !3
   br label %.thread444
 
@@ -264,7 +264,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %128, %140
-  %storemerge467 = phi double [ %141, %140 ], [ %138, %128 ]
+  %storemerge467 = phi double [ %138, %128 ], [ %141, %140 ]
   store double %storemerge467, ptr %27, align 8, !tbaa !7
   call void @dlascl_(ptr noundef nonnull @.str.11, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %23, ptr noundef nonnull %27, ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %24) #5
   br label %144
@@ -384,7 +384,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %188, %190, %193
-  %.sink511 = phi i32 [ %195, %193 ], [ -18, %190 ], [ -16, %188 ]
+  %.sink511 = phi i32 [ -18, %190 ], [ %195, %193 ], [ -16, %188 ]
   store i32 %.sink511, ptr %19, align 4, !tbaa !3
   br label %196
 
@@ -672,9 +672,9 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %.thread452
 
 .thread452:                                       ; preds = %.thread452.sink.split, %325, %319, %323, %329, %320
-  %.0400 = phi i32 [ %316, %320 ], [ 1, %329 ], [ %316, %323 ], [ 0, %319 ], [ 0, %325 ], [ %.0400.ph, %.thread452.sink.split ]
-  %.1394 = phi i32 [ 0, %320 ], [ -1, %329 ], [ 1, %323 ], [ 0, %319 ], [ -1, %325 ], [ %.1394.ph, %.thread452.sink.split ]
-  %.1390 = phi i32 [ %.0389486, %320 ], [ 1, %329 ], [ %.0389486, %323 ], [ %.0389486, %319 ], [ 0, %325 ], [ %.1390.ph, %.thread452.sink.split ]
+  %.0400 = phi i32 [ %316, %320 ], [ 0, %319 ], [ 1, %329 ], [ 0, %325 ], [ %316, %323 ], [ %.0400.ph, %.thread452.sink.split ]
+  %.1394 = phi i32 [ 0, %320 ], [ 0, %319 ], [ -1, %329 ], [ -1, %325 ], [ 1, %323 ], [ %.1394.ph, %.thread452.sink.split ]
+  %.1390 = phi i32 [ %.0389486, %320 ], [ %.0389486, %319 ], [ 1, %329 ], [ 0, %325 ], [ %.0389486, %323 ], [ %.1390.ph, %.thread452.sink.split ]
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %335 = load i32, ptr %21, align 4, !tbaa !3
   %336 = sext i32 %335 to i64

@@ -1100,7 +1100,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_body(ptr noundef %0,
   br i1 %29, label %.lr.ph64, label %.critedge53
 
 .critedge53:                                      ; preds = %.critedge, %.lr.ph, %17
-  %.036.shrunk75 = phi i1 [ %.036.shrunk74, %.lr.ph ], [ %.not, %17 ], [ %.036.shrunk74, %.critedge ]
+  %.036.shrunk75 = phi i1 [ %.not, %17 ], [ %.036.shrunk74, %.lr.ph ], [ %.036.shrunk74, %.critedge ]
   br i1 %.036.shrunk75, label %.critedge55, label %30
 
 30:                                               ; preds = %.critedge53
@@ -1137,7 +1137,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_body(ptr noundef %0,
   br label %.critedge55
 
 .critedge55:                                      ; preds = %25, %8, %10, %.critedge53, %30, %49, %36, %32
-  %.0 = phi i32 [ 0, %32 ], [ 0, %36 ], [ 1, %49 ], [ 1, %30 ], [ 1, %.critedge53 ], [ 0, %10 ], [ 0, %8 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %36 ], [ 1, %.critedge53 ], [ 1, %49 ], [ 1, %30 ], [ 0, %10 ], [ 0, %8 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -2715,8 +2715,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   store i32 %685, ptr %4, align 4, !tbaa !24
   br label %.thread960
 
-.thread960:                                       ; preds = %666, %660, %678, %560, %583, %595, %610, %624, %481, %504, %516, %531, %545, %436, %442, %456, %402, %408, %422, %374, %388, %341, %355, %308, %322, %269, %283, %243, %196, %181, %114, %128, %142, %161, %69, %91, %24, %46, %642, %638, %636, %629, %469, %464, %360, %327, %294, %290, %.critedge1000, %255, %251, %.critedge996, %229, %227, %220, %212, %208, %204, %.critedge994, %169, %.critedge989, %102, %77, %.critedge981, %57, %32, %.critedge977, %.thread935, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread935 ], [ 0, %.critedge977 ], [ 0, %32 ], [ 0, %57 ], [ 0, %.critedge981 ], [ 0, %77 ], [ 0, %102 ], [ 0, %.critedge989 ], [ 0, %169 ], [ 0, %.critedge994 ], [ 0, %204 ], [ 0, %208 ], [ 0, %212 ], [ 0, %220 ], [ 0, %227 ], [ 0, %229 ], [ 0, %.critedge996 ], [ 0, %251 ], [ 0, %255 ], [ 0, %.critedge1000 ], [ 0, %290 ], [ 0, %294 ], [ 0, %327 ], [ 0, %360 ], [ 0, %464 ], [ 0, %469 ], [ 0, %629 ], [ 0, %636 ], [ 0, %638 ], [ 0, %642 ], [ 0, %46 ], [ 0, %24 ], [ 0, %91 ], [ 0, %69 ], [ 0, %161 ], [ 0, %142 ], [ 0, %128 ], [ 0, %114 ], [ 0, %181 ], [ 0, %196 ], [ 0, %243 ], [ 0, %283 ], [ 0, %269 ], [ 0, %322 ], [ 0, %308 ], [ 0, %355 ], [ 0, %341 ], [ 0, %388 ], [ 0, %374 ], [ 0, %422 ], [ 0, %408 ], [ 0, %402 ], [ 0, %456 ], [ 0, %442 ], [ 0, %436 ], [ 0, %545 ], [ 0, %531 ], [ 0, %516 ], [ 0, %504 ], [ 0, %481 ], [ 0, %624 ], [ 0, %610 ], [ 0, %595 ], [ 0, %583 ], [ 0, %560 ], [ 0, %678 ], [ 0, %660 ], [ 0, %666 ]
+.thread960:                                       ; preds = %660, %666, %678, %560, %583, %595, %610, %624, %481, %504, %516, %531, %545, %436, %442, %456, %402, %408, %422, %374, %388, %341, %355, %308, %322, %269, %283, %243, %196, %181, %114, %128, %142, %161, %69, %91, %24, %46, %642, %638, %636, %629, %469, %464, %360, %327, %294, %290, %.critedge1000, %255, %251, %.critedge996, %229, %227, %220, %212, %208, %204, %.critedge994, %169, %.critedge989, %102, %77, %.critedge981, %57, %32, %.critedge977, %.thread935, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread935 ], [ 0, %32 ], [ 0, %.critedge977 ], [ 0, %638 ], [ 0, %642 ], [ 0, %77 ], [ 0, %.critedge981 ], [ 0, %57 ], [ 0, %102 ], [ 0, %.critedge989 ], [ 0, %169 ], [ 0, %204 ], [ 0, %.critedge994 ], [ 0, %220 ], [ 0, %212 ], [ 0, %208 ], [ 0, %229 ], [ 0, %227 ], [ 0, %255 ], [ 0, %251 ], [ 0, %.critedge996 ], [ 0, %290 ], [ 0, %.critedge1000 ], [ 0, %294 ], [ 0, %327 ], [ 0, %464 ], [ 0, %360 ], [ 0, %629 ], [ 0, %469 ], [ 0, %636 ], [ 0, %678 ], [ 0, %46 ], [ 0, %24 ], [ 0, %91 ], [ 0, %69 ], [ 0, %161 ], [ 0, %142 ], [ 0, %128 ], [ 0, %114 ], [ 0, %181 ], [ 0, %196 ], [ 0, %243 ], [ 0, %283 ], [ 0, %269 ], [ 0, %322 ], [ 0, %308 ], [ 0, %355 ], [ 0, %341 ], [ 0, %388 ], [ 0, %374 ], [ 0, %422 ], [ 0, %402 ], [ 0, %456 ], [ 0, %436 ], [ 0, %545 ], [ 0, %531 ], [ 0, %516 ], [ 0, %504 ], [ 0, %481 ], [ 0, %624 ], [ 0, %610 ], [ 0, %595 ], [ 0, %583 ], [ 0, %560 ], [ 0, %408 ], [ 0, %442 ], [ 0, %666 ], [ 0, %660 ]
   ret i32 %.0
 }
 
@@ -3733,8 +3733,8 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   store i32 %462, ptr %4, align 4, !tbaa !24
   br label %.thread530
 
-.thread530:                                       ; preds = %436, %421, %373, %333, %347, %312, %.critedge572, %263, %260, %277, %.critedge570, %220, %217, %234, %.critedge568, %173, %170, %187, %.critedge566, %130, %127, %144, %104, %75, %89, %24, %457, %.critedge584, %409, %404, %399, %392, %390, %386, %382, %378, %361, %354, %319, %.critedge574, %298, %294, %292, %285, %242, %199, %195, %152, %109, %61, %57, %53, %49, %45, %43, %39, %37, %33, %29, %.thread, %450, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ %456, %450 ], [ 0, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %43 ], [ 0, %45 ], [ 0, %49 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ], [ 0, %109 ], [ 0, %152 ], [ 0, %195 ], [ 0, %199 ], [ 0, %242 ], [ 0, %285 ], [ 0, %292 ], [ 0, %294 ], [ 0, %298 ], [ 0, %.critedge574 ], [ 0, %319 ], [ 0, %354 ], [ 0, %361 ], [ 0, %378 ], [ 0, %382 ], [ 0, %386 ], [ 0, %390 ], [ 0, %392 ], [ 0, %399 ], [ 0, %404 ], [ 0, %409 ], [ 0, %.critedge584 ], [ 0, %457 ], [ 0, %24 ], [ 0, %89 ], [ 0, %75 ], [ 0, %104 ], [ 0, %144 ], [ 0, %127 ], [ 0, %130 ], [ 0, %.critedge566 ], [ 0, %187 ], [ 0, %170 ], [ 0, %173 ], [ 0, %.critedge568 ], [ 0, %234 ], [ 0, %217 ], [ 0, %220 ], [ 0, %.critedge570 ], [ 0, %277 ], [ 0, %260 ], [ 0, %263 ], [ 0, %.critedge572 ], [ 0, %312 ], [ 0, %347 ], [ 0, %333 ], [ 0, %373 ], [ 0, %421 ], [ 0, %436 ]
+.thread530:                                       ; preds = %436, %421, %373, %333, %347, %312, %.critedge572, %260, %263, %277, %.critedge570, %217, %220, %234, %.critedge568, %170, %173, %187, %.critedge566, %127, %130, %144, %104, %75, %89, %24, %457, %.critedge584, %409, %404, %399, %392, %390, %386, %382, %378, %361, %354, %319, %.critedge574, %298, %294, %292, %285, %242, %199, %195, %152, %109, %61, %57, %53, %49, %45, %43, %39, %37, %33, %29, %.thread, %450, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ 0, %457 ], [ 0, %33 ], [ 0, %29 ], [ 0, %.critedge584 ], [ 0, %39 ], [ 0, %37 ], [ 0, %45 ], [ 0, %43 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ], [ 0, %61 ], [ 0, %109 ], [ 0, %195 ], [ 0, %152 ], [ 0, %199 ], [ 0, %242 ], [ 0, %285 ], [ 0, %292 ], [ 0, %298 ], [ 0, %294 ], [ 0, %.critedge574 ], [ 0, %354 ], [ 0, %319 ], [ 0, %361 ], [ 0, %386 ], [ 0, %382 ], [ 0, %378 ], [ 0, %390 ], [ 0, %404 ], [ 0, %399 ], [ 0, %392 ], [ 0, %409 ], [ %456, %450 ], [ 0, %421 ], [ 0, %24 ], [ 0, %89 ], [ 0, %75 ], [ 0, %104 ], [ 0, %144 ], [ 0, %.critedge566 ], [ 0, %187 ], [ 0, %.critedge568 ], [ 0, %234 ], [ 0, %.critedge570 ], [ 0, %277 ], [ 0, %.critedge572 ], [ 0, %312 ], [ 0, %347 ], [ 0, %333 ], [ 0, %373 ], [ 0, %130 ], [ 0, %127 ], [ 0, %173 ], [ 0, %170 ], [ 0, %220 ], [ 0, %217 ], [ 0, %263 ], [ 0, %260 ], [ 0, %436 ]
   ret i32 %.0
 }
 
@@ -3803,7 +3803,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_type_param(ptr noundef nonnu
   br label %26
 
 26:                                               ; preds = %23, %18, %13, %8, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %8 ], [ 0, %13 ], [ 0, %18 ], [ 0, %23 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %8 ], [ 0, %18 ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -4070,7 +4070,7 @@ astfold_arg.exit:                                 ; preds = %100, %97, %93, %.cr
   br i1 %115, label %.lr.ph188, label %astfold_arg.exit138.thread, !llvm.loop !94
 
 astfold_arg.exit138.thread:                       ; preds = %19, %40, %72, %86, %111, %.critedge127, %100, %astfold_arg.exit, %.split, %54
-  %.3 = phi i32 [ 0, %54 ], [ 1, %astfold_arg.exit ], [ 1, %.split ], [ 0, %100 ], [ 0, %111 ], [ 1, %.critedge127 ], [ 0, %86 ], [ 0, %72 ], [ 0, %40 ], [ 0, %19 ]
+  %.3 = phi i32 [ 0, %54 ], [ 1, %astfold_arg.exit ], [ 1, %.split ], [ 0, %100 ], [ 0, %40 ], [ 1, %.critedge127 ], [ 0, %86 ], [ 0, %72 ], [ 0, %111 ], [ 0, %19 ]
   ret i32 %.3
 }
 
@@ -4253,7 +4253,7 @@ make_const_tuple.exit45.thread6:                  ; preds = %_Py_NewRef.exit.i38
   br label %make_const_tuple.exit
 
 make_const_tuple.exit:                            ; preds = %74, %71, %make_const_tuple.exit45.thread6, %.loopexit.thread.i
-  %.122 = phi ptr [ %16, %.loopexit.thread.i ], [ %69, %make_const_tuple.exit45.thread6 ], [ %69, %71 ], [ %69, %74 ]
+  %.122 = phi ptr [ %69, %74 ], [ %69, %make_const_tuple.exit45.thread6 ], [ %69, %71 ], [ %16, %.loopexit.thread.i ]
   %75 = icmp eq ptr %.122, null
   br i1 %75, label %make_const_tuple.exit.thread, label %make_const_tuple.exit.thread12
 
@@ -4297,7 +4297,7 @@ make_const_tuple.exit.thread12:                   ; preds = %_Py_NewRef.exit.i, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %87, %86, %83, %81, %78, %make_const_tuple.exit.thread, %2
-  %.1 = phi i32 [ 1, %2 ], [ 1, %78 ], [ 1, %87 ], [ 0, %make_const_tuple.exit.thread ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 1, %.lr.ph.i ]
+  %.1 = phi i32 [ 1, %2 ], [ 1, %87 ], [ 1, %78 ], [ 0, %make_const_tuple.exit.thread ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 1, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -4347,7 +4347,7 @@ define internal fastcc range(i32 0, 2) i32 @make_const(ptr noundef writeonly cap
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %17, %14, %12, %5, %18, %8
-  %.0 = phi i32 [ 1, %8 ], [ 1, %18 ], [ 0, %5 ], [ 0, %12 ], [ 0, %14 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %8 ], [ 0, %5 ], [ 0, %12 ], [ 0, %14 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -4630,7 +4630,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %90, %43, %57, %28, %110, %98, %62, %14, %.thread, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ 0, %14 ], [ 0, %62 ], [ 0, %98 ], [ 0, %110 ], [ 0, %28 ], [ 0, %57 ], [ 0, %43 ], [ 0, %90 ], [ 0, %76 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ 0, %62 ], [ 0, %98 ], [ 0, %14 ], [ 0, %90 ], [ 0, %110 ], [ 0, %28 ], [ 0, %57 ], [ 0, %43 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -4831,8 +4831,8 @@ PyUnicode_READ.exit52.i.i:                        ; preds = %78
   br i1 %86, label %PyUnicode_READ.exit.i.i, label %._crit_edge.i.i, !llvm.loop !113
 
 ._crit_edge.i.i:                                  ; preds = %73, %PyUnicode_READ.exit52.us72.i.i, %66, %61, %PyUnicode_READ.exit52.us.i.i, %54, %85, %PyUnicode_READ.exit52.i.i, %78
-  %.032.lcssa.i.i = phi i32 [ %.03253.i.i, %78 ], [ %.03253.i.i, %PyUnicode_READ.exit52.i.i ], [ %.133.i.i, %85 ], [ %.03253.us.i.i, %54 ], [ %.03253.us.i.i, %PyUnicode_READ.exit52.us.i.i ], [ %.133.us.i.i, %61 ], [ %.03253.us68.i.i, %66 ], [ %.03253.us68.i.i, %PyUnicode_READ.exit52.us72.i.i ], [ %.133.us74.i.i, %73 ]
-  %.030.lcssa.i.i = phi i64 [ %.03054.i.i, %78 ], [ %.03054.i.i, %PyUnicode_READ.exit52.i.i ], [ %.131.i.i, %85 ], [ %.03054.us.i.i, %54 ], [ %.03054.us.i.i, %PyUnicode_READ.exit52.us.i.i ], [ %.131.us.i.i, %61 ], [ %.03054.us67.i.i, %66 ], [ %.03054.us67.i.i, %PyUnicode_READ.exit52.us72.i.i ], [ %.131.us75.i.i, %73 ]
+  %.032.lcssa.i.i = phi i32 [ %.03253.us.i.i, %PyUnicode_READ.exit52.us.i.i ], [ %.03253.i.i, %78 ], [ %.03253.i.i, %PyUnicode_READ.exit52.i.i ], [ %.133.i.i, %85 ], [ %.133.us.i.i, %61 ], [ %.03253.us.i.i, %54 ], [ %.03253.us68.i.i, %66 ], [ %.133.us74.i.i, %73 ], [ %.03253.us68.i.i, %PyUnicode_READ.exit52.us72.i.i ]
+  %.030.lcssa.i.i = phi i64 [ %.03054.us.i.i, %PyUnicode_READ.exit52.us.i.i ], [ %.03054.i.i, %78 ], [ %.03054.i.i, %PyUnicode_READ.exit52.i.i ], [ %.131.i.i, %85 ], [ %.131.us.i.i, %61 ], [ %.03054.us.i.i, %54 ], [ %.03054.us67.i.i, %66 ], [ %.131.us75.i.i, %73 ], [ %.03054.us67.i.i, %PyUnicode_READ.exit52.us72.i.i ]
   %87 = icmp eq i64 %.030.lcssa.i.i, %.064.i
   br i1 %87, label %parse_literal.exit.thread.i, label %88
 
@@ -4976,7 +4976,7 @@ _PyUnicode_DATA.exit.i.i.us.us.i.i:               ; preds = %.backedge.i.us.us.i
   br label %.backedge.i.us.us.i.i
 
 .backedge.i.us.us.i.i:                            ; preds = %134, %133, %132, %131, %_PyUnicode_DATA.exit.i.i.us.us.i.i
-  %.sink181.i.us.us.i.i = phi i32 [ 1, %134 ], [ 4, %133 ], [ 8, %132 ], [ 16, %131 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.us.i.i ]
+  %.sink181.i.us.us.i.i = phi i32 [ 1, %134 ], [ 16, %131 ], [ 4, %133 ], [ 8, %132 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.us.i.i ]
   %135 = or i32 %.sink181.i.us.us.i.i, %.051.us.us.i.i
   %exitcond.not.i.us.us.i.i = icmp eq i64 %130, %.val.i
   br i1 %exitcond.not.i.us.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit.i.i.us.us.i.i
@@ -5008,7 +5008,7 @@ _PyUnicode_DATA.exit.i.i.us.i.i:                  ; preds = %.lr.ph.i.split.us.i
   br label %.backedge.i.us.i.i
 
 .backedge.i.us.i.i:                               ; preds = %142, %141, %140, %139, %_PyUnicode_DATA.exit.i.i.us.i.i
-  %.sink181.i.us.i.i = phi i32 [ 1, %142 ], [ 4, %141 ], [ 8, %140 ], [ 16, %139 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.i.i ]
+  %.sink181.i.us.i.i = phi i32 [ 1, %142 ], [ 16, %139 ], [ 4, %141 ], [ 8, %140 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.i.i ]
   %143 = or i32 %.sink181.i.us.i.i, %.051.us.i.i
   %exitcond.not.i.us.i.i = icmp eq i64 %138, %.val.i
   br i1 %exitcond.not.i.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit.i.i.us.i.i
@@ -5047,7 +5047,7 @@ _PyUnicode_DATA.exit17.i.i.us.us.i.i:             ; preds = %.backedge.i.us88.us
   br label %.backedge.i.us88.us.i.i
 
 .backedge.i.us88.us.i.i:                          ; preds = %150, %149, %148, %147, %_PyUnicode_DATA.exit17.i.i.us.us.i.i
-  %.sink181.i.us89.us.i.i = phi i32 [ 1, %150 ], [ 4, %149 ], [ 8, %148 ], [ 16, %147 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.us.i.i ]
+  %.sink181.i.us89.us.i.i = phi i32 [ 1, %150 ], [ 16, %147 ], [ 4, %149 ], [ 8, %148 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.us.i.i ]
   %151 = or i32 %.sink181.i.us89.us.i.i, %.051.us84.us.i.i
   %exitcond.not.i.us90.us.i.i = icmp eq i64 %146, %.val.i
   br i1 %exitcond.not.i.us90.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit17.i.i.us.us.i.i
@@ -5079,7 +5079,7 @@ _PyUnicode_DATA.exit17.i.i.us.i.i:                ; preds = %.lr.ph.i.split.us83
   br label %.backedge.i.us88.i.i
 
 .backedge.i.us88.i.i:                             ; preds = %158, %157, %156, %155, %_PyUnicode_DATA.exit17.i.i.us.i.i
-  %.sink181.i.us89.i.i = phi i32 [ 1, %158 ], [ 4, %157 ], [ 8, %156 ], [ 16, %155 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.i.i ]
+  %.sink181.i.us89.i.i = phi i32 [ 1, %158 ], [ 16, %155 ], [ 4, %157 ], [ 8, %156 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.i.i ]
   %159 = or i32 %.sink181.i.us89.i.i, %.051.us84.i.i
   %exitcond.not.i.us90.i.i = icmp eq i64 %154, %.val.i
   br i1 %exitcond.not.i.us90.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit17.i.i.us.i.i
@@ -5118,7 +5118,7 @@ _PyUnicode_DATA.exit25.i.i.us.i.i:                ; preds = %.backedge.i.us105.i
   br label %.backedge.i.us105.i.i
 
 .backedge.i.us105.i.i:                            ; preds = %166, %165, %164, %163, %_PyUnicode_DATA.exit25.i.i.us.i.i
-  %.sink181.i.us106.i.i = phi i32 [ 1, %166 ], [ 4, %165 ], [ 8, %164 ], [ 16, %163 ], [ 2, %_PyUnicode_DATA.exit25.i.i.us.i.i ]
+  %.sink181.i.us106.i.i = phi i32 [ 1, %166 ], [ 16, %163 ], [ 4, %165 ], [ 8, %164 ], [ 2, %_PyUnicode_DATA.exit25.i.i.us.i.i ]
   %167 = or i32 %.sink181.i.us106.i.i, %.051.us103.i.i
   %exitcond.not.i.us107.i.i = icmp eq i64 %162, %.val.i
   br i1 %exitcond.not.i.us107.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit25.i.i.us.i.i
@@ -5141,7 +5141,7 @@ _PyUnicode_DATA.exit25.i.i.i.i:                   ; preds = %.lr.ph.i.split.i.i,
   br label %.backedge.i.i.i
 
 .backedge.i.i.i:                                  ; preds = %175, %174, %173, %171, %_PyUnicode_DATA.exit25.i.i.i.i
-  %.sink181.i.i.i = phi i32 [ 1, %171 ], [ 4, %173 ], [ 8, %174 ], [ 16, %175 ], [ 2, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %.sink181.i.i.i = phi i32 [ 1, %171 ], [ 16, %175 ], [ 4, %173 ], [ 8, %174 ], [ 2, %_PyUnicode_DATA.exit25.i.i.i.i ]
   %172 = or i32 %.sink181.i.i.i, %.051.i.i
   %exitcond.not.i.i.i = icmp eq i64 %170, %.val.i
   br i1 %exitcond.not.i.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit25.i.i.i.i
@@ -5172,10 +5172,10 @@ _PyUnicode_DATA.exit25.i.i.i.i:                   ; preds = %.lr.ph.i.split.i.i,
   br label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %_PyUnicode_DATA.exit25.i.i.i.i, %_PyUnicode_DATA.exit25.i.i.us.i.i, %.split.us.loopexit142.i.i, %.split.us.loopexit140.i.i, %.split.us.loopexit138.i.i, %.split.us.loopexit136.i.i
-  %.us-phi.i.i = phi i32 [ %176, %.split.us.loopexit136.i.i ], [ %177, %.split.us.loopexit138.i.i ], [ %178, %.split.us.loopexit140.i.i ], [ %179, %.split.us.loopexit142.i.i ], [ %161, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %169, %_PyUnicode_DATA.exit25.i.i.i.i ]
-  %.us-phi78.i.i = phi i64 [ %130, %.split.us.loopexit136.i.i ], [ %138, %.split.us.loopexit138.i.i ], [ %146, %.split.us.loopexit140.i.i ], [ %154, %.split.us.loopexit142.i.i ], [ %162, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %170, %_PyUnicode_DATA.exit25.i.i.i.i ]
-  %.us-phi79.i.i = phi i32 [ %.051.us.us.i.i, %.split.us.loopexit136.i.i ], [ %.051.us.i.i, %.split.us.loopexit138.i.i ], [ %.051.us84.us.i.i, %.split.us.loopexit140.i.i ], [ %.051.us84.i.i, %.split.us.loopexit142.i.i ], [ %.051.us103.i.i, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %.051.i.i, %_PyUnicode_DATA.exit25.i.i.i.i ]
-  %.us-phi82.i.i = phi i1 [ true, %.split.us.loopexit136.i.i ], [ false, %.split.us.loopexit138.i.i ], [ true, %.split.us.loopexit140.i.i ], [ false, %.split.us.loopexit142.i.i ], [ true, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ false, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %.us-phi.i.i = phi i32 [ %179, %.split.us.loopexit142.i.i ], [ %176, %.split.us.loopexit136.i.i ], [ %177, %.split.us.loopexit138.i.i ], [ %178, %.split.us.loopexit140.i.i ], [ %161, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %169, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %.us-phi78.i.i = phi i64 [ %154, %.split.us.loopexit142.i.i ], [ %130, %.split.us.loopexit136.i.i ], [ %138, %.split.us.loopexit138.i.i ], [ %146, %.split.us.loopexit140.i.i ], [ %162, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %170, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %.us-phi79.i.i = phi i32 [ %.051.us84.i.i, %.split.us.loopexit142.i.i ], [ %.051.us.us.i.i, %.split.us.loopexit136.i.i ], [ %.051.us.i.i, %.split.us.loopexit138.i.i ], [ %.051.us84.us.i.i, %.split.us.loopexit140.i.i ], [ %.051.us103.i.i, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ %.051.i.i, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %.us-phi82.i.i = phi i1 [ false, %.split.us.loopexit142.i.i ], [ true, %.split.us.loopexit136.i.i ], [ false, %.split.us.loopexit138.i.i ], [ true, %.split.us.loopexit140.i.i ], [ true, %_PyUnicode_DATA.exit25.i.i.us.i.i ], [ false, %_PyUnicode_DATA.exit25.i.i.i.i ]
   %180 = add i32 %.us-phi.i.i, -48
   %or.cond.i.i.i = icmp ult i32 %180, 10
   br i1 %or.cond.i.i.i, label %.preheader.i.i, label %.loopexit149.i.i.i
@@ -5608,7 +5608,7 @@ has_starred.exit:                                 ; preds = %.lr.ph.i, %9
   br label %safe_mod.exit
 
 safe_mod.exit:                                    ; preds = %327, %339, %337, %335, %333, %331, %329, %321, %319, %317, %315, %313
-  %.0 = phi ptr [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %328, %327 ]
+  %.0 = phi ptr [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %340, %339 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %328, %327 ]
   %341 = icmp eq ptr %.0, null
   br i1 %341, label %safe_mod.exit.thread, label %345
 
@@ -5649,7 +5649,7 @@ safe_mod.exit.thread:                             ; preds = %323, %310, %safe_mo
   br label %optimize_format.exit
 
 optimize_format.exit:                             ; preds = %118, %parse_literal.exit.thread.i, %16, %354, %353, %350, %348, %344, %safe_mod.exit.thread, %309, %299, %296, %parse_format.exit.thread.i, %34, %has_starred.exit, %310, %2
-  %.042 = phi i32 [ 1, %2 ], [ 1, %has_starred.exit ], [ 1, %310 ], [ 0, %34 ], [ 1, %296 ], [ 1, %309 ], [ 0, %299 ], [ %287, %parse_format.exit.thread.i ], [ 1, %344 ], [ 1, %354 ], [ 0, %safe_mod.exit.thread ], [ 0, %348 ], [ 0, %350 ], [ 0, %353 ], [ 1, %16 ], [ 1, %118 ], [ 0, %parse_literal.exit.thread.i ]
+  %.042 = phi i32 [ 1, %2 ], [ 1, %310 ], [ 1, %has_starred.exit ], [ 0, %350 ], [ 0, %299 ], [ 0, %34 ], [ 1, %296 ], [ 1, %309 ], [ %287, %parse_format.exit.thread.i ], [ 0, %353 ], [ 1, %354 ], [ 1, %344 ], [ 0, %safe_mod.exit.thread ], [ 0, %348 ], [ 1, %16 ], [ 1, %118 ], [ 0, %parse_literal.exit.thread.i ]
   ret i32 %.042
 }
 
@@ -5762,7 +5762,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr noundef captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %18, %18, %18, %18, %18, %18, %45, %44, %41, %39, %35, %32, %.thread, %8, %15, %11
-  %.1 = phi i32 [ 1, %11 ], [ 1, %.thread ], [ 1, %15 ], [ 1, %8 ], [ 1, %35 ], [ 1, %45 ], [ 0, %32 ], [ 0, %39 ], [ 0, %41 ], [ 0, %44 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ]
+  %.1 = phi i32 [ 0, %44 ], [ 1, %8 ], [ 1, %18 ], [ 1, %11 ], [ 1, %.thread ], [ 1, %15 ], [ 1, %45 ], [ 1, %35 ], [ 0, %32 ], [ 0, %39 ], [ 0, %41 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ], [ 1, %18 ]
   ret i32 %.1
 }
 
@@ -5868,7 +5868,7 @@ define internal fastcc range(i32 0, 2) i32 @fold_subscr(ptr noundef captures(non
   br label %make_const.exit
 
 make_const.exit:                                  ; preds = %33, %32, %29, %27, %23, %20, %2, %9, %11
-  %.0 = phi i32 [ 1, %11 ], [ 1, %9 ], [ 1, %2 ], [ 1, %23 ], [ 1, %33 ], [ 0, %20 ], [ 0, %27 ], [ 0, %29 ], [ 0, %32 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %11 ], [ 1, %9 ], [ 1, %33 ], [ 1, %23 ], [ 0, %20 ], [ 0, %27 ], [ 0, %29 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -5983,7 +5983,7 @@ make_const_tuple.exit.thread3:                    ; preds = %_Py_NewRef.exit.i, 
   br label %make_const.exit
 
 make_const.exit:                                  ; preds = %47, %46, %43, %41, %38, %make_const_tuple.exit.thread, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %38 ], [ 1, %47 ], [ 0, %make_const_tuple.exit.thread ], [ 0, %41 ], [ 0, %43 ], [ 0, %46 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %47 ], [ 1, %38 ], [ 0, %make_const_tuple.exit.thread ], [ 0, %41 ], [ 0, %43 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -6106,8 +6106,8 @@ tailrecurse:                                      ; preds = %.thread100, %2
   %42 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.tr, ptr noundef nonnull %.tr106) #8
   br label %.thread98
 
-.thread98:                                        ; preds = %37, %25, %22, %29, %13, %.critedge67, %.critedge
-  %.1 = phi ptr [ %42, %.critedge ], [ null, %.critedge67 ], [ null, %13 ], [ null, %29 ], [ null, %22 ], [ null, %25 ], [ null, %37 ]
+.thread98:                                        ; preds = %37, %22, %29, %25, %13, %.critedge67, %.critedge
+  %.1 = phi ptr [ %42, %.critedge ], [ null, %22 ], [ null, %.critedge67 ], [ null, %37 ], [ null, %13 ], [ null, %25 ], [ null, %29 ]
   ret ptr %.1
 }
 
@@ -6219,7 +6219,7 @@ define internal fastcc ptr @safe_lshift(ptr noundef %0, ptr noundef %1) unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %22, %18, %26
-  %.1 = phi ptr [ %27, %26 ], [ null, %18 ], [ null, %22 ]
+  %.1 = phi ptr [ %27, %26 ], [ null, %22 ], [ null, %18 ]
   ret ptr %.1
 }
 

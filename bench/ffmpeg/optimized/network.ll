@@ -372,7 +372,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_accept(i32 noundef %0, i32 no
   br label %21
 
 21:                                               ; preds = %17, %20, %3, %13
-  %.0 = phi i32 [ %16, %13 ], [ %8, %3 ], [ %11, %20 ], [ %11, %17 ]
+  %.0 = phi i32 [ %8, %3 ], [ %16, %13 ], [ %11, %20 ], [ %11, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1294,7 +1294,7 @@ match_host_pattern.exit.thread:                   ; preds = %31, %29, %.tail.i, 
   br label %37
 
 37:                                               ; preds = %3, %2, %match_host_pattern.exit.thread
-  %.019 = phi i32 [ %.1, %match_host_pattern.exit.thread ], [ 0, %2 ], [ 0, %3 ]
+  %.019 = phi i32 [ %.1, %match_host_pattern.exit.thread ], [ 0, %3 ], [ 0, %2 ]
   ret i32 %.019
 }
 

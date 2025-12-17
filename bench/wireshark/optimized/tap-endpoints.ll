@@ -167,8 +167,8 @@ sub_175:                                          ; preds = %sub_0
   br label %.lr.ph88.us
 
 .critedge2.us:                                    ; preds = %70, %.lr.ph88.us
-  %37 = phi ptr [ %42, %.lr.ph88.us ], [ null, %70 ]
-  %38 = phi ptr [ %43, %.lr.ph88.us ], [ null, %70 ]
+  %37 = phi ptr [ null, %70 ], [ %42, %.lr.ph88.us ]
+  %38 = phi ptr [ null, %70 ], [ %43, %.lr.ph88.us ]
   %.not71.us = icmp eq i64 %.0.lcssa.us.ph, 0
   br i1 %.not71.us, label %.split94.us, label %.split.us, !llvm.loop !7
 
@@ -310,8 +310,8 @@ sub_175:                                          ; preds = %sub_0
   br i1 %.not70, label %.critedge2, label %.lr.ph88, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph88, %113
-  %115 = phi ptr [ null, %113 ], [ %86, %.lr.ph88 ]
-  %116 = phi ptr [ null, %113 ], [ %87, %.lr.ph88 ]
+  %115 = phi ptr [ %86, %.lr.ph88 ], [ null, %113 ]
+  %116 = phi ptr [ %87, %.lr.ph88 ], [ null, %113 ]
   %.not71 = icmp eq i64 %.0.lcssa.ph, 0
   br i1 %.not71, label %.split94.us, label %.split, !llvm.loop !7
 

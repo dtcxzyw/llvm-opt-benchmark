@@ -1265,7 +1265,7 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN5alloc11colle
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31
   unreachable
 
-44:                                               ; preds = %14, %19
+44:                                               ; preds = %19, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb7c44742499c6655E.llvm.8982795422203727417"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1) #30
@@ -1372,7 +1372,7 @@ define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN5alloc11coll
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31
   unreachable
 
-43:                                               ; preds = %14, %19
+43:                                               ; preds = %19, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %44 = load i64, ptr %1, align 8, !range !159, !alias.scope !347, !noundef !4
@@ -1470,7 +1470,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31
   unreachable
 
-33:                                               ; preds = %11, %16
+33:                                               ; preds = %16, %11
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdc6ea7face82e6cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #30
@@ -2319,7 +2319,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h8e51ec7d7c492860E.llvm.8982795422203727417.exit47" unwind label %103
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h8e51ec7d7c492860E.llvm.8982795422203727417.exit47": ; preds = %.body, %72, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h8e51ec7d7c492860E.llvm.8982795422203727417.exit31", %106, %110, %.body41, %111, %114
-  %.pn2766 = phi { ptr, i32 } [ %.pn2770, %114 ], [ %.pn2770, %111 ], [ %eh.lpad-body42, %.body41 ], [ %107, %110 ], [ %107, %106 ], [ %50, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h8e51ec7d7c492860E.llvm.8982795422203727417.exit31" ], [ %67, %72 ], [ %67, %.body ]
+  %.pn2766 = phi { ptr, i32 } [ %.pn2770, %111 ], [ %67, %.body ], [ %.pn2770, %114 ], [ %67, %72 ], [ %107, %106 ], [ %eh.lpad-body42, %.body41 ], [ %107, %110 ], [ %50, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h8e51ec7d7c492860E.llvm.8982795422203727417.exit31" ]
   resume { ptr, i32 } %.pn2766
 
 111:                                              ; preds = %.thread72, %.thread67
@@ -2672,7 +2672,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h03c37b8f4a80
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -2852,7 +2852,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h30cb6610a5b0
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3032,7 +3032,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h31d4596cfa74
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3212,7 +3212,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h6a5f76436726
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3392,7 +3392,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17haa86a1404924
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3572,7 +3572,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17haaae2fe37d41
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3754,7 +3754,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc447afc03fdf
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -3934,7 +3934,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hdded57499668
   br label %43
 
 .body.thread:                                     ; preds = %56, %59, %35, %31
-  %eh.lpad-body20 = phi { ptr, i32 } [ %32, %31 ], [ %32, %35 ], [ %lpad.thr_comm.split-lp, %59 ], [ %lpad.thr_comm.split-lp, %56 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %56 ], [ %32, %35 ], [ %32, %31 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 56:                                               ; preds = %22, %6
@@ -4841,8 +4841,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
           to label %192 unwind label %190
 
 "_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hcfebf8dd55cc961eE.exit98": ; preds = %248, %240, %190, %186
-  %.sroa.011.4 = phi i8 [ 0, %240 ], [ 1, %190 ], [ 1, %186 ], [ 0, %248 ]
-  %.pn61.pn = phi { ptr, i32 } [ %241, %240 ], [ %191, %190 ], [ %.pn59, %186 ], [ %.pn61.ph, %248 ]
+  %.sroa.011.4 = phi i8 [ 1, %186 ], [ 0, %240 ], [ 1, %190 ], [ 0, %248 ]
+  %.pn61.pn = phi { ptr, i32 } [ %.pn59, %186 ], [ %241, %240 ], [ %191, %190 ], [ %.pn61.ph, %248 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$task..task_template..TaskTemplate$GT$17h47ef5d46f89e29c6E"(ptr noalias noundef nonnull align 8 dereferenceable(208) %18) #30
           to label %.thread136 unwind label %133
 
@@ -5098,15 +5098,15 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   br i1 %or.cond5, label %276, label %.thread178
 
 .thread:                                          ; preds = %.thread173, %.thread136._crit_edge, %269, %136
-  %.pn69133 = phi { ptr, i32 } [ %.pn, %269 ], [ %.pn66.pn, %136 ], [ %.pn61.pn.pn.pn143, %.thread136._crit_edge ], [ %lpad.thr_comm, %.thread173 ]
-  %.sroa.011.1131 = phi i8 [ 1, %269 ], [ 1, %136 ], [ %.sroa.011.2142, %.thread136._crit_edge ], [ 1, %.thread173 ]
-  %.sroa.020.1129 = phi i1 [ false, %269 ], [ false, %136 ], [ false, %.thread136._crit_edge ], [ true, %.thread173 ]
+  %.pn69133 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread173 ], [ %.pn66.pn, %136 ], [ %.pn, %269 ], [ %.pn61.pn.pn.pn143, %.thread136._crit_edge ]
+  %.sroa.011.1131 = phi i8 [ 1, %.thread173 ], [ 1, %136 ], [ 1, %269 ], [ %.sroa.011.2142, %.thread136._crit_edge ]
+  %.sroa.020.1129 = phi i1 [ true, %.thread173 ], [ false, %136 ], [ false, %269 ], [ false, %.thread136._crit_edge ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdc6ea7face82e6cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #30
           to label %271 unwind label %133
 
 .thread178:                                       ; preds = %.thread136._crit_edge, %66, %276, %271
-  %.sroa.011.1130184 = phi i8 [ %.sroa.011.1131, %276 ], [ %.sroa.011.1131, %271 ], [ %.sroa.011.2142, %.thread136._crit_edge ], [ %.sroa.011.5, %66 ]
-  %.pn69132183 = phi { ptr, i32 } [ %.pn69133, %276 ], [ %.pn69133, %271 ], [ %.pn61.pn.pn.pn143, %.thread136._crit_edge ], [ %lpad.thr_comm.split-lp, %66 ]
+  %.sroa.011.1130184 = phi i8 [ %.sroa.011.1131, %271 ], [ %.sroa.011.1131, %276 ], [ %.sroa.011.2142, %.thread136._crit_edge ], [ %.sroa.011.5, %66 ]
+  %.pn69132183 = phi { ptr, i32 } [ %.pn69133, %271 ], [ %.pn69133, %276 ], [ %.pn61.pn.pn.pn143, %.thread136._crit_edge ], [ %lpad.thr_comm.split-lp, %66 ]
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 160
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hdc284940b84ee9a0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %30, ptr noalias noundef nonnull readonly align 1 %275, i64 noundef 96, i64 noundef 16)
           to label %"_ZN4core3ptr182drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json_lenient..value..Value$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hcd89fa9bba6814daE.exit101" unwind label %133
@@ -5822,8 +5822,8 @@ define { ptr, i64 } @_ZN4task13TaskVariables3get17hb8cf6404a6ab57f9E(ptr noalias
   br label %.split.i.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc8c2dc3648b20494E.exit": ; preds = %.lr.ph.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4aa94d67320abdbdE.exit.us.i.i", %42
-  %76 = phi ptr [ %26, %42 ], [ %26, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4aa94d67320abdbdE.exit.us.i.i" ], [ %17, %.lr.ph.i.i ]
-  %.pre-phi.i.i = phi i64 [ %35, %42 ], [ %35, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4aa94d67320abdbdE.exit.us.i.i" ], [ %61, %.lr.ph.i.i ]
+  %76 = phi ptr [ %26, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4aa94d67320abdbdE.exit.us.i.i" ], [ %26, %42 ], [ %17, %.lr.ph.i.i ]
+  %.pre-phi.i.i = phi i64 [ %35, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4aa94d67320abdbdE.exit.us.i.i" ], [ %35, %42 ], [ %61, %.lr.ph.i.i ]
   %77 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, ptr %76, i64 %.pre-phi.i.i
   %78 = getelementptr inbounds i8, ptr %77, i64 -16
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4

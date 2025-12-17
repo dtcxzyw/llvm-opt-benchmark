@@ -595,7 +595,7 @@ getInfo.exit.loopexit.i:                          ; preds = %96
   br label %getRotation.exit.i.i
 
 getRotation.exit.i.i:                             ; preds = %319, %304, %._crit_edge.i.i.i, %259, %257, %250
-  %.0.i.i.i = phi double [ %.070.i.i.i, %250 ], [ %258, %257 ], [ %318, %304 ], [ %.2.i.i.i, %319 ], [ 0.000000e+00, %._crit_edge.i.i.i ], [ 0.000000e+00, %259 ]
+  %.0.i.i.i = phi double [ %.070.i.i.i, %250 ], [ %258, %257 ], [ %.2.i.i.i, %319 ], [ %318, %304 ], [ 0.000000e+00, %._crit_edge.i.i.i ], [ 0.000000e+00, %259 ]
   call fastcc void @applyDelta(ptr noundef nonnull %.079108.i.i, double noundef %242, double noundef %244, double noundef %.0.i.i.i)
   %.pn.i.i = fadd double %.pn100.i.i, %229
   %.5.i.i = fadd double %.pn.i.i, %.4.i.i
@@ -651,9 +651,9 @@ positionChildren.exit.i:                          ; preds = %340, %337, %._crit_
   br label %._crit_edge102.i
 
 ._crit_edge102.i:                                 ; preds = %._crit_edge102.loopexit.i, %.preheader.i, %gv_calloc.exit.i
-  %.077.lcssa132141.i = phi double [ %.077.lcssa.i, %._crit_edge102.loopexit.i ], [ %.077.lcssa.i, %.preheader.i ], [ 0.000000e+00, %gv_calloc.exit.i ]
-  %.sroa.10.0.lcssa.i = phi double [ %350, %._crit_edge102.loopexit.i ], [ 0xC01090FDAA22168C, %.preheader.i ], [ 0xC01090FDAA22168C, %gv_calloc.exit.i ]
-  %.sroa.4.0.lcssa.i = phi double [ %347, %._crit_edge102.loopexit.i ], [ %24, %.preheader.i ], [ %24, %gv_calloc.exit.i ]
+  %.077.lcssa132141.i = phi double [ 0.000000e+00, %gv_calloc.exit.i ], [ %.077.lcssa.i, %._crit_edge102.loopexit.i ], [ %.077.lcssa.i, %.preheader.i ]
+  %.sroa.10.0.lcssa.i = phi double [ 0xC01090FDAA22168C, %gv_calloc.exit.i ], [ %350, %._crit_edge102.loopexit.i ], [ 0xC01090FDAA22168C, %.preheader.i ]
+  %.sroa.4.0.lcssa.i = phi double [ %24, %gv_calloc.exit.i ], [ %347, %._crit_edge102.loopexit.i ], [ %24, %.preheader.i ]
   call void @free(ptr noundef %16) #11
   %351 = icmp eq i64 %.024.lcssa, 1
   br i1 %351, label %352, label %position.exit

@@ -476,7 +476,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %exitcond170.not, label %.thread136, label %.preheader, !llvm.loop !89
 
 .thread136:                                       ; preds = %._crit_edge155, %80, %99, %109, %52, %.preheader.lr.ph.split.us, %._crit_edge150
-  %.4 = phi i32 [ %4, %._crit_edge150 ], [ %4, %.preheader.lr.ph.split.us ], [ 0, %52 ], [ %.0116157, %109 ], [ %.0116157, %99 ], [ %.0116157, %80 ], [ %4, %._crit_edge155 ]
+  %.4 = phi i32 [ %4, %._crit_edge150 ], [ %4, %.preheader.lr.ph.split.us ], [ 0, %52 ], [ %.0116157, %80 ], [ %.0116157, %109 ], [ %.0116157, %99 ], [ %4, %._crit_edge155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }

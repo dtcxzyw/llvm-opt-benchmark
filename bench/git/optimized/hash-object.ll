@@ -285,7 +285,7 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
   br i1 %118, label %.thread46, label %.thread
 
 .thread:                                          ; preds = %111, %109, %108, %106, %116
-  %.02445 = phi ptr [ @.str.19, %116 ], [ @.str.18, %109 ], [ @.str.17, %108 ], [ @.str.16, %106 ], [ @.str.20, %111 ]
+  %.02445 = phi ptr [ @.str.19, %116 ], [ @.str.16, %106 ], [ @.str.18, %109 ], [ @.str.17, %108 ], [ @.str.20, %111 ]
   %119 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull %.02445) #9
   call void @usage_with_options(ptr noundef nonnull @cmd_hash_object.hash_object_usage, ptr noundef nonnull %16) #10
   unreachable

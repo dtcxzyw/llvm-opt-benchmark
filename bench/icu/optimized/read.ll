@@ -181,9 +181,9 @@ unescape.exit.i:                                  ; preds = %46
   br label %68
 
 68:                                               ; preds = %65, %62, %61, %49
-  %.1147173.i = phi i32 [ %.1147172181.i, %61 ], [ 92, %49 ], [ %.1147172181.i, %65 ], [ %.1147172181.i, %62 ]
-  %.2136.i = phi i8 [ 0, %61 ], [ 1, %49 ], [ 0, %65 ], [ 0, %62 ]
-  %.3.i = phi i8 [ %.2133174178.i, %61 ], [ %.1132.i, %49 ], [ 0, %65 ], [ 0, %62 ]
+  %.1147173.i = phi i32 [ 92, %49 ], [ %.1147172181.i, %61 ], [ %.1147172181.i, %65 ], [ %.1147172181.i, %62 ]
+  %.2136.i = phi i8 [ 1, %49 ], [ 0, %61 ], [ 0, %65 ], [ 0, %62 ]
+  %.3.i = phi i8 [ %.1132.i, %49 ], [ %.2133174178.i, %61 ], [ 0, %65 ], [ 0, %62 ]
   %69 = load i32, ptr %4, align 4, !tbaa !4
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %getStringToken.exit, label %37
@@ -354,14 +354,14 @@ unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %1
   br label %getStringToken.exit
 
 getStringToken.exit:                              ; preds = %34, %74, %82, %86, %unescape.exit165.i, %102, %isWhitespace.exit.thread.i, %107, %unescape.exit168.i, %128, %37, %40, %unescape.exit.i, %68, %20, %23, %unescape.exit165.thread.sink.split.i
-  %.0152.i = phi i32 [ 6, %20 ], [ 6, %23 ], [ 0, %unescape.exit165.thread.sink.split.i ], [ 5, %37 ], [ 6, %40 ], [ 6, %unescape.exit.i ], [ 6, %68 ], [ 0, %107 ], [ 6, %unescape.exit168.i ], [ 6, %128 ], [ 6, %34 ], [ 6, %74 ], [ 6, %82 ], [ 6, %unescape.exit165.i ], [ 6, %102 ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %86 ]
+  %.0152.i = phi i32 [ 6, %unescape.exit168.i ], [ 6, %20 ], [ 6, %23 ], [ 0, %unescape.exit165.thread.sink.split.i ], [ 5, %37 ], [ 6, %unescape.exit.i ], [ 6, %40 ], [ 6, %68 ], [ 0, %107 ], [ 6, %128 ], [ 6, %unescape.exit165.i ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %74 ], [ 6, %86 ], [ 6, %34 ], [ 6, %102 ], [ 6, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = load i32, ptr @lineCount, align 4, !tbaa !4
   store i32 %135, ptr %2, align 4, !tbaa !4
   br label %136
 
 136:                                              ; preds = %13, %9, %5, %getStringToken.exit, %19, %18, %17, %16, %15
-  %.0 = phi i32 [ %.0152.i, %getStringToken.exit ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 5, %18 ], [ 4, %19 ], [ 6, %5 ], [ 6, %9 ], [ 6, %13 ]
+  %.0 = phi i32 [ 4, %19 ], [ 6, %5 ], [ %.0152.i, %getStringToken.exit ], [ 6, %9 ], [ 1, %15 ], [ 2, %16 ], [ 3, %17 ], [ 5, %18 ], [ 6, %13 ]
   ret i32 %.0
 }
 
@@ -501,7 +501,7 @@ isNewline.exit.thread.us.i:                       ; preds = %.split.us.i, %.spli
   br i1 %47, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %.backedge, %isWhitespace.exit.thread, %15, %11, %.preheader, %4, %45
-  %.0 = phi i32 [ 47, %45 ], [ -1, %4 ], [ -1, %.preheader ], [ -1, %.backedge ], [ %10, %isWhitespace.exit.thread ], [ %16, %15 ], [ %10, %11 ]
+  %.0 = phi i32 [ 47, %45 ], [ -1, %4 ], [ -1, %.preheader ], [ %16, %15 ], [ %10, %isWhitespace.exit.thread ], [ -1, %.backedge ], [ %10, %11 ]
   ret i32 %.0
 }
 

@@ -528,9 +528,9 @@ define dso_local { ptr, i64 } @_ZN5clang4edit12EditedSource10copyStringERKN4llvm
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %14, %16, %21, %25
-  %28 = phi ptr [ %26, %25 ], [ %4, %16 ], [ %4, %21 ], [ %4, %14 ]
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ %13, %14 ]
+  %28 = phi ptr [ %26, %25 ], [ %4, %21 ], [ %4, %16 ], [ %4, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ %20, %16 ], [ %15, %14 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ %18, %16 ], [ %13, %14 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %30 = icmp eq i64 %.sroa.3.0.i, 0
   br i1 %30, label %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit, label %31
@@ -576,9 +576,9 @@ _ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit: ; preds = %_ZNK
   call void @free(ptr noundef %46) #17
   br label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %9, %12, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit, %48
-  %.sroa.0.0.i.i15 = phi ptr [ %.sroa.0.0.i.i, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit ], [ %.sroa.0.0.i.i, %48 ], [ null, %12 ], [ null, %9 ]
-  %.sroa.3.0.i814 = phi i64 [ %.sroa.3.0.i, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit ], [ %.sroa.3.0.i, %48 ], [ 0, %12 ], [ 0, %9 ]
+_ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %12, %9, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit, %48
+  %.sroa.0.0.i.i15 = phi ptr [ %.sroa.0.0.i.i, %48 ], [ %.sroa.0.0.i.i, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit ], [ null, %9 ], [ null, %12 ]
+  %.sroa.3.0.i814 = phi i64 [ %.sroa.3.0.i, %48 ], [ %.sroa.3.0.i, %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit ], [ 0, %9 ], [ 0, %12 ]
   %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i15, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %.sroa.3.0.i814, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -620,8 +620,8 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i: ; preds = %10
   br label %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i.i
 
 _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i.i: ; preds = %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i, %10
-  %.sink.i.i.i.i = phi i64 [ 16, %10 ], [ %spec.select.i.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i ]
-  %.19.i.i.i.i = phi ptr [ %.012.i.i.i.i, %10 ], [ %spec.select13.i.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i ], [ 16, %10 ]
+  %.19.i.i.i.i = phi ptr [ %spec.select13.i.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i.i ], [ %.012.i.i.i.i, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.sink.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !93
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
@@ -953,12 +953,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit": ; preds = %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit55", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit57", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit59", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit61", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit63", %117, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i", %130, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i", %143, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %117 ], [ %.1.i.i.i.i.i.i, %130 ], [ %.2.i.i.i.i.i.i, %143 ], [ %151, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %152, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit55" ], [ %153, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit57" ], [ %154, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit59" ], [ %155, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit61" ], [ %156, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit63" ], [ %.02976.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i" ], [ %.02976.i.i.i.i.i.i, %76 ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %130 ], [ %.029.lcssa.i.i.i.i.i.i, %117 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %143 ], [ %156, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit63" ], [ %154, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit59" ], [ %152, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit55" ], [ %155, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit61" ], [ %153, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit57" ], [ %151, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %.02976.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i" ], [ %.02976.i.i.i.i.i.i, %76 ]
   %.not25 = icmp eq ptr %67, %.028.i.i.i.i.i.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit", %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit, %._crit_edge.i.i.i.i.i.i, %139, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i"
-  %.0.ph = phi i1 [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i" ], [ true, %139 ], [ true, %._crit_edge.i.i.i.i.i.i ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit ], [ %.not25, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit" ]
+  %.0.ph = phi i1 [ %.not25, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit" ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i" ], [ true, %139 ], [ true, %._crit_edge.i.i.i.i.i.i ], [ true, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %157
@@ -1000,8 +1000,8 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i: ; preds = %6
   br label %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i, %6
-  %.sink.i.i.i = phi i64 [ 16, %6 ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.012.i.i.i, %6 ], [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ 16, %6 ]
+  %.19.i.i.i = phi ptr [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ %.012.i.i.i, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %11, align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -1265,7 +1265,7 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit: ; preds = %14
   br i1 %spec.select.i.i, label %.critedge, label %_ZNSt8_Rb_treeIN5clang4edit10FileOffsetESt4pairIKS2_NS1_12EditedSource8FileEditEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
 
 .critedge:                                        ; preds = %14, %2, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit
-  %.08.lcssa.i.i.i21 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %.19.i.i.i, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit ], [ %5, %2 ], [ %.19.i.i.i, %14 ]
+  %.08.lcssa.i.i.i21 = phi ptr [ %5, %2 ], [ %.19.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %.19.i.i.i, %_ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit ], [ %.19.i.i.i, %14 ]
   %19 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i64 %.pre, ptr %20, align 8
@@ -1301,7 +1301,7 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit: ; preds = %14
   br label %.thread.i
 
 .thread.i:                                        ; preds = %30, %27, %25
-  %33 = phi i1 [ true, %25 ], [ true, %27 ], [ %spec.select.i.i.i.i.i11, %30 ]
+  %33 = phi i1 [ %spec.select.i.i.i.i.i11, %30 ], [ true, %25 ], [ true, %27 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %33, ptr noundef nonnull %19, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8, !tbaa !120
@@ -1365,8 +1365,8 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i: ; preds = %.lr.ph.
   br label %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sink.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ 16, %.lr.ph.i.i.i ]
+  %.19.i.i.i = phi ptr [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ %.012.i.i.i, %.lr.ph.i.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %23, align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -1431,7 +1431,7 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread: ; preds = %_ZN5clang4editltEN
   %.not206 = icmp eq ptr %44, %18
   br i1 %.not206, label %.thread, label %.lr.ph, !llvm.loop !121
 
-.thread:                                          ; preds = %43, %.lr.ph, %28, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread
+.thread:                                          ; preds = %43, %.lr.ph, %28, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit
   %.sroa.0134.2 = phi ptr [ %.sroa.0134.1213, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %42, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.0134.0, %28 ], [ %44, %43 ], [ %.sroa.0134.1213, %.lr.ph ]
   %.sroa.0146.1 = phi i32 [ %.sroa.0146.0.extract.trunc166, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %.sroa.03.0.extract.trunc.i, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.0146.0.extract.trunc166, %28 ], [ %.sroa.0146.0.extract.trunc166, %.lr.ph ], [ %.sroa.0146.0.extract.trunc166, %43 ]
   %.sroa.14.1 = phi i32 [ %.sroa.14.0.extract.trunc197, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit ], [ %33, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit.thread ], [ %.sroa.14.0.extract.trunc197, %28 ], [ %.sroa.14.0.extract.trunc197, %.lr.ph ], [ %.sroa.14.0.extract.trunc197, %43 ]
@@ -1751,8 +1751,8 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i: ; preds = %12
   br label %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i
 
 _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread.i.i.i: ; preds = %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i, %12
-  %.sink.i.i.i = phi i64 [ 16, %12 ], [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.012.i.i.i, %12 ], [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ 16, %12 ]
+  %.19.i.i.i = phi ptr [ %spec.select13.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.i.i.i ], [ %.012.i.i.i, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %17, align 8, !tbaa !93
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -1844,7 +1844,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.thread: ; preds = %32, %_ZN5clang4edi
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %47, %44, %42
-  %50 = phi i1 [ true, %42 ], [ true, %44 ], [ %spec.select.i.i.i.i.i.i, %47 ]
+  %50 = phi i1 [ %spec.select.i.i.i.i.i.i, %47 ], [ true, %42 ], [ true, %44 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %50, ptr noundef nonnull %36, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load i64, ptr %51, align 8, !tbaa !120
@@ -1917,7 +1917,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit55.thread: ; preds = %56, %_ZN5clang4e
   br label %.thread.i.i66
 
 .thread.i.i66:                                    ; preds = %76, %73, %71
-  %79 = phi i1 [ true, %71 ], [ true, %73 ], [ %spec.select.i.i.i.i.i.i65, %76 ]
+  %79 = phi i1 [ %spec.select.i.i.i.i.i.i65, %76 ], [ true, %71 ], [ true, %73 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %79, ptr noundef nonnull %65, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = load i64, ptr %80, align 8, !tbaa !120
@@ -2425,9 +2425,9 @@ _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i: ; preds = %66
   br label %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i
 
 _ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i: ; preds = %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i, %34, %66, %64, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i, %61, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i, %24, %19
-  %.sroa.040.1 = phi ptr [ %1, %19 ], [ %1, %24 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %1, %64 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %1, %61 ], [ %1, %66 ], [ %1, %34 ], [ %spec.select54, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
-  %.sroa.4.1 = phi i64 [ 0, %19 ], [ 0, %24 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ 0, %64 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ 0, %61 ], [ 0, %66 ], [ 0, %34 ], [ %spec.select55, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
-  %.1 = phi i32 [ %4, %19 ], [ %4, %24 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %65, %64 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %4, %61 ], [ %4, %66 ], [ %spec.select, %34 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
+  %.sroa.040.1 = phi ptr [ %1, %19 ], [ %1, %24 ], [ %1, %66 ], [ %spec.select54, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %1, %64 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %1, %61 ], [ %1, %34 ]
+  %.sroa.4.1 = phi i64 [ 0, %19 ], [ 0, %24 ], [ 0, %66 ], [ %spec.select55, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ 0, %64 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ 0, %61 ], [ 0, %34 ]
+  %.1 = phi i32 [ %4, %19 ], [ %4, %24 ], [ %4, %66 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %65, %64 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %4, %61 ], [ %spec.select, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
 
@@ -2900,7 +2900,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
+  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -2913,7 +2913,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
+  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
   ret ptr %51
 }
 
@@ -3531,7 +3531,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit63, %.loopexit.loopexit.split.loop.exit65, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit34, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit33, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35.thread
-  %.028 = phi ptr [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35.thread ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit33 ], [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit34 ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35 ], [ %112, %.loopexit.loopexit.split.loop.exit ], [ %113, %.loopexit.loopexit.split.loop.exit63 ], [ %114, %.loopexit.loopexit.split.loop.exit65 ], [ %.02952, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit ]
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit34 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35.thread ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit35 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit33 ], [ %114, %.loopexit.loopexit.split.loop.exit65 ], [ %112, %.loopexit.loopexit.split.loop.exit ], [ %113, %.loopexit.loopexit.split.loop.exit63 ], [ %.02952, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4edit12EditedSource11MacroArgUseEEclIPS5_EEbT_.exit ]
   ret ptr %.028
 }
 
@@ -3924,8 +3924,8 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103: ; preds = %93
   br label %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread
 
 _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit.thread: ; preds = %65, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103, %93, %._crit_edge.thread.i113, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i50, %61, %._crit_edge.thread.i60, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i, %29, %._crit_edge.thread.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit78.thread, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit25.thread, %9, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit70.thread, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit17.thread, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit
-  %.sroa.0136.0 = phi ptr [ null, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %39, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit17.thread ], [ null, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit70.thread ], [ null, %9 ], [ %spec.select, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit25.thread ], [ %spec.select147, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit78.thread ], [ null, %._crit_edge.thread.i ], [ null, %29 ], [ %spec.select.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i ], [ null, %._crit_edge.thread.i60 ], [ null, %61 ], [ %spec.select.i54, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i50 ], [ null, %._crit_edge.thread.i113 ], [ null, %93 ], [ %spec.select.i107, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103 ], [ %1, %65 ]
-  %.sroa.12.0 = phi ptr [ %11, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %39, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit17.thread ], [ %69, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit70.thread ], [ %11, %9 ], [ %spec.select146, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit25.thread ], [ %spec.select148, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit78.thread ], [ %.027.lcssa37.i, %._crit_edge.thread.i ], [ %.027.lcssa36.i, %29 ], [ %spec.select29.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i ], [ %.027.lcssa37.i61, %._crit_edge.thread.i60 ], [ %.027.lcssa36.i44, %61 ], [ %spec.select29.i55, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i50 ], [ %.027.lcssa37.i114, %._crit_edge.thread.i113 ], [ %.027.lcssa36.i97, %93 ], [ %spec.select29.i108, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103 ], [ null, %65 ]
+  %.sroa.0136.0 = phi ptr [ null, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit70.thread ], [ %spec.select, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit25.thread ], [ null, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %spec.select147, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit78.thread ], [ %1, %65 ], [ %spec.select.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i ], [ %39, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit17.thread ], [ null, %9 ], [ %spec.select.i54, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i50 ], [ null, %29 ], [ null, %._crit_edge.thread.i ], [ null, %61 ], [ null, %._crit_edge.thread.i60 ], [ null, %93 ], [ null, %._crit_edge.thread.i113 ], [ %spec.select.i107, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103 ]
+  %.sroa.12.0 = phi ptr [ %69, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit70.thread ], [ %spec.select146, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit25.thread ], [ %11, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %spec.select148, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit78.thread ], [ null, %65 ], [ %spec.select29.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i ], [ %39, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit17.thread ], [ %11, %9 ], [ %spec.select29.i55, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i50 ], [ %.027.lcssa36.i, %29 ], [ %.027.lcssa37.i, %._crit_edge.thread.i ], [ %.027.lcssa36.i44, %61 ], [ %.027.lcssa37.i61, %._crit_edge.thread.i60 ], [ %.027.lcssa36.i97, %93 ], [ %.027.lcssa37.i114, %._crit_edge.thread.i113 ], [ %spec.select29.i108, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit12.i103 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0136.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -274,8 +274,8 @@ ends_with_dirsep.exit:                            ; preds = %18
   br label %24
 
 24:                                               ; preds = %ends_with_dirsep.exit, %ends_with_dirsep.exit.thread, %15
-  %.0116 = phi i64 [ 0, %15 ], [ %spec.select220, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
-  %.0109 = phi ptr [ @.str.29, %15 ], [ @.str.31, %ends_with_dirsep.exit.thread ], [ %spec.select230, %ends_with_dirsep.exit ]
+  %.0116 = phi i64 [ 0, %15 ], [ %spec.select, %ends_with_dirsep.exit ], [ %spec.select220, %ends_with_dirsep.exit.thread ]
+  %.0109 = phi ptr [ @.str.29, %15 ], [ %spec.select230, %ends_with_dirsep.exit ], [ @.str.31, %ends_with_dirsep.exit.thread ]
   %.b134 = load i1, ptr @verbose, align 4
   br i1 %.b134, label %25, label %28
 
@@ -575,8 +575,8 @@ handle_symlink.exit:                              ; preds = %99
   br label %do_file.exit
 
 do_file.exit:                                     ; preds = %109, %105, %119, %123, %129, %141, %144, %152, %155, %169, %.thread67.i
-  %.044.i = phi i32 [ 0, %105 ], [ 1, %119 ], [ 0, %123 ], [ 0, %129 ], [ %173, %.thread67.i ], [ %.2.i, %169 ], [ 0, %155 ], [ 1, %141 ], [ 1, %152 ], [ 1, %144 ], [ 0, %109 ]
-  %.0.i151 = phi ptr [ null, %105 ], [ null, %119 ], [ null, %123 ], [ %124, %129 ], [ %124, %.thread67.i ], [ %124, %169 ], [ %124, %155 ], [ %124, %141 ], [ %124, %152 ], [ %124, %144 ], [ null, %109 ]
+  %.044.i = phi i32 [ 0, %105 ], [ 1, %144 ], [ 1, %119 ], [ 0, %123 ], [ 0, %129 ], [ %173, %.thread67.i ], [ %.2.i, %169 ], [ 0, %155 ], [ 1, %141 ], [ 1, %152 ], [ 0, %109 ]
+  %.0.i151 = phi ptr [ null, %105 ], [ %124, %144 ], [ null, %119 ], [ null, %123 ], [ %124, %129 ], [ %124, %.thread67.i ], [ %124, %169 ], [ %124, %155 ], [ %124, %141 ], [ %124, %152 ], [ null, %109 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.0.i151, ptr noundef nonnull @X509_INFO_free) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %174 = add nsw i32 %.044.i, %.3167

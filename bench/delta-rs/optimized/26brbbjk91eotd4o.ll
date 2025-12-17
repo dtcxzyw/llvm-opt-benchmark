@@ -1116,7 +1116,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.956944259081774161.exit.i
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.i, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %37 ], [ %.pn.i, %.body.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %.pn.i, %37 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$hyper..error..Error$GT$$GT$17h3ea8a2c598bf218aE"(ptr noalias noundef align 8 dereferenceable(32) %7) #29
           to label %89 unwind label %92
 
@@ -4154,7 +4154,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
   br label %155
 
 "_ZN4core3ptr155drop_in_place$LT$alloc..sync..Arc$LT$dashmap..DashMap$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17hc08a5ce7a2522af5E.exit": ; preds = %.body123, %447, %.body, %162, %153
-  %.pn18 = phi { ptr, i32 } [ %154, %153 ], [ %.pn, %162 ], [ %.pn, %.body ], [ %.pn16, %447 ], [ %.pn16, %.body123 ]
+  %.pn18 = phi { ptr, i32 } [ %154, %153 ], [ %.pn, %.body ], [ %.pn, %162 ], [ %.pn16, %447 ], [ %.pn16, %.body123 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hf8f2695d6f2f1d0eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %36) #29
           to label %113 unwind label %734
 
@@ -4182,7 +4182,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
           to label %165 unwind label %163
 
 .body:                                            ; preds = %180, %.noexc20.i, %418, %.body.i, %163
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %181, %180 ], [ %426, %.noexc20.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %418 ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %181, %180 ], [ %eh.lpad-body.i, %418 ], [ %eh.lpad-body.i, %.body.i ], [ %426, %.noexc20.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %159 = load ptr, ptr %30, align 8, !alias.scope !489, !nonnull !4, !noundef !4
@@ -4572,8 +4572,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %375, %371
-  %382 = phi i8 [ %.pre22.i.i, %375 ], [ %373, %371 ]
-  %.sroa.4.0.ph.i.i = phi i64 [ %381, %375 ], [ %.sroa.6.1.i.i.i.i, %371 ]
+  %382 = phi i8 [ %373, %371 ], [ %.pre22.i.i, %375 ]
+  %.sroa.4.0.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i.i, %371 ], [ %381, %375 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i.i, ptr noundef nonnull align 8 dereferenceable(88) %18, i64 88, i1 false), !noalias !533
   call void @llvm.experimental.noalias.scope.decl(metadata !597)
@@ -4753,7 +4753,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
           to label %450 unwind label %448
 
 .body123:                                         ; preds = %465, %.noexc20.i68, %703, %.body.i116, %448
-  %.pn16 = phi { ptr, i32 } [ %449, %448 ], [ %466, %465 ], [ %711, %.noexc20.i68 ], [ %eh.lpad-body.i117, %.body.i116 ], [ %eh.lpad-body.i117, %703 ]
+  %.pn16 = phi { ptr, i32 } [ %449, %448 ], [ %466, %465 ], [ %eh.lpad-body.i117, %703 ], [ %eh.lpad-body.i117, %.body.i116 ], [ %711, %.noexc20.i68 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
   call void @llvm.experimental.noalias.scope.decl(metadata !644)
   %444 = load ptr, ptr %27, align 8, !alias.scope !647, !nonnull !4, !noundef !4
@@ -5143,8 +5143,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
   br label %.thread.i.i107
 
 .thread.i.i107:                                   ; preds = %660, %656
-  %667 = phi i8 [ %.pre22.i.i114, %660 ], [ %658, %656 ]
-  %.sroa.4.0.ph.i.i108 = phi i64 [ %666, %660 ], [ %.sroa.6.1.i.i.i.i105, %656 ]
+  %667 = phi i8 [ %658, %656 ], [ %.pre22.i.i114, %660 ]
+  %.sroa.4.0.ph.i.i108 = phi i64 [ %.sroa.6.1.i.i.i.i105, %656 ], [ %666, %660 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i.i50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i.i50, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false), !noalias !689
   call void @llvm.experimental.noalias.scope.decl(metadata !753)

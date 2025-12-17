@@ -37,7 +37,7 @@ define i32 @FT_Stream_OpenLZW(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %or.cond.i, label %ft_lzw_check_header.exit.thread, label %20
 
 ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
-  %.0.i.ph = phi i32 [ %13, %12 ], [ %11, %8 ], [ 3, %14 ]
+  %.0.i.ph = phi i32 [ %11, %8 ], [ %13, %12 ], [ 3, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
@@ -85,7 +85,7 @@ ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
   br i1 %or.cond.i.i, label %40, label %41
 
 40:                                               ; preds = %34, %32, %24
-  %.0.i.ph.i = phi i32 [ %33, %32 ], [ %31, %24 ], [ 3, %34 ]
+  %.0.i.ph.i = phi i32 [ %31, %24 ], [ %33, %32 ], [ 3, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.0.i.ph.i, ptr %5, align 4, !tbaa !12
   call void @ft_mem_free(ptr noundef %10, ptr noundef nonnull %22) #8
@@ -284,7 +284,7 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   br i1 %.not61.i, label %ft_lzw_file_io.exit, label %59
 
 ft_lzw_file_io.exit:                              ; preds = %46, %59, %73, %20, %ft_lzw_file_skip_output.exit.i, %54
-  %.044.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %73 ], [ %66, %59 ], [ 0, %46 ]
+  %.044.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %59 ], [ %66, %73 ], [ 0, %46 ]
   ret i64 %.044.i
 }
 
@@ -500,8 +500,8 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.preheader
 
-.thread:                                          ; preds = %22, %18, %25, %37
-  %.3111.ph = phi i32 [ 0, %37 ], [ %14, %25 ], [ %14, %18 ], [ %14, %22 ]
+.thread:                                          ; preds = %18, %25, %37, %22
+  %.3111.ph = phi i32 [ %14, %22 ], [ 0, %37 ], [ %14, %25 ], [ %14, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit190
 
@@ -510,10 +510,10 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   br label %.loopexit
 
 .preheader:                                       ; preds = %16, %.thread178, %235
-  %.5125.ph = phi i32 [ %.2122, %235 ], [ %10, %16 ], [ %44, %.thread178 ]
-  %.5119.ph = phi i32 [ %.2110, %235 ], [ %12, %16 ], [ %44, %.thread178 ]
-  %.5113.ph = phi i32 [ %.2110, %235 ], [ %14, %16 ], [ 0, %.thread178 ]
-  %.5.ph = phi i64 [ %.us-phi, %235 ], [ 0, %16 ], [ 1, %.thread178 ]
+  %.5125.ph = phi i32 [ %.2122, %235 ], [ %44, %.thread178 ], [ %10, %16 ]
+  %.5119.ph = phi i32 [ %.2110, %235 ], [ %44, %.thread178 ], [ %12, %16 ]
+  %.5113.ph = phi i32 [ %.2110, %235 ], [ 0, %.thread178 ], [ %14, %16 ]
+  %.5.ph = phi i64 [ %.us-phi, %235 ], [ 1, %.thread178 ], [ 0, %16 ]
   %51 = call fastcc i32 @ft_lzwstate_get_code(ptr noundef nonnull %0)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %.loopexit190, label %.lr.ph
@@ -938,10 +938,10 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   ret i64 %.0105
 
 .loopexit190:                                     ; preds = %61, %111, %.preheader, %ft_lzwstate_prefix_grow.exit.thread, %ft_lzwstate_stack_grow.exit171.thread, %ft_lzwstate_stack_grow.exit160.thread, %ft_lzwstate_stack_grow.exit.thread, %.thread, %68
-  %.4124 = phi i32 [ %.5125206, %68 ], [ %10, %.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit160.thread ], [ %.0, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2122, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5125.ph, %.preheader ], [ %.5125206, %111 ], [ 0, %61 ]
-  %.4118 = phi i32 [ %.5119207, %68 ], [ %12, %.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5119.ph, %.preheader ], [ %.5119207, %111 ], [ 0, %61 ]
-  %.4112 = phi i32 [ %57, %68 ], [ %.3111.ph, %.thread ], [ %57, %ft_lzwstate_stack_grow.exit.thread ], [ %57, %ft_lzwstate_stack_grow.exit160.thread ], [ %57, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2110, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5113.ph, %.preheader ], [ %57, %111 ], [ %.5113.ph, %61 ]
-  %.4 = phi i64 [ %.5.ph, %68 ], [ 0, %.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit171.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5.ph, %.preheader ], [ %.5.ph, %111 ], [ %.5.ph, %61 ]
+  %.4124 = phi i32 [ %.5125206, %68 ], [ %.5125206, %ft_lzwstate_stack_grow.exit.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit160.thread ], [ %.0, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2122, %ft_lzwstate_prefix_grow.exit.thread ], [ %10, %.thread ], [ %.5125.ph, %.preheader ], [ %.5125206, %111 ], [ 0, %61 ]
+  %.4118 = phi i32 [ %.5119207, %68 ], [ %.5119207, %ft_lzwstate_stack_grow.exit.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %12, %.thread ], [ %.5119.ph, %.preheader ], [ %.5119207, %111 ], [ 0, %61 ]
+  %.4112 = phi i32 [ %57, %68 ], [ %57, %ft_lzwstate_stack_grow.exit.thread ], [ %57, %ft_lzwstate_stack_grow.exit160.thread ], [ %57, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2110, %ft_lzwstate_prefix_grow.exit.thread ], [ %.3111.ph, %.thread ], [ %.5113.ph, %.preheader ], [ %57, %111 ], [ %.5113.ph, %61 ]
+  %.4 = phi i64 [ %.5.ph, %68 ], [ %.5.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit171.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ 0, %.thread ], [ %.5.ph, %.preheader ], [ %.5.ph, %111 ], [ %.5.ph, %61 ]
   store i32 3, ptr %0, align 8, !tbaa !37
   br label %.loopexit
 }
@@ -1107,8 +1107,8 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   %93 = or i32 %92, %.0
   br label %ft_lzwstate_refill.exit.thread
 
-ft_lzwstate_refill.exit.thread:                   ; preds = %45, %41, %86, %87, %ft_lzwstate_refill.exit, %21
-  %.051 = phi i32 [ -1, %21 ], [ -1, %ft_lzwstate_refill.exit ], [ %93, %87 ], [ %.0, %86 ], [ -1, %41 ], [ -1, %45 ]
+ft_lzwstate_refill.exit.thread:                   ; preds = %41, %45, %86, %87, %ft_lzwstate_refill.exit, %21
+  %.051 = phi i32 [ -1, %ft_lzwstate_refill.exit ], [ -1, %21 ], [ %93, %87 ], [ %.0, %86 ], [ -1, %45 ], [ -1, %41 ]
   ret i32 %.051
 }
 

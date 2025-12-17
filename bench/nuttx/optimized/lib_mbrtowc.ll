@@ -122,7 +122,7 @@ define i64 @mbrtowc(ptr noundef writeonly captures(address_is_null) %0, ptr noun
   br label %51
 
 51:                                               ; preds = %9, %8, %.loopexit60, %.loopexit, %.cont, %.cont50
-  %.034 = phi i64 [ -1, %.loopexit60 ], [ %20, %.cont50 ], [ %46, %.cont ], [ -2, %.loopexit ], [ 0, %8 ], [ -2, %9 ]
+  %.034 = phi i64 [ -1, %.loopexit60 ], [ -2, %.loopexit ], [ 0, %8 ], [ %20, %.cont50 ], [ %46, %.cont ], [ -2, %9 ]
   ret i64 %.034
 }
 

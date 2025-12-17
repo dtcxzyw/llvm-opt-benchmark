@@ -841,8 +841,8 @@ addresses_equal.exit:                             ; preds = %155, %147, %get_pee
   %221 = sub i32 %120, %118
   br label %.thread162
 
-.thread162:                                       ; preds = %115, %220
-  %.3.ph = phi i32 [ %221, %220 ], [ %116, %115 ]
+.thread162:                                       ; preds = %220, %115
+  %.3.ph = phi i32 [ %116, %115 ], [ %221, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %230
@@ -871,7 +871,7 @@ get_peer_conversation.exit.thread:                ; preds = %get_peer_conversati
   br label %.thread171
 
 230:                                              ; preds = %.thread162, %103, %9
-  %.0132 = phi i32 [ %narrow, %9 ], [ %104, %103 ], [ %.3.ph, %.thread162 ]
+  %.0132 = phi i32 [ %narrow, %9 ], [ %.3.ph, %.thread162 ], [ %104, %103 ]
   %231 = icmp sgt i32 %.0132, 0
   %232 = load i8, ptr @gDESEGMENT, align 1, !range !6
   %233 = trunc nuw i8 %232 to i1
@@ -892,8 +892,8 @@ get_peer_conversation.exit.thread:                ; preds = %get_peer_conversati
   %240 = sub nsw i32 0, %.0132
   br label %.thread171
 
-.thread171:                                       ; preds = %.thread, %get_peer_conversation.exit.thread, %.thread166, %230, %234, %237
-  %.0 = phi i32 [ %240, %237 ], [ 0, %234 ], [ 0, %230 ], [ 0, %.thread166 ], [ %102, %.thread ], [ %229, %get_peer_conversation.exit.thread ]
+.thread171:                                       ; preds = %get_peer_conversation.exit.thread, %.thread, %.thread166, %230, %234, %237
+  %.0 = phi i32 [ %240, %237 ], [ 0, %.thread166 ], [ 0, %234 ], [ 0, %230 ], [ %229, %get_peer_conversation.exit.thread ], [ %102, %.thread ]
   ret i32 %.0
 }
 
@@ -1251,10 +1251,10 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   %or.cond = select i1 %107, i1 %108, i1 false
   br i1 %or.cond, label %.loopexit393, label %12
 
-.loopexit393:                                     ; preds = %104, %18, %26, %15, %34, %56
-  %.0248421 = phi i32 [ %.0248444, %56 ], [ %.0248444, %34 ], [ %.0248444, %15 ], [ %.0248444, %26 ], [ %.0248444, %18 ], [ %105, %104 ]
-  %.1272.ph = phi i32 [ %57, %56 ], [ %35, %34 ], [ %narrow300, %15 ], [ 1, %26 ], [ 1, %18 ], [ %.8279.ph, %104 ]
-  %.1254.ph = phi i32 [ %.3256400, %56 ], [ %.2255, %34 ], [ %.0253443, %15 ], [ %24, %26 ], [ %19, %18 ], [ %.6259408, %104 ]
+.loopexit393:                                     ; preds = %26, %104, %18, %15, %34, %56
+  %.0248421 = phi i32 [ %.0248444, %56 ], [ %.0248444, %34 ], [ %.0248444, %15 ], [ %.0248444, %18 ], [ %105, %104 ], [ %.0248444, %26 ]
+  %.1272.ph = phi i32 [ %57, %56 ], [ %35, %34 ], [ %narrow300, %15 ], [ 1, %18 ], [ %.8279.ph, %104 ], [ 1, %26 ]
+  %.1254.ph = phi i32 [ %.3256400, %56 ], [ %.2255, %34 ], [ %.0253443, %15 ], [ %19, %18 ], [ %.6259408, %104 ], [ %24, %26 ]
   %109 = icmp sgt i32 %.1272.ph, 0
   %110 = load i8, ptr @gDESEGMENT, align 1, !range !6
   %111 = trunc nuw i8 %110 to i1
@@ -1679,7 +1679,7 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   unreachable
 
 .thread379:                                       ; preds = %22, %16, %73, %65, %.lr.ph453.split, %._crit_edge470, %115
-  %.6 = phi i32 [ %118, %115 ], [ %.1254.ph, %._crit_edge470 ], [ 0, %.lr.ph453.split ], [ 0, %65 ], [ 0, %73 ], [ 0, %16 ], [ 0, %22 ]
+  %.6 = phi i32 [ %.1254.ph, %._crit_edge470 ], [ %118, %115 ], [ 0, %.lr.ph453.split ], [ 0, %73 ], [ 0, %65 ], [ 0, %16 ], [ 0, %22 ]
   ret i32 %.6
 }
 
@@ -1713,7 +1713,7 @@ define internal noundef zeroext i1 @dissect_jxta_UDP_heur(ptr noundef %0, ptr no
   br label %12
 
 12:                                               ; preds = %6, %.sink.split, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %.sink.split ], [ true, %6 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %6 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1894,7 +1894,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
   br label %100
 
 .loopexit.thread:                                 ; preds = %19, %61, %.loopexit
-  %.1.ph200 = phi i32 [ %.1.ph, %61 ], [ %.1.ph, %.loopexit ], [ %13, %19 ]
+  %.1.ph200 = phi i32 [ %.1.ph, %.loopexit ], [ %.1.ph, %61 ], [ %13, %19 ]
   %.not131 = icmp eq ptr %2, null
   br i1 %.not131, label %100, label %68
 
@@ -2354,8 +2354,8 @@ define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr noundef rea
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, %35
-  %.not153167 = phi i1 [ true, %35 ], [ false, %41 ], [ false, %45 ], [ false, %48 ], [ true, %26 ]
-  %.0140166 = phi ptr [ null, %35 ], [ %40, %41 ], [ %40, %45 ], [ %40, %48 ], [ null, %26 ]
+  %.not153167 = phi i1 [ false, %48 ], [ true, %35 ], [ false, %41 ], [ false, %45 ], [ true, %26 ]
+  %.0140166 = phi ptr [ %40, %48 ], [ null, %35 ], [ %40, %41 ], [ %40, %45 ], [ null, %26 ]
   %52 = load ptr, ptr %34, align 8
   %.not154 = icmp eq ptr %52, null
   br i1 %.not154, label %64, label %53
@@ -2614,7 +2614,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %204
 
 204:                                              ; preds = %24, %11, %.critedge, %9
-  %.0139 = phi i32 [ %10, %9 ], [ %203, %.critedge ], [ 0, %11 ], [ %., %24 ]
+  %.0139 = phi i32 [ %10, %9 ], [ %203, %.critedge ], [ %., %24 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0139
 }
@@ -2861,9 +2861,9 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   %84 = add i32 %77, %.6
   br label %.thread
 
-.thread:                                          ; preds = %83, %81, %58, %50, %41, %33, %67, %20, %11, %8, %65, %18
-  %.1196 = phi i32 [ %19, %18 ], [ %66, %65 ], [ %.7202, %67 ], [ %25, %20 ], [ 1, %8 ], [ 1, %11 ], [ %42, %41 ], [ %34, %33 ], [ %59, %58 ], [ %51, %50 ], [ %.7202, %83 ], [ %82, %81 ]
-  %.0193 = phi i32 [ 6, %18 ], [ %.4, %65 ], [ %.6, %67 ], [ 8, %20 ], [ 4, %8 ], [ 5, %11 ], [ %37, %41 ], [ %26, %33 ], [ %54, %58 ], [ %.2, %50 ], [ %84, %83 ], [ %.6, %81 ]
+.thread:                                          ; preds = %81, %83, %58, %50, %41, %33, %67, %20, %11, %8, %65, %18
+  %.1196 = phi i32 [ %25, %20 ], [ 1, %8 ], [ %19, %18 ], [ %66, %65 ], [ %51, %50 ], [ %34, %33 ], [ 1, %11 ], [ %.7202, %67 ], [ %42, %41 ], [ %59, %58 ], [ %82, %81 ], [ %.7202, %83 ]
+  %.0193 = phi i32 [ 8, %20 ], [ 4, %8 ], [ 6, %18 ], [ %.4, %65 ], [ %.2, %50 ], [ %26, %33 ], [ 5, %11 ], [ %.6, %67 ], [ %37, %41 ], [ %54, %58 ], [ %.6, %81 ], [ %84, %83 ]
   %85 = icmp sgt i32 %.1196, 0
   %86 = load i8, ptr @gDESEGMENT, align 1, !range !6
   %87 = trunc nuw i8 %86 to i1
@@ -2982,7 +2982,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %159
 
 159:                                              ; preds = %75, %5, %158, %91
-  %.0 = phi i32 [ %94, %91 ], [ %.0193, %158 ], [ 0, %5 ], [ %.6, %75 ]
+  %.0 = phi i32 [ 0, %5 ], [ %94, %91 ], [ %.0193, %158 ], [ %.6, %75 ]
   ret i32 %.0
 }
 
@@ -3147,9 +3147,9 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   %90 = add i32 %83, %.6
   br label %.thread
 
-.thread:                                          ; preds = %89, %87, %73, %60, %29, %8, %79, %71, %59, %50, %41, %27, %24, %15
-  %.1227 = phi i32 [ %16, %15 ], [ %25, %24 ], [ %42, %41 ], [ %51, %50 ], [ %narrow267, %59 ], [ %spec.select, %79 ], [ %67, %60 ], [ %72, %71 ], [ %narrow265, %73 ], [ %28, %27 ], [ %34, %29 ], [ 1, %8 ], [ %spec.select, %89 ], [ %88, %87 ]
-  %.0224 = phi i32 [ 5, %15 ], [ 7, %24 ], [ %.1225, %41 ], [ %.3, %50 ], [ %.4, %59 ], [ %.6, %79 ], [ %62, %60 ], [ %.4, %71 ], [ %75, %73 ], [ 7, %27 ], [ 9, %29 ], [ 4, %8 ], [ %90, %89 ], [ %.6, %87 ]
+.thread:                                          ; preds = %87, %89, %73, %60, %29, %8, %79, %71, %59, %50, %41, %27, %24, %15
+  %.1227 = phi i32 [ %34, %29 ], [ %16, %15 ], [ %25, %24 ], [ %42, %41 ], [ %51, %50 ], [ %narrow267, %59 ], [ %28, %27 ], [ 1, %8 ], [ %spec.select, %79 ], [ %67, %60 ], [ %72, %71 ], [ %narrow265, %73 ], [ %88, %87 ], [ %spec.select, %89 ]
+  %.0224 = phi i32 [ 9, %29 ], [ 5, %15 ], [ 7, %24 ], [ %.1225, %41 ], [ %.3, %50 ], [ %.4, %59 ], [ 7, %27 ], [ 4, %8 ], [ %.6, %79 ], [ %62, %60 ], [ %.4, %71 ], [ %75, %73 ], [ %.6, %87 ], [ %90, %89 ]
   %91 = icmp sgt i32 %.1227, 0
   %92 = load i8, ptr @gDESEGMENT, align 1, !range !6
   %93 = trunc nuw i8 %92 to i1
@@ -3342,7 +3342,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %202
 
 202:                                              ; preds = %81, %5, %201, %97
-  %.0 = phi i32 [ %100, %97 ], [ %.0224, %201 ], [ 0, %5 ], [ %.6, %81 ]
+  %.0 = phi i32 [ 0, %5 ], [ %100, %97 ], [ %.0224, %201 ], [ %.6, %81 ]
   ret i32 %.0
 }
 

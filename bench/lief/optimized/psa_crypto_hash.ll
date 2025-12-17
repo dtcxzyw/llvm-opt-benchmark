@@ -199,7 +199,7 @@ define hidden i32 @mbedtls_psa_hash_setup(ptr noundef %0, i32 noundef %1) local_
   br label %49
 
 49:                                               ; preds = %2, %47, %38
-  %.030 = phi i32 [ %41, %38 ], [ %48, %47 ], [ -137, %2 ]
+  %.030 = phi i32 [ %48, %47 ], [ %41, %38 ], [ -137, %2 ]
   ret i32 %.030
 }
 

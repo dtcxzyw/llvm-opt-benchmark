@@ -953,7 +953,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !29
 
 _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.preheader, %276
-  %.0 = phi i32 [ 0, %276 ], [ 0, %.preheader ], [ 1, %300 ], [ 0, %278 ]
+  %.0 = phi i32 [ 0, %276 ], [ 1, %300 ], [ 0, %.preheader ], [ 0, %278 ]
   %.not108 = icmp eq ptr %.094, %7
   br i1 %.not108, label %305, label %303
 
@@ -1413,7 +1413,7 @@ _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   br i1 %exitcond57.not, label %.loopexit, label %62, !llvm.loop !34
 
 .loopexit:                                        ; preds = %62, %_mpd_isallzero.exit38, %._crit_edge, %41
-  %67 = phi i64 [ %59, %_mpd_isallzero.exit38 ], [ %28, %._crit_edge ], [ %28, %41 ], [ %59, %62 ]
+  %67 = phi i64 [ %28, %41 ], [ %59, %_mpd_isallzero.exit38 ], [ %28, %._crit_edge ], [ %59, %62 ]
   %68 = load i64, ptr %8, align 8, !tbaa !3
   switch i64 %68, label %73 [
     i64 5, label %69

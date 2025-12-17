@@ -846,7 +846,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br label %113
 
 113:                                              ; preds = %110, %105, %.critedge.us
-  %.sink133 = phi float [ %112, %.critedge.us ], [ %103, %105 ], [ %108, %110 ]
+  %.sink133 = phi float [ %103, %105 ], [ %112, %.critedge.us ], [ %108, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store float %.sink133, ptr %114, align 4, !tbaa !24
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 4
@@ -950,7 +950,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br label %172
 
 172:                                              ; preds = %166, %162, %170
-  %.sink138 = phi float [ %171, %170 ], [ %160, %162 ], [ %168, %166 ]
+  %.sink138 = phi float [ %160, %162 ], [ %171, %170 ], [ %168, %166 ]
   %173 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store float %.sink138, ptr %173, align 4, !tbaa !24
   %174 = getelementptr inbounds nuw i8, ptr %155, i64 4

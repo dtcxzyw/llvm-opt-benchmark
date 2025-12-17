@@ -106,8 +106,8 @@ define hidden i32 @modifiedUtf8LengthOfUtf8(ptr noundef readonly captures(none) 
   br label %53
 
 53:                                               ; preds = %9, %34, %51, %20
-  %.143 = phi i32 [ %21, %20 ], [ %35, %34 ], [ %52, %51 ], [ %spec.select, %9 ]
-  %.1 = phi i32 [ %15, %20 ], [ %26, %34 ], [ %40, %51 ], [ %.04159, %9 ]
+  %.143 = phi i32 [ %52, %51 ], [ %spec.select, %9 ], [ %21, %20 ], [ %35, %34 ]
+  %.1 = phi i32 [ %40, %51 ], [ %.04159, %9 ], [ %15, %20 ], [ %26, %34 ]
   %54 = add nsw i32 %.1, 1
   %55 = icmp slt i32 %54, %1
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !6

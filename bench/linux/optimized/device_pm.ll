@@ -228,7 +228,7 @@ define dso_local i32 @acpi_device_get_power(ptr noundef %0, ptr noundef writeonl
   br label %64
 
 64:                                               ; preds = %51, %57, %63, %20, %18
-  %65 = phi i32 [ %22, %20 ], [ 0, %18 ], [ 0, %63 ], [ %.pre5, %57 ], [ %.pre5, %51 ]
+  %65 = phi i32 [ 0, %18 ], [ %22, %20 ], [ 0, %63 ], [ %.pre5, %57 ], [ %.pre5, %51 ]
   store i32 %65, ptr %1, align 4
   br label %66
 
@@ -435,7 +435,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   br label %.thread14
 
 .thread14:                                        ; preds = %93, %84, %107, %89, %65, %15, %.thread13, %.thread11, %54, %48, %.thread, %7, %2
-  %116 = phi i32 [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ %79, %.thread11 ], [ 0, %.thread13 ], [ 0, %15 ], [ -19, %65 ], [ 0, %89 ], [ %85, %84 ], [ -19, %107 ], [ 0, %93 ]
+  %116 = phi i32 [ %79, %.thread11 ], [ 0, %.thread13 ], [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ -19, %107 ], [ 0, %15 ], [ -19, %65 ], [ 0, %89 ], [ %85, %84 ], [ 0, %93 ]
   ret i32 %116
 }
 
@@ -553,7 +553,7 @@ define dso_local i32 @acpi_bus_init_power(ptr noundef %0) local_unnamed_addr #1 
   br label %.thread
 
 .thread:                                          ; preds = %30, %17, %27, %25
-  %32 = phi i32 [ %15, %17 ], [ 0, %27 ], [ %15, %25 ], [ %spec.select, %30 ]
+  %32 = phi i32 [ %15, %17 ], [ %15, %25 ], [ %spec.select, %30 ], [ 0, %27 ]
   store i32 %32, ptr %5, align 8
   br label %33
 
@@ -1172,7 +1172,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %.loopexit.loopexit, %30, %27
-  %47 = phi i32 [ %.promoted, %30 ], [ %28, %27 ], [ %45, %..loopexit_crit_edge ], [ %.promoted, %.preheader ], [ %46, %.loopexit.loopexit ]
+  %47 = phi i32 [ %28, %27 ], [ %.promoted, %30 ], [ %45, %..loopexit_crit_edge ], [ %.promoted, %.preheader ], [ %46, %.loopexit.loopexit ]
   %48 = icmp eq ptr %1, null
   br i1 %48, label %50, label %49
 
@@ -1181,7 +1181,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   br label %50
 
 50:                                               ; preds = %.loopexit, %49, %24, %20, %13, %3
-  %51 = phi i32 [ -22, %3 ], [ -19, %13 ], [ %22, %20 ], [ -22, %24 ], [ %47, %49 ], [ %47, %.loopexit ]
+  %51 = phi i32 [ -22, %24 ], [ -22, %3 ], [ -19, %13 ], [ %22, %20 ], [ %47, %49 ], [ %47, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %51
@@ -1296,8 +1296,8 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr 
   br i1 %.not, label %.thread, label %.thread6
 
 .thread6:                                         ; preds = %60, %64, %69
-  %73 = phi i1 [ %36, %69 ], [ false, %64 ], [ false, %60 ]
-  %74 = phi i32 [ %37, %69 ], [ 0, %64 ], [ 0, %60 ]
+  %73 = phi i1 [ false, %64 ], [ %36, %69 ], [ false, %60 ]
+  %74 = phi i32 [ 0, %64 ], [ %37, %69 ], [ 0, %60 ]
   store i8 87, ptr %12, align 1
   %75 = call i32 @acpi_evaluate_integer(ptr noundef %15, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #6
   %76 = icmp eq i32 %75, 5
@@ -1535,7 +1535,7 @@ define dso_local i32 @acpi_dev_suspend(ptr noundef readonly captures(none) %0, i
   br label %32
 
 32:                                               ; preds = %29, %26
-  %33 = phi i32 [ %31, %29 ], [ %27, %26 ]
+  %33 = phi i32 [ %27, %26 ], [ %31, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = icmp ne i32 %33, 0
   %35 = and i1 %21, %34

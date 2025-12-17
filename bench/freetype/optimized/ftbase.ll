@@ -131,7 +131,7 @@ ft_face_scale_advances_.exit:                     ; preds = %21
   br label %ft_face_scale_advances_.exit.thread
 
 ft_face_scale_advances_.exit.thread:              ; preds = %ft_face_scale_advances_.exit.thread.loopexit, %25, %23, %6, %5, %4, %ft_face_scale_advances_.exit, %38
-  %.0 = phi i32 [ %39, %38 ], [ %22, %ft_face_scale_advances_.exit ], [ 35, %4 ], [ 6, %5 ], [ 16, %6 ], [ 36, %25 ], [ 0, %23 ], [ 0, %ft_face_scale_advances_.exit.thread.loopexit ]
+  %.0 = phi i32 [ 6, %5 ], [ %39, %38 ], [ %22, %ft_face_scale_advances_.exit ], [ 35, %4 ], [ 16, %6 ], [ 36, %25 ], [ 0, %23 ], [ 0, %ft_face_scale_advances_.exit.thread.loopexit ]
   ret i32 %.0
 }
 
@@ -291,7 +291,7 @@ define i32 @FT_Get_Advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.split, %53, %44, %.split.us, %33, %31, %14, %7, %6, %5, %29
-  %.0 = phi i32 [ %30, %29 ], [ 35, %5 ], [ 6, %6 ], [ 16, %7 ], [ 0, %14 ], [ %28, %31 ], [ 7, %33 ], [ 0, %44 ], [ %43, %.split.us ], [ 0, %53 ], [ %52, %.split ]
+  %.0 = phi i32 [ 6, %6 ], [ 16, %7 ], [ 0, %14 ], [ %28, %31 ], [ 7, %33 ], [ %30, %29 ], [ 35, %5 ], [ %43, %.split.us ], [ 0, %44 ], [ 0, %53 ], [ %52, %.split ]
   ret i32 %.0
 }
 
@@ -636,7 +636,7 @@ FT_Get_Font_Format.exit:                          ; preds = %111
   store i32 %189, ptr %188, align 8, !tbaa !125
   br label %230
 
-.critedge:                                        ; preds = %101, %95, %84, %146, %142, %138, %135, %132
+.critedge:                                        ; preds = %101, %84, %95, %146, %142, %138, %135, %132
   %197 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %198 = load ptr, ptr %197, align 8, !tbaa !26
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 144
@@ -705,7 +705,7 @@ FT_Get_Font_Format.exit:                          ; preds = %111
   br label %230
 
 230:                                              ; preds = %185, %164, %181, %225, %226, %203
-  %.1143 = phi i32 [ 0, %225 ], [ 0, %226 ], [ 0, %203 ], [ %196, %185 ], [ 0, %164 ], [ 0, %181 ]
+  %.1143 = phi i32 [ 0, %203 ], [ 0, %226 ], [ 0, %225 ], [ %196, %185 ], [ 0, %164 ], [ 0, %181 ]
   %231 = and i32 %.3, 16
   %.not187 = icmp eq i32 %231, 0
   br i1 %.not187, label %235, label %232
@@ -997,7 +997,7 @@ FT_Vector_Transform.exit:                         ; preds = %FT_Outline_Translat
   br label %FT_Outline_Check.exit
 
 FT_Outline_Check.exit:                            ; preds = %219, %390, %388, %223, %215, %.critedge, %376, %FT_Vector_Transform.exit, %379, %379, %396, %3, %4, %7
-  %.0140 = phi i32 [ 35, %7 ], [ 35, %4 ], [ 35, %3 ], [ %.3145, %FT_Vector_Transform.exit ], [ 0, %379 ], [ 0, %376 ], [ %202, %.critedge ], [ 0, %379 ], [ 0, %396 ], [ 20, %215 ], [ 20, %223 ], [ %395, %390 ], [ 6, %388 ], [ 20, %219 ]
+  %.0140 = phi i32 [ 35, %3 ], [ 35, %4 ], [ 35, %7 ], [ %.3145, %FT_Vector_Transform.exit ], [ 0, %396 ], [ 0, %379 ], [ 0, %379 ], [ 0, %376 ], [ %202, %.critedge ], [ 20, %223 ], [ 20, %215 ], [ %395, %390 ], [ 6, %388 ], [ 20, %219 ]
   ret i32 %.0140
 }
 
@@ -1155,7 +1155,7 @@ ft_trig_pseudo_polarize.exit:                     ; preds = %33
   br label %61
 
 61:                                               ; preds = %6, %1, %56, %49, %4
-  %.0 = phi i64 [ %5, %4 ], [ %55, %49 ], [ %60, %56 ], [ 0, %1 ], [ %8, %6 ]
+  %.0 = phi i64 [ %5, %4 ], [ 0, %1 ], [ %55, %49 ], [ %60, %56 ], [ %8, %6 ]
   ret i64 %.0
 }
 
@@ -1963,7 +1963,7 @@ define hidden i32 @FT_Vector_NormLen(ptr noundef captures(none) %0) local_unname
   br label %80
 
 80:                                               ; preds = %72, %77, %10, %11, %13
-  %.086 = phi i32 [ %.089, %13 ], [ %.087, %11 ], [ 0, %10 ], [ %76, %72 ], [ %79, %77 ]
+  %.086 = phi i32 [ 0, %10 ], [ %.089, %13 ], [ %.087, %11 ], [ %76, %72 ], [ %79, %77 ]
   ret i32 %.086
 }
 
@@ -2104,7 +2104,7 @@ define range(i32 0, 36) i32 @FT_Palette_Data_Get(ptr noundef readonly captures(a
   br label %11
 
 11:                                               ; preds = %8, %10, %3, %2
-  %.0 = phi i32 [ 35, %2 ], [ 6, %3 ], [ 0, %10 ], [ 0, %8 ]
+  %.0 = phi i32 [ 6, %3 ], [ 35, %2 ], [ 0, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2154,7 +2154,7 @@ define i32 @FT_Palette_Select(ptr noundef %0, i16 noundef zeroext %1, ptr nounde
   br label %21
 
 21:                                               ; preds = %.sink.split, %16, %9, %8, %3
-  %.0 = phi i32 [ 35, %3 ], [ 0, %8 ], [ %15, %9 ], [ 0, %16 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ %15, %9 ], [ 35, %3 ], [ 0, %16 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2614,7 +2614,7 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %49, %44
   br label %62
 
 62:                                               ; preds = %ft_mem_realloc.exit, %FT_GlyphLoader_Adjust_Points.exit, %ft_mem_realloc.exit.thread21, %1, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %ft_mem_realloc.exit.thread21 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %FT_GlyphLoader_Adjust_Points.exit ], [ 64, %ft_mem_realloc.exit ], [ 10, %ft_mem_realloc.exit.thread21 ]
   ret i32 %.0
 }
 
@@ -2689,8 +2689,8 @@ ft_mem_qrealloc.exit:                             ; preds = %21, %27
   br label %ft_mem_qrealloc.exit.thread
 
 ft_mem_qrealloc.exit.thread:                      ; preds = %13, %12, %16, %6, %36, %ft_mem_qrealloc.exit
-  %.0.i25 = phi ptr [ %.0.i, %36 ], [ %.0.i, %ft_mem_qrealloc.exit ], [ null, %13 ], [ null, %12 ], [ %4, %16 ], [ %4, %6 ]
-  %.033.i24 = phi i32 [ 0, %36 ], [ %.033.i, %ft_mem_qrealloc.exit ], [ 0, %13 ], [ 0, %12 ], [ 10, %16 ], [ 6, %6 ]
+  %.0.i25 = phi ptr [ %.0.i, %ft_mem_qrealloc.exit ], [ %.0.i, %36 ], [ null, %13 ], [ null, %12 ], [ %4, %16 ], [ %4, %6 ]
+  %.033.i24 = phi i32 [ %.033.i, %ft_mem_qrealloc.exit ], [ 0, %36 ], [ 0, %13 ], [ 0, %12 ], [ 10, %16 ], [ 6, %6 ]
   store i32 %.033.i24, ptr %5, align 4, !tbaa !168
   ret ptr %.0.i25
 }
@@ -2809,8 +2809,8 @@ FT_GlyphLoader_CreateExtra.exit:                  ; preds = %19, %17
   store ptr null, ptr %12, align 8, !tbaa !195
   br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-66:                                               ; preds = %11, %3, %FT_GlyphLoader_Adjust_Points.exit.i
-  %67 = phi i32 [ %9, %11 ], [ 0, %3 ], [ %26, %FT_GlyphLoader_Adjust_Points.exit.i ]
+66:                                               ; preds = %3, %11, %FT_GlyphLoader_Adjust_Points.exit.i
+  %67 = phi i32 [ 0, %3 ], [ %9, %11 ], [ %26, %FT_GlyphLoader_Adjust_Points.exit.i ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %69 = load i16, ptr %68, align 2, !tbaa !129
   %70 = zext i16 %69 to i32
@@ -3109,7 +3109,7 @@ FT_GlyphLoader_CreateExtra.exit113:               ; preds = %174, %172
   store ptr null, ptr %167, align 8, !tbaa !195
   br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
-218:                                              ; preds = %166, %162, %FT_GlyphLoader_Adjust_Points.exit.i110
+218:                                              ; preds = %162, %166, %FT_GlyphLoader_Adjust_Points.exit.i110
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %220 = load i32, ptr %219, align 4, !tbaa !199
   %221 = load i16, ptr %6, align 8, !tbaa !130
@@ -3217,7 +3217,7 @@ FT_GlyphLoader_CreateExtra.exit113:               ; preds = %174, %172
   br label %FT_GlyphLoader_Adjust_Points.exit
 
 FT_GlyphLoader_Adjust_Points.exit.thread:         ; preds = %228, %76, %ft_mem_realloc.exit100, %ft_mem_realloc.exit, %145, %230, %FT_GlyphLoader_CreateExtra.exit, %ft_mem_realloc.exit.thread123, %FT_GlyphLoader_CreateExtra.exit113
-  %284 = phi i32 [ %.033.i.i94, %ft_mem_realloc.exit100 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %153, %145 ], [ %241, %230 ], [ %.0.i, %FT_GlyphLoader_CreateExtra.exit ], [ 10, %ft_mem_realloc.exit.thread123 ], [ %.0.i102, %FT_GlyphLoader_CreateExtra.exit113 ], [ 10, %76 ], [ 10, %228 ]
+  %284 = phi i32 [ %.0.i102, %FT_GlyphLoader_CreateExtra.exit113 ], [ 10, %ft_mem_realloc.exit.thread123 ], [ 10, %76 ], [ %.033.i.i94, %ft_mem_realloc.exit100 ], [ %.033.i.i, %ft_mem_realloc.exit ], [ %153, %145 ], [ %241, %230 ], [ %.0.i, %FT_GlyphLoader_CreateExtra.exit ], [ 10, %228 ]
   %285 = load ptr, ptr %0, align 8, !tbaa !180
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %287 = load ptr, ptr %286, align 8, !tbaa !192
@@ -3942,7 +3942,7 @@ hash_rehash.exit.thread:                          ; preds = %84, %._crit_edge.i,
   br label %hash_rehash.exit
 
 hash_rehash.exit:                                 ; preds = %ft_mem_realloc.exit.i, %ft_mem_realloc.exit.thread.i, %hash_rehash.exit.thread, %89, %33
-  %.0 = phi i32 [ 0, %hash_rehash.exit.thread ], [ 64, %33 ], [ 0, %89 ], [ 10, %ft_mem_realloc.exit.thread.i ], [ 64, %ft_mem_realloc.exit.i ]
+  %.0 = phi i32 [ 0, %hash_rehash.exit.thread ], [ 0, %89 ], [ 64, %33 ], [ 10, %ft_mem_realloc.exit.thread.i ], [ 64, %ft_mem_realloc.exit.i ]
   ret i32 %.0
 }
 
@@ -4355,7 +4355,7 @@ FT_Stream_Close.exit:                             ; preds = %FT_Stream_Close.exi
   br label %ft_mem_alloc.exit
 
 ft_mem_alloc.exit:                                ; preds = %43, %40, %ft_mem_free.exit, %37, %35, %FT_Stream_Close.exit, %9, %21, %4, %3
-  %.0 = phi i32 [ 33, %3 ], [ 6, %4 ], [ 0, %FT_Stream_Close.exit ], [ 64, %9 ], [ 64, %21 ], [ 6, %43 ], [ 6, %40 ], [ %29, %ft_mem_free.exit ], [ 6, %37 ], [ 6, %35 ]
+  %.0 = phi i32 [ 6, %4 ], [ 33, %3 ], [ 0, %FT_Stream_Close.exit ], [ 64, %21 ], [ 64, %9 ], [ 6, %43 ], [ 6, %40 ], [ %29, %ft_mem_free.exit ], [ 6, %37 ], [ 6, %35 ]
   ret i32 %.0
 }
 
@@ -4772,14 +4772,14 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i97, %39, %4
   br label %199
 
 199:                                              ; preds = %.thread135, %165, %129, %123
-  %.075134 = phi i8 [ 1, %123 ], [ 5, %129 ], [ 6, %165 ], [ 2, %.thread135 ]
-  %.sroa.33.0132 = phi i64 [ %.sroa.33.0.ph, %123 ], [ %159, %129 ], [ %195, %165 ], [ %84, %.thread135 ]
-  %.sroa.23.1130 = phi i64 [ %.sroa.23.0, %123 ], [ %155, %129 ], [ %191, %165 ], [ %81, %.thread135 ]
-  %.sroa.0.1128 = phi i64 [ %.sroa.0.0, %123 ], [ %149, %129 ], [ %185, %165 ], [ %76, %.thread135 ]
-  %.sroa.13.0126 = phi i64 [ %.sroa.13.0.ph, %123 ], [ %151, %129 ], [ %187, %165 ], [ %78, %.thread135 ]
-  %.079 = phi i64 [ %124, %123 ], [ %162, %129 ], [ %196, %165 ], [ %85, %.thread135 ]
-  %.178 = phi i64 [ %125, %123 ], [ %161, %129 ], [ %198, %165 ], [ %86, %.thread135 ]
-  %.076 = phi i64 [ %128, %123 ], [ %164, %129 ], [ %196, %165 ], [ %85, %.thread135 ]
+  %.075134 = phi i8 [ 5, %129 ], [ 1, %123 ], [ 6, %165 ], [ 2, %.thread135 ]
+  %.sroa.33.0132 = phi i64 [ %159, %129 ], [ %.sroa.33.0.ph, %123 ], [ %195, %165 ], [ %84, %.thread135 ]
+  %.sroa.23.1130 = phi i64 [ %155, %129 ], [ %.sroa.23.0, %123 ], [ %191, %165 ], [ %81, %.thread135 ]
+  %.sroa.0.1128 = phi i64 [ %149, %129 ], [ %.sroa.0.0, %123 ], [ %185, %165 ], [ %76, %.thread135 ]
+  %.sroa.13.0126 = phi i64 [ %151, %129 ], [ %.sroa.13.0.ph, %123 ], [ %187, %165 ], [ %78, %.thread135 ]
+  %.079 = phi i64 [ %162, %129 ], [ %124, %123 ], [ %196, %165 ], [ %85, %.thread135 ]
+  %.178 = phi i64 [ %161, %129 ], [ %125, %123 ], [ %198, %165 ], [ %86, %.thread135 ]
+  %.076 = phi i64 [ %164, %129 ], [ %128, %123 ], [ %196, %165 ], [ %85, %.thread135 ]
   %200 = trunc i64 %.sroa.0.1128 to i32
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %200, ptr %201, align 8, !tbaa !262
@@ -5179,7 +5179,7 @@ ft_mem_alloc.exit:                                ; preds = %ft_mem_qalloc.exit.
   br label %62
 
 62:                                               ; preds = %60, %56, %61, %ft_mem_alloc.exit, %ft_mem_free.exit, %3, %2
-  %.0 = phi i32 [ 35, %2 ], [ 6, %3 ], [ 0, %56 ], [ 0, %60 ], [ %.0.i38, %ft_mem_free.exit ], [ %.08.i16.i, %ft_mem_alloc.exit ], [ %.08.i16.i, %61 ]
+  %.0 = phi i32 [ 6, %3 ], [ 35, %2 ], [ 0, %56 ], [ 0, %60 ], [ %.0.i38, %ft_mem_free.exit ], [ %.08.i16.i, %ft_mem_alloc.exit ], [ %.08.i16.i, %61 ]
   ret i32 %.0
 }
 
@@ -5663,7 +5663,7 @@ define range(i32 0, 21) i32 @FT_Outline_Check(ptr noundef readonly captures(addr
   br label %select.unfold
 
 select.unfold:                                    ; preds = %17, %1, %.thread, %2
-  %.1 = phi i32 [ 0, %2 ], [ 20, %.thread ], [ 20, %1 ], [ 0, %17 ]
+  %.1 = phi i32 [ 0, %2 ], [ 20, %1 ], [ 20, %.thread ], [ 0, %17 ]
   ret i32 %.1
 }
 
@@ -6288,9 +6288,9 @@ FT_Stream_Seek.exit.thread220:                    ; preds = %113, %72
   br i1 %116, label %72, label %FT_Stream_Seek.exit.thread216, !llvm.loop !303
 
 FT_Stream_Seek.exit.thread216:                    ; preds = %FT_Stream_Seek.exit.thread220, %113, %27
-  %.0203 = phi i32 [ %29, %27 ], [ %.6, %FT_Stream_Seek.exit.thread220 ], [ %.5, %113 ]
+  %.0203 = phi i32 [ %29, %27 ], [ %.5, %113 ], [ %.6, %FT_Stream_Seek.exit.thread220 ]
   %.0108 = phi ptr [ null, %27 ], [ %34, %113 ], [ %34, %FT_Stream_Seek.exit.thread220 ]
-  %.0101 = phi ptr [ null, %27 ], [ %.3104, %FT_Stream_Seek.exit.thread220 ], [ %73, %113 ]
+  %.0101 = phi ptr [ null, %27 ], [ %73, %113 ], [ %.3104, %FT_Stream_Seek.exit.thread220 ]
   %trunc = trunc i32 %.0203 to i8
   switch i8 %trunc, label %.thread [
     i8 81, label %117
@@ -6309,8 +6309,8 @@ FT_Stream_Seek.exit.thread216:                    ; preds = %FT_Stream_Seek.exit
   br i1 %.not.i188, label %.thread238, label %118
 
 118:                                              ; preds = %.thread281.thread, %.thread281
-  %.0101280287390 = phi ptr [ %73, %.thread281.thread ], [ %.0101, %.thread281 ]
-  %.0108279290386 = phi ptr [ %34, %.thread281.thread ], [ %.0108, %.thread281 ]
+  %.0101280287389 = phi ptr [ %73, %.thread281.thread ], [ %.0101, %.thread281 ]
+  %.0108279290385 = phi ptr [ %34, %.thread281.thread ], [ %.0108, %.thread281 ]
   %119 = phi ptr [ %96, %.thread281.thread ], [ %.pre330, %.thread281 ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load ptr, ptr %120, align 8, !tbaa !302
@@ -6387,13 +6387,13 @@ FT_Stream_Read.exit.i:                            ; preds = %134
 
 .thread238:                                       ; preds = %134, %124, %122, %.thread281
   %.not.i188392 = phi i1 [ false, %134 ], [ false, %124 ], [ false, %122 ], [ true, %.thread281 ]
-  %.0101280287389 = phi ptr [ %.0101280287390, %134 ], [ %.0101280287390, %124 ], [ %.0101280287390, %122 ], [ %.0101, %.thread281 ]
-  %.0108279290385 = phi ptr [ %.0108279290386, %134 ], [ %.0108279290386, %124 ], [ %.0108279290386, %122 ], [ %.0108, %.thread281 ]
+  %.0101280287390 = phi ptr [ %.0101280287389, %134 ], [ %.0101280287389, %124 ], [ %.0101280287389, %122 ], [ %.0101, %.thread281 ]
+  %.0108279290386 = phi ptr [ %.0108279290385, %134 ], [ %.0108279290385, %124 ], [ %.0108279290385, %122 ], [ %.0108, %.thread281 ]
   %160 = phi ptr [ %119, %134 ], [ %119, %124 ], [ %119, %122 ], [ null, %.thread281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %186
 
-IsMacBinary.exit.thread236:                       ; preds = %151, %FT_Stream_Read.exit.i
+IsMacBinary.exit.thread236:                       ; preds = %FT_Stream_Read.exit.i, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 
@@ -6437,8 +6437,8 @@ IsMacBinary.exit:                                 ; preds = %151
 
 186:                                              ; preds = %.thread238, %185, %185
   %.not.i188391 = phi i1 [ %.not.i188392, %.thread238 ], [ false, %185 ], [ false, %185 ]
-  %.0101280287388 = phi ptr [ %.0101280287389, %.thread238 ], [ %.0101280287390, %185 ], [ %.0101280287390, %185 ]
-  %.0108279290384 = phi ptr [ %.0108279290385, %.thread238 ], [ %.0108279290386, %185 ], [ %.0108279290386, %185 ]
+  %.0101280287387 = phi ptr [ %.0101280287390, %.thread238 ], [ %.0101280287389, %185 ], [ %.0101280287389, %185 ]
+  %.0108279290383 = phi ptr [ %.0108279290386, %.thread238 ], [ %.0108279290385, %185 ], [ %.0108279290385, %185 ]
   %187 = phi ptr [ %160, %.thread238 ], [ %119, %185 ], [ %119, %185 ]
   %.0.i240 = phi i32 [ 85, %.thread238 ], [ %.0.i, %185 ], [ %.0.i, %185 ]
   %188 = load i32, ptr %1, align 8, !tbaa !242
@@ -6560,8 +6560,8 @@ ft_mem_free.exit.i.i:                             ; preds = %232
   call void %236(ptr noundef nonnull %228, ptr noundef nonnull %231) #35
   br label %FT_Stream_New.exit.i.thread
 
-FT_Stream_New.exit.i.thread:                      ; preds = %226, %ft_mem_free.exit.i.i
-  %.0.i.i186.ph = phi i32 [ %234, %ft_mem_free.exit.i.i ], [ 64, %226 ]
+FT_Stream_New.exit.i.thread:                      ; preds = %ft_mem_free.exit.i.i, %226
+  %.0.i.i186.ph = phi i32 [ 64, %226 ], [ %234, %ft_mem_free.exit.i.i ]
   %237 = and i32 %.0.i.i186.ph, 255
   %238 = icmp eq i32 %237, 81
   %or.cond50.i243 = and i1 %switch.i.i, %238
@@ -6594,8 +6594,8 @@ FT_Stream_Free.exit.i:                            ; preds = %239, %246
   br label %250
 
 250:                                              ; preds = %FT_Stream_New.exit.i.thread, %249, %218, %FT_Raccess_Guess.exit.i
-  %.235.i = phi i32 [ %.033.i307, %FT_Raccess_Guess.exit.i ], [ %.033.i307, %218 ], [ %242, %249 ], [ %.0.i.i186.ph, %FT_Stream_New.exit.i.thread ]
-  %.1.i185 = phi i8 [ 1, %FT_Raccess_Guess.exit.i ], [ %.0.i182308, %218 ], [ %spec.select.i187, %249 ], [ %.2.i244, %FT_Stream_New.exit.i.thread ]
+  %.235.i = phi i32 [ %.033.i307, %FT_Raccess_Guess.exit.i ], [ %.033.i307, %218 ], [ %.0.i.i186.ph, %FT_Stream_New.exit.i.thread ], [ %242, %249 ]
+  %.1.i185 = phi i8 [ 1, %FT_Raccess_Guess.exit.i ], [ %.0.i182308, %218 ], [ %.2.i244, %FT_Stream_New.exit.i.thread ], [ %spec.select.i187, %249 ]
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next322, 9
   br i1 %exitcond323.not, label %251, label %FT_Raccess_Guess.exit.i, !llvm.loop !308
@@ -6631,11 +6631,11 @@ load_face_in_embedded_rfork.exit:                 ; preds = %258
   br i1 %.not46.i, label %load_mac_face.exit.thread, label %.thread
 
 load_mac_face.exit:                               ; preds = %185, %186
-  %.not.i188395 = phi i1 [ %.not.i188391, %186 ], [ false, %185 ]
-  %.0101280287387 = phi ptr [ %.0101280287388, %186 ], [ %.0101280287390, %185 ]
-  %.0108279290383 = phi ptr [ %.0108279290384, %186 ], [ %.0108279290386, %185 ]
-  %259 = phi ptr [ %187, %186 ], [ %119, %185 ]
-  %.1.i = phi i32 [ %.0.i240, %186 ], [ %.0.i, %185 ]
+  %.not.i188395 = phi i1 [ false, %185 ], [ %.not.i188391, %186 ]
+  %.0101280287388 = phi ptr [ %.0101280287389, %185 ], [ %.0101280287387, %186 ]
+  %.0108279290384 = phi ptr [ %.0108279290385, %185 ], [ %.0108279290383, %186 ]
+  %259 = phi ptr [ %119, %185 ], [ %187, %186 ]
+  %.1.i = phi i32 [ %.0.i, %185 ], [ %.0.i240, %186 ]
   %.not147 = icmp eq i32 %.1.i, 0
   br i1 %.not147, label %load_mac_face.exit.thread, label %270
 
@@ -6668,8 +6668,8 @@ ft_mem_free.exit.i167:                            ; preds = %FT_Stream_Close.exi
   br label %FT_Stream_Free.exit168
 
 270:                                              ; preds = %load_mac_face.exit, %117
-  %.0108279291 = phi ptr [ %.0108, %117 ], [ %.0108279290383, %load_mac_face.exit ]
-  %.0101280288 = phi ptr [ %.0101, %117 ], [ %.0101280287387, %load_mac_face.exit ]
+  %.0108279291 = phi ptr [ %.0108, %117 ], [ %.0108279290384, %load_mac_face.exit ]
+  %.0101280288 = phi ptr [ %.0101, %117 ], [ %.0101280287388, %load_mac_face.exit ]
   %.8 = phi i32 [ %.0203, %117 ], [ %.1.i, %load_mac_face.exit ]
   %271 = and i32 %.8, 255
   %.not148 = icmp eq i32 %271, 2
@@ -6677,9 +6677,9 @@ ft_mem_free.exit.i167:                            ; preds = %FT_Stream_Close.exi
   br label %.thread
 
 .thread:                                          ; preds = %64, %270, %load_face_in_embedded_rfork.exit, %30, %FT_Stream_Seek.exit.thread216
-  %.0101228 = phi ptr [ %.0101, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0101280287388, %load_face_in_embedded_rfork.exit ], [ %.0101280288, %270 ], [ null, %64 ]
-  %.0108227 = phi ptr [ %.0108, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0108279290384, %load_face_in_embedded_rfork.exit ], [ %.0108279291, %270 ], [ %34, %64 ]
-  %.7 = phi i32 [ %.0203, %FT_Stream_Seek.exit.thread216 ], [ 6, %30 ], [ 2, %load_face_in_embedded_rfork.exit ], [ %spec.select, %270 ], [ 11, %64 ]
+  %.0101228 = phi ptr [ %.0101, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0101280288, %270 ], [ %.0101280287387, %load_face_in_embedded_rfork.exit ], [ null, %64 ]
+  %.0108227 = phi ptr [ %.0108, %FT_Stream_Seek.exit.thread216 ], [ null, %30 ], [ %.0108279291, %270 ], [ %.0108279290383, %load_face_in_embedded_rfork.exit ], [ %34, %64 ]
+  %.7 = phi i32 [ %.0203, %FT_Stream_Seek.exit.thread216 ], [ 6, %30 ], [ %spec.select, %270 ], [ 2, %load_face_in_embedded_rfork.exit ], [ 11, %64 ]
   %272 = load ptr, ptr %10, align 8, !tbaa !240
   %273 = load i8, ptr %12, align 1, !tbaa !222
   %.not.i169 = icmp eq ptr %272, null
@@ -6887,8 +6887,8 @@ FT_List_Add.exit:                                 ; preds = %293, %295
   %360 = call i32 @FT_Done_Face(ptr noundef nonnull %286)
   br label %FT_Stream_Free.exit168
 
-FT_Stream_Free.exit.thread268:                    ; preds = %297, %303
-  %.2205274 = phi i32 [ %298, %297 ], [ %300, %303 ]
+FT_Stream_Free.exit.thread268:                    ; preds = %303, %297
+  %.2205274 = phi i32 [ %300, %303 ], [ %298, %297 ]
   %361 = load ptr, ptr %288, align 8, !tbaa !25
   %.not18.i = icmp eq ptr %361, null
   br i1 %.not18.i, label %FT_Stream_Free.exit168, label %362
@@ -6960,10 +6960,10 @@ ft_mem_free.exit.i180:                            ; preds = %386, %385
   call fastcc void @destroy_face(ptr noundef %371, ptr noundef nonnull %286, ptr noundef nonnull %361)
   br label %FT_Stream_Free.exit168
 
-FT_Stream_Free.exit.thread:                       ; preds = %FT_Stream_Seek.exit, %ft_mem_free.exit.i173, %FT_Stream_Close.exit.i171, %.thread, %ft_mem_free.exit.i, %FT_Stream_Close.exit.i, %53
-  %.1102265 = phi ptr [ %.0101228, %ft_mem_free.exit.i173 ], [ %.0101228, %FT_Stream_Close.exit.i171 ], [ %.0101228, %.thread ], [ %39, %ft_mem_free.exit.i ], [ %39, %FT_Stream_Close.exit.i ], [ %39, %53 ], [ %.4105, %FT_Stream_Seek.exit ]
-  %.1109264 = phi ptr [ %.0108227, %ft_mem_free.exit.i173 ], [ %.0108227, %FT_Stream_Close.exit.i171 ], [ %.0108227, %.thread ], [ %34, %ft_mem_free.exit.i ], [ %34, %FT_Stream_Close.exit.i ], [ %34, %53 ], [ %34, %FT_Stream_Seek.exit ]
-  %.2205263 = phi i32 [ %.7, %ft_mem_free.exit.i173 ], [ %.7, %FT_Stream_Close.exit.i171 ], [ %.7, %.thread ], [ %.1204, %ft_mem_free.exit.i ], [ %.1204, %FT_Stream_Close.exit.i ], [ %.1204, %53 ], [ 64, %FT_Stream_Seek.exit ]
+FT_Stream_Free.exit.thread:                       ; preds = %FT_Stream_Seek.exit, %ft_mem_free.exit.i173, %FT_Stream_Close.exit.i171, %.thread, %FT_Stream_Close.exit.i, %53, %ft_mem_free.exit.i
+  %.1102265 = phi ptr [ %39, %ft_mem_free.exit.i ], [ %.0101228, %ft_mem_free.exit.i173 ], [ %.0101228, %FT_Stream_Close.exit.i171 ], [ %.0101228, %.thread ], [ %39, %FT_Stream_Close.exit.i ], [ %39, %53 ], [ %.4105, %FT_Stream_Seek.exit ]
+  %.1109264 = phi ptr [ %34, %ft_mem_free.exit.i ], [ %.0108227, %ft_mem_free.exit.i173 ], [ %.0108227, %FT_Stream_Close.exit.i171 ], [ %.0108227, %.thread ], [ %34, %FT_Stream_Close.exit.i ], [ %34, %53 ], [ %34, %FT_Stream_Seek.exit ]
+  %.2205263 = phi i32 [ %.1204, %ft_mem_free.exit.i ], [ %.7, %ft_mem_free.exit.i173 ], [ %.7, %FT_Stream_Close.exit.i171 ], [ %.7, %.thread ], [ %.1204, %FT_Stream_Close.exit.i ], [ %.1204, %53 ], [ 64, %FT_Stream_Seek.exit ]
   %390 = load ptr, ptr %11, align 8, !tbaa !298
   %.not150 = icmp eq ptr %390, null
   br i1 %.not150, label %FT_Stream_Free.exit168, label %391
@@ -6973,7 +6973,7 @@ FT_Stream_Free.exit.thread:                       ; preds = %FT_Stream_Seek.exit
   br label %FT_Stream_Free.exit168
 
 FT_Stream_Free.exit168:                           ; preds = %376, %ft_mem_free.exit.i160, %FT_Stream_Close.exit.i158, %391, %FT_Stream_Free.exit.thread, %358, %359, %FT_Stream_Free.exit.thread268, %362, %369, %ft_mem_free.exit.i180, %ft_mem_free.exit.i167, %FT_Stream_Close.exit.i165, %load_mac_face.exit.thread, %5
-  %.0 = phi i32 [ 6, %5 ], [ 0, %load_mac_face.exit.thread ], [ 0, %FT_Stream_Close.exit.i165 ], [ 0, %ft_mem_free.exit.i167 ], [ %.2205263, %FT_Stream_Free.exit.thread ], [ %.2205263, %391 ], [ 0, %359 ], [ 0, %358 ], [ %.2205274, %FT_Stream_Free.exit.thread268 ], [ %.2205274, %362 ], [ %.2205274, %369 ], [ %.2205274, %ft_mem_free.exit.i180 ], [ 0, %FT_Stream_Close.exit.i158 ], [ 0, %ft_mem_free.exit.i160 ], [ %.2205274, %376 ]
+  %.0 = phi i32 [ 0, %ft_mem_free.exit.i167 ], [ 6, %5 ], [ %.2205274, %ft_mem_free.exit.i180 ], [ 0, %load_mac_face.exit.thread ], [ 0, %FT_Stream_Close.exit.i165 ], [ %.2205263, %FT_Stream_Free.exit.thread ], [ %.2205263, %391 ], [ 0, %358 ], [ 0, %359 ], [ 0, %ft_mem_free.exit.i160 ], [ %.2205274, %FT_Stream_Free.exit.thread268 ], [ %.2205274, %362 ], [ %.2205274, %369 ], [ 0, %FT_Stream_Close.exit.i158 ], [ %.2205274, %376 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7080,7 +7080,7 @@ FT_Attach_Stream.exit.sink.split:                 ; preds = %28, %24, %15
   br label %FT_Attach_Stream.exit
 
 FT_Attach_Stream.exit:                            ; preds = %FT_Attach_Stream.exit.sink.split, %10, %7, %4, %3, %2
-  %.0 = phi i32 [ 6, %2 ], [ 35, %3 ], [ 34, %4 ], [ 64, %10 ], [ 33, %7 ], [ %.0.ph, %FT_Attach_Stream.exit.sink.split ]
+  %.0 = phi i32 [ 6, %2 ], [ 34, %4 ], [ 35, %3 ], [ 33, %7 ], [ 64, %10 ], [ %.0.ph, %FT_Attach_Stream.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -7157,7 +7157,7 @@ ft_mem_free.exit.i:                               ; preds = %FT_Stream_Close.exi
   br label %FT_Stream_Free.exit
 
 FT_Stream_Free.exit:                              ; preds = %ft_mem_free.exit.i, %FT_Stream_Close.exit.i, %24, %7, %4, %2
-  %.0 = phi i32 [ 35, %2 ], [ 34, %4 ], [ %10, %7 ], [ %.1, %24 ], [ %.1, %FT_Stream_Close.exit.i ], [ %.1, %ft_mem_free.exit.i ]
+  %.0 = phi i32 [ 34, %4 ], [ 35, %2 ], [ %10, %7 ], [ %.1, %24 ], [ %.1, %FT_Stream_Close.exit.i ], [ %.1, %ft_mem_free.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -7260,7 +7260,7 @@ ft_mem_free.exit:                                 ; preds = %28, %29
   br label %FT_List_Find.exit.thread
 
 FT_List_Find.exit.thread:                         ; preds = %19, %12, %5, %ft_mem_free.exit, %2, %1
-  %.0 = phi i32 [ 0, %ft_mem_free.exit ], [ 35, %2 ], [ 35, %1 ], [ 0, %5 ], [ 35, %12 ], [ 35, %19 ]
+  %.0 = phi i32 [ 35, %1 ], [ 0, %ft_mem_free.exit ], [ 0, %5 ], [ 35, %2 ], [ 35, %12 ], [ 35, %19 ]
   ret i32 %.0
 }
 
@@ -7413,7 +7413,7 @@ ft_mem_free.exit.i:                               ; preds = %34, %31
   br i1 %.not23.i, label %FT_Done_GlyphSlot.exit, label %.lr.ph.i, !llvm.loop !277
 
 FT_Done_GlyphSlot.exit:                           ; preds = %.lr.ph, %.lr.ph57, %ft_mem_free.exit.i
-  %38 = phi ptr [ %14, %.lr.ph57 ], [ %.pre, %ft_mem_free.exit.i ], [ %14, %.lr.ph ]
+  %38 = phi ptr [ %.pre, %ft_mem_free.exit.i ], [ %14, %.lr.ph57 ], [ %14, %.lr.ph ]
   %.not33 = icmp eq ptr %38, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph57, !llvm.loop !331
 
@@ -7735,8 +7735,8 @@ ft_mem_free.exit57:                               ; preds = %.split, %43
   tail call void %47(ptr noundef nonnull %11, ptr noundef nonnull %.0.i17.i.ph) #35
   br label %.split33
 
-.split33:                                         ; preds = %ft_mem_qalloc.exit.i, %ft_mem_qalloc.exit.thread.i, %ft_mem_free.exit57, %ft_mem_alloc.exit, %ft_mem_free.exit, %4, %3, %2
-  %.032 = phi i32 [ 35, %2 ], [ 6, %3 ], [ 34, %4 ], [ %.063.ph112115, %ft_mem_free.exit57 ], [ 0, %ft_mem_alloc.exit ], [ 64, %ft_mem_free.exit ], [ 6, %ft_mem_qalloc.exit.thread.i ], [ 64, %ft_mem_qalloc.exit.i ]
+.split33:                                         ; preds = %ft_mem_qalloc.exit.thread.i, %ft_mem_qalloc.exit.i, %ft_mem_free.exit57, %ft_mem_alloc.exit, %ft_mem_free.exit, %4, %3, %2
+  %.032 = phi i32 [ 34, %4 ], [ 6, %3 ], [ 35, %2 ], [ %.063.ph112115, %ft_mem_free.exit57 ], [ 0, %ft_mem_alloc.exit ], [ 64, %ft_mem_free.exit ], [ 64, %ft_mem_qalloc.exit.i ], [ 6, %ft_mem_qalloc.exit.thread.i ]
   ret i32 %.032
 }
 
@@ -7925,7 +7925,7 @@ destroy_size.exit:                                ; preds = %46, %49
   br label %FT_List_Find.exit.thread
 
 FT_List_Find.exit.thread:                         ; preds = %14, %7, %destroy_size.exit, %4, %2, %1
-  %.0 = phi i32 [ 36, %1 ], [ 35, %2 ], [ 34, %4 ], [ 0, %destroy_size.exit ], [ 36, %7 ], [ 36, %14 ]
+  %.0 = phi i32 [ 34, %4 ], [ 35, %2 ], [ 36, %1 ], [ 0, %destroy_size.exit ], [ 36, %7 ], [ 36, %14 ]
   ret i32 %.0
 }
 
@@ -8049,8 +8049,8 @@ define hidden range(i32 0, 36) i32 @FT_Match_Size(ptr noundef readonly captures(
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.thread56, label %.lr.ph.split, !llvm.loop !355
 
-.thread56:                                        ; preds = %49, %62, %.preheader, %.split.us, %61, %31, %8, %4
-  %.0 = phi i32 [ 35, %4 ], [ 7, %8 ], [ 23, %31 ], [ 0, %61 ], [ 0, %.split.us ], [ 23, %.preheader ], [ 23, %62 ], [ 23, %49 ]
+.thread56:                                        ; preds = %49, %62, %.preheader, %61, %.split.us, %31, %8, %4
+  %.0 = phi i32 [ 35, %4 ], [ 23, %31 ], [ 7, %8 ], [ 0, %.split.us ], [ 0, %61 ], [ 23, %.preheader ], [ 23, %62 ], [ 23, %49 ]
   ret i32 %.0
 }
 
@@ -8318,8 +8318,8 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   br label %.thread130
 
 .thread:                                          ; preds = %34, %23, %15
-  %.091 = phi i64 [ %22, %15 ], [ %28, %23 ], [ %37, %34 ]
-  %.089 = phi i64 [ %22, %15 ], [ %33, %23 ], [ %44, %34 ]
+  %.091 = phi i64 [ %28, %23 ], [ %37, %34 ], [ %22, %15 ]
+  %.089 = phi i64 [ %33, %23 ], [ %44, %34 ], [ %22, %15 ]
   %.089.fr = freeze i64 %.089
   %.091.fr = freeze i64 %.091
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.091.fr, i1 true)
@@ -8327,8 +8327,8 @@ define hidden range(i32 0, 134) i32 @FT_Request_Metrics(ptr noundef readonly cap
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %9, %11
-  %55 = phi i64 [ 0, %9 ], [ %14, %11 ], [ %spec.select, %.thread ]
-  %56 = phi i64 [ 0, %9 ], [ %14, %11 ], [ %spec.select137, %.thread ]
+  %55 = phi i64 [ %14, %11 ], [ %spec.select, %.thread ], [ 0, %9 ]
+  %56 = phi i64 [ %14, %11 ], [ %spec.select137, %.thread ], [ 0, %9 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i32, ptr %57, align 8, !tbaa !351
   %.not105 = icmp eq i32 %58, 0
@@ -8629,7 +8629,7 @@ define i32 @FT_Select_Size(ptr noundef readonly captures(address_is_null) %0, i3
   br label %26
 
 26:                                               ; preds = %19, %24, %7, %9, %2, %3
-  %.0 = phi i32 [ 35, %3 ], [ 35, %2 ], [ 6, %9 ], [ 6, %7 ], [ %23, %19 ], [ 0, %24 ]
+  %.0 = phi i32 [ 35, %2 ], [ 6, %7 ], [ 35, %3 ], [ 6, %9 ], [ %23, %19 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -8708,7 +8708,7 @@ define i32 @FT_Request_Size(ptr noundef readonly captures(address_is_null) %0, p
   br label %43
 
 43:                                               ; preds = %35, %29, %41, %7, %8, %12, %16, %4, %2, %37
-  %.0 = phi i32 [ %40, %37 ], [ 35, %2 ], [ 36, %4 ], [ 6, %16 ], [ 6, %12 ], [ 6, %8 ], [ 6, %7 ], [ %30, %29 ], [ %42, %41 ], [ %36, %35 ]
+  %.0 = phi i32 [ 36, %4 ], [ 6, %7 ], [ %40, %37 ], [ 35, %2 ], [ 6, %16 ], [ 6, %12 ], [ 6, %8 ], [ %30, %29 ], [ %42, %41 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -8893,7 +8893,7 @@ define i32 @FT_Get_Kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %75
 
 75:                                               ; preds = %7, %69, %19, %15, %6, %5
-  %.0 = phi i32 [ 35, %5 ], [ 6, %6 ], [ 0, %69 ], [ 0, %19 ], [ %16, %15 ], [ 0, %7 ]
+  %.0 = phi i32 [ 6, %6 ], [ 35, %5 ], [ 0, %69 ], [ 0, %19 ], [ %16, %15 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -8926,7 +8926,7 @@ define i32 @FT_Get_Track_Kerning(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   br label %.thread
 
 .thread:                                          ; preds = %6, %12, %5, %4, %14
-  %.014 = phi i32 [ %16, %14 ], [ 35, %4 ], [ 6, %5 ], [ 7, %12 ], [ 7, %6 ]
+  %.014 = phi i32 [ %16, %14 ], [ 6, %5 ], [ 35, %4 ], [ 7, %12 ], [ 7, %6 ]
   ret i32 %.014
 }
 
@@ -9044,13 +9044,13 @@ define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_n
   br i1 %54, label %find_unicode_charmap.exit.sink.split, label %48
 
 find_unicode_charmap.exit.sink.split:             ; preds = %24, %28, %34, %.lr.ph
-  %.lcssa.sink.i.sink = phi ptr [ %51, %.lr.ph ], [ %35, %34 ], [ %17, %28 ], [ %17, %24 ]
+  %.lcssa.sink.i.sink = phi ptr [ %35, %34 ], [ %51, %.lr.ph ], [ %17, %28 ], [ %17, %24 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %.lcssa.sink.i.sink, ptr %55, align 8, !tbaa !291
   br label %find_unicode_charmap.exit
 
 find_unicode_charmap.exit:                        ; preds = %.preheader.i, %48, %find_unicode_charmap.exit.sink.split, %42, %7, %39, %4, %2
-  %.0 = phi i32 [ 35, %2 ], [ 6, %4 ], [ 38, %39 ], [ 38, %7 ], [ 6, %42 ], [ 0, %find_unicode_charmap.exit.sink.split ], [ 6, %48 ], [ 38, %.preheader.i ]
+  %.0 = phi i32 [ 38, %39 ], [ 6, %4 ], [ 35, %2 ], [ 38, %7 ], [ 6, %42 ], [ 0, %find_unicode_charmap.exit.sink.split ], [ 6, %48 ], [ 38, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -9113,7 +9113,7 @@ define range(i32 0, 39) i32 @FT_Set_Charmap(ptr noundef captures(address_is_null
   %.not18.i = icmp eq i32 %31, 0
   br i1 %.not18.i, label %FT_Get_CMap_Format.exit, label %FT_Get_CMap_Format.exit.thread
 
-FT_Get_CMap_Format.exit.thread:                   ; preds = %19, %27, %29, %21
+FT_Get_CMap_Format.exit.thread:                   ; preds = %27, %21, %19, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit22
 
@@ -9135,7 +9135,7 @@ FT_Get_CMap_Format.exit:                          ; preds = %29
   br i1 %37, label %16, label %.loopexit, !llvm.loop !390
 
 .loopexit:                                        ; preds = %35, %9, %4, %2, %.loopexit22
-  %.0 = phi i32 [ 0, %.loopexit22 ], [ 35, %2 ], [ 38, %4 ], [ 6, %9 ], [ 6, %35 ]
+  %.0 = phi i32 [ 0, %.loopexit22 ], [ 38, %4 ], [ 35, %2 ], [ 6, %9 ], [ 6, %35 ]
   ret i32 %.0
 }
 
@@ -9177,7 +9177,7 @@ define i64 @FT_Get_CMap_Format(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %5, %13, %11, %1, %3, %16
-  %.011 = phi i64 [ %18, %16 ], [ -1, %3 ], [ -1, %1 ], [ -1, %11 ], [ -1, %13 ], [ -1, %5 ]
+  %.011 = phi i64 [ -1, %11 ], [ %18, %16 ], [ -1, %1 ], [ -1, %3 ], [ -1, %13 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.011
 }
@@ -9221,7 +9221,7 @@ define i32 @FT_Get_Charmap_Index(ptr noundef readonly captures(address) %0) loca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.preheader, %1, %2
-  %.09 = phi i32 [ -1, %2 ], [ -1, %1 ], [ 0, %.preheader ], [ %14, %.loopexit.loopexit.split.loop.exit ], [ %5, %13 ]
+  %.09 = phi i32 [ -1, %1 ], [ -1, %2 ], [ 0, %.preheader ], [ %14, %.loopexit.loopexit.split.loop.exit ], [ %5, %13 ]
   ret i32 %.09
 }
 
@@ -9420,8 +9420,8 @@ define hidden ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef %1, i64 noundef %
   br label %ft_mem_free.exit
 
 ft_mem_free.exit:                                 ; preds = %13, %12, %21, %16, %6, %27
-  %.033 = phi i32 [ %., %27 ], [ 6, %6 ], [ 10, %16 ], [ %spec.select, %21 ], [ 0, %12 ], [ 0, %13 ]
-  %.0 = phi ptr [ %.42, %27 ], [ %4, %6 ], [ %4, %16 ], [ %25, %21 ], [ null, %12 ], [ null, %13 ]
+  %.033 = phi i32 [ %., %27 ], [ %spec.select, %21 ], [ 6, %6 ], [ 10, %16 ], [ 0, %12 ], [ 0, %13 ]
+  %.0 = phi ptr [ %.42, %27 ], [ %25, %21 ], [ %4, %6 ], [ %4, %16 ], [ null, %12 ], [ null, %13 ]
   store i32 %.033, ptr %5, align 4, !tbaa !168
   ret ptr %.0
 }
@@ -9530,7 +9530,7 @@ ft_mem_qrealloc.exit:                             ; preds = %41, %46, %23, %37
   br label %58
 
 52:                                               ; preds = %46, %41
-  %.0.i.ph = phi ptr [ %44, %41 ], [ %51, %46 ]
+  %.0.i.ph = phi ptr [ %51, %46 ], [ %44, %41 ]
   store ptr %.0.i.ph, ptr %29, align 8, !tbaa !337
   %53 = load i32, ptr %24, align 8, !tbaa !336
   %54 = add nsw i32 %53, 1
@@ -9572,7 +9572,7 @@ ft_cmap_done_internal.exit:                       ; preds = %58, %65
   br label %ft_mem_alloc.exit
 
 68:                                               ; preds = %ft_mem_alloc.exit, %57, %4, %7
-  %.028 = phi i32 [ 6, %7 ], [ 6, %4 ], [ %.1, %57 ], [ %.1, %ft_mem_alloc.exit ]
+  %.028 = phi i32 [ 6, %4 ], [ 6, %7 ], [ %.1, %57 ], [ %.1, %ft_mem_alloc.exit ]
   ret i32 %.028
 }
 
@@ -9790,7 +9790,7 @@ define range(i32 0, 8) i32 @FT_Face_Properties(ptr noundef readonly captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %8, %.loopexit.loopexit, %3
-  %.0 = phi i32 [ %.mux, %3 ], [ 6, %8 ], [ 0, %33 ], [ 7, %.loopexit.loopexit ]
+  %.0 = phi i32 [ 6, %8 ], [ %.mux, %3 ], [ 0, %33 ], [ 7, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -9903,7 +9903,7 @@ find_variant_selector_charmap.exit:               ; preds = %FT_Get_CMap_Format.
   br label %find_variant_selector_charmap.exit.thread
 
 find_variant_selector_charmap.exit.thread:        ; preds = %46, %15, %12, %find_variant_selector_charmap.exit, %50, %8, %5, %3
-  %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ %58, %50 ], [ 0, %find_variant_selector_charmap.exit ], [ 0, %12 ], [ 0, %15 ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ %58, %50 ], [ 0, %find_variant_selector_charmap.exit ], [ 0, %12 ], [ 0, %15 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -10373,7 +10373,7 @@ define i32 @FT_Get_Name_Index(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %9, %.fold.split, %26, %29, %3, %2
-  %.021 = phi i32 [ 0, %3 ], [ 0, %2 ], [ %30, %29 ], [ 0, %26 ], [ 0, %.fold.split ], [ 0, %9 ]
+  %.021 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %30, %29 ], [ 0, %26 ], [ 0, %.fold.split ], [ 0, %9 ]
   ret i32 %.021
 }
 
@@ -10452,7 +10452,7 @@ define i32 @FT_Get_Glyph_Name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br label %.thread
 
 .thread:                                          ; preds = %16, %35, %33, %.fold.split, %12, %8, %5, %4
-  %.028 = phi i32 [ 35, %4 ], [ 6, %5 ], [ 16, %8 ], [ 6, %12 ], [ %36, %35 ], [ 6, %33 ], [ 6, %.fold.split ], [ 6, %16 ]
+  %.028 = phi i32 [ 35, %4 ], [ 6, %5 ], [ 6, %12 ], [ 16, %8 ], [ %36, %35 ], [ 6, %33 ], [ 6, %.fold.split ], [ 6, %16 ]
   ret i32 %.028
 }
 
@@ -10583,7 +10583,7 @@ define i32 @FT_Load_Sfnt_Table(ptr noundef %0, i64 noundef %1, i64 noundef %2, p
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %5, %6, %18
-  %.014 = phi i32 [ %20, %18 ], [ 35, %6 ], [ 35, %5 ], [ 7, %16 ], [ 7, %10 ]
+  %.014 = phi i32 [ %20, %18 ], [ 35, %5 ], [ 35, %6 ], [ 7, %16 ], [ 7, %10 ]
   ret i32 %.014
 }
 
@@ -10622,7 +10622,7 @@ define i32 @FT_Sfnt_Table_Info(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %4, %6, %18
-  %.013 = phi i32 [ %21, %18 ], [ 35, %6 ], [ 35, %4 ], [ 7, %16 ], [ 7, %10 ]
+  %.013 = phi i32 [ %21, %18 ], [ 35, %4 ], [ 35, %6 ], [ 7, %16 ], [ 7, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013
 }
@@ -10662,7 +10662,7 @@ define i64 @FT_Get_CMap_Language_ID(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %5, %13, %11, %1, %3
-  %.011 = phi i64 [ 0, %3 ], [ 0, %1 ], [ 0, %11 ], [ %spec.select, %13 ], [ 0, %5 ]
+  %.011 = phi i64 [ 0, %11 ], [ %spec.select, %13 ], [ 0, %1 ], [ 0, %3 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.011
 }
@@ -10880,7 +10880,7 @@ FT_List_Up.exit:                                  ; preds = %FT_List_Find.exit, 
   br i1 %.not31, label %FT_List_Find.exit.thread, label %.lr.ph, !llvm.loop !424
 
 FT_List_Find.exit.thread:                         ; preds = %14, %.lr.ph, %39, %30, %9, %6, %5, %4
-  %.022 = phi i32 [ 33, %4 ], [ 6, %5 ], [ 6, %6 ], [ 6, %9 ], [ 0, %30 ], [ %38, %.lr.ph ], [ 0, %39 ], [ 6, %14 ]
+  %.022 = phi i32 [ 6, %9 ], [ 6, %6 ], [ 6, %5 ], [ 33, %4 ], [ 0, %30 ], [ 0, %39 ], [ %38, %.lr.ph ], [ 6, %14 ]
   ret i32 %.022
 }
 
@@ -11032,7 +11032,7 @@ FT_Get_Color_Glyph_Layer.exit79:                  ; preds = %57
   %.not65 = icmp eq i8 %61, 0
   br i1 %.not65, label %.critedge73, label %38, !llvm.loop !429
 
-.critedge73:                                      ; preds = %57, %54, %51, %FT_Get_Color_Glyph_Layer.exit79
+.critedge73:                                      ; preds = %51, %54, %57, %FT_Get_Color_Glyph_Layer.exit79
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 1651078259, ptr %62, align 8, !tbaa !124
   %63 = load ptr, ptr %37, align 8, !tbaa !40
@@ -11169,7 +11169,7 @@ ft_mem_free.exit.i92:                             ; preds = %109, %106
   store i32 1869968492, ptr %113, align 8, !tbaa !124
   br label %FT_Get_Color_Glyph_Layer.exit.thread
 
-FT_Get_Color_Glyph_Layer.exit.thread:             ; preds = %26, %22, %14, %18, %FT_Get_Color_Glyph_Layer.exit, %.critedge
+FT_Get_Color_Glyph_Layer.exit.thread:             ; preds = %26, %18, %22, %14, %FT_Get_Color_Glyph_Layer.exit, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11325,7 +11325,7 @@ define zeroext i8 @FT_Get_Color_Glyph_Layer(ptr noundef %0, i32 noundef %1, ptr 
   br label %25
 
 25:                                               ; preds = %18, %14, %5, %10, %23
-  %.0 = phi i8 [ %24, %23 ], [ 0, %10 ], [ 0, %5 ], [ 0, %14 ], [ 0, %18 ]
+  %.0 = phi i8 [ 0, %5 ], [ %24, %23 ], [ 0, %14 ], [ 0, %10 ], [ 0, %18 ]
   ret i8 %.0
 }
 
@@ -11519,7 +11519,7 @@ ft_mem_free.exit:                                 ; preds = %70, %73, %77, %80, 
   br label %ft_mem_alloc.exit
 
 ft_mem_alloc.exit:                                ; preds = %60, %ft_mem_free.exit, %.loopexit, %ft_mem_qalloc.exit.thread.i, %ft_mem_qalloc.exit.i, %22, %4, %3, %2
-  %.0 = phi i32 [ 33, %2 ], [ 6, %3 ], [ 4, %4 ], [ 5, %22 ], [ 0, %60 ], [ %.2, %ft_mem_free.exit ], [ 48, %.loopexit ], [ 6, %ft_mem_qalloc.exit.thread.i ], [ 64, %ft_mem_qalloc.exit.i ]
+  %.0 = phi i32 [ 6, %3 ], [ 4, %4 ], [ 5, %22 ], [ 33, %2 ], [ 48, %.loopexit ], [ 0, %60 ], [ %.2, %ft_mem_free.exit ], [ 6, %ft_mem_qalloc.exit.thread.i ], [ 64, %ft_mem_qalloc.exit.i ]
   ret i32 %.0
 }
 
@@ -11678,14 +11678,14 @@ FT_List_Find.exit.i.i:                            ; preds = %.lr.ph.i.i.i
   br i1 %.not26.i.i.i.i, label %ft_set_current_renderer.exit.i.i, label %.lr.ph.i.i.i.i
 
 ft_set_current_renderer.exit.i.i:                 ; preds = %69, %.lr.ph.i.i.i.i, %60
-  %.017.i.i.i.i = phi ptr [ null, %60 ], [ null, %69 ], [ %65, %.lr.ph.i.i.i.i ]
+  %.017.i.i.i.i = phi ptr [ null, %60 ], [ %65, %.lr.ph.i.i.i.i ], [ null, %69 ]
   %72 = getelementptr inbounds nuw i8, ptr %23, i64 296
   store ptr %.017.i.i.i.i, ptr %72, align 8, !tbaa !140
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !88
   br label %ft_remove_renderer.exit.i
 
 ft_remove_renderer.exit.i:                        ; preds = %38, %ft_set_current_renderer.exit.i.i, %32, %29, %._crit_edge
-  %73 = phi ptr [ %21, %29 ], [ %21, %._crit_edge ], [ %.pre.i, %ft_set_current_renderer.exit.i.i ], [ %21, %32 ], [ %21, %38 ]
+  %73 = phi ptr [ %21, %32 ], [ %21, %29 ], [ %21, %._crit_edge ], [ %.pre.i, %ft_set_current_renderer.exit.i.i ], [ %21, %38 ]
   %74 = load i64, ptr %73, align 8, !tbaa !89
   %75 = and i64 %74, 1
   %.not18.i = icmp eq i64 %75, 0
@@ -11744,7 +11744,7 @@ Destroy_Driver.exit.i:                            ; preds = %._crit_edge.i.i.i, 
   br label %.thread
 
 .thread:                                          ; preds = %90, %4, %3, %93, %2
-  %.021 = phi i32 [ 0, %93 ], [ 33, %2 ], [ 34, %3 ], [ 34, %4 ], [ 34, %90 ]
+  %.021 = phi i32 [ 33, %2 ], [ 0, %93 ], [ 34, %3 ], [ 34, %4 ], [ 34, %90 ]
   ret i32 %.021
 }
 
@@ -11859,7 +11859,7 @@ define internal fastcc i32 @ft_add_renderer(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not26.i.i, label %54, label %.lr.ph.i.i
 
 54:                                               ; preds = %51, %.lr.ph.i.i
-  %.017.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ null, %51 ]
+  %.017.i.i = phi ptr [ null, %51 ], [ %47, %.lr.ph.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 296
   store ptr %.017.i.i, ptr %55, align 8, !tbaa !140
   br label %ft_mem_free.exit
@@ -11871,7 +11871,7 @@ define internal fastcc i32 @ft_add_renderer(ptr noundef %0) unnamed_addr #0 {
   br label %ft_mem_free.exit
 
 ft_mem_free.exit:                                 ; preds = %54, %.thread, %.thread43, %1
-  %.0 = phi i32 [ 0, %54 ], [ 64, %1 ], [ 0, %.thread43 ], [ %21, %.thread ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %.thread43 ], [ 64, %1 ], [ %21, %.thread ]
   ret i32 %.0
 }
 
@@ -12047,7 +12047,7 @@ define i32 @FT_Property_Set(ptr noundef readonly captures(address) %0, ptr nound
   br label %ft_property_do.exit
 
 ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge.i, %24, %29, %31, %32
-  %.036.i = phi i32 [ 33, %4 ], [ 6, %5 ], [ 11, %._crit_edge.i ], [ 7, %24 ], [ 7, %29 ], [ 7, %31 ], [ %34, %32 ]
+  %.036.i = phi i32 [ 6, %5 ], [ 7, %29 ], [ 7, %31 ], [ 7, %24 ], [ 11, %._crit_edge.i ], [ 33, %4 ], [ %34, %32 ]
   ret i32 %.036.i
 }
 
@@ -12119,7 +12119,7 @@ define i32 @FT_Property_Get(ptr noundef readonly captures(address) %0, ptr nound
   br label %ft_property_do.exit
 
 ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge.i, %24, %29, %31, %33
-  %.036.i = phi i32 [ 33, %4 ], [ 6, %5 ], [ 11, %._crit_edge.i ], [ 7, %24 ], [ 7, %29 ], [ 7, %31 ], [ %35, %33 ]
+  %.036.i = phi i32 [ 6, %5 ], [ 7, %29 ], [ 7, %31 ], [ 7, %24 ], [ 11, %._crit_edge.i ], [ 33, %4 ], [ %35, %33 ]
   ret i32 %.036.i
 }
 
@@ -12190,7 +12190,7 @@ define hidden i32 @ft_property_string_set(ptr noundef readonly captures(address)
   br label %ft_property_do.exit
 
 ft_property_do.exit:                              ; preds = %4, %5, %._crit_edge.i, %24, %29, %31, %32
-  %.036.i = phi i32 [ 33, %4 ], [ 6, %5 ], [ 11, %._crit_edge.i ], [ 7, %24 ], [ 7, %29 ], [ 7, %31 ], [ %34, %32 ]
+  %.036.i = phi i32 [ 6, %5 ], [ 7, %29 ], [ 7, %31 ], [ 7, %24 ], [ 11, %._crit_edge.i ], [ 33, %4 ], [ %34, %32 ]
   ret i32 %.036.i
 }
 
@@ -12241,7 +12241,7 @@ define range(i32 0, 65) i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonl
   br label %ft_mem_alloc.exit
 
 ft_mem_alloc.exit:                                ; preds = %5, %2, %9
-  %.0 = phi i32 [ 0, %9 ], [ 6, %2 ], [ 64, %5 ]
+  %.0 = phi i32 [ 6, %2 ], [ 0, %9 ], [ 64, %5 ]
   ret i32 %.0
 }
 
@@ -12438,7 +12438,7 @@ ft_mem_free.exit.i:                               ; preds = %62, %61
   br label %FT_Done_Face.exit
 
 FT_Done_Face.exit:                                ; preds = %52, %.lr.ph, %35, %38, %45, %ft_mem_free.exit.i
-  %66 = phi ptr [ %32, %.lr.ph ], [ %32, %35 ], [ %32, %38 ], [ %32, %45 ], [ %.pre54, %ft_mem_free.exit.i ], [ %32, %52 ]
+  %66 = phi ptr [ %.pre54, %ft_mem_free.exit.i ], [ %32, %.lr.ph ], [ %32, %35 ], [ %32, %38 ], [ %32, %45 ], [ %32, %52 ]
   %.not36 = icmp eq ptr %66, null
   br i1 %.not36, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !459
 
@@ -12546,7 +12546,7 @@ ft_module_get_service.exit:                       ; preds = %FT_Get_Module.exit
   br label %FT_Get_Module.exit.thread
 
 FT_Get_Module.exit.thread:                        ; preds = %8, %FT_Get_Module.exit, %2, %20, %ft_module_get_service.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ %21, %20 ], [ 0, %ft_module_get_service.exit ], [ 0, %2 ], [ 0, %FT_Get_Module.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %2 ], [ %21, %20 ], [ 0, %ft_module_get_service.exit ], [ 0, %FT_Get_Module.exit ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -12624,7 +12624,7 @@ define zeroext i8 @FT_Get_Color_Glyph_Paint(ptr noundef %0, i32 noundef %1, i32 
   br label %18
 
 18:                                               ; preds = %11, %7, %4, %16
-  %.0 = phi i8 [ %17, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i8 [ %17, %16 ], [ 0, %7 ], [ 0, %4 ], [ 0, %11 ]
   ret i8 %.0
 }
 
@@ -12655,7 +12655,7 @@ define zeroext i8 @FT_Get_Color_Glyph_ClipBox(ptr noundef %0, i32 noundef %1, pt
   br label %17
 
 17:                                               ; preds = %10, %6, %3, %15
-  %.0 = phi i8 [ %16, %15 ], [ 0, %3 ], [ 0, %6 ], [ 0, %10 ]
+  %.0 = phi i8 [ %16, %15 ], [ 0, %6 ], [ 0, %3 ], [ 0, %10 ]
   ret i8 %.0
 }
 
@@ -12688,7 +12688,7 @@ define zeroext i8 @FT_Get_Paint_Layers(ptr noundef %0, ptr noundef %1, ptr nound
   br label %18
 
 18:                                               ; preds = %11, %7, %3, %16
-  %.0 = phi i8 [ %17, %16 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i8 [ %17, %16 ], [ 0, %7 ], [ 0, %3 ], [ 0, %11 ]
   ret i8 %.0
 }
 
@@ -12719,7 +12719,7 @@ define zeroext i8 @FT_Get_Paint(ptr noundef %0, ptr %1, i8 %2, ptr noundef %3) l
   br label %18
 
 18:                                               ; preds = %11, %7, %4, %16
-  %.0 = phi i8 [ %17, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i8 [ %17, %16 ], [ 0, %7 ], [ 0, %4 ], [ 0, %11 ]
   ret i8 %.0
 }
 
@@ -12752,7 +12752,7 @@ define zeroext i8 @FT_Get_Colorline_Stops(ptr noundef %0, ptr noundef %1, ptr no
   br label %18
 
 18:                                               ; preds = %11, %7, %3, %16
-  %.0 = phi i8 [ %17, %16 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ]
+  %.0 = phi i8 [ %17, %16 ], [ 0, %7 ], [ 0, %3 ], [ 0, %11 ]
   ret i8 %.0
 }
 
@@ -12923,8 +12923,8 @@ define i32 @FT_Outline_Decompose(ptr noundef readonly captures(address_is_null) 
   br i1 %.not162, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %156, %87, %select.unfold
-  %.1139.be = phi ptr [ %83, %87 ], [ %107, %select.unfold ], [ %141, %156 ]
-  %.1133.be = phi ptr [ %84, %87 ], [ %108, %select.unfold ], [ %157, %156 ]
+  %.1139.be = phi ptr [ %107, %select.unfold ], [ %83, %87 ], [ %141, %156 ]
+  %.1133.be = phi ptr [ %108, %select.unfold ], [ %84, %87 ], [ %157, %156 ]
   %97 = icmp ult ptr %.1139.be, %.1137
   br i1 %97, label %.lr.ph208, label %._crit_edge209
 
@@ -13087,12 +13087,12 @@ select.unfold:                                    ; preds = %118
   br label %171
 
 171:                                              ; preds = %.thread183, %._crit_edge209, %._crit_edge
-  %.3131 = phi i32 [ %132, %._crit_edge ], [ %170, %._crit_edge209 ], [ %168, %.thread183 ]
+  %.3131 = phi i32 [ %168, %.thread183 ], [ %132, %._crit_edge ], [ %170, %._crit_edge209 ]
   %.not166 = icmp eq i32 %.3131, 0
   br i1 %.not166, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %79, %171, %43, %38, %87, %156, %13, %.thread173, %.thread178, %.thread, %12, %3
-  %.0125 = phi i32 [ 20, %3 ], [ 6, %12 ], [ %.2130.ph, %.thread ], [ 20, %.thread178 ], [ 20, %.thread173 ], [ 0, %13 ], [ %96, %87 ], [ %166, %156 ], [ 0, %34 ], [ %81, %79 ], [ %.3131, %171 ], [ 20, %43 ], [ 20, %38 ]
+  %.0125 = phi i32 [ 20, %.thread178 ], [ 6, %12 ], [ 20, %3 ], [ %.2130.ph, %.thread ], [ 20, %.thread173 ], [ %96, %87 ], [ 0, %13 ], [ %166, %156 ], [ %81, %79 ], [ 0, %34 ], [ 20, %38 ], [ 20, %43 ], [ %.3131, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0125
@@ -13160,8 +13160,8 @@ ft_mem_realloc.exit:                              ; preds = %19
   br label %ft_mem_realloc.exit42.thread
 
 ft_mem_realloc.exit42.thread:                     ; preds = %ft_mem_realloc.exit.thread.thread, %30
-  %31 = phi ptr [ %26, %30 ], [ %18, %ft_mem_realloc.exit.thread.thread ]
-  %.0.i25.i37.ph = phi ptr [ %29, %30 ], [ null, %ft_mem_realloc.exit.thread.thread ]
+  %31 = phi ptr [ %18, %ft_mem_realloc.exit.thread.thread ], [ %26, %30 ]
+  %.0.i25.i37.ph = phi ptr [ null, %ft_mem_realloc.exit.thread.thread ], [ %29, %30 ]
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.0.i25.i37.ph, ptr %32, align 8, !tbaa !202
   %33 = zext nneg i32 %2 to i64
@@ -13242,7 +13242,7 @@ ft_mem_free.exit24.i:                             ; preds = %64, %ft_mem_free.ex
   br label %FT_Outline_Done.exit
 
 FT_Outline_Done.exit:                             ; preds = %ft_mem_free.exit24.i, %45, %13, %10, %6, %4, %38
-  %.0 = phi i32 [ 0, %38 ], [ 33, %4 ], [ 6, %6 ], [ 6, %10 ], [ 10, %13 ], [ %46, %45 ], [ %46, %ft_mem_free.exit24.i ]
+  %.0 = phi i32 [ 6, %6 ], [ 6, %10 ], [ 10, %13 ], [ 0, %38 ], [ 33, %4 ], [ %46, %45 ], [ %46, %ft_mem_free.exit24.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -13311,7 +13311,7 @@ ft_mem_free.exit24:                               ; preds = %23, %ft_mem_free.ex
   br label %26
 
 26:                                               ; preds = %4, %3, %2, %ft_mem_free.exit24
-  %.0 = phi i32 [ 0, %ft_mem_free.exit24 ], [ 33, %2 ], [ 20, %3 ], [ 6, %4 ]
+  %.0 = phi i32 [ 0, %ft_mem_free.exit24 ], [ 20, %3 ], [ 33, %2 ], [ 6, %4 ]
   ret i32 %.0
 }
 
@@ -13389,7 +13389,7 @@ define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly captures(addre
   br label %46
 
 46:                                               ; preds = %13, %5, %10, %2, %38
-  %.0 = phi i32 [ 0, %38 ], [ 20, %2 ], [ 6, %10 ], [ 6, %5 ], [ 0, %13 ]
+  %.0 = phi i32 [ 20, %2 ], [ 6, %5 ], [ 0, %38 ], [ 6, %10 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -13631,7 +13631,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i, %6, %10
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i46
 
 .loopexit:                                        ; preds = %.lr.ph80, %.lr.ph.loopexit, %59, %66, %.lr.ph.preheader, %46, %FT_Outline_Get_CBox.exit, %5, %4, %3
-  %.031 = phi i32 [ 33, %3 ], [ 20, %4 ], [ 6, %5 ], [ 20, %FT_Outline_Get_CBox.exit ], [ 19, %46 ], [ 0, %.lr.ph.preheader ], [ %57, %66 ], [ %57, %59 ], [ 0, %.lr.ph.loopexit ], [ %57, %.lr.ph80 ]
+  %.031 = phi i32 [ 6, %5 ], [ 20, %FT_Outline_Get_CBox.exit ], [ 20, %4 ], [ 33, %3 ], [ 19, %46 ], [ 0, %.lr.ph.preheader ], [ %57, %66 ], [ %57, %59 ], [ 0, %.lr.ph.loopexit ], [ %57, %.lr.ph80 ]
   ret i32 %.031
 }
 
@@ -13865,9 +13865,9 @@ define range(i32 0, 21) i32 @FT_Outline_EmboldenXY(ptr noundef readonly captures
   br label %FT_Vector_NormLen.exit
 
 FT_Vector_NormLen.exit:                           ; preds = %48, %49, %108, %113
-  %.sroa.11.1175 = phi i64 [ %102, %108 ], [ %102, %113 ], [ %42, %49 ], [ %.0.i, %48 ]
-  %.sroa.0.1173 = phi i64 [ %99, %108 ], [ %99, %113 ], [ %.084.i, %49 ], [ %37, %48 ]
-  %.086.i = phi i32 [ %112, %108 ], [ %115, %113 ], [ %.089.i, %49 ], [ %.087.i, %48 ]
+  %.sroa.11.1175 = phi i64 [ %42, %49 ], [ %102, %108 ], [ %102, %113 ], [ %.0.i, %48 ]
+  %.sroa.0.1173 = phi i64 [ %.084.i, %49 ], [ %99, %108 ], [ %99, %113 ], [ %37, %48 ]
+  %.086.i = phi i32 [ %.089.i, %49 ], [ %112, %108 ], [ %115, %113 ], [ %.087.i, %48 ]
   %116 = zext i32 %.086.i to i64
   %117 = icmp eq i32 %.086.i, 0
   br i1 %117, label %FT_Vector_NormLen.exit.thread, label %118
@@ -14090,7 +14090,7 @@ FT_Vector_NormLen.exit.thread:                    ; preds = %225, %222, %48, %11
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !503
 
 .loopexit:                                        ; preds = %._crit_edge, %14, %12, %4, %3
-  %.0103 = phi i32 [ 20, %3 ], [ 0, %4 ], [ %., %12 ], [ 0, %14 ], [ 0, %._crit_edge ]
+  %.0103 = phi i32 [ 20, %3 ], [ %., %12 ], [ 0, %4 ], [ 0, %14 ], [ 0, %._crit_edge ]
   ret i32 %.0103
 }
 
@@ -14243,7 +14243,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   br label %FT_Outline_Get_CBox.exit.thread
 
 FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %68, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
-  %.044 = phi i32 [ 0, %2 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 1, %._crit_edge70 ], [ 2, %6 ], [ 2, %.thread ], [ 0, %68 ]
+  %.044 = phi i32 [ 1, %._crit_edge70 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 2, %6 ], [ 0, %2 ], [ 2, %.thread ], [ 0, %68 ]
   ret i32 %.044
 }
 
@@ -14382,7 +14382,7 @@ define hidden range(i32 0, 13) i32 @ps_property_set(ptr noundef writeonly captur
   br label %60
 
 60:                                               ; preds = %26, %45, %.loopexit, %51
-  %.1 = phi i32 [ 0, %51 ], [ 6, %.loopexit ], [ 6, %45 ], [ 6, %26 ]
+  %.1 = phi i32 [ 6, %.loopexit ], [ 0, %51 ], [ 6, %45 ], [ 6, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge141
 
@@ -14470,7 +14470,7 @@ define hidden range(i32 0, 13) i32 @ps_property_set(ptr noundef writeonly captur
   br label %.critedge141
 
 .critedge141:                                     ; preds = %64, %84, %81, %80, %79, %68, %71, %92, %66, %60
-  %.2 = phi i32 [ 0, %92 ], [ %.1, %60 ], [ 0, %71 ], [ 7, %68 ], [ 0, %66 ], [ 0, %79 ], [ 0, %80 ], [ 0, %81 ], [ 12, %84 ], [ 6, %64 ]
+  %.2 = phi i32 [ 0, %81 ], [ 0, %92 ], [ 0, %66 ], [ 12, %84 ], [ 6, %64 ], [ %.1, %60 ], [ 0, %71 ], [ 7, %68 ], [ 0, %79 ], [ 0, %80 ]
   ret i32 %.2
 }
 
@@ -14540,7 +14540,7 @@ define hidden range(i32 0, 13) i32 @ps_property_get(ptr noundef readonly capture
   br label %39
 
 39:                                               ; preds = %34, %36, %31, %5
-  %.0 = phi i32 [ 0, %36 ], [ 0, %31 ], [ 0, %5 ], [ 12, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %36 ], [ 0, %31 ], [ 12, %34 ]
   ret i32 %.0
 }
 
@@ -14838,7 +14838,7 @@ FT_Stream_Skip.exit:                              ; preds = %156, %158, %160
   br label %FT_Stream_Seek.exit.thread
 
 FT_Stream_Seek.exit.thread:                       ; preds = %171, %169, %138, %136, %28, %16, %13, %11, %164, %FT_Stream_Skip.exit, %149, %140, %117, %121, %125, %130, %114, %111, %43, %31, %173
-  %.0 = phi i32 [ 0, %173 ], [ 2, %31 ], [ 2, %43 ], [ 2, %111 ], [ 2, %114 ], [ 2, %130 ], [ 2, %125 ], [ 2, %121 ], [ 2, %117 ], [ %144, %140 ], [ 2, %149 ], [ %163, %FT_Stream_Skip.exit ], [ 2, %164 ], [ 85, %11 ], [ 85, %13 ], [ 85, %16 ], [ 85, %28 ], [ 85, %136 ], [ 85, %138 ], [ 85, %169 ], [ 85, %171 ]
+  %.0 = phi i32 [ 2, %31 ], [ 2, %117 ], [ 85, %13 ], [ 2, %43 ], [ 2, %114 ], [ 85, %138 ], [ 85, %28 ], [ 2, %149 ], [ %163, %FT_Stream_Skip.exit ], [ 2, %164 ], [ 0, %173 ], [ %144, %140 ], [ 2, %111 ], [ 2, %130 ], [ 2, %125 ], [ 2, %121 ], [ 85, %11 ], [ 85, %16 ], [ 85, %136 ], [ 85, %169 ], [ 85, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -15447,18 +15447,18 @@ ft_mem_qrealloc.exit130:                          ; preds = %184
   br i1 %197, label %.lr.ph177, label %._crit_edge178, !llvm.loop !515
 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %180, %ft_mem_qrealloc.exit130
-  %.0.i128229 = phi ptr [ %188, %ft_mem_qrealloc.exit130 ], [ null, %180 ], [ %188, %.lr.ph177 ]
+  %.0.i128229 = phi ptr [ null, %180 ], [ %188, %ft_mem_qrealloc.exit130 ], [ %188, %.lr.ph177 ]
   store ptr %.0.i128229, ptr %6, align 8, !tbaa !516
   br label %ft_mem_qrealloc.exit130.thread
 
-ft_mem_qrealloc.exit130.thread:                   ; preds = %184, %182, %.loopexit, %._crit_edge178
+ft_mem_qrealloc.exit130.thread:                   ; preds = %184, %.loopexit, %182, %._crit_edge178
   %storemerge = phi i32 [ 0, %._crit_edge178 ], [ 10, %182 ], [ 6, %.loopexit ], [ 64, %184 ]
   store i32 %storemerge, ptr %13, align 4, !tbaa !168
   %.not.i131 = icmp eq ptr %.0.i119224, null
   br i1 %.not.i131, label %ft_mem_free.exit, label %.thread
 
-.thread.sink.split:                               ; preds = %170, %168, %166, %157, %155
-  %.sink = phi i32 [ 85, %155 ], [ 85, %157 ], [ 85, %166 ], [ 85, %168 ], [ 8, %170 ]
+.thread.sink.split:                               ; preds = %170, %166, %168, %155, %157
+  %.sink = phi i32 [ 85, %166 ], [ 85, %155 ], [ 85, %157 ], [ 85, %168 ], [ 8, %170 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !168
   br label %.thread
 
@@ -15470,8 +15470,8 @@ ft_mem_qrealloc.exit130.thread:                   ; preds = %184, %182, %.loopex
   call void %200(ptr noundef %14, ptr noundef nonnull %.0.i119226) #35
   br label %ft_mem_free.exit
 
-ft_mem_free.exit:                                 ; preds = %49, %.preheader, %141, %139, %135, %133, %131, %19, %17, %.thread, %ft_mem_qrealloc.exit130.thread, %FT_Stream_ReadULong.exit.thread, %FT_Stream_ReadUShort.exit101.thread, %FT_Stream_ReadUShort.exit113.thread, %FT_Stream_ReadUShort.exit.thread, %125, %36
-  %.0 = phi i32 [ 8, %36 ], [ 8, %125 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %198, %.thread ], [ 85, %17 ], [ 85, %19 ], [ 85, %131 ], [ 85, %133 ], [ 10, %139 ], [ 6, %135 ], [ 64, %141 ], [ 1, %.preheader ], [ 1, %49 ]
+ft_mem_free.exit:                                 ; preds = %49, %.preheader, %141, %135, %139, %133, %131, %19, %17, %.thread, %ft_mem_qrealloc.exit130.thread, %FT_Stream_ReadULong.exit.thread, %FT_Stream_ReadUShort.exit101.thread, %FT_Stream_ReadUShort.exit113.thread, %FT_Stream_ReadUShort.exit.thread, %125, %36
+  %.0 = phi i32 [ 85, %133 ], [ %198, %.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 64, %141 ], [ 8, %36 ], [ 8, %125 ], [ 85, %19 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ 85, %17 ], [ 85, %131 ], [ 10, %139 ], [ 6, %135 ], [ 1, %.preheader ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -16101,8 +16101,8 @@ FT_Stream_EnterFrame.exit:                        ; preds = %select.unfold50.i, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %FT_Stream_EnterFrame.exit.thread
 
-FT_Stream_EnterFrame.exit.thread:                 ; preds = %27, %8, %ft_mem_qalloc.exit.i, %41, %FT_Stream_EnterFrame.exit
-  %.1.i9 = phi i32 [ 0, %41 ], [ %.0.i, %FT_Stream_EnterFrame.exit ], [ 85, %27 ], [ 85, %8 ], [ %.08.i.i, %ft_mem_qalloc.exit.i ]
+FT_Stream_EnterFrame.exit.thread:                 ; preds = %27, %ft_mem_qalloc.exit.i, %8, %41, %FT_Stream_EnterFrame.exit
+  %.1.i9 = phi i32 [ %.0.i, %FT_Stream_EnterFrame.exit ], [ 0, %41 ], [ 85, %27 ], [ %.08.i.i, %ft_mem_qalloc.exit.i ], [ 85, %8 ]
   ret i32 %.1.i9
 }
 
@@ -16207,7 +16207,7 @@ ft_mem_free.exit:                                 ; preds = %23, %24
   br label %46
 
 46:                                               ; preds = %34, %ft_mem_qalloc.exit, %7, %27, %39
-  %.1 = phi i32 [ 0, %39 ], [ %.0, %27 ], [ %.08.i, %ft_mem_qalloc.exit ], [ 85, %7 ], [ 85, %34 ]
+  %.1 = phi i32 [ 85, %7 ], [ 0, %39 ], [ %.08.i, %ft_mem_qalloc.exit ], [ %.0, %27 ], [ 85, %34 ]
   ret i32 %.1
 }
 
@@ -16935,8 +16935,8 @@ FT_Stream_EnterFrame.exit:                        ; preds = %select.unfold50.i, 
   br label %150
 
 150:                                              ; preds = %FT_Stream_EnterFrame.exit, %FT_Stream_EnterFrame.exit.thread98, %143, %145, %147, %149, %64
-  %.176 = phi i8 [ %.075, %64 ], [ %.075, %149 ], [ %.075, %147 ], [ %.075, %145 ], [ %.075, %143 ], [ 1, %FT_Stream_EnterFrame.exit.thread98 ], [ 1, %FT_Stream_EnterFrame.exit ]
-  %.174 = phi ptr [ %65, %64 ], [ %.3, %149 ], [ %.3, %147 ], [ %.3, %145 ], [ %.3, %143 ], [ %41, %FT_Stream_EnterFrame.exit.thread98 ], [ %44, %FT_Stream_EnterFrame.exit ]
+  %.176 = phi i8 [ %.075, %64 ], [ %.075, %143 ], [ %.075, %149 ], [ %.075, %147 ], [ %.075, %145 ], [ 1, %FT_Stream_EnterFrame.exit.thread98 ], [ 1, %FT_Stream_EnterFrame.exit ]
+  %.174 = phi ptr [ %65, %64 ], [ %.3, %143 ], [ %.3, %149 ], [ %.3, %147 ], [ %.3, %145 ], [ %41, %FT_Stream_EnterFrame.exit.thread98 ], [ %44, %FT_Stream_EnterFrame.exit ]
   %.181 = getelementptr inbounds nuw i8, ptr %.080, i64 4
   br label %13
 
@@ -16971,7 +16971,7 @@ FT_Stream_ExitFrame.exit:                         ; preds = %151, %ft_mem_free.e
   br label %159
 
 159:                                              ; preds = %FT_Stream_EnterFrame.exit.thread, %FT_Stream_ExitFrame.exit, %4, %3
-  %.0 = phi i32 [ 6, %3 ], [ 40, %4 ], [ %.178.ph, %FT_Stream_ExitFrame.exit ], [ %.178.ph, %FT_Stream_EnterFrame.exit.thread ]
+  %.0 = phi i32 [ 40, %4 ], [ 6, %3 ], [ %.178.ph, %FT_Stream_ExitFrame.exit ], [ %.178.ph, %FT_Stream_EnterFrame.exit.thread ]
   ret i32 %.0
 }
 
@@ -18266,7 +18266,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   store ptr %.lcssa.sink.i, ptr %93, align 8, !tbaa !291
   br label %ft_mem_alloc.exit.thread101
 
-.preheader.i71:                                   ; preds = %54, %28
+.preheader.i71:                                   ; preds = %28, %54
   %.08098121 = phi i32 [ %.1, %54 ], [ 64, %28 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.i17.i.ph, i64 72
   %95 = load i32, ptr %94, align 8, !tbaa !336
@@ -18323,7 +18323,7 @@ ft_mem_free.exit.i:                               ; preds = %._crit_edge.thread.
   store i32 0, ptr %94, align 8, !tbaa !336
   br label %destroy_charmaps.exit
 
-destroy_charmaps.exit:                            ; preds = %ft_mem_qalloc.exit.thread.i, %ft_mem_qalloc.exit.i, %ft_mem_free.exit.i
+destroy_charmaps.exit:                            ; preds = %ft_mem_qalloc.exit.i, %ft_mem_qalloc.exit.thread.i, %ft_mem_free.exit.i
   %.not.i70112 = phi i1 [ false, %ft_mem_free.exit.i ], [ true, %ft_mem_qalloc.exit.i ], [ true, %ft_mem_qalloc.exit.thread.i ]
   %.0.i17.i8597111 = phi ptr [ %.0.i17.i.ph, %ft_mem_free.exit.i ], [ null, %ft_mem_qalloc.exit.i ], [ null, %ft_mem_qalloc.exit.thread.i ]
   %.08098110 = phi i32 [ %.08098121, %ft_mem_free.exit.i ], [ 64, %ft_mem_qalloc.exit.i ], [ 6, %ft_mem_qalloc.exit.thread.i ]
@@ -18772,9 +18772,9 @@ FT_Stream_ReadULong.exit94.thread.i:              ; preds = %159, %151
   br i1 %or.cond.i, label %ft_lookup_PS_in_sfnt_stream.exit, label %79
 
 ft_lookup_PS_in_sfnt_stream.exit:                 ; preds = %192, %188, %184
-  %.219 = phi i64 [ %.118, %192 ], [ %186, %184 ], [ %190, %188 ]
-  %.216 = phi i64 [ %.115, %192 ], [ %187, %184 ], [ %191, %188 ]
-  %.2 = phi i8 [ %.1, %192 ], [ 1, %184 ], [ 0, %188 ]
+  %.219 = phi i64 [ %186, %184 ], [ %.118, %192 ], [ %190, %188 ]
+  %.216 = phi i64 [ %187, %184 ], [ %.115, %192 ], [ %191, %188 ]
+  %.2 = phi i8 [ 1, %184 ], [ %.1, %192 ], [ 0, %188 ]
   %194 = load i64, ptr %16, align 8, !tbaa !249
   %195 = icmp ugt i64 %.219, %194
   %196 = sub nuw i64 %194, %.219
@@ -18838,7 +18838,7 @@ ft_lookup_PS_in_sfnt_stream.exit:                 ; preds = %192, %188, %184
   br label %ft_mem_qalloc.exit
 
 ft_mem_qalloc.exit:                               ; preds = %.thread, %214, %217
-  %.020 = phi i32 [ %220, %217 ], [ %212, %214 ], [ %213, %.thread ]
+  %.020 = phi i32 [ %212, %214 ], [ %220, %217 ], [ %213, %.thread ]
   %221 = and i32 %.020, 255
   %222 = icmp eq i32 %221, 2
   br i1 %222, label %ft_mem_qalloc.exit.thread50, label %ft_mem_qalloc.exit.thread41
@@ -18863,8 +18863,8 @@ FT_Stream_Seek.exit43:                            ; preds = %224, %226
   store i64 %14, ptr %13, align 8, !tbaa !255
   br label %ft_mem_qalloc.exit.thread41
 
-ft_mem_qalloc.exit.thread41:                      ; preds = %79, %115, %117, %FT_Stream_ReadULong.exit.thread.i, %FT_Stream_ReadUShort.exit.thread.i, %FT_Stream_ReadULong.exit94.thread.i, %FT_Stream_ReadULong.exit82.thread.i, %FT_Stream_ReadULong.exit65.thread.i, %70, %72, %75, %226, %224, %206, %203, %201, %210, %ft_lookup_PS_in_sfnt_stream.exit, %ft_mem_qalloc.exit, %FT_Stream_Seek.exit43
-  %.0 = phi i32 [ %.02052, %FT_Stream_Seek.exit43 ], [ %.020, %ft_mem_qalloc.exit ], [ 6, %210 ], [ 8, %ft_lookup_PS_in_sfnt_stream.exit ], [ 85, %201 ], [ 85, %203 ], [ 64, %206 ], [ 85, %224 ], [ 85, %226 ], [ 85, %FT_Stream_ReadULong.exit.thread.i ], [ 85, %FT_Stream_ReadUShort.exit.thread.i ], [ 85, %FT_Stream_ReadULong.exit94.thread.i ], [ 85, %FT_Stream_ReadULong.exit82.thread.i ], [ 85, %FT_Stream_ReadULong.exit65.thread.i ], [ 85, %70 ], [ 85, %72 ], [ 142, %75 ], [ 85, %117 ], [ 85, %115 ], [ 142, %79 ]
+ft_mem_qalloc.exit.thread41:                      ; preds = %117, %79, %115, %FT_Stream_ReadULong.exit.thread.i, %FT_Stream_ReadUShort.exit.thread.i, %FT_Stream_ReadULong.exit65.thread.i, %FT_Stream_ReadULong.exit82.thread.i, %70, %72, %75, %FT_Stream_ReadULong.exit94.thread.i, %226, %224, %206, %203, %201, %210, %ft_lookup_PS_in_sfnt_stream.exit, %ft_mem_qalloc.exit, %FT_Stream_Seek.exit43
+  %.0 = phi i32 [ 85, %226 ], [ %.020, %ft_mem_qalloc.exit ], [ %.02052, %FT_Stream_Seek.exit43 ], [ 6, %210 ], [ 8, %ft_lookup_PS_in_sfnt_stream.exit ], [ 85, %FT_Stream_ReadULong.exit94.thread.i ], [ 85, %203 ], [ 85, %201 ], [ 64, %206 ], [ 85, %224 ], [ 85, %FT_Stream_ReadULong.exit.thread.i ], [ 85, %FT_Stream_ReadUShort.exit.thread.i ], [ 85, %FT_Stream_ReadULong.exit65.thread.i ], [ 85, %FT_Stream_ReadULong.exit82.thread.i ], [ 85, %70 ], [ 85, %72 ], [ 142, %75 ], [ 85, %115 ], [ 142, %79 ], [ 85, %117 ]
   ret i32 %.0
 }
 
@@ -18954,7 +18954,7 @@ define internal fastcc i32 @open_face_from_buffer(ptr noundef %0, ptr noundef %1
   br label %ft_mem_free.exit
 
 ft_mem_free.exit:                                 ; preds = %29, %36, %25, %.loopexit, %39
-  %.0 = phi i32 [ %45, %39 ], [ 11, %.loopexit ], [ 11, %25 ], [ 64, %36 ], [ 6, %29 ]
+  %.0 = phi i32 [ 11, %25 ], [ %45, %39 ], [ 11, %.loopexit ], [ 64, %36 ], [ 6, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -19278,9 +19278,9 @@ ft_mem_qalloc.exit:                               ; preds = %72
   br i1 %exitcond135.not, label %._crit_edge122, label %83, !llvm.loop !560
 
 ._crit_edge122:                                   ; preds = %145, %112
-  %.0117.i.lcssa = phi i64 [ %.0117.i117, %112 ], [ %.1118.i, %145 ]
-  %.0113.i.lcssa = phi i64 [ %.0113.i118, %112 ], [ %.1114.i, %145 ]
-  %.0112.i.lcssa = phi i64 [ %.0112.i119, %112 ], [ %.1.i, %145 ]
+  %.0117.i.lcssa = phi i64 [ %.1118.i, %145 ], [ %.0117.i117, %112 ]
+  %.0113.i.lcssa = phi i64 [ %.1114.i, %145 ], [ %.0113.i118, %112 ]
+  %.0112.i.lcssa = phi i64 [ %.1.i, %145 ], [ %.0112.i119, %112 ]
   %146 = add i64 %.0113.i.lcssa, 2
   %147 = icmp ugt i64 %146, %74
   br i1 %147, label %ft_mem_free.exit44, label %148
@@ -19320,7 +19320,7 @@ ft_mem_free.exit44:                               ; preds = %139, %137, %125, %1
   br label %Mac_Read_POST_Resource.exit
 
 Mac_Read_POST_Resource.exit.thread:               ; preds = %48, %67, %34, %32, %ft_mem_qalloc.exit, %FT_Stream_ReadULong.exit.thread
-  %.0.i.ph = phi i32 [ 64, %ft_mem_qalloc.exit ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %32 ], [ 85, %34 ], [ 9, %67 ], [ 9, %48 ]
+  %.0.i.ph = phi i32 [ 85, %FT_Stream_ReadULong.exit.thread ], [ 64, %ft_mem_qalloc.exit ], [ 85, %34 ], [ 85, %32 ], [ 9, %67 ], [ 9, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %168
 
@@ -19456,7 +19456,7 @@ ft_mem_qalloc.exit64:                             ; preds = %205, %203
   br label %Mac_Read_sfnt_Resource.exit.thread
 
 Mac_Read_sfnt_Resource.exit.thread:               ; preds = %205, %203, %187, %185, %190, %198, %220, %213, %195, %196, %ft_mem_qalloc.exit64
-  %.0.i40.ph = phi i32 [ 64, %ft_mem_qalloc.exit64 ], [ 9, %196 ], [ 1, %195 ], [ %212, %213 ], [ %222, %220 ], [ 0, %198 ], [ %194, %190 ], [ 85, %185 ], [ 85, %187 ], [ 85, %203 ], [ 85, %205 ]
+  %.0.i40.ph = phi i32 [ 64, %ft_mem_qalloc.exit64 ], [ 9, %196 ], [ 1, %195 ], [ %212, %213 ], [ 85, %187 ], [ %194, %190 ], [ %222, %220 ], [ 0, %198 ], [ 85, %185 ], [ 85, %203 ], [ 85, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ft_mem_free.exit42
 
@@ -19481,7 +19481,7 @@ ft_mem_free.exit42:                               ; preds = %Mac_Read_sfnt_Resou
   br label %ft_mem_free.exit42.thread
 
 ft_mem_free.exit42.thread:                        ; preds = %Mac_Read_sfnt_Resource.exit, %173, %225, %ft_mem_free.exit42, %ft_mem_free.exit, %171, %5
-  %.0 = phi i32 [ %14, %5 ], [ 0, %171 ], [ %.0.i168, %ft_mem_free.exit ], [ %174, %173 ], [ 0, %225 ], [ %.0.i4091, %ft_mem_free.exit42 ], [ 1, %Mac_Read_sfnt_Resource.exit ]
+  %.0 = phi i32 [ %14, %5 ], [ %.0.i168, %ft_mem_free.exit ], [ 0, %171 ], [ %174, %173 ], [ 0, %225 ], [ %.0.i4091, %ft_mem_free.exit42 ], [ 1, %Mac_Read_sfnt_Resource.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -19572,7 +19572,7 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   br label %29
 
 ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
+  %.0.i18 = phi i32 [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #35
@@ -19744,7 +19744,7 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   br label %29
 
 ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
+  %.0.i18 = phi i32 [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #35
@@ -19808,7 +19808,7 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   br label %29
 
 ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
+  %.0.i18 = phi i32 [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #35
@@ -20170,8 +20170,8 @@ FT_Stream_Skip.exit85:                            ; preds = %157, %159
   %exitcond.not = icmp eq i32 %164, %85
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !563
 
-.loopexit:                                        ; preds = %163, %159, %157, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread13, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %.thread, %FT_Stream_ReadULong.exit.thread, %76, %25, %154
-  %.0 = phi i32 [ 0, %154 ], [ 2, %25 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread13 ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %157 ], [ 85, %159 ], [ 2, %163 ]
+.loopexit:                                        ; preds = %163, %157, %159, %56, %58, %FT_Stream_ReadULong.exit68.thread, %.thread13, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %.thread, %FT_Stream_ReadULong.exit.thread, %76, %25, %154
+  %.0 = phi i32 [ 85, %56 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 2, %25 ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %58 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %76 ], [ 0, %154 ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 2, %.thread ], [ 2, %.thread13 ], [ 85, %157 ], [ 85, %159 ], [ 2, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

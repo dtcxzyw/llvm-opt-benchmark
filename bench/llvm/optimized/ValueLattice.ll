@@ -137,7 +137,7 @@ define dso_local noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7Cmp
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
 _ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit: ; preds = %9, %.thread29, %56, %61, %58, %46, %48, %5, %18
-  %.0 = phi ptr [ %23, %18 ], [ null, %5 ], [ %47, %46 ], [ %49, %48 ], [ %57, %56 ], [ %62, %61 ], [ null, %58 ], [ null, %.thread29 ], [ null, %9 ]
+  %.0 = phi ptr [ %49, %48 ], [ null, %5 ], [ %23, %18 ], [ %57, %56 ], [ null, %58 ], [ null, %9 ], [ %62, %61 ], [ %47, %46 ], [ null, %.thread29 ]
   ret ptr %.0
 }
 
@@ -868,7 +868,7 @@ _ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit: ; preds = %111
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %108, %106, %69, %67, %43, %41, %29, %27, %15, %13, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit, %114
-  %.0 = phi ptr [ %118, %114 ], [ %121, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit ], [ %14, %13 ], [ %0, %15 ], [ %28, %27 ], [ %0, %29 ], [ %42, %41 ], [ %0, %43 ], [ %68, %67 ], [ %.0.i.i27, %69 ], [ %107, %106 ], [ %.0.i.i36, %108 ]
+  %.0 = phi ptr [ %121, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit ], [ %68, %67 ], [ %.0.i.i27, %69 ], [ %107, %106 ], [ %.0.i.i36, %108 ], [ %118, %114 ], [ %14, %13 ], [ %0, %15 ], [ %28, %27 ], [ %0, %29 ], [ %42, %41 ], [ %0, %43 ]
   ret ptr %.0
 }
 
@@ -1069,7 +1069,7 @@ _ZN4llvm19ValueLatticeElement7destroyEv.exit.i:   ; preds = %26, %23, %_ZN4llvm5
   br label %34
 
 34:                                               ; preds = %30, %30, %31
-  %35 = phi i16 [ 5, %30 ], [ %33, %31 ], [ 5, %30 ]
+  %35 = phi i16 [ 5, %30 ], [ 5, %30 ], [ %33, %31 ]
   %36 = and i16 %5, 254
   %switch = icmp eq i16 %36, 4
   br i1 %switch, label %37, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
@@ -1238,7 +1238,7 @@ _ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit: ; preds = %34
   br label %_ZN4llvm19ValueLatticeElement15markOverdefinedEv.exit
 
 _ZN4llvm19ValueLatticeElement15markOverdefinedEv.exit: ; preds = %_ZN4llvm19ValueLatticeElement7destroyEv.exit.i, %6, %60, %_ZN4llvm19ValueLatticeElement15markOverdefinedEv.exit8, %_ZN4llvm13ConstantRangeaSEOS0_.exit, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
-  %.0 = phi i1 [ %63, %60 ], [ true, %_ZN4llvm19ValueLatticeElement15markOverdefinedEv.exit8 ], [ true, %_ZN4llvm13ConstantRangeaSEOS0_.exit ], [ true, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit ], [ false, %6 ], [ true, %_ZN4llvm19ValueLatticeElement7destroyEv.exit.i ]
+  %.0 = phi i1 [ true, %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit ], [ %63, %60 ], [ true, %_ZN4llvm19ValueLatticeElement15markOverdefinedEv.exit8 ], [ true, %_ZN4llvm13ConstantRangeaSEOS0_.exit ], [ false, %6 ], [ true, %_ZN4llvm19ValueLatticeElement7destroyEv.exit.i ]
   ret i1 %.0
 }
 

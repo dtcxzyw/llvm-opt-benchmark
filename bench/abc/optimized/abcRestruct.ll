@@ -878,7 +878,7 @@ Abc_NodeRestructureCut.exit.thread.i:             ; preds = %173, %Dec_GraphFree
   br label %411
 
 Abc_NodeRestructureCut.exit.i:                    ; preds = %404, %256, %248
-  %.0.i.i = phi ptr [ %calloc.i97.i.i, %256 ], [ %.085.i.i, %404 ], [ %calloc.i97.i.i, %248 ]
+  %.0.i.i = phi ptr [ %.085.i.i, %404 ], [ %calloc.i97.i.i, %256 ], [ %calloc.i97.i.i, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %Abc_NodeRestructure.exit
@@ -2165,8 +2165,8 @@ Vec_IntAlloc.exit:                                ; preds = %21, %26
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %56, %58, %51, %53
-  %.sink674 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %57, %56 ], [ %59, %58 ]
-  %.sink = phi i32 [ %48, %51 ], [ %48, %53 ], [ 16, %56 ], [ 16, %58 ]
+  %.sink674 = phi ptr [ %54, %53 ], [ %52, %51 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink = phi i32 [ %48, %53 ], [ %48, %51 ], [ 16, %56 ], [ 16, %58 ]
   store ptr %.sink674, ptr %31, align 8, !tbaa !92
   store i32 %.sink, ptr %23, align 8, !tbaa !91
   br label %Vec_IntPush.exit.us
@@ -5938,7 +5938,7 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
   br label %54
 
 54:                                               ; preds = %.sink.split, %42, %40, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %40 ], [ null, %42 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %42 ], [ null, %40 ], [ null, %3 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

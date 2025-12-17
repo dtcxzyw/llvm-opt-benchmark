@@ -266,7 +266,7 @@ define dso_local range(i32 -1, 1) i32 @anetKeepAlive(ptr noundef captures(addres
   br i1 %.not12, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %15, %13
-  %.str.5.sink = phi ptr [ @.str.3, %13 ], [ @.str.4, %15 ], [ @.str.5, %19 ]
+  %.str.5.sink = phi ptr [ @.str.4, %15 ], [ @.str.3, %13 ], [ @.str.5, %19 ]
   %21 = tail call ptr @__errno_location() #12
   %22 = load i32, ptr %21, align 4, !tbaa !5
   %23 = call ptr @strerror(i32 noundef %22) #11
@@ -664,7 +664,7 @@ anetNonBlock.exit.thread:                         ; preds = %38, %36, %32
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %77)
   br label %.thread73
 
-.thread73:                                        ; preds = %.preheader._crit_edge, %anetSetReuseAddr.exit.thread, %anetNonBlock.exit, %.thread80
+.thread73:                                        ; preds = %.preheader._crit_edge, %anetNonBlock.exit, %anetSetReuseAddr.exit.thread, %.thread80
   %78 = call i32 @close(i32 noundef %24) #11
   br label %.loopexit
 
@@ -757,7 +757,7 @@ anetNonBlock.exit.thread:                         ; preds = %16, %14, %7
   br label %30
 
 30:                                               ; preds = %.sink.split, %anetNonBlock.exit.thread, %24, %3
-  %.0 = phi i32 [ -1, %3 ], [ %5, %24 ], [ %5, %anetNonBlock.exit.thread ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %5, %24 ], [ -1, %3 ], [ %5, %anetNonBlock.exit.thread ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -974,7 +974,7 @@ anetSetReuseAddr.exit.thread:                     ; preds = %48
   br label %anetListen.exit
 
 anetListen.exit:                                  ; preds = %._crit_edge, %64, %61, %73
-  %.2 = phi i32 [ -1, %73 ], [ -1, %._crit_edge ], [ -1, %64 ], [ %39, %61 ]
+  %.2 = phi i32 [ -1, %._crit_edge ], [ -1, %73 ], [ -1, %64 ], [ %39, %61 ]
   %75 = load ptr, ptr %10, align 8, !tbaa !24
   call void @freeaddrinfo(ptr noundef %75) #11
   br label %76
@@ -1389,7 +1389,7 @@ define dso_local range(i32 -1, 1) i32 @anetPipe(ptr noundef %0, i32 noundef %1, 
   br label %47
 
 47:                                               ; preds = %35, %37, %17, %10, %7, %41
-  %.028 = phi i32 [ -1, %41 ], [ -1, %7 ], [ 0, %10 ], [ -1, %17 ], [ 0, %37 ], [ 0, %35 ]
+  %.028 = phi i32 [ -1, %7 ], [ 0, %10 ], [ -1, %41 ], [ -1, %17 ], [ 0, %37 ], [ 0, %35 ]
   ret i32 %.028
 }
 

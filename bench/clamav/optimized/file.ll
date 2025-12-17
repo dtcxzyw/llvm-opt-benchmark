@@ -175,7 +175,7 @@ define noundef zeroext i1 @_ZN4File6DeleteEv(ptr noundef nonnull align 8 derefer
   br label %19
 
 19:                                               ; preds = %12, %1, %16
-  %.0 = phi i1 [ %18, %16 ], [ false, %1 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %1 ], [ %18, %16 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -984,7 +984,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   br i1 %48, label %.lr.ph, label %.critedge38, !llvm.loop !41
 
 .critedge38:                                      ; preds = %.lr.ph, %21, %28, %.preheader, %.critedge, %33
-  %.4 = phi i1 [ false, %33 ], [ true, %.critedge ], [ true, %.preheader ], [ %27, %28 ], [ %27, %21 ], [ true, %.lr.ph ]
+  %.4 = phi i1 [ false, %33 ], [ true, %.preheader ], [ true, %.critedge ], [ %27, %21 ], [ %27, %28 ], [ true, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
@@ -1035,7 +1035,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   br label %78
 
 78:                                               ; preds = %72, %3, %.critedge38
-  %.0 = phi i1 [ %.4, %.critedge38 ], [ true, %3 ], [ %77, %72 ]
+  %.0 = phi i1 [ %.4, %.critedge38 ], [ %77, %72 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -1488,7 +1488,7 @@ _ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
   br i1 %38, label %.lr.ph.split, label %.thread42
 
 .thread42:                                        ; preds = %36, %29, %13, %_ZN5ArrayIhEC2Em.exit.thread
-  %.02352 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02354.us, %13 ], [ %37, %36 ], [ %.02354, %29 ]
+  %.02352 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02354.us, %13 ], [ %.02354, %29 ], [ %37, %36 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit
 
@@ -1506,7 +1506,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   br i1 %4, label %_ZN5ArrayIhED2Ev.exit34, label %.thread43
 
 .thread43:                                        ; preds = %.split58, %.split58.us, %.split62, %.split62.us, %40
-  %.pn.pn45 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %31, %.split62 ], [ %22, %.split62.us ], [ %35, %.split58 ], [ %21, %.split58.us ]
+  %.pn.pn45 = phi { ptr, i32 } [ %.us-phi, %40 ], [ %22, %.split62.us ], [ %31, %.split62 ], [ %35, %.split58 ], [ %21, %.split58.us ]
   tail call void @free(ptr noundef nonnull %malloc.i) #19
   br label %_ZN5ArrayIhED2Ev.exit34
 

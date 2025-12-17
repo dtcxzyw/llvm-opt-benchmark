@@ -702,7 +702,7 @@ thread-pre-split.thread:                          ; preds = %355, %368, %365, %3
   br label %.thread
 
 .thread:                                          ; preds = %33, %26, %22, %253, %296, %348, %347, %thread-pre-split.thread, %6
-  %.0158 = phi ptr [ null, %thread-pre-split.thread ], [ null, %6 ], [ %31, %253 ], [ %31, %296 ], [ %31, %348 ], [ %31, %347 ], [ null, %33 ], [ null, %26 ], [ null, %22 ]
+  %.0158 = phi ptr [ null, %thread-pre-split.thread ], [ null, %22 ], [ null, %6 ], [ %31, %253 ], [ %31, %296 ], [ %31, %348 ], [ %31, %347 ], [ null, %33 ], [ null, %26 ]
   ret ptr %.0158
 }
 
@@ -736,7 +736,7 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   br label %23
 
 23:                                               ; preds = %21, %19, %13
-  %.070 = phi i8 [ 3, %13 ], [ 2, %19 ], [ %., %21 ]
+  %.070 = phi i8 [ 2, %19 ], [ 3, %13 ], [ %., %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = load i8, ptr %24, align 4, !tbaa !22, !range !7, !noundef !8
   %26 = shl nuw nsw i8 %25, 2
@@ -1049,7 +1049,7 @@ define internal noundef ptr @H5O__link_copy(ptr noundef readonly captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %13, %30, %42, %54, %40, %63, %64, %2
-  %.0 = phi ptr [ null, %64 ], [ null, %63 ], [ null, %2 ], [ %.032, %30 ], [ %.032, %42 ], [ %.032, %54 ], [ %.032, %40 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %64 ], [ null, %63 ], [ null, %13 ], [ null, %2 ], [ %.032, %30 ], [ %.032, %42 ], [ %.032, %54 ], [ %.032, %40 ]
   ret ptr %.0
 }
 
@@ -1080,7 +1080,7 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr noundef r
   br label %19
 
 19:                                               ; preds = %17, %15, %10
-  %.017 = phi i64 [ 8, %10 ], [ 4, %15 ], [ %., %17 ]
+  %.017 = phi i64 [ 4, %15 ], [ 8, %10 ], [ %., %17 ]
   %20 = load i32, ptr %2, align 8, !tbaa !16
   %.not.not = icmp eq i32 %20, 0
   %21 = select i1 %.not.not, i64 2, i64 3
@@ -1328,7 +1328,7 @@ define range(i32 -1, -2147483648) i32 @H5O_link_delete(ptr noundef %0, ptr readn
   br label %78
 
 78:                                               ; preds = %.thread, %74, %72
-  %.029 = phi i32 [ -1, %74 ], [ %66, %72 ], [ -1, %.thread ]
+  %.029 = phi i32 [ %66, %72 ], [ -1, %.thread ], [ -1, %74 ]
   %.not47 = icmp eq i64 %49, 0
   br i1 %.not47, label %.thread44, label %79
 
@@ -1343,8 +1343,8 @@ define range(i32 -1, -2147483648) i32 @H5O_link_delete(ptr noundef %0, ptr readn
   %85 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O_link_delete, i32 noundef 654, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.8) #8
   br label %.thread44
 
-.thread44:                                        ; preds = %45, %51, %41, %36, %35, %14, %18, %82, %79, %78
-  %.130 = phi i32 [ -1, %82 ], [ %.029, %79 ], [ %.029, %78 ], [ 0, %18 ], [ 0, %45 ], [ -1, %51 ], [ -1, %41 ], [ 0, %36 ], [ %.231, %35 ], [ -1, %14 ]
+.thread44:                                        ; preds = %45, %51, %41, %35, %36, %14, %18, %82, %79, %78
+  %.130 = phi i32 [ -1, %82 ], [ %.029, %79 ], [ %.029, %78 ], [ 0, %18 ], [ 0, %45 ], [ -1, %51 ], [ -1, %41 ], [ %.231, %35 ], [ 0, %36 ], [ -1, %14 ]
   ret i32 %.130
 }
 

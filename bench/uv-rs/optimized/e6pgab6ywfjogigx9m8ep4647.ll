@@ -332,7 +332,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %34, %23, %8
-  %.sroa.0.1.i.i = phi i64 [ 2, %34 ], [ 3, %23 ], [ 4, %8 ]
+  %.sroa.0.1.i.i = phi i64 [ 4, %8 ], [ 2, %34 ], [ 3, %23 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !39, !noundef !3
   %43 = load i64, ptr %0, align 8, !range !46, !alias.scope !39, !noundef !3
@@ -1003,8 +1003,8 @@ define { ptr, ptr } @"_ZN57_$LT$uv_metadata..Error$u20$as$u20$core..error..Error
   br label %18
 
 18:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %13, %11, %9, %7
-  %.sroa.12.0 = phi ptr [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.66, %7 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.68, %9 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.70, %11 ], [ %17, %13 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %16, %13 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.12.0 = phi ptr [ %17, %13 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.66, %7 ], [ undef, %1 ], [ undef, %1 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.68, %9 ], [ @anon.d4e4bb3a4e90666ff2247d2f205aeaf7.70, %11 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %16, %13 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ %10, %9 ], [ %12, %11 ], [ null, %1 ]
   %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %20

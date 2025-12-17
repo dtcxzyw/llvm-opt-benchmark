@@ -194,151 +194,153 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 define range(i32 0, 2) i32 @pmix20_bfrop_value_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8, !tbaa !27
   switch i16 %3, label %.thread [
-    i16 1, label %4
-    i16 2, label %10
-    i16 4, label %16
-    i16 6, label %22
-    i16 7, label %28
-    i16 8, label %34
-    i16 9, label %40
-    i16 10, label %46
-    i16 11, label %52
-    i16 12, label %58
-    i16 13, label %66
-    i16 14, label %72
-    i16 15, label %78
-    i16 3, label %85
+    i16 1, label %85
+    i16 2, label %4
+    i16 4, label %10
+    i16 6, label %16
+    i16 7, label %22
+    i16 8, label %28
+    i16 9, label %34
+    i16 10, label %40
+    i16 11, label %46
+    i16 12, label %52
+    i16 13, label %60
+    i16 14, label %66
+    i16 15, label %72
+    i16 3, label %78
   ]
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !29, !range !30, !noundef !31
+  %6 = load i8, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !29, !range !30, !noundef !31
-  %9 = icmp eq i8 %6, %8
+  %8 = load i8, ptr %7, align 8, !tbaa !29
+  %.fr69 = freeze i8 %6
+  %.fr70 = freeze i8 %8
+  %9 = icmp eq i8 %.fr69, %.fr70
   br i1 %9, label %91, label %92
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !29
+  %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !29
-  %.fr68 = freeze i8 %12
-  %.fr69 = freeze i8 %14
-  %15 = icmp eq i8 %.fr68, %.fr69
+  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %.fr67 = freeze i64 %12
+  %.fr68 = freeze i64 %14
+  %15 = icmp eq i64 %.fr67, %.fr68
   br i1 %15, label %91, label %92
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !29
+  %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !29
-  %.fr66 = freeze i64 %18
-  %.fr67 = freeze i64 %20
-  %21 = icmp eq i64 %.fr66, %.fr67
+  %20 = load i32, ptr %19, align 8, !tbaa !29
+  %.fr65 = freeze i32 %18
+  %.fr66 = freeze i32 %20
+  %21 = icmp eq i32 %.fr65, %.fr66
   br i1 %21, label %91, label %92
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !29
+  %24 = load i8, ptr %23, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !29
-  %.fr64 = freeze i32 %24
-  %.fr65 = freeze i32 %26
-  %27 = icmp eq i32 %.fr64, %.fr65
+  %26 = load i8, ptr %25, align 8, !tbaa !29
+  %.fr63 = freeze i8 %24
+  %.fr64 = freeze i8 %26
+  %27 = icmp eq i8 %.fr63, %.fr64
   br i1 %27, label %91, label %92
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i8, ptr %29, align 8, !tbaa !29
+  %30 = load i16, ptr %29, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i8, ptr %31, align 8, !tbaa !29
-  %.fr62 = freeze i8 %30
-  %.fr63 = freeze i8 %32
-  %33 = icmp eq i8 %.fr62, %.fr63
+  %32 = load i16, ptr %31, align 8, !tbaa !29
+  %.fr61 = freeze i16 %30
+  %.fr62 = freeze i16 %32
+  %33 = icmp eq i16 %.fr61, %.fr62
   br i1 %33, label %91, label %92
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i16, ptr %35, align 8, !tbaa !29
+  %36 = load i32, ptr %35, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i16, ptr %37, align 8, !tbaa !29
-  %.fr60 = freeze i16 %36
-  %.fr61 = freeze i16 %38
-  %39 = icmp eq i16 %.fr60, %.fr61
+  %38 = load i32, ptr %37, align 8, !tbaa !29
+  %.fr59 = freeze i32 %36
+  %.fr60 = freeze i32 %38
+  %39 = icmp eq i32 %.fr59, %.fr60
   br i1 %39, label %91, label %92
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !29
+  %42 = load i64, ptr %41, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !29
-  %.fr58 = freeze i32 %42
-  %.fr59 = freeze i32 %44
-  %45 = icmp eq i32 %.fr58, %.fr59
+  %44 = load i64, ptr %43, align 8, !tbaa !29
+  %.fr57 = freeze i64 %42
+  %.fr58 = freeze i64 %44
+  %45 = icmp eq i64 %.fr57, %.fr58
   br i1 %45, label %91, label %92
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %48 = load i32, ptr %47, align 8, !tbaa !29
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !29
-  %.fr56 = freeze i64 %48
-  %.fr57 = freeze i64 %50
-  %51 = icmp eq i64 %.fr56, %.fr57
+  %50 = load i32, ptr %49, align 8, !tbaa !29
+  %.fr55 = freeze i32 %48
+  %.fr56 = freeze i32 %50
+  %51 = icmp eq i32 %.fr55, %.fr56
   br i1 %51, label %91, label %92
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !29
-  %.fr54 = freeze i32 %54
-  %.fr55 = freeze i32 %56
-  %57 = icmp eq i32 %.fr54, %.fr55
-  br i1 %57, label %91, label %92
+  %54 = load i8, ptr %53, align 8, !tbaa !29
+  %.fr53 = freeze i8 %54
+  %55 = zext i8 %.fr53 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = load i8, ptr %56, align 8, !tbaa !29
+  %.fr54 = freeze i8 %57
+  %58 = sext i8 %.fr54 to i32
+  %59 = icmp eq i32 %55, %58
+  br i1 %59, label %91, label %92
 
-58:                                               ; preds = %2
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load i8, ptr %59, align 8, !tbaa !29
-  %.fr52 = freeze i8 %60
-  %61 = zext i8 %.fr52 to i32
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load i8, ptr %62, align 8, !tbaa !29
-  %.fr53 = freeze i8 %63
-  %64 = sext i8 %.fr53 to i32
-  %65 = icmp eq i32 %61, %64
+60:                                               ; preds = %2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = load i16, ptr %61, align 8, !tbaa !29
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load i16, ptr %63, align 8, !tbaa !29
+  %.fr51 = freeze i16 %62
+  %.fr52 = freeze i16 %64
+  %65 = icmp eq i16 %.fr51, %.fr52
   br i1 %65, label %91, label %92
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load i16, ptr %67, align 8, !tbaa !29
+  %68 = load i32, ptr %67, align 8, !tbaa !29
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %70 = load i16, ptr %69, align 8, !tbaa !29
-  %.fr50 = freeze i16 %68
-  %.fr51 = freeze i16 %70
-  %71 = icmp eq i16 %.fr50, %.fr51
+  %70 = load i32, ptr %69, align 8, !tbaa !29
+  %.fr49 = freeze i32 %68
+  %.fr50 = freeze i32 %70
+  %71 = icmp eq i32 %.fr49, %.fr50
   br i1 %71, label %91, label %92
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !29
+  %74 = load i64, ptr %73, align 8, !tbaa !29
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !29
-  %.fr48 = freeze i32 %74
-  %.fr49 = freeze i32 %76
-  %77 = icmp eq i32 %.fr48, %.fr49
+  %76 = load i64, ptr %75, align 8, !tbaa !29
+  %.fr47 = freeze i64 %74
+  %.fr48 = freeze i64 %76
+  %77 = icmp eq i64 %.fr47, %.fr48
   br i1 %77, label %91, label %92
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !29
+  %80 = load ptr, ptr %79, align 8, !tbaa !29
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load i64, ptr %81, align 8, !tbaa !29
-  %.fr46 = freeze i64 %80
-  %.fr47 = freeze i64 %82
-  %83 = icmp eq i64 %.fr46, %.fr47
-  br i1 %83, label %91, label %92
+  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %82) #17
+  %.fr = freeze i32 %83
+  %.not = icmp eq i32 %.fr, 0
+  br i1 %.not, label %92, label %91
 
 .thread:                                          ; preds = %2
   %84 = zext i16 %3 to i32
@@ -347,19 +349,17 @@ define range(i32 0, 2) i32 @pmix20_bfrop_value_cmp(ptr noundef readonly captures
 
 85:                                               ; preds = %2
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !29
+  %87 = load i8, ptr %86, align 8, !tbaa !29, !range !30, !noundef !31
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !29
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) %89) #17
-  %.fr = freeze i32 %90
-  %.not = icmp eq i32 %.fr, 0
-  br i1 %.not, label %92, label %91
+  %89 = load i8, ptr %88, align 8, !tbaa !29, !range !30, !noundef !31
+  %90 = icmp eq i8 %87, %89
+  br i1 %90, label %91, label %92
 
-91:                                               ; preds = %78, %72, %66, %58, %52, %46, %40, %34, %28, %22, %16, %10, %4, %85
+91:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %85
   br label %92
 
-92:                                               ; preds = %78, %72, %66, %58, %52, %46, %40, %34, %28, %22, %16, %10, %4, %.thread, %85, %91
-  %93 = phi i32 [ 0, %91 ], [ 1, %85 ], [ 1, %.thread ], [ 1, %4 ], [ 1, %10 ], [ 1, %16 ], [ 1, %22 ], [ 1, %28 ], [ 1, %34 ], [ 1, %40 ], [ 1, %46 ], [ 1, %52 ], [ 1, %58 ], [ 1, %66 ], [ 1, %72 ], [ 1, %78 ]
+92:                                               ; preds = %4, %10, %16, %22, %28, %34, %40, %46, %52, %60, %66, %72, %78, %.thread, %85, %91
+  %93 = phi i32 [ 0, %91 ], [ 1, %85 ], [ 1, %.thread ], [ 1, %78 ], [ 1, %72 ], [ 1, %66 ], [ 1, %60 ], [ 1, %52 ], [ 1, %46 ], [ 1, %40 ], [ 1, %34 ], [ 1, %28 ], [ 1, %22 ], [ 1, %16 ], [ 1, %10 ], [ 1, %4 ]
   ret i32 %93
 }
 
@@ -549,7 +549,7 @@ define zeroext i1 @pmix_value_cmp(ptr noundef readonly captures(none) %0, ptr no
   br label %106
 
 106:                                              ; preds = %7, %13, %19, %25, %31, %37, %43, %49, %55, %61, %69, %75, %81, %87, %99, %105, %6, %94, %2
-  %.038 = phi i1 [ false, %2 ], [ %.not40, %94 ], [ false, %105 ], [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %68, %61 ], [ %74, %69 ], [ %80, %75 ], [ %86, %81 ], [ %93, %87 ], [ %104, %99 ], [ true, %6 ]
+  %.038 = phi i1 [ false, %2 ], [ %.not40, %94 ], [ false, %105 ], [ %104, %99 ], [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %36, %31 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %68, %61 ], [ %74, %69 ], [ %80, %75 ], [ %86, %81 ], [ %93, %87 ], [ true, %6 ]
   ret i1 %.038
 }
 
@@ -1910,7 +1910,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %461
   br label %.loopexit646
 
 .loopexit646:                                     ; preds = %545, %524, %2, %640, %175, %598, %591, %585, %579, %573, %563, %557, %533, %499, %478, %452, %421, %320, %305, %278, %271, %264, %257, %250, %243, %236, %223, %216, %209, %203, %196, %189, %182, %176, %87, %.loopexit, %698, %693, %671, %520, %448, %417, %374, %301
-  %.0 = phi i32 [ -1, %698 ], [ 0, %.loopexit ], [ -16, %693 ], [ %300, %301 ], [ -32, %374 ], [ %416, %417 ], [ %447, %448 ], [ -32, %520 ], [ -32, %671 ], [ -32, %87 ], [ -32, %176 ], [ -32, %182 ], [ -32, %189 ], [ -32, %196 ], [ -32, %203 ], [ -32, %209 ], [ -32, %216 ], [ -32, %223 ], [ -32, %236 ], [ -32, %243 ], [ -32, %250 ], [ -32, %257 ], [ -32, %264 ], [ -32, %271 ], [ -32, %278 ], [ -32, %305 ], [ -32, %320 ], [ -32, %421 ], [ -32, %452 ], [ -32, %478 ], [ -32, %499 ], [ -32, %533 ], [ -32, %557 ], [ -32, %563 ], [ -32, %573 ], [ -32, %579 ], [ -32, %585 ], [ -32, %591 ], [ -32, %598 ], [ -47, %175 ], [ -32, %640 ], [ -47, %2 ], [ %526, %524 ], [ -32, %545 ]
+  %.0 = phi i32 [ -1, %698 ], [ 0, %.loopexit ], [ -32, %640 ], [ -16, %693 ], [ -32, %87 ], [ -32, %176 ], [ -32, %182 ], [ -32, %189 ], [ -32, %196 ], [ -32, %203 ], [ -32, %209 ], [ -32, %216 ], [ -32, %223 ], [ -32, %236 ], [ -32, %243 ], [ -32, %250 ], [ -32, %257 ], [ -32, %264 ], [ -32, %271 ], [ %300, %301 ], [ -32, %278 ], [ -32, %305 ], [ -32, %374 ], [ %416, %417 ], [ -32, %320 ], [ %447, %448 ], [ -32, %421 ], [ -32, %452 ], [ -32, %478 ], [ -32, %520 ], [ -32, %499 ], [ -32, %533 ], [ -32, %557 ], [ -32, %563 ], [ -32, %573 ], [ -32, %579 ], [ -32, %585 ], [ -32, %591 ], [ -32, %598 ], [ -47, %175 ], [ -32, %671 ], [ -47, %2 ], [ %526, %524 ], [ -32, %545 ]
   ret i32 %.0
 }
 
@@ -2284,7 +2284,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_modex(ptr noundef writeonly capt
   br label %17
 
 17:                                               ; preds = %6, %16, %11, %3
-  %.0 = phi i32 [ -29, %3 ], [ -29, %11 ], [ 0, %16 ], [ 0, %6 ]
+  %.0 = phi i32 [ -29, %11 ], [ -29, %3 ], [ 0, %16 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -3531,7 +3531,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %262
   br label %476
 
 476:                                              ; preds = %3, %.loopexit, %475, %458, %437, %432, %402, %396, %389, %383, %377, %364, %._crit_edge648, %333, %322, %317, %300, %282, %258, %236, %222, %202, %158, %151, %141, %135, %124, %118, %111, %104, %97, %90, %83, %70, %63, %56, %49, %43, %36, %29, %22, %16
-  %.0531 = phi i32 [ 0, %16 ], [ -16, %475 ], [ -32, %22 ], [ 0, %.loopexit ], [ -32, %29 ], [ -32, %36 ], [ -32, %43 ], [ -32, %49 ], [ -32, %56 ], [ -32, %63 ], [ -32, %70 ], [ -32, %83 ], [ -32, %90 ], [ -32, %97 ], [ -32, %104 ], [ -32, %111 ], [ -32, %118 ], [ -32, %124 ], [ %134, %135 ], [ -32, %141 ], [ -32, %151 ], [ -32, %158 ], [ -32, %202 ], [ -32, %222 ], [ -32, %236 ], [ -32, %258 ], [ -32, %282 ], [ -32, %300 ], [ -32, %317 ], [ %321, %322 ], [ -32, %333 ], [ -32, %._crit_edge648 ], [ -32, %364 ], [ -32, %377 ], [ -32, %383 ], [ -32, %389 ], [ -32, %396 ], [ -32, %402 ], [ -47, %432 ], [ -32, %437 ], [ -32, %458 ], [ -32, %3 ]
+  %.0531 = phi i32 [ -32, %458 ], [ 0, %16 ], [ -16, %475 ], [ -32, %22 ], [ 0, %.loopexit ], [ -32, %29 ], [ -32, %36 ], [ -32, %43 ], [ -32, %49 ], [ -32, %56 ], [ -32, %63 ], [ -32, %70 ], [ -32, %83 ], [ -32, %90 ], [ -32, %97 ], [ -32, %104 ], [ -32, %111 ], [ -32, %118 ], [ -32, %124 ], [ %134, %135 ], [ -32, %141 ], [ -32, %151 ], [ -32, %158 ], [ -32, %202 ], [ -32, %222 ], [ -32, %236 ], [ -32, %258 ], [ -32, %282 ], [ -32, %300 ], [ -32, %317 ], [ %321, %322 ], [ -32, %333 ], [ -32, %._crit_edge648 ], [ -32, %364 ], [ -32, %377 ], [ -32, %383 ], [ -32, %389 ], [ -32, %396 ], [ -32, %402 ], [ -47, %432 ], [ -32, %437 ], [ -32, %3 ]
   ret i32 %.0531
 }
 

@@ -1220,9 +1220,9 @@ _ZL18yy_get_next_bufferPv.exit.thread225:         ; preds = %378, %_ZL18yy_get_n
   br i1 %544, label %.lr.ph33.i208, label %.preheader.outer.backedge
 
 .preheader.outer.backedge:                        ; preds = %._crit_edge.i219, %_ZL18yy_get_next_bufferPv.exit.thread225, %_ZL16yy_try_NUL_transiPv.exit
-  %.1138.ph.be = phi ptr [ %288, %_ZL16yy_try_NUL_transiPv.exit ], [ %540, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %540, %._crit_edge.i219 ]
-  %.2129.ph.be = phi ptr [ %291, %_ZL16yy_try_NUL_transiPv.exit ], [ %542, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %542, %._crit_edge.i219 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %543, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %586, %._crit_edge.i219 ]
+  %.1138.ph.be = phi ptr [ %540, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %288, %_ZL16yy_try_NUL_transiPv.exit ], [ %540, %._crit_edge.i219 ]
+  %.2129.ph.be = phi ptr [ %542, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %291, %_ZL16yy_try_NUL_transiPv.exit ], [ %542, %._crit_edge.i219 ]
+  %.3.ph.be = phi i32 [ %543, %_ZL18yy_get_next_bufferPv.exit.thread225 ], [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %586, %._crit_edge.i219 ]
   br label %.preheader.outer
 
 .lr.ph33.i208:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread225, %._crit_edge.i219
@@ -1335,7 +1335,7 @@ _ZL21yy_get_previous_statePv.exit206:             ; preds = %_ZL18yy_get_next_bu
   br label %594
 
 594:                                              ; preds = %150, %.loopexit626, %.loopexit546, %.loopexit469, %.loopexit333, %.loopexit228, %260, %255, %254, %253, %252, %251, %250, %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i32 [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 268, %249 ], [ 269, %250 ], [ 270, %251 ], [ 263, %252 ], [ 264, %253 ], [ 265, %254 ], [ 266, %255 ], [ 0, %260 ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit469 ], [ 261, %.loopexit546 ], [ 262, %.loopexit626 ], [ 267, %150 ]
+  %.0 = phi i32 [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 271, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 0, %260 ], [ 258, %.loopexit228 ], [ 259, %.loopexit333 ], [ 260, %.loopexit469 ], [ 261, %.loopexit546 ], [ 262, %.loopexit626 ], [ 268, %249 ], [ 269, %250 ], [ 270, %251 ], [ 263, %252 ], [ 264, %253 ], [ 265, %254 ], [ 266, %255 ], [ 267, %150 ]
   ret i32 %.0
 
 595:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165
@@ -1705,8 +1705,8 @@ define dso_local void @_Z26cmExpr_yy_switch_to_bufferP15yy_buffer_statePv(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %47 = phi i64 [ %40, %33 ], [ %27, %31 ]
-  %48 = phi ptr [ %39, %33 ], [ %25, %31 ]
+  %47 = phi i64 [ %27, %31 ], [ %40, %33 ]
+  %48 = phi ptr [ %25, %31 ], [ %39, %33 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28

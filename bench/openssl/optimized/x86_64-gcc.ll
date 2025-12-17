@@ -103,7 +103,7 @@ define i64 @bn_mul_add_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64
   br label %73
 
 73:                                               ; preds = %._crit_edge, %52, %._crit_edge.thread, %4, %63
-  %.0 = phi i64 [ %72, %63 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %61, %52 ], [ %39, %._crit_edge ]
+  %.0 = phi i64 [ %61, %52 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %72, %63 ], [ %39, %._crit_edge ]
   ret i64 %.0
 }
 
@@ -214,7 +214,7 @@ define i64 @bn_mul_words(ptr noundef writeonly captures(none) %0, ptr noundef re
   br label %73
 
 73:                                               ; preds = %._crit_edge, %63, %52, %._crit_edge.thread, %4
-  %.0 = phi i64 [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %60, %52 ], [ %71, %63 ], [ %38, %._crit_edge ]
+  %.0 = phi i64 [ %60, %52 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %71, %63 ], [ %38, %._crit_edge ]
   ret i64 %.0
 }
 

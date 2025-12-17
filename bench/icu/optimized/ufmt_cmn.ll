@@ -350,7 +350,7 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
   br label %.critedge2
 
 .critedge2:                                       ; preds = %25, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit68, %.preheader
-  %.132.lcssa = phi i32 [ %indvars56.le, %.preheader ], [ %26, %.critedge2.loopexit.split.loop.exit ], [ %27, %.critedge2.loopexit.split.loop.exit68 ], [ %11, %25 ]
+  %.132.lcssa = phi i32 [ %indvars56.le, %.preheader ], [ %27, %.critedge2.loopexit.split.loop.exit68 ], [ %26, %.critedge2.loopexit.split.loop.exit ], [ %11, %25 ]
   %28 = sub nsw i32 %.132.lcssa, %indvars56.le
   %29 = icmp sgt i32 %28, 16
   %30 = add nsw i32 %.132.lcssa, -16

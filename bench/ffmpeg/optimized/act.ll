@@ -65,7 +65,7 @@ define internal range(i32 0, 101) i32 @probe(ptr noundef readonly captures(none)
   br i1 %.not17, label %21, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader19, %21, %.preheader, %18, %11, %1, %5, %8
-  %.013 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 100, %21 ], [ 0, %.preheader ], [ 0, %.preheader19 ]
+  %.013 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %11 ], [ 0, %18 ], [ 0, %8 ], [ 0, %.preheader ], [ 100, %21 ], [ 0, %.preheader19 ]
   ret i32 %.013
 }
 
@@ -133,7 +133,7 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %44
 
 44:                                               ; preds = %7, %1, %19, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ 0, %19 ], [ -12, %1 ], [ %12, %7 ]
+  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %18 ], [ 0, %19 ], [ %12, %7 ]
   ret i32 %.0
 }
 
@@ -374,7 +374,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   br label %174
 
 174:                                              ; preds = %121, %28, %2, %172
-  %.0 = phi i32 [ %.1, %172 ], [ %16, %2 ], [ %30, %28 ], [ %123, %121 ]
+  %.0 = phi i32 [ %16, %2 ], [ %.1, %172 ], [ %30, %28 ], [ %123, %121 ]
   ret i32 %.0
 }
 

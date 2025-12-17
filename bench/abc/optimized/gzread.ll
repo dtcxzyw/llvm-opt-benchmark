@@ -106,7 +106,7 @@ define i32 @gzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %26, !llvm.loop !21
 
-gz_skip.exit.thread:                              ; preds = %41, %47, %18, %15
+gz_skip.exit.thread:                              ; preds = %47, %41, %18, %15
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -215,7 +215,7 @@ gz_load.exit:                                     ; preds = %95
   br label %gz_load.exit.thread
 
 gz_load.exit.thread:                              ; preds = %92, %97, %104, %60
-  %.061 = phi i32 [ %105, %104 ], [ %.047., %60 ], [ %.162, %97 ], [ %93, %92 ]
+  %.061 = phi i32 [ %.047., %60 ], [ %105, %104 ], [ %.162, %97 ], [ %93, %92 ]
   %106 = sub i32 %.047, %.061
   %107 = zext i32 %.061 to i64
   %108 = getelementptr inbounds nuw i8, ptr %.044, i64 %107
@@ -233,7 +233,7 @@ gz_load.exit.thread:                              ; preds = %92, %97, %104, %60
   br i1 %.not57, label %gz_skip.exit, label %58, !llvm.loop !31
 
 gz_skip.exit:                                     ; preds = %44, %112, %69, %101, %79, %gz_load.exit, %13, %5, %7, %3, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.045, %69 ], [ %.2, %112 ], [ -1, %101 ], [ -1, %79 ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %3 ], [ -1, %12 ], [ -1, %5 ], [ 0, %13 ], [ -1, %7 ], [ -1, %101 ], [ %.2, %112 ], [ -1, %79 ], [ %.045, %69 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -341,7 +341,7 @@ gz_load.exit:                                     ; preds = %35
   br label %55
 
 55:                                               ; preds = %gz_load.exit, %44, %8, %5, %54
-  %.0 = phi i32 [ 0, %54 ], [ -1, %5 ], [ 0, %8 ], [ -1, %gz_load.exit ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %5 ], [ 0, %8 ], [ 0, %54 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -521,7 +521,7 @@ gz_avail.exit.thread42:                           ; preds = %13, %gz_avail.exit
   br label %gz_avail.exit.thread
 
 gz_avail.exit.thread:                             ; preds = %16, %gz_load.exit.i, %58, %88, %87, %81, %77, %49, %48, %47, %gz_avail.exit.thread60
-  %.0 = phi i32 [ -1, %gz_avail.exit.thread60 ], [ -1, %47 ], [ -1, %48 ], [ -1, %49 ], [ -1, %77 ], [ -1, %81 ], [ -1, %87 ], [ 0, %88 ], [ 0, %58 ], [ -1, %gz_load.exit.i ], [ -1, %16 ]
+  %.0 = phi i32 [ 0, %58 ], [ -1, %gz_avail.exit.thread60 ], [ -1, %47 ], [ -1, %48 ], [ -1, %49 ], [ -1, %77 ], [ -1, %81 ], [ -1, %87 ], [ 0, %88 ], [ -1, %gz_load.exit.i ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -575,7 +575,7 @@ define range(i32 -1, 256) i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %4, %6, %1, %22, %12
-  %.0 = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %6 ], [ -1, %4 ]
+  %.0 = phi i32 [ %27, %22 ], [ -1, %1 ], [ %21, %12 ], [ -1, %6 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -751,7 +751,7 @@ gz_skip.exit:                                     ; preds = %35, %41, %12
   br label %gz_skip.exit.thread
 
 gz_skip.exit.thread:                              ; preds = %38, %43, %gz_skip.exit, %4, %6, %2, %._crit_edge, %67, %48
-  %.040 = phi i32 [ %0, %48 ], [ -1, %67 ], [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %6 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ -1, %43 ], [ -1, %38 ]
+  %.040 = phi i32 [ %0, %._crit_edge ], [ -1, %2 ], [ -1, %4 ], [ -1, %gz_skip.exit ], [ %0, %48 ], [ -1, %67 ], [ -1, %6 ], [ -1, %43 ], [ -1, %38 ]
   ret i32 %.040
 }
 
@@ -838,7 +838,7 @@ define noundef ptr @gzgets(ptr noundef %0, ptr noundef writeonly captures(addres
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %23, !llvm.loop !21
 
-gz_skip.exit.thread:                              ; preds = %38, %44, %15, %12
+gz_skip.exit.thread:                              ; preds = %44, %38, %15, %12
   %45 = add nsw i32 %2, -1
   %.not59 = icmp eq i32 %45, 0
   br i1 %.not59, label %.loopexit, label %.preheader
@@ -907,7 +907,7 @@ gz_skip.exit.thread:                              ; preds = %38, %44, %15, %12
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %41, %52, %58, %7, %9, %3, %.loopexit
-  %.0 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %9 ], [ null, %7 ], [ null, %58 ], [ null, %52 ], [ null, %41 ]
+  %.0 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %7 ], [ null, %58 ], [ null, %9 ], [ null, %52 ], [ null, %41 ]
   ret ptr %.0
 }
 
@@ -1257,7 +1257,7 @@ gz_avail.exit187.thread194:                       ; preds = %120, %gz_avail.exit
   %163 = icmp eq i8 %162, 8
   br i1 %163, label %164, label %.critedge
 
-.critedge:                                        ; preds = %127, %gz_load.exit.i186, %124, %gz_avail.exit187, %gz_avail.exit187.thread194
+.critedge:                                        ; preds = %127, %124, %gz_load.exit.i186, %gz_avail.exit187, %gz_avail.exit187.thread194
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str.9) #12
   br label %gz_avail.exit.thread
 
@@ -1712,8 +1712,8 @@ gz_avail.exit182.thread:                          ; preds = %86, %gz_avail.exit1
   store i32 1, ptr %362, align 4, !tbaa !43
   br label %gz_avail.exit.thread
 
-gz_avail.exit.thread:                             ; preds = %37, %gz_load.exit.i181, %83, %gz_load.exit.i, %34, %gz_avail.exit, %360, %333, %.thread, %.critedge, %27, %22
-  %.0141 = phi i32 [ -1, %22 ], [ -1, %27 ], [ -1, %.critedge ], [ -1, %.thread ], [ 0, %333 ], [ 0, %360 ], [ 0, %gz_avail.exit ], [ -1, %34 ], [ -1, %gz_load.exit.i ], [ -1, %83 ], [ -1, %gz_load.exit.i181 ], [ 0, %37 ]
+gz_avail.exit.thread:                             ; preds = %37, %83, %gz_load.exit.i181, %34, %gz_load.exit.i, %gz_avail.exit, %360, %333, %.thread, %.critedge, %27, %22
+  %.0141 = phi i32 [ -1, %22 ], [ -1, %27 ], [ 0, %360 ], [ -1, %34 ], [ 0, %gz_avail.exit ], [ -1, %.critedge ], [ -1, %.thread ], [ 0, %333 ], [ -1, %gz_load.exit.i ], [ -1, %gz_load.exit.i181 ], [ -1, %83 ], [ 0, %37 ]
   ret i32 %.0141
 }
 
@@ -1842,7 +1842,7 @@ gz_load.exit:                                     ; preds = %30
   br label %37
 
 37:                                               ; preds = %gz_load.exit, %5, %.loopexit, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %gz_load.exit ], [ 0, %.loopexit ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %gz_load.exit ], [ -1, %1 ], [ 0, %.loopexit ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2206,8 +2206,8 @@ gz_avail.exit47.thread69:                         ; preds = %gz_avail.exit42.thr
   store i64 %188, ptr %1, align 8, !tbaa !38
   br label %.thread70
 
-.thread70:                                        ; preds = %148, %gz_load.exit.i46, %144, %gz_avail.exit47, %gz_avail.exit47.thread69
-  %.0 = phi i32 [ 0, %gz_avail.exit47.thread69 ], [ -1, %gz_avail.exit47 ], [ -1, %144 ], [ -1, %gz_load.exit.i46 ], [ -1, %148 ]
+.thread70:                                        ; preds = %148, %144, %gz_load.exit.i46, %gz_avail.exit47, %gz_avail.exit47.thread69
+  %.0 = phi i32 [ 0, %gz_avail.exit47.thread69 ], [ -1, %144 ], [ -1, %gz_avail.exit47 ], [ -1, %gz_load.exit.i46 ], [ -1, %148 ]
   ret i32 %.0
 }
 

@@ -60,7 +60,7 @@ define range(i32 0, 2) i32 @ossl_drbg_hmac_init(ptr noundef %0, ptr noundef %1, 
   br label %drbg_hmac_update.exit
 
 drbg_hmac_update.exit:                            ; preds = %20, %17, %11, %10
-  %.0 = phi i32 [ 0, %10 ], [ %21, %20 ], [ 0, %11 ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %11 ], [ %21, %20 ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -152,7 +152,7 @@ drbg_hmac_update.exit45.thread:                   ; preds = %32, %drbg_hmac_upda
   br label %drbg_hmac_update.exit.thread
 
 drbg_hmac_update.exit.thread:                     ; preds = %.lr.ph, %25, %23, %13, %34, %10, %drbg_hmac_update.exit45.thread, %drbg_hmac_update.exit45, %30, %drbg_hmac_update.exit
-  %.032 = phi i32 [ 0, %drbg_hmac_update.exit ], [ 0, %30 ], [ 0, %drbg_hmac_update.exit45.thread ], [ 1, %drbg_hmac_update.exit45 ], [ 0, %10 ], [ 1, %34 ], [ 0, %13 ], [ 0, %23 ], [ 0, %25 ], [ 0, %.lr.ph ]
+  %.032 = phi i32 [ 0, %30 ], [ 0, %10 ], [ 0, %drbg_hmac_update.exit ], [ 0, %drbg_hmac_update.exit45.thread ], [ 1, %drbg_hmac_update.exit45 ], [ 1, %34 ], [ 0, %13 ], [ 0, %23 ], [ 0, %25 ], [ 0, %.lr.ph ]
   ret i32 %.032
 }
 
@@ -396,7 +396,7 @@ define internal i32 @drbg_hmac_get_ctx_params(ptr noundef %0, ptr noundef %1) #0
   br label %37
 
 37:                                               ; preds = %33, %35, %11, %7, %2
-  %.023 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %11 ], [ %.0, %35 ], [ %.0, %33 ]
+  %.023 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %7 ], [ %.0, %35 ], [ %.0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.023
 }
@@ -546,7 +546,7 @@ define internal fastcc range(i32 0, 2) i32 @do_hmac(ptr noundef %0, i8 noundef z
   br label %48
 
 48:                                               ; preds = %38, %41, %44, %8, %15, %19, %24, %29, %34, %36
-  %.0 = phi i32 [ 0, %36 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %15 ], [ 0, %8 ], [ 0, %41 ], [ 0, %38 ], [ %47, %44 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %36 ], [ 0, %34 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %15 ], [ 0, %41 ], [ 0, %38 ], [ %47, %44 ]
   ret i32 %.0
 }
 
@@ -616,7 +616,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_reseed(ptr noundef readonly captu
   br label %drbg_hmac_update.exit
 
 drbg_hmac_update.exit:                            ; preds = %5, %9, %11
-  %.0.i = phi i32 [ %12, %11 ], [ 0, %5 ], [ 1, %9 ]
+  %.0.i = phi i32 [ 0, %5 ], [ %12, %11 ], [ 1, %9 ]
   ret i32 %.0.i
 }
 
@@ -725,7 +725,7 @@ define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %0, ptr 
   tail call void @EVP_MAC_free(ptr noundef nonnull %41) #7
   br label %49
 
-drbg_fetch_algs_from_prov.exit.thread51:          ; preds = %23, %34, %37, %26
+drbg_fetch_algs_from_prov.exit.thread51:          ; preds = %23, %26, %34, %37
   tail call void @ossl_provider_free(ptr noundef nonnull %19) #7
   br label %drbg_fetch_algs_from_prov.exit.thread
 
@@ -798,7 +798,7 @@ drbg_fetch_algs_from_prov.exit.thread:            ; preds = %16, %13, %10, %2, %
   br label %76
 
 76:                                               ; preds = %60, %56, %47, %drbg_fetch_algs_from_prov.exit.thread, %.critedge
-  %.0 = phi i32 [ %75, %.critedge ], [ 0, %drbg_fetch_algs_from_prov.exit.thread ], [ 0, %47 ], [ 0, %56 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %56 ], [ %75, %.critedge ], [ 0, %47 ], [ 0, %drbg_fetch_algs_from_prov.exit.thread ], [ 0, %60 ]
   ret i32 %.0
 }
 

@@ -6191,7 +6191,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i55 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i55, align 8
   %cmp2.i56 = icmp slt i32 %12, 1
@@ -6315,7 +6315,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %12, 1
@@ -6407,7 +6407,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %12, 1
@@ -11780,8 +11780,8 @@ do.body2366:                                      ; preds = %if.end68
   unreachable
 
 sw.epilog.sink.split.sink.split:                  ; preds = %do.end2364, %do.end2328, %do.end2292, %do.end2256, %do.end2220, %do.end2184, %do.end2148, %do.end2112, %do.end2076, %do.end2040, %do.end2004, %do.end1968, %do.end1932, %do.end1896, %do.end1860, %do.end1824, %do.end1788, %do.end1752, %do.end1716, %do.end1680, %do.end1644, %do.end1608, %do.end1572, %do.end1536, %do.end1500, %do.end1464, %do.end1428, %do.end1392, %do.end1356, %do.end1320, %do.end1284, %do.end1248, %do.end1212, %do.end1176, %do.end1140, %do.end1104, %do.end1068, %do.end1032, %do.end996, %do.end960, %do.end924, %do.end888, %do.end852, %do.end816, %do.end780, %do.end744, %do.end708, %do.end672, %do.end636, %do.end600, %do.end564, %do.end528, %do.end492, %do.end456, %do.end420, %do.end384, %do.end348, %do.end312, %do.end276, %do.end240, %do.end204, %do.end168, %do.end132, %do.end96
-  %.sink2455 = phi ptr [ %49, %do.end96 ], [ %66, %do.end132 ], [ %83, %do.end168 ], [ %100, %do.end204 ], [ %117, %do.end240 ], [ %134, %do.end276 ], [ %151, %do.end312 ], [ %168, %do.end348 ], [ %185, %do.end384 ], [ %202, %do.end420 ], [ %219, %do.end456 ], [ %236, %do.end492 ], [ %253, %do.end528 ], [ %270, %do.end564 ], [ %287, %do.end600 ], [ %304, %do.end636 ], [ %321, %do.end672 ], [ %338, %do.end708 ], [ %355, %do.end744 ], [ %372, %do.end780 ], [ %389, %do.end816 ], [ %406, %do.end852 ], [ %423, %do.end888 ], [ %440, %do.end924 ], [ %457, %do.end960 ], [ %474, %do.end996 ], [ %491, %do.end1032 ], [ %508, %do.end1068 ], [ %525, %do.end1104 ], [ %542, %do.end1140 ], [ %559, %do.end1176 ], [ %576, %do.end1212 ], [ %593, %do.end1248 ], [ %610, %do.end1284 ], [ %627, %do.end1320 ], [ %644, %do.end1356 ], [ %661, %do.end1392 ], [ %678, %do.end1428 ], [ %695, %do.end1464 ], [ %712, %do.end1500 ], [ %729, %do.end1536 ], [ %746, %do.end1572 ], [ %763, %do.end1608 ], [ %780, %do.end1644 ], [ %797, %do.end1680 ], [ %814, %do.end1716 ], [ %831, %do.end1752 ], [ %848, %do.end1788 ], [ %865, %do.end1824 ], [ %882, %do.end1860 ], [ %899, %do.end1896 ], [ %916, %do.end1932 ], [ %933, %do.end1968 ], [ %950, %do.end2004 ], [ %967, %do.end2040 ], [ %984, %do.end2076 ], [ %1001, %do.end2112 ], [ %1018, %do.end2148 ], [ %1035, %do.end2184 ], [ %1052, %do.end2220 ], [ %1069, %do.end2256 ], [ %1086, %do.end2292 ], [ %1103, %do.end2328 ], [ %1120, %do.end2364 ]
-  %data2334.sink.ph = phi ptr [ %data, %do.end96 ], [ %data102, %do.end132 ], [ %data138, %do.end168 ], [ %data174, %do.end204 ], [ %data210, %do.end240 ], [ %data246, %do.end276 ], [ %data282, %do.end312 ], [ %data318, %do.end348 ], [ %data354, %do.end384 ], [ %data390, %do.end420 ], [ %data426, %do.end456 ], [ %data462, %do.end492 ], [ %data498, %do.end528 ], [ %data534, %do.end564 ], [ %data570, %do.end600 ], [ %data606, %do.end636 ], [ %data642, %do.end672 ], [ %data678, %do.end708 ], [ %data714, %do.end744 ], [ %data750, %do.end780 ], [ %data786, %do.end816 ], [ %data822, %do.end852 ], [ %data858, %do.end888 ], [ %data894, %do.end924 ], [ %data930, %do.end960 ], [ %data966, %do.end996 ], [ %data1002, %do.end1032 ], [ %data1038, %do.end1068 ], [ %data1074, %do.end1104 ], [ %data1110, %do.end1140 ], [ %data1146, %do.end1176 ], [ %data1182, %do.end1212 ], [ %data1218, %do.end1248 ], [ %data1254, %do.end1284 ], [ %data1290, %do.end1320 ], [ %data1326, %do.end1356 ], [ %data1362, %do.end1392 ], [ %data1398, %do.end1428 ], [ %data1434, %do.end1464 ], [ %data1470, %do.end1500 ], [ %data1506, %do.end1536 ], [ %data1542, %do.end1572 ], [ %data1578, %do.end1608 ], [ %data1614, %do.end1644 ], [ %data1650, %do.end1680 ], [ %data1686, %do.end1716 ], [ %data1722, %do.end1752 ], [ %data1758, %do.end1788 ], [ %data1794, %do.end1824 ], [ %data1830, %do.end1860 ], [ %data1866, %do.end1896 ], [ %data1902, %do.end1932 ], [ %data1938, %do.end1968 ], [ %data1974, %do.end2004 ], [ %data2010, %do.end2040 ], [ %data2046, %do.end2076 ], [ %data2082, %do.end2112 ], [ %data2118, %do.end2148 ], [ %data2154, %do.end2184 ], [ %data2190, %do.end2220 ], [ %data2226, %do.end2256 ], [ %data2262, %do.end2292 ], [ %data2298, %do.end2328 ], [ %data2334, %do.end2364 ]
+  %.sink2455 = phi ptr [ %1103, %do.end2328 ], [ %1086, %do.end2292 ], [ %1069, %do.end2256 ], [ %1052, %do.end2220 ], [ %1035, %do.end2184 ], [ %1018, %do.end2148 ], [ %1001, %do.end2112 ], [ %984, %do.end2076 ], [ %967, %do.end2040 ], [ %950, %do.end2004 ], [ %933, %do.end1968 ], [ %916, %do.end1932 ], [ %899, %do.end1896 ], [ %882, %do.end1860 ], [ %865, %do.end1824 ], [ %848, %do.end1788 ], [ %831, %do.end1752 ], [ %814, %do.end1716 ], [ %797, %do.end1680 ], [ %780, %do.end1644 ], [ %763, %do.end1608 ], [ %746, %do.end1572 ], [ %729, %do.end1536 ], [ %712, %do.end1500 ], [ %695, %do.end1464 ], [ %678, %do.end1428 ], [ %661, %do.end1392 ], [ %644, %do.end1356 ], [ %627, %do.end1320 ], [ %610, %do.end1284 ], [ %593, %do.end1248 ], [ %576, %do.end1212 ], [ %559, %do.end1176 ], [ %542, %do.end1140 ], [ %525, %do.end1104 ], [ %508, %do.end1068 ], [ %491, %do.end1032 ], [ %474, %do.end996 ], [ %457, %do.end960 ], [ %440, %do.end924 ], [ %423, %do.end888 ], [ %406, %do.end852 ], [ %389, %do.end816 ], [ %372, %do.end780 ], [ %355, %do.end744 ], [ %338, %do.end708 ], [ %321, %do.end672 ], [ %304, %do.end636 ], [ %287, %do.end600 ], [ %270, %do.end564 ], [ %253, %do.end528 ], [ %236, %do.end492 ], [ %219, %do.end456 ], [ %202, %do.end420 ], [ %185, %do.end384 ], [ %168, %do.end348 ], [ %151, %do.end312 ], [ %134, %do.end276 ], [ %117, %do.end240 ], [ %100, %do.end204 ], [ %83, %do.end168 ], [ %66, %do.end132 ], [ %49, %do.end96 ], [ %1120, %do.end2364 ]
+  %data2334.sink.ph = phi ptr [ %data2298, %do.end2328 ], [ %data2262, %do.end2292 ], [ %data2226, %do.end2256 ], [ %data2190, %do.end2220 ], [ %data2154, %do.end2184 ], [ %data2118, %do.end2148 ], [ %data2082, %do.end2112 ], [ %data2046, %do.end2076 ], [ %data2010, %do.end2040 ], [ %data1974, %do.end2004 ], [ %data1938, %do.end1968 ], [ %data1902, %do.end1932 ], [ %data1866, %do.end1896 ], [ %data1830, %do.end1860 ], [ %data1794, %do.end1824 ], [ %data1758, %do.end1788 ], [ %data1722, %do.end1752 ], [ %data1686, %do.end1716 ], [ %data1650, %do.end1680 ], [ %data1614, %do.end1644 ], [ %data1578, %do.end1608 ], [ %data1542, %do.end1572 ], [ %data1506, %do.end1536 ], [ %data1470, %do.end1500 ], [ %data1434, %do.end1464 ], [ %data1398, %do.end1428 ], [ %data1362, %do.end1392 ], [ %data1326, %do.end1356 ], [ %data1290, %do.end1320 ], [ %data1254, %do.end1284 ], [ %data1218, %do.end1248 ], [ %data1182, %do.end1212 ], [ %data1146, %do.end1176 ], [ %data1110, %do.end1140 ], [ %data1074, %do.end1104 ], [ %data1038, %do.end1068 ], [ %data1002, %do.end1032 ], [ %data966, %do.end996 ], [ %data930, %do.end960 ], [ %data894, %do.end924 ], [ %data858, %do.end888 ], [ %data822, %do.end852 ], [ %data786, %do.end816 ], [ %data750, %do.end780 ], [ %data714, %do.end744 ], [ %data678, %do.end708 ], [ %data642, %do.end672 ], [ %data606, %do.end636 ], [ %data570, %do.end600 ], [ %data534, %do.end564 ], [ %data498, %do.end528 ], [ %data462, %do.end492 ], [ %data426, %do.end456 ], [ %data390, %do.end420 ], [ %data354, %do.end384 ], [ %data318, %do.end348 ], [ %data282, %do.end312 ], [ %data246, %do.end276 ], [ %data210, %do.end240 ], [ %data174, %do.end204 ], [ %data138, %do.end168 ], [ %data102, %do.end132 ], [ %data, %do.end96 ], [ %data2334, %do.end2364 ]
   %vtable.i.i2373 = load ptr, ptr %.sink2455, align 8
   %vfn.i.i2374 = getelementptr inbounds nuw i8, ptr %vtable.i.i2373, i64 8
   %1121 = load ptr, ptr %vfn.i.i2374, align 8
@@ -11789,7 +11789,7 @@ sw.epilog.sink.split.sink.split:                  ; preds = %do.end2364, %do.end
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %do.end2364, %do.end2328, %do.end2292, %do.end2256, %do.end2220, %do.end2184, %do.end2148, %do.end2112, %do.end2076, %do.end2040, %do.end2004, %do.end1968, %do.end1932, %do.end1896, %do.end1860, %do.end1824, %do.end1788, %do.end1752, %do.end1716, %do.end1680, %do.end1644, %do.end1608, %do.end1572, %do.end1536, %do.end1500, %do.end1464, %do.end1428, %do.end1392, %do.end1356, %do.end1320, %do.end1284, %do.end1248, %do.end1212, %do.end1176, %do.end1140, %do.end1104, %do.end1068, %do.end1032, %do.end996, %do.end960, %do.end924, %do.end888, %do.end852, %do.end816, %do.end780, %do.end744, %do.end708, %do.end672, %do.end636, %do.end600, %do.end564, %do.end528, %do.end492, %do.end456, %do.end420, %do.end384, %do.end348, %do.end312, %do.end276, %do.end240, %do.end204, %do.end168, %do.end132, %do.end96
-  %data2334.sink = phi ptr [ %data, %do.end96 ], [ %data102, %do.end132 ], [ %data138, %do.end168 ], [ %data174, %do.end204 ], [ %data210, %do.end240 ], [ %data246, %do.end276 ], [ %data282, %do.end312 ], [ %data318, %do.end348 ], [ %data354, %do.end384 ], [ %data390, %do.end420 ], [ %data426, %do.end456 ], [ %data462, %do.end492 ], [ %data498, %do.end528 ], [ %data534, %do.end564 ], [ %data570, %do.end600 ], [ %data606, %do.end636 ], [ %data642, %do.end672 ], [ %data678, %do.end708 ], [ %data714, %do.end744 ], [ %data750, %do.end780 ], [ %data786, %do.end816 ], [ %data822, %do.end852 ], [ %data858, %do.end888 ], [ %data894, %do.end924 ], [ %data930, %do.end960 ], [ %data966, %do.end996 ], [ %data1002, %do.end1032 ], [ %data1038, %do.end1068 ], [ %data1074, %do.end1104 ], [ %data1110, %do.end1140 ], [ %data1146, %do.end1176 ], [ %data1182, %do.end1212 ], [ %data1218, %do.end1248 ], [ %data1254, %do.end1284 ], [ %data1290, %do.end1320 ], [ %data1326, %do.end1356 ], [ %data1362, %do.end1392 ], [ %data1398, %do.end1428 ], [ %data1434, %do.end1464 ], [ %data1470, %do.end1500 ], [ %data1506, %do.end1536 ], [ %data1542, %do.end1572 ], [ %data1578, %do.end1608 ], [ %data1614, %do.end1644 ], [ %data1650, %do.end1680 ], [ %data1686, %do.end1716 ], [ %data1722, %do.end1752 ], [ %data1758, %do.end1788 ], [ %data1794, %do.end1824 ], [ %data1830, %do.end1860 ], [ %data1866, %do.end1896 ], [ %data1902, %do.end1932 ], [ %data1938, %do.end1968 ], [ %data1974, %do.end2004 ], [ %data2010, %do.end2040 ], [ %data2046, %do.end2076 ], [ %data2082, %do.end2112 ], [ %data2118, %do.end2148 ], [ %data2154, %do.end2184 ], [ %data2190, %do.end2220 ], [ %data2226, %do.end2256 ], [ %data2262, %do.end2292 ], [ %data2298, %do.end2328 ], [ %data2334, %do.end2364 ], [ %data2334.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %data2334.sink = phi ptr [ %data102, %do.end132 ], [ %data138, %do.end168 ], [ %data174, %do.end204 ], [ %data210, %do.end240 ], [ %data246, %do.end276 ], [ %data282, %do.end312 ], [ %data318, %do.end348 ], [ %data354, %do.end384 ], [ %data390, %do.end420 ], [ %data426, %do.end456 ], [ %data462, %do.end492 ], [ %data498, %do.end528 ], [ %data534, %do.end564 ], [ %data570, %do.end600 ], [ %data606, %do.end636 ], [ %data642, %do.end672 ], [ %data678, %do.end708 ], [ %data714, %do.end744 ], [ %data750, %do.end780 ], [ %data786, %do.end816 ], [ %data822, %do.end852 ], [ %data858, %do.end888 ], [ %data894, %do.end924 ], [ %data930, %do.end960 ], [ %data966, %do.end996 ], [ %data1002, %do.end1032 ], [ %data1038, %do.end1068 ], [ %data1074, %do.end1104 ], [ %data1110, %do.end1140 ], [ %data1146, %do.end1176 ], [ %data1182, %do.end1212 ], [ %data1218, %do.end1248 ], [ %data1254, %do.end1284 ], [ %data1290, %do.end1320 ], [ %data1326, %do.end1356 ], [ %data1362, %do.end1392 ], [ %data1398, %do.end1428 ], [ %data1434, %do.end1464 ], [ %data1470, %do.end1500 ], [ %data1506, %do.end1536 ], [ %data1542, %do.end1572 ], [ %data1578, %do.end1608 ], [ %data1614, %do.end1644 ], [ %data1650, %do.end1680 ], [ %data1686, %do.end1716 ], [ %data1722, %do.end1752 ], [ %data1758, %do.end1788 ], [ %data1794, %do.end1824 ], [ %data1830, %do.end1860 ], [ %data1866, %do.end1896 ], [ %data1902, %do.end1932 ], [ %data1938, %do.end1968 ], [ %data1974, %do.end2004 ], [ %data2010, %do.end2040 ], [ %data2046, %do.end2076 ], [ %data2082, %do.end2112 ], [ %data2118, %do.end2148 ], [ %data2154, %do.end2184 ], [ %data2190, %do.end2220 ], [ %data2226, %do.end2256 ], [ %data2262, %do.end2292 ], [ %data2298, %do.end2328 ], [ %data2334, %do.end2364 ], [ %data, %do.end96 ], [ %data2334.sink.ph, %sw.epilog.sink.split.sink.split ]
   store ptr null, ptr %data2334.sink, align 8
   br label %sw.epilog
 
@@ -12031,7 +12031,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end8, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end8 ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %17, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end8 ]
   %18 = load i32, ptr %length_.i37, align 8
   %cmp2.i = icmp slt i32 %18, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -12093,7 +12093,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i37 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i37, align 8
   %cmp2.i38 = icmp slt i32 %12, 1
@@ -12138,7 +12138,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49, %if.then.i, %if.end.i
-  %.sink13 = phi ptr [ %22, %if.then.i ], [ %23, %if.end.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49 ]
+  %.sink13 = phi ptr [ %23, %if.end.i ], [ %22, %if.then.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49 ]
   %principal_realm_.i10 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2728
   %24 = load ptr, ptr %principal_realm_.i10, align 8
   %vtable.i11 = load ptr, ptr %24, align 8
@@ -12248,7 +12248,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i363 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i363, align 8
   %cmp2.i364 = icmp slt i32 %12, 1
@@ -12544,7 +12544,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i261 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i261, align 8
   %cmp2.i262 = icmp slt i32 %12, 1
@@ -12730,7 +12730,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %cond.end74
 
 cond.end74:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit123, %if.then.i, %if.end.i
-  %agg.tmp55.sroa.0.0 = phi ptr [ %52, %if.then.i ], [ %add.ptr.i, %if.end.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit123 ]
+  %agg.tmp55.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end.i ], [ %52, %if.then.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit123 ]
   tail call void @_ZN4node11Environment17ResetPromiseHooksEN2v85LocalINS1_8FunctionEEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i, ptr %agg.tmp.sroa.0.036, ptr %agg.tmp15.sroa.0.040, ptr %agg.tmp35.sroa.0.044, ptr %agg.tmp55.sroa.0.0) #19
   ret void
 }
@@ -12890,7 +12890,7 @@ if.end.i.i46:                                     ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end41, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i46
-  %retval.0.i.i = phi ptr [ %36, %if.end.i.i46 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end41 ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %36, %if.end.i.i46 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end41 ]
   %env = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store ptr %retval.0.i.i, ptr %env, align 8
   %37 = load i32, ptr %length_.i204, align 8

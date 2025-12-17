@@ -679,7 +679,7 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPo
   br label %29
 
 29:                                               ; preds = %.thread33, %26, %21, %18, %17, %13, %10, %8, %6, %3
-  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 168, %10 ], [ 160, %13 ], [ 56, %17 ], [ 64, %18 ], [ 72, %21 ], [ %., %26 ], [ %.38, %.thread33 ]
+  %.sink = phi i64 [ 112, %3 ], [ %.38, %.thread33 ], [ 72, %21 ], [ %., %26 ], [ 64, %18 ], [ 56, %17 ], [ 160, %13 ], [ 168, %10 ], [ 152, %8 ], [ 144, %6 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %30, align 8, !tbaa !60
   ret ptr %.0
@@ -751,7 +751,7 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollision
   br label %31
 
 31:                                               ; preds = %.thread37, %28, %23, %20, %19, %15, %12, %10, %8, %6, %3
-  %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 136, %10 ], [ 168, %12 ], [ 160, %15 ], [ 56, %19 ], [ 64, %20 ], [ 72, %23 ], [ %., %28 ], [ %.42, %.thread37 ]
+  %.sink = phi i64 [ 112, %3 ], [ %.42, %.thread37 ], [ 72, %23 ], [ %., %28 ], [ 64, %20 ], [ 56, %19 ], [ 160, %15 ], [ 168, %12 ], [ 136, %10 ], [ 152, %8 ], [ 144, %6 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.0 = load ptr, ptr %32, align 8, !tbaa !60
   ret ptr %.0

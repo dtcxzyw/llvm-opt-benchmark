@@ -690,7 +690,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %.critedge11, %32
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %39, %43, %46, %49
-  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %39 ], [ %50, %49 ], [ 9223372036854775807, %43 ], [ -9223372036854775808, %46 ]
+  %.0.i.i = phi i64 [ -9223372036854775808, %39 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %46 ], [ %50, %49 ], [ 9223372036854775807, %43 ]
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %52 = load ptr, ptr %3, align 8, !tbaa !27
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
@@ -1761,7 +1761,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %66
   ret void
 
 70:                                               ; preds = %.loopexit, %.loopexit.split-lp, %38, %54
-  %.pn23 = phi { ptr, i32 } [ %.pn.pn.pn, %54 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn23 = phi { ptr, i32 } [ %39, %38 ], [ %.pn.pn.pn, %54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit39 unwind label %71
 
@@ -2291,7 +2291,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %158
   ret void
 
 162:                                              ; preds = %98, %107, %40, %56, %117, %150, %152, %96
-  %.pn48 = phi { ptr, i32 } [ %97, %96 ], [ %118, %117 ], [ %151, %150 ], [ %153, %152 ], [ %.pn.pn.pn, %56 ], [ %41, %40 ], [ %.pn42.pn, %107 ], [ %99, %98 ]
+  %.pn48 = phi { ptr, i32 } [ %97, %96 ], [ %153, %152 ], [ %118, %117 ], [ %41, %40 ], [ %151, %150 ], [ %.pn.pn.pn, %56 ], [ %.pn42.pn, %107 ], [ %99, %98 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit77 unwind label %163
 
@@ -6350,12 +6350,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %217, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133, %152
-  %.pn87.pn.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %.pn87.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133 ], [ %.pn87.pn.pn, %217 ]
+  %.pn87.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133 ], [ %153, %152 ], [ %.pn87.pn.pn, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %223
 
 223:                                              ; preds = %.loopexit, %.loopexit.split-lp, %110, %116, %35, %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %44
-  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %45, %44 ], [ %.pn, %41 ], [ %36, %35 ], [ %.pn77, %116 ], [ %111, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %36, %35 ], [ %45, %44 ], [ %111, %110 ], [ %.pn, %41 ], [ %.pn77, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %224 = load ptr, ptr %7, align 8, !tbaa !160
@@ -7138,7 +7138,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %283
   ret ptr %.018
 
 .body:                                            ; preds = %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i, %48, %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57
-  %.pn35 = phi { ptr, i32 } [ %.pn32.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn, %54 ], [ %49, %48 ], [ %175, %174 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i ]
+  %.pn35 = phi { ptr, i32 } [ %49, %48 ], [ %.pn32.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn, %54 ], [ %175, %174 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit58 unwind label %287
 

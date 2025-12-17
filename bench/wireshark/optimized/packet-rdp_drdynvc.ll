@@ -1213,7 +1213,7 @@ proto_item_set_generated.exit435:                 ; preds = %475, %472, %469, %f
   br label %proto_item_set_generated.exit438
 
 proto_item_set_generated.exit438:                 ; preds = %514, %511, %506, %412, %266, %169, %268, %417, %419, %.loopexit, %.loopexit470, %proto_item_set_generated.exit, %504, %82, %drdynvc_find_channel_type.exit, %84, %413
-  %.1 = phi i32 [ %267, %266 ], [ %416, %413 ], [ %.3, %412 ], [ %.1364, %82 ], [ %.1364, %proto_item_set_generated.exit ], [ %.3366, %169 ], [ %.1364, %268 ], [ %.1364, %417 ], [ %.1364, %419 ], [ %.6, %.loopexit ], [ %.9, %.loopexit470 ], [ %.1364, %504 ], [ %.1364, %drdynvc_find_channel_type.exit ], [ %.1364, %84 ], [ %.1364, %506 ], [ %.1364, %511 ], [ %.1364, %514 ]
+  %.1 = phi i32 [ %.3, %412 ], [ %267, %266 ], [ %416, %413 ], [ %.1364, %82 ], [ %.1364, %proto_item_set_generated.exit ], [ %.1364, %504 ], [ %.3366, %169 ], [ %.1364, %268 ], [ %.1364, %417 ], [ %.1364, %419 ], [ %.6, %.loopexit ], [ %.9, %.loopexit470 ], [ %.1364, %84 ], [ %.1364, %drdynvc_find_channel_type.exit ], [ %.1364, %506 ], [ %.1364, %511 ], [ %.1364, %514 ]
   ret i32 %.1
 }
 

@@ -752,7 +752,7 @@ common.resume:                                    ; preds = %14, %20, %35, %41, 
   br label %_ZNK19OpenColorIO_v2_5dev11RangeOpData15fillScaleOffsetEv.exit
 
 _ZNK19OpenColorIO_v2_5dev11RangeOpData15fillScaleOffsetEv.exit: ; preds = %.thread13, %89, %101
-  %.sink.i6 = phi double [ %105, %101 ], [ 0.000000e+00, %89 ], [ 0.000000e+00, %.thread13 ]
+  %.sink.i6 = phi double [ 0.000000e+00, %89 ], [ %105, %101 ], [ 0.000000e+00, %.thread13 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %.sink.i6, ptr %106, align 8, !tbaa !55
   ret void
@@ -822,7 +822,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev11RangeOpData15fillScaleOffsetEv(pt
   br label %30
 
 30:                                               ; preds = %7, %1, %21
-  %.sink = phi double [ %29, %21 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %7 ]
+  %.sink = phi double [ 0.000000e+00, %1 ], [ %29, %21 ], [ 0.000000e+00, %7 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %.sink, ptr %31, align 8, !tbaa !55
   ret void
@@ -873,7 +873,7 @@ _ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit: ; preds = %1
   br label %_ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit.thread
 
 _ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit.thread: ; preds = %1, %20, %14, %_ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit
-  %.0 = phi i1 [ false, %_ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit ], [ false, %14 ], [ %or.cond7.not, %20 ], [ false, %1 ]
+  %.0 = phi i1 [ false, %_ZNK19OpenColorIO_v2_5dev11RangeOpData6scalesEv.exit ], [ %or.cond7.not, %20 ], [ false, %14 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -941,7 +941,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11RangeOpData17clamps
   br label %13
 
 13:                                               ; preds = %7, %1
-  %.0 = phi i1 [ false, %1 ], [ %or.cond6.not, %7 ]
+  %.0 = phi i1 [ %or.cond6.not, %7 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1040,8 +1040,8 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev11RangeOpData7composeERSt10shared_p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i.i.i.i.i33, %125, %.body.i.i.i.i.i28, %85, %.body.i.i.i.i.i, %35
-  %.sink = phi ptr [ %24, %35 ], [ %24, %.body.i.i.i.i.i ], [ %74, %85 ], [ %74, %.body.i.i.i.i.i28 ], [ %114, %125 ], [ %114, %.body.i.i.i.i.i33 ]
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %33, %.body.i.i.i.i.i ], [ %86, %85 ], [ %83, %.body.i.i.i.i.i28 ], [ %126, %125 ], [ %123, %.body.i.i.i.i.i33 ]
+  %.sink = phi ptr [ %74, %.body.i.i.i.i.i28 ], [ %24, %.body.i.i.i.i.i ], [ %24, %35 ], [ %74, %85 ], [ %114, %125 ], [ %114, %.body.i.i.i.i.i33 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %.body.i.i.i.i.i28 ], [ %33, %.body.i.i.i.i.i ], [ %36, %35 ], [ %86, %85 ], [ %126, %125 ], [ %123, %.body.i.i.i.i.i33 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 248) #22, !noalias !61
   resume { ptr, i32 } %common.resume.op
 
@@ -1084,9 +1084,9 @@ common.resume:                                    ; preds = %.body.i.i.i.i.i33, 
   br label %63
 
 63:                                               ; preds = %37, %57, %62, %44, %50
-  %64 = phi double [ %59, %57 ], [ %59, %62 ], [ %39, %50 ], [ %39, %44 ], [ %39, %37 ]
-  %.043 = phi double [ %5, %57 ], [ %59, %62 ], [ %56, %50 ], [ %5, %44 ], [ %5, %37 ]
-  %.041 = phi double [ %10, %57 ], [ %10, %62 ], [ %10, %50 ], [ %49, %44 ], [ %21, %37 ]
+  %64 = phi double [ %59, %57 ], [ %59, %62 ], [ %39, %44 ], [ %39, %50 ], [ %39, %37 ]
+  %.043 = phi double [ %5, %57 ], [ %59, %62 ], [ %5, %44 ], [ %56, %50 ], [ %5, %37 ]
+  %.041 = phi double [ %10, %57 ], [ %10, %62 ], [ %49, %44 ], [ %10, %50 ], [ %21, %37 ]
   %65 = fptrunc double %7 to float
   %66 = fcmp uno float %65, 0.000000e+00
   br i1 %66, label %107, label %67
@@ -1180,8 +1180,8 @@ common.resume:                                    ; preds = %.body.i.i.i.i.i33, 
   br label %113
 
 113:                                              ; preds = %87, %107, %112, %94, %100
-  %.042 = phi double [ %7, %107 ], [ %109, %112 ], [ %106, %100 ], [ %7, %94 ], [ %7, %87 ]
-  %.0 = phi double [ %12, %107 ], [ %12, %112 ], [ %12, %100 ], [ %99, %94 ], [ %71, %87 ]
+  %.042 = phi double [ %7, %107 ], [ %109, %112 ], [ %7, %94 ], [ %106, %100 ], [ %7, %87 ]
+  %.0 = phi double [ %12, %107 ], [ %12, %112 ], [ %99, %94 ], [ %12, %100 ], [ %71, %87 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   store ptr null, ptr %0, align 8, !tbaa !44, !alias.scope !65
   %114 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #23, !noalias !65
@@ -1223,8 +1223,8 @@ common.resume:                                    ; preds = %.body.i.i.i.i.i33, 
   br label %common.resume
 
 _ZSt11make_sharedIN19OpenColorIO_v2_5dev11RangeOpDataEJRKdS3_RdS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit: ; preds = %.noexc.i.i.i.i32, %.noexc.i.i.i.i27, %.noexc.i.i.i.i
-  %.sink54 = phi ptr [ %24, %.noexc.i.i.i.i ], [ %74, %.noexc.i.i.i.i27 ], [ %114, %.noexc.i.i.i.i32 ]
-  %.sink53 = phi ptr [ %27, %.noexc.i.i.i.i ], [ %77, %.noexc.i.i.i.i27 ], [ %117, %.noexc.i.i.i.i32 ]
+  %.sink54 = phi ptr [ %74, %.noexc.i.i.i.i27 ], [ %24, %.noexc.i.i.i.i ], [ %114, %.noexc.i.i.i.i32 ]
+  %.sink53 = phi ptr [ %77, %.noexc.i.i.i.i27 ], [ %27, %.noexc.i.i.i.i ], [ %117, %.noexc.i.i.i.i32 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink54, ptr %127, align 8, !tbaa !53
   store ptr %.sink53, ptr %0, align 8, !tbaa !54
@@ -1810,7 +1810,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11RangeOpData6equalsE
   br label %68
 
 68:                                               ; preds = %67, %4, %19, %9, %37, %30, %56, %49, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %67 ], [ false, %4 ], [ false, %19 ], [ false, %9 ], [ false, %37 ], [ false, %30 ], [ false, %56 ], [ false, %49 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %4 ], [ true, %67 ], [ false, %30 ], [ false, %19 ], [ false, %37 ], [ false, %56 ], [ false, %49 ]
   ret i1 %.0
 }
 

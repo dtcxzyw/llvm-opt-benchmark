@@ -209,7 +209,7 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   br i1 %64, label %.lr.ph117, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph117, %._crit_edge, %47, %43
-  %.0638291139 = phi i32 [ %.0638291, %._crit_edge ], [ %.0638291, %47 ], [ %.0638291140, %43 ], [ %.0638291, %.lr.ph117 ]
+  %.0638291139 = phi i32 [ %.0638291140, %43 ], [ %.0638291, %._crit_edge ], [ %.0638291, %47 ], [ %.0638291, %.lr.ph117 ]
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = sext i32 %.0638291139 to i64
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
@@ -521,7 +521,7 @@ define hidden ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, p
   br label %59
 
 55:                                               ; preds = %23, %21, %17
-  %.0 = phi i32 [ 103, %17 ], [ 115, %21 ], [ 65, %23 ]
+  %.0 = phi i32 [ 115, %21 ], [ 103, %17 ], [ 65, %23 ]
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef %.0, ptr noundef nonnull @.str, i32 noundef 338) #10
   br i1 %8, label %58, label %56
 
@@ -690,7 +690,7 @@ define hidden i64 @ASN1_INTEGER_get(ptr noundef readonly captures(address_is_nul
   br label %20
 
 20:                                               ; preds = %3, %9, %6, %1, %._crit_edge
-  %.018 = phi i64 [ %spec.select, %._crit_edge ], [ 0, %1 ], [ -1, %3 ], [ -1, %6 ], [ 0, %9 ]
+  %.018 = phi i64 [ 0, %1 ], [ -1, %3 ], [ -1, %6 ], [ %spec.select, %._crit_edge ], [ 0, %9 ]
   ret i64 %.018
 }
 
@@ -782,7 +782,7 @@ define hidden ptr @BN_to_ASN1_INTEGER(ptr noundef %0, ptr noundef %1) local_unna
   br label %37
 
 37:                                               ; preds = %35, %36, %._crit_edge, %32
-  %.028 = phi ptr [ %.02941, %32 ], [ %.02941, %._crit_edge ], [ null, %36 ], [ null, %35 ]
+  %.028 = phi ptr [ %.02941, %._crit_edge ], [ %.02941, %32 ], [ null, %36 ], [ null, %35 ]
   ret ptr %.028
 }
 

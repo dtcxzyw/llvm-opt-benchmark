@@ -916,8 +916,8 @@ guc_mmio_reg_add.exit25:                          ; preds = %.preheader.i23, %32
   br label %365
 
 365:                                              ; preds = %.thread, %32
-  %366 = phi i32 [ %33, %32 ], [ %361, %.thread ]
-  %367 = phi i32 [ %35, %32 ], [ %364, %.thread ]
+  %366 = phi i32 [ %361, %.thread ], [ %33, %32 ]
+  %367 = phi i32 [ %364, %.thread ], [ %35, %32 ]
   %368 = add nuw nsw i64 %34, 1
   %369 = icmp eq i64 %368, 27
   br i1 %369, label %370, label %32, !llvm.loop !28

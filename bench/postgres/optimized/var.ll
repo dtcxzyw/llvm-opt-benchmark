@@ -201,7 +201,7 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   br label %103
 
 103:                                              ; preds = %91, %20, %24, %6, %12, %2, %.thread71, %95
-  %.0 = phi i1 [ %102, %.thread71 ], [ false, %91 ], [ %99, %95 ], [ false, %2 ], [ false, %12 ], [ false, %6 ], [ false, %24 ], [ false, %20 ]
+  %.0 = phi i1 [ %99, %95 ], [ false, %2 ], [ false, %6 ], [ %102, %.thread71 ], [ false, %91 ], [ false, %12 ], [ false, %24 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -381,7 +381,7 @@ define internal zeroext i1 @pull_vars_walker(ptr noundef %0, ptr noundef %1) #0 
   br label %33
 
 33:                                               ; preds = %15, %21, %6, %12, %2, %31, %24
-  %.0 = phi i1 [ %28, %24 ], [ %32, %31 ], [ false, %2 ], [ false, %12 ], [ false, %6 ], [ false, %21 ], [ false, %15 ]
+  %.0 = phi i1 [ %32, %31 ], [ false, %2 ], [ false, %6 ], [ %28, %24 ], [ false, %12 ], [ false, %21 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -415,7 +415,7 @@ define dso_local zeroext i1 @contain_var_clause(ptr noundef %0) local_unnamed_ad
   br label %contain_var_clause_walker.exit
 
 contain_var_clause_walker.exit:                   ; preds = %1, %3, %5, %9, %13
-  %.0.i = phi i1 [ %14, %13 ], [ false, %1 ], [ %8, %5 ], [ true, %3 ], [ true, %9 ]
+  %.0.i = phi i1 [ %14, %13 ], [ %8, %5 ], [ false, %1 ], [ true, %3 ], [ true, %9 ]
   ret i1 %.0.i
 }
 
@@ -449,7 +449,7 @@ define internal zeroext i1 @contain_var_clause_walker(ptr noundef %0, ptr nounde
   br label %16
 
 16:                                               ; preds = %10, %4, %6, %2, %14
-  %.0 = phi i1 [ %15, %14 ], [ false, %2 ], [ %9, %6 ], [ true, %4 ], [ true, %10 ]
+  %.0 = phi i1 [ %15, %14 ], [ %9, %6 ], [ false, %2 ], [ true, %4 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -511,7 +511,7 @@ define internal zeroext i1 @contain_vars_of_level_walker(ptr noundef %0, ptr nou
   br label %26
 
 26:                                               ; preds = %14, %11, %6, %2, %.thread, %19
-  %.0 = phi i1 [ %22, %19 ], [ %25, %.thread ], [ false, %2 ], [ %10, %6 ], [ %13, %11 ], [ true, %14 ]
+  %.0 = phi i1 [ %25, %.thread ], [ %10, %6 ], [ false, %2 ], [ %13, %11 ], [ %22, %19 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -553,7 +553,7 @@ define dso_local zeroext i1 @contain_vars_returning_old_or_new(ptr noundef %0) l
   br label %contain_vars_returning_old_or_new_walker.exit
 
 contain_vars_returning_old_or_new_walker.exit:    ; preds = %1, %9, %12, %13, %17
-  %.0.i = phi i1 [ false, %12 ], [ %18, %17 ], [ false, %1 ], [ true, %9 ], [ %16, %13 ]
+  %.0.i = phi i1 [ %18, %17 ], [ false, %1 ], [ false, %12 ], [ %16, %13 ], [ true, %9 ]
   ret i1 %.0.i
 }
 
@@ -595,7 +595,7 @@ define internal zeroext i1 @contain_vars_returning_old_or_new_walker(ptr noundef
   br label %20
 
 20:                                               ; preds = %14, %10, %2, %18, %13
-  %.0 = phi i1 [ false, %13 ], [ %19, %18 ], [ false, %2 ], [ true, %10 ], [ %17, %14 ]
+  %.0 = phi i1 [ %19, %18 ], [ false, %2 ], [ false, %13 ], [ %17, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -659,7 +659,7 @@ define internal zeroext i1 @locate_var_of_level_walker(ptr noundef %0, ptr nound
   br label %26
 
 26:                                               ; preds = %4, %16, %12, %6, %2, %24, %17
-  %.0 = phi i1 [ %21, %17 ], [ %25, %24 ], [ false, %2 ], [ true, %16 ], [ false, %12 ], [ false, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %25, %24 ], [ false, %2 ], [ false, %6 ], [ %21, %17 ], [ true, %16 ], [ false, %12 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -846,7 +846,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   br label %83
 
 83:                                               ; preds = %2, %81, %73, %55, %43, %25, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %25 ], [ %82, %81 ], [ false, %43 ], [ false, %55 ], [ false, %73 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %73 ], [ false, %12 ], [ false, %25 ], [ %82, %81 ], [ false, %43 ], [ false, %55 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -1161,7 +1161,7 @@ alias_relid_set.exit:                             ; preds = %153, %129
   br label %173
 
 173:                                              ; preds = %122, %alias_relid_set.exit, %.thread, %119, %6, %11, %2, %171, %156
-  %.0 = phi ptr [ %164, %156 ], [ %172, %171 ], [ null, %2 ], [ %68, %.thread ], [ %121, %119 ], [ %0, %6 ], [ %0, %11 ], [ %123, %alias_relid_set.exit ], [ %123, %122 ]
+  %.0 = phi ptr [ %172, %171 ], [ null, %2 ], [ %0, %11 ], [ %164, %156 ], [ %121, %119 ], [ %0, %6 ], [ %68, %.thread ], [ %123, %alias_relid_set.exit ], [ %123, %122 ]
   ret ptr %.0
 }
 
@@ -1339,7 +1339,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
   br i1 %95, label %.thread, label %100
 
 common.ret81:                                     ; preds = %78, %76, %74, %71, %60, %57, %101, %100, %7, %12, %2, %.thread74, %106, %.thread
-  %common.ret81.op = phi ptr [ %96, %.thread ], [ %114, %106 ], [ %121, %.thread74 ], [ %0, %101 ], [ %0, %100 ], [ null, %2 ], [ %0, %7 ], [ %0, %12 ], [ %36, %57 ], [ %36, %60 ], [ %36, %74 ], [ %36, %76 ], [ %84, %78 ], [ %73, %71 ]
+  %common.ret81.op = phi ptr [ %96, %.thread ], [ %73, %71 ], [ %0, %100 ], [ null, %2 ], [ %114, %106 ], [ %121, %.thread74 ], [ %0, %101 ], [ %0, %12 ], [ %0, %7 ], [ %36, %60 ], [ %36, %57 ], [ %36, %74 ], [ %36, %76 ], [ %84, %78 ]
   ret ptr %common.ret81.op
 
 .thread:                                          ; preds = %90
@@ -1602,7 +1602,7 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
   br i1 %or.cond.not, label %41, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %17, %20, %.lr.ph, %41, %2, %33, %.lr.ph57, %.thread43, %11, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %11 ], [ false, %.thread43 ], [ true, %33 ], [ true, %.lr.ph57 ], [ false, %2 ], [ %44, %41 ], [ false, %.lr.ph ], [ false, %20 ], [ false, %17 ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ true, %5 ], [ true, %11 ], [ false, %.thread43 ], [ true, %.lr.ph57 ], [ true, %33 ], [ false, %2 ], [ %44, %41 ], [ false, %.lr.ph ], [ false, %20 ], [ false, %17 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

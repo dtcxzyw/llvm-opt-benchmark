@@ -251,7 +251,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %21, %26, %13, %10, %7, %.thread
-  %.0 = phi i32 [ 1, %.thread ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %26 ], [ 0, %21 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %.thread ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ 0, %26 ], [ 0, %21 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -352,7 +352,7 @@ define internal i32 @test_single_secret_enc_alg(i32 noundef %0) #1 {
   br label %test_single_secret.exit
 
 test_single_secret.exit:                          ; preds = %1, %13, %18
-  %.0.i.i = phi i32 [ %19, %18 ], [ %12, %1 ], [ -1, %13 ]
+  %.0.i.i = phi i32 [ %12, %1 ], [ %19, %18 ], [ -1, %13 ]
   call void @start_pkcs12(ptr noundef %11) #4
   call void @start_contentinfo(ptr noundef %11) #4
   call void @add_secretbag(ptr noundef %11, i32 noundef %.0.i.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
@@ -401,8 +401,8 @@ define internal range(i32 0, 2) i32 @pkcs12_create_test() #1 {
   br label %15
 
 15:                                               ; preds = %11, %8, %4, %0
-  %.04 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %11 ]
-  %.0 = phi ptr [ %9, %8 ], [ null, %4 ], [ null, %0 ], [ %9, %11 ]
+  %.04 = phi i32 [ 0, %0 ], [ %spec.select, %11 ], [ 0, %8 ], [ 0, %4 ]
+  %.0 = phi ptr [ null, %0 ], [ %9, %11 ], [ %9, %8 ], [ null, %4 ]
   call void @PKCS12_free(ptr noundef %.0) #4
   call void @EVP_PKEY_free(ptr noundef %2) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -502,11 +502,11 @@ define internal range(i32 0, 2) i32 @pkcs12_recreate_test() #1 {
   br label %45
 
 45:                                               ; preds = %41, %36, %32, %29, %25, %22, %18, %14, %11, %8, %0
-  %.018 = phi i32 [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %0 ], [ %spec.select, %41 ]
-  %.017 = phi ptr [ %9, %36 ], [ %9, %32 ], [ %9, %29 ], [ %9, %25 ], [ %9, %22 ], [ %9, %18 ], [ %9, %14 ], [ %9, %11 ], [ %9, %8 ], [ null, %0 ], [ %9, %41 ]
-  %.016 = phi ptr [ %12, %36 ], [ %12, %32 ], [ %12, %29 ], [ %12, %25 ], [ %12, %22 ], [ %12, %18 ], [ %12, %14 ], [ %12, %11 ], [ null, %8 ], [ null, %0 ], [ %12, %41 ]
-  %.015 = phi ptr [ %39, %36 ], [ null, %32 ], [ null, %29 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %0 ], [ %39, %41 ]
-  %.0 = phi ptr [ %20, %36 ], [ %20, %32 ], [ %20, %29 ], [ %20, %25 ], [ %20, %22 ], [ %20, %18 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %0 ], [ %20, %41 ]
+  %.018 = phi i32 [ 0, %0 ], [ %spec.select, %41 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ]
+  %.017 = phi ptr [ null, %0 ], [ %9, %41 ], [ %9, %36 ], [ %9, %32 ], [ %9, %29 ], [ %9, %25 ], [ %9, %22 ], [ %9, %18 ], [ %9, %14 ], [ %9, %11 ], [ %9, %8 ]
+  %.016 = phi ptr [ null, %0 ], [ %12, %41 ], [ %12, %36 ], [ %12, %32 ], [ %12, %29 ], [ %12, %25 ], [ %12, %22 ], [ %12, %18 ], [ %12, %14 ], [ %12, %11 ], [ null, %8 ]
+  %.015 = phi ptr [ null, %0 ], [ %39, %41 ], [ %39, %36 ], [ null, %32 ], [ null, %29 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %14 ], [ null, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %0 ], [ %20, %41 ], [ %20, %36 ], [ %20, %32 ], [ %20, %29 ], [ %20, %25 ], [ %20, %22 ], [ %20, %18 ], [ null, %14 ], [ null, %11 ], [ null, %8 ]
   %46 = call i32 @BIO_free(ptr noundef %.0) #4
   call void @PKCS12_free(ptr noundef %.016) #4
   %47 = load ptr, ptr %3, align 8, !tbaa !25
@@ -687,7 +687,7 @@ define internal i32 @test_single_secret_encrypted_content() #1 {
   br label %get_custom_oid.exit
 
 get_custom_oid.exit:                              ; preds = %0, %3, %8
-  %.0.i = phi i32 [ %9, %8 ], [ %2, %0 ], [ -1, %3 ]
+  %.0.i = phi i32 [ %2, %0 ], [ %9, %8 ], [ -1, %3 ]
   tail call void @start_pkcs12(ptr noundef %1) #4
   tail call void @start_contentinfo(ptr noundef %1) #4
   tail call void @add_secretbag(ptr noundef %1, i32 noundef %.0.i, ptr noundef nonnull @.str.51, ptr noundef nonnull @ATTRS1) #4
@@ -723,7 +723,7 @@ define internal i32 @test_multiple_contents() #1 {
   br label %get_custom_oid.exit
 
 get_custom_oid.exit:                              ; preds = %0, %3, %8
-  %.0.i = phi i32 [ %9, %8 ], [ %2, %0 ], [ -1, %3 ]
+  %.0.i = phi i32 [ %2, %0 ], [ %9, %8 ], [ -1, %3 ]
   tail call void @start_pkcs12(ptr noundef %1) #4
   tail call void @start_contentinfo(ptr noundef %1) #4
   tail call void @add_certbag(ptr noundef %1, ptr noundef nonnull @CERT1, i32 noundef 497, ptr noundef nonnull @ATTRS1) #4

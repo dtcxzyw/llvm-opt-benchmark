@@ -1182,7 +1182,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br label %97
 
 .thread211.i:                                     ; preds = %67, %64
-  %.094.i = phi i64 [ 0, %64 ], [ 1, %67 ]
+  %.094.i = phi i64 [ 1, %67 ], [ 0, %64 ]
   %92 = load i32, ptr @hf_c1222_epsem_total, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %92, ptr noundef %1, i32 noundef %57, i32 noundef -1, i32 noundef 0)
   %94 = call ptr @expert_add_info(ptr noundef %47, ptr noundef %45, ptr noundef nonnull @ei_c1222_epsem_not_decrypted)
@@ -1191,10 +1191,10 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br label %475
 
 97:                                               ; preds = %90, %88, %86, %78, %73
-  %.096.ph.i = phi ptr [ %79, %86 ], [ %79, %78 ], [ %79, %88 ], [ %74, %73 ], [ %91, %90 ]
-  %.095.ph.i = phi i64 [ 1, %86 ], [ 0, %78 ], [ 0, %88 ], [ 1, %73 ], [ 0, %90 ]
-  %.094.ph.i = phi i64 [ 0, %86 ], [ 0, %78 ], [ 1, %88 ], [ 0, %73 ], [ 0, %90 ]
-  %.093.ph.i = phi i1 [ true, %86 ], [ true, %78 ], [ true, %88 ], [ true, %73 ], [ false, %90 ]
+  %.096.ph.i = phi ptr [ %79, %86 ], [ %79, %88 ], [ %79, %78 ], [ %74, %73 ], [ %91, %90 ]
+  %.095.ph.i = phi i64 [ 1, %86 ], [ 0, %88 ], [ 0, %78 ], [ 1, %73 ], [ 0, %90 ]
+  %.094.ph.i = phi i64 [ 0, %86 ], [ 1, %88 ], [ 0, %78 ], [ 0, %73 ], [ 0, %90 ]
+  %.093.ph.i = phi i1 [ true, %86 ], [ true, %88 ], [ true, %78 ], [ true, %73 ], [ false, %90 ]
   %98 = and i32 %58, 16
   %.not.i = icmp eq i32 %98, 0
   br i1 %.not.i, label %106, label %99

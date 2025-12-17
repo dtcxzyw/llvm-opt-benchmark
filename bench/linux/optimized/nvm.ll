@@ -40,7 +40,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_poll_eerd_eewr_done(ptr no
   br i1 %22, label %.split2.us, label %.split, !llvm.loop !6
 
 .split2.us:                                       ; preds = %.split, %20, %.split.us, %11
-  %.us-phi = phi i32 [ 0, %.split.us ], [ -1, %11 ], [ 0, %.split ], [ -1, %20 ]
+  %.us-phi = phi i32 [ -1, %11 ], [ 0, %.split.us ], [ 0, %.split ], [ -1, %20 ]
   ret i32 %.us-phi
 }
 

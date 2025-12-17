@@ -664,7 +664,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   br i1 %.not189, label %.backedge.sink.split614.backedge, label %375
 
 .backedge.sink.split614.backedge:                 ; preds = %yy_try_NUL_trans.exit, %150
-  %.1171.ph.be = phi ptr [ %.1171, %150 ], [ %299, %yy_try_NUL_trans.exit ]
+  %.1171.ph.be = phi ptr [ %299, %yy_try_NUL_trans.exit ], [ %.1171, %150 ]
   br label %.backedge.sink.split614
 
 375:                                              ; preds = %yy_try_NUL_trans.exit
@@ -1760,7 +1760,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
+  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

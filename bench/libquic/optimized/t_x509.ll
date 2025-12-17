@@ -451,8 +451,8 @@ ASN1_TIME_print.exit:                             ; preds = %116, %118
 212:                                              ; preds = %208, %206
   br label %X509_signature_print.exit.thread
 
-X509_signature_print.exit.thread:                 ; preds = %61, %85, %77, %72, %ASN1_TIME_print.exit.thread, %212, %10, %13, %18, %27, %41, %49, %X509_signature_print.exit, %91, %94, %98, %103, %106, %ASN1_TIME_print.exit, %121, %124, %131, %136, %139, %143, %148, %151, %154, %161, %176, %179, %185, %188, %199, %208
-  %.0100 = phi i32 [ 1, %212 ], [ 0, %208 ], [ 0, %199 ], [ 0, %176 ], [ 0, %185 ], [ 0, %188 ], [ 0, %179 ], [ 0, %148 ], [ 0, %151 ], [ 0, %154 ], [ 0, %161 ], [ 0, %136 ], [ 0, %139 ], [ 0, %143 ], [ 0, %103 ], [ 0, %106 ], [ 0, %121 ], [ 0, %131 ], [ 0, %124 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %91 ], [ 0, %94 ], [ 0, %98 ], [ 0, %X509_signature_print.exit ], [ 0, %27 ], [ 0, %41 ], [ 0, %49 ], [ 0, %18 ], [ 0, %10 ], [ 0, %13 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %72 ], [ 0, %77 ], [ 0, %85 ], [ 0, %61 ]
+X509_signature_print.exit.thread:                 ; preds = %61, %85, %72, %77, %ASN1_TIME_print.exit.thread, %212, %10, %13, %18, %27, %41, %49, %X509_signature_print.exit, %91, %94, %98, %103, %106, %ASN1_TIME_print.exit, %121, %124, %131, %136, %139, %143, %148, %151, %154, %161, %176, %179, %185, %188, %199, %208
+  %.0100 = phi i32 [ 1, %212 ], [ 0, %208 ], [ 0, %199 ], [ 0, %176 ], [ 0, %185 ], [ 0, %188 ], [ 0, %179 ], [ 0, %148 ], [ 0, %151 ], [ 0, %154 ], [ 0, %161 ], [ 0, %136 ], [ 0, %139 ], [ 0, %143 ], [ 0, %103 ], [ 0, %106 ], [ 0, %121 ], [ 0, %131 ], [ 0, %124 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %91 ], [ 0, %94 ], [ 0, %98 ], [ 0, %X509_signature_print.exit ], [ 0, %27 ], [ 0, %41 ], [ 0, %49 ], [ 0, %18 ], [ 0, %10 ], [ 0, %13 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %77 ], [ 0, %72 ], [ 0, %85 ], [ 0, %61 ]
   ret i32 %.0100
 }
 
@@ -532,7 +532,7 @@ define hidden i32 @X509_signature_print(ptr noundef %0, ptr noundef %1, ptr noun
   br label %22
 
 22:                                               ; preds = %17, %14, %19, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ %18, %17 ], [ 0, %14 ], [ %., %19 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %18, %17 ], [ %., %19 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -678,7 +678,7 @@ define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %31, %28, %7, %2, %.thread29, %49
-  %.021 = phi i32 [ 1, %49 ], [ 0, %.thread29 ], [ 0, %2 ], [ 0, %7 ], [ 0, %28 ], [ 0, %31 ], [ 0, %.preheader ]
+  %.021 = phi i32 [ 1, %49 ], [ 0, %.thread29 ], [ 0, %31 ], [ 0, %2 ], [ 0, %7 ], [ 0, %28 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.021
@@ -733,7 +733,7 @@ switch.early.test:                                ; preds = %14
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph, %switch.early.test
-  %.fr.sink = phi i8 [ %switch.select42, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
+  %.fr.sink = phi i8 [ 46, %.lr.ph ], [ %switch.select42, %switch.early.test ], [ %.fr, %14 ]
   %17 = sext i32 %.02434 to i64
   %18 = getelementptr inbounds i8, ptr %3, i64 %17
   store i8 %.fr.sink, ptr %18, align 1, !tbaa !35
@@ -881,7 +881,7 @@ define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr nounde
   br label %77
 
 77:                                               ; preds = %72, %68, %64, %35
-  %.0 = phi i32 [ %76, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %35 ]
+  %.0 = phi i32 [ %76, %72 ], [ 0, %64 ], [ 0, %68 ], [ 0, %35 ]
   %78 = zext nneg i32 %33 to i64
   %79 = getelementptr ptr, ptr @mon, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -4232
@@ -1050,9 +1050,9 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
   br label %.critedge
 
 .critedge:                                        ; preds = %96, %.critedge.loopexit.split.loop.exit86, %.preheader, %82, %87, %78, %74, %45
-  %.057 = phi i32 [ %86, %87 ], [ %86, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ %86, %.preheader ], [ %86, %.critedge.loopexit.split.loop.exit86 ], [ %86, %96 ]
-  %.056 = phi ptr [ null, %87 ], [ null, %82 ], [ null, %78 ], [ null, %74 ], [ null, %45 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit86 ], [ %88, %96 ]
-  %.055 = phi i32 [ 0, %87 ], [ 0, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit86 ], [ %92, %96 ]
+  %.057 = phi i32 [ 0, %45 ], [ %86, %87 ], [ %86, %82 ], [ 0, %74 ], [ 0, %78 ], [ %86, %.preheader ], [ %86, %.critedge.loopexit.split.loop.exit86 ], [ %86, %96 ]
+  %.056 = phi ptr [ null, %45 ], [ null, %87 ], [ null, %82 ], [ null, %74 ], [ null, %78 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit86 ], [ %88, %96 ]
+  %.055 = phi i32 [ 0, %45 ], [ 0, %87 ], [ 0, %82 ], [ 0, %74 ], [ 0, %78 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit86 ], [ %92, %96 ]
   %98 = zext nneg i32 %43 to i64
   %99 = getelementptr ptr, ptr @mon, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -4232
@@ -1145,8 +1145,8 @@ thread-pre-split:                                 ; preds = %34
   %36 = icmp eq i8 %.pr.pre.pre, 0
   br i1 %36, label %.sink.split, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %11, %19, %21, %9, %thread-pre-split
-  %.13448 = phi ptr [ %32, %thread-pre-split ], [ %.033, %9 ], [ %.033, %21 ], [ %.033, %19 ], [ %.033, %11 ]
+thread-pre-split.thread:                          ; preds = %19, %21, %11, %9, %thread-pre-split
+  %.13448 = phi ptr [ %32, %thread-pre-split ], [ %.033, %9 ], [ %.033, %11 ], [ %.033, %21 ], [ %.033, %19 ]
   %37 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   br label %9
 

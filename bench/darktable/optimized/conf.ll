@@ -301,7 +301,7 @@ switch.lookup.i27.i:                              ; preds = %8
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i27.i, %8
-  %.0.i.i = phi ptr [ @.str.6, %8 ], [ %14, %switch.lookup.i27.i ]
+  %.0.i.i = phi ptr [ %14, %switch.lookup.i27.i ], [ @.str.6, %8 ]
   %15 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %16 = fcmp reassoc nsz arcp contract afn ord double %15, 0.000000e+00
   %17 = fcmp reassoc nsz arcp contract afn ogt double %15, 0.000000e+00
@@ -340,7 +340,7 @@ switch.lookup.i27.i16:                            ; preds = %27
   br label %dt_confgen_get.exit.i17
 
 dt_confgen_get.exit.i17:                          ; preds = %switch.lookup.i27.i16, %27
-  %.0.i.i18 = phi ptr [ @.str.6, %27 ], [ %33, %switch.lookup.i27.i16 ]
+  %.0.i.i18 = phi ptr [ %33, %switch.lookup.i27.i16 ], [ @.str.6, %27 ]
   %34 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i18) #11
   %35 = fcmp reassoc nsz arcp contract afn ord double %34, 0.000000e+00
   %36 = fcmp reassoc nsz arcp contract afn ogt double %34, 0.000000e+00
@@ -401,7 +401,7 @@ switch.lookup.i27:                                ; preds = %14
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %14, %switch.lookup.i27
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %21, %switch.lookup.i27 ]
+  %.0.i = phi ptr [ %21, %switch.lookup.i27 ], [ @.str.6, %14 ]
   %22 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   %23 = fcmp reassoc nsz arcp contract afn ord double %22, 0.000000e+00
   %24 = fcmp reassoc nsz arcp contract afn ogt double %22, 0.000000e+00
@@ -490,7 +490,7 @@ _conf_set_if_not_overridden.exit.thread:          ; preds = %14, %22
   br label %34
 
 34:                                               ; preds = %_conf_set_if_not_overridden.exit.thread, %dt_confgen_get.exit.thread, %31, %dt_confgen_get.exit, %1
-  %.014 = phi nsz double [ %3, %1 ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ], [ %12, %_conf_set_if_not_overridden.exit.thread ]
+  %.014 = phi nsz double [ %3, %1 ], [ %12, %_conf_set_if_not_overridden.exit.thread ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ]
   %35 = fcmp reassoc nsz arcp contract afn ogt double %.014, 0.000000e+00
   %.0.in.v = select i1 %35, double 5.000000e-01, double -5.000000e-01
   %.0.in = fadd reassoc nsz arcp contract afn double %.0.in.v, %.014
@@ -527,7 +527,7 @@ switch.lookup.i27.i:                              ; preds = %8
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i27.i, %8
-  %.0.i.i = phi ptr [ @.str.6, %8 ], [ %14, %switch.lookup.i27.i ]
+  %.0.i.i = phi ptr [ %14, %switch.lookup.i27.i ], [ @.str.6, %8 ]
   %15 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %16 = fcmp reassoc nsz arcp contract afn ord double %15, 0.000000e+00
   %17 = fcmp reassoc nsz arcp contract afn ogt double %15, 0.000000e+00
@@ -566,7 +566,7 @@ switch.lookup.i27.i16:                            ; preds = %27
   br label %dt_confgen_get.exit.i17
 
 dt_confgen_get.exit.i17:                          ; preds = %switch.lookup.i27.i16, %27
-  %.0.i.i18 = phi ptr [ @.str.6, %27 ], [ %33, %switch.lookup.i27.i16 ]
+  %.0.i.i18 = phi ptr [ %33, %switch.lookup.i27.i16 ], [ @.str.6, %27 ]
   %34 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i18) #11
   %35 = fcmp reassoc nsz arcp contract afn ogt double %34, 0.000000e+00
   %.v.i = select i1 %35, double 5.000000e-01, double -5.000000e-01
@@ -625,7 +625,7 @@ switch.lookup.i27:                                ; preds = %14
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %14, %switch.lookup.i27
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %21, %switch.lookup.i27 ]
+  %.0.i = phi ptr [ %21, %switch.lookup.i27 ], [ @.str.6, %14 ]
   %22 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   switch i32 %1, label %33 [
     i32 1, label %23
@@ -722,7 +722,7 @@ _conf_set_if_not_overridden.exit.thread:          ; preds = %14, %22
   br label %34
 
 34:                                               ; preds = %_conf_set_if_not_overridden.exit.thread, %dt_confgen_get.exit.thread, %31, %dt_confgen_get.exit, %1
-  %.014 = phi nsz double [ %3, %1 ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ], [ %12, %_conf_set_if_not_overridden.exit.thread ]
+  %.014 = phi nsz double [ %3, %1 ], [ %12, %_conf_set_if_not_overridden.exit.thread ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ]
   %35 = fcmp reassoc nsz arcp contract afn ogt double %.014, 0.000000e+00
   %.0.in.v = select i1 %35, double 5.000000e-01, double -5.000000e-01
   %.0.in = fadd reassoc nsz arcp contract afn double %.0.in.v, %.014
@@ -790,7 +790,7 @@ _conf_set_if_not_overridden.exit.thread:          ; preds = %14, %22
   br label %34
 
 34:                                               ; preds = %_conf_set_if_not_overridden.exit.thread, %dt_confgen_get.exit.thread, %31, %dt_confgen_get.exit, %1
-  %.0 = phi nsz double [ %3, %1 ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ], [ %12, %_conf_set_if_not_overridden.exit.thread ]
+  %.0 = phi nsz double [ %3, %1 ], [ %12, %_conf_set_if_not_overridden.exit.thread ], [ 0.000000e+00, %dt_confgen_get.exit.thread ], [ %12, %31 ], [ 0.000000e+00, %dt_confgen_get.exit ]
   %35 = fptrunc reassoc nsz arcp contract afn double %.0 to float
   ret float %35
 }
@@ -875,7 +875,7 @@ switch.lookup:                                    ; preds = %2
   br label %13
 
 13:                                               ; preds = %switch.lookup, %2
-  %.0 = phi ptr [ @.str.6, %2 ], [ %12, %switch.lookup ]
+  %.0 = phi ptr [ %12, %switch.lookup ], [ @.str.6, %2 ]
   ret ptr %.0
 }
 
@@ -908,7 +908,7 @@ switch.lookup.i19.i:                              ; preds = %8
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i19.i, %8
-  %.0.i.i = phi ptr [ @.str.6, %8 ], [ %14, %switch.lookup.i19.i ]
+  %.0.i.i = phi ptr [ %14, %switch.lookup.i19.i ], [ @.str.6, %8 ]
   %15 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %16 = fcmp reassoc nsz arcp contract afn ord double %15, 0.000000e+00
   %17 = fptrunc reassoc nsz arcp contract afn double %15 to float
@@ -944,7 +944,7 @@ switch.lookup.i19.i17:                            ; preds = %25
   br label %dt_confgen_get.exit.i18
 
 dt_confgen_get.exit.i18:                          ; preds = %switch.lookup.i19.i17, %25
-  %.0.i.i19 = phi ptr [ @.str.6, %25 ], [ %31, %switch.lookup.i19.i17 ]
+  %.0.i.i19 = phi ptr [ %31, %switch.lookup.i19.i17 ], [ @.str.6, %25 ]
   %32 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i19) #11
   %33 = fcmp reassoc nsz arcp contract afn ord double %32, 0.000000e+00
   %34 = fptrunc reassoc nsz arcp contract afn double %32 to float
@@ -1003,7 +1003,7 @@ switch.lookup.i19:                                ; preds = %14
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %14, %switch.lookup.i19
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %21, %switch.lookup.i19 ]
+  %.0.i = phi ptr [ %21, %switch.lookup.i19 ], [ @.str.6, %14 ]
   %22 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   %23 = fcmp reassoc nsz arcp contract afn ord double %22, 0.000000e+00
   %24 = fptrunc reassoc nsz arcp contract afn double %22 to float
@@ -1058,7 +1058,7 @@ switch.lookup.i27.i:                              ; preds = %10
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i27.i, %10
-  %.0.i.i = phi ptr [ @.str.6, %10 ], [ %16, %switch.lookup.i27.i ]
+  %.0.i.i = phi ptr [ %16, %switch.lookup.i27.i ], [ @.str.6, %10 ]
   %17 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %18 = fcmp reassoc nsz arcp contract afn ord double %17, 0.000000e+00
   %19 = fcmp reassoc nsz arcp contract afn ogt double %17, 0.000000e+00
@@ -1098,7 +1098,7 @@ switch.lookup.i27.i31:                            ; preds = %30
   br label %dt_confgen_get.exit.i32
 
 dt_confgen_get.exit.i32:                          ; preds = %switch.lookup.i27.i31, %30
-  %.0.i.i33 = phi ptr [ @.str.6, %30 ], [ %36, %switch.lookup.i27.i31 ]
+  %.0.i.i33 = phi ptr [ %36, %switch.lookup.i27.i31 ], [ @.str.6, %30 ]
   %37 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i33) #11
   %38 = fcmp reassoc nsz arcp contract afn ord double %37, 0.000000e+00
   %39 = fcmp reassoc nsz arcp contract afn ogt double %37, 0.000000e+00
@@ -1148,7 +1148,7 @@ switch.lookup.i27.i:                              ; preds = %10
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i27.i, %10
-  %.0.i.i = phi ptr [ @.str.6, %10 ], [ %16, %switch.lookup.i27.i ]
+  %.0.i.i = phi ptr [ %16, %switch.lookup.i27.i ], [ @.str.6, %10 ]
   %17 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %18 = fcmp reassoc nsz arcp contract afn ord double %17, 0.000000e+00
   %19 = fcmp reassoc nsz arcp contract afn ogt double %17, 0.000000e+00
@@ -1188,7 +1188,7 @@ switch.lookup.i27.i31:                            ; preds = %30
   br label %dt_confgen_get.exit.i32
 
 dt_confgen_get.exit.i32:                          ; preds = %switch.lookup.i27.i31, %30
-  %.0.i.i33 = phi ptr [ @.str.6, %30 ], [ %36, %switch.lookup.i27.i31 ]
+  %.0.i.i33 = phi ptr [ %36, %switch.lookup.i27.i31 ], [ @.str.6, %30 ]
   %37 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i33) #11
   %38 = fcmp reassoc nsz arcp contract afn ogt double %37, 0.000000e+00
   %.v.i = select i1 %38, double 5.000000e-01, double -5.000000e-01
@@ -1236,7 +1236,7 @@ switch.lookup.i19.i:                              ; preds = %10
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i19.i, %10
-  %.0.i.i = phi ptr [ @.str.6, %10 ], [ %16, %switch.lookup.i19.i ]
+  %.0.i.i = phi ptr [ %16, %switch.lookup.i19.i ], [ @.str.6, %10 ]
   %17 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %18 = fcmp reassoc nsz arcp contract afn ord double %17, 0.000000e+00
   %19 = fptrunc reassoc nsz arcp contract afn double %17 to float
@@ -1272,7 +1272,7 @@ switch.lookup.i19.i32:                            ; preds = %27
   br label %dt_confgen_get.exit.i33
 
 dt_confgen_get.exit.i33:                          ; preds = %switch.lookup.i19.i32, %27
-  %.0.i.i34 = phi ptr [ @.str.6, %27 ], [ %33, %switch.lookup.i19.i32 ]
+  %.0.i.i34 = phi ptr [ %33, %switch.lookup.i19.i32 ], [ @.str.6, %27 ]
   %34 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i34) #11
   %35 = fcmp reassoc nsz arcp contract afn ord double %34, 0.000000e+00
   %36 = fptrunc reassoc nsz arcp contract afn double %34 to float
@@ -1310,7 +1310,7 @@ define range(i32 0, 2) i32 @dt_conf_get_bool(ptr noundef %0) local_unnamed_addr 
   br label %7
 
 7:                                                ; preds = %1, %1, %1, %4
-  %8 = phi i32 [ 0, %1 ], [ %6, %4 ], [ 0, %1 ], [ 0, %1 ]
+  %8 = phi i32 [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %6, %4 ]
   ret i32 %8
 }
 
@@ -1357,7 +1357,7 @@ switch.lookup.i:                                  ; preds = %15
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %15, %switch.lookup.i
-  %.0.i = phi ptr [ @.str.6, %15 ], [ %21, %switch.lookup.i ]
+  %.0.i = phi ptr [ %21, %switch.lookup.i ], [ @.str.6, %15 ]
   tail call void @dt_conf_set_string(ptr noundef %0, ptr noundef %.0.i)
   br label %22
 
@@ -1562,7 +1562,7 @@ switch.lookup.i27.i.i:                            ; preds = %59
   br label %dt_confgen_get.exit.i.i
 
 dt_confgen_get.exit.i.i:                          ; preds = %switch.lookup.i27.i.i, %59
-  %.0.i.i.i = phi ptr [ @.str.6, %59 ], [ %65, %switch.lookup.i27.i.i ]
+  %.0.i.i.i = phi ptr [ %65, %switch.lookup.i27.i.i ], [ @.str.6, %59 ]
   %66 = call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i.i) #11
   %67 = fcmp reassoc nsz arcp contract afn ord double %66, 0.000000e+00
   %68 = fcmp reassoc nsz arcp contract afn ogt double %66, 0.000000e+00
@@ -1641,7 +1641,7 @@ switch.lookup.i27.i106.i:                         ; preds = %103
   br label %dt_confgen_get.exit.i107.i
 
 dt_confgen_get.exit.i107.i:                       ; preds = %switch.lookup.i27.i106.i, %103
-  %.0.i.i108.i = phi ptr [ @.str.6, %103 ], [ %109, %switch.lookup.i27.i106.i ]
+  %.0.i.i108.i = phi ptr [ %109, %switch.lookup.i27.i106.i ], [ @.str.6, %103 ]
   %110 = call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i108.i) #11
   %111 = fcmp reassoc nsz arcp contract afn ord double %110, 0.000000e+00
   %112 = fcmp reassoc nsz arcp contract afn ogt double %110, 0.000000e+00
@@ -1720,7 +1720,7 @@ switch.lookup.i19.i.i:                            ; preds = %147
   br label %dt_confgen_get.exit.i114.i
 
 dt_confgen_get.exit.i114.i:                       ; preds = %switch.lookup.i19.i.i, %147
-  %.0.i.i115.i = phi ptr [ @.str.6, %147 ], [ %153, %switch.lookup.i19.i.i ]
+  %.0.i.i115.i = phi ptr [ %153, %switch.lookup.i19.i.i ], [ @.str.6, %147 ]
   %154 = call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i115.i) #11
   %155 = fcmp reassoc nsz arcp contract afn ord double %154, 0.000000e+00
   %156 = fptrunc reassoc nsz arcp contract afn double %154 to float
@@ -1765,7 +1765,7 @@ switch.lookup.i.i:                                ; preds = %171
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i.i, %171
-  %.0.i116.i = phi ptr [ @.str.6, %171 ], [ %177, %switch.lookup.i.i ]
+  %.0.i116.i = phi ptr [ %177, %switch.lookup.i.i ], [ @.str.6, %171 ]
   %178 = call noalias ptr @g_strdup(ptr noundef %.0.i116.i) #11
   br label %_sanitize_confgen.exit
 
@@ -1816,7 +1816,7 @@ switch.lookup.i119.i:                             ; preds = %._crit_edge.i
   br label %dt_confgen_get.exit120.i
 
 dt_confgen_get.exit120.i:                         ; preds = %switch.lookup.i119.i, %._crit_edge.i
-  %.0.i118.i = phi ptr [ @.str.6, %._crit_edge.i ], [ %200, %switch.lookup.i119.i ]
+  %.0.i118.i = phi ptr [ %200, %switch.lookup.i119.i ], [ @.str.6, %._crit_edge.i ]
   %201 = call noalias ptr @g_strdup(ptr noundef %.0.i118.i) #11
   br label %_sanitize_confgen.exit
 
@@ -1825,7 +1825,7 @@ dt_confgen_get.exit120.i:                         ; preds = %switch.lookup.i119.
   br label %_sanitize_confgen.exit
 
 _sanitize_confgen.exit:                           ; preds = %27, %31, %dt_confgen_get_int.exit.i, %dt_confgen_get_int64.exit.i, %dt_confgen_get_float.exit.i, %dt_confgen_get.exit.i, %179, %191, %dt_confgen_get.exit120.i, %202
-  %.069.i = phi ptr [ %28, %27 ], [ %32, %31 ], [ %203, %202 ], [ %78, %dt_confgen_get_int.exit.i ], [ %122, %dt_confgen_get_int64.exit.i ], [ %166, %dt_confgen_get_float.exit.i ], [ %178, %dt_confgen_get.exit.i ], [ %180, %179 ], [ %192, %191 ], [ %201, %dt_confgen_get.exit120.i ]
+  %.069.i = phi ptr [ %28, %27 ], [ %32, %31 ], [ %180, %179 ], [ %203, %202 ], [ %78, %dt_confgen_get_int.exit.i ], [ %122, %dt_confgen_get_int64.exit.i ], [ %166, %dt_confgen_get_float.exit.i ], [ %178, %dt_confgen_get.exit.i ], [ %192, %191 ], [ %201, %dt_confgen_get.exit120.i ]
   %204 = call ptr %1(ptr noundef nonnull %3, ptr noundef %.069.i) #11
   call void @g_free(ptr noundef %.069.i) #11
   %.not47 = icmp eq ptr %204, null
@@ -2003,7 +2003,7 @@ switch.lookup.i:                                  ; preds = %15
   br label %dt_confgen_value_exists.exit
 
 dt_confgen_value_exists.exit:                     ; preds = %switch.lookup.i, %15, %.critedge, %9
-  %25 = phi i32 [ 1, %9 ], [ 1, %.critedge ], [ 0, %15 ], [ %23, %switch.lookup.i ]
+  %25 = phi i32 [ 1, %9 ], [ 1, %.critedge ], [ %23, %switch.lookup.i ], [ 0, %15 ]
   ret i32 %25
 }
 
@@ -2029,7 +2029,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %2
-  %.0.shrunk = phi i32 [ 0, %2 ], [ %15, %switch.lookup ]
+  %.0.shrunk = phi i32 [ %15, %switch.lookup ], [ 0, %2 ]
   ret i32 %.0.shrunk
 }
 
@@ -2198,7 +2198,7 @@ switch.lookup.i:                                  ; preds = %2
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %2, %switch.lookup.i
-  %.0.i = phi ptr [ @.str.6, %2 ], [ %12, %switch.lookup.i ]
+  %.0.i = phi ptr [ %12, %switch.lookup.i ], [ @.str.6, %2 ]
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i, ptr noundef nonnull dereferenceable(5) @.str.7) #12
   %.not = icmp eq i32 %13, 0
   %14 = zext i1 %.not to i32
@@ -2263,7 +2263,7 @@ switch.lookup.i27.i:                              ; preds = %20
   br label %dt_confgen_get.exit.i
 
 dt_confgen_get.exit.i:                            ; preds = %switch.lookup.i27.i, %20
-  %.0.i.i = phi ptr [ @.str.6, %20 ], [ %26, %switch.lookup.i27.i ]
+  %.0.i.i = phi ptr [ %26, %switch.lookup.i27.i ], [ @.str.6, %20 ]
   %27 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i) #11
   %28 = fcmp reassoc nsz arcp contract afn ord double %27, 0.000000e+00
   %29 = fcmp reassoc nsz arcp contract afn ogt double %27, 0.000000e+00
@@ -2307,7 +2307,7 @@ switch.lookup.i27.i20:                            ; preds = %42
   br label %dt_confgen_get.exit.i21
 
 dt_confgen_get.exit.i21:                          ; preds = %switch.lookup.i27.i20, %42
-  %.0.i.i22 = phi ptr [ @.str.6, %42 ], [ %48, %switch.lookup.i27.i20 ]
+  %.0.i.i22 = phi ptr [ %48, %switch.lookup.i27.i20 ], [ @.str.6, %42 ]
   %49 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i22) #11
   %50 = fcmp reassoc nsz arcp contract afn ord double %49, 0.000000e+00
   %51 = fcmp reassoc nsz arcp contract afn ogt double %49, 0.000000e+00
@@ -2351,7 +2351,7 @@ switch.lookup.i19.i:                              ; preds = %64
   br label %dt_confgen_get.exit.i28
 
 dt_confgen_get.exit.i28:                          ; preds = %switch.lookup.i19.i, %64
-  %.0.i.i29 = phi ptr [ @.str.6, %64 ], [ %70, %switch.lookup.i19.i ]
+  %.0.i.i29 = phi ptr [ %70, %switch.lookup.i19.i ], [ @.str.6, %64 ]
   %71 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i.i29) #11
   %72 = fcmp reassoc nsz arcp contract afn ord double %71, 0.000000e+00
   %73 = fptrunc reassoc nsz arcp contract afn double %71 to float
@@ -2378,7 +2378,7 @@ dt_confgen_get_float.exit:                        ; preds = %56, %dt_confgen_val
   br label %dt_conf_get_bool.exit
 
 dt_conf_get_bool.exit:                            ; preds = %76, %76, %76, %79
-  %82 = phi i32 [ 0, %76 ], [ %81, %79 ], [ 0, %76 ], [ 0, %76 ]
+  %82 = phi i32 [ 0, %76 ], [ 0, %76 ], [ 0, %76 ], [ %81, %79 ]
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4144
   %85 = load ptr, ptr %84, align 8, !tbaa !52
@@ -2392,7 +2392,7 @@ switch.lookup.i.i:                                ; preds = %dt_conf_get_bool.ex
   br label %dt_confgen_get_bool.exit
 
 dt_confgen_get_bool.exit:                         ; preds = %dt_conf_get_bool.exit, %switch.lookup.i.i
-  %.0.i.i31 = phi ptr [ @.str.6, %dt_conf_get_bool.exit ], [ %88, %switch.lookup.i.i ]
+  %.0.i.i31 = phi ptr [ %88, %switch.lookup.i.i ], [ @.str.6, %dt_conf_get_bool.exit ]
   %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i31, ptr noundef nonnull dereferenceable(5) @.str.7) #12
   %.not.i32 = icmp eq i32 %89, 0
   %90 = zext i1 %.not.i32 to i32
@@ -2413,7 +2413,7 @@ switch.lookup.i:                                  ; preds = %dt_confgen_type.exi
   br label %dt_confgen_get.exit
 
 dt_confgen_get.exit:                              ; preds = %dt_confgen_type.exit.thread, %switch.lookup.i
-  %.0.i34 = phi ptr [ @.str.6, %dt_confgen_type.exit.thread ], [ %97, %switch.lookup.i ]
+  %.0.i34 = phi ptr [ %97, %switch.lookup.i ], [ @.str.6, %dt_confgen_type.exit.thread ]
   %98 = tail call fastcc ptr @_conf_get_var(ptr noundef %0)
   %99 = tail call i32 @g_strcmp0(ptr noundef %.0.i34, ptr noundef %98) #11
   %100 = icmp eq i32 %99, 0

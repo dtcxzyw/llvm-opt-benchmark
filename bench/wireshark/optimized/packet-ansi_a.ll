@@ -2727,7 +2727,7 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i
   br label %my_try_val_to_str_idx.exit.thread
 
 my_try_val_to_str_idx.exit.thread:                ; preds = %15, %8, %5, %my_try_val_to_str_idx.exit
-  %.0 = phi i32 [ 1, %my_try_val_to_str_idx.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %my_try_val_to_str_idx.exit ], [ 0, %5 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -2864,7 +2864,7 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i
   br label %my_try_val_to_str_idx.exit.thread
 
 my_try_val_to_str_idx.exit.thread:                ; preds = %15, %8, %5, %my_try_val_to_str_idx.exit
-  %.0 = phi i32 [ 1, %my_try_val_to_str_idx.exit ], [ 0, %5 ], [ 0, %8 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %my_try_val_to_str_idx.exit ], [ 0, %5 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -4046,7 +4046,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br label %157
 
 157:                                              ; preds = %46, %41, %155, %106, %98, %85, %39
-  %.0 = phi i8 [ %40, %39 ], [ %86, %85 ], [ %99, %98 ], [ %108, %106 ], [ %156, %155 ], [ 4, %41 ], [ 5, %46 ]
+  %.0 = phi i8 [ %40, %39 ], [ %156, %155 ], [ 4, %41 ], [ %86, %85 ], [ %99, %98 ], [ %108, %106 ], [ 5, %46 ]
   ret i8 %.0
 }
 
@@ -4339,7 +4339,7 @@ define internal zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %
   br label %79
 
 79:                                               ; preds = %52, %43, %59, %45, %26, %76, %24, %12
-  %.0108 = phi i8 [ %13, %12 ], [ %25, %24 ], [ %78, %76 ], [ 4, %26 ], [ 6, %45 ], [ 8, %59 ], [ 5, %43 ], [ 7, %52 ]
+  %.0108 = phi i8 [ %13, %12 ], [ %25, %24 ], [ %78, %76 ], [ 8, %59 ], [ 4, %26 ], [ 5, %43 ], [ 6, %45 ], [ 7, %52 ]
   ret i8 %.0108
 }
 
@@ -4734,7 +4734,7 @@ switch.lookup:                                    ; preds = %.preheader
   br label %95
 
 95:                                               ; preds = %90, %92, %6, %75, %25
-  %.0142.in = phi i32 [ %4, %25 ], [ %78, %75 ], [ %4, %6 ], [ %.pre, %92 ], [ %66, %90 ]
+  %.0142.in = phi i32 [ %4, %6 ], [ %4, %25 ], [ %78, %75 ], [ %.pre, %92 ], [ %66, %90 ]
   %.0142 = trunc i32 %.0142.in to i8
   ret i8 %.0142
 }
@@ -5269,7 +5269,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
   br label %154
 
 154:                                              ; preds = %147, %150, %6, %16
-  %.0.in = phi i32 [ %4, %16 ], [ %4, %6 ], [ %.pre, %150 ], [ %148, %147 ]
+  %.0.in = phi i32 [ %4, %6 ], [ %4, %16 ], [ %.pre, %150 ], [ %148, %147 ]
   %.0 = trunc i32 %.0.in to i8
   ret i8 %.0
 }
@@ -5374,7 +5374,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   br label %66
 
 66:                                               ; preds = %.loopexit, %62, %6, %27
-  %.0.in = phi i32 [ %4, %27 ], [ %4, %6 ], [ %.pre, %62 ], [ %60, %.loopexit ]
+  %.0.in = phi i32 [ %4, %6 ], [ %4, %27 ], [ %.pre, %62 ], [ %60, %.loopexit ]
   %.0 = trunc i32 %.0.in to i8
   ret i8 %.0
 }
@@ -6392,7 +6392,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
   br label %57
 
 57:                                               ; preds = %52, %54, %6, %18
-  %.0.in = phi i32 [ %4, %18 ], [ %4, %6 ], [ %.pre, %54 ], [ %47, %52 ]
+  %.0.in = phi i32 [ %4, %6 ], [ %4, %18 ], [ %.pre, %54 ], [ %47, %52 ]
   %.0 = trunc i32 %.0.in to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.0
@@ -7192,7 +7192,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   br label %81
 
 81:                                               ; preds = %76, %79, %68, %71
-  %.sink = phi i32 [ 19, %71 ], [ 19, %68 ], [ 7, %79 ], [ 7, %76 ]
+  %.sink = phi i32 [ 19, %68 ], [ 19, %71 ], [ 7, %79 ], [ 7, %76 ]
   %82 = add i32 %.0217263, %.sink
   %83 = load i32, ptr @hf_ansi_a_a2p_bearer_form_format_udp_port, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 2, i32 noundef 0)
@@ -7298,7 +7298,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %46, %24, %._crit_edge, %._crit_edge.thread, %107, %92, %74, %66
-  %.0.in = phi i32 [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %74 ], [ %4, %._crit_edge.thread ], [ %4, %._crit_edge ], [ %4, %24 ], [ %4, %46 ], [ %4, %.thread ]
+  %.0.in = phi i32 [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %74 ], [ %4, %._crit_edge ], [ %4, %._crit_edge.thread ], [ %4, %24 ], [ %4, %46 ], [ %4, %.thread ]
   %.0 = trunc i32 %.0.in to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.0
@@ -7556,7 +7556,7 @@ define internal fastcc zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noun
   br label %53
 
 53:                                               ; preds = %14, %47, %27, %12
-  %.0 = phi i8 [ %13, %12 ], [ %29, %27 ], [ %52, %47 ], [ 2, %14 ]
+  %.0 = phi i8 [ %13, %12 ], [ %52, %47 ], [ %29, %27 ], [ 2, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.0
 }

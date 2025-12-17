@@ -333,7 +333,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h109a182f182e7afeE(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i: ; preds = %37, %.lr.ph.i, %43, %.lr.ph34.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %43 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %22, %37 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %43 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %22, %37 ]
   %45 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %45)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0

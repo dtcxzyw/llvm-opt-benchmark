@@ -179,7 +179,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
   br label %46
 
 46:                                               ; preds = %40, %44, %41, %30, %38, %._crit_edge
-  %.0 = phi i32 [ -47, %38 ], [ -47, %._crit_edge ], [ -32, %30 ], [ -32, %41 ], [ 0, %44 ], [ 0, %40 ]
+  %.0 = phi i32 [ -32, %30 ], [ -32, %41 ], [ -47, %._crit_edge ], [ -47, %38 ], [ 0, %44 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -411,7 +411,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
   br label %122
 
 122:                                              ; preds = %110, %114, %111, %101, %103, %109, %89, %91, %97, %.critedge, %20, %58, %56, %39, %41, %47
-  %.059 = phi i32 [ -12, %47 ], [ -12, %41 ], [ -12, %39 ], [ -12, %56 ], [ -12, %58 ], [ -47, %20 ], [ -47, %.critedge ], [ -12, %97 ], [ -12, %91 ], [ -12, %89 ], [ -12, %109 ], [ -12, %103 ], [ -12, %101 ], [ -32, %111 ], [ 0, %114 ], [ 0, %110 ]
+  %.059 = phi i32 [ 0, %110 ], [ -47, %20 ], [ 0, %114 ], [ -12, %89 ], [ -12, %101 ], [ -32, %111 ], [ -12, %39 ], [ -12, %58 ], [ -12, %56 ], [ -12, %47 ], [ -12, %41 ], [ -47, %.critedge ], [ -12, %97 ], [ -12, %91 ], [ -12, %109 ], [ -12, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

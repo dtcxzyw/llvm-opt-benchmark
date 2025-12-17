@@ -986,7 +986,7 @@ _ZN2cv7barcode7CounterD2Ev.exit:                  ; preds = %320, %322
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit224
 
 _ZNSt6vectorIiSaIiEED2Ev.exit224:                 ; preds = %325, %323, %269, %.body215, %271
-  %.pn109.pn = phi { ptr, i32 } [ %270, %269 ], [ %272, %271 ], [ %256, %.body215 ], [ %.pn109, %323 ], [ %.pn109, %325 ]
+  %.pn109.pn = phi { ptr, i32 } [ %256, %.body215 ], [ %270, %269 ], [ %272, %271 ], [ %.pn109, %325 ], [ %.pn109, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %329
 
@@ -1004,7 +1004,7 @@ _ZN2cv7barcode7CounterD2Ev.exit251:               ; preds = %326, %328
   br label %332
 
 329:                                              ; preds = %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203, %_ZNSt6vectorIiSaIiEED2Ev.exit224, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187, %187
-  %.pn109.pn.pn = phi { ptr, i32 } [ %.pn109.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit224 ], [ %.pn92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ], [ %188, %187 ], [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203 ], [ %214, %213 ]
+  %.pn109.pn.pn = phi { ptr, i32 } [ %.pn109.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit224 ], [ %188, %187 ], [ %.pn92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ], [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203 ], [ %214, %213 ]
   %330 = load ptr, ptr %13, align 8, !tbaa !25
   %.not.i.i.i.i252 = icmp eq ptr %330, null
   br i1 %.not.i.i.i.i252, label %_ZNSt6vectorIiSaIiEED2Ev.exit184, label %331
@@ -1014,7 +1014,7 @@ _ZN2cv7barcode7CounterD2Ev.exit251:               ; preds = %326, %328
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit184
 
 _ZNSt6vectorIiSaIiEED2Ev.exit184:                 ; preds = %331, %329, %183, %.body165, %185
-  %.pn109.pn.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %186, %185 ], [ %158, %.body165 ], [ %.pn109.pn.pn, %329 ], [ %.pn109.pn.pn, %331 ]
+  %.pn109.pn.pn.pn = phi { ptr, i32 } [ %158, %.body165 ], [ %184, %183 ], [ %186, %185 ], [ %.pn109.pn.pn, %331 ], [ %.pn109.pn.pn, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %335
 
@@ -1042,7 +1042,7 @@ _ZN2cv7barcode7CounterD2Ev.exit257:               ; preds = %332, %334
   br label %_ZN2cv7barcode7CounterD2Ev.exit260
 
 _ZN2cv7barcode7CounterD2Ev.exit260:               ; preds = %337, %335, %_ZNSt6vectorIiSaIiEED2Ev.exit143
-  %.pn109.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit143 ], [ %.pn109.pn.pn.pn.pn, %335 ], [ %.pn109.pn.pn.pn.pn, %337 ]
+  %.pn109.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn109.pn.pn.pn.pn, %337 ], [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit143 ], [ %.pn109.pn.pn.pn.pn, %335 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %339
 

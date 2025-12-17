@@ -1127,7 +1127,7 @@ _ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit: ; preds = %._crit_e
   ret i32 0
 
 .loopexit.split-lp:                               ; preds = %.loopexit119.split.us, %.loopexit.split-lp.loopexit.split-lp.split.us, %.loopexit.split-lp.loopexit.split.us, %342, %219
-  %.pn = phi { ptr, i32 } [ %343, %342 ], [ %220, %219 ], [ %lpad.loopexit.us, %.loopexit119.split.us ], [ %lpad.loopexit121.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp122.us, %.loopexit.split-lp.loopexit.split-lp.split.us ]
+  %.pn = phi { ptr, i32 } [ %220, %219 ], [ %343, %342 ], [ %lpad.loopexit.us, %.loopexit119.split.us ], [ %lpad.loopexit121.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp122.us, %.loopexit.split-lp.loopexit.split-lp.split.us ]
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #14
   br label %344
 

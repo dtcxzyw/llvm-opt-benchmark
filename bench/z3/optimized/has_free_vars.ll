@@ -351,7 +351,7 @@ _ZN6vectorI15expr_delta_pairLb0EjE4backEv.exit:   ; preds = %_ZNK6vectorI15expr_
   br i1 %78, label %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit.thread, label %thread-pre-split
 
 _ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit.thread: ; preds = %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit, %76, %thread-pre-split
-  %.2.ph = phi i1 [ false, %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit ], [ true, %76 ], [ false, %thread-pre-split ]
+  %.2.ph = phi i1 [ false, %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit ], [ false, %thread-pre-split ], [ true, %76 ]
   ret i1 %.2.ph
 }
 
@@ -628,7 +628,7 @@ _ZN13contains_vars3imp5visitEP4exprjRb.exit32:    ; preds = %_Z9is_groundPK4expr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN13contains_vars3imp5visitEP4exprjRb.exit, %15, %3, %52, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32, %8, %13
-  %.033 = phi i1 [ true, %3 ], [ true, %8 ], [ true, %13 ], [ true, %52 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  %.033 = phi i1 [ true, %3 ], [ true, %8 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32 ], [ true, %13 ], [ true, %52 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   ret i1 %.033
 }
 
@@ -996,7 +996,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   br i1 %.not27, label %.loopexit, label %.lr.ph34, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %82, %90, %.lr.ph34, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.133, %82 ], [ null, %90 ], [ null, %.lr.ph34 ], [ null, %.lr.ph ], [ %.031, %67 ]
+  %.026 = phi ptr [ null, %.preheader ], [ null, %.lr.ph34 ], [ %.133, %82 ], [ null, %90 ], [ %.031, %67 ], [ null, %.lr.ph ]
   ret ptr %.026
 }
 

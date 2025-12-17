@@ -281,7 +281,7 @@ define range(i32 0, 2) i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr no
   br label %81
 
 81:                                               ; preds = %.thread, %.loopexit, %78, %51
-  %.076 = phi i32 [ 0, %51 ], [ 1, %78 ], [ 0, %.loopexit ], [ 0, %.thread ]
+  %.076 = phi i32 [ 1, %78 ], [ 0, %51 ], [ 0, %.thread ], [ 0, %.loopexit ]
   ret i32 %.076
 }
 
@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, pt
   br i1 %48, label %.sink.split, label %34
 
 .sink.split:                                      ; preds = %.lr.ph, %.lr.ph51.split, %43, %34, %.lr.ph51.split.us, %21, %20, %.preheader47
-  %.038.ph = phi i32 [ 1, %.preheader47 ], [ 1, %20 ], [ 0, %21 ], [ 0, %.lr.ph51.split.us ], [ 1, %34 ], [ 0, %43 ], [ 0, %.lr.ph51.split ], [ 0, %.lr.ph ]
+  %.038.ph = phi i32 [ 1, %.preheader47 ], [ 0, %43 ], [ 0, %.lr.ph51.split.us ], [ 1, %20 ], [ 0, %21 ], [ 1, %34 ], [ 0, %.lr.ph51.split ], [ 0, %.lr.ph ]
   tail call void @st__free_table(ptr noundef nonnull %8) #10
   br label %49
 
@@ -503,8 +503,8 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = udiv i64 %43, 40
   %65 = ptrtoint ptr %1 to i64
   %66 = udiv i64 %65, 40
-  %.str.68..str.67 = select i1 %.not70, ptr @.str.68, ptr @.str.67
   %.str.70..str.69 = select i1 %.not70, ptr @.str.70, ptr @.str.69
+  %.str.68..str.67 = select i1 %.not70, ptr @.str.68, ptr @.str.67
   %.str.69.sink = select i1 %.not69, ptr %.str.70..str.69, ptr %.str.68..str.67
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull %.str.69.sink, i64 noundef %63, i64 noundef %64, i64 noundef %66) #10
   %68 = icmp ne i32 %67, -1
@@ -512,7 +512,7 @@ define internal fastcc i32 @ddDoDumpBlif(ptr noundef %0, ptr noundef %1, ptr nou
   br label %69
 
 69:                                               ; preds = %58, %56, %40, %36, %33, %27, %18, %11, %9, %6
-  %.062 = phi i32 [ 1, %6 ], [ 0, %9 ], [ 0, %11 ], [ %., %18 ], [ %.73, %27 ], [ 0, %33 ], [ %39, %36 ], [ %46, %40 ], [ 0, %56 ], [ %.74, %58 ]
+  %.062 = phi i32 [ 0, %56 ], [ 1, %6 ], [ 0, %9 ], [ %., %18 ], [ 0, %11 ], [ %.73, %27 ], [ %.74, %58 ], [ %46, %40 ], [ 0, %33 ], [ %39, %36 ]
   ret i32 %.062
 }
 
@@ -1138,17 +1138,17 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   call void @free(ptr noundef %12) #10
   br label %275
 
-.thread.thread437:                                ; preds = %._crit_edge294, %._crit_edge
+.thread.thread437:                                ; preds = %._crit_edge, %._crit_edge294
   tail call void @free(ptr noundef nonnull %12) #10
   br label %275
 
-.thread.thread:                                   ; preds = %.lr.ph296, %94, %119, %117, %142, %130, %._crit_edge318, %153, %176, %202, %200, %227, %239, %260, %._crit_edge355, %._crit_edge331, %._crit_edge321, %99, %._crit_edge306, %73, %70, %67, %._crit_edge297
+.thread.thread:                                   ; preds = %.lr.ph296, %94, %119, %117, %142, %130, %._crit_edge318, %153, %176, %202, %200, %239, %227, %260, %._crit_edge355, %._crit_edge331, %._crit_edge321, %99, %._crit_edge306, %73, %70, %67, %._crit_edge297
   call void @free(ptr noundef nonnull %12) #10
   call void @st__free_table(ptr noundef nonnull %34) #10
   br label %275
 
 275:                                              ; preds = %.thread.thread437, %.thread271, %.thread.thread, %64, %61, %274
-  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread437 ]
+  %.0209 = phi i32 [ 0, %64 ], [ 1, %274 ], [ 0, %61 ], [ 0, %.thread.thread ], [ 0, %.thread.thread437 ], [ 0, %.thread271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0209
 }
@@ -1310,13 +1310,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef readnone captures(none)
   br label %.thread81.sink.split
 
 .thread81.sink.split:                             ; preds = %.lr.ph, %52, %62, %69, %54, %._crit_edge95, %37
-  %.06279.sink = phi ptr [ %35, %37 ], [ %35, %._crit_edge95 ], [ %35, %54 ], [ %35, %69 ], [ %35, %62 ], [ %35, %52 ], [ %8, %.lr.ph ]
-  %.061.ph = phi i32 [ 0, %37 ], [ %spec.select, %._crit_edge95 ], [ 0, %54 ], [ 0, %69 ], [ 0, %62 ], [ 0, %52 ], [ 0, %.lr.ph ]
+  %.06279.sink = phi ptr [ %35, %._crit_edge95 ], [ %35, %37 ], [ %35, %52 ], [ %35, %54 ], [ %35, %69 ], [ %35, %62 ], [ %8, %.lr.ph ]
+  %.061.ph = phi i32 [ %spec.select, %._crit_edge95 ], [ 0, %37 ], [ 0, %52 ], [ 0, %54 ], [ 0, %69 ], [ 0, %62 ], [ 0, %.lr.ph ]
   call void @st__free_table(ptr noundef nonnull %.06279.sink) #10
   br label %.thread81
 
 .thread81:                                        ; preds = %.thread81.sink.split, %34, %6
-  %.061 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %.061.ph, %.thread81.sink.split ]
+  %.061 = phi i32 [ 0, %34 ], [ 0, %6 ], [ %.061.ph, %.thread81.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.061
 }
@@ -1418,7 +1418,7 @@ define internal fastcc i32 @ddDoDumpDaVinci(ptr noundef %0, ptr noundef %1, ptr 
   br label %65
 
 65:                                               ; preds = %62, %56, %48, %44, %41, %25, %17, %15, %11
-  %.0 = phi i32 [ %., %11 ], [ 0, %15 ], [ 0, %17 ], [ %.55, %25 ], [ 0, %41 ], [ %47, %44 ], [ 0, %48 ], [ %61, %56 ], [ %.56, %62 ]
+  %.0 = phi i32 [ %., %11 ], [ %61, %56 ], [ %.56, %62 ], [ 0, %15 ], [ %.55, %25 ], [ 0, %17 ], [ 0, %48 ], [ 0, %41 ], [ %47, %44 ]
   ret i32 %.0
 }
 
@@ -1728,12 +1728,12 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread159
 
 .thread163:                                       ; preds = %.lr.ph, %94, %110, %112, %.lr.ph200.split, %.lr.ph200.split.us, %._crit_edge198.thread, %._crit_edge201, %._crit_edge198
-  %.0123.ph166 = phi ptr [ %90, %._crit_edge198 ], [ %90, %._crit_edge201 ], [ %90, %._crit_edge198.thread ], [ %90, %.lr.ph200.split.us ], [ %90, %.lr.ph200.split ], [ %90, %112 ], [ %90, %110 ], [ %90, %94 ], [ %10, %.lr.ph ]
+  %.0123.ph166 = phi ptr [ %90, %._crit_edge198 ], [ %90, %._crit_edge201 ], [ %90, %._crit_edge198.thread ], [ %90, %94 ], [ %90, %.lr.ph200.split.us ], [ %90, %.lr.ph200.split ], [ %90, %112 ], [ %90, %110 ], [ %10, %.lr.ph ]
   call void @st__free_table(ptr noundef nonnull %.0123.ph166) #10
   br label %.thread159
 
-.thread159:                                       ; preds = %6, %44, %._crit_edge195, %.thread152, %.thread163, %145
-  %.0117 = phi i32 [ 1, %145 ], [ 0, %.thread163 ], [ 0, %.thread152 ], [ 0, %._crit_edge195 ], [ 0, %44 ], [ 0, %6 ]
+.thread159:                                       ; preds = %44, %._crit_edge195, %6, %.thread152, %.thread163, %145
+  %.0117 = phi i32 [ 1, %145 ], [ 0, %.thread163 ], [ 0, %44 ], [ 0, %.thread152 ], [ 0, %._crit_edge195 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0117
 }
@@ -1844,7 +1844,7 @@ define internal fastcc i32 @ddDoDumpDDcal(ptr noundef %0, ptr noundef %1, ptr no
   br label %74
 
 74:                                               ; preds = %72, %38, %34, %28, %25, %14, %12, %6
-  %.0 = phi i32 [ 1, %6 ], [ 0, %12 ], [ 0, %14 ], [ 0, %25 ], [ %., %28 ], [ %37, %34 ], [ %44, %38 ], [ %.67, %72 ]
+  %.0 = phi i32 [ %44, %38 ], [ 1, %6 ], [ 0, %12 ], [ 0, %14 ], [ %., %28 ], [ 0, %25 ], [ %.67, %72 ], [ %37, %34 ]
   ret i32 %.0
 }
 
@@ -1952,7 +1952,7 @@ define range(i32 0, 2) i32 @Cudd_DumpFactoredForm(ptr noundef %0, i32 noundef %1
   br i1 %67, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %22, %29, %40, %43, %49, %56, %63, %13, %6
-  %.042 = phi i32 [ 1, %6 ], [ 1, %13 ], [ 0, %63 ], [ 0, %56 ], [ 0, %49 ], [ 0, %43 ], [ 0, %40 ], [ 0, %29 ], [ 0, %22 ]
+  %.042 = phi i32 [ 1, %6 ], [ 1, %13 ], [ 0, %29 ], [ 0, %63 ], [ 0, %40 ], [ 0, %43 ], [ 0, %49 ], [ 0, %56 ], [ 0, %22 ]
   ret i32 %.042
 }
 
@@ -2109,7 +2109,7 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpFactoredForm(ptr noundef %0,
   br label %81
 
 81:                                               ; preds = %77, %75, %69, %65, %47, %38, %44, %35, %33, %29, %25, %4, %80
-  %.060 = phi i32 [ 1, %80 ], [ 0, %4 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ], [ 0, %35 ], [ 1, %44 ], [ 1, %38 ], [ 0, %47 ], [ 0, %65 ], [ 0, %69 ], [ 0, %75 ], [ 0, %77 ]
+  %.060 = phi i32 [ 1, %80 ], [ 0, %4 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ], [ 0, %35 ], [ 1, %38 ], [ 0, %47 ], [ 0, %65 ], [ 0, %69 ], [ 0, %75 ], [ 1, %44 ], [ 0, %77 ]
   ret i32 %.060
 }
 

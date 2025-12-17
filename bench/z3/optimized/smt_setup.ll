@@ -1542,7 +1542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -2536,7 +2536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.thread: ; preds
   ret void
 
 140:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %74, %45
-  %.pn19.pn = phi { ptr, i32 } [ %75, %74 ], [ %46, %45 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.thread ]
+  %.pn19.pn = phi { ptr, i32 } [ %75, %74 ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28.thread ], [ %46, %45 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   resume { ptr, i32 } %.pn19.pn
 
 141:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2873,7 +2873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.thread: ; preds
   ret void
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %74, %45
-  %.pn25.pn = phi { ptr, i32 } [ %75, %74 ], [ %46, %45 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.thread ]
+  %.pn25.pn = phi { ptr, i32 } [ %75, %74 ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.thread ], [ %46, %45 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   resume { ptr, i32 } %.pn25.pn
 
 162:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit30, %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -3547,7 +3547,7 @@ _ZN3smtL13is_diff_logicERK15static_features.exit: ; preds = %_ZN3smtL16is_in_dif
   tail call void @_ZN3smt5setup13setup_unknownEv(ptr noundef nonnull align 8 dereferenceable(33) %0)
   br label %_ZN3smt5setup18setup_polymorphismEv.exit
 
-_ZN3smtL13is_diff_logicERK15static_features.exit.thread: ; preds = %48, %54, %_ZN3smtL16is_in_diff_logicERK15static_features.exit.i, %_ZN3smtL13is_diff_logicERK15static_features.exit, %45
+_ZN3smtL13is_diff_logicERK15static_features.exit.thread: ; preds = %54, %48, %_ZN3smtL16is_in_diff_logicERK15static_features.exit.i, %_ZN3smtL13is_diff_logicERK15static_features.exit, %45
   %78 = tail call noundef i32 @_ZNK15static_features12num_theoriesEv(ptr noundef nonnull align 8 dereferenceable(792) %1)
   %79 = icmp eq i32 %78, 2
   br i1 %79, label %80, label %_ZN3smtL13is_diff_logicERK15static_features.exit114.thread
@@ -3605,7 +3605,7 @@ _ZN3smtL13is_diff_logicERK15static_features.exit114: ; preds = %_ZN3smtL16is_in_
   tail call void @_ZN3smt5setup13setup_unknownEv(ptr noundef nonnull align 8 dereferenceable(33) %0)
   br label %_ZN3smt5setup18setup_polymorphismEv.exit
 
-_ZN3smtL13is_diff_logicERK15static_features.exit114.thread: ; preds = %82, %88, %_ZN3smtL16is_in_diff_logicERK15static_features.exit.i112, %_ZN3smtL13is_diff_logicERK15static_features.exit114, %80, %_ZN3smtL13is_diff_logicERK15static_features.exit.thread
+_ZN3smtL13is_diff_logicERK15static_features.exit114.thread: ; preds = %88, %82, %_ZN3smtL16is_in_diff_logicERK15static_features.exit.i112, %_ZN3smtL13is_diff_logicERK15static_features.exit114, %80, %_ZN3smtL13is_diff_logicERK15static_features.exit.thread
   %110 = tail call noundef i32 @_ZNK15static_features12num_theoriesEv(ptr noundef nonnull align 8 dereferenceable(792) %1)
   %111 = icmp eq i32 %110, 1
   br i1 %111, label %112, label %132
@@ -4570,7 +4570,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK15static_features20arith_k_su
           to label %_ZltRK8rationalS1_.exit unwind label %43
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !636
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc.i unwind label %40
@@ -4992,7 +4992,7 @@ define hidden noundef zeroext i1 @_ZN3smt8is_arithERK15static_features(ptr nound
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
+  %11 = phi i1 [ %9, %6 ], [ true, %1 ]
   ret i1 %11
 }
 
@@ -5393,8 +5393,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZNK3smt7context21g
           to label %.noexc25.invoke unwind label %78
 
 .noexc25.invoke:                                  ; preds = %181, %.noexc24, %.noexc26, %162, %158, %148, %143, %139, %131, %127, %122, %118, %109, %105, %100, %96, %88
-  %176 = phi ptr [ %81, %88 ], [ %92, %96 ], [ %92, %100 ], [ %92, %105 ], [ %92, %109 ], [ %114, %118 ], [ %114, %122 ], [ %114, %127 ], [ %114, %131 ], [ %136, %139 ], [ %136, %143 ], [ %146, %148 ], [ %155, %158 ], [ %155, %162 ], [ %169, %.noexc26 ], [ %169, %.noexc24 ], [ %179, %181 ]
-  %177 = phi ptr [ %82, %88 ], [ %95, %96 ], [ %99, %100 ], [ %104, %105 ], [ %108, %109 ], [ %117, %118 ], [ %121, %122 ], [ %126, %127 ], [ %130, %131 ], [ %138, %139 ], [ %142, %143 ], [ %147, %148 ], [ %157, %158 ], [ %161, %162 ], [ %174, %.noexc26 ], [ %171, %.noexc24 ], [ %180, %181 ]
+  %176 = phi ptr [ %155, %162 ], [ %169, %.noexc24 ], [ %155, %158 ], [ %146, %148 ], [ %136, %143 ], [ %136, %139 ], [ %114, %131 ], [ %114, %127 ], [ %114, %122 ], [ %114, %118 ], [ %92, %109 ], [ %92, %105 ], [ %92, %100 ], [ %92, %96 ], [ %81, %88 ], [ %169, %.noexc26 ], [ %179, %181 ]
+  %177 = phi ptr [ %161, %162 ], [ %171, %.noexc24 ], [ %157, %158 ], [ %147, %148 ], [ %142, %143 ], [ %138, %139 ], [ %130, %131 ], [ %126, %127 ], [ %121, %122 ], [ %117, %118 ], [ %108, %109 ], [ %104, %105 ], [ %99, %100 ], [ %95, %96 ], [ %82, %88 ], [ %174, %.noexc26 ], [ %180, %181 ]
   invoke void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %176, ptr noundef nonnull %177)
           to label %_ZN3smt5setup15setup_lra_arithEv.exit unwind label %78
 

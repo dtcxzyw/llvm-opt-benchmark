@@ -130,7 +130,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE23SpcRelaxedPeMarkerCheck5printB5cx
   br i1 %21, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %18, %16, %12, %8, %2
-  %.0.i.i = phi i32 [ %9, %8 ], [ %13, %12 ], [ %17, %16 ], [ 1, %2 ], [ %20, %18 ]
+  %.0.i.i = phi i32 [ %17, %16 ], [ %9, %8 ], [ %13, %12 ], [ 1, %2 ], [ %20, %18 ]
   %22 = zext i32 %.0.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %23, ptr %3, align 8, !tbaa !22, !alias.scope !17

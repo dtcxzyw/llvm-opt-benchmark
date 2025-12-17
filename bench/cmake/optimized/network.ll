@@ -123,7 +123,7 @@ define dso_local void @_ZN3dap3net7connectEPKcij(ptr dead_on_unwind noalias writ
   br i1 %22, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %19, %17, %13, %9, %4
-  %.0.i.i = phi i32 [ %10, %9 ], [ %14, %13 ], [ %18, %17 ], [ 1, %4 ], [ %21, %19 ]
+  %.0.i.i = phi i32 [ %18, %17 ], [ %10, %9 ], [ %14, %13 ], [ 1, %4 ], [ %21, %19 ]
   %.lobit.i = lshr i32 %2, 31
   %23 = add i32 %.0.i.i, %.lobit.i
   %24 = zext i32 %23 to i64
@@ -471,7 +471,7 @@ _ZN12_GLOBAL__N_14Impl12stopWithLockEv.exit:      ; preds = %_ZNSt11unique_lockI
   br i1 %39, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %36, %34, %30, %26, %22
-  %.0.i.i = phi i32 [ %27, %26 ], [ %31, %30 ], [ %35, %34 ], [ 1, %22 ], [ %38, %36 ]
+  %.0.i.i = phi i32 [ %35, %34 ], [ %27, %26 ], [ %31, %30 ], [ 1, %22 ], [ %38, %36 ]
   %.lobit.i = lshr i32 %2, 31
   %40 = add i32 %.0.i.i, %.lobit.i
   %41 = zext i32 %40 to i64
@@ -871,7 +871,7 @@ _ZNSt8functionIFvRKSt10shared_ptrIN3dap12ReaderWriterEEEEC2ERKS7_.exit.i.i.i.i.i
   unreachable
 
 .body.i.i:                                        ; preds = %209, %.body.i.i.i.i.i.i.i, %186, %183
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %184, %186 ], [ %184, %183 ], [ %201, %.body.i.i.i.i.i.i.i ], [ %201, %209 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %201, %209 ], [ %184, %183 ], [ %184, %186 ], [ %201, %.body.i.i.i.i.i.i.i ]
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %171) #18
   call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 80) #17
   br label %.body33
@@ -985,7 +985,7 @@ _ZZN12_GLOBAL__N_14Impl5startEPKciRKSt8functionIFvRKSt10shared_ptrIN3dap12Reader
   br label %.body
 
 .body:                                            ; preds = %242, %.body27, %146, %143, %.body33
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %144, %146 ], [ %144, %143 ], [ %163, %.body27 ], [ %163, %242 ]
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %144, %143 ], [ %163, %242 ], [ %144, %146 ], [ %163, %.body27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit43

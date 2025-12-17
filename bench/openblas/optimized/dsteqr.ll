@@ -69,8 +69,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not520 = icmp eq i32 %31, 0
   br i1 %.not520, label %.thread545.sink.split, label %.thread
 
-.thread:                                          ; preds = %28, %8, %30
-  %32 = phi i1 [ true, %30 ], [ false, %8 ], [ false, %28 ]
+.thread:                                          ; preds = %8, %28, %30
+  %32 = phi i1 [ true, %30 ], [ false, %28 ], [ false, %8 ]
   %33 = load i32, ptr %1, align 4, !tbaa !3
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %.thread545.sink.split, label %35
@@ -341,7 +341,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread548
 
 .thread548:                                       ; preds = %141, %139, %162
-  %.3497550 = phi i32 [ %163, %162 ], [ %.0479, %139 ], [ %.0479, %141 ]
+  %.3497550 = phi i32 [ %.0479, %139 ], [ %163, %162 ], [ %.0479, %141 ]
   %166 = load double, ptr %128, align 8, !tbaa !7
   %167 = icmp eq i32 %.3497550, %.1499.ph
   br i1 %167, label %256, label %168
@@ -560,7 +560,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread552
 
 .thread552:                                       ; preds = %259, %257, %280
-  %.5554 = phi i32 [ %281, %280 ], [ %.0479, %257 ], [ %.0479, %259 ]
+  %.5554 = phi i32 [ %.0479, %257 ], [ %281, %280 ], [ %.0479, %259 ]
   %285 = load double, ptr %309, align 8, !tbaa !7
   %286 = icmp eq i32 %.5554, %.2500.ph
   br i1 %286, label %392, label %287
@@ -752,7 +752,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer560
 
 .loopexit556:                                     ; preds = %392, %304, %256, %179, %315, %183
-  %.2 = phi i32 [ %58, %183 ], [ %58, %315 ], [ %.1, %179 ], [ %.1, %256 ], [ %.3, %304 ], [ %.3, %392 ]
+  %.2 = phi i32 [ %.1, %256 ], [ %58, %183 ], [ %58, %315 ], [ %.1, %179 ], [ %.3, %304 ], [ %.3, %392 ]
   %brmerge = or i1 %110, %115
   br i1 %brmerge, label %.sink.split765, label %393
 

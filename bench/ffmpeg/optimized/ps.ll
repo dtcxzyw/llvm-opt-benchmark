@@ -186,8 +186,8 @@ decode_recovery_flag.exit:                        ; preds = %2, %24
   br label %sps_derive.exit.i.i.i
 
 .thread44.sink.split.i.i.i.i.i.i:                 ; preds = %89, %85, %81
-  %.sink190 = phi i8 [ %83, %81 ], [ %87, %85 ], [ %91, %89 ]
-  %switch.table.ff_vvc_decode_frame_ps.19.sink = phi ptr [ @switch.table.ff_vvc_decode_frame_ps, %81 ], [ @switch.table.ff_vvc_decode_frame_ps.18, %85 ], [ @switch.table.ff_vvc_decode_frame_ps.19, %89 ]
+  %.sink190 = phi i8 [ %87, %85 ], [ %83, %81 ], [ %91, %89 ]
+  %switch.table.ff_vvc_decode_frame_ps.19.sink = phi ptr [ @switch.table.ff_vvc_decode_frame_ps.18, %85 ], [ @switch.table.ff_vvc_decode_frame_ps, %81 ], [ @switch.table.ff_vvc_decode_frame_ps.19, %89 ]
   %98 = zext nneg i8 %.sink190 to i64
   %switch.gep188 = getelementptr inbounds nuw i32, ptr %switch.table.ff_vvc_decode_frame_ps.19.sink, i64 %98
   %switch.load189 = load i32, ptr %switch.gep188, align 4
@@ -1350,7 +1350,7 @@ pps_add_ctus.exit.i.i.i.i.i.i.i.i.i:              ; preds = %._crit_edge.us.i.i.
   br label %.loopexit.i.i.i.i.i.i.i
 
 subpic_tiles.exit.thread.i.i.i.i.i.i.i.i:         ; preds = %696, %subpic_tiles.exit.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i
-  %.01216.i.i.i.i.i.i.i.i = phi i32 [ %693, %696 ], [ %693, %subpic_tiles.exit.i.i.i.i.i.i.i.i ], [ %.014.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ]
+  %.01216.i.i.i.i.i.i.i.i = phi i32 [ %693, %subpic_tiles.exit.i.i.i.i.i.i.i.i ], [ %693, %696 ], [ %.014.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i ]
   %729 = icmp slt i32 %.014.i.i.i.i.i.i.i.i, %.01216.i.i.i.i.i.i.i.i
   %.not35.i.i.i.i.i.i.i.i.i = icmp sgt i32 %.013.i.i.i.i.i.i.i.i, %662
   %or.cond.i.i.i.i.i.i.i = select i1 %729, i1 %.not35.i.i.i.i.i.i.i.i.i, i1 false
@@ -2106,7 +2106,7 @@ ph_max_num_subblock_merge_cand.exit.i.i.i:        ; preds = %1067, %1064, %1059
   br label %ph_compute_poc.exit.i.i.i
 
 ph_compute_poc.exit.i.i.i:                        ; preds = %1099, %1097, %1095, %1089, %1083
-  %.0.i18.i.i.i = phi i32 [ %1088, %1083 ], [ %1096, %1095 ], [ 0, %1089 ], [ %1077, %1097 ], [ %spec.select.i.i.i.i, %1099 ]
+  %.0.i18.i.i.i = phi i32 [ %1088, %1083 ], [ 0, %1089 ], [ %1096, %1095 ], [ %1077, %1097 ], [ %spec.select.i.i.i.i, %1099 ]
   %1104 = add nsw i32 %.0.i18.i.i.i, %1080
   %1105 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1104, ptr %1105, align 4, !tbaa !228
@@ -2599,7 +2599,7 @@ lmcs_derive_lut.exit.i:                           ; preds = %1380
   br i1 %exitcond.not.i, label %decode_frame_ps.exit, label %1387, !llvm.loop !254
 
 decode_frame_ps.exit:                             ; preds = %1139, %1147, %1174, %1182, %1387, %decode_ps.exit, %1030, %lmcs_derive_lut.exit.thread.i
-  %.035.i = phi i32 [ -1094995529, %decode_ps.exit ], [ -1094995529, %1030 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ 0, %1387 ], [ -1094995529, %1182 ], [ -1094995529, %1174 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
+  %.035.i = phi i32 [ -1094995529, %1030 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ -1094995529, %decode_ps.exit ], [ -1094995529, %1174 ], [ 0, %1387 ], [ -1094995529, %1182 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1392 = getelementptr inbounds nuw i8, ptr %1, i64 892
   %1393 = load i32, ptr %1392, align 4, !tbaa !27
@@ -2644,8 +2644,8 @@ decode_frame_ps.exit:                             ; preds = %1139, %1147, %1174,
   store i32 -2147483648, ptr %1408, align 8, !tbaa !255
   br label %decode_recovery_poc.exit
 
-decode_recovery_poc.exit:                         ; preds = %1026, %sps_alloc.exit.i.i, %57, %36, %29, %decode_recovery_flag.exit, %390, %1413, %1410, %1406, %decode_frame_ps.exit
-  %.0 = phi i32 [ %.035.i, %decode_frame_ps.exit ], [ %.035.i, %1406 ], [ %.035.i, %1410 ], [ %.035.i, %1413 ], [ -12, %1026 ], [ -12, %sps_alloc.exit.i.i ], [ -1094995529, %57 ], [ -1094995529, %36 ], [ -1094995529, %29 ], [ -1094995529, %decode_recovery_flag.exit ], [ -1163346256, %390 ]
+decode_recovery_poc.exit:                         ; preds = %1026, %57, %29, %decode_recovery_flag.exit, %sps_alloc.exit.i.i, %390, %36, %1413, %1410, %1406, %decode_frame_ps.exit
+  %.0 = phi i32 [ %.035.i, %1413 ], [ %.035.i, %decode_frame_ps.exit ], [ %.035.i, %1406 ], [ %.035.i, %1410 ], [ -12, %1026 ], [ -1094995529, %57 ], [ -1094995529, %29 ], [ -1094995529, %decode_recovery_flag.exit ], [ -12, %sps_alloc.exit.i.i ], [ -1163346256, %390 ], [ -1094995529, %36 ]
   ret i32 %.0
 }
 

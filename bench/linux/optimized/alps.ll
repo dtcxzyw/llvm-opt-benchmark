@@ -629,31 +629,31 @@ define internal range(i32 0, 3) i32 @alps_process_byte(ptr noundef %0) #0 align 
 
 158:                                              ; preds = %154
   switch i8 %157, label %.thread7 [
-    i8 3, label %169
-    i8 4, label %159
-    i8 6, label %164
+    i8 3, label %159
+    i8 4, label %168
+    i8 6, label %163
   ]
 
 159:                                              ; preds = %158
-  %160 = getelementptr i8, ptr %0, i64 235
-  %161 = load i8, ptr %160, align 1
-  %162 = and i8 %161, 72
-  %163 = icmp eq i8 %162, 72
-  br i1 %163, label %.thread7, label %192
-
-164:                                              ; preds = %158
-  %165 = getelementptr i8, ptr %0, i64 237
-  %166 = load i8, ptr %165, align 1
-  %167 = and i8 %166, 64
-  %168 = icmp eq i8 %167, 0
-  br i1 %168, label %.thread7, label %192
-
-169:                                              ; preds = %158
-  %170 = getelementptr i8, ptr %0, i64 234
-  %171 = load i8, ptr %170, align 2
-  %172 = and i8 %171, 64
-  %.not = icmp eq i8 %172, 0
+  %160 = getelementptr i8, ptr %0, i64 234
+  %161 = load i8, ptr %160, align 2
+  %162 = and i8 %161, 64
+  %.not = icmp eq i8 %162, 0
   br i1 %.not, label %192, label %.thread7
+
+163:                                              ; preds = %158
+  %164 = getelementptr i8, ptr %0, i64 237
+  %165 = load i8, ptr %164, align 1
+  %166 = and i8 %165, 64
+  %167 = icmp eq i8 %166, 0
+  br i1 %167, label %.thread7, label %192
+
+168:                                              ; preds = %158
+  %169 = getelementptr i8, ptr %0, i64 235
+  %170 = load i8, ptr %169, align 1
+  %171 = and i8 %170, 72
+  %172 = icmp eq i8 %171, 72
+  br i1 %172, label %.thread7, label %192
 
 173:                                              ; preds = %154
   br i1 %5, label %174, label %.thread7
@@ -678,8 +678,8 @@ define internal range(i32 0, 3) i32 @alps_process_byte(ptr noundef %0) #0 align 
   %184 = icmp eq i8 %183, 0
   br i1 %184, label %.thread7, label %192
 
-.thread7:                                         ; preds = %173, %134, %139, %143, %158, %169, %164, %159, %175, %180, %174
-  %185 = phi i8 [ %136, %134 ], [ %136, %139 ], [ %136, %143 ], [ %157, %158 ], [ 3, %169 ], [ 6, %164 ], [ 4, %159 ], [ 4, %175 ], [ 6, %180 ], [ %157, %174 ], [ %157, %173 ]
+.thread7:                                         ; preds = %173, %134, %139, %143, %158, %168, %163, %159, %175, %180, %174
+  %185 = phi i8 [ %157, %174 ], [ %136, %134 ], [ %136, %139 ], [ %136, %143 ], [ %157, %158 ], [ 4, %168 ], [ 6, %163 ], [ 3, %159 ], [ 4, %175 ], [ 6, %180 ], [ %157, %173 ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 242
   %187 = load i8, ptr %186, align 2
   %188 = icmp eq i8 %185, %187
@@ -691,8 +691,8 @@ define internal range(i32 0, 3) i32 @alps_process_byte(ptr noundef %0) #0 align 
   tail call void %191(ptr noundef %0) #14
   br label %192
 
-192:                                              ; preds = %159, %164, %189, %.thread7, %180, %175, %169, %149, %123, %121, %84, %75, %65, %60, %39, %37, %36, %15
-  %193 = phi i32 [ 2, %189 ], [ 1, %15 ], [ 0, %123 ], [ 0, %169 ], [ 1, %.thread7 ], [ %153, %149 ], [ 2, %36 ], [ 2, %37 ], [ 2, %39 ], [ 1, %65 ], [ 1, %121 ], [ 1, %60 ], [ 0, %84 ], [ 0, %75 ], [ 0, %175 ], [ 0, %180 ], [ 0, %164 ], [ 0, %159 ]
+192:                                              ; preds = %159, %163, %189, %.thread7, %180, %175, %168, %149, %123, %121, %84, %75, %65, %60, %39, %37, %36, %15
+  %193 = phi i32 [ 2, %189 ], [ 1, %15 ], [ 0, %123 ], [ 0, %168 ], [ 1, %.thread7 ], [ %153, %149 ], [ 2, %36 ], [ 2, %37 ], [ 2, %39 ], [ 1, %65 ], [ 1, %121 ], [ 1, %60 ], [ 0, %84 ], [ 0, %75 ], [ 0, %175 ], [ 0, %180 ], [ 0, %163 ], [ 0, %159 ]
   ret i32 %193
 }
 
@@ -1167,7 +1167,7 @@ alps_rpt_cmd.exit5:                               ; preds = %58
   br label %alps_rpt_cmd.exit.thread
 
 alps_rpt_cmd.exit.thread:                         ; preds = %108, %.thread10, %58, %49, %52, %55, %alps_rpt_cmd.exit4, %42, %33, %36, %39, %30, %18, %9, %12, %15, %2, %120, %115, %109, %alps_rpt_cmd.exit5, %28, %alps_rpt_cmd.exit
-  %121 = phi i32 [ 0, %120 ], [ -22, %109 ], [ -22, %28 ], [ -22, %alps_rpt_cmd.exit ], [ -5, %alps_rpt_cmd.exit5 ], [ %118, %115 ], [ -5, %2 ], [ -5, %15 ], [ -5, %12 ], [ -5, %9 ], [ -5, %18 ], [ -5, %30 ], [ -5, %39 ], [ -5, %36 ], [ -5, %33 ], [ -5, %42 ], [ -5, %alps_rpt_cmd.exit4 ], [ -5, %55 ], [ -5, %52 ], [ -5, %49 ], [ -5, %58 ], [ -22, %.thread10 ], [ -22, %108 ]
+  %121 = phi i32 [ 0, %120 ], [ -22, %109 ], [ -5, %58 ], [ -22, %28 ], [ -22, %alps_rpt_cmd.exit ], [ -5, %alps_rpt_cmd.exit5 ], [ -5, %42 ], [ -5, %18 ], [ -22, %108 ], [ %118, %115 ], [ -5, %2 ], [ -5, %15 ], [ -5, %12 ], [ -5, %9 ], [ -5, %30 ], [ -5, %39 ], [ -5, %36 ], [ -5, %33 ], [ -5, %alps_rpt_cmd.exit4 ], [ -5, %55 ], [ -5, %52 ], [ -5, %49 ], [ -22, %.thread10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2183,7 +2183,7 @@ alps_passthrough_mode_v2.exit1:                   ; preds = %84
   br label %alps_passthrough_mode_v2.exit.thread
 
 alps_passthrough_mode_v2.exit.thread:             ; preds = %75, %78, %81, %84, %9, %13, %16, %19, %90, %87, %68, %47
-  %93 = phi i32 [ -1, %47 ], [ -1, %68 ], [ -1, %90 ], [ 0, %87 ], [ -1, %19 ], [ -1, %16 ], [ -1, %13 ], [ -1, %9 ], [ -1, %84 ], [ -1, %81 ], [ -1, %78 ], [ -1, %75 ]
+  %93 = phi i32 [ -1, %47 ], [ -1, %68 ], [ -1, %90 ], [ 0, %87 ], [ -1, %9 ], [ -1, %19 ], [ -1, %16 ], [ -1, %13 ], [ -1, %84 ], [ -1, %81 ], [ -1, %78 ], [ -1, %75 ]
   ret i32 %93
 }
 
@@ -2956,7 +2956,7 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
   br i1 %32, label %71, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %29
-  %33 = phi i8 [ 127, %29 ], [ %27, %22 ]
+  %33 = phi i8 [ %27, %22 ], [ 127, %29 ]
   %34 = shl i8 %19, 2
   %35 = and i8 %34, -128
   %36 = and i8 %24, 127
@@ -4535,7 +4535,7 @@ define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 1
   br label %alps_passthrough_mode_v2.exit.thread
 
 alps_passthrough_mode_v2.exit.thread:             ; preds = %17, %21, %24, %27, %1, %8, %11, %14, %119, %113, %30
-  %122 = phi i32 [ -1, %119 ], [ -1, %30 ], [ 0, %113 ], [ -1, %14 ], [ -1, %11 ], [ -1, %8 ], [ -1, %1 ], [ -1, %27 ], [ -1, %24 ], [ -1, %21 ], [ -1, %17 ]
+  %122 = phi i32 [ -1, %119 ], [ 0, %113 ], [ -1, %1 ], [ -1, %30 ], [ -1, %14 ], [ -1, %11 ], [ -1, %8 ], [ -1, %27 ], [ -1, %24 ], [ -1, %21 ], [ -1, %17 ]
   ret i32 %122
 }
 
@@ -5363,7 +5363,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr noundef 
   br label %.thread1
 
 .thread1:                                         ; preds = %16, %9, %158, %152
-  %159 = phi i32 [ 0, %158 ], [ 0, %152 ], [ 1, %9 ], [ %spec.select, %16 ]
+  %159 = phi i32 [ 0, %152 ], [ %spec.select, %16 ], [ 1, %9 ], [ 0, %158 ]
   ret i32 %159
 }
 
@@ -5635,7 +5635,7 @@ default.unreachable6:                             ; preds = %3
   unreachable
 
 ._crit_edge:                                      ; preds = %10, %16, %23, %27
-  %31 = phi i8 [ 16, %16 ], [ 16, %23 ], [ 16, %27 ], [ %14, %10 ]
+  %31 = phi i8 [ 16, %27 ], [ %14, %10 ], [ 16, %16 ], [ 16, %23 ]
   %32 = and i8 %11, 7
   %33 = zext nneg i8 %32 to i16
   %34 = zext i8 %31 to i16
@@ -7278,7 +7278,7 @@ define internal fastcc void @alps_report_semi_mt_data(ptr captures(none) %.0.val
   br label %.thread1
 
 .thread1:                                         ; preds = %3, %21, %.thread
-  %29 = phi i32 [ %16, %21 ], [ 1, %.thread ], [ 0, %3 ]
+  %29 = phi i32 [ 1, %.thread ], [ %16, %21 ], [ 0, %3 ]
   tail call void @input_mt_sync_frame(ptr noundef %.8.val) #14
   tail call void @input_mt_report_finger_count(ptr noundef %.8.val, i32 noundef %29) #14
   %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 320

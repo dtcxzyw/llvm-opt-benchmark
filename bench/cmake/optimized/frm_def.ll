@@ -305,7 +305,7 @@ Associate_Fields.exit:                            ; preds = %Disconnect_Fields.e
   br label %Associate_Fields.exit.thread
 
 Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.exit, %33, %35, %3, %2
-  %.sink = phi i32 [ -2, %2 ], [ -3, %3 ], [ %26, %35 ], [ %26, %33 ], [ %26, %Associate_Fields.exit ]
+  %.sink = phi i32 [ -3, %3 ], [ -2, %2 ], [ %26, %35 ], [ %26, %33 ], [ %26, %Associate_Fields.exit ]
   %38 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %38, align 4, !tbaa !12
   ret i32 %.sink
@@ -529,8 +529,8 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br i1 %109, label %.critedge2.i, label %96, !llvm.loop !51
 
 .critedge2.i:                                     ; preds = %.critedge.i, %102, %100
-  %.029.i = phi ptr [ %.0109, %102 ], [ %.0109, %100 ], [ null, %.critedge.i ]
-  %.1.i = phi ptr [ %.028.i, %102 ], [ %.028.i, %100 ], [ %108, %.critedge.i ]
+  %.029.i = phi ptr [ %.0109, %100 ], [ %.0109, %102 ], [ null, %.critedge.i ]
+  %.1.i = phi ptr [ %.028.i, %100 ], [ %.028.i, %102 ], [ %108, %.critedge.i ]
   %110 = getelementptr inbounds nuw i8, ptr %87, i64 56
   store ptr %.1.i, ptr %110, align 8, !tbaa !50
   %111 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
@@ -567,7 +567,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   br i1 %exitcond130.not, label %._crit_edge.thread, label %.lr.ph116, !llvm.loop !55
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge112, %70, %._crit_edge, %.preheader, %2
-  %.sink = phi i32 [ 0, %2 ], [ -2, %.preheader ], [ -1, %._crit_edge ], [ 0, %70 ], [ 0, %._crit_edge112 ], [ -4, %.lr.ph ]
+  %.sink = phi i32 [ -1, %._crit_edge ], [ -2, %.preheader ], [ 0, %2 ], [ 0, %70 ], [ 0, %._crit_edge112 ], [ -4, %.lr.ph ]
   %125 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %125, align 4, !tbaa !12
   ret i32 %.sink

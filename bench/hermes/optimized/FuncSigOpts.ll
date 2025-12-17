@@ -776,7 +776,7 @@ if.then.i.i.i:                                    ; preds = %while.end
   br label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN6hermes8FunctionESaIS2_EED2Ev.exit: ; preds = %entry, %while.end, %if.then.i.i.i
-  %changed.0.lcssa104 = phi i1 [ %changed.0.lcssa, %while.end ], [ %changed.0.lcssa, %if.then.i.i.i ], [ false, %entry ]
+  %changed.0.lcssa104 = phi i1 [ %changed.0.lcssa, %if.then.i.i.i ], [ %changed.0.lcssa, %while.end ], [ false, %entry ]
   ret i1 %changed.0.lcssa104
 }
 

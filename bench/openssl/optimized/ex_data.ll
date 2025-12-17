@@ -131,8 +131,8 @@ define range(i32 0, 2) i32 @ossl_crypto_free_ex_index_ex(ptr noundef %0, i32 nou
   %31 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %30) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %11, %8, %7, %3, %29
-  %.0 = phi i32 [ %.016, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %8 ], [ 0, %11 ]
+get_and_lock.exit.thread:                         ; preds = %8, %11, %7, %3, %29
+  %.0 = phi i32 [ %.016, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -260,8 +260,8 @@ define range(i32 -2147483648, 2147483647) i32 @ossl_crypto_get_ex_new_index_ex(p
   %51 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %50) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %16, %13, %12, %8, %49
-  %.0 = phi i32 [ %.032, %49 ], [ -1, %8 ], [ -1, %12 ], [ -1, %13 ], [ -1, %16 ]
+get_and_lock.exit.thread:                         ; preds = %13, %16, %12, %8, %49
+  %.0 = phi i32 [ %.032, %49 ], [ -1, %8 ], [ -1, %12 ], [ -1, %16 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -418,8 +418,8 @@ CRYPTO_get_ex_data.exit:                          ; preds = %41, %44, %47
   call void @CRYPTO_free(ptr noundef %.046, ptr noundef nonnull @.str, i32 noundef 260) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %13, %10, %9, %._crit_edge, %59, %.loopexit, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ 1, %59 ], [ 1, %._crit_edge ], [ 0, %9 ], [ 0, %10 ], [ 0, %13 ]
+get_and_lock.exit.thread:                         ; preds = %10, %13, %9, %._crit_edge, %59, %.loopexit, %4
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %4 ], [ 1, %._crit_edge ], [ 1, %59 ], [ 0, %9 ], [ 0, %13 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -632,8 +632,8 @@ CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
   call void @CRYPTO_free(ptr noundef nonnull %.1101, ptr noundef nonnull @.str, i32 noundef 337) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %.loopexit80, %18, %15, %14, %.thread77, %.loopexit, %81, %10, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %10 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %.thread77 ], [ 0, %14 ], [ 0, %15 ], [ 0, %18 ], [ %spec.select107, %.loopexit80 ]
+get_and_lock.exit.thread:                         ; preds = %.loopexit80, %15, %18, %14, %.thread77, %.loopexit, %81, %10, %3
+  %.0 = phi i32 [ 0, %15 ], [ 1, %3 ], [ 0, %10 ], [ 0, %.thread77 ], [ %spec.select107, %.loopexit80 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %14 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -826,7 +826,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %45, %50, %52
   call void @CRYPTO_free(ptr noundef %.0466064, ptr noundef nonnull @.str, i32 noundef 412) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %13, %10, %9, %._crit_edge69, %61, %3
+get_and_lock.exit.thread:                         ; preds = %10, %13, %9, %._crit_edge69, %61, %3
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !26
   call void @OPENSSL_sk_free(ptr noundef %63) #9
@@ -947,8 +947,8 @@ define range(i32 0, 2) i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %0, ptr
   tail call void %24(ptr noundef %1, ptr noundef null, ptr noundef nonnull %2, i32 noundef %3, i64 noundef %27, ptr noundef %29) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %13, %10, %9, %15, %4, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %4 ], [ 0, %15 ], [ 0, %9 ], [ 0, %10 ], [ 0, %13 ]
+get_and_lock.exit.thread:                         ; preds = %10, %13, %9, %15, %4, %26
+  %.0 = phi i32 [ 1, %26 ], [ 0, %4 ], [ 0, %15 ], [ 0, %9 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 

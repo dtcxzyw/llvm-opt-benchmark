@@ -76,7 +76,7 @@ define dso_local i32 @setup_tests() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %23, %16, %9, %22, %7
-  %.0 = phi i32 [ %8, %7 ], [ 0, %22 ], [ 0, %9 ], [ 0, %16 ], [ %., %23 ]
+  %.0 = phi i32 [ %8, %7 ], [ 0, %16 ], [ %., %23 ], [ 0, %22 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -194,7 +194,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %49, %57, %60
-  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm.i.i, %57 ], [ %50, %49 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i, %57 ], [ %50, %49 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17hb4a234462c8eb19aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #12
           to label %65 unwind label %63
 
@@ -417,7 +417,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %57, %60
-  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm.i.i, %57 ], [ %41, %.body.i.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %41, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i, %57 ]
   invoke void @"_ZN4core3ptr133drop_in_place$LT$alloc..vec..Vec$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h71a47a876f09dcb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #12
           to label %65 unwind label %63
 

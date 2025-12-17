@@ -198,7 +198,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_cmsReadUInt16Number.exit, %_cmsReadUInt16Number.exit14.us, %.lr.ph.split.us, %3, %_cmsReadUInt16Number.exit.thread
-  %.08 = phi i32 [ 0, %_cmsReadUInt16Number.exit.thread ], [ 1, %3 ], [ 0, %.lr.ph.split.us ], [ 1, %_cmsReadUInt16Number.exit14.us ], [ 1, %_cmsReadUInt16Number.exit ]
+  %.08 = phi i32 [ 0, %_cmsReadUInt16Number.exit.thread ], [ 1, %3 ], [ 1, %_cmsReadUInt16Number.exit14.us ], [ 0, %.lr.ph.split.us ], [ 1, %_cmsReadUInt16Number.exit ]
   ret i32 %.08
 }
 
@@ -264,7 +264,7 @@ define hidden range(i32 0, 2) i32 @_cmsReadFloat32Number(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %16, %14, %12, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %14 ], [ %18, %16 ], [ 1, %12 ], [ 1, %7 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %2 ], [ 0, %8 ], [ 1, %7 ], [ %18, %16 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -869,7 +869,7 @@ _cmsGetContext.exit.thread:                       ; preds = %2
   br label %21
 
 21:                                               ; preds = %.thread, %18, %17
-  %.0 = phi ptr [ %20, %18 ], [ null, %17 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %17 ], [ %20, %18 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -1028,7 +1028,7 @@ define hidden range(i32 0, 2) i32 @cmsPluginTHR(ptr noundef %0, ptr noundef %1) 
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %13, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33, %35, %38, %2, %37, %9, %4
-  %.035 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %37 ], [ 1, %2 ], [ 0, %13 ], [ 0, %15 ], [ 0, %17 ], [ 0, %19 ], [ 0, %21 ], [ 0, %23 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 1, %38 ]
+  %.035 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %37 ], [ 1, %2 ], [ 0, %35 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ 0, %33 ], [ 1, %38 ]
   ret i32 %.035
 }
 
@@ -1309,7 +1309,7 @@ cmsDeleteContext.exit45:                          ; preds = %.preheader.i38, %.l
   br label %68
 
 68:                                               ; preds = %50, %_cmsFindMemoryPlugin.exit, %cmsDeleteContext.exit45, %cmsDeleteContext.exit
-  %.0 = phi ptr [ null, %cmsDeleteContext.exit ], [ null, %cmsDeleteContext.exit45 ], [ null, %_cmsFindMemoryPlugin.exit ], [ %22, %50 ]
+  %.0 = phi ptr [ null, %cmsDeleteContext.exit45 ], [ null, %cmsDeleteContext.exit ], [ null, %_cmsFindMemoryPlugin.exit ], [ %22, %50 ]
   ret ptr %.0
 }
 
@@ -1609,7 +1609,7 @@ cmsDeleteContext.exit67:                          ; preds = %.preheader.i60, %.l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %15, %cmsDeleteContext.exit67, %cmsDeleteContext.exit
-  %.0 = phi ptr [ null, %cmsDeleteContext.exit ], [ null, %cmsDeleteContext.exit67 ], [ null, %15 ], [ %17, %48 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %cmsDeleteContext.exit ], [ null, %cmsDeleteContext.exit67 ], [ %17, %48 ]
   ret ptr %.0
 }
 

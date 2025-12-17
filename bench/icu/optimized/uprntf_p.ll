@@ -426,8 +426,8 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   tail call void @uprv_free_77(ptr noundef nonnull %40)
   br label %_ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread
 
-_ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread: ; preds = %19, %._crit_edge.i, %._crit_edge227.i, %10
-  %.0 = phi ptr [ null, %10 ], [ %42, %._crit_edge227.i ], [ null, %._crit_edge.i ], [ null, %19 ]
+_ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread: ; preds = %._crit_edge.i, %19, %._crit_edge227.i, %10
+  %.0 = phi ptr [ null, %10 ], [ %42, %._crit_edge227.i ], [ null, %19 ], [ null, %._crit_edge.i ]
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 28
@@ -552,7 +552,7 @@ _ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread: ; preds = %19,
   br label %.preheader
 
 .preheader:                                       ; preds = %224, %240, %241
-  %.6.ph = phi ptr [ %225, %224 ], [ %242, %241 ], [ %225, %240 ]
+  %.6.ph = phi ptr [ %242, %241 ], [ %225, %240 ], [ %225, %224 ]
   br label %243
 
 243:                                              ; preds = %.backedge, %.preheader
@@ -640,7 +640,7 @@ _ZL14parseArgumentsPKDsP13__va_list_tagP10UErrorCode.exit.thread: ; preds = %19,
   br label %.backedge
 
 .backedge:                                        ; preds = %251, %250, %249, %248, %247, %246, %.critedge6
-  %.6.be = phi ptr [ %245, %.critedge6 ], [ %245, %246 ], [ %245, %247 ], [ %245, %248 ], [ %245, %249 ], [ %245, %250 ], [ %273, %251 ]
+  %.6.be = phi ptr [ %245, %249 ], [ %245, %250 ], [ %273, %251 ], [ %245, %.critedge6 ], [ %245, %246 ], [ %245, %247 ], [ %245, %248 ]
   br label %243, !llvm.loop !51
 
 274:                                              ; preds = %243

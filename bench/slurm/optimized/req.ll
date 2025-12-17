@@ -1600,7 +1600,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__._handle_request, i32 noundef %.0.i) #13
   br label %_handle_request.exit
 
-_handle_request.exit.thread:                      ; preds = %96, %101, %98
+_handle_request.exit.thread:                      ; preds = %98, %96, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1685,7 +1685,7 @@ _handle_request.exit:                             ; preds = %270, %273
 .lr.ph155.split.backedge:                         ; preds = %300, %297
   br label %.lr.ph155.split, !llvm.loop !17
 
-.thread:                                          ; preds = %.split157.us, %.split178.us, %82, %.split114.us, %50, %40, %35, %293, %.split160.us
+.thread:                                          ; preds = %.split157.us, %82, %.split178.us, %50, %.split114.us, %40, %35, %293, %.split160.us
   %301 = call i32 @close(i32 noundef %8) #13
   %302 = icmp eq i32 %301, -1
   br i1 %302, label %303, label %305
@@ -2991,7 +2991,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   %473 = tail call ptr @__errno_location() #14
   br label %456
 
-.thread:                                          ; preds = %.split652, %463, %.split634.us, %448, %.split580, %210, %200, %195, %.split527.us, %184, %174, %169, %.split476, %119, %109, %104, %.split425, %76, %66, %61, %.split376.us, %50, %40, %35
+.thread:                                          ; preds = %463, %.split652, %448, %.split634.us, %210, %.split580, %200, %195, %184, %.split527.us, %174, %169, %119, %.split476, %109, %104, %76, %.split425, %66, %61, %50, %.split376.us, %40, %35
   call void @slurm_xfree(ptr noundef nonnull %9) #13
   br label %.loopexit
 
@@ -3066,8 +3066,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_state(i32 noundef %0, ptr n
 .lr.ph.split.backedge:                            ; preds = %21, %18
   br label %.lr.ph.split, !llvm.loop !27
 
-.thread:                                          ; preds = %.split.us, %.split26.us, %14
-  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
+.thread:                                          ; preds = %.split.us, %14, %.split26.us
+  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -3188,8 +3188,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_mem_limits(i32 noundef %0, 
 .lr.ph68.split.backedge:                          ; preds = %40, %37
   br label %.lr.ph68.split, !llvm.loop !29
 
-.thread:                                          ; preds = %.split70.us, %.split73.us, %33, %.split56.us, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %.split56.us ], [ -1, %33 ], [ -1, %.split73.us ], [ 0, %.split70.us ]
+.thread:                                          ; preds = %.split70.us, %33, %.split73.us, %14, %.split56.us
+  %.0 = phi i32 [ -1, %14 ], [ -1, %.split56.us ], [ -1, %.split73.us ], [ -1, %33 ], [ 0, %.split70.us ]
   ret i32 %.0
 }
 
@@ -3252,8 +3252,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_uid(i32 noundef %0, ptr nou
 .lr.ph.split.backedge:                            ; preds = %21, %18
   br label %.lr.ph.split, !llvm.loop !30
 
-.thread:                                          ; preds = %.split.us, %.split26.us, %14
-  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
+.thread:                                          ; preds = %.split.us, %14, %.split26.us
+  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -3316,8 +3316,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_nodeid(i32 noundef %0, ptr 
 .lr.ph.split.backedge:                            ; preds = %21, %18
   br label %.lr.ph.split, !llvm.loop !31
 
-.thread:                                          ; preds = %.split.us, %.split26.us, %14
-  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
+.thread:                                          ; preds = %.split.us, %14, %.split26.us
+  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -4727,7 +4727,7 @@ thread-pre-split:                                 ; preds = %.outer423._crit_edg
   %.not336 = icmp eq ptr %503, null
   br i1 %.not336, label %506, label %.sink.split
 
-.thread:                                          ; preds = %.split924.us, %492, %.split904.us, %473, %.split886.us, %448, %.split866.us, %417, %.split846.us, %398, %.split827.us, %379, %.split806.us, %323, %.split757.us, %280, %270, %265, %.split705.us, %236, %226, %221, %.split652.us, %192, %182, %177, %.split600, %126, %116, %111, %.split548.us, %100, %90, %85, %.split499.us, %56, %46, %41
+.thread:                                          ; preds = %492, %.split924.us, %473, %.split904.us, %448, %.split886.us, %417, %.split866.us, %398, %.split846.us, %379, %.split827.us, %323, %.split806.us, %280, %.split757.us, %270, %265, %236, %.split705.us, %226, %221, %192, %.split652.us, %182, %177, %126, %.split600, %116, %111, %100, %.split548.us, %90, %85, %56, %.split499.us, %46, %41
   %504 = load ptr, ptr %4, align 8
   %.not349 = icmp eq ptr %504, null
   br i1 %.not349, label %.sink.split, label %505
@@ -4971,8 +4971,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.97) #13
   br label %.thread
 
-.thread:                                          ; preds = %.split116.us, %67, %.split69.us, %44, %34, %29, %.outer._crit_edge, %76
-  %.0 = phi i32 [ 0, %76 ], [ 0, %.outer._crit_edge ], [ -1, %29 ], [ -1, %34 ], [ -1, %44 ], [ -1, %.split69.us ], [ -1, %67 ], [ -1, %.split116.us ]
+.thread:                                          ; preds = %67, %.split116.us, %44, %.split69.us, %34, %29, %.outer._crit_edge, %76
+  %.0 = phi i32 [ 0, %.outer._crit_edge ], [ 0, %76 ], [ -1, %44 ], [ -1, %29 ], [ -1, %34 ], [ -1, %.split69.us ], [ -1, %.split116.us ], [ -1, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -5037,8 +5037,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_daemon_pid(i32 noundef %0, 
 .lr.ph.split.backedge:                            ; preds = %21, %18
   br label %.lr.ph.split, !llvm.loop !49
 
-.thread:                                          ; preds = %.split.us, %.split26.us, %14
-  %22 = phi i32 [ -1, %14 ], [ -1, %.split26.us ], [ 0, %.split.us ]
+.thread:                                          ; preds = %.split.us, %14, %.split26.us
+  %22 = phi i32 [ -1, %.split26.us ], [ -1, %14 ], [ 0, %.split.us ]
   ret i32 %22
 }
 
@@ -5300,8 +5300,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_suspend(i32 noundef %0, ptr
   %103 = tail call ptr @__errno_location() #14
   br label %86
 
-.thread:                                          ; preds = %.split101, %.split104, %93, %.split87.us, %78
-  %.0 = phi i32 [ -1, %78 ], [ -1, %.split87.us ], [ -1, %93 ], [ -1, %.split104 ], [ 0, %.split101 ]
+.thread:                                          ; preds = %.split101, %93, %.split104, %78, %.split87.us
+  %.0 = phi i32 [ -1, %78 ], [ -1, %.split87.us ], [ -1, %.split104 ], [ -1, %93 ], [ 0, %.split101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -5544,8 +5544,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_resume(i32 noundef %0, ptr 
   %90 = tail call ptr @__errno_location() #14
   br label %73
 
-.thread:                                          ; preds = %.split99, %.split102, %80, %.split85.us, %65
-  %.0 = phi i32 [ -1, %65 ], [ -1, %.split85.us ], [ -1, %80 ], [ -1, %.split102 ], [ 0, %.split99 ]
+.thread:                                          ; preds = %.split99, %80, %.split102, %65, %.split85.us
+  %.0 = phi i32 [ -1, %65 ], [ -1, %.split85.us ], [ -1, %.split102 ], [ -1, %80 ], [ 0, %.split99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -5840,8 +5840,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   %117 = tail call ptr @__errno_location() #14
   br label %100
 
-.thread:                                          ; preds = %.split110, %.split113, %107, %.split96.us, %92
-  %.0 = phi i32 [ -1, %92 ], [ -1, %.split96.us ], [ -1, %107 ], [ -1, %.split113 ], [ 0, %.split110 ]
+.thread:                                          ; preds = %.split110, %107, %.split113, %92, %.split96.us
+  %.0 = phi i32 [ -1, %92 ], [ -1, %.split96.us ], [ -1, %.split113 ], [ -1, %107 ], [ 0, %.split110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -7337,7 +7337,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._handle_completion) #15
   unreachable
 
-.thread435:                                       ; preds = %.split951, %515, %.split932.us, %500
+.thread435:                                       ; preds = %515, %.split951, %500, %.split932.us
   %534 = call i32 @pthread_cond_signal(ptr noundef nonnull @step_complete) #13
   %.not366 = icmp eq i32 %534, 0
   br i1 %.not366, label %538, label %535
@@ -7363,7 +7363,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._handle_completion) #15
   unreachable
 
-.thread449:                                       ; preds = %.thread429, %46, %.split539.us, %61, %.split556, %75, %80, %90, %.split577, %118, %123, %133, %.split627, %161, %166, %176, %.split678, %204, %209, %219, %.split729, %247, %252, %262, %.split780, %290, %295, %305, %.split831, %352, %357, %367, %.split883.us
+.thread449:                                       ; preds = %.thread429, %.split539.us, %46, %.split556, %61, %75, %80, %.split577, %90, %118, %123, %.split627, %133, %161, %166, %.split678, %176, %204, %209, %.split729, %219, %247, %252, %.split780, %262, %290, %295, %.split831, %305, %352, %357, %.split883.us, %367
   call void @slurm_xfree(ptr noundef nonnull %10) #13
   br label %.loopexit
 
@@ -7377,7 +7377,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split553, %442, %.thread449, %.thread445, %542, %543, %530
-  %.0 = phi i32 [ 0, %530 ], [ -1, %543 ], [ -1, %542 ], [ -1, %.thread445 ], [ -1, %.thread449 ], [ %443, %442 ], [ 0, %.split553 ]
+  %.0 = phi i32 [ -1, %542 ], [ %443, %442 ], [ 0, %530 ], [ -1, %543 ], [ -1, %.thread445 ], [ -1, %.thread449 ], [ 0, %.split553 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7770,8 +7770,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   %130 = icmp samesign ult i64 %indvars.iv.next, %129
   br i1 %130, label %29, label %.thread, !llvm.loop !76
 
-.thread:                                          ; preds = %._crit_edge279.split.us, %.preheader, %120, %.split284.us, %101, %.split265.us, %82, %.split246.us, %63, %.split227.us, %44, %.split208.us, %.split191.us, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.split191.us ], [ -1, %.split208.us ], [ -1, %44 ], [ -1, %.split227.us ], [ -1, %63 ], [ -1, %.split246.us ], [ -1, %82 ], [ -1, %.split265.us ], [ -1, %101 ], [ -1, %.split284.us ], [ -1, %120 ], [ 0, %.preheader ], [ 0, %._crit_edge279.split.us ]
+.thread:                                          ; preds = %._crit_edge279.split.us, %.preheader, %120, %.split284.us, %101, %.split265.us, %82, %.split246.us, %63, %.split227.us, %44, %.split208.us, %21, %.split191.us
+  %.0 = phi i32 [ -1, %21 ], [ -1, %120 ], [ -1, %.split191.us ], [ -1, %.split208.us ], [ -1, %44 ], [ -1, %.split227.us ], [ -1, %63 ], [ -1, %.split246.us ], [ -1, %82 ], [ -1, %.split265.us ], [ -1, %101 ], [ -1, %.split284.us ], [ 0, %.preheader ], [ 0, %._crit_edge279.split.us ]
   ret i32 %.0
 }
 
@@ -8046,7 +8046,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.126, ptr noundef nonnull @__func__._handle_stat_jobacct, ptr noundef nonnull %8) #13
   br label %137
 
-128:                                              ; preds = %107, %.split81.us
+128:                                              ; preds = %.split81.us, %107
   call void @jobacctinfo_destroy(ptr noundef %38) #13
   %129 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %9) #13
@@ -8062,7 +8062,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   br label %137
 
 137:                                              ; preds = %128, %135, %121, %127, %124, %35
-  %.0 = phi i32 [ -1, %35 ], [ 0, %124 ], [ 0, %127 ], [ 0, %121 ], [ -1, %135 ], [ -1, %128 ]
+  %.0 = phi i32 [ -1, %35 ], [ 0, %121 ], [ 0, %124 ], [ 0, %127 ], [ -1, %135 ], [ -1, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8228,7 +8228,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_list_pids(i32 noundef %0, p
   %58 = icmp sgt i32 %55, 0
   br i1 %58, label %._crit_edge.thread.sink.split, label %._crit_edge.thread
 
-.thread:                                          ; preds = %.split63.us, %26, %47, %.split80.us
+.thread:                                          ; preds = %26, %.split63.us, %47, %.split80.us
   %59 = load i32, ptr %4, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %._crit_edge.thread.sink.split, label %._crit_edge.thread
@@ -8681,7 +8681,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   %156 = tail call ptr @__errno_location() #14
   br label %139
 
-157:                                              ; preds = %87, %92, %102, %.split210.us
+157:                                              ; preds = %87, %92, %.split210.us, %102
   %.not108 = icmp eq ptr %63, null
   br i1 %.not108, label %.thread130, label %158
 
@@ -8689,8 +8689,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   tail call void @free_buf(ptr noundef nonnull %63) #13
   br label %.thread130
 
-.thread130:                                       ; preds = %.split273, %.split276, %146, %.split258.us, %131, %.split160, %36, %26, %21, %157, %158
-  %.0 = phi i32 [ -1, %158 ], [ -1, %157 ], [ -1, %21 ], [ -1, %26 ], [ -1, %36 ], [ -1, %.split160 ], [ -1, %131 ], [ -1, %.split258.us ], [ -1, %146 ], [ -1, %.split276 ], [ 0, %.split273 ]
+.thread130:                                       ; preds = %.split273, %146, %.split276, %131, %.split258.us, %36, %.split160, %26, %21, %157, %158
+  %.0 = phi i32 [ -1, %157 ], [ -1, %158 ], [ -1, %21 ], [ -1, %26 ], [ -1, %.split160 ], [ -1, %36 ], [ -1, %.split258.us ], [ -1, %131 ], [ -1, %.split276 ], [ -1, %146 ], [ 0, %.split273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9211,8 +9211,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
 .lr.ph211.split.backedge:                         ; preds = %141, %138
   br label %.lr.ph211.split, !llvm.loop !89
 
-.outer._crit_edge:                                ; preds = %.split214.us, %31, %36, %46, %.split119.us, %80, %85, %95, %.split168.us, %134, %.split217.us
-  %.0 = phi i32 [ -1, %.split217.us ], [ -1, %134 ], [ -1, %.split168.us ], [ -1, %95 ], [ -1, %85 ], [ -1, %80 ], [ -1, %.split119.us ], [ -1, %46 ], [ -1, %36 ], [ -1, %31 ], [ 0, %.split214.us ]
+.outer._crit_edge:                                ; preds = %.split214.us, %31, %36, %.split119.us, %46, %80, %85, %.split168.us, %95, %.split217.us, %134
+  %.0 = phi i32 [ -1, %134 ], [ -1, %.split217.us ], [ -1, %95 ], [ -1, %.split168.us ], [ -1, %85 ], [ -1, %80 ], [ -1, %46 ], [ -1, %.split119.us ], [ -1, %36 ], [ -1, %31 ], [ 0, %.split214.us ]
   call void @slurm_xfree(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9438,8 +9438,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.137) #13
   br label %.thread
 
-.thread:                                          ; preds = %.split118.us, %70, %.split71.us, %41, %31, %26, %.outer._crit_edge, %79
-  %.0 = phi i32 [ 0, %79 ], [ 0, %.outer._crit_edge ], [ -1, %26 ], [ -1, %31 ], [ -1, %41 ], [ -1, %.split71.us ], [ -1, %70 ], [ -1, %.split118.us ]
+.thread:                                          ; preds = %70, %.split118.us, %41, %.split71.us, %31, %26, %.outer._crit_edge, %79
+  %.0 = phi i32 [ 0, %.outer._crit_edge ], [ 0, %79 ], [ -1, %41 ], [ -1, %26 ], [ -1, %31 ], [ -1, %.split71.us ], [ -1, %.split118.us ], [ -1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -9700,8 +9700,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_x11_display(i32 noundef %0,
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.149) #13
   br label %.thread
 
-.thread:                                          ; preds = %.split178, %74, %.split159.us, %59, %.split141.us, %39, %.split123.us, %15, %.loopexit, %87
-  %.0 = phi i32 [ 0, %87 ], [ 0, %.loopexit ], [ -1, %15 ], [ -1, %.split123.us ], [ -1, %39 ], [ -1, %.split141.us ], [ -1, %59 ], [ -1, %.split159.us ], [ -1, %74 ], [ -1, %.split178 ]
+.thread:                                          ; preds = %74, %.split178, %59, %.split159.us, %39, %.split141.us, %15, %.split123.us, %.loopexit, %87
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %87 ], [ -1, %59 ], [ -1, %39 ], [ -1, %15 ], [ -1, %.split123.us ], [ -1, %.split141.us ], [ -1, %.split159.us ], [ -1, %.split178 ], [ -1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -11110,12 +11110,12 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._handle_getpw) #13
   br label %482
 
-.thread:                                          ; preds = %.split1011.us, %471, %.split992.us, %451, %.split972.us, %429, %.split953.us, %409, %.split933.us, %387, %.split914.us, %367, %.split895.us, %345, %.split876, %323, %.split857, %305, %.split839.us, %290, %.split820.us, %272, %.split801.us, %252, %.split782.us, %230, %.split733.us, %179, %169, %164, %.split682, %113, %103, %98, %.split631, %70, %60, %55, %.split582.us, %44, %34, %29
+.thread:                                          ; preds = %471, %.split1011.us, %451, %.split992.us, %429, %.split972.us, %409, %.split953.us, %387, %.split933.us, %367, %.split914.us, %345, %.split895.us, %323, %.split876, %305, %.split857, %290, %.split839.us, %272, %.split820.us, %252, %.split801.us, %230, %.split782.us, %179, %.split733.us, %169, %164, %113, %.split682, %103, %98, %70, %.split631, %60, %55, %44, %.split582.us, %34, %29
   call void @slurm_xfree(ptr noundef nonnull %7) #13
   br label %482
 
 482:                                              ; preds = %.outer._crit_edge, %481, %.outer505._crit_edge, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %.outer505._crit_edge ], [ 0, %481 ], [ 0, %.outer._crit_edge ]
+  %.0 = phi i32 [ 0, %.outer505._crit_edge ], [ -1, %.thread ], [ 0, %481 ], [ 0, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -11753,8 +11753,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %._crit_edge429.thread
 
 ._crit_edge429.thread:                            ; preds = %.preheader192, %201, %199, %222, %224, %._crit_edge429, %221
-  %.not160 = phi i1 [ false, %221 ], [ true, %._crit_edge429 ], [ %223, %222 ], [ false, %224 ], [ true, %199 ], [ true, %201 ], [ true, %.preheader192 ]
-  %.1 = phi i32 [ %.0116.lcssa.ph, %221 ], [ %.0116.lcssa.ph, %._crit_edge429 ], [ 0, %222 ], [ 0, %224 ], [ 0, %199 ], [ 0, %201 ], [ 0, %.preheader192 ]
+  %.not160 = phi i1 [ false, %221 ], [ true, %._crit_edge429 ], [ %223, %222 ], [ false, %224 ], [ true, %201 ], [ true, %199 ], [ true, %.preheader192 ]
+  %.1 = phi i32 [ %.0116.lcssa.ph, %221 ], [ %.0116.lcssa.ph, %._crit_edge429 ], [ 0, %222 ], [ 0, %224 ], [ 0, %201 ], [ 0, %199 ], [ 0, %.preheader192 ]
   br label %.lr.ph435.split
 
 .lr.ph435.split:                                  ; preds = %.lr.ph435.split.backedge, %._crit_edge429.thread
@@ -11850,7 +11850,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._handle_getgr) #13
   br label %258
 
-.thread:                                          ; preds = %.lr.ph455, %.split441.us, %235, %.split384.us, %179, %169, %164, %.split333, %113, %103, %98, %.split282, %70, %60, %55, %.split233.us, %44, %34, %29, %248
+.thread:                                          ; preds = %.lr.ph455, %235, %.split441.us, %179, %.split384.us, %169, %164, %113, %.split333, %103, %98, %70, %.split282, %60, %55, %44, %.split233.us, %34, %29, %248
   call void @slurm_xfree(ptr noundef nonnull %7) #13
   br label %258
 
@@ -11967,8 +11967,8 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_get_ns_fd(i32 noundef %0, p
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__._handle_get_ns_fd) #13
   br label %.thread
 
-.thread:                                          ; preds = %.split31.us, %25, %39, %42
-  %.017 = phi i32 [ 0, %42 ], [ 0, %39 ], [ -1, %25 ], [ -1, %.split31.us ]
+.thread:                                          ; preds = %25, %.split31.us, %39, %42
+  %.017 = phi i32 [ 0, %39 ], [ 0, %42 ], [ -1, %.split31.us ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.017
 }
@@ -12510,7 +12510,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.thread368
 
 .thread368:                                       ; preds = %184, %182, %159, %166, %191, %189, %175, %174, %155, %158
-  %.not300 = phi i1 [ true, %159 ], [ false, %166 ], [ true, %191 ], [ false, %189 ], [ true, %175 ], [ true, %174 ], [ true, %155 ], [ true, %158 ], [ true, %182 ], [ true, %184 ]
+  %.not300 = phi i1 [ true, %159 ], [ false, %166 ], [ true, %158 ], [ true, %191 ], [ false, %189 ], [ true, %175 ], [ true, %174 ], [ true, %155 ], [ true, %182 ], [ true, %184 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #13
   br label %.lr.ph627.split
 
@@ -13182,13 +13182,13 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._handle_gethost) #13
   br label %408
 
-.thread:                                          ; preds = %.split784, %392, %.split766.us, %377, %.split820, %355, %.split802.us, %340, %.split748, %318, %.split728.us, %303, %.split710.us, %283, %.split691.us, %262, %.split671.us, %244, %.split652.us, %224, %.split633.us, %202, %.split584.us, %141, %131, %126, %.split533, %75, %65, %60, %.split484.us, %49, %39, %34, %403
+.thread:                                          ; preds = %392, %.split784, %377, %.split766.us, %355, %.split820, %340, %.split802.us, %318, %.split748, %303, %.split728.us, %283, %.split710.us, %262, %.split691.us, %244, %.split671.us, %224, %.split652.us, %202, %.split633.us, %141, %.split584.us, %131, %126, %75, %.split533, %65, %60, %49, %.split484.us, %39, %34, %403
   call void @slurm_xfree(ptr noundef nonnull %8) #13
   call void @slurm_xfree(ptr noundef nonnull %7) #13
   br label %408
 
 408:                                              ; preds = %.loopexit, %407, %.outer421._crit_edge, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %.outer421._crit_edge ], [ 0, %407 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 0, %.outer421._crit_edge ], [ -1, %.thread ], [ 0, %407 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -14234,7 +14234,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   tail call void @slurm_free_msg_members(ptr noundef nonnull %2) #13
   br label %169
 
-.thread:                                          ; preds = %.split251.us, %134, %124, %119, %.split199.us, %88, %78, %73, %.split149.us, %44, %34, %29
+.thread:                                          ; preds = %134, %.split251.us, %124, %119, %88, %.split199.us, %78, %73, %44, %.split149.us, %34, %29
   call void @slurm_xfree(ptr noundef nonnull %6) #13
   br label %169
 
@@ -15034,8 +15034,8 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
 .lr.ph326.split.backedge:                         ; preds = %151, %148
   br label %.lr.ph326.split, !llvm.loop !147
 
-.thread:                                          ; preds = %.split328.us, %.outer192._crit_edge, %.split331.us, %144, %.split313.us, %124, %.split294.us, %102, %.split275, %78, %.split256.us, %63, %.split237.us, %45, %.split219.us, %23, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %23 ], [ -1, %.split219.us ], [ -1, %45 ], [ -1, %.split237.us ], [ -1, %63 ], [ -1, %.split256.us ], [ -1, %78 ], [ -1, %.split275 ], [ -1, %102 ], [ -1, %.split294.us ], [ -1, %124 ], [ -1, %.split313.us ], [ -1, %144 ], [ -1, %.split331.us ], [ 0, %.outer192._crit_edge ], [ 0, %.split328.us ]
+.thread:                                          ; preds = %.split328.us, %.outer192._crit_edge, %144, %.split331.us, %124, %.split313.us, %102, %.split294.us, %78, %.split275, %63, %.split256.us, %45, %.split237.us, %23, %.split219.us, %3
+  %.0 = phi i32 [ -1, %124 ], [ -1, %102 ], [ -1, %78 ], [ -1, %63 ], [ -1, %45 ], [ -1, %23 ], [ -1, %3 ], [ -1, %.split219.us ], [ -1, %.split237.us ], [ -1, %.split256.us ], [ -1, %.split275 ], [ -1, %.split294.us ], [ -1, %.split313.us ], [ -1, %.split331.us ], [ -1, %144 ], [ 0, %.outer192._crit_edge ], [ 0, %.split328.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

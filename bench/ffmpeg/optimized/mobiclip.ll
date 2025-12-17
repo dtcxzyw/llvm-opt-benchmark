@@ -517,7 +517,7 @@ setup_qtables.exit203:                            ; preds = %212
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %241, %243, %244, %246
-  %.0.i204 = phi i32 [ %237, %241 ], [ %237, %244 ], [ %..i205, %243 ], [ %.20.i, %246 ]
+  %.0.i204 = phi i32 [ %..i205, %243 ], [ %237, %244 ], [ %237, %241 ], [ %.20.i, %246 ]
   store i32 %.0.i204, ptr %133, align 4, !tbaa !67
   %247 = getelementptr inbounds nuw i8, ptr %231, i64 12
   %248 = load i32, ptr %247, align 4, !tbaa !69
@@ -545,7 +545,7 @@ mid_pred.exit:                                    ; preds = %241, %243, %244, %2
   br label %mid_pred.exit209
 
 mid_pred.exit209:                                 ; preds = %254, %256, %257, %259
-  %.0.i206 = phi i32 [ %250, %254 ], [ %250, %257 ], [ %..i208, %256 ], [ %.20.i207, %259 ]
+  %.0.i206 = phi i32 [ %..i208, %256 ], [ %250, %257 ], [ %250, %254 ], [ %.20.i207, %259 ]
   store i32 %.0.i206, ptr %220, align 4, !tbaa !69
   store i32 0, ptr %236, align 4, !tbaa !67
   store i32 0, ptr %249, align 4, !tbaa !69
@@ -926,7 +926,7 @@ add_pframe_coefficients.exit230:                  ; preds = %439, %432, %422, %4
   br i1 %.not41.i241.not, label %add_pframe_coefficients.exit242, label %.preheader.i233, !llvm.loop !74
 
 add_pframe_coefficients.exit242:                  ; preds = %489, %482, %.add_pframe_coefficients.exit242_crit_edge, %472, %469, %add_pframe_coefficients.exit230
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre304, %.add_pframe_coefficients.exit242_crit_edge ], [ %337, %472 ], [ %337, %469 ], [ %337, %add_pframe_coefficients.exit230 ], [ %337, %482 ], [ %337, %489 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre304, %.add_pframe_coefficients.exit242_crit_edge ], [ %337, %add_pframe_coefficients.exit230 ], [ %337, %472 ], [ %337, %469 ], [ %337, %482 ], [ %337, %489 ]
   %491 = load i32, ptr %16, align 8, !tbaa !27
   %492 = trunc nuw i64 %indvars.iv.next.pre-phi to i32
   %.not182 = icmp sgt i32 %491, %492
@@ -967,7 +967,7 @@ add_pframe_coefficients.exit242:                  ; preds = %489, %482, %.add_pf
   br label %setup_qtables.exit.thread
 
 setup_qtables.exit.thread:                        ; preds = %.lr.ph, %289, %get_ue_golomb.exit, %284, %315, %get_se_golomb.exit, %61, %499, %35, %29, %4, %505
-  %.0153 = phi i32 [ 0, %505 ], [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ %503, %499 ], [ -1094995529, %61 ], [ -1094995529, %get_se_golomb.exit ], [ -1094995529, %315 ], [ %287, %284 ], [ %291, %289 ], [ -1094995529, %get_ue_golomb.exit ], [ %126, %.lr.ph ]
+  %.0153 = phi i32 [ -1094995529, %4 ], [ %33, %29 ], [ -1094995529, %35 ], [ -1094995529, %61 ], [ 0, %505 ], [ -1094995529, %get_se_golomb.exit ], [ %503, %499 ], [ %287, %284 ], [ -1094995529, %315 ], [ -1094995529, %get_ue_golomb.exit ], [ %291, %289 ], [ %126, %.lr.ph ]
   ret i32 %.0153
 }
 
@@ -1288,7 +1288,7 @@ get_ue_golomb.exit:                               ; preds = %32, %22
   br label %get_ue_golomb.exit.thread
 
 get_ue_golomb.exit.thread:                        ; preds = %107, %101, %95, %91, %88, %32, %146, %._crit_edge, %135, %129, %71, %65, %59, %55, %get_ue_golomb.exit
-  %.0125 = phi i32 [ -1094995529, %get_ue_golomb.exit ], [ %57, %55 ], [ %63, %59 ], [ %69, %65 ], [ %74, %71 ], [ %133, %129 ], [ %138, %135 ], [ %144, %._crit_edge ], [ %151, %146 ], [ -1094995529, %32 ], [ %110, %107 ], [ %105, %101 ], [ %99, %95 ], [ %93, %91 ], [ %89, %88 ]
+  %.0125 = phi i32 [ -1094995529, %32 ], [ -1094995529, %get_ue_golomb.exit ], [ %57, %55 ], [ %63, %59 ], [ %69, %65 ], [ %74, %71 ], [ %133, %129 ], [ %138, %135 ], [ %151, %146 ], [ %144, %._crit_edge ], [ %110, %107 ], [ %105, %101 ], [ %99, %95 ], [ %93, %91 ], [ %89, %88 ]
   ret i32 %.0125
 }
 
@@ -1892,8 +1892,8 @@ get_index.exit281:                                ; preds = %get_index.exit, %29
   %brmerge = or i1 %333, %.not323.not
   br i1 %brmerge, label %.critedge267, label %304
 
-.critedge267:                                     ; preds = %304, %.loopexit, %156, %188, %182, %178, %159, %123
-  %.4 = phi i32 [ -1094995529, %123 ], [ 0, %.loopexit ], [ -1094995529, %156 ], [ -1094995529, %188 ], [ -1094995529, %182 ], [ -1094995529, %178 ], [ -1094995529, %159 ], [ %332, %304 ]
+.critedge267:                                     ; preds = %304, %.loopexit, %156, %159, %188, %182, %178, %123
+  %.4 = phi i32 [ -1094995529, %123 ], [ -1094995529, %156 ], [ 0, %.loopexit ], [ -1094995529, %159 ], [ -1094995529, %188 ], [ -1094995529, %182 ], [ -1094995529, %178 ], [ %332, %304 ]
   ret i32 %.4
 }
 
@@ -2261,7 +2261,7 @@ get_prediction.exit103.us.us:                     ; preds = %189, %172
   br i1 %.not81, label %.preheader, label %.thread, !llvm.loop !95
 
 .thread:                                          ; preds = %.split, %213, %.split.us.us, %get_prediction.exit103.us.us, %144, %67, %65
-  %.068 = phi i32 [ %66, %65 ], [ -1094995529, %67 ], [ %145, %144 ], [ %207, %get_prediction.exit103.us.us ], [ 0, %.split.us.us ], [ %215, %213 ], [ 0, %.split ]
+  %.068 = phi i32 [ %66, %65 ], [ -1094995529, %67 ], [ %145, %144 ], [ %215, %213 ], [ %207, %get_prediction.exit103.us.us ], [ 0, %.split.us.us ], [ 0, %.split ]
   ret i32 %.068
 }
 
@@ -3096,7 +3096,7 @@ pget.exit59.i:                                    ; preds = %.split660
   br label %pick_5.exit
 
 pick_5.exit:                                      ; preds = %pget.exit30.i, %468, %pget.exit59.i
-  %.0.in.i360 = phi i8 [ %467, %pget.exit30.i ], [ %469, %468 ], [ %475, %pget.exit59.i ]
+  %.0.in.i360 = phi i8 [ %467, %pget.exit30.i ], [ %475, %pget.exit59.i ], [ %469, %468 ]
   %476 = add i32 %425, %459
   %477 = sext i32 %476 to i64
   %478 = getelementptr inbounds i8, ptr %412, i64 %477
@@ -3228,7 +3228,7 @@ pget.exit.i.us:                                   ; preds = %492, %pget.exit.i.u
   br label %pick_6.exit.us656
 
 pick_6.exit.us656:                                ; preds = %526, %523
-  %.0.in.i385.us657 = phi i8 [ %527, %526 ], [ %525, %523 ]
+  %.0.in.i385.us657 = phi i8 [ %525, %523 ], [ %527, %526 ]
   %528 = add i32 %495, %521
   %529 = sext i32 %528 to i64
   %530 = getelementptr inbounds i8, ptr %482, i64 %529
@@ -3275,7 +3275,7 @@ pget.exit59.i369:                                 ; preds = %.split652.split
   br label %pick_6.exit
 
 pick_6.exit:                                      ; preds = %534, %pget.exit59.i369
-  %.0.in.i385 = phi i8 [ %535, %534 ], [ %541, %pget.exit59.i369 ]
+  %.0.in.i385 = phi i8 [ %541, %pget.exit59.i369 ], [ %535, %534 ]
   %542 = add i32 %495, %532
   %543 = sext i32 %542 to i64
   %544 = getelementptr inbounds i8, ptr %482, i64 %543
@@ -3578,7 +3578,7 @@ pget.exit121.i:                                   ; preds = %680
   br label %pick_8.exit
 
 pick_8.exit:                                      ; preds = %pget.exit63.i, %pget.exit121.i, %689
-  %.0.in.i443 = phi i8 [ %679, %pget.exit63.i ], [ %688, %pget.exit121.i ], [ %690, %689 ]
+  %.0.in.i443 = phi i8 [ %690, %689 ], [ %688, %pget.exit121.i ], [ %679, %pget.exit63.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %691 = add i32 %623, %667
   %692 = sext i32 %691 to i64
@@ -3853,10 +3853,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @add_coefficients(ptr captu
   br label %203
 
 203:                                              ; preds = %136, %87, %57, %174
-  %204 = phi i32 [ %199, %174 ], [ %spec.select.i, %57 ], [ %spec.select.i107, %87 ], [ %spec.select.i109, %136 ]
-  %.015 = phi i1 [ %202, %174 ], [ %61, %57 ], [ %103, %87 ], [ %152, %136 ]
-  %.014 = phi i32 [ %187, %174 ], [ %59, %57 ], [ %105, %87 ], [ %162, %136 ]
-  %.013 = phi i32 [ %197, %174 ], [ %spec.select, %57 ], [ %spec.select24, %87 ], [ %spec.select25, %136 ]
+  %204 = phi i32 [ %spec.select.i, %57 ], [ %199, %174 ], [ %spec.select.i109, %136 ], [ %spec.select.i107, %87 ]
+  %.015 = phi i1 [ %61, %57 ], [ %202, %174 ], [ %152, %136 ], [ %103, %87 ]
+  %.014 = phi i32 [ %59, %57 ], [ %187, %174 ], [ %162, %136 ], [ %105, %87 ]
+  %.013 = phi i32 [ %spec.select, %57 ], [ %197, %174 ], [ %spec.select25, %136 ], [ %spec.select24, %87 ]
   %205 = add nuw nsw i32 %.014, %.08628
   %.not99 = icmp slt i32 %205, %36
   br i1 %.not99, label %206, label %.thread21
@@ -4012,8 +4012,8 @@ define internal fastcc zeroext i8 @half_vert(ptr noundef readonly byval(%struct.
   br label %pget.exit
 
 pget.exit:                                        ; preds = %5, %7, %10, %12
-  %.sroa.7.0.i = phi i32 [ -1, %5 ], [ %.sroa.773.0.copyload, %7 ], [ 0, %10 ], [ %spec.select.i, %12 ]
-  %.sroa.12.0.i = phi i32 [ %6, %5 ], [ %2, %7 ], [ -1, %10 ], [ %spec.select13.i, %12 ]
+  %.sroa.7.0.i = phi i32 [ -1, %5 ], [ %spec.select.i, %12 ], [ %.sroa.773.0.copyload, %7 ], [ 0, %10 ]
+  %.sroa.12.0.i = phi i32 [ %6, %5 ], [ %spec.select13.i, %12 ], [ %2, %7 ], [ -1, %10 ]
   %15 = add nsw i32 %.sroa.12.0.i, %.sroa.672.0.copyload
   %16 = add nsw i32 %.sroa.470.0.copyload, -1
   %17 = icmp slt i32 %15, 0
@@ -4057,8 +4057,8 @@ pget.exit:                                        ; preds = %5, %7, %10, %12
   br label %pget.exit29
 
 pget.exit29:                                      ; preds = %26, %28, %31, %33
-  %.sroa.7.0.i21 = phi i32 [ -1, %26 ], [ %.sroa.773.0.copyload, %28 ], [ 0, %31 ], [ %spec.select.i19, %33 ]
-  %.sroa.12.0.i22 = phi i32 [ %27, %26 ], [ %.sroa.874.0.copyload, %28 ], [ -1, %31 ], [ %spec.select13.i20, %33 ]
+  %.sroa.7.0.i21 = phi i32 [ -1, %26 ], [ %spec.select.i19, %33 ], [ %.sroa.773.0.copyload, %28 ], [ 0, %31 ]
+  %.sroa.12.0.i22 = phi i32 [ %27, %26 ], [ %spec.select13.i20, %33 ], [ %.sroa.874.0.copyload, %28 ], [ -1, %31 ]
   %36 = add nsw i32 %.sroa.12.0.i22, %.sroa.672.0.copyload
   %37 = icmp slt i32 %36, 0
   %..i14.i23 = tail call i32 @llvm.smin.i32(i32 %36, i32 %16)
@@ -4100,8 +4100,8 @@ pget.exit29:                                      ; preds = %26, %28, %31, %33
   br label %pget.exit58
 
 pget.exit58:                                      ; preds = %45, %47, %50, %52
-  %.sroa.7.0.i50 = phi i32 [ -1, %45 ], [ %.sroa.773.0.copyload, %47 ], [ 0, %50 ], [ %spec.select.i48, %52 ]
-  %.sroa.12.0.i51 = phi i32 [ %46, %45 ], [ %3, %47 ], [ -1, %50 ], [ %spec.select13.i49, %52 ]
+  %.sroa.7.0.i50 = phi i32 [ -1, %45 ], [ %spec.select.i48, %52 ], [ %.sroa.773.0.copyload, %47 ], [ 0, %50 ]
+  %.sroa.12.0.i51 = phi i32 [ %46, %45 ], [ %spec.select13.i49, %52 ], [ %3, %47 ], [ -1, %50 ]
   %55 = zext i8 %44 to i16
   %56 = zext i8 %25 to i16
   %57 = add nsw i32 %.sroa.12.0.i51, %.sroa.672.0.copyload
@@ -4178,8 +4178,8 @@ define internal fastcc zeroext i8 @half_horz(ptr noundef readonly byval(%struct.
   br label %pget.exit
 
 pget.exit:                                        ; preds = %5, %7, %10, %12
-  %.sroa.7.0.i = phi i32 [ -1, %5 ], [ %2, %7 ], [ 0, %10 ], [ %spec.select.i, %12 ]
-  %.sroa.12.0.i = phi i32 [ %6, %5 ], [ %.sroa.1074.0.copyload, %7 ], [ -1, %10 ], [ %spec.select13.i, %12 ]
+  %.sroa.7.0.i = phi i32 [ -1, %5 ], [ %spec.select.i, %12 ], [ %2, %7 ], [ 0, %10 ]
+  %.sroa.12.0.i = phi i32 [ %6, %5 ], [ %spec.select13.i, %12 ], [ %.sroa.1074.0.copyload, %7 ], [ -1, %10 ]
   %15 = add nsw i32 %.sroa.12.0.i, %.sroa.672.0.copyload
   %16 = add nsw i32 %.sroa.470.0.copyload, -1
   %17 = icmp slt i32 %15, 0
@@ -4223,8 +4223,8 @@ pget.exit:                                        ; preds = %5, %7, %10, %12
   br label %pget.exit29
 
 pget.exit29:                                      ; preds = %27, %29, %32, %34
-  %.sroa.7.0.i21 = phi i32 [ -1, %27 ], [ %.sroa.773.0.copyload, %29 ], [ 0, %32 ], [ %spec.select.i19, %34 ]
-  %.sroa.12.0.i22 = phi i32 [ %28, %27 ], [ %.sroa.1074.0.copyload, %29 ], [ -1, %32 ], [ %spec.select13.i20, %34 ]
+  %.sroa.7.0.i21 = phi i32 [ -1, %27 ], [ %spec.select.i19, %34 ], [ %.sroa.773.0.copyload, %29 ], [ 0, %32 ]
+  %.sroa.12.0.i22 = phi i32 [ %28, %27 ], [ %spec.select13.i20, %34 ], [ %.sroa.1074.0.copyload, %29 ], [ -1, %32 ]
   %37 = add nsw i32 %.sroa.12.0.i22, %.sroa.672.0.copyload
   %38 = icmp slt i32 %37, 0
   %..i14.i23 = tail call i32 @llvm.smin.i32(i32 %37, i32 %16)
@@ -4266,8 +4266,8 @@ pget.exit29:                                      ; preds = %27, %29, %32, %34
   br label %pget.exit58
 
 pget.exit58:                                      ; preds = %47, %49, %52, %54
-  %.sroa.7.0.i50 = phi i32 [ -1, %47 ], [ %3, %49 ], [ 0, %52 ], [ %spec.select.i48, %54 ]
-  %.sroa.12.0.i51 = phi i32 [ %48, %47 ], [ %.sroa.1074.0.copyload, %49 ], [ -1, %52 ], [ %spec.select13.i49, %54 ]
+  %.sroa.7.0.i50 = phi i32 [ -1, %47 ], [ %spec.select.i48, %54 ], [ %3, %49 ], [ 0, %52 ]
+  %.sroa.12.0.i51 = phi i32 [ %48, %47 ], [ %spec.select13.i49, %54 ], [ %.sroa.1074.0.copyload, %49 ], [ -1, %52 ]
   %57 = zext i8 %45 to i16
   %58 = zext i8 %25 to i16
   %59 = add nsw i32 %.sroa.12.0.i51, %.sroa.672.0.copyload

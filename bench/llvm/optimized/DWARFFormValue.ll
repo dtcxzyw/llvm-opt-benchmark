@@ -420,7 +420,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwar
   br label %5
 
 .loopexit:                                        ; preds = %5, %30, %27, %39, %37, %35, %25, %20, %15, %10, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %10 ], [ true, %15 ], [ true, %20 ], [ true, %25 ], [ true, %35 ], [ true, %37 ], [ true, %39 ], [ false, %27 ], [ true, %30 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %10 ], [ true, %15 ], [ true, %20 ], [ true, %25 ], [ true, %39 ], [ true, %37 ], [ true, %35 ], [ false, %27 ], [ true, %30 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -501,7 +501,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14DWARFFormValue11isFormClassENS0_
   br label %_ZN4llvm5dwarf21doesFormBelongToClassENS0_4FormENS_14DWARFFormValue9FormClassEt.exit
 
 _ZN4llvm5dwarf21doesFormBelongToClassENS0_4FormENS_14DWARFFormValue9FormClassEt.exit: ; preds = %13, %18, %19, %21, %23, %25, %27, %29
-  %.0.i = phi i1 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %31, %29 ], [ true, %13 ], [ false, %18 ]
+  %.0.i = phi i1 [ %31, %29 ], [ true, %13 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ false, %18 ]
   ret i1 %.0.i
 }
 
@@ -557,7 +557,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5dwarf21doesFormBelongToClassENS0_4
   br label %25
 
 25:                                               ; preds = %10, %5, %21, %19, %17, %15, %13, %11
-  %.0 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %24, %21 ], [ true, %5 ], [ false, %10 ]
+  %.0 = phi i1 [ %24, %21 ], [ true, %5 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -1547,8 +1547,8 @@ _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread171: ; preds = %14
   br i1 %175, label %.thread179, label %254
 
 .thread179:                                       ; preds = %171, %178, %182
-  %.sroa.0126.1165183 = phi i64 [ %.sroa.0126.1166, %182 ], [ %.sroa.0126.1166, %178 ], [ %.sroa.0126.1167, %171 ]
-  %.sroa.5.1168182 = phi i64 [ %.sroa.5.1169, %182 ], [ %.sroa.5.1169, %178 ], [ %.sroa.5.1170, %171 ]
+  %.sroa.0126.1165183 = phi i64 [ %.sroa.0126.1166, %178 ], [ %.sroa.0126.1166, %182 ], [ %.sroa.0126.1167, %171 ]
+  %.sroa.5.1168182 = phi i64 [ %.sroa.5.1169, %178 ], [ %.sroa.5.1169, %182 ], [ %.sroa.5.1170, %171 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, ptr noundef nonnull align 8 dereferenceable(160) %2, i64 25, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2337,7 +2337,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit104:              ; preds = %524, %522, %509
   store ptr %555, ptr %548, align 8, !tbaa !122
   br label %.critedge67
 
-.critedge67:                                      ; preds = %361, %_ZNSt14_Function_baseD2Ev.exit4.i82, %_ZNSt14_Function_baseD2Ev.exit4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i83, %263, %265, %553, %551, %487, %485, %377, %375, %332, %330, %279, %277, %140, %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %505, %282, %287, %292, %297, %301, %305, %334, %380, %383, %395, %405, %415, %424, %425, %472, %490, %495, %500, %542
+.critedge67:                                      ; preds = %361, %_ZNSt14_Function_baseD2Ev.exit4.i82, %_ZNSt14_Function_baseD2Ev.exit4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i83, %263, %265, %553, %551, %487, %485, %377, %375, %332, %330, %279, %277, %140, %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %505, %282, %287, %292, %297, %301, %305, %500, %334, %380, %383, %395, %405, %415, %424, %425, %472, %490, %495, %542
   ret void
 }
 
@@ -3227,8 +3227,8 @@ _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit: ; preds = %17
   br label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread
 
 _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread: ; preds = %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, %12, %switch.lookup, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4
-  %.sroa.01.012 = phi i64 [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ undef, %switch.lookup ], [ undef, %12 ], [ undef, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
-  %.sroa.2.1 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ 0, %switch.lookup ], [ 0, %12 ], [ 0, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
+  %.sroa.01.012 = phi i64 [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ undef, %switch.lookup ], [ undef, %12 ], [ undef, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
+  %.sroa.2.1 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread8 ], [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ 0, %switch.lookup ], [ 0, %12 ], [ 0, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.01.012, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3481,8 +3481,8 @@ _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit: ; preds = %4
   br label %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit4.thread
 
 _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit4.thread: ; preds = %1, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit, %8, %9
-  %.sroa.2.0 = phi i8 [ 1, %9 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ 0, %1 ]
-  %.sroa.0.0 = phi i64 [ %11, %9 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ undef, %1 ]
+  %.sroa.2.0 = phi i8 [ 1, %9 ], [ 0, %1 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ]
+  %.sroa.0.0 = phi i64 [ %11, %9 ], [ undef, %1 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3548,8 +3548,8 @@ _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit.thread: ; preds = %4
   br label %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit3
 
 _ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit3: ; preds = %1, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit, %8, %.thread, %20, %16, %12
-  %.sroa.0.0 = phi i64 [ %25, %.thread ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ undef, %1 ]
-  %.sroa.5.0 = phi i8 [ 1, %.thread ], [ 1, %12 ], [ 1, %16 ], [ 1, %20 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %23, %20 ], [ %25, %.thread ], [ %15, %12 ], [ %19, %16 ], [ undef, %8 ], [ undef, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ undef, %1 ]
+  %.sroa.5.0 = phi i8 [ 1, %20 ], [ 1, %.thread ], [ 1, %12 ], [ 1, %16 ], [ 0, %8 ], [ 0, %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -90,7 +90,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %20, %14, %8, %10, %37, %28
-  %.033 = phi i32 [ %29, %28 ], [ %38, %37 ], [ 1, %8 ], [ %13, %10 ], [ 0, %14 ], [ 0, %20 ], [ 0, %35 ], [ 1, %.preheader ]
+  %.033 = phi i32 [ %38, %37 ], [ %13, %10 ], [ 0, %14 ], [ %29, %28 ], [ 0, %20 ], [ 1, %8 ], [ 0, %35 ], [ 1, %.preheader ]
   ret i32 %.033
 }
 
@@ -133,7 +133,7 @@ define internal fastcc range(i32 0, 2) i32 @pm(ptr noundef nonnull readonly capt
   br label %.preheader106, !llvm.loop !11
 
 pm_slashskip.exit:                                ; preds = %11, %.preheader106, %6, %3
-  %.056 = phi ptr [ %1, %6 ], [ %1, %3 ], [ %.0.i, %.preheader106 ], [ %.0.i, %11 ]
+  %.056 = phi ptr [ %1, %3 ], [ %1, %6 ], [ %.0.i, %.preheader106 ], [ %.0.i, %11 ]
   %15 = load i8, ptr %0, align 1, !tbaa !4
   %16 = icmp eq i8 %15, 46
   br i1 %16, label %17, label %pm_slashskip.exit83
@@ -171,7 +171,7 @@ pm_slashskip.exit:                                ; preds = %11, %.preheader106,
   br label %.preheader105, !llvm.loop !11
 
 pm_slashskip.exit83:                              ; preds = %22, %.preheader105, %17, %pm_slashskip.exit
-  %.058 = phi ptr [ %0, %17 ], [ %0, %pm_slashskip.exit ], [ %.0.i81, %.preheader105 ], [ %.0.i81, %22 ]
+  %.058 = phi ptr [ %0, %pm_slashskip.exit ], [ %0, %17 ], [ %.0.i81, %.preheader105 ], [ %.0.i81, %22 ]
   %26 = and i32 %2, 2
   %.not = icmp eq i32 %26, 0
   br label %27
@@ -370,14 +370,14 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
   br i1 %89, label %pm_list.exit, label %90
 
 90:                                               ; preds = %87, %84, %76
-  %.4.i = phi ptr [ %.151.i, %76 ], [ %.3.i, %84 ], [ %.2.i, %87 ]
-  %.035.i = phi i8 [ 0, %76 ], [ 0, %84 ], [ %88, %87 ]
+  %.4.i = phi ptr [ %.3.i, %84 ], [ %.151.i, %76 ], [ %.2.i, %87 ]
+  %.035.i = phi i8 [ 0, %84 ], [ 0, %76 ], [ %88, %87 ]
   %91 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %92 = icmp ult ptr %91, %.0
   br i1 %92, label %71, label %pm_list.exit, !llvm.loop !15
 
 pm_list.exit:                                     ; preds = %76, %84, %87, %90, %67
-  %.139.i = phi i32 [ %.033.i, %67 ], [ %.034.i, %84 ], [ %.034.i, %76 ], [ %.034.i, %87 ], [ %.033.i, %90 ]
+  %.139.i = phi i32 [ %.033.i, %67 ], [ %.034.i, %84 ], [ %.034.i, %76 ], [ %.033.i, %90 ], [ %.034.i, %87 ]
   %.not74 = icmp eq i32 %.139.i, 0
   br i1 %.not74, label %.loopexit, label %131
 
@@ -513,14 +513,14 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list.exit, %129, %100, %101, %93, %40, %116
-  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %117, %116 ], [ %.0, %pm_list.exit ]
-  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %118, %116 ], [ %.157, %pm_list.exit ]
+  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %117, %116 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %.0, %pm_list.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %118, %116 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %pm_list.exit ]
   %132 = getelementptr inbounds nuw i8, ptr %.260, i64 1
   %133 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip.exit93, %102, %101, %100, %93, %pm_list.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip.exit96, %pm_slashskip.exit86
-  %.055.shrunk = phi i1 [ %39, %pm_slashskip.exit86 ], [ %128, %pm_slashskip.exit96 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %128, %pm_slashskip.exit96 ], [ %39, %pm_slashskip.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ true, %.preheader100 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip.exit93 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }
@@ -615,7 +615,7 @@ define dso_local range(i32 0, 2) i32 @__archive_pathmatch_w(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %20, %14, %8, %10, %37, %28
-  %.033 = phi i32 [ %29, %28 ], [ %38, %37 ], [ 1, %8 ], [ %13, %10 ], [ 0, %14 ], [ 0, %20 ], [ 0, %35 ], [ 1, %.preheader ]
+  %.033 = phi i32 [ %38, %37 ], [ %13, %10 ], [ 0, %14 ], [ %29, %28 ], [ 0, %20 ], [ 1, %8 ], [ 0, %35 ], [ 1, %.preheader ]
   ret i32 %.033
 }
 
@@ -658,7 +658,7 @@ define internal fastcc range(i32 0, 2) i32 @pm_w(ptr noundef nonnull readonly ca
   br label %.preheader106, !llvm.loop !21
 
 pm_slashskip_w.exit:                              ; preds = %11, %.preheader106, %6, %3
-  %.056 = phi ptr [ %1, %6 ], [ %1, %3 ], [ %.0.i, %.preheader106 ], [ %.0.i, %11 ]
+  %.056 = phi ptr [ %1, %3 ], [ %1, %6 ], [ %.0.i, %.preheader106 ], [ %.0.i, %11 ]
   %15 = load i32, ptr %0, align 4, !tbaa !16
   %16 = icmp eq i32 %15, 46
   br i1 %16, label %17, label %pm_slashskip_w.exit83
@@ -696,7 +696,7 @@ pm_slashskip_w.exit:                              ; preds = %11, %.preheader106,
   br label %.preheader105, !llvm.loop !21
 
 pm_slashskip_w.exit83:                            ; preds = %22, %.preheader105, %17, %pm_slashskip_w.exit
-  %.058 = phi ptr [ %0, %17 ], [ %0, %pm_slashskip_w.exit ], [ %.0.i81, %.preheader105 ], [ %.0.i81, %22 ]
+  %.058 = phi ptr [ %0, %pm_slashskip_w.exit ], [ %0, %17 ], [ %.0.i81, %.preheader105 ], [ %.0.i81, %22 ]
   %26 = and i32 %2, 2
   %.not = icmp eq i32 %26, 0
   br label %27
@@ -895,14 +895,14 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
   br i1 %89, label %pm_list_w.exit, label %90
 
 90:                                               ; preds = %87, %84, %76
-  %.4.i = phi ptr [ %.152.i, %76 ], [ %.3.i, %84 ], [ %.2.i, %87 ]
-  %.035.i = phi i32 [ 0, %76 ], [ 0, %84 ], [ %88, %87 ]
+  %.4.i = phi ptr [ %.3.i, %84 ], [ %.152.i, %76 ], [ %.2.i, %87 ]
+  %.035.i = phi i32 [ 0, %84 ], [ 0, %76 ], [ %88, %87 ]
   %91 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
   %92 = icmp ult ptr %91, %.0
   br i1 %92, label %71, label %pm_list_w.exit, !llvm.loop !25
 
 pm_list_w.exit:                                   ; preds = %76, %84, %87, %90, %67
-  %.139.i = phi i32 [ %.033.i, %67 ], [ %.034.i, %84 ], [ %.034.i, %76 ], [ %.034.i, %87 ], [ %.033.i, %90 ]
+  %.139.i = phi i32 [ %.033.i, %67 ], [ %.034.i, %84 ], [ %.034.i, %76 ], [ %.033.i, %90 ], [ %.034.i, %87 ]
   %.not74 = icmp eq i32 %.139.i, 0
   br i1 %.not74, label %.loopexit, label %131
 
@@ -1038,14 +1038,14 @@ pm_slashskip_w.exit96:                            ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list_w.exit, %129, %100, %101, %93, %40, %116
-  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %117, %116 ], [ %.0, %pm_list_w.exit ]
-  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %118, %116 ], [ %.157, %pm_list_w.exit ]
+  %.260 = phi ptr [ %.159, %129 ], [ %.159, %40 ], [ %117, %116 ], [ %.159, %93 ], [ %.159, %100 ], [ %96, %101 ], [ %.0, %pm_list_w.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %.157, %40 ], [ %118, %116 ], [ %.157, %93 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %pm_list_w.exit ]
   %132 = getelementptr inbounds nuw i8, ptr %.260, i64 4
   %133 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip_w.exit93, %102, %101, %100, %93, %pm_list_w.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip_w.exit96, %pm_slashskip_w.exit86
-  %.055.shrunk = phi i1 [ %39, %pm_slashskip_w.exit86 ], [ %128, %pm_slashskip_w.exit96 ], [ true, %32 ], [ false, %.preheader99 ], [ %.not77.not.not, %47 ], [ %.not77.not.not, %.lr.ph ], [ true, %.preheader100 ], [ false, %129 ], [ true, %pm_slashskip_w.exit93 ], [ false, %102 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %40 ]
+  %.055.shrunk = phi i1 [ %128, %pm_slashskip_w.exit96 ], [ %39, %pm_slashskip_w.exit86 ], [ true, %32 ], [ false, %.preheader99 ], [ true, %.preheader100 ], [ %.not77.not.not, %.lr.ph ], [ %.not77.not.not, %47 ], [ false, %101 ], [ false, %100 ], [ false, %93 ], [ false, %pm_list_w.exit ], [ false, %129 ], [ false, %102 ], [ false, %40 ], [ true, %pm_slashskip_w.exit93 ]
   %.055 = zext i1 %.055.shrunk to i32
   ret i32 %.055
 }

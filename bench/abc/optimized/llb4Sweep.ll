@@ -689,7 +689,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %91
 
 91:                                               ; preds = %16, %90, %Vec_PtrPush.exit, %9, %7
-  %.0 = phi ptr [ %8, %7 ], [ %15, %9 ], [ null, %Vec_PtrPush.exit ], [ %.055, %90 ], [ %18, %16 ]
+  %.0 = phi ptr [ %8, %7 ], [ %15, %9 ], [ %.055, %90 ], [ null, %Vec_PtrPush.exit ], [ %18, %16 ]
   ret ptr %.0
 }
 

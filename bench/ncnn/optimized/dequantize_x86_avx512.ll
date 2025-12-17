@@ -569,9 +569,9 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   br label %.thread19
 
 .thread19:                                        ; preds = %14, %16, %.thread, %19, %4
-  %.114 = phi nsz <8 x float> [ %21, %19 ], [ %10, %4 ], [ %10, %.thread ], [ %17, %16 ], [ %10, %14 ]
-  %.012 = phi nsz <4 x float> [ %20, %19 ], [ %8, %4 ], [ %8, %.thread ], [ %8, %16 ], [ %8, %14 ]
-  %.0111 = phi nsz <16 x float> [ %22, %19 ], [ %12, %4 ], [ %15, %.thread ], [ %18, %16 ], [ %12, %14 ]
+  %.114 = phi nsz <8 x float> [ %21, %19 ], [ %10, %14 ], [ %10, %4 ], [ %10, %.thread ], [ %17, %16 ]
+  %.012 = phi nsz <4 x float> [ %20, %19 ], [ %8, %14 ], [ %8, %4 ], [ %8, %.thread ], [ %8, %16 ]
+  %.0111 = phi nsz <16 x float> [ %22, %19 ], [ %12, %14 ], [ %12, %4 ], [ %15, %.thread ], [ %18, %16 ]
   %23 = icmp eq i32 %.44.val3, 0
   br i1 %23, label %.preheader30, label %61
 
@@ -699,9 +699,9 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   br label %.thread25
 
 .thread25:                                        ; preds = %70, %72, %.thread22, %75, %61
-  %.017 = phi nsz <4 x float> [ %76, %75 ], [ %64, %61 ], [ %64, %.thread22 ], [ %64, %72 ], [ %64, %70 ]
-  %.116 = phi nsz <8 x float> [ %77, %75 ], [ %66, %61 ], [ %66, %.thread22 ], [ %73, %72 ], [ %66, %70 ]
-  %.0100 = phi nsz <16 x float> [ %78, %75 ], [ %68, %61 ], [ %71, %.thread22 ], [ %74, %72 ], [ %68, %70 ]
+  %.017 = phi nsz <4 x float> [ %76, %75 ], [ %64, %70 ], [ %64, %61 ], [ %64, %.thread22 ], [ %64, %72 ]
+  %.116 = phi nsz <8 x float> [ %77, %75 ], [ %66, %70 ], [ %66, %61 ], [ %66, %.thread22 ], [ %73, %72 ]
+  %.0100 = phi nsz <16 x float> [ %78, %75 ], [ %68, %70 ], [ %68, %61 ], [ %71, %.thread22 ], [ %74, %72 ]
   %79 = icmp sgt i32 %5, 15
   br i1 %79, label %.lr.ph, label %.preheader34
 

@@ -760,9 +760,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$alloc..collections..vec_deque..VecD
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hf981695b68ace7ecE.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hf981695b68ace7ecE.exit": ; preds = %2, %19, %21
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i.i, %19 ], [ %.sroa.0.0.i.i, %21 ], [ 0, %2 ]
-  %.sroa.5.0.i = phi i64 [ %16, %19 ], [ %22, %21 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i64 [ %20, %19 ], [ 0, %21 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i.i, %21 ], [ %.sroa.0.0.i.i, %19 ], [ 0, %2 ]
+  %.sroa.5.0.i = phi i64 [ %22, %21 ], [ %16, %19 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i64 [ 0, %21 ], [ %20, %19 ], [ 0, %2 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !19, !noalias !16, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { { { i8, [7 x i8] }, { ptr, ptr, i64, { ptr } }, i32, { [20 x i8], i8 }, { [20 x i8], i8 }, [2 x i8] }, { ptr, ptr, i64, { ptr } }, { ptr, i64, i64, ptr } }, { { { { { { ptr, ptr } }, {} }, {} }, { { { { ptr, ptr } }, {} }, {} } }, { { { { { ptr, ptr } }, {} }, {} }, { { { { ptr, ptr } }, {} }, {} } } }, { ptr, [3 x i64] }, i64, { { i16, [15 x i16] }, { i8, [16 x i8] }, [3 x i8] }, { { i8, [21 x i8] }, i8, { [20 x i8], i8 } }, i8, {}, [7 x i8] }, ptr %24, i64 %.sroa.0.0.i

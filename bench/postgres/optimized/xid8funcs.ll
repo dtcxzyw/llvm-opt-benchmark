@@ -503,10 +503,10 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   %34 = add nsw i32 %.04565, 1
   br label %35
 
-35:                                               ; preds = %29, %31
-  %.146.ph = phi i32 [ %34, %31 ], [ %.04565, %29 ]
-  %.1.ph = phi i32 [ %.04466, %31 ], [ %30, %29 ]
-  %.sroa.030.1.ph = phi i64 [ %23, %31 ], [ %.sroa.030.067, %29 ]
+35:                                               ; preds = %31, %29
+  %.146.ph = phi i32 [ %.04565, %29 ], [ %34, %31 ]
+  %.1.ph = phi i32 [ %30, %29 ], [ %.04466, %31 ]
+  %.sroa.030.1.ph = phi i64 [ %.sroa.030.067, %29 ], [ %23, %31 ]
   %36 = icmp slt i32 %.146.ph, %.1.ph
   br i1 %36, label %22, label %._crit_edge, !llvm.loop !10
 
@@ -697,7 +697,7 @@ define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr noundef readonl
   br i1 %.not.i, label %is_visible_fxid.exit, label %32
 
 is_visible_fxid.exit:                             ; preds = %32, %.lr.ph.i, %27, %30, %1, %11, %.preheader.i
-  %.011.i = phi i64 [ 1, %1 ], [ 0, %11 ], [ 1, %.preheader.i ], [ 1, %30 ], [ 0, %27 ], [ 0, %.lr.ph.i ], [ 1, %32 ]
+  %.011.i = phi i64 [ 1, %1 ], [ 1, %.preheader.i ], [ 0, %11 ], [ 0, %27 ], [ 1, %30 ], [ 0, %.lr.ph.i ], [ 1, %32 ]
   ret i64 %.011.i
 }
 

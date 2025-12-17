@@ -105,7 +105,7 @@ define ptr @av_executor_alloc(ptr noundef readonly captures(address_is_null) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.preheader, %27, %14, %2, %3, %5, %8, %11, %.loopexit56
-  %.0 = phi ptr [ null, %.loopexit56 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %14 ], [ %15, %27 ], [ %15, %.preheader ], [ %15, %42 ]
+  %.0 = phi ptr [ null, %.loopexit56 ], [ %15, %27 ], [ null, %14 ], [ null, %2 ], [ null, %11 ], [ null, %8 ], [ null, %5 ], [ null, %3 ], [ %15, %.preheader ], [ %15, %42 ]
   ret ptr %.0
 }
 

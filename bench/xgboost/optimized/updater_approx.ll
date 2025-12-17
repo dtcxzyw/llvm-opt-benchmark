@@ -2088,7 +2088,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7xgboost14TreeU
           cleanup
   br label %104
 
-_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7xgboost14TreeUpdaterRegESt4lessIS5_ESaISt4pairIKS5_S8_EEE5countERSC_.exit.thread: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14TreeUpdaterRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7xgboost14TreeUpdaterRegESt4lessIS5_ESaISt4pairIKS5_S8_EEE5countERSC_.exit
+_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7xgboost14TreeUpdaterRegESt4lessIS5_ESaISt4pairIKS5_S8_EEE5countERSC_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7xgboost14TreeUpdaterRegEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7xgboost14TreeUpdaterRegESt4lessIS5_ESaISt4pairIKS5_S8_EEE5countERSC_.exit
   %38 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #40
           to label %39 unwind label %101
 
@@ -2457,7 +2457,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %29 = phi i1 [ true, %14 ], [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %29 = phi i1 [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %14 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !42
@@ -2688,8 +2688,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %87, %68, %61, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %89, %87 ], [ null, %68 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %90, %87 ], [ %70, %68 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2906,8 +2906,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3065,7 +3065,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %35, %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
-  %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ], [ %36, %35 ]
+  %.pn.pn = phi { ptr, i32 } [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ], [ %34, %33 ], [ %36, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @_ZNSt12__shared_ptrIN7xgboost6common13ColumnSamplerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #22
   call void @_ZNSt10unique_ptrIN7xgboost4tree19GlobalApproxBuilderESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #22
@@ -3873,9 +3873,9 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc31
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc31, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.12.0 = phi ptr [ %99, %.noexc31 ], [ %99, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.041.0 = phi ptr [ %98, %.noexc31 ], [ %98, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %100, %.noexc31 ], [ %103, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.12.0 = phi ptr [ %99, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %99, %.noexc31 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.041.0 = phi ptr [ %98, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %98, %.noexc31 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %103, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %100, %.noexc31 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %104 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %105 unwind label %130
 
@@ -3995,7 +3995,7 @@ _ZNK7xgboost6common4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEixEm.e
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit35
 
 _ZNSt6vectorIfSaIfEED2Ev.exit35:                  ; preds = %126, %128, %144, %145, %124
-  %.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %129, %128 ], [ %127, %126 ], [ %.pn, %144 ], [ %.pn, %145 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %.pn, %144 ], [ %.pn, %145 ]
   call void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEED1Ev(ptr noundef nonnull align 8 dereferenceable(25) %14) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %149
@@ -6429,8 +6429,8 @@ _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   br label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc27, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.sroa.11.0 = phi ptr [ %11, %.noexc27 ], [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %.sroa.042.0 = phi ptr [ %10, %.noexc27 ], [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %11, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.042.0 = phi ptr [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %15 = trunc i64 %2 to i32
   %16 = invoke i32 @backtrace(ptr noundef %.sroa.042.0, i32 noundef %15)
           to label %17 unwind label %24
@@ -8507,7 +8507,7 @@ select.unfold.i.i:                                ; preds = %60, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %64, %select.unfold.i.i
-  %68 = phi i1 [ true, %select.unfold.i.i ], [ %67, %64 ]
+  %68 = phi i1 [ %67, %64 ], [ true, %select.unfold.i.i ]
   %69 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %43, ptr %70, align 8, !tbaa !324
@@ -8517,7 +8517,7 @@ _ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS
   store i64 %72, ptr %15, align 8, !tbaa !42
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE9push_backERKS7_.exit
 
-_ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %18, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4dmlc9parameter16FieldAccessEntryEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4dmlc9parameter16FieldAccessEntryESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i, %_ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN4dmlc9parameter16FieldAccessEntryEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %18, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4dmlc9parameter16FieldAccessEntryESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i, %_ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %.not20, label %80, label %73
 
 73:                                               ; preds = %_ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
@@ -8619,26 +8619,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %110 = load ptr, ptr %9, align 8, !tbaa !16
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %112 = icmp eq ptr %110, %111
-  br i1 %112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %112, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %108
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.0, label %115, label %116
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %108
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %108
   %113 = load i64, ptr %111, align 8, !tbaa !23
   %114 = add i64 %113, 1
   call void @_ZdlPvm(ptr noundef %110, i64 noundef %114) #41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %115, label %116
 
-115:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn43 = phi { ptr, i32 } [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %108
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br i1 %.0, label %115, label %116
+
+115:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn43 = phi { ptr, i32 } [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %102) #22
   br label %116
 
-116:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %115, %105
-  %.pn.pn = phi { ptr, i32 } [ %.pn43, %115 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %106, %105 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+116:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %115, %105
+  %.pn.pn = phi { ptr, i32 } [ %.pn43, %115 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %106, %105 ], [ %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
@@ -9323,7 +9323,7 @@ _ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.ex
   %27 = icmp ult ptr %.pre, %26
   br i1 %27, label %_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread, label %33
 
-_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %.lr.ph, %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit
+_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ; preds = %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %.lr.ph, %_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit
   %28 = load ptr, ptr %.pre, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -9388,7 +9388,7 @@ _ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.
   %.not41 = icmp ult ptr %.pre54, %45
   br i1 %.not41, label %_ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %51
 
-_ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %.lr.ph50, %_ZNKSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.exit
+_ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %.lr.ph50, %_ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %46 = load ptr, ptr %.pre54, align 8, !tbaa !57
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -9406,7 +9406,7 @@ _ZNKSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE5countERKS3_.
   br i1 %.not40, label %._crit_edge51, label %.lr.ph50, !llvm.loop !347
 
 53:                                               ; preds = %31, %49, %18
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %19, %18 ], [ %32, %31 ]
+  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %50, %49 ], [ %32, %31 ]
   call void @_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
@@ -10418,7 +10418,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %37 = phi i1 [ true, %22 ], [ %36, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %37 = phi i1 [ %36, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %37, ptr noundef nonnull %4, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8, !tbaa !42
@@ -10564,8 +10564,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10919,7 +10919,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i
-  %29 = phi i1 [ true, %14 ], [ %28, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i ]
+  %29 = phi i1 [ %28, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i ], [ true, %14 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !42
@@ -11170,8 +11170,8 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit36, %87, %68, %61, %42, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit36 ], [ %89, %87 ], [ null, %68 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit36 ], [ %90, %87 ], [ %70, %68 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -11429,8 +11429,8 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12834,7 +12834,7 @@ _ZNK7xgboost13BatchIteratorINS_16GHistIndexMatrixEEdeEv.exit: ; preds = %379
   br label %.body157
 
 .body157:                                         ; preds = %.loopexit350, %.loopexit.split-lp351, %378, %281, %367
-  %.pn89 = phi { ptr, i32 } [ %368, %367 ], [ %280, %281 ], [ %377, %378 ], [ %lpad.loopexit352, %.loopexit350 ], [ %lpad.loopexit.split-lp353, %.loopexit.split-lp351 ]
+  %.pn89 = phi { ptr, i32 } [ %280, %281 ], [ %lpad.loopexit.split-lp353, %.loopexit.split-lp351 ], [ %368, %367 ], [ %377, %378 ], [ %lpad.loopexit352, %.loopexit350 ]
   call void @_ZN7xgboost13BatchIteratorINS_16GHistIndexMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #22
   br label %.body
 
@@ -13351,7 +13351,7 @@ _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit198:     ; preds = %_ZN7xgboost4tree14C
   br label %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200
 
 _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200:     ; preds = %.loopexit325, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %622, %620
-  %.pn84 = phi { ptr, i32 } [ %lpad.phi349, %620 ], [ %lpad.phi349, %622 ], [ %lpad.loopexit, %.loopexit325 ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn84 = phi { ptr, i32 } [ %lpad.phi349, %622 ], [ %lpad.phi349, %620 ], [ %lpad.loopexit, %.loopexit325 ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %627 = load ptr, ptr %123, align 8, !tbaa !449
   %.not.i.i.i.i.i201 = icmp eq ptr %627, null
@@ -13366,7 +13366,7 @@ _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200:     ; preds = %.loopexit325, %.loo
   br label %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit202
 
 _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit202:     ; preds = %.loopexit328, %.loopexit.split-lp329.loopexit.split-lp, %.loopexit.split-lp329.loopexit, %628, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200
-  %.pn84.pn = phi { ptr, i32 } [ %.pn84, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200 ], [ %.pn84, %628 ], [ %lpad.loopexit330, %.loopexit328 ], [ %lpad.loopexit338, %.loopexit.split-lp329.loopexit ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp329.loopexit.split-lp ]
+  %.pn84.pn = phi { ptr, i32 } [ %.pn84, %628 ], [ %.pn84, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit200 ], [ %lpad.loopexit330, %.loopexit328 ], [ %lpad.loopexit338, %.loopexit.split-lp329.loopexit ], [ %lpad.loopexit.split-lp339, %.loopexit.split-lp329.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %770
 
@@ -13741,13 +13741,13 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev.exit263: ; preds = %_ZS
   br label %770
 
 770:                                              ; preds = %.loopexit333, %.loopexit.split-lp334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220, %658, %768, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit202
-  %.pn87 = phi { ptr, i32 } [ %769, %768 ], [ %.pn84.pn, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit202 ], [ %667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ %659, %658 ], [ %661, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220 ], [ %lpad.loopexit335, %.loopexit333 ], [ %lpad.loopexit.split-lp336, %.loopexit.split-lp334 ]
+  %.pn87 = phi { ptr, i32 } [ %769, %768 ], [ %659, %658 ], [ %.pn84.pn, %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit202 ], [ %661, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220 ], [ %667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit223 ], [ %lpad.loopexit335, %.loopexit333 ], [ %lpad.loopexit.split-lp336, %.loopexit.split-lp334 ]
   call void @_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %771
 
 771:                                              ; preds = %.loopexit355, %.loopexit.split-lp356, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165, %770, %.body, %365, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132
-  %.pn94 = phi { ptr, i32 } [ %360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %.pn87, %770 ], [ %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %.pn89.pn, %.body ], [ %366, %365 ], [ %lpad.loopexit357, %.loopexit355 ], [ %lpad.loopexit.split-lp358, %.loopexit.split-lp356 ]
+  %.pn94 = phi { ptr, i32 } [ %366, %365 ], [ %360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ %.pn87, %770 ], [ %.pn89.pn, %.body ], [ %lpad.loopexit357, %.loopexit355 ], [ %lpad.loopexit.split-lp358, %.loopexit.split-lp356 ]
   call void @_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #22
@@ -16325,7 +16325,7 @@ define linkonce_odr void @_ZN7xgboost4tree14SampleGradientEPKNS_7ContextENS0_10T
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i, %23
-  %.sroa.6.021.i.i.i = phi i64 [ 0, %23 ], [ %31, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ]
+  %.sroa.6.021.i.i.i = phi i64 [ %31, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ], [ 0, %23 ]
   %27 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.6.021.i.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i64, ptr %6, i64 %.sroa.6.021.i.i.i
@@ -16350,7 +16350,7 @@ _ZNK7xgboost6linalg10TensorViewINS_6detail20GradientPairInternalIfEELi2EE11CCont
   br label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i, %32
-  %.sroa.6.021.i.i2.i = phi i64 [ 0, %32 ], [ %40, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i ]
+  %.sroa.6.021.i.i2.i = phi i64 [ %40, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i1.i ], [ 0, %32 ]
   %36 = getelementptr inbounds nuw i64, ptr %2, i64 %.sroa.6.021.i.i2.i
   %37 = load i64, ptr %36, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.sroa.6.021.i.i2.i
@@ -16922,7 +16922,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -16931,7 +16931,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -18888,7 +18888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %252
   br label %258
 
 258:                                              ; preds = %246, %248, %250, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %251, %250 ], [ %253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %247, %246 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91 ], [ %249, %248 ], [ %247, %246 ], [ %251, %250 ]
   call void @_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   br label %259
 
@@ -21172,14 +21172,14 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %271
   %334 = and i32 %333, 2147483647
   %.not.i.i105 = icmp samesign ugt i32 %334, %331
   %335 = load float, ptr %318, align 8, !tbaa !548
-  br i1 %.not.i.i105, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %336
+  br i1 %.not.i.i105, label %336, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 336:                                              ; preds = %330
-  %337 = fcmp ogt float %325, %335
+  %337 = fcmp ule float %335, %325
   br i1 %337, label %339, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %330
-  %338 = fcmp ule float %335, %325
+  %338 = fcmp ogt float %325, %335
   br i1 %338, label %339, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 339:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %336
@@ -21444,17 +21444,17 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
   %450 = and i32 %449, 2147483647
   %.not.i.i109 = icmp samesign ugt i32 %450, %447
   %451 = load float, ptr %435, align 8, !tbaa !548
-  br i1 %.not.i.i109, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111, label %452
+  br i1 %.not.i.i109, label %452, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110
 
 452:                                              ; preds = %446
-  %453 = fcmp ogt float %441, %451
+  %453 = fcmp ule float %451, %441
   br i1 %453, label %455, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111: ; preds = %446
-  %454 = fcmp ule float %451, %441
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110: ; preds = %446
+  %454 = fcmp ogt float %441, %451
   br i1 %454, label %455, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113
 
-455:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111, %452
+455:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110, %452
   store float %441, ptr %435, align 8, !tbaa !548
   store i32 %443, ptr %448, align 4, !tbaa !554
   %456 = getelementptr inbounds nuw i8, ptr %439, i64 16
@@ -21588,9 +21588,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
   %.pre234 = load ptr, ptr %6, align 8, !tbaa !562
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113: ; preds = %.noexc112, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111, %452, %430
-  %509 = phi ptr [ %.pre234, %.noexc112 ], [ %431, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111 ], [ %431, %452 ], [ %431, %430 ]
-  %510 = phi ptr [ %.pre233, %.noexc112 ], [ %432, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i111 ], [ %432, %452 ], [ %432, %430 ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit113: ; preds = %.noexc112, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110, %452, %430
+  %509 = phi ptr [ %.pre234, %.noexc112 ], [ %431, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110 ], [ %431, %452 ], [ %431, %430 ]
+  %510 = phi ptr [ %.pre233, %.noexc112 ], [ %432, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i110 ], [ %432, %452 ], [ %432, %430 ]
   %511 = add nuw i64 %.0211, 1
   %512 = ptrtoint ptr %510 to i64
   %513 = ptrtoint ptr %509 to i64
@@ -21780,7 +21780,7 @@ _ZNSt6vectorISt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESaIS4_EED2Ev.exit: ;
   ret void
 
 584:                                              ; preds = %.loopexit189, %.loopexit.split-lp190, %299, %301, %518, %297
-  %.pn69.pn = phi { ptr, i32 } [ %298, %297 ], [ %.pn67, %518 ], [ %302, %301 ], [ %300, %299 ], [ %lpad.loopexit191, %.loopexit189 ], [ %lpad.loopexit.split-lp192, %.loopexit.split-lp190 ]
+  %.pn69.pn = phi { ptr, i32 } [ %298, %297 ], [ %300, %299 ], [ %.pn67, %518 ], [ %302, %301 ], [ %lpad.loopexit191, %.loopexit189 ], [ %lpad.loopexit.split-lp192, %.loopexit.split-lp190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %585
 
@@ -23238,7 +23238,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !906
   br label %41
 
@@ -23335,7 +23335,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !909
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -24139,7 +24139,7 @@ _ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE
   ret void
 
 86:                                               ; preds = %62, %60
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ]
   call void @_ZNSt12__shared_ptrIN7xgboost6common14MallocResourceELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
@@ -25201,7 +25201,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %78, %80
   unreachable
 
 .body12:                                          ; preds = %85, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit5.i, %43, %40
-  %.pn = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %69, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit5.i ], [ %69, %85 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %69, %85 ], [ %41, %43 ], [ %69, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit5.i ]
   %90 = load ptr, ptr %14, align 8, !tbaa !763
   %.not.i20 = icmp eq ptr %90, null
   br i1 %.not.i20, label %.body, label %91
@@ -25218,7 +25218,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %78, %80
   unreachable
 
 .body:                                            ; preds = %91, %.body12, %26, %23
-  %.pn.pn = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %.pn, %.body12 ], [ %.pn, %91 ]
+  %.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %91 ], [ %24, %26 ], [ %.pn, %.body12 ]
   call void @_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   resume { ptr, i32 } %.pn.pn
 }
@@ -25389,7 +25389,7 @@ _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit14:      ; preds = %56, %_ZN9__gnu_cxx5
   unreachable
 
 .body:                                            ; preds = %65, %62, %43, %40
-  %.pn = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %63, %62 ], [ %63, %65 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %63, %65 ], [ %41, %43 ], [ %63, %62 ]
   %70 = load ptr, ptr %15, align 8, !tbaa !449
   %.not.i.i.i.i.i17 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i17, label %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit20, label %71
@@ -26247,7 +26247,7 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE9push_backERKS2_.exit: ; pre
   unreachable
 
 common.resume:                                    ; preds = %71, %68, %53, %56
-  %common.resume.op = phi { ptr, i32 } [ %54, %56 ], [ %54, %53 ], [ %69, %68 ], [ %69, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %54, %56 ], [ %69, %68 ], [ %69, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbN7xgboost4tree14CPUExpandEntryES2_EEC2ERKS4_.exit: ; preds = %_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE9push_backERKS2_.exit, %49
@@ -27264,7 +27264,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEED2Ev.exit: ; preds = %_ZN7xgboost13B
   unreachable
 
 .split167.us:                                     ; preds = %.split158.us.split.us.split.us, %.split158.split.us.split.us, %.split172.us.split.us, %.split172.split.us, %.split172.split, %.split167.us.split.us, %.split167.split.us, %.split167.split
-  %.pn49.pn.pn = phi { ptr, i32 } [ %196, %.split167.us.split.us ], [ %297, %.split167.split ], [ %220, %.split167.split.us ], [ %197, %.split172.us.split.us ], [ %302, %.split172.split ], [ %221, %.split172.split.us ], [ %198, %.split158.us.split.us.split.us ], [ %222, %.split158.split.us.split.us ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %221, %.split172.split.us ], [ %220, %.split167.split.us ], [ %196, %.split167.us.split.us ], [ %222, %.split158.split.us.split.us ], [ %297, %.split167.split ], [ %197, %.split172.us.split.us ], [ %198, %.split158.us.split.us.split.us ], [ %302, %.split172.split ]
   call void @_ZN7xgboost13BatchIteratorINS_16GHistIndexMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #22
   br label %.body
 
@@ -28397,7 +28397,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %154 = getelementptr inbounds nuw i32, ptr %147, i64 %145
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-_ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit.thread: ; preds = %_ZNK7xgboost7RegTree6ParentEi.exit, %_ZNKSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit
+_ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit.thread: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK7xgboost7RegTree6ParentEi.exit, %_ZNK7xgboost4tree21BoundedHistCollection15HistogramExistsEi.exit
   %155 = load ptr, ptr %27, align 8, !tbaa !545
   %156 = load ptr, ptr %81, align 8, !tbaa !197
   %.not.i51 = icmp eq ptr %155, %156
@@ -28466,9 +28466,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57, %157, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %132
-  %.sroa.14.1 = phi ptr [ %154, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.0121, %132 ], [ %.sroa.14.0121, %157 ], [ %.sroa.14.0121, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
-  %.sroa.10.1 = phi ptr [ %152, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %134, %132 ], [ %.sroa.10.0122, %157 ], [ %.sroa.10.0122, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
-  %.sroa.070.1 = phi ptr [ %147, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.070.0123, %132 ], [ %.sroa.070.0123, %157 ], [ %.sroa.070.0123, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0121, %132 ], [ %154, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.0121, %157 ], [ %.sroa.14.0121, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
+  %.sroa.10.1 = phi ptr [ %134, %132 ], [ %152, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.10.0122, %157 ], [ %.sroa.10.0122, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
+  %.sroa.070.1 = phi ptr [ %.sroa.070.0123, %132 ], [ %147, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.070.0123, %157 ], [ %.sroa.070.0123, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i57 ]
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.067.0120, i64 4
   %.not100 = icmp eq ptr %181, %75
   br i1 %.not100, label %._crit_edge.loopexit, label %101
@@ -28502,7 +28502,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread176, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit63
 
 _ZNSt6vectorIiSaIiEED2Ev.exit63:                  ; preds = %183, %182, %25, %73, %16
-  %.pn35.pn.pn = phi { ptr, i32 } [ %15, %16 ], [ %24, %25 ], [ %72, %73 ], [ %lpad.phi, %182 ], [ %lpad.phi, %183 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %15, %16 ], [ %24, %25 ], [ %72, %73 ], [ %lpad.phi, %183 ], [ %lpad.phi, %182 ]
   resume { ptr, i32 } %.pn35.pn.pn
 
 187:                                              ; preds = %71, %23, %14
@@ -29199,7 +29199,7 @@ _ZN7xgboost6common14BlockedSpace2dD2Ev.exit41:    ; preds = %_ZNSt6vectorImSaImE
   br label %.body
 
 .body:                                            ; preds = %181, %137, %134, %183, %185, %82, %52, %46
-  %.pn21.pn = phi { ptr, i32 } [ %.pn19, %82 ], [ %.pn, %52 ], [ %47, %46 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %135, %137 ], [ %135, %134 ]
+  %.pn21.pn = phi { ptr, i32 } [ %47, %46 ], [ %.pn19, %82 ], [ %.pn, %52 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %135, %137 ], [ %135, %134 ]
   call void @_ZN7xgboost6common14BlockedSpace2dD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30192,7 +30192,7 @@ _ZNSt3mapIimSt4lessIiESaISt4pairIKimEEE11lower_boundERS3_.exit: ; preds = %.lr.p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !42
@@ -30476,8 +30476,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_
   br label %_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -31243,7 +31243,7 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i:       ; preds = %46
   br i1 %50, label %.critedge.i, label %.sink.split
 
 .critedge.i:                                      ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i, %42, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i, %30
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %.19.i.i.i.i, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i ], [ %8, %30 ], [ %.19.i.i.i.i, %42 ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %8, %30 ], [ %.19.i.i.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %.19.i.i.i.i, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i ], [ %.19.i.i.i.i, %42 ]
   %51 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i64 %storemerge443, ptr %52, align 8
@@ -31286,7 +31286,7 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i:       ; preds = %46
   br label %.thread.i
 
 .thread.i:                                        ; preds = %67, %65, %60, %58
-  %73 = phi i1 [ true, %58 ], [ true, %60 ], [ false, %65 ], [ %72, %67 ]
+  %73 = phi i1 [ %72, %67 ], [ true, %58 ], [ true, %60 ], [ false, %65 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %73, ptr noundef nonnull %51, ptr noundef nonnull %57, ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   %74 = load i64, ptr %9, align 8, !tbaa !42
   %75 = add i64 %74, 1
@@ -31364,7 +31364,7 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16:     ; preds = %95
   br i1 %99, label %.critedge.i18, label %.sink.split
 
 .critedge.i18:                                    ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16, %91, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i15, %78
-  %.08.lcssa.i.i.i11.i19 = phi ptr [ %.19.i.i.i.i12, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %.19.i.i.i.i12, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i15 ], [ %8, %78 ], [ %.19.i.i.i.i12, %91 ]
+  %.08.lcssa.i.i.i11.i19 = phi ptr [ %8, %78 ], [ %.19.i.i.i.i12, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %.19.i.i.i.i12, %_ZNSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE11lower_boundERS4_.exit.i15 ], [ %.19.i.i.i.i12, %91 ]
   %100 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store i64 %storemerge443, ptr %101, align 8
@@ -31407,7 +31407,7 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16:     ; preds = %95
   br label %.thread.i26
 
 .thread.i26:                                      ; preds = %116, %114, %109, %107
-  %122 = phi i1 [ true, %107 ], [ true, %109 ], [ false, %114 ], [ %121, %116 ]
+  %122 = phi i1 [ %121, %116 ], [ true, %107 ], [ true, %109 ], [ false, %114 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %122, ptr noundef nonnull %100, ptr noundef nonnull %106, ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   %123 = load i64, ptr %9, align 8, !tbaa !42
   %124 = add i64 %123, 1
@@ -31424,9 +31424,9 @@ _ZNSt8_Rb_treeISt4pairImmES0_IKS1_iESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Au
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16, %95, %.thread.i26, %126, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i, %46, %.thread.i, %77
-  %.sroa.06.0.i17.sink = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %.19.i.i.i.i, %46 ], [ %51, %.thread.i ], [ %56, %77 ], [ %.19.i.i.i.i12, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %.19.i.i.i.i12, %95 ], [ %100, %.thread.i26 ], [ %105, %126 ]
-  %.1345.sink = phi i32 [ -1, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ -1, %46 ], [ -1, %.thread.i ], [ -1, %77 ], [ %.1345, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %.1345, %95 ], [ %.1345, %.thread.i26 ], [ %.1345, %126 ]
-  %.2.ph = phi i32 [ %.1345, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %.1345, %46 ], [ %.1345, %.thread.i ], [ %.1345, %77 ], [ %79, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %79, %95 ], [ %79, %.thread.i26 ], [ %79, %126 ]
+  %.sroa.06.0.i17.sink = phi ptr [ %56, %77 ], [ %.19.i.i.i.i, %46 ], [ %.19.i.i.i.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %51, %.thread.i ], [ %.19.i.i.i.i12, %95 ], [ %.19.i.i.i.i12, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %100, %.thread.i26 ], [ %105, %126 ]
+  %.1345.sink = phi i32 [ -1, %77 ], [ -1, %46 ], [ -1, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ -1, %.thread.i ], [ %.1345, %95 ], [ %.1345, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %.1345, %.thread.i26 ], [ %.1345, %126 ]
+  %.2.ph = phi i32 [ %.1345, %77 ], [ %.1345, %46 ], [ %.1345, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i ], [ %.1345, %.thread.i ], [ %79, %95 ], [ %79, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i16 ], [ %79, %.thread.i26 ], [ %79, %126 ]
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i17.sink, i64 48
   store i32 %.1345.sink, ptr %127, align 4, !tbaa !99
   br label %128
@@ -32882,8 +32882,8 @@ _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50: ; preds = %_ZNKSt4lessIS
   br label %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread
 
 _ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.thread:  ; preds = %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i49, %._crit_edge.i46.thread, %._crit_edge.thread.i55, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i26, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i25, %._crit_edge.i22.thread, %._crit_edge.thread.i31, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i, %._crit_edge.i.thread, %._crit_edge.thread.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit35.thread, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit11.thread, %9, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34.thread, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit10.thread, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit
-  %.sroa.078.0 = phi ptr [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit ], [ %65, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit10.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34.thread ], [ %1, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34 ], [ null, %9 ], [ %spec.select, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit11.thread ], [ %spec.select93, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit35.thread ], [ %.sroa.06.0.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i ], [ null, %._crit_edge.thread.i ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i ], [ null, %._crit_edge.i.thread ], [ %.sroa.06.0.i24, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i26 ], [ null, %._crit_edge.thread.i31 ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i25 ], [ null, %._crit_edge.i22.thread ], [ %.sroa.06.0.i48, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50 ], [ null, %._crit_edge.thread.i55 ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i49 ], [ null, %._crit_edge.i46.thread ]
-  %.sroa.12.0 = phi ptr [ %11, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit ], [ %65, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit10.thread ], [ %113, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34 ], [ %11, %9 ], [ %spec.select92, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit11.thread ], [ %spec.select94, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit35.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i ], [ %.020.lcssa34.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i ], [ %.020.lcssa33.i, %._crit_edge.i.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i26 ], [ %.020.lcssa34.i32, %._crit_edge.thread.i31 ], [ %.020.lcssa33.i23, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i25 ], [ %.020.lcssa33.i23, %._crit_edge.i22.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50 ], [ %.020.lcssa34.i56, %._crit_edge.thread.i55 ], [ %.020.lcssa33.i47, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i49 ], [ %.020.lcssa33.i47, %._crit_edge.i46.thread ]
+  %.sroa.078.0 = phi ptr [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34.thread ], [ %spec.select, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit11.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit ], [ %spec.select93, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit35.thread ], [ %1, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34 ], [ null, %._crit_edge.i.thread ], [ %65, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit10.thread ], [ null, %9 ], [ null, %._crit_edge.i22.thread ], [ %.sroa.06.0.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i ], [ null, %._crit_edge.thread.i ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i ], [ %.sroa.06.0.i24, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i26 ], [ null, %._crit_edge.thread.i31 ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i25 ], [ %.sroa.06.0.i48, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50 ], [ null, %._crit_edge.thread.i55 ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i49 ], [ null, %._crit_edge.i46.thread ]
+  %.sroa.12.0 = phi ptr [ %113, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34.thread ], [ %spec.select92, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit11.thread ], [ %11, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit ], [ %spec.select94, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit35.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit34 ], [ %.020.lcssa33.i, %._crit_edge.i.thread ], [ %65, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit10.thread ], [ %11, %9 ], [ %.020.lcssa33.i23, %._crit_edge.i22.thread ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i ], [ %.020.lcssa34.i, %._crit_edge.thread.i ], [ %.020.lcssa33.i, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i26 ], [ %.020.lcssa34.i32, %._crit_edge.thread.i31 ], [ %.020.lcssa33.i23, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i25 ], [ null, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.thread23.i50 ], [ %.020.lcssa34.i56, %._crit_edge.thread.i55 ], [ %.020.lcssa33.i47, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit5.i49 ], [ %.020.lcssa33.i47, %._crit_edge.i46.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -32929,7 +32929,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !545
   br label %41
 
@@ -33322,7 +33322,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -33331,7 +33331,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -34653,7 +34653,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -34662,7 +34662,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -35853,7 +35853,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %65 unwind label %66
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESE_EUlmNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %52, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %52, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %39, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %39, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %52, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %52, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %39, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %39, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESE_EUlmNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -35862,7 +35862,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPK
   ret void
 
 65:                                               ; preds = %62, %60, %47
-  %.merged = phi { ptr, i32 } [ %32, %47 ], [ %61, %60 ], [ %63, %62 ]
+  %.merged = phi { ptr, i32 } [ %61, %60 ], [ %32, %47 ], [ %63, %62 ]
   resume { ptr, i32 } %.merged
 
 66:                                               ; preds = %62, %60
@@ -36409,7 +36409,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESE_EUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIiSaIiEESE_EUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -36418,7 +36418,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree16HistogramBuilder13SyncHistogramEPK
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -36900,7 +36900,7 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i: ; preds = %73, %69, %67
   br label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit
 
 _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i, %83
-  %.0.i5 = phi float [ %82, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i ], [ %93, %83 ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit ]
+  %.0.i5 = phi float [ %93, %83 ], [ %82, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit ]
   ret float %.0.i5
 }
 
@@ -37039,7 +37039,7 @@ define linkonce_odr void @_ZNSt14priority_queueIN7xgboost4tree14CPUExpandEntryES
   unreachable
 
 common.resume:                                    ; preds = %73, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit4.i, %14, %17
-  %common.resume.op = phi { ptr, i32 } [ %15, %17 ], [ %15, %14 ], [ %48, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit4.i ], [ %48, %73 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %17 ], [ %48, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbN7xgboost4tree14CPUExpandEntryES5_EEED2Ev.exit4.i ], [ %48, %73 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbN7xgboost4tree14CPUExpandEntryES2_EEC2ERKS4_.exit: ; preds = %11
@@ -37325,7 +37325,7 @@ _ZN7xgboost4tree14CPUExpandEntryD2Ev.exit5:       ; preds = %59, %_ZN9__gnu_cxx5
   unreachable
 
 .body:                                            ; preds = %67, %64, %46, %43
-  %.pn = phi { ptr, i32 } [ %44, %46 ], [ %44, %43 ], [ %65, %64 ], [ %65, %67 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %65, %67 ], [ %44, %46 ], [ %65, %64 ]
   %72 = load ptr, ptr %30, align 8, !tbaa !449
   %.not.i.i.i.i.i8 = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i.i8, label %_ZN7xgboost4tree14CPUExpandEntryD2Ev.exit11, label %73
@@ -38158,7 +38158,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %66
   ret void
 
 .body:                                            ; preds = %71, %68, %64, %60, %56, %50, %46, %40
-  %.pn52 = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ], [ %51, %50 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %71 ], [ %69, %68 ]
+  %.pn52 = phi { ptr, i32 } [ %65, %64 ], [ %41, %40 ], [ %47, %46 ], [ %51, %50 ], [ %57, %56 ], [ %61, %60 ], [ %69, %68 ], [ %69, %71 ]
   %72 = load ptr, ptr %11, align 8, !tbaa !684
   %.not.i.i66 = icmp eq ptr %72, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %73
@@ -38379,7 +38379,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit15: ; preds = %_ZNSt15__exception_
           to label %43 unwind label %44
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15
-  %.sink = phi ptr [ %29, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15 ], [ %29, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11 ], [ %16, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %16, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %29, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11 ], [ %29, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15 ], [ %16, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %16, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %42
@@ -38388,7 +38388,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit15: ; preds = %_ZNSt15__exception_
   ret void
 
 43:                                               ; preds = %39, %37, %24
-  %.merged = phi { ptr, i32 } [ %9, %24 ], [ %38, %37 ], [ %40, %39 ]
+  %.merged = phi { ptr, i32 } [ %38, %37 ], [ %9, %24 ], [ %40, %39 ]
   resume { ptr, i32 } %.merged
 
 44:                                               ; preds = %39, %37
@@ -42882,7 +42882,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -42891,7 +42891,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -43156,7 +43156,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   br label %97
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %119, %108, %116
-  %.sink = phi ptr [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %85 = load i64, ptr %84, align 8, !tbaa !1443
   %86 = sub i64 %100, %85
   %87 = lshr i64 %86, 3
@@ -43299,7 +43299,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %150
   br i1 %.not24.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterItLb1EEERZNS2_8MaskRowsItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %.noexc, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i ], [ %10, %.noexc ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %.noexc ]
   %176 = lshr i64 %188, 3
   %177 = and i64 %188, 7
   %178 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -44104,7 +44104,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -44113,7 +44113,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -44653,7 +44653,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -44662,7 +44662,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -45038,7 +45038,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %160, %149, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %170, %160 ], [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %159, %149 ]
+  %.0.i.i = phi i8 [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %170, %160 ], [ %159, %149 ]
   %171 = trunc i8 %.0.i.i to i1
   br i1 %171, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %174
 
@@ -45434,8 +45434,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnItEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %326, %267, %126, %269, %210, %125, %383
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.120.i, %126 ], [ %.1.i92, %267 ], [ %.1.i109, %326 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i, %126 ], [ %.128.i, %267 ], [ %.128.i108, %326 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i92, %267 ], [ %.120.i, %126 ], [ %.1.i109, %326 ]
+  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i, %267 ], [ %.1.i, %126 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
   %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
@@ -46024,7 +46024,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -46033,7 +46033,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -49591,7 +49591,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -49600,7 +49600,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -49865,7 +49865,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   br label %97
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %119, %108, %116
-  %.sink = phi ptr [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %85 = load i64, ptr %84, align 8, !tbaa !1443
   %86 = sub i64 %100, %85
   %87 = lshr i64 %86, 3
@@ -50008,7 +50008,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %150
   br i1 %.not24.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterIjLb1EEERZNS2_8MaskRowsIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %.noexc, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i ], [ %10, %.noexc ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %.noexc ]
   %176 = lshr i64 %188, 3
   %177 = and i64 %188, 7
   %178 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -50524,7 +50524,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -50533,7 +50533,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -50768,7 +50768,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -50777,7 +50777,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -51153,7 +51153,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %160, %149, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %170, %160 ], [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %159, %149 ]
+  %.0.i.i = phi i8 [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %170, %160 ], [ %159, %149 ]
   %171 = trunc i8 %.0.i.i to i1
   br i1 %171, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %174
 
@@ -51547,8 +51547,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIjEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %324, %266, %126, %268, %210, %125, %381
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.120.i, %126 ], [ %.1.i92, %266 ], [ %.1.i109, %324 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.1.i, %126 ], [ %.128.i, %266 ], [ %.128.i108, %324 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.1.i92, %266 ], [ %.120.i, %126 ], [ %.1.i109, %324 ]
+  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %381 ], [ 0, %125 ], [ 0, %210 ], [ 0, %268 ], [ %.128.i, %266 ], [ %.1.i, %126 ], [ %.128.i108, %324 ]
   %382 = load ptr, ptr %21, align 8, !tbaa !168
   %383 = getelementptr inbounds nuw i64, ptr %382, i64 %22
   %384 = load i64, ptr %383, align 8, !tbaa !44
@@ -52135,7 +52135,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -52144,7 +52144,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -54788,7 +54788,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -54797,7 +54797,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -55066,7 +55066,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   br label %101
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %123, %112, %120
-  %.sink = phi ptr [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %89 = load i64, ptr %88, align 8, !tbaa !1443
   %90 = sub i64 %104, %89
   %91 = lshr i64 %90, 3
@@ -55815,7 +55815,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -55824,7 +55824,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -56059,7 +56059,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -56068,7 +56068,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -56448,7 +56448,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %164, %153, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %174, %164 ], [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %163, %153 ]
+  %.0.i.i = phi i8 [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %174, %164 ], [ %163, %153 ]
   %175 = trunc i8 %.0.i.i to i1
   br i1 %175, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %178
 
@@ -56957,8 +56957,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !1864
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %411, %357, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.120.i, %130 ], [ %.1.i104, %357 ], [ %.1.i124, %411 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.1.i, %130 ], [ %.124.i, %357 ], [ %.124.i123, %411 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ %.1.i124, %411 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
   %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
@@ -57569,7 +57569,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -57578,7 +57578,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -60111,7 +60111,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -60120,7 +60120,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -60389,7 +60389,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   br label %101
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %123, %112, %120
-  %.sink = phi ptr [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %89 = load i64, ptr %88, align 8, !tbaa !1443
   %90 = sub i64 %104, %89
   %91 = lshr i64 %90, 3
@@ -61137,7 +61137,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -61146,7 +61146,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -61381,7 +61381,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -61390,7 +61390,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -61770,7 +61770,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %164, %153, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %174, %164 ], [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %163, %153 ]
+  %.0.i.i = phi i8 [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %174, %164 ], [ %163, %153 ]
   %175 = trunc i8 %.0.i.i to i1
   br i1 %175, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %178
 
@@ -62279,8 +62279,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !2014
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %411, %357, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.120.i, %130 ], [ %.1.i104, %357 ], [ %.1.i124, %411 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.1.i, %130 ], [ %.124.i, %357 ], [ %.124.i123, %411 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %357 ], [ %.120.i, %130 ], [ %.1.i124, %411 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %357 ], [ %.1.i, %130 ], [ %.124.i123, %411 ]
   %413 = load ptr, ptr %25, align 8, !tbaa !168
   %414 = getelementptr inbounds nuw i64, ptr %413, i64 %26
   %415 = load i64, ptr %414, align 8, !tbaa !44
@@ -62891,7 +62891,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -62900,7 +62900,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -65433,7 +65433,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -65442,7 +65442,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -65711,7 +65711,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %75
   br label %101
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %123, %112, %120
-  %.sink = phi ptr [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %120 ], [ %10, %112 ], [ %10, %123 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %89 = load i64, ptr %88, align 8, !tbaa !1443
   %90 = sub i64 %104, %89
   %91 = lshr i64 %90, 3
@@ -66457,7 +66457,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -66466,7 +66466,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -66701,7 +66701,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -66710,7 +66710,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -67090,7 +67090,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %164, %153, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %174, %164 ], [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %163, %153 ]
+  %.0.i.i = phi i8 [ %137, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %174, %164 ], [ %163, %153 ]
   %175 = trunc i8 %.0.i.i to i1
   br i1 %175, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %178
 
@@ -67597,8 +67597,8 @@ _ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit.i.thread
   br i1 %exitcond.not.i125, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i114, !llvm.loop !2163
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %409, %356, %130, %129, %228
-  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.120.i, %130 ], [ %.1.i104, %356 ], [ %.1.i124, %409 ]
-  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.1.i, %130 ], [ %.124.i, %356 ], [ %.124.i123, %409 ]
+  %.sroa.10169.0 = phi i64 [ %.sroa.10169.1, %228 ], [ 0, %129 ], [ %.1.i104, %356 ], [ %.120.i, %130 ], [ %.1.i124, %409 ]
+  %.sroa.0168.0 = phi i64 [ %.sroa.0168.1, %228 ], [ 0, %129 ], [ %.124.i, %356 ], [ %.1.i, %130 ], [ %.124.i123, %409 ]
   %411 = load ptr, ptr %25, align 8, !tbaa !168
   %412 = getelementptr inbounds nuw i64, ptr %411, i64 %26
   %413 = load i64, ptr %412, align 8, !tbaa !44
@@ -68205,7 +68205,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -68214,7 +68214,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -70858,7 +70858,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -70867,7 +70867,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -71118,7 +71118,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   br label %90
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %108, %101, %105
-  %.sink = phi ptr [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %78 = load i64, ptr %77, align 8, !tbaa !1443
   %79 = sub i64 %93, %78
   %80 = lshr i64 %79, 3
@@ -71239,7 +71239,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %130
   br i1 %.not25.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterIhLb1EEERZNS2_8MaskRowsIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %183, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i ], [ %10, %183 ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %183 ]
   %156 = lshr i64 %168, 3
   %157 = and i64 %168, 7
   %158 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -71576,7 +71576,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -71585,7 +71585,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -71820,7 +71820,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -71829,7 +71829,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -72549,8 +72549,8 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.thread.i138: ; preds = %319, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2307
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %337, %310, %236, %207, %107, %209, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i126, %310 ], [ %.1.i140, %337 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i125, %310 ], [ %.128.i139, %337 ]
+  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i126, %310 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i140, %337 ]
+  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i125, %310 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
   %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
@@ -72816,7 +72816,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -72825,7 +72825,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -75358,7 +75358,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -75367,7 +75367,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -75618,7 +75618,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   br label %90
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %108, %101, %105
-  %.sink = phi ptr [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %78 = load i64, ptr %77, align 8, !tbaa !1443
   %79 = sub i64 %93, %78
   %80 = lshr i64 %79, 3
@@ -75739,7 +75739,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnItLb1EEEDaj.exit: ; preds = %130
   br i1 %.not25.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterItLb1EEERZNS2_8MaskRowsItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %183, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i ], [ %10, %183 ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %183 ]
   %156 = lshr i64 %168, 3
   %157 = and i64 %168, 7
   %158 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -76071,7 +76071,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -76080,7 +76080,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -76315,7 +76315,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -76324,7 +76324,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -77044,8 +77044,8 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.thread.i138: ; preds = %319, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2434
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %337, %310, %236, %207, %107, %209, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i126, %310 ], [ %.1.i140, %337 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i125, %310 ], [ %.128.i139, %337 ]
+  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.1.i126, %310 ], [ %.120.i, %107 ], [ %.1.i92, %207 ], [ %.1.i105, %236 ], [ %.1.i140, %337 ]
+  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %209 ], [ %.128.i125, %310 ], [ %.1.i, %107 ], [ %.128.i, %207 ], [ %.128.i104, %236 ], [ %.128.i139, %337 ]
   %339 = load ptr, ptr %12, align 8, !tbaa !168
   %340 = getelementptr inbounds nuw i64, ptr %339, i64 %13
   %341 = load i64, ptr %340, align 8, !tbaa !44
@@ -77311,7 +77311,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -77320,7 +77320,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -79853,7 +79853,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -79862,7 +79862,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -80113,7 +80113,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %64
   br label %90
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %108, %101, %105
-  %.sink = phi ptr [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %105 ], [ %10, %101 ], [ %10, %108 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %78 = load i64, ptr %77, align 8, !tbaa !1443
   %79 = sub i64 %93, %78
   %80 = lshr i64 %79, 3
@@ -80234,7 +80234,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIjLb1EEEDaj.exit: ; preds = %130
   br i1 %.not25.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterIjLb1EEERZNS2_8MaskRowsIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %182, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i ], [ %10, %182 ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %182 ]
   %156 = lshr i64 %168, 3
   %157 = and i64 %168, 7
   %158 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -80564,7 +80564,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -80573,7 +80573,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -80808,7 +80808,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -80817,7 +80817,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -81533,8 +81533,8 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.thread.i138: ; preds = %316, %_
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i134, !llvm.loop !2561
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb1ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %333, %307, %234, %206, %107, %208, %180, %105
-  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.120.i, %107 ], [ %.1.i92, %206 ], [ %.1.i105, %234 ], [ %.1.i126, %307 ], [ %.1.i140, %333 ]
-  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.1.i, %107 ], [ %.128.i, %206 ], [ %.128.i104, %234 ], [ %.128.i125, %307 ], [ %.128.i139, %333 ]
+  %.sroa.10193.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.1.i126, %307 ], [ %.120.i, %107 ], [ %.1.i92, %206 ], [ %.1.i105, %234 ], [ %.1.i140, %333 ]
+  %.sroa.0192.0 = phi i64 [ 0, %105 ], [ 0, %180 ], [ 0, %208 ], [ %.128.i125, %307 ], [ %.1.i, %107 ], [ %.128.i, %206 ], [ %.128.i104, %234 ], [ %.128.i139, %333 ]
   %335 = load ptr, ptr %12, align 8, !tbaa !168
   %336 = getelementptr inbounds nuw i64, ptr %335, i64 %13
   %337 = load i64, ptr %336, align 8, !tbaa !44
@@ -81800,7 +81800,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb1ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -81809,7 +81809,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -84453,7 +84453,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -84462,7 +84462,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -84717,7 +84717,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   br label %94
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %112, %105, %109
-  %.sink = phi ptr [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %82 = load i64, ptr %81, align 8, !tbaa !1443
   %83 = sub i64 %97, %82
   %84 = lshr i64 %83, 3
@@ -85246,7 +85246,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -85255,7 +85255,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -85490,7 +85490,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -85499,7 +85499,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -86252,8 +86252,8 @@ _ZN7xgboost6common16SparseColumnIterIhEixEm.exit.i136: ; preds = %317, %321, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2693
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %332, %308, %213, %197, %111, %199, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i125, %308 ], [ %.1.i140, %332 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i124, %308 ], [ %.123.i139, %332 ]
+  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i125, %308 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i140, %332 ]
+  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i124, %308 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
   %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
@@ -86526,7 +86526,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -86535,7 +86535,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -89068,7 +89068,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -89077,7 +89077,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionItLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -89332,7 +89332,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   br label %94
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %112, %105, %109
-  %.sink = phi ptr [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %82 = load i64, ptr %81, align 8, !tbaa !1443
   %83 = sub i64 %97, %82
   %84 = lshr i64 %83, 3
@@ -89861,7 +89861,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -89870,7 +89870,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -90105,7 +90105,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -90114,7 +90114,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -90867,8 +90867,8 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i136: ; preds = %317, %321, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2820
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionItLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %332, %308, %213, %197, %111, %199, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i125, %308 ], [ %.1.i140, %332 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i124, %308 ], [ %.123.i139, %332 ]
+  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.1.i125, %308 ], [ %.120.i, %111 ], [ %.1.i92, %197 ], [ %.1.i103, %213 ], [ %.1.i140, %332 ]
+  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %199 ], [ %.123.i124, %308 ], [ %.1.i, %111 ], [ %.123.i, %197 ], [ %.123.i102, %213 ], [ %.123.i139, %332 ]
   %334 = load ptr, ptr %16, align 8, !tbaa !168
   %335 = getelementptr inbounds nuw i64, ptr %334, i64 %17
   %336 = load i64, ptr %335, align 8, !tbaa !44
@@ -91141,7 +91141,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionItLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -91150,7 +91150,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -93683,7 +93683,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -93692,7 +93692,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIjLb0EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -93947,7 +93947,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %68
   br label %94
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %112, %105, %109
-  %.sink = phi ptr [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %109 ], [ %10, %105 ], [ %10, %112 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %82 = load i64, ptr %81, align 8, !tbaa !1443
   %83 = sub i64 %97, %82
   %84 = lshr i64 %83, 3
@@ -94474,7 +94474,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -94483,7 +94483,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -94718,7 +94718,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -94727,7 +94727,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -95476,8 +95476,8 @@ _ZN7xgboost6common16SparseColumnIterIjEixEm.exit.i136: ; preds = %314, %318, %31
   br i1 %exitcond.not.i141, label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit, label %.lr.ph.i132, !llvm.loop !2947
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIjLb0ELb0ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %328, %305, %211, %196, %111, %198, %183, %109
-  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.120.i, %111 ], [ %.1.i92, %196 ], [ %.1.i103, %211 ], [ %.1.i125, %305 ], [ %.1.i140, %328 ]
-  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.1.i, %111 ], [ %.123.i, %196 ], [ %.123.i102, %211 ], [ %.123.i124, %305 ], [ %.123.i139, %328 ]
+  %.sroa.10189.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.1.i125, %305 ], [ %.120.i, %111 ], [ %.1.i92, %196 ], [ %.1.i103, %211 ], [ %.1.i140, %328 ]
+  %.sroa.0188.0 = phi i64 [ 0, %109 ], [ 0, %183 ], [ 0, %198 ], [ %.123.i124, %305 ], [ %.1.i, %111 ], [ %.123.i, %196 ], [ %.123.i102, %211 ], [ %.123.i139, %328 ]
   %330 = load ptr, ptr %16, align 8, !tbaa !168
   %331 = getelementptr inbounds nuw i64, ptr %330, i64 %17
   %332 = load i64, ptr %331, align 8, !tbaa !44
@@ -95750,7 +95750,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIjLb0ELb0ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -95759,7 +95759,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -97852,7 +97852,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS0_14BlockedSpace2dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISJ_EERKSI_IiSaIiEEPKNS_7RegTreeEEUlmNS0_7Range1dEE_EEvSB_iOT_ENKUlvE_clEv.exit
@@ -97861,7 +97861,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree17ColumnSplitHelper9PartitionIhLb1EL
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -98126,7 +98126,7 @@ _ZNK7xgboost7RegTree8NodeCatsEi.exit:             ; preds = %71
   br label %97
 
 .sink.split:                                      ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit, %119, %108, %116
-  %.sink = phi ptr [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
+  %.sink = phi ptr [ %10, %_ZN7xgboost6common8DecisionENS0_4SpanIKjLm18446744073709551615EEEf.exit ], [ %10, %116 ], [ %10, %108 ], [ %10, %119 ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit ]
   %85 = load i64, ptr %84, align 8, !tbaa !1443
   %86 = sub i64 %100, %85
   %87 = lshr i64 %86, 3
@@ -98269,7 +98269,7 @@ _ZNK7xgboost6common12ColumnMatrix11DenseColumnIhLb1EEEDaj.exit: ; preds = %150
   br i1 %.not24.i, label %_ZN7xgboost6common16PartitionBuilderILm2048EE10MaskKernelILb1ENS0_15DenseColumnIterIhLb1EEERZNS2_8MaskRowsIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaISA_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmPNS_17BitFieldContainerIhNS_11RBitsPolicyIhEELb0EEESV_EUlT_T0_E_EEvPSX_NS0_4SpanISP_Lm18446744073709551615EEEmSV_SV_OT1_.exit, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
 
 .sink.split.i:                                    ; preds = %.noexc, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %11, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i ], [ %10, %.noexc ]
+  %.sink.i = phi ptr [ %11, %_ZNK7xgboost6common15DenseColumnIterIhLb1EEixEm.exit.i ], [ %11, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %10, %.noexc ]
   %176 = lshr i64 %188, 3
   %177 = and i64 %188, 7
   %178 = load ptr, ptr %.sink.i, align 8, !tbaa !1444
@@ -98781,7 +98781,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -98790,7 +98790,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -99025,7 +99025,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -99034,7 +99034,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36
@@ -99410,7 +99410,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb
   br label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i
 
 _ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.i: ; preds = %160, %149, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i
-  %.0.i.i = phi i8 [ %170, %160 ], [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %159, %149 ]
+  %.0.i.i = phi i8 [ %133, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm18446744073709551615EEELb0EEdeEv.exit.i ], [ %170, %160 ], [ %159, %149 ]
   %171 = trunc i8 %.0.i.i to i1
   br i1 %171, label %_ZZN7xgboost6common16PartitionBuilderILm2048EE9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS7_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmENKUlT_E_clImEEDaSO_.exit.thread.i, label %174
 
@@ -99806,8 +99806,8 @@ _ZNK7xgboost6common12ColumnMatrix12SparseColumnIhEEDajm.exit: ; preds = %_ZSt7ad
   br label %_ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit
 
 _ZN7xgboost6common16PartitionBuilderILm2048EE20PartitionRangeKernelIZNS2_9PartitionIhLb1ELb1ENS_4tree14CPUExpandEntryEEEvmRKSt6vectorIT2_SaIS8_EENS0_7Range1dEiRKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKNS_7RegTreeEPKmEUlT_E_EESt4pairImmENS0_4SpanISN_Lm18446744073709551615EEENST_ImLm18446744073709551615EEESV_SP_.exit: ; preds = %326, %267, %126, %269, %210, %125, %383
-  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.120.i, %126 ], [ %.1.i92, %267 ], [ %.1.i109, %326 ]
-  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i, %126 ], [ %.128.i, %267 ], [ %.128.i108, %326 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.1.i92, %267 ], [ %.120.i, %126 ], [ %.1.i109, %326 ]
+  %.sroa.0167.0 = phi i64 [ %.sroa.0167.2, %383 ], [ 0, %125 ], [ 0, %210 ], [ 0, %269 ], [ %.128.i, %267 ], [ %.1.i, %126 ], [ %.128.i108, %326 ]
   %384 = load ptr, ptr %21, align 8, !tbaa !168
   %385 = getelementptr inbounds nuw i64, ptr %384, i64 %22
   %386 = load i64, ptr %385, align 8, !tbaa !44
@@ -100396,7 +100396,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %98 unwind label %99
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %85, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %85, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %72, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %72, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositionIhLb1ELb1ENS2_14CPUExpandEntryEEEvPKNS_7ContextERKNS_16GHistIndexMatrixERKNS0_12ColumnMatrixERKSt6vectorIT2_SaISG_EEPKNS_7RegTreeEEUlmNS0_7Range1dEE0_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -100405,7 +100405,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree20CommonRowPartitioner14UpdatePositi
   ret void
 
 98:                                               ; preds = %95, %93, %80
-  %.merged = phi { ptr, i32 } [ %65, %80 ], [ %94, %93 ], [ %96, %95 ]
+  %.merged = phi { ptr, i32 } [ %94, %93 ], [ %65, %80 ], [ %96, %95 ]
   resume { ptr, i32 } %.merged
 
 99:                                               ; preds = %95, %93
@@ -100509,11 +100509,11 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85: ; preds = %.noexc90
   br label %56
 
 56:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85, %.noexc90, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88
-  %57 = phi ptr [ %51, %.noexc90 ], [ %51, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ]
-  %58 = phi ptr [ %41, %.noexc90 ], [ %41, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ]
-  %59 = phi ptr [ %50, %.noexc90 ], [ %50, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ], [ %48, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ]
-  %.0.i.i.i.i.i184 = phi ptr [ %.0.i.i.i.i.i.ph, %.noexc90 ], [ %.0.i.i.i.i.i.ph, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ]
-  %.0.i.i.i.i.i87 = phi ptr [ %54, %.noexc90 ], [ %55, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ]
+  %57 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ], [ %51, %.noexc90 ], [ %51, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ]
+  %58 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ], [ %41, %.noexc90 ], [ %41, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ]
+  %59 = phi ptr [ %48, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ], [ %50, %.noexc90 ], [ %50, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ]
+  %.0.i.i.i.i.i184 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ], [ %.0.i.i.i.i.i.ph, %.noexc90 ], [ %.0.i.i.i.i.i.ph, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ]
+  %.0.i.i.i.i.i87 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i88 ], [ %54, %.noexc90 ], [ %55, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i85 ]
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.i.i.i.i.i87, ptr %60, align 8, !tbaa !545
   %61 = ptrtoint ptr %.0.i.i.i.i.i184 to i64
@@ -101404,7 +101404,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %391
 
 391:                                              ; preds = %388, %389, %308, %334, %287
-  %.pn65.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %.pn59.pn, %334 ], [ %309, %308 ], [ %390, %389 ], [ %.pn62.pn, %388 ]
+  %.pn65.pn.pn = phi { ptr, i32 } [ %288, %287 ], [ %309, %308 ], [ %.pn59.pn, %334 ], [ %390, %389 ], [ %.pn62.pn, %388 ]
   call void @_ZN7xgboost13BatchIteratorINS_16GHistIndexMatrixEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #22
   br label %.body
 
@@ -101701,7 +101701,7 @@ _ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairI
   %.not = icmp slt i32 %2, %43
   br i1 %.not, label %_ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairIKiS4_EEE5countERS8_.exit.thread, label %147
 
-_ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairIKiS4_EEE5countERS8_.exit.thread: ; preds = %33, %_ZNKSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairIKiS4_EEE5countERS8_.exit
+_ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairIKiS4_EEE5countERS8_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %33, %_ZNKSt3mapIiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEESt4lessIiESaISt4pairIKiS4_EEE5countERS8_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %44 = load ptr, ptr %1, align 8, !tbaa !654
   store ptr %44, ptr %12, align 8, !tbaa !654
@@ -103461,7 +103461,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgboost16Hos
   br label %.thread
 
 .thread:                                          ; preds = %18, %21
-  %26 = phi i1 [ true, %18 ], [ %25, %21 ]
+  %26 = phi i1 [ %25, %21 ], [ true, %18 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !42
@@ -103741,8 +103741,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgb
   br label %_ZNSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt10shared_ptrIN7xgboost16HostDeviceVectorIjEEEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -103989,7 +103989,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit18: ; preds = %_ZNSt15__exception_
           to label %63 unwind label %64
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree13HistEvaluator14EvaluateSplitsERKNS2_21BoundedHistCollectionERKNS0_13HistogramCutsENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS2_14CPUExpandEntryESaISI_EEEUlmNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18
-  %.sink = phi ptr [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %50, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit14 ], [ %50, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit18 ], [ %37, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %37, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %62 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree13HistEvaluator14EvaluateSplitsERKNS2_21BoundedHistCollectionERKNS0_13HistogramCutsENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEERKNS_7RegTreeEPSt6vectorINS2_14CPUExpandEntryESaISI_EEEUlmNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOT_ENKUlvE_clEv.exit
@@ -103998,7 +103998,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree13HistEvaluator14EvaluateSplitsERKNS
   ret void
 
 63:                                               ; preds = %60, %58, %45
-  %.merged = phi { ptr, i32 } [ %30, %45 ], [ %59, %58 ], [ %61, %60 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %30, %45 ], [ %61, %60 ]
   resume { ptr, i32 } %.merged
 
 64:                                               ; preds = %60, %58
@@ -104408,7 +104408,7 @@ _ZNSt6vectorImSaImEED2Ev.exit62:                  ; preds = %171, %.body
   %190 = call { double, double } @_ZNK7xgboost4tree13HistEvaluator14EnumerateSplitILin1EEENS0_9GradStatsERKNS_6common13HistogramCutsENS4_4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEEjiRKNS0_13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEEEPNS0_19SplitEntryContainerIS3_EE(ptr noundef nonnull align 8 dereferenceable(208) %8, ptr noundef nonnull align 8 dereferenceable(32) %188, i64 %23, ptr %24, i32 noundef %54, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull %17)
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %80, %..loopexit_crit_edge21.i.i.i.i.i, %85, %167, %166, %128, %187, %174
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %80, %85, %..loopexit_crit_edge21.i.i.i.i.i, %167, %166, %128, %187, %174
   %191 = add nuw i64 %.0137, 1
   %exitcond.not = icmp eq i64 %191, %3
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !3166
@@ -104688,14 +104688,14 @@ define linkonce_odr void @_ZNK7xgboost4tree13HistEvaluator15EnumerateOneHotERKNS
 109:                                              ; preds = %104
   %110 = and i32 %80, 2147483647
   %.not.i.i = icmp ugt i32 %110, %4
-  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %111
+  br i1 %.not.i.i, label %111, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 111:                                              ; preds = %109
-  %112 = fcmp ogt float %106, %79
+  %112 = fcmp ule float %79, %106
   br i1 %112, label %114, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %109
-  %113 = fcmp ule float %79, %106
+  %113 = fcmp ogt float %106, %79
   br i1 %113, label %114, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 114:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %111
@@ -104760,17 +104760,17 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
 143:                                              ; preds = %138
   %144 = and i32 %120, 2147483647
   %.not.i.i58 = icmp ugt i32 %144, %4
-  br i1 %.not.i.i58, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60, label %145
+  br i1 %.not.i.i58, label %145, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59
 
 145:                                              ; preds = %143
-  %146 = fcmp ogt float %140, %119
+  %146 = fcmp ule float %119, %140
   br i1 %146, label %148, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61
 
-_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60: ; preds = %143
-  %147 = fcmp ule float %119, %140
+_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59: ; preds = %143
+  %147 = fcmp ogt float %140, %119
   br i1 %147, label %148, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61
 
-148:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60, %145
+148:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59, %145
   store float %140, ptr %9, align 8, !tbaa !548
   store i32 %4, ptr %28, align 4, !tbaa !554
   store float %83, ptr %29, align 8, !tbaa !555
@@ -104788,13 +104788,13 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %207
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61: ; preds = %148, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60, %145, %138, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
-  %151 = phi float [ %83, %148 ], [ %117, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %117, %145 ], [ %117, %138 ], [ %117, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %152 = phi i8 [ 1, %148 ], [ %118, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %118, %145 ], [ %118, %138 ], [ %118, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %153 = phi float [ %140, %148 ], [ %119, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %119, %145 ], [ %119, %138 ], [ %119, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %154 = phi i32 [ %4, %148 ], [ %120, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %120, %145 ], [ %120, %138 ], [ %120, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %155 = phi float [ %140, %148 ], [ %119, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %119, %145 ], [ %121, %138 ], [ %121, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
-  %156 = phi i32 [ %4, %148 ], [ %120, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i60 ], [ %120, %145 ], [ %122, %138 ], [ %122, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit61: ; preds = %148, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59, %145, %138, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
+  %151 = phi float [ %83, %148 ], [ %117, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %117, %145 ], [ %117, %138 ], [ %117, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %152 = phi i8 [ 1, %148 ], [ %118, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %118, %145 ], [ %118, %138 ], [ %118, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %153 = phi float [ %140, %148 ], [ %119, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %119, %145 ], [ %119, %138 ], [ %119, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %154 = phi i32 [ %4, %148 ], [ %120, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %120, %145 ], [ %120, %138 ], [ %120, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %155 = phi float [ %140, %148 ], [ %119, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %119, %145 ], [ %121, %138 ], [ %121, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
+  %156 = phi i32 [ %4, %148 ], [ %120, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i59 ], [ %120, %145 ], [ %122, %138 ], [ %122, %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %157 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %26, %157
@@ -104854,14 +104854,14 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %186 = and i32 %185, 2147483647
   %.not.i.i63 = icmp samesign ugt i32 %186, %183
   %187 = load float, ptr %7, align 8, !tbaa !548
-  br i1 %.not.i.i63, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i64, label %188
+  br i1 %.not.i.i63, label %188, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i64
 
 188:                                              ; preds = %182
-  %189 = fcmp ogt float %179, %187
+  %189 = fcmp ule float %187, %179
   br i1 %189, label %191, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i64: ; preds = %182
-  %190 = fcmp ule float %187, %179
+  %190 = fcmp ogt float %179, %187
   br i1 %190, label %191, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 191:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i64, %188
@@ -104904,7 +104904,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %_ZN7
   ret void
 
 207:                                              ; preds = %115, %149, %174, %72
-  %.pn49.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %175, %174 ], [ %116, %115 ], [ %150, %149 ]
+  %.pn49.pn.pn.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %116, %115 ], [ %175, %174 ], [ %73, %72 ]
   %208 = load ptr, ptr %30, align 8, !tbaa !449
   %.not.i.i.i.i66 = icmp eq ptr %208, null
   br i1 %.not.i.i.i.i66, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit67, label %209
@@ -105086,14 +105086,14 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
 102:                                              ; preds = %96
   %103 = and i32 %71, 2147483647
   %.not.i.i = icmp ugt i32 %103, %6
-  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %104
+  br i1 %.not.i.i, label %104, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 104:                                              ; preds = %102
-  %105 = fcmp ogt float %99, %70
+  %105 = fcmp ule float %70, %99
   br i1 %105, label %107, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %102
-  %106 = fcmp ule float %70, %99
+  %106 = fcmp ogt float %99, %70
   br i1 %106, label %107, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
 107:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %104
@@ -105108,12 +105108,12 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: 
   %108 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread: ; preds = %96, %104, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %107, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61
-  %109 = phi i8 [ %68, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 1, %107 ], [ %68, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %68, %104 ], [ %68, %96 ]
-  %110 = phi float [ %69, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 0x7FF8000000000000, %107 ], [ %69, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %69, %104 ], [ %69, %96 ]
-  %111 = phi float [ %70, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %99, %107 ], [ %70, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %70, %104 ], [ %70, %96 ]
-  %112 = phi i32 [ %71, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %64, %107 ], [ %71, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %71, %104 ], [ %71, %96 ]
-  %.146 = phi i32 [ %.045149, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %108, %107 ], [ %.045149, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %.045149, %104 ], [ %.045149, %96 ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread: ; preds = %96, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %104, %107, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61
+  %109 = phi i8 [ %68, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 1, %107 ], [ %68, %104 ], [ %68, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %68, %96 ]
+  %110 = phi float [ %69, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 0x7FF8000000000000, %107 ], [ %69, %104 ], [ %69, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %69, %96 ]
+  %111 = phi float [ %70, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %99, %107 ], [ %70, %104 ], [ %70, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %70, %96 ]
+  %112 = phi i32 [ %71, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %64, %107 ], [ %71, %104 ], [ %71, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %71, %96 ]
+  %.146 = phi i32 [ %.045149, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %108, %107 ], [ %.045149, %104 ], [ %.045149, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %.045149, %96 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %113 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %61, %113
@@ -105328,14 +105328,14 @@ _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709
   %186 = and i32 %185, 2147483647
   %.not.i.i82 = icmp samesign ugt i32 %186, %183
   %187 = load float, ptr %9, align 8, !tbaa !548
-  br i1 %.not.i.i82, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83, label %188
+  br i1 %.not.i.i82, label %188, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83
 
 188:                                              ; preds = %182
-  %189 = fcmp ogt float %175, %187
+  %189 = fcmp ule float %187, %175
   br i1 %189, label %191, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83: ; preds = %182
-  %190 = fcmp ule float %187, %175
+  %190 = fcmp ogt float %175, %187
   br i1 %190, label %191, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 191:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83, %188
@@ -105383,8 +105383,8 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %_ZN7
   br label %208
 
 208:                                              ; preds = %174, %206
-  %209 = phi ptr [ %.pre, %206 ], [ %124, %174 ]
-  %.pn56.pn.pn = phi { ptr, i32 } [ %207, %206 ], [ %.pn.pn, %174 ]
+  %209 = phi ptr [ %124, %174 ], [ %.pre, %206 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn.pn, %174 ], [ %207, %206 ]
   %.not.i.i.i.i86 = icmp eq ptr %209, null
   br i1 %.not.i.i.i.i86, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit87, label %210
 
@@ -105572,14 +105572,14 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
 102:                                              ; preds = %96
   %103 = and i32 %71, 2147483647
   %.not.i.i = icmp ugt i32 %103, %6
-  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %104
+  br i1 %.not.i.i, label %104, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 104:                                              ; preds = %102
-  %105 = fcmp ogt float %99, %70
+  %105 = fcmp ule float %70, %99
   br i1 %105, label %107, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %102
-  %106 = fcmp ule float %70, %99
+  %106 = fcmp ogt float %99, %70
   br i1 %106, label %107, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
 107:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %104
@@ -105594,12 +105594,12 @@ _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: 
   %108 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread: ; preds = %96, %104, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %107, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61
-  %109 = phi i8 [ %68, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 1, %107 ], [ %68, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %68, %104 ], [ %68, %96 ]
-  %110 = phi float [ %69, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 0x7FF8000000000000, %107 ], [ %69, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %69, %104 ], [ %69, %96 ]
-  %111 = phi float [ %70, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %99, %107 ], [ %70, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %70, %104 ], [ %70, %96 ]
-  %112 = phi i32 [ %71, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %6, %107 ], [ %71, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %71, %104 ], [ %71, %96 ]
-  %.146 = phi i32 [ %.045149, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %108, %107 ], [ %.045149, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %.045149, %104 ], [ %.045149, %96 ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit.thread: ; preds = %96, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %104, %107, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61
+  %109 = phi i8 [ %68, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 1, %107 ], [ %68, %104 ], [ %68, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %68, %96 ]
+  %110 = phi float [ %69, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ 0x7FF8000000000000, %107 ], [ %69, %104 ], [ %69, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %69, %96 ]
+  %111 = phi float [ %70, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %99, %107 ], [ %70, %104 ], [ %70, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %70, %96 ]
+  %112 = phi i32 [ %71, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %6, %107 ], [ %71, %104 ], [ %71, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %71, %96 ]
+  %.146 = phi i32 [ %.045149, %_ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm18446744073709551615EEixEm.exit61 ], [ %108, %107 ], [ %.045149, %104 ], [ %.045149, %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i ], [ %.045149, %96 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %113 = trunc nsw i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %61, %113
@@ -105813,14 +105813,14 @@ _ZSt8for_eachIN7xgboost6common6detail12SpanIteratorINS1_4SpanIKmLm18446744073709
   %185 = and i32 %184, 2147483647
   %.not.i.i82 = icmp samesign ugt i32 %185, %182
   %186 = load float, ptr %9, align 8, !tbaa !548
-  br i1 %.not.i.i82, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83, label %187
+  br i1 %.not.i.i82, label %187, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83
 
 187:                                              ; preds = %181
-  %188 = fcmp ogt float %174, %186
+  %188 = fcmp ule float %186, %174
   br i1 %188, label %190, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83: ; preds = %181
-  %189 = fcmp ule float %186, %174
+  %189 = fcmp ogt float %174, %186
   br i1 %189, label %190, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateERKS3_.exit
 
 190:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i83, %187
@@ -105868,8 +105868,8 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %_ZN7
   br label %207
 
 207:                                              ; preds = %173, %205
-  %208 = phi ptr [ %.pre, %205 ], [ %124, %173 ]
-  %.pn56.pn.pn = phi { ptr, i32 } [ %206, %205 ], [ %.pn.pn, %173 ]
+  %208 = phi ptr [ %124, %173 ], [ %.pre, %205 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn.pn, %173 ], [ %206, %205 ]
   %.not.i.i.i.i86 = icmp eq ptr %208, null
   br i1 %.not.i.i.i.i86, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit87, label %209
 
@@ -106200,14 +106200,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %120 = and i32 %119, 2147483647
   %.not.i.i81 = icmp samesign ugt i32 %120, %117
   %121 = load float, ptr %7, align 8, !tbaa !548
-  br i1 %.not.i.i81, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %122
+  br i1 %.not.i.i81, label %122, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 122:                                              ; preds = %116
-  %123 = fcmp ogt float %113, %121
+  %123 = fcmp ule float %121, %113
   br i1 %123, label %125, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %116
-  %124 = fcmp ule float %121, %113
+  %124 = fcmp ogt float %113, %121
   br i1 %124, label %125, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit
 
 125:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %122
@@ -106282,14 +106282,14 @@ _ZNK7xgboost6common4SpanIKNS_6detail20GradientPairInternalIdEELm1844674407370955
 163:                                              ; preds = %154
   %164 = and i32 %134, 2147483647
   %.not.i.i84 = icmp ugt i32 %164, %4
-  br i1 %.not.i.i84, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i85, label %165
+  br i1 %.not.i.i84, label %165, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i85
 
 165:                                              ; preds = %163
-  %166 = fcmp ogt float %157, %133
+  %166 = fcmp ule float %133, %157
   br i1 %166, label %168, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i85: ; preds = %163
-  %167 = fcmp ule float %133, %157
+  %167 = fcmp ogt float %157, %133
   br i1 %167, label %168, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 168:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i85, %165
@@ -106353,8 +106353,8 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %._cr
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %189) #41
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit87
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit87: ; preds = %77, %130, %182, %184
-  %.pn45.pn.pn141 = phi { ptr, i32 } [ %183, %182 ], [ %183, %184 ], [ %.pn.pn, %77 ], [ %.pn42.pn, %130 ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit87: ; preds = %130, %77, %182, %184
+  %.pn45.pn.pn141 = phi { ptr, i32 } [ %183, %184 ], [ %183, %182 ], [ %.pn.pn, %77 ], [ %.pn42.pn, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn45.pn.pn141
 
@@ -106657,14 +106657,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %114 = and i32 %113, 2147483647
   %.not.i.i = icmp samesign ugt i32 %114, %111
   %115 = load float, ptr %7, align 8, !tbaa !548
-  br i1 %.not.i.i, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, label %116
+  br i1 %.not.i.i, label %116, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i
 
 116:                                              ; preds = %110
-  %117 = fcmp ogt float %107, %115
+  %117 = fcmp ule float %115, %107
   br i1 %117, label %119, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i: ; preds = %110
-  %118 = fcmp ule float %115, %107
+  %118 = fcmp ogt float %107, %115
   br i1 %118, label %119, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit
 
 119:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i, %116
@@ -106760,14 +106760,14 @@ _ZNK7xgboost6common13HistogramCuts9MinValuesEv.exit: ; preds = %148
 164:                                              ; preds = %161
   %165 = and i32 %128, 2147483647
   %.not.i.i88 = icmp ugt i32 %165, %4
-  br i1 %.not.i.i88, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i89, label %166
+  br i1 %.not.i.i88, label %166, label %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i89
 
 166:                                              ; preds = %164
-  %167 = fcmp ogt float %151, %127
+  %167 = fcmp ule float %127, %151
   br i1 %167, label %169, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 _ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i89: ; preds = %164
-  %168 = fcmp ule float %127, %151
+  %168 = fcmp ogt float %151, %127
   br i1 %168, label %169, label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_.exit
 
 169:                                              ; preds = %_ZNK7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE11NeedReplaceEfj.exit.i89, %166
@@ -106830,8 +106830,8 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit: ; preds = %._cr
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %189) #41
   br label %_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit91
 
-_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit91: ; preds = %77, %124, %182, %184
-  %.pn50.pn.pn150 = phi { ptr, i32 } [ %183, %182 ], [ %183, %184 ], [ %.pn.pn, %77 ], [ %.pn47.pn, %124 ]
+_ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEED2Ev.exit91: ; preds = %124, %77, %182, %184
+  %.pn50.pn.pn150 = phi { ptr, i32 } [ %183, %184 ], [ %183, %182 ], [ %.pn.pn, %77 ], [ %.pn47.pn, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn50.pn.pn150
 
@@ -107076,7 +107076,7 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i: ; preds = %126, %122, %120
   br label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit
 
 _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit35, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i, %136
-  %.0.i36 = phi float [ %135, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i ], [ %146, %136 ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit35 ]
+  %.0.i36 = phi float [ %146, %136 ], [ %135, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE10CalcWeightINS0_9GradStatsEEEfiRKS3_RKT_.exit35 ]
   %147 = fcmp ugt double %.sroa.2.0.copyload.i26, 0.000000e+00
   br i1 %147, label %148, label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41
 
@@ -107135,7 +107135,7 @@ _ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i39: ; preds = %164, %160, %158
   br label %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41
 
 _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41: ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i39, %174
-  %.0.i37 = phi float [ %173, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i39 ], [ %184, %174 ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit ]
+  %.0.i37 = phi float [ %184, %174 ], [ %173, %_ZN7xgboost4treeL11ThresholdL1IdfEET_S2_T0_.exit.i39 ], [ 0.000000e+00, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit ]
   %185 = fadd float %.0.i36, %.0.i37
   %186 = icmp eq i32 %16, 0
   br i1 %186, label %195, label %187
@@ -107155,7 +107155,7 @@ _ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGiv
   br label %195
 
 195:                                              ; preds = %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41, %192, %189
-  %.0 = phi float [ %191, %189 ], [ %194, %192 ], [ %185, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41 ]
+  %.0 = phi float [ %194, %192 ], [ %191, %189 ], [ %185, %_ZNK7xgboost4tree13TreeEvaluator14SplitEvaluatorINS0_10TrainParamEE19CalcGainGivenWeightINS0_9GradStatsEEEfRKS3_RKT_f.exit41 ]
   ret float %.0
 }
 
@@ -108134,7 +108134,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3219
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -108467,7 +108467,7 @@ _ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %101, %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i88, %116, %_ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i, %130
-  %.sroa.032.0.i = phi ptr [ %114, %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i88 ], [ %129, %_ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i ], [ %131, %130 ], [ %.sroa.095.0, %101 ], [ %.sroa.092.0, %116 ]
+  %.sroa.032.0.i = phi ptr [ %114, %_ZSt4moveIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i88 ], [ %131, %130 ], [ %129, %_ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.i ], [ %.sroa.095.0, %101 ], [ %.sroa.092.0, %116 ]
   call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElS2_NS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_SY_T0_SZ_T1_SZ_T2_(ptr %0, ptr %.sroa.095.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.064, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.755") align 8 %7)
   %132 = sub nsw i64 %4, %.064
   call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElS2_NS0_5__ops15_Iter_comp_iterIZZN7xgboost4tree13HistEvaluator14EvaluateSplitsERKNSA_21BoundedHistCollectionERKNS9_6common13HistogramCutsENSF_4SpanIKNS9_11FeatureTypeELm18446744073709551615EEERKNS9_7RegTreeEPS3_INSA_14CPUExpandEntryESaISQ_EEENKUlmNSF_7Range1dEE_clEmSU_EUlmmE_EEEvT_SY_SY_T0_SZ_T1_SZ_T2_(ptr %.sroa.032.0.i, ptr %.sroa.092.0, ptr %2, i64 noundef %99, i64 noundef %132, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.755") align 8 %7)
@@ -109558,7 +109558,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %219, %_ZNK
   br label %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EEC2Em.exit
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201
-  %common.resume.op = phi { ptr, i32 } [ %289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170 ], [ %283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167 ], [ %277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164 ], [ %313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176 ], [ %295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191 ], [ %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %319, %324 ]
+  %common.resume.op = phi { ptr, i32 } [ %277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164 ], [ %289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170 ], [ %283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167 ], [ %295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182 ], [ %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %301, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176 ], [ %329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191 ], [ %358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201 ], [ %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %319, %324 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE10EEC2Em.exit: ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i, %_ZN7xgboost6common4SpanIKjLm18446744073709551615EEC2EPS2_m.exit
@@ -112056,7 +112056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %22
   br label %230
 
 230:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124 ], [ %199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130 ], [ %199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151 ], [ %205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ]
   resume { ptr, i32 } %.pn49.pn.pn.pn
 }
 
@@ -113637,7 +113637,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !458
   br label %41
 
@@ -114939,7 +114939,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %.thread, %66
   ret void
 
 .body:                                            ; preds = %71, %68, %64, %60, %56, %50, %46, %40
-  %.pn52 = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ], [ %51, %50 ], [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %71 ], [ %69, %68 ]
+  %.pn52 = phi { ptr, i32 } [ %65, %64 ], [ %41, %40 ], [ %47, %46 ], [ %51, %50 ], [ %57, %56 ], [ %61, %60 ], [ %69, %68 ], [ %69, %71 ]
   %72 = load ptr, ptr %11, align 8, !tbaa !684
   %.not.i.i66 = icmp eq ptr %72, null
   br i1 %.not.i.i66, label %_ZN4dmlc12OMPExceptionD2Ev.exit68, label %73
@@ -115369,7 +115369,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit15: ; preds = %_ZNSt15__exception_
           to label %43 unwind label %44
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15
-  %.sink = phi ptr [ %29, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15 ], [ %29, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11 ], [ %16, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %16, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %29, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit11 ], [ %29, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit15 ], [ %16, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %16, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %42
@@ -115378,7 +115378,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit15: ; preds = %_ZNSt15__exception_
   ret void
 
 43:                                               ; preds = %39, %37, %24
-  %.merged = phi { ptr, i32 } [ %9, %24 ], [ %38, %37 ], [ %40, %39 ]
+  %.merged = phi { ptr, i32 } [ %38, %37 ], [ %9, %24 ], [ %40, %39 ]
   resume { ptr, i32 } %.merged
 
 44:                                               ; preds = %39, %37
@@ -116198,7 +116198,7 @@ _ZN7xgboost6common14BlockedSpace2dD2Ev.exit:      ; preds = %_ZNSt6vectorImSaImE
   ret void
 
 188:                                              ; preds = %152, %186, %114, %96
-  %.pn30.pn.pn = phi { ptr, i32 } [ %113, %114 ], [ %.pn26, %96 ], [ %.pn30, %186 ], [ %.pn28, %152 ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn26, %96 ], [ %113, %114 ], [ %.pn30, %186 ], [ %.pn28, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -117692,7 +117692,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit17: ; preds = %_ZNSt15__exception_
           to label %100 unwind label %101
 
 _ZZN7xgboost6common13ParallelFor2dIZNS_4tree25UpdatePredictionCacheImplINS2_20CommonRowPartitionerEEEvPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIT_SaISC_EENS_6linalg10TensorViewIfLi1EEEEUliNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOSC_ENKUlvE_clEv.exit.sink.split: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17
-  %.sink = phi ptr [ %87, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %87, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %74, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %74, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %87, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit13 ], [ %87, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit17 ], [ %74, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %74, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %99 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %_ZZN7xgboost6common13ParallelFor2dIZNS_4tree25UpdatePredictionCacheImplINS2_20CommonRowPartitionerEEEvPKNS_7ContextEPKNS_7RegTreeERKSt6vectorIT_SaISC_EENS_6linalg10TensorViewIfLi1EEEEUliNS0_7Range1dEE_EEvRKNS0_14BlockedSpace2dEiOSC_ENKUlvE_clEv.exit
@@ -117701,7 +117701,7 @@ _ZZN7xgboost6common13ParallelFor2dIZNS_4tree25UpdatePredictionCacheImplINS2_20Co
   ret void
 
 100:                                              ; preds = %97, %95, %82
-  %.merged = phi { ptr, i32 } [ %67, %82 ], [ %96, %95 ], [ %98, %97 ]
+  %.merged = phi { ptr, i32 } [ %96, %95 ], [ %67, %82 ], [ %98, %97 ]
   resume { ptr, i32 } %.merged
 
 101:                                              ; preds = %97, %95
@@ -117849,7 +117849,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
           to label %42 unwind label %43
 
 .sink.split:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14
-  %.sink = phi ptr [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.sink = phi ptr [ %28, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit10 ], [ %28, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit14 ], [ %15, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #22
   call void @__cxa_end_catch()
   br label %41
@@ -117858,7 +117858,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit14: ; preds = %_ZNSt15__exception_
   ret void
 
 42:                                               ; preds = %38, %36, %23
-  %.merged = phi { ptr, i32 } [ %8, %23 ], [ %37, %36 ], [ %39, %38 ]
+  %.merged = phi { ptr, i32 } [ %37, %36 ], [ %8, %23 ], [ %39, %38 ]
   resume { ptr, i32 } %.merged
 
 43:                                               ; preds = %38, %36

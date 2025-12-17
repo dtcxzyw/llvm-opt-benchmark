@@ -357,7 +357,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
-  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %33, %30 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %68 ], [ %1, %24 ]
+  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %49, %._crit_edge ], [ %33, %30 ], [ %1, %68 ], [ %1, %62 ], [ %1, %24 ]
   ret i64 %.0
 }
 

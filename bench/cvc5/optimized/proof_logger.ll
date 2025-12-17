@@ -1633,7 +1633,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %292
   br label %312
 
 312:                                              ; preds = %310, %308
-  %.pn17.pn = phi { ptr, i32 } [ %311, %310 ], [ %309, %308 ]
+  %.pn17.pn = phi { ptr, i32 } [ %309, %308 ], [ %311, %310 ]
   call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   br label %313
 
@@ -2485,7 +2485,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   ret void
 
 273:                                              ; preds = %246, %248, %119
-  %.pn18.pn = phi { ptr, i32 } [ %.pn, %119 ], [ %249, %248 ], [ %247, %246 ]
+  %.pn18.pn = phi { ptr, i32 } [ %247, %246 ], [ %.pn, %119 ], [ %249, %248 ]
   call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn18.pn
@@ -2993,7 +2993,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %154
 
 154:                                              ; preds = %152, %150
-  %.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %151, %150 ]
+  %.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %153, %152 ]
   call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %155
 

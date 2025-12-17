@@ -1201,7 +1201,7 @@ mainSort.exit.thread:                             ; preds = %.thread580.i
   br label %582
 
 mainSort.exit:                                    ; preds = %.loopexit.i, %.loopexit.thread.i, %.thread580.i
-  %580 = phi i32 [ %452, %.loopexit.thread.i ], [ %.pre.pre.i195, %.thread580.i ], [ %.pre.pre.i, %.loopexit.i ]
+  %580 = phi i32 [ %.pre.pre.i195, %.thread580.i ], [ %452, %.loopexit.thread.i ], [ %.pre.pre.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

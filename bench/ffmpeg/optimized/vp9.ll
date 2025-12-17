@@ -354,7 +354,7 @@ define internal i32 @vp9_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %.thread370, label %.thread393
 
 .thread393:                                       ; preds = %.thread595, %63, %.thread392, %.thread
-  %67 = phi ptr [ %12, %.thread ], [ %64, %63 ], [ %66, %.thread392 ], [ %65, %.thread595 ]
+  %67 = phi ptr [ %12, %.thread ], [ %65, %.thread595 ], [ %66, %.thread392 ], [ %64, %63 ]
   tail call void @ff_progress_frame_replace(ptr noundef nonnull %13, ptr noundef nonnull %67) #12
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 560
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -908,7 +908,7 @@ vp9_frame_alloc.exit:                             ; preds = %123
   store i32 %411, ptr %412, align 8, !tbaa !129
   br label %update_block_buffers.exit
 
-.loopexit408:                                     ; preds = %374, %398, %344, %297
+.loopexit408:                                     ; preds = %374, %398, %297, %344
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #12
   br label %vp9_frame_alloc.exit.thread
 
@@ -1823,13 +1823,13 @@ thread-pre-split:                                 ; preds = %858, %860, %856
   %891 = load i32, ptr %8, align 8, !tbaa !80
   br label %vp9_frame_alloc.exit.thread
 
-decode_tiles.exit.thread:                         ; preds = %659, %652, %vpx_rac_is_end.exit.i, %vpx_rac_get_prob_branchy.exit.i, %875, %868
-  %.0302 = phi i32 [ -1094995529, %868 ], [ %876, %875 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ -1094995529, %652 ], [ %663, %659 ]
+decode_tiles.exit.thread:                         ; preds = %652, %659, %vpx_rac_is_end.exit.i, %vpx_rac_get_prob_branchy.exit.i, %875, %868
+  %.0302 = phi i32 [ -1094995529, %868 ], [ %876, %875 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %663, %659 ], [ -1094995529, %652 ]
   tail call void @ff_progress_frame_report(ptr noundef nonnull %12, i32 noundef 2147483647) #12
   br label %vp9_frame_alloc.exit.thread
 
-vp9_frame_alloc.exit.thread:                      ; preds = %516, %509, %vpx_rac_get_prob_branchy.exit, %184, %176, %.thread370, %129, %885, %36, %22, %191, %decode_tiles.exit.thread, %890, %.loopexit408, %43, %35
-  %.0283 = phi i32 [ %50, %43 ], [ -1094995529, %35 ], [ %891, %890 ], [ %194, %191 ], [ -12, %.loopexit408 ], [ %.0302, %decode_tiles.exit.thread ], [ %24, %22 ], [ %38, %36 ], [ %887, %885 ], [ %103, %.thread370 ], [ %.029.i, %129 ], [ %189, %184 ], [ %182, %176 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit ], [ -1094995529, %509 ], [ %523, %516 ]
+vp9_frame_alloc.exit.thread:                      ; preds = %516, %509, %vpx_rac_get_prob_branchy.exit, %176, %184, %129, %.thread370, %885, %36, %22, %191, %decode_tiles.exit.thread, %890, %.loopexit408, %43, %35
+  %.0283 = phi i32 [ %189, %184 ], [ %24, %22 ], [ %50, %43 ], [ -1094995529, %35 ], [ %38, %36 ], [ %891, %890 ], [ %103, %.thread370 ], [ %194, %191 ], [ -12, %.loopexit408 ], [ %.0302, %decode_tiles.exit.thread ], [ %887, %885 ], [ %.029.i, %129 ], [ %182, %176 ], [ -1094995529, %vpx_rac_get_prob_branchy.exit ], [ -1094995529, %509 ], [ %523, %516 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0283
 }
@@ -6697,7 +6697,7 @@ vpx_rac_get_prob_branchy.exit1086.thread:         ; preds = %vpx_rac_renorm.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %1362, %1356, %1283, %1418, %187, %99, %.loopexit, %1460, %1417, %1213, %340, %185, %98, %49, %41, %23, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %23 ], [ -1094995529, %41 ], [ 0, %49 ], [ -1094995529, %98 ], [ %1211, %1213 ], [ -1094995529, %1417 ], [ -1094995529, %1460 ], [ %2750, %.loopexit ], [ -1094995529, %185 ], [ -1094995529, %340 ], [ %100, %99 ], [ %188, %187 ], [ %1420, %1418 ], [ -12, %1283 ], [ -1094995529, %1356 ], [ -1094995529, %1362 ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ -1094995529, %23 ], [ -1094995529, %41 ], [ 0, %49 ], [ -1094995529, %98 ], [ -1094995529, %340 ], [ %1211, %1213 ], [ -1094995529, %1417 ], [ %1420, %1418 ], [ -1094995529, %1460 ], [ %2750, %.loopexit ], [ %188, %187 ], [ -12, %1283 ], [ -1094995529, %185 ], [ %100, %99 ], [ -1094995529, %1356 ], [ -1094995529, %1362 ]
   ret i32 %.0
 }
 
@@ -7509,7 +7509,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_colorspace_details(pt
   br label %146
 
 146:                                              ; preds = %63, %126, %138, %137, %125, %75, %74
-  %.0 = phi i32 [ -1094995529, %74 ], [ -1094995529, %75 ], [ -1094995529, %125 ], [ -1094995529, %137 ], [ 0, %138 ], [ 0, %126 ], [ 0, %63 ]
+  %.0 = phi i32 [ -1094995529, %74 ], [ -1094995529, %137 ], [ -1094995529, %75 ], [ -1094995529, %125 ], [ 0, %138 ], [ 0, %126 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -7768,7 +7768,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @update_size(ptr noundef %0
   br label %154
 
 154:                                              ; preds = %.loopexit, %144, %62, %58, %33, %27
-  %.0147 = phi i32 [ %28, %27 ], [ %35, %33 ], [ 0, %58 ], [ -12, %62 ], [ 0, %144 ], [ 0, %.loopexit ]
+  %.0147 = phi i32 [ %35, %33 ], [ -12, %62 ], [ 0, %58 ], [ %28, %27 ], [ 0, %144 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0147
 }
@@ -8415,7 +8415,7 @@ vp89_rac_get_uint.exit:                           ; preds = %vpx_rac_renorm.exit
   br label %inv_recenter_nonneg.exit
 
 inv_recenter_nonneg.exit:                         ; preds = %300, %306, %310
-  %.0.i30 = phi i32 [ %309, %306 ], [ %312, %310 ], [ %299, %300 ]
+  %.0.i30 = phi i32 [ %312, %310 ], [ %309, %306 ], [ %299, %300 ]
   %313 = add nsw i32 %.0.i30, 1
   br label %328
 
@@ -8442,7 +8442,7 @@ inv_recenter_nonneg.exit:                         ; preds = %300, %306, %310
   br label %inv_recenter_nonneg.exit33
 
 inv_recenter_nonneg.exit33:                       ; preds = %314, %320, %324
-  %.0.i32 = phi i32 [ %323, %320 ], [ %326, %324 ], [ %299, %314 ]
+  %.0.i32 = phi i32 [ %326, %324 ], [ %323, %320 ], [ %299, %314 ]
   %327 = sub nsw i32 255, %.0.i32
   br label %328
 

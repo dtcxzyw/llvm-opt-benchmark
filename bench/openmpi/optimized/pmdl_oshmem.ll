@@ -462,7 +462,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %63, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %101, %._crit_edge, %41, %47, %14, %105
-  %.0 = phi i32 [ 0, %105 ], [ -1366, %14 ], [ -1366, %47 ], [ -1366, %41 ], [ -1366, %._crit_edge ], [ %104, %101 ], [ -1366, %.lr.ph ]
+  %.0 = phi i32 [ -1366, %._crit_edge ], [ 0, %105 ], [ -1366, %14 ], [ %104, %101 ], [ -1366, %47 ], [ -1366, %41 ], [ -1366, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -746,7 +746,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %.critedge38, %51, %pmix_obj_new_tma.exit, %41
-  %.028 = phi i32 [ -1366, %41 ], [ 0, %pmix_obj_new_tma.exit ], [ 0, %51 ], [ -1366, %.critedge38 ], [ -1366, %21 ]
+  %.028 = phi i32 [ -1366, %41 ], [ -1366, %.critedge38 ], [ 0, %pmix_obj_new_tma.exit ], [ 0, %51 ], [ -1366, %21 ]
   ret i32 %.028
 }
 
@@ -1438,7 +1438,7 @@ pmix_obj_run_destructors.exit136:                 ; preds = %.lr.ph.i133, %309
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %25, %.lr.ph.i88, %.lr.ph.i84, %.lr.ph.i108, %.lr.ph.i103, %.lr.ph.i128, %.lr.ph.i123, %19, %300, %.loopexit, %183, %.loopexit141, %92, %81, %._crit_edge163, %350, %115, %27
-  %.0 = phi i32 [ -1366, %27 ], [ 0, %115 ], [ 0, %350 ], [ 0, %._crit_edge163 ], [ %78, %81 ], [ -27, %92 ], [ %171, %.loopexit141 ], [ -27, %183 ], [ %288, %.loopexit ], [ -27, %300 ], [ -1366, %19 ], [ %288, %.lr.ph.i123 ], [ -27, %.lr.ph.i128 ], [ %171, %.lr.ph.i103 ], [ -27, %.lr.ph.i108 ], [ %78, %.lr.ph.i84 ], [ -27, %.lr.ph.i88 ], [ -1366, %25 ]
+  %.0 = phi i32 [ -1366, %27 ], [ 0, %115 ], [ 0, %350 ], [ 0, %._crit_edge163 ], [ %78, %81 ], [ -27, %92 ], [ %171, %.loopexit141 ], [ -27, %183 ], [ %288, %.loopexit ], [ -27, %300 ], [ -1366, %19 ], [ -27, %.lr.ph.i88 ], [ %288, %.lr.ph.i123 ], [ -27, %.lr.ph.i128 ], [ %171, %.lr.ph.i103 ], [ -27, %.lr.ph.i108 ], [ %78, %.lr.ph.i84 ], [ -1366, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -1109,7 +1109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit20: ; preds = %_ZNK32p
   br label %.body
 
 .body:                                            ; preds = %97, %93, %70, %36
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %37, %36 ], [ %.pn.pn.pn.pn.pn, %93 ], [ %.pn.pn.pn.pn.pn, %97 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %71, %70 ], [ %.pn.pn.pn.pn.pn, %93 ], [ %.pn.pn.pn.pn.pn, %97 ]
   %101 = load ptr, ptr %0, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = and i64 %102, 7

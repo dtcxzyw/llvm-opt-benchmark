@@ -645,7 +645,7 @@ define linkonce_odr hidden noundef ptr @_ZN21LoaderInfoScanClosure27find_node_or
   br label %23
 
 23:                                               ; preds = %2, %6, %19
-  %.0 = phi ptr [ %10, %19 ], [ %7, %6 ], [ %5, %2 ]
+  %.0 = phi ptr [ %7, %6 ], [ %10, %19 ], [ %5, %2 ]
   ret ptr %.0
 }
 
@@ -723,7 +723,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -881,7 +881,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -1059,7 +1059,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -1230,7 +1230,7 @@ define linkonce_odr hidden void @_ZN14LoaderTreeNode13fold_childrenEv(ptr nounde
   br label %_ZNK14LoaderTreeNode12loader_klassEv.exit.i
 
 _ZNK14LoaderTreeNode12loader_klassEv.exit.i:      ; preds = %37, %27
-  %39 = phi ptr [ %36, %27 ], [ %38, %37 ]
+  %39 = phi ptr [ %38, %37 ], [ %36, %27 ]
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread, label %41
 
@@ -1294,8 +1294,8 @@ _ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit:    ; preds = %_ZNK14LoaderTreeNod
   %spec.select = select i1 %.not7.i, ptr %.031, ptr null
   br label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread
 
-_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread: ; preds = %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, %21, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i, %.lr.ph
-  %.1 = phi ptr [ null, %.lr.ph ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ], [ null, %21 ], [ %spec.select, %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit ]
+_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread: ; preds = %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, %21, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i, %.lr.ph
+  %.1 = phi ptr [ null, %.lr.ph ], [ null, %21 ], [ %spec.select, %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %.0 = load ptr, ptr %66, align 8
   %67 = icmp ne ptr %.0, %.02135
@@ -1410,8 +1410,8 @@ define linkonce_odr hidden void @_ZNK14LoaderTreeNode22print_with_child_nodesEP1
   br label %_ZNK14LoaderTreeNode12loader_klassEv.exit.i
 
 _ZNK14LoaderTreeNode12loader_klassEv.exit.i:      ; preds = %41, %23
-  %.ph163 = phi ptr [ %32, %23 ], [ %42, %41 ]
-  %43 = phi ptr [ %40, %23 ], [ %42, %41 ]
+  %.ph163 = phi ptr [ %42, %41 ], [ %32, %23 ]
+  %43 = phi ptr [ %42, %41 ], [ %40, %23 ]
   %.not.i87 = icmp eq ptr %43, null
   br i1 %.not.i87, label %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i, label %_ZNK14LoaderTreeNode17loader_class_nameEv.exit
 

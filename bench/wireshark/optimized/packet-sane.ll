@@ -786,8 +786,8 @@ tvb_read_sane_word.exit168:                       ; preds = %174
   br i1 %exitcond369, label %.critedge118, label %.preheader262, !llvm.loop !13
 
 .critedge118:                                     ; preds = %192, %184, %159, %tvb_read_sane_word.exit168, %tvb_read_sane_word.exit164, %149
-  %.promoted303314 = phi i32 [ %152, %149 ], [ %158, %tvb_read_sane_word.exit164 ], [ %179, %tvb_read_sane_word.exit168 ], [ %172, %159 ], [ %186, %184 ], [ %194, %192 ]
-  %.promoted302309 = phi i32 [ %151, %149 ], [ %157, %tvb_read_sane_word.exit164 ], [ %178, %tvb_read_sane_word.exit168 ], [ %160, %159 ], [ %185, %184 ], [ %193, %192 ]
+  %.promoted303314 = phi i32 [ %152, %149 ], [ %158, %tvb_read_sane_word.exit164 ], [ %179, %tvb_read_sane_word.exit168 ], [ %186, %184 ], [ %172, %159 ], [ %194, %192 ]
+  %.promoted302309 = phi i32 [ %151, %149 ], [ %157, %tvb_read_sane_word.exit164 ], [ %178, %tvb_read_sane_word.exit168 ], [ %185, %184 ], [ %160, %159 ], [ %193, %192 ]
   %196 = add nuw i32 %.079329, 1
   %exitcond372.not = icmp eq i32 %196, %118
   br i1 %exitcond372.not, label %.critedge112, label %.lr.ph330, !llvm.loop !14
@@ -1079,7 +1079,7 @@ tvb_read_sane_string.exit198:                     ; preds = %338
   br label %.critedge124
 
 .critedge124:                                     ; preds = %.preheader275, %.preheader273, %299, %303, %279, %283, %259, %263, %235, %243, %.lr.ph, %tvb_read_sane_string.exit190, %tvb_read_sane_string.exit188, %tvb_read_sane_string.exit186, %tvb_read_sane_string.exit184, %.preheader269, %174, %153, %.lr.ph330, %.critedge116, %127, %132, %tvb_read_sane_string.exit, %.critedge114.preheader, %.preheader262, %.lr.ph301, %.lr.ph306, %166, %tvb_read_sane_string.exit166, %.preheader258, %65, %49, %55, %.critedge, %tvb_skip_bytes.exit, %86, %89, %92, %44, %58, %76, %354, %.critedge132, %338, %325, %.critedge130, %220, %207, %.critedge128, %115, %107, %104, %23, %111, %tvb_skip_bytes.exit178, %217, %223, %tvb_read_sane_string.exit198, %.critedge112, %4
-  %.081 = phi i32 [ 0, %4 ], [ %357, %.critedge112 ], [ 0, %tvb_read_sane_string.exit198 ], [ 0, %223 ], [ 0, %217 ], [ 0, %tvb_skip_bytes.exit178 ], [ 0, %111 ], [ 0, %23 ], [ 0, %104 ], [ 0, %107 ], [ 0, %115 ], [ 0, %.critedge128 ], [ 0, %207 ], [ 0, %220 ], [ 0, %.critedge130 ], [ 0, %325 ], [ 0, %338 ], [ 0, %.critedge132 ], [ 0, %354 ], [ 0, %76 ], [ 0, %58 ], [ 0, %44 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %.critedge ], [ 0, %55 ], [ 0, %49 ], [ 0, %65 ], [ 0, %.preheader258 ], [ 0, %tvb_read_sane_string.exit166 ], [ 0, %166 ], [ 0, %.lr.ph306 ], [ 0, %.lr.ph301 ], [ 0, %.preheader262 ], [ 0, %.critedge114.preheader ], [ 0, %tvb_read_sane_string.exit ], [ 0, %132 ], [ 0, %127 ], [ 0, %.critedge116 ], [ 0, %.lr.ph330 ], [ 0, %153 ], [ 0, %174 ], [ 0, %.preheader269 ], [ 0, %tvb_read_sane_string.exit184 ], [ 0, %tvb_read_sane_string.exit186 ], [ 0, %tvb_read_sane_string.exit188 ], [ 0, %tvb_read_sane_string.exit190 ], [ 0, %.lr.ph ], [ 0, %243 ], [ 0, %235 ], [ 0, %263 ], [ 0, %259 ], [ 0, %283 ], [ 0, %279 ], [ 0, %303 ], [ 0, %299 ], [ 0, %.preheader273 ], [ 0, %.preheader275 ]
+  %.081 = phi i32 [ 0, %4 ], [ %357, %.critedge112 ], [ 0, %111 ], [ 0, %.critedge132 ], [ 0, %325 ], [ 0, %.critedge130 ], [ 0, %220 ], [ 0, %207 ], [ 0, %.critedge128 ], [ 0, %115 ], [ 0, %107 ], [ 0, %104 ], [ 0, %23 ], [ 0, %tvb_read_sane_string.exit198 ], [ 0, %223 ], [ 0, %217 ], [ 0, %tvb_skip_bytes.exit178 ], [ 0, %338 ], [ 0, %354 ], [ 0, %49 ], [ 0, %76 ], [ 0, %58 ], [ 0, %44 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %.critedge ], [ 0, %55 ], [ 0, %.preheader273 ], [ 0, %65 ], [ 0, %.preheader258 ], [ 0, %.lr.ph306 ], [ 0, %.lr.ph301 ], [ 0, %.preheader262 ], [ 0, %.critedge114.preheader ], [ 0, %127 ], [ 0, %174 ], [ 0, %.preheader269 ], [ 0, %299 ], [ 0, %tvb_read_sane_string.exit166 ], [ 0, %166 ], [ 0, %tvb_read_sane_string.exit ], [ 0, %132 ], [ 0, %.critedge116 ], [ 0, %.lr.ph330 ], [ 0, %153 ], [ 0, %tvb_read_sane_string.exit184 ], [ 0, %tvb_read_sane_string.exit186 ], [ 0, %tvb_read_sane_string.exit188 ], [ 0, %tvb_read_sane_string.exit190 ], [ 0, %.lr.ph ], [ 0, %243 ], [ 0, %235 ], [ 0, %263 ], [ 0, %259 ], [ 0, %283 ], [ 0, %279 ], [ 0, %303 ], [ 0, %.preheader275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.081
 }
@@ -2147,8 +2147,8 @@ dissect_sane_word.exit100.i.i:                    ; preds = %553, %dissect_sane_
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %append_option_value.exit.i.i, %tvb_read_sane_string.exit.i.i, %dissect_sane_word.exit100.i.i, %dissect_sane_word.exit95.i.i, %481, %dissect_sane_word.exit94.i.i, %445, %dissect_sane_word.exit93.i.i, %dissect_sane_word.exit93.thread.i.i
-  %559 = phi i32 [ %557, %dissect_sane_word.exit100.i.i ], [ %487, %dissect_sane_word.exit95.i.i ], [ %442, %481 ], [ %451, %dissect_sane_word.exit94.i.i ], [ %442, %445 ], [ %442, %dissect_sane_word.exit93.i.i ], [ %430, %dissect_sane_word.exit93.thread.i.i ], [ %471, %tvb_read_sane_string.exit.i.i ], [ %502, %append_option_value.exit.i.i ]
-  %560 = phi i32 [ %558, %dissect_sane_word.exit100.i.i ], [ %488, %dissect_sane_word.exit95.i.i ], [ %443, %481 ], [ %452, %dissect_sane_word.exit94.i.i ], [ %443, %445 ], [ %443, %dissect_sane_word.exit93.i.i ], [ %431, %dissect_sane_word.exit93.thread.i.i ], [ %470, %tvb_read_sane_string.exit.i.i ], [ %501, %append_option_value.exit.i.i ]
+  %559 = phi i32 [ %430, %dissect_sane_word.exit93.thread.i.i ], [ %557, %dissect_sane_word.exit100.i.i ], [ %487, %dissect_sane_word.exit95.i.i ], [ %442, %481 ], [ %451, %dissect_sane_word.exit94.i.i ], [ %442, %445 ], [ %442, %dissect_sane_word.exit93.i.i ], [ %471, %tvb_read_sane_string.exit.i.i ], [ %502, %append_option_value.exit.i.i ]
+  %560 = phi i32 [ %431, %dissect_sane_word.exit93.thread.i.i ], [ %558, %dissect_sane_word.exit100.i.i ], [ %488, %dissect_sane_word.exit95.i.i ], [ %443, %481 ], [ %452, %dissect_sane_word.exit94.i.i ], [ %443, %445 ], [ %443, %dissect_sane_word.exit93.i.i ], [ %470, %tvb_read_sane_string.exit.i.i ], [ %501, %append_option_value.exit.i.i ]
   %561 = sub i32 %559, %430
   tail call void @proto_item_set_len(ptr noundef %433, i32 noundef %561)
   %562 = sub i32 %559, %293
@@ -2432,7 +2432,7 @@ dissect_sane_word.exit.i38.i:                     ; preds = %703
   br label %726
 
 ._crit_edge.i.i:                                  ; preds = %tvb_read_sane_string.exit34, %dissect_sane_word.exit.i38.i, %703
-  %717 = phi i32 [ %711, %dissect_sane_word.exit.i38.i ], [ %706, %703 ], [ %.pre.i, %tvb_read_sane_string.exit34 ]
+  %717 = phi i32 [ %706, %703 ], [ %711, %dissect_sane_word.exit.i38.i ], [ %.pre.i, %tvb_read_sane_string.exit34 ]
   %718 = load i32, ptr @hf_sane_pointer_value, align 4
   %719 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %718, ptr noundef %705, i32 noundef %717, i32 noundef 4, i32 noundef 0)
   %720 = tail call i32 @tvb_captured_length_remaining(ptr noundef %705, i32 noundef %717)

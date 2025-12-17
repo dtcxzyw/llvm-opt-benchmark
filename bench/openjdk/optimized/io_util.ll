@@ -138,7 +138,7 @@ outOfBounds.exit.thread:                          ; preds = %10, %outOfBounds.ex
   br label %43
 
 43:                                               ; preds = %41, %42, %17, %25, %outOfBounds.exit.thread, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %outOfBounds.exit.thread ], [ 0, %25 ], [ 0, %17 ], [ %.033, %42 ], [ %.033, %41 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %outOfBounds.exit.thread ], [ 0, %17 ], [ 0, %25 ], [ %.033, %42 ], [ %.033, %41 ]
   ret i32 %.0
 }
 

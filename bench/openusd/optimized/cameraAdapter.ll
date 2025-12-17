@@ -3655,7 +3655,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit: ; pr
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit145
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit145: ; preds = %527, %524, %522, %520
-  %.pn57 = phi { ptr, i32 } [ %521, %520 ], [ %523, %522 ], [ %525, %524 ], [ %525, %527 ]
+  %.pn57 = phi { ptr, i32 } [ %523, %522 ], [ %521, %520 ], [ %525, %524 ], [ %525, %527 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #20
   br label %.body
 
@@ -3912,7 +3912,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %164, %159, %_
   ret void
 
 .body:                                            ; preds = %175, %.body67, %56, %250, %382, %448, %50, %316, %184, %641, %632, %612, %592, %572, %552, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit145, %495, %474, %441, %375, %309, %243
-  %.pn59.pn = phi { ptr, i32 } [ %244, %243 ], [ %310, %309 ], [ %376, %375 ], [ %442, %441 ], [ %475, %474 ], [ %496, %495 ], [ %.pn57, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit145 ], [ %.pn55, %552 ], [ %.pn53, %572 ], [ %.pn51, %592 ], [ %.pn49, %612 ], [ %.pn47, %632 ], [ %.pn, %641 ], [ %57, %56 ], [ %185, %184 ], [ %251, %250 ], [ %317, %316 ], [ %383, %382 ], [ %51, %50 ], [ %449, %448 ], [ %.pn59, %.body67 ], [ %.pn59, %175 ]
+  %.pn59.pn = phi { ptr, i32 } [ %449, %448 ], [ %.pn, %641 ], [ %244, %243 ], [ %310, %309 ], [ %376, %375 ], [ %442, %441 ], [ %475, %474 ], [ %496, %495 ], [ %.pn57, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit145 ], [ %.pn55, %552 ], [ %.pn53, %572 ], [ %.pn51, %592 ], [ %.pn49, %612 ], [ %.pn47, %632 ], [ %57, %56 ], [ %185, %184 ], [ %251, %250 ], [ %317, %316 ], [ %383, %382 ], [ %51, %50 ], [ %.pn59, %.body67 ], [ %.pn59, %175 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomCameraD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   resume { ptr, i32 } %.pn59.pn
 }
@@ -4487,7 +4487,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   br label %183
 
 183:                                              ; preds = %174, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit16, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit22, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit25, %111, %120, %129, %138, %147, %156, %165, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %4
-  %.0 = phi i32 [ 1, %4 ], [ 4, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ 2, %165 ], [ 2, %156 ], [ 2, %147 ], [ 2, %138 ], [ 2, %129 ], [ 2, %120 ], [ 2, %111 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit25 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit22 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit16 ], [ %spec.select, %174 ]
+  %.0 = phi i32 [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit16 ], [ 1, %4 ], [ 4, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %spec.select, %174 ], [ 2, %165 ], [ 2, %156 ], [ 2, %147 ], [ 2, %138 ], [ 2, %129 ], [ 2, %120 ], [ 2, %111 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit25 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit22 ], [ 2, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit19 ]
   ret i32 %.0
 }
 

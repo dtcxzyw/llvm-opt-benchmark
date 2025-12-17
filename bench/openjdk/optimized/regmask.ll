@@ -144,7 +144,7 @@ _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
   br i1 %.not.i2, label %_ZNK7RegMask4SizeEv.exit.thread, label %.lr.ph25.i, !llvm.loop !10
 
 _ZNK7RegMask4SizeEv.exit.thread:                  ; preds = %._crit_edge.i, %23, %.lr.ph.i1, %1, %_ZNK7RegMask4SizeEv.exit
-  %29 = phi i1 [ false, %_ZNK7RegMask4SizeEv.exit ], [ false, %1 ], [ true, %.lr.ph.i1 ], [ true, %23 ], [ false, %._crit_edge.i ]
+  %29 = phi i1 [ false, %_ZNK7RegMask4SizeEv.exit ], [ false, %1 ], [ true, %23 ], [ true, %.lr.ph.i1 ], [ false, %._crit_edge.i ]
   ret i1 %29
 }
 
@@ -218,7 +218,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef n
   br i1 %.not, label %.loopexit, label %.lr.ph25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %15, %.lr.ph, %1
-  %.not18 = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ false, %15 ], [ true, %._crit_edge ]
+  %.not18 = phi i1 [ true, %1 ], [ false, %15 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
   ret i1 %.not18
 }
 
@@ -269,7 +269,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %19, %.preheader, %15, %5, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit ], [ false, %5 ], [ %.not13, %15 ], [ %.not13, %.preheader ], [ false, %19 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit ], [ false, %5 ], [ %.not13, %.preheader ], [ %.not13, %15 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -341,7 +341,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %29, %24, %25, %5, %17, %20, %15, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %15 ], [ false, %20 ], [ false, %17 ], [ true, %5 ], [ %.not25, %25 ], [ %.not25, %24 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %20 ], [ false, %1 ], [ false, %17 ], [ false, %15 ], [ true, %5 ], [ %.not25, %24 ], [ %.not25, %25 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -547,8 +547,8 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %.not.i14 = icmp ugt i32 %92, %60
   br i1 %.not.i14, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9, !llvm.loop !14
 
-_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %91, %87, %86, %50, %46, %45, %56, %52, %79, %82, %77, %34, %37, %32, %24, %_ZN7RegMask13num_registersEj.exit, %10
-  %.0 = phi i1 [ true, %10 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %24 ], [ false, %32 ], [ false, %37 ], [ false, %34 ], [ false, %77 ], [ false, %82 ], [ false, %79 ], [ false, %52 ], [ true, %56 ], [ %.not34.i, %45 ], [ %.not34.i, %46 ], [ true, %50 ], [ %.not25.i, %86 ], [ %.not25.i, %87 ], [ true, %91 ], [ true, %.preheader.i ]
+_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %91, %87, %86, %50, %46, %45, %56, %52, %77, %79, %82, %32, %24, %34, %_ZN7RegMask13num_registersEj.exit, %37, %10
+  %.0 = phi i1 [ true, %10 ], [ false, %77 ], [ false, %37 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %34 ], [ false, %24 ], [ false, %32 ], [ false, %82 ], [ false, %52 ], [ false, %79 ], [ true, %56 ], [ true, %91 ], [ %.not34.i, %46 ], [ true, %50 ], [ %.not25.i, %87 ], [ %.not34.i, %45 ], [ %.not25.i, %86 ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 
@@ -638,7 +638,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnu
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %46, %41, %42, %6, %30, %33, %28, %20, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %28 ], [ false, %33 ], [ false, %30 ], [ true, %6 ], [ %.not34, %42 ], [ %.not34, %41 ], [ true, %46 ]
+  %.0 = phi i1 [ false, %33 ], [ false, %2 ], [ false, %30 ], [ false, %20 ], [ false, %28 ], [ true, %6 ], [ %.not34, %41 ], [ %.not34, %42 ], [ true, %46 ]
   ret i1 %.0
 }
 
@@ -988,7 +988,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
   br i1 %.not, label %.loopexit, label %15, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %.lr.ph, %4, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %4 ], [ false, %.lr.ph ], [ false, %24 ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ true, %2 ], [ true, %4 ], [ false, %24 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 

@@ -143,7 +143,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %or.cond, label %.thread1395, label %.thread1399.sink.split
 
 .thread1399.sink.split:                           ; preds = %87, %82, %79, %.critedge1390, %73, %69, %.critedge1387, %.critedge, %64, %55, %53, %22
-  %.sink = phi i32 [ -3, %22 ], [ -4, %53 ], [ -5, %55 ], [ -7, %64 ], [ -7, %.critedge ], [ -9, %.critedge1387 ], [ -9, %69 ], [ -11, %73 ], [ -11, %.critedge1390 ], [ -13, %79 ], [ -13, %82 ], [ -21, %87 ]
+  %.sink = phi i32 [ -3, %22 ], [ -5, %55 ], [ -7, %.critedge ], [ -9, %69 ], [ -11, %.critedge1390 ], [ -13, %79 ], [ -11, %73 ], [ -9, %.critedge1387 ], [ -7, %64 ], [ -4, %53 ], [ -13, %82 ], [ -21, %87 ]
   store i32 %.sink, ptr %21, align 4, !tbaa !3
   br label %.thread1399
 

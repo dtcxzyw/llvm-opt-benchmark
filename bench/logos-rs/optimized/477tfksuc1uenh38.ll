@@ -225,7 +225,7 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
   ]
 
 24:                                               ; preds = %14, %2, %34, %32, %26
-  %.sroa.0.0.shrunk = phi i1 [ %31, %26 ], [ %33, %32 ], [ %35, %34 ], [ true, %2 ], [ false, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %2 ], [ %31, %26 ], [ %33, %32 ], [ %35, %34 ], [ false, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 25:                                               ; preds = %19

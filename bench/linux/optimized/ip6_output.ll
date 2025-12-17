@@ -1738,7 +1738,7 @@ ip6_dst_mtu_maybe_forward.exit:                   ; preds = %368, %380
   br label %478
 
 478:                                              ; preds = %.thread36, %476, %.thread38, %456, %422, %170, %153
-  %479 = phi i32 [ -22, %476 ], [ -110, %170 ], [ -90, %422 ], [ 0, %153 ], [ %465, %.thread38 ], [ %463, %456 ], [ %251, %.thread36 ]
+  %479 = phi i32 [ -22, %476 ], [ -110, %170 ], [ %251, %.thread36 ], [ -90, %422 ], [ 0, %153 ], [ %465, %.thread38 ], [ %463, %456 ]
   ret i32 %479
 }
 
@@ -3300,7 +3300,7 @@ ip6_fraglist_prepare.exit:                        ; preds = %279, %320
   br label %489
 
 489:                                              ; preds = %.thread36, %485, %467
-  %490 = phi i32 [ %474, %485 ], [ %456, %467 ], [ %339, %.thread36 ]
+  %490 = phi i32 [ %474, %485 ], [ %339, %.thread36 ], [ %456, %467 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %490
@@ -3535,8 +3535,8 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
   br label %133
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %100
-  %126 = phi ptr [ %101, %100 ], [ %.pre9, %..critedge_crit_edge ]
-  %127 = phi i32 [ %104, %100 ], [ %81, %..critedge_crit_edge ]
+  %126 = phi ptr [ %.pre9, %..critedge_crit_edge ], [ %101, %100 ]
+  %127 = phi i32 [ %81, %..critedge_crit_edge ], [ %104, %100 ]
   tail call void @dst_release(ptr noundef %126) #13
   store ptr null, ptr %2, align 8
   %128 = icmp eq i32 %127, -101
@@ -3752,7 +3752,7 @@ define dso_local ptr @ip6_sk_dst_lookup_flow(ptr noundef %0, ptr noundef %1, ptr
   br label %105
 
 105:                                              ; preds = %66, %69, %104, %90
-  %106 = phi ptr [ %91, %104 ], [ %91, %90 ], [ %19, %69 ], [ %19, %66 ]
+  %106 = phi ptr [ %91, %90 ], [ %91, %104 ], [ %19, %69 ], [ %19, %66 ]
   ret ptr %106
 }
 
@@ -4542,10 +4542,10 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.critedge31.thread
 
 .critedge31.thread:                               ; preds = %180, %.critedge, %227, %181, %.thread37, %240, %231
-  %250 = phi i1 [ %42, %231 ], [ %248, %240 ], [ true, %180 ], [ %42, %.critedge ], [ %42, %227 ], [ %42, %181 ], [ true, %.thread37 ]
-  %251 = phi i1 [ false, %231 ], [ false, %240 ], [ true, %180 ], [ false, %.critedge ], [ false, %227 ], [ false, %181 ], [ true, %.thread37 ]
-  %252 = phi ptr [ null, %231 ], [ null, %240 ], [ %157, %180 ], [ null, %.critedge ], [ %219, %227 ], [ null, %181 ], [ %219, %.thread37 ]
-  %.fr126 = phi i32 [ %9, %231 ], [ %249, %240 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread37 ]
+  %250 = phi i1 [ %248, %240 ], [ %42, %231 ], [ true, %180 ], [ %42, %.critedge ], [ %42, %227 ], [ %42, %181 ], [ true, %.thread37 ]
+  %251 = phi i1 [ false, %240 ], [ false, %231 ], [ true, %180 ], [ false, %.critedge ], [ false, %227 ], [ false, %181 ], [ true, %.thread37 ]
+  %252 = phi ptr [ null, %240 ], [ null, %231 ], [ %157, %180 ], [ null, %.critedge ], [ %219, %227 ], [ null, %181 ], [ %219, %.thread37 ]
+  %.fr126 = phi i32 [ %249, %240 ], [ %9, %231 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread37 ]
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %254 = load i8, ptr %253, align 8
   %255 = and i8 %254, 75
@@ -4857,8 +4857,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.thread47.us
 
 .thread47.us:                                     ; preds = %.thread51.us, %366
-  %465 = phi i32 [ %464, %.thread51.us ], [ %339, %366 ]
-  %466 = phi i32 [ %433, %.thread51.us ], [ %353, %366 ]
+  %465 = phi i32 [ %339, %366 ], [ %464, %.thread51.us ]
+  %466 = phi i32 [ %353, %366 ], [ %433, %.thread51.us ]
   %467 = add i32 %466, %338
   %468 = sext i32 %466 to i64
   %469 = sub i64 %337, %468
@@ -4882,18 +4882,18 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %483, label %.loopexit, label %750
 
 .loopexit:                                        ; preds = %.split, %.split.us.split, %.split.us.split.us, %.thread40
-  %484 = phi i32 [ %268, %.thread40 ], [ %300, %.split.us.split.us ], [ %340, %.split.us.split ], [ %474, %.split ]
-  %485 = phi i32 [ %81, %.thread40 ], [ %270, %.split.us.split.us ], [ %270, %.split.us.split ], [ %270, %.split ]
-  %486 = phi i32 [ %47, %.thread40 ], [ %271, %.split.us.split.us ], [ %271, %.split.us.split ], [ %271, %.split ]
-  %487 = phi i32 [ 0, %.thread40 ], [ %272, %.split.us.split.us ], [ %339, %.split.us.split ], [ %473, %.split ]
-  %488 = phi i32 [ %265, %.thread40 ], [ %273, %.split.us.split.us ], [ %273, %.split.us.split ], [ %273, %.split ]
-  %489 = phi i32 [ 0, %.thread40 ], [ %299, %.split.us.split.us ], [ %338, %.split.us.split ], [ %472, %.split ]
-  %490 = phi i32 [ %38, %.thread40 ], [ %275, %.split.us.split.us ], [ %275, %.split.us.split ], [ %275, %.split ]
-  %491 = phi i16 [ %39, %.thread40 ], [ %276, %.split.us.split.us ], [ %276, %.split.us.split ], [ %276, %.split ]
-  %492 = phi ptr [ null, %.thread40 ], [ %277, %.split.us.split.us ], [ %277, %.split.us.split ], [ %277, %.split ]
-  %493 = phi ptr [ null, %.thread40 ], [ %278, %.split.us.split.us ], [ %278, %.split.us.split ], [ %278, %.split ]
-  %494 = phi i32 [ %8, %.thread40 ], [ %279, %.split.us.split.us ], [ %279, %.split.us.split ], [ %279, %.split ]
-  %495 = phi i64 [ %7, %.thread40 ], [ %298, %.split.us.split.us ], [ %337, %.split.us.split ], [ %471, %.split ]
+  %484 = phi i32 [ %268, %.thread40 ], [ %340, %.split.us.split ], [ %300, %.split.us.split.us ], [ %474, %.split ]
+  %485 = phi i32 [ %81, %.thread40 ], [ %270, %.split.us.split ], [ %270, %.split.us.split.us ], [ %270, %.split ]
+  %486 = phi i32 [ %47, %.thread40 ], [ %271, %.split.us.split ], [ %271, %.split.us.split.us ], [ %271, %.split ]
+  %487 = phi i32 [ 0, %.thread40 ], [ %339, %.split.us.split ], [ %272, %.split.us.split.us ], [ %473, %.split ]
+  %488 = phi i32 [ %265, %.thread40 ], [ %273, %.split.us.split ], [ %273, %.split.us.split.us ], [ %273, %.split ]
+  %489 = phi i32 [ 0, %.thread40 ], [ %338, %.split.us.split ], [ %299, %.split.us.split.us ], [ %472, %.split ]
+  %490 = phi i32 [ %38, %.thread40 ], [ %275, %.split.us.split ], [ %275, %.split.us.split.us ], [ %275, %.split ]
+  %491 = phi i16 [ %39, %.thread40 ], [ %276, %.split.us.split ], [ %276, %.split.us.split.us ], [ %276, %.split ]
+  %492 = phi ptr [ null, %.thread40 ], [ %277, %.split.us.split ], [ %277, %.split.us.split.us ], [ %277, %.split ]
+  %493 = phi ptr [ null, %.thread40 ], [ %278, %.split.us.split ], [ %278, %.split.us.split.us ], [ %278, %.split ]
+  %494 = phi i32 [ %8, %.thread40 ], [ %279, %.split.us.split ], [ %279, %.split.us.split.us ], [ %279, %.split ]
+  %495 = phi i64 [ %7, %.thread40 ], [ %337, %.split.us.split ], [ %298, %.split.us.split.us ], [ %471, %.split ]
   %496 = icmp ne ptr %493, null
   br i1 %496, label %497, label %.thread42
 
@@ -5306,9 +5306,9 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %770, label %.split88.us, label %.thread47
 
 .split88.us:                                      ; preds = %767, %366, %327
-  %.us-phi89 = phi i64 [ %298, %327 ], [ %337, %366 ], [ %471, %767 ]
-  %.us-phi90 = phi i32 [ %272, %327 ], [ %339, %366 ], [ %473, %767 ]
-  %.us-phi91 = phi i32 [ %303, %327 ], [ %343, %366 ], [ %477, %767 ]
+  %.us-phi89 = phi i64 [ %337, %366 ], [ %298, %327 ], [ %471, %767 ]
+  %.us-phi90 = phi i32 [ %339, %366 ], [ %272, %327 ], [ %473, %767 ]
+  %.us-phi91 = phi i32 [ %343, %366 ], [ %303, %327 ], [ %477, %767 ]
   %771 = load i32, ptr %284, align 4
   %772 = icmp eq i32 %771, 0
   br i1 %772, label %774, label %773, !prof !5
@@ -5369,7 +5369,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %798, label %.loopexit60, label %.split, !llvm.loop !82
 
 .loopexit60:                                      ; preds = %.thread47, %.thread47.us, %.thread47.us.us, %269
-  %799 = phi i32 [ %272, %269 ], [ %272, %.thread47.us.us ], [ %465, %.thread47.us ], [ %793, %.thread47 ]
+  %799 = phi i32 [ %272, %269 ], [ %465, %.thread47.us ], [ %272, %.thread47.us.us ], [ %793, %.thread47 ]
   %800 = icmp eq i32 %799, 0
   br i1 %800, label %.critedge31, label %801
 
@@ -5383,8 +5383,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.thread48
 
 .thread48:                                        ; preds = %786, %.critedge33.us, %416, %.critedge33.us.us, %785, %782, %.thread45, %.split95.us, %668, %593, %577
-  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %.us-phi90, %782 ], [ %487, %.thread45 ], [ %473, %785 ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %339, %.critedge33.us ], [ %473, %786 ]
-  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %.us-phi89, %782 ], [ %495, %.thread45 ], [ %471, %785 ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %337, %.critedge33.us ], [ %471, %786 ]
+  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %487, %.thread45 ], [ %.us-phi90, %782 ], [ %473, %785 ], [ %339, %.critedge33.us ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %473, %786 ]
+  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %495, %.thread45 ], [ %.us-phi89, %782 ], [ %471, %785 ], [ %337, %.critedge33.us ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %471, %786 ]
   %805 = load i8, ptr %13, align 1, !range !73, !noundef !74
   %806 = icmp ne i8 %805, 0
   call fastcc void @net_zcopy_put_abort(ptr noundef %252, i1 noundef zeroext %806)
@@ -5425,7 +5425,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.critedge31
 
 .critedge31:                                      ; preds = %170, %200, %.thread36, %826, %801, %.loopexit60, %235, %122
-  %828 = phi i32 [ -90, %122 ], [ %827, %826 ], [ -1, %235 ], [ 0, %801 ], [ 0, %.loopexit60 ], [ -105, %200 ], [ -105, %.thread36 ], [ -22, %170 ]
+  %828 = phi i32 [ -90, %122 ], [ %827, %826 ], [ 0, %.loopexit60 ], [ -1, %235 ], [ 0, %801 ], [ -22, %170 ], [ -105, %200 ], [ -105, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %828

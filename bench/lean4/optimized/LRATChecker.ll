@@ -314,7 +314,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Result_ofNat.exit.thread6: ; preds = %lean_n
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %4, %13, %12, %10, %l_Std_Tactic_BVDecide_LRAT_Internal_Result_ofNat.exit.thread9
-  %.0.i5 = phi i8 [ %..i11, %l_Std_Tactic_BVDecide_LRAT_Internal_Result_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ %.0.i8, %13 ], [ 0, %4 ]
+  %.0.i5 = phi i8 [ %.0.i8, %13 ], [ %..i11, %l_Std_Tactic_BVDecide_LRAT_Internal_Result_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ 0, %4 ]
   %14 = zext nneg i8 %.0.i5 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = or disjoint i64 %15, 1
@@ -1596,8 +1596,8 @@ lean_inc.exit148:                                 ; preds = %422, %421, %419, %4
   br i1 %.not309, label %425, label %lean_dec.exit130.backedge
 
 lean_dec.exit130.backedge:                        ; preds = %lean_inc.exit148, %428, %430, %431, %lean_inc.exit156, %279, %281, %282, %lean_inc.exit
-  %.0112.be = phi ptr [ %434, %lean_inc.exit ], [ %156, %282 ], [ %156, %281 ], [ %156, %279 ], [ %156, %lean_inc.exit156 ], [ %285, %431 ], [ %285, %430 ], [ %285, %428 ], [ %285, %lean_inc.exit148 ]
-  %.0108.be = phi ptr [ %476, %lean_inc.exit ], [ %265, %282 ], [ %265, %281 ], [ %265, %279 ], [ %265, %lean_inc.exit156 ], [ %414, %431 ], [ %414, %430 ], [ %414, %428 ], [ %414, %lean_inc.exit148 ]
+  %.0112.be = phi ptr [ %434, %lean_inc.exit ], [ %156, %lean_inc.exit156 ], [ %156, %282 ], [ %156, %281 ], [ %156, %279 ], [ %285, %431 ], [ %285, %430 ], [ %285, %428 ], [ %285, %lean_inc.exit148 ]
+  %.0108.be = phi ptr [ %476, %lean_inc.exit ], [ %265, %lean_inc.exit156 ], [ %265, %282 ], [ %265, %281 ], [ %265, %279 ], [ %414, %431 ], [ %414, %430 ], [ %414, %428 ], [ %414, %lean_inc.exit148 ]
   br label %lean_dec.exit130
 
 425:                                              ; preds = %lean_inc.exit148
@@ -1741,8 +1741,8 @@ lean_inc.exit:                                    ; preds = %475, %474, %472, %l
   %476 = tail call ptr @lean_apply_2(ptr noundef %467, ptr noundef %.0108, ptr noundef %451) #5
   br label %lean_dec.exit130.backedge
 
-lean_dec.exit143:                                 ; preds = %lean_dec.exit123, %409, %411, %412, %lean_dec.exit131, %260, %262, %263, %lean_dec.exit137, %lean_dec.exit144, %43, %45, %46
-  %.1 = phi i8 [ 1, %46 ], [ 1, %45 ], [ 1, %43 ], [ 1, %lean_dec.exit144 ], [ 2, %lean_dec.exit123 ], [ 2, %409 ], [ 2, %411 ], [ 2, %412 ], [ 2, %lean_dec.exit131 ], [ 2, %260 ], [ 2, %262 ], [ 2, %263 ], [ %., %lean_dec.exit137 ]
+lean_dec.exit143:                                 ; preds = %409, %411, %412, %260, %262, %263, %lean_dec.exit123, %lean_dec.exit131, %lean_dec.exit137, %lean_dec.exit144, %43, %45, %46
+  %.1 = phi i8 [ 1, %lean_dec.exit144 ], [ 1, %46 ], [ 1, %45 ], [ 1, %43 ], [ 2, %409 ], [ 2, %411 ], [ 2, %412 ], [ 2, %260 ], [ 2, %262 ], [ 2, %263 ], [ 2, %lean_dec.exit123 ], [ 2, %lean_dec.exit131 ], [ %., %lean_dec.exit137 ]
   ret i8 %.1
 }
 

@@ -363,7 +363,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   br i1 %227, label %236, label %satsub64be.exit.thread15.i
 
 satsub64be.exit.thread15.i:                       ; preds = %228, %225
-  %.0.i17.i = phi i32 [ -128, %225 ], [ %spec.select.i.i, %228 ]
+  %.0.i17.i = phi i32 [ %spec.select.i.i, %228 ], [ -128, %225 ]
   %229 = sub nsw i32 0, %.0.i17.i
   %230 = icmp samesign ugt i32 %229, 63
   br i1 %230, label %.backedge.sink.split.sink.split, label %231
@@ -540,7 +540,7 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   br label %dtls_process_record.exit.thread
 
 303:                                              ; preds = %299, %284, %282
-  %.381.i = phi i64 [ %.078.i, %284 ], [ %.078.i, %282 ], [ 0, %299 ]
+  %.381.i = phi i64 [ %.078.i, %282 ], [ %.078.i, %284 ], [ 0, %299 ]
   %304 = call i32 @ERR_set_mark() #7
   %305 = load ptr, ptr %18, align 8, !tbaa !36
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
@@ -810,7 +810,7 @@ dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_
   br label %dtls_rlayer_buffer_record.exit
 
 dtls_rlayer_buffer_record.exit:                   ; preds = %435, %143, %70, %260, %251, %441, %10, %443, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %443 ], [ -2, %10 ], [ -2, %441 ], [ -2, %251 ], [ -2, %260 ], [ -2, %435 ], [ -2, %143 ], [ %75, %70 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ -2, %10 ], [ -2, %441 ], [ -2, %251 ], [ 1, %443 ], [ -2, %260 ], [ -2, %435 ], [ -2, %143 ], [ %75, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -998,7 +998,7 @@ define internal i32 @dtls_new_record_layer(ptr noundef %0, ptr noundef %1, i32 n
   br label %59
 
 59:                                               ; preds = %52, %56, %32, %45
-  %.051 = phi i32 [ -2, %45 ], [ %33, %32 ], [ %.056, %56 ], [ 1, %52 ]
+  %.051 = phi i32 [ %33, %32 ], [ -2, %45 ], [ %.056, %56 ], [ 1, %52 ]
   ret i32 %.051
 }
 

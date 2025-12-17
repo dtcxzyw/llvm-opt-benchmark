@@ -1627,7 +1627,7 @@ php_stream_bucket_delref.exit110:                 ; preds = %php_stream_bucket_u
   br label %.thread
 
 .thread:                                          ; preds = %php_stream_bucket_delref.exit110, %php_stream_bucket_delref.exit, %.lr.ph, %.thread.loopexit171, %.preheader117, %59, %106, %._crit_edge, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %106 ], [ 0, %59 ], [ 0, %.preheader117 ], [ 0, %.thread.loopexit171 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit110 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %._crit_edge ], [ -1, %7 ], [ 0, %106 ], [ 0, %.thread.loopexit171 ], [ 0, %59 ], [ 0, %.preheader117 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

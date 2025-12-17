@@ -258,7 +258,7 @@ define noundef range(i32 0, 4) i32 @_Z16numPbcDimensions7PbcType(i32 noundef %0)
   unreachable
 
 6:                                                ; preds = %1, %1, %4, %3
-  %.0 = phi i32 [ 2, %3 ], [ 0, %4 ], [ 3, %1 ], [ 3, %1 ]
+  %.0 = phi i32 [ 3, %1 ], [ 3, %1 ], [ 0, %4 ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -449,7 +449,7 @@ define noundef ptr @_Z9check_box7PbcTypePA3_Kf(i32 noundef %0, ptr noundef reado
   br label %70
 
 70:                                               ; preds = %.thread, %69, %14, %21, %33, %29, %25, %42, %40, %61, %.thread28, %46, %6
-  %.024 = phi ptr [ null, %6 ], [ null, %69 ], [ @.str.20, %14 ], [ @.str.21, %21 ], [ @.str.22, %33 ], [ @.str.22, %29 ], [ @.str.22, %25 ], [ @.str.23, %42 ], [ @.str.23, %40 ], [ @.str.24, %61 ], [ @.str.24, %.thread28 ], [ @.str.24, %46 ], [ @.str.24, %.thread ]
+  %.024 = phi ptr [ null, %6 ], [ null, %69 ], [ @.str.20, %14 ], [ @.str.21, %21 ], [ @.str.22, %25 ], [ @.str.23, %40 ], [ @.str.22, %33 ], [ @.str.22, %29 ], [ @.str.23, %42 ], [ @.str.24, %61 ], [ @.str.24, %.thread28 ], [ @.str.24, %46 ], [ @.str.24, %.thread ]
   ret ptr %.024
 }
 
@@ -519,7 +519,7 @@ define noundef range(i32 0, 3) i32 @_Z12guessPbcTypePA3_Kf(ptr noundef readonly 
   br label %39
 
 39:                                               ; preds = %28, %29, %24, %14, %10
-  %.0 = phi i32 [ 0, %10 ], [ 2, %14 ], [ 1, %24 ], [ 1, %29 ], [ 1, %28 ]
+  %.0 = phi i32 [ 1, %24 ], [ 0, %10 ], [ 2, %14 ], [ 1, %29 ], [ 1, %28 ]
   %40 = load ptr, ptr @debug, align 8, !tbaa !24
   %.not15 = icmp eq ptr %40, null
   br i1 %.not15, label %46, label %41
@@ -1383,7 +1383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %89, %
   br label %339
 
 .loopexit251:                                     ; preds = %.loopexit253, %117, %.preheader250, %152, %150, %159, %154
-  %166 = phi i32 [ 5, %.preheader250 ], [ 1, %152 ], [ 2, %150 ], [ 10, %159 ], [ 7, %154 ], [ %118, %117 ], [ %140, %.loopexit253 ]
+  %166 = phi i32 [ 7, %154 ], [ 5, %.preheader250 ], [ 1, %152 ], [ 2, %150 ], [ 10, %159 ], [ %118, %117 ], [ %140, %.loopexit253 ]
   %167 = load float, ptr %3, align 4, !tbaa !21
   %168 = load float, ptr %21, align 4, !tbaa !21
   %169 = fmul float %168, %168
@@ -1768,7 +1768,7 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
   br label %26
 
 26:                                               ; preds = %24, %.split.us
-  %.1.us = phi i32 [ %25, %24 ], [ %.02734.us, %.split.us ]
+  %.1.us = phi i32 [ %.02734.us, %.split.us ], [ %25, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split37.us, label %.split.us, !llvm.loop !48
@@ -1797,7 +1797,7 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKN3gmx11BasicVectorIiEEbPA3_Kf
   br label %34
 
 34:                                               ; preds = %.split, %32
-  %.1 = phi i32 [ %33, %32 ], [ %.02734, %.split ]
+  %.1 = phi i32 [ %.02734, %.split ], [ %33, %32 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
   br i1 %exitcond43.not, label %.split37.us, label %.split, !llvm.loop !48
@@ -2651,7 +2651,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   br label %124
 
 124:                                              ; preds = %.sink.split500, %112, %115, %103
-  %125 = phi float [ %100, %112 ], [ %118, %115 ], [ %106, %103 ], [ %.sink502, %.sink.split500 ]
+  %125 = phi float [ %100, %112 ], [ %106, %103 ], [ %118, %115 ], [ %.sink502, %.sink.split500 ]
   %126 = load float, ptr %22, align 4, !tbaa !21
   %127 = fmul float %126, %126
   %128 = tail call float @llvm.fmuladd.f32(float %125, float %125, float %127)
@@ -2896,7 +2896,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   br label %260
 
 260:                                              ; preds = %.sink.split516, %248, %251, %239
-  %261 = phi float [ %236, %248 ], [ %254, %251 ], [ %242, %239 ], [ %.sink519, %.sink.split516 ]
+  %261 = phi float [ %236, %248 ], [ %242, %239 ], [ %254, %251 ], [ %.sink519, %.sink.split516 ]
   %262 = tail call float @llvm.fmuladd.f32(float %261, float %261, float %.3)
   br label %263
 
@@ -5688,7 +5688,7 @@ _ZN7t_graphD2Ev.exit:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %162
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %.loopexit83, %.loopexit.split-lp, %136, %129
-  %.pn.pn = phi { ptr, i32 } [ %.us-phi93, %129 ], [ %.us-phi93, %136 ], [ %lpad.loopexit, %.loopexit83 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.us-phi93, %136 ], [ %.us-phi93, %129 ], [ %lpad.loopexit, %.loopexit83 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7t_graphD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -1234,7 +1234,7 @@ _ZN4lean10object_refD2Ev.exit154:                 ; preds = %_ZN4lean10object_re
   ret ptr %.0
 
 328:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251, %244
-  %.merged = phi { ptr, i32 } [ %.pn.pn, %244 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %.pn106.pn.pn, %266 ], [ %.pn110.pn, %271 ], [ %.pn113.pn, %276 ], [ %.pn116.pn, %281 ], [ %.pn119.pn, %286 ], [ %.pn122.pn, %291 ], [ %.pn125.pn, %296 ], [ %.pn128.pn, %301 ], [ %.pn131.pn, %306 ], [ %.pn134.pn, %311 ], [ %.pn137.pn, %316 ], [ %.pn140.pn, %321 ], [ %.pn143.pn, %326 ]
+  %.merged = phi { ptr, i32 } [ %.pn140.pn, %321 ], [ %.pn137.pn, %316 ], [ %.pn134.pn, %311 ], [ %.pn131.pn, %306 ], [ %.pn128.pn, %301 ], [ %.pn125.pn, %296 ], [ %.pn122.pn, %291 ], [ %.pn119.pn, %286 ], [ %.pn116.pn, %281 ], [ %.pn113.pn, %276 ], [ %.pn110.pn, %271 ], [ %.pn106.pn.pn, %266 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %.pn.pn, %244 ], [ %.pn143.pn, %326 ]
   resume { ptr, i32 } %.merged
 
 329:                                              ; preds = %326, %321, %316, %311, %306, %301, %296, %291, %286, %281, %276, %271, %266, %257, %255, %253, %251
@@ -2700,7 +2700,7 @@ _ZN4lean10object_refD2Ev.exit367:                 ; preds = %_ZN4lean10object_re
   br label %594
 
 594:                                              ; preds = %590, %592
-  %.pn136.pn = phi { ptr, i32 } [ %593, %592 ], [ %591, %590 ]
+  %.pn136.pn = phi { ptr, i32 } [ %591, %590 ], [ %593, %592 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %2354
@@ -8053,7 +8053,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %36, %45, %47, %48
   ret void
 
 54:                                               ; preds = %34, %24
-  %.06 = phi ptr [ %15, %24 ], [ %25, %34 ]
+  %.06 = phi ptr [ %25, %34 ], [ %15, %24 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -8353,7 +8353,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %58, %67, %69, %70
   ret void
 
 76:                                               ; preds = %56, %46, %36, %26
-  %.08 = phi ptr [ %17, %26 ], [ %27, %36 ], [ %37, %46 ], [ %47, %56 ]
+  %.08 = phi ptr [ %47, %56 ], [ %37, %46 ], [ %27, %36 ], [ %17, %26 ]
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %78
@@ -10284,7 +10284,7 @@ _ZN4lean10object_refD2Ev.exit312:                 ; preds = %272, %262, %269, %2
   br label %324
 
 324:                                              ; preds = %320, %322
-  %.pn144.pn = phi { ptr, i32 } [ %323, %322 ], [ %321, %320 ]
+  %.pn144.pn = phi { ptr, i32 } [ %321, %320 ], [ %323, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #21
   br label %325
@@ -13860,7 +13860,7 @@ _ZN4lean10object_refD2Ev.exit632:                 ; preds = %1530, %1241, %1543,
   unreachable
 
 .body513:                                         ; preds = %1556, %1555, %1553, %_ZN4lean10object_refD2Ev.exit632, %1217, %1066
-  %.pn217.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1218, %1217 ], [ %1067, %1066 ], [ %.pn217.pn.pn.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit632 ], [ %.pn217.pn.pn.pn.pn.pn, %1553 ], [ %.pn217.pn.pn.pn.pn.pn, %1555 ], [ %.pn217.pn.pn.pn.pn.pn, %1556 ]
+  %.pn217.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1067, %1066 ], [ %1218, %1217 ], [ %.pn217.pn.pn.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit632 ], [ %.pn217.pn.pn.pn.pn.pn, %1553 ], [ %.pn217.pn.pn.pn.pn.pn, %1555 ], [ %.pn217.pn.pn.pn.pn.pn, %1556 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %1604
 
@@ -14004,7 +14004,7 @@ _ZN4lean10object_refD2Ev.exit644:                 ; preds = %_ZN4lean10object_re
   unreachable
 
 .body497:                                         ; preds = %1614, %1613, %1611, %1604, %1195, %1020
-  %.pn217.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1196, %1195 ], [ %1021, %1020 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1604 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1611 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1613 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1614 ]
+  %.pn217.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1021, %1020 ], [ %1196, %1195 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1604 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1611 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1613 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn, %1614 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %1618 = load ptr, ptr %80, align 8, !tbaa !22
   %1619 = ptrtoint ptr %1618 to i64
@@ -14641,7 +14641,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit711:      ; preds = %_ZN4lean6bufferINS_
   br i1 %1843, label %.lr.ph2413, label %._crit_edge2414.loopexit, !llvm.loop !177
 
 1844:                                             ; preds = %.loopexit, %.loopexit.split-lp, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit689, %962
-  %.pn232 = phi { ptr, i32 } [ %.pn230, %962 ], [ %.pn217.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit689 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn232 = phi { ptr, i32 } [ %.pn217.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit689 ], [ %.pn230, %962 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %1845 = load ptr, ptr %73, align 8, !tbaa !22
   %1846 = ptrtoint ptr %1845 to i64
   %1847 = and i64 %1846, 1
@@ -17280,7 +17280,7 @@ _ZN4lean10object_refD2Ev.exit1027:                ; preds = %2805, %2804, %2802,
   unreachable
 
 _ZN4lean10object_refD2Ev.exit1030:                ; preds = %573, %_ZN4lean10object_refD2Ev.exit1027, %2812, %2814, %2815, %338, %337, %326
-  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %339, %338 ], [ %.pn149.pn.pn, %337 ], [ %.pn144.pn.pn.pn, %326 ], [ %574, %573 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit1027 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2812 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2814 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2815 ]
+  %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn.pn, %326 ], [ %339, %338 ], [ %.pn149.pn.pn, %337 ], [ %574, %573 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4lean10object_refD2Ev.exit1027 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2812 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2814 ], [ %.pn247.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2815 ]
   %2819 = load ptr, ptr %28, align 8, !tbaa !48
   %2820 = load i64, ptr %210, align 8, !tbaa !52
   %.idx.i.i.i1031 = shl nuw nsw i64 %2820, 3
@@ -17766,7 +17766,7 @@ _ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit:          ; preds = %_ZN4lean7sstreamlsI
   br label %27
 
 11:                                               ; preds = %_ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA16_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsIPKcEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA11_cEERS0_RKT_.exit, %_ZN4lean7sstreamC2Ev.exit, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %_ZN4lean7sstreamC2Ev.exit ], [ true, %_ZN4lean7sstreamlsIA11_cEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIPKcEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %9 ], [ true, %_ZN4lean7sstreamlsIA46_cEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIA16_cEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIPKcEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamlsIA11_cEERS0_RKT_.exit ], [ true, %_ZN4lean7sstreamC2Ev.exit ]
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
@@ -18059,7 +18059,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %47, %56, %58, %59
   ret void
 
 65:                                               ; preds = %45, %35, %25
-  %.07 = phi ptr [ %16, %25 ], [ %26, %35 ], [ %36, %45 ]
+  %.07 = phi ptr [ %36, %45 ], [ %26, %35 ], [ %16, %25 ]
   %66 = landingpad { ptr, i32 }
           cleanup
   br label %67

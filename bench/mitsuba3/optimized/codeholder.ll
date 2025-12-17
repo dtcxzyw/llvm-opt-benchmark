@@ -3365,7 +3365,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %40, %21, %.split.us, %68, %.loopexit7
-  %71 = phi i32 [ 0, %68 ], [ 0, %.loopexit7 ], [ 2, %.split.us ], [ 2, %21 ], [ 2, %40 ], [ 2, %.split ]
+  %71 = phi i32 [ 0, %68 ], [ 0, %.loopexit7 ], [ 2, %21 ], [ 2, %.split.us ], [ 2, %40 ], [ 2, %.split ]
   ret i32 %71
 }
 

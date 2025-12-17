@@ -4164,7 +4164,7 @@ define internal void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$1
   br label %"_ZN4core3ptr48drop_in_place$LT$alloc..ffi..c_str..NulError$GT$17hd404d5b41a814249E.exit"
 
 common.resume:                                    ; preds = %.body, %71, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i14", %52, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i10", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i8", %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i", %94
-  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i" ], [ %15, %14 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i8" ], [ %34, %33 ], [ %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i10" ], [ %53, %52 ], [ %72, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i14" ], [ %72, %71 ], [ %89, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %15, %14 ], [ %34, %33 ], [ %53, %52 ], [ %95, %94 ], [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i" ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i8" ], [ %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i10" ], [ %72, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i14" ], [ %89, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %1
@@ -5793,7 +5793,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..M
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit", %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %19, %18 ], [ %.pn, %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %.pn, %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit": ; preds = %"_ZN4core3ptr154drop_in_place$LT$diesel..connection..statement_cache..StatementCache$LT$diesel..mysql..backend..Mysql$C$diesel..mysql..connection..stmt..Statement$GT$$GT$17he7750f59f1e579aaE.llvm.2909037117879540835.exit2", %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i1.i.i"
@@ -6180,7 +6180,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$diesel..sqlite..connection..
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr67drop_in_place$LT$diesel..sqlite..connection..raw..RawConnection$GT$17h9dba43b9a51df5e0E.exit", %33, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %34, %33 ], [ %.pn, %"_ZN4core3ptr67drop_in_place$LT$diesel..sqlite..connection..raw..RawConnection$GT$17h9dba43b9a51df5e0E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %.pn, %"_ZN4core3ptr67drop_in_place$LT$diesel..sqlite..connection..raw..RawConnection$GT$17h9dba43b9a51df5e0E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$diesel..sqlite..connection..raw..RawConnection$GT$17h9dba43b9a51df5e0E.exit5", %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i1.i.i"
@@ -8305,7 +8305,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..priv
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit"
 
 common.resume:                                    ; preds = %4, %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %13, %12 ], [ %5, %4 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i.i" ], [ %5, %4 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.llvm.2909037117879540835.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$diesel..pg..connection..raw..RawConnection$GT$17h47b75508ed9d8848E.exit", %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i1.i.i"
@@ -12190,7 +12190,7 @@ common.resume.sink.split:                         ; preds = %84, %57
   br label %common.resume
 
 common.resume:                                    ; preds = %84, %57, %common.resume.sink.split, %80, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %81, %80 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %58, %57 ], [ %85, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %85, %84 ], [ %40, %39 ], [ %81, %80 ], [ %common.resume.op.ph, %common.resume.sink.split ], [ %58, %57 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17hfdd94dbc1901311dE.exit: ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit, %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit"
@@ -12861,7 +12861,7 @@ define void @"_ZN90_$LT$diesel..sqlite..connection..stmt..BoundStatement$u20$as$
   br label %36
 
 "_ZN4core3ptr150drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$i32$C$core..option..Option$LT$core..ptr..non_null..NonNull$LT$$u5b$u8$u5d$$GT$$GT$$RP$$GT$$GT$17ha24465782253a288E.exit": ; preds = %51, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i", %19, %.body34, %67
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body35, %.body34 ], [ %eh.lpad-body35, %19 ], [ %52, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i" ], [ %52, %51 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body35, %19 ], [ %eh.lpad-body35, %.body34 ], [ %52, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835.exit.i.i" ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 
 67:                                               ; preds = %37

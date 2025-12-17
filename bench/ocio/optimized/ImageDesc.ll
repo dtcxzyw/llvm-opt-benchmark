@@ -697,8 +697,8 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15PackedImageDesc4Impl1
   resume { ptr, i32 } %52
 
 53:                                               ; preds = %20, %4, %36, %33, %17
-  %.sink3 = phi i64 [ 8, %36 ], [ 32, %33 ], [ 32, %17 ], [ 32, %4 ], [ 32, %20 ]
-  %.sink = phi ptr [ %47, %36 ], [ %35, %33 ], [ %19, %17 ], [ null, %4 ], [ null, %20 ]
+  %.sink3 = phi i64 [ 8, %36 ], [ 32, %4 ], [ 32, %33 ], [ 32, %17 ], [ 32, %20 ]
+  %.sink = phi ptr [ %47, %36 ], [ null, %4 ], [ %35, %33 ], [ %19, %17 ], [ null, %20 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3
   store ptr %.sink, ptr %54, align 8, !tbaa !60
   ret void
@@ -858,7 +858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
   br label %71
 
 71:                                               ; preds = %65, %58, %49, %25, %22, %19, %16, %13, %10, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %49 ], [ false, %58 ], [ %.not23, %65 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %49 ], [ false, %58 ], [ false, %19 ], [ %.not23, %65 ], [ false, %1 ], [ false, %10 ], [ false, %13 ], [ false, %16 ]
   ret i1 %.0
 
 72:                                               ; preds = %38

@@ -823,7 +823,7 @@ SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSen
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i47, %93, %.critedge.i43, %70, %.critedge.i39, %49, %.critedge.i35, %36, %.critedge.i32, %20
-  %.027 = phi ptr [ null, %20 ], [ null, %.critedge.i32 ], [ %.063, %36 ], [ %.063, %.critedge.i35 ], [ null, %49 ], [ null, %.critedge.i39 ], [ null, %70 ], [ null, %.critedge.i43 ], [ %41, %93 ], [ %41, %.critedge.i47 ]
+  %.027 = phi ptr [ null, %.critedge.i32 ], [ null, %.critedge.i43 ], [ null, %.critedge.i39 ], [ %.063, %.critedge.i35 ], [ null, %20 ], [ %.063, %36 ], [ null, %49 ], [ null, %70 ], [ %41, %93 ], [ %41, %.critedge.i47 ]
   ret ptr %.027
 }
 
@@ -977,7 +977,7 @@ define hidden i32 @SDL_GetSensorProperties_REAL(ptr noundef %0) local_unnamed_ad
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i7, %34, %.critedge.i, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %.critedge.i ], [ %27, %34 ], [ %27, %.critedge.i7 ]
+  %.0 = phi i32 [ 0, %.critedge.i ], [ 0, %16 ], [ %27, %34 ], [ %27, %.critedge.i7 ]
   ret i32 %.0
 }
 
@@ -1062,7 +1062,7 @@ define hidden ptr @SDL_GetSensorName_REAL(ptr noundef %0) local_unnamed_addr #1 
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i6, %30, %.critedge.i, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %.critedge.i ], [ %23, %30 ], [ %23, %.critedge.i6 ]
+  %.0 = phi ptr [ null, %.critedge.i ], [ null, %16 ], [ %23, %30 ], [ %23, %.critedge.i6 ]
   ret ptr %.0
 }
 
@@ -1140,7 +1140,7 @@ define hidden i32 @SDL_GetSensorType_REAL(ptr noundef %0) local_unnamed_addr #1 
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -1218,7 +1218,7 @@ define hidden i32 @SDL_GetSensorNonPortableType_REAL(ptr noundef %0) local_unnam
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i5, %29, %.critedge.i, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %.critedge.i ], [ %22, %29 ], [ %22, %.critedge.i5 ]
+  %.0 = phi i32 [ -1, %.critedge.i ], [ -1, %16 ], [ %22, %29 ], [ %22, %.critedge.i5 ]
   ret i32 %.0
 }
 
@@ -1295,7 +1295,7 @@ define hidden i32 @SDL_GetSensorID_REAL(ptr noundef %0) local_unnamed_addr #1 {
   br label %SDL_UnlockSensors.exit
 
 SDL_UnlockSensors.exit:                           ; preds = %.critedge.i5, %28, %.critedge.i, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %.critedge.i ], [ %21, %28 ], [ %21, %.critedge.i5 ]
+  %.0 = phi i32 [ 0, %.critedge.i ], [ 0, %16 ], [ %21, %28 ], [ %21, %.critedge.i5 ]
   ret i32 %.0
 }
 

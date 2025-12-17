@@ -38,7 +38,7 @@ define dso_local noundef zeroext i1 @_ZN3igl9is_planarERKN5Eigen6MatrixIdLin1ELi
   br i1 %or.cond15.not, label %12, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %8, %1
-  %.09 = phi i1 [ false, %1 ], [ true, %8 ], [ %14, %12 ]
+  %.09 = phi i1 [ true, %8 ], [ false, %1 ], [ %14, %12 ]
   ret i1 %.09
 }
 

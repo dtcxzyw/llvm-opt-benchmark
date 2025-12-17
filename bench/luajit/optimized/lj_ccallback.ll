@@ -463,7 +463,7 @@ ctype_raw.exit.i:                                 ; preds = %34
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %64, %61, %57, %54
-  %.sink.i = phi i32 [ %56, %54 ], [ %59, %57 ], [ %63, %61 ], [ %66, %64 ]
+  %.sink.i = phi i32 [ %59, %57 ], [ %56, %54 ], [ %63, %61 ], [ %66, %64 ]
   store i32 %.sink.i, ptr %spec.select.i, align 4, !tbaa !55
   br label %callback_conv_result.exit
 
@@ -810,8 +810,8 @@ callback_slot_new.exit:                           ; preds = %115, %.loopexit.loo
   %169 = getelementptr inbounds nuw i8, ptr %.val, i64 %168
   br label %callback_checkfunc.exit.thread
 
-callback_checkfunc.exit.thread:                   ; preds = %ctype_rawchild.exit51.i, %44, %50, %ctype_rawchild.exit.i, %32, %27, %ctype_rawchild.exit49.i, %3, %6, %161
-  %.0 = phi ptr [ %169, %161 ], [ null, %6 ], [ null, %3 ], [ null, %ctype_rawchild.exit49.i ], [ null, %27 ], [ null, %32 ], [ null, %ctype_rawchild.exit.i ], [ null, %50 ], [ null, %44 ], [ null, %ctype_rawchild.exit51.i ]
+callback_checkfunc.exit.thread:                   ; preds = %44, %50, %ctype_rawchild.exit51.i, %32, %ctype_rawchild.exit.i, %27, %6, %3, %ctype_rawchild.exit49.i, %161
+  %.0 = phi ptr [ %169, %161 ], [ null, %ctype_rawchild.exit49.i ], [ null, %3 ], [ null, %6 ], [ null, %27 ], [ null, %ctype_rawchild.exit.i ], [ null, %32 ], [ null, %ctype_rawchild.exit51.i ], [ null, %50 ], [ null, %44 ]
   ret ptr %.0
 }
 

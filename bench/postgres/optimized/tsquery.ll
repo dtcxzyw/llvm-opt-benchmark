@@ -479,7 +479,7 @@ findoprnd.exit:                                   ; preds = %.critedge
   br label %115
 
 115:                                              ; preds = %findoprnd.exit, %113, %57, %59, %33, %46
-  %.0 = phi ptr [ %47, %46 ], [ null, %33 ], [ null, %59 ], [ null, %57 ], [ %114, %113 ], [ %66, %findoprnd.exit ]
+  %.0 = phi ptr [ null, %57 ], [ %47, %46 ], [ null, %33 ], [ null, %59 ], [ %114, %113 ], [ %66, %findoprnd.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -762,7 +762,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
   br label %.loopexit70
 
 ._crit_edge:                                      ; preds = %.backedge, %102, %40
-  %110 = phi ptr [ %.pre, %102 ], [ %.pre92, %40 ], [ %.pre94, %.backedge ]
+  %110 = phi ptr [ %.pre92, %40 ], [ %.pre, %102 ], [ %.pre94, %.backedge ]
   %111 = tail call i32 @pg_mblen(ptr noundef %110) #11
   %112 = load ptr, ptr %8, align 8
   %113 = sext i32 %111 to i64
@@ -771,7 +771,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
   br label %.backedge.backedge
 
 .loopexit70:                                      ; preds = %71, %63, %59, %109, %93, %66, %52, %30, %12
-  %.0 = phi i32 [ 3, %12 ], [ 2, %30 ], [ 2, %52 ], [ 0, %66 ], [ 3, %93 ], [ 3, %109 ], [ 1, %59 ], [ 0, %63 ], [ 0, %71 ]
+  %.0 = phi i32 [ 3, %12 ], [ 2, %30 ], [ 2, %52 ], [ 3, %109 ], [ 1, %59 ], [ 0, %66 ], [ 0, %63 ], [ 3, %93 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -1054,9 +1054,9 @@ default.unreachable.i:                            ; preds = %85
   unreachable
 
 .outer.i:                                         ; preds = %120, %108, %89
-  %.128.i = phi i32 [ 1, %89 ], [ 3, %120 ], [ 2, %108 ]
-  %.126.i = phi ptr [ %90, %89 ], [ %121, %120 ], [ %106, %108 ]
-  %.1.i = phi i64 [ %.024.ph55.i, %89 ], [ %.024.ph55.i, %120 ], [ %105, %108 ]
+  %.128.i = phi i32 [ 3, %120 ], [ 1, %89 ], [ 2, %108 ]
+  %.126.i = phi ptr [ %121, %120 ], [ %90, %89 ], [ %106, %108 ]
+  %.1.i = phi i64 [ %.024.ph55.i, %120 ], [ %.024.ph55.i, %89 ], [ %105, %108 ]
   %122 = load i8, ptr %.126.i, align 1
   %.not49.i = icmp eq i8 %122, 0
   br i1 %.not49.i, label %.loopexit, label %.lr.ph.i65, !llvm.loop !11
@@ -1070,7 +1070,7 @@ default.unreachable.i:                            ; preds = %85
   store i8 4, ptr %1, align 1
   br label %.loopexit70
 
-.loopexit:                                        ; preds = %87, %96, %103, %118, %.outer.i, %93, %115, %112, %83
+.loopexit:                                        ; preds = %87, %96, %103, %118, %.outer.i, %93, %112, %115, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %125, null
@@ -1124,7 +1124,7 @@ default.unreachable.i:                            ; preds = %85
   br i1 %.not61, label %.loopexit70, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %147, %22
-  %154 = phi ptr [ %134, %147 ], [ %.pre, %22 ], [ %.pre, %11 ]
+  %154 = phi ptr [ %.pre, %22 ], [ %134, %147 ], [ %.pre, %11 ]
   %155 = tail call i32 @pg_mblen(ptr noundef %154) #11
   %156 = load ptr, ptr %9, align 8
   %157 = sext i32 %155 to i64
@@ -1133,7 +1133,7 @@ default.unreachable.i:                            ; preds = %85
   br label %11
 
 .loopexit70:                                      ; preds = %147, %129, %13, %70, %72, %67, %63, %143, %136, %123, %81, %79, %get_modifiers.exit, %17, %15
-  %.0 = phi i32 [ 3, %15 ], [ 4, %17 ], [ 2, %get_modifiers.exit ], [ 3, %79 ], [ 3, %81 ], [ 3, %123 ], [ %142, %136 ], [ %146, %143 ], [ 1, %63 ], [ 0, %67 ], [ 1, %72 ], [ 1, %70 ], [ 1, %13 ], [ 1, %129 ], [ 1, %147 ]
+  %.0 = phi i32 [ 3, %15 ], [ 4, %17 ], [ 2, %get_modifiers.exit ], [ 1, %63 ], [ 0, %67 ], [ 3, %79 ], [ 3, %81 ], [ 3, %123 ], [ 1, %70 ], [ %142, %136 ], [ %146, %143 ], [ 1, %72 ], [ 1, %13 ], [ 1, %129 ], [ 1, %147 ]
   ret i32 %.0
 }
 

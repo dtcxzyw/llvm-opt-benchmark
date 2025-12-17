@@ -1771,7 +1771,7 @@ vec_int_resize.exit:                              ; preds = %7
   br i1 %22, label %19, label %.critedge, !llvm.loop !132
 
 .critedge:                                        ; preds = %19, %vec_int_resize.exit, %2
-  %23 = phi ptr [ %.pre, %vec_int_resize.exit ], [ %3, %2 ], [ %15, %19 ]
+  %23 = phi ptr [ %3, %2 ], [ %.pre, %vec_int_resize.exit ], [ %15, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !59
   %26 = getelementptr i8, ptr %25, i64 4

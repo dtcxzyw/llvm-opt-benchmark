@@ -1806,7 +1806,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
   br i1 %55, label %.preheader, label %.preheader24.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader24.loopexit, %.preheader, %.preheader24.preheader, %16, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, %12, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit ], [ 1, %16 ], [ 1, %.preheader24.preheader ], [ 2, %.preheader ], [ 1, %.preheader24.loopexit ]
+  %.0 = phi i32 [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit ], [ 0, %2 ], [ 0, %8 ], [ 0, %12 ], [ 1, %16 ], [ 1, %.preheader24.preheader ], [ 2, %.preheader ], [ 1, %.preheader24.loopexit ]
   ret i32 %.0
 }
 
@@ -1923,7 +1923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__n
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit, %11, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %11 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit ], [ %.not7, %.lr.ph ]
+  %.0 = phi i1 [ false, %11 ], [ true, %2 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeIN9__gnu_cxx17__normal_iteratorIPKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEENS_5TfGetILm0EEEEES3_IT_SG_ESG_SG_RKS4_RKT0_.exit ], [ %.not7, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -2025,7 +2025,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %30, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNKS5_25IsLoadedWithNoDescendantsERKS4_E3$_0ET_SH_SH_RKT0_T1_.exit", %29, %2, %36
-  %.0 = phi i1 [ %38, %36 ], [ false, %2 ], [ false, %29 ], [ false, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNKS5_25IsLoadedWithNoDescendantsERKS4_E3$_0ET_SH_SH_RKT0_T1_.exit" ], [ false, %30 ], [ true, %.preheader ]
+  %.0 = phi i1 [ false, %30 ], [ false, %2 ], [ %38, %36 ], [ false, %29 ], [ false, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEES4_ZNKS5_25IsLoadedWithNoDescendantsERKS4_E3$_0ET_SH_SH_RKT0_T1_.exit" ], [ true, %.preheader ]
   ret i1 %.0
 }
 

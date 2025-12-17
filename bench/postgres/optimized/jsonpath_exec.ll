@@ -811,9 +811,9 @@ define internal fastcc i64 @jsonb_path_query_array_internal(ptr noundef readonly
   br label %JsonValueListInitIterator.exit.i
 
 JsonValueListInitIterator.exit.i:                 ; preds = %23, %22, %2
-  %.sroa.0.0.i = phi ptr [ %.val, %2 ], [ null, %22 ], [ %25, %23 ]
-  %.sroa.8.0.i = phi ptr [ null, %2 ], [ null, %22 ], [ %.val8, %23 ]
-  %.sroa.11.0.i = phi ptr [ null, %2 ], [ null, %22 ], [ %spec.select.i, %23 ]
+  %.sroa.0.0.i = phi ptr [ %25, %23 ], [ %.val, %2 ], [ null, %22 ]
+  %.sroa.8.0.i = phi ptr [ %.val8, %23 ], [ null, %2 ], [ null, %22 ]
+  %.sroa.11.0.i = phi ptr [ %spec.select.i, %23 ], [ null, %2 ], [ null, %22 ]
   %30 = getelementptr i8, ptr %.sroa.8.0.i, i64 4
   %31 = getelementptr i8, ptr %.sroa.8.0.i, i64 16
   br label %32
@@ -1611,9 +1611,9 @@ JsonValueListHead.exit.thread:                    ; preds = %66
   br label %JsonValueListInitIterator.exit.i
 
 JsonValueListInitIterator.exit.i:                 ; preds = %85, %84, %.critedge35
-  %.sroa.0.0.i = phi ptr [ %.val, %.critedge35 ], [ null, %84 ], [ %87, %85 ]
-  %.sroa.8.0.i = phi ptr [ null, %.critedge35 ], [ null, %84 ], [ %.val37, %85 ]
-  %.sroa.11.0.i = phi ptr [ null, %.critedge35 ], [ null, %84 ], [ %spec.select.i, %85 ]
+  %.sroa.0.0.i = phi ptr [ %87, %85 ], [ %.val, %.critedge35 ], [ null, %84 ]
+  %.sroa.8.0.i = phi ptr [ %.val37, %85 ], [ null, %.critedge35 ], [ null, %84 ]
+  %.sroa.11.0.i = phi ptr [ %spec.select.i, %85 ], [ null, %.critedge35 ], [ null, %84 ]
   %92 = getelementptr i8, ptr %.sroa.8.0.i, i64 4
   %93 = getelementptr i8, ptr %.sroa.8.0.i, i64 16
   br label %94
@@ -1950,7 +1950,7 @@ thread-pre-split.thread:                          ; preds = %89, %thread-pre-spl
   br label %107
 
 107:                                              ; preds = %JsonValueListLength.exit.thread, %105, %JsonValueListLength.exit, %97, %74, %63
-  %.0 = phi ptr [ null, %63 ], [ null, %74 ], [ null, %97 ], [ null, %JsonValueListLength.exit ], [ %., %105 ], [ null, %JsonValueListLength.exit.thread ]
+  %.0 = phi ptr [ null, %63 ], [ null, %97 ], [ null, %74 ], [ %., %105 ], [ null, %JsonValueListLength.exit ], [ null, %JsonValueListLength.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -2789,8 +2789,8 @@ select.unfold:                                    ; preds = %.lr.ph.split.split
   %or.cond27 = or i1 %266, %331
   br i1 %or.cond27, label %.thread711.thread845.thread, label %.thread717
 
-.thread717:                                       ; preds = %.lr.ph940, %276, %.thread711.thread845, %executeNextItem.exit682.us
-  %.4577.ph = phi i32 [ 2, %executeNextItem.exit682.us ], [ 2, %.lr.ph940 ], [ 2, %276 ], [ 0, %.thread711.thread845 ]
+.thread717:                                       ; preds = %276, %.lr.ph940, %.thread711.thread845, %executeNextItem.exit682.us
+  %.4577.ph = phi i32 [ 2, %executeNextItem.exit682.us ], [ 2, %.lr.ph940 ], [ 0, %.thread711.thread845 ], [ 2, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -3175,7 +3175,7 @@ JsonbArraySize.exit685:                           ; preds = %461, %467
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1171, ptr noundef nonnull @__func__.executeItemOptUnwrapTarget) #10
   unreachable
 
-.thread748:                                       ; preds = %514, %526
+.thread748:                                       ; preds = %526, %514
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.thread762
 
@@ -3263,8 +3263,8 @@ JsonbArraySize.exit685:                           ; preds = %461, %467
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @__func__.executeItemOptUnwrapTarget) #10
   unreachable
 
-.thread762:                                       ; preds = %500, %576, %.thread748, %.thread752
-  %.11.ph = phi i32 [ 2, %.thread752 ], [ 2, %.thread748 ], [ 2, %576 ], [ %501, %500 ]
+.thread762:                                       ; preds = %500, %.thread752, %.thread748, %576
+  %.11.ph = phi i32 [ 2, %576 ], [ 2, %.thread748 ], [ 2, %.thread752 ], [ %501, %500 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.thread738
 
@@ -3383,7 +3383,7 @@ executeItemUnwrapTargetArray.exit.split.outer:    ; preds = %executeItemUnwrapTa
   br label %executeItemUnwrapTargetArray.exit.split
 
 executeAnyItem.exit:                              ; preds = %executeItemUnwrapTargetArray.exit.split.us, %611, %executeItemUnwrapTargetArray.exit.split, %619, %619
-  %.us-phi = phi i32 [ %.058.i.ph, %executeItemUnwrapTargetArray.exit.split ], [ %620, %619 ], [ %620, %619 ], [ %.058.i.us.ph, %executeItemUnwrapTargetArray.exit.split.us ], [ 2, %611 ]
+  %.us-phi = phi i32 [ %620, %619 ], [ %.058.i.ph, %executeItemUnwrapTargetArray.exit.split ], [ %620, %619 ], [ %.058.i.us.ph, %executeItemUnwrapTargetArray.exit.split.us ], [ 2, %611 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread738
@@ -3516,7 +3516,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   br label %.thread770
 
 .thread770:                                       ; preds = %631, %638, %.critedge.i, %657
-  %.1147.i = phi i32 [ -1, %657 ], [ %669, %.critedge.i ], [ -1, %638 ], [ -1, %631 ]
+  %.1147.i = phi i32 [ %669, %.critedge.i ], [ -1, %657 ], [ -1, %638 ], [ -1, %631 ]
   %683 = getelementptr inbounds nuw i8, ptr %16, i64 4
   br label %685
 
@@ -3983,7 +3983,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %885
 
-.thread776:                                       ; preds = %844, %.thread773
+.thread776:                                       ; preds = %.thread773, %844
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %executeDateTimeMethod.exit
@@ -4039,7 +4039,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   br label %executeDateTimeMethod.exit
 
 executeDateTimeMethod.exit:                       ; preds = %.thread776, %.thread771, %682, %621, %704, %711, %722, %743, %768, %793, %890, %892, %898
-  %.0.i690 = phi i32 [ %907, %898 ], [ 2, %621 ], [ 2, %722 ], [ 2, %743 ], [ 2, %768 ], [ 2, %793 ], [ 2, %890 ], [ %.1135.i, %892 ], [ 2, %711 ], [ 2, %704 ], [ 2, %682 ], [ 2, %.thread771 ], [ 2, %.thread776 ]
+  %.0.i690 = phi i32 [ 2, %793 ], [ %907, %898 ], [ 2, %890 ], [ 2, %621 ], [ 2, %722 ], [ 2, %743 ], [ 2, %.thread771 ], [ 2, %768 ], [ 2, %.thread776 ], [ %.1135.i, %892 ], [ 2, %711 ], [ 2, %704 ], [ 2, %682 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4219,8 +4219,8 @@ executeDateTimeMethod.exit:                       ; preds = %.thread776, %.threa
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1313, ptr noundef nonnull @__func__.executeItemOptUnwrapTarget) #10
   unreachable
 
-.thread787:                                       ; preds = %941, %988, %.thread779, %.thread781
-  %.15.ph = phi i32 [ 2, %.thread781 ], [ 2, %.thread779 ], [ 2, %988 ], [ %942, %941 ]
+.thread787:                                       ; preds = %941, %.thread781, %.thread779, %988
+  %.15.ph = phi i32 [ 2, %988 ], [ 2, %.thread779 ], [ 2, %.thread781 ], [ %942, %941 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.thread738
@@ -4488,7 +4488,7 @@ executeDateTimeMethod.exit:                       ; preds = %.thread776, %.threa
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1446, ptr noundef nonnull @__func__.executeItemOptUnwrapTarget) #10
   unreachable
 
-.thread804:                                       ; preds = %1113, %1130
+.thread804:                                       ; preds = %1130, %1113
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %.thread819
@@ -4665,8 +4665,8 @@ executeDateTimeMethod.exit:                       ; preds = %.thread776, %.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.thread819
 
-.thread819:                                       ; preds = %1075, %1085, %1141, %.critedge, %.thread804
-  %.23.ph = phi i32 [ 2, %.thread804 ], [ 2, %.critedge ], [ 2, %1141 ], [ 2, %1085 ], [ %1076, %1075 ]
+.thread819:                                       ; preds = %1075, %.thread804, %1085, %.critedge, %1141
+  %.23.ph = phi i32 [ 2, %1141 ], [ 2, %.critedge ], [ 2, %1085 ], [ 2, %.thread804 ], [ %1076, %1075 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.thread738
 
@@ -4794,8 +4794,8 @@ executeDateTimeMethod.exit:                       ; preds = %.thread776, %.threa
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1593, ptr noundef nonnull @__func__.executeItemOptUnwrapTarget) #10
   unreachable
 
-.thread831:                                       ; preds = %1233, %1281, %.thread823, %.thread825
-  %.28.ph = phi i32 [ 2, %.thread825 ], [ 2, %.thread823 ], [ 2, %1281 ], [ %1234, %1233 ]
+.thread831:                                       ; preds = %1233, %.thread825, %.thread823, %1281
+  %.28.ph = phi i32 [ 2, %1281 ], [ 2, %.thread823 ], [ 2, %.thread825 ], [ %1234, %1233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.thread738
@@ -4898,7 +4898,7 @@ unreachable:                                      ; preds = %1304
   br label %.thread738
 
 1342:                                             ; preds = %1306, %1313, %1319, %1324
-  %.0 = phi ptr [ %1312, %1306 ], [ %1318, %1313 ], [ %1323, %1319 ], [ %1331, %1324 ]
+  %.0 = phi ptr [ %1331, %1324 ], [ %1312, %1306 ], [ %1318, %1313 ], [ %1323, %1319 ]
   %1343 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %1344 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %.0, ptr %1344, align 8
@@ -4918,7 +4918,7 @@ unreachable:                                      ; preds = %1304
   unreachable
 
 .thread738:                                       ; preds = %471, %JsonbArraySize.exit685, %445, %441, %appendBoolResult.exit, %423, %setBaseObject.exit, %449, %192, %194, %182, %229, %335, %411, %132, %936, %358, %361, %352, %.thread728, %.thread734, %586, %998, %.thread793, %.thread815, %1291, %1342, %.thread836, %.thread831, %.thread819, %.thread799, %.thread787, %.thread762, %475, %447, %404, %.loopexit, %415, %339, %233, %198, %914, %912, %executeDateTimeMethod.exit, %executeAnyItem.exit, %494, %492, %490, %409, %227, %216, %177, %175, %173, %171, %169, %167, %165
-  %.0568 = phi i32 [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %222, %216 ], [ %228, %227 ], [ %.3.ph723, %.loopexit ], [ 2, %404 ], [ %410, %409 ], [ %448, %447 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %.us-phi, %executeAnyItem.exit ], [ %.0.i690, %executeDateTimeMethod.exit ], [ %913, %912 ], [ %915, %914 ], [ 2, %198 ], [ 2, %233 ], [ 2, %339 ], [ 2, %415 ], [ 2, %475 ], [ %.11.ph, %.thread762 ], [ %.15.ph, %.thread787 ], [ %.19.ph, %.thread799 ], [ %.23.ph, %.thread819 ], [ %.28.ph, %.thread831 ], [ %.32.ph, %.thread836 ], [ %.0573, %132 ], [ %.0.i, %appendBoolResult.exit ], [ %187, %182 ], [ %193, %192 ], [ 1, %194 ], [ 1, %229 ], [ 1, %335 ], [ 1, %411 ], [ %426, %423 ], [ %436, %setBaseObject.exit ], [ %457, %449 ], [ %587, %586 ], [ %.22595, %936 ], [ %1004, %998 ], [ %1070, %.thread793 ], [ %1228, %.thread815 ], [ %1297, %1291 ], [ %1347, %1342 ], [ 0, %352 ], [ %370, %361 ], [ %.10583, %358 ], [ %.3576, %.thread728 ], [ %.14587.ph, %.thread734 ], [ 1, %441 ], [ %446, %445 ], [ 1, %471 ], [ %489, %JsonbArraySize.exit685 ]
+  %.0568 = phi i32 [ 2, %475 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %.32.ph, %.thread836 ], [ %222, %216 ], [ %228, %227 ], [ 2, %198 ], [ %.3.ph723, %.loopexit ], [ 2, %233 ], [ 2, %404 ], [ %410, %409 ], [ 2, %339 ], [ %448, %447 ], [ 2, %415 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %.11.ph, %.thread762 ], [ %.us-phi, %executeAnyItem.exit ], [ %.0.i690, %executeDateTimeMethod.exit ], [ %913, %912 ], [ %915, %914 ], [ %.15.ph, %.thread787 ], [ %.19.ph, %.thread799 ], [ %.23.ph, %.thread819 ], [ %.28.ph, %.thread831 ], [ %.0573, %132 ], [ %.0.i, %appendBoolResult.exit ], [ %187, %182 ], [ %193, %192 ], [ 1, %194 ], [ 1, %229 ], [ %.3576, %.thread728 ], [ 1, %335 ], [ %1347, %1342 ], [ %.14587.ph, %.thread734 ], [ 1, %411 ], [ %426, %423 ], [ %436, %setBaseObject.exit ], [ %370, %361 ], [ %457, %449 ], [ %446, %445 ], [ %.10583, %358 ], [ %587, %586 ], [ %.22595, %936 ], [ %1004, %998 ], [ %1070, %.thread793 ], [ %1228, %.thread815 ], [ %1297, %1291 ], [ 0, %352 ], [ 1, %441 ], [ 1, %471 ], [ %489, %JsonbArraySize.exit685 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   ret i32 %.0568
 }
@@ -5138,9 +5138,9 @@ define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef nonnull 
   br label %JsonValueListInitIterator.exit109
 
 JsonValueListInitIterator.exit109:                ; preds = %58, %55, %53
-  %.sroa.0136.2 = phi ptr [ %54, %53 ], [ null, %55 ], [ %60, %58 ]
-  %.sroa.8.0 = phi ptr [ null, %53 ], [ null, %55 ], [ %57, %58 ]
-  %.sroa.11137.2 = phi ptr [ null, %53 ], [ null, %55 ], [ %spec.select, %58 ]
+  %.sroa.0136.2 = phi ptr [ %60, %58 ], [ %54, %53 ], [ null, %55 ]
+  %.sroa.8.0 = phi ptr [ %57, %58 ], [ null, %53 ], [ null, %55 ]
+  %.sroa.11137.2 = phi ptr [ %spec.select, %58 ], [ null, %53 ], [ null, %55 ]
   %65 = getelementptr i8, ptr %.sroa.8.0, i64 4
   %66 = getelementptr i8, ptr %.sroa.8.0, i64 16
   %67 = load ptr, ptr %7, align 8
@@ -5260,8 +5260,8 @@ executeStartsWith.exit.us:                        ; preds = %103
   br i1 %109, label %executePredicate.exit, label %executeStartsWith.exit.thread157.us
 
 executeStartsWith.exit.thread157.us:              ; preds = %executeStartsWith.exit.us, %103, %99, %96
-  %.345.i.us = phi i8 [ 1, %96 ], [ %.143.i194.us, %executeStartsWith.exit.us ], [ %.143.i194.us, %99 ], [ %.143.i194.us, %103 ]
-  %.340.i.us = phi i1 [ %.138.i195.us, %96 ], [ true, %executeStartsWith.exit.us ], [ %.138.i195.us, %99 ], [ %.138.i195.us, %103 ]
+  %.345.i.us = phi i8 [ %.143.i194.us, %executeStartsWith.exit.us ], [ 1, %96 ], [ %.143.i194.us, %99 ], [ %.143.i194.us, %103 ]
+  %.340.i.us = phi i1 [ true, %executeStartsWith.exit.us ], [ %.138.i195.us, %96 ], [ %.138.i195.us, %99 ], [ %.138.i195.us, %103 ]
   %.not.i88.us = icmp eq ptr %.sroa.15.1193.us, null
   br i1 %.not.i88.us, label %JsonValueListNext.exit.us, label %110
 
@@ -5296,7 +5296,7 @@ JsonValueListNext.exit.us:                        ; preds = %110, %executeStarts
   br label %executePredicate.exit
 
 executePredicate.exit:                            ; preds = %.lr.ph.split, %executeStartsWith.exit.us, %96, %47, %50, %118, %119
-  %.0.i = phi i32 [ 2, %47 ], [ 2, %50 ], [ 1, %118 ], [ %..i, %119 ], [ 2, %96 ], [ 1, %executeStartsWith.exit.us ], [ 2, %.lr.ph.split ]
+  %.0.i = phi i32 [ 1, %118 ], [ 2, %47 ], [ %..i, %119 ], [ 2, %50 ], [ 2, %96 ], [ 1, %executeStartsWith.exit.us ], [ 2, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %200
@@ -5338,9 +5338,9 @@ executePredicate.exit:                            ; preds = %.lr.ph.split, %exec
   br label %JsonValueListInitIterator.exit131
 
 JsonValueListInitIterator.exit131:                ; preds = %133, %130, %128
-  %.sroa.11145.2 = phi ptr [ null, %128 ], [ null, %130 ], [ %spec.select177, %133 ]
-  %.sroa.8144.0 = phi ptr [ null, %128 ], [ null, %130 ], [ %132, %133 ]
-  %.sroa.0143.2 = phi ptr [ %129, %128 ], [ null, %130 ], [ %135, %133 ]
+  %.sroa.11145.2 = phi ptr [ %spec.select177, %133 ], [ null, %128 ], [ null, %130 ]
+  %.sroa.8144.0 = phi ptr [ %132, %133 ], [ null, %128 ], [ null, %130 ]
+  %.sroa.0143.2 = phi ptr [ %135, %133 ], [ %129, %128 ], [ null, %130 ]
   %140 = getelementptr i8, ptr %.sroa.8144.0, i64 4
   %141 = getelementptr i8, ptr %.sroa.8144.0, i64 16
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5431,7 +5431,7 @@ executeLikeRegex.exit:                            ; preds = %JsonValueListInitIt
   br label %executePredicate.exit87
 
 executePredicate.exit87:                          ; preds = %174, %171, %JsonValueListInitIterator.exit119.preheader.split.us, %121
-  %.0.i85 = phi i32 [ 2, %121 ], [ %spec.select280, %174 ], [ 1, %171 ], [ 2, %JsonValueListInitIterator.exit119.preheader.split.us ]
+  %.0.i85 = phi i32 [ 2, %JsonValueListInitIterator.exit119.preheader.split.us ], [ 2, %121 ], [ %spec.select280, %174 ], [ 1, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %200
@@ -5489,7 +5489,7 @@ executePredicate.exit87:                          ; preds = %174, %171, %JsonVal
   unreachable
 
 200:                                              ; preds = %35, %28, %21, %189, %188, %executePredicate.exit87, %executePredicate.exit, %45, %41, %38, %31, %24
-  %.0 = phi i32 [ %27, %24 ], [ %34, %31 ], [ %40, %38 ], [ %44, %41 ], [ %46, %45 ], [ %.0.i, %executePredicate.exit ], [ %.0.i85, %executePredicate.exit87 ], [ %.2, %189 ], [ %.1, %188 ], [ 0, %21 ], [ 1, %28 ], [ 2, %35 ]
+  %.0 = phi i32 [ %.1, %188 ], [ %27, %24 ], [ 0, %21 ], [ %34, %31 ], [ 1, %28 ], [ %40, %38 ], [ %44, %41 ], [ %46, %45 ], [ %.0.i, %executePredicate.exit ], [ %.0.i85, %executePredicate.exit87 ], [ %.2, %189 ], [ 2, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -5648,7 +5648,7 @@ JsonValueListLength.exit51.thread59:              ; preds = %36, %JsonValueListL
   br label %78
 
 78:                                               ; preds = %71, %JsonValueListLength.exit51.thread59, %JsonValueListLength.exit.thread56, %12, %5, %63, %74
-  %.033 = phi i32 [ %77, %74 ], [ 2, %63 ], [ 2, %5 ], [ 2, %12 ], [ 2, %JsonValueListLength.exit.thread56 ], [ 2, %JsonValueListLength.exit51.thread59 ], [ 0, %71 ]
+  %.033 = phi i32 [ 2, %63 ], [ 2, %5 ], [ 2, %12 ], [ 2, %JsonValueListLength.exit.thread56 ], [ %77, %74 ], [ 2, %JsonValueListLength.exit51.thread59 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5702,9 +5702,9 @@ define internal fastcc range(i32 0, 3) i32 @executeUnaryArithmExpr(ptr noundef n
   br label %JsonValueListInitIterator.exit
 
 JsonValueListInitIterator.exit:                   ; preds = %16, %13, %10
-  %.sroa.0.1 = phi ptr [ %12, %10 ], [ null, %13 ], [ %18, %16 ]
-  %.sroa.8.0 = phi ptr [ null, %10 ], [ null, %13 ], [ %15, %16 ]
-  %.sroa.11.1 = phi ptr [ null, %10 ], [ null, %13 ], [ %spec.select, %16 ]
+  %.sroa.0.1 = phi ptr [ %18, %16 ], [ %12, %10 ], [ null, %13 ]
+  %.sroa.8.0 = phi ptr [ %15, %16 ], [ null, %10 ], [ null, %13 ]
+  %.sroa.11.1 = phi ptr [ %spec.select, %16 ], [ null, %10 ], [ null, %13 ]
   %23 = getelementptr i8, ptr %.sroa.8.0, i64 4
   %24 = getelementptr i8, ptr %.sroa.8.0, i64 16
   %25 = icmp ne ptr %4, null
@@ -5852,7 +5852,7 @@ JsonValueListNext.exit:                           ; preds = %.outer.split, %57
   unreachable
 
 executeNextItem.exit.thread.thread44:             ; preds = %JsonValueListNext.exit, %63, %JsonValueListNext.exit.us.us.us, %executeNextItem.exit.us.us, %executeNextItem.exit.thread.us.us, %38, %.split60.us, %5
-  %.0 = phi i32 [ 2, %5 ], [ 2, %.split60.us ], [ %48, %executeNextItem.exit.us.us ], [ %.029.ph.us.us.ph, %JsonValueListNext.exit.us.us.us ], [ 0, %executeNextItem.exit.thread.us.us ], [ 0, %38 ], [ 1, %JsonValueListNext.exit ], [ 0, %63 ]
+  %.0 = phi i32 [ 2, %5 ], [ 2, %.split60.us ], [ 0, %38 ], [ %48, %executeNextItem.exit.us.us ], [ %.029.ph.us.us.ph, %JsonValueListNext.exit.us.us.us ], [ 0, %executeNextItem.exit.thread.us.us ], [ 1, %JsonValueListNext.exit ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -6201,7 +6201,7 @@ JsonValueListAppend.exit:                         ; preds = %.JsonValueListAppen
   br label %.split.split.split.outer, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split.split.split.us, %85, %82, %.split.split.split, %107, %103, %99, %96, %.split.split.us, %59, %63, %67, %71, %31, %.split.us, %48, %44, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %31 ], [ %.058.us.ph, %.split.us ], [ 2, %44 ], [ 0, %48 ], [ %.058.us70.ph, %.split.split.us ], [ 2, %59 ], [ 2, %67 ], [ 0, %71 ], [ 0, %63 ], [ %.058.ph, %.split.split.split ], [ 2, %96 ], [ 2, %103 ], [ 0, %107 ], [ 0, %99 ], [ %.058.us81.ph, %.split.split.split.us ], [ 2, %82 ], [ 0, %85 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %63 ], [ 2, %103 ], [ 0, %48 ], [ %.058.us.ph, %.split.us ], [ 0, %31 ], [ 2, %44 ], [ %.058.us70.ph, %.split.split.us ], [ 2, %59 ], [ 2, %67 ], [ 0, %71 ], [ %.058.ph, %.split.split.split ], [ 0, %99 ], [ 0, %107 ], [ 2, %96 ], [ %.058.us81.ph, %.split.split.split.us ], [ 2, %82 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -6293,7 +6293,7 @@ JsonValueListLength.exit.thread18:                ; preds = %14, %JsonValueListL
   unreachable
 
 47:                                               ; preds = %29, %39, %JsonValueListLength.exit.thread18, %4
-  %.0 = phi i32 [ 2, %4 ], [ 2, %JsonValueListLength.exit.thread18 ], [ 2, %39 ], [ 0, %29 ]
+  %.0 = phi i32 [ 2, %39 ], [ 2, %4 ], [ 2, %JsonValueListLength.exit.thread18 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -6440,7 +6440,7 @@ JsonbType.exit.thread26.thread:                   ; preds = %8, %9, %JsonbType.e
   br label %executeNextItem.exit
 
 executeNextItem.exit:                             ; preds = %51, %49, %54, %60, %61, %34, %JsonbType.exit.thread26.thread, %executeItemUnwrapTargetArray.exit
-  %.0 = phi i32 [ %24, %executeItemUnwrapTargetArray.exit ], [ 2, %JsonbType.exit.thread26.thread ], [ 0, %34 ], [ %50, %49 ], [ 0, %51 ], [ 0, %54 ], [ 0, %60 ], [ 0, %61 ]
+  %.0 = phi i32 [ %24, %executeItemUnwrapTargetArray.exit ], [ 0, %34 ], [ 2, %JsonbType.exit.thread26.thread ], [ %50, %49 ], [ 0, %51 ], [ 0, %54 ], [ 0, %60 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -6863,9 +6863,9 @@ define internal fastcc range(i32 0, 3) i32 @executePredicate(ptr noundef nonnull
   br label %JsonValueListInitIterator.exit
 
 JsonValueListInitIterator.exit:                   ; preds = %24, %21, %19
-  %.sroa.076.1 = phi ptr [ %20, %19 ], [ null, %21 ], [ %26, %24 ]
-  %.sroa.8.0 = phi ptr [ null, %19 ], [ null, %21 ], [ %23, %24 ]
-  %.sroa.1177.1 = phi ptr [ null, %19 ], [ null, %21 ], [ %spec.select, %24 ]
+  %.sroa.076.1 = phi ptr [ %26, %24 ], [ %20, %19 ], [ null, %21 ]
+  %.sroa.8.0 = phi ptr [ %23, %24 ], [ null, %19 ], [ null, %21 ]
+  %.sroa.1177.1 = phi ptr [ %spec.select, %24 ], [ null, %19 ], [ null, %21 ]
   %31 = getelementptr i8, ptr %.sroa.8.0, i64 4
   %32 = getelementptr i8, ptr %.sroa.8.0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7029,8 +7029,8 @@ JsonValueListNext.exit66:                         ; preds = %62, %JsonValueListI
   br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %79, %74, %76
-  %.345 = phi i8 [ 1, %76 ], [ %.14397, %74 ], [ %.14397, %79 ]
-  %.340 = phi i1 [ %.13898, %76 ], [ %.13898, %74 ], [ true, %79 ]
+  %.345 = phi i8 [ %.14397, %74 ], [ 1, %76 ], [ %.14397, %79 ]
+  %.340 = phi i1 [ %.13898, %74 ], [ %.13898, %76 ], [ true, %79 ]
   %.not.i67 = icmp eq ptr %.sroa.15.296, null
   br i1 %.not.i67, label %JsonValueListNext.exit71, label %83
 
@@ -7046,8 +7046,8 @@ JsonValueListNext.exit66:                         ; preds = %62, %JsonValueListI
   br label %JsonValueListNext.exit71
 
 JsonValueListNext.exit71:                         ; preds = %83, %82
-  %.sroa.0.3 = phi ptr [ %84, %83 ], [ null, %82 ]
-  %.sroa.15.3 = phi ptr [ %..i.i70, %83 ], [ null, %82 ]
+  %.sroa.0.3 = phi ptr [ null, %82 ], [ %84, %83 ]
+  %.sroa.15.3 = phi ptr [ null, %82 ], [ %..i.i70, %83 ]
   %.not52 = icmp eq ptr %.sroa.0.295, null
   br i1 %.not52, label %JsonValueListInitIterator.exit.split.outer, label %74, !llvm.loop !16
 
@@ -7061,8 +7061,8 @@ JsonValueListNext.exit71:                         ; preds = %83, %82
   %. = shl nuw nsw i32 %90, 1
   br label %.thread
 
-.thread:                                          ; preds = %79, %76, %42, %45, %89, %.split.us, %16, %8
-  %.0 = phi i32 [ 2, %8 ], [ 2, %16 ], [ 1, %.split.us ], [ %., %89 ], [ %41, %45 ], [ %41, %42 ], [ %75, %76 ], [ %75, %79 ]
+.thread:                                          ; preds = %76, %79, %42, %45, %89, %.split.us, %16, %8
+  %.0 = phi i32 [ 1, %.split.us ], [ 2, %8 ], [ %., %89 ], [ 2, %16 ], [ %41, %42 ], [ %41, %45 ], [ %75, %79 ], [ %75, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -7427,9 +7427,9 @@ cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %162
   unreachable
 
 176:                                              ; preds = %152, %137, %castTimeToTimeTz.exit47.i.i, %126, %castTimeToTimeTz.exit.i.i, %115, %100
-  %.046.i.i = phi i64 [ %97, %castTimeToTimeTz.exit.i.i ], [ %133, %castTimeToTimeTz.exit47.i.i ], [ %97, %100 ], [ %97, %115 ], [ %97, %126 ], [ %97, %137 ], [ %97, %152 ]
-  %.045.i.i = phi i64 [ %122, %castTimeToTimeTz.exit.i.i ], [ %93, %castTimeToTimeTz.exit47.i.i ], [ %93, %100 ], [ %93, %115 ], [ %93, %126 ], [ %93, %137 ], [ %93, %152 ]
-  %.0.i44.i = phi ptr [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @date_cmp, %100 ], [ @time_cmp, %115 ], [ @timetz_cmp, %126 ], [ @timestamp_cmp, %137 ], [ @timestamp_cmp, %152 ]
+  %.046.i.i = phi i64 [ %97, %137 ], [ %97, %100 ], [ %97, %castTimeToTimeTz.exit.i.i ], [ %133, %castTimeToTimeTz.exit47.i.i ], [ %97, %115 ], [ %97, %126 ], [ %97, %152 ]
+  %.045.i.i = phi i64 [ %93, %137 ], [ %93, %100 ], [ %122, %castTimeToTimeTz.exit.i.i ], [ %93, %castTimeToTimeTz.exit47.i.i ], [ %93, %115 ], [ %93, %126 ], [ %93, %152 ]
+  %.0.i44.i = phi ptr [ @timestamp_cmp, %137 ], [ @date_cmp, %100 ], [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @time_cmp, %115 ], [ @timetz_cmp, %126 ], [ @timestamp_cmp, %152 ]
   %177 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %.0.i44.i, i32 noundef 0, i64 noundef %.045.i.i, i64 noundef %.046.i.i) #10
   %178 = trunc i64 %177 to i32
   br label %compareStrings.exit.i
@@ -7442,7 +7442,7 @@ cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %162
   unreachable
 
 compareStrings.exit.i:                            ; preds = %176, %cmpTimestampToTimestampTz.exit49.i.i, %cmpDateToTimestampTz.exit48.i.i, %cmpTimestampToTimestampTz.exit.i.i, %138, %cmpDateToTimestampTz.exit.i.i, %101, %.sink.split.i.i, %86, %77, %27, %18, %17
-  %.038.i = phi i32 [ %26, %18 ], [ %35, %27 ], [ %9, %17 ], [ %.0.i47.i.i, %77 ], [ %.0.i47.i.i, %86 ], [ %.0.i50.i.i, %.sink.split.i.i ], [ %169, %cmpTimestampToTimestampTz.exit49.i.i ], [ %161, %cmpDateToTimestampTz.exit48.i.i ], [ %148, %cmpTimestampToTimestampTz.exit.i.i ], [ %141, %138 ], [ %111, %cmpDateToTimestampTz.exit.i.i ], [ %103, %101 ], [ %178, %176 ]
+  %.038.i = phi i32 [ %.0.i50.i.i, %.sink.split.i.i ], [ %26, %18 ], [ %35, %27 ], [ %9, %17 ], [ %.0.i47.i.i, %86 ], [ %.0.i47.i.i, %77 ], [ %169, %cmpTimestampToTimestampTz.exit49.i.i ], [ %161, %cmpDateToTimestampTz.exit48.i.i ], [ %148, %cmpTimestampToTimestampTz.exit.i.i ], [ %141, %138 ], [ %111, %cmpDateToTimestampTz.exit.i.i ], [ %103, %101 ], [ %178, %176 ]
   switch i32 %5, label %195 [
     i32 8, label %183
     i32 9, label %185
@@ -7488,7 +7488,7 @@ compareStrings.exit.i:                            ; preds = %176, %cmpTimestampT
   br label %compareItems.exit
 
 compareItems.exit:                                ; preds = %11, %14, %17, %17, %17, %39, %43, %100, %100, %115, %115, %115, %126, %126, %126, %137, %137, %152, %152, %198
-  %.039.i = phi i32 [ %16, %14 ], [ %199, %198 ], [ 2, %11 ], [ 0, %39 ], [ %50, %43 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ], [ 2, %100 ], [ 2, %100 ], [ 2, %115 ], [ 2, %115 ], [ 2, %115 ], [ 2, %126 ], [ 2, %126 ], [ 2, %126 ], [ 2, %137 ], [ 2, %137 ], [ 2, %152 ], [ 2, %152 ]
+  %.039.i = phi i32 [ %16, %14 ], [ %50, %43 ], [ %199, %198 ], [ 2, %11 ], [ 2, %17 ], [ 0, %39 ], [ 2, %17 ], [ 2, %17 ], [ 2, %152 ], [ 2, %152 ], [ 2, %137 ], [ 2, %137 ], [ 2, %100 ], [ 2, %100 ], [ 2, %115 ], [ 2, %115 ], [ 2, %115 ], [ 2, %126 ], [ 2, %126 ], [ 2, %126 ]
   ret i32 %.039.i
 }
 
@@ -7592,9 +7592,9 @@ define internal fastcc i32 @executeItemOptUnwrapResult(ptr noundef nonnull %0, p
   br label %JsonValueListInitIterator.exit
 
 JsonValueListInitIterator.exit:                   ; preds = %19, %16, %14
-  %.sroa.0.1 = phi ptr [ %15, %14 ], [ null, %16 ], [ %21, %19 ]
-  %.sroa.8.0 = phi ptr [ null, %14 ], [ null, %16 ], [ %18, %19 ]
-  %.sroa.11.1 = phi ptr [ null, %14 ], [ null, %16 ], [ %spec.select, %19 ]
+  %.sroa.0.1 = phi ptr [ %21, %19 ], [ %15, %14 ], [ null, %16 ]
+  %.sroa.8.0 = phi ptr [ %18, %19 ], [ null, %14 ], [ null, %16 ]
+  %.sroa.11.1 = phi ptr [ %spec.select, %19 ], [ null, %14 ], [ null, %16 ]
   %26 = getelementptr i8, ptr %.sroa.8.0, i64 4
   %27 = getelementptr i8, ptr %.sroa.8.0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8160,7 +8160,7 @@ JsonValueListNext.exit:                           ; preds = %19, %29
   unreachable
 
 JsonTablePlanScanNextRow.exit:                    ; preds = %32, %12, %53, %49, %31
-  %.0 = phi i1 [ false, %31 ], [ true, %53 ], [ false, %49 ], [ true, %12 ], [ true, %32 ]
+  %.0 = phi i1 [ false, %31 ], [ false, %49 ], [ true, %53 ], [ true, %12 ], [ true, %32 ]
   %current.ret.tr9 = or i1 %ret.known.tr, %.0
   ret i1 %current.ret.tr9
 }

@@ -531,7 +531,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
   br label %37
 
 37:                                               ; preds = %34, %30, %24, %27, %3, %19
-  %.0 = phi i32 [ 3, %19 ], [ 3, %3 ], [ 1, %27 ], [ 1, %24 ], [ 2, %30 ], [ %spec.select, %34 ]
+  %.0 = phi i32 [ 2, %30 ], [ 3, %3 ], [ 1, %24 ], [ 3, %19 ], [ 1, %27 ], [ %spec.select, %34 ]
   ret i32 %.0
 }
 
@@ -600,7 +600,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang18XRayFunctionFilter26sh
   br label %27
 
 27:                                               ; preds = %24, %20, %5, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %5 ], [ 2, %20 ], [ %spec.select, %24 ]
+  %.0 = phi i32 [ 2, %20 ], [ 1, %5 ], [ 1, %16 ], [ %spec.select, %24 ]
   ret i32 %.0
 }
 

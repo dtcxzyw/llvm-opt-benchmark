@@ -129,7 +129,7 @@ define zeroext range(i8 0, 2) i8 @lean_sharecommon_eq(ptr noundef %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %10, %5, %20, %17
-  %.1.shrunk = phi i1 [ %19, %17 ], [ %22, %20 ], [ false, %5 ], [ false, %10 ]
+  %.1.shrunk = phi i1 [ %22, %20 ], [ false, %5 ], [ %19, %17 ], [ false, %10 ]
   %.1 = zext i1 %.1.shrunk to i8
   br label %24
 
@@ -965,7 +965,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %.thread.sink.split
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i, %15
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8, !tbaa !48, !range !54, !noundef !55
   %39 = trunc nuw i8 %38 to i1
@@ -990,7 +990,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %40, %.loopexit, %2
-  %.3 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ null, %40 ], [ %.sink, %.thread.sink.split ]
+  %.3 = phi ptr [ null, %.loopexit ], [ null, %40 ], [ null, %2 ], [ %.sink, %.thread.sink.split ]
   ret ptr %.3
 }
 
@@ -1202,7 +1202,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
-_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %43
+_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %.loopexit.i, %43, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr i8, ptr %1, i64 8
   %.val.i18 = load i64, ptr %48, align 8, !tbaa !32
@@ -1622,7 +1622,7 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51: ; preds = 
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 _ZL12lean_inc_refP11lean_object.exit:             ; preds = %56, %55, %53, %50, %49, %47, %44, %43, %41, %38, %37, %35, %32, %31, %29, %26, %25, %23, %20, %19, %17, %2, %110, %108, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit
-  %.0 = phi ptr [ %111, %110 ], [ %73, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit ], [ %90, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46 ], [ %107, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51 ], [ %109, %108 ], [ %1, %2 ], [ %1, %17 ], [ %1, %19 ], [ %1, %20 ], [ %1, %23 ], [ %1, %25 ], [ %1, %26 ], [ %1, %29 ], [ %1, %31 ], [ %1, %32 ], [ %1, %35 ], [ %1, %37 ], [ %1, %38 ], [ %1, %41 ], [ %1, %43 ], [ %1, %44 ], [ %1, %47 ], [ %1, %49 ], [ %1, %50 ], [ %1, %53 ], [ %1, %55 ], [ %1, %56 ]
+  %.0 = phi ptr [ %109, %108 ], [ %111, %110 ], [ %1, %2 ], [ %1, %20 ], [ %1, %26 ], [ %1, %32 ], [ %1, %38 ], [ %1, %44 ], [ %1, %50 ], [ %73, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit ], [ %90, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46 ], [ %107, %_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51 ], [ %1, %17 ], [ %1, %19 ], [ %1, %23 ], [ %1, %25 ], [ %1, %29 ], [ %1, %31 ], [ %1, %35 ], [ %1, %37 ], [ %1, %41 ], [ %1, %43 ], [ %1, %47 ], [ %1, %49 ], [ %1, %53 ], [ %1, %55 ], [ %1, %56 ]
   ret ptr %.0
 }
 
@@ -1720,7 +1720,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
-_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %43
+_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %.loopexit.i, %43, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr i8, ptr %1, i64 4
   %.val32 = load i32, ptr %48, align 4
@@ -2135,7 +2135,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
-_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %42
+_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %.loopexit.i, %42, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2693,7 +2693,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29, %117, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21, %88, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13, %49, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %11
-  %.0 = phi i1 [ true, %11 ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ true, %49 ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13 ], [ true, %88 ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21 ], [ false, %117 ], [ false, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29 ]
+  %.0 = phi i1 [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13 ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21 ], [ true, %11 ], [ true, %49 ], [ true, %88 ], [ false, %117 ], [ false, %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29 ]
   ret i1 %.0
 }
 
@@ -3539,17 +3539,17 @@ define linkonce_odr hidden ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allo
   %21 = icmp eq i32 %14, 250
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %21, label %24, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %21, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
-  %26 = icmp eq i32 %25, 0
+  %25 = add i64 %10, -8
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %22, ptr nonnull %23, i64 %25)
+  %26 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %26, label %_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %20
-  %27 = add i64 %10, -8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %22, ptr nonnull %23, i64 %27)
-  %28 = icmp eq i32 %bcmp.i.i.i, 0
+  %27 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %28 = icmp eq i32 %27, 0
   br i1 %28, label %_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %17, %12, %.lr.ph, %24, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
@@ -3608,7 +3608,7 @@ _ZNKSt8__detail15_Hash_code_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecom
   br label %_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit
 
 _ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, %24, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread, %5, %63, %_ZNKSt8__detail15_Hash_code_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit
-  %.sroa.08.1 = phi ptr [ %64, %63 ], [ null, %_ZNKSt8__detail15_Hash_code_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit ], [ null, %5 ], [ %.sroa.08.015, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.08.015, %24 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
+  %.sroa.08.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit ], [ %64, %63 ], [ null, %5 ], [ %.sroa.08.015, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ %.sroa.08.015, %24 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ]
   ret ptr %.sroa.08.1
 }
 
@@ -3663,17 +3663,17 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi
   %29 = icmp eq i32 %22, 250
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %29, label %32, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %29, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %34 = icmp eq i32 %33, 0
+  %33 = add i64 %18, -8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %33)
+  %34 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %34, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %28
-  %35 = add i64 %18, -8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %35)
-  %36 = icmp eq i32 %bcmp.i.i.i.i, 0
+  %35 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %25, %20, %14, %11, %32, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
@@ -3736,17 +3736,17 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_
   %23 = icmp eq i32 %16, 250
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br i1 %23, label %26, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %23, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25)
-  %28 = icmp eq i32 %27, 0
+  %27 = add i64 %12, -8
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %24, ptr nonnull %25, i64 %27)
+  %28 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %28, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %22
-  %29 = add i64 %12, -8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %24, ptr nonnull %25, i64 %29)
-  %30 = icmp eq i32 %bcmp.i.i.i, 0
+  %29 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25)
+  %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %19, %14, %.lr.ph, %26, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit
@@ -3950,17 +3950,17 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi
   %29 = icmp eq i32 %22, 250
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %29, label %32, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %29, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %34 = icmp eq i32 %33, 0
+  %33 = add i64 %18, -8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %33)
+  %34 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %34, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %28
-  %35 = add i64 %18, -8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %35)
-  %36 = icmp eq i32 %bcmp.i.i.i.i, 0
+  %35 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %25, %20, %14, %11, %32, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit

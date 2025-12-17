@@ -140,7 +140,7 @@ endswith.exit:                                    ; preds = %sub_2.i
   store i32 %54, ptr @optind, align 4, !tbaa !3
   br label %.thread185
 
-55:                                               ; preds = %23, %29, %sub_0.i, %sub_1.i, %sub_2.i
+55:                                               ; preds = %29, %23, %sub_0.i, %sub_1.i, %sub_2.i
   %56 = load ptr, ptr @optarg, align 8, !tbaa !7
   call void %check_store.(ptr noundef %27, ptr noundef %56, ptr noundef %4) #13
   br label %.thread185
@@ -499,7 +499,7 @@ sub_0204:                                         ; preds = %.tail199
   br label %.thread168
 
 .thread168:                                       ; preds = %sub_0204, %sub_1201, %sub_0200, %211, %.tail203, %.tail199, %193
-  %.2120 = phi ptr [ %215, %211 ], [ %.1119, %.tail203 ], [ %.1119, %.tail199 ], [ null, %193 ], [ %.1119, %sub_0200 ], [ %.1119, %sub_1201 ], [ %.1119, %sub_0204 ]
+  %.2120 = phi ptr [ %.1119, %.tail199 ], [ %215, %211 ], [ %.1119, %.tail203 ], [ null, %193 ], [ %.1119, %sub_1201 ], [ %.1119, %sub_0200 ], [ %.1119, %sub_0204 ]
   call void %check_store.(ptr noundef nonnull %.lcssa372, ptr noundef %.2120, ptr noundef %4) #13
   br label %.thread185
 
@@ -630,7 +630,7 @@ sub_2215:                                         ; preds = %sub_1214
   br i1 %268, label %.thread170, label %.lr.ph252
 
 .loopexit:                                        ; preds = %15, %217, %.tail212, %6
-  %269 = phi i32 [ %.pre, %.tail212 ], [ 0, %6 ], [ %.pre305, %217 ], [ %13, %15 ]
+  %269 = phi i32 [ 0, %6 ], [ %.pre305, %217 ], [ %.pre, %.tail212 ], [ %13, %15 ]
   %270 = icmp slt i32 %269, %10
   br i1 %270, label %sub_0218, label %.thread170
 
@@ -655,7 +655,7 @@ sub_0218:                                         ; preds = %.loopexit
   br label %.thread170
 
 .thread170:                                       ; preds = %.thread185, %.loopexit, %.tail217.thread, %.tail217, %262, %265, %248, %251, %.tail207.thread, %238, %194, %197, %125, %131, %119, %122, %110, %116, %105, %.sink.split, %97, %100, %84, %86, %73, %75, %233
-  %.2 = phi i32 [ 0, %233 ], [ -157, %75 ], [ -157, %73 ], [ -157, %86 ], [ -157, %84 ], [ -157, %100 ], [ -157, %97 ], [ -157, %.sink.split ], [ -157, %105 ], [ -157, %116 ], [ -157, %110 ], [ -2, %122 ], [ -2, %119 ], [ -157, %131 ], [ -157, %125 ], [ -2, %197 ], [ -2, %194 ], [ -2, %238 ], [ -2, %.tail207.thread ], [ -2, %251 ], [ -2, %248 ], [ -2, %265 ], [ -2, %262 ], [ 0, %.tail217 ], [ 0, %.tail217.thread ], [ 0, %.loopexit ], [ 0, %.thread185 ]
+  %.2 = phi i32 [ -2, %262 ], [ -2, %119 ], [ -2, %.tail207.thread ], [ -2, %248 ], [ -157, %125 ], [ -157, %73 ], [ -157, %84 ], [ -157, %97 ], [ -157, %105 ], [ -157, %110 ], [ -2, %194 ], [ 0, %233 ], [ -157, %75 ], [ -157, %86 ], [ -157, %100 ], [ -157, %.sink.split ], [ -157, %116 ], [ -2, %122 ], [ -157, %131 ], [ -2, %197 ], [ -2, %238 ], [ -2, %251 ], [ -2, %265 ], [ 0, %.tail217 ], [ 0, %.tail217.thread ], [ 0, %.loopexit ], [ 0, %.thread185 ]
   call void @PMIx_Argv_free(ptr noundef %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

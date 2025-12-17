@@ -1260,8 +1260,8 @@ IsMatch.exit6.preheader:                          ; preds = %678
   br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %FindMatchLengthWithLimit.exit, %912, %IsMatch.exit6, %IsMatch.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %912 ], [ %745, %IsMatch.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %912 ], [ %744, %IsMatch.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %IsMatch.exit6 ], [ %745, %912 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %IsMatch.exit6 ], [ %744, %912 ]
   br label %.thread74
 
 IsMatch.exit6:                                    ; preds = %912
@@ -1619,7 +1619,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %936, label %IsMatch.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %UpdateBits.exit
-  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.split ], [ %218, %EmitCopyLenLastDistance.exit ]
+  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %218, %EmitCopyLenLastDistance.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -2081,8 +2081,8 @@ EmitLongInsertLen.exit30:                         ; preds = %1165, %1190
   br i1 %exitcond356.not, label %EmitLiterals.exit33, label %1215, !llvm.loop !146
 
 EmitLiterals.exit33:                              ; preds = %1215, %1137, %EmitInsertLen.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %106, %1161 ], [ %106, %1006 ], [ %.us-phi220, %.thread74.thread118 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %937, %1161 ], [ %937, %1006 ], [ %350, %.thread74.thread118 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -3268,8 +3268,8 @@ IsMatch.exit6.preheader:                          ; preds = %678
   br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %FindMatchLengthWithLimit.exit, %912, %IsMatch.exit6, %IsMatch.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %912 ], [ %745, %IsMatch.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %912 ], [ %744, %IsMatch.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %IsMatch.exit6 ], [ %745, %912 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %IsMatch.exit6 ], [ %744, %912 ]
   br label %.thread74
 
 IsMatch.exit6:                                    ; preds = %912
@@ -3627,7 +3627,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %936, label %IsMatch.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %UpdateBits.exit
-  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.split ], [ %218, %EmitCopyLenLastDistance.exit ]
+  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %218, %EmitCopyLenLastDistance.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -4089,8 +4089,8 @@ EmitLongInsertLen.exit30:                         ; preds = %1165, %1190
   br i1 %exitcond356.not, label %EmitLiterals.exit33, label %1215, !llvm.loop !146
 
 EmitLiterals.exit33:                              ; preds = %1215, %1137, %EmitInsertLen.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %106, %1161 ], [ %106, %1006 ], [ %.us-phi220, %.thread74.thread118 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %937, %1161 ], [ %937, %1006 ], [ %350, %.thread74.thread118 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -5276,8 +5276,8 @@ IsMatch.exit6.preheader:                          ; preds = %678
   br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %FindMatchLengthWithLimit.exit, %912, %IsMatch.exit6, %IsMatch.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %912 ], [ %745, %IsMatch.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %912 ], [ %744, %IsMatch.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %IsMatch.exit6 ], [ %745, %912 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %IsMatch.exit6 ], [ %744, %912 ]
   br label %.thread74
 
 IsMatch.exit6:                                    ; preds = %912
@@ -5635,7 +5635,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %936, label %IsMatch.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %UpdateBits.exit
-  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.split ], [ %218, %EmitCopyLenLastDistance.exit ]
+  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %218, %EmitCopyLenLastDistance.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -6097,8 +6097,8 @@ EmitLongInsertLen.exit30:                         ; preds = %1165, %1190
   br i1 %exitcond356.not, label %EmitLiterals.exit33, label %1215, !llvm.loop !146
 
 EmitLiterals.exit33:                              ; preds = %1215, %1137, %EmitInsertLen.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %106, %1161 ], [ %106, %1006 ], [ %.us-phi220, %.thread74.thread118 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %937, %1161 ], [ %937, %1006 ], [ %350, %.thread74.thread118 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 
@@ -7284,8 +7284,8 @@ IsMatch.exit6.preheader:                          ; preds = %678
   br i1 %.not545, label %.lr.ph549, label %.thread74.backedge
 
 .thread74.backedge:                               ; preds = %FindMatchLengthWithLimit.exit, %912, %IsMatch.exit6, %IsMatch.exit6.preheader, %678
-  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %912 ], [ %745, %IsMatch.exit6 ]
-  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %912 ], [ %744, %IsMatch.exit6 ]
+  %.0340.i.be = phi i32 [ %.3343.i, %678 ], [ %.3343.i, %IsMatch.exit6.preheader ], [ %.4344.i261548, %FindMatchLengthWithLimit.exit ], [ %745, %IsMatch.exit6 ], [ %745, %912 ]
+  %.1325.i.be = phi ptr [ %218, %678 ], [ %218, %IsMatch.exit6.preheader ], [ %.2337.i262547, %FindMatchLengthWithLimit.exit ], [ %744, %IsMatch.exit6 ], [ %744, %912 ]
   br label %.thread74
 
 IsMatch.exit6:                                    ; preds = %912
@@ -7643,7 +7643,7 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %936, label %IsMatch.exit6, label %.thread74.backedge
 
 .thread101:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.critedge.backedge.us, %.critedge.backedge.us211, %UpdateBits.exit
-  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %.1325.i, %.split ], [ %218, %EmitCopyLenLastDistance.exit ]
+  %.7.i = phi ptr [ %.0324.i, %UpdateBits.exit ], [ %.1325.i, %.split ], [ %.1325.i, %.critedge.backedge.us211 ], [ %.1325.i, %.critedge.backedge.us ], [ %744, %EmitCopyLen.exit ], [ %.1325.i, %.split.us ], [ %218, %EmitCopyLenLastDistance.exit ]
   %937 = sub i64 %.0318.i, %.0331.i
   %938 = tail call i64 @llvm.umin.i64(i64 %937, i64 65536)
   %.not393.i = icmp eq i64 %937, 0
@@ -8105,8 +8105,8 @@ EmitLongInsertLen.exit30:                         ; preds = %1165, %1190
   br i1 %exitcond356.not, label %EmitLiterals.exit33, label %1215, !llvm.loop !146
 
 EmitLiterals.exit33:                              ; preds = %1215, %1137, %EmitInsertLen.exit27, %.thread74.thread118, %1161, %1006
-  %.8.i = phi ptr [ %106, %1161 ], [ %106, %1006 ], [ %.us-phi220, %.thread74.thread118 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
-  %.5323.i = phi i64 [ %937, %1161 ], [ %937, %1006 ], [ %350, %.thread74.thread118 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
+  %.8.i = phi ptr [ %.us-phi220, %.thread74.thread118 ], [ %106, %1006 ], [ %106, %1161 ], [ %106, %EmitInsertLen.exit27 ], [ %106, %1137 ], [ %106, %1215 ]
+  %.5323.i = phi i64 [ %350, %.thread74.thread118 ], [ %937, %1006 ], [ %937, %1161 ], [ %937, %EmitInsertLen.exit27 ], [ %937, %1137 ], [ %937, %1215 ]
   %.not396.i = icmp eq i64 %.5323.i, 0
   br i1 %.not396.i, label %1274, label %1235
 

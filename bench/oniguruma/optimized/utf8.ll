@@ -80,7 +80,7 @@ define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0) #3 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 3, %5 ], [ 1, %1 ], [ 2, %3 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -278,7 +278,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %18, label %.lr.ph21, label %.loopexit15, !llvm.loop !16
 
 .loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %12, %.lr.ph, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %12 ], [ 0, %.lr.ph ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

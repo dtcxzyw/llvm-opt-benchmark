@@ -186,10 +186,10 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   br label %71
 
 71:                                               ; preds = %.thread, %32
-  %.1154.i.i = phi i32 [ %.0153.i.i, %32 ], [ %70, %.thread ]
-  %.1145.i.i = phi i32 [ %.0144.i.i, %32 ], [ %.5149.i.i, %.thread ]
-  %.1141.i.i = phi i32 [ %.0140.i.i, %32 ], [ %56, %.thread ]
-  %.1135.i.i = phi ptr [ %.0134.i.i, %32 ], [ %.5.i.i, %.thread ]
+  %.1154.i.i = phi i32 [ %70, %.thread ], [ %.0153.i.i, %32 ]
+  %.1145.i.i = phi i32 [ %.5149.i.i, %.thread ], [ %.0144.i.i, %32 ]
+  %.1141.i.i = phi i32 [ %56, %.thread ], [ %.0140.i.i, %32 ]
+  %.1135.i.i = phi ptr [ %.5.i.i, %.thread ], [ %.0134.i.i, %32 ]
   %72 = shl nuw nsw i32 %.0158.i.i, 1
   %73 = add nsw i32 %72, -1
   %74 = sub nsw i32 %73, %.0161.i.i
@@ -463,7 +463,7 @@ define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(p
   br label %HUF_readStats_body_default.exit
 
 HUF_readStats_body_default.exit:                  ; preds = %.lr.ph13.i, %10, %15, %19, %30, %31, %.loopexit.i, %.critedge.i.i, %52, %56, %63, %75
-  %.0.i.i = phi i64 [ %78, %75 ], [ -72, %10 ], [ -72, %15 ], [ -20, %19 ], [ -72, %30 ], [ %34, %31 ], [ -20, %.critedge.i.i ], [ -20, %63 ], [ -20, %52 ], [ -20, %56 ], [ -20, %.loopexit.i ], [ -20, %.lr.ph13.i ]
+  %.0.i.i = phi i64 [ -72, %10 ], [ -72, %15 ], [ %34, %31 ], [ -20, %52 ], [ %78, %75 ], [ -20, %56 ], [ -20, %63 ], [ -20, %19 ], [ -72, %30 ], [ -20, %.critedge.i.i ], [ -20, %.loopexit.i ], [ -20, %.lr.ph13.i ]
   ret i64 %.0.i.i
 }
 

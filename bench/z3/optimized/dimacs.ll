@@ -179,8 +179,8 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i: ; preds = %_ZL9skip_lineIN6d
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %.sroa.0.1 = phi ptr [ %.sroa.0.4, %.loopexit.i ], [ %.sroa.0.6, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %.sroa.0.4, %98 ], [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %.sroa.0.2.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit28.i, %.loopexit.split-lp.loopexit.i ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %99, %98 ], [ %lpad.loopexit31.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit33.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.4, %.loopexit.i ], [ %.sroa.0.6, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %.sroa.0.4, %98 ], [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %.sroa.0.2.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.loopexit33.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit28.i, %.loopexit.split-lp.loopexit.i ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i.i ], [ %99, %98 ], [ %lpad.loopexit31.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   %22 = extractvalue { ptr, i32 } %eh.lpad-body.i, 1
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6dimacs9lex_errorE) #23
   %24 = icmp eq i32 %22, %23
@@ -443,9 +443,9 @@ _ZL11read_clauseIN6dimacs13stream_bufferEEvRT_RSoRN3sat6solverER7svectorINS5_7li
   br label %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer, !llvm.loop !40
 
 _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge: ; preds = %.noexc17.i, %29
-  %120 = phi i32 [ %33, %.noexc17.i ], [ -1, %29 ]
-  %.promoted27.be = phi i32 [ %spec.select223, %.noexc17.i ], [ %30, %29 ]
-  %.val.pre.i.i.be = phi i32 [ %spec.select224, %.noexc17.i ], [ -1, %29 ]
+  %120 = phi i32 [ -1, %29 ], [ %33, %.noexc17.i ]
+  %.promoted27.be = phi i32 [ %30, %29 ], [ %spec.select223, %.noexc17.i ]
+  %.val.pre.i.i.be = phi i32 [ -1, %29 ], [ %spec.select224, %.noexc17.i ]
   br label %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i, !llvm.loop !40
 
 121:                                              ; preds = %25
@@ -1239,7 +1239,7 @@ _ZN6dimacs13stream_bufferppEv.exit4.i.preheader:  ; preds = %_ZN6dimacs13stream_
   br label %_ZN6dimacs13stream_bufferppEv.exit.i.backedge
 
 _ZN6dimacs13stream_bufferppEv.exit.i.backedge:    ; preds = %_ZN6dimacs13stream_bufferppEv.exit4.i, %9, %.noexc, %.noexc11, %19
-  %.be = phi i32 [ %7, %9 ], [ %7, %.noexc ], [ %17, %.noexc11 ], [ 10, %19 ], [ %14, %_ZN6dimacs13stream_bufferppEv.exit4.i ]
+  %.be = phi i32 [ %7, %.noexc ], [ %7, %9 ], [ 10, %19 ], [ %17, %.noexc11 ], [ %14, %_ZN6dimacs13stream_bufferppEv.exit4.i ]
   br label %_ZN6dimacs13stream_bufferppEv.exit.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %224, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i84
@@ -2068,7 +2068,7 @@ _ZL15skip_whitespaceIN6dimacs13stream_bufferEEvRT_.exit: ; preds = %_ZN6dimacs13
   br label %36
 
 _ZN6dimacs13stream_bufferppEv.exit:               ; preds = %20, %14, %18
-  %24 = phi i32 [ %22, %20 ], [ %16, %14 ], [ %5, %18 ]
+  %24 = phi i32 [ %5, %18 ], [ %22, %20 ], [ %16, %14 ]
   %25 = icmp slt i32 %24, 48
   br i1 %25, label %28, label %26
 

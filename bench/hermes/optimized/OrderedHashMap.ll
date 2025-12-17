@@ -402,7 +402,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry, %entry, %while.cond.preheader
-  %entry2.0.lcssa = phi ptr [ null, %while.cond.preheader ], [ null, %entry ], [ null, %entry ], [ null, %while.body ], [ %entry2.09, %land.rhs ]
+  %entry2.0.lcssa = phi ptr [ null, %while.cond.preheader ], [ null, %entry ], [ null, %entry ], [ %entry2.09, %land.rhs ], [ null, %while.body ]
   ret ptr %entry2.0.lcssa
 }
 
@@ -794,7 +794,7 @@ _ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE10setNonNu
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i, %if.then, %if.else, %if.end26, %_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit
-  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit ], [ 1, %if.end26 ], [ 1, %if.else ], [ 1, %if.then ], [ 0, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ]
+  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit ], [ 1, %if.end26 ], [ 1, %if.then ], [ 0, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ], [ 1, %if.else ]
   ret i32 %retval.0
 }
 
@@ -851,7 +851,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %tobool.not.i, label %_ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit.loopexit, label %land.rhs.i
 
 _ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit.loopexit: ; preds = %while.body.i, %land.rhs.i
-  %entry2.0.lcssa.i.ph = phi ptr [ null, %while.body.i ], [ %entry2.09.i, %land.rhs.i ]
+  %entry2.0.lcssa.i.ph = phi ptr [ %entry2.09.i, %land.rhs.i ], [ null, %while.body.i ]
   %5 = icmp ne ptr %entry2.0.lcssa.i.ph, null
   br label %_ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit
 
@@ -913,7 +913,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %tobool.not.i, label %_ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit, label %land.rhs.i
 
 _ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit: ; preds = %land.rhs.i, %while.body.i, %entry, %entry, %while.cond.preheader.i
-  %entry2.0.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ null, %entry ], [ null, %entry ], [ %entry2.09.i, %land.rhs.i ], [ null, %while.body.i ]
+  %entry2.0.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ null, %entry ], [ null, %entry ], [ null, %while.body.i ], [ %entry2.09.i, %land.rhs.i ]
   ret ptr %entry2.0.lcssa.i
 }
 
@@ -1633,7 +1633,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.else, %if.then, %if.end
-  %entry.addr.1.lcssa = phi ptr [ null, %if.end ], [ null, %if.then ], [ null, %if.else ], [ null, %while.body ], [ %entry.addr.119, %land.rhs ]
+  %entry.addr.1.lcssa = phi ptr [ null, %if.end ], [ null, %if.then ], [ null, %if.else ], [ %entry.addr.119, %land.rhs ], [ null, %while.body ]
   ret ptr %entry.addr.1.lcssa
 }
 

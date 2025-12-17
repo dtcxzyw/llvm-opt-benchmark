@@ -829,7 +829,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %8
   br label %_ZN8rawspeed7roundUpEmm.exit
 
 _ZN8rawspeed7roundUpEmm.exit:                     ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit, %8
-  %19 = phi i32 [ 0, %8 ], [ %18, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit ]
+  %19 = phi i32 [ %18, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit ], [ 0, %8 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %19, ptr %20, align 8, !tbaa !127
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -922,7 +922,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit.i:      ; preds = %19
   br label %_ZN8rawspeed7roundUpEmm.exit.i
 
 _ZN8rawspeed7roundUpEmm.exit.i:                   ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit.i, %19
-  %30 = phi i32 [ 0, %19 ], [ %29, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit.i ]
+  %30 = phi i32 [ %29, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit.i ], [ 0, %19 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %30, ptr %31, align 8, !tbaa !127
   %32 = zext i32 %30 to i64

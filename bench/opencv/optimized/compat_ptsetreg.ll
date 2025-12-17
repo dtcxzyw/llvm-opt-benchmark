@@ -2196,7 +2196,7 @@ _ZN2cv4Mat_IdEclEi.exit:                          ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !76
 
 237:                                              ; preds = %220, %219, %140, %.body71, %135
-  %.pn56 = phi { ptr, i32 } [ %221, %220 ], [ %.pn49, %219 ], [ %141, %140 ], [ %.pn44.pn, %.body71 ], [ %.pn40.pn.pn, %135 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn40.pn.pn, %135 ], [ %221, %220 ], [ %.pn49, %219 ], [ %141, %140 ], [ %.pn44.pn, %.body71 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #20
   br label %238
 

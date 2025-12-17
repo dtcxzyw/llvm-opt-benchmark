@@ -46,9 +46,9 @@ define hidden void @OPENSSL_cpuid_setup() local_unnamed_addr #0 {
   br label %.thread56
 
 .thread56:                                        ; preds = %.thread, %11, %19, %15
-  %23 = phi i1 [ true, %15 ], [ true, %19 ], [ false, %11 ], [ false, %.thread ]
-  %24 = phi i1 [ false, %15 ], [ false, %19 ], [ false, %11 ], [ %10, %.thread ]
-  %.0 = phi i32 [ 0, %15 ], [ %22, %19 ], [ 0, %11 ], [ 0, %.thread ]
+  %23 = phi i1 [ false, %.thread ], [ true, %15 ], [ true, %19 ], [ false, %11 ]
+  %24 = phi i1 [ %10, %.thread ], [ false, %15 ], [ false, %19 ], [ false, %11 ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %15 ], [ %22, %19 ], [ 0, %11 ]
   %25 = icmp ugt i32 %4, 6
   br i1 %25, label %26, label %29
 
@@ -73,7 +73,7 @@ define hidden void @OPENSSL_cpuid_setup() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %29, %30, %32
-  %.024 = phi i1 [ %36, %32 ], [ false, %30 ], [ true, %29 ]
+  %.024 = phi i1 [ false, %30 ], [ %36, %32 ], [ true, %29 ]
   %38 = tail call { i32, i32, i32, i32 } asm sideeffect "xor %ecx, %ecx\0Acpuid\0A", "={ax},={bx},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 1) #5, !srcloc !6
   %39 = extractvalue { i32, i32, i32, i32 } %38, 2
   %40 = extractvalue { i32, i32, i32, i32 } %38, 3

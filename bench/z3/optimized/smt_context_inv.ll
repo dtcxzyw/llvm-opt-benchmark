@@ -538,8 +538,8 @@ _Z9is_groundPK4expr.exit:                         ; preds = %35
   br i1 %70, label %71, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %46, %55, %65, %35, %_Z9is_groundPK4expr.exit, %54, %64
-  %.220.ph = phi i32 [ 1, %64 ], [ 1, %54 ], [ 3, %_Z9is_groundPK4expr.exit ], [ 3, %35 ], [ 0, %65 ], [ 0, %55 ], [ 0, %46 ]
-  %.4.ph = phi i1 [ true, %64 ], [ true, %54 ], [ %.129, %_Z9is_groundPK4expr.exit ], [ %.129, %35 ], [ %.129, %65 ], [ %.129, %55 ], [ %.129, %46 ]
+  %.220.ph = phi i32 [ 3, %35 ], [ 3, %_Z9is_groundPK4expr.exit ], [ 1, %54 ], [ 1, %64 ], [ 0, %65 ], [ 0, %55 ], [ 0, %46 ]
+  %.4.ph = phi i1 [ %.129, %35 ], [ %.129, %_Z9is_groundPK4expr.exit ], [ true, %54 ], [ true, %64 ], [ %.129, %65 ], [ %.129, %55 ], [ %.129, %46 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !512
   br label %71
 
@@ -610,7 +610,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %71, %73, %79
   br i1 %.not, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %.thread, %94, %7, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %7 ], [ true, %.thread ], [ %.4, %94 ]
+  %.0 = phi i1 [ true, %1 ], [ true, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %7 ], [ %.4, %94 ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -776,7 +776,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i14:          ; preds = %70
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %89, %82, %80, %69, %62, %60, %44, %37, %35, %23, %16, %14
-  %.sink = phi ptr [ %10, %14 ], [ %10, %16 ], [ %10, %23 ], [ %31, %35 ], [ %31, %37 ], [ %31, %44 ], [ %56, %60 ], [ %56, %62 ], [ %56, %69 ], [ %76, %80 ], [ %76, %82 ], [ %76, %89 ]
+  %.sink = phi ptr [ %10, %23 ], [ %56, %69 ], [ %31, %44 ], [ %10, %14 ], [ %10, %16 ], [ %31, %35 ], [ %31, %37 ], [ %56, %60 ], [ %56, %62 ], [ %76, %80 ], [ %76, %82 ], [ %76, %89 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !512
   ret void
 }
@@ -1065,7 +1065,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %_ZStlsISt11char_tra
   ret void
 
 91:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %32, %39, %67, %42, %26
-  %.pn22.pn = phi { ptr, i32 } [ %27, %26 ], [ %33, %32 ], [ %40, %39 ], [ %43, %42 ], [ %68, %67 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
+  %.pn22.pn = phi { ptr, i32 } [ %27, %26 ], [ %33, %32 ], [ %40, %39 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %43, %42 ], [ %68, %67 ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN3smt7contextD1Ev(ptr noundef nonnull align 8 dereferenceable(10544) %2) #18

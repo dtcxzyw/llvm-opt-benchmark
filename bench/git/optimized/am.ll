@@ -1261,7 +1261,7 @@ am_state_init.exit:                               ; preds = %4, %465
   %.not3.i = icmp eq i32 %485, 0
   br i1 %.not3.i, label %am_in_progress.exit, label %am_in_progress.exit.thread
 
-am_in_progress.exit.thread:                       ; preds = %471, %am_state_init.exit, %479, %476, %483
+am_in_progress.exit.thread:                       ; preds = %483, %am_state_init.exit, %476, %471, %479
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %489
 
@@ -1597,7 +1597,7 @@ sub_0.i.i:                                        ; preds = %574
   br label %.thread.i
 
 625:                                              ; preds = %623, %621, %618, %615, %611, %600, %597, %594, %590
-  %.015.i.i = phi i32 [ 0, %621 ], [ 1, %594 ], [ 1, %590 ], [ 3, %597 ], [ 4, %600 ], [ 2, %618 ], [ 2, %615 ], [ 2, %611 ], [ %624, %623 ]
+  %.015.i.i = phi i32 [ 3, %597 ], [ 1, %590 ], [ 2, %611 ], [ %624, %623 ], [ 0, %621 ], [ 4, %600 ], [ 1, %594 ], [ 2, %618 ], [ 2, %615 ]
   %626 = call i32 @fclose(ptr noundef %583)
   call void @strbuf_release(ptr noundef nonnull %24) #21
   call void @strbuf_release(ptr noundef nonnull %25) #21
@@ -1617,7 +1617,7 @@ sub_0.i.i:                                        ; preds = %574
   unreachable
 
 .thread.i:                                        ; preds = %625, %.thread83.i, %570
-  %.04682.i = phi i32 [ %.015.i.i, %625 ], [ 1, %.thread83.i ], [ %571, %570 ]
+  %.04682.i = phi i32 [ 1, %.thread83.i ], [ %.015.i.i, %625 ], [ %571, %570 ]
   %632 = load ptr, ptr %33, align 8, !tbaa !23
   %633 = call i32 @mkdir(ptr noundef %632, i32 noundef 511) #21
   %634 = icmp slt i32 %633, 0
@@ -3037,7 +3037,7 @@ sub_172:                                          ; preds = %sub_071
   br label %sub_075
 
 sub_075:                                          ; preds = %.tail, %sub_172, %sub_071
-  %.sink = phi i32 [ 2, %sub_071 ], [ %98, %sub_172 ], [ 0, %.tail ]
+  %.sink = phi i32 [ %98, %sub_172 ], [ 2, %sub_071 ], [ 0, %.tail ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %.sink, ptr %99, align 8, !tbaa !58
   %100 = call fastcc i32 @read_state_file(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef 1)
@@ -3064,7 +3064,7 @@ sub_075:                                          ; preds = %.tail, %sub_172, %s
   br label %sub_087
 
 sub_087:                                          ; preds = %.tail78, %.tail74, %.tail78.thread
-  %.sink114 = phi i32 [ 0, %.tail78.thread ], [ 1, %.tail74 ], [ 2, %.tail78 ]
+  %.sink114 = phi i32 [ 1, %.tail74 ], [ 0, %.tail78.thread ], [ 2, %.tail78 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sink114, ptr %109, align 8, !tbaa !59
   %110 = call fastcc i32 @read_state_file(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @.str.118, i32 noundef 1)
@@ -3108,7 +3108,7 @@ sub_188:                                          ; preds = %sub_087
   br label %127
 
 127:                                              ; preds = %.tail90, %.tail82, %.tail90.thread
-  %.sink116 = phi i32 [ -1, %.tail90.thread ], [ 1, %.tail82 ], [ 0, %.tail90 ]
+  %.sink116 = phi i32 [ 1, %.tail82 ], [ -1, %.tail90.thread ], [ 0, %.tail90 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %.sink116, ptr %128, align 8, !tbaa !30
   %129 = call fastcc i32 @read_state_file(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef 1)
@@ -4358,12 +4358,12 @@ _.exit31.i:                                       ; preds = %466, %463
   br label %519
 
 _.exit.i113.sink.split:                           ; preds = %485, %456, %438
-  %.str.243.sink = phi ptr [ @.str.237, %438 ], [ @.str.239, %456 ], [ @.str.243, %485 ]
+  %.str.243.sink = phi ptr [ @.str.239, %456 ], [ @.str.237, %438 ], [ @.str.243, %485 ]
   %500 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.243.sink, i32 noundef 5) #21
   br label %_.exit.i113
 
 _.exit.i113:                                      ; preds = %458, %418, %_.exit.i113.sink.split, %485, %456, %438
-  %.str.236.sink = phi ptr [ @.str.237, %438 ], [ @.str.239, %456 ], [ @.str.243, %485 ], [ %500, %_.exit.i113.sink.split ], [ @.str.236, %418 ], [ @.str.240, %458 ]
+  %.str.236.sink = phi ptr [ @.str.243, %485 ], [ %500, %_.exit.i113.sink.split ], [ @.str.237, %438 ], [ @.str.239, %456 ], [ @.str.240, %458 ], [ @.str.236, %418 ]
   %501 = call i32 (ptr, ...) @error(ptr noundef %.str.236.sink) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4537,7 +4537,7 @@ _.exit25.i143:                                    ; preds = %565, %563
   br label %571
 
 .thread.i136:                                     ; preds = %537, %559, %554, %549
-  %.sink.i137 = phi ptr [ %550, %549 ], [ %555, %554 ], [ %560, %559 ], [ %546, %537 ]
+  %.sink.i137 = phi ptr [ %560, %559 ], [ %550, %549 ], [ %555, %554 ], [ %546, %537 ]
   %570 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i131, ptr noundef %.sink.i137) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5046,8 +5046,8 @@ _.exit47:                                         ; preds = %45, %47
   store i32 %.031.lcssa, ptr %55, align 4, !tbaa !63
   br label %.critedge
 
-.critedge:                                        ; preds = %_.exit47, %_.exit44, %_.exit, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ -1, %_.exit ], [ -1, %_.exit44 ], [ -1, %_.exit47 ]
+.critedge:                                        ; preds = %_.exit47, %_.exit, %_.exit44, %._crit_edge
+  %.2 = phi i32 [ 0, %._crit_edge ], [ -1, %_.exit44 ], [ -1, %_.exit ], [ -1, %_.exit47 ]
   ret i32 %.2
 }
 
@@ -5140,7 +5140,7 @@ skip_prefix.exit:                                 ; preds = %18
   br label %.loopexit
 
 str_isspace.exit.thread:                          ; preds = %10, %7, %29, %34, %23
-  %.1 = phi i32 [ %.0829, %23 ], [ %.0829, %29 ], [ 1, %34 ], [ %.0829, %7 ], [ %.0829, %10 ]
+  %.1 = phi i32 [ 1, %34 ], [ %.0829, %29 ], [ %.0829, %23 ], [ %.0829, %7 ], [ %.0829, %10 ]
   %37 = call i32 @strbuf_getline_lf(ptr noundef nonnull %4, ptr noundef %1) #21
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %7, label %.loopexit
@@ -5302,12 +5302,12 @@ skip_prefix.exit32:                               ; preds = %32
   br i1 %.not4.i39, label %.thread67, label %.thread67.sink.split
 
 .thread67.sink.split:                             ; preds = %46, %41, %skip_prefix.exit32, %27
-  %.str.179.sink = phi ptr [ @.str.177, %27 ], [ @.str.179, %skip_prefix.exit32 ], [ @.str.180, %41 ], [ @.str.179, %46 ]
+  %.str.179.sink = phi ptr [ @.str.180, %41 ], [ @.str.179, %skip_prefix.exit32 ], [ @.str.177, %27 ], [ @.str.179, %46 ]
   %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.179.sink, i32 noundef 5) #21
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread67.sink.split, %46, %41, %skip_prefix.exit32, %27
-  %.0.i34.sink = phi ptr [ @.str.177, %27 ], [ @.str.179, %skip_prefix.exit32 ], [ @.str.180, %41 ], [ @.str.179, %46 ], [ %48, %.thread67.sink.split ]
+  %.0.i34.sink = phi ptr [ @.str.177, %27 ], [ @.str.180, %41 ], [ @.str.179, %skip_prefix.exit32 ], [ @.str.179, %46 ], [ %48, %.thread67.sink.split ]
   %49 = call i32 (ptr, ...) @error(ptr noundef %.0.i34.sink) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
@@ -6379,7 +6379,7 @@ _.exit26:                                         ; preds = %31, %33
   br label %43
 
 43:                                               ; preds = %39, %37, %23, %19, %41, %_.exit26, %_.exit23, %_.exit
-  %.0 = phi i32 [ 0, %41 ], [ -1, %_.exit26 ], [ -1, %_.exit23 ], [ -1, %_.exit ], [ -1, %19 ], [ -1, %23 ], [ -1, %37 ], [ -1, %39 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %19 ], [ -1, %23 ], [ -1, %37 ], [ 0, %41 ], [ -1, %_.exit26 ], [ -1, %_.exit23 ], [ -1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -6468,7 +6468,7 @@ define internal fastcc range(i32 -1, 1) i32 @fast_forward_to(ptr noundef nonnull
   unreachable
 
 49:                                               ; preds = %42, %3, %8, %40
-  %.0 = phi i32 [ -1, %40 ], [ -1, %8 ], [ -1, %3 ], [ 0, %42 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %40 ], [ -1, %8 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6532,7 +6532,7 @@ define internal fastcc range(i32 -1, 1) i32 @merge_tree(ptr noundef nonnull %0) 
   unreachable
 
 31:                                               ; preds = %24, %1, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %1 ], [ 0, %24 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %22 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

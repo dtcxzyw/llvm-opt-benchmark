@@ -66,7 +66,7 @@ define hidden range(i32 -1, 2) i32 @stanag4607_open(ptr noundef %0, ptr noundef 
   br label %26
 
 26:                                               ; preds = %10, %12, %16, %7
-  %.0 = phi i32 [ 1, %16 ], [ %9, %7 ], [ 0, %10 ], [ -1, %12 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ %9, %7 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -327,7 +327,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   br label %.thread
 
 .thread:                                          ; preds = %.thread6, %47, %107, %105
-  %.167.neg3 = phi i64 [ %.167.neg, %107 ], [ %.167.neg, %105 ], [ -37, %47 ], [ -76, %.thread6 ]
+  %.167.neg3 = phi i64 [ %.167.neg, %105 ], [ %.167.neg, %107 ], [ -37, %47 ], [ -76, %.thread6 ]
   %114 = call i64 @file_seek(ptr noundef %0, i64 noundef %.167.neg3, i32 noundef 1, ptr noundef %2)
   %115 = icmp eq i64 %114, -1
   br i1 %115, label %119, label %116
@@ -347,7 +347,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   br label %119
 
 119:                                              ; preds = %.thread, %.critedge76, %79, %.critedge, %4, %116, %45, %41, %17
-  %.0 = phi i1 [ false, %41 ], [ false, %45 ], [ %118, %116 ], [ false, %17 ], [ false, %4 ], [ false, %.critedge ], [ false, %79 ], [ false, %.critedge76 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %41 ], [ false, %45 ], [ false, %.critedge76 ], [ %118, %116 ], [ false, %.thread ], [ false, %.critedge ], [ false, %79 ], [ false, %17 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

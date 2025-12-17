@@ -2577,7 +2577,7 @@ if.end10.i:                                       ; preds = %if.end.i331
   br label %call.i193.noexc
 
 call.i193.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i346
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i346 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %43, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %43, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i346 ], [ %tile.i.i, %if.end10.i ]
   %69 = load float, ptr %retval.i.0.i, align 4
   br label %call.i9.noexc
 
@@ -2701,7 +2701,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i9.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i9.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i9.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i12 = trunc i8 %94 to i1
@@ -4196,7 +4196,7 @@ if.end10.i:                                       ; preds = %if.end.i493
   br label %call.i208.noexc
 
 call.i208.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i512
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i512 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i512 ], [ %tile.i.i, %if.end10.i ]
   %70 = load float, ptr %retval.i.0.i, align 4
   br label %call.i12.noexc
 
@@ -4320,7 +4320,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i12.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i12.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i12.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %95 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %95 to i1
@@ -4657,7 +4657,7 @@ if.end10.i608:                                    ; preds = %if.end.i565
   br label %call3.i.noexc
 
 call3.i.noexc:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i358.invoke, %if.end.i33.i320, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i370, %if.end10.i608, %if.then6.i568, %if.then.i610
-  %retval.i.0.i309 = phi ptr [ %arrayidx.i.i380, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i370 ], [ %arrayidx11.i.i.i338, %if.end.i33.i320 ], [ %mBackground.i611, %if.then.i610 ], [ %tile.i.i609, %if.end10.i608 ], [ %arrayidx11.i.i595, %if.then6.i568 ], [ %116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i358.invoke ]
+  %retval.i.0.i309 = phi ptr [ %arrayidx.i.i380, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i370 ], [ %arrayidx11.i.i.i338, %if.end.i33.i320 ], [ %arrayidx11.i.i595, %if.then6.i568 ], [ %116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i358.invoke ], [ %mBackground.i611, %if.then.i610 ], [ %tile.i.i609, %if.end10.i608 ]
   %144 = load float, ptr %retval.i.0.i309, align 4
   %145 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 4
@@ -5410,7 +5410,7 @@ if.end10.i709:                                    ; preds = %if.end.i666
   br label %call3.i.noexc266
 
 call3.i.noexc266:                                 ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i451.invoke, %if.end.i33.i413, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i463, %if.end10.i709, %if.then6.i669, %if.then.i711
-  %retval.i.0.i402 = phi ptr [ %arrayidx.i.i473, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i463 ], [ %arrayidx11.i.i.i431, %if.end.i33.i413 ], [ %mBackground.i712, %if.then.i711 ], [ %tile.i.i710, %if.end10.i709 ], [ %arrayidx11.i.i696, %if.then6.i669 ], [ %237, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i451.invoke ]
+  %retval.i.0.i402 = phi ptr [ %arrayidx.i.i473, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i463 ], [ %arrayidx11.i.i.i431, %if.end.i33.i413 ], [ %arrayidx11.i.i696, %if.then6.i669 ], [ %237, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i451.invoke ], [ %mBackground.i712, %if.then.i711 ], [ %tile.i.i710, %if.end10.i709 ]
   %265 = load float, ptr %retval.i.0.i402, align 4
   %266 = load ptr, ptr %mValues.i131, align 8
   %add.ptr.i.i.i238 = getelementptr inbounds nuw i8, ptr %266, i64 4
@@ -6188,7 +6188,7 @@ if.end10.i:                                       ; preds = %if.end.i317
   br label %call.i212.noexc
 
 call.i212.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i332
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i332 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i332 ], [ %tile.i.i, %if.end10.i ]
   %70 = load float, ptr %retval.i.0.i, align 4
   br label %call.i12.noexc
 
@@ -6312,7 +6312,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i12.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i12.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i12.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %95 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %95 to i1
@@ -7482,7 +7482,7 @@ if.end10.i:                                       ; preds = %if.end.i135
   br label %call.i108.noexc
 
 call.i108.noexc:                                  ; preds = %if.then.i.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i149
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i149 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %56, %if.then.i.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %56, %if.then.i.i.invoke ], [ %arrayidx11.i.i, %if.then6.i ], [ %mBackground.i, %if.then.i149 ], [ %tile.i.i, %if.end10.i ]
   %57 = load float, ptr %retval.i.0.i, align 4
   br label %call.i.noexc
 
@@ -7606,7 +7606,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %82 = load i8, ptr %mInvert.i, align 8
   %tobool.i8 = trunc i8 %82 to i1
@@ -8542,7 +8542,7 @@ if.end10.i900:                                    ; preds = %if.end.i857
   br label %call.i180.noexc
 
 call.i180.noexc:                                  ; preds = %if.then.i.i888.invoke, %if.end.i33.i317, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367, %if.end10.i900, %if.then6.i860, %if.then.i902
-  %retval.i.0.i306 = phi ptr [ %arrayidx.i.i377, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367 ], [ %arrayidx11.i.i.i335, %if.end.i33.i317 ], [ %mBackground.i903, %if.then.i902 ], [ %tile.i.i901, %if.end10.i900 ], [ %arrayidx11.i.i887, %if.then6.i860 ], [ %68, %if.then.i.i888.invoke ]
+  %retval.i.0.i306 = phi ptr [ %arrayidx.i.i377, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367 ], [ %arrayidx11.i.i.i335, %if.end.i33.i317 ], [ %68, %if.then.i.i888.invoke ], [ %arrayidx11.i.i887, %if.then6.i860 ], [ %mBackground.i903, %if.then.i902 ], [ %tile.i.i901, %if.end10.i900 ]
   %69 = load float, ptr %retval.i.0.i306, align 4
   br label %call.i8.noexc
 
@@ -8666,7 +8666,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -9336,7 +9336,7 @@ if.end10.i:                                       ; preds = %if.end.i395
   br label %call4.i.noexc
 
 call4.i.noexc:                                    ; preds = %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i190, %if.end10.i, %if.then6.i, %if.then.i410, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948, %if.then.i.i404
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i505, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494 ], [ %arrayidx11.i472, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i444, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i190 ], [ %mBackground.i, %if.then.i410 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i959, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948 ], [ %arrayidx11.i926, %if.then.i.i404 ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i190 ], [ %arrayidx11.i472, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i505, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494 ], [ %retval.0.i.i.i.i.i.i444, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i410 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i959, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948 ], [ %arrayidx11.i926, %if.then.i.i404 ]
   %184 = load float, ptr %retval.i.0.i, align 4
   %add5.i = fadd float %sum.06.i, %184
   %inc.i = add i64 %xyz.i.sroa.0.0, 1
@@ -10299,7 +10299,7 @@ if.end10.i631:                                    ; preds = %if.end.i588
   br label %call4.i.noexc128
 
 call4.i.noexc128:                                 ; preds = %if.end.i33.i224, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679, %if.then.i.i.i243, %if.end10.i631, %if.then6.i591, %if.then.i633, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032, %if.then.i.i619
-  %retval.i.0.i213 = phi ptr [ %arrayidx.i.i284, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274 ], [ %arrayidx11.i.i.i242, %if.end.i33.i224 ], [ %retval.0.i.i.i.i.i.i774, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763 ], [ %arrayidx11.i741, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262 ], [ %retval.0.i.i.i.i.i.i690, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679 ], [ %arrayidx11.i657, %if.then.i.i.i243 ], [ %mBackground.i634, %if.then.i633 ], [ %tile.i.i632, %if.end10.i631 ], [ %arrayidx11.i.i618, %if.then6.i591 ], [ %retval.0.i.i.i.i.i.i1043, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032 ], [ %arrayidx11.i1010, %if.then.i.i619 ]
+  %retval.i.0.i213 = phi ptr [ %arrayidx.i.i284, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274 ], [ %arrayidx11.i.i.i242, %if.end.i33.i224 ], [ %arrayidx11.i657, %if.then.i.i.i243 ], [ %arrayidx11.i741, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262 ], [ %retval.0.i.i.i.i.i.i774, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763 ], [ %retval.0.i.i.i.i.i.i690, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679 ], [ %mBackground.i634, %if.then.i633 ], [ %tile.i.i632, %if.end10.i631 ], [ %arrayidx11.i.i618, %if.then6.i591 ], [ %retval.0.i.i.i.i.i.i1043, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032 ], [ %arrayidx11.i1010, %if.then.i.i619 ]
   %308 = load float, ptr %retval.i.0.i213, align 4
   %add5.i122 = fadd float %sum.06.i121, %308
   %inc.i123 = add i64 %xyz.i114.sroa.0.0, 1
@@ -10949,7 +10949,7 @@ if.end10.i902:                                    ; preds = %if.end.i859
   br label %call.i182.noexc
 
 call.i182.noexc:                                  ; preds = %if.then.i.i890.invoke, %if.end.i33.i319, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i369, %if.end10.i902, %if.then6.i862, %if.then.i904
-  %retval.i.0.i308 = phi ptr [ %arrayidx.i.i379, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i369 ], [ %arrayidx11.i.i.i337, %if.end.i33.i319 ], [ %mBackground.i905, %if.then.i904 ], [ %tile.i.i903, %if.end10.i902 ], [ %arrayidx11.i.i889, %if.then6.i862 ], [ %68, %if.then.i.i890.invoke ]
+  %retval.i.0.i308 = phi ptr [ %arrayidx.i.i379, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i369 ], [ %arrayidx11.i.i.i337, %if.end.i33.i319 ], [ %68, %if.then.i.i890.invoke ], [ %arrayidx11.i.i889, %if.then6.i862 ], [ %mBackground.i905, %if.then.i904 ], [ %tile.i.i903, %if.end10.i902 ]
   %69 = load float, ptr %retval.i.0.i308, align 4
   br label %call.i8.noexc
 
@@ -11073,7 +11073,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -13360,7 +13360,7 @@ if.end10.i900:                                    ; preds = %if.end.i857
   br label %call.i180.noexc
 
 call.i180.noexc:                                  ; preds = %if.then.i.i888.invoke, %if.end.i33.i317, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367, %if.end10.i900, %if.then6.i860, %if.then.i902
-  %retval.i.0.i306 = phi ptr [ %arrayidx.i.i377, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367 ], [ %arrayidx11.i.i.i335, %if.end.i33.i317 ], [ %mBackground.i903, %if.then.i902 ], [ %tile.i.i901, %if.end10.i900 ], [ %arrayidx11.i.i887, %if.then6.i860 ], [ %68, %if.then.i.i888.invoke ]
+  %retval.i.0.i306 = phi ptr [ %arrayidx.i.i377, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i367 ], [ %arrayidx11.i.i.i335, %if.end.i33.i317 ], [ %68, %if.then.i.i888.invoke ], [ %arrayidx11.i.i887, %if.then6.i860 ], [ %mBackground.i903, %if.then.i902 ], [ %tile.i.i901, %if.end10.i900 ]
   %69 = load float, ptr %retval.i.0.i306, align 4
   br label %call.i8.noexc
 
@@ -13484,7 +13484,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -14122,7 +14122,7 @@ if.end10.i:                                       ; preds = %if.end.i395
   br label %call4.i.noexc
 
 call4.i.noexc:                                    ; preds = %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i190, %if.end10.i, %if.then6.i, %if.then.i410, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948, %if.then.i.i404
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i505, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494 ], [ %arrayidx11.i472, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i444, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i190 ], [ %mBackground.i, %if.then.i410 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i959, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948 ], [ %arrayidx11.i926, %if.then.i.i404 ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i190 ], [ %arrayidx11.i472, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i505, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i494 ], [ %retval.0.i.i.i.i.i.i444, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i410 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i959, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i948 ], [ %arrayidx11.i926, %if.then.i.i404 ]
   %173 = load float, ptr %retval.i.0.i, align 4
   %add5.i = fadd float %sum.06.i, %173
   %inc.i = add nsw i32 %xyz.i.sroa.23.0, 1
@@ -15056,7 +15056,7 @@ if.end10.i631:                                    ; preds = %if.end.i588
   br label %call4.i.noexc128
 
 call4.i.noexc128:                                 ; preds = %if.end.i33.i224, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679, %if.then.i.i.i243, %if.end10.i631, %if.then6.i591, %if.then.i633, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032, %if.then.i.i619
-  %retval.i.0.i213 = phi ptr [ %arrayidx.i.i284, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274 ], [ %arrayidx11.i.i.i242, %if.end.i33.i224 ], [ %retval.0.i.i.i.i.i.i774, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763 ], [ %arrayidx11.i741, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262 ], [ %retval.0.i.i.i.i.i.i690, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679 ], [ %arrayidx11.i657, %if.then.i.i.i243 ], [ %mBackground.i634, %if.then.i633 ], [ %tile.i.i632, %if.end10.i631 ], [ %arrayidx11.i.i618, %if.then6.i591 ], [ %retval.0.i.i.i.i.i.i1043, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032 ], [ %arrayidx11.i1010, %if.then.i.i619 ]
+  %retval.i.0.i213 = phi ptr [ %arrayidx.i.i284, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i274 ], [ %arrayidx11.i.i.i242, %if.end.i33.i224 ], [ %arrayidx11.i657, %if.then.i.i.i243 ], [ %arrayidx11.i741, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i262 ], [ %retval.0.i.i.i.i.i.i774, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i763 ], [ %retval.0.i.i.i.i.i.i690, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i679 ], [ %mBackground.i634, %if.then.i633 ], [ %tile.i.i632, %if.end10.i631 ], [ %arrayidx11.i.i618, %if.then6.i591 ], [ %retval.0.i.i.i.i.i.i1043, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i1032 ], [ %arrayidx11.i1010, %if.then.i.i619 ]
   %287 = load float, ptr %retval.i.0.i213, align 4
   %add5.i122 = fadd float %sum.06.i121, %287
   %inc.i123 = add nsw i32 %xyz.i114.sroa.23.0, 1
@@ -16960,7 +16960,7 @@ if.end10.i:                                       ; preds = %if.end.i331
   br label %call.i193.noexc
 
 call.i193.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i346
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i346 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %43, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %43, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i346 ], [ %tile.i.i, %if.end10.i ]
   %69 = load float, ptr %retval.i.0.i, align 4
   br label %call.i9.noexc
 
@@ -17084,7 +17084,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i9.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i9.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i9.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i12 = trunc i8 %94 to i1
@@ -18579,7 +18579,7 @@ if.end10.i:                                       ; preds = %if.end.i490
   br label %call.i208.noexc
 
 call.i208.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i509
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i509 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i509 ], [ %tile.i.i, %if.end10.i ]
   %70 = load float, ptr %retval.i.0.i, align 4
   br label %call.i12.noexc
 
@@ -18703,7 +18703,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i12.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i12.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i12.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %95 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %95 to i1
@@ -19040,7 +19040,7 @@ if.end10.i604:                                    ; preds = %if.end.i561
   br label %call3.i.noexc
 
 call3.i.noexc:                                    ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i.invoke, %if.end.i33.i320, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %if.end10.i604, %if.then6.i564, %if.then.i606
-  %retval.i.0.i309 = phi ptr [ %arrayidx.i.i378, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i338, %if.end.i33.i320 ], [ %mBackground.i607, %if.then.i606 ], [ %tile.i.i605, %if.end10.i604 ], [ %arrayidx11.i.i591, %if.then6.i564 ], [ %116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i.invoke ]
+  %retval.i.0.i309 = phi ptr [ %arrayidx.i.i378, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i338, %if.end.i33.i320 ], [ %arrayidx11.i.i591, %if.then6.i564 ], [ %116, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i.invoke ], [ %mBackground.i607, %if.then.i606 ], [ %tile.i.i605, %if.end10.i604 ]
   %144 = load double, ptr %retval.i.0.i309, align 8
   %145 = load ptr, ptr %mValues.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -19795,7 +19795,7 @@ if.end10.i704:                                    ; preds = %if.end.i661
   br label %call3.i.noexc266
 
 call3.i.noexc266:                                 ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i448.invoke, %if.end.i33.i410, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i460, %if.end10.i704, %if.then6.i664, %if.then.i706
-  %retval.i.0.i399 = phi ptr [ %arrayidx.i.i470, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i460 ], [ %arrayidx11.i.i.i428, %if.end.i33.i410 ], [ %mBackground.i707, %if.then.i706 ], [ %tile.i.i705, %if.end10.i704 ], [ %arrayidx11.i.i691, %if.then6.i664 ], [ %237, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i448.invoke ]
+  %retval.i.0.i399 = phi ptr [ %arrayidx.i.i470, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i460 ], [ %arrayidx11.i.i.i428, %if.end.i33.i410 ], [ %arrayidx11.i.i691, %if.then6.i664 ], [ %237, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i448.invoke ], [ %mBackground.i707, %if.then.i706 ], [ %tile.i.i705, %if.end10.i704 ]
   %265 = load double, ptr %retval.i.0.i399, align 8
   %266 = load ptr, ptr %mValues.i131, align 8
   %add.ptr.i.i.i238 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -20571,7 +20571,7 @@ if.end10.i:                                       ; preds = %if.end.i306
   br label %call.i209.noexc
 
 call.i209.noexc:                                  ; preds = %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i321
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i321 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %44, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i.invoke ], [ %mBackground.i, %if.then.i321 ], [ %tile.i.i, %if.end10.i ]
   %70 = load float, ptr %retval.i.0.i, align 4
   br label %call.i12.noexc
 
@@ -20695,7 +20695,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i12.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i12.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i12.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %95 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %95 to i1
@@ -21845,7 +21845,7 @@ if.end10.i:                                       ; preds = %if.end.i135
   br label %call.i108.noexc
 
 call.i108.noexc:                                  ; preds = %if.then.i.i.invoke, %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i, %if.then6.i, %if.then.i149
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %mBackground.i, %if.then.i149 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %56, %if.then.i.i.invoke ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %56, %if.then.i.i.invoke ], [ %arrayidx11.i.i, %if.then6.i ], [ %mBackground.i, %if.then.i149 ], [ %tile.i.i, %if.end10.i ]
   %57 = load float, ptr %retval.i.0.i, align 4
   br label %call.i.noexc
 
@@ -21969,7 +21969,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %82 = load i8, ptr %mInvert.i, align 8
   %tobool.i8 = trunc i8 %82 to i1
@@ -22903,7 +22903,7 @@ if.end10.i895:                                    ; preds = %if.end.i852
   br label %call.i179.noexc
 
 call.i179.noexc:                                  ; preds = %if.then.i.i883.invoke, %if.end.i33.i316, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i895, %if.then6.i855, %if.then.i897
-  %retval.i.0.i305 = phi ptr [ %arrayidx.i.i374, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i334, %if.end.i33.i316 ], [ %mBackground.i898, %if.then.i897 ], [ %tile.i.i896, %if.end10.i895 ], [ %arrayidx11.i.i882, %if.then6.i855 ], [ %68, %if.then.i.i883.invoke ]
+  %retval.i.0.i305 = phi ptr [ %arrayidx.i.i374, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i334, %if.end.i33.i316 ], [ %68, %if.then.i.i883.invoke ], [ %arrayidx11.i.i882, %if.then6.i855 ], [ %mBackground.i898, %if.then.i897 ], [ %tile.i.i896, %if.end10.i895 ]
   %69 = load float, ptr %retval.i.0.i305, align 4
   br label %call.i8.noexc
 
@@ -23027,7 +23027,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -23698,7 +23698,7 @@ if.end10.i:                                       ; preds = %if.end.i391
   br label %call4.i.noexc
 
 call4.i.noexc:                                    ; preds = %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i189, %if.end10.i, %if.then6.i, %if.then.i406, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942, %if.then.i.i400
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i501, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490 ], [ %arrayidx11.i468, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i440, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i189 ], [ %mBackground.i, %if.then.i406 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i953, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942 ], [ %arrayidx11.i920, %if.then.i.i400 ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i189 ], [ %arrayidx11.i468, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i501, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490 ], [ %retval.0.i.i.i.i.i.i440, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i406 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i953, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942 ], [ %arrayidx11.i920, %if.then.i.i400 ]
   %184 = load double, ptr %retval.i.0.i, align 8
   %add5.i = fadd double %sum.06.i, %184
   %inc.i = add i64 %xyz.i.sroa.0.0, 1
@@ -24662,7 +24662,7 @@ if.end10.i627:                                    ; preds = %if.end.i584
   br label %call4.i.noexc128
 
 call4.i.noexc128:                                 ; preds = %if.end.i33.i223, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675, %if.then.i.i.i242, %if.end10.i627, %if.then6.i587, %if.then.i629, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026, %if.then.i.i615
-  %retval.i.0.i212 = phi ptr [ %arrayidx.i.i283, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273 ], [ %arrayidx11.i.i.i241, %if.end.i33.i223 ], [ %retval.0.i.i.i.i.i.i770, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759 ], [ %arrayidx11.i737, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261 ], [ %retval.0.i.i.i.i.i.i686, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675 ], [ %arrayidx11.i653, %if.then.i.i.i242 ], [ %mBackground.i630, %if.then.i629 ], [ %tile.i.i628, %if.end10.i627 ], [ %arrayidx11.i.i614, %if.then6.i587 ], [ %retval.0.i.i.i.i.i.i1037, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026 ], [ %arrayidx11.i1004, %if.then.i.i615 ]
+  %retval.i.0.i212 = phi ptr [ %arrayidx.i.i283, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273 ], [ %arrayidx11.i.i.i241, %if.end.i33.i223 ], [ %arrayidx11.i653, %if.then.i.i.i242 ], [ %arrayidx11.i737, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261 ], [ %retval.0.i.i.i.i.i.i770, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759 ], [ %retval.0.i.i.i.i.i.i686, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675 ], [ %mBackground.i630, %if.then.i629 ], [ %tile.i.i628, %if.end10.i627 ], [ %arrayidx11.i.i614, %if.then6.i587 ], [ %retval.0.i.i.i.i.i.i1037, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026 ], [ %arrayidx11.i1004, %if.then.i.i615 ]
   %308 = load double, ptr %retval.i.0.i212, align 8
   %add5.i122 = fadd double %sum.06.i121, %308
   %inc.i123 = add i64 %xyz.i114.sroa.0.0, 1
@@ -25312,7 +25312,7 @@ if.end10.i897:                                    ; preds = %if.end.i854
   br label %call.i181.noexc
 
 call.i181.noexc:                                  ; preds = %if.then.i.i885.invoke, %if.end.i33.i318, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i897, %if.then6.i857, %if.then.i899
-  %retval.i.0.i307 = phi ptr [ %arrayidx.i.i376, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i336, %if.end.i33.i318 ], [ %mBackground.i900, %if.then.i899 ], [ %tile.i.i898, %if.end10.i897 ], [ %arrayidx11.i.i884, %if.then6.i857 ], [ %68, %if.then.i.i885.invoke ]
+  %retval.i.0.i307 = phi ptr [ %arrayidx.i.i376, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i336, %if.end.i33.i318 ], [ %68, %if.then.i.i885.invoke ], [ %arrayidx11.i.i884, %if.then6.i857 ], [ %mBackground.i900, %if.then.i899 ], [ %tile.i.i898, %if.end10.i897 ]
   %69 = load float, ptr %retval.i.0.i307, align 4
   br label %call.i8.noexc
 
@@ -25436,7 +25436,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -27725,7 +27725,7 @@ if.end10.i895:                                    ; preds = %if.end.i852
   br label %call.i179.noexc
 
 call.i179.noexc:                                  ; preds = %if.then.i.i883.invoke, %if.end.i33.i316, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end10.i895, %if.then6.i855, %if.then.i897
-  %retval.i.0.i305 = phi ptr [ %arrayidx.i.i374, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i334, %if.end.i33.i316 ], [ %mBackground.i898, %if.then.i897 ], [ %tile.i.i896, %if.end10.i895 ], [ %arrayidx11.i.i882, %if.then6.i855 ], [ %68, %if.then.i.i883.invoke ]
+  %retval.i.0.i305 = phi ptr [ %arrayidx.i.i374, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i334, %if.end.i33.i316 ], [ %68, %if.then.i.i883.invoke ], [ %arrayidx11.i.i882, %if.then6.i855 ], [ %mBackground.i898, %if.then.i897 ], [ %tile.i.i896, %if.end10.i895 ]
   %69 = load float, ptr %retval.i.0.i305, align 4
   br label %call.i8.noexc
 
@@ -27849,7 +27849,7 @@ cond.true2.i.i:                                   ; preds = %cond.true.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i, %call.i8.noexc
-  %cond6.i.i = phi float [ %mul3.i.i, %cond.true2.i.i ], [ 1.000000e+00, %cond.true.i.i ], [ 0.000000e+00, %call.i8.noexc ]
+  %cond6.i.i = phi float [ 1.000000e+00, %cond.true.i.i ], [ %mul3.i.i, %cond.true2.i.i ], [ 0.000000e+00, %call.i8.noexc ]
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %94 = load i8, ptr %mInvert.i, align 8
   %tobool.i10 = trunc i8 %94 to i1
@@ -28488,7 +28488,7 @@ if.end10.i:                                       ; preds = %if.end.i391
   br label %call4.i.noexc
 
 call4.i.noexc:                                    ; preds = %if.end.i33.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i189, %if.end10.i, %if.then6.i, %if.then.i406, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942, %if.then.i.i400
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i501, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490 ], [ %arrayidx11.i468, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i440, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i189 ], [ %mBackground.i, %if.then.i406 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i953, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942 ], [ %arrayidx11.i920, %if.then.i.i400 ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i189 ], [ %arrayidx11.i468, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i501, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i490 ], [ %retval.0.i.i.i.i.i.i440, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i406 ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i953, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i942 ], [ %arrayidx11.i920, %if.then.i.i400 ]
   %173 = load double, ptr %retval.i.0.i, align 8
   %add5.i = fadd double %sum.06.i, %173
   %inc.i = add nsw i32 %xyz.i.sroa.23.0, 1
@@ -29423,7 +29423,7 @@ if.end10.i627:                                    ; preds = %if.end.i584
   br label %call4.i.noexc128
 
 call4.i.noexc128:                                 ; preds = %if.end.i33.i223, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675, %if.then.i.i.i242, %if.end10.i627, %if.then6.i587, %if.then.i629, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026, %if.then.i.i615
-  %retval.i.0.i212 = phi ptr [ %arrayidx.i.i283, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273 ], [ %arrayidx11.i.i.i241, %if.end.i33.i223 ], [ %retval.0.i.i.i.i.i.i770, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759 ], [ %arrayidx11.i737, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261 ], [ %retval.0.i.i.i.i.i.i686, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675 ], [ %arrayidx11.i653, %if.then.i.i.i242 ], [ %mBackground.i630, %if.then.i629 ], [ %tile.i.i628, %if.end10.i627 ], [ %arrayidx11.i.i614, %if.then6.i587 ], [ %retval.0.i.i.i.i.i.i1037, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026 ], [ %arrayidx11.i1004, %if.then.i.i615 ]
+  %retval.i.0.i212 = phi ptr [ %arrayidx.i.i283, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i273 ], [ %arrayidx11.i.i.i241, %if.end.i33.i223 ], [ %arrayidx11.i653, %if.then.i.i.i242 ], [ %arrayidx11.i737, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i261 ], [ %retval.0.i.i.i.i.i.i770, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i759 ], [ %retval.0.i.i.i.i.i.i686, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i675 ], [ %mBackground.i630, %if.then.i629 ], [ %tile.i.i628, %if.end10.i627 ], [ %arrayidx11.i.i614, %if.then6.i587 ], [ %retval.0.i.i.i.i.i.i1037, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i1026 ], [ %arrayidx11.i1004, %if.then.i.i615 ]
   %287 = load double, ptr %retval.i.0.i212, align 8
   %add5.i122 = fadd double %sum.06.i121, %287
   %inc.i123 = add nsw i32 %xyz.i114.sroa.23.0, 1
@@ -30532,9 +30532,9 @@ if.end35:                                         ; preds = %if.else32, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end.i.i37, %for.end.i.i, %if.then.i, %if.then, %if.end35
-  %erase_node.093 = phi ptr [ %erase_node.094, %if.end35 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ], [ %erase_node.094, %for.end.i.i37 ]
-  %mask.2 = phi i64 [ %mask.1.ph, %if.end35 ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %16, %for.end.i.i ], [ %37, %for.end.i.i37 ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end35 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ], [ 2, %for.end.i.i37 ]
+  %erase_node.093 = phi ptr [ %erase_node.094, %if.end35 ], [ null, %for.end.i.i ], [ null, %if.then ], [ null, %if.then.i ], [ %erase_node.094, %for.end.i.i37 ]
+  %mask.2 = phi i64 [ %mask.1.ph, %if.end35 ], [ %16, %for.end.i.i ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %37, %for.end.i.i37 ]
+  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end35 ], [ %spec.select, %for.end.i.i ], [ 1, %if.then ], [ 1, %if.then.i ], [ 2, %for.end.i.i37 ]
   %48 = load ptr, ptr %b, align 8
   %tobool.not.i.i55 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i55, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorD2Ev.exit62, label %if.then.i.i56
@@ -31512,9 +31512,9 @@ if.end34:                                         ; preds = %if.else31, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end.i.i37, %for.end.i.i, %if.then.i, %if.then, %if.end34
-  %erase_node.093 = phi ptr [ %erase_node.094, %if.end34 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ], [ %erase_node.094, %for.end.i.i37 ]
-  %mask.2 = phi i64 [ %mask.1.ph, %if.end34 ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %16, %for.end.i.i ], [ %37, %for.end.i.i37 ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end34 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ], [ 2, %for.end.i.i37 ]
+  %erase_node.093 = phi ptr [ %erase_node.094, %if.end34 ], [ null, %for.end.i.i ], [ null, %if.then ], [ null, %if.then.i ], [ %erase_node.094, %for.end.i.i37 ]
+  %mask.2 = phi i64 [ %mask.1.ph, %if.end34 ], [ %16, %for.end.i.i ], [ %mask.1.ph, %if.then ], [ %16, %if.then.i ], [ %37, %for.end.i.i37 ]
+  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end34 ], [ %spec.select, %for.end.i.i ], [ 1, %if.then ], [ 1, %if.then.i ], [ 2, %for.end.i.i37 ]
   %48 = load ptr, ptr %b, align 8
   %tobool.not.i.i55 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i55, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorD2Ev.exit62, label %if.then.i.i56
@@ -34272,7 +34272,7 @@ invoke.cont28:                                    ; preds = %invoke.cont6.invoke
   br label %do.cond
 
 do.cond:                                          ; preds = %invoke.cont23, %invoke.cont28, %invoke.cont14
-  %41 = phi i8 [ %dec.i37, %invoke.cont28 ], [ %dec.i, %invoke.cont14 ], [ %.pr, %invoke.cont23 ]
+  %41 = phi i8 [ %dec.i, %invoke.cont14 ], [ %dec.i37, %invoke.cont28 ], [ %.pr, %invoke.cont23 ]
   %cmp.i39 = icmp eq i8 %41, 0
   br i1 %cmp.i39, label %if.end36, label %land.rhs
 
@@ -34589,7 +34589,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i.i, %if.then.i.i.i.i.i, %lpad2.i.i
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %6, %if.then.i.i.i.i.i ], [ %6, %lpad.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %6, %lpad.i.i.i.i ], [ %6, %if.then.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forIN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS6_5tools14LevelSetFilterINS6_4GridISH_EESN_NS6_4util15NullInterrupterEE6FilterEKNS1_16auto_partitionerEEEJRKSJ_RKSR_RST_RS2_EEEPT_DpOT0_.exit: ; preds = %invoke.cont.i.i
@@ -35080,7 +35080,7 @@ invoke.cont26:                                    ; preds = %invoke.cont.invoke.
   br label %do.cond
 
 do.cond:                                          ; preds = %invoke.cont21, %invoke.cont26, %invoke.cont13
-  %35 = phi i8 [ %dec.i32, %invoke.cont26 ], [ %dec.i, %invoke.cont13 ], [ %.pr, %invoke.cont21 ]
+  %35 = phi i8 [ %dec.i, %invoke.cont13 ], [ %dec.i32, %invoke.cont26 ], [ %.pr, %invoke.cont21 ]
   %cmp.i34 = icmp eq i8 %35, 0
   br i1 %cmp.i34, label %if.end34, label %land.rhs
 
@@ -35683,7 +35683,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %if.else.i.i.i27, %if.then.i.i.i29, %lpad, %lpad.i, %if.then.i.i.i, %if.else.i.i.i, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %3, %if.else.i.i.i ], [ %3, %if.then.i.i.i ], [ %3, %lpad.i ], [ %lpad.phi, %lpad ], [ %lpad.phi, %if.then.i.i.i29 ], [ %lpad.phi, %if.else.i.i.i27 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %3, %lpad.i ], [ %3, %if.else.i.i.i ], [ %3, %if.then.i.i.i ], [ %lpad.phi, %lpad ], [ %lpad.phi, %if.then.i.i.i29 ], [ %lpad.phi, %if.else.i.i.i27 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorC2EPSR_mb.exit: ; preds = %restart
@@ -35883,11 +35883,11 @@ land.lhs.true.i:                                  ; preds = %if.then.i70
   br label %exists
 
 exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i70, %if.end31, %if.then16, %if.then.i, %invoke.cont
-  %m.1 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.3.ph, %if.end31 ], [ %m.3.ph, %if.then.i70 ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
-  %return_value.0 = phi i1 [ false, %invoke.cont ], [ false, %if.then.i ], [ false, %if.then16 ], [ true, %if.end31 ], [ true, %if.then.i70 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.i ]
-  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i70 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
-  %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i70 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
-  %n.1 = phi ptr [ %n.0.lcssa.i, %invoke.cont ], [ %n.0.lcssa.i38, %if.then.i ], [ %n.0.lcssa.i38, %if.then16 ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i70 ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.05.i, %land.rhs.i ]
+  %m.1 = phi i64 [ %m.0, %if.then.i ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %if.then16 ], [ %m.0, %invoke.cont ], [ %m.3.ph, %if.end31 ], [ %m.3.ph, %if.then.i70 ], [ %m.0, %land.rhs.i ]
+  %return_value.0 = phi i1 [ false, %if.then.i ], [ true, %land.lhs.true.i ], [ false, %if.then16 ], [ false, %invoke.cont ], [ true, %if.end31 ], [ true, %if.then.i70 ], [ false, %land.rhs.i ]
+  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.1, %if.then.i ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.1, %if.then16 ], [ %tmp_n.addr.0, %invoke.cont ], [ null, %if.end31 ], [ null, %if.then.i70 ], [ %tmp_n.addr.0, %land.rhs.i ]
+  %grow_segment.1 = phi i64 [ %grow_segment.0, %if.then.i ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %if.then16 ], [ %grow_segment.0, %invoke.cont ], [ 0, %if.end31 ], [ 0, %if.then.i70 ], [ %grow_segment.0, %land.rhs.i ]
+  %n.1 = phi ptr [ %n.0.lcssa.i38, %if.then.i ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.0.lcssa.i38, %if.then16 ], [ %n.0.lcssa.i, %invoke.cont ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i70 ], [ %n.05.i, %land.rhs.i ]
   br i1 %tobool36.not, label %cleanup, label %if.end38
 
 if.end38:                                         ; preds = %exists
@@ -35925,7 +35925,7 @@ invoke.cont40:                                    ; preds = %seqcst.i14.i.i, %co
   store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
-if.then42:                                        ; preds = %cond.end.i, %cond.true.i, %if.end.i.i, %cond.false.i
+if.then42:                                        ; preds = %cond.end.i, %cond.true.i, %cond.false.i, %if.end.i.i
   call void @llvm.x86.sse2.pause()
   br label %for.cond
 
@@ -35964,7 +35964,7 @@ invoke.cont46:                                    ; preds = %seqcst.i14.i.i83, %
   store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
-if.end49:                                         ; preds = %cond.end.i92, %cond.true.i89, %if.end.i.i86, %cond.false.i78
+if.end49:                                         ; preds = %cond.end.i92, %cond.true.i89, %cond.false.i78, %if.end.i.i86
   %cmp1.i.i = icmp sgt i32 %backoff.sroa.0.0, 0
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit
 
@@ -36004,12 +36004,12 @@ invoke.cont53:                                    ; preds = %if.else.i, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont46, %invoke.cont40, %for.end.i.i, %exists, %invoke.cont53
-  %m.2 = phi i64 [ %m.1, %exists ], [ %m.1, %invoke.cont40 ], [ %m.1, %invoke.cont46 ], [ %58, %invoke.cont53 ], [ %29, %for.end.i.i ]
-  %return_value.1 = phi i1 [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ %return_value.0, %invoke.cont53 ], [ false, %for.end.i.i ]
-  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.2, %invoke.cont53 ], [ %tmp_n.addr.1, %for.end.i.i ]
-  %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.1, %invoke.cont53 ], [ %grow_segment.0, %for.end.i.i ]
-  %n.2 = phi ptr [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.1, %invoke.cont53 ], [ %n.0.lcssa, %for.end.i.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %invoke.cont53 ], [ 2, %for.end.i.i ]
+  %m.2 = phi i64 [ %58, %invoke.cont53 ], [ %m.1, %exists ], [ %m.1, %invoke.cont40 ], [ %m.1, %invoke.cont46 ], [ %29, %for.end.i.i ]
+  %return_value.1 = phi i1 [ %return_value.0, %invoke.cont53 ], [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ false, %for.end.i.i ]
+  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %invoke.cont53 ], [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.1, %for.end.i.i ]
+  %grow_segment.2 = phi i64 [ %grow_segment.1, %invoke.cont53 ], [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.0, %for.end.i.i ]
+  %n.2 = phi ptr [ %n.1, %invoke.cont53 ], [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.0.lcssa, %for.end.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 2, %invoke.cont53 ], [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %for.end.i.i ]
   %59 = load ptr, ptr %b, align 8
   %tobool.not.i.i101 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i101, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorD2Ev.exit108, label %if.then.i.i102
@@ -36296,7 +36296,7 @@ if.then.i.i:                                      ; preds = %if.end.i33
   %call8.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %23, ptr noundef nonnull align 4 dereferenceable(12) %xyz, ptr noundef nonnull align 8 dereferenceable(96) %this)
   br label %_ZN7openvdb5v11_017typelist_internal16TSEvalFirstIndexIZNKS0_4tree17ValueAccessorImplIKNS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEEUlT_E_PKfLm0ELm4EEET0_SM_SQ_.exit
 
-if.end.i27:                                       ; preds = %land.lhs.true.i.i23, %if.end.i16, %land.rhs.i.i28
+if.end.i27:                                       ; preds = %land.rhs.i.i28, %land.lhs.true.i.i23, %if.end.i16
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %24 = load ptr, ptr %mNodes.i, align 8
   %call3.i35 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeIS8_EELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(68) %24, ptr noundef nonnull align 4 dereferenceable(12) %xyz, ptr noundef nonnull align 8 dereferenceable(96) %this)
@@ -36827,9 +36827,9 @@ ehcleanup:                                        ; preds = %lpad19, %lpad.i, %l
   br label %ehcleanup189
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit, %invoke.cont12, %land.lhs.true, %invoke.cont
-  %10 = phi ptr [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ null, %invoke.cont ], [ %4, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
-  %11 = phi ptr [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ null, %invoke.cont ], [ %3, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
-  %leafIndex.0 = phi i64 [ 0, %invoke.cont12 ], [ 0, %land.lhs.true ], [ 0, %invoke.cont ], [ %call26, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %10 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ %4, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %11 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ %3, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %leafIndex.0 = phi i64 [ 0, %invoke.cont ], [ 0, %invoke.cont12 ], [ 0, %land.lhs.true ], [ %call26, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
   store i8 6, ptr %metadata, align 1
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
@@ -36938,7 +36938,7 @@ if.else92:                                        ; preds = %if.end84
           to label %invoke.cont98.thread unwind label %lpad11
 
 invoke.cont98:                                    ; preds = %if.then89.invoke.cont98_crit_edge, %cond.end, %if.end84.thread
-  %17 = phi i8 [ %.pre, %if.then89.invoke.cont98_crit_edge ], [ %14, %cond.end ], [ %16, %if.end84.thread ]
+  %17 = phi i8 [ %.pre, %if.then89.invoke.cont98_crit_edge ], [ %16, %if.end84.thread ], [ %14, %cond.end ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %17, -3
   %or.cond4 = icmp ult i8 %18, 3
@@ -37033,9 +37033,9 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %ehcleanup189
 
 if.end144:                                        ; preds = %if.then138, %invoke.cont133, %land.lhs.true136, %invoke.cont129, %if.end118
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %land.lhs.true136 ], [ null, %invoke.cont133 ], [ null, %invoke.cont129 ], [ null, %if.end118 ], [ %call141, %if.then138 ]
-  %tempBuf.0 = phi ptr [ %destBuf, %land.lhs.true136 ], [ null, %invoke.cont133 ], [ %destBuf, %invoke.cont129 ], [ %destBuf, %if.end118 ], [ %call141, %if.then138 ]
-  %tempCount.0 = phi i32 [ %destCount, %land.lhs.true136 ], [ %add.i, %invoke.cont133 ], [ %destCount, %invoke.cont129 ], [ %destCount, %if.end118 ], [ %add.i, %if.then138 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %land.lhs.true136 ], [ null, %if.end118 ], [ null, %invoke.cont133 ], [ null, %invoke.cont129 ], [ %call141, %if.then138 ]
+  %tempBuf.0 = phi ptr [ %destBuf, %land.lhs.true136 ], [ %destBuf, %if.end118 ], [ null, %invoke.cont133 ], [ %destBuf, %invoke.cont129 ], [ %call141, %if.then138 ]
+  %tempCount.0 = phi i32 [ %destCount, %land.lhs.true136 ], [ %destCount, %if.end118 ], [ %add.i, %invoke.cont133 ], [ %destCount, %invoke.cont129 ], [ %add.i, %if.then138 ]
   %cond151 = select i1 %cmp, ptr %tempBuf.0, ptr null
   br i1 %fromHalf, label %if.then146, label %if.else154
 
@@ -37253,7 +37253,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %_ZNS
   ret void
 
 ehcleanup189:                                     ; preds = %lpad112, %lpad128.thread, %lpad128, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %ehcleanup, %lpad11
-  %.pn57.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %.pn, %ehcleanup ], [ %22, %lpad112 ], [ %lpad.thr_comm, %lpad128.thread ], [ %lpad.thr_comm.split-lp, %lpad128 ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  %.pn57.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad11 ], [ %22, %lpad112 ], [ %lpad.thr_comm, %lpad128.thread ], [ %lpad.thr_comm.split-lp, %lpad128 ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %delayLoadMeta) #15
   br label %ehcleanup190
 
@@ -37427,7 +37427,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7o
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit
+if.then:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08MetadataEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %entry, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08MetadataEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   br label %return
 
@@ -37668,7 +37668,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -37963,7 +37963,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i: ; preds = %cond.
   %cmp20.i.i.i.i.i = icmp slt i32 %and7.i.i.i, %12
   br i1 %cmp20.i.i.i.i.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %cond.false7.i.i.i.i.i, %lor.lhs.false.i.i.i, %entry, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i
+if.then:                                          ; preds = %cond.false7.i.i.i.i.i, %lor.lhs.false.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %entry
   %mBackground = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %return
 
@@ -38476,7 +38476,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -39295,7 +39295,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then6.i, %if.then.i, %if.then.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i188, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i108, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i, %if.end.i33.i
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i119, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i108 ], [ %arrayidx11.i86, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i ], [ %mBackground.i, %if.then.i ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i199, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i188 ], [ %arrayidx11.i166, %if.then.i.i ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKfSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i ], [ %arrayidx11.i86, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKfSK_.exit.i ], [ %retval.0.i.i.i.i.i.i119, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i108 ], [ %retval.0.i.i.i.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i199, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKfRKNS0_4math5CoordERT_.exit.i188 ], [ %arrayidx11.i166, %if.then.i.i ]
   %83 = load float, ptr %retval.i.0.i, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %84 = load ptr, ptr %mValues, align 8
@@ -39582,7 +39582,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
   br i1 %cmp.i22.i.us, label %land.rhs.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !336
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.body.us, %while.end.i.us
-  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ]
+  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ]
   %add.ptr.i9.i.i.us = getelementptr inbounds nuw float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store float %1, ptr %add.ptr.i9.i.i.us, align 4
   %cmp8.us = icmp eq i64 %__parent.0.us, 0
@@ -39801,7 +39801,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -40280,7 +40280,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -42551,7 +42551,7 @@ invoke.cont24:                                    ; preds = %invoke.cont.invoke.
   br label %do.cond
 
 do.cond:                                          ; preds = %invoke.cont19, %invoke.cont24, %invoke.cont12
-  %41 = phi i8 [ %dec.i37, %invoke.cont24 ], [ %dec.i, %invoke.cont12 ], [ %.pr, %invoke.cont19 ]
+  %41 = phi i8 [ %dec.i, %invoke.cont12 ], [ %dec.i37, %invoke.cont24 ], [ %.pr, %invoke.cont19 ]
   %cmp.i39 = icmp eq i8 %41, 0
   br i1 %cmp.i39, label %if.end31, label %land.rhs
 
@@ -42853,7 +42853,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i.i.i, %if.then.i.i.i.i.i, %lpad2.i.i
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %6, %if.then.i.i.i.i.i ], [ %6, %lpad.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %6, %lpad.i.i.i.i ], [ %6, %if.then.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d122small_object_allocator10new_objectINS1_9start_forIN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS6_5tools14LevelSetFilterINS6_4GridISH_EENSM_INS9_INSA_INSB_INSB_INSC_IfLj3EEELj4EEELj5EEEEEEEEENS6_4util15NullInterrupterEE6FilterEKNS1_16auto_partitionerEEEJRKSJ_RKSX_RSZ_RS2_EEEPT_DpOT0_.exit: ; preds = %invoke.cont.i.i
@@ -43344,7 +43344,7 @@ invoke.cont26:                                    ; preds = %invoke.cont.invoke.
   br label %do.cond
 
 do.cond:                                          ; preds = %invoke.cont21, %invoke.cont26, %invoke.cont13
-  %35 = phi i8 [ %dec.i32, %invoke.cont26 ], [ %dec.i, %invoke.cont13 ], [ %.pr, %invoke.cont21 ]
+  %35 = phi i8 [ %dec.i, %invoke.cont13 ], [ %dec.i32, %invoke.cont26 ], [ %.pr, %invoke.cont21 ]
   %cmp.i34 = icmp eq i8 %35, 0
   br i1 %cmp.i34, label %if.end34, label %land.rhs
 
@@ -43947,7 +43947,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %if.else.i.i.i27, %if.then.i.i.i29, %lpad, %lpad.i, %if.then.i.i.i, %if.else.i.i.i, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %3, %if.else.i.i.i ], [ %3, %if.then.i.i.i ], [ %3, %lpad.i ], [ %lpad.phi, %lpad ], [ %lpad.phi, %if.then.i.i.i29 ], [ %lpad.phi, %if.else.i.i.i27 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %3, %lpad.i ], [ %3, %if.else.i.i.i ], [ %3, %if.then.i.i.i ], [ %lpad.phi, %lpad ], [ %lpad.phi, %if.then.i.i.i29 ], [ %lpad.phi, %if.else.i.i.i27 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorC2EPSR_mb.exit: ; preds = %restart
@@ -44147,11 +44147,11 @@ land.lhs.true.i:                                  ; preds = %if.then.i70
   br label %exists
 
 exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i70, %if.end31, %if.then16, %if.then.i, %invoke.cont
-  %m.1 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.3.ph, %if.end31 ], [ %m.3.ph, %if.then.i70 ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
-  %return_value.0 = phi i1 [ false, %invoke.cont ], [ false, %if.then.i ], [ false, %if.then16 ], [ true, %if.end31 ], [ true, %if.then.i70 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.i ]
-  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i70 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
-  %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i70 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
-  %n.1 = phi ptr [ %n.0.lcssa.i, %invoke.cont ], [ %n.0.lcssa.i38, %if.then.i ], [ %n.0.lcssa.i38, %if.then16 ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i70 ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.05.i, %land.rhs.i ]
+  %m.1 = phi i64 [ %m.0, %if.then.i ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %if.then16 ], [ %m.0, %invoke.cont ], [ %m.3.ph, %if.end31 ], [ %m.3.ph, %if.then.i70 ], [ %m.0, %land.rhs.i ]
+  %return_value.0 = phi i1 [ false, %if.then.i ], [ true, %land.lhs.true.i ], [ false, %if.then16 ], [ false, %invoke.cont ], [ true, %if.end31 ], [ true, %if.then.i70 ], [ false, %land.rhs.i ]
+  %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.1, %if.then.i ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.1, %if.then16 ], [ %tmp_n.addr.0, %invoke.cont ], [ null, %if.end31 ], [ null, %if.then.i70 ], [ %tmp_n.addr.0, %land.rhs.i ]
+  %grow_segment.1 = phi i64 [ %grow_segment.0, %if.then.i ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %if.then16 ], [ %grow_segment.0, %invoke.cont ], [ 0, %if.end31 ], [ 0, %if.then.i70 ], [ %grow_segment.0, %land.rhs.i ]
+  %n.1 = phi ptr [ %n.0.lcssa.i38, %if.then.i ], [ %tmp_n.addr.1, %land.lhs.true.i ], [ %n.0.lcssa.i38, %if.then16 ], [ %n.0.lcssa.i, %invoke.cont ], [ %tmp_n.addr.1, %if.end31 ], [ %tmp_n.addr.1, %if.then.i70 ], [ %n.05.i, %land.rhs.i ]
   br i1 %tobool36.not, label %cleanup, label %if.end38
 
 if.end38:                                         ; preds = %exists
@@ -44189,7 +44189,7 @@ invoke.cont40:                                    ; preds = %seqcst.i14.i.i, %co
   store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
-if.then42:                                        ; preds = %cond.end.i, %cond.true.i, %if.end.i.i, %cond.false.i
+if.then42:                                        ; preds = %cond.end.i, %cond.true.i, %cond.false.i, %if.end.i.i
   call void @llvm.x86.sse2.pause()
   br label %for.cond
 
@@ -44228,7 +44228,7 @@ invoke.cont46:                                    ; preds = %seqcst.i14.i.i83, %
   store i8 %frombool.i, ptr %m_is_writer.i88, align 8
   br label %cleanup
 
-if.end49:                                         ; preds = %cond.end.i92, %cond.true.i89, %if.end.i.i86, %cond.false.i78
+if.end49:                                         ; preds = %cond.end.i92, %cond.true.i89, %cond.false.i78, %if.end.i.i86
   %cmp1.i.i = icmp sgt i32 %backoff.sroa.0.0, 0
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit
 
@@ -44268,12 +44268,12 @@ invoke.cont52:                                    ; preds = %if.else.i, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont46, %invoke.cont40, %for.end.i.i, %exists, %invoke.cont52
-  %m.2 = phi i64 [ %m.1, %exists ], [ %m.1, %invoke.cont40 ], [ %m.1, %invoke.cont46 ], [ %58, %invoke.cont52 ], [ %29, %for.end.i.i ]
-  %return_value.1 = phi i1 [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ %return_value.0, %invoke.cont52 ], [ false, %for.end.i.i ]
-  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.2, %invoke.cont52 ], [ %tmp_n.addr.1, %for.end.i.i ]
-  %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.1, %invoke.cont52 ], [ %grow_segment.0, %for.end.i.i ]
-  %n.2 = phi ptr [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.1, %invoke.cont52 ], [ %n.0.lcssa, %for.end.i.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %invoke.cont52 ], [ 2, %for.end.i.i ]
+  %m.2 = phi i64 [ %58, %invoke.cont52 ], [ %m.1, %exists ], [ %m.1, %invoke.cont40 ], [ %m.1, %invoke.cont46 ], [ %29, %for.end.i.i ]
+  %return_value.1 = phi i1 [ %return_value.0, %invoke.cont52 ], [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ false, %for.end.i.i ]
+  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %invoke.cont52 ], [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.1, %for.end.i.i ]
+  %grow_segment.2 = phi i64 [ %grow_segment.1, %invoke.cont52 ], [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.0, %for.end.i.i ]
+  %n.2 = phi ptr [ %n.1, %invoke.cont52 ], [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.0.lcssa, %for.end.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 2, %invoke.cont52 ], [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %for.end.i.i ]
   %59 = load ptr, ptr %b, align 8
   %tobool.not.i.i101 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i101, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEE15bucket_accessorD2Ev.exit108, label %if.then.i.i102
@@ -44558,7 +44558,7 @@ if.then.i.i:                                      ; preds = %if.end.i33
   %call8.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS2_IS5_Lj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(33808) %23, ptr noundef nonnull align 4 dereferenceable(12) %xyz, ptr noundef nonnull align 8 dereferenceable(96) %this)
   br label %_ZN7openvdb5v11_017typelist_internal16TSEvalFirstIndexIZNKS0_4tree17ValueAccessorImplIKNS3_4TreeINS3_8RootNodeINS3_12InternalNodeINS7_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEEUlT_E_PKdLm0ELm4EEET0_SM_SQ_.exit
 
-if.end.i27:                                       ; preds = %land.lhs.true.i.i23, %if.end.i16, %land.rhs.i.i28
+if.end.i27:                                       ; preds = %land.rhs.i.i28, %land.lhs.true.i.i23, %if.end.i16
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %24 = load ptr, ptr %mNodes.i, align 8
   %call3.i35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeIS8_EELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 4 dereferenceable(12) %xyz, ptr noundef nonnull align 8 dereferenceable(96) %this)
@@ -45081,9 +45081,9 @@ ehcleanup:                                        ; preds = %lpad19, %lpad.i, %l
   br label %ehcleanup187
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit, %invoke.cont12, %land.lhs.true, %invoke.cont
-  %10 = phi ptr [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ null, %invoke.cont ], [ %4, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
-  %11 = phi ptr [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ null, %invoke.cont ], [ %3, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
-  %leafIndex.0 = phi i64 [ 0, %invoke.cont12 ], [ 0, %land.lhs.true ], [ 0, %invoke.cont ], [ %call26, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %10 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ %4, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %11 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont12 ], [ null, %land.lhs.true ], [ %3, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
+  %leafIndex.0 = phi i64 [ 0, %invoke.cont ], [ 0, %invoke.cont12 ], [ 0, %land.lhs.true ], [ %call26, %_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev.exit ]
   store i8 6, ptr %metadata, align 1
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
@@ -45192,7 +45192,7 @@ if.else92:                                        ; preds = %if.end84
           to label %invoke.cont98.thread unwind label %lpad11
 
 invoke.cont98:                                    ; preds = %if.then89.invoke.cont98_crit_edge, %cond.end, %if.end84.thread
-  %17 = phi i8 [ %.pre, %if.then89.invoke.cont98_crit_edge ], [ %14, %cond.end ], [ %16, %if.end84.thread ]
+  %17 = phi i8 [ %.pre, %if.then89.invoke.cont98_crit_edge ], [ %16, %if.end84.thread ], [ %14, %cond.end ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %17, -3
   %or.cond4 = icmp ult i8 %18, 3
@@ -45287,9 +45287,9 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %ehcleanup187
 
 if.end144:                                        ; preds = %if.then138, %invoke.cont133, %land.lhs.true136, %invoke.cont129, %if.end118
-  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %land.lhs.true136 ], [ null, %invoke.cont133 ], [ null, %invoke.cont129 ], [ null, %if.end118 ], [ %call141, %if.then138 ]
-  %tempBuf.0 = phi ptr [ %destBuf, %land.lhs.true136 ], [ null, %invoke.cont133 ], [ %destBuf, %invoke.cont129 ], [ %destBuf, %if.end118 ], [ %call141, %if.then138 ]
-  %tempCount.0 = phi i32 [ %destCount, %land.lhs.true136 ], [ %add.i, %invoke.cont133 ], [ %destCount, %invoke.cont129 ], [ %destCount, %if.end118 ], [ %add.i, %if.then138 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %land.lhs.true136 ], [ null, %if.end118 ], [ null, %invoke.cont133 ], [ null, %invoke.cont129 ], [ %call141, %if.then138 ]
+  %tempBuf.0 = phi ptr [ %destBuf, %land.lhs.true136 ], [ %destBuf, %if.end118 ], [ null, %invoke.cont133 ], [ %destBuf, %invoke.cont129 ], [ %call141, %if.then138 ]
+  %tempCount.0 = phi i32 [ %destCount, %land.lhs.true136 ], [ %destCount, %if.end118 ], [ %add.i, %invoke.cont133 ], [ %destCount, %invoke.cont129 ], [ %add.i, %if.then138 ]
   %cond151 = select i1 %cmp, ptr %tempBuf.0, ptr null
   br i1 %fromHalf, label %if.then146, label %if.else154
 
@@ -45507,7 +45507,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev.exit: ; preds = %_ZNS
   ret void
 
 ehcleanup187:                                     ; preds = %lpad112, %lpad128.thread, %lpad128, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %ehcleanup, %lpad11
-  %.pn57.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %.pn, %ehcleanup ], [ %22, %lpad112 ], [ %lpad.thr_comm, %lpad128.thread ], [ %lpad.thr_comm.split-lp, %lpad128 ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  %.pn57.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad11 ], [ %22, %lpad112 ], [ %lpad.thr_comm, %lpad128.thread ], [ %lpad.thr_comm.split-lp, %lpad128 ], [ %lpad.thr_comm.split-lp, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_02io19DelayedLoadMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %delayLoadMeta) #15
   br label %ehcleanup188
 
@@ -45599,7 +45599,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -45842,7 +45842,7 @@ _ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i: ; preds = %cond.
   %cmp20.i.i.i.i.i = icmp slt i32 %and7.i.i.i, %12
   br i1 %cmp20.i.i.i.i.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %cond.false7.i.i.i.i.i, %lor.lhs.false.i.i.i, %entry, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i
+if.then:                                          ; preds = %cond.false7.i.i.i.i.i, %lor.lhs.false.i.i.i, %_ZNKSt4lessIN7openvdb5v11_04math5CoordEEclERKS3_S6_.exit.i.i.i, %_ZNKSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISF_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %entry
   %mBackground = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %return
 
@@ -46355,7 +46355,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -47103,7 +47103,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br label %_ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit
 
 _ZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordE.exit: ; preds = %if.end10.i, %if.then6.i, %if.then.i, %if.then.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i188, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i, %if.then.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i108, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i, %if.end.i33.i
-  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %retval.0.i.i.i.i.i.i119, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i108 ], [ %arrayidx11.i86, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %arrayidx11.i, %if.then.i.i.i ], [ %mBackground.i, %if.then.i ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i199, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i188 ], [ %arrayidx11.i166, %if.then.i.i ]
+  %retval.i.0.i = phi ptr [ %arrayidx.i.i, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm0EEEEPKdSK_.exit.i ], [ %arrayidx11.i.i.i, %if.end.i33.i ], [ %arrayidx11.i, %if.then.i.i.i ], [ %arrayidx11.i86, %_ZZNK7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEE8getValueERKNS0_4math5CoordEENKUlT_E_clISt17integral_constantImLm1EEEEPKdSK_.exit.i ], [ %retval.0.i.i.i.i.i.i119, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i108 ], [ %retval.0.i.i.i.i.i.i, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i ], [ %mBackground.i, %if.then.i ], [ %tile.i.i, %if.end10.i ], [ %arrayidx11.i.i, %if.then6.i ], [ %retval.0.i.i.i.i.i.i199, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE16getValueAndCacheIKNS1_17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS8_IS3_Lj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEEEERKdRKNS0_4math5CoordERT_.exit.i188 ], [ %arrayidx11.i166, %if.then.i.i ]
   %83 = load double, ptr %retval.i.0.i, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %84 = load ptr, ptr %mValues, align 8
@@ -47387,7 +47387,7 @@ while.body.i.i.us:                                ; preds = %land.rhs.i.i.us
   br i1 %cmp.i22.i.us, label %land.rhs.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !367
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %land.rhs.i.i.us, %while.body.i.i.us, %while.body.us, %while.end.i.us
-  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ]
+  %__holeIndex.addr.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %while.end.i.us ], [ %__parent.0.us, %while.body.us ], [ %__holeIndex.addr.017.i.i.us, %land.rhs.i.i.us ], [ %__parent.018.i.i.us, %while.body.i.i.us ]
   %add.ptr.i9.i.i.us = getelementptr inbounds nuw double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us
   store double %1, ptr %add.ptr.i9.i.i.us, align 8
   %cmp8.us = icmp eq i64 %__parent.0.us, 0
@@ -47606,7 +47606,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -48085,7 +48085,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %mCenter = getelementptr inbounds nuw i8, ptr %this, i64 128

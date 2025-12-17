@@ -1087,7 +1087,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit51
 
 _ZN7testing15AssertionResultD2Ev.exit51:          ; preds = %57, %.thread, %91, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49
-  %96 = phi ptr [ %60, %91 ], [ %60, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49 ], [ %60, %57 ], [ %56, %.thread ]
+  %96 = phi ptr [ %60, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49 ], [ %60, %91 ], [ %60, %57 ], [ %56, %.thread ]
   store ptr null, ptr %96, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1844,7 +1844,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit65
 
 _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %100, %.thread, %135, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i63
-  %140 = phi ptr [ %104, %135 ], [ %104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i63 ], [ %104, %100 ], [ %99, %.thread ]
+  %140 = phi ptr [ %104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i63 ], [ %104, %135 ], [ %104, %100 ], [ %99, %.thread ]
   store ptr null, ptr %140, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1974,7 +1974,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %171, %_ZNKSt14defau
   ret void
 
 178:                                              ; preds = %_ZN7testing7MessageD2Ev.exit74, %_ZN7testing7MessageD2Ev.exit60, %_ZN7testing7MessageD2Ev.exit46, %_ZN7testing7MessageD2Ev.exit37
-  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %_ZN7testing7MessageD2Ev.exit74 ], [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit60 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit46 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit37 ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn30.pn, %_ZN7testing7MessageD2Ev.exit74 ], [ %.pn26.pn.pn, %_ZN7testing7MessageD2Ev.exit60 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit37 ], [ %.pn23.pn, %_ZN7testing7MessageD2Ev.exit46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn30.pn.pn
 
@@ -2488,7 +2488,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit122: ; preds = %123
   br label %165
 
 165:                                              ; preds = %112, %164, %161, %158, %155, %152, %149, %109, %106, %103
-  %.pn.pn.pn = phi { ptr, i32 } [ %108, %109 ], [ %105, %106 ], [ %102, %103 ], [ %111, %112 ], [ %163, %164 ], [ %160, %161 ], [ %157, %158 ], [ %154, %155 ], [ %151, %152 ], [ %148, %149 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %102, %103 ], [ %108, %109 ], [ %105, %106 ], [ %111, %112 ], [ %163, %164 ], [ %160, %161 ], [ %157, %158 ], [ %154, %155 ], [ %151, %152 ], [ %148, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4298,7 +4298,7 @@ define internal void @_GLOBAL__sub_I_symbolize_unittest.cc() #29 section ".text.
   unreachable
 
 common.resume:                                    ; preds = %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i ], [ %.pn.i24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i26 ], [ %30, %29 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i26 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12.i ], [ %30, %29 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %.noexc.i.i.i, %0

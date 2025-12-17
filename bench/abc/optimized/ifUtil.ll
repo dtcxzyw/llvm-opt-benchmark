@@ -1064,8 +1064,8 @@ Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %73, %75, %65, %67
-  %.sink72 = phi ptr [ %66, %65 ], [ %68, %67 ], [ %74, %73 ], [ %76, %75 ]
-  %.sink = phi i32 [ 16, %65 ], [ 16, %67 ], [ %70, %73 ], [ %70, %75 ]
+  %.sink72 = phi ptr [ %68, %67 ], [ %66, %65 ], [ %74, %73 ], [ %76, %75 ]
+  %.sink = phi i32 [ 16, %67 ], [ 16, %65 ], [ %70, %73 ], [ %70, %75 ]
   store ptr %.sink72, ptr %43, align 8, !tbaa !53
   store i32 %.sink, ptr %35, align 8, !tbaa !75
   br label %Vec_IntPush.exit
@@ -1161,8 +1161,8 @@ Vec_IntPush.exit34:                               ; preds = %Vec_IntPush.exit34.
   br label %Vec_IntPush.exit41.sink.split
 
 Vec_IntPush.exit41.sink.split:                    ; preds = %112, %114, %104, %106
-  %.sink77 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %113, %112 ], [ %115, %114 ]
-  %.sink76 = phi i32 [ 16, %104 ], [ 16, %106 ], [ %109, %112 ], [ %109, %114 ]
+  %.sink77 = phi ptr [ %107, %106 ], [ %105, %104 ], [ %113, %112 ], [ %115, %114 ]
+  %.sink76 = phi i32 [ 16, %106 ], [ 16, %104 ], [ %109, %112 ], [ %109, %114 ]
   store ptr %.sink77, ptr %43, align 8, !tbaa !53
   store i32 %.sink76, ptr %35, align 8, !tbaa !75
   br label %Vec_IntPush.exit41

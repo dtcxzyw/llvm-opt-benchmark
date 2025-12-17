@@ -811,7 +811,7 @@ strbuf_setlen.exit125:                            ; preds = %159, %161
   br label %186
 
 186:                                              ; preds = %read_directory_contents.exit, %.critedge, %95
-  %.143 = phi i32 [ -1, %95 ], [ %.050.lcssa, %.critedge ], [ -1, %read_directory_contents.exit ]
+  %.143 = phi i32 [ %.050.lcssa, %.critedge ], [ -1, %95 ], [ -1, %read_directory_contents.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -840,7 +840,7 @@ strbuf_setlen.exit125:                            ; preds = %159, %161
   br label %195
 
 195:                                              ; preds = %get_mode.exit97, %get_mode.exit, %191, %186
-  %.0 = phi i32 [ %.143, %186 ], [ 0, %191 ], [ -1, %get_mode.exit97 ], [ -1, %get_mode.exit ]
+  %.0 = phi i32 [ 0, %191 ], [ %.143, %186 ], [ -1, %get_mode.exit97 ], [ -1, %get_mode.exit ]
   ret i32 %.0
 }
 

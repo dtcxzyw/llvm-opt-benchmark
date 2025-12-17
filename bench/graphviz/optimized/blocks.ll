@@ -116,7 +116,7 @@ select.unfold.i.i:                                ; preds = %25, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %29, %select.unfold.i.i
-  %33 = phi i1 [ true, %select.unfold.i.i ], [ %32, %29 ]
+  %33 = phi i1 [ %32, %29 ], [ true, %select.unfold.i.i ]
   %34 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
           to label %.noexc unwind label %42
 
@@ -760,7 +760,7 @@ select.unfold.i.i:                                ; preds = %37, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %41, %select.unfold.i.i
-  %45 = phi i1 [ true, %select.unfold.i.i ], [ %44, %41 ]
+  %45 = phi i1 [ %44, %41 ], [ true, %select.unfold.i.i ]
   %46 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr %.pre.i.pre.pre.i.i, ptr %47, align 8, !tbaa !30
@@ -823,7 +823,7 @@ select.unfold.i.i40:                              ; preds = %59, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i42
 
 _ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i42: ; preds = %63, %select.unfold.i.i40
-  %67 = phi i1 [ true, %select.unfold.i.i40 ], [ %66, %63 ]
+  %67 = phi i1 [ %66, %63 ], [ true, %select.unfold.i.i40 ]
   %68 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr %.pre.i.pre.pre.i.i26, ptr %69, align 8, !tbaa !30

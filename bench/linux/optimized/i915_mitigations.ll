@@ -83,8 +83,8 @@ sub_0:                                            ; preds = %16, %.lr.ph
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %sub_0
-  %28 = phi i1 [ true, %sub_0 ], [ %27, %.tail ]
-  %29 = phi i64 [ 0, %sub_0 ], [ %spec.select, %.tail ]
+  %28 = phi i1 [ %27, %.tail ], [ true, %sub_0 ]
+  %29 = phi i64 [ %spec.select, %.tail ], [ 0, %sub_0 ]
   %30 = getelementptr i8, ptr %23, i64 %29
   %31 = xor i1 %21, %28
   %32 = load i8, ptr %30, align 1
@@ -122,7 +122,7 @@ sub_0:                                            ; preds = %16, %.lr.ph
   br label %50
 
 46:                                               ; preds = %.loopexit, %.tail.thread, %16, %13
-  %47 = phi i64 [ %11, %13 ], [ 0, %16 ], [ %19, %.tail.thread ], [ %44, %.loopexit ]
+  %47 = phi i64 [ %44, %.loopexit ], [ %11, %13 ], [ 0, %16 ], [ %19, %.tail.thread ]
   %48 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str) #6
   %49 = icmp eq ptr %48, null
   br i1 %49, label %._crit_edge, label %.lr.ph

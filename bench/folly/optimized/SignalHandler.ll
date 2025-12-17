@@ -1566,7 +1566,7 @@ switch.lookup204:                                 ; preds = %426
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 _ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i: ; preds = %426, %switch.lookup204, %424, %switch.lookup200, %421, %switch.lookup196, %418, %switch.lookup192, %416, %switch.lookup, %423, %420, %414
-  %.0.i.i.i = phi ptr [ %switch.select2.i.i.i.i, %420 ], [ %switch.select2.i13.i.i.i, %423 ], [ null, %414 ], [ %switch.load, %switch.lookup ], [ null, %416 ], [ %switch.load194, %switch.lookup192 ], [ null, %418 ], [ %switch.load198, %switch.lookup196 ], [ null, %421 ], [ %switch.load202, %switch.lookup200 ], [ null, %424 ], [ %switch.load206, %switch.lookup204 ], [ null, %426 ]
+  %.0.i.i.i = phi ptr [ %switch.load202, %switch.lookup200 ], [ null, %414 ], [ %switch.load, %switch.lookup ], [ %switch.select2.i.i.i.i, %420 ], [ %switch.load194, %switch.lookup192 ], [ %switch.select2.i13.i.i.i, %423 ], [ %switch.load198, %switch.lookup196 ], [ null, %421 ], [ null, %418 ], [ %switch.load206, %switch.lookup204 ], [ null, %424 ], [ null, %416 ], [ null, %426 ]
   %433 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !48
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
   %435 = load ptr, ptr %434, align 8, !tbaa !27
@@ -1882,7 +1882,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_125callPreviousSignalHandlerEi.exit: ; preds =
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %123, %531
-  %eh.lpad-body = phi { ptr, i32 } [ %124, %123 ], [ %.pn.i.i, %531 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i, %531 ], [ %124, %123 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPvE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %17) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %eh.lpad-body

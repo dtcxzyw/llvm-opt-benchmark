@@ -2238,7 +2238,7 @@ define hidden i32 @samr_dissect_struct_lsa_Strings(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2408,7 +2408,7 @@ define hidden i32 @samr_dissect_struct_SamEntry(ptr noundef %0, i32 noundef %1, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2489,7 +2489,7 @@ define hidden i32 @samr_dissect_struct_SamArray(ptr noundef %0, i32 noundef %1, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2759,7 +2759,7 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not96 = icmp eq ptr %3, null
   br i1 %.not96, label %34, label %30
 
@@ -2917,7 +2917,7 @@ define hidden i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -2996,7 +2996,7 @@ define hidden i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %1, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -3075,7 +3075,7 @@ define hidden i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %1, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -3496,7 +3496,7 @@ define hidden i32 @samr_dissect_struct_Ids(ptr noundef %0, i32 noundef %1, ptr n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -3622,7 +3622,7 @@ define hidden i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -3760,7 +3760,7 @@ define hidden i32 @samr_dissect_struct_GroupInfoDescription(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -3865,7 +3865,7 @@ define hidden i32 @samr_dissect_struct_RidTypeArray(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -3948,7 +3948,7 @@ define hidden i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -4083,7 +4083,7 @@ define hidden i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -4170,7 +4170,7 @@ define hidden i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -4255,7 +4255,7 @@ define hidden i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4336,7 +4336,7 @@ define hidden i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not138 = icmp eq ptr %3, null
   br i1 %.not138, label %32, label %28
 
@@ -4449,7 +4449,7 @@ define hidden i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4528,7 +4528,7 @@ define hidden i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not138 = icmp eq ptr %3, null
   br i1 %.not138, label %32, label %28
 
@@ -4641,7 +4641,7 @@ define hidden i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4722,7 +4722,7 @@ define hidden i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4801,7 +4801,7 @@ define hidden i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %1,
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -4933,7 +4933,7 @@ define hidden i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -5014,7 +5014,7 @@ define hidden i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5093,7 +5093,7 @@ define hidden i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5172,7 +5172,7 @@ define hidden i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5251,7 +5251,7 @@ define hidden i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5543,7 +5543,7 @@ define hidden i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -5667,7 +5667,7 @@ define hidden i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not234 = icmp eq ptr %3, null
   br i1 %.not234, label %32, label %28
 
@@ -5843,7 +5843,7 @@ define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %.thread, label %30
 
@@ -6027,7 +6027,7 @@ define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %.thread, label %30
 
@@ -6423,7 +6423,7 @@ define hidden i32 @samr_dissect_struct_RidWithAttributeArray(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6504,7 +6504,7 @@ define hidden i32 @samr_dissect_struct_DispEntryGeneral(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %32, label %28
 
@@ -6593,7 +6593,7 @@ define hidden i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6674,7 +6674,7 @@ define hidden i32 @samr_dissect_struct_DispEntryFull(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -6761,7 +6761,7 @@ define hidden i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -6842,7 +6842,7 @@ define hidden i32 @samr_dissect_struct_DispEntryFullGroup(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -6929,7 +6929,7 @@ define hidden i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -7010,7 +7010,7 @@ define hidden i32 @samr_dissect_struct_DispEntryAscii(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -7091,7 +7091,7 @@ define hidden i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -7306,7 +7306,7 @@ define hidden i32 @samr_dissect_struct_userPwdChangeFailureInformation(ptr nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -7576,7 +7576,7 @@ define hidden i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -11400,7 +11400,7 @@ switch.lookup:                                    ; preds = %.thread
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %switch.lookup, %.thread, %17, %12
-  %.0 = phi ptr [ null, %.thread ], [ null, %12 ], [ null, %17 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ null, %.thread ], [ %switch.load, %switch.lookup ], [ null, %17 ], [ null, %12 ]
   %27 = load i64, ptr %7, align 8
   %28 = trunc i64 %27 to i32
   %29 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %5, i1 noundef zeroext true, i32 noundef %28, ptr noundef %.0)
@@ -12070,7 +12070,7 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %50 [
     i32 1, label %35
@@ -12265,7 +12265,7 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %44 [
     i32 1, label %35
@@ -12905,7 +12905,7 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i16, ptr %9, align 2
   switch i16 %34, label %50 [
     i16 1, label %35

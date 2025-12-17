@@ -162,8 +162,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %38
 
 38:                                               ; preds = %35, %31, %27, %30, %37, %12
-  %39 = phi i1 [ false, %12 ], [ false, %27 ], [ true, %30 ], [ false, %37 ], [ true, %31 ], [ false, %35 ]
-  %.0233 = phi i32 [ 0, %12 ], [ 0, %27 ], [ 1, %30 ], [ 4, %37 ], [ 1, %31 ], [ %., %35 ]
+  %39 = phi i1 [ false, %12 ], [ false, %27 ], [ true, %30 ], [ false, %37 ], [ false, %35 ], [ true, %31 ]
+  %.0233 = phi i32 [ 0, %12 ], [ 0, %27 ], [ 1, %30 ], [ 4, %37 ], [ %., %35 ], [ 1, %31 ]
   %40 = tail call ptr @avifImageCreate(i32 noundef %17, i32 noundef %20, i32 noundef %23, i32 noundef %.0233) #17
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread301, label %42
@@ -364,7 +364,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %121
 
 121:                                              ; preds = %119, %117, %109
-  %122 = phi float [ %120, %119 ], [ 0.000000e+00, %117 ], [ %100, %109 ]
+  %122 = phi float [ 0.000000e+00, %117 ], [ %120, %119 ], [ %100, %109 ]
   %123 = fptoui float %122 to i8
   store i8 %123, ptr %113, align 1, !tbaa !83
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -382,7 +382,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %132
 
 132:                                              ; preds = %130, %128, %121
-  %133 = phi float [ %131, %130 ], [ 0.000000e+00, %128 ], [ %100, %121 ]
+  %133 = phi float [ 0.000000e+00, %128 ], [ %131, %130 ], [ %100, %121 ]
   %134 = fptoui float %133 to i8
   %135 = getelementptr inbounds nuw i8, ptr %113, i64 1
   store i8 %134, ptr %135, align 1, !tbaa !83
@@ -401,7 +401,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %144
 
 144:                                              ; preds = %142, %140, %132
-  %145 = phi float [ %143, %142 ], [ 0.000000e+00, %140 ], [ %100, %132 ]
+  %145 = phi float [ 0.000000e+00, %140 ], [ %143, %142 ], [ %100, %132 ]
   %146 = fptoui float %145 to i8
   %147 = getelementptr inbounds nuw i8, ptr %113, i64 2
   store i8 %146, ptr %147, align 1, !tbaa !83
@@ -448,7 +448,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %166
 
 166:                                              ; preds = %164, %162, %154
-  %167 = phi float [ %165, %164 ], [ 0.000000e+00, %162 ], [ %100, %154 ]
+  %167 = phi float [ 0.000000e+00, %162 ], [ %165, %164 ], [ %100, %154 ]
   %168 = fptoui float %167 to i16
   store i16 %168, ptr %158, align 2, !tbaa !84
   %169 = getelementptr inbounds nuw i8, ptr %156, i64 4
@@ -466,7 +466,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %177
 
 177:                                              ; preds = %175, %173, %166
-  %178 = phi float [ %176, %175 ], [ 0.000000e+00, %173 ], [ %100, %166 ]
+  %178 = phi float [ 0.000000e+00, %173 ], [ %176, %175 ], [ %100, %166 ]
   %179 = fptoui float %178 to i16
   %180 = getelementptr inbounds nuw i8, ptr %158, i64 2
   store i16 %179, ptr %180, align 2, !tbaa !84
@@ -485,7 +485,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %189
 
 189:                                              ; preds = %187, %185, %177
-  %190 = phi float [ %188, %187 ], [ 0.000000e+00, %185 ], [ %100, %177 ]
+  %190 = phi float [ 0.000000e+00, %185 ], [ %188, %187 ], [ %100, %177 ]
   %191 = fptoui float %190 to i16
   %192 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i16 %191, ptr %192, align 2, !tbaa !84
@@ -718,10 +718,10 @@ floor_log2.exit297:                               ; preds = %floor_log2.exit, %2
   %307 = call i32 @g_unlink(ptr noundef %1) #17
   br label %.thread301
 
-.thread301:                                       ; preds = %96, %199, %196, %214, %211, %286, %283, %296, %293, %306, %95, %38, %297
-  %.0236.ph = phi i32 [ 0, %297 ], [ 1, %293 ], [ 1, %296 ], [ %282, %283 ], [ %282, %286 ], [ 1, %211 ], [ 1, %214 ], [ %195, %196 ], [ %195, %199 ], [ 6, %96 ], [ 0, %38 ], [ 0, %95 ], [ 0, %306 ]
-  %.0235.ph = phi ptr [ %.1, %297 ], [ %.1, %293 ], [ %.1, %296 ], [ %.1, %283 ], [ %.1, %286 ], [ %.1, %211 ], [ %.1, %214 ], [ %.1, %196 ], [ %.1, %199 ], [ %.1, %96 ], [ null, %38 ], [ null, %95 ], [ %.1, %306 ]
-  %.0234.ph = phi ptr [ %209, %297 ], [ %209, %293 ], [ %209, %296 ], [ %209, %283 ], [ %209, %286 ], [ null, %211 ], [ null, %214 ], [ null, %196 ], [ null, %199 ], [ null, %96 ], [ null, %38 ], [ null, %95 ], [ %209, %306 ]
+.thread301:                                       ; preds = %96, %196, %211, %283, %293, %199, %214, %286, %296, %95, %38, %306, %297
+  %.0236.ph = phi i32 [ 1, %296 ], [ %282, %286 ], [ 1, %214 ], [ %195, %199 ], [ 0, %297 ], [ 0, %306 ], [ 1, %293 ], [ %282, %283 ], [ 1, %211 ], [ %195, %196 ], [ 6, %96 ], [ 0, %38 ], [ 0, %95 ]
+  %.0235.ph = phi ptr [ %.1, %296 ], [ %.1, %286 ], [ %.1, %214 ], [ %.1, %199 ], [ %.1, %297 ], [ %.1, %306 ], [ %.1, %293 ], [ %.1, %283 ], [ %.1, %211 ], [ %.1, %196 ], [ %.1, %96 ], [ null, %38 ], [ null, %95 ]
+  %.0234.ph = phi ptr [ %209, %296 ], [ %209, %286 ], [ null, %214 ], [ null, %199 ], [ %209, %297 ], [ %209, %306 ], [ %209, %293 ], [ %209, %283 ], [ null, %211 ], [ null, %196 ], [ null, %96 ], [ null, %38 ], [ null, %95 ]
   %308 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %309 = and i32 %308, 262144
   %.not292 = icmp eq i32 %309, 0

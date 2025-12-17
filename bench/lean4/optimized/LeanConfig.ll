@@ -417,7 +417,7 @@ define noundef nonnull ptr @l_Lake_BuildType_toCtorIdx(i8 noundef zeroext %0) lo
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -465,7 +465,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lake_BuildType_toCtorIdx.exit
 
 l_Lake_BuildType_toCtorIdx.exit:                  ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -698,7 +698,7 @@ lean_nat_le.exit45:                               ; preds = %17
   br label %21
 
 21:                                               ; preds = %lean_nat_le.exit45, %18, %lean_nat_le.exit42, %14, %lean_nat_le.exit39, %10, %lean_nat_le.exit, %6, %20, %16, %12, %8
-  %l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24.sink = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__26, %20 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__20, %16 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__14, %12 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__8, %8 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__5, %6 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__5, %lean_nat_le.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__12, %10 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__12, %lean_nat_le.exit39 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__18, %14 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__18, %lean_nat_le.exit42 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24, %18 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24, %lean_nat_le.exit45 ]
+  %l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24.sink = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__18, %lean_nat_le.exit42 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__26, %20 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__12, %lean_nat_le.exit39 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__20, %16 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__5, %lean_nat_le.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__14, %12 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__8, %8 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__5, %6 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__12, %10 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__18, %14 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24, %18 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24, %lean_nat_le.exit45 ]
   %22 = load ptr, ptr %l___private_Lake_Config_LeanConfig_0__Lake_reprBuildType____x40_Lake_Config_LeanConfig___hyg_19____closed__24.sink, align 8, !tbaa !10
   %23 = tail call ptr @l_Repr_addAppParen(ptr noundef %22, ptr noundef %1) #8
   ret ptr %23
@@ -898,7 +898,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqBuildType(i8 noundef zer
   br label %l_Lake_BuildType_toCtorIdx.exit
 
 l_Lake_BuildType_toCtorIdx.exit:                  ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -915,7 +915,7 @@ l_Lake_BuildType_toCtorIdx.exit:                  ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lake_BuildType_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lake_BuildType_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lake_BuildType_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -991,7 +991,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lake_BuildType_toCtorIdx.exit.i
 
 l_Lake_BuildType_toCtorIdx.exit.i:                ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lake_instDecidableEqBuildType.exit
     i8 1, label %28
@@ -1008,7 +1008,7 @@ l_Lake_BuildType_toCtorIdx.exit.i:                ; preds = %27, %26, %25, %lean
   br label %l_Lake_instDecidableEqBuildType.exit
 
 l_Lake_instDecidableEqBuildType.exit:             ; preds = %l_Lake_BuildType_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lake_BuildType_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lake_BuildType_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -1047,7 +1047,7 @@ define zeroext range(i8 0, 3) i8 @l___private_Lake_Config_LeanConfig_0__Lake_ord
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %7, %3, %6, %5
-  %.1 = phi i8 [ %spec.select, %3 ], [ %switch.select37, %5 ], [ %switch.select41, %6 ], [ %spec.select42, %7 ]
+  %.1 = phi i8 [ %switch.select41, %6 ], [ %spec.select42, %7 ], [ %spec.select, %3 ], [ %switch.select37, %5 ]
   ret i8 %.1
 }
 
@@ -1136,7 +1136,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l___private_Lake_Config_LeanConfig_0__Lake_ordBuildType____x40_Lake_Config_LeanConfig___hyg_266_.exit
 
 l___private_Lake_Config_LeanConfig_0__Lake_ordBuildType____x40_Lake_Config_LeanConfig___hyg_266_.exit: ; preds = %25, %27, %28, %29
-  %.1.i = phi i64 [ %spec.select.i, %25 ], [ %switch.select37.i, %27 ], [ %switch.select41.i, %28 ], [ %spec.select42.i, %29 ]
+  %.1.i = phi i64 [ %switch.select41.i, %28 ], [ %spec.select42.i, %29 ], [ %spec.select.i, %25 ], [ %switch.select37.i, %27 ]
   %31 = shl nuw nsw i64 %.1.i, 1
   %32 = and i64 %31, 510
   %33 = or disjoint i64 %32, 1
@@ -1511,7 +1511,7 @@ lean_nat_le.exit33:                               ; preds = %13
   br label %17
 
 17:                                               ; preds = %lean_nat_le.exit33, %14, %lean_nat_le.exit30, %10, %lean_nat_le.exit, %6, %16, %12, %8
-  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__18, %16 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__12, %12 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__6, %8 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %6 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %lean_nat_le.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %10 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %lean_nat_le.exit30 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %14 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %lean_nat_le.exit33 ]
+  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %lean_nat_le.exit30 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__18, %16 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %lean_nat_le.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__12, %12 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__6, %8 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %6 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %10 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %14 ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %lean_nat_le.exit33 ]
   %18 = load ptr, ptr %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink, align 8, !tbaa !10
   %19 = tail call ptr @l_Repr_addAppParen(ptr noundef %18, ptr noundef %1) #8
   ret ptr %19
@@ -1599,11 +1599,11 @@ l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanCo
   br label %lean_dec.exit
 
 l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i
-  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__6, %lean_nat_le.exit.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__12, %lean_nat_le.exit30.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__18, %lean_nat_le.exit33.i ]
+  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i = phi ptr [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__12, %lean_nat_le.exit30.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__18, %lean_nat_le.exit33.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__6, %lean_nat_le.exit.i ]
   br label %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread12
 
 l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread12: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit
-  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i.sink = phi ptr [ %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %lean_nat_le.exit33.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %lean_nat_le.exit30.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %lean_nat_le.exit.i ]
+  %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i.sink = phi ptr [ %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16, %lean_nat_le.exit33.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__4, %lean_nat_le.exit.i ], [ @l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__10, %lean_nat_le.exit30.i ]
   %29 = load ptr, ptr %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412____closed__16.sink.i.sink, align 8, !tbaa !10
   %30 = tail call ptr @l_Repr_addAppParen(ptr noundef %29, ptr noundef %1) #8
   %31 = load i32, ptr %1, align 4, !tbaa !4
@@ -1624,7 +1624,7 @@ l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanCo
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread16, %36, %35, %33, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread
-  %37 = phi ptr [ %26, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ], [ %28, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread16 ]
+  %37 = phi ptr [ %26, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread ], [ %28, %l___private_Lake_Config_LeanConfig_0__Lake_reprBackend____x40_Lake_Config_LeanConfig___hyg_412_.exit.thread16 ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ]
   ret ptr %37
 }
 
@@ -1706,7 +1706,7 @@ l_Lake_Backend_ofNat.exit.thread6:                ; preds = %lean_nat_le.exit.i,
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %4, %13, %12, %10, %l_Lake_Backend_ofNat.exit.thread9
-  %.0.i5 = phi i8 [ %..i11, %l_Lake_Backend_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ %.0.i8, %13 ], [ 0, %4 ]
+  %.0.i5 = phi i8 [ %.0.i8, %13 ], [ %..i11, %l_Lake_Backend_ofNat.exit.thread9 ], [ %.0.i8, %10 ], [ %.0.i8, %12 ], [ 0, %4 ]
   %14 = zext nneg i8 %.0.i5 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = or disjoint i64 %15, 1
@@ -3344,7 +3344,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -4049,7 +4049,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -4629,7 +4629,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -23935,7 +23935,7 @@ _init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Conf
   br label %_init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__15.exit
 
 _init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__15.exit: ; preds = %_init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__11.exit, %517
-  %.1.i.i = phi ptr [ %519, %517 ], [ %513, %_init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__11.exit ]
+  %.1.i.i = phi ptr [ %513, %_init_l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__11.exit ], [ %519, %517 ]
   store ptr %.1.i.i, ptr @l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__15, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #8
   %520 = load ptr, ptr @l___private_Lake_Config_LeanConfig_0__Lake_reprLeanOption____x40_Lake_Config_LeanConfig___hyg_924____closed__13, align 8, !tbaa !10
@@ -24131,7 +24131,7 @@ _init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanC
   br label %_init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__4.exit
 
 _init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__4.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__1.exit, %593
-  %.1.i.i31 = phi ptr [ %595, %593 ], [ %589, %_init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__1.exit ]
+  %.1.i.i31 = phi ptr [ %589, %_init_l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__1.exit ], [ %595, %593 ]
   store ptr %.1.i.i31, ptr @l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__4, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i31) #8
   %596 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Config_LeanConfig_0__Lake_reprLeanConfig____x40_Lake_Config_LeanConfig___hyg_1281____spec__1___closed__2, align 8, !tbaa !10
@@ -27196,7 +27196,7 @@ _init_l_Lake_BuildType_leanOptions___closed__5.exit: ; preds = %_init_l_Lake_Bui
   br label %1715
 
 1715:                                             ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink248, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink248, %.sink.split ]
   ret ptr %.0
 }
 

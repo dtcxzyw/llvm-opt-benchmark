@@ -2788,7 +2788,7 @@ define i32 @Extra_TruthPerm5One(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %exitcond34.not, label %.loopexit, label %11, !llvm.loop !56
 
 .loopexit:                                        ; preds = %24, %6, %2
-  %.023 = phi i32 [ %0, %2 ], [ %8, %6 ], [ %.1, %24 ]
+  %.023 = phi i32 [ %8, %6 ], [ %0, %2 ], [ %.1, %24 ]
   ret i32 %.023
 }
 
@@ -3322,7 +3322,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   br label %Extra_TruthPerm4One.exit
 
 Extra_TruthPerm4One.exit:                         ; preds = %14, %17, %37
-  %.023.i = phi i16 [ %38, %37 ], [ %19, %17 ], [ %13, %14 ]
+  %.023.i = phi i16 [ %19, %17 ], [ %38, %37 ], [ %13, %14 ]
   %39 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   store i16 %.023.i, ptr %39, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3419,7 +3419,7 @@ Extra_ArrayAlloc.exit.preheader:                  ; preds = %3, %Extra_ArrayAllo
   br i1 %exitcond34.not.i, label %Extra_TruthPerm5One.exit, label %21, !llvm.loop !56
 
 Extra_TruthPerm5One.exit:                         ; preds = %34, %13, %16
-  %.023.i = phi i32 [ %12, %13 ], [ %18, %16 ], [ %.1.i, %34 ]
+  %.023.i = phi i32 [ %18, %16 ], [ %12, %13 ], [ %.1.i, %34 ]
   %36 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %.023.i, ptr %36, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

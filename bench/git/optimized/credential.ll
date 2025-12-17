@@ -343,7 +343,7 @@ define dso_local range(i32 0, 2) i32 @credential_match(ptr noundef readonly capt
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %42, %47, %50, %44, %39, %33, %30, %25, %22, %17, %14, %9, %6
-  %53 = phi i32 [ 0, %42 ], [ 0, %39 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 1, %44 ], [ 0, %47 ], [ %52, %50 ], [ 1, %35 ]
+  %53 = phi i32 [ 0, %42 ], [ 0, %39 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 1, %35 ], [ 1, %44 ], [ 0, %47 ], [ %52, %50 ]
   ret i32 %53
 }
 
@@ -372,7 +372,7 @@ define dso_local range(i32 0, 2) i32 @credential_has_capability(ptr noundef read
   br label %10
 
 10:                                               ; preds = %2, %6, %3
-  %.0.shrunk = phi i8 [ %5, %3 ], [ %narrow, %6 ], [ 0, %2 ]
+  %.0.shrunk = phi i8 [ %narrow, %6 ], [ %5, %3 ], [ 0, %2 ]
   %.0 = zext nneg i8 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -732,7 +732,7 @@ credential_has_capability.exit.thread.thread:     ; preds = %7
   br label %16
 
 credential_has_capability.exit:                   ; preds = %7, %5
-  %.0.shrunk.i.in = phi i8 [ %6, %5 ], [ %10, %7 ]
+  %.0.shrunk.i.in = phi i8 [ %10, %7 ], [ %6, %5 ]
   %.0.shrunk.i = and i8 %.0.shrunk.i.in, 1
   %.not = icmp eq i8 %.0.shrunk.i, 0
   br i1 %.not, label %credential_has_capability.exit.thread, label %credential_write_item.exit
@@ -761,8 +761,8 @@ credential_has_capability.exit.thread:            ; preds = %3, %credential_writ
   br i1 %.not.i69, label %credential_has_capability.exit74.thread.thread, label %credential_has_capability.exit74
 
 credential_has_capability.exit74:                 ; preds = %16, %14
-  %21 = phi ptr [ %13, %14 ], [ %17, %16 ]
-  %.0.shrunk.i72.in = phi i8 [ %15, %14 ], [ %20, %16 ]
+  %21 = phi ptr [ %17, %16 ], [ %13, %14 ]
+  %.0.shrunk.i72.in = phi i8 [ %20, %16 ], [ %15, %14 ]
   %.0.shrunk.i72 = and i8 %.0.shrunk.i72.in, 1
   %.not63 = icmp eq i8 %.0.shrunk.i72, 0
   br i1 %.not63, label %credential_has_capability.exit74.thread, label %credential_write_item.exit78
@@ -788,8 +788,8 @@ credential_has_capability.exit74.thread.thread:   ; preds = %credential_has_capa
   br i1 %.not.i79, label %credential_has_capability.exit84.thread, label %credential_has_capability.exit84
 
 credential_has_capability.exit84:                 ; preds = %credential_has_capability.exit74.thread.thread, %24
-  %30 = phi ptr [ %21, %24 ], [ %26, %credential_has_capability.exit74.thread.thread ]
-  %.0.shrunk.i82.in = phi i8 [ %25, %24 ], [ %29, %credential_has_capability.exit74.thread.thread ]
+  %30 = phi ptr [ %26, %credential_has_capability.exit74.thread.thread ], [ %21, %24 ]
+  %.0.shrunk.i82.in = phi i8 [ %29, %credential_has_capability.exit74.thread.thread ], [ %25, %24 ]
   %.0.shrunk.i82 = and i8 %.0.shrunk.i82.in, 1
   %.not64 = icmp eq i8 %.0.shrunk.i82, 0
   br i1 %.not64, label %credential_has_capability.exit84.thread, label %31
@@ -876,7 +876,7 @@ credential_write_item.exit96:                     ; preds = %credential_write_it
   br label %credential_has_capability.exit84.thread
 
 credential_has_capability.exit84.thread:          ; preds = %credential_has_capability.exit74.thread.thread, %credential_has_capability.exit.thread, %credential_write_item.exit92, %credential_write_item.exit96, %credential_has_capability.exit84
-  %66 = phi ptr [ %13, %credential_has_capability.exit.thread ], [ %30, %credential_write_item.exit92 ], [ %30, %credential_write_item.exit96 ], [ %30, %credential_has_capability.exit84 ], [ %26, %credential_has_capability.exit74.thread.thread ]
+  %66 = phi ptr [ %13, %credential_has_capability.exit.thread ], [ %26, %credential_has_capability.exit74.thread.thread ], [ %30, %credential_write_item.exit92 ], [ %30, %credential_write_item.exit96 ], [ %30, %credential_has_capability.exit84 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %68 = load ptr, ptr %67, align 8, !tbaa !18
   tail call fastcc void @credential_write_item(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %68, i32 noundef 1)
@@ -1095,7 +1095,7 @@ credential_write_item.exit116:                    ; preds = %133, %146
   br i1 %.not.i117, label %credential_has_capability.exit122.thread, label %credential_has_capability.exit122
 
 credential_has_capability.exit122:                ; preds = %155, %153
-  %.0.shrunk.i120.in = phi i8 [ %154, %153 ], [ %158, %155 ]
+  %.0.shrunk.i120.in = phi i8 [ %158, %155 ], [ %154, %153 ]
   %.0.shrunk.i120 = and i8 %.0.shrunk.i120.in, 1
   %.not67 = icmp eq i8 %.0.shrunk.i120, 0
   br i1 %.not67, label %credential_has_capability.exit122.thread, label %179
@@ -1898,7 +1898,7 @@ _.exit:                                           ; preds = %9, %11
   br label %56
 
 56:                                               ; preds = %13, %34, %47
-  %.083 = phi ptr [ %35, %34 ], [ %55, %47 ], [ %15, %13 ]
+  %.083 = phi ptr [ %55, %47 ], [ %35, %34 ], [ %15, %13 ]
   br i1 %.not93, label %65, label %57
 
 57:                                               ; preds = %56
@@ -2116,7 +2116,7 @@ _.exit.i139:                                      ; preds = %132, %130
   br label %check_url_component.exit141
 
 check_url_component.exit141:                      ; preds = %120, %_.exit.i131, %111, %_.exit.i123, %102, %_.exit.i115, %93, %_.exit.i, %check_url_component.exit133, %127, %_.exit.i139, %129, %8, %_.exit
-  %.082 = phi i32 [ -1, %_.exit ], [ -1, %8 ], [ 0, %check_url_component.exit133 ], [ 0, %127 ], [ -1, %_.exit.i139 ], [ -1, %129 ], [ -1, %_.exit.i ], [ -1, %93 ], [ -1, %_.exit.i115 ], [ -1, %102 ], [ -1, %_.exit.i123 ], [ -1, %111 ], [ -1, %_.exit.i131 ], [ -1, %120 ]
+  %.082 = phi i32 [ -1, %8 ], [ -1, %129 ], [ -1, %_.exit ], [ -1, %93 ], [ -1, %111 ], [ -1, %102 ], [ 0, %127 ], [ 0, %check_url_component.exit133 ], [ -1, %_.exit.i139 ], [ -1, %_.exit.i ], [ -1, %_.exit.i115 ], [ -1, %_.exit.i123 ], [ -1, %_.exit.i131 ], [ -1, %120 ]
   ret i32 %.082
 }
 
@@ -2264,7 +2264,7 @@ define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %0,
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %6, %20, %18, %33, %53, %55, %44, %23, %27, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %27 ], [ 0, %23 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 0, %33 ], [ 0, %18 ], [ 0, %20 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %20 ], [ -1, %12 ], [ 0, %27 ], [ 0, %23 ], [ 0, %44 ], [ 0, %55 ], [ 0, %53 ], [ 0, %33 ], [ 0, %18 ], [ 0, %6 ]
   ret i32 %.0
 }
 

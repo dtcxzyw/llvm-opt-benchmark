@@ -3641,7 +3641,7 @@ switch.lookup:                                    ; preds = %1030, %1034
   br label %.thread72
 
 .thread72:                                        ; preds = %1189, %1202, %1217, %1220
-  %1225 = phi i32 [ %spec.select, %1220 ], [ 678172224, %1217 ], [ 678172224, %1202 ], [ 678172224, %1189 ]
+  %1225 = phi i32 [ %spec.select, %1220 ], [ 678172224, %1202 ], [ 678172224, %1217 ], [ 678172224, %1189 ]
   %1226 = getelementptr inbounds nuw i8, ptr %0, i64 4916
   store i32 %1225, ptr %1226, align 4
   %.pre165 = load i32, ptr %58, align 4
@@ -5257,13 +5257,13 @@ thread-pre-split81.thread:                        ; preds = %.thread80, %1972, %
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2060
 
-.thread90:                                        ; preds = %1903, %1844
+.thread90:                                        ; preds = %1844, %1903
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2072
 
 2057:                                             ; preds = %2055, %2047, %1885
-  %2058 = phi i32 [ %2056, %2055 ], [ %2049, %2047 ], [ %1889, %1885 ]
+  %2058 = phi i32 [ %1889, %1885 ], [ %2056, %2055 ], [ %2049, %2047 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %2059 = icmp eq i32 %2058, 0
@@ -6961,7 +6961,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
   br label %173
 
 select.unfold:                                    ; preds = %149, %154, %129, %136
-  %.ph = phi i32 [ %134, %136 ], [ %127, %129 ], [ 0, %154 ], [ 0, %149 ]
+  %.ph = phi i32 [ %127, %129 ], [ %134, %136 ], [ 0, %154 ], [ 0, %149 ]
   %160 = load i32, ptr %10, align 4
   %161 = and i32 %160, 14336
   %162 = icmp eq i32 %161, 2048
@@ -7764,7 +7764,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @tg3_poll_fw(ptr noundef %0
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.preheader, %32, %27, %21, %63, %7, %1
-  %69 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %63 ], [ -19, %32 ], [ -19, %27 ], [ 0, %21 ], [ 0, %.preheader ]
+  %69 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %63 ], [ 0, %21 ], [ -19, %32 ], [ -19, %27 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %69
 }
@@ -11224,7 +11224,7 @@ select.unfold:                                    ; preds = %838, %834, %830, %8
   br label %.thread43
 
 .thread43:                                        ; preds = %1564, %1557, %1573, %1677, %1686, %516, %2027, %2023, %1944, %.thread38, %185
-  %2028 = phi i32 [ -19, %.thread38 ], [ %186, %185 ], [ -12, %516 ], [ %1945, %1944 ], [ 0, %2023 ], [ 0, %2027 ], [ -19, %1686 ], [ %phi.call, %1677 ], [ %1565, %1564 ], [ %1562, %1557 ], [ -19, %1573 ]
+  %2028 = phi i32 [ -19, %.thread38 ], [ %186, %185 ], [ -12, %516 ], [ %phi.call, %1677 ], [ 0, %2027 ], [ %1945, %1944 ], [ 0, %2023 ], [ -19, %1686 ], [ %1565, %1564 ], [ %1562, %1557 ], [ -19, %1573 ]
   ret i32 %2028
 }
 
@@ -12579,7 +12579,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   br i1 %272, label %.critedge.thread.preheader, label %148, !llvm.loop !77
 
 .critedge:                                        ; preds = %182, %202, %219, %.critedge24
-  %273 = phi i32 [ %269, %.critedge24 ], [ 1, %219 ], [ 1, %202 ], [ 1, %182 ]
+  %273 = phi i32 [ %269, %.critedge24 ], [ 1, %202 ], [ 1, %219 ], [ 1, %182 ]
   %274 = add i32 %79, -1
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %.critedge.thread.preheader, label %.backedge
@@ -13414,7 +13414,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   br label %800
 
 800:                                              ; preds = %.thread44, %.thread41, %799, %426, %51
-  %801 = phi i32 [ 0, %799 ], [ -16, %51 ], [ 0, %426 ], [ %.ph40, %.thread41 ], [ -16, %.thread44 ]
+  %801 = phi i32 [ 0, %799 ], [ -16, %51 ], [ %.ph40, %.thread41 ], [ -16, %.thread44 ], [ 0, %426 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %801
 }
@@ -13743,7 +13743,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @tg3_chip_reset(ptr noundef
   br label %.thread33
 
 .thread33:                                        ; preds = %160, %187, %181, %178
-  %189 = phi i32 [ %164, %187 ], [ %164, %181 ], [ %164, %178 ], [ 1, %160 ]
+  %189 = phi i32 [ %164, %178 ], [ %164, %187 ], [ %164, %181 ], [ 1, %160 ]
   %190 = getelementptr i8, ptr %0, i64 4688
   %191 = load volatile i64, ptr %190, align 8
   %192 = and i64 %191, 128
@@ -16142,10 +16142,10 @@ select.unfold:                                    ; preds = %526, %627
   br label %.thread43
 
 .thread43:                                        ; preds = %852, %847, %845, %811, %815
-  %853 = phi i8 [ -1, %815 ], [ -1, %811 ], [ -1, %845 ], [ -1, %847 ], [ %., %852 ]
-  %854 = phi i1 [ false, %815 ], [ false, %811 ], [ false, %845 ], [ false, %847 ], [ %cond.fr36, %852 ]
-  %855 = phi i32 [ -1, %815 ], [ -1, %811 ], [ -1, %845 ], [ -1, %847 ], [ %.75, %852 ]
-  %856 = phi i32 [ 17, %815 ], [ 17, %811 ], [ 17, %845 ], [ 17, %847 ], [ %.76, %852 ]
+  %853 = phi i8 [ %., %852 ], [ -1, %847 ], [ -1, %815 ], [ -1, %811 ], [ -1, %845 ]
+  %854 = phi i1 [ %cond.fr36, %852 ], [ false, %847 ], [ false, %815 ], [ false, %811 ], [ false, %845 ]
+  %855 = phi i32 [ %.75, %852 ], [ -1, %847 ], [ -1, %815 ], [ -1, %811 ], [ -1, %845 ]
+  %856 = phi i32 [ %.76, %852 ], [ 17, %847 ], [ 17, %815 ], [ 17, %811 ], [ 17, %845 ]
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   store i32 %855, ptr %29, align 8
   store i8 %853, ptr %31, align 4
@@ -16696,12 +16696,12 @@ select.unfold:                                    ; preds = %526, %627
   br label %1207
 
 1207:                                             ; preds = %1202, %1191, %1170, %970
-  %1208 = phi i32 [ 0, %1170 ], [ 0, %970 ], [ %1187, %1202 ], [ %1187, %1191 ]
-  %1209 = phi i32 [ 0, %1170 ], [ 0, %970 ], [ %1186, %1202 ], [ %1186, %1191 ]
-  %1210 = phi i32 [ %1166, %1170 ], [ 0, %970 ], [ %1185, %1202 ], [ %1185, %1191 ]
-  %1211 = phi i32 [ 1000, %1170 ], [ %931, %970 ], [ 1000, %1202 ], [ 1000, %1191 ]
-  %1212 = phi i8 [ %1174, %1170 ], [ %932, %970 ], [ %1174, %1202 ], [ %1194, %1191 ]
-  %1213 = phi i1 [ true, %1170 ], [ %911, %970 ], [ %1206, %1202 ], [ true, %1191 ]
+  %1208 = phi i32 [ 0, %1170 ], [ %1187, %1191 ], [ 0, %970 ], [ %1187, %1202 ]
+  %1209 = phi i32 [ 0, %1170 ], [ %1186, %1191 ], [ 0, %970 ], [ %1186, %1202 ]
+  %1210 = phi i32 [ %1166, %1170 ], [ %1185, %1191 ], [ 0, %970 ], [ %1185, %1202 ]
+  %1211 = phi i32 [ 1000, %1170 ], [ 1000, %1191 ], [ %931, %970 ], [ 1000, %1202 ]
+  %1212 = phi i8 [ %1174, %1170 ], [ %1194, %1191 ], [ %932, %970 ], [ %1174, %1202 ]
+  %1213 = phi i1 [ true, %1170 ], [ true, %1191 ], [ %911, %970 ], [ %1206, %1202 ]
   %1214 = icmp eq i8 %1212, 1
   %1215 = and i1 %1213, %1214
   br i1 %1215, label %1216, label %.thread47
@@ -16711,10 +16711,10 @@ select.unfold:                                    ; preds = %526, %627
   br label %.thread47
 
 .thread47:                                        ; preds = %1165, %1216, %1207
-  %1217 = phi i1 [ true, %1216 ], [ %1213, %1207 ], [ false, %1165 ]
-  %1218 = phi i8 [ 1, %1216 ], [ %1212, %1207 ], [ -1, %1165 ]
-  %1219 = phi i32 [ %1211, %1216 ], [ %1211, %1207 ], [ -1, %1165 ]
-  %1220 = phi i32 [ %1210, %1216 ], [ %1210, %1207 ], [ %1166, %1165 ]
+  %1217 = phi i1 [ %1213, %1207 ], [ true, %1216 ], [ false, %1165 ]
+  %1218 = phi i8 [ %1212, %1207 ], [ 1, %1216 ], [ -1, %1165 ]
+  %1219 = phi i32 [ %1211, %1207 ], [ %1211, %1216 ], [ -1, %1165 ]
+  %1220 = phi i32 [ %1210, %1207 ], [ %1210, %1216 ], [ %1166, %1165 ]
   %1221 = getelementptr inbounds nuw i8, ptr %0, i64 4824
   %1222 = load i32, ptr %1221, align 8
   %1223 = and i32 %1222, -3
@@ -17472,7 +17472,7 @@ split.thread:                                     ; preds = %1500, %split
   br i1 %1671, label %.thread63, label %.thread57
 
 .thread57:                                        ; preds = %1486, %split, %.thread60, %1668
-  %1672 = phi i8 [ 1, %1668 ], [ 0, %.thread60 ], [ 0, %split ], [ 0, %1486 ]
+  %1672 = phi i8 [ 0, %.thread60 ], [ 1, %1668 ], [ 0, %split ], [ 0, %1486 ]
   %1673 = getelementptr inbounds nuw i8, ptr %0, i64 4760
   %1674 = getelementptr inbounds nuw i8, ptr %0, i64 4769
   %1675 = load i8, ptr %1674, align 1
@@ -22514,8 +22514,8 @@ define internal range(i32 -22, 1) i32 @tg3_get_eeprom(ptr noundef %0, ptr nounde
   br label %97
 
 97:                                               ; preds = %94, %.thread
-  %98 = phi i32 [ %77, %.thread ], [ %84, %94 ]
-  %99 = phi i32 [ 0, %.thread ], [ %spec.select, %94 ]
+  %98 = phi i32 [ %84, %94 ], [ %77, %.thread ]
+  %99 = phi i32 [ %spec.select, %94 ], [ 0, %.thread ]
   %100 = load i32, ptr %16, align 4
   %101 = add i32 %100, %99
   store i32 %101, ptr %16, align 4
@@ -23307,7 +23307,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   br i1 %419, label %.critedge.thread43, label %.lr.ph
 
 .critedge.thread43:                               ; preds = %.critedge, %362, %375, %387, %.critedge.loopexit, %363, %376, %388, %411, %315, %.thread39
-  %420 = phi i32 [ %325, %.thread39 ], [ 0, %315 ], [ -16, %411 ], [ 0, %388 ], [ 0, %376 ], [ 0, %363 ], [ -16, %.critedge.loopexit ], [ 0, %387 ], [ 0, %375 ], [ 0, %362 ], [ 0, %.critedge ]
+  %420 = phi i32 [ %325, %.thread39 ], [ 0, %376 ], [ 0, %315 ], [ 0, %363 ], [ -16, %411 ], [ 0, %388 ], [ -16, %.critedge.loopexit ], [ 0, %387 ], [ 0, %362 ], [ 0, %375 ], [ 0, %.critedge ]
   %421 = load ptr, ptr %189, align 8
   tail call void %421(ptr noundef %7, i32 noundef 28672, i32 noundef 131096) #28
   br label %422
@@ -23414,7 +23414,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr noundef readonly capture
   br label %504
 
 .thread45:                                        ; preds = %129, %126, %472, %470, %459, %449, %99
-  %479 = phi i32 [ 0, %99 ], [ %432, %449 ], [ %432, %459 ], [ %432, %470 ], [ %432, %472 ], [ -16, %126 ], [ 0, %129 ]
+  %479 = phi i32 [ %432, %472 ], [ 0, %99 ], [ %432, %449 ], [ %432, %459 ], [ %432, %470 ], [ -16, %126 ], [ 0, %129 ]
   %480 = load volatile i64, ptr %8, align 8
   %481 = and i64 %480, 4096
   %482 = icmp eq i64 %481, 0
@@ -23872,7 +23872,7 @@ define internal i32 @tg3_set_ringparam(ptr noundef %0, ptr noundef readonly capt
   br label %tg3_phy_start.exit
 
 tg3_phy_start.exit:                               ; preds = %138, %102, %.thread4, %101, %22, %17, %11, %4
-  %140 = phi i32 [ -22, %17 ], [ -22, %11 ], [ -22, %4 ], [ 0, %101 ], [ -22, %22 ], [ %98, %.thread4 ], [ 0, %102 ], [ 0, %138 ]
+  %140 = phi i32 [ -22, %17 ], [ -22, %11 ], [ -22, %4 ], [ %98, %.thread4 ], [ 0, %101 ], [ -22, %22 ], [ 0, %102 ], [ 0, %138 ]
   ret i32 %140
 }
 
@@ -24615,15 +24615,15 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   br label %.sink.split
 
 .thread30:                                        ; preds = %88, %.loopexit52, %239
-  %.ph = phi ptr [ %66, %88 ], [ %66, %.loopexit52 ], [ %237, %239 ]
+  %.ph = phi ptr [ %66, %.loopexit52 ], [ %66, %88 ], [ %237, %239 ]
   call void @kfree(ptr noundef nonnull %.ph) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %250
 
 243:                                              ; preds = %239, %.thread25
-  %244 = phi ptr [ %66, %.thread25 ], [ %237, %239 ]
-  %245 = phi i32 [ %208, %.thread25 ], [ %241, %239 ]
+  %244 = phi ptr [ %237, %239 ], [ %66, %.thread25 ]
+  %245 = phi i32 [ %241, %239 ], [ %208, %.thread25 ]
   call void @kfree(ptr noundef nonnull %244) #28
   %246 = icmp eq i32 %245, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -27318,7 +27318,7 @@ define internal fastcc range(i32 -22, 1) i32 @tg3_nvram_read(ptr noundef %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.thread, %161, %159, %148, %138, %60, %29, %8
-  %167 = phi i32 [ -22, %60 ], [ -19, %.thread ], [ 0, %29 ], [ -22, %8 ], [ %125, %138 ], [ %125, %148 ], [ %125, %159 ], [ %125, %161 ], [ -16, %26 ]
+  %167 = phi i32 [ -22, %60 ], [ -19, %.thread ], [ 0, %29 ], [ -22, %8 ], [ %125, %161 ], [ %125, %138 ], [ %125, %148 ], [ %125, %159 ], [ -16, %26 ]
   ret i32 %167
 }
 
@@ -28173,7 +28173,7 @@ define internal fastcc void @tg3_power_down_prepare(ptr noundef %0) unnamed_addr
   br label %189
 
 189:                                              ; preds = %180, %.thread, %166, %140
-  %190 = phi i32 [ %171, %166 ], [ 12, %140 ], [ %188, %.thread ], [ %167, %180 ]
+  %190 = phi i32 [ 12, %140 ], [ %171, %166 ], [ %188, %.thread ], [ %167, %180 ]
   %191 = getelementptr i8, ptr %0, i64 4688
   %192 = load volatile i64, ptr %191, align 8
   %193 = and i64 %192, 512
@@ -29252,7 +29252,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @tg3_ape_event_lock(ptr nou
   br i1 %63, label %.loopexit3, label %8, !llvm.loop !171
 
 .loopexit3:                                       ; preds = %61, %.loopexit, %39
-  %64 = phi i32 [ -16, %39 ], [ 0, %.loopexit ], [ -16, %61 ]
+  %64 = phi i32 [ -16, %39 ], [ -16, %61 ], [ 0, %.loopexit ]
   ret i32 %64
 }
 
@@ -31142,7 +31142,7 @@ define internal fastcc void @tg3_frob_aux_power(ptr noundef %0, i1 noundef zeroe
   br label %149
 
 149:                                              ; preds = %130, %144, %148, %126, %122
-  %150 = phi i1 [ true, %126 ], [ true, %122 ], [ true, %130 ], [ false, %148 ], [ true, %144 ]
+  %150 = phi i1 [ true, %122 ], [ true, %126 ], [ true, %130 ], [ false, %148 ], [ true, %144 ]
   br i1 %1, label %151, label %155
 
 151:                                              ; preds = %149
@@ -33932,7 +33932,7 @@ thread-pre-split37:                               ; preds = %690
   br i1 %702, label %.preheader41, label %.loopexit52, !llvm.loop !185
 
 .loopexit52:                                      ; preds = %226, %300, %407, %.preheader41, %694, %select.unfold, %285, %.critedge
-  %703 = phi i32 [ -12, %.critedge ], [ -12, %285 ], [ -12, %select.unfold ], [ %684, %694 ], [ %684, %.preheader41 ], [ -12, %407 ], [ -12, %300 ], [ -12, %226 ]
+  %703 = phi i32 [ -12, %select.unfold ], [ -12, %.critedge ], [ -12, %285 ], [ %684, %694 ], [ -12, %300 ], [ %684, %.preheader41 ], [ -12, %407 ], [ -12, %226 ]
   call fastcc void @tg3_free_consistent(ptr noundef %0)
   %704 = load volatile i64, ptr %10, align 8
   %705 = and i64 %704, 262144
@@ -34770,7 +34770,7 @@ define internal i32 @tg3_poll_msix(ptr noundef %0, i32 noundef %1) #2 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %80, %72, %.split.us
-  %89 = phi i32 [ %22, %80 ], [ %44, %72 ], [ %22, %.split.us ], [ %22, %.lr.ph.split.us ], [ %44, %.lr.ph.split ]
+  %89 = phi i32 [ %22, %.split.us ], [ %22, %80 ], [ %44, %72 ], [ %22, %.lr.ph.split.us ], [ %44, %.lr.ph.split ]
   %90 = getelementptr inbounds nuw i8, ptr %.fr12, i64 5392
   %91 = load i64, ptr %90, align 16
   %92 = load volatile i64, ptr %7, align 8
@@ -35491,7 +35491,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   br label %451
 
 451:                                              ; preds = %.thread60, %438
-  %452 = phi ptr [ %436, %438 ], [ %379, %.thread60 ]
+  %452 = phi ptr [ %379, %.thread60 ], [ %436, %438 ]
   %453 = call ptr @skb_put(ptr noundef nonnull %452, i32 noundef %347) #28
   %454 = icmp eq i64 %361, 0
   br i1 %454, label %466, label %455
@@ -36044,7 +36044,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   br label %803
 
 803:                                              ; preds = %796, %793, %782, %587, %221, %217
-  %804 = phi i32 [ %1, %217 ], [ %1, %221 ], [ %588, %782 ], [ %588, %587 ], [ %588, %793 ], [ %588, %796 ]
+  %804 = phi i32 [ %1, %217 ], [ %1, %221 ], [ %588, %782 ], [ %588, %796 ], [ %588, %587 ], [ %588, %793 ]
   ret i32 %804
 }
 
@@ -36144,7 +36144,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
   br i1 %45, label %54, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %42, %38
-  %46 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %36, %30 ]
+  %46 = phi i32 [ %36, %30 ], [ 0, %42 ], [ 0, %38 ]
   %47 = load ptr, ptr %29, align 64
   %48 = getelementptr i8, ptr %32, i64 8
   %49 = load i32, ptr %48, align 8
@@ -36743,7 +36743,7 @@ define internal i32 @tg3_open(ptr noundef %0) #2 align 16 {
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread5, %93, %141, %.loopexit, %6
-  %144 = phi i32 [ -11, %6 ], [ %91, %93 ], [ %139, %141 ], [ 0, %.loopexit ], [ %40, %.thread5 ]
+  %144 = phi i32 [ -11, %6 ], [ 0, %.loopexit ], [ %91, %93 ], [ %139, %141 ], [ %40, %.thread5 ]
   ret i32 %144
 }
 
@@ -37247,7 +37247,7 @@ define internal i32 @tg3_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %165
 
 165:                                              ; preds = %26, %55, %54, %.thread, %163, %128, %65, %60, %18, %13
-  %166 = phi i32 [ %164, %163 ], [ %129, %128 ], [ %77, %65 ], [ %25, %18 ], [ -11, %13 ], [ -11, %60 ], [ %.ph, %.thread ], [ -95, %54 ], [ -95, %55 ], [ -95, %26 ]
+  %166 = phi i32 [ -11, %60 ], [ %164, %163 ], [ %129, %128 ], [ %77, %65 ], [ %.ph, %.thread ], [ %25, %18 ], [ -11, %13 ], [ -95, %54 ], [ -95, %55 ], [ -95, %26 ]
   ret i32 %166
 }
 
@@ -37530,7 +37530,7 @@ define internal i32 @tg3_change_mtu(ptr noundef %0, i32 noundef %1) #2 align 16 
   br label %tg3_phy_start.exit
 
 tg3_phy_start.exit:                               ; preds = %148, %.loopexit, %150, %23, %18, %16
-  %151 = phi i32 [ %75, %150 ], [ 0, %16 ], [ 0, %18 ], [ 0, %23 ], [ 0, %.loopexit ], [ 0, %148 ]
+  %151 = phi i32 [ %75, %150 ], [ 0, %23 ], [ 0, %16 ], [ 0, %18 ], [ 0, %.loopexit ], [ 0, %148 ]
   ret i32 %151
 }
 
@@ -37981,8 +37981,8 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   br label %.thread19
 
 .thread19:                                        ; preds = %203, %191, %207, %195, %179, %166
-  %.ph = phi i32 [ %214, %207 ], [ 768, %195 ], [ 768, %179 ], [ %174, %166 ], [ 768, %191 ], [ 768, %203 ]
-  %.ph15 = phi i32 [ %49, %207 ], [ %202, %195 ], [ %181, %179 ], [ %169, %166 ], [ %49, %191 ], [ %49, %203 ]
+  %.ph = phi i32 [ 768, %203 ], [ %214, %207 ], [ 768, %191 ], [ 768, %195 ], [ 768, %179 ], [ %174, %166 ]
+  %.ph15 = phi i32 [ %49, %203 ], [ %49, %207 ], [ %49, %191 ], [ %202, %195 ], [ %181, %179 ], [ %169, %166 ]
   %215 = load volatile i64, ptr %14, align 8
   br label %237
 
@@ -38007,7 +38007,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   br i1 %226, label %227, label %.thread18
 
 227:                                              ; preds = %224, %221, %216
-  %228 = phi i32 [ 0, %224 ], [ 0, %216 ], [ 1, %221 ]
+  %228 = phi i32 [ 1, %221 ], [ 0, %224 ], [ 0, %216 ]
   %229 = load volatile i64, ptr %14, align 8
   %230 = icmp sgt i64 %229, -1
   br i1 %230, label %237, label %231
@@ -38572,7 +38572,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   br label %.thread18
 
 .thread18:                                        ; preds = %316, %113, %93, %62, %.thread30, %607, %472, %317, %224
-  %614 = phi i32 [ 2, %317 ], [ 2, %224 ], [ 2, %607 ], [ 1, %.thread30 ], [ 1, %472 ], [ 2, %62 ], [ 2, %93 ], [ 2, %113 ], [ 2, %316 ]
+  %614 = phi i32 [ 2, %317 ], [ 2, %224 ], [ 2, %607 ], [ 2, %113 ], [ 1, %.thread30 ], [ 1, %472 ], [ 2, %62 ], [ 2, %93 ], [ 2, %316 ]
   tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef %614) #28
   %615 = getelementptr inbounds nuw i8, ptr %19, i64 616
   %616 = load i64, ptr %615, align 8
@@ -38581,7 +38581,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   br label %618
 
 618:                                              ; preds = %100, %120, %.thread18, %606, %596, %587, %434, %45, %40
-  %619 = phi i32 [ 0, %.thread18 ], [ %436, %434 ], [ 16, %45 ], [ 16, %40 ], [ 0, %596 ], [ 0, %606 ], [ 0, %587 ], [ %101, %100 ], [ %121, %120 ]
+  %619 = phi i32 [ 0, %587 ], [ 0, %.thread18 ], [ %436, %434 ], [ %121, %120 ], [ 16, %45 ], [ 16, %40 ], [ 0, %596 ], [ 0, %606 ], [ %101, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %619
@@ -42352,7 +42352,7 @@ define internal range(i32 -95, 1) i32 @tg3_ptp_enable(ptr noundef %0, ptr nounde
   br label %61
 
 61:                                               ; preds = %59, %12, %7, %3
-  %62 = phi i32 [ %60, %59 ], [ -95, %7 ], [ -22, %12 ], [ -95, %3 ]
+  %62 = phi i32 [ -95, %3 ], [ %60, %59 ], [ -95, %7 ], [ -22, %12 ]
   ret i32 %62
 }
 
@@ -42630,7 +42630,7 @@ define internal noundef range(i32 4, 6) i32 @tg3_io_slot_reset(ptr noundef %0) #
   br label %.thread
 
 .thread:                                          ; preds = %23, %10, %7, %.loopexit, %28, %26
-  %46 = phi i32 [ 4, %.loopexit ], [ 4, %28 ], [ 4, %26 ], [ 5, %7 ], [ 5, %10 ], [ 5, %23 ]
+  %46 = phi i32 [ 4, %26 ], [ 4, %.loopexit ], [ 4, %28 ], [ 5, %7 ], [ 5, %10 ], [ 5, %23 ]
   tail call void @rtnl_unlock() #28
   ret i32 %46
 }
@@ -43129,7 +43129,7 @@ define internal i32 @tg3_resume(ptr noundef readonly captures(none) %0) #2 align
   br label %tg3_phy_start.exit
 
 tg3_phy_start.exit:                               ; preds = %103, %.loopexit, %105, %1
-  %106 = phi i32 [ 0, %1 ], [ %16, %105 ], [ 0, %.loopexit ], [ 0, %103 ]
+  %106 = phi i32 [ %16, %105 ], [ 0, %1 ], [ 0, %.loopexit ], [ 0, %103 ]
   tail call void @rtnl_unlock() #28
   ret i32 %106
 }

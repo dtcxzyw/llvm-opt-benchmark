@@ -1554,7 +1554,7 @@ if.else:                                          ; preds = %if.then9
   br label %return
 
 return:                                           ; preds = %if.else, %if.end, %if.end22, %if.then15
-  %retval.0 = phi i32 [ -1, %if.then15 ], [ %c, %if.end22 ], [ 0, %if.end ], [ %spec.select, %if.else ]
+  %retval.0 = phi i32 [ -1, %if.then15 ], [ %spec.select, %if.else ], [ %c, %if.end22 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2449,7 +2449,7 @@ terminate.lpad.i15:                               ; preds = %land.lhs.true.i.i11
   unreachable
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
-  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
+  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %if.then.i.i ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ null, %if.then ]
   %throw_file_ = getelementptr inbounds nuw i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
   %throw_file_5 = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -2515,8 +2515,8 @@ ehcleanup:                                        ; preds = %land.lhs.true.i.i.i
   br i1 %tobool.not.i.i41, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit49, label %land.lhs.true.i.i42
 
 land.lhs.true.i.i42:                              ; preds = %if.then.i.i17, %call.i.noexc.i16, %lpad2, %ehcleanup.thread63, %ehcleanup
-  %.pn58 = phi { ptr, i32 } [ %22, %ehcleanup ], [ %18, %ehcleanup.thread63 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i16 ], [ %7, %if.then.i.i17 ]
-  %data.sroa.0.357 = phi ptr [ %data.sroa.0.1, %ehcleanup ], [ %data.sroa.0.1, %ehcleanup.thread63 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i16 ], [ %2, %if.then.i.i17 ]
+  %.pn58 = phi { ptr, i32 } [ %18, %ehcleanup.thread63 ], [ %22, %ehcleanup ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i16 ], [ %7, %if.then.i.i17 ]
+  %data.sroa.0.357 = phi ptr [ %data.sroa.0.1, %ehcleanup.thread63 ], [ %data.sroa.0.1, %ehcleanup ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i16 ], [ %2, %if.then.i.i17 ]
   %vtable.i.i43 = load ptr, ptr %data.sroa.0.357, align 8
   %vfn.i.i44 = getelementptr inbounds nuw i8, ptr %vtable.i.i43, i64 32
   %23 = load ptr, ptr %vfn.i.i44, align 8
@@ -2851,7 +2851,7 @@ lpad45.body:                                      ; preds = %lpad.i28, %lpad45
   br label %eh.resume
 
 return:                                           ; preds = %.noexc31, %if.end.i14, %if.end.i
-  %ref.tmp44.sink = phi ptr [ %ref.tmp30, %if.end.i ], [ %ref.tmp39, %if.end.i14 ], [ %ref.tmp44, %.noexc31 ]
+  %ref.tmp44.sink = phi ptr [ %ref.tmp39, %if.end.i14 ], [ %ref.tmp30, %if.end.i ], [ %ref.tmp44, %.noexc31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.sink) #27
   ret void
 

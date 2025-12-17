@@ -338,7 +338,7 @@ define range(i32 -1, 1) i32 @ff_rtp_check_and_send_back_rr(ptr noundef %0, ptr n
   br label %116
 
 116:                                              ; preds = %104, %110, %._crit_edge, %22, %11, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %11 ], [ -1, %22 ], [ 0, %._crit_edge ], [ 0, %110 ], [ 0, %104 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %4 ], [ -1, %11 ], [ 0, %._crit_edge ], [ 0, %110 ], [ 0, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -570,7 +570,7 @@ find_missing_packets.exit.thread:                 ; preds = %37, %34, %find_miss
   br label %91
 
 91:                                               ; preds = %82, %88, %80, %53, %find_missing_packets.exit.thread, %find_missing_packets.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %find_missing_packets.exit ], [ 0, %find_missing_packets.exit.thread ], [ -1, %53 ], [ 0, %80 ], [ 0, %88 ], [ 0, %82 ]
+  %.0 = phi i32 [ 0, %find_missing_packets.exit ], [ 0, %find_missing_packets.exit.thread ], [ 0, %80 ], [ -1, %53 ], [ -1, %3 ], [ 0, %88 ], [ 0, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1019,15 +1019,15 @@ rtcp_update_jitter.exit.i:                        ; preds = %111, %98, %95
   %153 = call fastcc i32 @rtp_parse_queued_packet(ptr noundef nonnull %0, ptr noundef %1)
   br label %rtp_parse_one_packet.exit
 
-rtp_parse_one_packet.exit.thread:                 ; preds = %60, %90, %42, %46, %138, %144, %147, %71
-  %.0.i.ph = phi i32 [ -1094995529, %71 ], [ -1, %147 ], [ %145, %144 ], [ -1, %138 ], [ -1, %46 ], [ -1, %42 ], [ -203, %60 ], [ -1, %90 ]
+rtp_parse_one_packet.exit.thread:                 ; preds = %60, %90, %42, %147, %46, %138, %144, %71
+  %.0.i.ph = phi i32 [ -1, %147 ], [ -1, %42 ], [ -1094995529, %71 ], [ %145, %144 ], [ -1, %138 ], [ -1, %46 ], [ -203, %60 ], [ -1, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 %.0.i.ph, ptr %154, align 8, !tbaa !80
   br label %.lr.ph
 
 rtp_parse_one_packet.exit:                        ; preds = %26, %34, %130, %142, %151
-  %.0.i = phi i32 [ %131, %130 ], [ %27, %26 ], [ %40, %34 ], [ %143, %142 ], [ %153, %151 ]
+  %.0.i = phi i32 [ %40, %34 ], [ %27, %26 ], [ %153, %151 ], [ %131, %130 ], [ %143, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 %.0.i, ptr %155, align 8, !tbaa !80
@@ -1082,7 +1082,7 @@ has_next_packet.exit:                             ; preds = %.lr.ph, %160
   br label %has_next_packet.exit22
 
 has_next_packet.exit22:                           ; preds = %has_next_packet.exit, %160, %.lr.ph, %172, %169, %.critedge, %11
-  %.017 = phi i32 [ -1, %11 ], [ %.0.lcssa, %.critedge ], [ 0, %169 ], [ %178, %172 ], [ %.0.i42, %.lr.ph ], [ %167, %160 ], [ %.02746, %has_next_packet.exit ]
+  %.017 = phi i32 [ -1, %11 ], [ %178, %172 ], [ %.0.lcssa, %.critedge ], [ 0, %169 ], [ %.0.i42, %.lr.ph ], [ %167, %160 ], [ %.02746, %has_next_packet.exit ]
   ret i32 %.017
 }
 
@@ -1683,7 +1683,7 @@ define internal fastcc i32 @rtp_parse_packet_internal(ptr noundef captures(none)
   br label %140
 
 140:                                              ; preds = %127, %128, %104, %102, %92, %4, %138, %73
-  %.0 = phi i32 [ %.067, %138 ], [ -1, %73 ], [ -1, %4 ], [ -1094995529, %92 ], [ -1, %102 ], [ -1, %104 ], [ %129, %128 ], [ -22, %127 ]
+  %.0 = phi i32 [ -1, %73 ], [ -1, %4 ], [ -1094995529, %92 ], [ -1, %102 ], [ %.067, %138 ], [ -1, %104 ], [ %129, %128 ], [ -22, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

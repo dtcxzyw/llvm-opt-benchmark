@@ -158,8 +158,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit:            ; preds = %57
   br label %_ZNK11ast_manager6is_notEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit, %57, %48
-  %.0169 = phi ptr [ %50, %48 ], [ %50, %57 ], [ %spec.select192, %_ZNK11ast_manager6is_notEPK4expr.exit ]
-  %.0168 = phi ptr [ %52, %48 ], [ %52, %57 ], [ %spec.select193, %_ZNK11ast_manager6is_notEPK4expr.exit ]
+  %.0169 = phi ptr [ %50, %57 ], [ %spec.select192, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ %50, %48 ]
+  %.0168 = phi ptr [ %52, %57 ], [ %spec.select193, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ %52, %48 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0169, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 65535
@@ -751,8 +751,8 @@ _ZN11ast_manager9mk_forallEjPKP4sortPK6symbolP4expriRS5_S9_jPKS8_jSB_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn121.pn.pn
 
-_Z9is_forallPK3ast.exit.thread:                   ; preds = %_Z17is_uninterp_constPK4expr.exit, %201, %204, %184, %177, %._crit_edge, %209, %118, %109, %_ZNK11ast_manager5is_eqEPK4expr.exit.i136, %129, %94, %87, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %105, %72, %_ZNK11ast_manager6is_notEPK4expr.exit.thread, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %83, %33, %28, %_ZNK11ast_manager5is_orEPK4expr.exit.i, %44, %3, %_Z9is_forallPK3ast.exit, %133, %142, %147, %153, %_ZNK3app13get_family_idEv.exit, %_ZNK3app13get_family_idEv.exit.thread, %165, %170, %316
-  %.4 = phi i1 [ true, %316 ], [ false, %170 ], [ false, %165 ], [ false, %_ZNK3app13get_family_idEv.exit.thread ], [ false, %_ZNK3app13get_family_idEv.exit ], [ false, %153 ], [ false, %147 ], [ false, %142 ], [ false, %133 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %3 ], [ false, %44 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i ], [ false, %28 ], [ false, %33 ], [ false, %83 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.thread ], [ false, %72 ], [ false, %105 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %87 ], [ false, %94 ], [ false, %129 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i136 ], [ false, %109 ], [ false, %118 ], [ false, %209 ], [ false, %._crit_edge ], [ false, %177 ], [ false, %184 ], [ false, %204 ], [ false, %201 ], [ false, %_Z17is_uninterp_constPK4expr.exit ]
+_Z9is_forallPK3ast.exit.thread:                   ; preds = %_Z17is_uninterp_constPK4expr.exit, %204, %201, %184, %177, %._crit_edge, %209, %118, %109, %_ZNK11ast_manager5is_eqEPK4expr.exit.i136, %129, %94, %87, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %105, %72, %_ZNK11ast_manager6is_notEPK4expr.exit.thread, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %83, %33, %28, %_ZNK11ast_manager5is_orEPK4expr.exit.i, %44, %3, %_Z9is_forallPK3ast.exit, %133, %142, %147, %153, %_ZNK3app13get_family_idEv.exit, %_ZNK3app13get_family_idEv.exit.thread, %165, %170, %316
+  %.4 = phi i1 [ true, %316 ], [ false, %118 ], [ false, %94 ], [ false, %72 ], [ false, %33 ], [ false, %3 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %._crit_edge ], [ false, %170 ], [ false, %165 ], [ false, %_ZNK3app13get_family_idEv.exit.thread ], [ false, %_ZNK3app13get_family_idEv.exit ], [ false, %153 ], [ false, %147 ], [ false, %142 ], [ false, %133 ], [ false, %44 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i ], [ false, %28 ], [ false, %83 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.thread ], [ false, %105 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %87 ], [ false, %129 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i136 ], [ false, %109 ], [ false, %209 ], [ false, %177 ], [ false, %184 ], [ false, %201 ], [ false, %204 ], [ false, %_Z17is_uninterp_constPK4expr.exit ]
   ret i1 %.4
 }
 

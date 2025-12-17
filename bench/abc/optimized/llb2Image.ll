@@ -1780,7 +1780,7 @@ Abc_Clock.exit138:                                ; preds = %99, %105
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.critedge128, %67, %31
-  %.0 = phi ptr [ null, %67 ], [ %.sink174, %.critedge128 ], [ null, %31 ], [ null, %50 ]
+  %.0 = phi ptr [ null, %31 ], [ null, %67 ], [ %.sink174, %.critedge128 ], [ null, %50 ]
   ret ptr %.0
 }
 

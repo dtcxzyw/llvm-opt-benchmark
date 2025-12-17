@@ -436,7 +436,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %51
 
 51:                                               ; preds = %.critedge, %21, %1, %15, %41
-  %.028 = phi i32 [ %50, %41 ], [ %13, %1 ], [ %16, %15 ], [ -12, %21 ], [ -12, %.critedge ]
+  %.028 = phi i32 [ -12, %.critedge ], [ %50, %41 ], [ %16, %15 ], [ %13, %1 ], [ -12, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028

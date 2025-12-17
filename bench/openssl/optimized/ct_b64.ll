@@ -76,8 +76,8 @@ define ptr @SCT_new_from_base64(i8 noundef zeroext %0, ptr noundef %1, i32 nound
   br i1 %.not26, label %37, label %39
 
 .sink.split:                                      ; preds = %25, %22, %15, %12
-  %.sink31 = phi i32 [ 81, %12 ], [ 87, %15 ], [ 96, %22 ], [ 104, %25 ]
-  %.sink = phi i32 [ 115, %12 ], [ 118, %15 ], [ 118, %22 ], [ 118, %25 ]
+  %.sink31 = phi i32 [ 96, %22 ], [ 87, %15 ], [ 81, %12 ], [ 104, %25 ]
+  %.sink = phi i32 [ 118, %22 ], [ 118, %15 ], [ 115, %12 ], [ 118, %25 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink31, ptr noundef nonnull @__func__.SCT_new_from_base64) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 50, i32 noundef %.sink, ptr noundef null) #4

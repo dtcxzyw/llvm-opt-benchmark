@@ -116,7 +116,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3ELFlsERSoRKNS0_1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %35, %33, %.lr.ph.i.i, %29
-  %.0.i.i = phi i32 [ 1, %29 ], [ 2, %.lr.ph.i.i ], [ 3, %33 ], [ %., %35 ]
+  %.0.i.i = phi i32 [ %., %35 ], [ 3, %33 ], [ 2, %.lr.ph.i.i ], [ 1, %29 ]
   %37 = zext nneg i32 %.0.i.i to i64
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %38, ptr %6, align 8, !tbaa !24, !alias.scope !26

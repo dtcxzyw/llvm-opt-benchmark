@@ -312,7 +312,7 @@ define noundef range(i8 0, 3) i8 @_ZN5uv_fs26is_same_file_allow_missing17h1ecb04
   br i1 %or.cond8, label %101, label %102
 
 101:                                              ; preds = %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread", %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit34", %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit32", %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit", %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit37", %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit"
-  %.sroa.0.0 = phi i8 [ %80, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit" ], [ %.sroa.0.1, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit37" ], [ 1, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit" ], [ 2, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit32" ], [ 2, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit34" ], [ 1, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread" ]
+  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit37" ], [ %80, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit" ], [ 1, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit" ], [ 2, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit32" ], [ 2, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit34" ], [ 1, %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit.thread" ]
   ret i8 %.sroa.0.0
 
 102:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit32"
@@ -439,7 +439,7 @@ define void @_ZN5uv_fs10LockedFile18lock_file_blocking17h586dc74bbab80e64E(ptr d
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %51, label %.thread234
 
-.thread227:                                       ; preds = %.invoke, %127, %.thread237, %109, %.thread234, %77, %70, %.thread231, %53, %236, %241
+.thread227:                                       ; preds = %.invoke, %127, %.thread237, %109, %.thread231, %53, %241, %.thread234, %77, %70, %236
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -717,7 +717,7 @@ default.unreachable:                              ; preds = %90
           to label %.thread unwind label %286
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit: ; preds = %101, %98, %94
-  %.sroa.0.0.i = phi i8 [ %spec.select.i.i.i, %94 ], [ %100, %98 ], [ %103, %101 ]
+  %.sroa.0.0.i = phi i8 [ %103, %101 ], [ %spec.select.i.i.i, %94 ], [ %100, %98 ]
   %.not205 = icmp eq i8 %.sroa.0.0.i, 13
   br i1 %.not205, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread244, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread
 
@@ -1143,7 +1143,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread244: ; preds = %93, %
   br i1 %.not208, label %.invoke279, label %271
 
 .invoke279:                                       ; preds = %260, %174, %146
-  %270 = phi ptr [ @anon.9b2c08a89e26e3248eeb21c656d36152.32, %146 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.36, %174 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.39, %260 ]
+  %270 = phi ptr [ @anon.9b2c08a89e26e3248eeb21c656d36152.36, %174 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.32, %146 ], [ @anon.9b2c08a89e26e3248eeb21c656d36152.39, %260 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.9b2c08a89e26e3248eeb21c656d36152.19, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %270) #17
           to label %.cont280 unwind label %133
 

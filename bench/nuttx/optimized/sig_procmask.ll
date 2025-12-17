@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr
   br label %22
 
 22:                                               ; preds = %11, %19, %16, %13
-  %.1 = phi i32 [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ -22, %11 ]
+  %.1 = phi i32 [ 0, %19 ], [ 0, %13 ], [ 0, %16 ], [ -22, %11 ]
   %23 = and i64 %12, 512
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %24

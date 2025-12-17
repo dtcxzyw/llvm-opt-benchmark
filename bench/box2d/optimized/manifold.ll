@@ -916,7 +916,7 @@ b2GetLengthAndNormalize.exit447:                  ; preds = %b2GetLengthAndNorma
   br label %153
 
 153:                                              ; preds = %b2GetLengthAndNormalize.exit447, %150
-  %.not = phi i1 [ %.not370.not, %150 ], [ true, %b2GetLengthAndNormalize.exit447 ]
+  %.not = phi i1 [ true, %b2GetLengthAndNormalize.exit447 ], [ %.not370.not, %150 ]
   %.sroa.0.0.vec.extract.i469 = extractelement <2 x float> %.sroa.06.0.i446, i64 0
   %154 = fmul float %61, %.sroa.0.0.vec.extract.i469
   %.sroa.0.4.vec.extract.i471 = extractelement <2 x float> %.sroa.06.0.i446, i64 1
@@ -1692,10 +1692,10 @@ b2FindMaxSeparation.exit.thread:                  ; preds = %._crit_edge428
   br i1 %exitcond.not.i243, label %b2FindMaxSeparation.exit269, label %.lr.ph45.split.i237, !llvm.loop !31
 
 b2FindMaxSeparation.exit269:                      ; preds = %.lr.ph45.split.i237, %.lr.ph45.split.i, %._crit_edge.us.i264, %b2FindMaxSeparation.exit.thread
-  %.0.lcssa.i418 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ %.1.us.i, %._crit_edge.us.i264 ], [ %.1.i, %.lr.ph45.split.i ], [ 0, %.lr.ph45.split.i237 ]
-  %.028.lcssa.i417 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ %.129.us.i, %._crit_edge.us.i264 ], [ %.129.i, %.lr.ph45.split.i ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i237 ]
-  %.028.lcssa.i234 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ %.129.us.i265, %._crit_edge.us.i264 ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i ], [ %.129.i241, %.lr.ph45.split.i237 ]
-  %.0.lcssa.i235 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ %.1.us.i266, %._crit_edge.us.i264 ], [ 0, %.lr.ph45.split.i ], [ %.1.i242, %.lr.ph45.split.i237 ]
+  %.0.lcssa.i418 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ %.1.i, %.lr.ph45.split.i ], [ %.1.us.i, %._crit_edge.us.i264 ], [ 0, %.lr.ph45.split.i237 ]
+  %.028.lcssa.i417 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ %.129.i, %.lr.ph45.split.i ], [ %.129.us.i, %._crit_edge.us.i264 ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i237 ]
+  %.028.lcssa.i234 = phi float [ 0xC7EFFFFFE0000000, %b2FindMaxSeparation.exit.thread ], [ 0xC7EFFFFFE0000000, %.lr.ph45.split.i ], [ %.129.us.i265, %._crit_edge.us.i264 ], [ %.129.i241, %.lr.ph45.split.i237 ]
+  %.0.lcssa.i235 = phi i32 [ 0, %b2FindMaxSeparation.exit.thread ], [ 0, %.lr.ph45.split.i ], [ %.1.us.i266, %._crit_edge.us.i264 ], [ %.1.i242, %.lr.ph45.split.i237 ]
   %86 = load float, ptr %38, align 8, !tbaa !19
   %87 = load float, ptr %48, align 4, !tbaa !19
   %88 = fadd float %86, %87
@@ -4077,7 +4077,7 @@ b2ClipSegments.exit861:                           ; preds = %547, %597
   store <2 x float> %.sroa.02.4.vec.insert.i909, ptr %635, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %b2ClassifyNormal.exit560, %b2ClassifyNormal.exit, %277, %271, %274, %171, %b2ClipSegments.exit861, %518, %b2ClipSegments.exit, %415, %418, %._crit_edge
+.critedge:                                        ; preds = %.thread, %b2ClassifyNormal.exit560, %b2ClassifyNormal.exit, %277, %271, %274, %171, %b2ClipSegments.exit861, %518, %415, %418, %b2ClipSegments.exit, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

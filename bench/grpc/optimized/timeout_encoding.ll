@@ -185,8 +185,8 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
 _ZN9grpc_core7Timeout11FromSecondsEl.exit:        ; preds = %46, %26, %15, %.thread.i.i, %63, %.thread34.i, %41, %31, %9, %19, %1, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ 1, %1 ], [ 27000, %19 ], [ %11, %9 ], [ %42, %41 ], [ %33, %31 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %64, %63 ], [ %55, %.thread34.i ], [ %.lhs.trunc35, %15 ], [ %.lhs.trunc27, %26 ], [ %.lhs.trunc31, %46 ]
-  %.sroa.0.sroa.7.0 = phi i32 [ 65536, %5 ], [ 0, %1 ], [ 655360, %19 ], [ 131072, %9 ], [ 393216, %41 ], [ 327680, %31 ], [ 655360, %.thread.i.i ], [ 589824, %63 ], [ 524288, %.thread34.i ], [ 196608, %15 ], [ 262144, %26 ], [ 458752, %46 ]
+  %.sroa.0.sroa.0.0 = phi i16 [ 1, %1 ], [ %6, %5 ], [ %11, %9 ], [ 27000, %19 ], [ %55, %.thread34.i ], [ %33, %31 ], [ %.lhs.trunc35, %15 ], [ %42, %41 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %.lhs.trunc27, %26 ], [ %64, %63 ], [ %.lhs.trunc31, %46 ]
+  %.sroa.0.sroa.7.0 = phi i32 [ 0, %1 ], [ 65536, %5 ], [ 131072, %9 ], [ 655360, %19 ], [ 524288, %.thread34.i ], [ 327680, %31 ], [ 196608, %15 ], [ 393216, %41 ], [ 655360, %.thread.i.i ], [ 262144, %26 ], [ 589824, %63 ], [ 458752, %46 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.7.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -258,7 +258,7 @@ define noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnu
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %2, %7, %8, %10, %12, %14, %16, %18, %20, %22, %24
-  %.sroa.0.0.i = phi i64 [ %4, %7 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %25, %24 ], [ 0, %2 ], [ %21, %20 ], [ %23, %22 ]
+  %.sroa.0.0.i = phi i64 [ %25, %24 ], [ %4, %7 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ 0, %2 ], [ %23, %22 ], [ %21, %20 ]
   %27 = and i32 %1, 65535
   %28 = zext nneg i32 %27 to i64
   switch i8 %.sroa.2.0.extract.trunc, label %47 [
@@ -316,7 +316,7 @@ _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %2, %7, %8, %10, %12
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit10:      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit, %29, %31, %33, %35, %37, %39, %41, %43, %45
-  %.sroa.0.0.i9 = phi i64 [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %42, %41 ], [ %44, %43 ], [ %28, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
+  %.sroa.0.0.i9 = phi i64 [ %46, %45 ], [ %44, %43 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %28, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
   %48 = icmp eq i64 %.sroa.0.0.i9, 0
   br i1 %48, label %_ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread, label %50
 
@@ -336,7 +336,7 @@ _ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread: ; preds = %_ZNK9grpc_core7Ti
   br label %56
 
 56:                                               ; preds = %49, %_ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread, %50
-  %.0 = phi double [ %55, %50 ], [ 1.000000e+02, %_ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread ], [ 0.000000e+00, %49 ]
+  %.0 = phi double [ %55, %50 ], [ 0.000000e+00, %49 ], [ 1.000000e+02, %_ZNK9grpc_core7Timeout10AsDurationEv.exit10.thread ]
   ret double %.0
 }
 
@@ -404,7 +404,7 @@ define range(i64 0, 393210000001) i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr 
   unreachable
 
 _ZN9grpc_core8Duration7MinutesEl.exit:            ; preds = %21, %19, %1, %23, %17, %15, %13, %11, %9, %7, %6
-  %.sroa.0.0 = phi i64 [ %3, %6 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %24, %23 ], [ 0, %1 ], [ %20, %19 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ %24, %23 ], [ %3, %6 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ 0, %1 ], [ %22, %21 ], [ %20, %19 ]
   ret i64 %.sroa.0.0
 }
 
@@ -677,8 +677,8 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   br label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
 _ZN9grpc_core7Timeout11FromMinutesEl.exit:        ; preds = %.thread.i, %45, %.thread34, %29, %9, %19, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ %20, %19 ], [ %11, %9 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread34 ]
-  %.sroa.0.sroa.5.0 = phi i32 [ 262144, %5 ], [ 393216, %19 ], [ 327680, %9 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread34 ]
+  %.sroa.0.sroa.0.0 = phi i16 [ %11, %9 ], [ %6, %5 ], [ %20, %19 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread34 ]
+  %.sroa.0.sroa.5.0 = phi i32 [ 327680, %9 ], [ 262144, %5 ], [ 393216, %19 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread34 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.5.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -822,8 +822,8 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %.lr.ph77, %..critedge2_crit_edge, %.lr.ph77.preheader
-  %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %.lr.ph77 ]
-  %.0.lcssa = phi i32 [ %29, %..critedge2_crit_edge ], [ 0, %.lr.ph77.preheader ], [ %29, %.lr.ph77 ]
+  %.147.lcssa = phi ptr [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %..critedge2_crit_edge ], [ %30, %.lr.ph77 ]
+  %.0.lcssa = phi i32 [ 0, %.lr.ph77.preheader ], [ %29, %..critedge2_crit_edge ], [ %29, %.lr.ph77 ]
   %.not5485 = icmp eq ptr %.147.lcssa, %11
   %or.cond88 = or i1 %or.cond55112, %.not5485
   br i1 %or.cond88, label %.critedge57, label %.lr.ph87
@@ -901,8 +901,8 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br i1 %64, label %61, label %.critedge57
 
 .critedge57:                                      ; preds = %14, %24, %32, %.lr.ph87, %.lr.ph.i, %61, %.critedge, %59, %.critedge2
-  %.sroa.061.0 = phi i64 [ undef, %.critedge2 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph.i ], [ undef, %.lr.ph87 ], [ undef, %32 ], [ 9223372036854775807, %24 ], [ undef, %14 ]
-  %.sroa.3.0 = phi i8 [ 0, %.critedge2 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %61 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph87 ], [ 0, %32 ], [ 1, %24 ], [ 0, %14 ]
+  %.sroa.061.0 = phi i64 [ undef, %.critedge2 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ 9223372036854775807, %24 ], [ undef, %.lr.ph.i ], [ undef, %32 ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph87 ], [ undef, %14 ]
+  %.sroa.3.0 = phi i8 [ 0, %.critedge2 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %24 ], [ 0, %.lr.ph.i ], [ 0, %32 ], [ 1, %61 ], [ 0, %.lr.ph87 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.061.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -1227,7 +1227,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i:            ; preds = %237, %235, %219
   br label %common.resume
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %622, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %378, %390, %433
-  %common.resume.op = phi { ptr, i32 } [ %434, %433 ], [ %.pn34.pn.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i ], [ %.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %379, %378 ], [ %391, %390 ], [ %.pn20.pn.pn, %622 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %391, %390 ], [ %434, %433 ], [ %.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %.pn34.pn.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit41.i.i.i ], [ %.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %379, %378 ], [ %.pn20.pn.pn, %622 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12_GLOBAL__N_113splitChannelsERKN2cv11_InputArrayERSt6vectorINS0_3MatESaIS5_EE.exit.i.i: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i, %185
@@ -1328,7 +1328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %2
   br i1 %278, label %273, label %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayES4_.exit.i, !llvm.loop !79
 
 _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN15initSrcAndJointERKN2cv11_InputArrayES4_.exit.i: ; preds = %273, %147, %269, %258, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i, %123
-  %279 = phi i32 [ %.pre.i, %123 ], [ %143, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i ], [ %246, %258 ], [ %246, %269 ], [ %153, %147 ], [ %276, %273 ]
+  %279 = phi i32 [ %246, %269 ], [ %.pre.i, %123 ], [ %143, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit.i.i ], [ %246, %258 ], [ %153, %147 ], [ %276, %273 ]
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %282 = sext i32 %279 to i64
@@ -2186,7 +2186,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i.i: ; preds = %_ZNSt6vector
   br label %604
 
 604:                                              ; preds = %602, %596, %594, %592, %590, %588, %567, %565
-  %.pn88.pn.pn.i = phi { ptr, i32 } [ %603, %602 ], [ %568, %567 ], [ %566, %565 ], [ %597, %596 ], [ %595, %594 ], [ %593, %592 ], [ %591, %590 ], [ %589, %588 ]
+  %.pn88.pn.pn.i = phi { ptr, i32 } [ %566, %565 ], [ %603, %602 ], [ %568, %567 ], [ %597, %596 ], [ %595, %594 ], [ %593, %592 ], [ %591, %590 ], [ %589, %588 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %612
 
@@ -4038,7 +4038,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit142:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %509
 
 509:                                              ; preds = %401, %403, %405, %507, %505, %503
-  %.pn81.pn.pn.pn.pn = phi { ptr, i32 } [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ]
+  %.pn81.pn.pn.pn.pn = phi { ptr, i32 } [ %504, %503 ], [ %508, %507 ], [ %506, %505 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %common.resume
@@ -5653,7 +5653,7 @@ _ZN2cv4Mat_IfEC2Eii.exit._crit_edge.i:            ; preds = %._crit_edge.us153.i
   br label %270
 
 270:                                              ; preds = %268, %266
-  %.pn100.pn.pn.i = phi { ptr, i32 } [ %269, %268 ], [ %267, %266 ]
+  %.pn100.pn.pn.i = phi { ptr, i32 } [ %267, %266 ], [ %269, %268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

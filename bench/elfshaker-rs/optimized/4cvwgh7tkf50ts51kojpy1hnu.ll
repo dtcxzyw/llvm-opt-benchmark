@@ -393,7 +393,7 @@ select.unfold1135:                                ; preds = %102
   br label %92
 
 .thread1136:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11143 = phi i32 [ %106, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %101, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %96, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11143 = phi i32 [ %96, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %106, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %101, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %108 = zext i32 %.sroa.10296.11143 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %108, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !92
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -760,7 +760,7 @@ select.unfold1233:                                ; preds = %173
   br label %178
 
 178:                                              ; preds = %select.unfold1232, %select.unfold1233, %select.unfold1231
-  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1231 ], [ %170, %select.unfold1232 ], [ %175, %select.unfold1233 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %175, %select.unfold1233 ], [ %165, %select.unfold1231 ], [ %170, %select.unfold1232 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -769,7 +769,7 @@ select.unfold1233:                                ; preds = %173
   br label %92
 
 .thread1235:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1096
-  %.sroa.11144.01242 = phi i32 [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %167, %.thread1096 ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01242 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %167, %.thread1096 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %179 = zext i32 %.sroa.11144.01242 to i64
@@ -845,7 +845,7 @@ select.unfold1244:                                ; preds = %197
   br label %202
 
 202:                                              ; preds = %select.unfold1244, %select.unfold1243
-  %.sroa.13.sroa.0.0 = phi ptr [ %193, %select.unfold1243 ], [ %199, %select.unfold1244 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %199, %select.unfold1244 ], [ %193, %select.unfold1243 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -854,7 +854,7 @@ select.unfold1244:                                ; preds = %197
   br label %92
 
 .thread1246:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807, %195
-  %.sroa.9199.01252 = phi i32 [ %201, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %196, %195 ], [ %194, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ]
+  %.sroa.9199.01252 = phi i32 [ %194, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ], [ %201, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %196, %195 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %204 = load i64, ptr %203, align 8, !noundef !4
   %205 = add i64 %204, -1
@@ -954,7 +954,7 @@ select.unfold1264:                                ; preds = %222
   br label %227
 
 227:                                              ; preds = %select.unfold1264, %select.unfold1263
-  %.sroa.13251.sroa.0.0 = phi ptr [ %218, %select.unfold1263 ], [ %224, %select.unfold1264 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %224, %select.unfold1264 ], [ %218, %select.unfold1263 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -963,7 +963,7 @@ select.unfold1264:                                ; preds = %222
   br label %92
 
 .thread1266:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816, %220
-  %.sroa.9246.01272 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820 ], [ %221, %220 ], [ %219, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816 ]
+  %.sroa.9246.01272 = phi i32 [ %219, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820 ], [ %221, %220 ]
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %229 = load i64, ptr %228, align 8, !noundef !4
   %230 = add i64 %229, -1
@@ -1375,7 +1375,7 @@ select.unfold1084:                                ; preds = %104
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h77bb3c258ce0042bE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %108, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %98, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %98, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %111 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %111, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !321
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1692,7 +1692,7 @@ select.unfold1185:                                ; preds = %180
   br label %185
 
 185:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %172, %select.unfold1183 ], [ %177, %select.unfold1184 ], [ %182, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %182, %select.unfold1185 ], [ %172, %select.unfold1183 ], [ %177, %select.unfold1184 ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %186, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1703,7 +1703,7 @@ select.unfold1185:                                ; preds = %180
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h77bb3c258ce0042bE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %184, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %179, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %174, %.thread1045 ], [ %173, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %173, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %184, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %179, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %174, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !347)
   call void @llvm.experimental.noalias.scope.decl(metadata !350)
   %187 = zext i32 %.sroa.11144.01194 to i64
@@ -1844,7 +1844,7 @@ select.unfold1196:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %226, %select.unfold1195 ], [ %232, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %232, %select.unfold1196 ], [ %226, %select.unfold1195 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %236, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1855,7 +1855,7 @@ select.unfold1196:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h77bb3c258ce0042bE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %228
-  %.sroa.9199.01204 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %229, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %238 = load i64, ptr %237, align 8, !noundef !4
   %239 = add i64 %238, -1
@@ -1920,7 +1920,7 @@ select.unfold1206:                                ; preds = %253
   br label %258
 
 258:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %249, %select.unfold1205 ], [ %255, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %255, %select.unfold1206 ], [ %249, %select.unfold1205 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %259, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1931,7 +1931,7 @@ select.unfold1206:                                ; preds = %253
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h77bb3c258ce0042bE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %251
-  %.sroa.9246.01214 = phi i32 [ %257, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %252, %251 ], [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %257, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %252, %251 ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %261 = load i64, ptr %260, align 8, !noundef !4
   %262 = add i64 %261, -1
@@ -2399,7 +2399,7 @@ select.unfold1126:                                ; preds = %155, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 .thread1128:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11135 = phi i32 [ %174, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %164, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %154, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11135 = phi i32 [ %154, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %174, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %164, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %177 = zext i32 %.sroa.10296.11135 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %177, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !680
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2668,8 +2668,8 @@ select.unfold1126:                                ; preds = %155, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 256:                                              ; preds = %84, %77, %49, %50
-  %.sroa.10871.0 = phi i8 [ undef, %77 ], [ undef, %84 ], [ %.sroa.7.01038.ph, %49 ], [ undef, %50 ]
-  %.sroa.0869.0 = phi i8 [ 1, %77 ], [ 1, %84 ], [ 2, %49 ], [ 1, %50 ]
+  %.sroa.10871.0 = phi i8 [ undef, %84 ], [ %.sroa.7.01038.ph, %49 ], [ undef, %50 ], [ undef, %77 ]
+  %.sroa.0869.0 = phi i8 [ 1, %84 ], [ 2, %49 ], [ 1, %50 ], [ 1, %77 ]
   store i8 %.sroa.0869.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -2680,7 +2680,7 @@ select.unfold1126:                                ; preds = %155, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 257:                                              ; preds = %49, %76, %66, %67, %68, %69, %79, %86
-  %.sroa.11872.0.ph = phi i32 [ 1, %76 ], [ 16, %68 ], [ 8, %67 ], [ 4, %66 ], [ %89, %86 ], [ %83, %79 ], [ %75, %69 ], [ 2, %49 ]
+  %.sroa.11872.0.ph = phi i32 [ 1, %76 ], [ 8, %67 ], [ 4, %66 ], [ %75, %69 ], [ 16, %68 ], [ %89, %86 ], [ %83, %79 ], [ 2, %49 ]
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %259 = load i64, ptr %258, align 8, !noundef !4
   %260 = add i64 %259, -1
@@ -2793,7 +2793,7 @@ select.unfold1229:                                ; preds = %278, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 .thread1232:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1061
-  %.sroa.11144.01239 = phi i32 [ %297, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %287, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %277, %.thread1061 ], [ %276, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01239 = phi i32 [ %276, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %297, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %287, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %277, %.thread1061 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
   %300 = zext i32 %.sroa.11144.01239 to i64
@@ -2983,7 +2983,7 @@ select.unfold1241:                                ; preds = %357
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 .thread1243:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %355
-  %.sroa.9199.01249 = phi i32 [ %366, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %356, %355 ], [ %354, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01249 = phi i32 [ %354, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %366, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %356, %355 ]
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %371 = load i64, ptr %370, align 8, !noundef !4
   %372 = add i64 %371, -1
@@ -3153,7 +3153,7 @@ select.unfold1251:                                ; preds = %405
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17he1ae1370049c3f08E.exit"
 
 .thread1253:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822, %403
-  %.sroa.9246.01259 = phi i32 [ %414, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %404, %403 ], [ %402, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ]
+  %.sroa.9246.01259 = phi i32 [ %402, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ], [ %414, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %404, %403 ]
   %418 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %419 = load i64, ptr %418, align 8, !noundef !4
   %420 = add i64 %419, -1
@@ -3723,7 +3723,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb88a22c9692f1f1fE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1020
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4014,7 +4014,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -4023,7 +4023,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb88a22c9692f1f1fE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   call void @llvm.experimental.noalias.scope.decl(metadata !1049)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -4162,7 +4162,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -4171,7 +4171,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb88a22c9692f1f1fE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -4234,7 +4234,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -4243,7 +4243,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb88a22c9692f1f1fE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -4590,7 +4590,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc052627729ebd11aE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1163
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4881,7 +4881,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -4890,7 +4890,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc052627729ebd11aE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1189)
   call void @llvm.experimental.noalias.scope.decl(metadata !1192)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -5028,7 +5028,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -5037,7 +5037,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc052627729ebd11aE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -5100,7 +5100,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -5109,7 +5109,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc052627729ebd11aE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -5466,7 +5466,7 @@ select.unfold1088:                                ; preds = %111
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c7527523be3a94cE.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11096 = phi i32 [ %115, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %115, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %117 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %117, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1305
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5757,7 +5757,7 @@ select.unfold1189:                                ; preds = %173
   br label %178
 
 178:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ], [ %175, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %175, %select.unfold1189 ], [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -5766,7 +5766,7 @@ select.unfold1189:                                ; preds = %173
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c7527523be3a94cE.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1049
-  %.sroa.11144.01198 = phi i32 [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %167, %.thread1049 ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01198 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %167, %.thread1049 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1331)
   call void @llvm.experimental.noalias.scope.decl(metadata !1334)
   %179 = zext i32 %.sroa.11144.01198 to i64
@@ -5904,7 +5904,7 @@ select.unfold1200:                                ; preds = %218
   br label %223
 
 223:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %214, %select.unfold1199 ], [ %220, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %220, %select.unfold1200 ], [ %214, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -5913,7 +5913,7 @@ select.unfold1200:                                ; preds = %218
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c7527523be3a94cE.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %216
-  %.sroa.9199.01208 = phi i32 [ %222, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %217, %216 ], [ %215, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01208 = phi i32 [ %215, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %222, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %217, %216 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %225 = load i64, ptr %224, align 8, !noundef !4
   %226 = add i64 %225, -1
@@ -6100,7 +6100,7 @@ select.unfold1210:                                ; preds = %261
   br label %266
 
 266:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %257, %select.unfold1209 ], [ %263, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %263, %select.unfold1210 ], [ %257, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -6109,7 +6109,7 @@ select.unfold1210:                                ; preds = %261
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c7527523be3a94cE.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %259
-  %.sroa.9246.01218 = phi i32 [ %265, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %260, %259 ], [ %258, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01218 = phi i32 [ %258, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %265, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %260, %259 ]
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %268 = load i64, ptr %267, align 8, !noundef !4
   %269 = add i64 %268, -1
@@ -6773,7 +6773,7 @@ select.unfold1088:                                ; preds = %120
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha6acd6f6a910b796E.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11096 = phi i32 [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %127 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %127, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1517
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7090,7 +7090,7 @@ select.unfold1189:                                ; preds = %196
   br label %201
 
 201:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %188, %select.unfold1187 ], [ %193, %select.unfold1188 ], [ %198, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %198, %select.unfold1189 ], [ %188, %select.unfold1187 ], [ %193, %select.unfold1188 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %202, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -7101,7 +7101,7 @@ select.unfold1189:                                ; preds = %196
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha6acd6f6a910b796E.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1049
-  %.sroa.11144.01198 = phi i32 [ %200, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %195, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %190, %.thread1049 ], [ %189, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01198 = phi i32 [ %189, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %200, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %195, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %190, %.thread1049 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1543)
   call void @llvm.experimental.noalias.scope.decl(metadata !1546)
   %203 = zext i32 %.sroa.11144.01198 to i64
@@ -7242,7 +7242,7 @@ select.unfold1200:                                ; preds = %246
   br label %251
 
 251:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %242, %select.unfold1199 ], [ %248, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %248, %select.unfold1200 ], [ %242, %select.unfold1199 ]
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %252, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -7253,7 +7253,7 @@ select.unfold1200:                                ; preds = %246
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha6acd6f6a910b796E.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %244
-  %.sroa.9199.01208 = phi i32 [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %245, %244 ], [ %243, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01208 = phi i32 [ %243, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %245, %244 ]
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %254 = load i64, ptr %253, align 8, !noundef !4
   %255 = add i64 %254, -1
@@ -7481,7 +7481,7 @@ select.unfold1217:                                ; preds = %294
   br label %299
 
 299:                                              ; preds = %select.unfold1217, %select.unfold1216
-  %.sroa.13251.sroa.0.0 = phi ptr [ %290, %select.unfold1216 ], [ %296, %select.unfold1217 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %296, %select.unfold1217 ], [ %290, %select.unfold1216 ]
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %300, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -7492,7 +7492,7 @@ select.unfold1217:                                ; preds = %294
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha6acd6f6a910b796E.exit"
 
 .thread1219:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815, %292
-  %.sroa.9246.01225 = phi i32 [ %298, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %293, %292 ], [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ]
+  %.sroa.9246.01225 = phi i32 [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ], [ %298, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %293, %292 ]
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %302 = load i64, ptr %301, align 8, !noundef !4
   %303 = add i64 %302, -1
@@ -7547,8 +7547,8 @@ select.unfold1217:                                ; preds = %294
   br i1 %.not15.i.i.i, label %320, label %318
 
 316:                                              ; preds = %371, %353, %339, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.038.2.i = phi i8 [ 1, %339 ], [ 1, %353 ], [ %.sroa.038.6.i, %371 ], [ 1, %.loopexit.i ], [ %.sroa.038.1.ph.i, %.loopexit.split-lp.i ]
-  %.pn.i = phi { ptr, i32 } [ %340, %339 ], [ %354, %353 ], [ %372, %371 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.038.2.i = phi i8 [ %.sroa.038.6.i, %371 ], [ 1, %339 ], [ 1, %353 ], [ 1, %.loopexit.i ], [ %.sroa.038.1.ph.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %372, %371 ], [ %340, %339 ], [ %354, %353 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %317 = load i64, ptr %14, align 8, !range !359, !noalias !1618, !noundef !4
   %.not83.i = icmp eq i64 %317, -9223372036854775808
   br i1 %.not83.i, label %390, label %397
@@ -8260,7 +8260,7 @@ select.unfold1087:                                ; preds = %109
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haacaf057b364e39dE.exit"
 
 .thread1088:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11095 = phi i32 [ %113, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11095 = phi i32 [ %103, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %113, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %115 = zext i32 %.sroa.10296.11095 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %115, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1723
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8551,7 +8551,7 @@ select.unfold1188:                                ; preds = %171
   br label %176
 
 176:                                              ; preds = %select.unfold1187, %select.unfold1188, %select.unfold1186
-  %.sroa.16.sroa.0.0 = phi ptr [ %163, %select.unfold1186 ], [ %168, %select.unfold1187 ], [ %173, %select.unfold1188 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %173, %select.unfold1188 ], [ %163, %select.unfold1186 ], [ %168, %select.unfold1187 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -8560,7 +8560,7 @@ select.unfold1188:                                ; preds = %171
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haacaf057b364e39dE.exit"
 
 .thread1190:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1048
-  %.sroa.11144.01197 = phi i32 [ %175, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %165, %.thread1048 ], [ %164, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01197 = phi i32 [ %164, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %175, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %165, %.thread1048 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1749)
   call void @llvm.experimental.noalias.scope.decl(metadata !1752)
   %177 = zext i32 %.sroa.11144.01197 to i64
@@ -8703,7 +8703,7 @@ select.unfold1199:                                ; preds = %220
   br label %225
 
 225:                                              ; preds = %select.unfold1199, %select.unfold1198
-  %.sroa.13.sroa.0.0 = phi ptr [ %216, %select.unfold1198 ], [ %222, %select.unfold1199 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %222, %select.unfold1199 ], [ %216, %select.unfold1198 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -8712,7 +8712,7 @@ select.unfold1199:                                ; preds = %220
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haacaf057b364e39dE.exit"
 
 .thread1201:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %218
-  %.sroa.9199.01207 = phi i32 [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %219, %218 ], [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01207 = phi i32 [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %219, %218 ]
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %227 = load i64, ptr %226, align 8, !noundef !4
   %228 = add i64 %227, -1
@@ -8858,7 +8858,7 @@ select.unfold1209:                                ; preds = %256
   br label %261
 
 261:                                              ; preds = %select.unfold1209, %select.unfold1208
-  %.sroa.13251.sroa.0.0 = phi ptr [ %252, %select.unfold1208 ], [ %258, %select.unfold1209 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %258, %select.unfold1209 ], [ %252, %select.unfold1208 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -8867,7 +8867,7 @@ select.unfold1209:                                ; preds = %256
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haacaf057b364e39dE.exit"
 
 .thread1211:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %254
-  %.sroa.9246.01217 = phi i32 [ %260, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %255, %254 ], [ %253, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01217 = phi i32 [ %253, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %260, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %255, %254 ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %263 = load i64, ptr %262, align 8, !noundef !4
   %264 = add i64 %263, -1
@@ -9437,7 +9437,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff99a6817a927130E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !1920
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9728,7 +9728,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -9737,7 +9737,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff99a6817a927130E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1946)
   call void @llvm.experimental.noalias.scope.decl(metadata !1949)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -9876,7 +9876,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -9885,7 +9885,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff99a6817a927130E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -9948,7 +9948,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -9957,7 +9957,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff99a6817a927130E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -10309,7 +10309,7 @@ select.unfold1087:                                ; preds = %106
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h7051b0953018344bE.exit"
 
 .thread1088:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11095 = phi i32 [ %110, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11095 = phi i32 [ %100, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %112 = zext i32 %.sroa.10296.11095 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %112, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2063
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10600,7 +10600,7 @@ select.unfold1188:                                ; preds = %168
   br label %173
 
 173:                                              ; preds = %select.unfold1187, %select.unfold1188, %select.unfold1186
-  %.sroa.16.sroa.0.0 = phi ptr [ %160, %select.unfold1186 ], [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %170, %select.unfold1188 ], [ %160, %select.unfold1186 ], [ %165, %select.unfold1187 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -10609,7 +10609,7 @@ select.unfold1188:                                ; preds = %168
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h7051b0953018344bE.exit"
 
 .thread1190:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1048
-  %.sroa.11144.01197 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %167, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %162, %.thread1048 ], [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01197 = phi i32 [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %167, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %162, %.thread1048 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2089)
   call void @llvm.experimental.noalias.scope.decl(metadata !2092)
   %174 = zext i32 %.sroa.11144.01197 to i64
@@ -10748,7 +10748,7 @@ select.unfold1199:                                ; preds = %214
   br label %219
 
 219:                                              ; preds = %select.unfold1199, %select.unfold1198
-  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1198 ], [ %216, %select.unfold1199 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %216, %select.unfold1199 ], [ %210, %select.unfold1198 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -10757,7 +10757,7 @@ select.unfold1199:                                ; preds = %214
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h7051b0953018344bE.exit"
 
 .thread1201:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %212
-  %.sroa.9199.01207 = phi i32 [ %218, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %213, %212 ], [ %211, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01207 = phi i32 [ %211, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %218, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %213, %212 ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %221 = load i64, ptr %220, align 8, !noundef !4
   %222 = add i64 %221, -1
@@ -10862,7 +10862,7 @@ select.unfold1209:                                ; preds = %242
   br label %247
 
 247:                                              ; preds = %select.unfold1209, %select.unfold1208
-  %.sroa.13251.sroa.0.0 = phi ptr [ %238, %select.unfold1208 ], [ %244, %select.unfold1209 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %244, %select.unfold1209 ], [ %238, %select.unfold1208 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -10871,7 +10871,7 @@ select.unfold1209:                                ; preds = %242
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h7051b0953018344bE.exit"
 
 .thread1211:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %240
-  %.sroa.9246.01217 = phi i32 [ %246, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %241, %240 ], [ %239, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01217 = phi i32 [ %239, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %246, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %241, %240 ]
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %249 = load i64, ptr %248, align 8, !noundef !4
   %250 = add i64 %249, -1
@@ -11362,7 +11362,7 @@ select.unfold1084:                                ; preds = %103
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h68fa948046c074aeE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %110 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %110, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2245
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11679,7 +11679,7 @@ select.unfold1185:                                ; preds = %179
   br label %184
 
 184:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ], [ %181, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %181, %select.unfold1185 ], [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %185, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11690,7 +11690,7 @@ select.unfold1185:                                ; preds = %179
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h68fa948046c074aeE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %173, %.thread1045 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %173, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2271)
   call void @llvm.experimental.noalias.scope.decl(metadata !2274)
   %186 = zext i32 %.sroa.11144.01194 to i64
@@ -11831,7 +11831,7 @@ select.unfold1196:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %225, %select.unfold1195 ], [ %231, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %231, %select.unfold1196 ], [ %225, %select.unfold1195 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %235, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11842,7 +11842,7 @@ select.unfold1196:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h68fa948046c074aeE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %227
-  %.sroa.9199.01204 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %228, %227 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -11907,7 +11907,7 @@ select.unfold1206:                                ; preds = %252
   br label %257
 
 257:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %248, %select.unfold1205 ], [ %254, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %254, %select.unfold1206 ], [ %248, %select.unfold1205 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %258, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11918,7 +11918,7 @@ select.unfold1206:                                ; preds = %252
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h68fa948046c074aeE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %250
-  %.sroa.9246.01214 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %251, %250 ], [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %251, %250 ]
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %260 = load i64, ptr %259, align 8, !noundef !4
   %261 = add i64 %260, -1
@@ -12267,7 +12267,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h89c38d4de9b9da8bE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2392
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12558,7 +12558,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -12567,7 +12567,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h89c38d4de9b9da8bE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2418)
   call void @llvm.experimental.noalias.scope.decl(metadata !2421)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -12705,7 +12705,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -12714,7 +12714,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h89c38d4de9b9da8bE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -12777,7 +12777,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -12786,7 +12786,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h89c38d4de9b9da8bE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -13175,7 +13175,7 @@ select.unfold1086:                                ; preds = %143
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha344b8d0098d7791E.exit"
 
 .thread1087:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11094 = phi i32 [ %147, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %142, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %137, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11094 = phi i32 [ %137, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %147, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %142, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %149 = zext i32 %.sroa.10296.11094 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %149, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2534
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -13466,7 +13466,7 @@ select.unfold1187:                                ; preds = %205
   br label %210
 
 210:                                              ; preds = %select.unfold1186, %select.unfold1187, %select.unfold1185
-  %.sroa.16.sroa.0.0 = phi ptr [ %197, %select.unfold1185 ], [ %202, %select.unfold1186 ], [ %207, %select.unfold1187 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %207, %select.unfold1187 ], [ %197, %select.unfold1185 ], [ %202, %select.unfold1186 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -13475,7 +13475,7 @@ select.unfold1187:                                ; preds = %205
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha344b8d0098d7791E.exit"
 
 .thread1189:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1047
-  %.sroa.11144.01196 = phi i32 [ %209, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %204, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %199, %.thread1047 ], [ %198, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01196 = phi i32 [ %198, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %209, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %204, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %199, %.thread1047 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2560)
   call void @llvm.experimental.noalias.scope.decl(metadata !2563)
   %211 = zext i32 %.sroa.11144.01196 to i64
@@ -13613,7 +13613,7 @@ select.unfold1198:                                ; preds = %250
   br label %255
 
 255:                                              ; preds = %select.unfold1198, %select.unfold1197
-  %.sroa.13.sroa.0.0 = phi ptr [ %246, %select.unfold1197 ], [ %252, %select.unfold1198 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %252, %select.unfold1198 ], [ %246, %select.unfold1197 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -13622,7 +13622,7 @@ select.unfold1198:                                ; preds = %250
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha344b8d0098d7791E.exit"
 
 .thread1200:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %248
-  %.sroa.9199.01206 = phi i32 [ %254, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %249, %248 ], [ %247, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01206 = phi i32 [ %247, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %254, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %249, %248 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %257 = load i64, ptr %256, align 8, !noundef !4
   %258 = add i64 %257, -1
@@ -14381,7 +14381,7 @@ select.unfold1208:                                ; preds = %470
   br label %475
 
 475:                                              ; preds = %select.unfold1208, %select.unfold1207
-  %.sroa.13251.sroa.0.0 = phi ptr [ %466, %select.unfold1207 ], [ %472, %select.unfold1208 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %472, %select.unfold1208 ], [ %466, %select.unfold1207 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -14390,7 +14390,7 @@ select.unfold1208:                                ; preds = %470
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha344b8d0098d7791E.exit"
 
 .thread1210:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816, %468
-  %.sroa.9246.01216 = phi i32 [ %474, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820 ], [ %469, %468 ], [ %467, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816 ]
+  %.sroa.9246.01216 = phi i32 [ %467, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816 ], [ %474, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820 ], [ %469, %468 ]
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %477 = load i64, ptr %476, align 8, !noundef !4
   %478 = add i64 %477, -1
@@ -14743,7 +14743,7 @@ select.unfold1084:                                ; preds = %104
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h46d358a96d68ff32E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %108, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %98, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %98, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %111 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %111, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2740
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -15060,7 +15060,7 @@ select.unfold1185:                                ; preds = %180
   br label %185
 
 185:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %172, %select.unfold1183 ], [ %177, %select.unfold1184 ], [ %182, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %182, %select.unfold1185 ], [ %172, %select.unfold1183 ], [ %177, %select.unfold1184 ]
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %186, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -15071,7 +15071,7 @@ select.unfold1185:                                ; preds = %180
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h46d358a96d68ff32E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %184, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %179, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %174, %.thread1045 ], [ %173, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %173, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %184, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %179, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %174, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2766)
   call void @llvm.experimental.noalias.scope.decl(metadata !2769)
   %187 = zext i32 %.sroa.11144.01194 to i64
@@ -15212,7 +15212,7 @@ select.unfold1196:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %226, %select.unfold1195 ], [ %232, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %232, %select.unfold1196 ], [ %226, %select.unfold1195 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %236, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -15223,7 +15223,7 @@ select.unfold1196:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h46d358a96d68ff32E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %228
-  %.sroa.9199.01204 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %229, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %238 = load i64, ptr %237, align 8, !noundef !4
   %239 = add i64 %238, -1
@@ -15288,7 +15288,7 @@ select.unfold1206:                                ; preds = %253
   br label %258
 
 258:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %249, %select.unfold1205 ], [ %255, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %255, %select.unfold1206 ], [ %249, %select.unfold1205 ]
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %259, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -15299,7 +15299,7 @@ select.unfold1206:                                ; preds = %253
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h46d358a96d68ff32E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %251
-  %.sroa.9246.01214 = phi i32 [ %257, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %252, %251 ], [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %257, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %252, %251 ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %261 = load i64, ptr %260, align 8, !noundef !4
   %262 = add i64 %261, -1
@@ -15656,7 +15656,7 @@ select.unfold1087:                                ; preds = %109
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc3f1b56161b59970E.exit"
 
 .thread1088:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11095 = phi i32 [ %113, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %103, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11095 = phi i32 [ %103, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %113, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %108, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %115 = zext i32 %.sroa.10296.11095 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %115, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !2887
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -15947,7 +15947,7 @@ select.unfold1188:                                ; preds = %171
   br label %176
 
 176:                                              ; preds = %select.unfold1187, %select.unfold1188, %select.unfold1186
-  %.sroa.16.sroa.0.0 = phi ptr [ %163, %select.unfold1186 ], [ %168, %select.unfold1187 ], [ %173, %select.unfold1188 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %173, %select.unfold1188 ], [ %163, %select.unfold1186 ], [ %168, %select.unfold1187 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -15956,7 +15956,7 @@ select.unfold1188:                                ; preds = %171
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc3f1b56161b59970E.exit"
 
 .thread1190:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1048
-  %.sroa.11144.01197 = phi i32 [ %175, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %165, %.thread1048 ], [ %164, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01197 = phi i32 [ %164, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %175, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %165, %.thread1048 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2913)
   call void @llvm.experimental.noalias.scope.decl(metadata !2916)
   %177 = zext i32 %.sroa.11144.01197 to i64
@@ -16099,7 +16099,7 @@ select.unfold1199:                                ; preds = %220
   br label %225
 
 225:                                              ; preds = %select.unfold1199, %select.unfold1198
-  %.sroa.13.sroa.0.0 = phi ptr [ %216, %select.unfold1198 ], [ %222, %select.unfold1199 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %222, %select.unfold1199 ], [ %216, %select.unfold1198 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -16108,7 +16108,7 @@ select.unfold1199:                                ; preds = %220
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc3f1b56161b59970E.exit"
 
 .thread1201:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %218
-  %.sroa.9199.01207 = phi i32 [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %219, %218 ], [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01207 = phi i32 [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %219, %218 ]
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %227 = load i64, ptr %226, align 8, !noundef !4
   %228 = add i64 %227, -1
@@ -16254,7 +16254,7 @@ select.unfold1209:                                ; preds = %256
   br label %261
 
 261:                                              ; preds = %select.unfold1209, %select.unfold1208
-  %.sroa.13251.sroa.0.0 = phi ptr [ %252, %select.unfold1208 ], [ %258, %select.unfold1209 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %258, %select.unfold1209 ], [ %252, %select.unfold1208 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -16263,7 +16263,7 @@ select.unfold1209:                                ; preds = %256
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hc3f1b56161b59970E.exit"
 
 .thread1211:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %254
-  %.sroa.9246.01217 = phi i32 [ %260, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %255, %254 ], [ %253, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01217 = phi i32 [ %253, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %260, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %255, %254 ]
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %263 = load i64, ptr %262, align 8, !noundef !4
   %264 = add i64 %263, -1
@@ -16833,7 +16833,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha866b5210b1f6c1dE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3084
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -17124,7 +17124,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -17133,7 +17133,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha866b5210b1f6c1dE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3110)
   call void @llvm.experimental.noalias.scope.decl(metadata !3113)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -17271,7 +17271,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -17280,7 +17280,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha866b5210b1f6c1dE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -17343,7 +17343,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -17352,7 +17352,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17ha866b5210b1f6c1dE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -17735,7 +17735,7 @@ select.unfold1088:                                ; preds = %123
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11096 = phi i32 [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %129 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %129, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3240
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -18149,7 +18149,7 @@ select.unfold1189:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %222, %select.unfold1187 ], [ %227, %select.unfold1188 ], [ %232, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %232, %select.unfold1189 ], [ %222, %select.unfold1187 ], [ %227, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -18158,7 +18158,7 @@ select.unfold1189:                                ; preds = %230
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %229, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %224, %.thread1046 ], [ %223, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %223, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %229, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %224, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3284)
   call void @llvm.experimental.noalias.scope.decl(metadata !3287)
   %236 = zext i32 %.sroa.11144.01198 to i64
@@ -18297,7 +18297,7 @@ select.unfold1200:                                ; preds = %276
   br label %281
 
 281:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %272, %select.unfold1199 ], [ %278, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %278, %select.unfold1200 ], [ %272, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -18306,7 +18306,7 @@ select.unfold1200:                                ; preds = %276
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807, %274
-  %.sroa.9199.01208 = phi i32 [ %280, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %275, %274 ], [ %273, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %273, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ], [ %280, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %275, %274 ]
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %283 = load i64, ptr %282, align 8, !noundef !4
   %284 = add i64 %283, -1
@@ -18369,7 +18369,7 @@ select.unfold1210:                                ; preds = %297
   br label %302
 
 302:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %293, %select.unfold1209 ], [ %299, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %299, %select.unfold1210 ], [ %293, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -18378,7 +18378,7 @@ select.unfold1210:                                ; preds = %297
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815, %295
-  %.sroa.9246.01218 = phi i32 [ %301, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %296, %295 ], [ %294, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %294, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ], [ %301, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %296, %295 ]
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %304 = load i64, ptr %303, align 8, !noundef !4
   %305 = add i64 %304, -1
@@ -18767,7 +18767,7 @@ select.unfold1086:                                ; preds = %143
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff4a00b9a96f44fbE.exit"
 
 .thread1087:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11094 = phi i32 [ %147, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %142, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %137, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11094 = phi i32 [ %137, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %147, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %142, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %149 = zext i32 %.sroa.10296.11094 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %149, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3400
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19058,7 +19058,7 @@ select.unfold1187:                                ; preds = %205
   br label %210
 
 210:                                              ; preds = %select.unfold1186, %select.unfold1187, %select.unfold1185
-  %.sroa.16.sroa.0.0 = phi ptr [ %197, %select.unfold1185 ], [ %202, %select.unfold1186 ], [ %207, %select.unfold1187 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %207, %select.unfold1187 ], [ %197, %select.unfold1185 ], [ %202, %select.unfold1186 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -19067,7 +19067,7 @@ select.unfold1187:                                ; preds = %205
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff4a00b9a96f44fbE.exit"
 
 .thread1189:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1047
-  %.sroa.11144.01196 = phi i32 [ %209, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %204, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %199, %.thread1047 ], [ %198, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01196 = phi i32 [ %198, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %209, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %204, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %199, %.thread1047 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3426)
   call void @llvm.experimental.noalias.scope.decl(metadata !3429)
   %211 = zext i32 %.sroa.11144.01196 to i64
@@ -19205,7 +19205,7 @@ select.unfold1198:                                ; preds = %250
   br label %255
 
 255:                                              ; preds = %select.unfold1198, %select.unfold1197
-  %.sroa.13.sroa.0.0 = phi ptr [ %246, %select.unfold1197 ], [ %252, %select.unfold1198 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %252, %select.unfold1198 ], [ %246, %select.unfold1197 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -19214,7 +19214,7 @@ select.unfold1198:                                ; preds = %250
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff4a00b9a96f44fbE.exit"
 
 .thread1200:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %248
-  %.sroa.9199.01206 = phi i32 [ %254, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %249, %248 ], [ %247, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01206 = phi i32 [ %247, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %254, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %249, %248 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %257 = load i64, ptr %256, align 8, !noundef !4
   %258 = add i64 %257, -1
@@ -19973,7 +19973,7 @@ select.unfold1208:                                ; preds = %470
   br label %475
 
 475:                                              ; preds = %select.unfold1208, %select.unfold1207
-  %.sroa.13251.sroa.0.0 = phi ptr [ %466, %select.unfold1207 ], [ %472, %select.unfold1208 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %472, %select.unfold1208 ], [ %466, %select.unfold1207 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -19982,7 +19982,7 @@ select.unfold1208:                                ; preds = %470
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hff4a00b9a96f44fbE.exit"
 
 .thread1210:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816, %468
-  %.sroa.9246.01216 = phi i32 [ %474, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820 ], [ %469, %468 ], [ %467, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816 ]
+  %.sroa.9246.01216 = phi i32 [ %467, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit816 ], [ %474, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit820 ], [ %469, %468 ]
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %477 = load i64, ptr %476, align 8, !noundef !4
   %478 = add i64 %477, -1
@@ -20365,7 +20365,7 @@ select.unfold1088:                                ; preds = %123
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11096 = phi i32 [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %129 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %129, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3618
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20749,7 +20749,7 @@ select.unfold1189:                                ; preds = %220
   br label %225
 
 225:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %212, %select.unfold1187 ], [ %217, %select.unfold1188 ], [ %222, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %222, %select.unfold1189 ], [ %212, %select.unfold1187 ], [ %217, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -20758,7 +20758,7 @@ select.unfold1189:                                ; preds = %220
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %219, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %214, %.thread1046 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ], [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %219, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %214, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3662)
   call void @llvm.experimental.noalias.scope.decl(metadata !3665)
   %226 = zext i32 %.sroa.11144.01198 to i64
@@ -20897,7 +20897,7 @@ select.unfold1200:                                ; preds = %266
   br label %271
 
 271:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %262, %select.unfold1199 ], [ %268, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %268, %select.unfold1200 ], [ %262, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -20906,7 +20906,7 @@ select.unfold1200:                                ; preds = %266
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807, %264
-  %.sroa.9199.01208 = phi i32 [ %270, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %265, %264 ], [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ], [ %270, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %265, %264 ]
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %273 = load i64, ptr %272, align 8, !noundef !4
   %274 = add i64 %273, -1
@@ -20969,7 +20969,7 @@ select.unfold1210:                                ; preds = %287
   br label %292
 
 292:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %283, %select.unfold1209 ], [ %289, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %289, %select.unfold1210 ], [ %283, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -20978,7 +20978,7 @@ select.unfold1210:                                ; preds = %287
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815, %285
-  %.sroa.9246.01218 = phi i32 [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %286, %285 ], [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ], [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %286, %285 ]
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %294 = load i64, ptr %293, align 8, !noundef !4
   %295 = add i64 %294, -1
@@ -21325,7 +21325,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h27f88bac66b54da8E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3778
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -21616,7 +21616,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -21625,7 +21625,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h27f88bac66b54da8E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3804)
   call void @llvm.experimental.noalias.scope.decl(metadata !3807)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -21764,7 +21764,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -21773,7 +21773,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h27f88bac66b54da8E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -21836,7 +21836,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -21845,7 +21845,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h27f88bac66b54da8E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -22192,7 +22192,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h480c9d1561a6bdb1E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !3920
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -22483,7 +22483,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -22492,7 +22492,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h480c9d1561a6bdb1E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3946)
   call void @llvm.experimental.noalias.scope.decl(metadata !3949)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -22630,7 +22630,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -22639,7 +22639,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h480c9d1561a6bdb1E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -22702,7 +22702,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -22711,7 +22711,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h480c9d1561a6bdb1E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -23196,7 +23196,7 @@ select.unfold1126:                                ; preds = %162, %select.unfold
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1128:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11135 = phi i32 [ %181, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %171, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11135 = phi i32 [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %181, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %171, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %184 = zext i32 %.sroa.10296.11135 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %184, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !4277
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23546,8 +23546,8 @@ select.unfold1126:                                ; preds = %162, %select.unfold
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 296:                                              ; preds = %91, %84, %56, %57
-  %.sroa.10868.0 = phi i8 [ undef, %84 ], [ undef, %91 ], [ %.sroa.7.01035.ph, %56 ], [ undef, %57 ]
-  %.sroa.0866.0 = phi i8 [ 1, %84 ], [ 1, %91 ], [ 2, %56 ], [ 1, %57 ]
+  %.sroa.10868.0 = phi i8 [ undef, %91 ], [ %.sroa.7.01035.ph, %56 ], [ undef, %57 ], [ undef, %84 ]
+  %.sroa.0866.0 = phi i8 [ 1, %91 ], [ 2, %56 ], [ 1, %57 ], [ 1, %84 ]
   store i8 %.sroa.0866.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -23558,7 +23558,7 @@ select.unfold1126:                                ; preds = %162, %select.unfold
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 297:                                              ; preds = %56, %83, %73, %74, %75, %76, %86, %93
-  %.sroa.11869.0.ph = phi i32 [ 1, %83 ], [ 16, %75 ], [ 8, %74 ], [ 4, %73 ], [ %96, %93 ], [ %90, %86 ], [ %82, %76 ], [ 2, %56 ]
+  %.sroa.11869.0.ph = phi i32 [ 1, %83 ], [ 8, %74 ], [ 4, %73 ], [ %82, %76 ], [ 16, %75 ], [ %96, %93 ], [ %90, %86 ], [ 2, %56 ]
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %299 = load i64, ptr %298, align 8, !noundef !4
   %300 = add i64 %299, -1
@@ -23671,7 +23671,7 @@ select.unfold1229:                                ; preds = %318, %select.unfold
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1232:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit807, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit802, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit798, %.thread1058
-  %.sroa.11144.01239 = phi i32 [ %337, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit807 ], [ %327, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit802 ], [ %317, %.thread1058 ], [ %316, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit798 ]
+  %.sroa.11144.01239 = phi i32 [ %316, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit798 ], [ %337, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit807 ], [ %327, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit802 ], [ %317, %.thread1058 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4412)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4415)
   %340 = zext i32 %.sroa.11144.01239 to i64
@@ -23857,7 +23857,7 @@ select.unfold1241:                                ; preds = %394
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1243:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit817, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit812, %392
-  %.sroa.9199.01249 = phi i32 [ %403, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit817 ], [ %393, %392 ], [ %391, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit812 ]
+  %.sroa.9199.01249 = phi i32 [ %391, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit812 ], [ %403, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit817 ], [ %393, %392 ]
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %408 = load i64, ptr %407, align 8, !noundef !4
   %409 = add i64 %408, -1
@@ -23944,7 +23944,7 @@ select.unfold1251:                                ; preds = %427
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1253:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822, %425
-  %.sroa.9246.01259 = phi i32 [ %436, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %426, %425 ], [ %424, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ]
+  %.sroa.9246.01259 = phi i32 [ %424, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ], [ %436, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %426, %425 ]
   %440 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %441 = load i64, ptr %440, align 8, !noundef !4
   %442 = add i64 %441, -1
@@ -24291,7 +24291,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h529006ef7cc6352eE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !4585
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -24582,7 +24582,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -24591,7 +24591,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h529006ef7cc6352eE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4611)
   call void @llvm.experimental.noalias.scope.decl(metadata !4614)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -24730,7 +24730,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -24739,7 +24739,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h529006ef7cc6352eE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -24802,7 +24802,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -24811,7 +24811,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h529006ef7cc6352eE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -25191,7 +25191,7 @@ select.unfold1088:                                ; preds = %120
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11096 = phi i32 [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %126 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %126, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !4739
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -25559,7 +25559,7 @@ select.unfold1189:                                ; preds = %213
   br label %218
 
 218:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %205, %select.unfold1187 ], [ %210, %select.unfold1188 ], [ %215, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %215, %select.unfold1189 ], [ %205, %select.unfold1187 ], [ %210, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -25568,7 +25568,7 @@ select.unfold1189:                                ; preds = %213
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %212, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %207, %.thread1046 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ], [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %212, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %207, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4783)
   call void @llvm.experimental.noalias.scope.decl(metadata !4786)
   %219 = zext i32 %.sroa.11144.01198 to i64
@@ -25707,7 +25707,7 @@ select.unfold1200:                                ; preds = %259
   br label %264
 
 264:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %255, %select.unfold1199 ], [ %261, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %261, %select.unfold1200 ], [ %255, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -25716,7 +25716,7 @@ select.unfold1200:                                ; preds = %259
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807, %257
-  %.sroa.9199.01208 = phi i32 [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %258, %257 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ], [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %258, %257 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %266 = load i64, ptr %265, align 8, !noundef !4
   %267 = add i64 %266, -1
@@ -25779,7 +25779,7 @@ select.unfold1210:                                ; preds = %280
   br label %285
 
 285:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %276, %select.unfold1209 ], [ %282, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %282, %select.unfold1210 ], [ %276, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -25788,7 +25788,7 @@ select.unfold1210:                                ; preds = %280
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815, %278
-  %.sroa.9246.01218 = phi i32 [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %279, %278 ], [ %277, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %277, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ], [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %279, %278 ]
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %287 = load i64, ptr %286, align 8, !noundef !4
   %288 = add i64 %287, -1
@@ -26271,7 +26271,7 @@ select.unfold1125:                                ; preds = %161, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 .thread1127:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11134 = phi i32 [ %180, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %160, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11134 = phi i32 [ %160, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %180, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %170, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %184 = zext i32 %.sroa.10296.11134 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %184, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !5107
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -26562,8 +26562,8 @@ select.unfold1125:                                ; preds = %161, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 274:                                              ; preds = %90, %83, %55, %56
-  %.sroa.10870.0 = phi i8 [ undef, %83 ], [ undef, %90 ], [ %.sroa.7.01037.ph, %55 ], [ undef, %56 ]
-  %.sroa.0868.0 = phi i8 [ 1, %83 ], [ 1, %90 ], [ 2, %55 ], [ 1, %56 ]
+  %.sroa.10870.0 = phi i8 [ undef, %90 ], [ %.sroa.7.01037.ph, %55 ], [ undef, %56 ], [ undef, %83 ]
+  %.sroa.0868.0 = phi i8 [ 1, %90 ], [ 2, %55 ], [ 1, %56 ], [ 1, %83 ]
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0868.0, ptr %275, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -26576,7 +26576,7 @@ select.unfold1125:                                ; preds = %161, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 276:                                              ; preds = %55, %82, %72, %73, %74, %75, %85, %92
-  %.sroa.11871.0.ph = phi i32 [ 1, %82 ], [ 16, %74 ], [ 8, %73 ], [ 4, %72 ], [ %95, %92 ], [ %89, %85 ], [ %81, %75 ], [ 2, %55 ]
+  %.sroa.11871.0.ph = phi i32 [ 1, %82 ], [ 8, %73 ], [ 4, %72 ], [ %81, %75 ], [ 16, %74 ], [ %95, %92 ], [ %89, %85 ], [ 2, %55 ]
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %278 = load i64, ptr %277, align 8, !noundef !4
   %279 = add i64 %278, -1
@@ -26693,7 +26693,7 @@ select.unfold1228:                                ; preds = %298, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 .thread1231:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1060
-  %.sroa.11144.01238 = phi i32 [ %317, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %307, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %297, %.thread1060 ], [ %296, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01238 = phi i32 [ %296, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %317, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %307, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %297, %.thread1060 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5221)
   %321 = zext i32 %.sroa.11144.01238 to i64
@@ -26886,7 +26886,7 @@ select.unfold1240:                                ; preds = %380
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 .thread1242:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %378
-  %.sroa.9199.01248 = phi i32 [ %389, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %379, %378 ], [ %377, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01248 = phi i32 [ %377, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %389, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %379, %378 ]
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %395 = load i64, ptr %394, align 8, !noundef !4
   %396 = add i64 %395, -1
@@ -27008,7 +27008,7 @@ select.unfold1240:                                ; preds = %380
   br label %"_ZN174_$LT$elfshaker..repo..pack.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$elfshaker..repo..pack..PackHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h61d79b885d270611E.exit"
 
 "_ZN174_$LT$elfshaker..repo..pack.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$elfshaker..repo..pack..PackHeader$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h61d79b885d270611E.exit": ; preds = %412, %418, %403, %410, %416
-  %.sink = phi i64 [ 0, %416 ], [ 1, %410 ], [ 1, %403 ], [ 1, %418 ], [ 1, %412 ]
+  %.sink = phi i64 [ 1, %403 ], [ 0, %416 ], [ 1, %410 ], [ 1, %418 ], [ 1, %412 ]
   store i64 %.sink, ptr %0, align 8, !alias.scope !5285, !noalias !5297
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.615.sroa.7.i)
   %420 = load i64, ptr %394, align 8, !noundef !4
@@ -27085,7 +27085,7 @@ select.unfold1253:                                ; preds = %433
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h621dfd795d2e7dafE.exit"
 
 .thread1255:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821, %431
-  %.sroa.9246.01261 = phi i32 [ %442, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %432, %431 ], [ %430, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ]
+  %.sroa.9246.01261 = phi i32 [ %430, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ], [ %442, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %432, %431 ]
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %448 = load i64, ptr %447, align 8, !noundef !4
   %449 = add i64 %448, -1
@@ -27767,7 +27767,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haa73d94102885cbcE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !5451
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -28058,7 +28058,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -28067,7 +28067,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haa73d94102885cbcE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5477)
   call void @llvm.experimental.noalias.scope.decl(metadata !5480)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -28205,7 +28205,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -28214,7 +28214,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haa73d94102885cbcE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -28277,7 +28277,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -28286,7 +28286,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17haa73d94102885cbcE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -28643,7 +28643,7 @@ select.unfold1088:                                ; preds = %111
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5f93213952831b53E.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11096 = phi i32 [ %115, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %115, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %117 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %117, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !5593
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -28934,7 +28934,7 @@ select.unfold1189:                                ; preds = %173
   br label %178
 
 178:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ], [ %175, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %175, %select.unfold1189 ], [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -28943,7 +28943,7 @@ select.unfold1189:                                ; preds = %173
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5f93213952831b53E.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1049
-  %.sroa.11144.01198 = phi i32 [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %167, %.thread1049 ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01198 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %167, %.thread1049 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5619)
   call void @llvm.experimental.noalias.scope.decl(metadata !5622)
   %179 = zext i32 %.sroa.11144.01198 to i64
@@ -29081,7 +29081,7 @@ select.unfold1200:                                ; preds = %218
   br label %223
 
 223:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %214, %select.unfold1199 ], [ %220, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %220, %select.unfold1200 ], [ %214, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -29090,7 +29090,7 @@ select.unfold1200:                                ; preds = %218
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5f93213952831b53E.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %216
-  %.sroa.9199.01208 = phi i32 [ %222, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %217, %216 ], [ %215, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01208 = phi i32 [ %215, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %222, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %217, %216 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %225 = load i64, ptr %224, align 8, !noundef !4
   %226 = add i64 %225, -1
@@ -29277,7 +29277,7 @@ select.unfold1210:                                ; preds = %261
   br label %266
 
 266:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %257, %select.unfold1209 ], [ %263, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %263, %select.unfold1210 ], [ %257, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -29286,7 +29286,7 @@ select.unfold1210:                                ; preds = %261
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5f93213952831b53E.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %259
-  %.sroa.9246.01218 = phi i32 [ %265, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %260, %259 ], [ %258, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01218 = phi i32 [ %258, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %265, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %260, %259 ]
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %268 = load i64, ptr %267, align 8, !noundef !4
   %269 = add i64 %268, -1
@@ -29919,7 +29919,7 @@ select.unfold1084:                                ; preds = %103
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h225fe3458d3c68daE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %110 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %110, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !5805
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -30236,7 +30236,7 @@ select.unfold1185:                                ; preds = %179
   br label %184
 
 184:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ], [ %181, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %181, %select.unfold1185 ], [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %185, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -30247,7 +30247,7 @@ select.unfold1185:                                ; preds = %179
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h225fe3458d3c68daE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %173, %.thread1045 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %173, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5831)
   call void @llvm.experimental.noalias.scope.decl(metadata !5834)
   %186 = zext i32 %.sroa.11144.01194 to i64
@@ -30388,7 +30388,7 @@ select.unfold1196:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %225, %select.unfold1195 ], [ %231, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %231, %select.unfold1196 ], [ %225, %select.unfold1195 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %235, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -30399,7 +30399,7 @@ select.unfold1196:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h225fe3458d3c68daE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %227
-  %.sroa.9199.01204 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %228, %227 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -30464,7 +30464,7 @@ select.unfold1206:                                ; preds = %252
   br label %257
 
 257:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %248, %select.unfold1205 ], [ %254, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %254, %select.unfold1206 ], [ %248, %select.unfold1205 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %258, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -30475,7 +30475,7 @@ select.unfold1206:                                ; preds = %252
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h225fe3458d3c68daE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %250
-  %.sroa.9246.01214 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %251, %250 ], [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %251, %250 ]
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %260 = load i64, ptr %259, align 8, !noundef !4
   %261 = add i64 %260, -1
@@ -30824,7 +30824,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h766c649068329172E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !5952
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -31115,7 +31115,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -31124,7 +31124,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h766c649068329172E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5978)
   call void @llvm.experimental.noalias.scope.decl(metadata !5981)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -31262,7 +31262,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -31271,7 +31271,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h766c649068329172E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -31334,7 +31334,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -31343,7 +31343,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h766c649068329172E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -31723,7 +31723,7 @@ select.unfold1088:                                ; preds = %120
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11096 = phi i32 [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %126 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %126, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6106
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -32091,7 +32091,7 @@ select.unfold1189:                                ; preds = %213
   br label %218
 
 218:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %205, %select.unfold1187 ], [ %210, %select.unfold1188 ], [ %215, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %215, %select.unfold1189 ], [ %205, %select.unfold1187 ], [ %210, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -32100,7 +32100,7 @@ select.unfold1189:                                ; preds = %213
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %212, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %207, %.thread1046 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ], [ %217, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %212, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %207, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6150)
   call void @llvm.experimental.noalias.scope.decl(metadata !6153)
   %219 = zext i32 %.sroa.11144.01198 to i64
@@ -32239,7 +32239,7 @@ select.unfold1200:                                ; preds = %259
   br label %264
 
 264:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %255, %select.unfold1199 ], [ %261, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %261, %select.unfold1200 ], [ %255, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -32248,7 +32248,7 @@ select.unfold1200:                                ; preds = %259
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807, %257
-  %.sroa.9199.01208 = phi i32 [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %258, %257 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ], [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %258, %257 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %266 = load i64, ptr %265, align 8, !noundef !4
   %267 = add i64 %266, -1
@@ -32311,7 +32311,7 @@ select.unfold1210:                                ; preds = %280
   br label %285
 
 285:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %276, %select.unfold1209 ], [ %282, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %282, %select.unfold1210 ], [ %276, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -32320,7 +32320,7 @@ select.unfold1210:                                ; preds = %280
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817he5226a45ba4f3b3cE.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815, %278
-  %.sroa.9246.01218 = phi i32 [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %279, %278 ], [ %277, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %277, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ], [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %279, %278 ]
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %287 = load i64, ptr %286, align 8, !noundef !4
   %288 = add i64 %287, -1
@@ -32667,7 +32667,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbd9ff9778c0d6315E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6266
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -32958,7 +32958,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -32967,7 +32967,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbd9ff9778c0d6315E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6292)
   call void @llvm.experimental.noalias.scope.decl(metadata !6295)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -33106,7 +33106,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -33115,7 +33115,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbd9ff9778c0d6315E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -33178,7 +33178,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -33187,7 +33187,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbd9ff9778c0d6315E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -33534,7 +33534,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb964437210543c97E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6408
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -33825,7 +33825,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -33834,7 +33834,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb964437210543c97E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6434)
   call void @llvm.experimental.noalias.scope.decl(metadata !6437)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -33973,7 +33973,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -33982,7 +33982,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb964437210543c97E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -34045,7 +34045,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -34054,7 +34054,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb964437210543c97E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -34407,7 +34407,7 @@ select.unfold1084:                                ; preds = %103
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hd38a63fa3317015aE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %110 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %110, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6550
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -34724,7 +34724,7 @@ select.unfold1185:                                ; preds = %179
   br label %184
 
 184:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ], [ %181, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %181, %select.unfold1185 ], [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %185, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -34735,7 +34735,7 @@ select.unfold1185:                                ; preds = %179
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hd38a63fa3317015aE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %173, %.thread1045 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %173, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6576)
   call void @llvm.experimental.noalias.scope.decl(metadata !6579)
   %186 = zext i32 %.sroa.11144.01194 to i64
@@ -34876,7 +34876,7 @@ select.unfold1196:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %225, %select.unfold1195 ], [ %231, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %231, %select.unfold1196 ], [ %225, %select.unfold1195 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %235, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -34887,7 +34887,7 @@ select.unfold1196:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hd38a63fa3317015aE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %227
-  %.sroa.9199.01204 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %228, %227 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -34952,7 +34952,7 @@ select.unfold1206:                                ; preds = %252
   br label %257
 
 257:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %248, %select.unfold1205 ], [ %254, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %254, %select.unfold1206 ], [ %248, %select.unfold1205 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %258, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -34963,7 +34963,7 @@ select.unfold1206:                                ; preds = %252
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hd38a63fa3317015aE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %250
-  %.sroa.9246.01214 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %251, %250 ], [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %251, %250 ]
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %260 = load i64, ptr %259, align 8, !noundef !4
   %261 = add i64 %260, -1
@@ -35348,7 +35348,7 @@ select.unfold1088:                                ; preds = %123
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11096 = phi i32 [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %129 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %129, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6709
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -35732,7 +35732,7 @@ select.unfold1189:                                ; preds = %220
   br label %225
 
 225:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %212, %select.unfold1187 ], [ %217, %select.unfold1188 ], [ %222, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %222, %select.unfold1189 ], [ %212, %select.unfold1187 ], [ %217, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -35741,7 +35741,7 @@ select.unfold1189:                                ; preds = %220
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %219, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %214, %.thread1046 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit796 ], [ %224, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit803 ], [ %219, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit799 ], [ %214, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6753)
   call void @llvm.experimental.noalias.scope.decl(metadata !6756)
   %226 = zext i32 %.sroa.11144.01198 to i64
@@ -35880,7 +35880,7 @@ select.unfold1200:                                ; preds = %266
   br label %271
 
 271:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %262, %select.unfold1199 ], [ %268, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %268, %select.unfold1200 ], [ %262, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -35889,7 +35889,7 @@ select.unfold1200:                                ; preds = %266
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807, %264
-  %.sroa.9199.01208 = phi i32 [ %270, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %265, %264 ], [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %263, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit807 ], [ %270, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit811 ], [ %265, %264 ]
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %273 = load i64, ptr %272, align 8, !noundef !4
   %274 = add i64 %273, -1
@@ -35952,7 +35952,7 @@ select.unfold1210:                                ; preds = %287
   br label %292
 
 292:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %283, %select.unfold1209 ], [ %289, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %289, %select.unfold1210 ], [ %283, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -35961,7 +35961,7 @@ select.unfold1210:                                ; preds = %287
   br label %"_ZN143_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hbdffd5d74024b54cE.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815, %285
-  %.sroa.9246.01218 = phi i32 [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %286, %285 ], [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %284, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit815 ], [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit819 ], [ %286, %285 ]
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %294 = load i64, ptr %293, align 8, !noundef !4
   %295 = add i64 %294, -1
@@ -36344,7 +36344,7 @@ select.unfold1088:                                ; preds = %123
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11096 = phi i32 [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %117, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %127, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %122, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %129 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %129, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !6881
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -36758,7 +36758,7 @@ select.unfold1189:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %222, %select.unfold1187 ], [ %227, %select.unfold1188 ], [ %232, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %232, %select.unfold1189 ], [ %222, %select.unfold1187 ], [ %227, %select.unfold1188 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -36767,7 +36767,7 @@ select.unfold1189:                                ; preds = %230
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796, %.thread1046
-  %.sroa.11144.01198 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %229, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %224, %.thread1046 ], [ %223, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ]
+  %.sroa.11144.01198 = phi i32 [ %223, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit796 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit803 ], [ %229, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit799 ], [ %224, %.thread1046 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6925)
   call void @llvm.experimental.noalias.scope.decl(metadata !6928)
   %236 = zext i32 %.sroa.11144.01198 to i64
@@ -36906,7 +36906,7 @@ select.unfold1200:                                ; preds = %276
   br label %281
 
 281:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %272, %select.unfold1199 ], [ %278, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %278, %select.unfold1200 ], [ %272, %select.unfold1199 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -36915,7 +36915,7 @@ select.unfold1200:                                ; preds = %276
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807, %274
-  %.sroa.9199.01208 = phi i32 [ %280, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %275, %274 ], [ %273, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ]
+  %.sroa.9199.01208 = phi i32 [ %273, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ], [ %280, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %275, %274 ]
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %283 = load i64, ptr %282, align 8, !noundef !4
   %284 = add i64 %283, -1
@@ -36978,7 +36978,7 @@ select.unfold1210:                                ; preds = %297
   br label %302
 
 302:                                              ; preds = %select.unfold1210, %select.unfold1209
-  %.sroa.13251.sroa.0.0 = phi ptr [ %293, %select.unfold1209 ], [ %299, %select.unfold1210 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %299, %select.unfold1210 ], [ %293, %select.unfold1209 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -36987,7 +36987,7 @@ select.unfold1210:                                ; preds = %297
   br label %"_ZN142_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u8$GT$..deserialize..PrimitiveVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817h15b8862af386f097E.exit"
 
 .thread1212:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815, %295
-  %.sroa.9246.01218 = phi i32 [ %301, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %296, %295 ], [ %294, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ]
+  %.sroa.9246.01218 = phi i32 [ %294, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ], [ %301, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %296, %295 ]
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %304 = load i64, ptr %303, align 8, !noundef !4
   %305 = add i64 %304, -1
@@ -37445,7 +37445,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 .thread1124:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11131 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11131 = phi i32 [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %169 = zext i32 %.sroa.10296.11131 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %169, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !7249
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -37714,8 +37714,8 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 248:                                              ; preds = %76, %69, %41, %42
-  %.sroa.10867.0 = phi i8 [ undef, %69 ], [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ]
-  %.sroa.0865.0 = phi i8 [ 1, %69 ], [ 1, %76 ], [ 2, %41 ], [ 1, %42 ]
+  %.sroa.10867.0 = phi i8 [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ], [ undef, %69 ]
+  %.sroa.0865.0 = phi i8 [ 1, %76 ], [ 2, %41 ], [ 1, %42 ], [ 1, %69 ]
   store i8 %.sroa.0865.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -37726,7 +37726,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 249:                                              ; preds = %41, %68, %58, %59, %60, %61, %71, %78
-  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 16, %60 ], [ 8, %59 ], [ 4, %58 ], [ %81, %78 ], [ %75, %71 ], [ %67, %61 ], [ 2, %41 ]
+  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 8, %59 ], [ 4, %58 ], [ %67, %61 ], [ 16, %60 ], [ %81, %78 ], [ %75, %71 ], [ 2, %41 ]
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %251 = load i64, ptr %250, align 8, !noundef !4
   %252 = add i64 %251, -1
@@ -37839,7 +37839,7 @@ select.unfold1225:                                ; preds = %270, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 .thread1228:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1057
-  %.sroa.11144.01235 = phi i32 [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ], [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01235 = phi i32 [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7363)
   %292 = zext i32 %.sroa.11144.01235 to i64
@@ -38025,7 +38025,7 @@ select.unfold1237:                                ; preds = %346
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 .thread1239:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %344
-  %.sroa.9199.01245 = phi i32 [ %355, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %345, %344 ], [ %343, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01245 = phi i32 [ %343, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %355, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %345, %344 ]
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %360 = load i64, ptr %359, align 8, !noundef !4
   %361 = add i64 %360, -1
@@ -38112,7 +38112,7 @@ select.unfold1247:                                ; preds = %379
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17heae1dcff7826e763E.exit"
 
 .thread1249:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821, %377
-  %.sroa.9246.01255 = phi i32 [ %388, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %378, %377 ], [ %376, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ]
+  %.sroa.9246.01255 = phi i32 [ %376, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ], [ %388, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %378, %377 ]
   %392 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %393 = load i64, ptr %392, align 8, !noundef !4
   %394 = add i64 %393, -1
@@ -38459,7 +38459,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h592670196aa3907dE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !7533
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -38750,7 +38750,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -38759,7 +38759,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h592670196aa3907dE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7559)
   call void @llvm.experimental.noalias.scope.decl(metadata !7562)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -38898,7 +38898,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -38907,7 +38907,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h592670196aa3907dE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -38970,7 +38970,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -38979,7 +38979,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h592670196aa3907dE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -39326,7 +39326,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h0edd2c539d2eddeeE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !7675
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -39617,7 +39617,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -39626,7 +39626,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h0edd2c539d2eddeeE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   call void @llvm.experimental.noalias.scope.decl(metadata !7704)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -39764,7 +39764,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -39773,7 +39773,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h0edd2c539d2eddeeE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -39836,7 +39836,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -39845,7 +39845,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h0edd2c539d2eddeeE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -40192,7 +40192,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5d8faf197aaf1756E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !7817
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -40483,7 +40483,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -40492,7 +40492,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5d8faf197aaf1756E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7843)
   call void @llvm.experimental.noalias.scope.decl(metadata !7846)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -40631,7 +40631,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -40640,7 +40640,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5d8faf197aaf1756E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -40703,7 +40703,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -40712,7 +40712,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5d8faf197aaf1756E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -41160,7 +41160,7 @@ select.unfold1172:                                ; preds = %149, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 .thread1174:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11181 = phi i32 [ %168, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %158, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %148, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11181 = phi i32 [ %148, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %168, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %158, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %171 = zext i32 %.sroa.10296.11181 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %171, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !8161
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -41420,8 +41420,8 @@ select.unfold1172:                                ; preds = %149, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 241:                                              ; preds = %78, %71, %43, %44
-  %.sroa.10878.0 = phi i8 [ undef, %71 ], [ undef, %78 ], [ %.sroa.7.01084.ph, %43 ], [ undef, %44 ]
-  %.sroa.0876.0 = phi i8 [ 1, %71 ], [ 1, %78 ], [ 2, %43 ], [ 1, %44 ]
+  %.sroa.10878.0 = phi i8 [ undef, %78 ], [ %.sroa.7.01084.ph, %43 ], [ undef, %44 ], [ undef, %71 ]
+  %.sroa.0876.0 = phi i8 [ 1, %78 ], [ 2, %43 ], [ 1, %44 ], [ 1, %71 ]
   store i8 %.sroa.0876.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -41432,7 +41432,7 @@ select.unfold1172:                                ; preds = %149, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 242:                                              ; preds = %43, %70, %60, %61, %62, %63, %73, %80
-  %.sroa.11879.0.ph = phi i32 [ 1, %70 ], [ 16, %62 ], [ 8, %61 ], [ 4, %60 ], [ %83, %80 ], [ %77, %73 ], [ %69, %63 ], [ 2, %43 ]
+  %.sroa.11879.0.ph = phi i32 [ 1, %70 ], [ 8, %61 ], [ 4, %60 ], [ %69, %63 ], [ 16, %62 ], [ %83, %80 ], [ %77, %73 ], [ 2, %43 ]
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %244 = load i64, ptr %243, align 8, !noundef !4
   %245 = add i64 %244, -1
@@ -41648,7 +41648,7 @@ select.unfold1270:                                ; preds = %285, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 .thread1273:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1107
-  %.sroa.11144.01280 = phi i32 [ %304, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %294, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %284, %.thread1107 ], [ %283, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01280 = phi i32 [ %283, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %304, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %294, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %284, %.thread1107 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8337)
   %307 = zext i32 %.sroa.11144.01280 to i64
@@ -41768,7 +41768,7 @@ select.unfold1282:                                ; preds = %339
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 .thread1284:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %337
-  %.sroa.9199.01290 = phi i32 [ %348, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %338, %337 ], [ %336, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01290 = phi i32 [ %336, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %348, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %338, %337 ]
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %353 = load i64, ptr %352, align 8, !noundef !4
   %354 = add i64 %353, -1
@@ -41892,7 +41892,7 @@ select.unfold1302:                                ; preds = %376
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h9f329e1c5b3ad86dE.exit"
 
 .thread1304:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822, %374
-  %.sroa.9246.01310 = phi i32 [ %385, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %375, %374 ], [ %373, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ]
+  %.sroa.9246.01310 = phi i32 [ %373, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit822 ], [ %385, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit827 ], [ %375, %374 ]
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %390 = load i64, ptr %389, align 8, !noundef !4
   %391 = add i64 %390, -1
@@ -42304,7 +42304,7 @@ select.unfold1084:                                ; preds = %103
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h8446a029c8753f69E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %97, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %107, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %102, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %110 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %110, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !8536
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -42621,7 +42621,7 @@ select.unfold1185:                                ; preds = %179
   br label %184
 
 184:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ], [ %181, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %181, %select.unfold1185 ], [ %171, %select.unfold1183 ], [ %176, %select.unfold1184 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %185, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -42632,7 +42632,7 @@ select.unfold1185:                                ; preds = %179
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h8446a029c8753f69E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %173, %.thread1045 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %183, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %178, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %173, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8562)
   call void @llvm.experimental.noalias.scope.decl(metadata !8565)
   %186 = zext i32 %.sroa.11144.01194 to i64
@@ -42773,7 +42773,7 @@ select.unfold1196:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %225, %select.unfold1195 ], [ %231, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %231, %select.unfold1196 ], [ %225, %select.unfold1195 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %235, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -42784,7 +42784,7 @@ select.unfold1196:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h8446a029c8753f69E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %227
-  %.sroa.9199.01204 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %228, %227 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -42849,7 +42849,7 @@ select.unfold1206:                                ; preds = %252
   br label %257
 
 257:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %248, %select.unfold1205 ], [ %254, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %254, %select.unfold1206 ], [ %248, %select.unfold1205 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %258, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -42860,7 +42860,7 @@ select.unfold1206:                                ; preds = %252
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h8446a029c8753f69E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %250
-  %.sroa.9246.01214 = phi i32 [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %251, %250 ], [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %249, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %256, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %251, %250 ]
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %260 = load i64, ptr %259, align 8, !noundef !4
   %261 = add i64 %260, -1
@@ -43209,7 +43209,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c97c18871426416E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !8683
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -43500,7 +43500,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -43509,7 +43509,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c97c18871426416E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8709)
   call void @llvm.experimental.noalias.scope.decl(metadata !8712)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -43647,7 +43647,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -43656,7 +43656,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c97c18871426416E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -43719,7 +43719,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -43728,7 +43728,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h5c97c18871426416E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -44075,7 +44075,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h1b089a497495e2e9E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !8825
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44366,7 +44366,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -44375,7 +44375,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h1b089a497495e2e9E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8851)
   call void @llvm.experimental.noalias.scope.decl(metadata !8854)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -44513,7 +44513,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -44522,7 +44522,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h1b089a497495e2e9E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -44585,7 +44585,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -44594,7 +44594,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h1b089a497495e2e9E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -45052,7 +45052,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 .thread1124:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11131 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11131 = phi i32 [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %169 = zext i32 %.sroa.10296.11131 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %169, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !9175
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -45321,8 +45321,8 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 248:                                              ; preds = %76, %69, %41, %42
-  %.sroa.10867.0 = phi i8 [ undef, %69 ], [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ]
-  %.sroa.0865.0 = phi i8 [ 1, %69 ], [ 1, %76 ], [ 2, %41 ], [ 1, %42 ]
+  %.sroa.10867.0 = phi i8 [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ], [ undef, %69 ]
+  %.sroa.0865.0 = phi i8 [ 1, %76 ], [ 2, %41 ], [ 1, %42 ], [ 1, %69 ]
   store i8 %.sroa.0865.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -45333,7 +45333,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 249:                                              ; preds = %41, %68, %58, %59, %60, %61, %71, %78
-  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 16, %60 ], [ 8, %59 ], [ 4, %58 ], [ %81, %78 ], [ %75, %71 ], [ %67, %61 ], [ 2, %41 ]
+  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 8, %59 ], [ 4, %58 ], [ %67, %61 ], [ 16, %60 ], [ %81, %78 ], [ %75, %71 ], [ 2, %41 ]
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %251 = load i64, ptr %250, align 8, !noundef !4
   %252 = add i64 %251, -1
@@ -45446,7 +45446,7 @@ select.unfold1225:                                ; preds = %270, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 .thread1228:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1057
-  %.sroa.11144.01235 = phi i32 [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ], [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01235 = phi i32 [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9286)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9289)
   %292 = zext i32 %.sroa.11144.01235 to i64
@@ -45631,7 +45631,7 @@ select.unfold1237:                                ; preds = %345
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 .thread1239:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %343
-  %.sroa.9199.01245 = phi i32 [ %354, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %344, %343 ], [ %342, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01245 = phi i32 [ %342, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %354, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %344, %343 ]
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %359 = load i64, ptr %358, align 8, !noundef !4
   %360 = add i64 %359, -1
@@ -45718,7 +45718,7 @@ select.unfold1247:                                ; preds = %378
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb7e727969724a34bE.exit"
 
 .thread1249:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821, %376
-  %.sroa.9246.01255 = phi i32 [ %387, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %377, %376 ], [ %375, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ]
+  %.sroa.9246.01255 = phi i32 [ %375, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ], [ %387, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %377, %376 ]
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %392 = load i64, ptr %391, align 8, !noundef !4
   %393 = add i64 %392, -1
@@ -46065,7 +46065,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h88a5718ee34a038aE.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !9459
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -46356,7 +46356,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -46365,7 +46365,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h88a5718ee34a038aE.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9485)
   call void @llvm.experimental.noalias.scope.decl(metadata !9488)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -46504,7 +46504,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -46513,7 +46513,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h88a5718ee34a038aE.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -46576,7 +46576,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -46585,7 +46585,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h88a5718ee34a038aE.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -46932,7 +46932,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb37aa9629bf52d17E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !9601
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -47223,7 +47223,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -47232,7 +47232,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb37aa9629bf52d17E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9627)
   call void @llvm.experimental.noalias.scope.decl(metadata !9630)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -47370,7 +47370,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -47379,7 +47379,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb37aa9629bf52d17E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -47442,7 +47442,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -47451,7 +47451,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hb37aa9629bf52d17E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -47835,7 +47835,7 @@ select.unfold1088:                                ; preds = %120
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h4257ff0d6a66d051E.exit"
 
 .thread1089:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11096 = phi i32 [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11096 = phi i32 [ %114, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %124, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %119, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %127 = zext i32 %.sroa.10296.11096 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %127, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !9743
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -48152,7 +48152,7 @@ select.unfold1189:                                ; preds = %196
   br label %201
 
 201:                                              ; preds = %select.unfold1188, %select.unfold1189, %select.unfold1187
-  %.sroa.16.sroa.0.0 = phi ptr [ %188, %select.unfold1187 ], [ %193, %select.unfold1188 ], [ %198, %select.unfold1189 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %198, %select.unfold1189 ], [ %188, %select.unfold1187 ], [ %193, %select.unfold1188 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %202, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -48163,7 +48163,7 @@ select.unfold1189:                                ; preds = %196
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h4257ff0d6a66d051E.exit"
 
 .thread1191:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1049
-  %.sroa.11144.01198 = phi i32 [ %200, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %195, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %190, %.thread1049 ], [ %189, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01198 = phi i32 [ %189, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %200, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %195, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %190, %.thread1049 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9769)
   call void @llvm.experimental.noalias.scope.decl(metadata !9772)
   %203 = zext i32 %.sroa.11144.01198 to i64
@@ -48304,7 +48304,7 @@ select.unfold1200:                                ; preds = %246
   br label %251
 
 251:                                              ; preds = %select.unfold1200, %select.unfold1199
-  %.sroa.13.sroa.0.0 = phi ptr [ %242, %select.unfold1199 ], [ %248, %select.unfold1200 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %248, %select.unfold1200 ], [ %242, %select.unfold1199 ]
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %252, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -48315,7 +48315,7 @@ select.unfold1200:                                ; preds = %246
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h4257ff0d6a66d051E.exit"
 
 .thread1202:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %244
-  %.sroa.9199.01208 = phi i32 [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %245, %244 ], [ %243, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01208 = phi i32 [ %243, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %250, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %245, %244 ]
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %254 = load i64, ptr %253, align 8, !noundef !4
   %255 = add i64 %254, -1
@@ -48543,7 +48543,7 @@ select.unfold1217:                                ; preds = %294
   br label %299
 
 299:                                              ; preds = %select.unfold1217, %select.unfold1216
-  %.sroa.13251.sroa.0.0 = phi ptr [ %290, %select.unfold1216 ], [ %296, %select.unfold1217 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %296, %select.unfold1217 ], [ %290, %select.unfold1216 ]
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %300, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -48554,7 +48554,7 @@ select.unfold1217:                                ; preds = %294
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h4257ff0d6a66d051E.exit"
 
 .thread1219:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815, %292
-  %.sroa.9246.01225 = phi i32 [ %298, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %293, %292 ], [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ]
+  %.sroa.9246.01225 = phi i32 [ %291, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit815 ], [ %298, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit819 ], [ %293, %292 ]
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %302 = load i64, ptr %301, align 8, !noundef !4
   %303 = add i64 %302, -1
@@ -48609,8 +48609,8 @@ select.unfold1217:                                ; preds = %294
   br i1 %.not15.i.i.i, label %320, label %318
 
 316:                                              ; preds = %371, %353, %339, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.038.2.i = phi i8 [ 1, %339 ], [ 1, %353 ], [ %.sroa.038.6.i, %371 ], [ 1, %.loopexit.i ], [ %.sroa.038.1.ph.i, %.loopexit.split-lp.i ]
-  %.pn.i = phi { ptr, i32 } [ %340, %339 ], [ %354, %353 ], [ %372, %371 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.038.2.i = phi i8 [ %.sroa.038.6.i, %371 ], [ 1, %339 ], [ 1, %353 ], [ 1, %.loopexit.i ], [ %.sroa.038.1.ph.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %372, %371 ], [ %340, %339 ], [ %354, %353 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %317 = load i64, ptr %14, align 8, !range !359, !noalias !9843, !noundef !4
   %.not83.i = icmp eq i64 %317, -9223372036854775808
   br i1 %.not83.i, label %390, label %397
@@ -49314,7 +49314,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hf930db22c12cd424E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !9947
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -49605,7 +49605,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -49614,7 +49614,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hf930db22c12cd424E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9973)
   call void @llvm.experimental.noalias.scope.decl(metadata !9976)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -49753,7 +49753,7 @@ select.unfold1196:                                ; preds = %209
   br label %214
 
 214:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %205, %select.unfold1195 ], [ %211, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %211, %select.unfold1196 ], [ %205, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -49762,7 +49762,7 @@ select.unfold1196:                                ; preds = %209
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hf930db22c12cd424E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %207
-  %.sroa.9199.01204 = phi i32 [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ], [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %206, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %213, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %208, %207 ]
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i64, ptr %215, align 8, !noundef !4
   %217 = add i64 %216, -1
@@ -49825,7 +49825,7 @@ select.unfold1206:                                ; preds = %230
   br label %235
 
 235:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %226, %select.unfold1205 ], [ %232, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %232, %select.unfold1206 ], [ %226, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -49834,7 +49834,7 @@ select.unfold1206:                                ; preds = %230
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hf930db22c12cd424E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %228
-  %.sroa.9246.01214 = phi i32 [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ], [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %227, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %234, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %229, %228 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %237 = load i64, ptr %236, align 8, !noundef !4
   %238 = add i64 %237, -1
@@ -50181,7 +50181,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h91c79f2ce7a2fba1E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !10089
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -50472,7 +50472,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -50481,7 +50481,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h91c79f2ce7a2fba1E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h957dfd44261295b7E.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10115)
   call void @llvm.experimental.noalias.scope.decl(metadata !10118)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -50619,7 +50619,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -50628,7 +50628,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h91c79f2ce7a2fba1E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -50691,7 +50691,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -50700,7 +50700,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h91c79f2ce7a2fba1E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h6f726ce35cfdf2d7E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617h470f74516890e14fE.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -51158,7 +51158,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 .thread1124:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit
-  %.sroa.10296.11131 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ], [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ]
+  %.sroa.10296.11131 = phi i32 [ %146, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit ], [ %156, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit ]
   %169 = zext i32 %.sroa.10296.11131 to i64
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef range(i64 0, 4294967296) %169, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !10439
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -51427,8 +51427,8 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 248:                                              ; preds = %76, %69, %41, %42
-  %.sroa.10867.0 = phi i8 [ undef, %69 ], [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ]
-  %.sroa.0865.0 = phi i8 [ 1, %69 ], [ 1, %76 ], [ 2, %41 ], [ 1, %42 ]
+  %.sroa.10867.0 = phi i8 [ undef, %76 ], [ %.sroa.7.01034.ph, %41 ], [ undef, %42 ], [ undef, %69 ]
+  %.sroa.0865.0 = phi i8 [ 1, %76 ], [ 2, %41 ], [ 1, %42 ], [ 1, %69 ]
   store i8 %.sroa.0865.0, ptr %0, align 8
   %.sroa.2698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.ph, ptr %.sroa.2698.0..sroa_idx, align 1
@@ -51439,7 +51439,7 @@ select.unfold1122:                                ; preds = %147, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 249:                                              ; preds = %41, %68, %58, %59, %60, %61, %71, %78
-  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 16, %60 ], [ 8, %59 ], [ 4, %58 ], [ %81, %78 ], [ %75, %71 ], [ %67, %61 ], [ 2, %41 ]
+  %.sroa.11868.0.ph = phi i32 [ 1, %68 ], [ 8, %59 ], [ 4, %58 ], [ %67, %61 ], [ 16, %60 ], [ %81, %78 ], [ %75, %71 ], [ 2, %41 ]
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %251 = load i64, ptr %250, align 8, !noundef !4
   %252 = add i64 %251, -1
@@ -51552,7 +51552,7 @@ select.unfold1225:                                ; preds = %270, %select.unfold
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 .thread1228:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797, %.thread1057
-  %.sroa.11144.01235 = phi i32 [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ], [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ]
+  %.sroa.11144.01235 = phi i32 [ %268, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit797 ], [ %289, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit806 ], [ %279, %_ZN9byteorder2io12ReadBytesExt7read_u817ha606622daa15f36fE.exit801 ], [ %269, %.thread1057 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10553)
   %292 = zext i32 %.sroa.11144.01235 to i64
@@ -51738,7 +51738,7 @@ select.unfold1237:                                ; preds = %346
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 .thread1239:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811, %344
-  %.sroa.9199.01245 = phi i32 [ %355, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %345, %344 ], [ %343, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ]
+  %.sroa.9199.01245 = phi i32 [ %343, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit811 ], [ %355, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit816 ], [ %345, %344 ]
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %360 = load i64, ptr %359, align 8, !noundef !4
   %361 = add i64 %360, -1
@@ -51825,7 +51825,7 @@ select.unfold1247:                                ; preds = %379
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2da9b7b4409e66d0E.exit"
 
 .thread1249:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821, %377
-  %.sroa.9246.01255 = phi i32 [ %388, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %378, %377 ], [ %376, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ]
+  %.sroa.9246.01255 = phi i32 [ %376, %_ZN9byteorder2io12ReadBytesExt8read_u3217h47eeb4ef8063a2bfE.exit821 ], [ %388, %_ZN9byteorder2io12ReadBytesExt8read_u1617hdef9a01f8790b0caE.exit826 ], [ %378, %377 ]
   %392 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %393 = load i64, ptr %392, align 8, !noundef !4
   %394 = add i64 %393, -1
@@ -52169,7 +52169,7 @@ select.unfold1135:                                ; preds = %102
   br label %92
 
 .thread1136:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11143 = phi i32 [ %106, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %101, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %96, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11143 = phi i32 [ %96, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %106, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %101, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %108 = zext i32 %.sroa.10296.11143 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %108, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !10735
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -52536,7 +52536,7 @@ select.unfold1233:                                ; preds = %173
   br label %178
 
 178:                                              ; preds = %select.unfold1232, %select.unfold1233, %select.unfold1231
-  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1231 ], [ %170, %select.unfold1232 ], [ %175, %select.unfold1233 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %175, %select.unfold1233 ], [ %165, %select.unfold1231 ], [ %170, %select.unfold1232 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -52545,7 +52545,7 @@ select.unfold1233:                                ; preds = %173
   br label %92
 
 .thread1235:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1096
-  %.sroa.11144.01242 = phi i32 [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %167, %.thread1096 ], [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01242 = phi i32 [ %166, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %177, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %172, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %167, %.thread1096 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10819)
   call void @llvm.experimental.noalias.scope.decl(metadata !10822)
   %179 = zext i32 %.sroa.11144.01242 to i64
@@ -52621,7 +52621,7 @@ select.unfold1244:                                ; preds = %197
   br label %202
 
 202:                                              ; preds = %select.unfold1244, %select.unfold1243
-  %.sroa.13.sroa.0.0 = phi ptr [ %193, %select.unfold1243 ], [ %199, %select.unfold1244 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %199, %select.unfold1244 ], [ %193, %select.unfold1243 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -52630,7 +52630,7 @@ select.unfold1244:                                ; preds = %197
   br label %92
 
 .thread1246:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807, %195
-  %.sroa.9199.01252 = phi i32 [ %201, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %196, %195 ], [ %194, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ]
+  %.sroa.9199.01252 = phi i32 [ %194, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit807 ], [ %201, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit811 ], [ %196, %195 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %204 = load i64, ptr %203, align 8, !noundef !4
   %205 = add i64 %204, -1
@@ -52730,7 +52730,7 @@ select.unfold1264:                                ; preds = %222
   br label %227
 
 227:                                              ; preds = %select.unfold1264, %select.unfold1263
-  %.sroa.13251.sroa.0.0 = phi ptr [ %218, %select.unfold1263 ], [ %224, %select.unfold1264 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %224, %select.unfold1264 ], [ %218, %select.unfold1263 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -52739,7 +52739,7 @@ select.unfold1264:                                ; preds = %222
   br label %92
 
 .thread1266:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816, %220
-  %.sroa.9246.01272 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820 ], [ %221, %220 ], [ %219, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816 ]
+  %.sroa.9246.01272 = phi i32 [ %219, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit816 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit820 ], [ %221, %220 ]
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %229 = load i64, ptr %228, align 8, !noundef !4
   %230 = add i64 %229, -1
@@ -53150,7 +53150,7 @@ select.unfold1087:                                ; preds = %106
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2d45bb89e4068920E.exit"
 
 .thread1088:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11095 = phi i32 [ %110, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11095 = phi i32 [ %100, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %110, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %112 = zext i32 %.sroa.10296.11095 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %112, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !10964
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -53441,7 +53441,7 @@ select.unfold1188:                                ; preds = %168
   br label %173
 
 173:                                              ; preds = %select.unfold1187, %select.unfold1188, %select.unfold1186
-  %.sroa.16.sroa.0.0 = phi ptr [ %160, %select.unfold1186 ], [ %165, %select.unfold1187 ], [ %170, %select.unfold1188 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %170, %select.unfold1188 ], [ %160, %select.unfold1186 ], [ %165, %select.unfold1187 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -53450,7 +53450,7 @@ select.unfold1188:                                ; preds = %168
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2d45bb89e4068920E.exit"
 
 .thread1190:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1048
-  %.sroa.11144.01197 = phi i32 [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %167, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %162, %.thread1048 ], [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01197 = phi i32 [ %161, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %172, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %167, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %162, %.thread1048 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10990)
   call void @llvm.experimental.noalias.scope.decl(metadata !10993)
   %174 = zext i32 %.sroa.11144.01197 to i64
@@ -53589,7 +53589,7 @@ select.unfold1199:                                ; preds = %214
   br label %219
 
 219:                                              ; preds = %select.unfold1199, %select.unfold1198
-  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1198 ], [ %216, %select.unfold1199 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %216, %select.unfold1199 ], [ %210, %select.unfold1198 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -53598,7 +53598,7 @@ select.unfold1199:                                ; preds = %214
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2d45bb89e4068920E.exit"
 
 .thread1201:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %212
-  %.sroa.9199.01207 = phi i32 [ %218, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %213, %212 ], [ %211, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01207 = phi i32 [ %211, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %218, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %213, %212 ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %221 = load i64, ptr %220, align 8, !noundef !4
   %222 = add i64 %221, -1
@@ -53703,7 +53703,7 @@ select.unfold1209:                                ; preds = %242
   br label %247
 
 247:                                              ; preds = %select.unfold1209, %select.unfold1208
-  %.sroa.13251.sroa.0.0 = phi ptr [ %238, %select.unfold1208 ], [ %244, %select.unfold1209 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %244, %select.unfold1209 ], [ %238, %select.unfold1208 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -53712,7 +53712,7 @@ select.unfold1209:                                ; preds = %242
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17h2d45bb89e4068920E.exit"
 
 .thread1211:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %240
-  %.sroa.9246.01217 = phi i32 [ %246, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %241, %240 ], [ %239, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01217 = phi i32 [ %239, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %246, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %241, %240 ]
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %249 = load i64, ptr %248, align 8, !noundef !4
   %250 = add i64 %249, -1
@@ -54197,7 +54197,7 @@ select.unfold1084:                                ; preds = %101
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbffecc78553bb503E.exit"
 
 .thread1085:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit
-  %.sroa.10296.11092 = phi i32 [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ], [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ]
+  %.sroa.10296.11092 = phi i32 [ %95, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit ], [ %105, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit ], [ %100, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit ]
   %107 = zext i32 %.sroa.10296.11092 to i64
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h6045abca80ba58d7E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef range(i64 0, 4294967296) %107, i8 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f720932f0c9bfb528c8fed2fe35fb2e7.102), !noalias !11146
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -54488,7 +54488,7 @@ select.unfold1185:                                ; preds = %163
   br label %168
 
 168:                                              ; preds = %select.unfold1184, %select.unfold1185, %select.unfold1183
-  %.sroa.16.sroa.0.0 = phi ptr [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ], [ %165, %select.unfold1185 ]
+  %.sroa.16.sroa.0.0 = phi ptr [ %165, %select.unfold1185 ], [ %155, %select.unfold1183 ], [ %160, %select.unfold1184 ]
   store i8 1, ptr %0, align 8
   %.sroa.4510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4510.0..sroa_idx, align 4
@@ -54497,7 +54497,7 @@ select.unfold1185:                                ; preds = %163
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbffecc78553bb503E.exit"
 
 .thread1187:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795, %.thread1045
-  %.sroa.11144.01194 = phi i32 [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ], [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ]
+  %.sroa.11144.01194 = phi i32 [ %156, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit795 ], [ %167, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit802 ], [ %162, %_ZN9byteorder2io12ReadBytesExt7read_u817h62750e7f5fa95eacE.exit798 ], [ %157, %.thread1045 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11172)
   call void @llvm.experimental.noalias.scope.decl(metadata !11175)
   %169 = zext i32 %.sroa.11144.01194 to i64
@@ -54635,7 +54635,7 @@ select.unfold1196:                                ; preds = %208
   br label %213
 
 213:                                              ; preds = %select.unfold1196, %select.unfold1195
-  %.sroa.13.sroa.0.0 = phi ptr [ %204, %select.unfold1195 ], [ %210, %select.unfold1196 ]
+  %.sroa.13.sroa.0.0 = phi ptr [ %210, %select.unfold1196 ], [ %204, %select.unfold1195 ]
   store i8 1, ptr %0, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4554.0..sroa_idx, align 4
@@ -54644,7 +54644,7 @@ select.unfold1196:                                ; preds = %208
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbffecc78553bb503E.exit"
 
 .thread1198:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806, %206
-  %.sroa.9199.01204 = phi i32 [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ], [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ]
+  %.sroa.9199.01204 = phi i32 [ %205, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit806 ], [ %212, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit810 ], [ %207, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load i64, ptr %214, align 8, !noundef !4
   %216 = add i64 %215, -1
@@ -54707,7 +54707,7 @@ select.unfold1206:                                ; preds = %229
   br label %234
 
 234:                                              ; preds = %select.unfold1206, %select.unfold1205
-  %.sroa.13251.sroa.0.0 = phi ptr [ %225, %select.unfold1205 ], [ %231, %select.unfold1206 ]
+  %.sroa.13251.sroa.0.0 = phi ptr [ %231, %select.unfold1206 ], [ %225, %select.unfold1205 ]
   store i8 1, ptr %0, align 8
   %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.4598.0..sroa_idx, align 4
@@ -54716,7 +54716,7 @@ select.unfold1206:                                ; preds = %229
   br label %"_ZN9rmp_serde6decode25Deserializer$LT$R$C$C$GT$13read_str_data17hbffecc78553bb503E.exit"
 
 .thread1208:                                      ; preds = %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814, %227
-  %.sroa.9246.01214 = phi i32 [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ], [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ]
+  %.sroa.9246.01214 = phi i32 [ %226, %_ZN9byteorder2io12ReadBytesExt8read_u3217h099a446ebeb5c573E.exit814 ], [ %233, %_ZN9byteorder2io12ReadBytesExt8read_u1617hec03a60a21ce5a10E.exit818 ], [ %228, %227 ]
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %236 = load i64, ptr %235, align 8, !noundef !4
   %237 = add i64 %236, -1
@@ -54797,8 +54797,8 @@ define hidden void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R
   br label %46
 
 33:                                               ; preds = %6, %30, %27, %25, %19, %16
-  %.sroa.8.0.ph = phi i8 [ %29, %27 ], [ %17, %19 ], [ %17, %16 ], [ %31, %30 ], [ %26, %25 ], [ %12, %6 ]
-  %.sroa.5.0.ph = phi i8 [ %spec.select7.i.i.i, %27 ], [ -32, %19 ], [ 0, %16 ], [ -112, %30 ], [ -128, %25 ], [ %10, %6 ]
+  %.sroa.8.0.ph = phi i8 [ %29, %27 ], [ %31, %30 ], [ %26, %25 ], [ %17, %16 ], [ %17, %19 ], [ %12, %6 ]
+  %.sroa.5.0.ph = phi i8 [ %spec.select7.i.i.i, %27 ], [ -112, %30 ], [ -128, %25 ], [ 0, %16 ], [ -32, %19 ], [ %10, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN3rmp6decode13marker_to_len17h6aa82d4e3f07fad0E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i8 noundef %.sroa.5.0.ph, i8 %.sroa.8.0.ph)
   %34 = load i8, ptr %8, align 8, !range !34, !noundef !4
@@ -54924,8 +54924,8 @@ define hidden void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R
   br label %46
 
 33:                                               ; preds = %6, %30, %27, %25, %19, %16
-  %.sroa.8.0.ph = phi i8 [ %29, %27 ], [ %17, %19 ], [ %17, %16 ], [ %31, %30 ], [ %26, %25 ], [ %12, %6 ]
-  %.sroa.5.0.ph = phi i8 [ %spec.select7.i.i.i, %27 ], [ -32, %19 ], [ 0, %16 ], [ -112, %30 ], [ -128, %25 ], [ %10, %6 ]
+  %.sroa.8.0.ph = phi i8 [ %29, %27 ], [ %31, %30 ], [ %26, %25 ], [ %17, %16 ], [ %17, %19 ], [ %12, %6 ]
+  %.sroa.5.0.ph = phi i8 [ %spec.select7.i.i.i, %27 ], [ -112, %30 ], [ -128, %25 ], [ 0, %16 ], [ -32, %19 ], [ %10, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN3rmp6decode13marker_to_len17hf6bb69b2b7d8d011E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i8 noundef %.sroa.5.0.ph, i8 %.sroa.8.0.ph)
   %34 = load i8, ptr %8, align 8, !range !34, !noundef !4
@@ -55649,7 +55649,7 @@ define internal fastcc void @_ZN9rmp_serde6decode7ext_len17h29ca4532113c0937E(pt
   br label %26
 
 26:                                               ; preds = %4, %34, %30, %23, %21, %20, %19, %18
-  %.sroa.058.0 = phi i32 [ %25, %23 ], [ %32, %30 ], [ %35, %34 ], [ 2, %18 ], [ 4, %19 ], [ 8, %20 ], [ 16, %21 ], [ 1, %4 ]
+  %.sroa.058.0 = phi i32 [ %25, %23 ], [ %32, %30 ], [ %35, %34 ], [ 16, %21 ], [ 2, %18 ], [ 4, %19 ], [ 8, %20 ], [ 1, %4 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.058.0, ptr %27, align 4
   store i8 9, ptr %0, align 8
@@ -55760,7 +55760,7 @@ define internal fastcc void @_ZN9rmp_serde6decode7ext_len17hb5581f14e728f5d7E(pt
   br label %26
 
 26:                                               ; preds = %4, %34, %30, %23, %21, %20, %19, %18
-  %.sroa.058.0 = phi i32 [ %25, %23 ], [ %32, %30 ], [ %35, %34 ], [ 2, %18 ], [ 4, %19 ], [ 8, %20 ], [ 16, %21 ], [ 1, %4 ]
+  %.sroa.058.0 = phi i32 [ %25, %23 ], [ %32, %30 ], [ %35, %34 ], [ 16, %21 ], [ 2, %18 ], [ 4, %19 ], [ 8, %20 ], [ 1, %4 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.058.0, ptr %27, align 4
   store i8 9, ptr %0, align 8

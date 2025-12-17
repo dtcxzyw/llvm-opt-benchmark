@@ -400,7 +400,7 @@ awt_freeParsedRaster.exit:                        ; preds = %43, %46
   br label %.lr.ph263.preheader.i
 
 .lr.ph263.preheader.i:                            ; preds = %158, %155, %151, %132
-  %.sink303.i = phi i32 [ 0, %158 ], [ 65, %155 ], [ 49, %151 ], [ 50, %132 ]
+  %.sink303.i = phi i32 [ 49, %151 ], [ 0, %158 ], [ 65, %155 ], [ 50, %132 ]
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 608
   store i32 %.sink303.i, ptr %159, align 8
   br label %.lr.ph263.i
@@ -688,12 +688,12 @@ switch.lookup:                                    ; preds = %280
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit241.i, %switch.lookup, %77, %127, %111
-  %.sink = phi i32 [ 17, %111 ], [ 20, %127 ], [ 17, %77 ], [ %switch.offset, %switch.lookup ], [ 17, %.loopexit241.i ]
+  %.sink = phi i32 [ 17, %111 ], [ %switch.offset, %switch.lookup ], [ 17, %77 ], [ 20, %127 ], [ 17, %.loopexit241.i ]
   %294 = getelementptr inbounds nuw i8, ptr %8, i64 608
   store i32 %.sink, ptr %294, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph257.i, %.lr.ph260.i, %.lr.ph263.i, %.loopexit.sink.split, %207, %222
+.loopexit:                                        ; preds = %.lr.ph257.i, %.lr.ph260.i, %.lr.ph263.i, %.loopexit.sink.split, %222, %207
   store ptr %8, ptr %2, align 8
   br label %295
 
@@ -1257,7 +1257,7 @@ define hidden range(i32 -1, 2) i32 @awt_parseRaster(ptr noundef %0, ptr noundef 
   br label %381
 
 381:                                              ; preds = %367, %371, %375, %361, %354, %329, %332, %335, %339, %161, %155, %149, %129, %67, %63, %380, %.thread281, %325, %.thread, %113, %62, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %62 ], [ -1, %113 ], [ -1, %380 ], [ -1, %.thread281 ], [ -1, %.thread ], [ 0, %325 ], [ 0, %63 ], [ -1, %67 ], [ -1, %129 ], [ -1, %149 ], [ -1, %155 ], [ -1, %161 ], [ -1, %339 ], [ -1, %335 ], [ -1, %332 ], [ -1, %329 ], [ -1, %354 ], [ -1, %361 ], [ 1, %375 ], [ 1, %371 ], [ 1, %367 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %62 ], [ 0, %325 ], [ 0, %63 ], [ -1, %113 ], [ -1, %67 ], [ -1, %129 ], [ -1, %149 ], [ -1, %155 ], [ -1, %161 ], [ -1, %380 ], [ -1, %361 ], [ -1, %.thread281 ], [ -1, %329 ], [ -1, %354 ], [ -1, %.thread ], [ -1, %339 ], [ -1, %335 ], [ -1, %332 ], [ 1, %375 ], [ 1, %371 ], [ 1, %367 ]
   ret i32 %.0
 }
 
@@ -1473,7 +1473,7 @@ thread-pre-split:                                 ; preds = %55
   br label %getColorModelType.exit
 
 getColorModelType.exit:                           ; preds = %._crit_edge, %101, %106, %120, %123, %128, %131
-  %.0.i = phi i32 [ 0, %._crit_edge ], [ 3, %101 ], [ 0, %106 ], [ 0, %120 ], [ %..i, %123 ], [ 0, %128 ], [ %.35.i, %131 ]
+  %.0.i = phi i32 [ 0, %128 ], [ 0, %._crit_edge ], [ 3, %101 ], [ 0, %106 ], [ %..i, %123 ], [ 0, %120 ], [ %.35.i, %131 ]
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %.0.i, ptr %136, align 8
   %137 = load ptr, ptr %0, align 8
@@ -1686,7 +1686,7 @@ getColorModelType.exit:                           ; preds = %._crit_edge, %101, 
   br label %238
 
 238:                                              ; preds = %191, %.loopexit, %234, %194, %49, %.loopexit177, %64, %48, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %48 ], [ -1, %64 ], [ -1, %.loopexit177 ], [ -1, %49 ], [ 1, %194 ], [ 1, %234 ], [ 1, %.loopexit ], [ 1, %191 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %48 ], [ -1, %49 ], [ -1, %64 ], [ -1, %.loopexit177 ], [ 1, %194 ], [ 1, %234 ], [ 1, %.loopexit ], [ 1, %191 ]
   ret i32 %.0
 }
 
@@ -1843,7 +1843,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr noundef read
   br i1 %or.cond51, label %42, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %42, %34, %2, %27, %16, %20, %24, %5, %9, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %5 ], [ 0, %24 ], [ 0, %20 ], [ 0, %16 ], [ 0, %27 ], [ 0, %2 ], [ 1, %34 ], [ 0, %43 ], [ 1, %42 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %9 ], [ 0, %27 ], [ 0, %2 ], [ 0, %16 ], [ 0, %5 ], [ 0, %24 ], [ 0, %13 ], [ 1, %34 ], [ 0, %43 ], [ 1, %42 ]
   ret i32 %.0
 }
 
@@ -2054,7 +2054,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   br label %105
 
 105:                                              ; preds = %11, %25, %29, %14, %17, %3, %._crit_edge, %77, %69, %51
-  %.0 = phi i32 [ -1, %51 ], [ -1, %69 ], [ -1, %77 ], [ 1, %._crit_edge ], [ -1, %3 ], [ -1, %11 ], [ -1, %17 ], [ -1, %14 ], [ -1, %29 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %3 ], [ -1, %51 ], [ -1, %69 ], [ -1, %77 ], [ 1, %._crit_edge ], [ -1, %14 ], [ -1, %17 ], [ -1, %29 ], [ -1, %25 ]
   ret i32 %.0
 }
 
@@ -2266,7 +2266,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   br label %105
 
 105:                                              ; preds = %11, %25, %29, %14, %17, %3, %._crit_edge, %98, %67, %51
-  %.0 = phi i32 [ -1, %51 ], [ -1, %67 ], [ -1, %98 ], [ 1, %._crit_edge ], [ -1, %3 ], [ -1, %11 ], [ -1, %17 ], [ -1, %14 ], [ -1, %29 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %3 ], [ -1, %51 ], [ -1, %67 ], [ -1, %98 ], [ 1, %._crit_edge ], [ -1, %14 ], [ -1, %17 ], [ -1, %29 ], [ -1, %25 ]
   ret i32 %.0
 }
 

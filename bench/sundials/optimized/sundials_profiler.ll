@@ -142,7 +142,7 @@ sunTimerStructFree.exit:                          ; preds = %21, %30
   br label %65
 
 65:                                               ; preds = %3, %33, %32, %sunTimerStructFree.exit
-  %.0 = phi i32 [ -9988, %sunTimerStructFree.exit ], [ -1, %32 ], [ 0, %33 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ -9988, %sunTimerStructFree.exit ], [ -1, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -398,7 +398,7 @@ sunTimerStructFree.exit:                          ; preds = %18, %27
   br label %85
 
 85:                                               ; preds = %sunTimerStructFree.exit, %2, %54, %53
-  %.0 = phi i32 [ -9983, %53 ], [ 0, %54 ], [ -9999, %2 ], [ -9981, %sunTimerStructFree.exit ]
+  %.0 = phi i32 [ -9999, %2 ], [ -9983, %53 ], [ 0, %54 ], [ -9981, %sunTimerStructFree.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -531,7 +531,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly captures(ad
   br label %89
 
 89:                                               ; preds = %11, %2, %38, %37
-  %.0 = phi i32 [ -9980, %37 ], [ 0, %38 ], [ -9999, %2 ], [ -9982, %11 ]
+  %.0 = phi i32 [ -9999, %2 ], [ -9980, %37 ], [ 0, %38 ], [ -9982, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -583,7 +583,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly 
   br label %13
 
 13:                                               ; preds = %5, %3, %9
-  %.0 = phi i32 [ 0, %9 ], [ -9999, %3 ], [ -1, %5 ]
+  %.0 = phi i32 [ -9999, %3 ], [ 0, %9 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -837,7 +837,7 @@ sunPrintTimer.exit:                               ; preds = %41, %48
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %6, %2, %._crit_edge, %13
-  %.031 = phi i32 [ -9980, %13 ], [ 0, %._crit_edge ], [ -9999, %2 ], [ -9982, %6 ], [ -9979, %14 ]
+  %.031 = phi i32 [ -9999, %2 ], [ -9980, %13 ], [ 0, %._crit_edge ], [ -9982, %6 ], [ -9979, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031
@@ -876,7 +876,7 @@ define internal range(i32 -1, 2) i32 @sunCompareTimes(ptr noundef readonly captu
   br label %19
 
 19:                                               ; preds = %2, %17, %7
-  %.0 = phi i32 [ %.mux.mux, %2 ], [ 1, %7 ], [ %., %17 ]
+  %.0 = phi i32 [ 1, %7 ], [ %.mux.mux, %2 ], [ %., %17 ]
   ret i32 %.0
 }
 

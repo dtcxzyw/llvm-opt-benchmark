@@ -323,8 +323,8 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br label %105
 
 .thread144.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit180
-  %.sink169 = phi i32 [ 246, %.loopexit180 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 137, %21 ], [ 137, %17 ], [ 142, %23 ], [ 147, %32 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
-  %.sink = phi i32 [ 155, %.loopexit180 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 524295, %21 ], [ 524295, %17 ], [ 142, %23 ], [ 155, %32 ], [ 155, %.loopexit ], [ 155, %74 ], [ 123, %59 ]
+  %.sink169 = phi i32 [ 246, %.loopexit180 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 147, %32 ], [ 142, %23 ], [ 137, %17 ], [ 137, %21 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
+  %.sink = phi i32 [ 155, %.loopexit180 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 155, %32 ], [ 142, %23 ], [ 524295, %17 ], [ 524295, %21 ], [ 155, %74 ], [ 155, %.loopexit ], [ 123, %59 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink169, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #4

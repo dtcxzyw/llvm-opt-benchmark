@@ -722,7 +722,7 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr readnone captur
   br label %404
 
 404:                                              ; preds = %.thread200, %._crit_edge, %6, %395, %400, %397
-  %.0164 = phi ptr [ null, %400 ], [ null, %397 ], [ null, %395 ], [ null, %6 ], [ %17, %._crit_edge ], [ null, %.thread200 ]
+  %.0164 = phi ptr [ null, %6 ], [ null, %400 ], [ null, %397 ], [ null, %395 ], [ %17, %._crit_edge ], [ null, %.thread200 ]
   ret ptr %.0164
 }
 
@@ -1435,7 +1435,7 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   br label %.thread67
 
 .thread67:                                        ; preds = %76, %72, %93, %65, %53
-  %.172 = phi ptr [ null, %53 ], [ null, %65 ], [ null, %93 ], [ %17, %72 ], [ %17, %76 ]
+  %.172 = phi ptr [ null, %93 ], [ null, %53 ], [ null, %65 ], [ %17, %72 ], [ %17, %76 ]
   %97 = call i32 @H5HL_unprotect(ptr noundef nonnull %44) #11
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %.thread
@@ -1450,7 +1450,7 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %103 = icmp eq ptr %.172, null
   br i1 %103, label %.thread.thread91, label %.thread73
 
-.thread.thread91:                                 ; preds = %46, %38, %99, %.thread
+.thread.thread91:                                 ; preds = %38, %46, %99, %.thread
   %104 = call ptr @H5MM_xfree(ptr noundef nonnull %17) #11
   br label %.thread73
 

@@ -671,7 +671,7 @@ define ptr @l_Std_Time_Millisecond_instOfNatOffset(ptr noundef %0) local_unnamed
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -690,7 +690,7 @@ define ptr @l_Std_Time_Millisecond_Offset_ofNat(ptr noundef %0) local_unnamed_ad
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -863,7 +863,7 @@ define ptr @l_Std_Time_Millisecond_Ordinal_ofNat(ptr noundef %0, ptr noundef rea
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
+  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
   ret ptr %.1.i
 }
 
@@ -882,7 +882,7 @@ define ptr @l_Std_Time_Millisecond_Ordinal_ofFin(ptr noundef %0) local_unnamed_a
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
   ret ptr %.1.i
 }
 
@@ -1526,7 +1526,7 @@ _init_l_Std_Time_Millisecond_instOrdOffset___closed__1.exit: ; preds = %_init_l_
   br label %223
 
 223:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink70, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink70, %.sink.split ]
   ret ptr %.0
 }
 

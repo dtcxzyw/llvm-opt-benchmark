@@ -684,10 +684,10 @@ _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pai
   br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit
 
 _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit: ; preds = %26, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit, %21
-  %.pre-phi22 = phi i64 [ %.pre21, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %17, %21 ], [ %17, %26 ]
-  %34 = phi ptr [ %.pre19, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %18, %21 ], [ %18, %26 ]
-  %35 = phi i64 [ %.pre, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %16, %21 ], [ %16, %26 ]
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %22, %21 ], [ %28, %26 ]
+  %.pre-phi22 = phi i64 [ %17, %21 ], [ %.pre21, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %17, %26 ]
+  %34 = phi ptr [ %18, %21 ], [ %.pre19, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %18, %26 ]
+  %35 = phi i64 [ %16, %21 ], [ %.pre, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %16, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.loopexit ], [ %28, %26 ]
   %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre-phi22
   %37 = load ptr, ptr %36, align 8, !tbaa !16
   br label %38
@@ -758,8 +758,8 @@ _ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pai
   store i64 %64, ptr %4, align 8, !tbaa !26
   br label %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread
 
-_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit
-  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %13 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %8 ], [ -1, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE4findERS7_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit
+  %.0 = phi i32 [ 0, %_ZNSt13unordered_mapIP18llama_adapter_lorafSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_fEEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %13 ], [ -1, %8 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -1416,9 +1416,9 @@ _ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu
   br label %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE9push_backERKS1_.exit64
 
 _ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE9push_backERKS1_.exit64: ; preds = %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71, %120, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61, %97, %83
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %83 ], [ %116, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %.sroa.15.0, %97 ], [ %.sroa.15.0, %120 ], [ %.sroa.15.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %83 ], [ %114, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %98, %97 ], [ %.sroa.10.0, %120 ], [ %.sroa.10.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
-  %.sroa.099.1 = phi ptr [ %.sroa.099.0, %83 ], [ %110, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %.sroa.099.0, %97 ], [ %.sroa.099.0, %120 ], [ %.sroa.099.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %83 ], [ %.sroa.15.0, %97 ], [ %116, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %.sroa.15.0, %120 ], [ %.sroa.15.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %83 ], [ %98, %97 ], [ %114, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %.sroa.10.0, %120 ], [ %.sroa.10.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
+  %.sroa.099.1 = phi ptr [ %.sroa.099.0, %83 ], [ %.sroa.099.0, %97 ], [ %110, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i61 ], [ %.sroa.099.0, %120 ], [ %.sroa.099.0, %_ZNSt6vectorIP19ggml_backend_deviceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71 ]
   %141 = add nuw i64 %.044, 1
   br label %71, !llvm.loop !170
 
@@ -1683,7 +1683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %244
   %251 = load ptr, ptr %7, align 8, !tbaa !145
   %252 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %253 = icmp eq ptr %251, %252
-  br i1 %253, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i
+  br i1 %253, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds = %240
   %254 = landingpad { ptr, i32 }
@@ -1692,15 +1692,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %255 = load ptr, ptr %7, align 8, !tbaa !145
   %256 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %257 = icmp eq ptr %255, %256
-  br i1 %257, label %.sink.split.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread128.i
+  br i1 %257, label %.sink.split.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.thread.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread128.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
   %258 = load i64, ptr %256, align 8, !tbaa !147
   %259 = add i64 %258, 1
   call void @_ZdlPvm(ptr noundef %255, i64 noundef %259) #31
   br label %.sink.split.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %260 = load i64, ptr %252, align 8, !tbaa !147
+  %261 = add i64 %260, 1
+  call void @_ZdlPvm(ptr noundef %251, i64 noundef %261) #31
   %.24094.i = extractvalue { ptr, i32 } %245, 0
   %.24695.i = extractvalue { ptr, i32 } %245, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1709,9 +1712,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.054.i, label %262, label %263
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %260 = load i64, ptr %252, align 8, !tbaa !147
-  %261 = add i64 %260, 1
-  call void @_ZdlPvm(ptr noundef %251, i64 noundef %261) #31
   %.240.i = extractvalue { ptr, i32 } %245, 0
   %.246.i = extractvalue { ptr, i32 } %245, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1719,24 +1719,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.054.i, label %262, label %263
 
-.sink.split.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread128.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread.i
-  %.sink183.i = phi { ptr, i32 } [ %254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread128.i ], [ %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread.i ], [ %254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ]
-  %.240131.i = extractvalue { ptr, i32 } %.sink183.i, 0
-  %.246132.i = extractvalue { ptr, i32 } %.sink183.i, 1
+.sink.split.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread.i
+  %.sink183.i = phi { ptr, i32 } [ %254, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.thread.i ], [ %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.thread.i ], [ %254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ]
+  %.24094153.i = extractvalue { ptr, i32 } %.sink183.i, 0
+  %.24695154.i = extractvalue { ptr, i32 } %.sink183.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %262
 
-262:                                              ; preds = %.sink.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i
-  %.24693.i = phi i32 [ %.246.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24695.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i ], [ %.246132.i, %.sink.split.i ]
-  %.24091.i = phi ptr [ %.240.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24094.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i ], [ %.240131.i, %.sink.split.i ]
+262:                                              ; preds = %.sink.split.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i
+  %.24693.i = phi i32 [ %.24695.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i ], [ %.246.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24695154.i, %.sink.split.i ]
+  %.24091.i = phi ptr [ %.24094.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i ], [ %.240.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24094153.i, %.sink.split.i ]
   call void @__cxa_free_exception(ptr %235) #33
   br label %263
 
-263:                                              ; preds = %262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i
-  %.24692.i = phi i32 [ %.24693.i, %262 ], [ %.246.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24695.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i ]
-  %.24090.i = phi ptr [ %.24091.i, %262 ], [ %.240.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24094.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i72.i ]
+263:                                              ; preds = %262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i
+  %.24692.i = phi i32 [ %.24693.i, %262 ], [ %.246.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24695.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i ]
+  %.24090.i = phi ptr [ %.24091.i, %262 ], [ %.240.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.i ], [ %.24094.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71.i ]
   invoke void @__cxa_end_catch()
           to label %349 unwind label %368
 
@@ -1805,7 +1805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i: ; preds = %2
   %289 = load ptr, ptr %10, align 8, !tbaa !145
   %290 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %291 = icmp eq ptr %289, %290
-  br i1 %291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i
+  br i1 %291, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i: ; preds = %278
   %292 = landingpad { ptr, i32 }
@@ -1814,26 +1814,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i: ; pre
   %293 = load ptr, ptr %10, align 8, !tbaa !145
   %294 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %295 = icmp eq ptr %293, %294
-  br i1 %295, label %.sink.split184.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread143.i
+  br i1 %295, label %.sink.split184.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.thread.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread143.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i
   %296 = load i64, ptr %294, align 8, !tbaa !147
   %297 = add i64 %296, 1
   call void @_ZdlPvm(ptr noundef %293, i64 noundef %297) #31
   br label %.sink.split184.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i
-  %.4104.i = extractvalue { ptr, i32 } %283, 0
-  %.448105.i = extractvalue { ptr, i32 } %283, 1
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i
+  %298 = load i64, ptr %290, align 8, !tbaa !147
+  %299 = add i64 %298, 1
+  call void @_ZdlPvm(ptr noundef %289, i64 noundef %299) #31
+  %.4115.i = extractvalue { ptr, i32 } %283, 0
+  %.448116.i = extractvalue { ptr, i32 } %283, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.041.i, label %300, label %301
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i
-  %298 = load i64, ptr %290, align 8, !tbaa !147
-  %299 = add i64 %298, 1
-  call void @_ZdlPvm(ptr noundef %289, i64 noundef %299) #31
   %.4.i = extractvalue { ptr, i32 } %283, 0
   %.448.i = extractvalue { ptr, i32 } %283, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1841,24 +1841,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.041.i, label %300, label %301
 
-.sink.split184.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread143.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread.i
-  %.sink186.i = phi { ptr, i32 } [ %292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread143.i ], [ %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread.i ], [ %292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i ]
-  %.4146.i = extractvalue { ptr, i32 } %.sink186.i, 0
-  %.448147.i = extractvalue { ptr, i32 } %.sink186.i, 1
+.sink.split184.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread.i
+  %.sink186.i = phi { ptr, i32 } [ %292, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.thread.i ], [ %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.thread.i ], [ %292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.thread.i ]
+  %.4115157.i = extractvalue { ptr, i32 } %.sink186.i, 0
+  %.448116158.i = extractvalue { ptr, i32 } %.sink186.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %300
 
-300:                                              ; preds = %.sink.split184.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i
-  %.448103.i = phi i32 [ %.448.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.448105.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i ], [ %.448147.i, %.sink.split184.i ]
-  %.4101.i = phi ptr [ %.4.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.4104.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i ], [ %.4146.i, %.sink.split184.i ]
+300:                                              ; preds = %.sink.split184.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i
+  %.448114.i = phi i32 [ %.448116.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i ], [ %.448.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.448116158.i, %.sink.split184.i ]
+  %.4112.i = phi ptr [ %.4115.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i ], [ %.4.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.4115157.i, %.sink.split184.i ]
   call void @__cxa_free_exception(ptr %273) #33
   br label %301
 
-301:                                              ; preds = %300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i
-  %.448102.i = phi i32 [ %.448103.i, %300 ], [ %.448.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.448105.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i ]
-  %.4100.i = phi ptr [ %.4101.i, %300 ], [ %.4.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.4104.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78.i ]
+301:                                              ; preds = %300, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i
+  %.448113.i = phi i32 [ %.448114.i, %300 ], [ %.448.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.448116.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i ]
+  %.4111.i = phi ptr [ %.4112.i, %300 ], [ %.4.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79.i ], [ %.4115.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77.i ]
   invoke void @__cxa_end_catch()
           to label %349 unwind label %368
 
@@ -1927,7 +1927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.i: ; preds = %3
   %327 = load ptr, ptr %13, align 8, !tbaa !145
   %328 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %329 = icmp eq ptr %327, %328
-  br i1 %329, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i
+  br i1 %329, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i: ; preds = %316
   %330 = landingpad { ptr, i32 }
@@ -1936,26 +1936,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i: ; pre
   %331 = load ptr, ptr %13, align 8, !tbaa !145
   %332 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %333 = icmp eq ptr %331, %332
-  br i1 %333, label %.sink.split187.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread158.i
+  br i1 %333, label %.sink.split187.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.thread.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread158.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i
   %334 = load i64, ptr %332, align 8, !tbaa !147
   %335 = add i64 %334, 1
   call void @_ZdlPvm(ptr noundef %331, i64 noundef %335) #31
   br label %.sink.split187.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.i
-  %.6114.i = extractvalue { ptr, i32 } %321, 0
-  %.650115.i = extractvalue { ptr, i32 } %321, 1
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.i
+  %336 = load i64, ptr %328, align 8, !tbaa !147
+  %337 = add i64 %336, 1
+  call void @_ZdlPvm(ptr noundef %327, i64 noundef %337) #31
+  %.6136.i = extractvalue { ptr, i32 } %321, 0
+  %.650137.i = extractvalue { ptr, i32 } %321, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.036.i, label %338, label %339
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.i
-  %336 = load i64, ptr %328, align 8, !tbaa !147
-  %337 = add i64 %336, 1
-  call void @_ZdlPvm(ptr noundef %327, i64 noundef %337) #31
   %.6.i = extractvalue { ptr, i32 } %321, 0
   %.650.i = extractvalue { ptr, i32 } %321, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1963,24 +1963,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.036.i, label %338, label %339
 
-.sink.split187.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread158.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread.i
-  %.sink189.i = phi { ptr, i32 } [ %330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread158.i ], [ %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread.i ], [ %330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i ]
-  %.6161.i = extractvalue { ptr, i32 } %.sink189.i, 0
-  %.650162.i = extractvalue { ptr, i32 } %.sink189.i, 1
+.sink.split187.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.thread.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread.i
+  %.sink189.i = phi { ptr, i32 } [ %330, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.thread.i ], [ %319, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.thread.i ], [ %330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82.thread.i ]
+  %.6136161.i = extractvalue { ptr, i32 } %.sink189.i, 0
+  %.650137162.i = extractvalue { ptr, i32 } %.sink189.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %338
 
-338:                                              ; preds = %.sink.split187.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i
-  %.650113.i = phi i32 [ %.650.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.650115.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i ], [ %.650162.i, %.sink.split187.i ]
-  %.6111.i = phi ptr [ %.6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.6114.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i ], [ %.6161.i, %.sink.split187.i ]
+338:                                              ; preds = %.sink.split187.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i
+  %.650135.i = phi i32 [ %.650137.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i ], [ %.650.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.650137162.i, %.sink.split187.i ]
+  %.6133.i = phi ptr [ %.6136.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i ], [ %.6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.6136161.i, %.sink.split187.i ]
   call void @__cxa_free_exception(ptr %311) #33
   br label %339
 
-339:                                              ; preds = %338, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i
-  %.650112.i = phi i32 [ %.650113.i, %338 ], [ %.650.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.650115.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i ]
-  %.6110.i = phi ptr [ %.6111.i, %338 ], [ %.6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.6114.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i ]
+339:                                              ; preds = %338, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i
+  %.650134.i = phi i32 [ %.650135.i, %338 ], [ %.650.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.650137.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i ]
+  %.6132.i = phi ptr [ %.6133.i, %338 ], [ %.6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i ], [ %.6136.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i ]
   invoke void @__cxa_end_catch()
           to label %349 unwind label %368
 
@@ -2016,8 +2016,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i: ; preds = %_
   br i1 %347, label %_ZL16llama_model_loadRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS4_SaIS4_EER11llama_modelR18llama_model_params.exit, label %379
 
 349:                                              ; preds = %339, %303, %301, %265, %263, %227, %223
-  %.145.i = phi i32 [ %226, %223 ], [ %306, %303 ], [ %268, %265 ], [ %230, %227 ], [ %.24692.i, %263 ], [ %.448102.i, %301 ], [ %.650112.i, %339 ]
-  %.139.i = phi ptr [ %225, %223 ], [ %305, %303 ], [ %267, %265 ], [ %229, %227 ], [ %.24090.i, %263 ], [ %.4100.i, %301 ], [ %.6110.i, %339 ]
+  %.145.i = phi i32 [ %226, %223 ], [ %.448113.i, %301 ], [ %306, %303 ], [ %.24692.i, %263 ], [ %268, %265 ], [ %230, %227 ], [ %.650134.i, %339 ]
+  %.139.i = phi ptr [ %225, %223 ], [ %.4111.i, %301 ], [ %305, %303 ], [ %.24090.i, %263 ], [ %267, %265 ], [ %229, %227 ], [ %.6132.i, %339 ]
   call void @_ZN18llama_model_loaderD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #33
   br label %350
 
@@ -2406,7 +2406,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %55, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-  %.pn = phi { ptr, i32 } [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %56, %55 ]
+  %.pn = phi { ptr, i32 } [ %56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
@@ -3479,7 +3479,7 @@ _ZNSt6vectorISt4pairIP12ggml_backendPFvS2_iEESaIS5_EE12emplace_backIJS2_RS4_EEER
   br label %697
 
 493:                                              ; preds = %488, %481, %479
-  %.0465 = phi ptr [ %473, %481 ], [ %473, %479 ], [ %spec.select, %488 ]
+  %.0465 = phi ptr [ %473, %481 ], [ %spec.select, %488 ], [ %473, %479 ]
   %.not.i393 = icmp eq ptr %.sroa.10.0576, %.sroa.13.0577
   br i1 %.not.i393, label %495, label %494
 
@@ -3733,7 +3733,7 @@ select.unfold:                                    ; preds = %580, %572
   br i1 %.not480, label %.thread467, label %567
 
 .thread467:                                       ; preds = %580, %select.unfold, %558, %544, %546, %552
-  %.0294 = phi i1 [ false, %552 ], [ false, %546 ], [ false, %544 ], [ true, %558 ], [ false, %580 ], [ true, %select.unfold ]
+  %.0294 = phi i1 [ false, %546 ], [ false, %544 ], [ false, %552 ], [ true, %558 ], [ false, %580 ], [ true, %select.unfold ]
   %590 = getelementptr inbounds nuw i8, ptr %44, i64 976
   %591 = ptrtoint ptr %.sroa.12.0.lcssa to i64
   %592 = ptrtoint ptr %.sroa.0416.0.lcssa to i64
@@ -3988,11 +3988,11 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit: ; preds = %_ZNSt6vect
   br label %697
 
 697:                                              ; preds = %.loopexit486, %.loopexit.split-lp487, %.loopexit, %.loopexit.split-lp, %574, %587, %585, %489, %491, %563, %696, %565
-  %.sroa.0416.0518 = phi ptr [ %.sroa.0416.0.lcssa, %696 ], [ %.sroa.0416.0.lcssa, %565 ], [ %.sroa.0416.0.lcssa, %563 ], [ %.sroa.0416.0578, %491 ], [ %.sroa.0416.0578, %489 ], [ %.sroa.0416.0.lcssa, %585 ], [ %.sroa.0416.0.lcssa, %587 ], [ %.sroa.0416.0.lcssa, %574 ], [ %.sroa.0416.0578, %.loopexit ], [ %.sroa.0416.0578, %.loopexit.split-lp ], [ %.sroa.0416.0578, %.loopexit486 ], [ %.sroa.0416.0578, %.loopexit.split-lp487 ]
-  %.sroa.17.0500 = phi ptr [ %.sroa.17.0.lcssa, %696 ], [ %.sroa.17.0.lcssa, %565 ], [ %.sroa.17.0.lcssa, %563 ], [ %.sroa.17.0580, %491 ], [ %.sroa.17.0580, %489 ], [ %.sroa.17.0.lcssa, %585 ], [ %.sroa.17.0.lcssa, %587 ], [ %.sroa.17.0.lcssa, %574 ], [ %.sroa.17.0580, %.loopexit ], [ %.sroa.17.0580, %.loopexit.split-lp ], [ %.sroa.17.0580, %.loopexit486 ], [ %.sroa.17.0580, %.loopexit.split-lp487 ]
-  %.sroa.0427.2 = phi ptr [ %.sroa.0427.0.lcssa, %696 ], [ %.sroa.0427.0.lcssa, %565 ], [ %.sroa.0427.0.lcssa, %563 ], [ %.sroa.0427.0575, %491 ], [ %.sroa.0427.0575, %489 ], [ %.sroa.0427.0.lcssa, %585 ], [ %.sroa.0427.0.lcssa, %587 ], [ %.sroa.0427.0.lcssa, %574 ], [ %.sroa.0427.0575, %.loopexit ], [ %.sroa.0427.0575, %.loopexit.split-lp ], [ %.sroa.0427.3, %.loopexit486 ], [ %.sroa.0427.3, %.loopexit.split-lp487 ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.0.lcssa, %696 ], [ %.sroa.13.0.lcssa, %565 ], [ %.sroa.13.0.lcssa, %563 ], [ %.sroa.13.0577, %491 ], [ %.sroa.13.0577, %489 ], [ %.sroa.13.0.lcssa, %585 ], [ %.sroa.13.0.lcssa, %587 ], [ %.sroa.13.0.lcssa, %574 ], [ %.sroa.13.0577, %.loopexit ], [ %.sroa.13.0577, %.loopexit.split-lp ], [ %.sroa.13.3, %.loopexit486 ], [ %.sroa.13.3, %.loopexit.split-lp487 ]
-  %.pn342.pn.pn = phi { ptr, i32 } [ %.pn331.pn.pn.pn.pn.pn.pn, %696 ], [ %566, %565 ], [ %564, %563 ], [ %492, %491 ], [ %490, %489 ], [ %586, %585 ], [ %588, %587 ], [ %575, %574 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit488, %.loopexit486 ], [ %lpad.loopexit.split-lp489, %.loopexit.split-lp487 ]
+  %.sroa.0416.0518 = phi ptr [ %.sroa.0416.0.lcssa, %563 ], [ %.sroa.0416.0.lcssa, %696 ], [ %.sroa.0416.0.lcssa, %565 ], [ %.sroa.0416.0578, %489 ], [ %.sroa.0416.0.lcssa, %574 ], [ %.sroa.0416.0578, %.loopexit.split-lp ], [ %.sroa.0416.0578, %491 ], [ %.sroa.0416.0.lcssa, %585 ], [ %.sroa.0416.0.lcssa, %587 ], [ %.sroa.0416.0578, %.loopexit ], [ %.sroa.0416.0578, %.loopexit486 ], [ %.sroa.0416.0578, %.loopexit.split-lp487 ]
+  %.sroa.17.0500 = phi ptr [ %.sroa.17.0.lcssa, %563 ], [ %.sroa.17.0.lcssa, %696 ], [ %.sroa.17.0.lcssa, %565 ], [ %.sroa.17.0580, %489 ], [ %.sroa.17.0.lcssa, %574 ], [ %.sroa.17.0580, %.loopexit.split-lp ], [ %.sroa.17.0580, %491 ], [ %.sroa.17.0.lcssa, %585 ], [ %.sroa.17.0.lcssa, %587 ], [ %.sroa.17.0580, %.loopexit ], [ %.sroa.17.0580, %.loopexit486 ], [ %.sroa.17.0580, %.loopexit.split-lp487 ]
+  %.sroa.0427.2 = phi ptr [ %.sroa.0427.0.lcssa, %563 ], [ %.sroa.0427.0.lcssa, %696 ], [ %.sroa.0427.0.lcssa, %565 ], [ %.sroa.0427.0575, %489 ], [ %.sroa.0427.0.lcssa, %574 ], [ %.sroa.0427.0575, %.loopexit.split-lp ], [ %.sroa.0427.0575, %491 ], [ %.sroa.0427.0.lcssa, %585 ], [ %.sroa.0427.0.lcssa, %587 ], [ %.sroa.0427.0575, %.loopexit ], [ %.sroa.0427.3, %.loopexit486 ], [ %.sroa.0427.3, %.loopexit.split-lp487 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.0.lcssa, %563 ], [ %.sroa.13.0.lcssa, %696 ], [ %.sroa.13.0.lcssa, %565 ], [ %.sroa.13.0577, %489 ], [ %.sroa.13.0.lcssa, %574 ], [ %.sroa.13.0577, %.loopexit.split-lp ], [ %.sroa.13.0577, %491 ], [ %.sroa.13.0.lcssa, %585 ], [ %.sroa.13.0.lcssa, %587 ], [ %.sroa.13.0577, %.loopexit ], [ %.sroa.13.3, %.loopexit486 ], [ %.sroa.13.3, %.loopexit.split-lp487 ]
+  %.pn342.pn.pn = phi { ptr, i32 } [ %564, %563 ], [ %.pn331.pn.pn.pn.pn.pn.pn, %696 ], [ %566, %565 ], [ %490, %489 ], [ %575, %574 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %492, %491 ], [ %586, %585 ], [ %588, %587 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit488, %.loopexit486 ], [ %lpad.loopexit.split-lp489, %.loopexit.split-lp487 ]
   %.not.i.i.i402 = icmp eq ptr %.sroa.0416.0518, null
   br i1 %.not.i.i.i402, label %_ZNSt6vectorIP12ggml_backendSaIS1_EED2Ev.exit403, label %698
 
@@ -4021,7 +4021,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit405: ; preds = %_ZNSt6v
   br label %707
 
 707:                                              ; preds = %341, %305, %346, %426, %459, %706, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit, %42, %23, %15, %7
-  %.0 = phi ptr [ null, %15 ], [ null, %23 ], [ null, %42 ], [ null, %7 ], [ %44, %706 ], [ null, %346 ], [ null, %459 ], [ null, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit ], [ null, %426 ], [ null, %341 ], [ null, %305 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %23 ], [ null, %7 ], [ null, %42 ], [ %44, %706 ], [ null, %346 ], [ null, %459 ], [ null, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev.exit ], [ null, %426 ], [ null, %341 ], [ null, %305 ]
   ret ptr %.0
 }
 
@@ -4115,7 +4115,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !366
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -4565,7 +4565,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %27, %30
   unreachable
 
 141:                                              ; preds = %.invoke, %137, %135, %133, %131, %129, %127, %125, %122, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35
-  %.0 = phi ptr [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %63, %61 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %124, %.invoke ]
+  %.0 = phi ptr [ %136, %135 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %63, %61 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %138, %137 ], [ %123, %122 ], [ %124, %.invoke ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %143 = load i8, ptr %142, align 8, !tbaa !388, !range !140, !noundef !141
   %144 = trunc nuw i8 %143 to i1
@@ -5230,7 +5230,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i.i.i: ; preds = %.critedge.i
   br i1 %268, label %.preheader.loopexit.i.i, label %269
 
 269:                                              ; preds = %266, %263, %258
-  %.291.i.i = phi i32 [ %.089149.i.i, %263 ], [ %.089149.i.i, %258 ], [ %267, %266 ]
+  %.291.i.i = phi i32 [ %.089149.i.i, %258 ], [ %267, %266 ], [ %.089149.i.i, %263 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %270 = icmp ult i32 %.095169.i.i, %indvars.i.i
@@ -5695,7 +5695,7 @@ _ZNSt14_Function_baseD2Ev.exit12.i.i.i:           ; preds = %479, %477
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %499, %497, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i, %294, %279
-  %.pn110.i.i = phi { ptr, i32 } [ %498, %497 ], [ %295, %294 ], [ %280, %279 ], [ %500, %499 ], [ %.pn.i.i.i, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i ]
+  %.pn110.i.i = phi { ptr, i32 } [ %280, %279 ], [ %498, %497 ], [ %295, %294 ], [ %500, %499 ], [ %.pn.i.i.i, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i ]
   %501 = load ptr, ptr %6, align 8, !tbaa !449
   %.not.i.i.i119.i.i = icmp eq ptr %501, null
   br i1 %.not.i.i.i119.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit120.i.i, label %502
@@ -6271,7 +6271,7 @@ select.unfold.i.i.i:                              ; preds = %194, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i: ; preds = %198, %select.unfold.i.i.i
-  %202 = phi i1 [ true, %select.unfold.i.i.i ], [ %201, %198 ]
+  %202 = phi i1 [ %201, %198 ], [ true, %select.unfold.i.i.i ]
   %203 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
           to label %.noexc.i unwind label %214
 
@@ -6571,12 +6571,12 @@ _ZNSt3mapIiSt6vectorIfSaIfEESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_.exit
           to label %310 unwind label %137
 
 310:                                              ; preds = %.loopexit.i, %140, %139, %136, %70
-  %.3.i = phi i32 [ -2, %70 ], [ -3, %140 ], [ -2, %139 ], [ 2, %136 ], [ 0, %.loopexit.i ]
+  %.3.i = phi i32 [ -2, %70 ], [ -3, %140 ], [ 2, %136 ], [ -2, %139 ], [ 0, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %312
 
 311:                                              ; preds = %304, %244, %230, %214, %163, %146, %137, %111, %109, %86, %73
-  %.pn187.i = phi { ptr, i32 } [ %74, %73 ], [ %87, %86 ], [ %110, %109 ], [ %112, %111 ], [ %138, %137 ], [ %147, %146 ], [ %231, %230 ], [ %164, %163 ], [ %215, %214 ], [ %245, %244 ], [ %305, %304 ]
+  %.pn187.i = phi { ptr, i32 } [ %74, %73 ], [ %87, %86 ], [ %110, %109 ], [ %112, %111 ], [ %138, %137 ], [ %215, %214 ], [ %147, %146 ], [ %231, %230 ], [ %164, %163 ], [ %245, %244 ], [ %305, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %345
 
@@ -6642,7 +6642,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %331, %_ZNSt6vectorI
   br label %_ZL17llama_encode_implR13llama_context11llama_batch.exit
 
 345:                                              ; preds = %311, %71, %.loopexit.split-lp.i, %.loopexit226.i, %30
-  %.pn190.i = phi { ptr, i32 } [ %31, %30 ], [ %.pn187.i, %311 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit226.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn190.i = phi { ptr, i32 } [ %31, %30 ], [ %72, %71 ], [ %.pn187.i, %311 ], [ %lpad.loopexit.i, %.loopexit226.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN18llama_batch_allocrD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn190.i
@@ -6790,8 +6790,8 @@ _ZNK14llama_kv_cache7max_posEv.exit.i:            ; preds = %_ZNK14llama_kv_cach
   br label %73
 
 .invoke.i:                                        ; preds = %85, %.critedge.i.i, %69
-  %71 = phi i32 [ 8460, %69 ], [ 8469, %.critedge.i.i ], [ 8470, %85 ]
-  %72 = phi ptr [ @.str.224, %69 ], [ @.str.246, %.critedge.i.i ], [ @.str.247, %85 ]
+  %71 = phi i32 [ 8469, %.critedge.i.i ], [ 8460, %69 ], [ 8470, %85 ]
+  %72 = phi ptr [ @.str.246, %.critedge.i.i ], [ @.str.224, %69 ], [ @.str.247, %85 ]
   invoke void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef %71, ptr noundef nonnull @.str.2, ptr noundef nonnull %72) #32
           to label %.cont.i unwind label %.loopexit.split-lp474.i
 
@@ -7204,8 +7204,8 @@ _ZN22llama_kv_slot_restorer4saveERK24llama_kv_cache_slot_info.exit.i.i: ; preds 
   br label %230
 
 .loopexit435.i:                                   ; preds = %.noexc273.i, %220, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i, %191, %183, %164, %161, %158
-  %.sroa.18.4.ph.i = phi ptr [ %.sroa.18.3709.i, %164 ], [ %.sroa.18.3709.i, %161 ], [ %.sroa.18.3709.i, %158 ], [ %.sroa.18.3709.i, %183 ], [ %.sroa.18.3709.i, %191 ], [ %.sroa.13.0710.i, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %.sroa.18.6.i, %220 ], [ %.sroa.18.6.i, %.noexc273.i ]
-  %.sroa.8.4.ph.i = phi ptr [ %.sroa.8.3711.i, %164 ], [ %.sroa.8.3711.i, %161 ], [ %.sroa.8.3711.i, %158 ], [ %.sroa.8.3711.i, %183 ], [ %.sroa.8.3711.i, %191 ], [ %.sroa.8.3711.i, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %.sroa.8.6.i, %220 ], [ %.sroa.8.6.i, %.noexc273.i ]
+  %.sroa.18.4.ph.i = phi ptr [ %.sroa.18.3709.i, %161 ], [ %.sroa.18.3709.i, %158 ], [ %.sroa.18.3709.i, %183 ], [ %.sroa.18.3709.i, %191 ], [ %.sroa.13.0710.i, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %.sroa.18.6.i, %220 ], [ %.sroa.18.6.i, %.noexc273.i ], [ %.sroa.18.3709.i, %164 ]
+  %.sroa.8.4.ph.i = phi ptr [ %.sroa.8.3711.i, %161 ], [ %.sroa.8.3711.i, %158 ], [ %.sroa.8.3711.i, %183 ], [ %.sroa.8.3711.i, %191 ], [ %.sroa.8.3711.i, %_ZNKSt6vectorISt4pairIjjESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %.sroa.8.6.i, %220 ], [ %.sroa.8.6.i, %.noexc273.i ], [ %.sroa.8.3711.i, %164 ]
   %lpad.loopexit437.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -7357,8 +7357,8 @@ _ZN22llama_kv_slot_restorer4saveERK24llama_kv_cache_slot_info.exit.i.i: ; preds 
   unreachable
 
 278:                                              ; preds = %272, %271, %250
-  %.0191.i = phi ptr [ %270, %271 ], [ null, %272 ], [ null, %250 ]
-  %.0190.i = phi ptr [ null, %271 ], [ %247, %272 ], [ null, %250 ]
+  %.0191.i = phi ptr [ null, %272 ], [ %270, %271 ], [ null, %250 ]
+  %.0190.i = phi ptr [ %247, %272 ], [ null, %271 ], [ null, %250 ]
   %279 = load ptr, ptr %133, align 8, !tbaa !358
   %280 = invoke zeroext i1 @ggml_backend_sched_alloc_graph(ptr noundef %279, ptr noundef %245)
           to label %281 unwind label %.loopexit445.i
@@ -8008,9 +8008,9 @@ _ZL20llama_prepare_sbatchR13llama_contextRK11llama_batchRj.exit.i: ; preds = %47
   br i1 %.not207.i, label %_ZL20llama_prepare_sbatchR13llama_contextRK11llama_batchRj.exit._crit_edge.i, label %147, !llvm.loop !519
 
 .loopexit.split-lp.i:                             ; preds = %483, %418, %.loopexit.split-lp469.i, %.loopexit468.i, %.loopexit.split-lp464.i, %.loopexit463.i, %.loopexit.split-lp459.i, %.loopexit458.i, %.loopexit.split-lp455.i, %.loopexit454.i, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.loopexit.split-lp431.i, %.loopexit430.i, %.loopexit.split-lp446.i, %.loopexit445.i, %255, %253, %.loopexit.split-lp441.i, %.loopexit440.i, %.loopexit.split-lp436.i, %.loopexit435.i
-  %.sroa.18.5.i = phi ptr [ %.sroa.18.7.ph.i, %418 ], [ %.sroa.18.7.ph.i, %483 ], [ %.sroa.18.7.ph.i, %255 ], [ %.sroa.18.7.ph.i, %253 ], [ %.sroa.18.4.ph.i, %.loopexit435.i ], [ %.sroa.18.3709758.i, %.loopexit.split-lp436.i ], [ %.sroa.18.7.ph.i, %.loopexit440.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.18.7.ph.i, %.loopexit445.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.18.7.ph.i, %.loopexit430.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.18.7.ph.i, %.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.18.7.ph.i, %.loopexit454.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.18.7.ph.i, %.loopexit458.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.18.7.ph.i, %.loopexit463.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.18.7.ph.i, %.loopexit468.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp469.i ]
-  %.sroa.8.5.i = phi ptr [ %.sroa.8.7.ph.i, %418 ], [ %.sroa.8.7.ph.i, %483 ], [ %.sroa.8.7.ph.i, %255 ], [ %.sroa.8.7.ph.i, %253 ], [ %.sroa.8.4.ph.i, %.loopexit435.i ], [ %.sroa.8.3711.i, %.loopexit.split-lp436.i ], [ %.sroa.8.7.ph.i, %.loopexit440.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.8.7.ph.i, %.loopexit445.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.8.7.ph.i, %.loopexit430.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.8.7.ph.i, %.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.8.7.ph.i, %.loopexit454.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.8.7.ph.i, %.loopexit458.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.8.7.ph.i, %.loopexit463.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.8.7.ph.i, %.loopexit468.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp469.i ]
-  %.pn235.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %419, %418 ], [ %484, %483 ], [ %256, %255 ], [ %254, %253 ], [ %lpad.loopexit437.i, %.loopexit435.i ], [ %lpad.loopexit.split-lp438.i, %.loopexit.split-lp436.i ], [ %lpad.loopexit442.i, %.loopexit440.i ], [ %lpad.loopexit.split-lp443.i, %.loopexit.split-lp441.i ], [ %lpad.loopexit447.i, %.loopexit445.i ], [ %lpad.loopexit.split-lp448.i, %.loopexit.split-lp446.i ], [ %lpad.loopexit432.i, %.loopexit430.i ], [ %lpad.loopexit.split-lp433.i, %.loopexit.split-lp431.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit451.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp452.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit456.i, %.loopexit454.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp455.i ], [ %lpad.loopexit460.i, %.loopexit458.i ], [ %lpad.loopexit.split-lp461.i, %.loopexit.split-lp459.i ], [ %lpad.loopexit465.i, %.loopexit463.i ], [ %lpad.loopexit.split-lp466.i, %.loopexit.split-lp464.i ], [ %lpad.loopexit470.i, %.loopexit468.i ], [ %lpad.loopexit.split-lp471.i, %.loopexit.split-lp469.i ]
+  %.sroa.18.5.i = phi ptr [ %.sroa.18.3709758.i, %.loopexit.split-lp436.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.18.7.ph.i, %418 ], [ %.sroa.18.7.ph.i, %483 ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.18.7.ph.i, %255 ], [ %.sroa.18.7.ph.i, %253 ], [ %.sroa.18.4.ph.i, %.loopexit435.i ], [ %.sroa.18.7.ph.i, %.loopexit440.i ], [ %.sroa.18.7.ph.i, %.loopexit445.i ], [ %.sroa.18.7.ph.i, %.loopexit430.i ], [ %.sroa.18.7.ph.i, %.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.18.7.ph.i, %.loopexit454.i ], [ %.sroa.18.7.ph.i, %.loopexit458.i ], [ %.sroa.18.7.ph.i, %.loopexit463.i ], [ %.sroa.18.7.ph.i, %.loopexit468.i ], [ %.sroa.18.7.ph.i, %.loopexit.split-lp469.i ]
+  %.sroa.8.5.i = phi ptr [ %.sroa.8.3711.i, %.loopexit.split-lp436.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp459.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp464.i ], [ %.sroa.8.7.ph.i, %418 ], [ %.sroa.8.7.ph.i, %483 ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp455.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp431.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp441.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp446.i ], [ %.sroa.8.7.ph.i, %255 ], [ %.sroa.8.7.ph.i, %253 ], [ %.sroa.8.4.ph.i, %.loopexit435.i ], [ %.sroa.8.7.ph.i, %.loopexit440.i ], [ %.sroa.8.7.ph.i, %.loopexit445.i ], [ %.sroa.8.7.ph.i, %.loopexit430.i ], [ %.sroa.8.7.ph.i, %.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.8.7.ph.i, %.loopexit454.i ], [ %.sroa.8.7.ph.i, %.loopexit458.i ], [ %.sroa.8.7.ph.i, %.loopexit463.i ], [ %.sroa.8.7.ph.i, %.loopexit468.i ], [ %.sroa.8.7.ph.i, %.loopexit.split-lp469.i ]
+  %.pn235.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp438.i, %.loopexit.split-lp436.i ], [ %lpad.loopexit.split-lp461.i, %.loopexit.split-lp459.i ], [ %lpad.loopexit.split-lp466.i, %.loopexit.split-lp464.i ], [ %419, %418 ], [ %484, %483 ], [ %lpad.loopexit.split-lp452.i, %.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp455.i ], [ %lpad.loopexit.split-lp433.i, %.loopexit.split-lp431.i ], [ %lpad.loopexit.split-lp443.i, %.loopexit.split-lp441.i ], [ %lpad.loopexit.split-lp448.i, %.loopexit.split-lp446.i ], [ %256, %255 ], [ %254, %253 ], [ %lpad.loopexit437.i, %.loopexit435.i ], [ %lpad.loopexit442.i, %.loopexit440.i ], [ %lpad.loopexit447.i, %.loopexit445.i ], [ %lpad.loopexit432.i, %.loopexit430.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit451.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit456.i, %.loopexit454.i ], [ %lpad.loopexit460.i, %.loopexit458.i ], [ %lpad.loopexit465.i, %.loopexit463.i ], [ %lpad.loopexit470.i, %.loopexit468.i ], [ %lpad.loopexit.split-lp471.i, %.loopexit.split-lp469.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %587
 
@@ -8160,7 +8160,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %511, %._crit_edge.i
   br label %_ZN22llama_kv_slot_restorerD2Ev.exit.i
 
 _ZN22llama_kv_slot_restorerD2Ev.exit.i:           ; preds = %551, %550, %144, %split.i.i
-  %.2416.i = phi i32 [ %.2.i, %550 ], [ %.2.i, %551 ], [ -2, %144 ], [ -1, %split.i.i ]
+  %.2416.i = phi i32 [ %.2.i, %551 ], [ %.2.i, %550 ], [ -2, %144 ], [ -1, %split.i.i ]
   %555 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %556 = load ptr, ptr %555, align 8, !tbaa !488
   %.not.i.i.i.i349.i = icmp eq ptr %556, null
@@ -8235,7 +8235,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %573, %_ZNSt6vectorI
   br label %_ZN22llama_kv_slot_restorerD2Ev.exit351.i
 
 _ZN22llama_kv_slot_restorerD2Ev.exit351.i:        ; preds = %588, %587, %.loopexit.split-lp474.i, %.loopexit473.i, %145, %39
-  %.pn235.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %.pn235.pn.pn.pn.pn.pn.pn.pn.i, %587 ], [ %.pn235.pn.pn.pn.pn.pn.pn.pn.i, %588 ], [ %146, %145 ], [ %lpad.loopexit475.i, %.loopexit473.i ], [ %lpad.loopexit.split-lp476.i, %.loopexit.split-lp474.i ]
+  %.pn235.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %.pn235.pn.pn.pn.pn.pn.pn.pn.i, %588 ], [ %.pn235.pn.pn.pn.pn.pn.pn.pn.i, %587 ], [ %146, %145 ], [ %lpad.loopexit475.i, %.loopexit473.i ], [ %lpad.loopexit.split-lp476.i, %.loopexit.split-lp474.i ]
   call void @_ZN18llama_batch_allocrD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %14) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   resume { ptr, i32 } %.pn235.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -9972,7 +9972,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %95
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %169
-  %.2.i = phi ptr [ %172, %169 ], [ %164, %._crit_edge ]
+  %.2.i = phi ptr [ %164, %._crit_edge ], [ %172, %169 ]
   %173 = load ptr, ptr %104, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
@@ -10113,7 +10113,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143: ; preds = %_ZL14llm_bu
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143, %232, %234
-  %.0.in.i = phi ptr [ %233, %232 ], [ %235, %234 ], [ %220, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143 ]
+  %.0.in.i = phi ptr [ %235, %234 ], [ %233, %232 ], [ %220, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %236 = load ptr, ptr %97, align 8, !tbaa !387
   %237 = load ptr, ptr %74, align 8, !tbaa !386
@@ -10556,7 +10556,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit162: ; preds = %412
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit166
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit166: ; preds = %436, %441
-  %.2.i164 = phi ptr [ %444, %441 ], [ %435, %436 ]
+  %.2.i164 = phi ptr [ %435, %436 ], [ %444, %441 ]
   %445 = load ptr, ptr %104, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -10655,7 +10655,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit170: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit174
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit174: ; preds = %477, %482
-  %.2.i172 = phi ptr [ %485, %482 ], [ %435, %477 ]
+  %.2.i172 = phi ptr [ %435, %477 ], [ %485, %482 ]
   %486 = load ptr, ptr %104, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -11057,7 +11057,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %89
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %159
-  %.2.i = phi ptr [ %162, %159 ], [ %154, %._crit_edge ]
+  %.2.i = phi ptr [ %154, %._crit_edge ], [ %162, %159 ]
   %163 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -11149,7 +11149,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL14llm_build
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit146
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit146: ; preds = %187, %203
-  %.2.i144 = phi ptr [ %206, %203 ], [ %198, %187 ]
+  %.2.i144 = phi ptr [ %198, %187 ], [ %206, %203 ]
   %207 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -11242,7 +11242,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit150: ; preds = %215
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %231, %248, %250
-  %.0.in.i = phi ptr [ %249, %248 ], [ %251, %250 ], [ %236, %231 ]
+  %.0.in.i = phi ptr [ %251, %250 ], [ %249, %248 ], [ %236, %231 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %252 = load ptr, ptr %91, align 8, !tbaa !387
   %253 = load ptr, ptr %68, align 8, !tbaa !386
@@ -11694,7 +11694,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169: ; preds = %427
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit173
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit173: ; preds = %444, %456
-  %.2.i171 = phi ptr [ %459, %456 ], [ %451, %444 ]
+  %.2.i171 = phi ptr [ %451, %444 ], [ %459, %456 ]
   %460 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -12087,7 +12087,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %89
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %147
-  %.2.i = phi ptr [ %150, %147 ], [ %142, %._crit_edge ]
+  %.2.i = phi ptr [ %142, %._crit_edge ], [ %150, %147 ]
   %151 = load ptr, ptr %81, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -12558,7 +12558,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106: ; preds = %345
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit109
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit109: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106, %370
-  %.2.i107 = phi ptr [ %373, %370 ], [ %365, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106 ]
+  %.2.i107 = phi ptr [ %365, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106 ], [ %373, %370 ]
   %374 = load ptr, ptr %81, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -13537,7 +13537,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %98
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %166
-  %.2.i = phi ptr [ %169, %166 ], [ %161, %._crit_edge ]
+  %.2.i = phi ptr [ %161, %._crit_edge ], [ %169, %166 ]
   %170 = load ptr, ptr %107, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -14162,7 +14162,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157: ; preds = %415
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit160
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit160: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157, %440
-  %.2.i158 = phi ptr [ %443, %440 ], [ %435, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157 ]
+  %.2.i158 = phi ptr [ %435, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157 ], [ %443, %440 ]
   %444 = load ptr, ptr %107, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -15161,7 +15161,7 @@ define linkonce_odr noundef ptr @_ZN17llm_build_context12build_refactEv(ptr noun
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %104
-  %.2.i = phi ptr [ %107, %104 ], [ %99, %._crit_edge ]
+  %.2.i = phi ptr [ %99, %._crit_edge ], [ %107, %104 ]
   %108 = load ptr, ptr %73, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -15576,7 +15576,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit98: ; preds = %260
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit101
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit101: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit98, %285
-  %.2.i99 = phi ptr [ %288, %285 ], [ %280, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit98 ]
+  %.2.i99 = phi ptr [ %280, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit98 ], [ %288, %285 ]
   %289 = load ptr, ptr %73, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -19425,7 +19425,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %73
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %141
-  %.2.i = phi ptr [ %144, %141 ], [ %136, %._crit_edge ]
+  %.2.i = phi ptr [ %136, %._crit_edge ], [ %144, %141 ]
   %145 = load ptr, ptr %82, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -19924,7 +19924,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115: ; preds = %347
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit118
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit118: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115, %372
-  %.2.i116 = phi ptr [ %375, %372 ], [ %367, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115 ]
+  %.2.i116 = phi ptr [ %367, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115 ], [ %375, %372 ]
   %376 = load ptr, ptr %82, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -20233,7 +20233,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %81
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %148
-  %.2.i = phi ptr [ %151, %148 ], [ %143, %._crit_edge ]
+  %.2.i = phi ptr [ %143, %._crit_edge ], [ %151, %148 ]
   %152 = load ptr, ptr %90, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -20765,7 +20765,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121: ; preds = %370
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121, %395
-  %.2.i122 = phi ptr [ %398, %395 ], [ %390, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121 ]
+  %.2.i122 = phi ptr [ %390, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121 ], [ %398, %395 ]
   %399 = load ptr, ptr %90, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -21084,7 +21084,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit:                 ; preds = %82
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %152
-  %.2.i = phi ptr [ %155, %152 ], [ %147, %._crit_edge ]
+  %.2.i = phi ptr [ %147, %._crit_edge ], [ %155, %152 ]
   %156 = load ptr, ptr %91, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -21617,7 +21617,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122: ; preds = %374
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit125
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit125: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122, %399
-  %.2.i123 = phi ptr [ %402, %399 ], [ %394, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122 ]
+  %.2.i123 = phi ptr [ %394, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122 ], [ %402, %399 ]
   %403 = load ptr, ptr %91, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -21944,7 +21944,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %98
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %166
-  %.2.i = phi ptr [ %169, %166 ], [ %161, %._crit_edge ]
+  %.2.i = phi ptr [ %161, %._crit_edge ], [ %169, %166 ]
   %170 = load ptr, ptr %107, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -22475,7 +22475,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit150: ; preds = %385
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit153
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit153: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit150, %410
-  %.2.i151 = phi ptr [ %413, %410 ], [ %405, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit150 ]
+  %.2.i151 = phi ptr [ %405, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit150 ], [ %413, %410 ]
   %414 = load ptr, ptr %107, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -23726,7 +23726,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %._crit_edge
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %160, %176, %178
-  %.0.in.i = phi ptr [ %177, %176 ], [ %179, %178 ], [ %165, %160 ]
+  %.0.in.i = phi ptr [ %179, %178 ], [ %177, %176 ], [ %165, %160 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %180 = load ptr, ptr %53, align 8, !tbaa !386
   %181 = load ptr, ptr %164, align 8, !tbaa !600
@@ -24518,7 +24518,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %60
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %127
-  %.2.i = phi ptr [ %130, %127 ], [ %122, %._crit_edge ]
+  %.2.i = phi ptr [ %122, %._crit_edge ], [ %130, %127 ]
   %131 = load ptr, ptr %69, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -27176,7 +27176,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %81
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %148
-  %.2.i = phi ptr [ %151, %148 ], [ %143, %._crit_edge ]
+  %.2.i = phi ptr [ %143, %._crit_edge ], [ %151, %148 ]
   %152 = load ptr, ptr %90, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -27734,7 +27734,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129: ; preds = %372
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit132
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit132: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129, %397
-  %.2.i130 = phi ptr [ %400, %397 ], [ %392, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129 ]
+  %.2.i130 = phi ptr [ %392, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129 ], [ %400, %397 ]
   %401 = load ptr, ptr %90, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -28103,7 +28103,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %_ZNKSt8functionIFvP
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %201
-  %.2.i = phi ptr [ %204, %201 ], [ %196, %._crit_edge ]
+  %.2.i = phi ptr [ %196, %._crit_edge ], [ %204, %201 ]
   %205 = load ptr, ptr %134, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
@@ -28221,7 +28221,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176: ; preds = %_ZNKSt8func
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %235, %251, %253
-  %.0.in.i = phi ptr [ %252, %251 ], [ %254, %253 ], [ %240, %235 ]
+  %.0.in.i = phi ptr [ %254, %253 ], [ %252, %251 ], [ %240, %235 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %255 = load ptr, ptr %110, align 8, !tbaa !386
   %256 = load ptr, ptr %239, align 8, !tbaa !600
@@ -28362,7 +28362,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit188
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit188: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184, %306
-  %.2.i186 = phi ptr [ %309, %306 ], [ %301, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ]
+  %.2.i186 = phi ptr [ %301, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ], [ %309, %306 ]
   %310 = load ptr, ptr %134, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
@@ -28637,7 +28637,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit206
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit206: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202, %439
-  %.2.i204 = phi ptr [ %442, %439 ], [ %434, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202 ]
+  %.2.i204 = phi ptr [ %434, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202 ], [ %442, %439 ]
   %443 = load ptr, ptr %134, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -29131,7 +29131,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit235
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit235: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231, %680
-  %.2.i233 = phi ptr [ %683, %680 ], [ %675, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231 ]
+  %.2.i233 = phi ptr [ %675, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231 ], [ %683, %680 ]
   %684 = load ptr, ptr %134, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -29471,7 +29471,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %_ZNKSt8functionIFvP
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %147
-  %.2.i = phi ptr [ %150, %147 ], [ %142, %._crit_edge ]
+  %.2.i = phi ptr [ %142, %._crit_edge ], [ %150, %147 ]
   %151 = load ptr, ptr %77, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -29933,7 +29933,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106: ; preds = %333
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit109
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit109: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106, %358
-  %.2.i107 = phi ptr [ %361, %358 ], [ %353, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106 ]
+  %.2.i107 = phi ptr [ %353, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit106 ], [ %361, %358 ]
   %362 = load ptr, ptr %77, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -30261,7 +30261,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %_ZNKSt8functionIFvP
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %160
-  %.2.i = phi ptr [ %163, %160 ], [ %155, %._crit_edge ]
+  %.2.i = phi ptr [ %155, %._crit_edge ], [ %163, %160 ]
   %164 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -30378,7 +30378,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit102: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit105
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit105: ; preds = %195, %215
-  %.2.i103 = phi ptr [ %218, %215 ], [ %210, %195 ]
+  %.2.i103 = phi ptr [ %210, %195 ], [ %218, %215 ]
   %219 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -30685,7 +30685,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit122
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit122: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119, %366
-  %.2.i120 = phi ptr [ %369, %366 ], [ %361, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119 ]
+  %.2.i120 = phi ptr [ %361, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119 ], [ %369, %366 ]
   %370 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -30828,7 +30828,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127: ; preds = %402
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit130
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit130: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127, %427
-  %.2.i128 = phi ptr [ %430, %427 ], [ %422, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127 ]
+  %.2.i128 = phi ptr [ %422, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127 ], [ %430, %427 ]
   %431 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -30931,7 +30931,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134, %473
-  %.2.i135 = phi ptr [ %476, %473 ], [ %468, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ]
+  %.2.i135 = phi ptr [ %468, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ], [ %476, %473 ]
   %477 = load ptr, ptr %89, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -31932,7 +31932,7 @@ _ZN17llm_build_context16build_inp_s_maskEv.exit:  ; preds = %_ZN17llm_build_cont
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %107
-  %.2.i = phi ptr [ %110, %107 ], [ %102, %._crit_edge ]
+  %.2.i = phi ptr [ %102, %._crit_edge ], [ %110, %107 ]
   %111 = load ptr, ptr %47, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -32591,7 +32591,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %72
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %139
-  %.2.i = phi ptr [ %142, %139 ], [ %134, %._crit_edge ]
+  %.2.i = phi ptr [ %134, %._crit_edge ], [ %142, %139 ]
   %143 = load ptr, ptr %81, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -33028,7 +33028,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit102: ; preds = %317
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit105
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit105: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit102, %342
-  %.2.i103 = phi ptr [ %345, %342 ], [ %337, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit102 ]
+  %.2.i103 = phi ptr [ %337, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit102 ], [ %345, %342 ]
   %346 = load ptr, ptr %81, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -33338,7 +33338,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %85
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %154
-  %.2.i = phi ptr [ %157, %154 ], [ %149, %._crit_edge ]
+  %.2.i = phi ptr [ %149, %._crit_edge ], [ %157, %154 ]
   %158 = load ptr, ptr %96, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -33781,7 +33781,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit154: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit157
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit157: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit154, %342
-  %.2.i155 = phi ptr [ %345, %342 ], [ %337, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit154 ]
+  %.2.i155 = phi ptr [ %337, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit154 ], [ %345, %342 ]
   %346 = load ptr, ptr %96, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -33847,7 +33847,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159: ; preds = %_ZL14llm_bu
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit162
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit162: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159, %368
-  %.2.i160 = phi ptr [ %371, %368 ], [ %363, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159 ]
+  %.2.i160 = phi ptr [ %363, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159 ], [ %371, %368 ]
   %372 = load ptr, ptr %96, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -34336,7 +34336,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %73
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %144
-  %.2.i = phi ptr [ %147, %144 ], [ %139, %._crit_edge ]
+  %.2.i = phi ptr [ %139, %._crit_edge ], [ %147, %144 ]
   %148 = load ptr, ptr %84, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -34417,7 +34417,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL14llm_build
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit125
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit125: ; preds = %161, %180
-  %.2.i123 = phi ptr [ %183, %180 ], [ %175, %161 ]
+  %.2.i123 = phi ptr [ %175, %161 ], [ %183, %180 ]
   %184 = load ptr, ptr %84, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -34471,7 +34471,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127: ; preds = %_ZL14llm_bu
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127, %206, %208
-  %.0.in.i = phi ptr [ %207, %206 ], [ %209, %208 ], [ %194, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127 ]
+  %.0.in.i = phi ptr [ %209, %208 ], [ %207, %206 ], [ %194, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %210 = load ptr, ptr %77, align 8, !tbaa !387
   %211 = load ptr, ptr %59, align 8, !tbaa !386
@@ -35222,7 +35222,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %86
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %155
-  %.2.i = phi ptr [ %158, %155 ], [ %150, %._crit_edge ]
+  %.2.i = phi ptr [ %150, %._crit_edge ], [ %158, %155 ]
   %159 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -35711,7 +35711,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit126: ; preds = %349
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit129
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit129: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit126, %374
-  %.2.i127 = phi ptr [ %377, %374 ], [ %369, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit126 ]
+  %.2.i127 = phi ptr [ %369, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit126 ], [ %377, %374 ]
   %378 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -36813,7 +36813,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %89
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %155
-  %.2.i = phi ptr [ %158, %155 ], [ %150, %._crit_edge ]
+  %.2.i = phi ptr [ %150, %._crit_edge ], [ %158, %155 ]
   %159 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -37012,7 +37012,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit107: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit110
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit110: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit107, %240
-  %.2.i108 = phi ptr [ %243, %240 ], [ %235, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit107 ]
+  %.2.i108 = phi ptr [ %235, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit107 ], [ %243, %240 ]
   %244 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -37078,7 +37078,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112: ; preds = %_ZL14llm_bu
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit115
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit115: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112, %266
-  %.2.i113 = phi ptr [ %269, %266 ], [ %261, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112 ]
+  %.2.i113 = phi ptr [ %261, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112 ], [ %269, %266 ]
   %270 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -37234,7 +37234,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121, %348
-  %.2.i122 = phi ptr [ %351, %348 ], [ %343, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121 ]
+  %.2.i122 = phi ptr [ %343, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121 ], [ %351, %348 ]
   %352 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -37416,7 +37416,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit134
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit134: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131, %430
-  %.2.i132 = phi ptr [ %433, %430 ], [ %425, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131 ]
+  %.2.i132 = phi ptr [ %425, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131 ], [ %433, %430 ]
   %434 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -37717,7 +37717,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %86
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %154
-  %.2.i = phi ptr [ %157, %154 ], [ %149, %._crit_edge ]
+  %.2.i = phi ptr [ %149, %._crit_edge ], [ %157, %154 ]
   %158 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -37986,7 +37986,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit115
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit115: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112, %264
-  %.2.i113 = phi ptr [ %267, %264 ], [ %259, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112 ]
+  %.2.i113 = phi ptr [ %259, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112 ], [ %267, %264 ]
   %268 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -38052,7 +38052,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit117: ; preds = %_ZL14llm_bu
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit120
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit120: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit117, %290
-  %.2.i118 = phi ptr [ %293, %290 ], [ %285, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit117 ]
+  %.2.i118 = phi ptr [ %285, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit117 ], [ %293, %290 ]
   %294 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -38287,7 +38287,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129: ; preds = %383
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit132
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit132: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129, %408
-  %.2.i130 = phi ptr [ %411, %408 ], [ %403, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129 ]
+  %.2.i130 = phi ptr [ %403, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit129 ], [ %411, %408 ]
   %412 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -38598,7 +38598,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %85
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %151
-  %.2.i = phi ptr [ %154, %151 ], [ %146, %._crit_edge ]
+  %.2.i = phi ptr [ %146, %._crit_edge ], [ %154, %151 ]
   %155 = load ptr, ptr %94, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -38707,7 +38707,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit124: ; preds = %173, %198
-  %.2.i122 = phi ptr [ %201, %198 ], [ %193, %173 ]
+  %.2.i122 = phi ptr [ %193, %173 ], [ %201, %198 ]
   %202 = load ptr, ptr %94, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -38905,7 +38905,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134, %288
-  %.2.i135 = phi ptr [ %291, %288 ], [ %283, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ]
+  %.2.i135 = phi ptr [ %283, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ], [ %291, %288 ]
   %292 = load ptr, ptr %94, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -38971,7 +38971,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit139: ; preds = %_ZL14llm_bu
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit142
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit142: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit139, %314
-  %.2.i140 = phi ptr [ %317, %314 ], [ %309, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit139 ]
+  %.2.i140 = phi ptr [ %309, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit139 ], [ %317, %314 ]
   %318 = load ptr, ptr %94, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -39226,7 +39226,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153: ; preds = %411
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit156
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit156: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153, %436
-  %.2.i154 = phi ptr [ %439, %436 ], [ %431, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153 ]
+  %.2.i154 = phi ptr [ %431, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153 ], [ %439, %436 ]
   %440 = load ptr, ptr %94, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -40391,7 +40391,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %89
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %157
-  %.2.i = phi ptr [ %160, %157 ], [ %152, %._crit_edge ]
+  %.2.i = phi ptr [ %152, %._crit_edge ], [ %160, %157 ]
   %161 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -40827,7 +40827,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125: ; preds = %332
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit128
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit128: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125, %357
-  %.2.i126 = phi ptr [ %360, %357 ], [ %352, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125 ]
+  %.2.i126 = phi ptr [ %352, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125 ], [ %360, %357 ]
   %361 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -40955,7 +40955,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit137: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134, %411
-  %.2.i135 = phi ptr [ %414, %411 ], [ %406, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ]
+  %.2.i135 = phi ptr [ %406, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134 ], [ %414, %411 ]
   %415 = load ptr, ptr %98, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -41313,7 +41313,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %92
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %166
-  %.2.i = phi ptr [ %169, %166 ], [ %161, %._crit_edge ]
+  %.2.i = phi ptr [ %161, %._crit_edge ], [ %169, %166 ]
   %170 = load ptr, ptr %101, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -41474,7 +41474,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140: ; preds = %_ZL14llm_bu
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140, %231, %233
-  %.0.in.i = phi ptr [ %232, %231 ], [ %234, %233 ], [ %219, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140 ]
+  %.0.in.i = phi ptr [ %234, %233 ], [ %232, %231 ], [ %219, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %235 = load ptr, ptr %94, align 8, !tbaa !387
   %236 = load ptr, ptr %71, align 8, !tbaa !386
@@ -41898,7 +41898,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159: ; preds = %403
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit163
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit163: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159, %428
-  %.2.i161 = phi ptr [ %431, %428 ], [ %423, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159 ]
+  %.2.i161 = phi ptr [ %423, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159 ], [ %431, %428 ]
   %432 = load ptr, ptr %101, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -42374,7 +42374,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %1
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %211
-  %.2.i = phi ptr [ %214, %211 ], [ %206, %._crit_edge ]
+  %.2.i = phi ptr [ %206, %._crit_edge ], [ %214, %211 ]
   %215 = load ptr, ptr %154, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
@@ -42580,7 +42580,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit204: ; preds = %264
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit207
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit207: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit204, %290
-  %.2.i205 = phi ptr [ %293, %290 ], [ %285, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit204 ]
+  %.2.i205 = phi ptr [ %285, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit204 ], [ %293, %290 ]
   %294 = load ptr, ptr %154, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
@@ -42881,7 +42881,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit226
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit226: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223, %427
-  %.2.i224 = phi ptr [ %430, %427 ], [ %422, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223 ]
+  %.2.i224 = phi ptr [ %422, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223 ], [ %430, %427 ]
   %431 = load ptr, ptr %154, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -43338,7 +43338,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit249: ; preds = %623
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit252
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit252: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit249, %648
-  %.2.i250 = phi ptr [ %651, %648 ], [ %643, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit249 ]
+  %.2.i250 = phi ptr [ %643, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit249 ], [ %651, %648 ]
   %652 = load ptr, ptr %154, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -43759,7 +43759,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %76
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %144
-  %.2.i = phi ptr [ %147, %144 ], [ %139, %._crit_edge ]
+  %.2.i = phi ptr [ %139, %._crit_edge ], [ %147, %144 ]
   %148 = load ptr, ptr %85, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -44345,7 +44345,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit136: ; preds = %401
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit139
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit139: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit136, %426
-  %.2.i137 = phi ptr [ %429, %426 ], [ %421, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit136 ]
+  %.2.i137 = phi ptr [ %421, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit136 ], [ %429, %426 ]
   %430 = load ptr, ptr %85, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -44656,7 +44656,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %94
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %161
-  %.2.i = phi ptr [ %164, %161 ], [ %156, %._crit_edge ]
+  %.2.i = phi ptr [ %156, %._crit_edge ], [ %164, %161 ]
   %165 = load ptr, ptr %103, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -45177,7 +45177,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit170
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit170: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167, %397
-  %.2.i168 = phi ptr [ %400, %397 ], [ %392, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167 ]
+  %.2.i168 = phi ptr [ %392, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167 ], [ %400, %397 ]
   %401 = load ptr, ptr %103, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -45385,7 +45385,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177: ; preds = %466
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit180
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit180: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177, %491
-  %.2.i178 = phi ptr [ %494, %491 ], [ %486, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177 ]
+  %.2.i178 = phi ptr [ %486, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177 ], [ %494, %491 ]
   %495 = load ptr, ptr %103, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -45490,7 +45490,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit187
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit187: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184, %539
-  %.2.i185 = phi ptr [ %542, %539 ], [ %534, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ]
+  %.2.i185 = phi ptr [ %534, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ], [ %542, %539 ]
   %543 = load ptr, ptr %103, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -45831,7 +45831,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %._crit_edge
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit, %157
-  %.2.i = phi ptr [ %160, %157 ], [ %152, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit ]
+  %.2.i = phi ptr [ %152, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit ], [ %160, %157 ]
   %161 = load ptr, ptr %102, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -46389,7 +46389,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155: ; preds = %365
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit158
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit158: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155, %390
-  %.2.i156 = phi ptr [ %393, %390 ], [ %385, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155 ]
+  %.2.i156 = phi ptr [ %385, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155 ], [ %393, %390 ]
   %394 = load ptr, ptr %102, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -46911,7 +46911,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %._crit_edge
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit, %266
-  %.2.i = phi ptr [ %269, %266 ], [ %261, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit ]
+  %.2.i = phi ptr [ %261, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit ], [ %269, %266 ]
   %270 = load ptr, ptr %153, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -47507,7 +47507,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228, %528
-  %.2.i229 = phi ptr [ %531, %528 ], [ %523, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228 ]
+  %.2.i229 = phi ptr [ %523, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228 ], [ %531, %528 ]
   %532 = load ptr, ptr %153, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -47957,7 +47957,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256: ; preds = %699
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit259
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit259: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256, %724
-  %.2.i257 = phi ptr [ %727, %724 ], [ %719, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256 ]
+  %.2.i257 = phi ptr [ %719, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256 ], [ %727, %724 ]
   %728 = load ptr, ptr %153, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -49629,7 +49629,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %86
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %153
-  %.2.i = phi ptr [ %156, %153 ], [ %148, %._crit_edge ]
+  %.2.i = phi ptr [ %148, %._crit_edge ], [ %156, %153 ]
   %157 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -49790,7 +49790,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119: ; preds = %_ZL14llm_bu
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119, %218, %220
-  %.0.in.i = phi ptr [ %219, %218 ], [ %221, %220 ], [ %206, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119 ]
+  %.0.in.i = phi ptr [ %221, %220 ], [ %219, %218 ], [ %206, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit119 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %222 = load ptr, ptr %88, align 8, !tbaa !387
   %223 = load ptr, ptr %65, align 8, !tbaa !386
@@ -50214,7 +50214,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit138: ; preds = %390
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit142
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit142: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit138, %415
-  %.2.i140 = phi ptr [ %418, %415 ], [ %410, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit138 ]
+  %.2.i140 = phi ptr [ %410, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit138 ], [ %418, %415 ]
   %419 = load ptr, ptr %95, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -51379,7 +51379,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit97: ; preds = %174
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit97, %322
-  %.2.i = phi ptr [ %325, %322 ], [ %317, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit97 ]
+  %.2.i = phi ptr [ %317, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit97 ], [ %325, %322 ]
   %326 = load ptr, ptr %76, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -51711,7 +51711,7 @@ _ZN17llm_build_context13build_inp_posEv.exit:     ; preds = %104
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit: ; preds = %._crit_edge, %170
-  %.2.i = phi ptr [ %173, %170 ], [ %165, %._crit_edge ]
+  %.2.i = phi ptr [ %165, %._crit_edge ], [ %173, %170 ]
   %174 = load ptr, ptr %113, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -52311,7 +52311,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172: ; preds = %_ZNKSt8func
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit175
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit175: ; preds = %443, %428, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172
-  %.1133 = phi ptr [ %423, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172 ], [ %446, %443 ], [ %438, %428 ]
+  %.1133 = phi ptr [ %423, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172 ], [ %438, %428 ], [ %446, %443 ]
   %447 = load i64, ptr %137, align 8, !tbaa !397
   %448 = add nsw i64 %447, -1
   %449 = icmp eq i64 %448, %indvars.iv
@@ -52439,7 +52439,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178: ; preds = %474
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit181
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit181: ; preds = %487, %503
-  %.2.i179 = phi ptr [ %506, %503 ], [ %498, %487 ]
+  %.2.i179 = phi ptr [ %498, %487 ], [ %506, %503 ]
   %507 = load ptr, ptr %113, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -52552,7 +52552,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185: ; preds = %513
   br label %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit188
 
 _ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit188: ; preds = %538, %554
-  %.2.i186 = phi ptr [ %557, %554 ], [ %549, %538 ]
+  %.2.i186 = phi ptr [ %549, %538 ], [ %557, %554 ]
   %558 = load ptr, ptr %113, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -53208,7 +53208,7 @@ _ZN17llm_build_context13build_inp_clsEv.exit32:   ; preds = %82
   unreachable
 
 139:                                              ; preds = %115, %131, %27, %_ZN17llm_build_context13build_inp_clsEv.exit, %_ZN17llm_build_context14build_inp_meanEv.exit
-  %.023 = phi ptr [ %56, %_ZN17llm_build_context14build_inp_meanEv.exit ], [ %81, %_ZN17llm_build_context13build_inp_clsEv.exit ], [ %19, %27 ], [ %137, %131 ], [ %123, %115 ]
+  %.023 = phi ptr [ %19, %27 ], [ %56, %_ZN17llm_build_context14build_inp_meanEv.exit ], [ %81, %_ZN17llm_build_context13build_inp_clsEv.exit ], [ %137, %131 ], [ %123, %115 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %141 = load ptr, ptr %140, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -53648,7 +53648,7 @@ default.unreachable47:                            ; preds = %8
   unreachable
 
 39:                                               ; preds = %23, %19, %15
-  %.0 = phi ptr [ %18, %15 ], [ %22, %19 ], [ %38, %23 ]
+  %.0 = phi ptr [ %38, %23 ], [ %18, %15 ], [ %22, %19 ]
   %40 = icmp ne ptr %3, null
   %41 = icmp ne ptr %4, null
   %or.cond = or i1 %40, %41
@@ -54412,7 +54412,7 @@ default.unreachable10:                            ; preds = %112
   unreachable
 
 100:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166
-  %.0 = phi ptr [ %91, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ], [ %96, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ]
+  %.0 = phi ptr [ %96, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168 ], [ %91, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit166 ]
   %.not155 = icmp eq ptr %7, null
   br i1 %.not155, label %106, label %101
 
@@ -54682,7 +54682,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188: ; preds = %_ZNKSt8func
   br label %166
 
 166:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174
-  %.3 = phi ptr [ %114, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174 ], [ %124, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178 ], [ %119, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176 ], [ %129, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180 ], [ %138, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ], [ %162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188 ]
+  %.3 = phi ptr [ %162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit188 ], [ %114, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit174 ], [ %124, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178 ], [ %119, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit176 ], [ %129, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit180 ], [ %138, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit184 ]
   %.not158 = icmp eq i32 %13, 0
   br i1 %.not158, label %172, label %167
 
@@ -56284,7 +56284,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %28
   br label %_ZN17llm_build_context18build_rope_factorsEi.exit
 
 _ZN17llm_build_context18build_rope_factorsEi.exit: ; preds = %59, %83, %85
-  %.0.in.i = phi ptr [ %84, %83 ], [ %86, %85 ], [ %71, %59 ]
+  %.0.in.i = phi ptr [ %86, %85 ], [ %84, %83 ], [ %71, %59 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !347
   %87 = load ptr, ptr %14, align 8, !tbaa !386
   %88 = load ptr, ptr %19, align 8, !tbaa !611
@@ -56768,7 +56768,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_node10_M_extra
           to label %61 unwind label %75
 
 61:                                               ; preds = %59, %57, %54, %49, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink.i.i36 = phi ptr [ %41, %49 ], [ %41, %54 ], [ %41, %57 ], [ %41, %59 ], [ %60, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink.i.i36 = phi ptr [ %41, %59 ], [ %41, %49 ], [ %41, %54 ], [ %41, %57 ], [ %60, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %62 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %.sink.i.i36, i64 32
   %64 = load i32, ptr %62, align 4, !tbaa !155
@@ -57357,7 +57357,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !424
   br label %41
 
@@ -57647,7 +57647,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIfSaIfEEESt10_Select
   br label %.thread
 
 .thread:                                          ; preds = %18, %21
-  %26 = phi i1 [ true, %18 ], [ %25, %21 ]
+  %26 = phi i1 [ %25, %21 ], [ true, %18 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #33
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !252
@@ -57891,8 +57891,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIfSaIfEEESt
   br label %_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIfSaIfEEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIfSaIfEEESt10_Select1stIS5_ESt4lessIiESaIS5_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

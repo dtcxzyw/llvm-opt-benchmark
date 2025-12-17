@@ -442,7 +442,7 @@ _remove_path_slashes.exit:                        ; preds = %49
   br label %.sink.split171
 
 .sink.split171:                                   ; preds = %_remove_path_slashes.exit, %24, %34, %162
-  %.sink172 = phi ptr [ %163, %162 ], [ %35, %34 ], [ %25, %24 ], [ %39, %_remove_path_slashes.exit ]
+  %.sink172 = phi ptr [ %163, %162 ], [ %25, %24 ], [ %35, %34 ], [ %39, %_remove_path_slashes.exit ]
   store ptr %.sink172, ptr %11, align 8
   br label %164
 

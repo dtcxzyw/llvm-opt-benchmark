@@ -285,11 +285,11 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br label %.thread285
 
 .thread285:                                       ; preds = %.thread261.loopexit, %36, %.thread, %.split339.us, %110
-  %.0202283 = phi ptr [ %.1203.ph.us.ph521, %110 ], [ %.1203.ph.us.ph521, %.split339.us ], [ null, %.thread ], [ null, %36 ], [ null, %.thread261.loopexit ]
-  %.0214280 = phi i1 [ %.1215.ph.us.ph519, %110 ], [ %.1215.ph.us.ph519, %.split339.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
-  %.0219278 = phi i1 [ %.1220.ph.us.ph, %110 ], [ %.1220.ph.us.ph, %.split339.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
-  %.6 = phi i8 [ 1, %110 ], [ %.1209.ph.us.ph524, %.split339.us ], [ 0, %.thread ], [ 0, %36 ], [ 0, %.thread261.loopexit ]
-  %.1196 = phi i1 [ true, %110 ], [ false, %.split339.us ], [ false, %.thread ], [ false, %36 ], [ false, %.thread261.loopexit ]
+  %.0202283 = phi ptr [ %.1203.ph.us.ph521, %.split339.us ], [ %.1203.ph.us.ph521, %110 ], [ null, %36 ], [ null, %.thread ], [ null, %.thread261.loopexit ]
+  %.0214280 = phi i1 [ %.1215.ph.us.ph519, %.split339.us ], [ %.1215.ph.us.ph519, %110 ], [ false, %36 ], [ false, %.thread ], [ false, %.thread261.loopexit ]
+  %.0219278 = phi i1 [ %.1220.ph.us.ph, %.split339.us ], [ %.1220.ph.us.ph, %110 ], [ false, %36 ], [ false, %.thread ], [ false, %.thread261.loopexit ]
+  %.6 = phi i8 [ %.1209.ph.us.ph524, %.split339.us ], [ 1, %110 ], [ 0, %36 ], [ 0, %.thread ], [ 0, %.thread261.loopexit ]
+  %.1196 = phi i1 [ false, %.split339.us ], [ true, %110 ], [ false, %36 ], [ false, %.thread ], [ false, %.thread261.loopexit ]
   br i1 %4, label %111, label %.thread307
 
 111:                                              ; preds = %.thread285
@@ -415,7 +415,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br i1 %or.cond30, label %.loopexit, label %.lr.ph502, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %126, %.lr.ph502, %153, %147, %158
-  %.sink = phi i32 [ %159, %158 ], [ 268435455, %147 ], [ 268435455, %153 ], [ 268435455, %.lr.ph502 ], [ 268435455, %126 ]
+  %.sink = phi i32 [ 268435455, %147 ], [ %159, %158 ], [ 268435455, %153 ], [ 268435455, %.lr.ph502 ], [ 268435455, %126 ]
   store i32 %1, ptr %119, align 4
   store i32 %.sink, ptr %120, align 8
   br label %.loopexit
@@ -517,7 +517,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br label %.thread307
 
 .thread307:                                       ; preds = %.thread307.loopexit, %.thread285, %.critedge252, %200, %199, %.loopexit, %203, %187, %172, %181, %175, %209, %193, %.split337.us, %.split.us
-  %.0 = phi i1 [ false, %.split.us ], [ false, %.split337.us ], [ %.2.ph, %.loopexit ], [ false, %193 ], [ false, %209 ], [ true, %175 ], [ true, %181 ], [ true, %172 ], [ true, %187 ], [ true, %203 ], [ true, %199 ], [ true, %200 ], [ true, %.critedge252 ], [ true, %.thread285 ], [ true, %.thread307.loopexit ]
+  %.0 = phi i1 [ false, %.split.us ], [ false, %.split337.us ], [ true, %203 ], [ %.2.ph, %.loopexit ], [ true, %172 ], [ false, %193 ], [ false, %209 ], [ true, %187 ], [ true, %175 ], [ true, %181 ], [ true, %.thread285 ], [ true, %199 ], [ true, %200 ], [ true, %.critedge252 ], [ true, %.thread307.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0

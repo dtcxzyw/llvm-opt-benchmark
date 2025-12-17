@@ -3972,7 +3972,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   br label %1372
 
 1372:                                             ; preds = %1370, %1356, %1344, %1341, %351, %349
-  %.pn189.i = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ], [ %.pn181.pn.pn.pn.pn.i, %1370 ], [ %.pn175.pn.pn.i, %1356 ], [ %1345, %1344 ], [ %1342, %1341 ]
+  %.pn189.i = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ], [ %1345, %1344 ], [ %.pn175.pn.pn.i, %1356 ], [ %1342, %1341 ], [ %.pn181.pn.pn.pn.pn.i, %1370 ]
   %1373 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
   br label %1374
 
@@ -4421,7 +4421,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   br label %.body
 
 .body:                                            ; preds = %1547, %1374, %345, %338
-  %.pn = phi { ptr, i32 } [ %1548, %1547 ], [ %339, %338 ], [ %.pn189.pn.i, %1374 ], [ %.pn.i, %345 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %345 ], [ %1548, %1547 ], [ %339, %338 ], [ %.pn189.pn.i, %1374 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
   %1549 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #27
   %1550 = icmp eq i32 %.05, %1549
@@ -4818,7 +4818,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb
   unreachable
 
 _ZZN8nanobind6detail11func_createILb0ELb1ERPFiiiEiJiiEJLm0ELm1EEJNS_5scopeENS_4nameENS_5arg_vES7_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESN_SO_SP_SQ_SS_.exit: ; preds = %17, %5, %11
-  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %5 ], [ %23, %17 ]
+  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %11 ], [ %23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
@@ -4898,7 +4898,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   unreachable
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE3$_4iJiiEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESM_SN_SO_SP_SR_.exit": ; preds = %17, %5, %11
-  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %5 ], [ %23, %17 ]
+  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %11 ], [ %23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }
@@ -9379,7 +9379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   unreachable
 
 55:                                               ; preds = %50, %48, %_ZN8nanobind18gil_scoped_acquireD2Ev.exit8.i
-  %.merged.i = phi { ptr, i32 } [ %33, %_ZN8nanobind18gil_scoped_acquireD2Ev.exit8.i ], [ %51, %50 ], [ %49, %48 ]
+  %.merged.i = phi { ptr, i32 } [ %49, %48 ], [ %33, %_ZN8nanobind18gil_scoped_acquireD2Ev.exit8.i ], [ %51, %50 ]
   invoke void @PyEval_RestoreThread(ptr noundef %16) #28
           to label %.body unwind label %56
 
@@ -12106,7 +12106,7 @@ _ZNK8nanobind6detail3apiINS0_8accessorINS0_13num_item_listEEEE5equalINS_6handleE
   br label %.critedge48.i
 
 .critedge48.i:                                    ; preds = %.critedge46.i, %22, %17
-  %45 = phi i1 [ %43, %.critedge46.i ], [ false, %17 ], [ false, %22 ]
+  %45 = phi i1 [ %43, %.critedge46.i ], [ false, %22 ], [ false, %17 ]
   invoke void @_ZN8nanobind4list5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
           to label %46 unwind label %61
 
@@ -12186,7 +12186,7 @@ _ZNK8nanobind6detail3apiINS0_8accessorINS0_13num_item_listEEEE5equalINS_6handleE
   br label %76
 
 76:                                               ; preds = %75, %61, %59, %57, %55
-  %.pn39.pn.i = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %.pn.pn.pn.pn.i, %75 ]
+  %.pn39.pn.i = phi { ptr, i32 } [ %56, %55 ], [ %60, %59 ], [ %58, %57 ], [ %62, %61 ], [ %.pn.pn.pn.pn.i, %75 ]
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
   br label %78
 
@@ -12428,8 +12428,8 @@ _ZNK8nanobind6detail3apiINS0_8accessorINS0_8str_itemEEEE5equalINS_6handleEEEbRKN
   br label %.critedge54.i
 
 .critedge54.i:                                    ; preds = %.critedge52.i, %34, %_ZN8nanobind4dict6updateENS_6handleE.exit.i
-  %56 = phi ptr [ %.pre.i, %.critedge52.i ], [ %30, %_ZN8nanobind4dict6updateENS_6handleE.exit.i ], [ %30, %34 ]
-  %57 = phi i1 [ %54, %.critedge52.i ], [ false, %_ZN8nanobind4dict6updateENS_6handleE.exit.i ], [ false, %34 ]
+  %56 = phi ptr [ %.pre.i, %.critedge52.i ], [ %30, %34 ], [ %30, %_ZN8nanobind4dict6updateENS_6handleE.exit.i ]
+  %57 = phi i1 [ %54, %.critedge52.i ], [ false, %34 ], [ false, %_ZN8nanobind4dict6updateENS_6handleE.exit.i ]
   invoke void @PyDict_Clear(ptr noundef %56) #28
           to label %_ZN8nanobind4dict5clearEv.exit.i unwind label %72
 
@@ -12517,7 +12517,7 @@ _ZN8nanobind4dict5clearEv.exit.i:                 ; preds = %.critedge54.i
   br label %87
 
 87:                                               ; preds = %86, %72, %70, %68, %66
-  %.pn45.pn.i = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %73, %72 ], [ %.pn39.pn.pn.pn.i, %86 ]
+  %.pn45.pn.i = phi { ptr, i32 } [ %67, %66 ], [ %71, %70 ], [ %69, %68 ], [ %73, %72 ], [ %.pn39.pn.pn.pn.i, %86 ]
   %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #31
   br label %89
 

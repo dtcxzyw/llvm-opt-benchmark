@@ -458,11 +458,11 @@ define internal fastcc i32 @dissect_per_open_type_internal(ptr noundef %0, i32 n
   br label %76
 
 76:                                               ; preds = %54, %71, %73
-  %.0137170181 = phi i32 [ %.2195, %73 ], [ %.2195, %71 ], [ 0, %54 ]
-  %.3172179 = phi ptr [ %0, %73 ], [ %0, %71 ], [ %.2133194, %54 ]
-  %77 = phi i32 [ %53, %73 ], [ %53, %71 ], [ %51, %54 ]
-  %.1139 = phi i32 [ %.2140, %73 ], [ %.2140, %71 ], [ %.2143, %54 ]
-  %.1135 = phi ptr [ %.2136, %73 ], [ %.2136, %71 ], [ %.2133194, %54 ]
+  %.0137170181 = phi i32 [ %.2195, %71 ], [ %.2195, %73 ], [ 0, %54 ]
+  %.3172179 = phi ptr [ %0, %71 ], [ %0, %73 ], [ %.2133194, %54 ]
+  %77 = phi i32 [ %53, %71 ], [ %53, %73 ], [ %51, %54 ]
+  %.1139 = phi i32 [ %.2140, %71 ], [ %.2140, %73 ], [ %.2143, %54 ]
+  %.1135 = phi ptr [ %.2136, %71 ], [ %.2136, %73 ], [ %.2133194, %54 ]
   %.not159 = icmp eq ptr %14, null
   br i1 %.not159, label %99, label %78
 
@@ -647,7 +647,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   br label %34
 
 34:                                               ; preds = %30, %.lr.ph
-  %.1182 = phi i32 [ %31, %30 ], [ %.0181300, %.lr.ph ]
+  %.1182 = phi i32 [ %.0181300, %.lr.ph ], [ %31, %30 ]
   %35 = icmp slt i32 %.1182, %25
   br i1 %35, label %36, label %40
 
@@ -687,7 +687,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   br label %48
 
 48:                                               ; preds = %44, %.backedge
-  %.4 = phi i32 [ %45, %44 ], [ %.3306, %.backedge ]
+  %.4 = phi i32 [ %.3306, %.backedge ], [ %45, %44 ]
   %49 = and i32 %.1184305, 7
   %.not206 = icmp eq i32 %49, 0
   %or.cond215 = and i1 %.not204, %.not206
@@ -703,7 +703,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   br label %55
 
 55:                                               ; preds = %51, %48
-  %.5 = phi i32 [ %52, %51 ], [ %.4, %48 ]
+  %.5 = phi i32 [ %.4, %48 ], [ %52, %51 ]
   %56 = add nuw nsw i32 %.1184305, 1
   %57 = lshr i32 %.1189302, 3
   %58 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %57)
@@ -772,9 +772,9 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   br label %90
 
 90:                                               ; preds = %73, %75, %86, %84
-  %.1187 = phi i32 [ %.0186303, %75 ], [ %.0186303, %86 ], [ %.0186303, %84 ], [ 16, %73 ]
-  %.7 = phi i32 [ %.6, %75 ], [ %87, %86 ], [ %.5, %84 ], [ %.6, %73 ]
-  %.1 = phi i32 [ %67, %75 ], [ %65, %86 ], [ %65, %84 ], [ %67, %73 ]
+  %.1187 = phi i32 [ %.0186303, %84 ], [ 16, %73 ], [ %.0186303, %75 ], [ %.0186303, %86 ]
+  %.7 = phi i32 [ %.5, %84 ], [ %.6, %73 ], [ %.6, %75 ], [ %87, %86 ]
+  %.1 = phi i32 [ %65, %84 ], [ %67, %73 ], [ %67, %75 ], [ %65, %86 ]
   %91 = add nuw nsw i32 %.0185304, 1
   %92 = icmp samesign ult i32 %91, %.1187
   br i1 %92, label %.backedge.backedge, label %93
@@ -1162,7 +1162,7 @@ define hidden i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %1
   unreachable
 
 proto_item_set_hidden.exit:                       ; preds = %235, %232, %.cont262.thread, %208, %205, %183, %180, %163, %160, %159, %143, %140, %139, %122, %119, %118, %.cont262, %.cont260, %.cont271, %199, %.cont277, %174, %117, %.cont245, %138, %.cont242, %158, %.cont239
-  %.1180 = phi i32 [ %64, %117 ], [ %64, %.cont245 ], [ %64, %138 ], [ %64, %.cont242 ], [ %64, %158 ], [ %64, %.cont239 ], [ %16, %174 ], [ %16, %.cont277 ], [ %197, %199 ], [ %197, %.cont271 ], [ %16, %.cont260 ], [ %16, %.cont262 ], [ %64, %118 ], [ %64, %119 ], [ %64, %122 ], [ %64, %139 ], [ %64, %140 ], [ %64, %143 ], [ %64, %159 ], [ %64, %160 ], [ %64, %163 ], [ %16, %180 ], [ %16, %183 ], [ %197, %205 ], [ %197, %208 ], [ %16, %.cont262.thread ], [ %16, %232 ], [ %16, %235 ]
+  %.1180 = phi i32 [ %64, %.cont239 ], [ %16, %.cont277 ], [ %197, %208 ], [ %197, %.cont271 ], [ %197, %205 ], [ %16, %235 ], [ %16, %232 ], [ %16, %180 ], [ %64, %.cont245 ], [ %64, %.cont242 ], [ %64, %117 ], [ %16, %.cont262 ], [ %64, %138 ], [ %64, %122 ], [ %64, %158 ], [ %64, %143 ], [ %16, %174 ], [ %64, %163 ], [ %197, %199 ], [ %16, %183 ], [ %16, %.cont260 ], [ %16, %.cont262.thread ], [ %64, %118 ], [ %64, %119 ], [ %64, %139 ], [ %64, %140 ], [ %64, %159 ], [ %64, %160 ]
   ret i32 %.1180
 }
 
@@ -1557,7 +1557,7 @@ define internal fastcc i32 @dissect_per_restricted_character_string_sorted(ptr n
   br label %44
 
 44:                                               ; preds = %42, %40, %38, %36, %34, %32, %31, %29, %27, %26
-  %.0101 = phi i32 [ 1, %26 ], [ 2, %27 ], [ %., %29 ], [ 1, %31 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ], [ 6, %40 ], [ %.123, %42 ]
+  %.0101 = phi i32 [ 6, %40 ], [ 1, %26 ], [ %., %29 ], [ 2, %27 ], [ %.123, %42 ], [ 1, %31 ], [ 2, %32 ], [ 3, %34 ], [ 4, %36 ], [ 5, %38 ]
   br i1 %7, label %45, label %select.unfold
 
 45:                                               ; preds = %44
@@ -1596,9 +1596,9 @@ proto_item_set_hidden.exit:                       ; preds = %56, %53, %50, %45
   br label %select.unfold
 
 select.unfold:                                    ; preds = %proto_item_set_hidden.exit, %44
-  %.0107 = phi i32 [ %6, %44 ], [ %spec.select, %proto_item_set_hidden.exit ]
-  %.0105 = phi i32 [ %spec.store.select, %44 ], [ %spec.select173, %proto_item_set_hidden.exit ]
-  %.0104 = phi i32 [ %1, %44 ], [ %47, %proto_item_set_hidden.exit ]
+  %.0107 = phi i32 [ %spec.select, %proto_item_set_hidden.exit ], [ %6, %44 ]
+  %.0105 = phi i32 [ %spec.select173, %proto_item_set_hidden.exit ], [ %spec.store.select, %44 ]
+  %.0104 = phi i32 [ %47, %proto_item_set_hidden.exit ], [ %1, %44 ]
   %62 = icmp ne i32 %.0105, %.0107
   %63 = icmp sgt i32 %.0107, 2
   %or.cond.not = or i1 %63, %62
@@ -1657,7 +1657,7 @@ proto_item_set_hidden.exit131.thread:             ; preds = %select.unfold
   br i1 %narrow, label %93, label %101
 
 proto_item_set_hidden.exit131:                    ; preds = %80, %77, %71, %72
-  %.1 = phi i32 [ %74, %72 ], [ %.0104, %71 ], [ %74, %77 ], [ %74, %80 ]
+  %.1 = phi i32 [ %74, %80 ], [ %74, %72 ], [ %.0104, %71 ], [ %74, %77 ]
   %90 = load i32, ptr %14, align 4
   %.not118 = icmp eq i32 %90, 0
   %91 = icmp eq i32 %.1, %.0104
@@ -1682,8 +1682,8 @@ proto_item_set_hidden.exit131:                    ; preds = %80, %77, %71, %72
   br label %101
 
 101:                                              ; preds = %83, %98, %93, %proto_item_set_hidden.exit131
-  %102 = phi i32 [ %94, %98 ], [ %94, %93 ], [ %90, %proto_item_set_hidden.exit131 ], [ %87, %83 ]
-  %.3 = phi i32 [ %100, %98 ], [ %.2138, %93 ], [ %.2, %proto_item_set_hidden.exit131 ], [ %.2141, %83 ]
+  %102 = phi i32 [ %94, %98 ], [ %90, %proto_item_set_hidden.exit131 ], [ %94, %93 ], [ %87, %83 ]
+  %.3 = phi i32 [ %100, %98 ], [ %.2, %proto_item_set_hidden.exit131 ], [ %.2138, %93 ], [ %.2141, %83 ]
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 408
@@ -1996,7 +1996,7 @@ proto_item_set_hidden.exit:                       ; preds = %23, %20, %17, %12
   %45 = add i32 %33, 1
   br i1 %or.cond3, label %.thread254, label %47
 
-.thread254:                                       ; preds = %42, %39, %35
+.thread254:                                       ; preds = %42, %35, %39
   %.0231.ph = phi i32 [ -1, %39 ], [ 1000000, %35 ], [ -1, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %46, align 8
@@ -2284,7 +2284,7 @@ proto_item_set_hidden.exit:                       ; preds = %23, %20, %17, %12
   unreachable
 
 per_check_value.exit:                             ; preds = %.sink.split.i246, %185, %.sink.split.i, %180, %191
-  %.0226 = phi ptr [ %192, %191 ], [ %181, %180 ], [ %181, %.sink.split.i ], [ %186, %185 ], [ %186, %.sink.split.i246 ]
+  %.0226 = phi ptr [ %192, %191 ], [ %181, %.sink.split.i ], [ %181, %180 ], [ %186, %185 ], [ %186, %.sink.split.i246 ]
   %194 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0226, ptr %194, align 8
   %.not240 = icmp eq ptr %7, null
@@ -2295,7 +2295,7 @@ per_check_value.exit:                             ; preds = %.sink.split.i246, %
   br label %196
 
 196:                                              ; preds = %.thread, %per_check_value.exit, %195
-  %.1 = phi i32 [ %.2, %195 ], [ %.2, %per_check_value.exit ], [ %29, %.thread ]
+  %.1 = phi i32 [ %29, %.thread ], [ %.2, %195 ], [ %.2, %per_check_value.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
@@ -2769,7 +2769,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %proto_item_set_hidden.exit85
 
 33:                                               ; preds = %.thread, %10
-  %.074 = phi i32 [ %1, %10 ], [ %15, %.thread ]
+  %.074 = phi i32 [ %15, %.thread ], [ %1, %10 ]
   %34 = icmp eq i32 %7, %8
   %35 = icmp slt i32 %7, 65536
   %or.cond = and i1 %35, %34
@@ -3167,7 +3167,7 @@ define noundef i32 @dissect_per_integer(ptr noundef %0, i32 noundef %1, ptr noun
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.1 = phi i32 [ %.06577, %35 ], [ %., %37 ]
+  %.1 = phi i32 [ %., %37 ], [ %.06577, %35 ]
   %40 = shl i32 %.1, 8
   %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef %.06676)
   %42 = zext i8 %41 to i32
@@ -3444,7 +3444,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %286
 
 78:                                               ; preds = %.thread, %9
-  %.0248 = phi i32 [ %1, %9 ], [ %15, %.thread ]
+  %.0248 = phi i32 [ %15, %.thread ], [ %1, %9 ]
   %79 = call ptr @proto_registrar_get_nth(i32 noundef %4)
   %80 = sub i64 %6, %5
   %81 = icmp ugt i64 %80, 65536
@@ -3581,7 +3581,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %137
 
 137:                                              ; preds = %133, %.lr.ph332
-  %.1 = phi i32 [ %134, %133 ], [ %.0237330, %.lr.ph332 ]
+  %.1 = phi i32 [ %.0237330, %.lr.ph332 ], [ %134, %133 ]
   %138 = icmp slt i32 %.1, 640
   br i1 %138, label %139, label %143
 
@@ -3635,7 +3635,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %154
 
 154:                                              ; preds = %150, %147
-  %.4 = phi i32 [ %151, %150 ], [ %.3340, %147 ]
+  %.4 = phi i32 [ %.3340, %147 ], [ %151, %150 ]
   %155 = and i32 %.1243338, 7
   %.not279 = icmp eq i32 %155, 0
   %or.cond288 = and i1 %.not277, %.not279
@@ -3654,8 +3654,8 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %163
 
 163:                                              ; preds = %156, %159, %154
-  %.1241 = phi i32 [ %157, %159 ], [ %157, %156 ], [ %.0240339, %154 ]
-  %.5 = phi i32 [ %160, %159 ], [ %.4, %156 ], [ %.4, %154 ]
+  %.1241 = phi i32 [ %.0240339, %154 ], [ %157, %159 ], [ %157, %156 ]
+  %.5 = phi i32 [ %.4, %154 ], [ %160, %159 ], [ %.4, %156 ]
   %164 = add nuw i32 %.1243338, 1
   %165 = lshr i32 %.3251336, 3
   %166 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %165)
@@ -3689,8 +3689,8 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %182
 
 182:                                              ; preds = %.sink.split, %174, %177
-  %.2263 = phi i64 [ %175, %174 ], [ %173, %177 ], [ %.2263.ph, %.sink.split ]
-  %.6 = phi i32 [ %.5, %174 ], [ %.5, %177 ], [ %179, %.sink.split ]
+  %.2263 = phi i64 [ %173, %177 ], [ %175, %174 ], [ %.2263.ph, %.sink.split ]
+  %.6 = phi i32 [ %.5, %177 ], [ %.5, %174 ], [ %179, %.sink.split ]
   %183 = add nuw nsw i32 %.2247337, 1
   %exitcond363.not = icmp eq i32 %183, %122
   br i1 %exitcond363.not, label %.preheader.loopexit, label %147, !llvm.loop !23
@@ -3712,7 +3712,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %190
 
 190:                                              ; preds = %186, %.lr.ph350
-  %.8 = phi i32 [ %187, %186 ], [ %.7349, %.lr.ph350 ]
+  %.8 = phi i32 [ %.7349, %.lr.ph350 ], [ %187, %186 ]
   %191 = icmp slt i32 %.8, 640
   br i1 %191, label %192, label %196
 
@@ -3795,8 +3795,8 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %.thread314
 
 .thread314:                                       ; preds = %239, %.thread305
-  %.0265300303307310313316 = phi i64 [ -1, %.thread305 ], [ %.0265, %239 ]
-  %241 = phi i32 [ 3, %.thread305 ], [ %spec.select318, %239 ]
+  %.0265300303307310313316 = phi i64 [ %.0265, %239 ], [ -1, %.thread305 ]
+  %241 = phi i32 [ %spec.select318, %239 ], [ 3, %.thread305 ]
   %242 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.0248, i32 noundef %241)
   %243 = zext i8 %242 to i32
   %244 = load i8, ptr @display_internal_per_fields, align 1, !range !6, !noundef !7
@@ -3838,10 +3838,10 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   br label %264
 
 264:                                              ; preds = %._crit_edge351, %206, %225, %259, %215, %96
-  %.0261 = phi i64 [ %5, %96 ], [ %222, %215 ], [ %238, %225 ], [ %263, %259 ], [ %203, %206 ], [ %203, %._crit_edge351 ]
-  %.0260 = phi i32 [ %97, %96 ], [ %221, %215 ], [ %236, %225 ], [ %262, %259 ], [ %202, %206 ], [ %202, %._crit_edge351 ]
-  %.0259 = phi i32 [ 0, %96 ], [ 1, %215 ], [ 2, %225 ], [ %261, %259 ], [ %.0240.lcssa, %206 ], [ %.0240.lcssa, %._crit_edge351 ]
-  %.2250 = phi i32 [ %.0248, %96 ], [ %219, %215 ], [ %234, %225 ], [ %257, %259 ], [ %.3251.lcssa, %206 ], [ %.3251.lcssa, %._crit_edge351 ]
+  %.0261 = phi i64 [ %5, %96 ], [ %263, %259 ], [ %222, %215 ], [ %238, %225 ], [ %203, %206 ], [ %203, %._crit_edge351 ]
+  %.0260 = phi i32 [ %97, %96 ], [ %262, %259 ], [ %221, %215 ], [ %236, %225 ], [ %202, %206 ], [ %202, %._crit_edge351 ]
+  %.0259 = phi i32 [ 0, %96 ], [ %261, %259 ], [ 1, %215 ], [ 2, %225 ], [ %.0240.lcssa, %206 ], [ %.0240.lcssa, %._crit_edge351 ]
+  %.2250 = phi i32 [ %.0248, %96 ], [ %257, %259 ], [ %219, %215 ], [ %234, %225 ], [ %.3251.lcssa, %206 ], [ %.3251.lcssa, %._crit_edge351 ]
   %265 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %266 = load i32, ptr %265, align 8
   switch i32 %266, label %278 [
@@ -3903,7 +3903,7 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   unreachable
 
 per_check_value64.exit:                           ; preds = %.sink.split.i294, %272, %.sink.split.i, %267, %280
-  %.0258 = phi ptr [ %282, %280 ], [ %268, %267 ], [ %268, %.sink.split.i ], [ %273, %272 ], [ %273, %.sink.split.i294 ]
+  %.0258 = phi ptr [ %282, %280 ], [ %268, %.sink.split.i ], [ %268, %267 ], [ %273, %272 ], [ %273, %.sink.split.i294 ]
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0258, ptr %284, align 8
   %.not282 = icmp eq ptr %7, null
@@ -4175,10 +4175,10 @@ proto_item_set_hidden.exit:                       ; preds = %19, %16, %13, %6
   br label %.cont
 
 .cont:                                            ; preds = %.thread, %.else
-  %54 = phi i32 [ %53, %.else ], [ %51, %.thread ]
-  %.in164.in = phi i32 [ %.060128, %.else ], [ %.060128.us, %.thread ]
-  %.us-phi130151155 = phi i32 [ %43, %.else ], [ %33, %.thread ]
-  %55 = phi i32 [ %.else.val, %.else ], [ %spec.select.us, %.thread ]
+  %54 = phi i32 [ %51, %.thread ], [ %53, %.else ]
+  %.in164.in = phi i32 [ %.060128.us, %.thread ], [ %.060128, %.else ]
+  %.us-phi130151155 = phi i32 [ %33, %.thread ], [ %43, %.else ]
+  %55 = phi i32 [ %spec.select.us, %.thread ], [ %.else.val, %.else ]
   %.in164 = add i32 %.in164.in, -5
   %56 = lshr i32 %.in164, 3
   %57 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %56, i32 noundef %54, i32 noundef %55)
@@ -4238,14 +4238,14 @@ proto_item_set_hidden.exit:                       ; preds = %19, %16, %13, %6
   unreachable
 
 .cont99.sink.split:                               ; preds = %76, %74, %71, %68
-  %.sink162 = phi i32 [ %70, %68 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ]
-  %.sink.ph = phi i32 [ 8, %68 ], [ 16, %71 ], [ 24, %74 ], [ 32, %76 ]
+  %.sink162 = phi i32 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ %77, %76 ]
+  %.sink.ph = phi i32 [ 24, %74 ], [ 16, %71 ], [ 8, %68 ], [ 32, %76 ]
   store i32 %.sink162, ptr %5, align 4
   br label %.cont99
 
 .cont99:                                          ; preds = %.cont99.sink.split, %76, %74, %71, %68
-  %.sink = phi i32 [ 8, %68 ], [ 16, %71 ], [ 24, %74 ], [ 32, %76 ], [ %.sink.ph, %.cont99.sink.split ]
-  %.2 = phi i32 [ %70, %68 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ undef, %.cont99.sink.split ]
+  %.sink = phi i32 [ 16, %71 ], [ 24, %74 ], [ 32, %76 ], [ 8, %68 ], [ %.sink.ph, %.cont99.sink.split ]
+  %.2 = phi i32 [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ %70, %68 ], [ undef, %.cont99.sink.split ]
   %84 = add i32 %65, %.sink
   %85 = icmp sgt i32 %4, 0
   br i1 %85, label %88, label %proto_item_set_hidden.exit67
@@ -4296,7 +4296,7 @@ proto_item_set_hidden.exit67.sink.split:          ; preds = %96, %60
   br label %proto_item_set_hidden.exit67
 
 proto_item_set_hidden.exit67:                     ; preds = %proto_item_set_hidden.exit67.sink.split, %.split.us.thread, %96, %.cont99.thread120, %.cont99.thread, %60, %.cont99, %.cont95, %.split.us, %.cont
-  %.059 = phi i32 [ %.us-phi130151155, %.cont ], [ %43, %.split.us ], [ %.1114119, %.cont95 ], [ %84, %.cont99 ], [ %.us-phi130151155, %60 ], [ %65, %.cont99.thread ], [ %65, %.cont99.thread120 ], [ %.1114119, %96 ], [ %33, %.split.us.thread ], [ %.059.ph, %proto_item_set_hidden.exit67.sink.split ]
+  %.059 = phi i32 [ %65, %.cont99.thread ], [ %43, %.split.us ], [ %.us-phi130151155, %.cont ], [ %84, %.cont99 ], [ %.1114119, %.cont95 ], [ %65, %.cont99.thread120 ], [ %.1114119, %96 ], [ %.us-phi130151155, %60 ], [ %33, %.split.us.thread ], [ %.059.ph, %proto_item_set_hidden.exit67.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.059
@@ -4621,7 +4621,7 @@ proto_item_set_hidden.exit122:                    ; preds = %62, %59, %56, %.thr
   br label %.thread129
 
 .thread129:                                       ; preds = %130, %140, %101
-  %.4133 = phi i32 [ %.3, %140 ], [ %.3, %101 ], [ %133, %130 ]
+  %.4133 = phi i32 [ %.3, %101 ], [ %.3, %140 ], [ %133, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4810,7 +4810,7 @@ proto_item_set_hidden.exit:                       ; preds = %33, %30, %27, %22, 
   br i1 %.not.i209, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !31
 
 index_get_optional_name.exit:                     ; preds = %84, %64, %77, %80
-  %.0.i = phi ptr [ %81, %80 ], [ @.str.179, %77 ], [ @.str.180, %64 ], [ @.str.180, %84 ]
+  %.0.i = phi ptr [ @.str.179, %77 ], [ %81, %80 ], [ @.str.180, %64 ], [ @.str.180, %84 ]
   %89 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %90 = trunc nuw i8 %89 to i1
   %91 = select i1 %90, ptr @.str.36, ptr @.str.37
@@ -4934,9 +4934,9 @@ index_get_field_name.exit:                        ; preds = %142, %150
   unreachable
 
 .thread:                                          ; preds = %126, %124, %.lr.ph257, %139
-  %.5184 = phi i32 [ %.3182, %139 ], [ %.2181253, %.lr.ph257 ], [ 0, %124 ], [ %134, %126 ]
-  %.3177 = phi i32 [ %.1175, %139 ], [ %.0174254, %.lr.ph257 ], [ %.0174254, %124 ], [ %135, %126 ]
-  %.3 = phi i32 [ %141, %139 ], [ %.2256, %.lr.ph257 ], [ %.2256, %124 ], [ %.2256, %126 ]
+  %.5184 = phi i32 [ %.3182, %139 ], [ %134, %126 ], [ %.2181253, %.lr.ph257 ], [ 0, %124 ]
+  %.3177 = phi i32 [ %.1175, %139 ], [ %135, %126 ], [ %.0174254, %.lr.ph257 ], [ %.0174254, %124 ]
+  %.3 = phi i32 [ %141, %139 ], [ %.2256, %126 ], [ %.2256, %.lr.ph257 ], [ %.2256, %124 ]
   %155 = add i32 %.2166255, 1
   %156 = zext i32 %155 to i64
   %157 = getelementptr %struct._per_sequence_t, ptr %6, i64 %156
@@ -5044,7 +5044,7 @@ index_get_field_name.exit:                        ; preds = %142, %150
   br i1 %.not.i219, label %index_get_extension_name.exit, label %.lr.ph.i217, !llvm.loop !34
 
 index_get_extension_name.exit:                    ; preds = %196, %178, %188, %190, %192
-  %.0.i220 = phi ptr [ @.str.181, %188 ], [ %193, %192 ], [ @.str.179, %190 ], [ @.str.180, %178 ], [ @.str.180, %196 ]
+  %.0.i220 = phi ptr [ @.str.179, %190 ], [ @.str.181, %188 ], [ %193, %192 ], [ @.str.180, %178 ], [ @.str.180, %196 ]
   %201 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %202 = trunc nuw i8 %201 to i1
   %203 = select i1 %202, ptr @.str.36, ptr @.str.37
@@ -5420,7 +5420,7 @@ proto_item_set_hidden.exit.us:                    ; preds = %36, %33, %31, %.lr.
   br i1 %.not.i, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !31
 
 index_get_optional_name.exit:                     ; preds = %73, %.lr.ph84.split, %66, %69
-  %.0.i = phi ptr [ %70, %69 ], [ @.str.179, %66 ], [ @.str.180, %.lr.ph84.split ], [ @.str.180, %73 ]
+  %.0.i = phi ptr [ @.str.179, %66 ], [ %70, %69 ], [ @.str.180, %.lr.ph84.split ], [ @.str.180, %73 ]
   %78 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %79 = trunc nuw i8 %78 to i1
   %80 = select i1 %79, ptr @.str.36, ptr @.str.37
@@ -5537,9 +5537,9 @@ index_get_field_name.exit:                        ; preds = %125, %128, %134
   unreachable
 
 .thread:                                          ; preds = %109, %107, %122
-  %.358 = phi i32 [ %.156, %122 ], [ %.05588, %107 ], [ %118, %109 ]
-  %.5 = phi i32 [ %.3, %122 ], [ 0, %107 ], [ %117, %109 ]
-  %.2 = phi i32 [ %124, %122 ], [ %.190, %107 ], [ %.190, %109 ]
+  %.358 = phi i32 [ %.156, %122 ], [ %118, %109 ], [ %.05588, %107 ]
+  %.5 = phi i32 [ %.3, %122 ], [ %117, %109 ], [ 0, %107 ]
+  %.2 = phi i32 [ %124, %122 ], [ %.190, %109 ], [ %.190, %107 ]
   %139 = add i32 %.26187, 1
   %140 = zext i32 %139 to i64
   %141 = getelementptr %struct._per_sequence_t, ptr %4, i64 %140
@@ -5753,7 +5753,7 @@ proto_item_set_hidden.exit:                       ; preds = %39, %36, %33, %28
   br label %180
 
 96:                                               ; preds = %.thread, %26
-  %.0190 = phi i32 [ %1, %26 ], [ %30, %.thread ]
+  %.0190 = phi i32 [ %30, %.thread ], [ %1, %26 ]
   %97 = icmp eq i32 %spec.store.select, %6
   %98 = icmp slt i32 %6, 17
   %or.cond3 = and i1 %98, %97
@@ -5942,7 +5942,7 @@ proto_item_set_hidden.exit237:                    ; preds = %122, %127, %130, %1
   br label %180
 
 180:                                              ; preds = %95, %177, %178, %117, %118, %103, %104, %24, %25
-  %.0181 = phi i32 [ %90, %95 ], [ %1, %25 ], [ %1, %24 ], [ %101, %104 ], [ %101, %103 ], [ %115, %118 ], [ %115, %117 ], [ %175, %178 ], [ %175, %177 ]
+  %.0181 = phi i32 [ %90, %95 ], [ %1, %24 ], [ %101, %103 ], [ %115, %117 ], [ %1, %25 ], [ %101, %104 ], [ %115, %118 ], [ %175, %178 ], [ %175, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0181
@@ -6347,7 +6347,7 @@ define hidden zeroext i1 @get_size_constraint_from_stack(ptr noundef readonly ca
   br label %46
 
 46:                                               ; preds = %40, %43, %37, %27, %30, %17, %20, %14, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %14 ], [ false, %20 ], [ false, %17 ], [ false, %30 ], [ false, %27 ], [ %not..not46, %40 ], [ false, %37 ], [ true, %43 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %14 ], [ false, %17 ], [ false, %27 ], [ false, %37 ], [ false, %20 ], [ false, %30 ], [ %not..not46, %40 ], [ true, %43 ]
   ret i1 %.0
 }
 

@@ -648,7 +648,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   br i1 %314, label %.lr.ph229, label %._crit_edge230, !llvm.loop !71
 
 ._crit_edge235:                                   ; preds = %318, %.loopexit, %._crit_edge230
-  %.0153.lcssa288 = phi i32 [ %311, %._crit_edge230 ], [ %297, %.loopexit ], [ %311, %318 ]
+  %.0153.lcssa288 = phi i32 [ %297, %.loopexit ], [ %311, %._crit_edge230 ], [ %311, %318 ]
   %.val = load i32, ptr %89, align 8, !tbaa !57
   %315 = srem i32 %.val, 8
   store i32 %315, ptr %91, align 8, !tbaa !58
@@ -697,7 +697,7 @@ get_bits_long.exit:                               ; preds = %286, %.lr.ph.split.
   br label %339
 
 339:                                              ; preds = %.thread195, %332, %79, %64, %40, %335, %15
-  %.0151 = phi i32 [ %10, %335 ], [ 0, %15 ], [ -12, %40 ], [ %77, %64 ], [ -1094995529, %79 ], [ %316, %332 ], [ -1094995529, %.thread195 ]
+  %.0151 = phi i32 [ -12, %40 ], [ %77, %64 ], [ -1094995529, %.thread195 ], [ %10, %335 ], [ -1094995529, %79 ], [ 0, %15 ], [ %316, %332 ]
   ret i32 %.0151
 }
 

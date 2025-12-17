@@ -5088,9 +5088,9 @@ invoke.cont630:                                   ; preds = %_ZNSt6vectorIN8GUIT
   br i1 %cmp581, label %for.body583, label %if.end643, !llvm.loop !255
 
 if.end643:                                        ; preds = %invoke.cont630, %if.end549, %invoke.cont405, %if.end578, %if.else555, %for.cond527.preheader, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit, %for.cond319.preheader.thread
-  %indvars.iv.next87.pre-phi = phi i64 [ %124, %if.end578 ], [ %124, %if.else555 ], [ %124, %for.cond527.preheader ], [ %124, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %72, %for.cond319.preheader.thread ], [ %101, %invoke.cont405 ], [ %124, %if.end549 ], [ %124, %invoke.cont630 ]
-  %newcell.sroa.38.5 = phi i32 [ %newcell.sroa.38.01854, %if.end578 ], [ %newcell.sroa.38.01854, %if.else555 ], [ %newcell.sroa.38.01854, %for.cond527.preheader ], [ %newcell.sroa.38.01854, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %newcell.sroa.38.01854, %for.cond319.preheader.thread ], [ %newcell.sroa.38.2, %invoke.cont405 ], [ %newcell.sroa.38.01854, %if.end549 ], [ %newcell.sroa.38.4, %invoke.cont630 ]
-  %newcell.sroa.40.3 = phi i8 [ %newcell.sroa.40.01855, %if.end578 ], [ %newcell.sroa.40.01855, %if.else555 ], [ %newcell.sroa.40.01855, %for.cond527.preheader ], [ %newcell.sroa.40.01855, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %newcell.sroa.40.01855, %for.cond319.preheader.thread ], [ %frombool394, %invoke.cont405 ], [ %newcell.sroa.40.01855, %if.end549 ], [ %frombool618, %invoke.cont630 ]
+  %indvars.iv.next87.pre-phi = phi i64 [ %72, %for.cond319.preheader.thread ], [ %124, %if.end578 ], [ %124, %if.else555 ], [ %124, %for.cond527.preheader ], [ %124, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %124, %if.end549 ], [ %101, %invoke.cont405 ], [ %124, %invoke.cont630 ]
+  %newcell.sroa.38.5 = phi i32 [ %newcell.sroa.38.01854, %for.cond319.preheader.thread ], [ %newcell.sroa.38.01854, %if.end578 ], [ %newcell.sroa.38.01854, %if.else555 ], [ %newcell.sroa.38.01854, %for.cond527.preheader ], [ %newcell.sroa.38.01854, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %newcell.sroa.38.01854, %if.end549 ], [ %newcell.sroa.38.2, %invoke.cont405 ], [ %newcell.sroa.38.4, %invoke.cont630 ]
+  %newcell.sroa.40.3 = phi i8 [ %newcell.sroa.40.01855, %for.cond319.preheader.thread ], [ %newcell.sroa.40.01855, %if.end578 ], [ %newcell.sroa.40.01855, %if.else555 ], [ %newcell.sroa.40.01855, %for.cond527.preheader ], [ %newcell.sroa.40.01855, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5clearEv.exit ], [ %newcell.sroa.40.01855, %if.end549 ], [ %frombool394, %invoke.cont405 ], [ %frombool618, %invoke.cont630 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next87.pre-phi, %wide.trip.count91
   br i1 %exitcond.not, label %for.cond.cleanup85, label %for.body86, !llvm.loop !256
 
@@ -11443,7 +11443,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
+  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
   ret ptr %spec.select
 }
 

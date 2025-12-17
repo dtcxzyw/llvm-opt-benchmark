@@ -358,8 +358,8 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %53
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink191 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
-  %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
+  %.sink191 = phi ptr [ %80, %79 ], [ %78, %77 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink = phi i32 [ 16, %79 ], [ 16, %77 ], [ %82, %85 ], [ %82, %87 ]
   store ptr %.sink191, ptr %63, align 8, !tbaa !50
   store i32 %.sink, ptr %60, align 8, !tbaa !49
   br label %Vec_IntPush.exit

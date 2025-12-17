@@ -671,7 +671,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 98:                                               ; preds = %66, %83, %81, %48, %40, %54
-  %.pn33.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %41, %40 ], [ %49, %48 ], [ %67, %66 ], [ %82, %81 ], [ %84, %83 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %55, %54 ], [ %41, %40 ], [ %67, %66 ], [ %82, %81 ], [ %84, %83 ]
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %3) #18
   br label %99
 

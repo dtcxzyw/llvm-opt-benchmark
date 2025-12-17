@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -789,7 +789,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7713Unicod
   br label %56
 
 55:                                               ; preds = %.loopexit, %.loopexit.split-lp, %52, %46, %31
-  %.pn26 = phi { ptr, i32 } [ %53, %52 ], [ %.pn23, %31 ], [ %.pn, %46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn26 = phi { ptr, i32 } [ %.pn, %46 ], [ %53, %52 ], [ %.pn23, %31 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1221,7 +1221,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %115
           to label %130 unwind label %125
 
 .sink.split:                                      ; preds = %121, %119, %108, %106
-  %spec.select.ph = phi ptr [ null, %106 ], [ null, %108 ], [ %117, %119 ], [ %117, %121 ]
+  %spec.select.ph = phi ptr [ null, %108 ], [ null, %106 ], [ %117, %119 ], [ %117, %121 ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %48) #12
   br label %130
 
@@ -1269,7 +1269,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   br label %common.resume
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit:        ; preds = %.noexc, %50, %47, %_ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit, %60, %43, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %48, %60 ], [ %45, %43 ], [ %spec.select, %_ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit ], [ null, %47 ], [ %48, %50 ], [ %48, %.noexc ]
+  %.0 = phi ptr [ null, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %spec.select, %_ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2Ev.exit ], [ %48, %60 ], [ %45, %43 ], [ null, %47 ], [ %48, %50 ], [ %48, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1409,7 +1409,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %_ZNK6icu_7713Unicod
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %46, %44, %.sink.split.i.i.i, %2, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %30, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %56 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %30 ], [ false, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i ], [ false, %2 ], [ false, %.sink.split.i.i.i ], [ %55, %46 ], [ false, %44 ]
+  %56 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %30 ], [ false, %.sink.split.i.i.i ], [ false, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i ], [ false, %2 ], [ %55, %46 ], [ false, %44 ]
   ret i1 %56
 }
 

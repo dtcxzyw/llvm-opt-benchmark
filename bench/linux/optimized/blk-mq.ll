@@ -1217,7 +1217,7 @@ define dso_local ptr @blk_mq_alloc_request(ptr noundef %0, i32 noundef %1, i32 n
   store volatile ptr %85, ptr %86, align 8
   br label %.thread10
 
-87:                                               ; preds = %3, %15, %36, %39, %52, %.thread
+87:                                               ; preds = %3, %15, %.thread, %36, %52, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %88, align 8, !annotation !11
@@ -1265,7 +1265,7 @@ define dso_local ptr @blk_mq_alloc_request(ptr noundef %0, i32 noundef %1, i32 n
   br label %107
 
 107:                                              ; preds = %.thread9, %106, %.thread10
-  %108 = phi ptr [ %102, %.thread10 ], [ inttoptr (i64 -11 to ptr), %106 ], [ %98, %.thread9 ]
+  %108 = phi ptr [ %102, %.thread10 ], [ %98, %.thread9 ], [ inttoptr (i64 -11 to ptr), %106 ]
   ret ptr %108
 }
 
@@ -2682,7 +2682,7 @@ define dso_local noundef zeroext i1 @blk_update_request(ptr noundef %0, i8 nound
   br label %125
 
 125:                                              ; preds = %122, %120, %111
-  %126 = phi i32 [ %.pre19, %120 ], [ %107, %122 ], [ %107, %111 ]
+  %126 = phi i32 [ %107, %111 ], [ %.pre19, %120 ], [ %107, %122 ]
   %127 = icmp eq i32 %.pre19, %126
   br i1 %127, label %129, label %128
 
@@ -7360,7 +7360,7 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %70, %57
-  %71 = phi i32 [ %54, %70 ], [ %58, %57 ]
+  %71 = phi i32 [ %58, %57 ], [ %54, %70 ]
   %72 = load ptr, ptr %0, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph87
@@ -10722,7 +10722,7 @@ define internal fastcc void @blk_mq_map_swqueue(ptr noundef %0) unnamed_addr #0 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %162, %172, %168
-  %177 = phi ptr [ %.pre22, %172 ], [ %.pre23, %168 ], [ %.pre23, %162 ]
+  %177 = phi ptr [ %.pre23, %168 ], [ %.pre22, %172 ], [ %.pre23, %162 ]
   %178 = getelementptr ptr, ptr %177, i64 %167
   store ptr null, ptr %178, align 8
   br label %179
@@ -11933,7 +11933,7 @@ blk_freeze_queue.exit:                            ; preds = %31, %36, %37
   br label %.preheader35._crit_edge
 
 .preheader35._crit_edge:                          ; preds = %.preheader35, %126, %122
-  %131 = phi ptr [ %.pre55, %126 ], [ %.pre56, %122 ], [ %.pre56, %.preheader35 ]
+  %131 = phi ptr [ %.pre56, %122 ], [ %.pre55, %126 ], [ %.pre56, %.preheader35 ]
   %132 = getelementptr ptr, ptr %131, i64 %121
   store ptr null, ptr %132, align 8
   %133 = add i32 %117, -1
@@ -12206,7 +12206,7 @@ blk_freeze_queue.exit:                            ; preds = %31, %36, %37
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %254, %264, %260
-  %269 = phi ptr [ %.pre58, %264 ], [ %.pre59, %260 ], [ %.pre59, %254 ]
+  %269 = phi ptr [ %.pre59, %260 ], [ %.pre58, %264 ], [ %.pre59, %254 ]
   %270 = getelementptr ptr, ptr %269, i64 %259
   store ptr null, ptr %270, align 8
   %271 = add nsw i32 %255, 1
@@ -12355,12 +12355,12 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   br i1 %79, label %.split.split, label %.split4.us, !llvm.loop !122
 
 .split4.us:                                       ; preds = %50, %47, %.split.split.us, %76, %73, %.split.split, %.split.us, %24, %27
-  %.us-phi = phi i32 [ %20, %.split.us ], [ 0, %27 ], [ 0, %24 ], [ %57, %.split.split ], [ 0, %76 ], [ 0, %73 ], [ %35, %.split.split.us ], [ 0, %50 ], [ 0, %47 ]
+  %.us-phi = phi i32 [ %57, %.split.split ], [ 0, %24 ], [ %20, %.split.us ], [ 0, %27 ], [ 0, %76 ], [ 0, %73 ], [ %35, %.split.split.us ], [ 0, %50 ], [ 0, %47 ]
   store volatile i32 0, ptr %10, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us5, %.critedge, %.critedge.us, %.split4.us
-  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us5 ]
+  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge ], [ 1, %.critedge.us ], [ 1, %.critedge.us5 ]
   ret i32 %80
 }
 
@@ -12551,17 +12551,17 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   br i1 %105, label %.split.split, label %.split8.us, !llvm.loop !122
 
 .split8.us:                                       ; preds = %76, %73, %.split.split.us, %102, %99, %.split.split, %.split.us, %50, %53
-  %.us-phi = phi i32 [ %46, %.split.us ], [ 0, %53 ], [ 0, %50 ], [ %83, %.split.split ], [ 0, %102 ], [ 0, %99 ], [ %61, %.split.split.us ], [ 0, %76 ], [ 0, %73 ]
+  %.us-phi = phi i32 [ %83, %.split.split ], [ 0, %50 ], [ %46, %.split.us ], [ 0, %53 ], [ 0, %102 ], [ 0, %99 ], [ %61, %.split.split.us ], [ 0, %76 ], [ 0, %73 ]
   store volatile i32 0, ptr %36, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.us9, %.critedge, %.critedge.us, %.split8.us
-  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us9 ]
+  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge ], [ 1, %.critedge.us ], [ 1, %.critedge.us9 ]
   tail call void @blk_queue_exit(ptr noundef %4) #22
   br label %107
 
 107:                                              ; preds = %.thread6, %.loopexit, %8, %3
-  %108 = phi i32 [ %106, %.loopexit ], [ 0, %8 ], [ 0, %3 ], [ 0, %.thread6 ]
+  %108 = phi i32 [ %106, %.loopexit ], [ 0, %8 ], [ 0, %.thread6 ], [ 0, %3 ]
   ret i32 %108
 }
 
@@ -13386,7 +13386,7 @@ define internal fastcc ptr @blk_mq_alloc_and_init_hctx(ptr noundef %0, ptr nound
   br label %.thread9
 
 .thread9:                                         ; preds = %84, %.thread, %155, %127
-  %158 = phi ptr [ null, %155 ], [ %86, %127 ], [ null, %.thread ], [ null, %84 ]
+  %158 = phi ptr [ %86, %127 ], [ null, %155 ], [ null, %.thread ], [ null, %84 ]
   ret ptr %158
 }
 

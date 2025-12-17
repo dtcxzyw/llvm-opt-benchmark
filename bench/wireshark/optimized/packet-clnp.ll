@@ -633,7 +633,7 @@ set_address_tvb.exit346:                          ; preds = %172, %.split.i344
   br label %236
 
 236:                                              ; preds = %235, %234, %225
-  %.0311 = phi ptr [ %227, %225 ], [ %231, %234 ], [ %231, %235 ]
+  %.0311 = phi ptr [ %227, %225 ], [ %231, %235 ], [ %231, %234 ]
   %237 = icmp eq ptr %.0311, null
   br i1 %237, label %.thread, label %242
 

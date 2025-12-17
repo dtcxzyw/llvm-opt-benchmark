@@ -2033,7 +2033,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   br label %66
 
 66:                                               ; preds = %.critedge.thread, %60, %45
-  %67 = phi i32 [ -5, %45 ], [ %65, %60 ], [ %.ph, %.critedge.thread ]
+  %67 = phi i32 [ %.ph, %.critedge.thread ], [ -5, %45 ], [ %65, %60 ]
   call void @mutex_unlock(ptr noundef nonnull %14) #9
   %68 = sext i32 %67 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

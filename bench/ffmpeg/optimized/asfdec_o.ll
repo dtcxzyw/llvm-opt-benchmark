@@ -611,7 +611,7 @@ default.unreachable:                              ; preds = %167, %157, %146, %7
   br label %80
 
 80:                                               ; preds = %78, %76, %74, %71
-  %.sink2.i = phi i32 [ %77, %76 ], [ %79, %78 ], [ %75, %74 ], [ %73, %71 ]
+  %.sink2.i = phi i32 [ %77, %76 ], [ %75, %74 ], [ %79, %78 ], [ %73, %71 ]
   %81 = getelementptr inbounds nuw i8, ptr %.val, i64 7328
   store i32 %.sink2.i, ptr %81, align 8, !tbaa !81
   %82 = tail call i32 @avio_rl32(ptr noundef %.val108) #12
@@ -813,7 +813,7 @@ asf_read_payload.exit.thread118:                  ; preds = %131
   br label %176
 
 176:                                              ; preds = %174, %172, %170, %167
-  %.sink.i111 = phi i32 [ %173, %172 ], [ %175, %174 ], [ %171, %170 ], [ %169, %167 ]
+  %.sink.i111 = phi i32 [ %173, %172 ], [ %171, %170 ], [ %175, %174 ], [ %169, %167 ]
   %177 = getelementptr inbounds nuw i8, ptr %95, i64 7332
   store i32 %.sink.i111, ptr %177, align 4, !tbaa !90
   %178 = getelementptr inbounds nuw i8, ptr %116, i64 56
@@ -1183,7 +1183,7 @@ asf_read_single_payload.exit.i:                   ; preds = %365, %363
   br i1 %392, label %asf_read_payload.exit, label %396
 
 asf_read_payload.exit:                            ; preds = %198, %211, %255, %275, %289, %351, %381
-  %.1.i = phi i32 [ %391, %381 ], [ %279, %275 ], [ %213, %211 ], [ %257, %255 ], [ %203, %198 ], [ %355, %351 ], [ %291, %289 ]
+  %.1.i = phi i32 [ %213, %211 ], [ %355, %351 ], [ %391, %381 ], [ %257, %255 ], [ %291, %289 ], [ %203, %198 ], [ %279, %275 ]
   %393 = icmp eq i32 %.1.i, -11
   br i1 %393, label %394, label %.thread
 
@@ -1493,8 +1493,8 @@ asf_deinterleave.exit:                            ; preds = %.split12.us.i, %480
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %465, !llvm.loop !112
 
-.thread:                                          ; preds = %._crit_edge.i, %208, %252, %338, %286, %.preheader.i, %asf_read_payload.exit, %asf_read_packet_header.exit, %.backedge, %380, %17, %534, %484, %132, %233, %336, %asf_deinterleave.exit, %13, %464
-  %.0 = phi i32 [ 0, %464 ], [ -541478725, %13 ], [ 0, %asf_deinterleave.exit ], [ -1094995529, %132 ], [ -1094995529, %233 ], [ -1094995529, %336 ], [ %532, %534 ], [ -12, %484 ], [ -541478725, %17 ], [ -1094995529, %380 ], [ -1094995529, %.preheader.i ], [ -541478725, %286 ], [ -1094995529, %338 ], [ -1094995529, %252 ], [ -1094995529, %208 ], [ -1094995529, %._crit_edge.i ], [ %.1.i, %asf_read_payload.exit ], [ -541478725, %asf_read_packet_header.exit ], [ -541478725, %.backedge ]
+.thread:                                          ; preds = %252, %._crit_edge.i, %208, %286, %338, %.preheader.i, %asf_read_payload.exit, %asf_read_packet_header.exit, %.backedge, %380, %17, %534, %484, %336, %132, %233, %asf_deinterleave.exit, %13, %464
+  %.0 = phi i32 [ -1094995529, %233 ], [ -541478725, %13 ], [ 0, %464 ], [ 0, %asf_deinterleave.exit ], [ -1094995529, %336 ], [ %532, %534 ], [ -1094995529, %132 ], [ -12, %484 ], [ -541478725, %17 ], [ -1094995529, %380 ], [ -1094995529, %.preheader.i ], [ -1094995529, %338 ], [ -541478725, %286 ], [ -1094995529, %208 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %252 ], [ %.1.i, %asf_read_payload.exit ], [ -541478725, %asf_read_packet_header.exit ], [ -541478725, %.backedge ]
   ret i32 %.0
 }
 
@@ -1639,7 +1639,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_seek(ptr noundef %0, i32
   br i1 %64, label %55, label %reset_packet_state.exit, !llvm.loop !132
 
 reset_packet_state.exit:                          ; preds = %55, %34, %31, %17, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ -1094995529, %17 ], [ %32, %31 ], [ 0, %34 ], [ 0, %55 ]
+  %.0 = phi i32 [ -1094995529, %17 ], [ %32, %31 ], [ -1094995529, %20 ], [ 0, %34 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -1815,8 +1815,8 @@ reset_packet_state.exit:                          ; preds = %57, %10
   br label %106
 
 106:                                              ; preds = %._crit_edge107, %93, %.lr.ph
-  %107 = phi i32 [ %.pre, %._crit_edge107 ], [ %88, %.lr.ph ], [ %88, %93 ]
-  %.6.ph = phi i64 [ %94, %._crit_edge107 ], [ %.35990, %.lr.ph ], [ 0, %93 ]
+  %107 = phi i32 [ %88, %.lr.ph ], [ %88, %93 ], [ %.pre, %._crit_edge107 ]
+  %.6.ph = phi i64 [ %.35990, %.lr.ph ], [ 0, %93 ], [ %94, %._crit_edge107 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = sext i32 %107 to i64
   %.not88 = icmp slt i64 %indvars.iv.next, %108
@@ -1838,7 +1838,7 @@ reset_packet_state.exit:                          ; preds = %57, %10
   br label %112
 
 112:                                              ; preds = %.thread76, %4, %.thread82
-  %.0 = phi i64 [ %.157, %.thread82 ], [ -12, %4 ], [ %82, %.thread76 ]
+  %.0 = phi i64 [ %82, %.thread76 ], [ %.157, %.thread82 ], [ -12, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -2097,7 +2097,7 @@ define internal i32 @asf_read_simple_index(ptr noundef %0, ptr readnone captures
   br label %align_position.exit
 
 align_position.exit:                              ; preds = %47, %68, %65, %._crit_edge, %2, %45, %.thread
-  %.0 = phi i32 [ %46, %45 ], [ 0, %.thread ], [ -1094995529, %2 ], [ 0, %._crit_edge ], [ 0, %65 ], [ 0, %68 ], [ -1094995529, %47 ]
+  %.0 = phi i32 [ 0, %.thread ], [ %46, %45 ], [ -1094995529, %2 ], [ 0, %._crit_edge ], [ 0, %65 ], [ 0, %68 ], [ -1094995529, %47 ]
   ret i32 %.0
 }
 
@@ -2237,8 +2237,8 @@ define internal range(i32 -1094995529, 1) i32 @asf_read_ext_content(ptr noundef 
   %.not32 = icmp eq ptr %19, null
   br i1 %.not32, label %.thread, label %20
 
-.thread:                                          ; preds = %14, %17
-  %.1.ph = phi i32 [ -12, %17 ], [ -1094995529, %14 ]
+.thread:                                          ; preds = %17, %14
+  %.1.ph = phi i32 [ -1094995529, %14 ], [ -12, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %align_position.exit
 
@@ -2460,7 +2460,7 @@ detect_unknown_subobject.exit:                    ; preds = %50, %78, %.preheade
   br label %90
 
 90:                                               ; preds = %87, %detect_unknown_subobject.exit, %detect_unknown_subobject.exit.thread, %2, %11, %86
-  %.0 = phi i32 [ -1094995529, %86 ], [ -1094995529, %11 ], [ -1094995529, %2 ], [ %.0.i.ph, %detect_unknown_subobject.exit.thread ], [ 0, %detect_unknown_subobject.exit ], [ 0, %87 ]
+  %.0 = phi i32 [ -1094995529, %2 ], [ -1094995529, %86 ], [ %.0.i.ph, %detect_unknown_subobject.exit.thread ], [ -1094995529, %11 ], [ 0, %detect_unknown_subobject.exit ], [ 0, %87 ]
   ret i32 %.0
 }
 
@@ -2587,7 +2587,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_stream_properties(ptr no
   br i1 %.not91, label %18, label %.critedge
 
 18:                                               ; preds = %17, %16, %15, %14, %11
-  %.081 = phi i32 [ 1, %11 ], [ 0, %14 ], [ 0, %15 ], [ 2, %16 ], [ -1, %17 ]
+  %.081 = phi i32 [ 2, %16 ], [ 0, %15 ], [ 0, %14 ], [ 1, %11 ], [ -1, %17 ]
   %19 = call i32 @ff_get_guid(ptr noundef %7, ptr noundef nonnull %3) #12
   %20 = call i64 @avio_skip(ptr noundef %7, i64 noundef 8) #12
   %21 = call i32 @avio_rl32(ptr noundef %7) #12
@@ -2763,8 +2763,8 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_stream_properties(ptr no
   %107 = call i64 @avio_seek(ptr noundef %7, i64 noundef %.sink, i32 noundef 0) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %104, %99, %41, %36, %91, %82, %70, %65, %53, %45, %._crit_edge, %17, %2
-  %.0 = phi i32 [ -1094995529, %2 ], [ -1094995529, %17 ], [ -12, %._crit_edge ], [ -12, %45 ], [ -12, %53 ], [ %68, %65 ], [ %72, %70 ], [ -1094995529, %82 ], [ -1094995529, %91 ], [ 0, %36 ], [ 0, %41 ], [ 0, %99 ], [ 0, %104 ], [ 0, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %104, %99, %41, %36, %82, %91, %70, %65, %53, %45, %._crit_edge, %17, %2
+  %.0 = phi i32 [ -1094995529, %17 ], [ -1094995529, %2 ], [ -1094995529, %82 ], [ %72, %70 ], [ -12, %53 ], [ %68, %65 ], [ -12, %45 ], [ -12, %._crit_edge ], [ -1094995529, %91 ], [ 0, %36 ], [ 0, %41 ], [ 0, %99 ], [ 0, %104 ], [ 0, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -3257,7 +3257,7 @@ define internal range(i32 -12, 1) i32 @asf_read_metadata_obj(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-asf_store_aspect_ratio.exit.thread:               ; preds = %44, %53, %51, %55, %58
+asf_store_aspect_ratio.exit.thread:               ; preds = %53, %51, %44, %55, %58
   call void @av_freep(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = add nuw nsw i32 %.03650, 1
@@ -3472,7 +3472,7 @@ asf_read_value.exit28:                            ; preds = %32, %.sink.split.i2
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.57) #12
   br label %asf_set_metadata.exit.thread
 
-asf_set_metadata.exit.thread:                     ; preds = %81, %77
+asf_set_metadata.exit.thread:                     ; preds = %77, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
@@ -3616,8 +3616,8 @@ define internal fastcc i32 @get_asf_string(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !174
 
 .loopexit:                                        ; preds = %69, %57, %31, %.thread70
-  %.35368 = phi i32 [ %11, %.thread70 ], [ %11, %31 ], [ %.353.ph79, %57 ], [ %.353.ph79, %69 ]
-  %.2 = phi ptr [ %.04987, %.thread70 ], [ %33, %31 ], [ %.4, %57 ], [ %.6, %69 ]
+  %.35368 = phi i32 [ %11, %31 ], [ %11, %.thread70 ], [ %.353.ph79, %57 ], [ %.353.ph79, %69 ]
+  %.2 = phi ptr [ %33, %31 ], [ %.04987, %.thread70 ], [ %.4, %57 ], [ %.6, %69 ]
   %71 = add nsw i32 %.35368, 1
   %72 = icmp slt i32 %71, %1
   br i1 %72, label %10, label %.thread80

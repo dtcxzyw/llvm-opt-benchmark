@@ -2615,8 +2615,8 @@ for.inc:                                          ; preds = %land.rhs.i.i, %land
   br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !158
 
 return.loopexit:                                  ; preds = %land.rhs.i.i, %for.inc, %land.rhs.i.us, %for.inc.us
-  %.us-phi = phi i64 [ %indvars.iv.us, %land.rhs.i.us ], [ %sub.ptr.div.i.i, %for.inc.us ], [ %indvars.iv, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc ]
-  %.us-phi1 = phi i64 [ 4294967296, %land.rhs.i.us ], [ 0, %for.inc.us ], [ 4294967296, %land.rhs.i.i ], [ 0, %for.inc ]
+  %.us-phi = phi i64 [ %sub.ptr.div.i.i, %for.inc.us ], [ %indvars.iv.us, %land.rhs.i.us ], [ %indvars.iv, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc ]
+  %.us-phi1 = phi i64 [ 0, %for.inc.us ], [ 4294967296, %land.rhs.i.us ], [ 4294967296, %land.rhs.i.i ], [ 0, %for.inc ]
   %13 = and i64 %.us-phi, 4294967295
   %14 = or disjoint i64 %.us-phi1, %13
   br label %return
@@ -4504,7 +4504,7 @@ for.end85:                                        ; preds = %if.end82, %for.body
   br i1 %exitcond275.not, label %for.end88, label %for.body58, !llvm.loop !208
 
 for.end88:                                        ; preds = %for.end85, %for.cond54.preheader, %for.cond54.preheader.thread
-  %68 = phi ptr [ %.pre280, %for.cond54.preheader ], [ %.pre280287, %for.cond54.preheader.thread ], [ %.pre280, %for.end85 ]
+  %68 = phi ptr [ %.pre280287, %for.cond54.preheader.thread ], [ %.pre280, %for.cond54.preheader ], [ %.pre280, %for.end85 ]
   %69 = load ptr, ptr %_M_finish.i.i142, align 8, !tbaa !192
   %cmp.not3.i.i.i.i.i = icmp eq ptr %68, %69
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN3irr4core5arrayIfEES3_EvT_S5_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i

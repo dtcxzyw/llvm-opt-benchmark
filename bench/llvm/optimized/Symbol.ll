@@ -573,10 +573,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit29:      ; preds = %_ZNK4llvm9StringRef
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit29.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit29, %23, %25, %20, %15, %10, %5
-  %.sink66 = phi ptr [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %6, %5 ], [ %1, %23 ], [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
-  %.sink65 = phi i64 [ %27, %25 ], [ %22, %20 ], [ %17, %15 ], [ %12, %10 ], [ %7, %5 ], [ %2, %23 ], [ %2, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
-  %.sink63 = phi i8 [ 3, %25 ], [ 2, %20 ], [ 1, %15 ], [ 1, %10 ], [ 1, %5 ], [ 0, %23 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
-  %.sink = phi i8 [ 0, %25 ], [ 4, %20 ], [ 2, %15 ], [ 1, %10 ], [ 1, %5 ], [ 0, %23 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
+  %.sink66 = phi ptr [ %6, %5 ], [ %26, %25 ], [ %21, %20 ], [ %16, %15 ], [ %11, %10 ], [ %1, %23 ], [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
+  %.sink65 = phi i64 [ %7, %5 ], [ %27, %25 ], [ %22, %20 ], [ %17, %15 ], [ %12, %10 ], [ %2, %23 ], [ %2, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
+  %.sink63 = phi i8 [ 1, %5 ], [ 3, %25 ], [ 2, %20 ], [ 1, %15 ], [ 1, %10 ], [ 0, %23 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
+  %.sink = phi i8 [ 1, %5 ], [ 0, %25 ], [ 4, %20 ], [ 2, %15 ], [ 1, %10 ], [ 0, %23 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit29 ]
   store ptr %.sink66, ptr %0, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink65, ptr %.sroa.12.0..sroa_idx, align 8

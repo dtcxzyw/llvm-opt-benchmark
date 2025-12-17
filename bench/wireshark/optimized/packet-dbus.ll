@@ -1061,11 +1061,11 @@ default.unreachable.i:                            ; preds = %.critedge.i
 
 356:                                              ; preds = %144
   %357 = load i32, ptr %49, align 4
-  switch i32 %357, label %370 [
+  switch i32 %357, label %368 [
     i32 1, label %358
-    i32 2, label %361
-    i32 3, label %363
-    i32 4, label %366
+    i32 2, label %369
+    i32 3, label %361
+    i32 4, label %364
   ]
 
 358:                                              ; preds = %356
@@ -1077,39 +1077,39 @@ default.unreachable.i:                            ; preds = %.critedge.i
   br i1 %or.cond, label %.critedge181.i, label %373
 
 361:                                              ; preds = %356
-  %362 = load i32, ptr %137, align 8
-  %.not155.i = icmp eq i32 %362, 0
-  br i1 %.not155.i, label %.critedge181.i, label %373
-
-363:                                              ; preds = %356
-  %364 = load ptr, ptr %140, align 8
-  %.not153.i = icmp eq ptr %364, null
-  %365 = load i32, ptr %137, align 8
-  %.not154.i = icmp eq i32 %365, 0
+  %362 = load ptr, ptr %140, align 8
+  %.not153.i = icmp eq ptr %362, null
+  %363 = load i32, ptr %137, align 8
+  %.not154.i = icmp eq i32 %363, 0
   %or.cond27 = select i1 %.not153.i, i1 true, i1 %.not154.i
   br i1 %or.cond27, label %.critedge181.i, label %373
 
-366:                                              ; preds = %356
-  %367 = load ptr, ptr %143, align 8
-  %.not150.i = icmp eq ptr %367, null
-  %368 = load ptr, ptr %142, align 8
-  %.not151.i = icmp eq ptr %368, null
+364:                                              ; preds = %356
+  %365 = load ptr, ptr %143, align 8
+  %.not150.i = icmp eq ptr %365, null
+  %366 = load ptr, ptr %142, align 8
+  %.not151.i = icmp eq ptr %366, null
   %or.cond28 = select i1 %.not150.i, i1 true, i1 %.not151.i
-  %369 = load ptr, ptr %141, align 8
-  %.not152.i = icmp eq ptr %369, null
+  %367 = load ptr, ptr %141, align 8
+  %.not152.i = icmp eq ptr %367, null
   %or.cond29 = select i1 %or.cond28, i1 true, i1 %.not152.i
   br i1 %or.cond29, label %.critedge181.i, label %373
 
-370:                                              ; preds = %356
+368:                                              ; preds = %356
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, i32 noundef 1288) #10
   unreachable
 
-.critedge181.i:                                   ; preds = %366, %363, %361, %358
+369:                                              ; preds = %356
+  %370 = load i32, ptr %137, align 8
+  %.not155.i = icmp eq i32 %370, 0
+  br i1 %.not155.i, label %.critedge181.i, label %373
+
+.critedge181.i:                                   ; preds = %369, %364, %361, %358
   %371 = load ptr, ptr %18, align 8
   %372 = call ptr @expert_add_info(ptr noundef %371, ptr noundef %135, ptr noundef nonnull @ei_dbus_required_header_field_missing)
   br label %dissect_dbus_header_fields.exit.thread
 
-373:                                              ; preds = %366, %363, %358, %361
+373:                                              ; preds = %364, %361, %358, %369
   %374 = call ptr @proto_item_get_subtree(ptr noundef %135)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.i)
   %375 = load ptr, ptr %138, align 8
@@ -1557,7 +1557,7 @@ add_conversation.exit.i:                          ; preds = %proto_item_set_gene
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, i32 noundef 1328) #10
   unreachable
 
-dissect_dbus_header_fields.exit.thread:           ; preds = %169, %187, %192, %225, %259, %292, %312, %332, %337, %345, %150, %147, %.loopexit.i, %.preheader.i, %.lr.ph.i198.i, %.lr.ph.i, %.lr.ph.i.i, %128, %.critedge181.i, %343, %319, %299, %is_dbus_interface_valid.exit213.thread.i, %is_dbus_interface_valid.exit.thread.i, %159, %177, %is_dbus_member_name_valid.exit.thread.i
+dissect_dbus_header_fields.exit.thread:           ; preds = %.loopexit.i, %169, %345, %337, %187, %192, %225, %259, %292, %312, %332, %150, %147, %.preheader.i, %.lr.ph.i198.i, %.lr.ph.i, %.lr.ph.i.i, %128, %.critedge181.i, %343, %319, %299, %is_dbus_interface_valid.exit213.thread.i, %is_dbus_interface_valid.exit.thread.i, %159, %177, %is_dbus_member_name_valid.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_dbus_body.exit
@@ -2387,9 +2387,9 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
   unreachable
 
 325:                                              ; preds = %280, %278, %276, %is_basic_type.exit, %196, %217, %200, %20, %34, %316, %309, %is_basic_type.exit351, %221, %163, %is_dbus_object_path_valid.exit.thread354, %121, %97, %83, %69, %61, %53, %45, %37, %12
-  %.0296 = phi i1 [ true, %12 ], [ true, %37 ], [ true, %45 ], [ true, %53 ], [ true, %61 ], [ true, %69 ], [ true, %83 ], [ true, %97 ], [ true, %121 ], [ true, %is_dbus_object_path_valid.exit.thread354 ], [ true, %163 ], [ false, %221 ], [ false, %is_basic_type.exit351 ], [ true, %309 ], [ true, %316 ], [ true, %34 ], [ true, %20 ], [ false, %200 ], [ false, %217 ], [ true, %196 ], [ false, %is_basic_type.exit ], [ false, %276 ], [ false, %278 ], [ false, %280 ]
-  %.0288 = phi i32 [ 0, %12 ], [ 0, %37 ], [ 0, %45 ], [ 0, %53 ], [ 0, %61 ], [ 0, %69 ], [ 0, %83 ], [ 0, %97 ], [ %.2290, %121 ], [ %.3291, %is_dbus_object_path_valid.exit.thread354 ], [ %.4292, %163 ], [ 0, %221 ], [ 0, %is_basic_type.exit351 ], [ 0, %309 ], [ 0, %316 ], [ 1, %34 ], [ 0, %20 ], [ 0, %200 ], [ 1, %217 ], [ 0, %196 ], [ 0, %is_basic_type.exit ], [ 0, %276 ], [ 0, %278 ], [ 1, %280 ]
-  %.0287 = phi ptr [ %0, %12 ], [ %0, %37 ], [ %0, %45 ], [ %0, %53 ], [ %0, %61 ], [ %0, %69 ], [ %0, %83 ], [ %0, %97 ], [ %0, %121 ], [ %0, %is_dbus_object_path_valid.exit.thread354 ], [ %0, %163 ], [ %232, %221 ], [ %296, %is_basic_type.exit351 ], [ %315, %309 ], [ %0, %316 ], [ %0, %34 ], [ %0, %20 ], [ %208, %200 ], [ %0, %217 ], [ %0, %196 ], [ %260, %is_basic_type.exit ], [ %260, %276 ], [ %0, %278 ], [ %0, %280 ]
+  %.0296 = phi i1 [ true, %12 ], [ true, %316 ], [ true, %37 ], [ true, %45 ], [ true, %53 ], [ true, %61 ], [ true, %69 ], [ true, %83 ], [ true, %97 ], [ true, %121 ], [ true, %is_dbus_object_path_valid.exit.thread354 ], [ true, %163 ], [ true, %20 ], [ false, %221 ], [ true, %196 ], [ false, %is_basic_type.exit351 ], [ true, %309 ], [ true, %34 ], [ false, %200 ], [ false, %217 ], [ false, %is_basic_type.exit ], [ false, %280 ], [ false, %276 ], [ false, %278 ]
+  %.0288 = phi i32 [ 0, %12 ], [ 0, %316 ], [ 0, %37 ], [ 0, %45 ], [ 0, %53 ], [ 0, %61 ], [ 0, %69 ], [ 0, %83 ], [ 0, %97 ], [ %.2290, %121 ], [ %.3291, %is_dbus_object_path_valid.exit.thread354 ], [ %.4292, %163 ], [ 0, %20 ], [ 0, %221 ], [ 0, %196 ], [ 0, %is_basic_type.exit351 ], [ 0, %309 ], [ 1, %34 ], [ 0, %200 ], [ 1, %217 ], [ 0, %is_basic_type.exit ], [ 1, %280 ], [ 0, %276 ], [ 0, %278 ]
+  %.0287 = phi ptr [ %0, %12 ], [ %0, %316 ], [ %0, %37 ], [ %0, %45 ], [ %0, %53 ], [ %0, %61 ], [ %0, %69 ], [ %0, %83 ], [ %0, %97 ], [ %0, %121 ], [ %0, %is_dbus_object_path_valid.exit.thread354 ], [ %0, %163 ], [ %0, %20 ], [ %232, %221 ], [ %0, %196 ], [ %296, %is_basic_type.exit351 ], [ %315, %309 ], [ %0, %34 ], [ %208, %200 ], [ %0, %217 ], [ %260, %is_basic_type.exit ], [ %0, %280 ], [ %260, %276 ], [ %0, %278 ]
   %326 = getelementptr inbounds nuw i8, ptr %.0287, i64 16
   %327 = load i32, ptr %326, align 8
   %328 = icmp ugt i32 %327, 64
@@ -2541,8 +2541,8 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
   br label %414
 
 414:                                              ; preds = %.sink.split, %344, %403, %.thread
-  %.7295 = phi i32 [ %.10, %403 ], [ %.10, %.thread ], [ %.0288, %344 ], [ %.10, %.sink.split ]
-  %.3 = phi ptr [ %.4, %403 ], [ %.4, %.thread ], [ %.0287, %344 ], [ %.4, %.sink.split ]
+  %.7295 = phi i32 [ %.0288, %344 ], [ %.10, %403 ], [ %.10, %.thread ], [ %.10, %.sink.split ]
+  %.3 = phi ptr [ %.0287, %344 ], [ %.4, %403 ], [ %.4, %.thread ], [ %.4, %.sink.split ]
   %.not333 = icmp eq i32 %.7295, 0
   br i1 %.not333, label %reader_cleanup.exit, label %415
 
@@ -2730,7 +2730,7 @@ define internal fastcc zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) unname
   br i1 %53, label %.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %21, %9, %30, %51, %.split36.us
-  %.0 = phi i1 [ %50, %.split36.us ], [ false, %51 ], [ false, %30 ], [ false, %9 ], [ false, %21 ]
+  %.0 = phi i1 [ %50, %.split36.us ], [ false, %30 ], [ false, %51 ], [ false, %9 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -2874,7 +2874,7 @@ define internal fastcc range(i32 0, 2) i32 @add_padding(ptr noundef captures(non
   br label %calculate_padding_len.exit
 
 calculate_padding_len.exit:                       ; preds = %2, %7, %8, %9
-  %.0.i = phi i32 [ 2, %7 ], [ 4, %8 ], [ 8, %9 ], [ 1, %2 ]
+  %.0.i = phi i32 [ 8, %9 ], [ 2, %7 ], [ 4, %8 ], [ 1, %2 ]
   %10 = srem i32 %6, %.0.i
   %11 = sub nsw i32 %.0.i, %10
   %.lhs.trunc.i = trunc nsw i32 %11 to i8
@@ -3215,7 +3215,7 @@ skip_enclosed_container.exit.loopexit45:          ; preds = %2, %2, %2, %2, %2, 
   br label %skip_enclosed_container.exit
 
 skip_enclosed_container.exit:                     ; preds = %20, %15, %12, %7, %2, %skip_enclosed_container.exit.loopexit45, %13, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ %3, %skip_enclosed_container.exit.loopexit45 ], [ null, %2 ], [ null, %12 ], [ %.01623.i, %7 ], [ null, %20 ], [ %.01623.i12, %15 ]
+  %.0 = phi ptr [ %3, %skip_enclosed_container.exit.loopexit45 ], [ null, %13 ], [ null, %5 ], [ null, %2 ], [ null, %12 ], [ %.01623.i, %7 ], [ null, %20 ], [ %.01623.i12, %15 ]
   ret ptr %.0
 }
 

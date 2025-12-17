@@ -495,7 +495,7 @@ define noundef i32 @_ZN3zmq16null_mechanism_t25process_handshake_commandEPNS_5ms
   br label %57
 
 35:                                               ; preds = %27, %21
-  %.021 = phi i32 [ %28, %27 ], [ %25, %21 ]
+  %.021 = phi i32 [ %25, %21 ], [ %28, %27 ]
   %36 = icmp eq i32 %.021, 0
   br i1 %36, label %37, label %57
 

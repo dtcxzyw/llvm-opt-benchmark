@@ -766,7 +766,7 @@ define dso_local noundef range(i32 -1, 256) i32 @_ZNSt3__112strstreambuf8overflo
   br label %72
 
 72:                                               ; preds = %30, %10, %2, %66
-  %.0 = phi i32 [ %71, %66 ], [ 0, %2 ], [ -1, %10 ], [ -1, %30 ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %2 ], [ %71, %66 ], [ -1, %30 ]
   ret i32 %.0
 }
 
@@ -821,7 +821,7 @@ define dso_local noundef i32 @_ZNSt3__112strstreambuf9pbackfailEi(ptr noundef no
   br label %25
 
 25:                                               ; preds = %17, %2, %23, %22, %10
-  %.0 = phi i32 [ 0, %10 ], [ %1, %22 ], [ %1, %23 ], [ -1, %2 ], [ -1, %17 ]
+  %.0 = phi i32 [ %1, %23 ], [ 0, %10 ], [ %1, %22 ], [ -1, %2 ], [ -1, %17 ]
   ret i32 %.0
 }
 
@@ -925,7 +925,7 @@ define dso_local { i64, i64 } @_ZNSt3__112strstreambuf7seekoffExNS_8ios_base7see
   unreachable
 
 39:                                               ; preds = %19, %32, %25
-  %.0 = phi i64 [ %31, %25 ], [ %37, %32 ], [ 0, %19 ]
+  %.0 = phi i64 [ %37, %32 ], [ %31, %25 ], [ 0, %19 ]
   %40 = add nsw i64 %.0, %1
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %62, label %42
@@ -967,7 +967,7 @@ define dso_local { i64, i64 } @_ZNSt3__112strstreambuf7seekoffExNS_8ios_base7see
   br label %62
 
 62:                                               ; preds = %15, %11, %53, %54, %39, %42, %9, %7
-  %.sroa.7.0 = phi i64 [ -1, %7 ], [ -1, %9 ], [ -1, %42 ], [ -1, %39 ], [ %40, %54 ], [ %40, %53 ], [ -1, %11 ], [ -1, %15 ]
+  %.sroa.7.0 = phi i64 [ -1, %15 ], [ -1, %39 ], [ -1, %11 ], [ -1, %9 ], [ -1, %7 ], [ -1, %42 ], [ %40, %54 ], [ %40, %53 ]
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -1041,7 +1041,7 @@ define dso_local { i64, i64 } @_ZNSt3__112strstreambuf7seekposENS_4fposI11__mbst
   br label %42
 
 42:                                               ; preds = %12, %8, %33, %34, %17, %4
-  %.sroa.5.0 = phi i64 [ -1, %4 ], [ -1, %17 ], [ %2, %34 ], [ %2, %33 ], [ -1, %8 ], [ -1, %12 ]
+  %.sroa.5.0 = phi i64 [ -1, %4 ], [ -1, %8 ], [ %2, %33 ], [ -1, %12 ], [ -1, %17 ], [ %2, %34 ]
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }

@@ -292,7 +292,7 @@ _ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_
   invoke void @_ZN3tbb6detail2r13rml14private_server9wake_someEi(ptr noundef nonnull align 8 dereferenceable(57) %61, i32 noundef 0)
           to label %_ZN3tbb6detail2r13rml14private_server24propagate_chain_reactionEv.exit5 unwind label %.loopexit9
 
-_ZN3tbb6detail2r13rml14private_server24propagate_chain_reactionEv.exit5: ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i, %28, %.loopexit, %64, %_ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_workerE.exit, %23
+_ZN3tbb6detail2r13rml14private_server24propagate_chain_reactionEv.exit5: ; preds = %28, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i, %.loopexit, %64, %_ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_workerE.exit, %23
   %65 = load atomic i32, ptr %0 seq_cst, align 8
   %.not = icmp eq i32 %65, 3
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !29

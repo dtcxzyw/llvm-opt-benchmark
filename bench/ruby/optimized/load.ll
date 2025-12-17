@@ -265,7 +265,7 @@ define internal fastcc range(i32 0, 2) i32 @feature_provided(ptr noundef %0, ptr
   br label %RSTRING_PTR.exit
 
 RSTRING_PTR.exit:                                 ; preds = %9, %23, %15, %.tail, %3
-  %.023 = phi ptr [ %1, %.tail ], [ %1, %3 ], [ %.sroa.2.0.copyload.i, %23 ], [ %22, %15 ], [ %1, %9 ]
+  %.023 = phi ptr [ %1, %3 ], [ %1, %.tail ], [ %.sroa.2.0.copyload.i, %23 ], [ %22, %15 ], [ %1, %9 ]
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.tail30.thread, label %24
 
@@ -326,7 +326,7 @@ sub_132:                                          ; preds = %sub_031
   br label %46
 
 46:                                               ; preds = %.tail30.thread, %40, %29, %43
-  %.0.shrunk = phi i1 [ false, %43 ], [ %.not27, %29 ], [ %.not26, %40 ], [ true, %.tail30.thread ]
+  %.0.shrunk = phi i1 [ %.not26, %40 ], [ false, %43 ], [ %.not27, %29 ], [ true, %.tail30.thread ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1279,7 +1279,7 @@ RSTRING_PTR.exit131:                              ; preds = %124, %130
   br label %147
 
 147:                                              ; preds = %109, %RSTRING_PTR.exit127, %140, %145, %143, %80, %82, %76, %RSTRING_PTR.exit119, %51, %53, %26, %39, %RSTRING_PTR.exit111, %22, %24
-  %.0 = phi i32 [ 114, %24 ], [ 114, %22 ], [ 114, %RSTRING_PTR.exit111 ], [ 114, %39 ], [ 0, %26 ], [ 115, %53 ], [ 115, %51 ], [ 115, %RSTRING_PTR.exit119 ], [ 115, %76 ], [ 114, %82 ], [ 114, %80 ], [ %142, %140 ], [ %122, %RSTRING_PTR.exit127 ], [ 115, %109 ], [ %.084134, %145 ], [ %.084134, %143 ]
+  %.0 = phi i32 [ 115, %76 ], [ 114, %80 ], [ 115, %51 ], [ 114, %22 ], [ 114, %39 ], [ 0, %26 ], [ 114, %24 ], [ 114, %RSTRING_PTR.exit111 ], [ 115, %53 ], [ 115, %RSTRING_PTR.exit119 ], [ 114, %82 ], [ 115, %109 ], [ %142, %140 ], [ %122, %RSTRING_PTR.exit127 ], [ %.084134, %145 ], [ %.084134, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1889,7 +1889,7 @@ RSTRING_PTR.exit144:                              ; preds = %214, %220
   br label %223
 
 223:                                              ; preds = %202, %193, %188, %191, %222, %195
-  %.0 = phi i32 [ %159, %195 ], [ %.0..0..0..0.69, %222 ], [ 6, %191 ], [ 6, %188 ], [ 6, %193 ], [ 6, %202 ]
+  %.0 = phi i32 [ 6, %193 ], [ 6, %188 ], [ %159, %195 ], [ %.0..0..0..0.69, %222 ], [ 6, %191 ], [ 6, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2168,7 +2168,7 @@ rb_num2long_inline.exit:                          ; preds = %42, %44
   br label %48
 
 48:                                               ; preds = %.sink.split, %35, %rb_array_len.exit, %rbimpl_intern_const.exit, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %rbimpl_intern_const.exit ], [ null, %rb_array_len.exit ], [ null, %35 ], [ %47, %.sink.split ]
+  %.0 = phi ptr [ null, %rbimpl_intern_const.exit ], [ null, %35 ], [ null, %18 ], [ null, %rb_array_len.exit ], [ %47, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2363,9 +2363,9 @@ sub_1:                                            ; preds = %77
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.thread187, label %select.unfold
 
-select.unfold:                                    ; preds = %75, %.thread173, %.tail.thread, %RARRAY_AREF.exit, %60, %64, %72
-  %.2126.ph = phi i64 [ %.3127, %72 ], [ %.4128, %64 ], [ %.1125, %60 ], [ %.1125, %RARRAY_AREF.exit ], [ %.3127, %.tail.thread ], [ %.3127, %.thread173 ], [ %.3127, %75 ]
-  %.2112.ph = phi i32 [ %.3113, %72 ], [ 0, %64 ], [ %.1111, %60 ], [ %.1111, %RARRAY_AREF.exit ], [ %.3113, %.tail.thread ], [ %.3113, %.thread173 ], [ %.3113, %75 ]
+select.unfold:                                    ; preds = %75, %.thread173, %.tail.thread, %RARRAY_AREF.exit, %60, %72, %64
+  %.2126.ph = phi i64 [ %.3127, %.thread173 ], [ %.4128, %64 ], [ %.3127, %72 ], [ %.1125, %RARRAY_AREF.exit ], [ %.1125, %60 ], [ %.3127, %.tail.thread ], [ %.3127, %75 ]
+  %.2112.ph = phi i32 [ %.3113, %.thread173 ], [ 0, %64 ], [ %.3113, %72 ], [ %.1111, %RARRAY_AREF.exit ], [ %.1111, %60 ], [ %.3113, %.tail.thread ], [ %.3113, %75 ]
   %87 = add nuw i64 %.0122, 1
   br label %38
 
@@ -2524,8 +2524,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
   %146 = select i1 %.not166, i32 114, i32 115
   br label %.thread187
 
-.thread187:                                       ; preds = %.thread173, %77, %.tail, %75, %._crit_edge, %128, %136, %138, %112, %141, %143, %144
-  %.3 = phi i32 [ %146, %144 ], [ 117, %143 ], [ 0, %141 ], [ 115, %136 ], [ 115, %138 ], [ 0, %112 ], [ %.not165.lcssa, %128 ], [ %.not165.lcssa, %._crit_edge ], [ 117, %75 ], [ 115, %.tail ], [ 115, %77 ], [ 114, %.thread173 ]
+.thread187:                                       ; preds = %77, %75, %.tail, %.thread173, %._crit_edge, %128, %136, %138, %112, %141, %143, %144
+  %.3 = phi i32 [ %146, %144 ], [ 117, %143 ], [ 115, %136 ], [ 0, %141 ], [ 115, %138 ], [ 0, %112 ], [ %.not165.lcssa, %._crit_edge ], [ %.not165.lcssa, %128 ], [ 115, %.tail ], [ 117, %75 ], [ 115, %77 ], [ 114, %.thread173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.3
@@ -2979,7 +2979,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit56
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RARRAY_AREF.exit, %40
-  %.0.i = phi i1 [ false, %RARRAY_AREF.exit ], [ %44, %40 ]
+  %.0.i = phi i1 [ %44, %40 ], [ false, %RARRAY_AREF.exit ]
   %45 = tail call i64 @rb_get_path_check_to_string(i64 noundef %35) #6
   %46 = inttoptr i64 %45 to ptr
   %47 = load i64, ptr %46, align 8, !tbaa !44, !noalias !199
@@ -3660,7 +3660,7 @@ RARRAY_AREF.exit47:                               ; preds = %.lr.ph, %rb_darray_
   br i1 %102, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !217
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %98, %RARRAY_AREF.exit47, %73, %RARRAY_AREF.exit47.us78
-  %.us-phi87 = phi i64 [ %68, %RARRAY_AREF.exit47.us78 ], [ %68, %73 ], [ %93, %RARRAY_AREF.exit47 ], [ %93, %98 ]
+  %.us-phi87 = phi i64 [ %68, %73 ], [ %68, %RARRAY_AREF.exit47.us78 ], [ %93, %RARRAY_AREF.exit47 ], [ %93, %98 ]
   tail call void @rb_unexpected_type(i64 noundef %.us-phi87, i32 noundef 5) #29
   unreachable
 
@@ -3702,8 +3702,8 @@ rb_darray_size.exit:                              ; preds = %is_rbext_path.exit5
   br label %rb_darray_size.exit.i
 
 rb_darray_size.exit.i:                            ; preds = %is_rbext_path.exit53, %Check_Type.exit, %Check_Type.exit.us80, %is_rbext_path.exit53.us83, %.critedge.rb_darray_size.exit.i_crit_edge
-  %115 = phi i64 [ %.pre, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %57, %is_rbext_path.exit53.us83 ], [ %57, %Check_Type.exit.us80 ], [ %57, %Check_Type.exit ], [ %57, %is_rbext_path.exit53 ]
-  %.365 = phi i64 [ -1, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %.0427577.us, %is_rbext_path.exit53.us83 ], [ %.0427577.us, %Check_Type.exit.us80 ], [ %.0427577, %Check_Type.exit ], [ %.0427577, %is_rbext_path.exit53 ]
+  %115 = phi i64 [ %.pre, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %57, %Check_Type.exit.us80 ], [ %57, %is_rbext_path.exit53.us83 ], [ %57, %Check_Type.exit ], [ %57, %is_rbext_path.exit53 ]
+  %.365 = phi i64 [ -1, %.critedge.rb_darray_size.exit.i_crit_edge ], [ %.0427577.us, %Check_Type.exit.us80 ], [ %.0427577.us, %is_rbext_path.exit53.us83 ], [ %.0427577, %Check_Type.exit ], [ %.0427577, %is_rbext_path.exit53 ]
   %116 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !212
   %.fr.i = freeze i64 %117
@@ -4319,7 +4319,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %64
   br label %56, !llvm.loop !268
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rb_array_len.exit.thread, %76, %41, %46, %36, %.critedge, %23, %28, %6
-  %.0 = phi i64 [ %69, %76 ], [ 0, %6 ], [ 0, %28 ], [ 0, %23 ], [ 0, %.critedge ], [ 0, %36 ], [ 0, %46 ], [ 0, %41 ], [ 0, %rb_array_len.exit.thread ], [ 0, %rb_array_len.exit ]
+  %.0 = phi i64 [ 0, %36 ], [ 0, %6 ], [ 0, %.critedge ], [ %69, %76 ], [ 0, %41 ], [ 0, %28 ], [ 0, %23 ], [ 0, %46 ], [ 0, %rb_array_len.exit.thread ], [ 0, %rb_array_len.exit ]
   ret i64 %.0
 }
 

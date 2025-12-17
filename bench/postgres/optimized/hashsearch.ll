@@ -100,7 +100,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   %50 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %40, i32 noundef %1)
   br i1 %50, label %.thread51, label %.thread
 
-.thread:                                          ; preds = %36, %20, %23, %49
+.thread:                                          ; preds = %20, %36, %23, %49
   tail call void @_hash_dropscanbuf(ptr noundef %4, ptr noundef nonnull %6) #5
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %51, align 4
@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   store i32 0, ptr %57, align 4
   br label %64
 
-.thread51:                                        ; preds = %26, %10, %23, %49
+.thread51:                                        ; preds = %10, %26, %23, %49
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %60 = load i32, ptr %59, align 4
@@ -527,7 +527,7 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   br label %199
 
 199:                                              ; preds = %.thread1, %.thread, %187, %193
-  %.170 = phi i1 [ true, %193 ], [ true, %187 ], [ false, %.thread ], [ false, %.thread1 ]
+  %.170 = phi i1 [ false, %.thread1 ], [ false, %.thread ], [ true, %193 ], [ true, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -770,7 +770,7 @@ BufferGetPage.exit54:                             ; preds = %81, %87
   br label %129
 
 129:                                              ; preds = %.critedge2, %30, %122
-  %.0 = phi i1 [ true, %122 ], [ false, %30 ], [ false, %.critedge2 ]
+  %.0 = phi i1 [ false, %30 ], [ true, %122 ], [ false, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1215,7 +1215,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br label %.split
 
 .loopexit:                                        ; preds = %.outer64, %91, %.split.us, %83, %128, %110, %.outer, %72, %.split106.us, %64, %54, %36, %.preheader62, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 408, %.preheader62 ], [ %.048.ph127, %36 ], [ %.048.ph127, %54 ], [ %.048.ph127, %64 ], [ %77, %.outer ], [ %.048.ph127, %72 ], [ %.048.ph127, %.split106.us ], [ %.1.ph96, %110 ], [ %.1.ph96, %128 ], [ %.1.ph96, %83 ], [ %93, %.outer64 ], [ %.1.ph96, %91 ], [ %.1.ph96, %.split.us ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 408, %.preheader62 ], [ %.1.ph96, %83 ], [ %.048.ph127, %36 ], [ %.048.ph127, %54 ], [ %.048.ph127, %.split106.us ], [ %.1.ph96, %110 ], [ %.1.ph96, %128 ], [ %.048.ph127, %64 ], [ %77, %.outer ], [ %.048.ph127, %72 ], [ %93, %.outer64 ], [ %.1.ph96, %91 ], [ %.1.ph96, %.split.us ]
   ret i32 %.0
 }
 

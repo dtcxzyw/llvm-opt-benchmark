@@ -2290,7 +2290,7 @@ select.unfold:                                    ; preds = %33, %._crit_edge.th
   br label %.thread18
 
 .thread18:                                        ; preds = %select.unfold, %37
-  %41 = phi i1 [ true, %select.unfold ], [ %40, %37 ]
+  %41 = phi i1 [ %40, %37 ], [ true, %select.unfold ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %41, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %24) #25
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !48

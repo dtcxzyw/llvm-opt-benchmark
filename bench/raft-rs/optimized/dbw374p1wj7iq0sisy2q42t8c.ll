@@ -980,7 +980,7 @@ define noundef zeroext i1 @_ZN10raft_proto9confstate13conf_state_eq17h22156ac5ca
   br label %_ZN10raft_proto9confstate16eq_without_order17h9123eee76a5c77eaE.exit
 
 _ZN10raft_proto9confstate16eq_without_order17h9123eee76a5c77eaE.exit: ; preds = %.preheader32.i, %.preheader29.i, %.preheader32.i30, %.preheader29.i27, %.preheader32.i63, %.preheader29.i60, %.preheader32.i96, %.preheader29.i93, %85, %.loopexit
-  %.sroa.0.0 = phi i1 [ %245, %.loopexit ], [ true, %85 ], [ false, %.preheader29.i93 ], [ false, %.preheader32.i96 ], [ false, %.preheader29.i60 ], [ false, %.preheader32.i63 ], [ false, %.preheader29.i27 ], [ false, %.preheader32.i30 ], [ false, %.preheader29.i ], [ false, %.preheader32.i ]
+  %.sroa.0.0 = phi i1 [ true, %85 ], [ %245, %.loopexit ], [ false, %.preheader29.i ], [ false, %.preheader29.i93 ], [ false, %.preheader32.i96 ], [ false, %.preheader29.i60 ], [ false, %.preheader32.i63 ], [ false, %.preheader29.i27 ], [ false, %.preheader32.i30 ], [ false, %.preheader32.i ]
   ret i1 %.sroa.0.0
 }
 

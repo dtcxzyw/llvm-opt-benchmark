@@ -511,7 +511,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %73
   br label %76
 
 76:                                               ; preds = %75, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i
-  %.0.i = phi i16 [ 257, %75 ], [ 257, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
+  %.0.i = phi i16 [ 257, %_ZN4llvm11SmallStringILj256EEC2ENS_9StringRefE.exit.i ], [ 257, %75 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %77 = load ptr, ptr %4, align 8, !tbaa !698
   %78 = icmp eq ptr %77, %35
   br i1 %78, label %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit.i, label %79

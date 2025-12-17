@@ -207,7 +207,7 @@ ssl_ticket_gen_key.exit44:                        ; preds = %44, %53, %mbedtls_c
   br label %mbedtls_cipher_info_get_mode.exit35.thread
 
 mbedtls_cipher_info_get_mode.exit35.thread:       ; preds = %mbedtls_cipher_info_get_mode.exit, %5, %ssl_ticket_gen_key.exit.thread, %ssl_ticket_gen_key.exit44, %ssl_ticket_gen_key.exit, %21, %15, %mbedtls_cipher_info_get_key_bitlen.exit
-  %.0 = phi i32 [ -28928, %mbedtls_cipher_info_get_key_bitlen.exit ], [ %20, %15 ], [ %23, %21 ], [ %43, %ssl_ticket_gen_key.exit ], [ %.0.i39, %ssl_ticket_gen_key.exit44 ], [ %.0.i37.ph, %ssl_ticket_gen_key.exit.thread ], [ -28928, %5 ], [ -28928, %mbedtls_cipher_info_get_mode.exit ]
+  %.0 = phi i32 [ %.0.i39, %ssl_ticket_gen_key.exit44 ], [ -28928, %mbedtls_cipher_info_get_mode.exit ], [ -28928, %mbedtls_cipher_info_get_key_bitlen.exit ], [ %20, %15 ], [ %23, %21 ], [ %43, %ssl_ticket_gen_key.exit ], [ %.0.i37.ph, %ssl_ticket_gen_key.exit.thread ], [ -28928, %5 ]
   ret i32 %.0
 }
 
@@ -297,7 +297,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   br label %55
 
 55:                                               ; preds = %53, %23, %25, %37, %44, %49, %17, %6, %13
-  %.0 = phi i32 [ -28928, %13 ], [ -28928, %6 ], [ -27136, %17 ], [ %24, %23 ], [ %36, %25 ], [ %40, %37 ], [ %48, %44 ], [ 0, %53 ], [ -27648, %49 ]
+  %.0 = phi i32 [ -27136, %17 ], [ -28928, %6 ], [ -28928, %13 ], [ %24, %23 ], [ %36, %25 ], [ %40, %37 ], [ %48, %44 ], [ 0, %53 ], [ -27648, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -384,7 +384,7 @@ ssl_ticket_gen_key.exit:                          ; preds = %18, %33, %mbedtls_c
   br label %46
 
 46:                                               ; preds = %1, %ssl_ticket_gen_key.exit, %13
-  %.1 = phi i32 [ %.0.i, %ssl_ticket_gen_key.exit ], [ 0, %13 ], [ 0, %1 ]
+  %.1 = phi i32 [ 0, %13 ], [ %.0.i, %ssl_ticket_gen_key.exit ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -485,7 +485,7 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
   br label %ssl_ticket_select_key.exit.thread
 
 ssl_ticket_select_key.exit.thread:                ; preds = %21, %34, %40, %43, %28, %15, %32, %17, %30, %4, %10
-  %.0 = phi i32 [ -28928, %10 ], [ -28928, %4 ], [ %16, %15 ], [ %spec.store.select, %28 ], [ %33, %32 ], [ -28928, %17 ], [ -27648, %30 ], [ %spec.select, %43 ], [ -28928, %40 ], [ -28928, %34 ], [ -28032, %21 ]
+  %.0 = phi i32 [ -27648, %30 ], [ -28928, %4 ], [ -28928, %10 ], [ %16, %15 ], [ %spec.select, %43 ], [ -28928, %17 ], [ %spec.store.select, %28 ], [ %33, %32 ], [ -28928, %40 ], [ -28928, %34 ], [ -28032, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

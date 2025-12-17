@@ -294,7 +294,7 @@ _ZN6LibRaw3FCFEii.exit.i:                         ; preds = %114, %118
   br label %_ZN6LibRaw5COLOREii.exit
 
 _ZN6LibRaw5COLOREii.exit:                         ; preds = %108, %_ZN6LibRaw3FCFEii.exit.i, %134
-  %.0.i = phi i32 [ %110, %108 ], [ %133, %_ZN6LibRaw3FCFEii.exit.i ], [ %140, %134 ]
+  %.0.i = phi i32 [ %110, %108 ], [ %140, %134 ], [ %133, %_ZN6LibRaw3FCFEii.exit.i ]
   %.0.i.fr = freeze i32 %.0.i
   %141 = icmp eq i32 %.0.i.fr, 3
   %spec.select = select i1 %141, i32 1, i32 %.0.i.fr
@@ -1711,7 +1711,7 @@ define void @_ZN4AAHD12evaluate_ahdEv(ptr noundef nonnull readonly align 8 captu
   br label %441
 
 441:                                              ; preds = %255, %257
-  %.0246 = phi i8 [ %.272, %257 ], [ %.271, %255 ]
+  %.0246 = phi i8 [ %.271, %255 ], [ %.272, %257 ]
   %442 = load ptr, ptr %102, align 8, !tbaa !81
   %443 = getelementptr inbounds i8, ptr %442, i64 %indvars.iv402
   %444 = load i8, ptr %443, align 1, !tbaa !104
@@ -2077,9 +2077,9 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
   br label %.thread
 
 .thread:                                          ; preds = %57, %64, %60
-  %70 = phi i8 [ %.pre53, %64 ], [ %51, %60 ], [ %51, %57 ]
-  %71 = phi ptr [ %.pre, %64 ], [ %19, %60 ], [ %19, %57 ]
-  %72 = phi i1 [ false, %64 ], [ %62, %60 ], [ %59, %57 ]
+  %70 = phi i8 [ %51, %60 ], [ %.pre53, %64 ], [ %51, %57 ]
+  %71 = phi ptr [ %19, %60 ], [ %.pre, %64 ], [ %19, %57 ]
+  %72 = phi i1 [ %62, %60 ], [ false, %64 ], [ %59, %57 ]
   %73 = and i8 %70, 2
   %74 = icmp eq i8 %73, 0
   %75 = icmp samesign ult i32 %43, 9
@@ -2870,7 +2870,7 @@ _ZN6LibRaw5COLOREii.exit54:                       ; preds = %2, %_ZN6LibRaw5COLO
   br label %133
 
 133:                                              ; preds = %128, %91
-  %.0 = phi i16 [ %125, %91 ], [ %132, %128 ]
+  %.0 = phi i16 [ %132, %128 ], [ %125, %91 ]
   %134 = getelementptr inbounds i16, ptr %95, i64 %101
   store i16 %.0, ptr %134, align 2, !tbaa !83
   br i1 %92, label %91, label %89, !llvm.loop !138
@@ -3207,7 +3207,7 @@ _ZN6LibRaw5COLOREii.exit163:                      ; preds = %2, %_ZN6LibRaw5COLO
   br label %183
 
 183:                                              ; preds = %178, %116
-  %.0 = phi i16 [ %146, %116 ], [ %182, %178 ]
+  %.0 = phi i16 [ %182, %178 ], [ %146, %116 ]
   %184 = getelementptr inbounds i16, ptr %97, i64 %104
   store i16 %.0, ptr %184, align 2, !tbaa !83
   br i1 %92, label %91, label %90, !llvm.loop !144

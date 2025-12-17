@@ -567,7 +567,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   br i1 %exitcond159.not, label %.loopexit143, label %68, !llvm.loop !13
 
 .loopexit143:                                     ; preds = %75, %51, %45, %73
-  %.0131 = phi i32 [ %74, %73 ], [ 0, %45 ], [ 1, %51 ], [ 0, %75 ]
+  %.0131 = phi i32 [ 0, %45 ], [ %74, %73 ], [ 1, %51 ], [ 0, %75 ]
   %77 = sext i32 %.0131 to i64
   %78 = getelementptr inbounds %struct.data_type, ptr %7, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -1169,8 +1169,8 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br label %66
 
 66:                                               ; preds = %54, %59, %56
-  %.173 = phi i32 [ %.07289, %56 ], [ %65, %59 ], [ %.07289, %54 ]
-  %.1 = phi i32 [ %.07190, %56 ], [ %.07190, %59 ], [ %spec.select, %54 ]
+  %.173 = phi i32 [ %65, %59 ], [ %.07289, %54 ], [ %.07289, %56 ]
+  %.1 = phi i32 [ %.07190, %59 ], [ %spec.select, %54 ], [ %.07190, %56 ]
   %67 = add i32 %.07488, 1
   %exitcond.not = icmp eq i32 %.07488, %smax
   br i1 %exitcond.not, label %68, label %47, !llvm.loop !20
@@ -1367,7 +1367,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -3757,8 +3757,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %533, label %common.resume, label %.preheader.i
 
 common.resume.sink.split:                         ; preds = %.body116, %454, %.body128, %586
-  %.sink = phi ptr [ %42, %586 ], [ %42, %.body128 ], [ %47, %454 ], [ %47, %.body116 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %587, %586 ], [ %543, %.body128 ], [ %455, %454 ], [ %91, %.body116 ]
+  %.sink = phi ptr [ %42, %.body128 ], [ %42, %586 ], [ %47, %454 ], [ %47, %.body116 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %543, %.body128 ], [ %587, %586 ], [ %455, %454 ], [ %91, %.body116 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
   br label %common.resume
 

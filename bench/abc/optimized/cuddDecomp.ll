@@ -139,7 +139,7 @@ define range(i32 0, 3) i32 @Cudd_bddApproxConjDecomp(ptr noundef %0, ptr noundef
   br label %66
 
 66:                                               ; preds = %3, %65, %63, %59, %57, %52, %50, %36, %26, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %26 ], [ 0, %36 ], [ 0, %50 ], [ 2, %52 ], [ 0, %57 ], [ 1, %59 ], [ 0, %63 ], [ 1, %65 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %65 ], [ 0, %16 ], [ 0, %26 ], [ 0, %36 ], [ 0, %50 ], [ 2, %52 ], [ 0, %57 ], [ 1, %59 ], [ 0, %63 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -955,7 +955,7 @@ cuddConjunctsAux.exit.thread:                     ; preds = %138, %._crit_edge19
   br label %.thread
 
 .thread:                                          ; preds = %cuddConjunctsAux.exit.thread, %177, %176, %172, %171, %166, %165
-  %.0 = phi i32 [ 0, %165 ], [ 2, %166 ], [ 0, %171 ], [ 1, %172 ], [ 0, %176 ], [ 1, %177 ], [ 0, %cuddConjunctsAux.exit.thread ]
+  %.0 = phi i32 [ 1, %177 ], [ 0, %165 ], [ 2, %166 ], [ 0, %171 ], [ 1, %172 ], [ 0, %176 ], [ 0, %cuddConjunctsAux.exit.thread ]
   ret i32 %.0
 }
 
@@ -1149,7 +1149,7 @@ define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1
   br label %83
 
 83:                                               ; preds = %._crit_edge, %3, %82, %80, %76, %74, %69, %67, %53, %17, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %17 ], [ 0, %53 ], [ 0, %67 ], [ 2, %69 ], [ 0, %74 ], [ 1, %76 ], [ 0, %80 ], [ 1, %82 ], [ 0, %3 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 1, %82 ], [ 0, %15 ], [ 1, %17 ], [ 0, %3 ], [ 0, %53 ], [ 0, %67 ], [ 2, %69 ], [ 0, %74 ], [ 1, %76 ], [ 0, %80 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1260,7 +1260,7 @@ define internal fastcc ptr @CreateBotDist(ptr noundef %0, ptr noundef nonnull %1
   br label %41
 
 41:                                               ; preds = %35, %31, %24, %13, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %13 ], [ null, %24 ], [ null, %31 ], [ %spec.select, %35 ]
+  %.0 = phi ptr [ %9, %8 ], [ %spec.select, %35 ], [ null, %13 ], [ null, %24 ], [ null, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1344,7 +1344,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
   br label %47
 
 47:                                               ; preds = %42, %45, %36, %30, %19, %11, %16
-  %.0 = phi double [ %18, %16 ], [ %., %11 ], [ -1.000000e+00, %19 ], [ -1.000000e+00, %30 ], [ -1.000000e+00, %36 ], [ %39, %45 ], [ %39, %42 ]
+  %.0 = phi double [ %., %11 ], [ -1.000000e+00, %36 ], [ %18, %16 ], [ -1.000000e+00, %30 ], [ -1.000000e+00, %19 ], [ %39, %45 ], [ %39, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret double %.0
 }
@@ -1981,7 +1981,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 323:                                              ; preds = %315, %322, %321, %310, %311, %286, %287, %265, %266, %246, %247, %225, %226, %201, %203, %172, %176, %164, %166, %137, %303, %126, %111, %89, %87, %81, %57, %35, %31, %24, %22
-  %.0 = phi ptr [ null, %22 ], [ %28, %24 ], [ %32, %31 ], [ null, %57 ], [ %92, %89 ], [ null, %87 ], [ null, %81 ], [ null, %303 ], [ null, %126 ], [ null, %111 ], [ null, %35 ], [ null, %137 ], [ %165, %166 ], [ %165, %164 ], [ null, %176 ], [ null, %172 ], [ %202, %203 ], [ %202, %201 ], [ null, %226 ], [ null, %225 ], [ null, %247 ], [ null, %246 ], [ null, %266 ], [ null, %265 ], [ null, %287 ], [ null, %286 ], [ %301, %311 ], [ %301, %310 ], [ %313, %321 ], [ %313, %322 ], [ null, %315 ]
+  %.0 = phi ptr [ null, %22 ], [ %28, %24 ], [ %32, %31 ], [ null, %57 ], [ %92, %89 ], [ null, %87 ], [ null, %81 ], [ null, %35 ], [ null, %137 ], [ %165, %164 ], [ null, %172 ], [ %202, %201 ], [ null, %225 ], [ null, %246 ], [ null, %265 ], [ null, %303 ], [ null, %286 ], [ %301, %310 ], [ null, %126 ], [ null, %111 ], [ %165, %166 ], [ null, %176 ], [ %202, %203 ], [ null, %226 ], [ null, %247 ], [ null, %266 ], [ null, %287 ], [ %301, %311 ], [ %313, %321 ], [ %313, %322 ], [ null, %315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2359,7 +2359,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   br label %200
 
 200:                                              ; preds = %192, %199, %198, %187, %188, %139, %151, %106, %118, %75, %47, %180, %177, %166, %.critedge252, %.critedge, %83, %72, %64, %55, %44, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %44 ], [ null, %55 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %.critedge ], [ null, %.critedge252 ], [ null, %166 ], [ null, %177 ], [ null, %180 ], [ %32, %47 ], [ %62, %75 ], [ null, %118 ], [ %114, %106 ], [ null, %151 ], [ %147, %139 ], [ %175, %188 ], [ %175, %187 ], [ %190, %198 ], [ %190, %199 ], [ null, %192 ]
+  %.0 = phi ptr [ null, %34 ], [ null, %44 ], [ null, %55 ], [ %175, %187 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ %32, %47 ], [ null, %.critedge ], [ %62, %75 ], [ null, %.critedge252 ], [ %114, %106 ], [ null, %166 ], [ null, %177 ], [ null, %180 ], [ %147, %139 ], [ null, %118 ], [ null, %151 ], [ %175, %188 ], [ %190, %198 ], [ %190, %199 ], [ null, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -2683,8 +2683,8 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br label %154
 
 .sink.split:                                      ; preds = %23, %21, %19, %17
-  %.sink221 = phi ptr [ %1, %17 ], [ %3, %19 ], [ %2, %21 ], [ %4, %23 ]
-  %.sink = phi ptr [ %2, %17 ], [ %4, %19 ], [ %1, %21 ], [ %3, %23 ]
+  %.sink221 = phi ptr [ %1, %17 ], [ %2, %21 ], [ %3, %19 ], [ %4, %23 ]
+  %.sink = phi ptr [ %2, %17 ], [ %1, %21 ], [ %4, %19 ], [ %3, %23 ]
   store ptr %.sink221, ptr %14, align 8, !tbaa !42
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sink, ptr %149, align 8, !tbaa !44
@@ -2701,7 +2701,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef no
   br label %154
 
 154:                                              ; preds = %150, %8, %153, %148, %138, %127, %117, %106, %96, %86, %76, %65, %55, %45, %35, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %153 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %65 ], [ null, %76 ], [ null, %86 ], [ null, %96 ], [ null, %106 ], [ null, %117 ], [ null, %127 ], [ null, %138 ], [ null, %148 ], [ null, %8 ], [ %14, %150 ]
+  %.0 = phi ptr [ null, %148 ], [ null, %16 ], [ null, %153 ], [ null, %8 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %65 ], [ null, %76 ], [ null, %86 ], [ null, %96 ], [ null, %106 ], [ null, %117 ], [ null, %127 ], [ null, %138 ], [ %14, %150 ]
   ret ptr %.0
 }
 
@@ -2984,8 +2984,8 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %48, %50, %40, %42, %26, %28, %11, %13, %56
-  %.sink77 = phi ptr [ %1, %56 ], [ %1, %13 ], [ %1, %11 ], [ %1, %28 ], [ %1, %26 ], [ %2, %42 ], [ %2, %40 ], [ %2, %50 ], [ %2, %48 ], [ %2, %39 ]
-  %.sink = phi ptr [ %2, %56 ], [ %2, %13 ], [ %2, %11 ], [ %2, %28 ], [ %2, %26 ], [ %1, %42 ], [ %1, %40 ], [ %1, %50 ], [ %1, %48 ], [ %1, %39 ]
+  %.sink77 = phi ptr [ %1, %11 ], [ %2, %40 ], [ %1, %56 ], [ %2, %48 ], [ %1, %26 ], [ %1, %13 ], [ %1, %28 ], [ %2, %42 ], [ %2, %50 ], [ %2, %39 ]
+  %.sink = phi ptr [ %2, %11 ], [ %1, %40 ], [ %2, %56 ], [ %1, %48 ], [ %2, %26 ], [ %2, %13 ], [ %2, %28 ], [ %1, %42 ], [ %1, %50 ], [ %1, %39 ]
   store ptr %.sink77, ptr %8, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink, ptr %57, align 8, !tbaa !44
@@ -3001,7 +3001,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
   br label %62
 
 62:                                               ; preds = %58, %50, %42, %28, %13, %5, %61
-  %.0 = phi ptr [ null, %61 ], [ null, %5 ], [ null, %13 ], [ null, %28 ], [ null, %42 ], [ null, %50 ], [ %8, %58 ]
+  %.0 = phi ptr [ null, %42 ], [ null, %5 ], [ null, %61 ], [ null, %50 ], [ null, %13 ], [ null, %28 ], [ %8, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -3083,7 +3083,7 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   br label %40
 
 40:                                               ; preds = %39, %36, %31, %26, %23, %20, %17, %3
-  %.0 = phi i32 [ 0, %3 ], [ 3, %17 ], [ 4, %20 ], [ 6, %23 ], [ 5, %26 ], [ 1, %31 ], [ 2, %36 ], [ %., %39 ]
+  %.0 = phi i32 [ 5, %26 ], [ 1, %31 ], [ %., %39 ], [ 2, %36 ], [ 4, %20 ], [ 6, %23 ], [ 0, %3 ], [ 3, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

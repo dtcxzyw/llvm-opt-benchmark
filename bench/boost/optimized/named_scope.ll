@@ -447,7 +447,7 @@ _ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEE
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit
 
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit: ; preds = %2, %6, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit
-  %9 = phi ptr [ null, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit ], [ %5, %6 ], [ null, %2 ]
+  %9 = phi ptr [ %5, %6 ], [ null, %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit ], [ null, %2 ]
   store ptr %9, ptr %0, align 8, !tbaa !39
   ret void
 }

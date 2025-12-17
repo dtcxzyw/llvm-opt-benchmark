@@ -1002,7 +1002,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %113, %111, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
-  %.pn46.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ], [ %114, %113 ]
+  %.pn46.pn = phi { ptr, i32 } [ %114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ], [ %112, %111 ], [ %114, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #35
   br label %120
@@ -1778,8 +1778,8 @@ define { i64, i8 } @_ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %9, %2
-  %.sroa.018.0 = phi i64 [ %3, %2 ], [ %3, %9 ], [ %spec.select, %12 ]
-  %.sroa.620.0 = phi i8 [ %.sroa.620.0.extract.trunc22, %2 ], [ %.sroa.620.0.extract.trunc22, %9 ], [ 1, %12 ]
+  %.sroa.018.0 = phi i64 [ %spec.select, %12 ], [ %3, %9 ], [ %3, %2 ]
+  %.sroa.620.0 = phi i8 [ 1, %12 ], [ %.sroa.620.0.extract.trunc22, %9 ], [ %.sroa.620.0.extract.trunc22, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %16 = load i16, ptr %15, align 2, !tbaa !70
   %17 = and i16 %16, 16
@@ -1964,8 +1964,8 @@ define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnServerInitialMetadat
   br label %_ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch.exit
 
 _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch.exit: ; preds = %3, %11, %14
-  %.sroa.018.0.i = phi i64 [ %5, %3 ], [ %5, %11 ], [ %spec.select.i, %14 ]
-  %.sroa.620.0.i = phi i8 [ %.sroa.620.0.extract.trunc22.i, %3 ], [ %.sroa.620.0.extract.trunc22.i, %11 ], [ 1, %14 ]
+  %.sroa.018.0.i = phi i64 [ %spec.select.i, %14 ], [ %5, %11 ], [ %5, %3 ]
+  %.sroa.620.0.i = phi i8 [ 1, %14 ], [ %.sroa.620.0.extract.trunc22.i, %11 ], [ %.sroa.620.0.extract.trunc22.i, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !70
   %19 = and i16 %18, 16
@@ -2067,8 +2067,8 @@ define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadat
   br label %_ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch.exit
 
 _ZN9grpc_core18ChannelCompression22HandleIncomingMetadataERK19grpc_metadata_batch.exit: ; preds = %3, %11, %14
-  %.sroa.018.0.i = phi i64 [ %5, %3 ], [ %5, %11 ], [ %spec.select.i, %14 ]
-  %.sroa.620.0.i = phi i8 [ %.sroa.620.0.extract.trunc22.i, %3 ], [ %.sroa.620.0.extract.trunc22.i, %11 ], [ 1, %14 ]
+  %.sroa.018.0.i = phi i64 [ %spec.select.i, %14 ], [ %5, %11 ], [ %5, %3 ]
+  %.sroa.620.0.i = phi i8 [ 1, %14 ], [ %.sroa.620.0.extract.trunc22.i, %11 ], [ %.sroa.620.0.extract.trunc22.i, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !70
   %19 = and i16 %18, 16
@@ -4585,8 +4585,8 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
   resume { ptr, i32 } %27
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %23, %20, %.noexc.i
-  %.sroa.018.0.i.i.i.i = phi i64 [ %14, %.noexc.i ], [ %14, %20 ], [ %spec.select.i.i.i.i, %23 ]
-  %.sroa.620.0.i.i.i.i = phi i8 [ %.sroa.620.0.extract.trunc22.i.i.i.i, %.noexc.i ], [ %.sroa.620.0.extract.trunc22.i.i.i.i, %20 ], [ 1, %23 ]
+  %.sroa.018.0.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %23 ], [ %14, %20 ], [ %14, %.noexc.i ]
+  %.sroa.620.0.i.i.i.i = phi i8 [ 1, %23 ], [ %.sroa.620.0.extract.trunc22.i.i.i.i, %20 ], [ %.sroa.620.0.extract.trunc22.i.i.i.i, %.noexc.i ]
   %.cast.i = inttoptr i64 %9 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %.cast.i, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !70, !noalias !292
@@ -6584,8 +6584,8 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   br label %_ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit
 
 _ZN9grpc_core23ServerCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit: ; preds = %4, %17, %20
-  %.sroa.018.0.i.i = phi i64 [ %11, %4 ], [ %11, %17 ], [ %spec.select.i.i, %20 ]
-  %.sroa.620.0.i.i = phi i8 [ %.sroa.620.0.extract.trunc22.i.i, %4 ], [ %.sroa.620.0.extract.trunc22.i.i, %17 ], [ 1, %20 ]
+  %.sroa.018.0.i.i = phi i64 [ %spec.select.i.i, %20 ], [ %11, %17 ], [ %11, %4 ]
+  %.sroa.620.0.i.i = phi i8 [ 1, %20 ], [ %.sroa.620.0.extract.trunc22.i.i, %17 ], [ %.sroa.620.0.extract.trunc22.i.i, %4 ]
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %24 = load i16, ptr %23, align 2, !tbaa !70
   %25 = and i16 %24, 16

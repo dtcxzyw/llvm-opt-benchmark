@@ -328,7 +328,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader
-  %.2.sink = phi i32 [ %25, %._crit_edge ], [ %14, %.preheader ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
+  %.2.sink = phi i32 [ %14, %.preheader ], [ %25, %._crit_edge ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
   store i32 %.2.sink, ptr %13, align 4, !tbaa !18
   br label %57
 
@@ -603,7 +603,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   br label %130
 
 130:                                              ; preds = %4, %.loopexit, %._crit_edge.thread, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %.loopexit ], [ 0, %._crit_edge.thread ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %21 ], [ 0, %.loopexit ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -867,7 +867,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   br label %127
 
 127:                                              ; preds = %4, %.loopexit, %._crit_edge.thread, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %.loopexit ], [ 0, %._crit_edge.thread ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %21 ], [ 0, %.loopexit ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -1089,7 +1089,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   br label %109
 
 109:                                              ; preds = %5, %.loopexit, %._crit_edge.thread, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %.loopexit ], [ 0, %._crit_edge.thread ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %20 ], [ 0, %.loopexit ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -1311,7 +1311,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   br label %109
 
 109:                                              ; preds = %5, %.loopexit, %._crit_edge.thread, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %.loopexit ], [ 0, %._crit_edge.thread ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %20 ], [ 0, %.loopexit ], [ -1, %5 ]
   ret i32 %.0
 }
 

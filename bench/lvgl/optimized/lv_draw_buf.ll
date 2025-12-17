@@ -1495,7 +1495,7 @@ switch.lookup:                                    ; preds = %68
   br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !31
 
 .loopexit:                                        ; preds = %105, %91, %100, %78
-  %113 = phi i32 [ %75, %100 ], [ %75, %78 ], [ %93, %91 ], [ %107, %105 ]
+  %113 = phi i32 [ %75, %78 ], [ %75, %100 ], [ %93, %91 ], [ %107, %105 ]
   %114 = and i32 %.070, 65535
   %115 = and i32 %113, -65536
   %116 = or disjoint i32 %115, %114

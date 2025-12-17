@@ -52,7 +52,7 @@ define dso_local void @Curl_dynhds_free(ptr noundef captures(none) %0) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1, %3
-  %13 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %1 ], [ %2, %3 ]
+  %13 = phi ptr [ %2, %3 ], [ %.pre, %.loopexit.loopexit ], [ null, %1 ]
   %14 = load ptr, ptr @Curl_cfree, align 8, !tbaa !19
   tail call void %14(ptr noundef %13) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -340,7 +340,7 @@ entry_new.exit:                                   ; preds = %42
   br label %entry_new.exit.thread62
 
 entry_new.exit.thread62:                          ; preds = %19, %55, %entry_new.exit, %11, %8
-  %.0 = phi i32 [ 27, %8 ], [ 27, %11 ], [ 27, %entry_new.exit ], [ 27, %19 ], [ 0, %55 ]
+  %.0 = phi i32 [ 27, %11 ], [ 27, %8 ], [ 27, %entry_new.exit ], [ 27, %19 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -493,7 +493,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   br label %.critedge73
 
 .critedge73:                                      ; preds = %.critedge3, %.critedge, %49, %28, %8, %3, %63
-  %.0 = phi i32 [ %67, %63 ], [ 0, %3 ], [ 0, %28 ], [ 43, %8 ], [ 43, %49 ], [ 27, %.critedge ], [ 43, %.critedge3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %67, %63 ], [ 43, %49 ], [ 0, %28 ], [ 43, %8 ], [ 27, %.critedge ], [ 43, %.critedge3 ]
   ret i32 %.0
 }
 

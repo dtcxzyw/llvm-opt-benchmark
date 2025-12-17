@@ -486,7 +486,7 @@ list_length.exit.i:                               ; preds = %191, %find_compatib
   br label %276
 
 276:                                              ; preds = %._crit_edge.i.i, %.critedge.i.i, %266, %263, %260, %257, %.lr.ph35.i.i
-  %277 = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %246, %.critedge.i.i ], [ %246, %257 ], [ %246, %.lr.ph35.i.i ], [ %246, %263 ], [ %246, %260 ], [ %246, %266 ]
+  %277 = phi i32 [ %.pre.i.i, %._crit_edge.i.i ], [ %246, %.critedge.i.i ], [ %246, %.lr.ph35.i.i ], [ %246, %260 ], [ %246, %266 ], [ %246, %257 ], [ %246, %263 ]
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i126.i, 1
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next.i128.i, %278
@@ -627,7 +627,7 @@ preprocess_aggref.exit:                           ; preds = %173, %334
   br label %340
 
 340:                                              ; preds = %2, %338, %preprocess_aggref.exit
-  %.0 = phi i1 [ false, %preprocess_aggref.exit ], [ %339, %338 ], [ false, %2 ]
+  %.0 = phi i1 [ %339, %338 ], [ false, %preprocess_aggref.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

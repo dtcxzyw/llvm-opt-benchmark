@@ -741,7 +741,7 @@ isReferenceTag.exit.i.i.i.i:                      ; preds = %295, %291, %287
   br i1 %.not25.i.i.i.i, label %handleEventCommandSingle.exit.i.i, label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %302, %299, %296
-  %.sink.i.i.i.i = phi ptr [ %297, %296 ], [ %300, %299 ], [ %303, %302 ]
+  %.sink.i.i.i.i = phi ptr [ %300, %299 ], [ %297, %296 ], [ %303, %302 ]
   call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %.sink.i.i.i.i) #9
   br label %handleEventCommandSingle.exit.i.i
 
@@ -1319,7 +1319,7 @@ commandSize.exit:                                 ; preds = %3, %6
   br label %33
 
 33:                                               ; preds = %._crit_edge, %31, %32
-  %.0 = phi i8 [ %1, %32 ], [ %1, %31 ], [ 0, %._crit_edge ]
+  %.0 = phi i8 [ %1, %31 ], [ %1, %32 ], [ 0, %._crit_edge ]
   %34 = load ptr, ptr @commandQueueLock, align 8
   tail call void @debugMonitorNotifyAll(ptr noundef %34) #9
   %35 = load ptr, ptr @commandQueueLock, align 8
@@ -1675,7 +1675,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %isReferenceTag.exit
 
 isReferenceTag.exit:                              ; preds = %switch.lookup, %.thread, %36, %38, %44
-  %46 = phi i8 [ %29, %.thread ], [ %37, %36 ], [ %39, %38 ], [ %39, %44 ], [ %switch.load, %switch.lookup ]
+  %46 = phi i8 [ %29, %.thread ], [ %37, %36 ], [ %39, %38 ], [ %switch.load, %switch.lookup ], [ %39, %44 ]
   %47 = icmp eq i8 %46, 76
   %48 = icmp eq i8 %46, 91
   %49 = or i1 %47, %48

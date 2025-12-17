@@ -531,7 +531,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   br label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIdEES4_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvl.exit.i.us.i.i.i.i.i.i
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIdEES4_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvl.exit.i.us.i.i.i.i.i.i: ; preds = %51, %.lr.ph.i.us.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.us.i.i.i.i.i.i = phi <2 x double> [ %.uncasted.i.i.i.i.i.i.us.i.i.i.i.i.i, %51 ], [ %50, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.us.i.i.i.i.i.i = phi <2 x double> [ %50, %.lr.ph.i.us.i.i.i.i.i.i ], [ %.uncasted.i.i.i.i.i.i.us.i.i.i.i.i.i, %51 ]
   %52 = getelementptr inbounds nuw double, ptr %34, i64 %.012.i.us.i.i.i.i.i.i
   store <2 x double> %.1.i.i.i.i.i.i.us.i.i.i.i.i.i, ptr %52, align 16, !tbaa !62
   %53 = add nuw nsw i64 %.012.i.us.i.i.i.i.i.i, 2
@@ -815,7 +815,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc35, %_ZNKSt8f
   br i1 %167, label %97, label %._crit_edge, !llvm.loop !97
 
 168:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit44, %.loopexit.split-lp45
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %169 = load ptr, ptr %5, align 8, !tbaa !60
   call void @free(ptr noundef %169) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2464,7 +2464,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   br label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIfEES4_EEEENS0_9assign_opIffEELi0EE12assignPacketILi16ELi16EDv4_fEEvl.exit.i.us.i.i.i.i.i.i
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIfEES4_EEEENS0_9assign_opIffEELi0EE12assignPacketILi16ELi16EDv4_fEEvl.exit.i.us.i.i.i.i.i.i: ; preds = %53, %.lr.ph.i.us.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.us.i.i.i.i.i.i = phi <4 x float> [ %.uncasted.i.i.i.i.i.i.us.i.i.i.i.i.i, %53 ], [ %52, %.lr.ph.i.us.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.us.i.i.i.i.i.i = phi <4 x float> [ %52, %.lr.ph.i.us.i.i.i.i.i.i ], [ %.uncasted.i.i.i.i.i.i.us.i.i.i.i.i.i, %53 ]
   %54 = getelementptr inbounds nuw float, ptr %35, i64 %.012.i.us.i.i.i.i.i.i
   store <4 x float> %.1.i.i.i.i.i.i.us.i.i.i.i.i.i, ptr %54, align 16, !tbaa !62
   %55 = add nuw nsw i64 %.012.i.us.i.i.i.i.i.i, 4
@@ -2794,7 +2794,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc37, %_ZNKSt8f
   br i1 %190, label %99, label %._crit_edge, !llvm.loop !160
 
 191:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit46, %.loopexit.split-lp47
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ], [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %192 = load ptr, ptr %5, align 8, !tbaa !145
   call void @free(ptr noundef %192) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

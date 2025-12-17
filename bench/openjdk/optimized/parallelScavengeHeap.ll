@@ -861,10 +861,10 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %41
   unreachable
 
 _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %48, %32, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN13MutexUnlockerD2Ev.exit
-  %.140 = phi i32 [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03973, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03973, %30 ], [ %.03973, %32 ], [ %.03973, %48 ], [ %.03973, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03973, %36 ]
-  %.037 = phi i32 [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
-  %.134 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
-  %.1 = phi ptr [ %.074, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ %.074, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.074, %36 ]
+  %.140 = phi i32 [ %.03973, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03973, %30 ], [ %.03973, %32 ], [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03973, %48 ], [ %.03973, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03973, %36 ]
+  %.037 = phi i32 [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
+  %.134 = phi ptr [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
+  %.1 = phi ptr [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ %.074, %_ZN13MutexUnlockerD2Ev.exit ], [ null, %48 ], [ %.074, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.074, %36 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
 
 53:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -937,8 +937,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   %82 = load ptr, ptr %81, align 8
   br label %.thread
 
-.thread:                                          ; preds = %80, %79, %76
-  %.4.ph = phi ptr [ null, %76 ], [ null, %79 ], [ %82, %80 ]
+.thread:                                          ; preds = %76, %80, %79
+  %.4.ph = phi ptr [ null, %79 ], [ %82, %80 ], [ null, %76 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   br label %.loopexit
 
@@ -981,7 +981,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %55, %_ZN11MutexLockerD2Ev.exit, %.backedge, %4, %.thread
-  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.134, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.134, %.backedge ]
+  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.134, %55 ], [ %.134, %.backedge ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
   ret ptr %.2
 
 default.unreachable103:                           ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -1060,7 +1060,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i:   ; preds = %23
   br label %_ZN20ParallelScavengeHeap27allocate_old_gen_and_recordEm.exit
 
 _ZN20ParallelScavengeHeap27allocate_old_gen_and_recordEm.exit: ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, %15, %43, %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %.0 = phi ptr [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %28, %43 ], [ null, %15 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ]
+  %.0 = phi ptr [ %28, %43 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %15 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -1420,7 +1420,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26: ; preds = %109
   br i1 %128, label %109, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, !llvm.loop !14
 
 _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, %126, %115, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33, %93, %82, %38, %27, %9, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22
-  %.0 = phi ptr [ %71, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22 ], [ %16, %9 ], [ %26, %27 ], [ %26, %38 ], [ %81, %82 ], [ %81, %93 ], [ %104, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33 ], [ %114, %115 ], [ %114, %126 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26 ]
+  %.0 = phi ptr [ %81, %93 ], [ %71, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22 ], [ %16, %9 ], [ %26, %27 ], [ %26, %38 ], [ %81, %82 ], [ %104, %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33 ], [ %114, %115 ], [ %114, %126 ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i ], [ null, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26 ]
   ret ptr %.0
 }
 
@@ -1729,7 +1729,7 @@ select.unfold:                                    ; preds = %11, %3
   br i1 %31, label %select.unfold13.preheader, label %select.unfold13._crit_edge
 
 select.unfold13.preheader:                        ; preds = %select.unfold, %20
-  %.215.ph = phi i64 [ %.0, %select.unfold ], [ %27, %20 ]
+  %.215.ph = phi i64 [ %27, %20 ], [ %.0, %select.unfold ]
   br label %select.unfold13
 
 select.unfold13:                                  ; preds = %select.unfold13.preheader, %select.unfold13
@@ -1811,7 +1811,7 @@ define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nound
   br label %28
 
 28:                                               ; preds = %15, %8, %11, %25
-  %.0 = phi ptr [ %27, %25 ], [ null, %11 ], [ null, %8 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %8 ], [ %27, %25 ], [ null, %11 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -1998,7 +1998,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12
   br label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit
 
 _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %8, %11, %15, %25
-  %.0.i = phi ptr [ %27, %25 ], [ null, %11 ], [ null, %8 ], [ null, %15 ]
+  %.0.i = phi ptr [ null, %8 ], [ %27, %25 ], [ null, %11 ], [ null, %15 ]
   %28 = icmp eq ptr %.0.i, %1
   ret i1 %28
 }
@@ -3368,8 +3368,8 @@ _ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit: ; preds = %41
   %spec.select = select i1 %55, ptr %27, ptr null
   br label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
-_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread: ; preds = %37, %34, %41, %54, %16, %9, %12, %1, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
-  %.0 = phi ptr [ null, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit ], [ null, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit ], [ %0, %1 ], [ null, %12 ], [ null, %9 ], [ null, %16 ], [ %spec.select, %54 ], [ null, %41 ], [ null, %34 ], [ null, %37 ]
+_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread: ; preds = %34, %37, %41, %54, %16, %12, %9, %1, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
+  %.0 = phi ptr [ null, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit ], [ null, %16 ], [ %spec.select, %54 ], [ null, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit ], [ %0, %1 ], [ null, %9 ], [ null, %12 ], [ null, %41 ], [ null, %37 ], [ null, %34 ]
   ret ptr %.0
 }
 

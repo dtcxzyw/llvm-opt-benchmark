@@ -177,13 +177,13 @@ list_env_get.exit:                                ; preds = %35, %.loopexit.i
   br i1 %.not.i57, label %pmix_path_access.exit, label %pmix_path_access.exit51.sink.split
 
 pmix_path_access.exit51.sink.split:               ; preds = %66, %62, %60, %55, %46
-  %.sink = phi ptr [ %44, %46 ], [ %53, %55 ], [ %53, %60 ], [ %53, %62 ], [ %64, %66 ]
-  %.1.ph = phi ptr [ null, %46 ], [ null, %55 ], [ %58, %60 ], [ null, %62 ], [ null, %66 ]
+  %.sink = phi ptr [ %53, %62 ], [ %44, %46 ], [ %53, %55 ], [ %53, %60 ], [ %64, %66 ]
+  %.1.ph = phi ptr [ null, %62 ], [ null, %46 ], [ null, %55 ], [ %58, %60 ], [ null, %66 ]
   tail call void @free(ptr noundef nonnull %.sink) #14
   br label %pmix_path_access.exit51
 
 pmix_path_access.exit51:                          ; preds = %pmix_path_access.exit51.sink.split, %63, %43, %.thread, %42
-  %.1 = phi ptr [ null, %42 ], [ null, %.thread ], [ null, %43 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit51.sink.split ]
+  %.1 = phi ptr [ null, %43 ], [ null, %.thread ], [ null, %42 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit51.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !6
@@ -193,7 +193,7 @@ pmix_path_access.exit51:                          ; preds = %pmix_path_access.ex
   br i1 %72, label %14, label %pmix_path_access.exit, !llvm.loop !11
 
 pmix_path_access.exit:                            ; preds = %66, %46, %48, %pmix_path_access.exit51, %.preheader, %13, %11, %8
-  %.039 = phi ptr [ null, %13 ], [ null, %8 ], [ %9, %11 ], [ null, %.preheader ], [ %44, %46 ], [ %64, %66 ], [ null, %48 ], [ %.1, %pmix_path_access.exit51 ]
+  %.039 = phi ptr [ null, %13 ], [ %9, %11 ], [ null, %8 ], [ null, %.preheader ], [ %44, %46 ], [ %64, %66 ], [ null, %48 ], [ %.1, %pmix_path_access.exit51 ]
   ret ptr %.039
 }
 
@@ -225,7 +225,7 @@ define noalias ptr @pmix_path_access(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %14
 
 14:                                               ; preds = %11, %9, %13
-  %.09 = phi ptr [ null, %13 ], [ null, %9 ], [ %.0, %11 ]
+  %.09 = phi ptr [ null, %9 ], [ null, %13 ], [ %.0, %11 ]
   ret ptr %.09
 }
 
@@ -460,7 +460,7 @@ define noundef ptr @pmix_find_absolute_path(ptr noundef %0) local_unnamed_addr #
   br label %13
 
 13:                                               ; preds = %9, %11
-  %.018 = phi ptr [ %10, %9 ], [ %12, %11 ]
+  %.018 = phi ptr [ %12, %11 ], [ %10, %9 ]
   %.not20 = icmp eq ptr %.018, null
   br i1 %.not20, label %19, label %.thread
 
@@ -676,7 +676,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
   br label %31
 
 31:                                               ; preds = %20, %30, %15, %18, %2
-  %.017 = phi i32 [ -1, %2 ], [ -1, %18 ], [ -1, %15 ], [ 0, %30 ], [ 0, %20 ]
+  %.017 = phi i32 [ -1, %15 ], [ -1, %2 ], [ -1, %18 ], [ 0, %30 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.017
 }

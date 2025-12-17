@@ -752,7 +752,7 @@ vp_setup_vq.exit.thread:                          ; preds = %145
   br i1 %201, label %.loopexit18, label %117, !llvm.loop !15
 
 .thread16:                                        ; preds = %186, %vp_setup_vq.exit.thread, %.loopexit.loopexit, %.thread, %48, %53, %92, %69, %63, %106
-  %202 = phi i32 [ -16, %106 ], [ -12, %.thread ], [ -12, %48 ], [ -12, %53 ], [ %102, %92 ], [ %81, %69 ], [ %67, %63 ], [ -12, %vp_setup_vq.exit.thread ], [ %167, %.loopexit.loopexit ], [ %195, %186 ]
+  %202 = phi i32 [ -16, %106 ], [ %167, %.loopexit.loopexit ], [ -12, %.thread ], [ -12, %48 ], [ -12, %53 ], [ %102, %92 ], [ %81, %69 ], [ %67, %63 ], [ -12, %vp_setup_vq.exit.thread ], [ %195, %186 ]
   tail call void @vp_del_vqs(ptr noundef %0)
   br label %.loopexit18
 

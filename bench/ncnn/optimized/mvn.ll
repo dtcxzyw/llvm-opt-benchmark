@@ -337,12 +337,12 @@ _ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split.sink.split: ; preds = %137, %122
   br label %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split
 
 _ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split:   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split.sink.split, %137, %133, %.critedge, %127, %122, %118, %110, %112
-  %.1.ph = phi i32 [ 0, %112 ], [ 0, %110 ], [ 0, %118 ], [ 0, %122 ], [ -100, %127 ], [ -100, %.critedge ], [ -100, %133 ], [ -100, %137 ], [ %.1.ph.ph, %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split.sink.split ]
+  %.1.ph = phi i32 [ -100, %137 ], [ 0, %112 ], [ 0, %110 ], [ 0, %118 ], [ 0, %122 ], [ -100, %127 ], [ -100, %.critedge ], [ -100, %133 ], [ %.1.ph.ph, %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK4ncnn3Mat5emptyEv.exit58.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit58.thread:              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split, %68, %32, %_ZNK4ncnn3Mat5emptyEv.exit58
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit58 ], [ -100, %32 ], [ 0, %68 ], [ %.1.ph, %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split ]
+  %.1 = phi i32 [ -100, %32 ], [ 0, %68 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit58 ], [ %.1.ph, %_ZNK4ncnn3Mat5emptyEv.exit58.thread.sink.split ]
   %141 = load ptr, ptr %35, align 8, !tbaa !45
   %.not.i64 = icmp eq ptr %141, null
   br i1 %.not.i64, label %_ZN4ncnn3MatD2Ev.exit62, label %142

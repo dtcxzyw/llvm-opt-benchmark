@@ -572,7 +572,7 @@ define dso_local i32 @seq_buf_path(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %33, label %.thread8, label %37
 
 .thread8:                                         ; preds = %25, %15, %17, %18, %32
-  %34 = phi i32 [ %31, %32 ], [ -1, %18 ], [ -1, %17 ], [ -1, %15 ], [ -1, %25 ]
+  %34 = phi i32 [ %31, %32 ], [ -1, %25 ], [ -1, %18 ], [ -1, %17 ], [ -1, %15 ]
   %35 = load i64, ptr %6, align 8
   %36 = add i64 %35, 1
   br label %44
@@ -728,7 +728,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_hex_dump(ptr noundef capt
   br i1 %56, label %43, label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us3, %38, %24, %.split.us, %.split, %43, %8
-  %57 = phi i32 [ 0, %8 ], [ 0, %43 ], [ -1, %.split ], [ 0, %24 ], [ -1, %.split.us ], [ 0, %38 ], [ -1, %.split.us3 ]
+  %57 = phi i32 [ 0, %8 ], [ 0, %43 ], [ -1, %.split.us ], [ -1, %.split ], [ 0, %24 ], [ 0, %38 ], [ -1, %.split.us3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %57
 }

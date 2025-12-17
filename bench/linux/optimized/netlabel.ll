@@ -323,8 +323,8 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %38, label %.thread11, label %.critedge
 
 .thread11:                                        ; preds = %.thread, %.thread12, %36
-  %39 = phi ptr [ %23, %36 ], [ %4, %.thread12 ], [ %4, %.thread ]
-  %40 = phi i32 [ %37, %36 ], [ %35, %.thread12 ], [ %33, %.thread ]
+  %39 = phi ptr [ %4, %.thread12 ], [ %23, %36 ], [ %4, %.thread ]
+  %40 = phi i32 [ %35, %.thread12 ], [ %37, %36 ], [ %33, %.thread ]
   %41 = load i32, ptr %39, align 8
   %42 = and i32 %41, 16777216
   %43 = icmp eq i32 %42, 0
@@ -396,7 +396,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %77, label %.critedge, label %.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader, %.thread9, %70, %.thread14, %36
-  %78 = phi i32 [ %37, %36 ], [ %40, %.thread14 ], [ %40, %70 ], [ 0, %.thread9 ], [ %40, %.preheader ]
+  %78 = phi i32 [ 0, %.thread9 ], [ %37, %36 ], [ %40, %.thread14 ], [ %40, %70 ], [ %40, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %78
 }
@@ -803,7 +803,7 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
   br label %.thread
 
 .thread:                                          ; preds = %11, %netlbl_secattr_free.exit, %63, %59, %2
-  %65 = phi i32 [ 0, %2 ], [ %61, %59 ], [ 0, %63 ], [ -12, %netlbl_secattr_free.exit ], [ -12, %11 ]
+  %65 = phi i32 [ 0, %2 ], [ 0, %63 ], [ %61, %59 ], [ -12, %netlbl_secattr_free.exit ], [ -12, %11 ]
   ret i32 %65
 }
 
@@ -1197,7 +1197,7 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
   br label %.thread
 
 .thread:                                          ; preds = %16, %netlbl_secattr_free.exit, %68, %64, %2
-  %70 = phi i32 [ 0, %2 ], [ %66, %64 ], [ 0, %68 ], [ -12, %netlbl_secattr_free.exit ], [ -12, %16 ]
+  %70 = phi i32 [ 0, %2 ], [ 0, %68 ], [ %66, %64 ], [ -12, %netlbl_secattr_free.exit ], [ -12, %16 ]
   ret i32 %70
 }
 

@@ -136,7 +136,7 @@ ftp_send_command.exit.i:                          ; preds = %15
   %.not.i = icmp eq i32 %.fr.i, 350
   br i1 %.not.i, label %22, label %20
 
-20:                                               ; preds = %11, %15, %ftp_send_command.exit.i
+20:                                               ; preds = %15, %ftp_send_command.exit.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %21, align 8, !tbaa !18
@@ -187,7 +187,7 @@ ftp_send_command.exit.i15:                        ; preds = %29
   br label %.sink.split.i
 
 ftp_send_command.exit.thread.i:                   ; preds = %37, %ftp_send_command.exit.i15, %29, %27
-  %45 = phi ptr [ %35, %37 ], [ %35, %ftp_send_command.exit.i15 ], [ null, %27 ], [ null, %29 ]
+  %45 = phi ptr [ %35, %ftp_send_command.exit.i15 ], [ %35, %37 ], [ null, %27 ], [ null, %29 ]
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 1104
   store i64 -1, ptr %46, align 8, !tbaa !21
   br label %.sink.split.i
@@ -304,7 +304,7 @@ thread-pre-split:                                 ; preds = %18
   br label %ftp_send_command.exit.i
 
 ftp_send_command.exit.i:                          ; preds = %36, %30
-  %.0.i.i = phi i32 [ %37, %36 ], [ %33, %30 ]
+  %.0.i.i = phi i32 [ %33, %30 ], [ %37, %36 ]
   switch i32 %.0.i.i, label %ftp_retrieve.exit.thread [
     i32 150, label %.thread
     i32 125, label %.thread
@@ -330,7 +330,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   br i1 %.not86, label %68, label %.thread87
 
 .thread87:                                        ; preds = %38, %.thread
-  %42 = phi ptr [ %41, %.thread ], [ %39, %38 ]
+  %42 = phi ptr [ %39, %38 ], [ %41, %.thread ]
   %43 = call i32 @ffurl_read2(ptr noundef nonnull %42, ptr noundef %1, i32 noundef %2) #10
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %58, label %45
@@ -369,7 +369,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   br label %56
 
 56:                                               ; preds = %52, %54, %50
-  %57 = phi ptr [ %6, %54 ], [ @.str.25, %52 ], [ %51, %50 ]
+  %57 = phi ptr [ @.str.25, %52 ], [ %6, %54 ], [ %51, %50 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, ptr noundef nonnull %57) #10
   call void @av_freep(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -408,7 +408,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %18, %.thread61, %58, %.loopexit.split.loop.exit75, %.thread59, %ftp_retrieve.exit.thread, %68
-  %.141 = phi i32 [ -5, %68 ], [ %.0.i.ph, %ftp_retrieve.exit.thread ], [ -541478725, %.thread59 ], [ %.mux.le, %.loopexit.split.loop.exit75 ], [ -541478725, %16 ], [ %19, %18 ], [ %.03963, %.thread61 ], [ %43, %58 ]
+  %.141 = phi i32 [ -5, %68 ], [ -541478725, %.thread59 ], [ %.0.i.ph, %ftp_retrieve.exit.thread ], [ %.mux.le, %.loopexit.split.loop.exit75 ], [ -541478725, %16 ], [ %19, %18 ], [ %.03963, %.thread61 ], [ %43, %58 ]
   ret i32 %.141
 }
 
@@ -466,7 +466,7 @@ thread-pre-split:                                 ; preds = %10
   br label %ftp_send_command.exit.i
 
 ftp_send_command.exit.i:                          ; preds = %30, %24
-  %.0.i.i = phi i32 [ %31, %30 ], [ %27, %24 ]
+  %.0.i.i = phi i32 [ %27, %24 ], [ %31, %30 ]
   switch i32 %.0.i.i, label %ftp_store.exit.thread [
     i32 150, label %.thread
     i32 125, label %.thread
@@ -494,7 +494,7 @@ ftp_store.exit.thread:                            ; preds = %16, %ftp_send_comma
   br i1 %.not37, label %48, label %.thread38
 
 .thread38:                                        ; preds = %32, %.thread
-  %38 = phi ptr [ %37, %.thread ], [ %34, %32 ]
+  %38 = phi ptr [ %34, %32 ], [ %37, %.thread ]
   %39 = call i32 @ffurl_write2(ptr noundef nonnull %38, ptr noundef %1, i32 noundef %2) #10
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %49
@@ -516,7 +516,7 @@ ftp_store.exit.thread:                            ; preds = %16, %ftp_send_comma
   br label %49
 
 49:                                               ; preds = %ftp_store.exit.thread, %.thread38, %41, %10, %48
-  %.0 = phi i32 [ -5, %48 ], [ %11, %10 ], [ %39, %41 ], [ %39, %.thread38 ], [ %.0.i.ph, %ftp_store.exit.thread ]
+  %.0 = phi i32 [ -5, %48 ], [ %11, %10 ], [ %.0.i.ph, %ftp_store.exit.thread ], [ %39, %41 ], [ %39, %.thread38 ]
   ret i32 %.0
 }
 
@@ -553,7 +553,7 @@ define internal i64 @ftp_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   br label %19
 
 19:                                               ; preds = %3, %17, %9
-  %.0 = phi i64 [ %12, %9 ], [ %18, %17 ], [ %1, %3 ]
+  %.0 = phi i64 [ %18, %17 ], [ %12, %9 ], [ %1, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !18
   %.not = icmp eq i32 %21, 0
@@ -587,7 +587,7 @@ define internal i64 @ftp_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   br label %34
 
 34:                                               ; preds = %25, %33, %19, %3, %13, %31, %24, %6
-  %.019 = phi i64 [ %8, %6 ], [ -22, %24 ], [ %32, %31 ], [ -5, %13 ], [ -22, %3 ], [ -5, %19 ], [ %.0, %33 ], [ %.0, %25 ]
+  %.019 = phi i64 [ -5, %13 ], [ %8, %6 ], [ -22, %3 ], [ -22, %24 ], [ %32, %31 ], [ -5, %19 ], [ %.0, %33 ], [ %.0, %25 ]
   ret i64 %.019
 }
 
@@ -688,8 +688,8 @@ ftp_send_command.exit.i:                          ; preds = %17
   %.not.i = icmp eq i32 %.fr.i, 250
   br i1 %.not.i, label %22, label %ftp_set_dir.exit.thread
 
-ftp_set_dir.exit.thread:                          ; preds = %9, %14, %17, %ftp_send_command.exit.i
-  %.0.i.ph = phi i32 [ -5, %ftp_send_command.exit.i ], [ -5, %17 ], [ -5, %14 ], [ -38, %9 ]
+ftp_set_dir.exit.thread:                          ; preds = %9, %17, %ftp_send_command.exit.i, %14
+  %.0.i.ph = phi i32 [ -5, %14 ], [ -5, %ftp_send_command.exit.i ], [ -5, %17 ], [ -38, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ftp_list.exit.thread
 
@@ -754,7 +754,7 @@ ftp_send_command.exit.i6.i:                       ; preds = %32
   br i1 %44, label %49, label %ftp_list.exit.thread
 
 ftp_list.exit.thread:                             ; preds = %25, %32, %31, %ftp_send_command.exit.i6.i, %ftp_set_dir.exit.thread, %35, %39, %42, %22, %1
-  %.0 = phi i32 [ %7, %1 ], [ %23, %22 ], [ 0, %42 ], [ 0, %39 ], [ -12, %35 ], [ %.0.i.ph, %ftp_set_dir.exit.thread ], [ -38, %ftp_send_command.exit.i6.i ], [ -38, %31 ], [ -38, %32 ], [ -38, %25 ]
+  %.0 = phi i32 [ %7, %1 ], [ %.0.i.ph, %ftp_set_dir.exit.thread ], [ %23, %22 ], [ -12, %35 ], [ 0, %42 ], [ 0, %39 ], [ -38, %ftp_send_command.exit.i6.i ], [ -38, %31 ], [ -38, %32 ], [ -38, %25 ]
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = call i32 @ffurl_closep(ptr noundef nonnull %45) #10
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1063,7 +1063,7 @@ ftp_parse_entry.exit.thread64:                    ; preds = %57, %.backedge.i.i
   br label %13, !llvm.loop !47
 
 .thread68:                                        ; preds = %51, %21, %32, %ftp_parse_entry.exit.thread64, %ftp_parse_entry.exit.thread, %.thread, %31
-  %.045 = phi i32 [ 0, %31 ], [ -1, %.thread ], [ 0, %ftp_parse_entry.exit.thread ], [ 0, %ftp_parse_entry.exit.thread64 ], [ -12, %51 ], [ -5, %32 ], [ %28, %21 ]
+  %.045 = phi i32 [ 0, %ftp_parse_entry.exit.thread ], [ 0, %ftp_parse_entry.exit.thread64 ], [ 0, %31 ], [ -1, %.thread ], [ -12, %51 ], [ %28, %21 ], [ -5, %32 ]
   ret i32 %.045
 }
 
@@ -1143,7 +1143,7 @@ ftp_send_command.exit14:                          ; preds = %28
   br label %ftp_send_command.exit14.thread
 
 ftp_send_command.exit14.thread:                   ; preds = %ftp_send_command.exit14, %28, %26, %ftp_send_command.exit.thread, %ftp_send_command.exit, %9, %1
-  %.0 = phi i32 [ %7, %1 ], [ -38, %9 ], [ 0, %ftp_send_command.exit ], [ -38, %ftp_send_command.exit.thread ], [ -5, %26 ], [ -5, %28 ], [ %spec.select, %ftp_send_command.exit14 ]
+  %.0 = phi i32 [ %7, %1 ], [ -38, %ftp_send_command.exit.thread ], [ -38, %9 ], [ 0, %ftp_send_command.exit ], [ -5, %28 ], [ %spec.select, %ftp_send_command.exit14 ], [ -5, %26 ]
   %34 = load ptr, ptr %3, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = call i32 @ffurl_closep(ptr noundef nonnull %35) #10
@@ -1232,7 +1232,7 @@ ftp_send_command.exit14:                          ; preds = %31
   br label %ftp_send_command.exit.thread
 
 ftp_send_command.exit.thread:                     ; preds = %ftp_send_command.exit14, %31, %29, %19, %16, %24, %ftp_send_command.exit, %11, %2
-  %.0 = phi i32 [ %9, %2 ], [ -38, %11 ], [ -5, %ftp_send_command.exit ], [ -38, %24 ], [ -5, %16 ], [ -5, %19 ], [ -5, %29 ], [ -5, %31 ], [ %spec.select, %ftp_send_command.exit14 ]
+  %.0 = phi i32 [ %9, %2 ], [ -38, %24 ], [ -38, %11 ], [ -5, %ftp_send_command.exit ], [ -5, %19 ], [ -5, %29 ], [ %spec.select, %ftp_send_command.exit14 ], [ -5, %16 ], [ -5, %31 ]
   %37 = load ptr, ptr %5, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = call i32 @ffurl_closep(ptr noundef nonnull %38) #10
@@ -1434,7 +1434,7 @@ ftp_send_command.exit.i:                          ; preds = %63
   br i1 %.not19.i, label %ftp_current_dir.exit.thread, label %81
 
 .thread.i:                                        ; preds = %.preheader.i, %ftp_send_command.exit.i, %63, %60
-  %80 = phi ptr [ %67, %ftp_send_command.exit.i ], [ null, %60 ], [ null, %63 ], [ %67, %.preheader.i ]
+  %80 = phi ptr [ null, %63 ], [ %67, %ftp_send_command.exit.i ], [ null, %60 ], [ %67, %.preheader.i ]
   call void @av_free(ptr noundef %80) #10
   br label %ftp_current_dir.exit.thread
 
@@ -1456,7 +1456,7 @@ ftp_current_dir.exit.thread:                      ; preds = %.thread.i, %75
   br label %85
 
 85:                                               ; preds = %ftp_current_dir.exit.thread, %81, %57, %43, %47, %51, %83
-  %.0 = phi i32 [ 0, %83 ], [ -12, %51 ], [ -12, %47 ], [ -12, %43 ], [ %58, %57 ], [ -12, %81 ], [ %.015.i.ph, %ftp_current_dir.exit.thread ]
+  %.0 = phi i32 [ -12, %43 ], [ %58, %57 ], [ 0, %83 ], [ %.015.i.ph, %ftp_current_dir.exit.thread ], [ -12, %51 ], [ -12, %47 ], [ -12, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1612,8 +1612,8 @@ ftp_send_command.exit.thread.i:                   ; preds = %67, %ftp_send_comma
   %.not16.i = icmp eq i32 %.0.fr.i, 230
   br i1 %.not16.i, label %70, label %69
 
-69:                                               ; preds = %43, %48, %62, %64, %59, %53, %51, %ftp_send_command.exit.thread.i
-  %.011.i.ph = phi i32 [ -13, %ftp_send_command.exit.thread.i ], [ -13, %51 ], [ -13, %53 ], [ -13, %59 ], [ -38, %64 ], [ -22, %62 ], [ -38, %48 ], [ -22, %43 ]
+69:                                               ; preds = %64, %43, %48, %62, %59, %51, %ftp_send_command.exit.thread.i, %53
+  %.011.i.ph = phi i32 [ -13, %53 ], [ -13, %ftp_send_command.exit.thread.i ], [ -13, %51 ], [ -13, %59 ], [ -22, %62 ], [ -38, %48 ], [ -22, %43 ], [ -38, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10) #10
   br label %ftp_features.exit
@@ -1635,7 +1635,7 @@ ftp_send_command.exit.i37:                        ; preds = %72
   %.not.i38 = icmp eq i32 %.fr.i, 200
   br i1 %.not.i38, label %ftp_type.exit, label %75
 
-75:                                               ; preds = %70, %72, %ftp_send_command.exit.i37
+75:                                               ; preds = %72, %ftp_send_command.exit.i37, %70
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #10
   br label %ftp_features.exit
 
@@ -1690,7 +1690,7 @@ ftp_has_feature.exit.i:                           ; preds = %81
   br label %ftp_send_command.exit14.i
 
 ftp_send_command.exit14.i:                        ; preds = %89, %85
-  %.0.i13.i = phi i32 [ %90, %89 ], [ %86, %85 ]
+  %.0.i13.i = phi i32 [ %86, %85 ], [ %90, %89 ]
   %91 = and i32 %.0.i13.i, -3
   %or.cond.i45 = icmp eq i32 %91, 200
   br i1 %or.cond.i45, label %92, label %ftp_features.exit
@@ -1701,7 +1701,7 @@ ftp_send_command.exit14.i:                        ; preds = %89, %85
   br label %ftp_features.exit
 
 ftp_features.exit:                                ; preds = %92, %ftp_send_command.exit14.i, %88, %83, %ftp_has_feature.exit.i, %81, %1, %75, %69, %35, %29
-  %.0 = phi i32 [ %27, %29 ], [ -13, %35 ], [ %.011.i.ph, %69 ], [ -5, %75 ], [ 0, %1 ], [ 0, %81 ], [ 0, %ftp_has_feature.exit.i ], [ 0, %83 ], [ 0, %88 ], [ 0, %ftp_send_command.exit14.i ], [ 0, %92 ]
+  %.0 = phi i32 [ -5, %75 ], [ %27, %29 ], [ -13, %35 ], [ %.011.i.ph, %69 ], [ 0, %1 ], [ 0, %81 ], [ 0, %ftp_has_feature.exit.i ], [ 0, %83 ], [ 0, %88 ], [ 0, %ftp_send_command.exit14.i ], [ 0, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1804,8 +1804,8 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   store i8 %31, ptr %.0.i.ph, align 1, !tbaa !29
   br label %.outer
 
-42:                                               ; preds = %21, %25
-  %.015.i.ph = phi i32 [ -1, %25 ], [ %23, %21 ]
+42:                                               ; preds = %25, %21
+  %.015.i.ph = phi i32 [ %23, %21 ], [ -1, %25 ]
   br i1 %.not, label %76, label %.sink.split
 
 43:                                               ; preds = %35, %33
@@ -1888,9 +1888,9 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.preheader, %65, %69, %63
-  %.not55 = phi i1 [ false, %69 ], [ false, %63 ], [ false, %65 ], [ true, %.preheader ], [ true, %57 ]
-  %.14465 = phi i32 [ %.144.ph, %69 ], [ %.144.ph, %63 ], [ %.144.ph, %65 ], [ %.04378, %.preheader ], [ %.04378, %57 ]
-  %.146 = phi i32 [ %spec.store.select, %69 ], [ %.04577, %63 ], [ %.049, %65 ], [ %.04577, %.preheader ], [ %.04577, %57 ]
+  %.not55 = phi i1 [ false, %65 ], [ false, %69 ], [ false, %63 ], [ true, %.preheader ], [ true, %57 ]
+  %.14465 = phi i32 [ %.144.ph, %65 ], [ %.144.ph, %69 ], [ %.144.ph, %63 ], [ %.04378, %.preheader ], [ %.04378, %57 ]
+  %.146 = phi i32 [ %.049, %65 ], [ %spec.store.select, %69 ], [ %.04577, %63 ], [ %.04577, %.preheader ], [ %.04577, %57 ]
   %72 = icmp ne i32 %.146, 0
   %73 = select i1 %.not55, i1 true, i1 %72
   br i1 %73, label %14, label %74, !llvm.loop !68
@@ -1965,7 +1965,7 @@ define internal fastcc i32 @ftp_send_command(ptr noundef %0, ptr noundef %1, ptr
   br label %18
 
 18:                                               ; preds = %15, %14, %9, %6, %16
-  %.0 = phi i32 [ %17, %16 ], [ -5, %6 ], [ %12, %9 ], [ -1, %14 ], [ 0, %15 ]
+  %.0 = phi i32 [ -5, %6 ], [ %17, %16 ], [ -1, %14 ], [ %12, %9 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -2242,7 +2242,7 @@ ftp_send_command.exit.i44:                        ; preds = %108
   %.not.i45 = icmp eq i32 %.fr.i, 350
   br i1 %.not.i45, label %ftp_restart.exit, label %ftp_restart.exit.thread
 
-ftp_restart.exit.thread:                          ; preds = %105, %108, %ftp_send_command.exit.i44
+ftp_restart.exit.thread:                          ; preds = %108, %ftp_send_command.exit.i44, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %115
 
@@ -2310,7 +2310,7 @@ ftp_send_command.exit:                            ; preds = %6
   br label %24
 
 24:                                               ; preds = %.sink.split, %8, %20, %ftp_send_command.exit
-  %.0 = phi i32 [ 0, %ftp_send_command.exit ], [ 0, %20 ], [ 0, %8 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %8 ], [ 0, %ftp_send_command.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

@@ -399,7 +399,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread83:     ; preds = %_ZN7nmethod17is_deo
   br label %.thread85
 
 .thread85:                                        ; preds = %170, %177, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread, %_ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82, %171, %.thread, %201, %200, %197, %193, %_ZN7nmethod14is_deopt_entryEPh.exit.thread83, %158, %151, %140, %_ZN19TemplateInterpreter8containsEPh.exit.thread, %131, %103, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %93, %_ZNK5frame20is_upcall_stub_frameEv.exit, %77, %78, %69, %27, %9, %2, %162, %135
-  %.0 = phi i1 [ %136, %135 ], [ %spec.select.i81, %162 ], [ true, %2 ], [ false, %9 ], [ false, %27 ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %69 ], [ false, %77 ], [ %79, %78 ], [ %48, %_ZNK5frame20is_upcall_stub_frameEv.exit ], [ false, %93 ], [ false, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ false, %103 ], [ false, %131 ], [ false, %_ZN19TemplateInterpreter8containsEPh.exit.thread ], [ false, %140 ], [ false, %151 ], [ false, %158 ], [ false, %170 ], [ false, %_ZN7nmethod14is_deopt_entryEPh.exit.thread83 ], [ false, %193 ], [ %199, %197 ], [ false, %200 ], [ %203, %201 ], [ false, %.thread ], [ false, %171 ], [ false, %_ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82 ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %177 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %69 ], [ %79, %78 ], [ %136, %135 ], [ false, %103 ], [ false, %131 ], [ false, %140 ], [ %spec.select.i81, %162 ], [ false, %151 ], [ false, %158 ], [ false, %170 ], [ false, %177 ], [ false, %193 ], [ %199, %197 ], [ false, %_ZN19TemplateInterpreter8containsEPh.exit.thread ], [ %48, %_ZNK5frame20is_upcall_stub_frameEv.exit ], [ false, %93 ], [ false, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %27 ], [ %203, %201 ], [ false, %200 ], [ false, %_ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82 ], [ false, %9 ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread ], [ false, %77 ], [ false, %_ZN7nmethod14is_deopt_entryEPh.exit.thread83 ], [ false, %.thread ], [ false, %171 ]
   ret i1 %.0
 }
 
@@ -599,7 +599,7 @@ define hidden noundef zeroext i1 @_ZNK5frame26is_interpreted_frame_validEP10Java
   br label %52
 
 52:                                               ; preds = %38, %34, %18, %15, %8, %2, %43
-  %.0 = phi i1 [ %spec.select.i, %43 ], [ false, %2 ], [ false, %8 ], [ false, %15 ], [ false, %18 ], [ false, %34 ], [ false, %38 ]
+  %.0 = phi i1 [ %spec.select.i, %43 ], [ false, %2 ], [ false, %8 ], [ false, %38 ], [ false, %15 ], [ false, %18 ], [ false, %34 ]
   ret i1 %.0
 }
 

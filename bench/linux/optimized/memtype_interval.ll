@@ -309,8 +309,8 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %173 = icmp eq ptr %172, null
   br i1 %173, label %.thread, label %.preheader43, !llvm.loop !10
 
-.thread:                                          ; preds = %28, %40, %36, %104, %.thread25, %77, %89, %85, %.loopexit, %164, %137, %149, %145, %.thread28, %15, %11, %2, %.loopexit47, %44
-  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %.thread28 ], [ %58, %145 ], [ %58, %149 ], [ %58, %137 ], [ %58, %164 ], [ %58, %.loopexit ], [ %58, %85 ], [ %58, %89 ], [ %58, %77 ], [ %58, %.thread25 ], [ %58, %104 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
+.thread:                                          ; preds = %28, %40, %36, %104, %.thread25, %89, %85, %77, %.loopexit, %164, %149, %145, %137, %.thread28, %15, %11, %2, %.loopexit47, %44
+  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %104 ], [ %58, %.thread28 ], [ %58, %149 ], [ %58, %164 ], [ %58, %.loopexit ], [ %58, %89 ], [ %58, %.thread25 ], [ %58, %137 ], [ %58, %145 ], [ %58, %77 ], [ %58, %85 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
   %175 = icmp eq ptr %1, null
   br i1 %175, label %.thread33, label %202
 
@@ -639,10 +639,10 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   br i1 %113, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %109, %104, %72, %61
-  %.pre-phi.i = phi i64 [ %78, %72 ], [ %.pre.i, %61 ], [ %78, %104 ], [ %78, %109 ]
-  %114 = phi ptr [ %68, %72 ], [ %19, %61 ], [ %68, %104 ], [ %68, %109 ]
-  %115 = phi ptr [ %67, %72 ], [ %19, %61 ], [ %67, %104 ], [ %67, %109 ]
-  %116 = phi ptr [ %74, %72 ], [ %63, %61 ], [ %74, %104 ], [ %74, %109 ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %61 ], [ %78, %72 ], [ %78, %104 ], [ %78, %109 ]
+  %114 = phi ptr [ %19, %61 ], [ %68, %72 ], [ %68, %104 ], [ %68, %109 ]
+  %115 = phi ptr [ %19, %61 ], [ %67, %72 ], [ %67, %104 ], [ %67, %109 ]
+  %116 = phi ptr [ %63, %61 ], [ %74, %72 ], [ %74, %104 ], [ %74, %109 ]
   %117 = load ptr, ptr %20, align 8
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store volatile ptr %117, ptr %118, align 8
@@ -1006,8 +1006,8 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.thread, label %45, !llvm.loop !14
 
-.thread:                                          ; preds = %24, %36, %32, %.loopexit, %59, %52, %45, %108, %81, %93, %89, %.thread15, %11, %7, %3, %40
-  %118 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %7 ], [ null, %11 ], [ null, %.thread15 ], [ null, %89 ], [ null, %93 ], [ null, %81 ], [ null, %108 ], [ null, %45 ], [ null, %.loopexit ], [ %46, %59 ], [ %46, %52 ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
+.thread:                                          ; preds = %24, %36, %32, %.loopexit, %59, %52, %45, %108, %93, %89, %81, %.thread15, %11, %7, %3, %40
+  %118 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %7 ], [ null, %11 ], [ %46, %59 ], [ null, %.thread15 ], [ null, %93 ], [ null, %108 ], [ null, %81 ], [ null, %89 ], [ %46, %52 ], [ null, %45 ], [ null, %.loopexit ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
   ret ptr %118
 }
 

@@ -1111,7 +1111,7 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   br label %58
 
 58:                                               ; preds = %57, %56, %55, %52
-  %.0.i.i = phi i32 [ 2, %55 ], [ 3, %56 ], [ 4, %57 ], [ 0, %52 ]
+  %.0.i.i = phi i32 [ 4, %57 ], [ 2, %55 ], [ 3, %56 ], [ 0, %52 ]
   %59 = getelementptr inbounds nuw i8, ptr %34, i64 120
   store i8 0, ptr %59, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %34, i64 128
@@ -1128,7 +1128,7 @@ read_preamble.exit:                               ; preds = %37, %58
   %or.cond = icmp ult i32 %63, -3
   br i1 %or.cond, label %read_preamble.exit.thread, label %skip_32bit_transitions.exit
 
-read_preamble.exit.thread:                        ; preds = %52, %50, %read_preamble.exit
+read_preamble.exit.thread:                        ; preds = %50, %52, %read_preamble.exit
   store i32 5, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %34)
   br label %308
@@ -1300,8 +1300,8 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %.pre = load i64, ptr %116, align 8, !tbaa !33
   br label %147
 
-.loopexit:                                        ; preds = %132, %143, %121
-  %.0102.i.ph = phi i32 [ 1, %121 ], [ 1, %143 ], [ 2, %132 ]
+.loopexit:                                        ; preds = %132, %121, %143
+  %.0102.i.ph = phi i32 [ 1, %143 ], [ 1, %121 ], [ 2, %132 ]
   store i32 %.0102.i.ph, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef %34)
   br label %308
@@ -1548,12 +1548,12 @@ read_64bit_types.exit.thread86:                   ; preds = %276, %272
   br label %read_64bit_types.exit.thread82
 
 read_64bit_types.exit:                            ; preds = %154, %216
-  %.sink.i = phi ptr [ %153, %154 ], [ %215, %216 ]
+  %.sink.i = phi ptr [ %215, %216 ], [ %153, %154 ]
   tail call void @_efree(ptr noundef nonnull %.sink.i) #17
   br label %read_64bit_types.exit.thread
 
-read_64bit_types.exit.thread:                     ; preds = %270, %251, %213, %._crit_edge.i62, %147, %read_64bit_types.exit
-  %.0.i6681 = phi i32 [ 1, %read_64bit_types.exit ], [ 1, %270 ], [ 1, %251 ], [ 1, %213 ], [ 4, %._crit_edge.i62 ], [ 1, %147 ]
+read_64bit_types.exit.thread:                     ; preds = %147, %._crit_edge.i62, %213, %251, %270, %read_64bit_types.exit
+  %.0.i6681 = phi i32 [ 1, %read_64bit_types.exit ], [ 1, %147 ], [ 4, %._crit_edge.i62 ], [ 1, %213 ], [ 1, %251 ], [ 1, %270 ]
   store i32 %.0.i6681, ptr %2, align 4, !tbaa !73
   tail call void @timelib_tzinfo_dtor(ptr noundef nonnull %34)
   br label %308
@@ -1621,7 +1621,7 @@ read_posix_string.exit:                           ; preds = %288
   br label %308
 
 308:                                              ; preds = %.loopexit93, %303, %302, %300, %read_64bit_types.exit.thread, %.loopexit, %99, %read_preamble.exit.thread
-  %.0 = phi ptr [ null, %read_preamble.exit.thread ], [ null, %.loopexit ], [ null, %read_64bit_types.exit.thread ], [ null, %300 ], [ null, %99 ], [ %34, %302 ], [ %34, %303 ], [ null, %.loopexit93 ]
+  %.0 = phi ptr [ null, %read_preamble.exit.thread ], [ null, %.loopexit ], [ null, %read_64bit_types.exit.thread ], [ null, %99 ], [ null, %300 ], [ %34, %302 ], [ %34, %303 ], [ null, %.loopexit93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1926,7 +1926,7 @@ find_ttinfo_index.exit30:                         ; preds = %77
   br label %114
 
 114:                                              ; preds = %find_ttinfo_index.exit30, %63, %1, %90, %36
-  %.0 = phi i32 [ 1, %36 ], [ 1, %90 ], [ 0, %1 ], [ 1, %63 ], [ 1, %find_ttinfo_index.exit30 ]
+  %.0 = phi i32 [ 1, %36 ], [ 1, %90 ], [ 1, %63 ], [ 0, %1 ], [ 1, %find_ttinfo_index.exit30 ]
   ret i32 %.0
 }
 
@@ -2319,8 +2319,8 @@ fetch_leaptime_offset.exit:                       ; preds = %29
   %36 = sub i32 0, %35
   br label %fetch_leaptime_offset.exit.thread
 
-fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %25, %fetch_leaptime_offset.exit
-  %.022 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %.preheader ]
+fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %25, %20, %fetch_leaptime_offset.exit
+  %.022 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %20 ], [ 0, %25 ], [ 0, %.preheader ]
   store i32 %.0, ptr %4, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.022, ptr %37, align 4, !tbaa !88
@@ -2376,7 +2376,7 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
   br label %20
 
 20:                                               ; preds = %8, %17, %18, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %18 ], [ 1, %17 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %17 ], [ 0, %5 ], [ 1, %18 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2427,7 +2427,7 @@ timelib_get_time_zone_offset_info.exit:           ; preds = %13, %19, %21
   br label %24
 
 24:                                               ; preds = %1, %timelib_get_time_zone_offset_info.exit, %5
-  %.0 = phi i64 [ %12, %5 ], [ %.05, %timelib_get_time_zone_offset_info.exit ], [ 0, %1 ]
+  %.0 = phi i64 [ %.05, %timelib_get_time_zone_offset_info.exit ], [ %12, %5 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -2479,7 +2479,7 @@ define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr noundef readonly ca
   br label %32
 
 32:                                               ; preds = %22, %8, %2, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %2 ], [ %., %8 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %31 ], [ %., %8 ], [ 0, %2 ], [ 1, %22 ]
   ret i32 %.0
 }
 

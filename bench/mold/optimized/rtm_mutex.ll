@@ -222,7 +222,7 @@ _ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE
   br label %_ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit
 
 _ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i, %23, %26
-  %.0.i = phi i1 [ true, %26 ], [ true, %_ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i ], [ false, %23 ]
+  %.0.i = phi i1 [ true, %_ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i ], [ true, %26 ], [ false, %23 ]
   ret i1 %.0.i
 }
 

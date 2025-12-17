@@ -503,7 +503,7 @@ lg_g15_register_led.exit:                         ; preds = %187, %201, %204, %2
   br i1 %220, label %184, label %lg_g15_get_initial_led_brightness.exit.thread14
 
 lg_g15_get_initial_led_brightness.exit.thread14:  ; preds = %lg_g15_register_led.exit, %128, %125, %95, %89, %180, %161, %lg_g15_get_initial_led_brightness.exit.thread.thread, %67
-  %221 = phi i32 [ %70, %67 ], [ %159, %lg_g15_get_initial_led_brightness.exit.thread.thread ], [ %162, %161 ], [ %181, %180 ], [ -22, %89 ], [ %spec.select, %95 ], [ %126, %125 ], [ %129, %128 ], [ %219, %lg_g15_register_led.exit ]
+  %221 = phi i32 [ %70, %67 ], [ %spec.select, %95 ], [ %159, %lg_g15_get_initial_led_brightness.exit.thread.thread ], [ %162, %161 ], [ %181, %180 ], [ -22, %89 ], [ %129, %128 ], [ %126, %125 ], [ %219, %lg_g15_register_led.exit ]
   tail call void @hid_hw_stop(ptr noundef %0) #10
   br label %.loopexit
 
@@ -1883,7 +1883,7 @@ select.unfold:                                    ; preds = %32
   br label %82
 
 82:                                               ; preds = %select.unfold, %81, %30, %23, %21, %17, %4
-  %83 = phi i64 [ %31, %30 ], [ -22, %21 ], [ -22, %17 ], [ -22, %4 ], [ -22, %23 ], [ %80, %select.unfold ], [ %3, %81 ]
+  %83 = phi i64 [ %31, %30 ], [ -22, %23 ], [ -22, %21 ], [ -22, %17 ], [ -22, %4 ], [ %80, %select.unfold ], [ %3, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %83
 }

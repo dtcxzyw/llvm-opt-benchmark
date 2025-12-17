@@ -238,12 +238,12 @@ define internal noundef i32 @pmain(ptr noundef %0) #0 {
   br i1 %.not.i, label %collectargs.exit, label %.lr.ph.i, !llvm.loop !19
 
 collectargs.exit:                                 ; preds = %7, %.lr.ph.i, %37, %10, %34
-  %.5 = phi i32 [ 4, %34 ], [ %.0, %10 ], [ %.0, %7 ], [ %.0, %.lr.ph.i ], [ %.2, %37 ]
-  %.030.i = phi i32 [ %35, %34 ], [ %13, %10 ], [ %.045.i, %7 ], [ %.045.i, %.lr.ph.i ], [ %38, %37 ]
+  %.5 = phi i32 [ 4, %34 ], [ %.0, %10 ], [ %.2, %37 ], [ %.0, %.lr.ph.i ], [ %.0, %7 ]
+  %.030.i = phi i32 [ %35, %34 ], [ %13, %10 ], [ %38, %37 ], [ %.045.i, %.lr.ph.i ], [ %.045.i, %7 ]
   %42 = icmp slt i32 %.030.i, 0
   br i1 %42, label %collectargs.exit.thread, label %43
 
-collectargs.exit.thread:                          ; preds = %27, %18, %14, %7, %10, %33, %collectargs.exit
+collectargs.exit.thread:                          ; preds = %27, %14, %18, %7, %10, %33, %collectargs.exit
   tail call fastcc void @print_usage()
   store i32 1, ptr @smain.2, align 4, !tbaa !21
   br label %214
@@ -259,9 +259,9 @@ collectargs.exit.thread:                          ; preds = %27, %18, %14, %7, %
   br label %.thread
 
 .thread:                                          ; preds = %1, %45, %43
-  %.not76 = phi i1 [ false, %45 ], [ true, %43 ], [ true, %1 ]
-  %.56975 = phi i32 [ %.5, %45 ], [ %.5, %43 ], [ 0, %1 ]
-  %.030.i7074 = phi i32 [ %.030.i, %45 ], [ %.030.i, %43 ], [ 1, %1 ]
+  %.not76 = phi i1 [ true, %43 ], [ false, %45 ], [ true, %1 ]
+  %.56975 = phi i32 [ %.5, %43 ], [ %.5, %45 ], [ 0, %1 ]
+  %.030.i7074 = phi i32 [ %.030.i, %43 ], [ %.030.i, %45 ], [ 1, %1 ]
   %46 = tail call i32 @lua_gc(ptr noundef %0, i32 noundef 0, i32 noundef 0) #9
   tail call void @luaL_openlibs(ptr noundef %0) #9
   %47 = tail call i32 @lua_gc(ptr noundef %0, i32 noundef 1, i32 noundef -1) #9
@@ -542,7 +542,7 @@ dojitcmd.exit.i:                                  ; preds = %134, %132
   br i1 %160, label %runargs.exit.thread, label %dobytecode.exit.sink.split.i
 
 dolibrary.exit.i:                                 ; preds = %138, %dojitcmd.exit.i, %106, %95, %83, %.lr.ph.i45
-  %.143.i = phi i32 [ %.04263.i, %.lr.ph.i45 ], [ %.04263.i, %83 ], [ %.244.i, %95 ], [ %.4.i, %dojitcmd.exit.i ], [ %.04263.i, %138 ], [ %.3.i, %106 ]
+  %.143.i = phi i32 [ %.04263.i, %.lr.ph.i45 ], [ %.04263.i, %83 ], [ %.244.i, %95 ], [ %.04263.i, %138 ], [ %.4.i, %dojitcmd.exit.i ], [ %.3.i, %106 ]
   %161 = add nsw i32 %.143.i, 1
   %162 = icmp slt i32 %161, %.030.i7074
   br i1 %162, label %.lr.ph.i45, label %.loopexit, !llvm.loop !24
@@ -556,8 +556,8 @@ dobytecode.exit.sink.split.i:                     ; preds = %158, %108
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
   br label %runargs.exit.thread
 
-runargs.exit.thread:                              ; preds = %dojitcmd.exit.i, %95, %138, %132, %141, %._crit_edge.i.i, %158, %108, %dobytecode.exit.sink.split.i
-  %.348.i.ph = phi i32 [ %.348.ph.i, %dobytecode.exit.sink.split.i ], [ 1, %108 ], [ -1, %158 ], [ -1, %._crit_edge.i.i ], [ 1, %141 ], [ 1, %132 ], [ 1, %138 ], [ 1, %95 ], [ 1, %dojitcmd.exit.i ]
+runargs.exit.thread:                              ; preds = %dojitcmd.exit.i, %132, %138, %95, %141, %._crit_edge.i.i, %158, %108, %dobytecode.exit.sink.split.i
+  %.348.i.ph = phi i32 [ %.348.ph.i, %dobytecode.exit.sink.split.i ], [ 1, %108 ], [ -1, %158 ], [ -1, %._crit_edge.i.i ], [ 1, %141 ], [ 1, %95 ], [ 1, %138 ], [ 1, %132 ], [ 1, %dojitcmd.exit.i ]
   store i32 %.348.i.ph, ptr @smain.2, align 4, !tbaa !21
   br label %214
 
@@ -602,7 +602,7 @@ sub_2.i:                                          ; preds = %sub_131.i
   br label %.tail29.i
 
 .tail29.i:                                        ; preds = %sub_2.i, %sub_131.i, %sub_030.i, %.tail.i, %167
-  %.021.i = phi ptr [ %170, %.tail.i ], [ null, %sub_030.i ], [ null, %sub_131.i ], [ %183, %sub_2.i ], [ %170, %167 ]
+  %.021.i = phi ptr [ %170, %.tail.i ], [ %183, %sub_2.i ], [ null, %sub_030.i ], [ null, %sub_131.i ], [ %170, %167 ]
   %184 = tail call i32 @luaL_loadfile(ptr noundef %0, ptr noundef %.021.i) #9
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %.thread.i
@@ -830,7 +830,7 @@ pushline.exit23:                                  ; preds = %report.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %loadline.exit.thread
 
-.preheader.i:                                     ; preds = %28, %26
+.preheader.i:                                     ; preds = %26, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #9
   %30 = call i64 @lua_objlen(ptr noundef %0, i32 noundef 1) #9
@@ -1203,7 +1203,7 @@ report.exit:                                      ; preds = %5, %13
   br label %report.exit.thread
 
 report.exit.thread:                               ; preds = %10, %7, %16, %report.exit
-  %.1 = phi i32 [ 1, %report.exit ], [ 0, %16 ], [ 1, %7 ], [ 1, %10 ]
+  %.1 = phi i32 [ 0, %16 ], [ 1, %report.exit ], [ 1, %7 ], [ 1, %10 ]
   ret i32 %.1
 }
 

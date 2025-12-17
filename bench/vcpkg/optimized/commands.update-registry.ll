@@ -107,7 +107,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %12 = icmp eq ptr %.19.i.i.i.i, %9
   br i1 %12, label %_ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbRKT_RKT0_.exit.thread, label %_ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbRKT_RKT0_.exit
 
-_ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i, %2
+_ZN5vcpkg4Util4Sets8containsISt3setINS_13StringLiteralESt4lessIvESaIS4_EES4_EEbRKT_RKT0_.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 144
   br label %45
 
@@ -238,7 +238,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %74
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA6_KcEEERS5_DpOT_.exit: ; preds = %37, %56, %._crit_edge.i.i.i.i.i19
-  %60 = phi ptr [ %15, %._crit_edge.i.i.i.i.i19 ], [ %46, %56 ], [ %15, %37 ]
+  %60 = phi ptr [ %46, %56 ], [ %15, %._crit_edge.i.i.i.i.i19 ], [ %15, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 66, ptr %6, align 8, !tbaa !29
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -267,7 +267,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %74
 
 74:                                               ; preds = %38, %43, %54, %58, %72
-  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %39, %38 ], [ %44, %43 ], [ %55, %54 ], [ %59, %58 ]
+  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %73, %72 ], [ %39, %38 ], [ %44, %43 ], [ %55, %54 ]
   call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn

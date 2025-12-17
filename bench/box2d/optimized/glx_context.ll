@@ -489,7 +489,7 @@ extensionSupportedGLX.exit96:                     ; preds = %157
   br label %extensionSupportedGLX.exit96.thread
 
 extensionSupportedGLX.exit96.thread:              ; preds = %157, %extensionSupportedGLX.exit92.thread, %extensionSupportedGLX.exit96, %0, %77, %71, %66, %57, %6
-  %.029 = phi i32 [ 0, %77 ], [ 0, %71 ], [ 0, %66 ], [ 0, %57 ], [ 0, %6 ], [ 1, %0 ], [ 1, %extensionSupportedGLX.exit96 ], [ 1, %extensionSupportedGLX.exit92.thread ], [ 1, %157 ]
+  %.029 = phi i32 [ 0, %6 ], [ 0, %77 ], [ 1, %0 ], [ 0, %71 ], [ 0, %66 ], [ 0, %57 ], [ 1, %extensionSupportedGLX.exit96 ], [ 1, %extensionSupportedGLX.exit92.thread ], [ 1, %157 ]
   ret i32 %.029
 }
 
@@ -676,9 +676,9 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   br label %49
 
 49:                                               ; preds = %42, %45, %.fold.split, %48
-  %.not105 = phi i1 [ false, %48 ], [ false, %45 ], [ true, %.fold.split ], [ false, %42 ]
-  %.087 = phi i32 [ 2, %48 ], [ 1, %45 ], [ 0, %.fold.split ], [ 4, %42 ]
-  %.1 = phi i32 [ %spec.select, %48 ], [ %spec.select, %45 ], [ %spec.select, %.fold.split ], [ 0, %42 ]
+  %.not105 = phi i1 [ true, %.fold.split ], [ false, %48 ], [ false, %45 ], [ false, %42 ]
+  %.087 = phi i32 [ 0, %.fold.split ], [ 2, %48 ], [ 1, %45 ], [ 4, %42 ]
+  %.1 = phi i32 [ %spec.select, %.fold.split ], [ %spec.select, %48 ], [ %spec.select, %45 ], [ 0, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !168
   %.not102 = icmp ne i32 %51, 0
@@ -744,7 +744,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   br label %75
 
 75:                                               ; preds = %.sink.split117, %69, %63
-  %.290 = phi i32 [ %.088, %63 ], [ %.088, %69 ], [ %73, %.sink.split117 ]
+  %.290 = phi i32 [ %.088, %69 ], [ %.088, %63 ], [ %73, %.sink.split117 ]
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = load i32, ptr %76, align 8, !tbaa !172
   %78 = icmp ne i32 %77, 0
@@ -1188,7 +1188,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   br label %165
 
 165:                                              ; preds = %63, %56, %46, %161
-  %.1 = phi i32 [ %164, %161 ], [ %.06580, %46 ], [ %.06580, %56 ], [ %.06580, %63 ]
+  %.1 = phi i32 [ %.06580, %46 ], [ %.06580, %56 ], [ %164, %161 ], [ %.06580, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = load i32, ptr %20, align 4, !tbaa !170
   %167 = sext i32 %166 to i64

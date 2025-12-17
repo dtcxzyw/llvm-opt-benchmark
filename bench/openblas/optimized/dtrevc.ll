@@ -225,7 +225,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
   br i1 %.not1126, label %117, label %.thread
 
 .thread.sink.split:                               ; preds = %.loopexit1256, %67, %63, %60, %57, %53, %14
-  %.sink = phi i32 [ -1, %14 ], [ -2, %53 ], [ -4, %57 ], [ -6, %60 ], [ -8, %63 ], [ -10, %67 ], [ -11, %.loopexit1256 ]
+  %.sink = phi i32 [ -1, %14 ], [ -2, %53 ], [ -6, %60 ], [ -10, %67 ], [ -8, %63 ], [ -4, %57 ], [ -11, %.loopexit1256 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread
 
@@ -1275,9 +1275,9 @@ thread-pre-split1188:                             ; preds = %520, %529
   br label %693
 
 693:                                              ; preds = %.loopexit1252, %175, %171, %158
-  %694 = phi i32 [ %storemerge1304, %158 ], [ %storemerge1304, %171 ], [ %storemerge1304, %175 ], [ %.pre1479, %.loopexit1252 ]
-  %spec.store.select7 = phi i32 [ 0, %158 ], [ 0, %171 ], [ 1, %175 ], [ %spec.select1159, %.loopexit1252 ]
-  %.1 = phi i32 [ %.01306, %158 ], [ %.01306, %171 ], [ %.01306, %175 ], [ %spec.select1160, %.loopexit1252 ]
+  %694 = phi i32 [ %storemerge1304, %158 ], [ %storemerge1304, %175 ], [ %.pre1479, %.loopexit1252 ], [ %storemerge1304, %171 ]
+  %spec.store.select7 = phi i32 [ 0, %158 ], [ 1, %175 ], [ %spec.select1159, %.loopexit1252 ], [ 0, %171 ]
+  %.1 = phi i32 [ %.01306, %158 ], [ %.01306, %175 ], [ %spec.select1160, %.loopexit1252 ], [ %.01306, %171 ]
   %695 = add nsw i32 %694, -1
   store i32 %695, ptr %27, align 4, !tbaa !3
   %696 = icmp sgt i32 %694, 1
@@ -2235,10 +2235,10 @@ thread-pre-split1188:                             ; preds = %520, %529
   br label %.lr.ph1339._crit_edge
 
 .lr.ph1339._crit_edge:                            ; preds = %.lr.ph1339, %1300, %1171
-  %1334 = phi i32 [ %1302, %1300 ], [ %1173, %1171 ], [ %1081, %.lr.ph1339 ]
-  %.71097 = phi double [ %1330, %1300 ], [ %1188, %1171 ], [ %.410941334, %.lr.ph1339 ]
-  %.111089 = phi i32 [ %1333, %1300 ], [ %1085, %1171 ], [ %.910871335, %.lr.ph1339 ]
-  %.31064 = phi double [ %1331, %1300 ], [ %1189, %1171 ], [ %.210631337, %.lr.ph1339 ]
+  %1334 = phi i32 [ %1173, %1171 ], [ %1302, %1300 ], [ %1081, %.lr.ph1339 ]
+  %.71097 = phi double [ %1188, %1171 ], [ %1330, %1300 ], [ %.410941334, %.lr.ph1339 ]
+  %.111089 = phi i32 [ %1085, %1171 ], [ %1333, %1300 ], [ %.910871335, %.lr.ph1339 ]
+  %.31064 = phi double [ %1189, %1171 ], [ %1331, %1300 ], [ %.210631337, %.lr.ph1339 ]
   %1335 = load i32, ptr %16, align 4, !tbaa !3
   %1336 = sext i32 %1335 to i64
   %.not1134.not = icmp slt i64 %indvars.iv1445, %1336
@@ -2510,10 +2510,10 @@ thread-pre-split1188:                             ; preds = %520, %529
   br label %.thread1206
 
 .thread1206:                                      ; preds = %1482, %.loopexit, %706
-  %1484 = phi i32 [ %707, %706 ], [ %.pre1495, %.loopexit ], [ %707, %1482 ]
-  %1485 = phi i32 [ %storemerge11281362, %706 ], [ %.pre1494, %.loopexit ], [ %storemerge11281362, %1482 ]
-  %.312051209 = phi i32 [ %.21364, %706 ], [ %spec.select1221, %.loopexit ], [ %.21364, %1482 ]
-  %1486 = phi i32 [ 0, %706 ], [ %spec.select1222, %.loopexit ], [ %spec.select1223, %1482 ]
+  %1484 = phi i32 [ %707, %706 ], [ %707, %1482 ], [ %.pre1495, %.loopexit ]
+  %1485 = phi i32 [ %storemerge11281362, %706 ], [ %storemerge11281362, %1482 ], [ %.pre1494, %.loopexit ]
+  %.312051209 = phi i32 [ %.21364, %706 ], [ %.21364, %1482 ], [ %spec.select1221, %.loopexit ]
+  %1486 = phi i32 [ 0, %706 ], [ %spec.select1223, %1482 ], [ %spec.select1222, %.loopexit ]
   %1487 = add nsw i32 %1485, 1
   store i32 %1487, ptr %27, align 4, !tbaa !3
   %.not1129.not = icmp slt i32 %1485, %1484

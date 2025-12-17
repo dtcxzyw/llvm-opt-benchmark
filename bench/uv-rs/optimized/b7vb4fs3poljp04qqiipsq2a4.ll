@@ -203,9 +203,9 @@ default.unreachable11:                            ; preds = %3
   unreachable
 
 .sink.split:                                      ; preds = %33, %25, %17, %9
-  %.sroa.0.0.i3.sink = phi i64 [ %18, %17 ], [ %12, %9 ], [ %34, %33 ], [ %28, %25 ]
-  %.sroa.5.0.i2.sink = phi i8 [ undef, %17 ], [ %11, %9 ], [ undef, %33 ], [ %27, %25 ]
-  %.sink12 = phi i8 [ %7, %17 ], [ %7, %9 ], [ %23, %33 ], [ %23, %25 ]
+  %.sroa.0.0.i3.sink = phi i64 [ %12, %9 ], [ %18, %17 ], [ %34, %33 ], [ %28, %25 ]
+  %.sroa.5.0.i2.sink = phi i8 [ %11, %9 ], [ undef, %17 ], [ undef, %33 ], [ %27, %25 ]
+  %.sink12 = phi i8 [ %7, %9 ], [ %7, %17 ], [ %23, %33 ], [ %23, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i3.sink, ptr %36, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

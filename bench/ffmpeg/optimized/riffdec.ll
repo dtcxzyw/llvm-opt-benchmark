@@ -112,8 +112,8 @@ define range(i32 -2147483648, 1) i32 @ff_get_wav_header(ptr noundef %0, ptr noun
   br label %25
 
 25:                                               ; preds = %14, %16
-  %.0116 = phi i32 [ %17, %16 ], [ 0, %14 ]
-  %.0113 = phi i64 [ %22, %16 ], [ 0, %14 ]
+  %.0116 = phi i32 [ 0, %14 ], [ %17, %16 ]
+  %.0113 = phi i64 [ 0, %14 ], [ %22, %16 ]
   %26 = icmp eq i32 %3, 14
   br i1 %26, label %40, label %37
 
@@ -554,8 +554,8 @@ parse_waveformatex.exit:                          ; preds = %ff_wav_codec_get_id
   store i32 %.4163, ptr %227, align 4, !tbaa !28
   br label %.thread156
 
-.thread156:                                       ; preds = %195, %191, %60, %178, %226, %229, %217, %11
-  %.0109 = phi i32 [ -1094995529, %11 ], [ -1094995529, %217 ], [ 0, %229 ], [ 0, %226 ], [ -1163346256, %60 ], [ %179, %178 ], [ -1094995529, %195 ], [ %193, %191 ]
+.thread156:                                       ; preds = %191, %195, %60, %178, %226, %229, %217, %11
+  %.0109 = phi i32 [ -1094995529, %11 ], [ -1094995529, %217 ], [ %179, %178 ], [ 0, %226 ], [ 0, %229 ], [ -1163346256, %60 ], [ %193, %191 ], [ -1094995529, %195 ]
   ret i32 %.0109
 }
 
@@ -770,8 +770,8 @@ define range(i32 -1094995529, 1) i32 @ff_read_riff_info(ptr noundef %0, i64 noun
   %62 = call i32 @av_dict_set(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %54, i32 noundef 8) #7
   br label %63
 
-.thread:                                          ; preds = %25, %42, %55, %51, %22
-  %.1.ph = phi i32 [ -541478725, %22 ], [ -541478725, %51 ], [ -12, %55 ], [ -1094995529, %42 ], [ -1094995529, %25 ]
+.thread:                                          ; preds = %25, %51, %42, %55, %22
+  %.1.ph = phi i32 [ -541478725, %22 ], [ -12, %55 ], [ -1094995529, %42 ], [ -541478725, %51 ], [ -1094995529, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 

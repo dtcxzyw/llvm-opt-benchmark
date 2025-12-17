@@ -91,7 +91,7 @@ define internal void @lv_imagebutton_event(ptr readnone captures(none) %0, ptr n
   br label %get_state.exit.i
 
 get_state.exit.i:                                 ; preds = %25, %23, %21
-  %.0.i.i = phi i32 [ %..i.i, %21 ], [ %.13.i.i, %23 ], [ %.lobit.i.i, %25 ]
+  %.0.i.i = phi i32 [ %..i.i, %21 ], [ %.lobit.i.i, %25 ], [ %.13.i.i, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %28 = zext nneg i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %27, i64 %28
@@ -155,7 +155,7 @@ get_state.exit.i:                                 ; preds = %25, %23, %21
   br label %suggest_state.exit.i
 
 suggest_state.exit.i:                             ; preds = %52, %50, %47, %45, %43, %40, %37, %35, %33
-  %.0.i41.i = phi i64 [ %28, %52 ], [ 0, %33 ], [ 0, %35 ], [ 3, %37 ], [ 1, %40 ], [ 0, %43 ], [ 0, %45 ], [ 3, %47 ], [ 0, %50 ]
+  %.0.i41.i = phi i64 [ %28, %52 ], [ 3, %47 ], [ 0, %33 ], [ 0, %35 ], [ 3, %37 ], [ 1, %40 ], [ 0, %43 ], [ 0, %45 ], [ 0, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %54 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %53, i64 %.0.i41.i
   %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %14, i32 noundef 0, i8 noundef zeroext 104) #6
@@ -349,7 +349,7 @@ draw_main.exit:                                   ; preds = %112, %133
   br label %get_state.exit
 
 get_state.exit:                                   ; preds = %145, %147, %149
-  %.0.i39 = phi i32 [ %..i, %145 ], [ %.13.i, %147 ], [ %.lobit.i, %149 ]
+  %.0.i39 = phi i32 [ %..i, %145 ], [ %.lobit.i, %149 ], [ %.13.i, %147 ]
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %152 = zext nneg i32 %.0.i39 to i64
   %153 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %151, i64 %152
@@ -413,7 +413,7 @@ get_state.exit:                                   ; preds = %145, %147, %149
   br label %suggest_state.exit
 
 suggest_state.exit:                               ; preds = %157, %159, %161, %164, %167, %169, %171, %174, %176
-  %.0.i40 = phi i64 [ %152, %176 ], [ 0, %157 ], [ 0, %159 ], [ 3, %161 ], [ 1, %164 ], [ 0, %167 ], [ 0, %169 ], [ 3, %171 ], [ 0, %174 ]
+  %.0.i40 = phi i64 [ %152, %176 ], [ 3, %171 ], [ 0, %157 ], [ 0, %159 ], [ 3, %161 ], [ 1, %164 ], [ 0, %167 ], [ 0, %169 ], [ 0, %174 ]
   %177 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %178 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %177, i64 %.0.i40
   %179 = load ptr, ptr %178, align 8, !tbaa !3
@@ -569,7 +569,7 @@ define internal fastcc void @refr_image(ptr noundef %0) unnamed_addr #0 {
   br label %get_state.exit
 
 get_state.exit:                                   ; preds = %7, %9, %11
-  %.0.i = phi i32 [ %..i, %7 ], [ %.13.i, %9 ], [ %.lobit.i, %11 ]
+  %.0.i = phi i32 [ %..i, %7 ], [ %.lobit.i, %11 ], [ %.13.i, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = zext nneg i32 %.0.i to i64
   %15 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %13, i64 %14
@@ -633,7 +633,7 @@ get_state.exit:                                   ; preds = %7, %9, %11
   br label %suggest_state.exit
 
 suggest_state.exit:                               ; preds = %19, %21, %23, %26, %29, %31, %33, %36, %38
-  %.0.i10 = phi i64 [ %14, %38 ], [ 0, %19 ], [ 0, %21 ], [ 3, %23 ], [ 1, %26 ], [ 0, %29 ], [ 0, %31 ], [ 3, %33 ], [ 0, %36 ]
+  %.0.i10 = phi i64 [ %14, %38 ], [ 3, %33 ], [ 0, %19 ], [ 0, %21 ], [ 3, %23 ], [ 1, %26 ], [ 0, %29 ], [ 0, %31 ], [ 0, %36 ]
   %39 = getelementptr inbounds nuw %struct._lv_imagebutton_src_info_t, ptr %13, i64 %.0.i10
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = icmp eq ptr %40, null

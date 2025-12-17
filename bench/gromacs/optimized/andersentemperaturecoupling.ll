@@ -1180,26 +1180,26 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i: ; preds = %49, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
   %55 = load ptr, ptr %5, align 8, !tbaa !124
   %56 = icmp eq ptr %55, %8
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZN3gmx20ExceptionInitializerD2Ev.exit
+  br i1 %56, label %_ZN3gmx20ExceptionInitializerD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.2, label %59, label %60
-
-_ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i
   %57 = load i64, ptr %8, align 8, !tbaa !47
   %58 = add i64 %57, 1
   call void @_ZdlPvm(ptr noundef %55, i64 noundef %58) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.2, label %59, label %60
 
-59:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread, %_ZN3gmx20ExceptionInitializerD2Ev.exit
-  %.pn.pn13 = phi { ptr, i32 } [ %36, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread ], [ %.pn, %_ZN3gmx20ExceptionInitializerD2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+_ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br i1 %.2, label %59, label %60
+
+59:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread, %_ZN3gmx20ExceptionInitializerD2Ev.exit
+  %.pn.pn13 = phi { ptr, i32 } [ %36, %_ZN3gmx20ExceptionInitializerD2Ev.exit.thread ], [ %.pn, %_ZN3gmx20ExceptionInitializerD2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   call void @__cxa_free_exception(ptr %7) #29
   br label %60
 
-60:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %59, %_ZN3gmx20ExceptionInitializerD2Ev.exit
-  %.pn.pn12 = phi { ptr, i32 } [ %.pn.pn13, %59 ], [ %.pn, %_ZN3gmx20ExceptionInitializerD2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
+60:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %59, %_ZN3gmx20ExceptionInitializerD2Ev.exit
+  %.pn.pn12 = phi { ptr, i32 } [ %.pn.pn13, %59 ], [ %.pn, %_ZN3gmx20ExceptionInitializerD2Ev.exit ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   resume { ptr, i32 } %.pn.pn12
 
 61:                                               ; preds = %29
@@ -1566,7 +1566,7 @@ _ZNSt14_Function_baseD2Ev.exit53.thread125:       ; preds = %55
   br label %_ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i65
 
 150:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit
-  %.sroa.0106.0 = phi ptr [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit ], [ %36, %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.0106.0 = phi ptr [ %36, %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ null, %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit ]
   %151 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1765,8 +1765,8 @@ _ZNSt14_Function_baseD2Ev.exit53:                 ; preds = %.body, %211
   br i1 %.not.i64, label %common.resume, label %_ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i65
 
 _ZNKSt14default_deleteIN3gmx27AndersenTemperatureCouplingEEclEPS1_.exit.i65: ; preds = %144, %141, %_ZNSt14_Function_baseD2Ev.exit53.thread125, %_ZNSt14_Function_baseD2Ev.exit53
-  %.pn33.pn.pn122 = phi { ptr, i32 } [ %.pn33, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %149, %_ZNSt14_Function_baseD2Ev.exit53.thread125 ], [ %142, %141 ], [ %142, %144 ]
-  %.sroa.0106.1121 = phi ptr [ %.sroa.0106.3, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %36, %_ZNSt14_Function_baseD2Ev.exit53.thread125 ], [ %36, %141 ], [ %36, %144 ]
+  %.pn33.pn.pn122 = phi { ptr, i32 } [ %149, %_ZNSt14_Function_baseD2Ev.exit53.thread125 ], [ %.pn33, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %142, %141 ], [ %142, %144 ]
+  %.sroa.0106.1121 = phi ptr [ %36, %_ZNSt14_Function_baseD2Ev.exit53.thread125 ], [ %.sroa.0106.3, %_ZNSt14_Function_baseD2Ev.exit53 ], [ %36, %141 ], [ %36, %144 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0106.1121, i64 noundef 88) #28
   br label %common.resume
 }

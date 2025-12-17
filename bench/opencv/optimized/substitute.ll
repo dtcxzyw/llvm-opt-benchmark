@@ -479,8 +479,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
   br label %162
 
 162:                                              ; preds = %.thread, %160, %113
-  %.267 = phi i32 [ %38, %113 ], [ %.065143, %160 ], [ %38, %.thread ]
-  %.3 = phi i32 [ %114, %113 ], [ %161, %160 ], [ %110, %.thread ]
+  %.267 = phi i32 [ %38, %.thread ], [ %38, %113 ], [ %.065143, %160 ]
+  %.3 = phi i32 [ %110, %.thread ], [ %114, %113 ], [ %161, %160 ]
   %163 = add nsw i32 %.267, 1
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %1, i64 %164

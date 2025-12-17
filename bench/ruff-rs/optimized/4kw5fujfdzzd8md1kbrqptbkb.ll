@@ -1028,7 +1028,7 @@ define hidden void @_ZN2ty8MainLoop17run_with_progress17h5262264b1ab2f028E(ptr d
           to label %120 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %814, %816, %353, %355, %.thread509.i, %735, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %354, %353 ], [ %.pn445512.i, %.thread509.i ], [ %.pn445.i, %355 ], [ %736, %735 ], [ %815, %816 ], [ %815, %814 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.pn445512.i, %.thread509.i ], [ %124, %123 ], [ %815, %814 ], [ %.pn445.i, %355 ], [ %354, %353 ], [ %736, %735 ], [ %815, %816 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr33drop_in_place$LT$ty..MainLoop$GT$17hd0a7d525712e125bE"(ptr noalias noundef nonnull align 8 dereferenceable(456) %1) #21
           to label %913 unwind label %911
 
@@ -1657,13 +1657,13 @@ default.unreachable:                              ; preds = %653
           to label %.body unwind label %351, !noalias !92
 
 355:                                              ; preds = %689, %555, %.loopexit.split-lp545.i, %.loopexit544.i
-  %.sroa.0199.1.i = phi i8 [ %.sroa.0199.4.i, %555 ], [ %.sroa.0199.2.i, %689 ], [ %.sroa.0199.0.ph.i, %.loopexit544.i ], [ %.sroa.0199.0.ph546.i, %.loopexit.split-lp545.i ]
-  %.pn445.i = phi { ptr, i32 } [ %.pn443.i, %555 ], [ %690, %689 ], [ %lpad.loopexit547.i, %.loopexit544.i ], [ %lpad.loopexit.split-lp548.i, %.loopexit.split-lp545.i ]
+  %.sroa.0199.1.i = phi i8 [ %.sroa.0199.2.i, %689 ], [ %.sroa.0199.4.i, %555 ], [ %.sroa.0199.0.ph.i, %.loopexit544.i ], [ %.sroa.0199.0.ph546.i, %.loopexit.split-lp545.i ]
+  %.pn445.i = phi { ptr, i32 } [ %690, %689 ], [ %.pn443.i, %555 ], [ %lpad.loopexit547.i, %.loopexit544.i ], [ %lpad.loopexit.split-lp548.i, %.loopexit.split-lp545.i ]
   %356 = trunc nuw i8 %.sroa.0199.1.i to i1
   br i1 %356, label %.thread509.i, label %.body
 
 .loopexit544.i:                                   ; preds = %691, %686, %669, %662, %569, %548, %545, %.noexc490.i, %533, %526, %524, %522, %505, %498, %.thread520.i, %475, %467, %466, %456, %454, %.noexc486.i, %442, %435, %431, %414, %407, %.thread514.i, %384, %375, %370, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i, %368, %362, %361, %359, %357, %338
-  %.sroa.0199.0.ph.i = phi i8 [ 1, %545 ], [ 1, %.noexc490.i ], [ 1, %533 ], [ 1, %526 ], [ 1, %454 ], [ 1, %.noexc486.i ], [ 1, %442 ], [ 1, %435 ], [ 1, %368 ], [ 1, %338 ], [ 1, %357 ], [ 1, %359 ], [ 1, %361 ], [ 1, %362 ], [ 1, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i ], [ 1, %370 ], [ 1, %384 ], [ 1, %.thread514.i ], [ 1, %407 ], [ 1, %414 ], [ 1, %431 ], [ 1, %375 ], [ 1, %456 ], [ 1, %467 ], [ 1, %466 ], [ 1, %475 ], [ 1, %.thread520.i ], [ 1, %498 ], [ 1, %505 ], [ 1, %522 ], [ 1, %524 ], [ 1, %548 ], [ %.sroa.0199.5.i, %569 ], [ %.sroa.0199.2.i, %662 ], [ %.sroa.0199.2.i, %669 ], [ %.sroa.0199.2.i, %686 ], [ %.sroa.0199.2.i, %691 ]
+  %.sroa.0199.0.ph.i = phi i8 [ 1, %526 ], [ 1, %370 ], [ 1, %384 ], [ 1, %407 ], [ 1, %414 ], [ 1, %431 ], [ 1, %454 ], [ 1, %375 ], [ 1, %456 ], [ 1, %467 ], [ 1, %466 ], [ 1, %.noexc486.i ], [ 1, %442 ], [ 1, %475 ], [ 1, %.thread520.i ], [ 1, %545 ], [ 1, %435 ], [ 1, %.thread514.i ], [ 1, %498 ], [ 1, %505 ], [ 1, %522 ], [ 1, %524 ], [ 1, %548 ], [ %.sroa.0199.5.i, %569 ], [ 1, %338 ], [ 1, %357 ], [ 1, %359 ], [ 1, %361 ], [ 1, %.noexc490.i ], [ 1, %533 ], [ %.sroa.0199.2.i, %662 ], [ %.sroa.0199.2.i, %669 ], [ %.sroa.0199.2.i, %686 ], [ %.sroa.0199.2.i, %691 ], [ 1, %368 ], [ 1, %362 ], [ 1, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i ]
   %lpad.loopexit547.i = landingpad { ptr, i32 }
           cleanup
   br label %355
@@ -1866,7 +1866,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %434 unwind label %.loopexit544.i, !noalias !92
 
 .invoke.i:                                        ; preds = %512, %482, %421, %391
-  %432 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %421 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %391 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %512 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %482 ]
+  %432 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %512 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %421 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %391 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %482 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %432) #19
           to label %.cont.i unwind label %.loopexit.split-lp545.i, !noalias !92
 
@@ -2238,13 +2238,13 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %556 unwind label %.loopexit550.i, !noalias !92
 
 555:                                              ; preds = %577, %560, %.loopexit.split-lp551.i, %.loopexit550.i
-  %.sroa.0199.4.i = phi i8 [ 1, %560 ], [ 0, %577 ], [ %.sroa.0199.3.ph.i, %.loopexit550.i ], [ %.sroa.0199.3.ph552.i, %.loopexit.split-lp551.i ]
-  %.pn443.i = phi { ptr, i32 } [ %lpad.phi560.i, %560 ], [ %.pn.i, %577 ], [ %lpad.loopexit553.i, %.loopexit550.i ], [ %lpad.loopexit.split-lp554.i, %.loopexit.split-lp551.i ]
+  %.sroa.0199.4.i = phi i8 [ 0, %577 ], [ 1, %560 ], [ %.sroa.0199.3.ph.i, %.loopexit550.i ], [ %.sroa.0199.3.ph552.i, %.loopexit.split-lp551.i ]
+  %.pn443.i = phi { ptr, i32 } [ %.pn.i, %577 ], [ %lpad.phi560.i, %560 ], [ %lpad.loopexit553.i, %.loopexit550.i ], [ %lpad.loopexit.split-lp554.i, %.loopexit.split-lp551.i ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h5f41beff82b8fe3aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77) #21
           to label %355 unwind label %351, !noalias !92
 
 .loopexit550.i:                                   ; preds = %650, %648, %631, %624, %.thread528.i, %601, %589, %582, %._crit_edge.i, %564, %554
-  %.sroa.0199.3.ph.i = phi i8 [ 0, %._crit_edge.i ], [ 0, %582 ], [ 0, %589 ], [ 0, %601 ], [ 0, %.thread528.i ], [ 0, %624 ], [ 0, %631 ], [ 0, %648 ], [ 0, %650 ], [ 1, %554 ], [ 1, %564 ]
+  %.sroa.0199.3.ph.i = phi i8 [ 0, %582 ], [ 0, %601 ], [ 0, %.thread528.i ], [ 0, %589 ], [ 0, %._crit_edge.i ], [ 0, %624 ], [ 0, %631 ], [ 0, %648 ], [ 0, %650 ], [ 1, %554 ], [ 1, %564 ]
   %lpad.loopexit553.i = landingpad { ptr, i32 }
           cleanup
   br label %555
@@ -2749,7 +2749,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   br label %701
 
 701:                                              ; preds = %700, %699, %696, %653
-  %.sroa.0108.0.i = phi i8 [ 1, %699 ], [ 101, %700 ], [ %.sroa.0.0.sroa.speculated.i.i, %653 ], [ %698, %696 ]
+  %.sroa.0108.0.i = phi i8 [ 101, %700 ], [ %.sroa.0.0.sroa.speculated.i.i, %653 ], [ %698, %696 ], [ 1, %699 ]
   %702 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store i8 %.sroa.0108.0.i, ptr %702, align 1, !alias.scope !92, !noalias !104
   store i8 0, ptr %117, align 8, !alias.scope !92, !noalias !104
@@ -3541,7 +3541,7 @@ define hidden void @_ZN2ty8MainLoop17run_with_progress17ha5113e7cfbe06199E(ptr d
           to label %120 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %813, %815, %352, %354, %.thread507.i, %734, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %353, %352 ], [ %.pn445510.i, %.thread507.i ], [ %.pn445.i, %354 ], [ %735, %734 ], [ %814, %815 ], [ %814, %813 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.pn445510.i, %.thread507.i ], [ %124, %123 ], [ %814, %813 ], [ %.pn445.i, %354 ], [ %353, %352 ], [ %735, %734 ], [ %814, %815 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr33drop_in_place$LT$ty..MainLoop$GT$17hd0a7d525712e125bE"(ptr noalias noundef nonnull align 8 dereferenceable(456) %1) #21
           to label %912 unwind label %910
 
@@ -4168,13 +4168,13 @@ default.unreachable:                              ; preds = %652
           to label %.body unwind label %350, !noalias !144
 
 354:                                              ; preds = %688, %554, %.loopexit.split-lp543.i, %.loopexit542.i
-  %.sroa.0199.1.i = phi i8 [ %.sroa.0199.4.i, %554 ], [ %.sroa.0199.2.i, %688 ], [ %.sroa.0199.0.ph.i, %.loopexit542.i ], [ %.sroa.0199.0.ph544.i, %.loopexit.split-lp543.i ]
-  %.pn445.i = phi { ptr, i32 } [ %.pn443.i, %554 ], [ %689, %688 ], [ %lpad.loopexit545.i, %.loopexit542.i ], [ %lpad.loopexit.split-lp546.i, %.loopexit.split-lp543.i ]
+  %.sroa.0199.1.i = phi i8 [ %.sroa.0199.2.i, %688 ], [ %.sroa.0199.4.i, %554 ], [ %.sroa.0199.0.ph.i, %.loopexit542.i ], [ %.sroa.0199.0.ph544.i, %.loopexit.split-lp543.i ]
+  %.pn445.i = phi { ptr, i32 } [ %689, %688 ], [ %.pn443.i, %554 ], [ %lpad.loopexit545.i, %.loopexit542.i ], [ %lpad.loopexit.split-lp546.i, %.loopexit.split-lp543.i ]
   %355 = trunc nuw i8 %.sroa.0199.1.i to i1
   br i1 %355, label %.thread507.i, label %.body
 
 .loopexit542.i:                                   ; preds = %690, %685, %668, %661, %568, %547, %544, %.noexc490.i, %532, %525, %523, %521, %504, %497, %.thread518.i, %474, %466, %465, %455, %453, %.noexc486.i, %441, %434, %430, %413, %406, %.thread512.i, %383, %374, %369, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i, %367, %361, %360, %358, %356, %337
-  %.sroa.0199.0.ph.i = phi i8 [ 1, %544 ], [ 1, %.noexc490.i ], [ 1, %532 ], [ 1, %525 ], [ 1, %453 ], [ 1, %.noexc486.i ], [ 1, %441 ], [ 1, %434 ], [ 1, %367 ], [ 1, %337 ], [ 1, %356 ], [ 1, %358 ], [ 1, %360 ], [ 1, %361 ], [ 1, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i ], [ 1, %369 ], [ 1, %383 ], [ 1, %.thread512.i ], [ 1, %406 ], [ 1, %413 ], [ 1, %430 ], [ 1, %374 ], [ 1, %455 ], [ 1, %466 ], [ 1, %465 ], [ 1, %474 ], [ 1, %.thread518.i ], [ 1, %497 ], [ 1, %504 ], [ 1, %521 ], [ 1, %523 ], [ 1, %547 ], [ %.sroa.0199.5.i, %568 ], [ %.sroa.0199.2.i, %661 ], [ %.sroa.0199.2.i, %668 ], [ %.sroa.0199.2.i, %685 ], [ %.sroa.0199.2.i, %690 ]
+  %.sroa.0199.0.ph.i = phi i8 [ 1, %525 ], [ 1, %369 ], [ 1, %383 ], [ 1, %406 ], [ 1, %413 ], [ 1, %430 ], [ 1, %453 ], [ 1, %374 ], [ 1, %455 ], [ 1, %466 ], [ 1, %465 ], [ 1, %.noexc486.i ], [ 1, %441 ], [ 1, %474 ], [ 1, %.thread518.i ], [ 1, %544 ], [ 1, %434 ], [ 1, %.thread512.i ], [ 1, %497 ], [ 1, %504 ], [ 1, %521 ], [ 1, %523 ], [ 1, %547 ], [ %.sroa.0199.5.i, %568 ], [ 1, %337 ], [ 1, %356 ], [ 1, %358 ], [ 1, %360 ], [ 1, %.noexc490.i ], [ 1, %532 ], [ %.sroa.0199.2.i, %661 ], [ %.sroa.0199.2.i, %668 ], [ %.sroa.0199.2.i, %685 ], [ %.sroa.0199.2.i, %690 ], [ 1, %367 ], [ 1, %361 ], [ 1, %_ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i ]
   %lpad.loopexit545.i = landingpad { ptr, i32 }
           cleanup
   br label %354
@@ -4377,7 +4377,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %433 unwind label %.loopexit542.i, !noalias !144
 
 .invoke.i:                                        ; preds = %511, %481, %420, %390
-  %431 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %420 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %390 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %511 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %481 ]
+  %431 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %511 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %420 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %390 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %481 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %431) #19
           to label %.cont.i unwind label %.loopexit.split-lp543.i, !noalias !144
 
@@ -4749,13 +4749,13 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %555 unwind label %.loopexit548.i, !noalias !144
 
 554:                                              ; preds = %576, %559, %.loopexit.split-lp549.i, %.loopexit548.i
-  %.sroa.0199.4.i = phi i8 [ 1, %559 ], [ 0, %576 ], [ %.sroa.0199.3.ph.i, %.loopexit548.i ], [ %.sroa.0199.3.ph550.i, %.loopexit.split-lp549.i ]
-  %.pn443.i = phi { ptr, i32 } [ %lpad.phi558.i, %559 ], [ %.pn.i, %576 ], [ %lpad.loopexit551.i, %.loopexit548.i ], [ %lpad.loopexit.split-lp552.i, %.loopexit.split-lp549.i ]
+  %.sroa.0199.4.i = phi i8 [ 0, %576 ], [ 1, %559 ], [ %.sroa.0199.3.ph.i, %.loopexit548.i ], [ %.sroa.0199.3.ph550.i, %.loopexit.split-lp549.i ]
+  %.pn443.i = phi { ptr, i32 } [ %.pn.i, %576 ], [ %lpad.phi558.i, %559 ], [ %lpad.loopexit551.i, %.loopexit548.i ], [ %lpad.loopexit.split-lp552.i, %.loopexit.split-lp549.i ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h5f41beff82b8fe3aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77) #21
           to label %354 unwind label %350, !noalias !144
 
 .loopexit548.i:                                   ; preds = %649, %647, %630, %623, %.thread526.i, %600, %588, %581, %._crit_edge.i, %563, %553
-  %.sroa.0199.3.ph.i = phi i8 [ 0, %._crit_edge.i ], [ 0, %581 ], [ 0, %588 ], [ 0, %600 ], [ 0, %.thread526.i ], [ 0, %623 ], [ 0, %630 ], [ 0, %647 ], [ 0, %649 ], [ 1, %553 ], [ 1, %563 ]
+  %.sroa.0199.3.ph.i = phi i8 [ 0, %581 ], [ 0, %600 ], [ 0, %.thread526.i ], [ 0, %588 ], [ 0, %._crit_edge.i ], [ 0, %623 ], [ 0, %630 ], [ 0, %647 ], [ 0, %649 ], [ 1, %553 ], [ 1, %563 ]
   %lpad.loopexit551.i = landingpad { ptr, i32 }
           cleanup
   br label %554
@@ -5260,7 +5260,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   br label %700
 
 700:                                              ; preds = %699, %698, %695, %652
-  %.sroa.0108.0.i = phi i8 [ 1, %698 ], [ 101, %699 ], [ %.sroa.0.0.sroa.speculated.i.i, %652 ], [ %697, %695 ]
+  %.sroa.0108.0.i = phi i8 [ 101, %699 ], [ %.sroa.0.0.sroa.speculated.i.i, %652 ], [ %697, %695 ], [ 1, %698 ]
   %701 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store i8 %.sroa.0108.0.i, ptr %701, align 1, !alias.scope !144, !noalias !155
   store i8 0, ptr %117, align 8, !alias.scope !144, !noalias !155

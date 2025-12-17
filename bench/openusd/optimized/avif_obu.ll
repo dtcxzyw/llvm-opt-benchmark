@@ -257,11 +257,11 @@ avifBitsRead.exit134.i.i:                         ; preds = %91
   br label %avifBitsRead.exit145.i.i
 
 avifBitsRead.exit145.i.i:                         ; preds = %108, %avifBitsRead.exit134.i.i
-  %.sroa.69.101 = phi i32 [ %.sroa.69.147, %avifBitsRead.exit134.i.i ], [ %spec.select415, %108 ]
-  %.sroa.0.102 = phi i32 [ %.sroa.0.148, %avifBitsRead.exit134.i.i ], [ %spec.select416, %108 ]
-  %.sroa.474.103 = phi ptr [ %.sroa.474.152, %avifBitsRead.exit134.i.i ], [ %.sroa.474.150, %108 ]
-  %109 = phi i32 [ %99, %avifBitsRead.exit134.i.i ], [ 8, %108 ]
-  %110 = phi i64 [ %98, %avifBitsRead.exit134.i.i ], [ %.1.i.i142.i.i, %108 ]
+  %.sroa.69.101 = phi i32 [ %spec.select415, %108 ], [ %.sroa.69.147, %avifBitsRead.exit134.i.i ]
+  %.sroa.0.102 = phi i32 [ %spec.select416, %108 ], [ %.sroa.0.148, %avifBitsRead.exit134.i.i ]
+  %.sroa.474.103 = phi ptr [ %.sroa.474.150, %108 ], [ %.sroa.474.152, %avifBitsRead.exit134.i.i ]
+  %109 = phi i32 [ 8, %108 ], [ %99, %avifBitsRead.exit134.i.i ]
+  %110 = phi i64 [ %.1.i.i142.i.i, %108 ], [ %98, %avifBitsRead.exit134.i.i ]
   %111 = add i32 %109, -1
   %112 = shl i64 %110, 1
   %.not62.i.i = icmp sgt i64 %110, -1
@@ -302,11 +302,11 @@ avifBitsRead.exit145.i.i:                         ; preds = %108, %avifBitsRead.
   br label %avifBitsRead.exit.i.i.i
 
 avifBitsRead.exit.i.i.i:                          ; preds = %123, %._crit_edge.i.i.i.i
-  %.sroa.69.103 = phi i32 [ %.sroa.69.102, %._crit_edge.i.i.i.i ], [ %spec.select417, %123 ]
-  %.sroa.0.104 = phi i32 [ %.sroa.0.103, %._crit_edge.i.i.i.i ], [ %spec.select418, %123 ]
-  %.sroa.474.105 = phi ptr [ %.sroa.474.104, %._crit_edge.i.i.i.i ], [ %.sroa.474.149, %123 ]
-  %124 = phi i32 [ %115, %._crit_edge.i.i.i.i ], [ 7, %123 ]
-  %125 = phi i64 [ %.pre.i30.i.i.i, %._crit_edge.i.i.i.i ], [ %.1.i.i.i.i.i, %123 ]
+  %.sroa.69.103 = phi i32 [ %spec.select417, %123 ], [ %.sroa.69.102, %._crit_edge.i.i.i.i ]
+  %.sroa.0.104 = phi i32 [ %spec.select418, %123 ], [ %.sroa.0.103, %._crit_edge.i.i.i.i ]
+  %.sroa.474.105 = phi ptr [ %.sroa.474.149, %123 ], [ %.sroa.474.104, %._crit_edge.i.i.i.i ]
+  %124 = phi i32 [ 7, %123 ], [ %115, %._crit_edge.i.i.i.i ]
+  %125 = phi i64 [ %.1.i.i.i.i.i, %123 ], [ %.pre.i30.i.i.i, %._crit_edge.i.i.i.i ]
   %126 = shl i64 %125, 1
   %.not.i.i.i87 = icmp sgt i64 %125, -1
   br i1 %.not.i.i.i87, label %127, label %130
@@ -980,11 +980,11 @@ avifBitsRead.exit277.i.i:                         ; preds = %avifBitsRefill.exit
   br label %avifBitsRead.exit288.i.i
 
 avifBitsRead.exit288.i.i:                         ; preds = %418, %avifBitsRead.exit277.i.i
-  %.sroa.69.118 = phi i32 [ %.sroa.69.117, %avifBitsRead.exit277.i.i ], [ %spec.select431, %418 ]
-  %.sroa.0.119 = phi i32 [ %.sroa.0.118, %avifBitsRead.exit277.i.i ], [ %spec.select432, %418 ]
-  %.sroa.474.120 = phi ptr [ %.sroa.474.119, %avifBitsRead.exit277.i.i ], [ %.sroa.474.126, %418 ]
-  %419 = phi i32 [ %408, %avifBitsRead.exit277.i.i ], [ 8, %418 ]
-  %420 = phi i64 [ %409, %avifBitsRead.exit277.i.i ], [ %.1.i.i285.i.i, %418 ]
+  %.sroa.69.118 = phi i32 [ %spec.select431, %418 ], [ %.sroa.69.117, %avifBitsRead.exit277.i.i ]
+  %.sroa.0.119 = phi i32 [ %spec.select432, %418 ], [ %.sroa.0.118, %avifBitsRead.exit277.i.i ]
+  %.sroa.474.120 = phi ptr [ %.sroa.474.126, %418 ], [ %.sroa.474.119, %avifBitsRead.exit277.i.i ]
+  %419 = phi i32 [ 8, %418 ], [ %408, %avifBitsRead.exit277.i.i ]
+  %420 = phi i64 [ %.1.i.i285.i.i, %418 ], [ %409, %avifBitsRead.exit277.i.i ]
   %421 = add i32 %419, -1
   %422 = shl i64 %420, 1
   br label %423
@@ -1373,11 +1373,11 @@ avifBitsRead.exit68.i.i:                          ; preds = %avifBitsRefill.exit
   br label %parseSequenceHeaderFrameMaxDimensions.exit.i
 
 parseSequenceHeaderFrameMaxDimensions.exit.i:     ; preds = %avifBitsRead.exit68.i.i, %avifBitsRead.exit57.i.i, %avifBitsRead.exit46.i.i
-  %.sroa.195.4 = phi i64 [ %591, %avifBitsRead.exit68.i.i ], [ %574, %avifBitsRead.exit57.i.i ], [ %556, %avifBitsRead.exit46.i.i ]
-  %.sroa.69.36 = phi i32 [ %.sroa.69.93, %avifBitsRead.exit68.i.i ], [ %.sroa.69.35, %avifBitsRead.exit57.i.i ], [ %.sroa.69.35, %avifBitsRead.exit46.i.i ]
-  %.sroa.0.37 = phi i32 [ %.sroa.0.94, %avifBitsRead.exit68.i.i ], [ %.sroa.0.36, %avifBitsRead.exit57.i.i ], [ %.sroa.0.36, %avifBitsRead.exit46.i.i ]
-  %.sroa.474.35 = phi ptr [ %.sroa.474.95, %avifBitsRead.exit68.i.i ], [ %.sroa.474.34, %avifBitsRead.exit57.i.i ], [ %.sroa.474.34, %avifBitsRead.exit46.i.i ]
-  %.sroa.327.4 = phi i32 [ %590, %avifBitsRead.exit68.i.i ], [ %573, %avifBitsRead.exit57.i.i ], [ %554, %avifBitsRead.exit46.i.i ]
+  %.sroa.195.4 = phi i64 [ %556, %avifBitsRead.exit46.i.i ], [ %591, %avifBitsRead.exit68.i.i ], [ %574, %avifBitsRead.exit57.i.i ]
+  %.sroa.69.36 = phi i32 [ %.sroa.69.35, %avifBitsRead.exit46.i.i ], [ %.sroa.69.93, %avifBitsRead.exit68.i.i ], [ %.sroa.69.35, %avifBitsRead.exit57.i.i ]
+  %.sroa.0.37 = phi i32 [ %.sroa.0.36, %avifBitsRead.exit46.i.i ], [ %.sroa.0.94, %avifBitsRead.exit68.i.i ], [ %.sroa.0.36, %avifBitsRead.exit57.i.i ]
+  %.sroa.474.35 = phi ptr [ %.sroa.474.34, %avifBitsRead.exit46.i.i ], [ %.sroa.474.95, %avifBitsRead.exit68.i.i ], [ %.sroa.474.34, %avifBitsRead.exit57.i.i ]
+  %.sroa.327.4 = phi i32 [ %554, %avifBitsRead.exit46.i.i ], [ %590, %avifBitsRead.exit68.i.i ], [ %573, %avifBitsRead.exit57.i.i ]
   %.not13.i.not.i = icmp eq i32 %.sroa.0.37, 0
   br i1 %.not13.i.not.i, label %593, label %parseAV1SequenceHeader.exit
 
@@ -1516,11 +1516,11 @@ avifBitsRead.exit30.i.i:                          ; preds = %avifBitsRefill.exit
   br label %avifBitsRead.exit41.i.i
 
 avifBitsRead.exit41.i.i:                          ; preds = %646, %avifBitsRead.exit30.i.i
-  %.sroa.69.77 = phi i32 [ %.sroa.69.76, %avifBitsRead.exit30.i.i ], [ %spec.select745, %646 ]
-  %.sroa.0.78 = phi i32 [ %.sroa.0.77, %avifBitsRead.exit30.i.i ], [ %spec.select746, %646 ]
-  %.sroa.474.76 = phi ptr [ %.sroa.474.75, %avifBitsRead.exit30.i.i ], [ %.sroa.474.91, %646 ]
-  %647 = phi i32 [ %634, %avifBitsRead.exit30.i.i ], [ 8, %646 ]
-  %648 = phi i64 [ %635, %avifBitsRead.exit30.i.i ], [ %.1.i.i38.i.i, %646 ]
+  %.sroa.69.77 = phi i32 [ %spec.select745, %646 ], [ %.sroa.69.76, %avifBitsRead.exit30.i.i ]
+  %.sroa.0.78 = phi i32 [ %spec.select746, %646 ], [ %.sroa.0.77, %avifBitsRead.exit30.i.i ]
+  %.sroa.474.76 = phi ptr [ %.sroa.474.91, %646 ], [ %.sroa.474.75, %avifBitsRead.exit30.i.i ]
+  %647 = phi i32 [ 8, %646 ], [ %634, %avifBitsRead.exit30.i.i ]
+  %648 = phi i64 [ %.1.i.i38.i.i, %646 ], [ %635, %avifBitsRead.exit30.i.i ]
   %649 = add i32 %647, -1
   %650 = shl i64 %648, 1
   %.not15.i.i82 = icmp sgt i64 %648, -1
@@ -1625,11 +1625,11 @@ avifBitsRead.exit63.i.i:                          ; preds = %667
   br label %avifBitsRead.exit74.i.i
 
 avifBitsRead.exit74.i.i:                          ; preds = %690, %681, %avifBitsRead.exit63.thread.i.i
-  %.sroa.69.87 = phi i32 [ %.sroa.69.88, %avifBitsRead.exit63.thread.i.i ], [ %.sroa.69.79, %681 ], [ %spec.select747, %690 ]
-  %.sroa.0.88 = phi i32 [ %.sroa.0.89, %avifBitsRead.exit63.thread.i.i ], [ %.sroa.0.80, %681 ], [ %spec.select748, %690 ]
-  %.sroa.474.87 = phi ptr [ %.sroa.474.89, %avifBitsRead.exit63.thread.i.i ], [ %.sroa.474.78, %681 ], [ %.sroa.474.88, %690 ]
-  %691 = phi i32 [ 7, %avifBitsRead.exit63.thread.i.i ], [ %679, %681 ], [ 8, %690 ]
-  %692 = phi i64 [ %678, %avifBitsRead.exit63.thread.i.i ], [ %680, %681 ], [ %.1.i.i71.i.i, %690 ]
+  %.sroa.69.87 = phi i32 [ %.sroa.69.88, %avifBitsRead.exit63.thread.i.i ], [ %spec.select747, %690 ], [ %.sroa.69.79, %681 ]
+  %.sroa.0.88 = phi i32 [ %.sroa.0.89, %avifBitsRead.exit63.thread.i.i ], [ %spec.select748, %690 ], [ %.sroa.0.80, %681 ]
+  %.sroa.474.87 = phi ptr [ %.sroa.474.89, %avifBitsRead.exit63.thread.i.i ], [ %.sroa.474.88, %690 ], [ %.sroa.474.78, %681 ]
+  %691 = phi i32 [ 7, %avifBitsRead.exit63.thread.i.i ], [ 8, %690 ], [ %679, %681 ]
+  %692 = phi i64 [ %678, %avifBitsRead.exit63.thread.i.i ], [ %.1.i.i71.i.i, %690 ], [ %680, %681 ]
   %693 = add i32 %691, -1
   %694 = shl i64 %692, 1
   %695 = icmp sgt i64 %692, -1
@@ -1702,11 +1702,11 @@ avifBitsRead.exit85.i.i:                          ; preds = %.critedge.i.i, %avi
   br label %avifBitsRead.exit96.i.i
 
 avifBitsRead.exit96.i.i:                          ; preds = %720, %711, %avifBitsRead.exit85.thread.i.i
-  %.sroa.69.85 = phi i32 [ %.sroa.69.86, %avifBitsRead.exit85.thread.i.i ], [ %.sroa.69.81, %711 ], [ %spec.select749, %720 ]
-  %.sroa.0.86 = phi i32 [ %.sroa.0.87, %avifBitsRead.exit85.thread.i.i ], [ %.sroa.0.82, %711 ], [ %spec.select750, %720 ]
-  %.sroa.474.84 = phi ptr [ %.sroa.474.86, %avifBitsRead.exit85.thread.i.i ], [ %.sroa.474.80, %711 ], [ %.sroa.474.85, %720 ]
-  %721 = phi i32 [ 7, %avifBitsRead.exit85.thread.i.i ], [ %709, %711 ], [ 8, %720 ]
-  %722 = phi i64 [ %706, %avifBitsRead.exit85.thread.i.i ], [ %710, %711 ], [ %.1.i.i93.i.i, %720 ]
+  %.sroa.69.85 = phi i32 [ %.sroa.69.86, %avifBitsRead.exit85.thread.i.i ], [ %spec.select749, %720 ], [ %.sroa.69.81, %711 ]
+  %.sroa.0.86 = phi i32 [ %.sroa.0.87, %avifBitsRead.exit85.thread.i.i ], [ %spec.select750, %720 ], [ %.sroa.0.82, %711 ]
+  %.sroa.474.84 = phi ptr [ %.sroa.474.86, %avifBitsRead.exit85.thread.i.i ], [ %.sroa.474.85, %720 ], [ %.sroa.474.80, %711 ]
+  %721 = phi i32 [ 7, %avifBitsRead.exit85.thread.i.i ], [ 8, %720 ], [ %709, %711 ]
+  %722 = phi i64 [ %706, %avifBitsRead.exit85.thread.i.i ], [ %.1.i.i93.i.i, %720 ], [ %710, %711 ]
   %723 = add i32 %721, -1
   %724 = shl i64 %722, 1
   br label %725
@@ -2207,11 +2207,11 @@ avifBitsRefill.exit.i162.i.i:                     ; preds = %910, %909
   br label %1005
 
 .thread687:                                       ; preds = %.thread668, %918, %916
-  %.sroa.195.7678698 = phi i64 [ %896, %918 ], [ %896, %916 ], [ %.sroa.195.13, %.thread668 ]
-  %.sroa.69.47679697 = phi i32 [ %.sroa.69.46, %918 ], [ %.sroa.69.46, %916 ], [ %.sroa.69.69, %.thread668 ]
-  %.sroa.0.48681696 = phi i32 [ %.sroa.0.47, %918 ], [ %.sroa.0.47, %916 ], [ %.sroa.0.70, %.thread668 ]
-  %.sroa.474.46683695 = phi ptr [ %.sroa.474.45, %918 ], [ %.sroa.474.45, %916 ], [ %.sroa.474.68, %.thread668 ]
-  %.sroa.327.7685694 = phi i32 [ %895, %918 ], [ %895, %916 ], [ %.sroa.327.14, %.thread668 ]
+  %.sroa.195.7678698 = phi i64 [ %896, %916 ], [ %896, %918 ], [ %.sroa.195.13, %.thread668 ]
+  %.sroa.69.47679697 = phi i32 [ %.sroa.69.46, %916 ], [ %.sroa.69.46, %918 ], [ %.sroa.69.69, %.thread668 ]
+  %.sroa.0.48681696 = phi i32 [ %.sroa.0.47, %916 ], [ %.sroa.0.47, %918 ], [ %.sroa.0.70, %.thread668 ]
+  %.sroa.474.46683695 = phi ptr [ %.sroa.474.45, %916 ], [ %.sroa.474.45, %918 ], [ %.sroa.474.68, %.thread668 ]
+  %.sroa.327.7685694 = phi i32 [ %895, %916 ], [ %895, %918 ], [ %.sroa.327.14, %.thread668 ]
   %923 = icmp eq i32 %.sroa.327.7685694, 0
   br i1 %923, label %925, label %._crit_edge.i164.i.i
 
@@ -2421,12 +2421,12 @@ default.unreachable:                              ; preds = %avifBitsRead.exit17
   unreachable
 
 .thread277.i.i:                                   ; preds = %avifBitsRead.exit207.i.i, %975, %.thread.i55.i, %.thread274.i.i, %938
-  %.sroa.69.52 = phi i32 [ %.sroa.69.59, %avifBitsRead.exit207.i.i ], [ %.sroa.69.51, %938 ], [ %.sroa.69.62, %.thread.i55.i ], [ %.sroa.69.57, %975 ], [ %.sroa.69.51, %.thread274.i.i ]
-  %.sroa.0.53 = phi i32 [ %.sroa.0.60, %avifBitsRead.exit207.i.i ], [ %.sroa.0.52, %938 ], [ %.sroa.0.63, %.thread.i55.i ], [ %.sroa.0.58, %975 ], [ %.sroa.0.52, %.thread274.i.i ]
-  %.sroa.474.51 = phi ptr [ %.sroa.474.58, %avifBitsRead.exit207.i.i ], [ %.sroa.474.50, %938 ], [ %.sroa.474.61, %.thread.i55.i ], [ %.sroa.474.56, %975 ], [ %.sroa.474.50, %.thread274.i.i ]
-  %.sroa.327.9 = phi i32 [ %991, %avifBitsRead.exit207.i.i ], [ %932, %938 ], [ %.sroa.327.13, %.thread.i55.i ], [ %.sroa.327.11, %975 ], [ %932, %.thread274.i.i ]
-  %.0245.i.i = phi i8 [ 1, %avifBitsRead.exit207.i.i ], [ 0, %938 ], [ 0, %.thread.i55.i ], [ 0, %975 ], [ 0, %.thread274.i.i ]
-  %.073244.i.i = phi i8 [ %.073273.i.i, %avifBitsRead.exit207.i.i ], [ 0, %938 ], [ 0, %.thread.i55.i ], [ %.174227.i.i, %975 ], [ 1, %.thread274.i.i ]
+  %.sroa.69.52 = phi i32 [ %.sroa.69.51, %.thread274.i.i ], [ %.sroa.69.59, %avifBitsRead.exit207.i.i ], [ %.sroa.69.51, %938 ], [ %.sroa.69.62, %.thread.i55.i ], [ %.sroa.69.57, %975 ]
+  %.sroa.0.53 = phi i32 [ %.sroa.0.52, %.thread274.i.i ], [ %.sroa.0.60, %avifBitsRead.exit207.i.i ], [ %.sroa.0.52, %938 ], [ %.sroa.0.63, %.thread.i55.i ], [ %.sroa.0.58, %975 ]
+  %.sroa.474.51 = phi ptr [ %.sroa.474.50, %.thread274.i.i ], [ %.sroa.474.58, %avifBitsRead.exit207.i.i ], [ %.sroa.474.50, %938 ], [ %.sroa.474.61, %.thread.i55.i ], [ %.sroa.474.56, %975 ]
+  %.sroa.327.9 = phi i32 [ %932, %.thread274.i.i ], [ %991, %avifBitsRead.exit207.i.i ], [ %932, %938 ], [ %.sroa.327.13, %.thread.i55.i ], [ %.sroa.327.11, %975 ]
+  %.0245.i.i = phi i8 [ 0, %.thread274.i.i ], [ 1, %avifBitsRead.exit207.i.i ], [ 0, %938 ], [ 0, %.thread.i55.i ], [ 0, %975 ]
+  %.073244.i.i = phi i8 [ 1, %.thread274.i.i ], [ %.073273.i.i, %avifBitsRead.exit207.i.i ], [ 0, %938 ], [ 0, %.thread.i55.i ], [ %.174227.i.i, %975 ]
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.073244.i.i, ptr %995, align 2
   %996 = getelementptr inbounds nuw i8, ptr %0, i64 43
@@ -2500,7 +2500,7 @@ avifBitsRefill.exit.i73.i:                        ; preds = %1008
   br i1 %.not, label %parseAV1SequenceHeader.exit, label %avifBitsRead.exit, !llvm.loop !9
 
 parseAV1SequenceHeader.exit:                      ; preds = %avifBitsReadUleb128.exit, %34, %1010, %28, %127, %parseSequenceHeaderColorConfig.exit.i.thread, %parseSequenceHeaderProfile.exit.i.thread, %3, %parseSequenceHeaderColorConfig.exit.i, %parseSequenceHeaderEnabledFeatures.exit.thread.i, %parseSequenceHeaderEnabledFeatures.exit.i, %parseSequenceHeaderFrameMaxDimensions.exit.i, %parseSequenceHeaderProfile.exit.i, %avifBitsReadVLC.exit.i.i, %avifBitsRead.exit90.i.i, %avifBitsRead.exit.i.i, %parseSequenceHeaderFrameMaxDimensions.exit.i.thread, %1008, %avifBitsRefill.exit.i73.i, %45
-  %.0.shrunk = phi i1 [ false, %45 ], [ false, %parseSequenceHeaderProfile.exit.i ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i ], [ false, %parseSequenceHeaderEnabledFeatures.exit.i ], [ false, %parseSequenceHeaderColorConfig.exit.i ], [ false, %avifBitsRead.exit.i.i ], [ false, %avifBitsRead.exit90.i.i ], [ false, %avifBitsReadVLC.exit.i.i ], [ false, %parseSequenceHeaderEnabledFeatures.exit.thread.i ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i.thread ], [ %narrow, %avifBitsRefill.exit.i73.i ], [ true, %1008 ], [ false, %3 ], [ false, %parseSequenceHeaderProfile.exit.i.thread ], [ %.not86.i.not.i703, %parseSequenceHeaderColorConfig.exit.i.thread ], [ false, %127 ], [ false, %28 ], [ false, %1010 ], [ false, %34 ], [ false, %avifBitsReadUleb128.exit ]
+  %.0.shrunk = phi i1 [ false, %45 ], [ true, %1008 ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i.thread ], [ false, %parseSequenceHeaderEnabledFeatures.exit.i ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i ], [ false, %parseSequenceHeaderProfile.exit.i ], [ false, %parseSequenceHeaderColorConfig.exit.i ], [ false, %avifBitsRead.exit.i.i ], [ false, %avifBitsRead.exit90.i.i ], [ false, %avifBitsReadVLC.exit.i.i ], [ false, %parseSequenceHeaderEnabledFeatures.exit.thread.i ], [ %narrow, %avifBitsRefill.exit.i73.i ], [ false, %3 ], [ false, %parseSequenceHeaderProfile.exit.i.thread ], [ %.not86.i.not.i703, %parseSequenceHeaderColorConfig.exit.i.thread ], [ false, %127 ], [ false, %28 ], [ false, %1010 ], [ false, %34 ], [ false, %avifBitsReadUleb128.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

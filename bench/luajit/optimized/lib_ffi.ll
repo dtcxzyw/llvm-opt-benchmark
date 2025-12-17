@@ -772,7 +772,7 @@ ctype_rawchild.exit72:                            ; preds = %84, %68
   br label %116
 
 116:                                              ; preds = %102, %.thread79, %114
-  %.3 = phi i32 [ 1, %114 ], [ 1, %.thread79 ], [ %103, %102 ]
+  %.3 = phi i32 [ 1, %.thread79 ], [ 1, %114 ], [ %103, %102 ]
   ret i32 %.3
 }
 
@@ -902,7 +902,7 @@ define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr n
   br label %65
 
 65:                                               ; preds = %.thread, %55, %63
-  %.1 = phi i32 [ %64, %63 ], [ 0, %55 ], [ 1, %.thread ]
+  %.1 = phi i32 [ %64, %63 ], [ 1, %.thread ], [ 0, %55 ]
   ret i32 %.1
 }
 
@@ -1833,7 +1833,7 @@ ctype_raw.exit:                                   ; preds = %25
   tail call void @lj_err_caller(ptr noundef nonnull %0, i32 noundef 3668) #10
   unreachable
 
-.critedge:                                        ; preds = %64, %70, %78
+.critedge:                                        ; preds = %78, %64, %70
   ret void
 }
 
@@ -2228,7 +2228,7 @@ ffi_checkint.exit:                                ; preds = %1
   br label %79
 
 79:                                               ; preds = %ffi_checkint.exit, %18, %70, %77
-  %.0 = phi i32 [ 1, %77 ], [ 1, %70 ], [ 0, %18 ], [ 0, %ffi_checkint.exit ]
+  %.0 = phi i32 [ 1, %70 ], [ 1, %77 ], [ 0, %18 ], [ 0, %ffi_checkint.exit ]
   ret i32 %.0
 }
 
@@ -2407,7 +2407,7 @@ ctype_rawchild.exit:                              ; preds = %89
   br label %97
 
 97:                                               ; preds = %ctype_rawchild.exit, %79, %58, %80, %77, %85
-  %.1 = phi i32 [ %78, %77 ], [ %84, %80 ], [ 0, %85 ], [ 1, %58 ], [ 0, %79 ], [ %spec.select, %ctype_rawchild.exit ]
+  %.1 = phi i32 [ 0, %85 ], [ %78, %77 ], [ %84, %80 ], [ 0, %79 ], [ 1, %58 ], [ %spec.select, %ctype_rawchild.exit ]
   %98 = add nsw i32 %.1, 1
   %99 = zext i32 %98 to i64
   %100 = shl i64 %99, 47
@@ -2823,7 +2823,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   br label %72
 
 72:                                               ; preds = %61, %ffi_checkctype.exit, %49, %52, %54, %.thread
-  %.1 = phi i32 [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 0, %ffi_checkctype.exit ], [ 3, %61 ], [ 1, %.thread ]
+  %.1 = phi i32 [ 0, %ffi_checkctype.exit ], [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 3, %61 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

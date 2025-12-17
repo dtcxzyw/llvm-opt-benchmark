@@ -501,7 +501,7 @@ define dso_local { ptr, ptr } @gen_dictpair(ptr %0, ptr %1, ptr %2, ptr %3) loca
   br label %block_join.exit19
 
 block_join.exit19:                                ; preds = %14, %24
-  %.sroa.0.1.i16 = phi ptr [ %15, %14 ], [ %.sroa.0.1.i, %24 ]
+  %.sroa.0.1.i16 = phi ptr [ %.sroa.0.1.i, %24 ], [ %15, %14 ]
   %.fca.0.insert.i17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i16, 0
   %.fca.1.insert.i18 = insertvalue { ptr, ptr } %.fca.0.insert.i17, ptr %15, 1
   ret { ptr, ptr } %.fca.1.insert.i18
@@ -669,8 +669,8 @@ block_free.exit:                                  ; preds = %.lr.ph.i
   br label %block_join.exit32
 
 block_join.exit32:                                ; preds = %63, %53, %block_free.exit, %5
-  %.pn40 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %54, %53 ], [ %42, %63 ]
-  %.pn38 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %54, %53 ], [ %54, %63 ]
+  %.pn40 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %42, %63 ], [ %54, %53 ]
+  %.pn38 = phi ptr [ %6, %5 ], [ %31, %block_free.exit ], [ %54, %63 ], [ %54, %53 ]
   %.fca.0.insert.i.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn40, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i.i.pn, ptr %.pn38, 1
   ret { ptr, ptr } %.pn
@@ -1033,8 +1033,8 @@ define dso_local { ptr, ptr } @block_drop_unreferenced(ptr %0, ptr readonly capt
   br label %block_join.exit
 
 block_join.exit:                                  ; preds = %16, %15, %14
-  %.sroa.06.1 = phi ptr [ %.sroa.06.016, %14 ], [ %.sroa.0.015, %15 ], [ %.sroa.06.016, %16 ]
-  %.sroa.47.1 = phi ptr [ %.sroa.47.017, %14 ], [ %.sroa.0.015, %15 ], [ %.sroa.0.015, %16 ]
+  %.sroa.06.1 = phi ptr [ %.sroa.06.016, %14 ], [ %.sroa.06.016, %16 ], [ %.sroa.0.015, %15 ]
+  %.sroa.47.1 = phi ptr [ %.sroa.47.017, %14 ], [ %.sroa.0.015, %16 ], [ %.sroa.0.015, %15 ]
   br i1 %.not.i, label %block_take.exit, label %.lr.ph, !llvm.loop !46
 
 block_take.exit:                                  ; preds = %block_join.exit, %2
@@ -1286,8 +1286,8 @@ define dso_local { i64, ptr } @block_list_funcs(ptr readonly captures(address_is
   br label %24
 
 24:                                               ; preds = %12, %9, %.lr.ph.split.us
-  %.sroa.011.1.us = phi i64 [ %22, %12 ], [ %.sroa.011.025.us, %9 ], [ %.sroa.011.025.us, %.lr.ph.split.us ]
-  %.sroa.6.1.us = phi ptr [ %23, %12 ], [ %.sroa.6.026.us, %9 ], [ %.sroa.6.026.us, %.lr.ph.split.us ]
+  %.sroa.011.1.us = phi i64 [ %22, %12 ], [ %.sroa.011.025.us, %.lr.ph.split.us ], [ %.sroa.011.025.us, %9 ]
+  %.sroa.6.1.us = phi ptr [ %23, %12 ], [ %.sroa.6.026.us, %.lr.ph.split.us ], [ %.sroa.6.026.us, %9 ]
   %25 = load ptr, ptr %.024.us, align 8, !tbaa !22
   %.not.us = icmp eq ptr %25, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
@@ -1949,7 +1949,7 @@ define dso_local { ptr, ptr } @gen_both(ptr %0, ptr %1, ptr %2, ptr %3) local_un
   br label %block_join.exit22
 
 block_join.exit22:                                ; preds = %25, %.thread
-  %.sroa.0.1.i19 = phi ptr [ %5, %25 ], [ %15, %.thread ]
+  %.sroa.0.1.i19 = phi ptr [ %15, %.thread ], [ %5, %25 ]
   %.not.i.i23 = icmp eq ptr %2, null
   br i1 %.not.i.i23, label %block_join.exit29, label %28
 
@@ -2183,10 +2183,10 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   br label %.split.loop.exit145
 
 .split.loop.exit145:                              ; preds = %69, %64, %66, %.split.loop.exit166, %.split.loop.exit138, %.split.loop.exit131, %.split.loop.exit124, %.split.loop.exit117, %.split.loop.exit110, %.split.loop.exit103, %.split.loop.exit96, %.split.loop.exit89, %.split.loop.exit82, %.split.loop.exit
-  %.sroa.038.1 = phi i64 [ %.sroa.038.0.le191, %.split.loop.exit ], [ %.sroa.038.0.le189, %.split.loop.exit82 ], [ %.sroa.038.0.le187, %.split.loop.exit89 ], [ %.sroa.038.0.le185, %.split.loop.exit96 ], [ %.sroa.038.0.le183, %.split.loop.exit103 ], [ %.sroa.038.0.le181, %.split.loop.exit110 ], [ %.sroa.038.0.le179, %.split.loop.exit117 ], [ %.sroa.038.0.le177, %.split.loop.exit124 ], [ %.sroa.038.0.le175, %.split.loop.exit131 ], [ %.sroa.038.0.le173, %.split.loop.exit138 ], [ %.sroa.038.0.le, %.split.loop.exit166 ], [ %.sroa.038.2, %66 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %69 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0.le212, %.split.loop.exit ], [ %.sroa.8.0.le210, %.split.loop.exit82 ], [ %.sroa.8.0.le208, %.split.loop.exit89 ], [ %.sroa.8.0.le206, %.split.loop.exit96 ], [ %.sroa.8.0.le204, %.split.loop.exit103 ], [ %.sroa.8.0.le202, %.split.loop.exit110 ], [ %.sroa.8.0.le200, %.split.loop.exit117 ], [ %.sroa.8.0.le198, %.split.loop.exit124 ], [ %.sroa.8.0.le196, %.split.loop.exit131 ], [ %.sroa.8.0.le194, %.split.loop.exit138 ], [ %.sroa.8.0.le, %.split.loop.exit166 ], [ %.sroa.8.2, %66 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %69 ]
-  %.sroa.041.1 = phi i64 [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.0.le220, %.split.loop.exit82 ], [ %.sroa.041.0.le218, %.split.loop.exit89 ], [ %.sroa.041.0.le216, %.split.loop.exit96 ], [ %.sroa.041.0.le214, %.split.loop.exit103 ], [ %.sroa.041.0.le, %.split.loop.exit110 ], [ %.sroa.041.2, %.split.loop.exit117 ], [ %.sroa.041.2, %.split.loop.exit124 ], [ %.sroa.041.2, %.split.loop.exit131 ], [ %.sroa.041.2, %.split.loop.exit138 ], [ %.sroa.041.2, %.split.loop.exit166 ], [ %.sroa.041.2, %66 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %69 ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.0.le229, %.split.loop.exit82 ], [ %.sroa.9.0.le227, %.split.loop.exit89 ], [ %.sroa.9.0.le225, %.split.loop.exit96 ], [ %.sroa.9.0.le223, %.split.loop.exit103 ], [ %.sroa.9.0.le, %.split.loop.exit110 ], [ %.sroa.9.2, %.split.loop.exit117 ], [ %.sroa.9.2, %.split.loop.exit124 ], [ %.sroa.9.2, %.split.loop.exit131 ], [ %.sroa.9.2, %.split.loop.exit138 ], [ %.sroa.9.2, %.split.loop.exit166 ], [ %.sroa.9.2, %66 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %69 ]
+  %.sroa.038.1 = phi i64 [ %.sroa.038.0.le, %.split.loop.exit166 ], [ %.sroa.038.0.le183, %.split.loop.exit103 ], [ %.sroa.038.0.le191, %.split.loop.exit ], [ %.sroa.038.0.le189, %.split.loop.exit82 ], [ %.sroa.038.0.le187, %.split.loop.exit89 ], [ %.sroa.038.0.le185, %.split.loop.exit96 ], [ %.sroa.038.0.le181, %.split.loop.exit110 ], [ %.sroa.038.0.le179, %.split.loop.exit117 ], [ %.sroa.038.0.le177, %.split.loop.exit124 ], [ %.sroa.038.0.le175, %.split.loop.exit131 ], [ %.sroa.038.0.le173, %.split.loop.exit138 ], [ %.sroa.038.2, %66 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %69 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0.le, %.split.loop.exit166 ], [ %.sroa.8.0.le204, %.split.loop.exit103 ], [ %.sroa.8.0.le212, %.split.loop.exit ], [ %.sroa.8.0.le210, %.split.loop.exit82 ], [ %.sroa.8.0.le208, %.split.loop.exit89 ], [ %.sroa.8.0.le206, %.split.loop.exit96 ], [ %.sroa.8.0.le202, %.split.loop.exit110 ], [ %.sroa.8.0.le200, %.split.loop.exit117 ], [ %.sroa.8.0.le198, %.split.loop.exit124 ], [ %.sroa.8.0.le196, %.split.loop.exit131 ], [ %.sroa.8.0.le194, %.split.loop.exit138 ], [ %.sroa.8.2, %66 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %69 ]
+  %.sroa.041.1 = phi i64 [ %.sroa.041.2, %.split.loop.exit166 ], [ %.sroa.041.0.le214, %.split.loop.exit103 ], [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.0.le220, %.split.loop.exit82 ], [ %.sroa.041.0.le218, %.split.loop.exit89 ], [ %.sroa.041.0.le216, %.split.loop.exit96 ], [ %.sroa.041.0.le, %.split.loop.exit110 ], [ %.sroa.041.2, %.split.loop.exit117 ], [ %.sroa.041.2, %.split.loop.exit124 ], [ %.sroa.041.2, %.split.loop.exit131 ], [ %.sroa.041.2, %.split.loop.exit138 ], [ %.sroa.041.2, %66 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %69 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %.split.loop.exit166 ], [ %.sroa.9.0.le223, %.split.loop.exit103 ], [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.0.le229, %.split.loop.exit82 ], [ %.sroa.9.0.le227, %.split.loop.exit89 ], [ %.sroa.9.0.le225, %.split.loop.exit96 ], [ %.sroa.9.0.le, %.split.loop.exit110 ], [ %.sroa.9.2, %.split.loop.exit117 ], [ %.sroa.9.2, %.split.loop.exit124 ], [ %.sroa.9.2, %.split.loop.exit131 ], [ %.sroa.9.2, %.split.loop.exit138 ], [ %.sroa.9.2, %66 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %69 ]
   tail call void @jv_free(i64 %.sroa.046.0238, ptr %.sroa.7.0237) #17
   tail call void @jv_free(i64 %.sroa.041.1, ptr %.sroa.9.1) #17
   tail call void @jv_free(i64 %.sroa.038.1, ptr %.sroa.8.1) #17
@@ -2354,9 +2354,9 @@ define dso_local { ptr, ptr } @gen_collect(ptr %0, ptr %1) local_unnamed_addr #1
   br i1 %52, label %block_join.exit68, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread98.i, %2
-  %.037.lcssa87.i = phi i32 [ %53, %._crit_edge.i ], [ %51, %._crit_edge.thread98.i ], [ 1, %2 ]
-  %.sroa.9.0.lcssa86.i = phi ptr [ %.sroa.9.066.i.ph, %._crit_edge.i ], [ %49, %._crit_edge.thread98.i ], [ %5, %2 ]
-  %.sroa.018.0.lcssa85.i = phi i64 [ %.sroa.018.065.i.ph, %._crit_edge.i ], [ %48, %._crit_edge.thread98.i ], [ %4, %2 ]
+  %.037.lcssa87.i = phi i32 [ %51, %._crit_edge.thread98.i ], [ %53, %._crit_edge.i ], [ 1, %2 ]
+  %.sroa.9.0.lcssa86.i = phi ptr [ %49, %._crit_edge.thread98.i ], [ %.sroa.9.066.i.ph, %._crit_edge.i ], [ %5, %2 ]
+  %.sroa.018.0.lcssa85.i = phi i64 [ %48, %._crit_edge.thread98.i ], [ %.sroa.018.065.i.ph, %._crit_edge.i ], [ %4, %2 ]
   %54 = icmp eq ptr %1, null
   br i1 %54, label %59, label %55
 
@@ -2408,8 +2408,8 @@ gen_const_array.exit:                             ; preds = %.lr.ph.i.i, %65
   br label %163
 
 block_join.exit68:                                ; preds = %9, %14, %17, %.thread, %27, %._crit_edge.i, %55, %59
-  %.sroa.018.061.i = phi i64 [ %.sroa.018.0.lcssa85.i, %59 ], [ %.sroa.018.0.lcssa85.i, %55 ], [ %.sroa.018.065.i.ph, %._crit_edge.i ], [ %.sroa.018.065.i.ph, %27 ], [ %.sroa.018.065.i.ph, %.thread ], [ %.sroa.018.065.i.ph, %17 ], [ %.sroa.018.065.i.ph, %14 ], [ %.sroa.018.065.i.ph, %9 ]
-  %.sroa.9.059.i = phi ptr [ %.sroa.9.0.lcssa86.i, %59 ], [ %.sroa.9.0.lcssa86.i, %55 ], [ %.sroa.9.066.i.ph, %._crit_edge.i ], [ %.sroa.9.066.i.ph, %27 ], [ %.sroa.9.066.i.ph, %.thread ], [ %.sroa.9.066.i.ph, %17 ], [ %.sroa.9.066.i.ph, %14 ], [ %.sroa.9.066.i.ph, %9 ]
+  %.sroa.018.061.i = phi i64 [ %.sroa.018.065.i.ph, %._crit_edge.i ], [ %.sroa.018.0.lcssa85.i, %59 ], [ %.sroa.018.0.lcssa85.i, %55 ], [ %.sroa.018.065.i.ph, %.thread ], [ %.sroa.018.065.i.ph, %27 ], [ %.sroa.018.065.i.ph, %17 ], [ %.sroa.018.065.i.ph, %14 ], [ %.sroa.018.065.i.ph, %9 ]
+  %.sroa.9.059.i = phi ptr [ %.sroa.9.066.i.ph, %._crit_edge.i ], [ %.sroa.9.0.lcssa86.i, %59 ], [ %.sroa.9.0.lcssa86.i, %55 ], [ %.sroa.9.066.i.ph, %.thread ], [ %.sroa.9.066.i.ph, %27 ], [ %.sroa.9.066.i.ph, %17 ], [ %.sroa.9.066.i.ph, %14 ], [ %.sroa.9.066.i.ph, %9 ]
   tail call void @jv_free(i64 %.sroa.018.061.i, ptr %.sroa.9.059.i) #17
   %76 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -2569,7 +2569,7 @@ block_join.exit68:                                ; preds = %9, %14, %17, %.thre
   br label %block_join.exit91
 
 block_join.exit91:                                ; preds = %.thread103, %146
-  %.sroa.0.1.i79 = phi ptr [ %113, %146 ], [ %88, %.thread103 ]
+  %.sroa.0.1.i79 = phi ptr [ %88, %.thread103 ], [ %113, %146 ]
   %149 = load ptr, ptr %86, align 8, !tbaa !30
   %150 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -2738,7 +2738,7 @@ block_join.exit:                                  ; preds = %7, %30
   br label %block_join.exit66
 
 block_join.exit66:                                ; preds = %50, %64
-  %.sroa.0.1.i63 = phi ptr [ %52, %50 ], [ %33, %64 ]
+  %.sroa.0.1.i63 = phi ptr [ %33, %64 ], [ %52, %50 ]
   %66 = tail call fastcc { ptr, ptr } @bind_alternation_matchers(ptr %2, ptr %3, ptr nonnull %.sroa.0.1.i63, ptr nonnull %52)
   %67 = extractvalue { ptr, ptr } %66, 0
   %68 = extractvalue { ptr, ptr } %66, 1
@@ -2786,7 +2786,7 @@ block_join.exit66:                                ; preds = %50, %64
   br label %block_join.exit82
 
 block_join.exit82:                                ; preds = %72, %82
-  %.sroa.0.1.i79 = phi ptr [ %73, %72 ], [ %.sroa.0.1.i70, %82 ]
+  %.sroa.0.1.i79 = phi ptr [ %.sroa.0.1.i70, %82 ], [ %73, %72 ]
   %84 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
@@ -2823,7 +2823,7 @@ block_join.exit82:                                ; preds = %72, %82
   br label %block_join.exit123
 
 block_join.exit123:                               ; preds = %.thread, %93
-  %.sroa.0.1.i95 = phi ptr [ %8, %93 ], [ %84, %.thread ]
+  %.sroa.0.1.i95 = phi ptr [ %84, %.thread ], [ %8, %93 ]
   %96 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i32 14, ptr %97, align 8, !tbaa !25
@@ -3036,7 +3036,7 @@ block_append.exit:                                ; preds = %16, %15
   br label %block_join.exit90
 
 block_join.exit90:                                ; preds = %.lr.ph180, %52
-  %.sroa.0.1.i = phi ptr [ %43, %.lr.ph180 ], [ %.sroa.048.1179, %52 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.048.1179, %52 ], [ %43, %.lr.ph180 ]
   %54 = tail call { i64, ptr } @jv_null() #17
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
@@ -3217,7 +3217,7 @@ bind_matcher.exit120:                             ; preds = %._crit_edge.i113, %
   br label %115
 
 115:                                              ; preds = %113, %101
-  %.sroa.0.1.i126 = phi ptr [ %103, %101 ], [ %.sroa.012.0.copyload, %113 ]
+  %.sroa.0.1.i126 = phi ptr [ %.sroa.012.0.copyload, %113 ], [ %103, %101 ]
   %116 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
@@ -3248,7 +3248,7 @@ bind_matcher.exit120:                             ; preds = %._crit_edge.i113, %
   br label %block_join.exit138
 
 block_join.exit138:                               ; preds = %115, %126
-  %.sroa.0.1.i135 = phi ptr [ %116, %115 ], [ %.sroa.045.0189, %126 ]
+  %.sroa.0.1.i135 = phi ptr [ %.sroa.045.0189, %126 ], [ %116, %115 ]
   %.not.i.i139 = icmp eq ptr %.sroa.0.1.i126, null
   br i1 %.not.i.i139, label %block_join.exit145, label %128
 
@@ -3415,7 +3415,7 @@ block_join.exit:                                  ; preds = %8, %40
   br label %block_join.exit82
 
 block_join.exit82:                                ; preds = %70, %60
-  %.sroa.0.1.i70 = phi ptr [ %61, %60 ], [ %43, %70 ]
+  %.sroa.0.1.i70 = phi ptr [ %43, %70 ], [ %61, %60 ]
   %72 = load ptr, ptr %29, align 8, !tbaa !30
   %73 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -3465,7 +3465,7 @@ block_join.exit82:                                ; preds = %70, %60
   br label %block_join.exit96
 
 block_join.exit96:                                ; preds = %87, %.thread
-  %.sroa.0.1.i93 = phi ptr [ %9, %87 ], [ %.sroa.0.1.i70, %.thread ]
+  %.sroa.0.1.i93 = phi ptr [ %.sroa.0.1.i70, %.thread ], [ %9, %87 ]
   %92 = tail call fastcc { ptr, ptr } @bind_alternation_matchers(ptr %2, ptr %3, ptr nonnull %.sroa.0.1.i93, ptr nonnull %9)
   %93 = extractvalue { ptr, ptr } %92, 0
   %94 = extractvalue { ptr, ptr } %92, 1
@@ -3521,7 +3521,7 @@ block_join.exit103:                               ; preds = %block_join.exit96, 
   br label %110
 
 110:                                              ; preds = %.thread150, %107
-  %.sroa.0.1.i116 = phi ptr [ %19, %107 ], [ %98, %.thread150 ]
+  %.sroa.0.1.i116 = phi ptr [ %98, %.thread150 ], [ %19, %107 ]
   %111 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i32 14, ptr %112, align 8, !tbaa !25
@@ -3575,7 +3575,7 @@ block_join.exit103:                               ; preds = %block_join.exit96, 
   br label %block_join.exit144
 
 block_join.exit144:                               ; preds = %110, %132
-  %.sroa.0.1.i141 = phi ptr [ %123, %110 ], [ %.sroa.0.1.i116, %132 ]
+  %.sroa.0.1.i141 = phi ptr [ %.sroa.0.1.i116, %132 ], [ %123, %110 ]
   %.fca.0.insert.i142 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i141, 0
   %.fca.1.insert.i143 = insertvalue { ptr, ptr } %.fca.0.insert.i142, ptr %123, 1
   store ptr %123, ptr %18, align 8, !tbaa !32
@@ -3957,7 +3957,7 @@ block_join.exit172:                               ; preds = %block_join.exit124,
   br label %block_join.exit209
 
 block_join.exit209:                               ; preds = %178, %166
-  %.sroa.0.1.i185 = phi ptr [ %167, %166 ], [ %17, %178 ]
+  %.sroa.0.1.i185 = phi ptr [ %17, %178 ], [ %167, %166 ]
   store ptr %106, ptr %167, align 8, !tbaa !22
   %180 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %167, ptr %180, align 8, !tbaa !34
@@ -4045,7 +4045,7 @@ define dso_local { ptr, ptr } @gen_condbranch(ptr %0, ptr %1, ptr %2, ptr %3) lo
   br label %block_join.exit
 
 block_join.exit:                                  ; preds = %4, %15
-  %.sroa.0.1.i = phi ptr [ %5, %4 ], [ %0, %15 ]
+  %.sroa.0.1.i = phi ptr [ %0, %15 ], [ %5, %4 ]
   %17 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
@@ -4259,7 +4259,7 @@ block_join.exit:                                  ; preds = %4, %14
   br label %78
 
 78:                                               ; preds = %27, %76
-  %.sroa.0.1.i52 = phi ptr [ %63, %27 ], [ %16, %76 ]
+  %.sroa.0.1.i52 = phi ptr [ %16, %76 ], [ %63, %27 ]
   %79 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
@@ -4364,7 +4364,7 @@ block_join.exit:                                  ; preds = %4, %14
   br label %block_join.exit85
 
 block_join.exit85:                                ; preds = %78, %125
-  %.sroa.0.1.i82 = phi ptr [ %112, %78 ], [ %5, %125 ]
+  %.sroa.0.1.i82 = phi ptr [ %5, %125 ], [ %112, %78 ]
   %.fca.0.insert.i83 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i82, 0
   %.fca.1.insert.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i83, ptr %91, 1
   ret { ptr, ptr } %.fca.1.insert.i84
@@ -4580,7 +4580,7 @@ block_join.exit45:                                ; preds = %14, %4
   br label %100
 
 100:                                              ; preds = %98, %49
-  %.sroa.0.1.i64 = phi ptr [ %85, %49 ], [ %38, %98 ]
+  %.sroa.0.1.i64 = phi ptr [ %38, %98 ], [ %85, %49 ]
   %101 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store i64 0, ptr %101, align 8
@@ -4641,7 +4641,7 @@ block_join.exit45:                                ; preds = %14, %4
   br label %block_join.exit85
 
 block_join.exit85:                                ; preds = %100, %125
-  %.sroa.0.1.i82 = phi ptr [ %112, %100 ], [ %5, %125 ]
+  %.sroa.0.1.i82 = phi ptr [ %5, %125 ], [ %112, %100 ]
   %.fca.0.insert.i83 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i82, 0
   %.fca.1.insert.i84 = insertvalue { ptr, ptr } %.fca.0.insert.i83, ptr %65, 1
   ret { ptr, ptr } %.fca.1.insert.i84
@@ -4844,7 +4844,7 @@ block_append.exit:                                ; preds = %block_append.exit.s
   br label %block_join.exit47
 
 block_join.exit47:                                ; preds = %48, %58
-  %.sroa.0.1.i44 = phi ptr [ %49, %48 ], [ %.sroa.0.1.i35, %58 ]
+  %.sroa.0.1.i44 = phi ptr [ %.sroa.0.1.i35, %58 ], [ %49, %48 ]
   %60 = tail call fastcc { ptr, ptr } @bind_alternation_matchers(ptr %2, ptr %3, ptr %.sroa.0.0, ptr %.sroa.6.0)
   %61 = extractvalue { ptr, ptr } %60, 0
   %.not.i.i48 = icmp eq ptr %61, null
@@ -4979,7 +4979,7 @@ define dso_local { ptr, ptr } @gen_array_matcher(ptr %0, ptr %1, ptr %2, ptr %3)
   br label %block_join.exit36
 
 block_join.exit36:                                ; preds = %50, %60
-  %.sroa.0.1.i33 = phi ptr [ %51, %50 ], [ %24, %60 ]
+  %.sroa.0.1.i33 = phi ptr [ %24, %60 ], [ %51, %50 ]
   %.not.i.i37 = icmp eq ptr %2, null
   br i1 %.not.i.i37, label %block_join.exit43, label %62
 
@@ -5077,7 +5077,7 @@ define dso_local { ptr, ptr } @gen_object_matcher(ptr %0, ptr %1, ptr %2, ptr %3
   br label %block_join.exit23
 
 block_join.exit23:                                ; preds = %19, %29
-  %.sroa.0.1.i20 = phi ptr [ %20, %19 ], [ %5, %29 ]
+  %.sroa.0.1.i20 = phi ptr [ %5, %29 ], [ %20, %19 ]
   %.not.i.i24 = icmp eq ptr %2, null
   br i1 %.not.i.i24, label %block_join.exit30, label %31
 
@@ -5242,7 +5242,7 @@ block_join.exit53:                                ; preds = %block_join.exit44, 
   br label %block_join.exit60
 
 block_join.exit60:                                ; preds = %block_join.exit53, %62
-  %.sroa.0.1.i.i = phi ptr [ %52, %block_join.exit53 ], [ %30, %62 ]
+  %.sroa.0.1.i.i = phi ptr [ %30, %62 ], [ %52, %block_join.exit53 ]
   %64 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 18, ptr %65, align 8, !tbaa !25
@@ -5408,7 +5408,7 @@ block_join.exit:                                  ; preds = %4
   br label %block_join.exit55
 
 block_join.exit55:                                ; preds = %60, %49
-  %.sroa.0.1.i45 = phi ptr [ %50, %49 ], [ %37, %60 ]
+  %.sroa.0.1.i45 = phi ptr [ %37, %60 ], [ %50, %49 ]
   store ptr %27, ptr %50, align 8, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %50, ptr %62, align 8, !tbaa !34
@@ -5941,7 +5941,7 @@ define internal fastcc i32 @compile(ptr noundef initializes((56, 60)) %0, ptr %1
   br label %block_join.exit
 
 block_join.exit:                                  ; preds = %7, %22
-  %25 = phi ptr [ %12, %7 ], [ %23, %22 ]
+  %25 = phi ptr [ %23, %22 ], [ %12, %7 ]
   store ptr %25, ptr %8, align 8, !tbaa !50
   store ptr %12, ptr %9, align 8, !tbaa !50
   %26 = tail call { i64, ptr } @jv_array() #17
@@ -6318,7 +6318,7 @@ block_join.exit:                                  ; preds = %7, %22
   br i1 %.not.i, label %nesting_level.exit, label %218, !llvm.loop !95
 
 nesting_level.exit:                               ; preds = %218, %219
-  %.0.lcssa.i = phi i16 [ %220, %219 ], [ %.09.i, %218 ]
+  %.0.lcssa.i = phi i16 [ %.09.i, %218 ], [ %220, %219 ]
   %223 = getelementptr i8, ptr %198, i64 4
   store i16 %.0.lcssa.i, ptr %223, align 2, !tbaa !94
   %224 = getelementptr inbounds nuw i8, ptr %215, i64 24
@@ -6363,7 +6363,7 @@ nesting_level.exit:                               ; preds = %218, %219
   br i1 %.not.i266, label %nesting_level.exit268, label %239, !llvm.loop !95
 
 nesting_level.exit268:                            ; preds = %239, %240
-  %.0.lcssa.i267 = phi i16 [ %241, %240 ], [ %.09.i263, %239 ]
+  %.0.lcssa.i267 = phi i16 [ %.09.i263, %239 ], [ %241, %240 ]
   %244 = getelementptr inbounds i16, ptr %180, i64 %indvars.iv
   store i16 %.0.lcssa.i267, ptr %244, align 2, !tbaa !94
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 24
@@ -6424,7 +6424,7 @@ nesting_level.exit268:                            ; preds = %239, %240
   br i1 %.not.i274, label %nesting_level.exit276, label %275, !llvm.loop !95
 
 nesting_level.exit276:                            ; preds = %275, %276
-  %.0.lcssa.i275 = phi i16 [ %277, %276 ], [ %.09.i271, %275 ]
+  %.0.lcssa.i275 = phi i16 [ %.09.i271, %275 ], [ %277, %276 ]
   %280 = getelementptr i8, ptr %198, i64 4
   store i16 %.0.lcssa.i275, ptr %280, align 2, !tbaa !94
   %281 = getelementptr inbounds nuw i8, ptr %272, i64 24
@@ -6487,7 +6487,7 @@ nesting_level.exit276:                            ; preds = %275, %276
   br i1 %.not.i282, label %nesting_level.exit284, label %312, !llvm.loop !95
 
 nesting_level.exit284:                            ; preds = %312, %313
-  %.0.lcssa.i283 = phi i16 [ %314, %313 ], [ %.09.i279, %312 ]
+  %.0.lcssa.i283 = phi i16 [ %.09.i279, %312 ], [ %314, %313 ]
   %317 = sext i32 %196 to i64
   %318 = getelementptr inbounds i16, ptr %180, i64 %317
   store i16 %.0.lcssa.i283, ptr %318, align 2, !tbaa !94
@@ -6664,8 +6664,8 @@ define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeo
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %37, %33, %32, %59, %14, %56, %51, %54
-  %.253 = phi i32 [ %55, %54 ], [ %.0512, %51 ], [ %.0512, %56 ], [ %.0512, %59 ], [ %.0512, %14 ], [ %.0512, %32 ], [ %.0512, %33 ], [ %.0512, %37 ], [ %.0512, %43 ]
-  %.2 = phi i32 [ %.04, %54 ], [ %.04, %51 ], [ %.04, %56 ], [ %spec.select, %59 ], [ %.04, %14 ], [ %.04, %32 ], [ %.04, %33 ], [ %.04, %37 ], [ %.04, %43 ]
+  %.253 = phi i32 [ %55, %54 ], [ %.0512, %51 ], [ %.0512, %56 ], [ %.0512, %14 ], [ %.0512, %59 ], [ %.0512, %32 ], [ %.0512, %33 ], [ %.0512, %37 ], [ %.0512, %43 ]
+  %.2 = phi i32 [ %.04, %54 ], [ %.04, %51 ], [ %.04, %56 ], [ %.04, %14 ], [ %spec.select, %59 ], [ %.04, %32 ], [ %.04, %33 ], [ %.04, %37 ], [ %.04, %43 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0503, i64 88
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   %.not60 = icmp eq ptr %65, null
@@ -7362,8 +7362,8 @@ block_free.exit.i:                                ; preds = %.lr.ph.i.i
   br label %gen_subexp.exit
 
 gen_subexp.exit:                                  ; preds = %191, %block_free.exit.i, %239, %249
-  %.pn40.i = phi ptr [ %192, %191 ], [ %217, %block_free.exit.i ], [ %240, %239 ], [ %228, %249 ]
-  %.pn38.i = phi ptr [ %192, %191 ], [ %217, %block_free.exit.i ], [ %240, %239 ], [ %240, %249 ]
+  %.pn40.i = phi ptr [ %192, %191 ], [ %217, %block_free.exit.i ], [ %228, %249 ], [ %240, %239 ]
+  %.pn38.i = phi ptr [ %192, %191 ], [ %217, %block_free.exit.i ], [ %240, %249 ], [ %240, %239 ]
   %.not.i.i133 = icmp eq ptr %.sroa.0157.3176, null
   br i1 %.not.i.i133, label %block_join.exit139, label %251
 

@@ -153,7 +153,7 @@ _ZL18DecodeECPrivateKeyPKhm.exit.thread.i:        ; preds = %0
   br i1 %.not.i.i, label %48, label %39
 
 common.resume:                                    ; preds = %219, %266, %144, %_ZNSt6vectorIhSaIhEED2Ev.exit45.i, %37, %137, %525
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %525 ], [ %38, %37 ], [ %.pn19.pn.pn.pn.pn.pn.pn.i, %137 ], [ %145, %144 ], [ %.pn7.pn.i, %_ZNSt6vectorIhSaIhEED2Ev.exit45.i ], [ %220, %219 ], [ %.pn.pn.pn.i, %266 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %525 ], [ %.pn19.pn.pn.pn.pn.pn.pn.i, %137 ], [ %.pn7.pn.i, %_ZNSt6vectorIhSaIhEED2Ev.exit45.i ], [ %38, %37 ], [ %145, %144 ], [ %220, %219 ], [ %.pn.pn.pn.i, %266 ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %34
@@ -402,7 +402,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thre
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i
 
 _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.thread.i: ; preds = %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i, %118, %95
-  %.3109.i = phi i1 [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i ], [ false, %118 ], [ false, %95 ], [ %.46474.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i ], [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i ]
+  %.3109.i = phi i1 [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit37.i ], [ false, %118 ], [ false, %95 ], [ false, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread75.i ], [ %.46474.i, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit35.thread71.i ]
   invoke void @BN_free(ptr noundef nonnull %83)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %119
 
@@ -462,7 +462,7 @@ _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i:  ; preds = %110, %108, %106, %9
   br label %133
 
 .body.i:                                          ; preds = %127, %78, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i, %55
-  %.pn19.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %56, %55 ], [ %.pn19.pn.pn.pn.i, %127 ], [ %79, %78 ], [ %59, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i ]
+  %.pn19.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %56, %55 ], [ %79, %78 ], [ %.pn19.pn.pn.pn.i, %127 ], [ %59, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i ]
   %131 = load ptr, ptr %29, align 8, !tbaa !18
   %.not.i.i.i44.i = icmp eq ptr %131, null
   br i1 %.not.i.i.i44.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit46.i, label %132
@@ -714,8 +714,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit34.i:                ; preds = %194
   br label %203
 
 203:                                              ; preds = %.sink.split68.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i, %187, %153
-  %204 = phi ptr [ %154, %153 ], [ %.pr59.i, %187 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.ph.i, %.sink.split68.i ]
-  %.05.i = phi i1 [ false, %153 ], [ false, %187 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ false, %.sink.split68.i ]
+  %204 = phi ptr [ %154, %153 ], [ %.pr59.i, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ %.pr59.i, %187 ], [ %.ph.i, %.sink.split68.i ]
+  %.05.i = phi i1 [ false, %153 ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit34.i ], [ false, %187 ], [ false, %.sink.split68.i ]
   %205 = load ptr, ptr %25, align 8, !tbaa !18
   %.not.i.i.i38.i = icmp eq ptr %205, null
   br i1 %.not.i.i.i38.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit40.i, label %206
@@ -741,7 +741,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit40.i:                ; preds = %206, %203
   unreachable
 
 .body.i5:                                         ; preds = %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i24.i, %189, %174, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i6, %156
-  %.pn7.pn.i = phi { ptr, i32 } [ %157, %156 ], [ %160, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i6 ], [ %190, %189 ], [ %175, %174 ], [ %193, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i24.i ]
+  %.pn7.pn.i = phi { ptr, i32 } [ %175, %174 ], [ %157, %156 ], [ %160, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i.i6 ], [ %190, %189 ], [ %193, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i24.i ]
   %211 = load ptr, ptr %25, align 8, !tbaa !18
   %.not.i.i.i43.i = icmp eq ptr %211, null
   br i1 %.not.i.i.i43.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit45.i, label %212
@@ -1411,7 +1411,7 @@ _ZL18TestArbitraryCurvev.exit.thread:             ; preds = %271
   br label %465
 
 465:                                              ; preds = %462, %461, %455, %422, %418, %413, %396
-  %.427.i = phi i1 [ false, %462 ], [ false, %455 ], [ false, %413 ], [ false, %396 ], [ false, %418 ], [ false, %422 ], [ true, %461 ]
+  %.427.i = phi i1 [ false, %418 ], [ false, %422 ], [ false, %462 ], [ false, %455 ], [ false, %396 ], [ false, %413 ], [ true, %461 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #18
@@ -1487,7 +1487,7 @@ _ZL18TestArbitraryCurvev.exit.thread:             ; preds = %271
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit: ; preds = %326, %.thread, %476
-  %.225.i46 = phi i1 [ %.326.i41, %.thread ], [ %.326.i41, %476 ], [ false, %326 ]
+  %.225.i46 = phi i1 [ %.326.i41, %476 ], [ %.326.i41, %.thread ], [ false, %326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %thread-pre-split.thread.i
 
@@ -1501,7 +1501,7 @@ thread-pre-split.i:                               ; preds = %295, %294
   br i1 %.not.i.i28, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i29, label %thread-pre-split.thread.i
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit, %305
-  %.124119.i = phi i1 [ false, %thread-pre-split.i ], [ %.225.i46, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit ], [ false, %305 ]
+  %.124119.i = phi i1 [ false, %thread-pre-split.i ], [ false, %305 ], [ %.225.i46, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit ]
   invoke void @BN_free(ptr noundef nonnull %293)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i29 unwind label %481
 
@@ -2105,7 +2105,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ;
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
 99:                                               ; preds = %.invoke, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42
-  %.021.ph = phi i1 [ %.223, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42 ], [ false, %.invoke ]
+  %.021.ph = phi i1 [ false, %.invoke ], [ %.223, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42 ]
   invoke void @EC_KEY_free(ptr noundef nonnull %7)
           to label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit unwind label %100
 

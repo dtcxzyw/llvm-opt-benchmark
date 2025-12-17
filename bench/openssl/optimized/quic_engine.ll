@@ -119,7 +119,7 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   br label %10
 
 10:                                               ; preds = %2, %5
-  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %5 ], [ %1, %2 ]
+  %.sroa.07.0 = phi i64 [ %1, %2 ], [ %.sroa.03.0.i, %5 ]
   ret i64 %.sroa.07.0
 }
 

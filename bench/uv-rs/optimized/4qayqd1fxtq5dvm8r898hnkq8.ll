@@ -1503,15 +1503,12 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i16, ptr %50, align 8, !range !196, !alias.scope !186, !noalias !185, !noundef !3
   %trunc2.i.i = trunc nuw i16 %51 to i1
-  br i1 %trunc.i.i, label %53, label %52
+  br i1 %trunc.i.i, label %52, label %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
 
 52:                                               ; preds = %.thread.i.i
-  br i1 %trunc2.i.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit", label %59
+  br i1 %trunc2.i.i, label %53, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-53:                                               ; preds = %.thread.i.i
-  br i1 %trunc2.i.i, label %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit", label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
-
-"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit": ; preds = %53
+53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %55 = load i16, ptr %54, align 2, !alias.scope !185, !noalias !186, !noundef !3
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 26
@@ -1519,7 +1516,10 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %58 = icmp eq i16 %55, %57
   br i1 %58, label %59, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-59:                                               ; preds = %52, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit": ; preds = %.thread.i.i
+  br i1 %trunc2.i.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit", label %59
+
+59:                                               ; preds = %53, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
@@ -1551,8 +1551,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %72 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %43, %35, %53, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %37, %36, %9, %2, %69, %66, %59, %52, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ false, %13 ], [ false, %52 ], [ %72, %69 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %2 ], [ false, %9 ], [ false, %36 ], [ false, %37 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %53 ], [ false, %35 ], [ false, %43 ], [ false, %21 ]
+"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %35, %43, %52, %37, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %2, %9, %69, %66, %59, %53, %13, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+  %.sroa.0.0 = phi i1 [ false, %53 ], [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ %72, %69 ], [ false, %13 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %9 ], [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %36 ], [ false, %37 ], [ false, %52 ], [ false, %43 ], [ false, %35 ], [ false, %21 ]
   ret i1 %.sroa.0.0
 }
 
@@ -2947,7 +2947,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17hca948f0958
 21:                                               ; preds = %39
   br i1 %.sroa.02.3, label %72, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc19829fc80e0a9a6E.exit"
 
-.thread:                                          ; preds = %4, %19
+.thread:                                          ; preds = %19, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -3009,7 +3009,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17hca948f0958
           to label %.noexc21 unwind label %39
 
 39:                                               ; preds = %35, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit", %28, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit.thread", %41
-  %.sroa.02.3 = phi i1 [ false, %41 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit.thread" ], [ true, %28 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit" ], [ true, %35 ]
+  %.sroa.02.3 = phi i1 [ true, %35 ], [ false, %41 ], [ true, %28 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit.thread" ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4697142ef86ea936E.exit" ]
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h88e1a02559ca68f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #28
@@ -3118,11 +3118,11 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17hca948f0958
   br label %59
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc19829fc80e0a9a6E.exit": ; preds = %60, %72, %75, %21
-  %.pn825 = phi { ptr, i32 } [ %40, %21 ], [ %.pn826, %75 ], [ %.pn826, %72 ], [ %.pn40, %60 ]
+  %.pn825 = phi { ptr, i32 } [ %.pn40, %60 ], [ %40, %21 ], [ %.pn826, %75 ], [ %.pn826, %72 ]
   resume { ptr, i32 } %.pn825
 
 72:                                               ; preds = %.thread, %21
-  %.pn826 = phi { ptr, i32 } [ %40, %21 ], [ %lpad.thr_comm, %.thread ]
+  %.pn826 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %40, %21 ]
   %73 = load i64, ptr %1, align 8, !range !370, !alias.scope !446, !noundef !3
   %74 = icmp eq i64 %73, -9223372036854775807
   br i1 %74, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc19829fc80e0a9a6E.exit", label %75

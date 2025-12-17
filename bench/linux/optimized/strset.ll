@@ -190,8 +190,8 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr noundef 
   %83 = icmp sgt i32 %80, 3
   br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %72, %.lr.ph, %48, %15, %.thread10, %70, %71, %8, %3
-  %84 = phi i32 [ 0, %3 ], [ %13, %8 ], [ %.ph, %.thread10 ], [ -95, %70 ], [ -95, %71 ], [ 0, %15 ], [ 0, %72 ], [ 0, %.lr.ph ], [ -22, %48 ]
+.critedge:                                        ; preds = %72, %.lr.ph, %48, %15, %70, %71, %.thread10, %8, %3
+  %84 = phi i32 [ 0, %3 ], [ %13, %8 ], [ -95, %71 ], [ %.ph, %.thread10 ], [ -95, %70 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %72 ], [ -22, %48 ]
   ret i32 %84
 }
 
@@ -521,7 +521,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   br label %53
 
 53:                                               ; preds = %.thread.us, %17, %13
-  %.ph.us = phi i32 [ %9, %13 ], [ %9, %17 ], [ %52, %.thread.us ]
+  %.ph.us = phi i32 [ %52, %.thread.us ], [ %9, %13 ], [ %9, %17 ]
   %54 = add nuw nsw i64 %8, 1
   %55 = icmp eq i64 %54, 21
   br i1 %55, label %.split8.us, label %.split.us, !llvm.loop !21
@@ -586,7 +586,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   br i1 %96, label %.split8.us, label %.split, !llvm.loop !21
 
 .split8.us:                                       ; preds = %94, %86, %45, %53
-  %.us-phi = phi i32 [ %.ph.us, %53 ], [ %49, %45 ], [ %.ph, %94 ], [ %90, %86 ]
+  %.us-phi = phi i32 [ %49, %45 ], [ %.ph.us, %53 ], [ %.ph, %94 ], [ %90, %86 ]
   ret i32 %.us-phi
 }
 

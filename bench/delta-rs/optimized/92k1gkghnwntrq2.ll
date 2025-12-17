@@ -507,7 +507,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Exp
   unreachable
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h80716e70209b7ffcE.exit": ; preds = %401, %405, %366, %354, %358, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit47", %336, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit40", %315, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit", %251, %161, %428, %423, %418, %413, %386, %381, %376, %371, %296, %291, %285, %274, %263, %229, %218, %208, %203, %198, %193, %187, %176, %166, %156, %151, %146, %141, %134
-  %.pn28 = phi { ptr, i32 } [ %135, %134 ], [ %142, %141 ], [ %147, %146 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %.pn26, %176 ], [ %.pn24, %187 ], [ %194, %193 ], [ %199, %198 ], [ %204, %203 ], [ %209, %208 ], [ %.pn22, %218 ], [ %.pn20, %229 ], [ %.pn16, %263 ], [ %.pn14, %274 ], [ %.pn12, %285 ], [ %292, %291 ], [ %297, %296 ], [ %372, %371 ], [ %377, %376 ], [ %382, %381 ], [ %387, %386 ], [ %414, %413 ], [ %419, %418 ], [ %424, %423 ], [ %429, %428 ], [ %.pn18, %251 ], [ %.pn18, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit" ], [ %.pn10, %315 ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit40" ], [ %.pn8, %336 ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit47" ], [ %.pn6, %358 ], [ %.pn6, %354 ], [ %367, %366 ], [ %.pn2, %405 ], [ %.pn2, %401 ]
+  %.pn28 = phi { ptr, i32 } [ %135, %134 ], [ %142, %141 ], [ %147, %146 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %.pn26, %176 ], [ %.pn24, %187 ], [ %194, %193 ], [ %199, %198 ], [ %204, %203 ], [ %209, %208 ], [ %.pn22, %218 ], [ %.pn20, %229 ], [ %429, %428 ], [ %.pn16, %263 ], [ %.pn14, %274 ], [ %.pn12, %285 ], [ %292, %291 ], [ %297, %296 ], [ %.pn18, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit" ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit40" ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h66b285f0c02b588dE.exit47" ], [ %.pn6, %354 ], [ %372, %371 ], [ %377, %376 ], [ %382, %381 ], [ %387, %386 ], [ %367, %366 ], [ %414, %413 ], [ %419, %418 ], [ %424, %423 ], [ %.pn18, %251 ], [ %.pn10, %315 ], [ %.pn8, %336 ], [ %.pn6, %358 ], [ %.pn2, %405 ], [ %.pn2, %401 ]
   resume { ptr, i32 } %.pn28
 
 141:                                              ; preds = %14
@@ -1685,7 +1685,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   unreachable
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit223": ; preds = %980, %985, %976, %964, %968, %936, %940, %854, %859, %755, %760, %720, %724, %669, %653, %657, %582, %586, %384, %388, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.exit", %336, %210, %214, %162, %167, %699, %222, %922, %905, %895, %889, %874, %848, %820, %810, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit", %774, %766, %750, %746, %741, %737, %732, %709, %694, %689, %683, %665, %556, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$$GT$17h2600a39d905ef14dE.exit279", %412, %302, %244, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit"
-  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit" ], [ %223, %222 ], [ %.pn152, %244 ], [ %.pn146, %302 ], [ %.pn114, %412 ], [ %.pn108, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$$GT$17h2600a39d905ef14dE.exit279" ], [ %.pn72, %556 ], [ %666, %665 ], [ %.pn46, %683 ], [ %690, %689 ], [ %695, %694 ], [ %700, %699 ], [ %.pn42, %709 ], [ %733, %732 ], [ %738, %737 ], [ %742, %741 ], [ %747, %746 ], [ %751, %750 ], [ %767, %766 ], [ %.pn38, %774 ], [ %.pn36, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit" ], [ %.pn32, %810 ], [ %.pn30, %820 ], [ %.pn28, %848 ], [ %.pn20, %874 ], [ %.pn16, %889 ], [ %896, %895 ], [ %.pn12, %905 ], [ %.pn6, %922 ], [ %163, %167 ], [ %163, %162 ], [ %.pn164, %214 ], [ %.pn164, %210 ], [ %.pn130, %336 ], [ %.pn130, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.exit" ], [ %.pn124, %388 ], [ %.pn124, %384 ], [ %.pn70, %586 ], [ %.pn70, %582 ], [ %.pn62, %657 ], [ %.pn62, %653 ], [ %670, %669 ], [ %.pn40, %724 ], [ %.pn40, %720 ], [ %756, %760 ], [ %756, %755 ], [ %855, %859 ], [ %855, %854 ], [ %.pn2, %940 ], [ %.pn2, %936 ], [ %.pn10, %968 ], [ %.pn10, %964 ], [ %977, %976 ], [ %981, %985 ], [ %981, %980 ]
+  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit" ], [ %855, %854 ], [ %163, %162 ], [ %223, %222 ], [ %.pn152, %244 ], [ %.pn146, %302 ], [ %.pn164, %210 ], [ %.pn130, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.exit" ], [ %.pn114, %412 ], [ %.pn108, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$$GT$17h2600a39d905ef14dE.exit279" ], [ %.pn72, %556 ], [ %.pn124, %384 ], [ %.pn70, %582 ], [ %666, %665 ], [ %.pn62, %653 ], [ %.pn46, %683 ], [ %690, %689 ], [ %695, %694 ], [ %700, %699 ], [ %.pn42, %709 ], [ %670, %669 ], [ %733, %732 ], [ %738, %737 ], [ %742, %741 ], [ %977, %976 ], [ %747, %746 ], [ %751, %750 ], [ %.pn40, %720 ], [ %767, %766 ], [ %.pn10, %964 ], [ %.pn38, %774 ], [ %.pn36, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..data_type..DataType$GT$$GT$17h59a1e548fc37138fE.exit" ], [ %.pn32, %810 ], [ %.pn30, %820 ], [ %.pn28, %848 ], [ %756, %755 ], [ %.pn20, %874 ], [ %.pn16, %889 ], [ %896, %895 ], [ %.pn12, %905 ], [ %.pn2, %936 ], [ %.pn6, %922 ], [ %163, %167 ], [ %.pn164, %214 ], [ %.pn130, %336 ], [ %.pn124, %388 ], [ %.pn70, %586 ], [ %.pn62, %657 ], [ %.pn40, %724 ], [ %756, %760 ], [ %855, %859 ], [ %.pn2, %940 ], [ %.pn10, %968 ], [ %981, %985 ], [ %981, %980 ]
   resume { ptr, i32 } %.pn166.pn
 
 162:                                              ; preds = %8
@@ -4463,7 +4463,7 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..Fet
   ]
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split": ; preds = %13, %9, %3, %5, %7
-  %.sink = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %10, %9 ], [ %14, %13 ]
+  %.sink = phi ptr [ %10, %9 ], [ %4, %3 ], [ %8, %7 ], [ %6, %5 ], [ %14, %13 ]
   tail call fastcc void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE"(ptr noalias noundef align 8 dereferenceable(48) %.sink)
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
 
@@ -5020,7 +5020,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..que
   unreachable
 
 common.resume:                                    ; preds = %338, %285, %248, %229, %174, %147, %125, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..TableVersion$GT$$GT$17h6b6ac144b7d95ca6E.exit", %.body30, %131, %157, %184, %212, %.body35, %268, %321
-  %common.resume.op = phi { ptr, i32 } [ %.pn26, %321 ], [ %.pn20, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..TableVersion$GT$$GT$17h6b6ac144b7d95ca6E.exit" ], [ %25, %.body30 ], [ %132, %131 ], [ %.pn12, %157 ], [ %.pn10, %184 ], [ %.pn8, %212 ], [ %54, %.body35 ], [ %.pn4, %268 ], [ %126, %125 ], [ %148, %147 ], [ %175, %174 ], [ %230, %229 ], [ %249, %248 ], [ %286, %285 ], [ %339, %338 ]
+  %common.resume.op = phi { ptr, i32 } [ %286, %285 ], [ %.pn4, %268 ], [ %126, %125 ], [ %148, %147 ], [ %175, %174 ], [ %230, %229 ], [ %249, %248 ], [ %.pn26, %321 ], [ %.pn20, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..TableVersion$GT$$GT$17h6b6ac144b7d95ca6E.exit" ], [ %25, %.body30 ], [ %132, %131 ], [ %.pn12, %157 ], [ %.pn10, %184 ], [ %.pn8, %212 ], [ %54, %.body35 ], [ %339, %338 ]
   resume { ptr, i32 } %common.resume.op
 
 112:                                              ; preds = %23
@@ -5779,7 +5779,7 @@ default.unreachable2:                             ; preds = %1
   unreachable
 
 .sink.split:                                      ; preds = %7, %5, %1
-  %.sink3 = phi i64 [ 8, %1 ], [ 32, %5 ], [ 32, %7 ]
+  %.sink3 = phi i64 [ 32, %5 ], [ 8, %1 ], [ 32, %7 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..ddl..ColumnDef$GT$$GT$17h20aae95fa0a8f320E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %4
@@ -5989,7 +5989,7 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$sqlparser..ast..dcl
   unreachable
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h80716e70209b7ffcE.exit": ; preds = %68, %73, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17ha437289421556518E.exit", %59
-  %.pn2 = phi { ptr, i32 } [ %.pn, %59 ], [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17ha437289421556518E.exit" ], [ %69, %73 ], [ %69, %68 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17ha437289421556518E.exit" ], [ %.pn, %59 ], [ %69, %73 ], [ %69, %68 ]
   resume { ptr, i32 } %.pn2
 
 68:                                               ; preds = %13

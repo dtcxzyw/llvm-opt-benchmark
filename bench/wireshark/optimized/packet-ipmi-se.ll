@@ -2492,7 +2492,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   br label %51
 
 51:                                               ; preds = %49, %get_evtype_info.exit
-  %52 = phi ptr [ %48, %get_evtype_info.exit ], [ %spec.select, %49 ]
+  %52 = phi ptr [ %spec.select, %49 ], [ %48, %get_evtype_info.exit ]
   %53 = load i32, ptr @hf_ipmi_se_evt_data1, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %53, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648)
   %55 = load i32, ptr @ett_ipmi_se_evt_evd_byte1, align 4
@@ -2797,7 +2797,7 @@ define internal noundef zeroext i1 @ssi_10_3(ptr noundef %0, ptr noundef %1, ptr
   br label %29
 
 29:                                               ; preds = %24, %9, %26, %11
-  %.0 = phi i1 [ true, %11 ], [ true, %26 ], [ false, %9 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %9 ], [ true, %26 ], [ false, %24 ]
   ret i1 %.0
 }
 

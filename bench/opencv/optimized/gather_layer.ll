@@ -1203,7 +1203,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   ret void
 
 .body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %143, %145, %88, %94, %207, %211, %213, %209, %182, %95, %73, %66
-  %.pn105.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %66 ], [ %74, %73 ], [ %.pn97, %94 ], [ %89, %88 ], [ %96, %95 ], [ %183, %182 ], [ %208, %207 ], [ %210, %209 ], [ %214, %213 ], [ %212, %211 ], [ %116, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %144, %143 ], [ %144, %145 ]
+  %.pn105.pn.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn94.pn, %66 ], [ %89, %88 ], [ %.pn97, %94 ], [ %96, %95 ], [ %212, %211 ], [ %183, %182 ], [ %208, %207 ], [ %210, %209 ], [ %214, %213 ], [ %116, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %144, %145 ], [ %144, %143 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %256
@@ -1422,7 +1422,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   br label %75
 
 75:                                               ; preds = %71, %73, %69
-  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %74, %73 ], [ %72, %71 ]
+  %.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %72, %71 ], [ %74, %73 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !87
   %.not.i.i.i23 = icmp eq ptr %76, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %77

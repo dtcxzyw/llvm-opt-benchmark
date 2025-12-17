@@ -6550,14 +6550,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %33 = load ptr, ptr %11, align 8, !tbaa !226
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %35 = icmp eq ptr %33, %34
-  br i1 %35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %35, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %31
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.024, label %38, label %127
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %31
   %36 = load i64, ptr %34, align 8, !tbaa !188
   %37 = add i64 %36, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %37) #26
@@ -6565,8 +6560,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.024, label %38, label %127
 
-38:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn3962 = phi { ptr, i32 } [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br i1 %.024, label %38, label %127
+
+38:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn3962 = phi { ptr, i32 } [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %27) #8
   br label %127
 
@@ -6623,9 +6623,9 @@ _ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !235
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc43, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i
-  %55 = phi ptr [ %47, %.noexc43 ], [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %56 = phi ptr [ %46, %.noexc43 ], [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %49, %.noexc43 ], [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %55 = phi ptr [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %47, %.noexc43 ], [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %56 = phi ptr [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %46, %.noexc43 ], [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %49, %.noexc43 ], [ %53, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.i.i.i.i.i, ptr %57, align 8, !tbaa !236
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6671,14 +6671,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.thread: ; preds
   %72 = load ptr, ptr %14, align 8, !tbaa !226
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
+  br i1 %74, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46: ; preds = %70
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %.021, label %77, label %122
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45: ; preds = %70
   %75 = load i64, ptr %73, align 8, !tbaa !188
   %76 = add i64 %75, 1
   call void @_ZdlPvm(ptr noundef %72, i64 noundef %76) #26
@@ -6686,8 +6681,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.021, label %77, label %122
 
-77:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
-  %.pn3565 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.thread ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br i1 %.021, label %77, label %122
+
+77:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
+  %.pn3565 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.thread ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45 ]
   call void @__cxa_free_exception(ptr %64) #8
   br label %122
 
@@ -6805,8 +6805,8 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge75, %109
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 18
   br i1 %exitcond85.not, label %115, label %116, !llvm.loop !240
 
-122:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %77
-  %.pn35.pn = phi { ptr, i32 } [ %.pn3565, %77 ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i46 ]
+122:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %77
+  %.pn35.pn = phi { ptr, i32 } [ %.pn3565, %77 ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i45 ]
   %.not.i.i.i50 = icmp eq ptr %56, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51, label %123
 
@@ -6822,8 +6822,8 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51: ; preds = %123, %122, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %127
 
-127:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38, %_ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51
-  %.pn39.pn = phi { ptr, i32 } [ %.pn3962, %38 ], [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn35.pn.pn, %_ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51 ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+127:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38, %_ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51
+  %.pn39.pn = phi { ptr, i32 } [ %.pn3962, %38 ], [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn35.pn.pn, %_ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit51 ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   resume { ptr, i32 } %.pn39.pn
 
 128:                                              ; preds = %66, %29
@@ -8249,7 +8249,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit118.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit118
-  %.pre-phi186 = phi i64 [ %51, %.loopexit118.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit118 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %51, %.loopexit118.thread ], [ %.pre-phi, %.loopexit118 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -8452,7 +8452,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
   br label %.loopexit.i.i51, !llvm.loop !267
 
 .loopexit.i.i51:                                  ; preds = %.lr.ph.i.i.i.i46, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i50, %.loopexit
-  %.pre-phi159189 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi159, %..loopexit_crit_edge21.i.i.i.i50 ], [ %.pre-phi159, %.loopexit ], [ %.pre-phi159, %.lr.ph.i.i.i.i46 ]
+  %.pre-phi159189 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi159, %.loopexit ], [ %.pre-phi159, %..loopexit_crit_edge21.i.i.i.i50 ], [ %.pre-phi159, %.lr.ph.i.i.i.i46 ]
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -9026,7 +9026,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -9229,7 +9229,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -9602,7 +9602,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %49, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %49, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %81, align 8, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -9805,7 +9805,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %122, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %122, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %154 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %154, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -10182,7 +10182,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %49, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %49, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %81, align 8, !tbaa !33
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -10385,7 +10385,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %122, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %122, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %154 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %154, align 8, !tbaa !33
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -10761,7 +10761,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -10964,7 +10964,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -11341,7 +11341,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %51, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -11544,7 +11544,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -11916,7 +11916,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit116.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit116
-  %.pre-phi184 = phi i64 [ %51, %.loopexit116.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit116 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi184 = phi i64 [ %51, %.loopexit116.thread ], [ %.pre-phi, %.loopexit116 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -12119,7 +12119,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi157187 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi157, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi157, %.loopexit ], [ %.pre-phi157, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi157187 = phi i64 [ %124, %.loopexit.thread ], [ %.pre-phi157, %.loopexit ], [ %.pre-phi157, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi157, %.lr.ph.i.i.i.i43 ]
   %156 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %156, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -12659,7 +12659,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %167, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %167, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %199 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %199, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -12874,7 +12874,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %248, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %248, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %280 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %280, align 8, !tbaa !33
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
@@ -13083,7 +13083,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %329, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %329, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %361 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %361, align 8, !tbaa !33
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
@@ -13570,7 +13570,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %173, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %173, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %205 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
@@ -13785,7 +13785,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %254, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %254, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %286 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -13994,7 +13994,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %335, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %335, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %367 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -14279,7 +14279,7 @@ default.unreachable:                              ; preds = %70
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %70, %71, %72, %73
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.6153.0.copyload, %71 ], [ %.sroa.7.0.copyload, %72 ], [ %.sroa.8.0.copyload, %73 ], [ %.sroa.5.0.copyload, %70 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %73 ], [ %.sroa.7.0.copyload, %72 ], [ %.sroa.6153.0.copyload, %71 ], [ %.sroa.5.0.copyload, %70 ]
   %74 = uitofp nneg i32 %.01321.i to float
   %75 = fneg float %74
   %76 = fmul float %.07.in.i.sroa.speculated, %75
@@ -14511,7 +14511,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit203.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit203
-  %.pre-phi311 = phi i64 [ %168, %.loopexit203.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit203 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi311 = phi i64 [ %168, %.loopexit203.thread ], [ %.pre-phi, %.loopexit203 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %200 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %200, align 8, !tbaa !33
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
@@ -14726,7 +14726,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit200.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit200
-  %.pre-phi275314 = phi i64 [ %249, %.loopexit200.thread ], [ %.pre-phi275, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi275, %.loopexit200 ], [ %.pre-phi275, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi275314 = phi i64 [ %249, %.loopexit200.thread ], [ %.pre-phi275, %.loopexit200 ], [ %.pre-phi275, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi275, %.lr.ph.i.i.i.i39 ]
   %281 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %281, align 8, !tbaa !33
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
@@ -14935,7 +14935,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi277317 = phi i64 [ %330, %.loopexit.thread ], [ %.pre-phi277, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi277, %.loopexit ], [ %.pre-phi277, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi277317 = phi i64 [ %330, %.loopexit.thread ], [ %.pre-phi277, %.loopexit ], [ %.pre-phi277, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi277, %.lr.ph.i.i.i.i77 ]
   %362 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %362, align 8, !tbaa !33
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
@@ -15419,7 +15419,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %176, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %176, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %208 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
@@ -15634,7 +15634,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %257, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %257, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %289 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %289, align 8, !tbaa !33
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
@@ -15843,7 +15843,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %338, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %338, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %370 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %370, align 8, !tbaa !33
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
@@ -16252,7 +16252,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit258.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit258
-  %.pre-phi353 = phi i64 [ %119, %.loopexit258.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit258 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi353 = phi i64 [ %119, %.loopexit258.thread ], [ %.pre-phi, %.loopexit258 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %151 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -16465,7 +16465,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i72, !llvm.loop !267
 
 .loopexit.i.i72:                                  ; preds = %.lr.ph.i.i.i.i67, %.loopexit255.thread, %..loopexit_crit_edge21.i.i.i.i71, %.loopexit255
-  %.pre-phi314356 = phi i64 [ %200, %.loopexit255.thread ], [ %.pre-phi314, %..loopexit_crit_edge21.i.i.i.i71 ], [ %.pre-phi314, %.loopexit255 ], [ %.pre-phi314, %.lr.ph.i.i.i.i67 ]
+  %.pre-phi314356 = phi i64 [ %200, %.loopexit255.thread ], [ %.pre-phi314, %.loopexit255 ], [ %.pre-phi314, %..loopexit_crit_edge21.i.i.i.i71 ], [ %.pre-phi314, %.lr.ph.i.i.i.i67 ]
   %232 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %232, align 8, !tbaa !33
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -16672,7 +16672,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i110, !llvm.loop !267
 
 .loopexit.i.i110:                                 ; preds = %.lr.ph.i.i.i.i105, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i109, %.loopexit
-  %.pre-phi316359 = phi i64 [ %281, %.loopexit.thread ], [ %.pre-phi316, %..loopexit_crit_edge21.i.i.i.i109 ], [ %.pre-phi316, %.loopexit ], [ %.pre-phi316, %.lr.ph.i.i.i.i105 ]
+  %.pre-phi316359 = phi i64 [ %281, %.loopexit.thread ], [ %.pre-phi316, %.loopexit ], [ %.pre-phi316, %..loopexit_crit_edge21.i.i.i.i109 ], [ %.pre-phi316, %.lr.ph.i.i.i.i105 ]
   %313 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %313, align 8, !tbaa !33
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -17104,7 +17104,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit288.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit288
-  %.pre-phi386 = phi i64 [ %136, %.loopexit288.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit288 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi386 = phi i64 [ %136, %.loopexit288.thread ], [ %.pre-phi, %.loopexit288 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %168 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %168, align 8, !tbaa !33
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -17317,7 +17317,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i91, !llvm.loop !267
 
 .loopexit.i.i91:                                  ; preds = %.lr.ph.i.i.i.i86, %.loopexit285.thread, %..loopexit_crit_edge21.i.i.i.i90, %.loopexit285
-  %.pre-phi344389 = phi i64 [ %217, %.loopexit285.thread ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i90 ], [ %.pre-phi344, %.loopexit285 ], [ %.pre-phi344, %.lr.ph.i.i.i.i86 ]
+  %.pre-phi344389 = phi i64 [ %217, %.loopexit285.thread ], [ %.pre-phi344, %.loopexit285 ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i90 ], [ %.pre-phi344, %.lr.ph.i.i.i.i86 ]
   %249 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %249, align 8, !tbaa !33
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
@@ -17524,7 +17524,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i129, !llvm.loop !267
 
 .loopexit.i.i129:                                 ; preds = %.lr.ph.i.i.i.i124, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i128, %.loopexit
-  %.pre-phi346392 = phi i64 [ %298, %.loopexit.thread ], [ %.pre-phi346, %..loopexit_crit_edge21.i.i.i.i128 ], [ %.pre-phi346, %.loopexit ], [ %.pre-phi346, %.lr.ph.i.i.i.i124 ]
+  %.pre-phi346392 = phi i64 [ %298, %.loopexit.thread ], [ %.pre-phi346, %.loopexit ], [ %.pre-phi346, %..loopexit_crit_edge21.i.i.i.i128 ], [ %.pre-phi346, %.lr.ph.i.i.i.i124 ]
   %330 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %330, align 8, !tbaa !33
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
@@ -17931,7 +17931,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit281.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit281
-  %.pre-phi370 = phi i64 [ %134, %.loopexit281.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit281 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi370 = phi i64 [ %134, %.loopexit281.thread ], [ %.pre-phi, %.loopexit281 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %166 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %166, align 8, !tbaa !33
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -18144,7 +18144,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i81, !llvm.loop !267
 
 .loopexit.i.i81:                                  ; preds = %.lr.ph.i.i.i.i76, %.loopexit278.thread, %..loopexit_crit_edge21.i.i.i.i80, %.loopexit278
-  %.pre-phi337373 = phi i64 [ %215, %.loopexit278.thread ], [ %.pre-phi337, %..loopexit_crit_edge21.i.i.i.i80 ], [ %.pre-phi337, %.loopexit278 ], [ %.pre-phi337, %.lr.ph.i.i.i.i76 ]
+  %.pre-phi337373 = phi i64 [ %215, %.loopexit278.thread ], [ %.pre-phi337, %.loopexit278 ], [ %.pre-phi337, %..loopexit_crit_edge21.i.i.i.i80 ], [ %.pre-phi337, %.lr.ph.i.i.i.i76 ]
   %247 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %247, align 8, !tbaa !33
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
@@ -18351,7 +18351,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i119, !llvm.loop !267
 
 .loopexit.i.i119:                                 ; preds = %.lr.ph.i.i.i.i114, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i118, %.loopexit
-  %.pre-phi339376 = phi i64 [ %296, %.loopexit.thread ], [ %.pre-phi339, %..loopexit_crit_edge21.i.i.i.i118 ], [ %.pre-phi339, %.loopexit ], [ %.pre-phi339, %.lr.ph.i.i.i.i114 ]
+  %.pre-phi339376 = phi i64 [ %296, %.loopexit.thread ], [ %.pre-phi339, %.loopexit ], [ %.pre-phi339, %..loopexit_crit_edge21.i.i.i.i118 ], [ %.pre-phi339, %.lr.ph.i.i.i.i114 ]
   %328 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %328, align 8, !tbaa !33
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
@@ -18884,7 +18884,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit267.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit267
-  %.pre-phi386 = phi i64 [ %210, %.loopexit267.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi386 = phi i64 [ %210, %.loopexit267.thread ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %242 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %242, align 8, !tbaa !33
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
@@ -19099,7 +19099,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit264.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit264
-  %.pre-phi340389 = phi i64 [ %291, %.loopexit264.thread ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi340389 = phi i64 [ %291, %.loopexit264.thread ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
   %323 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %323, align 8, !tbaa !33
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
@@ -19308,7 +19308,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit261.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit261
-  %.pre-phi342392 = phi i64 [ %372, %.loopexit261.thread ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi342392 = phi i64 [ %372, %.loopexit261.thread ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
   %404 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %404, align 8, !tbaa !33
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
@@ -19517,7 +19517,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi344395 = phi i64 [ %453, %.loopexit.thread ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi344395 = phi i64 [ %453, %.loopexit.thread ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
   %485 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %485, align 8, !tbaa !33
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
@@ -20074,7 +20074,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit267.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit267
-  %.pre-phi387 = phi i64 [ %216, %.loopexit267.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi387 = phi i64 [ %216, %.loopexit267.thread ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %248 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %248, align 8, !tbaa !33
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -20289,7 +20289,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit264.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit264
-  %.pre-phi340390 = phi i64 [ %297, %.loopexit264.thread ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi340390 = phi i64 [ %297, %.loopexit264.thread ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
   %329 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %329, align 8, !tbaa !33
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
@@ -20498,7 +20498,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit261.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit261
-  %.pre-phi342393 = phi i64 [ %378, %.loopexit261.thread ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi342393 = phi i64 [ %378, %.loopexit261.thread ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
   %410 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %410, align 8, !tbaa !33
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
@@ -20707,7 +20707,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi344396 = phi i64 [ %459, %.loopexit.thread ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi344396 = phi i64 [ %459, %.loopexit.thread ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
   %491 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %491, align 8, !tbaa !33
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
@@ -21262,7 +21262,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit265.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit265
-  %.pre-phi404 = phi i64 [ %218, %.loopexit265.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit265 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi404 = phi i64 [ %218, %.loopexit265.thread ], [ %.pre-phi, %.loopexit265 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %250 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %250, align 8, !tbaa !33
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
@@ -21477,7 +21477,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit262.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit262
-  %.pre-phi358407 = phi i64 [ %299, %.loopexit262.thread ], [ %.pre-phi358, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi358, %.loopexit262 ], [ %.pre-phi358, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi358407 = phi i64 [ %299, %.loopexit262.thread ], [ %.pre-phi358, %.loopexit262 ], [ %.pre-phi358, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi358, %.lr.ph.i.i.i.i41 ]
   %331 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %331, align 8, !tbaa !33
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
@@ -21686,7 +21686,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit259.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit259
-  %.pre-phi360410 = phi i64 [ %380, %.loopexit259.thread ], [ %.pre-phi360, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi360, %.loopexit259 ], [ %.pre-phi360, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi360410 = phi i64 [ %380, %.loopexit259.thread ], [ %.pre-phi360, %.loopexit259 ], [ %.pre-phi360, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi360, %.lr.ph.i.i.i.i79 ]
   %412 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %412, align 8, !tbaa !33
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
@@ -21895,7 +21895,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi362413 = phi i64 [ %461, %.loopexit.thread ], [ %.pre-phi362, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi362, %.loopexit ], [ %.pre-phi362, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi362413 = phi i64 [ %461, %.loopexit.thread ], [ %.pre-phi362, %.loopexit ], [ %.pre-phi362, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi362, %.lr.ph.i.i.i.i117 ]
   %493 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %493, align 8, !tbaa !33
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
@@ -22947,7 +22947,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -23150,7 +23150,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -23501,7 +23501,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -23704,7 +23704,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -24060,7 +24060,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -24263,7 +24263,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -24620,7 +24620,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -24823,7 +24823,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -25179,7 +25179,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -25382,7 +25382,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -25739,7 +25739,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %48, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -25942,7 +25942,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161189 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -26297,7 +26297,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit121.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit121
-  %.pre-phi187 = phi i64 [ %48, %.loopexit121.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit121 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi187 = phi i64 [ %48, %.loopexit121.thread ], [ %.pre-phi, %.loopexit121 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %80 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %80, align 8, !tbaa !33
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -26500,7 +26500,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi162190 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi162, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi162, %.loopexit ], [ %.pre-phi162, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi162190 = phi i64 [ %121, %.loopexit.thread ], [ %.pre-phi162, %.loopexit ], [ %.pre-phi162, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi162, %.lr.ph.i.i.i.i40 ]
   %153 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %153, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -26993,7 +26993,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi322 = phi i64 [ %150, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi322 = phi i64 [ %150, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %182 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %182, align 8, !tbaa !33
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -27208,7 +27208,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285325 = phi i64 [ %231, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285325 = phi i64 [ %231, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %263 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %263, align 8, !tbaa !33
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
@@ -27417,7 +27417,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287328 = phi i64 [ %312, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287328 = phi i64 [ %312, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %344 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %344, align 8, !tbaa !33
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
@@ -27863,7 +27863,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi322 = phi i64 [ %156, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi322 = phi i64 [ %156, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %188 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %188, align 8, !tbaa !33
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
@@ -28078,7 +28078,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285325 = phi i64 [ %237, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285325 = phi i64 [ %237, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %269 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %269, align 8, !tbaa !33
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
@@ -28287,7 +28287,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287328 = phi i64 [ %318, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287328 = phi i64 [ %318, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %350 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %350, align 8, !tbaa !33
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
@@ -28552,7 +28552,7 @@ default.unreachable:                              ; preds = %63
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %63, %64, %65, %66
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.6168.0.copyload, %64 ], [ %.sroa.7.0.copyload, %65 ], [ %.sroa.8.0.copyload, %66 ], [ %.sroa.5167.0.copyload, %63 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %66 ], [ %.sroa.7.0.copyload, %65 ], [ %.sroa.6168.0.copyload, %64 ], [ %.sroa.5167.0.copyload, %63 ]
   %67 = uitofp nneg i32 %.01321.i to float
   %68 = fneg float %67
   %69 = fmul float %.07.in.i.sroa.speculated, %68
@@ -28766,7 +28766,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit236.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit236
-  %.pre-phi346 = phi i64 [ %151, %.loopexit236.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit236 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi346 = phi i64 [ %151, %.loopexit236.thread ], [ %.pre-phi, %.loopexit236 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %183 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %183, align 8, !tbaa !33
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
@@ -28981,7 +28981,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit233.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit233
-  %.pre-phi308349 = phi i64 [ %232, %.loopexit233.thread ], [ %.pre-phi308, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi308, %.loopexit233 ], [ %.pre-phi308, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi308349 = phi i64 [ %232, %.loopexit233.thread ], [ %.pre-phi308, %.loopexit233 ], [ %.pre-phi308, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi308, %.lr.ph.i.i.i.i47 ]
   %264 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %264, align 8, !tbaa !33
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
@@ -29190,7 +29190,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi310352 = phi i64 [ %313, %.loopexit.thread ], [ %.pre-phi310, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi310, %.loopexit ], [ %.pre-phi310, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi310352 = phi i64 [ %313, %.loopexit.thread ], [ %.pre-phi310, %.loopexit ], [ %.pre-phi310, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi310, %.lr.ph.i.i.i.i85 ]
   %345 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %345, align 8, !tbaa !33
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
@@ -29639,7 +29639,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi322 = phi i64 [ %159, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi322 = phi i64 [ %159, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %191 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %191, align 8, !tbaa !33
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
@@ -29854,7 +29854,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285325 = phi i64 [ %240, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285325 = phi i64 [ %240, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %272 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %272, align 8, !tbaa !33
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -30063,7 +30063,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287328 = phi i64 [ %321, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287328 = phi i64 [ %321, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %353 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %353, align 8, !tbaa !33
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
@@ -30433,7 +30433,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit290.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit290
-  %.pre-phi381 = phi i64 [ %98, %.loopexit290.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit290 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi381 = phi i64 [ %98, %.loopexit290.thread ], [ %.pre-phi, %.loopexit290 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %130 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %130, align 8, !tbaa !33
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -30646,7 +30646,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i79, !llvm.loop !267
 
 .loopexit.i.i79:                                  ; preds = %.lr.ph.i.i.i.i74, %.loopexit287.thread, %..loopexit_crit_edge21.i.i.i.i78, %.loopexit287
-  %.pre-phi346384 = phi i64 [ %179, %.loopexit287.thread ], [ %.pre-phi346, %..loopexit_crit_edge21.i.i.i.i78 ], [ %.pre-phi346, %.loopexit287 ], [ %.pre-phi346, %.lr.ph.i.i.i.i74 ]
+  %.pre-phi346384 = phi i64 [ %179, %.loopexit287.thread ], [ %.pre-phi346, %.loopexit287 ], [ %.pre-phi346, %..loopexit_crit_edge21.i.i.i.i78 ], [ %.pre-phi346, %.lr.ph.i.i.i.i74 ]
   %211 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %211, align 8, !tbaa !33
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -30853,7 +30853,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i117, !llvm.loop !267
 
 .loopexit.i.i117:                                 ; preds = %.lr.ph.i.i.i.i112, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i116, %.loopexit
-  %.pre-phi348387 = phi i64 [ %260, %.loopexit.thread ], [ %.pre-phi348, %..loopexit_crit_edge21.i.i.i.i116 ], [ %.pre-phi348, %.loopexit ], [ %.pre-phi348, %.lr.ph.i.i.i.i112 ]
+  %.pre-phi348387 = phi i64 [ %260, %.loopexit.thread ], [ %.pre-phi348, %.loopexit ], [ %.pre-phi348, %..loopexit_crit_edge21.i.i.i.i116 ], [ %.pre-phi348, %.lr.ph.i.i.i.i112 ]
   %292 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %292, align 8, !tbaa !33
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
@@ -31242,7 +31242,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit326.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit326
-  %.pre-phi417 = phi i64 [ %116, %.loopexit326.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit326 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi417 = phi i64 [ %116, %.loopexit326.thread ], [ %.pre-phi, %.loopexit326 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %148 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %148, align 8, !tbaa !33
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -31455,7 +31455,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i98, !llvm.loop !267
 
 .loopexit.i.i98:                                  ; preds = %.lr.ph.i.i.i.i93, %.loopexit323.thread, %..loopexit_crit_edge21.i.i.i.i97, %.loopexit323
-  %.pre-phi382420 = phi i64 [ %197, %.loopexit323.thread ], [ %.pre-phi382, %..loopexit_crit_edge21.i.i.i.i97 ], [ %.pre-phi382, %.loopexit323 ], [ %.pre-phi382, %.lr.ph.i.i.i.i93 ]
+  %.pre-phi382420 = phi i64 [ %197, %.loopexit323.thread ], [ %.pre-phi382, %.loopexit323 ], [ %.pre-phi382, %..loopexit_crit_edge21.i.i.i.i97 ], [ %.pre-phi382, %.lr.ph.i.i.i.i93 ]
   %229 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %229, align 8, !tbaa !33
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
@@ -31662,7 +31662,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i136, !llvm.loop !267
 
 .loopexit.i.i136:                                 ; preds = %.lr.ph.i.i.i.i131, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i135, %.loopexit
-  %.pre-phi384423 = phi i64 [ %278, %.loopexit.thread ], [ %.pre-phi384, %..loopexit_crit_edge21.i.i.i.i135 ], [ %.pre-phi384, %.loopexit ], [ %.pre-phi384, %.lr.ph.i.i.i.i131 ]
+  %.pre-phi384423 = phi i64 [ %278, %.loopexit.thread ], [ %.pre-phi384, %.loopexit ], [ %.pre-phi384, %..loopexit_crit_edge21.i.i.i.i135 ], [ %.pre-phi384, %.lr.ph.i.i.i.i131 ]
   %310 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %310, align 8, !tbaa !33
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -32034,7 +32034,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit311.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit311
-  %.pre-phi402 = phi i64 [ %107, %.loopexit311.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi402 = phi i64 [ %107, %.loopexit311.thread ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %139 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %139, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
@@ -32247,7 +32247,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i88, !llvm.loop !267
 
 .loopexit.i.i88:                                  ; preds = %.lr.ph.i.i.i.i83, %.loopexit308.thread, %..loopexit_crit_edge21.i.i.i.i87, %.loopexit308
-  %.pre-phi367405 = phi i64 [ %188, %.loopexit308.thread ], [ %.pre-phi367, %..loopexit_crit_edge21.i.i.i.i87 ], [ %.pre-phi367, %.loopexit308 ], [ %.pre-phi367, %.lr.ph.i.i.i.i83 ]
+  %.pre-phi367405 = phi i64 [ %188, %.loopexit308.thread ], [ %.pre-phi367, %.loopexit308 ], [ %.pre-phi367, %..loopexit_crit_edge21.i.i.i.i87 ], [ %.pre-phi367, %.lr.ph.i.i.i.i83 ]
   %220 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %220, align 8, !tbaa !33
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -32454,7 +32454,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i126, !llvm.loop !267
 
 .loopexit.i.i126:                                 ; preds = %.lr.ph.i.i.i.i121, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i125, %.loopexit
-  %.pre-phi369408 = phi i64 [ %269, %.loopexit.thread ], [ %.pre-phi369, %..loopexit_crit_edge21.i.i.i.i125 ], [ %.pre-phi369, %.loopexit ], [ %.pre-phi369, %.lr.ph.i.i.i.i121 ]
+  %.pre-phi369408 = phi i64 [ %269, %.loopexit.thread ], [ %.pre-phi369, %.loopexit ], [ %.pre-phi369, %..loopexit_crit_edge21.i.i.i.i125 ], [ %.pre-phi369, %.lr.ph.i.i.i.i121 ]
   %301 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %301, align 8, !tbaa !33
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
@@ -32938,7 +32938,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit313.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit313
-  %.pre-phi435 = phi i64 [ %186, %.loopexit313.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi435 = phi i64 [ %186, %.loopexit313.thread ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %218 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %218, align 8, !tbaa !33
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
@@ -33153,7 +33153,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit310.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit310
-  %.pre-phi386438 = phi i64 [ %267, %.loopexit310.thread ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi386438 = phi i64 [ %267, %.loopexit310.thread ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
   %299 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %299, align 8, !tbaa !33
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
@@ -33362,7 +33362,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit307.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit307
-  %.pre-phi388441 = phi i64 [ %348, %.loopexit307.thread ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi388441 = phi i64 [ %348, %.loopexit307.thread ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
   %380 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %380, align 8, !tbaa !33
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
@@ -33571,7 +33571,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi390444 = phi i64 [ %429, %.loopexit.thread ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi390444 = phi i64 [ %429, %.loopexit.thread ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
   %461 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %461, align 8, !tbaa !33
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
@@ -34071,7 +34071,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit313.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit313
-  %.pre-phi436 = phi i64 [ %192, %.loopexit313.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi436 = phi i64 [ %192, %.loopexit313.thread ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %224 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %224, align 8, !tbaa !33
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -34286,7 +34286,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit310.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit310
-  %.pre-phi386439 = phi i64 [ %273, %.loopexit310.thread ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi386439 = phi i64 [ %273, %.loopexit310.thread ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
   %305 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %305, align 8, !tbaa !33
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
@@ -34495,7 +34495,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit307.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit307
-  %.pre-phi388442 = phi i64 [ %354, %.loopexit307.thread ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi388442 = phi i64 [ %354, %.loopexit307.thread ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
   %386 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %386, align 8, !tbaa !33
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
@@ -34704,7 +34704,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi390445 = phi i64 [ %435, %.loopexit.thread ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi390445 = phi i64 [ %435, %.loopexit.thread ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
   %467 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %467, align 8, !tbaa !33
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
@@ -35208,7 +35208,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit311.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit311
-  %.pre-phi453 = phi i64 [ %194, %.loopexit311.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi453 = phi i64 [ %194, %.loopexit311.thread ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %226 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %226, align 8, !tbaa !33
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -35423,7 +35423,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit308.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit308
-  %.pre-phi404456 = phi i64 [ %275, %.loopexit308.thread ], [ %.pre-phi404, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi404, %.loopexit308 ], [ %.pre-phi404, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi404456 = phi i64 [ %275, %.loopexit308.thread ], [ %.pre-phi404, %.loopexit308 ], [ %.pre-phi404, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi404, %.lr.ph.i.i.i.i53 ]
   %307 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %307, align 8, !tbaa !33
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
@@ -35632,7 +35632,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit305.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit305
-  %.pre-phi406459 = phi i64 [ %356, %.loopexit305.thread ], [ %.pre-phi406, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi406, %.loopexit305 ], [ %.pre-phi406, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi406459 = phi i64 [ %356, %.loopexit305.thread ], [ %.pre-phi406, %.loopexit305 ], [ %.pre-phi406, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi406, %.lr.ph.i.i.i.i91 ]
   %388 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %388, align 8, !tbaa !33
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
@@ -35841,7 +35841,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi408462 = phi i64 [ %437, %.loopexit.thread ], [ %.pre-phi408, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi408, %.loopexit ], [ %.pre-phi408, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi408462 = phi i64 [ %437, %.loopexit.thread ], [ %.pre-phi408, %.loopexit ], [ %.pre-phi408, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi408, %.lr.ph.i.i.i.i129 ]
   %469 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %469, align 8, !tbaa !33
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
@@ -36046,14 +36046,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %31 = load ptr, ptr %11, align 8, !tbaa !226
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %33, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %29
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.012, label %36, label %70
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %29
   %34 = load i64, ptr %32, align 8, !tbaa !188
   %35 = add i64 %34, 1
   call void @_ZdlPvm(ptr noundef %31, i64 noundef %35) #26
@@ -36061,8 +36056,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.012, label %36, label %70
 
-36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn23 = phi { ptr, i32 } [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br i1 %.012, label %36, label %70
+
+36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn23 = phi { ptr, i32 } [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @__cxa_free_exception(ptr %25) #8
   br label %70
 
@@ -36113,7 +36113,7 @@ _ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !235
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc20, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i
-  %.0.i.i.i.i.i = phi ptr [ %45, %.noexc20 ], [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %49, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %45, %.noexc20 ], [ %49, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.i.i.i.i.i, ptr %51, align 8, !tbaa !236
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %14, i32 %38)
@@ -36169,8 +36169,8 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge, %57
   %exitcond.not = icmp eq i64 %indvars.iv.next, 18
   br i1 %exitcond.not, label %63, label %64, !llvm.loop !322
 
-70:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %36
-  %.pn.pn = phi { ptr, i32 } [ %.pn23, %36 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+70:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %36
+  %.pn.pn = phi { ptr, i32 } [ %.pn23, %36 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   resume { ptr, i32 } %.pn.pn
 
 71:                                               ; preds = %27
@@ -37338,7 +37338,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -37541,7 +37541,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -37881,7 +37881,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -38084,7 +38084,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -38429,7 +38429,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %45, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %45, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %77 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %77, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -38632,7 +38632,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %118, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %118, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %150 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %150, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -38978,7 +38978,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %45, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %45, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %77 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %77, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -39181,7 +39181,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %118, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %118, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %150 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %150, align 8, !tbaa !33
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -39526,7 +39526,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -39729,7 +39729,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -40075,7 +40075,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit115.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit115
-  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi183 = phi i64 [ %47, %.loopexit115.thread ], [ %.pre-phi, %.loopexit115 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -40278,7 +40278,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi156186 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi156, %.loopexit ], [ %.pre-phi156, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi156, %.lr.ph.i.i.i.i43 ]
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -40622,7 +40622,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit116.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit116
-  %.pre-phi184 = phi i64 [ %47, %.loopexit116.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit116 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi184 = phi i64 [ %47, %.loopexit116.thread ], [ %.pre-phi, %.loopexit116 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %79 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %79, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -40825,7 +40825,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i48, !llvm.loop !267
 
 .loopexit.i.i48:                                  ; preds = %.lr.ph.i.i.i.i43, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i47, %.loopexit
-  %.pre-phi157187 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi157, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi157, %.loopexit ], [ %.pre-phi157, %.lr.ph.i.i.i.i43 ]
+  %.pre-phi157187 = phi i64 [ %120, %.loopexit.thread ], [ %.pre-phi157, %.loopexit ], [ %.pre-phi157, %..loopexit_crit_edge21.i.i.i.i47 ], [ %.pre-phi157, %.lr.ph.i.i.i.i43 ]
   %152 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %152, align 8, !tbaa !33
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -41299,7 +41299,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %137, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %137, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %169 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %169, align 8, !tbaa !33
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
@@ -41514,7 +41514,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %218, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %218, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %250 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %250, align 8, !tbaa !33
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
@@ -41723,7 +41723,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %299, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %299, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %331 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %331, align 8, !tbaa !33
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
@@ -42162,7 +42162,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %143, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %143, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %175 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -42377,7 +42377,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %224, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %224, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %256 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %256, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
@@ -42586,7 +42586,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %305, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %305, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %337 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %337, align 8, !tbaa !33
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -42862,7 +42862,7 @@ default.unreachable:                              ; preds = %64
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %64, %65, %66, %67
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.6153.0.copyload, %65 ], [ %.sroa.7.0.copyload, %66 ], [ %.sroa.8.0.copyload, %67 ], [ %.sroa.5.0.copyload, %64 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %67 ], [ %.sroa.7.0.copyload, %66 ], [ %.sroa.6153.0.copyload, %65 ], [ %.sroa.5.0.copyload, %64 ]
   %68 = uitofp nneg i32 %.01321.i to float
   %69 = fneg float %68
   %70 = fmul float %.07.in.i.sroa.speculated, %69
@@ -43058,7 +43058,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit203.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit203
-  %.pre-phi311 = phi i64 [ %138, %.loopexit203.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit203 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi311 = phi i64 [ %138, %.loopexit203.thread ], [ %.pre-phi, %.loopexit203 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %170 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %170, align 8, !tbaa !33
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -43273,7 +43273,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit200.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit200
-  %.pre-phi275314 = phi i64 [ %219, %.loopexit200.thread ], [ %.pre-phi275, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi275, %.loopexit200 ], [ %.pre-phi275, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi275314 = phi i64 [ %219, %.loopexit200.thread ], [ %.pre-phi275, %.loopexit200 ], [ %.pre-phi275, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi275, %.lr.ph.i.i.i.i39 ]
   %251 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %251, align 8, !tbaa !33
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
@@ -43482,7 +43482,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi277317 = phi i64 [ %300, %.loopexit.thread ], [ %.pre-phi277, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi277, %.loopexit ], [ %.pre-phi277, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi277317 = phi i64 [ %300, %.loopexit.thread ], [ %.pre-phi277, %.loopexit ], [ %.pre-phi277, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi277, %.lr.ph.i.i.i.i77 ]
   %332 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %332, align 8, !tbaa !33
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
@@ -43924,7 +43924,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit197.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit197
-  %.pre-phi288 = phi i64 [ %146, %.loopexit197.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi288 = phi i64 [ %146, %.loopexit197.thread ], [ %.pre-phi, %.loopexit197 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %178 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %178, align 8, !tbaa !33
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -44139,7 +44139,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i44, !llvm.loop !267
 
 .loopexit.i.i44:                                  ; preds = %.lr.ph.i.i.i.i39, %.loopexit194.thread, %..loopexit_crit_edge21.i.i.i.i43, %.loopexit194
-  %.pre-phi253291 = phi i64 [ %227, %.loopexit194.thread ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
+  %.pre-phi253291 = phi i64 [ %227, %.loopexit194.thread ], [ %.pre-phi253, %.loopexit194 ], [ %.pre-phi253, %..loopexit_crit_edge21.i.i.i.i43 ], [ %.pre-phi253, %.lr.ph.i.i.i.i39 ]
   %259 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %259, align 8, !tbaa !33
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
@@ -44348,7 +44348,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i82, !llvm.loop !267
 
 .loopexit.i.i82:                                  ; preds = %.lr.ph.i.i.i.i77, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i81, %.loopexit
-  %.pre-phi255294 = phi i64 [ %308, %.loopexit.thread ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
+  %.pre-phi255294 = phi i64 [ %308, %.loopexit.thread ], [ %.pre-phi255, %.loopexit ], [ %.pre-phi255, %..loopexit_crit_edge21.i.i.i.i81 ], [ %.pre-phi255, %.lr.ph.i.i.i.i77 ]
   %340 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %340, align 8, !tbaa !33
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
@@ -44715,7 +44715,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit239.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit239
-  %.pre-phi334 = phi i64 [ %89, %.loopexit239.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit239 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi334 = phi i64 [ %89, %.loopexit239.thread ], [ %.pre-phi, %.loopexit239 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %121 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %121, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -44928,7 +44928,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i68, !llvm.loop !267
 
 .loopexit.i.i68:                                  ; preds = %.lr.ph.i.i.i.i63, %.loopexit236.thread, %..loopexit_crit_edge21.i.i.i.i67, %.loopexit236
-  %.pre-phi295337 = phi i64 [ %170, %.loopexit236.thread ], [ %.pre-phi295, %..loopexit_crit_edge21.i.i.i.i67 ], [ %.pre-phi295, %.loopexit236 ], [ %.pre-phi295, %.lr.ph.i.i.i.i63 ]
+  %.pre-phi295337 = phi i64 [ %170, %.loopexit236.thread ], [ %.pre-phi295, %.loopexit236 ], [ %.pre-phi295, %..loopexit_crit_edge21.i.i.i.i67 ], [ %.pre-phi295, %.lr.ph.i.i.i.i63 ]
   %202 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %202, align 8, !tbaa !33
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -45135,7 +45135,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i106, !llvm.loop !267
 
 .loopexit.i.i106:                                 ; preds = %.lr.ph.i.i.i.i101, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i105, %.loopexit
-  %.pre-phi297340 = phi i64 [ %251, %.loopexit.thread ], [ %.pre-phi297, %..loopexit_crit_edge21.i.i.i.i105 ], [ %.pre-phi297, %.loopexit ], [ %.pre-phi297, %.lr.ph.i.i.i.i101 ]
+  %.pre-phi297340 = phi i64 [ %251, %.loopexit.thread ], [ %.pre-phi297, %.loopexit ], [ %.pre-phi297, %..loopexit_crit_edge21.i.i.i.i105 ], [ %.pre-phi297, %.lr.ph.i.i.i.i101 ]
   %283 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %283, align 8, !tbaa !33
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
@@ -45525,7 +45525,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit269.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit269
-  %.pre-phi367 = phi i64 [ %106, %.loopexit269.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit269 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi367 = phi i64 [ %106, %.loopexit269.thread ], [ %.pre-phi, %.loopexit269 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %138 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %138, align 8, !tbaa !33
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -45738,7 +45738,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i87, !llvm.loop !267
 
 .loopexit.i.i87:                                  ; preds = %.lr.ph.i.i.i.i82, %.loopexit266.thread, %..loopexit_crit_edge21.i.i.i.i86, %.loopexit266
-  %.pre-phi325370 = phi i64 [ %187, %.loopexit266.thread ], [ %.pre-phi325, %..loopexit_crit_edge21.i.i.i.i86 ], [ %.pre-phi325, %.loopexit266 ], [ %.pre-phi325, %.lr.ph.i.i.i.i82 ]
+  %.pre-phi325370 = phi i64 [ %187, %.loopexit266.thread ], [ %.pre-phi325, %.loopexit266 ], [ %.pre-phi325, %..loopexit_crit_edge21.i.i.i.i86 ], [ %.pre-phi325, %.lr.ph.i.i.i.i82 ]
   %219 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %219, align 8, !tbaa !33
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
@@ -45945,7 +45945,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i125, !llvm.loop !267
 
 .loopexit.i.i125:                                 ; preds = %.lr.ph.i.i.i.i120, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i124, %.loopexit
-  %.pre-phi327373 = phi i64 [ %268, %.loopexit.thread ], [ %.pre-phi327, %..loopexit_crit_edge21.i.i.i.i124 ], [ %.pre-phi327, %.loopexit ], [ %.pre-phi327, %.lr.ph.i.i.i.i120 ]
+  %.pre-phi327373 = phi i64 [ %268, %.loopexit.thread ], [ %.pre-phi327, %.loopexit ], [ %.pre-phi327, %..loopexit_crit_edge21.i.i.i.i124 ], [ %.pre-phi327, %.lr.ph.i.i.i.i120 ]
   %300 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %300, align 8, !tbaa !33
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
@@ -46310,7 +46310,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit262.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit262
-  %.pre-phi351 = phi i64 [ %104, %.loopexit262.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit262 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi351 = phi i64 [ %104, %.loopexit262.thread ], [ %.pre-phi, %.loopexit262 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %136 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %136, align 8, !tbaa !33
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -46523,7 +46523,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i77, !llvm.loop !267
 
 .loopexit.i.i77:                                  ; preds = %.lr.ph.i.i.i.i72, %.loopexit259.thread, %..loopexit_crit_edge21.i.i.i.i76, %.loopexit259
-  %.pre-phi318354 = phi i64 [ %185, %.loopexit259.thread ], [ %.pre-phi318, %..loopexit_crit_edge21.i.i.i.i76 ], [ %.pre-phi318, %.loopexit259 ], [ %.pre-phi318, %.lr.ph.i.i.i.i72 ]
+  %.pre-phi318354 = phi i64 [ %185, %.loopexit259.thread ], [ %.pre-phi318, %.loopexit259 ], [ %.pre-phi318, %..loopexit_crit_edge21.i.i.i.i76 ], [ %.pre-phi318, %.lr.ph.i.i.i.i72 ]
   %217 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %217, align 8, !tbaa !33
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -46730,7 +46730,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i115, !llvm.loop !267
 
 .loopexit.i.i115:                                 ; preds = %.lr.ph.i.i.i.i110, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i114, %.loopexit
-  %.pre-phi320357 = phi i64 [ %266, %.loopexit.thread ], [ %.pre-phi320, %..loopexit_crit_edge21.i.i.i.i114 ], [ %.pre-phi320, %.loopexit ], [ %.pre-phi320, %.lr.ph.i.i.i.i110 ]
+  %.pre-phi320357 = phi i64 [ %266, %.loopexit.thread ], [ %.pre-phi320, %.loopexit ], [ %.pre-phi320, %..loopexit_crit_edge21.i.i.i.i114 ], [ %.pre-phi320, %.lr.ph.i.i.i.i110 ]
   %298 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %298, align 8, !tbaa !33
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
@@ -47207,7 +47207,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit267.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit267
-  %.pre-phi386 = phi i64 [ %170, %.loopexit267.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi386 = phi i64 [ %170, %.loopexit267.thread ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %202 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %202, align 8, !tbaa !33
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -47422,7 +47422,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit264.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit264
-  %.pre-phi340389 = phi i64 [ %251, %.loopexit264.thread ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi340389 = phi i64 [ %251, %.loopexit264.thread ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
   %283 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %283, align 8, !tbaa !33
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
@@ -47631,7 +47631,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit261.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit261
-  %.pre-phi342392 = phi i64 [ %332, %.loopexit261.thread ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi342392 = phi i64 [ %332, %.loopexit261.thread ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
   %364 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %364, align 8, !tbaa !33
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
@@ -47840,7 +47840,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi344395 = phi i64 [ %413, %.loopexit.thread ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi344395 = phi i64 [ %413, %.loopexit.thread ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
   %445 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %445, align 8, !tbaa !33
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
@@ -48335,7 +48335,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit267.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit267
-  %.pre-phi387 = phi i64 [ %176, %.loopexit267.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi387 = phi i64 [ %176, %.loopexit267.thread ], [ %.pre-phi, %.loopexit267 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %208 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %208, align 8, !tbaa !33
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
@@ -48550,7 +48550,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit264.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit264
-  %.pre-phi340390 = phi i64 [ %257, %.loopexit264.thread ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi340390 = phi i64 [ %257, %.loopexit264.thread ], [ %.pre-phi340, %.loopexit264 ], [ %.pre-phi340, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi340, %.lr.ph.i.i.i.i41 ]
   %289 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %289, align 8, !tbaa !33
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
@@ -48759,7 +48759,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit261.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit261
-  %.pre-phi342393 = phi i64 [ %338, %.loopexit261.thread ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi342393 = phi i64 [ %338, %.loopexit261.thread ], [ %.pre-phi342, %.loopexit261 ], [ %.pre-phi342, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi342, %.lr.ph.i.i.i.i79 ]
   %370 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %370, align 8, !tbaa !33
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
@@ -48968,7 +48968,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi344396 = phi i64 [ %419, %.loopexit.thread ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi344396 = phi i64 [ %419, %.loopexit.thread ], [ %.pre-phi344, %.loopexit ], [ %.pre-phi344, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi344, %.lr.ph.i.i.i.i117 ]
   %451 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %451, align 8, !tbaa !33
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
@@ -49467,7 +49467,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit265.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit265
-  %.pre-phi404 = phi i64 [ %178, %.loopexit265.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit265 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi404 = phi i64 [ %178, %.loopexit265.thread ], [ %.pre-phi, %.loopexit265 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %210 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %210, align 8, !tbaa !33
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -49682,7 +49682,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i46, !llvm.loop !267
 
 .loopexit.i.i46:                                  ; preds = %.lr.ph.i.i.i.i41, %.loopexit262.thread, %..loopexit_crit_edge21.i.i.i.i45, %.loopexit262
-  %.pre-phi358407 = phi i64 [ %259, %.loopexit262.thread ], [ %.pre-phi358, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi358, %.loopexit262 ], [ %.pre-phi358, %.lr.ph.i.i.i.i41 ]
+  %.pre-phi358407 = phi i64 [ %259, %.loopexit262.thread ], [ %.pre-phi358, %.loopexit262 ], [ %.pre-phi358, %..loopexit_crit_edge21.i.i.i.i45 ], [ %.pre-phi358, %.lr.ph.i.i.i.i41 ]
   %291 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %291, align 8, !tbaa !33
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
@@ -49891,7 +49891,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit259.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit259
-  %.pre-phi360410 = phi i64 [ %340, %.loopexit259.thread ], [ %.pre-phi360, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi360, %.loopexit259 ], [ %.pre-phi360, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi360410 = phi i64 [ %340, %.loopexit259.thread ], [ %.pre-phi360, %.loopexit259 ], [ %.pre-phi360, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi360, %.lr.ph.i.i.i.i79 ]
   %372 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %372, align 8, !tbaa !33
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
@@ -50100,7 +50100,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi362413 = phi i64 [ %421, %.loopexit.thread ], [ %.pre-phi362, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi362, %.loopexit ], [ %.pre-phi362, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi362413 = phi i64 [ %421, %.loopexit.thread ], [ %.pre-phi362, %.loopexit ], [ %.pre-phi362, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi362, %.lr.ph.i.i.i.i117 ]
   %453 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %453, align 8, !tbaa !33
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
@@ -51150,7 +51150,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -51353,7 +51353,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -51687,7 +51687,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -51890,7 +51890,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -52229,7 +52229,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %44, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %44, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %76 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %76, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -52432,7 +52432,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %117, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %117, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %149 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -52772,7 +52772,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %44, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %44, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %76 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %76, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -52975,7 +52975,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %117, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %117, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %149 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %149, align 8, !tbaa !33
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -53314,7 +53314,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -53517,7 +53517,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -53857,7 +53857,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit120.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit120
-  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi185 = phi i64 [ %46, %.loopexit120.thread ], [ %.pre-phi, %.loopexit120 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -54060,7 +54060,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi161188 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi161, %.loopexit ], [ %.pre-phi161, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi161, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -54398,7 +54398,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit121.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit121
-  %.pre-phi186 = phi i64 [ %46, %.loopexit121.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit121 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi186 = phi i64 [ %46, %.loopexit121.thread ], [ %.pre-phi, %.loopexit121 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %78, align 8, !tbaa !33
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -54601,7 +54601,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   br label %.loopexit.i.i45, !llvm.loop !267
 
 .loopexit.i.i45:                                  ; preds = %.lr.ph.i.i.i.i40, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i44, %.loopexit
-  %.pre-phi162189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi162, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi162, %.loopexit ], [ %.pre-phi162, %.lr.ph.i.i.i.i40 ]
+  %.pre-phi162189 = phi i64 [ %119, %.loopexit.thread ], [ %.pre-phi162, %.loopexit ], [ %.pre-phi162, %..loopexit_crit_edge21.i.i.i.i44 ], [ %.pre-phi162, %.lr.ph.i.i.i.i40 ]
   %151 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %151, align 8, !tbaa !33
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -55059,7 +55059,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi320 = phi i64 [ %134, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi320 = phi i64 [ %134, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %166 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %166, align 8, !tbaa !33
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -55274,7 +55274,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285323 = phi i64 [ %215, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285323 = phi i64 [ %215, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %247 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %247, align 8, !tbaa !33
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
@@ -55483,7 +55483,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287326 = phi i64 [ %296, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287326 = phi i64 [ %296, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %328 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %328, align 8, !tbaa !33
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
@@ -55909,7 +55909,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi320 = phi i64 [ %140, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi320 = phi i64 [ %140, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %172 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %172, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -56124,7 +56124,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285323 = phi i64 [ %221, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285323 = phi i64 [ %221, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %253 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %253, align 8, !tbaa !33
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -56333,7 +56333,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287326 = phi i64 [ %302, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287326 = phi i64 [ %302, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %334 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %334, align 8, !tbaa !33
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
@@ -56596,7 +56596,7 @@ default.unreachable:                              ; preds = %61
   unreachable
 
 _ZNK5nblib12QuarticAngle13forceConstantEi.exit:   ; preds = %61, %62, %63, %64
-  %.07.in.i.sroa.speculated = phi float [ %.sroa.6168.0.copyload, %62 ], [ %.sroa.7.0.copyload, %63 ], [ %.sroa.8.0.copyload, %64 ], [ %.sroa.5167.0.copyload, %61 ]
+  %.07.in.i.sroa.speculated = phi float [ %.sroa.8.0.copyload, %64 ], [ %.sroa.7.0.copyload, %63 ], [ %.sroa.6168.0.copyload, %62 ], [ %.sroa.5167.0.copyload, %61 ]
   %65 = uitofp nneg i32 %.01321.i to float
   %66 = fneg float %65
   %67 = fmul float %.07.in.i.sroa.speculated, %66
@@ -56792,7 +56792,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit236.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit236
-  %.pre-phi344 = phi i64 [ %135, %.loopexit236.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit236 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi344 = phi i64 [ %135, %.loopexit236.thread ], [ %.pre-phi, %.loopexit236 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %167 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %167, align 8, !tbaa !33
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -57007,7 +57007,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit233.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit233
-  %.pre-phi308347 = phi i64 [ %216, %.loopexit233.thread ], [ %.pre-phi308, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi308, %.loopexit233 ], [ %.pre-phi308, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi308347 = phi i64 [ %216, %.loopexit233.thread ], [ %.pre-phi308, %.loopexit233 ], [ %.pre-phi308, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi308, %.lr.ph.i.i.i.i47 ]
   %248 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %248, align 8, !tbaa !33
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -57216,7 +57216,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi310350 = phi i64 [ %297, %.loopexit.thread ], [ %.pre-phi310, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi310, %.loopexit ], [ %.pre-phi310, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi310350 = phi i64 [ %297, %.loopexit.thread ], [ %.pre-phi310, %.loopexit ], [ %.pre-phi310, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi310, %.lr.ph.i.i.i.i85 ]
   %329 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %329, align 8, !tbaa !33
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
@@ -57645,7 +57645,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit229.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit229
-  %.pre-phi320 = phi i64 [ %143, %.loopexit229.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi320 = phi i64 [ %143, %.loopexit229.thread ], [ %.pre-phi, %.loopexit229 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %175 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -57860,7 +57860,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i52, !llvm.loop !267
 
 .loopexit.i.i52:                                  ; preds = %.lr.ph.i.i.i.i47, %.loopexit226.thread, %..loopexit_crit_edge21.i.i.i.i51, %.loopexit226
-  %.pre-phi285323 = phi i64 [ %224, %.loopexit226.thread ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
+  %.pre-phi285323 = phi i64 [ %224, %.loopexit226.thread ], [ %.pre-phi285, %.loopexit226 ], [ %.pre-phi285, %..loopexit_crit_edge21.i.i.i.i51 ], [ %.pre-phi285, %.lr.ph.i.i.i.i47 ]
   %256 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %256, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
@@ -58069,7 +58069,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i90, !llvm.loop !267
 
 .loopexit.i.i90:                                  ; preds = %.lr.ph.i.i.i.i85, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i89, %.loopexit
-  %.pre-phi287326 = phi i64 [ %305, %.loopexit.thread ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
+  %.pre-phi287326 = phi i64 [ %305, %.loopexit.thread ], [ %.pre-phi287, %.loopexit ], [ %.pre-phi287, %..loopexit_crit_edge21.i.i.i.i89 ], [ %.pre-phi287, %.lr.ph.i.i.i.i85 ]
   %337 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %337, align 8, !tbaa !33
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -58419,7 +58419,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit271.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit271
-  %.pre-phi360 = phi i64 [ %82, %.loopexit271.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit271 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi360 = phi i64 [ %82, %.loopexit271.thread ], [ %.pre-phi, %.loopexit271 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %114 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %114, align 8, !tbaa !33
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -58632,7 +58632,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i75, !llvm.loop !267
 
 .loopexit.i.i75:                                  ; preds = %.lr.ph.i.i.i.i70, %.loopexit268.thread, %..loopexit_crit_edge21.i.i.i.i74, %.loopexit268
-  %.pre-phi327363 = phi i64 [ %163, %.loopexit268.thread ], [ %.pre-phi327, %..loopexit_crit_edge21.i.i.i.i74 ], [ %.pre-phi327, %.loopexit268 ], [ %.pre-phi327, %.lr.ph.i.i.i.i70 ]
+  %.pre-phi327363 = phi i64 [ %163, %.loopexit268.thread ], [ %.pre-phi327, %.loopexit268 ], [ %.pre-phi327, %..loopexit_crit_edge21.i.i.i.i74 ], [ %.pre-phi327, %.lr.ph.i.i.i.i70 ]
   %195 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %195, align 8, !tbaa !33
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -58839,7 +58839,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i113, !llvm.loop !267
 
 .loopexit.i.i113:                                 ; preds = %.lr.ph.i.i.i.i108, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i112, %.loopexit
-  %.pre-phi329366 = phi i64 [ %244, %.loopexit.thread ], [ %.pre-phi329, %..loopexit_crit_edge21.i.i.i.i112 ], [ %.pre-phi329, %.loopexit ], [ %.pre-phi329, %.lr.ph.i.i.i.i108 ]
+  %.pre-phi329366 = phi i64 [ %244, %.loopexit.thread ], [ %.pre-phi329, %.loopexit ], [ %.pre-phi329, %..loopexit_crit_edge21.i.i.i.i112 ], [ %.pre-phi329, %.lr.ph.i.i.i.i108 ]
   %276 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %276, align 8, !tbaa !33
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -59208,7 +59208,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit307.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit307
-  %.pre-phi396 = phi i64 [ %100, %.loopexit307.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit307 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi396 = phi i64 [ %100, %.loopexit307.thread ], [ %.pre-phi, %.loopexit307 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %132 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %132, align 8, !tbaa !33
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -59421,7 +59421,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i94, !llvm.loop !267
 
 .loopexit.i.i94:                                  ; preds = %.lr.ph.i.i.i.i89, %.loopexit304.thread, %..loopexit_crit_edge21.i.i.i.i93, %.loopexit304
-  %.pre-phi363399 = phi i64 [ %181, %.loopexit304.thread ], [ %.pre-phi363, %..loopexit_crit_edge21.i.i.i.i93 ], [ %.pre-phi363, %.loopexit304 ], [ %.pre-phi363, %.lr.ph.i.i.i.i89 ]
+  %.pre-phi363399 = phi i64 [ %181, %.loopexit304.thread ], [ %.pre-phi363, %.loopexit304 ], [ %.pre-phi363, %..loopexit_crit_edge21.i.i.i.i93 ], [ %.pre-phi363, %.lr.ph.i.i.i.i89 ]
   %213 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %213, align 8, !tbaa !33
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
@@ -59628,7 +59628,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i132, !llvm.loop !267
 
 .loopexit.i.i132:                                 ; preds = %.lr.ph.i.i.i.i127, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i131, %.loopexit
-  %.pre-phi365402 = phi i64 [ %262, %.loopexit.thread ], [ %.pre-phi365, %..loopexit_crit_edge21.i.i.i.i131 ], [ %.pre-phi365, %.loopexit ], [ %.pre-phi365, %.lr.ph.i.i.i.i127 ]
+  %.pre-phi365402 = phi i64 [ %262, %.loopexit.thread ], [ %.pre-phi365, %.loopexit ], [ %.pre-phi365, %..loopexit_crit_edge21.i.i.i.i131 ], [ %.pre-phi365, %.lr.ph.i.i.i.i127 ]
   %294 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %294, align 8, !tbaa !33
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
@@ -59980,7 +59980,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit292.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit292
-  %.pre-phi381 = phi i64 [ %91, %.loopexit292.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit292 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi381 = phi i64 [ %91, %.loopexit292.thread ], [ %.pre-phi, %.loopexit292 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %123 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %123, align 8, !tbaa !33
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -60193,7 +60193,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   br label %.loopexit.i.i84, !llvm.loop !267
 
 .loopexit.i.i84:                                  ; preds = %.lr.ph.i.i.i.i79, %.loopexit289.thread, %..loopexit_crit_edge21.i.i.i.i83, %.loopexit289
-  %.pre-phi348384 = phi i64 [ %172, %.loopexit289.thread ], [ %.pre-phi348, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi348, %.loopexit289 ], [ %.pre-phi348, %.lr.ph.i.i.i.i79 ]
+  %.pre-phi348384 = phi i64 [ %172, %.loopexit289.thread ], [ %.pre-phi348, %.loopexit289 ], [ %.pre-phi348, %..loopexit_crit_edge21.i.i.i.i83 ], [ %.pre-phi348, %.lr.ph.i.i.i.i79 ]
   %204 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %204, align 8, !tbaa !33
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -60400,7 +60400,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   br label %.loopexit.i.i122, !llvm.loop !267
 
 .loopexit.i.i122:                                 ; preds = %.lr.ph.i.i.i.i117, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i121, %.loopexit
-  %.pre-phi350387 = phi i64 [ %253, %.loopexit.thread ], [ %.pre-phi350, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi350, %.loopexit ], [ %.pre-phi350, %.lr.ph.i.i.i.i117 ]
+  %.pre-phi350387 = phi i64 [ %253, %.loopexit.thread ], [ %.pre-phi350, %.loopexit ], [ %.pre-phi350, %..loopexit_crit_edge21.i.i.i.i121 ], [ %.pre-phi350, %.lr.ph.i.i.i.i117 ]
   %285 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %285, align 8, !tbaa !33
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
@@ -60861,7 +60861,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit313.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit313
-  %.pre-phi432 = phi i64 [ %167, %.loopexit313.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi432 = phi i64 [ %167, %.loopexit313.thread ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %199 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %199, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -61076,7 +61076,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit310.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit310
-  %.pre-phi386435 = phi i64 [ %248, %.loopexit310.thread ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi386435 = phi i64 [ %248, %.loopexit310.thread ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
   %280 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %280, align 8, !tbaa !33
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
@@ -61285,7 +61285,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit307.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit307
-  %.pre-phi388438 = phi i64 [ %329, %.loopexit307.thread ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi388438 = phi i64 [ %329, %.loopexit307.thread ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
   %361 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %361, align 8, !tbaa !33
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
@@ -61494,7 +61494,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi390441 = phi i64 [ %410, %.loopexit.thread ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi390441 = phi i64 [ %410, %.loopexit.thread ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
   %442 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %442, align 8, !tbaa !33
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
@@ -61971,7 +61971,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit313.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit313
-  %.pre-phi433 = phi i64 [ %173, %.loopexit313.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi433 = phi i64 [ %173, %.loopexit313.thread ], [ %.pre-phi, %.loopexit313 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %205 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %205, align 8, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
@@ -62186,7 +62186,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit310.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit310
-  %.pre-phi386436 = phi i64 [ %254, %.loopexit310.thread ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi386436 = phi i64 [ %254, %.loopexit310.thread ], [ %.pre-phi386, %.loopexit310 ], [ %.pre-phi386, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi386, %.lr.ph.i.i.i.i53 ]
   %286 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %286, align 8, !tbaa !33
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
@@ -62395,7 +62395,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit307.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit307
-  %.pre-phi388439 = phi i64 [ %335, %.loopexit307.thread ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi388439 = phi i64 [ %335, %.loopexit307.thread ], [ %.pre-phi388, %.loopexit307 ], [ %.pre-phi388, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi388, %.lr.ph.i.i.i.i91 ]
   %367 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %367, align 8, !tbaa !33
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
@@ -62604,7 +62604,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi390442 = phi i64 [ %416, %.loopexit.thread ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi390442 = phi i64 [ %416, %.loopexit.thread ], [ %.pre-phi390, %.loopexit ], [ %.pre-phi390, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi390, %.lr.ph.i.i.i.i129 ]
   %448 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %448, align 8, !tbaa !33
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
@@ -63085,7 +63085,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   br label %.loopexit.i.i, !llvm.loop !267
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %.loopexit311.thread, %..loopexit_crit_edge21.i.i.i.i, %.loopexit311
-  %.pre-phi450 = phi i64 [ %175, %.loopexit311.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
+  %.pre-phi450 = phi i64 [ %175, %.loopexit311.thread ], [ %.pre-phi, %.loopexit311 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i.i ]
   %207 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %207, align 8, !tbaa !33
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -63300,7 +63300,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   br label %.loopexit.i.i58, !llvm.loop !267
 
 .loopexit.i.i58:                                  ; preds = %.lr.ph.i.i.i.i53, %.loopexit308.thread, %..loopexit_crit_edge21.i.i.i.i57, %.loopexit308
-  %.pre-phi404453 = phi i64 [ %256, %.loopexit308.thread ], [ %.pre-phi404, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi404, %.loopexit308 ], [ %.pre-phi404, %.lr.ph.i.i.i.i53 ]
+  %.pre-phi404453 = phi i64 [ %256, %.loopexit308.thread ], [ %.pre-phi404, %.loopexit308 ], [ %.pre-phi404, %..loopexit_crit_edge21.i.i.i.i57 ], [ %.pre-phi404, %.lr.ph.i.i.i.i53 ]
   %288 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %288, align 8, !tbaa !33
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -63509,7 +63509,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   br label %.loopexit.i.i96, !llvm.loop !267
 
 .loopexit.i.i96:                                  ; preds = %.lr.ph.i.i.i.i91, %.loopexit305.thread, %..loopexit_crit_edge21.i.i.i.i95, %.loopexit305
-  %.pre-phi406456 = phi i64 [ %337, %.loopexit305.thread ], [ %.pre-phi406, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi406, %.loopexit305 ], [ %.pre-phi406, %.lr.ph.i.i.i.i91 ]
+  %.pre-phi406456 = phi i64 [ %337, %.loopexit305.thread ], [ %.pre-phi406, %.loopexit305 ], [ %.pre-phi406, %..loopexit_crit_edge21.i.i.i.i95 ], [ %.pre-phi406, %.lr.ph.i.i.i.i91 ]
   %369 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %369, align 8, !tbaa !33
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
@@ -63718,7 +63718,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   br label %.loopexit.i.i134, !llvm.loop !267
 
 .loopexit.i.i134:                                 ; preds = %.lr.ph.i.i.i.i129, %.loopexit.thread, %..loopexit_crit_edge21.i.i.i.i133, %.loopexit
-  %.pre-phi408459 = phi i64 [ %418, %.loopexit.thread ], [ %.pre-phi408, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi408, %.loopexit ], [ %.pre-phi408, %.lr.ph.i.i.i.i129 ]
+  %.pre-phi408459 = phi i64 [ %418, %.loopexit.thread ], [ %.pre-phi408, %.loopexit ], [ %.pre-phi408, %..loopexit_crit_edge21.i.i.i.i133 ], [ %.pre-phi408, %.lr.ph.i.i.i.i129 ]
   %450 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr null, ptr %450, align 8, !tbaa !33
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 8

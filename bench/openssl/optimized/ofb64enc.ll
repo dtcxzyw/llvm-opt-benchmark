@@ -110,7 +110,7 @@ define void @DES_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %70, %._crit_edge
-  %.079.lcssa92 = phi i32 [ %68, %70 ], [ %68, %._crit_edge ], [ %9, %6 ]
+  %.079.lcssa92 = phi i32 [ %68, %._crit_edge ], [ %68, %70 ], [ %9, %6 ]
   store i32 %.079.lcssa92, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -1055,8 +1055,8 @@ jdwpTag.exit:                                     ; preds = %21
   br i1 %.not.i55, label %isReferenceTag.exit, label %jdwpTag.exit.thread123
 
 jdwpTag.exit.thread123:                           ; preds = %18, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %jdwpTag.exit
-  %22 = phi i8 [ %.pr106, %jdwpTag.exit ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %18 ]
-  %.pr126 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %18 ]
+  %22 = phi i8 [ %.pr106129, %21 ], [ %.pr106, %jdwpTag.exit ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %21 ], [ %.pr106129, %18 ]
+  %.pr126 = phi ptr [ %16, %21 ], [ %.pr.pre.pre, %jdwpTag.exit ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %.pr126, i64 17
   %24 = load i8, ptr %23, align 1
   %.fr.i = freeze i8 %24
@@ -1085,7 +1085,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %isReferenceTag.exit
 
 isReferenceTag.exit:                              ; preds = %switch.lookup, %jdwpTag.exit.thread, %jdwpTag.exit, %jdwpTag.exit.thread123, %27
-  %29 = phi i8 [ %17, %jdwpTag.exit.thread ], [ %.pr106, %jdwpTag.exit ], [ %22, %jdwpTag.exit.thread123 ], [ %22, %27 ], [ %switch.load, %switch.lookup ]
+  %29 = phi i8 [ %17, %jdwpTag.exit.thread ], [ %.pr106, %jdwpTag.exit ], [ %22, %jdwpTag.exit.thread123 ], [ %switch.load, %switch.lookup ], [ %22, %27 ]
   switch i8 %29, label %181 [
     i8 91, label %30
     i8 76, label %30
@@ -1497,7 +1497,7 @@ readBooleanComponents.exit:                       ; preds = %.lr.ph.i99, %174, %
   br label %readObjectComponents.exit
 
 readObjectComponents.exit:                        ; preds = %47, %30, %readByteComponents.exit, %readCharComponents.exit, %readFloatComponents.exit, %readDoubleComponents.exit, %readIntComponents.exit, %readLongComponents.exit, %readShortComponents.exit, %readBooleanComponents.exit, %187
-  %.0 = phi i16 [ 0, %187 ], [ %68, %readByteComponents.exit ], [ %84, %readCharComponents.exit ], [ %100, %readFloatComponents.exit ], [ %116, %readDoubleComponents.exit ], [ %132, %readIntComponents.exit ], [ %148, %readLongComponents.exit ], [ %164, %readShortComponents.exit ], [ %180, %readBooleanComponents.exit ], [ 0, %30 ], [ 0, %47 ]
+  %.0 = phi i16 [ %180, %readBooleanComponents.exit ], [ 0, %187 ], [ %68, %readByteComponents.exit ], [ %84, %readCharComponents.exit ], [ %100, %readFloatComponents.exit ], [ %116, %readDoubleComponents.exit ], [ %132, %readIntComponents.exit ], [ %148, %readLongComponents.exit ], [ %164, %readShortComponents.exit ], [ 0, %30 ], [ 0, %47 ]
   ret i16 %.0
 }
 

@@ -488,7 +488,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge
-  %.0 = phi ptr [ %23, %._crit_edge ], [ null, %1 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %1 ], [ %23, %._crit_edge ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

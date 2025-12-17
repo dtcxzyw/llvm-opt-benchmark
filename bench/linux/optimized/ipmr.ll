@@ -881,7 +881,7 @@ define internal fastcc i32 @vif_add(ptr noundef %0, ptr noundef nonnull %1, ptr 
   br label %.thread18
 
 .thread18:                                        ; preds = %132, %.thread, %222, %160, %152, %144, %141, %128, %62, %19, %16, %4
-  %227 = phi i32 [ %150, %152 ], [ 0, %222 ], [ -99, %160 ], [ -99, %141 ], [ %131, %128 ], [ %60, %62 ], [ -98, %4 ], [ -98, %19 ], [ -99, %144 ], [ -22, %16 ], [ -105, %.thread ], [ -99, %132 ]
+  %227 = phi i32 [ %150, %152 ], [ 0, %222 ], [ -99, %160 ], [ -99, %141 ], [ %131, %128 ], [ %60, %62 ], [ -98, %4 ], [ -98, %19 ], [ -105, %.thread ], [ -99, %144 ], [ -22, %16 ], [ -99, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %227
 }
@@ -1701,8 +1701,8 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %340 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %339, ptr noundef nonnull %338) #17
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %291, %290, %282, %281, %342, %337, %332, %326, %201
-  %341 = phi ptr [ inttoptr (i64 -7 to ptr), %342 ], [ inttoptr (i64 -12 to ptr), %201 ], [ null, %337 ], [ null, %332 ], [ null, %326 ], [ null, %281 ], [ null, %282 ], [ null, %290 ], [ null, %291 ]
+.critedge.thread:                                 ; preds = %290, %282, %281, %291, %342, %337, %332, %326, %201
+  %341 = phi ptr [ inttoptr (i64 -7 to ptr), %342 ], [ inttoptr (i64 -12 to ptr), %201 ], [ null, %337 ], [ null, %332 ], [ null, %326 ], [ null, %291 ], [ null, %281 ], [ null, %282 ], [ null, %290 ]
   call void @__rcu_read_unlock() #17
   br label %343
 
@@ -4193,7 +4193,7 @@ define internal i32 @ipmr_rtm_route(ptr noundef readonly captures(none) %0, ptr 
   br label %.thread17
 
 .thread17:                                        ; preds = %59, %._crit_edge, %75, %.lr.ph, %.critedge.thread, %3, %16, %20, %24, %28, %.critedge, %32, %11, %148, %145
-  %150 = phi i32 [ %147, %145 ], [ %149, %148 ], [ -22, %16 ], [ -22, %20 ], [ -22, %24 ], [ -22, %28 ], [ -2, %.critedge ], [ -22, %32 ], [ %14, %11 ], [ -22, %3 ], [ -2, %.critedge.thread ], [ -22, %.lr.ph ], [ -22, %75 ], [ -22, %._crit_edge ], [ -19, %59 ]
+  %150 = phi i32 [ %147, %145 ], [ %149, %148 ], [ -22, %3 ], [ %14, %11 ], [ -22, %32 ], [ -22, %16 ], [ -22, %20 ], [ -22, %24 ], [ -22, %28 ], [ -2, %.critedge ], [ -2, %.critedge.thread ], [ -22, %75 ], [ -22, %.lr.ph ], [ -22, %._crit_edge ], [ -19, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %150
 }
@@ -4705,8 +4705,8 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   br label %.thread14
 
 .thread14:                                        ; preds = %.critedge, %87, %78, %.lr.ph, %.loopexit15, %62, %108, %148, %169, %.loopexit
-  %319 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ 0, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit15 ]
-  %320 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ %289, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit15 ]
+  %319 = phi i64 [ 0, %.loopexit ], [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit15 ]
+  %320 = phi i64 [ %289, %.loopexit ], [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit15 ]
   store i64 %320, ptr %64, align 8
   store i64 %319, ptr %63, align 8
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 112

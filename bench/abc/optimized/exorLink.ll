@@ -496,8 +496,8 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   br i1 %261, label %239, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %239, %219, %199, %.preheader103, %.preheader101, %.preheader100, %169, %._crit_edge152
-  %262 = phi i32 [ 0, %.preheader103 ], [ 0, %.preheader101 ], [ 0, %.preheader100 ], [ 0, %169 ], [ %168, %._crit_edge152 ], [ %215, %199 ], [ %235, %219 ], [ %258, %239 ]
-  %263 = phi i32 [ %171, %.preheader103 ], [ %171, %.preheader101 ], [ %171, %.preheader100 ], [ %171, %169 ], [ %.pre222, %._crit_edge152 ], [ %171, %199 ], [ %171, %219 ], [ %171, %239 ]
+  %262 = phi i32 [ 0, %.preheader103 ], [ 0, %.preheader101 ], [ 0, %.preheader100 ], [ %168, %._crit_edge152 ], [ 0, %169 ], [ %235, %219 ], [ %215, %199 ], [ %258, %239 ]
+  %263 = phi i32 [ %171, %.preheader103 ], [ %171, %.preheader101 ], [ %171, %.preheader100 ], [ %.pre222, %._crit_edge152 ], [ %171, %169 ], [ %171, %219 ], [ %171, %199 ], [ %171, %239 ]
   %264 = icmp sgt i32 %263, 0
   br i1 %264, label %.lr.ph155, label %._crit_edge156
 
@@ -869,8 +869,8 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   br i1 %168, label %146, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %146, %126, %106, %.preheader52, %.preheader50, %.preheader49, %73, %._crit_edge74
-  %169 = phi i32 [ 0, %.preheader52 ], [ 0, %.preheader50 ], [ 0, %.preheader49 ], [ 0, %73 ], [ %72, %._crit_edge74 ], [ %122, %106 ], [ %142, %126 ], [ %165, %146 ]
-  %170 = phi i32 [ %78, %.preheader52 ], [ %78, %.preheader50 ], [ %78, %.preheader49 ], [ %78, %73 ], [ %.pre118, %._crit_edge74 ], [ %78, %106 ], [ %78, %126 ], [ %78, %146 ]
+  %169 = phi i32 [ 0, %.preheader52 ], [ 0, %.preheader50 ], [ 0, %.preheader49 ], [ %72, %._crit_edge74 ], [ 0, %73 ], [ %142, %126 ], [ %122, %106 ], [ %165, %146 ]
+  %170 = phi i32 [ %78, %.preheader52 ], [ %78, %.preheader50 ], [ %78, %.preheader49 ], [ %.pre118, %._crit_edge74 ], [ %78, %73 ], [ %78, %126 ], [ %78, %106 ], [ %78, %146 ]
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %.lr.ph77, label %._crit_edge78
 

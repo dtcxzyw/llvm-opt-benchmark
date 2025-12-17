@@ -173,8 +173,8 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %.lr.ph
   br label %_Z24exact_unit_for_byte_sizem.exit
 
 _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %17
-  %.0.i26 = phi i64 [ %16, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %17 ], [ %15, %.thread ]
-  %.0.i11 = phi ptr [ @.str.37, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i10, %17 ], [ @.str.38, %.thread ]
+  %.0.i26 = phi i64 [ %spec.select.i, %17 ], [ %16, %_Z23byte_size_in_exact_unitm.exit ], [ %15, %.thread ]
+  %.0.i11 = phi ptr [ %spec.select.i10, %17 ], [ @.str.37, %_Z23byte_size_in_exact_unitm.exit ], [ @.str.38, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i64 noundef %.0.i26, ptr noundef nonnull %.0.i11) #15
   %25 = tail call noundef i64 @_ZNK2os9PageSizes11next_largerEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.031) #15
   %.not = icmp eq i64 %25, 0
@@ -219,8 +219,8 @@ _Z23byte_size_in_exact_unitm.exit17:              ; preds = %._crit_edge
   br label %_Z24exact_unit_for_byte_sizem.exit23
 
 _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread35, %_Z23byte_size_in_exact_unitm.exit17, %37
-  %.0.i1629 = phi i64 [ %36, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i15, %37 ], [ %35, %.thread35 ]
-  %.0.i22 = phi ptr [ @.str.37, %_Z23byte_size_in_exact_unitm.exit17 ], [ %spec.select.i21, %37 ], [ @.str.38, %.thread35 ]
+  %.0.i1629 = phi i64 [ %spec.select.i15, %37 ], [ %36, %_Z23byte_size_in_exact_unitm.exit17 ], [ %35, %.thread35 ]
+  %.0.i22 = phi ptr [ %spec.select.i21, %37 ], [ @.str.37, %_Z23byte_size_in_exact_unitm.exit17 ], [ @.str.38, %.thread35 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %.0.i1629, ptr noundef nonnull %.0.i22) #15
   br label %46
 
@@ -590,8 +590,8 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %5
   br label %_Z24exact_unit_for_byte_sizem.exit
 
 _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %23
-  %.0.i10 = phi i64 [ %22, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %23 ], [ %21, %.thread ]
-  %.0.i7 = phi ptr [ @.str.37, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i6, %23 ], [ @.str.38, %.thread ]
+  %.0.i10 = phi i64 [ %spec.select.i, %23 ], [ %22, %_Z23byte_size_in_exact_unitm.exit ], [ %21, %.thread ]
+  %.0.i7 = phi ptr [ %spec.select.i6, %23 ], [ @.str.37, %_Z23byte_size_in_exact_unitm.exit ], [ @.str.38, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19, i64 noundef %.0.i10, ptr noundef nonnull %.0.i7) #15
   br label %32
 
@@ -701,7 +701,7 @@ define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr noundef nonnull align 4 c
   br i1 %.not10, label %19, label %.sink.split
 
 .sink.split:                                      ; preds = %17, %15, %13, %11, %9, %6
-  %.sink = phi i32 [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 5, %17 ]
+  %.sink = phi i32 [ 0, %6 ], [ 2, %11 ], [ 4, %15 ], [ 3, %13 ], [ 1, %9 ], [ 5, %17 ]
   store i32 %.sink, ptr %4, align 4
   br label %19
 
@@ -825,7 +825,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN9HugePages21thp_pagesize_fallbackE
   br label %8
 
 8:                                                ; preds = %0, %2, %6
-  %.0 = phi i64 [ %7, %6 ], [ 2097152, %2 ], [ %1, %0 ]
+  %.0 = phi i64 [ 2097152, %2 ], [ %7, %6 ], [ %1, %0 ]
   ret i64 %.0
 }
 

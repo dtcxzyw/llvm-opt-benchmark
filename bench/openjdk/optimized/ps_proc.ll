@@ -419,8 +419,8 @@ ptrace_continue.exit.i.backedge:                  ; preds = %.thread.i, %36
   call void (ptr, ...) @print_error(ptr noundef nonnull @.str.10, i32 noundef %44) #16
   br label %ptrace_waitpid.exit.thread
 
-ptrace_waitpid.exit.thread:                       ; preds = %32, %39, %47, %46
-  %.08.i.ph = phi i32 [ 1, %46 ], [ 1, %47 ], [ 1, %39 ], [ 0, %32 ]
+ptrace_waitpid.exit.thread:                       ; preds = %32, %46, %39, %47
+  %.08.i.ph = phi i32 [ 1, %47 ], [ 1, %39 ], [ 1, %46 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 

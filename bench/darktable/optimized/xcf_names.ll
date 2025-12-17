@@ -223,7 +223,7 @@ define noundef ptr @xcf_get_precision_name(i32 noundef %0) local_unnamed_addr #0
   br label %14
 
 14:                                               ; preds = %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %13 ], [ @.str.10, %2 ], [ @.str.11, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.20, %12 ], [ @.str.9, %1 ]
+  %.0 = phi ptr [ null, %13 ], [ @.str.20, %12 ], [ @.str.10, %2 ], [ @.str.11, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.14, %6 ], [ @.str.15, %7 ], [ @.str.16, %8 ], [ @.str.17, %9 ], [ @.str.18, %10 ], [ @.str.19, %11 ], [ @.str.9, %1 ]
   ret ptr %.0
 }
 
@@ -289,7 +289,7 @@ define noundef ptr @xcf_get_property_name(i32 noundef %0) local_unnamed_addr #0 
   br label %16
 
 16:                                               ; preds = %1, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %15 ], [ @.str.22, %2 ], [ @.str.23, %3 ], [ @.str.24, %4 ], [ @.str.25, %5 ], [ @.str.26, %6 ], [ @.str.27, %7 ], [ @.str.28, %8 ], [ @.str.29, %9 ], [ @.str.30, %10 ], [ @.str.31, %11 ], [ @.str.32, %12 ], [ @.str.33, %13 ], [ @.str.34, %14 ], [ @.str.21, %1 ]
+  %.0 = phi ptr [ null, %15 ], [ @.str.34, %14 ], [ @.str.22, %2 ], [ @.str.23, %3 ], [ @.str.24, %4 ], [ @.str.25, %5 ], [ @.str.26, %6 ], [ @.str.27, %7 ], [ @.str.28, %8 ], [ @.str.29, %9 ], [ @.str.30, %10 ], [ @.str.31, %11 ], [ @.str.32, %12 ], [ @.str.33, %13 ], [ @.str.21, %1 ]
   ret ptr %.0
 }
 

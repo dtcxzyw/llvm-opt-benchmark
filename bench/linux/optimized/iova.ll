@@ -873,7 +873,7 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   br i1 %75, label %.thread12, label %.critedge
 
 .thread12:                                        ; preds = %14, %.thread13, %70
-  %76 = phi i64 [ %22, %70 ], [ %22, %.thread13 ], [ %16, %14 ]
+  %76 = phi i64 [ %22, %.thread13 ], [ %22, %70 ], [ %16, %14 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %78 = tail call ptr @alloc_iova(ptr noundef %0, i64 noundef %76, i64 noundef %2, i1 noundef zeroext true)
   %79 = icmp eq ptr %78, null

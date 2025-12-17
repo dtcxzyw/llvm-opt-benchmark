@@ -274,8 +274,8 @@ default.unreachable:                              ; preds = %143, %65, %30
   br label %_ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit.i.i.i
 
 _ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit.i.i.i: ; preds = %40, %35, %33, %31
-  %.sroa.7.0.i.i.i.i = phi ptr [ %.sroa.3.0.copyload.i.i.i, %31 ], [ %.sroa.3.0.copyload.i.i.i, %33 ], [ %.sroa.5.0.copyload.i.i.i, %35 ], [ %.sroa.5.0.copyload.i.i.i, %40 ]
-  %.sroa.0.0.shrunk.i.i.i.i = phi i1 [ false, %31 ], [ true, %33 ], [ %39, %35 ], [ %44, %40 ]
+  %.sroa.7.0.i.i.i.i = phi ptr [ %.sroa.3.0.copyload.i.i.i, %31 ], [ %.sroa.3.0.copyload.i.i.i, %33 ], [ %.sroa.5.0.copyload.i.i.i, %40 ], [ %.sroa.5.0.copyload.i.i.i, %35 ]
+  %.sroa.0.0.shrunk.i.i.i.i = phi i1 [ false, %31 ], [ true, %33 ], [ %44, %40 ], [ %39, %35 ]
   %.sroa.0.0.i.i.i.i = zext i1 %.sroa.0.0.shrunk.i.i.i.i to i64
   %45 = load i64, ptr %7, align 8, !range !34, !noalias !26, !noundef !13
   %46 = load ptr, ptr %20, align 8, !noalias !26, !noundef !13
@@ -370,8 +370,8 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit.i.i.i: 
   br label %_ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit14.i.i.i
 
 _ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit14.i.i.i: ; preds = %.thread.i.i.i, %70, %68, %66
-  %.sroa.7.0.i10.i.i.i = phi ptr [ %.sroa.425.0.copyload.i.i.i, %66 ], [ %.sroa.425.0.copyload.i.i.i, %68 ], [ %.sroa.629.0.copyload.i.i.i, %70 ], [ %.sroa.629.0.copyload.i.i.i, %.thread.i.i.i ]
-  %.sroa.0.0.shrunk.i11.i.i.i = phi i1 [ false, %66 ], [ true, %68 ], [ %74, %70 ], [ %85, %.thread.i.i.i ]
+  %.sroa.7.0.i10.i.i.i = phi ptr [ %.sroa.425.0.copyload.i.i.i, %66 ], [ %.sroa.425.0.copyload.i.i.i, %68 ], [ %.sroa.629.0.copyload.i.i.i, %.thread.i.i.i ], [ %.sroa.629.0.copyload.i.i.i, %70 ]
+  %.sroa.0.0.shrunk.i11.i.i.i = phi i1 [ false, %66 ], [ true, %68 ], [ %85, %.thread.i.i.i ], [ %74, %70 ]
   %.sroa.0.0.i12.i.i.i = zext i1 %.sroa.0.0.shrunk.i11.i.i.i to i64
   store i64 %.sroa.0.0.i12.i.i.i, ptr %7, align 8, !noalias !26
   store ptr %.sroa.7.0.i10.i.i.i, ptr %20, align 8, !noalias !26
@@ -1492,7 +1492,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h77dd68c1a7210016E(pt
   br i1 %exitcond38.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h427362a567d637e6E.exit.i, label %.lr.ph30.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h427362a567d637e6E.exit.i: ; preds = %53, %.lr.ph30.i, %44, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %25, %44 ], [ %.sroa.01.1.i26.i, %.lr.ph.i ], [ %25, %53 ], [ %.sroa.01.0.i29.i, %.lr.ph30.i ]
+  %.sroa.0.0.i.i = phi i64 [ %25, %44 ], [ %.sroa.01.1.i26.i, %.lr.ph.i ], [ %.sroa.01.0.i29.i, %.lr.ph30.i ], [ %25, %53 ]
   %55 = icmp ule i64 %.sroa.0.0.i.i, %25
   call void @llvm.assume(i1 %55)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -1930,7 +1930,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hd2486157f01bc29cE(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17haa21258cef37d63fE.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17haa21258cef37d63fE.exit.i: ; preds = %58, %.lr.ph34.i, %48, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %25, %48 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %25, %58 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ]
+  %.sroa.0.0.i.i = phi i64 [ %25, %48 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %25, %58 ]
   %60 = icmp ule i64 %.sroa.0.0.i.i, %25
   call void @llvm.assume(i1 %60)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -2322,7 +2322,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17he0db15562246c295E(pt
   br i1 %exitcond32.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h2196db12d475339dE.exit.i, label %.lr.ph24.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h2196db12d475339dE.exit.i: ; preds = %42, %.lr.ph24.i, %37, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %25, %37 ], [ %.sroa.01.1.i20.i, %.lr.ph.i ], [ %25, %42 ], [ %.sroa.01.0.i23.i, %.lr.ph24.i ]
+  %.sroa.0.0.i.i = phi i64 [ %25, %37 ], [ %.sroa.01.1.i20.i, %.lr.ph.i ], [ %.sroa.01.0.i23.i, %.lr.ph24.i ], [ %25, %42 ]
   %44 = icmp ule i64 %.sroa.0.0.i.i, %25
   call void @llvm.assume(i1 %44)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -2654,7 +2654,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h2e81c12955d87873E(ptr noalia
   br i1 %exitcond25.not, label %_ZN4core5slice4sort6shared17find_existing_run17hdf20bec6bfd4c005E.exit.thread, label %.lr.ph18
 
 _ZN4core5slice4sort6shared17find_existing_run17hdf20bec6bfd4c005E.exit: ; preds = %.lr.ph, %.lr.ph18, %.preheader12, %.preheader
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader12 ], [ %.sroa.01.0.i17, %.lr.ph18 ], [ %.sroa.01.1.i14, %.lr.ph ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader12 ], [ 2, %.preheader ], [ %.sroa.01.0.i17, %.lr.ph18 ], [ %.sroa.01.1.i14, %.lr.ph ]
   %26 = icmp ule i64 %.sroa.0.0.i, %1
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i64 %.sroa.0.0.i, %1
@@ -4578,7 +4578,7 @@ define internal fastcc void @"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..Bit
   br label %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h68bf3869f8e35891E.exit.i"
 
 "_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h68bf3869f8e35891E.exit.i": ; preds = %96, %95, %94, %"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$7set_len17h7784ad08d183e6dbE.exit"
-  %.sroa.02.0.i.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he348b2b3ff39f45dE", %"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$7set_len17h7784ad08d183e6dbE.exit" ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17hb0a796fd7e0e6e2dE", %95 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7e3cc6b696708c8bE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h87153c39287656ffE.i.i", %96 ], [ %spec.select.i.i, %94 ]
+  %.sroa.02.0.i.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17hb0a796fd7e0e6e2dE", %95 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he348b2b3ff39f45dE", %"_ZN6bitvec3vec3api50_$LT$impl$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$7set_len17h7784ad08d183e6dbE.exit" ], [ %spec.select.i.i, %94 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7e3cc6b696708c8bE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h87153c39287656ffE.i.i", %96 ]
   %98 = and i64 %79, -8
   %99 = inttoptr i64 %98 to ptr
   call void %.sroa.02.0.i.i(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull %99, i64 noundef %87, i8 noundef %84, i8 noundef %89)
@@ -4684,7 +4684,7 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4lsb050_$LT$impl$u2
   br label %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h51dea466e75c38f4E.exit"
 
 "_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h51dea466e75c38f4E.exit": ; preds = %2, %16, %17, %18
-  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %2 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE.i", %18 ], [ %spec.select.i, %16 ]
+  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %17 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %2 ], [ %spec.select.i, %16 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE.i", %18 ]
   call void %.sroa.02.0.i(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 1 %0, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   %20 = load ptr, ptr %3, align 8, !noundef !13
   %.not = icmp eq ptr %20, null
@@ -4772,8 +4772,8 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4lsb050_$LT$impl$u2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %32, %39, %55, %26, %53, %52
-  %.sroa.7.2 = phi i64 [ undef, %52 ], [ undef, %53 ], [ undef, %26 ], [ %38, %32 ], [ %58, %55 ], [ %44, %39 ], [ %51, %48 ]
-  %.sroa.0.2 = phi i64 [ 0, %52 ], [ 0, %53 ], [ 0, %26 ], [ 1, %32 ], [ 1, %55 ], [ 1, %39 ], [ 1, %48 ]
+  %.sroa.7.2 = phi i64 [ undef, %26 ], [ undef, %52 ], [ undef, %53 ], [ %38, %32 ], [ %58, %55 ], [ %44, %39 ], [ %51, %48 ]
+  %.sroa.0.2 = phi i64 [ 0, %26 ], [ 0, %52 ], [ 0, %53 ], [ 1, %32 ], [ 1, %55 ], [ 1, %39 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %60 = insertvalue { i64, i64 } %59, i64 %.sroa.7.2, 1
@@ -4813,7 +4813,7 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4lsb050_$LT$impl$u2
   br label %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h51dea466e75c38f4E.exit"
 
 "_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h51dea466e75c38f4E.exit": ; preds = %2, %16, %17, %18
-  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %2 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE.i", %18 ], [ %spec.select.i, %16 ]
+  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %17 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %2 ], [ %spec.select.i, %16 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE.i", %18 ]
   call void %.sroa.02.0.i(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 1 %0, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   %20 = load ptr, ptr %3, align 8, !noundef !13
   %.not = icmp eq ptr %20, null
@@ -4904,8 +4904,8 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4lsb050_$LT$impl$u2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %36, %40, %59, %26, %55, %54
-  %.sroa.7.2 = phi i64 [ undef, %54 ], [ undef, %55 ], [ undef, %26 ], [ %39, %36 ], [ %61, %59 ], [ %46, %40 ], [ %53, %50 ]
-  %.sroa.0.2 = phi i64 [ 0, %54 ], [ 0, %55 ], [ 0, %26 ], [ 1, %36 ], [ 1, %59 ], [ 1, %40 ], [ 1, %50 ]
+  %.sroa.7.2 = phi i64 [ undef, %26 ], [ undef, %54 ], [ undef, %55 ], [ %39, %36 ], [ %61, %59 ], [ %46, %40 ], [ %53, %50 ]
+  %.sroa.0.2 = phi i64 [ 0, %26 ], [ 0, %54 ], [ 0, %55 ], [ 1, %36 ], [ 1, %59 ], [ 1, %40 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %63 = insertvalue { i64, i64 } %62, i64 %.sroa.7.2, 1
@@ -4945,7 +4945,7 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4msb072_$LT$impl$u2
   br label %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17hf8492e3fde469d75E.exit"
 
 "_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17hf8492e3fde469d75E.exit": ; preds = %2, %16, %17, %18
-  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17hcea5edb0b06d56adE", %2 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h73bee9d6281977a6E", %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7a43a03833b03401E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3617546591609ecdE.i", %18 ], [ %spec.select.i, %16 ]
+  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h73bee9d6281977a6E", %17 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17hcea5edb0b06d56adE", %2 ], [ %spec.select.i, %16 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7a43a03833b03401E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3617546591609ecdE.i", %18 ]
   call void %.sroa.02.0.i(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 1 %0, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   %20 = load ptr, ptr %3, align 8, !noundef !13
   %.not = icmp eq ptr %20, null
@@ -5033,8 +5033,8 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4msb072_$LT$impl$u2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %35, %39, %56, %26, %53, %52
-  %.sroa.7.2 = phi i64 [ undef, %52 ], [ undef, %53 ], [ undef, %26 ], [ %38, %35 ], [ %58, %56 ], [ %44, %39 ], [ %51, %48 ]
-  %.sroa.0.2 = phi i64 [ 0, %52 ], [ 0, %53 ], [ 0, %26 ], [ 1, %35 ], [ 1, %56 ], [ 1, %39 ], [ 1, %48 ]
+  %.sroa.7.2 = phi i64 [ undef, %26 ], [ undef, %52 ], [ undef, %53 ], [ %38, %35 ], [ %58, %56 ], [ %44, %39 ], [ %51, %48 ]
+  %.sroa.0.2 = phi i64 [ 0, %26 ], [ 0, %52 ], [ 0, %53 ], [ 1, %35 ], [ 1, %56 ], [ 1, %39 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %60 = insertvalue { i64, i64 } %59, i64 %.sroa.7.2, 1
@@ -5074,7 +5074,7 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4msb072_$LT$impl$u2
   br label %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17hf8492e3fde469d75E.exit"
 
 "_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17hf8492e3fde469d75E.exit": ; preds = %2, %16, %17, %18
-  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17hcea5edb0b06d56adE", %2 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h73bee9d6281977a6E", %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7a43a03833b03401E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3617546591609ecdE.i", %18 ], [ %spec.select.i, %16 ]
+  %.sroa.02.0.i = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h73bee9d6281977a6E", %17 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17hcea5edb0b06d56adE", %2 ], [ %spec.select.i, %16 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7a43a03833b03401E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3617546591609ecdE.i", %18 ]
   call void %.sroa.02.0.i(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 1 %0, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   %20 = load ptr, ptr %3, align 8, !noundef !13
   %.not = icmp eq ptr %20, null
@@ -5165,8 +5165,8 @@ define hidden { i64, i64 } @"_ZN6bitvec5slice14specialization4msb072_$LT$impl$u2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %36, %40, %59, %26, %55, %54
-  %.sroa.7.2 = phi i64 [ undef, %54 ], [ undef, %55 ], [ undef, %26 ], [ %39, %36 ], [ %61, %59 ], [ %46, %40 ], [ %53, %50 ]
-  %.sroa.0.2 = phi i64 [ 0, %54 ], [ 0, %55 ], [ 0, %26 ], [ 1, %36 ], [ 1, %59 ], [ 1, %40 ], [ 1, %50 ]
+  %.sroa.7.2 = phi i64 [ undef, %26 ], [ undef, %54 ], [ undef, %55 ], [ %39, %36 ], [ %61, %59 ], [ %46, %40 ], [ %53, %50 ]
+  %.sroa.0.2 = phi i64 [ 0, %26 ], [ 0, %54 ], [ 0, %55 ], [ 1, %36 ], [ 1, %59 ], [ 1, %40 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %63 = insertvalue { i64, i64 } %62, i64 %.sroa.7.2, 1
@@ -5571,7 +5571,7 @@ define hidden void @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h51dea466e7
   br i1 %14, label %17, label %18
 
 16:                                               ; preds = %17, %19, %18, %3
-  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %3 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %18 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE", %19 ], [ %spec.select, %17 ]
+  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h400be7727ebf10fbE", %18 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he0113dc8920ef5f9E", %3 ], [ %spec.select, %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h49ac548515d93cc0E._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h3b3682f072cb88caE", %19 ]
   tail call void %.sroa.02.0(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   ret void
 
@@ -5610,7 +5610,7 @@ define hidden void @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17h68bf3869f8
   br i1 %17, label %22, label %23
 
 19:                                               ; preds = %22, %24, %23, %3
-  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he348b2b3ff39f45dE", %3 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17hb0a796fd7e0e6e2dE", %23 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7e3cc6b696708c8bE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h87153c39287656ffE", %24 ], [ %spec.select, %22 ]
+  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17hb0a796fd7e0e6e2dE", %23 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17he348b2b3ff39f45dE", %3 ], [ %spec.select, %22 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h7e3cc6b696708c8bE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h87153c39287656ffE", %24 ]
   %20 = and i64 %4, -8
   %21 = inttoptr i64 %20 to ptr
   tail call void %.sroa.02.0(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %21, i64 noundef %12, i8 noundef %9, i8 noundef %14)
@@ -5648,7 +5648,7 @@ define hidden void @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$3new17ha732a93ebf
   br i1 %14, label %17, label %18
 
 16:                                               ; preds = %17, %19, %18, %3
-  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17h75640d8595b1c330E", %3 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h5b14e431d4d7715dE", %18 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h9b804344edf5223cE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h32cf6d67518d9df4E", %19 ], [ %spec.select, %17 ]
+  %.sroa.02.0 = phi ptr [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$12partial_head17h5b14e431d4d7715dE", %18 ], [ @"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5empty17h75640d8595b1c330E", %3 ], [ %spec.select, %17 ], [ %"_ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5minor17h9b804344edf5223cE._ZN6bitvec6domain23Domain$LT$M$C$T$C$O$GT$5major17h32cf6d67518d9df4E", %19 ]
   tail call void %.sroa.02.0(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1, i64 noundef %9, i8 noundef %5, i8 noundef %11)
   ret void
 
@@ -6349,8 +6349,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -6434,7 +6434,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e2698971
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !643, !noalias !646, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !643, !noalias !646
@@ -6458,7 +6458,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e2698971
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6198e26989710f9fE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -6584,8 +6584,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -6669,7 +6669,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !670, !noalias !673, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !670, !noalias !673
@@ -6693,7 +6693,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb5001923386e3988E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -6819,8 +6819,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -6904,7 +6904,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !697, !noalias !700, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !697, !noalias !700
@@ -6928,7 +6928,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4decff55d20f98ddE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -7054,8 +7054,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -7139,7 +7139,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !724, !noalias !727, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !724, !noalias !727
@@ -7163,7 +7163,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7ae5c2dd61f3750dE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -7341,8 +7341,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -7426,7 +7426,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !751, !noalias !754, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !751, !noalias !754
@@ -7450,7 +7450,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h346efcda408a1fc5E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -7576,8 +7576,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -7661,7 +7661,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !778, !noalias !781, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !778, !noalias !781
@@ -7685,7 +7685,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h29ec442c27a3ca6aE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i32 2, ptr %0, align 8
@@ -7811,8 +7811,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -7896,7 +7896,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !805, !noalias !808, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !805, !noalias !808
@@ -7920,7 +7920,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hed50a691306d0ba9E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -8046,8 +8046,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -8131,7 +8131,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac44
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !832, !noalias !835, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !832, !noalias !835
@@ -8155,7 +8155,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac44
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hd2c52a8fac442ef6E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -8281,8 +8281,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -8366,7 +8366,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !859, !noalias !862, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !859, !noalias !862
@@ -8390,7 +8390,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h4dc16a2457d1e947E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -8516,8 +8516,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -8601,7 +8601,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc13
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !886, !noalias !889, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !886, !noalias !889
@@ -8625,7 +8625,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc13
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h01cf0e8acc135ca3E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -8751,8 +8751,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -8836,7 +8836,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !913, !noalias !916, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !913, !noalias !916
@@ -8860,7 +8860,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha43e1aad93bd9135E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -8986,8 +8986,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -9071,7 +9071,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e94
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !940, !noalias !943, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !940, !noalias !943
@@ -9095,7 +9095,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e94
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb83001f30e9487afE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -9221,8 +9221,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -9306,7 +9306,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f15638
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !967, !noalias !970, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !967, !noalias !970
@@ -9330,7 +9330,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f15638
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h875be1f156386a35E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -9456,8 +9456,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -9541,7 +9541,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !994, !noalias !997, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !994, !noalias !997
@@ -9565,7 +9565,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcaf2585ec0bc2721E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -9691,8 +9691,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -9776,7 +9776,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1021, !noalias !1024, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1021, !noalias !1024
@@ -9800,7 +9800,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0fea7d97b8e4defE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -9926,8 +9926,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -10011,7 +10011,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1048, !noalias !1051, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1048, !noalias !1051
@@ -10035,7 +10035,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5bf60de6077c7ed1E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -10161,8 +10161,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -10246,7 +10246,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1075, !noalias !1078, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1075, !noalias !1078
@@ -10270,7 +10270,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h16b9f7cc0c4b179eE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -10396,8 +10396,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -10481,7 +10481,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e86
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1102, !noalias !1105, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1102, !noalias !1105
@@ -10505,7 +10505,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e86
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb84f3fa47e868d50E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -10631,8 +10631,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -10716,7 +10716,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9ea
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1129, !noalias !1132, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1129, !noalias !1132
@@ -10740,7 +10740,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9ea
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17haa74f249d9eaaf2bE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -10866,8 +10866,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -10951,7 +10951,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b38855
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1156, !noalias !1159, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1156, !noalias !1159
@@ -10975,7 +10975,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b38855
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h097a34b388558b44E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -11101,8 +11101,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -11186,7 +11186,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f7933
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1183, !noalias !1186, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1183, !noalias !1186
@@ -11210,7 +11210,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f7933
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h48a1637f79332babE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -11336,8 +11336,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -11421,7 +11421,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1210, !noalias !1213, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1210, !noalias !1213
@@ -11445,7 +11445,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0756aa62d451bb6aE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -11571,8 +11571,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -11656,7 +11656,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1237, !noalias !1240, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1237, !noalias !1240
@@ -11680,7 +11680,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h25faf0b4c7ea1b8fE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -11806,8 +11806,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -11891,7 +11891,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b183
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1264, !noalias !1267, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1264, !noalias !1267
@@ -11915,7 +11915,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b183
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he1a57df6b1837659E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -12041,8 +12041,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -12126,7 +12126,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1291, !noalias !1294, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1291, !noalias !1294
@@ -12150,7 +12150,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he9c21e9cb357861bE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -12276,8 +12276,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -12361,7 +12361,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e5657357
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1318, !noalias !1321, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1318, !noalias !1321
@@ -12385,7 +12385,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e5657357
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h46b1e56573577165E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -12511,8 +12511,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -12596,7 +12596,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29e
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1345, !noalias !1348, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1345, !noalias !1348
@@ -12620,7 +12620,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29e
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d512816c29ec08aE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -12746,8 +12746,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -12831,7 +12831,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b2
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1372, !noalias !1375, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1372, !noalias !1375
@@ -12855,7 +12855,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b2
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he06cccd203b23684E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -12981,8 +12981,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -13066,7 +13066,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a800545
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1399, !noalias !1402, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1399, !noalias !1402
@@ -13090,7 +13090,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a800545
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h003a1a80054556aeE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -13216,8 +13216,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -13301,7 +13301,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1426, !noalias !1429, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1426, !noalias !1429
@@ -13325,7 +13325,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0c40ab0f8174687bE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i32 2, ptr %0, align 8
@@ -13451,8 +13451,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -13536,7 +13536,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1453, !noalias !1456, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1453, !noalias !1456
@@ -13560,7 +13560,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h5d6b48c96c2c9ab1E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -13686,8 +13686,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -13771,7 +13771,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1480, !noalias !1483, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1480, !noalias !1483
@@ -13795,7 +13795,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hacc74937c849759cE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -13921,8 +13921,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -14006,7 +14006,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a689676
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1507, !noalias !1510, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1507, !noalias !1510
@@ -14030,7 +14030,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a689676
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h702e3a6896765ea5E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -14156,8 +14156,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -14241,7 +14241,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1534, !noalias !1537, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1534, !noalias !1537
@@ -14265,7 +14265,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb89b88c72a7b5b19E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -14391,8 +14391,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -14476,7 +14476,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h051935724362
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1561, !noalias !1564, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1561, !noalias !1564
@@ -14500,7 +14500,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h051935724362
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h0519357243621347E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -14626,8 +14626,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -14711,7 +14711,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1588, !noalias !1591, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1588, !noalias !1591
@@ -14735,7 +14735,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfd1c93f205b0cbd9E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -14861,8 +14861,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -14946,7 +14946,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9ea
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1615, !noalias !1618, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1615, !noalias !1618
@@ -14970,7 +14970,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9ea
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hb18e044ee9eab4b2E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -15096,8 +15096,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -15181,7 +15181,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a7
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1642, !noalias !1645, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1642, !noalias !1645
@@ -15205,7 +15205,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a7
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h286baf41e6a73014E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -15331,8 +15331,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -15416,7 +15416,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb9
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1669, !noalias !1672, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1669, !noalias !1672
@@ -15440,7 +15440,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb9
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h22c7b88dbdb97c0bE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -15566,8 +15566,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -15651,7 +15651,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1696, !noalias !1699, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1696, !noalias !1699
@@ -15675,7 +15675,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17he0f68355bb41e00fE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -15801,8 +15801,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -15886,7 +15886,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1723, !noalias !1726, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1723, !noalias !1726
@@ -15910,7 +15910,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17ha0d412bf65d1bb59E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -16036,8 +16036,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -16121,7 +16121,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec88
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1750, !noalias !1753, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1750, !noalias !1753
@@ -16145,7 +16145,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec88
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h65d9a203ec882b2aE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store ptr null, ptr %0, align 8
@@ -16271,8 +16271,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -16356,7 +16356,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1777, !noalias !1780, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1777, !noalias !1780
@@ -16380,7 +16380,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h1d4f88c0dc4e68f1E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -16506,8 +16506,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -16591,7 +16591,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf59
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1804, !noalias !1807, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1804, !noalias !1807
@@ -16615,7 +16615,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf59
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7a981ca6cf592dedE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -16741,8 +16741,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -16826,7 +16826,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1831, !noalias !1834, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1831, !noalias !1834
@@ -16850,7 +16850,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h3651336934d6cdbfE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -16976,8 +16976,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -17061,7 +17061,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1858, !noalias !1861, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1858, !noalias !1861
@@ -17085,7 +17085,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6e318d96907b64ddE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -17211,8 +17211,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -17296,7 +17296,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1885, !noalias !1888, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1885, !noalias !1888
@@ -17320,7 +17320,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hcc48647e3ce4ffc4E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -17446,8 +17446,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -17531,7 +17531,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e77
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1912, !noalias !1915, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1912, !noalias !1915
@@ -17555,7 +17555,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e77
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h96888a817e7729d5E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -17681,8 +17681,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -17766,7 +17766,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a2
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1939, !noalias !1942, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1939, !noalias !1942
@@ -17790,7 +17790,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a2
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h6c4470f678a24789E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -17916,8 +17916,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -18001,7 +18001,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1966, !noalias !1969, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1966, !noalias !1969
@@ -18025,7 +18025,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h2e91a11ca220ec9dE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -18151,8 +18151,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -18236,7 +18236,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !1993, !noalias !1996, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !1993, !noalias !1996
@@ -18260,7 +18260,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hfaf0cde6a134fdd2E.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -18386,8 +18386,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -18471,7 +18471,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !2020, !noalias !2023, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !2020, !noalias !2023
@@ -18495,7 +18495,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h97cd7ee2e688d22dE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -18621,8 +18621,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -18706,7 +18706,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb12
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !2047, !noalias !2050, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !2047, !noalias !2050
@@ -18730,7 +18730,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb12
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h69f50f95bb1274cfE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -18856,8 +18856,8 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %30, %55, %49, %41
-  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 10, %41 ], [ 1, %55 ], [ 2, %49 ], [ %31, %30 ]
-  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %44, %41 ], [ %56, %55 ], [ %54, %49 ], [ %37, %30 ]
+  %.sroa.17.0.ph.ph.i.i.i = phi i64 [ 2, %49 ], [ 10, %41 ], [ 1, %55 ], [ %31, %30 ]
+  %.sroa.10.0.ph.ph.i.i.i = phi i64 [ %54, %49 ], [ %44, %41 ], [ %56, %55 ], [ %37, %30 ]
   %.not.i.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i.i, %18
   br i1 %.not.i.i.i, label %62, label %63, !prof !256
 
@@ -18941,7 +18941,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
-  %.sroa.0.0.i.i = phi ptr [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ], [ %74, %.noexc14 ]
+  %.sroa.0.0.i.i = phi ptr [ %74, %.noexc14 ], [ %68, %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i ]
   %89 = load i32, ptr %6, align 8, !alias.scope !2074, !noalias !2077, !noundef !13
   %90 = add i32 %89, -1
   store i32 %90, ptr %6, align 8, !alias.scope !2074, !noalias !2077
@@ -18965,7 +18965,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095
   ret void
 
 96:                                               ; preds = %93, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread24
-  %.sink = phi ptr [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit ], [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread24 ], [ %92, %93 ]
+  %.sink = phi ptr [ %78, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread24 ], [ %86, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit.thread ], [ %.sroa.0.0.i.i, %_ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17hc0ad8a92c095951fE.exit ], [ %92, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %97, align 8
   store i64 2, ptr %0, align 8
@@ -19084,8 +19084,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -19252,8 +19252,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -19420,8 +19420,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -19588,8 +19588,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -19756,8 +19756,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -19924,8 +19924,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20092,8 +20092,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20260,8 +20260,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20428,8 +20428,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20596,8 +20596,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20764,8 +20764,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -20932,8 +20932,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21100,8 +21100,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21268,8 +21268,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21436,8 +21436,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21604,8 +21604,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21772,8 +21772,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -21940,8 +21940,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22108,8 +22108,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22276,8 +22276,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22444,8 +22444,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22612,8 +22612,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22780,8 +22780,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -22948,8 +22948,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23116,8 +23116,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23284,8 +23284,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23452,8 +23452,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23620,8 +23620,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23788,8 +23788,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -23956,8 +23956,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24124,8 +24124,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24292,8 +24292,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24460,8 +24460,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24628,8 +24628,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24796,8 +24796,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -24964,8 +24964,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25132,8 +25132,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25300,8 +25300,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25468,8 +25468,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25636,8 +25636,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25804,8 +25804,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -25972,8 +25972,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -26140,8 +26140,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -26308,8 +26308,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 .loopexit.i.i:                                    ; preds = %29, %54, %48, %40
-  %.sroa.17.0.ph.ph.i.i = phi i64 [ 10, %40 ], [ 1, %54 ], [ 2, %48 ], [ %30, %29 ]
-  %.sroa.10.0.ph.ph.i.i = phi i64 [ %43, %40 ], [ %55, %54 ], [ %53, %48 ], [ %36, %29 ]
+  %.sroa.17.0.ph.ph.i.i = phi i64 [ 2, %48 ], [ 10, %40 ], [ 1, %54 ], [ %30, %29 ]
+  %.sroa.10.0.ph.ph.i.i = phi i64 [ %53, %48 ], [ %43, %40 ], [ %55, %54 ], [ %36, %29 ]
   %.not.i.i = icmp ugt i64 %.sroa.17.0.ph.ph.i.i, %17
   br i1 %.not.i.i, label %61, label %62, !prof !256
 
@@ -27333,8 +27333,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf2rt8repeated41read_repeated_packe
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit
 
 .loopexit.i:                                      ; preds = %23, %48, %42, %34
-  %.sroa.17.0.ph.ph.i = phi i64 [ 10, %34 ], [ 1, %48 ], [ 2, %42 ], [ %24, %23 ]
-  %.sroa.10.0.ph.ph.i = phi i64 [ %37, %34 ], [ %49, %48 ], [ %47, %42 ], [ %30, %23 ]
+  %.sroa.17.0.ph.ph.i = phi i64 [ 2, %42 ], [ 10, %34 ], [ 1, %48 ], [ %24, %23 ]
+  %.sroa.10.0.ph.ph.i = phi i64 [ %47, %42 ], [ %37, %34 ], [ %49, %48 ], [ %30, %23 ]
   %.not.i27 = icmp ugt i64 %.sroa.17.0.ph.ph.i, %11
   br i1 %.not.i27, label %55, label %56, !prof !256
 
@@ -27444,7 +27444,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc
   br label %77
 
 .loopexit:                                        ; preds = %86, %65, %94, %.thread40, %63
-  %.sroa.0.0 = phi ptr [ %61, %63 ], [ null, %.thread40 ], [ %96, %94 ], [ %69, %65 ], [ %87, %86 ]
+  %.sroa.0.0 = phi ptr [ %61, %63 ], [ %96, %94 ], [ %69, %65 ], [ null, %.thread40 ], [ %87, %86 ]
   ret ptr %.sroa.0.0
 }
 
@@ -27539,8 +27539,8 @@ define hidden noundef align 8 ptr @_ZN8protobuf2rt8repeated41read_repeated_packe
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit
 
 .loopexit.i:                                      ; preds = %23, %48, %42, %34
-  %.sroa.17.0.ph.ph.i = phi i64 [ 10, %34 ], [ 1, %48 ], [ 2, %42 ], [ %24, %23 ]
-  %.sroa.10.0.ph.ph.i = phi i64 [ %37, %34 ], [ %49, %48 ], [ %47, %42 ], [ %30, %23 ]
+  %.sroa.17.0.ph.ph.i = phi i64 [ 2, %42 ], [ 10, %34 ], [ 1, %48 ], [ %24, %23 ]
+  %.sroa.10.0.ph.ph.i = phi i64 [ %47, %42 ], [ %37, %34 ], [ %49, %48 ], [ %30, %23 ]
   %.not.i27 = icmp ugt i64 %.sroa.17.0.ph.ph.i, %11
   br i1 %.not.i27, label %55, label %56, !prof !256
 
@@ -27650,7 +27650,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc
   br label %77
 
 .loopexit:                                        ; preds = %86, %65, %94, %.thread40, %63
-  %.sroa.0.0 = phi ptr [ %61, %63 ], [ null, %.thread40 ], [ %96, %94 ], [ %69, %65 ], [ %87, %86 ]
+  %.sroa.0.0 = phi ptr [ %61, %63 ], [ %96, %94 ], [ %69, %65 ], [ null, %.thread40 ], [ %87, %86 ]
   ret ptr %.sroa.0.0
 }
 
@@ -43340,7 +43340,7 @@ define hidden void @_ZN6yara_x2re4fast6fastvm6FastVM9try_match17h7893b52cdfcd456
   br i1 %4, label %152, label %136
 
 .loopexit:                                        ; preds = %.backedge530, %343, %.backedge527, %.backedge525, %.backedge523, %326, %.backedge520, %.backedge518, %._crit_edge697
-  %130 = phi i64 [ %116, %._crit_edge697 ], [ %101, %.backedge518 ], [ %109, %.backedge520 ], [ %118, %326 ], [ %352, %.backedge523 ], [ %352, %.backedge525 ], [ %352, %.backedge527 ], [ %124, %343 ], [ %98, %.backedge530 ]
+  %130 = phi i64 [ %116, %._crit_edge697 ], [ %124, %343 ], [ %101, %.backedge518 ], [ %109, %.backedge520 ], [ %118, %326 ], [ %352, %.backedge523 ], [ %352, %.backedge525 ], [ %352, %.backedge527 ], [ %98, %.backedge530 ]
   invoke void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef 13)
           to label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h5f84bc038fc88190E.exit unwind label %131
 
@@ -43479,8 +43479,8 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   %.sroa.0156.1 = getelementptr inbounds nuw i8, ptr %.sroa.0156.1707, i64 %.sroa.0156.1.idx
   br i1 %182, label %.loopexit, label %155
 
-_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %166, %168, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
-  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %168 ], [ %156, %166 ]
+_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %168, %166, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
+  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %166 ], [ %156, %168 ]
   %184 = add i64 %183, %105
   call fastcc void @"_ZN6yara_x2re9bitmapset18BitmapSet$LT$T$GT$6insert17hd952a3ef5fff615bE"(ptr noalias noundef align 8 dereferenceable(104) %51, i64 noundef %184)
   br label %.backedge518
@@ -43542,7 +43542,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   br label %209
 
 209:                                              ; preds = %217, %207
-  %.sroa.24.091.i = phi i64 [ undef, %207 ], [ %spec.select.i, %217 ]
+  %.sroa.24.089.i = phi i64 [ undef, %207 ], [ %spec.select.i, %217 ]
   %210 = phi i64 [ 0, %207 ], [ %spec.select92.i, %217 ]
   %.sroa.529.0.i = phi ptr [ %112, %207 ], [ %221, %217 ]
   %.sroa.1132.0.i = phi ptr [ %113, %207 ], [ %220, %217 ]
@@ -43561,7 +43561,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   %216 = icmp ne i8 %215, 0
   %.not12.i.i.i.i.i = icmp eq i64 %210, 0
   %or.cond86.i = select i1 %216, i1 %.not12.i.i.i.i.i, i1 false
-  %spec.select.i = select i1 %or.cond86.i, i64 %.sroa.24.0.i, i64 %.sroa.24.091.i
+  %spec.select.i = select i1 %or.cond86.i, i64 %.sroa.24.0.i, i64 %.sroa.24.089.i
   %spec.select92.i = select i1 %or.cond86.i, i64 1, i64 %210
   %exitcond.i = icmp eq i64 %.sroa.24.0.i, %78
   br i1 %exitcond.i, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit, label %217
@@ -43580,14 +43580,14 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   br i1 %.not16.i, label %209, label %.backedge520
 
 _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit: ; preds = %209, %212, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i"
-  %.sroa.24.090.i = phi i64 [ %spec.select.i, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %.sroa.24.091.i, %212 ], [ %.sroa.24.091.i, %209 ]
-  %227 = phi i64 [ %spec.select92.i, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %210, %212 ], [ %210, %209 ]
+  %.sroa.24.090.i = phi i64 [ %.sroa.24.089.i, %209 ], [ %spec.select.i, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %.sroa.24.089.i, %212 ]
+  %227 = phi i64 [ %210, %209 ], [ %spec.select92.i, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %210, %212 ]
   %228 = trunc nuw i64 %227 to i1
   %229 = icmp ult i64 %.sroa.24.090.i, %78
   %or.cond.i.not = select i1 %228, i1 %229, i1 false
   br i1 %or.cond.i.not, label %.backedge520, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit.thread456
 
-.backedge520:                                     ; preds = %199, %217, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit.thread456, %188, %190, %185
+.backedge520:                                     ; preds = %199, %217, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit, %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit.thread456, %190, %188, %185
   %230 = icmp eq ptr %.sroa.0157.1701, %111
   %.sroa.0157.1.idx = select i1 %230, i64 0, i64 8
   %.sroa.0157.1 = getelementptr inbounds nuw i8, ptr %.sroa.0157.1701, i64 %.sroa.0157.1.idx
@@ -43777,7 +43777,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   br label %299
 
 299:                                              ; preds = %307, %297
-  %.sroa.24.091.i284.us = phi i64 [ undef, %297 ], [ %spec.select.i292.us, %307 ]
+  %.sroa.24.089.i284.us = phi i64 [ undef, %297 ], [ %spec.select.i292.us, %307 ]
   %300 = phi i64 [ 0, %297 ], [ %spec.select92.i293.us, %307 ]
   %.sroa.529.0.i285.us = phi ptr [ %240, %297 ], [ %311, %307 ]
   %.sroa.1132.0.i286.us = phi ptr [ %239, %297 ], [ %310, %307 ]
@@ -43796,7 +43796,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   %306 = icmp ne i8 %305, 0
   %.not12.i.i.i.i.i290.us = icmp eq i64 %300, 0
   %or.cond86.i291.us = select i1 %306, i1 %.not12.i.i.i.i.i290.us, i1 false
-  %spec.select.i292.us = select i1 %or.cond86.i291.us, i64 %.sroa.24.0.i288.us, i64 %.sroa.24.091.i284.us
+  %spec.select.i292.us = select i1 %or.cond86.i291.us, i64 %.sroa.24.0.i288.us, i64 %.sroa.24.089.i284.us
   %spec.select92.i293.us = select i1 %or.cond86.i291.us, i64 1, i64 %300
   %exitcond.i294.us = icmp eq i64 %.sroa.24.0.i288.us, %umin.i283
   br i1 %exitcond.i294.us, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit299.us, label %307
@@ -43815,8 +43815,8 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   br i1 %.not16.i295.us, label %299, label %.backedge.us692
 
 _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_bck17h65ba1b4f972dab54E.exit299.us: ; preds = %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i289.us", %302, %299
-  %.sroa.24.090.i296.us = phi i64 [ %spec.select.i292.us, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i289.us" ], [ %.sroa.24.091.i284.us, %302 ], [ %.sroa.24.091.i284.us, %299 ]
-  %317 = phi i64 [ %spec.select92.i293.us, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i289.us" ], [ %300, %302 ], [ %300, %299 ]
+  %.sroa.24.090.i296.us = phi i64 [ %.sroa.24.089.i284.us, %299 ], [ %spec.select.i292.us, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i289.us" ], [ %.sroa.24.089.i284.us, %302 ]
+  %317 = phi i64 [ %300, %299 ], [ %spec.select92.i293.us, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split.i.i.i.i.i289.us" ], [ %300, %302 ]
   %318 = trunc nuw i64 %317 to i1
   %319 = icmp ult i64 %.sroa.24.090.i296.us, %.sroa.6.0.copyload
   %or.cond.i298.not.us = select i1 %318, i1 %319, i1 false
@@ -44485,7 +44485,7 @@ define hidden void @_ZN6yara_x2re4fast6fastvm6FastVM9try_match17hdb6b35dc561876a
   br i1 %4, label %132, label %130
 
 .loopexit:                                        ; preds = %.backedge522, %315, %.backedge519, %.backedge517, %.backedge515, %298, %.backedge512, %.backedge510, %._crit_edge708
-  %124 = phi i64 [ %110, %._crit_edge708 ], [ %96, %.backedge510 ], [ %103, %.backedge512 ], [ %112, %298 ], [ %324, %.backedge515 ], [ %324, %.backedge517 ], [ %324, %.backedge519 ], [ %118, %315 ], [ %92, %.backedge522 ]
+  %124 = phi i64 [ %110, %._crit_edge708 ], [ %118, %315 ], [ %96, %.backedge510 ], [ %103, %.backedge512 ], [ %112, %298 ], [ %324, %.backedge515 ], [ %324, %.backedge517 ], [ %324, %.backedge519 ], [ %92, %.backedge522 ]
   invoke void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping_chunks17h803a9746a956b395E(ptr noundef nonnull %0, ptr noundef nonnull %41, i64 noundef 13)
           to label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h5f84bc038fc88190E.exit unwind label %125
 
@@ -44625,7 +44625,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   br i1 %.not14.i, label %160, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit.thread
 
 .preheader734:                                    ; preds = %154, %178
-  %.sroa.24.082.i = phi i64 [ %spec.select.i, %178 ], [ undef, %154 ]
+  %.sroa.24.080.i = phi i64 [ %spec.select.i, %178 ], [ undef, %154 ]
   %171 = phi i64 [ %spec.select83.i, %178 ], [ 0, %154 ]
   %.sroa.028.0.i = phi ptr [ %182, %178 ], [ %100, %154 ]
   %.sroa.931.0.i = phi ptr [ %181, %178 ], [ %75, %154 ]
@@ -44644,7 +44644,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   %177 = icmp ne i8 %176, 0
   %.not11.i.i.i.i.i = icmp eq i64 %171, 0
   %or.cond78.i = select i1 %177, i1 %.not11.i.i.i.i.i, i1 false
-  %spec.select.i = select i1 %or.cond78.i, i64 %.sroa.24.0.i, i64 %.sroa.24.082.i
+  %spec.select.i = select i1 %or.cond78.i, i64 %.sroa.24.0.i, i64 %.sroa.24.080.i
   %spec.select83.i = select i1 %or.cond78.i, i64 1, i64 %171
   %exitcond.i = icmp eq i64 %.sroa.24.0.i, %71
   br i1 %exitcond.i, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit, label %178
@@ -44662,13 +44662,13 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   %.not16.i = icmp eq i8 %187, 0
   br i1 %.not16.i, label %.preheader734, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit.thread
 
-_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit.thread: ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hbd9ea854b54e4731E.exit.i", %178, %152, %154
+_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit.thread: ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hbd9ea854b54e4731E.exit.i", %178, %154, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge512
 
 _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit: ; preds = %.preheader734, %173, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i"
-  %.sroa.24.081.i = phi i64 [ %spec.select.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %.sroa.24.082.i, %173 ], [ %.sroa.24.082.i, %.preheader734 ]
-  %188 = phi i64 [ %spec.select83.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %171, %173 ], [ %171, %.preheader734 ]
+  %.sroa.24.081.i = phi i64 [ %.sroa.24.080.i, %.preheader734 ], [ %spec.select.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %.sroa.24.080.i, %173 ]
+  %188 = phi i64 [ %171, %.preheader734 ], [ %spec.select83.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i" ], [ %171, %173 ]
   %189 = trunc nuw i64 %188 to i1
   %190 = icmp ult i64 %.sroa.24.081.i, %71
   %or.cond.i.not = select i1 %189, i1 %190, i1 false
@@ -44900,7 +44900,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   br i1 %269, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit306.thread.us, label %.preheader
 
 .preheader:                                       ; preds = %268, %277
-  %.sroa.24.082.i291.us = phi i64 [ %spec.select.i299.us, %277 ], [ undef, %268 ]
+  %.sroa.24.080.i291.us = phi i64 [ %spec.select.i299.us, %277 ], [ undef, %268 ]
   %270 = phi i64 [ %spec.select83.i300.us, %277 ], [ 0, %268 ]
   %.sroa.028.0.i292.us = phi ptr [ %281, %277 ], [ %.sroa.8.0.copyload, %268 ]
   %.sroa.931.0.i293.us = phi ptr [ %280, %277 ], [ %.sroa.438.0.copyload, %268 ]
@@ -44919,7 +44919,7 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   %276 = icmp ne i8 %275, 0
   %.not11.i.i.i.i.i297.us = icmp eq i64 %270, 0
   %or.cond78.i298.us = select i1 %276, i1 %.not11.i.i.i.i.i297.us, i1 false
-  %spec.select.i299.us = select i1 %or.cond78.i298.us, i64 %.sroa.24.0.i295.us, i64 %.sroa.24.082.i291.us
+  %spec.select.i299.us = select i1 %or.cond78.i298.us, i64 %.sroa.24.0.i295.us, i64 %.sroa.24.080.i291.us
   %spec.select83.i300.us = select i1 %or.cond78.i298.us, i64 1, i64 %270
   %exitcond.i301.us = icmp eq i64 %.sroa.24.0.i295.us, %umin.i290
   br i1 %exitcond.i301.us, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit306.us, label %277
@@ -44938,8 +44938,8 @@ _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3
   br i1 %.not16.i302.us, label %.preheader, label %_ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit306.thread.us
 
 _ZN6yara_x2re4fast6fastvm6FastVM28try_match_masked_literal_fwd17h0cf6d6bab5bb9c3cE.exit306.us: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i296.us", %272, %.preheader
-  %.sroa.24.081.i303.us = phi i64 [ %spec.select.i299.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i296.us" ], [ %.sroa.24.082.i291.us, %272 ], [ %.sroa.24.082.i291.us, %.preheader ]
-  %287 = phi i64 [ %spec.select83.i300.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i296.us" ], [ %270, %272 ], [ %270, %.preheader ]
+  %.sroa.24.081.i303.us = phi i64 [ %.sroa.24.080.i291.us, %.preheader ], [ %spec.select.i299.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i296.us" ], [ %.sroa.24.080.i291.us, %272 ]
+  %287 = phi i64 [ %270, %.preheader ], [ %spec.select83.i300.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split.i.i.i.i.i296.us" ], [ %270, %272 ]
   %288 = trunc nuw i64 %287 to i1
   %289 = icmp ult i64 %.sroa.24.081.i303.us, %.sroa.6.0.copyload
   %or.cond.i305.not.us = select i1 %288, i1 %289, i1 false
@@ -45350,7 +45350,7 @@ define internal fastcc noundef zeroext i1 @_ZN6yara_x2re4fast6fastvm6FastVM21try
   br label %14
 
 14:                                               ; preds = %10, %8, %43, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h90538b2da06ceb69E.exit.thread", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit"
-  %.sroa.0.0 = phi i1 [ false, %43 ], [ true, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h90538b2da06ceb69E.exit.thread" ], [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit" ], [ false, %8 ], [ false, %10 ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %43 ], [ true, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h90538b2da06ceb69E.exit.thread" ], [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit" ], [ false, %10 ]
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %10
@@ -45916,14 +45916,14 @@ define void @"_ZN95_$LT$yara_x..re..fast..instr..InstrParser$u20$as$u20$core..it
   unreachable
 
 _ZN6yara_x2re4fast5instr11InstrParser12decode_instr17h0a89d4d944063f2bE.exit: ; preds = %58, %49, %10, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i", %45, %54
-  %.sroa.30.0 = phi i64 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %54 ], [ undef, %10 ], [ undef, %49 ], [ undef, %58 ]
-  %.sroa.29.0 = phi ptr [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %54 ], [ undef, %10 ], [ undef, %49 ], [ undef, %58 ]
-  %.sroa.26.0 = phi i64 [ %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %40, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %54 ], [ undef, %10 ], [ undef, %49 ], [ undef, %58 ]
-  %.sroa.2311.0 = phi ptr [ %24, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %54 ], [ undef, %10 ], [ undef, %49 ], [ undef, %58 ]
-  %.sroa.31.0 = phi i64 [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ 3, %45 ], [ 3, %54 ], [ 1, %10 ], [ 5, %49 ], [ 5, %58 ]
-  %.sroa.19.0 = phi i16 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %54 ], [ undef, %10 ], [ %.val6, %49 ], [ %.val9, %58 ]
-  %.sroa.13.0 = phi i16 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ %.val5, %45 ], [ %.val8, %54 ], [ undef, %10 ], [ %.val7, %49 ], [ %.val10, %58 ]
-  %.sroa.0.0 = phi i16 [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ 2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ 3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ 4, %45 ], [ 5, %54 ], [ 0, %10 ], [ %spec.select13, %49 ], [ %spec.select15, %58 ]
+  %.sroa.30.0 = phi i64 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %10 ], [ undef, %49 ], [ undef, %54 ], [ undef, %58 ]
+  %.sroa.29.0 = phi ptr [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %10 ], [ undef, %49 ], [ undef, %54 ], [ undef, %58 ]
+  %.sroa.26.0 = phi i64 [ %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %27, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %40, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %10 ], [ undef, %49 ], [ undef, %54 ], [ undef, %58 ]
+  %.sroa.2311.0 = phi ptr [ %24, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %10 ], [ undef, %49 ], [ undef, %54 ], [ undef, %58 ]
+  %.sroa.31.0 = phi i64 [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ %37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ %41, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ 3, %45 ], [ 1, %10 ], [ 5, %49 ], [ 3, %54 ], [ 5, %58 ]
+  %.sroa.19.0 = phi i16 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ undef, %45 ], [ undef, %10 ], [ %.val6, %49 ], [ undef, %54 ], [ %.val9, %58 ]
+  %.sroa.13.0 = phi i16 [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ %.val5, %45 ], [ undef, %10 ], [ %.val7, %49 ], [ %.val8, %54 ], [ %.val10, %58 ]
+  %.sroa.0.0 = phi i16 [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit48.i" ], [ 2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit46.i" ], [ 3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a6b3a4041a06e8E.exit.i" ], [ 4, %45 ], [ 0, %10 ], [ %spec.select13, %49 ], [ 5, %54 ], [ %spec.select15, %58 ]
   %63 = icmp ugt i64 %.sroa.31.0, %7
   br i1 %63, label %68, label %65, !prof !256
 
@@ -45982,7 +45982,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN88_$LT$yara_x.
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split", %23, %30, %20, %26
-  %.sroa.0.0.ph = phi ptr [ %2, %26 ], [ %2, %20 ], [ %7, %30 ], [ %7, %23 ], [ %.sroa.0.0.ph.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split" ]
+  %.sroa.0.0.ph = phi ptr [ %7, %23 ], [ %2, %26 ], [ %2, %20 ], [ %7, %30 ], [ %.sroa.0.0.ph.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c39fbd8269e3d9bE.exit.thread.sink.split.sink.split" ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !13
   %14 = add i64 %13, 1
@@ -46051,7 +46051,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN88_$LT$yara_x.
   br label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split"
 
 "_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split": ; preds = %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split", %23, %30, %20, %26
-  %.sroa.0.0.ph = phi ptr [ %7, %26 ], [ %7, %20 ], [ %16, %30 ], [ %16, %23 ], [ %.sroa.0.0.ph.ph, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split" ]
+  %.sroa.0.0.ph = phi ptr [ %16, %23 ], [ %7, %26 ], [ %7, %20 ], [ %16, %30 ], [ %.sroa.0.0.ph.ph, %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e9c6c5e79f4a5d9E.exit.thread.sink.split.sink.split" ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !13
   %14 = add i64 %13, 1
@@ -46171,7 +46171,7 @@ define noundef range(i8 0, 18) i8 @"_ZN85_$LT$yara_x..modules..protos..gti_score
   br label %12
 
 12:                                               ; preds = %8, %10, %6, %4, %2
-  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 4, %4 ], [ 8, %6 ], [ %., %10 ], [ 12, %8 ]
+  %.sroa.0.0 = phi i8 [ 12, %8 ], [ 0, %2 ], [ 4, %4 ], [ %., %10 ], [ 8, %6 ]
   ret i8 %.sroa.0.0
 }
 
@@ -46315,7 +46315,7 @@ define noundef range(i8 0, 18) i8 @"_ZN86_$LT$yara_x..modules..protos..gti_score
   br label %12
 
 12:                                               ; preds = %8, %10, %6, %4, %2
-  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 4, %4 ], [ 8, %6 ], [ %., %10 ], [ 12, %8 ]
+  %.sroa.0.0 = phi i8 [ 12, %8 ], [ 0, %2 ], [ 4, %4 ], [ %., %10 ], [ 8, %6 ]
   ret i8 %.sroa.0.0
 }
 

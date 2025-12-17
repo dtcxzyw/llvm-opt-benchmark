@@ -1207,7 +1207,7 @@ uds_sa_subfunction_to_type.exit.thread9.i:        ; preds = %9
   br label %uds_sa_subfunction_to_string.exit
 
 uds_sa_subfunction_to_string.exit:                ; preds = %2, %6, %9, %10, %uds_sa_subfunction_to_type.exit.i, %uds_sa_subfunction_to_type.exit.thread9.i
-  %.0.i7 = phi ptr [ @.str.602, %uds_sa_subfunction_to_type.exit.thread9.i ], [ @.str.426, %6 ], [ %.str.600..str.599.i, %uds_sa_subfunction_to_type.exit.i ], [ @.str.598, %10 ], [ @.str.601, %9 ], [ @.str.426, %2 ]
+  %.0.i7 = phi ptr [ @.str.601, %9 ], [ @.str.602, %uds_sa_subfunction_to_type.exit.thread9.i ], [ %.str.600..str.599.i, %uds_sa_subfunction_to_type.exit.i ], [ @.str.598, %10 ], [ @.str.426, %6 ], [ @.str.426, %2 ]
   %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.597, ptr noundef nonnull %.0.i7, i32 noundef %1)
   ret void
 }
@@ -2057,7 +2057,7 @@ define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noun
   br label %13
 
 13:                                               ; preds = %11, %9, %7, %1, %4, %8
-  %.0 = phi i32 [ 4, %8 ], [ 0, %4 ], [ 0, %1 ], [ 3, %7 ], [ 254, %9 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ %spec.select, %11 ], [ 0, %1 ], [ 4, %8 ], [ 3, %7 ], [ 254, %9 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2096,8 +2096,8 @@ uds_sa_subfunction_to_type.exit:                  ; preds = %8
 uds_sa_subfunction_to_type.exit.thread9:          ; preds = %7
   br label %uds_sa_subfunction_to_type.exit.thread
 
-uds_sa_subfunction_to_type.exit.thread:           ; preds = %7, %8, %uds_sa_subfunction_to_type.exit, %1, %4, %uds_sa_subfunction_to_type.exit.thread9
-  %.0 = phi ptr [ @.str.602, %uds_sa_subfunction_to_type.exit.thread9 ], [ @.str.426, %4 ], [ @.str.426, %1 ], [ %.str.600..str.599, %uds_sa_subfunction_to_type.exit ], [ @.str.598, %8 ], [ @.str.601, %7 ]
+uds_sa_subfunction_to_type.exit.thread:           ; preds = %7, %8, %uds_sa_subfunction_to_type.exit, %4, %1, %uds_sa_subfunction_to_type.exit.thread9
+  %.0 = phi ptr [ @.str.426, %1 ], [ @.str.602, %uds_sa_subfunction_to_type.exit.thread9 ], [ %.str.600..str.599, %uds_sa_subfunction_to_type.exit ], [ @.str.598, %8 ], [ @.str.426, %4 ], [ @.str.601, %7 ]
   ret ptr %.0
 }
 
@@ -2735,7 +2735,7 @@ uds_proto_tree_add_address_item.exit1182:         ; preds = %269, %uds_proto_ite
   br label %uds_proto_tree_add_address_name.exit
 
 uds_proto_tree_add_address_name.exit:             ; preds = %296, %292, %289, %287, %126, %122, %119, %117, %82, %71
-  %.1 = phi i32 [ %.01059, %71 ], [ -1, %82 ], [ %.01059, %117 ], [ %.01059, %119 ], [ %.01059, %122 ], [ %.01059, %126 ], [ %.01059, %287 ], [ %.01059, %289 ], [ %.01059, %292 ], [ %.01059, %296 ]
+  %.1 = phi i32 [ %.01059, %71 ], [ -1, %82 ], [ %.01059, %126 ], [ %.01059, %117 ], [ %.01059, %119 ], [ %.01059, %122 ], [ %.01059, %287 ], [ %.01059, %289 ], [ %.01059, %292 ], [ %.01059, %296 ]
   %300 = load i32, ptr @hf_uds_service, align 4
   %301 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %300, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %302 = load i32, ptr @hf_uds_reply, align 4
@@ -4250,7 +4250,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %831, %807, %.loopexit1219, %infocol_append_data_name.exit, %1143, %676, %702, %720, %721, %731, %774, %535, %524, %1163, %1157, %1153, %1117, %1055, %973, %946, %956, %850, %799, %797, %845, %847, %802, %._crit_edge, %675, %523, %474, %430, %428, %418, %347, %348, %332, %346, %316, %317, %1110, %1069, %1066, %.thread1207.thread, %972, %944, %354, %uds_proto_tree_add_address_name.exit
-  %.01060 = phi i32 [ 1, %uds_proto_tree_add_address_name.exit ], [ 6, %317 ], [ 2, %316 ], [ 3, %346 ], [ 2, %332 ], [ 1, %347 ], [ 4, %348 ], [ %355, %354 ], [ 1, %418 ], [ %429, %428 ], [ 3, %430 ], [ 2, %474 ], [ 2, %523 ], [ %.6, %675 ], [ %.13.lcssa, %._crit_edge ], [ 4, %799 ], [ 2, %797 ], [ 2, %802 ], [ 4, %847 ], [ 2, %845 ], [ 3, %850 ], [ %.17, %944 ], [ %953, %946 ], [ %957, %956 ], [ %.18, %972 ], [ 1, %973 ], [ %.23, %.thread1207.thread ], [ %1056, %1055 ], [ 2, %1066 ], [ 3, %1069 ], [ %1115, %1110 ], [ 2, %1117 ], [ 2, %1153 ], [ 3, %1157 ], [ 5, %1163 ], [ 5, %535 ], [ 3, %524 ], [ 2, %676 ], [ %.11, %774 ], [ %.8, %702 ], [ %.9, %720 ], [ %730, %721 ], [ 19, %731 ], [ 2, %1143 ], [ %415, %infocol_append_data_name.exit ], [ %.3, %.loopexit1219 ], [ %818, %807 ], [ %841, %831 ]
+  %.01060 = phi i32 [ 1, %uds_proto_tree_add_address_name.exit ], [ 6, %317 ], [ 2, %316 ], [ 3, %346 ], [ 2, %332 ], [ 1, %347 ], [ 2, %1143 ], [ 4, %348 ], [ %355, %354 ], [ 5, %535 ], [ 2, %676 ], [ 1, %418 ], [ %429, %428 ], [ 3, %430 ], [ 5, %1163 ], [ 2, %474 ], [ 2, %523 ], [ 2, %1153 ], [ %.6, %675 ], [ 3, %524 ], [ 3, %1157 ], [ %.13.lcssa, %._crit_edge ], [ 4, %799 ], [ 2, %797 ], [ 2, %802 ], [ 4, %847 ], [ 2, %845 ], [ 3, %850 ], [ 19, %731 ], [ %.11, %774 ], [ %.17, %944 ], [ %953, %946 ], [ %957, %956 ], [ %.18, %972 ], [ %.8, %702 ], [ 1, %973 ], [ %.23, %.thread1207.thread ], [ %1056, %1055 ], [ %.9, %720 ], [ %730, %721 ], [ 2, %1066 ], [ 3, %1069 ], [ %1115, %1110 ], [ 2, %1117 ], [ %818, %807 ], [ %415, %infocol_append_data_name.exit ], [ %.3, %.loopexit1219 ], [ %841, %831 ]
   %.not1107 = icmp eq i32 %52, %.01060
   br i1 %.not1107, label %.thread1211, label %1166
 
@@ -4261,8 +4261,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %1169 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %1168, ptr noundef %0, i32 noundef %.010601217, i32 noundef %1167, i32 noundef 0)
   br label %.thread1211
 
-.thread1211:                                      ; preds = %861, %.critedge1109, %489, %489, %498, %490, %515, %509, %1123, %1136, %1058, %975, %896, %776, %420, %380, %.loopexit, %1166, %68
-  %.0 = phi i32 [ %70, %68 ], [ %52, %1166 ], [ %52, %.loopexit ], [ %52, %380 ], [ %52, %420 ], [ %52, %776 ], [ %52, %896 ], [ %52, %975 ], [ %52, %1058 ], [ %52, %1136 ], [ 2, %1123 ], [ %52, %509 ], [ %52, %515 ], [ %52, %490 ], [ %52, %498 ], [ %52, %489 ], [ %52, %489 ], [ %52, %.critedge1109 ], [ %52, %861 ]
+.thread1211:                                      ; preds = %498, %490, %515, %509, %.critedge1109, %1123, %1136, %861, %1058, %975, %896, %776, %489, %489, %420, %380, %.loopexit, %1166, %68
+  %.0 = phi i32 [ %70, %68 ], [ %52, %1166 ], [ %52, %.loopexit ], [ %52, %380 ], [ %52, %420 ], [ %52, %489 ], [ %52, %489 ], [ %52, %776 ], [ %52, %896 ], [ %52, %975 ], [ %52, %1058 ], [ %52, %861 ], [ %52, %1136 ], [ 2, %1123 ], [ %52, %.critedge1109 ], [ %52, %509 ], [ %52, %515 ], [ %52, %490 ], [ %52, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -5024,7 +5024,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %161, %uds_lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph465, %dissect_uds_dtc_and_fault_detection_counter_record.exit, %.lr.ph474, %.lr.ph478, %180, %.preheader439, %120, %.preheader, %270, %271, %278, %283, %286, %291, %297, %300, %303, %309, %316, %323, %326, %334, %337, %270, %270, %270, %270, %270, %270, %270, %344, %342, %42, %._crit_edge484, %104, %118, %._crit_edge460, %._crit_edge454, %._crit_edge448, %._crit_edge, %84, %82, %114, %112, %176, %172, %192, %187, %201, %196, %262, %260
-  %.13 = phi i32 [ %5, %262 ], [ 2, %260 ], [ 6, %42 ], [ %.0.lcssa, %._crit_edge484 ], [ %5, %84 ], [ %.3, %82 ], [ %.4, %104 ], [ %5, %114 ], [ %.5, %112 ], [ %119, %118 ], [ %5, %176 ], [ 3, %172 ], [ %5, %192 ], [ %190, %187 ], [ %5, %201 ], [ %199, %196 ], [ %.9.lcssa, %._crit_edge460 ], [ %.10.lcssa, %._crit_edge454 ], [ %.11.lcssa, %._crit_edge448 ], [ %.12.lcssa, %._crit_edge ], [ %5, %344 ], [ 2, %342 ], [ 3, %271 ], [ 6, %278 ], [ 3, %283 ], [ 6, %286 ], [ 4, %291 ], [ 5, %297 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 3, %300 ], [ 4, %303 ], [ 7, %309 ], [ 7, %316 ], [ 3, %323 ], [ 5, %326 ], [ 3, %334 ], [ 4, %337 ], [ 2, %.preheader ], [ %121, %120 ], [ 2, %.preheader439 ], [ 4, %180 ], [ %67, %.lr.ph478 ], [ %123, %.lr.ph474 ], [ %126, %dissect_uds_dtc_and_fault_detection_counter_record.exit ], [ %185, %.lr.ph465 ]
+  %.13 = phi i32 [ %5, %262 ], [ 2, %260 ], [ 6, %42 ], [ %.0.lcssa, %._crit_edge484 ], [ %5, %84 ], [ %.3, %82 ], [ %.4, %104 ], [ %5, %114 ], [ %.5, %112 ], [ %119, %118 ], [ %5, %176 ], [ 3, %172 ], [ %5, %192 ], [ %190, %187 ], [ %5, %201 ], [ %199, %196 ], [ %.9.lcssa, %._crit_edge460 ], [ %.10.lcssa, %._crit_edge454 ], [ %.11.lcssa, %._crit_edge448 ], [ %.12.lcssa, %._crit_edge ], [ %5, %344 ], [ 2, %342 ], [ 3, %271 ], [ 6, %278 ], [ 3, %283 ], [ 6, %286 ], [ 4, %291 ], [ 5, %297 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 2, %270 ], [ 3, %300 ], [ 4, %303 ], [ 7, %309 ], [ 7, %316 ], [ 3, %323 ], [ 5, %326 ], [ 3, %334 ], [ 4, %337 ], [ 2, %.preheader ], [ %121, %120 ], [ 2, %.preheader439 ], [ 4, %180 ], [ %126, %dissect_uds_dtc_and_fault_detection_counter_record.exit ], [ %67, %.lr.ph478 ], [ %123, %.lr.ph474 ], [ %185, %.lr.ph465 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.13
 }
@@ -5193,7 +5193,7 @@ define internal fastcc noundef zeroext i1 @call_heur_subdissector_uds(ptr nounde
   br label %44
 
 44:                                               ; preds = %8, %39, %41, %29, %24, %19
-  %.0 = phi i1 [ true, %19 ], [ true, %24 ], [ true, %29 ], [ true, %41 ], [ false, %39 ], [ true, %8 ]
+  %.0 = phi i1 [ true, %41 ], [ true, %19 ], [ true, %24 ], [ true, %29 ], [ false, %39 ], [ true, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }

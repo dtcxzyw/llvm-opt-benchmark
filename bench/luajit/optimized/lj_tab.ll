@@ -1043,7 +1043,7 @@ hashkey.exit:                                     ; preds = %88, %99, %102
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %.loopexit45, %.thread43, %125, %lj_tab_setstr.exit
-  %.0 = phi ptr [ %.012.i, %lj_tab_setstr.exit ], [ %126, %125 ], [ %.08.i, %.loopexit45 ], [ %50, %.thread43 ], [ %.032, %118 ]
+  %.0 = phi ptr [ %.012.i, %lj_tab_setstr.exit ], [ %.08.i, %.loopexit45 ], [ %126, %125 ], [ %50, %.thread43 ], [ %.032, %118 ]
   ret ptr %.0
 }
 
@@ -1103,7 +1103,7 @@ define hidden ptr @lj_tab_getinth(ptr noundef readonly captures(none) %0, i32 no
   br i1 %.not, label %31, label %21, !llvm.loop !50
 
 31:                                               ; preds = %21, %27
-  %.06 = phi ptr [ null, %27 ], [ %.0, %21 ]
+  %.06 = phi ptr [ %.0, %21 ], [ null, %27 ]
   ret ptr %.06
 }
 
@@ -1326,7 +1326,7 @@ lj_tab_getstr.exit.thread:                        ; preds = %109, %65, %27, %lj_
   br label %.thread47
 
 .thread47:                                        ; preds = %106, %59, %21, %lj_tab_getinth.exit, %lj_tab_getstr.exit.thread
-  %.1 = phi ptr [ %116, %lj_tab_getstr.exit.thread ], [ %73, %lj_tab_getinth.exit ], [ %.0.i, %21 ], [ %.0.i40, %59 ], [ %.0, %106 ]
+  %.1 = phi ptr [ %116, %lj_tab_getstr.exit.thread ], [ %73, %lj_tab_getinth.exit ], [ %.0.i40, %59 ], [ %.0.i, %21 ], [ %.0, %106 ]
   ret ptr %.1
 }
 
@@ -1621,7 +1621,7 @@ bestasize.exit:                                   ; preds = %137, %countint.exit
   br label %rehashtab.exit
 
 rehashtab.exit:                                   ; preds = %bestasize.exit, %144, %146
-  %150 = phi i32 [ %149, %146 ], [ 1, %144 ], [ 0, %bestasize.exit ]
+  %150 = phi i32 [ 1, %144 ], [ %149, %146 ], [ 0, %bestasize.exit ]
   tail call void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %.016.lcssa.i, i32 noundef %150)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %151 = tail call ptr @lj_tab_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
@@ -1899,7 +1899,7 @@ hashkey.exit121:                                  ; preds = %275, %282, %292, %2
   br label %311
 
 311:                                              ; preds = %.lr.ph155, %306, %hashkey.exit121
-  %.4 = phi ptr [ %.2154, %306 ], [ %264, %hashkey.exit121 ], [ %264, %.lr.ph155 ]
+  %.4 = phi ptr [ %264, %hashkey.exit121 ], [ %.2154, %306 ], [ %264, %.lr.ph155 ]
   %312 = getelementptr inbounds nuw i8, ptr %.4, i64 16
   %313 = load i64, ptr %312, align 8, !tbaa !16
   %.not96 = icmp eq i64 %313, 0
@@ -1924,7 +1924,7 @@ hashkey.exit121:                                  ; preds = %275, %282, %292, %2
   br i1 %.not99, label %337, label %.thread.thread
 
 .thread.thread:                                   ; preds = %hashkey.exit, %200, %.thread136, %.thread
-  %.083 = phi ptr [ %44, %.thread ], [ %153, %.thread136 ], [ %44, %200 ], [ %44, %hashkey.exit ]
+  %.083 = phi ptr [ %44, %.thread ], [ %44, %hashkey.exit ], [ %153, %.thread136 ], [ %44, %200 ]
   %320 = load i64, ptr %2, align 8, !tbaa !13
   %321 = getelementptr inbounds nuw i8, ptr %.083, i64 8
   %322 = icmp eq i64 %320, -9223372036854775808
@@ -2131,7 +2131,7 @@ hashkey.exit:                                     ; preds = %21, %28, %38, %41
   br label %78
 
 78:                                               ; preds = %14, %58, %76, %72, %5
-  %.1 = phi i32 [ %13, %5 ], [ %67, %58 ], [ %77, %76 ], [ -1, %72 ], [ 0, %14 ]
+  %.1 = phi i32 [ -1, %72 ], [ %13, %5 ], [ %67, %58 ], [ %77, %76 ], [ 0, %14 ]
   ret i32 %.1
 }
 
@@ -2276,7 +2276,7 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %24, %26
-  %.0 = phi i32 [ %25, %24 ], [ %27, %26 ], [ 0, %.preheader ], [ %20, %._crit_edge.loopexit ]
+  %.0 = phi i32 [ %27, %26 ], [ %25, %24 ], [ 0, %.preheader ], [ %20, %._crit_edge.loopexit ]
   ret i32 %.0
 }
 

@@ -139,7 +139,7 @@ tailrecurse.loopexit.i:                           ; preds = %50
   br i1 %or.cond.i, label %tailrecurse.loopexit.i, label %45
 
 search_tree.exit:                                 ; preds = %tailrecurse.loopexit.i, %45, %47, %geometric_series.exit.thread, %geometric_series.exit, %.preheader.lr.ph.i
-  %storemerge.sink.i = phi i32 [ 1, %geometric_series.exit ], [ 1, %.preheader.lr.ph.i ], [ 1, %geometric_series.exit.thread ], [ %44, %47 ], [ %44, %45 ], [ %36, %tailrecurse.loopexit.i ]
+  %storemerge.sink.i = phi i32 [ 1, %geometric_series.exit ], [ 1, %.preheader.lr.ph.i ], [ 1, %geometric_series.exit.thread ], [ %44, %45 ], [ %44, %47 ], [ %36, %tailrecurse.loopexit.i ]
   %.sink93.i = phi i32 [ 0, %geometric_series.exit ], [ -1, %.preheader.lr.ph.i ], [ 0, %geometric_series.exit.thread ], [ -1, %45 ], [ %.tr4261.i, %47 ], [ %.03755.i, %tailrecurse.loopexit.i ]
   %.sink.i = phi i32 [ %32, %geometric_series.exit ], [ -1, %.preheader.lr.ph.i ], [ %.07.lcssa.i, %geometric_series.exit.thread ], [ -1, %45 ], [ %41, %47 ], [ %39, %tailrecurse.loopexit.i ]
   store i32 %storemerge.sink.i, ptr %5, align 4
@@ -259,7 +259,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %geometric_series.exit, %dep.exit, %5
-  %.023 = phi i32 [ 0, %5 ], [ 0, %dep.exit ], [ 0, %geometric_series.exit ], [ %42, %.loopexit.loopexit ]
+  %.023 = phi i32 [ 0, %dep.exit ], [ 0, %5 ], [ 0, %geometric_series.exit ], [ %42, %.loopexit.loopexit ]
   ret i32 %.023
 }
 

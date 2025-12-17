@@ -88,7 +88,7 @@ pva_check.exit:                                   ; preds = %15
   br label %pva_check.exit.thread
 
 pva_check.exit.thread:                            ; preds = %38, %pva_check.exit, %35, %31, %23, %1, %8, %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %8 ], [ 0, %1 ], [ 25, %23 ], [ 25, %31 ], [ 25, %35 ], [ 25, %pva_check.exit ], [ %spec.select, %38 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 25, %pva_check.exit ], [ 0, %15 ], [ 0, %12 ], [ 25, %23 ], [ 25, %31 ], [ 25, %35 ], [ %spec.select, %38 ]
   ret i32 %.0
 }
 
@@ -415,8 +415,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_part_of_packet(ptr no
   %96 = tail call i64 @avio_skip(ptr noundef %8, i64 noundef %95) #5
   br label %.thread
 
-.thread:                                          ; preds = %44, %.thread.critedge, %74, %59
-  %.2.ph = phi i32 [ %60, %59 ], [ -1094995529, %74 ], [ -5, %.thread.critedge ], [ -541478725, %44 ]
+.thread:                                          ; preds = %44, %.thread.critedge, %59, %74
+  %.2.ph = phi i32 [ -1094995529, %74 ], [ -5, %.thread.critedge ], [ %60, %59 ], [ -541478725, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %114
 
@@ -463,16 +463,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_part_of_packet(ptr no
   br label %.thread111
 
 .thread111:                                       ; preds = %40, %104, %103
-  %113 = phi i32 [ %105, %104 ], [ 2, %103 ], [ 1, %40 ]
-  %.084116 = phi i32 [ %.084122, %104 ], [ %.185, %103 ], [ %19, %40 ]
-  %.188115 = phi i64 [ %.188121, %104 ], [ -9223372036854775808, %103 ], [ -9223372036854775808, %40 ]
+  %113 = phi i32 [ 2, %103 ], [ %105, %104 ], [ 1, %40 ]
+  %.084116 = phi i32 [ %.185, %103 ], [ %.084122, %104 ], [ %19, %40 ]
+  %.188115 = phi i64 [ -9223372036854775808, %103 ], [ %.188121, %104 ], [ -9223372036854775808, %40 ]
   store i64 %.188115, ptr %1, align 8, !tbaa !53
   store i32 %.084116, ptr %2, align 4, !tbaa !51
   store i32 %113, ptr %3, align 4, !tbaa !51
   br label %114
 
 114:                                              ; preds = %.thread, %32, %33, %25, %26, %21, %22, %.thread111
-  %.1 = phi i32 [ 0, %.thread111 ], [ -5, %22 ], [ -5, %21 ], [ -5, %26 ], [ -5, %25 ], [ -5, %33 ], [ -5, %32 ], [ %.2.ph, %.thread ]
+  %.1 = phi i32 [ %.2.ph, %.thread ], [ -5, %21 ], [ -5, %25 ], [ 0, %.thread111 ], [ -5, %22 ], [ -5, %26 ], [ -5, %33 ], [ -5, %32 ]
   ret i32 %.1
 }
 

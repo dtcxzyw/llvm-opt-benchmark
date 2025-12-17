@@ -522,8 +522,8 @@ define range(i32 -22, 1) i32 @av_parse_color(ptr noundef writeonly captures(none
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %4, %.tail.thread.fold.split
-  %.not78 = phi i1 [ false, %4 ], [ true, %.tail.thread.fold.split ], [ %11, %.tail ]
-  %.068 = phi i32 [ 1, %4 ], [ 0, %.tail.thread.fold.split ], [ %spec.select, %.tail ]
+  %.not78 = phi i1 [ false, %4 ], [ %11, %.tail ], [ true, %.tail.thread.fold.split ]
+  %.068 = phi i32 [ 1, %4 ], [ %spec.select, %.tail ], [ 0, %.tail.thread.fold.split ]
   %12 = icmp slt i32 %2, 0
   br i1 %12, label %13, label %16
 
@@ -725,7 +725,7 @@ sub_090:                                          ; preds = %80
   br label %103
 
 103:                                              ; preds = %80, %101, %.critedge86, %.critedge, %77
-  %.2 = phi i32 [ -22, %77 ], [ -22, %.critedge ], [ -22, %.critedge86 ], [ 0, %101 ], [ 0, %80 ]
+  %.2 = phi i32 [ -22, %77 ], [ -22, %.critedge86 ], [ -22, %.critedge ], [ 0, %101 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
@@ -793,27 +793,27 @@ define ptr @av_small_strptime(ptr noundef %0, ptr noundef readonly captures(none
   %.030 = phi ptr [ %1, %3 ], [ %.030.be, %.backedge.backedge ]
   %9 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %10 = load i8, ptr %.030, align 1, !tbaa !21
-  switch i8 %10, label %.critedge152 [
+  switch i8 %10, label %av_isspace.exit [
     i8 0, label %date_get_num.exit.thread
     i8 37, label %16
-    i8 32, label %av_isspace.exit.preheader
-    i8 13, label %av_isspace.exit.preheader
-    i8 12, label %av_isspace.exit.preheader
-    i8 10, label %av_isspace.exit.preheader
-    i8 9, label %av_isspace.exit.preheader
-    i8 11, label %av_isspace.exit.preheader
+    i8 32, label %.critedge152.preheader
+    i8 13, label %.critedge152.preheader
+    i8 12, label %.critedge152.preheader
+    i8 10, label %.critedge152.preheader
+    i8 9, label %.critedge152.preheader
+    i8 11, label %.critedge152.preheader
   ]
 
-av_isspace.exit.preheader:                        ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
-  br label %av_isspace.exit
+.critedge152.preheader:                           ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
+  br label %.critedge152
 
-.critedge152:                                     ; preds = %.backedge
+av_isspace.exit:                                  ; preds = %.backedge
   %11 = load i8, ptr %.0112, align 1, !tbaa !21
   %.not44 = icmp eq i8 %11, %10
   br i1 %.not44, label %14, label %date_get_num.exit.thread
 
-av_isspace.exit:                                  ; preds = %av_isspace.exit.preheader, %av_isspace.exit47.thread
-  %.1 = phi ptr [ %13, %av_isspace.exit47.thread ], [ %.0112, %av_isspace.exit.preheader ]
+.critedge152:                                     ; preds = %.critedge152.preheader, %av_isspace.exit47.thread
+  %.1 = phi ptr [ %13, %av_isspace.exit47.thread ], [ %.0112, %.critedge152.preheader ]
   %12 = load i8, ptr %.1, align 1, !tbaa !21
   switch i8 %12, label %.backedge.backedge [
     i8 11, label %av_isspace.exit47.thread
@@ -824,11 +824,11 @@ av_isspace.exit:                                  ; preds = %av_isspace.exit.pre
     i8 9, label %av_isspace.exit47.thread
   ], !llvm.loop !29
 
-av_isspace.exit47.thread:                         ; preds = %av_isspace.exit, %av_isspace.exit, %av_isspace.exit, %av_isspace.exit, %av_isspace.exit, %av_isspace.exit
+av_isspace.exit47.thread:                         ; preds = %.critedge152, %.critedge152, %.critedge152, %.critedge152, %.critedge152, %.critedge152
   %13 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %av_isspace.exit, !llvm.loop !30
+  br label %.critedge152, !llvm.loop !30
 
-14:                                               ; preds = %.critedge152
+14:                                               ; preds = %av_isspace.exit
   %15 = getelementptr inbounds nuw i8, ptr %.0112, i64 1
   br label %.backedge.backedge
 
@@ -896,9 +896,9 @@ date_get_num.exit:                                ; preds = %36
   store i32 %.019.lcssa.i, ptr %8, align 8, !tbaa !32
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %av_isspace.exit, %date_get_num.exit, %date_get_num.exit57, %date_get_num.exit67, %date_get_num.exit77, %date_get_num.exit87, %date_get_num.exit97, %date_get_month.exit, %110, %127, %14
-  %.0112.be = phi ptr [ %15, %14 ], [ %.0.lcssa.i, %date_get_num.exit ], [ %.0.lcssa.i54119, %date_get_num.exit57 ], [ %.0.lcssa.i64126, %date_get_num.exit67 ], [ %.0.lcssa.i74133, %date_get_num.exit77 ], [ %.0.lcssa.i84140, %date_get_num.exit87 ], [ %.0.lcssa.i94147, %date_get_num.exit97 ], [ %111, %110 ], [ %.10, %date_get_month.exit ], [ %128, %127 ], [ %.1, %av_isspace.exit ]
-  %.030.be = phi ptr [ %9, %14 ], [ %17, %date_get_num.exit ], [ %17, %date_get_num.exit57 ], [ %17, %date_get_num.exit67 ], [ %17, %date_get_num.exit77 ], [ %17, %date_get_num.exit87 ], [ %17, %date_get_num.exit97 ], [ %17, %110 ], [ %17, %date_get_month.exit ], [ %17, %127 ], [ %9, %av_isspace.exit ]
+.backedge.backedge:                               ; preds = %.critedge152, %date_get_num.exit, %date_get_num.exit57, %date_get_num.exit67, %date_get_num.exit77, %date_get_num.exit87, %date_get_num.exit97, %date_get_month.exit, %110, %127, %14
+  %.0112.be = phi ptr [ %15, %14 ], [ %.0.lcssa.i, %date_get_num.exit ], [ %.0.lcssa.i54119, %date_get_num.exit57 ], [ %.0.lcssa.i64126, %date_get_num.exit67 ], [ %.0.lcssa.i74133, %date_get_num.exit77 ], [ %.0.lcssa.i84140, %date_get_num.exit87 ], [ %.0.lcssa.i94147, %date_get_num.exit97 ], [ %111, %110 ], [ %.10, %date_get_month.exit ], [ %128, %127 ], [ %.1, %.critedge152 ]
+  %.030.be = phi ptr [ %9, %14 ], [ %17, %date_get_num.exit ], [ %17, %date_get_num.exit57 ], [ %17, %date_get_num.exit67 ], [ %17, %date_get_num.exit77 ], [ %17, %date_get_num.exit87 ], [ %17, %date_get_num.exit97 ], [ %17, %110 ], [ %17, %date_get_month.exit ], [ %17, %127 ], [ %9, %.critedge152 ]
   br label %.backedge, !llvm.loop !29
 
 40:                                               ; preds = %16
@@ -1128,8 +1128,8 @@ date_get_month.exit:                              ; preds = %116, %123
   %.not41 = icmp eq i8 %129, 37
   br i1 %.not41, label %.backedge.backedge, label %date_get_num.exit.thread
 
-date_get_num.exit.thread:                         ; preds = %.backedge, %.thread143, %107, %.thread136, %92, %.thread129, %78, %.thread122, %64, %.thread, %51, %36, %34, %16, %127, %110, %.critedge152, %126
-  %.0 = phi ptr [ null, %126 ], [ null, %.thread143 ], [ null, %107 ], [ null, %.thread136 ], [ null, %92 ], [ null, %.thread129 ], [ null, %78 ], [ null, %.thread122 ], [ null, %64 ], [ null, %.thread ], [ null, %51 ], [ null, %36 ], [ null, %34 ], [ %.0112, %.backedge ], [ null, %16 ], [ null, %127 ], [ null, %110 ], [ null, %.critedge152 ]
+date_get_num.exit.thread:                         ; preds = %.backedge, %.thread143, %107, %.thread136, %92, %.thread129, %78, %.thread122, %64, %.thread, %51, %36, %34, %16, %127, %110, %av_isspace.exit, %126
+  %.0 = phi ptr [ null, %126 ], [ null, %107 ], [ null, %92 ], [ null, %78 ], [ null, %64 ], [ null, %51 ], [ null, %34 ], [ null, %16 ], [ null, %110 ], [ null, %.thread136 ], [ null, %.thread129 ], [ null, %.thread122 ], [ null, %.thread ], [ null, %36 ], [ %.0112, %.backedge ], [ null, %av_isspace.exit ], [ null, %127 ], [ null, %.thread143 ]
   ret ptr %.0
 }
 
@@ -1551,10 +1551,10 @@ switch.early.test:                                ; preds = %87
   br label %.loopexit260.thread
 
 161:                                              ; preds = %.thread252, %.thread205, %77, %84
-  %.10 = phi ptr [ %79, %77 ], [ %85, %84 ], [ %spec.select183, %.thread205 ], [ %.11224250, %.thread252 ]
-  %.1139 = phi i64 [ %.0138201, %77 ], [ %.0138201, %84 ], [ %.0138201, %.thread205 ], [ %159, %.thread252 ]
-  %.2130 = phi i32 [ %78, %77 ], [ 0, %84 ], [ %.0128, %.thread205 ], [ %.0128, %.thread252 ]
-  %.0127 = phi i64 [ 1000, %77 ], [ 1, %84 ], [ 1000000, %.thread205 ], [ 1000000, %.thread252 ]
+  %.10 = phi ptr [ %79, %77 ], [ %85, %84 ], [ %.11224250, %.thread252 ], [ %spec.select183, %.thread205 ]
+  %.1139 = phi i64 [ %.0138201, %77 ], [ %.0138201, %84 ], [ %159, %.thread252 ], [ %.0138201, %.thread205 ]
+  %.2130 = phi i32 [ %78, %77 ], [ 0, %84 ], [ %.0128, %.thread252 ], [ %.0128, %.thread205 ]
+  %.0127 = phi i64 [ 1000, %77 ], [ 1, %84 ], [ 1000000, %.thread252 ], [ 1000000, %.thread205 ]
   %162 = load i8, ptr %.10, align 1, !tbaa !21
   %.not177 = icmp eq i8 %162, 0
   br i1 %.not177, label %163, label %.loopexit260.thread
@@ -1590,7 +1590,7 @@ switch.early.test:                                ; preds = %87
   br label %.loopexit260.thread
 
 .loopexit260.thread:                              ; preds = %24, %160, %.thread189, %174, %169, %163, %166, %161, %.loopexit260, %43, %177, %13
-  %.0 = phi i32 [ 0, %177 ], [ -22, %160 ], [ -34, %43 ], [ 0, %13 ], [ -22, %.loopexit260 ], [ -22, %161 ], [ -34, %166 ], [ -34, %163 ], [ -34, %169 ], [ -34, %174 ], [ -22, %.thread189 ], [ -22, %24 ]
+  %.0 = phi i32 [ -22, %.loopexit260 ], [ -22, %161 ], [ -34, %163 ], [ -34, %169 ], [ 0, %177 ], [ -22, %160 ], [ 0, %13 ], [ -34, %43 ], [ -34, %166 ], [ -34, %174 ], [ -22, %.thread189 ], [ -22, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

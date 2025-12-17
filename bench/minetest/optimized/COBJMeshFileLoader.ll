@@ -2073,7 +2073,7 @@ if.then75:                                        ; preds = %sw.bb73
   br label %if.then82
 
 if.then82:                                        ; preds = %if.then75, %sw.bb73
-  %currMtl.11165 = phi ptr [ %currMtl.01285, %sw.bb73 ], [ %spec.select49, %if.then75 ]
+  %currMtl.11165 = phi ptr [ %spec.select49, %if.then75 ], [ %currMtl.01285, %sw.bb73 ]
   %Meshbuffer = getelementptr inbounds nuw i8, ptr %currMtl.11165, i64 48
   %157 = load ptr, ptr %Meshbuffer, align 8, !tbaa !89
   %DiffuseColor = getelementptr inbounds nuw i8, ptr %157, i64 168
@@ -2588,8 +2588,8 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit:            ; preds = %lor.rhs.i.i
   br label %.thread1175
 
 .thread1175:                                      ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i, %land.lhs.true11.i53.i, %_ZNK3irr5video9S3DVertexltERKS1_.exit, %lor.rhs.i.i, %land.rhs.i1105, %land.lhs.true26.i, %land.lhs.true16.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i, %land.lhs.true.i49.i, %lor.lhs.false.i47.i, %land.lhs.true.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i, %land.lhs.true11.i.i, %land.lhs.true.i.i, %lor.lhs.false.i.i1103, %while.body.i.i.i
-  %231 = phi ptr [ %__x.addr.011.i.i.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i ], [ %__x.addr.011.i.i.i, %land.lhs.true11.i.i ], [ %__x.addr.011.i.i.i, %lor.lhs.false.i.i1103 ], [ %__x.addr.011.i.i.i, %lor.rhs.i.i ], [ %__x.addr.011.i.i.i, %land.lhs.true26.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i49.i ], [ %__y.addr.010.i.i.i, %while.body.i.i.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i.i ], [ %__y.addr.010.i.i.i, %land.rhs.i1105 ], [ %__y.addr.010.i.i.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i ], [ %__y.addr.010.i.i.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i ], [ %__y.addr.010.i.i.i, %land.lhs.true16.i ], [ %spec.select, %_ZNK3irr5video9S3DVertexltERKS1_.exit ], [ %__x.addr.011.i.i.i, %lor.lhs.false.i47.i ], [ %__x.addr.011.i.i.i, %land.lhs.true11.i53.i ], [ %__x.addr.011.i.i.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i ]
-  %232 = phi i64 [ 16, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i ], [ 16, %land.lhs.true11.i.i ], [ 16, %lor.lhs.false.i.i1103 ], [ 16, %lor.rhs.i.i ], [ 16, %land.lhs.true26.i ], [ 24, %land.lhs.true.i ], [ 24, %land.lhs.true.i49.i ], [ 24, %while.body.i.i.i ], [ 24, %land.lhs.true.i.i ], [ 24, %land.rhs.i1105 ], [ 24, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i ], [ 24, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i ], [ 24, %land.lhs.true16.i ], [ %spec.select1189, %_ZNK3irr5video9S3DVertexltERKS1_.exit ], [ 16, %lor.lhs.false.i47.i ], [ 16, %land.lhs.true11.i53.i ], [ 16, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i ]
+  %231 = phi ptr [ %__x.addr.011.i.i.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i ], [ %__x.addr.011.i.i.i, %land.lhs.true11.i.i ], [ %__x.addr.011.i.i.i, %lor.lhs.false.i.i1103 ], [ %__x.addr.011.i.i.i, %lor.lhs.false.i47.i ], [ %__x.addr.011.i.i.i, %lor.rhs.i.i ], [ %__x.addr.011.i.i.i, %land.lhs.true11.i53.i ], [ %__x.addr.011.i.i.i, %land.lhs.true26.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i49.i ], [ %__y.addr.010.i.i.i, %while.body.i.i.i ], [ %__y.addr.010.i.i.i, %land.lhs.true.i.i ], [ %__y.addr.010.i.i.i, %land.rhs.i1105 ], [ %__y.addr.010.i.i.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i ], [ %__y.addr.010.i.i.i, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i ], [ %__y.addr.010.i.i.i, %land.lhs.true16.i ], [ %spec.select, %_ZNK3irr5video9S3DVertexltERKS1_.exit ], [ %__x.addr.011.i.i.i, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i ]
+  %232 = phi i64 [ 16, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i ], [ 16, %land.lhs.true11.i.i ], [ 16, %lor.lhs.false.i.i1103 ], [ 16, %lor.lhs.false.i47.i ], [ 16, %lor.rhs.i.i ], [ 16, %land.lhs.true11.i53.i ], [ 16, %land.lhs.true26.i ], [ 24, %land.lhs.true.i ], [ 24, %land.lhs.true.i49.i ], [ 24, %while.body.i.i.i ], [ 24, %land.lhs.true.i.i ], [ 24, %land.rhs.i1105 ], [ 24, %_ZNK3irr4core8vector3dIfEltERKS2_.exit.i ], [ 24, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59.i ], [ 24, %land.lhs.true16.i ], [ %spec.select1189, %_ZNK3irr5video9S3DVertexltERKS1_.exit ], [ 16, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i ]
   %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.011.i.i.i, i64 %232
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !91
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -2687,7 +2687,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit101:         ; preds = %lor.rhs.i.i88
   %cmp7.i107.i91 = fcmp ogt float %242, %212
   br i1 %cmp7.i107.i91, label %if.else152, label %if.then150
 
-if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %land.lhs.true11.i53.i73, %lor.lhs.false.i47.i68, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %land.lhs.true11.i.i57, %lor.lhs.false.i.i51, %lor.rhs.i.i88, %land.lhs.true26.i82, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
+if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %land.lhs.true11.i53.i73, %lor.lhs.false.i.i51, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %lor.lhs.false.i47.i68, %lor.rhs.i.i88, %land.lhs.true11.i.i57, %land.lhs.true26.i82, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
   %second = getelementptr inbounds nuw i8, ptr %231, i64 68
   %243 = load i32, ptr %second, align 4, !tbaa !156
   store i32 %243, ptr %vertLocation, align 4, !tbaa !90
@@ -2882,7 +2882,7 @@ while.body.i.i849:                                ; preds = %land.rhs.i.i847, %l
   br i1 %cmp.not.i.i851, label %cleanup, label %land.rhs.i.i847, !llvm.loop !145
 
 cleanup:                                          ; preds = %while.body.i853, %while.body.i.i849, %land.rhs.i.i847, %_ZN3irr4core5arrayIiE9push_backERKi.exit
-  %buf.addr.2.i.i852 = phi ptr [ %add.ptr86, %_ZN3irr4core5arrayIiE9push_backERKi.exit ], [ %buf.addr.028.i.i848, %land.rhs.i.i847 ], [ %scevgep37.i.i846, %while.body.i.i849 ], [ %scevgep.i841, %while.body.i853 ]
+  %buf.addr.2.i.i852 = phi ptr [ %add.ptr86, %_ZN3irr4core5arrayIiE9push_backERKi.exit ], [ %scevgep37.i.i846, %while.body.i.i849 ], [ %buf.addr.028.i.i848, %land.rhs.i.i847 ], [ %scevgep.i841, %while.body.i853 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %vertLocation)
   call void @llvm.lifetime.end.p0(ptr nonnull %Idx)
   %260 = load i8, ptr %buf.addr.2.i.i852, align 1, !tbaa !28
@@ -3233,7 +3233,7 @@ while.body.i.i959:                                ; preds = %land.rhs.i.i957, %l
   br i1 %cmp.not.i.i961, label %_ZN3irr5scene18COBJMeshFileLoader10goNextLineEPKcS3_.exit, label %land.rhs.i.i957, !llvm.loop !145
 
 _ZN3irr5scene18COBJMeshFileLoader10goNextLineEPKcS3_.exit: ; preds = %if.end.i, %while.body.i.i959, %land.rhs.i.i957
-  %buf.addr.2.i.i962 = phi ptr [ %buf.addr.028.i.i958, %land.rhs.i.i957 ], [ %scevgep37.i.i956, %while.body.i.i959 ], [ %scevgep.i953, %if.end.i ]
+  %buf.addr.2.i.i962 = phi ptr [ %scevgep37.i.i956, %while.body.i.i959 ], [ %buf.addr.028.i.i958, %land.rhs.i.i957 ], [ %scevgep.i953, %if.end.i ]
   %cmp.not = icmp eq ptr %buf.addr.2.i.i962, %add.ptr
   br i1 %cmp.not, label %while.end210, label %while.body, !llvm.loop !176
 
@@ -3730,7 +3730,7 @@ while.body10.i.i:                                 ; preds = %land.lhs.true.i.i, 
   br i1 %cmp3.not.i.i, label %_ZN3irr5scene18COBJMeshFileLoader10goNextWordEPKcS3_b.exit, label %land.lhs.true.i.i, !llvm.loop !96
 
 _ZN3irr5scene18COBJMeshFileLoader10goNextWordEPKcS3_b.exit: ; preds = %while.body.i, %while.body10.i.i, %land.lhs.true.i.i, %entry
-  %buf.addr.2.i.i = phi ptr [ %bufEnd, %entry ], [ %buf.addr.125.i.i, %land.lhs.true.i.i ], [ %scevgep37.i.i, %while.body10.i.i ], [ %scevgep.i, %while.body.i ]
+  %buf.addr.2.i.i = phi ptr [ %bufEnd, %entry ], [ %scevgep37.i.i, %while.body10.i.i ], [ %buf.addr.125.i.i, %land.lhs.true.i.i ], [ %scevgep.i, %while.body.i ]
   %buf.addr.2.i.i15 = ptrtoint ptr %buf.addr.2.i.i to i64
   %tobool.not.i = icmp eq i32 %outBufLength, 0
   br i1 %tobool.not.i, label %_ZN3irr5scene18COBJMeshFileLoader8copyWordEPcPKcjS4_.exit, label %if.end.i
@@ -5010,7 +5010,7 @@ land.rhs.i.i.us.us:                               ; preds = %for.body.us.us
   br i1 %cmp.i.i55.us.us, label %cleanup40, label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %land.rhs.i.i.us.us, %for.body.us.us
-  %defMaterial.1.us.us = phi ptr [ %defMaterial.0122.us.us, %for.body.us.us ], [ %7, %land.rhs.i.i.us.us ]
+  %defMaterial.1.us.us = phi ptr [ %7, %land.rhs.i.i.us.us ], [ %defMaterial.0122.us.us, %for.body.us.us ]
   %indvars.iv.next.us.us = add nuw nsw i64 %indvars.iv.us.us, 1
   %exitcond.not.us.us = icmp eq i64 %indvars.iv.next.us.us, %wide.trip.count
   br i1 %exitcond.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !228
@@ -5039,7 +5039,7 @@ land.rhs.i.i56.us:                                ; preds = %land.rhs.i.i.us
   br i1 %14, label %cleanup40, label %for.inc.us
 
 for.inc.us:                                       ; preds = %land.rhs.i.i56.us, %land.rhs.i.i.us, %for.body.us
-  %defMaterial.1.us = phi ptr [ %10, %land.rhs.i.i56.us ], [ %defMaterial.0122.us, %for.body.us ], [ %10, %land.rhs.i.i.us ]
+  %defMaterial.1.us = phi ptr [ %10, %land.rhs.i.i.us ], [ %10, %land.rhs.i.i56.us ], [ %defMaterial.0122.us, %for.body.us ]
   %indvars.iv.next.us = add nuw nsw i64 %indvars.iv.us, 1
   %exitcond.not.us = icmp eq i64 %indvars.iv.next.us, %wide.trip.count
   br i1 %exitcond.not.us, label %for.end, label %for.body.us, !llvm.loop !228
@@ -5071,7 +5071,7 @@ if.then.us17:                                     ; preds = %land.rhs.i.i.us16
   br i1 %cmp.i.i55.us20, label %cleanup40, label %for.inc.us22
 
 for.inc.us22:                                     ; preds = %if.then.us17, %land.rhs.i.i.us16, %for.body.us9
-  %defMaterial.1.us23 = phi ptr [ %defMaterial.0122.us11, %land.rhs.i.i.us16 ], [ %defMaterial.0122.us11, %for.body.us9 ], [ %15, %if.then.us17 ]
+  %defMaterial.1.us23 = phi ptr [ %defMaterial.0122.us11, %land.rhs.i.i.us16 ], [ %15, %if.then.us17 ], [ %defMaterial.0122.us11, %for.body.us9 ]
   %indvars.iv.next.us24 = add nuw nsw i64 %indvars.iv.us10, 1
   %exitcond.not.us25 = icmp eq i64 %indvars.iv.next.us24, %wide.trip.count
   br i1 %exitcond.not.us25, label %for.end, label %for.body.us9, !llvm.loop !228
@@ -5113,7 +5113,7 @@ for.inc:                                          ; preds = %land.rhs.i.i56, %if
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !228
 
 for.end:                                          ; preds = %for.inc, %for.inc.us22, %for.inc.us, %for.inc.us.us
-  %.us-phi8 = phi ptr [ %defMaterial.1.us.us, %for.inc.us.us ], [ %defMaterial.1.us, %for.inc.us ], [ %defMaterial.1.us23, %for.inc.us22 ], [ %defMaterial.1, %for.inc ]
+  %.us-phi8 = phi ptr [ %defMaterial.1.us23, %for.inc.us22 ], [ %defMaterial.1.us.us, %for.inc.us.us ], [ %defMaterial.1.us, %for.inc.us ], [ %defMaterial.1, %for.inc ]
   %tobool.not = icmp eq ptr %.us-phi8, null
   br i1 %tobool.not, label %if.else23, label %if.then14
 
@@ -5279,7 +5279,7 @@ cleanup40.sink.split:                             ; preds = %_ZN3irr4core5arrayI
   br label %cleanup40
 
 cleanup40:                                        ; preds = %land.rhs.i.i56, %if.then.us17, %land.rhs.i.i56.us, %land.rhs.i.i.us.us, %cleanup40.sink.split, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103, %if.else23, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit
-  %retval.1 = phi ptr [ null, %if.else23 ], [ %33, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit ], [ %43, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103 ], [ %.pre129, %cleanup40.sink.split ], [ %7, %land.rhs.i.i.us.us ], [ %10, %land.rhs.i.i56.us ], [ %15, %if.then.us17 ], [ %20, %land.rhs.i.i56 ]
+  %retval.1 = phi ptr [ null, %if.else23 ], [ %33, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit ], [ %43, %_ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEE9push_backEOS5_.exit103 ], [ %.pre129, %cleanup40.sink.split ], [ %15, %if.then.us17 ], [ %7, %land.rhs.i.i.us.us ], [ %10, %land.rhs.i.i56.us ], [ %20, %land.rhs.i.i56 ]
   ret ptr %retval.1
 }
 
@@ -5478,7 +5478,7 @@ while.body10.i:                                   ; preds = %land.lhs.true.i, %l
   br i1 %cmp3.not.i, label %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit, label %land.lhs.true.i, !llvm.loop !96
 
 _ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit: ; preds = %while.body, %while.body10.i, %land.lhs.true.i, %while.body.i, %land.rhs.i, %entry
-  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %scevgep37.i, %while.body.i ], [ %buf.addr.028.i, %land.rhs.i ], [ %scevgep37.i, %while.body10.i ], [ %buf.addr.125.i, %land.lhs.true.i ], [ %scevgep, %while.body ]
+  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %scevgep37.i, %while.body10.i ], [ %buf.addr.028.i, %land.rhs.i ], [ %scevgep37.i, %while.body.i ], [ %buf.addr.125.i, %land.lhs.true.i ], [ %scevgep, %while.body ]
   ret ptr %buf.addr.2.i
 }
 
@@ -6091,7 +6091,7 @@ while.body.i:                                     ; preds = %land.rhs.i, %land.r
   br i1 %cmp.not.i, label %_ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit, label %land.rhs.i, !llvm.loop !145
 
 _ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit: ; preds = %if.end, %while.body.i, %land.rhs.i, %entry
-  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %scevgep37.i, %while.body.i ], [ %buf.addr.028.i, %land.rhs.i ], [ %scevgep, %if.end ]
+  %buf.addr.2.i = phi ptr [ %buf, %entry ], [ %buf.addr.028.i, %land.rhs.i ], [ %scevgep37.i, %while.body.i ], [ %scevgep, %if.end ]
   ret ptr %buf.addr.2.i
 }
 
@@ -7651,7 +7651,7 @@ while.body10:                                     ; preds = %land.lhs.true, %lan
   br i1 %cmp3.not, label %if.end, label %land.lhs.true, !llvm.loop !96
 
 if.end:                                           ; preds = %while.body10, %land.lhs.true, %while.body, %land.rhs, %while.cond.preheader, %while.cond2.preheader
-  %buf.addr.2 = phi ptr [ %buf, %while.cond.preheader ], [ %buf, %while.cond2.preheader ], [ %buf.addr.028, %land.rhs ], [ %scevgep37, %while.body ], [ %buf.addr.125, %land.lhs.true ], [ %scevgep, %while.body10 ]
+  %buf.addr.2 = phi ptr [ %buf, %while.cond.preheader ], [ %buf, %while.cond2.preheader ], [ %scevgep37, %while.body ], [ %buf.addr.028, %land.rhs ], [ %buf.addr.125, %land.lhs.true ], [ %scevgep, %while.body10 ]
   ret ptr %buf.addr.2
 }
 
@@ -11399,7 +11399,7 @@ land.rhs.i104:                                    ; preds = %lor.rhs.i
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.lhs.false.i47, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit, %land.lhs.true11.i, %land.rhs.i104, %lor.rhs.i, %land.rhs, %land.lhs.true26, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit100, %land.lhs.true.i92, %land.lhs.true16, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59, %land.lhs.true.i49, %land.lhs.true, %_ZNK3irr4core8vector3dIfEltERKS2_.exit, %land.lhs.true.i, %lor.lhs.false.i, %entry
-  %28 = phi i1 [ true, %land.lhs.true16 ], [ true, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59 ], [ true, %_ZNK3irr4core8vector3dIfEltERKS2_.exit ], [ false, %land.lhs.true26 ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit100 ], [ true, %land.rhs ], [ false, %lor.rhs.i ], [ %cmp7.i107, %land.rhs.i104 ], [ true, %land.lhs.true.i ], [ true, %entry ], [ true, %land.lhs.true.i49 ], [ true, %land.lhs.true ], [ false, %land.lhs.true.i92 ], [ false, %lor.lhs.false.i ], [ false, %land.lhs.true11.i ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit ], [ false, %lor.lhs.false.i47 ]
+  %28 = phi i1 [ true, %land.lhs.true16 ], [ true, %_ZNK3irr4core8vector3dIfEltERKS2_.exit59 ], [ true, %_ZNK3irr4core8vector3dIfEltERKS2_.exit ], [ false, %land.lhs.true26 ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit100 ], [ false, %land.lhs.true11.i ], [ true, %land.rhs ], [ false, %lor.rhs.i ], [ %cmp7.i107, %land.rhs.i104 ], [ true, %land.lhs.true.i ], [ true, %entry ], [ true, %land.lhs.true.i49 ], [ true, %land.lhs.true ], [ false, %land.lhs.true.i92 ], [ false, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit ], [ false, %lor.lhs.false.i ], [ false, %lor.lhs.false.i47 ]
   ret i1 %28
 }
 

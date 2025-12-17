@@ -216,7 +216,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -704,7 +704,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %.noexc
   br label %193
 
 .lr.ph:                                           ; preds = %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit, %72, %80
-  %.039 = phi i32 [ %81, %80 ], [ %70, %72 ], [ %70, %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit ]
+  %.039 = phi i32 [ %81, %80 ], [ %70, %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit ], [ %70, %72 ]
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %88
@@ -1507,7 +1507,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc79, %25
   br label %.backedge
 
 179:                                              ; preds = %.loopexit87, %.loopexit.split-lp88, %105, %119, %175, %135
-  %.pn74 = phi { ptr, i32 } [ %136, %135 ], [ %.pn65, %175 ], [ %.pn71, %119 ], [ %106, %105 ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
+  %.pn74 = phi { ptr, i32 } [ %106, %105 ], [ %.pn65, %175 ], [ %136, %135 ], [ %.pn71, %119 ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %191
 
@@ -1541,7 +1541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %186, 
   ret void
 
 191:                                              ; preds = %.loopexit86, %.loopexit.split-lp, %53, %65, %179
-  %.pn76.pn = phi { ptr, i32 } [ %66, %65 ], [ %.pn74, %179 ], [ %54, %53 ], [ %lpad.loopexit, %.loopexit86 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn76.pn = phi { ptr, i32 } [ %54, %53 ], [ %66, %65 ], [ %.pn74, %179 ], [ %lpad.loopexit, %.loopexit86 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %192 = load ptr, ptr %4, align 8, !tbaa !83

@@ -884,7 +884,7 @@ define internal fastcc void @upscale_multistep_double_prec(ptr noundef readonly 
   br label %choose_interp_filter.exit.i
 
 choose_interp_filter.exit.i:                      ; preds = %10, %8, %6, %4
-  %.0.i.i = phi ptr [ @av1_resize_filter_normative, %4 ], [ @filteredinterp_filters875, %6 ], [ @filteredinterp_filters750, %8 ], [ %filteredinterp_filters500.filteredinterp_filters625.i.i, %10 ]
+  %.0.i.i = phi ptr [ @filteredinterp_filters750, %8 ], [ @av1_resize_filter_normative, %4 ], [ @filteredinterp_filters875, %6 ], [ %filteredinterp_filters500.filteredinterp_filters625.i.i, %10 ]
   %12 = shl i32 %1, 14
   %13 = sdiv i32 %3, 2
   %14 = add i32 %13, %12
@@ -2742,7 +2742,7 @@ av1_resize_and_extend_frame_nonnormative.exit:    ; preds = %64
   br label %65
 
 65:                                               ; preds = %13, %21, %31, %av1_resize_and_extend_frame_nonnormative.exit
-  %.0 = phi ptr [ %2, %av1_resize_and_extend_frame_nonnormative.exit ], [ %2, %31 ], [ %1, %21 ], [ %1, %13 ]
+  %.0 = phi ptr [ %2, %31 ], [ %2, %av1_resize_and_extend_frame_nonnormative.exit ], [ %1, %21 ], [ %1, %13 ]
   ret ptr %.0
 }
 
@@ -3039,7 +3039,7 @@ define internal fastcc void @interpolate(ptr noundef readonly captures(none) %0,
   br label %choose_interp_filter.exit
 
 choose_interp_filter.exit:                        ; preds = %4, %6, %8, %10
-  %.0.i = phi ptr [ @av1_resize_filter_normative, %4 ], [ @filteredinterp_filters875, %6 ], [ @filteredinterp_filters750, %8 ], [ %filteredinterp_filters500.filteredinterp_filters625.i, %10 ]
+  %.0.i = phi ptr [ @filteredinterp_filters750, %8 ], [ @av1_resize_filter_normative, %4 ], [ @filteredinterp_filters875, %6 ], [ %filteredinterp_filters500.filteredinterp_filters625.i, %10 ]
   %12 = shl i32 %1, 14
   %13 = sdiv i32 %3, 2
   %14 = add i32 %13, %12
@@ -3319,7 +3319,7 @@ define internal fastcc void @highbd_interpolate(ptr noundef readonly captures(no
   br label %choose_interp_filter.exit
 
 choose_interp_filter.exit:                        ; preds = %5, %7, %9, %11
-  %.0.i = phi ptr [ @av1_resize_filter_normative, %5 ], [ @filteredinterp_filters875, %7 ], [ @filteredinterp_filters750, %9 ], [ %filteredinterp_filters500.filteredinterp_filters625.i, %11 ]
+  %.0.i = phi ptr [ @filteredinterp_filters750, %9 ], [ @av1_resize_filter_normative, %5 ], [ @filteredinterp_filters875, %7 ], [ %filteredinterp_filters500.filteredinterp_filters625.i, %11 ]
   %13 = shl i32 %1, 14
   %14 = sdiv i32 %3, 2
   %15 = add i32 %14, %13

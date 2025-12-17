@@ -288,7 +288,7 @@ define internal range(i32 -2147483648, 1) i32 @pcm_read_header(ptr noundef %0) #
   br label %83
 
 83:                                               ; preds = %.critedge, %10, %1, %76
-  %.033 = phi i32 [ 0, %76 ], [ -12, %1 ], [ %23, %10 ], [ -1094995529, %.critedge ]
+  %.033 = phi i32 [ -12, %1 ], [ 0, %76 ], [ -1094995529, %.critedge ], [ %23, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.033
 }

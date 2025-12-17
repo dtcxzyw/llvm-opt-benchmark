@@ -56,7 +56,7 @@ switch.lookup:                                    ; preds = %15
   br label %17
 
 17:                                               ; preds = %13, %15, %switch.lookup, %10
-  %.0 = phi i1 [ true, %10 ], [ %switch.masked, %switch.lookup ], [ false, %15 ], [ false, %13 ]
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %10 ], [ false, %15 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -986,7 +986,7 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
   br label %43
 
 43:                                               ; preds = %37, %34, %39
-  %.0 = phi i8 [ %42, %39 ], [ 0, %34 ], [ %., %37 ]
+  %.0 = phi i8 [ %42, %39 ], [ %., %37 ], [ 0, %34 ]
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 77
   %46 = load i8, ptr %45, align 1
@@ -1004,7 +1004,7 @@ define internal zeroext i1 @HIDAPI_DriverGameCube_RumbleJoystick(ptr noundef rea
   br label %51
 
 51:                                               ; preds = %43, %47, %49, %28, %22, %11
-  %.031 = phi i1 [ %12, %11 ], [ %23, %22 ], [ %29, %28 ], [ %50, %49 ], [ true, %47 ], [ true, %43 ]
+  %.031 = phi i1 [ %12, %11 ], [ %23, %22 ], [ %50, %49 ], [ %29, %28 ], [ true, %47 ], [ true, %43 ]
   ret i1 %.031
 }
 

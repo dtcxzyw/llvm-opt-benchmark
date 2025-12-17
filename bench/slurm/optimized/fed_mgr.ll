@@ -1376,13 +1376,13 @@ _spawn_threads.exit:                              ; preds = %207
   br label %289
 
 289:                                              ; preds = %._crit_edge, %279, %281, %288
-  %.052100 = phi ptr [ %223, %288 ], [ %223, %281 ], [ %.05299, %._crit_edge ], [ %.05299, %279 ]
-  %.4 = phi i32 [ %.2107, %288 ], [ %.2107, %281 ], [ 0, %._crit_edge ], [ -1, %279 ]
+  %.052100 = phi ptr [ %223, %281 ], [ %223, %288 ], [ %.05299, %._crit_edge ], [ %.05299, %279 ]
+  %.4 = phi i32 [ %.2107, %281 ], [ %.2107, %288 ], [ 0, %._crit_edge ], [ -1, %279 ]
   call void @slurmdb_destroy_federation_rec(ptr noundef %.052100) #16
   br label %290
 
 290:                                              ; preds = %218, %221, %18, %289, %237
-  %.049 = phi i32 [ %.4, %289 ], [ -1, %237 ], [ 0, %18 ], [ 0, %221 ], [ 0, %218 ]
+  %.049 = phi i32 [ %.4, %289 ], [ 0, %18 ], [ -1, %237 ], [ 0, %221 ], [ 0, %218 ]
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._state_load.job_read_lock) #16
   %291 = load ptr, ptr @job_list, align 8
   %292 = call ptr @list_iterator_create(ptr noundef %291) #16
@@ -2737,12 +2737,12 @@ _is_fed_job.exit:                                 ; preds = %12
   br i1 %.not2934, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %.split, %.backedge, %.split.us.us, %.backedge.us.us, %49
-  %.025.ph.lcssa = phi i32 [ 0, %49 ], [ %.025.ph39.us, %.backedge.us.us ], [ %66, %.split.us.us ], [ %.025.ph39, %.backedge ], [ %86, %.split ]
+  %.025.ph.lcssa = phi i32 [ 0, %49 ], [ %.025.ph39, %.backedge ], [ %.025.ph39.us, %.backedge.us.us ], [ %66, %.split.us.us ], [ %86, %.split ]
   call void @list_iterator_destroy(ptr noundef %53) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %15, %18, %3, %.outer._crit_edge
-  %.0 = phi i32 [ %.025.ph.lcssa, %.outer._crit_edge ], [ 0, %3 ], [ 0, %18 ], [ 0, %15 ]
+_is_fed_job.exit.thread:                          ; preds = %18, %3, %15, %.outer._crit_edge
+  %.0 = phi i32 [ %.025.ph.lcssa, %.outer._crit_edge ], [ 0, %15 ], [ 0, %3 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2872,7 +2872,7 @@ _is_fed_job.exit:                                 ; preds = %25
   tail call void @job_completion_logger(ptr noundef nonnull %14, i1 noundef zeroext false) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %29, %32, %49, %44, %38, %13, %56
+_is_fed_job.exit.thread:                          ; preds = %32, %29, %49, %44, %38, %13, %56
   %59 = tail call ptr @list_next(ptr noundef %7) #16
   %.not36 = icmp eq ptr %59, null
   br i1 %.not36, label %._crit_edge, label %13
@@ -3164,7 +3164,7 @@ define internal fastcc void @_leave_federation() unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %5, %8
-  %11 = phi ptr [ %.pre6, %5 ], [ %.pre, %8 ]
+  %11 = phi ptr [ %.pre, %8 ], [ %.pre6, %5 ]
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_close_sibling_conns.exit, label %.thread
 
@@ -4291,7 +4291,7 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %fed_mgr_is_origin_j
   %19 = tail call i32 @fed_mgr_submit_remote_dependencies(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %fed_mgr_is_origin_job.exit, %fed_mgr_is_origin_job.exit.thread, %18
+_is_fed_job.exit.thread:                          ; preds = %12, %1, %9, %fed_mgr_is_origin_job.exit, %fed_mgr_is_origin_job.exit.thread, %18
   ret void
 }
 
@@ -4330,8 +4330,8 @@ _is_fed_job.exit:                                 ; preds = %6
   %. = zext i1 %.not1 to i32
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %_is_fed_job.exit
-  %.0 = phi i32 [ %., %_is_fed_job.exit ], [ 1, %1 ], [ 1, %13 ], [ 1, %10 ]
+_is_fed_job.exit.thread:                          ; preds = %13, %1, %10, %_is_fed_job.exit
+  %.0 = phi i32 [ %., %_is_fed_job.exit ], [ 1, %10 ], [ 1, %1 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -4501,7 +4501,7 @@ define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef captures(non
   unreachable
 
 38:                                               ; preds = %34, %13, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %13 ], [ 0, %34 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %17 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -4767,7 +4767,7 @@ define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr 
   br label %155
 
 155:                                              ; preds = %49, %52, %148, %30, %19, %11
-  %.034 = phi i32 [ -1, %11 ], [ -1, %19 ], [ 0, %148 ], [ -1, %30 ], [ -1, %52 ], [ -1, %49 ]
+  %.034 = phi i32 [ -1, %11 ], [ -1, %19 ], [ -1, %30 ], [ 0, %148 ], [ -1, %52 ], [ -1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.034
@@ -4877,8 +4877,8 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noun
   br label %_get_all_sibling_bits.exit83
 
 _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %39, %37, %34, %25
-  %.052 = phi i64 [ 0, %34 ], [ 0, %25 ], [ %.1.lcssa.i81, %._crit_edge.i80 ], [ 0, %39 ], [ 0, %37 ]
-  %.050 = phi i1 [ false, %34 ], [ false, %25 ], [ true, %._crit_edge.i80 ], [ true, %39 ], [ true, %37 ]
+  %.052 = phi i64 [ 0, %25 ], [ 0, %34 ], [ %.1.lcssa.i81, %._crit_edge.i80 ], [ 0, %39 ], [ 0, %37 ]
+  %.050 = phi i1 [ false, %25 ], [ false, %34 ], [ true, %._crit_edge.i80 ], [ true, %39 ], [ true, %37 ]
   %53 = tail call ptr @list_next(ptr noundef %28) #16
   %.not6696 = icmp eq ptr %53, null
   br i1 %.not6696, label %.thread, label %.lr.ph98
@@ -4935,8 +4935,8 @@ _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %3
   br label %75
 
 75:                                               ; preds = %67, %65, %.lr.ph.us
-  %.3.us.us = phi i64 [ %.25492.us.us, %65 ], [ %.25492.us.us, %.lr.ph.us ], [ %74, %67 ]
-  %.1.us.us = phi i1 [ %.093.us.us, %65 ], [ %.093.us.us, %.lr.ph.us ], [ true, %67 ]
+  %.3.us.us = phi i64 [ %.25492.us.us, %.lr.ph.us ], [ %.25492.us.us, %65 ], [ %74, %67 ]
+  %.1.us.us = phi i1 [ %.093.us.us, %.lr.ph.us ], [ %.093.us.us, %65 ], [ true, %67 ]
   %76 = tail call ptr @list_next(ptr noundef %32) #16
   %.not67.us.us = icmp eq ptr %76, null
   br i1 %.not67.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !32
@@ -4972,8 +4972,8 @@ _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %3
   br label %91
 
 91:                                               ; preds = %84, %82, %.lr.ph
-  %.3 = phi i64 [ %.25492, %82 ], [ %.25492, %.lr.ph ], [ %90, %84 ]
-  %.1 = phi i1 [ %.093, %82 ], [ %.093, %.lr.ph ], [ true, %84 ]
+  %.3 = phi i64 [ %.25492, %.lr.ph ], [ %.25492, %82 ], [ %90, %84 ]
+  %.1 = phi i1 [ %.093, %.lr.ph ], [ %.093, %82 ], [ true, %84 ]
   %92 = tail call ptr @list_next(ptr noundef %32) #16
   %.not67 = icmp eq ptr %92, null
   br i1 %.not67, label %._crit_edge.split, label %.lr.ph, !llvm.loop !32
@@ -4982,7 +4982,7 @@ _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %3
   br i1 %.1, label %94, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph98.split.split, %._crit_edge.split, %.lr.ph98.split.us, %._crit_edge.split.us.us
-  %.us-phi100 = phi ptr [ %spec.select.us, %._crit_edge.split.us.us ], [ %spec.select.us, %.lr.ph98.split.us ], [ %77, %._crit_edge.split ], [ %77, %.lr.ph98.split.split ]
+  %.us-phi100 = phi ptr [ %spec.select.us, %.lr.ph98.split.us ], [ %spec.select.us, %._crit_edge.split.us.us ], [ %77, %._crit_edge.split ], [ %77, %.lr.ph98.split.split ]
   %.us-phi101 = phi i64 [ %.15397.us, %.lr.ph98.split.us ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.15397, %.lr.ph98.split.split ], [ %.3, %._crit_edge.split ]
   %93 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180, ptr noundef nonnull %.us-phi100) #16
   br label %.thread
@@ -5014,8 +5014,8 @@ _get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %3
   br i1 %.not69, label %99, label %.sink.split
 
 .sink.split:                                      ; preds = %98, %._crit_edge.i, %11, %6
-  %.5.sink = phi i64 [ 0, %6 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ %.5, %98 ]
-  %.047.ph = phi i32 [ 0, %6 ], [ 0, %._crit_edge.i ], [ 0, %11 ], [ %.2, %98 ]
+  %.5.sink = phi i64 [ 0, %11 ], [ 0, %6 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.5, %98 ]
+  %.047.ph = phi i32 [ 0, %11 ], [ 0, %6 ], [ 0, %._crit_edge.i ], [ %.2, %98 ]
   store i64 %.5.sink, ptr %1, align 8
   br label %99
 
@@ -5344,9 +5344,9 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   br label %109
 
 109:                                              ; preds = %60, %53, %49, %107
-  %.159 = phi i16 [ %.361, %107 ], [ %.05882, %49 ], [ %.05882, %53 ], [ %.05882, %60 ]
-  %.157 = phi ptr [ %.3, %107 ], [ %.05683, %49 ], [ %.05683, %53 ], [ %.05683, %60 ]
-  %.1 = phi i32 [ %108, %107 ], [ %.084, %49 ], [ %.084, %53 ], [ %.084, %60 ]
+  %.159 = phi i16 [ %.05882, %49 ], [ %.05882, %53 ], [ %.361, %107 ], [ %.05882, %60 ]
+  %.157 = phi ptr [ %.05683, %49 ], [ %.05683, %53 ], [ %.3, %107 ], [ %.05683, %60 ]
+  %.1 = phi i32 [ %.084, %49 ], [ %.084, %53 ], [ %108, %107 ], [ %.084, %60 ]
   %110 = call ptr @list_next(ptr noundef %36) #16
   %.not = icmp eq ptr %110, null
   br i1 %.not, label %._crit_edge, label %49
@@ -5416,7 +5416,7 @@ _is_fed_job.exit:                                 ; preds = %6
   br label %25
 
 25:                                               ; preds = %20, %17, %_is_fed_job.exit
-  %.0.ph = phi i1 [ %.not17, %20 ], [ false, %_is_fed_job.exit ], [ false, %17 ]
+  %.0.ph = phi i1 [ false, %_is_fed_job.exit ], [ false, %17 ], [ %.not17, %20 ]
   %26 = load i32, ptr %5, align 8
   %.not19 = icmp eq i32 %26, 0
   br i1 %.not19, label %_is_fed_job.exit.thread, label %27
@@ -5426,8 +5426,8 @@ _is_fed_job.exit:                                 ; preds = %6
   %spec.select21 = select i1 %.not20, i1 true, i1 %.0.ph
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %27, %25
-  %.09 = phi i1 [ %.0.ph, %25 ], [ %spec.select21, %27 ], [ false, %1 ], [ false, %13 ], [ false, %10 ]
+_is_fed_job.exit.thread:                          ; preds = %13, %1, %10, %27, %25
+  %.09 = phi i1 [ false, %13 ], [ %.0.ph, %25 ], [ %spec.select21, %27 ], [ false, %10 ], [ false, %1 ]
   ret i1 %.09
 }
 
@@ -5692,7 +5692,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
   br label %112
 
 112:                                              ; preds = %108, %94, %88, %86, %79
-  %.1.i = phi i64 [ %87, %86 ], [ %111, %108 ], [ %.02951.i, %94 ], [ %.02951.i, %88 ], [ %.02951.i, %79 ]
+  %.1.i = phi i64 [ %87, %86 ], [ %.02951.i, %79 ], [ %111, %108 ], [ %.02951.i, %94 ], [ %.02951.i, %88 ]
   %113 = lshr i64 %.02852.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i34 = icmp eq i64 %113, 0
@@ -5720,7 +5720,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
   br i1 %or.cond.i, label %.loopexit.i, label %_job_lock_all_sibs.exit.thread43
 
 .loopexit.i:                                      ; preds = %83, %.critedge.i, %_persist_fed_job_lock.exit.thread.i
-  %.02947.i = phi i64 [ %.02951.i, %_persist_fed_job_lock.exit.thread.i ], [ %.029.lcssa.i, %.critedge.i ], [ %.02951.i, %83 ]
+  %.02947.i = phi i64 [ %.029.lcssa.i, %.critedge.i ], [ %.02951.i, %_persist_fed_job_lock.exit.thread.i ], [ %.02951.i, %83 ]
   call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull readonly %0, i64 noundef %.02947.i)
   br label %_is_fed_job.exit.thread
 
@@ -5795,8 +5795,8 @@ _job_lock_all_sibs.exit.thread43:                 ; preds = %.critedge.i, %_job_
   %145 = tail call i32 @fed_mgr_job_lock_set(i32 noundef %144, i32 noundef %24)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %.loopexit.i, %122, %19, %22, %1, %_job_lock_all_sibs.exit.thread48, %_job_lock_all_sibs.exit.thread43, %143
-  %.0 = phi i32 [ %145, %143 ], [ 0, %_job_lock_all_sibs.exit.thread43 ], [ -1, %_job_lock_all_sibs.exit.thread48 ], [ 0, %1 ], [ 0, %22 ], [ 0, %19 ], [ -1, %122 ], [ -1, %.loopexit.i ]
+_is_fed_job.exit.thread:                          ; preds = %.loopexit.i, %122, %22, %1, %19, %_job_lock_all_sibs.exit.thread48, %_job_lock_all_sibs.exit.thread43, %143
+  %.0 = phi i32 [ 0, %22 ], [ %145, %143 ], [ 0, %_job_lock_all_sibs.exit.thread43 ], [ -1, %_job_lock_all_sibs.exit.thread48 ], [ 0, %19 ], [ 0, %1 ], [ -1, %122 ], [ -1, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -5917,7 +5917,7 @@ _find_fed_job_info.exit:                          ; preds = %14
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %_job_has_pending_updates.exit, label %25, !llvm.loop !35
 
-56:                                               ; preds = %32, %39, %36
+56:                                               ; preds = %36, %32, %39
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %58 = and i64 %57, 281474976710656
   %.not30 = icmp eq i64 %58, 0
@@ -5972,7 +5972,7 @@ _job_has_pending_updates.exit:                    ; preds = %55
   br label %78
 
 78:                                               ; preds = %66, %70, %67, %56, %62, %59, %17, %77
-  %.0 = phi i32 [ 0, %77 ], [ -1, %17 ], [ -1, %59 ], [ -1, %62 ], [ -1, %56 ], [ -1, %67 ], [ -1, %70 ], [ -1, %66 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %56 ], [ 0, %77 ], [ -1, %59 ], [ -1, %62 ], [ -1, %67 ], [ -1, %70 ], [ -1, %66 ]
   %79 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @fed_job_list_mutex) #16
   %.not31 = icmp eq i32 %79, 0
   br i1 %.not31, label %82, label %80
@@ -6007,7 +6007,7 @@ define dso_local zeroext i1 @fed_mgr_job_is_self_owned(ptr noundef readonly capt
   br label %11
 
 11:                                               ; preds = %6, %1, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %1 ], [ %10, %6 ]
+  %.0 = phi i1 [ true, %1 ], [ %10, %6 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -6290,8 +6290,8 @@ _is_fed_job.exit:                                 ; preds = %10
   %78 = tail call i32 @fed_mgr_job_lock_unset(i32 noundef %77, i32 noundef %19)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %14, %17, %1, %.thread43, %72, %76
-  %.0 = phi i32 [ %78, %76 ], [ 0, %72 ], [ -1, %.thread43 ], [ 0, %1 ], [ 0, %17 ], [ 0, %14 ]
+_is_fed_job.exit.thread:                          ; preds = %17, %1, %14, %.thread43, %72, %76
+  %.0 = phi i32 [ -1, %.thread43 ], [ %78, %76 ], [ 0, %72 ], [ 0, %14 ], [ 0, %1 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -6646,8 +6646,8 @@ _find_fed_job_info.exit:                          ; preds = %85
   call fastcc void @_revoke_sibling_jobs(i32 noundef %123, i32 noundef %20, i64 noundef %104, i64 noundef %1)
   br label %_fed_job_start_revoke.exit
 
-_fed_job_start_revoke.exit:                       ; preds = %89, %93, %98, %122, %102
-  %.187 = phi i32 [ 0, %102 ], [ 0, %122 ], [ -1, %98 ], [ -1, %93 ], [ -1, %89 ]
+_fed_job_start_revoke.exit:                       ; preds = %93, %89, %98, %122, %102
+  %.187 = phi i32 [ 0, %122 ], [ 0, %102 ], [ -1, %98 ], [ -1, %89 ], [ -1, %93 ]
   %124 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @fed_job_list_mutex) #16
   %.not58 = icmp eq i32 %124, 0
   br i1 %.not58, label %_is_fed_job.exit.thread, label %125
@@ -6658,8 +6658,8 @@ _fed_job_start_revoke.exit:                       ; preds = %89, %93, %98, %122,
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.fed_mgr_job_start) #18
   unreachable
 
-_is_fed_job.exit.thread:                          ; preds = %15, %18, %2, %_fed_job_start_revoke.exit, %65, %78
-  %.0 = phi i32 [ 0, %78 ], [ -1, %65 ], [ %.187, %_fed_job_start_revoke.exit ], [ 0, %2 ], [ 0, %18 ], [ 0, %15 ]
+_is_fed_job.exit.thread:                          ; preds = %18, %2, %15, %_fed_job_start_revoke.exit, %65, %78
+  %.0 = phi i32 [ %.187, %_fed_job_start_revoke.exit ], [ -1, %65 ], [ 0, %78 ], [ 0, %15 ], [ 0, %2 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -6948,8 +6948,8 @@ _persist_fed_job_revoke.exit:                     ; preds = %51, %57, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %18, %21, %_persist_fed_job_revoke.exit, %50, %47, %3, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %3 ], [ %.0.i20, %_persist_fed_job_revoke.exit ], [ -1, %50 ], [ -1, %47 ], [ 0, %21 ], [ 0, %18 ]
+_is_fed_job.exit.thread:                          ; preds = %21, %18, %_persist_fed_job_revoke.exit, %50, %47, %3, %35
+  %.0 = phi i32 [ 0, %3 ], [ 0, %35 ], [ -1, %47 ], [ %.0.i20, %_persist_fed_job_revoke.exit ], [ -1, %50 ], [ 0, %18 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -7014,7 +7014,7 @@ _is_fed_job.exit:                                 ; preds = %7
   tail call fastcc void @_revoke_sibling_jobs(i32 noundef %25, i32 noundef %28, i64 noundef %31, i64 noundef %2)
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %11, %14, %1, %_is_fed_job.exit, %24
+_is_fed_job.exit.thread:                          ; preds = %14, %1, %11, %_is_fed_job.exit, %24
   ret i32 0
 }
 
@@ -7141,7 +7141,7 @@ _is_fed_job.exit:                                 ; preds = %16
   tail call void @unlink_job_record(ptr noundef nonnull %0) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %20, %23, %62, %5, %67, %34
+_is_fed_job.exit.thread:                          ; preds = %23, %20, %62, %5, %67, %34
   ret i32 0
 }
 
@@ -7407,8 +7407,8 @@ _persist_fed_job_requeue.exit:                    ; preds = %37, %60
   %90 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef nonnull %0, i32 noundef %89) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %71, %85, %82, %17, %20, %2, %87, %28, %_persist_fed_job_requeue.exit
-  %.0 = phi i32 [ -1, %87 ], [ 0, %_persist_fed_job_requeue.exit ], [ -1, %28 ], [ 0, %71 ], [ 0, %2 ], [ 0, %20 ], [ 0, %17 ], [ 0, %82 ], [ 0, %85 ]
+_is_fed_job.exit.thread:                          ; preds = %71, %85, %82, %20, %2, %17, %87, %28, %_persist_fed_job_requeue.exit
+  %.0 = phi i32 [ 0, %82 ], [ -1, %28 ], [ 0, %85 ], [ -1, %87 ], [ 0, %_persist_fed_job_requeue.exit ], [ 0, %20 ], [ 0, %71 ], [ 0, %17 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -7667,7 +7667,7 @@ _find_fed_job_info.exit:                          ; preds = %27
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.fed_mgr_job_requeue) #18
   unreachable
 
-_is_fed_job.exit.thread:                          ; preds = %11, %14, %1, %85, %40
+_is_fed_job.exit.thread:                          ; preds = %14, %1, %11, %85, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
@@ -7830,7 +7830,7 @@ _is_fed_job.exit:                                 ; preds = %8
   call void @slurm_free_job_desc_msg(ptr noundef nonnull %22) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %11, %14, %2, %21, %72
+_is_fed_job.exit.thread:                          ; preds = %14, %2, %11, %21, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -7991,7 +7991,7 @@ _is_fed_job.exit:                                 ; preds = %11
   %.not.i8 = icmp eq i64 %72, 0
   br i1 %.not.i8, label %_cancel_sibling_jobs.exit, label %.lr.ph.split.i, !llvm.loop !39
 
-_cancel_sibling_jobs.exit:                        ; preds = %71, %53, %14, %17, %5, %.thread.i, %26
+_cancel_sibling_jobs.exit:                        ; preds = %71, %53, %17, %5, %14, %.thread.i, %26
   ret i32 0
 }
 
@@ -8043,8 +8043,8 @@ _is_fed_job.exit:                                 ; preds = %6
   %spec.select = and i1 %.not6, %23
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %10, %13, %1, %21, %17, %_is_fed_job.exit
-  %24 = phi i1 [ false, %17 ], [ false, %_is_fed_job.exit ], [ %spec.select, %21 ], [ false, %1 ], [ false, %13 ], [ false, %10 ]
+_is_fed_job.exit.thread:                          ; preds = %13, %1, %10, %21, %17, %_is_fed_job.exit
+  %24 = phi i1 [ %spec.select, %21 ], [ false, %17 ], [ false, %_is_fed_job.exit ], [ false, %10 ], [ false, %1 ], [ false, %13 ]
   ret i1 %24
 }
 
@@ -8103,7 +8103,7 @@ define dso_local zeroext i1 @fed_mgr_is_job_id_in_fed(i32 noundef %0) local_unna
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %10, %5, %3, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ %.1.lcssa.i, %._crit_edge.i ], [ false, %10 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %1 ], [ %.1.lcssa.i, %._crit_edge.i ], [ false, %10 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -8132,7 +8132,7 @@ define dso_local zeroext i1 @fed_mgr_is_origin_job_id(i32 noundef %0) local_unna
   br label %14
 
 14:                                               ; preds = %10, %6, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ %13, %10 ]
+  %.0 = phi i1 [ %13, %10 ], [ true, %6 ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -8244,8 +8244,8 @@ _get_all_sibling_bits.exit:                       ; preds = %37, %39, %._crit_ed
   %56 = icmp eq i64 %55, %.0.i13
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %12, %15, %3, %34, %_is_fed_job.exit, %_get_all_sibling_bits.exit, %21
-  %.0 = phi i1 [ true, %21 ], [ %56, %_get_all_sibling_bits.exit ], [ true, %_is_fed_job.exit ], [ true, %34 ], [ true, %3 ], [ true, %15 ], [ true, %12 ]
+_is_fed_job.exit.thread:                          ; preds = %15, %3, %12, %34, %_is_fed_job.exit, %_get_all_sibling_bits.exit, %21
+  %.0 = phi i1 [ %56, %_get_all_sibling_bits.exit ], [ true, %21 ], [ true, %_is_fed_job.exit ], [ true, %34 ], [ true, %12 ], [ true, %3 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -8276,7 +8276,7 @@ define dso_local range(i32 -1, 7105) i32 @fed_mgr_update_job_clusters(ptr nounde
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %14
 
-14:                                               ; preds = %2, %13, %10
+14:                                               ; preds = %10, %2, %13
   tail call void (ptr, ...) @sched_info(ptr noundef nonnull @.str.65) #16
   br label %47
 
@@ -8357,12 +8357,12 @@ fed_mgr_is_origin_job.exit:                       ; preds = %38
   %.not1.i.not = icmp eq i32 %46, %40
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %47
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %41, %44, %34, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %44, %34, %41, %fed_mgr_is_origin_job.exit
   tail call fastcc void @_add_remove_sibling_jobs(ptr noundef nonnull %0)
   br label %47
 
 47:                                               ; preds = %_is_fed_job.exit, %19, %26, %fed_mgr_is_origin_job.exit.thread, %fed_mgr_is_origin_job.exit, %23, %14
-  %.0 = phi i32 [ 7104, %26 ], [ 0, %fed_mgr_is_origin_job.exit.thread ], [ 0, %fed_mgr_is_origin_job.exit ], [ 7103, %23 ], [ -1, %14 ], [ 2073, %19 ], [ 2073, %_is_fed_job.exit ]
+  %.0 = phi i32 [ -1, %14 ], [ 7104, %26 ], [ 0, %fed_mgr_is_origin_job.exit.thread ], [ 0, %fed_mgr_is_origin_job.exit ], [ 7103, %23 ], [ 2073, %19 ], [ 2073, %_is_fed_job.exit ]
   ret i32 %.0
 }
 
@@ -8476,8 +8476,8 @@ fed_mgr_get_cluster_by_name.exit.thread:          ; preds = %.lr.ph, %fed_mgr_ge
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %10, %8, %44, %45
-  %.017 = phi i64 [ %.219, %45 ], [ %.219, %44 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
-  %.0 = phi i32 [ %.2, %45 ], [ %.2, %44 ], [ 0, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
+  %.017 = phi i64 [ %.219, %44 ], [ %.219, %45 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
+  %.0 = phi i32 [ %.2, %44 ], [ %.2, %45 ], [ 0, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
   %.not30 = icmp eq ptr %1, null
   br i1 %.not30, label %47, label %46
 
@@ -8561,7 +8561,7 @@ fed_mgr_is_origin_job.exit:                       ; preds = %38
   %.not1.i.not = icmp eq i32 %46, %40
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %53
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %41, %44, %29, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %44, %29, %41, %fed_mgr_is_origin_job.exit
   %47 = add nsw i32 %6, -1
   %48 = zext nneg i32 %47 to i64
   %49 = shl nuw i64 1, %48
@@ -8628,7 +8628,7 @@ fed_mgr_is_origin_job.exit57:                     ; preds = %72
   %.not1.i54.not = icmp eq i32 %80, %74
   br i1 %.not1.i54.not, label %fed_mgr_is_origin_job.exit57.thread, label %86
 
-fed_mgr_is_origin_job.exit57.thread:              ; preds = %75, %78, %68, %fed_mgr_is_origin_job.exit57
+fed_mgr_is_origin_job.exit57.thread:              ; preds = %78, %68, %75, %fed_mgr_is_origin_job.exit57
   %81 = add nsw i32 %6, -1
   %82 = zext nneg i32 %81 to i64
   %83 = shl nuw i64 1, %82
@@ -8726,7 +8726,7 @@ define dso_local range(i32 -1, 7104) i32 @fed_mgr_update_job_cluster_features(pt
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #16
   br label %14
 
-14:                                               ; preds = %2, %13, %10
+14:                                               ; preds = %10, %2, %13
   tail call void (ptr, ...) @sched_info(ptr noundef nonnull @.str.65) #16
   br label %51
 
@@ -8811,12 +8811,12 @@ fed_mgr_is_origin_job.exit:                       ; preds = %42
   %.not1.i.not = icmp eq i32 %50, %44
   br i1 %.not1.i.not, label %fed_mgr_is_origin_job.exit.thread, label %51
 
-fed_mgr_is_origin_job.exit.thread:                ; preds = %45, %48, %38, %fed_mgr_is_origin_job.exit
+fed_mgr_is_origin_job.exit.thread:                ; preds = %48, %38, %45, %fed_mgr_is_origin_job.exit
   tail call fastcc void @_add_remove_sibling_jobs(ptr noundef nonnull %0)
   br label %51
 
 51:                                               ; preds = %_is_fed_job.exit, %19, %26, %fed_mgr_is_origin_job.exit.thread, %fed_mgr_is_origin_job.exit, %23, %14
-  %.0 = phi i32 [ 7102, %26 ], [ 0, %fed_mgr_is_origin_job.exit.thread ], [ 0, %fed_mgr_is_origin_job.exit ], [ 7103, %23 ], [ -1, %14 ], [ 2073, %19 ], [ 2073, %_is_fed_job.exit ]
+  %.0 = phi i32 [ -1, %14 ], [ 7102, %26 ], [ 0, %fed_mgr_is_origin_job.exit.thread ], [ 0, %fed_mgr_is_origin_job.exit ], [ 7103, %23 ], [ 2073, %19 ], [ 2073, %_is_fed_job.exit ]
   ret i32 %.0
 }
 
@@ -8917,8 +8917,8 @@ fed_mgr_get_cluster_by_name.exit:                 ; preds = %17
   tail call void @update_job_fed_details(ptr noundef nonnull %3) #16
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %17, %12, %15, %4, %22, %46, %fed_mgr_get_cluster_by_name.exit, %_is_fed_job.exit, %2
-  %.0 = phi i32 [ 2017, %2 ], [ 2073, %_is_fed_job.exit ], [ 7104, %fed_mgr_get_cluster_by_name.exit ], [ 0, %46 ], [ 0, %22 ], [ 7103, %4 ], [ 7103, %15 ], [ 7103, %12 ], [ 7104, %17 ]
+_is_fed_job.exit.thread:                          ; preds = %17, %15, %4, %12, %22, %46, %fed_mgr_get_cluster_by_name.exit, %_is_fed_job.exit, %2
+  %.0 = phi i32 [ 7103, %15 ], [ 7104, %fed_mgr_get_cluster_by_name.exit ], [ 2073, %_is_fed_job.exit ], [ 2017, %2 ], [ 0, %46 ], [ 0, %22 ], [ 7103, %12 ], [ 7103, %4 ], [ 7104, %17 ]
   ret i32 %.0
 }
 
@@ -9484,7 +9484,7 @@ define dso_local noundef zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #0
   br label %13
 
 13:                                               ; preds = %3, %7, %10, %0
-  %.0 = phi i1 [ true, %0 ], [ false, %10 ], [ false, %7 ], [ true, %3 ]
+  %.0 = phi i1 [ true, %0 ], [ false, %7 ], [ false, %10 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }
@@ -13085,7 +13085,7 @@ _comm_fail_log.exit:                              ; preds = %104, %119, %125, %1
   unreachable
 
 135:                                              ; preds = %_comm_fail_log.exit, %130, %50, %51, %12, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %12 ], [ -1, %51 ], [ -1, %50 ], [ %103, %130 ], [ %103, %_comm_fail_log.exit ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %50 ], [ -1, %15 ], [ -1, %51 ], [ %103, %130 ], [ %103, %_comm_fail_log.exit ]
   ret i32 %.0
 }
 
@@ -13712,7 +13712,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
   br label %.thread
 
 .thread:                                          ; preds = %35, %11, %6, %.loopexit, %42, %39
-  %.013 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %.loopexit ], [ null, %6 ], [ %12, %11 ], [ %12, %35 ]
+  %.013 = phi ptr [ null, %39 ], [ null, %6 ], [ null, %42 ], [ null, %.loopexit ], [ %12, %11 ], [ %12, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.013
 }
@@ -13837,7 +13837,7 @@ define internal fastcc ptr @_load_remote_dep_job_list(ptr noundef nonnull %0, i1
   br label %.thread
 
 .thread:                                          ; preds = %50, %13, %8, %54, %57, %58
-  %.013 = phi ptr [ null, %58 ], [ null, %57 ], [ null, %54 ], [ null, %8 ], [ %14, %13 ], [ %14, %50 ]
+  %.013 = phi ptr [ null, %54 ], [ null, %58 ], [ null, %57 ], [ null, %8 ], [ %14, %13 ], [ %14, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.013
 }

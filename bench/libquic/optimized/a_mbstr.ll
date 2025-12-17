@@ -176,8 +176,8 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %66
 
 66:                                               ; preds = %64, %62, %60, %58, %55
-  %.057 = phi i32 [ 19, %55 ], [ 22, %58 ], [ 20, %60 ], [ 30, %62 ], [ %., %64 ]
-  %.054 = phi i32 [ 4097, %55 ], [ 4097, %58 ], [ 4097, %60 ], [ 4098, %62 ], [ %.85, %64 ]
+  %.057 = phi i32 [ 30, %62 ], [ 19, %55 ], [ 22, %58 ], [ 20, %60 ], [ %., %64 ]
+  %.054 = phi i32 [ 4098, %62 ], [ 4097, %55 ], [ 4097, %58 ], [ 4097, %60 ], [ %.85, %64 ]
   %.not73 = icmp eq ptr %0, null
   br i1 %.not73, label %105, label %67
 
@@ -262,8 +262,8 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   unreachable
 
 92:                                               ; preds = %90, %88, %86, %85
-  %93 = phi i32 [ %.091, %85 ], [ %87, %86 ], [ %89, %88 ], [ %.pre, %90 ]
-  %.0 = phi ptr [ @cpy_asc, %85 ], [ @cpy_bmp, %86 ], [ @cpy_univ, %88 ], [ @cpy_utf8, %90 ]
+  %93 = phi i32 [ %.pre, %90 ], [ %.091, %85 ], [ %87, %86 ], [ %89, %88 ]
+  %.0 = phi ptr [ @cpy_utf8, %90 ], [ @cpy_asc, %85 ], [ @cpy_bmp, %86 ], [ @cpy_univ, %88 ]
   %94 = add nsw i32 %93, 1
   %95 = sext i32 %94 to i64
   %96 = call noalias ptr @malloc(i64 noundef %95) #10
@@ -293,7 +293,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 105:                                              ; preds = %81, %66, %100, %99, %83, %77, %54, %49, %44, %39, %38, %27, %22
-  %.056 = phi i32 [ -1, %39 ], [ -1, %22 ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ], [ -1, %83 ], [ %.057, %100 ], [ -1, %99 ], [ -1, %77 ], [ -1, %27 ], [ -1, %38 ], [ %.057, %66 ], [ %.057, %81 ]
+  %.056 = phi i32 [ -1, %39 ], [ -1, %22 ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ], [ %.057, %66 ], [ -1, %83 ], [ %.057, %100 ], [ -1, %99 ], [ -1, %77 ], [ -1, %38 ], [ -1, %27 ], [ %.057, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -432,7 +432,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %28, %48, %.lr.ph.split.us42.split, %23, %.lr.ph.split.us.split, %11, %.lr.ph.split.split, %57, %61, %.lr.ph.split.split.us, %51, %.lr.ph.split.us42, %.lr.ph.split.us, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us42 ], [ 1, %51 ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ %59, %57 ], [ -1, %.lr.ph.split.split ], [ 1, %11 ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %48 ], [ %46, %28 ]
+  %.0 = phi i32 [ %59, %57 ], [ 1, %.lr.ph.split.us42 ], [ 1, %5 ], [ 1, %11 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %51 ], [ 1, %.lr.ph.split.us ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ -1, %.lr.ph.split.split ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %46, %28 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -479,7 +479,7 @@ is_printable.exit:                                ; preds = %8
   br label %is_printable.exit.thread28
 
 is_printable.exit.thread28:                       ; preds = %is_printable.exit, %8, %is_printable.exit.thread, %2
-  %.0 = phi i64 [ %3, %2 ], [ %7, %is_printable.exit.thread ], [ %3, %8 ], [ %spec.select, %is_printable.exit ]
+  %.0 = phi i64 [ %3, %2 ], [ %3, %8 ], [ %spec.select, %is_printable.exit ], [ %7, %is_printable.exit.thread ]
   %16 = icmp ugt i64 %0, 127
   %17 = and i64 %.0, -17
   %spec.select24 = select i1 %16, i64 %17, i64 %.0

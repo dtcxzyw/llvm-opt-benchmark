@@ -995,7 +995,7 @@ skip_1stop_8data_bits.exit.i:                     ; preds = %.preheader.i.i, %.s
   br label %svq1_decode_delta_block.exit.us
 
 svq1_decode_delta_block.exit.us:                  ; preds = %484, %478, %413
-  %.0.i178.us = phi i32 [ %518, %484 ], [ %479, %478 ], [ %414, %413 ]
+  %.0.i178.us = phi i32 [ %479, %478 ], [ %518, %484 ], [ %414, %413 ]
   %.not172.us = icmp eq i32 %.0.i178.us, 0
   br i1 %.not172.us, label %svq1_decode_delta_block.exit.thread.us, label %.thread
 
@@ -1042,7 +1042,7 @@ svq1_motion_inter_block.exit.i:                   ; preds = %._crit_edge
   br label %.thread
 
 svq1_motion_inter_4v_block.exit.thread.i:         ; preds = %.thread.i.i.us, %422, %425, %427, %432
-  %.0.i.ph.i.us = phi i32 [ %419, %.thread.i.i.us ], [ %434, %432 ], [ %431, %427 ], [ %426, %425 ], [ %423, %422 ]
+  %.0.i.ph.i.us = phi i32 [ %419, %.thread.i.i.us ], [ %431, %427 ], [ %426, %425 ], [ %423, %422 ], [ %434, %432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
@@ -1071,7 +1071,7 @@ default.unreachable.i183:                         ; preds = %409
   br label %.thread
 
 .thread:                                          ; preds = %264, %svq1_decode_delta_block.exit.us, %svq1_motion_inter_4v_block.exit.thread.i, %svq1_motion_inter_block.exit.i, %359, %.split.us, %243, %skip_1stop_8data_bits.exit.i, %217, %172, %107, %39, %38, %534, %291, %.thread190, %281, %284, %267, %28, %4, %538
-  %.0 = phi i32 [ %13, %538 ], [ -1094995529, %4 ], [ -1094995529, %28 ], [ %272, %267 ], [ %13, %284 ], [ %13, %281 ], [ %289, %.thread190 ], [ -12, %291 ], [ %536, %534 ], [ -12, %39 ], [ -1094995529, %38 ], [ -1094995529, %107 ], [ -1094995529, %172 ], [ -1094995529, %217 ], [ -1094995529, %skip_1stop_8data_bits.exit.i ], [ -1094995529, %243 ], [ %345, %.split.us ], [ -1094995529, %359 ], [ %.0.i.ph.i.us, %svq1_motion_inter_4v_block.exit.thread.i ], [ %483, %svq1_motion_inter_block.exit.i ], [ %.0.i178.us, %svq1_decode_delta_block.exit.us ], [ -1094995529, %264 ]
+  %.0 = phi i32 [ %536, %534 ], [ -1094995529, %4 ], [ -1094995529, %28 ], [ -1094995529, %38 ], [ %272, %267 ], [ %13, %281 ], [ %13, %538 ], [ -12, %291 ], [ %289, %.thread190 ], [ %483, %svq1_motion_inter_block.exit.i ], [ %13, %284 ], [ -12, %39 ], [ -1094995529, %107 ], [ -1094995529, %172 ], [ -1094995529, %217 ], [ -1094995529, %skip_1stop_8data_bits.exit.i ], [ -1094995529, %243 ], [ %345, %.split.us ], [ -1094995529, %359 ], [ %.0.i.ph.i.us, %svq1_motion_inter_4v_block.exit.thread.i ], [ %.0.i178.us, %svq1_decode_delta_block.exit.us ], [ -1094995529, %264 ]
   ret i32 %.0
 }
 
@@ -1298,9 +1298,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_intra(pt
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %._crit_edge, %74
-  %.064.i = phi i32 [ %76, %74 ], [ %55, %._crit_edge ]
-  %.062.i = phi i32 [ %90, %74 ], [ %69, %._crit_edge ]
-  %.0.i = phi i32 [ %93, %74 ], [ %72, %._crit_edge ]
+  %.064.i = phi i32 [ %55, %._crit_edge ], [ %76, %74 ]
+  %.062.i = phi i32 [ %69, %._crit_edge ], [ %90, %74 ]
+  %.0.i = phi i32 [ %72, %._crit_edge ], [ %93, %74 ]
   %94 = add i32 %.0.i, %.064.i
   %95 = tail call i32 @llvm.umin.i32(i32 %56, i32 %94)
   store i32 %95, ptr %6, align 8, !tbaa !47
@@ -1669,10 +1669,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   br label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %17, %20, %.preheader130
-  %.1116.lcssa = phi i32 [ %.0115180, %.preheader130 ], [ %14, %20 ], [ %.1110132, %17 ]
+  %.1116.lcssa = phi i32 [ %.0115180, %.preheader130 ], [ %.1110132, %17 ], [ %14, %20 ]
   %.1108.lcssa = phi i32 [ %.0107182, %.preheader130 ], [ %16, %20 ], [ %16, %17 ]
-  %.2111 = phi i32 [ %.0109181, %.preheader130 ], [ %.3112, %20 ], [ %16, %17 ]
-  %.2 = phi i32 [ %.095184, %.preheader130 ], [ %.3, %20 ], [ 0, %17 ]
+  %.2111 = phi i32 [ %.0109181, %.preheader130 ], [ %16, %17 ], [ %.3112, %20 ]
+  %.2 = phi i32 [ %.095184, %.preheader130 ], [ 0, %17 ], [ %.3, %20 ]
   %45 = sext i32 %.1116.lcssa to i64
   %46 = getelementptr inbounds ptr, ptr %5, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !67
@@ -1728,9 +1728,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_block_non_intr
   br label %get_vlc2.exit129
 
 get_vlc2.exit129:                                 ; preds = %._crit_edge, %75
-  %.064.i126 = phi i32 [ %77, %75 ], [ %57, %._crit_edge ]
-  %.062.i127 = phi i32 [ %91, %75 ], [ %70, %._crit_edge ]
-  %.0.i128 = phi i32 [ %94, %75 ], [ %73, %._crit_edge ]
+  %.064.i126 = phi i32 [ %57, %._crit_edge ], [ %77, %75 ]
+  %.062.i127 = phi i32 [ %70, %._crit_edge ], [ %91, %75 ]
+  %.0.i128 = phi i32 [ %73, %._crit_edge ], [ %94, %75 ]
   %95 = add i32 %.0.i128, %.064.i126
   %96 = tail call i32 @llvm.umin.i32(i32 %58, i32 %95)
   store i32 %96, ptr %7, align 8, !tbaa !47
@@ -1837,7 +1837,7 @@ get_vlc2.exit:                                    ; preds = %105, %122, %143
   br label %170
 
 170:                                              ; preds = %166, %168, %get_vlc2.exit
-  %.0103 = phi i32 [ %spec.store.select, %168 ], [ %165, %get_vlc2.exit ], [ 128, %166 ]
+  %.0103 = phi i32 [ %165, %get_vlc2.exit ], [ %spec.store.select, %168 ], [ 128, %166 ]
   %171 = getelementptr inbounds ptr, ptr @ff_svq1_inter_codebooks, i64 %54
   %172 = load ptr, ptr %171, align 8, !tbaa !67
   br i1 %100, label %.lr.ph150, label %._crit_edge151
@@ -2133,9 +2133,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @svq1_decode_motion_vector(
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %11, %29
-  %.064.i = phi i32 [ %31, %29 ], [ %spec.select.i28, %11 ]
-  %.062.i = phi i32 [ %45, %29 ], [ %24, %11 ]
-  %.0.i = phi i32 [ %48, %29 ], [ %27, %11 ]
+  %.064.i = phi i32 [ %spec.select.i28, %11 ], [ %31, %29 ]
+  %.062.i = phi i32 [ %24, %11 ], [ %45, %29 ]
+  %.0.i = phi i32 [ %27, %11 ], [ %48, %29 ]
   %49 = add i32 %.0.i, %.064.i
   %50 = tail call i32 @llvm.umin.i32(i32 %6, i32 %49)
   store i32 %50, ptr %4, align 8, !tbaa !47
@@ -2199,7 +2199,7 @@ get_vlc2.exit:                                    ; preds = %11, %29
   br label %.thread
 
 .thread:                                          ; preds = %82, %80, %79, %77
-  %.0.i22 = phi i32 [ %72, %77 ], [ %72, %80 ], [ %..i, %79 ], [ %.20.i, %82 ]
+  %.0.i22 = phi i32 [ %..i, %79 ], [ %72, %80 ], [ %72, %77 ], [ %.20.i, %82 ]
   %83 = add nsw i32 %.0.i22, %.018
   %84 = shl i32 %83, 26
   %85 = ashr exact i32 %84, 26
@@ -2232,7 +2232,7 @@ get_vlc2.exit:                                    ; preds = %11, %29
   br label %99
 
 99:                                               ; preds = %98, %96, %95, %93
-  %.0.i23 = phi i32 [ %89, %93 ], [ %89, %96 ], [ %..i25, %95 ], [ %.20.i24, %98 ]
+  %.0.i23 = phi i32 [ %..i25, %95 ], [ %89, %96 ], [ %89, %93 ], [ %.20.i24, %98 ]
   %100 = add nsw i32 %.0.i23, %.018
   %101 = shl i32 %100, 26
   %102 = ashr exact i32 %101, 26

@@ -1558,7 +1558,7 @@ _ZN4ncnn3MatD2Ev.exit27:                          ; preds = %477, %_ZN4ncnn3Mata
   br label %_ZNK4ncnn3Mat5emptyEv.exit147.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit147.thread:             ; preds = %417, %_ZNK4ncnn3Mat5emptyEv.exit147, %_ZN4ncnn3MatD2Ev.exit27
-  %493 = phi i1 [ false, %_ZNK4ncnn3Mat5emptyEv.exit147 ], [ true, %_ZN4ncnn3MatD2Ev.exit27 ], [ false, %417 ]
+  %493 = phi i1 [ true, %_ZN4ncnn3MatD2Ev.exit27 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit147 ], [ false, %417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %494 = load ptr, ptr %409, align 8, !tbaa !7
   %.not.i45 = icmp eq ptr %494, null
@@ -1782,7 +1782,7 @@ _ZN4ncnn3MatD2Ev.exit32:                          ; preds = %568, %_ZN4ncnn3MatD
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit21, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit29, %_ZNK4ncnn3Mat5emptyEv.exit146, %_ZNK4ncnn3Mat5emptyEv.exit, %.thread
-  %.09 = phi i32 [ 0, %.thread ], [ -100, %_ZN4ncnn3MatD2Ev.exit29 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit21 ]
+  %.09 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit29 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit146 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit21 ]
   ret i32 %.09
 
 584:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit32, %_ZN4ncnn3MatD2Ev.exit26, %_ZN4ncnn3MatD2Ev.exit25, %_ZN4ncnn3MatD2Ev.exit22, %_ZN4ncnn3MatD2Ev.exit20
@@ -1899,7 +1899,7 @@ _ZNK4ncnn3Mat5emptyEv.exit27:                     ; preds = %53
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %53, %38, %_ZNK4ncnn3Mat5emptyEv.exit27, %_ZNK4ncnn3Mat5emptyEv.exit, %65, %50
-  %.1 = phi i32 [ 0, %50 ], [ 0, %65 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit27 ], [ -100, %38 ], [ -100, %53 ]
+  %.1 = phi i32 [ 0, %65 ], [ 0, %50 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit27 ], [ -100, %38 ], [ -100, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2154,7 +2154,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %88
   br label %_ZNK4ncnn3Mat5emptyEv.exit36.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit36.thread:              ; preds = %88, %70, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZNK4ncnn3Mat5emptyEv.exit36, %98, %82
-  %.025 = phi i32 [ 0, %82 ], [ 0, %98 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit36 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %70 ], [ -100, %88 ]
+  %.025 = phi i32 [ 0, %98 ], [ 0, %82 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit36 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %70 ], [ -100, %88 ]
   %101 = load ptr, ptr %27, align 8, !tbaa !7
   %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit28, label %102
@@ -2420,7 +2420,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %101, %95, %94, %87, %80, %74, %70, %66, %58, %._crit_edge.us
-  %.148.us = phi nsz float [ %.1.lcssa.us, %._crit_edge.us ], [ %102, %101 ], [ %100, %95 ], [ %91, %94 ], [ %.047.us, %87 ], [ %86, %80 ], [ %79, %74 ], [ %.1.lcssa.us, %66 ], [ %73, %70 ], [ 0.000000e+00, %58 ]
+  %.148.us = phi nsz float [ %.1.lcssa.us, %._crit_edge.us ], [ %102, %101 ], [ %100, %95 ], [ %91, %94 ], [ %.047.us, %87 ], [ %86, %80 ], [ %79, %74 ], [ %73, %70 ], [ %.1.lcssa.us, %66 ], [ 0.000000e+00, %58 ]
   %103 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv64
   store float %.148.us, ptr %103, align 4, !tbaa !61
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -2660,7 +2660,7 @@ define internal void @_ZNK4ncnn12InnerProduct7forwardERKNS_3MatERS1_RKNS_6Option
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %102, %98, %84, %77, %76, %69, %63, %61, %._crit_edge59, %90
-  %.154 = phi nsz float [ %.1.lcssa, %._crit_edge59 ], [ %62, %61 ], [ %68, %63 ], [ %73, %76 ], [ %.053, %69 ], [ %83, %77 ], [ %89, %84 ], [ %.1.lcssa, %98 ], [ %105, %102 ], [ 0.000000e+00, %90 ]
+  %.154 = phi nsz float [ %.1.lcssa, %._crit_edge59 ], [ %62, %61 ], [ %68, %63 ], [ %73, %76 ], [ %.053, %69 ], [ %83, %77 ], [ %89, %84 ], [ %105, %102 ], [ %.1.lcssa, %98 ], [ 0.000000e+00, %90 ]
   %106 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv71
   store float %.154, ptr %106, align 4, !tbaa !61
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
@@ -2887,7 +2887,7 @@ define internal void @_ZNK4ncnn12InnerProduct12forward_int8ERKNS_3MatERS1_RKNS_6
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit.us
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %115, %109, %108, %101, %94, %88, %84, %80, %72, %71
-  %.1.us = phi nsz float [ %.0.us, %71 ], [ %116, %115 ], [ %114, %109 ], [ %105, %108 ], [ %.053.us, %101 ], [ %100, %94 ], [ %93, %88 ], [ %.0.us, %80 ], [ %87, %84 ], [ 0.000000e+00, %72 ]
+  %.1.us = phi nsz float [ %.0.us, %71 ], [ %116, %115 ], [ %114, %109 ], [ %105, %108 ], [ %.053.us, %101 ], [ %100, %94 ], [ %93, %88 ], [ %87, %84 ], [ %.0.us, %80 ], [ 0.000000e+00, %72 ]
   %117 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv69
   store float %.1.us, ptr %117, align 4, !tbaa !61
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
@@ -3136,7 +3136,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %118, %114, %100, %93, %92, %85, %79, %77, %76, %106
-  %.161 = phi nsz float [ %.0, %76 ], [ %78, %77 ], [ %84, %79 ], [ %89, %92 ], [ %.060, %85 ], [ %99, %93 ], [ %105, %100 ], [ %.0, %114 ], [ %121, %118 ], [ 0.000000e+00, %106 ]
+  %.161 = phi nsz float [ %.0, %76 ], [ %78, %77 ], [ %84, %79 ], [ %89, %92 ], [ %.060, %85 ], [ %99, %93 ], [ %105, %100 ], [ %121, %118 ], [ %.0, %114 ], [ 0.000000e+00, %106 ]
   %122 = getelementptr inbounds float, ptr %21, i64 %indvars.iv78
   store float %.161, ptr %122, align 4, !tbaa !61
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1

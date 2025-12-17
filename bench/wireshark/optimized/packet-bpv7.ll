@@ -594,7 +594,7 @@ define range(i32 -1, 2) i32 @bp_creation_ts_compare(ptr noundef readonly capture
   br label %17
 
 17:                                               ; preds = %15, %9, %7, %3
-  %.0 = phi i32 [ -1, %3 ], [ 1, %7 ], [ -1, %9 ], [ %., %15 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %3 ], [ 1, %7 ], [ %., %15 ]
   ret i32 %.0
 }
 
@@ -2455,7 +2455,7 @@ proto_item_set_generated.exit363:                 ; preds = %366, %349, %367, %3
   br i1 %.not313, label %66, label %._crit_edge
 
 .thread387:                                       ; preds = %dissect_block_primary.exit, %dissect_block_canonical.exit, %70, %._crit_edge
-  %.0272400 = phi i64 [ %.0272407, %70 ], [ %.0272.lcssa, %._crit_edge ], [ 0, %dissect_block_primary.exit ], [ %.0272407, %dissect_block_canonical.exit ]
+  %.0272400 = phi i64 [ %.0272.lcssa, %._crit_edge ], [ %.0272407, %70 ], [ 0, %dissect_block_primary.exit ], [ %.0272407, %dissect_block_canonical.exit ]
   %549 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 24
@@ -2591,8 +2591,8 @@ cmp_address.exit:                                 ; preds = %620
   br label %.thread524
 
 .thread524:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
-  %629 = phi ptr [ %551, %620 ], [ %551, %612 ], [ %551, %608 ], [ %555, %618 ], [ %555, %610 ], [ %spec.select549, %cmp_address.exit ]
-  %630 = phi ptr [ %555, %620 ], [ %555, %612 ], [ %555, %608 ], [ %551, %618 ], [ %551, %610 ], [ %spec.select550, %cmp_address.exit ]
+  %629 = phi ptr [ %551, %612 ], [ %spec.select549, %cmp_address.exit ], [ %551, %608 ], [ %551, %620 ], [ %555, %610 ], [ %555, %618 ]
+  %630 = phi ptr [ %555, %612 ], [ %spec.select550, %cmp_address.exit ], [ %555, %608 ], [ %555, %620 ], [ %551, %610 ], [ %551, %618 ]
   %.pn330 = load ptr, ptr %630, align 8
   %.0283 = getelementptr inbounds nuw i8, ptr %.pn330, i64 16
   %.pn = load ptr, ptr %629, align 8
@@ -3129,7 +3129,7 @@ define internal ptr @ipn_serv_value(ptr noundef %0) #1 {
   br label %17
 
 17:                                               ; preds = %13, %1, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %spec.select, %13 ]
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %13 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -3159,7 +3159,7 @@ define internal void @ipn_serv_prompt(ptr noundef %0, ptr noundef %1) #1 {
   br label %16
 
 16:                                               ; preds = %14, %7, %2
-  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ %spec.select, %14 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %14 ], [ 0, %7 ]
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %1, i64 noundef 200, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.344, i32 noundef %.0)
   ret void
 }
@@ -3880,7 +3880,7 @@ proto_item_set_generated.exit158:                 ; preds = %119, %126, %129
   %152 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %2, i32 noundef %151, ptr noundef %1, ptr noundef %0, ptr noundef %148, ptr noundef %149)
   br label %.thread162
 
-.thread162:                                       ; preds = %.thread162.sink.split, %proto_item_set_generated.exit155, %19, %proto_item_set_generated.exit149, %7, %138
+.thread162:                                       ; preds = %.thread162.sink.split, %proto_item_set_generated.exit155, %proto_item_set_generated.exit149, %19, %7, %138
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   br label %154
@@ -4099,7 +4099,7 @@ bp_bundle_ident_new.exit:                         ; preds = %34, %43
   br label %115
 
 115:                                              ; preds = %113, %84, %24, %20, %82, %4
-  %.069 = phi i32 [ -1, %4 ], [ %114, %113 ], [ %86, %84 ], [ -1, %24 ], [ -1, %20 ], [ %16, %82 ]
+  %.069 = phi i32 [ -1, %4 ], [ %114, %113 ], [ %86, %84 ], [ -1, %20 ], [ -1, %24 ], [ %16, %82 ]
   ret i32 %.069
 }
 
@@ -4784,7 +4784,7 @@ define internal i32 @block_dissect_sort(ptr noundef readonly captures(address_is
   br label %blocktype_order.exit
 
 blocktype_order.exit:                             ; preds = %6, %10, %12, %13, %14
-  %.0.i = phi i32 [ 0, %14 ], [ -1, %12 ], [ 1, %13 ], [ -2, %10 ], [ 0, %6 ]
+  %.0.i = phi i32 [ 0, %14 ], [ -2, %10 ], [ -1, %12 ], [ 1, %13 ], [ 0, %6 ]
   %15 = getelementptr i8, ptr %8, i64 16
   %.val17 = load ptr, ptr %15, align 8
   %.not.i18 = icmp eq ptr %.val17, null
@@ -4808,7 +4808,7 @@ blocktype_order.exit:                             ; preds = %6, %10, %12, %13, %
   br label %blocktype_order.exit20
 
 blocktype_order.exit20:                           ; preds = %blocktype_order.exit, %16, %18, %19, %20
-  %.0.i19 = phi i32 [ 0, %20 ], [ -1, %18 ], [ 1, %19 ], [ -2, %16 ], [ 0, %blocktype_order.exit ]
+  %.0.i19 = phi i32 [ 0, %20 ], [ -2, %16 ], [ -1, %18 ], [ 1, %19 ], [ 0, %blocktype_order.exit ]
   %21 = icmp slt i32 %.0.i, %.0.i19
   br i1 %21, label %26, label %22
 
@@ -4870,8 +4870,8 @@ define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef %1,
   br i1 %5, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %15, %8, %12
-  %ei_sub_type_unknown.sink = phi ptr [ @ei_sub_partial_decode, %12 ], [ @ei_sub_partial_decode, %8 ], [ @ei_sub_type_unknown, %15 ]
-  %.0.ph = phi i32 [ %9, %12 ], [ %9, %8 ], [ 0, %15 ]
+  %ei_sub_type_unknown.sink = phi ptr [ @ei_sub_partial_decode, %8 ], [ @ei_sub_partial_decode, %12 ], [ @ei_sub_type_unknown, %15 ]
+  %.0.ph = phi i32 [ %9, %8 ], [ %9, %12 ], [ 0, %15 ]
   %16 = tail call ptr @proto_tree_get_parent(ptr noundef %4)
   %17 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %16, ptr noundef nonnull %ei_sub_type_unknown.sink)
   br label %18
@@ -4948,7 +4948,7 @@ define internal range(i32 -1, 2) i32 @bp_bundle_frameloc_compare(ptr noundef rea
   br label %16
 
 16:                                               ; preds = %14, %8, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ %., %14 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ 1, %6 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -5059,7 +5059,7 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %14
 
 14:                                               ; preds = %8, %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -1, %8 ]
+  %.0 = phi i32 [ %13, %12 ], [ %11, %10 ], [ -1, %8 ]
   %15 = load i8, ptr @bp_compute_crc, align 1, !range !14, !noundef !15
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %38
@@ -5103,8 +5103,8 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %38
 
 38:                                               ; preds = %17, %36, %14
-  %.028 = phi i32 [ 1, %36 ], [ 0, %14 ], [ 16, %17 ]
-  %.027 = phi i32 [ %.1, %36 ], [ 0, %14 ], [ 0, %17 ]
+  %.028 = phi i32 [ 0, %14 ], [ 1, %36 ], [ 16, %17 ]
+  %.027 = phi i32 [ 0, %14 ], [ %.1, %36 ], [ 0, %17 ]
   %39 = load i32, ptr @hf_crc_status, align 4
   %40 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %.0, i32 noundef %39, ptr noundef nonnull @ei_block_failed_crc, ptr noundef %1, i32 noundef %.027, i32 noundef 0, i32 noundef %.028)
   br label %41

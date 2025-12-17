@@ -1299,7 +1299,7 @@ define void @_ZN3gmx18InMemorySerializerC2ENS_18EndianSwapBehaviorE(ptr noundef 
   br label %6
 
 6:                                                ; preds = %5, %4, %2
-  %.0.i.i = phi i32 [ 1, %4 ], [ %1, %5 ], [ 0, %2 ]
+  %.0.i.i = phi i32 [ %1, %5 ], [ 1, %4 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %.0.i.i, ptr %7, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1935,7 +1935,7 @@ define void @_ZN3gmx20InMemoryDeserializerC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBe
   br label %17
 
 17:                                               ; preds = %16, %15, %5
-  %.0.i.i = phi i32 [ 1, %15 ], [ %4, %16 ], [ 0, %5 ]
+  %.0.i.i = phi i32 [ %4, %16 ], [ 1, %15 ], [ 0, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %.0.i.i, ptr %18, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -204,7 +204,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br i1 %or.cond3, label %55, label %"_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_normalize..package_name..PackageName$GT$$GT$17hf9a7e4394632a7eeE.exit27"
 
 "_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_normalize..package_name..PackageName$GT$$GT$17hf9a7e4394632a7eeE.exit27": ; preds = %62, %26, %63, %55, %"_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_normalize..package_name..PackageName$GT$$GT$17hf9a7e4394632a7eeE.exit28", %51
-  %.pn18 = phi { ptr, i32 } [ %52, %51 ], [ %58, %"_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_normalize..package_name..PackageName$GT$$GT$17hf9a7e4394632a7eeE.exit28" ], [ %52, %55 ], [ %58, %63 ], [ %27, %26 ], [ %27, %62 ]
+  %.pn18 = phi { ptr, i32 } [ %58, %"_ZN4core3ptr99drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_normalize..package_name..PackageName$GT$$GT$17hf9a7e4394632a7eeE.exit28" ], [ %52, %51 ], [ %52, %55 ], [ %58, %63 ], [ %27, %26 ], [ %27, %62 ]
   resume { ptr, i32 } %.pn18
 
 55:                                               ; preds = %51
@@ -385,7 +385,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br i1 %or.cond3, label %61, label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h3ea7152598ec438fE.exit27"
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h3ea7152598ec438fE.exit27": ; preds = %68, %29, %69, %61, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h3ea7152598ec438fE.exit28", %57
-  %.pn18 = phi { ptr, i32 } [ %58, %57 ], [ %64, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h3ea7152598ec438fE.exit28" ], [ %58, %61 ], [ %64, %69 ], [ %30, %29 ], [ %30, %68 ]
+  %.pn18 = phi { ptr, i32 } [ %64, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h3ea7152598ec438fE.exit28" ], [ %58, %57 ], [ %58, %61 ], [ %64, %69 ], [ %30, %29 ], [ %30, %68 ]
   resume { ptr, i32 } %.pn18
 
 61:                                               ; preds = %57
@@ -1105,7 +1105,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %142
 
 142:                                              ; preds = %147, %138, %141
-  %.sroa.015.0 = phi i64 [ 0, %141 ], [ 1, %138 ], [ 1, %147 ]
+  %.sroa.015.0 = phi i64 [ 1, %138 ], [ 0, %141 ], [ 1, %147 ]
   %143 = add i64 %.sroa.015.0, %6
   br label %74
 

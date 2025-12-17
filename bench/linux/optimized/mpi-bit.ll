@@ -908,7 +908,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
   %175 = icmp sgt i32 %168, 1
   br i1 %175, label %167, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %157, %173, %167, %43, %.thread, %144, %.loopexit18, %3
+.loopexit:                                        ; preds = %157, %173, %167, %.thread, %144, %43, %.loopexit18, %3
   ret void
 }
 

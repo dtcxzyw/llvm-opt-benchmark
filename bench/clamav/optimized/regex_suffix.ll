@@ -102,8 +102,8 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %24, %10, %28, %.thread49
-  %.02548 = phi ptr [ %27, %28 ], [ %27, %.thread49 ], [ null, %10 ], [ null, %24 ]
-  %.02647 = phi i32 [ %30, %28 ], [ %.02653, %.thread49 ], [ 16, %10 ], [ 12, %24 ]
+  %.02548 = phi ptr [ %27, %.thread49 ], [ %27, %28 ], [ null, %10 ], [ null, %24 ]
+  %.02647 = phi i32 [ %.02653, %.thread49 ], [ %30, %28 ], [ 16, %10 ], [ 12, %24 ]
   %32 = load ptr, ptr %6, align 8, !tbaa !18
   %.not36 = icmp eq ptr %32, null
   br i1 %.not36, label %34, label %33
@@ -193,7 +193,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   br i1 %.not24.i, label %make_node.exit106.backedge, label %18
 
 make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, %57, %make_node.exit128.thread, %172, %84, %46, %29
-  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %22, %29 ], [ %44, %46 ], [ %.0.i112.ph, %84 ], [ %.0.i121.ph, %172 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
+  %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %62, %64 ], [ %22, %29 ], [ %44, %46 ], [ %.0.i121.ph, %172 ], [ %.0.i112.ph, %84 ], [ null, %63 ], [ %55, %57 ], [ %10, %18 ], [ %10, %17 ]
   br label %make_node.exit106
 
 18:                                               ; preds = %17
@@ -582,7 +582,7 @@ parse_char_class.exit.thread145:                  ; preds = %.loopexit.i, %.preh
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #10
   br label %parse_char_class.exit.thread
 
-parse_char_class.exit.thread:                     ; preds = %112, %133, %128, %123, %109, %153, %97, %90, %159
+parse_char_class.exit.thread:                     ; preds = %133, %128, %123, %109, %153, %97, %90, %112, %159
   tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
@@ -678,13 +678,13 @@ make_node.exit128.thread156:                      ; preds = %184
   br label %.critedge
 
 make_node.exit128.thread:                         ; preds = %make_leaf.exit, %make_leaf.exit.thread, %186
-  %.0.i127155 = phi ptr [ %179, %make_leaf.exit.thread ], [ %185, %186 ], [ %.064, %make_leaf.exit ]
+  %.0.i127155 = phi ptr [ %.064, %make_leaf.exit ], [ %179, %make_leaf.exit.thread ], [ %185, %186 ]
   %191 = add i64 %178, 1
   store i64 %191, ptr %2, align 8, !tbaa !3
   br label %make_node.exit106.backedge
 
 .critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %171, %parse_char_class.exit.thread, %72, %56, %45, %42, %39, %20
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %72 ], [ null, %171 ], [ null, %parse_char_class.exit.thread ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %20 ], [ null, %make_node.exit113 ], [ null, %45 ], [ null, %42 ], [ null, %39 ], [ null, %56 ], [ null, %make_node.exit92 ], [ null, %72 ], [ null, %171 ], [ null, %parse_char_class.exit.thread ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
   ret ptr %.0
 }
 
@@ -784,7 +784,7 @@ textbuffer_putc.exit:                             ; preds = %28, %32
   br label %.critedge36
 
 .critedge36:                                      ; preds = %7, %.lr.ph, %5, %20, %40, %textbuffer_putc.exit, %16, %10
-  %.0 = phi i32 [ 20, %10 ], [ 20, %16 ], [ %., %textbuffer_putc.exit ], [ %.37, %40 ], [ 0, %20 ], [ 0, %5 ], [ 0, %.lr.ph ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %20 ], [ 20, %10 ], [ %., %textbuffer_putc.exit ], [ 20, %16 ], [ %.37, %40 ], [ 0, %5 ], [ 0, %.lr.ph ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -909,7 +909,7 @@ define internal fastcc noundef ptr @dup_node(ptr noundef readonly captures(addre
   br label %33
 
 33:                                               ; preds = %8, %16, %31, %30, %1, %15, %4
-  %.0 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %1 ], [ %3, %30 ], [ %3, %31 ], [ %3, %16 ], [ %3, %8 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %15 ], [ null, %4 ], [ %3, %30 ], [ %3, %31 ], [ %3, %16 ], [ %3, %8 ]
   ret ptr %.0
 }
 
@@ -1215,8 +1215,8 @@ textbuffer_putc.exit118:                          ; preds = %114, %118
   %.not = icmp eq ptr %.264, null
   br i1 %.not, label %.thread120, label %9
 
-.thread120:                                       ; preds = %128, %textbuffer_putc.exit109, %102, %6, %textbuffer_putc.exit118, %107, %textbuffer_putc.exit100, %textbuffer_putc.exit
-  %.5 = phi i32 [ %.82, %textbuffer_putc.exit118 ], [ %.81, %107 ], [ %.80, %textbuffer_putc.exit100 ], [ %., %textbuffer_putc.exit ], [ 0, %6 ], [ 0, %102 ], [ 20, %textbuffer_putc.exit109 ], [ 0, %128 ]
+.thread120:                                       ; preds = %128, %textbuffer_putc.exit109, %102, %6, %textbuffer_putc.exit118, %textbuffer_putc.exit100, %107, %textbuffer_putc.exit
+  %.5 = phi i32 [ %., %textbuffer_putc.exit ], [ %.82, %textbuffer_putc.exit118 ], [ %.80, %textbuffer_putc.exit100 ], [ %.81, %107 ], [ 0, %6 ], [ 20, %textbuffer_putc.exit109 ], [ 0, %102 ], [ 0, %128 ]
   ret i32 %.5
 }
 

@@ -146,7 +146,7 @@ sub_022:                                          ; preds = %1
   br label %44
 
 44:                                               ; preds = %41, %38, %.tail25, %.tail21, %28, %.tail16, %.tail11, %13, %10, %.tail, %.tail.thread
-  %.0 = phi i32 [ -1, %.tail.thread ], [ 3, %.tail ], [ 4, %10 ], [ 5, %13 ], [ 1, %.tail11 ], [ 2, %.tail16 ], [ 0, %28 ], [ 6, %.tail21 ], [ 7, %.tail25 ], [ 6, %38 ], [ 7, %41 ]
+  %.0 = phi i32 [ -1, %.tail.thread ], [ 6, %38 ], [ 3, %.tail ], [ 4, %10 ], [ 5, %13 ], [ 1, %.tail11 ], [ 2, %.tail16 ], [ 0, %28 ], [ 6, %.tail21 ], [ 7, %.tail25 ], [ 7, %41 ]
   ret i32 %.0
 }
 
@@ -333,7 +333,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit18.thread: ; preds = %1, %_ZNK6icu_7713U
   br label %80
 
 80:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit25, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit24, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit23, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit22, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit21, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit20, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit19, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit18.thread
-  %.014 = phi i32 [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit18.thread ], [ 6, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ 7, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit19 ], [ 1, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit20 ], [ 2, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit21 ], [ 3, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit22 ], [ 4, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit23 ], [ 0, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit24 ], [ 5, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit25 ], [ %switch.select52, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+  %.014 = phi i32 [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit18.thread ], [ 0, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit24 ], [ 6, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit ], [ 7, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit19 ], [ 1, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit20 ], [ 2, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit21 ], [ 3, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit22 ], [ 4, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit23 ], [ 5, %_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit25 ], [ %switch.select52, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
   ret i32 %.014
 
 81:                                               ; preds = %78, %73, %62, %57, %46, %35, %30, %19

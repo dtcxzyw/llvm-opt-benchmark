@@ -2710,9 +2710,9 @@ smart_str_alloc.exit22:                           ; preds = %11, %22
   br label %48
 
 48:                                               ; preds = %47, %42
-  %49 = phi i64 [ %.pre47, %47 ], [ %44, %42 ]
-  %50 = phi ptr [ %.pre45, %47 ], [ %41, %42 ]
-  %.1.i26 = phi i64 [ %.0.i25, %47 ], [ %45, %42 ]
+  %49 = phi i64 [ %44, %42 ], [ %.pre47, %47 ]
+  %50 = phi ptr [ %41, %42 ], [ %.pre45, %47 ]
+  %.1.i26 = phi i64 [ %45, %42 ], [ %.0.i25, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr align 1 %40, i64 range(i64 1, 0) %38, i1 false)
@@ -2770,9 +2770,9 @@ smart_str_alloc.exit32:                           ; preds = %48, %57
   br label %smart_str_alloc.exit37
 
 smart_str_alloc.exit37:                           ; preds = %67, %73
-  %74 = phi i64 [ %.pre53, %73 ], [ %69, %67 ]
-  %75 = phi ptr [ %.pre51, %73 ], [ %66, %67 ]
-  %.1.i36 = phi i64 [ %.0.i35, %73 ], [ %70, %67 ]
+  %74 = phi i64 [ %69, %67 ], [ %.pre53, %73 ]
+  %75 = phi ptr [ %66, %67 ], [ %.pre51, %73 ]
+  %.1.i36 = phi i64 [ %70, %67 ], [ %.0.i35, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %74
   store i16 2573, ptr %77, align 1
@@ -3985,9 +3985,9 @@ php_cli_server_parse_addr.exit.thread.i:          ; preds = %70, %68, %62, %61, 
   br label %.thread57.i
 
 php_cli_server_parse_addr.exit.i:                 ; preds = %70, %68, %61, %59
-  %.sink48.i.i = phi i64 [ %57, %59 ], [ %57, %61 ], [ %66, %68 ], [ %66, %70 ]
-  %.sink46.i.i = phi ptr [ %51, %59 ], [ %51, %61 ], [ %63, %68 ], [ %63, %70 ]
-  %.sink45.i.i = phi ptr [ %50, %59 ], [ %50, %61 ], [ %.023.ph, %68 ], [ %.023.ph, %70 ]
+  %.sink48.i.i = phi i64 [ %57, %61 ], [ %57, %59 ], [ %66, %68 ], [ %66, %70 ]
+  %.sink46.i.i = phi ptr [ %51, %61 ], [ %51, %59 ], [ %63, %68 ], [ %63, %70 ]
+  %.sink45.i.i = phi ptr [ %50, %61 ], [ %50, %59 ], [ %.023.ph, %68 ], [ %.023.ph, %70 ]
   %71 = trunc nuw nsw i64 %.sink48.i.i to i32
   %72 = ptrtoint ptr %.sink46.i.i to i64
   %73 = ptrtoint ptr %.sink45.i.i to i64
@@ -4468,7 +4468,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %218, %220, %.thread
   br label %252
 
 252:                                              ; preds = %250, %241
-  %.1.ph.i.i.i = phi i32 [ %spec.select.i.i.i, %250 ], [ %.05.i.i.i, %241 ]
+  %.1.ph.i.i.i = phi i32 [ %.05.i.i.i, %241 ], [ %spec.select.i.i.i, %250 ]
   %253 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 392), i64 %243
   %254 = load i64, ptr %253, align 8, !tbaa !95
   %255 = and i64 %254, %248
@@ -6868,7 +6868,7 @@ php_cli_server_begin_send_static.exit.thread58.i: ; preds = %224
   br label %369
 
 php_cli_server_begin_send_static.exit.i:          ; preds = %215, %211, %208, %.thread55.i, %.thread55.i, %.thread55.i
-  %.sink.i = phi i32 [ 405, %.thread55.i ], [ 405, %.thread55.i ], [ 405, %.thread55.i ], [ 400, %211 ], [ 404, %215 ], [ 404, %208 ]
+  %.sink.i = phi i32 [ 400, %211 ], [ 405, %.thread55.i ], [ 405, %.thread55.i ], [ 405, %.thread55.i ], [ 404, %215 ], [ 404, %208 ]
   %367 = call fastcc i32 @php_cli_server_send_error_page(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.sink.i)
   %368 = icmp eq i32 %367, -1
   br i1 %368, label %369, label %php_cli_server_begin_send_static.exit.thread.i
@@ -6921,7 +6921,7 @@ php_cli_server_begin_send_static.exit.thread.i:   ; preds = %369, %php_cli_serve
   br label %php_cli_server_dispatch.exit
 
 php_cli_server_dispatch.exit:                     ; preds = %395, %391, %377, %php_cli_server_begin_send_static.exit.thread.i, %195, %176, %165, %78, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ %79, %78 ], [ 0, %php_cli_server_begin_send_static.exit.thread.i ], [ 0, %195 ], [ 0, %377 ], [ 0, %176 ], [ -1, %165 ], [ 0, %391 ], [ 0, %395 ]
+  %.0 = phi i32 [ -1, %.thread ], [ %79, %78 ], [ -1, %165 ], [ 0, %php_cli_server_begin_send_static.exit.thread.i ], [ 0, %195 ], [ 0, %377 ], [ 0, %176 ], [ 0, %391 ], [ 0, %395 ]
   ret i32 %.0
 }
 
@@ -7423,7 +7423,7 @@ php_cli_server_poller_add.exit:                   ; preds = %92, %96
   br label %zend_hash_index_find_ptr.exit.thread
 
 zend_hash_index_find_ptr.exit.thread:             ; preds = %97, %php_cli_server_poller_add.exit, %108, %110, %.critedge
-  %.1 = phi i32 [ -1, %.critedge ], [ 0, %110 ], [ 0, %108 ], [ 0, %php_cli_server_poller_add.exit ], [ 0, %97 ]
+  %.1 = phi i32 [ -1, %.critedge ], [ 0, %php_cli_server_poller_add.exit ], [ 0, %110 ], [ 0, %108 ], [ 0, %97 ]
   ret i32 %.1
 }
 
@@ -7527,8 +7527,8 @@ get_status_string.exit:                           ; preds = %15, %bsearch.exit.i
   br label %get_template_string.exit
 
 32:                                               ; preds = %28, %20
-  %.223.i = phi i64 [ %.02132.i, %20 ], [ %..i, %28 ]
-  %.220.i = phi i64 [ %..i, %20 ], [ %.01833.i, %28 ]
+  %.223.i = phi i64 [ %..i, %28 ], [ %.02132.i, %20 ]
+  %.220.i = phi i64 [ %.01833.i, %28 ], [ %..i, %20 ]
   %.not.i163 = icmp eq i64 %.220.i, %.223.i
   br i1 %.not.i163, label %get_template_string.exit, label %20
 
@@ -8199,7 +8199,7 @@ php_cli_server_poller_add.exit:                   ; preds = %306, %310
   br label %zend_string_free.exit
 
 zend_string_free.exit:                            ; preds = %331, %330, %324, %320, %319, %313, %323, %312
-  %.0 = phi i32 [ 0, %312 ], [ -1, %323 ], [ 0, %313 ], [ 0, %319 ], [ 0, %320 ], [ -1, %324 ], [ -1, %330 ], [ -1, %331 ]
+  %.0 = phi i32 [ 0, %312 ], [ -1, %323 ], [ 0, %320 ], [ 0, %313 ], [ 0, %319 ], [ -1, %324 ], [ -1, %330 ], [ -1, %331 ]
   ret i32 %.0
 }
 
@@ -9014,9 +9014,9 @@ define internal noundef i32 @php_cli_server_client_read_request_on_message_compl
   br i1 %72, label %37, label %.critedge105.i
 
 .critedge105.i:                                   ; preds = %.critedge.i, %59, %._crit_edge
-  %.08612.i = phi ptr [ %.08615.i.lcssa, %._crit_edge ], [ %.08615.i.lcssa, %59 ], [ %71, %.critedge.i ]
-  %.08510.i = phi i64 [ %.08516.i.lcssa, %._crit_edge ], [ %.08516.i.lcssa, %59 ], [ %70, %.critedge.i ]
-  %.188.i = phi ptr [ %.08714.i.lcssa, %._crit_edge ], [ %60, %59 ], [ %.7.i, %.critedge.i ]
+  %.08612.i = phi ptr [ %.08615.i.lcssa, %59 ], [ %.08615.i.lcssa, %._crit_edge ], [ %71, %.critedge.i ]
+  %.08510.i = phi i64 [ %.08516.i.lcssa, %59 ], [ %.08516.i.lcssa, %._crit_edge ], [ %70, %.critedge.i ]
+  %.188.i = phi ptr [ %60, %59 ], [ %.08714.i.lcssa, %._crit_edge ], [ %.7.i, %.critedge.i ]
   %.not101.i = icmp eq ptr %.08612.i, null
   br i1 %.not101.i, label %.critedge105.thread.i, label %73
 
@@ -9372,8 +9372,8 @@ php_cli_is_output_tty.exit:                       ; preds = %15, %18
   br label %28
 
 28:                                               ; preds = %26, %24, %22, %php_cli_is_output_tty.exit, %13
-  %.not26 = phi i1 [ true, %php_cli_is_output_tty.exit ], [ true, %13 ], [ false, %22 ], [ false, %24 ], [ %27, %26 ]
-  %.017 = phi i32 [ 0, %php_cli_is_output_tty.exit ], [ 0, %13 ], [ 1, %22 ], [ 3, %24 ], [ %spec.select28, %26 ]
+  %.not26 = phi i1 [ true, %13 ], [ false, %22 ], [ false, %24 ], [ %27, %26 ], [ true, %php_cli_is_output_tty.exit ]
+  %.017 = phi i32 [ 0, %13 ], [ 1, %22 ], [ 3, %24 ], [ %spec.select28, %26 ], [ 0, %php_cli_is_output_tty.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !78
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -9445,7 +9445,7 @@ php_cli_is_output_tty.exit:                       ; preds = %15, %18
   br i1 %.0, label %.sink.split, label %67
 
 .sink.split:                                      ; preds = %65, %53, %41
-  %.sink32 = phi ptr [ %4, %41 ], [ %5, %53 ], [ %6, %65 ]
+  %.sink32 = phi ptr [ %5, %53 ], [ %4, %41 ], [ %6, %65 ]
   %66 = load ptr, ptr %.sink32, align 8, !tbaa !91
   call void @_efree(ptr noundef %66) #29
   br label %67

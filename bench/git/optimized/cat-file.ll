@@ -1165,9 +1165,9 @@ xstrdup_or_null.exit.i.i:                         ; preds = %456, %453
   br label %free_cmds.exit.i.i
 
 free_cmds.exit.i.i:                               ; preds = %.lr.ph.i57.i.i, %xstrdup_or_null.exit.i.i, %439, %dispatch_calls.exit.i.i
-  %.192.i.i = phi i64 [ %.091134.i.i, %439 ], [ %443, %xstrdup_or_null.exit.i.i ], [ 0, %dispatch_calls.exit.i.i ], [ 0, %.lr.ph.i57.i.i ]
-  %.141.i.i = phi ptr [ %.040135.i.i, %439 ], [ %.242.i.i, %xstrdup_or_null.exit.i.i ], [ %.040135.i.i, %dispatch_calls.exit.i.i ], [ %.040135.i.i, %.lr.ph.i57.i.i ]
-  %.1.i.i = phi i64 [ %.039136.i.i, %439 ], [ %.3.i.i, %xstrdup_or_null.exit.i.i ], [ %.039136.i.i, %dispatch_calls.exit.i.i ], [ %.039136.i.i, %.lr.ph.i57.i.i ]
+  %.192.i.i = phi i64 [ %443, %xstrdup_or_null.exit.i.i ], [ %.091134.i.i, %439 ], [ 0, %dispatch_calls.exit.i.i ], [ 0, %.lr.ph.i57.i.i ]
+  %.141.i.i = phi ptr [ %.242.i.i, %xstrdup_or_null.exit.i.i ], [ %.040135.i.i, %439 ], [ %.040135.i.i, %dispatch_calls.exit.i.i ], [ %.040135.i.i, %.lr.ph.i57.i.i ]
+  %.1.i.i = phi i64 [ %.3.i.i, %xstrdup_or_null.exit.i.i ], [ %.039136.i.i, %439 ], [ %.039136.i.i, %dispatch_calls.exit.i.i ], [ %.039136.i.i, %.lr.ph.i57.i.i ]
   %460 = load ptr, ptr @stdin, align 8, !tbaa !70
   %461 = load i8, ptr %293, align 4, !tbaa !30
   %462 = sext i8 %461 to i32
@@ -1314,7 +1314,7 @@ batch_objects_command.exit.i:                     ; preds = %.lr.ph.i74.i.i, %.l
   br i1 %.not31.i, label %.loopexit.i, label %489, !llvm.loop !91
 
 .loopexit.i:                                      ; preds = %501, %batch_objects_command.exit.i, %.preheader41.i
-  %507 = phi i32 [ %368, %.preheader41.i ], [ %366, %batch_objects_command.exit.i ], [ %368, %501 ]
+  %507 = phi i32 [ %366, %batch_objects_command.exit.i ], [ %368, %.preheader41.i ], [ %368, %501 ]
   call void @strbuf_release(ptr noundef nonnull %20) #14
   call void @strbuf_release(ptr noundef nonnull %21) #14
   store i32 %507, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !4
@@ -1782,7 +1782,7 @@ thread-pre-split.i:                               ; preds = %669, %665, %598, %5
   br label %cat_one_file.exit
 
 cat_one_file.exit:                                ; preds = %564, %588, %591, %595, %608, %613, %675, %.thread73.i
-  %.035.i = phi i32 [ 0, %564 ], [ 0, %.thread73.i ], [ 0, %588 ], [ %594, %591 ], [ %612, %608 ], [ 0, %675 ], [ -1, %595 ], [ 0, %613 ]
+  %.035.i = phi i32 [ 0, %564 ], [ 0, %.thread73.i ], [ 0, %588 ], [ %594, %591 ], [ 0, %675 ], [ %612, %608 ], [ -1, %595 ], [ 0, %613 ]
   %682 = load ptr, ptr %12, align 8, !tbaa !26
   call void @free(ptr noundef %682) #14
   call void @object_context_release(ptr noundef nonnull %14) #14

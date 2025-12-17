@@ -1003,7 +1003,7 @@ _ZNSt14_Function_baseD2Ev.exit97:                 ; preds = %331, %333
   unreachable
 
 .body:                                            ; preds = %341, %338, %323, %326, %303, %306, %283, %286, %263, %266, %243, %246, %223, %226, %203, %206, %183, %186, %163, %166, %143, %146, %116, %119, %63
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %117, %119 ], [ %117, %116 ], [ %144, %146 ], [ %144, %143 ], [ %164, %166 ], [ %164, %163 ], [ %184, %186 ], [ %184, %183 ], [ %204, %206 ], [ %204, %203 ], [ %224, %226 ], [ %224, %223 ], [ %244, %246 ], [ %244, %243 ], [ %264, %266 ], [ %264, %263 ], [ %284, %286 ], [ %284, %283 ], [ %304, %306 ], [ %304, %303 ], [ %324, %326 ], [ %324, %323 ], [ %339, %338 ], [ %339, %341 ]
+  %.pn = phi { ptr, i32 } [ %324, %323 ], [ %304, %303 ], [ %117, %116 ], [ %144, %143 ], [ %164, %163 ], [ %184, %183 ], [ %204, %203 ], [ %224, %223 ], [ %244, %243 ], [ %264, %263 ], [ %284, %283 ], [ %64, %63 ], [ %117, %119 ], [ %144, %146 ], [ %164, %166 ], [ %184, %186 ], [ %204, %206 ], [ %224, %226 ], [ %244, %246 ], [ %264, %266 ], [ %284, %286 ], [ %304, %306 ], [ %324, %326 ], [ %339, %338 ], [ %339, %341 ]
   %346 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %347 = load ptr, ptr %346, align 8, !tbaa !46
   %.not.i100 = icmp eq ptr %347, null
@@ -1414,7 +1414,7 @@ tailrecurse:                                      ; preds = %6, %1
   br label %25
 
 25:                                               ; preds = %.loopexit, %14, %17, %20, %9
-  %.0 = phi ptr [ %10, %9 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %20 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %17 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %14 ], [ %24, %.loopexit ]
+  %.0 = phi ptr [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %14 ], [ %10, %9 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %20 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %17 ], [ %24, %.loopexit ]
   ret ptr %.0
 }
 
@@ -1542,7 +1542,7 @@ tailrecurse.i:                                    ; preds = %1, %10
   br label %_ZNK25cmInstallCommandArguments12GetComponentB5cxx11Ev.exit
 
 _ZNK25cmInstallCommandArguments12GetComponentB5cxx11Ev.exit: ; preds = %.loopexit.i, %24, %21, %18, %13, %1
-  %.0 = phi ptr [ %3, %1 ], [ %14, %13 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %24 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %21 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %18 ], [ %28, %.loopexit.i ]
+  %.0 = phi ptr [ %3, %1 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %18 ], [ %14, %13 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %24 ], [ @_ZZNK25cmInstallCommandArguments12GetComponentB5cxx11EvE20unspecifiedComponentB5cxx11, %21 ], [ %28, %.loopexit.i ]
   ret ptr %.0
 }
 
@@ -2107,7 +2107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %32, %54, %76, %15, %37, %59, %81, %107, %130, %153, %._crit_edge.i.i.i.i, %105, %128, %151, %170
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %8, %170 ], [ %8, %._crit_edge.i.i.i.i ], [ %.sroa.061.0.lcssa.i.i.i.i, %105 ], [ %.sroa.061.1.i.i.i.i, %128 ], [ %.sroa.061.2.i.i.i.i, %151 ], [ %.sroa.061.2.i.i.i.i, %153 ], [ %.sroa.061.1.i.i.i.i, %130 ], [ %.sroa.061.0.lcssa.i.i.i.i, %107 ], [ %79, %81 ], [ %57, %59 ], [ %35, %37 ], [ %.sroa.061.0107.i.i.i.i, %15 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.061.0107.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %8, %._crit_edge.i.i.i.i ], [ %8, %170 ], [ %.sroa.061.0.lcssa.i.i.i.i, %105 ], [ %.sroa.061.1.i.i.i.i, %128 ], [ %.sroa.061.2.i.i.i.i, %151 ], [ %.sroa.061.0.lcssa.i.i.i.i, %107 ], [ %79, %81 ], [ %57, %59 ], [ %35, %37 ], [ %.sroa.061.0107.i.i.i.i, %15 ], [ %.sroa.061.2.i.i.i.i, %153 ], [ %.sroa.061.1.i.i.i.i, %130 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.061.0107.i.i.i.i, %.lr.ph.i.i.i.i ]
   %173 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %173
 }
@@ -4812,12 +4812,12 @@ _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %_ZNKSt10filesystem7
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %.not = icmp eq ptr %.sink1.i55, %32
-  br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit, label %.lr.ph.preheader
+  %.not63 = icmp eq ptr %.sink1.i55, %32
+  br i1 %.not63, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit, label %.lr.ph.preheader
 
 35:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %.not63 = icmp eq i8 %.sink.i58, 0
-  br i1 %.not63, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit, label %.lr.ph.preheader
+  %.not = icmp eq i8 %.sink.i58, 0
+  br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNKSt10filesystem7__cxx114path5beginEv.exit.thread, %_ZNKSt10filesystem7__cxx114path3endEv.exit.thread, %34, %35
   %.sink.i59 = phi i8 [ %.sink.i58, %34 ], [ %.sink.i58, %35 ], [ 0, %_ZNKSt10filesystem7__cxx114path3endEv.exit.thread ], [ 0, %_ZNKSt10filesystem7__cxx114path5beginEv.exit.thread ]
@@ -4912,9 +4912,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLISt17basic_string_viewIcS
   %spec.select = select i1 %75, i8 %.sroa.13.030, i8 1
   %spec.select28.idx = select i1 %75, i64 48, i64 0
   %spec.select28 = getelementptr inbounds nuw i8, ptr %.sroa.8.031, i64 %spec.select28.idx
-  %76 = icmp ne ptr %spec.select28, %.sink1.i144851
-  %77 = icmp ne i8 %spec.select, %.sink.i154950
-  %.0.i.i = select i1 %75, i1 %76, i1 %77
+  %76 = icmp ne i8 %spec.select, %.sink.i154950
+  %77 = icmp ne ptr %spec.select28, %.sink1.i144851
+  %.0.i.i = select i1 %75, i1 %77, i1 %76
   br i1 %.0.i.i, label %.lr.ph, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendISt17basic_string_viewIcS2_EEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_S7_ESt6__not_IS9_IPSB_PKS4_EESE_IS9_ISC_PKcEEEE5valueERS4_E4typeESC_.exit.i

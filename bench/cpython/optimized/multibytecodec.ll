@@ -495,7 +495,7 @@ define internal range(i32 -1, 1) i32 @_multibytecodec_exec(ptr noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %32, %28, %24, %20, %17, %14, %11, %9, %6, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %6 ], [ -1, %9 ], [ -1, %11 ], [ -1, %14 ], [ -1, %17 ], [ -1, %20 ], [ -1, %24 ], [ -1, %28 ], [ %.lobit, %32 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %17 ], [ -1, %20 ], [ -1, %24 ], [ %.lobit, %32 ], [ -1, %28 ], [ -1, %14 ], [ -1, %11 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -684,7 +684,7 @@ define internal ptr @_multibytecodec_MultibyteCodec_encode(ptr noundef readonly 
   call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.15) #8
   br label %.thread49
 
-.thread49:                                        ; preds = %34, %28
+.thread49:                                        ; preds = %28, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %137
 
@@ -697,7 +697,7 @@ define internal ptr @_multibytecodec_MultibyteCodec_encode(ptr noundef readonly 
   br label %137
 
 38:                                               ; preds = %36, %20, %.thread47
-  %.030 = phi ptr [ %29, %36 ], [ null, %.thread47 ], [ null, %20 ]
+  %.030 = phi ptr [ null, %.thread47 ], [ %29, %36 ], [ null, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = getelementptr i8, ptr %19, i64 8
   %.val46.i = load ptr, ptr %39, align 8, !tbaa !30
@@ -786,7 +786,7 @@ internal_error_callback.exit.i:                   ; preds = %65
   br label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 internal_error_callback.exit.thread.i:            ; preds = %internal_error_callback.exit.i, %65, %62, %59, %56
-  %.0.i59.i = phi ptr [ %68, %internal_error_callback.exit.i ], [ inttoptr (i64 3 to ptr), %65 ], [ inttoptr (i64 2 to ptr), %62 ], [ inttoptr (i64 1 to ptr), %56 ], [ inttoptr (i64 1 to ptr), %59 ]
+  %.0.i59.i = phi ptr [ %68, %internal_error_callback.exit.i ], [ inttoptr (i64 3 to ptr), %65 ], [ inttoptr (i64 1 to ptr), %59 ], [ inttoptr (i64 2 to ptr), %62 ], [ inttoptr (i64 1 to ptr), %56 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !24
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
@@ -937,12 +937,12 @@ Py_DECREF.exit.i:                                 ; preds = %130, %127, %125, %1
   br label %_multibytecodec_MultibyteCodec_encode_impl.exit
 
 _multibytecodec_MultibyteCodec_encode_impl.exit:  ; preds = %42, %49, %52, %55, %70, %71, %73, %76, %104, %106, %109, %114, %116, %119, %120, %Py_DECREF.exit.i, %131, %133, %136
-  %.0.i = phi ptr [ null, %42 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ null, %70 ], [ null, %71 ], [ null, %73 ], [ null, %76 ], [ %102, %120 ], [ null, %104 ], [ null, %106 ], [ null, %109 ], [ null, %114 ], [ null, %116 ], [ null, %119 ], [ null, %Py_DECREF.exit.i ], [ null, %131 ], [ null, %133 ], [ null, %136 ]
+  %.0.i = phi ptr [ null, %55 ], [ null, %116 ], [ null, %76 ], [ null, %42 ], [ null, %49 ], [ null, %52 ], [ null, %70 ], [ null, %71 ], [ null, %73 ], [ %102, %120 ], [ null, %119 ], [ null, %109 ], [ null, %104 ], [ null, %106 ], [ null, %114 ], [ null, %Py_DECREF.exit.i ], [ null, %131 ], [ null, %133 ], [ null, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %137
 
 137:                                              ; preds = %.thread49, %37, %_multibytecodec_MultibyteCodec_encode_impl.exit, %14
-  %.032 = phi ptr [ %.0.i, %_multibytecodec_MultibyteCodec_encode_impl.exit ], [ null, %37 ], [ null, %14 ], [ null, %.thread49 ]
+  %.032 = phi ptr [ %.0.i, %_multibytecodec_MultibyteCodec_encode_impl.exit ], [ null, %.thread49 ], [ null, %37 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }
@@ -1023,7 +1023,7 @@ define internal ptr @_multibytecodec_MultibyteCodec_decode(ptr noundef readonly 
   call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.15) #8
   br label %.thread49
 
-.thread49:                                        ; preds = %39, %33
+.thread49:                                        ; preds = %33, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %170
 
@@ -1066,9 +1066,9 @@ internal_error_callback.exit.i:                   ; preds = %50
   br i1 %54, label %_multibytecodec_MultibyteCodec_decode_impl.exit, label %internal_error_callback.exit.thread.i
 
 internal_error_callback.exit.thread.i:            ; preds = %.thread52, %internal_error_callback.exit.i, %50, %47, %43
-  %.val4757 = phi i64 [ %.val47, %internal_error_callback.exit.i ], [ %.val47, %50 ], [ %.val47, %47 ], [ %.val47, %43 ], [ %.val4755, %.thread52 ]
-  %.val4656 = phi ptr [ %.val46, %internal_error_callback.exit.i ], [ %.val46, %50 ], [ %.val46, %47 ], [ %.val46, %43 ], [ %.val4654, %.thread52 ]
-  %.0.i2.i = phi ptr [ %53, %internal_error_callback.exit.i ], [ inttoptr (i64 3 to ptr), %50 ], [ inttoptr (i64 2 to ptr), %47 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %.thread52 ]
+  %.val4757 = phi i64 [ %.val47, %internal_error_callback.exit.i ], [ %.val47, %50 ], [ %.val47, %43 ], [ %.val47, %47 ], [ %.val4755, %.thread52 ]
+  %.val4656 = phi ptr [ %.val46, %internal_error_callback.exit.i ], [ %.val46, %50 ], [ %.val46, %43 ], [ %.val46, %47 ], [ %.val4654, %.thread52 ]
+  %.0.i2.i = phi ptr [ %53, %internal_error_callback.exit.i ], [ inttoptr (i64 3 to ptr), %50 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 2 to ptr), %47 ], [ inttoptr (i64 1 to ptr), %.thread52 ]
   %55 = icmp eq i64 %.val4757, 0
   br i1 %55, label %56, label %88
 
@@ -1335,13 +1335,13 @@ Py_XDECREF.exit64.i:                              ; preds = %169, %166, %164, %P
   br label %_multibytecodec_MultibyteCodec_decode_impl.exit
 
 _multibytecodec_MultibyteCodec_decode_impl.exit:  ; preds = %internal_error_callback.exit.i, %Py_DECREF.exit52.i, %70, %72, %75, %80, %82, %85, %86, %137, %139, %142, %147, %149, %152, %153, %Py_XDECREF.exit64.i
-  %.0.i = phi ptr [ null, %Py_XDECREF.exit64.i ], [ null, %internal_error_callback.exit.i ], [ %68, %86 ], [ null, %Py_DECREF.exit52.i ], [ null, %70 ], [ null, %72 ], [ null, %75 ], [ null, %80 ], [ null, %82 ], [ null, %85 ], [ %135, %153 ], [ null, %137 ], [ null, %139 ], [ null, %142 ], [ null, %147 ], [ null, %149 ], [ null, %152 ]
+  %.0.i = phi ptr [ null, %85 ], [ null, %internal_error_callback.exit.i ], [ null, %Py_XDECREF.exit64.i ], [ %68, %86 ], [ null, %Py_DECREF.exit52.i ], [ null, %75 ], [ null, %70 ], [ null, %72 ], [ null, %80 ], [ null, %82 ], [ %135, %153 ], [ null, %152 ], [ null, %142 ], [ null, %137 ], [ null, %139 ], [ null, %147 ], [ null, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %170
 
 170:                                              ; preds = %.thread49, %.thread, %19, %_multibytecodec_MultibyteCodec_decode_impl.exit, %41
-  %.031 = phi ptr [ null, %.thread ], [ %.0.i, %_multibytecodec_MultibyteCodec_decode_impl.exit ], [ null, %41 ], [ null, %19 ], [ null, %.thread49 ]
+  %.031 = phi ptr [ null, %.thread ], [ %.0.i, %_multibytecodec_MultibyteCodec_decode_impl.exit ], [ null, %.thread49 ], [ null, %41 ], [ null, %19 ]
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !60
   %.not42 = icmp eq ptr %172, null
@@ -1829,7 +1829,7 @@ Py_DECREF.exit125:                                ; preds = %._crit_edge, %100, 
   store i8 63, ptr %115, align 1, !tbaa !15
   br label %117
 
-.thread158:                                       ; preds = %86, %46, %111, %84
+.thread158:                                       ; preds = %86, %111, %46, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Py_DECREF.exit
 
@@ -2051,7 +2051,7 @@ _Py_NewRef.exit:                                  ; preds = %190, %187, %184
   br i1 %223, label %.thread161, label %226
 
 .thread161:                                       ; preds = %215, %.thread164, %217
-  %.096163 = phi i64 [ %.096166, %.thread164 ], [ %220, %217 ], [ %213, %215 ]
+  %.096163 = phi i64 [ %220, %217 ], [ %.096166, %.thread164 ], [ %213, %215 ]
   call void @PyErr_Clear() #8
   %224 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !16
   %225 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %224, ptr noundef nonnull @.str.28, i64 noundef %.096163) #8
@@ -2123,8 +2123,8 @@ Py_XDECREF.exit:                                  ; preds = %237, %239, %242
   call void @_Py_Dealloc(ptr noundef nonnull %.095) #8
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %129, %146, %call_error_callback.exit, %135, %137, %140, %.thread158, %25, %27, %148, %151, %248, %245, %243, %Py_XDECREF.exit, %236, %233, %Py_DECREF.exit123, %expand_encodebuffer.exit, %124, %42, %40
-  %.0 = phi i32 [ 0, %124 ], [ -1, %42 ], [ -1, %40 ], [ 0, %expand_encodebuffer.exit ], [ 0, %Py_DECREF.exit123 ], [ 0, %233 ], [ 0, %236 ], [ -1, %Py_XDECREF.exit ], [ -1, %243 ], [ -1, %245 ], [ -1, %248 ], [ -1, %151 ], [ -1, %148 ], [ -1, %27 ], [ -1, %25 ], [ -1, %.thread158 ], [ -1, %140 ], [ -1, %137 ], [ -1, %135 ], [ -1, %call_error_callback.exit ], [ -1, %146 ], [ -1, %129 ]
+Py_DECREF.exit:                                   ; preds = %129, %146, %call_error_callback.exit, %135, %137, %140, %.thread158, %25, %27, %151, %148, %248, %245, %243, %Py_XDECREF.exit, %236, %233, %Py_DECREF.exit123, %expand_encodebuffer.exit, %124, %42, %40
+  %.0 = phi i32 [ -1, %40 ], [ 0, %124 ], [ 0, %236 ], [ 0, %expand_encodebuffer.exit ], [ -1, %42 ], [ 0, %Py_DECREF.exit123 ], [ 0, %233 ], [ -1, %248 ], [ -1, %Py_XDECREF.exit ], [ -1, %243 ], [ -1, %245 ], [ -1, %148 ], [ -1, %151 ], [ -1, %27 ], [ -1, %25 ], [ -1, %.thread158 ], [ -1, %140 ], [ -1, %137 ], [ -1, %135 ], [ -1, %call_error_callback.exit ], [ -1, %146 ], [ -1, %129 ]
   ret i32 %.0
 }
 
@@ -2444,7 +2444,7 @@ call_error_callback.exit:                         ; preds = %68, %71, %74
   br i1 %118, label %.thread, label %121
 
 .thread:                                          ; preds = %104, %.thread4, %106
-  %.0613 = phi i64 [ %.0616, %.thread4 ], [ %113, %106 ], [ %102, %104 ]
+  %.0613 = phi i64 [ %113, %106 ], [ %.0616, %.thread4 ], [ %102, %104 ]
   tail call void @PyErr_Clear() #8
   %119 = load ptr, ptr @PyExc_IndexError, align 8, !tbaa !16
   %120 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %119, ptr noundef nonnull @.str.28, i64 noundef %.0613) #8
@@ -2481,8 +2481,8 @@ call_error_callback.exit:                         ; preds = %68, %71, %74
   tail call void @_Py_Dealloc(ptr noundef nonnull %69) #8
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %65, %62, %54, %51, %49, %call_error_callback.exit, %60, %41, %21, %132, %129, %127, %126, %123, %121, %6, %29, %17, %16, %14
-  %.0 = phi i32 [ 0, %29 ], [ -1, %17 ], [ -1, %14 ], [ -1, %16 ], [ 0, %6 ], [ 0, %121 ], [ 0, %123 ], [ 0, %126 ], [ -1, %127 ], [ -1, %129 ], [ -1, %132 ], [ -1, %21 ], [ -1, %41 ], [ -1, %60 ], [ -1, %call_error_callback.exit ], [ -1, %49 ], [ -1, %51 ], [ -1, %54 ], [ -1, %62 ], [ -1, %65 ]
+Py_DECREF.exit:                                   ; preds = %62, %65, %54, %51, %49, %call_error_callback.exit, %60, %41, %21, %132, %129, %127, %126, %123, %121, %6, %29, %17, %16, %14
+  %.0 = phi i32 [ 0, %126 ], [ 0, %29 ], [ 0, %6 ], [ -1, %17 ], [ -1, %16 ], [ -1, %14 ], [ 0, %121 ], [ 0, %123 ], [ -1, %132 ], [ -1, %127 ], [ -1, %129 ], [ -1, %21 ], [ -1, %41 ], [ -1, %60 ], [ -1, %call_error_callback.exit ], [ -1, %49 ], [ -1, %51 ], [ -1, %54 ], [ -1, %65 ], [ -1, %62 ]
   ret i32 %.0
 }
 
@@ -2668,8 +2668,8 @@ define internal ptr @mbiencoder_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %internal_error_callback.exit.thread, label %internal_error_callback.exit
 
-internal_error_callback.exit.thread:              ; preds = %29, %22, %32, %35
-  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %35 ], [ inttoptr (i64 2 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %29 ]
+internal_error_callback.exit.thread:              ; preds = %22, %32, %29, %35
+  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %35 ], [ inttoptr (i64 1 to ptr), %29 ], [ inttoptr (i64 2 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %22 ]
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %.0.i.ph, ptr %38, align 8, !tbaa !72
   br label %42
@@ -2744,7 +2744,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %62, %51
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %62, %60, %Py_XDECREF.exit, %51, %49, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ %9, %49 ], [ %9, %51 ], [ null, %Py_XDECREF.exit ], [ null, %60 ], [ null, %62 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %62 ], [ null, %6 ], [ %9, %49 ], [ %9, %51 ], [ null, %Py_XDECREF.exit ], [ null, %60 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2949,7 +2949,7 @@ Py_XDECREF.exit.i:                                ; preds = %29, %26, %24, %21
   br label %_multibytecodec_MultibyteIncrementalEncoder_setstate_impl.exit
 
 _multibytecodec_MultibyteIncrementalEncoder_setstate_impl.exit: ; preds = %8, %14, %16, %Py_XDECREF.exit.i
-  %.0.i = phi ptr [ null, %14 ], [ @_Py_NoneStruct, %Py_XDECREF.exit.i ], [ null, %16 ], [ null, %8 ]
+  %.0.i = phi ptr [ @_Py_NoneStruct, %Py_XDECREF.exit.i ], [ null, %14 ], [ null, %16 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
@@ -3081,7 +3081,7 @@ _Py_NewRef.exit:                                  ; preds = %26
   br label %_Py_NewRef.exit81
 
 _Py_NewRef.exit81:                                ; preds = %26, %_Py_NewRef.exit, %31
-  %33 = phi ptr [ %.pre, %_Py_NewRef.exit ], [ %.pre, %31 ], [ %25, %26 ]
+  %33 = phi ptr [ %.pre, %31 ], [ %.pre, %_Py_NewRef.exit ], [ %25, %26 ]
   store ptr %33, ptr %5, align 8, !tbaa !16
   call void @PyUnicode_Append(ptr noundef nonnull %5, ptr noundef nonnull %.049) #8
   %34 = load ptr, ptr %5, align 8, !tbaa !16
@@ -3273,9 +3273,9 @@ Py_XDECREF.exit:                                  ; preds = %93, %80, %86, %89, 
   call void @_Py_Dealloc(ptr noundef nonnull %58) #8
   br label %Py_XDECREF.exit92
 
-Py_XDECREF.exit92:                                ; preds = %67, %64, %62, %60, %45, %Py_XDECREF.exit, %109, %112
-  %.1109 = phi ptr [ %.2, %Py_XDECREF.exit ], [ %.2, %109 ], [ %.2, %112 ], [ %.2, %67 ], [ %.2, %64 ], [ %.2, %62 ], [ %.2, %60 ], [ null, %45 ]
-  %.055108 = phi ptr [ %25, %Py_XDECREF.exit ], [ %25, %109 ], [ %25, %112 ], [ null, %67 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ %25, %45 ]
+Py_XDECREF.exit92:                                ; preds = %64, %62, %60, %45, %67, %Py_XDECREF.exit, %109, %112
+  %.1109 = phi ptr [ %.2, %109 ], [ %.2, %112 ], [ %.2, %Py_XDECREF.exit ], [ %.2, %64 ], [ %.2, %62 ], [ %.2, %60 ], [ null, %45 ], [ %.2, %67 ]
+  %.055108 = phi ptr [ %25, %109 ], [ %25, %112 ], [ %25, %Py_XDECREF.exit ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ %25, %45 ], [ null, %67 ]
   %.not.i93 = icmp eq ptr %.050, null
   br i1 %.not.i93, label %Py_XDECREF.exit95, label %113
 
@@ -3333,7 +3333,7 @@ Py_XDECREF.exit98:                                ; preds = %Py_XDECREF.exit95, 
   br label %Py_DECREF.exit74
 
 Py_DECREF.exit74:                                 ; preds = %130, %127, %125, %Py_XDECREF.exit98, %107, %104, %102, %Py_DECREF.exit, %22, %19, %16, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %16 ], [ null, %19 ], [ null, %22 ], [ %58, %Py_DECREF.exit ], [ %58, %102 ], [ %58, %104 ], [ %58, %107 ], [ null, %Py_XDECREF.exit98 ], [ null, %125 ], [ null, %127 ], [ null, %130 ]
+  %.0 = phi ptr [ null, %9 ], [ %58, %107 ], [ null, %22 ], [ null, %16 ], [ null, %19 ], [ %58, %Py_DECREF.exit ], [ %58, %102 ], [ %58, %104 ], [ null, %Py_XDECREF.exit98 ], [ null, %125 ], [ null, %127 ], [ null, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -3429,8 +3429,8 @@ internal_error_callback.exit:                     ; preds = %22
   %26 = icmp eq ptr %25, null
   br i1 %26, label %38, label %internal_error_callback.exit.thread
 
-internal_error_callback.exit.thread:              ; preds = %22, %19, %16, %internal_error_callback.exit
-  %.0.i20 = phi ptr [ %25, %internal_error_callback.exit ], [ inttoptr (i64 3 to ptr), %22 ], [ inttoptr (i64 2 to ptr), %19 ], [ inttoptr (i64 1 to ptr), %16 ]
+internal_error_callback.exit.thread:              ; preds = %16, %19, %22, %internal_error_callback.exit
+  %.0.i20 = phi ptr [ %25, %internal_error_callback.exit ], [ inttoptr (i64 1 to ptr), %16 ], [ inttoptr (i64 2 to ptr), %19 ], [ inttoptr (i64 3 to ptr), %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !79
   %.not17 = icmp eq ptr %28, null
@@ -3462,7 +3462,7 @@ Py_DECREF.exit:                                   ; preds = %37, %34, %32, %29, 
   br label %38
 
 38:                                               ; preds = %internal_error_callback.exit, %13, %Py_DECREF.exit, %11, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %Py_DECREF.exit ], [ -1, %11 ], [ -1, %13 ], [ -1, %internal_error_callback.exit ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %13 ], [ 0, %Py_DECREF.exit ], [ -1, %internal_error_callback.exit ]
   ret i32 %.0
 }
 
@@ -3616,8 +3616,8 @@ define internal ptr @mbidecoder_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %internal_error_callback.exit.thread, label %internal_error_callback.exit
 
-internal_error_callback.exit.thread:              ; preds = %29, %22, %32, %35
-  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %35 ], [ inttoptr (i64 2 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %22 ], [ inttoptr (i64 1 to ptr), %29 ]
+internal_error_callback.exit.thread:              ; preds = %22, %32, %29, %35
+  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %35 ], [ inttoptr (i64 1 to ptr), %29 ], [ inttoptr (i64 2 to ptr), %32 ], [ inttoptr (i64 1 to ptr), %22 ]
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %.0.i.ph, ptr %38, align 8, !tbaa !81
   br label %42
@@ -3692,7 +3692,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %62, %51
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %62, %60, %Py_XDECREF.exit, %51, %49, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ %9, %49 ], [ %9, %51 ], [ null, %Py_XDECREF.exit ], [ null, %60 ], [ null, %62 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %62 ], [ null, %6 ], [ %9, %49 ], [ %9, %51 ], [ null, %Py_XDECREF.exit ], [ null, %60 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -4127,7 +4127,7 @@ define internal noundef ptr @_multibytecodec_MultibyteIncrementalDecoder_setstat
   br label %_multibytecodec_MultibyteIncrementalDecoder_setstate_impl.exit
 
 _multibytecodec_MultibyteIncrementalDecoder_setstate_impl.exit: ; preds = %10, %12, %16, %22, %30, %33, %36, %37, %41
-  %.0.i = phi ptr [ @_Py_NoneStruct, %41 ], [ null, %10 ], [ null, %12 ], [ null, %16 ], [ null, %22 ], [ null, %37 ], [ null, %30 ], [ null, %33 ], [ null, %36 ]
+  %.0.i = phi ptr [ null, %10 ], [ null, %12 ], [ null, %16 ], [ null, %37 ], [ @_Py_NoneStruct, %41 ], [ null, %22 ], [ null, %30 ], [ null, %33 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4366,8 +4366,8 @@ _Py_NewRef.exit:                                  ; preds = %23, %30
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %internal_error_callback.exit.thread, label %internal_error_callback.exit
 
-internal_error_callback.exit.thread:              ; preds = %36, %_Py_NewRef.exit, %39, %42
-  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %42 ], [ inttoptr (i64 2 to ptr), %39 ], [ inttoptr (i64 1 to ptr), %_Py_NewRef.exit ], [ inttoptr (i64 1 to ptr), %36 ]
+internal_error_callback.exit.thread:              ; preds = %_Py_NewRef.exit, %39, %36, %42
+  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %42 ], [ inttoptr (i64 1 to ptr), %36 ], [ inttoptr (i64 2 to ptr), %39 ], [ inttoptr (i64 1 to ptr), %_Py_NewRef.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %.0.i.ph, ptr %45, align 8, !tbaa !88
   br label %49
@@ -4438,7 +4438,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %69, %58
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %69, %67, %Py_XDECREF.exit, %58, %56, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %10, %56 ], [ %10, %58 ], [ null, %Py_XDECREF.exit ], [ null, %67 ], [ null, %69 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %69 ], [ null, %7 ], [ %10, %56 ], [ %10, %58 ], [ null, %Py_XDECREF.exit ], [ null, %67 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -5175,8 +5175,8 @@ _Py_NewRef.exit:                                  ; preds = %23, %30
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %internal_error_callback.exit.thread, label %internal_error_callback.exit
 
-internal_error_callback.exit.thread:              ; preds = %36, %_Py_NewRef.exit, %39, %42
-  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %42 ], [ inttoptr (i64 2 to ptr), %39 ], [ inttoptr (i64 1 to ptr), %_Py_NewRef.exit ], [ inttoptr (i64 1 to ptr), %36 ]
+internal_error_callback.exit.thread:              ; preds = %_Py_NewRef.exit, %39, %36, %42
+  %.0.i.ph = phi ptr [ inttoptr (i64 3 to ptr), %42 ], [ inttoptr (i64 1 to ptr), %36 ], [ inttoptr (i64 2 to ptr), %39 ], [ inttoptr (i64 1 to ptr), %_Py_NewRef.exit ]
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %.0.i.ph, ptr %45, align 8, !tbaa !94
   br label %49
@@ -5247,7 +5247,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %69, %58
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %69, %67, %Py_XDECREF.exit, %58, %56, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %10, %56 ], [ %10, %58 ], [ null, %Py_XDECREF.exit ], [ null, %67 ], [ null, %69 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %69 ], [ null, %7 ], [ %10, %56 ], [ %10, %58 ], [ null, %Py_XDECREF.exit ], [ null, %67 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -5323,7 +5323,7 @@ Py_DECREF.exit12.i.i:                             ; preds = %29, %26, %20
   br label %_multibytecodec_MultibyteStreamWriter_write_impl.exit
 
 _multibytecodec_MultibyteStreamWriter_write_impl.exit: ; preds = %36, %33, %31, %Py_DECREF.exit12.i.i, %.thread, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %.thread ], [ null, %Py_DECREF.exit12.i.i ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %33 ], [ @_Py_NoneStruct, %36 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %Py_DECREF.exit12.i.i ], [ null, %.thread ], [ @_Py_NoneStruct, %31 ], [ @_Py_NoneStruct, %33 ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -5430,7 +5430,7 @@ Py_DECREF.exit12.i.i:                             ; preds = %45, %42, %38
   br label %mbstreamwriter_iwrite.exit.i
 
 mbstreamwriter_iwrite.exit.i:                     ; preds = %52, %49, %47, %Py_DECREF.exit12.i.i, %34
-  %53 = phi i1 [ true, %34 ], [ true, %Py_DECREF.exit12.i.i ], [ false, %47 ], [ false, %49 ], [ false, %52 ]
+  %53 = phi i1 [ true, %Py_DECREF.exit12.i.i ], [ true, %34 ], [ false, %47 ], [ false, %49 ], [ false, %52 ]
   %54 = load i32, ptr %32, align 8, !tbaa !15
   %.not.i.i = icmp sgt i32 %54, -1
   br i1 %.not.i.i, label %55, label %Py_DECREF.exit.i
@@ -5566,7 +5566,7 @@ Py_DECREF.exit27.sink.split.i:                    ; preds = %47, %43
   br label %_multibytecodec_MultibyteStreamWriter_reset_impl.exit
 
 _multibytecodec_MultibyteStreamWriter_reset_impl.exit: ; preds = %Py_DECREF.exit27.sink.split.i, %47, %.critedge.i, %43, %41, %Py_DECREF.exit29.i, %12, %10
-  %.0 = phi ptr [ null, %10 ], [ @_Py_NoneStruct, %12 ], [ null, %Py_DECREF.exit29.i ], [ null, %41 ], [ null, %43 ], [ @_Py_NoneStruct, %.critedge.i ], [ @_Py_NoneStruct, %47 ], [ %.0.ph.i, %Py_DECREF.exit27.sink.split.i ]
+  %.0 = phi ptr [ null, %10 ], [ @_Py_NoneStruct, %12 ], [ null, %Py_DECREF.exit29.i ], [ @_Py_NoneStruct, %47 ], [ null, %41 ], [ null, %43 ], [ @_Py_NoneStruct, %.critedge.i ], [ %.0.ph.i, %Py_DECREF.exit27.sink.split.i ]
   ret ptr %.0
 }
 

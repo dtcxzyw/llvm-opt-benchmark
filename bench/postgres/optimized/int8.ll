@@ -1015,7 +1015,7 @@ define dso_local i64 @int8inc_support(ptr noundef readonly captures(none) %0) lo
   br label %19
 
 19:                                               ; preds = %13, %7
-  %.012 = phi i32 [ 3, %7 ], [ %spec.select14, %13 ]
+  %.012 = phi i32 [ %spec.select14, %13 ], [ 3, %7 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %.012, ptr %20, align 8
   br label %21
@@ -1936,7 +1936,7 @@ is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thr
   br label %is_funcclause.exit.thread
 
 is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %57, %54, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %54 ], [ 0, %53 ], [ 0, %57 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %53 ], [ 0, %54 ], [ 0, %7 ], [ 0, %57 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
   ret i64 %.0
 }
 

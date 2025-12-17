@@ -1295,7 +1295,7 @@ _ZN10decode_env5matchEPKcS1_.exit39:              ; preds = %80, %80, %80, %80
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %85) #12
   br label %_ZN10decode_env8end_insnEPh.exit46
 
-104:                                              ; preds = %78, %77, %80
+104:                                              ; preds = %77, %78, %80
   %105 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.39, i64 noundef 4) #13
   %.not.i47 = icmp eq i32 %105, 0
   br i1 %.not.i47, label %106, label %_ZN10decode_env8end_insnEPh.exit46
@@ -1413,7 +1413,7 @@ _ZN10decode_env5matchEPKcS1_.exit58:              ; preds = %135, %135, %135, %1
   br label %_ZN10decode_env5matchEPKcS1_.exit
 
 _ZN10decode_env5matchEPKcS1_.exit:                ; preds = %125, %125, %125, %125, %44, %40, %13, %13, %13, %13, %8, %8, %8, %8, %.thread80, %_ZN10decode_env5matchEPKcS1_.exit58, %141, %_ZN10decode_env5matchEPKcS1_.exit55, %110, %109
-  %.0 = phi ptr [ %2, %_ZN10decode_env5matchEPKcS1_.exit55 ], [ null, %141 ], [ %2, %109 ], [ null, %110 ], [ null, %_ZN10decode_env5matchEPKcS1_.exit58 ], [ null, %.thread80 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %40 ], [ null, %44 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ]
+  %.0 = phi ptr [ null, %110 ], [ null, %.thread80 ], [ null, %13 ], [ null, %44 ], [ %2, %_ZN10decode_env5matchEPKcS1_.exit55 ], [ null, %8 ], [ null, %141 ], [ null, %_ZN10decode_env5matchEPKcS1_.exit58 ], [ %2, %109 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %40 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ]
   ret ptr %.0
 }
 
@@ -1442,7 +1442,7 @@ switch.lookup:                                    ; preds = %8
   br label %switch.edge
 
 switch.edge:                                      ; preds = %8, %switch.lookup, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ %switch.masked, %switch.lookup ], [ false, %8 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1733,7 +1733,7 @@ _ZN12Disassembler11is_abstractEv.exit:            ; preds = %10, %13
   br label %37
 
 37:                                               ; preds = %_ZN12Disassembler11is_abstractEv.exit, %30, %20
-  %.0 = phi ptr [ %29, %20 ], [ %36, %30 ], [ null, %_ZN12Disassembler11is_abstractEv.exit ]
+  %.0 = phi ptr [ %36, %30 ], [ %29, %20 ], [ null, %_ZN12Disassembler11is_abstractEv.exit ]
   ret ptr %.0
 }
 
@@ -1798,7 +1798,7 @@ select.unfold:                                    ; preds = %24, %14, %6
   %29 = trunc i64 %.026 to i32
   br label %_ZN12outputStream3bolEv.exit
 
-30:                                               ; preds = %20, %17, %24
+30:                                               ; preds = %17, %24, %20
   call void @llvm.va_start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %32 = load i64, ptr %31, align 8
@@ -1816,7 +1816,7 @@ select.unfold:                                    ; preds = %24, %14, %6
   br label %_ZN12outputStream3bolEv.exit
 
 _ZN12outputStream3bolEv.exit:                     ; preds = %13, %9, %2, %30, %select.unfold
-  %.0 = phi i32 [ %29, %select.unfold ], [ %41, %30 ], [ 0, %2 ], [ 1, %9 ], [ 1, %13 ]
+  %.0 = phi i32 [ %41, %30 ], [ 0, %2 ], [ %29, %select.unfold ], [ 1, %9 ], [ 1, %13 ]
   ret i32 %.0
 }
 

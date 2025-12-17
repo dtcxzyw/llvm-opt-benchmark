@@ -159,7 +159,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %39
 
 39:                                               ; preds = %36, %34, %38
-  %.192 = phi i32 [ 1, %38 ], [ %.091121, %34 ], [ %.091121, %36 ]
+  %.192 = phi i32 [ 1, %38 ], [ %.091121, %36 ], [ %.091121, %34 ]
   %40 = load i32, ptr %22, align 8, !tbaa !54
   %.not106 = icmp eq i32 %40, -1
   %.pre154 = load i32, ptr %23, align 8, !tbaa !55
@@ -342,7 +342,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split98, %46, %53, %.split, %118, %116
-  %.094 = phi i32 [ -1094995529, %116 ], [ %119, %118 ], [ %16, %.split ], [ %72, %.split98 ], [ %50, %46 ], [ %54, %53 ]
+  %.094 = phi i32 [ %119, %118 ], [ -1094995529, %116 ], [ %16, %.split ], [ %50, %46 ], [ %72, %.split98 ], [ %54, %53 ]
   ret i32 %.094
 }
 
@@ -521,10 +521,10 @@ ff_dnxhd_check_header_prefix.exit.thread195:      ; preds = %24, %11, %11
   br label %dnxhd_init_vlc.exit.thread
 
 96:                                               ; preds = %77, %92, %91
-  %97 = phi i1 [ false, %91 ], [ true, %92 ], [ false, %77 ]
-  %98 = phi i1 [ true, %91 ], [ false, %92 ], [ false, %77 ]
-  %99 = phi i1 [ false, %91 ], [ false, %92 ], [ true, %77 ]
-  %.0159 = phi i32 [ 10, %91 ], [ 12, %92 ], [ 8, %77 ]
+  %97 = phi i1 [ true, %92 ], [ false, %91 ], [ false, %77 ]
+  %98 = phi i1 [ false, %92 ], [ true, %91 ], [ false, %77 ]
+  %99 = phi i1 [ false, %92 ], [ false, %91 ], [ true, %77 ]
+  %.0159 = phi i32 [ 12, %92 ], [ 10, %91 ], [ 8, %77 ]
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %101 = load i32, ptr %100, align 1, !tbaa !76
   %102 = tail call i32 @llvm.bswap.i32(i32 %101)
@@ -931,8 +931,8 @@ switch.lookup:                                    ; preds = %158, %154, %dnxhd_i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %319, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %313, i32 noundef %316) #4
   br label %dnxhd_init_vlc.exit.thread
 
-dnxhd_init_vlc.exit.thread:                       ; preds = %306, %.preheader, %116, %111, %151, %318, %304, %298, %293, %281, %240, %183, %93, %ff_dnxhd_check_header_prefix.exit.thread, %9
-  %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %ff_dnxhd_check_header_prefix.exit.thread ], [ -1094995529, %93 ], [ -1094995529, %183 ], [ -1094995529, %240 ], [ -1094995529, %293 ], [ -1094995529, %298 ], [ -1094995529, %304 ], [ -1094995529, %318 ], [ -1094995529, %281 ], [ -1094995529, %116 ], [ -38, %111 ], [ %.037.ph.i, %151 ], [ 0, %.preheader ], [ 0, %306 ]
+dnxhd_init_vlc.exit.thread:                       ; preds = %306, %.preheader, %111, %151, %116, %318, %304, %298, %293, %281, %240, %183, %93, %ff_dnxhd_check_header_prefix.exit.thread, %9
+  %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %ff_dnxhd_check_header_prefix.exit.thread ], [ -1094995529, %93 ], [ -1094995529, %281 ], [ -1094995529, %183 ], [ -1094995529, %240 ], [ -1094995529, %293 ], [ -1094995529, %298 ], [ -1094995529, %304 ], [ -1094995529, %318 ], [ -38, %111 ], [ %.037.ph.i, %151 ], [ -1094995529, %116 ], [ 0, %.preheader ], [ 0, %306 ]
   ret i32 %.0
 }
 
@@ -2087,8 +2087,8 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   br label %27
 
 27:                                               ; preds = %24, %19, %21
-  %.sink = phi i64 [ 1792, %21 ], [ 1536, %19 ], [ %., %24 ]
-  %.0181.i = phi i32 [ %23, %21 ], [ 0, %19 ], [ %26, %24 ]
+  %.sink = phi i64 [ 1536, %19 ], [ %., %24 ], [ 1792, %21 ]
+  %.0181.i = phi i32 [ 0, %19 ], [ %26, %24 ], [ %23, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %29 = load ptr, ptr %12, align 16, !tbaa !116
   %30 = lshr i32 %14, 3
@@ -2402,8 +2402,8 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   br label %27
 
 27:                                               ; preds = %24, %19, %21
-  %.sink = phi i64 [ 1792, %21 ], [ 1536, %19 ], [ %., %24 ]
-  %.0181.i = phi i32 [ %23, %21 ], [ 0, %19 ], [ %26, %24 ]
+  %.sink = phi i64 [ 1536, %19 ], [ %., %24 ], [ 1792, %21 ]
+  %.0181.i = phi i32 [ 0, %19 ], [ %26, %24 ], [ %23, %21 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %29 = load ptr, ptr %12, align 16, !tbaa !116
   %30 = lshr i32 %14, 3

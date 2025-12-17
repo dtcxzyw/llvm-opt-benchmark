@@ -1519,7 +1519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
           to label %19 unwind label %11
 
 19:                                               ; preds = %15, %7, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %7 ], [ %18, %15 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = load ptr, ptr %2, align 8, !tbaa !3
   %21 = icmp eq ptr %20, %4

@@ -205,7 +205,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %51
   br label %.body
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit: ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA24_KiEEEERKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
-  %.sroa.0.0 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ %54, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i ], [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA24_KiEEEERKNS_9EigenBaseIT_EE.exit ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA24_KiEEEERKNS_9EigenBaseIT_EE.exit ], [ %54, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i ]
   %.sroa.0.0462 = ptrtoint ptr %.sroa.0.0 to i64
   %59 = trunc i64 %39 to i32
   %60 = add i32 %59, -1
@@ -763,7 +763,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i187: ; preds = %210
   br label %.body115
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit117: ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA12_KiEEEERKNS_9EigenBaseIT_EE.exit, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i187, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i113
-  %.sroa.0323.0 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i113 ], [ %213, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i187 ], [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA12_KiEEEERKNS_9EigenBaseIT_EE.exit ]
+  %.sroa.0323.0 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i113 ], [ null, %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_11IndexedViewIKS1_NS_8internal8AllRangeILin1EEERA12_KiEEEERKNS_9EigenBaseIT_EE.exit ], [ %213, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i187 ]
   %.sroa.0323.0454 = ptrtoint ptr %.sroa.0323.0 to i64
   %218 = trunc i64 %39 to i32
   %219 = add i32 %218, -1
@@ -1246,8 +1246,8 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE9push_backEOS2_.exit177.us: ; preds = %
   br label %368
 
 362:                                              ; preds = %192, %351
-  %.sroa.30.0 = phi ptr [ %.us-phi427, %192 ], [ %.us-phi, %351 ]
-  %.sroa.0270.0 = phi ptr [ %.us-phi429, %192 ], [ %.us-phi401, %351 ]
+  %.sroa.30.0 = phi ptr [ %.us-phi, %351 ], [ %.us-phi427, %192 ]
+  %.sroa.0270.0 = phi ptr [ %.us-phi401, %351 ], [ %.us-phi429, %192 ]
   %.not.i.i.i = icmp eq ptr %.sroa.0270.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit, label %363
 
@@ -2336,7 +2336,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !36
   call void @free(ptr noundef %76) #24
   br label %.body

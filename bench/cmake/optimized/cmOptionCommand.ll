@@ -586,7 +586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %20
   br label %.critedge
 
 211:                                              ; preds = %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112, %152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %187, %114
-  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %153, %152 ], [ %145, %144 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %.pn65.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ %188, %187 ]
+  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %153, %152 ], [ %145, %144 ], [ %.pn65.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ %188, %187 ]
   %212 = load ptr, ptr %11, align 8, !tbaa !28
   %213 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %214 = icmp eq ptr %212, %213

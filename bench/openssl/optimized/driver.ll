@@ -389,7 +389,7 @@ process_shared_options.exit:                      ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge159
 
-75:                                               ; preds = %55, %67
+75:                                               ; preds = %67, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %76 = load i32, ptr @num_tests, align 4, !tbaa !3
   %77 = icmp slt i32 %76, 1
@@ -739,9 +739,9 @@ finalize.exit122:                                 ; preds = %185, %186
   br label %217
 
 217:                                              ; preds = %214, %._crit_edge180, %.lr.ph158, %finalize.exit, %126
-  %.191 = phi i32 [ %.090153, %126 ], [ %spec.select, %finalize.exit ], [ %.090153, %.lr.ph158 ], [ %spec.select117, %._crit_edge180 ], [ %spec.select117, %214 ]
-  %.180 = phi i32 [ %.079155, %126 ], [ %140, %finalize.exit ], [ %.079155, %.lr.ph158 ], [ %.pre181, %._crit_edge180 ], [ %215, %214 ]
-  %.1 = phi i32 [ %.078156, %126 ], [ %.078156, %finalize.exit ], [ %.078156, %.lr.ph158 ], [ %.2.lcssa, %._crit_edge180 ], [ %.2.lcssa, %214 ]
+  %.191 = phi i32 [ %.090153, %.lr.ph158 ], [ %.090153, %126 ], [ %spec.select, %finalize.exit ], [ %spec.select117, %._crit_edge180 ], [ %spec.select117, %214 ]
+  %.180 = phi i32 [ %.079155, %.lr.ph158 ], [ %.079155, %126 ], [ %140, %finalize.exit ], [ %.pre181, %._crit_edge180 ], [ %215, %214 ]
+  %.1 = phi i32 [ %.078156, %.lr.ph158 ], [ %.078156, %126 ], [ %.078156, %finalize.exit ], [ %.2.lcssa, %._crit_edge180 ], [ %.2.lcssa, %214 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %218 = load i32, ptr @num_tests, align 4, !tbaa !3
   %219 = zext i32 %218 to i64
@@ -754,7 +754,7 @@ finalize.exit122:                                 ; preds = %185, %186
   br label %._crit_edge159
 
 ._crit_edge159:                                   ; preds = %.loopexit130, %._crit_edge159.loopexit, %process_shared_options.exit, %.loopexit131
-  %.0 = phi i32 [ 1, %.loopexit131 ], [ 0, %process_shared_options.exit ], [ 0, %.loopexit130 ], [ %221, %._crit_edge159.loopexit ]
+  %.0 = phi i32 [ 0, %process_shared_options.exit ], [ 1, %.loopexit131 ], [ 0, %.loopexit130 ], [ %221, %._crit_edge159.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

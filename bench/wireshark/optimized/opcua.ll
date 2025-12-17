@@ -661,10 +661,10 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   br label %210
 
 46:                                               ; preds = %38, %35, %32, %29, %26, %23, %18
-  %47 = phi i1 [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ true, %32 ], [ false, %35 ], [ false, %38 ]
-  %48 = phi i1 [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %35 ], [ true, %38 ]
-  %.0173 = phi i64 [ 0, %18 ], [ 1, %23 ], [ 2, %26 ], [ 3, %29 ], [ 4, %32 ], [ 5, %35 ], [ 6, %38 ]
-  %.0172 = phi ptr [ @parseHello, %18 ], [ @parseAcknowledge, %23 ], [ @parseError, %26 ], [ @parseReverseHello, %29 ], [ @parseMessage, %32 ], [ @parseOpenSecureChannel, %35 ], [ @parseCloseSecureChannel, %38 ]
+  %47 = phi i1 [ false, %35 ], [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ true, %32 ], [ false, %38 ]
+  %48 = phi i1 [ false, %35 ], [ false, %18 ], [ false, %23 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ true, %38 ]
+  %.0173 = phi i64 [ 5, %35 ], [ 0, %18 ], [ 1, %23 ], [ 2, %26 ], [ 3, %29 ], [ 4, %32 ], [ 6, %38 ]
+  %.0172 = phi ptr [ @parseOpenSecureChannel, %35 ], [ @parseHello, %18 ], [ @parseAcknowledge, %23 ], [ @parseError, %26 ], [ @parseReverseHello, %29 ], [ @parseMessage, %32 ], [ @parseCloseSecureChannel, %38 ]
   %49 = load ptr, ptr %19, align 8
   %50 = getelementptr ptr, ptr @g_szMessageTypes, i64 %.0173
   %51 = load ptr, ptr %50, align 8
@@ -972,7 +972,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br label %.thread229
 
 .thread229:                                       ; preds = %46, %185, %191, %189, %161
-  %.1167239 = phi ptr [ %.4.ph, %185 ], [ %.4.ph, %191 ], [ %.4.ph, %189 ], [ %.4.ph, %161 ], [ %0, %46 ]
+  %.1167239 = phi ptr [ %.4.ph, %161 ], [ %.4.ph, %185 ], [ %.4.ph, %191 ], [ %.4.ph, %189 ], [ %0, %46 ]
   %195 = load i8, ptr %8, align 1, !range !11, !noundef !12
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %.sink.split, label %197

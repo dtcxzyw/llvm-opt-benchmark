@@ -761,7 +761,7 @@ for.body64:                                       ; preds = %for.body64, %for.bo
   br i1 %cmp62, label %for.body64, label %for.cond.cleanup63.loopexit, !llvm.loop !49
 
 cleanup:                                          ; preds = %for.cond.cleanup63, %for.cond14.for.cond.cleanup17_crit_edge.us, %for.cond14.for.cond.cleanup17_crit_edge.us.us, %for.cond60.preheader.lr.ph, %if.end26.i, %for.cond14.preheader.lr.ph, %while.end14.i, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit
-  %retval.0 = phi ptr [ null, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit ], [ %call5, %while.end14.i ], [ %call38, %if.end26.i ], [ %call5, %for.cond14.preheader.lr.ph ], [ %call38, %for.cond60.preheader.lr.ph ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us.us ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us ], [ %call38, %for.cond.cleanup63 ]
+  %retval.0 = phi ptr [ null, %_ZN3irr3gui19checkFontBitmapSizeERK10FT_Bitmap_.exit ], [ %call5, %while.end14.i ], [ %call38, %if.end26.i ], [ %call5, %for.cond14.preheader.lr.ph ], [ %call38, %for.cond60.preheader.lr.ph ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us ], [ %call5, %for.cond14.for.cond.cleanup17_crit_edge.us.us ], [ %call38, %for.cond.cleanup63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %texture_size)
   ret ptr %retval.0
 }
@@ -1249,8 +1249,8 @@ if.else65:                                        ; preds = %if.else56
   br label %if.end83
 
 if.end83:                                         ; preds = %if.else65, %if.else56, %if.else, %if.end
-  %.sink = phi i64 [ 1099511628032, %if.end ], [ 2199023256064, %if.else ], [ 4398046512128, %if.else56 ], [ %., %if.else65 ]
-  %48 = phi i32 [ 256, %if.end ], [ 512, %if.else ], [ 1024, %if.else56 ], [ %.27, %if.else65 ]
+  %.sink = phi i64 [ 4398046512128, %if.else56 ], [ %., %if.else65 ], [ 2199023256064, %if.else ], [ 1099511628032, %if.end ]
+  %48 = phi i32 [ 1024, %if.else56 ], [ %.27, %if.else65 ], [ 512, %if.else ], [ 256, %if.end ]
   store i64 %.sink, ptr %page_texture_size, align 8
   %cmp86 = icmp ugt i32 %48, %spec.select246
   %cmp90 = icmp ugt i32 %48, %spec.select
@@ -2116,13 +2116,13 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %if.th
   br i1 %cmp.i.i.i.i362, label %ehcleanup62, label %ehcleanup62.sink.split
 
 ehcleanup62.sink.split:                           ; preds = %ehcleanup61, %lpad.i277, %lpad.i.i264
-  %.sink = phi ptr [ %40, %lpad.i.i264 ], [ %43, %lpad.i277 ], [ %70, %ehcleanup61 ]
-  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %39, %lpad.i.i264 ], [ %42, %lpad.i277 ], [ %.pn.pn.pn, %ehcleanup61 ]
+  %.sink = phi ptr [ %43, %lpad.i277 ], [ %40, %lpad.i.i264 ], [ %70, %ehcleanup61 ]
+  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %42, %lpad.i277 ], [ %39, %lpad.i.i264 ], [ %.pn.pn.pn, %ehcleanup61 ]
   call void @_ZdlPv(ptr noundef %.sink) #29
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup62.sink.split, %ehcleanup61, %lpad.i277, %lpad.i.i264
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %lpad.i.i264 ], [ %42, %lpad.i277 ], [ %.pn.pn.pn, %ehcleanup61 ], [ %.pn.pn.pn.pn.ph, %ehcleanup62.sink.split ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup61 ], [ %42, %lpad.i277 ], [ %39, %lpad.i.i264 ], [ %.pn.pn.pn.pn.ph, %ehcleanup62.sink.split ]
   %71 = load ptr, ptr %ref.tmp33, align 8, !tbaa !102
   %72 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 16
   %cmp.i.i.i.i369 = icmp eq ptr %71, %72
@@ -2150,13 +2150,13 @@ ehcleanup65:                                      ; preds = %_ZN3irr4core6string
   br i1 %cmp.i.i.i.i383, label %ehcleanup66, label %ehcleanup66.sink.split
 
 ehcleanup66.sink.split:                           ; preds = %ehcleanup65, %lpad.i261, %lpad.i.i
-  %.sink68 = phi ptr [ %32, %lpad.i.i ], [ %35, %lpad.i261 ], [ %75, %ehcleanup65 ]
-  %.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %31, %lpad.i.i ], [ %34, %lpad.i261 ], [ %.pn.pn.pn.pn.pn, %ehcleanup65 ]
+  %.sink68 = phi ptr [ %35, %lpad.i261 ], [ %32, %lpad.i.i ], [ %75, %ehcleanup65 ]
+  %.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %34, %lpad.i261 ], [ %31, %lpad.i.i ], [ %.pn.pn.pn.pn.pn, %ehcleanup65 ]
   call void @_ZdlPv(ptr noundef %.sink68) #29
   br label %ehcleanup66
 
 ehcleanup66:                                      ; preds = %ehcleanup66.sink.split, %ehcleanup65, %lpad.i261, %lpad.i.i
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %lpad.i.i ], [ %34, %lpad.i261 ], [ %.pn.pn.pn.pn.pn, %ehcleanup65 ], [ %.pn.pn.pn.pn.pn.pn.ph, %ehcleanup66.sink.split ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup65 ], [ %34, %lpad.i261 ], [ %31, %lpad.i.i ], [ %.pn.pn.pn.pn.pn.pn.ph, %ehcleanup66.sink.split ]
   %76 = load ptr, ptr %ref.tmp30, align 8, !tbaa !102
   %cmp.i.i.i.i390 = icmp eq ptr %76, %16
   br i1 %cmp.i.i.i.i390, label %_ZN3irr4core6stringIcED2Ev.exit396, label %if.then.i.i.i391

@@ -150,7 +150,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -917,7 +917,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit70:       ; preds = %_ZNK6icu_779UVector
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
 
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %88, %86, %82, %78, %._crit_edge, %72
-  %storemerge = phi ptr [ null, %72 ], [ null, %._crit_edge ], [ %83, %82 ], [ %87, %86 ], [ %92, %88 ], [ %.lcssa81, %78 ]
+  %storemerge = phi ptr [ null, %._crit_edge ], [ null, %72 ], [ %83, %82 ], [ %87, %86 ], [ %92, %88 ], [ %.lcssa81, %78 ]
   store ptr %storemerge, ptr %6, align 8, !tbaa !19
   br label %.critedge
 
@@ -1005,7 +1005,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %88, %86, %82, %78, 
   br i1 %137, label %._crit_edge, label %93, !llvm.loop !41
 
 .critedge:                                        ; preds = %116, %.critedge.critedge, %62, %9, %43, %104, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit, %2
-  %.0 = phi i8 [ 0, %2 ], [ 1, %62 ], [ 0, %9 ], [ 1, %43 ], [ 1, %104 ], [ 1, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit ], [ 1, %.critedge.critedge ], [ 1, %116 ]
+  %.0 = phi i8 [ 0, %2 ], [ 0, %9 ], [ 1, %62 ], [ 1, %43 ], [ 1, %.critedge.critedge ], [ 1, %104 ], [ 1, %_ZN6icu_779BytesTrie9skipValueEPKhi.exit ], [ 1, %116 ]
   ret i8 %.0
 }
 

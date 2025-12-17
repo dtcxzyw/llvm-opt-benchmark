@@ -280,9 +280,9 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader
-  %73 = phi ptr [ %8, %.preheader ], [ %71, %..critedge.loopexit_crit_edge ], [ %8, %.lr.ph.preheader ], [ %72, %.critedge.loopexit ]
-  %.lcssa67 = phi ptr [ %4, %.preheader ], [ %69, %..critedge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %69, %.critedge.loopexit ]
-  %.lcssa = phi ptr [ %2, %.preheader ], [ %68, %..critedge.loopexit_crit_edge ], [ %2, %.lr.ph.preheader ], [ %68, %.critedge.loopexit ]
+  %73 = phi ptr [ %8, %.preheader ], [ %8, %.lr.ph.preheader ], [ %71, %..critedge.loopexit_crit_edge ], [ %72, %.critedge.loopexit ]
+  %.lcssa67 = phi ptr [ %4, %.preheader ], [ %4, %.lr.ph.preheader ], [ %69, %..critedge.loopexit_crit_edge ], [ %69, %.critedge.loopexit ]
+  %.lcssa = phi ptr [ %2, %.preheader ], [ %2, %.lr.ph.preheader ], [ %68, %..critedge.loopexit_crit_edge ], [ %68, %.critedge.loopexit ]
   %74 = ptrtoint ptr %.lcssa67 to i64
   %75 = ptrtoint ptr %.lcssa to i64
   %76 = sub i64 %74, %75
@@ -455,7 +455,7 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph83, %.loopexit.sink.split, %105, %78, %146, %141, %152, %107, %87, %1, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %87 ], [ false, %107 ], [ false, %152 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph83 ]
+  %.0 = phi i1 [ false, %107 ], [ false, %1 ], [ false, %152 ], [ false, %87 ], [ false, %6 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph83 ]
   ret i1 %.0
 }
 

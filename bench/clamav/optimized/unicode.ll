@@ -715,8 +715,8 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef readonly captures(none
   br label %70
 
 70:                                               ; preds = %.lr.ph, %16, %58, %33
-  %.1 = phi ptr [ %21, %16 ], [ %41, %33 ], [ %69, %58 ], [ %7, %.lr.ph ]
-  %.037 = phi i32 [ %20, %16 ], [ %40, %33 ], [ %68, %58 ], [ %8, %.lr.ph ]
+  %.1 = phi ptr [ %69, %58 ], [ %21, %16 ], [ %41, %33 ], [ %7, %.lr.ph ]
+  %.037 = phi i32 [ %68, %58 ], [ %20, %16 ], [ %40, %33 ], [ %8, %.lr.ph ]
   %71 = icmp slt i64 %.03970, 1
   br i1 %71, label %.thread, label %72
 
@@ -748,9 +748,9 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef readonly captures(none
   %.not = icmp eq i8 %82, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %81, %12, %28, %24, %53, %48, %44, %42, %70, %75, %3
-  %.045.lcssa = phi ptr [ %1, %3 ], [ %.04568, %75 ], [ %.04568, %70 ], [ %.04568, %42 ], [ %.04568, %44 ], [ %.04568, %48 ], [ %.04568, %53 ], [ %.04568, %24 ], [ %.04568, %28 ], [ %.04568, %12 ], [ %.247, %81 ]
-  %.143 = phi i1 [ true, %3 ], [ %.04269, %75 ], [ %.04269, %70 ], [ false, %42 ], [ false, %44 ], [ false, %48 ], [ false, %53 ], [ false, %24 ], [ false, %28 ], [ false, %12 ], [ %.244, %81 ]
+.thread:                                          ; preds = %81, %42, %70, %75, %44, %12, %24, %28, %53, %48, %3
+  %.045.lcssa = phi ptr [ %1, %3 ], [ %.04568, %48 ], [ %.04568, %53 ], [ %.04568, %28 ], [ %.04568, %24 ], [ %.04568, %12 ], [ %.04568, %44 ], [ %.04568, %75 ], [ %.04568, %70 ], [ %.04568, %42 ], [ %.247, %81 ]
+  %.143 = phi i1 [ true, %3 ], [ false, %48 ], [ false, %53 ], [ false, %28 ], [ false, %24 ], [ false, %12 ], [ false, %44 ], [ %.04269, %75 ], [ %.04269, %70 ], [ false, %42 ], [ %.244, %81 ]
   store i32 0, ptr %.045.lcssa, align 4, !tbaa !6
   ret i1 %.143
 }
@@ -808,7 +808,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
   br i1 %.not26.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !23
 
 _Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %14, %15, %1
-  %.not34.i = phi i1 [ true, %1 ], [ false, %15 ], [ false, %14 ], [ %or.cond.not.i, %._crit_edge.i ], [ %or.cond.not.i, %.loopexit.i ]
+  %.not34.i = phi i1 [ true, %1 ], [ false, %14 ], [ false, %15 ], [ %or.cond.not.i, %._crit_edge.i ], [ %or.cond.not.i, %.loopexit.i ]
   ret i1 %.not34.i
 }
 
@@ -863,7 +863,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
   %.not26 = icmp slt i8 %16, -64
   br i1 %.not26, label %.preheader, label %.thread, !llvm.loop !23
 
-.thread:                                          ; preds = %.loopexit, %._crit_edge, %14, %15, %2
+.thread:                                          ; preds = %.loopexit, %._crit_edge, %15, %14, %2
   %.not34 = phi i1 [ true, %2 ], [ false, %15 ], [ false, %14 ], [ %or.cond.not, %._crit_edge ], [ %or.cond.not, %.loopexit ]
   ret i1 %.not34
 }

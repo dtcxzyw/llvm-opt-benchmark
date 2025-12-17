@@ -1191,7 +1191,7 @@ skip_padding.exit148:                             ; preds = %420, %424
   %.not88 = icmp eq i32 %532, 0
   br i1 %.not88, label %.thread157, label %533
 
-.thread157:                                       ; preds = %512, %518, %529
+.thread157:                                       ; preds = %518, %512, %529
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread189
 
@@ -1330,7 +1330,7 @@ skip_padding.exit148:                             ; preds = %420, %424
   %616 = add i64 %.1, 1
   br label %138, !llvm.loop !107
 
-.thread189:                                       ; preds = %535, %587, %455, %427, %443, %skip_padding.exit148, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %346, %cmp_pkt_hdr.exit, %210, %205, %191, %198, %182, %162, %PACKET_buf_init.exit, %159, %146, %482, %543, %549, %557, %565, %571, %579, %595, %601, %.thread157, %.thread, %419, %613, %508
+.thread189:                                       ; preds = %535, %587, %455, %427, %443, %skip_padding.exit148, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %346, %cmp_pkt_hdr.exit, %210, %205, %191, %198, %182, %162, %PACKET_buf_init.exit, %159, %146, %482, %549, %543, %557, %571, %565, %579, %595, %601, %.thread157, %.thread, %419, %613, %508
   %617 = add nsw i32 %0, 1
   %618 = add i64 %.1, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1611, ptr noundef nonnull @.str.50, i32 noundef %617, i64 noundef %618) #8
@@ -1774,7 +1774,7 @@ define internal range(i32 0, 2) i32 @schedule_cfq_new_conn_id(ptr noundef readon
   %.not9 = icmp eq i32 %35, 0
   br i1 %.not9, label %.thread, label %36
 
-.thread:                                          ; preds = %1, %11, %21, %22, %28
+.thread:                                          ; preds = %11, %21, %22, %1, %28
   call void @BUF_MEM_free(ptr noundef %9) #8
   br label %36
 
@@ -1815,7 +1815,7 @@ define internal range(i32 0, 2) i32 @check_cfq_new_conn_id(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %12, %1, %5, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %1 ], [ %spec.select, %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %12 ], [ 0, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -1893,7 +1893,7 @@ define internal range(i32 0, 2) i32 @schedule_cfq_new_token(ptr noundef readonly
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %.thread, label %31
 
-.thread:                                          ; preds = %1, %6, %16, %17, %23
+.thread:                                          ; preds = %6, %16, %17, %1, %23
   call void @BUF_MEM_free(ptr noundef %4) #8
   br label %31
 
@@ -2002,7 +2002,7 @@ define internal range(i32 0, 2) i32 @check_stream_10a(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %8, %1, %5, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %5 ], [ 0, %1 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %1 ], [ 0, %5 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2037,7 +2037,7 @@ define internal range(i32 0, 2) i32 @check_stream_10b(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %8, %1, %5, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %5 ], [ 0, %1 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %1 ], [ 0, %5 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2067,7 +2067,7 @@ define internal range(i32 0, 2) i32 @check_stream_10c(ptr noundef readonly captu
   br label %15
 
 15:                                               ; preds = %8, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2097,7 +2097,7 @@ define internal range(i32 0, 2) i32 @check_stream_10d(ptr noundef readonly captu
   br label %15
 
 15:                                               ; preds = %8, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2150,7 +2150,7 @@ define internal range(i32 0, 2) i32 @check_stream_13(ptr noundef readonly captur
   br label %13
 
 13:                                               ; preds = %9, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2213,7 +2213,7 @@ define internal range(i32 0, 2) i32 @check_14(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %15, %1, %7, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %15 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %15 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 

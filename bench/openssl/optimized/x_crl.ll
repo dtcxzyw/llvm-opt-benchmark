@@ -939,7 +939,7 @@ crl_set_issuers.exit:                             ; preds = %185, %182
   br label %ossl_x509_crl_set0_libctx.exit
 
 ossl_x509_crl_set0_libctx.exit:                   ; preds = %267, %4, %26, %233, %245, %258, %261, %crl_set_issuers.exit, %243, %230, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %crl_set_issuers.exit ], [ 0, %230 ], [ 0, %243 ], [ 1, %261 ], [ 1, %258 ], [ 1, %245 ], [ 1, %233 ], [ 1, %26 ], [ 1, %4 ], [ %spec.select, %267 ]
+  %.0 = phi i32 [ 0, %243 ], [ 1, %4 ], [ 0, %crl_set_issuers.exit ], [ 0, %13 ], [ 0, %230 ], [ %spec.select, %267 ], [ 1, %261 ], [ 1, %258 ], [ 1, %245 ], [ 1, %233 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1127,7 +1127,7 @@ crl_revoked_issuer_match.exit:                    ; preds = %53
   br i1 %72, label %.lr.ph.i, label %crl_revoked_issuer_match.exit.thread, !llvm.loop !80
 
 crl_revoked_issuer_match.exit.thread34:           ; preds = %crl_revoked_issuer_match.exit, %64, %30, %40
-  %73 = phi ptr [ %28, %40 ], [ %28, %30 ], [ %51, %64 ], [ %51, %crl_revoked_issuer_match.exit ]
+  %73 = phi ptr [ %51, %64 ], [ %28, %40 ], [ %28, %30 ], [ %51, %crl_revoked_issuer_match.exit ]
   %.not30 = icmp eq ptr %1, null
   br i1 %.not30, label %75, label %74
 
@@ -1148,7 +1148,7 @@ crl_revoked_issuer_match.exit.thread:             ; preds = %68, %58, %crl_revok
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.lr.ph.split, %crl_revoked_issuer_match.exit.thread, %.lr.ph.split.us, %crl_revoked_issuer_match.exit.thread.us, %23, %75, %19, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ %., %75 ], [ 0, %23 ], [ 0, %crl_revoked_issuer_match.exit.thread.us ], [ 0, %.lr.ph.split.us ], [ 0, %crl_revoked_issuer_match.exit.thread ], [ 0, %.lr.ph.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ %., %75 ], [ 0, %23 ], [ 0, %.lr.ph.split.us ], [ 0, %crl_revoked_issuer_match.exit.thread.us ], [ 0, %crl_revoked_issuer_match.exit.thread ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

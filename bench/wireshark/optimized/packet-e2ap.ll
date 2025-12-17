@@ -4272,7 +4272,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !6
 
 42:                                               ; preds = %30, %38
-  %.062 = phi ptr [ %40, %38 ], [ null, %30 ]
+  %.062 = phi ptr [ null, %30 ], [ %40, %38 ]
   %.not6981.not = icmp eq i32 %18, 0
   br i1 %.not6981.not, label %.critedge, label %.lr.ph.preheader
 
@@ -9511,7 +9511,7 @@ proto_item_set_generated.exit69:                  ; preds = %ran_function_to_str
   br label %85
 
 85:                                               ; preds = %.thread, %._crit_edge, %81, %e2ap_get_private_data.exit
-  %.0 = phi ptr [ null, %e2ap_get_private_data.exit ], [ null, %81 ], [ null, %._crit_edge ], [ %80, %.thread ]
+  %.0 = phi ptr [ null, %e2ap_get_private_data.exit ], [ %80, %.thread ], [ null, %81 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 

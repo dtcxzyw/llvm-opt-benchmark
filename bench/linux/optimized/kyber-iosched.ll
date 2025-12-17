@@ -1516,7 +1516,7 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   br label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph12, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge7, %1
-  %25 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ %12, %..critedge.loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %12, %.lr.ph ], [ %22, %.lr.ph12 ]
+  %25 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ true, %.lr.ph.preheader ], [ %12, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %22, %.lr.ph12 ]
   ret i1 %25
 }
 
@@ -2385,7 +2385,7 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %12, %16, %44, %40, %20
-  %48 = phi i32 [ %36, %44 ], [ %36, %40 ], [ %34, %20 ], [ %10, %16 ], [ %10, %12 ]
+  %48 = phi i32 [ %34, %20 ], [ %36, %44 ], [ %36, %40 ], [ %10, %16 ], [ %10, %12 ]
   ret i32 %48
 }
 

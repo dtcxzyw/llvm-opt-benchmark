@@ -1036,11 +1036,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %54
 
 54:                                               ; preds = %27, %46, %33, %24
-  %.sink283 = phi i32 [ %.sink, %46 ], [ 1, %33 ], [ 19, %24 ], [ 21, %27 ]
-  %.sink281 = phi i32 [ 0, %46 ], [ 1, %33 ], [ 2, %24 ], [ 2, %27 ]
-  %.sink279 = phi i32 [ 2, %46 ], [ 1, %33 ], [ 0, %24 ], [ 0, %27 ]
-  %55 = phi i8 [ 2, %46 ], [ 1, %33 ], [ 0, %24 ], [ 0, %27 ]
-  %56 = phi i64 [ %31, %46 ], [ %31, %33 ], [ %19, %24 ], [ %31, %27 ]
+  %.sink283 = phi i32 [ 19, %24 ], [ %.sink, %46 ], [ 1, %33 ], [ 21, %27 ]
+  %.sink281 = phi i32 [ 2, %24 ], [ 0, %46 ], [ 1, %33 ], [ 2, %27 ]
+  %.sink279 = phi i32 [ 0, %24 ], [ 2, %46 ], [ 1, %33 ], [ 0, %27 ]
+  %55 = phi i8 [ 0, %24 ], [ 2, %46 ], [ 1, %33 ], [ 0, %27 ]
+  %56 = phi i64 [ %19, %24 ], [ %31, %46 ], [ %31, %33 ], [ %31, %27 ]
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.sink283, ptr %57, align 8, !tbaa !199
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1464,7 +1464,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %274
 
 274:                                              ; preds = %261, %264, %267, %270, %.critedge
-  %.1 = phi i32 [ %183, %.critedge ], [ 0, %270 ], [ 0, %267 ], [ 0, %264 ], [ 0, %261 ]
+  %.1 = phi i32 [ %183, %.critedge ], [ 0, %261 ], [ 0, %270 ], [ 0, %267 ], [ 0, %264 ]
   ret i32 %.1
 }
 
@@ -2101,7 +2101,7 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br label %309
 
 309:                                              ; preds = %303, %308, %297
-  %.pre411 = phi i32 [ %.pre411.pre417, %303 ], [ %.pre411.pre, %308 ], [ %.pre411.pre418, %297 ]
+  %.pre411 = phi i32 [ %.pre411.pre417, %303 ], [ %.pre411.pre418, %297 ], [ %.pre411.pre, %308 ]
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %311 = load i32, ptr %310, align 4, !tbaa !157
   %.not290 = icmp eq i32 %311, 0
@@ -2479,7 +2479,7 @@ vaapi_encode_h265_add_nal.exit:                   ; preds = %15
   br label %73
 
 vaapi_encode_h265_write_access_unit.exit.thread:  ; preds = %66, %56, %vaapi_encode_h265_add_nal.exit.thread, %44, %35, %26
-  %.0 = phi i32 [ %30, %26 ], [ %39, %35 ], [ %48, %44 ], [ %19, %vaapi_encode_h265_add_nal.exit.thread ], [ -28, %66 ], [ %54, %56 ]
+  %.0 = phi i32 [ %19, %vaapi_encode_h265_add_nal.exit.thread ], [ %30, %26 ], [ %39, %35 ], [ %48, %44 ], [ -28, %66 ], [ %54, %56 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %9) #10
   br label %73
 

@@ -398,7 +398,7 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms23IsValidProbDistributionE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge.loopexit
-  %.0 = phi i1 [ false, %1 ], [ %14, %._crit_edge.loopexit ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %14, %._crit_edge.loopexit ], [ false, %1 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -433,7 +433,7 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms26IsPositiveProbDistributi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge.loopexit
-  %.0 = phi i1 [ false, %1 ], [ %14, %._crit_edge.loopexit ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %14, %._crit_edge.loopexit ], [ false, %1 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -826,7 +826,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %.noexc, %_ZNSt6vect
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit47
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit47:      ; preds = %33, %75, %76
-  %.pn3989 = phi { ptr, i32 } [ %lpad.loopexit, %75 ], [ %lpad.loopexit, %76 ], [ %.pn, %33 ]
+  %.pn3989 = phi { ptr, i32 } [ %lpad.loopexit, %76 ], [ %lpad.loopexit, %75 ], [ %.pn, %33 ]
   resume { ptr, i32 } %.pn3989
 }
 
@@ -879,7 +879,7 @@ common.resume.sink.split:                         ; preds = %27, %69
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %27, %69
-  %common.resume.op = phi { ptr, i32 } [ %.pn12, %69 ], [ %28, %27 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %.pn12, %69 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds = %18
@@ -2832,7 +2832,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %8, %32, %35
   ret void
 
 104:                                              ; preds = %96, %87, %78, %68, %61, %59
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %88, %87 ], [ %97, %96 ], [ %79, %78 ], [ %69, %68 ], [ %62, %61 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %88, %87 ], [ %97, %96 ], [ %79, %78 ], [ %69, %68 ]
   call void @_ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #25
   %105 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %105, null
@@ -4826,7 +4826,7 @@ define noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5
   br i1 %54, label %55, label %82
 
 common.ret28:                                     ; preds = %87, %35, %55
-  %common.ret28.op = phi double [ %81, %55 ], [ %48, %35 ], [ %88, %87 ]
+  %common.ret28.op = phi double [ %81, %55 ], [ %88, %87 ], [ %48, %35 ]
   ret double %common.ret28.op
 
 55:                                               ; preds = %50
@@ -5730,7 +5730,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit52:                  ; preds = %195, %207
   ret void
 
 _ZNSt6vectorIlSaIlEED2Ev.exit42:                  ; preds = %.loopexit, %.loopexit.split-lp, %185, %183, %127, %125
-  %.pn34.pn = phi { ptr, i32 } [ %.pn, %125 ], [ %.pn, %127 ], [ %.pn34, %183 ], [ %.pn34, %185 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn, %127 ], [ %.pn34, %185 ], [ %.pn, %125 ], [ %.pn34, %183 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %213 = load ptr, ptr %7, align 8
   %.not.i.i.i53 = icmp eq ptr %213, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIlSaIlEED2Ev.exit54, label %214
@@ -9100,7 +9100,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit
 
 _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread10, %11, %5, %28, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %.sroa.06.1 = phi ptr [ %29, %28 ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %5 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread10 ], [ %.sroa.06.014, %11 ]
+  %.sroa.06.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %29, %28 ], [ null, %5 ], [ null, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread10 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ %.sroa.06.014, %11 ]
   ret ptr %.sroa.06.1
 }
 

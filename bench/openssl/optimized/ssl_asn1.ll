@@ -807,15 +807,15 @@ define ptr @d2i_SSL_SESSION_ex(ptr noundef captures(address_is_null) %0, ptr nou
   br label %221
 
 ssl_session_memcpy.exit161.sink.split:            ; preds = %164, %26, %25, %19
-  %.sink201 = phi i32 [ 286, %19 ], [ 293, %25 ], [ 302, %26 ], [ 382, %164 ]
-  %.sink200 = phi i32 [ 254, %19 ], [ 259, %25 ], [ 137, %26 ], [ 271, %164 ]
+  %.sink201 = phi i32 [ 302, %26 ], [ 293, %25 ], [ 286, %19 ], [ 382, %164 ]
+  %.sink200 = phi i32 [ 137, %26 ], [ 259, %25 ], [ 254, %19 ], [ 271, %164 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink201, ptr noundef nonnull @__func__.d2i_SSL_SESSION_ex) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink200, ptr noundef null) #6
   br label %ssl_session_memcpy.exit161
 
 ssl_session_memcpy.exit161:                       ; preds = %ssl_session_memcpy.exit161.sink.split, %118, %58, %73, %102, %171, %139, %134, %125, %33, %16, %5
-  %.0122 = phi ptr [ null, %5 ], [ null, %16 ], [ %.1, %33 ], [ %.1, %171 ], [ %.1, %139 ], [ %.1, %134 ], [ %.1, %125 ], [ %.1, %102 ], [ %.1, %73 ], [ %.1, %58 ], [ %.1, %118 ], [ %.1, %ssl_session_memcpy.exit161.sink.split ]
+  %.0122 = phi ptr [ null, %5 ], [ null, %16 ], [ %.1, %33 ], [ %.1, %171 ], [ %.1, %139 ], [ %.1, %134 ], [ %.1, %125 ], [ %.1, %58 ], [ %.1, %102 ], [ %.1, %73 ], [ %.1, %118 ], [ %.1, %ssl_session_memcpy.exit161.sink.split ]
   call void @ASN1_item_free(ptr noundef %9, ptr noundef nonnull @SSL_SESSION_ASN1_it.local_it) #6
   %217 = icmp eq ptr %0, null
   br i1 %217, label %220, label %218
@@ -830,7 +830,7 @@ ssl_session_memcpy.exit161:                       ; preds = %ssl_session_memcpy.
   br label %221
 
 221:                                              ; preds = %218, %220, %215
-  %.0121 = phi ptr [ %.1, %215 ], [ null, %220 ], [ null, %218 ]
+  %.0121 = phi ptr [ %.1, %215 ], [ null, %218 ], [ null, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0121
 }

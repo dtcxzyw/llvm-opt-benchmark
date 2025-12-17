@@ -108,7 +108,7 @@ define noalias noundef nonnull ptr @Abs_ProverThread(ptr noundef captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread19, %11, %18
-  %.str.sink = phi ptr [ @.str.2, %18 ], [ @.str, %11 ], [ @.str.1, %.thread19 ]
+  %.str.sink = phi ptr [ @.str, %11 ], [ @.str.2, %18 ], [ @.str.1, %.thread19 ]
   %19 = load i32, ptr %4, align 4, !tbaa !17
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.sink, i32 noundef %19)
   br label %20

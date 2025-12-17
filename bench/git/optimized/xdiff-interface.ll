@@ -388,7 +388,7 @@ consume_one.exit52:                               ; preds = %38, %39
   br label %consume_one.exit
 
 consume_one.exit:                                 ; preds = %23, %.preheader71, %52, %consume_one.exit52, %20
-  %.1 = phi i32 [ 0, %20 ], [ %.2.i51, %consume_one.exit52 ], [ %.2.i51, %52 ], [ 0, %.preheader71 ], [ %32, %23 ]
+  %.1 = phi i32 [ 0, %20 ], [ %.2.i51, %consume_one.exit52 ], [ %.2.i51, %52 ], [ %32, %23 ], [ 0, %.preheader71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !39
@@ -748,7 +748,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %0
   br label %21
 
 21:                                               ; preds = %14, %19, %8, %5
-  %.040 = phi i64 [ %20, %19 ], [ %1, %8 ], [ %1, %5 ], [ %15, %14 ]
+  %.040 = phi i64 [ %1, %5 ], [ %20, %19 ], [ %1, %8 ], [ %15, %14 ]
   %22 = load i32, ptr %4, align 8, !tbaa !48
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %.thread
@@ -836,7 +836,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %21, %31, %.loopexit, %.critedge
-  %.2 = phi i64 [ %61, %.critedge ], [ -1, %.loopexit ], [ -1, %31 ], [ -1, %21 ]
+  %.2 = phi i64 [ -1, %.loopexit ], [ %61, %.critedge ], [ -1, %31 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.2
 }
@@ -934,7 +934,7 @@ define dso_local range(i32 -1, 3) i32 @parse_conflict_style_name(ptr noundef rea
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %3 ], [ %., %5 ]
+  %.0 = phi i32 [ 2, %3 ], [ %., %5 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -965,8 +965,8 @@ define dso_local i32 @git_xmerge_config(ptr noundef %0, ptr noundef %1, ptr noun
   %.not3.i = icmp eq i32 %12, 0
   br i1 %.not3.i, label %parse_conflict_style_name.exit.thread, label %parse_conflict_style_name.exit
 
-parse_conflict_style_name.exit.thread:            ; preds = %9, %11
-  %.0.i.ph = phi i32 [ 2, %11 ], [ 1, %9 ]
+parse_conflict_style_name.exit.thread:            ; preds = %11, %9
+  %.0.i.ph = phi i32 [ 1, %9 ], [ 2, %11 ]
   store i32 %.0.i.ph, ptr @git_xmerge_style, align 4, !tbaa !64
   br label %21
 

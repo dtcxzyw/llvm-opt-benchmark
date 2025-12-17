@@ -40,7 +40,7 @@ define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly captures(ret: addres
   br label %12
 
 12:                                               ; preds = %8, %3, %11
-  %.0 = phi ptr [ %7, %11 ], [ null, %3 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %3 ], [ %7, %11 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -101,7 +101,7 @@ ossl_qrl_enc_level_set_get.exit:                  ; preds = %4
   br label %ossl_qrl_enc_level_set_get.exit.thread
 
 ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %4, %11, %ossl_qrl_enc_level_set_get.exit, %16, %12
-  %.0.shrunk = phi i1 [ %15, %12 ], [ %20, %16 ], [ false, %ossl_qrl_enc_level_set_get.exit ], [ false, %11 ], [ false, %4 ]
+  %.0.shrunk = phi i1 [ false, %ossl_qrl_enc_level_set_get.exit ], [ %15, %12 ], [ %20, %16 ], [ false, %11 ], [ false, %4 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -614,10 +614,10 @@ ossl_qrl_enc_level_set_has_keyslot.exit:          ; preds = %ossl_qrl_enc_level_
   br label %69
 
 .sink.split:                                      ; preds = %63, %55, %59, %52, %47
-  %.sink66 = phi i32 [ 160, %47 ], [ 165, %52 ], [ 171, %59 ], [ 171, %55 ], [ 177, %63 ]
-  %.sink = phi i32 [ 524294, %47 ], [ 524294, %52 ], [ 786691, %59 ], [ 786691, %55 ], [ 524294, %63 ]
-  %.046.ph = phi ptr [ null, %47 ], [ %50, %52 ], [ %50, %59 ], [ %50, %55 ], [ %50, %63 ]
-  %.0.ph = phi ptr [ null, %47 ], [ null, %52 ], [ %53, %59 ], [ %53, %55 ], [ %53, %63 ]
+  %.sink66 = phi i32 [ 171, %55 ], [ 165, %52 ], [ 160, %47 ], [ 171, %59 ], [ 177, %63 ]
+  %.sink = phi i32 [ 786691, %55 ], [ 524294, %52 ], [ 524294, %47 ], [ 786691, %59 ], [ 524294, %63 ]
+  %.046.ph = phi ptr [ %50, %55 ], [ %50, %52 ], [ null, %47 ], [ %50, %59 ], [ %50, %63 ]
+  %.0.ph = phi ptr [ %53, %55 ], [ null, %52 ], [ null, %47 ], [ %53, %59 ], [ %53, %63 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink66, ptr noundef nonnull @__func__.el_setup_keyslot) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #6
@@ -761,7 +761,7 @@ el_teardown_keyslot.exit:                         ; preds = %34, %ossl_qrl_enc_l
   br label %53
 
 53:                                               ; preds = %el_teardown_keyslot.exit, %21, %48, %17, %13, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 1, %48 ], [ 1, %17 ], [ 0, %21 ], [ 0, %el_teardown_keyslot.exit ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 1, %48 ], [ 0, %21 ], [ 1, %17 ], [ 0, %el_teardown_keyslot.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -963,7 +963,7 @@ ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %39
   br label %el_teardown_keyslot.exit
 
 el_teardown_keyslot.exit:                         ; preds = %54, %ossl_qrl_enc_level_set_has_keyslot.exit.i, %39, %20, %57, %19, %16, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %19 ], [ 1, %57 ], [ 0, %16 ], [ 0, %20 ], [ 0, %39 ], [ 0, %ossl_qrl_enc_level_set_has_keyslot.exit.i ], [ 0, %54 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %19 ], [ 1, %57 ], [ 0, %20 ], [ 0, %16 ], [ 0, %39 ], [ 0, %ossl_qrl_enc_level_set_has_keyslot.exit.i ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -103,7 +103,7 @@ define dso_local noundef zeroext i1 @llvm_emit_check_block_branch(ptr noundef ca
   br label %13
 
 13:                                               ; preds = %4, %8, %1, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %1 ], [ true, %8 ], [ true, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %11 ], [ true, %8 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -727,7 +727,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

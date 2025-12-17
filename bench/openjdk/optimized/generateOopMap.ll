@@ -486,8 +486,8 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10leng
   br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
-  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.015 = phi i32 [ %22, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %19, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -758,7 +758,7 @@ define hidden noundef signext range(i8 32, 119) i8 @_ZNK13CellTypeState7to_charE
   br label %13
 
 13:                                               ; preds = %6, %11, %9, %8, %5
-  %.0 = phi i8 [ 35, %5 ], [ 118, %8 ], [ 112, %9 ], [ %., %11 ], [ %spec.select, %6 ]
+  %.0 = phi i8 [ 112, %9 ], [ %spec.select, %6 ], [ 35, %5 ], [ 118, %8 ], [ %., %11 ]
   ret i8 %.0
 }
 
@@ -1363,7 +1363,7 @@ _ZNK18BaseBytecodeStream6dest_wEv.exit60:         ; preds = %161, %170
   unreachable
 
 .loopexit.sink.split:                             ; preds = %_ZNK18BaseBytecodeStream4destEv.exit, %_ZNK18BaseBytecodeStream4destEv.exit47, %_ZNK18BaseBytecodeStream6dest_wEv.exit, %_ZNK18BaseBytecodeStream4destEv.exit57, %_ZNK18BaseBytecodeStream6dest_wEv.exit60
-  %.sink = phi i32 [ %174, %_ZNK18BaseBytecodeStream6dest_wEv.exit60 ], [ %160, %_ZNK18BaseBytecodeStream4destEv.exit57 ], [ %62, %_ZNK18BaseBytecodeStream6dest_wEv.exit ], [ %48, %_ZNK18BaseBytecodeStream4destEv.exit47 ], [ %25, %_ZNK18BaseBytecodeStream4destEv.exit ]
+  %.sink = phi i32 [ %48, %_ZNK18BaseBytecodeStream4destEv.exit47 ], [ %174, %_ZNK18BaseBytecodeStream6dest_wEv.exit60 ], [ %160, %_ZNK18BaseBytecodeStream4destEv.exit57 ], [ %62, %_ZNK18BaseBytecodeStream6dest_wEv.exit ], [ %25, %_ZNK18BaseBytecodeStream4destEv.exit ]
   tail call void %2(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %3) #19
   br label %.loopexit
 
@@ -1745,8 +1745,8 @@ _ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %68, %116, %_ZN9Byte
   br i1 %126, label %160, label %165
 
 _ZN14BytecodeStream4nextEv.exit:                  ; preds = %119, %122
-  %.015.i = phi i32 [ %125, %122 ], [ %89, %119 ]
-  %.014.i = phi i32 [ %125, %122 ], [ %86, %119 ]
+  %.015.i = phi i32 [ %89, %119 ], [ %125, %122 ]
+  %.014.i = phi i32 [ %86, %119 ], [ %125, %122 ]
   store i32 %.014.i, ptr %57, align 4
   store i32 %.015.i, ptr %58, align 4
   %127 = call noundef zeroext i1 @_ZN14GenerateOopMap15jump_targets_doEP14BytecodeStreamPFvPS_iPiES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %3, ptr noundef nonnull @_ZN14GenerateOopMap20reachable_basicblockEPS_iPi, ptr noundef nonnull %2)
@@ -2105,7 +2105,7 @@ define hidden i32 @_ZNK13CellTypeState5mergeES_i(ptr noundef nonnull readonly al
   br label %17
 
 17:                                               ; preds = %15, %12, %3
-  %.sroa.0.0 = phi i32 [ %5, %3 ], [ %14, %12 ], [ %16, %15 ]
+  %.sroa.0.0 = phi i32 [ %5, %3 ], [ %16, %15 ], [ %14, %12 ]
   ret i32 %.sroa.0.0
 }
 
@@ -2154,7 +2154,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap25merge_local_state_vectors
   br label %_ZNK13CellTypeState5mergeES_i.exit
 
 _ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %21, %25
-  %.sroa.0.0.i = phi i32 [ %14, %.lr.ph ], [ %24, %21 ], [ %26, %25 ]
+  %.sroa.0.0.i = phi i32 [ %14, %.lr.ph ], [ %26, %25 ], [ %24, %21 ]
   %27 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
   %28 = select i1 %.01518, i1 true, i1 %27
   store i32 %.sroa.0.0.i, ptr %12, align 4
@@ -2221,7 +2221,7 @@ define hidden noundef zeroext i1 @_ZN14GenerateOopMap27merge_monitor_state_vecto
   br label %_ZNK13CellTypeState5mergeES_i.exit
 
 _ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %28, %32
-  %.sroa.0.0.i = phi i32 [ %21, %.lr.ph ], [ %31, %28 ], [ %33, %32 ]
+  %.sroa.0.0.i = phi i32 [ %21, %.lr.ph ], [ %33, %32 ], [ %31, %28 ]
   %34 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
   %narrow = select i1 %.123, i1 true, i1 %34
   store i32 %.sroa.0.0.i, ptr %19, align 4
@@ -2364,7 +2364,7 @@ define hidden void @_ZN14GenerateOopMap19merge_state_into_bbEP10BasicBlock(ptr n
   br label %_ZNK13CellTypeState5mergeES_i.exit.i
 
 _ZNK13CellTypeState5mergeES_i.exit.i:             ; preds = %35, %31, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i32 [ %24, %.lr.ph.i ], [ %34, %31 ], [ %36, %35 ]
+  %.sroa.0.0.i.i = phi i32 [ %24, %.lr.ph.i ], [ %36, %35 ], [ %34, %31 ]
   %37 = icmp ne i32 %.sroa.0.0.i.i, %.sroa.01.0.copyload.i
   %38 = select i1 %.01518.i, i1 true, i1 %37
   store i32 %.sroa.0.0.i.i, ptr %22, align 4
@@ -2437,7 +2437,7 @@ _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit.thread: 
   br label %_ZNK13CellTypeState5mergeES_i.exit.i22
 
 _ZNK13CellTypeState5mergeES_i.exit.i22:           ; preds = %73, %69, %.lr.ph.i17
-  %.sroa.0.0.i.i23 = phi i32 [ %62, %.lr.ph.i17 ], [ %72, %69 ], [ %74, %73 ]
+  %.sroa.0.0.i.i23 = phi i32 [ %62, %.lr.ph.i17 ], [ %74, %73 ], [ %72, %69 ]
   %75 = icmp ne i32 %.sroa.0.0.i.i23, %.sroa.01.0.copyload.i20
   %narrow.i = select i1 %.123.i, i1 true, i1 %75
   store i32 %.sroa.0.0.i.i23, ptr %60, align 4
@@ -5582,7 +5582,7 @@ _ZN14GenerateOopMap12print_statesEP12outputStreamP13CellTypeStatei.exit: ; preds
   br label %_ZNK13CellTypeState7to_charEv.exit.i
 
 _ZNK13CellTypeState7to_charEv.exit.i:             ; preds = %38, %36, %35, %33, %32
-  %.0.i.i = phi i8 [ 35, %32 ], [ 118, %35 ], [ 112, %36 ], [ %..i.i, %38 ], [ %spec.select.i.i, %33 ]
+  %.0.i.i = phi i8 [ 112, %36 ], [ %spec.select.i.i, %33 ], [ 35, %32 ], [ 118, %35 ], [ %..i.i, %38 ]
   %40 = load ptr, ptr %26, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.i37
   store i8 %.0.i.i, ptr %41, align 1
@@ -5644,7 +5644,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit: ; preds = %_ZNK
   br label %_ZNK13CellTypeState7to_charEv.exit.i45
 
 _ZNK13CellTypeState7to_charEv.exit.i45:           ; preds = %65, %63, %62, %60, %59
-  %.0.i.i46 = phi i8 [ 35, %59 ], [ 118, %62 ], [ 112, %63 ], [ %..i.i52, %65 ], [ %spec.select.i.i50, %60 ]
+  %.0.i.i46 = phi i8 [ 112, %63 ], [ %spec.select.i.i50, %60 ], [ 35, %59 ], [ 118, %62 ], [ %..i.i52, %65 ]
   %67 = load ptr, ptr %42, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv.i42
   store i8 %.0.i.i46, ptr %68, align 1
@@ -5713,7 +5713,7 @@ _ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeStatei.exit53: ; preds = %_Z
   br label %_ZNK13CellTypeState7to_charEv.exit.i59
 
 _ZNK13CellTypeState7to_charEv.exit.i59:           ; preds = %96, %94, %93, %91, %90
-  %.0.i.i60 = phi i8 [ 35, %90 ], [ 118, %93 ], [ 112, %94 ], [ %..i.i66, %96 ], [ %spec.select.i.i64, %91 ]
+  %.0.i.i60 = phi i8 [ 112, %94 ], [ %spec.select.i.i64, %91 ], [ 35, %90 ], [ 118, %93 ], [ %..i.i66, %96 ]
   %98 = load ptr, ptr %42, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i56
   store i8 %.0.i.i60, ptr %99, align 1
@@ -5949,7 +5949,7 @@ define hidden noundef ptr @_ZN14GenerateOopMap19state_vec_to_stringEP13CellTypeS
   br label %_ZNK13CellTypeState7to_charEv.exit
 
 _ZNK13CellTypeState7to_charEv.exit:               ; preds = %11, %12, %14, %15, %17
-  %.0.i = phi i8 [ 35, %11 ], [ 118, %14 ], [ 112, %15 ], [ %..i, %17 ], [ %spec.select.i, %12 ]
+  %.0.i = phi i8 [ 112, %15 ], [ %spec.select.i, %12 ], [ 35, %11 ], [ 118, %14 ], [ %..i, %17 ]
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   store i8 %.0.i, ptr %20, align 1
@@ -8826,8 +8826,8 @@ _ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %_ZN9Bytecodes7code_
   br label %.critedge
 
 _ZN14BytecodeStream4nextEv.exit:                  ; preds = %108, %111
-  %.015.i = phi i32 [ %114, %111 ], [ %78, %108 ]
-  %.014.i = phi i32 [ %114, %111 ], [ %75, %108 ]
+  %.015.i = phi i32 [ %78, %108 ], [ %114, %111 ]
+  %.014.i = phi i32 [ %75, %108 ], [ %114, %111 ]
   store i32 %.014.i, ptr %19, align 4
   store i32 %.015.i, ptr %20, align 4
   %115 = load i8, ptr %21, align 8
@@ -9147,8 +9147,8 @@ _ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %.lr.ph, %77, %_ZN9B
   br label %.critedge.thread
 
 87:                                               ; preds = %83, %80
-  %.015.i = phi i32 [ %86, %83 ], [ %50, %80 ]
-  %.014.i = phi i32 [ %86, %83 ], [ %47, %80 ]
+  %.015.i = phi i32 [ %50, %80 ], [ %86, %83 ]
+  %.014.i = phi i32 [ %47, %80 ], [ %86, %83 ]
   store i32 %.014.i, ptr %17, align 4
   store i32 %.015.i, ptr %18, align 4
   %trunc = trunc nuw i32 %.015.i to i8
@@ -9211,8 +9211,8 @@ _ZNK14BytecodeStream9get_indexEv.exit.i.i:        ; preds = %108, %_ZNK18BaseByt
   br label %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.i
 
 _ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14BytecodeStream9get_indexEv.exit.i.i, %88
-  %117 = phi i32 [ %114, %_ZNK14BytecodeStream9get_indexEv.exit.i.i ], [ %.014.i, %88 ]
-  %.025.i = phi i32 [ %116, %_ZNK14BytecodeStream9get_indexEv.exit.i.i ], [ %89, %88 ]
+  %117 = phi i32 [ %.014.i, %88 ], [ %114, %_ZNK14BytecodeStream9get_indexEv.exit.i.i ]
+  %.025.i = phi i32 [ %89, %88 ], [ %116, %_ZNK14BytecodeStream9get_indexEv.exit.i.i ]
   %118 = icmp eq i32 %.025.i, %1
   br i1 %118, label %119, label %thread-pre-split.i
 
@@ -9418,7 +9418,7 @@ _ZNK14BytecodeStream9get_indexEv.exit.i15.i:      ; preds = %197, %_ZNK18BaseByt
   br label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i
 
 _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14BytecodeStream9get_indexEv.exit.i15.i, %174
-  %.1.i = phi i32 [ %205, %_ZNK14BytecodeStream9get_indexEv.exit.i15.i ], [ %175, %174 ]
+  %.1.i = phi i32 [ %175, %174 ], [ %205, %_ZNK14BytecodeStream9get_indexEv.exit.i15.i ]
   %206 = icmp eq i32 %.1.i, %1
   br i1 %206, label %207, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit
 
@@ -9638,7 +9638,7 @@ _ZNK14BytecodeStream9get_indexEv.exit.i:          ; preds = %34, %_ZNK18BaseByte
   br label %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit
 
 _ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit: ; preds = %9, %_ZNK14BytecodeStream9get_indexEv.exit.i
-  %.025 = phi i32 [ %41, %_ZNK14BytecodeStream9get_indexEv.exit.i ], [ %10, %9 ]
+  %.025 = phi i32 [ %10, %9 ], [ %41, %_ZNK14BytecodeStream9get_indexEv.exit.i ]
   %42 = icmp eq i32 %.025, %2
   br i1 %42, label %43, label %thread-pre-split
 
@@ -9716,7 +9716,7 @@ _ZNK14BytecodeStream9get_indexEv.exit.i15:        ; preds = %72, %_ZNK18BaseByte
   br label %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit
 
 _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit: ; preds = %46, %_ZNK14BytecodeStream9get_indexEv.exit.i15
-  %.1 = phi i32 [ %80, %_ZNK14BytecodeStream9get_indexEv.exit.i15 ], [ %47, %46 ]
+  %.1 = phi i32 [ %47, %46 ], [ %80, %_ZNK14BytecodeStream9get_indexEv.exit.i15 ]
   %81 = icmp eq i32 %.1, %2
   br i1 %81, label %82, label %_ZN14GenerateOopMap24stack_top_holds_ret_addrEi.exit
 
@@ -9889,9 +9889,9 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes10leng
   br label %36
 
 36:                                               ; preds = %34, %32, %_ZN9Bytecodes9length_atEP6MethodPh.exit
-  %37 = phi i1 [ false, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ true, %32 ], [ false, %34 ]
-  %38 = phi i1 [ false, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ false, %32 ], [ %35, %34 ]
-  %.028 = phi i32 [ 4, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ 1, %32 ], [ %.31, %34 ]
+  %37 = phi i1 [ true, %32 ], [ false, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ false, %34 ]
+  %38 = phi i1 [ false, %32 ], [ false, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %35, %34 ]
+  %.028 = phi i32 [ 1, %32 ], [ 4, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %.31, %34 ]
   %39 = icmp ne i32 %.028, %30
   br i1 %39, label %44, label %40
 

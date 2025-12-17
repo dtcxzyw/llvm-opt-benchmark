@@ -587,7 +587,7 @@ define dso_local range(i32 0, 8704) i32 @tcp_poll(ptr noundef %0, ptr noundef %1
   br label %.thread8
 
 .thread8:                                         ; preds = %97, %90, %.thread
-  %100 = phi i32 [ %96, %.thread ], [ %33, %90 ], [ %spec.select, %97 ]
+  %100 = phi i32 [ %33, %90 ], [ %spec.select, %97 ], [ %96, %.thread ]
   %101 = and i32 %25, 2
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %166
@@ -676,15 +676,15 @@ define dso_local range(i32 0, 8704) i32 @tcp_poll(ptr noundef %0, ptr noundef %1
 
 159:                                              ; preds = %153
   %160 = icmp eq ptr %157, @tcp_stream_memory_free
-  br i1 %160, label %161, label %163, !prof !13
+  br i1 %160, label %163, label %161, !prof !13
 
 161:                                              ; preds = %159
-  %162 = tail call zeroext i1 @tcp_stream_memory_free(ptr noundef %6, i32 noundef 1) #22
+  %162 = tail call zeroext i1 %157(ptr noundef %6, i32 noundef 1) #22
   %cond.fr1016 = freeze i1 %162
   br i1 %cond.fr1016, label %.thread14, label %.thread12
 
 163:                                              ; preds = %159
-  %164 = tail call zeroext i1 %157(ptr noundef %6, i32 noundef 1) #22
+  %164 = tail call zeroext i1 @tcp_stream_memory_free(ptr noundef %6, i32 noundef 1) #22
   %cond.fr10 = freeze i1 %164
   br i1 %cond.fr10, label %.thread14, label %.thread12
 
@@ -1379,14 +1379,14 @@ define dso_local i64 @tcp_splice_read(ptr noundef readonly captures(none) %0, pt
   br i1 %149, label %.thread, label %.lr.ph, !llvm.loop !21
 
 .thread:                                          ; preds = %145, %113, %122, %125, %128, %138, %132
-  %.lcssa = phi i32 [ %148, %145 ], [ %69, %113 ], [ %69, %122 ], [ %69, %125 ], [ %69, %128 ], [ %69, %138 ], [ %69, %132 ]
-  %150 = phi i64 [ %147, %145 ], [ %117, %113 ], [ %117, %122 ], [ %117, %125 ], [ %117, %128 ], [ %117, %138 ], [ %117, %132 ]
+  %.lcssa = phi i32 [ %69, %132 ], [ %148, %145 ], [ %69, %113 ], [ %69, %122 ], [ %69, %125 ], [ %69, %128 ], [ %69, %138 ]
+  %150 = phi i64 [ %117, %132 ], [ %147, %145 ], [ %117, %113 ], [ %117, %122 ], [ %117, %125 ], [ %117, %128 ], [ %117, %138 ]
   call void @release_sock(ptr noundef %10) #22
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %152, label %155
 
 .sink.split:                                      ; preds = %66, %74, %84, %94, %97, %88, %91, %53, %.critedge, %81, %56
-  %.ph63 = phi i32 [ %64, %56 ], [ 0, %53 ], [ %112, %.critedge ], [ %83, %81 ], [ -11, %91 ], [ -107, %88 ], [ %98, %97 ], [ 0, %94 ], [ 0, %84 ], [ 0, %74 ], [ %98, %66 ]
+  %.ph63 = phi i32 [ %64, %56 ], [ %83, %81 ], [ 0, %53 ], [ %112, %.critedge ], [ -11, %91 ], [ -107, %88 ], [ %98, %97 ], [ 0, %94 ], [ 0, %84 ], [ 0, %74 ], [ %98, %66 ]
   call void @release_sock(ptr noundef %10) #22
   br label %152
 
@@ -3175,7 +3175,7 @@ define dso_local i32 @tcp_sendmsg_locked(ptr noundef %0, ptr noundef %1, i64 nou
   br label %708
 
 708:                                              ; preds = %.thread49, %705, %698, %622, %620
-  %709 = phi i64 [ %621, %620 ], [ %310, %622 ], [ %685, %698 ], [ %685, %705 ], [ %420, %.thread49 ]
+  %709 = phi i64 [ %420, %.thread49 ], [ %621, %620 ], [ %310, %622 ], [ %685, %698 ], [ %685, %705 ]
   %710 = icmp eq i32 %236, 0
   br i1 %710, label %711, label %715
 
@@ -3257,7 +3257,7 @@ define dso_local i32 @tcp_sendmsg_locked(ptr noundef %0, ptr noundef %1, i64 nou
   br label %885, !llvm.loop !39
 
 .thread47:                                        ; preds = %418, %382, %327, %273, %679, %633, %610, %290, %275, %261
-  %759 = phi i32 [ %306, %610 ], [ %306, %679 ], [ %283, %290 ], [ %262, %275 ], [ %262, %261 ], [ %306, %633 ], [ %262, %273 ], [ %306, %327 ], [ %306, %382 ], [ %306, %418 ]
+  %759 = phi i32 [ %262, %273 ], [ %306, %610 ], [ %306, %679 ], [ %283, %290 ], [ %262, %275 ], [ %262, %261 ], [ %306, %633 ], [ %306, %327 ], [ %306, %382 ], [ %306, %418 ]
   %760 = load ptr, ptr %183, align 8
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %761, i32 4, ptr nonnull elementtype(i8) %761) #22, !srcloc !10
@@ -3561,11 +3561,11 @@ tcp_wmem_free_skb.exit:                           ; preds = %802, %803, %817, %8
   %952 = add i32 %951, %942
   br label %.thread65
 
-.thread60:                                        ; preds = %229, %225, %688, %618, %845, %463, %471, %472, %118
-  %953 = phi i32 [ 0, %118 ], [ %239, %472 ], [ %239, %471 ], [ %239, %463 ], [ %239, %845 ], [ %239, %618 ], [ %239, %688 ], [ %226, %225 ], [ %226, %229 ]
-  %954 = phi i32 [ 0, %118 ], [ %237, %472 ], [ %237, %471 ], [ %237, %463 ], [ %237, %845 ], [ %237, %618 ], [ %237, %688 ], [ %190, %225 ], [ %190, %229 ]
-  %955 = phi i32 [ 0, %118 ], [ %236, %472 ], [ %236, %471 ], [ %236, %463 ], [ %236, %845 ], [ %236, %618 ], [ %236, %688 ], [ %189, %225 ], [ %189, %229 ]
-  %956 = phi i32 [ %119, %118 ], [ -14, %472 ], [ -14, %471 ], [ -14, %463 ], [ %686, %688 ], [ %617, %618 ], [ %846, %845 ], [ -32, %225 ], [ -32, %229 ]
+.thread60:                                        ; preds = %229, %225, %618, %688, %845, %463, %471, %472, %118
+  %953 = phi i32 [ 0, %118 ], [ %239, %472 ], [ %239, %471 ], [ %239, %463 ], [ %239, %618 ], [ %239, %845 ], [ %239, %688 ], [ %226, %225 ], [ %226, %229 ]
+  %954 = phi i32 [ 0, %118 ], [ %237, %472 ], [ %237, %471 ], [ %237, %463 ], [ %237, %618 ], [ %237, %845 ], [ %237, %688 ], [ %190, %225 ], [ %190, %229 ]
+  %955 = phi i32 [ 0, %118 ], [ %236, %472 ], [ %236, %471 ], [ %236, %463 ], [ %236, %618 ], [ %236, %845 ], [ %236, %688 ], [ %189, %225 ], [ %189, %229 ]
+  %956 = phi i32 [ %119, %118 ], [ -14, %472 ], [ -14, %471 ], [ -14, %463 ], [ %617, %618 ], [ %686, %688 ], [ %846, %845 ], [ -32, %225 ], [ -32, %229 ]
   %957 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %958 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %959 = load volatile ptr, ptr %958, align 8
@@ -3712,7 +3712,7 @@ tcp_wmem_free_skb.exit41:                         ; preds = %1004, %1005, %1022,
   br i1 %1053, label %1054, label %.thread62
 
 1054:                                             ; preds = %1050, %139, %126, %95
-  %1055 = phi i32 [ %956, %1050 ], [ %90, %95 ], [ -22, %126 ], [ -22, %139 ]
+  %1055 = phi i32 [ %956, %1050 ], [ %90, %95 ], [ -22, %139 ], [ -22, %126 ]
   %1056 = icmp eq ptr %76, null
   br i1 %1056, label %.thread64, label %1057
 
@@ -3736,7 +3736,7 @@ tcp_wmem_free_skb.exit41:                         ; preds = %1004, %1005, %1022,
   br label %.thread64
 
 .thread64:                                        ; preds = %49, %1065, %1064, %1057, %1054
-  %1066 = phi i32 [ %1055, %1065 ], [ %1055, %1064 ], [ %1055, %1057 ], [ %1055, %1054 ], [ -105, %49 ]
+  %1066 = phi i32 [ %1055, %1054 ], [ %1055, %1065 ], [ %1055, %1064 ], [ %1055, %1057 ], [ -105, %49 ]
   %1067 = call i32 @sk_stream_error(ptr noundef %0, i32 noundef %9, i32 noundef %1066) #22
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %1069 = load volatile ptr, ptr %1068, align 8
@@ -4337,16 +4337,16 @@ define dso_local i32 @tcp_read_sock(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %58, label %.thread12, label %.thread13
 
 .thread13:                                        ; preds = %53, %92
-  %59 = phi i32 [ %63, %92 ], [ %47, %53 ]
-  %60 = phi i32 [ %64, %92 ], [ %48, %53 ]
+  %59 = phi i32 [ %47, %53 ], [ %63, %92 ]
+  %60 = phi i32 [ %48, %53 ], [ %64, %92 ]
   %61 = call ptr @tcp_recv_skb(ptr noundef %0, i32 noundef %59, ptr noundef nonnull %4)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread, label %18, !llvm.loop !50
 
 .thread12:                                        ; preds = %53, %18
-  %63 = phi i32 [ %21, %18 ], [ %47, %53 ]
-  %64 = phi i32 [ %20, %18 ], [ %48, %53 ]
-  %65 = phi ptr [ %19, %18 ], [ %51, %53 ]
+  %63 = phi i32 [ %47, %53 ], [ %21, %18 ]
+  %64 = phi i32 [ %48, %53 ], [ %20, %18 ]
+  %65 = phi ptr [ %51, %53 ], [ %19, %18 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 52
   %67 = load i8, ptr %66, align 4
   %68 = and i8 %67, 1
@@ -4415,8 +4415,8 @@ define dso_local i32 @tcp_read_sock(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %115
 
 .thread:                                          ; preds = %30, %45, %89, %.thread13, %40, %83
-  %93 = phi i32 [ %84, %83 ], [ %21, %40 ], [ %21, %30 ], [ %47, %45 ], [ %63, %89 ], [ %59, %.thread13 ]
-  %94 = phi i32 [ %64, %83 ], [ %20, %40 ], [ %20, %30 ], [ %48, %45 ], [ %64, %89 ], [ %60, %.thread13 ]
+  %93 = phi i32 [ %84, %83 ], [ %21, %40 ], [ %21, %30 ], [ %47, %45 ], [ %59, %.thread13 ], [ %63, %89 ]
+  %94 = phi i32 [ %64, %83 ], [ %20, %40 ], [ %20, %30 ], [ %48, %45 ], [ %60, %.thread13 ], [ %64, %89 ]
   store volatile i32 %93, ptr %5, align 32
   tail call void @tcp_rcv_space_adjust(ptr noundef %0) #22
   %95 = icmp sgt i32 %94, 0
@@ -4620,7 +4620,7 @@ define dso_local i32 @tcp_read_skb(ptr noundef %0, ptr noundef readonly captures
   br i1 %83, label %.split, label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %80, %27, %.split.us, %.thread7, %2
-  %84 = phi i32 [ -107, %2 ], [ %79, %.thread7 ], [ %11, %.split.us ], [ %28, %27 ], [ %31, %.split ], [ %81, %80 ]
+  %84 = phi i32 [ -107, %2 ], [ %79, %.thread7 ], [ %28, %27 ], [ %11, %.split.us ], [ %31, %.split ], [ %81, %80 ]
   ret i32 %84
 }
 
@@ -4726,8 +4726,8 @@ define dso_local void @tcp_read_done(ptr noundef %0, i64 noundef %1) #0 align 16
   br i1 %55, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %54, %.lr.ph, %16, %9, %48
-  %56 = phi i64 [ %27, %48 ], [ 0, %9 ], [ 0, %54 ], [ %13, %.lr.ph ], [ %27, %16 ]
-  %57 = phi i32 [ %49, %48 ], [ %5, %9 ], [ %24, %54 ], [ %12, %.lr.ph ], [ %24, %16 ]
+  %56 = phi i64 [ %27, %48 ], [ 0, %9 ], [ %13, %.lr.ph ], [ 0, %54 ], [ %27, %16 ]
+  %57 = phi i32 [ %49, %48 ], [ %5, %9 ], [ %12, %.lr.ph ], [ %24, %54 ], [ %24, %16 ]
   store volatile i32 %57, ptr %4, align 32
   tail call void @tcp_rcv_space_adjust(ptr noundef %0) #22
   %58 = icmp eq i64 %56, %1
@@ -5931,8 +5931,8 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   br label %377
 
 .loopexit:                                        ; preds = %341, %168, %132
-  %359 = phi ptr [ %110, %132 ], [ %142, %168 ], [ %.us-phi80, %341 ]
-  %360 = phi i32 [ %79, %132 ], [ %79, %168 ], [ %300, %341 ]
+  %359 = phi ptr [ %142, %168 ], [ %110, %132 ], [ %.us-phi80, %341 ]
+  %360 = phi i32 [ %79, %168 ], [ %79, %132 ], [ %300, %341 ]
   %361 = load i32, ptr %50, align 4
   %362 = add i32 %361, 1
   store volatile i32 %362, ptr %50, align 4
@@ -5971,14 +5971,14 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   br label %447
 
 377:                                              ; preds = %248, %243, %242, %335, %345, %356, %358
-  %.ph33 = phi i32 [ %303, %358 ], [ %303, %356 ], [ %303, %345 ], [ %303, %335 ], [ %78, %242 ], [ %78, %243 ], [ %78, %248 ]
-  %.ph35 = phi i32 [ %300, %358 ], [ %300, %356 ], [ %300, %345 ], [ %300, %335 ], [ %79, %242 ], [ %79, %243 ], [ %79, %248 ]
-  %.ph36 = phi i64 [ %299, %358 ], [ %299, %356 ], [ %299, %345 ], [ %299, %335 ], [ %80, %242 ], [ %80, %243 ], [ %80, %248 ]
+  %.ph33 = phi i32 [ %303, %335 ], [ %78, %242 ], [ %78, %243 ], [ %78, %248 ], [ %303, %356 ], [ %303, %358 ], [ %303, %345 ]
+  %.ph35 = phi i32 [ %300, %335 ], [ %79, %242 ], [ %79, %243 ], [ %79, %248 ], [ %300, %356 ], [ %300, %358 ], [ %300, %345 ]
+  %.ph36 = phi i64 [ %299, %335 ], [ %80, %242 ], [ %80, %243 ], [ %80, %248 ], [ %299, %356 ], [ %299, %358 ], [ %299, %345 ]
   %378 = icmp eq i64 %.ph36, 0
   br i1 %378, label %.critedge22.thread, label %77, !llvm.loop !71
 
-.critedge22.thread:                               ; preds = %195, %222, %219, %215, %205, %182, %185, %188, %191, %201, %177, %87, %377, %375, %373, %.loopexit, %101, %.critedge, %280, %.critedge24, %212
-  %379 = phi i32 [ %360, %375 ], [ %360, %373 ], [ %360, %.loopexit ], [ %103, %101 ], [ -11, %.critedge ], [ %282, %280 ], [ %236, %.critedge24 ], [ %214, %212 ], [ %79, %87 ], [ %79, %177 ], [ %79, %201 ], [ %79, %191 ], [ %79, %188 ], [ %79, %185 ], [ %79, %182 ], [ 0, %205 ], [ 0, %215 ], [ -107, %219 ], [ -11, %222 ], [ %79, %195 ], [ %.ph35, %377 ]
+.critedge22.thread:                               ; preds = %195, %222, %219, %215, %205, %182, %185, %188, %191, %201, %177, %87, %377, %373, %.loopexit, %101, %.critedge, %280, %375, %.critedge24, %212
+  %379 = phi i32 [ %103, %101 ], [ -11, %.critedge ], [ %360, %373 ], [ %360, %.loopexit ], [ %214, %212 ], [ %282, %280 ], [ %360, %375 ], [ %236, %.critedge24 ], [ %79, %87 ], [ %79, %177 ], [ %79, %201 ], [ %79, %191 ], [ %79, %188 ], [ %79, %185 ], [ %79, %182 ], [ 0, %205 ], [ 0, %215 ], [ -107, %219 ], [ -11, %222 ], [ %79, %195 ], [ %.ph35, %377 ]
   %380 = load ptr, ptr %63, align 8
   %381 = icmp eq ptr %380, %63
   %382 = icmp eq ptr %380, null
@@ -9202,7 +9202,7 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
   br i1 %104, label %.critedge, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %72, %88, %98, %103, %60, %40, %29, %23, %.split.us, %4
-  %105 = phi i32 [ 0, %4 ], [ -27, %40 ], [ 0, %60 ], [ -22, %23 ], [ -22, %29 ], [ -14, %.split.us ], [ -27, %72 ], [ 0, %103 ], [ -22, %98 ], [ -22, %88 ]
+  %105 = phi i32 [ 0, %4 ], [ -14, %.split.us ], [ -27, %40 ], [ 0, %60 ], [ -22, %23 ], [ -22, %29 ], [ -27, %72 ], [ 0, %103 ], [ -22, %98 ], [ -22, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %105
 }
@@ -11160,7 +11160,7 @@ thread-pre-split20:                               ; preds = %463
   br label %572
 
 .sink.split:                                      ; preds = %.preheader, %._crit_edge, %119, %123, %49, %53, %58, %72, %83, %94, %104, %116, %134, %195, %287, %293, %304, %349, %352, %355, %358, %361, %367, %373, %391, %393, %395, %398, %404
-  %.sink = phi i32 [ %408, %404 ], [ %403, %398 ], [ %397, %395 ], [ %394, %393 ], [ %392, %391 ], [ %375, %373 ], [ %372, %367 ], [ %366, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %307, %304 ], [ %298, %293 ], [ %292, %287 ], [ %202, %195 ], [ %136, %134 ], [ %118, %116 ], [ %106, %104 ], [ %96, %94 ], [ %85, %83 ], [ %74, %72 ], [ %63, %58 ], [ %57, %53 ], [ %52, %49 ], [ 0, %119 ], [ 1, %123 ], [ 0, %._crit_edge ], [ %131, %.preheader ]
+  %.sink = phi i32 [ %408, %404 ], [ %403, %398 ], [ %397, %395 ], [ %394, %393 ], [ %392, %391 ], [ %375, %373 ], [ %372, %367 ], [ %366, %361 ], [ %360, %358 ], [ %357, %355 ], [ %354, %352 ], [ %351, %349 ], [ %307, %304 ], [ %298, %293 ], [ %292, %287 ], [ %202, %195 ], [ %136, %134 ], [ %52, %49 ], [ %118, %116 ], [ %106, %104 ], [ %96, %94 ], [ %85, %83 ], [ %74, %72 ], [ %63, %58 ], [ %57, %53 ], [ 0, %119 ], [ 1, %123 ], [ 0, %._crit_edge ], [ %131, %.preheader ]
   store i32 %.sink, ptr %7, align 4
   br label %551
 
@@ -12022,7 +12022,7 @@ tcp_zerocopy_vm_insert_batch.exit:                ; preds = %444
   br i1 %460, label %461, label %.thread60
 
 461:                                              ; preds = %tcp_zerocopy_vm_insert_batch.exit, %tcp_zerocopy_vm_insert_batch.exit.thread, %.thread55
-  %462 = phi i32 [ %434, %.thread55 ], [ 0, %tcp_zerocopy_vm_insert_batch.exit.thread ], [ 0, %tcp_zerocopy_vm_insert_batch.exit ]
+  %462 = phi i32 [ 0, %tcp_zerocopy_vm_insert_batch.exit ], [ 0, %tcp_zerocopy_vm_insert_batch.exit.thread ], [ %434, %.thread55 ]
   %463 = load i32, ptr %7, align 4
   %464 = zext i32 %463 to i64
   %465 = add nuw nsw i64 %464, 4096
@@ -13508,7 +13508,7 @@ define internal fastcc i32 @tcp_peek_sndq(ptr noundef %0, ptr noundef %1) unname
   br i1 %37, label %.loopexit, label %26, !llvm.loop !116
 
 .loopexit:                                        ; preds = %8, %26, %33, %.loopexit9
-  %38 = phi i32 [ %20, %.loopexit9 ], [ %35, %33 ], [ %31, %26 ], [ %13, %8 ]
+  %38 = phi i32 [ %20, %.loopexit9 ], [ %31, %26 ], [ %35, %33 ], [ %13, %8 ]
   ret i32 %38
 }
 

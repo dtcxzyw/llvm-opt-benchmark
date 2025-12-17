@@ -404,7 +404,7 @@ define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK6ic
   br label %26
 
 26:                                               ; preds = %11, %16, %24
-  %.013 = phi i32 [ %25, %24 ], [ %2, %16 ], [ %13, %11 ]
+  %.013 = phi i32 [ %2, %16 ], [ %25, %24 ], [ %13, %11 ]
   %27 = load i32, ptr %6, align 4, !tbaa !6
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 456
@@ -420,7 +420,7 @@ define noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZNK6ic
   br label %39
 
 39:                                               ; preds = %5, %26, %23, %15
-  %.0 = phi i64 [ 0, %15 ], [ %38, %26 ], [ 0, %23 ], [ 0, %5 ]
+  %.0 = phi i64 [ 0, %23 ], [ 0, %15 ], [ %38, %26 ], [ 0, %5 ]
   ret i64 %.0
 }
 
@@ -453,7 +453,7 @@ define noundef i32 @_ZN6icu_7715IslamicCalendar21handleGetExtendedYearER10UError
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %16, %12, %9, %5
-  %.0 = phi i32 [ %11, %9 ], [ 1, %5 ], [ %18, %16 ], [ 1, %12 ]
+  %.0 = phi i32 [ 1, %5 ], [ %11, %9 ], [ %18, %16 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -1320,7 +1320,7 @@ define noundef i32 @_ZNK6icu_7723IslamicUmalquraCalendar10yearLengthEiR10UErrorC
   br i1 %exitcond, label %_ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode.exit, label %.preheader, !llvm.loop !29
 
 _ZNK6icu_7720IslamicCivilCalendar19handleGetYearLengthEiR10UErrorCode.exit: ; preds = %20, %.preheader, %8, %5
-  %.017 = phi i32 [ %13, %8 ], [ 0, %5 ], [ 0, %.preheader ], [ %21, %20 ]
+  %.017 = phi i32 [ 0, %5 ], [ %13, %8 ], [ 0, %.preheader ], [ %21, %20 ]
   ret i32 %.017
 }
 

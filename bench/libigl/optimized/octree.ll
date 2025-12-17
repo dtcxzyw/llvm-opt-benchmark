@@ -299,11 +299,11 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %57
           to label %.noexc115 unwind label %350
 
 .noexc115:                                        ; preds = %.thread407, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
-  %60 = phi i64 [ %46, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread407 ]
-  %61 = phi ptr [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %56, %.thread407 ]
-  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %52, %.thread407 ]
-  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread407 ]
-  %64 = phi ptr [ %59, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread407 ]
+  %60 = phi i64 [ 0, %.thread407 ], [ %46, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %61 = phi ptr [ %56, %.thread407 ], [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %62 = phi ptr [ %52, %.thread407 ], [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %63 = phi ptr [ %53, %.thread407 ], [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %64 = phi ptr [ null, %.thread407 ], [ %59, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
   store ptr %64, ptr %63, align 8, !tbaa !37
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !40
@@ -1391,11 +1391,11 @@ _ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i: ; preds = %57
           to label %.noexc115 unwind label %331
 
 .noexc115:                                        ; preds = %.thread389, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
-  %60 = phi i64 [ %46, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ 0, %.thread389 ]
-  %61 = phi ptr [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %56, %.thread389 ]
-  %62 = phi ptr [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %52, %.thread389 ]
-  %63 = phi ptr [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ %53, %.thread389 ]
-  %64 = phi ptr [ %59, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ], [ null, %.thread389 ]
+  %60 = phi i64 [ 0, %.thread389 ], [ %46, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %61 = phi ptr [ %56, %.thread389 ], [ %47, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %62 = phi ptr [ %52, %.thread389 ], [ %48, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %63 = phi ptr [ %53, %.thread389 ], [ %49, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
+  %64 = phi ptr [ null, %.thread389 ], [ %59, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i ]
   store ptr %64, ptr %63, align 8, !tbaa !37
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !40

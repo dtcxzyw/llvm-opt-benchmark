@@ -323,7 +323,7 @@ define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnam
   br label %.thread68
 
 .thread68:                                        ; preds = %.thread64, %75, %78, %61, %37
-  %.376 = phi i32 [ -1, %37 ], [ -1, %61 ], [ %51, %.thread64 ], [ %.163, %75 ], [ -1, %78 ]
+  %.376 = phi i32 [ -1, %61 ], [ -1, %37 ], [ %51, %.thread64 ], [ %.163, %75 ], [ -1, %78 ]
   %82 = call i32 @H5O_unprotect(ptr noundef nonnull %13, ptr noundef nonnull %27, i32 noundef 0) #4
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %.thread83
@@ -502,7 +502,7 @@ define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr noundef wri
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread62, %71, %74, %59, %39
-  %.475 = phi i32 [ -1, %39 ], [ -1, %59 ], [ 0, %.thread62 ], [ %.161, %71 ], [ -1, %74 ]
+  %.475 = phi i32 [ -1, %59 ], [ -1, %39 ], [ 0, %.thread62 ], [ %.161, %71 ], [ -1, %74 ]
   %78 = call i32 @H5O_unprotect(ptr noundef nonnull %14, ptr noundef nonnull %28, i32 noundef 0) #4
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %.thread82
@@ -1000,7 +1000,7 @@ define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr noundef writeo
   br label %24
 
 24:                                               ; preds = %.thread, %15, %20, %2
-  %.0 = phi i32 [ -1, %20 ], [ 0, %15 ], [ 0, %2 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %20 ], [ 0, %15 ], [ -1, %.thread ], [ 0, %2 ]
   ret i32 %.0
 }
 

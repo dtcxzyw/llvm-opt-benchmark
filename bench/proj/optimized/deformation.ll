@@ -1160,9 +1160,9 @@ define internal fastcc noundef zeroext i1 @_ZL30pj_deformation_get_grid_valuesP8
   br label %46
 
 46:                                               ; preds = %43, %40, %34
-  %.147 = phi i32 [ %.04263, %34 ], [ %.04660, %40 ], [ %.04660, %43 ]
-  %.145 = phi i32 [ %.04461, %34 ], [ %.04263, %40 ], [ %.04461, %43 ]
-  %.1 = phi i32 [ %.04362, %34 ], [ %.04362, %40 ], [ %spec.select, %43 ]
+  %.147 = phi i32 [ %.04660, %43 ], [ %.04263, %34 ], [ %.04660, %40 ]
+  %.145 = phi i32 [ %.04461, %43 ], [ %.04461, %34 ], [ %.04263, %40 ]
+  %.1 = phi i32 [ %spec.select, %43 ], [ %.04362, %34 ], [ %.04362, %40 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !95
   %48 = icmp eq ptr %47, %25
   br i1 %48, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

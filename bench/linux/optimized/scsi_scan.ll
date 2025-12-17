@@ -1542,8 +1542,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread24
 
-.thread24:                                        ; preds = %237, %251, %536, %254, %527, %504, %502, %442
-  %.ph = phi i32 [ 0, %536 ], [ 1, %251 ], [ 1, %237 ], [ 0, %254 ], [ 0, %527 ], [ 0, %504 ], [ 0, %502 ], [ 0, %442 ]
+.thread24:                                        ; preds = %536, %237, %251, %254, %527, %504, %502, %442
+  %.ph = phi i32 [ 1, %251 ], [ 1, %237 ], [ 0, %536 ], [ 0, %254 ], [ 0, %527 ], [ 0, %504 ], [ 0, %502 ], [ 0, %442 ]
   call void @kfree(ptr noundef nonnull %51) #17
   br label %.thread22
 

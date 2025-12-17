@@ -1550,8 +1550,8 @@ _ZN7Minisat3vecIiiED2Ev.exit:                     ; preds = %.loopexit, %.prehea
   ret i8 %.sroa.039.1
 
 167:                                              ; preds = %62, %49, %40
-  %.sroa.031.3 = phi ptr [ %.sroa.031.4, %40 ], [ %.sroa.031.0, %62 ], [ %.sroa.031.1.lcssa, %49 ]
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %63, %62 ], [ %50, %49 ]
+  %.sroa.031.3 = phi ptr [ %.sroa.031.4, %40 ], [ %.sroa.031.1.lcssa, %49 ], [ %.sroa.031.0, %62 ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %50, %49 ], [ %63, %62 ]
   %.not.i.i27 = icmp eq ptr %.sroa.031.3, null
   br i1 %.not.i.i27, label %_ZN7Minisat3vecIiiED2Ev.exit29, label %.preheader.i.i28
 
@@ -1807,13 +1807,13 @@ define noundef zeroext i1 @_ZN7Minisat10SimpSolver9eliminateEb(ptr noundef nonnu
   tail call void %139(ptr noundef nonnull align 8 dereferenceable(857) %0)
   br label %140
 
-140:                                              ; preds = %74, %69, %.critedge4, %136
+140:                                              ; preds = %69, %74, %.critedge4, %136
   %141 = add nuw nsw i32 %.02254, 1
   %142 = load i32, ptr %11, align 8, !tbaa !100
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.critedge2.backedge, label %.lr.ph, !llvm.loop !133
 
-_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit: ; preds = %28, %105, %127, %.preheader.i.i, %._crit_edge.i, %47
+_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit: ; preds = %28, %127, %105, %.preheader.i.i, %._crit_edge.i, %47
   br i1 %1, label %144, label %175
 
 144:                                              ; preds = %_ZN7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE5clearEb.exit
@@ -2326,7 +2326,7 @@ _ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit
   br i1 %171, label %43, label %.loopexit, !llvm.loop !136
 
 .loopexit:                                        ; preds = %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread, %21, %13, %17, %11, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %17 ], [ true, %13 ], [ true, %21 ], [ true, %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread ]
+  %.0 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %13 ], [ true, %17 ], [ true, %21 ], [ true, %_ZNK7Minisat4HeapIiNS_10SimpSolver6ElimLtENS_14MkIndexDefaultIiEEE6inHeapEi.exit.thread ]
   ret i1 %.0
 }
 
@@ -3129,7 +3129,7 @@ _ZN7Minisat6Solver7enqueueENS_3LitEj.exit:        ; preds = %143
   br label %172
 
 172:                                              ; preds = %_ZN7Minisat10SimpSolver14updateElimHeapEi.exit, %_ZN7Minisat6Solver7enqueueENS_3LitEj.exit, %169
-  %173 = phi i1 [ false, %_ZN7Minisat6Solver7enqueueENS_3LitEj.exit ], [ %171, %169 ], [ true, %_ZN7Minisat10SimpSolver14updateElimHeapEi.exit ]
+  %173 = phi i1 [ %171, %169 ], [ false, %_ZN7Minisat6Solver7enqueueENS_3LitEj.exit ], [ true, %_ZN7Minisat10SimpSolver14updateElimHeapEi.exit ]
   ret i1 %173
 }
 
@@ -4246,10 +4246,10 @@ _ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100: ; preds = %_ZNK7Minisat6Claus
   %spec.select = add nsw i32 %.070137, %200
   br label %.thread103
 
-.thread103:                                       ; preds = %185, %186, %_ZNK7Minisat6Clause8subsumesERKS0_.exit, %162, %170, %167, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100, %196, %153
-  %.373 = phi i32 [ %.070137, %153 ], [ %spec.select, %196 ], [ %.070137, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %.070137, %167 ], [ %.070137, %170 ], [ %.070137, %162 ], [ %.070137, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.070137, %186 ], [ %.070137, %185 ]
-  %.666 = phi i32 [ %.262138, %153 ], [ %197, %196 ], [ %.262138, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %.262138, %167 ], [ %.262138, %170 ], [ %.262138, %162 ], [ %.262138, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.262138, %186 ], [ %.262138, %185 ]
-  %.659 = phi i32 [ %.255139, %153 ], [ %.255139, %196 ], [ %192, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %.255139, %167 ], [ %.255139, %170 ], [ %.255139, %162 ], [ %.255139, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.255139, %186 ], [ %.255139, %185 ]
+.thread103:                                       ; preds = %185, %186, %_ZNK7Minisat6Clause8subsumesERKS0_.exit, %162, %167, %170, %196, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100, %153
+  %.373 = phi i32 [ %.070137, %153 ], [ %.070137, %167 ], [ %.070137, %162 ], [ %.070137, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %spec.select, %196 ], [ %.070137, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.070137, %170 ], [ %.070137, %186 ], [ %.070137, %185 ]
+  %.666 = phi i32 [ %.262138, %153 ], [ %.262138, %167 ], [ %.262138, %162 ], [ %.262138, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %197, %196 ], [ %.262138, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.262138, %170 ], [ %.262138, %186 ], [ %.262138, %185 ]
+  %.659 = phi i32 [ %.255139, %153 ], [ %.255139, %167 ], [ %.255139, %162 ], [ %192, %_ZNK7Minisat6Clause8subsumesERKS0_.exit.thread100 ], [ %.255139, %196 ], [ %.255139, %_ZNK7Minisat6Clause8subsumesERKS0_.exit ], [ %.255139, %170 ], [ %.255139, %186 ], [ %.255139, %185 ]
   %201 = add nsw i32 %.373, 1
   %202 = load i32, ptr %138, align 8, !tbaa !103
   %203 = icmp slt i32 %201, %202
@@ -4399,7 +4399,7 @@ _ZN7Minisat3vecIiiE4pushERKi.exit:                ; preds = %._ZN7Minisat3vecIii
   br label %77
 
 77:                                               ; preds = %76, %71, %3, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %3 ], [ true, %76 ], [ false, %71 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %10 ], [ true, %76 ], [ false, %71 ]
   ret i1 %.0
 }
 
@@ -4524,7 +4524,7 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit, %53, %.critedge11
-  %.09 = phi i1 [ %64, %.critedge11 ], [ true, %53 ], [ true, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ false, %.lr.ph ]
+  %.09 = phi i1 [ true, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE6lookupERKi.exit ], [ %64, %.critedge11 ], [ true, %53 ], [ false, %.lr.ph ]
   ret i1 %.09
 }
 
@@ -5177,9 +5177,9 @@ _ZN7Minisat3vecIjiED2Ev.exit111:                  ; preds = %_ZN7Minisat3vecIjiE
   ret i1 %.3201
 
 258:                                              ; preds = %173, %188, %219, %245, %137
-  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %219 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %173 ]
-  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %219 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %173 ]
-  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %246, %245 ], [ %220, %219 ], [ %189, %188 ], [ %174, %173 ]
+  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %173 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %219 ]
+  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %173 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %219 ]
+  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %174, %173 ], [ %246, %245 ], [ %189, %188 ], [ %220, %219 ]
   %.not.i.i112 = icmp eq ptr %.sroa.0126.1, null
   br i1 %.not.i.i112, label %_ZN7Minisat3vecIjiED2Ev.exit114, label %.preheader.i.i113
 

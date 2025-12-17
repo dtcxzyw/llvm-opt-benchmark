@@ -464,7 +464,7 @@ serialize_more.exit219:                           ; preds = %136, %145
   br i1 %.not206, label %serialize_wu124.exit234, label %132, !llvm.loop !36
 
 serialize_wu124.exit234:                          ; preds = %154, %149, %152, %108, %.loopexit253
-  %.1 = phi ptr [ %0, %108 ], [ %0, %.loopexit253 ], [ %151, %149 ], [ %153, %152 ], [ %0, %154 ]
+  %.1 = phi ptr [ %0, %.loopexit253 ], [ %0, %108 ], [ %151, %149 ], [ %153, %152 ], [ %0, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !26
   %160 = ptrtoint ptr %159 to i64
@@ -926,7 +926,7 @@ serialize_more.exit231:                           ; preds = %lightudV.exit, %392
   unreachable
 
 .thread247:                                       ; preds = %serialize_more.exit227, %serialize_more.exit229, %395, %403, %399, %serialize_more.exit215, %.loopexit, %serialize_more.exit217, %serialize_wu124.exit
-  %.0 = phi ptr [ %31, %serialize_wu124.exit ], [ %45, %serialize_more.exit215 ], [ %62, %serialize_more.exit217 ], [ %.7, %.loopexit ], [ %396, %395 ], [ %402, %399 ], [ %405, %403 ], [ %361, %serialize_more.exit229 ], [ %342, %serialize_more.exit227 ]
+  %.0 = phi ptr [ %31, %serialize_wu124.exit ], [ %45, %serialize_more.exit215 ], [ %62, %serialize_more.exit217 ], [ %.7, %.loopexit ], [ %405, %403 ], [ %396, %395 ], [ %402, %399 ], [ %361, %serialize_more.exit229 ], [ %342, %serialize_more.exit227 ]
   ret ptr %.0
 }
 
@@ -1527,7 +1527,7 @@ serialize_ru124.exit.thread:                      ; preds = %260, %254, %3, %214
   unreachable
 
 282:                                              ; preds = %264, %.thread243, %.thread240, %86, %.thread, %45, %50, %39
-  %.1 = phi ptr [ %37, %39 ], [ %.0.i191, %50 ], [ %.0.i176200, %86 ], [ %.13, %264 ], [ %43, %45 ], [ %34, %.thread ], [ %.9, %.thread240 ], [ %218, %.thread243 ]
+  %.1 = phi ptr [ %34, %.thread ], [ %37, %39 ], [ %43, %45 ], [ %.13, %264 ], [ %.0.i191, %50 ], [ %.0.i176200, %86 ], [ %.9, %.thread240 ], [ %218, %.thread243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -1654,7 +1654,7 @@ switch.lookup:                                    ; preds = %serialize_ru124.exi
   br label %serialize_ru124.exit.thread
 
 serialize_ru124.exit.thread:                      ; preds = %serialize_ru124.exit.thread4, %switch.lookup, %1, %serialize_ru124.exit
-  %.0 = phi i32 [ 0, %serialize_ru124.exit ], [ 0, %1 ], [ %switch.load, %switch.lookup ], [ 4, %serialize_ru124.exit.thread4 ]
+  %.0 = phi i32 [ 0, %serialize_ru124.exit ], [ %switch.load, %switch.lookup ], [ 0, %1 ], [ 4, %serialize_ru124.exit.thread4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1740,7 +1740,7 @@ define internal fastcc ptr @serialize_ru124_(ptr noundef readonly captures(addre
   br label %20
 
 20:                                               ; preds = %14, %5, %19
-  %.014 = phi ptr [ %.015, %19 ], [ null, %5 ], [ null, %14 ]
+  %.014 = phi ptr [ null, %5 ], [ %.015, %19 ], [ null, %14 ]
   ret ptr %.014
 }
 

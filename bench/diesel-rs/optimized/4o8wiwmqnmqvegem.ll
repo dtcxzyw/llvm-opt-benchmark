@@ -164,7 +164,7 @@ common.resume:                                    ; preds = %86, %.body
   br i1 %.not.i.i.i.i.i, label %.loopexit107.i, label %.lr.ph.i.i.i.i.i
 
 .body54.i:                                        ; preds = %71, %.body.i, %50, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %51, %50 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)

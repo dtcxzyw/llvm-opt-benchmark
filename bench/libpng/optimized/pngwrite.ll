@@ -2274,7 +2274,7 @@ define void @png_write_png(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   br i1 %.not42, label %37, label %.sink.split
 
 .sink.split:                                      ; preds = %36, %34, %35
-  %.sink = phi i32 [ 1, %35 ], [ 1, %34 ], [ 0, %36 ]
+  %.sink = phi i32 [ 1, %34 ], [ 1, %35 ], [ 0, %36 ]
   tail call void @png_set_filler(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.sink) #16
   br label %37
 
@@ -2455,7 +2455,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %19, %38, %36, %35
-  %.025 = phi i32 [ %.0, %35 ], [ %37, %36 ], [ %39, %38 ], [ 0, %19 ], [ 0, %7 ]
+  %.025 = phi i32 [ %.0, %35 ], [ 0, %19 ], [ %37, %36 ], [ %39, %38 ], [ 0, %7 ]
   ret i32 %.025
 }
 
@@ -2605,7 +2605,7 @@ define i32 @png_image_write_to_stdio(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %15, %29, %27, %17
-  %.0 = phi i32 [ %26, %17 ], [ %28, %27 ], [ %30, %29 ], [ 0, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ %26, %17 ], [ 0, %15 ], [ %28, %27 ], [ %30, %29 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -2824,7 +2824,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   br label %120
 
 120:                                              ; preds = %110, %98
-  %.6.us.i = phi i32 [ %.3.us.i, %110 ], [ %.4.us.i, %98 ]
+  %.6.us.i = phi i32 [ %.4.us.i, %98 ], [ %.3.us.i, %110 ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !222
@@ -3007,7 +3007,7 @@ default.unreachable:                              ; preds = %.lr.ph.split.us.spl
   br label %png_unpremultiply.exit.us.i
 
 png_unpremultiply.exit.us.i:                      ; preds = %226, %225, %217
-  %.0.i.us.i = phi i8 [ %245, %226 ], [ -1, %217 ], [ 0, %225 ]
+  %.0.i.us.i = phi i8 [ -1, %217 ], [ %245, %226 ], [ 0, %225 ]
   %246 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv22.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 2
   store i8 %.0.i.us.i, ptr %247, align 1, !tbaa !221
@@ -3046,7 +3046,7 @@ png_unpremultiply.exit.us.i:                      ; preds = %226, %225, %217
   br label %png_unpremultiply.exit135.us.i
 
 png_unpremultiply.exit135.us.i:                   ; preds = %253, %252, %png_unpremultiply.exit.us.i
-  %.0.i134.us.i = phi i8 [ %272, %253 ], [ -1, %png_unpremultiply.exit.us.i ], [ 0, %252 ]
+  %.0.i134.us.i = phi i8 [ -1, %png_unpremultiply.exit.us.i ], [ %272, %253 ], [ 0, %252 ]
   %273 = getelementptr inbounds nuw i8, ptr %246, i64 1
   store i8 %.0.i134.us.i, ptr %273, align 1, !tbaa !218
   %274 = getelementptr inbounds nuw i16, ptr %205, i64 %82
@@ -3084,7 +3084,7 @@ png_unpremultiply.exit135.us.i:                   ; preds = %253, %252, %png_unp
   br label %png_unpremultiply.exit140.us.i
 
 png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unpremultiply.exit135.us.i
-  %.0.i139.us.i = phi i8 [ %298, %279 ], [ -1, %png_unpremultiply.exit135.us.i ], [ 0, %278 ]
+  %.0.i139.us.i = phi i8 [ -1, %png_unpremultiply.exit135.us.i ], [ %298, %279 ], [ 0, %278 ]
   store i8 %.0.i139.us.i, ptr %246, align 1, !tbaa !220
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count35.i
   br i1 %exitcond26.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.us.i, !llvm.loop !222
@@ -3155,7 +3155,7 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   br label %png_unpremultiply.exit145.i
 
 png_unpremultiply.exit145.i:                      ; preds = %321, %320, %312
-  %.0.i144.i = phi i8 [ %340, %321 ], [ -1, %312 ], [ 0, %320 ]
+  %.0.i144.i = phi i8 [ -1, %312 ], [ %340, %321 ], [ 0, %320 ]
   %341 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv.i
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 1
   store i8 %.0.i144.i, ptr %342, align 1, !tbaa !218
@@ -3166,7 +3166,7 @@ png_unpremultiply.exit145.i:                      ; preds = %321, %320, %312
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.split.i, !llvm.loop !222
 
 ._crit_edge.i:                                    ; preds = %png_unpremultiply.exit145.i, %png_unpremultiply.exit140.us.i, %.lr.ph.split.split.us.split.i, %.lr.ph.split.split.us.split.us.i, %120, %55
-  %.0122.lcssa.i = phi i32 [ 0, %55 ], [ %.6.us.i, %120 ], [ 0, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.split.i ], [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ %spec.select128.i, %png_unpremultiply.exit145.i ]
+  %.0122.lcssa.i = phi i32 [ 0, %55 ], [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ %.6.us.i, %120 ], [ 0, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.split.i ], [ %spec.select128.i, %png_unpremultiply.exit145.i ]
   %344 = load ptr, ptr %.val, align 8, !tbaa !212
   %345 = load ptr, ptr %344, align 8, !tbaa !209
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
@@ -3562,7 +3562,7 @@ png_image_write_to_stdio.exit.thread:             ; preds = %20, %png_image_writ
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %png_image_write_to_stdio.exit.thread, %55, %39, %49, %62, %60
-  %.2 = phi i32 [ %61, %60 ], [ %63, %62 ], [ 0, %png_image_write_to_stdio.exit.thread ], [ %59, %55 ], [ %52, %49 ], [ 1, %39 ], [ 0, %6 ]
+  %.2 = phi i32 [ 1, %39 ], [ %61, %60 ], [ %63, %62 ], [ %59, %55 ], [ 0, %png_image_write_to_stdio.exit.thread ], [ %52, %49 ], [ 0, %6 ]
   ret i32 %.2
 }
 
@@ -3762,7 +3762,7 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
   br label %45
 
 45:                                               ; preds = %40, %39, %.split.us87
-  %.054.us83 = phi i16 [ %44, %40 ], [ 0, %39 ], [ -1, %.split.us87 ]
+  %.054.us83 = phi i16 [ 0, %39 ], [ %44, %40 ], [ -1, %.split.us87 ]
   %46 = getelementptr inbounds nuw i8, ptr %.159.us80, i64 2
   store i16 %.054.us83, ptr %.159.us80, align 2, !tbaa !223
   %47 = add nsw i32 %.055.us81, -1
@@ -3945,7 +3945,7 @@ png_unpremultiply.exit.us.us.preheader:           ; preds = %44
   br label %png_unpremultiply.exit.us91
 
 png_unpremultiply.exit.us91:                      ; preds = %51, %50, %.split.us95
-  %.0.i.us = phi i8 [ %69, %51 ], [ -1, %.split.us95 ], [ 0, %50 ]
+  %.0.i.us = phi i8 [ -1, %.split.us95 ], [ %69, %51 ], [ 0, %50 ]
   %70 = getelementptr inbounds nuw i8, ptr %.172.us89, i64 1
   store i8 %.0.i.us, ptr %.172.us89, align 1, !tbaa !45
   %71 = add nsw i32 %.066.us90, -1

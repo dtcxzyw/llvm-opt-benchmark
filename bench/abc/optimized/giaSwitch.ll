@@ -1092,8 +1092,8 @@ Gia_ManSwiSimInfoRandom.exit.i169:                ; preds = %.lr.ph.i.i175
   br i1 %439, label %.lr.ph78.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !81
 
 Gia_ManSwiSimInfoTransferShift.exit:              ; preds = %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i, %.lr.ph78.split.i, %.preheader.i154, %.lr.ph.split.split.split.i, %.preheader.i139, %.lr.ph.split.split.i
-  %.val18.i152342 = phi ptr [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i152343, %.preheader.i139 ], [ %.val18.i152, %.lr.ph.split.split.i ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i152343, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
-  %.val18.i337 = phi ptr [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i338, %.preheader.i139 ], [ %.val18.i, %.lr.ph.split.split.i ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i338, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
+  %.val18.i152342 = phi ptr [ %.val18.i152, %.lr.ph.split.split.i ], [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i152343, %.preheader.i139 ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i152343, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
+  %.val18.i337 = phi ptr [ %.val18.i, %.lr.ph.split.split.i ], [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i338, %.preheader.i139 ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i338, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
   %440 = add nuw nsw i32 %.0254, 1
   %441 = load i32, ptr %125, align 4, !tbaa !8
   %442 = icmp slt i32 %440, %441
@@ -1777,7 +1777,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   br i1 %exitcond83.not, label %.critedge2, label %.lr.ph68.split, !llvm.loop !114
 
 .critedge2:                                       ; preds = %.critedge, %59, %.preheader58, %.preheader, %.lr.ph68
-  %.3 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader58 ], [ %.5, %59 ], [ %.2, %.critedge ]
+  %.3 = phi float [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader58 ], [ %.5, %59 ], [ %.2, %.critedge ]
   %.not.i54 = icmp eq ptr %.val45, null
   br i1 %.not.i54, label %Vec_IntFree.exit, label %60
 

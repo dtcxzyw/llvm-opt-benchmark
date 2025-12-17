@@ -979,7 +979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %116
   br label %124
 
 124:                                              ; preds = %120, %122
-  %.pn19.pn = phi { ptr, i32 } [ %123, %122 ], [ %121, %120 ]
+  %.pn19.pn = phi { ptr, i32 } [ %121, %120 ], [ %123, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %thread-pre-split

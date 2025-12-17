@@ -747,7 +747,7 @@ _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
   br i1 %.not51, label %.thread, label %.lr.ph, !llvm.loop !43
 
 .thread:                                          ; preds = %.lr.ph, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit, %37, %7, %4
-  %.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 0, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit ], [ %.241, %37 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit ], [ 0, %.lr.ph ], [ %.241, %37 ]
   ret i64 %.0
 }
 

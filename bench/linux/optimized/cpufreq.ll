@@ -636,7 +636,7 @@ define dso_local ptr @cpufreq_cpu_acquire(i32 noundef %0) local_unnamed_addr #0 
   br label %27
 
 27:                                               ; preds = %.thread6, %.thread4, %26, %20
-  %28 = phi ptr [ null, %26 ], [ %14, %20 ], [ null, %.thread4 ], [ null, %.thread6 ]
+  %28 = phi ptr [ null, %26 ], [ null, %.thread6 ], [ %14, %20 ], [ null, %.thread4 ]
   ret ptr %28
 }
 
@@ -1152,13 +1152,13 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %44, label %45, label %.loopexit24.us.us
 
 45:                                               ; preds = %43, %.preheader23.split.us56.us
-  %46 = phi i32 [ %40, %.preheader23.split.us56.us ], [ %39, %43 ]
+  %46 = phi i32 [ %39, %43 ], [ %40, %.preheader23.split.us56.us ]
   %47 = getelementptr i8, ptr %38, i64 12
   %48 = add i32 %39, 1
   br label %.preheader23.split.us56.us, !llvm.loop !45
 
 .loopexit24.us.us:                                ; preds = %.preheader23.split.us56.us, %43, %.preheader23.split.us.us.us, %60
-  %.us-phi52.us.us = phi i32 [ %53, %.preheader23.split.us.us.us ], [ %52, %60 ], [ %40, %.preheader23.split.us56.us ], [ %39, %43 ]
+  %.us-phi52.us.us = phi i32 [ %53, %.preheader23.split.us.us.us ], [ %52, %60 ], [ %39, %43 ], [ %40, %.preheader23.split.us56.us ]
   %49 = icmp slt i32 %.us-phi52.us.us, 0
   %50 = and i1 %33, %49
   br i1 %50, label %.split53.us.split.us, label %.loopexit35
@@ -1230,13 +1230,13 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br label %.loopexit27.us
 
 82:                                               ; preds = %78, %.preheader26.us.split
-  %83 = phi i32 [ %73, %.preheader26.us.split ], [ %72, %78 ]
+  %83 = phi i32 [ %72, %78 ], [ %73, %.preheader26.us.split ]
   %84 = getelementptr i8, ptr %71, i64 12
   %85 = add i32 %72, 1
   br label %.preheader26.us.split, !llvm.loop !46
 
 .loopexit27.us:                                   ; preds = %76, %.preheader26.us.split, %98, %.preheader26.us.split.us, %.split73
-  %86 = phi i32 [ %81, %.split73 ], [ %91, %.preheader26.us.split.us ], [ %90, %98 ], [ %73, %.preheader26.us.split ], [ %72, %76 ]
+  %86 = phi i32 [ %81, %.split73 ], [ %90, %98 ], [ %91, %.preheader26.us.split.us ], [ %73, %.preheader26.us.split ], [ %72, %76 ]
   %87 = icmp slt i32 %86, 0
   %88 = and i1 %66, %87
   br i1 %88, label %.split53.us.split, label %.loopexit35
@@ -1308,13 +1308,13 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %119, label %120, label %.split79.us82
 
 120:                                              ; preds = %118, %.preheader29.us.split.us87
-  %121 = phi i32 [ %113, %.preheader29.us.split.us87 ], [ %112, %118 ]
+  %121 = phi i32 [ %112, %118 ], [ %113, %.preheader29.us.split.us87 ]
   %122 = getelementptr i8, ptr %111, i64 12
   %123 = add i32 %112, 1
   br label %.preheader29.us.split.us87, !llvm.loop !47
 
 .loopexit30.us.us:                                ; preds = %116, %.preheader29.us.split.us87, %.preheader29.us.split.us.us, %138, %.split79.us82
-  %124 = phi i32 [ %128, %.split79.us82 ], [ %131, %.preheader29.us.split.us.us ], [ %130, %138 ], [ %113, %.preheader29.us.split.us87 ], [ %112, %116 ]
+  %124 = phi i32 [ %128, %.split79.us82 ], [ %130, %138 ], [ %131, %.preheader29.us.split.us.us ], [ %113, %.preheader29.us.split.us87 ], [ %112, %116 ]
   %125 = icmp slt i32 %124, 0
   %126 = and i1 %106, %125
   br i1 %126, label %.split53.us58.split.us, label %.loopexit35
@@ -1386,13 +1386,13 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %157, label %158, label %.loopexit33.us
 
 158:                                              ; preds = %156, %.preheader32.split.us61
-  %159 = phi i32 [ %153, %.preheader32.split.us61 ], [ %152, %156 ]
+  %159 = phi i32 [ %152, %156 ], [ %153, %.preheader32.split.us61 ]
   %160 = getelementptr i8, ptr %151, i64 12
   %161 = add i32 %152, 1
   br label %.preheader32.split.us61, !llvm.loop !48
 
 .loopexit33.us:                                   ; preds = %.preheader32.split.us61, %156, %.preheader32.split.us.us, %173
-  %.us-phi.us = phi i32 [ %166, %.preheader32.split.us.us ], [ %165, %173 ], [ %153, %.preheader32.split.us61 ], [ %152, %156 ]
+  %.us-phi.us = phi i32 [ %166, %.preheader32.split.us.us ], [ %165, %173 ], [ %152, %156 ], [ %153, %.preheader32.split.us61 ]
   %162 = icmp slt i32 %.us-phi.us, 0
   %163 = and i1 %146, %162
   br i1 %163, label %.split53.us58.split, label %.loopexit35
@@ -1478,13 +1478,13 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br label %.loopexit.us
 
 202:                                              ; preds = %191, %.preheader.us.split
-  %203 = phi i32 [ %186, %.preheader.us.split ], [ %185, %191 ]
+  %203 = phi i32 [ %185, %191 ], [ %186, %.preheader.us.split ]
   %204 = getelementptr i8, ptr %184, i64 12
   %205 = add i32 %185, 1
   br label %.preheader.us.split, !llvm.loop !49
 
 .loopexit.us:                                     ; preds = %189, %.preheader.us.split, %218, %.preheader.us.split.us, %194, %.split67
-  %206 = phi i32 [ %.us-phi68, %.split67 ], [ %201, %194 ], [ %211, %.preheader.us.split.us ], [ %210, %218 ], [ %186, %.preheader.us.split ], [ %185, %189 ]
+  %206 = phi i32 [ %201, %194 ], [ %.us-phi68, %.split67 ], [ %210, %218 ], [ %211, %.preheader.us.split.us ], [ %186, %.preheader.us.split ], [ %185, %189 ]
   %207 = icmp slt i32 %206, 0
   %208 = and i1 %179, %207
   br i1 %208, label %.split53.split.us, label %.loopexit35
@@ -1599,7 +1599,7 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %265, label %.split53.split, label %.loopexit35
 
 .loopexit35:                                      ; preds = %.loopexit33.us, %.loopexit30.us.us, %.loopexit27.us, %.loopexit24.us.us, %.loopexit21, %.loopexit.us, %262, %226
-  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %206, %.loopexit.us ], [ %263, %.loopexit21 ], [ %.us-phi52.us.us, %.loopexit24.us.us ], [ %86, %.loopexit27.us ], [ %124, %.loopexit30.us.us ], [ %.us-phi.us, %.loopexit33.us ]
+  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %124, %.loopexit30.us.us ], [ %206, %.loopexit.us ], [ %263, %.loopexit21 ], [ %.us-phi52.us.us, %.loopexit24.us.us ], [ %86, %.loopexit27.us ], [ %.us-phi.us, %.loopexit33.us ]
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %266, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -1974,7 +1974,7 @@ define internal fastcc i32 @cpufreq_set_policy(ptr noundef %0, ptr noundef %1, i
   br label %.thread16
 
 .thread16:                                        ; preds = %115, %120, %95, %138, %137, %.thread21, %73, %69, %65, %57, %3
-  %140 = phi i32 [ %60, %57 ], [ %21, %3 ], [ %133, %137 ], [ %133, %138 ], [ %133, %.thread21 ], [ 0, %65 ], [ 0, %69 ], [ 0, %73 ], [ 0, %95 ], [ 0, %120 ], [ 0, %115 ]
+  %140 = phi i32 [ %60, %57 ], [ %21, %3 ], [ 0, %73 ], [ %133, %137 ], [ %133, %138 ], [ %133, %.thread21 ], [ 0, %65 ], [ 0, %69 ], [ 0, %95 ], [ 0, %120 ], [ 0, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %140
 }
@@ -2052,7 +2052,7 @@ define dso_local i32 @cpufreq_quick_get(i32 noundef %0) #0 align 16 {
   br label %39
 
 39:                                               ; preds = %.thread8, %.thread6, %34, %13
-  %40 = phi i32 [ %14, %13 ], [ %38, %34 ], [ 0, %.thread6 ], [ 0, %.thread8 ]
+  %40 = phi i32 [ %14, %13 ], [ %38, %34 ], [ 0, %.thread8 ], [ 0, %.thread6 ]
   ret i32 %40
 }
 
@@ -2105,7 +2105,7 @@ define dso_local i32 @cpufreq_quick_get_max(i32 noundef %0) #0 align 16 {
   br label %25
 
 25:                                               ; preds = %.thread6, %.thread4, %20
-  %26 = phi i32 [ %24, %20 ], [ 0, %.thread4 ], [ 0, %.thread6 ]
+  %26 = phi i32 [ %24, %20 ], [ 0, %.thread6 ], [ 0, %.thread4 ]
   ret i32 %26
 }
 
@@ -2158,7 +2158,7 @@ define weak dso_local i32 @cpufreq_get_hw_max_freq(i32 noundef %0) #0 align 16 {
   br label %25
 
 25:                                               ; preds = %.thread6, %.thread4, %20
-  %26 = phi i32 [ %24, %20 ], [ 0, %.thread4 ], [ 0, %.thread6 ]
+  %26 = phi i32 [ %24, %20 ], [ 0, %.thread6 ], [ 0, %.thread4 ]
   ret i32 %26
 }
 
@@ -2229,7 +2229,7 @@ define dso_local i32 @cpufreq_get(i32 noundef %0) #0 align 16 {
   br label %35
 
 35:                                               ; preds = %.thread6, %.thread4, %33
-  %36 = phi i32 [ %34, %33 ], [ 0, %.thread4 ], [ 0, %.thread6 ]
+  %36 = phi i32 [ %34, %33 ], [ 0, %.thread6 ], [ 0, %.thread4 ]
   ret i32 %36
 }
 
@@ -3266,7 +3266,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef w
   br label %26
 
 26:                                               ; preds = %.thread7, %.thread5, %23, %2
-  %27 = phi i32 [ 0, %23 ], [ -22, %2 ], [ -22, %.thread5 ], [ -22, %.thread7 ]
+  %27 = phi i32 [ 0, %23 ], [ -22, %2 ], [ -22, %.thread7 ], [ -22, %.thread5 ]
   ret i32 %27
 }
 
@@ -4828,7 +4828,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br label %390
 
 390:                                              ; preds = %.thread72, %385, %.thread61
-  %391 = phi i32 [ %386, %385 ], [ %383, %.thread61 ], [ %378, %.thread72 ]
+  %391 = phi i32 [ %378, %.thread72 ], [ %386, %385 ], [ %383, %.thread61 ]
   %392 = icmp eq i32 %391, 0
   br i1 %392, label %395, label %.thread76
 
@@ -4853,8 +4853,8 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br label %.thread51
 
 .thread57:                                        ; preds = %281, %309, %301, %292, %288, %.thread76, %236, %213, %207, %.thread55
-  %404 = phi ptr [ %142, %207 ], [ %142, %213 ], [ %217, %.thread76 ], [ %217, %236 ], [ %142, %.thread55 ], [ %217, %288 ], [ %217, %292 ], [ %217, %301 ], [ %217, %309 ], [ %217, %281 ]
-  %405 = phi i32 [ %204, %207 ], [ %211, %213 ], [ %393, %.thread76 ], [ -5, %236 ], [ -12, %.thread55 ], [ %290, %288 ], [ %294, %292 ], [ %302, %301 ], [ %310, %309 ], [ %282, %281 ]
+  %404 = phi ptr [ %142, %207 ], [ %142, %213 ], [ %142, %.thread55 ], [ %217, %.thread76 ], [ %217, %236 ], [ %217, %288 ], [ %217, %292 ], [ %217, %301 ], [ %217, %309 ], [ %217, %281 ]
+  %405 = phi i32 [ %204, %207 ], [ %211, %213 ], [ -12, %.thread55 ], [ %393, %.thread76 ], [ -5, %236 ], [ %290, %288 ], [ %294, %292 ], [ %302, %301 ], [ %310, %309 ], [ %282, %281 ]
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 16
   br label %407
 
@@ -4918,7 +4918,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br label %.thread51
 
 .thread51:                                        ; preds = %85, %82, %112, %440, %403, %395, %.thread, %18
-  %444 = phi i32 [ %442, %440 ], [ %81, %.thread ], [ 0, %18 ], [ 0, %403 ], [ 0, %395 ], [ -12, %112 ], [ -12, %82 ], [ -12, %85 ]
+  %444 = phi i32 [ %442, %440 ], [ 0, %395 ], [ %81, %.thread ], [ 0, %18 ], [ 0, %403 ], [ -12, %112 ], [ -12, %82 ], [ -12, %85 ]
   ret i32 %444
 }
 
@@ -5495,7 +5495,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread9, %.thread16, %15, %55, %3
-  %60 = phi i64 [ %59, %55 ], [ -22, %3 ], [ -22, %15 ], [ -22, %.thread16 ], [ -22, %.thread9 ]
+  %60 = phi i64 [ %59, %55 ], [ -22, %.thread16 ], [ -22, %15 ], [ -22, %3 ], [ -22, %.thread9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %60
 }

@@ -3757,7 +3757,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %8
   br i1 %or.cond.not, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %24, %2, %8, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit
-  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %8 ], [ false, %2 ], [ %26, %24 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %2 ], [ %26, %24 ]
   ret i1 %.0
 }
 
@@ -4416,7 +4416,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_Se
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !188
 
 .loopexit:                                        ; preds = %57, %55, %7, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %7 ], [ true, %57 ], [ false, %55 ]
+  %.0 = phi i1 [ true, %7 ], [ false, %5 ], [ true, %57 ], [ false, %55 ]
   ret i1 %.0
 }
 
@@ -4646,7 +4646,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %exitcond.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %159, !llvm.loop !188
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %189, %191, %3, %147
-  %.0.i = phi i1 [ false, %3 ], [ true, %147 ], [ false, %189 ], [ true, %191 ]
+  %.0.i = phi i1 [ true, %147 ], [ false, %3 ], [ false, %189 ], [ true, %191 ]
   ret i1 %.0.i
 }
 
@@ -5192,7 +5192,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.
   br i1 %383, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %353
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %246, %293, %340, %353, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit, %200, %4
-  %.049 = phi i1 [ false, %4 ], [ true, %200 ], [ %383, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ %383, %353 ], [ true, %340 ], [ true, %293 ], [ true, %246 ]
+  %.049 = phi i1 [ false, %4 ], [ true, %200 ], [ true, %293 ], [ %383, %353 ], [ true, %340 ], [ %383, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.exit ], [ true, %246 ]
   ret i1 %.049
 }
 

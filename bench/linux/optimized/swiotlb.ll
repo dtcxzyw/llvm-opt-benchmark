@@ -1080,10 +1080,10 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %128
 
 128:                                              ; preds = %.thread.us.thread, %123, %.split33.us
-  %.us-phi3876 = phi i32 [ %.us-phi3875, %123 ], [ %114, %.split33.us ], [ %63, %.thread.us.thread ]
-  %.us-phi3673 = phi i32 [ %.us-phi3674, %123 ], [ %112, %.split33.us ], [ %64, %.thread.us.thread ]
-  %.us-phi3571 = phi i64 [ %.us-phi3572, %123 ], [ %111, %.split33.us ], [ %69, %.thread.us.thread ]
-  %.us-phi3469 = phi ptr [ %.us-phi3470, %123 ], [ %110, %.split33.us ], [ %70, %.thread.us.thread ]
+  %.us-phi3876 = phi i32 [ %63, %.thread.us.thread ], [ %.us-phi3875, %123 ], [ %114, %.split33.us ]
+  %.us-phi3673 = phi i32 [ %64, %.thread.us.thread ], [ %.us-phi3674, %123 ], [ %112, %.split33.us ]
+  %.us-phi3571 = phi i64 [ %69, %.thread.us.thread ], [ %.us-phi3572, %123 ], [ %111, %.split33.us ]
+  %.us-phi3469 = phi ptr [ %70, %.thread.us.thread ], [ %.us-phi3470, %123 ], [ %110, %.split33.us ]
   %129 = load i64, ptr @default_nareas, align 8
   %130 = trunc nuw i64 %129 to i32
   %131 = shl nuw nsw i64 %129, 7
@@ -1226,7 +1226,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %.thread18
 
 .thread18:                                        ; preds = %106, %117, %.preheader21, %.preheader21.us, %.split31.us, %215, %208, %206, %9, %3
-  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.split31.us ], [ -12, %.preheader21.us ], [ -12, %.preheader21 ], [ %115, %117 ], [ -12, %106 ]
+  %217 = phi i32 [ -12, %215 ], [ 0, %3 ], [ 0, %9 ], [ 0, %206 ], [ 0, %208 ], [ -12, %.split31.us ], [ -12, %.preheader21 ], [ -12, %.preheader21.us ], [ %115, %117 ], [ -12, %106 ]
   ret i32 %217
 }
 

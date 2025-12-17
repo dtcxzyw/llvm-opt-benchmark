@@ -1552,7 +1552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %68 = icmp eq ptr %66, %48
   %or.cond.i.i.i.i = or i1 %68, %.not.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
 .critedge.thread.i.i.i:                           ; preds = %54, %58, %.critedge.i.i.i, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1565,16 +1565,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %73 = icmp eq ptr %71, %48
   %or.cond.i27.i.i.i = or i1 %73, %.not.i26.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
   %.28.i.i = phi i64 [ %65, %63 ], [ %70, %.critedge.thread.i.i.i ]
   %spec.select21.i.i = call i64 @llvm.umin.i64(i64 %.28.i.i, i64 255)
   %spec.select.i.i = trunc nuw i64 %spec.select21.i.i to i8
   br label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit
 
-_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
-  %.sink.i.i = phi i8 [ 0, %.critedge.thread.i.i.i ], [ 0, %63 ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i ]
+_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIhEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
+  %.sink.i.i = phi i8 [ 0, %.critedge.thread.i.i.i ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i ], [ 0, %63 ]
   %74 = load i32, ptr %2, align 4, !tbaa !135
   %75 = sext i32 %74 to i64
   %76 = sub nsw i64 0, %75
@@ -1912,7 +1912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %68 = icmp eq ptr %66, %48
   %or.cond.i.i.i.i = or i1 %68, %.not.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
 .critedge.thread.i.i.i:                           ; preds = %54, %58, %.critedge.i.i.i, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1925,16 +1925,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %73 = icmp eq ptr %71, %48
   %or.cond.i27.i.i.i = or i1 %73, %.not.i26.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
   %.28.i.i = phi i64 [ %65, %63 ], [ %70, %.critedge.thread.i.i.i ]
   %spec.select21.i.i = call i64 @llvm.umin.i64(i64 %.28.i.i, i64 65535)
   %spec.select.i.i = trunc nuw i64 %spec.select21.i.i to i16
   br label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit
 
-_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
-  %.sink.i.i = phi i16 [ 0, %.critedge.thread.i.i.i ], [ 0, %63 ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i ]
+_ZN11flatbuffers11JsonPrinter15GetFieldDefaultItEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
+  %.sink.i.i = phi i16 [ 0, %.critedge.thread.i.i.i ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i ], [ 0, %63 ]
   %74 = load i32, ptr %2, align 4, !tbaa !135
   %75 = sext i32 %74 to i64
   %76 = sub nsw i64 0, %75
@@ -2174,7 +2174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %68 = icmp eq ptr %66, %48
   %or.cond.i.i.i.i = or i1 %68, %.not.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
 .critedge.thread.i.i.i:                           ; preds = %54, %58, %.critedge.i.i.i, %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2187,16 +2187,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   %73 = icmp eq ptr %71, %48
   %or.cond.i27.i.i.i = or i1 %73, %.not.i26.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
+  br i1 %or.cond.i27.i.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i: ; preds = %.critedge.thread.i.i.i, %63
   %.28.i.i = phi i64 [ %65, %63 ], [ %70, %.critedge.thread.i.i.i ]
   %spec.select21.i.i = call i64 @llvm.umin.i64(i64 %.28.i.i, i64 4294967295)
   %spec.select.i.i = trunc nuw i64 %spec.select21.i.i to i32
   br label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit
 
-_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
-  %.sink.i.i = phi i32 [ 0, %.critedge.thread.i.i.i ], [ 0, %63 ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i ]
+_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIjEET_RKNS_8FieldDefE.exit: ; preds = %63, %.critedge.thread.i.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i
+  %.sink.i.i = phi i32 [ 0, %.critedge.thread.i.i.i ], [ %spec.select.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i.i ], [ 0, %63 ]
   %74 = load i32, ptr %2, align 4, !tbaa !135
   %75 = sext i32 %74 to i64
   %76 = sub nsw i64 0, %75
@@ -2554,7 +2554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIfEET_RKNS_8FieldDefE.exit
 
 _ZN11flatbuffers11JsonPrinter15GetFieldDefaultIfEET_RKNS_8FieldDefE.exit: ; preds = %42, %51, %.critedge.i.i.i, %.sink.split.i.i.i
-  %.0.i = phi float [ %49, %.critedge.i.i.i ], [ 0.000000e+00, %42 ], [ 0.000000e+00, %51 ], [ 0x7FF8000000000000, %.sink.split.i.i.i ]
+  %.0.i = phi float [ %49, %.critedge.i.i.i ], [ 0.000000e+00, %51 ], [ 0.000000e+00, %42 ], [ 0x7FF8000000000000, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = load i32, ptr %2, align 4, !tbaa !135
   %56 = sext i32 %55 to i64
@@ -2677,7 +2677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %35
   br label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultIdEET_RKNS_8FieldDefE.exit
 
 _ZN11flatbuffers11JsonPrinter15GetFieldDefaultIdEET_RKNS_8FieldDefE.exit: ; preds = %44, %53, %.critedge.i.i.i, %.sink.split.i.i.i
-  %.0.i = phi double [ %51, %.critedge.i.i.i ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %53 ], [ 0x7FF8000000000000, %.sink.split.i.i.i ]
+  %.0.i = phi double [ %51, %.critedge.i.i.i ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %44 ], [ 0x7FF8000000000000, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = load i32, ptr %2, align 4, !tbaa !135
   %58 = sext i32 %57 to i64
@@ -2892,7 +2892,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i30: ; preds = %_ZN11fl
   br label %_ZNK11flatbuffers5Table9GetStructIPKvEET_t.exit
 
 _ZNK11flatbuffers5Table9GetStructIPKvEET_t.exit:  ; preds = %121, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i30, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.thread, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %8
-  %.025 = phi ptr [ %12, %8 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ %109, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i ], [ %126, %121 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i30 ], [ null, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.thread ]
+  %.025 = phi ptr [ %12, %8 ], [ %109, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ %126, %121 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i30 ], [ null, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.thread ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %128 = tail call noundef ptr @_ZN11flatbuffers11JsonPrinter11PrintOffsetEPKvRKNS_4TypeEiPKhi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.025, ptr noundef nonnull align 8 dereferenceable(26) %127, i32 noundef %4, ptr noundef %5, i32 noundef -1)
   br label %129
@@ -4132,7 +4132,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZN11flatbuffers11JsonPrinter1
   %25 = icmp eq ptr %23, %5
   %or.cond.i.i.i = or i1 %25, %.not.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
 .critedge.thread.i.i:                             ; preds = %11, %15, %.critedge.i.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4145,20 +4145,20 @@ define linkonce_odr dso_local noundef signext i8 @_ZN11flatbuffers11JsonPrinter1
   %30 = icmp eq ptr %28, %5
   %or.cond.i27.i.i = or i1 %30, %.not.i26.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.critedge.thread.i.i, %20
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i: ; preds = %.critedge.thread.i.i, %20
   %.28.i = phi i64 [ %22, %20 ], [ %27, %.critedge.thread.i.i ]
   %31 = icmp sgt i64 %.28.i, 127
   br i1 %31, label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit, label %32
 
-32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
   %spec.select21.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -128)
   %spec.select.i = trunc nsw i64 %spec.select21.i to i8
   br label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit
 
-_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
-  %.sink.i = phi i8 [ 127, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ], [ %spec.select.i, %32 ]
+_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i, %32
+  %.sink.i = phi i8 [ %spec.select.i, %32 ], [ 127, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ]
   ret i8 %.sink.i
 }
 
@@ -4627,7 +4627,7 @@ define linkonce_odr dso_local noundef signext i16 @_ZN11flatbuffers11JsonPrinter
   %25 = icmp eq ptr %23, %5
   %or.cond.i.i.i = or i1 %25, %.not.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
 .critedge.thread.i.i:                             ; preds = %11, %15, %.critedge.i.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4640,20 +4640,20 @@ define linkonce_odr dso_local noundef signext i16 @_ZN11flatbuffers11JsonPrinter
   %30 = icmp eq ptr %28, %5
   %or.cond.i27.i.i = or i1 %30, %.not.i26.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.critedge.thread.i.i, %20
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i: ; preds = %.critedge.thread.i.i, %20
   %.28.i = phi i64 [ %22, %20 ], [ %27, %.critedge.thread.i.i ]
   %31 = icmp sgt i64 %.28.i, 32767
   br i1 %31, label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit, label %32
 
-32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
   %spec.select21.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -32768)
   %spec.select.i = trunc nsw i64 %spec.select21.i to i16
   br label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit
 
-_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
-  %.sink.i = phi i16 [ 32767, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ], [ %spec.select.i, %32 ]
+_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i, %32
+  %.sink.i = phi i16 [ %spec.select.i, %32 ], [ 32767, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ]
   ret i16 %.sink.i
 }
 
@@ -5764,7 +5764,7 @@ define linkonce_odr dso_local noundef i32 @_ZN11flatbuffers11JsonPrinter15GetFie
   %25 = icmp eq ptr %23, %5
   %or.cond.i.i.i = or i1 %25, %.not.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i.i.i, label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
 .critedge.thread.i.i:                             ; preds = %11, %15, %.critedge.i.i, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5777,20 +5777,20 @@ define linkonce_odr dso_local noundef i32 @_ZN11flatbuffers11JsonPrinter15GetFie
   %30 = icmp eq ptr %28, %5
   %or.cond.i27.i.i = or i1 %30, %.not.i26.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+  br i1 %or.cond.i27.i.i, label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
 
-_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.critedge.thread.i.i, %20
+_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i: ; preds = %.critedge.thread.i.i, %20
   %.28.i = phi i64 [ %22, %20 ], [ %27, %.critedge.thread.i.i ]
   %31 = icmp sgt i64 %.28.i, 2147483647
   br i1 %31, label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit, label %32
 
-32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
+32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i
   %spec.select21.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -2147483648)
   %spec.select.i = trunc nsw i64 %spec.select21.i to i32
   br label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit
 
-_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
-  %.sink.i = phi i32 [ 2147483647, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ], [ %spec.select.i, %32 ]
+_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i, %32
+  %.sink.i = phi i32 [ %spec.select.i, %32 ], [ 2147483647, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread.i ], [ 0, %.critedge.thread.i.i ], [ 0, %20 ]
   ret i32 %.sink.i
 }
 
@@ -8119,7 +8119,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   ret void
 
 .body:                                            ; preds = %52, %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %35, %34 ], [ %53, %52 ]
+  %.pn = phi { ptr, i32 } [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %51, %50 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %35, %34 ], [ %53, %52 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
@@ -8700,7 +8700,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   ret void
 
 .body:                                            ; preds = %51, %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %34, %33 ], [ %52, %51 ]
+  %.pn = phi { ptr, i32 } [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %50, %49 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %34, %33 ], [ %52, %51 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
@@ -9079,7 +9079,7 @@ tailrecurse:                                      ; preds = %19, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %19, %166, %115, %29, %25
-  %.1 = phi ptr [ %28, %25 ], [ %43, %29 ], [ %.3, %115 ], [ %.23, %166 ], [ @.str.12, %tailrecurse ], [ @.str.10, %19 ]
+  %.1 = phi ptr [ %.3, %115 ], [ %.23, %166 ], [ %28, %25 ], [ %43, %29 ], [ @.str.12, %tailrecurse ], [ @.str.10, %19 ]
   ret ptr %.1
 }
 
@@ -9374,7 +9374,7 @@ _ZN11flatbuffers8FromUTF8EPPKc.exit:              ; preds = %122, %124, %126, %1
   %128 = icmp slt i32 %.044.i, 0
   br i1 %128, label %_ZN11flatbuffers8FromUTF8EPPKc.exit.thread, label %151
 
-_ZN11flatbuffers8FromUTF8EPPKc.exit.thread:       ; preds = %93, %111, %126, %124, %122, %.critedge.i, %103, %96, %_ZN11flatbuffers8FromUTF8EPPKc.exit
+_ZN11flatbuffers8FromUTF8EPPKc.exit.thread:       ; preds = %93, %111, %124, %122, %.critedge.i, %126, %103, %96, %_ZN11flatbuffers8FromUTF8EPPKc.exit
   br i1 %3, label %129, label %.critedge.critedge
 
 129:                                              ; preds = %_ZN11flatbuffers8FromUTF8EPPKc.exit.thread
@@ -17001,7 +17001,7 @@ define linkonce_odr dso_local void @_ZNK11flexbuffers9Reference8ToStringEbbRNSt7
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %27, %30, %35, %38
-  %40 = phi i64 [ %29, %27 ], [ %32, %30 ], [ %37, %35 ], [ %39, %38 ]
+  %40 = phi i64 [ %32, %30 ], [ %29, %27 ], [ %37, %35 ], [ %39, %38 ]
   %41 = sub i64 0, %40
   %42 = getelementptr inbounds i8, ptr %21, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -17040,7 +17040,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %27, %30, %35, %38
   br label %_ZN11flexbuffers6StringC2EPKhh.exit
 
 _ZN11flexbuffers6StringC2EPKhh.exit:              ; preds = %51, %54, %59, %62
-  %64 = phi i64 [ %53, %51 ], [ %56, %54 ], [ %61, %59 ], [ %63, %62 ]
+  %64 = phi i64 [ %56, %54 ], [ %53, %51 ], [ %61, %59 ], [ %63, %62 ]
   br i1 %1, label %65, label %67
 
 65:                                               ; preds = %_ZN11flexbuffers6StringC2EPKhh.exit
@@ -17097,7 +17097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %_ZNK11flexbuffers9Reference5AsKeyEv.exit
 
 _ZNK11flexbuffers9Reference5AsKeyEv.exit:         ; preds = %81, %84, %89, %92
-  %94 = phi i64 [ %83, %81 ], [ %86, %84 ], [ %91, %89 ], [ %93, %92 ]
+  %94 = phi i64 [ %86, %84 ], [ %83, %81 ], [ %91, %89 ], [ %93, %92 ]
   %95 = sub i64 0, %94
   %96 = getelementptr inbounds i8, ptr %75, i64 %95
   %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #26
@@ -17346,7 +17346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit179: ; preds = %
   br label %_ZNK11flexbuffers9Reference6AsBoolEv.exit
 
 _ZNK11flexbuffers9Reference6AsBoolEv.exit:        ; preds = %190, %193, %198, %201
-  %203 = phi i64 [ %192, %190 ], [ %195, %193 ], [ %200, %198 ], [ %202, %201 ]
+  %203 = phi i64 [ %202, %201 ], [ %195, %193 ], [ %192, %190 ], [ %200, %198 ]
   %.not222 = icmp eq i64 %203, 0
   %204 = select i1 %.not222, i64 5, i64 4
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17426,7 +17426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit182: ; preds = %
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %242, %239, %234, %231
-  %244 = phi i64 [ %233, %231 ], [ %236, %234 ], [ %241, %239 ], [ %243, %242 ]
+  %244 = phi i64 [ %236, %234 ], [ %233, %231 ], [ %241, %239 ], [ %243, %242 ]
   %245 = sub i64 0, %244
   %246 = getelementptr inbounds i8, ptr %225, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -17492,12 +17492,12 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %242, %239, %234, %2
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit.i
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit.i:         ; preds = %284, %276, %266, %256
-  %290 = phi i1 [ true, %256 ], [ true, %266 ], [ false, %276 ], [ false, %284 ]
-  %291 = phi i64 [ %257, %256 ], [ %267, %266 ], [ %254, %276 ], [ %254, %284 ]
-  %.sroa.6.0210 = phi i8 [ %.sroa.6.0.ph.ph, %256 ], [ %248, %266 ], [ %248, %276 ], [ %248, %284 ]
-  %.sroa.0200.0207 = phi ptr [ %.sroa.0200.0.ph.ph, %256 ], [ %246, %266 ], [ %246, %276 ], [ %246, %284 ]
-  %292 = phi ptr [ %263, %256 ], [ %273, %266 ], [ %280, %276 ], [ %287, %284 ]
-  %293 = phi i64 [ %265, %256 ], [ %275, %266 ], [ %283, %276 ], [ %289, %284 ]
+  %290 = phi i1 [ true, %266 ], [ true, %256 ], [ false, %276 ], [ false, %284 ]
+  %291 = phi i64 [ %267, %266 ], [ %257, %256 ], [ %254, %276 ], [ %254, %284 ]
+  %.sroa.6.0210 = phi i8 [ %248, %266 ], [ %.sroa.6.0.ph.ph, %256 ], [ %248, %276 ], [ %248, %284 ]
+  %.sroa.0200.0207 = phi ptr [ %246, %266 ], [ %.sroa.0200.0.ph.ph, %256 ], [ %246, %276 ], [ %246, %284 ]
+  %292 = phi ptr [ %273, %266 ], [ %263, %256 ], [ %280, %276 ], [ %287, %284 ]
+  %293 = phi i64 [ %275, %266 ], [ %265, %256 ], [ %283, %276 ], [ %289, %284 ]
   %294 = trunc i64 %293 to i8
   %295 = and i64 %293, 255
   %296 = sub nsw i64 0, %295
@@ -17533,7 +17533,7 @@ _ZN11flexbuffers10ReadUInt64EPKhh.exit.i:         ; preds = %284, %276, %266, %2
   br label %_ZNK11flexbuffers3Map4KeysEv.exit
 
 _ZNK11flexbuffers3Map4KeysEv.exit:                ; preds = %301, %304, %309, %312
-  %314 = phi i64 [ %303, %301 ], [ %306, %304 ], [ %311, %309 ], [ %313, %312 ]
+  %314 = phi i64 [ %306, %304 ], [ %303, %301 ], [ %311, %309 ], [ %313, %312 ]
   %315 = sub nsw i64 0, %291
   %316 = getelementptr inbounds i8, ptr %.sroa.0200.0207, i64 %315
   br i1 %290, label %317, label %325
@@ -17566,7 +17566,7 @@ _ZNK11flexbuffers3Map4KeysEv.exit:                ; preds = %301, %304, %309, %3
   br label %_ZNK11flexbuffers3Map6ValuesEv.exit
 
 _ZNK11flexbuffers3Map6ValuesEv.exit:              ; preds = %319, %322, %327, %330
-  %332 = phi i64 [ %321, %319 ], [ %324, %322 ], [ %329, %327 ], [ %331, %330 ]
+  %332 = phi i64 [ %324, %322 ], [ %321, %319 ], [ %329, %327 ], [ %331, %330 ]
   %.not146 = icmp eq i64 %314, 0
   br i1 %.not146, label %._crit_edge, label %.lr.ph
 
@@ -17622,7 +17622,7 @@ _ZNK11flexbuffers3Map6ValuesEv.exit:              ; preds = %319, %322, %327, %3
   br label %_ZNK11flexbuffers9Reference5AsKeyEv.exit118
 
 _ZNK11flexbuffers9Reference5AsKeyEv.exit118:      ; preds = %348, %351, %355, %358
-  %360 = phi i64 [ %350, %348 ], [ %353, %351 ], [ %357, %355 ], [ %359, %358 ]
+  %360 = phi i64 [ %353, %351 ], [ %350, %348 ], [ %357, %355 ], [ %359, %358 ]
   %361 = sub i64 0, %360
   %362 = getelementptr inbounds i8, ptr %346, i64 %361
   %363 = load i8, ptr %362, align 1, !tbaa !31
@@ -17859,7 +17859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit189: ; preds = %
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i191
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i191: ; preds = %461, %458, %453, %450
-  %463 = phi i64 [ %452, %450 ], [ %455, %453 ], [ %460, %458 ], [ %462, %461 ]
+  %463 = phi i64 [ %455, %453 ], [ %452, %450 ], [ %460, %458 ], [ %462, %461 ]
   %464 = sub i64 0, %463
   %465 = getelementptr inbounds i8, ptr %444, i64 %464
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -17901,7 +17901,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i191: ; preds = %461, %458, %453, %4
   br label %_ZNK11flexbuffers9Reference8AsVectorEv.exit
 
 _ZNK11flexbuffers9Reference8AsVectorEv.exit:      ; preds = %475, %478, %483, %486
-  %.sink.i190 = phi i64 [ %477, %475 ], [ %480, %478 ], [ %485, %483 ], [ %487, %486 ]
+  %.sink.i190 = phi i64 [ %487, %486 ], [ %480, %478 ], [ %477, %475 ], [ %485, %483 ]
   %488 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %.sink.i190, ptr %488, align 8, !tbaa !423, !alias.scope !417
   %489 = add nsw i32 %5, 1
@@ -17966,7 +17966,7 @@ _ZNK11flexbuffers9Reference8AsVectorEv.exit:      ; preds = %475, %478, %483, %4
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i192
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i192: ; preds = %510, %507, %502, %499
-  %512 = phi i64 [ %501, %499 ], [ %504, %502 ], [ %509, %507 ], [ %511, %510 ]
+  %512 = phi i64 [ %504, %502 ], [ %501, %499 ], [ %509, %507 ], [ %511, %510 ]
   %513 = sub i64 0, %512
   %514 = getelementptr inbounds i8, ptr %493, i64 %513
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18009,7 +18009,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i192: ; preds = %510, %507, %502, %4
   br label %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit.i
 
 _ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit.i: ; preds = %536, %533, %528, %525
-  %538 = phi i64 [ %527, %525 ], [ %530, %528 ], [ %535, %533 ], [ %537, %536 ]
+  %538 = phi i64 [ %530, %528 ], [ %527, %525 ], [ %535, %533 ], [ %537, %536 ]
   %539 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %538, ptr %539, align 8, !tbaa !423, !alias.scope !425
   %540 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -18159,7 +18159,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK11flexbuffers9Reference7AsInt64Ev
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
-  %45 = phi i64 [ %34, %32 ], [ %37, %35 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = phi i64 [ %37, %35 ], [ %34, %32 ], [ %42, %40 ], [ %44, %43 ]
   %46 = sub i64 0, %45
   %47 = getelementptr inbounds i8, ptr %26, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18263,7 +18263,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit3
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit3:     ; preds = %93, %96, %101, %104
-  %106 = phi i64 [ %95, %93 ], [ %98, %96 ], [ %103, %101 ], [ %105, %104 ]
+  %106 = phi i64 [ %98, %96 ], [ %95, %93 ], [ %103, %101 ], [ %105, %104 ]
   %107 = sub i64 0, %106
   %108 = getelementptr inbounds i8, ptr %87, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18333,7 +18333,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit3:     ; preds = %93, %96, %101, %104
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %134, %137, %142, %145
-  %147 = phi double [ %136, %134 ], [ %139, %137 ], [ %144, %142 ], [ %146, %145 ]
+  %147 = phi double [ %139, %137 ], [ %136, %134 ], [ %144, %142 ], [ %146, %145 ]
   %148 = fptosi double %147 to i64
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit
 
@@ -18372,7 +18372,7 @@ _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %134, %137, %142, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit5
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit5:     ; preds = %156, %159, %164, %167
-  %169 = phi i64 [ %158, %156 ], [ %161, %159 ], [ %166, %164 ], [ %168, %167 ]
+  %169 = phi i64 [ %161, %159 ], [ %158, %156 ], [ %166, %164 ], [ %168, %167 ]
   %170 = sub i64 0, %169
   %171 = getelementptr inbounds i8, ptr %150, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18408,7 +18408,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit5:     ; preds = %156, %159, %164, %1
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit6
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit6:          ; preds = %177, %180, %185, %188
-  %190 = phi double [ %179, %177 ], [ %182, %180 ], [ %187, %185 ], [ %189, %188 ]
+  %190 = phi double [ %182, %180 ], [ %179, %177 ], [ %187, %185 ], [ %189, %188 ]
   %191 = fptosi double %190 to i64
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit
 
@@ -18447,7 +18447,7 @@ _ZN11flexbuffers10ReadDoubleEPKhh.exit6:          ; preds = %177, %180, %185, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %210, %207, %202, %199
-  %212 = phi i64 [ %201, %199 ], [ %204, %202 ], [ %209, %207 ], [ %211, %210 ]
+  %212 = phi i64 [ %204, %202 ], [ %201, %199 ], [ %209, %207 ], [ %211, %210 ]
   %213 = sub i64 0, %212
   %214 = getelementptr inbounds i8, ptr %193, i64 %213
   %215 = tail call ptr @__errno_location() #28
@@ -18511,7 +18511,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread: ; preds = %221, 
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i8
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %231
-  %244 = phi i64 [ %233, %231 ], [ %236, %234 ], [ %241, %239 ], [ %243, %242 ]
+  %244 = phi i64 [ %236, %234 ], [ %233, %231 ], [ %241, %239 ], [ %243, %242 ]
   %245 = sub i64 0, %244
   %246 = getelementptr inbounds i8, ptr %225, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18584,7 +18584,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %2
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit
 
 _ZN11flexbuffers9ReadInt64EPKhh.exit:             ; preds = %286, %283, %278, %275, %266, %263, %258, %255, %223, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %125, %122, %117, %114, %84, %81, %76, %73, %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6, %_ZN11flexbuffers10ReadDoubleEPKhh.exit
-  %.0 = phi i64 [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
+  %.0 = phi i64 [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ], [ 0, %1 ], [ %24, %23 ], [ %65, %64 ], [ %85, %84 ], [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ %265, %263 ], [ %126, %125 ], [ %17, %15 ], [ %14, %12 ], [ %22, %20 ], [ %58, %56 ], [ %55, %53 ], [ %63, %61 ], [ %78, %76 ], [ %75, %73 ], [ %83, %81 ], [ %119, %117 ], [ %116, %114 ], [ %124, %122 ], [ %217, %223 ], [ %267, %266 ], [ %260, %258 ], [ %257, %255 ], [ %280, %278 ], [ %277, %275 ], [ %285, %283 ], [ %287, %286 ]
   ret i64 %.0
 }
 
@@ -18674,7 +18674,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK11flexbuffers9Reference8AsUInt64E
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
-  %45 = phi i64 [ %34, %32 ], [ %37, %35 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = phi i64 [ %37, %35 ], [ %34, %32 ], [ %42, %40 ], [ %44, %43 ]
   %46 = sub i64 0, %45
   %47 = getelementptr inbounds i8, ptr %26, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18778,7 +18778,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit3
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit3:     ; preds = %93, %96, %101, %104
-  %106 = phi i64 [ %95, %93 ], [ %98, %96 ], [ %103, %101 ], [ %105, %104 ]
+  %106 = phi i64 [ %98, %96 ], [ %95, %93 ], [ %103, %101 ], [ %105, %104 ]
   %107 = sub i64 0, %106
   %108 = getelementptr inbounds i8, ptr %87, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18848,7 +18848,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit3:     ; preds = %93, %96, %101, %104
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %134, %137, %142, %145
-  %147 = phi double [ %136, %134 ], [ %139, %137 ], [ %144, %142 ], [ %146, %145 ]
+  %147 = phi double [ %139, %137 ], [ %136, %134 ], [ %144, %142 ], [ %146, %145 ]
   %148 = fptoui double %147 to i64
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit
 
@@ -18887,7 +18887,7 @@ _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %134, %137, %142, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit5
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit5:     ; preds = %156, %159, %164, %167
-  %169 = phi i64 [ %158, %156 ], [ %161, %159 ], [ %166, %164 ], [ %168, %167 ]
+  %169 = phi i64 [ %161, %159 ], [ %158, %156 ], [ %166, %164 ], [ %168, %167 ]
   %170 = sub i64 0, %169
   %171 = getelementptr inbounds i8, ptr %150, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -18923,7 +18923,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit5:     ; preds = %156, %159, %164, %1
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit6
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit6:          ; preds = %177, %180, %185, %188
-  %190 = phi double [ %179, %177 ], [ %182, %180 ], [ %187, %185 ], [ %189, %188 ]
+  %190 = phi double [ %182, %180 ], [ %179, %177 ], [ %187, %185 ], [ %189, %188 ]
   %191 = fptoui double %190 to i64
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit
 
@@ -18962,7 +18962,7 @@ _ZN11flexbuffers10ReadDoubleEPKhh.exit6:          ; preds = %177, %180, %185, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %210, %207, %202, %199
-  %212 = phi i64 [ %201, %199 ], [ %204, %202 ], [ %209, %207 ], [ %211, %210 ]
+  %212 = phi i64 [ %204, %202 ], [ %201, %199 ], [ %209, %207 ], [ %211, %210 ]
   %213 = sub i64 0, %212
   %214 = getelementptr inbounds i8, ptr %193, i64 %213
   %215 = tail call ptr @__errno_location() #28
@@ -19026,7 +19026,7 @@ _ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread: ; preds = %221, 
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i8
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %231
-  %244 = phi i64 [ %233, %231 ], [ %236, %234 ], [ %241, %239 ], [ %243, %242 ]
+  %244 = phi i64 [ %236, %234 ], [ %233, %231 ], [ %241, %239 ], [ %243, %242 ]
   %245 = sub i64 0, %244
   %246 = getelementptr inbounds i8, ptr %225, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -19099,7 +19099,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i8:   ; preds = %242, %239, %234, %2
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit:           ; preds = %286, %283, %278, %275, %266, %263, %258, %255, %223, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread, %125, %122, %117, %114, %84, %81, %76, %73, %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6, %_ZN11flexbuffers10ReadDoubleEPKhh.exit
-  %.0 = phi i64 [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ 0, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ], [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ], [ %116, %114 ], [ %119, %117 ], [ %124, %122 ], [ %126, %125 ], [ %217, %223 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread ], [ %257, %255 ], [ %260, %258 ], [ %265, %263 ], [ %267, %266 ], [ %277, %275 ], [ %280, %278 ], [ %285, %283 ], [ %287, %286 ]
+  %.0 = phi i64 [ 0, %_ZN11flatbuffers19StringToIntegerImplImEEbPT_PKcib.exit.thread ], [ 0, %1 ], [ %24, %23 ], [ %65, %64 ], [ %85, %84 ], [ %148, %_ZN11flexbuffers10ReadDoubleEPKhh.exit ], [ %191, %_ZN11flexbuffers10ReadDoubleEPKhh.exit6 ], [ %265, %263 ], [ %126, %125 ], [ %17, %15 ], [ %14, %12 ], [ %22, %20 ], [ %58, %56 ], [ %55, %53 ], [ %63, %61 ], [ %78, %76 ], [ %75, %73 ], [ %83, %81 ], [ %119, %117 ], [ %116, %114 ], [ %124, %122 ], [ %217, %223 ], [ %267, %266 ], [ %260, %258 ], [ %257, %255 ], [ %280, %278 ], [ %277, %275 ], [ %285, %283 ], [ %287, %286 ]
   ret i64 %.0
 }
 
@@ -19189,7 +19189,7 @@ define linkonce_odr dso_local noundef double @_ZNK11flexbuffers9Reference8AsDoub
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
-  %45 = phi i64 [ %34, %32 ], [ %37, %35 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = phi i64 [ %37, %35 ], [ %34, %32 ], [ %42, %40 ], [ %44, %43 ]
   %46 = sub i64 0, %45
   %47 = getelementptr inbounds i8, ptr %26, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -19259,7 +19259,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %32, %35, %40, %43
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit
 
 _ZN11flexbuffers9ReadInt64EPKhh.exit:             ; preds = %73, %76, %81, %84
-  %86 = phi i64 [ %75, %73 ], [ %78, %76 ], [ %83, %81 ], [ %85, %84 ]
+  %86 = phi i64 [ %78, %76 ], [ %75, %73 ], [ %83, %81 ], [ %85, %84 ]
   %87 = sitofp i64 %86 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19298,7 +19298,7 @@ _ZN11flexbuffers9ReadInt64EPKhh.exit:             ; preds = %73, %76, %81, %84
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit:           ; preds = %95, %98, %103, %106
-  %108 = phi i64 [ %97, %95 ], [ %100, %98 ], [ %105, %103 ], [ %107, %106 ]
+  %108 = phi i64 [ %100, %98 ], [ %97, %95 ], [ %105, %103 ], [ %107, %106 ]
   %109 = uitofp i64 %108 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19337,7 +19337,7 @@ _ZN11flexbuffers10ReadUInt64EPKhh.exit:           ; preds = %95, %98, %103, %106
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit4
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit4:     ; preds = %117, %120, %125, %128
-  %130 = phi i64 [ %119, %117 ], [ %122, %120 ], [ %127, %125 ], [ %129, %128 ]
+  %130 = phi i64 [ %122, %120 ], [ %119, %117 ], [ %127, %125 ], [ %129, %128 ]
   %131 = sub i64 0, %130
   %132 = getelementptr inbounds i8, ptr %111, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -19373,7 +19373,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit4:     ; preds = %117, %120, %125, %1
   br label %_ZN11flexbuffers9ReadInt64EPKhh.exit5
 
 _ZN11flexbuffers9ReadInt64EPKhh.exit5:            ; preds = %138, %141, %146, %149
-  %151 = phi i64 [ %140, %138 ], [ %143, %141 ], [ %148, %146 ], [ %150, %149 ]
+  %151 = phi i64 [ %143, %141 ], [ %140, %138 ], [ %148, %146 ], [ %150, %149 ]
   %152 = sitofp i64 %151 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19412,7 +19412,7 @@ _ZN11flexbuffers9ReadInt64EPKhh.exit5:            ; preds = %138, %141, %146, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit6
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit6:     ; preds = %160, %163, %168, %171
-  %173 = phi i64 [ %162, %160 ], [ %165, %163 ], [ %170, %168 ], [ %172, %171 ]
+  %173 = phi i64 [ %165, %163 ], [ %162, %160 ], [ %170, %168 ], [ %172, %171 ]
   %174 = sub i64 0, %173
   %175 = getelementptr inbounds i8, ptr %154, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -19448,7 +19448,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit6:     ; preds = %160, %163, %168, %1
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit7
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit7:          ; preds = %181, %184, %189, %192
-  %194 = phi i64 [ %183, %181 ], [ %186, %184 ], [ %191, %189 ], [ %193, %192 ]
+  %194 = phi i64 [ %186, %184 ], [ %183, %181 ], [ %191, %189 ], [ %193, %192 ]
   %195 = uitofp i64 %194 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19487,7 +19487,7 @@ _ZN11flexbuffers10ReadUInt64EPKhh.exit7:          ; preds = %181, %184, %189, %1
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %214, %211, %206, %203
-  %216 = phi i64 [ %205, %203 ], [ %208, %206 ], [ %213, %211 ], [ %215, %214 ]
+  %216 = phi i64 [ %208, %206 ], [ %205, %203 ], [ %213, %211 ], [ %215, %214 ]
   %217 = sub i64 0, %216
   %218 = getelementptr inbounds i8, ptr %197, i64 %217
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -19511,7 +19511,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %214, %211, %206, %2
   br label %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit: ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i, %222, %.critedge.i.i, %.sink.split.i.i
-  %.015 = phi double [ %220, %.critedge.i.i ], [ 0.000000e+00, %_ZNK11flexbuffers9Reference8IndirectEv.exit.i ], [ 0.000000e+00, %222 ], [ 0x7FF8000000000000, %.sink.split.i.i ]
+  %.015 = phi double [ %220, %.critedge.i.i ], [ 0.000000e+00, %222 ], [ 0.000000e+00, %_ZNK11flexbuffers9Reference8IndirectEv.exit.i ], [ 0x7FF8000000000000, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19550,7 +19550,7 @@ _ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit: ; preds = %_ZNK11flexbuffers9R
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit.i9
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit.i9:   ; preds = %244, %241, %236, %233
-  %246 = phi i64 [ %235, %233 ], [ %238, %236 ], [ %243, %241 ], [ %245, %244 ]
+  %246 = phi i64 [ %238, %236 ], [ %235, %233 ], [ %243, %241 ], [ %245, %244 ]
   %247 = sub i64 0, %246
   %248 = getelementptr inbounds i8, ptr %227, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -19589,7 +19589,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i9:   ; preds = %244, %241, %236, %2
   br label %_ZNK11flexbuffers9Reference8AsVectorEv.exit
 
 _ZNK11flexbuffers9Reference8AsVectorEv.exit:      ; preds = %257, %260, %265, %268
-  %.sink.i8 = phi i64 [ %259, %257 ], [ %262, %260 ], [ %267, %265 ], [ %269, %268 ]
+  %.sink.i8 = phi i64 [ %269, %268 ], [ %262, %260 ], [ %259, %257 ], [ %267, %265 ]
   %270 = uitofp i64 %.sink.i8 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
@@ -19628,12 +19628,12 @@ _ZNK11flexbuffers9Reference8AsVectorEv.exit:      ; preds = %257, %260, %265, %2
   br label %_ZN11flexbuffers10ReadUInt64EPKhh.exit10
 
 _ZN11flexbuffers10ReadUInt64EPKhh.exit10:         ; preds = %278, %281, %286, %289
-  %291 = phi i64 [ %280, %278 ], [ %283, %281 ], [ %288, %286 ], [ %290, %289 ]
+  %291 = phi i64 [ %283, %281 ], [ %280, %278 ], [ %288, %286 ], [ %290, %289 ]
   %292 = uitofp i64 %291 to double
   br label %_ZN11flexbuffers10ReadDoubleEPKhh.exit
 
 _ZN11flexbuffers10ReadDoubleEPKhh.exit:           ; preds = %64, %61, %56, %53, %23, %20, %15, %12, %1, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10, %_ZNK11flexbuffers9Reference8AsVectorEv.exit, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7, %_ZN11flexbuffers9ReadInt64EPKhh.exit5, %_ZN11flexbuffers10ReadUInt64EPKhh.exit, %_ZN11flexbuffers9ReadInt64EPKhh.exit
-  %.0 = phi double [ %87, %_ZN11flexbuffers9ReadInt64EPKhh.exit ], [ %109, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %152, %_ZN11flexbuffers9ReadInt64EPKhh.exit5 ], [ %195, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7 ], [ %.015, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit ], [ %270, %_ZNK11flexbuffers9Reference8AsVectorEv.exit ], [ %292, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10 ], [ 0.000000e+00, %1 ], [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ], [ %55, %53 ], [ %58, %56 ], [ %63, %61 ], [ %65, %64 ]
+  %.0 = phi double [ %270, %_ZNK11flexbuffers9Reference8AsVectorEv.exit ], [ 0.000000e+00, %1 ], [ %24, %23 ], [ %87, %_ZN11flexbuffers9ReadInt64EPKhh.exit ], [ %109, %_ZN11flexbuffers10ReadUInt64EPKhh.exit ], [ %152, %_ZN11flexbuffers9ReadInt64EPKhh.exit5 ], [ %195, %_ZN11flexbuffers10ReadUInt64EPKhh.exit7 ], [ %292, %_ZN11flexbuffers10ReadUInt64EPKhh.exit10 ], [ %.015, %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit ], [ %17, %15 ], [ %14, %12 ], [ %22, %20 ], [ %58, %56 ], [ %55, %53 ], [ %63, %61 ], [ %65, %64 ]
   ret double %.0
 }
 
@@ -20349,7 +20349,7 @@ define linkonce_odr dso_local void @_ZNK11flexbuffers9Reference18AsFixedTypedVec
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %18, %21, %26, %29
-  %31 = phi i64 [ %20, %18 ], [ %23, %21 ], [ %28, %26 ], [ %30, %29 ]
+  %31 = phi i64 [ %23, %21 ], [ %20, %18 ], [ %28, %26 ], [ %30, %29 ]
   %32 = sub i64 0, %31
   %33 = getelementptr inbounds i8, ptr %12, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -20415,7 +20415,7 @@ define linkonce_odr dso_local void @_ZNK11flexbuffers9Reference6AsBlobEv(ptr dea
   br label %_ZNK11flexbuffers9Reference8IndirectEv.exit
 
 _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %12, %15, %20, %23
-  %25 = phi i64 [ %14, %12 ], [ %17, %15 ], [ %22, %20 ], [ %24, %23 ]
+  %25 = phi i64 [ %17, %15 ], [ %14, %12 ], [ %22, %20 ], [ %24, %23 ]
   %26 = sub i64 0, %25
   %27 = getelementptr inbounds i8, ptr %6, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -20463,7 +20463,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %12, %15, %20, %23
   br label %_ZN11flexbuffers4BlobC2EPKhh.exit
 
 _ZN11flexbuffers4BlobC2EPKhh.exit:                ; preds = %48, %45, %40, %37, %50
-  %.sink = phi i64 [ 0, %50 ], [ %39, %37 ], [ %42, %40 ], [ %47, %45 ], [ %49, %48 ]
+  %.sink = phi i64 [ 0, %50 ], [ %42, %40 ], [ %39, %37 ], [ %47, %45 ], [ %49, %48 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %52, align 8, !tbaa !423
   ret void

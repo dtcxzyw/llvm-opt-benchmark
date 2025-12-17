@@ -729,7 +729,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit25:               ; preds = %89, %_ZNKSt7__cxx11
   ret void
 
 96:                                               ; preds = %54, %61, %68, %_ZN3gmx14LogEntryWriterD2Ev.exit25, %45, %_ZN3gmx14LogEntryWriterD2Ev.exit18, %13
-  %.pn14 = phi { ptr, i32 } [ %14, %13 ], [ %46, %45 ], [ %35, %_ZN3gmx14LogEntryWriterD2Ev.exit18 ], [ %55, %54 ], [ %62, %61 ], [ %69, %68 ], [ %90, %_ZN3gmx14LogEntryWriterD2Ev.exit25 ]
+  %.pn14 = phi { ptr, i32 } [ %14, %13 ], [ %35, %_ZN3gmx14LogEntryWriterD2Ev.exit18 ], [ %46, %45 ], [ %55, %54 ], [ %62, %61 ], [ %69, %68 ], [ %90, %_ZN3gmx14LogEntryWriterD2Ev.exit25 ]
   resume { ptr, i32 } %.pn14
 }
 
@@ -1268,7 +1268,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit19:               ; preds = %73, %_ZNKSt7__cxx11
   %.not.i.i22 = icmp eq i32 %94, 0
   br i1 %.not.i.i22, label %_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit, label %.lr.ph.i.i20, !llvm.loop !164
 
-_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit.thread: ; preds = %87, %91
+_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit.thread: ; preds = %91, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %103
 
@@ -2196,7 +2196,7 @@ define void @_ZN3gmx10ImdSession4Impl11readCommandEv(ptr noundef nonnull align 8
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit, label %.lr.ph.i.i, !llvm.loop !164
 
-_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit.thread: ; preds = %57, %61
+_ZN3gmxL15imd_recv_headerEPNS_9IMDSocketEPi.exit.thread: ; preds = %61, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %196
 
@@ -2624,7 +2624,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit55:               ; preds = %213, %_ZNKSt7__cxx1
   br label %220
 
 220:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit45, %173, %_ZN3gmx14LogEntryWriterD2Ev.exit38, %156, %_ZN3gmx14LogEntryWriterD2Ev.exit31, %139, %_ZN3gmx14LogEntryWriterD2Ev.exit17, %96, %95, %219, %134, %133
-  %.1 = phi i1 [ %.0785, %219 ], [ %.0785, %95 ], [ %.0785, %133 ], [ %.0785, %134 ], [ %.0785, %96 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit17 ], [ false, %139 ], [ false, %_ZN3gmx14LogEntryWriterD2Ev.exit31 ], [ true, %156 ], [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit38 ], [ %.0785, %173 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ]
+  %.1 = phi i1 [ %.0785, %219 ], [ %.0785, %95 ], [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit38 ], [ %.0785, %133 ], [ %.0785, %134 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit17 ], [ false, %_ZN3gmx14LogEntryWriterD2Ev.exit31 ], [ %.0785, %96 ], [ false, %139 ], [ true, %156 ], [ %.0785, %173 ], [ %.0785, %_ZN3gmx14LogEntryWriterD2Ev.exit45 ]
   %221 = load ptr, ptr %10, align 8, !tbaa !154
   %.not = icmp eq ptr %221, null
   br i1 %.not, label %.critedge, label %48, !llvm.loop !210
@@ -4376,12 +4376,12 @@ _ZN3gmx14LogEntryWriterD2Ev.exit240:              ; preds = %378, %_ZNKSt7__cxx1
   br label %395
 
 .body:                                            ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit240, %_ZN3gmx14LogEntryWriterD2Ev.exit232, %_ZN3gmx14LogEntryWriterD2Ev.exit218, %_ZN3gmx14LogEntryWriterD2Ev.exit210, %_ZN3gmx14LogEntryWriterD2Ev.exit202, %160, %170, %_ZN3gmx14LogEntryWriterD2Ev.exit192, %_ZN3gmx14LogEntryWriterD2Ev.exit185, %192, %317, %225
-  %.pn156.pn = phi { ptr, i32 } [ %193, %192 ], [ %318, %317 ], [ %226, %225 ], [ %126, %_ZN3gmx14LogEntryWriterD2Ev.exit185 ], [ %148, %_ZN3gmx14LogEntryWriterD2Ev.exit192 ], [ %161, %160 ], [ %171, %170 ], [ %242, %_ZN3gmx14LogEntryWriterD2Ev.exit202 ], [ %270, %_ZN3gmx14LogEntryWriterD2Ev.exit210 ], [ %298, %_ZN3gmx14LogEntryWriterD2Ev.exit218 ], [ %350, %_ZN3gmx14LogEntryWriterD2Ev.exit232 ], [ %379, %_ZN3gmx14LogEntryWriterD2Ev.exit240 ]
+  %.pn156.pn = phi { ptr, i32 } [ %161, %160 ], [ %379, %_ZN3gmx14LogEntryWriterD2Ev.exit240 ], [ %171, %170 ], [ %193, %192 ], [ %242, %_ZN3gmx14LogEntryWriterD2Ev.exit202 ], [ %270, %_ZN3gmx14LogEntryWriterD2Ev.exit210 ], [ %318, %317 ], [ %226, %225 ], [ %298, %_ZN3gmx14LogEntryWriterD2Ev.exit218 ], [ %350, %_ZN3gmx14LogEntryWriterD2Ev.exit232 ], [ %126, %_ZN3gmx14LogEntryWriterD2Ev.exit185 ], [ %148, %_ZN3gmx14LogEntryWriterD2Ev.exit192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNSt10unique_ptrIN3gmx10ImdSessionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx10ImdSessionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit178, %_ZN3gmx14LogEntryWriterD2Ev.exit171, %.body
-  %.pn159.pn.pn = phi { ptr, i32 } [ %.pn156.pn, %.body ], [ %60, %_ZN3gmx14LogEntryWriterD2Ev.exit171 ], [ %85, %_ZN3gmx14LogEntryWriterD2Ev.exit178 ]
+  %.pn159.pn.pn = phi { ptr, i32 } [ %85, %_ZN3gmx14LogEntryWriterD2Ev.exit178 ], [ %.pn156.pn, %.body ], [ %60, %_ZN3gmx14LogEntryWriterD2Ev.exit171 ]
   call void @_ZN3gmx10ImdSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #25
   call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 8) #24
   store ptr null, ptr %0, align 8, !tbaa !235
@@ -5198,8 +5198,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i.us:     ; preds = %84, %82
   br i1 %107, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.us, label %_ZNK11gmx_ga2la_t4findEi.exit.i.us
 
 _ZNK11gmx_ga2la_t4findEi.exit.i.us:               ; preds = %101, %99
-  %108 = phi i32 [ %.pre.i.us, %99 ], [ %106, %101 ]
-  %.0.i.i.us = phi ptr [ %100, %99 ], [ %104, %101 ]
+  %108 = phi i32 [ %106, %101 ], [ %.pre.i.us, %99 ]
+  %.0.i.i.us = phi ptr [ %104, %101 ], [ %100, %99 ]
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.us, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.us
 
@@ -5208,7 +5208,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.us:             ; preds = %_ZNK11gmx_ga2la_t4f
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.us
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit.thread.us:      ; preds = %95, %_ZNK11gmx_ga2la_t8findHomeEi.exit.us, %_ZNK11gmx_ga2la_t4findEi.exit.i.us, %101
-  %.09.us = phi i32 [ %110, %_ZNK11gmx_ga2la_t8findHomeEi.exit.us ], [ %77, %_ZNK11gmx_ga2la_t4findEi.exit.i.us ], [ %77, %101 ], [ %77, %95 ]
+  %.09.us = phi i32 [ %110, %_ZNK11gmx_ga2la_t8findHomeEi.exit.us ], [ %77, %101 ], [ %77, %_ZNK11gmx_ga2la_t4findEi.exit.i.us ], [ %77, %95 ]
   %111 = sext i32 %.09.us to i64
   %112 = getelementptr inbounds %"class.gmx::BasicVector.158", ptr %1, i64 %111
   %113 = getelementptr inbounds nuw [3 x float], ptr %63, i64 %indvars.iv18

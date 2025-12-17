@@ -8995,7 +8995,7 @@ switch.lookup52:                                  ; preds = %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup52, %switch.lookup, %44, %14, %11, %19, %22
-  %.sink = phi i8 [ 1, %22 ], [ 1, %19 ], [ 1, %11 ], [ %., %14 ], [ %.51, %44 ], [ %switch.masked, %switch.lookup ], [ %switch.masked56, %switch.lookup52 ]
+  %.sink = phi i8 [ %.51, %44 ], [ %switch.masked56, %switch.lookup52 ], [ %switch.masked, %switch.lookup ], [ %., %14 ], [ 1, %11 ], [ 1, %22 ], [ 1, %19 ]
   store i8 %.sink, ptr @sms_encoding, align 1
   br label %51
 
@@ -10114,7 +10114,7 @@ default.unreachable:                              ; preds = %115, %96, %69, %50
   unreachable
 
 gsm_map_calc_bitrate.exit.i:                      ; preds = %60, %57, %54, %50, %45
-  %.09.i.i = phi i32 [ %53, %50 ], [ %62, %60 ], [ %56, %54 ], [ %59, %57 ], [ 0, %45 ]
+  %.09.i.i = phi i32 [ 0, %45 ], [ %53, %50 ], [ %62, %60 ], [ %56, %54 ], [ %59, %57 ]
   %63 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %47, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef %.09.i.i)
   br label %64
 
@@ -10157,7 +10157,7 @@ gsm_map_calc_bitrate.exit.i:                      ; preds = %60, %57, %54, %50, 
   br label %gsm_map_calc_bitrate.exit112.i
 
 gsm_map_calc_bitrate.exit112.i:                   ; preds = %79, %76, %73, %69, %64
-  %.09.i110.i = phi i32 [ %72, %69 ], [ %81, %79 ], [ %75, %73 ], [ %78, %76 ], [ 0, %64 ]
+  %.09.i110.i = phi i32 [ 0, %64 ], [ %72, %69 ], [ %81, %79 ], [ %75, %73 ], [ %78, %76 ]
   %82 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %66, ptr noundef %1, i32 noundef 4, i32 noundef 1, i32 noundef %.09.i110.i)
   br label %83
 
@@ -10208,7 +10208,7 @@ gsm_map_calc_bitrate.exit112.i:                   ; preds = %79, %76, %73, %69, 
   br label %gsm_map_calc_bitrate.exit115.i
 
 gsm_map_calc_bitrate.exit115.i:                   ; preds = %106, %103, %100, %96, %83
-  %.09.i113.i = phi i32 [ %99, %96 ], [ %108, %106 ], [ %102, %100 ], [ %105, %103 ], [ 0, %83 ]
+  %.09.i113.i = phi i32 [ 0, %83 ], [ %99, %96 ], [ %108, %106 ], [ %102, %100 ], [ %105, %103 ]
   %109 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %93, ptr noundef %1, i32 noundef 7, i32 noundef 1, i32 noundef %.09.i113.i)
   br label %110
 
@@ -10251,7 +10251,7 @@ gsm_map_calc_bitrate.exit115.i:                   ; preds = %106, %103, %100, %9
   br label %gsm_map_calc_bitrate.exit118.i
 
 gsm_map_calc_bitrate.exit118.i:                   ; preds = %125, %122, %119, %115, %110
-  %.09.i116.i = phi i32 [ %118, %115 ], [ %127, %125 ], [ %121, %119 ], [ %124, %122 ], [ 0, %110 ]
+  %.09.i116.i = phi i32 [ 0, %110 ], [ %118, %115 ], [ %127, %125 ], [ %121, %119 ], [ %124, %122 ]
   %128 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %112, ptr noundef %1, i32 noundef 8, i32 noundef 1, i32 noundef %.09.i116.i)
   br label %dissect_gsm_map_ext_qos_subscribed.exit
 
@@ -10323,7 +10323,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   br label %48
 
 48:                                               ; preds = %46, %44, %30
-  %.1.i = phi ptr [ %45, %44 ], [ %47, %46 ], [ @.str.4624, %30 ]
+  %.1.i = phi ptr [ %47, %46 ], [ %45, %44 ], [ @.str.4624, %30 ]
   %49 = load i32, ptr @hf_gsm_map_qos_max_bitrate_downl_ext, align 4
   %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %49, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %32, ptr noundef nonnull @.str.4623, ptr noundef %.1.i, i32 noundef %32)
   %51 = icmp eq i32 %13, 2
@@ -10360,7 +10360,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext2_QoS_Subscribed(i1 noundef zeroext %0,
   br label %70
 
 70:                                               ; preds = %68, %66, %52
-  %.2.i = phi ptr [ %67, %66 ], [ %69, %68 ], [ @.str.4627, %52 ]
+  %.2.i = phi ptr [ %69, %68 ], [ %67, %66 ], [ @.str.4627, %52 ]
   %71 = load i32, ptr @hf_gsm_map_qos_guar_bitrate_downl_ext, align 4
   %72 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %71, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.4623, ptr noundef %.2.i, i32 noundef %54)
   br label %dissect_gsm_map_ext2_qos_subscribed.exit
@@ -10417,7 +10417,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   br label %35
 
 35:                                               ; preds = %33, %31, %10
-  %.0.i = phi ptr [ %32, %31 ], [ %34, %33 ], [ @.str.4628, %10 ]
+  %.0.i = phi ptr [ %34, %33 ], [ %32, %31 ], [ @.str.4628, %10 ]
   %36 = load i32, ptr @hf_gsm_map_qos_max_bitrate_upl_ext, align 4
   %37 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %36, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %19, ptr noundef nonnull @.str.4623, ptr noundef %.0.i, i32 noundef %19)
   %38 = icmp eq i32 %13, 1
@@ -10454,7 +10454,7 @@ define hidden i32 @dissect_gsm_map_ms_Ext3_QoS_Subscribed(i1 noundef zeroext %0,
   br label %57
 
 57:                                               ; preds = %55, %53, %39
-  %.1.i = phi ptr [ %54, %53 ], [ %56, %55 ], [ @.str.4629, %39 ]
+  %.1.i = phi ptr [ %56, %55 ], [ %54, %53 ], [ @.str.4629, %39 ]
   %58 = load i32, ptr @hf_gsm_map_qos_guar_bitrate_upl_ext, align 4
   %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %17, i32 noundef %58, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.4623, ptr noundef %.1.i, i32 noundef %41)
   br label %dissect_gsm_map_ext3_qos_subscribed.exit

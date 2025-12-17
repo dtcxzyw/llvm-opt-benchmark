@@ -301,7 +301,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE10ch
   br label %22
 
 22:                                               ; preds = %10, %1
-  %.0 = phi i1 [ true, %1 ], [ %or.cond6.not, %10 ]
+  %.0 = phi i1 [ %or.cond6.not, %10 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -865,7 +865,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit23: ; preds = %_ZN3zmq7ypipe_
   br label %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread
 
 _ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit.thread: ; preds = %44, %44, %90, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i15, %32, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i, %47, %59, %56, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit23
-  %.0 = phi i32 [ -1, %47 ], [ -1, %44 ], [ -1, %59 ], [ -1, %56 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit23 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i ], [ 0, %32 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i15 ], [ 0, %90 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %32 ], [ -1, %56 ], [ -1, %44 ], [ -1, %47 ], [ -1, %59 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE4readEPS1_.exit23 ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i ], [ 0, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i15 ], [ 0, %90 ], [ -1, %44 ]
   ret i32 %.0
 }
 

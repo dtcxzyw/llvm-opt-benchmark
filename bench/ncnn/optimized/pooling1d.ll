@@ -409,7 +409,7 @@ _ZN4ncnn3MatD2Ev.exit49:                          ; preds = %155, %153, %161, %1
   resume { ptr, i32 } %.pn
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %43, %19, %60, %63, %57, %_ZNK4ncnn3Mat5emptyEv.exit46, %34, %37, %31, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit
-  %.040 = phi i32 [ %.1, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %31 ], [ 0, %37 ], [ 0, %34 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit46 ], [ 0, %57 ], [ 0, %63 ], [ 0, %60 ], [ -100, %19 ], [ -100, %43 ]
+  %.040 = phi i32 [ %.1, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %34 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit46 ], [ 0, %31 ], [ 0, %37 ], [ 0, %57 ], [ 0, %63 ], [ 0, %60 ], [ -100, %19 ], [ -100, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.040

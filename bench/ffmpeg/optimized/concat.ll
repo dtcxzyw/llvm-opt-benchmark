@@ -226,9 +226,9 @@ define internal i32 @concat_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %33, label %11, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.thread, %20, %16
-  %.030.lcssa = phi i32 [ %29, %.thread ], [ %.03045, %20 ], [ %.03045, %16 ]
-  %.132 = phi i32 [ %.23341, %.thread ], [ -541478725, %20 ], [ -541478725, %16 ]
-  %.1 = phi i64 [ %.242, %.thread ], [ %17, %20 ], [ %.047, %16 ]
+  %.030.lcssa = phi i32 [ %.03045, %16 ], [ %29, %.thread ], [ %.03045, %20 ]
+  %.132 = phi i32 [ -541478725, %16 ], [ %.23341, %.thread ], [ -541478725, %20 ]
+  %.1 = phi i64 [ %.047, %16 ], [ %.242, %.thread ], [ %17, %20 ]
   %.030.lcssa.fr = freeze i32 %.030.lcssa
   store i64 %.1, ptr %7, align 8, !tbaa !32
   %.not38 = icmp eq i32 %.030.lcssa.fr, 0
@@ -236,7 +236,7 @@ define internal i32 @concat_read(ptr noundef readonly captures(none) %0, ptr nou
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %3, %27
-  %.028 = phi i32 [ %28, %27 ], [ undef, %3 ], [ %spec.select, %._crit_edge ]
+  %.028 = phi i32 [ %28, %27 ], [ %spec.select, %._crit_edge ], [ undef, %3 ]
   ret i32 %.028
 }
 
@@ -333,7 +333,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %.not62, label %.critedge, label %.lr.ph75, !llvm.loop !36
 
 .critedge:                                        ; preds = %40, %.lr.ph75, %17, %.lr.ph86, %33, %14
-  %.155 = phi i32 [ 2, %14 ], [ 0, %33 ], [ 2, %.lr.ph86 ], [ 2, %17 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
+  %.155 = phi i32 [ 2, %14 ], [ 0, %33 ], [ 2, %17 ], [ 2, %.lr.ph86 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
   %.249 = phi i64 [ %1, %14 ], [ %.047, %33 ], [ %18, %17 ], [ %.14883, %.lr.ph86 ], [ %41, %40 ], [ %.45172, %.lr.ph75 ]
   %.1 = phi i64 [ 0, %14 ], [ 0, %33 ], [ 0, %17 ], [ %.084, %.lr.ph86 ], [ %36, %40 ], [ %.373, %.lr.ph75 ]
   %43 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.1
@@ -550,10 +550,10 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %75 = call i32 @ffurl_close(ptr noundef %74) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph191, %52, %.lr.ph.preheader, %.loopexit.sink.split
-  %.04392178 = phi i64 [ %.04392189, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04392189, %52 ], [ %.04392189, %.lr.ph191 ], [ %69, %.lr.ph ]
-  %.04491174 = phi i64 [ %.04491190, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04491190, %52 ], [ %.04491190, %.lr.ph191 ], [ %50, %.lr.ph ]
-  %.249.ph = phi i32 [ %.249.ph.ph, %.loopexit.sink.split ], [ %27, %.lr.ph.preheader ], [ %55, %52 ], [ -12, %.lr.ph191 ], [ %55, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph191, %.lr.ph, %52, %.lr.ph.preheader, %.loopexit.sink.split
+  %.04392178 = phi i64 [ %.04392189, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04392189, %52 ], [ %69, %.lr.ph ], [ %.04392189, %.lr.ph191 ]
+  %.04491174 = phi i64 [ %.04491190, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04491190, %52 ], [ %50, %.lr.ph ], [ %.04491190, %.lr.ph191 ]
+  %.249.ph = phi i32 [ %.249.ph.ph, %.loopexit.sink.split ], [ %27, %.lr.ph.preheader ], [ %55, %52 ], [ %55, %.lr.ph ], [ -12, %.lr.ph191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #5
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -588,7 +588,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %87
 
 87:                                               ; preds = %17, %15, %84, %30, %14
-  %.0 = phi i32 [ %27, %30 ], [ %85, %84 ], [ -22, %14 ], [ -2, %15 ], [ %23, %17 ]
+  %.0 = phi i32 [ -2, %15 ], [ %27, %30 ], [ %85, %84 ], [ -22, %14 ], [ %23, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

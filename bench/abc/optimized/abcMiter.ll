@@ -3372,8 +3372,8 @@ define range(i32 0, 2) i32 @Abc_NtkCombinePos(ptr noundef %0, i32 noundef %1, i3
   br i1 %58, label %.lr.ph.split.us.split, label %.critedge.preheader, !llvm.loop !82
 
 .critedge.preheader:                              ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
-  %.132.lcssa = phi ptr [ %35, %.lr.ph.split.us.split.us ], [ %55, %.lr.ph.split.us.split ], [ %77, %.lr.ph.split ]
-  %.val36.val.lcssa = phi i32 [ %.val36.val.us.us, %.lr.ph.split.us.split.us ], [ %.val36.val.us, %.lr.ph.split.us.split ], [ %.val36.val, %.lr.ph.split ]
+  %.132.lcssa = phi ptr [ %55, %.lr.ph.split.us.split ], [ %35, %.lr.ph.split.us.split.us ], [ %77, %.lr.ph.split ]
+  %.val36.val.lcssa = phi i32 [ %.val36.val.us, %.lr.ph.split.us.split ], [ %.val36.val.us.us, %.lr.ph.split.us.split.us ], [ %.val36.val, %.lr.ph.split ]
   %59 = icmp sgt i32 %.val36.val.lcssa, 0
   br i1 %59, label %.critedge.preheader65, label %.critedge._crit_edge
 

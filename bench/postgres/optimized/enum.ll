@@ -82,7 +82,7 @@ define dso_local range(i64 0, 4294967296) i64 @enum_in(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %21, %23, %12, %14, %27
-  %.0 = phi i64 [ %34, %27 ], [ 0, %14 ], [ 0, %12 ], [ 0, %23 ], [ 0, %21 ]
+  %.0 = phi i64 [ 0, %12 ], [ %34, %27 ], [ 0, %14 ], [ 0, %23 ], [ 0, %21 ]
   ret i64 %.0
 }
 
@@ -365,7 +365,7 @@ define internal fastcc i32 @enum_cmp_internal(i32 noundef %0, i32 noundef %1, pt
   br label %35
 
 35:                                               ; preds = %8, %3, %33
-  %.0 = phi i32 [ %34, %33 ], [ 0, %3 ], [ %., %8 ]
+  %.0 = phi i32 [ %34, %33 ], [ %., %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 

@@ -407,7 +407,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit.i:    ; preds = %41
   br label %_ZNK8rational12is_minus_oneEv.exit
 
 _ZNK8rational12is_minus_oneEv.exit:               ; preds = %41, %32, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %52, %17, %4, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %28, %70, %63, %62
-  %77 = phi i1 [ false, %62 ], [ false, %63 ], [ %76, %70 ], [ false, %28 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ false, %4 ], [ false, %17 ], [ false, %52 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ false, %32 ], [ false, %41 ]
+  %77 = phi i1 [ false, %62 ], [ false, %17 ], [ %76, %70 ], [ false, %63 ], [ false, %28 ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ false, %4 ], [ false, %52 ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i ], [ false, %32 ], [ false, %41 ]
   %78 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !105
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i unwind label %79
@@ -990,7 +990,7 @@ _ZNK12obj_pair_mapIN3smt5enodeES1_iE9find_coreEPS1_S3_.exit.i: ; preds = %75, %9
   br label %_ZNK12obj_pair_mapIN3smt5enodeES1_iE4findEPS1_S3_Ri.exit
 
 _ZNK12obj_pair_mapIN3smt5enodeES1_iE4findEPS1_S3_Ri.exit: ; preds = %81, %100, %97, %_ZNK12obj_pair_mapIN3smt5enodeES1_iE9find_coreEPS1_S3_.exit.i, %.preheader.i.i.i, %_ZNK10arith_util10is_numeralEPK4expr.exit3, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  %103 = phi i1 [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit3 ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ true, %_ZNK12obj_pair_mapIN3smt5enodeES1_iE9find_coreEPS1_S3_.exit.i ], [ false, %.preheader.i.i.i ], [ false, %97 ], [ false, %100 ], [ false, %81 ]
+  %103 = phi i1 [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit3 ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ true, %_ZNK12obj_pair_mapIN3smt5enodeES1_iE9find_coreEPS1_S3_.exit.i ], [ false, %.preheader.i.i.i ], [ false, %100 ], [ false, %97 ], [ false, %81 ]
   ret i1 %103
 }
 
@@ -1099,7 +1099,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %10, %2, %_ZNK10arit
   br label %.lr.ph38.i.i, !llvm.loop !142
 
 _ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE8containsERKPS2_.exit: ; preds = %40, %34, %55, %52, %46, %.preheader.i.i, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  %56 = phi i1 [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ false, %.preheader.i.i ], [ false, %52 ], [ false, %55 ], [ true, %46 ], [ %.not.i.not.not, %34 ], [ %.not.i.not.not, %40 ]
+  %56 = phi i1 [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ false, %.preheader.i.i ], [ true, %46 ], [ false, %52 ], [ false, %55 ], [ %.not.i.not.not, %34 ], [ %.not.i.not.not, %40 ]
   ret i1 %56
 }
 
@@ -1720,7 +1720,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enod
   br label %67
 
 45:                                               ; preds = %36, %29
-  %.1 = phi ptr [ %.04464, %29 ], [ %.04563, %36 ]
+  %.1 = phi ptr [ %.04563, %36 ], [ %.04464, %29 ]
   %46 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %46, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !609
@@ -1768,7 +1768,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enod
   br label %67
 
 65:                                               ; preds = %56, %49
-  %.3 = phi ptr [ %.267, %49 ], [ %.14666, %56 ]
+  %.3 = phi ptr [ %.14666, %56 ], [ %.267, %49 ]
   %66 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %66, %24
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !610

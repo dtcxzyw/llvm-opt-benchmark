@@ -210,7 +210,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %64
 
 64:                                               ; preds = %56, %47
-  %.2.i = phi i32 [ %52, %47 ], [ %.1107.i, %56 ]
+  %.2.i = phi i32 [ %.1107.i, %56 ], [ %52, %47 ]
   %.not82.i = icmp eq i32 %.2.i, 0
   br i1 %.not82.i, label %67, label %65
 
@@ -226,7 +226,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %67, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.preheader.i, %39
-  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ 0, %.lr.ph.split.us.i.us ], [ %8, %.lr.ph.split.us.i ], [ %.296.i, %67 ]
+  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ %8, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.us ], [ %.296.i, %67 ]
   br i1 %.not79.i, label %70, label %69
 
 69:                                               ; preds = %.loopexit.i
@@ -317,7 +317,7 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   br label %.thread97.i
 
 .thread97.i:                                      ; preds = %99, %97, %90, %87, %86, %81, %76, %75, %74, %72
-  %.not22 = phi i1 [ false, %97 ], [ false, %99 ], [ true, %90 ], [ true, %72 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %81 ], [ true, %86 ], [ true, %87 ]
+  %.not22 = phi i1 [ true, %90 ], [ false, %97 ], [ false, %99 ], [ true, %72 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %87 ], [ true, %81 ], [ true, %86 ]
   %103 = call i32 @cmsysProcess_GetState(ptr noundef nonnull %17) #13
   %.not92.i = icmp eq i32 %103, %1
   br i1 %.not92.i, label %104, label %.thread
@@ -361,7 +361,7 @@ runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %ru
   br label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %.preheader, %runChild2.exit..loopexit_crit_edge, %runChild2.exit.thread
-  %.1 = phi i32 [ 1, %runChild2.exit.thread ], [ 1, %runChild2.exit..loopexit_crit_edge ], [ 1, %.preheader ], [ 0, %24 ]
+  %.1 = phi i32 [ 1, %runChild2.exit.thread ], [ 1, %.preheader ], [ 1, %runChild2.exit..loopexit_crit_edge ], [ 0, %24 ]
   call void @cmsysProcess_Delete(ptr noundef nonnull %17) #13
   br label %114
 
@@ -689,7 +689,7 @@ sub_0:                                            ; preds = %143
   br label %157
 
 157:                                              ; preds = %.tail.thread, %151, %98, %73, %72, %test9_grandchild.exit, %48, %46, %44, %42, %41, %32, %31, %30, %29, %28
-  %.0 = phi i32 [ 1, %73 ], [ 0, %28 ], [ 123, %29 ], [ 0, %30 ], [ 0, %31 ], [ %33, %32 ], [ 0, %41 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ 0, %48 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %72 ], [ %134, %98 ], [ %153, %151 ], [ 1, %.tail.thread ]
+  %.0 = phi i32 [ 1, %73 ], [ 0, %28 ], [ 123, %29 ], [ 0, %30 ], [ 0, %31 ], [ %33, %32 ], [ 1, %.tail.thread ], [ 0, %41 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ 0, %48 ], [ %.0.i, %test9_grandchild.exit ], [ 0, %72 ], [ %134, %98 ], [ %153, %151 ]
   ret i32 %.0
 }
 

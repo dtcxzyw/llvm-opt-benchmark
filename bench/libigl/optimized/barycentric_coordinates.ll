@@ -1605,7 +1605,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13Cwis
   br label %.body
 
 .body:                                            ; preds = %211, %213, %215, %90
-  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ]
+  %.pn43.pn.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %214, %213 ], [ %216, %215 ], [ %212, %211 ]
   %217 = load ptr, ptr %30, align 8, !tbaa !36
   call void @free(ptr noundef %217) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %30)

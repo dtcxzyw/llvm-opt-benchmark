@@ -1181,10 +1181,10 @@ define hidden void @IntArgbAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %115, label %175, label %116
 
 116:                                              ; preds = %114, %98, %99
-  %.0124 = phi i32 [ %104, %99 ], [ %18, %98 ], [ 0, %114 ]
-  %.0121 = phi i32 [ %107, %99 ], [ %.0135, %98 ], [ 0, %114 ]
-  %.0118 = phi i32 [ %110, %99 ], [ %.0136, %98 ], [ 0, %114 ]
-  %.0117 = phi i32 [ %113, %99 ], [ %.0144, %98 ], [ 0, %114 ]
+  %.0124 = phi i32 [ %18, %98 ], [ %104, %99 ], [ 0, %114 ]
+  %.0121 = phi i32 [ %.0135, %98 ], [ %107, %99 ], [ 0, %114 ]
+  %.0118 = phi i32 [ %.0136, %98 ], [ %110, %99 ], [ 0, %114 ]
+  %.0117 = phi i32 [ %.0144, %98 ], [ %113, %99 ], [ 0, %114 ]
   %.not171 = icmp eq i32 %.4154, 0
   br i1 %.not171, label %150, label %117
 
@@ -2091,10 +2091,10 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %58, %59
-  %.0163188 = phi i32 [ %74, %59 ], [ 255, %58 ], [ %.0163188.ph, %.thread.sink.split ]
-  %.1169 = phi i32 [ %85, %59 ], [ %57, %58 ], [ %111, %.thread.sink.split ]
-  %.1167 = phi i32 [ %94, %59 ], [ %55, %58 ], [ %115, %.thread.sink.split ]
-  %.1165 = phi i32 [ %103, %59 ], [ %53, %58 ], [ %119, %.thread.sink.split ]
+  %.0163188 = phi i32 [ 255, %58 ], [ %74, %59 ], [ %.0163188.ph, %.thread.sink.split ]
+  %.1169 = phi i32 [ %57, %58 ], [ %85, %59 ], [ %111, %.thread.sink.split ]
+  %.1167 = phi i32 [ %55, %58 ], [ %94, %59 ], [ %115, %.thread.sink.split ]
+  %.1165 = phi i32 [ %53, %58 ], [ %103, %59 ], [ %119, %.thread.sink.split ]
   %120 = shl nuw nsw i32 %.0163188, 16
   %121 = shl nuw nsw i32 %.1169, 8
   %122 = or i32 %121, %120
@@ -2232,10 +2232,10 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   br label %.thread190
 
 .thread190:                                       ; preds = %.thread190.sink.split, %159, %160
-  %.0156195 = phi i32 [ %175, %160 ], [ 255, %159 ], [ %.0156195.ph, %.thread190.sink.split ]
-  %.1155 = phi i32 [ %186, %160 ], [ %158, %159 ], [ %212, %.thread190.sink.split ]
-  %.1153 = phi i32 [ %195, %160 ], [ %156, %159 ], [ %216, %.thread190.sink.split ]
-  %.1151 = phi i32 [ %204, %160 ], [ %154, %159 ], [ %220, %.thread190.sink.split ]
+  %.0156195 = phi i32 [ 255, %159 ], [ %175, %160 ], [ %.0156195.ph, %.thread190.sink.split ]
+  %.1155 = phi i32 [ %158, %159 ], [ %186, %160 ], [ %212, %.thread190.sink.split ]
+  %.1153 = phi i32 [ %156, %159 ], [ %195, %160 ], [ %216, %.thread190.sink.split ]
+  %.1151 = phi i32 [ %154, %159 ], [ %204, %160 ], [ %220, %.thread190.sink.split ]
   %221 = shl nuw nsw i32 %.0156195, 16
   %222 = shl nuw nsw i32 %.1155, 8
   %223 = or i32 %222, %221

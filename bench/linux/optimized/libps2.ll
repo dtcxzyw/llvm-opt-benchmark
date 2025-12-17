@@ -131,8 +131,8 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0
   br label %.thread
 
 .thread:                                          ; preds = %10, %._crit_edge, %23, %20
-  %52 = phi i1 [ true, %._crit_edge ], [ true, %23 ], [ false, %20 ], [ false, %10 ]
-  %53 = phi i32 [ 0, %._crit_edge ], [ 0, %23 ], [ %21, %20 ], [ -1, %10 ]
+  %52 = phi i1 [ false, %20 ], [ true, %._crit_edge ], [ true, %23 ], [ false, %10 ]
+  %53 = phi i32 [ %21, %20 ], [ 0, %._crit_edge ], [ 0, %23 ], [ -1, %10 ]
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 208
   call void @_raw_spin_lock_irq(ptr noundef nonnull %55) #7

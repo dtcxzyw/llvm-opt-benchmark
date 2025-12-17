@@ -191,7 +191,7 @@ define dso_local ptr @dma_fence_chain_walk(ptr noundef %0) #0 align 16 {
   br i1 %89, label %.thread24, label %20, !llvm.loop !9
 
 .thread24:                                        ; preds = %32, %38, %49, %53, %.thread23, %7
-  %90 = phi ptr [ null, %7 ], [ %21, %53 ], [ %21, %49 ], [ %21, %38 ], [ %21, %32 ], [ null, %.thread23 ]
+  %90 = phi ptr [ null, %7 ], [ %21, %49 ], [ %21, %38 ], [ %21, %32 ], [ null, %.thread23 ], [ %21, %53 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, i32 -1, ptr nonnull elementtype(i32) %91) #6, !srcloc !5
   %93 = icmp eq i32 %92, 1
@@ -216,7 +216,7 @@ define dso_local ptr @dma_fence_chain_walk(ptr noundef %0) #0 align 16 {
   br label %.thread15
 
 .thread15:                                        ; preds = %94, %96, %16, %18, %1, %98
-  %101 = phi ptr [ %100, %98 ], [ null, %1 ], [ null, %18 ], [ null, %16 ], [ %90, %96 ], [ %90, %94 ]
+  %101 = phi ptr [ %100, %98 ], [ null, %1 ], [ %90, %94 ], [ null, %16 ], [ null, %18 ], [ %90, %96 ]
   ret ptr %101
 }
 
@@ -386,7 +386,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_chain_find_seqno(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %47, %49, %7, %4, %50, %11, %2
-  %51 = phi i32 [ 0, %2 ], [ -22, %11 ], [ 0, %50 ], [ -22, %4 ], [ -22, %7 ], [ 0, %49 ], [ 0, %47 ]
+  %51 = phi i32 [ 0, %2 ], [ -22, %11 ], [ 0, %50 ], [ -22, %7 ], [ -22, %4 ], [ 0, %49 ], [ 0, %47 ]
   ret i32 %51
 }
 
@@ -551,7 +551,7 @@ define internal noundef zeroext i1 @dma_fence_chain_enable_signaling(ptr noundef
   br label %.thread24
 
 .thread24:                                        ; preds = %71, %73, %3, %1, %58, %56, %.thread25, %74
-  %75 = phi i1 [ false, %74 ], [ true, %.thread25 ], [ true, %56 ], [ true, %58 ], [ false, %1 ], [ false, %3 ], [ false, %73 ], [ false, %71 ]
+  %75 = phi i1 [ false, %74 ], [ false, %3 ], [ true, %58 ], [ true, %.thread25 ], [ true, %56 ], [ false, %1 ], [ false, %73 ], [ false, %71 ]
   ret i1 %75
 }
 
@@ -641,7 +641,7 @@ define internal noundef zeroext i1 @dma_fence_chain_signaled(ptr noundef %0) #0 
   br i1 %46, label %.critedge10, label %13, !llvm.loop !19
 
 .critedge10:                                      ; preds = %.critedge, %41, %43, %1, %44
-  %47 = phi i1 [ false, %44 ], [ true, %1 ], [ false, %43 ], [ false, %41 ], [ true, %.critedge ]
+  %47 = phi i1 [ true, %1 ], [ false, %44 ], [ false, %43 ], [ false, %41 ], [ true, %.critedge ]
   ret i1 %47
 }
 

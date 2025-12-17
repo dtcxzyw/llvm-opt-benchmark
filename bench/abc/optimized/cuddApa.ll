@@ -369,7 +369,7 @@ define range(i32 -1, 2) i32 @Cudd_ApaCompare(i32 noundef %0, ptr noundef readonl
   br i1 %28, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %.lr.ph53, %27, %23, %.preheader, %18, %._crit_edge48
-  %.036 = phi i32 [ 1, %._crit_edge48 ], [ -1, %18 ], [ 0, %.preheader ], [ 1, %.lr.ph53 ], [ -1, %27 ], [ 0, %23 ]
+  %.036 = phi i32 [ -1, %18 ], [ 1, %._crit_edge48 ], [ 0, %.preheader ], [ -1, %27 ], [ 1, %.lr.ph53 ], [ 0, %23 ]
   ret i32 %.036
 }
 
@@ -537,12 +537,12 @@ Cudd_ApaIntDivision.exit41:                       ; preds = %Cudd_ApaIntDivision
   br i1 %64, label %Cudd_ApaCompare.exit.thread, label %59
 
 Cudd_ApaCompare.exit:                             ; preds = %._crit_edge48.i, %54, %.preheader.i
-  %.036.i = phi i32 [ 1, %._crit_edge48.i ], [ -1, %54 ], [ 0, %.preheader.i ]
+  %.036.i = phi i32 [ -1, %54 ], [ 1, %._crit_edge48.i ], [ 0, %.preheader.i ]
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %65, label %Cudd_ApaCompare.exit.thread
 
 Cudd_ApaCompare.exit.thread:                      ; preds = %63, %.lr.ph53.i, %59, %Cudd_ApaCompare.exit
-  %.036.i50 = phi i32 [ %.036.i, %Cudd_ApaCompare.exit ], [ 1, %.lr.ph53.i ], [ -1, %63 ], [ 0, %59 ]
+  %.036.i50 = phi i32 [ %.036.i, %Cudd_ApaCompare.exit ], [ -1, %63 ], [ 1, %.lr.ph53.i ], [ 0, %59 ]
   tail call void @free(ptr noundef nonnull %9) #19
   br label %65
 
@@ -809,7 +809,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   br i1 %37, label %.lr.ph.i54.us, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %Cudd_ApaShortDivision.exit.us, %Cudd_ApaCopy.exit.thread, %Cudd_ApaShortDivision.exit.thread.preheader, %Cudd_ApaCopy.exit
-  %.049.lcssa = phi i32 [ %7, %Cudd_ApaCopy.exit ], [ %7, %Cudd_ApaShortDivision.exit.thread.preheader ], [ %7, %Cudd_ApaCopy.exit.thread ], [ %spec.select, %Cudd_ApaShortDivision.exit.us ]
+  %.049.lcssa = phi i32 [ %7, %Cudd_ApaCopy.exit ], [ %7, %Cudd_ApaCopy.exit.thread ], [ %7, %Cudd_ApaShortDivision.exit.thread.preheader ], [ %spec.select, %Cudd_ApaShortDivision.exit.us ]
   tail call void @free(ptr noundef nonnull %11) #19
   %38 = add nsw i32 %.049.lcssa, %3
   %39 = tail call i32 @llvm.smin.i32(i32 %8, i32 %38)
@@ -852,7 +852,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
   br label %56
 
 56:                                               ; preds = %._crit_edge68, %4, %52, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %52 ], [ 0, %4 ], [ %spec.select53, %._crit_edge68 ]
+  %.0 = phi i32 [ %spec.select53, %._crit_edge68 ], [ 0, %17 ], [ 0, %52 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1032,7 +1032,7 @@ Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.p
   br label %90
 
 90:                                               ; preds = %Cudd_ApaSubtract.exit, %89, %59, %64, %4, %51, %43, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %43 ], [ null, %51 ], [ null, %4 ], [ null, %64 ], [ null, %59 ], [ %57, %89 ], [ %57, %Cudd_ApaSubtract.exit ]
+  %.0 = phi ptr [ null, %59 ], [ null, %34 ], [ null, %43 ], [ null, %51 ], [ null, %4 ], [ null, %64 ], [ %57, %89 ], [ %57, %Cudd_ApaSubtract.exit ]
   ret ptr %.0
 }
 
@@ -1259,7 +1259,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br label %116
 
 116:                                              ; preds = %108, %111, %9, %115, %114, %50, %54, %35, %39, %22, %20
-  %.061 = phi ptr [ %21, %20 ], [ null, %22 ], [ null, %39 ], [ null, %35 ], [ null, %54 ], [ null, %50 ], [ null, %114 ], [ null, %115 ], [ %spec.select, %9 ], [ %.pre, %111 ], [ %.pre85, %108 ]
+  %.061 = phi ptr [ null, %114 ], [ null, %115 ], [ %21, %20 ], [ %spec.select, %9 ], [ null, %22 ], [ null, %35 ], [ null, %50 ], [ null, %39 ], [ null, %54 ], [ %.pre, %111 ], [ %.pre85, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.061
 }
@@ -1299,7 +1299,7 @@ define range(i32 0, 2) i32 @Cudd_ApaPrintMinterm(ptr noundef captures(none) %0, 
   br label %13
 
 13:                                               ; preds = %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ %spec.select, %8 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1322,7 +1322,7 @@ define range(i32 0, 2) i32 @Cudd_ApaPrintMintermExp(ptr noundef captures(none) %
   br label %14
 
 14:                                               ; preds = %9, %5
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ %spec.select, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

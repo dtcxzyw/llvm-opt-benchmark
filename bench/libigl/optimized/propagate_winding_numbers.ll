@@ -461,7 +461,7 @@ _ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit:     ; preds = %._ZNSt5queueImSt5de
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph272, %.loopexit.loopexit, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit
-  %168 = phi ptr [ %.pre298, %.loopexit.loopexit ], [ %storemerge.i.i, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit ], [ %storemerge.i.i, %.lr.ph272 ]
+  %168 = phi ptr [ %storemerge.i.i, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit ], [ %.pre298, %.loopexit.loopexit ], [ %storemerge.i.i, %.lr.ph272 ]
   %169 = load ptr, ptr %149, align 8, !tbaa !40
   %170 = icmp eq ptr %169, %168
   br i1 %170, label %._crit_edge277, label %171, !llvm.loop !41
@@ -691,7 +691,7 @@ _ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us:         ; preds = %268, %266, %264
   br label %.noexc139.us
 
 .noexc139.us:                                     ; preds = %298, %296, %294, %287, %284, %282, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us
-  %.0.i.us = phi ptr [ %259, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us ], [ %273, %298 ], [ %273, %294 ], [ %273, %296 ], [ %273, %287 ], [ %273, %282 ], [ %273, %284 ]
+  %.0.i.us = phi ptr [ %259, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us ], [ %273, %296 ], [ %273, %298 ], [ %273, %294 ], [ %273, %287 ], [ %273, %282 ], [ %273, %284 ]
   store ptr %.0.i.us, ptr %164, align 8, !tbaa !45
   %299 = load ptr, ptr %.0.i.us, align 8, !tbaa !46
   store ptr %299, ptr %163, align 8, !tbaa !47
@@ -1013,7 +1013,7 @@ _ZNSt5queueImSt5dequeImSaImEEED2Ev.exit124:       ; preds = %_ZNSt11_Deque_baseI
   br label %.body
 
 .body:                                            ; preds = %.body103, %51
-  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94, %.body103 ], [ %52, %51 ]
+  %.pn94.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn94, %.body103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %416
 
@@ -1677,7 +1677,7 @@ _ZNSt5queueImSt5dequeImSaImEEE4pushERKm.exit:     ; preds = %._ZNSt5queueImSt5de
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph272, %.loopexit.loopexit, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit
-  %168 = phi ptr [ %.pre298, %.loopexit.loopexit ], [ %storemerge.i.i, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit ], [ %storemerge.i.i, %.lr.ph272 ]
+  %168 = phi ptr [ %storemerge.i.i, %_ZNSt5queueImSt5dequeImSaImEEE3popEv.exit ], [ %.pre298, %.loopexit.loopexit ], [ %storemerge.i.i, %.lr.ph272 ]
   %169 = load ptr, ptr %149, align 8, !tbaa !40
   %170 = icmp eq ptr %169, %168
   br i1 %170, label %._crit_edge277, label %171, !llvm.loop !78
@@ -1907,7 +1907,7 @@ _ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us:         ; preds = %268, %266, %264
   br label %.noexc139.us
 
 .noexc139.us:                                     ; preds = %298, %296, %294, %287, %284, %282, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us
-  %.0.i.us = phi ptr [ %259, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us ], [ %273, %298 ], [ %273, %294 ], [ %273, %296 ], [ %273, %287 ], [ %273, %282 ], [ %273, %284 ]
+  %.0.i.us = phi ptr [ %259, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24.i.us ], [ %273, %296 ], [ %273, %298 ], [ %273, %294 ], [ %273, %287 ], [ %273, %282 ], [ %273, %284 ]
   store ptr %.0.i.us, ptr %164, align 8, !tbaa !45
   %299 = load ptr, ptr %.0.i.us, align 8, !tbaa !46
   store ptr %299, ptr %163, align 8, !tbaa !47
@@ -2229,7 +2229,7 @@ _ZNSt5queueImSt5dequeImSaImEEED2Ev.exit124:       ; preds = %_ZNSt11_Deque_baseI
   br label %.body
 
 .body:                                            ; preds = %.body103, %51
-  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94, %.body103 ], [ %52, %51 ]
+  %.pn94.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn94, %.body103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %416
 
@@ -2909,7 +2909,7 @@ _ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24:              ; preds = %67, %68, %70
   br label %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPmS1_ET0_T_S3_S2_.exit:                ; preds = %47, %45, %42, %34, %32, %31, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24
-  %.0 = phi ptr [ %62, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24 ], [ %24, %31 ], [ %24, %32 ], [ %24, %34 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
+  %.0 = phi ptr [ %62, %_ZSt4copyIPPmS1_ET0_T_S3_S2_.exit24 ], [ %24, %34 ], [ %24, %31 ], [ %24, %32 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
   store ptr %.0, ptr %6, align 8, !tbaa !45
   %74 = load ptr, ptr %.0, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24

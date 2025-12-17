@@ -513,10 +513,10 @@ _ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i: ; preds = %81, %78
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i: ; preds = %120, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i, %75
-  %.sroa.0172.3.i = phi ptr [ %17, %75 ], [ %.sroa.0172.5.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ], [ %.sroa.0172.5.i, %120 ]
-  %.sroa.0169.2.i = phi ptr [ %27, %75 ], [ %.sroa.0169.3.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ], [ %.sroa.0169.3.i, %120 ]
-  %.sroa.0166.2.i = phi ptr [ %36, %75 ], [ %.sroa.0166.3.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ], [ %.sroa.0166.3.i, %120 ]
-  %.pn118.pn.i = phi { ptr, i32 } [ %.pn113.i, %75 ], [ %.pn118.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ], [ %.pn118.i, %120 ]
+  %.sroa.0172.3.i = phi ptr [ %17, %75 ], [ %.sroa.0172.5.i, %120 ], [ %.sroa.0172.5.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ]
+  %.sroa.0169.2.i = phi ptr [ %27, %75 ], [ %.sroa.0169.3.i, %120 ], [ %.sroa.0169.3.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ]
+  %.sroa.0166.2.i = phi ptr [ %36, %75 ], [ %.sroa.0166.3.i, %120 ], [ %.sroa.0166.3.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ]
+  %.pn118.pn.i = phi { ptr, i32 } [ %.pn113.i, %75 ], [ %.pn118.i, %120 ], [ %.pn118.i, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i ]
   %124 = icmp eq ptr %.sroa.0166.2.i, null
   br i1 %124, label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i, label %125
 
@@ -528,9 +528,9 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i: ; preds = %120, %_ZN
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i: ; preds = %125, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i, %72
-  %.sroa.0172.2.i = phi ptr [ %17, %72 ], [ %.sroa.0172.3.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ], [ %.sroa.0172.3.i, %125 ]
-  %.sroa.0169.1.i = phi ptr [ %27, %72 ], [ %.sroa.0169.2.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ], [ %.sroa.0169.2.i, %125 ]
-  %.pn118.pn.pn.i = phi { ptr, i32 } [ %.pn111.i, %72 ], [ %.pn118.pn.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ], [ %.pn118.pn.i, %125 ]
+  %.sroa.0172.2.i = phi ptr [ %17, %72 ], [ %.sroa.0172.3.i, %125 ], [ %.sroa.0172.3.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ]
+  %.sroa.0169.1.i = phi ptr [ %27, %72 ], [ %.sroa.0169.2.i, %125 ], [ %.sroa.0169.2.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ]
+  %.pn118.pn.pn.i = phi { ptr, i32 } [ %.pn111.i, %72 ], [ %.pn118.pn.i, %125 ], [ %.pn118.pn.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i ]
   %129 = icmp eq ptr %.sroa.0169.1.i, null
   br i1 %129, label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i, label %130
 
@@ -542,8 +542,8 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i: ; preds = %125, %_ZN
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i: ; preds = %130, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i, %69
-  %.sroa.0172.1.i = phi ptr [ %17, %69 ], [ %.sroa.0172.2.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i ], [ %.sroa.0172.2.i, %130 ]
-  %.pn118.pn.pn.pn.i = phi { ptr, i32 } [ %.pn109.i, %69 ], [ %.pn118.pn.pn.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i ], [ %.pn118.pn.pn.i, %130 ]
+  %.sroa.0172.1.i = phi ptr [ %17, %69 ], [ %.sroa.0172.2.i, %130 ], [ %.sroa.0172.2.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i ]
+  %.pn118.pn.pn.pn.i = phi { ptr, i32 } [ %.pn109.i, %69 ], [ %.pn118.pn.pn.i, %130 ], [ %.pn118.pn.pn.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i ]
   %134 = icmp eq ptr %.sroa.0172.1.i, null
   br i1 %134, label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit156.i, label %135
 
@@ -608,7 +608,7 @@ define noundef i32 @_ZNK6icu_7713DangiCalendar14getRelatedYearER10UErrorCode(ptr
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %9 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

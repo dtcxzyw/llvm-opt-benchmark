@@ -1153,8 +1153,8 @@ define internal fastcc range(i32 -1, 2) i32 @get_utp_version(ptr noundef %0) unn
 35:                                               ; preds = %29, %25
   br label %.thread
 
-.thread:                                          ; preds = %16, %20, %29, %26, %12, %1, %35
-  %.035 = phi i32 [ %.0, %35 ], [ -1, %1 ], [ -1, %12 ], [ -1, %26 ], [ -1, %29 ], [ -1, %20 ], [ -1, %16 ]
+.thread:                                          ; preds = %20, %16, %29, %26, %12, %1, %35
+  %.035 = phi i32 [ -1, %12 ], [ -1, %1 ], [ -1, %20 ], [ -1, %29 ], [ -1, %26 ], [ %.0, %35 ], [ -1, %16 ]
   ret i32 %.035
 }
 
@@ -1570,7 +1570,7 @@ print_pdu_tracking_data.exit.i:                   ; preds = %59, %56, %49, %46, 
   br label %scan_for_next_pdu.exit
 
 scan_for_next_pdu.exit:                           ; preds = %27, %print_pdu_tracking_data.exit.i, %65, %69, %81, %86, %90, %95
-  %.0.i = phi i32 [ %96, %95 ], [ -1, %86 ], [ -1, %65 ], [ %85, %81 ], [ -1, %90 ], [ 0, %69 ], [ 0, %27 ], [ 0, %print_pdu_tracking_data.exit.i ]
+  %.0.i = phi i32 [ -1, %90 ], [ %96, %95 ], [ %85, %81 ], [ -1, %65 ], [ -1, %86 ], [ 0, %27 ], [ 0, %69 ], [ 0, %print_pdu_tracking_data.exit.i ]
   store volatile i32 %.0.i, ptr %6, align 4
   br label %97
 

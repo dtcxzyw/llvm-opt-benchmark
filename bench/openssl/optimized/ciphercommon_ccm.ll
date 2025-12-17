@@ -199,7 +199,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %83 = sub nuw nsw i64 %75, %79
   br label %ccm_tls_init.exit
 
-ccm_tls_init.exit.thread:                         ; preds = %54, %62, %80
+ccm_tls_init.exit.thread:                         ; preds = %62, %54, %80
   store i64 0, ptr %3, align 8, !tbaa !19
   br label %90
 
@@ -266,7 +266,7 @@ ccm_tls_iv_set_fixed.exit:                        ; preds = %99
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %ccm_tls_iv_set_fixed.exit, %41, %36, %93, %ossl_param_is_empty.exit, %106, %98, %90, %53, %25, %18, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %18 ], [ 0, %25 ], [ 0, %53 ], [ 0, %90 ], [ 0, %98 ], [ 0, %106 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %ccm_tls_iv_set_fixed.exit ], [ 1, %93 ], [ 0, %36 ], [ 0, %41 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %93 ], [ 0, %11 ], [ 0, %18 ], [ 0, %25 ], [ 0, %53 ], [ 0, %90 ], [ 0, %98 ], [ 0, %106 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %ccm_tls_iv_set_fixed.exit ], [ 0, %36 ], [ 0, %41 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -483,7 +483,7 @@ define range(i32 0, 2) i32 @ossl_ccm_get_ctx_params(ptr noundef %0, ptr noundef 
   br label %84
 
 84:                                               ; preds = %15, %61, %81, %71, %70, %66, %60, %53, %46, %39, %30, %23, %8
-  %.0 = phi i32 [ 0, %23 ], [ 0, %39 ], [ 0, %70 ], [ 0, %66 ], [ 0, %60 ], [ 0, %53 ], [ 0, %46 ], [ 0, %30 ], [ 0, %15 ], [ 0, %8 ], [ 0, %71 ], [ 1, %81 ], [ 1, %61 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %39 ], [ 0, %70 ], [ 0, %71 ], [ 0, %8 ], [ 0, %66 ], [ 0, %60 ], [ 0, %53 ], [ 0, %46 ], [ 0, %30 ], [ 0, %15 ], [ 1, %81 ], [ 1, %61 ]
   ret i32 %.0
 }
 
@@ -819,8 +819,8 @@ ccm_set_iv.exit68:                                ; preds = %97
   br label %.sink.split
 
 .sink.split:                                      ; preds = %73, %87, %109, %116, %118, %ccm_set_iv.exit, %125, %113, %70, %78, %97, %91, %65, %61, %56, %40, %28, %17, %13
-  %.1.sink = phi i64 [ 0, %13 ], [ 0, %17 ], [ 0, %56 ], [ 0, %40 ], [ %64, %61 ], [ %spec.select54.i, %65 ], [ 0, %28 ], [ 0, %87 ], [ 0, %109 ], [ 0, %118 ], [ 0, %116 ], [ 0, %73 ], [ %4, %ccm_set_iv.exit ], [ %4, %125 ], [ %4, %113 ], [ 0, %70 ], [ 0, %78 ], [ 0, %97 ], [ %spec.select73, %91 ]
-  %.0.ph.shrunk = phi i1 [ false, %13 ], [ false, %17 ], [ false, %56 ], [ false, %40 ], [ true, %61 ], [ %.not51.i, %65 ], [ false, %28 ], [ false, %87 ], [ false, %109 ], [ false, %118 ], [ false, %116 ], [ false, %73 ], [ true, %ccm_set_iv.exit ], [ true, %125 ], [ true, %113 ], [ true, %70 ], [ false, %78 ], [ false, %97 ], [ %.not61, %91 ]
+  %.1.sink = phi i64 [ 0, %28 ], [ 0, %13 ], [ %64, %61 ], [ 0, %17 ], [ 0, %40 ], [ 0, %56 ], [ %spec.select54.i, %65 ], [ 0, %73 ], [ 0, %97 ], [ 0, %87 ], [ %spec.select73, %91 ], [ 0, %109 ], [ 0, %118 ], [ 0, %116 ], [ 0, %78 ], [ %4, %ccm_set_iv.exit ], [ %4, %125 ], [ %4, %113 ], [ 0, %70 ]
+  %.0.ph.shrunk = phi i1 [ false, %28 ], [ false, %13 ], [ true, %61 ], [ false, %17 ], [ false, %40 ], [ false, %56 ], [ %.not51.i, %65 ], [ false, %73 ], [ false, %97 ], [ false, %87 ], [ %.not61, %91 ], [ false, %109 ], [ false, %118 ], [ false, %116 ], [ false, %78 ], [ true, %ccm_set_iv.exit ], [ true, %125 ], [ true, %113 ], [ true, %70 ]
   %.0.ph = zext i1 %.0.ph.shrunk to i32
   store i64 %.1.sink, ptr %2, align 8, !tbaa !19
   br label %128
@@ -846,7 +846,7 @@ define range(i32 0, 2) i32 @ossl_ccm_stream_final(ptr noundef %0, ptr noundef %1
   br label %9
 
 9:                                                ; preds = %6, %4, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %8 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -878,7 +878,7 @@ define range(i32 0, 2) i32 @ossl_ccm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br label %14
 
 14:                                               ; preds = %11, %6, %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %13 ], [ 0, %6 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %6 ], [ 1, %13 ], [ 0, %11 ]
   ret i32 %.0
 }
 

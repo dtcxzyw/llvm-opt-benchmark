@@ -133,7 +133,7 @@ define noundef zeroext i1 @pmix_output_init() local_unnamed_addr #2 {
   br label %24
 
 24:                                               ; preds = %13, %21, %18, %15
-  %.sink = phi i32 [ 6, %15 ], [ 3, %18 ], [ %., %21 ], [ 3, %13 ]
+  %.sink = phi i32 [ 6, %15 ], [ %., %21 ], [ 3, %18 ], [ 3, %13 ]
   store i32 %.sink, ptr @pmix_output_redirected_syslog_pri, align 4, !tbaa !14
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #22
   %.not28 = icmp eq ptr %25, null
@@ -459,7 +459,7 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %17, %55, %78
-  %.0 = phi i32 [ %.1, %78 ], [ %.1, %55 ], [ -29, %17 ]
+  %.0 = phi i32 [ %.1, %55 ], [ %.1, %78 ], [ -29, %17 ]
   ret i32 %.0
 }
 
@@ -927,7 +927,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %120, %1
   br label %143
 
 make_string.exit.i:                               ; preds = %.thread52.i, %132, %97, %77, %45, %18, %14, %9
-  %.044.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %132 ], [ %47, %.thread52.i ], [ %47, %97 ], [ %47, %77 ]
+  %.044.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %14 ], [ null, %9 ], [ %47, %132 ], [ %47, %.thread52.i ], [ %47, %97 ], [ %47, %77 ]
   %.pr54.i = load ptr, ptr %3, align 8, !tbaa !16
   %.not38.i = icmp eq ptr %.pr54.i, null
   br i1 %.not38.i, label %142, label %141
@@ -1390,7 +1390,7 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %35
   br label %61
 
 61:                                               ; preds = %57, %30, %60, %56, %26
-  %.035 = phi i32 [ -26, %56 ], [ 0, %60 ], [ 0, %26 ], [ -29, %30 ], [ -26, %57 ]
+  %.035 = phi i32 [ 0, %26 ], [ -26, %56 ], [ -29, %30 ], [ 0, %60 ], [ -26, %57 ]
   ret i32 %.035
 }
 

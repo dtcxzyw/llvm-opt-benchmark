@@ -242,10 +242,10 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt18RGBToSpectrumTableclENS_3RGB
   br label %_ZN4pbrt3RGBixEi.exit19
 
 _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
-  %.sink190 = phi float [ %.sroa.072.0.vec.extract, %19 ], [ %2, %17 ], [ %.sroa.072.4.vec.extract, %15 ]
-  %.sroa.072.4.vec.extract.sink = phi float [ %2, %19 ], [ %.sroa.072.4.vec.extract, %17 ], [ %.sroa.072.0.vec.extract, %15 ]
-  %20 = phi i64 [ 2, %19 ], [ 1, %17 ], [ 0, %15 ]
-  %.0.i18.sroa.speculated = phi float [ %.sroa.072.4.vec.extract, %19 ], [ %.sroa.072.0.vec.extract, %17 ], [ %2, %15 ]
+  %.sink190 = phi float [ %2, %17 ], [ %.sroa.072.0.vec.extract, %19 ], [ %.sroa.072.4.vec.extract, %15 ]
+  %.sroa.072.4.vec.extract.sink = phi float [ %.sroa.072.4.vec.extract, %17 ], [ %2, %19 ], [ %.sroa.072.0.vec.extract, %15 ]
+  %20 = phi i64 [ 1, %17 ], [ 2, %19 ], [ 0, %15 ]
+  %.0.i18.sroa.speculated = phi float [ %.sroa.072.0.vec.extract, %17 ], [ %.sroa.072.4.vec.extract, %19 ], [ %2, %15 ]
   %21 = fmul float %.sink190, 6.300000e+01
   %22 = fdiv float %21, %.sroa.072.4.vec.extract.sink
   %.val.val.i = load ptr, ptr %0, align 8, !tbaa !23
@@ -479,8 +479,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.body
   br i1 %22, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 .invoke:                                          ; preds = %2, %20, %17, %14
-  %23 = phi ptr [ @.str.4, %14 ], [ @.str.5, %17 ], [ @.str.6, %20 ], [ @.str.3, %2 ]
-  %24 = phi i64 [ 9, %14 ], [ 10, %17 ], [ 13, %20 ], [ 7, %2 ]
+  %23 = phi ptr [ @.str.5, %17 ], [ @.str.4, %14 ], [ @.str.6, %20 ], [ @.str.3, %2 ]
+  %24 = phi i64 [ 10, %17 ], [ 9, %14 ], [ 13, %20 ], [ 7, %2 ]
   %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %23, i64 noundef %24)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %8
 
@@ -1008,7 +1008,7 @@ _ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE4findERS5_.exit: ;
   %70 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4pbrt13ColorEncoding3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEEE5mutex) #29
   br label %140
 
-71:                                               ; preds = %60, %_ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13ColorEncodingEESt10_Select1stIS4_ESt4lessIfESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+71:                                               ; preds = %_ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13ColorEncodingEESt10_Select1stIS4_ESt4lessIfESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %60, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %72 = load ptr, ptr %2, align 8, !tbaa !32
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
@@ -1393,7 +1393,7 @@ _ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE11lower_boundERS5_
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !86
@@ -5905,8 +5905,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13Co
   br label %_ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13ColorEncodingEESt10_Select1stIS4_ESt4lessIfESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13ColorEncodingEESt10_Select1stIS4_ESt4lessIfESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %91, %88, %._crit_edge.thread.i43, %62, %59, %._crit_edge.thread.i25, %32, %28, %._crit_edge.thread.i, %74, %47, %63, %65, %38, %9
-  %.sroa.066.0 = phi ptr [ null, %9 ], [ %40, %38 ], [ null, %65 ], [ %1, %63 ], [ %spec.select, %47 ], [ %spec.select68, %74 ], [ %.sroa.05.0.i, %32 ], [ null, %._crit_edge.thread.i ], [ null, %28 ], [ %.sroa.05.0.i20, %62 ], [ null, %._crit_edge.thread.i25 ], [ null, %59 ], [ %.sroa.05.0.i38, %91 ], [ null, %._crit_edge.thread.i43 ], [ null, %88 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %40, %38 ], [ %67, %65 ], [ null, %63 ], [ %spec.select67, %47 ], [ %spec.select69, %74 ], [ null, %32 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa27.i, %28 ], [ null, %62 ], [ %.019.lcssa28.i26, %._crit_edge.thread.i25 ], [ %.019.lcssa27.i19, %59 ], [ null, %91 ], [ %.019.lcssa28.i44, %._crit_edge.thread.i43 ], [ %.019.lcssa27.i37, %88 ]
+  %.sroa.066.0 = phi ptr [ null, %65 ], [ %spec.select, %47 ], [ null, %9 ], [ %spec.select68, %74 ], [ null, %28 ], [ %40, %38 ], [ %1, %63 ], [ null, %59 ], [ %.sroa.05.0.i, %32 ], [ null, %._crit_edge.thread.i ], [ %.sroa.05.0.i20, %62 ], [ null, %._crit_edge.thread.i25 ], [ %.sroa.05.0.i38, %91 ], [ null, %._crit_edge.thread.i43 ], [ null, %88 ]
+  %.sroa.12.0 = phi ptr [ %67, %65 ], [ %spec.select67, %47 ], [ %11, %9 ], [ %spec.select69, %74 ], [ %.019.lcssa27.i, %28 ], [ %40, %38 ], [ null, %63 ], [ %.019.lcssa27.i19, %59 ], [ null, %32 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ null, %62 ], [ %.019.lcssa28.i26, %._crit_edge.thread.i25 ], [ null, %91 ], [ %.019.lcssa28.i44, %._crit_edge.thread.i43 ], [ %.019.lcssa27.i37, %88 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

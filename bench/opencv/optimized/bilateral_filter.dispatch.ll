@@ -1145,7 +1145,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %345, %348
   ret void
 
 .body:                                            ; preds = %184, %334, %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
-  %.pn32.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %.pn96.pn.pn.pn.pn.pn.i, %184 ], [ %70, %69 ], [ %.pn129.pn.pn.i, %334 ]
+  %.pn32.pn = phi { ptr, i32 } [ %.pn129.pn.pn.i, %334 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ], [ %.pn96.pn.pn.pn.pn.pn.i, %184 ], [ %70, %69 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #17
   br label %352
 
@@ -2023,7 +2023,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge383, %53
   ret void
 
 538:                                              ; preds = %.split.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %498
-  %.pn322.pn.pn = phi { ptr, i32 } [ %221, %.split.us ], [ %499, %498 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn322.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %221, %.split.us ], [ %499, %498 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn322.pn.pn
@@ -2661,7 +2661,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %351
 
 351:                                              ; preds = %348, %341
-  %352 = phi i1 [ true, %341 ], [ %spec.select507.us, %348 ]
+  %352 = phi i1 [ %spec.select507.us, %348 ], [ true, %341 ]
   %353 = load float, ptr %.0457525.us, align 4, !tbaa !64
   %354 = getelementptr inbounds nuw i8, ptr %.0457525.us, i64 4
   %355 = load float, ptr %354, align 4, !tbaa !64
@@ -2677,7 +2677,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %362
 
 362:                                              ; preds = %359, %351
-  %363 = phi i1 [ true, %351 ], [ %spec.select508.us, %359 ]
+  %363 = phi i1 [ %spec.select508.us, %359 ], [ true, %351 ]
   %364 = fsub float %342, %353
   %365 = call noundef float @llvm.fabs.f32(float %364)
   %366 = fsub float %344, %355
@@ -2795,7 +2795,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %442
 
 442:                                              ; preds = %439, %432
-  %443 = phi i1 [ true, %432 ], [ %spec.select, %439 ]
+  %443 = phi i1 [ %spec.select, %439 ], [ true, %432 ]
   %444 = load float, ptr %.0455518, align 4, !tbaa !64
   %445 = getelementptr inbounds nuw i8, ptr %.0455518, i64 4
   %446 = load float, ptr %445, align 4, !tbaa !64
@@ -2811,7 +2811,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %453
 
 453:                                              ; preds = %450, %442
-  %454 = phi i1 [ true, %442 ], [ %spec.select503, %450 ]
+  %454 = phi i1 [ %spec.select503, %450 ], [ true, %442 ]
   %455 = fsub float %444, %433
   %456 = call noundef float @llvm.fabs.f32(float %455)
   %457 = fsub float %446, %435
@@ -2885,7 +2885,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %506
 
 506:                                              ; preds = %503, %496
-  %507 = phi i1 [ true, %496 ], [ %spec.select504, %503 ]
+  %507 = phi i1 [ %spec.select504, %503 ], [ true, %496 ]
   %508 = fsub float %497, %433
   %509 = call noundef float @llvm.fabs.f32(float %508)
   %510 = fsub float %499, %435
@@ -2953,7 +2953,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %557
 
 557:                                              ; preds = %554, %547
-  %558 = phi i1 [ true, %547 ], [ %spec.select505, %554 ]
+  %558 = phi i1 [ %spec.select505, %554 ], [ true, %547 ]
   %559 = fsub float %548, %433
   %560 = call noundef float @llvm.fabs.f32(float %559)
   %561 = fsub float %550, %435
@@ -3021,7 +3021,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %315
   br label %608
 
 608:                                              ; preds = %605, %598
-  %609 = phi i1 [ true, %598 ], [ %spec.select506, %605 ]
+  %609 = phi i1 [ %spec.select506, %605 ], [ true, %598 ]
   %610 = fsub float %599, %433
   %611 = call noundef float @llvm.fabs.f32(float %610)
   %612 = fsub float %601, %435
@@ -3200,7 +3200,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge558, %70
   ret void
 
 709:                                              ; preds = %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %494
-  %.pn482.pn = phi { ptr, i32 } [ %188, %187 ], [ %495, %494 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn482.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %188, %187 ], [ %495, %494 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn482.pn

@@ -628,13 +628,13 @@ default.unreachable152:                           ; preds = %3
   br label %.body
 
 126:                                              ; preds = %59, %62, %124, %52
-  %.pn56.ph = phi { ptr, i32 } [ %53, %52 ], [ %60, %59 ], [ %.pn37.pn.pn.pn, %62 ], [ %.pn49.pn.pn.pn, %124 ]
+  %.pn56.ph = phi { ptr, i32 } [ %.pn49.pn.pn.pn, %124 ], [ %60, %59 ], [ %.pn37.pn.pn.pn, %62 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke fastcc void @"_ZN4core3ptr143drop_in_place$LT$aws_smithy_runtime..client..orchestrator..invoke_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7bddabd747bd0b5E"(ptr noundef nonnull align 8 %20) #20
           to label %125 unwind label %94
 
 .body:                                            ; preds = %142, %137, %131, %125
-  %.pn62 = phi { ptr, i32 } [ %132, %131 ], [ %.pn56.ph, %125 ], [ %143, %142 ], [ %138, %137 ]
+  %.pn62 = phi { ptr, i32 } [ %.pn56.ph, %125 ], [ %132, %131 ], [ %143, %142 ], [ %138, %137 ]
   store i8 2, ptr %22, align 8
   resume { ptr, i32 } %.pn62
 
@@ -2691,7 +2691,7 @@ common.ret.sink.split.i.i:                        ; preds = %400, %380, %373, %2
   unreachable
 
 .body.i.i.i.i.i.i.i.i:                            ; preds = %269, %263, %254, %242
-  %.pn4.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %264, %263 ], [ %.pn.i.i.i.i.i.i.i.i, %254 ], [ %270, %269 ], [ %243, %242 ]
+  %.pn4.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i.i.i, %254 ], [ %264, %263 ], [ %270, %269 ], [ %243, %242 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   store i8 0, ptr %268, align 8
   br label %.body.i.i.i.i.i.i.i
@@ -2715,7 +2715,7 @@ common.ret.sink.split.i.i:                        ; preds = %400, %380, %373, %2
   br i1 %276, label %284, label %283
 
 .body.i.i.i.i.i.i.i:                              ; preds = %281, %271, %.body.i.i.i.i.i.i.i.i, %210, %.body.i.i.i.i.i.i.i.i.i, %115
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %272, %271 ], [ %116, %115 ], [ %282, %281 ], [ %.pn4.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i.i ], [ %.pn4.i.i.i.i.i.i.i.i.i, %210 ]
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %116, %115 ], [ %272, %271 ], [ %282, %281 ], [ %.pn4.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i.i ], [ %.pn4.i.i.i.i.i.i.i.i.i, %210 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 1441
   store i8 0, ptr %277, align 1
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 1440
@@ -2737,7 +2737,7 @@ common.ret.sink.split.i.i:                        ; preds = %400, %380, %373, %2
           to label %283 unwind label %286
 
 common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i2.i.i.i.i.i.i, %288, %286, %.body.i.i.i.i.i.i.i
-  %common.resume.op.i2.i.i.i.i.i = phi { ptr, i32 } [ %287, %286 ], [ %.pn.i.i.i.i.i.i.i, %288 ], [ %.pn.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %314, %313 ], [ %.pn.i3.i.i.i.i.i.i, %315 ], [ %.pn.i3.i.i.i.i.i.i, %.body.i2.i.i.i.i.i.i ]
+  %common.resume.op.i2.i.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %287, %286 ], [ %.pn.i.i.i.i.i.i.i, %288 ], [ %314, %313 ], [ %.pn.i3.i.i.i.i.i.i, %315 ], [ %.pn.i3.i.i.i.i.i.i, %.body.i2.i.i.i.i.i.i ]
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store i8 0, ptr %285, align 8
   br label %.body14.i.i.i.i
@@ -2801,7 +2801,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   br i1 %306, label %312, label %311
 
 .body.i2.i.i.i.i.i.i:                             ; preds = %301, %297
-  %.pn.i3.i.i.i.i.i.i = phi { ptr, i32 } [ %302, %301 ], [ %298, %297 ]
+  %.pn.i3.i.i.i.i.i.i = phi { ptr, i32 } [ %298, %297 ], [ %302, %301 ]
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 1441
   store i8 0, ptr %307, align 1
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 1440
@@ -2973,7 +2973,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   br label %"_ZN4core3ptr168drop_in_place$LT$tracing..instrument..Instrumented$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcc88fc066c016ffcE.exit.i.i.i"
 
 .body18.i.i.i.i:                                  ; preds = %359, %354, %350, %330, %.body6.i.i.i.i
-  %.pn2.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %354 ], [ %331, %330 ], [ %eh.lpad-body7.i.i.i.i, %.body6.i.i.i.i ], [ %360, %359 ], [ %351, %350 ]
+  %.pn2.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body7.i.i.i.i, %.body6.i.i.i.i ], [ %.pn.i.i.i.i, %354 ], [ %331, %330 ], [ %360, %359 ], [ %351, %350 ]
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 1267
   store i8 0, ptr %362, align 1
   br label %.body.i.i.i
@@ -2992,7 +2992,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   br i1 %368, label %374, label %373
 
 .body.i.i.i:                                      ; preds = %363, %.body18.i.i.i.i, %.body.i.i.i.i, %35
-  %.pn.i.i.i = phi { ptr, i32 } [ %364, %363 ], [ %36, %35 ], [ %.pn2.i.i.i.i, %.body18.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %364, %363 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %.pn2.i.i.i.i, %.body18.i.i.i.i ]
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 1169
   store i8 0, ptr %369, align 1
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 1168
@@ -3067,7 +3067,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   br i1 %395, label %401, label %400
 
 .body.i4.i.i:                                     ; preds = %390, %386
-  %.pn.i5.i.i = phi { ptr, i32 } [ %391, %390 ], [ %387, %386 ]
+  %.pn.i5.i.i = phi { ptr, i32 } [ %387, %386 ], [ %391, %390 ]
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 1169
   store i8 0, ptr %396, align 1
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 1168
@@ -3099,7 +3099,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   unreachable
 
 .body.i.i:                                        ; preds = %404, %402, %.body.i4.i.i, %377, %375, %.body.i.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %376, %375 ], [ %.pn.i.i.i, %377 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %403, %402 ], [ %.pn.i5.i.i, %404 ], [ %.pn.i5.i.i, %.body.i4.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i.i ], [ %376, %375 ], [ %.pn.i.i.i, %377 ], [ %403, %402 ], [ %.pn.i5.i.i, %404 ], [ %.pn.i5.i.i, %.body.i4.i.i ]
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   store i8 0, ptr %407, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..InterceptorContext$GT$17h8774bb30488fcbd4E"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %26) #20
@@ -3120,7 +3120,7 @@ common.resume.i1.i.i.i.i.i:                       ; preds = %315, %313, %.body.i
   br label %.body
 
 .body:                                            ; preds = %10, %19, %.body.i.i, %411
-  %eh.lpad-body = phi { ptr, i32 } [ %412, %411 ], [ %20, %19 ], [ %11, %10 ], [ %.pn.i.i, %.body.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %412, %411 ], [ %11, %10 ], [ %20, %19 ], [ %.pn.i.i, %.body.i.i ]
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..RuntimeComponents$GT$17hb547ab2c73031400E"(ptr noalias noundef nonnull align 8 dereferenceable(368) %413) #20
           to label %415 unwind label %421
@@ -3470,7 +3470,7 @@ define internal fastcc void @"_ZN4core3ptr167drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr171drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..sign..SignError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h137b15dd6b7bd287E.exit": ; preds = %5
@@ -3832,7 +3832,7 @@ define internal fastcc void @"_ZN4core3ptr176drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr180drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..list_keys..ListKeysError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h9d6d2dc1366221d2E.exit": ; preds = %5
@@ -4030,7 +4030,7 @@ define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr182drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..create_key..CreateKeyError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17hb0b351a9c714f8c3E.exit": ; preds = %5
@@ -4228,7 +4228,7 @@ define internal fastcc void @"_ZN4core3ptr185drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr189drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..get_public_key..GetPublicKeyError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17hbc29df50c64261c7E.exit": ; preds = %5
@@ -4426,7 +4426,7 @@ define internal fastcc void @"_ZN4core3ptr199drop_in_place$LT$aws_smithy_runtime
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit": ; preds = %5
@@ -7037,9 +7037,9 @@ common.ret:                                       ; preds = %824, %825
           to label %231 unwind label %229, !noalias !996
 
 186:                                              ; preds = %.body266.i, %.body260.i, %255, %253, %243, %147, %127, %120
-  %187 = phi ptr [ %643, %.body260.i ], [ %260, %.body266.i ], [ %110, %243 ], [ %110, %253 ], [ %110, %255 ], [ %110, %127 ], [ %110, %120 ], [ %110, %147 ]
-  %188 = phi ptr [ %644, %.body260.i ], [ %261, %.body266.i ], [ %111, %243 ], [ %111, %253 ], [ %111, %255 ], [ %111, %127 ], [ %111, %120 ], [ %111, %147 ]
-  %.pn154.pn.pn.pn.i = phi { ptr, i32 } [ %.pn154.pn.pn.i, %.body260.i ], [ %.pn102.i, %.body266.i ], [ %244, %243 ], [ %.pn98.i, %253 ], [ %.pn93.pn.i, %255 ], [ %128, %127 ], [ %121, %120 ], [ %.pn85.pn.pn.pn.i, %147 ]
+  %187 = phi ptr [ %643, %.body260.i ], [ %260, %.body266.i ], [ %110, %243 ], [ %110, %253 ], [ %110, %255 ], [ %110, %127 ], [ %110, %147 ], [ %110, %120 ]
+  %188 = phi ptr [ %644, %.body260.i ], [ %261, %.body266.i ], [ %111, %243 ], [ %111, %253 ], [ %111, %255 ], [ %111, %127 ], [ %111, %147 ], [ %111, %120 ]
+  %.pn154.pn.pn.pn.i = phi { ptr, i32 } [ %.pn154.pn.pn.i, %.body260.i ], [ %.pn102.i, %.body266.i ], [ %244, %243 ], [ %.pn98.i, %253 ], [ %.pn93.pn.i, %255 ], [ %128, %127 ], [ %.pn85.pn.pn.pn.i, %147 ], [ %121, %120 ]
   store i8 2, ptr %187, align 8, !noalias !992
   br label %.body15
 
@@ -7460,7 +7460,7 @@ common.ret:                                       ; preds = %824, %825
   unreachable
 
 .body68.i.i:                                      ; preds = %472, %465, %459, %304
-  %.pn49.pn.i.i = phi { ptr, i32 } [ %.pn47.i.i, %459 ], [ %473, %472 ], [ %466, %465 ], [ %305, %304 ]
+  %.pn49.pn.i.i = phi { ptr, i32 } [ %466, %465 ], [ %.pn47.i.i, %459 ], [ %473, %472 ], [ %305, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1047
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %341
@@ -7472,7 +7472,7 @@ common.ret:                                       ; preds = %824, %825
   br label %.body56.i.i
 
 .body56.i.i:                                      ; preds = %310, %296, %292
-  %.pn39.pn.i.i = phi { ptr, i32 } [ %311, %310 ], [ %297, %296 ], [ %293, %292 ]
+  %.pn39.pn.i.i = phi { ptr, i32 } [ %311, %310 ], [ %293, %292 ], [ %297, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !1047
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_sdk_kms..operation..create_key.._create_key_input..CreateKeyInput$GT$17hd9da7fedc963ac33E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %41) #20
           to label %312 unwind label %308, !noalias !1051
@@ -7554,7 +7554,7 @@ common.ret:                                       ; preds = %824, %825
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..config..Builder$GT$$GT$17h0fee28d8c2ac3274E.exit.i.i" unwind label %339, !noalias !1051
 
 .body59.i.i:                                      ; preds = %484, %480, %339, %331, %319
-  %.pn53.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %484 ], [ %.pn49.pn.pn.i.i, %480 ], [ %320, %319 ], [ %340, %339 ], [ %.pn.i.i.i.i, %331 ]
+  %.pn53.i.i = phi { ptr, i32 } [ %320, %319 ], [ %.pn49.pn.pn.i.i, %484 ], [ %.pn49.pn.pn.i.i, %480 ], [ %340, %339 ], [ %.pn.i.i.i.i, %331 ]
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 6265
   store i8 0, ptr %338, align 1, !noalias !1047
   store i8 2, ptr %263, align 8, !noalias !1047
@@ -7632,7 +7632,7 @@ common.ret:                                       ; preds = %824, %825
   br label %362
 
 358:                                              ; preds = %.body.i.i.i, %419, %354
-  %.pn25.i.i.i = phi { ptr, i32 } [ %355, %354 ], [ %420, %419 ], [ %.pn13.i.i.i, %.body.i.i.i ]
+  %.pn25.i.i.i = phi { ptr, i32 } [ %355, %354 ], [ %.pn13.i.i.i, %.body.i.i.i ], [ %420, %419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %448
 
@@ -7711,7 +7711,7 @@ common.ret:                                       ; preds = %824, %825
   br label %392
 
 .body.i.i.i.i:                                    ; preds = %.body15.i.i.i.i, %378, %372
-  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %373, %372 ], [ %379, %378 ]
+  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %379, %378 ], [ %373, %372 ]
   store i8 2, ptr %364, align 1, !noalias !1116
   br label %.body.i.i.i
 
@@ -7749,7 +7749,7 @@ common.ret:                                       ; preds = %824, %825
   br label %392
 
 .body15.i.i.i.i:                                  ; preds = %410, %406, %394, %385
-  %.pn12.i.i.i.i = phi { ptr, i32 } [ %395, %394 ], [ %386, %385 ], [ %411, %410 ], [ %407, %406 ]
+  %.pn12.i.i.i.i = phi { ptr, i32 } [ %386, %385 ], [ %395, %394 ], [ %411, %410 ], [ %407, %406 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.body.i.i.i.i
 
@@ -8105,7 +8105,7 @@ common.ret:                                       ; preds = %824, %825
   br label %456
 
 .body.i.i.i:                                      ; preds = %414, %.body.i.i.i.i
-  %.pn13.i.i.i = phi { ptr, i32 } [ %415, %414 ], [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn13.i.i.i = phi { ptr, i32 } [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ], [ %415, %414 ]
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$aws_sdk_kms..operation..create_key..CreateKey..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4e7ab4fda111552bE"(ptr noundef nonnull align 8 %363) #20
           to label %358 unwind label %452, !noalias !1111
 
@@ -8209,7 +8209,7 @@ common.ret:                                       ; preds = %824, %825
   br label %488
 
 .body65.i.i:                                      ; preds = %454, %448
-  %.pn45.i.i = phi { ptr, i32 } [ %455, %454 ], [ %.pn25.pn.pn.i.i.i, %448 ]
+  %.pn45.i.i = phi { ptr, i32 } [ %.pn25.pn.pn.i.i.i, %448 ], [ %455, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.7.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.9.i.i)
@@ -8535,7 +8535,7 @@ common.ret:                                       ; preds = %824, %825
   br label %542
 
 585:                                              ; preds = %648, %616, %542, %522, %515
-  %.pn126.pn.i = phi { ptr, i32 } [ %617, %616 ], [ %.pn121.pn.pn.pn.i, %648 ], [ %523, %522 ], [ %516, %515 ], [ %.pn111.pn.pn.pn.pn.pn.i, %542 ]
+  %.pn126.pn.i = phi { ptr, i32 } [ %617, %616 ], [ %.pn121.pn.pn.pn.i, %648 ], [ %523, %522 ], [ %.pn111.pn.pn.pn.pn.pn.i, %542 ], [ %516, %515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !992
   br label %649
 
@@ -9138,7 +9138,7 @@ common.ret:                                       ; preds = %824, %825
   unreachable
 
 765:                                              ; preds = %821, %.body305.i, %713, %693, %686
-  %.pn151.pn.i = phi { ptr, i32 } [ %.pn151.i, %.body305.i ], [ %.pn146.pn.pn.pn.i, %821 ], [ %694, %693 ], [ %687, %686 ], [ %.pn136.pn.pn.pn.pn.pn.i, %713 ]
+  %.pn151.pn.i = phi { ptr, i32 } [ %.pn151.i, %.body305.i ], [ %.pn146.pn.pn.pn.i, %821 ], [ %694, %693 ], [ %.pn136.pn.pn.pn.pn.pn.i, %713 ], [ %687, %686 ]
   invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..create_key..CreateKeyError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h32afc87e8ecba1fbE"(ptr noalias noundef align 8 dereferenceable(336) %76) #20
           to label %816 unwind label %676, !noalias !996
 
@@ -9365,7 +9365,7 @@ common.ret:                                       ; preds = %824, %825
   br label %765
 
 .body.i:                                          ; preds = %486, %.body59.i.i
-  %.pn100.i = phi { ptr, i32 } [ %487, %486 ], [ %.pn53.i.i, %.body59.i.i ]
+  %.pn100.i = phi { ptr, i32 } [ %.pn53.i.i, %.body59.i.i ], [ %487, %486 ]
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$aws_sdk_kms..operation..create_key..builders..CreateKeyFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafdce2b90a1d1a09E"(ptr noundef nonnull align 8 %262) #20
           to label %250 unwind label %676, !noalias !996
 
@@ -9392,8 +9392,8 @@ common.ret:                                       ; preds = %824, %825
   br label %common.ret
 
 825:                                              ; preds = %819, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i272.i", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i270.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i.i", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i.i"
-  %.sroa.0486.1.i = phi i64 [ 2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i272.i" ], [ 2, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i270.i" ], [ 2, %819 ], [ 1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i.i" ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i.i" ]
-  %.sroa.5.1.i = phi ptr [ %650, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i272.i" ], [ %650, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i270.i" ], [ %813, %819 ], [ %.sroa.2.sroa.0.0.copyload.i, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i.i" ], [ %.sroa.2.sroa.0.0.copyload.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i.i" ]
+  %.sroa.0486.1.i = phi i64 [ 2, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i270.i" ], [ 2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i272.i" ], [ 2, %819 ], [ 1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i.i" ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i.i" ]
+  %.sroa.5.1.i = phi ptr [ %650, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i270.i" ], [ %650, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i272.i" ], [ %813, %819 ], [ %.sroa.2.sroa.0.0.copyload.i, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..types.._key_metadata..KeyMetadata$GT$$GT$17h4e9eaa0264d2a0c6E.llvm.9405825265181994393.exit.i.i" ], [ %.sroa.2.sroa.0.0.copyload.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8489.i, i64 16, i1 false)
   store i8 1, ptr %260, align 8, !noalias !992
@@ -9410,8 +9410,8 @@ common.ret:                                       ; preds = %824, %825
   br label %common.ret
 
 .body15:                                          ; preds = %822, %186
-  %826 = phi ptr [ %106, %822 ], [ %188, %186 ]
-  %.pn = phi { ptr, i32 } [ %823, %822 ], [ %.pn154.pn.pn.pn.i, %186 ]
+  %826 = phi ptr [ %188, %186 ], [ %106, %822 ]
+  %.pn = phi { ptr, i32 } [ %.pn154.pn.pn.pn.i, %186 ], [ %823, %822 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient..create_key..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae02a6f87d3a04eaE"(ptr noundef nonnull align 8 %826) #20
           to label %102 unwind label %827
 
@@ -9936,7 +9936,7 @@ common.ret:                                       ; preds = %976, %977
           to label %273 unwind label %271, !noalias !1379
 
 225:                                              ; preds = %292, %277, %180, %160, %153
-  %.pn162.pn.i = phi { ptr, i32 } [ %.pn162.i, %277 ], [ %.pn155.pn.pn.pn.i, %292 ], [ %161, %160 ], [ %154, %153 ], [ %.pn145.pn.pn.pn.pn.pn.i, %180 ]
+  %.pn162.pn.i = phi { ptr, i32 } [ %.pn162.i, %277 ], [ %.pn155.pn.pn.pn.i, %292 ], [ %161, %160 ], [ %.pn145.pn.pn.pn.pn.pn.i, %180 ], [ %154, %153 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145) #20
           to label %293 unwind label %285, !noalias !1379
 
@@ -10194,9 +10194,9 @@ common.ret:                                       ; preds = %976, %977
   br label %225
 
 293:                                              ; preds = %287, %225, %137
-  %294 = phi ptr [ %288, %287 ], [ %131, %225 ], [ %131, %137 ]
-  %295 = phi ptr [ %289, %287 ], [ %132, %225 ], [ %132, %137 ]
-  %.pn259.pn.i = phi { ptr, i32 } [ %.pn257.i, %287 ], [ %.pn162.pn.i, %225 ], [ %138, %137 ]
+  %294 = phi ptr [ %131, %225 ], [ %288, %287 ], [ %131, %137 ]
+  %295 = phi ptr [ %132, %225 ], [ %289, %287 ], [ %132, %137 ]
+  %.pn259.pn.i = phi { ptr, i32 } [ %.pn162.pn.i, %225 ], [ %.pn257.i, %287 ], [ %138, %137 ]
   store i8 2, ptr %294, align 8, !noalias !1375
   br label %.body14
 
@@ -10388,7 +10388,7 @@ common.ret:                                       ; preds = %976, %977
   unreachable
 
 .body70.i.i:                                      ; preds = %511, %504, %500, %344
-  %.pn49.pn.i.i = phi { ptr, i32 } [ %.pn45.i.i, %500 ], [ %512, %511 ], [ %505, %504 ], [ %345, %344 ]
+  %.pn49.pn.i.i = phi { ptr, i32 } [ %505, %504 ], [ %.pn45.i.i, %500 ], [ %512, %511 ], [ %345, %344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1450
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %382
@@ -10400,7 +10400,7 @@ common.ret:                                       ; preds = %976, %977
   br label %.body56.i.i
 
 .body56.i.i:                                      ; preds = %350, %336, %332
-  %.pn39.pn.i.i = phi { ptr, i32 } [ %351, %350 ], [ %337, %336 ], [ %333, %332 ]
+  %.pn39.pn.i.i = phi { ptr, i32 } [ %351, %350 ], [ %333, %332 ], [ %337, %336 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !1450
   invoke void @"_ZN4core3ptr122drop_in_place$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_input..ScheduleKeyDeletionInput$GT$17h27c57ed3ea1459a5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %43) #20
           to label %352 unwind label %348, !noalias !1454
@@ -10483,7 +10483,7 @@ common.ret:                                       ; preds = %976, %977
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..config..Builder$GT$$GT$17h0fee28d8c2ac3274E.exit.i.i" unwind label %380, !noalias !1454
 
 .body59.i.i:                                      ; preds = %523, %519, %380, %372, %360
-  %.pn53.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %523 ], [ %.pn49.pn.pn.i.i, %519 ], [ %361, %360 ], [ %381, %380 ], [ %.pn.i.i.i.i, %372 ]
+  %.pn53.i.i = phi { ptr, i32 } [ %361, %360 ], [ %.pn49.pn.pn.i.i, %523 ], [ %.pn49.pn.pn.i.i, %519 ], [ %381, %380 ], [ %.pn.i.i.i.i, %372 ]
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 5409
   store i8 0, ptr %379, align 1, !noalias !1450
   store i8 2, ptr %304, align 8, !noalias !1450
@@ -10640,7 +10640,7 @@ common.ret:                                       ; preds = %976, %977
   br label %433
 
 .body.i.i.i.i:                                    ; preds = %.body15.i.i.i.i, %419, %413
-  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %414, %413 ], [ %420, %419 ]
+  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %420, %419 ], [ %414, %413 ]
   store i8 2, ptr %405, align 1, !noalias !1520
   br label %.body.i.i.i
 
@@ -10678,7 +10678,7 @@ common.ret:                                       ; preds = %976, %977
   br label %433
 
 .body15.i.i.i.i:                                  ; preds = %451, %447, %435, %426
-  %.pn12.i.i.i.i = phi { ptr, i32 } [ %436, %435 ], [ %427, %426 ], [ %452, %451 ], [ %448, %447 ]
+  %.pn12.i.i.i.i = phi { ptr, i32 } [ %427, %426 ], [ %436, %435 ], [ %452, %451 ], [ %448, %447 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.body.i.i.i.i
 
@@ -11077,7 +11077,7 @@ common.ret:                                       ; preds = %976, %977
   br label %498
 
 .body.i.i.i:                                      ; preds = %455, %.body.i.i.i.i
-  %.pn13.i.i.i = phi { ptr, i32 } [ %456, %455 ], [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn13.i.i.i = phi { ptr, i32 } [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ], [ %456, %455 ]
   invoke fastcc void @"_ZN4core3ptr145drop_in_place$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletion..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c515b2f8b0af77aE"(ptr noundef nonnull align 8 %404) #20
           to label %399 unwind label %494, !noalias !1515
 
@@ -11169,7 +11169,7 @@ common.ret:                                       ; preds = %976, %977
   br label %527
 
 .body65.i.i:                                      ; preds = %496, %490
-  %.pn45.i.i = phi { ptr, i32 } [ %497, %496 ], [ %.pn25.pn.pn.i.i.i, %490 ]
+  %.pn45.i.i = phi { ptr, i32 } [ %.pn25.pn.pn.i.i.i, %490 ], [ %497, %496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.7.i.i)
   invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletion..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcce0ba5e5bb46338E"(ptr noundef nonnull align 8 %388) #20
@@ -11474,8 +11474,8 @@ common.ret:                                       ; preds = %976, %977
   br label %575
 
 620:                                              ; preds = %933, %.body412.i, %680, %575, %555, %548
-  %.0129.i = phi i1 [ true, %680 ], [ true, %.body412.i ], [ false, %933 ], [ true, %555 ], [ true, %548 ], [ true, %575 ]
-  %.pn247.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn247.pn.pn.pn.i, %680 ], [ %.pn225.i, %.body412.i ], [ %.pn201.i, %933 ], [ %556, %555 ], [ %549, %548 ], [ %.pn235.pn.pn.pn.pn.pn.i, %575 ]
+  %.0129.i = phi i1 [ true, %680 ], [ true, %.body412.i ], [ false, %933 ], [ true, %548 ], [ true, %575 ], [ true, %555 ]
+  %.pn247.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn247.pn.pn.pn.i, %680 ], [ %.pn225.i, %.body412.i ], [ %.pn201.i, %933 ], [ %549, %548 ], [ %.pn235.pn.pn.pn.pn.pn.i, %575 ], [ %556, %555 ]
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %621) #20
           to label %936 unwind label %285, !noalias !1379
@@ -11658,7 +11658,7 @@ common.ret:                                       ; preds = %976, %977
   br label %669
 
 669:                                              ; preds = %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i", %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit", %587, %560, %558
-  %.sroa.6771.1.i = phi i8 [ 0, %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i" ], [ 1, %587 ], [ 1, %560 ], [ 1, %558 ], [ 1, %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit" ]
+  %.sroa.6771.1.i = phi i8 [ 1, %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit" ], [ 0, %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i" ], [ 1, %587 ], [ 1, %560 ], [ 1, %558 ]
   %670 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1668
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %670)
@@ -11951,7 +11951,7 @@ common.ret:                                       ; preds = %976, %977
   unreachable
 
 767:                                              ; preds = %798, %716, %696, %689
-  %.pn219.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn219.pn.pn.pn.i, %798 ], [ %697, %696 ], [ %690, %689 ], [ %.pn209.pn.pn.pn.pn.pn.i, %716 ]
+  %.pn219.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn219.pn.pn.pn.i, %798 ], [ %697, %696 ], [ %.pn209.pn.pn.pn.pn.pn.i, %716 ], [ %690, %689 ]
   invoke void @"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE"(ptr noalias noundef nonnull align 8 dereferenceable(336) %94) #20
           to label %.body412.i unwind label %285, !noalias !1379
 
@@ -12380,7 +12380,7 @@ common.ret:                                       ; preds = %976, %977
           to label %"_ZN65_$LT$alloc..string..String$u20$as$u20$alloc..string..ToString$GT$9to_string17hc5cadbfb1279e211E.exit.i" unwind label %921, !noalias !1379
 
 887:                                              ; preds = %948, %963, %966, %834, %814, %807
-  %.pn198.pn.i = phi { ptr, i32 } [ %.pn187.pn.pn.pn.pn.pn.i, %966 ], [ %815, %814 ], [ %808, %807 ], [ %.pn175.pn.pn.pn.pn.pn.pn.pn.i, %834 ], [ %949, %948 ], [ %.pn194.i, %963 ]
+  %.pn198.pn.i = phi { ptr, i32 } [ %808, %807 ], [ %.pn187.pn.pn.pn.pn.pn.i, %966 ], [ %815, %814 ], [ %.pn175.pn.pn.pn.pn.pn.pn.pn.i, %834 ], [ %949, %948 ], [ %.pn194.i, %963 ]
   invoke fastcc void @"_ZN4core3ptr199drop_in_place$LT$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h5bdf79ecc45b55ceE"(ptr noalias noundef align 8 dereferenceable(336) %79) #20
           to label %933 unwind label %285, !noalias !1379
 
@@ -12753,7 +12753,7 @@ common.ret:                                       ; preds = %976, %977
           to label %287 unwind label %285, !noalias !1379
 
 .body.i:                                          ; preds = %525, %.body59.i.i
-  %.pn165.i = phi { ptr, i32 } [ %526, %525 ], [ %.pn53.i.i, %.body59.i.i ]
+  %.pn165.i = phi { ptr, i32 } [ %.pn53.i.i, %.body59.i.i ], [ %526, %525 ]
   invoke fastcc void @"_ZN4core3ptr145drop_in_place$LT$aws_sdk_kms..operation..schedule_key_deletion..builders..ScheduleKeyDeletionFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd9280265852c3a75E"(ptr noundef nonnull align 8 %303) #20
           to label %528 unwind label %285, !noalias !1379
 
@@ -12788,8 +12788,8 @@ common.ret:                                       ; preds = %976, %977
   br label %common.ret
 
 .body14:                                          ; preds = %974, %293
-  %979 = phi ptr [ %128, %974 ], [ %295, %293 ]
-  %.pn = phi { ptr, i32 } [ %975, %974 ], [ %.pn259.pn.i, %293 ]
+  %979 = phi ptr [ %295, %293 ], [ %128, %974 ]
+  %.pn = phi { ptr, i32 } [ %.pn259.pn.i, %293 ], [ %975, %974 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient..delete_key..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb94dc28771a4ec02E"(ptr noundef nonnull align 8 %979) #20
           to label %124 unwind label %980
 
@@ -13247,7 +13247,7 @@ common.ret:                                       ; preds = %317, %65
   unreachable
 
 .body70.i:                                        ; preds = %299, %292, %288, %133
-  %.pn49.pn.i = phi { ptr, i32 } [ %.pn45.i, %288 ], [ %300, %299 ], [ %293, %292 ], [ %134, %133 ]
+  %.pn49.pn.i = phi { ptr, i32 } [ %293, %292 ], [ %.pn45.i, %288 ], [ %300, %299 ], [ %134, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !1827
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %170
@@ -13259,7 +13259,7 @@ common.ret:                                       ; preds = %317, %65
   br label %.body56.i
 
 .body56.i:                                        ; preds = %139, %125, %121
-  %.pn39.pn.i = phi { ptr, i32 } [ %140, %139 ], [ %126, %125 ], [ %122, %121 ]
+  %.pn39.pn.i = phi { ptr, i32 } [ %140, %139 ], [ %122, %121 ], [ %126, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1827
   invoke void @"_ZN4core3ptr87drop_in_place$LT$aws_sdk_kms..operation..list_keys.._list_keys_input..ListKeysInput$GT$17hfc6030c1cfd1144fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %52) #20
           to label %141 unwind label %137, !noalias !1831
@@ -13341,7 +13341,7 @@ common.ret:                                       ; preds = %317, %65
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..config..Builder$GT$$GT$17h0fee28d8c2ac3274E.exit.i" unwind label %168, !noalias !1831
 
 .body59.i:                                        ; preds = %311, %307, %168, %160, %148
-  %.pn53.i = phi { ptr, i32 } [ %.pn49.pn.pn.i, %311 ], [ %.pn49.pn.pn.i, %307 ], [ %149, %148 ], [ %169, %168 ], [ %.pn.i.i.i, %160 ]
+  %.pn53.i = phi { ptr, i32 } [ %149, %148 ], [ %.pn49.pn.pn.i, %311 ], [ %.pn49.pn.pn.i, %307 ], [ %169, %168 ], [ %.pn.i.i.i, %160 ]
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 5361
   store i8 0, ptr %167, align 1, !noalias !1827
   store i8 2, ptr %93, align 8, !noalias !1827
@@ -13498,7 +13498,7 @@ common.ret:                                       ; preds = %317, %65
   br label %221
 
 .body.i.i.i:                                      ; preds = %.body15.i.i.i, %207, %201
-  %.pn12.pn.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i, %.body15.i.i.i ], [ %202, %201 ], [ %208, %207 ]
+  %.pn12.pn.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i, %.body15.i.i.i ], [ %208, %207 ], [ %202, %201 ]
   store i8 2, ptr %193, align 1, !noalias !1897
   br label %.body.i.i
 
@@ -13536,7 +13536,7 @@ common.ret:                                       ; preds = %317, %65
   br label %221
 
 .body15.i.i.i:                                    ; preds = %239, %235, %223, %214
-  %.pn12.i.i.i = phi { ptr, i32 } [ %224, %223 ], [ %215, %214 ], [ %240, %239 ], [ %236, %235 ]
+  %.pn12.i.i.i = phi { ptr, i32 } [ %215, %214 ], [ %224, %223 ], [ %240, %239 ], [ %236, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.body.i.i.i
 
@@ -13978,7 +13978,7 @@ common.ret:                                       ; preds = %317, %65
   br label %286
 
 .body.i.i:                                        ; preds = %243, %.body.i.i.i
-  %.pn13.i.i = phi { ptr, i32 } [ %244, %243 ], [ %.pn12.pn.i.i.i, %.body.i.i.i ]
+  %.pn13.i.i = phi { ptr, i32 } [ %.pn12.pn.i.i.i, %.body.i.i.i ], [ %244, %243 ]
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$aws_sdk_kms..operation..list_keys..ListKeys..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f725cdc51cf2712E"(ptr noundef nonnull align 8 %192) #20
           to label %187 unwind label %282, !noalias !1892
 
@@ -14070,7 +14070,7 @@ common.ret:                                       ; preds = %317, %65
   br label %315
 
 .body65.i:                                        ; preds = %284, %278
-  %.pn45.i = phi { ptr, i32 } [ %285, %284 ], [ %.pn25.pn.pn.i.i, %278 ]
+  %.pn45.i = phi { ptr, i32 } [ %.pn25.pn.pn.i.i, %278 ], [ %285, %284 ]
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$aws_sdk_kms..operation..list_keys..ListKeys..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha0cec102a2d57325E"(ptr noundef nonnull align 8 %176) #20
           to label %288 unwind label %137, !noalias !1831
 
@@ -14687,7 +14687,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.
   br label %450
 
 .body50:                                          ; preds = %452, %447, %466, %430
-  %.pn21.pn.pn = phi { ptr, i32 } [ %431, %430 ], [ %453, %452 ], [ %448, %447 ], [ %467, %466 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %431, %430 ], [ %467, %466 ], [ %453, %452 ], [ %448, %447 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17h12fadb3d13af9277E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #20
           to label %426 unwind label %474
 
@@ -14736,7 +14736,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.
   br label %482
 
 .body35:                                          ; preds = %313, %.body59.i
-  %.pn17 = phi { ptr, i32 } [ %314, %313 ], [ %.pn53.i, %.body59.i ]
+  %.pn17 = phi { ptr, i32 } [ %.pn53.i, %.body59.i ], [ %314, %313 ]
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$aws_sdk_kms..operation..list_keys..builders..ListKeysFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8f245cf1c0d6b65E"(ptr noundef nonnull align 8 %92) #20
           to label %.body43 unwind label %474
 }
@@ -15312,9 +15312,9 @@ common.ret:                                       ; preds = %1227, %1228
           to label %312 unwind label %310, !noalias !2035
 
 261:                                              ; preds = %1203, %326, %216, %196, %189
-  %262 = phi ptr [ %1204, %1203 ], [ %167, %326 ], [ %167, %196 ], [ %167, %189 ], [ %167, %216 ]
-  %263 = phi ptr [ %1205, %1203 ], [ %168, %326 ], [ %168, %196 ], [ %168, %189 ], [ %168, %216 ]
-  %.pn307.pn.pn.i = phi { ptr, i32 } [ %.pn307.pn.i, %1203 ], [ %.pn176.pn.pn.pn.i, %326 ], [ %197, %196 ], [ %190, %189 ], [ %.pn166.pn.pn.pn.pn.pn.i, %216 ]
+  %262 = phi ptr [ %1204, %1203 ], [ %167, %326 ], [ %167, %196 ], [ %167, %216 ], [ %167, %189 ]
+  %263 = phi ptr [ %1205, %1203 ], [ %168, %326 ], [ %168, %196 ], [ %168, %216 ], [ %168, %189 ]
+  %.pn307.pn.pn.i = phi { ptr, i32 } [ %.pn307.pn.i, %1203 ], [ %.pn176.pn.pn.pn.i, %326 ], [ %197, %196 ], [ %.pn166.pn.pn.pn.pn.pn.i, %216 ], [ %190, %189 ]
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %264) #20
           to label %329 unwind label %855, !noalias !2035
@@ -15559,9 +15559,9 @@ common.ret:                                       ; preds = %1227, %1228
   br label %1228
 
 329:                                              ; preds = %1223, %974, %971, %261, %173
-  %330 = phi ptr [ %336, %1223 ], [ %262, %261 ], [ %167, %173 ], [ %336, %974 ], [ %336, %971 ]
-  %331 = phi ptr [ %337, %1223 ], [ %263, %261 ], [ %168, %173 ], [ %337, %974 ], [ %337, %971 ]
-  %.pn311.pn.i = phi { ptr, i32 } [ %1224, %1223 ], [ %.pn307.pn.pn.i, %261 ], [ %174, %173 ], [ %975, %974 ], [ %.pn216.i, %971 ]
+  %330 = phi ptr [ %167, %173 ], [ %336, %1223 ], [ %262, %261 ], [ %336, %974 ], [ %336, %971 ]
+  %331 = phi ptr [ %168, %173 ], [ %337, %1223 ], [ %263, %261 ], [ %337, %974 ], [ %337, %971 ]
+  %.pn311.pn.i = phi { ptr, i32 } [ %174, %173 ], [ %1224, %1223 ], [ %.pn307.pn.pn.i, %261 ], [ %975, %974 ], [ %.pn216.i, %971 ]
   store i8 2, ptr %330, align 8, !noalias !2031
   br label %.body14
 
@@ -15749,7 +15749,7 @@ common.ret:                                       ; preds = %1227, %1228
   unreachable
 
 .body68.i.i:                                      ; preds = %545, %538, %532, %378
-  %.pn49.pn.i.i = phi { ptr, i32 } [ %.pn47.i.i, %532 ], [ %546, %545 ], [ %539, %538 ], [ %379, %378 ]
+  %.pn49.pn.i.i = phi { ptr, i32 } [ %539, %538 ], [ %.pn47.i.i, %532 ], [ %546, %545 ], [ %379, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !2106
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %416
@@ -15761,7 +15761,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %.body56.i.i
 
 .body56.i.i:                                      ; preds = %384, %370, %366
-  %.pn39.pn.i.i = phi { ptr, i32 } [ %385, %384 ], [ %371, %370 ], [ %367, %366 ]
+  %.pn39.pn.i.i = phi { ptr, i32 } [ %385, %384 ], [ %367, %366 ], [ %371, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !2106
   invoke void @"_ZN4core3ptr101drop_in_place$LT$aws_sdk_kms..operation..get_public_key.._get_public_key_input..GetPublicKeyInput$GT$17h5b087440c7fdbecfE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %71) #20
           to label %386 unwind label %382, !noalias !2110
@@ -15843,7 +15843,7 @@ common.ret:                                       ; preds = %1227, %1228
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..config..Builder$GT$$GT$17h0fee28d8c2ac3274E.exit.i.i" unwind label %414, !noalias !2110
 
 .body59.i.i:                                      ; preds = %557, %553, %414, %406, %394
-  %.pn53.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %557 ], [ %.pn49.pn.pn.i.i, %553 ], [ %395, %394 ], [ %415, %414 ], [ %.pn.i.i.i.i, %406 ]
+  %.pn53.i.i = phi { ptr, i32 } [ %395, %394 ], [ %.pn49.pn.pn.i.i, %557 ], [ %.pn49.pn.pn.i.i, %553 ], [ %415, %414 ], [ %.pn.i.i.i.i, %406 ]
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 5472
   store i8 0, ptr %413, align 8, !noalias !2106
   store i8 2, ptr %339, align 1, !noalias !2106
@@ -15917,7 +15917,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %437
 
 433:                                              ; preds = %.body.i.i.i, %494, %429
-  %.pn25.i.i.i = phi { ptr, i32 } [ %430, %429 ], [ %495, %494 ], [ %.pn13.i.i.i, %.body.i.i.i ]
+  %.pn25.i.i.i = phi { ptr, i32 } [ %430, %429 ], [ %.pn13.i.i.i, %.body.i.i.i ], [ %495, %494 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %521
 
@@ -15996,7 +15996,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %467
 
 .body.i.i.i.i:                                    ; preds = %.body15.i.i.i.i, %453, %447
-  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %448, %447 ], [ %454, %453 ]
+  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %454, %453 ], [ %448, %447 ]
   store i8 2, ptr %439, align 8, !noalias !2175
   br label %.body.i.i.i
 
@@ -16034,7 +16034,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %467
 
 .body15.i.i.i.i:                                  ; preds = %485, %481, %469, %460
-  %.pn12.i.i.i.i = phi { ptr, i32 } [ %470, %469 ], [ %461, %460 ], [ %486, %485 ], [ %482, %481 ]
+  %.pn12.i.i.i.i = phi { ptr, i32 } [ %461, %460 ], [ %470, %469 ], [ %486, %485 ], [ %482, %481 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %.body.i.i.i.i
 
@@ -16425,7 +16425,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %529
 
 .body.i.i.i:                                      ; preds = %489, %.body.i.i.i.i
-  %.pn13.i.i.i = phi { ptr, i32 } [ %490, %489 ], [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn13.i.i.i = phi { ptr, i32 } [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ], [ %490, %489 ]
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_kms..operation..get_public_key..GetPublicKey..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17he574e0c19f1ebe36E"(ptr noundef nonnull align 8 %438) #20
           to label %433 unwind label %525, !noalias !2170
 
@@ -16528,7 +16528,7 @@ common.ret:                                       ; preds = %1227, %1228
   br label %561
 
 .body65.i.i:                                      ; preds = %527, %521
-  %.pn45.i.i = phi { ptr, i32 } [ %528, %527 ], [ %.pn25.pn.pn.i.i.i, %521 ]
+  %.pn45.i.i = phi { ptr, i32 } [ %.pn25.pn.pn.i.i.i, %521 ], [ %528, %527 ]
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$aws_sdk_kms..operation..get_public_key..GetPublicKey..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4eb09ea3386218cbE"(ptr noundef nonnull align 8 %422) #20
           to label %532 unwind label %382, !noalias !2110
 
@@ -17699,7 +17699,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %694
   unreachable
 
 857:                                              ; preds = %807, %858, %854, %827, %823
-  %.pn254.pn.pn.pn.i = phi { ptr, i32 } [ %.pn254.i, %854 ], [ %828, %827 ], [ %824, %823 ], [ %859, %858 ], [ %808, %807 ]
+  %.pn254.pn.pn.pn.i = phi { ptr, i32 } [ %828, %827 ], [ %824, %823 ], [ %.pn254.i, %854 ], [ %859, %858 ], [ %808, %807 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !2031
   br label %942
 
@@ -17964,7 +17964,7 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %694
   br label %899
 
 942:                                              ; preds = %1218, %1201, %1128, %1108, %1101, %1093, %1090, %1017, %997, %990, %982, %899, %879, %872, %864, %857, %736, %716, %709, %698, %692, %686
-  %.pn304.pn.i = phi { ptr, i32 } [ %1202, %1201 ], [ %.pn299.pn.pn.pn.i, %1218 ], [ %1091, %1090 ], [ %.pn276.pn.pn.pn.i, %1093 ], [ %.pn211.pn.pn.pn.i, %982 ], [ %.pn254.pn.pn.pn.i, %857 ], [ %.pn236.pn.pn.pn.i, %864 ], [ %699, %698 ], [ %687, %686 ], [ %693, %692 ], [ %717, %716 ], [ %710, %709 ], [ %.pn226.pn.pn.pn.pn.pn.i, %736 ], [ %880, %879 ], [ %873, %872 ], [ %.pn201.pn.pn.pn.pn.pn.i, %899 ], [ %998, %997 ], [ %991, %990 ], [ %.pn266.pn.pn.pn.pn.pn.i, %1017 ], [ %1109, %1108 ], [ %1102, %1101 ], [ %.pn289.pn.pn.pn.pn.pn.i, %1128 ]
+  %.pn304.pn.i = phi { ptr, i32 } [ %1202, %1201 ], [ %.pn299.pn.pn.pn.i, %1218 ], [ %873, %872 ], [ %717, %716 ], [ %1102, %1101 ], [ %693, %692 ], [ %.pn201.pn.pn.pn.pn.pn.i, %899 ], [ %710, %709 ], [ %687, %686 ], [ %.pn254.pn.pn.pn.i, %857 ], [ %1091, %1090 ], [ %.pn276.pn.pn.pn.i, %1093 ], [ %.pn236.pn.pn.pn.i, %864 ], [ %1109, %1108 ], [ %991, %990 ], [ %.pn266.pn.pn.pn.pn.pn.i, %1017 ], [ %998, %997 ], [ %880, %879 ], [ %.pn289.pn.pn.pn.pn.pn.i, %1128 ], [ %.pn226.pn.pn.pn.pn.pn.i, %736 ], [ %699, %698 ], [ %.pn211.pn.pn.pn.i, %982 ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get_public_key.._get_public_key_output..GetPublicKeyOutput$GT$17h77a9b1379d7c9b59E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %136) #20
           to label %1203 unwind label %855, !noalias !2035
 
@@ -18937,7 +18937,7 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
   br label %329
 
 .body.i:                                          ; preds = %559, %.body59.i.i
-  %.pn187.i = phi { ptr, i32 } [ %560, %559 ], [ %.pn53.i.i, %.body59.i.i ]
+  %.pn187.i = phi { ptr, i32 } [ %.pn53.i.i, %.body59.i.i ], [ %560, %559 ]
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$aws_sdk_kms..operation..get_public_key..builders..GetPublicKeyFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d607d7f853baa9dE"(ptr noundef nonnull align 8 %338) #20
           to label %.body414.i unwind label %855, !noalias !2035
 
@@ -18990,8 +18990,8 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
   br label %common.ret
 
 .body14:                                          ; preds = %1225, %329
-  %1230 = phi ptr [ %164, %1225 ], [ %331, %329 ]
-  %.pn = phi { ptr, i32 } [ %1226, %1225 ], [ %.pn311.pn.i, %329 ]
+  %1230 = phi ptr [ %331, %329 ], [ %164, %1225 ]
+  %.pn = phi { ptr, i32 } [ %.pn311.pn.i, %329 ], [ %1226, %1225 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient..public_key..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4043c90ece2741e9E"(ptr noundef nonnull align 8 %1230) #20
           to label %160 unwind label %1231
 
@@ -19563,9 +19563,9 @@ common.ret:                                       ; preds = %1004, %1005
           to label %296 unwind label %294, !noalias !2585
 
 245:                                              ; preds = %852, %326, %317, %200, %180, %173
-  %246 = phi ptr [ %853, %852 ], [ %147, %317 ], [ %147, %326 ], [ %147, %180 ], [ %147, %173 ], [ %147, %200 ]
-  %247 = phi ptr [ %854, %852 ], [ %148, %317 ], [ %148, %326 ], [ %148, %180 ], [ %148, %173 ], [ %148, %200 ]
-  %.pn199.pn.pn.i = phi { ptr, i32 } [ %.pn199.pn.i, %852 ], [ %.pn129.i, %317 ], [ %.pn118.pn.pn.pn.i, %326 ], [ %181, %180 ], [ %174, %173 ], [ %.pn108.pn.pn.pn.pn.pn.i, %200 ]
+  %246 = phi ptr [ %853, %852 ], [ %147, %317 ], [ %147, %326 ], [ %147, %180 ], [ %147, %200 ], [ %147, %173 ]
+  %247 = phi ptr [ %854, %852 ], [ %148, %317 ], [ %148, %326 ], [ %148, %180 ], [ %148, %200 ], [ %148, %173 ]
+  %.pn199.pn.pn.i = phi { ptr, i32 } [ %.pn199.pn.i, %852 ], [ %.pn129.i, %317 ], [ %.pn118.pn.pn.pn.i, %326 ], [ %181, %180 ], [ %.pn108.pn.pn.pn.pn.pn.i, %200 ], [ %174, %173 ]
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %248) #20
           to label %329 unwind label %321, !noalias !2585
@@ -19885,9 +19885,9 @@ common.ret:                                       ; preds = %1004, %1005
   br label %1005
 
 329:                                              ; preds = %1000, %978, %975, %245, %157
-  %330 = phi ptr [ %336, %1000 ], [ %246, %245 ], [ %147, %157 ], [ %336, %978 ], [ %336, %975 ]
-  %331 = phi ptr [ %337, %1000 ], [ %247, %245 ], [ %148, %157 ], [ %337, %978 ], [ %337, %975 ]
-  %.pn203.pn.i = phi { ptr, i32 } [ %1001, %1000 ], [ %.pn199.pn.pn.i, %245 ], [ %158, %157 ], [ %979, %978 ], [ %.pn156.i, %975 ]
+  %330 = phi ptr [ %147, %157 ], [ %336, %1000 ], [ %246, %245 ], [ %336, %978 ], [ %336, %975 ]
+  %331 = phi ptr [ %148, %157 ], [ %337, %1000 ], [ %247, %245 ], [ %337, %978 ], [ %337, %975 ]
+  %.pn203.pn.i = phi { ptr, i32 } [ %158, %157 ], [ %1001, %1000 ], [ %.pn199.pn.pn.i, %245 ], [ %979, %978 ], [ %.pn156.i, %975 ]
   store i8 2, ptr %330, align 8, !noalias !2581
   br label %.body15
 
@@ -20075,7 +20075,7 @@ common.ret:                                       ; preds = %1004, %1005
   unreachable
 
 .body68.i.i:                                      ; preds = %547, %540, %534, %380
-  %.pn49.pn.i.i = phi { ptr, i32 } [ %.pn47.i.i, %534 ], [ %548, %547 ], [ %541, %540 ], [ %381, %380 ]
+  %.pn49.pn.i.i = phi { ptr, i32 } [ %541, %540 ], [ %.pn47.i.i, %534 ], [ %548, %547 ], [ %381, %380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !2656
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %418
@@ -20087,7 +20087,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %.body56.i.i
 
 .body56.i.i:                                      ; preds = %386, %372, %368
-  %.pn39.pn.i.i = phi { ptr, i32 } [ %387, %386 ], [ %373, %372 ], [ %369, %368 ]
+  %.pn39.pn.i.i = phi { ptr, i32 } [ %387, %386 ], [ %369, %368 ], [ %373, %372 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !2656
   invoke void @"_ZN4core3ptr73drop_in_place$LT$aws_sdk_kms..operation..sign.._sign_input..SignInput$GT$17h9f9df094da9a343eE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %70) #20
           to label %388 unwind label %384, !noalias !2660
@@ -20170,7 +20170,7 @@ common.ret:                                       ; preds = %1004, %1005
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$aws_sdk_kms..config..Builder$GT$$GT$17h0fee28d8c2ac3274E.exit.i.i" unwind label %416, !noalias !2660
 
 .body59.i.i:                                      ; preds = %559, %555, %416, %408, %396
-  %.pn53.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %559 ], [ %.pn49.pn.pn.i.i, %555 ], [ %397, %396 ], [ %417, %416 ], [ %.pn.i.i.i.i, %408 ]
+  %.pn53.i.i = phi { ptr, i32 } [ %397, %396 ], [ %.pn49.pn.pn.i.i, %559 ], [ %.pn49.pn.pn.i.i, %555 ], [ %417, %416 ], [ %.pn.i.i.i.i, %408 ]
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 5889
   store i8 0, ptr %415, align 1, !noalias !2656
   store i8 2, ptr %339, align 8, !noalias !2656
@@ -20247,7 +20247,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %439
 
 435:                                              ; preds = %.body.i.i.i, %496, %431
-  %.pn25.i.i.i = phi { ptr, i32 } [ %432, %431 ], [ %497, %496 ], [ %.pn13.i.i.i, %.body.i.i.i ]
+  %.pn25.i.i.i = phi { ptr, i32 } [ %432, %431 ], [ %.pn13.i.i.i, %.body.i.i.i ], [ %497, %496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %523
 
@@ -20326,7 +20326,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %469
 
 .body.i.i.i.i:                                    ; preds = %.body15.i.i.i.i, %455, %449
-  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %450, %449 ], [ %456, %455 ]
+  %.pn12.pn.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i, %.body15.i.i.i.i ], [ %456, %455 ], [ %450, %449 ]
   store i8 2, ptr %441, align 1, !noalias !2725
   br label %.body.i.i.i
 
@@ -20364,7 +20364,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %469
 
 .body15.i.i.i.i:                                  ; preds = %487, %483, %471, %462
-  %.pn12.i.i.i.i = phi { ptr, i32 } [ %472, %471 ], [ %463, %462 ], [ %488, %487 ], [ %484, %483 ]
+  %.pn12.i.i.i.i = phi { ptr, i32 } [ %463, %462 ], [ %472, %471 ], [ %488, %487 ], [ %484, %483 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.body.i.i.i.i
 
@@ -20718,7 +20718,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %531
 
 .body.i.i.i:                                      ; preds = %491, %.body.i.i.i.i
-  %.pn13.i.i.i = phi { ptr, i32 } [ %492, %491 ], [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ]
+  %.pn13.i.i.i = phi { ptr, i32 } [ %.pn12.pn.i.i.i.i, %.body.i.i.i.i ], [ %492, %491 ]
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$aws_sdk_kms..operation..sign..Sign..orchestrate_with_stop_point..$u7b$$u7b$closure$u7d$$u7d$$GT$17h997d7939182381d1E"(ptr noundef nonnull align 8 %440) #20
           to label %435 unwind label %527, !noalias !2720
 
@@ -20820,7 +20820,7 @@ common.ret:                                       ; preds = %1004, %1005
   br label %563
 
 .body65.i.i:                                      ; preds = %529, %523
-  %.pn45.i.i = phi { ptr, i32 } [ %530, %529 ], [ %.pn25.pn.pn.i.i.i, %523 ]
+  %.pn45.i.i = phi { ptr, i32 } [ %.pn25.pn.pn.i.i.i, %523 ], [ %530, %529 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.7.i.i)
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$aws_sdk_kms..operation..sign..Sign..orchestrate..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6a65f9a62136eafE"(ptr noundef nonnull align 8 %424) #20
@@ -22219,7 +22219,7 @@ thread-pre-split:                                 ; preds = %808
   br label %903
 
 946:                                              ; preds = %995, %903, %883, %876, %868, %847, %726, %706, %699, %688
-  %.pn194.pn.pn.pn.i = phi { ptr, i32 } [ %.pn151.pn.pn.pn.i, %995 ], [ %.pn194.pn.i, %847 ], [ %.pn176.pn.pn.pn.i, %868 ], [ %689, %688 ], [ %707, %706 ], [ %700, %699 ], [ %.pn166.pn.pn.pn.pn.pn.i, %726 ], [ %884, %883 ], [ %877, %876 ], [ %.pn141.pn.pn.pn.pn.pn.i, %903 ]
+  %.pn194.pn.pn.pn.i = phi { ptr, i32 } [ %707, %706 ], [ %.pn151.pn.pn.pn.i, %995 ], [ %.pn176.pn.pn.pn.i, %868 ], [ %.pn141.pn.pn.pn.pn.pn.i, %903 ], [ %877, %876 ], [ %884, %883 ], [ %689, %688 ], [ %.pn166.pn.pn.pn.pn.pn.i, %726 ], [ %700, %699 ], [ %.pn194.pn.i, %847 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$aws_sdk_kms..operation..sign.._sign_output..SignOutput$GT$17ha4b86287566b2e48E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %105) #20
           to label %852 unwind label %321, !noalias !2585
 
@@ -22430,7 +22430,7 @@ thread-pre-split:                                 ; preds = %808
   br label %329
 
 .body.i:                                          ; preds = %561, %.body59.i.i
-  %.pn131.i = phi { ptr, i32 } [ %562, %561 ], [ %.pn53.i.i, %.body59.i.i ]
+  %.pn131.i = phi { ptr, i32 } [ %.pn53.i.i, %.body59.i.i ], [ %562, %561 ]
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$aws_sdk_kms..operation..sign..builders..SignFluentBuilder..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcaaf3fc8da67a97aE"(ptr noundef nonnull align 8 %338) #20
           to label %.body276.i unwind label %321, !noalias !2585
 
@@ -22488,8 +22488,8 @@ thread-pre-split:                                 ; preds = %808
   br label %common.ret
 
 .body15:                                          ; preds = %1002, %329
-  %1007 = phi ptr [ %144, %1002 ], [ %331, %329 ]
-  %.pn = phi { ptr, i32 } [ %1003, %1002 ], [ %.pn203.pn.i, %329 ]
+  %1007 = phi ptr [ %331, %329 ], [ %144, %1002 ]
+  %.pn = phi { ptr, i32 } [ %.pn203.pn.i, %329 ], [ %1003, %1002 ]
   invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$ockam_vault_aws..aws_kms_client..AwsKmsClient..sign..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdb95db8a0c5f6a93E"(ptr noundef nonnull align 8 %1007) #20
           to label %140 unwind label %1008
 

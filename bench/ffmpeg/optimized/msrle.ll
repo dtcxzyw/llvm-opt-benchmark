@@ -239,7 +239,7 @@ define internal range(i32 2, 0) i32 @msrle_decode_frame(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %46, %95
-  %104 = phi ptr [ %.pre87, %46 ], [ %.pre, %95 ], [ %87, %85 ]
+  %104 = phi ptr [ %.pre, %95 ], [ %.pre87, %46 ], [ %87, %85 ]
   %105 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %104) #4
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %.critedge, label %107
@@ -249,7 +249,7 @@ define internal range(i32 2, 0) i32 @msrle_decode_frame(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %.loopexit, %20, %4, %107
-  %.070 = phi i32 [ %8, %107 ], [ -1094995529, %4 ], [ %23, %20 ], [ %105, %.loopexit ], [ %44, %40 ]
+  %.070 = phi i32 [ %44, %40 ], [ -1094995529, %4 ], [ %105, %.loopexit ], [ %8, %107 ], [ %23, %20 ]
   ret i32 %.070
 }
 

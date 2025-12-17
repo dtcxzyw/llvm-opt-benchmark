@@ -555,9 +555,9 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
   br i1 %.not.i74, label %142, label %.loopexit.i
 
 .loopexit.sink.split.i:                           ; preds = %142, %.preheader.i72, %139, %136, %134, %131, %128, %123
-  %.str.91.sink.i = phi ptr [ @.str.85, %123 ], [ @.str.86, %128 ], [ @.str.87, %131 ], [ @.str.88, %134 ], [ @.str.89, %136 ], [ @.str.90, %139 ], [ @.str.91, %.preheader.i72 ], [ @.str.91, %142 ]
-  %.029.ph.i = phi i64 [ -1, %123 ], [ -1, %128 ], [ -1, %131 ], [ -1, %134 ], [ %137, %136 ], [ %137, %139 ], [ %137, %.preheader.i72 ], [ %137, %142 ]
-  %.028.ph.i = phi i64 [ -1, %123 ], [ %129, %128 ], [ %129, %131 ], [ %129, %134 ], [ %129, %136 ], [ %129, %139 ], [ %129, %.preheader.i72 ], [ %129, %142 ]
+  %.str.91.sink.i = phi ptr [ @.str.90, %139 ], [ @.str.89, %136 ], [ @.str.88, %134 ], [ @.str.87, %131 ], [ @.str.86, %128 ], [ @.str.85, %123 ], [ @.str.91, %.preheader.i72 ], [ @.str.91, %142 ]
+  %.029.ph.i = phi i64 [ %137, %139 ], [ %137, %136 ], [ -1, %134 ], [ -1, %131 ], [ -1, %128 ], [ -1, %123 ], [ %137, %.preheader.i72 ], [ %137, %142 ]
+  %.028.ph.i = phi i64 [ %129, %139 ], [ %129, %136 ], [ %129, %134 ], [ %129, %131 ], [ %129, %128 ], [ -1, %123 ], [ %129, %.preheader.i72 ], [ %129, %142 ]
   call void (ptr, ...) @error_msg(ptr noundef nonnull %.str.91.sink.i, ptr noundef nonnull %120) #20
   br label %.loopexit.i
 
@@ -639,8 +639,8 @@ check_dataset.exit:                               ; preds = %168, %170
   %183 = icmp slt i32 %182, 0
   br i1 %183, label %.thread84.thread144.sink.split, label %.thread84.thread144
 
-.thread84.thread:                                 ; preds = %118, %122, %98, %92
-  %.03990.ph = phi i64 [ -1, %92 ], [ -1, %98 ], [ %100, %122 ], [ %100, %118 ]
+.thread84.thread:                                 ; preds = %92, %118, %122, %98
+  %.03990.ph = phi i64 [ -1, %98 ], [ %100, %122 ], [ %100, %118 ], [ -1, %92 ]
   call void @free(ptr noundef nonnull %78) #20
   br label %185
 
@@ -1160,7 +1160,7 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %28, %._crit_edge85, %._crit_edge90, %34, %22, %18, %14
-  %.046 = phi i32 [ -1, %14 ], [ -1, %18 ], [ -1, %22 ], [ -1, %34 ], [ %.1.lcssa, %._crit_edge90 ], [ -1, %28 ], [ %71, %._crit_edge85 ]
+  %.046 = phi i32 [ -1, %14 ], [ -1, %18 ], [ -1, %22 ], [ %.1.lcssa, %._crit_edge90 ], [ -1, %34 ], [ -1, %28 ], [ %71, %._crit_edge85 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

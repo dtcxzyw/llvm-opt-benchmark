@@ -157,7 +157,7 @@ define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLExport13exportContextE
   br label %20
 
 20:                                               ; preds = %18, %5, %12, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %18 ], [ true, %5 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %5 ], [ true, %18 ], [ false, %12 ]
   ret i1 %.0
 }
 

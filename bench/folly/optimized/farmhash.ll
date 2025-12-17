@@ -376,7 +376,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noun
   br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
 _ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50, %49, %31, %8, %209, %101, %71
-  %.0 = phi i64 [ %98, %71 ], [ %155, %101 ], [ %299, %209 ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
+  %.0 = phi i64 [ %299, %209 ], [ %98, %71 ], [ %155, %101 ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
   ret i64 %.0
 }
 
@@ -974,7 +974,7 @@ _ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit: ; preds = %240
   br label %_ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit
 
 _ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50, %49, %31, %8, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit, %242, %157, %101, %71
-  %.0 = phi i64 [ %98, %71 ], [ %154, %101 ], [ %239, %157 ], [ %243, %242 ], [ %244, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
+  %.0 = phi i64 [ %244, %_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm.exit ], [ %98, %71 ], [ %154, %101 ], [ %239, %157 ], [ %243, %242 ], [ %28, %8 ], [ %48, %31 ], [ %70, %50 ], [ -7286425919675154353, %49 ]
   ret i64 %.0
 }
 

@@ -1071,14 +1071,14 @@ ReadReplicationSlot.exit:                         ; preds = %147, %.thread.i
   unreachable
 
 273:                                              ; preds = %266, %254, %242, %223, %220, %216
-  %.146.i = phi i1 [ %243, %242 ], [ %.04580.i, %254 ], [ %.04580.i, %266 ], [ %.04580.i, %216 ], [ %.04580.i, %220 ], [ %.04580.i, %223 ]
-  %.143.i = phi i1 [ %.04281.i, %242 ], [ %255, %254 ], [ %.04281.i, %266 ], [ %.04281.i, %216 ], [ %.04281.i, %220 ], [ %.04281.i, %223 ]
-  %.140.i = phi i1 [ %.03982.i, %242 ], [ %.03982.i, %254 ], [ %267, %266 ], [ %.03982.i, %216 ], [ %.03982.i, %220 ], [ %.03982.i, %223 ]
-  %.138.i = phi i32 [ %.03783.i, %242 ], [ %.03783.i, %254 ], [ %.03783.i, %266 ], [ 0, %216 ], [ 1, %220 ], [ 2, %223 ]
-  %.139.i.i = phi i1 [ %.03854.i88.i, %242 ], [ %.03854.i88.i, %254 ], [ true, %266 ], [ %.03854.i88.i, %216 ], [ %.03854.i88.i, %220 ], [ %.03854.i88.i, %223 ]
-  %.137.i.i = phi i1 [ %.03655.i87.i, %242 ], [ true, %254 ], [ %.03655.i87.i, %266 ], [ %.03655.i87.i, %216 ], [ %.03655.i87.i, %220 ], [ %.03655.i87.i, %223 ]
-  %.135.i.i = phi i1 [ true, %242 ], [ %.03457.i86.i, %254 ], [ %.03457.i86.i, %266 ], [ %.03457.i86.i, %216 ], [ %.03457.i86.i, %220 ], [ %.03457.i86.i, %223 ]
-  %.1.i.i = phi i1 [ %.03358.i85.i, %242 ], [ %.03358.i85.i, %254 ], [ %.03358.i85.i, %266 ], [ true, %216 ], [ true, %220 ], [ true, %223 ]
+  %.146.i = phi i1 [ %.04580.i, %266 ], [ %.04580.i, %216 ], [ %.04580.i, %220 ], [ %243, %242 ], [ %.04580.i, %254 ], [ %.04580.i, %223 ]
+  %.143.i = phi i1 [ %.04281.i, %266 ], [ %.04281.i, %216 ], [ %.04281.i, %220 ], [ %.04281.i, %242 ], [ %255, %254 ], [ %.04281.i, %223 ]
+  %.140.i = phi i1 [ %267, %266 ], [ %.03982.i, %216 ], [ %.03982.i, %220 ], [ %.03982.i, %242 ], [ %.03982.i, %254 ], [ %.03982.i, %223 ]
+  %.138.i = phi i32 [ %.03783.i, %266 ], [ 0, %216 ], [ 1, %220 ], [ %.03783.i, %242 ], [ %.03783.i, %254 ], [ 2, %223 ]
+  %.139.i.i = phi i1 [ true, %266 ], [ %.03854.i88.i, %216 ], [ %.03854.i88.i, %220 ], [ %.03854.i88.i, %242 ], [ %.03854.i88.i, %254 ], [ %.03854.i88.i, %223 ]
+  %.137.i.i = phi i1 [ %.03655.i87.i, %266 ], [ %.03655.i87.i, %216 ], [ %.03655.i87.i, %220 ], [ %.03655.i87.i, %242 ], [ true, %254 ], [ %.03655.i87.i, %223 ]
+  %.135.i.i = phi i1 [ %.03457.i86.i, %266 ], [ %.03457.i86.i, %216 ], [ %.03457.i86.i, %220 ], [ true, %242 ], [ %.03457.i86.i, %254 ], [ %.03457.i86.i, %223 ]
+  %.1.i.i = phi i1 [ %.03358.i85.i, %266 ], [ true, %216 ], [ true, %220 ], [ %.03358.i85.i, %242 ], [ %.03358.i85.i, %254 ], [ true, %223 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i84.i, 1
   %274 = load i32, ptr %197, align 4
   %275 = sext i32 %274 to i64
@@ -1194,7 +1194,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   unreachable
 
 330:                                              ; preds = %325, %298, %291
-  %.027.i = phi i1 [ true, %298 ], [ false, %291 ], [ true, %325 ]
+  %.027.i = phi i1 [ false, %291 ], [ true, %298 ], [ true, %325 ]
   %331 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %332 = load ptr, ptr %331, align 8
   store ptr @logical_read_xlog_page, ptr %15, align 8
@@ -1411,10 +1411,10 @@ CreateReplicationSlot.exit:                       ; preds = %376, %380
   br i1 %438, label %.lr.ph76.i, label %.split101.us.loopexit.i
 
 AlterReplicationSlot.exit:                        ; preds = %388, %.split101.us.loopexit.i, %.lr.ph.i49
-  %.us-phi102.i = phi i8 [ undef, %388 ], [ undef, %.lr.ph.i49 ], [ %434, %.split101.us.loopexit.i ]
-  %.us-phi103.i = phi i8 [ undef, %388 ], [ undef, %.lr.ph.i49 ], [ %435, %.split101.us.loopexit.i ]
-  %.us-phi104.i = phi ptr [ null, %388 ], [ null, %.lr.ph.i49 ], [ %396, %.split101.us.loopexit.i ]
-  %.us-phi105.i = phi ptr [ null, %388 ], [ null, %.lr.ph.i49 ], [ %394, %.split101.us.loopexit.i ]
+  %.us-phi102.i = phi i8 [ undef, %388 ], [ %434, %.split101.us.loopexit.i ], [ undef, %.lr.ph.i49 ]
+  %.us-phi103.i = phi i8 [ undef, %388 ], [ %435, %.split101.us.loopexit.i ], [ undef, %.lr.ph.i49 ]
+  %.us-phi104.i = phi ptr [ null, %388 ], [ %396, %.split101.us.loopexit.i ], [ null, %.lr.ph.i49 ]
+  %.us-phi105.i = phi ptr [ null, %388 ], [ %394, %.split101.us.loopexit.i ], [ null, %.lr.ph.i49 ]
   store i8 %.us-phi103.i, ptr %11, align 1
   store i8 %.us-phi102.i, ptr %10, align 1
   %439 = getelementptr inbounds nuw i8, ptr %389, i64 8
@@ -1908,7 +1908,7 @@ UploadManifest.exit:                              ; preds = %662, %664
   unreachable
 
 671:                                              ; preds = %445, %StartLogicalReplication.exit, %UploadManifest.exit, %608, %SendTimeLineHistory.exit, %AlterReplicationSlot.exit, %382, %CreateReplicationSlot.exit, %190, %ReadReplicationSlot.exit, %IdentifySystem.exit
-  %.str.16.sink = phi ptr [ @.str.16, %UploadManifest.exit ], [ @.str.15, %608 ], [ @.str.14, %SendTimeLineHistory.exit ], [ @.str.12, %AlterReplicationSlot.exit ], [ @.str.11, %382 ], [ @.str.10, %CreateReplicationSlot.exit ], [ @.str.9, %190 ], [ @.str.8, %ReadReplicationSlot.exit ], [ @.str.7, %IdentifySystem.exit ], [ @.str.13, %StartLogicalReplication.exit ], [ @.str.13, %445 ]
+  %.str.16.sink = phi ptr [ @.str.16, %UploadManifest.exit ], [ @.str.15, %608 ], [ @.str.14, %SendTimeLineHistory.exit ], [ @.str.7, %IdentifySystem.exit ], [ @.str.12, %AlterReplicationSlot.exit ], [ @.str.11, %382 ], [ @.str.10, %CreateReplicationSlot.exit ], [ @.str.9, %190 ], [ @.str.8, %ReadReplicationSlot.exit ], [ @.str.13, %StartLogicalReplication.exit ], [ @.str.13, %445 ]
   call void @EndReplicationCommand(ptr noundef nonnull %.str.16.sink) #16
   store ptr %54, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %53) #16
@@ -3688,7 +3688,7 @@ LagTrackerWrite.exit:                             ; preds = %12, %15, %32
   %61 = tail call zeroext i1 %60() #16
   br i1 %61, label %69, label %.critedge
 
-.critedge:                                        ; preds = %46, %41, %57
+.critedge:                                        ; preds = %41, %46, %57
   br i1 %8, label %70, label %62
 
 62:                                               ; preds = %.critedge
@@ -3982,7 +3982,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   br label %LagTrackerRead.exit.i.i
 
 LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.i.i, %.critedge.i.thread.i.i, %.critedge.i.i.i
-  %.0.i.i.i = phi i64 [ %116, %115 ], [ -1, %.critedge.i.i.i ], [ -1, %.thread.i.i ], [ -1, %92 ], [ -1, %.critedge.i.thread.i.i ]
+  %.0.i.i.i = phi i64 [ -1, %.thread.i.i ], [ -1, %.critedge.i.i.i ], [ %116, %115 ], [ -1, %92 ], [ -1, %.critedge.i.thread.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %62, i64 131088
   %.promoted.i54.i.i = load i32, ptr %117, align 4
   %.not53.i55.i.i = icmp eq i32 %.promoted.i54.i.i, %65
@@ -4087,7 +4087,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   br label %LagTrackerRead.exit72.i.i
 
 LagTrackerRead.exit72.i.i:                        ; preds = %167, %144, %.thread149.i.i, %.critedge.i62.thread.i.i, %.critedge.i62.i.i
-  %.0.i65.i.i = phi i64 [ %168, %167 ], [ -1, %.critedge.i62.i.i ], [ -1, %.thread149.i.i ], [ -1, %144 ], [ -1, %.critedge.i62.thread.i.i ]
+  %.0.i65.i.i = phi i64 [ -1, %.thread149.i.i ], [ -1, %.critedge.i62.i.i ], [ %168, %167 ], [ -1, %144 ], [ -1, %.critedge.i62.thread.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %62, i64 131092
   %.promoted.i73.i.i = load i32, ptr %169, align 4
   %.not53.i74.i.i = icmp eq i32 %.promoted.i73.i.i, %65
@@ -4192,7 +4192,7 @@ LagTrackerRead.exit72.i.i:                        ; preds = %167, %144, %.thread
   br label %LagTrackerRead.exit91.i.i
 
 LagTrackerRead.exit91.i.i:                        ; preds = %219, %196, %.thread153.i.i, %.critedge.i81.thread.i.i, %.critedge.i81.i.i
-  %.0.i84.i.i = phi i64 [ %220, %219 ], [ -1, %.critedge.i81.i.i ], [ -1, %.thread153.i.i ], [ -1, %196 ], [ -1, %.critedge.i81.thread.i.i ]
+  %.0.i84.i.i = phi i64 [ -1, %.thread153.i.i ], [ -1, %.critedge.i81.i.i ], [ %220, %219 ], [ -1, %196 ], [ -1, %.critedge.i81.thread.i.i ]
   %221 = load i64, ptr @sentPtr, align 8
   %222 = icmp eq i64 %39, %221
   %.b.i.i = load i1, ptr @ProcessStandbyReplyMessage.fullyAppliedLastTime, align 1
@@ -4622,7 +4622,7 @@ define internal fastcc void @WalSndWait(i32 noundef range(i32 0, 8) %0, i64 noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %3, %11
-  %.sink5 = phi i64 [ 88, %11 ], [ 100, %3 ], [ 76, %7 ]
+  %.sink5 = phi i64 [ 100, %3 ], [ 88, %11 ], [ 76, %7 ]
   %12 = load ptr, ptr @WalSndCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink5
   tail call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %13) #16
@@ -5444,8 +5444,8 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 99:                                               ; preds = %97
   %100 = add i64 %.pre, 131072
   %.not52 = icmp ule i64 %.0, %100
-  %101 = and i64 %100, -8192
   %not. = xor i1 %74, true
+  %101 = and i64 %100, -8192
   %.sink = and i1 %.not52, %not.
   %.042 = select i1 %.not52, i64 %.0, i64 %101
   store i1 %.sink, ptr @WalSndCaughtUp, align 1

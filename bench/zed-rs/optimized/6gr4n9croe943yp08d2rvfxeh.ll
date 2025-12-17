@@ -204,8 +204,8 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br label %25
 
 25:                                               ; preds = %3, %24, %22
-  %.sroa.4.0 = phi i64 [ undef, %22 ], [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16., %24 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %22 ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8.21, %24 ], [ 0, %3 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16., %24 ], [ undef, %22 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8.21, %24 ], [ -9223372036854775807, %22 ], [ 0, %3 ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.4.0, 1
   ret { i64, i64 } %27

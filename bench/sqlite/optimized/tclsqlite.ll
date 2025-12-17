@@ -639,10 +639,10 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br label %.loopexit
 
 200:                                              ; preds = %.thread177, %.thread175, %.thread173, %.thread171, %.thread169, %.thread, %67, %78, %190, %85
-  %.1144 = phi i32 [ %79, %78 ], [ %79, %85 ], [ %79, %190 ], [ %.0143227, %67 ], [ %79, %.thread ], [ %79, %.thread169 ], [ %79, %.thread171 ], [ %79, %.thread173 ], [ %79, %.thread175 ], [ %79, %.thread177 ]
-  %.1141 = phi ptr [ %.0140228, %78 ], [ %.0140228, %85 ], [ %.0140228, %190 ], [ %65, %67 ], [ %.0140228, %.thread ], [ %.0140228, %.thread169 ], [ %.0140228, %.thread171 ], [ %.0140228, %.thread173 ], [ %.0140228, %.thread175 ], [ %.0140228, %.thread177 ]
-  %.1139 = phi ptr [ %.0138229, %78 ], [ %92, %85 ], [ %.0138229, %190 ], [ %.0138229, %67 ], [ %.0138229, %.thread ], [ %.0138229, %.thread169 ], [ %.0138229, %.thread171 ], [ %.0138229, %.thread173 ], [ %.0138229, %.thread175 ], [ %.0138229, %.thread177 ]
-  %.1130 = phi i32 [ %.0129230, %78 ], [ %.0129230, %85 ], [ %.0129230, %190 ], [ %.0129230, %67 ], [ %.3132, %.thread ], [ %.5134, %.thread169 ], [ %.7136, %.thread171 ], [ %.9, %.thread173 ], [ %.11, %.thread175 ], [ %.13, %.thread177 ]
+  %.1144 = phi i32 [ %79, %190 ], [ %79, %78 ], [ %79, %85 ], [ %79, %.thread ], [ %79, %.thread169 ], [ %79, %.thread171 ], [ %79, %.thread173 ], [ %79, %.thread175 ], [ %79, %.thread177 ], [ %.0143227, %67 ]
+  %.1141 = phi ptr [ %.0140228, %190 ], [ %.0140228, %78 ], [ %.0140228, %85 ], [ %.0140228, %.thread ], [ %.0140228, %.thread169 ], [ %.0140228, %.thread171 ], [ %.0140228, %.thread173 ], [ %.0140228, %.thread175 ], [ %.0140228, %.thread177 ], [ %65, %67 ]
+  %.1139 = phi ptr [ %.0138229, %190 ], [ %.0138229, %78 ], [ %92, %85 ], [ %.0138229, %.thread ], [ %.0138229, %.thread169 ], [ %.0138229, %.thread171 ], [ %.0138229, %.thread173 ], [ %.0138229, %.thread175 ], [ %.0138229, %.thread177 ], [ %.0138229, %67 ]
+  %.1130 = phi i32 [ %.0129230, %190 ], [ %.0129230, %78 ], [ %.0129230, %85 ], [ %.3132, %.thread ], [ %.5134, %.thread169 ], [ %.7136, %.thread171 ], [ %.9, %.thread173 ], [ %.11, %.thread175 ], [ %.13, %.thread177 ], [ %.0129230, %67 ]
   %201 = add nsw i32 %.1144, 1
   %202 = icmp slt i32 %201, %2
   br i1 %202, label %58, label %._crit_edge, !llvm.loop !21
@@ -776,7 +776,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %190, %185, %171, %155, %139, %125, %109, %270, %235, %197, %74, %68, %51, %44, %36, %28, %15
-  %.0123 = phi i32 [ 1, %15 ], [ 0, %28 ], [ 0, %36 ], [ 0, %44 ], [ 1, %51 ], [ 1, %68 ], [ 1, %74 ], [ 1, %109 ], [ 1, %125 ], [ 1, %139 ], [ 1, %155 ], [ 1, %171 ], [ 1, %185 ], [ 1, %197 ], [ 1, %235 ], [ 0, %270 ], [ 1, %190 ]
+  %.0123 = phi i32 [ 1, %15 ], [ 0, %28 ], [ 0, %36 ], [ 0, %44 ], [ 1, %51 ], [ 1, %68 ], [ 1, %74 ], [ 1, %109 ], [ 1, %125 ], [ 1, %139 ], [ 1, %155 ], [ 1, %171 ], [ 1, %185 ], [ 0, %270 ], [ 1, %197 ], [ 1, %235 ], [ 1, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0123
@@ -1581,7 +1581,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %314
 
 314:                                              ; preds = %313, %312
-  %315 = phi i32 [ 0, %312 ], [ %spec.select1597, %313 ]
+  %315 = phi i32 [ %spec.select1597, %313 ], [ 0, %312 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %315, ptr %316, align 8, !tbaa !37
   br label %324
@@ -2382,9 +2382,9 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void (ptr, ...) %760(ptr noundef %1, ptr noundef nonnull @.str.113, ptr noundef %762, ptr noundef null) #15
   br label %.thread1240
 
-.thread1240:                                      ; preds = %703, %726, %732, %757
-  %.1985 = phi i32 [ %706, %757 ], [ %706, %732 ], [ %706, %726 ], [ %.0984, %703 ]
-  %.1982 = phi ptr [ @.str.121, %757 ], [ @.str.121, %732 ], [ @.str.121, %726 ], [ @.str.119, %703 ]
+.thread1240:                                      ; preds = %703, %732, %757, %726
+  %.1985 = phi i32 [ %706, %726 ], [ %706, %757 ], [ %706, %732 ], [ %.0984, %703 ]
+  %.1982 = phi ptr [ @.str.121, %726 ], [ @.str.121, %757 ], [ @.str.121, %732 ], [ @.str.119, %703 ]
   call void @free(ptr noundef %691) #15
   %763 = call i32 @fclose(ptr noundef nonnull %679)
   %764 = load ptr, ptr %18, align 8, !tbaa !78
@@ -2414,13 +2414,13 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void (ptr, ...) %782(ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %19, ptr noundef null) #15
   br label %783
 
-.thread1244:                                      ; preds = %563, %603, %617, %624, %653, %670, %681, %693, %640, %.thread1237
+.thread1244:                                      ; preds = %563, %603, %617, %624, %640, %653, %670, %681, %693, %.thread1237
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge1174
 
 783:                                              ; preds = %770, %778
-  %.3902 = phi i32 [ 0, %770 ], [ 1, %778 ]
+  %.3902 = phi i32 [ 1, %778 ], [ 0, %770 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge1174
@@ -3189,13 +3189,13 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.critedge1192.thread
 
-.critedge1192.thread:                             ; preds = %1080, %1057, %._crit_edge, %.critedge1190, %1091, %1077, %.critedge1192.critedge
+.critedge1192.thread:                             ; preds = %1080, %1057, %._crit_edge, %.critedge1192.critedge, %1091, %.critedge1190, %1077
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.critedge1174
 
 .critedge1192:                                    ; preds = %safeToUseEvalObjv.exit, %1176
-  %.14913 = phi i32 [ 1, %1176 ], [ 0, %safeToUseEvalObjv.exit ]
+  %.14913 = phi i32 [ 0, %safeToUseEvalObjv.exit ], [ 1, %1176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.critedge1174
@@ -3721,7 +3721,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   br label %.critedge1174
 
 1472:                                             ; preds = %1466, %1462, %1457
-  %.19918 = phi i32 [ 1, %1462 ], [ 1, %1466 ], [ 0, %1457 ]
+  %.19918 = phi i32 [ 1, %1466 ], [ 1, %1462 ], [ 0, %1457 ]
   %1473 = load ptr, ptr %37, align 8, !tbaa !47
   %1474 = call i32 @sqlite3_close(ptr noundef %1473) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -3838,7 +3838,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   br label %.critedge1174
 
 1538:                                             ; preds = %1531, %1528, %1525, %1517
-  %.sink1604 = phi i64 [ 200, %1517 ], [ 204, %1525 ], [ 208, %1528 ], [ 212, %1531 ]
+  %.sink1604 = phi i64 [ 200, %1517 ], [ 208, %1528 ], [ 204, %1525 ], [ 212, %1531 ]
   %1539 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1604
   %.0968 = load i32, ptr %1539, align 4, !tbaa !12
   %1540 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
@@ -4401,15 +4401,15 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   call void (ptr, ...) %1841(ptr noundef %1, ptr noundef nonnull @.str.178, ptr noundef %1838, ptr noundef null) #15
   br label %.critedge1174
 
-.critedge1205:                                    ; preds = %1737, %1741
+.critedge1205:                                    ; preds = %1741, %1737
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.critedge1174
 
-.critedge1168:                                    ; preds = %.thread1227, %301, %291, %281, %267
+.critedge1168:                                    ; preds = %301, %291, %.thread1227, %281, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge1174
 
-.critedge1170:                                    ; preds = %352, %382, %349
+.critedge1170:                                    ; preds = %382, %352, %349
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge1174
 
@@ -4427,7 +4427,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   br label %.critedge1174
 
 .critedge1174:                                    ; preds = %.critedge1209, %1776, %1746, %1025, %1038, %57, %338, %405, %.thread1259, %889, %898, %1235, %1276, %1511, %1802, %1806, %114, %77, %74, %214, %183, %180, %263, %226, %223, %464, %427, %424, %1307, %1401, %1364, %1361, %1402, %1622, %1585, %1582, %1634, %1631, %324, %388, %.loopexit, %885, %1538, %1557, %.critedge1205, %169, %.thread1228, %.thread1232, %783, %.thread1270, %.critedge1192, %.thread1279, %.thread1282, %1348, %1472, %.thread1298, %1790, %1797, %.thread1317, %.thread1318, %1833, %1824, %1571, %.thread1293, %1295, %1231, %.critedge1192.thread, %968, %973, %948, %.thread1244, %482, %335, %.thread1221, %1514, %1534, %487, %.critedge1172, %.critedge1204, %.critedge1202, %.critedge1196, %.critedge1185, %.critedge1170, %.critedge1168, %51, %1625, %1576, %1403, %1355, %1349, %1239, %418, %390, %217, %174, %68, %48
-  %.0 = phi i32 [ 1, %48 ], [ 1, %68 ], [ 1, %174 ], [ 1, %217 ], [ 1, %335 ], [ 1, %390 ], [ 1, %418 ], [ 1, %482 ], [ 1, %948 ], [ 1, %1231 ], [ 1, %1239 ], [ 1, %1295 ], [ 1, %1349 ], [ 1, %1355 ], [ 1, %1403 ], [ 1, %1571 ], [ 1, %1576 ], [ 1, %1625 ], [ 1, %.critedge1204 ], [ 1, %1824 ], [ 1, %1833 ], [ 1, %51 ], [ 1, %.critedge1168 ], [ 1, %.critedge1170 ], [ 1, %.critedge1185 ], [ 1, %.critedge1196 ], [ 1, %.critedge1202 ], [ 1, %.critedge1172 ], [ 1, %487 ], [ 1, %1534 ], [ 1, %1514 ], [ 1, %.thread1221 ], [ 1, %.thread1244 ], [ 1, %973 ], [ 1, %968 ], [ 1, %.critedge1192.thread ], [ 1, %.thread1293 ], [ 0, %57 ], [ 0, %77 ], [ 0, %74 ], [ 0, %114 ], [ %.2901, %169 ], [ 0, %183 ], [ 0, %180 ], [ 0, %214 ], [ 0, %226 ], [ 0, %223 ], [ 0, %263 ], [ 0, %324 ], [ 0, %338 ], [ 0, %388 ], [ 0, %405 ], [ 0, %427 ], [ 0, %424 ], [ 0, %464 ], [ 0, %.loopexit ], [ %.3902, %783 ], [ %.5904, %.thread1259 ], [ 0, %885 ], [ 0, %889 ], [ 0, %898 ], [ %.14913, %.critedge1192 ], [ 0, %1235 ], [ 0, %1276 ], [ 0, %1307 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1361 ], [ 0, %1401 ], [ 0, %1402 ], [ %.19918, %1472 ], [ %.20919, %1511 ], [ 0, %1538 ], [ 0, %1557 ], [ 0, %1585 ], [ 0, %1582 ], [ 0, %1622 ], [ 0, %1634 ], [ 0, %1631 ], [ 1, %1802 ], [ 1, %1806 ], [ 0, %.critedge1205 ], [ 0, %.thread1228 ], [ 0, %.thread1232 ], [ %spec.store.select, %.thread1270 ], [ %.16915.ph, %.thread1279 ], [ 0, %.thread1282 ], [ 0, %.thread1298 ], [ 0, %1790 ], [ %1801, %1797 ], [ 0, %.thread1317 ], [ 0, %.thread1318 ], [ %1052, %1038 ], [ %.12911, %1025 ], [ 1, %1746 ], [ 1, %1776 ], [ 1, %.critedge1209 ]
+  %.0 = phi i32 [ 1, %48 ], [ 1, %1833 ], [ 1, %973 ], [ 1, %68 ], [ 1, %.thread1221 ], [ 1, %174 ], [ 1, %217 ], [ 1, %.critedge1168 ], [ 1, %335 ], [ 1, %.critedge1170 ], [ 1, %390 ], [ 1, %418 ], [ 1, %482 ], [ 1, %.critedge1196 ], [ 1, %.thread1244 ], [ 1, %.critedge1185 ], [ 1, %948 ], [ 1, %1514 ], [ 1, %.critedge1192.thread ], [ 1, %1231 ], [ 1, %1239 ], [ 1, %1295 ], [ 1, %968 ], [ 1, %1349 ], [ 1, %1355 ], [ 1, %1403 ], [ 1, %.thread1293 ], [ 1, %487 ], [ 1, %.critedge1202 ], [ 1, %1571 ], [ 1, %1576 ], [ 1, %1625 ], [ 1, %.critedge1204 ], [ %.12911, %1025 ], [ 1, %1824 ], [ 1, %51 ], [ 1, %.critedge1172 ], [ 1, %1534 ], [ 0, %57 ], [ 0, %77 ], [ 0, %74 ], [ 0, %114 ], [ %.2901, %169 ], [ 0, %183 ], [ 0, %180 ], [ 0, %214 ], [ 0, %226 ], [ 0, %223 ], [ 0, %263 ], [ 0, %324 ], [ 0, %.thread1228 ], [ 0, %338 ], [ 0, %388 ], [ 0, %405 ], [ 0, %427 ], [ 0, %424 ], [ 0, %464 ], [ 0, %.thread1232 ], [ 0, %.loopexit ], [ %.3902, %783 ], [ %.5904, %.thread1259 ], [ 0, %885 ], [ 0, %889 ], [ 0, %898 ], [ %spec.store.select, %.thread1270 ], [ %1801, %1797 ], [ %.14913, %.critedge1192 ], [ %.16915.ph, %.thread1279 ], [ 0, %1235 ], [ 0, %1276 ], [ 0, %.thread1282 ], [ 0, %1307 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1361 ], [ 0, %1401 ], [ 0, %1402 ], [ %.19918, %1472 ], [ %.20919, %1511 ], [ 0, %1538 ], [ 0, %1557 ], [ 0, %.thread1298 ], [ 0, %1585 ], [ 0, %1582 ], [ 0, %1622 ], [ 0, %1634 ], [ 0, %1631 ], [ 0, %.critedge1205 ], [ 0, %.thread1318 ], [ 1, %1802 ], [ 1, %1806 ], [ 0, %.thread1317 ], [ 0, %1790 ], [ %1052, %1038 ], [ 1, %1746 ], [ 1, %1776 ], [ 1, %.critedge1209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -4542,7 +4542,7 @@ switch.lookup:                                    ; preds = %10
   br label %74
 
 74:                                               ; preds = %64, %68, %71, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %64 ], [ 1, %68 ], [ %., %71 ]
+  %.0 = phi i32 [ 0, %6 ], [ 1, %68 ], [ 0, %64 ], [ %., %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -4852,7 +4852,7 @@ define internal fastcc noalias noundef ptr @local_getline(ptr noundef nonnull ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %1, %34, %23
-  %.033 = phi ptr [ null, %23 ], [ %36, %34 ], [ null, %1 ], [ null, %6 ]
+  %.033 = phi ptr [ %36, %34 ], [ null, %1 ], [ null, %23 ], [ null, %6 ]
   ret ptr %.033
 }
 
@@ -5371,7 +5371,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br label %251
 
 .thread229.i:                                     ; preds = %158, %157, %125
-  %.3176234.i = phi i32 [ 1, %158 ], [ %.0173273.i, %125 ], [ 1, %157 ]
+  %.3176234.i = phi i32 [ %.0173273.i, %125 ], [ 1, %158 ], [ 1, %157 ]
   %249 = load ptr, ptr %2, align 8, !tbaa !78
   %250 = call i32 @sqlite3_bind_null(ptr noundef %249, i32 noundef %.0172274.i) #15
   br label %251
@@ -5599,7 +5599,7 @@ dbReleaseStmt.exit:                               ; preds = %324, %306
   br label %.backedge
 
 .thread73:                                        ; preds = %.critedge.thread, %15, %dbReleaseStmt.exit, %dbPrepareAndBind.exit
-  %.4 = phi i32 [ 1, %dbPrepareAndBind.exit ], [ 1, %dbReleaseStmt.exit ], [ 0, %.critedge.thread ], [ 3, %15 ]
+  %.4 = phi i32 [ 1, %dbReleaseStmt.exit ], [ 1, %dbPrepareAndBind.exit ], [ 0, %.critedge.thread ], [ 3, %15 ]
   ret i32 %.4
 }
 
@@ -5675,7 +5675,7 @@ define internal fastcc ptr @dbEvalColumnValue(ptr noundef readonly captures(none
   br label %48
 
 48:                                               ; preds = %19, %24, %42, %34, %28, %8
-  %.0 = phi ptr [ %47, %42 ], [ %14, %8 ], [ %33, %28 ], [ %41, %34 ], [ %23, %19 ], [ %27, %24 ]
+  %.0 = phi ptr [ %47, %42 ], [ %14, %8 ], [ %41, %34 ], [ %33, %28 ], [ %23, %19 ], [ %27, %24 ]
   ret ptr %.0
 }
 
@@ -6082,7 +6082,7 @@ define internal i32 @DbEvalNextCmd(ptr noundef readonly captures(none) %0, ptr n
   br label %dbEvalColumnValue.exit.us.us
 
 dbEvalColumnValue.exit.us.us:                     ; preds = %82, %75, %70, %66, %56, %48
-  %.0.i.us.us = phi ptr [ %87, %82 ], [ %81, %75 ], [ %61, %56 ], [ %55, %48 ], [ %74, %70 ], [ %69, %66 ]
+  %.0.i.us.us = phi ptr [ %87, %82 ], [ %81, %75 ], [ %55, %48 ], [ %61, %56 ], [ %74, %70 ], [ %69, %66 ]
   %88 = call ptr %40(ptr noundef %1, ptr noundef %42, ptr noundef null, ptr noundef %.0.i.us.us, i32 noundef 0) #15
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -6218,7 +6218,7 @@ dbEvalColumnValue.exit.us.us:                     ; preds = %82, %75, %70, %66, 
   br label %dbEvalColumnValue.exit59
 
 dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %149, %155, %163
-  %.0.i55 = phi ptr [ %168, %163 ], [ %135, %129 ], [ %154, %149 ], [ %162, %155 ], [ %144, %140 ], [ %148, %145 ]
+  %.0.i55 = phi ptr [ %168, %163 ], [ %135, %129 ], [ %162, %155 ], [ %154, %149 ], [ %144, %140 ], [ %148, %145 ]
   %169 = call ptr %122(ptr noundef %1, ptr noundef nonnull %.fr74, ptr noundef %124, ptr noundef %.0.i55, i32 noundef 0) #15
   br label %170
 
@@ -6301,7 +6301,7 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   br label %208
 
 208:                                              ; preds = %.thread, %204, %199
-  %.2 = phi i32 [ 0, %204 ], [ %.250, %199 ], [ %185, %.thread ]
+  %.2 = phi i32 [ %185, %.thread ], [ 0, %204 ], [ %.250, %199 ]
   ret i32 %.2
 }
 
@@ -6513,7 +6513,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %68, %86, %78, %72, %52
-  %.097 = phi ptr [ %92, %86 ], [ %58, %52 ], [ %77, %72 ], [ %85, %78 ], [ %67, %63 ], [ %71, %68 ]
+  %.097 = phi ptr [ %92, %86 ], [ %58, %52 ], [ %85, %78 ], [ %77, %72 ], [ %67, %63 ], [ %71, %68 ]
   %93 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 368
   %95 = load ptr, ptr %94, align 8, !tbaa !71
@@ -6674,7 +6674,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   call void @sqlite3_result_blob(ptr noundef %0, ptr noundef %177, i32 noundef %178, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #15
   br label %199
 
-.thread:                                          ; preds = %145, %159, %162, %165, %168
+.thread:                                          ; preds = %145, %162, %165, %168, %159
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %179 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 3912
@@ -7861,7 +7861,7 @@ define internal range(i32 0, 2) i32 @incrblobClose(ptr noundef %0, ptr noundef %
   br label %incrblobClose2.exit
 
 incrblobClose2.exit:                              ; preds = %21, %25
-  %.0.i = phi i32 [ 1, %25 ], [ 0, %21 ]
+  %.0.i = phi i32 [ 0, %21 ], [ 1, %25 ]
   ret i32 %.0.i
 }
 
@@ -7899,7 +7899,7 @@ define internal noundef i32 @incrblobInput(ptr noundef captures(none) %0, ptr no
   br label %24
 
 24:                                               ; preds = %4, %21, %20
-  %.0 = phi i32 [ -1, %20 ], [ %17, %21 ], [ 0, %4 ]
+  %.0 = phi i32 [ %17, %21 ], [ -1, %20 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -7941,7 +7941,7 @@ define internal range(i32 -1, -2147483648) i32 @incrblobOutput(ptr noundef captu
   br label %24
 
 24:                                               ; preds = %14, %21, %20, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %20 ], [ %2, %21 ], [ 0, %14 ]
+  %.0 = phi i32 [ -1, %13 ], [ %2, %21 ], [ -1, %20 ], [ 0, %14 ]
   ret i32 %.0
 }
 

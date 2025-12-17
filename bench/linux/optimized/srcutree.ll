@@ -2715,7 +2715,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
   br label %414
 
 414:                                              ; preds = %406, %383
-  %415 = phi i64 [ %391, %383 ], [ %413, %406 ]
+  %415 = phi i64 [ %413, %406 ], [ %391, %383 ]
   %416 = icmp eq i64 %415, 0
   br i1 %416, label %420, label %.thread11
 

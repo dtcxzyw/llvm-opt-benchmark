@@ -384,7 +384,7 @@ define internal fastcc i32 @indexOfColumn(ptr noundef nonnull %0, ptr noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %._crit_edge.thread, %13, %._crit_edge, %15
-  %.025 = phi i32 [ -1, %15 ], [ %11, %13 ], [ %.2, %._crit_edge ], [ -1, %._crit_edge.thread ], [ -1, %26 ]
+  %.025 = phi i32 [ -1, %15 ], [ %.2, %._crit_edge ], [ %11, %13 ], [ -1, %._crit_edge.thread ], [ -1, %26 ]
   ret i32 %.025
 }
 

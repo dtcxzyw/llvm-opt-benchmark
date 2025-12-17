@@ -482,7 +482,7 @@ _eio_wakeup_handler.exit:                         ; preds = %83, %74
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %168, %162, %154, %152, %146, %141, %136
-  %.070.i.i = phi i1 [ false, %168 ], [ false, %162 ], [ false, %154 ], [ false, %152 ], [ true, %146 ], [ false, %141 ], [ false, %136 ]
+  %.070.i.i = phi i1 [ false, %154 ], [ false, %168 ], [ false, %162 ], [ true, %146 ], [ false, %152 ], [ false, %141 ], [ false, %136 ]
   %170 = and i16 %97, 4
   %.not61.i.i = icmp eq i16 %170, 0
   br i1 %.not61.i.i, label %_poll_handle_event.exit.i, label %171
@@ -1057,7 +1057,7 @@ _is_readable.exit:                                ; preds = %_is_writable.exit
   br i1 %16, label %.thread42, label %.critedge
 
 .thread42.sink.split:                             ; preds = %_is_readable.exit, %.thread
-  %.sink = phi i16 [ %.mux.mux, %_is_readable.exit ], [ 20, %.thread ]
+  %.sink = phi i16 [ 20, %.thread ], [ %.mux.mux, %_is_readable.exit ]
   %20 = load i32, ptr %0, align 8
   %21 = zext i32 %8 to i64
   %22 = getelementptr inbounds nuw %struct.pollfd, ptr %4, i64 %21

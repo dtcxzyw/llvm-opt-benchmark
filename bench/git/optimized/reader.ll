@@ -206,7 +206,7 @@ reader_get_block.exit45.thread:                   ; preds = %46, %reader_get_blo
   br label %64
 
 64:                                               ; preds = %extract_block_size.exit.thread, %extract_block_size.exit, %reader_get_block.exit45, %reader_get_block.exit, %reader_get_block.exit45.thread
-  %.027 = phi i32 [ %spec.select.i, %reader_get_block.exit ], [ %spec.select.i44, %reader_get_block.exit45 ], [ %63, %reader_get_block.exit45.thread ], [ %42, %extract_block_size.exit ], [ 1, %extract_block_size.exit.thread ]
+  %.027 = phi i32 [ %spec.select.i, %reader_get_block.exit ], [ %63, %reader_get_block.exit45.thread ], [ %42, %extract_block_size.exit ], [ %spec.select.i44, %reader_get_block.exit45 ], [ 1, %extract_block_size.exit.thread ]
   call void @reftable_block_done(ptr noundef nonnull %5) #12
   br label %65
 
@@ -479,7 +479,7 @@ define dso_local range(i32 -13, 1) i32 @reftable_reader_new(ptr noundef writeonl
   br label %60
 
 60:                                               ; preds = %27, %38, %52, %32, %25, %18, %12, %3, %55, %59
-  %.0 = phi i32 [ %58, %55 ], [ 0, %59 ], [ -13, %3 ], [ -3, %12 ], [ -2, %18 ], [ -3, %25 ], [ -3, %27 ], [ -13, %32 ], [ -2, %52 ], [ -2, %38 ]
+  %.0 = phi i32 [ -13, %3 ], [ -3, %12 ], [ -2, %18 ], [ -3, %25 ], [ -13, %32 ], [ %58, %55 ], [ 0, %59 ], [ -3, %27 ], [ -2, %52 ], [ -2, %38 ]
   call void @reftable_block_done(ptr noundef nonnull %4) #12
   call void @reftable_block_done(ptr noundef nonnull %5) #12
   %.not49 = icmp eq i32 %.0, 0
@@ -926,7 +926,7 @@ define internal fastcc range(i32 -3, 1) i32 @parse_footer(ptr noundef nonnull ca
   br label %364
 
 364:                                              ; preds = %361, %117, %95, %4, %3, %363
-  %.059 = phi i32 [ 0, %363 ], [ -3, %3 ], [ -3, %4 ], [ -3, %95 ], [ -3, %117 ], [ -3, %361 ]
+  %.059 = phi i32 [ -3, %4 ], [ -3, %3 ], [ -3, %95 ], [ 0, %363 ], [ -3, %117 ], [ -3, %361 ]
   ret i32 %.059
 }
 
@@ -1097,7 +1097,7 @@ define dso_local i32 @reftable_reader_refs_for(ptr noundef %0, ptr noundef %1, p
   br label %reftable_reader_refs_for_indexed.exit
 
 reftable_reader_refs_for_indexed.exit:            ; preds = %10, %20, %25, %35, %36, %46
-  %.0.i = phi i32 [ %24, %20 ], [ %26, %25 ], [ 0, %35 ], [ %44, %36 ], [ %44, %46 ], [ -13, %10 ]
+  %.0.i = phi i32 [ %44, %46 ], [ %24, %20 ], [ %26, %25 ], [ 0, %35 ], [ %44, %36 ], [ -13, %10 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %5) #12
   call void @reftable_record_release(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1330,7 +1330,7 @@ table_iter_seek_start.exit:                       ; preds = %reader_offsets_for.
   br label %44
 
 60:                                               ; preds = %.thread28, %table_iter_seek_start.exit
-  %.2 = phi i32 [ %38, %table_iter_seek_start.exit ], [ %56, %.thread28 ]
+  %.2 = phi i32 [ %56, %.thread28 ], [ %38, %table_iter_seek_start.exit ]
   %61 = add nuw nsw i64 %.01236, 1
   %exitcond.not = icmp eq i64 %61, 3
   br i1 %exitcond.not, label %table_iter_next_block.exit, label %26, !llvm.loop !76
@@ -1379,7 +1379,7 @@ block_source_close.exit.i:                        ; preds = %71, %68
   br label %reftable_reader_decref.exit
 
 reftable_reader_decref.exit:                      ; preds = %1, %table_iter_next_block.exit, %66, %block_source_close.exit.i
-  %.033 = phi i32 [ %.0.ph, %table_iter_next_block.exit ], [ %.0.ph, %66 ], [ %.0.ph, %block_source_close.exit.i ], [ %5, %1 ]
+  %.033 = phi i32 [ %.0.ph, %block_source_close.exit.i ], [ %.0.ph, %table_iter_next_block.exit ], [ %.0.ph, %66 ], [ %5, %1 ]
   call fastcc void @table_iter_close(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1475,8 +1475,8 @@ define internal i32 @table_iter_seek_void(ptr noundef %0, ptr noundef %1) #0 {
   br label %reader_offsets_for.exit.i.i
 
 reader_offsets_for.exit.i.i:                      ; preds = %8, %7, %2
-  %.sink.i = phi i64 [ 104, %8 ], [ 128, %7 ], [ 80, %2 ]
-  %.sink.i.i.i = phi i64 [ 88, %8 ], [ 112, %7 ], [ 64, %2 ]
+  %.sink.i = phi i64 [ 128, %7 ], [ 104, %8 ], [ 80, %2 ]
+  %.sink.i.i.i = phi i64 [ 112, %7 ], [ 88, %8 ], [ 64, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.i
   %.in.in.i = load i64, ptr %9, align 8, !tbaa !78
   %.in.not.i = icmp eq i64 %.in.in.i, 0
@@ -1579,7 +1579,7 @@ table_iter_seek_start.exit.thread.i:              ; preds = %table_iter_seek_sta
   br i1 %.not20.i.i, label %41, label %table_iter_seek_indexed.exit.i
 
 table_iter_seek_indexed.exit.i:                   ; preds = %54, %51, %47, %43, %41, %32, %28
-  %.0.i15.i = phi i32 [ %30, %28 ], [ %33, %32 ], [ %46, %43 ], [ -3, %54 ], [ 0, %51 ], [ %49, %47 ], [ %42, %41 ]
+  %.0.i15.i = phi i32 [ %30, %28 ], [ %33, %32 ], [ %46, %43 ], [ 0, %51 ], [ %49, %47 ], [ -3, %54 ], [ %42, %41 ]
   call void @reftable_record_release(ptr noundef nonnull %3) #12
   call void @reftable_record_release(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1773,8 +1773,8 @@ table_iter_next_in_block.exit:                    ; preds = %11
   %.not15 = icmp eq i32 %33, 0
   br i1 %.not15, label %11, label %.thread
 
-.thread:                                          ; preds = %32, %table_iter_next_in_block.exit, %.preheader, %16, %14, %.loopexit, %2
-  %.012 = phi i32 [ -6, %2 ], [ %31, %.loopexit ], [ 0, %14 ], [ 0, %16 ], [ 1, %.preheader ], [ 1, %32 ], [ %12, %table_iter_next_in_block.exit ]
+.thread:                                          ; preds = %table_iter_next_in_block.exit, %32, %.preheader, %16, %14, %.loopexit, %2
+  %.012 = phi i32 [ -6, %2 ], [ 0, %14 ], [ %31, %.loopexit ], [ 0, %16 ], [ 1, %.preheader ], [ %12, %table_iter_next_in_block.exit ], [ 1, %32 ]
   ret i32 %.012
 }
 

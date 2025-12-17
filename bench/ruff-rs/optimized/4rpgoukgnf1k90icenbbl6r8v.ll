@@ -330,7 +330,7 @@ define hidden zeroext i1 @_ZN18ruff_python_trivia9tokenizer26is_identifier_conti
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %13, %10, %5, %3
-  %.sroa.0.0.shrunk = phi i1 [ %4, %3 ], [ true, %5 ], [ true, %10 ], [ %spec.select, %13 ]
+  %.sroa.0.0.shrunk = phi i1 [ %4, %3 ], [ %spec.select, %13 ], [ true, %10 ], [ true, %5 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %5
@@ -492,7 +492,7 @@ define internal fastcc range(i8 52, 88) i8 @_ZN18ruff_python_trivia9tokenizer19t
   br label %72
 
 72:                                               ; preds = %68, %70, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4, %2
-  %.sroa.0.0 = phi i8 [ 52, %2 ], [ 53, %4 ], [ 54, %6 ], [ 55, %8 ], [ 56, %10 ], [ 57, %12 ], [ 58, %14 ], [ 59, %16 ], [ 60, %18 ], [ 61, %20 ], [ 62, %22 ], [ 63, %24 ], [ 64, %26 ], [ 65, %28 ], [ 66, %30 ], [ 67, %32 ], [ 68, %34 ], [ 69, %36 ], [ 70, %38 ], [ 71, %40 ], [ 72, %42 ], [ 73, %44 ], [ 74, %46 ], [ 75, %48 ], [ 76, %50 ], [ 77, %52 ], [ 78, %54 ], [ 79, %56 ], [ 80, %58 ], [ 81, %60 ], [ 82, %62 ], [ 83, %64 ], [ 84, %66 ], [ %., %70 ], [ 85, %68 ]
+  %.sroa.0.0 = phi i8 [ 85, %68 ], [ 52, %2 ], [ 53, %4 ], [ 54, %6 ], [ 55, %8 ], [ 56, %10 ], [ 57, %12 ], [ 58, %14 ], [ 59, %16 ], [ 60, %18 ], [ 61, %20 ], [ 62, %22 ], [ 63, %24 ], [ 64, %26 ], [ 65, %28 ], [ 66, %30 ], [ 67, %32 ], [ 68, %34 ], [ 69, %36 ], [ 70, %38 ], [ 71, %40 ], [ 72, %42 ], [ 73, %44 ], [ 74, %46 ], [ 75, %48 ], [ 76, %50 ], [ 77, %52 ], [ 78, %54 ], [ 79, %56 ], [ 80, %58 ], [ 81, %60 ], [ 82, %62 ], [ 83, %64 ], [ %., %70 ], [ 84, %66 ]
   ret i8 %.sroa.0.0
 }
 
@@ -1013,7 +1013,7 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17he24267c493fa02e3E.exit.
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c2686e2c64E.exit.i
 
 _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c2686e2c64E.exit.i: ; preds = %168, %166, %108, %103, %90, %87, %86, %85, %84, %83, %82, %80, %78, %76, %74, %72, %71, %70, %69, %68, %67, %66, %63, %62, %55, %53, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %29, %28, %26, %25, %24, %18
-  %.sroa.02.0.i.i = phi i8 [ 87, %108 ], [ 88, %168 ], [ 87, %166 ], [ %105, %103 ], [ 88, %24 ], [ 1, %25 ], [ 4, %26 ], [ 0, %28 ], [ 3, %29 ], [ 88, %82 ], [ 27, %52 ], [ 13, %55 ], [ 11, %62 ], [ 49, %90 ], [ 5, %66 ], [ 6, %67 ], [ 9, %68 ], [ 10, %69 ], [ 7, %70 ], [ 8, %71 ], [ 4, %18 ], [ %..i.i, %30 ], [ %.12.i.i, %32 ], [ %.13.i.i, %38 ], [ %.14.i.i, %40 ], [ %.15.i.i, %42 ], [ %.16.i.i, %44 ], [ %.17.i.i, %48 ], [ %.18.i.i, %53 ], [ 38, %34 ], [ 15, %72 ], [ %.19.i.i, %74 ], [ 39, %36 ], [ 14, %76 ], [ %.20.i.i, %78 ], [ %.21.i.i, %80 ], [ 37, %46 ], [ 29, %50 ], [ %.22.i.i, %83 ], [ %.23.i.i, %84 ], [ %.24.i.i, %85 ], [ %.25.i.i, %86 ], [ 16, %87 ], [ 16, %63 ]
+  %.sroa.02.0.i.i = phi i8 [ 87, %108 ], [ 88, %168 ], [ 87, %166 ], [ %105, %103 ], [ 88, %24 ], [ 1, %25 ], [ 8, %71 ], [ 4, %26 ], [ 0, %28 ], [ 3, %29 ], [ %.17.i.i, %48 ], [ %.18.i.i, %53 ], [ %.15.i.i, %42 ], [ %.16.i.i, %44 ], [ %.14.i.i, %40 ], [ 15, %72 ], [ %.19.i.i, %74 ], [ 38, %34 ], [ %.13.i.i, %38 ], [ 14, %76 ], [ %.20.i.i, %78 ], [ 39, %36 ], [ %..i.i, %30 ], [ %.12.i.i, %32 ], [ 7, %70 ], [ 4, %18 ], [ 9, %68 ], [ 10, %69 ], [ 5, %66 ], [ 6, %67 ], [ %.21.i.i, %80 ], [ %.23.i.i, %84 ], [ 37, %46 ], [ 11, %62 ], [ 49, %90 ], [ %.25.i.i, %86 ], [ 88, %82 ], [ 27, %52 ], [ %.24.i.i, %85 ], [ 29, %50 ], [ 13, %55 ], [ %.22.i.i, %83 ], [ 16, %87 ], [ 16, %63 ]
   %169 = tail call i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h7a25922a84aa333bE(ptr nonnull align 8 %5), !noalias !3
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %171 = load i32, ptr %170, align 8, !noalias !3
@@ -1378,7 +1378,7 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6be
     i32 46, label %48
   ]
 
-_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread: ; preds = %16, %12, %10, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit
+_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread: ; preds = %12, %16, %10, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1465,8 +1465,8 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6be
   %.not = icmp ugt i32 %57, %59
   br i1 %.not, label %60, label %61
 
-.thread:                                          ; preds = %103, %97, %101, %select.unfold, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43, %147, %137, %89, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %30
-  %.sroa.02.0 = phi i8 [ %149, %147 ], [ 88, %137 ], [ 88, %30 ], [ 12, %32 ], [ 27, %33 ], [ 22, %34 ], [ 25, %35 ], [ 11, %36 ], [ 13, %37 ], [ 5, %38 ], [ 6, %39 ], [ 9, %40 ], [ 10, %41 ], [ 7, %42 ], [ 8, %43 ], [ 23, %44 ], [ 24, %45 ], [ 17, %46 ], [ 18, %47 ], [ 88, %89 ], [ 3, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43 ], [ %80, %select.unfold ], [ %80, %101 ], [ %80, %97 ], [ %80, %103 ]
+.thread:                                          ; preds = %101, %97, %103, %select.unfold, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43, %147, %137, %89, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %30
+  %.sroa.02.0 = phi i8 [ %149, %147 ], [ 88, %137 ], [ 88, %30 ], [ 88, %89 ], [ 12, %32 ], [ 27, %33 ], [ 22, %34 ], [ 25, %35 ], [ 11, %36 ], [ 13, %37 ], [ 5, %38 ], [ 6, %39 ], [ 9, %40 ], [ 10, %41 ], [ 7, %42 ], [ 8, %43 ], [ 23, %44 ], [ 24, %45 ], [ 17, %46 ], [ 18, %47 ], [ 3, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h1df74fde44f1e6beE.exit.thread43 ], [ %80, %select.unfold ], [ %80, %103 ], [ %80, %97 ], [ %80, %101 ]
   ret i8 %.sroa.02.0
 
 60:                                               ; preds = %48
@@ -1564,8 +1564,8 @@ thread-pre-split:                                 ; preds = %107
   %.not32 = icmp eq i64 %102, 0
   br i1 %.not32, label %103, label %.thread
 
-select.unfold:                                    ; preds = %103, %97
-  %.pn = phi { i32, i32 } [ %98, %97 ], [ %104, %103 ]
+select.unfold:                                    ; preds = %97, %103
+  %.pn = phi { i32, i32 } [ %104, %103 ], [ %98, %97 ]
   %.sroa.09.0 = extractvalue { i32, i32 } %.pn, 1
   %.not33 = icmp eq i32 %.sroa.09.0, 1114112
   br i1 %.not33, label %.thread, label %107

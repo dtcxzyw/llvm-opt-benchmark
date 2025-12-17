@@ -244,7 +244,7 @@ _ZNKSt9type_infoneERKS_.exit.thread13:            ; preds = %4, %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16, %_ZNKSt9type_infoneERKS_.exit.thread13, %27, %33, %39, %45, %_ZNKSt9type_infoneERKS_.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %39 ], [ false, %33 ], [ false, %27 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread13 ], [ %50, %45 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %2 ], [ false, %39 ], [ false, %33 ], [ false, %27 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread13 ], [ %50, %45 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -398,8 +398,8 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator8setIndexEi(ptr no
   br label %14
 
 14:                                               ; preds = %13, %6
-  %15 = phi i32 [ %10, %13 ], [ %.pre, %6 ]
-  %16 = phi i32 [ %1, %13 ], [ %4, %6 ]
+  %15 = phi i32 [ %.pre, %6 ], [ %10, %13 ]
+  %16 = phi i32 [ %4, %6 ], [ %1, %13 ]
   %17 = icmp slt i32 %16, %15
   br i1 %17, label %18, label %24
 
@@ -578,7 +578,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator7fi
   br label %29
 
 29:                                               ; preds = %1, %8, %25, %18
-  %.0 = phi i32 [ %15, %8 ], [ %28, %25 ], [ %15, %18 ], [ 65535, %1 ]
+  %.0 = phi i32 [ 65535, %1 ], [ %15, %8 ], [ %28, %25 ], [ %15, %18 ]
   ret i32 %.0
 }
 
@@ -626,7 +626,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator14f
   br label %30
 
 30:                                               ; preds = %1, %8, %25, %18
-  %.0 = phi i32 [ %15, %8 ], [ %29, %25 ], [ %15, %18 ], [ 65535, %1 ]
+  %.0 = phi i32 [ 65535, %1 ], [ %15, %8 ], [ %29, %25 ], [ %15, %18 ]
   ret i32 %.0
 }
 
@@ -675,7 +675,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6la
   br label %32
 
 32:                                               ; preds = %1, %8, %27, %19
-  %.0 = phi i32 [ %15, %8 ], [ %31, %27 ], [ %15, %19 ], [ 65535, %1 ]
+  %.0 = phi i32 [ 65535, %1 ], [ %15, %8 ], [ %31, %27 ], [ %15, %19 ]
   ret i32 %.0
 }
 
@@ -823,7 +823,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722UCharCharacterIterator9c
   br label %47
 
 47:                                               ; preds = %1, %6, %10, %35, %37, %43, %22, %24, %31
-  %.08 = phi i32 [ %16, %10 ], [ %34, %31 ], [ %16, %24 ], [ %16, %22 ], [ %46, %43 ], [ %16, %37 ], [ %16, %35 ], [ 65535, %6 ], [ 65535, %1 ]
+  %.08 = phi i32 [ %16, %35 ], [ %16, %10 ], [ %34, %31 ], [ %16, %24 ], [ %16, %22 ], [ %46, %43 ], [ %16, %37 ], [ 65535, %6 ], [ 65535, %1 ]
   ret i32 %.08
 }
 
@@ -946,7 +946,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator13n
   br label %29
 
 29:                                               ; preds = %1, %7, %24, %17
-  %.0 = phi i32 [ %14, %7 ], [ %28, %24 ], [ %14, %17 ], [ 65535, %1 ]
+  %.0 = phi i32 [ 65535, %1 ], [ %14, %7 ], [ %28, %24 ], [ %14, %17 ]
   ret i32 %.0
 }
 
@@ -993,7 +993,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10p
   br label %31
 
 31:                                               ; preds = %1, %7, %26, %18
-  %.0 = phi i32 [ %14, %7 ], [ %30, %26 ], [ %14, %18 ], [ 65535, %1 ]
+  %.0 = phi i32 [ 65535, %1 ], [ %14, %7 ], [ %30, %26 ], [ %14, %18 ]
   ret i32 %.0
 }
 

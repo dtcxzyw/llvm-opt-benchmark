@@ -421,8 +421,8 @@ define hidden ptr @Curl_cookie_add(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %.not277.i, label %.critedge15.i, label %.lr.ph415.i, !llvm.loop !97
 
 .critedge15.i:                                    ; preds = %.critedge13.i, %.critedge17.i, %.lr.ph415.i, %49
-  %.0247.lcssa.i = phi ptr [ %50, %49 ], [ %scevgep432.i, %.critedge17.i ], [ %.0247413.i, %.lr.ph415.i ], [ %50, %.critedge13.i ]
-  %.1243.lcssa.i = phi i64 [ 0, %49 ], [ 0, %.critedge17.i ], [ %.1243414.i, %.lr.ph415.i ], [ 0, %.critedge13.i ]
+  %.0247.lcssa.i = phi ptr [ %50, %49 ], [ %.0247413.i, %.lr.ph415.i ], [ %scevgep432.i, %.critedge17.i ], [ %50, %.critedge13.i ]
+  %.1243.lcssa.i = phi i64 [ 0, %49 ], [ %.1243414.i, %.lr.ph415.i ], [ 0, %.critedge17.i ], [ 0, %.critedge13.i ]
   %60 = call ptr @memchr(ptr noundef nonnull %.0247.lcssa.i, i32 noundef 9, i64 noundef %.1243.lcssa.i) #13
   %.not278.i = icmp eq ptr %60, null
   br i1 %.not278.i, label %74, label %61
@@ -868,7 +868,7 @@ cookie_tailmatch.exit.thread.i:                   ; preds = %cookie_tailmatch.ex
   br label %.sink.split472.i
 
 .sink.split472.i:                                 ; preds = %250, %248, %247, %242
-  %.sink.i = phi i64 [ 1, %247 ], [ 9223372036854775807, %242 ], [ 1, %248 ], [ %spec.select.i, %250 ]
+  %.sink.i = phi i64 [ 9223372036854775807, %242 ], [ %spec.select.i, %250 ], [ 1, %248 ], [ 1, %247 ]
   store i64 %.sink.i, ptr %29, align 8, !tbaa !103
   br label %251
 
@@ -930,7 +930,7 @@ cap_expires.exit335.i:                            ; preds = %270, %267
   br label %.thread360.i.preheader
 
 .thread360.i.preheader:                           ; preds = %cap_expires.exit335.i, %257, %.critedge326.i, %255, %252, %251, %238, %237, %.thread356.i, %192, %sanitize_cookie_path.exit.i, %sanitize_cookie_path.exit.thread.i, %152, %.critedge320.i, %151, %148, %143, %118, %.critedge.i
-  %.6236.i.ph = phi ptr [ %.3233.i, %.critedge320.i ], [ %.3233.i, %192 ], [ %.3233.i, %152 ], [ %.3233.i, %255 ], [ %.3233.i, %252 ], [ %.3233.i, %251 ], [ %.3233.i, %.thread356.i ], [ %.3233.i, %sanitize_cookie_path.exit.thread.i ], [ %.3233.i, %238 ], [ %.3233.i, %143 ], [ %.3233.i, %148 ], [ %.3233.i, %118 ], [ %.3233.i, %sanitize_cookie_path.exit.i ], [ %.3233.i, %.critedge326.i ], [ %.3233.i, %cap_expires.exit335.i ], [ %.3233.i, %257 ], [ %.3233.i, %237 ], [ %.3233.i, %151 ], [ %indvars.iv.pn.i, %.critedge.i ]
+  %.6236.i.ph = phi ptr [ %.3233.i, %192 ], [ %.3233.i, %152 ], [ %.3233.i, %252 ], [ %.3233.i, %251 ], [ %.3233.i, %255 ], [ %.3233.i, %.thread356.i ], [ %.3233.i, %sanitize_cookie_path.exit.thread.i ], [ %.3233.i, %238 ], [ %.3233.i, %.critedge320.i ], [ %.3233.i, %143 ], [ %.3233.i, %148 ], [ %.3233.i, %118 ], [ %.3233.i, %sanitize_cookie_path.exit.i ], [ %.3233.i, %.critedge326.i ], [ %.3233.i, %cap_expires.exit335.i ], [ %.3233.i, %257 ], [ %.3233.i, %237 ], [ %.3233.i, %151 ], [ %indvars.iv.pn.i, %.critedge.i ]
   br label %.thread360.i
 
 .thread360.i:                                     ; preds = %.thread360.i.preheader, %.critedge26.i
@@ -1314,7 +1314,7 @@ sanitize_cookie_path.exit.i96:                    ; preds = %.thread.i.i99, %399
   br i1 %433, label %.lr.ph.i88, label %.critedge.i90, !llvm.loop !107
 
 .critedge.i90:                                    ; preds = %431, %.lr.ph.i88
-  %.0.lcssa.i = phi ptr [ %.0127.i, %.lr.ph.i88 ], [ %432, %431 ]
+  %.0.lcssa.i = phi ptr [ %432, %431 ], [ %.0127.i, %.lr.ph.i88 ]
   %.not100.i = icmp eq ptr %.0.lcssa.i, %358
   br i1 %.not100.i, label %434, label %.critedge.thread.i
 
@@ -1370,7 +1370,7 @@ sanitize_cookie_path.exit.i96:                    ; preds = %.thread.i.i99, %399
   br i1 %.not96.i, label %parse_cookie_header.exit.thread, label %452
 
 452:                                              ; preds = %450, %447, %444, %441, %.critedge115.i, %425, %417, %sanitize_cookie_path.exit.i96, %sanitize_cookie_path.exit.thread.i98, %367, %362, %356
-  %.2.i = phi i32 [ %.082132.i, %356 ], [ 0, %362 ], [ 1, %367 ], [ 2, %sanitize_cookie_path.exit.i96 ], [ 3, %425 ], [ 3, %417 ], [ 5, %441 ], [ 5, %447 ], [ 5, %444 ], [ 6, %450 ], [ 4, %.critedge115.i ], [ 2, %sanitize_cookie_path.exit.thread.i98 ]
+  %.2.i = phi i32 [ %.082132.i, %356 ], [ 0, %362 ], [ 1, %367 ], [ 2, %sanitize_cookie_path.exit.i96 ], [ 3, %425 ], [ 3, %417 ], [ 4, %.critedge115.i ], [ 5, %441 ], [ 5, %447 ], [ 5, %444 ], [ 6, %450 ], [ 2, %sanitize_cookie_path.exit.thread.i98 ]
   %453 = add i32 %.2.i, 1
   %.not142.i = icmp eq ptr %361, null
   %.not.i87 = or i1 %360, %.not142.i
@@ -1548,7 +1548,7 @@ sub_0:                                            ; preds = %465
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef %535, ptr noundef nonnull %5, ptr noundef %536) #12
   br label %is_public_suffix.exit.thread110
 
-is_public_suffix.exit.thread110:                  ; preds = %.thread.i103, %529, %533
+is_public_suffix.exit.thread110:                  ; preds = %533, %.thread.i103, %529
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %parse_cookie_header.exit.thread
@@ -1558,7 +1558,7 @@ is_public_suffix.exit:                            ; preds = %518
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %is_public_suffix.exit.thread
 
-is_public_suffix.exit.thread:                     ; preds = %490, %493, %496, %is_public_suffix.exit
+is_public_suffix.exit.thread:                     ; preds = %496, %490, %493, %is_public_suffix.exit
   %537 = call fastcc i32 @replace_existing(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %1, i1 noundef zeroext %7, ptr noundef %13)
   %.not80 = icmp eq i32 %537, 0
   br i1 %.not80, label %538, label %parse_cookie_header.exit.thread
@@ -1638,7 +1638,7 @@ is_public_suffix.exit.thread:                     ; preds = %490, %493, %496, %i
   store i64 %579, ptr %581, align 8, !tbaa !86
   br label %601
 
-parse_cookie_header.exit.thread:                  ; preds = %362, %378, %sanitize_cookie_path.exit.i96, %411, %414, %422, %437, %450, %sanitize_cookie_path.exit.i, %154, %140, %107, %106, %237, %sub_0, %454, %sanitize_cookie_path.exit.thread118.i, %455, %345, %.critedge.thread.i, %296, %cookie_tailmatch.exit.thread.i, %225, %232, %236, %73, %69, %62, %61, %91, %87, %80, %79, %134, %130, %123, %122, %sanitize_cookie_path.exit.thread348.i, %.thread387.i, %.thread375.i, %279, %21, %330, %is_public_suffix.exit.thread110, %parse_cookie_header.exit, %is_public_suffix.exit.thread, %477, %464, %465, %.tail
+parse_cookie_header.exit.thread:                  ; preds = %450, %378, %362, %414, %411, %sanitize_cookie_path.exit.i96, %422, %437, %106, %107, %237, %140, %154, %sanitize_cookie_path.exit.i, %sub_0, %sanitize_cookie_path.exit.thread118.i, %454, %.critedge.thread.i, %345, %455, %cookie_tailmatch.exit.thread.i, %122, %61, %232, %73, %69, %62, %91, %87, %80, %296, %134, %130, %123, %236, %sanitize_cookie_path.exit.thread348.i, %79, %225, %.thread375.i, %330, %279, %.thread387.i, %21, %is_public_suffix.exit.thread110, %parse_cookie_header.exit, %is_public_suffix.exit.thread, %477, %464, %465, %.tail
   %585 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
   %586 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %587 = load ptr, ptr %586, align 8, !tbaa !106
@@ -1664,7 +1664,7 @@ parse_cookie_header.exit.thread:                  ; preds = %362, %378, %sanitiz
   br label %601
 
 601:                                              ; preds = %577, %580, %584, %17, %8, %parse_cookie_header.exit.thread
-  %.063 = phi ptr [ null, %parse_cookie_header.exit.thread ], [ null, %8 ], [ null, %17 ], [ %19, %584 ], [ %19, %580 ], [ %19, %577 ]
+  %.063 = phi ptr [ null, %8 ], [ null, %parse_cookie_header.exit.thread ], [ null, %17 ], [ %19, %584 ], [ %19, %580 ], [ %19, %577 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.063
 }
@@ -1794,20 +1794,20 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   %.not98 = icmp eq ptr %22, null
   %23 = load ptr, ptr %6, align 8, !tbaa !106
   %.not101 = icmp eq ptr %23, null
-  br i1 %.not98, label %27, label %24
+  br i1 %.not98, label %25, label %24
 
 24:                                               ; preds = %20
-  br i1 %.not101, label %.critedge.thread, label %25
+  br i1 %.not101, label %.critedge.thread, label %26
 
-25:                                               ; preds = %24
-  %26 = tail call i32 @curl_strequal(ptr noundef nonnull %22, ptr noundef nonnull %23) #12
-  %.not102.not = icmp eq i32 %26, 0
-  br i1 %.not102.not, label %.critedge.thread, label %28
-
-27:                                               ; preds = %20
+25:                                               ; preds = %20
   br i1 %.not101, label %28, label %.critedge.thread
 
-28:                                               ; preds = %25, %27
+26:                                               ; preds = %24
+  %27 = tail call i32 @curl_strequal(ptr noundef nonnull %22, ptr noundef nonnull %23) #12
+  %.not102.not = icmp eq i32 %27, 0
+  br i1 %.not102.not, label %.critedge.thread, label %28
+
+28:                                               ; preds = %25, %26
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %30 = load ptr, ptr %29, align 8, !tbaa !101
   %.not103 = icmp eq ptr %30, null
@@ -1883,7 +1883,7 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, ptr noundef %65, ptr noundef %66) #12
   br label %.critedge.thread139
 
-.critedge.thread:                                 ; preds = %50, %25, %24, %27, %28, %31, %33, %37, %14
+.critedge.thread:                                 ; preds = %50, %24, %28, %31, %33, %37, %26, %25, %14
   %.not111 = icmp eq ptr %.082151, null
   br i1 %.not111, label %67, label %.critedge
 
@@ -1925,7 +1925,7 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   br label %86
 
 86:                                               ; preds = %75, %85, %78, %76
-  %.378 = phi i8 [ %.075152, %76 ], [ %spec.select127, %78 ], [ %spec.select128, %85 ], [ %.075152, %75 ]
+  %.378 = phi i8 [ %spec.select128, %85 ], [ %spec.select127, %78 ], [ %.075152, %76 ], [ %.075152, %75 ]
   %87 = trunc nuw i8 %.378 to i1
   br i1 %87, label %88, label %.critedge
 
@@ -1969,9 +1969,9 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   %.not125 = icmp eq i8 %103, 0
   br i1 %.not125, label %.critedge, label %.critedge.thread139
 
-.critedge:                                        ; preds = %91, %._crit_edge169, %94, %97, %100, %86, %92, %67, %.critedge.thread
-  %.183 = phi ptr [ %.082151, %.critedge.thread ], [ null, %67 ], [ %.085150, %100 ], [ %.085150, %97 ], [ null, %94 ], [ null, %86 ], [ null, %92 ], [ null, %._crit_edge169 ], [ null, %91 ]
-  %.176 = phi i8 [ %.075152, %.critedge.thread ], [ %.075152, %67 ], [ 1, %100 ], [ 1, %97 ], [ 0, %94 ], [ 0, %86 ], [ 0, %92 ], [ 0, %._crit_edge169 ], [ 0, %91 ]
+.critedge:                                        ; preds = %91, %._crit_edge169, %94, %97, %100, %92, %86, %67, %.critedge.thread
+  %.183 = phi ptr [ null, %67 ], [ %.082151, %.critedge.thread ], [ null, %94 ], [ %.085150, %100 ], [ %.085150, %97 ], [ null, %92 ], [ null, %86 ], [ null, %._crit_edge169 ], [ null, %91 ]
+  %.176 = phi i8 [ %.075152, %67 ], [ %.075152, %.critedge.thread ], [ 0, %94 ], [ 1, %100 ], [ 1, %97 ], [ 0, %92 ], [ 0, %86 ], [ 0, %._crit_edge169 ], [ 0, %91 ]
   %104 = tail call ptr @Curl_node_next(ptr noundef nonnull %.085150) #12
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !117
@@ -2012,12 +2012,12 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %105, %._crit_edge
-  %.075.lcssa174 = phi i8 [ %.176, %105 ], [ %.176, %._crit_edge ], [ 0, %5 ]
+  %.075.lcssa174 = phi i8 [ %.176, %._crit_edge ], [ %.176, %105 ], [ 0, %5 ]
   store i8 %.075.lcssa174, ptr %4, align 1, !tbaa !92
   br label %.critedge.thread139
 
 .critedge.thread139:                              ; preds = %100, %52, %53, %60, %64, %._crit_edge.thread
-  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %52 ], [ 8, %53 ], [ 8, %60 ], [ 8, %64 ], [ 15, %100 ]
+  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %53 ], [ 8, %60 ], [ 8, %64 ], [ 8, %52 ], [ 15, %100 ]
   ret i32 %.6
 }
 
@@ -2077,7 +2077,7 @@ get_top_domain.exit:                              ; preds = %4, %7, %12
   br label %cookie_hash_domain.exit
 
 cookie_hash_domain.exit:                          ; preds = %._crit_edge.loopexit.i, %get_top_domain.exit, %1, %2
-  %.0 = phi i64 [ 0, %2 ], [ 0, %1 ], [ 26, %get_top_domain.exit ], [ %25, %._crit_edge.loopexit.i ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %2 ], [ 26, %get_top_domain.exit ], [ %25, %._crit_edge.loopexit.i ]
   ret i64 %.0
 }
 
@@ -2287,7 +2287,7 @@ pathmatch.exit.thread101:                         ; preds = %47, %pathmatch.exit
   br label %.thread112
 
 pathmatch.exit.thread:                            ; preds = %57, %50, %.lr.ph, %42, %cookie_tailmatch.exit.thread, %pathmatch.exit.thread101, %pathmatch.exit, %pathmatch.exit.thread104
-  %.3.ph = phi i64 [ %.068121, %pathmatch.exit.thread104 ], [ %.068121, %.lr.ph ], [ %.068121, %cookie_tailmatch.exit.thread ], [ %.068121, %42 ], [ %.068121, %pathmatch.exit ], [ %74, %pathmatch.exit.thread101 ], [ %.068121, %50 ], [ %.068121, %57 ]
+  %.3.ph = phi i64 [ %.068121, %pathmatch.exit.thread104 ], [ %74, %pathmatch.exit.thread101 ], [ %.068121, %.lr.ph ], [ %.068121, %cookie_tailmatch.exit.thread ], [ %.068121, %42 ], [ %.068121, %pathmatch.exit ], [ %.068121, %50 ], [ %.068121, %57 ]
   %89 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072120) #12
   %.not83 = icmp eq ptr %89, null
   br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !119
@@ -2296,8 +2296,8 @@ pathmatch.exit.thread:                            ; preds = %57, %50, %.lr.ph, %
   %.not90 = icmp eq i64 %.3.ph, 0
   br i1 %.not90, label %._crit_edge.thread, label %.thread112
 
-.thread112:                                       ; preds = %76, %77, %84, %88, %._crit_edge
-  %.169115 = phi i64 [ %.3.ph, %._crit_edge ], [ %74, %88 ], [ %74, %84 ], [ %74, %77 ], [ %74, %76 ]
+.thread112:                                       ; preds = %77, %84, %88, %76, %._crit_edge
+  %.169115 = phi i64 [ %.3.ph, %._crit_edge ], [ %74, %76 ], [ %74, %88 ], [ %74, %84 ], [ %74, %77 ]
   %90 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !84
   %91 = shl i64 %.169115, 3
   %92 = tail call ptr %90(i64 noundef %91) #12
@@ -2345,7 +2345,7 @@ pathmatch.exit.thread:                            ; preds = %57, %50, %.lr.ph, %
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %11, %.thread116, %._crit_edge, %6, %8, %105
-  %.067 = phi i32 [ 2, %105 ], [ 1, %8 ], [ 1, %6 ], [ 0, %._crit_edge ], [ 0, %.thread116 ], [ 0, %11 ]
+  %.067 = phi i32 [ 1, %6 ], [ 1, %8 ], [ 2, %105 ], [ 0, %.thread116 ], [ 0, %._crit_edge ], [ 0, %11 ]
   ret i32 %.067
 }
 
@@ -2662,8 +2662,8 @@ define hidden ptr @Curl_cookie_list(ptr noundef %0) local_unnamed_addr #0 {
   br label %get_netscape_format.exit.i
 
 get_netscape_format.exit.i:                       ; preds = %19, %15
-  %22 = phi ptr [ @.str.28, %19 ], [ @.str.29, %15 ]
-  %23 = phi ptr [ %21, %19 ], [ @.str.30, %15 ]
+  %22 = phi ptr [ @.str.29, %15 ], [ @.str.28, %19 ]
+  %23 = phi ptr [ @.str.30, %15 ], [ %21, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !102
   %.not22.i.i = icmp eq ptr %25, null
@@ -2713,7 +2713,7 @@ get_netscape_format.exit.i:                       ; preds = %19, %15
   br label %cookie_list.exit
 
 cookie_list.exit:                                 ; preds = %._crit_edge.i, %1, %5, %.thread.sink.split.i
-  %.0.i = phi ptr [ null, %5 ], [ null, %1 ], [ null, %.thread.sink.split.i ], [ %.122.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ null, %1 ], [ null, %5 ], [ null, %.thread.sink.split.i ], [ %.122.lcssa.i, %._crit_edge.i ]
   %45 = tail call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #12
   ret ptr %.0.i
 }
@@ -2934,8 +2934,8 @@ get_netscape_format.exit.i:                       ; preds = %52, %51, %.lr.ph81.
   br label %cookie_output.exit.thread
 
 .thread71.i:                                      ; preds = %90, %.thread.i, %29, %22
-  %.142.i = phi i32 [ %23, %22 ], [ 23, %90 ], [ 27, %29 ], [ 27, %.thread.i ]
-  %.1.i = phi i8 [ 0, %22 ], [ 0, %90 ], [ %.039.i, %29 ], [ %.039.i, %.thread.i ]
+  %.142.i = phi i32 [ %23, %22 ], [ 23, %90 ], [ 27, %.thread.i ], [ 27, %29 ]
+  %.1.i = phi i8 [ 0, %22 ], [ 0, %90 ], [ %.039.i, %.thread.i ], [ %.039.i, %29 ]
   %95 = load ptr, ptr %3, align 8, !tbaa !89
   %96 = icmp eq ptr %95, null
   %97 = trunc nuw i8 %.1.i to i1
@@ -2946,7 +2946,7 @@ get_netscape_format.exit.i:                       ; preds = %52, %51, %.lr.ph81.
   %99 = call i32 @fclose(ptr noundef nonnull %95)
   br label %cookie_output.exit
 
-cookie_output.exit.thread:                        ; preds = %92, %8
+cookie_output.exit.thread:                        ; preds = %8, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115

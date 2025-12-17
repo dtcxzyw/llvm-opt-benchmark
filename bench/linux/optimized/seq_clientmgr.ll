@@ -2729,7 +2729,7 @@ define internal i32 @snd_seq_ioctl_unsubscribe_port(ptr noundef %0, ptr noundef 
   br label %.thread27
 
 .thread:                                          ; preds = %45, %._crit_edge, %37, %34, %53, %50
-  %.ph.ph = phi i32 [ %51, %50 ], [ 0, %53 ], [ -1, %34 ], [ -1, %37 ], [ -1, %._crit_edge ], [ -1, %45 ]
+  %.ph.ph = phi i32 [ 0, %53 ], [ %51, %50 ], [ -1, %34 ], [ -1, %37 ], [ -1, %._crit_edge ], [ -1, %45 ]
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %61, ptr nonnull elementtype(i32) %61) #19, !srcloc !16
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 96
@@ -3776,7 +3776,7 @@ define internal noundef range(i32 -6, 1) i32 @snd_seq_ioctl_query_subs(ptr readn
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %2, %.thread.thread9
-  %57 = phi i32 [ %55, %.thread.thread9 ], [ -6, %2 ]
+  %57 = phi i32 [ -6, %2 ], [ %55, %.thread.thread9 ]
   ret i32 %57
 }
 
@@ -4023,7 +4023,7 @@ define internal i64 @snd_seq_read(ptr noundef readonly captures(none) %0, ptr no
   br label %97
 
 97:                                               ; preds = %95, %.thread20.thread, %34, %26, %21, %19, %13, %4
-  %98 = phi i64 [ -28, %34 ], [ -6, %4 ], [ -14, %13 ], [ -6, %19 ], [ -6, %21 ], [ -6, %26 ], [ %96, %95 ], [ %.ph21, %.thread20.thread ]
+  %98 = phi i64 [ -28, %34 ], [ -6, %26 ], [ -6, %4 ], [ -14, %13 ], [ -6, %19 ], [ -6, %21 ], [ %96, %95 ], [ %.ph21, %.thread20.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %98
 }
@@ -4232,7 +4232,7 @@ thread-pre-split:                                 ; preds = %73, %77, %59
   br label %33
 
 .thread:                                          ; preds = %.critedge, %87, %105, %83, %77, %73, %69, %65, %56, %49
-  %126 = phi i32 [ %51, %49 ], [ %51, %56 ], [ %51, %65 ], [ %51, %69 ], [ %51, %73 ], [ %51, %77 ], [ %51, %83 ], [ %51, %105 ], [ %51, %87 ], [ %35, %.critedge ]
+  %126 = phi i32 [ %51, %87 ], [ %51, %49 ], [ %51, %56 ], [ %51, %65 ], [ %51, %69 ], [ %51, %73 ], [ %51, %77 ], [ %51, %83 ], [ %51, %105 ], [ %35, %.critedge ]
   %127 = phi i32 [ -22, %87 ], [ %111, %105 ], [ -22, %83 ], [ -22, %77 ], [ -22, %73 ], [ -22, %69 ], [ -22, %65 ], [ -14, %56 ], [ %52, %49 ], [ %47, %.critedge ]
   call void @mutex_unlock(ptr noundef nonnull %24) #19
   %128 = icmp eq i32 %126, 0

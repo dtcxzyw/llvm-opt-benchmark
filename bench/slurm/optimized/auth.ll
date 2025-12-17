@@ -873,7 +873,7 @@ define dso_local ptr @auth_g_get_host(ptr noundef %0) local_unnamed_addr #1 {
   br label %59
 
 59:                                               ; preds = %53, %50, %58, %54, %.critedge, %31, %35, %21, %24, %1, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %16, %24 ], [ %16, %21 ], [ %32, %35 ], [ %32, %31 ], [ null, %.critedge ], [ %49, %53 ], [ %49, %50 ], [ %55, %58 ], [ %55, %54 ]
+  %.0 = phi ptr [ null, %1 ], [ %16, %21 ], [ %32, %31 ], [ null, %.critedge ], [ null, %2 ], [ %16, %24 ], [ %32, %35 ], [ %49, %53 ], [ %49, %50 ], [ %55, %58 ], [ %55, %54 ]
   ret ptr %.0
 }
 
@@ -1085,7 +1085,7 @@ auth_get_plugin_name.exit:                        ; preds = %22, %26
   br label %.thread
 
 .thread:                                          ; preds = %19, %15, %6, %2, %31, %auth_get_plugin_name.exit
-  %.016 = phi ptr [ null, %auth_get_plugin_name.exit ], [ null, %31 ], [ null, %2 ], [ null, %6 ], [ null, %15 ], [ %18, %19 ]
+  %.016 = phi ptr [ null, %2 ], [ null, %auth_get_plugin_name.exit ], [ null, %6 ], [ null, %31 ], [ null, %15 ], [ %18, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.016
 }

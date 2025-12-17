@@ -136,7 +136,7 @@ thread-pre-split362:                              ; preds = %53, %52
   br i1 %.not340, label %67, label %thread-pre-split362.thread
 
 thread-pre-split362.thread.sink.split:            ; preds = %43, %40, %37, %34, %31, %29
-  %.sink = phi i32 [ -1, %29 ], [ -2, %31 ], [ -3, %34 ], [ -4, %37 ], [ -6, %40 ], [ -8, %43 ]
+  %.sink = phi i32 [ -1, %29 ], [ -2, %31 ], [ -4, %37 ], [ -6, %40 ], [ -3, %34 ], [ -8, %43 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   br label %thread-pre-split362.thread
 
@@ -404,7 +404,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   br i1 %190, label %195, label %191
 
 191:                                              ; preds = %183, %124, %._crit_edge377, %._crit_edge370
-  %.sink419 = phi ptr [ %2, %._crit_edge377 ], [ %1, %._crit_edge370 ], [ %2, %124 ], [ %1, %183 ]
+  %.sink419 = phi ptr [ %2, %._crit_edge377 ], [ %2, %124 ], [ %1, %._crit_edge370 ], [ %1, %183 ]
   %192 = load i32, ptr %.sink419, align 4, !tbaa !3
   store i32 %192, ptr %18, align 4, !tbaa !3
   %brmerge = or i1 %or.cond357, %102

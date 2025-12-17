@@ -137,7 +137,7 @@ define i16 @_ZN5arrow4util7Float169FromFloatEf(float noundef %0) local_unnamed_a
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 _ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit: ; preds = %11, %17, %21, %23, %33
-  %.0.i = phi i16 [ %16, %11 ], [ %18, %17 ], [ %32, %23 ], [ %43, %33 ], [ %5, %21 ]
+  %.0.i = phi i16 [ %16, %11 ], [ %18, %17 ], [ %43, %33 ], [ %32, %23 ], [ %5, %21 ]
   ret i16 %.0.i
 }
 
@@ -277,7 +277,7 @@ define i16 @_ZN5arrow4util7Float1610FromDoubleEd(double noundef %0) local_unname
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit
 
 _ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit: ; preds = %12, %19, %23, %25, %35
-  %.0.i = phi i16 [ %18, %12 ], [ %20, %19 ], [ %34, %25 ], [ %43, %35 ], [ %5, %23 ]
+  %.0.i = phi i16 [ %18, %12 ], [ %20, %19 ], [ %43, %35 ], [ %34, %25 ], [ %5, %23 ]
   ret i16 %.0.i
 }
 

@@ -713,7 +713,7 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr noundef captures
   br label %58
 
 58:                                               ; preds = %12, %51, %8, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %8 ], [ true, %51 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %51 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -1007,9 +1007,9 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %9
   br label %109
 
 109:                                              ; preds = %SnapBuildAddCommittedTxn.exit97, %SnapBuildAddCommittedTxn.exit, %.loopexit133
-  %.182 = phi i1 [ %.081134, %.loopexit133 ], [ true, %SnapBuildAddCommittedTxn.exit ], [ %.081134, %SnapBuildAddCommittedTxn.exit97 ]
-  %.178 = phi i1 [ %.077135, %.loopexit133 ], [ true, %SnapBuildAddCommittedTxn.exit ], [ %.077135, %SnapBuildAddCommittedTxn.exit97 ]
-  %.1 = phi i32 [ %.076136, %.loopexit133 ], [ %spec.select91, %SnapBuildAddCommittedTxn.exit ], [ %spec.select92, %SnapBuildAddCommittedTxn.exit97 ]
+  %.182 = phi i1 [ %.081134, %.loopexit133 ], [ %.081134, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
+  %.178 = phi i1 [ %.077135, %.loopexit133 ], [ %.077135, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
+  %.1 = phi i32 [ %.076136, %.loopexit133 ], [ %spec.select92, %SnapBuildAddCommittedTxn.exit97 ], [ %spec.select91, %SnapBuildAddCommittedTxn.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !9
@@ -2301,7 +2301,7 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
   br label %108
 
 108:                                              ; preds = %104, %107, %SnapBuildSnapDecRefcount.exit, %97, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %97 ], [ true, %SnapBuildSnapDecRefcount.exit ], [ false, %107 ], [ false, %104 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %SnapBuildSnapDecRefcount.exit ], [ false, %7 ], [ true, %97 ], [ false, %107 ], [ false, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

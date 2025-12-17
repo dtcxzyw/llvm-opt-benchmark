@@ -75,10 +75,10 @@ define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, 
   br label %25
 
 25:                                               ; preds = %.fold.split.i, %24, %23, %22, %21, %17, %15
-  %.119.i = phi i8 [ 0, %15 ], [ 34, %22 ], [ 43, %23 ], [ 42, %24 ], [ %spec.select.i, %17 ], [ 35, %21 ], [ 0, %.fold.split.i ]
-  %.117.i = phi i8 [ %.016.i, %15 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ %18, %17 ], [ 0, %21 ], [ %.016.i, %.fold.split.i ]
-  %.215.i = phi i32 [ %16, %15 ], [ %.013.i, %22 ], [ %.013.i, %23 ], [ %.013.i, %24 ], [ %.013.i, %17 ], [ %.013.i, %21 ], [ %.013.i, %.fold.split.i ]
-  %.2.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %spec.select24.i, %17 ], [ %.012.i, %21 ], [ %.012.i, %.fold.split.i ]
+  %.119.i = phi i8 [ 0, %15 ], [ 0, %.fold.split.i ], [ %spec.select.i, %17 ], [ 34, %22 ], [ 43, %23 ], [ 42, %24 ], [ 35, %21 ]
+  %.117.i = phi i8 [ %.016.i, %15 ], [ %.016.i, %.fold.split.i ], [ %18, %17 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %21 ]
+  %.215.i = phi i32 [ %16, %15 ], [ %.013.i, %.fold.split.i ], [ %.013.i, %17 ], [ %.013.i, %22 ], [ %.013.i, %23 ], [ %.013.i, %24 ], [ %.013.i, %21 ]
+  %.2.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %.fold.split.i ], [ %spec.select24.i, %17 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %.012.i, %21 ]
   %26 = add nuw nsw i64 %.0.i, 2
   %27 = icmp samesign ugt i64 %.0.i, 1073741821
   br i1 %27, label %detect_camins_file.exit, label %9, !llvm.loop !6
@@ -269,9 +269,9 @@ define internal fastcc noundef zeroext i1 @camins_read_packet(ptr noundef %0, pt
   br i1 %36, label %.thread75, label %process_timestamp.exit.i.us
 
 process_timestamp.exit.i.us:                      ; preds = %31, %24, %18, %11, %.lr.ph.split.us, %34, %28, %21, %15
-  %.161.us = phi i8 [ 32, %34 ], [ 32, %28 ], [ 40, %21 ], [ 40, %15 ], [ %.06090.us, %.lr.ph.split.us ], [ 40, %11 ], [ 40, %18 ], [ 32, %24 ], [ 32, %31 ]
-  %.2.us = phi i16 [ %35, %34 ], [ %29, %28 ], [ %22, %21 ], [ %16, %15 ], [ %.05991.us, %.lr.ph.split.us ], [ %14, %11 ], [ %20, %18 ], [ %27, %24 ], [ %33, %31 ]
-  %.5.i.us = phi i32 [ 1, %34 ], [ 2, %28 ], [ 1, %21 ], [ 2, %15 ], [ %.0.i92.us, %.lr.ph.split.us ], [ 2, %11 ], [ 1, %18 ], [ 2, %24 ], [ 1, %31 ]
+  %.161.us = phi i8 [ 40, %18 ], [ %.06090.us, %.lr.ph.split.us ], [ 32, %34 ], [ 32, %24 ], [ 32, %28 ], [ 40, %21 ], [ 40, %11 ], [ 40, %15 ], [ 32, %31 ]
+  %.2.us = phi i16 [ %20, %18 ], [ %.05991.us, %.lr.ph.split.us ], [ %35, %34 ], [ %27, %24 ], [ %29, %28 ], [ %22, %21 ], [ %14, %11 ], [ %16, %15 ], [ %33, %31 ]
+  %.5.i.us = phi i32 [ 1, %18 ], [ %.0.i92.us, %.lr.ph.split.us ], [ 1, %34 ], [ 2, %24 ], [ 2, %28 ], [ 1, %21 ], [ 2, %11 ], [ 2, %15 ], [ 1, %31 ]
   %37 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %3, ptr noundef %4)
   br i1 %37, label %.lr.ph.split.us, label %find_next_pkt_info.exit
 
@@ -358,9 +358,9 @@ process_timestamp.exit.i.us:                      ; preds = %31, %24, %18, %11, 
   br label %process_timestamp.exit.i
 
 process_timestamp.exit.i:                         ; preds = %58, %52, %45, %39, %67, %65, %62, %55, %49, %42
-  %.161 = phi i8 [ %.06090, %65 ], [ %.06090, %67 ], [ 32, %42 ], [ 32, %49 ], [ 40, %55 ], [ 40, %62 ], [ 32, %39 ], [ 32, %45 ], [ 40, %52 ], [ 40, %58 ]
-  %.2 = phi i16 [ %.05991, %65 ], [ %.05991, %67 ], [ %43, %42 ], [ %50, %49 ], [ %56, %55 ], [ %63, %62 ], [ %41, %39 ], [ %48, %45 ], [ %54, %52 ], [ %61, %58 ]
-  %.5.i = phi i32 [ %.0.i92, %65 ], [ %.0.i92, %67 ], [ 1, %42 ], [ 2, %49 ], [ 1, %55 ], [ 2, %62 ], [ 1, %39 ], [ 2, %45 ], [ 1, %52 ], [ 2, %58 ]
+  %.161 = phi i8 [ %.06090, %65 ], [ %.06090, %67 ], [ 32, %42 ], [ 40, %52 ], [ 32, %49 ], [ 40, %55 ], [ 32, %45 ], [ 40, %62 ], [ 32, %39 ], [ 40, %58 ]
+  %.2 = phi i16 [ %.05991, %65 ], [ %.05991, %67 ], [ %43, %42 ], [ %54, %52 ], [ %50, %49 ], [ %56, %55 ], [ %48, %45 ], [ %63, %62 ], [ %41, %39 ], [ %61, %58 ]
+  %.5.i = phi i32 [ %.0.i92, %65 ], [ %.0.i92, %67 ], [ 1, %42 ], [ 1, %52 ], [ 2, %49 ], [ 1, %55 ], [ 2, %45 ], [ 2, %62 ], [ 1, %39 ], [ 2, %58 ]
   %81 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %3, ptr noundef %4)
   br i1 %81, label %.lr.ph.split, label %find_next_pkt_info.exit
 
@@ -368,10 +368,10 @@ find_next_pkt_info.exit:                          ; preds = %process_timestamp.e
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
-.thread75:                                        ; preds = %62, %55, %49, %42, %21, %15, %34, %28
-  %.us-phi93.sink = phi i16 [ %35, %34 ], [ %29, %28 ], [ %16, %15 ], [ %22, %21 ], [ %43, %42 ], [ %50, %49 ], [ %63, %62 ], [ %56, %55 ]
-  %.262.ph81 = phi i8 [ 32, %34 ], [ 32, %28 ], [ 40, %15 ], [ 40, %21 ], [ 32, %42 ], [ 32, %49 ], [ 40, %62 ], [ 40, %55 ]
-  %.sink.i = phi i8 [ -1, %34 ], [ -1, %28 ], [ -2, %15 ], [ -2, %21 ], [ -1, %42 ], [ -1, %49 ], [ -2, %62 ], [ -2, %55 ]
+.thread75:                                        ; preds = %55, %62, %49, %42, %21, %15, %34, %28
+  %.us-phi93.sink = phi i16 [ %29, %28 ], [ %35, %34 ], [ %22, %21 ], [ %16, %15 ], [ %50, %49 ], [ %63, %62 ], [ %56, %55 ], [ %43, %42 ]
+  %.262.ph81 = phi i8 [ 32, %28 ], [ 32, %34 ], [ 40, %21 ], [ 40, %15 ], [ 32, %49 ], [ 40, %62 ], [ 40, %55 ], [ 32, %42 ]
+  %.sink.i = phi i8 [ -1, %28 ], [ -1, %34 ], [ -2, %21 ], [ -2, %15 ], [ -1, %49 ], [ -2, %62 ], [ -2, %55 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %83 = zext i16 %.us-phi93.sink to i64
@@ -497,7 +497,7 @@ read_packet_data.exit.thread:                     ; preds = %.thread75, %.split.
   br label %152
 
 .loopexit.i:                                      ; preds = %.lr.ph.split.i, %process_timestamp.exit.i41, %.lr.ph.split.us.i, %process_timestamp.exit.us.i, %.preheader.i, %.split.us.i
-  %.027.i.in = phi i16 [ %.us-phi37.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.034.us.i, %.lr.ph.split.us.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.034.i, %.lr.ph.split.i ], [ %.1.i, %process_timestamp.exit.i41 ]
+  %.027.i.in = phi i16 [ %.us-phi37.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.034.us.i, %.lr.ph.split.us.i ], [ %.034.i, %.lr.ph.split.i ], [ %.1.i, %process_timestamp.exit.i41 ]
   %.027.i = zext i16 %.027.i.in to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = add nuw nsw i32 %.027.i, 4
@@ -533,7 +533,7 @@ read_packet_data.exit.thread:                     ; preds = %.thread75, %.split.
   br label %152
 
 152:                                              ; preds = %read_packet_data.exit.thread, %find_next_pkt_info.exit, %150
-  %.0 = phi i1 [ true, %150 ], [ false, %find_next_pkt_info.exit ], [ false, %read_packet_data.exit.thread ]
+  %.0 = phi i1 [ false, %read_packet_data.exit.thread ], [ false, %find_next_pkt_info.exit ], [ true, %150 ]
   ret i1 %.0
 }
 

@@ -522,7 +522,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal9CordzInfo15FillParentStack
   br label %17
 
 17:                                               ; preds = %2, %11, %7
-  %.0 = phi i64 [ %10, %7 ], [ %16, %11 ], [ 0, %2 ]
+  %.0 = phi i64 [ %16, %11 ], [ %10, %7 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -1047,7 +1047,7 @@ _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit13: ; p
   br i1 %55, label %.sink.split.i, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit15.thread.sink.split
 
 .sink.split.i:                                    ; preds = %54, %52, %50, %48, %34
-  %.sink3.i = phi i64 [ 40, %34 ], [ 48, %48 ], [ 56, %50 ], [ 64, %52 ], [ 72, %54 ]
+  %.sink3.i = phi i64 [ 40, %34 ], [ 56, %50 ], [ 64, %52 ], [ 48, %48 ], [ 72, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %.val11, i64 %.sink3.i
   %57 = load i64, ptr %56, align 8, !tbaa !36
   %58 = add i64 %57, 1

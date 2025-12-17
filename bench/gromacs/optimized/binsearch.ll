@@ -175,7 +175,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph33, %.preheader28, %._crit_edge.loopexit, %.preheader
-  %.027 = phi i32 [ %7, %.preheader ], [ %1, %.preheader28 ], [ %29, %._crit_edge.loopexit ], [ %.0., %.lr.ph33 ]
+  %.027 = phi i32 [ %29, %._crit_edge.loopexit ], [ %7, %.preheader ], [ %1, %.preheader28 ], [ %.0., %.lr.ph33 ]
   ret i32 %.027
 }
 
@@ -325,7 +325,7 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   br label %_Z12BinarySearchPKfiifi.exit
 
 _Z12BinarySearchPKfiifi.exit:                     ; preds = %.lr.ph33.i, %.preheader28.i, %.preheader.i10, %._crit_edge.loopexit.i
-  %.027.i = phi i32 [ %36, %.preheader.i10 ], [ %2, %.preheader28.i ], [ %57, %._crit_edge.loopexit.i ], [ %.0..i, %.lr.ph33.i ]
+  %.027.i = phi i32 [ %57, %._crit_edge.loopexit.i ], [ %36, %.preheader.i10 ], [ %2, %.preheader28.i ], [ %.0..i, %.lr.ph33.i ]
   ret i32 %.027.i
 }
 

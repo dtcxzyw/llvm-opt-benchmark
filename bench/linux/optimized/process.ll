@@ -361,7 +361,7 @@ define dso_local i32 @copy_thread(ptr noundef initializes((2840, 2904), (2944, 2
   br label %113
 
 113:                                              ; preds = %110, %107
-  %114 = phi i32 [ %109, %107 ], [ %112, %110 ]
+  %114 = phi i32 [ %112, %110 ], [ %109, %107 ]
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %.thread, label %120
 

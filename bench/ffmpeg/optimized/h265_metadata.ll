@@ -846,7 +846,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br label %386
 
 381:                                              ; preds = %377, %375
-  %.173.i.i = phi i32 [ %359, %375 ], [ 0, %377 ]
+  %.173.i.i = phi i32 [ 0, %377 ], [ %359, %375 ]
   %382 = icmp slt i32 %361, 0
   br i1 %382, label %383, label %386
 
@@ -906,7 +906,7 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br label %414
 
 409:                                              ; preds = %405, %403
-  %.169.i.i = phi i32 [ %363, %403 ], [ 0, %405 ]
+  %.169.i.i = phi i32 [ 0, %405 ], [ %363, %403 ]
   %410 = icmp slt i32 %365, 0
   br i1 %410, label %411, label %414
 

@@ -338,7 +338,7 @@ Abc_Clock.exit114:                                ; preds = %122, %125
   br label %138
 
 138:                                              ; preds = %135, %113, %93, %137, %103, %45
-  %.078 = phi ptr [ null, %45 ], [ null, %137 ], [ null, %103 ], [ null, %93 ], [ null, %113 ], [ %109, %135 ]
+  %.078 = phi ptr [ null, %45 ], [ null, %103 ], [ null, %93 ], [ null, %113 ], [ null, %137 ], [ %109, %135 ]
   ret ptr %.078
 }
 
@@ -1005,8 +1005,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %.lr.ph, %27
-  %.val75.val95 = phi i32 [ %.val75.val95.pre.pre, %.lr.ph ], [ %.val73.val, %27 ]
-  %.val7594 = phi ptr [ %.val7391, %.lr.ph ], [ %.val73, %27 ]
+  %.val75.val95 = phi i32 [ %.val73.val, %27 ], [ %.val75.val95.pre.pre, %.lr.ph ]
+  %.val7594 = phi ptr [ %.val73, %27 ], [ %.val7391, %.lr.ph ]
   %39 = icmp sgt i32 %.val75.val95, 0
   br i1 %39, label %.lr.ph99, label %.critedge2.preheader
 
@@ -1558,7 +1558,7 @@ define internal fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %1, 
   br label %40
 
 40:                                               ; preds = %17, %10, %15, %23, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %23 ], [ %11, %15 ], [ %11, %10 ], [ %18, %17 ]
+  %.0 = phi ptr [ %26, %23 ], [ %11, %10 ], [ %22, %21 ], [ %11, %15 ], [ %18, %17 ]
   ret ptr %.0
 }
 
@@ -2053,7 +2053,7 @@ Abc_NtkFromMapSuperChoice.exit:                   ; preds = %Abc_NodeSuperChoice
   br label %215
 
 215:                                              ; preds = %Abc_NtkFromMapSuperChoice.exit.thread, %212, %Abc_NtkFromMapSuperChoice.exit, %18, %214, %23, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %214 ], [ null, %23 ], [ null, %18 ], [ null, %Abc_NtkFromMapSuperChoice.exit ], [ %61, %212 ], [ null, %Abc_NtkFromMapSuperChoice.exit.thread ]
+  %.0 = phi ptr [ null, %6 ], [ null, %23 ], [ null, %18 ], [ null, %Abc_NtkFromMapSuperChoice.exit ], [ null, %214 ], [ %61, %212 ], [ null, %Abc_NtkFromMapSuperChoice.exit.thread ]
   ret ptr %.0
 }
 
@@ -2115,7 +2115,7 @@ define ptr @Abc_NtkFetchTwinNode(ptr noundef readonly captures(none) %0) local_u
   br label %32
 
 32:                                               ; preds = %28, %15, %22, %25, %8, %1, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %1 ], [ null, %8 ], [ null, %25 ], [ null, %22 ], [ null, %15 ], [ %., %28 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %1 ], [ null, %8 ], [ %., %28 ], [ null, %5 ], [ null, %25 ], [ null, %22 ]
   ret ptr %.0
 }
 

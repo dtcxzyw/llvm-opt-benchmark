@@ -927,7 +927,7 @@ logicalrep_should_publish_column.exit.thread.us.us: ; preds = %logicalrep_should
   br label %logicalrep_should_publish_column.exit.thread.us
 
 logicalrep_should_publish_column.exit.thread.us:  ; preds = %26, %.lr.ph.split.us.split
-  %30 = phi i16 [ %.05710.us, %.lr.ph.split.us.split ], [ %spec.select17, %26 ]
+  %30 = phi i16 [ %spec.select17, %26 ], [ %.05710.us, %.lr.ph.split.us.split ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count29
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !123
@@ -958,15 +958,15 @@ logicalrep_should_publish_column.exit.thread.us:  ; preds = %26, %.lr.ph.split.u
   br label %logicalrep_should_publish_column.exit.thread
 
 logicalrep_should_publish_column.exit.thread:     ; preds = %40, %.lr.ph.split
-  %46 = phi i32 [ %31, %.lr.ph.split ], [ %.pre, %40 ]
-  %47 = phi i16 [ %.05710, %.lr.ph.split ], [ %spec.select, %40 ]
+  %46 = phi i32 [ %.pre, %40 ], [ %31, %.lr.ph.split ]
+  %47 = phi i16 [ %spec.select, %40 ], [ %.05710, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %logicalrep_should_publish_column.exit.thread, %logicalrep_should_publish_column.exit.thread.us, %logicalrep_should_publish_column.exit.thread.us.us, %5
-  %.057.lcssa = phi i16 [ 0, %5 ], [ %21, %logicalrep_should_publish_column.exit.thread.us.us ], [ %30, %logicalrep_should_publish_column.exit.thread.us ], [ %47, %logicalrep_should_publish_column.exit.thread ]
+  %.057.lcssa = phi i16 [ 0, %5 ], [ %30, %logicalrep_should_publish_column.exit.thread.us ], [ %21, %logicalrep_should_publish_column.exit.thread.us.us ], [ %47, %logicalrep_should_publish_column.exit.thread ]
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %50 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa)
@@ -1821,7 +1821,7 @@ logicalrep_should_publish_column.exit.thread.us.us.i: ; preds = %logicalrep_shou
   br label %logicalrep_should_publish_column.exit.thread.us.i
 
 logicalrep_should_publish_column.exit.thread.us.i: ; preds = %77, %.lr.ph.split.us.split.i
-  %81 = phi i16 [ %.03652.us.i, %.lr.ph.split.us.split.i ], [ %spec.select59.i, %77 ]
+  %81 = phi i16 [ %spec.select59.i, %77 ], [ %.03652.us.i, %.lr.ph.split.us.split.i ]
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count69.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !213
@@ -1861,7 +1861,7 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %91, %.lr.ph.split.i
   br i1 %99, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !213
 
 ._crit_edge.i:                                    ; preds = %logicalrep_should_publish_column.exit.thread.i, %logicalrep_should_publish_column.exit.thread.us.i, %logicalrep_should_publish_column.exit.thread.us.us.i, %logicalrep_write_namespace.exit
-  %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %72, %logicalrep_should_publish_column.exit.thread.us.us.i ], [ %81, %logicalrep_should_publish_column.exit.thread.us.i ], [ %98, %logicalrep_should_publish_column.exit.thread.i ]
+  %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %81, %logicalrep_should_publish_column.exit.thread.us.i ], [ %72, %logicalrep_should_publish_column.exit.thread.us.us.i ], [ %98, %logicalrep_should_publish_column.exit.thread.i ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   %100 = tail call i16 @llvm.bswap.i16(i16 %.036.lcssa.i)
@@ -2515,7 +2515,7 @@ define dso_local noundef nonnull ptr @logicalrep_message_type(i32 noundef %0) lo
   br label %22
 
 22:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @logicalrep_message_type.err_unknown, %20 ], [ @.str.19, %2 ], [ @.str.20, %3 ], [ @.str.21, %4 ], [ @.str.22, %5 ], [ @.str.23, %6 ], [ @.str.24, %7 ], [ @.str.25, %8 ], [ @.str.26, %9 ], [ @.str.27, %10 ], [ @.str.28, %11 ], [ @.str.29, %12 ], [ @.str.30, %13 ], [ @.str.31, %14 ], [ @.str.32, %15 ], [ @.str.33, %16 ], [ @.str.34, %17 ], [ @.str.35, %18 ], [ @.str.36, %19 ], [ @.str.18, %1 ]
+  %.0 = phi ptr [ @logicalrep_message_type.err_unknown, %20 ], [ @.str.36, %19 ], [ @.str.19, %2 ], [ @.str.20, %3 ], [ @.str.21, %4 ], [ @.str.22, %5 ], [ @.str.23, %6 ], [ @.str.24, %7 ], [ @.str.25, %8 ], [ @.str.26, %9 ], [ @.str.27, %10 ], [ @.str.28, %11 ], [ @.str.29, %12 ], [ @.str.30, %13 ], [ @.str.31, %14 ], [ @.str.32, %15 ], [ @.str.33, %16 ], [ @.str.34, %17 ], [ @.str.35, %18 ], [ @.str.18, %1 ]
   ret ptr %.0
 }
 
@@ -2555,7 +2555,7 @@ define dso_local zeroext i1 @logicalrep_should_publish_column(ptr noundef readon
   br label %19
 
 19:                                               ; preds = %13, %3, %18, %16, %8
-  %.0 = phi i1 [ %12, %8 ], [ %17, %16 ], [ false, %18 ], [ false, %3 ], [ true, %13 ]
+  %.0 = phi i1 [ false, %3 ], [ %12, %8 ], [ %17, %16 ], [ false, %18 ], [ true, %13 ]
   ret i1 %.0
 }
 

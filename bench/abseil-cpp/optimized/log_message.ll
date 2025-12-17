@@ -715,7 +715,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9: ; preds = %24, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7, %31
-  %34 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7 ], [ %.pre, %31 ], [ %25, %24 ]
+  %34 = phi ptr [ %.pre, %31 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7 ], [ %25, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 15568
   %36 = load i64, ptr %35, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 15568
@@ -813,7 +813,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9: ; preds = %24, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7, %31
-  %34 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7 ], [ %.pre, %31 ], [ %25, %24 ]
+  %34 = phi ptr [ %.pre, %31 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7 ], [ %25, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 15568
   %36 = load i64, ptr %35, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 15568
@@ -919,7 +919,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10: 
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit12
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit12: ; preds = %33, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10, %40
-  %43 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10 ], [ %.pre, %40 ], [ %34, %33 ]
+  %43 = phi ptr [ %.pre, %40 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10 ], [ %34, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 15568
   %45 = load i64, ptr %44, align 8, !tbaa !46
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 15568
@@ -1025,7 +1025,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10: 
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit12
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit12: ; preds = %33, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10, %40
-  %43 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10 ], [ %.pre, %40 ], [ %34, %33 ]
+  %43 = phi ptr [ %.pre, %40 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit10 ], [ %34, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 15568
   %45 = load i64, ptr %44, align 8, !tbaa !46
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 15568
@@ -1277,7 +1277,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16: 
   br label %_ZN4absl12log_internal12_GLOBAL__N_113ProtoSeverityENS_11LogSeverityEi.exit
 
 _ZN4absl12log_internal12_GLOBAL__N_113ProtoSeverityENS_11LogSeverityEi.exit: ; preds = %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16, %25, %31, %32, %33
-  %.0.i = phi i64 [ 800, %33 ], [ 950, %31 ], [ 1100, %32 ], [ 900, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16 ], [ %30, %25 ]
+  %.0.i = phi i64 [ 800, %33 ], [ 1100, %32 ], [ 900, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit16 ], [ %30, %25 ], [ 950, %31 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !43
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit20
@@ -2653,7 +2653,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit: ; 
           to label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5 unwind label %57
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5: ; preds = %13, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit, %21
-  %24 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit ], [ %.pre, %21 ], [ %14, %13 ]
+  %24 = phi ptr [ %.pre, %21 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit ], [ %14, %13 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 15568
   %26 = load i64, ptr %25, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 15568
@@ -3222,7 +3222,7 @@ tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i: ; preds = %tailrecurse.i.i.
   unreachable
 
 _ZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS0_20StructuredProtoFieldE.exit: ; preds = %15, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, %20, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i, %33, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i
-  %.0.i.i.i = phi i64 [ %32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i ], [ 11, %15 ], [ %19, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ 9, %20 ], [ %25, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i ], [ 5, %33 ], [ %38, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i ]
+  %.0.i.i.i = phi i64 [ %25, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i ], [ %19, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i ], [ 11, %15 ], [ 9, %20 ], [ 5, %33 ], [ %38, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i ]
   %40 = add i64 %2, 11
   %41 = add i64 %40, %.0.i.i.i
   %42 = call { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef %41, ptr noundef nonnull %5)
@@ -3260,7 +3260,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7: ; preds = %46, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5, %53
-  %56 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5 ], [ %.pre, %53 ], [ %47, %46 ]
+  %56 = phi ptr [ %.pre, %53 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5 ], [ %47, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 15568
   %58 = load i64, ptr %57, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 15568
@@ -3302,7 +3302,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit11
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit11: ; preds = %64, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9, %71
-  %74 = phi ptr [ %.pre22, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9 ], [ %.pre22, %71 ], [ %65, %64 ]
+  %74 = phi ptr [ %.pre22, %71 ], [ %.pre22, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9 ], [ %65, %64 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 15568
   %76 = load i64, ptr %75, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 15568
@@ -3454,7 +3454,7 @@ tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i: ; preds = %tailrecurse.i.i.
   unreachable
 
 _ZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS0_20StructuredProtoFieldE.exit: ; preds = %15, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, %20, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i, %33, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i
-  %.0.i.i.i = phi i64 [ %32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i ], [ 11, %15 ], [ %19, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ 9, %20 ], [ %25, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i ], [ 5, %33 ], [ %38, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i ]
+  %.0.i.i.i = phi i64 [ %25, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i13.i.i.i ], [ %19, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEEOZN4absl12log_internal33BufferSizeForStructuredProtoFieldENS6_20StructuredProtoFieldEE17BufferSizeVisitorRSt7variantIJSA_IJmljibEESA_IJmldEENS5_4SpanIKcEESA_IJjifEEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SI_.exit.i.i.i ], [ 11, %15 ], [ 9, %20 ], [ 5, %33 ], [ %38, %tailrecurse._crit_edge.loopexit.i.i.i.i.i.i25.i.i.i ]
   %40 = add i64 %2, 11
   %41 = add i64 %40, %.0.i.i.i
   %42 = call { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef 7, i64 noundef %41, ptr noundef nonnull %5)
@@ -3492,7 +3492,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit7: ; preds = %46, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5, %53
-  %56 = phi ptr [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5 ], [ %.pre, %53 ], [ %47, %46 ]
+  %56 = phi ptr [ %.pre, %53 ], [ %.pre, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit5 ], [ %47, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 15568
   %58 = load i64, ptr %57, align 8, !tbaa !46
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 15568
@@ -3534,7 +3534,7 @@ _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9: ;
   br label %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit11
 
 _ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit11: ; preds = %64, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9, %71
-  %74 = phi ptr [ %.pre22, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9 ], [ %.pre22, %71 ], [ %65, %64 ]
+  %74 = phi ptr [ %.pre22, %71 ], [ %.pre22, %_ZN4absl12log_internal10LogMessage14LogMessageData17encoded_remainingEv.exit9 ], [ %65, %64 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 15568
   %76 = load i64, ptr %75, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 15568

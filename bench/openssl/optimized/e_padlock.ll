@@ -99,7 +99,7 @@ define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly cap
   br label %padlock_bind_fn.exit
 
 padlock_bind_fn.exit:                             ; preds = %31, %33, %35, %17
-  %36 = phi i32 [ 0, %17 ], [ 0, %35 ], [ 1, %33 ], [ 1, %31 ]
+  %36 = phi i32 [ 0, %35 ], [ 0, %17 ], [ 1, %33 ], [ 1, %31 ]
   ret i32 %36
 }
 
@@ -212,7 +212,7 @@ define internal range(i32 0, 16) i32 @padlock_ciphers(ptr readnone captures(none
   br i1 %.not6.i, label %._crit_edge.i, label %padlock_aes_128_ecb.exit
 
 ._crit_edge.i:                                    ; preds = %25, %23, %21, %19, %17, %15, %13, %10
-  %27 = phi ptr [ %.pre7.i, %23 ], [ %.pre8.i, %21 ], [ %.pre9.i, %19 ], [ %.pre10.i, %17 ], [ %.pre11.i, %15 ], [ %.pre12.i, %13 ], [ null, %10 ], [ %.pre13.i, %25 ]
+  %27 = phi ptr [ null, %10 ], [ %.pre7.i, %23 ], [ %.pre8.i, %21 ], [ %.pre9.i, %19 ], [ %.pre10.i, %17 ], [ %.pre11.i, %15 ], [ %.pre12.i, %13 ], [ %.pre13.i, %25 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %27) #10
   store ptr null, ptr @_hidden_aes_128_ecb, align 8, !tbaa !16
   br label %padlock_aes_128_ecb.exit
@@ -276,7 +276,7 @@ padlock_aes_128_ecb.exit:                         ; preds = %7, %25, %._crit_edg
   br i1 %.not6.i32, label %._crit_edge.i34, label %padlock_aes_128_cbc.exit
 
 ._crit_edge.i34:                                  ; preds = %47, %45, %43, %41, %39, %37, %35, %32
-  %49 = phi ptr [ %.pre7.i31, %45 ], [ %.pre8.i29, %43 ], [ %.pre9.i27, %41 ], [ %.pre10.i25, %39 ], [ %.pre11.i23, %37 ], [ %.pre12.i21, %35 ], [ null, %32 ], [ %.pre13.i33, %47 ]
+  %49 = phi ptr [ null, %32 ], [ %.pre7.i31, %45 ], [ %.pre8.i29, %43 ], [ %.pre9.i27, %41 ], [ %.pre10.i25, %39 ], [ %.pre11.i23, %37 ], [ %.pre12.i21, %35 ], [ %.pre13.i33, %47 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %49) #10
   store ptr null, ptr @_hidden_aes_128_cbc, align 8, !tbaa !16
   br label %padlock_aes_128_cbc.exit
@@ -340,7 +340,7 @@ padlock_aes_128_cbc.exit:                         ; preds = %29, %47, %._crit_ed
   br i1 %.not6.i47, label %._crit_edge.i49, label %padlock_aes_128_cfb.exit
 
 ._crit_edge.i49:                                  ; preds = %69, %67, %65, %63, %61, %59, %57, %54
-  %71 = phi ptr [ %.pre7.i46, %67 ], [ %.pre8.i44, %65 ], [ %.pre9.i42, %63 ], [ %.pre10.i40, %61 ], [ %.pre11.i38, %59 ], [ %.pre12.i36, %57 ], [ null, %54 ], [ %.pre13.i48, %69 ]
+  %71 = phi ptr [ null, %54 ], [ %.pre7.i46, %67 ], [ %.pre8.i44, %65 ], [ %.pre9.i42, %63 ], [ %.pre10.i40, %61 ], [ %.pre11.i38, %59 ], [ %.pre12.i36, %57 ], [ %.pre13.i48, %69 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %71) #10
   store ptr null, ptr @_hidden_aes_128_cfb, align 8, !tbaa !16
   br label %padlock_aes_128_cfb.exit
@@ -404,7 +404,7 @@ padlock_aes_128_cfb.exit:                         ; preds = %51, %69, %._crit_ed
   br i1 %.not6.i62, label %._crit_edge.i64, label %padlock_aes_128_ofb.exit
 
 ._crit_edge.i64:                                  ; preds = %91, %89, %87, %85, %83, %81, %79, %76
-  %93 = phi ptr [ %.pre7.i61, %89 ], [ %.pre8.i59, %87 ], [ %.pre9.i57, %85 ], [ %.pre10.i55, %83 ], [ %.pre11.i53, %81 ], [ %.pre12.i51, %79 ], [ null, %76 ], [ %.pre13.i63, %91 ]
+  %93 = phi ptr [ null, %76 ], [ %.pre7.i61, %89 ], [ %.pre8.i59, %87 ], [ %.pre9.i57, %85 ], [ %.pre10.i55, %83 ], [ %.pre11.i53, %81 ], [ %.pre12.i51, %79 ], [ %.pre13.i63, %91 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %93) #10
   store ptr null, ptr @_hidden_aes_128_ofb, align 8, !tbaa !16
   br label %padlock_aes_128_ofb.exit
@@ -468,7 +468,7 @@ padlock_aes_128_ofb.exit:                         ; preds = %73, %91, %._crit_ed
   br i1 %.not6.i77, label %._crit_edge.i79, label %padlock_aes_128_ctr.exit
 
 ._crit_edge.i79:                                  ; preds = %113, %111, %109, %107, %105, %103, %101, %98
-  %115 = phi ptr [ %.pre7.i76, %111 ], [ %.pre8.i74, %109 ], [ %.pre9.i72, %107 ], [ %.pre10.i70, %105 ], [ %.pre11.i68, %103 ], [ %.pre12.i66, %101 ], [ null, %98 ], [ %.pre13.i78, %113 ]
+  %115 = phi ptr [ null, %98 ], [ %.pre7.i76, %111 ], [ %.pre8.i74, %109 ], [ %.pre9.i72, %107 ], [ %.pre10.i70, %105 ], [ %.pre11.i68, %103 ], [ %.pre12.i66, %101 ], [ %.pre13.i78, %113 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %115) #10
   store ptr null, ptr @_hidden_aes_128_ctr, align 8, !tbaa !16
   br label %padlock_aes_128_ctr.exit
@@ -532,7 +532,7 @@ padlock_aes_128_ctr.exit:                         ; preds = %95, %113, %._crit_e
   br i1 %.not6.i92, label %._crit_edge.i94, label %padlock_aes_192_ecb.exit
 
 ._crit_edge.i94:                                  ; preds = %135, %133, %131, %129, %127, %125, %123, %120
-  %137 = phi ptr [ %.pre7.i91, %133 ], [ %.pre8.i89, %131 ], [ %.pre9.i87, %129 ], [ %.pre10.i85, %127 ], [ %.pre11.i83, %125 ], [ %.pre12.i81, %123 ], [ null, %120 ], [ %.pre13.i93, %135 ]
+  %137 = phi ptr [ null, %120 ], [ %.pre7.i91, %133 ], [ %.pre8.i89, %131 ], [ %.pre9.i87, %129 ], [ %.pre10.i85, %127 ], [ %.pre11.i83, %125 ], [ %.pre12.i81, %123 ], [ %.pre13.i93, %135 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %137) #10
   store ptr null, ptr @_hidden_aes_192_ecb, align 8, !tbaa !16
   br label %padlock_aes_192_ecb.exit
@@ -596,7 +596,7 @@ padlock_aes_192_ecb.exit:                         ; preds = %117, %135, %._crit_
   br i1 %.not6.i107, label %._crit_edge.i109, label %padlock_aes_192_cbc.exit
 
 ._crit_edge.i109:                                 ; preds = %157, %155, %153, %151, %149, %147, %145, %142
-  %159 = phi ptr [ %.pre7.i106, %155 ], [ %.pre8.i104, %153 ], [ %.pre9.i102, %151 ], [ %.pre10.i100, %149 ], [ %.pre11.i98, %147 ], [ %.pre12.i96, %145 ], [ null, %142 ], [ %.pre13.i108, %157 ]
+  %159 = phi ptr [ null, %142 ], [ %.pre7.i106, %155 ], [ %.pre8.i104, %153 ], [ %.pre9.i102, %151 ], [ %.pre10.i100, %149 ], [ %.pre11.i98, %147 ], [ %.pre12.i96, %145 ], [ %.pre13.i108, %157 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %159) #10
   store ptr null, ptr @_hidden_aes_192_cbc, align 8, !tbaa !16
   br label %padlock_aes_192_cbc.exit
@@ -660,7 +660,7 @@ padlock_aes_192_cbc.exit:                         ; preds = %139, %157, %._crit_
   br i1 %.not6.i122, label %._crit_edge.i124, label %padlock_aes_192_cfb.exit
 
 ._crit_edge.i124:                                 ; preds = %179, %177, %175, %173, %171, %169, %167, %164
-  %181 = phi ptr [ %.pre7.i121, %177 ], [ %.pre8.i119, %175 ], [ %.pre9.i117, %173 ], [ %.pre10.i115, %171 ], [ %.pre11.i113, %169 ], [ %.pre12.i111, %167 ], [ null, %164 ], [ %.pre13.i123, %179 ]
+  %181 = phi ptr [ null, %164 ], [ %.pre7.i121, %177 ], [ %.pre8.i119, %175 ], [ %.pre9.i117, %173 ], [ %.pre10.i115, %171 ], [ %.pre11.i113, %169 ], [ %.pre12.i111, %167 ], [ %.pre13.i123, %179 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %181) #10
   store ptr null, ptr @_hidden_aes_192_cfb, align 8, !tbaa !16
   br label %padlock_aes_192_cfb.exit
@@ -724,7 +724,7 @@ padlock_aes_192_cfb.exit:                         ; preds = %161, %179, %._crit_
   br i1 %.not6.i137, label %._crit_edge.i139, label %padlock_aes_192_ofb.exit
 
 ._crit_edge.i139:                                 ; preds = %201, %199, %197, %195, %193, %191, %189, %186
-  %203 = phi ptr [ %.pre7.i136, %199 ], [ %.pre8.i134, %197 ], [ %.pre9.i132, %195 ], [ %.pre10.i130, %193 ], [ %.pre11.i128, %191 ], [ %.pre12.i126, %189 ], [ null, %186 ], [ %.pre13.i138, %201 ]
+  %203 = phi ptr [ null, %186 ], [ %.pre7.i136, %199 ], [ %.pre8.i134, %197 ], [ %.pre9.i132, %195 ], [ %.pre10.i130, %193 ], [ %.pre11.i128, %191 ], [ %.pre12.i126, %189 ], [ %.pre13.i138, %201 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %203) #10
   store ptr null, ptr @_hidden_aes_192_ofb, align 8, !tbaa !16
   br label %padlock_aes_192_ofb.exit
@@ -788,7 +788,7 @@ padlock_aes_192_ofb.exit:                         ; preds = %183, %201, %._crit_
   br i1 %.not6.i152, label %._crit_edge.i154, label %padlock_aes_192_ctr.exit
 
 ._crit_edge.i154:                                 ; preds = %223, %221, %219, %217, %215, %213, %211, %208
-  %225 = phi ptr [ %.pre7.i151, %221 ], [ %.pre8.i149, %219 ], [ %.pre9.i147, %217 ], [ %.pre10.i145, %215 ], [ %.pre11.i143, %213 ], [ %.pre12.i141, %211 ], [ null, %208 ], [ %.pre13.i153, %223 ]
+  %225 = phi ptr [ null, %208 ], [ %.pre7.i151, %221 ], [ %.pre8.i149, %219 ], [ %.pre9.i147, %217 ], [ %.pre10.i145, %215 ], [ %.pre11.i143, %213 ], [ %.pre12.i141, %211 ], [ %.pre13.i153, %223 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %225) #10
   store ptr null, ptr @_hidden_aes_192_ctr, align 8, !tbaa !16
   br label %padlock_aes_192_ctr.exit
@@ -852,7 +852,7 @@ padlock_aes_192_ctr.exit:                         ; preds = %205, %223, %._crit_
   br i1 %.not6.i167, label %._crit_edge.i169, label %padlock_aes_256_ecb.exit
 
 ._crit_edge.i169:                                 ; preds = %245, %243, %241, %239, %237, %235, %233, %230
-  %247 = phi ptr [ %.pre7.i166, %243 ], [ %.pre8.i164, %241 ], [ %.pre9.i162, %239 ], [ %.pre10.i160, %237 ], [ %.pre11.i158, %235 ], [ %.pre12.i156, %233 ], [ null, %230 ], [ %.pre13.i168, %245 ]
+  %247 = phi ptr [ null, %230 ], [ %.pre7.i166, %243 ], [ %.pre8.i164, %241 ], [ %.pre9.i162, %239 ], [ %.pre10.i160, %237 ], [ %.pre11.i158, %235 ], [ %.pre12.i156, %233 ], [ %.pre13.i168, %245 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %247) #10
   store ptr null, ptr @_hidden_aes_256_ecb, align 8, !tbaa !16
   br label %padlock_aes_256_ecb.exit
@@ -916,7 +916,7 @@ padlock_aes_256_ecb.exit:                         ; preds = %227, %245, %._crit_
   br i1 %.not6.i182, label %._crit_edge.i184, label %padlock_aes_256_cbc.exit
 
 ._crit_edge.i184:                                 ; preds = %267, %265, %263, %261, %259, %257, %255, %252
-  %269 = phi ptr [ %.pre7.i181, %265 ], [ %.pre8.i179, %263 ], [ %.pre9.i177, %261 ], [ %.pre10.i175, %259 ], [ %.pre11.i173, %257 ], [ %.pre12.i171, %255 ], [ null, %252 ], [ %.pre13.i183, %267 ]
+  %269 = phi ptr [ null, %252 ], [ %.pre7.i181, %265 ], [ %.pre8.i179, %263 ], [ %.pre9.i177, %261 ], [ %.pre10.i175, %259 ], [ %.pre11.i173, %257 ], [ %.pre12.i171, %255 ], [ %.pre13.i183, %267 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %269) #10
   store ptr null, ptr @_hidden_aes_256_cbc, align 8, !tbaa !16
   br label %padlock_aes_256_cbc.exit
@@ -980,7 +980,7 @@ padlock_aes_256_cbc.exit:                         ; preds = %249, %267, %._crit_
   br i1 %.not6.i197, label %._crit_edge.i199, label %padlock_aes_256_cfb.exit
 
 ._crit_edge.i199:                                 ; preds = %289, %287, %285, %283, %281, %279, %277, %274
-  %291 = phi ptr [ %.pre7.i196, %287 ], [ %.pre8.i194, %285 ], [ %.pre9.i192, %283 ], [ %.pre10.i190, %281 ], [ %.pre11.i188, %279 ], [ %.pre12.i186, %277 ], [ null, %274 ], [ %.pre13.i198, %289 ]
+  %291 = phi ptr [ null, %274 ], [ %.pre7.i196, %287 ], [ %.pre8.i194, %285 ], [ %.pre9.i192, %283 ], [ %.pre10.i190, %281 ], [ %.pre11.i188, %279 ], [ %.pre12.i186, %277 ], [ %.pre13.i198, %289 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %291) #10
   store ptr null, ptr @_hidden_aes_256_cfb, align 8, !tbaa !16
   br label %padlock_aes_256_cfb.exit
@@ -1044,7 +1044,7 @@ padlock_aes_256_cfb.exit:                         ; preds = %271, %289, %._crit_
   br i1 %.not6.i212, label %._crit_edge.i214, label %padlock_aes_256_ofb.exit
 
 ._crit_edge.i214:                                 ; preds = %311, %309, %307, %305, %303, %301, %299, %296
-  %313 = phi ptr [ %.pre7.i211, %309 ], [ %.pre8.i209, %307 ], [ %.pre9.i207, %305 ], [ %.pre10.i205, %303 ], [ %.pre11.i203, %301 ], [ %.pre12.i201, %299 ], [ null, %296 ], [ %.pre13.i213, %311 ]
+  %313 = phi ptr [ null, %296 ], [ %.pre7.i211, %309 ], [ %.pre8.i209, %307 ], [ %.pre9.i207, %305 ], [ %.pre10.i205, %303 ], [ %.pre11.i203, %301 ], [ %.pre12.i201, %299 ], [ %.pre13.i213, %311 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %313) #10
   store ptr null, ptr @_hidden_aes_256_ofb, align 8, !tbaa !16
   br label %padlock_aes_256_ofb.exit
@@ -1108,7 +1108,7 @@ padlock_aes_256_ofb.exit:                         ; preds = %293, %311, %._crit_
   br i1 %.not6.i227, label %._crit_edge.i229, label %padlock_aes_256_ctr.exit
 
 ._crit_edge.i229:                                 ; preds = %333, %331, %329, %327, %325, %323, %321, %318
-  %335 = phi ptr [ %.pre7.i226, %331 ], [ %.pre8.i224, %329 ], [ %.pre9.i222, %327 ], [ %.pre10.i220, %325 ], [ %.pre11.i218, %323 ], [ %.pre12.i216, %321 ], [ null, %318 ], [ %.pre13.i228, %333 ]
+  %335 = phi ptr [ null, %318 ], [ %.pre7.i226, %331 ], [ %.pre8.i224, %329 ], [ %.pre9.i222, %327 ], [ %.pre10.i220, %325 ], [ %.pre11.i218, %323 ], [ %.pre12.i216, %321 ], [ %.pre13.i228, %333 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %335) #10
   store ptr null, ptr @_hidden_aes_256_ctr, align 8, !tbaa !16
   br label %padlock_aes_256_ctr.exit
@@ -1800,7 +1800,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   br label %.preheader151
 
 .loopexit:                                        ; preds = %.preheader151, %.preheader149, %.preheader, %228, %4, %3
-  %.0141 = phi i32 [ -1, %3 ], [ -2, %4 ], [ 0, %228 ], [ 0, %.preheader ], [ 0, %.preheader149 ], [ 0, %.preheader151 ]
+  %.0141 = phi i32 [ -1, %3 ], [ -2, %4 ], [ 0, %228 ], [ 0, %.preheader149 ], [ 0, %.preheader ], [ 0, %.preheader151 ]
   ret i32 %.0141
 }
 
@@ -2012,7 +2012,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %48, %43, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ 1, %43 ], [ 0, %48 ], [ 0, %13 ]
+  %.1 = phi i32 [ 0, %48 ], [ 1, %.loopexit ], [ 1, %43 ], [ 0, %13 ]
   ret i32 %.1
 }
 
@@ -2138,7 +2138,7 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %35, %30, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ 1, %30 ], [ 0, %35 ], [ 0, %12 ]
+  %.1 = phi i32 [ 0, %35 ], [ 1, %.loopexit ], [ 1, %30 ], [ 0, %12 ]
   ret i32 %.1
 }
 

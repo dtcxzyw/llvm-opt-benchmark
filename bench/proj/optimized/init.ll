@@ -690,7 +690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i.i: ; preds =
   br label %232
 
 227:                                              ; preds = %224, %.thread156.i.i, %154, %.thread138.i.i
-  %.4.i.i = phi ptr [ null, %154 ], [ %.092166.i.i, %224 ], [ null, %.thread138.i.i ], [ null, %.thread156.i.i ]
+  %.4.i.i = phi ptr [ null, %.thread138.i.i ], [ null, %154 ], [ null, %.thread156.i.i ], [ %.092166.i.i, %224 ]
   %228 = load ptr, ptr %6, align 8, !tbaa !43
   %229 = icmp eq ptr %228, %91
   br i1 %229, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i127.i.i
@@ -785,7 +785,7 @@ _ZL15get_init_stringP6pj_ctxPKc.exit.i:           ; preds = %_ZNKSt14default_del
   br label %256
 
 256:                                              ; preds = %255, %253
-  %.115.i.i = phi ptr [ %.01423.i.i, %255 ], [ %251, %253 ]
+  %.115.i.i = phi ptr [ %251, %253 ], [ %.01423.i.i, %255 ]
   %257 = load ptr, ptr %4, align 8, !tbaa !50
   %258 = load i8, ptr %257, align 1, !tbaa !3
   %.not.i95.i = icmp eq i8 %258, 0
@@ -822,7 +822,7 @@ _ZL18string_to_paralistP6pj_ctxPc.exit.i:         ; preds = %256
   br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
 _ZL8get_initP6pj_ctxPKci.exit:                    ; preds = %21, %259
-  %.0.i = phi ptr [ %.115.i.i, %259 ], [ %25, %21 ]
+  %.0.i = phi ptr [ %25, %21 ], [ %.115.i.i, %259 ]
   br label %263
 
 263:                                              ; preds = %_ZL8get_initP6pj_ctxPKci.exit, %263
@@ -1562,7 +1562,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
   %328 = icmp eq i8 %327, 0
   br i1 %328, label %select.unfold, label %.thread453
 
-.thread453:                                       ; preds = %325, %322
+.thread453:                                       ; preds = %322, %325
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.47)
   %329 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1612,7 +1612,7 @@ select.unfold:                                    ; preds = %325, %315
   br label %.thread
 
 .thread:                                          ; preds = %193, %177, %.thread453, %.thread442, %.thread433, %349, %347, %338, %.critedge424, %.critedge423, %227, %205, %170, %116, %96, %88, %77, %72, %66, %60, %55, %51, %45, %39, %35, %31, %14
-  %.0347 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %206, %205 ], [ %228, %227 ], [ %339, %338 ], [ null, %347 ], [ %345, %349 ], [ %273, %.critedge424 ], [ %238, %.critedge423 ], [ %171, %170 ], [ null, %51 ], [ null, %39 ], [ %258, %.thread433 ], [ %293, %.thread442 ], [ %329, %.thread453 ], [ %194, %193 ], [ %178, %177 ]
+  %.0347 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %206, %205 ], [ %228, %227 ], [ %339, %338 ], [ null, %347 ], [ %345, %349 ], [ %329, %.thread453 ], [ %293, %.thread442 ], [ %273, %.critedge424 ], [ %258, %.thread433 ], [ %238, %.critedge423 ], [ null, %39 ], [ %171, %170 ], [ null, %51 ], [ %194, %193 ], [ %178, %177 ]
   ret ptr %.0347
 }
 

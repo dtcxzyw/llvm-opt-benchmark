@@ -112,7 +112,7 @@ _ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i: ; preds = %15
   br label %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit
 
 _ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit: ; preds = %4, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i
-  %.sroa.2.8.insert.insert.i.i = phi i64 [ 4294967296, %4 ], [ %29, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i ]
+  %.sroa.2.8.insert.insert.i.i = phi i64 [ %29, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i ], [ 4294967296, %4 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %31, ptr %30, align 8
@@ -208,7 +208,7 @@ _ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i: ; preds = %18
   br label %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit
 
 _ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit: ; preds = %8, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i
-  %.sroa.2.8.insert.insert.i.i = phi i32 [ 0, %8 ], [ %spec.select.i.i.i, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i ]
+  %.sroa.2.8.insert.insert.i.i = phi i32 [ %spec.select.i.i.i, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit.i.i.i ], [ 0, %8 ]
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.not1.i.i.i = icmp eq i32 %2, 0
   %.pre = load ptr, ptr %30, align 8, !tbaa !32
@@ -306,8 +306,8 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i.i: ; preds = %.lr.ph.i.i, %_
   br i1 %.not.i.i.i.i.i9, label %.sink.split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
 
 .sink.split.i.i.i.i.i:                            ; preds = %70, %.lr.ph.i.i.i.i.i, %64, %.lr.ph24.i.i.i.i.i, %.preheader.i.i.i.i.i, %.preheader16.i.i.i.i.i
-  %.sroa.08.3.sink.i.i.i.i.i = phi ptr [ %12, %.preheader.i.i.i.i.i ], [ %11, %.preheader16.i.i.i.i.i ], [ %12, %64 ], [ %.sroa.08.123.i.i.i.i.i, %.lr.ph24.i.i.i.i.i ], [ %11, %70 ], [ %.sroa.08.219.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.08.0.ph.i.i.i.i.i = phi ptr [ %55, %.preheader.i.i.i.i.i ], [ %55, %.preheader16.i.i.i.i.i ], [ %66, %64 ], [ %.sroa.08.123.i.i.i.i.i, %.lr.ph24.i.i.i.i.i ], [ %71, %70 ], [ %.sroa.08.219.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.3.sink.i.i.i.i.i = phi ptr [ %12, %64 ], [ %11, %.preheader16.i.i.i.i.i ], [ %12, %.preheader.i.i.i.i.i ], [ %.sroa.08.123.i.i.i.i.i, %.lr.ph24.i.i.i.i.i ], [ %.sroa.08.219.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %11, %70 ]
+  %.sroa.08.0.ph.i.i.i.i.i = phi ptr [ %66, %64 ], [ %55, %.preheader16.i.i.i.i.i ], [ %55, %.preheader.i.i.i.i.i ], [ %.sroa.08.123.i.i.i.i.i, %.lr.ph24.i.i.i.i.i ], [ %.sroa.08.219.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %71, %70 ]
   %72 = ptrtoint ptr %.sroa.08.3.sink.i.i.i.i.i to i64
   store i64 %72, ptr %38, align 8, !tbaa !42
   br label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i.i
@@ -541,8 +541,8 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us: ; preds = %.lr.ph, %_ZNK4llvm
   br i1 %.not.i.i.i, label %.sink.split.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !41
 
 .sink.split.i.i.i:                                ; preds = %44, %.lr.ph.i.i.i, %38, %.lr.ph24.i.i.i, %.preheader.i.i.i, %.preheader16.i.i.i
-  %.sroa.08.3.sink.i.i.i = phi ptr [ %15, %.preheader.i.i.i ], [ %13, %.preheader16.i.i.i ], [ %15, %38 ], [ %.sroa.08.123.i.i.i, %.lr.ph24.i.i.i ], [ %13, %44 ], [ %.sroa.08.219.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.08.0.ph.i.i.i = phi ptr [ %.in.i.i.i, %.preheader.i.i.i ], [ %.in.i.i.i, %.preheader16.i.i.i ], [ %40, %38 ], [ %.sroa.08.123.i.i.i, %.lr.ph24.i.i.i ], [ %45, %44 ], [ %.sroa.08.219.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.3.sink.i.i.i = phi ptr [ %15, %38 ], [ %13, %.preheader16.i.i.i ], [ %15, %.preheader.i.i.i ], [ %.sroa.08.123.i.i.i, %.lr.ph24.i.i.i ], [ %.sroa.08.219.i.i.i, %.lr.ph.i.i.i ], [ %13, %44 ]
+  %.sroa.08.0.ph.i.i.i = phi ptr [ %40, %38 ], [ %.in.i.i.i, %.preheader16.i.i.i ], [ %.in.i.i.i, %.preheader.i.i.i ], [ %.sroa.08.123.i.i.i, %.lr.ph24.i.i.i ], [ %.sroa.08.219.i.i.i, %.lr.ph.i.i.i ], [ %45, %44 ]
   %46 = ptrtoint ptr %.sroa.08.3.sink.i.i.i to i64
   store i64 %46, ptr %14, align 8, !tbaa !42
   br label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i

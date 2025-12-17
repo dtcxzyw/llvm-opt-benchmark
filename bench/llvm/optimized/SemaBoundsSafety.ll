@@ -1482,9 +1482,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exi
   br label %.thread412
 
 .thread412:                                       ; preds = %720, %711, %700, %697, %692
-  %.065417 = phi i64 [ 3, %711 ], [ 2, %700 ], [ 1, %697 ], [ 0, %692 ], [ 3, %720 ]
-  %.066416 = phi i64 [ 0, %711 ], [ 0, %700 ], [ 0, %697 ], [ 0, %692 ], [ %726, %720 ]
-  %727 = phi i32 [ 3268, %711 ], [ 3268, %700 ], [ 3268, %697 ], [ 3268, %692 ], [ %spec.select, %720 ]
+  %.065417 = phi i64 [ 0, %692 ], [ 3, %720 ], [ 3, %711 ], [ 2, %700 ], [ 1, %697 ]
+  %.066416 = phi i64 [ 0, %692 ], [ %726, %720 ], [ 0, %711 ], [ 0, %700 ], [ 0, %697 ]
+  %727 = phi i32 [ 3268, %692 ], [ %spec.select, %720 ], [ 3268, %711 ], [ 3268, %700 ], [ 3268, %697 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %728 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %729 = tail call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #11
@@ -2604,7 +2604,7 @@ _ZN5clang9FieldDecl9getParentEv.exit191:          ; preds = %_ZN5clang9FieldDecl
   br label %.critedge82
 
 .critedge82:                                      ; preds = %_ZN5clang9FieldDecl9getParentEv.exit187.thread, %_ZN5clang9FieldDecl9getParentEv.exit187, %1259, %1262, %1250, %1201
-  %.5 = phi i1 [ true, %1250 ], [ true, %1262 ], [ true, %1201 ], [ false, %1259 ], [ false, %_ZN5clang9FieldDecl9getParentEv.exit187 ], [ false, %_ZN5clang9FieldDecl9getParentEv.exit187.thread ]
+  %.5 = phi i1 [ true, %1250 ], [ true, %1201 ], [ true, %1262 ], [ false, %1259 ], [ false, %_ZN5clang9FieldDecl9getParentEv.exit187 ], [ false, %_ZN5clang9FieldDecl9getParentEv.exit187.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %1288
@@ -2805,7 +2805,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   br label %.thread
 
 .thread:                                          ; preds = %9, %24, %16, %29
-  %.1 = phi i1 [ %30, %29 ], [ %28, %24 ], [ false, %16 ], [ %spec.select, %9 ]
+  %.1 = phi i1 [ %30, %29 ], [ %28, %24 ], [ %spec.select, %9 ], [ false, %16 ]
   ret i1 %.1
 }
 

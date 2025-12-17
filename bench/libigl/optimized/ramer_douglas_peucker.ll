@@ -806,7 +806,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE
   br label %.body137
 
 .body137:                                         ; preds = %267, %214
-  %.pn83.pn = phi { ptr, i32 } [ %268, %267 ], [ %215, %214 ]
+  %.pn83.pn = phi { ptr, i32 } [ %215, %214 ], [ %268, %267 ]
   %269 = load ptr, ptr %26, align 8, !tbaa !13
   call void @free(ptr noundef %269) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -1102,7 +1102,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE18conservativeRe
   br label %374
 
 374:                                              ; preds = %373, %.body137
-  %.pn103 = phi { ptr, i32 } [ %.pn99.pn.pn, %373 ], [ %.pn83.pn, %.body137 ]
+  %.pn103 = phi { ptr, i32 } [ %.pn83.pn, %.body137 ], [ %.pn99.pn.pn, %373 ]
   %375 = load ptr, ptr %24, align 8, !tbaa !13
   call void @free(ptr noundef %375) #24
   br label %376
@@ -2432,7 +2432,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEE
   br label %.body137
 
 .body137:                                         ; preds = %263, %210
-  %.pn83.pn = phi { ptr, i32 } [ %264, %263 ], [ %211, %210 ]
+  %.pn83.pn = phi { ptr, i32 } [ %211, %210 ], [ %264, %263 ]
   %265 = load ptr, ptr %25, align 8, !tbaa !13
   call void @free(ptr noundef %265) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -2890,7 +2890,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE18conservativeRe
   br label %430
 
 430:                                              ; preds = %429, %.body137
-  %.pn103 = phi { ptr, i32 } [ %.pn99.pn.pn, %429 ], [ %.pn83.pn, %.body137 ]
+  %.pn103 = phi { ptr, i32 } [ %.pn83.pn, %.body137 ], [ %.pn99.pn.pn, %429 ]
   %431 = load ptr, ptr %23, align 8, !tbaa !13
   call void @free(ptr noundef %431) #24
   br label %432
@@ -4105,8 +4105,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %164
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS5_20scalar_difference_opIddEEKNS_5BlockIKNS0_IdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEKNS_9ReplicateINSB_ISD_Li1ELin1ELb0EEELin1ELi1EEEEEEENS5_10member_sumIddEELi1EEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %69, %142
-  %.pre153 = phi ptr [ %71, %69 ], [ %.pre153.pre, %142 ]
-  %151 = phi i64 [ %70, %69 ], [ %.pre152, %142 ]
+  %.pre153 = phi ptr [ %.pre153.pre, %142 ], [ %71, %69 ]
+  %151 = phi i64 [ %.pre152, %142 ], [ %70, %69 ]
   %152 = icmp eq i64 %151, 0
   br i1 %152, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffIlEEdPT_.exit, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS5_20scalar_difference_opIddEEKNS_5BlockIKNS0_IdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEKNS_9ReplicateINSB_ISD_Li1ELin1ELb0EEELin1ELi1EEEEEEENS5_10member_sumIddEELi1EEEEERS1_RKNS_9DenseBaseIT_EE.exit.thread
 
@@ -5582,8 +5582,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %53
   br label %116
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS5_20scalar_difference_opIddEEKNS_5BlockIKNS0_IdLin1ELi2ELi0ELin1ELi2EEELin1ELin1ELb0EEEKNS_9ReplicateINSB_ISD_Li1ELi2ELb0EEELin1ELi1EEEEEEENS5_10member_sumIddEELi1EEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %59, %98
-  %.pre120 = phi ptr [ %61, %59 ], [ %.pre120.pre, %98 ]
-  %103 = phi i64 [ %60, %59 ], [ %.pre, %98 ]
+  %.pre120 = phi ptr [ %.pre120.pre, %98 ], [ %61, %59 ]
+  %103 = phi i64 [ %.pre, %98 ], [ %60, %59 ]
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffIlEEdPT_.exit, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS_8internal14scalar_abs2_opIdEEKNS_13CwiseBinaryOpINS5_20scalar_difference_opIddEEKNS_5BlockIKNS0_IdLin1ELi2ELi0ELin1ELi2EEELin1ELin1ELb0EEEKNS_9ReplicateINSB_ISD_Li1ELi2ELb0EEELin1ELi1EEEEEEENS5_10member_sumIddEELi1EEEEERS1_RKNS_9DenseBaseIT_EE.exit.thread
 

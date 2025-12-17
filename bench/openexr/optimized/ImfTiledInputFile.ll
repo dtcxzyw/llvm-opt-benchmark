@@ -998,7 +998,7 @@ _ZN7Imf_3_411FrameBufferaSERKS0_.exit:            ; preds = %19
   br label %99
 
 99:                                               ; preds = %.loopexit, %.loopexit.split-lp, %22, %24, %94, %97
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %25, %24 ], [ %23, %22 ], [ %.pn.pn, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %23, %22 ], [ %25, %24 ], [ %.pn.pn, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %6) #29
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
@@ -1097,7 +1097,7 @@ _ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit: ; preds = %17
   %.not11.i = icmp slt i32 %6, %21
   br i1 %.not11.i, label %64, label %_ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit.thread
 
-_ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit.thread: ; preds = %17, %11, %7, %_ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit
+_ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit.thread: ; preds = %11, %7, %17, %_ZNK7Imf_3_414TiledInputFile12isValidLevelEii.exit
   invoke void @_Z13iex_debugTrapv()
           to label %22 unwind label %34
 
@@ -1300,7 +1300,7 @@ define noundef zeroext i1 @_ZNK7Imf_3_414TiledInputFile12isValidLevelEii(ptr nou
   br label %17
 
 17:                                               ; preds = %14, %11, %5, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ false, %11 ], [ %.not11, %14 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %5 ], [ %.not11, %14 ]
   ret i1 %.0
 }
 
@@ -1750,7 +1750,7 @@ _ZNSt6atomicIPN7Imf_3_412_GLOBAL__N_111TileProcessEE21compare_exchange_weakERS3_
   br label %154
 
 154:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body84, %110, %106
-  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %106 ], [ %111, %110 ], [ %eh.lpad-body85, %.body84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %106 ], [ %eh.lpad-body85, %.body84 ], [ %111, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN13IlmThread_3_49TaskGroupD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #29
   br label %155
 
@@ -2327,7 +2327,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !184
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -3398,7 +3398,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit5.i: ; preds = %72
   br label %80
 
 common.resume:                                    ; preds = %26, %99, %248, %249, %94, %80
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %80 ], [ %.pn.i151, %94 ], [ %27, %26 ], [ %100, %99 ], [ %.pn135.pn, %248 ], [ %.pn135.pn, %249 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %80 ], [ %.pn.i151, %94 ], [ %27, %26 ], [ %100, %99 ], [ %.pn135.pn, %249 ], [ %.pn135.pn, %248 ]
   resume { ptr, i32 } %common.resume.op
 
 80:                                               ; preds = %78, %76
@@ -4015,7 +4015,7 @@ _ZNSt6vectorIN7Imf_3_412_GLOBAL__N_17tileposESaIS2_EED2Ev.exit: ; preds = %._cri
   ret void
 
 248:                                              ; preds = %.split.split.us, %.split.us225.split.us, %.split239, %.split239.us, %197, %199, %179, %185, %177, %193
-  %.pn135.pn = phi { ptr, i32 } [ %200, %199 ], [ %198, %197 ], [ %178, %177 ], [ %.pn131, %185 ], [ %180, %179 ], [ %.pn, %193 ], [ %188, %.split239 ], [ %145, %.split239.us ], [ %146, %.split.split.us ], [ %147, %.split.us225.split.us ]
+  %.pn135.pn = phi { ptr, i32 } [ %145, %.split239.us ], [ %200, %199 ], [ %198, %197 ], [ %180, %179 ], [ %178, %177 ], [ %.pn131, %185 ], [ %.pn, %193 ], [ %188, %.split239 ], [ %146, %.split.split.us ], [ %147, %.split.us225.split.us ]
   %.not.i.i.i156 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i156, label %common.resume, label %249
 
@@ -4608,7 +4608,7 @@ _ZN7Imf_3_412_GLOBAL__N_111TileProcess15update_pointersEPKNS_11FrameBufferEiiii.
   br label %_ZN9Imath_3_24halfC2Ef.exit.i
 
 _ZN9Imath_3_24halfC2Ef.exit.i:                    ; preds = %250, %247, %233, %224, %222, %212, %209
-  %.0.i.i.i = phi i16 [ %219, %212 ], [ %223, %222 ], [ %232, %224 ], [ %210, %209 ], [ %205, %233 ], [ %251, %250 ], [ %245, %247 ]
+  %.0.i.i.i = phi i16 [ %205, %233 ], [ %219, %212 ], [ %223, %222 ], [ %232, %224 ], [ %210, %209 ], [ %251, %250 ], [ %245, %247 ]
   store i16 %.0.i.i.i, ptr %.0416.i, align 2, !tbaa !247
   br label %260
 
@@ -5264,7 +5264,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4less
           to label %60 unwind label %73
 
 60:                                               ; preds = %58, %56, %53, %48, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink12.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink12.i.i36 = phi ptr [ %40, %58 ], [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %61 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %62, ptr noundef nonnull align 8 dereferenceable(312) %61, i64 312, i1 false)

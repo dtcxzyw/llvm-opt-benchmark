@@ -340,7 +340,7 @@ define ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.lr.ph, %.lr.ph85, %61, %58, %.loopexit.thread106, %42, %40, %57, %48, %18, %7
-  %.0 = phi ptr [ %10, %7 ], [ null, %18 ], [ %53, %48 ], [ null, %57 ], [ %20, %40 ], [ %20, %42 ], [ %20, %.loopexit.thread106 ], [ %60, %58 ], [ %60, %61 ], [ null, %.lr.ph85 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %10, %7 ], [ null, %18 ], [ %20, %.loopexit.thread106 ], [ %53, %48 ], [ null, %57 ], [ %20, %40 ], [ %20, %42 ], [ %60, %58 ], [ %60, %61 ], [ null, %.lr.ph85 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

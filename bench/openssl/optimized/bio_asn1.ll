@@ -242,8 +242,8 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   br label %.loopexit
 
 .loopexit102:                                     ; preds = %71, %58, %43, %30
-  %.2 = phi i32 [ %.070.ph, %30 ], [ %.070.ph, %43 ], [ %63, %71 ], [ %.070.ph, %58 ]
-  %.069 = phi i32 [ %49, %43 ], [ %32, %30 ], [ %60, %58 ], [ %60, %71 ]
+  %.2 = phi i32 [ %.070.ph, %43 ], [ %.070.ph, %30 ], [ %63, %71 ], [ %.070.ph, %58 ]
+  %.069 = phi i32 [ %32, %30 ], [ %49, %43 ], [ %60, %58 ], [ %60, %71 ]
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
   call void @BIO_copy_next_retry(ptr noundef %0) #6
   %74 = icmp sgt i32 %.2, 0
@@ -251,7 +251,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %asn1_bio_setup_ex.exit.thread, %3, %.loopexit102, %73
-  %.0 = phi i32 [ %75, %.loopexit102 ], [ 0, %73 ], [ 0, %3 ], [ -1, %asn1_bio_setup_ex.exit.thread ], [ -1, %34 ]
+  %.0 = phi i32 [ 0, %73 ], [ 0, %3 ], [ %75, %.loopexit102 ], [ -1, %asn1_bio_setup_ex.exit.thread ], [ -1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -442,7 +442,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %43, %46
   br label %74
 
 74:                                               ; preds = %asn1_bio_setup_ex.exit.thread, %9, %15, %21, %27, %33, %35, %70, %38, %4, %72, %69, %67, %62
-  %.0 = phi i64 [ %73, %72 ], [ %63, %62 ], [ %68, %67 ], [ 0, %69 ], [ 0, %4 ], [ 0, %38 ], [ 0, %70 ], [ 1, %35 ], [ 1, %33 ], [ 1, %27 ], [ 1, %21 ], [ 1, %15 ], [ 1, %9 ], [ 0, %asn1_bio_setup_ex.exit.thread ]
+  %.0 = phi i64 [ 0, %38 ], [ 0, %asn1_bio_setup_ex.exit.thread ], [ %73, %72 ], [ 0, %70 ], [ 0, %4 ], [ %63, %62 ], [ %68, %67 ], [ 0, %69 ], [ 1, %35 ], [ 1, %33 ], [ 1, %27 ], [ 1, %21 ], [ 1, %15 ], [ 1, %9 ]
   ret i64 %.0
 }
 
@@ -476,7 +476,7 @@ define internal range(i32 0, 2) i32 @asn1_bio_new(ptr noundef %0) #1 {
   br label %13
 
 13:                                               ; preds = %1, %9, %8
-  %.0 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %1 ]
   ret i32 %.0
 }
 

@@ -125,7 +125,7 @@ ossl_param_is_empty.exit:                         ; preds = %5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %5, %8, %17, %ossl_param_is_empty.exit, %2, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ 0, %12 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %17 ], [ 1, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %2 ], [ 0, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %17 ], [ 1, %8 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -181,7 +181,7 @@ define internal i32 @blake2s256_internal_final(ptr noundef %0, ptr noundef %1, p
   br label %15
 
 15:                                               ; preds = %6, %4, %13, %12
-  %.0 = phi i32 [ 0, %12 ], [ %14, %13 ], [ 0, %4 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %14, %13 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -207,7 +207,7 @@ define internal noalias ptr @blake2s256_dupctx(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %1, %5, %3
-  %6 = phi ptr [ %4, %5 ], [ null, %3 ], [ null, %1 ]
+  %6 = phi ptr [ null, %3 ], [ %4, %5 ], [ null, %1 ]
   ret ptr %6
 }
 
@@ -357,7 +357,7 @@ ossl_param_is_empty.exit:                         ; preds = %5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %5, %8, %17, %ossl_param_is_empty.exit, %2, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ 0, %12 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %17 ], [ 1, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %2 ], [ 0, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %17 ], [ 1, %8 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -409,7 +409,7 @@ define internal i32 @blake2b512_internal_final(ptr noundef %0, ptr noundef %1, p
   br label %15
 
 15:                                               ; preds = %6, %4, %13, %12
-  %.0 = phi i32 [ 0, %12 ], [ %14, %13 ], [ 0, %4 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %14, %13 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -435,7 +435,7 @@ define internal noalias ptr @blake2b512_dupctx(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %1, %5, %3
-  %6 = phi ptr [ %4, %5 ], [ null, %3 ], [ null, %1 ]
+  %6 = phi ptr [ null, %3 ], [ %4, %5 ], [ null, %1 ]
   ret ptr %6
 }
 

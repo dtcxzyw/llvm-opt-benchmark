@@ -695,7 +695,7 @@ pmix_obj_run_destructors.exit185:                 ; preds = %.lr.ph.i182, %268
   br label %290
 
 290:                                              ; preds = %11, %7, %282, %279, %192, %pmix_obj_new_tma.exit
-  %.0 = phi i32 [ -32, %pmix_obj_new_tma.exit ], [ -157, %192 ], [ -157, %279 ], [ %284, %282 ], [ -31, %7 ], [ -157, %11 ]
+  %.0 = phi i32 [ -31, %7 ], [ -32, %pmix_obj_new_tma.exit ], [ -157, %192 ], [ -157, %279 ], [ %284, %282 ], [ -157, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

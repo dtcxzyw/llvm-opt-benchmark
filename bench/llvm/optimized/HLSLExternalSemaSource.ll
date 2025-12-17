@@ -509,7 +509,7 @@ _ZNK5clang12LookupResult11getAsSingleINS_13NamespaceDeclEEEPT_v.exit: ; preds = 
   br label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
 _ZN5clang12LookupResult14diagnoseAccessEv.exit.i: ; preds = %141, %129, %_ZNK5clang12LookupResult11getAsSingleINS_13NamespaceDeclEEEPT_v.exit
-  %142 = phi i32 [ %.pre.i23, %141 ], [ %.pre2.i21, %129 ], [ %.pre2.i21, %_ZNK5clang12LookupResult11getAsSingleINS_13NamespaceDeclEEEPT_v.exit ]
+  %142 = phi i32 [ %.pre.i23, %141 ], [ %.pre2.i21, %_ZNK5clang12LookupResult11getAsSingleINS_13NamespaceDeclEEEPT_v.exit ], [ %.pre2.i21, %129 ]
   %143 = load i8, ptr %50, align 4, !tbaa !1059, !range !1064, !noundef !1065
   %144 = trunc nuw i8 %143 to i1
   %145 = icmp eq i32 %142, 5
@@ -2794,7 +2794,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %48, %55
   br label %88
 
 .thread:                                          ; preds = %59, %5, %.thread33, %62
-  %.032 = phi ptr [ %.036, %.thread33 ], [ null, %62 ], [ null, %5 ], [ null, %59 ]
+  %.032 = phi ptr [ null, %62 ], [ %.036, %.thread33 ], [ null, %5 ], [ null, %59 ]
   %70 = load ptr, ptr %8, align 8, !tbaa !1074
   %71 = icmp eq ptr %70, null
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 48
@@ -2851,7 +2851,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %48, %55
   br label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
 _ZN5clang12LookupResult14diagnoseAccessEv.exit.i: ; preds = %103, %91, %88
-  %104 = phi i32 [ %.pre.i, %103 ], [ %.pre2.i, %91 ], [ %.pre2.i, %88 ]
+  %104 = phi i32 [ %.pre.i, %103 ], [ %.pre2.i, %88 ], [ %.pre2.i, %91 ]
   %105 = load i8, ptr %40, align 4, !tbaa !1059, !range !1064, !noundef !1065
   %106 = trunc nuw i8 %105 to i1
   %107 = icmp eq i32 %104, 5
@@ -4238,7 +4238,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclE
   br label %_ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclEE8DeclLink9setLatestEPS1_.exit
 
 _ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclEE8DeclLink9setLatestEPS1_.exit: ; preds = %52, %57, %62, %65
-  %storemerge.in.i = phi i64 [ %58, %57 ], [ %56, %52 ], [ %66, %65 ], [ %26, %62 ]
+  %storemerge.in.i = phi i64 [ %56, %52 ], [ %58, %57 ], [ %66, %65 ], [ %26, %62 ]
   %storemerge.i = or i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %22, align 8, !tbaa !1123
   ret void
@@ -6045,7 +6045,7 @@ _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %3, %41
   br label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
 _ZN5clang12LookupResult14diagnoseAccessEv.exit.i: ; preds = %57, %45, %_ZNK5clang12LookupResult12getFoundDeclEv.exit
-  %58 = phi i32 [ %.pre.i, %57 ], [ %.pre2.i, %45 ], [ %.pre2.i, %_ZNK5clang12LookupResult12getFoundDeclEv.exit ]
+  %58 = phi i32 [ %.pre.i, %57 ], [ %.pre2.i, %_ZNK5clang12LookupResult12getFoundDeclEv.exit ], [ %.pre2.i, %45 ]
   %59 = load i8, ptr %28, align 4, !tbaa !1059, !range !1064, !noundef !1065
   %60 = trunc nuw i8 %59 to i1
   %61 = icmp eq i32 %58, 5

@@ -271,7 +271,7 @@ define hidden void @_ZN17ShenandoahNMethod6updateEv(ptr noundef nonnull align 8 
   br label %35
 
 35:                                               ; preds = %31, %1
-  %36 = phi i32 [ %.pre13, %31 ], [ %21, %1 ]
+  %36 = phi i32 [ %21, %1 ], [ %.pre13, %31 ]
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 

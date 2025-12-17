@@ -196,7 +196,7 @@ define internal range(i32 -2147483648, 1) i32 @hash_init(ptr noundef readonly ca
   br label %15
 
 15:                                               ; preds = %7, %1, %12
-  %.0 = phi i32 [ 0, %12 ], [ -12, %1 ], [ %10, %7 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %12 ], [ %10, %7 ]
   ret i32 %.0
 }
 
@@ -502,7 +502,7 @@ define internal range(i32 -2147483648, 1) i32 @framehash_init(ptr noundef readon
   br label %11
 
 11:                                               ; preds = %7, %1
-  %.0 = phi i32 [ -12, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ %., %7 ], [ -12, %1 ]
   ret i32 %.0
 }
 

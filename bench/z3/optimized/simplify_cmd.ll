@@ -936,7 +936,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc111, %168
   br label %180
 
 180:                                              ; preds = %122, %120, %118, %178, %96
-  %.merged79 = phi { ptr, i32 } [ %179, %178 ], [ %85, %96 ], [ %121, %120 ], [ %119, %118 ], [ %123, %122 ]
+  %.merged79 = phi { ptr, i32 } [ %179, %178 ], [ %119, %118 ], [ %85, %96 ], [ %121, %120 ], [ %123, %122 ]
   %181 = load i8, ptr %61, align 8, !tbaa !166, !range !167, !noundef !168
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %_ZN11cmd_context12scoped_watchD2Ev.exit86

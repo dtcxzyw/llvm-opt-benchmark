@@ -429,8 +429,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
   br label %23
 
 23:                                               ; preds = %20, %14
-  %.087.i = phi i64 [ %21, %20 ], [ 4, %14 ]
-  %.0.i = phi i32 [ %22, %20 ], [ %0, %14 ]
+  %.087.i = phi i64 [ 4, %14 ], [ %21, %20 ]
+  %.0.i = phi i32 [ %0, %14 ], [ %22, %20 ]
   %24 = icmp samesign ult i32 %.0.i, 2
   br i1 %24, label %.thread, label %.preheader
 
@@ -448,7 +448,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
   br i1 %28, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %27, %23
-  %.0.i41 = phi i32 [ %.0.i, %27 ], [ %.0.i, %23 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i41 = phi i32 [ %.0.i, %23 ], [ %.0.i, %27 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i41, i32 noundef 2, i32 noundef 2) #6
   unreachable
 
@@ -657,8 +657,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
   br label %28
 
 28:                                               ; preds = %25, %19
-  %.087.i = phi i64 [ %26, %25 ], [ 4, %19 ]
-  %.0.i = phi i32 [ %27, %25 ], [ %0, %19 ]
+  %.087.i = phi i64 [ 4, %19 ], [ %26, %25 ]
+  %.0.i = phi i32 [ %0, %19 ], [ %27, %25 ]
   %29 = icmp samesign ult i32 %.0.i, 3
   br i1 %29, label %.thread, label %.preheader
 
@@ -686,7 +686,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
   br i1 %37, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %36, %28
-  %.0.i43 = phi i32 [ %.0.i, %36 ], [ %.0.i, %28 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i43 = phi i32 [ %.0.i, %28 ], [ %.0.i, %36 ], [ %0, %rb_scan_args_n_opt.exit ]
   call void @rb_error_arity(i32 noundef %.0.i43, i32 noundef 3, i32 noundef 3) #6
   unreachable
 

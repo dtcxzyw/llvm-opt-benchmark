@@ -62,9 +62,9 @@ define hidden void @"_ZN118_$LT$$RF$alloc..collections..vec_deque..VecDeque$LT$T
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hdef77e4b8cca59d1E.llvm.18334662321373756257.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hdef77e4b8cca59d1E.llvm.18334662321373756257.exit": ; preds = %2, %18, %20
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %18 ], [ %.0.i.i.i, %20 ], [ 0, %2 ]
-  %.sroa.5.0.i.i = phi i64 [ %15, %18 ], [ %21, %20 ], [ 0, %2 ]
-  %.sroa.11.0.i.i = phi i64 [ %19, %18 ], [ 0, %20 ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %20 ], [ %.0.i.i.i, %18 ], [ 0, %2 ]
+  %.sroa.5.0.i.i = phi i64 [ %21, %20 ], [ %15, %18 ], [ 0, %2 ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %20 ], [ %19, %18 ], [ 0, %2 ]
   %22 = load ptr, ptr %1, align 8, !alias.scope !12, !noalias !13, !nonnull !15, !noundef !15
   %23 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.0.0.i.i
   %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.5.0.i.i
@@ -657,7 +657,7 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
           to label %83 unwind label %80
 
 "_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i": ; preds = %.noexc3.i.i, %83, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i", %50
-  %.sink5.i.i = phi i64 [ 16, %83 ], [ 16, %.noexc3.i.i ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i" ], [ 40, %50 ]
+  %.sink5.i.i = phi i64 [ 16, %.noexc3.i.i ], [ 16, %83 ], [ 40, %"_ZN4core3ptr113drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes..is_incoming_authorized..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2bcf4c454e9d8b44E.exit.i.i.i" ], [ 40, %50 ]
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink5.i.i
   store i8 0, ptr %76, align 8
   br label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.i.i"
@@ -668,8 +668,8 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf4077974149bcfeaE.exit"
 
 .body.i.i:                                        ; preds = %95, %80, %70, %.body.i.i.i
-  %.sink6.i.i = phi i64 [ 16, %95 ], [ 16, %80 ], [ 40, %70 ], [ 40, %.body.i.i.i ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %96, %95 ], [ %81, %80 ], [ %71, %70 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
+  %.sink6.i.i = phi i64 [ 16, %80 ], [ 16, %95 ], [ 40, %70 ], [ 40, %.body.i.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %81, %80 ], [ %96, %95 ], [ %71, %70 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 %.sink6.i.i
   store i8 0, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 697
@@ -840,7 +840,7 @@ common.ret:                                       ; preds = %134, %"_ZN82_$LT$to
   unreachable
 
 common.resume:                                    ; preds = %189, %.body, %.body31, %129
-  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %eh.lpad-body, %.body ], [ %.pn4, %.body31 ], [ %190, %189 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %130, %129 ], [ %.pn4, %.body31 ], [ %190, %189 ]
   resume { ptr, i32 } %common.resume.op
 
 137:                                              ; preds = %.body31, %.body14, %.body8, %.body10, %.body
@@ -946,7 +946,7 @@ common.resume:                                    ; preds = %189, %.body, %.body
   unreachable
 
 .body8:                                           ; preds = %146, %139, %19, %.body14, %182, %.body10
-  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body11, %.body10 ], [ %183, %182 ], [ %.pn, %.body14 ], [ %140, %139 ], [ %20, %19 ], [ %147, %146 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %.body14 ], [ %20, %19 ], [ %eh.lpad-body11, %.body10 ], [ %183, %182 ], [ %140, %139 ], [ %147, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 600
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$$GT$17h7a7a06d56da81279E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %167) #25
           to label %.body31 unwind label %137
@@ -984,7 +984,7 @@ common.resume:                                    ; preds = %189, %.body, %.body
   br label %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he65c2f97b772f806E.exit"
 
 .body14:                                          ; preds = %180, %108, %.body.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn.i.i, %.body.i.i ], [ %181, %180 ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn.i.i, %.body.i.i ], [ %109, %108 ], [ %181, %180 ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 616
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %179) #25
           to label %.body8 unwind label %137
@@ -1441,7 +1441,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 common.resume:                                    ; preds = %209, %140, %175, %181, %201, %221, %226, %231, %236, %241, %246, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %242, %241 ], [ %210, %209 ]
+  %common.resume.op = phi { ptr, i32 } [ %242, %241 ], [ %149, %148 ], [ %247, %246 ], [ %.pn10, %140 ], [ %.pn4, %175 ], [ %182, %181 ], [ %.pn2, %201 ], [ %222, %221 ], [ %227, %226 ], [ %232, %231 ], [ %237, %236 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17habdef1943310a54eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6769d16d5ee4264cE.llvm.1797472119934586438.exit.i", %152, %156
@@ -1972,9 +1972,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17ha12051e4550358b2E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17ha12051e4550358b2E.exit": ; preds = %2, %18, %20
-  %.sroa.0.0.i = phi i64 [ %.0.i.i, %18 ], [ %.0.i.i, %20 ], [ 0, %2 ]
-  %.sroa.5.0.i = phi i64 [ %15, %18 ], [ %21, %20 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i64 [ %19, %18 ], [ 0, %20 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ %.0.i.i, %20 ], [ %.0.i.i, %18 ], [ 0, %2 ]
+  %.sroa.5.0.i = phi i64 [ %21, %20 ], [ %15, %18 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i64 [ 0, %20 ], [ %19, %18 ], [ 0, %2 ]
   %22 = load ptr, ptr %1, align 8, !alias.scope !391, !noalias !394, !nonnull !15, !noundef !15
   %23 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.0.0.i
   %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.5.0.i
@@ -3682,7 +3682,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime6handle6Handle11spawn_named1
   %14 = tail call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h5240479a0270b09cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1112) %1, i64 noundef %7)
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit
 
-_ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit: ; preds = %13, %11
+_ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit: ; preds = %11, %13
   %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -3725,7 +3725,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime6handle6Handle11spawn_named1
   %14 = tail call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h47849fcfce54a908E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1384) %1, i64 noundef %7)
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit
 
-_ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit: ; preds = %13, %11
+_ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit: ; preds = %11, %13
   %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -4049,9 +4049,9 @@ define hidden void @"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %39 unwind label %37
 
 31:                                               ; preds = %27, %25, %.noexc
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %25 ], [ %.0.i.i.i, %27 ], [ 0, %.noexc ]
-  %.sroa.5.0.i.i = phi i64 [ %22, %25 ], [ %28, %27 ], [ 0, %.noexc ]
-  %.sroa.11.0.i.i = phi i64 [ %26, %25 ], [ 0, %27 ], [ 0, %.noexc ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %27 ], [ %.0.i.i.i, %25 ], [ 0, %.noexc ]
+  %.sroa.5.0.i.i = phi i64 [ %28, %27 ], [ %22, %25 ], [ 0, %.noexc ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %27 ], [ %26, %25 ], [ 0, %.noexc ]
   %32 = load ptr, ptr %1, align 8, !alias.scope !613, !noalias !614, !nonnull !15, !noundef !15
   %33 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %32, i64 %.sroa.0.0.i.i
   %34 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %32, i64 %.sroa.5.0.i.i

@@ -114,7 +114,7 @@ define dso_local i32 @data_parser_g_parse(ptr noundef readonly captures(address_
   br label %30
 
 30:                                               ; preds = %11, %20, %6, %23
-  %.0 = phi i32 [ %28, %23 ], [ 9213, %6 ], [ 9212, %20 ], [ 9212, %11 ]
+  %.0 = phi i32 [ 9213, %6 ], [ %28, %23 ], [ 9212, %20 ], [ 9212, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -294,7 +294,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   br i1 %66, label %.lr.ph50.i, label %_find_plugin_by_type.exit.thread, !llvm.loop !12
 
 _find_plugin_by_type.exit:                        ; preds = %38, %.lr.ph48.i, %.lr.ph50.i
-  %.022.i.in = phi i64 [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv.i, %38 ]
+  %.022.i.in = phi i64 [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv.i, %38 ]
   %.022.i = trunc i64 %.022.i.in to i32
   %67 = icmp slt i32 %.022.i, 0
   br i1 %67, label %_find_plugin_by_type.exit.thread, label %70
@@ -699,7 +699,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   br i1 %65, label %.lr.ph50.i, label %.thread, !llvm.loop !12
 
 _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.lr.ph50.i
-  %.022.i.in = phi i64 [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv.i, %37 ]
+  %.022.i.in = phi i64 [ %indvars.iv61.i, %.lr.ph48.i ], [ %indvars.iv64.i, %.lr.ph50.i ], [ %indvars.iv.i, %37 ]
   %.022.i = trunc i64 %.022.i.in to i32
   %66 = icmp slt i32 %.022.i, 0
   br i1 %66, label %.thread, label %71
@@ -815,7 +815,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
   br label %116
 
 116:                                              ; preds = %.loopexit67, %.loopexit, %15
-  %.048 = phi ptr [ null, %.loopexit67 ], [ %25, %.loopexit ], [ null, %15 ]
+  %.048 = phi ptr [ null, %.loopexit67 ], [ null, %15 ], [ %25, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.048
@@ -1096,8 +1096,8 @@ define dso_local ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef readonly 
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %17, label %.thread
 
-.thread:                                          ; preds = %12, %14
-  %.0.ph = phi i32 [ 1, %14 ], [ 0, %12 ]
+.thread:                                          ; preds = %14, %12
+  %.0.ph = phi i32 [ 0, %12 ], [ 1, %14 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i8 0, i64 24, i1 false)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
   br label %20
@@ -1257,7 +1257,7 @@ data_parser_g_assign.exit:                        ; preds = %30
   br label %data_parser_g_dump.exit
 
 data_parser_g_dump.exit:                          ; preds = %46, %49
-  %.0.i38 = phi ptr [ %.pre.i, %49 ], [ %48, %46 ]
+  %.0.i38 = phi ptr [ %48, %46 ], [ %.pre.i, %49 ]
   %54 = call ptr @xstrdup(ptr noundef %.0.i38) #13
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %54, ptr %55, align 8
@@ -1333,7 +1333,7 @@ data_parser_g_dump.exit:                          ; preds = %46, %49
   br label %94
 
 94:                                               ; preds = %28, %.thread, %93, %90, %19, %22
-  %.024 = phi i32 [ 0, %22 ], [ 0, %19 ], [ 0, %90 ], [ 0, %93 ], [ 0, %.thread ], [ 9213, %28 ]
+  %.024 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 0, %90 ], [ 0, %93 ], [ 0, %.thread ], [ 9213, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.024
 }

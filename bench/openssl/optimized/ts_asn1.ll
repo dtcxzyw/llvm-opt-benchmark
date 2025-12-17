@@ -512,15 +512,15 @@ define internal range(i32 0, 2) i32 @ts_resp_cb(i32 noundef %0, ptr noundef read
   br i1 %or.cond3.i, label %ts_resp_set_tst_info.exit, label %ts_resp_set_tst_info.exit.thread
 
 ts_resp_set_tst_info.exit:                        ; preds = %17, %18, %23
-  %.sink14.i = phi i32 [ 141, %17 ], [ 147, %18 ], [ 151, %23 ]
-  %.sink.i = phi i32 [ 131, %17 ], [ 129, %18 ], [ 130, %23 ]
+  %.sink14.i = phi i32 [ 147, %18 ], [ 141, %17 ], [ 151, %23 ]
+  %.sink.i = phi i32 [ 129, %18 ], [ 131, %17 ], [ 130, %23 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink14.i, ptr noundef nonnull @__func__.ts_resp_set_tst_info) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #4
   br label %ts_resp_set_tst_info.exit.thread
 
 ts_resp_set_tst_info.exit.thread:                 ; preds = %18, %23, %6, %8, %4, %ts_resp_set_tst_info.exit
-  %.0 = phi i32 [ 0, %ts_resp_set_tst_info.exit ], [ 1, %4 ], [ 1, %8 ], [ 1, %6 ], [ 1, %23 ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %ts_resp_set_tst_info.exit ], [ 1, %6 ], [ 1, %4 ], [ 1, %8 ], [ 1, %23 ], [ 1, %18 ]
   ret i32 %.0
 }
 

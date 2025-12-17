@@ -62,7 +62,7 @@ define internal range(i32 -1094995529, 1) i32 @dfa_decode_init(ptr noundef initi
   br label %22
 
 22:                                               ; preds = %15, %1, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ -1094995529, %1 ], [ %.19, %15 ]
+  %.0 = phi i32 [ %.19, %15 ], [ -1094995529, %1 ], [ -1094995529, %7 ]
   ret i32 %.0
 }
 
@@ -391,7 +391,7 @@ bytestream2_get_be24.exit:                        ; preds = %64, %65
   br label %.loopexit107
 
 .loopexit107:                                     ; preds = %35, %17, %.loopexit, %97
-  %.0 = phi i32 [ -1094995529, %97 ], [ %184, %.loopexit ], [ %19, %17 ], [ -1094995529, %35 ]
+  %.0 = phi i32 [ %184, %.loopexit ], [ %19, %17 ], [ -1094995529, %97 ], [ -1094995529, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -630,7 +630,7 @@ bytestream2_get_byte.exit59:                      ; preds = %88, %89
   br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %70, %bytestream2_get_le16.exit, %93, %28, %bytestream2_get_le32.exit
-  %.042 = phi i32 [ 0, %bytestream2_get_le32.exit ], [ %.mux, %28 ], [ -1094995529, %.lr.ph ], [ -1094995529, %46 ], [ -1094995529, %70 ], [ -1094995529, %bytestream2_get_le16.exit ], [ 0, %93 ]
+  %.042 = phi i32 [ %.mux, %28 ], [ 0, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_le16.exit ], [ -1094995529, %46 ], [ -1094995529, %.lr.ph ], [ -1094995529, %70 ], [ 0, %93 ]
   ret i32 %.042
 }
 
@@ -833,7 +833,7 @@ bytestream2_get_byte.exit59:                      ; preds = %95, %96
   br i1 %.not50, label %.loopexit, label %46, !llvm.loop !53
 
 .loopexit65:                                      ; preds = %31, %.loopexit, %bytestream2_peek_byte.exit.thread, %85, %77, %70, %bytestream2_peek_byte.exit, %.preheader.thread, %.preheader, %bytestream2_get_le16.exit54, %bytestream2_get_le16.exit
-  %.043 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ -1094995529, %bytestream2_get_le16.exit54 ], [ 0, %.preheader ], [ 0, %.preheader.thread ], [ -1094995529, %bytestream2_peek_byte.exit ], [ -1094995529, %70 ], [ -1094995529, %77 ], [ -1094995529, %85 ], [ -1094995529, %bytestream2_peek_byte.exit.thread ], [ -1094995529, %31 ], [ 0, %.loopexit ]
+  %.043 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ -1094995529, %bytestream2_get_le16.exit54 ], [ 0, %.preheader.thread ], [ 0, %.preheader ], [ -1094995529, %bytestream2_peek_byte.exit.thread ], [ -1094995529, %bytestream2_peek_byte.exit ], [ -1094995529, %70 ], [ -1094995529, %77 ], [ -1094995529, %85 ], [ 0, %.loopexit ], [ -1094995529, %31 ]
   ret i32 %.043
 }
 
@@ -1125,7 +1125,7 @@ bytestream2_get_byte.exit96:                      ; preds = %bytestream2_get_byt
   br i1 %.not82, label %.loopexit110, label %83, !llvm.loop !57
 
 .critedge:                                        ; preds = %22, %._crit_edge, %bytestream2_get_le16.exit91, %.loopexit110, %._crit_edge.thread, %45, %.lr.ph, %bytestream2_peek_byte.exit.thread, %123, %113, %107, %bytestream2_peek_byte.exit, %bytestream2_get_le16.exit.thread, %.preheader, %bytestream2_get_le16.exit
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ 0, %.preheader ], [ %spec.select, %bytestream2_get_le16.exit.thread ], [ -1094995529, %bytestream2_peek_byte.exit ], [ -1094995529, %107 ], [ -1094995529, %113 ], [ -1094995529, %123 ], [ -1094995529, %bytestream2_peek_byte.exit.thread ], [ -1094995529, %.lr.ph ], [ -1094995529, %45 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %22 ], [ -1094995529, %._crit_edge ], [ -1094995529, %bytestream2_get_le16.exit91 ], [ 0, %.loopexit110 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ 0, %.preheader ], [ %spec.select, %bytestream2_get_le16.exit.thread ], [ -1094995529, %bytestream2_peek_byte.exit.thread ], [ -1094995529, %45 ], [ -1094995529, %bytestream2_peek_byte.exit ], [ -1094995529, %107 ], [ -1094995529, %113 ], [ -1094995529, %123 ], [ -1094995529, %.lr.ph ], [ 0, %.loopexit110 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %._crit_edge ], [ -1094995529, %22 ], [ -1094995529, %bytestream2_get_le16.exit91 ]
   ret i32 %.0
 }
 
@@ -1211,7 +1211,7 @@ bytestream2_get_le32.exit:                        ; preds = %4
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %18, %41, %27, %46, %bytestream2_get_le32.exit.thread, %bytestream2_get_le32.exit
-  %.0 = phi i32 [ 0, %bytestream2_get_le32.exit ], [ 0, %bytestream2_get_le32.exit.thread ], [ 0, %46 ], [ -1094995529, %27 ], [ -1094995529, %41 ], [ -1094995529, %18 ]
+  %.0 = phi i32 [ 0, %bytestream2_get_le32.exit ], [ 0, %bytestream2_get_le32.exit.thread ], [ 0, %46 ], [ -1094995529, %41 ], [ -1094995529, %27 ], [ -1094995529, %18 ]
   ret i32 %.0
 }
 
@@ -1402,7 +1402,7 @@ bytestream2_get_byte.exit52:                      ; preds = %90, %91
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %20, %35, %59, %bytestream2_get_le16.exit47, %95, %bytestream2_get_le16.exit.thread, %bytestream2_get_le16.exit
-  %.036 = phi i32 [ 0, %bytestream2_get_le16.exit ], [ 0, %bytestream2_get_le16.exit.thread ], [ 0, %95 ], [ -1094995529, %bytestream2_get_le16.exit47 ], [ -1094995529, %59 ], [ -1094995529, %35 ], [ -1094995529, %20 ]
+  %.036 = phi i32 [ 0, %bytestream2_get_le16.exit ], [ 0, %bytestream2_get_le16.exit.thread ], [ 0, %95 ], [ -1094995529, %35 ], [ -1094995529, %59 ], [ -1094995529, %bytestream2_get_le16.exit47 ], [ -1094995529, %20 ]
   ret i32 %.036
 }
 
@@ -1657,7 +1657,7 @@ bytestream2_get_byte.exit82:                      ; preds = %122, %123
   br i1 %.not73, label %.loopexit83, label %30, !llvm.loop !61
 
 .loopexit83:                                      ; preds = %30, %66, %bytestream2_get_le16.exit77, %bytestream2_get_le16.exit79, %100, %.loopexit, %bytestream2_get_le16.exit.thread, %bytestream2_get_le16.exit, %4
-  %.064 = phi i32 [ -1094995529, %4 ], [ 0, %bytestream2_get_le16.exit ], [ 0, %bytestream2_get_le16.exit.thread ], [ -1094995529, %30 ], [ -1094995529, %66 ], [ -1094995529, %bytestream2_get_le16.exit77 ], [ -1094995529, %bytestream2_get_le16.exit79 ], [ -1094995529, %100 ], [ 0, %.loopexit ]
+  %.064 = phi i32 [ -1094995529, %4 ], [ 0, %bytestream2_get_le16.exit ], [ 0, %bytestream2_get_le16.exit.thread ], [ -1094995529, %100 ], [ -1094995529, %bytestream2_get_le16.exit79 ], [ -1094995529, %30 ], [ -1094995529, %bytestream2_get_le16.exit77 ], [ -1094995529, %66 ], [ 0, %.loopexit ]
   ret i32 %.064
 }
 

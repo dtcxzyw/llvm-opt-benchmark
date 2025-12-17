@@ -71,7 +71,7 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %27, %28, %11, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %11 ], [ %15, %28 ], [ %15, %27 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %9 ], [ %15, %28 ], [ %15, %27 ]
   ret ptr %.0
 }
 
@@ -310,7 +310,7 @@ OPENSSL_asc2uni.exit.sink.split:                  ; preds = %80, %33
   br label %OPENSSL_asc2uni.exit
 
 OPENSSL_asc2uni.exit:                             ; preds = %34, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %33, %17, %80, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %77, %80 ], [ null, %17 ], [ %21, %33 ], [ null, %._crit_edge.thread ], [ %.sink89, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
+  %.0 = phi ptr [ %77, %80 ], [ null, %._crit_edge ], [ %21, %33 ], [ null, %17 ], [ null, %._crit_edge.thread ], [ %.sink89, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -562,7 +562,7 @@ bmp_to_utf8.exit62:                               ; preds = %84, %99
   br label %OPENSSL_uni2asc.exit
 
 OPENSSL_uni2asc.exit:                             ; preds = %.thread76, %._crit_edge.i, %.thread, %123, %126, %74, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %74 ], [ %76, %126 ], [ %76, %123 ], [ %51, %._crit_edge.i ], [ null, %.thread ], [ null, %.thread76 ]
+  %.0 = phi ptr [ null, %74 ], [ %76, %123 ], [ null, %2 ], [ %76, %126 ], [ %51, %._crit_edge.i ], [ null, %.thread76 ], [ null, %.thread ]
   ret ptr %.0
 }
 

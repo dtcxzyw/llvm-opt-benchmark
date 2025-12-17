@@ -466,7 +466,7 @@ append_extradata.exit109.thread.loopexit:         ; preds = %139, %132, %129
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %.thread112, %append_extradata.exit109, %append_extradata.exit109.thread.loopexit, %69, %73, %127, %125, %32, %28, %14, %12, %7, %1, %append_extradata.exit.thread
-  %.0 = phi i32 [ %113, %append_extradata.exit.thread ], [ -1094995529, %1 ], [ -1094995529, %7 ], [ -12, %12 ], [ %26, %14 ], [ %30, %28 ], [ %58, %32 ], [ -1094995529, %125 ], [ %spec.select, %127 ], [ %70, %69 ], [ %74, %73 ], [ %153, %append_extradata.exit109.thread.loopexit ], [ -1094995529, %83 ], [ %81, %.thread112 ], [ %..i107, %append_extradata.exit109 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -1094995529, %1 ], [ -12, %12 ], [ %26, %14 ], [ %30, %28 ], [ %70, %69 ], [ %153, %append_extradata.exit109.thread.loopexit ], [ %113, %append_extradata.exit.thread ], [ %74, %73 ], [ %spec.select, %127 ], [ -1094995529, %125 ], [ %58, %32 ], [ -1094995529, %83 ], [ %81, %.thread112 ], [ %..i107, %append_extradata.exit109 ]
   ret i32 %.0
 }
 
@@ -789,8 +789,8 @@ define internal i32 @apng_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %183 = call i64 @avio_skip(ptr noundef %7, i64 noundef %182) #6
   br label %decode_fctl_chunk.exit.thread
 
-decode_fctl_chunk.exit.thread:                    ; preds = %137, %124, %129, %.split.loop.exit92.loopexit, %79, %81, %84, %168, %118, %103, %97, %102, %19, %14, %11, %179, %166, %150, %142, %113
-  %.075 = phi i32 [ -1163346256, %179 ], [ %114, %113 ], [ %143, %142 ], [ %156, %150 ], [ -541478725, %166 ], [ %12, %11 ], [ -541478725, %14 ], [ -1094995529, %19 ], [ -1094995529, %102 ], [ -1094995529, %97 ], [ -22, %103 ], [ %119, %118 ], [ %spec.select, %168 ], [ -1094995529, %84 ], [ -1094995529, %81 ], [ -1094995529, %79 ], [ %133, %.split.loop.exit92.loopexit ], [ %138, %137 ], [ -1094995529, %124 ], [ %131, %129 ]
+decode_fctl_chunk.exit.thread:                    ; preds = %137, %124, %129, %.split.loop.exit92.loopexit, %81, %84, %79, %168, %118, %103, %97, %102, %19, %14, %11, %179, %166, %150, %142, %113
+  %.075 = phi i32 [ -1094995529, %84 ], [ %12, %11 ], [ -1163346256, %179 ], [ -541478725, %14 ], [ -1094995529, %19 ], [ -1094995529, %102 ], [ -1094995529, %97 ], [ %114, %113 ], [ -22, %103 ], [ %119, %118 ], [ %133, %.split.loop.exit92.loopexit ], [ -1094995529, %81 ], [ %143, %142 ], [ %156, %150 ], [ -541478725, %166 ], [ %spec.select, %168 ], [ -1094995529, %79 ], [ -1094995529, %124 ], [ %138, %137 ], [ %131, %129 ]
   ret i32 %.075
 }
 

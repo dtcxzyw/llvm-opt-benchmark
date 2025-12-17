@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr noundef captures(none) %0, pt
   br label %15
 
 15:                                               ; preds = %2, %._crit_edge, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -716,7 +716,7 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   br label %84
 
 84:                                               ; preds = %3, %83, %35, %25, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %25 ], [ null, %35 ], [ %7, %83 ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %83 ], [ null, %9 ], [ null, %25 ], [ null, %35 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1577,14 +1577,14 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %12) #13
   br label %281
 
-.loopexit417:                                     ; preds = %.lr.ph274, %92, %117, %115, %142, %128, %._crit_edge297, %153, %177, %204, %202, %243, %229, %265, %67, %70, %73, %._crit_edge285, %97, %._crit_edge300, %._crit_edge310, %._crit_edge334
-  %.0205243.ph = phi ptr [ %46, %._crit_edge334 ], [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %73 ], [ %46, %70 ], [ %46, %67 ], [ %46, %265 ], [ %46, %229 ], [ %46, %243 ], [ %46, %202 ], [ %46, %204 ], [ %46, %177 ], [ %46, %153 ], [ %46, %._crit_edge297 ], [ %46, %128 ], [ %46, %142 ], [ %46, %115 ], [ %46, %117 ], [ %46, %92 ], [ %37, %.lr.ph274 ]
+.loopexit417:                                     ; preds = %.lr.ph274, %92, %115, %117, %._crit_edge297, %142, %128, %153, %177, %202, %204, %229, %243, %265, %._crit_edge334, %67, %70, %73, %._crit_edge285, %97, %._crit_edge300, %._crit_edge310
+  %.0205243.ph = phi ptr [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %73 ], [ %46, %70 ], [ %46, %67 ], [ %46, %._crit_edge334 ], [ %46, %92 ], [ %46, %265 ], [ %46, %229 ], [ %46, %202 ], [ %46, %177 ], [ %46, %153 ], [ %46, %._crit_edge297 ], [ %46, %115 ], [ %46, %243 ], [ %46, %204 ], [ %46, %128 ], [ %46, %142 ], [ %46, %117 ], [ %37, %.lr.ph274 ]
   call void @free(ptr noundef nonnull %12) #13
   call void @st__free_table(ptr noundef nonnull %.0205243.ph) #13
   br label %281
 
 281:                                              ; preds = %.thread, %.thread247, %.loopexit417, %64, %61, %280
-  %.0193 = phi i32 [ 1, %280 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.loopexit417 ], [ 0, %.thread ], [ 0, %.thread247 ]
+  %.0193 = phi i32 [ 0, %64 ], [ 1, %280 ], [ 0, %61 ], [ 0, %.loopexit417 ], [ 0, %.thread ], [ 0, %.thread247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0193
 }
@@ -1711,7 +1711,7 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 70:                                               ; preds = %65, %58, %22, %19, %3, %69, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %69 ], [ 0, %3 ], [ 1, %19 ], [ 0, %22 ], [ 0, %58 ], [ 0, %65 ]
+  %.0 = phi i32 [ 1, %69 ], [ 1, %13 ], [ 0, %3 ], [ 1, %19 ], [ 0, %22 ], [ 0, %58 ], [ 0, %65 ]
   ret i32 %.0
 }
 

@@ -2649,7 +2649,7 @@ define internal range(i32 -1, 2) i32 @ecmp(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %8 ], [ 1, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %2 ], [ -1, %8 ], [ %., %16 ]
   ret i32 %.0
 }
 

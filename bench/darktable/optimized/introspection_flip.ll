@@ -675,10 +675,10 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   br i1 %exitcond.not, label %.split82.us, label %.preheader
 
 .split82.us:                                      ; preds = %.preheader, %.preheader.us107, %.preheader.us86, %.preheader.us
-  %.us-phi = phi i32 [ %54, %.preheader.us ], [ %70, %.preheader.us86 ], [ %86, %.preheader.us107 ], [ %104, %.preheader ]
-  %.us-phi83 = phi i32 [ %53, %.preheader.us ], [ %69, %.preheader.us86 ], [ %85, %.preheader.us107 ], [ %103, %.preheader ]
-  %.us-phi84 = phi i32 [ %52, %.preheader.us ], [ %68, %.preheader.us86 ], [ %84, %.preheader.us107 ], [ %102, %.preheader ]
-  %.us-phi85 = phi i32 [ %..i.us, %.preheader.us ], [ %..i.us98, %.preheader.us86 ], [ %..i.us119, %.preheader.us107 ], [ %..i, %.preheader ]
+  %.us-phi = phi i32 [ %86, %.preheader.us107 ], [ %54, %.preheader.us ], [ %70, %.preheader.us86 ], [ %104, %.preheader ]
+  %.us-phi83 = phi i32 [ %85, %.preheader.us107 ], [ %53, %.preheader.us ], [ %69, %.preheader.us86 ], [ %103, %.preheader ]
+  %.us-phi84 = phi i32 [ %84, %.preheader.us107 ], [ %52, %.preheader.us ], [ %68, %.preheader.us86 ], [ %102, %.preheader ]
+  %.us-phi85 = phi i32 [ %..i.us119, %.preheader.us107 ], [ %..i.us, %.preheader.us ], [ %..i.us98, %.preheader.us86 ], [ %..i, %.preheader ]
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %107 = sub nsw i32 %.us-phi83, %.us-phi85
   %108 = add nsw i32 %107, 1

@@ -236,7 +236,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -739,7 +739,7 @@ _ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %6
           to label %69 unwind label %84
 
 69:                                               ; preds = %64, %58, %52
-  %70 = phi i1 [ true, %58 ], [ true, %52 ], [ %68, %64 ]
+  %70 = phi i1 [ %68, %64 ], [ true, %58 ], [ true, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN6icu_7712CurrencyUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %8)
           to label %71 unwind label %86
@@ -862,8 +862,8 @@ _ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %6
   br label %134
 
 134:                                              ; preds = %133, %132, %128, %122, %95
-  %.0320 = phi i32 [ %103, %122 ], [ %103, %95 ], [ %.sroa.speculated290, %132 ], [ %103, %133 ], [ %127, %128 ]
-  %.0319 = phi i32 [ %101, %122 ], [ %101, %95 ], [ %101, %132 ], [ %.sroa.speculated, %133 ], [ %127, %128 ]
+  %.0320 = phi i32 [ %103, %95 ], [ %103, %122 ], [ %103, %133 ], [ %.sroa.speculated290, %132 ], [ %127, %128 ]
+  %.0319 = phi i32 [ %101, %95 ], [ %101, %122 ], [ %.sroa.speculated, %133 ], [ %101, %132 ], [ %127, %128 ]
   %135 = icmp eq i32 %99, 0
   %136 = icmp ne i32 %.0319, 0
   %or.cond5 = select i1 %135, i1 %136, i1 false
@@ -1575,12 +1575,12 @@ _ZN6icu_776number4implL19scaleFromPropertiesERKNS1_23DecimalFormatPropertiesE.ex
   ret void
 
 405:                                              ; preds = %367, %391, %294, %311, %303, %296, %365, %328, %324, %269, %259, %239, %237, %235, %209, %204, %199, %185, %180, %171, %169
-  %.pn243.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %366, %365 ], [ %325, %324 ], [ %329, %328 ], [ %260, %259 ], [ %270, %269 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %181, %180 ], [ %186, %185 ], [ %200, %199 ], [ %205, %204 ], [ %210, %209 ], [ %172, %171 ], [ %295, %294 ], [ %297, %296 ], [ %304, %303 ], [ %312, %311 ], [ %.pn243, %391 ], [ %368, %367 ]
+  %.pn243.pn.pn = phi { ptr, i32 } [ %312, %311 ], [ %170, %169 ], [ %366, %365 ], [ %325, %324 ], [ %329, %328 ], [ %172, %171 ], [ %260, %259 ], [ %270, %269 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %181, %180 ], [ %186, %185 ], [ %200, %199 ], [ %205, %204 ], [ %210, %209 ], [ %295, %294 ], [ %297, %296 ], [ %304, %303 ], [ %.pn243, %391 ], [ %368, %367 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %406
 
 406:                                              ; preds = %129, %405, %93, %92
-  %.pn243.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ], [ %.pn243.pn.pn, %405 ], [ %130, %129 ]
+  %.pn243.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %92 ], [ %94, %93 ], [ %.pn243.pn.pn, %405 ], [ %130, %129 ]
   call void @_ZN6icu_7712CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #16
   br label %407
 

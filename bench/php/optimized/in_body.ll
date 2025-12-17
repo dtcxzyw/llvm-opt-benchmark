@@ -42,7 +42,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body_skip_new_line(ptr
   br label %19
 
 19:                                               ; preds = %13, %2, %11
-  %.0 = phi i1 [ %12, %11 ], [ false, %2 ], [ %18, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ %12, %11 ], [ %18, %13 ]
   ret i1 %.0
 }
 
@@ -81,7 +81,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body_skip_new_line_tex
   br label %19
 
 19:                                               ; preds = %13, %2, %11
-  %.0 = phi i1 [ %12, %11 ], [ false, %2 ], [ %18, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ %12, %11 ], [ %18, %13 ]
   ret i1 %.0
 }
 
@@ -756,7 +756,7 @@ lxb_html_tree_current_node.exit.i122:             ; preds = %125, %123
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit: ; preds = %168, %166, %161, %141, %138, %120, %117, %91, %73, %68, %64, %63, %45, %35, %17, %207, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %183, %181, %179, %177, %175, %173, %171, %169, %156, %154, %152, %150, %148, %146, %144, %112, %110, %108, %106, %104, %103, %101, %99, %97, %93, %41, %40, %38, %37, %12, %11, %9
-  %.0 = phi i1 [ true, %97 ], [ %10, %9 ], [ true, %11 ], [ %13, %12 ], [ true, %37 ], [ %39, %38 ], [ true, %40 ], [ true, %41 ], [ %96, %93 ], [ %208, %207 ], [ %100, %99 ], [ %102, %101 ], [ true, %103 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ false, %183 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ true, %206 ], [ true, %17 ], [ true, %35 ], [ true, %45 ], [ true, %63 ], [ %69, %68 ], [ true, %64 ], [ true, %73 ], [ true, %91 ], [ %122, %120 ], [ true, %117 ], [ %143, %141 ], [ true, %138 ], [ %162, %161 ], [ %167, %166 ], [ true, %168 ]
+  %.0 = phi i1 [ true, %97 ], [ %10, %9 ], [ true, %11 ], [ %13, %12 ], [ true, %206 ], [ true, %37 ], [ %39, %38 ], [ true, %40 ], [ true, %41 ], [ true, %35 ], [ true, %63 ], [ true, %64 ], [ %96, %93 ], [ %208, %207 ], [ %100, %99 ], [ %102, %101 ], [ true, %103 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ true, %91 ], [ true, %117 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ true, %138 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ false, %183 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ true, %17 ], [ true, %45 ], [ %69, %68 ], [ true, %73 ], [ %122, %120 ], [ %143, %141 ], [ %162, %161 ], [ %167, %166 ], [ true, %168 ]
   ret i1 %.0
 }
 
@@ -1293,7 +1293,7 @@ lxb_html_tree_open_elements_first.exit:           ; preds = %2
   br label %13
 
 13:                                               ; preds = %lxb_html_tree_open_elements_first.exit, %2, %11
-  %.0 = phi i1 [ %12, %11 ], [ true, %2 ], [ true, %lxb_html_tree_open_elements_first.exit ]
+  %.0 = phi i1 [ true, %2 ], [ %12, %11 ], [ true, %lxb_html_tree_open_elements_first.exit ]
   ret i1 %.0
 }
 
@@ -1341,7 +1341,7 @@ lxb_html_tree_open_elements_get.exit:             ; preds = %2
   br label %lxb_html_tree_open_elements_get.exit.thread
 
 lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %15, %13, %lxb_html_tree_open_elements_get.exit, %10, %21
-  %.0 = phi i1 [ %22, %21 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ true, %13 ], [ true, %15 ], [ true, %2 ]
+  %.0 = phi i1 [ true, %13 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ %22, %21 ], [ true, %10 ], [ true, %15 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -1406,7 +1406,7 @@ lxb_html_tree_open_elements_get.exit22:           ; preds = %17, %20
   br label %lxb_html_tree_open_elements_get.exit.thread
 
 lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %13, %lxb_html_tree_open_elements_get.exit, %10, %28, %25
-  %.0 = phi i1 [ %27, %25 ], [ true, %28 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ true, %13 ], [ true, %2 ]
+  %.0 = phi i1 [ true, %28 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ %27, %25 ], [ true, %10 ], [ true, %13 ], [ true, %2 ]
   ret i1 %.0
 }
 

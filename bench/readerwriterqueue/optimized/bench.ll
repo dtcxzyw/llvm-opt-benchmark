@@ -1480,7 +1480,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit: ; preds = %._crit_edge.i
   br label %102
 
 102:                                              ; preds = %100, %56, %49
-  %.pn125 = phi { ptr, i32 } [ %57, %56 ], [ %101, %100 ], [ %50, %49 ]
+  %.pn125 = phi { ptr, i32 } [ %57, %56 ], [ %50, %49 ], [ %101, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   fence seq_cst
   %103 = load atomic i64, ptr %6 monotonic, align 64
@@ -1660,7 +1660,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EED2Ev.exit151: ; preds = %._crit_edge.
   br label %175
 
 175:                                              ; preds = %127, %173, %119
-  %.pn122 = phi { ptr, i32 } [ %120, %119 ], [ %174, %173 ], [ %128, %127 ]
+  %.pn122 = phi { ptr, i32 } [ %120, %119 ], [ %128, %127 ], [ %174, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   fence seq_cst
   %176 = load atomic i64, ptr %8 monotonic, align 64
@@ -3180,7 +3180,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit: ; preds = %_ZNS
   br label %109
 
 109:                                              ; preds = %107, %74, %51
-  %.pn125 = phi { ptr, i32 } [ %75, %74 ], [ %108, %107 ], [ %52, %51 ]
+  %.pn125 = phi { ptr, i32 } [ %75, %74 ], [ %52, %51 ], [ %108, %107 ]
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %562
@@ -3349,7 +3349,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit141: ; preds = %_
   br label %184
 
 184:                                              ; preds = %147, %182, %139
-  %.pn122 = phi { ptr, i32 } [ %140, %139 ], [ %183, %182 ], [ %148, %147 ]
+  %.pn122 = phi { ptr, i32 } [ %140, %139 ], [ %148, %147 ], [ %183, %182 ]
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %562
@@ -3678,7 +3678,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev.exit168: ; preds = %_
   br label %305
 
 305:                                              ; preds = %.loopexit, %.loopexit.split-lp, %303, %237
-  %.pn112 = phi { ptr, i32 } [ %304, %303 ], [ %238, %237 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn112 = phi { ptr, i32 } [ %238, %237 ], [ %304, %303 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -7519,7 +7519,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %40
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %15, %25, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit
-  %.1 = phi i1 [ true, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit ], [ true, %25 ], [ true, %15 ], [ false, %40 ]
+  %.1 = phi i1 [ true, %15 ], [ true, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit ], [ true, %25 ], [ false, %40 ]
   ret i1 %.1
 }
 
@@ -8556,7 +8556,7 @@ _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread: ; preds = %.preheade
   br i1 %62, label %.loopexit, label %53, !llvm.loop !204
 
 .loopexit:                                        ; preds = %19, %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread, %.preheader, %49, %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit, %12, %8
-  %.08 = phi i1 [ true, %8 ], [ true, %12 ], [ true, %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit ], [ false, %49 ], [ true, %.preheader ], [ false, %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread ], [ true, %19 ]
+  %.08 = phi i1 [ true, %8 ], [ true, %12 ], [ true, %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit ], [ false, %49 ], [ false, %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread ], [ true, %.preheader ], [ true, %19 ]
   ret i1 %.08
 }
 
@@ -10967,7 +10967,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !341
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
   %43 = getelementptr inbounds nuw double, ptr %0, i64 %.013.lcssa.i.i.us
   store double %21, ptr %43, align 8, !tbaa !10
   %.not.us = icmp eq i64 %.013.us, 0

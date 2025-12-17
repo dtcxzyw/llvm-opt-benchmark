@@ -216,7 +216,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2941,7 +2941,7 @@ _ZN6icu_775units19ConverterPreferenceC2ERKNS_15MeasureUnitImplES4_dNS_13UnicodeS
   resume { ptr, i32 } %.pn
 
 _ZN6icu_7715MaybeStackArrayIPNS_5units19ConverterPreferenceELi8EE6resizeEii.exit.thread: ; preds = %14, %19, %_ZN6icu_775units19ConverterPreferenceC2ERKNS_15MeasureUnitImplES4_dNS_13UnicodeStringERKNS0_15ConversionRatesER10UErrorCode.exit.thread, %51
-  %.020 = phi ptr [ %36, %51 ], [ null, %_ZN6icu_775units19ConverterPreferenceC2ERKNS_15MeasureUnitImplES4_dNS_13UnicodeStringERKNS0_15ConversionRatesER10UErrorCode.exit.thread ], [ null, %19 ], [ null, %14 ]
+  %.020 = phi ptr [ null, %_ZN6icu_775units19ConverterPreferenceC2ERKNS_15MeasureUnitImplES4_dNS_13UnicodeStringERKNS0_15ConversionRatesER10UErrorCode.exit.thread ], [ %36, %51 ], [ null, %19 ], [ null, %14 ]
   ret ptr %.020
 }
 

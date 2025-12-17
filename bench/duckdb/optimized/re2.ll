@@ -960,7 +960,7 @@ _ZN10duckdb_re212RegexpStatusD2Ev.exit:           ; preds = %270, %_ZNSt7__cxx11
   ret void
 
 278:                                              ; preds = %256, %245, %188
-  %.pn20 = phi { ptr, i32 } [ %257, %256 ], [ %189, %188 ], [ %.pn.pn.pn, %245 ]
+  %.pn20 = phi { ptr, i32 } [ %257, %256 ], [ %.pn.pn.pn, %245 ], [ %189, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %279
@@ -2436,12 +2436,12 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsIcSt11char_tr
   br label %.thread59
 
 .thread59:                                        ; preds = %.thread, %83, %85, %.critedge52, %87, %69, %71, %59
-  %.1 = phi i1 [ false, %59 ], [ true, %71 ], [ true, %69 ], [ true, %87 ], [ true, %.critedge52 ], [ false, %85 ], [ false, %83 ], [ false, %.thread ]
+  %.1 = phi i1 [ false, %83 ], [ true, %69 ], [ true, %.critedge52 ], [ false, %59 ], [ true, %71 ], [ true, %87 ], [ false, %85 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %88
 
 88:                                               ; preds = %40, %13, %_ZN10LogMessageD2Ev.exit, %.thread59
-  %.0 = phi i1 [ %.1, %.thread59 ], [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %13 ], [ false, %40 ]
+  %.0 = phi i1 [ false, %13 ], [ %.1, %.thread59 ], [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %40 ]
   ret i1 %.0
 }
 
@@ -3356,10 +3356,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212: ; preds = %301
 307:                                              ; preds = %158
   br i1 %163, label %308, label %315
 
-308:                                              ; preds = %306, %.thread228, %.thread235, %307
-  %.1135254 = phi i32 [ %.lobit238, %.thread235 ], [ %.lobit, %307 ], [ 2, %.thread228 ], [ 2, %306 ]
-  %309 = phi i1 [ %144, %.thread235 ], [ %166, %307 ], [ %154, %.thread228 ], [ %166, %306 ]
-  %310 = phi i64 [ %146, %.thread235 ], [ %168, %307 ], [ %156, %.thread228 ], [ %168, %306 ]
+308:                                              ; preds = %.thread228, %306, %.thread235, %307
+  %.1135254 = phi i32 [ %.lobit238, %.thread235 ], [ %.lobit, %307 ], [ 2, %306 ], [ 2, %.thread228 ]
+  %309 = phi i1 [ %144, %.thread235 ], [ %166, %307 ], [ %166, %306 ], [ %154, %.thread228 ]
+  %310 = phi i64 [ %146, %.thread235 ], [ %168, %307 ], [ %168, %306 ], [ %156, %.thread228 ]
   %311 = icmp ult i64 %58, 4097
   br i1 %311, label %312, label %315
 
@@ -3369,11 +3369,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212: ; preds = %301
   %or.cond302 = select i1 %313, i1 true, i1 %314
   br i1 %or.cond302, label %.thread271, label %315
 
-315:                                              ; preds = %312, %306, %.thread228, %.thread235, %308, %307
-  %.1135253 = phi i32 [ %.lobit238, %.thread235 ], [ %.1135254, %308 ], [ %.lobit, %307 ], [ 2, %.thread228 ], [ 2, %306 ], [ %.1135254, %312 ]
-  %316 = phi i1 [ false, %.thread235 ], [ true, %308 ], [ false, %307 ], [ false, %.thread228 ], [ false, %306 ], [ true, %312 ]
-  %317 = phi i1 [ %144, %.thread235 ], [ %309, %308 ], [ %166, %307 ], [ %154, %.thread228 ], [ %166, %306 ], [ %309, %312 ]
-  %318 = phi i64 [ %146, %.thread235 ], [ %310, %308 ], [ %168, %307 ], [ %156, %.thread228 ], [ %168, %306 ], [ %310, %312 ]
+315:                                              ; preds = %312, %.thread228, %306, %.thread235, %308, %307
+  %.1135253 = phi i32 [ %.lobit238, %.thread235 ], [ %.1135254, %312 ], [ %.1135254, %308 ], [ %.lobit, %307 ], [ 2, %306 ], [ 2, %.thread228 ]
+  %316 = phi i1 [ false, %.thread235 ], [ true, %312 ], [ true, %308 ], [ false, %307 ], [ false, %306 ], [ false, %.thread228 ]
+  %317 = phi i1 [ %144, %.thread235 ], [ %309, %312 ], [ %309, %308 ], [ %166, %307 ], [ %166, %306 ], [ %154, %.thread228 ]
+  %318 = phi i64 [ %146, %.thread235 ], [ %310, %312 ], [ %310, %308 ], [ %168, %307 ], [ %168, %306 ], [ %156, %.thread228 ]
   br i1 %317, label %319, label %322
 
 319:                                              ; preds = %315
@@ -3489,15 +3489,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit221: ; preds = %_ZSt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !174
   br label %411
 
-.thread271:                                       ; preds = %.thread248, %186, %215, %178, %327, %359, %319, %312, %224, %256, %260, %297, %271
-  %.sink = phi ptr [ %10, %271 ], [ %10, %297 ], [ %10, %260 ], [ %10, %256 ], [ %10, %224 ], [ %10, %312 ], [ %10, %319 ], [ %10, %359 ], [ %10, %327 ], [ %10, %178 ], [ %10, %215 ], [ %10, %186 ], [ %11, %.thread248 ]
-  %369 = phi i64 [ %168, %271 ], [ %168, %297 ], [ %168, %260 ], [ %168, %256 ], [ %168, %224 ], [ %310, %312 ], [ %318, %319 ], [ %318, %359 ], [ %318, %327 ], [ %168, %178 ], [ %168, %215 ], [ %168, %186 ], [ %362, %.thread248 ]
-  %370 = phi i1 [ %166, %271 ], [ %166, %297 ], [ %166, %260 ], [ %166, %256 ], [ %166, %224 ], [ %309, %312 ], [ true, %319 ], [ %317, %359 ], [ %317, %327 ], [ %166, %178 ], [ %166, %215 ], [ %166, %186 ], [ %363, %.thread248 ]
-  %or.cond12 = phi i1 [ false, %271 ], [ false, %297 ], [ false, %260 ], [ false, %256 ], [ false, %224 ], [ true, %312 ], [ %316, %319 ], [ %316, %359 ], [ %316, %327 ], [ false, %178 ], [ false, %215 ], [ false, %186 ], [ %364, %.thread248 ]
-  %.0139232266283 = phi i64 [ 0, %271 ], [ 0, %297 ], [ 0, %260 ], [ 0, %256 ], [ 0, %224 ], [ %117, %312 ], [ %117, %319 ], [ %117, %359 ], [ %117, %327 ], [ 0, %178 ], [ 0, %215 ], [ 0, %186 ], [ %.0139232, %.thread248 ]
-  %.1124269279 = phi i1 [ true, %271 ], [ true, %297 ], [ true, %260 ], [ true, %256 ], [ true, %224 ], [ true, %312 ], [ true, %319 ], [ true, %359 ], [ true, %327 ], [ true, %178 ], [ true, %215 ], [ true, %186 ], [ false, %.thread248 ]
-  %.1138 = phi i32 [ 0, %271 ], [ 0, %297 ], [ 0, %260 ], [ 0, %256 ], [ 0, %224 ], [ 1, %312 ], [ 1, %319 ], [ 1, %359 ], [ 1, %327 ], [ 0, %178 ], [ 0, %215 ], [ 0, %186 ], [ 1, %.thread248 ]
-  %.2136 = phi i32 [ %.lobit, %271 ], [ %.lobit, %297 ], [ %.lobit, %260 ], [ %.lobit, %256 ], [ %.lobit, %224 ], [ %.1135254, %312 ], [ %.1135253, %319 ], [ %.1135253, %359 ], [ %.1135253, %327 ], [ %.lobit, %178 ], [ %.lobit, %215 ], [ %.lobit, %186 ], [ 2, %.thread248 ]
+.thread271:                                       ; preds = %.thread248, %215, %178, %186, %327, %359, %256, %312, %224, %319, %271, %260, %297
+  %.sink = phi ptr [ %10, %215 ], [ %10, %297 ], [ %10, %260 ], [ %10, %271 ], [ %10, %319 ], [ %10, %224 ], [ %10, %312 ], [ %10, %256 ], [ %10, %359 ], [ %10, %327 ], [ %10, %186 ], [ %10, %178 ], [ %11, %.thread248 ]
+  %369 = phi i64 [ %168, %215 ], [ %168, %297 ], [ %168, %260 ], [ %168, %271 ], [ %318, %319 ], [ %168, %224 ], [ %310, %312 ], [ %168, %256 ], [ %318, %359 ], [ %318, %327 ], [ %168, %186 ], [ %168, %178 ], [ %362, %.thread248 ]
+  %370 = phi i1 [ %166, %215 ], [ %166, %297 ], [ %166, %260 ], [ %166, %271 ], [ true, %319 ], [ %166, %224 ], [ %309, %312 ], [ %166, %256 ], [ %317, %359 ], [ %317, %327 ], [ %166, %186 ], [ %166, %178 ], [ %363, %.thread248 ]
+  %or.cond12 = phi i1 [ false, %215 ], [ false, %297 ], [ false, %260 ], [ false, %271 ], [ %316, %319 ], [ false, %224 ], [ true, %312 ], [ false, %256 ], [ %316, %359 ], [ %316, %327 ], [ false, %186 ], [ false, %178 ], [ %364, %.thread248 ]
+  %.0139232266283 = phi i64 [ 0, %215 ], [ 0, %297 ], [ 0, %260 ], [ 0, %271 ], [ %117, %319 ], [ 0, %224 ], [ %117, %312 ], [ 0, %256 ], [ %117, %359 ], [ %117, %327 ], [ 0, %186 ], [ 0, %178 ], [ %.0139232, %.thread248 ]
+  %.1124269279 = phi i1 [ true, %215 ], [ true, %297 ], [ true, %260 ], [ true, %271 ], [ true, %319 ], [ true, %224 ], [ true, %312 ], [ true, %256 ], [ true, %359 ], [ true, %327 ], [ true, %186 ], [ true, %178 ], [ false, %.thread248 ]
+  %.1138 = phi i32 [ 0, %215 ], [ 0, %297 ], [ 0, %260 ], [ 0, %271 ], [ 1, %319 ], [ 0, %224 ], [ 1, %312 ], [ 0, %256 ], [ 1, %359 ], [ 1, %327 ], [ 0, %186 ], [ 0, %178 ], [ 1, %.thread248 ]
+  %.2136 = phi i32 [ %.lobit, %215 ], [ %.lobit, %297 ], [ %.lobit, %260 ], [ %.lobit, %271 ], [ %.1135253, %319 ], [ %.lobit, %224 ], [ %.1135254, %312 ], [ %.lobit, %256 ], [ %.1135253, %359 ], [ %.1135253, %327 ], [ %.lobit, %186 ], [ %.lobit, %178 ], [ 2, %.thread248 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   br i1 %or.cond12, label %371, label %383
@@ -3654,25 +3654,25 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit224: ; preds = %404
   br i1 %exitcond.not, label %.thread243, label %.lr.ph, !llvm.loop !183
 
 .thread243:                                       ; preds = %.lr.ph, %421, %183, %.thread286, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212, %300, %324, %259, %221, %218, %409, %174
-  %.3 = phi i1 [ false, %174 ], [ false, %409 ], [ true, %218 ], [ false, %221 ], [ true, %259 ], [ false, %324 ], [ false, %300 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212 ], [ false, %.thread286 ], [ false, %183 ], [ true, %421 ], [ true, %.lr.ph ]
+  %.3 = phi i1 [ false, %174 ], [ false, %324 ], [ false, %409 ], [ true, %218 ], [ false, %221 ], [ false, %.thread286 ], [ true, %259 ], [ false, %300 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit212 ], [ false, %183 ], [ true, %421 ], [ true, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit
 
 425:                                              ; preds = %298, %304, %410, %360, %257, %216, %175
-  %.pn161 = phi { ptr, i32 } [ %176, %175 ], [ %.pn159, %410 ], [ %217, %216 ], [ %258, %257 ], [ %361, %360 ], [ %299, %298 ], [ %305, %304 ]
+  %.pn161 = phi { ptr, i32 } [ %176, %175 ], [ %.pn159, %410 ], [ %217, %216 ], [ %361, %360 ], [ %258, %257 ], [ %299, %298 ], [ %305, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %427
 
 _ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit:  ; preds = %.lr.ph.i, %.thread243, %119, %134, %111, %92
-  %.1 = phi i1 [ false, %92 ], [ false, %111 ], [ %.3, %.thread243 ], [ false, %119 ], [ false, %134 ], [ false, %.lr.ph.i ]
+  %.1 = phi i1 [ false, %111 ], [ false, %92 ], [ %.3, %.thread243 ], [ false, %134 ], [ false, %119 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %426
 
 426:                                              ; preds = %60, %_ZN10LogMessageD2Ev.exit183, %27, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit
-  %.0120 = phi i1 [ %.1, %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit ], [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %27 ], [ false, %_ZN10LogMessageD2Ev.exit183 ], [ false, %60 ]
+  %.0120 = phi i1 [ false, %27 ], [ %.1, %_ZN10duckdb_re2L16ascii_strcasecmpEPKcS1_m.exit ], [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %_ZN10LogMessageD2Ev.exit183 ], [ false, %60 ]
   ret i1 %.0120
 
 427:                                              ; preds = %425, %90, %52
@@ -3959,7 +3959,7 @@ _ZN10LogMessageD2Ev.exit56:                       ; preds = %_ZStlsISt11char_tra
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %.critedge, %5, %_ZN10LogMessageD2Ev.exit, %39, %_ZN10LogMessageD2Ev.exit56, %.thread61
-  %127 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %39 ], [ false, %_ZN10LogMessageD2Ev.exit56 ], [ false, %.thread61 ], [ true, %5 ], [ true, %.critedge ]
+  %127 = phi i1 [ false, %.thread61 ], [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %39 ], [ false, %_ZN10LogMessageD2Ev.exit56 ], [ true, %5 ], [ true, %.critedge ]
   ret i1 %127
 }
 
@@ -4224,7 +4224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78: ; pred
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78, %92
-  %.056.be = phi ptr [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78 ], [ %93, %92 ]
+  %.056.be = phi ptr [ %93, %92 ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78 ]
   %.not = icmp ugt ptr %.056.be, %31
   br i1 %.not, label %.outer._crit_edge, label %38, !llvm.loop !192
 
@@ -4241,7 +4241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit78: ; pred
   br i1 %.not118, label %.outer._crit_edge.thread, label %.lr.ph, !llvm.loop !192
 
 .outer._crit_edge:                                ; preds = %.backedge, %47, %38
-  %.056.lcssa = phi ptr [ %.056.be, %.backedge ], [ %.056119, %47 ], [ %.056119, %38 ]
+  %.056.lcssa = phi ptr [ %.056119, %38 ], [ %.056.be, %.backedge ], [ %.056119, %47 ]
   %106 = icmp eq i32 %.053.ph132, 0
   br i1 %106, label %116, label %.outer._crit_edge.thread
 
@@ -4283,7 +4283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %116, 
   br label %121
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %80, %78, %48
-  %.pn = phi { ptr, i32 } [ %lpad.phi98, %80 ], [ %79, %78 ], [ %49, %48 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit99, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.phi98, %80 ], [ %79, %78 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit99, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.loopexit.split-lp ]
   %119 = load ptr, ptr %5, align 8, !tbaa !32
   %120 = icmp eq ptr %119, %32
   br i1 %120, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
@@ -4373,7 +4373,7 @@ _ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit: ; preds = %.thread.i,
   br label %34
 
 34:                                               ; preds = %26, %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit, %30
-  %.0 = phi i1 [ %33, %30 ], [ false, %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit ], [ false, %26 ]
+  %.0 = phi i1 [ false, %26 ], [ false, %_ZN10duckdb_re23RE211MaxSubmatchERKNS_11StringPieceE.exit ], [ %33, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -4983,7 +4983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %149
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit54 unwind label %138
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit54: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i51, %148
-  %.1 = phi i1 [ true, %148 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i51 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
+  %.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i51 ], [ true, %148 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %155 = load ptr, ptr %10, align 8, !tbaa !32
   %156 = icmp eq ptr %155, %115
   br i1 %156, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
@@ -5084,9 +5084,9 @@ define hidden noundef zeroext i1 @_ZNK10duckdb_re23RE218CheckRewriteStringERKNS_
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02751, i32 %isdigittmp)
   br label %27
 
-27:                                               ; preds = %26, %.lr.ph, %17
-  %.132.ph = phi ptr [ %11, %17 ], [ %.03150, %.lr.ph ], [ %11, %26 ]
-  %.229.ph = phi i32 [ %.02751, %17 ], [ %.02751, %.lr.ph ], [ %spec.select, %26 ]
+27:                                               ; preds = %.lr.ph, %26, %17
+  %.132.ph = phi ptr [ %11, %17 ], [ %11, %26 ], [ %.03150, %.lr.ph ]
+  %.229.ph = phi i32 [ %.02751, %17 ], [ %spec.select, %26 ], [ %.02751, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %.132.ph, i64 1
   %.not38 = icmp ult ptr %28, %8
   br i1 %.not38, label %.lr.ph, label %._crit_edge, !llvm.loop !201
@@ -5362,8 +5362,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIfEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %33, %.preheader.i, %24, %21, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %24 ], [ %.244.i, %21 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %33 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %24 ], [ %.2.i, %21 ], [ %.2.i, %.critedge.i ], [ 2, %33 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %21 ], [ %.244.i, %.critedge.i ], [ %.244.i, %24 ], [ %scevgep.i, %33 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %21 ], [ %.2.i, %.critedge.i ], [ %.2.i, %24 ], [ 2, %33 ], [ %.4.i, %.preheader.i ]
   %36 = add i64 %.3.i, %.244.idx.i
   %37 = icmp ugt i64 %36, 200
   br i1 %37, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %38
@@ -5378,14 +5378,14 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIfEEbPKcmPT
   br label %.thread76.i
 
 .thread76.i:                                      ; preds = %14, %40, %38
-  %41 = phi i64 [ %36, %40 ], [ %36, %38 ], [ 0, %14 ]
+  %41 = phi i64 [ %36, %38 ], [ %36, %40 ], [ 0, %14 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !26
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %.critedge2.i, %.thread76.i
-  %.010 = phi i64 [ %1, %.critedge2.i ], [ %41, %.thread76.i ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %4, %.thread76.i ]
+  %.010 = phi i64 [ %41, %.thread76.i ], [ %1, %.critedge2.i ]
+  %.040.i = phi ptr [ %4, %.thread76.i ], [ @.str.8, %.critedge2.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = tail call ptr @__errno_location() #37
   store i32 0, ptr %43, align 4, !tbaa !3
@@ -5499,8 +5499,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIdEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %33, %.preheader.i, %24, %21, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %24 ], [ %.244.i, %21 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %33 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %24 ], [ %.2.i, %21 ], [ %.2.i, %.critedge.i ], [ 2, %33 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %21 ], [ %.244.i, %.critedge.i ], [ %.244.i, %24 ], [ %scevgep.i, %33 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %21 ], [ %.2.i, %.critedge.i ], [ %.2.i, %24 ], [ 2, %33 ], [ %.4.i, %.preheader.i ]
   %36 = add i64 %.3.i, %.244.idx.i
   %37 = icmp ugt i64 %36, 200
   br i1 %37, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %38
@@ -5515,14 +5515,14 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIdEEbPKcmPT
   br label %.thread76.i
 
 .thread76.i:                                      ; preds = %14, %40, %38
-  %41 = phi i64 [ %36, %40 ], [ %36, %38 ], [ 0, %14 ]
+  %41 = phi i64 [ %36, %38 ], [ %36, %40 ], [ 0, %14 ]
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   store i8 0, ptr %42, align 1, !tbaa !26
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %.critedge2.i, %.thread76.i
-  %.010 = phi i64 [ %1, %.critedge2.i ], [ %41, %.thread76.i ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %4, %.thread76.i ]
+  %.010 = phi i64 [ %41, %.thread76.i ], [ %1, %.critedge2.i ]
+  %.040.i = phi ptr [ %4, %.thread76.i ], [ @.str.8, %.critedge2.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = tail call ptr @__errno_location() #37
   store i32 0, ptr %43, align 4, !tbaa !3
@@ -5615,8 +5615,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %27, %.preheader.i, %18, %15, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %18 ], [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %18 ], [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %.244.i, %18 ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ %.2.i, %18 ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
   %30 = add i64 %.3.i, %.244.idx.i
   %31 = icmp ugt i64 %30, 32
   br i1 %31, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %32
@@ -5636,8 +5636,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIlEEbPKcmPT
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.critedge2.i, %.thread76.i
-  %.010 = phi i64 [ %1, %.critedge2.i ], [ %30, %.thread76.i ], [ %1, %8 ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %5, %.thread76.i ], [ @.str.8, %8 ]
+  %.010 = phi i64 [ %30, %.thread76.i ], [ %1, %.critedge2.i ], [ %1, %8 ]
+  %.040.i = phi ptr [ %5, %.thread76.i ], [ @.str.8, %.critedge2.i ], [ @.str.8, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call ptr @__errno_location() #37
   store i32 0, ptr %36, align 4, !tbaa !3
@@ -5730,8 +5730,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %27, %.preheader.i, %18, %15, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %18 ], [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %18 ], [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %.244.i, %18 ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ %.2.i, %18 ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
   %30 = add i64 %.3.i, %.244.idx.i
   %31 = icmp ugt i64 %30, 32
   br i1 %31, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %32
@@ -5751,8 +5751,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseImEEbPKcmPT
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.critedge2.i, %.thread76.i
-  %.011 = phi i64 [ %1, %.critedge2.i ], [ %30, %.thread76.i ], [ %1, %8 ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %5, %.thread76.i ], [ @.str.8, %8 ]
+  %.011 = phi i64 [ %30, %.thread76.i ], [ %1, %.critedge2.i ], [ %1, %8 ]
+  %.040.i = phi ptr [ %5, %.thread76.i ], [ @.str.8, %.critedge2.i ], [ @.str.8, %8 ]
   %36 = load i8, ptr %.040.i, align 1, !tbaa !26
   %37 = icmp eq i8 %36, 45
   br i1 %37, label %49, label %38
@@ -5821,7 +5821,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIsEEbPKcmPT
   br label %14
 
 14:                                               ; preds = %11, %7, %4, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %7 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %13 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5848,7 +5848,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseItEEbPKcmPT
   br label %13
 
 13:                                               ; preds = %10, %7, %4, %12
-  %.0 = phi i1 [ true, %12 ], [ false, %4 ], [ false, %7 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %12 ], [ true, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5876,7 +5876,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIiEEbPKcmPT
   br label %14
 
 14:                                               ; preds = %11, %7, %4, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %7 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %13 ], [ true, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5903,7 +5903,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIjEEbPKcmPT
   br label %13
 
 13:                                               ; preds = %10, %7, %4, %12
-  %.0 = phi i1 [ true, %12 ], [ false, %4 ], [ false, %7 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %12 ], [ true, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5964,8 +5964,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIxEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %27, %.preheader.i, %18, %15, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %18 ], [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %18 ], [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %.244.i, %18 ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ %.2.i, %18 ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
   %30 = add i64 %.3.i, %.244.idx.i
   %31 = icmp ugt i64 %30, 32
   br i1 %31, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %32
@@ -5985,8 +5985,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIxEEbPKcmPT
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.critedge2.i, %.thread76.i
-  %.010 = phi i64 [ %1, %.critedge2.i ], [ %30, %.thread76.i ], [ %1, %8 ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %5, %.thread76.i ], [ @.str.8, %8 ]
+  %.010 = phi i64 [ %30, %.thread76.i ], [ %1, %.critedge2.i ], [ %1, %8 ]
+  %.040.i = phi ptr [ %5, %.thread76.i ], [ @.str.8, %.critedge2.i ], [ @.str.8, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call ptr @__errno_location() #37
   store i32 0, ptr %36, align 4, !tbaa !3
@@ -6079,8 +6079,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIyEEbPKcmPT
   br i1 %.old3.i, label %.preheader.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %27, %.preheader.i, %18, %15, %.critedge.i
-  %.345.i = phi ptr [ %.244.i, %18 ], [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
-  %.3.i = phi i64 [ %.2.i, %18 ], [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
+  %.345.i = phi ptr [ %.244.i, %15 ], [ %.244.i, %.critedge.i ], [ %.244.i, %18 ], [ %scevgep.i, %27 ], [ %.446.i, %.preheader.i ]
+  %.3.i = phi i64 [ %.2.i, %15 ], [ %.2.i, %.critedge.i ], [ %.2.i, %18 ], [ 2, %27 ], [ %.4.i, %.preheader.i ]
   %30 = add i64 %.3.i, %.244.idx.i
   %31 = icmp ugt i64 %30, 32
   br i1 %31, label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit, label %32
@@ -6100,8 +6100,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re212re2_internal5ParseIyEEbPKcmPT
   br label %_ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit
 
 _ZN10duckdb_re212re2_internalL15TerminateNumberEPcmPKcPmb.exit: ; preds = %8, %.critedge2.i, %.thread76.i
-  %.011 = phi i64 [ %1, %.critedge2.i ], [ %30, %.thread76.i ], [ %1, %8 ]
-  %.040.i = phi ptr [ @.str.8, %.critedge2.i ], [ %5, %.thread76.i ], [ @.str.8, %8 ]
+  %.011 = phi i64 [ %30, %.thread76.i ], [ %1, %.critedge2.i ], [ %1, %8 ]
+  %.040.i = phi ptr [ %5, %.thread76.i ], [ @.str.8, %.critedge2.i ], [ @.str.8, %8 ]
   %36 = load i8, ptr %.040.i, align 1, !tbaa !26
   %37 = icmp eq i8 %36, 45
   br i1 %37, label %49, label %38

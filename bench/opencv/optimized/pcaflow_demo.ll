@@ -1293,7 +1293,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %378, %380
   br label %.body194
 
 .body194:                                         ; preds = %407, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i
-  %.pn72 = phi { ptr, i32 } [ %408, %407 ], [ %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i ]
+  %.pn72 = phi { ptr, i32 } [ %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i ], [ %408, %407 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %422
@@ -1923,8 +1923,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %120, 
   br label %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i
 
 _ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i: ; preds = %160, %155, %148, %143, %139
-  %.224.us.i = phi double [ %166, %160 ], [ %.1234.us.i, %143 ], [ %.1234.us.i, %139 ], [ %.1234.us.i, %155 ], [ %.1234.us.i, %148 ]
-  %.2.us.i = phi i64 [ %167, %160 ], [ %.15.us.i, %143 ], [ %.15.us.i, %139 ], [ %.15.us.i, %155 ], [ %.15.us.i, %148 ]
+  %.224.us.i = phi double [ %166, %160 ], [ %.1234.us.i, %155 ], [ %.1234.us.i, %148 ], [ %.1234.us.i, %139 ], [ %.1234.us.i, %143 ]
+  %.2.us.i = phi i64 [ %167, %160 ], [ %.15.us.i, %155 ], [ %.15.us.i, %148 ], [ %.15.us.i, %139 ], [ %.15.us.i, %143 ]
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i
   br i1 %exitcond.not.i63, label %._crit_edge.us.i, label %139, !llvm.loop !112

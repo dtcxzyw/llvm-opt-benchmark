@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly captur
   br label %30
 
 30:                                               ; preds = %.thread, %18, %7, %4, %._crit_edge
-  %.020 = phi i32 [ %29, %._crit_edge ], [ 0, %4 ], [ 0, %7 ], [ 0, %18 ], [ 0, %.thread ]
+  %.020 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %29, %._crit_edge ], [ 0, %18 ], [ 0, %.thread ]
   ret i32 %.020
 }
 
@@ -496,7 +496,7 @@ define ptr @ossl_namemap_num2name(ptr noundef readonly captures(address_is_null)
   br label %21
 
 21:                                               ; preds = %6, %3, %18
-  %.011 = phi ptr [ %.0, %18 ], [ null, %3 ], [ null, %6 ]
+  %.011 = phi ptr [ null, %3 ], [ %.0, %18 ], [ null, %6 ]
   ret ptr %.011
 }
 
@@ -535,7 +535,7 @@ define i32 @ossl_namemap_add_name(ptr noundef captures(address) %0, i32 noundef 
   br label %21
 
 21:                                               ; preds = %13, %7, %9, %17
-  %.0 = phi i32 [ %18, %17 ], [ 0, %9 ], [ 0, %7 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %7 ], [ %18, %17 ], [ 0, %9 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -699,8 +699,8 @@ ossl_ht_strcase.exit:                             ; preds = %.lr.ph.i, %numname_
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 132, ptr noundef null) #6
   br label %numname_insert.exit.thread
 
-numname_insert.exit.thread:                       ; preds = %32, %27, %48, %69, %ossl_ht_strcase.exit, %numname_insert.exit, %ossl_namemap_name2num.exit, %71
-  %.0 = phi i32 [ 0, %71 ], [ %24, %ossl_namemap_name2num.exit ], [ 0, %numname_insert.exit ], [ 0, %ossl_ht_strcase.exit ], [ %.017.i26, %69 ], [ 0, %48 ], [ 0, %27 ], [ 0, %32 ]
+numname_insert.exit.thread:                       ; preds = %27, %32, %48, %69, %ossl_ht_strcase.exit, %numname_insert.exit, %ossl_namemap_name2num.exit, %71
+  %.0 = phi i32 [ 0, %numname_insert.exit ], [ %24, %ossl_namemap_name2num.exit ], [ 0, %71 ], [ 0, %ossl_ht_strcase.exit ], [ %.017.i26, %69 ], [ 0, %48 ], [ 0, %32 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -812,7 +812,7 @@ ossl_ht_strcase.exit.i:                           ; preds = %.lr.ph.i.i, %.prehe
   br label %ossl_namemap_name2num.exit
 
 ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exit.i, %41
-  %.0.i = phi i32 [ %44, %41 ], [ 0, %ossl_ht_strcase.exit.i ]
+  %.0.i = phi i32 [ 0, %ossl_ht_strcase.exit.i ], [ %44, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = icmp eq i32 %.04779, 0
   br i1 %45, label %48, label %46
@@ -856,7 +856,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   br label %.thread
 
 56:                                               ; preds = %55, %.lr.ph83
-  %.6 = phi i32 [ %.482, %55 ], [ %53, %.lr.ph83 ]
+  %.6 = phi i32 [ %53, %.lr.ph83 ], [ %.482, %55 ]
   %57 = icmp ult ptr %52, %.052105
   br i1 %57, label %.lr.ph83, label %.thread, !llvm.loop !35
 
@@ -868,7 +868,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   br label %60
 
 60:                                               ; preds = %7, %.thread, %19, %6
-  %.0 = phi i32 [ %.3, %.thread ], [ 0, %19 ], [ 0, %6 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %.3, %.thread ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1005,7 +1005,7 @@ define internal fastcc void @get_legacy_evp_names(i32 noundef %0, i32 noundef %1
   br label %ossl_namemap_add_name.exit
 
 ossl_namemap_add_name.exit:                       ; preds = %11, %13, %17, %21
-  %.0.i = phi i32 [ %22, %21 ], [ 0, %13 ], [ 0, %11 ], [ 0, %17 ]
+  %.0.i = phi i32 [ 0, %11 ], [ %22, %21 ], [ 0, %13 ], [ 0, %17 ]
   %25 = tail call ptr @OBJ_nid2ln(i32 noundef %0) #6
   br i1 %8, label %26, label %28
 
@@ -1039,7 +1039,7 @@ ossl_namemap_add_name.exit:                       ; preds = %11, %13, %17, %21
   br label %ossl_namemap_add_name.exit32
 
 ossl_namemap_add_name.exit32:                     ; preds = %38, %34, %30, %28, %4
-  %.0 = phi i32 [ 0, %4 ], [ %39, %38 ], [ 0, %30 ], [ 0, %28 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %28 ], [ %39, %38 ], [ 0, %30 ], [ 0, %34 ]
   %.not25 = icmp eq i32 %1, 0
   br i1 %.not25, label %97, label %42
 
@@ -1078,7 +1078,7 @@ ossl_namemap_add_name.exit32:                     ; preds = %38, %34, %30, %28, 
   br label %ossl_namemap_add_name.exit37
 
 ossl_namemap_add_name.exit37:                     ; preds = %47, %49, %53, %57
-  %.0.i36 = phi i32 [ %58, %57 ], [ 0, %49 ], [ 0, %47 ], [ 0, %53 ]
+  %.0.i36 = phi i32 [ 0, %47 ], [ %58, %57 ], [ 0, %49 ], [ 0, %53 ]
   %61 = tail call ptr @OBJ_nid2ln(i32 noundef %1) #6
   br i1 %44, label %62, label %64
 
@@ -1112,7 +1112,7 @@ ossl_namemap_add_name.exit37:                     ; preds = %47, %49, %53, %57
   br label %ossl_namemap_add_name.exit42
 
 ossl_namemap_add_name.exit42:                     ; preds = %64, %66, %70, %74
-  %.0.i41 = phi i32 [ %75, %74 ], [ 0, %66 ], [ 0, %64 ], [ 0, %70 ]
+  %.0.i41 = phi i32 [ 0, %64 ], [ %75, %74 ], [ 0, %66 ], [ 0, %70 ]
   %78 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #6
   %.not26 = icmp eq ptr %78, null
   br i1 %.not26, label %97, label %79
@@ -1152,7 +1152,7 @@ ossl_namemap_add_name.exit42:                     ; preds = %64, %66, %70, %74
   br label %ossl_namemap_add_name.exit47
 
 ossl_namemap_add_name.exit47:                     ; preds = %93, %89, %85, %79
-  %.2 = phi i32 [ %.0.i41, %79 ], [ %94, %93 ], [ 0, %85 ], [ 0, %89 ]
+  %.2 = phi i32 [ %.0.i41, %79 ], [ 0, %89 ], [ %94, %93 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 

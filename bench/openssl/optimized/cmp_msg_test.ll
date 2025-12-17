@@ -233,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %13, %37, %29, %12, %2
-  %.0 = phi i32 [ 1, %37 ], [ 0, %29 ], [ 0, %12 ], [ 0, %2 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %37 ], [ 0, %29 ], [ 0, %2 ], [ 0, %12 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -287,7 +287,7 @@ define internal i32 @test_cmp_create_certreq_with_invalid_bodytype() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %3 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ]
   %14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 212, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.sink.split, label %15
@@ -425,7 +425,7 @@ define internal i32 @test_cmp_create_ir_protection_set() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %18, %21, %23
-  %.0.i = phi i32 [ 0, %23 ], [ 0, %18 ], [ 1, %21 ]
+  %.0.i = phi i32 [ 0, %18 ], [ 0, %23 ], [ 1, %21 ]
   %24 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 155, ptr noundef nonnull @.str.57, i32 noundef %.0.i) #4
   %.not17 = icmp eq i32 %24, 0
   br i1 %.not17, label %.sink.split, label %25
@@ -492,7 +492,7 @@ define internal i32 @test_cmp_create_error_msg() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %12, %14
-  %.0.i = phi i32 [ 0, %14 ], [ 0, %3 ], [ 1, %12 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %14 ], [ 1, %12 ]
   %15 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 334, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.sink.split, label %16
@@ -711,7 +711,7 @@ define internal i32 @test_cmp_create_kur() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %3 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ]
   %14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 261, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.sink.split, label %15
@@ -778,7 +778,7 @@ define internal i32 @test_cmp_create_kur_without_oldcert() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %3 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ]
   %14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 276, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.sink.split, label %15
@@ -835,7 +835,7 @@ define internal i32 @test_cmp_create_cr() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %3 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ]
   %14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 198, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.sink.split, label %15
@@ -931,7 +931,7 @@ define internal i32 @test_cmp_create_p10cr() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %13, %16, %18
-  %.0.i = phi i32 [ 0, %18 ], [ 0, %13 ], [ 1, %16 ]
+  %.0.i = phi i32 [ 0, %13 ], [ 0, %18 ], [ 1, %16 ]
   %19 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 231, ptr noundef nonnull @.str.57, i32 noundef %.0.i) #4
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %.thread, label %20
@@ -1006,7 +1006,7 @@ define internal i32 @test_cmp_create_p10cr_null() #0 {
   br label %set1_newPkey.exit
 
 set1_newPkey.exit:                                ; preds = %3, %11, %13
-  %.0.i = phi i32 [ 0, %13 ], [ 0, %3 ], [ 1, %11 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %11 ]
   %14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 247, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.sink.split, label %15
@@ -1059,7 +1059,7 @@ define internal range(i32 0, 2) i32 @test_cmp_create_pollreq() #0 {
   br label %execute_pollreq_create_test.exit
 
 execute_pollreq_create_test.exit:                 ; preds = %3, %9
-  %16 = phi i32 [ %15, %9 ], [ 0, %3 ]
+  %16 = phi i32 [ 0, %3 ], [ %15, %9 ]
   tail call void @OSSL_CMP_MSG_free(ptr noundef %7) #4
   %17 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ERR_print_errors_fp(ptr noundef %17) #4
@@ -1208,9 +1208,9 @@ define internal range(i32 0, 2) i32 @test_cmp_create_rp() #0 {
   br label %execute_rp_create.exit
 
 execute_rp_create.exit:                           ; preds = %3, %10, %12, %14, %17, %22, %29
-  %.021.i = phi ptr [ null, %3 ], [ null, %14 ], [ %15, %17 ], [ %15, %22 ], [ null, %12 ], [ null, %10 ], [ %15, %29 ]
-  %.020.i = phi ptr [ null, %3 ], [ null, %14 ], [ null, %17 ], [ %20, %22 ], [ null, %12 ], [ null, %10 ], [ %20, %29 ]
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %17 ], [ 0, %22 ], [ 0, %12 ], [ 0, %10 ], [ %spec.select.i, %29 ]
+  %.021.i = phi ptr [ null, %3 ], [ null, %14 ], [ %15, %17 ], [ null, %10 ], [ %15, %29 ], [ %15, %22 ], [ null, %12 ]
+  %.020.i = phi ptr [ null, %3 ], [ null, %14 ], [ null, %17 ], [ null, %10 ], [ %20, %29 ], [ %20, %22 ], [ null, %12 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %17 ], [ 0, %10 ], [ %spec.select.i, %29 ], [ 0, %22 ], [ 0, %12 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %6) #4
   tail call void @X509_NAME_free(ptr noundef %5) #4
   tail call void @OSSL_CRMF_CERTID_free(ptr noundef %.021.i) #4
@@ -1388,9 +1388,9 @@ define internal range(i32 0, 2) i32 @test_cmp_create_certrep() #0 {
   br label %execute_certrep_create.exit
 
 execute_certrep_create.exit:                      ; preds = %3, %9, %12, %16, %24, %28, %31, %34, %37
-  %.021.i = phi ptr [ %6, %3 ], [ %6, %12 ], [ %6, %16 ], [ null, %34 ], [ null, %31 ], [ null, %28 ], [ %6, %24 ], [ %6, %9 ], [ null, %37 ]
-  %.020.i = phi ptr [ null, %3 ], [ null, %12 ], [ null, %16 ], [ null, %34 ], [ null, %31 ], [ null, %28 ], [ null, %24 ], [ null, %9 ], [ %35, %37 ]
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %16 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %9 ], [ %spec.select.i, %37 ]
+  %.021.i = phi ptr [ %6, %3 ], [ %6, %12 ], [ %6, %16 ], [ null, %34 ], [ %6, %9 ], [ null, %37 ], [ null, %31 ], [ null, %28 ], [ %6, %24 ]
+  %.020.i = phi ptr [ null, %3 ], [ null, %12 ], [ null, %16 ], [ null, %34 ], [ null, %9 ], [ %35, %37 ], [ null, %31 ], [ null, %28 ], [ null, %24 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %12 ], [ 0, %16 ], [ 0, %34 ], [ 0, %9 ], [ %spec.select.i, %37 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ]
   tail call void @X509_free(ptr noundef %.020.i) #4
   tail call void @OSSL_CMP_CERTRESPONSE_free(ptr noundef %.021.i) #4
   tail call void @OSSL_CMP_CERTREPMESSAGE_free(ptr noundef %5) #4
@@ -1634,7 +1634,7 @@ define internal fastcc noundef ptr @set_up(ptr noundef %0) unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %15, %1, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %1 ], [ %2, %15 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %21 ], [ %2, %15 ]
   ret ptr %.0
 }
 

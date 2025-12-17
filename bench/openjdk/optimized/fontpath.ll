@@ -188,7 +188,7 @@ define hidden zeroext i8 @isDisplayLocal(ptr noundef %0) local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %43, %34, %23, %14, %8, %2, %54
-  %.0 = phi i8 [ %55, %54 ], [ 0, %2 ], [ 0, %8 ], [ 0, %14 ], [ 0, %23 ], [ 0, %34 ], [ 0, %43 ]
+  %.0 = phi i8 [ %55, %54 ], [ 0, %34 ], [ 0, %2 ], [ 0, %8 ], [ 0, %14 ], [ 0, %23 ], [ 0, %43 ]
   ret i8 %.0
 }
 
@@ -357,14 +357,14 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
   br label %81
 
 81:                                               ; preds = %._crit_edge.i.i, %58, %45
-  %.067.i.i = phi ptr [ null, %58 ], [ %54, %._crit_edge.i.i ], [ null, %45 ]
+  %.067.i.i = phi ptr [ %54, %._crit_edge.i.i ], [ null, %58 ], [ null, %45 ]
   call void %33(ptr noundef %47) #13
   call void %32(ptr noundef %46) #13
   %82 = call i32 @dlclose(ptr noundef nonnull %.07.i.i.i) #13
   br label %getFontConfigLocations.exit.i
 
 getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tail.i.i.i
-  %.0.i.i = phi ptr [ null, %43 ], [ %.067.i.i, %81 ], [ null, %.tail.i.i.i ], [ null, %19 ]
+  %.0.i.i = phi ptr [ %.067.i.i, %81 ], [ null, %43 ], [ null, %.tail.i.i.i ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %182, label %83
@@ -1056,7 +1056,7 @@ openFontConfig.exit:                              ; preds = %36, %33
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %94, %90, %38, %42, %10, %4, %70
-  %.0 = phi i32 [ -1, %70 ], [ -1, %4 ], [ -1, %10 ], [ -1, %42 ], [ -1, %38 ], [ 1, %90 ], [ %spec.select, %94 ]
+  %.0 = phi i32 [ -1, %42 ], [ -1, %4 ], [ -1, %10 ], [ -1, %70 ], [ -1, %38 ], [ 1, %90 ], [ %spec.select, %94 ]
   ret i32 %.0
 }
 
@@ -1611,8 +1611,8 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %291
 
 291:                                              ; preds = %279, %286, %289
-  %.2437 = phi ptr [ %288, %289 ], [ %288, %286 ], [ %282, %279 ]
-  %.3 = phi ptr [ %288, %289 ], [ %288, %286 ], [ %.0434557, %279 ]
+  %.2437 = phi ptr [ %288, %286 ], [ %288, %289 ], [ %282, %279 ]
+  %.3 = phi ptr [ %288, %286 ], [ %288, %289 ], [ %.0434557, %279 ]
   %292 = add nsw i32 %.0444554, 1
   %293 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv
   %294 = call i32 %101(ptr noundef %260, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef %293) #13
@@ -1636,8 +1636,8 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br i1 %exitcond612.not, label %._crit_edge, label %257, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %302, %291
-  %.1445 = phi i32 [ %.2446, %302 ], [ %292, %291 ]
-  %.1 = phi ptr [ %.2, %302 ], [ %.3, %291 ]
+  %.1445 = phi i32 [ %292, %291 ], [ %.2446, %302 ]
+  %.1 = phi ptr [ %.3, %291 ], [ %.2, %302 ]
   %.not505 = icmp eq ptr %.1, null
   br i1 %.not505, label %._crit_edge.thread, label %303
 
@@ -1646,7 +1646,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %254, %303, %._crit_edge
-  %.1445673 = phi i32 [ %.1445, %303 ], [ %.1445, %._crit_edge ], [ 0, %254 ]
+  %.1445673 = phi i32 [ %.1445, %._crit_edge ], [ %.1445, %303 ], [ 0, %254 ]
   br i1 %180, label %320, label %305
 
 305:                                              ; preds = %._crit_edge.thread

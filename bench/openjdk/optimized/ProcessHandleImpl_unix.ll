@@ -188,7 +188,7 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %26, %.loopexit.loopexit19, %.loopexit.loopexit, %35, %20, %39, %32, %17
-  %.0 = phi i32 [ %19, %17 ], [ %34, %32 ], [ %41, %39 ], [ %spec.select, %20 ], [ %38, %35 ], [ -2, %.loopexit.loopexit ], [ -2, %.loopexit.loopexit19 ], [ -1, %26 ], [ -1, %11 ]
+  %.0 = phi i32 [ %19, %17 ], [ %spec.select, %20 ], [ %34, %32 ], [ %41, %39 ], [ %38, %35 ], [ -1, %26 ], [ -2, %.loopexit.loopexit19 ], [ -2, %.loopexit.loopexit ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -867,9 +867,9 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %.outer.outer, !llvm.loop !11
 
 .thread:                                          ; preds = %130, %128, %106, %86, %52, %59
-  %.078117 = phi i32 [ 0, %59 ], [ 0, %52 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us136.ph, %106 ], [ %.1.ph.us144.ph, %128 ], [ %.1.ph.ph, %130 ]
-  %.079115 = phi ptr [ null, %59 ], [ null, %52 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %128 ], [ %.180.fr, %130 ]
-  %.081113 = phi ptr [ %.182.fr, %59 ], [ null, %52 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %128 ], [ %.182.fr, %130 ]
+  %.078117 = phi i32 [ 0, %52 ], [ 0, %59 ], [ %.1.ph.us144.ph, %128 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us136.ph, %106 ], [ %.1.ph.ph, %130 ]
+  %.079115 = phi ptr [ null, %52 ], [ null, %59 ], [ %.180.fr, %128 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %130 ]
+  %.081113 = phi ptr [ null, %52 ], [ %.182.fr, %59 ], [ %.182.fr, %128 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %130 ]
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1568
   %153 = load ptr, ptr %152, align 8
@@ -896,12 +896,12 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %.thread130
 
 .thread130:                                       ; preds = %45, %159, %158
-  %.078118128134 = phi i32 [ %.078117, %159 ], [ %.078117, %158 ], [ 0, %45 ]
+  %.078118128134 = phi i32 [ %.078117, %158 ], [ %.078117, %159 ], [ 0, %45 ]
   %163 = call i32 @closedir(ptr noundef nonnull %42)
   br label %164
 
 164:                                              ; preds = %30, %18, %5, %.thread130, %44, %40, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %40 ], [ -1, %44 ], [ %.078118128134, %.thread130 ], [ -1, %5 ], [ -1, %18 ], [ -1, %30 ]
+  %.0 = phi i32 [ %.078118128134, %.thread130 ], [ -1, %5 ], [ 0, %28 ], [ -1, %18 ], [ 0, %40 ], [ -1, %44 ], [ -1, %30 ]
   ret i32 %.0
 }
 

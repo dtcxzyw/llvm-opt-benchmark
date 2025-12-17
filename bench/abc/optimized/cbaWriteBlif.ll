@@ -165,16 +165,16 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %63 = getelementptr i8, ptr %23, i64 228
   %.val7186.i.i = load i32, ptr %63, align 4, !tbaa !18
   %64 = icmp sgt i32 %.val7186.i.i, 0
-  br i1 %64, label %.lr.ph88.i.i, label %Prs_ManWriteBlifNtk.exit
+  br i1 %64, label %.lr.ph.i41.i, label %Prs_ManWriteBlifNtk.exit
 
-.lr.ph88.i.i:                                     ; preds = %Prs_ManWriteBlifArray.exit40.i
+.lr.ph.i41.i:                                     ; preds = %Prs_ManWriteBlifArray.exit40.i
   %65 = getelementptr i8, ptr %23, i64 216
   %66 = getelementptr i8, ptr %23, i64 232
   %67 = getelementptr i8, ptr %23, i64 16
   br label %68
 
-68:                                               ; preds = %134, %.lr.ph88.i.i
-  %indvars.iv93.i.i = phi i64 [ 0, %.lr.ph88.i.i ], [ %indvars.iv.next94.i.i, %134 ]
+68:                                               ; preds = %134, %.lr.ph.i41.i
+  %indvars.iv93.i.i = phi i64 [ 0, %.lr.ph.i41.i ], [ %indvars.iv.next94.i.i, %134 ]
   %.val72.i.i = load ptr, ptr %65, align 8, !tbaa !19
   %.val73.i.i = load ptr, ptr %66, align 8, !tbaa !19
   %69 = getelementptr inbounds nuw i32, ptr %.val73.i.i, i64 %indvars.iv93.i.i
@@ -235,10 +235,10 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %107 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr nonnull %9)
   %Prs_BoxSignals.V.val6483.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4, !tbaa !18
   %108 = icmp sgt i32 %Prs_BoxSignals.V.val6483.i.i, 1
-  br i1 %108, label %.lr.ph85.i.i, label %.critedge2.i.i
+  br i1 %108, label %.critedge2.i.i, label %._crit_edge85.i.i
 
-.lr.ph85.i.i:                                     ; preds = %106, %.lr.ph85.i.i
-  %indvars.iv90.i.i = phi i64 [ %indvars.iv.next91.i.i, %.lr.ph85.i.i ], [ 0, %106 ]
+.critedge2.i.i:                                   ; preds = %106, %.critedge2.i.i
+  %indvars.iv90.i.i = phi i64 [ %indvars.iv.next91.i.i, %.critedge2.i.i ], [ 0, %106 ]
   %Prs_BoxSignals.V.val68.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8, !tbaa !19
   %109 = getelementptr inbounds nuw i32, ptr %Prs_BoxSignals.V.val68.i.i, i64 %indvars.iv90.i.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
@@ -251,9 +251,9 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %114 = trunc i64 %indvars.iv.next91.i.i to i32
   %115 = or disjoint i32 %114, 1
   %116 = icmp slt i32 %115, %Prs_BoxSignals.V.val64.i.i
-  br i1 %116, label %.lr.ph85.i.i, label %.critedge2.i.i, !llvm.loop !23
+  br i1 %116, label %.critedge2.i.i, label %._crit_edge85.i.i, !llvm.loop !23
 
-.critedge2.i.i:                                   ; preds = %.lr.ph85.i.i, %106
+._crit_edge85.i.i:                                ; preds = %.critedge2.i.i, %106
   %.val80.i.i = load ptr, ptr %67, align 8, !tbaa !24
   %117 = tail call ptr @Abc_NamStr(ptr noundef %.val80.i.i, i32 noundef range(i32 0, -1) %83) #7
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef %117) #7
@@ -266,10 +266,10 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %121) #7
   %Prs_BoxSignals.V.val81.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 4, !tbaa !18
   %123 = icmp sgt i32 %Prs_BoxSignals.V.val81.i.i, 1
-  br i1 %123, label %.lr.ph.i42.i, label %.critedge4.i.i
+  br i1 %123, label %.critedge4.i.i, label %._crit_edge.i.i
 
-.lr.ph.i42.i:                                     ; preds = %119, %.lr.ph.i42.i
-  %indvars.iv.i43.i = phi i64 [ %indvars.iv.next.i45.i, %.lr.ph.i42.i ], [ 0, %119 ]
+.critedge4.i.i:                                   ; preds = %119, %.critedge4.i.i
+  %indvars.iv.i43.i = phi i64 [ %indvars.iv.next.i45.i, %.critedge4.i.i ], [ 0, %119 ]
   %Prs_BoxSignals.V.val66.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8, !tbaa !19
   %124 = getelementptr inbounds nuw i32, ptr %Prs_BoxSignals.V.val66.i.i, i64 %indvars.iv.i43.i
   %125 = load i32, ptr %124, align 4, !tbaa !20
@@ -285,13 +285,13 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %131 = trunc i64 %indvars.iv.next.i45.i to i32
   %132 = or disjoint i32 %131, 1
   %133 = icmp slt i32 %132, %Prs_BoxSignals.V.val.i.i
-  br i1 %133, label %.lr.ph.i42.i, label %.critedge4.i.i, !llvm.loop !25
+  br i1 %133, label %.critedge4.i.i, label %._crit_edge.i.i, !llvm.loop !25
 
-.critedge4.i.i:                                   ; preds = %.lr.ph.i42.i, %119
-  %fputc.i41.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
+._crit_edge.i.i:                                  ; preds = %.critedge4.i.i, %119
+  %fputc.i42.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
   br label %134
 
-134:                                              ; preds = %.critedge4.i.i, %.critedge2.i.i, %85
+134:                                              ; preds = %._crit_edge.i.i, %._crit_edge85.i.i, %85
   %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
   %.val71.i.i = load i32, ptr %63, align 4, !tbaa !18
   %135 = sext i32 %.val71.i.i to i64
@@ -483,7 +483,7 @@ Cba_ManNtkIsOk.exit.i.i.i:                        ; preds = %Cba_ObjNtkId.exit.i
   br label %Cba_ObjNtk.exit
 
 Cba_ObjNtk.exit:                                  ; preds = %21, %Cba_ObjNtkId.exit.i, %Cba_ManNtkIsOk.exit.i.i.i, %64
-  %69 = phi ptr [ null, %Cba_ObjNtkId.exit.i ], [ null, %Cba_ManNtkIsOk.exit.i.i.i ], [ %68, %64 ], [ null, %21 ]
+  %69 = phi ptr [ %68, %64 ], [ null, %Cba_ObjNtkId.exit.i ], [ null, %Cba_ManNtkIsOk.exit.i.i.i ], [ null, %21 ]
   %70 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 7, i64 1, ptr %0)
   %.val111 = load ptr, ptr %69, align 8, !tbaa !34
   %71 = getelementptr i8, ptr %69, i64 12
@@ -566,8 +566,8 @@ Cba_ObjNtk.exit:                                  ; preds = %21, %Cba_ObjNtkId.e
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %109, %111, %100, %102
-  %storemerge394 = phi ptr [ %101, %100 ], [ %103, %102 ], [ %110, %109 ], [ %112, %111 ]
-  %.sink.i.i.i.i = phi i32 [ %90, %100 ], [ %90, %102 ], [ %94, %109 ], [ %94, %111 ]
+  %storemerge394 = phi ptr [ %103, %102 ], [ %101, %100 ], [ %110, %109 ], [ %112, %111 ]
+  %.sink.i.i.i.i = phi i32 [ %90, %102 ], [ %90, %100 ], [ %94, %109 ], [ %94, %111 ]
   store ptr %storemerge394, ptr %83, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i, ptr %81, align 8, !tbaa !33
   %.pre.i.i.i = load i32, ptr %82, align 4, !tbaa !18
@@ -652,8 +652,8 @@ Cba_ObjNameStr.exit:                              ; preds = %85, %._crit_edge.i.
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i138
 
 Vec_IntGrow.exit.sink.split.i.i.i.i138:           ; preds = %145, %147, %136, %138
-  %storemerge395 = phi ptr [ %137, %136 ], [ %139, %138 ], [ %146, %145 ], [ %148, %147 ]
-  %.sink.i.i.i.i139 = phi i32 [ %126, %136 ], [ %126, %138 ], [ %130, %145 ], [ %130, %147 ]
+  %storemerge395 = phi ptr [ %139, %138 ], [ %137, %136 ], [ %146, %145 ], [ %148, %147 ]
+  %.sink.i.i.i.i139 = phi i32 [ %126, %138 ], [ %126, %136 ], [ %130, %145 ], [ %130, %147 ]
   store ptr %storemerge395, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i139, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i140 = load i32, ptr %9, align 4, !tbaa !18
@@ -771,8 +771,8 @@ Cba_FonNameStr.exit:                              ; preds = %Cba_ObjNameStr.exit
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i154
 
 Vec_IntGrow.exit.sink.split.i.i.i.i154:           ; preds = %199, %201, %190, %192
-  %storemerge396 = phi ptr [ %191, %190 ], [ %193, %192 ], [ %200, %199 ], [ %202, %201 ]
-  %.sink.i.i.i.i155 = phi i32 [ %180, %190 ], [ %180, %192 ], [ %184, %199 ], [ %184, %201 ]
+  %storemerge396 = phi ptr [ %193, %192 ], [ %191, %190 ], [ %200, %199 ], [ %202, %201 ]
+  %.sink.i.i.i.i155 = phi i32 [ %180, %192 ], [ %180, %190 ], [ %184, %199 ], [ %184, %201 ]
   store ptr %storemerge396, ptr %175, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i155, ptr %173, align 8, !tbaa !33
   %.pre.i.i.i156 = load i32, ptr %174, align 4, !tbaa !18
@@ -996,8 +996,8 @@ Cba_ObjNtkId.exit:                                ; preds = %20
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i203
 
 Vec_IntGrow.exit.sink.split.i.i.i.i203:           ; preds = %298, %300, %289, %291
-  %storemerge = phi ptr [ %290, %289 ], [ %292, %291 ], [ %299, %298 ], [ %301, %300 ]
-  %.sink.i.i.i.i204 = phi i32 [ %279, %289 ], [ %279, %291 ], [ %283, %298 ], [ %283, %300 ]
+  %storemerge = phi ptr [ %292, %291 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ]
+  %.sink.i.i.i.i204 = phi i32 [ %279, %291 ], [ %279, %289 ], [ %283, %298 ], [ %283, %300 ]
   store ptr %storemerge, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i204, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i205 = load i32, ptr %9, align 4, !tbaa !18
@@ -1238,8 +1238,8 @@ Cba_FonNameStr.exit232:                           ; preds = %.lr.ph278, %._crit_
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i237
 
 Vec_IntGrow.exit.sink.split.i.i.i.i237:           ; preds = %404, %406, %395, %397
-  %storemerge397 = phi ptr [ %396, %395 ], [ %398, %397 ], [ %405, %404 ], [ %407, %406 ]
-  %.sink.i.i.i.i238 = phi i32 [ %385, %395 ], [ %385, %397 ], [ %389, %404 ], [ %389, %406 ]
+  %storemerge397 = phi ptr [ %398, %397 ], [ %396, %395 ], [ %405, %404 ], [ %407, %406 ]
+  %.sink.i.i.i.i238 = phi i32 [ %385, %397 ], [ %385, %395 ], [ %389, %404 ], [ %389, %406 ]
   store ptr %storemerge397, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i238, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i239 = load i32, ptr %9, align 4, !tbaa !18
@@ -1337,8 +1337,8 @@ Cba_FonNameStr.exit249:                           ; preds = %.lr.ph292, %._crit_
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i254
 
 Vec_IntGrow.exit.sink.split.i.i.i.i254:           ; preds = %447, %449, %438, %440
-  %storemerge398 = phi ptr [ %439, %438 ], [ %441, %440 ], [ %448, %447 ], [ %450, %449 ]
-  %.sink.i.i.i.i255 = phi i32 [ %428, %438 ], [ %428, %440 ], [ %432, %447 ], [ %432, %449 ]
+  %storemerge398 = phi ptr [ %441, %440 ], [ %439, %438 ], [ %448, %447 ], [ %450, %449 ]
+  %.sink.i.i.i.i255 = phi i32 [ %428, %440 ], [ %428, %438 ], [ %432, %447 ], [ %432, %449 ]
   store ptr %storemerge398, ptr %10, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i255, ptr %8, align 8, !tbaa !33
   %.pre.i.i.i256 = load i32, ptr %9, align 4, !tbaa !18
@@ -1564,8 +1564,8 @@ define void @Cba_ManWriteBlifArray(ptr noundef captures(none) %0, ptr noundef ca
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %32, %34, %23, %25
-  %storemerge = phi ptr [ %24, %23 ], [ %26, %25 ], [ %33, %32 ], [ %35, %34 ]
-  %.sink.i.i.i.i = phi i32 [ %13, %23 ], [ %13, %25 ], [ %17, %32 ], [ %17, %34 ]
+  %storemerge = phi ptr [ %26, %25 ], [ %24, %23 ], [ %33, %32 ], [ %35, %34 ]
+  %.sink.i.i.i.i = phi i32 [ %13, %25 ], [ %13, %23 ], [ %17, %32 ], [ %17, %34 ]
   store ptr %storemerge, ptr %9, align 8, !tbaa !19
   store i32 %.sink.i.i.i.i, ptr %7, align 8, !tbaa !33
   %.pre.i.i.i = load i32, ptr %8, align 4, !tbaa !18

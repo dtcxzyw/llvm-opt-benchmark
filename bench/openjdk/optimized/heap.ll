@@ -488,7 +488,7 @@ _ZN8CodeHeap5clearEv.exit:                        ; preds = %_ZN8CodeHeap5clearE
   br i1 %exitcond.not.i, label %_ZN8CodeHeap20init_segmap_templateEv.exit, label %_ZN8CodeHeap5clearEv.exit, !llvm.loop !6
 
 _ZN8CodeHeap20init_segmap_templateEv.exit:        ; preds = %_ZN8CodeHeap5clearEv.exit, %24, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %24 ], [ true, %_ZN8CodeHeap5clearEv.exit ]
+  %.0 = phi i1 [ false, %24 ], [ false, %4 ], [ true, %_ZN8CodeHeap5clearEv.exit ]
   ret i1 %.0
 }
 
@@ -582,7 +582,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
   br label %_ZN8CodeHeap5clearEmm.exit
 
 _ZN8CodeHeap5clearEmm.exit:                       ; preds = %50, %47, %2, %44, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %44 ], [ true, %2 ], [ true, %47 ], [ true, %50 ]
+  %.0 = phi i1 [ false, %44 ], [ false, %19 ], [ true, %2 ], [ true, %47 ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -1223,8 +1223,8 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   br label %67
 
 67:                                               ; preds = %_ZNK8CodeHeap14find_block_forEPv.exit.thread, %_ZNK8CodeHeap14find_block_forEPv.exit, %59, %64, %32, %27
-  %.022 = phi ptr [ %58, %64 ], [ %18, %59 ], [ %18, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ %18, %32 ], [ %18, %27 ], [ %18, %_ZNK8CodeHeap14find_block_forEPv.exit.thread ]
-  %.0 = phi ptr [ %66, %64 ], [ %29, %59 ], [ %29, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ %29, %32 ], [ %29, %27 ], [ %29, %_ZNK8CodeHeap14find_block_forEPv.exit.thread ]
+  %.022 = phi ptr [ %58, %64 ], [ %18, %_ZNK8CodeHeap14find_block_forEPv.exit.thread ], [ %18, %59 ], [ %18, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ %18, %32 ], [ %18, %27 ]
+  %.0 = phi ptr [ %66, %64 ], [ %29, %_ZNK8CodeHeap14find_block_forEPv.exit.thread ], [ %29, %59 ], [ %29, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ %29, %32 ], [ %29, %27 ]
   %68 = icmp ne ptr %.0, null
   %69 = icmp ult ptr %.0, %1
   %70 = and i1 %68, %69
@@ -1329,7 +1329,7 @@ define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr noundef nonnull 
   br label %29
 
 29:                                               ; preds = %9, %2, %26
-  %.011 = phi ptr [ %28, %26 ], [ null, %2 ], [ null, %9 ]
+  %.011 = phi ptr [ null, %2 ], [ %28, %26 ], [ null, %9 ]
   ret ptr %.011
 }
 
@@ -1383,7 +1383,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   br label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
 _ZNK8CodeHeap14find_block_forEPv.exit.thread:     ; preds = %27, %9, %2, %_ZNK8CodeHeap14find_block_forEPv.exit
-  %34 = phi ptr [ null, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ null, %2 ], [ null, %9 ], [ %spec.select, %27 ]
+  %34 = phi ptr [ null, %9 ], [ %spec.select, %27 ], [ null, %_ZNK8CodeHeap14find_block_forEPv.exit ], [ null, %2 ]
   ret ptr %34
 }
 
@@ -1446,8 +1446,8 @@ _ZNK8CodeHeap10find_startEPv.exit:                ; preds = %27
   %spec.select = select i1 %39, ptr %33, ptr null
   br label %_ZNK8CodeHeap10find_startEPv.exit.thread
 
-_ZNK8CodeHeap10find_startEPv.exit.thread:         ; preds = %27, %9, %2, %_ZNK8CodeHeap14find_block_forEPv.exit.i, %_ZNK8CodeHeap10find_startEPv.exit
-  %40 = phi ptr [ %spec.select, %_ZNK8CodeHeap10find_startEPv.exit ], [ null, %_ZNK8CodeHeap14find_block_forEPv.exit.i ], [ null, %2 ], [ null, %9 ], [ null, %27 ]
+_ZNK8CodeHeap10find_startEPv.exit.thread:         ; preds = %2, %_ZNK8CodeHeap14find_block_forEPv.exit.i, %27, %9, %_ZNK8CodeHeap10find_startEPv.exit
+  %40 = phi ptr [ %spec.select, %_ZNK8CodeHeap10find_startEPv.exit ], [ null, %9 ], [ null, %27 ], [ null, %_ZNK8CodeHeap14find_block_forEPv.exit.i ], [ null, %2 ]
   ret ptr %40
 }
 
@@ -1485,12 +1485,12 @@ define hidden noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnu
   br i1 %or.cond, label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread, label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8
 
 _ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8: ; preds = %7, %3
-  %.010 = phi ptr [ %1, %3 ], [ %24, %7 ]
+  %.010 = phi ptr [ %24, %7 ], [ %1, %3 ]
   %26 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   br label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread
 
 _ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread: ; preds = %7, %2, %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8
-  %27 = phi ptr [ %26, %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8 ], [ null, %2 ], [ null, %7 ]
+  %27 = phi ptr [ %26, %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8 ], [ null, %7 ], [ null, %2 ]
   ret ptr %27
 }
 
@@ -1523,7 +1523,7 @@ define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef non
   br label %23
 
 23:                                               ; preds = %4, %2, %20
-  %.0 = phi ptr [ %22, %20 ], [ null, %2 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %2 ], [ %22, %20 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1588,7 +1588,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit.i:          ; preds = %.preheader.i.i
   br label %_ZNK8CodeHeap10find_startEPv.exit
 
 _ZNK8CodeHeap10find_startEPv.exit:                ; preds = %2, %9, %_ZNK8CodeHeap14find_block_forEPv.exit.i, %27
-  %34 = phi ptr [ null, %_ZNK8CodeHeap14find_block_forEPv.exit.i ], [ null, %2 ], [ null, %9 ], [ %spec.select.i, %27 ]
+  %34 = phi ptr [ null, %9 ], [ %spec.select.i, %27 ], [ null, %_ZNK8CodeHeap14find_block_forEPv.exit.i ], [ null, %2 ]
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds i8, ptr %34, i64 -8
   %.0 = select i1 %35, ptr null, ptr %36

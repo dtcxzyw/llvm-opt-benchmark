@@ -381,7 +381,7 @@ _ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2
   %50 = icmp eq ptr %.sroa.0.1.i, %21
   br i1 %50, label %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit.thread, label %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit._crit_edge
 
-_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit.thread: ; preds = %30, %45, %42, %48, %.preheader.i.i, %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE9find_coreERKPS2_.exit.i, %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit
+_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit.thread: ; preds = %30, %42, %45, %48, %.preheader.i.i, %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE9find_coreERKPS2_.exit.i, %_ZNK14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE4findERKPS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %storemerge69, ptr %6, align 8, !tbaa !36
   call void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE6insertEOPS2_(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -1750,7 +1750,7 @@ _ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit11.thread: ; preds = %18, %_ZNK6vect
   br label %56
 
 56:                                               ; preds = %47, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit11.thread, %41, %49
-  %.0 = phi i32 [ %55, %49 ], [ 0, %41 ], [ %.1, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit11.thread ], [ %spec.select10, %47 ]
+  %.0 = phi i32 [ %55, %49 ], [ 0, %41 ], [ %spec.select10, %47 ], [ %.1, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit11.thread ]
   ret i32 %.0
 }
 
@@ -3274,7 +3274,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI10quantifierPN1q1
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !737
@@ -3321,7 +3321,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI10quantifierPN1q1
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !738
@@ -4523,7 +4523,7 @@ _ZN3smt18quantifier_manager3imp16check_quantifierEP10quantifier.exit52.thread: ;
   br label %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit.thread
 
 105:                                              ; preds = %101, %55, %60
-  %.pn35.pn = phi { ptr, i32 } [ %61, %60 ], [ %56, %55 ], [ %102, %101 ]
+  %.pn35.pn = phi { ptr, i32 } [ %61, %60 ], [ %102, %101 ], [ %56, %55 ]
   call void @_ZN3smt13quick_checkerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn35.pn
@@ -5200,7 +5200,7 @@ define linkonce_odr hidden void @_ZN3smt17default_qm_plugin9assign_ehEP10quantif
   br i1 %.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %20, %19
-  %.lcssa = phi i32 [ 0, %20 ], [ 1, %19 ]
+  %.lcssa = phi i32 [ 1, %19 ], [ 0, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %26 = load i32, ptr %25, align 8, !tbaa !812
   %spec.select = add i32 %26, %.lcssa
@@ -6108,7 +6108,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enod
   br label %67
 
 45:                                               ; preds = %36, %29
-  %.1 = phi ptr [ %.04464, %29 ], [ %.04563, %36 ]
+  %.1 = phi ptr [ %.04563, %36 ], [ %.04464, %29 ]
   %46 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %46, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !827
@@ -6156,7 +6156,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryIN3smt5enod
   br label %67
 
 65:                                               ; preds = %56, %49
-  %.3 = phi ptr [ %.267, %49 ], [ %.14666, %56 ]
+  %.3 = phi ptr [ %.14666, %56 ], [ %.267, %49 ]
   %66 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %66, %24
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !828

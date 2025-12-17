@@ -135,7 +135,7 @@ define hidden i32 @zend_accel_get_class_name_map_ptr(ptr noundef %0) local_unnam
   br label %41
 
 41:                                               ; preds = %32, %10, %22, %38, %30
-  %.0 = phi i32 [ %31, %30 ], [ %36, %38 ], [ 0, %22 ], [ 0, %10 ], [ 0, %32 ]
+  %.0 = phi i32 [ %31, %30 ], [ %36, %38 ], [ 0, %10 ], [ 0, %22 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -3764,7 +3764,7 @@ zend_string_hash_val.exit981:                     ; preds = %zend_string_release
   br label %.thread
 
 .thread:                                          ; preds = %1167, %._crit_edge1049, %1565, %849, %4, %1
-  %.1694 = phi ptr [ %0, %1 ], [ %7, %849 ], [ %5, %4 ], [ %7, %1565 ], [ %7, %._crit_edge1049 ], [ %7, %1167 ]
+  %.1694 = phi ptr [ %0, %1 ], [ %5, %4 ], [ %7, %849 ], [ %7, %1565 ], [ %7, %._crit_edge1049 ], [ %7, %1167 ]
   ret ptr %.1694
 }
 
@@ -4238,7 +4238,7 @@ define internal fastcc ptr @zend_persist_class_method(ptr noundef %0, ptr nounde
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %67, %62, %58, %68, %78, %83, %86, %55, %4, %25, %27, %.thread, %9, %44
-  %.0 = phi ptr [ %0, %44 ], [ %10, %9 ], [ %12, %27 ], [ %12, %.thread ], [ %12, %25 ], [ %0, %4 ], [ %46, %55 ], [ %69, %86 ], [ %69, %83 ], [ %69, %78 ], [ %69, %68 ], [ %46, %58 ], [ %46, %62 ], [ %46, %67 ]
+  %.0 = phi ptr [ %0, %44 ], [ %10, %9 ], [ %0, %4 ], [ %46, %55 ], [ %12, %27 ], [ %12, %.thread ], [ %12, %25 ], [ %69, %68 ], [ %69, %86 ], [ %69, %83 ], [ %69, %78 ], [ %46, %58 ], [ %46, %62 ], [ %46, %67 ]
   ret ptr %.0
 }
 

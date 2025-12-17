@@ -408,7 +408,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68: ; preds = %126, %.body,
   br label %131
 
 131:                                              ; preds = %85, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68, %79, %71, %60, %66, %38, %44
-  %.pn52.pn = phi { ptr, i32 } [ %45, %44 ], [ %39, %38 ], [ %67, %66 ], [ %61, %60 ], [ %.pn.pn, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68 ], [ %86, %85 ], [ %80, %79 ], [ %72, %71 ]
+  %.pn52.pn = phi { ptr, i32 } [ %61, %60 ], [ %39, %38 ], [ %45, %44 ], [ %67, %66 ], [ %86, %85 ], [ %.pn.pn, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68 ], [ %80, %79 ], [ %72, %71 ]
   %132 = load ptr, ptr %22, align 8, !tbaa !63
   %.not.i69 = icmp eq ptr %132, null
   br i1 %.not.i69, label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit71, label %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i70

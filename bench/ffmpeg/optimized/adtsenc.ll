@@ -110,7 +110,7 @@ define internal range(i32 -2147483648, 1) i32 @adts_write_packet(ptr noundef %0,
   br label %36
 
 35:                                               ; preds = %26, %22
-  %.2 = phi i32 [ %24, %22 ], [ %29, %26 ]
+  %.2 = phi i32 [ %29, %26 ], [ %24, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
@@ -390,7 +390,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @adts_decode_extradata(ptr 
   br label %85
 
 85:                                               ; preds = %19, %4, %83, %70, %57, %46, %37, %34
-  %.0 = phi i32 [ -1094995529, %34 ], [ -1094995529, %37 ], [ -1094995529, %46 ], [ -1094995529, %57 ], [ -1094995529, %70 ], [ 0, %83 ], [ -1094995529, %4 ], [ %20, %19 ]
+  %.0 = phi i32 [ 0, %83 ], [ -1094995529, %4 ], [ -1094995529, %34 ], [ -1094995529, %37 ], [ -1094995529, %46 ], [ -1094995529, %57 ], [ -1094995529, %70 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

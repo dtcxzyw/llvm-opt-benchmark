@@ -1508,7 +1508,7 @@ default.unreachable:                              ; preds = %.lr.ph.i199.i
   br i1 %580, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i155.i.i
 
 .invoke:                                          ; preds = %232, %204, %163, %344, %299, %515, %427, %575, %121, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit
-  %581 = phi ptr [ @.str.13, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit ], [ @.str.10, %121 ], [ @.str.10, %575 ], [ @.str.10, %427 ], [ @.str.10, %515 ], [ @.str.10, %299 ], [ @.str.10, %344 ], [ @.str.10, %163 ], [ @.str.10, %204 ], [ @.str.10, %232 ]
+  %581 = phi ptr [ @.str.10, %121 ], [ @.str.13, %_ZN12_GLOBAL__N_110LinkRunnerC2Ev.exit ], [ @.str.10, %344 ], [ @.str.10, %575 ], [ @.str.10, %515 ], [ @.str.10, %427 ], [ @.str.10, %299 ], [ @.str.10, %163 ], [ @.str.10, %204 ], [ @.str.10, %232 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %581) #15
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -554,7 +554,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #4
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
+76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
   ret ptr %.026
 }
 
@@ -585,7 +585,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
+  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitLevel___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -904,7 +904,7 @@ lean_dec.exit286:                                 ; preds = %119, %118, %116, %l
   br label %lean_dec.exit285
 
 lean_dec.exit285:                                 ; preds = %126, %130, %139, %138, %136
-  %.0.i258474 = phi ptr [ %133, %136 ], [ %133, %138 ], [ %133, %139 ], [ %131, %130 ], [ %129, %126 ]
+  %.0.i258474 = phi ptr [ %133, %139 ], [ %133, %136 ], [ %133, %138 ], [ %131, %130 ], [ %129, %126 ]
   %140 = ptrtoint ptr %0 to i64
   %141 = and i64 %140, 1
   %.not514 = icmp eq i64 %141, 0
@@ -1088,7 +1088,7 @@ lean_dec.exit283.thread:                          ; preds = %lean_dec.exit284
 lean_dec.exit282:                                 ; preds = %211
   br i1 %206, label %230, label %213
 
-213:                                              ; preds = %212, %209, %lean_dec.exit283.thread, %lean_dec.exit282
+213:                                              ; preds = %209, %212, %lean_dec.exit283.thread, %lean_dec.exit282
   %.val.i399 = load i64, ptr %199, align 8, !tbaa !11
   %214 = shl i64 %.val.i399, 1
   %215 = or disjoint i64 %214, 1
@@ -1113,7 +1113,7 @@ lean_dec.exit282:                                 ; preds = %211
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit: ; preds = %213, %221, %225
-  %.2.i.i = phi ptr [ %216, %213 ], [ %224, %221 ], [ %226, %225 ]
+  %.2.i.i = phi ptr [ %226, %225 ], [ %216, %213 ], [ %224, %221 ]
   %227 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %228 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitLevel___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i393, ptr noundef %227)
   store ptr %228, ptr %49, align 8, !tbaa !4
@@ -1121,7 +1121,7 @@ l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel_
   %229 = tail call ptr @l_Lean_CollectLevelMVars_collect(ptr noundef %0, ptr noundef nonnull %1)
   br label %lean_dec.exit290
 
-230:                                              ; preds = %212, %209, %lean_dec.exit283.thread, %lean_dec.exit282
+230:                                              ; preds = %209, %212, %lean_dec.exit283.thread, %lean_dec.exit282
   store ptr %.0.i.i393, ptr %49, align 8, !tbaa !4
   store ptr %.0.i258474, ptr %47, align 8, !tbaa !4
   %231 = tail call ptr @l_Lean_CollectLevelMVars_collect(ptr noundef %0, ptr noundef nonnull %1)
@@ -1192,7 +1192,7 @@ lean_dec.exit281:                                 ; preds = %240, %239, %237, %2
   br label %lean_dec.exit280
 
 lean_dec.exit280:                                 ; preds = %247, %251, %260, %259, %257
-  %.0.i255479 = phi ptr [ %254, %257 ], [ %254, %259 ], [ %254, %260 ], [ %252, %251 ], [ %250, %247 ]
+  %.0.i255479 = phi ptr [ %254, %260 ], [ %254, %257 ], [ %254, %259 ], [ %252, %251 ], [ %250, %247 ]
   %261 = ptrtoint ptr %0 to i64
   %262 = and i64 %261, 1
   %.not506 = icmp eq i64 %262, 0
@@ -1376,7 +1376,7 @@ lean_dec.exit278.thread:                          ; preds = %lean_dec.exit279
 lean_dec.exit277:                                 ; preds = %332
   br i1 %327, label %358, label %334
 
-334:                                              ; preds = %333, %330, %lean_dec.exit278.thread, %lean_dec.exit277
+334:                                              ; preds = %330, %333, %lean_dec.exit278.thread, %lean_dec.exit277
   %.val.i416 = load i64, ptr %320, align 8, !tbaa !11
   %335 = shl i64 %.val.i416, 1
   %336 = or disjoint i64 %335, 1
@@ -1401,7 +1401,7 @@ lean_dec.exit277:                                 ; preds = %332
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit419
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit419: ; preds = %334, %342, %346
-  %.2.i.i418 = phi ptr [ %337, %334 ], [ %345, %342 ], [ %347, %346 ]
+  %.2.i.i418 = phi ptr [ %347, %346 ], [ %337, %334 ], [ %345, %342 ]
   %348 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i418, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %349 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitLevel___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i408, ptr noundef %348)
   store ptr %349, ptr %49, align 8, !tbaa !4
@@ -1428,7 +1428,7 @@ lean_alloc_ctor.exit420:                          ; preds = %l_Std_DHashMap_Inte
   %357 = tail call ptr @l_Lean_CollectLevelMVars_collect(ptr noundef %0, ptr noundef nonnull %350)
   br label %lean_dec.exit290
 
-358:                                              ; preds = %333, %330, %lean_dec.exit278.thread, %lean_dec.exit277
+358:                                              ; preds = %330, %333, %lean_dec.exit278.thread, %lean_dec.exit277
   store ptr %.0.i.i408, ptr %49, align 8, !tbaa !4
   store ptr %.0.i255479, ptr %47, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
@@ -1873,7 +1873,7 @@ lean_dec_ref.exit361:                             ; preds = %513, %512, %510, %l
   br label %lean_dec.exit268
 
 lean_dec.exit268:                                 ; preds = %518, %522, %531, %530, %528
-  %.0.i485 = phi ptr [ %525, %528 ], [ %525, %530 ], [ %525, %531 ], [ %523, %522 ], [ %521, %518 ]
+  %.0.i485 = phi ptr [ %525, %531 ], [ %525, %528 ], [ %525, %530 ], [ %523, %522 ], [ %521, %518 ]
   %532 = ptrtoint ptr %0 to i64
   %533 = and i64 %532, 1
   %.not495 = icmp eq i64 %533, 0
@@ -2057,7 +2057,7 @@ lean_dec.exit266.thread:                          ; preds = %lean_dec.exit267
 lean_dec.exit265:                                 ; preds = %603
   br i1 %598, label %639, label %605
 
-605:                                              ; preds = %604, %601, %lean_dec.exit266.thread, %lean_dec.exit265
+605:                                              ; preds = %601, %604, %lean_dec.exit266.thread, %lean_dec.exit265
   %.val.i464 = load i64, ptr %591, align 8, !tbaa !11
   %606 = shl i64 %.val.i464, 1
   %607 = or disjoint i64 %606, 1
@@ -2082,7 +2082,7 @@ lean_dec.exit265:                                 ; preds = %603
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit467
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit467: ; preds = %605, %613, %617
-  %.2.i.i466 = phi ptr [ %608, %605 ], [ %616, %613 ], [ %618, %617 ]
+  %.2.i.i466 = phi ptr [ %618, %617 ], [ %608, %605 ], [ %616, %613 ]
   %619 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i466, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %620 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitLevel___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i456, ptr noundef %619)
   tail call void @lean_inc_heartbeat() #4
@@ -2134,7 +2134,7 @@ lean_alloc_ctor.exit469:                          ; preds = %629
   %638 = tail call ptr @l_Lean_CollectLevelMVars_collect(ptr noundef %0, ptr noundef %.0240)
   br label %lean_dec.exit290
 
-639:                                              ; preds = %604, %601, %lean_dec.exit266.thread, %lean_dec.exit265
+639:                                              ; preds = %601, %604, %lean_dec.exit266.thread, %lean_dec.exit265
   tail call void @lean_inc_heartbeat() #4
   %640 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %641 = icmp eq ptr %640, null
@@ -2314,7 +2314,7 @@ lean_dec.exit260:                                 ; preds = %692, %691, %689, %l
   br label %lean_dec.exit290
 
 lean_dec.exit290:                                 ; preds = %lean_dec.exit260, %698, %700, %701, %lean_dec.exit272, %411, %413, %414, %5, %11, %13, %14, %230, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit, %lean_alloc_ctor.exit421, %lean_alloc_ctor.exit420, %634, %653
-  %.0 = phi ptr [ %229, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit ], [ %231, %230 ], [ %357, %lean_alloc_ctor.exit420 ], [ %366, %lean_alloc_ctor.exit421 ], [ %638, %634 ], [ %657, %653 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %5 ], [ %1, %414 ], [ %1, %413 ], [ %1, %411 ], [ %1, %lean_dec.exit272 ], [ %1, %701 ], [ %1, %700 ], [ %1, %698 ], [ %1, %lean_dec.exit260 ]
+  %.0 = phi ptr [ %657, %653 ], [ %366, %lean_alloc_ctor.exit421 ], [ %1, %5 ], [ %231, %230 ], [ %229, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitLevel___spec__2.exit ], [ %357, %lean_alloc_ctor.exit420 ], [ %1, %lean_dec.exit272 ], [ %638, %634 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %414 ], [ %1, %413 ], [ %1, %411 ], [ %1, %701 ], [ %1, %700 ], [ %1, %698 ], [ %1, %lean_dec.exit260 ]
   ret ptr %.0
 }
 
@@ -2748,7 +2748,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit49
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %155, %159, %161, %162, %lean_alloc_ctor.exit, %lean_dec.exit51, %lean_dec.exit52, %lean_dec.exit53
-  %.0 = phi ptr [ %29, %lean_dec.exit53 ], [ %59, %lean_dec.exit52 ], [ %89, %lean_dec.exit51 ], [ %148, %lean_alloc_ctor.exit ], [ %1, %162 ], [ %1, %161 ], [ %1, %159 ], [ %1, %155 ]
+  %.0 = phi ptr [ %148, %lean_alloc_ctor.exit ], [ %29, %lean_dec.exit53 ], [ %59, %lean_dec.exit52 ], [ %89, %lean_dec.exit51 ], [ %1, %162 ], [ %1, %161 ], [ %1, %159 ], [ %1, %155 ]
   ret ptr %.0
 }
 
@@ -3389,7 +3389,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.022) #4
   br label %lean_dec.exit29.backedge
 
-76:                                               ; preds = %29, %28, %26, %lean_dec.exit30
+76:                                               ; preds = %lean_dec.exit30, %29, %28, %26
   ret ptr %.026
 }
 
@@ -3420,7 +3420,7 @@ define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %14, %10, %1
-  %.2.i = phi ptr [ %5, %1 ], [ %13, %10 ], [ %15, %14 ]
+  %.2.i = phi ptr [ %15, %14 ], [ %5, %1 ], [ %13, %10 ]
   %16 = tail call ptr @lean_mk_array(ptr noundef %.2.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %17 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitExpr___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %0, ptr noundef %16)
   ret ptr %17
@@ -3737,7 +3737,7 @@ lean_dec.exit286:                                 ; preds = %119, %118, %116, %l
   br label %lean_dec.exit285
 
 lean_dec.exit285:                                 ; preds = %126, %130, %139, %138, %136
-  %.0.i258474 = phi ptr [ %133, %136 ], [ %133, %138 ], [ %133, %139 ], [ %131, %130 ], [ %129, %126 ]
+  %.0.i258474 = phi ptr [ %133, %139 ], [ %133, %136 ], [ %133, %138 ], [ %131, %130 ], [ %129, %126 ]
   %140 = ptrtoint ptr %0 to i64
   %141 = and i64 %140, 1
   %.not514 = icmp eq i64 %141, 0
@@ -3921,7 +3921,7 @@ lean_dec.exit283.thread:                          ; preds = %lean_dec.exit284
 lean_dec.exit282:                                 ; preds = %211
   br i1 %206, label %230, label %213
 
-213:                                              ; preds = %212, %209, %lean_dec.exit283.thread, %lean_dec.exit282
+213:                                              ; preds = %209, %212, %lean_dec.exit283.thread, %lean_dec.exit282
   %.val.i399 = load i64, ptr %199, align 8, !tbaa !11
   %214 = shl i64 %.val.i399, 1
   %215 = or disjoint i64 %214, 1
@@ -3946,7 +3946,7 @@ lean_dec.exit282:                                 ; preds = %211
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit: ; preds = %213, %221, %225
-  %.2.i.i = phi ptr [ %216, %213 ], [ %224, %221 ], [ %226, %225 ]
+  %.2.i.i = phi ptr [ %226, %225 ], [ %216, %213 ], [ %224, %221 ]
   %227 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %228 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitExpr___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i393, ptr noundef %227)
   store ptr %228, ptr %49, align 8, !tbaa !4
@@ -3954,7 +3954,7 @@ l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr__
   %229 = tail call ptr @l_Lean_CollectLevelMVars_main(ptr noundef %0, ptr noundef nonnull %1)
   br label %lean_dec.exit290
 
-230:                                              ; preds = %212, %209, %lean_dec.exit283.thread, %lean_dec.exit282
+230:                                              ; preds = %209, %212, %lean_dec.exit283.thread, %lean_dec.exit282
   store ptr %.0.i.i393, ptr %49, align 8, !tbaa !4
   store ptr %.0.i258474, ptr %47, align 8, !tbaa !4
   %231 = tail call ptr @l_Lean_CollectLevelMVars_main(ptr noundef %0, ptr noundef nonnull %1)
@@ -4025,7 +4025,7 @@ lean_dec.exit281:                                 ; preds = %240, %239, %237, %2
   br label %lean_dec.exit280
 
 lean_dec.exit280:                                 ; preds = %247, %251, %260, %259, %257
-  %.0.i255479 = phi ptr [ %254, %257 ], [ %254, %259 ], [ %254, %260 ], [ %252, %251 ], [ %250, %247 ]
+  %.0.i255479 = phi ptr [ %254, %260 ], [ %254, %257 ], [ %254, %259 ], [ %252, %251 ], [ %250, %247 ]
   %261 = ptrtoint ptr %0 to i64
   %262 = and i64 %261, 1
   %.not506 = icmp eq i64 %262, 0
@@ -4209,7 +4209,7 @@ lean_dec.exit278.thread:                          ; preds = %lean_dec.exit279
 lean_dec.exit277:                                 ; preds = %332
   br i1 %327, label %358, label %334
 
-334:                                              ; preds = %333, %330, %lean_dec.exit278.thread, %lean_dec.exit277
+334:                                              ; preds = %330, %333, %lean_dec.exit278.thread, %lean_dec.exit277
   %.val.i416 = load i64, ptr %320, align 8, !tbaa !11
   %335 = shl i64 %.val.i416, 1
   %336 = or disjoint i64 %335, 1
@@ -4234,7 +4234,7 @@ lean_dec.exit277:                                 ; preds = %332
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit419
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit419: ; preds = %334, %342, %346
-  %.2.i.i418 = phi ptr [ %337, %334 ], [ %345, %342 ], [ %347, %346 ]
+  %.2.i.i418 = phi ptr [ %347, %346 ], [ %337, %334 ], [ %345, %342 ]
   %348 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i418, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %349 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitExpr___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i408, ptr noundef %348)
   store ptr %349, ptr %49, align 8, !tbaa !4
@@ -4261,7 +4261,7 @@ lean_alloc_ctor.exit420:                          ; preds = %l_Std_DHashMap_Inte
   %357 = tail call ptr @l_Lean_CollectLevelMVars_main(ptr noundef %0, ptr noundef nonnull %350)
   br label %lean_dec.exit290
 
-358:                                              ; preds = %333, %330, %lean_dec.exit278.thread, %lean_dec.exit277
+358:                                              ; preds = %330, %333, %lean_dec.exit278.thread, %lean_dec.exit277
   store ptr %.0.i.i408, ptr %49, align 8, !tbaa !4
   store ptr %.0.i255479, ptr %47, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
@@ -4706,7 +4706,7 @@ lean_dec_ref.exit361:                             ; preds = %513, %512, %510, %l
   br label %lean_dec.exit268
 
 lean_dec.exit268:                                 ; preds = %518, %522, %531, %530, %528
-  %.0.i485 = phi ptr [ %525, %528 ], [ %525, %530 ], [ %525, %531 ], [ %523, %522 ], [ %521, %518 ]
+  %.0.i485 = phi ptr [ %525, %531 ], [ %525, %528 ], [ %525, %530 ], [ %523, %522 ], [ %521, %518 ]
   %532 = ptrtoint ptr %0 to i64
   %533 = and i64 %532, 1
   %.not495 = icmp eq i64 %533, 0
@@ -4890,7 +4890,7 @@ lean_dec.exit266.thread:                          ; preds = %lean_dec.exit267
 lean_dec.exit265:                                 ; preds = %603
   br i1 %598, label %639, label %605
 
-605:                                              ; preds = %604, %601, %lean_dec.exit266.thread, %lean_dec.exit265
+605:                                              ; preds = %601, %604, %lean_dec.exit266.thread, %lean_dec.exit265
   %.val.i464 = load i64, ptr %591, align 8, !tbaa !11
   %606 = shl i64 %.val.i464, 1
   %607 = or disjoint i64 %606, 1
@@ -4915,7 +4915,7 @@ lean_dec.exit265:                                 ; preds = %603
   br label %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit467
 
 l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit467: ; preds = %605, %613, %617
-  %.2.i.i466 = phi ptr [ %608, %605 ], [ %616, %613 ], [ %618, %617 ]
+  %.2.i.i466 = phi ptr [ %618, %617 ], [ %608, %605 ], [ %616, %613 ]
   %619 = tail call ptr @lean_mk_array(ptr noundef %.2.i.i466, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %620 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand_go___at_Lean_CollectLevelMVars_visitExpr___spec__3(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %.0.i.i456, ptr noundef %619)
   tail call void @lean_inc_heartbeat() #4
@@ -4967,7 +4967,7 @@ lean_alloc_ctor.exit469:                          ; preds = %629
   %638 = tail call ptr @l_Lean_CollectLevelMVars_main(ptr noundef %0, ptr noundef %.0240)
   br label %lean_dec.exit290
 
-639:                                              ; preds = %604, %601, %lean_dec.exit266.thread, %lean_dec.exit265
+639:                                              ; preds = %601, %604, %lean_dec.exit266.thread, %lean_dec.exit265
   tail call void @lean_inc_heartbeat() #4
   %640 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %641 = icmp eq ptr %640, null
@@ -5147,7 +5147,7 @@ lean_dec.exit260:                                 ; preds = %692, %691, %689, %l
   br label %lean_dec.exit290
 
 lean_dec.exit290:                                 ; preds = %lean_dec.exit260, %698, %700, %701, %lean_dec.exit272, %411, %413, %414, %5, %11, %13, %14, %230, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit, %lean_alloc_ctor.exit421, %lean_alloc_ctor.exit420, %634, %653
-  %.0 = phi ptr [ %229, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit ], [ %231, %230 ], [ %357, %lean_alloc_ctor.exit420 ], [ %366, %lean_alloc_ctor.exit421 ], [ %638, %634 ], [ %657, %653 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %5 ], [ %1, %414 ], [ %1, %413 ], [ %1, %411 ], [ %1, %lean_dec.exit272 ], [ %1, %701 ], [ %1, %700 ], [ %1, %698 ], [ %1, %lean_dec.exit260 ]
+  %.0 = phi ptr [ %657, %653 ], [ %366, %lean_alloc_ctor.exit421 ], [ %1, %5 ], [ %231, %230 ], [ %229, %l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_CollectLevelMVars_visitExpr___spec__2.exit ], [ %357, %lean_alloc_ctor.exit420 ], [ %1, %lean_dec.exit272 ], [ %638, %634 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %414 ], [ %1, %413 ], [ %1, %411 ], [ %1, %701 ], [ %1, %700 ], [ %1, %698 ], [ %1, %lean_dec.exit260 ]
   ret ptr %.0
 }
 
@@ -5749,7 +5749,7 @@ lean_dec.exit72:                                  ; preds = %216, %215, %213, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %218, %222, %224, %225, %lean_dec.exit72, %lean_dec.exit73, %lean_dec.exit74, %lean_dec.exit75, %lean_dec.exit76, %lean_dec.exit77, %lean_dec.exit78, %lean_dec.exit79
-  %.0 = phi ptr [ %29, %lean_dec.exit79 ], [ %48, %lean_dec.exit78 ], [ %78, %lean_dec.exit77 ], [ %108, %lean_dec.exit76 ], [ %138, %lean_dec.exit75 ], [ %179, %lean_dec.exit74 ], [ %198, %lean_dec.exit73 ], [ %217, %lean_dec.exit72 ], [ %1, %225 ], [ %1, %224 ], [ %1, %222 ], [ %1, %218 ]
+  %.0 = phi ptr [ %217, %lean_dec.exit72 ], [ %29, %lean_dec.exit79 ], [ %48, %lean_dec.exit78 ], [ %78, %lean_dec.exit77 ], [ %108, %lean_dec.exit76 ], [ %138, %lean_dec.exit75 ], [ %179, %lean_dec.exit74 ], [ %198, %lean_dec.exit73 ], [ %1, %225 ], [ %1, %224 ], [ %1, %222 ], [ %1, %218 ]
   ret ptr %.0
 }
 

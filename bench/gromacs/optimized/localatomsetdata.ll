@@ -263,7 +263,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !17
   br label %41
 
@@ -442,8 +442,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %39, %37
   br i1 %63, label %53, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14, !llvm.loop !43
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %58, %42
-  %64 = phi i32 [ %.pre.i, %58 ], [ %47, %42 ]
-  %.0.i.i = phi ptr [ %59, %58 ], [ %45, %42 ]
+  %64 = phi i32 [ %47, %42 ], [ %.pre.i, %58 ]
+  %.0.i.i = phi ptr [ %45, %42 ], [ %59, %58 ]
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14
 
@@ -574,7 +574,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit14:        ; preds = %60, %42, %_ZNK11gmx_ga2la_t4findEi.exit.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i13, %94
-  %118 = phi ptr [ %28, %42 ], [ %28, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %115, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i13 ], [ %96, %94 ], [ %28, %60 ]
+  %118 = phi ptr [ %96, %94 ], [ %28, %42 ], [ %28, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %115, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i13 ], [ %28, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !44

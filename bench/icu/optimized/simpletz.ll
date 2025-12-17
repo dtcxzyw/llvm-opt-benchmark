@@ -1971,7 +1971,7 @@ define noundef i32 @_ZNK6icu_7714SimpleTimeZone9getOffsetEhiiihiiiR10UErrorCode(
   br label %86
 
 86:                                               ; preds = %80, %32, %27, %82, %10, %26
-  %.078 = phi i32 [ -1, %26 ], [ 0, %10 ], [ %29, %32 ], [ %29, %27 ], [ %85, %82 ], [ %29, %80 ]
+  %.078 = phi i32 [ 0, %10 ], [ -1, %26 ], [ %29, %27 ], [ %29, %32 ], [ %85, %82 ], [ %29, %80 ]
   ret i32 %.078
 }
 
@@ -2132,7 +2132,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6icu_7714SimpleTimeZone13compareToRuleEa
   br label %91
 
 91:                                               ; preds = %82, %85, %87, %89, %33, %._crit_edge
-  %.055 = phi i32 [ -1, %._crit_edge ], [ 1, %33 ], [ -1, %82 ], [ 1, %85 ], [ -1, %87 ], [ %., %89 ]
+  %.055 = phi i32 [ 1, %33 ], [ -1, %._crit_edge ], [ -1, %87 ], [ -1, %82 ], [ 1, %85 ], [ %., %89 ]
   ret i32 %.055
 }
 
@@ -2283,7 +2283,7 @@ _ZN6icu_775Grego11monthLengthEii.exit39:          ; preds = %77, %_ZN6icu_775Gre
   store i32 %91, ptr %5, align 4, !tbaa !50
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %53, %57, %51, %55, %_ZN6icu_775Grego11monthLengthEii.exit39, %_ZN6icu_775Grego11monthLengthEii.exit, %15
+.critedge:                                        ; preds = %60, %53, %51, %57, %55, %_ZN6icu_775Grego11monthLengthEii.exit39, %_ZN6icu_775Grego11monthLengthEii.exit, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2558,7 +2558,7 @@ _ZNKSt9type_infoneERKS_.exit.thread23:            ; preds = %4, %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16, %_ZNKSt9type_infoneERKS_.exit.thread23, %27, %34, %40, %46, %52, %58, %64, %70, %76, %82, %88, %94, %100, %106, %112, %33, %_ZNKSt9type_infoneERKS_.exit, %2
-  %.0 = phi i8 [ 1, %2 ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %27 ], [ 0, %_ZNKSt9type_infoneERKS_.exit.thread23 ], [ 1, %33 ], [ 0, %106 ], [ 0, %100 ], [ 0, %94 ], [ 0, %88 ], [ 0, %82 ], [ 0, %76 ], [ 0, %70 ], [ 0, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %118, %112 ], [ 0, %16 ]
+  %.0 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 0, %27 ], [ 0, %_ZNKSt9type_infoneERKS_.exit.thread23 ], [ 1, %33 ], [ 0, %106 ], [ 0, %100 ], [ 0, %94 ], [ 0, %88 ], [ 0, %82 ], [ 0, %76 ], [ 0, %70 ], [ 0, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %118, %112 ], [ 0, %16 ]
   ret i8 %.0
 }
 
@@ -3081,7 +3081,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %_ZN6icu_7714Sim
   br label %.critedge170
 
 134:                                              ; preds = %70, %84, %101, %118
-  %.0101 = phi ptr [ %68, %70 ], [ %82, %84 ], [ %99, %101 ], [ %116, %118 ]
+  %.0101 = phi ptr [ %99, %101 ], [ %68, %70 ], [ %82, %84 ], [ %116, %118 ]
   %135 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 96) #14
   %.not139 = icmp eq ptr %135, null
   br i1 %.not139, label %.critedge156.thread, label %136
@@ -3309,8 +3309,8 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
   call void @_ZN6icu_7714SimpleTimeZone21deleteTransitionRulesEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.critedge170
 
-249:                                              ; preds = %172, %186, %200, %217, %234
-  %.1102.ph = phi ptr [ %232, %234 ], [ %215, %217 ], [ %198, %200 ], [ %184, %186 ], [ %.0101, %172 ]
+249:                                              ; preds = %172, %217, %186, %200, %234
+  %.1102.ph = phi ptr [ %232, %234 ], [ %198, %200 ], [ %184, %186 ], [ %215, %217 ], [ %.0101, %172 ]
   %250 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 96) #14
   %.not143 = icmp eq ptr %250, null
   br i1 %.not143, label %.critedge160.thread, label %251
@@ -3608,7 +3608,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %136
   br label %364
 
 350:                                              ; preds = %345, %337, %317, %309, %269, %246, %229, %212, %195, %.body, %130, %113, %96, %79, %181
-  %.pn152 = phi { ptr, i32 } [ %318, %317 ], [ %.pn148.pn, %309 ], [ %346, %345 ], [ %.pn144.pn, %337 ], [ %182, %181 ], [ %.pn140.pn, %269 ], [ %196, %195 ], [ %213, %212 ], [ %230, %229 ], [ %247, %246 ], [ %.pn.pn, %.body ], [ %80, %79 ], [ %97, %96 ], [ %114, %113 ], [ %131, %130 ]
+  %.pn152 = phi { ptr, i32 } [ %318, %317 ], [ %247, %246 ], [ %.pn148.pn, %309 ], [ %131, %130 ], [ %346, %345 ], [ %230, %229 ], [ %.pn144.pn, %337 ], [ %80, %79 ], [ %182, %181 ], [ %.pn140.pn, %269 ], [ %.pn.pn, %.body ], [ %196, %195 ], [ %97, %96 ], [ %213, %212 ], [ %114, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %367

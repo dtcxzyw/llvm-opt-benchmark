@@ -323,7 +323,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui12VScrollPanel18mouse_button_eventE
   br label %73
 
 73:                                               ; preds = %7, %9, %15, %21, %5, %60
-  %.017 = phi i1 [ true, %60 ], [ true, %5 ], [ false, %21 ], [ false, %15 ], [ false, %9 ], [ false, %7 ]
+  %.017 = phi i1 [ true, %60 ], [ true, %5 ], [ false, %7 ], [ false, %21 ], [ false, %15 ], [ false, %9 ]
   ret i1 %.017
 }
 

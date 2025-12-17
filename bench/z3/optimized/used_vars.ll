@@ -179,8 +179,8 @@ _ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit.preheader: ; preds = %_ZN6vecto
   store i32 %55, ptr %59, align 4, !tbaa !33
   br label %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit
 
-thread-pre-split:                                 ; preds = %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit58, %_ZN6vectorIP4sortLb0EjE6resizeIDnEEvjT_z.exit.thread-pre-split_crit_edge, %90, %74, %.thread, %110, %146, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit72
-  %.pr = phi ptr [ %.pr.pre, %_ZN6vectorIP4sortLb0EjE6resizeIDnEEvjT_z.exit.thread-pre-split_crit_edge ], [ %84, %90 ], [ %75, %74 ], [ %84, %.thread ], [ %84, %110 ], [ %.pr.pre115, %146 ], [ %215, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit72 ], [ %105, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit58 ]
+thread-pre-split:                                 ; preds = %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit58, %_ZN6vectorIP4sortLb0EjE6resizeIDnEEvjT_z.exit.thread-pre-split_crit_edge, %90, %74, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit72, %.thread, %110, %146
+  %.pr = phi ptr [ %.pr.pre, %_ZN6vectorIP4sortLb0EjE6resizeIDnEEvjT_z.exit.thread-pre-split_crit_edge ], [ %.pr.pre115, %146 ], [ %84, %90 ], [ %75, %74 ], [ %215, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit72 ], [ %84, %.thread ], [ %84, %110 ], [ %105, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit58 ]
   %60 = icmp eq ptr %.pr, null
   br i1 %60, label %_ZN6vectorI15expr_delta_pairLb0EjE5resetEv.exit60, label %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit
 
@@ -1012,7 +1012,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   br i1 %.not27, label %.loopexit, label %.lr.ph34, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %82, %90, %.lr.ph34, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ %.133, %82 ], [ null, %90 ], [ null, %.lr.ph34 ], [ null, %.lr.ph ], [ %.031, %67 ]
+  %.026 = phi ptr [ null, %.preheader ], [ null, %.lr.ph34 ], [ %.133, %82 ], [ null, %90 ], [ %.031, %67 ], [ null, %.lr.ph ]
   ret ptr %.026
 }
 

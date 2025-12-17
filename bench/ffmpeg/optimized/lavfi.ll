@@ -116,8 +116,8 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %.not222 = icmp eq i32 %38, 0
   br i1 %.not222, label %39, label %.thread258
 
-.thread258:                                       ; preds = %35, %23, %26, %37
-  %.1173.ph = phi i32 [ %38, %37 ], [ %29, %26 ], [ %24, %23 ], [ %33, %35 ]
+.thread258:                                       ; preds = %26, %23, %35, %37
+  %.1173.ph = phi i32 [ %38, %37 ], [ %33, %35 ], [ %24, %23 ], [ %29, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -431,8 +431,8 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %.thread271, label %161
 
-.thread271:                                       ; preds = %131, %136, %140, %143, %147, %153, %151, %129
-  %.6.ph = phi i32 [ -1279870712, %129 ], [ -22, %151 ], [ %159, %153 ], [ %134, %131 ], [ -12, %136 ], [ %141, %140 ], [ %145, %143 ], [ %149, %147 ]
+.thread271:                                       ; preds = %147, %136, %140, %143, %131, %153, %129, %151
+  %.6.ph = phi i32 [ -1279870712, %129 ], [ -22, %151 ], [ %159, %153 ], [ %149, %147 ], [ -12, %136 ], [ %141, %140 ], [ %145, %143 ], [ %134, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -579,7 +579,7 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph320, %214, %169, %.thread271, %.thread262, %.thread258, %._crit_edge321, %69, %66, %63, %._crit_edge, %46, %._crit_edge331, %._crit_edge327, %49, %55, %19
-  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ %164, %._crit_edge327 ], [ %233, %._crit_edge331 ], [ -12, %46 ], [ -12, %._crit_edge ], [ -12, %63 ], [ -12, %66 ], [ -12, %69 ], [ -12, %._crit_edge321 ], [ %.1173.ph, %.thread258 ], [ -22, %.thread262 ], [ %.6.ph, %.thread271 ], [ -12, %169 ], [ %218, %214 ], [ -12, %.lr.ph320 ]
+  %.0172 = phi i32 [ -22, %19 ], [ %51, %49 ], [ -22, %55 ], [ -22, %.thread262 ], [ -12, %._crit_edge321 ], [ %.6.ph, %.thread271 ], [ %164, %._crit_edge327 ], [ -12, %169 ], [ %233, %._crit_edge331 ], [ -12, %69 ], [ -12, %66 ], [ -12, %63 ], [ -12, %._crit_edge ], [ -12, %46 ], [ %.1173.ph, %.thread258 ], [ %218, %214 ], [ -12, %.lr.ph320 ]
   call void @avfilter_inout_free(ptr noundef nonnull %2) #10
   call void @avfilter_inout_free(ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -668,9 +668,9 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %.2 = select nsz i1 %46, double %45, double %.070118
   br label %48
 
-48:                                               ; preds = %37, %42, %23
-  %.172.ph = phi i32 [ %.071117, %23 ], [ %.273, %42 ], [ %.071117, %37 ]
-  %.1.ph = phi double [ %.070118, %23 ], [ %.2, %42 ], [ %.070118, %37 ]
+48:                                               ; preds = %42, %37, %23
+  %.172.ph = phi i32 [ %.071117, %23 ], [ %.071117, %37 ], [ %.273, %42 ]
+  %.1.ph = phi double [ %.070118, %23 ], [ %.070118, %37 ], [ %.2, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %17, align 8, !tbaa !43
   %50 = sext i32 %49 to i64
@@ -804,12 +804,12 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   br label %122
 
 .loopexit:                                        ; preds = %40, %16, %.thread111, %85, %72, %._crit_edge, %112
-  %.276 = phi i32 [ %113, %112 ], [ -541478725, %._crit_edge ], [ -12, %72 ], [ %95, %85 ], [ %.3.ph, %.thread111 ], [ -541478725, %16 ], [ %35, %40 ]
+  %.276 = phi i32 [ -12, %72 ], [ %113, %112 ], [ %.3.ph, %.thread111 ], [ -541478725, %._crit_edge ], [ %95, %85 ], [ -541478725, %16 ], [ %35, %40 ]
   call void @av_frame_free(ptr noundef nonnull %3) #10
   br label %122
 
 122:                                              ; preds = %14, %.loopexit, %115, %10
-  %.0 = phi i32 [ %13, %10 ], [ %.276, %.loopexit ], [ %121, %115 ], [ -12, %14 ]
+  %.0 = phi i32 [ %13, %10 ], [ -12, %14 ], [ %.276, %.loopexit ], [ %121, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1071,7 +1071,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @create_subcc_packet(ptr %.
   br label %28
 
 28:                                               ; preds = %11, %9, %2, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %2 ], [ 0, %9 ], [ %16, %11 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %18 ], [ %16, %11 ]
   ret i32 %.0
 }
 

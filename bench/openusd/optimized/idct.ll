@@ -738,7 +738,7 @@ is_inter_block.exit.i:                            ; preds = %34, %12
   br label %init_txfm_param.exit
 
 init_txfm_param.exit:                             ; preds = %is_inter_block.exit.i, %45, %48, %50
-  %.0.i.i = phi i8 [ %46, %45 ], [ %49, %48 ], [ %56, %50 ], [ 0, %is_inter_block.exit.i ]
+  %.0.i.i = phi i8 [ %56, %50 ], [ %46, %45 ], [ %49, %48 ], [ 0, %is_inter_block.exit.i ]
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 %.0.i.i, ptr %57, align 4
   %.not12 = icmp eq i32 %.lobit.i.i, 0

@@ -113,7 +113,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not258, label %72, label %.thread271
 
 .thread271.sink.split:                            ; preds = %64, %66, %58, %54, %56, %48, %45, %42, %39, %37, %16
-  %.sink = phi i32 [ -1, %16 ], [ -2, %37 ], [ -3, %39 ], [ -4, %42 ], [ -5, %45 ], [ -6, %48 ], [ -10, %56 ], [ -10, %54 ], [ -12, %58 ], [ -14, %66 ], [ -14, %64 ]
+  %.sink = phi i32 [ -1, %16 ], [ -2, %37 ], [ -4, %42 ], [ -6, %48 ], [ -12, %58 ], [ -10, %54 ], [ -5, %45 ], [ -3, %39 ], [ -10, %56 ], [ -14, %66 ], [ -14, %64 ]
   store i32 %.sink, ptr %15, align 4, !tbaa !3
   br label %.thread271
 
@@ -368,7 +368,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %198, label %.sink.split, label %201
 
 .sink.split:                                      ; preds = %184, %.thread278, %.thread332, %.thread336
-  %.sink343 = phi ptr [ %2, %.thread336 ], [ %21, %.thread332 ], [ %2, %.thread278 ], [ %21, %184 ]
+  %.sink343 = phi ptr [ %2, %.thread278 ], [ %2, %.thread336 ], [ %21, %.thread332 ], [ %21, %184 ]
   %.pre323335.sink = load i32, ptr %21, align 4, !tbaa !3
   %199 = sext i32 %.pre323335.sink to i64
   %200 = getelementptr inbounds double, ptr %33, i64 %199

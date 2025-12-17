@@ -444,8 +444,8 @@ define hidden void @process_loglogistic_rgb_ratio(ptr noundef readonly captures(
   %27 = shl nsw i64 %12, 2
   %28 = mul i64 %27, %15
   %.not = icmp eq i64 %28, 0
-  %.sink.i.sroa.gep84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.i.sroa.gep86 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.i.sroa.gep85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
@@ -540,9 +540,9 @@ _desaturate_negative_values.exit:                 ; preds = %49
 
 .loopexit:                                        ; preds = %.preheader73, %77
   %86 = load float, ptr %6, align 16, !tbaa !60
-  %87 = load float, ptr %.sink.i.sroa.gep86, align 4, !tbaa !60
+  %87 = load float, ptr %.sink.i.sroa.gep85, align 4, !tbaa !60
   %88 = fcmp reassoc nsz arcp contract afn ult float %86, %87
-  %89 = load float, ptr %.sink.i.sroa.gep84, align 8, !tbaa !60
+  %89 = load float, ptr %.sink.i.sroa.gep, align 8, !tbaa !60
   br i1 %88, label %97, label %90
 
 90:                                               ; preds = %.loopexit
@@ -572,8 +572,8 @@ _desaturate_negative_values.exit:                 ; preds = %49
   br label %_pixel_channel_order.exit
 
 _pixel_channel_order.exit:                        ; preds = %99, %97, %94, %92, %90, %96, %101
-  %.sroa.11.0.sroa.phi = phi ptr [ %.sink.i.sroa.gep86, %101 ], [ %6, %96 ], [ %6, %90 ], [ %.sink.i.sroa.gep84, %92 ], [ %6, %94 ], [ %.sink.i.sroa.gep86, %97 ], [ %.sink.i.sroa.gep84, %99 ]
-  %.sink.i.sroa.phi = phi ptr [ %6, %101 ], [ %.sink.i.sroa.gep84, %96 ], [ %.sink.i.sroa.gep84, %90 ], [ %.sink.i.sroa.gep86, %92 ], [ %.sink.i.sroa.gep86, %94 ], [ %.sink.i.sroa.gep84, %97 ], [ %6, %99 ]
+  %.sroa.11.0.sroa.phi = phi ptr [ %.sink.i.sroa.gep85, %97 ], [ %.sink.i.sroa.gep85, %101 ], [ %6, %94 ], [ %6, %96 ], [ %6, %90 ], [ %.sink.i.sroa.gep, %92 ], [ %.sink.i.sroa.gep, %99 ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %97 ], [ %6, %101 ], [ %.sink.i.sroa.gep85, %94 ], [ %.sink.i.sroa.gep, %96 ], [ %.sink.i.sroa.gep, %90 ], [ %.sink.i.sroa.gep85, %92 ], [ %6, %99 ]
   %102 = load float, ptr %.sink.i.sroa.phi, align 4, !tbaa !60
   %103 = load float, ptr %.sroa.11.0.sroa.phi, align 4, !tbaa !60
   %104 = fsub reassoc nsz arcp contract afn float %16, %72
@@ -678,9 +678,9 @@ define hidden void @process_loglogistic_per_channel(ptr noundef %0, ptr noundef 
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %46 = load i32, ptr %45, align 4, !tbaa !61
   %.sroa.11.0.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %.sroa.11.0.sroa.gep99 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sink.i.sroa.gep119 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sink.i.sroa.gep121 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.sroa.11.0.sroa.gep101 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink.i.sroa.gep118 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sink.i.sroa.gep120 = getelementptr inbounds nuw i8, ptr %21, i64 4
   switch i32 %46, label %49 [
     i32 0, label %_get_base_profile.exit.thread
     i32 4, label %_get_base_profile.exit
@@ -705,7 +705,7 @@ _get_base_profile.exit.thread:                    ; preds = %6
   br label %_get_base_profile.exit
 
 _get_base_profile.exit:                           ; preds = %6, %47, %48, %49
-  %.0.i.i = phi i32 [ 26, %47 ], [ 2, %48 ], [ 4, %49 ], [ 1, %6 ]
+  %.0.i.i = phi i32 [ 4, %49 ], [ 26, %47 ], [ 2, %48 ], [ 1, %6 ]
   %50 = tail call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull @.str.65, i32 noundef 1) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1120,7 +1120,7 @@ _desaturate_negative_values.exit:                 ; preds = %200
   %227 = load float, ptr %22, align 16, !tbaa !60
   %228 = load float, ptr %.sroa.11.0.sroa.gep, align 4, !tbaa !60
   %229 = fcmp reassoc nsz arcp contract afn ult float %227, %228
-  %230 = load float, ptr %.sroa.11.0.sroa.gep99, align 8, !tbaa !60
+  %230 = load float, ptr %.sroa.11.0.sroa.gep101, align 8, !tbaa !60
   br i1 %229, label %238, label %231
 
 231:                                              ; preds = %225
@@ -1150,15 +1150,15 @@ _desaturate_negative_values.exit:                 ; preds = %200
   br label %_pixel_channel_order.exit
 
 _pixel_channel_order.exit:                        ; preds = %240, %238, %235, %233, %231, %237, %242
-  %.sroa.4.0.sroa.phi = phi ptr [ %.sroa.27, %242 ], [ %.sroa.14, %237 ], [ %.sroa.14, %231 ], [ %.sroa.0, %233 ], [ %.sroa.27, %235 ], [ %.sroa.0, %238 ], [ %.sroa.14, %240 ]
-  %.sroa.4.0.sroa.phi110 = phi ptr [ %.sroa.11.0.sroa.gep99, %242 ], [ %.sroa.11.0.sroa.gep, %237 ], [ %.sroa.11.0.sroa.gep, %231 ], [ %22, %233 ], [ %.sroa.11.0.sroa.gep99, %235 ], [ %22, %238 ], [ %.sroa.11.0.sroa.gep, %240 ]
-  %.sroa.4.0.sroa.phi133 = phi ptr [ %.sink.i.sroa.gep119, %242 ], [ %.sink.i.sroa.gep121, %237 ], [ %.sink.i.sroa.gep121, %231 ], [ %21, %233 ], [ %.sink.i.sroa.gep119, %235 ], [ %21, %238 ], [ %.sink.i.sroa.gep121, %240 ]
-  %.sroa.11.0.sroa.phi = phi ptr [ %.sroa.14, %242 ], [ %.sroa.0, %237 ], [ %.sroa.0, %231 ], [ %.sroa.27, %233 ], [ %.sroa.0, %235 ], [ %.sroa.14, %238 ], [ %.sroa.27, %240 ]
-  %.sroa.11.0.sroa.phi96 = phi ptr [ %.sroa.11.0.sroa.gep, %242 ], [ %22, %237 ], [ %22, %231 ], [ %.sroa.11.0.sroa.gep99, %233 ], [ %22, %235 ], [ %.sroa.11.0.sroa.gep, %238 ], [ %.sroa.11.0.sroa.gep99, %240 ]
-  %.sroa.11.0.sroa.phi125 = phi ptr [ %.sink.i.sroa.gep121, %242 ], [ %21, %237 ], [ %21, %231 ], [ %.sink.i.sroa.gep119, %233 ], [ %21, %235 ], [ %.sink.i.sroa.gep121, %238 ], [ %.sink.i.sroa.gep119, %240 ]
-  %.sink.i.sroa.phi = phi ptr [ %.sroa.0, %242 ], [ %.sroa.27, %237 ], [ %.sroa.27, %231 ], [ %.sroa.14, %233 ], [ %.sroa.14, %235 ], [ %.sroa.27, %238 ], [ %.sroa.0, %240 ]
-  %.sink.i.sroa.phi103 = phi ptr [ %22, %242 ], [ %.sroa.11.0.sroa.gep99, %237 ], [ %.sroa.11.0.sroa.gep99, %231 ], [ %.sroa.11.0.sroa.gep, %233 ], [ %.sroa.11.0.sroa.gep, %235 ], [ %.sroa.11.0.sroa.gep99, %238 ], [ %22, %240 ]
-  %.sink.i.sroa.phi117 = phi ptr [ %21, %242 ], [ %.sink.i.sroa.gep119, %237 ], [ %.sink.i.sroa.gep119, %231 ], [ %.sink.i.sroa.gep121, %233 ], [ %.sink.i.sroa.gep121, %235 ], [ %.sink.i.sroa.gep119, %238 ], [ %21, %240 ]
+  %.sroa.4.0.sroa.phi = phi ptr [ %.sroa.0, %238 ], [ %.sroa.27, %242 ], [ %.sroa.27, %235 ], [ %.sroa.14, %237 ], [ %.sroa.14, %231 ], [ %.sroa.0, %233 ], [ %.sroa.14, %240 ]
+  %.sroa.4.0.sroa.phi110 = phi ptr [ %22, %238 ], [ %.sroa.11.0.sroa.gep101, %242 ], [ %.sroa.11.0.sroa.gep101, %235 ], [ %.sroa.11.0.sroa.gep, %237 ], [ %.sroa.11.0.sroa.gep, %231 ], [ %22, %233 ], [ %.sroa.11.0.sroa.gep, %240 ]
+  %.sroa.4.0.sroa.phi133 = phi ptr [ %21, %238 ], [ %.sink.i.sroa.gep118, %242 ], [ %.sink.i.sroa.gep118, %235 ], [ %.sink.i.sroa.gep120, %237 ], [ %.sink.i.sroa.gep120, %231 ], [ %21, %233 ], [ %.sink.i.sroa.gep120, %240 ]
+  %.sroa.11.0.sroa.phi = phi ptr [ %.sroa.14, %238 ], [ %.sroa.14, %242 ], [ %.sroa.0, %235 ], [ %.sroa.0, %237 ], [ %.sroa.0, %231 ], [ %.sroa.27, %233 ], [ %.sroa.27, %240 ]
+  %.sroa.11.0.sroa.phi96 = phi ptr [ %.sroa.11.0.sroa.gep, %238 ], [ %.sroa.11.0.sroa.gep, %242 ], [ %22, %235 ], [ %22, %237 ], [ %22, %231 ], [ %.sroa.11.0.sroa.gep101, %233 ], [ %.sroa.11.0.sroa.gep101, %240 ]
+  %.sroa.11.0.sroa.phi125 = phi ptr [ %.sink.i.sroa.gep120, %238 ], [ %.sink.i.sroa.gep120, %242 ], [ %21, %235 ], [ %21, %237 ], [ %21, %231 ], [ %.sink.i.sroa.gep118, %233 ], [ %.sink.i.sroa.gep118, %240 ]
+  %.sink.i.sroa.phi = phi ptr [ %.sroa.27, %238 ], [ %.sroa.0, %242 ], [ %.sroa.14, %235 ], [ %.sroa.27, %237 ], [ %.sroa.27, %231 ], [ %.sroa.14, %233 ], [ %.sroa.0, %240 ]
+  %.sink.i.sroa.phi103 = phi ptr [ %.sroa.11.0.sroa.gep101, %238 ], [ %22, %242 ], [ %.sroa.11.0.sroa.gep, %235 ], [ %.sroa.11.0.sroa.gep101, %237 ], [ %.sroa.11.0.sroa.gep101, %231 ], [ %.sroa.11.0.sroa.gep, %233 ], [ %22, %240 ]
+  %.sink.i.sroa.phi117 = phi ptr [ %.sink.i.sroa.gep118, %238 ], [ %21, %242 ], [ %.sink.i.sroa.gep120, %235 ], [ %.sink.i.sroa.gep118, %237 ], [ %.sink.i.sroa.gep118, %231 ], [ %.sink.i.sroa.gep120, %233 ], [ %21, %240 ]
   %243 = load float, ptr %.sroa.11.0.sroa.phi96, align 4, !tbaa !60
   %244 = load float, ptr %.sink.i.sroa.phi103, align 4, !tbaa !60
   %245 = fsub reassoc nsz arcp contract afn float %243, %244
@@ -1177,9 +1177,9 @@ _pixel_channel_order.exit:                        ; preds = %240, %238, %235, %2
   %258 = fmul reassoc nsz arcp contract afn float %255, %41
   %259 = fadd reassoc nsz arcp contract afn float %258, %257
   %260 = load float, ptr %21, align 16, !tbaa !60
-  %261 = load float, ptr %.sink.i.sroa.gep121, align 4, !tbaa !60
+  %261 = load float, ptr %.sink.i.sroa.gep120, align 4, !tbaa !60
   %262 = fadd reassoc nsz arcp contract afn float %261, %260
-  %263 = load float, ptr %.sink.i.sroa.gep119, align 8, !tbaa !60
+  %263 = load float, ptr %.sink.i.sroa.gep118, align 8, !tbaa !60
   %264 = fadd reassoc nsz arcp contract afn float %262, %263
   %265 = fadd reassoc nsz arcp contract afn float %252, %251
   %266 = fadd reassoc nsz arcp contract afn float %265, %259
@@ -1732,7 +1732,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %55
 
 55:                                               ; preds = %52, %2, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %52 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %52 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -1809,7 +1809,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #4 {
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ %., %27 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ %., %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

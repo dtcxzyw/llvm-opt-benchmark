@@ -383,17 +383,17 @@ bytestream2_get_byte.exit138.i:                   ; preds = %152, %151
   br i1 %187, label %.thread184.loopexit232.i, label %188
 
 188:                                              ; preds = %._crit_edge.i, %.lr.ph205.i
-  %.4116.ph.i = phi i32 [ 0, %._crit_edge.i ], [ %174, %.lr.ph205.i ]
-  %.5107.ph.i = phi i32 [ %.4106.lcssa.i, %._crit_edge.i ], [ %.1103202.i, %.lr.ph205.i ]
-  %.3101.ph.i = phi i32 [ %.2100.lcssa.i, %._crit_edge.i ], [ %176, %.lr.ph205.i ]
-  %.5.ph.i = phi ptr [ %.4.lcssa.i, %._crit_edge.i ], [ %.1204.i, %.lr.ph205.i ]
+  %.4116.ph.i = phi i32 [ %174, %.lr.ph205.i ], [ 0, %._crit_edge.i ]
+  %.5107.ph.i = phi i32 [ %.1103202.i, %.lr.ph205.i ], [ %.4106.lcssa.i, %._crit_edge.i ]
+  %.3101.ph.i = phi i32 [ %176, %.lr.ph205.i ], [ %.2100.lcssa.i, %._crit_edge.i ]
+  %.5.ph.i = phi ptr [ %.1204.i, %.lr.ph205.i ], [ %.4.lcssa.i, %._crit_edge.i ]
   %189 = add nsw i32 %.3101.ph.i, 1
   %190 = icmp slt i32 %189, %.0124.i
   br i1 %190, label %.lr.ph205.i, label %.thread184.loopexit232.i, !llvm.loop !47
 
 191:                                              ; preds = %bytestream2_get_byte.exit138.i, %144, %bytestream2_get_byte.exit140.i, %.thread164.i
-  %192 = phi ptr [ %156, %bytestream2_get_byte.exit138.i ], [ %139, %bytestream2_get_byte.exit140.i ], [ %70, %.thread164.i ], [ %72, %144 ]
-  %.0121.ph.in.i = phi i32 [ %159, %bytestream2_get_byte.exit138.i ], [ %143, %bytestream2_get_byte.exit140.i ], [ 0, %.thread164.i ], [ %74, %144 ]
+  %192 = phi ptr [ %139, %bytestream2_get_byte.exit140.i ], [ %156, %bytestream2_get_byte.exit138.i ], [ %70, %.thread164.i ], [ %72, %144 ]
+  %.0121.ph.in.i = phi i32 [ %143, %bytestream2_get_byte.exit140.i ], [ %159, %bytestream2_get_byte.exit138.i ], [ 0, %.thread164.i ], [ %74, %144 ]
   %.0121.ph.i = add nuw nsw i32 %.0121.ph.in.i, 1
   %193 = ptrtoint ptr %70 to i64
   %194 = ptrtoint ptr %192 to i64
@@ -430,24 +430,24 @@ bytestream2_get_byte.exit138.i:                   ; preds = %152, %151
   br i1 %211, label %qpeg_decode_intra.exit, label %212
 
 212:                                              ; preds = %208, %.lr.ph218.i
-  %.8120.i = phi i32 [ %206, %.lr.ph218.i ], [ 0, %208 ]
-  %.9111.i = phi i32 [ %.7109215.i, %.lr.ph218.i ], [ %210, %208 ]
-  %.9.i = phi ptr [ %.7216.i, %.lr.ph218.i ], [ %209, %208 ]
+  %.8120.i = phi i32 [ 0, %208 ], [ %206, %.lr.ph218.i ]
+  %.9111.i = phi i32 [ %210, %208 ], [ %.7109215.i, %.lr.ph218.i ]
+  %.9.i = phi ptr [ %209, %208 ], [ %.7216.i, %.lr.ph218.i ]
   %213 = icmp sgt i32 %207, 0
   br i1 %213, label %.lr.ph218.i, label %.thread184.i
 
 .thread184.loopexit232.i:                         ; preds = %188, %._crit_edge.i
-  %.5117.ph233.i = phi i32 [ 0, %._crit_edge.i ], [ %.4116.ph.i, %188 ]
-  %.6108.ph234.i = phi i32 [ %.4106.lcssa.i, %._crit_edge.i ], [ %.5107.ph.i, %188 ]
-  %.6.ph235.i = phi ptr [ %.4.lcssa.i, %._crit_edge.i ], [ %.5.ph.i, %188 ]
+  %.5117.ph233.i = phi i32 [ %.4116.ph.i, %188 ], [ 0, %._crit_edge.i ]
+  %.6108.ph234.i = phi i32 [ %.5107.ph.i, %188 ], [ %.4106.lcssa.i, %._crit_edge.i ]
+  %.6.ph235.i = phi ptr [ %.5.ph.i, %188 ], [ %.4.lcssa.i, %._crit_edge.i ]
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !37
   br label %.thread184.i
 
 .thread184.i:                                     ; preds = %212, %.thread184.loopexit232.i, %191
-  %214 = phi ptr [ %192, %191 ], [ %.pre.i, %.thread184.loopexit232.i ], [ %205, %212 ]
-  %.5117.i = phi i32 [ %.0112226.i, %191 ], [ %.5117.ph233.i, %.thread184.loopexit232.i ], [ %.8120.i, %212 ]
-  %.6108.i = phi i32 [ %.0102227.i, %191 ], [ %.6108.ph234.i, %.thread184.loopexit232.i ], [ %.9111.i, %212 ]
-  %.6.i = phi ptr [ %.0228.i, %191 ], [ %.6.ph235.i, %.thread184.loopexit232.i ], [ %.9.i, %212 ]
+  %214 = phi ptr [ %.pre.i, %.thread184.loopexit232.i ], [ %192, %191 ], [ %205, %212 ]
+  %.5117.i = phi i32 [ %.5117.ph233.i, %.thread184.loopexit232.i ], [ %.0112226.i, %191 ], [ %.8120.i, %212 ]
+  %.6108.i = phi i32 [ %.6108.ph234.i, %.thread184.loopexit232.i ], [ %.0102227.i, %191 ], [ %.9111.i, %212 ]
+  %.6.i = phi ptr [ %.6.ph235.i, %.thread184.loopexit232.i ], [ %.0228.i, %191 ], [ %.9.i, %212 ]
   %215 = load ptr, ptr %21, align 8, !tbaa !39
   %216 = ptrtoint ptr %215 to i64
   %217 = ptrtoint ptr %214 to i64
@@ -951,7 +951,7 @@ bytestream2_get_byte.exit205:                     ; preds = %162, %163
   br label %bytestream2_get_byte.exit203
 
 bytestream2_get_byte.exit203:                     ; preds = %196, %195, %185, %184, %177
-  %.0 = phi i32 [ %178, %177 ], [ 64, %184 ], [ %189, %185 ], [ 320, %195 ], [ %200, %196 ]
+  %.0 = phi i32 [ %189, %185 ], [ %178, %177 ], [ 64, %184 ], [ 320, %195 ], [ %200, %196 ]
   %201 = add nsw i32 %.0, %.0161247
   br label %202
 
@@ -993,9 +993,9 @@ bytestream2_get_byte.exit203:                     ; preds = %196, %195, %185, %1
   br label %.loopexit219
 
 .loopexit219:                                     ; preds = %202, %173, %146, %215, %216
-  %.4165 = phi i32 [ 0, %216 ], [ %.9, %215 ], [ %.3164, %146 ], [ %.6167, %173 ], [ %.7168, %202 ]
-  %.4148 = phi i32 [ %218, %216 ], [ %.0144248, %215 ], [ %.3147, %146 ], [ %.6150, %173 ], [ %.7151, %202 ]
-  %.4 = phi ptr [ %217, %216 ], [ %.0141249, %215 ], [ %.3, %146 ], [ %.6, %173 ], [ %.7, %202 ]
+  %.4165 = phi i32 [ %.9, %215 ], [ 0, %216 ], [ %.6167, %173 ], [ %.3164, %146 ], [ %.7168, %202 ]
+  %.4148 = phi i32 [ %.0144248, %215 ], [ %218, %216 ], [ %.6150, %173 ], [ %.3147, %146 ], [ %.7151, %202 ]
+  %.4 = phi ptr [ %.0141249, %215 ], [ %217, %216 ], [ %.6, %173 ], [ %.3, %146 ], [ %.7, %202 ]
   %219 = load ptr, ptr %17, align 8, !tbaa !39
   %220 = load ptr, ptr %16, align 8, !tbaa !37
   %221 = ptrtoint ptr %219 to i64

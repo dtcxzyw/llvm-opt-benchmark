@@ -2408,13 +2408,13 @@ define void @_ZN3gmx30TrajectoryAnalysisRunnerCommon15optionsFinishedEv(ptr noun
   ret void
 
 .sink.split43:                                    ; preds = %37, %.sink.split42, %24, %.sink.split
-  %.sink = phi ptr [ %17, %.sink.split ], [ %17, %24 ], [ %30, %.sink.split42 ], [ %30, %37 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %25, %24 ], [ %.pn.pn37.ph, %.sink.split42 ], [ %38, %37 ]
+  %.sink = phi ptr [ %17, %24 ], [ %17, %.sink.split ], [ %30, %.sink.split42 ], [ %30, %37 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn37.ph, %.sink.split42 ], [ %38, %37 ]
   call void @__cxa_free_exception(ptr %.sink) #19
   br label %71
 
 71:                                               ; preds = %.sink.split43, %37, %24
-  %.pn17.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %38, %37 ], [ %.pn17.pn.pn.ph, %.sink.split43 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %25, %24 ], [ %.pn17.pn.pn.ph, %.sink.split43 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 72:                                               ; preds = %34, %21

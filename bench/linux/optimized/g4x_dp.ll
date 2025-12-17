@@ -78,7 +78,7 @@ define dso_local void @g4x_dp_set_clock(ptr noundef readonly captures(none) %0, 
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %16, %2, %9, %13
-  %20 = phi ptr [ @g4x_dpll, %2 ], [ @pch_dpll, %9 ], [ @chv_dpll, %13 ], [ @vlv_dpll, %16 ]
+  %20 = phi ptr [ @chv_dpll, %13 ], [ @g4x_dpll, %2 ], [ @pch_dpll, %9 ], [ @vlv_dpll, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %22 = load i32, ptr %21, align 8
   br label %24

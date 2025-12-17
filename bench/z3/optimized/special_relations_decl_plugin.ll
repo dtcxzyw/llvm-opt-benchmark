@@ -304,7 +304,7 @@ _ZNK9parameter7get_astEv.exit64:                  ; preds = %66
   br i1 %.not44, label %125, label %.invoke80
 
 .invoke80:                                        ; preds = %84, %79, %_ZNK9parameter7get_astEv.exit64
-  %87 = phi ptr [ @.str.10, %_ZNK9parameter7get_astEv.exit64 ], [ @.str.11, %79 ], [ @.str.12, %84 ]
+  %87 = phi ptr [ @.str.11, %79 ], [ @.str.10, %_ZNK9parameter7get_astEv.exit64 ], [ @.str.12, %84 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !3
   invoke void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %89, ptr noundef nonnull %87) #17
@@ -322,8 +322,8 @@ _ZNK9parameter7get_astEv.exit64:                  ; preds = %66
   br i1 %94, label %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66", label %.invoke
 
 .invoke:                                          ; preds = %32, %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66", %99, %103, %90, %49, %44, %39, %56, %72
-  %95 = phi ptr [ %74, %72 ], [ %58, %56 ], [ %.val47.val, %39 ], [ %.val49.val, %44 ], [ %.val51.val, %49 ], [ %.val53.val, %90 ], [ %.val53.val, %103 ], [ %.val53.val, %99 ], [ %.val53.val, %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66" ], [ %.val.val, %32 ]
-  %96 = phi ptr [ @.str.9, %72 ], [ @.str.8, %56 ], [ @.str.18, %39 ], [ @.str.18, %44 ], [ @.str.18, %49 ], [ @.str.18, %90 ], [ @.str.9, %103 ], [ @.str.9, %99 ], [ @.str.9, %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66" ], [ @.str.18, %32 ]
+  %95 = phi ptr [ %.val51.val, %49 ], [ %.val49.val, %44 ], [ %.val47.val, %39 ], [ %58, %56 ], [ %.val53.val, %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66" ], [ %.val53.val, %90 ], [ %74, %72 ], [ %.val53.val, %103 ], [ %.val53.val, %99 ], [ %.val.val, %32 ]
+  %96 = phi ptr [ @.str.18, %49 ], [ @.str.18, %44 ], [ @.str.18, %39 ], [ @.str.8, %56 ], [ @.str.9, %"_ZZN29special_relations_decl_plugin12mk_func_declEijPK9parameterjPKP4sortS4_ENK3$_0clEv.exit66" ], [ @.str.18, %90 ], [ @.str.9, %72 ], [ @.str.9, %103 ], [ @.str.9, %99 ], [ @.str.18, %32 ]
   invoke void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %95, ptr noundef nonnull %96) #17
           to label %.cont unwind label %37
 
@@ -385,7 +385,7 @@ _ZNK9parameter7get_astEv.exit72:                  ; preds = %103
   unreachable
 
 .sink.split:                                      ; preds = %49, %44, %39, %32
-  %.sink = phi i64 [ 32, %32 ], [ 24, %39 ], [ 40, %44 ], [ 48, %49 ]
+  %.sink = phi i64 [ 40, %44 ], [ 24, %39 ], [ 32, %32 ], [ 48, %49 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %124 = load i64, ptr %123, align 8, !tbaa !84
   store i64 %124, ptr %9, align 8, !tbaa !84

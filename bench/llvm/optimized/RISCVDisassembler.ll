@@ -1171,7 +1171,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 372:                                              ; preds = %107
   %373 = and i8 %12, 63
   %374 = icmp eq i8 %373, 31
-  br i1 %374, label %375, label %752
+  br i1 %374, label %375, label %753
 
 375:                                              ; preds = %372
   %376 = icmp ult i64 %4, 6
@@ -1196,15 +1196,15 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   br i1 %.not3.i43, label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i, label %394
 
 386:                                              ; preds = %386, %378
-  %.01517.i = phi i64 [ 6, %378 ], [ %387, %386 ]
-  %.01616.i = phi i64 [ 0, %378 ], [ %393, %386 ]
-  %387 = add nsw i64 %.01517.i, -1
+  %.01524.i = phi i64 [ 6, %378 ], [ %387, %386 ]
+  %.01623.i = phi i64 [ 0, %378 ], [ %393, %386 ]
+  %387 = add nsw i64 %.01524.i, -1
   %388 = getelementptr inbounds nuw i8, ptr %3, i64 %387
   %389 = load i8, ptr %388, align 1, !tbaa !20
   %390 = zext i8 %389 to i64
   %391 = shl i64 %387, 3
   %392 = shl i64 %390, %391
-  %393 = add i64 %392, %.01616.i
+  %393 = add i64 %392, %.01623.i
   %.not.i42 = icmp eq i64 %387, 0
   br i1 %.not.i42, label %379, label %386, !llvm.loop !57
 
@@ -1226,733 +1226,738 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %.051.ph.ph.i.i = phi i32 [ 3, %394 ], [ %.354.i.i, %_ZN4llvm6MCInstD2Ev.exit.i.i ]
   %.048.ph.ph.i.i = phi i64 [ 0, %394 ], [ %.048.ph36.i.i, %_ZN4llvm6MCInstD2Ev.exit.i.i ]
   %.0.ph.ph.i.i = phi i32 [ undef, %394 ], [ %.3.i.i, %_ZN4llvm6MCInstD2Ev.exit.i.i ]
+  br label %.outer.i.i.outer
+
+.outer.i.i.outer:                                 ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i, %.outer.outer.i.i
+  %.025.ph.i.i.ph = phi ptr [ %748, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.025.ph.ph.i.i, %.outer.outer.i.i ]
+  %.051.ph.i.i.ph = phi i32 [ %.4.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.051.ph.ph.i.i, %.outer.outer.i.i ]
+  %.048.ph.i.i.ph = phi i64 [ %.048.ph36.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.048.ph.ph.i.i, %.outer.outer.i.i ]
   br label %.outer.i.i
 
-.outer.i.i:                                       ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i, %.outer.outer.i.i
-  %.025.ph.i.i = phi ptr [ %747, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.025.ph.ph.i.i, %.outer.outer.i.i ]
-  %.051.ph.i.i = phi i32 [ %.4.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.051.ph.ph.i.i, %.outer.outer.i.i ]
-  %.048.ph.i.i = phi i64 [ %.048.ph36.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i ], [ %.048.ph.ph.i.i, %.outer.outer.i.i ]
+.outer.i.i:                                       ; preds = %.outer.i.i.backedge, %.outer.i.i.outer
+  %.025.ph.i.i = phi ptr [ %.025.ph.i.i.ph, %.outer.i.i.outer ], [ %.025.ph.i.i.be, %.outer.i.i.backedge ]
+  %.048.ph.i.i = phi i64 [ %.048.ph.i.i.ph, %.outer.i.i.outer ], [ %.048.ph36.i.i, %.outer.i.i.backedge ]
   br label %.outer34.i.i
 
 .outer34.i.i:                                     ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i, %.outer.i.i
-  %.025.ph35.i.i = phi ptr [ %.025.ph.i.i, %.outer.i.i ], [ %444, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i ]
-  %.048.ph36.i.i = phi i64 [ %.048.ph.i.i, %.outer.i.i ], [ %452, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i ]
-  br label %.backedge.i.i
+  %.025.ph35.i.i = phi ptr [ %.025.ph.i.i, %.outer.i.i ], [ %445, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i ]
+  %.048.ph36.i.i = phi i64 [ %.048.ph.i.i, %.outer.i.i ], [ %453, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i ]
+  br label %405
 
-.backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %.outer34.i.i
-  %.025.i.i = phi ptr [ %.025.ph35.i.i, %.outer34.i.i ], [ %.025.i.i.be, %.backedge.i.i.backedge ]
-  %405 = load i8, ptr %.025.i.i, align 1, !tbaa !20
-  switch i8 %405, label %406 [
-    i8 1, label %424
-    i8 2, label %453
-    i8 3, label %488
-    i8 4, label %550
-    i8 5, label %587
-    i8 6, label %623
-    i8 7, label %710
+405:                                              ; preds = %537, %.outer34.i.i
+  %.025.i.i = phi ptr [ %550, %537 ], [ %.025.ph35.i.i, %.outer34.i.i ]
+  %406 = load i8, ptr %.025.i.i, align 1, !tbaa !20
+  switch i8 %406, label %407 [
+    i8 1, label %425
+    i8 2, label %454
+    i8 3, label %489
+    i8 4, label %551
+    i8 5, label %588
+    i8 6, label %624
+    i8 7, label %711
     i8 8, label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i
   ]
 
-406:                                              ; preds = %.backedge.i.i
-  %407 = ptrtoint ptr %.025.i.i to i64
-  %408 = sub i64 %407, ptrtoint (ptr @_ZN4llvmL20DecoderTableXqcilo48E to i64)
-  %409 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
-  %410 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %409, i64 noundef %408) #11
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 24
-  %412 = load ptr, ptr %411, align 8, !tbaa !58
-  %413 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  %414 = load ptr, ptr %413, align 8, !tbaa !62
-  %415 = ptrtoint ptr %412 to i64
-  %416 = ptrtoint ptr %414 to i64
-  %417 = sub i64 %415, %416
-  %418 = icmp ult i64 %417, 34
-  br i1 %418, label %419, label %421
+407:                                              ; preds = %405
+  %408 = ptrtoint ptr %.025.i.i to i64
+  %409 = sub i64 %408, ptrtoint (ptr @_ZN4llvmL20DecoderTableXqcilo48E to i64)
+  %410 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
+  %411 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %410, i64 noundef %409) #11
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
+  %413 = load ptr, ptr %412, align 8, !tbaa !58
+  %414 = getelementptr inbounds nuw i8, ptr %411, i64 32
+  %415 = load ptr, ptr %414, align 8, !tbaa !62
+  %416 = ptrtoint ptr %413 to i64
+  %417 = ptrtoint ptr %415 to i64
+  %418 = sub i64 %416, %417
+  %419 = icmp ult i64 %418, 34
+  br i1 %419, label %420, label %422
 
-419:                                              ; preds = %406
-  %420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %410, ptr noundef nonnull @.str, i64 noundef 34) #11
+420:                                              ; preds = %407
+  %421 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %411, ptr noundef nonnull @.str, i64 noundef 34) #11
   br label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i
 
-421:                                              ; preds = %406
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %414, ptr noundef nonnull align 1 dereferenceable(34) @.str, i64 34, i1 false)
-  %422 = load ptr, ptr %413, align 8, !tbaa !62
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 34
-  store ptr %423, ptr %413, align 8, !tbaa !62
+422:                                              ; preds = %407
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %415, ptr noundef nonnull align 1 dereferenceable(34) @.str, i64 34, i1 false)
+  %423 = load ptr, ptr %414, align 8, !tbaa !62
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 34
+  store ptr %424, ptr %414, align 8, !tbaa !62
   br label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i
 
-424:                                              ; preds = %.backedge.i.i
-  %425 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %426 = ptrtoint ptr %425 to i64
-  br label %427
+425:                                              ; preds = %405
+  %426 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %427 = ptrtoint ptr %426 to i64
+  br label %428
 
-427:                                              ; preds = %thread-pre-split.i.i.i.i.i, %424
-  %.030.i.i.i.i.i = phi i64 [ 0, %424 ], [ %436, %thread-pre-split.i.i.i.i.i ]
-  %.028.i.i.i.i.i = phi i32 [ 0, %424 ], [ %437, %thread-pre-split.i.i.i.i.i ]
-  %.027.i.i.i.i.i = phi ptr [ %425, %424 ], [ %438, %thread-pre-split.i.i.i.i.i ]
-  %428 = load i8, ptr %.027.i.i.i.i.i, align 1, !tbaa !20
-  %429 = and i8 %428, 127
-  %430 = zext nneg i8 %429 to i64
-  %431 = icmp ugt i32 %.028.i.i.i.i.i, 62
-  br i1 %431, label %432, label %thread-pre-split.i.i.i.i.i, !prof !63
+428:                                              ; preds = %thread-pre-split.i.i.i.i.i, %425
+  %.030.i.i.i.i.i = phi i64 [ 0, %425 ], [ %437, %thread-pre-split.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi i32 [ 0, %425 ], [ %438, %thread-pre-split.i.i.i.i.i ]
+  %.027.i.i.i.i.i = phi ptr [ %426, %425 ], [ %439, %thread-pre-split.i.i.i.i.i ]
+  %429 = load i8, ptr %.027.i.i.i.i.i, align 1, !tbaa !20
+  %430 = and i8 %429, 127
+  %431 = zext nneg i8 %430 to i64
+  %432 = icmp ugt i32 %.028.i.i.i.i.i, 62
+  br i1 %432, label %433, label %thread-pre-split.i.i.i.i.i, !prof !63
 
-432:                                              ; preds = %427
+433:                                              ; preds = %428
   %.not43.i.i.i.i.i = icmp eq i32 %.028.i.i.i.i.i, 63
-  %.not.i.i.i.i.i = icmp samesign ugt i8 %429, 1
-  %433 = icmp ne i8 %429, 0
-  %or.cond42.i.i.i.i.i = select i1 %.not43.i.i.i.i.i, i1 %.not.i.i.i.i.i, i1 %433
+  %.not.i.i.i.i.i = icmp samesign ugt i8 %430, 1
+  %434 = icmp ne i8 %430, 0
+  %or.cond42.i.i.i.i.i = select i1 %.not43.i.i.i.i.i, i1 %.not.i.i.i.i.i, i1 %434
   br i1 %or.cond42.i.i.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i, label %thread-pre-split.i.i.i.i.i
 
-thread-pre-split.i.i.i.i.i:                       ; preds = %432, %427
-  %434 = zext nneg i32 %.028.i.i.i.i.i to i64
-  %435 = shl i64 %430, %434
-  %436 = add i64 %435, %.030.i.i.i.i.i
-  %437 = add i32 %.028.i.i.i.i.i, 7
-  %438 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i.i, i64 1
-  %439 = icmp slt i8 %428, 0
-  br i1 %439, label %427, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i, !llvm.loop !64
+thread-pre-split.i.i.i.i.i:                       ; preds = %433, %428
+  %435 = zext nneg i32 %.028.i.i.i.i.i to i64
+  %436 = shl i64 %431, %435
+  %437 = add i64 %436, %.030.i.i.i.i.i
+  %438 = add i32 %.028.i.i.i.i.i, 7
+  %439 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i.i, i64 1
+  %440 = icmp slt i8 %429, 0
+  br i1 %440, label %428, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i: ; preds = %thread-pre-split.i.i.i.i.i, %432
-  %.131.i.i.i.i.i = phi i64 [ %436, %thread-pre-split.i.i.i.i.i ], [ 0, %432 ]
-  %.1.i.i.i.i.i = phi ptr [ %438, %thread-pre-split.i.i.i.i.i ], [ %.027.i.i.i.i.i, %432 ]
-  %440 = ptrtoint ptr %.1.i.i.i.i.i to i64
-  %441 = sub i64 %440, %426
-  %442 = and i64 %441, 4294967295
-  %443 = getelementptr inbounds nuw i8, ptr %425, i64 %442
-  %444 = getelementptr inbounds nuw i8, ptr %443, i64 1
-  %445 = load i8, ptr %443, align 1, !tbaa !20
-  %446 = icmp eq i8 %445, 64
-  %447 = zext nneg i8 %445 to i64
-  %notmask.i.i.i = shl nsw i64 -1, %447
-  %448 = xor i64 %notmask.i.i.i, -1
-  %449 = and i64 %.131.i.i.i.i.i, 4294967295
-  %450 = shl i64 %448, %449
-  %.0.i.i.i = select i1 %446, i64 -1, i64 %450
-  %451 = and i64 %.0.i.i.i, %393
-  %452 = lshr i64 %451, %449
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i.i: ; preds = %thread-pre-split.i.i.i.i.i, %433
+  %.131.i.i.i.i.i = phi i64 [ %437, %thread-pre-split.i.i.i.i.i ], [ 0, %433 ]
+  %.1.i.i.i.i.i = phi ptr [ %439, %thread-pre-split.i.i.i.i.i ], [ %.027.i.i.i.i.i, %433 ]
+  %441 = ptrtoint ptr %.1.i.i.i.i.i to i64
+  %442 = sub i64 %441, %427
+  %443 = and i64 %442, 4294967295
+  %444 = getelementptr inbounds nuw i8, ptr %426, i64 %443
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 1
+  %446 = load i8, ptr %444, align 1, !tbaa !20
+  %447 = icmp eq i8 %446, 64
+  %448 = zext nneg i8 %446 to i64
+  %notmask.i.i.i = shl nsw i64 -1, %448
+  %449 = xor i64 %notmask.i.i.i, -1
+  %450 = and i64 %.131.i.i.i.i.i, 4294967295
+  %451 = shl i64 %449, %450
+  %.0.i.i.i = select i1 %447, i64 -1, i64 %451
+  %452 = and i64 %.0.i.i.i, %393
+  %453 = lshr i64 %452, %450
   br label %.outer34.i.i, !llvm.loop !65
 
-453:                                              ; preds = %.backedge.i.i
-  %454 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %455 = ptrtoint ptr %454 to i64
-  br label %456
+454:                                              ; preds = %405
+  %455 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %456 = ptrtoint ptr %455 to i64
+  br label %457
 
-456:                                              ; preds = %thread-pre-split.i.i.i64.i.i, %453
-  %.030.i.i.i61.i.i = phi i64 [ 0, %453 ], [ %465, %thread-pre-split.i.i.i64.i.i ]
-  %.028.i.i.i62.i.i = phi i32 [ 0, %453 ], [ %466, %thread-pre-split.i.i.i64.i.i ]
-  %.027.i.i.i63.i.i = phi ptr [ %454, %453 ], [ %467, %thread-pre-split.i.i.i64.i.i ]
-  %457 = load i8, ptr %.027.i.i.i63.i.i, align 1, !tbaa !20
-  %458 = and i8 %457, 127
-  %459 = zext nneg i8 %458 to i64
-  %460 = icmp ugt i32 %.028.i.i.i62.i.i, 62
-  br i1 %460, label %461, label %thread-pre-split.i.i.i64.i.i, !prof !63
+457:                                              ; preds = %thread-pre-split.i.i.i64.i.i, %454
+  %.030.i.i.i61.i.i = phi i64 [ 0, %454 ], [ %466, %thread-pre-split.i.i.i64.i.i ]
+  %.028.i.i.i62.i.i = phi i32 [ 0, %454 ], [ %467, %thread-pre-split.i.i.i64.i.i ]
+  %.027.i.i.i63.i.i = phi ptr [ %455, %454 ], [ %468, %thread-pre-split.i.i.i64.i.i ]
+  %458 = load i8, ptr %.027.i.i.i63.i.i, align 1, !tbaa !20
+  %459 = and i8 %458, 127
+  %460 = zext nneg i8 %459 to i64
+  %461 = icmp ugt i32 %.028.i.i.i62.i.i, 62
+  br i1 %461, label %462, label %thread-pre-split.i.i.i64.i.i, !prof !63
 
-461:                                              ; preds = %456
+462:                                              ; preds = %457
   %.not43.i.i.i67.i.i = icmp eq i32 %.028.i.i.i62.i.i, 63
-  %.not.i.i.i68.i.i = icmp samesign ugt i8 %458, 1
-  %462 = icmp ne i8 %458, 0
-  %or.cond42.i.i.i69.i.i = select i1 %.not43.i.i.i67.i.i, i1 %.not.i.i.i68.i.i, i1 %462
+  %.not.i.i.i68.i.i = icmp samesign ugt i8 %459, 1
+  %463 = icmp ne i8 %459, 0
+  %or.cond42.i.i.i69.i.i = select i1 %.not43.i.i.i67.i.i, i1 %.not.i.i.i68.i.i, i1 %463
   br i1 %or.cond42.i.i.i69.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i, label %thread-pre-split.i.i.i64.i.i
 
-thread-pre-split.i.i.i64.i.i:                     ; preds = %461, %456
-  %463 = zext nneg i32 %.028.i.i.i62.i.i to i64
-  %464 = shl i64 %459, %463
-  %465 = add i64 %464, %.030.i.i.i61.i.i
-  %466 = add i32 %.028.i.i.i62.i.i, 7
-  %467 = getelementptr inbounds nuw i8, ptr %.027.i.i.i63.i.i, i64 1
-  %468 = icmp slt i8 %457, 0
-  br i1 %468, label %456, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i, !llvm.loop !64
+thread-pre-split.i.i.i64.i.i:                     ; preds = %462, %457
+  %464 = zext nneg i32 %.028.i.i.i62.i.i to i64
+  %465 = shl i64 %460, %464
+  %466 = add i64 %465, %.030.i.i.i61.i.i
+  %467 = add i32 %.028.i.i.i62.i.i, 7
+  %468 = getelementptr inbounds nuw i8, ptr %.027.i.i.i63.i.i, i64 1
+  %469 = icmp slt i8 %458, 0
+  br i1 %469, label %457, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i: ; preds = %thread-pre-split.i.i.i64.i.i, %461
-  %.131.i.i.i65.i.i = phi i64 [ %465, %thread-pre-split.i.i.i64.i.i ], [ 0, %461 ]
-  %.1.i.i.i66.i.i = phi ptr [ %467, %thread-pre-split.i.i.i64.i.i ], [ %.027.i.i.i63.i.i, %461 ]
-  %469 = ptrtoint ptr %.1.i.i.i66.i.i to i64
-  %470 = sub i64 %469, %455
-  %471 = and i64 %470, 4294967295
-  %472 = getelementptr inbounds nuw i8, ptr %454, i64 %471
-  %473 = getelementptr inbounds nuw i8, ptr %472, i64 3
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i: ; preds = %thread-pre-split.i.i.i64.i.i, %462
+  %.131.i.i.i65.i.i = phi i64 [ %466, %thread-pre-split.i.i.i64.i.i ], [ 0, %462 ]
+  %.1.i.i.i66.i.i = phi ptr [ %468, %thread-pre-split.i.i.i64.i.i ], [ %.027.i.i.i63.i.i, %462 ]
+  %470 = ptrtoint ptr %.1.i.i.i66.i.i to i64
+  %471 = sub i64 %470, %456
+  %472 = and i64 %471, 4294967295
+  %473 = getelementptr inbounds nuw i8, ptr %455, i64 %472
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 3
   %.not58.i.i = icmp eq i64 %.131.i.i.i65.i.i, %.048.ph36.i.i
-  br i1 %.not58.i.i, label %.backedge.i.i.backedge, label %474
+  br i1 %.not58.i.i, label %.outer.i.i.backedge, label %475
 
-474:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i
-  %475 = getelementptr inbounds nuw i8, ptr %472, i64 1
-  %476 = load i8, ptr %475, align 1, !tbaa !20
-  %477 = getelementptr inbounds nuw i8, ptr %472, i64 2
-  %478 = load i8, ptr %472, align 1, !tbaa !20
-  %479 = zext i8 %476 to i64
-  %480 = shl nuw nsw i64 %479, 8
-  %481 = zext i8 %478 to i64
-  %482 = load i8, ptr %477, align 1, !tbaa !20
-  %483 = zext i8 %482 to i64
-  %484 = shl nuw nsw i64 %483, 16
-  %485 = getelementptr inbounds nuw i8, ptr %473, i64 %480
-  %486 = getelementptr inbounds nuw i8, ptr %485, i64 %481
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 %484
-  br label %.backedge.i.i.backedge
+475:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i
+  %476 = getelementptr inbounds nuw i8, ptr %473, i64 1
+  %477 = load i8, ptr %476, align 1, !tbaa !20
+  %478 = getelementptr inbounds nuw i8, ptr %473, i64 2
+  %479 = load i8, ptr %473, align 1, !tbaa !20
+  %480 = zext i8 %477 to i64
+  %481 = shl nuw nsw i64 %480, 8
+  %482 = zext i8 %479 to i64
+  %483 = load i8, ptr %478, align 1, !tbaa !20
+  %484 = zext i8 %483 to i64
+  %485 = shl nuw nsw i64 %484, 16
+  %486 = getelementptr inbounds nuw i8, ptr %474, i64 %481
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 %482
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 %485
+  br label %.outer.i.i.backedge
 
-488:                                              ; preds = %.backedge.i.i
-  %489 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %490 = ptrtoint ptr %489 to i64
-  br label %491
+489:                                              ; preds = %405
+  %490 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %491 = ptrtoint ptr %490 to i64
+  br label %492
 
-491:                                              ; preds = %thread-pre-split.i.i.i75.i.i, %488
-  %.030.i.i.i72.i.i = phi i64 [ 0, %488 ], [ %500, %thread-pre-split.i.i.i75.i.i ]
-  %.028.i.i.i73.i.i = phi i32 [ 0, %488 ], [ %501, %thread-pre-split.i.i.i75.i.i ]
-  %.027.i.i.i74.i.i = phi ptr [ %489, %488 ], [ %502, %thread-pre-split.i.i.i75.i.i ]
-  %492 = load i8, ptr %.027.i.i.i74.i.i, align 1, !tbaa !20
-  %493 = and i8 %492, 127
-  %494 = zext nneg i8 %493 to i64
-  %495 = icmp ugt i32 %.028.i.i.i73.i.i, 62
-  br i1 %495, label %496, label %thread-pre-split.i.i.i75.i.i, !prof !63
+492:                                              ; preds = %thread-pre-split.i.i.i75.i.i, %489
+  %.030.i.i.i72.i.i = phi i64 [ 0, %489 ], [ %501, %thread-pre-split.i.i.i75.i.i ]
+  %.028.i.i.i73.i.i = phi i32 [ 0, %489 ], [ %502, %thread-pre-split.i.i.i75.i.i ]
+  %.027.i.i.i74.i.i = phi ptr [ %490, %489 ], [ %503, %thread-pre-split.i.i.i75.i.i ]
+  %493 = load i8, ptr %.027.i.i.i74.i.i, align 1, !tbaa !20
+  %494 = and i8 %493, 127
+  %495 = zext nneg i8 %494 to i64
+  %496 = icmp ugt i32 %.028.i.i.i73.i.i, 62
+  br i1 %496, label %497, label %thread-pre-split.i.i.i75.i.i, !prof !63
 
-496:                                              ; preds = %491
+497:                                              ; preds = %492
   %.not43.i.i.i78.i.i = icmp eq i32 %.028.i.i.i73.i.i, 63
-  %.not.i.i.i79.i.i = icmp samesign ugt i8 %493, 1
-  %497 = icmp ne i8 %493, 0
-  %or.cond42.i.i.i80.i.i = select i1 %.not43.i.i.i78.i.i, i1 %.not.i.i.i79.i.i, i1 %497
+  %.not.i.i.i79.i.i = icmp samesign ugt i8 %494, 1
+  %498 = icmp ne i8 %494, 0
+  %or.cond42.i.i.i80.i.i = select i1 %.not43.i.i.i78.i.i, i1 %.not.i.i.i79.i.i, i1 %498
   br i1 %or.cond42.i.i.i80.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i, label %thread-pre-split.i.i.i75.i.i
 
-thread-pre-split.i.i.i75.i.i:                     ; preds = %496, %491
-  %498 = zext nneg i32 %.028.i.i.i73.i.i to i64
-  %499 = shl i64 %494, %498
-  %500 = add i64 %499, %.030.i.i.i72.i.i
-  %501 = add i32 %.028.i.i.i73.i.i, 7
-  %502 = getelementptr inbounds nuw i8, ptr %.027.i.i.i74.i.i, i64 1
-  %503 = icmp slt i8 %492, 0
-  br i1 %503, label %491, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i, !llvm.loop !64
+thread-pre-split.i.i.i75.i.i:                     ; preds = %497, %492
+  %499 = zext nneg i32 %.028.i.i.i73.i.i to i64
+  %500 = shl i64 %495, %499
+  %501 = add i64 %500, %.030.i.i.i72.i.i
+  %502 = add i32 %.028.i.i.i73.i.i, 7
+  %503 = getelementptr inbounds nuw i8, ptr %.027.i.i.i74.i.i, i64 1
+  %504 = icmp slt i8 %493, 0
+  br i1 %504, label %492, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i: ; preds = %thread-pre-split.i.i.i75.i.i, %496
-  %.131.i.i.i76.i.i = phi i64 [ %500, %thread-pre-split.i.i.i75.i.i ], [ 0, %496 ]
-  %.1.i.i.i77.i.i = phi ptr [ %502, %thread-pre-split.i.i.i75.i.i ], [ %.027.i.i.i74.i.i, %496 ]
-  %504 = ptrtoint ptr %.1.i.i.i77.i.i to i64
-  %505 = sub i64 %504, %490
-  %506 = and i64 %505, 4294967295
-  %507 = getelementptr inbounds nuw i8, ptr %489, i64 %506
-  %508 = load i8, ptr %507, align 1, !tbaa !20
-  %509 = icmp eq i8 %508, 64
-  %510 = zext nneg i8 %508 to i64
-  %notmask.i82.i.i = shl nsw i64 -1, %510
-  %511 = xor i64 %notmask.i82.i.i, -1
-  %512 = and i64 %.131.i.i.i76.i.i, 4294967295
-  %513 = shl i64 %511, %512
-  %.0.i83.i.i = select i1 %509, i64 -1, i64 %513
-  %514 = and i64 %.0.i83.i.i, %393
-  %515 = lshr i64 %514, %512
-  %516 = getelementptr inbounds nuw i8, ptr %507, i64 1
-  %517 = ptrtoint ptr %516 to i64
-  br label %518
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i: ; preds = %thread-pre-split.i.i.i75.i.i, %497
+  %.131.i.i.i76.i.i = phi i64 [ %501, %thread-pre-split.i.i.i75.i.i ], [ 0, %497 ]
+  %.1.i.i.i77.i.i = phi ptr [ %503, %thread-pre-split.i.i.i75.i.i ], [ %.027.i.i.i74.i.i, %497 ]
+  %505 = ptrtoint ptr %.1.i.i.i77.i.i to i64
+  %506 = sub i64 %505, %491
+  %507 = and i64 %506, 4294967295
+  %508 = getelementptr inbounds nuw i8, ptr %490, i64 %507
+  %509 = load i8, ptr %508, align 1, !tbaa !20
+  %510 = icmp eq i8 %509, 64
+  %511 = zext nneg i8 %509 to i64
+  %notmask.i82.i.i = shl nsw i64 -1, %511
+  %512 = xor i64 %notmask.i82.i.i, -1
+  %513 = and i64 %.131.i.i.i76.i.i, 4294967295
+  %514 = shl i64 %512, %513
+  %.0.i83.i.i = select i1 %510, i64 -1, i64 %514
+  %515 = and i64 %.0.i83.i.i, %393
+  %516 = lshr i64 %515, %513
+  %517 = getelementptr inbounds nuw i8, ptr %508, i64 1
+  %518 = ptrtoint ptr %517 to i64
+  br label %519
 
-518:                                              ; preds = %thread-pre-split.i.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i
-  %.030.i.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %527, %thread-pre-split.i.i.i ]
-  %.028.i.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %528, %thread-pre-split.i.i.i ]
-  %.027.i.i.i = phi ptr [ %516, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %529, %thread-pre-split.i.i.i ]
-  %519 = load i8, ptr %.027.i.i.i, align 1, !tbaa !20
-  %520 = and i8 %519, 127
-  %521 = zext nneg i8 %520 to i64
-  %522 = icmp ugt i32 %.028.i.i.i, 62
-  br i1 %522, label %523, label %thread-pre-split.i.i.i, !prof !63
+519:                                              ; preds = %thread-pre-split.i.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i
+  %.030.i.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %528, %thread-pre-split.i.i.i ]
+  %.028.i.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %529, %thread-pre-split.i.i.i ]
+  %.027.i.i.i = phi ptr [ %517, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i.i ], [ %530, %thread-pre-split.i.i.i ]
+  %520 = load i8, ptr %.027.i.i.i, align 1, !tbaa !20
+  %521 = and i8 %520, 127
+  %522 = zext nneg i8 %521 to i64
+  %523 = icmp ugt i32 %.028.i.i.i, 62
+  br i1 %523, label %524, label %thread-pre-split.i.i.i, !prof !63
 
-523:                                              ; preds = %518
+524:                                              ; preds = %519
   %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
-  %.not.i.i.i = icmp samesign ugt i8 %520, 1
-  %524 = icmp ne i8 %520, 0
-  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %524
+  %.not.i.i.i = icmp samesign ugt i8 %521, 1
+  %525 = icmp ne i8 %521, 0
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %525
   br i1 %or.cond42.i.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i, label %thread-pre-split.i.i.i
 
-thread-pre-split.i.i.i:                           ; preds = %523, %518
-  %525 = zext nneg i32 %.028.i.i.i to i64
-  %526 = shl i64 %521, %525
-  %527 = add i64 %526, %.030.i.i.i
-  %528 = add i32 %.028.i.i.i, 7
-  %529 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 1
-  %530 = icmp slt i8 %519, 0
-  br i1 %530, label %518, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i, !llvm.loop !64
+thread-pre-split.i.i.i:                           ; preds = %524, %519
+  %526 = zext nneg i32 %.028.i.i.i to i64
+  %527 = shl i64 %522, %526
+  %528 = add i64 %527, %.030.i.i.i
+  %529 = add i32 %.028.i.i.i, 7
+  %530 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 1
+  %531 = icmp slt i8 %520, 0
+  br i1 %531, label %519, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i, !llvm.loop !64
 
-_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i:    ; preds = %thread-pre-split.i.i.i, %523
-  %.131.i.i.i = phi i64 [ %527, %thread-pre-split.i.i.i ], [ 0, %523 ]
-  %.1.i.i.i = phi ptr [ %529, %thread-pre-split.i.i.i ], [ %.027.i.i.i, %523 ]
-  %531 = ptrtoint ptr %.1.i.i.i to i64
-  %532 = sub i64 %531, %517
-  %533 = and i64 %532, 4294967295
-  %534 = getelementptr inbounds nuw i8, ptr %516, i64 %533
-  %535 = getelementptr inbounds nuw i8, ptr %534, i64 3
-  %.not57.i.i = icmp eq i64 %.131.i.i.i, %515
-  br i1 %.not57.i.i, label %.backedge.i.i.backedge, label %536
+_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i:    ; preds = %thread-pre-split.i.i.i, %524
+  %.131.i.i.i = phi i64 [ %528, %thread-pre-split.i.i.i ], [ 0, %524 ]
+  %.1.i.i.i = phi ptr [ %530, %thread-pre-split.i.i.i ], [ %.027.i.i.i, %524 ]
+  %532 = ptrtoint ptr %.1.i.i.i to i64
+  %533 = sub i64 %532, %518
+  %534 = and i64 %533, 4294967295
+  %535 = getelementptr inbounds nuw i8, ptr %517, i64 %534
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 3
+  %.not57.i.i = icmp eq i64 %.131.i.i.i, %516
+  br i1 %.not57.i.i, label %.outer.i.i.backedge, label %537, !llvm.loop !65
 
-536:                                              ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i
-  %537 = getelementptr inbounds nuw i8, ptr %534, i64 1
-  %538 = load i8, ptr %537, align 1, !tbaa !20
-  %539 = getelementptr inbounds nuw i8, ptr %534, i64 2
-  %540 = load i8, ptr %534, align 1, !tbaa !20
-  %541 = zext i8 %538 to i64
-  %542 = shl nuw nsw i64 %541, 8
-  %543 = zext i8 %540 to i64
-  %544 = load i8, ptr %539, align 1, !tbaa !20
-  %545 = zext i8 %544 to i64
-  %546 = shl nuw nsw i64 %545, 16
-  %547 = getelementptr inbounds nuw i8, ptr %535, i64 %542
-  %548 = getelementptr inbounds nuw i8, ptr %547, i64 %543
-  %549 = getelementptr inbounds nuw i8, ptr %548, i64 %546
-  br label %.backedge.i.i.backedge
+537:                                              ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i
+  %538 = getelementptr inbounds nuw i8, ptr %535, i64 1
+  %539 = load i8, ptr %538, align 1, !tbaa !20
+  %540 = getelementptr inbounds nuw i8, ptr %535, i64 2
+  %541 = load i8, ptr %535, align 1, !tbaa !20
+  %542 = zext i8 %539 to i64
+  %543 = shl nuw nsw i64 %542, 8
+  %544 = zext i8 %541 to i64
+  %545 = load i8, ptr %540, align 1, !tbaa !20
+  %546 = zext i8 %545 to i64
+  %547 = shl nuw nsw i64 %546, 16
+  %548 = getelementptr inbounds nuw i8, ptr %536, i64 %543
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 %544
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 %547
+  br label %405, !llvm.loop !65
 
-550:                                              ; preds = %.backedge.i.i
-  %551 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %552 = ptrtoint ptr %551 to i64
-  br label %553
+551:                                              ; preds = %405
+  %552 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %553 = ptrtoint ptr %552 to i64
+  br label %554
 
-553:                                              ; preds = %thread-pre-split.i.i.i88.i.i, %550
-  %.030.i.i.i85.i.i = phi i64 [ 0, %550 ], [ %562, %thread-pre-split.i.i.i88.i.i ]
-  %.028.i.i.i86.i.i = phi i32 [ 0, %550 ], [ %563, %thread-pre-split.i.i.i88.i.i ]
-  %.027.i.i.i87.i.i = phi ptr [ %551, %550 ], [ %564, %thread-pre-split.i.i.i88.i.i ]
-  %554 = load i8, ptr %.027.i.i.i87.i.i, align 1, !tbaa !20
-  %555 = and i8 %554, 127
-  %556 = zext nneg i8 %555 to i64
-  %557 = icmp ugt i32 %.028.i.i.i86.i.i, 62
-  br i1 %557, label %558, label %thread-pre-split.i.i.i88.i.i, !prof !63
+554:                                              ; preds = %thread-pre-split.i.i.i88.i.i, %551
+  %.030.i.i.i85.i.i = phi i64 [ 0, %551 ], [ %563, %thread-pre-split.i.i.i88.i.i ]
+  %.028.i.i.i86.i.i = phi i32 [ 0, %551 ], [ %564, %thread-pre-split.i.i.i88.i.i ]
+  %.027.i.i.i87.i.i = phi ptr [ %552, %551 ], [ %565, %thread-pre-split.i.i.i88.i.i ]
+  %555 = load i8, ptr %.027.i.i.i87.i.i, align 1, !tbaa !20
+  %556 = and i8 %555, 127
+  %557 = zext nneg i8 %556 to i64
+  %558 = icmp ugt i32 %.028.i.i.i86.i.i, 62
+  br i1 %558, label %559, label %thread-pre-split.i.i.i88.i.i, !prof !63
 
-558:                                              ; preds = %553
+559:                                              ; preds = %554
   %.not43.i.i.i91.i.i = icmp eq i32 %.028.i.i.i86.i.i, 63
-  %.not.i.i.i92.i.i = icmp samesign ugt i8 %555, 1
-  %559 = icmp ne i8 %555, 0
-  %or.cond42.i.i.i93.i.i = select i1 %.not43.i.i.i91.i.i, i1 %.not.i.i.i92.i.i, i1 %559
+  %.not.i.i.i92.i.i = icmp samesign ugt i8 %556, 1
+  %560 = icmp ne i8 %556, 0
+  %or.cond42.i.i.i93.i.i = select i1 %.not43.i.i.i91.i.i, i1 %.not.i.i.i92.i.i, i1 %560
   br i1 %or.cond42.i.i.i93.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i, label %thread-pre-split.i.i.i88.i.i
 
-thread-pre-split.i.i.i88.i.i:                     ; preds = %558, %553
-  %560 = zext nneg i32 %.028.i.i.i86.i.i to i64
-  %561 = shl i64 %556, %560
-  %562 = add i64 %561, %.030.i.i.i85.i.i
-  %563 = add i32 %.028.i.i.i86.i.i, 7
-  %564 = getelementptr inbounds nuw i8, ptr %.027.i.i.i87.i.i, i64 1
-  %565 = icmp slt i8 %554, 0
-  br i1 %565, label %553, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i, !llvm.loop !64
+thread-pre-split.i.i.i88.i.i:                     ; preds = %559, %554
+  %561 = zext nneg i32 %.028.i.i.i86.i.i to i64
+  %562 = shl i64 %557, %561
+  %563 = add i64 %562, %.030.i.i.i85.i.i
+  %564 = add i32 %.028.i.i.i86.i.i, 7
+  %565 = getelementptr inbounds nuw i8, ptr %.027.i.i.i87.i.i, i64 1
+  %566 = icmp slt i8 %555, 0
+  br i1 %566, label %554, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i: ; preds = %thread-pre-split.i.i.i88.i.i, %558
-  %.131.i.i.i89.i.i = phi i64 [ %562, %thread-pre-split.i.i.i88.i.i ], [ 0, %558 ]
-  %.1.i.i.i90.i.i = phi ptr [ %564, %thread-pre-split.i.i.i88.i.i ], [ %.027.i.i.i87.i.i, %558 ]
-  %566 = ptrtoint ptr %.1.i.i.i90.i.i to i64
-  %567 = sub i64 %566, %552
-  %568 = and i64 %567, 4294967295
-  %569 = getelementptr inbounds nuw i8, ptr %551, i64 %568
-  %570 = trunc i64 %.131.i.i.i89.i.i to i32
-  %571 = getelementptr inbounds nuw i8, ptr %569, i64 3
-  %572 = call fastcc noundef zeroext i1 @_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE(i32 noundef %570, ptr noundef nonnull align 8 dereferenceable(40) %382)
-  br i1 %572, label %.backedge.i.i.backedge, label %573
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i: ; preds = %thread-pre-split.i.i.i88.i.i, %559
+  %.131.i.i.i89.i.i = phi i64 [ %563, %thread-pre-split.i.i.i88.i.i ], [ 0, %559 ]
+  %.1.i.i.i90.i.i = phi ptr [ %565, %thread-pre-split.i.i.i88.i.i ], [ %.027.i.i.i87.i.i, %559 ]
+  %567 = ptrtoint ptr %.1.i.i.i90.i.i to i64
+  %568 = sub i64 %567, %553
+  %569 = and i64 %568, 4294967295
+  %570 = getelementptr inbounds nuw i8, ptr %552, i64 %569
+  %571 = trunc i64 %.131.i.i.i89.i.i to i32
+  %572 = getelementptr inbounds nuw i8, ptr %570, i64 3
+  %573 = call fastcc noundef zeroext i1 @_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE(i32 noundef %571, ptr noundef nonnull align 8 dereferenceable(40) %382)
+  br i1 %573, label %.outer.i.i.backedge, label %574
 
-573:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i
-  %574 = getelementptr inbounds nuw i8, ptr %569, i64 2
-  %575 = load i8, ptr %574, align 1, !tbaa !20
-  %576 = getelementptr inbounds nuw i8, ptr %569, i64 1
-  %577 = load i8, ptr %576, align 1, !tbaa !20
-  %578 = load i8, ptr %569, align 1, !tbaa !20
-  %579 = zext i8 %577 to i64
-  %580 = shl nuw nsw i64 %579, 8
-  %581 = zext i8 %578 to i64
-  %582 = zext i8 %575 to i64
-  %583 = shl nuw nsw i64 %582, 16
-  %584 = getelementptr inbounds nuw i8, ptr %571, i64 %580
-  %585 = getelementptr inbounds nuw i8, ptr %584, i64 %581
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 %583
-  br label %.backedge.i.i.backedge
+574:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i
+  %575 = getelementptr inbounds nuw i8, ptr %570, i64 2
+  %576 = load i8, ptr %575, align 1, !tbaa !20
+  %577 = getelementptr inbounds nuw i8, ptr %570, i64 1
+  %578 = load i8, ptr %577, align 1, !tbaa !20
+  %579 = load i8, ptr %570, align 1, !tbaa !20
+  %580 = zext i8 %578 to i64
+  %581 = shl nuw nsw i64 %580, 8
+  %582 = zext i8 %579 to i64
+  %583 = zext i8 %576 to i64
+  %584 = shl nuw nsw i64 %583, 16
+  %585 = getelementptr inbounds nuw i8, ptr %572, i64 %581
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 %582
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 %584
+  br label %.outer.i.i.backedge
 
-.backedge.i.i.backedge:                           ; preds = %573, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i, %536, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i, %474, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i
-  %.025.i.i.be = phi ptr [ %586, %573 ], [ %487, %474 ], [ %473, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i ], [ %571, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i ], [ %535, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i ], [ %549, %536 ]
-  br label %.backedge.i.i, !llvm.loop !65
+.outer.i.i.backedge:                              ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i, %574, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i, %475, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i
+  %.025.ph.i.i.be = phi ptr [ %572, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.i.i ], [ %488, %475 ], [ %587, %574 ], [ %474, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i.i ], [ %536, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i.i ]
+  br label %.outer.i.i, !llvm.loop !65
 
-587:                                              ; preds = %.backedge.i.i
-  %588 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %589 = ptrtoint ptr %588 to i64
-  br label %590
+588:                                              ; preds = %405
+  %589 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %590 = ptrtoint ptr %589 to i64
+  br label %591
 
-590:                                              ; preds = %thread-pre-split.i.i.i99.i.i, %587
-  %.030.i.i.i96.i.i = phi i64 [ 0, %587 ], [ %599, %thread-pre-split.i.i.i99.i.i ]
-  %.028.i.i.i97.i.i = phi i32 [ 0, %587 ], [ %600, %thread-pre-split.i.i.i99.i.i ]
-  %.027.i.i.i98.i.i = phi ptr [ %588, %587 ], [ %601, %thread-pre-split.i.i.i99.i.i ]
-  %591 = load i8, ptr %.027.i.i.i98.i.i, align 1, !tbaa !20
-  %592 = and i8 %591, 127
-  %593 = zext nneg i8 %592 to i64
-  %594 = icmp ugt i32 %.028.i.i.i97.i.i, 62
-  br i1 %594, label %595, label %thread-pre-split.i.i.i99.i.i, !prof !63
+591:                                              ; preds = %thread-pre-split.i.i.i99.i.i, %588
+  %.030.i.i.i96.i.i = phi i64 [ 0, %588 ], [ %600, %thread-pre-split.i.i.i99.i.i ]
+  %.028.i.i.i97.i.i = phi i32 [ 0, %588 ], [ %601, %thread-pre-split.i.i.i99.i.i ]
+  %.027.i.i.i98.i.i = phi ptr [ %589, %588 ], [ %602, %thread-pre-split.i.i.i99.i.i ]
+  %592 = load i8, ptr %.027.i.i.i98.i.i, align 1, !tbaa !20
+  %593 = and i8 %592, 127
+  %594 = zext nneg i8 %593 to i64
+  %595 = icmp ugt i32 %.028.i.i.i97.i.i, 62
+  br i1 %595, label %596, label %thread-pre-split.i.i.i99.i.i, !prof !63
 
-595:                                              ; preds = %590
+596:                                              ; preds = %591
   %.not43.i.i.i102.i.i = icmp eq i32 %.028.i.i.i97.i.i, 63
-  %.not.i.i.i103.i.i = icmp samesign ugt i8 %592, 1
-  %596 = icmp ne i8 %592, 0
-  %or.cond42.i.i.i104.i.i = select i1 %.not43.i.i.i102.i.i, i1 %.not.i.i.i103.i.i, i1 %596
+  %.not.i.i.i103.i.i = icmp samesign ugt i8 %593, 1
+  %597 = icmp ne i8 %593, 0
+  %or.cond42.i.i.i104.i.i = select i1 %.not43.i.i.i102.i.i, i1 %.not.i.i.i103.i.i, i1 %597
   br i1 %or.cond42.i.i.i104.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i, label %thread-pre-split.i.i.i99.i.i
 
-thread-pre-split.i.i.i99.i.i:                     ; preds = %595, %590
-  %597 = zext nneg i32 %.028.i.i.i97.i.i to i64
-  %598 = shl i64 %593, %597
-  %599 = add i64 %598, %.030.i.i.i96.i.i
-  %600 = add i32 %.028.i.i.i97.i.i, 7
-  %601 = getelementptr inbounds nuw i8, ptr %.027.i.i.i98.i.i, i64 1
-  %602 = icmp slt i8 %591, 0
-  br i1 %602, label %590, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i, !llvm.loop !64
+thread-pre-split.i.i.i99.i.i:                     ; preds = %596, %591
+  %598 = zext nneg i32 %.028.i.i.i97.i.i to i64
+  %599 = shl i64 %594, %598
+  %600 = add i64 %599, %.030.i.i.i96.i.i
+  %601 = add i32 %.028.i.i.i97.i.i, 7
+  %602 = getelementptr inbounds nuw i8, ptr %.027.i.i.i98.i.i, i64 1
+  %603 = icmp slt i8 %592, 0
+  br i1 %603, label %591, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i: ; preds = %thread-pre-split.i.i.i99.i.i, %595
-  %.131.i.i.i100.i.i = phi i64 [ %599, %thread-pre-split.i.i.i99.i.i ], [ 0, %595 ]
-  %.1.i.i.i101.i.i = phi ptr [ %601, %thread-pre-split.i.i.i99.i.i ], [ %.027.i.i.i98.i.i, %595 ]
-  %603 = ptrtoint ptr %.1.i.i.i101.i.i to i64
-  %604 = sub i64 %603, %589
-  %605 = and i64 %604, 4294967295
-  %606 = getelementptr inbounds nuw i8, ptr %588, i64 %605
-  %607 = trunc i64 %.131.i.i.i100.i.i to i32
-  br label %608
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i: ; preds = %thread-pre-split.i.i.i99.i.i, %596
+  %.131.i.i.i100.i.i = phi i64 [ %600, %thread-pre-split.i.i.i99.i.i ], [ 0, %596 ]
+  %.1.i.i.i101.i.i = phi ptr [ %602, %thread-pre-split.i.i.i99.i.i ], [ %.027.i.i.i98.i.i, %596 ]
+  %604 = ptrtoint ptr %.1.i.i.i101.i.i to i64
+  %605 = sub i64 %604, %590
+  %606 = and i64 %605, 4294967295
+  %607 = getelementptr inbounds nuw i8, ptr %589, i64 %606
+  %608 = trunc i64 %.131.i.i.i100.i.i to i32
+  br label %609
 
-608:                                              ; preds = %thread-pre-split.i.i.i110.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i
-  %.030.i.i.i107.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %617, %thread-pre-split.i.i.i110.i.i ]
-  %.028.i.i.i108.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %618, %thread-pre-split.i.i.i110.i.i ]
-  %.027.i.i.i109.i.i = phi ptr [ %606, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %619, %thread-pre-split.i.i.i110.i.i ]
-  %609 = load i8, ptr %.027.i.i.i109.i.i, align 1, !tbaa !20
-  %610 = and i8 %609, 127
-  %611 = zext nneg i8 %610 to i64
-  %612 = icmp ugt i32 %.028.i.i.i108.i.i, 62
-  br i1 %612, label %613, label %thread-pre-split.i.i.i110.i.i, !prof !63
+609:                                              ; preds = %thread-pre-split.i.i.i110.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i
+  %.030.i.i.i107.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %618, %thread-pre-split.i.i.i110.i.i ]
+  %.028.i.i.i108.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %619, %thread-pre-split.i.i.i110.i.i ]
+  %.027.i.i.i109.i.i = phi ptr [ %607, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105.i.i ], [ %620, %thread-pre-split.i.i.i110.i.i ]
+  %610 = load i8, ptr %.027.i.i.i109.i.i, align 1, !tbaa !20
+  %611 = and i8 %610, 127
+  %612 = zext nneg i8 %611 to i64
+  %613 = icmp ugt i32 %.028.i.i.i108.i.i, 62
+  br i1 %613, label %614, label %thread-pre-split.i.i.i110.i.i, !prof !63
 
-613:                                              ; preds = %608
+614:                                              ; preds = %609
   %.not43.i.i.i113.i.i = icmp eq i32 %.028.i.i.i108.i.i, 63
-  %.not.i.i.i114.i.i = icmp samesign ugt i8 %610, 1
-  %614 = icmp ne i8 %610, 0
-  %or.cond42.i.i.i115.i.i = select i1 %.not43.i.i.i113.i.i, i1 %.not.i.i.i114.i.i, i1 %614
+  %.not.i.i.i114.i.i = icmp samesign ugt i8 %611, 1
+  %615 = icmp ne i8 %611, 0
+  %or.cond42.i.i.i115.i.i = select i1 %.not43.i.i.i113.i.i, i1 %.not.i.i.i114.i.i, i1 %615
   br i1 %or.cond42.i.i.i115.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i, label %thread-pre-split.i.i.i110.i.i
 
-thread-pre-split.i.i.i110.i.i:                    ; preds = %613, %608
-  %615 = zext nneg i32 %.028.i.i.i108.i.i to i64
-  %616 = shl i64 %611, %615
-  %617 = add i64 %616, %.030.i.i.i107.i.i
-  %618 = add i32 %.028.i.i.i108.i.i, 7
-  %619 = getelementptr inbounds nuw i8, ptr %.027.i.i.i109.i.i, i64 1
-  %620 = icmp slt i8 %609, 0
-  br i1 %620, label %608, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i, !llvm.loop !64
+thread-pre-split.i.i.i110.i.i:                    ; preds = %614, %609
+  %616 = zext nneg i32 %.028.i.i.i108.i.i to i64
+  %617 = shl i64 %612, %616
+  %618 = add i64 %617, %.030.i.i.i107.i.i
+  %619 = add i32 %.028.i.i.i108.i.i, 7
+  %620 = getelementptr inbounds nuw i8, ptr %.027.i.i.i109.i.i, i64 1
+  %621 = icmp slt i8 %610, 0
+  br i1 %621, label %609, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i: ; preds = %thread-pre-split.i.i.i110.i.i, %613
-  %.131.i.i.i111.i.i = phi i64 [ %617, %thread-pre-split.i.i.i110.i.i ], [ 0, %613 ]
-  %621 = trunc i64 %.131.i.i.i111.i.i to i32
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i: ; preds = %thread-pre-split.i.i.i110.i.i, %614
+  %.131.i.i.i111.i.i = phi i64 [ %618, %thread-pre-split.i.i.i110.i.i ], [ 0, %614 ]
+  %622 = trunc i64 %.131.i.i.i111.i.i to i32
   store i32 0, ptr %402, align 8, !tbaa !66
-  store i32 %607, ptr %1, align 8, !tbaa !38
+  store i32 %608, ptr %1, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %622 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.i.i, i32 noundef %621, i64 noundef %393, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %623 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.i.i.ph, i32 noundef %622, i64 noundef %393, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i
 
-623:                                              ; preds = %.backedge.i.i
-  %624 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %625 = ptrtoint ptr %624 to i64
-  br label %626
+624:                                              ; preds = %405
+  %625 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %626 = ptrtoint ptr %625 to i64
+  br label %627
 
-626:                                              ; preds = %thread-pre-split.i.i.i121.i.i, %623
-  %.030.i.i.i118.i.i = phi i64 [ 0, %623 ], [ %635, %thread-pre-split.i.i.i121.i.i ]
-  %.028.i.i.i119.i.i = phi i32 [ 0, %623 ], [ %636, %thread-pre-split.i.i.i121.i.i ]
-  %.027.i.i.i120.i.i = phi ptr [ %624, %623 ], [ %637, %thread-pre-split.i.i.i121.i.i ]
-  %627 = load i8, ptr %.027.i.i.i120.i.i, align 1, !tbaa !20
-  %628 = and i8 %627, 127
-  %629 = zext nneg i8 %628 to i64
-  %630 = icmp ugt i32 %.028.i.i.i119.i.i, 62
-  br i1 %630, label %631, label %thread-pre-split.i.i.i121.i.i, !prof !63
+627:                                              ; preds = %thread-pre-split.i.i.i121.i.i, %624
+  %.030.i.i.i118.i.i = phi i64 [ 0, %624 ], [ %636, %thread-pre-split.i.i.i121.i.i ]
+  %.028.i.i.i119.i.i = phi i32 [ 0, %624 ], [ %637, %thread-pre-split.i.i.i121.i.i ]
+  %.027.i.i.i120.i.i = phi ptr [ %625, %624 ], [ %638, %thread-pre-split.i.i.i121.i.i ]
+  %628 = load i8, ptr %.027.i.i.i120.i.i, align 1, !tbaa !20
+  %629 = and i8 %628, 127
+  %630 = zext nneg i8 %629 to i64
+  %631 = icmp ugt i32 %.028.i.i.i119.i.i, 62
+  br i1 %631, label %632, label %thread-pre-split.i.i.i121.i.i, !prof !63
 
-631:                                              ; preds = %626
+632:                                              ; preds = %627
   %.not43.i.i.i124.i.i = icmp eq i32 %.028.i.i.i119.i.i, 63
-  %.not.i.i.i125.i.i = icmp samesign ugt i8 %628, 1
-  %632 = icmp ne i8 %628, 0
-  %or.cond42.i.i.i126.i.i = select i1 %.not43.i.i.i124.i.i, i1 %.not.i.i.i125.i.i, i1 %632
+  %.not.i.i.i125.i.i = icmp samesign ugt i8 %629, 1
+  %633 = icmp ne i8 %629, 0
+  %or.cond42.i.i.i126.i.i = select i1 %.not43.i.i.i124.i.i, i1 %.not.i.i.i125.i.i, i1 %633
   br i1 %or.cond42.i.i.i126.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i, label %thread-pre-split.i.i.i121.i.i
 
-thread-pre-split.i.i.i121.i.i:                    ; preds = %631, %626
-  %633 = zext nneg i32 %.028.i.i.i119.i.i to i64
-  %634 = shl i64 %629, %633
-  %635 = add i64 %634, %.030.i.i.i118.i.i
-  %636 = add i32 %.028.i.i.i119.i.i, 7
-  %637 = getelementptr inbounds nuw i8, ptr %.027.i.i.i120.i.i, i64 1
-  %638 = icmp slt i8 %627, 0
-  br i1 %638, label %626, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i, !llvm.loop !64
+thread-pre-split.i.i.i121.i.i:                    ; preds = %632, %627
+  %634 = zext nneg i32 %.028.i.i.i119.i.i to i64
+  %635 = shl i64 %630, %634
+  %636 = add i64 %635, %.030.i.i.i118.i.i
+  %637 = add i32 %.028.i.i.i119.i.i, 7
+  %638 = getelementptr inbounds nuw i8, ptr %.027.i.i.i120.i.i, i64 1
+  %639 = icmp slt i8 %628, 0
+  br i1 %639, label %627, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i: ; preds = %thread-pre-split.i.i.i121.i.i, %631
-  %.131.i.i.i122.i.i = phi i64 [ %635, %thread-pre-split.i.i.i121.i.i ], [ 0, %631 ]
-  %.1.i.i.i123.i.i = phi ptr [ %637, %thread-pre-split.i.i.i121.i.i ], [ %.027.i.i.i120.i.i, %631 ]
-  %639 = ptrtoint ptr %.1.i.i.i123.i.i to i64
-  %640 = sub i64 %639, %625
-  %641 = and i64 %640, 4294967295
-  %642 = getelementptr inbounds nuw i8, ptr %624, i64 %641
-  %643 = trunc i64 %.131.i.i.i122.i.i to i32
-  %644 = ptrtoint ptr %642 to i64
-  br label %645
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i: ; preds = %thread-pre-split.i.i.i121.i.i, %632
+  %.131.i.i.i122.i.i = phi i64 [ %636, %thread-pre-split.i.i.i121.i.i ], [ 0, %632 ]
+  %.1.i.i.i123.i.i = phi ptr [ %638, %thread-pre-split.i.i.i121.i.i ], [ %.027.i.i.i120.i.i, %632 ]
+  %640 = ptrtoint ptr %.1.i.i.i123.i.i to i64
+  %641 = sub i64 %640, %626
+  %642 = and i64 %641, 4294967295
+  %643 = getelementptr inbounds nuw i8, ptr %625, i64 %642
+  %644 = trunc i64 %.131.i.i.i122.i.i to i32
+  %645 = ptrtoint ptr %643 to i64
+  br label %646
 
-645:                                              ; preds = %thread-pre-split.i.i.i132.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i
-  %.030.i.i.i129.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %654, %thread-pre-split.i.i.i132.i.i ]
-  %.028.i.i.i130.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %655, %thread-pre-split.i.i.i132.i.i ]
-  %.027.i.i.i131.i.i = phi ptr [ %642, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %656, %thread-pre-split.i.i.i132.i.i ]
-  %646 = load i8, ptr %.027.i.i.i131.i.i, align 1, !tbaa !20
-  %647 = and i8 %646, 127
-  %648 = zext nneg i8 %647 to i64
-  %649 = icmp ugt i32 %.028.i.i.i130.i.i, 62
-  br i1 %649, label %650, label %thread-pre-split.i.i.i132.i.i, !prof !63
+646:                                              ; preds = %thread-pre-split.i.i.i132.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i
+  %.030.i.i.i129.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %655, %thread-pre-split.i.i.i132.i.i ]
+  %.028.i.i.i130.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %656, %thread-pre-split.i.i.i132.i.i ]
+  %.027.i.i.i131.i.i = phi ptr [ %643, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127.i.i ], [ %657, %thread-pre-split.i.i.i132.i.i ]
+  %647 = load i8, ptr %.027.i.i.i131.i.i, align 1, !tbaa !20
+  %648 = and i8 %647, 127
+  %649 = zext nneg i8 %648 to i64
+  %650 = icmp ugt i32 %.028.i.i.i130.i.i, 62
+  br i1 %650, label %651, label %thread-pre-split.i.i.i132.i.i, !prof !63
 
-650:                                              ; preds = %645
+651:                                              ; preds = %646
   %.not43.i.i.i135.i.i = icmp eq i32 %.028.i.i.i130.i.i, 63
-  %.not.i.i.i136.i.i = icmp samesign ugt i8 %647, 1
-  %651 = icmp ne i8 %647, 0
-  %or.cond42.i.i.i137.i.i = select i1 %.not43.i.i.i135.i.i, i1 %.not.i.i.i136.i.i, i1 %651
+  %.not.i.i.i136.i.i = icmp samesign ugt i8 %648, 1
+  %652 = icmp ne i8 %648, 0
+  %or.cond42.i.i.i137.i.i = select i1 %.not43.i.i.i135.i.i, i1 %.not.i.i.i136.i.i, i1 %652
   br i1 %or.cond42.i.i.i137.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i, label %thread-pre-split.i.i.i132.i.i
 
-thread-pre-split.i.i.i132.i.i:                    ; preds = %650, %645
-  %652 = zext nneg i32 %.028.i.i.i130.i.i to i64
-  %653 = shl i64 %648, %652
-  %654 = add i64 %653, %.030.i.i.i129.i.i
-  %655 = add i32 %.028.i.i.i130.i.i, 7
-  %656 = getelementptr inbounds nuw i8, ptr %.027.i.i.i131.i.i, i64 1
-  %657 = icmp slt i8 %646, 0
-  br i1 %657, label %645, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i, !llvm.loop !64
+thread-pre-split.i.i.i132.i.i:                    ; preds = %651, %646
+  %653 = zext nneg i32 %.028.i.i.i130.i.i to i64
+  %654 = shl i64 %649, %653
+  %655 = add i64 %654, %.030.i.i.i129.i.i
+  %656 = add i32 %.028.i.i.i130.i.i, 7
+  %657 = getelementptr inbounds nuw i8, ptr %.027.i.i.i131.i.i, i64 1
+  %658 = icmp slt i8 %647, 0
+  br i1 %658, label %646, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i: ; preds = %thread-pre-split.i.i.i132.i.i, %650
-  %.131.i.i.i133.i.i = phi i64 [ %654, %thread-pre-split.i.i.i132.i.i ], [ 0, %650 ]
-  %.1.i.i.i134.i.i = phi ptr [ %656, %thread-pre-split.i.i.i132.i.i ], [ %.027.i.i.i131.i.i, %650 ]
-  %658 = ptrtoint ptr %.1.i.i.i134.i.i to i64
-  %659 = sub i64 %658, %644
-  %660 = and i64 %659, 4294967295
-  %661 = getelementptr inbounds nuw i8, ptr %642, i64 %660
-  %662 = trunc i64 %.131.i.i.i133.i.i to i32
-  %663 = getelementptr inbounds nuw i8, ptr %661, i64 1
-  %664 = load i8, ptr %661, align 1, !tbaa !20
-  %665 = getelementptr inbounds nuw i8, ptr %661, i64 2
-  %666 = load i8, ptr %663, align 1, !tbaa !20
-  %667 = getelementptr inbounds nuw i8, ptr %661, i64 3
-  %668 = load i8, ptr %665, align 1, !tbaa !20
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i: ; preds = %thread-pre-split.i.i.i132.i.i, %651
+  %.131.i.i.i133.i.i = phi i64 [ %655, %thread-pre-split.i.i.i132.i.i ], [ 0, %651 ]
+  %.1.i.i.i134.i.i = phi ptr [ %657, %thread-pre-split.i.i.i132.i.i ], [ %.027.i.i.i131.i.i, %651 ]
+  %659 = ptrtoint ptr %.1.i.i.i134.i.i to i64
+  %660 = sub i64 %659, %645
+  %661 = and i64 %660, 4294967295
+  %662 = getelementptr inbounds nuw i8, ptr %643, i64 %661
+  %663 = trunc i64 %.131.i.i.i133.i.i to i32
+  %664 = getelementptr inbounds nuw i8, ptr %662, i64 1
+  %665 = load i8, ptr %662, align 1, !tbaa !20
+  %666 = getelementptr inbounds nuw i8, ptr %662, i64 2
+  %667 = load i8, ptr %664, align 1, !tbaa !20
+  %668 = getelementptr inbounds nuw i8, ptr %662, i64 3
+  %669 = load i8, ptr %666, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 16, i1 false)
   store ptr %397, ptr %396, align 8, !tbaa !54
   store i32 0, ptr %398, align 8, !tbaa !66
   store i32 6, ptr %399, align 4, !tbaa !67
-  store i32 %643, ptr %9, align 8, !tbaa !38
+  store i32 %644, ptr %9, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %669 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.i.i, i32 noundef %662, i64 noundef %393, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %670 = load i8, ptr %10, align 1, !tbaa !68, !range !69, !noundef !70
-  %671 = trunc nuw i8 %670 to i1
-  br i1 %671, label %672, label %698
+  %670 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.i.i.ph, i32 noundef %663, i64 noundef %393, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %671 = load i8, ptr %10, align 1, !tbaa !68, !range !69, !noundef !70
+  %672 = trunc nuw i8 %671 to i1
+  br i1 %672, label %673, label %699
 
-672:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i
+673:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 16, i1 false)
-  br i1 %401, label %_ZN4llvm6MCInstaSERKS0_.exit.i.i, label %673
+  br i1 %401, label %_ZN4llvm6MCInstaSERKS0_.exit.i.i, label %674
 
-673:                                              ; preds = %672
-  %674 = load i32, ptr %398, align 8, !tbaa !66
-  %675 = zext i32 %674 to i64
-  %676 = load i32, ptr %402, align 8, !tbaa !66
-  %677 = zext i32 %676 to i64
-  %.not.i.i.i139.i.i = icmp ult i32 %676, %674
-  br i1 %.not.i.i.i139.i.i, label %682, label %678
+674:                                              ; preds = %673
+  %675 = load i32, ptr %398, align 8, !tbaa !66
+  %676 = zext i32 %675 to i64
+  %677 = load i32, ptr %402, align 8, !tbaa !66
+  %678 = zext i32 %677 to i64
+  %.not.i.i.i139.i.i = icmp ult i32 %677, %675
+  br i1 %.not.i.i.i139.i.i, label %683, label %679
 
-678:                                              ; preds = %673
-  %.not29.i.i.i.i.i = icmp eq i32 %674, 0
-  br i1 %.not29.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %679
+679:                                              ; preds = %674
+  %.not29.i.i.i.i.i = icmp eq i32 %675, 0
+  br i1 %.not29.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %680
 
-679:                                              ; preds = %678
-  %680 = load ptr, ptr %396, align 8, !tbaa !54
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %675, 4
-  %681 = load ptr, ptr %400, align 8, !tbaa !54
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %681, ptr align 8 %680, i64 %.idx.i.i.i.i.i, i1 false)
+680:                                              ; preds = %679
+  %681 = load ptr, ptr %396, align 8, !tbaa !54
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %676, 4
+  %682 = load ptr, ptr %400, align 8, !tbaa !54
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %682, ptr align 8 %681, i64 %.idx.i.i.i.i.i, i1 false)
   br label %.sink.split.i.i.i.i.i
 
-682:                                              ; preds = %673
-  %683 = load i32, ptr %403, align 4, !tbaa !67
-  %684 = icmp ult i32 %683, %674
-  br i1 %684, label %685, label %686
+683:                                              ; preds = %674
+  %684 = load i32, ptr %403, align 4, !tbaa !67
+  %685 = icmp ult i32 %684, %675
+  br i1 %685, label %686, label %687
 
-685:                                              ; preds = %682
+686:                                              ; preds = %683
   store i32 0, ptr %402, align 8, !tbaa !66
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %400, ptr noundef nonnull %404, i64 noundef %675, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %400, ptr noundef nonnull %404, i64 noundef %676, i64 noundef 16) #11
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i
 
-686:                                              ; preds = %682
-  %.not28.i.i.i.i.i = icmp eq i32 %676, 0
-  br i1 %.not28.i.i.i.i.i, label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i, label %687
+687:                                              ; preds = %683
+  %.not28.i.i.i.i.i = icmp eq i32 %677, 0
+  br i1 %.not28.i.i.i.i.i, label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i, label %688
 
-687:                                              ; preds = %686
-  %688 = load ptr, ptr %396, align 8, !tbaa !54
-  %.idx33.i.i.i.i.i = shl nuw nsw i64 %677, 4
-  %689 = load ptr, ptr %400, align 8, !tbaa !54
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %689, ptr align 8 %688, i64 %.idx33.i.i.i.i.i, i1 false)
+688:                                              ; preds = %687
+  %689 = load ptr, ptr %396, align 8, !tbaa !54
+  %.idx33.i.i.i.i.i = shl nuw nsw i64 %678, 4
+  %690 = load ptr, ptr %400, align 8, !tbaa !54
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %690, ptr align 8 %689, i64 %.idx33.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i
 
-_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i: ; preds = %687, %686, %685
-  %.022.i.i.i.i.i = phi i64 [ 0, %685 ], [ 0, %686 ], [ %677, %687 ]
-  %690 = load i32, ptr %398, align 8, !tbaa !66
-  %691 = zext i32 %690 to i64
-  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.022.i.i.i.i.i, %691
-  br i1 %.not.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %692
+_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i: ; preds = %688, %687, %686
+  %.022.i.i.i.i.i = phi i64 [ 0, %686 ], [ 0, %687 ], [ %678, %688 ]
+  %691 = load i32, ptr %398, align 8, !tbaa !66
+  %692 = zext i32 %691 to i64
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.022.i.i.i.i.i, %692
+  br i1 %.not.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i, label %693
 
-692:                                              ; preds = %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i
-  %693 = load ptr, ptr %396, align 8, !tbaa !54
+693:                                              ; preds = %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i
+  %694 = load ptr, ptr %396, align 8, !tbaa !54
   %.idx36.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i, 4
-  %694 = getelementptr inbounds nuw i8, ptr %693, i64 %.idx36.i.i.i.i.i
-  %695 = load ptr, ptr %400, align 8, !tbaa !54
-  %696 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %695, i64 %.022.i.i.i.i.i
-  %697 = sub nsw i64 %691, %.022.i.i.i.i.i
-  %gepdiff.i.i.i.i.i = shl nsw i64 %697, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %696, ptr align 8 %694, i64 %gepdiff.i.i.i.i.i, i1 false)
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 %.idx36.i.i.i.i.i
+  %696 = load ptr, ptr %400, align 8, !tbaa !54
+  %697 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %696, i64 %.022.i.i.i.i.i
+  %698 = sub nsw i64 %692, %.022.i.i.i.i.i
+  %gepdiff.i.i.i.i.i = shl nsw i64 %698, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %697, ptr align 8 %695, i64 %gepdiff.i.i.i.i.i, i1 false)
   br label %.sink.split.i.i.i.i.i
 
-.sink.split.i.i.i.i.i:                            ; preds = %692, %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i, %679, %678
-  store i32 %674, ptr %402, align 8, !tbaa !66
+.sink.split.i.i.i.i.i:                            ; preds = %693, %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i, %680, %679
+  store i32 %675, ptr %402, align 8, !tbaa !66
   br label %_ZN4llvm6MCInstaSERKS0_.exit.i.i
 
-698:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i
-  %699 = zext i8 %666 to i64
-  %700 = shl nuw nsw i64 %699, 8
-  %701 = zext i8 %664 to i64
-  %702 = zext i8 %668 to i64
-  %703 = shl nuw nsw i64 %702, 16
-  %704 = getelementptr inbounds nuw i8, ptr %667, i64 %700
-  %705 = getelementptr inbounds nuw i8, ptr %704, i64 %701
-  %706 = getelementptr inbounds nuw i8, ptr %705, i64 %703
+699:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138.i.i
+  %700 = zext i8 %667 to i64
+  %701 = shl nuw nsw i64 %700, 8
+  %702 = zext i8 %665 to i64
+  %703 = zext i8 %669 to i64
+  %704 = shl nuw nsw i64 %703, 16
+  %705 = getelementptr inbounds nuw i8, ptr %668, i64 %701
+  %706 = getelementptr inbounds nuw i8, ptr %705, i64 %702
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 %704
   br label %_ZN4llvm6MCInstaSERKS0_.exit.i.i
 
-_ZN4llvm6MCInstaSERKS0_.exit.i.i:                 ; preds = %698, %.sink.split.i.i.i.i.i, %672
-  %.2.i.i = phi ptr [ %706, %698 ], [ %667, %672 ], [ %667, %.sink.split.i.i.i.i.i ]
-  %.354.i.i = phi i32 [ 3, %698 ], [ %669, %672 ], [ %669, %.sink.split.i.i.i.i.i ]
-  %.3.i.i = phi i32 [ %.0.ph.ph.i.i, %698 ], [ %669, %672 ], [ %669, %.sink.split.i.i.i.i.i ]
+_ZN4llvm6MCInstaSERKS0_.exit.i.i:                 ; preds = %699, %.sink.split.i.i.i.i.i, %673
+  %.2.i.i = phi ptr [ %707, %699 ], [ %668, %673 ], [ %668, %.sink.split.i.i.i.i.i ]
+  %.354.i.i = phi i32 [ 3, %699 ], [ %670, %673 ], [ %670, %.sink.split.i.i.i.i.i ]
+  %.3.i.i = phi i32 [ %.0.ph.ph.i.i, %699 ], [ %670, %673 ], [ %670, %.sink.split.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %707 = load ptr, ptr %396, align 8, !tbaa !54
-  %708 = icmp eq ptr %707, %397
-  br i1 %708, label %_ZN4llvm6MCInstD2Ev.exit.i.i, label %709
+  %708 = load ptr, ptr %396, align 8, !tbaa !54
+  %709 = icmp eq ptr %708, %397
+  br i1 %709, label %_ZN4llvm6MCInstD2Ev.exit.i.i, label %710
 
-709:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit.i.i
-  call void @free(ptr noundef %707) #11
+710:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit.i.i
+  call void @free(ptr noundef %708) #11
   br label %_ZN4llvm6MCInstD2Ev.exit.i.i
 
-_ZN4llvm6MCInstD2Ev.exit.i.i:                     ; preds = %709, %_ZN4llvm6MCInstaSERKS0_.exit.i.i
+_ZN4llvm6MCInstD2Ev.exit.i.i:                     ; preds = %710, %_ZN4llvm6MCInstaSERKS0_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %671, label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, label %.outer.outer.i.i, !llvm.loop !65
+  br i1 %672, label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, label %.outer.outer.i.i, !llvm.loop !65
 
-710:                                              ; preds = %.backedge.i.i
-  %711 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
-  %712 = ptrtoint ptr %711 to i64
-  br label %713
+711:                                              ; preds = %405
+  %712 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
+  %713 = ptrtoint ptr %712 to i64
+  br label %714
 
-713:                                              ; preds = %thread-pre-split.i.i.i144.i.i, %710
-  %.030.i.i.i141.i.i = phi i64 [ 0, %710 ], [ %722, %thread-pre-split.i.i.i144.i.i ]
-  %.028.i.i.i142.i.i = phi i32 [ 0, %710 ], [ %723, %thread-pre-split.i.i.i144.i.i ]
-  %.027.i.i.i143.i.i = phi ptr [ %711, %710 ], [ %724, %thread-pre-split.i.i.i144.i.i ]
-  %714 = load i8, ptr %.027.i.i.i143.i.i, align 1, !tbaa !20
-  %715 = and i8 %714, 127
-  %716 = zext nneg i8 %715 to i64
-  %717 = icmp ugt i32 %.028.i.i.i142.i.i, 62
-  br i1 %717, label %718, label %thread-pre-split.i.i.i144.i.i, !prof !63
+714:                                              ; preds = %thread-pre-split.i.i.i144.i.i, %711
+  %.030.i.i.i141.i.i = phi i64 [ 0, %711 ], [ %723, %thread-pre-split.i.i.i144.i.i ]
+  %.028.i.i.i142.i.i = phi i32 [ 0, %711 ], [ %724, %thread-pre-split.i.i.i144.i.i ]
+  %.027.i.i.i143.i.i = phi ptr [ %712, %711 ], [ %725, %thread-pre-split.i.i.i144.i.i ]
+  %715 = load i8, ptr %.027.i.i.i143.i.i, align 1, !tbaa !20
+  %716 = and i8 %715, 127
+  %717 = zext nneg i8 %716 to i64
+  %718 = icmp ugt i32 %.028.i.i.i142.i.i, 62
+  br i1 %718, label %719, label %thread-pre-split.i.i.i144.i.i, !prof !63
 
-718:                                              ; preds = %713
+719:                                              ; preds = %714
   %.not43.i.i.i147.i.i = icmp eq i32 %.028.i.i.i142.i.i, 63
-  %.not.i.i.i148.i.i = icmp samesign ugt i8 %715, 1
-  %719 = icmp ne i8 %715, 0
-  %or.cond42.i.i.i149.i.i = select i1 %.not43.i.i.i147.i.i, i1 %.not.i.i.i148.i.i, i1 %719
+  %.not.i.i.i148.i.i = icmp samesign ugt i8 %716, 1
+  %720 = icmp ne i8 %716, 0
+  %or.cond42.i.i.i149.i.i = select i1 %.not43.i.i.i147.i.i, i1 %.not.i.i.i148.i.i, i1 %720
   br i1 %or.cond42.i.i.i149.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i, label %thread-pre-split.i.i.i144.i.i
 
-thread-pre-split.i.i.i144.i.i:                    ; preds = %718, %713
-  %720 = zext nneg i32 %.028.i.i.i142.i.i to i64
-  %721 = shl i64 %716, %720
-  %722 = add i64 %721, %.030.i.i.i141.i.i
-  %723 = add i32 %.028.i.i.i142.i.i, 7
-  %724 = getelementptr inbounds nuw i8, ptr %.027.i.i.i143.i.i, i64 1
-  %725 = icmp slt i8 %714, 0
-  br i1 %725, label %713, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i, !llvm.loop !64
+thread-pre-split.i.i.i144.i.i:                    ; preds = %719, %714
+  %721 = zext nneg i32 %.028.i.i.i142.i.i to i64
+  %722 = shl i64 %717, %721
+  %723 = add i64 %722, %.030.i.i.i141.i.i
+  %724 = add i32 %.028.i.i.i142.i.i, 7
+  %725 = getelementptr inbounds nuw i8, ptr %.027.i.i.i143.i.i, i64 1
+  %726 = icmp slt i8 %715, 0
+  br i1 %726, label %714, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i: ; preds = %thread-pre-split.i.i.i144.i.i, %718
-  %.131.i.i.i145.i.i = phi i64 [ %722, %thread-pre-split.i.i.i144.i.i ], [ 0, %718 ]
-  %.1.i.i.i146.i.i = phi ptr [ %724, %thread-pre-split.i.i.i144.i.i ], [ %.027.i.i.i143.i.i, %718 ]
-  %726 = ptrtoint ptr %.1.i.i.i146.i.i to i64
-  %727 = sub i64 %726, %712
-  %728 = and i64 %727, 4294967295
-  %729 = getelementptr inbounds nuw i8, ptr %711, i64 %728
-  %730 = ptrtoint ptr %729 to i64
-  br label %731
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i: ; preds = %thread-pre-split.i.i.i144.i.i, %719
+  %.131.i.i.i145.i.i = phi i64 [ %723, %thread-pre-split.i.i.i144.i.i ], [ 0, %719 ]
+  %.1.i.i.i146.i.i = phi ptr [ %725, %thread-pre-split.i.i.i144.i.i ], [ %.027.i.i.i143.i.i, %719 ]
+  %727 = ptrtoint ptr %.1.i.i.i146.i.i to i64
+  %728 = sub i64 %727, %713
+  %729 = and i64 %728, 4294967295
+  %730 = getelementptr inbounds nuw i8, ptr %712, i64 %729
+  %731 = ptrtoint ptr %730 to i64
+  br label %732
 
-731:                                              ; preds = %thread-pre-split.i.i.i155.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i
-  %.030.i.i.i152.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %740, %thread-pre-split.i.i.i155.i.i ]
-  %.028.i.i.i153.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %741, %thread-pre-split.i.i.i155.i.i ]
-  %.027.i.i.i154.i.i = phi ptr [ %729, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %742, %thread-pre-split.i.i.i155.i.i ]
-  %732 = load i8, ptr %.027.i.i.i154.i.i, align 1, !tbaa !20
-  %733 = and i8 %732, 127
-  %734 = zext nneg i8 %733 to i64
-  %735 = icmp ugt i32 %.028.i.i.i153.i.i, 62
-  br i1 %735, label %736, label %thread-pre-split.i.i.i155.i.i, !prof !63
+732:                                              ; preds = %thread-pre-split.i.i.i155.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i
+  %.030.i.i.i152.i.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %741, %thread-pre-split.i.i.i155.i.i ]
+  %.028.i.i.i153.i.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %742, %thread-pre-split.i.i.i155.i.i ]
+  %.027.i.i.i154.i.i = phi ptr [ %730, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150.i.i ], [ %743, %thread-pre-split.i.i.i155.i.i ]
+  %733 = load i8, ptr %.027.i.i.i154.i.i, align 1, !tbaa !20
+  %734 = and i8 %733, 127
+  %735 = zext nneg i8 %734 to i64
+  %736 = icmp ugt i32 %.028.i.i.i153.i.i, 62
+  br i1 %736, label %737, label %thread-pre-split.i.i.i155.i.i, !prof !63
 
-736:                                              ; preds = %731
+737:                                              ; preds = %732
   %.not43.i.i.i158.i.i = icmp eq i32 %.028.i.i.i153.i.i, 63
-  %.not.i.i.i159.i.i = icmp samesign ugt i8 %733, 1
-  %737 = icmp ne i8 %733, 0
-  %or.cond42.i.i.i160.i.i = select i1 %.not43.i.i.i158.i.i, i1 %.not.i.i.i159.i.i, i1 %737
+  %.not.i.i.i159.i.i = icmp samesign ugt i8 %734, 1
+  %738 = icmp ne i8 %734, 0
+  %or.cond42.i.i.i160.i.i = select i1 %.not43.i.i.i158.i.i, i1 %.not.i.i.i159.i.i, i1 %738
   br i1 %or.cond42.i.i.i160.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i, label %thread-pre-split.i.i.i155.i.i
 
-thread-pre-split.i.i.i155.i.i:                    ; preds = %736, %731
-  %738 = zext nneg i32 %.028.i.i.i153.i.i to i64
-  %739 = shl i64 %734, %738
-  %740 = add i64 %739, %.030.i.i.i152.i.i
-  %741 = add i32 %.028.i.i.i153.i.i, 7
-  %742 = getelementptr inbounds nuw i8, ptr %.027.i.i.i154.i.i, i64 1
-  %743 = icmp slt i8 %732, 0
-  br i1 %743, label %731, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i, !llvm.loop !64
+thread-pre-split.i.i.i155.i.i:                    ; preds = %737, %732
+  %739 = zext nneg i32 %.028.i.i.i153.i.i to i64
+  %740 = shl i64 %735, %739
+  %741 = add i64 %740, %.030.i.i.i152.i.i
+  %742 = add i32 %.028.i.i.i153.i.i, 7
+  %743 = getelementptr inbounds nuw i8, ptr %.027.i.i.i154.i.i, i64 1
+  %744 = icmp slt i8 %733, 0
+  br i1 %744, label %732, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i: ; preds = %thread-pre-split.i.i.i155.i.i, %736
-  %.131.i.i.i156.i.i = phi i64 [ %740, %thread-pre-split.i.i.i155.i.i ], [ 0, %736 ]
-  %.1.i.i.i157.i.i = phi ptr [ %742, %thread-pre-split.i.i.i155.i.i ], [ %.027.i.i.i154.i.i, %736 ]
-  %744 = ptrtoint ptr %.1.i.i.i157.i.i to i64
-  %745 = sub i64 %744, %730
-  %746 = and i64 %745, 4294967295
-  %747 = getelementptr inbounds nuw i8, ptr %729, i64 %746
-  %748 = and i64 %.131.i.i.i145.i.i, %393
-  %.not.i.i44 = icmp ne i64 %748, 0
-  %749 = and i64 %.131.i.i.i156.i.i, %395
-  %750 = icmp ne i64 %749, 0
-  %751 = select i1 %.not.i.i44, i1 true, i1 %750
-  %.4.i.i = select i1 %751, i32 1, i32 %.051.ph.i.i
-  br label %.outer.i.i, !llvm.loop !65
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161.i.i: ; preds = %thread-pre-split.i.i.i155.i.i, %737
+  %.131.i.i.i156.i.i = phi i64 [ %741, %thread-pre-split.i.i.i155.i.i ], [ 0, %737 ]
+  %.1.i.i.i157.i.i = phi ptr [ %743, %thread-pre-split.i.i.i155.i.i ], [ %.027.i.i.i154.i.i, %737 ]
+  %745 = ptrtoint ptr %.1.i.i.i157.i.i to i64
+  %746 = sub i64 %745, %731
+  %747 = and i64 %746, 4294967295
+  %748 = getelementptr inbounds nuw i8, ptr %730, i64 %747
+  %749 = and i64 %.131.i.i.i145.i.i, %393
+  %.not.i.i44 = icmp ne i64 %749, 0
+  %750 = and i64 %.131.i.i.i156.i.i, %395
+  %751 = icmp ne i64 %750, 0
+  %752 = select i1 %.not.i.i44, i1 true, i1 %751
+  %.4.i.i = select i1 %752, i32 1, i32 %.051.ph.i.i.ph
+  br label %.outer.i.i.outer, !llvm.loop !65
 
 _ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i: ; preds = %_ZN4llvm6MCInstD2Ev.exit.i.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i
-  %.133.i.i = phi i32 [ %622, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i ], [ %.3.i.i, %_ZN4llvm6MCInstD2Ev.exit.i.i ]
+  %.133.i.i = phi i32 [ %623, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116.i.i ], [ %.3.i.i, %_ZN4llvm6MCInstD2Ev.exit.i.i ]
   %.not17.i45 = icmp eq i32 %.133.i.i, 0
   br i1 %.not17.i45, label %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i: ; preds = %.backedge.i.i, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, %421, %419, %379
+_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i: ; preds = %405, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, %422, %420, %379
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-752:                                              ; preds = %372
-  %753 = and i8 %12, 127
-  %754 = icmp eq i8 %753, 63
-  br i1 %754, label %755, label %757
+753:                                              ; preds = %372
+  %754 = and i8 %12, 127
+  %755 = icmp eq i8 %754, 63
+  br i1 %755, label %756, label %758
 
-755:                                              ; preds = %752
+756:                                              ; preds = %753
   %.inv = icmp ult i64 %4, 8
-  %756 = select i1 %.inv, i64 0, i64 8
-  store i64 %756, ptr %2, align 8, !tbaa !21
+  %757 = select i1 %.inv, i64 0, i64 8
+  store i64 %757, ptr %2, align 8, !tbaa !21
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-757:                                              ; preds = %752
-  %758 = icmp ult i64 %4, 2
-  br i1 %758, label %759, label %760
+758:                                              ; preds = %753
+  %759 = icmp ult i64 %4, 2
+  br i1 %759, label %760, label %761
 
-759:                                              ; preds = %757
+760:                                              ; preds = %758
   store i64 0, ptr %2, align 8, !tbaa !21
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-760:                                              ; preds = %757
-  %761 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %762 = load i8, ptr %761, align 1, !tbaa !20
-  %763 = lshr i8 %762, 4
-  %764 = and i8 %763, 7
-  %.not27 = icmp eq i8 %764, 7
-  br i1 %.not27, label %769, label %765
+761:                                              ; preds = %758
+  %762 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %763 = load i8, ptr %762, align 1, !tbaa !20
+  %764 = lshr i8 %763, 4
+  %765 = and i8 %764, 7
+  %.not27 = icmp eq i8 %765, 7
+  br i1 %.not27, label %770, label %766
 
-765:                                              ; preds = %760
-  %766 = shl nuw nsw i8 %764, 1
-  %narrow = add nuw nsw i8 %766, 10
-  %767 = zext nneg i8 %narrow to i64
-  %768 = icmp ult i64 %4, %767
-  %spec.store.select = select i1 %768, i64 0, i64 %767
+766:                                              ; preds = %761
+  %767 = shl nuw nsw i8 %765, 1
+  %narrow = add nuw nsw i8 %767, 10
+  %768 = zext nneg i8 %narrow to i64
+  %769 = icmp ult i64 %4, %768
+  %spec.store.select = select i1 %769, i64 0, i64 %768
   store i64 %spec.store.select, ptr %2, align 8
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-769:                                              ; preds = %760
+770:                                              ; preds = %761
   store i64 0, ptr %2, align 8, !tbaa !21
   br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit: ; preds = %53, %765, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, %377, %369, %367, %361, %355, %349, %343, %337, %331, %325, %319, %313, %307, %301, %295, %289, %283, %277, %271, %265, %259, %253, %247, %241, %235, %229, %223, %217, %211, %205, %199, %193, %187, %181, %175, %169, %163, %157, %151, %145, %138, %132, %122, %111, %105, %.thread.i, %101, %93, %87, %81, %74, %68, %61, %26, %16, %769, %759, %755
-  %.0 = phi i32 [ 0, %755 ], [ 0, %759 ], [ 0, %769 ], [ 0, %16 ], [ %100, %101 ], [ %94, %93 ], [ %88, %87 ], [ %82, %81 ], [ %75, %74 ], [ %69, %68 ], [ %62, %61 ], [ %25, %26 ], [ 0, %.thread.i ], [ %104, %105 ], [ 0, %111 ], [ %368, %367 ], [ %362, %361 ], [ %356, %355 ], [ %350, %349 ], [ %344, %343 ], [ %338, %337 ], [ %332, %331 ], [ %326, %325 ], [ %320, %319 ], [ %314, %313 ], [ %308, %307 ], [ %302, %301 ], [ %296, %295 ], [ %290, %289 ], [ %284, %283 ], [ %278, %277 ], [ %272, %271 ], [ %266, %265 ], [ %260, %259 ], [ %254, %253 ], [ %248, %247 ], [ %242, %241 ], [ %236, %235 ], [ %230, %229 ], [ %224, %223 ], [ %218, %217 ], [ %212, %211 ], [ %206, %205 ], [ %200, %199 ], [ %194, %193 ], [ %188, %187 ], [ %182, %181 ], [ %176, %175 ], [ %170, %169 ], [ %164, %163 ], [ %158, %157 ], [ %152, %151 ], [ %146, %145 ], [ %139, %138 ], [ %133, %132 ], [ %123, %122 ], [ %371, %369 ], [ 0, %377 ], [ 0, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i ], [ %.133.i.i, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i ], [ 0, %765 ], [ %25, %53 ]
+_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit: ; preds = %53, %766, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i, %377, %369, %367, %361, %355, %349, %343, %337, %331, %325, %319, %313, %307, %301, %295, %289, %283, %277, %271, %265, %259, %253, %247, %241, %235, %229, %223, %217, %211, %205, %199, %193, %187, %181, %175, %169, %163, %157, %151, %145, %138, %132, %122, %111, %105, %.thread.i, %101, %93, %87, %81, %74, %68, %61, %26, %16, %770, %760, %756
+  %.0 = phi i32 [ 0, %770 ], [ %133, %132 ], [ 0, %756 ], [ 0, %760 ], [ 0, %766 ], [ %.133.i.i, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.i ], [ 0, %16 ], [ %62, %61 ], [ %100, %101 ], [ %94, %93 ], [ %88, %87 ], [ %82, %81 ], [ %75, %74 ], [ %69, %68 ], [ %25, %26 ], [ 0, %.thread.i ], [ %104, %105 ], [ 0, %111 ], [ %123, %122 ], [ %371, %369 ], [ %368, %367 ], [ %362, %361 ], [ %356, %355 ], [ %350, %349 ], [ %344, %343 ], [ %338, %337 ], [ %332, %331 ], [ %326, %325 ], [ %320, %319 ], [ %314, %313 ], [ %308, %307 ], [ %302, %301 ], [ %296, %295 ], [ %290, %289 ], [ %284, %283 ], [ %278, %277 ], [ %272, %271 ], [ %266, %265 ], [ %260, %259 ], [ %254, %253 ], [ %248, %247 ], [ %242, %241 ], [ %236, %235 ], [ %230, %229 ], [ %224, %223 ], [ %218, %217 ], [ %212, %211 ], [ %206, %205 ], [ %200, %199 ], [ %194, %193 ], [ %188, %187 ], [ %182, %181 ], [ %176, %175 ], [ %170, %169 ], [ %164, %163 ], [ %158, %157 ], [ %152, %151 ], [ %146, %145 ], [ %139, %138 ], [ 0, %377 ], [ 0, %_ZN4llvmL17decodeInstructionImEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit.thread.i ], [ %25, %53 ]
   ret i32 %.0
 }
 
@@ -2002,688 +2007,693 @@ define internal fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisas
   %.051.ph.ph = phi i32 [ 3, %6 ], [ %.354, %_ZN4llvm6MCInstD2Ev.exit ]
   %.048.ph.ph = phi i64 [ 0, %6 ], [ %.048.ph197, %_ZN4llvm6MCInstD2Ev.exit ]
   %.0.ph.ph = phi i32 [ undef, %6 ], [ %.3, %_ZN4llvm6MCInstD2Ev.exit ]
+  br label %.outer.outer282
+
+.outer.outer282:                                  ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161, %.outer.outer
+  %.0186.ph.ph283 = phi ptr [ %369, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.0186.ph.ph, %.outer.outer ]
+  %.051.ph.ph284 = phi i32 [ %.4, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.051.ph.ph, %.outer.outer ]
+  %.048.ph.ph285 = phi i64 [ %.048.ph197, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.048.ph.ph, %.outer.outer ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161
-  %.0186.ph = phi ptr [ %368, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.0186.ph.ph, %.outer.outer ]
-  %.051.ph = phi i32 [ %.4, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.051.ph.ph, %.outer.outer ]
-  %.048.ph = phi i64 [ %.048.ph197, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161 ], [ %.048.ph.ph, %.outer.outer ]
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer282
+  %.0186.ph = phi ptr [ %.0186.ph.ph283, %.outer.outer282 ], [ %.0186.ph.be, %.outer.backedge ]
+  %.048.ph = phi i64 [ %.048.ph.ph285, %.outer.outer282 ], [ %.048.ph197, %.outer.backedge ]
   br label %.outer195
 
 .outer195:                                        ; preds = %.outer, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit
-  %.0186.ph196 = phi ptr [ %.0186.ph, %.outer ], [ %64, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit ]
-  %.048.ph197 = phi i64 [ %.048.ph, %.outer ], [ %72, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit ]
-  br label %.backedge
+  %.0186.ph196 = phi ptr [ %.0186.ph, %.outer ], [ %65, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit ]
+  %.048.ph197 = phi i64 [ %.048.ph, %.outer ], [ %73, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit ]
+  br label %23
 
-.backedge:                                        ; preds = %.backedge.backedge, %.outer195
-  %.0186 = phi ptr [ %.0186.ph196, %.outer195 ], [ %.0186.be, %.backedge.backedge ]
-  %23 = load i8, ptr %.0186, align 1, !tbaa !20
-  switch i8 %23, label %24 [
-    i8 1, label %43
-    i8 2, label %73
-    i8 3, label %108
-    i8 4, label %171
-    i8 5, label %208
-    i8 6, label %244
-    i8 7, label %331
+23:                                               ; preds = %.outer195, %158
+  %.0186 = phi ptr [ %171, %158 ], [ %.0186.ph196, %.outer195 ]
+  %24 = load i8, ptr %.0186, align 1, !tbaa !20
+  switch i8 %24, label %25 [
+    i8 1, label %44
+    i8 2, label %74
+    i8 3, label %109
+    i8 4, label %172
+    i8 5, label %209
+    i8 6, label %245
+    i8 7, label %332
     i8 8, label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread
   ]
 
-24:                                               ; preds = %.backedge
-  %25 = ptrtoint ptr %.0186 to i64
-  %26 = ptrtoint ptr %0 to i64
-  %27 = sub i64 %25, %26
-  %28 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %28, i64 noundef %27) #11
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !58
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !62
-  %34 = ptrtoint ptr %31 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = icmp ult i64 %36, 34
-  br i1 %37, label %38, label %40
+25:                                               ; preds = %23
+  %26 = ptrtoint ptr %.0186 to i64
+  %27 = ptrtoint ptr %0 to i64
+  %28 = sub i64 %26, %27
+  %29 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #11
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef %28) #11
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !58
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !62
+  %35 = ptrtoint ptr %32 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = icmp ult i64 %37, 34
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %24
-  %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str, i64 noundef 34) #11
+39:                                               ; preds = %25
+  %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull @.str, i64 noundef 34) #11
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread
 
-40:                                               ; preds = %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %33, ptr noundef nonnull align 1 dereferenceable(34) @.str, i64 34, i1 false)
-  %41 = load ptr, ptr %32, align 8, !tbaa !62
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 34
-  store ptr %42, ptr %32, align 8, !tbaa !62
+41:                                               ; preds = %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %34, ptr noundef nonnull align 1 dereferenceable(34) @.str, i64 34, i1 false)
+  %42 = load ptr, ptr %33, align 8, !tbaa !62
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 34
+  store ptr %43, ptr %33, align 8, !tbaa !62
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread
 
-43:                                               ; preds = %.backedge
-  %44 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %45 = ptrtoint ptr %44 to i64
-  br label %46
+44:                                               ; preds = %23
+  %45 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %46 = ptrtoint ptr %45 to i64
+  br label %47
 
-46:                                               ; preds = %43, %thread-pre-split.i.i.i
-  %.030.i.i.i = phi i64 [ 0, %43 ], [ %55, %thread-pre-split.i.i.i ]
-  %.028.i.i.i = phi i32 [ 0, %43 ], [ %56, %thread-pre-split.i.i.i ]
-  %.027.i.i.i = phi ptr [ %44, %43 ], [ %57, %thread-pre-split.i.i.i ]
-  %47 = load i8, ptr %.027.i.i.i, align 1, !tbaa !20
-  %48 = and i8 %47, 127
-  %49 = zext nneg i8 %48 to i64
-  %50 = icmp ugt i32 %.028.i.i.i, 62
-  br i1 %50, label %51, label %thread-pre-split.i.i.i, !prof !63
+47:                                               ; preds = %44, %thread-pre-split.i.i.i
+  %.030.i.i.i = phi i64 [ 0, %44 ], [ %56, %thread-pre-split.i.i.i ]
+  %.028.i.i.i = phi i32 [ 0, %44 ], [ %57, %thread-pre-split.i.i.i ]
+  %.027.i.i.i = phi ptr [ %45, %44 ], [ %58, %thread-pre-split.i.i.i ]
+  %48 = load i8, ptr %.027.i.i.i, align 1, !tbaa !20
+  %49 = and i8 %48, 127
+  %50 = zext nneg i8 %49 to i64
+  %51 = icmp ugt i32 %.028.i.i.i, 62
+  br i1 %51, label %52, label %thread-pre-split.i.i.i, !prof !63
 
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
-  %.not.i.i.i = icmp samesign ugt i8 %48, 1
-  %52 = icmp ne i8 %48, 0
-  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %52
+  %.not.i.i.i = icmp samesign ugt i8 %49, 1
+  %53 = icmp ne i8 %49, 0
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %53
   br i1 %or.cond42.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit, label %thread-pre-split.i.i.i
 
-thread-pre-split.i.i.i:                           ; preds = %51, %46
-  %53 = zext nneg i32 %.028.i.i.i to i64
-  %54 = shl i64 %49, %53
-  %55 = add i64 %54, %.030.i.i.i
-  %56 = add i32 %.028.i.i.i, 7
-  %57 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 1
-  %58 = icmp slt i8 %47, 0
-  br i1 %58, label %46, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit, !llvm.loop !64
+thread-pre-split.i.i.i:                           ; preds = %52, %47
+  %54 = zext nneg i32 %.028.i.i.i to i64
+  %55 = shl i64 %50, %54
+  %56 = add i64 %55, %.030.i.i.i
+  %57 = add i32 %.028.i.i.i, 7
+  %58 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 1
+  %59 = icmp slt i8 %48, 0
+  br i1 %59, label %47, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit:    ; preds = %51, %thread-pre-split.i.i.i
-  %.131.i.i.i = phi i64 [ %55, %thread-pre-split.i.i.i ], [ 0, %51 ]
-  %.1.i.i.i = phi ptr [ %57, %thread-pre-split.i.i.i ], [ %.027.i.i.i, %51 ]
-  %59 = ptrtoint ptr %.1.i.i.i to i64
-  %60 = sub i64 %59, %45
-  %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 %61
-  %63 = trunc i64 %.131.i.i.i to i32
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  %65 = load i8, ptr %62, align 1, !tbaa !20
-  %66 = zext nneg i8 %65 to i32
-  %67 = icmp eq i8 %65, 32
-  %notmask.i = shl nsw i32 -1, %66
-  %68 = xor i32 %notmask.i, -1
-  %69 = shl i32 %68, %63
-  %.0.i = select i1 %67, i32 -1, i32 %69
-  %70 = and i32 %.0.i, %2
-  %71 = lshr i32 %70, %63
-  %72 = zext i32 %71 to i64
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit:    ; preds = %52, %thread-pre-split.i.i.i
+  %.131.i.i.i = phi i64 [ %56, %thread-pre-split.i.i.i ], [ 0, %52 ]
+  %.1.i.i.i = phi ptr [ %58, %thread-pre-split.i.i.i ], [ %.027.i.i.i, %52 ]
+  %60 = ptrtoint ptr %.1.i.i.i to i64
+  %61 = sub i64 %60, %46
+  %62 = and i64 %61, 4294967295
+  %63 = getelementptr inbounds nuw i8, ptr %45, i64 %62
+  %64 = trunc i64 %.131.i.i.i to i32
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %66 = load i8, ptr %63, align 1, !tbaa !20
+  %67 = zext nneg i8 %66 to i32
+  %68 = icmp eq i8 %66, 32
+  %notmask.i = shl nsw i32 -1, %67
+  %69 = xor i32 %notmask.i, -1
+  %70 = shl i32 %69, %64
+  %.0.i = select i1 %68, i32 -1, i32 %70
+  %71 = and i32 %.0.i, %2
+  %72 = lshr i32 %71, %64
+  %73 = zext i32 %72 to i64
   br label %.outer195, !llvm.loop !71
 
-73:                                               ; preds = %.backedge
-  %74 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %75 = ptrtoint ptr %74 to i64
-  br label %76
+74:                                               ; preds = %23
+  %75 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %76 = ptrtoint ptr %75 to i64
+  br label %77
 
-76:                                               ; preds = %73, %thread-pre-split.i.i.i64
-  %.030.i.i.i61 = phi i64 [ 0, %73 ], [ %85, %thread-pre-split.i.i.i64 ]
-  %.028.i.i.i62 = phi i32 [ 0, %73 ], [ %86, %thread-pre-split.i.i.i64 ]
-  %.027.i.i.i63 = phi ptr [ %74, %73 ], [ %87, %thread-pre-split.i.i.i64 ]
-  %77 = load i8, ptr %.027.i.i.i63, align 1, !tbaa !20
-  %78 = and i8 %77, 127
-  %79 = zext nneg i8 %78 to i64
-  %80 = icmp ugt i32 %.028.i.i.i62, 62
-  br i1 %80, label %81, label %thread-pre-split.i.i.i64, !prof !63
+77:                                               ; preds = %74, %thread-pre-split.i.i.i64
+  %.030.i.i.i61 = phi i64 [ 0, %74 ], [ %86, %thread-pre-split.i.i.i64 ]
+  %.028.i.i.i62 = phi i32 [ 0, %74 ], [ %87, %thread-pre-split.i.i.i64 ]
+  %.027.i.i.i63 = phi ptr [ %75, %74 ], [ %88, %thread-pre-split.i.i.i64 ]
+  %78 = load i8, ptr %.027.i.i.i63, align 1, !tbaa !20
+  %79 = and i8 %78, 127
+  %80 = zext nneg i8 %79 to i64
+  %81 = icmp ugt i32 %.028.i.i.i62, 62
+  br i1 %81, label %82, label %thread-pre-split.i.i.i64, !prof !63
 
-81:                                               ; preds = %76
+82:                                               ; preds = %77
   %.not43.i.i.i67 = icmp eq i32 %.028.i.i.i62, 63
-  %.not.i.i.i68 = icmp samesign ugt i8 %78, 1
-  %82 = icmp ne i8 %78, 0
-  %or.cond42.i.i.i69 = select i1 %.not43.i.i.i67, i1 %.not.i.i.i68, i1 %82
+  %.not.i.i.i68 = icmp samesign ugt i8 %79, 1
+  %83 = icmp ne i8 %79, 0
+  %or.cond42.i.i.i69 = select i1 %.not43.i.i.i67, i1 %.not.i.i.i68, i1 %83
   br i1 %or.cond42.i.i.i69, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70, label %thread-pre-split.i.i.i64
 
-thread-pre-split.i.i.i64:                         ; preds = %81, %76
-  %83 = zext nneg i32 %.028.i.i.i62 to i64
-  %84 = shl i64 %79, %83
-  %85 = add i64 %84, %.030.i.i.i61
-  %86 = add i32 %.028.i.i.i62, 7
-  %87 = getelementptr inbounds nuw i8, ptr %.027.i.i.i63, i64 1
-  %88 = icmp slt i8 %77, 0
-  br i1 %88, label %76, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70, !llvm.loop !64
+thread-pre-split.i.i.i64:                         ; preds = %82, %77
+  %84 = zext nneg i32 %.028.i.i.i62 to i64
+  %85 = shl i64 %80, %84
+  %86 = add i64 %85, %.030.i.i.i61
+  %87 = add i32 %.028.i.i.i62, 7
+  %88 = getelementptr inbounds nuw i8, ptr %.027.i.i.i63, i64 1
+  %89 = icmp slt i8 %78, 0
+  br i1 %89, label %77, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70:  ; preds = %81, %thread-pre-split.i.i.i64
-  %.131.i.i.i65 = phi i64 [ %85, %thread-pre-split.i.i.i64 ], [ 0, %81 ]
-  %.1.i.i.i66 = phi ptr [ %87, %thread-pre-split.i.i.i64 ], [ %.027.i.i.i63, %81 ]
-  %89 = ptrtoint ptr %.1.i.i.i66 to i64
-  %90 = sub i64 %89, %75
-  %91 = and i64 %90, 4294967295
-  %92 = getelementptr inbounds nuw i8, ptr %74, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 3
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70:  ; preds = %82, %thread-pre-split.i.i.i64
+  %.131.i.i.i65 = phi i64 [ %86, %thread-pre-split.i.i.i64 ], [ 0, %82 ]
+  %.1.i.i.i66 = phi ptr [ %88, %thread-pre-split.i.i.i64 ], [ %.027.i.i.i63, %82 ]
+  %90 = ptrtoint ptr %.1.i.i.i66 to i64
+  %91 = sub i64 %90, %76
+  %92 = and i64 %91, 4294967295
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %.not58 = icmp eq i64 %.131.i.i.i65, %.048.ph197
-  br i1 %.not58, label %.backedge.backedge, label %94
+  br i1 %.not58, label %.outer.backedge, label %95
 
-94:                                               ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %96 = load i8, ptr %95, align 1, !tbaa !20
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 2
-  %98 = load i8, ptr %92, align 1, !tbaa !20
-  %99 = zext i8 %96 to i64
-  %100 = shl nuw nsw i64 %99, 8
-  %101 = zext i8 %98 to i64
-  %102 = load i8, ptr %97, align 1, !tbaa !20
-  %103 = zext i8 %102 to i64
-  %104 = shl nuw nsw i64 %103, 16
-  %105 = getelementptr inbounds nuw i8, ptr %93, i64 %100
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %101
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %104
-  br label %.backedge.backedge
+.outer.backedge:                                  ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70, %95, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94, %195
+  %.0186.ph.be = phi ptr [ %193, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94 ], [ %108, %95 ], [ %208, %195 ], [ %94, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70 ], [ %157, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit ]
+  br label %.outer, !llvm.loop !71
 
-108:                                              ; preds = %.backedge
-  %109 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %110 = ptrtoint ptr %109 to i64
-  br label %111
+95:                                               ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  %97 = load i8, ptr %96, align 1, !tbaa !20
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 2
+  %99 = load i8, ptr %93, align 1, !tbaa !20
+  %100 = zext i8 %97 to i64
+  %101 = shl nuw nsw i64 %100, 8
+  %102 = zext i8 %99 to i64
+  %103 = load i8, ptr %98, align 1, !tbaa !20
+  %104 = zext i8 %103 to i64
+  %105 = shl nuw nsw i64 %104, 16
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 %101
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %102
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %105
+  br label %.outer.backedge
 
-111:                                              ; preds = %108, %thread-pre-split.i.i.i75
-  %.030.i.i.i72 = phi i64 [ 0, %108 ], [ %120, %thread-pre-split.i.i.i75 ]
-  %.028.i.i.i73 = phi i32 [ 0, %108 ], [ %121, %thread-pre-split.i.i.i75 ]
-  %.027.i.i.i74 = phi ptr [ %109, %108 ], [ %122, %thread-pre-split.i.i.i75 ]
-  %112 = load i8, ptr %.027.i.i.i74, align 1, !tbaa !20
-  %113 = and i8 %112, 127
-  %114 = zext nneg i8 %113 to i64
-  %115 = icmp ugt i32 %.028.i.i.i73, 62
-  br i1 %115, label %116, label %thread-pre-split.i.i.i75, !prof !63
+109:                                              ; preds = %23
+  %110 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %111 = ptrtoint ptr %110 to i64
+  br label %112
 
-116:                                              ; preds = %111
+112:                                              ; preds = %109, %thread-pre-split.i.i.i75
+  %.030.i.i.i72 = phi i64 [ 0, %109 ], [ %121, %thread-pre-split.i.i.i75 ]
+  %.028.i.i.i73 = phi i32 [ 0, %109 ], [ %122, %thread-pre-split.i.i.i75 ]
+  %.027.i.i.i74 = phi ptr [ %110, %109 ], [ %123, %thread-pre-split.i.i.i75 ]
+  %113 = load i8, ptr %.027.i.i.i74, align 1, !tbaa !20
+  %114 = and i8 %113, 127
+  %115 = zext nneg i8 %114 to i64
+  %116 = icmp ugt i32 %.028.i.i.i73, 62
+  br i1 %116, label %117, label %thread-pre-split.i.i.i75, !prof !63
+
+117:                                              ; preds = %112
   %.not43.i.i.i78 = icmp eq i32 %.028.i.i.i73, 63
-  %.not.i.i.i79 = icmp samesign ugt i8 %113, 1
-  %117 = icmp ne i8 %113, 0
-  %or.cond42.i.i.i80 = select i1 %.not43.i.i.i78, i1 %.not.i.i.i79, i1 %117
+  %.not.i.i.i79 = icmp samesign ugt i8 %114, 1
+  %118 = icmp ne i8 %114, 0
+  %or.cond42.i.i.i80 = select i1 %.not43.i.i.i78, i1 %.not.i.i.i79, i1 %118
   br i1 %or.cond42.i.i.i80, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81, label %thread-pre-split.i.i.i75
 
-thread-pre-split.i.i.i75:                         ; preds = %116, %111
-  %118 = zext nneg i32 %.028.i.i.i73 to i64
-  %119 = shl i64 %114, %118
-  %120 = add i64 %119, %.030.i.i.i72
-  %121 = add i32 %.028.i.i.i73, 7
-  %122 = getelementptr inbounds nuw i8, ptr %.027.i.i.i74, i64 1
-  %123 = icmp slt i8 %112, 0
-  br i1 %123, label %111, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81, !llvm.loop !64
+thread-pre-split.i.i.i75:                         ; preds = %117, %112
+  %119 = zext nneg i32 %.028.i.i.i73 to i64
+  %120 = shl i64 %115, %119
+  %121 = add i64 %120, %.030.i.i.i72
+  %122 = add i32 %.028.i.i.i73, 7
+  %123 = getelementptr inbounds nuw i8, ptr %.027.i.i.i74, i64 1
+  %124 = icmp slt i8 %113, 0
+  br i1 %124, label %112, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81:  ; preds = %116, %thread-pre-split.i.i.i75
-  %.131.i.i.i76 = phi i64 [ %120, %thread-pre-split.i.i.i75 ], [ 0, %116 ]
-  %.1.i.i.i77 = phi ptr [ %122, %thread-pre-split.i.i.i75 ], [ %.027.i.i.i74, %116 ]
-  %124 = ptrtoint ptr %.1.i.i.i77 to i64
-  %125 = sub i64 %124, %110
-  %126 = and i64 %125, 4294967295
-  %127 = getelementptr inbounds nuw i8, ptr %109, i64 %126
-  %128 = trunc i64 %.131.i.i.i76 to i32
-  %129 = load i8, ptr %127, align 1, !tbaa !20
-  %130 = zext nneg i8 %129 to i32
-  %131 = icmp eq i8 %129, 32
-  %notmask.i82 = shl nsw i32 -1, %130
-  %132 = xor i32 %notmask.i82, -1
-  %133 = shl i32 %132, %128
-  %.0.i83 = select i1 %131, i32 -1, i32 %133
-  %134 = and i32 %.0.i83, %2
-  %135 = lshr i32 %134, %128
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i8, ptr %127, i64 1
-  %138 = ptrtoint ptr %137 to i64
-  br label %139
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81:  ; preds = %117, %thread-pre-split.i.i.i75
+  %.131.i.i.i76 = phi i64 [ %121, %thread-pre-split.i.i.i75 ], [ 0, %117 ]
+  %.1.i.i.i77 = phi ptr [ %123, %thread-pre-split.i.i.i75 ], [ %.027.i.i.i74, %117 ]
+  %125 = ptrtoint ptr %.1.i.i.i77 to i64
+  %126 = sub i64 %125, %111
+  %127 = and i64 %126, 4294967295
+  %128 = getelementptr inbounds nuw i8, ptr %110, i64 %127
+  %129 = trunc i64 %.131.i.i.i76 to i32
+  %130 = load i8, ptr %128, align 1, !tbaa !20
+  %131 = zext nneg i8 %130 to i32
+  %132 = icmp eq i8 %130, 32
+  %notmask.i82 = shl nsw i32 -1, %131
+  %133 = xor i32 %notmask.i82, -1
+  %134 = shl i32 %133, %129
+  %.0.i83 = select i1 %132, i32 -1, i32 %134
+  %135 = and i32 %.0.i83, %2
+  %136 = lshr i32 %135, %129
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 1
+  %139 = ptrtoint ptr %138 to i64
+  br label %140
 
-139:                                              ; preds = %thread-pre-split.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81
-  %.030.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %148, %thread-pre-split.i ]
-  %.028.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %149, %thread-pre-split.i ]
-  %.027.i = phi ptr [ %137, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %150, %thread-pre-split.i ]
-  %140 = load i8, ptr %.027.i, align 1, !tbaa !20
-  %141 = and i8 %140, 127
-  %142 = zext nneg i8 %141 to i64
-  %143 = icmp ugt i32 %.028.i, 62
-  br i1 %143, label %144, label %thread-pre-split.i, !prof !63
+140:                                              ; preds = %thread-pre-split.i, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81
+  %.030.i = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %149, %thread-pre-split.i ]
+  %.028.i = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %150, %thread-pre-split.i ]
+  %.027.i = phi ptr [ %138, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81 ], [ %151, %thread-pre-split.i ]
+  %141 = load i8, ptr %.027.i, align 1, !tbaa !20
+  %142 = and i8 %141, 127
+  %143 = zext nneg i8 %142 to i64
+  %144 = icmp ugt i32 %.028.i, 62
+  br i1 %144, label %145, label %thread-pre-split.i, !prof !63
 
-144:                                              ; preds = %139
+145:                                              ; preds = %140
   %.not43.i = icmp eq i32 %.028.i, 63
-  %.not.i = icmp samesign ugt i8 %141, 1
-  %145 = icmp ne i8 %141, 0
-  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %145
+  %.not.i = icmp samesign ugt i8 %142, 1
+  %146 = icmp ne i8 %142, 0
+  %or.cond42.i = select i1 %.not43.i, i1 %.not.i, i1 %146
   br i1 %or.cond42.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %144, %139
-  %146 = zext nneg i32 %.028.i to i64
-  %147 = shl i64 %142, %146
-  %148 = add i64 %147, %.030.i
-  %149 = add i32 %.028.i, 7
-  %150 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
-  %151 = icmp slt i8 %140, 0
-  br i1 %151, label %139, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, !llvm.loop !64
+thread-pre-split.i:                               ; preds = %145, %140
+  %147 = zext nneg i32 %.028.i to i64
+  %148 = shl i64 %143, %147
+  %149 = add i64 %148, %.030.i
+  %150 = add i32 %.028.i, 7
+  %151 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
+  %152 = icmp slt i8 %141, 0
+  br i1 %152, label %140, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, !llvm.loop !64
 
-_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %144, %thread-pre-split.i
-  %.131.i = phi i64 [ %148, %thread-pre-split.i ], [ 0, %144 ]
-  %.1.i = phi ptr [ %150, %thread-pre-split.i ], [ %.027.i, %144 ]
-  %152 = ptrtoint ptr %.1.i to i64
-  %153 = sub i64 %152, %138
-  %154 = and i64 %153, 4294967295
-  %155 = getelementptr inbounds nuw i8, ptr %137, i64 %154
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 3
-  %.not57 = icmp eq i64 %.131.i, %136
-  br i1 %.not57, label %.backedge.backedge, label %157
+_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %145, %thread-pre-split.i
+  %.131.i = phi i64 [ %149, %thread-pre-split.i ], [ 0, %145 ]
+  %.1.i = phi ptr [ %151, %thread-pre-split.i ], [ %.027.i, %145 ]
+  %153 = ptrtoint ptr %.1.i to i64
+  %154 = sub i64 %153, %139
+  %155 = and i64 %154, 4294967295
+  %156 = getelementptr inbounds nuw i8, ptr %138, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 3
+  %.not57 = icmp eq i64 %.131.i, %137
+  br i1 %.not57, label %.outer.backedge, label %158, !llvm.loop !71
 
-157:                                              ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 1
-  %159 = load i8, ptr %158, align 1, !tbaa !20
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 2
-  %161 = load i8, ptr %155, align 1, !tbaa !20
-  %162 = zext i8 %159 to i64
-  %163 = shl nuw nsw i64 %162, 8
-  %164 = zext i8 %161 to i64
-  %165 = load i8, ptr %160, align 1, !tbaa !20
-  %166 = zext i8 %165 to i64
-  %167 = shl nuw nsw i64 %166, 16
-  %168 = getelementptr inbounds nuw i8, ptr %156, i64 %163
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %164
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %167
-  br label %.backedge.backedge
+158:                                              ; preds = %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 1
+  %160 = load i8, ptr %159, align 1, !tbaa !20
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 2
+  %162 = load i8, ptr %156, align 1, !tbaa !20
+  %163 = zext i8 %160 to i64
+  %164 = shl nuw nsw i64 %163, 8
+  %165 = zext i8 %162 to i64
+  %166 = load i8, ptr %161, align 1, !tbaa !20
+  %167 = zext i8 %166 to i64
+  %168 = shl nuw nsw i64 %167, 16
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 %164
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %165
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %168
+  br label %23, !llvm.loop !71
 
-171:                                              ; preds = %.backedge
-  %172 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %173 = ptrtoint ptr %172 to i64
-  br label %174
+172:                                              ; preds = %23
+  %173 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %174 = ptrtoint ptr %173 to i64
+  br label %175
 
-174:                                              ; preds = %171, %thread-pre-split.i.i.i88
-  %.030.i.i.i85 = phi i64 [ 0, %171 ], [ %183, %thread-pre-split.i.i.i88 ]
-  %.028.i.i.i86 = phi i32 [ 0, %171 ], [ %184, %thread-pre-split.i.i.i88 ]
-  %.027.i.i.i87 = phi ptr [ %172, %171 ], [ %185, %thread-pre-split.i.i.i88 ]
-  %175 = load i8, ptr %.027.i.i.i87, align 1, !tbaa !20
-  %176 = and i8 %175, 127
-  %177 = zext nneg i8 %176 to i64
-  %178 = icmp ugt i32 %.028.i.i.i86, 62
-  br i1 %178, label %179, label %thread-pre-split.i.i.i88, !prof !63
+175:                                              ; preds = %172, %thread-pre-split.i.i.i88
+  %.030.i.i.i85 = phi i64 [ 0, %172 ], [ %184, %thread-pre-split.i.i.i88 ]
+  %.028.i.i.i86 = phi i32 [ 0, %172 ], [ %185, %thread-pre-split.i.i.i88 ]
+  %.027.i.i.i87 = phi ptr [ %173, %172 ], [ %186, %thread-pre-split.i.i.i88 ]
+  %176 = load i8, ptr %.027.i.i.i87, align 1, !tbaa !20
+  %177 = and i8 %176, 127
+  %178 = zext nneg i8 %177 to i64
+  %179 = icmp ugt i32 %.028.i.i.i86, 62
+  br i1 %179, label %180, label %thread-pre-split.i.i.i88, !prof !63
 
-179:                                              ; preds = %174
+180:                                              ; preds = %175
   %.not43.i.i.i91 = icmp eq i32 %.028.i.i.i86, 63
-  %.not.i.i.i92 = icmp samesign ugt i8 %176, 1
-  %180 = icmp ne i8 %176, 0
-  %or.cond42.i.i.i93 = select i1 %.not43.i.i.i91, i1 %.not.i.i.i92, i1 %180
+  %.not.i.i.i92 = icmp samesign ugt i8 %177, 1
+  %181 = icmp ne i8 %177, 0
+  %or.cond42.i.i.i93 = select i1 %.not43.i.i.i91, i1 %.not.i.i.i92, i1 %181
   br i1 %or.cond42.i.i.i93, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94, label %thread-pre-split.i.i.i88
 
-thread-pre-split.i.i.i88:                         ; preds = %179, %174
-  %181 = zext nneg i32 %.028.i.i.i86 to i64
-  %182 = shl i64 %177, %181
-  %183 = add i64 %182, %.030.i.i.i85
-  %184 = add i32 %.028.i.i.i86, 7
-  %185 = getelementptr inbounds nuw i8, ptr %.027.i.i.i87, i64 1
-  %186 = icmp slt i8 %175, 0
-  br i1 %186, label %174, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94, !llvm.loop !64
+thread-pre-split.i.i.i88:                         ; preds = %180, %175
+  %182 = zext nneg i32 %.028.i.i.i86 to i64
+  %183 = shl i64 %178, %182
+  %184 = add i64 %183, %.030.i.i.i85
+  %185 = add i32 %.028.i.i.i86, 7
+  %186 = getelementptr inbounds nuw i8, ptr %.027.i.i.i87, i64 1
+  %187 = icmp slt i8 %176, 0
+  br i1 %187, label %175, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94:  ; preds = %179, %thread-pre-split.i.i.i88
-  %.131.i.i.i89 = phi i64 [ %183, %thread-pre-split.i.i.i88 ], [ 0, %179 ]
-  %.1.i.i.i90 = phi ptr [ %185, %thread-pre-split.i.i.i88 ], [ %.027.i.i.i87, %179 ]
-  %187 = ptrtoint ptr %.1.i.i.i90 to i64
-  %188 = sub i64 %187, %173
-  %189 = and i64 %188, 4294967295
-  %190 = getelementptr inbounds nuw i8, ptr %172, i64 %189
-  %191 = trunc i64 %.131.i.i.i89 to i32
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 3
-  %193 = call fastcc noundef zeroext i1 @_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE(i32 noundef %191, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  br i1 %193, label %.backedge.backedge, label %194
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94:  ; preds = %180, %thread-pre-split.i.i.i88
+  %.131.i.i.i89 = phi i64 [ %184, %thread-pre-split.i.i.i88 ], [ 0, %180 ]
+  %.1.i.i.i90 = phi ptr [ %186, %thread-pre-split.i.i.i88 ], [ %.027.i.i.i87, %180 ]
+  %188 = ptrtoint ptr %.1.i.i.i90 to i64
+  %189 = sub i64 %188, %174
+  %190 = and i64 %189, 4294967295
+  %191 = getelementptr inbounds nuw i8, ptr %173, i64 %190
+  %192 = trunc i64 %.131.i.i.i89 to i32
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 3
+  %194 = call fastcc noundef zeroext i1 @_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE(i32 noundef %192, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  br i1 %194, label %.outer.backedge, label %195
 
-.backedge.backedge:                               ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit, %157, %94, %194
-  %.0186.be = phi ptr [ %207, %194 ], [ %107, %94 ], [ %93, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70 ], [ %192, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94 ], [ %156, %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit ], [ %170, %157 ]
-  br label %.backedge, !llvm.loop !71
+195:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 2
+  %197 = load i8, ptr %196, align 1, !tbaa !20
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 1
+  %199 = load i8, ptr %198, align 1, !tbaa !20
+  %200 = load i8, ptr %191, align 1, !tbaa !20
+  %201 = zext i8 %199 to i64
+  %202 = shl nuw nsw i64 %201, 8
+  %203 = zext i8 %200 to i64
+  %204 = zext i8 %197 to i64
+  %205 = shl nuw nsw i64 %204, 16
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 %202
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %203
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %205
+  br label %.outer.backedge
 
-194:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 2
-  %196 = load i8, ptr %195, align 1, !tbaa !20
-  %197 = getelementptr inbounds nuw i8, ptr %190, i64 1
-  %198 = load i8, ptr %197, align 1, !tbaa !20
-  %199 = load i8, ptr %190, align 1, !tbaa !20
-  %200 = zext i8 %198 to i64
-  %201 = shl nuw nsw i64 %200, 8
-  %202 = zext i8 %199 to i64
-  %203 = zext i8 %196 to i64
-  %204 = shl nuw nsw i64 %203, 16
-  %205 = getelementptr inbounds nuw i8, ptr %192, i64 %201
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 %202
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %204
-  br label %.backedge.backedge
+209:                                              ; preds = %23
+  %210 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %211 = ptrtoint ptr %210 to i64
+  br label %212
 
-208:                                              ; preds = %.backedge
-  %209 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %210 = ptrtoint ptr %209 to i64
-  br label %211
+212:                                              ; preds = %209, %thread-pre-split.i.i.i99
+  %.030.i.i.i96 = phi i64 [ 0, %209 ], [ %221, %thread-pre-split.i.i.i99 ]
+  %.028.i.i.i97 = phi i32 [ 0, %209 ], [ %222, %thread-pre-split.i.i.i99 ]
+  %.027.i.i.i98 = phi ptr [ %210, %209 ], [ %223, %thread-pre-split.i.i.i99 ]
+  %213 = load i8, ptr %.027.i.i.i98, align 1, !tbaa !20
+  %214 = and i8 %213, 127
+  %215 = zext nneg i8 %214 to i64
+  %216 = icmp ugt i32 %.028.i.i.i97, 62
+  br i1 %216, label %217, label %thread-pre-split.i.i.i99, !prof !63
 
-211:                                              ; preds = %208, %thread-pre-split.i.i.i99
-  %.030.i.i.i96 = phi i64 [ 0, %208 ], [ %220, %thread-pre-split.i.i.i99 ]
-  %.028.i.i.i97 = phi i32 [ 0, %208 ], [ %221, %thread-pre-split.i.i.i99 ]
-  %.027.i.i.i98 = phi ptr [ %209, %208 ], [ %222, %thread-pre-split.i.i.i99 ]
-  %212 = load i8, ptr %.027.i.i.i98, align 1, !tbaa !20
-  %213 = and i8 %212, 127
-  %214 = zext nneg i8 %213 to i64
-  %215 = icmp ugt i32 %.028.i.i.i97, 62
-  br i1 %215, label %216, label %thread-pre-split.i.i.i99, !prof !63
-
-216:                                              ; preds = %211
+217:                                              ; preds = %212
   %.not43.i.i.i102 = icmp eq i32 %.028.i.i.i97, 63
-  %.not.i.i.i103 = icmp samesign ugt i8 %213, 1
-  %217 = icmp ne i8 %213, 0
-  %or.cond42.i.i.i104 = select i1 %.not43.i.i.i102, i1 %.not.i.i.i103, i1 %217
+  %.not.i.i.i103 = icmp samesign ugt i8 %214, 1
+  %218 = icmp ne i8 %214, 0
+  %or.cond42.i.i.i104 = select i1 %.not43.i.i.i102, i1 %.not.i.i.i103, i1 %218
   br i1 %or.cond42.i.i.i104, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105, label %thread-pre-split.i.i.i99
 
-thread-pre-split.i.i.i99:                         ; preds = %216, %211
-  %218 = zext nneg i32 %.028.i.i.i97 to i64
-  %219 = shl i64 %214, %218
-  %220 = add i64 %219, %.030.i.i.i96
-  %221 = add i32 %.028.i.i.i97, 7
-  %222 = getelementptr inbounds nuw i8, ptr %.027.i.i.i98, i64 1
-  %223 = icmp slt i8 %212, 0
-  br i1 %223, label %211, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105, !llvm.loop !64
+thread-pre-split.i.i.i99:                         ; preds = %217, %212
+  %219 = zext nneg i32 %.028.i.i.i97 to i64
+  %220 = shl i64 %215, %219
+  %221 = add i64 %220, %.030.i.i.i96
+  %222 = add i32 %.028.i.i.i97, 7
+  %223 = getelementptr inbounds nuw i8, ptr %.027.i.i.i98, i64 1
+  %224 = icmp slt i8 %213, 0
+  br i1 %224, label %212, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105: ; preds = %216, %thread-pre-split.i.i.i99
-  %.131.i.i.i100 = phi i64 [ %220, %thread-pre-split.i.i.i99 ], [ 0, %216 ]
-  %.1.i.i.i101 = phi ptr [ %222, %thread-pre-split.i.i.i99 ], [ %.027.i.i.i98, %216 ]
-  %224 = ptrtoint ptr %.1.i.i.i101 to i64
-  %225 = sub i64 %224, %210
-  %226 = and i64 %225, 4294967295
-  %227 = getelementptr inbounds nuw i8, ptr %209, i64 %226
-  %228 = trunc i64 %.131.i.i.i100 to i32
-  br label %229
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105: ; preds = %217, %thread-pre-split.i.i.i99
+  %.131.i.i.i100 = phi i64 [ %221, %thread-pre-split.i.i.i99 ], [ 0, %217 ]
+  %.1.i.i.i101 = phi ptr [ %223, %thread-pre-split.i.i.i99 ], [ %.027.i.i.i98, %217 ]
+  %225 = ptrtoint ptr %.1.i.i.i101 to i64
+  %226 = sub i64 %225, %211
+  %227 = and i64 %226, 4294967295
+  %228 = getelementptr inbounds nuw i8, ptr %210, i64 %227
+  %229 = trunc i64 %.131.i.i.i100 to i32
+  br label %230
 
-229:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105, %thread-pre-split.i.i.i110
-  %.030.i.i.i107 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %238, %thread-pre-split.i.i.i110 ]
-  %.028.i.i.i108 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %239, %thread-pre-split.i.i.i110 ]
-  %.027.i.i.i109 = phi ptr [ %227, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %240, %thread-pre-split.i.i.i110 ]
-  %230 = load i8, ptr %.027.i.i.i109, align 1, !tbaa !20
-  %231 = and i8 %230, 127
-  %232 = zext nneg i8 %231 to i64
-  %233 = icmp ugt i32 %.028.i.i.i108, 62
-  br i1 %233, label %234, label %thread-pre-split.i.i.i110, !prof !63
+230:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105, %thread-pre-split.i.i.i110
+  %.030.i.i.i107 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %239, %thread-pre-split.i.i.i110 ]
+  %.028.i.i.i108 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %240, %thread-pre-split.i.i.i110 ]
+  %.027.i.i.i109 = phi ptr [ %228, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit105 ], [ %241, %thread-pre-split.i.i.i110 ]
+  %231 = load i8, ptr %.027.i.i.i109, align 1, !tbaa !20
+  %232 = and i8 %231, 127
+  %233 = zext nneg i8 %232 to i64
+  %234 = icmp ugt i32 %.028.i.i.i108, 62
+  br i1 %234, label %235, label %thread-pre-split.i.i.i110, !prof !63
 
-234:                                              ; preds = %229
+235:                                              ; preds = %230
   %.not43.i.i.i113 = icmp eq i32 %.028.i.i.i108, 63
-  %.not.i.i.i114 = icmp samesign ugt i8 %231, 1
-  %235 = icmp ne i8 %231, 0
-  %or.cond42.i.i.i115 = select i1 %.not43.i.i.i113, i1 %.not.i.i.i114, i1 %235
+  %.not.i.i.i114 = icmp samesign ugt i8 %232, 1
+  %236 = icmp ne i8 %232, 0
+  %or.cond42.i.i.i115 = select i1 %.not43.i.i.i113, i1 %.not.i.i.i114, i1 %236
   br i1 %or.cond42.i.i.i115, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116, label %thread-pre-split.i.i.i110
 
-thread-pre-split.i.i.i110:                        ; preds = %234, %229
-  %236 = zext nneg i32 %.028.i.i.i108 to i64
-  %237 = shl i64 %232, %236
-  %238 = add i64 %237, %.030.i.i.i107
-  %239 = add i32 %.028.i.i.i108, 7
-  %240 = getelementptr inbounds nuw i8, ptr %.027.i.i.i109, i64 1
-  %241 = icmp slt i8 %230, 0
-  br i1 %241, label %229, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116, !llvm.loop !64
+thread-pre-split.i.i.i110:                        ; preds = %235, %230
+  %237 = zext nneg i32 %.028.i.i.i108 to i64
+  %238 = shl i64 %233, %237
+  %239 = add i64 %238, %.030.i.i.i107
+  %240 = add i32 %.028.i.i.i108, 7
+  %241 = getelementptr inbounds nuw i8, ptr %.027.i.i.i109, i64 1
+  %242 = icmp slt i8 %231, 0
+  br i1 %242, label %230, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116: ; preds = %234, %thread-pre-split.i.i.i110
-  %.131.i.i.i111 = phi i64 [ %238, %thread-pre-split.i.i.i110 ], [ 0, %234 ]
-  %242 = trunc i64 %.131.i.i.i111 to i32
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116: ; preds = %235, %thread-pre-split.i.i.i110
+  %.131.i.i.i111 = phi i64 [ %239, %thread-pre-split.i.i.i110 ], [ 0, %235 ]
+  %243 = trunc i64 %.131.i.i.i111 to i32
   store i32 0, ptr %20, align 8, !tbaa !66
-  store i32 %228, ptr %1, align 8, !tbaa !38
+  store i32 %229, ptr %1, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %243 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph, i32 noundef %242, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %244 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.ph284, i32 noundef %243, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread
 
-244:                                              ; preds = %.backedge
-  %245 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %246 = ptrtoint ptr %245 to i64
-  br label %247
+245:                                              ; preds = %23
+  %246 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %247 = ptrtoint ptr %246 to i64
+  br label %248
 
-247:                                              ; preds = %244, %thread-pre-split.i.i.i121
-  %.030.i.i.i118 = phi i64 [ 0, %244 ], [ %256, %thread-pre-split.i.i.i121 ]
-  %.028.i.i.i119 = phi i32 [ 0, %244 ], [ %257, %thread-pre-split.i.i.i121 ]
-  %.027.i.i.i120 = phi ptr [ %245, %244 ], [ %258, %thread-pre-split.i.i.i121 ]
-  %248 = load i8, ptr %.027.i.i.i120, align 1, !tbaa !20
-  %249 = and i8 %248, 127
-  %250 = zext nneg i8 %249 to i64
-  %251 = icmp ugt i32 %.028.i.i.i119, 62
-  br i1 %251, label %252, label %thread-pre-split.i.i.i121, !prof !63
+248:                                              ; preds = %245, %thread-pre-split.i.i.i121
+  %.030.i.i.i118 = phi i64 [ 0, %245 ], [ %257, %thread-pre-split.i.i.i121 ]
+  %.028.i.i.i119 = phi i32 [ 0, %245 ], [ %258, %thread-pre-split.i.i.i121 ]
+  %.027.i.i.i120 = phi ptr [ %246, %245 ], [ %259, %thread-pre-split.i.i.i121 ]
+  %249 = load i8, ptr %.027.i.i.i120, align 1, !tbaa !20
+  %250 = and i8 %249, 127
+  %251 = zext nneg i8 %250 to i64
+  %252 = icmp ugt i32 %.028.i.i.i119, 62
+  br i1 %252, label %253, label %thread-pre-split.i.i.i121, !prof !63
 
-252:                                              ; preds = %247
+253:                                              ; preds = %248
   %.not43.i.i.i124 = icmp eq i32 %.028.i.i.i119, 63
-  %.not.i.i.i125 = icmp samesign ugt i8 %249, 1
-  %253 = icmp ne i8 %249, 0
-  %or.cond42.i.i.i126 = select i1 %.not43.i.i.i124, i1 %.not.i.i.i125, i1 %253
+  %.not.i.i.i125 = icmp samesign ugt i8 %250, 1
+  %254 = icmp ne i8 %250, 0
+  %or.cond42.i.i.i126 = select i1 %.not43.i.i.i124, i1 %.not.i.i.i125, i1 %254
   br i1 %or.cond42.i.i.i126, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127, label %thread-pre-split.i.i.i121
 
-thread-pre-split.i.i.i121:                        ; preds = %252, %247
-  %254 = zext nneg i32 %.028.i.i.i119 to i64
-  %255 = shl i64 %250, %254
-  %256 = add i64 %255, %.030.i.i.i118
-  %257 = add i32 %.028.i.i.i119, 7
-  %258 = getelementptr inbounds nuw i8, ptr %.027.i.i.i120, i64 1
-  %259 = icmp slt i8 %248, 0
-  br i1 %259, label %247, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127, !llvm.loop !64
+thread-pre-split.i.i.i121:                        ; preds = %253, %248
+  %255 = zext nneg i32 %.028.i.i.i119 to i64
+  %256 = shl i64 %251, %255
+  %257 = add i64 %256, %.030.i.i.i118
+  %258 = add i32 %.028.i.i.i119, 7
+  %259 = getelementptr inbounds nuw i8, ptr %.027.i.i.i120, i64 1
+  %260 = icmp slt i8 %249, 0
+  br i1 %260, label %248, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127: ; preds = %252, %thread-pre-split.i.i.i121
-  %.131.i.i.i122 = phi i64 [ %256, %thread-pre-split.i.i.i121 ], [ 0, %252 ]
-  %.1.i.i.i123 = phi ptr [ %258, %thread-pre-split.i.i.i121 ], [ %.027.i.i.i120, %252 ]
-  %260 = ptrtoint ptr %.1.i.i.i123 to i64
-  %261 = sub i64 %260, %246
-  %262 = and i64 %261, 4294967295
-  %263 = getelementptr inbounds nuw i8, ptr %245, i64 %262
-  %264 = trunc i64 %.131.i.i.i122 to i32
-  %265 = ptrtoint ptr %263 to i64
-  br label %266
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127: ; preds = %253, %thread-pre-split.i.i.i121
+  %.131.i.i.i122 = phi i64 [ %257, %thread-pre-split.i.i.i121 ], [ 0, %253 ]
+  %.1.i.i.i123 = phi ptr [ %259, %thread-pre-split.i.i.i121 ], [ %.027.i.i.i120, %253 ]
+  %261 = ptrtoint ptr %.1.i.i.i123 to i64
+  %262 = sub i64 %261, %247
+  %263 = and i64 %262, 4294967295
+  %264 = getelementptr inbounds nuw i8, ptr %246, i64 %263
+  %265 = trunc i64 %.131.i.i.i122 to i32
+  %266 = ptrtoint ptr %264 to i64
+  br label %267
 
-266:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127, %thread-pre-split.i.i.i132
-  %.030.i.i.i129 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %275, %thread-pre-split.i.i.i132 ]
-  %.028.i.i.i130 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %276, %thread-pre-split.i.i.i132 ]
-  %.027.i.i.i131 = phi ptr [ %263, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %277, %thread-pre-split.i.i.i132 ]
-  %267 = load i8, ptr %.027.i.i.i131, align 1, !tbaa !20
-  %268 = and i8 %267, 127
-  %269 = zext nneg i8 %268 to i64
-  %270 = icmp ugt i32 %.028.i.i.i130, 62
-  br i1 %270, label %271, label %thread-pre-split.i.i.i132, !prof !63
+267:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127, %thread-pre-split.i.i.i132
+  %.030.i.i.i129 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %276, %thread-pre-split.i.i.i132 ]
+  %.028.i.i.i130 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %277, %thread-pre-split.i.i.i132 ]
+  %.027.i.i.i131 = phi ptr [ %264, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit127 ], [ %278, %thread-pre-split.i.i.i132 ]
+  %268 = load i8, ptr %.027.i.i.i131, align 1, !tbaa !20
+  %269 = and i8 %268, 127
+  %270 = zext nneg i8 %269 to i64
+  %271 = icmp ugt i32 %.028.i.i.i130, 62
+  br i1 %271, label %272, label %thread-pre-split.i.i.i132, !prof !63
 
-271:                                              ; preds = %266
+272:                                              ; preds = %267
   %.not43.i.i.i135 = icmp eq i32 %.028.i.i.i130, 63
-  %.not.i.i.i136 = icmp samesign ugt i8 %268, 1
-  %272 = icmp ne i8 %268, 0
-  %or.cond42.i.i.i137 = select i1 %.not43.i.i.i135, i1 %.not.i.i.i136, i1 %272
+  %.not.i.i.i136 = icmp samesign ugt i8 %269, 1
+  %273 = icmp ne i8 %269, 0
+  %or.cond42.i.i.i137 = select i1 %.not43.i.i.i135, i1 %.not.i.i.i136, i1 %273
   br i1 %or.cond42.i.i.i137, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138, label %thread-pre-split.i.i.i132
 
-thread-pre-split.i.i.i132:                        ; preds = %271, %266
-  %273 = zext nneg i32 %.028.i.i.i130 to i64
-  %274 = shl i64 %269, %273
-  %275 = add i64 %274, %.030.i.i.i129
-  %276 = add i32 %.028.i.i.i130, 7
-  %277 = getelementptr inbounds nuw i8, ptr %.027.i.i.i131, i64 1
-  %278 = icmp slt i8 %267, 0
-  br i1 %278, label %266, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138, !llvm.loop !64
+thread-pre-split.i.i.i132:                        ; preds = %272, %267
+  %274 = zext nneg i32 %.028.i.i.i130 to i64
+  %275 = shl i64 %270, %274
+  %276 = add i64 %275, %.030.i.i.i129
+  %277 = add i32 %.028.i.i.i130, 7
+  %278 = getelementptr inbounds nuw i8, ptr %.027.i.i.i131, i64 1
+  %279 = icmp slt i8 %268, 0
+  br i1 %279, label %267, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138: ; preds = %271, %thread-pre-split.i.i.i132
-  %.131.i.i.i133 = phi i64 [ %275, %thread-pre-split.i.i.i132 ], [ 0, %271 ]
-  %.1.i.i.i134 = phi ptr [ %277, %thread-pre-split.i.i.i132 ], [ %.027.i.i.i131, %271 ]
-  %279 = ptrtoint ptr %.1.i.i.i134 to i64
-  %280 = sub i64 %279, %265
-  %281 = and i64 %280, 4294967295
-  %282 = getelementptr inbounds nuw i8, ptr %263, i64 %281
-  %283 = trunc i64 %.131.i.i.i133 to i32
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  %285 = load i8, ptr %282, align 1, !tbaa !20
-  %286 = getelementptr inbounds nuw i8, ptr %282, i64 2
-  %287 = load i8, ptr %284, align 1, !tbaa !20
-  %288 = getelementptr inbounds nuw i8, ptr %282, i64 3
-  %289 = load i8, ptr %286, align 1, !tbaa !20
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138: ; preds = %272, %thread-pre-split.i.i.i132
+  %.131.i.i.i133 = phi i64 [ %276, %thread-pre-split.i.i.i132 ], [ 0, %272 ]
+  %.1.i.i.i134 = phi ptr [ %278, %thread-pre-split.i.i.i132 ], [ %.027.i.i.i131, %272 ]
+  %280 = ptrtoint ptr %.1.i.i.i134 to i64
+  %281 = sub i64 %280, %266
+  %282 = and i64 %281, 4294967295
+  %283 = getelementptr inbounds nuw i8, ptr %264, i64 %282
+  %284 = trunc i64 %.131.i.i.i133 to i32
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 1
+  %286 = load i8, ptr %283, align 1, !tbaa !20
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 2
+  %288 = load i8, ptr %285, align 1, !tbaa !20
+  %289 = getelementptr inbounds nuw i8, ptr %283, i64 3
+  %290 = load i8, ptr %287, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 16, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !54
   store i32 0, ptr %16, align 8, !tbaa !66
   store i32 6, ptr %17, align 4, !tbaa !67
-  store i32 %264, ptr %8, align 8, !tbaa !38
+  store i32 %265, ptr %8, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %290 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph, i32 noundef %283, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  %291 = load i8, ptr %9, align 1, !tbaa !68, !range !69, !noundef !70
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %293, label %319
+  %291 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.051.ph.ph284, i32 noundef %284, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %292 = load i8, ptr %9, align 1, !tbaa !68, !range !69, !noundef !70
+  %293 = trunc nuw i8 %292 to i1
+  br i1 %293, label %294, label %320
 
-293:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138
+294:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 16, i1 false)
-  br i1 %19, label %_ZN4llvm6MCInstaSERKS0_.exit, label %294
+  br i1 %19, label %_ZN4llvm6MCInstaSERKS0_.exit, label %295
 
-294:                                              ; preds = %293
-  %295 = load i32, ptr %16, align 8, !tbaa !66
-  %296 = zext i32 %295 to i64
-  %297 = load i32, ptr %20, align 8, !tbaa !66
-  %298 = zext i32 %297 to i64
-  %.not.i.i.i139 = icmp ult i32 %297, %295
-  br i1 %.not.i.i.i139, label %303, label %299
+295:                                              ; preds = %294
+  %296 = load i32, ptr %16, align 8, !tbaa !66
+  %297 = zext i32 %296 to i64
+  %298 = load i32, ptr %20, align 8, !tbaa !66
+  %299 = zext i32 %298 to i64
+  %.not.i.i.i139 = icmp ult i32 %298, %296
+  br i1 %.not.i.i.i139, label %304, label %300
 
-299:                                              ; preds = %294
-  %.not29.i.i.i = icmp eq i32 %295, 0
-  br i1 %.not29.i.i.i, label %.sink.split.i.i.i, label %300
+300:                                              ; preds = %295
+  %.not29.i.i.i = icmp eq i32 %296, 0
+  br i1 %.not29.i.i.i, label %.sink.split.i.i.i, label %301
 
-300:                                              ; preds = %299
-  %301 = load ptr, ptr %14, align 8, !tbaa !54
-  %.idx.i.i.i = shl nuw nsw i64 %296, 4
-  %302 = load ptr, ptr %18, align 8, !tbaa !54
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %302, ptr align 8 %301, i64 %.idx.i.i.i, i1 false)
+301:                                              ; preds = %300
+  %302 = load ptr, ptr %14, align 8, !tbaa !54
+  %.idx.i.i.i = shl nuw nsw i64 %297, 4
+  %303 = load ptr, ptr %18, align 8, !tbaa !54
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %303, ptr align 8 %302, i64 %.idx.i.i.i, i1 false)
   br label %.sink.split.i.i.i
 
-303:                                              ; preds = %294
-  %304 = load i32, ptr %21, align 4, !tbaa !67
-  %305 = icmp ult i32 %304, %295
-  br i1 %305, label %306, label %307
+304:                                              ; preds = %295
+  %305 = load i32, ptr %21, align 4, !tbaa !67
+  %306 = icmp ult i32 %305, %296
+  br i1 %306, label %307, label %308
 
-306:                                              ; preds = %303
+307:                                              ; preds = %304
   store i32 0, ptr %20, align 8, !tbaa !66
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull %22, i64 noundef %296, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull %22, i64 noundef %297, i64 noundef 16) #11
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i
 
-307:                                              ; preds = %303
-  %.not28.i.i.i = icmp eq i32 %297, 0
-  br i1 %.not28.i.i.i, label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i, label %308
+308:                                              ; preds = %304
+  %.not28.i.i.i = icmp eq i32 %298, 0
+  br i1 %.not28.i.i.i, label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i, label %309
 
-308:                                              ; preds = %307
-  %309 = load ptr, ptr %14, align 8, !tbaa !54
-  %.idx33.i.i.i = shl nuw nsw i64 %298, 4
-  %310 = load ptr, ptr %18, align 8, !tbaa !54
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %310, ptr align 8 %309, i64 %.idx33.i.i.i, i1 false)
+309:                                              ; preds = %308
+  %310 = load ptr, ptr %14, align 8, !tbaa !54
+  %.idx33.i.i.i = shl nuw nsw i64 %299, 4
+  %311 = load ptr, ptr %18, align 8, !tbaa !54
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %311, ptr align 8 %310, i64 %.idx33.i.i.i, i1 false)
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i
 
-_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i: ; preds = %308, %307, %306
-  %.022.i.i.i = phi i64 [ 0, %306 ], [ 0, %307 ], [ %298, %308 ]
-  %311 = load i32, ptr %16, align 8, !tbaa !66
-  %312 = zext i32 %311 to i64
-  %.not.i.i.i.i = icmp samesign eq i64 %.022.i.i.i, %312
-  br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %313
+_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i: ; preds = %309, %308, %307
+  %.022.i.i.i = phi i64 [ 0, %307 ], [ 0, %308 ], [ %299, %309 ]
+  %312 = load i32, ptr %16, align 8, !tbaa !66
+  %313 = zext i32 %312 to i64
+  %.not.i.i.i.i = icmp samesign eq i64 %.022.i.i.i, %313
+  br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %314
 
-313:                                              ; preds = %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i
-  %314 = load ptr, ptr %14, align 8, !tbaa !54
+314:                                              ; preds = %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i
+  %315 = load ptr, ptr %14, align 8, !tbaa !54
   %.idx36.i.i.i = shl nuw nsw i64 %.022.i.i.i, 4
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx36.i.i.i
-  %316 = load ptr, ptr %18, align 8, !tbaa !54
-  %317 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %316, i64 %.022.i.i.i
-  %318 = sub nsw i64 %312, %.022.i.i.i
-  %gepdiff.i.i.i = shl nsw i64 %318, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 8 %315, i64 %gepdiff.i.i.i, i1 false)
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 %.idx36.i.i.i
+  %317 = load ptr, ptr %18, align 8, !tbaa !54
+  %318 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %317, i64 %.022.i.i.i
+  %319 = sub nsw i64 %313, %.022.i.i.i
+  %gepdiff.i.i.i = shl nsw i64 %319, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %318, ptr align 8 %316, i64 %gepdiff.i.i.i, i1 false)
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %313, %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i, %300, %299
-  store i32 %295, ptr %20, align 8, !tbaa !66
+.sink.split.i.i.i:                                ; preds = %314, %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i, %301, %300
+  store i32 %296, ptr %20, align 8, !tbaa !66
   br label %_ZN4llvm6MCInstaSERKS0_.exit
 
-319:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138
-  %320 = zext i8 %287 to i64
-  %321 = shl nuw nsw i64 %320, 8
-  %322 = zext i8 %285 to i64
-  %323 = zext i8 %289 to i64
-  %324 = shl nuw nsw i64 %323, 16
-  %325 = getelementptr inbounds nuw i8, ptr %288, i64 %321
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %322
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 %324
+320:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit138
+  %321 = zext i8 %288 to i64
+  %322 = shl nuw nsw i64 %321, 8
+  %323 = zext i8 %286 to i64
+  %324 = zext i8 %290 to i64
+  %325 = shl nuw nsw i64 %324, 16
+  %326 = getelementptr inbounds nuw i8, ptr %289, i64 %322
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 %323
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 %325
   br label %_ZN4llvm6MCInstaSERKS0_.exit
 
-_ZN4llvm6MCInstaSERKS0_.exit:                     ; preds = %.sink.split.i.i.i, %293, %319
-  %.3188 = phi ptr [ %327, %319 ], [ %288, %293 ], [ %288, %.sink.split.i.i.i ]
-  %.354 = phi i32 [ 3, %319 ], [ %290, %293 ], [ %290, %.sink.split.i.i.i ]
-  %.3 = phi i32 [ %.0.ph.ph, %319 ], [ %290, %293 ], [ %290, %.sink.split.i.i.i ]
+_ZN4llvm6MCInstaSERKS0_.exit:                     ; preds = %.sink.split.i.i.i, %294, %320
+  %.3188 = phi ptr [ %328, %320 ], [ %289, %294 ], [ %289, %.sink.split.i.i.i ]
+  %.354 = phi i32 [ 3, %320 ], [ %291, %294 ], [ %291, %.sink.split.i.i.i ]
+  %.3 = phi i32 [ %.0.ph.ph, %320 ], [ %291, %294 ], [ %291, %.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %328 = load ptr, ptr %14, align 8, !tbaa !54
-  %329 = icmp eq ptr %328, %15
-  br i1 %329, label %_ZN4llvm6MCInstD2Ev.exit, label %330
+  %329 = load ptr, ptr %14, align 8, !tbaa !54
+  %330 = icmp eq ptr %329, %15
+  br i1 %330, label %_ZN4llvm6MCInstD2Ev.exit, label %331
 
-330:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit
-  call void @free(ptr noundef %328) #11
+331:                                              ; preds = %_ZN4llvm6MCInstaSERKS0_.exit
+  call void @free(ptr noundef %329) #11
   br label %_ZN4llvm6MCInstD2Ev.exit
 
-_ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZN4llvm6MCInstaSERKS0_.exit, %330
+_ZN4llvm6MCInstD2Ev.exit:                         ; preds = %_ZN4llvm6MCInstaSERKS0_.exit, %331
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %292, label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread, label %.outer.outer, !llvm.loop !71
+  br i1 %293, label %_ZN4llvm11raw_ostreamlsEPKc.exit.thread, label %.outer.outer, !llvm.loop !71
 
-331:                                              ; preds = %.backedge
-  %332 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
-  %333 = ptrtoint ptr %332 to i64
-  br label %334
+332:                                              ; preds = %23
+  %333 = getelementptr inbounds nuw i8, ptr %.0186, i64 1
+  %334 = ptrtoint ptr %333 to i64
+  br label %335
 
-334:                                              ; preds = %331, %thread-pre-split.i.i.i144
-  %.030.i.i.i141 = phi i64 [ 0, %331 ], [ %343, %thread-pre-split.i.i.i144 ]
-  %.028.i.i.i142 = phi i32 [ 0, %331 ], [ %344, %thread-pre-split.i.i.i144 ]
-  %.027.i.i.i143 = phi ptr [ %332, %331 ], [ %345, %thread-pre-split.i.i.i144 ]
-  %335 = load i8, ptr %.027.i.i.i143, align 1, !tbaa !20
-  %336 = and i8 %335, 127
-  %337 = zext nneg i8 %336 to i64
-  %338 = icmp ugt i32 %.028.i.i.i142, 62
-  br i1 %338, label %339, label %thread-pre-split.i.i.i144, !prof !63
+335:                                              ; preds = %332, %thread-pre-split.i.i.i144
+  %.030.i.i.i141 = phi i64 [ 0, %332 ], [ %344, %thread-pre-split.i.i.i144 ]
+  %.028.i.i.i142 = phi i32 [ 0, %332 ], [ %345, %thread-pre-split.i.i.i144 ]
+  %.027.i.i.i143 = phi ptr [ %333, %332 ], [ %346, %thread-pre-split.i.i.i144 ]
+  %336 = load i8, ptr %.027.i.i.i143, align 1, !tbaa !20
+  %337 = and i8 %336, 127
+  %338 = zext nneg i8 %337 to i64
+  %339 = icmp ugt i32 %.028.i.i.i142, 62
+  br i1 %339, label %340, label %thread-pre-split.i.i.i144, !prof !63
 
-339:                                              ; preds = %334
+340:                                              ; preds = %335
   %.not43.i.i.i147 = icmp eq i32 %.028.i.i.i142, 63
-  %.not.i.i.i148 = icmp samesign ugt i8 %336, 1
-  %340 = icmp ne i8 %336, 0
-  %or.cond42.i.i.i149 = select i1 %.not43.i.i.i147, i1 %.not.i.i.i148, i1 %340
+  %.not.i.i.i148 = icmp samesign ugt i8 %337, 1
+  %341 = icmp ne i8 %337, 0
+  %or.cond42.i.i.i149 = select i1 %.not43.i.i.i147, i1 %.not.i.i.i148, i1 %341
   br i1 %or.cond42.i.i.i149, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150, label %thread-pre-split.i.i.i144
 
-thread-pre-split.i.i.i144:                        ; preds = %339, %334
-  %341 = zext nneg i32 %.028.i.i.i142 to i64
-  %342 = shl i64 %337, %341
-  %343 = add i64 %342, %.030.i.i.i141
-  %344 = add i32 %.028.i.i.i142, 7
-  %345 = getelementptr inbounds nuw i8, ptr %.027.i.i.i143, i64 1
-  %346 = icmp slt i8 %335, 0
-  br i1 %346, label %334, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150, !llvm.loop !64
+thread-pre-split.i.i.i144:                        ; preds = %340, %335
+  %342 = zext nneg i32 %.028.i.i.i142 to i64
+  %343 = shl i64 %338, %342
+  %344 = add i64 %343, %.030.i.i.i141
+  %345 = add i32 %.028.i.i.i142, 7
+  %346 = getelementptr inbounds nuw i8, ptr %.027.i.i.i143, i64 1
+  %347 = icmp slt i8 %336, 0
+  br i1 %347, label %335, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150: ; preds = %339, %thread-pre-split.i.i.i144
-  %.131.i.i.i145 = phi i64 [ %343, %thread-pre-split.i.i.i144 ], [ 0, %339 ]
-  %.1.i.i.i146 = phi ptr [ %345, %thread-pre-split.i.i.i144 ], [ %.027.i.i.i143, %339 ]
-  %347 = ptrtoint ptr %.1.i.i.i146 to i64
-  %348 = sub i64 %347, %333
-  %349 = and i64 %348, 4294967295
-  %350 = getelementptr inbounds nuw i8, ptr %332, i64 %349
-  %351 = ptrtoint ptr %350 to i64
-  br label %352
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150: ; preds = %340, %thread-pre-split.i.i.i144
+  %.131.i.i.i145 = phi i64 [ %344, %thread-pre-split.i.i.i144 ], [ 0, %340 ]
+  %.1.i.i.i146 = phi ptr [ %346, %thread-pre-split.i.i.i144 ], [ %.027.i.i.i143, %340 ]
+  %348 = ptrtoint ptr %.1.i.i.i146 to i64
+  %349 = sub i64 %348, %334
+  %350 = and i64 %349, 4294967295
+  %351 = getelementptr inbounds nuw i8, ptr %333, i64 %350
+  %352 = ptrtoint ptr %351 to i64
+  br label %353
 
-352:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150, %thread-pre-split.i.i.i155
-  %.030.i.i.i152 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %361, %thread-pre-split.i.i.i155 ]
-  %.028.i.i.i153 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %362, %thread-pre-split.i.i.i155 ]
-  %.027.i.i.i154 = phi ptr [ %350, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %363, %thread-pre-split.i.i.i155 ]
-  %353 = load i8, ptr %.027.i.i.i154, align 1, !tbaa !20
-  %354 = and i8 %353, 127
-  %355 = zext nneg i8 %354 to i64
-  %356 = icmp ugt i32 %.028.i.i.i153, 62
-  br i1 %356, label %357, label %thread-pre-split.i.i.i155, !prof !63
+353:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150, %thread-pre-split.i.i.i155
+  %.030.i.i.i152 = phi i64 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %362, %thread-pre-split.i.i.i155 ]
+  %.028.i.i.i153 = phi i32 [ 0, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %363, %thread-pre-split.i.i.i155 ]
+  %.027.i.i.i154 = phi ptr [ %351, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit150 ], [ %364, %thread-pre-split.i.i.i155 ]
+  %354 = load i8, ptr %.027.i.i.i154, align 1, !tbaa !20
+  %355 = and i8 %354, 127
+  %356 = zext nneg i8 %355 to i64
+  %357 = icmp ugt i32 %.028.i.i.i153, 62
+  br i1 %357, label %358, label %thread-pre-split.i.i.i155, !prof !63
 
-357:                                              ; preds = %352
+358:                                              ; preds = %353
   %.not43.i.i.i158 = icmp eq i32 %.028.i.i.i153, 63
-  %.not.i.i.i159 = icmp samesign ugt i8 %354, 1
-  %358 = icmp ne i8 %354, 0
-  %or.cond42.i.i.i160 = select i1 %.not43.i.i.i158, i1 %.not.i.i.i159, i1 %358
+  %.not.i.i.i159 = icmp samesign ugt i8 %355, 1
+  %359 = icmp ne i8 %355, 0
+  %or.cond42.i.i.i160 = select i1 %.not43.i.i.i158, i1 %.not.i.i.i159, i1 %359
   br i1 %or.cond42.i.i.i160, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161, label %thread-pre-split.i.i.i155
 
-thread-pre-split.i.i.i155:                        ; preds = %357, %352
-  %359 = zext nneg i32 %.028.i.i.i153 to i64
-  %360 = shl i64 %355, %359
-  %361 = add i64 %360, %.030.i.i.i152
-  %362 = add i32 %.028.i.i.i153, 7
-  %363 = getelementptr inbounds nuw i8, ptr %.027.i.i.i154, i64 1
-  %364 = icmp slt i8 %353, 0
-  br i1 %364, label %352, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161, !llvm.loop !64
+thread-pre-split.i.i.i155:                        ; preds = %358, %353
+  %360 = zext nneg i32 %.028.i.i.i153 to i64
+  %361 = shl i64 %356, %360
+  %362 = add i64 %361, %.030.i.i.i152
+  %363 = add i32 %.028.i.i.i153, 7
+  %364 = getelementptr inbounds nuw i8, ptr %.027.i.i.i154, i64 1
+  %365 = icmp slt i8 %354, 0
+  br i1 %365, label %353, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161, !llvm.loop !64
 
-_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161: ; preds = %357, %thread-pre-split.i.i.i155
-  %.131.i.i.i156 = phi i64 [ %361, %thread-pre-split.i.i.i155 ], [ 0, %357 ]
-  %.1.i.i.i157 = phi ptr [ %363, %thread-pre-split.i.i.i155 ], [ %.027.i.i.i154, %357 ]
-  %365 = ptrtoint ptr %.1.i.i.i157 to i64
-  %366 = sub i64 %365, %351
-  %367 = and i64 %366, 4294967295
-  %368 = getelementptr inbounds nuw i8, ptr %350, i64 %367
-  %369 = and i64 %.131.i.i.i145, %11
-  %.not = icmp ne i64 %369, 0
-  %370 = and i64 %.131.i.i.i156, %13
-  %371 = icmp ne i64 %370, 0
-  %372 = select i1 %.not, i1 true, i1 %371
-  %.4 = select i1 %372, i32 1, i32 %.051.ph
-  br label %.outer, !llvm.loop !71
+_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit161: ; preds = %358, %thread-pre-split.i.i.i155
+  %.131.i.i.i156 = phi i64 [ %362, %thread-pre-split.i.i.i155 ], [ 0, %358 ]
+  %.1.i.i.i157 = phi ptr [ %364, %thread-pre-split.i.i.i155 ], [ %.027.i.i.i154, %358 ]
+  %366 = ptrtoint ptr %.1.i.i.i157 to i64
+  %367 = sub i64 %366, %352
+  %368 = and i64 %367, 4294967295
+  %369 = getelementptr inbounds nuw i8, ptr %351, i64 %368
+  %370 = and i64 %.131.i.i.i145, %11
+  %.not = icmp ne i64 %370, 0
+  %371 = and i64 %.131.i.i.i156, %13
+  %372 = icmp ne i64 %371, 0
+  %373 = select i1 %.not, i1 true, i1 %372
+  %.4 = select i1 %373, i32 1, i32 %.051.ph.ph284
+  br label %.outer.outer282, !llvm.loop !71
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.thread:          ; preds = %_ZN4llvm6MCInstD2Ev.exit, %.backedge, %40, %38, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116
-  %.1194 = phi i32 [ 0, %40 ], [ 0, %38 ], [ %243, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116 ], [ 0, %.backedge ], [ %.3, %_ZN4llvm6MCInstD2Ev.exit ]
+_ZN4llvm11raw_ostreamlsEPKc.exit.thread:          ; preds = %_ZN4llvm6MCInstD2Ev.exit, %23, %39, %41, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116
+  %.1194 = phi i32 [ 0, %41 ], [ %244, %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit116 ], [ 0, %39 ], [ 0, %23 ], [ %.3, %_ZN4llvm6MCInstD2Ev.exit ]
   ret i32 %.1194
 }
 
@@ -4529,7 +4539,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL21checkDecoderPredicateEjRKN
   br label %1002
 
 1002:                                             ; preds = %691, %599, %199, %192, %167, %993, %997, %981, %985, %974, %978, %967, %971, %960, %964, %953, %957, %946, %950, %939, %943, %932, %936, %925, %929, %918, %922, %885, %889, %872, %876, %859, %863, %844, %848, %851, %836, %840, %826, %830, %833, %818, %822, %795, %799, %738, %742, %731, %735, %724, %728, %717, %721, %710, %714, %703, %707, %695, %699, %687, %679, %683, %671, %675, %653, %657, %631, %635, %624, %628, %617, %621, %611, %615, %605, %606, %589, %593, %553, %556, %531, %534, %519, %523, %483, %489, %487, %475, %479, %469, %472, %463, %466, %454, %458, %461, %446, %450, %429, %433, %421, %425, %403, %407, %397, %400, %389, %393, %381, %385, %369, %373, %357, %361, %345, %349, %328, %332, %321, %325, %304, %308, %291, %295, %278, %282, %266, %270, %258, %262, %245, %249, %228, %232, %220, %224, %212, %216, %203, %196, %180, %184, %171, %159, %163, %141, %145, %129, %133, %112, %116, %104, %107, %84, %88, %67, %71, %60, %64, %51, %55, %34, %38, %24, %28, %15, %19, %4, %7, %988, %913, %908, %903, %898, %893, %880, %867, %854, %813, %808, %803, %790, %785, %780, %775, %770, %765, %760, %755, %750, %745, %666, %661, %648, %643, %638, %584, %579, %574, %569, %564, %559, %548, %544, %539, %526, %514, %509, %504, %499, %494, %441, %436, %416, %411, %376, %364, %352, %340, %335, %317, %312, %299, %286, %273, %253, %240, %235, %207, %187, %175, %154, %149, %136, %124, %120, %99, %95, %91, %79, %75, %46, %41
-  %.0 = phi i1 [ %45, %41 ], [ %50, %46 ], [ %78, %75 ], [ %83, %79 ], [ %94, %91 ], [ %98, %95 ], [ %103, %99 ], [ %123, %120 ], [ %128, %124 ], [ %140, %136 ], [ %153, %149 ], [ %158, %154 ], [ %179, %175 ], [ %191, %187 ], [ %211, %207 ], [ %239, %235 ], [ %244, %240 ], [ %257, %253 ], [ %277, %273 ], [ %290, %286 ], [ %303, %299 ], [ %316, %312 ], [ %320, %317 ], [ %339, %335 ], [ %344, %340 ], [ %356, %352 ], [ %368, %364 ], [ %380, %376 ], [ %415, %411 ], [ %420, %416 ], [ %440, %436 ], [ %445, %441 ], [ %498, %494 ], [ %503, %499 ], [ %508, %504 ], [ %513, %509 ], [ %518, %514 ], [ %530, %526 ], [ %543, %539 ], [ %547, %544 ], [ %552, %548 ], [ %563, %559 ], [ %568, %564 ], [ %573, %569 ], [ %578, %574 ], [ %583, %579 ], [ %588, %584 ], [ %642, %638 ], [ %647, %643 ], [ %652, %648 ], [ %665, %661 ], [ %670, %666 ], [ %749, %745 ], [ %754, %750 ], [ %759, %755 ], [ %764, %760 ], [ %769, %765 ], [ %774, %770 ], [ %779, %775 ], [ %784, %780 ], [ %789, %785 ], [ %794, %790 ], [ %807, %803 ], [ %812, %808 ], [ %817, %813 ], [ %858, %854 ], [ %871, %867 ], [ %884, %880 ], [ %897, %893 ], [ %902, %898 ], [ %907, %903 ], [ %912, %908 ], [ %917, %913 ], [ %992, %988 ], [ true, %4 ], [ %11, %7 ], [ false, %15 ], [ %.not387, %19 ], [ false, %24 ], [ %30, %28 ], [ false, %34 ], [ %40, %38 ], [ false, %51 ], [ %59, %55 ], [ false, %60 ], [ %66, %64 ], [ false, %67 ], [ %74, %71 ], [ true, %84 ], [ %90, %88 ], [ false, %104 ], [ %111, %107 ], [ false, %112 ], [ %119, %116 ], [ false, %129 ], [ %.not376, %133 ], [ false, %141 ], [ %148, %145 ], [ false, %159 ], [ %166, %163 ], [ %174, %171 ], [ true, %180 ], [ %186, %184 ], [ %.not371, %196 ], [ %206, %203 ], [ false, %212 ], [ %219, %216 ], [ false, %220 ], [ %227, %224 ], [ false, %228 ], [ %.not368, %232 ], [ false, %245 ], [ %252, %249 ], [ false, %258 ], [ %265, %262 ], [ false, %266 ], [ %272, %270 ], [ false, %278 ], [ %285, %282 ], [ false, %291 ], [ %298, %295 ], [ false, %304 ], [ %311, %308 ], [ false, %321 ], [ %.not360, %325 ], [ true, %328 ], [ %334, %332 ], [ false, %345 ], [ %.not357, %349 ], [ false, %357 ], [ %.not355, %361 ], [ false, %369 ], [ %.not353, %373 ], [ false, %381 ], [ %388, %385 ], [ false, %389 ], [ %396, %393 ], [ false, %397 ], [ %402, %400 ], [ false, %403 ], [ %410, %407 ], [ false, %421 ], [ %428, %425 ], [ false, %429 ], [ %435, %433 ], [ false, %446 ], [ %453, %450 ], [ false, %458 ], [ false, %454 ], [ %.not344, %461 ], [ false, %463 ], [ %468, %466 ], [ false, %469 ], [ %474, %472 ], [ false, %475 ], [ %482, %479 ], [ false, %483 ], [ true, %487 ], [ %493, %489 ], [ true, %519 ], [ %525, %523 ], [ true, %531 ], [ %538, %534 ], [ false, %553 ], [ %558, %556 ], [ true, %589 ], [ %595, %593 ], [ false, %605 ], [ %.not332, %606 ], [ false, %611 ], [ %.not330, %615 ], [ false, %617 ], [ %.not327, %621 ], [ false, %624 ], [ %.not325, %628 ], [ false, %631 ], [ %.not323, %635 ], [ false, %653 ], [ %660, %657 ], [ false, %671 ], [ %678, %675 ], [ false, %679 ], [ %686, %683 ], [ false, %687 ], [ false, %695 ], [ %702, %699 ], [ false, %703 ], [ %.not318, %707 ], [ false, %710 ], [ %.not316, %714 ], [ false, %717 ], [ %.not314, %721 ], [ false, %724 ], [ %.not312, %728 ], [ false, %731 ], [ %.not310, %735 ], [ false, %738 ], [ %.not308, %742 ], [ false, %795 ], [ %802, %799 ], [ false, %818 ], [ %825, %822 ], [ false, %830 ], [ false, %826 ], [ %835, %833 ], [ false, %836 ], [ %843, %840 ], [ false, %848 ], [ false, %844 ], [ %853, %851 ], [ false, %859 ], [ %866, %863 ], [ false, %872 ], [ %879, %876 ], [ false, %885 ], [ %892, %889 ], [ false, %918 ], [ %.not296, %922 ], [ false, %925 ], [ %.not294, %929 ], [ false, %932 ], [ %.not292, %936 ], [ false, %939 ], [ %.not290, %943 ], [ false, %946 ], [ %.not288, %950 ], [ false, %953 ], [ %.not286, %957 ], [ false, %960 ], [ %.not284, %964 ], [ false, %967 ], [ %.not282, %971 ], [ false, %974 ], [ %.not280, %978 ], [ false, %981 ], [ %.not278, %985 ], [ false, %993 ], [ %1001, %997 ], [ false, %167 ], [ false, %192 ], [ false, %199 ], [ false, %599 ], [ %694, %691 ]
+  %.0 = phi i1 [ %.not278, %985 ], [ %11, %7 ], [ %.not387, %19 ], [ %30, %28 ], [ %45, %41 ], [ %50, %46 ], [ %40, %38 ], [ %59, %55 ], [ %66, %64 ], [ %78, %75 ], [ %83, %79 ], [ %74, %71 ], [ %94, %91 ], [ %98, %95 ], [ %103, %99 ], [ %90, %88 ], [ %111, %107 ], [ %123, %120 ], [ %128, %124 ], [ %119, %116 ], [ %140, %136 ], [ %.not376, %133 ], [ %153, %149 ], [ %158, %154 ], [ %148, %145 ], [ %166, %163 ], [ %179, %175 ], [ %174, %171 ], [ %191, %187 ], [ %186, %184 ], [ %.not371, %196 ], [ %211, %207 ], [ %206, %203 ], [ %219, %216 ], [ %227, %224 ], [ %239, %235 ], [ %244, %240 ], [ %.not368, %232 ], [ %257, %253 ], [ %252, %249 ], [ %265, %262 ], [ %277, %273 ], [ %272, %270 ], [ %290, %286 ], [ %285, %282 ], [ %303, %299 ], [ %298, %295 ], [ %316, %312 ], [ %320, %317 ], [ %311, %308 ], [ %.not360, %325 ], [ %339, %335 ], [ %344, %340 ], [ %334, %332 ], [ %356, %352 ], [ %.not357, %349 ], [ %368, %364 ], [ %.not355, %361 ], [ %380, %376 ], [ %.not353, %373 ], [ %388, %385 ], [ %396, %393 ], [ %402, %400 ], [ %415, %411 ], [ %420, %416 ], [ %410, %407 ], [ %428, %425 ], [ %440, %436 ], [ %445, %441 ], [ %435, %433 ], [ %453, %450 ], [ %.not344, %461 ], [ %468, %466 ], [ %474, %472 ], [ %482, %479 ], [ %498, %494 ], [ %503, %499 ], [ %508, %504 ], [ %513, %509 ], [ %518, %514 ], [ %493, %489 ], [ %530, %526 ], [ %525, %523 ], [ %543, %539 ], [ %547, %544 ], [ %552, %548 ], [ %538, %534 ], [ %563, %559 ], [ %568, %564 ], [ %573, %569 ], [ %578, %574 ], [ %583, %579 ], [ %588, %584 ], [ %558, %556 ], [ %595, %593 ], [ %.not332, %606 ], [ %.not330, %615 ], [ %.not327, %621 ], [ %.not325, %628 ], [ %642, %638 ], [ %647, %643 ], [ %652, %648 ], [ %.not323, %635 ], [ %665, %661 ], [ %670, %666 ], [ %660, %657 ], [ %678, %675 ], [ %686, %683 ], [ false, %967 ], [ %702, %699 ], [ %.not318, %707 ], [ %.not316, %714 ], [ %.not314, %721 ], [ %.not312, %728 ], [ %.not310, %735 ], [ %749, %745 ], [ %754, %750 ], [ %759, %755 ], [ %764, %760 ], [ %769, %765 ], [ %774, %770 ], [ %779, %775 ], [ %784, %780 ], [ %789, %785 ], [ %794, %790 ], [ %.not308, %742 ], [ %807, %803 ], [ %812, %808 ], [ %817, %813 ], [ %802, %799 ], [ %825, %822 ], [ %835, %833 ], [ %843, %840 ], [ %858, %854 ], [ %853, %851 ], [ %871, %867 ], [ %866, %863 ], [ %884, %880 ], [ %879, %876 ], [ %897, %893 ], [ %902, %898 ], [ %907, %903 ], [ %912, %908 ], [ %917, %913 ], [ %892, %889 ], [ %.not296, %922 ], [ %.not294, %929 ], [ %.not292, %936 ], [ %.not290, %943 ], [ %.not288, %950 ], [ %.not286, %957 ], [ %.not284, %964 ], [ %.not282, %971 ], [ %.not280, %978 ], [ %992, %988 ], [ true, %4 ], [ false, %15 ], [ false, %24 ], [ false, %34 ], [ false, %51 ], [ false, %60 ], [ %1001, %997 ], [ false, %67 ], [ false, %993 ], [ true, %84 ], [ false, %104 ], [ false, %112 ], [ false, %129 ], [ false, %141 ], [ false, %159 ], [ false, %167 ], [ true, %180 ], [ false, %192 ], [ false, %199 ], [ false, %212 ], [ false, %220 ], [ false, %228 ], [ false, %245 ], [ false, %258 ], [ false, %266 ], [ false, %278 ], [ false, %291 ], [ false, %304 ], [ false, %321 ], [ true, %328 ], [ false, %345 ], [ false, %357 ], [ false, %369 ], [ false, %381 ], [ false, %389 ], [ false, %397 ], [ false, %403 ], [ false, %421 ], [ false, %429 ], [ false, %446 ], [ false, %458 ], [ false, %454 ], [ false, %463 ], [ false, %469 ], [ false, %475 ], [ false, %483 ], [ true, %487 ], [ true, %519 ], [ true, %531 ], [ false, %553 ], [ true, %589 ], [ false, %605 ], [ false, %599 ], [ false, %611 ], [ false, %617 ], [ false, %624 ], [ false, %981 ], [ false, %631 ], [ false, %653 ], [ false, %974 ], [ false, %671 ], [ false, %679 ], [ %694, %691 ], [ false, %687 ], [ false, %695 ], [ false, %703 ], [ false, %710 ], [ false, %717 ], [ false, %724 ], [ false, %731 ], [ false, %738 ], [ false, %795 ], [ false, %818 ], [ false, %830 ], [ false, %826 ], [ false, %836 ], [ false, %848 ], [ false, %844 ], [ false, %859 ], [ false, %872 ], [ false, %885 ], [ false, %918 ], [ false, %925 ], [ false, %932 ], [ false, %939 ], [ false, %946 ], [ false, %953 ], [ false, %960 ]
   ret i1 %.0
 }
 
@@ -11759,7 +11769,7 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassem
   br label %4231
 
 4231:                                             ; preds = %7, %4229, %4223, %4215, %4205, %4187, %4174, %4153, %4132, %4112, %4091, %4073, %4059, %4042, %4035, %4023, %4008, %3989, %3968, %3952, %3938, %3918, %3906, %3889, %3874, %3854, %3838, %3814, %3796, %3779, %3764, %3756, %3741, %3718, %3697, %3676, %3653, %3632, %3627, %3605, %3585, %3564, %3540, %3519, %3495, %3480, %3461, %3441, %3425, %3406, %3385, %3363, %3345, %3322, %3307, %3299, %3282, %3264, %3250, %3231, %3220, %3210, %3191, %3171, %3155, %3137, %3114, %3091, %3072, %3053, %3034, %3015, %3002, %2979, %2966, %2944, %2925, %2905, %2877, %2859, %2837, %2811, %2801, %2776, %2763, %2750, %2731, %2713, %2695, %2677, %2659, %2641, %2623, %2605, %2587, %2569, %2550, %2531, %2513, %2489, %2465, %2441, %2412, %2383, %2355, %2351, %2348, %2338, %2328, %2316, %2299, %2282, %2265, %2250, %2233, %2216, %2199, %2182, %2167, %2147, %2122, %2109, %2096, %2083, %2065, %2052, %2036, %2022, %2010, %2005, %1999, %1985, %1966, %1948, %1930, %1920, %1902, %1875, %1862, %1839, %1819, %1809, %1796, %1774, %1759, %1737, %1715, %1705, %1695, %1685, %1677, %1662, %1649, %1632, %1615, %1598, %1583, %1573, %1556, %1544, %1521, %1506, %1496, %1486, %1471, %1451, %1420, %1399, %1378, %1368, %1356, %1344, %1332, %1315, %1298, %1281, %1264, %1247, %1230, %1212, %1195, %1178, %1161, %1144, %1129, %1114, %1099, %1084, %1069, %1054, %1039, %1024, %1009, %994, %979, %964, %944, %924, %904, %880, %856, %835, %810, %798, %777, %758, %736, %719, %702, %685, %669, %654, %644, %634, %615, %602, %582, %579, %573, %559, %545, %526, %514, %502, %492, %469, %445, %435, %421, %402, %389, %368, %357, %330, %325, %315, %310, %303, %298, %293, %280, %265, %254, %246, %230, %212, %202, %179, %174, %156, %146, %139, %131, %113, %103, %90, %73, %63, %59, %45, %29, %27, %14, %4218, %4210, %4200, %4195, %4182, %4177, %4169, %4163, %4156, %4148, %4142, %4135, %4127, %4120, %4115, %4107, %4101, %4094, %4086, %4079, %4074, %4067, %4060, %4053, %4046, %4028, %4017, %4010, %4001, %3998, %3993, %3982, %3979, %3974, %3963, %3958, %3947, %3942, %3933, %3928, %3923, %3915, %3910, %3901, %3898, %3893, %3884, %3881, %3876, %3869, %3864, %3861, %3856, %3849, %3846, %3841, %3833, %3828, %3823, %3809, %3806, %3801, %3789, %3784, %3774, %3769, %3759, %3751, %3746, %3735, %3730, %3723, %3712, %3707, %3700, %3691, %3686, %3679, %3670, %3665, %3658, %3647, %3641, %3634, %3623, %3617, %3610, %3601, %3595, %3588, %3579, %3572, %3567, %3558, %3551, %3546, %3535, %3529, %3522, %3513, %3507, %3500, %3490, %3485, %3475, %3470, %3466, %3456, %3451, %3446, %3434, %3430, %3418, %3413, %3401, %3396, %3392, %3380, %3375, %3370, %3356, %3352, %3338, %3333, %3318, %3302, %3294, %3289, %3285, %3277, %3272, %3267, %3257, %3253, %3243, %3238, %3227, %3215, %3205, %3200, %3196, %3186, %3181, %3176, %3164, %3160, %3148, %3143, %3131, %3127, %3120, %3108, %3104, %3097, %3085, %3078, %3066, %3059, %3047, %3040, %3028, %3021, %3008, %2998, %2992, %2985, %2972, %2962, %2956, %2949, %2940, %2934, %2927, %2921, %2915, %2908, %2899, %2893, %2889, %2882, %2871, %2864, %2853, %2849, %2842, %2831, %2824, %2804, %2795, %2789, %2782, %2769, %2756, %2744, %2737, %2725, %2718, %2707, %2700, %2689, %2682, %2671, %2664, %2653, %2646, %2635, %2628, %2617, %2610, %2599, %2592, %2581, %2574, %2563, %2556, %2544, %2537, %2525, %2518, %2507, %2501, %2494, %2483, %2477, %2470, %2459, %2453, %2446, %2436, %2430, %2424, %2417, %2407, %2401, %2395, %2388, %2378, %2372, %2366, %2359, %2343, %2333, %2321, %2309, %2304, %2294, %2287, %2277, %2270, %2260, %2255, %2245, %2238, %2226, %2221, %2209, %2204, %2194, %2187, %2177, %2172, %2162, %2157, %2152, %2143, %2138, %2133, %2128, %2117, %2104, %2091, %2086, %2078, %2075, %2070, %2062, %2057, %2047, %2044, %2039, %2031, %2026, %2015, %1992, %1978, %1959, %1942, %1935, %1923, %1914, %1907, %1897, %1890, %1887, %1882, %1872, %1867, %1857, %1852, %1849, %1844, %1834, %1829, %1824, %1814, %1806, %1801, %1791, %1786, %1781, %1769, %1764, %1752, %1747, %1742, %1730, %1725, %1720, %1710, %1700, %1690, %1680, %1672, %1657, %1652, %1644, %1639, %1627, %1622, %1610, %1605, %1593, %1588, %1578, %1568, %1561, %1549, %1539, %1534, %1531, %1526, %1516, %1511, %1501, %1491, %1481, %1476, %1466, %1461, %1456, %1446, %1441, %1436, %1427, %1415, %1406, %1394, %1385, %1373, %1361, %1349, %1337, %1325, %1320, %1308, %1303, %1291, %1286, %1276, %1269, %1259, %1252, %1242, %1235, %1225, %1218, %1205, %1200, %1190, %1183, %1173, %1166, %1156, %1149, %1139, %1134, %1124, %1119, %1109, %1104, %1094, %1089, %1079, %1074, %1064, %1059, %1049, %1044, %1034, %1029, %1019, %1014, %1004, %999, %989, %984, %974, %969, %959, %954, %949, %939, %934, %929, %919, %914, %909, %900, %895, %890, %885, %876, %871, %866, %861, %852, %847, %842, %837, %829, %823, %816, %803, %791, %788, %783, %771, %764, %752, %748, %741, %729, %724, %712, %707, %695, %690, %679, %672, %663, %656, %647, %637, %628, %621, %608, %596, %589, %575, %566, %561, %552, %547, %538, %533, %521, %509, %497, %486, %479, %474, %464, %457, %452, %440, %428, %423, %415, %408, %395, %382, %363, %352, %322, %317, %305, %290, %285, %277, %272, %262, %257, %249, %241, %236, %225, %220, %207, %196, %169, %164, %151, %141, %126, %121, %108, %100, %95, %85, %80, %70, %65, %52, %42, %37, %9, %1432, %1411, %1390
-  %.0 = phi i32 [ %1389, %1390 ], [ %1410, %1411 ], [ %1431, %1432 ], [ 0, %9 ], [ 0, %37 ], [ 0, %42 ], [ 0, %52 ], [ 0, %65 ], [ 0, %70 ], [ 0, %80 ], [ 0, %85 ], [ 0, %95 ], [ 0, %100 ], [ 0, %108 ], [ 0, %121 ], [ 0, %126 ], [ 0, %141 ], [ 0, %151 ], [ 0, %164 ], [ 0, %169 ], [ 0, %196 ], [ 0, %207 ], [ 0, %220 ], [ 0, %225 ], [ 0, %236 ], [ 0, %241 ], [ 0, %249 ], [ 0, %257 ], [ 0, %262 ], [ 0, %272 ], [ 0, %277 ], [ 0, %285 ], [ 0, %290 ], [ 0, %305 ], [ 0, %317 ], [ 0, %322 ], [ 0, %352 ], [ 0, %363 ], [ 0, %382 ], [ 0, %395 ], [ 0, %408 ], [ 0, %415 ], [ 0, %423 ], [ 0, %428 ], [ 0, %440 ], [ 0, %452 ], [ 0, %457 ], [ 0, %464 ], [ 0, %474 ], [ 0, %479 ], [ 0, %486 ], [ 0, %497 ], [ 0, %509 ], [ 0, %521 ], [ 0, %533 ], [ 0, %538 ], [ 0, %547 ], [ 0, %552 ], [ 0, %561 ], [ 0, %566 ], [ 0, %575 ], [ 0, %589 ], [ 0, %596 ], [ 0, %608 ], [ 0, %621 ], [ 0, %628 ], [ 0, %637 ], [ 0, %647 ], [ 0, %656 ], [ 0, %663 ], [ 0, %672 ], [ 0, %679 ], [ 0, %690 ], [ 0, %695 ], [ 0, %707 ], [ 0, %712 ], [ 0, %724 ], [ 0, %729 ], [ 0, %741 ], [ 0, %748 ], [ 0, %752 ], [ 0, %764 ], [ 0, %771 ], [ 0, %783 ], [ 0, %788 ], [ 0, %791 ], [ 0, %803 ], [ 0, %816 ], [ 0, %823 ], [ 0, %829 ], [ 0, %837 ], [ 0, %842 ], [ 0, %847 ], [ 0, %852 ], [ 0, %861 ], [ 0, %866 ], [ 0, %871 ], [ 0, %876 ], [ 0, %885 ], [ 0, %890 ], [ 0, %895 ], [ 0, %900 ], [ 0, %909 ], [ 0, %914 ], [ 0, %919 ], [ 0, %929 ], [ 0, %934 ], [ 0, %939 ], [ 0, %949 ], [ 0, %954 ], [ 0, %959 ], [ 0, %969 ], [ 0, %974 ], [ 0, %984 ], [ 0, %989 ], [ 0, %999 ], [ 0, %1004 ], [ 0, %1014 ], [ 0, %1019 ], [ 0, %1029 ], [ 0, %1034 ], [ 0, %1044 ], [ 0, %1049 ], [ 0, %1059 ], [ 0, %1064 ], [ 0, %1074 ], [ 0, %1079 ], [ 0, %1089 ], [ 0, %1094 ], [ 0, %1104 ], [ 0, %1109 ], [ 0, %1119 ], [ 0, %1124 ], [ 0, %1134 ], [ 0, %1139 ], [ 0, %1149 ], [ 0, %1156 ], [ 0, %1166 ], [ 0, %1173 ], [ 0, %1183 ], [ 0, %1190 ], [ 0, %1200 ], [ 0, %1205 ], [ 0, %1218 ], [ 0, %1225 ], [ 0, %1235 ], [ 0, %1242 ], [ 0, %1252 ], [ 0, %1259 ], [ 0, %1269 ], [ 0, %1276 ], [ 0, %1286 ], [ 0, %1291 ], [ 0, %1303 ], [ 0, %1308 ], [ 0, %1320 ], [ 0, %1325 ], [ 0, %1337 ], [ 0, %1349 ], [ 0, %1361 ], [ 0, %1373 ], [ 0, %1385 ], [ 0, %1394 ], [ 0, %1406 ], [ 0, %1415 ], [ 0, %1427 ], [ 0, %1436 ], [ 0, %1441 ], [ 0, %1446 ], [ 0, %1456 ], [ 0, %1461 ], [ 0, %1466 ], [ 0, %1476 ], [ 0, %1481 ], [ 0, %1491 ], [ 0, %1501 ], [ 0, %1511 ], [ 0, %1516 ], [ 0, %1526 ], [ 0, %1531 ], [ 0, %1534 ], [ 0, %1539 ], [ 0, %1549 ], [ 0, %1561 ], [ 0, %1568 ], [ 0, %1578 ], [ 0, %1588 ], [ 0, %1593 ], [ 0, %1605 ], [ 0, %1610 ], [ 0, %1622 ], [ 0, %1627 ], [ 0, %1639 ], [ 0, %1644 ], [ 0, %1652 ], [ 0, %1657 ], [ 0, %1672 ], [ 0, %1680 ], [ 0, %1690 ], [ 0, %1700 ], [ 0, %1710 ], [ 0, %1720 ], [ 0, %1725 ], [ 0, %1730 ], [ 0, %1742 ], [ 0, %1747 ], [ 0, %1752 ], [ 0, %1764 ], [ 0, %1769 ], [ 0, %1781 ], [ 0, %1786 ], [ 0, %1791 ], [ 0, %1801 ], [ 0, %1806 ], [ 0, %1814 ], [ 0, %1824 ], [ 0, %1829 ], [ 0, %1834 ], [ 0, %1844 ], [ 0, %1849 ], [ 0, %1852 ], [ 0, %1857 ], [ 0, %1867 ], [ 0, %1872 ], [ 0, %1882 ], [ 0, %1887 ], [ 0, %1890 ], [ 0, %1897 ], [ 0, %1907 ], [ 0, %1914 ], [ 0, %1923 ], [ 0, %1935 ], [ 0, %1942 ], [ 0, %1959 ], [ 0, %1978 ], [ 0, %1992 ], [ 0, %2015 ], [ 0, %2026 ], [ 0, %2031 ], [ 0, %2039 ], [ 0, %2044 ], [ 0, %2047 ], [ 0, %2057 ], [ 0, %2062 ], [ 0, %2070 ], [ 0, %2075 ], [ 0, %2078 ], [ 0, %2086 ], [ 0, %2091 ], [ 0, %2104 ], [ 0, %2117 ], [ 0, %2128 ], [ 0, %2133 ], [ 0, %2138 ], [ 0, %2143 ], [ 0, %2152 ], [ 0, %2157 ], [ 0, %2162 ], [ 0, %2172 ], [ 0, %2177 ], [ 0, %2187 ], [ 0, %2194 ], [ 0, %2204 ], [ 0, %2209 ], [ 0, %2221 ], [ 0, %2226 ], [ 0, %2238 ], [ 0, %2245 ], [ 0, %2255 ], [ 0, %2260 ], [ 0, %2270 ], [ 0, %2277 ], [ 0, %2287 ], [ 0, %2294 ], [ 0, %2304 ], [ 0, %2309 ], [ 0, %2321 ], [ 0, %2333 ], [ 0, %2343 ], [ 0, %2359 ], [ 0, %2366 ], [ 0, %2372 ], [ 0, %2378 ], [ 0, %2388 ], [ 0, %2395 ], [ 0, %2401 ], [ 0, %2407 ], [ 0, %2417 ], [ 0, %2424 ], [ 0, %2430 ], [ 0, %2436 ], [ 0, %2446 ], [ 0, %2453 ], [ 0, %2459 ], [ 0, %2470 ], [ 0, %2477 ], [ 0, %2483 ], [ 0, %2494 ], [ 0, %2501 ], [ 0, %2507 ], [ 0, %2518 ], [ 0, %2525 ], [ 0, %2537 ], [ 0, %2544 ], [ 0, %2556 ], [ 0, %2563 ], [ 0, %2574 ], [ 0, %2581 ], [ 0, %2592 ], [ 0, %2599 ], [ 0, %2610 ], [ 0, %2617 ], [ 0, %2628 ], [ 0, %2635 ], [ 0, %2646 ], [ 0, %2653 ], [ 0, %2664 ], [ 0, %2671 ], [ 0, %2682 ], [ 0, %2689 ], [ 0, %2700 ], [ 0, %2707 ], [ 0, %2718 ], [ 0, %2725 ], [ 0, %2737 ], [ 0, %2744 ], [ 0, %2756 ], [ 0, %2769 ], [ 0, %2782 ], [ 0, %2789 ], [ 0, %2795 ], [ 0, %2804 ], [ 0, %2824 ], [ 0, %2831 ], [ 0, %2842 ], [ 0, %2849 ], [ 0, %2853 ], [ 0, %2864 ], [ 0, %2871 ], [ 0, %2882 ], [ 0, %2889 ], [ 0, %2893 ], [ 0, %2899 ], [ 0, %2908 ], [ 0, %2915 ], [ 0, %2921 ], [ 0, %2927 ], [ 0, %2934 ], [ 0, %2940 ], [ 0, %2949 ], [ 0, %2956 ], [ 0, %2962 ], [ 0, %2972 ], [ 0, %2985 ], [ 0, %2992 ], [ 0, %2998 ], [ 0, %3008 ], [ 0, %3021 ], [ 0, %3028 ], [ 0, %3040 ], [ 0, %3047 ], [ 0, %3059 ], [ 0, %3066 ], [ 0, %3078 ], [ 0, %3085 ], [ 0, %3097 ], [ 0, %3104 ], [ 0, %3108 ], [ 0, %3120 ], [ 0, %3127 ], [ 0, %3131 ], [ 0, %3143 ], [ 0, %3148 ], [ 0, %3160 ], [ 0, %3164 ], [ 0, %3176 ], [ 0, %3181 ], [ 0, %3186 ], [ 0, %3196 ], [ 0, %3200 ], [ 0, %3205 ], [ 0, %3215 ], [ 0, %3227 ], [ 0, %3238 ], [ 0, %3243 ], [ 0, %3253 ], [ 0, %3257 ], [ 0, %3267 ], [ 0, %3272 ], [ 0, %3277 ], [ 0, %3285 ], [ 0, %3289 ], [ 0, %3294 ], [ 0, %3302 ], [ 0, %3318 ], [ 0, %3333 ], [ 0, %3338 ], [ 0, %3352 ], [ 0, %3356 ], [ 0, %3370 ], [ 0, %3375 ], [ 0, %3380 ], [ 0, %3392 ], [ 0, %3396 ], [ 0, %3401 ], [ 0, %3413 ], [ 0, %3418 ], [ 0, %3430 ], [ 0, %3434 ], [ 0, %3446 ], [ 0, %3451 ], [ 0, %3456 ], [ 0, %3466 ], [ 0, %3470 ], [ 0, %3475 ], [ 0, %3485 ], [ 0, %3490 ], [ 0, %3500 ], [ 0, %3507 ], [ 0, %3513 ], [ 0, %3522 ], [ 0, %3529 ], [ 0, %3535 ], [ 0, %3546 ], [ 0, %3551 ], [ 0, %3558 ], [ 0, %3567 ], [ 0, %3572 ], [ 0, %3579 ], [ 0, %3588 ], [ 0, %3595 ], [ 0, %3601 ], [ 0, %3610 ], [ 0, %3617 ], [ 0, %3623 ], [ 0, %3634 ], [ 0, %3641 ], [ 0, %3647 ], [ 0, %3658 ], [ 0, %3665 ], [ 0, %3670 ], [ 0, %3679 ], [ 0, %3686 ], [ 0, %3691 ], [ 0, %3700 ], [ 0, %3707 ], [ 0, %3712 ], [ 0, %3723 ], [ 0, %3730 ], [ 0, %3735 ], [ 0, %3746 ], [ 0, %3751 ], [ 0, %3759 ], [ 0, %3769 ], [ 0, %3774 ], [ 0, %3784 ], [ 0, %3789 ], [ 0, %3801 ], [ 0, %3806 ], [ 0, %3809 ], [ 0, %3823 ], [ 0, %3828 ], [ 0, %3833 ], [ 0, %3841 ], [ 0, %3846 ], [ 0, %3849 ], [ 0, %3856 ], [ 0, %3861 ], [ 0, %3864 ], [ 0, %3869 ], [ 0, %3876 ], [ 0, %3881 ], [ 0, %3884 ], [ 0, %3893 ], [ 0, %3898 ], [ 0, %3901 ], [ 0, %3910 ], [ 0, %3915 ], [ 0, %3923 ], [ 0, %3928 ], [ 0, %3933 ], [ 0, %3942 ], [ 0, %3947 ], [ 0, %3958 ], [ 0, %3963 ], [ 0, %3974 ], [ 0, %3979 ], [ 0, %3982 ], [ 0, %3993 ], [ 0, %3998 ], [ 0, %4001 ], [ 0, %4010 ], [ 0, %4017 ], [ 0, %4028 ], [ 0, %4046 ], [ 0, %4053 ], [ 0, %4060 ], [ 0, %4067 ], [ 0, %4074 ], [ 0, %4079 ], [ 0, %4086 ], [ 0, %4094 ], [ 0, %4101 ], [ 0, %4107 ], [ 0, %4115 ], [ 0, %4120 ], [ 0, %4127 ], [ 0, %4135 ], [ 0, %4142 ], [ 0, %4148 ], [ 0, %4156 ], [ 0, %4163 ], [ 0, %4169 ], [ 0, %4177 ], [ 0, %4182 ], [ 0, %4195 ], [ 0, %4200 ], [ 0, %4210 ], [ 0, %4218 ], [ %26, %14 ], [ %28, %27 ], [ %36, %29 ], [ %51, %45 ], [ %62, %59 ], [ %64, %63 ], [ %79, %73 ], [ %89, %90 ], [ %102, %103 ], [ %112, %113 ], [ %130, %131 ], [ %140, %139 ], [ %145, %146 ], [ %155, %156 ], [ %173, %174 ], [ %195, %179 ], [ %201, %202 ], [ %211, %212 ], [ %229, %230 ], [ %245, %246 ], [ %256, %254 ], [ %271, %265 ], [ %279, %280 ], [ %297, %293 ], [ %302, %298 ], [ %304, %303 ], [ %314, %310 ], [ %316, %315 ], [ %329, %325 ], [ %351, %330 ], [ %356, %357 ], [ %367, %368 ], [ %388, %389 ], [ %401, %402 ], [ %420, %421 ], [ %439, %435 ], [ %451, %445 ], [ %473, %469 ], [ %496, %492 ], [ %508, %502 ], [ %520, %514 ], [ %532, %526 ], [ %544, %545 ], [ %558, %559 ], [ %572, %573 ], [ %578, %579 ], [ %588, %582 ], [ %607, %602 ], [ %620, %615 ], [ %633, %634 ], [ %643, %644 ], [ %653, %654 ], [ %668, %669 ], [ %684, %685 ], [ %701, %702 ], [ %718, %719 ], [ %735, %736 ], [ %763, %758 ], [ %782, %777 ], [ %802, %798 ], [ %815, %810 ], [ %834, %835 ], [ %860, %856 ], [ %884, %880 ], [ %908, %904 ], [ %928, %924 ], [ %948, %944 ], [ %968, %964 ], [ %983, %979 ], [ %998, %994 ], [ %1013, %1009 ], [ %1028, %1024 ], [ %1043, %1039 ], [ %1058, %1054 ], [ %1073, %1069 ], [ %1088, %1084 ], [ %1103, %1099 ], [ %1118, %1114 ], [ %1133, %1129 ], [ %1148, %1144 ], [ %1165, %1161 ], [ %1182, %1178 ], [ %1199, %1195 ], [ %1217, %1212 ], [ %1234, %1230 ], [ %1251, %1247 ], [ %1268, %1264 ], [ %1285, %1281 ], [ %1302, %1298 ], [ %1319, %1315 ], [ %1336, %1332 ], [ %1348, %1344 ], [ %1360, %1356 ], [ %1372, %1368 ], [ %1384, %1378 ], [ %1405, %1399 ], [ %1426, %1420 ], [ %1455, %1451 ], [ %1475, %1471 ], [ %1490, %1486 ], [ %1500, %1496 ], [ %1510, %1506 ], [ %1525, %1521 ], [ %1548, %1544 ], [ %1560, %1556 ], [ %1577, %1573 ], [ %1587, %1583 ], [ %1604, %1598 ], [ %1621, %1615 ], [ %1638, %1632 ], [ %1648, %1649 ], [ %1671, %1662 ], [ %1676, %1677 ], [ %1689, %1685 ], [ %1699, %1695 ], [ %1709, %1705 ], [ %1719, %1715 ], [ %1741, %1737 ], [ %1763, %1759 ], [ %1780, %1774 ], [ %1800, %1796 ], [ %1813, %1809 ], [ %1823, %1819 ], [ %1843, %1839 ], [ %1866, %1862 ], [ %1881, %1875 ], [ %1906, %1902 ], [ %1919, %1920 ], [ %1929, %1930 ], [ %1947, %1948 ], [ %1965, %1966 ], [ %1991, %1985 ], [ %2004, %1999 ], [ %2009, %2005 ], [ %2014, %2010 ], [ %2021, %2022 ], [ %2035, %2036 ], [ %2056, %2052 ], [ %2069, %2065 ], [ %2082, %2083 ], [ %2095, %2096 ], [ %2108, %2109 ], [ %2121, %2122 ], [ %2151, %2147 ], [ %2171, %2167 ], [ %2186, %2182 ], [ %2203, %2199 ], [ %2220, %2216 ], [ %2237, %2233 ], [ %2254, %2250 ], [ %2269, %2265 ], [ %2286, %2282 ], [ %2303, %2299 ], [ %2320, %2316 ], [ %2332, %2328 ], [ %2342, %2338 ], [ %2347, %2348 ], [ %2354, %2351 ], [ %2358, %2355 ], [ %2387, %2383 ], [ %2416, %2412 ], [ %2445, %2441 ], [ %2469, %2465 ], [ %2493, %2489 ], [ %2517, %2513 ], [ %2536, %2531 ], [ %2555, %2550 ], [ %2573, %2569 ], [ %2591, %2587 ], [ %2609, %2605 ], [ %2627, %2623 ], [ %2645, %2641 ], [ %2663, %2659 ], [ %2681, %2677 ], [ %2699, %2695 ], [ %2717, %2713 ], [ %2736, %2731 ], [ %2755, %2750 ], [ %2768, %2763 ], [ %2781, %2776 ], [ %2800, %2801 ], [ %2810, %2811 ], [ %2836, %2837 ], [ %2858, %2859 ], [ %2876, %2877 ], [ %2904, %2905 ], [ %2924, %2925 ], [ %2943, %2944 ], [ %2971, %2966 ], [ %2978, %2979 ], [ %3007, %3002 ], [ %3014, %3015 ], [ %3033, %3034 ], [ %3052, %3053 ], [ %3071, %3072 ], [ %3090, %3091 ], [ %3113, %3114 ], [ %3136, %3137 ], [ %3159, %3155 ], [ %3175, %3171 ], [ %3195, %3191 ], [ %3214, %3210 ], [ %3219, %3220 ], [ %3230, %3231 ], [ %3249, %3250 ], [ %3263, %3264 ], [ %3281, %3282 ], [ %3298, %3299 ], [ %3317, %3307 ], [ %3332, %3322 ], [ %3351, %3345 ], [ %3369, %3363 ], [ %3391, %3385 ], [ %3412, %3406 ], [ %3429, %3425 ], [ %3445, %3441 ], [ %3465, %3461 ], [ %3484, %3480 ], [ %3499, %3495 ], [ %3518, %3519 ], [ %3545, %3540 ], [ %3563, %3564 ], [ %3584, %3585 ], [ %3604, %3605 ], [ %3626, %3627 ], [ %3633, %3632 ], [ %3657, %3653 ], [ %3675, %3676 ], [ %3696, %3697 ], [ %3717, %3718 ], [ %3740, %3741 ], [ %3755, %3756 ], [ %3768, %3764 ], [ %3783, %3779 ], [ %3800, %3796 ], [ %3813, %3814 ], [ %3837, %3838 ], [ %3853, %3854 ], [ %3873, %3874 ], [ %3888, %3889 ], [ %3905, %3906 ], [ %3922, %3918 ], [ %3941, %3938 ], [ %3957, %3952 ], [ %3973, %3968 ], [ %3992, %3989 ], [ %4007, %4008 ], [ %4027, %4023 ], [ %4041, %4035 ], [ %4045, %4042 ], [ %4058, %4059 ], [ %4072, %4073 ], [ %4090, %4091 ], [ %4111, %4112 ], [ %4131, %4132 ], [ %4152, %4153 ], [ %4173, %4174 ], [ %4186, %4187 ], [ %4204, %4205 ], [ %4214, %4215 ], [ %4222, %4223 ], [ %4230, %4229 ], [ %0, %7 ]
+  %.0 = phi i32 [ 0, %3277 ], [ 0, %3272 ], [ 0, %9 ], [ 0, %3200 ], [ %4230, %4229 ], [ %26, %14 ], [ %4222, %4223 ], [ %28, %27 ], [ 0, %3267 ], [ 0, %42 ], [ 0, %37 ], [ %36, %29 ], [ 0, %4218 ], [ 0, %52 ], [ %51, %45 ], [ %4214, %4215 ], [ %62, %59 ], [ %3263, %3264 ], [ 0, %70 ], [ 0, %65 ], [ %64, %63 ], [ 0, %4210 ], [ 0, %85 ], [ 0, %80 ], [ %79, %73 ], [ %4204, %4205 ], [ 0, %100 ], [ 0, %95 ], [ %89, %90 ], [ 0, %3434 ], [ 0, %108 ], [ %102, %103 ], [ 0, %4195 ], [ 0, %126 ], [ 0, %121 ], [ %112, %113 ], [ 0, %4200 ], [ %130, %131 ], [ %4186, %4187 ], [ 0, %141 ], [ %140, %139 ], [ 0, %3294 ], [ 0, %151 ], [ %145, %146 ], [ 0, %4177 ], [ 0, %169 ], [ 0, %164 ], [ %155, %156 ], [ 0, %4182 ], [ %173, %174 ], [ %4173, %4174 ], [ 0, %196 ], [ %195, %179 ], [ 0, %3289 ], [ 0, %207 ], [ %201, %202 ], [ 0, %4156 ], [ 0, %225 ], [ 0, %220 ], [ %211, %212 ], [ 0, %4163 ], [ 0, %241 ], [ 0, %236 ], [ %229, %230 ], [ 0, %4169 ], [ 0, %249 ], [ %245, %246 ], [ %4152, %4153 ], [ 0, %262 ], [ 0, %257 ], [ %256, %254 ], [ 0, %3285 ], [ 0, %277 ], [ 0, %272 ], [ %271, %265 ], [ 0, %4135 ], [ 0, %290 ], [ 0, %285 ], [ %279, %280 ], [ 0, %4142 ], [ %297, %293 ], [ 0, %4148 ], [ %302, %298 ], [ %4131, %4132 ], [ 0, %305 ], [ %304, %303 ], [ %3281, %3282 ], [ %314, %310 ], [ 0, %4115 ], [ 0, %322 ], [ 0, %317 ], [ %316, %315 ], [ 0, %4120 ], [ %329, %325 ], [ 0, %4127 ], [ 0, %352 ], [ %351, %330 ], [ %4111, %4112 ], [ 0, %363 ], [ %356, %357 ], [ 0, %3446 ], [ 0, %382 ], [ %367, %368 ], [ 0, %4094 ], [ 0, %395 ], [ %388, %389 ], [ 0, %4101 ], [ 0, %415 ], [ 0, %408 ], [ %401, %402 ], [ 0, %4107 ], [ 0, %428 ], [ 0, %423 ], [ %420, %421 ], [ %4090, %4091 ], [ 0, %440 ], [ %439, %435 ], [ 0, %3257 ], [ 0, %464 ], [ 0, %457 ], [ 0, %452 ], [ %451, %445 ], [ 0, %4074 ], [ 0, %486 ], [ 0, %479 ], [ 0, %474 ], [ %473, %469 ], [ 0, %4079 ], [ 0, %497 ], [ %496, %492 ], [ 0, %4086 ], [ 0, %509 ], [ %508, %502 ], [ %4072, %4073 ], [ 0, %521 ], [ %520, %514 ], [ 0, %3196 ], [ 0, %538 ], [ 0, %533 ], [ %532, %526 ], [ 0, %4060 ], [ 0, %552 ], [ 0, %547 ], [ %544, %545 ], [ 0, %4067 ], [ 0, %566 ], [ 0, %561 ], [ %558, %559 ], [ %4058, %4059 ], [ 0, %575 ], [ %572, %573 ], [ 0, %3302 ], [ %578, %579 ], [ 0, %4046 ], [ 0, %596 ], [ 0, %589 ], [ %588, %582 ], [ 0, %4053 ], [ 0, %608 ], [ %607, %602 ], [ %4045, %4042 ], [ 0, %628 ], [ 0, %621 ], [ %620, %615 ], [ %3298, %3299 ], [ 0, %637 ], [ %633, %634 ], [ %4041, %4035 ], [ 0, %647 ], [ %643, %644 ], [ %3484, %3480 ], [ 0, %663 ], [ 0, %656 ], [ %653, %654 ], [ 0, %4028 ], [ 0, %679 ], [ 0, %672 ], [ %668, %669 ], [ 0, %3243 ], [ 0, %695 ], [ 0, %690 ], [ %684, %685 ], [ %4027, %4023 ], [ 0, %712 ], [ 0, %707 ], [ %701, %702 ], [ %3230, %3231 ], [ 0, %729 ], [ 0, %724 ], [ %718, %719 ], [ 0, %4010 ], [ 0, %752 ], [ 0, %748 ], [ 0, %741 ], [ %735, %736 ], [ 0, %4017 ], [ 0, %771 ], [ 0, %764 ], [ %763, %758 ], [ %4007, %4008 ], [ 0, %791 ], [ 0, %788 ], [ 0, %783 ], [ %782, %777 ], [ 0, %3475 ], [ 0, %803 ], [ %802, %798 ], [ 0, %3993 ], [ 0, %829 ], [ 0, %823 ], [ 0, %816 ], [ %815, %810 ], [ 0, %3998 ], [ 0, %852 ], [ 0, %847 ], [ 0, %842 ], [ 0, %837 ], [ %834, %835 ], [ 0, %3470 ], [ 0, %876 ], [ 0, %871 ], [ 0, %866 ], [ 0, %861 ], [ %860, %856 ], [ 0, %4001 ], [ 0, %900 ], [ 0, %895 ], [ 0, %890 ], [ 0, %885 ], [ %884, %880 ], [ %3992, %3989 ], [ 0, %919 ], [ 0, %914 ], [ 0, %909 ], [ %908, %904 ], [ 0, %3318 ], [ 0, %939 ], [ 0, %934 ], [ 0, %929 ], [ %928, %924 ], [ 0, %3974 ], [ 0, %959 ], [ 0, %954 ], [ 0, %949 ], [ %948, %944 ], [ 0, %3979 ], [ 0, %974 ], [ 0, %969 ], [ %968, %964 ], [ %3219, %3220 ], [ 0, %989 ], [ 0, %984 ], [ %983, %979 ], [ 0, %3982 ], [ 0, %1004 ], [ 0, %999 ], [ %998, %994 ], [ %3973, %3968 ], [ 0, %1019 ], [ 0, %1014 ], [ %1013, %1009 ], [ %3317, %3307 ], [ 0, %1034 ], [ 0, %1029 ], [ %1028, %1024 ], [ 0, %3958 ], [ 0, %1049 ], [ 0, %1044 ], [ %1043, %1039 ], [ 0, %3963 ], [ 0, %1064 ], [ 0, %1059 ], [ %1058, %1054 ], [ 0, %3227 ], [ 0, %1079 ], [ 0, %1074 ], [ %1073, %1069 ], [ %3957, %3952 ], [ 0, %1094 ], [ 0, %1089 ], [ %1088, %1084 ], [ 0, %3451 ], [ 0, %1109 ], [ 0, %1104 ], [ %1103, %1099 ], [ 0, %3942 ], [ 0, %1124 ], [ 0, %1119 ], [ %1118, %1114 ], [ 0, %3947 ], [ 0, %1139 ], [ 0, %1134 ], [ %1133, %1129 ], [ %3249, %3250 ], [ 0, %1156 ], [ 0, %1149 ], [ %1148, %1144 ], [ %3941, %3938 ], [ 0, %1173 ], [ 0, %1166 ], [ %1165, %1161 ], [ 0, %3338 ], [ 0, %1190 ], [ 0, %1183 ], [ %1182, %1178 ], [ 0, %3923 ], [ 0, %1205 ], [ 0, %1200 ], [ %1199, %1195 ], [ 0, %3928 ], [ 0, %1225 ], [ 0, %1218 ], [ %1217, %1212 ], [ 0, %3933 ], [ 0, %1242 ], [ 0, %1235 ], [ %1234, %1230 ], [ %3922, %3918 ], [ 0, %1259 ], [ 0, %1252 ], [ %1251, %1247 ], [ %3195, %3191 ], [ 0, %1276 ], [ 0, %1269 ], [ %1268, %1264 ], [ 0, %3910 ], [ 0, %1291 ], [ 0, %1286 ], [ %1285, %1281 ], [ 0, %3915 ], [ 0, %1308 ], [ 0, %1303 ], [ %1302, %1298 ], [ %3905, %3906 ], [ 0, %1325 ], [ 0, %1320 ], [ %1319, %1315 ], [ 0, %3333 ], [ 0, %1337 ], [ %1336, %1332 ], [ 0, %3893 ], [ 0, %1349 ], [ %1348, %1344 ], [ 0, %3898 ], [ 0, %1361 ], [ %1360, %1356 ], [ 0, %3901 ], [ 0, %1373 ], [ %1372, %1368 ], [ %1389, %1390 ], [ 0, %3253 ], [ %1384, %1378 ], [ 0, %1394 ], [ 0, %1385 ], [ %1410, %1411 ], [ %3888, %3889 ], [ %1405, %1399 ], [ 0, %1415 ], [ 0, %1406 ], [ %1431, %1432 ], [ %3332, %3322 ], [ %1426, %1420 ], [ 0, %1446 ], [ 0, %1441 ], [ 0, %1436 ], [ 0, %1427 ], [ 0, %3876 ], [ 0, %1466 ], [ 0, %1461 ], [ 0, %1456 ], [ %1455, %1451 ], [ 0, %3881 ], [ 0, %1481 ], [ 0, %1476 ], [ %1475, %1471 ], [ 0, %3884 ], [ 0, %1491 ], [ %1490, %1486 ], [ 0, %3466 ], [ 0, %1501 ], [ %1500, %1496 ], [ %3873, %3874 ], [ 0, %1516 ], [ 0, %1511 ], [ %1510, %1506 ], [ 0, %3456 ], [ 0, %1539 ], [ 0, %1534 ], [ 0, %1531 ], [ 0, %1526 ], [ %1525, %1521 ], [ 0, %3856 ], [ 0, %1549 ], [ %1548, %1544 ], [ 0, %3861 ], [ 0, %1568 ], [ 0, %1561 ], [ %1560, %1556 ], [ 0, %3864 ], [ 0, %1578 ], [ %1577, %1573 ], [ 0, %3869 ], [ 0, %3143 ], [ 0, %1593 ], [ 0, %1588 ], [ %1587, %1583 ], [ %3853, %3854 ], [ %3136, %3137 ], [ 0, %1610 ], [ 0, %1605 ], [ %1604, %1598 ], [ 0, %3356 ], [ 0, %3485 ], [ 0, %1627 ], [ 0, %1622 ], [ %1621, %1615 ], [ 0, %3841 ], [ 0, %1644 ], [ 0, %1639 ], [ %1638, %1632 ], [ 0, %3846 ], [ 0, %3164 ], [ 0, %1657 ], [ 0, %1652 ], [ %1648, %1649 ], [ 0, %3849 ], [ 0, %1672 ], [ %1671, %1662 ], [ %3837, %3838 ], [ 0, %1680 ], [ %1676, %1677 ], [ 0, %3238 ], [ 0, %1690 ], [ %1689, %1685 ], [ 0, %3823 ], [ 0, %1700 ], [ %1699, %1695 ], [ 0, %3828 ], [ 0, %1710 ], [ %1709, %1705 ], [ 0, %3833 ], [ 0, %1730 ], [ 0, %1725 ], [ 0, %1720 ], [ %1719, %1715 ], [ %3813, %3814 ], [ 0, %1752 ], [ 0, %1747 ], [ 0, %1742 ], [ %1741, %1737 ], [ 0, %3352 ], [ 0, %1769 ], [ 0, %1764 ], [ %1763, %1759 ], [ 0, %3801 ], [ 0, %1791 ], [ 0, %1786 ], [ 0, %1781 ], [ %1780, %1774 ], [ 0, %3806 ], [ 0, %1806 ], [ 0, %1801 ], [ %1800, %1796 ], [ 0, %3809 ], [ 0, %1814 ], [ %1813, %1809 ], [ %3800, %3796 ], [ 0, %1834 ], [ 0, %1829 ], [ 0, %1824 ], [ %1823, %1819 ], [ %3351, %3345 ], [ 0, %1857 ], [ 0, %1852 ], [ 0, %1849 ], [ 0, %1844 ], [ %1843, %1839 ], [ 0, %3784 ], [ 0, %1872 ], [ 0, %1867 ], [ %1866, %1862 ], [ 0, %3789 ], [ 0, %1897 ], [ 0, %1890 ], [ 0, %1887 ], [ 0, %1882 ], [ %1881, %1875 ], [ %3783, %3779 ], [ 0, %1914 ], [ 0, %1907 ], [ %1906, %1902 ], [ %3445, %3441 ], [ %0, %7 ], [ 0, %1923 ], [ %1919, %1920 ], [ 0, %3769 ], [ 0, %1942 ], [ 0, %1935 ], [ %1929, %1930 ], [ 0, %3774 ], [ 0, %1959 ], [ %1947, %1948 ], [ %3768, %3764 ], [ 0, %3160 ], [ 0, %1978 ], [ %1965, %1966 ], [ 0, %3380 ], [ 0, %1992 ], [ %1991, %1985 ], [ 0, %3759 ], [ %2004, %1999 ], [ %3755, %3756 ], [ %2009, %2005 ], [ 0, %3375 ], [ %3159, %3155 ], [ 0, %2015 ], [ %2014, %2010 ], [ 0, %3746 ], [ 0, %2031 ], [ 0, %2026 ], [ %2021, %2022 ], [ 0, %3751 ], [ 0, %2047 ], [ 0, %2044 ], [ 0, %2039 ], [ %2035, %2036 ], [ %3740, %3741 ], [ 0, %2062 ], [ 0, %2057 ], [ %2056, %2052 ], [ %3429, %3425 ], [ 0, %2078 ], [ 0, %2075 ], [ 0, %2070 ], [ %2069, %2065 ], [ 0, %3723 ], [ 0, %2091 ], [ 0, %2086 ], [ %2082, %2083 ], [ 0, %3730 ], [ 0, %2104 ], [ %2095, %2096 ], [ 0, %3735 ], [ 0, %2117 ], [ %2108, %2109 ], [ %3717, %3718 ], [ 0, %2143 ], [ 0, %2138 ], [ 0, %2133 ], [ 0, %2128 ], [ %2121, %2122 ], [ 0, %3370 ], [ 0, %2162 ], [ 0, %2157 ], [ 0, %2152 ], [ %2151, %2147 ], [ 0, %3700 ], [ 0, %2177 ], [ 0, %2172 ], [ %2171, %2167 ], [ 0, %3707 ], [ 0, %2194 ], [ 0, %2187 ], [ %2186, %2182 ], [ 0, %3712 ], [ 0, %2209 ], [ 0, %2204 ], [ %2203, %2199 ], [ %3696, %3697 ], [ 0, %2226 ], [ 0, %2221 ], [ %2220, %2216 ], [ %3369, %3363 ], [ 0, %2245 ], [ 0, %2238 ], [ %2237, %2233 ], [ 0, %3679 ], [ 0, %2260 ], [ 0, %2255 ], [ %2254, %2250 ], [ 0, %3686 ], [ 0, %2277 ], [ 0, %2270 ], [ %2269, %2265 ], [ 0, %3691 ], [ 0, %2294 ], [ 0, %2287 ], [ %2286, %2282 ], [ %3675, %3676 ], [ 0, %2309 ], [ 0, %2304 ], [ %2303, %2299 ], [ 0, %3205 ], [ 0, %2321 ], [ %2320, %2316 ], [ 0, %3658 ], [ 0, %2333 ], [ %2332, %2328 ], [ 0, %3665 ], [ 0, %2343 ], [ %2342, %2338 ], [ 0, %3670 ], [ %2347, %2348 ], [ %3657, %3653 ], [ %2354, %2351 ], [ 0, %3401 ], [ 0, %2378 ], [ 0, %2372 ], [ 0, %2366 ], [ 0, %2359 ], [ %2358, %2355 ], [ 0, %3634 ], [ 0, %2407 ], [ 0, %2401 ], [ 0, %2395 ], [ 0, %2388 ], [ %2387, %2383 ], [ 0, %3641 ], [ 0, %2436 ], [ 0, %2430 ], [ 0, %2424 ], [ 0, %2417 ], [ %2416, %2412 ], [ 0, %3647 ], [ 0, %2459 ], [ 0, %2453 ], [ 0, %2446 ], [ %2445, %2441 ], [ %3633, %3632 ], [ 0, %2483 ], [ 0, %2477 ], [ 0, %2470 ], [ %2469, %2465 ], [ 0, %3396 ], [ 0, %2507 ], [ 0, %2501 ], [ 0, %2494 ], [ %2493, %2489 ], [ %3626, %3627 ], [ 0, %2525 ], [ 0, %2518 ], [ %2517, %2513 ], [ 0, %3392 ], [ 0, %2544 ], [ 0, %2537 ], [ %2536, %2531 ], [ 0, %3610 ], [ 0, %2563 ], [ 0, %2556 ], [ %2555, %2550 ], [ 0, %3617 ], [ 0, %2581 ], [ 0, %2574 ], [ %2573, %2569 ], [ 0, %3623 ], [ 0, %2599 ], [ 0, %2592 ], [ %2591, %2587 ], [ %3214, %3210 ], [ 0, %2617 ], [ 0, %2610 ], [ %2609, %2605 ], [ %3604, %3605 ], [ 0, %2635 ], [ 0, %2628 ], [ %2627, %2623 ], [ %3391, %3385 ], [ 0, %2653 ], [ 0, %2646 ], [ %2645, %2641 ], [ 0, %3588 ], [ 0, %2671 ], [ 0, %2664 ], [ %2663, %2659 ], [ 0, %3595 ], [ 0, %2689 ], [ 0, %2682 ], [ %2681, %2677 ], [ 0, %3601 ], [ 0, %2707 ], [ 0, %2700 ], [ %2699, %2695 ], [ 0, %3215 ], [ 0, %2725 ], [ 0, %2718 ], [ %2717, %2713 ], [ %3584, %3585 ], [ 0, %2744 ], [ 0, %2737 ], [ %2736, %2731 ], [ 0, %3430 ], [ 0, %2756 ], [ %2755, %2750 ], [ 0, %3567 ], [ 0, %2769 ], [ %2768, %2763 ], [ 0, %3572 ], [ 0, %2795 ], [ 0, %2789 ], [ 0, %2782 ], [ %2781, %2776 ], [ 0, %3579 ], [ 0, %3490 ], [ 0, %2804 ], [ %2800, %2801 ], [ %3563, %3564 ], [ 0, %3186 ], [ 0, %2831 ], [ 0, %2824 ], [ %2810, %2811 ], [ 0, %3418 ], [ 0, %3181 ], [ 0, %2853 ], [ 0, %2849 ], [ 0, %2842 ], [ %2836, %2837 ], [ 0, %3546 ], [ %3175, %3171 ], [ 0, %2871 ], [ 0, %2864 ], [ %2858, %2859 ], [ 0, %3551 ], [ 0, %2899 ], [ 0, %2893 ], [ 0, %2889 ], [ 0, %2882 ], [ %2876, %2877 ], [ 0, %3558 ], [ 0, %2921 ], [ 0, %2915 ], [ 0, %2908 ], [ %2904, %2905 ], [ %3545, %3540 ], [ 0, %2940 ], [ 0, %2934 ], [ 0, %2927 ], [ %2924, %2925 ], [ %3465, %3461 ], [ 0, %2962 ], [ 0, %2956 ], [ 0, %2949 ], [ %2943, %2944 ], [ 0, %3522 ], [ 0, %2972 ], [ %2971, %2966 ], [ 0, %3529 ], [ 0, %2998 ], [ 0, %2992 ], [ 0, %2985 ], [ %2978, %2979 ], [ 0, %3535 ], [ 0, %3008 ], [ %3007, %3002 ], [ %3518, %3519 ], [ 0, %3028 ], [ 0, %3021 ], [ %3014, %3015 ], [ 0, %3413 ], [ 0, %3047 ], [ 0, %3040 ], [ %3033, %3034 ], [ 0, %3500 ], [ 0, %3066 ], [ 0, %3059 ], [ %3052, %3053 ], [ 0, %3507 ], [ 0, %3085 ], [ 0, %3078 ], [ %3071, %3072 ], [ 0, %3513 ], [ 0, %3108 ], [ 0, %3104 ], [ 0, %3097 ], [ %3090, %3091 ], [ %3499, %3495 ], [ 0, %3131 ], [ 0, %3127 ], [ 0, %3120 ], [ %3113, %3114 ], [ %3412, %3406 ], [ 0, %3148 ], [ 0, %3176 ]
   ret i32 %.0
 }
 
@@ -14563,35 +14573,35 @@ _ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %88 = load i32, ptr %0, align 8, !tbaa !38
   %89 = load i32, ptr %75, align 4, !tbaa !67
   %.not.i.i.not.i.i = icmp ult i32 %87, %89
-  switch i32 %88, label %90 [
-    i32 13011, label %.critedge
-    i32 13008, label %.critedge
-    i32 13042, label %.critedge
+  switch i32 %88, label %.critedge [
+    i32 13011, label %switch.edge
+    i32 13008, label %switch.edge
+    i32 13042, label %switch.edge
   ]
 
-90:                                               ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+.critedge:                                        ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, !prof !72
 
-.critedge:                                        ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+switch.edge:                                      ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, !prof !72
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split: ; preds = %.critedge, %90
-  %.sink.ph = phi i64 [ 4, %90 ], [ 3, %.critedge ]
-  %91 = zext i32 %87 to i64
-  %92 = add nuw nsw i64 %91, 1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %93, i64 noundef %92, i64 noundef 16) #11
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split: ; preds = %switch.edge, %.critedge
+  %.sink.ph = phi i64 [ 4, %.critedge ], [ 3, %switch.edge ]
+  %90 = zext i32 %87 to i64
+  %91 = add nuw nsw i64 %90, 1
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %92, i64 noundef %91, i64 noundef 16) #11
   %.pre.i.i54 = load i32, ptr %74, align 8, !tbaa !66
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, %.critedge, %90
-  %.sink82 = phi i32 [ %87, %90 ], [ %87, %.critedge ], [ %.pre.i.i54, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
-  %.sink = phi i64 [ 4, %90 ], [ 3, %.critedge ], [ %.sink.ph, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
-  %94 = load ptr, ptr %73, align 8, !tbaa !54
-  %95 = zext i32 %.sink82 to i64
-  %96 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %94, i64 %95
-  store i8 2, ptr %96, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %96, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, %switch.edge, %.critedge
+  %.sink82 = phi i32 [ %87, %switch.edge ], [ %87, %.critedge ], [ %.pre.i.i54, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
+  %.sink = phi i64 [ 3, %switch.edge ], [ 4, %.critedge ], [ %.sink.ph, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
+  %93 = load ptr, ptr %73, align 8, !tbaa !54
+  %94 = zext i32 %.sink82 to i64
+  %95 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %93, i64 %94
+  store i8 2, ptr %95, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %.sink, ptr %.sroa.22.0..sroa_idx.i.i, align 1
   %storemerge.in = load i32, ptr %74, align 8, !tbaa !66
   %storemerge = add i32 %storemerge.in, 1
@@ -22399,7 +22409,7 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstImEENS_14MCDisassem
   br label %4577
 
 4577:                                             ; preds = %7, %4574, %4567, %4558, %4545, %4524, %4510, %4488, %4466, %4445, %4423, %4395, %4374, %4355, %4348, %4335, %4319, %4299, %4277, %4260, %4245, %4224, %4211, %4193, %4177, %4156, %4139, %4113, %4094, %4076, %4060, %4051, %4033, %4007, %3985, %3963, %3939, %3916, %3911, %3888, %3867, %3845, %3820, %3798, %3773, %3757, %3737, %3716, %3699, %3679, %3657, %3634, %3615, %3591, %3575, %3566, %3548, %3529, %3514, %3494, %3482, %3471, %3451, %3430, %3413, %3393, %3368, %3343, %3322, %3301, %3280, %3259, %3245, %3220, %3206, %3181, %3161, %3140, %3111, %3092, %3069, %3040, %3029, %3003, %2989, %2975, %2955, %2936, %2917, %2898, %2879, %2860, %2841, %2822, %2803, %2784, %2764, %2744, %2725, %2700, %2675, %2650, %2620, %2590, %2560, %2555, %2552, %2541, %2530, %2517, %2499, %2481, %2463, %2447, %2429, %2411, %2393, %2375, %2359, %2338, %2311, %2295, %2279, %2265, %2246, %2232, %2215, %2200, %2186, %2180, %2174, %2159, %2138, %2117, %2098, %2087, %2068, %2040, %2026, %2002, %1981, %1970, %1956, %1933, %1917, %1894, %1871, %1860, %1849, %1838, %1829, %1812, %1798, %1780, %1762, %1744, %1728, %1717, %1699, %1686, %1662, %1646, %1635, %1624, %1608, %1587, %1555, %1533, %1511, %1500, %1487, %1474, %1461, %1443, %1425, %1407, %1389, %1371, %1353, %1334, %1316, %1298, %1280, %1262, %1246, %1230, %1214, %1198, %1182, %1166, %1150, %1134, %1118, %1102, %1086, %1070, %1049, %1028, %1007, %982, %957, %935, %909, %896, %874, %854, %829, %809, %789, %769, %752, %736, %725, %714, %694, %680, %658, %655, %648, %633, %618, %598, %585, %572, %561, %537, %512, %501, %486, %465, %450, %427, %414, %385, %380, %368, %363, %354, %348, %343, %327, %309, %297, %288, %270, %249, %237, %214, %207, %186, %173, %164, %154, %133, %120, %104, %84, %72, %68, %51, %33, %30, %15, %4561, %4552, %4540, %4534, %4519, %4513, %4505, %4499, %4491, %4483, %4477, %4469, %4461, %4454, %4448, %4440, %4434, %4426, %4418, %4411, %4405, %4389, %4381, %4368, %4360, %4340, %4329, %4321, %4312, %4309, %4303, %4292, %4289, %4283, %4272, %4266, %4255, %4249, %4240, %4235, %4229, %4221, %4215, %4206, %4203, %4197, %4188, %4185, %4179, %4172, %4167, %4164, %4158, %4151, %4148, %4142, %4134, %4129, %4123, %4108, %4105, %4099, %4087, %4081, %4071, %4065, %4054, %4046, %4040, %4027, %4022, %4014, %4001, %3996, %3988, %3979, %3974, %3966, %3957, %3952, %3944, %3933, %3927, %3919, %3907, %3901, %3893, %3884, %3878, %3870, %3861, %3854, %3848, %3839, %3832, %3826, %3815, %3809, %3801, %3792, %3786, %3778, %3768, %3762, %3752, %3747, %3742, %3732, %3727, %3721, %3709, %3704, %3692, %3686, %3674, %3669, %3664, %3652, %3647, %3641, %3627, %3622, %3608, %3602, %3586, %3569, %3561, %3556, %3551, %3543, %3538, %3532, %3522, %3517, %3507, %3501, %3489, %3476, %3466, %3461, %3456, %3446, %3441, %3435, %3423, %3418, %3406, %3400, %3387, %3383, %3375, %3362, %3358, %3350, %3337, %3329, %3316, %3308, %3295, %3287, %3274, %3266, %3251, %3241, %3235, %3227, %3212, %3202, %3196, %3188, %3177, %3171, %3163, %3157, %3151, %3143, %3134, %3128, %3124, %3116, %3105, %3097, %3086, %3082, %3074, %3063, %3055, %3032, %3023, %3017, %3009, %2995, %2981, %2969, %2961, %2949, %2941, %2930, %2922, %2911, %2903, %2892, %2884, %2873, %2865, %2854, %2846, %2835, %2827, %2816, %2808, %2797, %2789, %2778, %2770, %2758, %2750, %2738, %2730, %2719, %2713, %2705, %2694, %2688, %2680, %2669, %2663, %2655, %2645, %2639, %2633, %2625, %2615, %2609, %2603, %2595, %2585, %2579, %2573, %2565, %2546, %2535, %2522, %2510, %2504, %2494, %2486, %2476, %2468, %2458, %2452, %2442, %2434, %2422, %2416, %2404, %2398, %2388, %2380, %2370, %2364, %2354, %2349, %2343, %2334, %2329, %2324, %2318, %2305, %2289, %2274, %2268, %2260, %2257, %2251, %2243, %2237, %2227, %2224, %2218, %2210, %2204, %2192, %2166, %2151, %2130, %2111, %2103, %2090, %2081, %2073, %2063, %2056, %2053, %2047, %2037, %2031, %2021, %2016, %2013, %2007, %1997, %1992, %1986, %1975, %1967, %1961, %1951, %1946, %1940, %1928, %1922, %1910, %1905, %1899, %1887, %1882, %1876, %1865, %1854, %1843, %1832, %1823, %1807, %1801, %1793, %1787, %1775, %1769, %1757, %1751, %1739, %1733, %1722, %1712, %1704, %1691, %1681, %1676, %1673, %1667, %1657, %1651, %1640, %1629, %1619, %1613, %1603, %1598, %1592, %1582, %1577, %1571, %1562, %1549, %1540, %1527, %1518, %1505, %1492, %1479, %1466, %1454, %1448, %1436, %1430, %1418, %1412, %1402, %1394, %1384, %1376, %1366, %1358, %1348, %1340, %1327, %1321, %1311, %1303, %1293, %1285, %1275, %1267, %1257, %1251, %1241, %1235, %1225, %1219, %1209, %1203, %1193, %1187, %1177, %1171, %1161, %1155, %1145, %1139, %1129, %1123, %1113, %1107, %1097, %1091, %1081, %1075, %1065, %1060, %1054, %1044, %1039, %1033, %1023, %1018, %1012, %1003, %998, %993, %987, %978, %973, %968, %962, %953, %948, %943, %937, %929, %923, %915, %901, %889, %886, %880, %868, %860, %848, %844, %836, %822, %816, %802, %796, %782, %776, %763, %755, %746, %738, %728, %717, %708, %700, %686, %674, %666, %650, %641, %635, %626, %620, %611, %605, %592, %579, %566, %555, %548, %542, %532, %525, %519, %506, %494, %488, %480, %472, %457, %442, %421, %408, %377, %371, %357, %340, %334, %324, %318, %306, %300, %291, %283, %277, %265, %259, %243, %232, %202, %196, %180, %167, %149, %143, %127, %117, %111, %99, %93, %81, %75, %60, %48, %42, %9, %1568, %1546, %1524
-  %.0 = phi i32 [ %1523, %1524 ], [ %1545, %1546 ], [ %1567, %1568 ], [ 0, %9 ], [ 0, %42 ], [ 0, %48 ], [ 0, %60 ], [ 0, %75 ], [ 0, %81 ], [ 0, %93 ], [ 0, %99 ], [ 0, %111 ], [ 0, %117 ], [ 0, %127 ], [ 0, %143 ], [ 0, %149 ], [ 0, %167 ], [ 0, %180 ], [ 0, %196 ], [ 0, %202 ], [ 0, %232 ], [ 0, %243 ], [ 0, %259 ], [ 0, %265 ], [ 0, %277 ], [ 0, %283 ], [ 0, %291 ], [ 0, %300 ], [ 0, %306 ], [ 0, %318 ], [ 0, %324 ], [ 0, %334 ], [ 0, %340 ], [ 0, %357 ], [ 0, %371 ], [ 0, %377 ], [ 0, %408 ], [ 0, %421 ], [ 0, %442 ], [ 0, %457 ], [ 0, %472 ], [ 0, %480 ], [ 0, %488 ], [ 0, %494 ], [ 0, %506 ], [ 0, %519 ], [ 0, %525 ], [ 0, %532 ], [ 0, %542 ], [ 0, %548 ], [ 0, %555 ], [ 0, %566 ], [ 0, %579 ], [ 0, %592 ], [ 0, %605 ], [ 0, %611 ], [ 0, %620 ], [ 0, %626 ], [ 0, %635 ], [ 0, %641 ], [ 0, %650 ], [ 0, %666 ], [ 0, %674 ], [ 0, %686 ], [ 0, %700 ], [ 0, %708 ], [ 0, %717 ], [ 0, %728 ], [ 0, %738 ], [ 0, %746 ], [ 0, %755 ], [ 0, %763 ], [ 0, %776 ], [ 0, %782 ], [ 0, %796 ], [ 0, %802 ], [ 0, %816 ], [ 0, %822 ], [ 0, %836 ], [ 0, %844 ], [ 0, %848 ], [ 0, %860 ], [ 0, %868 ], [ 0, %880 ], [ 0, %886 ], [ 0, %889 ], [ 0, %901 ], [ 0, %915 ], [ 0, %923 ], [ 0, %929 ], [ 0, %937 ], [ 0, %943 ], [ 0, %948 ], [ 0, %953 ], [ 0, %962 ], [ 0, %968 ], [ 0, %973 ], [ 0, %978 ], [ 0, %987 ], [ 0, %993 ], [ 0, %998 ], [ 0, %1003 ], [ 0, %1012 ], [ 0, %1018 ], [ 0, %1023 ], [ 0, %1033 ], [ 0, %1039 ], [ 0, %1044 ], [ 0, %1054 ], [ 0, %1060 ], [ 0, %1065 ], [ 0, %1075 ], [ 0, %1081 ], [ 0, %1091 ], [ 0, %1097 ], [ 0, %1107 ], [ 0, %1113 ], [ 0, %1123 ], [ 0, %1129 ], [ 0, %1139 ], [ 0, %1145 ], [ 0, %1155 ], [ 0, %1161 ], [ 0, %1171 ], [ 0, %1177 ], [ 0, %1187 ], [ 0, %1193 ], [ 0, %1203 ], [ 0, %1209 ], [ 0, %1219 ], [ 0, %1225 ], [ 0, %1235 ], [ 0, %1241 ], [ 0, %1251 ], [ 0, %1257 ], [ 0, %1267 ], [ 0, %1275 ], [ 0, %1285 ], [ 0, %1293 ], [ 0, %1303 ], [ 0, %1311 ], [ 0, %1321 ], [ 0, %1327 ], [ 0, %1340 ], [ 0, %1348 ], [ 0, %1358 ], [ 0, %1366 ], [ 0, %1376 ], [ 0, %1384 ], [ 0, %1394 ], [ 0, %1402 ], [ 0, %1412 ], [ 0, %1418 ], [ 0, %1430 ], [ 0, %1436 ], [ 0, %1448 ], [ 0, %1454 ], [ 0, %1466 ], [ 0, %1479 ], [ 0, %1492 ], [ 0, %1505 ], [ 0, %1518 ], [ 0, %1527 ], [ 0, %1540 ], [ 0, %1549 ], [ 0, %1562 ], [ 0, %1571 ], [ 0, %1577 ], [ 0, %1582 ], [ 0, %1592 ], [ 0, %1598 ], [ 0, %1603 ], [ 0, %1613 ], [ 0, %1619 ], [ 0, %1629 ], [ 0, %1640 ], [ 0, %1651 ], [ 0, %1657 ], [ 0, %1667 ], [ 0, %1673 ], [ 0, %1676 ], [ 0, %1681 ], [ 0, %1691 ], [ 0, %1704 ], [ 0, %1712 ], [ 0, %1722 ], [ 0, %1733 ], [ 0, %1739 ], [ 0, %1751 ], [ 0, %1757 ], [ 0, %1769 ], [ 0, %1775 ], [ 0, %1787 ], [ 0, %1793 ], [ 0, %1801 ], [ 0, %1807 ], [ 0, %1823 ], [ 0, %1832 ], [ 0, %1843 ], [ 0, %1854 ], [ 0, %1865 ], [ 0, %1876 ], [ 0, %1882 ], [ 0, %1887 ], [ 0, %1899 ], [ 0, %1905 ], [ 0, %1910 ], [ 0, %1922 ], [ 0, %1928 ], [ 0, %1940 ], [ 0, %1946 ], [ 0, %1951 ], [ 0, %1961 ], [ 0, %1967 ], [ 0, %1975 ], [ 0, %1986 ], [ 0, %1992 ], [ 0, %1997 ], [ 0, %2007 ], [ 0, %2013 ], [ 0, %2016 ], [ 0, %2021 ], [ 0, %2031 ], [ 0, %2037 ], [ 0, %2047 ], [ 0, %2053 ], [ 0, %2056 ], [ 0, %2063 ], [ 0, %2073 ], [ 0, %2081 ], [ 0, %2090 ], [ 0, %2103 ], [ 0, %2111 ], [ 0, %2130 ], [ 0, %2151 ], [ 0, %2166 ], [ 0, %2192 ], [ 0, %2204 ], [ 0, %2210 ], [ 0, %2218 ], [ 0, %2224 ], [ 0, %2227 ], [ 0, %2237 ], [ 0, %2243 ], [ 0, %2251 ], [ 0, %2257 ], [ 0, %2260 ], [ 0, %2268 ], [ 0, %2274 ], [ 0, %2289 ], [ 0, %2305 ], [ 0, %2318 ], [ 0, %2324 ], [ 0, %2329 ], [ 0, %2334 ], [ 0, %2343 ], [ 0, %2349 ], [ 0, %2354 ], [ 0, %2364 ], [ 0, %2370 ], [ 0, %2380 ], [ 0, %2388 ], [ 0, %2398 ], [ 0, %2404 ], [ 0, %2416 ], [ 0, %2422 ], [ 0, %2434 ], [ 0, %2442 ], [ 0, %2452 ], [ 0, %2458 ], [ 0, %2468 ], [ 0, %2476 ], [ 0, %2486 ], [ 0, %2494 ], [ 0, %2504 ], [ 0, %2510 ], [ 0, %2522 ], [ 0, %2535 ], [ 0, %2546 ], [ 0, %2565 ], [ 0, %2573 ], [ 0, %2579 ], [ 0, %2585 ], [ 0, %2595 ], [ 0, %2603 ], [ 0, %2609 ], [ 0, %2615 ], [ 0, %2625 ], [ 0, %2633 ], [ 0, %2639 ], [ 0, %2645 ], [ 0, %2655 ], [ 0, %2663 ], [ 0, %2669 ], [ 0, %2680 ], [ 0, %2688 ], [ 0, %2694 ], [ 0, %2705 ], [ 0, %2713 ], [ 0, %2719 ], [ 0, %2730 ], [ 0, %2738 ], [ 0, %2750 ], [ 0, %2758 ], [ 0, %2770 ], [ 0, %2778 ], [ 0, %2789 ], [ 0, %2797 ], [ 0, %2808 ], [ 0, %2816 ], [ 0, %2827 ], [ 0, %2835 ], [ 0, %2846 ], [ 0, %2854 ], [ 0, %2865 ], [ 0, %2873 ], [ 0, %2884 ], [ 0, %2892 ], [ 0, %2903 ], [ 0, %2911 ], [ 0, %2922 ], [ 0, %2930 ], [ 0, %2941 ], [ 0, %2949 ], [ 0, %2961 ], [ 0, %2969 ], [ 0, %2981 ], [ 0, %2995 ], [ 0, %3009 ], [ 0, %3017 ], [ 0, %3023 ], [ 0, %3032 ], [ 0, %3055 ], [ 0, %3063 ], [ 0, %3074 ], [ 0, %3082 ], [ 0, %3086 ], [ 0, %3097 ], [ 0, %3105 ], [ 0, %3116 ], [ 0, %3124 ], [ 0, %3128 ], [ 0, %3134 ], [ 0, %3143 ], [ 0, %3151 ], [ 0, %3157 ], [ 0, %3163 ], [ 0, %3171 ], [ 0, %3177 ], [ 0, %3188 ], [ 0, %3196 ], [ 0, %3202 ], [ 0, %3212 ], [ 0, %3227 ], [ 0, %3235 ], [ 0, %3241 ], [ 0, %3251 ], [ 0, %3266 ], [ 0, %3274 ], [ 0, %3287 ], [ 0, %3295 ], [ 0, %3308 ], [ 0, %3316 ], [ 0, %3329 ], [ 0, %3337 ], [ 0, %3350 ], [ 0, %3358 ], [ 0, %3362 ], [ 0, %3375 ], [ 0, %3383 ], [ 0, %3387 ], [ 0, %3400 ], [ 0, %3406 ], [ 0, %3418 ], [ 0, %3423 ], [ 0, %3435 ], [ 0, %3441 ], [ 0, %3446 ], [ 0, %3456 ], [ 0, %3461 ], [ 0, %3466 ], [ 0, %3476 ], [ 0, %3489 ], [ 0, %3501 ], [ 0, %3507 ], [ 0, %3517 ], [ 0, %3522 ], [ 0, %3532 ], [ 0, %3538 ], [ 0, %3543 ], [ 0, %3551 ], [ 0, %3556 ], [ 0, %3561 ], [ 0, %3569 ], [ 0, %3586 ], [ 0, %3602 ], [ 0, %3608 ], [ 0, %3622 ], [ 0, %3627 ], [ 0, %3641 ], [ 0, %3647 ], [ 0, %3652 ], [ 0, %3664 ], [ 0, %3669 ], [ 0, %3674 ], [ 0, %3686 ], [ 0, %3692 ], [ 0, %3704 ], [ 0, %3709 ], [ 0, %3721 ], [ 0, %3727 ], [ 0, %3732 ], [ 0, %3742 ], [ 0, %3747 ], [ 0, %3752 ], [ 0, %3762 ], [ 0, %3768 ], [ 0, %3778 ], [ 0, %3786 ], [ 0, %3792 ], [ 0, %3801 ], [ 0, %3809 ], [ 0, %3815 ], [ 0, %3826 ], [ 0, %3832 ], [ 0, %3839 ], [ 0, %3848 ], [ 0, %3854 ], [ 0, %3861 ], [ 0, %3870 ], [ 0, %3878 ], [ 0, %3884 ], [ 0, %3893 ], [ 0, %3901 ], [ 0, %3907 ], [ 0, %3919 ], [ 0, %3927 ], [ 0, %3933 ], [ 0, %3944 ], [ 0, %3952 ], [ 0, %3957 ], [ 0, %3966 ], [ 0, %3974 ], [ 0, %3979 ], [ 0, %3988 ], [ 0, %3996 ], [ 0, %4001 ], [ 0, %4014 ], [ 0, %4022 ], [ 0, %4027 ], [ 0, %4040 ], [ 0, %4046 ], [ 0, %4054 ], [ 0, %4065 ], [ 0, %4071 ], [ 0, %4081 ], [ 0, %4087 ], [ 0, %4099 ], [ 0, %4105 ], [ 0, %4108 ], [ 0, %4123 ], [ 0, %4129 ], [ 0, %4134 ], [ 0, %4142 ], [ 0, %4148 ], [ 0, %4151 ], [ 0, %4158 ], [ 0, %4164 ], [ 0, %4167 ], [ 0, %4172 ], [ 0, %4179 ], [ 0, %4185 ], [ 0, %4188 ], [ 0, %4197 ], [ 0, %4203 ], [ 0, %4206 ], [ 0, %4215 ], [ 0, %4221 ], [ 0, %4229 ], [ 0, %4235 ], [ 0, %4240 ], [ 0, %4249 ], [ 0, %4255 ], [ 0, %4266 ], [ 0, %4272 ], [ 0, %4283 ], [ 0, %4289 ], [ 0, %4292 ], [ 0, %4303 ], [ 0, %4309 ], [ 0, %4312 ], [ 0, %4321 ], [ 0, %4329 ], [ 0, %4340 ], [ 0, %4360 ], [ 0, %4368 ], [ 0, %4381 ], [ 0, %4389 ], [ 0, %4405 ], [ 0, %4411 ], [ 0, %4418 ], [ 0, %4426 ], [ 0, %4434 ], [ 0, %4440 ], [ 0, %4448 ], [ 0, %4454 ], [ 0, %4461 ], [ 0, %4469 ], [ 0, %4477 ], [ 0, %4483 ], [ 0, %4491 ], [ 0, %4499 ], [ 0, %4505 ], [ 0, %4513 ], [ 0, %4519 ], [ 0, %4534 ], [ 0, %4540 ], [ 0, %4552 ], [ 0, %4561 ], [ %29, %15 ], [ %32, %30 ], [ %41, %33 ], [ %59, %51 ], [ %71, %68 ], [ %74, %72 ], [ %92, %84 ], [ %103, %104 ], [ %119, %120 ], [ %132, %133 ], [ %153, %154 ], [ %166, %164 ], [ %172, %173 ], [ %185, %186 ], [ %206, %207 ], [ %231, %214 ], [ %236, %237 ], [ %248, %249 ], [ %269, %270 ], [ %287, %288 ], [ %299, %297 ], [ %317, %309 ], [ %326, %327 ], [ %347, %343 ], [ %353, %348 ], [ %356, %354 ], [ %367, %363 ], [ %370, %368 ], [ %384, %380 ], [ %407, %385 ], [ %413, %414 ], [ %426, %427 ], [ %449, %450 ], [ %464, %465 ], [ %485, %486 ], [ %505, %501 ], [ %518, %512 ], [ %541, %537 ], [ %565, %561 ], [ %578, %572 ], [ %591, %585 ], [ %604, %598 ], [ %617, %618 ], [ %632, %633 ], [ %647, %648 ], [ %654, %655 ], [ %665, %658 ], [ %685, %680 ], [ %699, %694 ], [ %713, %714 ], [ %724, %725 ], [ %735, %736 ], [ %751, %752 ], [ %768, %769 ], [ %788, %789 ], [ %808, %809 ], [ %828, %829 ], [ %859, %854 ], [ %879, %874 ], [ %900, %896 ], [ %914, %909 ], [ %934, %935 ], [ %961, %957 ], [ %986, %982 ], [ %1011, %1007 ], [ %1032, %1028 ], [ %1053, %1049 ], [ %1074, %1070 ], [ %1090, %1086 ], [ %1106, %1102 ], [ %1122, %1118 ], [ %1138, %1134 ], [ %1154, %1150 ], [ %1170, %1166 ], [ %1186, %1182 ], [ %1202, %1198 ], [ %1218, %1214 ], [ %1234, %1230 ], [ %1250, %1246 ], [ %1266, %1262 ], [ %1284, %1280 ], [ %1302, %1298 ], [ %1320, %1316 ], [ %1339, %1334 ], [ %1357, %1353 ], [ %1375, %1371 ], [ %1393, %1389 ], [ %1411, %1407 ], [ %1429, %1425 ], [ %1447, %1443 ], [ %1465, %1461 ], [ %1478, %1474 ], [ %1491, %1487 ], [ %1504, %1500 ], [ %1517, %1511 ], [ %1539, %1533 ], [ %1561, %1555 ], [ %1591, %1587 ], [ %1612, %1608 ], [ %1628, %1624 ], [ %1639, %1635 ], [ %1650, %1646 ], [ %1666, %1662 ], [ %1690, %1686 ], [ %1703, %1699 ], [ %1721, %1717 ], [ %1732, %1728 ], [ %1750, %1744 ], [ %1768, %1762 ], [ %1786, %1780 ], [ %1797, %1798 ], [ %1822, %1812 ], [ %1828, %1829 ], [ %1842, %1838 ], [ %1853, %1849 ], [ %1864, %1860 ], [ %1875, %1871 ], [ %1898, %1894 ], [ %1921, %1917 ], [ %1939, %1933 ], [ %1960, %1956 ], [ %1974, %1970 ], [ %1985, %1981 ], [ %2006, %2002 ], [ %2030, %2026 ], [ %2046, %2040 ], [ %2072, %2068 ], [ %2086, %2087 ], [ %2097, %2098 ], [ %2116, %2117 ], [ %2137, %2138 ], [ %2165, %2159 ], [ %2179, %2174 ], [ %2185, %2180 ], [ %2191, %2186 ], [ %2199, %2200 ], [ %2214, %2215 ], [ %2236, %2232 ], [ %2250, %2246 ], [ %2264, %2265 ], [ %2278, %2279 ], [ %2294, %2295 ], [ %2310, %2311 ], [ %2342, %2338 ], [ %2363, %2359 ], [ %2379, %2375 ], [ %2397, %2393 ], [ %2415, %2411 ], [ %2433, %2429 ], [ %2451, %2447 ], [ %2467, %2463 ], [ %2485, %2481 ], [ %2503, %2499 ], [ %2521, %2517 ], [ %2534, %2530 ], [ %2545, %2541 ], [ %2551, %2552 ], [ %2559, %2555 ], [ %2564, %2560 ], [ %2594, %2590 ], [ %2624, %2620 ], [ %2654, %2650 ], [ %2679, %2675 ], [ %2704, %2700 ], [ %2729, %2725 ], [ %2749, %2744 ], [ %2769, %2764 ], [ %2788, %2784 ], [ %2807, %2803 ], [ %2826, %2822 ], [ %2845, %2841 ], [ %2864, %2860 ], [ %2883, %2879 ], [ %2902, %2898 ], [ %2921, %2917 ], [ %2940, %2936 ], [ %2960, %2955 ], [ %2980, %2975 ], [ %2994, %2989 ], [ %3008, %3003 ], [ %3028, %3029 ], [ %3039, %3040 ], [ %3068, %3069 ], [ %3091, %3092 ], [ %3110, %3111 ], [ %3139, %3140 ], [ %3160, %3161 ], [ %3180, %3181 ], [ %3211, %3206 ], [ %3219, %3220 ], [ %3250, %3245 ], [ %3258, %3259 ], [ %3279, %3280 ], [ %3300, %3301 ], [ %3321, %3322 ], [ %3342, %3343 ], [ %3367, %3368 ], [ %3392, %3393 ], [ %3417, %3413 ], [ %3434, %3430 ], [ %3455, %3451 ], [ %3475, %3471 ], [ %3481, %3482 ], [ %3493, %3494 ], [ %3513, %3514 ], [ %3528, %3529 ], [ %3547, %3548 ], [ %3565, %3566 ], [ %3585, %3575 ], [ %3601, %3591 ], [ %3621, %3615 ], [ %3640, %3634 ], [ %3663, %3657 ], [ %3685, %3679 ], [ %3703, %3699 ], [ %3720, %3716 ], [ %3741, %3737 ], [ %3761, %3757 ], [ %3777, %3773 ], [ %3797, %3798 ], [ %3825, %3820 ], [ %3844, %3845 ], [ %3866, %3867 ], [ %3887, %3888 ], [ %3910, %3911 ], [ %3918, %3916 ], [ %3943, %3939 ], [ %3962, %3963 ], [ %3984, %3985 ], [ %4006, %4007 ], [ %4032, %4033 ], [ %4050, %4051 ], [ %4064, %4060 ], [ %4080, %4076 ], [ %4098, %4094 ], [ %4112, %4113 ], [ %4138, %4139 ], [ %4155, %4156 ], [ %4176, %4177 ], [ %4192, %4193 ], [ %4210, %4211 ], [ %4228, %4224 ], [ %4248, %4245 ], [ %4265, %4260 ], [ %4282, %4277 ], [ %4302, %4299 ], [ %4318, %4319 ], [ %4339, %4335 ], [ %4354, %4348 ], [ %4359, %4355 ], [ %4373, %4374 ], [ %4394, %4395 ], [ %4422, %4423 ], [ %4444, %4445 ], [ %4465, %4466 ], [ %4487, %4488 ], [ %4509, %4510 ], [ %4523, %4524 ], [ %4544, %4545 ], [ %4557, %4558 ], [ %4566, %4567 ], [ %4576, %4574 ], [ %0, %7 ]
+  %.0 = phi i32 [ 0, %3543 ], [ 0, %3538 ], [ 0, %9 ], [ 0, %3461 ], [ %4576, %4574 ], [ %29, %15 ], [ %4566, %4567 ], [ %32, %30 ], [ 0, %3532 ], [ 0, %48 ], [ 0, %42 ], [ %41, %33 ], [ 0, %4561 ], [ 0, %60 ], [ %59, %51 ], [ %4557, %4558 ], [ %71, %68 ], [ %3528, %3529 ], [ 0, %81 ], [ 0, %75 ], [ %74, %72 ], [ 0, %4552 ], [ 0, %99 ], [ 0, %93 ], [ %92, %84 ], [ %4544, %4545 ], [ 0, %117 ], [ 0, %111 ], [ %103, %104 ], [ 0, %3709 ], [ 0, %127 ], [ %119, %120 ], [ 0, %4534 ], [ 0, %149 ], [ 0, %143 ], [ %132, %133 ], [ 0, %4540 ], [ %153, %154 ], [ %4523, %4524 ], [ 0, %167 ], [ %166, %164 ], [ 0, %3561 ], [ 0, %180 ], [ %172, %173 ], [ 0, %4513 ], [ 0, %202 ], [ 0, %196 ], [ %185, %186 ], [ 0, %4519 ], [ %206, %207 ], [ %4509, %4510 ], [ 0, %232 ], [ %231, %214 ], [ 0, %3556 ], [ 0, %243 ], [ %236, %237 ], [ 0, %4491 ], [ 0, %265 ], [ 0, %259 ], [ %248, %249 ], [ 0, %4499 ], [ 0, %283 ], [ 0, %277 ], [ %269, %270 ], [ 0, %4505 ], [ 0, %291 ], [ %287, %288 ], [ %4487, %4488 ], [ 0, %306 ], [ 0, %300 ], [ %299, %297 ], [ 0, %3551 ], [ 0, %324 ], [ 0, %318 ], [ %317, %309 ], [ 0, %4469 ], [ 0, %340 ], [ 0, %334 ], [ %326, %327 ], [ 0, %4477 ], [ %347, %343 ], [ 0, %4483 ], [ %353, %348 ], [ %4465, %4466 ], [ 0, %357 ], [ %356, %354 ], [ %3547, %3548 ], [ %367, %363 ], [ 0, %4448 ], [ 0, %377 ], [ 0, %371 ], [ %370, %368 ], [ 0, %4454 ], [ %384, %380 ], [ 0, %4461 ], [ 0, %408 ], [ %407, %385 ], [ %4444, %4445 ], [ 0, %421 ], [ %413, %414 ], [ 0, %3721 ], [ 0, %442 ], [ %426, %427 ], [ 0, %4426 ], [ 0, %457 ], [ %449, %450 ], [ 0, %4434 ], [ 0, %480 ], [ 0, %472 ], [ %464, %465 ], [ 0, %4440 ], [ 0, %494 ], [ 0, %488 ], [ %485, %486 ], [ %4422, %4423 ], [ 0, %506 ], [ %505, %501 ], [ 0, %3522 ], [ 0, %532 ], [ 0, %525 ], [ 0, %519 ], [ %518, %512 ], [ 0, %4405 ], [ 0, %555 ], [ 0, %548 ], [ 0, %542 ], [ %541, %537 ], [ 0, %4411 ], [ 0, %566 ], [ %565, %561 ], [ 0, %4418 ], [ 0, %579 ], [ %578, %572 ], [ %4394, %4395 ], [ 0, %592 ], [ %591, %585 ], [ 0, %3456 ], [ 0, %611 ], [ 0, %605 ], [ %604, %598 ], [ 0, %4381 ], [ 0, %626 ], [ 0, %620 ], [ %617, %618 ], [ 0, %4389 ], [ 0, %641 ], [ 0, %635 ], [ %632, %633 ], [ %4373, %4374 ], [ 0, %650 ], [ %647, %648 ], [ 0, %3569 ], [ %654, %655 ], [ 0, %4360 ], [ 0, %674 ], [ 0, %666 ], [ %665, %658 ], [ 0, %4368 ], [ 0, %686 ], [ %685, %680 ], [ %4359, %4355 ], [ 0, %708 ], [ 0, %700 ], [ %699, %694 ], [ %3565, %3566 ], [ 0, %717 ], [ %713, %714 ], [ %4354, %4348 ], [ 0, %728 ], [ %724, %725 ], [ %3761, %3757 ], [ 0, %746 ], [ 0, %738 ], [ %735, %736 ], [ 0, %4340 ], [ 0, %763 ], [ 0, %755 ], [ %751, %752 ], [ 0, %3507 ], [ 0, %782 ], [ 0, %776 ], [ %768, %769 ], [ %4339, %4335 ], [ 0, %802 ], [ 0, %796 ], [ %788, %789 ], [ %3493, %3494 ], [ 0, %822 ], [ 0, %816 ], [ %808, %809 ], [ 0, %4321 ], [ 0, %848 ], [ 0, %844 ], [ 0, %836 ], [ %828, %829 ], [ 0, %4329 ], [ 0, %868 ], [ 0, %860 ], [ %859, %854 ], [ %4318, %4319 ], [ 0, %889 ], [ 0, %886 ], [ 0, %880 ], [ %879, %874 ], [ 0, %3752 ], [ 0, %901 ], [ %900, %896 ], [ 0, %4303 ], [ 0, %929 ], [ 0, %923 ], [ 0, %915 ], [ %914, %909 ], [ 0, %4309 ], [ 0, %953 ], [ 0, %948 ], [ 0, %943 ], [ 0, %937 ], [ %934, %935 ], [ 0, %3747 ], [ 0, %978 ], [ 0, %973 ], [ 0, %968 ], [ 0, %962 ], [ %961, %957 ], [ 0, %4312 ], [ 0, %1003 ], [ 0, %998 ], [ 0, %993 ], [ 0, %987 ], [ %986, %982 ], [ %4302, %4299 ], [ 0, %1023 ], [ 0, %1018 ], [ 0, %1012 ], [ %1011, %1007 ], [ 0, %3586 ], [ 0, %1044 ], [ 0, %1039 ], [ 0, %1033 ], [ %1032, %1028 ], [ 0, %4283 ], [ 0, %1065 ], [ 0, %1060 ], [ 0, %1054 ], [ %1053, %1049 ], [ 0, %4289 ], [ 0, %1081 ], [ 0, %1075 ], [ %1074, %1070 ], [ %3481, %3482 ], [ 0, %1097 ], [ 0, %1091 ], [ %1090, %1086 ], [ 0, %4292 ], [ 0, %1113 ], [ 0, %1107 ], [ %1106, %1102 ], [ %4282, %4277 ], [ 0, %1129 ], [ 0, %1123 ], [ %1122, %1118 ], [ %3585, %3575 ], [ 0, %1145 ], [ 0, %1139 ], [ %1138, %1134 ], [ 0, %4266 ], [ 0, %1161 ], [ 0, %1155 ], [ %1154, %1150 ], [ 0, %4272 ], [ 0, %1177 ], [ 0, %1171 ], [ %1170, %1166 ], [ 0, %3489 ], [ 0, %1193 ], [ 0, %1187 ], [ %1186, %1182 ], [ %4265, %4260 ], [ 0, %1209 ], [ 0, %1203 ], [ %1202, %1198 ], [ 0, %3727 ], [ 0, %1225 ], [ 0, %1219 ], [ %1218, %1214 ], [ 0, %4249 ], [ 0, %1241 ], [ 0, %1235 ], [ %1234, %1230 ], [ 0, %4255 ], [ 0, %1257 ], [ 0, %1251 ], [ %1250, %1246 ], [ %3513, %3514 ], [ 0, %1275 ], [ 0, %1267 ], [ %1266, %1262 ], [ %4248, %4245 ], [ 0, %1293 ], [ 0, %1285 ], [ %1284, %1280 ], [ 0, %3608 ], [ 0, %1311 ], [ 0, %1303 ], [ %1302, %1298 ], [ 0, %4229 ], [ 0, %1327 ], [ 0, %1321 ], [ %1320, %1316 ], [ 0, %4235 ], [ 0, %1348 ], [ 0, %1340 ], [ %1339, %1334 ], [ 0, %4240 ], [ 0, %1366 ], [ 0, %1358 ], [ %1357, %1353 ], [ %4228, %4224 ], [ 0, %1384 ], [ 0, %1376 ], [ %1375, %1371 ], [ %3455, %3451 ], [ 0, %1402 ], [ 0, %1394 ], [ %1393, %1389 ], [ 0, %4215 ], [ 0, %1418 ], [ 0, %1412 ], [ %1411, %1407 ], [ 0, %4221 ], [ 0, %1436 ], [ 0, %1430 ], [ %1429, %1425 ], [ %4210, %4211 ], [ 0, %1454 ], [ 0, %1448 ], [ %1447, %1443 ], [ 0, %3602 ], [ 0, %1466 ], [ %1465, %1461 ], [ 0, %4197 ], [ 0, %1479 ], [ %1478, %1474 ], [ 0, %4203 ], [ 0, %1492 ], [ %1491, %1487 ], [ 0, %4206 ], [ 0, %1505 ], [ %1504, %1500 ], [ %1523, %1524 ], [ 0, %3517 ], [ %1517, %1511 ], [ 0, %1527 ], [ 0, %1518 ], [ %1545, %1546 ], [ %4192, %4193 ], [ %1539, %1533 ], [ 0, %1549 ], [ 0, %1540 ], [ %1567, %1568 ], [ %3601, %3591 ], [ %1561, %1555 ], [ 0, %1582 ], [ 0, %1577 ], [ 0, %1571 ], [ 0, %1562 ], [ 0, %4179 ], [ 0, %1603 ], [ 0, %1598 ], [ 0, %1592 ], [ %1591, %1587 ], [ 0, %4185 ], [ 0, %1619 ], [ 0, %1613 ], [ %1612, %1608 ], [ 0, %4188 ], [ 0, %1629 ], [ %1628, %1624 ], [ 0, %3742 ], [ 0, %1640 ], [ %1639, %1635 ], [ %4176, %4177 ], [ 0, %1657 ], [ 0, %1651 ], [ %1650, %1646 ], [ 0, %3732 ], [ 0, %1681 ], [ 0, %1676 ], [ 0, %1673 ], [ 0, %1667 ], [ %1666, %1662 ], [ 0, %4158 ], [ 0, %1691 ], [ %1690, %1686 ], [ 0, %4164 ], [ 0, %1712 ], [ 0, %1704 ], [ %1703, %1699 ], [ 0, %4167 ], [ 0, %1722 ], [ %1721, %1717 ], [ 0, %4172 ], [ 0, %3400 ], [ 0, %1739 ], [ 0, %1733 ], [ %1732, %1728 ], [ %4155, %4156 ], [ %3392, %3393 ], [ 0, %1757 ], [ 0, %1751 ], [ %1750, %1744 ], [ 0, %3627 ], [ 0, %3762 ], [ 0, %1775 ], [ 0, %1769 ], [ %1768, %1762 ], [ 0, %4142 ], [ 0, %1793 ], [ 0, %1787 ], [ %1786, %1780 ], [ 0, %4148 ], [ 0, %3423 ], [ 0, %1807 ], [ 0, %1801 ], [ %1797, %1798 ], [ 0, %4151 ], [ 0, %1823 ], [ %1822, %1812 ], [ %4138, %4139 ], [ 0, %1832 ], [ %1828, %1829 ], [ 0, %3501 ], [ 0, %1843 ], [ %1842, %1838 ], [ 0, %4123 ], [ 0, %1854 ], [ %1853, %1849 ], [ 0, %4129 ], [ 0, %1865 ], [ %1864, %1860 ], [ 0, %4134 ], [ 0, %1887 ], [ 0, %1882 ], [ 0, %1876 ], [ %1875, %1871 ], [ %4112, %4113 ], [ 0, %1910 ], [ 0, %1905 ], [ 0, %1899 ], [ %1898, %1894 ], [ 0, %3622 ], [ 0, %1928 ], [ 0, %1922 ], [ %1921, %1917 ], [ 0, %4099 ], [ 0, %1951 ], [ 0, %1946 ], [ 0, %1940 ], [ %1939, %1933 ], [ 0, %4105 ], [ 0, %1967 ], [ 0, %1961 ], [ %1960, %1956 ], [ 0, %4108 ], [ 0, %1975 ], [ %1974, %1970 ], [ %4098, %4094 ], [ 0, %1997 ], [ 0, %1992 ], [ 0, %1986 ], [ %1985, %1981 ], [ %3621, %3615 ], [ 0, %2021 ], [ 0, %2016 ], [ 0, %2013 ], [ 0, %2007 ], [ %2006, %2002 ], [ 0, %4081 ], [ 0, %2037 ], [ 0, %2031 ], [ %2030, %2026 ], [ 0, %4087 ], [ 0, %2063 ], [ 0, %2056 ], [ 0, %2053 ], [ 0, %2047 ], [ %2046, %2040 ], [ %4080, %4076 ], [ 0, %2081 ], [ 0, %2073 ], [ %2072, %2068 ], [ %3720, %3716 ], [ %0, %7 ], [ 0, %2090 ], [ %2086, %2087 ], [ 0, %4065 ], [ 0, %2111 ], [ 0, %2103 ], [ %2097, %2098 ], [ 0, %4071 ], [ 0, %2130 ], [ %2116, %2117 ], [ %4064, %4060 ], [ 0, %3418 ], [ 0, %2151 ], [ %2137, %2138 ], [ 0, %3652 ], [ 0, %2166 ], [ %2165, %2159 ], [ 0, %4054 ], [ %2179, %2174 ], [ %4050, %4051 ], [ %2185, %2180 ], [ 0, %3647 ], [ %3417, %3413 ], [ 0, %2192 ], [ %2191, %2186 ], [ 0, %4040 ], [ 0, %2210 ], [ 0, %2204 ], [ %2199, %2200 ], [ 0, %4046 ], [ 0, %2227 ], [ 0, %2224 ], [ 0, %2218 ], [ %2214, %2215 ], [ %4032, %4033 ], [ 0, %2243 ], [ 0, %2237 ], [ %2236, %2232 ], [ %3703, %3699 ], [ 0, %2260 ], [ 0, %2257 ], [ 0, %2251 ], [ %2250, %2246 ], [ 0, %4014 ], [ 0, %2274 ], [ 0, %2268 ], [ %2264, %2265 ], [ 0, %4022 ], [ 0, %2289 ], [ %2278, %2279 ], [ 0, %4027 ], [ 0, %2305 ], [ %2294, %2295 ], [ %4006, %4007 ], [ 0, %2334 ], [ 0, %2329 ], [ 0, %2324 ], [ 0, %2318 ], [ %2310, %2311 ], [ 0, %3641 ], [ 0, %2354 ], [ 0, %2349 ], [ 0, %2343 ], [ %2342, %2338 ], [ 0, %3988 ], [ 0, %2370 ], [ 0, %2364 ], [ %2363, %2359 ], [ 0, %3996 ], [ 0, %2388 ], [ 0, %2380 ], [ %2379, %2375 ], [ 0, %4001 ], [ 0, %2404 ], [ 0, %2398 ], [ %2397, %2393 ], [ %3984, %3985 ], [ 0, %2422 ], [ 0, %2416 ], [ %2415, %2411 ], [ %3640, %3634 ], [ 0, %2442 ], [ 0, %2434 ], [ %2433, %2429 ], [ 0, %3966 ], [ 0, %2458 ], [ 0, %2452 ], [ %2451, %2447 ], [ 0, %3974 ], [ 0, %2476 ], [ 0, %2468 ], [ %2467, %2463 ], [ 0, %3979 ], [ 0, %2494 ], [ 0, %2486 ], [ %2485, %2481 ], [ %3962, %3963 ], [ 0, %2510 ], [ 0, %2504 ], [ %2503, %2499 ], [ 0, %3466 ], [ 0, %2522 ], [ %2521, %2517 ], [ 0, %3944 ], [ 0, %2535 ], [ %2534, %2530 ], [ 0, %3952 ], [ 0, %2546 ], [ %2545, %2541 ], [ 0, %3957 ], [ %2551, %2552 ], [ %3943, %3939 ], [ %2559, %2555 ], [ 0, %3674 ], [ 0, %2585 ], [ 0, %2579 ], [ 0, %2573 ], [ 0, %2565 ], [ %2564, %2560 ], [ 0, %3919 ], [ 0, %2615 ], [ 0, %2609 ], [ 0, %2603 ], [ 0, %2595 ], [ %2594, %2590 ], [ 0, %3927 ], [ 0, %2645 ], [ 0, %2639 ], [ 0, %2633 ], [ 0, %2625 ], [ %2624, %2620 ], [ 0, %3933 ], [ 0, %2669 ], [ 0, %2663 ], [ 0, %2655 ], [ %2654, %2650 ], [ %3918, %3916 ], [ 0, %2694 ], [ 0, %2688 ], [ 0, %2680 ], [ %2679, %2675 ], [ 0, %3669 ], [ 0, %2719 ], [ 0, %2713 ], [ 0, %2705 ], [ %2704, %2700 ], [ %3910, %3911 ], [ 0, %2738 ], [ 0, %2730 ], [ %2729, %2725 ], [ 0, %3664 ], [ 0, %2758 ], [ 0, %2750 ], [ %2749, %2744 ], [ 0, %3893 ], [ 0, %2778 ], [ 0, %2770 ], [ %2769, %2764 ], [ 0, %3901 ], [ 0, %2797 ], [ 0, %2789 ], [ %2788, %2784 ], [ 0, %3907 ], [ 0, %2816 ], [ 0, %2808 ], [ %2807, %2803 ], [ %3475, %3471 ], [ 0, %2835 ], [ 0, %2827 ], [ %2826, %2822 ], [ %3887, %3888 ], [ 0, %2854 ], [ 0, %2846 ], [ %2845, %2841 ], [ %3663, %3657 ], [ 0, %2873 ], [ 0, %2865 ], [ %2864, %2860 ], [ 0, %3870 ], [ 0, %2892 ], [ 0, %2884 ], [ %2883, %2879 ], [ 0, %3878 ], [ 0, %2911 ], [ 0, %2903 ], [ %2902, %2898 ], [ 0, %3884 ], [ 0, %2930 ], [ 0, %2922 ], [ %2921, %2917 ], [ 0, %3476 ], [ 0, %2949 ], [ 0, %2941 ], [ %2940, %2936 ], [ %3866, %3867 ], [ 0, %2969 ], [ 0, %2961 ], [ %2960, %2955 ], [ 0, %3704 ], [ 0, %2981 ], [ %2980, %2975 ], [ 0, %3848 ], [ 0, %2995 ], [ %2994, %2989 ], [ 0, %3854 ], [ 0, %3023 ], [ 0, %3017 ], [ 0, %3009 ], [ %3008, %3003 ], [ 0, %3861 ], [ 0, %3768 ], [ 0, %3032 ], [ %3028, %3029 ], [ %3844, %3845 ], [ 0, %3446 ], [ 0, %3063 ], [ 0, %3055 ], [ %3039, %3040 ], [ 0, %3692 ], [ 0, %3441 ], [ 0, %3086 ], [ 0, %3082 ], [ 0, %3074 ], [ %3068, %3069 ], [ 0, %3826 ], [ %3434, %3430 ], [ 0, %3105 ], [ 0, %3097 ], [ %3091, %3092 ], [ 0, %3832 ], [ 0, %3134 ], [ 0, %3128 ], [ 0, %3124 ], [ 0, %3116 ], [ %3110, %3111 ], [ 0, %3839 ], [ 0, %3157 ], [ 0, %3151 ], [ 0, %3143 ], [ %3139, %3140 ], [ %3825, %3820 ], [ 0, %3177 ], [ 0, %3171 ], [ 0, %3163 ], [ %3160, %3161 ], [ %3741, %3737 ], [ 0, %3202 ], [ 0, %3196 ], [ 0, %3188 ], [ %3180, %3181 ], [ 0, %3801 ], [ 0, %3212 ], [ %3211, %3206 ], [ 0, %3809 ], [ 0, %3241 ], [ 0, %3235 ], [ 0, %3227 ], [ %3219, %3220 ], [ 0, %3815 ], [ 0, %3251 ], [ %3250, %3245 ], [ %3797, %3798 ], [ 0, %3274 ], [ 0, %3266 ], [ %3258, %3259 ], [ 0, %3686 ], [ 0, %3295 ], [ 0, %3287 ], [ %3279, %3280 ], [ 0, %3778 ], [ 0, %3316 ], [ 0, %3308 ], [ %3300, %3301 ], [ 0, %3786 ], [ 0, %3337 ], [ 0, %3329 ], [ %3321, %3322 ], [ 0, %3792 ], [ 0, %3362 ], [ 0, %3358 ], [ 0, %3350 ], [ %3342, %3343 ], [ %3777, %3773 ], [ 0, %3387 ], [ 0, %3383 ], [ 0, %3375 ], [ %3367, %3368 ], [ %3685, %3679 ], [ 0, %3406 ], [ 0, %3435 ]
   ret i32 %.0
 }
 

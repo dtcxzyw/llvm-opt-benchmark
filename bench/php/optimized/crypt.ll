@@ -267,7 +267,7 @@ zend_string_alloc.exit:                           ; preds = %106, %103
   br label %.thread104
 
 .thread104:                                       ; preds = %16, %36, %19, %53, %94, %89, %35, %73, %70, %101, %106, %60, %zend_string_alloc.exit89, %43, %zend_string_alloc.exit90, %zend_string_alloc.exit, %88, %34
-  %.2 = phi ptr [ %.1, %34 ], [ %.5, %88 ], [ %113, %zend_string_alloc.exit ], [ %47, %zend_string_alloc.exit90 ], [ null, %43 ], [ %64, %zend_string_alloc.exit89 ], [ null, %60 ], [ null, %106 ], [ null, %101 ], [ null, %70 ], [ null, %73 ], [ null, %35 ], [ null, %89 ], [ null, %94 ], [ null, %53 ], [ null, %19 ], [ null, %36 ], [ null, %16 ]
+  %.2 = phi ptr [ %.1, %34 ], [ null, %101 ], [ null, %43 ], [ %.5, %88 ], [ null, %60 ], [ %113, %zend_string_alloc.exit ], [ %47, %zend_string_alloc.exit90 ], [ %64, %zend_string_alloc.exit89 ], [ null, %106 ], [ null, %94 ], [ null, %89 ], [ null, %16 ], [ null, %70 ], [ null, %73 ], [ null, %35 ], [ null, %53 ], [ null, %19 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %119
 

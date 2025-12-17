@@ -60,8 +60,8 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.thread
-  %.sink = phi i64 [ %3, %.thread ], [ %spec.select, %.critedge ]
-  %.0829497 = phi i32 [ %.08295, %.thread ], [ -1, %.critedge ]
+  %.sink = phi i64 [ %spec.select, %.critedge ], [ %3, %.thread ]
+  %.0829497 = phi i32 [ -1, %.critedge ], [ %.08295, %.thread ]
   %26 = tail call i64 @llvm.umax.i64(i64 %.sink, i64 248)
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #16
   %28 = icmp eq ptr %27, null
@@ -908,7 +908,7 @@ AllocSetAlloc.exit.thread:                        ; preds = %101, %82, %AllocSet
   br label %114
 
 114:                                              ; preds = %112, %AllocSetAlloc.exit.thread, %56, %32, %51, %54
-  %.1 = phi ptr [ %33, %32 ], [ %44, %51 ], [ %44, %54 ], [ %0, %56 ], [ %113, %112 ], [ %.0.i77, %AllocSetAlloc.exit.thread ]
+  %.1 = phi ptr [ %0, %56 ], [ %44, %54 ], [ %33, %32 ], [ %44, %51 ], [ %113, %112 ], [ %.0.i77, %AllocSetAlloc.exit.thread ]
   ret ptr %.1
 }
 

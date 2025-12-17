@@ -567,7 +567,7 @@ define dso_local void @_ZN22b3GpuRigidBodyPipelineC2EP11_cl_contextP13_cl_device
   br label %_ZN17b3PgsJacobiSolverdlEPv.exit
 
 _ZN17b3PgsJacobiSolverdlEPv.exit:                 ; preds = %111, %126, %124, %122, %120, %118, %116
-  %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %112, %111 ]
+  %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %112, %111 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -630,7 +630,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbEC2EP11_cl_cont
   br label %_ZNK13b3OpenCLArrayI9b3SapAabbE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayI9b3SapAabbE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !96
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !97
@@ -702,7 +702,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int4EC2EP11_cl_context
   br label %_ZNK13b3OpenCLArrayI6b3Int4E8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayI6b3Int4E8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !105
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !97
@@ -1545,8 +1545,8 @@ define dso_local void @_ZN22b3GpuRigidBodyPipeline21removeConstraintByUidEi(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %24
-  %34 = phi i32 [ %14, %2 ], [ %33, %24 ]
-  %35 = phi ptr [ %12, %2 ], [ %30, %24 ]
+  %34 = phi i32 [ %33, %24 ], [ %14, %2 ]
+  %35 = phi ptr [ %30, %24 ], [ %12, %2 ]
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %40, label %.loopexit.thread
 
@@ -3271,7 +3271,7 @@ _ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit172: ; preds = %574, %579
   br label %_ZN13b3ProfileZoneD2Ev.exit123
 
 _ZN13b3ProfileZoneD2Ev.exit123:                   ; preds = %360, %162, %98, %94, %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit172, %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit136
-  %.pn111.pn = phi { ptr, i32 } [ %.pn103.pn.pn.pn.pn.pn, %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit172 ], [ %.pn89.pn, %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit136 ], [ %.pn111, %94 ], [ %99, %98 ], [ %163, %162 ], [ %361, %360 ]
+  %.pn111.pn = phi { ptr, i32 } [ %99, %98 ], [ %.pn111, %94 ], [ %.pn103.pn.pn.pn.pn.pn, %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit172 ], [ %163, %162 ], [ %.pn89.pn, %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit136 ], [ %361, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN13b3ProfileZoneD2Ev.exit116
 

@@ -78,7 +78,7 @@ define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr noundef readnone captur
   br label %15
 
 15:                                               ; preds = %6, %14, %10
-  %.0 = phi i32 [ %., %10 ], [ -1, %14 ], [ 0, %6 ]
+  %.0 = phi i32 [ -1, %14 ], [ %., %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -343,7 +343,7 @@ zend_string_release.exit:                         ; preds = %48, %47, %40, %36, 
   br label %49
 
 49:                                               ; preds = %3, %8, %zend_string_release.exit, %13
-  %.0 = phi i32 [ 0, %zend_string_release.exit ], [ -1, %13 ], [ -1, %8 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %zend_string_release.exit ], [ -1, %8 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -445,10 +445,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %24
   br i1 %cond.fr151, label %.critedge, label %.thread161, !prof !31
 
 .thread161:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_str_ex.exit, %13
-  %.0103170 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %13 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.0106169 = phi ptr [ %17, %zend_parse_arg_str_ex.exit ], [ null, %13 ], [ %27, %zend_parse_arg_bool_ex.exit ]
-  %.0107168 = phi i32 [ 5, %zend_parse_arg_str_ex.exit ], [ 0, %13 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.0109167 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %13 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.0103170 = phi i32 [ 0, %13 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.0106169 = phi ptr [ null, %13 ], [ %17, %zend_parse_arg_str_ex.exit ], [ %27, %zend_parse_arg_bool_ex.exit ]
+  %.0107168 = phi i32 [ 0, %13 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.0109167 = phi i32 [ 1, %13 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0109167, i32 noundef %.0103170, ptr noundef null, i32 noundef %.0107168, ptr noundef %.0106169) #13
   br label %zend_hash_find_ptr.exit135.thread
 
@@ -618,7 +618,7 @@ browscap_get_minimum_length.exit:                 ; preds = %85
   %or.cond = select i1 %.not123, i1 true, i1 %.not120
   br i1 %or.cond, label %.critedge128._crit_edge, label %.backedge.backedge
 
-select.unfold:                                    ; preds = %95, %.backedge, %browscap_get_minimum_length.exit
+select.unfold:                                    ; preds = %95, %browscap_get_minimum_length.exit, %.backedge
   %.old = getelementptr inbounds nuw i8, ptr %.0108190, i64 32
   %.not120.old = icmp eq ptr %.old, %72
   br i1 %.not120.old, label %.critedge128._crit_edge, label %.backedge.backedge
@@ -1417,10 +1417,10 @@ zend_string_equals.exit.thread121:                ; preds = %zend_string_equals.
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %122, %.lr.ph.i, %135, %128, %117
-  %.159.i = phi ptr [ %136, %135 ], [ %.05884.i, %117 ], [ %130, %128 ], [ %scevgep98.i, %122 ], [ %.36181.i, %.lr.ph.i ]
-  %.157.i = phi ptr [ %.05685.i, %135 ], [ %.152.i, %117 ], [ %.05685.i, %128 ], [ %.152.i, %.lr.ph.i ], [ %.152.i, %122 ]
-  %.155.i = phi ptr [ %136, %135 ], [ %.05884.i, %117 ], [ %.05486.i, %128 ], [ %scevgep98.i, %122 ], [ %.36181.i, %.lr.ph.i ]
-  %.253.i = phi ptr [ %.05685.i, %135 ], [ %.152.i, %117 ], [ %129, %128 ], [ %.152.i, %.lr.ph.i ], [ %.152.i, %122 ]
+  %.159.i = phi ptr [ %.05884.i, %117 ], [ %136, %135 ], [ %130, %128 ], [ %.36181.i, %.lr.ph.i ], [ %scevgep98.i, %122 ]
+  %.157.i = phi ptr [ %.152.i, %117 ], [ %.05685.i, %135 ], [ %.05685.i, %128 ], [ %.152.i, %.lr.ph.i ], [ %.152.i, %122 ]
+  %.155.i = phi ptr [ %.05884.i, %117 ], [ %136, %135 ], [ %.05486.i, %128 ], [ %.36181.i, %.lr.ph.i ], [ %scevgep98.i, %122 ]
+  %.253.i = phi ptr [ %.152.i, %117 ], [ %.05685.i, %135 ], [ %129, %128 ], [ %.152.i, %.lr.ph.i ], [ %.152.i, %122 ]
   %137 = icmp ult ptr %.159.i, %102
   br i1 %137, label %.lr.ph88.i, label %.preheader.i
 
@@ -1442,7 +1442,7 @@ browscap_match_string_wildcard.exit:              ; preds = %.lr.ph92.i, %140, %
   %143 = icmp eq ptr %.4.lcssa.i, %104
   br i1 %143, label %browscap_match_string_wildcard.exit.thread, label %browscap_match_string_wildcard.exit.thread123
 
-browscap_match_string_wildcard.exit.thread:       ; preds = %132, %.critedge.i, %browscap_match_string_wildcard.exit
+browscap_match_string_wildcard.exit.thread:       ; preds = %.critedge.i, %132, %browscap_match_string_wildcard.exit
   %144 = load ptr, ptr %0, align 8, !tbaa !44
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i64, ptr %145, align 8, !tbaa !40
@@ -1497,7 +1497,7 @@ browscap_match_string_wildcard.exit.thread123:    ; preds = %134, %browscap_matc
   br label %159
 
 159:                                              ; preds = %.sink.split, %zend_memnstr.exit.thread, %browscap_match_string_wildcard.exit.thread123, %zend_string_equals.exit.thread
-  %.1 = phi i32 [ 1, %zend_string_equals.exit.thread ], [ 0, %browscap_match_string_wildcard.exit.thread123 ], [ 0, %zend_memnstr.exit.thread ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ 0, %browscap_match_string_wildcard.exit.thread123 ], [ 1, %zend_string_equals.exit.thread ], [ 0, %zend_memnstr.exit.thread ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
 
@@ -1860,7 +1860,7 @@ zend_hash_add_new_ptr.exit.i:                     ; preds = %93, %zend_string_co
   br label %browscap_intern_str.exit
 
 browscap_intern_str.exit:                         ; preds = %zend_hash_add_new_ptr.exit.i, %83, %78, %72, %42
-  %.092 = phi ptr [ %73, %72 ], [ %43, %42 ], [ %.1.i, %zend_hash_add_new_ptr.exit.i ], [ %79, %78 ], [ %79, %83 ]
+  %.092 = phi ptr [ %43, %42 ], [ %73, %72 ], [ %.1.i, %zend_hash_add_new_ptr.exit.i ], [ %79, %78 ], [ %79, %83 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !40

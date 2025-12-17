@@ -247,7 +247,7 @@ lor.rhs:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %lor.rhs, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end ], [ %spec.select, %lor.rhs ]
+  %retval.0 = phi i32 [ %spec.select, %lor.rhs ], [ 2, %entry ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -265,7 +265,7 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry, %entry, %lor.rhs
-  %2 = phi i1 [ true, %entry ], [ %1, %lor.rhs ], [ true, %entry ]
+  %2 = phi i1 [ %1, %lor.rhs ], [ true, %entry ], [ true, %entry ]
   ret i1 %2
 }
 
@@ -700,7 +700,7 @@ _ZN5folly3TryISt6vectorISt4pairINS_5RangeIPKcEES1_IS2_IS6_S6_ESaIS7_EEESaISA_EEE
   ret i1 %retval.019
 
 ehcleanup:                                        ; preds = %lpad8, %lpad.loopexit, %lpad.loopexit.split-lp
-  %lpad.val17.merged = phi { ptr, i32 } [ %lpad.loopexit20, %lpad.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ], [ %15, %lpad8 ]
+  %lpad.val17.merged = phi { ptr, i32 } [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ], [ %lpad.loopexit20, %lpad.loopexit ], [ %15, %lpad8 ]
   call void @_ZN5folly3TryISt6vectorISt4pairINS_5RangeIPKcEES1_IS2_IS6_S6_ESaIS7_EEESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %encodings) #30
   resume { ptr, i32 } %lpad.val17.merged
 }
@@ -1122,7 +1122,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pa
   br i1 %cmp.i30.not123153, label %for.cond, label %cleanup59
 
 ehcleanup:                                        ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %if.then.i.i.i, %lpad26
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad26 ], [ %lpad.phi, %if.then.i.i.i ], [ %lpad.loopexit114, %lpad8.loopexit ], [ %lpad.loopexit.split-lp115, %lpad8.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %if.then.i.i.i ], [ %lpad.phi, %lpad26 ], [ %lpad.loopexit114, %lpad8.loopexit ], [ %lpad.loopexit.split-lp115, %lpad8.loopexit.split-lp ]
   %39 = load ptr, ptr %secondLevelTokens, align 8
   %tobool.not.i.i.i79 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i79, label %ehcleanup60, label %if.then.i.i.i80
@@ -1246,7 +1246,7 @@ _ZNSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EED2Ev.exit
   ret void
 
 ehcleanup60:                                      ; preds = %lpad10.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i80, %ehcleanup, %lpad
-  %.pn3 = phi { ptr, i32 } [ %6, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i80 ], [ %42, %if.then.i.i.i.i.i ], [ %42, %lpad10.i.i.i ]
+  %.pn3 = phi { ptr, i32 } [ %.pn, %if.then.i.i.i80 ], [ %6, %lpad ], [ %.pn, %ehcleanup ], [ %42, %if.then.i.i.i.i.i ], [ %42, %lpad10.i.i.i ]
   %50 = load ptr, ptr %topLevelTokens, align 8
   %tobool.not.i.i.i101 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i101, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit103, label %if.then.i.i.i102
@@ -1440,7 +1440,7 @@ if.end40:                                         ; preds = %if.end37
   br label %return
 
 return:                                           ; preds = %if.then23, %if.end10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %entry, %if.end37, %if.end34, %land.lhs.true, %if.end15, %if.else, %if.then4, %if.end40
-  %retval.0 = phi i1 [ true, %if.end40 ], [ false, %if.then4 ], [ false, %if.else ], [ false, %if.end15 ], [ false, %land.lhs.true ], [ false, %if.end34 ], [ false, %if.end37 ], [ false, %entry ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %if.end10 ], [ false, %if.then23 ]
+  %retval.0 = phi i1 [ false, %if.end37 ], [ false, %if.then4 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %if.end10 ], [ false, %land.lhs.true ], [ false, %if.end34 ], [ true, %if.end40 ], [ false, %if.end15 ], [ false, %if.else ], [ false, %entry ], [ false, %if.then23 ]
   ret i1 %retval.0
 }
 
@@ -1658,7 +1658,7 @@ if.then.i:                                        ; preds = %_ZNSt11char_traitsI
           to label %for.inc.i unwind label %lpad
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %for.body.i
-  %qvalue.1.i = phi double [ %qvalue.07.i, %for.body.i ], [ %qvalue.07.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %call6.i6, %if.then.i ]
+  %qvalue.1.i = phi double [ %qvalue.07.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %qvalue.07.i, %for.body.i ], [ %call6.i6, %if.then.i ]
   %incdec.ptr.i.i5 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i5, %7
   br i1 %cmp.i.not.i, label %invoke.cont.loopexit, label %for.body.i
@@ -1687,7 +1687,7 @@ for.inc:                                          ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp.i.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %if.then, %invoke.cont.loopexit, %entry, %catch
-  %retval.0 = phi i1 [ true, %catch ], [ false, %entry ], [ true, %if.then ], [ %8, %invoke.cont.loopexit ], [ false, %for.inc ]
+  %retval.0 = phi i1 [ %8, %invoke.cont.loopexit ], [ true, %catch ], [ false, %entry ], [ true, %if.then ], [ false, %for.inc ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad
@@ -2192,7 +2192,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i10 = phi i64 [ %9, %if.end2.i ], [ %.sroa.speculated49, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i10 = phi i64 [ %.sroa.speculated49, %_ZN5folly10canNallocxEv.exit.i ], [ %9, %if.end2.i ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %retval.0.i10, i64 16383)
   %mul = mul nuw nsw i64 %.sroa.speculated, 24
   %call.i = call noalias ptr @malloc(i64 noundef %mul) #36
@@ -2510,7 +2510,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
   ret i1 %retval.0
 }
 
@@ -2613,7 +2613,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
   ret i1 %retval.0
 }
 

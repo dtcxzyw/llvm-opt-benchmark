@@ -381,8 +381,8 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter19range_header_filter1
   ]
 
 .lr.ph.i.i.preheader:                             ; preds = %76, %72, %69
-  %.sroa.01.153.i.i.ph = phi ptr [ %73, %72 ], [ %65, %69 ], [ %65, %76 ]
-  %.sroa.14.152.i.i.ph = phi i64 [ %74, %72 ], [ 1, %69 ], [ %67, %76 ]
+  %.sroa.01.153.i.i.ph = phi ptr [ %73, %72 ], [ %65, %76 ], [ %65, %69 ]
+  %.sroa.14.152.i.i.ph = phi i64 [ %74, %72 ], [ %67, %76 ], [ 1, %69 ]
   br label %.lr.ph.i.i
 
 71:                                               ; preds = %68
@@ -865,7 +865,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %2
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %265, %262, %258, %255, %.body.i.i.i.i, %208
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %266, %265 ], [ %lpad.thr_comm.split-lp.i.i.i, %262 ], [ %259, %258 ], [ %209, %208 ], [ %lpad.phi.i.i.i.i, %255 ], [ %231, %.body.i.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %266, %265 ], [ %lpad.phi.i.i.i.i, %255 ], [ %lpad.thr_comm.split-lp.i.i.i, %262 ], [ %259, %258 ], [ %209, %208 ], [ %231, %.body.i.i.i.i ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17hb62cf843af4bd377E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #20
           to label %common.resume unwind label %283, !noalias !64
 
@@ -902,7 +902,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %514, %501, %493, %485, %475, %463, %.body.i.i, %286
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %287, %286 ], [ %464, %463 ], [ %476, %475 ], [ %486, %485 ], [ %494, %493 ], [ %502, %501 ], [ %515, %514 ]
+  %common.resume.op = phi { ptr, i32 } [ %502, %501 ], [ %287, %286 ], [ %464, %463 ], [ %476, %475 ], [ %486, %485 ], [ %494, %493 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %515, %514 ]
   resume { ptr, i32 } %common.resume.op
 
 285:                                              ; preds = %279, %272
@@ -1004,8 +1004,8 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %326, %322, %319
-  %.sroa.01.153.i.i.i.ph = phi ptr [ %323, %322 ], [ %318, %319 ], [ %318, %326 ]
-  %.sroa.14.152.i.i.i.ph = phi i64 [ %324, %322 ], [ 1, %319 ], [ %317, %326 ]
+  %.sroa.01.153.i.i.i.ph = phi ptr [ %323, %322 ], [ %318, %326 ], [ %318, %319 ]
+  %.sroa.14.152.i.i.i.ph = phi i64 [ %324, %322 ], [ %317, %326 ], [ 1, %319 ]
   br label %.lr.ph.i.i.i
 
 321:                                              ; preds = %316
@@ -1081,8 +1081,8 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   br label %.loopexit78.i
 
 .loopexit78.i:                                    ; preds = %339, %337, %328, %.preheader44.i.i.i, %348, %.lr.ph.i.i.i, %354, %319, %319, %316
-  %.sroa.6.0.i = phi i64 [ undef, %354 ], [ undef, %319 ], [ undef, %319 ], [ undef, %316 ], [ undef, %.lr.ph.i.i.i ], [ %353, %348 ], [ undef, %328 ], [ undef, %337 ], [ undef, %339 ], [ %.sroa.013.0.i.i.i, %.preheader44.i.i.i ]
-  %.sroa.0.0.i52 = phi i1 [ false, %354 ], [ false, %319 ], [ false, %319 ], [ false, %316 ], [ %347, %.lr.ph.i.i.i ], [ %347, %348 ], [ %.not.i3.not.i.i, %.preheader44.i.i.i ], [ %.not.i3.not.i.i, %328 ], [ %.not.i3.not.i.i, %337 ], [ %.not.i3.not.i.i, %339 ]
+  %.sroa.6.0.i = phi i64 [ undef, %354 ], [ undef, %319 ], [ %353, %348 ], [ undef, %319 ], [ undef, %316 ], [ undef, %.lr.ph.i.i.i ], [ undef, %328 ], [ undef, %337 ], [ undef, %339 ], [ %.sroa.013.0.i.i.i, %.preheader44.i.i.i ]
+  %.sroa.0.0.i52 = phi i1 [ false, %354 ], [ false, %319 ], [ %347, %348 ], [ false, %319 ], [ false, %316 ], [ %347, %.lr.ph.i.i.i ], [ %.not.i3.not.i.i, %.preheader44.i.i.i ], [ %.not.i3.not.i.i, %328 ], [ %.not.i3.not.i.i, %337 ], [ %.not.i3.not.i.i, %339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !56
   invoke void @_ZN14regex_automata4util8captures8Captures17get_group_by_name17he6d69db3f3786e70E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.8.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 1 @anon.a917942bd3acd054fb2ddfbeece15c73.45, i64 noundef 3)
           to label %355 unwind label %286, !noalias !53
@@ -1155,8 +1155,8 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   ]
 
 .lr.ph.i.i55.i.preheader:                         ; preds = %393, %389, %386
-  %.sroa.01.153.i.i56.i.ph = phi ptr [ %390, %389 ], [ %385, %386 ], [ %385, %393 ]
-  %.sroa.14.152.i.i57.i.ph = phi i64 [ %391, %389 ], [ 1, %386 ], [ %384, %393 ]
+  %.sroa.01.153.i.i56.i.ph = phi ptr [ %390, %389 ], [ %385, %393 ], [ %385, %386 ]
+  %.sroa.14.152.i.i57.i.ph = phi i64 [ %391, %389 ], [ %384, %393 ], [ 1, %386 ]
   br label %.lr.ph.i.i55.i
 
 388:                                              ; preds = %383
@@ -1228,10 +1228,10 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   br i1 %.not42.i.i59.i, label %.loopexit.i, label %.lr.ph.i.i55.i
 
 .invoke.i:                                        ; preds = %379, %377, %372, %370, %358, %312, %310, %305, %303, %291
-  %421 = phi ptr [ %293, %312 ], [ %293, %310 ], [ %293, %305 ], [ %293, %303 ], [ %293, %291 ], [ %360, %379 ], [ %360, %377 ], [ %360, %372 ], [ %360, %370 ], [ %360, %358 ]
-  %422 = phi i64 [ %292, %312 ], [ %292, %310 ], [ %292, %305 ], [ %292, %303 ], [ %292, %291 ], [ %359, %379 ], [ %359, %377 ], [ %359, %372 ], [ %359, %370 ], [ %359, %358 ]
-  %423 = phi i64 [ %295, %312 ], [ %295, %310 ], [ %295, %305 ], [ %295, %303 ], [ %295, %291 ], [ %362, %379 ], [ %362, %377 ], [ %362, %372 ], [ %362, %370 ], [ %362, %358 ]
-  %424 = phi i64 [ %297, %312 ], [ %297, %310 ], [ %297, %305 ], [ %297, %303 ], [ %297, %291 ], [ %364, %379 ], [ %364, %377 ], [ %364, %372 ], [ %364, %370 ], [ %364, %358 ]
+  %421 = phi ptr [ %293, %291 ], [ %293, %312 ], [ %293, %310 ], [ %293, %305 ], [ %293, %303 ], [ %360, %379 ], [ %360, %377 ], [ %360, %372 ], [ %360, %370 ], [ %360, %358 ]
+  %422 = phi i64 [ %292, %291 ], [ %292, %312 ], [ %292, %310 ], [ %292, %305 ], [ %292, %303 ], [ %359, %379 ], [ %359, %377 ], [ %359, %372 ], [ %359, %370 ], [ %359, %358 ]
+  %423 = phi i64 [ %295, %291 ], [ %295, %312 ], [ %295, %310 ], [ %295, %305 ], [ %295, %303 ], [ %362, %379 ], [ %362, %377 ], [ %362, %372 ], [ %362, %370 ], [ %362, %358 ]
+  %424 = phi i64 [ %297, %291 ], [ %297, %312 ], [ %297, %310 ], [ %297, %305 ], [ %297, %303 ], [ %364, %379 ], [ %364, %377 ], [ %364, %372 ], [ %364, %370 ], [ %364, %358 ]
   invoke void @_ZN4core3str16slice_error_fail17hc6990271b5365929E(ptr noalias noundef nonnull readonly align 1 %421, i64 noundef %422, i64 noundef %423, i64 noundef %424, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a917942bd3acd054fb2ddfbeece15c73.50) #18
           to label %.cont.i unwind label %286, !noalias !53
 
@@ -1245,8 +1245,8 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   br i1 %or.cond.i, label %434, label %490
 
 .loopexit.i:                                      ; preds = %406, %404, %395, %.preheader44.i.i62.i, %415, %.lr.ph.i.i55.i, %386, %386, %383
-  %not..sink.i.i51.i = phi i1 [ false, %386 ], [ false, %386 ], [ false, %383 ], [ %414, %.lr.ph.i.i55.i ], [ %414, %415 ], [ %.not.i3.not.i68.i, %.preheader44.i.i62.i ], [ %.not.i3.not.i68.i, %395 ], [ %.not.i3.not.i68.i, %404 ], [ %.not.i3.not.i68.i, %406 ]
-  %426 = phi i64 [ undef, %386 ], [ undef, %386 ], [ undef, %383 ], [ %420, %415 ], [ undef, %.lr.ph.i.i55.i ], [ undef, %406 ], [ undef, %404 ], [ undef, %395 ], [ %.sroa.013.0.i.i65.i, %.preheader44.i.i62.i ]
+  %not..sink.i.i51.i = phi i1 [ false, %386 ], [ %414, %415 ], [ false, %386 ], [ false, %383 ], [ %414, %.lr.ph.i.i55.i ], [ %.not.i3.not.i68.i, %.preheader44.i.i62.i ], [ %.not.i3.not.i68.i, %395 ], [ %.not.i3.not.i68.i, %404 ], [ %.not.i3.not.i68.i, %406 ]
+  %426 = phi i64 [ undef, %386 ], [ %420, %415 ], [ undef, %386 ], [ undef, %383 ], [ undef, %.lr.ph.i.i55.i ], [ undef, %395 ], [ %.sroa.013.0.i.i65.i, %.preheader44.i.i62.i ], [ undef, %406 ], [ undef, %404 ]
   br i1 %.sroa.0.0.i52, label %427, label %428
 
 427:                                              ; preds = %.loopexit.i
@@ -1456,7 +1456,7 @@ common.resume:                                    ; preds = %514, %501, %493, %4
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-490:                                              ; preds = %427, %425, %428, %434
+490:                                              ; preds = %428, %427, %425, %434
   store i64 2, ptr %36, align 8, !alias.scope !53, !noalias !125
   call void @"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h77468219a3d657cdE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15), !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !56

@@ -1947,7 +1947,7 @@ _ZNKSt8weak_ptrIN5folly17ShutdownSocketSetEE4lockEv.exit: ; preds = %_ZNKSt14__s
   ret void
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_17AsyncServerSocket4bindEtE3$_0Lb1EED2Ev.exit69": ; preds = %100, %44, %_ZN5folly13SocketAddressD2Ev.exit64, %174, %172, %180, %178
-  %.merged56 = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ], [ %45, %44 ], [ %.pn52.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit64 ], [ %.pn49, %174 ], [ %173, %172 ], [ %101, %100 ]
+  %.merged56 = phi { ptr, i32 } [ %179, %178 ], [ %181, %180 ], [ %45, %44 ], [ %.pn52.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit64 ], [ %.pn49, %174 ], [ %173, %172 ], [ %101, %100 ]
   %.val.val.i68 = load ptr, ptr %8, align 8, !tbaa !125
   call void @freeaddrinfo(ptr noundef %.val.val.i68) #40
   br label %182
@@ -2468,7 +2468,7 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
           cleanup
   br label %188
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %107, %..loopexit_crit_edge21.i.i.i.i, %112, %97, %.loopexit
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %107, %112, %..loopexit_crit_edge21.i.i.i.i, %97, %.loopexit
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %161 = load i32, ptr %160, align 8, !tbaa !232
   %162 = icmp slt i32 %161, 0
@@ -2756,7 +2756,7 @@ _ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocke
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.thread:                                          ; preds = %55, %61, %58, %_ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocketE.exit, %67
+.thread:                                          ; preds = %61, %58, %55, %_ZN5follylsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_13NetworkSocketE.exit, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %84
 
@@ -2939,7 +2939,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50: ; preds = %125
   br label %145
 
 145:                                              ; preds = %141, %138, %130, %132, %119, %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %107
-  %.1 = phi i32 [ 4, %107 ], [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 4, %102 ], [ 1, %119 ], [ 1, %132 ], [ 1, %130 ], [ 2, %138 ], [ %spec.select, %141 ]
+  %.1 = phi i32 [ 4, %102 ], [ 1, %119 ], [ 1, %130 ], [ 2, %138 ], [ 4, %107 ], [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %132 ], [ %spec.select, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %146 = load i8, ptr %22, align 2, !tbaa !101, !range !14, !noundef !102
@@ -4321,7 +4321,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %15, %13, %9
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %21
-  %.0.i = phi i64 [ %23, %21 ], [ %10, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %10, %_ZN5folly10canNallocxEv.exit.i ], [ %23, %21 ]
   %24 = call noalias ptr @malloc(i64 noundef %.0.i) #59
   %.not.i13 = icmp eq ptr %24, null
   br i1 %.not.i13, label %25, label %_ZN5folly13checkedMallocEm.exit
@@ -4418,7 +4418,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %17, %15, %11
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %23
-  %.0.i = phi i64 [ %25, %23 ], [ %12, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i = phi i64 [ %12, %_ZN5folly10canNallocxEv.exit.i ], [ %25, %23 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !79
@@ -4609,7 +4609,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %27, %25, %22
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %20, %_ZN5folly10canNallocxEv.exit.i, %33
-  %.0.i10 = phi i64 [ %35, %33 ], [ 0, %20 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i10 = phi i64 [ 0, %20 ], [ %35, %33 ], [ %15, %_ZN5folly10canNallocxEv.exit.i ]
   %36 = call noalias ptr @malloc(i64 noundef %.0.i10) #59
   %.not.i11 = icmp eq ptr %36, null
   br i1 %.not.i11, label %37, label %_ZN5folly13checkedMallocEm.exit
@@ -4767,7 +4767,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
   br label %33
 
 33:                                               ; preds = %28, %26, %14
-  %.1 = phi i1 [ false, %14 ], [ %32, %28 ], [ false, %26 ]
+  %.1 = phi i1 [ false, %26 ], [ false, %14 ], [ %32, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
@@ -5103,7 +5103,7 @@ _ZN5folly10canNallocxEv.exit.i:                   ; preds = %30, %28, %25
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %23, %_ZN5folly10canNallocxEv.exit.i, %36
-  %.0.i13 = phi i64 [ %38, %36 ], [ 0, %23 ], [ %18, %_ZN5folly10canNallocxEv.exit.i ]
+  %.0.i13 = phi i64 [ 0, %23 ], [ %38, %36 ], [ %18, %_ZN5folly10canNallocxEv.exit.i ]
   %39 = getelementptr inbounds i8, ptr %0, i64 -8
   %40 = add i64 %1, 9
   %41 = add i64 %2, 9
@@ -9039,7 +9039,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitFo
   br label %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread
 
 _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread: ; preds = %30, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, %22, %19
-  %35 = phi i32 [ %.pre, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %20, %19 ], [ %31, %30 ]
+  %35 = phi i32 [ %20, %19 ], [ %.pre, %_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit ], [ %24, %22 ], [ %31, %30 ]
   %36 = load atomic i32, ptr %12 monotonic, align 4
   %37 = and i32 %35, 512
   %.not51 = icmp eq i32 %37, 0
@@ -9239,7 +9239,7 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
-.thread82:                                        ; preds = %.thread80, %75, %74, %102
+.thread82:                                        ; preds = %.thread80, %74, %75, %102
   ret i1 true
 }
 
@@ -10527,7 +10527,7 @@ _ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gn
           to label %_ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE9push_backERKS1_.exit unwind label %.loopexit
 
 _ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %72, %97
-  %.1 = phi i32 [ %.070, %97 ], [ %68, %72 ], [ %68, %_ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.1 = phi i32 [ %68, %_ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.070, %97 ], [ %68, %72 ]
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5folly17ShutdownSocketSetELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt6vectorIN5folly13NetworkSocketESaIS1_EE9push_backERKS1_.exit.thread
 
@@ -11780,7 +11780,7 @@ _ZNSt12__shared_ptrIN5folly17ShutdownSocketSetELN9__gnu_cxx12_Lock_policyE2EED2E
   ret void
 
 320:                                              ; preds = %82, %_ZN5folly13SocketAddressD2Ev.exit, %297, %277, %243, %206, %175, %140
-  %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %298, %297 ], [ %.pn68.pn, %277 ], [ %.pn64.pn, %243 ], [ %.pn60.pn, %206 ], [ %.pn56.pn, %175 ], [ %.pn.pn, %140 ], [ %.pn74.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit ], [ %.pn71.pn, %82 ]
+  %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %140 ], [ %298, %297 ], [ %.pn68.pn, %277 ], [ %.pn64.pn, %243 ], [ %.pn60.pn, %206 ], [ %.pn56.pn, %175 ], [ %.pn74.pn.pn, %_ZN5folly13SocketAddressD2Ev.exit ], [ %.pn71.pn, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %321
 
@@ -11896,8 +11896,8 @@ _ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(210) %26) #40
   br label %.loopexit
 
-52:                                               ; preds = %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit, %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %.0.ph = phi ptr [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %25, %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit ]
+52:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit
+  %.0.ph = phi ptr [ %25, %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit ], [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
@@ -17084,7 +17084,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
   ret void
 
 110:                                              ; preds = %93, %95, %41, %21
-  %.merged = phi { ptr, i32 } [ %.pn, %21 ], [ %.pn15, %41 ], [ %96, %95 ], [ %94, %93 ]
+  %.merged = phi { ptr, i32 } [ %.pn15, %41 ], [ %.pn, %21 ], [ %96, %95 ], [ %94, %93 ]
   resume { ptr, i32 } %.merged
 
 111:                                              ; preds = %41
@@ -17716,7 +17716,7 @@ _ZN5folly17AsyncServerSocket12ErrorMessageD2Ev.exit: ; preds = %.loopexit100, %_
   ret void
 
 247:                                              ; preds = %238, %241, %210, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
-  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %242, %241 ], [ %211, %210 ], [ %.pn, %238 ]
+  %.pn33.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %211, %210 ], [ %242, %241 ], [ %.pn, %238 ]
   %248 = load ptr, ptr %18, align 8, !tbaa !80
   %249 = icmp eq ptr %248, %19
   br i1 %249, label %_ZN5folly17AsyncServerSocket12ErrorMessageD2Ev.exit84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i81
@@ -18364,8 +18364,8 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   %.pre37 = zext nneg i32 %11 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %24, %..loopexit_crit_edge21.i.i.i.i
-  %.pre-phi = phi i64 [ %.pre37, %.loopexit.loopexit ], [ %25, %24 ], [ %25, %..loopexit_crit_edge21.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i, %24
+  %.pre-phi = phi i64 [ %25, %24 ], [ %.pre37, %.loopexit.loopexit ], [ %25, %..loopexit_crit_edge21.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %72 = load ptr, ptr %71, align 8, !tbaa !160
@@ -18402,7 +18402,7 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   br label %95
 
 95:                                               ; preds = %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE2atERS8_.exit, %.loopexit, %.critedge, %94
-  %.1 = phi ptr [ %85, %94 ], [ %85, %.critedge ], [ %69, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE2atERS8_.exit ], [ %79, %.loopexit ]
+  %.1 = phi ptr [ %85, %.critedge ], [ %85, %94 ], [ %69, %_ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE2atERS8_.exit ], [ %79, %.loopexit ]
   ret ptr %.1
 }
 

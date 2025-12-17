@@ -505,7 +505,7 @@ _ZNK5ZPage5is_inE8zaddress.exit.thread.i:         ; preds = %_ZNK5ZPage5is_inE8z
   br label %_ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddress.exit
 
 _ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddress.exit: ; preds = %5, %50, %48, %34, %_ZNK5ZPage5is_inE8zaddress.exit.i, %11, %_Z8is_valid8zaddressb.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_Z8is_valid8zaddressb.exit ], [ false, %11 ], [ false, %50 ], [ true, %_ZNK5ZPage5is_inE8zaddress.exit.i ], [ true, %34 ], [ true, %48 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_Z8is_valid8zaddressb.exit ], [ true, %48 ], [ false, %11 ], [ false, %50 ], [ true, %_ZNK5ZPage5is_inE8zaddress.exit.i ], [ true, %34 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1042,7 +1042,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
   br label %14
 
 14:                                               ; preds = %5, %7, %11
-  %.0.i.ph = phi i1 [ %.not6.i, %11 ], [ false, %7 ], [ false, %5 ]
+  %.0.i.ph = phi i1 [ false, %5 ], [ %.not6.i, %11 ], [ false, %7 ]
   %15 = and i64 %2, -65521
   %.not.i12 = icmp eq i64 %15, 0
   br i1 %.not.i12, label %35, label %16
@@ -1099,7 +1099,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %.thread, label %_Z8is_valid8zpointerb.exit
 
-.thread:                                          ; preds = %16, %42, %38, %35, %22, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %32
+.thread:                                          ; preds = %22, %32, %35, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i, %42, %38, %16
   br i1 %.0.i.ph, label %.thread.thread, label %53
 
 _Z8is_valid8zpointerb.exit:                       ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
@@ -1123,7 +1123,7 @@ _Z8is_valid8zpointerb.exit:                       ; preds = %_Z13is_power_of_2Im
   br label %53
 
 53:                                               ; preds = %.thread, %51, %_Z8is_valid8zpointerb.exit, %.thread.thread, %49
-  %.0 = phi i1 [ %50, %49 ], [ %52, %.thread.thread ], [ false, %_Z8is_valid8zpointerb.exit ], [ false, %51 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %_Z8is_valid8zpointerb.exit ], [ %50, %49 ], [ %52, %.thread.thread ], [ false, %51 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -1759,7 +1759,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread: ; preds = %80, %.loopex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread, %.loopexit.split.loop.exit48, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread, %.loopexit45.i.i.i, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32
-  %.0 = phi i64 [ %29, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32 ], [ %73, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37 ], [ %47, %.loopexit45.i.i.i ], [ %91, %.loopexit.split.loop.exit48 ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread ]
+  %.0 = phi i64 [ %29, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32 ], [ %47, %.loopexit45.i.i.i ], [ %73, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37 ], [ %91, %.loopexit.split.loop.exit48 ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread ]
   ret i64 %.0
 }
 

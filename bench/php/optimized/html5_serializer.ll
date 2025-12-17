@@ -220,8 +220,8 @@ dom_local_name_compare_ex.exit73:                 ; preds = %dom_local_name_comp
 dom_local_name_compare_ex.exit73.thread107:       ; preds = %dom_local_name_compare_ex.exit71, %4, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit73, %1
   br label %dom_local_name_compare_ex.exit73.thread
 
-dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit55, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit59, %dom_local_name_compare_ex.exit61, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit69, %dom_local_name_compare_ex.exit71, %dom_local_name_compare_ex.exit73, %dom_local_name_compare_ex.exit73.thread107
-  %.1 = phi i1 [ false, %dom_local_name_compare_ex.exit73.thread107 ], [ true, %dom_local_name_compare_ex.exit73 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit ]
+dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit55, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit59, %dom_local_name_compare_ex.exit61, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit69, %dom_local_name_compare_ex.exit71, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit73, %dom_local_name_compare_ex.exit73.thread107
+  %.1 = phi i1 [ false, %dom_local_name_compare_ex.exit73.thread107 ], [ true, %dom_local_name_compare_ex.exit73 ], [ true, %dom_local_name_compare_ex.exit ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ]
   ret i1 %.1
 }
 
@@ -360,7 +360,7 @@ dom_local_name_compare_ex.exit.i:                 ; preds = %35
   br label %dom_html5_serialize_text_node.exit
 
 dom_html5_serialize_text_node.exit:               ; preds = %46, %.thread59.i
-  %.026.i = phi i32 [ %52, %.thread59.i ], [ %50, %46 ]
+  %.026.i = phi i32 [ %50, %46 ], [ %52, %.thread59.i ]
   %.not55 = icmp eq i32 %.026.i, 0
   br i1 %.not55, label %dom_html5_serialize_text_node.exit.thread, label %dom_html5_serialize_doctype.exit.thread, !prof !32
 
@@ -752,7 +752,7 @@ dom_html5_serialize_text_node.exit.thread:        ; preds = %230, %dom_html5_ser
   br i1 %.not57, label %.preheader, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %dom_html5_serialize_element_end.exit75.thread100, %dom_html5_serialize_text_node.exit.thread, %240, %229
-  %.039108.be = phi ptr [ %242, %240 ], [ %.037, %229 ], [ %257, %dom_html5_serialize_text_node.exit.thread ], [ %277, %dom_html5_serialize_element_end.exit75.thread100 ]
+  %.039108.be = phi ptr [ %.037, %229 ], [ %242, %240 ], [ %257, %dom_html5_serialize_text_node.exit.thread ], [ %277, %dom_html5_serialize_element_end.exit75.thread100 ]
   br label %.backedge
 
 .preheader:                                       ; preds = %dom_html5_serialize_text_node.exit.thread, %dom_html5_serialize_element_end.exit75.thread100
@@ -797,8 +797,8 @@ dom_html5_serialize_element_end.exit75.thread100: ; preds = %265, %261, %dom_htm
   %278 = icmp eq ptr %277, null
   br i1 %278, label %.preheader, label %.backedge.backedge
 
-dom_html5_serialize_doctype.exit.thread:          ; preds = %dom_html5_serialize_doctype.exit, %dom_html5_serialize_text_node.exit, %dom_html5_serialize_processing_instruction.exit, %dom_html5_serialize_comment.exit, %dom_html5_serialize_element_start.exit, %dom_html5_serialize_entity_ref.exit, %9, %13, %53, %57, %63, %70, %77, %84, %91, %95, %dom_html5_serialize_element_end.exit, %231, %235, %243, %247, %._crit_edge.i, %182, %176, %172, %170, %166, %153, %149, %141, %139, %137, %121, %117, %108, %.lr.ph110.i, %271, %267, %dom_html5_serialize_element_end.exit75, %.preheader, %193, %195, %199, %203, %3
-  %.1 = phi i32 [ 0, %3 ], [ -1, %203 ], [ -1, %199 ], [ -1, %195 ], [ -1, %193 ], [ -1, %271 ], [ -1, %267 ], [ -1, %dom_html5_serialize_element_end.exit75 ], [ 0, %.preheader ], [ -1, %.lr.ph110.i ], [ -1, %108 ], [ -1, %117 ], [ -1, %121 ], [ -1, %137 ], [ -1, %139 ], [ -1, %141 ], [ -1, %149 ], [ -1, %153 ], [ -1, %166 ], [ -1, %170 ], [ -1, %172 ], [ -1, %176 ], [ -1, %182 ], [ -1, %._crit_edge.i ], [ -1, %247 ], [ -1, %243 ], [ -1, %235 ], [ -1, %231 ], [ -1, %dom_html5_serialize_element_end.exit ], [ -1, %95 ], [ -1, %91 ], [ -1, %84 ], [ -1, %77 ], [ -1, %70 ], [ -1, %63 ], [ -1, %57 ], [ -1, %53 ], [ -1, %13 ], [ -1, %9 ], [ -1, %dom_html5_serialize_entity_ref.exit ], [ -1, %dom_html5_serialize_element_start.exit ], [ -1, %dom_html5_serialize_comment.exit ], [ -1, %dom_html5_serialize_processing_instruction.exit ], [ -1, %dom_html5_serialize_text_node.exit ], [ -1, %dom_html5_serialize_doctype.exit ]
+dom_html5_serialize_doctype.exit.thread:          ; preds = %dom_html5_serialize_doctype.exit, %dom_html5_serialize_text_node.exit, %dom_html5_serialize_processing_instruction.exit, %dom_html5_serialize_comment.exit, %dom_html5_serialize_element_start.exit, %dom_html5_serialize_entity_ref.exit, %9, %13, %53, %57, %63, %70, %77, %84, %95, %91, %dom_html5_serialize_element_end.exit, %235, %231, %243, %247, %._crit_edge.i, %172, %170, %166, %153, %149, %141, %139, %137, %121, %117, %108, %182, %176, %.lr.ph110.i, %267, %271, %dom_html5_serialize_element_end.exit75, %.preheader, %195, %199, %203, %193, %3
+  %.1 = phi i32 [ 0, %3 ], [ -1, %._crit_edge.i ], [ -1, %195 ], [ 0, %.preheader ], [ -1, %193 ], [ -1, %203 ], [ -1, %199 ], [ -1, %267 ], [ -1, %271 ], [ -1, %dom_html5_serialize_element_end.exit75 ], [ -1, %.lr.ph110.i ], [ -1, %176 ], [ -1, %182 ], [ -1, %108 ], [ -1, %117 ], [ -1, %121 ], [ -1, %137 ], [ -1, %139 ], [ -1, %141 ], [ -1, %149 ], [ -1, %153 ], [ -1, %166 ], [ -1, %170 ], [ -1, %172 ], [ -1, %247 ], [ -1, %243 ], [ -1, %231 ], [ -1, %235 ], [ -1, %dom_html5_serialize_element_end.exit ], [ -1, %91 ], [ -1, %95 ], [ -1, %84 ], [ -1, %77 ], [ -1, %70 ], [ -1, %63 ], [ -1, %57 ], [ -1, %53 ], [ -1, %13 ], [ -1, %9 ], [ -1, %dom_html5_serialize_entity_ref.exit ], [ -1, %dom_html5_serialize_element_start.exit ], [ -1, %dom_html5_serialize_comment.exit ], [ -1, %dom_html5_serialize_processing_instruction.exit ], [ -1, %dom_html5_serialize_text_node.exit ], [ -1, %dom_html5_serialize_doctype.exit ]
   ret i32 %.1
 }
 
@@ -980,8 +980,8 @@ define internal fastcc i32 @dom_html5_escape_string(ptr noundef readonly capture
   br label %80
 
 80:                                               ; preds = %22, %52, %65, %78, %39, %24, %7
-  %.263 = phi ptr [ %23, %22 ], [ %40, %39 ], [ %.061, %24 ], [ %53, %52 ], [ %66, %65 ], [ %79, %78 ], [ %.061, %7 ]
-  %.260 = phi ptr [ %9, %22 ], [ %25, %39 ], [ %9, %24 ], [ %9, %52 ], [ %9, %65 ], [ %9, %78 ], [ %9, %7 ]
+  %.263 = phi ptr [ %.061, %7 ], [ %23, %22 ], [ %40, %39 ], [ %.061, %24 ], [ %53, %52 ], [ %66, %65 ], [ %79, %78 ]
+  %.260 = phi ptr [ %9, %7 ], [ %9, %22 ], [ %25, %39 ], [ %9, %24 ], [ %9, %52 ], [ %9, %65 ], [ %9, %78 ]
   %81 = getelementptr inbounds nuw i8, ptr %.260, i64 1
   br label %7
 
@@ -994,8 +994,8 @@ define internal fastcc i32 @dom_html5_escape_string(ptr noundef readonly capture
   %88 = tail call i32 %83(ptr noundef %84, ptr noundef %.061, i64 noundef %87) #5
   br label %.thread
 
-.thread:                                          ; preds = %74, %67, %61, %54, %48, %41, %35, %28, %18, %11, %82
-  %.2 = phi i32 [ %88, %82 ], [ -1, %11 ], [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ -1, %41 ], [ -1, %48 ], [ -1, %54 ], [ -1, %61 ], [ -1, %67 ], [ -1, %74 ]
+.thread:                                          ; preds = %74, %61, %54, %48, %41, %35, %28, %18, %11, %67, %82
+  %.2 = phi i32 [ %88, %82 ], [ -1, %67 ], [ -1, %11 ], [ -1, %18 ], [ -1, %28 ], [ -1, %35 ], [ -1, %41 ], [ -1, %48 ], [ -1, %54 ], [ -1, %61 ], [ -1, %74 ]
   ret i32 %.2
 }
 

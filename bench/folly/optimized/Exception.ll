@@ -104,7 +104,7 @@ _ZN5folly6detail23exception_ptr_get_type_ERKNSt15__exception_ptr13exception_ptrE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %_ZN5folly6detail23exception_ptr_get_type_ERKNSt15__exception_ptr13exception_ptrE.exit
-  %13 = phi ptr [ %4, %_ZN5folly6detail23exception_ptr_get_type_ERKNSt15__exception_ptr13exception_ptrE.exit ], [ %spec.select, %12 ]
+  %13 = phi ptr [ %spec.select, %12 ], [ %4, %_ZN5folly6detail23exception_ptr_get_type_ERKNSt15__exception_ptr13exception_ptrE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 

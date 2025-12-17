@@ -606,7 +606,7 @@ _ZNSt6vectorI7PpRanksSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI7Pp
   br label %84
 
 84:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
   %85 = load ptr, ptr %19, align 8, !tbaa !117, !noalias !95
   %.not.i.i.i17.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i17.i, label %92, label %86
@@ -852,7 +852,7 @@ _ZNSt10unique_ptrIN3gmx17PmeForceSenderGpuESt14default_deleteIS1_EED2Ev.exit: ; 
   br label %.thread491
 
 .thread491:                                       ; preds = %92, %93, %175, %.body86, %180
-  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %.pn.i, %93 ], [ %.pn.i, %92 ], [ %eh.lpad-body87, %.body86 ], [ %eh.lpad-body87, %180 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %92 ], [ %176, %175 ], [ %.pn.i, %93 ], [ %eh.lpad-body87, %.body86 ], [ %eh.lpad-body87, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNSt6vectorIP9gmx_pme_tSaIS1_EED2Ev.exit184
 
@@ -1421,12 +1421,12 @@ _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_dealloc
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithPaddingEl.exit.i
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithPaddingEl.exit.i: ; preds = %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281, %497, %495, %488
-  %.0.i.i.i379382388 = phi i64 [ %.0.i.i.i379382389, %488 ], [ %.0.i.i.i379382389, %495 ], [ %.0.i.i.i379382389, %497 ], [ %.sroa.speculated.i.i.i111, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %.sroa.speculated.i.i.i111, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
-  %.2127.lcssa337341.i378383386 = phi i32 [ %.2127.lcssa337341.i378383387, %488 ], [ %.2127.lcssa337341.i378383387, %495 ], [ %.2127.lcssa337341.i378383387, %497 ], [ %419, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %419, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
-  %498 = phi i64 [ %493, %488 ], [ %493, %495 ], [ %493, %497 ], [ %429, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %429, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
-  %.pre-phi.i.i = phi i64 [ %490, %488 ], [ %490, %495 ], [ %490, %497 ], [ %.pre1910, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %.pre-phi1909, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
-  %499 = phi ptr [ %491, %488 ], [ %491, %495 ], [ %491, %497 ], [ %478, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %458, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
-  %500 = phi ptr [ %492, %488 ], [ %492, %495 ], [ %496, %497 ], [ %486, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %scevgep.i.i270, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %.0.i.i.i379382388 = phi i64 [ %.0.i.i.i379382389, %497 ], [ %.0.i.i.i379382389, %488 ], [ %.0.i.i.i379382389, %495 ], [ %.sroa.speculated.i.i.i111, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %.sroa.speculated.i.i.i111, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %.2127.lcssa337341.i378383386 = phi i32 [ %.2127.lcssa337341.i378383387, %497 ], [ %.2127.lcssa337341.i378383387, %488 ], [ %.2127.lcssa337341.i378383387, %495 ], [ %419, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %419, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %498 = phi i64 [ %493, %497 ], [ %493, %488 ], [ %493, %495 ], [ %429, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %429, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %.pre-phi.i.i = phi i64 [ %490, %497 ], [ %490, %488 ], [ %490, %495 ], [ %.pre1910, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %.pre-phi1909, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %499 = phi ptr [ %491, %497 ], [ %491, %488 ], [ %491, %495 ], [ %478, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %458, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
+  %500 = phi ptr [ %496, %497 ], [ %492, %488 ], [ %492, %495 ], [ %486, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i281 ], [ %scevgep.i.i270, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i269 ]
   %501 = ptrtoint ptr %500 to i64
   %502 = sub i64 %501, %.pre-phi.i.i
   %503 = ashr exact i64 %502, 2
@@ -1635,12 +1635,12 @@ _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_dealloc
   br label %_ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithPaddingEl.exit184.i
 
 _ZN3gmx12PaddedVectorIfNS_9AllocatorIfNS_20HostAllocationPolicyEEEE17resizeWithPaddingEl.exit184.i: ; preds = %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i, %588, %586, %579
-  %.0.i.i178.i393397403 = phi i64 [ %.0.i.i178.i393397404, %579 ], [ %.0.i.i178.i393397404, %586 ], [ %.0.i.i178.i393397404, %588 ], [ %.sroa.speculated.i.i176.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.sroa.speculated.i.i176.i, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
-  %.2127.lcssa338345349.i392398401 = phi i32 [ %.2127.lcssa338345349.i392398402, %579 ], [ %.2127.lcssa338345349.i392398402, %586 ], [ %.2127.lcssa338345349.i392398402, %588 ], [ %.2127.lcssa338.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.2127.lcssa338.i, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
-  %589 = phi i64 [ %584, %579 ], [ %584, %586 ], [ %584, %588 ], [ %520, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %520, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
-  %.pre-phi.i179.i = phi i64 [ %581, %579 ], [ %581, %586 ], [ %581, %588 ], [ %.pre1907, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.pre-phi, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
-  %590 = phi ptr [ %582, %579 ], [ %582, %586 ], [ %582, %588 ], [ %569, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %549, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
-  %591 = phi ptr [ %583, %579 ], [ %583, %586 ], [ %587, %588 ], [ %577, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %scevgep.i.i249, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %.0.i.i178.i393397403 = phi i64 [ %.0.i.i178.i393397404, %588 ], [ %.0.i.i178.i393397404, %579 ], [ %.0.i.i178.i393397404, %586 ], [ %.sroa.speculated.i.i176.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.sroa.speculated.i.i176.i, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %.2127.lcssa338345349.i392398401 = phi i32 [ %.2127.lcssa338345349.i392398402, %588 ], [ %.2127.lcssa338345349.i392398402, %579 ], [ %.2127.lcssa338345349.i392398402, %586 ], [ %.2127.lcssa338.i, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.2127.lcssa338.i, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %589 = phi i64 [ %584, %588 ], [ %584, %579 ], [ %584, %586 ], [ %520, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %520, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %.pre-phi.i179.i = phi i64 [ %581, %588 ], [ %581, %579 ], [ %581, %586 ], [ %.pre1907, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %.pre-phi, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %590 = phi ptr [ %582, %588 ], [ %582, %579 ], [ %582, %586 ], [ %569, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %549, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
+  %591 = phi ptr [ %587, %588 ], [ %583, %579 ], [ %583, %586 ], [ %577, %_ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE13_M_deallocateEPfm.exit.i ], [ %scevgep.i.i249, %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit.i ]
   %592 = ptrtoint ptr %591 to i64
   %593 = sub i64 %592, %.pre-phi.i179.i
   %594 = ashr exact i64 %593, 2
@@ -1705,7 +1705,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i233: ; preds = %620
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i235
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i235: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i233, %620
-  %.0.i.i.i.i236 = phi ptr [ %621, %620 ], [ %624, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i233 ]
+  %.0.i.i.i.i236 = phi ptr [ %624, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i233 ], [ %621, %620 ]
   store ptr %.0.i.i.i.i236, ptr %329, align 8, !tbaa !258
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
@@ -1819,7 +1819,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i216: ; preds = %666
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i218
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i218: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i216, %666
-  %.0.i.i.i.i219 = phi ptr [ %667, %666 ], [ %670, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i216 ]
+  %.0.i.i.i.i219 = phi ptr [ %670, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i216 ], [ %667, %666 ]
   store ptr %.0.i.i.i.i219, ptr %331, align 8, !tbaa !258
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit186.i
 
@@ -1933,7 +1933,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i199: ; preds = %711
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i201
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i201: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i199, %711
-  %.0.i.i.i.i202 = phi ptr [ %712, %711 ], [ %715, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i199 ]
+  %.0.i.i.i.i202 = phi ptr [ %715, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i199 ], [ %712, %711 ]
   store ptr %.0.i.i.i.i202, ptr %333, align 8, !tbaa !258
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit188.i
 
@@ -2003,7 +2003,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i210: ; preds = %728, %_ZN
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit188.i
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit188.i:          ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit186.i, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i201, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i210, %736, %734, %732
-  %737 = phi i32 [ %692, %736 ], [ %692, %734 ], [ %692, %732 ], [ %.pre281.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i210 ], [ %692, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i201 ], [ %692, %_ZNSt6vectorIfSaIfEE6resizeEm.exit186.i ]
+  %737 = phi i32 [ %692, %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i201 ], [ %692, %736 ], [ %692, %734 ], [ %692, %732 ], [ %.pre281.i.pre, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i210 ], [ %692, %_ZNSt6vectorIfSaIfEE6resizeEm.exit186.i ]
   %738 = and i32 %737, 32
   %.not168.i = icmp eq i32 %738, 0
   br i1 %.not168.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit190.i, label %739
@@ -2046,7 +2046,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %756
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %756
-  %.0.i.i.i.i = phi ptr [ %757, %756 ], [ %760, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %760, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %757, %756 ]
   store ptr %.0.i.i.i.i, ptr %335, align 8, !tbaa !258
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit190.i
 
@@ -2338,7 +2338,7 @@ default.unreachable.i:                            ; preds = %862
   unreachable
 
 868:                                              ; preds = %867, %866, %865, %864, %863, %862
-  %.0147.in.i = phi ptr [ %325, %863 ], [ %328, %864 ], [ %330, %865 ], [ %332, %866 ], [ %334, %867 ], [ %321, %862 ]
+  %.0147.in.i = phi ptr [ %334, %867 ], [ %325, %863 ], [ %328, %864 ], [ %330, %865 ], [ %332, %866 ], [ %321, %862 ]
   %.0147.i = load ptr, ptr %.0147.in.i, align 8, !tbaa !247
   %869 = load ptr, ptr %316, align 8, !tbaa !69
   %870 = load ptr, ptr %317, align 8, !tbaa !69
@@ -2466,9 +2466,9 @@ default.unreachable.i:                            ; preds = %862
           to label %.noexc137 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc137:                                        ; preds = %.noexc136, %.noexc134, %899
-  %.4365 = phi i32 [ %.3364, %.noexc134 ], [ %.2363, %899 ], [ %.3364, %.noexc136 ]
-  %.4 = phi i32 [ %.3, %.noexc134 ], [ %.2360, %899 ], [ %.3, %.noexc136 ]
-  %.1132357365.i = phi i32 [ %.1132357366.i, %.noexc134 ], [ 0, %899 ], [ %.1132357366.i, %.noexc136 ]
+  %.4365 = phi i32 [ %.2363, %899 ], [ %.3364, %.noexc134 ], [ %.3364, %.noexc136 ]
+  %.4 = phi i32 [ %.2360, %899 ], [ %.3, %.noexc134 ], [ %.3, %.noexc136 ]
+  %.1132357365.i = phi i32 [ 0, %899 ], [ %.1132357366.i, %.noexc134 ], [ %.1132357366.i, %.noexc136 ]
   %923 = load float, ptr %228, align 4, !tbaa !240
   store float %923, ptr %20, align 16, !tbaa !240
   %924 = load float, ptr %229, align 8, !tbaa !240
@@ -2646,7 +2646,7 @@ default.unreachable.i:                            ; preds = %862
   br i1 %995, label %.invoke, label %_ZNKSt6vectorIP9gmx_pme_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 .invoke:                                          ; preds = %991, %838, %800, %761, %716, %671, %625, %564, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i177.i, %473, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i.i
-  %996 = phi ptr [ @.str.8, %838 ], [ @.str.8, %800 ], [ @.str.8, %761 ], [ @.str.8, %716 ], [ @.str.8, %671 ], [ @.str.8, %625 ], [ @.str.8, %564 ], [ @.str.2, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i177.i ], [ @.str.8, %473 ], [ @.str.2, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i.i ], [ @.str.1, %991 ]
+  %996 = phi ptr [ @.str.8, %838 ], [ @.str.2, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i.i ], [ @.str.8, %473 ], [ @.str.2, %_ZN3gmx6detail17computePaddedSizeIfEEll.exit.i177.i ], [ @.str.8, %564 ], [ @.str.8, %625 ], [ @.str.8, %671 ], [ @.str.8, %716 ], [ @.str.8, %761 ], [ @.str.8, %800 ], [ @.str.1, %991 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %996) #20
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2742,10 +2742,10 @@ _ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vector
   br label %1356
 
 _ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inputrec.exit: ; preds = %.noexc141, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i, %.noexc151
-  %.sroa.24.6 = phi ptr [ %.sroa.24.8, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.24.4, %.noexc151 ], [ %.sroa.24.4, %.noexc141 ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.4, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.14.1, %.noexc151 ], [ %.sroa.14.1, %.noexc141 ]
-  %.sroa.0317.6 = phi ptr [ %.sroa.0317.8, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.0317.4, %.noexc151 ], [ %.sroa.0317.4, %.noexc141 ]
-  %.265 = phi ptr [ %1009, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %986, %.noexc151 ], [ %.164, %.noexc141 ]
+  %.sroa.24.6 = phi ptr [ %.sroa.24.4, %.noexc151 ], [ %.sroa.24.8, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.24.4, %.noexc141 ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %.noexc151 ], [ %.sroa.14.4, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.14.1, %.noexc141 ]
+  %.sroa.0317.6 = phi ptr [ %.sroa.0317.4, %.noexc151 ], [ %.sroa.0317.8, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.0317.4, %.noexc141 ]
+  %.265 = phi ptr [ %986, %.noexc151 ], [ %1009, %_ZNSt6vectorIP9gmx_pme_tSaIS1_EE9push_backERKS1_.exit.i ], [ %.164, %.noexc141 ]
   br i1 %.not161.i.not, label %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit, label %1010
 
 1010:                                             ; preds = %_ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inputrec.exit
@@ -2858,7 +2858,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %.noexc1
           to label %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit: ; preds = %.noexc160, %1058, %_ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inputrec.exit
-  %.4215.i418430 = phi i32 [ %.2.i, %_ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inputrec.exit ], [ 3, %1058 ], [ 3, %.noexc160 ]
+  %.4215.i418430 = phi i32 [ 3, %.noexc160 ], [ %.2.i, %_ZL18gmx_pmeonly_switchPSt6vectorIP9gmx_pme_tSaIS1_EEPKiffPK9t_commrecPK10t_inputrec.exit ], [ 3, %1058 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.not72 = icmp samesign ult i32 %.4215.i418430, 2
   br i1 %.not72, label %1059, label %309, !llvm.loop !311
@@ -3292,7 +3292,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1233, %120
   br label %.loopexit.i169
 
 .loopexit.i169:                                   ; preds = %1260, %.loopexit.loopexit.i, %1263, %1241
-  %.0.i170 = phi i32 [ 0, %1241 ], [ 0, %1263 ], [ %1294, %.loopexit.loopexit.i ], [ 0, %1260 ]
+  %.0.i170 = phi i32 [ 0, %1241 ], [ %1294, %.loopexit.loopexit.i ], [ 0, %1263 ], [ 0, %1260 ]
   %1295 = load float, ptr %260, align 8, !tbaa !240
   store float %1295, ptr %11, align 4, !tbaa !240
   %1296 = load float, ptr %270, align 4, !tbaa !240
@@ -3442,9 +3442,9 @@ _ZNSt6vectorIP9gmx_pme_tSaIS1_EED2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN
   ret i32 0
 
 1356:                                             ; preds = %.loopexit523, %.loopexit.split-lp524, %185, %187, %189, %1349, %1342, %.loopexit.split-lp, %144, %191, %158, %193, %205, %201, %203
-  %.sroa.24.2 = phi ptr [ %37, %185 ], [ %.sroa.24.5, %.loopexit.split-lp ], [ %.sroa.24.6, %1349 ], [ %.sroa.24.6436456479, %1342 ], [ %37, %187 ], [ %37, %189 ], [ %37, %144 ], [ %37, %191 ], [ %37, %158 ], [ %37, %193 ], [ %37, %205 ], [ %37, %201 ], [ %37, %203 ], [ %.sroa.24.6436456479, %.loopexit523 ], [ %.sroa.24.6, %.loopexit.split-lp524 ]
-  %.sroa.0317.2 = phi ptr [ %36, %185 ], [ %.sroa.0317.5, %.loopexit.split-lp ], [ %.sroa.0317.6, %1349 ], [ %.sroa.0317.6439454482, %1342 ], [ %36, %187 ], [ %36, %189 ], [ %36, %144 ], [ %36, %191 ], [ %36, %158 ], [ %36, %193 ], [ %36, %205 ], [ %36, %201 ], [ %36, %203 ], [ %.sroa.0317.6439454482, %.loopexit523 ], [ %.sroa.0317.6, %.loopexit.split-lp524 ]
-  %.pn75.pn = phi { ptr, i32 } [ %186, %185 ], [ %lpad.phi, %.loopexit.split-lp ], [ %1350, %1349 ], [ %.pn73, %1342 ], [ %188, %187 ], [ %190, %189 ], [ %145, %144 ], [ %192, %191 ], [ %159, %158 ], [ %194, %193 ], [ %206, %205 ], [ %202, %201 ], [ %204, %203 ], [ %lpad.loopexit525, %.loopexit523 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp524 ]
+  %.sroa.24.2 = phi ptr [ %37, %185 ], [ %.sroa.24.5, %.loopexit.split-lp ], [ %.sroa.24.6, %1349 ], [ %37, %203 ], [ %.sroa.24.6436456479, %1342 ], [ %37, %187 ], [ %37, %193 ], [ %37, %191 ], [ %37, %189 ], [ %37, %144 ], [ %37, %158 ], [ %37, %205 ], [ %37, %201 ], [ %.sroa.24.6436456479, %.loopexit523 ], [ %.sroa.24.6, %.loopexit.split-lp524 ]
+  %.sroa.0317.2 = phi ptr [ %36, %185 ], [ %.sroa.0317.5, %.loopexit.split-lp ], [ %.sroa.0317.6, %1349 ], [ %36, %203 ], [ %.sroa.0317.6439454482, %1342 ], [ %36, %187 ], [ %36, %193 ], [ %36, %191 ], [ %36, %189 ], [ %36, %144 ], [ %36, %158 ], [ %36, %205 ], [ %36, %201 ], [ %.sroa.0317.6439454482, %.loopexit523 ], [ %.sroa.0317.6, %.loopexit.split-lp524 ]
+  %.pn75.pn = phi { ptr, i32 } [ %186, %185 ], [ %lpad.phi, %.loopexit.split-lp ], [ %1350, %1349 ], [ %204, %203 ], [ %.pn73, %1342 ], [ %188, %187 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %145, %144 ], [ %159, %158 ], [ %206, %205 ], [ %202, %201 ], [ %lpad.loopexit525, %.loopexit523 ], [ %lpad.loopexit.split-lp526, %.loopexit.split-lp524 ]
   call void @_ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZNSt10unique_ptrI10gmx_pme_ppSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #14

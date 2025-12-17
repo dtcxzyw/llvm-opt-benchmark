@@ -619,7 +619,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit38:    ; preds = %222, %227
   br label %233
 
 233:                                              ; preds = %_ZN4NodenwEm.exit36, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit38, %_ZN4NodenwEm.exit32, %_ZN7ConNodeC2EPK4Type.exit, %_ZN4NodenwEm.exit27, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit29, %_ZN4NodenwEm.exit22, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24, %_ZN4NodenwEm.exit, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
-  %.0 = phi ptr [ %.0.i.i.i, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i21, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24 ], [ null, %_ZN4NodenwEm.exit22 ], [ %.0.i.i.i26, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit29 ], [ null, %_ZN4NodenwEm.exit27 ], [ %.0.i.i.i31, %_ZN7ConNodeC2EPK4Type.exit ], [ null, %_ZN4NodenwEm.exit32 ], [ %.0.i.i.i35, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit38 ], [ null, %_ZN4NodenwEm.exit36 ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit27 ], [ null, %_ZN4NodenwEm.exit32 ], [ null, %_ZN4NodenwEm.exit22 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit ], [ %.0.i.i.i21, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24 ], [ %.0.i.i.i26, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit29 ], [ %.0.i.i.i31, %_ZN7ConNodeC2EPK4Type.exit ], [ %.0.i.i.i35, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit38 ], [ null, %_ZN4NodenwEm.exit36 ]
   ret ptr %.0
 }
 
@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZNK8JVMState13same_calls_asEPKS_(ptr noundef 
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %25, %20, %15, %13, %.preheader, %4, %2
-  %.017 = phi i1 [ true, %2 ], [ false, %4 ], [ true, %25 ], [ false, %20 ], [ false, %15 ], [ true, %13 ], [ false, %.preheader ]
+  %.017 = phi i1 [ false, %4 ], [ true, %2 ], [ true, %25 ], [ false, %15 ], [ true, %13 ], [ false, %.preheader ], [ false, %20 ]
   ret i1 %.017
 }
 
@@ -2111,7 +2111,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit30:    ; preds = %180, %185
   unreachable
 
 193:                                              ; preds = %_ZN4NodenwEm.exit28, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit30, %_ZN4NodenwEm.exit22, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24, %_ZN4NodenwEm.exit, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
-  %.015 = phi ptr [ %.0.i.i.i, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i21, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24 ], [ null, %_ZN4NodenwEm.exit22 ], [ %.0.i.i.i27, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit30 ], [ null, %_ZN4NodenwEm.exit28 ]
+  %.015 = phi ptr [ null, %_ZN4NodenwEm.exit22 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit ], [ %.0.i.i.i21, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit24 ], [ %.0.i.i.i27, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit30 ], [ null, %_ZN4NodenwEm.exit28 ]
   ret ptr %.015
 }
 
@@ -2413,7 +2413,7 @@ _ZNK8CallNode15returns_pointerEv.exit:            ; preds = %100
   br i1 %172, label %150, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %163, %158, %169, %.thread61, %54, %95, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread, %132, %137, %98, %75, %78, %_ZNK8CallNode24is_call_to_arraycopystubEv.exit, %38, %49
-  %.0 = phi i1 [ false, %49 ], [ true, %38 ], [ false, %_ZNK8CallNode24is_call_to_arraycopystubEv.exit ], [ false, %78 ], [ false, %75 ], [ false, %98 ], [ true, %137 ], [ true, %132 ], [ true, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread ], [ true, %95 ], [ true, %54 ], [ false, %.thread61 ], [ true, %163 ], [ true, %158 ], [ false, %169 ]
+  %.0 = phi i1 [ false, %49 ], [ true, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread ], [ true, %38 ], [ false, %_ZNK8CallNode24is_call_to_arraycopystubEv.exit ], [ false, %75 ], [ false, %98 ], [ true, %132 ], [ true, %95 ], [ false, %78 ], [ true, %137 ], [ true, %54 ], [ false, %.thread61 ], [ true, %163 ], [ true, %158 ], [ false, %169 ]
   ret i1 %.0
 }
 
@@ -2571,7 +2571,7 @@ define hidden noundef zeroext i1 @_ZN8CallNode27may_modify_arraycopy_helperEPK10
   br label %90
 
 90:                                               ; preds = %49, %62, %70, %68, %64, %36, %34, %30, %77, %14
-  %.0 = phi i1 [ %19, %14 ], [ %89, %77 ], [ false, %30 ], [ true, %34 ], [ true, %36 ], [ false, %64 ], [ true, %68 ], [ true, %70 ], [ true, %62 ], [ %61, %49 ]
+  %.0 = phi i1 [ %19, %14 ], [ true, %36 ], [ true, %68 ], [ %89, %77 ], [ false, %64 ], [ true, %70 ], [ false, %30 ], [ true, %34 ], [ true, %62 ], [ %61, %49 ]
   ret i1 %.0
 }
 
@@ -2658,13 +2658,13 @@ define hidden noundef ptr @_ZN8CallNode11result_castEv(ptr noundef nonnull align
   br i1 %.not, label %26, label %.loopexit
 
 26:                                               ; preds = %16, %22, %17
-  %.1 = phi ptr [ %.01620, %17 ], [ %.01620, %22 ], [ %11, %16 ]
+  %.1 = phi ptr [ %.01620, %22 ], [ %.01620, %17 ], [ %11, %16 ]
   %27 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   %28 = icmp ult ptr %27, %10
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %16, %22, %26, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %0, %16 ], [ %0, %22 ], [ %.1, %26 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %0, %22 ], [ %0, %16 ], [ %.1, %26 ]
   ret ptr %.0
 }
 
@@ -3046,7 +3046,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   br label %_ZNK25SafePointScalarObjectNode5cloneEP4DictRb.exit
 
 _ZNK25SafePointScalarObjectNode5cloneEP4DictRb.exit: ; preds = %42, %_ZN4Node7set_reqEjPS_.exit, %37, %33
-  %.045 = phi ptr [ %36, %37 ], [ null, %33 ], [ %87, %_ZN4Node7set_reqEjPS_.exit ], [ %43, %42 ]
+  %.045 = phi ptr [ null, %33 ], [ %36, %37 ], [ %87, %_ZN4Node7set_reqEjPS_.exit ], [ %43, %42 ]
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.045) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %27, align 8
@@ -4228,7 +4228,7 @@ define hidden noundef ptr @_ZN13SafePointNode8IdentityEP8PhaseGVN(ptr noundef no
   br label %58
 
 58:                                               ; preds = %.sink.split, %17, %24, %48, %44, %53
-  %.09 = phi ptr [ %0, %53 ], [ %0, %44 ], [ %0, %48 ], [ %0, %24 ], [ %0, %17 ], [ %57, %.sink.split ]
+  %.09 = phi ptr [ %0, %53 ], [ %0, %24 ], [ %0, %17 ], [ %0, %44 ], [ %0, %48 ], [ %57, %.sink.split ]
   ret ptr %.09
 }
 
@@ -5342,7 +5342,7 @@ _ZN4NodenwEm.exit:                                ; preds = %39, %41
   br label %46
 
 46:                                               ; preds = %16, %4, %21, %44, %_ZN4NodenwEm.exit
-  %.0 = phi ptr [ %8, %21 ], [ %.mux, %16 ], [ %8, %4 ], [ %.0.i.i.i, %44 ], [ null, %_ZN4NodenwEm.exit ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ %8, %4 ], [ %8, %21 ], [ %.mux, %16 ], [ %.0.i.i.i, %44 ]
   ret ptr %.0
 }
 
@@ -5915,14 +5915,14 @@ _ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %179
   br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.sink.split, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit53:                   ; preds = %197, %189, %186, %169, %161, %158, %_ZNK10RegionNode7is_copyEv.exit.i59, %179, %_ZNK10RegionNode7is_copyEv.exit.i52, %151
-  %.3 = phi ptr [ %.013.i48, %151 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %179 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i48, %169 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
+  %.3 = phi ptr [ %.013.i48, %169 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %151 ], [ %.013.i55, %179 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZL12next_controlP4Node.exit53, %43, %136, %_ZL12next_controlP4Node.exit46._crit_edge, %59, %54, %50, %_ZL12next_controlP4Node.exit
-  %.1 = phi ptr [ %.013.i, %_ZL12next_controlP4Node.exit ], [ %.2, %50 ], [ %.2, %54 ], [ %.2, %59 ], [ %.2, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.2, %136 ], [ %.2, %43 ], [ %.3, %_ZL12next_controlP4Node.exit53 ]
+  %.1 = phi ptr [ %.013.i, %_ZL12next_controlP4Node.exit ], [ %.2, %43 ], [ %.2, %136 ], [ %.2, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.2, %59 ], [ %.2, %54 ], [ %.2, %50 ], [ %.3, %_ZL12next_controlP4Node.exit53 ]
   %203 = getelementptr inbounds nuw i8, ptr %.1, i64 44
   %204 = load i32, ptr %203, align 4
   %205 = and i32 %204, 255
@@ -5969,7 +5969,7 @@ _ZL12next_controlP4Node.exit53:                   ; preds = %197, %189, %186, %1
   br label %241
 
 241:                                              ; preds = %229, %207, %._crit_edge
-  %.0 = phi ptr [ null, %207 ], [ null, %._crit_edge ], [ %spec.select, %229 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ %spec.select, %229 ], [ null, %207 ]
   ret ptr %.0
 }
 
@@ -6572,7 +6572,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %78, %73, %_ZN16Uniq
   br label %_ZN13GrowableArrayIP16AbstractLockNodeED2Ev.exit
 
 _ZN13GrowableArrayIP16AbstractLockNodeED2Ev.exit: ; preds = %97, %_ZN16Unique_Node_List6memberEP4Node.exit.thread, %18, %19, %36, %31, %11, %3, %30
-  %.0 = phi ptr [ null, %30 ], [ %0, %3 ], [ null, %11 ], [ null, %31 ], [ null, %36 ], [ null, %19 ], [ null, %18 ], [ null, %_ZN16Unique_Node_List6memberEP4Node.exit.thread ], [ null, %97 ]
+  %.0 = phi ptr [ null, %11 ], [ %0, %3 ], [ null, %31 ], [ null, %30 ], [ null, %36 ], [ null, %97 ], [ null, %18 ], [ null, %19 ], [ null, %_ZN16Unique_Node_List6memberEP4Node.exit.thread ]
   ret ptr %.0
 }
 
@@ -6754,7 +6754,7 @@ _ZNK8JVMState8of_depthEi.exit:                    ; preds = %.lr.ph.i, %.lr.ph40
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph40, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %17, %12, %2, %69
-  %.0 = phi i1 [ true, %69 ], [ false, %2 ], [ false, %12 ], [ false, %17 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %69 ], [ false, %17 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -6816,7 +6816,7 @@ define hidden noundef ptr @_ZN10UnlockNode5IdealEP8PhaseGVNb(ptr noundef nonnull
   br label %29
 
 29:                                               ; preds = %16, %17, %28, %26, %21, %9, %3
-  %.0 = phi ptr [ %0, %3 ], [ null, %9 ], [ null, %21 ], [ null, %26 ], [ null, %28 ], [ null, %17 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %9 ], [ %0, %3 ], [ null, %21 ], [ null, %26 ], [ null, %28 ], [ null, %17 ], [ null, %16 ]
   ret ptr %.0
 }
 

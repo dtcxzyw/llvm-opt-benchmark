@@ -2107,7 +2107,7 @@ switch.lookup340:                                 ; preds = %775
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 _ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %772, %775, %switch.lookup340, %766, %switch.lookup336, %761, %switch.lookup332, %771
-  %.0.i162 = phi ptr [ %.str.81..str.71.i, %771 ], [ %switch.load334, %switch.lookup332 ], [ @.str.71, %761 ], [ %switch.load338, %switch.lookup336 ], [ @.str.71, %766 ], [ %switch.load342, %switch.lookup340 ], [ @.str.71, %775 ], [ @.str.71, %772 ]
+  %.0.i162 = phi ptr [ %switch.load338, %switch.lookup336 ], [ @.str.71, %761 ], [ %switch.load342, %switch.lookup340 ], [ @.str.71, %766 ], [ %switch.load334, %switch.lookup332 ], [ %.str.81..str.71.i, %771 ], [ @.str.71, %775 ], [ @.str.71, %772 ]
   %780 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %758, ptr noundef nonnull %.0.i162) #20
   %781 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %780, ptr noundef nonnull @.str.13) #20
   br label %.thread224
@@ -2396,7 +2396,7 @@ _ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179: ; preds = %935, %9
   br label %.thread224
 
 .thread224:                                       ; preds = %676, %690, %839, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127, %_ZN3spv11SpirvStream8outputIdEj.exit, %741, %732, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit, %823, %826, %820, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit, %.preheader263
-  %.6 = phi i32 [ %952, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179 ], [ %421, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127 ], [ %421, %_ZN3spv11SpirvStream8outputIdEj.exit ], [ %384, %741 ], [ %384, %732 ], [ %384, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit ], [ %384, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit ], [ %384, %820 ], [ %384, %823 ], [ %384, %826 ], [ %384, %.preheader263 ], [ %841, %839 ], [ %384, %690 ], [ %384, %676 ]
+  %.6 = phi i32 [ %952, %_ZN3spv11SpirvStream10outputMaskENS_12OperandClassEj.exit179 ], [ %421, %_ZN3spv11SpirvStream12decodeStringB5cxx11Ev.exit127 ], [ %421, %_ZN3spv11SpirvStream8outputIdEj.exit ], [ %384, %741 ], [ %384, %732 ], [ %384, %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit ], [ %384, %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit ], [ %384, %820 ], [ %384, %823 ], [ %384, %826 ], [ %841, %839 ], [ %384, %.preheader263 ], [ %384, %690 ], [ %384, %676 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %953 = load ptr, ptr %351, align 8
   %954 = load ptr, ptr %350, align 8
@@ -3118,7 +3118,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -3461,7 +3461,7 @@ _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8
   %60 = load ptr, ptr %.0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24

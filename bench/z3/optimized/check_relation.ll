@@ -1325,7 +1325,7 @@ _ZN10smt_paramsD2Ev.exit:                         ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 202:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %60, %113, %119, %149, %155, %179, %58
-  %.pn35.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %180, %179 ], [ %.pn31, %119 ], [ %.pn29, %113 ], [ %.pn27, %155 ], [ %.pn, %149 ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
+  %.pn35.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %180, %179 ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %.pn31, %119 ], [ %.pn29, %113 ], [ %.pn27, %155 ], [ %.pn, %149 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN3smt6kernelD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
@@ -3153,7 +3153,7 @@ define hidden noundef ptr @_ZNK7datalog14check_relation5cloneEv(ptr noundef nonn
   br label %_ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %1, %11
-  %13 = phi ptr [ %12, %11 ], [ null, %1 ]
+  %13 = phi ptr [ null, %1 ], [ %12, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = load ptr, ptr %15, align 8, !tbaa !3
@@ -3284,7 +3284,7 @@ define hidden noundef ptr @_ZN7datalog21check_relation_plugin3getEPNS_13relation
   br label %4
 
 4:                                                ; preds = %1, %2
-  %5 = phi ptr [ %3, %2 ], [ null, %1 ]
+  %5 = phi ptr [ null, %1 ], [ %3, %2 ]
   ret ptr %5
 }
 
@@ -3308,7 +3308,7 @@ define hidden noundef ptr @_ZNK7datalog14check_relation10complementEP9func_decl(
   br label %_ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %2, %13
-  %15 = phi ptr [ %14, %13 ], [ null, %2 ]
+  %15 = phi ptr [ null, %2 ], [ %14, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = load ptr, ptr %17, align 8, !tbaa !3
@@ -6126,9 +6126,9 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit57:                ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %77, label %84, label %.critedge104
 
 .critedge104:                                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit57, %..critedge104.loopexit_crit_edge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader
-  %78 = phi ptr [ %53, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %71, %..critedge104.loopexit_crit_edge ], [ %71, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
-  %79 = phi ptr [ %50, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %72, %..critedge104.loopexit_crit_edge ], [ %72, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
-  %80 = phi ptr [ %51, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %.pre121.pre, %..critedge104.loopexit_crit_edge ], [ %.pre121.pre125, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
+  %78 = phi ptr [ %71, %..critedge104.loopexit_crit_edge ], [ %53, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %71, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
+  %79 = phi ptr [ %72, %..critedge104.loopexit_crit_edge ], [ %50, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %72, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
+  %80 = phi ptr [ %.pre121.pre, %..critedge104.loopexit_crit_edge ], [ %51, %_ZNK6vectorIjLb0EjE4sizeEv.exit.preheader ], [ %.pre121.pre125, %_ZNK6vectorIjLb0EjE4sizeEv.exit57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12beta_reducer, i64 16), ptr %7, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 536
@@ -9707,7 +9707,7 @@ _ZN7datalog21check_relation_plugin21filter_interpreted_fnC2EPNS_17tr_infrastruct
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %24, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit, %_ZN7datalog21check_relation_plugin21filter_interpreted_fnC2EPNS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnER7obj_refI3app11ast_managerE.exit.thread12, %36
-  %40 = phi ptr [ %31, %_ZN7datalog21check_relation_plugin21filter_interpreted_fnC2EPNS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnER7obj_refI3app11ast_managerE.exit.thread12 ], [ %31, %36 ], [ null, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit ], [ %23, %24 ]
+  %40 = phi ptr [ null, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit ], [ %31, %36 ], [ %31, %_ZN7datalog21check_relation_plugin21filter_interpreted_fnC2EPNS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnER7obj_refI3app11ast_managerE.exit.thread12 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %40
 
@@ -10520,7 +10520,7 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIP4sortLb
   br i1 %exitcond.not.i, label %_ZN6vectorIP4sortLb0EjE7reverseEv.exit, label %.lr.ph.i, !llvm.loop !408
 
 _ZN6vectorIP4sortLb0EjE7reverseEv.exit:           ; preds = %.lr.ph.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i
-  %.ph = phi ptr [ %.pr, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ], [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62 ], [ %.pr, %.lr.ph.i ]
+  %.ph = phi ptr [ null, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit62 ], [ %.pr, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i ], [ %.pr, %.lr.ph.i ]
   %.pr152 = load ptr, ptr %17, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !395
@@ -12999,7 +12999,7 @@ _ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %_Z
   br label %_ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog21check_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit, %13
-  %15 = phi ptr [ %14, %13 ], [ null, %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit ]
+  %15 = phi ptr [ null, %_ZN7datalog21check_relation_plugin3getERKNS_13relation_baseE.exit ], [ %14, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !35

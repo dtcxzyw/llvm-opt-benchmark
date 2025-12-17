@@ -44,7 +44,7 @@ define dso_local noundef ptr @_ZN4llvm12getFMA3GroupEjm(i32 noundef %0, i64 noun
   br label %19
 
 19:                                               ; preds = %10, %16
-  %20 = phi i1 [ %18, %16 ], [ true, %10 ]
+  %20 = phi i1 [ true, %10 ], [ %18, %16 ]
   %21 = and i64 %1, 4096
   %22 = icmp eq i64 %21, 0
   %or.cond7 = and i1 %11, %20

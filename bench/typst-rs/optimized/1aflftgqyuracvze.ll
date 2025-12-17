@@ -801,7 +801,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14, label %.preheader17.split
 
 _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ true, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.loopexit.us ], [ true, %18 ], [ true, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit ], [ false, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread ]
   ret i1 %.0
 }
 
@@ -2876,7 +2876,7 @@ select.unfold:                                    ; preds = %.noexc220, %174
   br i1 %260, label %241, label %255
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit333": ; preds = %.loopexit588, %.loopexit.split-lp589, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit", %899
-  %.pn197 = phi { ptr, i32 } [ %.pn195, %899 ], [ %.pn195, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit" ], [ %lpad.loopexit590, %.loopexit588 ], [ %lpad.loopexit.split-lp591, %.loopexit.split-lp589 ]
+  %.pn197 = phi { ptr, i32 } [ %.pn195, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit" ], [ %.pn195, %899 ], [ %lpad.loopexit590, %.loopexit588 ], [ %lpad.loopexit.split-lp591, %.loopexit.split-lp589 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !495
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c2671336f0f909fE.llvm.17057414408856058071"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73)
           to label %.noexc229 unwind label %914
@@ -3002,7 +3002,7 @@ select.unfold:                                    ; preds = %.noexc220, %174
   unreachable
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235": ; preds = %.loopexit606, %.loopexit.split-lp607, %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit", %300, %290, %293
-  %.pn193 = phi { ptr, i32 } [ %lpad.phi602, %293 ], [ %lpad.phi602, %290 ], [ %.pn190.pn, %300 ], [ %.pn190.pn, %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit" ], [ %lpad.loopexit608, %.loopexit606 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp607 ]
+  %.pn193 = phi { ptr, i32 } [ %.pn190.pn, %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit" ], [ %lpad.phi602, %290 ], [ %lpad.phi602, %293 ], [ %.pn190.pn, %300 ], [ %lpad.loopexit608, %.loopexit606 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp607 ]
   %286 = load i8, ptr %105, align 1, !alias.scope !524, !noundef !12
   %287 = icmp sgt i8 %286, -1
   br i1 %287, label %288, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit"
@@ -3022,7 +3022,7 @@ select.unfold:                                    ; preds = %.noexc220, %174
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235"
 
 "_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit": ; preds = %277, %281, %280
-  %.sroa.0408.0 = phi ptr [ %.sroa.0408.0.copyload409, %281 ], [ inttoptr (i64 16 to ptr), %280 ], [ %.sroa.0408.0.copyload409, %277 ]
+  %.sroa.0408.0 = phi ptr [ inttoptr (i64 16 to ptr), %280 ], [ %.sroa.0408.0.copyload409, %281 ], [ %.sroa.0408.0.copyload409, %277 ]
   store ptr %.sroa.0408.0, ptr %66, align 8
   store i64 %.sroa.5410.0.copyload412, ptr %.sroa.5410.0..sroa_idx, align 8
   br label %289
@@ -3086,7 +3086,7 @@ select.unfold:                                    ; preds = %.noexc220, %174
   br label %289
 
 "_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit": ; preds = %954, %323, %303, %322, %301
-  %.pn190.pn = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %302, %301 ], [ %304, %303 ], [ %lpad.thr_comm.split-lp, %323 ], [ %.pn190438, %954 ]
+  %.pn190.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %323 ], [ %.pn186.pn.pn, %322 ], [ %302, %301 ], [ %304, %303 ], [ %.pn190438, %954 ]
   %298 = load i8, ptr %107, align 1, !alias.scope !544, !noundef !12
   %299 = icmp sgt i8 %298, -1
   br i1 %299, label %300, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235"
@@ -3209,8 +3209,8 @@ select.unfold:                                    ; preds = %.noexc220, %174
   br label %356
 
 .body358:                                         ; preds = %.thread531.loopexit, %.thread531.loopexit.split-lp.loopexit.split-lp, %.thread531.loopexit.split-lp.loopexit, %.loopexit574, %.loopexit.split-lp575.loopexit.split-lp, %.loopexit.split-lp575.loopexit, %792, %.body308, %916, %.body385, %.thread477, %379, %923
-  %.2 = phi i1 [ true, %923 ], [ true, %379 ], [ %.3.ph, %.thread477 ], [ false, %.body385 ], [ false, %916 ], [ false, %.body308 ], [ false, %792 ], [ true, %.loopexit.split-lp575.loopexit ], [ true, %.loopexit.split-lp575.loopexit.split-lp ], [ true, %.loopexit574 ], [ false, %.thread531.loopexit.split-lp.loopexit ], [ false, %.thread531.loopexit.split-lp.loopexit.split-lp ], [ false, %.thread531.loopexit ]
-  %.pn186.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp476, %923 ], [ %lpad.phi582, %379 ], [ %lpad.thr_comm475, %.thread477 ], [ %eh.lpad-body386, %.body385 ], [ %lpad.thr_comm.split-lp530, %916 ], [ %.pn184, %.body308 ], [ %793, %792 ], [ %lpad.loopexit603, %.loopexit.split-lp575.loopexit ], [ %lpad.loopexit.split-lp604, %.loopexit.split-lp575.loopexit.split-lp ], [ %lpad.loopexit576, %.loopexit574 ], [ %lpad.loopexit571, %.thread531.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp572, %.thread531.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.thread531.loopexit ]
+  %.2 = phi i1 [ true, %923 ], [ %.3.ph, %.thread477 ], [ false, %792 ], [ true, %379 ], [ false, %916 ], [ true, %.loopexit574 ], [ false, %.body385 ], [ false, %.body308 ], [ true, %.loopexit.split-lp575.loopexit ], [ true, %.loopexit.split-lp575.loopexit.split-lp ], [ false, %.thread531.loopexit.split-lp.loopexit ], [ false, %.thread531.loopexit.split-lp.loopexit.split-lp ], [ false, %.thread531.loopexit ]
+  %.pn186.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp476, %923 ], [ %lpad.thr_comm475, %.thread477 ], [ %793, %792 ], [ %lpad.phi582, %379 ], [ %lpad.thr_comm.split-lp530, %916 ], [ %lpad.loopexit576, %.loopexit574 ], [ %eh.lpad-body386, %.body385 ], [ %.pn184, %.body308 ], [ %lpad.loopexit603, %.loopexit.split-lp575.loopexit ], [ %lpad.loopexit.split-lp604, %.loopexit.split-lp575.loopexit.split-lp ], [ %lpad.loopexit571, %.thread531.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp572, %.thread531.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.thread531.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !554
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb9efe2afdc3f92c9E.llvm.17057414408856058071"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60)
           to label %.noexc244 unwind label %914
@@ -3562,7 +3562,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i: ; 
   br label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i
 
 _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i: ; preds = %465, %.noexc255, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i", %433, %430, %427, %418
-  %469 = phi float [ %468, %465 ], [ %408, %.noexc255 ], [ %408, %418 ], [ %408, %433 ], [ %408, %427 ], [ %408, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i" ], [ %408, %430 ]
+  %469 = phi float [ %468, %465 ], [ %408, %.noexc255 ], [ %408, %418 ], [ %408, %430 ], [ %408, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i" ], [ %408, %433 ], [ %408, %427 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !576
   br label %470
 
@@ -3592,8 +3592,8 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   invoke void @"_ZN95_$LT$typst..util..GroupByKey$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52ba0906f07f47caE"(ptr noalias noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(16) %58)
           to label %479 unwind label %923
 
-.thread477:                                       ; preds = %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit, %482, %490, %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..font..Widths$GT$17h0b4ffb39f76437efE.exit", %582, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread, %.noexc262, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit, %601, %.noexc265, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit267, %609, %.noexc270, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit272, %617, %.noexc275, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277, %629, %633, %639
-  %.3.ph = phi i1 [ false, %639 ], [ false, %633 ], [ false, %629 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277 ], [ false, %.noexc275 ], [ false, %617 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit272 ], [ false, %.noexc270 ], [ false, %609 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit267 ], [ false, %.noexc265 ], [ false, %601 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit ], [ false, %.noexc262 ], [ false, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread ], [ false, %582 ], [ false, %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..font..Widths$GT$17h0b4ffb39f76437efE.exit" ], [ true, %490 ], [ true, %482 ], [ false, %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit ]
+.thread477:                                       ; preds = %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit, %609, %617, %639, %633, %629, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277, %.noexc275, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit272, %.noexc270, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit267, %.noexc265, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit, %.noexc262, %582, %482, %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..font..Widths$GT$17h0b4ffb39f76437efE.exit", %490, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread, %601
+  %.3.ph = phi i1 [ false, %601 ], [ false, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread ], [ true, %490 ], [ false, %"_ZN4core3ptr45drop_in_place$LT$pdf_writer..font..Widths$GT$17h0b4ffb39f76437efE.exit" ], [ true, %482 ], [ false, %582 ], [ false, %.noexc262 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit ], [ false, %.noexc265 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit267 ], [ false, %.noexc270 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit272 ], [ false, %.noexc275 ], [ false, %_ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277 ], [ false, %629 ], [ false, %633 ], [ false, %639 ], [ false, %617 ], [ false, %609 ], [ false, %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit ]
   %lpad.thr_comm475 = landingpad { ptr, i32 }
           cleanup
   br label %.body358
@@ -4043,7 +4043,7 @@ _ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277: ; preds = %.noexc275
   br label %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit
 
 _ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit: ; preds = %662, %661, %660, %659, %658, %657, %656, %.thread498, %652, %645, %655, %649
-  %.0.i288 = phi float [ 7.100000e+01, %656 ], [ 0x405DF33340000000, %657 ], [ 0x4062066660000000, %658 ], [ 0x4065133340000000, %659 ], [ 1.930000e+02, %660 ], [ 0x406B2CCCE0000000, %661 ], [ 0x4036333340000000, %.thread498 ], [ 0x40474CCCE0000000, %652 ], [ 0x4057D999A0000000, %645 ], [ 0x4057D999A0000000, %655 ], [ 0xC001999980000000, %649 ], [ %666, %662 ]
+  %.0.i288 = phi float [ 0x4057D999A0000000, %655 ], [ 0x4036333340000000, %.thread498 ], [ 7.100000e+01, %656 ], [ 0x40474CCCE0000000, %652 ], [ 0x405DF33340000000, %657 ], [ 0x4062066660000000, %658 ], [ 0x4065133340000000, %659 ], [ 1.930000e+02, %660 ], [ 0x406B2CCCE0000000, %661 ], [ 0x4057D999A0000000, %645 ], [ 0xC001999980000000, %649 ], [ %666, %662 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke void @_ZN10pdf_writer5chunk5Chunk15font_descriptor17hf8447fb0e50a919aE(ptr noalias noundef nonnull sret({ { ptr, i32, i8, i8, [2 x i8] } }) align 8 captures(none) dereferenceable(16) %54, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %158)
           to label %667 unwind label %.thread477
@@ -4053,12 +4053,12 @@ _ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit: ; preds = 
           cleanup
   br label %.body358
 
-.thread531.loopexit.split-lp.loopexit:            ; preds = %_ZN4core3ops8function6FnOnce9call_once17h895b86a19a96264aE.exit.i2.i.i, %781, %782, %784, %785, %786, %787, %788
+.thread531.loopexit.split-lp.loopexit:            ; preds = %788, %_ZN4core3ops8function6FnOnce9call_once17h895b86a19a96264aE.exit.i2.i.i, %781, %782, %784, %785, %786, %787
   %lpad.loopexit571 = landingpad { ptr, i32 }
           cleanup
   br label %.body358
 
-.thread531.loopexit.split-lp.loopexit.split-lp:   ; preds = %._crit_edge, %694, %"_ZN4core3ptr53drop_in_place$LT$pdf_writer..font..FontDescriptor$GT$17h75de32fd5a2da30eE.exit", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca658848163797feE.exit.thread66.i", %"_ZN4core3ptr43drop_in_place$LT$pdf_writer..font..Cmap$GT$17h2b5b187fae30098dE.exit", %806, %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hf8c463812dcbbd25E.exit322"
+.thread531.loopexit.split-lp.loopexit.split-lp:   ; preds = %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hf8c463812dcbbd25E.exit322", %806, %"_ZN4core3ptr43drop_in_place$LT$pdf_writer..font..Cmap$GT$17h2b5b187fae30098dE.exit", %._crit_edge, %694, %"_ZN4core3ptr53drop_in_place$LT$pdf_writer..font..FontDescriptor$GT$17h75de32fd5a2da30eE.exit", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca658848163797feE.exit.thread66.i"
   %lpad.loopexit.split-lp572 = landingpad { ptr, i32 }
           cleanup
   br label %.body358
@@ -4620,7 +4620,7 @@ default.unreachable1.i364:                        ; preds = %_ZN10ttf_parser6tab
   unreachable
 
 .body308:                                         ; preds = %"_ZN4core3ptr47drop_in_place$LT$pdf_writer..object..Stream$GT$17h6302ef8c0d407252E.exit340", %831, %821, %814, %810
-  %.pn184 = phi { ptr, i32 } [ %822, %821 ], [ %811, %814 ], [ %811, %810 ], [ %.pn, %831 ], [ %.pn, %"_ZN4core3ptr47drop_in_place$LT$pdf_writer..object..Stream$GT$17h6302ef8c0d407252E.exit340" ]
+  %.pn184 = phi { ptr, i32 } [ %811, %810 ], [ %822, %821 ], [ %811, %814 ], [ %.pn, %831 ], [ %.pn, %"_ZN4core3ptr47drop_in_place$LT$pdf_writer..object..Stream$GT$17h6302ef8c0d407252E.exit340" ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17hb38b526916b28d72E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #33
           to label %.body358 unwind label %914
 
@@ -4641,7 +4641,7 @@ default.unreachable1.i364:                        ; preds = %_ZN10ttf_parser6tab
           to label %834 unwind label %832
 
 "_ZN4core3ptr47drop_in_place$LT$pdf_writer..object..Stream$GT$17h6302ef8c0d407252E.exit340": ; preds = %913, %836, %832
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp546, %836 ], [ %833, %832 ], [ %lpad.phi560, %913 ]
+  %.pn = phi { ptr, i32 } [ %833, %832 ], [ %lpad.thr_comm.split-lp546, %836 ], [ %lpad.phi560, %913 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   call void @llvm.experimental.noalias.scope.decl(metadata !778)
   %828 = load ptr, ptr %47, align 8, !alias.scope !781, !nonnull !12, !noundef !12
@@ -4850,7 +4850,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %.noe
           to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit331" unwind label %900
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235", %288, %269, %272, %900
-  %.pn195 = phi { ptr, i32 } [ %901, %900 ], [ %lpad.phi597, %272 ], [ %lpad.phi597, %269 ], [ %.pn193, %288 ], [ %.pn193, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235" ]
+  %.pn195 = phi { ptr, i32 } [ %901, %900 ], [ %lpad.phi597, %269 ], [ %lpad.phi597, %272 ], [ %.pn193, %288 ], [ %.pn193, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit235" ]
   %897 = load i8, ptr %142, align 1, !alias.scope !836, !noundef !12
   %898 = icmp sgt i8 %897, -1
   br i1 %898, label %899, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit333"
@@ -4906,7 +4906,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %.noe
           cleanup
   br label %913
 
-.loopexit.split-lp:                               ; preds = %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i, %857, %._crit_edge.i.i315, %846, %834
+.loopexit.split-lp:                               ; preds = %857, %._crit_edge.i.i315, %846, %834, %_ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i
   %lpad.loopexit.split-lp559 = landingpad { ptr, i32 }
           cleanup
   br label %913
@@ -4945,7 +4945,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %.noe
   invoke void @"_ZN4core3ptr45drop_in_place$LT$pdf_writer..font..Widths$GT$17h0b4ffb39f76437efE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %59) #33
           to label %.body358 unwind label %914
 
-.thread553:                                       ; preds = %397, %400, %386, %470
+.thread553:                                       ; preds = %400, %397, %386, %470
   br label %924
 
 924:                                              ; preds = %470, %.thread553
@@ -5026,7 +5026,7 @@ _ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit: ; preds = %.thread.i, %.n
           to label %189 unwind label %.loopexit.split-lp575.loopexit.split-lp
 
 954:                                              ; preds = %.thread440, %322
-  %.pn190438 = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %lpad.thr_comm, %.thread440 ]
+  %.pn190438 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread440 ], [ %.pn186.pn.pn, %322 ]
   invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %61)
           to label %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit" unwind label %914
 

@@ -34,7 +34,7 @@ define internal i32 @dv_parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr nound
   br label %17
 
 17:                                               ; preds = %7, %4, %14
-  %.0 = phi i32 [ %16, %14 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %16, %14 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -102,7 +102,7 @@ define internal range(i32 -2147483648, 1) i32 @dv_handle_packet(ptr noundef %0, 
   br label %34
 
 34:                                               ; preds = %30, %27, %21, %18
-  %.0 = phi i32 [ -1094995529, %18 ], [ %22, %21 ], [ -11, %27 ], [ %., %30 ]
+  %.0 = phi i32 [ -1094995529, %18 ], [ %., %30 ], [ -11, %27 ], [ %22, %21 ]
   ret i32 %.0
 }
 

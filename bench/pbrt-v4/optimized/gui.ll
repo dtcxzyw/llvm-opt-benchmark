@@ -260,7 +260,7 @@ define dso_local noundef nonnull ptr @_ZN4pbrt16getGLErrorStringEj(i32 noundef %
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.6, %6 ], [ @.str.5, %5 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -404,7 +404,7 @@ select.unfold.i.i:                                ; preds = %24, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %28, %select.unfold.i.i
-  %32 = phi i1 [ true, %select.unfold.i.i ], [ %31, %28 ]
+  %32 = phi i1 [ %31, %28 ], [ true, %select.unfold.i.i ]
   %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 %2, ptr %34, align 1, !tbaa !40
@@ -454,7 +454,7 @@ _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread.sink.split: ; preds = %46, %_ZN
   store i64 %50, ptr %48, align 8, !tbaa !46
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread
 
-_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread.sink.split, %24, %35, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit, %9, %3
+_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread.sink.split, %24, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i, %35, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit, %9, %3
   ret void
 }
 
@@ -1416,7 +1416,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i.i.i:  ; preds = %230
   br label %"_ZZN4pbrt3GUI11processKeysEvENK4$_11clEcSt8functionIFNS_9TransformES3_EE.exit218.thread"
 
 "_ZZN4pbrt3GUI11processKeysEvENK4$_11clEcSt8functionIFNS_9TransformES3_EE.exit218.thread": ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i212, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i213, %"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_.exit"
-  %.10443 = phi i1 [ true, %"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_.exit" ], [ %.9439, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i213 ], [ %.9439, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i212 ]
+  %.10443 = phi i1 [ %.9439, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i212 ], [ true, %"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_.exit" ], [ %.9439, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i213 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZZN4pbrt3GUI11processKeysEvENK4$_11clEcSt8functionIFNS_9TransformES3_EE.exit218.thread", %.lr.ph.i.i.i
@@ -1647,7 +1647,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
   unreachable
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread: ; preds = %254, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i231
-  %.sroa.0.0.i.i233 = phi ptr [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i231 ], [ %spec.select.i.i232, %254 ]
+  %.sroa.0.0.i.i233 = phi ptr [ %spec.select.i.i232, %254 ], [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i231 ]
   %338 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i233, ptr noundef nonnull align 8 dereferenceable(32) %49) #30
   call void @_ZdlPvm(ptr noundef nonnull %338, i64 noundef 40) #31
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1712,7 +1712,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread: ; preds = %354, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i279
-  %.sroa.0.0.i.i281 = phi ptr [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i279 ], [ %spec.select.i.i280, %354 ]
+  %.sroa.0.0.i.i281 = phi ptr [ %spec.select.i.i280, %354 ], [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i279 ]
   %358 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i281, ptr noundef nonnull align 8 dereferenceable(32) %49) #30
   call void @_ZdlPvm(ptr noundef nonnull %358, i64 noundef 40) #31
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1778,7 +1778,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread: ; preds = %375, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i305
-  %.sroa.0.0.i.i307 = phi ptr [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i305 ], [ %spec.select.i.i306, %375 ]
+  %.sroa.0.0.i.i307 = phi ptr [ %spec.select.i.i306, %375 ], [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i305 ]
   %379 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i307, ptr noundef nonnull align 8 dereferenceable(32) %49) #30
   call void @_ZdlPvm(ptr noundef nonnull %379, i64 noundef 40) #31
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1844,7 +1844,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread: ; preds = %396, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i331
-  %.sroa.0.0.i.i333 = phi ptr [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i331 ], [ %spec.select.i.i332, %396 ]
+  %.sroa.0.0.i.i333 = phi ptr [ %spec.select.i.i332, %396 ], [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i331 ]
   %400 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i333, ptr noundef nonnull align 8 dereferenceable(32) %49) #30
   call void @_ZdlPvm(ptr noundef nonnull %400, i64 noundef 40) #31
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1911,7 +1911,7 @@ _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_n
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360:     ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i357, %418
-  %.sroa.0.0.i.i359 = phi ptr [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i357 ], [ %spec.select.i.i358, %418 ]
+  %.sroa.0.0.i.i359 = phi ptr [ %spec.select.i.i358, %418 ], [ %49, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i357 ]
   %422 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.0.0.i.i359, ptr noundef nonnull align 8 dereferenceable(32) %49) #30
   call void @_ZdlPvm(ptr noundef nonnull %422, i64 noundef 40) #31
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1924,12 +1924,12 @@ _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360:     ; preds = %_ZNSt8_Rb_treeIccSt
   store float %428, ptr %426, align 8, !tbaa !63
   br label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347.thread
 
-_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347.thread: ; preds = %_ZNSt14_Function_baseD2Ev.exit202, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i344, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347
-  %.10443582 = phi i1 [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread ], [ %.10443, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i344 ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360 ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347 ], [ %.9439, %_ZNSt14_Function_baseD2Ev.exit202 ]
+_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347.thread: ; preds = %_ZNSt14_Function_baseD2Ev.exit202, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i344, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347
+  %.10443582 = phi i1 [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit347 ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.thread ], [ %.9439, %_ZNSt14_Function_baseD2Ev.exit202 ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit269.thread ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit295.thread ], [ %.10443, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i344 ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit321.thread ], [ %.10443, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit360 ]
   ret i1 %.10443582
 
 _ZNSt14_Function_baseD2Ev.exit236:                ; preds = %333, %330, %325, %322, %317, %314, %309, %306, %301, %298, %293, %290, %285, %282, %277, %274, %269, %266, %261, %258
-  %.pn = phi { ptr, i32 } [ %259, %258 ], [ %259, %261 ], [ %267, %266 ], [ %267, %269 ], [ %275, %274 ], [ %275, %277 ], [ %283, %282 ], [ %283, %285 ], [ %291, %290 ], [ %291, %293 ], [ %299, %298 ], [ %299, %301 ], [ %307, %306 ], [ %307, %309 ], [ %315, %314 ], [ %315, %317 ], [ %323, %322 ], [ %323, %325 ], [ %331, %330 ], [ %331, %333 ]
+  %.pn = phi { ptr, i32 } [ %331, %333 ], [ %323, %325 ], [ %315, %317 ], [ %307, %309 ], [ %299, %301 ], [ %291, %293 ], [ %283, %285 ], [ %275, %277 ], [ %267, %269 ], [ %259, %261 ], [ %259, %258 ], [ %267, %266 ], [ %275, %274 ], [ %283, %282 ], [ %291, %290 ], [ %299, %298 ], [ %307, %306 ], [ %315, %314 ], [ %323, %322 ], [ %331, %330 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2907,7 +2907,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %169
   br label %220
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit18.i:        ; preds = %211, %207, %205, %203
-  %.pn.pn.i = phi { ptr, i32 } [ %206, %205 ], [ %204, %203 ], [ %208, %207 ], [ %212, %211 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %212, %211 ]
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %116) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body

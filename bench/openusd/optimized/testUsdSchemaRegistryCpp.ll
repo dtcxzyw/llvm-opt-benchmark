@@ -642,100 +642,100 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %168 = alloca %"class.std::__cxx11::basic_string", align 8
   %169 = alloca %"class.std::vector", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArchGetCwdB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %168)
-  %.sink629.i.sroa.gep = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %.sink629.i.sroa.gep111 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %.sink629.i.sroa.gep112 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %.sink629.i.sroa.gep = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %.sink629.i.sroa.gep109 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %.sink629.i.sroa.gep110 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %.sink629.i.sroa.gep115 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %.sink629.i.sroa.gep117 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %.sink629.i.sroa.gep120 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %.sink629.i.sroa.gep121 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %.sink629.i.sroa.gep117 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %.sink629.i.sroa.gep118 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %.sink629.i.sroa.gep119 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %.sink629.i.sroa.gep124 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %.sink629.i.sroa.gep126 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %.sink629.i.sroa.gep129 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %.sink629.i.sroa.gep130 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.sink629.i.sroa.gep126 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.sink629.i.sroa.gep127 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %.sink629.i.sroa.gep128 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %.sink629.i.sroa.gep133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %.sink629.i.sroa.gep135 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %.sink629.i.sroa.gep138 = getelementptr inbounds nuw i8, ptr %133, i64 32
-  %.sink629.i.sroa.gep139 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.sink629.i.sroa.gep135 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.sink629.i.sroa.gep136 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %.sink629.i.sroa.gep137 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %.sink629.i.sroa.gep142 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  %.sink629.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %.sink629.i.sroa.gep147 = getelementptr inbounds nuw i8, ptr %133, i64 40
-  %.sink629.i.sroa.gep148 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %.sink629.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %.sink629.i.sroa.gep145 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  %.sink629.i.sroa.gep146 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %.sink629.i.sroa.gep151 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %.sink637.i.sroa.gep = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %.sink637.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %.sink637.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %.sink637.i.sroa.gep154 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %.sink637.i.sroa.gep155 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %.sink637.i.sroa.gep156 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %.sink637.i.sroa.gep = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %.sink637.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %.sink637.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %.sink637.i.sroa.gep154 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %.sink637.i.sroa.gep155 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %.sink637.i.sroa.gep156 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sink637.i.sroa.gep157 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %.sink637.i.sroa.gep159 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %.sink637.i.sroa.gep160 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %.sink637.i.sroa.gep161 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %.sink637.i.sroa.gep162 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %.sink637.i.sroa.gep163 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %.sink637.i.sroa.gep164 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %.sink637.i.sroa.gep159 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %.sink637.i.sroa.gep160 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %.sink637.i.sroa.gep161 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %.sink637.i.sroa.gep162 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %.sink637.i.sroa.gep163 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %.sink637.i.sroa.gep164 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %.sink637.i.sroa.gep165 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %.sink637.i.sroa.gep167 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %.sink637.i.sroa.gep168 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %.sink637.i.sroa.gep169 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  %.sink637.i.sroa.gep170 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %.sink637.i.sroa.gep171 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %.sink637.i.sroa.gep172 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %.sink637.i.sroa.gep167 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %.sink637.i.sroa.gep168 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %.sink637.i.sroa.gep169 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %.sink637.i.sroa.gep170 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %.sink637.i.sroa.gep171 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %.sink637.i.sroa.gep172 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %.sink637.i.sroa.gep173 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %.sink637.i.sroa.gep175 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %.sink637.i.sroa.gep176 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %.sink637.i.sroa.gep177 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %.sink637.i.sroa.gep178 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %.sink637.i.sroa.gep179 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %.sink637.i.sroa.gep180 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %.sink637.i.sroa.gep175 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %.sink637.i.sroa.gep176 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %.sink637.i.sroa.gep177 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %.sink637.i.sroa.gep178 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %.sink637.i.sroa.gep179 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  %.sink637.i.sroa.gep180 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %.sink637.i.sroa.gep181 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %.sink637.i.sroa.gep183 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %.sink637.i.sroa.gep184 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink637.i.sroa.gep185 = getelementptr inbounds nuw i8, ptr %118, i64 40
-  %.sink637.i.sroa.gep186 = getelementptr inbounds nuw i8, ptr %117, i64 40
-  %.sink637.i.sroa.gep187 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %.sink637.i.sroa.gep188 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %.sink637.i.sroa.gep183 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %.sink637.i.sroa.gep184 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %.sink637.i.sroa.gep185 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %.sink637.i.sroa.gep186 = getelementptr inbounds nuw i8, ptr %118, i64 40
+  %.sink637.i.sroa.gep187 = getelementptr inbounds nuw i8, ptr %117, i64 40
+  %.sink637.i.sroa.gep188 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %.sink637.i.sroa.gep189 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %.sink486.i.sroa.gep = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.sink486.i.sroa.gep190 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %.sink486.i.sroa.gep191 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.sink486.i.sroa.gep192 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.sink486.i.sroa.gep = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %.sink486.i.sroa.gep190 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %.sink486.i.sroa.gep191 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %.sink486.i.sroa.gep192 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %.sink486.i.sroa.gep193 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.sink486.i.sroa.gep194 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sink486.i.sroa.gep195 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %.sink486.i.sroa.gep196 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sink486.i.sroa.gep197 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %.sink486.i.sroa.gep199 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %.sink486.i.sroa.gep200 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %.sink486.i.sroa.gep201 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %.sink486.i.sroa.gep202 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %.sink486.i.sroa.gep199 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %.sink486.i.sroa.gep200 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %.sink486.i.sroa.gep201 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %.sink486.i.sroa.gep202 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %.sink486.i.sroa.gep203 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %.sink486.i.sroa.gep204 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %.sink486.i.sroa.gep205 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %.sink486.i.sroa.gep206 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.sink486.i.sroa.gep207 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %.sink486.i.sroa.gep209 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %.sink486.i.sroa.gep210 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %.sink486.i.sroa.gep211 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %.sink486.i.sroa.gep212 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %.sink486.i.sroa.gep209 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %.sink486.i.sroa.gep210 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %.sink486.i.sroa.gep211 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %.sink486.i.sroa.gep212 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %.sink486.i.sroa.gep213 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %.sink486.i.sroa.gep214 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %.sink486.i.sroa.gep215 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %.sink486.i.sroa.gep216 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %.sink486.i.sroa.gep217 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %.sink486.i.sroa.gep219 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %.sink486.i.sroa.gep220 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %.sink486.i.sroa.gep221 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %.sink486.i.sroa.gep222 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %.sink486.i.sroa.gep219 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %.sink486.i.sroa.gep220 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %.sink486.i.sroa.gep221 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %.sink486.i.sroa.gep222 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %.sink486.i.sroa.gep223 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %.sink486.i.sroa.gep224 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %.sink486.i.sroa.gep225 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %.sink486.i.sroa.gep226 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %.sink486.i.sroa.gep227 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %.sink486.i.sroa.gep229 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %.sink486.i.sroa.gep230 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %.sink486.i.sroa.gep231 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %.sink486.i.sroa.gep232 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %.sink486.i.sroa.gep229 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %.sink486.i.sroa.gep230 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %.sink486.i.sroa.gep231 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %.sink486.i.sroa.gep232 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %.sink486.i.sroa.gep233 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %.sink486.i.sroa.gep234 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %.sink486.i.sroa.gep235 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %.sink486.i.sroa.gep236 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %.sink486.i.sroa.gep237 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %.sink494.i.sroa.gep = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sink494.i.sroa.gep238 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -757,135 +757,135 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %.sink502.i.sroa.gep260 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %.sink502.i.sroa.gep262 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %.sink502.i.sroa.gep263 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %.sink271.i.sroa.gep = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sink271.i.sroa.gep264 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink271.i.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink271.i.sroa.gep264 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sink271.i.sroa.gep265 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink271.i.sroa.gep267 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sink271.i.sroa.gep268 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink271.i.sroa.gep267 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink271.i.sroa.gep268 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sink271.i.sroa.gep269 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink271.i.sroa.gep271 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sink271.i.sroa.gep272 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink271.i.sroa.gep271 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink271.i.sroa.gep272 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %.sink271.i.sroa.gep273 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sink271.i.sroa.gep275 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %.sink271.i.sroa.gep276 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink271.i.sroa.gep275 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink271.i.sroa.gep276 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sink271.i.sroa.gep277 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.sink271.i.sroa.gep279 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %.sink271.i.sroa.gep280 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.sink271.i.sroa.gep279 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.sink271.i.sroa.gep280 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sink271.i.sroa.gep281 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %.sink279.i.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sink279.i.sroa.gep282 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sink279.i.sroa.gep283 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sink279.i.sroa.gep = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sink279.i.sroa.gep282 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink279.i.sroa.gep283 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sink279.i.sroa.gep284 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink279.i.sroa.gep286 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sink279.i.sroa.gep287 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sink279.i.sroa.gep288 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sink279.i.sroa.gep286 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sink279.i.sroa.gep287 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sink279.i.sroa.gep288 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sink279.i.sroa.gep289 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink279.i.sroa.gep291 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sink279.i.sroa.gep292 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sink279.i.sroa.gep293 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sink279.i.sroa.gep291 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sink279.i.sroa.gep292 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sink279.i.sroa.gep293 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %.sink279.i.sroa.gep294 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink279.i.sroa.gep296 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.sink279.i.sroa.gep297 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %.sink279.i.sroa.gep298 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sink279.i.sroa.gep296 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sink279.i.sroa.gep297 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.sink279.i.sroa.gep298 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.sink279.i.sroa.gep299 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sink279.i.sroa.gep301 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %.sink279.i.sroa.gep302 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %.sink279.i.sroa.gep303 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %.sink279.i.sroa.gep301 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %.sink279.i.sroa.gep302 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %.sink279.i.sroa.gep303 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %.sink279.i.sroa.gep304 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %.sink287.i.sroa.gep = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sink287.i.sroa.gep305 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink287.i.sroa.gep306 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink287.i.sroa.gep307 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink287.i.sroa.gep308 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink287.i.sroa.gep309 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink287.i.sroa.gep310 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink287.i.sroa.gep311 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink287.i.sroa.gep312 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink287.i.sroa.gep313 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink287.i.sroa.gep314 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink287.i.sroa.gep315 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink287.i.sroa.gep316 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink287.i.sroa.gep317 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink287.i.sroa.gep318 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink287.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink287.i.sroa.gep305 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink287.i.sroa.gep306 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink287.i.sroa.gep307 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sink287.i.sroa.gep308 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink287.i.sroa.gep309 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink287.i.sroa.gep310 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink287.i.sroa.gep311 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink287.i.sroa.gep312 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink287.i.sroa.gep313 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink287.i.sroa.gep314 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink287.i.sroa.gep315 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink287.i.sroa.gep316 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink287.i.sroa.gep317 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink287.i.sroa.gep318 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sink287.i.sroa.gep319 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink287.i.sroa.gep321 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sink287.i.sroa.gep322 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sink287.i.sroa.gep323 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink287.i.sroa.gep324 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink287.i.sroa.gep325 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink287.i.sroa.gep326 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink287.i.sroa.gep327 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink287.i.sroa.gep328 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink287.i.sroa.gep329 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink287.i.sroa.gep330 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink287.i.sroa.gep331 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink287.i.sroa.gep332 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink287.i.sroa.gep333 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink287.i.sroa.gep334 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink287.i.sroa.gep335 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink287.i.sroa.gep321 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink287.i.sroa.gep322 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sink287.i.sroa.gep323 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sink287.i.sroa.gep324 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sink287.i.sroa.gep325 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink287.i.sroa.gep326 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink287.i.sroa.gep327 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink287.i.sroa.gep328 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink287.i.sroa.gep329 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink287.i.sroa.gep330 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink287.i.sroa.gep331 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink287.i.sroa.gep332 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink287.i.sroa.gep333 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink287.i.sroa.gep334 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink287.i.sroa.gep335 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sink287.i.sroa.gep336 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink287.i.sroa.gep338 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %.sink287.i.sroa.gep339 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sink287.i.sroa.gep340 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sink287.i.sroa.gep341 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sink287.i.sroa.gep342 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink287.i.sroa.gep343 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink287.i.sroa.gep344 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink287.i.sroa.gep345 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink287.i.sroa.gep346 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink287.i.sroa.gep347 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink287.i.sroa.gep348 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink287.i.sroa.gep349 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink287.i.sroa.gep350 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink287.i.sroa.gep351 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink287.i.sroa.gep352 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink287.i.sroa.gep338 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink287.i.sroa.gep339 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sink287.i.sroa.gep340 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sink287.i.sroa.gep341 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sink287.i.sroa.gep342 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink287.i.sroa.gep343 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink287.i.sroa.gep344 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink287.i.sroa.gep345 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink287.i.sroa.gep346 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink287.i.sroa.gep347 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink287.i.sroa.gep348 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink287.i.sroa.gep349 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink287.i.sroa.gep350 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink287.i.sroa.gep351 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink287.i.sroa.gep352 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sink287.i.sroa.gep353 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink287.i.sroa.gep355 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %.sink287.i.sroa.gep356 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink287.i.sroa.gep357 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sink287.i.sroa.gep358 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink287.i.sroa.gep359 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink287.i.sroa.gep360 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink287.i.sroa.gep361 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink287.i.sroa.gep362 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink287.i.sroa.gep363 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink287.i.sroa.gep364 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink287.i.sroa.gep365 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink287.i.sroa.gep366 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink287.i.sroa.gep367 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink287.i.sroa.gep368 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink287.i.sroa.gep369 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink287.i.sroa.gep355 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink287.i.sroa.gep356 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sink287.i.sroa.gep357 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink287.i.sroa.gep358 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sink287.i.sroa.gep359 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink287.i.sroa.gep360 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink287.i.sroa.gep361 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink287.i.sroa.gep362 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink287.i.sroa.gep363 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink287.i.sroa.gep364 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink287.i.sroa.gep365 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink287.i.sroa.gep366 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink287.i.sroa.gep367 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink287.i.sroa.gep368 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink287.i.sroa.gep369 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sink287.i.sroa.gep370 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink287.i.sroa.gep372 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %.sink287.i.sroa.gep373 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %.sink287.i.sroa.gep374 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %.sink287.i.sroa.gep375 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sink287.i.sroa.gep376 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.sink287.i.sroa.gep377 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %.sink287.i.sroa.gep378 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sink287.i.sroa.gep379 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink287.i.sroa.gep380 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sink287.i.sroa.gep381 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink287.i.sroa.gep382 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink287.i.sroa.gep383 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sink287.i.sroa.gep384 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sink287.i.sroa.gep385 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sink287.i.sroa.gep386 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink287.i.sroa.gep372 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sink287.i.sroa.gep373 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %.sink287.i.sroa.gep374 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %.sink287.i.sroa.gep375 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %.sink287.i.sroa.gep376 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %.sink287.i.sroa.gep377 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sink287.i.sroa.gep378 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sink287.i.sroa.gep379 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sink287.i.sroa.gep380 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink287.i.sroa.gep381 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sink287.i.sroa.gep382 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.sink287.i.sroa.gep383 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink287.i.sroa.gep384 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sink287.i.sroa.gep385 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink287.i.sroa.gep386 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink287.i.sroa.gep387 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %.sink546.sroa.gep = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %.sink546.sroa.gep627 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.sink546.sroa.gep = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.sink546.sroa.gep627 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %.sink546.sroa.gep628 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sink546.sroa.gep630 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %.sink546.sroa.gep631 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.sink546.sroa.gep630 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.sink546.sroa.gep631 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %.sink546.sroa.gep632 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.sink546.sroa.gep634 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %.sink546.sroa.gep635 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %.sink546.sroa.gep634 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %.sink546.sroa.gep635 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %.sink546.sroa.gep636 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.sink546.sroa.gep638 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %.sink546.sroa.gep639 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %.sink546.sroa.gep638 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %.sink546.sroa.gep639 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %.sink546.sroa.gep640 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.sink546.sroa.gep642 = getelementptr inbounds nuw i8, ptr %139, i64 40
-  %.sink546.sroa.gep643 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %.sink546.sroa.gep642 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %.sink546.sroa.gep643 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %.sink546.sroa.gep644 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %170 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull @.str)
           to label %171 unwind label %2115
@@ -1091,7 +1091,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_pt
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %206, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i, %..loopexit_crit_edge21.i.i.i.i.i.i, %213
-  %250 = phi ptr [ %249, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i ], [ null, %213 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %206 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %250 = phi ptr [ %249, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ null, %213 ], [ null, %206 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %251 = and i64 %203, 7
   %.not.i.i.i6 = icmp eq i64 %251, 0
   br i1 %.not.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i, label %252
@@ -1453,14 +1453,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   br i1 %385, label %387, label %.invoke.i
 
 .invoke.i:                                        ; preds = %383, %382, %369, %.thread480.i, %344, %343, %330, %.thread478.i
-  %.sink629.i.sroa.phi = phi ptr [ %.sink629.i.sroa.gep, %330 ], [ %.sink629.i.sroa.gep, %.thread478.i ], [ %.sink629.i.sroa.gep, %343 ], [ %.sink629.i.sroa.gep111, %344 ], [ %.sink629.i.sroa.gep112, %369 ], [ %.sink629.i.sroa.gep112, %.thread480.i ], [ %.sink629.i.sroa.gep112, %382 ], [ %.sink629.i.sroa.gep115, %383 ]
-  %.sink629.i.sroa.phi116 = phi ptr [ %.sink629.i.sroa.gep117, %330 ], [ %.sink629.i.sroa.gep117, %.thread478.i ], [ %.sink629.i.sroa.gep117, %343 ], [ %.sink629.i.sroa.gep120, %344 ], [ %.sink629.i.sroa.gep121, %369 ], [ %.sink629.i.sroa.gep121, %.thread480.i ], [ %.sink629.i.sroa.gep121, %382 ], [ %.sink629.i.sroa.gep124, %383 ]
-  %.sink629.i.sroa.phi125 = phi ptr [ %.sink629.i.sroa.gep126, %330 ], [ %.sink629.i.sroa.gep126, %.thread478.i ], [ %.sink629.i.sroa.gep126, %343 ], [ %.sink629.i.sroa.gep129, %344 ], [ %.sink629.i.sroa.gep130, %369 ], [ %.sink629.i.sroa.gep130, %.thread480.i ], [ %.sink629.i.sroa.gep130, %382 ], [ %.sink629.i.sroa.gep133, %383 ]
-  %.sink629.i.sroa.phi134 = phi ptr [ %.sink629.i.sroa.gep135, %330 ], [ %.sink629.i.sroa.gep135, %.thread478.i ], [ %.sink629.i.sroa.gep135, %343 ], [ %.sink629.i.sroa.gep138, %344 ], [ %.sink629.i.sroa.gep139, %369 ], [ %.sink629.i.sroa.gep139, %.thread480.i ], [ %.sink629.i.sroa.gep139, %382 ], [ %.sink629.i.sroa.gep142, %383 ]
-  %.sink629.i.sroa.phi143 = phi ptr [ %.sink629.i.sroa.gep144, %330 ], [ %.sink629.i.sroa.gep144, %.thread478.i ], [ %.sink629.i.sroa.gep144, %343 ], [ %.sink629.i.sroa.gep147, %344 ], [ %.sink629.i.sroa.gep148, %369 ], [ %.sink629.i.sroa.gep148, %.thread480.i ], [ %.sink629.i.sroa.gep148, %382 ], [ %.sink629.i.sroa.gep151, %383 ]
-  %.sink629.i = phi ptr [ %134, %330 ], [ %134, %.thread478.i ], [ %134, %343 ], [ %133, %344 ], [ %131, %369 ], [ %131, %.thread480.i ], [ %131, %382 ], [ %130, %383 ]
-  %.sink626.i = phi i64 [ 41, %330 ], [ 41, %.thread478.i ], [ 41, %343 ], [ 42, %344 ], [ 45, %369 ], [ 45, %.thread480.i ], [ 45, %382 ], [ 46, %383 ]
-  %386 = phi ptr [ @.str.10, %330 ], [ @.str.10, %.thread478.i ], [ @.str.10, %343 ], [ @.str.12, %344 ], [ @.str.13, %369 ], [ @.str.13, %.thread480.i ], [ @.str.13, %382 ], [ @.str.14, %383 ]
+  %.sink629.i.sroa.phi = phi ptr [ %.sink629.i.sroa.gep, %382 ], [ %.sink629.i.sroa.gep109, %343 ], [ %.sink629.i.sroa.gep110, %344 ], [ %.sink629.i.sroa.gep109, %330 ], [ %.sink629.i.sroa.gep109, %.thread478.i ], [ %.sink629.i.sroa.gep, %369 ], [ %.sink629.i.sroa.gep, %.thread480.i ], [ %.sink629.i.sroa.gep115, %383 ]
+  %.sink629.i.sroa.phi116 = phi ptr [ %.sink629.i.sroa.gep117, %382 ], [ %.sink629.i.sroa.gep118, %343 ], [ %.sink629.i.sroa.gep119, %344 ], [ %.sink629.i.sroa.gep118, %330 ], [ %.sink629.i.sroa.gep118, %.thread478.i ], [ %.sink629.i.sroa.gep117, %369 ], [ %.sink629.i.sroa.gep117, %.thread480.i ], [ %.sink629.i.sroa.gep124, %383 ]
+  %.sink629.i.sroa.phi125 = phi ptr [ %.sink629.i.sroa.gep126, %382 ], [ %.sink629.i.sroa.gep127, %343 ], [ %.sink629.i.sroa.gep128, %344 ], [ %.sink629.i.sroa.gep127, %330 ], [ %.sink629.i.sroa.gep127, %.thread478.i ], [ %.sink629.i.sroa.gep126, %369 ], [ %.sink629.i.sroa.gep126, %.thread480.i ], [ %.sink629.i.sroa.gep133, %383 ]
+  %.sink629.i.sroa.phi134 = phi ptr [ %.sink629.i.sroa.gep135, %382 ], [ %.sink629.i.sroa.gep136, %343 ], [ %.sink629.i.sroa.gep137, %344 ], [ %.sink629.i.sroa.gep136, %330 ], [ %.sink629.i.sroa.gep136, %.thread478.i ], [ %.sink629.i.sroa.gep135, %369 ], [ %.sink629.i.sroa.gep135, %.thread480.i ], [ %.sink629.i.sroa.gep142, %383 ]
+  %.sink629.i.sroa.phi143 = phi ptr [ %.sink629.i.sroa.gep144, %382 ], [ %.sink629.i.sroa.gep145, %343 ], [ %.sink629.i.sroa.gep146, %344 ], [ %.sink629.i.sroa.gep145, %330 ], [ %.sink629.i.sroa.gep145, %.thread478.i ], [ %.sink629.i.sroa.gep144, %369 ], [ %.sink629.i.sroa.gep144, %.thread480.i ], [ %.sink629.i.sroa.gep151, %383 ]
+  %.sink629.i = phi ptr [ %131, %382 ], [ %134, %343 ], [ %133, %344 ], [ %134, %330 ], [ %134, %.thread478.i ], [ %131, %369 ], [ %131, %.thread480.i ], [ %130, %383 ]
+  %.sink626.i = phi i64 [ 45, %382 ], [ 41, %343 ], [ 42, %344 ], [ 41, %330 ], [ 41, %.thread478.i ], [ 45, %369 ], [ 45, %.thread480.i ], [ 46, %383 ]
+  %386 = phi ptr [ @.str.13, %382 ], [ @.str.10, %343 ], [ @.str.12, %344 ], [ @.str.10, %330 ], [ @.str.10, %.thread478.i ], [ @.str.13, %369 ], [ @.str.13, %.thread480.i ], [ @.str.14, %383 ]
   store ptr @.str.2, ptr %.sink629.i, align 8
   store ptr @__func__._ZL16TestPrimMetadatav, ptr %.sink629.i.sroa.phi, align 8
   store i64 %.sink626.i, ptr %.sink629.i.sroa.phi116, align 8
@@ -2758,14 +2758,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i: ; preds = %889, %_Z
   br i1 %894, label %896, label %.invoke622.i
 
 .invoke622.i:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i, %691, %690, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i
-  %.sink637.i.sroa.phi = phi ptr [ %.sink637.i.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep153, %690 ], [ %.sink637.i.sroa.gep154, %691 ], [ %.sink637.i.sroa.gep155, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep156, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep157, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink637.i.sroa.phi158 = phi ptr [ %.sink637.i.sroa.gep159, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep161, %690 ], [ %.sink637.i.sroa.gep162, %691 ], [ %.sink637.i.sroa.gep163, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep164, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep165, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink637.i.sroa.phi166 = phi ptr [ %.sink637.i.sroa.gep167, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep168, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep169, %690 ], [ %.sink637.i.sroa.gep170, %691 ], [ %.sink637.i.sroa.gep171, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep172, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep173, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink637.i.sroa.phi174 = phi ptr [ %.sink637.i.sroa.gep175, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep176, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep177, %690 ], [ %.sink637.i.sroa.gep178, %691 ], [ %.sink637.i.sroa.gep179, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep180, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep181, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink637.i.sroa.phi182 = phi ptr [ %.sink637.i.sroa.gep183, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep184, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep185, %690 ], [ %.sink637.i.sroa.gep186, %691 ], [ %.sink637.i.sroa.gep187, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep188, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep189, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink637.i = phi ptr [ %122, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %120, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %118, %690 ], [ %117, %691 ], [ %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %113, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %111, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %.sink634.i = phi i64 [ 66, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ 72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ 77, %690 ], [ 78, %691 ], [ 82, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ 85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ 88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
-  %895 = phi ptr [ @.str.26, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ @.str.28, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ @.str.29, %690 ], [ @.str.30, %691 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i.sroa.phi = phi ptr [ %.sink637.i.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep153, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep154, %690 ], [ %.sink637.i.sroa.gep155, %691 ], [ %.sink637.i.sroa.gep156, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep157, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i.sroa.phi158 = phi ptr [ %.sink637.i.sroa.gep159, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep161, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep162, %690 ], [ %.sink637.i.sroa.gep163, %691 ], [ %.sink637.i.sroa.gep164, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep165, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i.sroa.phi166 = phi ptr [ %.sink637.i.sroa.gep167, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep168, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep169, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep170, %690 ], [ %.sink637.i.sroa.gep171, %691 ], [ %.sink637.i.sroa.gep172, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep173, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i.sroa.phi174 = phi ptr [ %.sink637.i.sroa.gep175, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep176, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep177, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep178, %690 ], [ %.sink637.i.sroa.gep179, %691 ], [ %.sink637.i.sroa.gep180, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep181, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i.sroa.phi182 = phi ptr [ %.sink637.i.sroa.gep183, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %.sink637.i.sroa.gep184, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %.sink637.i.sroa.gep185, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %.sink637.i.sroa.gep186, %690 ], [ %.sink637.i.sroa.gep187, %691 ], [ %.sink637.i.sroa.gep188, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %.sink637.i.sroa.gep189, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink637.i = phi ptr [ %113, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ %122, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ %120, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ %118, %690 ], [ %117, %691 ], [ %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ %111, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %.sink634.i = phi i64 [ 85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ 66, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ 72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ 77, %690 ], [ 78, %691 ], [ 82, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ 88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
+  %895 = phi ptr [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i ], [ @.str.26, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i ], [ @.str.28, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit162.i ], [ @.str.29, %690 ], [ @.str.30, %691 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit226.i ]
   store ptr @.str.2, ptr %.sink637.i, align 8
   store ptr @__func__._ZL16TestPrimMetadatav, ptr %.sink637.i.sroa.phi, align 8
   store i64 %.sink634.i, ptr %.sink637.i.sroa.phi158, align 8
@@ -3137,7 +3137,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i: ; preds = %1042, %.
   br label %.body168.i
 
 .body168.i:                                       ; preds = %1049, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i, %1031, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i, %1013, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit251.i, %995, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit247.i, %977, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit243.i, %961, %686, %681, %660
-  %.pn51.i = phi { ptr, i32 } [ %661, %660 ], [ %962, %961 ], [ %682, %686 ], [ %682, %681 ], [ %.pn41.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit243.i ], [ %.pn41.i, %977 ], [ %.pn43.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit247.i ], [ %.pn43.i, %995 ], [ %.pn45.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit251.i ], [ %.pn45.i, %1013 ], [ %.pn47.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i ], [ %.pn47.i, %1031 ], [ %.pn49.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i ], [ %.pn49.i, %1049 ]
+  %.pn51.i = phi { ptr, i32 } [ %682, %681 ], [ %.pn47.i, %1031 ], [ %.pn45.i, %1013 ], [ %.pn43.i, %995 ], [ %.pn41.i, %977 ], [ %661, %660 ], [ %962, %961 ], [ %682, %686 ], [ %.pn41.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit243.i ], [ %.pn43.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit247.i ], [ %.pn45.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit251.i ], [ %.pn47.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i ], [ %.pn49.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i ], [ %.pn49.i, %1049 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %153) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit241.i
 
@@ -3152,12 +3152,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit239.i: ; preds = %_ZN32pxr
   br label %.body72.i
 
 .body72.i:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit239.i, %922, %378, %373, %352, %339, %334, %313
-  %.pn51.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit239.i ], [ %314, %313 ], [ %335, %339 ], [ %335, %334 ], [ %353, %352 ], [ %923, %922 ], [ %374, %378 ], [ %374, %373 ]
+  %.pn51.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit239.i ], [ %314, %313 ], [ %335, %334 ], [ %335, %339 ], [ %353, %352 ], [ %923, %922 ], [ %374, %378 ], [ %374, %373 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %143) #18
   br label %.body.i
 
 .body.i:                                          ; preds = %.body72.i, %918, %913, %911, %286, %281, %260
-  %.pn51.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.pn.i, %.body72.i ], [ %261, %260 ], [ %912, %911 ], [ %282, %286 ], [ %282, %281 ], [ %914, %913 ], [ %914, %918 ]
+  %.pn51.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn51.pn.pn.pn.i, %.body72.i ], [ %282, %281 ], [ %261, %260 ], [ %912, %911 ], [ %282, %286 ], [ %914, %913 ], [ %914, %918 ]
   %1053 = load ptr, ptr %141, align 8
   %1054 = ptrtoint ptr %1053 to i64
   %1055 = and i64 %1054, 7
@@ -3326,7 +3326,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_pt
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i18
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i18: ; preds = %.lr.ph.i.i.i.i.i.i13, %1069, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i67, %..loopexit_crit_edge21.i.i.i.i.i.i17, %1076
-  %1113 = phi ptr [ %1112, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i67 ], [ null, %1076 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i17 ], [ null, %1069 ], [ null, %.lr.ph.i.i.i.i.i.i13 ]
+  %1113 = phi ptr [ %1112, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i67 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i17 ], [ null, %1076 ], [ null, %1069 ], [ null, %.lr.ph.i.i.i.i.i.i13 ]
   %1114 = and i64 %1066, 7
   %.not.i.i.i19 = icmp eq i64 %1114, 0
   br i1 %.not.i.i.i19, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20, label %1115
@@ -3772,14 +3772,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   br i1 %1268, label %1270, label %.invoke.i24
 
 .invoke.i24:                                      ; preds = %1267, %1262, %1261, %1210, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i, %1157, %1123, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i
-  %.sink486.i.sroa.phi = phi ptr [ %.sink486.i.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep190, %1123 ], [ %.sink486.i.sroa.gep191, %1157 ], [ %.sink486.i.sroa.gep192, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep192, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep194, %1210 ], [ %.sink486.i.sroa.gep195, %1261 ], [ %.sink486.i.sroa.gep196, %1262 ], [ %.sink486.i.sroa.gep197, %1267 ]
-  %.sink486.i.sroa.phi198 = phi ptr [ %.sink486.i.sroa.gep199, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep200, %1123 ], [ %.sink486.i.sroa.gep201, %1157 ], [ %.sink486.i.sroa.gep202, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep202, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep204, %1210 ], [ %.sink486.i.sroa.gep205, %1261 ], [ %.sink486.i.sroa.gep206, %1262 ], [ %.sink486.i.sroa.gep207, %1267 ]
-  %.sink486.i.sroa.phi208 = phi ptr [ %.sink486.i.sroa.gep209, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep210, %1123 ], [ %.sink486.i.sroa.gep211, %1157 ], [ %.sink486.i.sroa.gep212, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep212, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep214, %1210 ], [ %.sink486.i.sroa.gep215, %1261 ], [ %.sink486.i.sroa.gep216, %1262 ], [ %.sink486.i.sroa.gep217, %1267 ]
-  %.sink486.i.sroa.phi218 = phi ptr [ %.sink486.i.sroa.gep219, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep220, %1123 ], [ %.sink486.i.sroa.gep221, %1157 ], [ %.sink486.i.sroa.gep222, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep222, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep224, %1210 ], [ %.sink486.i.sroa.gep225, %1261 ], [ %.sink486.i.sroa.gep226, %1262 ], [ %.sink486.i.sroa.gep227, %1267 ]
-  %.sink486.i.sroa.phi228 = phi ptr [ %.sink486.i.sroa.gep229, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep230, %1123 ], [ %.sink486.i.sroa.gep231, %1157 ], [ %.sink486.i.sroa.gep232, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep232, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep234, %1210 ], [ %.sink486.i.sroa.gep235, %1261 ], [ %.sink486.i.sroa.gep236, %1262 ], [ %.sink486.i.sroa.gep237, %1267 ]
-  %.sink486.i = phi ptr [ %72, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %71, %1123 ], [ %68, %1157 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %63, %1210 ], [ %60, %1261 ], [ %59, %1262 ], [ %58, %1267 ]
-  %.sink483.i = phi i64 [ 266, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ 267, %1123 ], [ 275, %1157 ], [ 283, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ 283, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ 284, %1210 ], [ 289, %1261 ], [ 290, %1262 ], [ 293, %1267 ]
-  %1269 = phi ptr [ @.str.80, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ @.str.81, %1123 ], [ @.str.84, %1157 ], [ @.str.87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ @.str.87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ @.str.88, %1210 ], [ @.str.89, %1261 ], [ @.str.88, %1262 ], [ @.str.90, %1267 ]
+  %.sink486.i.sroa.phi = phi ptr [ %.sink486.i.sroa.gep, %1262 ], [ %.sink486.i.sroa.gep190, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep191, %1123 ], [ %.sink486.i.sroa.gep192, %1157 ], [ %.sink486.i.sroa.gep193, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep194, %1210 ], [ %.sink486.i.sroa.gep195, %1261 ], [ %.sink486.i.sroa.gep193, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep197, %1267 ]
+  %.sink486.i.sroa.phi198 = phi ptr [ %.sink486.i.sroa.gep199, %1262 ], [ %.sink486.i.sroa.gep200, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep201, %1123 ], [ %.sink486.i.sroa.gep202, %1157 ], [ %.sink486.i.sroa.gep203, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep204, %1210 ], [ %.sink486.i.sroa.gep205, %1261 ], [ %.sink486.i.sroa.gep203, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep207, %1267 ]
+  %.sink486.i.sroa.phi208 = phi ptr [ %.sink486.i.sroa.gep209, %1262 ], [ %.sink486.i.sroa.gep210, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep211, %1123 ], [ %.sink486.i.sroa.gep212, %1157 ], [ %.sink486.i.sroa.gep213, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep214, %1210 ], [ %.sink486.i.sroa.gep215, %1261 ], [ %.sink486.i.sroa.gep213, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep217, %1267 ]
+  %.sink486.i.sroa.phi218 = phi ptr [ %.sink486.i.sroa.gep219, %1262 ], [ %.sink486.i.sroa.gep220, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep221, %1123 ], [ %.sink486.i.sroa.gep222, %1157 ], [ %.sink486.i.sroa.gep223, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep224, %1210 ], [ %.sink486.i.sroa.gep225, %1261 ], [ %.sink486.i.sroa.gep223, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep227, %1267 ]
+  %.sink486.i.sroa.phi228 = phi ptr [ %.sink486.i.sroa.gep229, %1262 ], [ %.sink486.i.sroa.gep230, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %.sink486.i.sroa.gep231, %1123 ], [ %.sink486.i.sroa.gep232, %1157 ], [ %.sink486.i.sroa.gep233, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %.sink486.i.sroa.gep234, %1210 ], [ %.sink486.i.sroa.gep235, %1261 ], [ %.sink486.i.sroa.gep233, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %.sink486.i.sroa.gep237, %1267 ]
+  %.sink486.i = phi ptr [ %59, %1262 ], [ %72, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ %71, %1123 ], [ %68, %1157 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ %63, %1210 ], [ %60, %1261 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ %58, %1267 ]
+  %.sink483.i = phi i64 [ 290, %1262 ], [ 266, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ 267, %1123 ], [ 275, %1157 ], [ 283, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ 284, %1210 ], [ 289, %1261 ], [ 283, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ 293, %1267 ]
+  %1269 = phi ptr [ @.str.88, %1262 ], [ @.str.80, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i ], [ @.str.81, %1123 ], [ @.str.84, %1157 ], [ @.str.87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i ], [ @.str.88, %1210 ], [ @.str.89, %1261 ], [ @.str.87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.thread.i ], [ @.str.90, %1267 ]
   store ptr @.str.2, ptr %.sink486.i, align 8
   store ptr @__func__._ZL24TestRelationshipMetadatav, ptr %.sink486.i.sroa.phi, align 8
   store i64 %.sink483.i, ptr %.sink486.i.sroa.phi198, align 8
@@ -5085,7 +5085,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i49: ; preds = %1753, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit257.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit257.i: ; preds = %1760, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i49, %1742, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i43, %1726
-  %.pn58.i = phi { ptr, i32 } [ %1727, %1726 ], [ %.pn54.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i43 ], [ %.pn54.i, %1742 ], [ %.pn56.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i49 ], [ %.pn56.i, %1760 ]
+  %.pn58.i = phi { ptr, i32 } [ %1727, %1726 ], [ %.pn54.i, %1742 ], [ %.pn54.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit255.i43 ], [ %.pn56.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit259.i49 ], [ %.pn56.i, %1760 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit253.i
 
@@ -5250,7 +5250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit269.i: ; preds = %1817, %.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit267.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit267.i: ; preds = %1824, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit269.i, %1806, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit265.i, %1790
-  %.pn70.i = phi { ptr, i32 } [ %1791, %1790 ], [ %.pn66.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit265.i ], [ %.pn66.i, %1806 ], [ %.pn68.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit269.i ], [ %.pn68.i, %1824 ]
+  %.pn70.i = phi { ptr, i32 } [ %1791, %1790 ], [ %.pn66.i, %1806 ], [ %.pn66.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit265.i ], [ %.pn68.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit269.i ], [ %.pn68.i, %1824 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit263.i53
 
@@ -5260,7 +5260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit263.i53: ; preds = %_ZN32p
   br label %.body.i23
 
 .body.i23:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit263.i53, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit253.i, %1696, %1691, %1687, %1682, %1678, %1675, %1671, %1666, %1664, %1250, %1245, %1218, %1187
-  %.pn70.pn.pn.i = phi { ptr, i32 } [ %.pn70.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit263.i53 ], [ %.pn58.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit253.i ], [ %1188, %1187 ], [ %1219, %1218 ], [ %1665, %1664 ], [ %1246, %1250 ], [ %1246, %1245 ], [ %1667, %1666 ], [ %1667, %1671 ], [ %1676, %1675 ], [ %1676, %1678 ], [ %1683, %1682 ], [ %1683, %1687 ], [ %1692, %1691 ], [ %1692, %1696 ]
+  %.pn70.pn.pn.i = phi { ptr, i32 } [ %.pn70.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit263.i53 ], [ %.pn58.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit253.i ], [ %1246, %1245 ], [ %1683, %1687 ], [ %1676, %1678 ], [ %1667, %1671 ], [ %1188, %1187 ], [ %1219, %1218 ], [ %1665, %1664 ], [ %1246, %1250 ], [ %1667, %1666 ], [ %1676, %1675 ], [ %1683, %1682 ], [ %1692, %1691 ], [ %1692, %1696 ]
   %1828 = load ptr, ptr %76, align 8
   %1829 = ptrtoint ptr %1828 to i64
   %1830 = and i64 %1829, 7
@@ -5423,7 +5423,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_pt
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i85
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit.i85: ; preds = %.lr.ph.i.i.i.i.i.i80, %1850, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i99, %..loopexit_crit_edge21.i.i.i.i.i.i84, %1857
-  %1894 = phi ptr [ %1893, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i99 ], [ null, %1857 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i84 ], [ null, %1850 ], [ null, %.lr.ph.i.i.i.i.i.i80 ]
+  %1894 = phi ptr [ %1893, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i.i99 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i84 ], [ null, %1857 ], [ null, %1850 ], [ null, %.lr.ph.i.i.i.i.i.i80 ]
   %1895 = and i64 %1847, 7
   %.not.i.i.i86 = icmp eq i64 %1895, 0
   br i1 %.not.i.i.i86, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87, label %1896
@@ -5440,15 +5440,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87: ; preds = %1896, %_Z
   br i1 %.not.i88, label %.invoke, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i89
 
 .invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
-  %.sink546.sroa.phi = phi ptr [ %.sink546.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep627, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep628, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink546.sroa.phi629 = phi ptr [ %.sink546.sroa.gep630, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep631, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep632, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink546.sroa.phi633 = phi ptr [ %.sink546.sroa.gep634, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep635, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep636, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink546.sroa.phi637 = phi ptr [ %.sink546.sroa.gep638, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep639, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep640, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink546.sroa.phi641 = phi ptr [ %.sink546.sroa.gep642, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep643, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep644, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink546 = phi ptr [ %139, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %26, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %__func__._ZL16TestPrimMetadatav.sink = phi ptr [ @__func__._ZL16TestPrimMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ @__func__._ZL24TestRelationshipMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ @__func__._ZL21TestInvalidPropertiesv, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %.sink543 = phi i64 [ 32, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ 258, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ 348, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
-  %__PRETTY_FUNCTION__._ZL16TestPrimMetadatav.sink = phi ptr [ @__PRETTY_FUNCTION__._ZL16TestPrimMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ @__PRETTY_FUNCTION__._ZL24TestRelationshipMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ @__PRETTY_FUNCTION__._ZL21TestInvalidPropertiesv, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546.sroa.phi = phi ptr [ %.sink546.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep627, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep628, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546.sroa.phi629 = phi ptr [ %.sink546.sroa.gep630, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep631, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep632, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546.sroa.phi633 = phi ptr [ %.sink546.sroa.gep634, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep635, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep636, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546.sroa.phi637 = phi ptr [ %.sink546.sroa.gep638, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep639, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep640, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546.sroa.phi641 = phi ptr [ %.sink546.sroa.gep642, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %.sink546.sroa.gep643, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %.sink546.sroa.gep644, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink546 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ %139, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ %26, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %__func__._ZL16TestPrimMetadatav.sink = phi ptr [ @__func__._ZL24TestRelationshipMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ @__func__._ZL16TestPrimMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ @__func__._ZL21TestInvalidPropertiesv, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %.sink543 = phi i64 [ 258, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ 32, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ 348, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
+  %__PRETTY_FUNCTION__._ZL16TestPrimMetadatav.sink = phi ptr [ @__PRETTY_FUNCTION__._ZL24TestRelationshipMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i20 ], [ @__PRETTY_FUNCTION__._ZL16TestPrimMetadatav, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i ], [ @__PRETTY_FUNCTION__._ZL21TestInvalidPropertiesv, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i87 ]
   store ptr @.str.2, ptr %.sink546, align 8
   store ptr %__func__._ZL16TestPrimMetadatav.sink, ptr %.sink546.sroa.phi, align 8
   store i64 %.sink543, ptr %.sink546.sroa.phi629, align 8
@@ -5493,14 +5493,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   br i1 %1910, label %1912, label %.invoke.i91
 
 .invoke.i91:                                      ; preds = %1908, %1905, %1902
-  %.sink271.i.sroa.phi = phi ptr [ %.sink271.i.sroa.gep, %1902 ], [ %.sink271.i.sroa.gep264, %1905 ], [ %.sink271.i.sroa.gep265, %1908 ]
-  %.sink271.i.sroa.phi266 = phi ptr [ %.sink271.i.sroa.gep267, %1902 ], [ %.sink271.i.sroa.gep268, %1905 ], [ %.sink271.i.sroa.gep269, %1908 ]
-  %.sink271.i.sroa.phi270 = phi ptr [ %.sink271.i.sroa.gep271, %1902 ], [ %.sink271.i.sroa.gep272, %1905 ], [ %.sink271.i.sroa.gep273, %1908 ]
-  %.sink271.i.sroa.phi274 = phi ptr [ %.sink271.i.sroa.gep275, %1902 ], [ %.sink271.i.sroa.gep276, %1905 ], [ %.sink271.i.sroa.gep277, %1908 ]
-  %.sink271.i.sroa.phi278 = phi ptr [ %.sink271.i.sroa.gep279, %1902 ], [ %.sink271.i.sroa.gep280, %1905 ], [ %.sink271.i.sroa.gep281, %1908 ]
-  %.sink271.i = phi ptr [ %25, %1902 ], [ %24, %1905 ], [ %23, %1908 ]
-  %.sink268.i = phi i64 [ 357, %1902 ], [ 358, %1905 ], [ 359, %1908 ]
-  %1911 = phi ptr [ @.str.101, %1902 ], [ @.str.102, %1905 ], [ @.str.103, %1908 ]
+  %.sink271.i.sroa.phi = phi ptr [ %.sink271.i.sroa.gep, %1905 ], [ %.sink271.i.sroa.gep264, %1902 ], [ %.sink271.i.sroa.gep265, %1908 ]
+  %.sink271.i.sroa.phi266 = phi ptr [ %.sink271.i.sroa.gep267, %1905 ], [ %.sink271.i.sroa.gep268, %1902 ], [ %.sink271.i.sroa.gep269, %1908 ]
+  %.sink271.i.sroa.phi270 = phi ptr [ %.sink271.i.sroa.gep271, %1905 ], [ %.sink271.i.sroa.gep272, %1902 ], [ %.sink271.i.sroa.gep273, %1908 ]
+  %.sink271.i.sroa.phi274 = phi ptr [ %.sink271.i.sroa.gep275, %1905 ], [ %.sink271.i.sroa.gep276, %1902 ], [ %.sink271.i.sroa.gep277, %1908 ]
+  %.sink271.i.sroa.phi278 = phi ptr [ %.sink271.i.sroa.gep279, %1905 ], [ %.sink271.i.sroa.gep280, %1902 ], [ %.sink271.i.sroa.gep281, %1908 ]
+  %.sink271.i = phi ptr [ %24, %1905 ], [ %25, %1902 ], [ %23, %1908 ]
+  %.sink268.i = phi i64 [ 358, %1905 ], [ 357, %1902 ], [ 359, %1908 ]
+  %1911 = phi ptr [ @.str.102, %1905 ], [ @.str.101, %1902 ], [ @.str.103, %1908 ]
   store ptr @.str.2, ptr %.sink271.i, align 8
   store ptr @__func__._ZL21TestInvalidPropertiesv, ptr %.sink271.i.sroa.phi, align 8
   store i64 %.sink268.i, ptr %.sink271.i.sroa.phi266, align 8
@@ -5553,14 +5553,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i9
   br i1 %1924, label %1926, label %.invoke262.i
 
 .invoke262.i:                                     ; preds = %1922, %1919, %1916, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95
-  %.sink279.i.sroa.phi = phi ptr [ %.sink279.i.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep282, %1916 ], [ %.sink279.i.sroa.gep283, %1919 ], [ %.sink279.i.sroa.gep284, %1922 ]
-  %.sink279.i.sroa.phi285 = phi ptr [ %.sink279.i.sroa.gep286, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep287, %1916 ], [ %.sink279.i.sroa.gep288, %1919 ], [ %.sink279.i.sroa.gep289, %1922 ]
-  %.sink279.i.sroa.phi290 = phi ptr [ %.sink279.i.sroa.gep291, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep292, %1916 ], [ %.sink279.i.sroa.gep293, %1919 ], [ %.sink279.i.sroa.gep294, %1922 ]
-  %.sink279.i.sroa.phi295 = phi ptr [ %.sink279.i.sroa.gep296, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep297, %1916 ], [ %.sink279.i.sroa.gep298, %1919 ], [ %.sink279.i.sroa.gep299, %1922 ]
-  %.sink279.i.sroa.phi300 = phi ptr [ %.sink279.i.sroa.gep301, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep302, %1916 ], [ %.sink279.i.sroa.gep303, %1919 ], [ %.sink279.i.sroa.gep304, %1922 ]
-  %.sink279.i = phi ptr [ %22, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %21, %1916 ], [ %20, %1919 ], [ %19, %1922 ]
-  %.sink276.i = phi i64 [ 361, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ 362, %1916 ], [ 363, %1919 ], [ 364, %1922 ]
-  %1925 = phi ptr [ @.str.104, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ @.str.105, %1916 ], [ @.str.106, %1919 ], [ @.str.107, %1922 ]
+  %.sink279.i.sroa.phi = phi ptr [ %.sink279.i.sroa.gep, %1919 ], [ %.sink279.i.sroa.gep282, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep283, %1916 ], [ %.sink279.i.sroa.gep284, %1922 ]
+  %.sink279.i.sroa.phi285 = phi ptr [ %.sink279.i.sroa.gep286, %1919 ], [ %.sink279.i.sroa.gep287, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep288, %1916 ], [ %.sink279.i.sroa.gep289, %1922 ]
+  %.sink279.i.sroa.phi290 = phi ptr [ %.sink279.i.sroa.gep291, %1919 ], [ %.sink279.i.sroa.gep292, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep293, %1916 ], [ %.sink279.i.sroa.gep294, %1922 ]
+  %.sink279.i.sroa.phi295 = phi ptr [ %.sink279.i.sroa.gep296, %1919 ], [ %.sink279.i.sroa.gep297, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep298, %1916 ], [ %.sink279.i.sroa.gep299, %1922 ]
+  %.sink279.i.sroa.phi300 = phi ptr [ %.sink279.i.sroa.gep301, %1919 ], [ %.sink279.i.sroa.gep302, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %.sink279.i.sroa.gep303, %1916 ], [ %.sink279.i.sroa.gep304, %1922 ]
+  %.sink279.i = phi ptr [ %20, %1919 ], [ %22, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ %21, %1916 ], [ %19, %1922 ]
+  %.sink276.i = phi i64 [ 363, %1919 ], [ 361, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ 362, %1916 ], [ 364, %1922 ]
+  %1925 = phi ptr [ @.str.106, %1919 ], [ @.str.104, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit.i95 ], [ @.str.105, %1916 ], [ @.str.107, %1922 ]
   store ptr @.str.2, ptr %.sink279.i, align 8
   store ptr @__func__._ZL21TestInvalidPropertiesv, ptr %.sink279.i.sroa.phi, align 8
   store i64 %.sink276.i, ptr %.sink279.i.sroa.phi285, align 8
@@ -5854,14 +5854,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exi
   br i1 %2035, label %2038, label %.invoke264.i
 
 .invoke264.i:                                     ; preds = %2036, %2031, %2028, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i, %2003, %1998, %1995, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i, %1970, %1965, %1962, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i, %1936, %1933, %1930, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97
-  %.sink287.i.sroa.phi = phi ptr [ %.sink287.i.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep305, %1930 ], [ %.sink287.i.sroa.gep306, %1933 ], [ %.sink287.i.sroa.gep307, %1936 ], [ %.sink287.i.sroa.gep308, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep309, %1962 ], [ %.sink287.i.sroa.gep310, %1965 ], [ %.sink287.i.sroa.gep311, %1970 ], [ %.sink287.i.sroa.gep312, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep313, %1995 ], [ %.sink287.i.sroa.gep314, %1998 ], [ %.sink287.i.sroa.gep315, %2003 ], [ %.sink287.i.sroa.gep316, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep317, %2028 ], [ %.sink287.i.sroa.gep318, %2031 ], [ %.sink287.i.sroa.gep319, %2036 ]
-  %.sink287.i.sroa.phi320 = phi ptr [ %.sink287.i.sroa.gep321, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep322, %1930 ], [ %.sink287.i.sroa.gep323, %1933 ], [ %.sink287.i.sroa.gep324, %1936 ], [ %.sink287.i.sroa.gep325, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep326, %1962 ], [ %.sink287.i.sroa.gep327, %1965 ], [ %.sink287.i.sroa.gep328, %1970 ], [ %.sink287.i.sroa.gep329, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep330, %1995 ], [ %.sink287.i.sroa.gep331, %1998 ], [ %.sink287.i.sroa.gep332, %2003 ], [ %.sink287.i.sroa.gep333, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep334, %2028 ], [ %.sink287.i.sroa.gep335, %2031 ], [ %.sink287.i.sroa.gep336, %2036 ]
-  %.sink287.i.sroa.phi337 = phi ptr [ %.sink287.i.sroa.gep338, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep339, %1930 ], [ %.sink287.i.sroa.gep340, %1933 ], [ %.sink287.i.sroa.gep341, %1936 ], [ %.sink287.i.sroa.gep342, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep343, %1962 ], [ %.sink287.i.sroa.gep344, %1965 ], [ %.sink287.i.sroa.gep345, %1970 ], [ %.sink287.i.sroa.gep346, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep347, %1995 ], [ %.sink287.i.sroa.gep348, %1998 ], [ %.sink287.i.sroa.gep349, %2003 ], [ %.sink287.i.sroa.gep350, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep351, %2028 ], [ %.sink287.i.sroa.gep352, %2031 ], [ %.sink287.i.sroa.gep353, %2036 ]
-  %.sink287.i.sroa.phi354 = phi ptr [ %.sink287.i.sroa.gep355, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep356, %1930 ], [ %.sink287.i.sroa.gep357, %1933 ], [ %.sink287.i.sroa.gep358, %1936 ], [ %.sink287.i.sroa.gep359, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep360, %1962 ], [ %.sink287.i.sroa.gep361, %1965 ], [ %.sink287.i.sroa.gep362, %1970 ], [ %.sink287.i.sroa.gep363, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep364, %1995 ], [ %.sink287.i.sroa.gep365, %1998 ], [ %.sink287.i.sroa.gep366, %2003 ], [ %.sink287.i.sroa.gep367, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep368, %2028 ], [ %.sink287.i.sroa.gep369, %2031 ], [ %.sink287.i.sroa.gep370, %2036 ]
-  %.sink287.i.sroa.phi371 = phi ptr [ %.sink287.i.sroa.gep372, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep373, %1930 ], [ %.sink287.i.sroa.gep374, %1933 ], [ %.sink287.i.sroa.gep375, %1936 ], [ %.sink287.i.sroa.gep376, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep377, %1962 ], [ %.sink287.i.sroa.gep378, %1965 ], [ %.sink287.i.sroa.gep379, %1970 ], [ %.sink287.i.sroa.gep380, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep381, %1995 ], [ %.sink287.i.sroa.gep382, %1998 ], [ %.sink287.i.sroa.gep383, %2003 ], [ %.sink287.i.sroa.gep384, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep385, %2028 ], [ %.sink287.i.sroa.gep386, %2031 ], [ %.sink287.i.sroa.gep387, %2036 ]
-  %.sink287.i = phi ptr [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %17, %1930 ], [ %16, %1933 ], [ %15, %1936 ], [ %14, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %13, %1962 ], [ %12, %1965 ], [ %11, %1970 ], [ %10, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %9, %1995 ], [ %8, %1998 ], [ %7, %2003 ], [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %5, %2028 ], [ %4, %2031 ], [ %3, %2036 ]
-  %.sink284.i = phi i64 [ 366, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ 367, %1930 ], [ 368, %1933 ], [ 369, %1936 ], [ 375, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ 376, %1962 ], [ 377, %1965 ], [ 378, %1970 ], [ 380, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ 381, %1995 ], [ 382, %1998 ], [ 383, %2003 ], [ 385, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ 386, %2028 ], [ 387, %2031 ], [ 388, %2036 ]
-  %2037 = phi ptr [ @.str.108, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ @.str.109, %1930 ], [ @.str.110, %1933 ], [ @.str.111, %1936 ], [ @.str.100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ @.str.101, %1962 ], [ @.str.102, %1965 ], [ @.str.112, %1970 ], [ @.str.104, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ @.str.105, %1995 ], [ @.str.106, %1998 ], [ @.str.113, %2003 ], [ @.str.108, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ @.str.109, %2028 ], [ @.str.110, %2031 ], [ @.str.114, %2036 ]
+  %.sink287.i.sroa.phi = phi ptr [ %.sink287.i.sroa.gep, %2031 ], [ %.sink287.i.sroa.gep305, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep306, %1930 ], [ %.sink287.i.sroa.gep307, %1933 ], [ %.sink287.i.sroa.gep308, %1936 ], [ %.sink287.i.sroa.gep309, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep310, %1962 ], [ %.sink287.i.sroa.gep311, %1965 ], [ %.sink287.i.sroa.gep312, %1970 ], [ %.sink287.i.sroa.gep313, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep314, %1995 ], [ %.sink287.i.sroa.gep315, %1998 ], [ %.sink287.i.sroa.gep316, %2003 ], [ %.sink287.i.sroa.gep317, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep318, %2028 ], [ %.sink287.i.sroa.gep319, %2036 ]
+  %.sink287.i.sroa.phi320 = phi ptr [ %.sink287.i.sroa.gep321, %2031 ], [ %.sink287.i.sroa.gep322, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep323, %1930 ], [ %.sink287.i.sroa.gep324, %1933 ], [ %.sink287.i.sroa.gep325, %1936 ], [ %.sink287.i.sroa.gep326, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep327, %1962 ], [ %.sink287.i.sroa.gep328, %1965 ], [ %.sink287.i.sroa.gep329, %1970 ], [ %.sink287.i.sroa.gep330, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep331, %1995 ], [ %.sink287.i.sroa.gep332, %1998 ], [ %.sink287.i.sroa.gep333, %2003 ], [ %.sink287.i.sroa.gep334, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep335, %2028 ], [ %.sink287.i.sroa.gep336, %2036 ]
+  %.sink287.i.sroa.phi337 = phi ptr [ %.sink287.i.sroa.gep338, %2031 ], [ %.sink287.i.sroa.gep339, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep340, %1930 ], [ %.sink287.i.sroa.gep341, %1933 ], [ %.sink287.i.sroa.gep342, %1936 ], [ %.sink287.i.sroa.gep343, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep344, %1962 ], [ %.sink287.i.sroa.gep345, %1965 ], [ %.sink287.i.sroa.gep346, %1970 ], [ %.sink287.i.sroa.gep347, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep348, %1995 ], [ %.sink287.i.sroa.gep349, %1998 ], [ %.sink287.i.sroa.gep350, %2003 ], [ %.sink287.i.sroa.gep351, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep352, %2028 ], [ %.sink287.i.sroa.gep353, %2036 ]
+  %.sink287.i.sroa.phi354 = phi ptr [ %.sink287.i.sroa.gep355, %2031 ], [ %.sink287.i.sroa.gep356, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep357, %1930 ], [ %.sink287.i.sroa.gep358, %1933 ], [ %.sink287.i.sroa.gep359, %1936 ], [ %.sink287.i.sroa.gep360, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep361, %1962 ], [ %.sink287.i.sroa.gep362, %1965 ], [ %.sink287.i.sroa.gep363, %1970 ], [ %.sink287.i.sroa.gep364, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep365, %1995 ], [ %.sink287.i.sroa.gep366, %1998 ], [ %.sink287.i.sroa.gep367, %2003 ], [ %.sink287.i.sroa.gep368, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep369, %2028 ], [ %.sink287.i.sroa.gep370, %2036 ]
+  %.sink287.i.sroa.phi371 = phi ptr [ %.sink287.i.sroa.gep372, %2031 ], [ %.sink287.i.sroa.gep373, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %.sink287.i.sroa.gep374, %1930 ], [ %.sink287.i.sroa.gep375, %1933 ], [ %.sink287.i.sroa.gep376, %1936 ], [ %.sink287.i.sroa.gep377, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %.sink287.i.sroa.gep378, %1962 ], [ %.sink287.i.sroa.gep379, %1965 ], [ %.sink287.i.sroa.gep380, %1970 ], [ %.sink287.i.sroa.gep381, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %.sink287.i.sroa.gep382, %1995 ], [ %.sink287.i.sroa.gep383, %1998 ], [ %.sink287.i.sroa.gep384, %2003 ], [ %.sink287.i.sroa.gep385, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %.sink287.i.sroa.gep386, %2028 ], [ %.sink287.i.sroa.gep387, %2036 ]
+  %.sink287.i = phi ptr [ %4, %2031 ], [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ %17, %1930 ], [ %16, %1933 ], [ %15, %1936 ], [ %14, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ %13, %1962 ], [ %12, %1965 ], [ %11, %1970 ], [ %10, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ %9, %1995 ], [ %8, %1998 ], [ %7, %2003 ], [ %6, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ %5, %2028 ], [ %3, %2036 ]
+  %.sink284.i = phi i64 [ 387, %2031 ], [ 366, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ 367, %1930 ], [ 368, %1933 ], [ 369, %1936 ], [ 375, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ 376, %1962 ], [ 377, %1965 ], [ 378, %1970 ], [ 380, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ 381, %1995 ], [ 382, %1998 ], [ 383, %2003 ], [ 385, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ 386, %2028 ], [ 388, %2036 ]
+  %2037 = phi ptr [ @.str.110, %2031 ], [ @.str.108, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit.i97 ], [ @.str.109, %1930 ], [ @.str.110, %1933 ], [ @.str.111, %1936 ], [ @.str.100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit42.i ], [ @.str.101, %1962 ], [ @.str.102, %1965 ], [ @.str.112, %1970 ], [ @.str.104, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit56.i ], [ @.str.105, %1995 ], [ @.str.106, %1998 ], [ @.str.113, %2003 ], [ @.str.108, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipcvbEv.exit71.i ], [ @.str.109, %2028 ], [ @.str.114, %2036 ]
   store ptr @.str.2, ptr %.sink287.i, align 8
   store ptr @__func__._ZL21TestInvalidPropertiesv, ptr %.sink287.i.sroa.phi, align 8
   store i64 %.sink284.i, ptr %.sink287.i.sroa.phi320, align 8
@@ -5975,7 +5975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeD2Ev.exit83.i:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit89.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit89.i: ; preds = %2089, %2084, %2080, %2075, %2071, %2066, %2064
-  %.pn.i96 = phi { ptr, i32 } [ %2065, %2064 ], [ %2067, %2066 ], [ %2067, %2071 ], [ %2076, %2075 ], [ %2076, %2080 ], [ %2085, %2084 ], [ %2085, %2089 ]
+  %.pn.i96 = phi { ptr, i32 } [ %2065, %2064 ], [ %2076, %2080 ], [ %2067, %2071 ], [ %2067, %2066 ], [ %2076, %2075 ], [ %2085, %2084 ], [ %2085, %2089 ]
   %2093 = load ptr, ptr %30, align 8
   %2094 = ptrtoint ptr %2093 to i64
   %2095 = and i64 %2094, 7
@@ -6280,95 +6280,95 @@ define internal fastcc void @_ZL21TestAttributeMetadatav() unnamed_addr #0 perso
   %.not.not.i.i.i = icmp eq i64 %148, 0
   %149 = load ptr, ptr %89, align 8
   %150 = ptrtoint ptr %149 to i64
-  %.sink1114.sroa.gep = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %.sink1114.sroa.gep1125 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %.sink1114.sroa.gep1126 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %.sink1114.sroa.gep1127 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %.sink1114.sroa.gep1128 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sink1114.sroa.gep1129 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sink1114.sroa.gep1130 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %.sink1114.sroa.gep1131 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.sink1114.sroa.gep1132 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sink1114.sroa.gep1133 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sink1114.sroa.gep1134 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sink1114.sroa.gep1135 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sink1114.sroa.gep1136 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink1114.sroa.gep1137 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink1114.sroa.gep1138 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink1114.sroa.gep1139 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink1114.sroa.gep1140 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1114.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1114.sroa.gep1125 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %.sink1114.sroa.gep1126 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %.sink1114.sroa.gep1127 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %.sink1114.sroa.gep1128 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.sink1114.sroa.gep1129 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sink1114.sroa.gep1130 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sink1114.sroa.gep1131 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sink1114.sroa.gep1132 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.sink1114.sroa.gep1133 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sink1114.sroa.gep1134 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sink1114.sroa.gep1135 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink1114.sroa.gep1136 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink1114.sroa.gep1137 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sink1114.sroa.gep1138 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink1114.sroa.gep1139 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink1114.sroa.gep1140 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sink1114.sroa.gep1141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink1114.sroa.gep1143 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %.sink1114.sroa.gep1144 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %.sink1114.sroa.gep1145 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %.sink1114.sroa.gep1146 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %.sink1114.sroa.gep1147 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.sink1114.sroa.gep1148 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.sink1114.sroa.gep1149 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %.sink1114.sroa.gep1150 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.sink1114.sroa.gep1151 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink1114.sroa.gep1152 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.sink1114.sroa.gep1153 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink1114.sroa.gep1154 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sink1114.sroa.gep1155 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink1114.sroa.gep1156 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink1114.sroa.gep1157 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink1114.sroa.gep1158 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink1114.sroa.gep1159 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1114.sroa.gep1143 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1114.sroa.gep1144 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %.sink1114.sroa.gep1145 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %.sink1114.sroa.gep1146 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %.sink1114.sroa.gep1147 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.sink1114.sroa.gep1148 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.sink1114.sroa.gep1149 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sink1114.sroa.gep1150 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.sink1114.sroa.gep1151 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.sink1114.sroa.gep1152 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sink1114.sroa.gep1153 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.sink1114.sroa.gep1154 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sink1114.sroa.gep1155 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sink1114.sroa.gep1156 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sink1114.sroa.gep1157 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink1114.sroa.gep1158 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink1114.sroa.gep1159 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink1114.sroa.gep1160 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sink1114.sroa.gep1162 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %.sink1114.sroa.gep1163 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %.sink1114.sroa.gep1164 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %.sink1114.sroa.gep1165 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %.sink1114.sroa.gep1166 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.sink1114.sroa.gep1167 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %.sink1114.sroa.gep1168 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %.sink1114.sroa.gep1169 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.sink1114.sroa.gep1170 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %.sink1114.sroa.gep1171 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.sink1114.sroa.gep1172 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sink1114.sroa.gep1173 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sink1114.sroa.gep1174 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink1114.sroa.gep1175 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sink1114.sroa.gep1176 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink1114.sroa.gep1177 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink1114.sroa.gep1178 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1114.sroa.gep1162 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1114.sroa.gep1163 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %.sink1114.sroa.gep1164 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %.sink1114.sroa.gep1165 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %.sink1114.sroa.gep1166 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %.sink1114.sroa.gep1167 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.sink1114.sroa.gep1168 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %.sink1114.sroa.gep1169 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %.sink1114.sroa.gep1170 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.sink1114.sroa.gep1171 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sink1114.sroa.gep1172 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.sink1114.sroa.gep1173 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sink1114.sroa.gep1174 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sink1114.sroa.gep1175 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sink1114.sroa.gep1176 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink1114.sroa.gep1177 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink1114.sroa.gep1178 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sink1114.sroa.gep1179 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sink1114.sroa.gep1181 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %.sink1114.sroa.gep1182 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %.sink1114.sroa.gep1183 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %.sink1114.sroa.gep1184 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %.sink1114.sroa.gep1185 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %.sink1114.sroa.gep1186 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %.sink1114.sroa.gep1187 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %.sink1114.sroa.gep1188 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %.sink1114.sroa.gep1189 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.sink1114.sroa.gep1190 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.sink1114.sroa.gep1191 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %.sink1114.sroa.gep1192 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.sink1114.sroa.gep1193 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sink1114.sroa.gep1194 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink1114.sroa.gep1195 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink1114.sroa.gep1196 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink1114.sroa.gep1197 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1114.sroa.gep1181 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1114.sroa.gep1182 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %.sink1114.sroa.gep1183 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %.sink1114.sroa.gep1184 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %.sink1114.sroa.gep1185 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %.sink1114.sroa.gep1186 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %.sink1114.sroa.gep1187 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %.sink1114.sroa.gep1188 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %.sink1114.sroa.gep1189 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %.sink1114.sroa.gep1190 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.sink1114.sroa.gep1191 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.sink1114.sroa.gep1192 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.sink1114.sroa.gep1193 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.sink1114.sroa.gep1194 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.sink1114.sroa.gep1195 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink1114.sroa.gep1196 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink1114.sroa.gep1197 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink1114.sroa.gep1198 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sink1114.sroa.gep1200 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %.sink1114.sroa.gep1201 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %.sink1114.sroa.gep1202 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %.sink1114.sroa.gep1203 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink1114.sroa.gep1204 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %.sink1114.sroa.gep1205 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %.sink1114.sroa.gep1206 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %.sink1114.sroa.gep1207 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %.sink1114.sroa.gep1208 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %.sink1114.sroa.gep1209 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %.sink1114.sroa.gep1210 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %.sink1114.sroa.gep1211 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %.sink1114.sroa.gep1212 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %.sink1114.sroa.gep1213 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sink1114.sroa.gep1214 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sink1114.sroa.gep1215 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink1114.sroa.gep1216 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink1114.sroa.gep1200 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sink1114.sroa.gep1201 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %.sink1114.sroa.gep1202 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %.sink1114.sroa.gep1203 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  %.sink1114.sroa.gep1204 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %.sink1114.sroa.gep1205 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %.sink1114.sroa.gep1206 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %.sink1114.sroa.gep1207 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %.sink1114.sroa.gep1208 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %.sink1114.sroa.gep1209 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %.sink1114.sroa.gep1210 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %.sink1114.sroa.gep1211 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %.sink1114.sroa.gep1212 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %.sink1114.sroa.gep1213 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %.sink1114.sroa.gep1214 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %.sink1114.sroa.gep1215 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sink1114.sroa.gep1216 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sink1114.sroa.gep1217 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sink1050.sroa.gep = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sink1050.sroa.gep1218 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -6540,7 +6540,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_pt
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry26FindConcretePrimDefinitionERKNS_7TfTokenE.exit: ; preds = %.lr.ph.i.i.i.i.i, %153, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i, %..loopexit_crit_edge21.i.i.i.i.i, %160
-  %197 = phi ptr [ %196, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i ], [ null, %160 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %153 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %197 = phi ptr [ %196, %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEKSt10unique_ptrINS0_17UsdPrimDefinitionESt14default_deleteIS3_EENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S7_EEE4findERSC_.exit.i ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %160 ], [ null, %153 ], [ null, %.lr.ph.i.i.i.i.i ]
   %198 = and i64 %150, 7
   %.not.i.i = icmp eq i64 %198, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %199
@@ -6871,14 +6871,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   br i1 %297, label %300, label %.invoke1029
 
 .invoke1029:                                      ; preds = %298, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread
-  %.sink1050.sroa.phi = phi ptr [ %.sink1050.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1218, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1219, %298 ]
-  %.sink1050.sroa.phi1220 = phi ptr [ %.sink1050.sroa.gep1221, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1222, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1223, %298 ]
-  %.sink1050.sroa.phi1224 = phi ptr [ %.sink1050.sroa.gep1225, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1226, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1227, %298 ]
-  %.sink1050.sroa.phi1228 = phi ptr [ %.sink1050.sroa.gep1229, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1230, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1231, %298 ]
-  %.sink1050.sroa.phi1232 = phi ptr [ %.sink1050.sroa.gep1233, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1234, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1235, %298 ]
-  %.sink1050 = phi ptr [ %79, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %79, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %78, %298 ]
-  %.sink1047 = phi i64 [ 123, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ 123, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ 124, %298 ]
-  %299 = phi ptr [ @.str.44, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ @.str.44, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ @.str.46, %298 ]
+  %.sink1050.sroa.phi = phi ptr [ %.sink1050.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1218, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1219, %298 ]
+  %.sink1050.sroa.phi1220 = phi ptr [ %.sink1050.sroa.gep1221, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1222, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1223, %298 ]
+  %.sink1050.sroa.phi1224 = phi ptr [ %.sink1050.sroa.gep1225, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1226, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1227, %298 ]
+  %.sink1050.sroa.phi1228 = phi ptr [ %.sink1050.sroa.gep1229, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1230, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1231, %298 ]
+  %.sink1050.sroa.phi1232 = phi ptr [ %.sink1050.sroa.gep1233, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %.sink1050.sroa.gep1234, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %.sink1050.sroa.gep1235, %298 ]
+  %.sink1050 = phi ptr [ %79, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ %79, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ %78, %298 ]
+  %.sink1047 = phi i64 [ 123, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ 123, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ 124, %298 ]
+  %299 = phi ptr [ @.str.44, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit ], [ @.str.44, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit.thread ], [ @.str.46, %298 ]
   store ptr @.str.2, ptr %.sink1050, align 8
   store ptr @__func__._ZL21TestAttributeMetadatav, ptr %.sink1050.sroa.phi, align 8
   store i64 %.sink1047, ptr %.sink1050.sroa.phi1220, align 8
@@ -7233,14 +7233,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   br i1 %430, label %432, label %.invoke1033
 
 .invoke1033:                                      ; preds = %428, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread
-  %.sink1066.sroa.phi = phi ptr [ %.sink1066.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1249, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1250, %428 ]
-  %.sink1066.sroa.phi1251 = phi ptr [ %.sink1066.sroa.gep1252, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1253, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1254, %428 ]
-  %.sink1066.sroa.phi1255 = phi ptr [ %.sink1066.sroa.gep1256, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1257, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1258, %428 ]
-  %.sink1066.sroa.phi1259 = phi ptr [ %.sink1066.sroa.gep1260, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1261, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1262, %428 ]
-  %.sink1066.sroa.phi1263 = phi ptr [ %.sink1066.sroa.gep1264, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1265, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1266, %428 ]
-  %.sink1066 = phi ptr [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %69, %428 ]
-  %.sink1063 = phi i64 [ 140, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ 140, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ 141, %428 ]
-  %431 = phi ptr [ @.str.50, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ @.str.50, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ @.str.51, %428 ]
+  %.sink1066.sroa.phi = phi ptr [ %.sink1066.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1249, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1250, %428 ]
+  %.sink1066.sroa.phi1251 = phi ptr [ %.sink1066.sroa.gep1252, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1253, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1254, %428 ]
+  %.sink1066.sroa.phi1255 = phi ptr [ %.sink1066.sroa.gep1256, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1257, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1258, %428 ]
+  %.sink1066.sroa.phi1259 = phi ptr [ %.sink1066.sroa.gep1260, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1261, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1262, %428 ]
+  %.sink1066.sroa.phi1263 = phi ptr [ %.sink1066.sroa.gep1264, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1066.sroa.gep1265, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %.sink1066.sroa.gep1266, %428 ]
+  %.sink1066 = phi ptr [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ %70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ %69, %428 ]
+  %.sink1063 = phi i64 [ 140, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ 140, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ 141, %428 ]
+  %431 = phi ptr [ @.str.50, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ @.str.50, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit.thread ], [ @.str.51, %428 ]
   store ptr @.str.2, ptr %.sink1066, align 8
   store ptr @__func__._ZL21TestAttributeMetadatav, ptr %.sink1066.sroa.phi, align 8
   store i64 %.sink1063, ptr %.sink1066.sroa.phi1251, align 8
@@ -9886,14 +9886,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526: ; preds = %_ZN32pxrIn
   br i1 %1378, label %1380, label %.invoke
 
 .invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437, %1124, %1123, %1073, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit, %1042, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit, %1023, %1022, %386, %243, %209, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit
-  %.sink1114.sroa.phi = phi ptr [ %.sink1114.sroa.gep, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1125, %209 ], [ %.sink1114.sroa.gep1126, %243 ], [ %.sink1114.sroa.gep1127, %386 ], [ %.sink1114.sroa.gep1128, %1022 ], [ %.sink1114.sroa.gep1129, %1023 ], [ %.sink1114.sroa.gep1130, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1131, %1042 ], [ %.sink1114.sroa.gep1132, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1133, %1073 ], [ %.sink1114.sroa.gep1134, %1123 ], [ %.sink1114.sroa.gep1135, %1124 ], [ %.sink1114.sroa.gep1136, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1138, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1139, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1140, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1114.sroa.phi1142 = phi ptr [ %.sink1114.sroa.gep1143, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1144, %209 ], [ %.sink1114.sroa.gep1145, %243 ], [ %.sink1114.sroa.gep1146, %386 ], [ %.sink1114.sroa.gep1147, %1022 ], [ %.sink1114.sroa.gep1148, %1023 ], [ %.sink1114.sroa.gep1149, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1150, %1042 ], [ %.sink1114.sroa.gep1151, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1152, %1073 ], [ %.sink1114.sroa.gep1153, %1123 ], [ %.sink1114.sroa.gep1154, %1124 ], [ %.sink1114.sroa.gep1155, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1156, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1157, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1158, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1159, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1114.sroa.phi1161 = phi ptr [ %.sink1114.sroa.gep1162, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1163, %209 ], [ %.sink1114.sroa.gep1164, %243 ], [ %.sink1114.sroa.gep1165, %386 ], [ %.sink1114.sroa.gep1166, %1022 ], [ %.sink1114.sroa.gep1167, %1023 ], [ %.sink1114.sroa.gep1168, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1169, %1042 ], [ %.sink1114.sroa.gep1170, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1171, %1073 ], [ %.sink1114.sroa.gep1172, %1123 ], [ %.sink1114.sroa.gep1173, %1124 ], [ %.sink1114.sroa.gep1174, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1175, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1176, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1177, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1178, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1179, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1114.sroa.phi1180 = phi ptr [ %.sink1114.sroa.gep1181, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1182, %209 ], [ %.sink1114.sroa.gep1183, %243 ], [ %.sink1114.sroa.gep1184, %386 ], [ %.sink1114.sroa.gep1185, %1022 ], [ %.sink1114.sroa.gep1186, %1023 ], [ %.sink1114.sroa.gep1187, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1188, %1042 ], [ %.sink1114.sroa.gep1189, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1190, %1073 ], [ %.sink1114.sroa.gep1191, %1123 ], [ %.sink1114.sroa.gep1192, %1124 ], [ %.sink1114.sroa.gep1193, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1194, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1195, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1196, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1197, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1198, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1114.sroa.phi1199 = phi ptr [ %.sink1114.sroa.gep1200, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1201, %209 ], [ %.sink1114.sroa.gep1202, %243 ], [ %.sink1114.sroa.gep1203, %386 ], [ %.sink1114.sroa.gep1204, %1022 ], [ %.sink1114.sroa.gep1205, %1023 ], [ %.sink1114.sroa.gep1206, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1207, %1042 ], [ %.sink1114.sroa.gep1208, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1209, %1073 ], [ %.sink1114.sroa.gep1210, %1123 ], [ %.sink1114.sroa.gep1211, %1124 ], [ %.sink1114.sroa.gep1212, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1213, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1214, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1215, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1216, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1217, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1114 = phi ptr [ %87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %86, %209 ], [ %83, %243 ], [ %73, %386 ], [ %32, %1022 ], [ %31, %1023 ], [ %30, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %29, %1042 ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %26, %1073 ], [ %23, %1123 ], [ %22, %1124 ], [ %19, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %.sink1111 = phi i64 [ 106, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ 107, %209 ], [ 115, %243 ], [ 133, %386 ], [ 222, %1022 ], [ 223, %1023 ], [ 224, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ 225, %1042 ], [ 226, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ 227, %1073 ], [ 229, %1123 ], [ 230, %1124 ], [ 233, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ 236, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ 239, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ 242, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ 245, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ 248, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
-  %1379 = phi ptr [ @.str.37, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ @.str.38, %209 ], [ @.str.41, %243 ], [ @.str.48, %386 ], [ @.str.69, %1022 ], [ @.str.30, %1023 ], [ @.str.70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ @.str.30, %1042 ], [ @.str.71, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ @.str.30, %1073 ], [ @.str.72, %1123 ], [ @.str.30, %1124 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114.sroa.phi = phi ptr [ %.sink1114.sroa.gep, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1125, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1126, %209 ], [ %.sink1114.sroa.gep1127, %243 ], [ %.sink1114.sroa.gep1128, %386 ], [ %.sink1114.sroa.gep1129, %1022 ], [ %.sink1114.sroa.gep1130, %1023 ], [ %.sink1114.sroa.gep1131, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1132, %1042 ], [ %.sink1114.sroa.gep1133, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1134, %1073 ], [ %.sink1114.sroa.gep1135, %1123 ], [ %.sink1114.sroa.gep1136, %1124 ], [ %.sink1114.sroa.gep1137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1138, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1139, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1140, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114.sroa.phi1142 = phi ptr [ %.sink1114.sroa.gep1143, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1144, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1145, %209 ], [ %.sink1114.sroa.gep1146, %243 ], [ %.sink1114.sroa.gep1147, %386 ], [ %.sink1114.sroa.gep1148, %1022 ], [ %.sink1114.sroa.gep1149, %1023 ], [ %.sink1114.sroa.gep1150, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1151, %1042 ], [ %.sink1114.sroa.gep1152, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1153, %1073 ], [ %.sink1114.sroa.gep1154, %1123 ], [ %.sink1114.sroa.gep1155, %1124 ], [ %.sink1114.sroa.gep1156, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1157, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1158, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1159, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1160, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114.sroa.phi1161 = phi ptr [ %.sink1114.sroa.gep1162, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1163, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1164, %209 ], [ %.sink1114.sroa.gep1165, %243 ], [ %.sink1114.sroa.gep1166, %386 ], [ %.sink1114.sroa.gep1167, %1022 ], [ %.sink1114.sroa.gep1168, %1023 ], [ %.sink1114.sroa.gep1169, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1170, %1042 ], [ %.sink1114.sroa.gep1171, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1172, %1073 ], [ %.sink1114.sroa.gep1173, %1123 ], [ %.sink1114.sroa.gep1174, %1124 ], [ %.sink1114.sroa.gep1175, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1176, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1177, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1178, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1179, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114.sroa.phi1180 = phi ptr [ %.sink1114.sroa.gep1181, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1182, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1183, %209 ], [ %.sink1114.sroa.gep1184, %243 ], [ %.sink1114.sroa.gep1185, %386 ], [ %.sink1114.sroa.gep1186, %1022 ], [ %.sink1114.sroa.gep1187, %1023 ], [ %.sink1114.sroa.gep1188, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1189, %1042 ], [ %.sink1114.sroa.gep1190, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1191, %1073 ], [ %.sink1114.sroa.gep1192, %1123 ], [ %.sink1114.sroa.gep1193, %1124 ], [ %.sink1114.sroa.gep1194, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1195, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1196, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1197, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1198, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114.sroa.phi1199 = phi ptr [ %.sink1114.sroa.gep1200, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %.sink1114.sroa.gep1201, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %.sink1114.sroa.gep1202, %209 ], [ %.sink1114.sroa.gep1203, %243 ], [ %.sink1114.sroa.gep1204, %386 ], [ %.sink1114.sroa.gep1205, %1022 ], [ %.sink1114.sroa.gep1206, %1023 ], [ %.sink1114.sroa.gep1207, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1208, %1042 ], [ %.sink1114.sroa.gep1209, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %.sink1114.sroa.gep1210, %1073 ], [ %.sink1114.sroa.gep1211, %1123 ], [ %.sink1114.sroa.gep1212, %1124 ], [ %.sink1114.sroa.gep1213, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %.sink1114.sroa.gep1214, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %.sink1114.sroa.gep1215, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %.sink1114.sroa.gep1216, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %.sink1114.sroa.gep1217, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1114 = phi ptr [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ %87, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ %86, %209 ], [ %83, %243 ], [ %73, %386 ], [ %32, %1022 ], [ %31, %1023 ], [ %30, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ %29, %1042 ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ %26, %1073 ], [ %23, %1123 ], [ %22, %1124 ], [ %19, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ %8, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %.sink1111 = phi i64 [ 245, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ 106, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ 107, %209 ], [ 115, %243 ], [ 133, %386 ], [ 222, %1022 ], [ 223, %1023 ], [ 224, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ 225, %1042 ], [ 226, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ 227, %1073 ], [ 229, %1123 ], [ 230, %1124 ], [ 233, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ 236, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ 239, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ 242, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ 248, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
+  %1379 = phi ptr [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504 ], [ @.str.37, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributecvbEv.exit ], [ @.str.38, %209 ], [ @.str.41, %243 ], [ @.str.48, %386 ], [ @.str.69, %1022 ], [ @.str.30, %1023 ], [ @.str.70, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition25GetAttributeFallbackValueIdEEbRKNS_7TfTokenEPT_.exit ], [ @.str.30, %1042 ], [ @.str.71, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit ], [ @.str.30, %1073 ], [ @.str.72, %1123 ], [ @.str.30, %1124 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit456 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit491 ], [ @.str.30, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit526 ]
   store ptr @.str.2, ptr %.sink1114, align 8
   store ptr @__func__._ZL21TestAttributeMetadatav, ptr %.sink1114.sroa.phi, align 8
   store i64 %.sink1111, ptr %.sink1114.sroa.phi1142, align 8
@@ -10149,7 +10149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit554: ; preds = %1485, %149
   br i1 %1495, label %.body229, label %1485
 
 .body229:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit554, %1475, %1470, %.thread, %1468, %518
-  %.pn.pn = phi { ptr, i32 } [ %1469, %1468 ], [ %519, %518 ], [ %544, %.thread ], [ %1471, %1470 ], [ %1471, %1475 ], [ %.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit554 ]
+  %.pn.pn = phi { ptr, i32 } [ %544, %.thread ], [ %1469, %1468 ], [ %519, %518 ], [ %1471, %1475 ], [ %1471, %1470 ], [ %.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit554 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %103) #18
   br label %.body386
 
@@ -10209,7 +10209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit558: ; preds = %1513, %151
   br i1 %1523, label %.body245, label %1513
 
 .body245:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit558, %1503, %1498, %.thread966, %572, %599, %604, %1496
-  %.pn78.pn = phi { ptr, i32 } [ %573, %572 ], [ %1497, %1496 ], [ %600, %604 ], [ %600, %599 ], [ %619, %.thread966 ], [ %1499, %1498 ], [ %1499, %1503 ], [ %.pn78, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit558 ]
+  %.pn78.pn = phi { ptr, i32 } [ %619, %.thread966 ], [ %573, %572 ], [ %1497, %1496 ], [ %600, %604 ], [ %600, %599 ], [ %1499, %1503 ], [ %1499, %1498 ], [ %.pn78, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit558 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %106) #18
   br label %.body386
 
@@ -10357,7 +10357,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566: ; preds = %1577, %157
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit564
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit564: ; preds = %1584, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566, %1566, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562, %1550
-  %.pn90 = phi { ptr, i32 } [ %1551, %1550 ], [ %.pn86, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562 ], [ %.pn86, %1566 ], [ %.pn88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566 ], [ %.pn88, %1584 ]
+  %.pn90 = phi { ptr, i32 } [ %1551, %1550 ], [ %.pn86, %1566 ], [ %.pn86, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit562 ], [ %.pn88, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit566 ], [ %.pn88, %1584 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %115) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit560
 
@@ -10522,7 +10522,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576: ; preds = %1641, %.bo
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit574
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit574: ; preds = %1648, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576, %1630, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit572, %1614
-  %.pn102 = phi { ptr, i32 } [ %1615, %1614 ], [ %.pn98, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit572 ], [ %.pn98, %1630 ], [ %.pn100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576 ], [ %.pn100, %1648 ]
+  %.pn102 = phi { ptr, i32 } [ %1615, %1614 ], [ %.pn98, %1630 ], [ %.pn98, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit572 ], [ %.pn100, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit576 ], [ %.pn100, %1648 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit570
 
@@ -10748,7 +10748,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit600: ; preds = %1749, %.bo
   br label %.body386
 
 .body386:                                         ; preds = %1756, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit600, %1738, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596, %1720, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit592, %1702, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit588, %1684, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit584, %1666, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit580, %1456, %1451, %1447, %.body157, %1438, %.body, %1429, %1424, %1420, %1415, %1411, %1408, %1404, %1399, %1031, %1081, %1107, %1112, %1397, %1050, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit570, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit560, %.body245, %.body229, %.body219, %1464, %.body195, %.body181
-  %.pn117 = phi { ptr, i32 } [ %.pn102.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit570 ], [ %.pn90.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit560 ], [ %.pn78.pn, %.body245 ], [ %.pn.pn, %.body229 ], [ %eh.lpad-body220, %.body219 ], [ %1465, %1464 ], [ %eh.lpad-body196, %.body195 ], [ %eh.lpad-body182, %.body181 ], [ %1032, %1031 ], [ %1051, %1050 ], [ %1082, %1081 ], [ %1398, %1397 ], [ %1108, %1112 ], [ %1108, %1107 ], [ %1400, %1399 ], [ %1400, %1404 ], [ %1409, %1408 ], [ %1409, %1411 ], [ %1416, %1415 ], [ %1416, %1420 ], [ %1425, %1424 ], [ %1425, %1429 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %1438 ], [ %eh.lpad-body158, %.body157 ], [ %eh.lpad-body158, %1447 ], [ %1452, %1451 ], [ %1452, %1456 ], [ %.pn105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit580 ], [ %.pn105, %1666 ], [ %.pn107, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit584 ], [ %.pn107, %1684 ], [ %.pn109, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit588 ], [ %.pn109, %1702 ], [ %.pn111, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit592 ], [ %.pn111, %1720 ], [ %.pn113, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596 ], [ %.pn113, %1738 ], [ %.pn115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit600 ], [ %.pn115, %1756 ]
+  %.pn117 = phi { ptr, i32 } [ %1108, %1107 ], [ %.pn113, %1738 ], [ %.pn111, %1720 ], [ %.pn109, %1702 ], [ %.pn107, %1684 ], [ %.pn105, %1666 ], [ %1452, %1456 ], [ %.pn102.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit570 ], [ %.pn90.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit560 ], [ %.pn78.pn, %.body245 ], [ %.pn.pn, %.body229 ], [ %eh.lpad-body220, %.body219 ], [ %1465, %1464 ], [ %eh.lpad-body196, %.body195 ], [ %eh.lpad-body182, %.body181 ], [ %eh.lpad-body158, %1447 ], [ %eh.lpad-body, %1438 ], [ %1425, %1429 ], [ %1416, %1420 ], [ %1409, %1411 ], [ %1400, %1404 ], [ %1032, %1031 ], [ %1051, %1050 ], [ %1082, %1081 ], [ %1398, %1397 ], [ %1108, %1112 ], [ %1400, %1399 ], [ %1409, %1408 ], [ %1416, %1415 ], [ %1425, %1424 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body158, %.body157 ], [ %1452, %1451 ], [ %.pn105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit580 ], [ %.pn107, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit584 ], [ %.pn109, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit588 ], [ %.pn111, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit592 ], [ %.pn113, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit596 ], [ %.pn115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit600 ], [ %.pn115, %1756 ]
   %1760 = load ptr, ptr %91, align 8
   %1761 = ptrtoint ptr %1760 to i64
   %1762 = and i64 %1761, 7
@@ -11099,8 +11099,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFiel
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i.i.i, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_7TfTokenEEEbRKS3_PT_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_7TfTokenEEEbRKS3_PT_.exit ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %19, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_7TfTokenEEEbRKS3_PT_.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_7TfTokenEEEbRKS3_PT_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %19 ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -11244,7 +11244,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread12, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread12 ], [ true, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i ]
+  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread12 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ true, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i ]
   ret i1 %.0
 }
 
@@ -11358,7 +11358,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread, %29, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread13, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread13 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit ], [ true, %29 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread ]
+  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread13 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit ], [ true, %29 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread ]
   ret i1 %.0
 }
 
@@ -11722,8 +11722,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFiel
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i.i.i, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %19, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %19 ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -12169,8 +12169,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFiel
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i.i.i, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIbEEbRKNS_7TfTokenEPT_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIbEEbRKNS_7TfTokenEPT_.exit ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %19, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIbEEbRKNS_7TfTokenEPT_.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIbEEbRKNS_7TfTokenEPT_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %19 ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -12537,8 +12537,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFiel
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i.i.i, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %19, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %19 ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -12581,7 +12581,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.
   br i1 %18, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.thread12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit, %6, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i
-  %.pre-phi19 = phi i64 [ %5, %6 ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %.pre18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit ]
+  %.pre-phi19 = phi i64 [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %5, %6 ], [ %.pre18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.exit ]
   %19 = and i64 %.pre-phi19, 4
   %.not.i.i5 = icmp eq i64 %19, 0
   br i1 %.not.i.i5, label %26, label %20
@@ -12786,7 +12786,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread14, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread14 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit ], [ true, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i ]
+  %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread14 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv.exit.thread ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryaSEOS0_.exit ], [ true, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -13977,8 +13977,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFiel
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i.i.i, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIdEEbRKNS_7TfTokenEPT_.exit
-  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIdEEbRKNS_7TfTokenEPT_.exit ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_GetPropertyLayerAndPathERKNS_7TfTokenE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %12, %19, %..loopexit_crit_edge21.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIdEEbRKNS_7TfTokenEPT_.exit
+  %.0 = phi i1 [ %.0.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath8HasFieldIdEEbRKNS_7TfTokenEPT_.exit ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i ], [ false, %19 ], [ false, %12 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -14779,7 +14779,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEb
   br i1 %18, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit, %6, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i
-  %.pre-phi19 = phi i64 [ %5, %6 ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %.pre18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit ]
+  %.pre-phi19 = phi i64 [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %5, %6 ], [ %.pre18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit ]
   %19 = and i64 %.pre-phi19, 4
   %.not.i.i5 = icmp eq i64 %19, 0
   br i1 %.not.i.i5, label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit, label %20
@@ -14888,7 +14888,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEb
   br i1 %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread13
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit, %7, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i
-  %.pre-phi20 = phi i64 [ %6, %7 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %.pre19, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit ]
+  %.pre-phi20 = phi i64 [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.i.i ], [ %6, %7 ], [ %.pre19, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_14SdfVariabilityEEEbv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = and i64 %.pre-phi20, 4
   %.not.i.i.i = icmp eq i64 %20, 0

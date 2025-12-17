@@ -1566,8 +1566,8 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
   unreachable
 
 .thread.thread:                                   ; preds = %25, %34, %.thread
-  %42 = phi i8 [ 1, %34 ], [ 0, %.thread ], [ 0, %25 ]
-  %.pre2227 = phi ptr [ %.pre22.pre, %34 ], [ %.pre22.pre, %.thread ], [ %16, %25 ]
+  %42 = phi i8 [ 0, %.thread ], [ 1, %34 ], [ 0, %25 ]
+  %.pre2227 = phi ptr [ %.pre22.pre, %.thread ], [ %.pre22.pre, %34 ], [ %16, %25 ]
   %43 = getelementptr inbounds nuw i8, ptr %.pre2227, i64 202
   %44 = load i8, ptr %43, align 2, !range !4, !noundef !5
   %.not16 = icmp eq i8 %44, %42
@@ -2090,8 +2090,8 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
   br label %30
 
 30:                                               ; preds = %21, %14, %.lr.ph, %28
-  %31 = phi ptr [ %.pre, %28 ], [ %9, %.lr.ph ], [ %9, %14 ], [ %.pre, %21 ]
-  %.1 = phi i64 [ %.2, %28 ], [ %.01724, %.lr.ph ], [ %.01724, %14 ], [ %.01724, %21 ]
+  %31 = phi ptr [ %9, %14 ], [ %.pre, %21 ], [ %.pre, %28 ], [ %9, %.lr.ph ]
+  %.1 = phi i64 [ %.01724, %14 ], [ %.01724, %21 ], [ %.2, %28 ], [ %.01724, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr @max_replication_slots, align 4
   %33 = sext i32 %32 to i64
@@ -2280,7 +2280,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph, label %._crit_edge
 
-42:                                               ; preds = %11, %16
+42:                                               ; preds = %16, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !38
@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   switch i32 %0, label %.thread.thread.i [
     i32 1, label %51
     i32 2, label %53
-    i32 3, label %61
+    i32 3, label %59
   ]
 
 .thread.thread.i:                                 ; preds = %50
@@ -2553,16 +2553,16 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 
 58:                                               ; preds = %56, %55
   %.not93.i = icmp eq i32 %.371.i, 0
-  br i1 %.not93.i, label %.thread.i, label %59
+  br i1 %.not93.i, label %.thread.i, label %61
 
-59:                                               ; preds = %58
-  %60 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
-  br i1 %60, label %.thread108.i, label %.thread.i
-
-61:                                               ; preds = %50
-  %62 = load i32, ptr %33, align 8
-  %.not88.i = icmp eq i32 %62, 0
+59:                                               ; preds = %50
+  %60 = load i32, ptr %33, align 8
+  %.not88.i = icmp eq i32 %60, 0
   br i1 %.not88.i, label %.thread.i, label %.thread108.i
+
+61:                                               ; preds = %58
+  %62 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
+  br i1 %62, label %.thread108.i, label %.thread.i
 
 .thread.i:                                        ; preds = %61, %59, %58, %53, %51, %42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
@@ -2576,7 +2576,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br label %125
 
 .thread108.i:                                     ; preds = %61, %59, %56, %51
-  %66 = phi i1 [ false, %61 ], [ false, %59 ], [ false, %56 ], [ true, %51 ]
+  %66 = phi i1 [ false, %59 ], [ false, %61 ], [ false, %56 ], [ true, %51 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 64, i1 false)
   %67 = load i32, ptr %34, align 4
   %68 = icmp eq i32 %67, 0
@@ -2636,7 +2636,7 @@ default.unreachable11.i:                          ; preds = %75
   unreachable
 
 85:                                               ; preds = %84, %83, %76
-  %.0.i = phi i1 [ true, %76 ], [ false, %83 ], [ false, %84 ]
+  %.0.i = phi i1 [ false, %84 ], [ true, %76 ], [ false, %83 ]
   %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %86, label %87, label %ReportSlotInvalidation.exit
 
@@ -3381,7 +3381,7 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
   br i1 %21, label %.split39.us.i, label %.lr.ph.i
 
 .split39.us.sink.split.i:                         ; preds = %.loopexit.split.us.i, %.split.us.i
-  %.sink.i = phi ptr [ %50, %.split.us.i ], [ %56, %.loopexit.split.us.i ]
+  %.sink.i = phi ptr [ %56, %.loopexit.split.us.i ], [ %50, %.split.us.i ]
   store ptr %.sink.i, ptr @GUC_check_errdetail_string, align 8
   br label %.split39.us.i
 
@@ -3749,11 +3749,11 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br i1 %65, label %.lr.ph, label %.thread, !llvm.loop !51
 
 .thread.sink.split.sink.split:                    ; preds = %55, %48, %34, %.loopexit
-  %.sink217 = phi i32 [ 50856066, %.loopexit ], [ 50856066, %34 ], [ 325, %48 ], [ 325, %55 ]
-  %.str.51.sink = phi ptr [ @.str.42, %.loopexit ], [ @.str.46, %34 ], [ @.str.49, %48 ], [ @.str.51, %55 ]
-  %.str.44.sink = phi ptr [ @.str.44, %.loopexit ], [ @.str.47, %34 ], [ @.str.44, %48 ], [ @.str.44, %55 ]
-  %.str.52.sink = phi ptr [ @.str.45, %.loopexit ], [ @.str.48, %34 ], [ @.str.50, %48 ], [ @.str.52, %55 ]
-  %.sink = phi i32 [ 2677, %.loopexit ], [ 2691, %34 ], [ 2711, %48 ], [ 2726, %55 ]
+  %.sink217 = phi i32 [ 325, %48 ], [ 50856066, %34 ], [ 50856066, %.loopexit ], [ 325, %55 ]
+  %.str.51.sink = phi ptr [ @.str.49, %48 ], [ @.str.46, %34 ], [ @.str.42, %.loopexit ], [ @.str.51, %55 ]
+  %.str.44.sink = phi ptr [ @.str.44, %48 ], [ @.str.47, %34 ], [ @.str.44, %.loopexit ], [ @.str.44, %55 ]
+  %.str.52.sink = phi ptr [ @.str.50, %48 ], [ @.str.48, %34 ], [ @.str.45, %.loopexit ], [ @.str.52, %55 ]
+  %.sink = phi i32 [ 2711, %48 ], [ 2691, %34 ], [ 2677, %.loopexit ], [ 2726, %55 ]
   %66 = tail call i32 @errcode(i32 noundef %.sink217) #16
   %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.51.sink, ptr noundef %.078135, ptr noundef nonnull @.str.43) #16
   %68 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.44.sink, ptr noundef %.078135) #16
@@ -3762,8 +3762,8 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit, %34, %48, %55, %.thread.sink.split.sink.split, %10, %53
-  %.081127 = phi i64 [ %.081133, %53 ], [ 0, %10 ], [ %.081133, %.thread.sink.split.sink.split ], [ %.081133, %55 ], [ %.081133, %48 ], [ %.081133, %34 ], [ %.081133, %.loopexit ], [ %.3, %57 ]
-  %.079120 = phi i32 [ %.079134, %53 ], [ 0, %10 ], [ %.079134, %.thread.sink.split.sink.split ], [ %.079134, %55 ], [ %.079134, %48 ], [ %.079134, %34 ], [ %.079134, %.loopexit ], [ %59, %57 ]
+  %.081127 = phi i64 [ 0, %10 ], [ %.081133, %53 ], [ %.081133, %.thread.sink.split.sink.split ], [ %.081133, %55 ], [ %.081133, %48 ], [ %.081133, %34 ], [ %.081133, %.loopexit ], [ %.3, %57 ]
+  %.079120 = phi i32 [ 0, %10 ], [ %.079134, %53 ], [ %.079134, %.thread.sink.split.sink.split ], [ %.079134, %55 ], [ %.079134, %48 ], [ %.079134, %34 ], [ %.079134, %.loopexit ], [ %59, %57 ]
   %70 = load ptr, ptr @MainLWLockArray, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4736
   tail call void @LWLockRelease(ptr noundef nonnull %71) #16
@@ -3777,7 +3777,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br label %75
 
 75:                                               ; preds = %.thread, %7, %5, %2, %74
-  %.0 = phi i1 [ true, %74 ], [ true, %2 ], [ true, %5 ], [ true, %7 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %5 ], [ true, %2 ], [ true, %7 ], [ true, %74 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -3886,7 +3886,7 @@ default.unreachable11:                            ; preds = %7
   unreachable
 
 18:                                               ; preds = %17, %16, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %16 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %17 ], [ true, %9 ], [ false, %16 ]
   %19 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %19, label %20, label %31
 

@@ -947,7 +947,7 @@ stbds_is_key_equal.exit71:                        ; preds = %.lr.ph.split
   br label %95
 
 .loopexit:                                        ; preds = %132, %103, %144, %115, %.split88.us, %.split82.us
-  %.0 = phi i64 [ %131, %.split82.us ], [ %143, %.split88.us ], [ -1, %115 ], [ -1, %144 ], [ -1, %103 ], [ -1, %132 ]
+  %.0 = phi i64 [ %131, %.split82.us ], [ %143, %.split88.us ], [ -1, %103 ], [ -1, %115 ], [ -1, %144 ], [ -1, %132 ]
   ret i64 %.0
 }
 
@@ -1459,7 +1459,7 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
   br label %189
 
 189:                                              ; preds = %184, %stbds_is_key_equal.exit.thread, %182
-  %.3 = phi i64 [ %.1162251, %182 ], [ %.1162251, %stbds_is_key_equal.exit.thread ], [ %spec.select267, %184 ]
+  %.3 = phi i64 [ %.1162251, %stbds_is_key_equal.exit.thread ], [ %.1162251, %182 ], [ %spec.select267, %184 ]
   %190 = add nuw nsw i64 %.0157252, 1
   %exitcond.not = icmp eq i64 %190, 8
   br i1 %exitcond.not, label %.preheader, label %.split, !llvm.loop !47

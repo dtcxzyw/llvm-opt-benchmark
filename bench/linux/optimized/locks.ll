@@ -2379,7 +2379,7 @@ define dso_local void @posix_test_lock(ptr noundef readonly captures(none) %0, p
   br i1 %87, label %.loopexit, label %.split.split, !llvm.loop !48
 
 .split13.us:                                      ; preds = %81, %59, %41
-  %.us-phi = phi ptr [ %32, %41 ], [ %50, %59 ], [ %67, %81 ]
+  %.us-phi = phi ptr [ %50, %59 ], [ %32, %41 ], [ %67, %81 ]
   %88 = getelementptr i8, ptr %.us-phi, i64 -8
   %89 = getelementptr i8, ptr %.us-phi, i64 168
   %90 = load ptr, ptr %89, align 8
@@ -3370,11 +3370,11 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   br i1 %516, label %.thread79.thread269, label %.loopexit89
 
 .thread79:                                        ; preds = %351, %301, %.preheader355, %504, %510
-  %517 = phi ptr [ %511, %510 ], [ %506, %504 ], [ %279, %.preheader355 ], [ %279, %301 ], [ %279, %351 ]
-  %518 = phi i8 [ %359, %510 ], [ %505, %504 ], [ %280, %.preheader355 ], [ %280, %301 ], [ %280, %351 ]
-  %519 = phi ptr [ %276, %510 ], [ %508, %504 ], [ %276, %.preheader355 ], [ %276, %301 ], [ %276, %351 ]
-  %520 = phi ptr [ %277, %510 ], [ %282, %504 ], [ %277, %.preheader355 ], [ %277, %301 ], [ %277, %351 ]
-  %521 = phi ptr [ %278, %510 ], [ %507, %504 ], [ %278, %.preheader355 ], [ %278, %301 ], [ %278, %351 ]
+  %517 = phi ptr [ %511, %510 ], [ %279, %.preheader355 ], [ %279, %301 ], [ %279, %351 ], [ %506, %504 ]
+  %518 = phi i8 [ %359, %510 ], [ %280, %.preheader355 ], [ %280, %301 ], [ %280, %351 ], [ %505, %504 ]
+  %519 = phi ptr [ %276, %510 ], [ %276, %.preheader355 ], [ %276, %301 ], [ %276, %351 ], [ %508, %504 ]
+  %520 = phi ptr [ %277, %510 ], [ %277, %.preheader355 ], [ %277, %301 ], [ %277, %351 ], [ %282, %504 ]
+  %521 = phi ptr [ %278, %510 ], [ %278, %.preheader355 ], [ %278, %301 ], [ %278, %351 ], [ %507, %504 ]
   %522 = icmp eq i8 %518, 0
   br i1 %522, label %.thread79..thread79.thread_crit_edge, label %709
 
@@ -4627,7 +4627,7 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   br i1 %293, label %.loopexit23, label %287, !llvm.loop !82
 
 .loopexit22:                                      ; preds = %61, %278, %287, %158, %154, %141, %140, %.loopexit28
-  %294 = phi i32 [ 0, %.loopexit28 ], [ -11, %140 ], [ -11, %141 ], [ -11, %154 ], [ -11, %158 ], [ 0, %287 ], [ %242, %278 ], [ 0, %61 ]
+  %294 = phi i32 [ 0, %.loopexit28 ], [ -11, %140 ], [ -11, %141 ], [ -11, %154 ], [ -11, %158 ], [ %242, %278 ], [ 0, %287 ], [ 0, %61 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %40) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57
@@ -6130,7 +6130,7 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
   unreachable
 
 .loopexit:                                        ; preds = %57, %38, %31, %12
-  %61 = phi i32 [ %13, %12 ], [ %32, %31 ], [ %39, %38 ], [ %58, %57 ]
+  %61 = phi i32 [ %32, %31 ], [ %13, %12 ], [ %39, %38 ], [ %58, %57 ]
   %62 = call i32 @locks_delete_block(ptr noundef %1), !range !96
   ret i32 %61
 }
@@ -6296,7 +6296,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_flock(i6
   br label %87
 
 87:                                               ; preds = %17, %.thread3, %85, %20, %10, %8
-  %88 = phi i64 [ %86, %85 ], [ 0, %8 ], [ 0, %10 ], [ -9, %20 ], [ -9, %.thread3 ], [ -22, %17 ]
+  %88 = phi i64 [ -9, %.thread3 ], [ %86, %85 ], [ 0, %8 ], [ 0, %10 ], [ -9, %20 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %88
 }
@@ -6561,7 +6561,7 @@ thread-pre-split:                                 ; preds = %7
   br label %flock_to_posix_lock.exit.thread
 
 flock_to_posix_lock.exit.thread:                  ; preds = %7, %60, %52, %43, %38, %33, %thread-pre-split, %104, %86, %83, %76
-  %115 = phi i32 [ -22, %76 ], [ %84, %83 ], [ 0, %104 ], [ 0, %86 ], [ -22, %60 ], [ -22, %52 ], [ -75, %43 ], [ -22, %38 ], [ -75, %33 ], [ -22, %thread-pre-split ], [ -22, %7 ]
+  %115 = phi i32 [ -22, %7 ], [ -22, %76 ], [ %84, %83 ], [ 0, %104 ], [ 0, %86 ], [ -22, %60 ], [ -22, %52 ], [ -75, %43 ], [ -22, %38 ], [ -75, %33 ], [ -22, %thread-pre-split ]
   tail call void @locks_release_private(ptr noundef nonnull %5)
   %116 = load ptr, ptr @filelock_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %116, ptr noundef nonnull %5) #15
@@ -6839,7 +6839,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %flock_to_posix_lock.exit.thread
 
 flock_to_posix_lock.exit.thread:                  ; preds = %81, %76, %60, %52, %43, %38, %33, %8, %131, %128, %110, %106, %103, %99, %92, %87
-  %132 = phi i32 [ %101, %99 ], [ 0, %106 ], [ 0, %103 ], [ -22, %92 ], [ -22, %87 ], [ 0, %110 ], [ -9, %131 ], [ -9, %128 ], [ -22, %60 ], [ -22, %52 ], [ -75, %43 ], [ -22, %38 ], [ -75, %33 ], [ -22, %8 ], [ -9, %76 ], [ -9, %81 ]
+  %132 = phi i32 [ -9, %128 ], [ -22, %8 ], [ %101, %99 ], [ 0, %106 ], [ 0, %103 ], [ -22, %92 ], [ -22, %87 ], [ 0, %110 ], [ -9, %131 ], [ -22, %60 ], [ -22, %52 ], [ -75, %43 ], [ -22, %38 ], [ -75, %33 ], [ -9, %76 ], [ -9, %81 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_fcntl_setlk, i64 8), i32 2) #15
           to label %153 [label %133], !srcloc !71
 

@@ -541,7 +541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %44, %41, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %42, %44 ], [ %42, %41 ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %42, %41 ], [ %42, %44 ]
   br label %77
 
 77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147, %.body
@@ -2237,7 +2237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299: ; preds = %75
   br label %768
 
 768:                                              ; preds = %767, %523
-  %.pn111.pn = phi { ptr, i32 } [ %.pn108.pn, %767 ], [ %524, %523 ]
+  %.pn111.pn = phi { ptr, i32 } [ %524, %523 ], [ %.pn108.pn, %767 ]
   call void @_ZNSt12__shared_ptrIN6open3d8geometry7LineSetELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #28
   br label %769
 
@@ -2247,7 +2247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299: ; preds = %75
   br label %770
 
 770:                                              ; preds = %.loopexit, %.loopexit.split-lp, %446, %769, %401
-  %.pn115.pn = phi { ptr, i32 } [ %.pn111.pn.pn, %769 ], [ %402, %401 ], [ %447, %446 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn115.pn = phi { ptr, i32 } [ %447, %446 ], [ %.pn111.pn.pn, %769 ], [ %402, %401 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %771
 
@@ -2293,7 +2293,7 @@ _ZN6open3d8geometry8GeometryD2Ev.exit302:         ; preds = %771, %_ZNKSt7__cxx1
   br label %782
 
 782:                                              ; preds = %.loopexit372, %.loopexit.split-lp373, %781, %159
-  %.pn124 = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn, %781 ], [ %160, %159 ], [ %lpad.loopexit374, %.loopexit372 ], [ %lpad.loopexit.split-lp375, %.loopexit.split-lp373 ]
+  %.pn124 = phi { ptr, i32 } [ %160, %159 ], [ %.pn115.pn.pn.pn.pn.pn.pn.pn, %781 ], [ %lpad.loopexit374, %.loopexit372 ], [ %lpad.loopexit.split-lp375, %.loopexit.split-lp373 ]
   %783 = load ptr, ptr %12, align 8, !tbaa !46
   %.not.i.i.i303 = icmp eq ptr %783, null
   br i1 %.not.i.i.i303, label %_ZNSt6vectorIdSaIdEED2Ev.exit304, label %784

@@ -333,7 +333,7 @@ define dso_local i32 @intel_dp_mst_atomic_check_link(ptr noundef %0, ptr noundef
   br i1 %171, label %13, label %.thread22, !llvm.loop !18
 
 .thread22:                                        ; preds = %167, %165, %114, %105, %.thread26, %2
-  %172 = phi i32 [ 0, %2 ], [ %spec.select27, %.thread26 ], [ -22, %105 ], [ %spec.select, %114 ], [ 0, %167 ], [ %119, %165 ]
+  %172 = phi i32 [ 0, %2 ], [ %spec.select27, %.thread26 ], [ %spec.select, %114 ], [ -22, %105 ], [ 0, %167 ], [ %119, %165 ]
   ret i32 %172
 }
 
@@ -724,7 +724,7 @@ define dso_local noundef zeroext i1 @intel_dp_mst_crtc_needs_modeset(ptr noundef
   br i1 %81, label %.thread11, label %42, !llvm.loop !22
 
 .thread11:                                        ; preds = %38, %76, %.thread13, %14, %2
-  %82 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %76 ], [ false, %.thread13 ], [ false, %38 ]
+  %82 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %.thread13 ], [ true, %76 ], [ false, %38 ]
   ret i1 %82
 }
 
@@ -3033,7 +3033,7 @@ define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %204, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %199) #12
   br label %.loopexit
 
-205:                                              ; preds = %182, %194
+205:                                              ; preds = %194, %182
   br i1 %5, label %208, label %206
 
 206:                                              ; preds = %205

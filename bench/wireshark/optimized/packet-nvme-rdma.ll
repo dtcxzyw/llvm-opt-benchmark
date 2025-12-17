@@ -265,7 +265,7 @@ find_ib_cm_conversation.exit:                     ; preds = %20
   br label %dissect_rdma_cm_packet.exit
 
 dissect_rdma_cm_packet.exit:                      ; preds = %20, %17, %14, %4, %57, %46, %29, %find_ib_cm_conversation.exit
-  %.not10 = phi i1 [ true, %find_ib_cm_conversation.exit ], [ true, %29 ], [ true, %46 ], [ true, %57 ], [ false, %4 ], [ false, %14 ], [ false, %17 ], [ false, %20 ]
+  %.not10 = phi i1 [ true, %57 ], [ true, %find_ib_cm_conversation.exit ], [ true, %29 ], [ true, %46 ], [ false, %4 ], [ false, %14 ], [ false, %17 ], [ false, %20 ]
   ret i1 %.not10
 }
 
@@ -384,7 +384,7 @@ get_conversion_data.exit.thread.sink.split.i.i:   ; preds = %63, %get_conversion
   br label %find_add_q_ctx.exit
 
 find_add_q_ctx.exit:                              ; preds = %34, %38, %41, %44, %52, %57, %60, %63, %get_conversion_data.exit.thread.sink.split.i.i
-  %.0.i.i = phi i16 [ 0, %34 ], [ 0, %52 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %57 ], [ 0, %60 ], [ 0, %63 ], [ %69, %get_conversion_data.exit.thread.sink.split.i.i ]
+  %.0.i.i = phi i16 [ 0, %60 ], [ 0, %63 ], [ 0, %52 ], [ 0, %44 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %57 ], [ %69, %get_conversion_data.exit.thread.sink.split.i.i ]
   %70 = tail call ptr @wmem_file_scope()
   %71 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %70, i64 noundef 64) #6
   %72 = tail call ptr @wmem_file_scope()
@@ -928,8 +928,8 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %219, %217, %214
   br i1 %.not135.i, label %.thread147.i, label %.thread152.i
 
 .thread152.i:                                     ; preds = %363, %358, %333, %.thread161.i
-  %.1157.i = phi ptr [ %366, %363 ], [ %312, %.thread161.i ], [ %340, %358 ], [ %332, %333 ]
-  %.0117156.i = phi i32 [ 0, %363 ], [ 0, %.thread161.i ], [ %351, %358 ], [ %337, %333 ]
+  %.1157.i = phi ptr [ %312, %.thread161.i ], [ %366, %363 ], [ %340, %358 ], [ %332, %333 ]
+  %.0117156.i = phi i32 [ 0, %.thread161.i ], [ 0, %363 ], [ %351, %358 ], [ %337, %333 ]
   %367 = load i32, ptr @hf_nvmeof_write_to_host_req, align 4
   %368 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %367, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %369 = load i32, ptr @ett_data, align 4
@@ -991,7 +991,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %219, %217, %214
   br label %dissect_nvme_from_host.exit
 
 dissect_nvme_from_host.exit:                      ; preds = %14, %17, %20, %4, %400, %.thread147.i, %394, %388, %294, %291, %290, %289, %266, %229, %226, %225, %224, %201, %197, %dissect_rdma_read_transfer.exit.i, %find_add_q_ctx.exit, %find_ib_conversation.exit
-  %.0 = phi i1 [ false, %find_ib_conversation.exit ], [ false, %find_add_q_ctx.exit ], [ true, %dissect_rdma_read_transfer.exit.i ], [ true, %197 ], [ true, %201 ], [ true, %224 ], [ true, %225 ], [ true, %226 ], [ true, %229 ], [ true, %266 ], [ true, %289 ], [ true, %290 ], [ true, %291 ], [ true, %294 ], [ true, %388 ], [ true, %394 ], [ true, %.thread147.i ], [ true, %400 ], [ false, %4 ], [ false, %20 ], [ false, %17 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %find_add_q_ctx.exit ], [ false, %find_ib_conversation.exit ], [ true, %229 ], [ true, %400 ], [ true, %dissect_rdma_read_transfer.exit.i ], [ true, %197 ], [ true, %201 ], [ true, %224 ], [ true, %225 ], [ true, %226 ], [ true, %266 ], [ true, %289 ], [ true, %290 ], [ true, %291 ], [ true, %294 ], [ true, %388 ], [ true, %394 ], [ true, %.thread147.i ], [ false, %4 ], [ false, %20 ], [ false, %17 ], [ false, %14 ]
   ret i1 %.0
 }
 

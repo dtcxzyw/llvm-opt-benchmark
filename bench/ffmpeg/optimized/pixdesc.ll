@@ -1192,7 +1192,7 @@ get_pix_fmt_internal.exit.thread:                 ; preds = %15, %get_pix_fmt_in
   br label %get_pix_fmt_internal.exit16
 
 get_pix_fmt_internal.exit16:                      ; preds = %26, %.split.loop.exit13.i15, %.split.loop.exit15.i11
-  %.08.i12 = phi i32 [ %27, %.split.loop.exit13.i15 ], [ %28, %.split.loop.exit15.i11 ], [ -1, %26 ]
+  %.08.i12 = phi i32 [ %28, %.split.loop.exit15.i11 ], [ %27, %.split.loop.exit13.i15 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
@@ -1585,7 +1585,7 @@ sub_112:                                          ; preds = %sub_0
   br label %get_pix_fmt_internal.exit
 
 get_pix_fmt_internal.exit:                        ; preds = %35, %sub_0, %.tail, %sub_1, %sub_112, %.split.loop.exit15.i, %.split.loop.exit13.i, %.tail10, %1, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %1 ], [ -1, %.tail10 ], [ %36, %.split.loop.exit13.i ], [ %37, %.split.loop.exit15.i ], [ -1, %sub_112 ], [ -1, %sub_1 ], [ -1, %.tail ], [ -1, %sub_0 ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %.tail10 ], [ -1, %1 ], [ -1, %3 ], [ %37, %.split.loop.exit15.i ], [ %36, %.split.loop.exit13.i ], [ -1, %sub_0 ], [ -1, %sub_112 ], [ -1, %sub_1 ], [ -1, %.tail ], [ -1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1682,10 +1682,10 @@ get_pix_fmt_depth.exit207:                        ; preds = %get_pix_fmt_depth.e
   br label %get_color_type.exit
 
 get_color_type.exit:                              ; preds = %32, %get_pix_fmt_depth.exit207, %26, %28, %._crit_edge.i
-  %.not170 = phi i1 [ false, %get_pix_fmt_depth.exit207 ], [ false, %26 ], [ false, %28 ], [ false, %._crit_edge.i ], [ %.not13.i, %32 ]
-  %.not171 = phi i1 [ false, %get_pix_fmt_depth.exit207 ], [ true, %26 ], [ false, %28 ], [ false, %._crit_edge.i ], [ false, %32 ]
-  %or.cond3 = phi i1 [ false, %get_pix_fmt_depth.exit207 ], [ false, %26 ], [ true, %28 ], [ false, %._crit_edge.i ], [ true, %32 ]
-  %.0.i208 = phi i32 [ 0, %get_pix_fmt_depth.exit207 ], [ 1, %26 ], [ 3, %28 ], [ 0, %._crit_edge.i ], [ %spec.select321, %32 ]
+  %.not170 = phi i1 [ %.not13.i, %32 ], [ false, %get_pix_fmt_depth.exit207 ], [ false, %26 ], [ false, %28 ], [ false, %._crit_edge.i ]
+  %.not171 = phi i1 [ false, %32 ], [ false, %get_pix_fmt_depth.exit207 ], [ true, %26 ], [ false, %28 ], [ false, %._crit_edge.i ]
+  %or.cond3 = phi i1 [ true, %32 ], [ false, %get_pix_fmt_depth.exit207 ], [ false, %26 ], [ true, %28 ], [ false, %._crit_edge.i ]
+  %.0.i208 = phi i32 [ %spec.select321, %32 ], [ 0, %get_pix_fmt_depth.exit207 ], [ 1, %26 ], [ 3, %28 ], [ 0, %._crit_edge.i ]
   %.not.i210.not = icmp eq i32 %0, 11
   br i1 %.not.i210.not, label %get_color_type.exit221, label %34
 
@@ -1712,8 +1712,8 @@ get_color_type.exit:                              ; preds = %32, %get_pix_fmt_de
   br label %get_color_type.exit221
 
 get_color_type.exit221:                           ; preds = %40, %get_color_type.exit, %34, %36, %._crit_edge.i216
-  %or.cond9.not237 = phi i1 [ true, %get_color_type.exit ], [ %.not171, %34 ], [ true, %36 ], [ true, %._crit_edge.i216 ], [ true, %40 ]
-  %.0.i211 = phi i32 [ 0, %get_color_type.exit ], [ 1, %34 ], [ 3, %36 ], [ 0, %._crit_edge.i216 ], [ %spec.select322, %40 ]
+  %or.cond9.not237 = phi i1 [ true, %40 ], [ true, %get_color_type.exit ], [ %.not171, %34 ], [ true, %36 ], [ true, %._crit_edge.i216 ]
+  %.0.i211 = phi i32 [ %spec.select322, %40 ], [ 0, %get_color_type.exit ], [ 1, %34 ], [ 3, %36 ], [ 0, %._crit_edge.i216 ]
   %42 = icmp eq i32 %0, 11
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1888,9 +1888,9 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %111, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %68, %.lr.ph.split.us.split.us.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.us
-  %.0132313.in = phi i8 [ %23, %.lr.ph.split.us.split.us ], [ %.183, %.lr.ph.split.split.us ], [ %23, %.lr.ph.split.us.split.us.split ], [ %23, %68 ], [ %.183, %.lr.ph.split.split.us.split ], [ %.183, %.lr.ph.split.split.split.us ], [ %.183, %111 ]
-  %.0134.lcssa = phi i32 [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.split.us ], [ %.1135.us.us, %.lr.ph.split.us.split.us.split ], [ %.1135.us, %68 ], [ %.1135.us248, %.lr.ph.split.split.us.split ], [ %.1135.us258, %.lr.ph.split.split.split.us ], [ %.1135, %111 ]
-  %.0131.lcssa = phi i32 [ 2147483646, %.lr.ph.split.us.split.us ], [ 2147483646, %.lr.ph.split.split.us ], [ %.1.us.us, %.lr.ph.split.us.split.us.split ], [ %.1.us, %68 ], [ %.1.us249, %.lr.ph.split.split.us.split ], [ %.1.us259, %.lr.ph.split.split.split.us ], [ %.1, %111 ]
+  %.0132313.in = phi i8 [ %.183, %.lr.ph.split.split.us ], [ %23, %.lr.ph.split.us.split.us ], [ %.183, %.lr.ph.split.split.split.us ], [ %23, %.lr.ph.split.us.split.us.split ], [ %23, %68 ], [ %.183, %.lr.ph.split.split.us.split ], [ %.183, %111 ]
+  %.0134.lcssa = phi i32 [ 0, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split.us.split.us ], [ %.1135.us258, %.lr.ph.split.split.split.us ], [ %.1135.us.us, %.lr.ph.split.us.split.us.split ], [ %.1135.us, %68 ], [ %.1135.us248, %.lr.ph.split.split.us.split ], [ %.1135, %111 ]
+  %.0131.lcssa = phi i32 [ 2147483646, %.lr.ph.split.split.us ], [ 2147483646, %.lr.ph.split.us.split.us ], [ %.1.us259, %.lr.ph.split.split.split.us ], [ %.1.us.us, %.lr.ph.split.us.split.us.split ], [ %.1.us, %68 ], [ %.1.us249, %.lr.ph.split.split.us.split ], [ %.1, %111 ]
   %.0132313 = zext i8 %.0132313.in to i32
   %112 = and i32 %3, 1
   %.not163 = icmp eq i32 %112, 0
@@ -1932,8 +1932,8 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br label %136
 
 136:                                              ; preds = %133, %113, %._crit_edge
-  %.2136 = phi i32 [ %.4138, %113 ], [ %.0134.lcssa, %._crit_edge ], [ %.4138, %133 ]
-  %.2 = phi i32 [ %.4, %113 ], [ %.0131.lcssa, %._crit_edge ], [ %spec.select186, %133 ]
+  %.2136 = phi i32 [ %.0134.lcssa, %._crit_edge ], [ %.4138, %133 ], [ %.4138, %113 ]
+  %.2 = phi i32 [ %.0131.lcssa, %._crit_edge ], [ %spec.select186, %133 ], [ %.4, %113 ]
   %137 = and i32 %3, 64
   %.not165 = icmp eq i32 %137, 0
   br i1 %.not165, label %165, label %138
@@ -1989,8 +1989,8 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br label %165
 
 165:                                              ; preds = %162, %158, %136
-  %.5139 = phi i32 [ %.7141, %158 ], [ %.2136, %136 ], [ %.7141, %162 ]
-  %.5 = phi i32 [ %.7, %158 ], [ %.2, %136 ], [ %spec.select187, %162 ]
+  %.5139 = phi i32 [ %.2136, %136 ], [ %.7141, %162 ], [ %.7141, %158 ]
+  %.5 = phi i32 [ %.2, %136 ], [ %spec.select187, %162 ], [ %.7, %158 ]
   %166 = and i32 %3, 4
   %.not169 = icmp eq i32 %166, 0
   br i1 %.not169, label %179, label %167
@@ -2032,7 +2032,7 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br label %179
 
 179:                                              ; preds = %177, %174, %172, %170, %168, %165
-  %.8142 = phi i32 [ %.5139, %165 ], [ %spec.select188, %168 ], [ %spec.select189, %170 ], [ %spec.select190, %172 ], [ %spec.select191, %174 ], [ %spec.select192, %177 ]
+  %.8142 = phi i32 [ %spec.select190, %172 ], [ %spec.select189, %170 ], [ %.5139, %165 ], [ %spec.select192, %177 ], [ %spec.select188, %168 ], [ %spec.select191, %174 ]
   %180 = and i32 %.8142, 4
   %.not173 = icmp eq i32 %180, 0
   br i1 %.not173, label %190, label %181
@@ -2105,13 +2105,13 @@ get_color_type.exit221:                           ; preds = %40, %get_color_type
   br label %214
 
 214:                                              ; preds = %211, %208, %203, %202
-  %.11145 = phi i32 [ %212, %211 ], [ %.10144, %208 ], [ %.10144, %203 ], [ %.10144, %202 ]
-  %.11 = phi i32 [ %213, %211 ], [ %.10, %208 ], [ %.10, %203 ], [ %.10, %202 ]
+  %.11145 = phi i32 [ %212, %211 ], [ %.10144, %202 ], [ %.10144, %208 ], [ %.10144, %203 ]
+  %.11 = phi i32 [ %213, %211 ], [ %.10, %202 ], [ %.10, %208 ], [ %.10, %203 ]
   store i32 %.11145, ptr %2, align 4, !tbaa !4
   br label %get_pix_fmt_depth.exit.thread
 
 get_pix_fmt_depth.exit.thread:                    ; preds = %19, %get_pix_fmt_depth.exit, %21, %17, %4, %214
-  %.0 = phi i32 [ %.11, %214 ], [ -4, %4 ], [ %., %17 ], [ 2147483647, %19 ], [ -3, %21 ], [ -3, %get_pix_fmt_depth.exit ]
+  %.0 = phi i32 [ %., %17 ], [ -4, %4 ], [ %.11, %214 ], [ 2147483647, %19 ], [ -3, %get_pix_fmt_depth.exit ], [ -3, %21 ]
   ret i32 %.0
 }
 

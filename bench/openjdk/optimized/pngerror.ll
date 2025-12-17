@@ -217,7 +217,7 @@ define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(addre
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %.thread.us, %.lr.ph.split, %48, %4
-  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %48 ], [ %.03452, %.lr.ph.split ], [ %.337.us, %.thread.us ], [ %.03452.us, %.lr.ph.split.us ]
+  %.034.lcssa = phi ptr [ %5, %4 ], [ %.337, %48 ], [ %.03452, %.lr.ph.split ], [ %.03452.us, %.lr.ph.split.us ], [ %.337.us, %.thread.us ]
   ret ptr %.034.lcssa
 }
 
@@ -451,8 +451,8 @@ define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly capture
   br i1 %54, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !8
 
 png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %51
-  %55 = phi i8 [ %30, %.lr.ph.split.i ], [ %52, %51 ], [ %8, %.lr.ph.split.us.i ], [ %27, %.thread.us.i ]
-  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %51 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %55 = phi i8 [ %52, %51 ], [ %30, %.lr.ph.split.i ], [ %8, %.lr.ph.split.us.i ], [ %27, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.337.i, %51 ], [ %.03452.i, %.lr.ph.split.i ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
   %56 = add i32 %1, -1
   %or.cond.i = icmp ult i32 %56, 8
   br i1 %or.cond.i, label %57, label %png_warning_parameter.exit
@@ -622,8 +622,8 @@ define hidden void @png_warning_parameter_signed(ptr noundef writeonly captures(
   br i1 %56, label %.lr.ph.split.i, label %png_format_number.exit, !llvm.loop !8
 
 png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, %.thread.us.i, %.lr.ph.split.i, %53
-  %57 = phi i8 [ %32, %.lr.ph.split.i ], [ %54, %53 ], [ %10, %.lr.ph.split.us.i ], [ %29, %.thread.us.i ]
-  %.034.lcssa.i = phi ptr [ %.03452.i, %.lr.ph.split.i ], [ %.337.i, %53 ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
+  %57 = phi i8 [ %54, %53 ], [ %32, %.lr.ph.split.i ], [ %10, %.lr.ph.split.us.i ], [ %29, %.thread.us.i ]
+  %.034.lcssa.i = phi ptr [ %.337.i, %53 ], [ %.03452.i, %.lr.ph.split.i ], [ %.03452.us.i, %.lr.ph.split.us.i ], [ %.337.us.i, %.thread.us.i ]
   %58 = icmp ugt ptr %.034.lcssa.i, %5
   %or.cond = and i1 %6, %58
   br i1 %or.cond, label %59, label %61
@@ -760,8 +760,8 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   br i1 %24, label %.split, label %.critedge, !llvm.loop !10
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.split, %10
-  %25 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
-  %.1 = phi ptr [ %.049, %10 ], [ %.049, %.split ], [ %11, %.critedge2 ]
+  %25 = phi i8 [ %9, %.split ], [ 64, %10 ], [ %12, %.critedge2 ]
+  %.1 = phi ptr [ %.049, %.split ], [ %.049, %10 ], [ %11, %.critedge2 ]
   %26 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %27 = add nuw nsw i64 %.03148, 1
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %.03148
@@ -769,7 +769,7 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   br label %.backedge
 
 .critedge:                                        ; preds = %.backedge, %.split, %.split.us, %.backedge.us
-  %.us-phi = phi i64 [ 191, %.backedge.us ], [ %.03148.us, %.split.us ], [ %.031.be, %.backedge ], [ %.03148, %.split ]
+  %.us-phi = phi i64 [ %.03148.us, %.split.us ], [ 191, %.backedge.us ], [ %.031.be, %.backedge ], [ %.03148, %.split ]
   %29 = getelementptr inbounds i8, ptr %4, i64 %.us-phi
   store i8 0, ptr %29, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -1437,7 +1437,7 @@ define hidden ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i6
   br label %png_warning.exit
 
 png_warning.exit:                                 ; preds = %26, %.split14.i, %13, %3, %27
-  %.023 = phi ptr [ %28, %27 ], [ null, %3 ], [ null, %13 ], [ null, %.split14.i ], [ null, %26 ]
+  %.023 = phi ptr [ null, %13 ], [ %28, %27 ], [ null, %3 ], [ null, %.split14.i ], [ null, %26 ]
   ret ptr %.023
 }
 

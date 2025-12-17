@@ -474,7 +474,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8051ba57ca4818d5E.exit.thread", label %.lr.ph.i.i
 
 .body:                                            ; preds = %63, %50, %118, %73, %70
-  %.pn63 = phi { ptr, i32 } [ %.pn61, %118 ], [ %74, %73 ], [ %71, %70 ], [ %51, %50 ], [ %64, %63 ]
+  %.pn63 = phi { ptr, i32 } [ %71, %70 ], [ %.pn61, %118 ], [ %74, %73 ], [ %51, %50 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Spans$GT$17h0473787552717e0bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %37) #11
           to label %234 unwind label %110
 
@@ -936,7 +936,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   br label %191
 
 191:                                              ; preds = %109, %233, %67, %100, %190
-  %.2 = phi i1 [ false, %190 ], [ false, %100 ], [ true, %67 ], [ true, %233 ], [ true, %109 ]
+  %.2 = phi i1 [ false, %100 ], [ false, %190 ], [ true, %67 ], [ true, %233 ], [ true, %109 ]
   call void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Spans$GT$17h0473787552717e0bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret i1 %.2
@@ -1138,7 +1138,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   br i1 %exitcond.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8051ba57ca4818d5E.exit.thread", label %.lr.ph.i.i
 
 .body:                                            ; preds = %63, %50, %118, %73, %70
-  %.pn63 = phi { ptr, i32 } [ %.pn61, %118 ], [ %74, %73 ], [ %71, %70 ], [ %51, %50 ], [ %64, %63 ]
+  %.pn63 = phi { ptr, i32 } [ %71, %70 ], [ %.pn61, %118 ], [ %74, %73 ], [ %51, %50 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Spans$GT$17h0473787552717e0bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %37) #11
           to label %234 unwind label %110
 
@@ -1600,7 +1600,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   br label %191
 
 191:                                              ; preds = %109, %233, %67, %100, %190
-  %.2 = phi i1 [ false, %190 ], [ false, %100 ], [ true, %67 ], [ true, %233 ], [ true, %109 ]
+  %.2 = phi i1 [ false, %100 ], [ false, %190 ], [ true, %67 ], [ true, %233 ], [ true, %109 ]
   call void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Spans$GT$17h0473787552717e0bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret i1 %.2
@@ -1848,7 +1848,7 @@ thread-pre-split:                                 ; preds = %"_ZN4core5slice29_$
   unreachable
 
 common.resume:                                    ; preds = %71, %59, %63, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %64, %63 ], [ %60, %59 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %36, %35 ], [ %64, %63 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h965fed7fb37795a2E.exit": ; preds = %37
@@ -2094,7 +2094,7 @@ thread-pre-split:                                 ; preds = %"_ZN4core5slice29_$
   unreachable
 
 common.resume:                                    ; preds = %71, %59, %63, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %64, %63 ], [ %60, %59 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %36, %35 ], [ %64, %63 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h965fed7fb37795a2E.exit": ; preds = %37

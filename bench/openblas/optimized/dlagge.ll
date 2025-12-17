@@ -53,8 +53,8 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %31, label %.thread, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %29, %27, %25, %22, %10
-  %.sink = phi i32 [ -1, %10 ], [ -2, %22 ], [ -3, %25 ], [ -4, %27 ], [ -7, %29 ]
-  %.neg730 = phi i32 [ 1, %10 ], [ 2, %22 ], [ 3, %25 ], [ 4, %27 ], [ 7, %29 ]
+  %.sink = phi i32 [ -1, %10 ], [ -2, %22 ], [ -4, %27 ], [ -3, %25 ], [ -7, %29 ]
+  %.neg730 = phi i32 [ 1, %10 ], [ 2, %22 ], [ 4, %27 ], [ 3, %25 ], [ 7, %29 ]
   store i32 %.sink, ptr %9, align 4, !tbaa !3
   store i32 %.neg730, ptr %11, align 4, !tbaa !3
   %32 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %11, i32 noundef 6) #5

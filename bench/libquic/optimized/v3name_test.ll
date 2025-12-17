@@ -653,10 +653,10 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
   %spec.select = zext i1 %.not32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %41, %38, %33, %47, %1
-  %.022 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %33 ], [ %36, %38 ], [ %36, %41 ]
-  %.021 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %33 ], [ null, %38 ], [ %39, %41 ]
-  %.020 = phi i32 [ 0, %1 ], [ %spec.select, %47 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ]
+.thread:                                          ; preds = %41, %33, %38, %47, %1
+  %.022 = phi ptr [ null, %1 ], [ null, %47 ], [ %36, %38 ], [ null, %33 ], [ %36, %41 ]
+  %.021 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %38 ], [ null, %33 ], [ %39, %41 ]
+  %.020 = phi i32 [ 0, %1 ], [ %spec.select, %47 ], [ 0, %38 ], [ 0, %33 ], [ 0, %41 ]
   call void @ASN1_IA5STRING_free(ptr noundef %.021) #11
   call void @GENERAL_NAME_free(ptr noundef %.022) #11
   call void @GENERAL_NAMES_free(ptr noundef %3) #11

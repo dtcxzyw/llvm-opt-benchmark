@@ -58,7 +58,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_init(ptr noundef %0)
   br label %20
 
 20:                                               ; preds = %6, %1, %13
-  %.0 = phi i32 [ 0, %13 ], [ %2, %1 ], [ -12, %6 ]
+  %.0 = phi i32 [ %2, %1 ], [ 0, %13 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -406,7 +406,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %229
 
 229:                                              ; preds = %222, %219, %216, %213, %204, %194, %184, %183
-  %.0118.us.i = phi i32 [ %228, %222 ], [ %221, %219 ], [ %218, %216 ], [ %215, %213 ], [ %212, %204 ], [ %203, %194 ], [ %193, %184 ], [ %100, %183 ]
+  %.0118.us.i = phi i32 [ %228, %222 ], [ %193, %184 ], [ %221, %219 ], [ %218, %216 ], [ %215, %213 ], [ %212, %204 ], [ %203, %194 ], [ %100, %183 ]
   %230 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
   %231 = load i32, ptr %230, align 4, !tbaa !31
   %232 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
@@ -680,7 +680,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %391
 
 391:                                              ; preds = %382, %378, %374, %370, %358, %345, %332, %327
-  %.0.us155.i.us.i = phi i32 [ %390, %382 ], [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %358 ], [ %357, %345 ], [ %344, %332 ], [ %304, %327 ]
+  %.0.us155.i.us.i = phi i32 [ %390, %382 ], [ %344, %332 ], [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %358 ], [ %357, %345 ], [ %304, %327 ]
   %392 = load i8, ptr %331, align 1, !tbaa !51
   %393 = zext i8 %392 to i32
   %394 = sub nsw i32 %393, %.0.us155.i.us.i
@@ -790,7 +790,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %461
 
 461:                                              ; preds = %452, %448, %444, %440, %428, %415, %402, %397
-  %.0.us.us.us.i.us.i = phi i32 [ %460, %452 ], [ %451, %448 ], [ %447, %444 ], [ %443, %440 ], [ %439, %428 ], [ %427, %415 ], [ %414, %402 ], [ %304, %397 ]
+  %.0.us.us.us.i.us.i = phi i32 [ %460, %452 ], [ %414, %402 ], [ %451, %448 ], [ %447, %444 ], [ %443, %440 ], [ %439, %428 ], [ %427, %415 ], [ %304, %397 ]
   %462 = load i8, ptr %401, align 1, !tbaa !51
   %463 = zext i8 %462 to i32
   %464 = sub nsw i32 %463, %.0.us.us.us.i.us.i
@@ -951,7 +951,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %558
 
 558:                                              ; preds = %554, %545, %541, %537, %533, %521, %508, %495, %494
-  %.0138.us163.i.us.i = phi i32 [ %557, %554 ], [ %553, %545 ], [ %544, %541 ], [ %540, %537 ], [ %536, %533 ], [ %532, %521 ], [ %520, %508 ], [ %507, %495 ], [ %304, %494 ]
+  %.0138.us163.i.us.i = phi i32 [ %507, %495 ], [ %304, %494 ], [ %557, %554 ], [ %553, %545 ], [ %520, %508 ], [ %544, %541 ], [ %540, %537 ], [ %536, %533 ], [ %532, %521 ]
   %559 = load i8, ptr %491, align 1, !tbaa !51
   %560 = zext i8 %559 to i32
   %561 = sub nsw i32 %560, %.0138.us163.i.us.i
@@ -991,7 +991,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %575
 
 575:                                              ; preds = %571, %.lr.ph.split.us.split.us170.i.us.i
-  %.0138.us.us168.i.us.i = phi i32 [ %574, %571 ], [ 128, %.lr.ph.split.us.split.us170.i.us.i ]
+  %.0138.us.us168.i.us.i = phi i32 [ 128, %.lr.ph.split.us.split.us170.i.us.i ], [ %574, %571 ]
   %576 = load i8, ptr %568, align 1, !tbaa !51
   %577 = zext i8 %576 to i32
   %578 = sub nsw i32 %577, %.0138.us.us168.i.us.i
@@ -1018,7 +1018,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %589
 
 589:                                              ; preds = %585, %.lr.ph.split.us.split.us.us.i.us.i
-  %.0138.us.us.us.i.us.i = phi i32 [ %588, %585 ], [ 128, %.lr.ph.split.us.split.us.us.i.us.i ]
+  %.0138.us.us.us.i.us.i = phi i32 [ 128, %.lr.ph.split.us.split.us.us.i.us.i ], [ %588, %585 ]
   %590 = load i8, ptr %582, align 1, !tbaa !51
   %591 = zext i8 %590 to i32
   %592 = sub nsw i32 %591, %.0138.us.us.us.i.us.i

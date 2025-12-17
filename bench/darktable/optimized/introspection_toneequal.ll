@@ -863,8 +863,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %97
 
 97:                                               ; preds = %94, %91, %88, %65, %._crit_edge.i
-  %.not147.i = phi i1 [ false, %88 ], [ true, %91 ], [ true, %94 ], [ false, %._crit_edge.i ], [ false, %65 ]
-  %.0.i = phi ptr [ %89, %88 ], [ %93, %91 ], [ %96, %94 ], [ %.pre.i, %._crit_edge.i ], [ %69, %65 ]
+  %.not147.i = phi i1 [ true, %94 ], [ false, %88 ], [ true, %91 ], [ false, %._crit_edge.i ], [ false, %65 ]
+  %.0.i = phi ptr [ %96, %94 ], [ %89, %88 ], [ %93, %91 ], [ %.pre.i, %._crit_edge.i ], [ %69, %65 ]
   %.not146.i = icmp eq ptr %.0.i, null
   br i1 %.not146.i, label %98, label %100
 
@@ -1735,7 +1735,7 @@ _solve_hermitian.exit.thread:                     ; preds = %_transpose_dot_vect
   br label %83
 
 83:                                               ; preds = %76, %74, %68, %67
-  %.3.i.i = phi i32 [ 0, %67 ], [ %.180.i.i, %68 ], [ 0, %74 ], [ %.180.i.i, %76 ]
+  %.3.i.i = phi i32 [ %.180.i.i, %68 ], [ 0, %67 ], [ 0, %74 ], [ %.180.i.i, %76 ]
   %84 = add nuw nsw i64 %.06479.i.i, 1
   %exitcond84.not.i.i = icmp eq i64 %84, %indvars.iv.i.i
   br i1 %exitcond84.not.i.i, label %52, label %.preheader.i.i
@@ -2032,7 +2032,7 @@ _triangular_descent_fast.exit.i:                  ; preds = %._crit_edge.i60.i, 
   br label %_solve_hermitian.exit
 
 _solve_hermitian.exit:                            ; preds = %._crit_edge.i73.i, %42, %85, %159, %.critedge.sink.split.i
-  %.1.i = phi i32 [ %.036.ph.i64.i, %159 ], [ 0, %42 ], [ 0, %85 ], [ 0, %.critedge.sink.split.i ], [ 1, %._crit_edge.i73.i ]
+  %.1.i = phi i32 [ %.036.ph.i64.i, %159 ], [ 0, %85 ], [ 0, %42 ], [ 0, %.critedge.sink.split.i ], [ 1, %._crit_edge.i73.i ]
   tail call void @free(ptr noundef %36) #28, !noalias !252
   tail call void @free(ptr noundef %37) #28, !noalias !252
   %.not = icmp eq i32 %.1.i, 0
@@ -2924,7 +2924,7 @@ in_mask_editing.exit.thread:                      ; preds = %29, %in_mask_editin
   br label %89
 
 89:                                               ; preds = %.critedge, %52, %87, %72, %in_mask_editing.exit, %17, %15, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %15 ], [ 0, %17 ], [ 0, %in_mask_editing.exit ], [ 1, %72 ], [ 1, %87 ], [ 1, %52 ], [ 1, %.critedge ]
+  %.0 = phi i32 [ 0, %15 ], [ 1, %5 ], [ 0, %17 ], [ 0, %in_mask_editing.exit ], [ 1, %72 ], [ 1, %87 ], [ 1, %52 ], [ 1, %.critedge ]
   ret i32 %.0
 }
 
@@ -5516,7 +5516,7 @@ define internal range(i32 0, 2) i32 @area_enter_leave_notify(ptr readnone captur
   br label %47
 
 47:                                               ; preds = %42, %37, %19
-  %48 = phi i32 [ 0, %37 ], [ 0, %19 ], [ %46, %42 ]
+  %48 = phi i32 [ %46, %42 ], [ 0, %37 ], [ 0, %19 ]
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 2980
   store i32 %48, ptr %49, align 4, !tbaa !466
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #28
@@ -5528,7 +5528,7 @@ define internal range(i32 0, 2) i32 @area_enter_leave_notify(ptr readnone captur
   br label %55
 
 55:                                               ; preds = %7, %3, %47
-  %.0 = phi i32 [ 0, %47 ], [ 1, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %47 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5623,7 +5623,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   br label %71
 
 71:                                               ; preds = %66, %61, %45
-  %72 = phi i32 [ 0, %61 ], [ 0, %45 ], [ %70, %66 ]
+  %72 = phi i32 [ %70, %66 ], [ 0, %61 ], [ 0, %45 ]
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 2980
   store i32 %72, ptr %73, align 4, !tbaa !466
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 2968
@@ -5673,7 +5673,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   br label %99
 
 99:                                               ; preds = %7, %3, %.loopexit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.loopexit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -6274,7 +6274,7 @@ define internal void @auto_adjust_contrast_boost(ptr readnone captures(none) %0,
   br label %111
 
 111:                                              ; preds = %97, %101, %99, %106, %108
-  %.1 = phi nsz float [ %110, %108 ], [ %81, %106 ], [ %98, %97 ], [ %105, %101 ], [ %81, %99 ]
+  %.1 = phi nsz float [ %81, %106 ], [ %110, %108 ], [ %98, %97 ], [ %105, %101 ], [ %81, %99 ]
   %112 = fadd reassoc nsz arcp contract afn float %.1, %64
   store float %112, ptr %63, align 4, !tbaa !52
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !322
@@ -6795,7 +6795,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %71
 
 71:                                               ; preds = %68, %2, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %68 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %68 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -6895,7 +6895,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ %., %35 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ %., %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

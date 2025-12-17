@@ -89,7 +89,7 @@ default.unreachable1:                             ; preds = %4
   unreachable
 
 17:                                               ; preds = %14, %8
-  %18 = phi ptr [ %16, %14 ], [ %13, %8 ]
+  %18 = phi ptr [ %13, %8 ], [ %16, %14 ]
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread, label %20
 
@@ -472,7 +472,7 @@ default.unreachable33:                            ; preds = %61
   br label %72
 
 72:                                               ; preds = %69, %63
-  %73 = phi ptr [ %71, %69 ], [ %68, %63 ]
+  %73 = phi ptr [ %68, %63 ], [ %71, %69 ]
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.critedge.thread, label %75
 
@@ -577,7 +577,7 @@ default.unreachable33:                            ; preds = %61
   br label %.thread14
 
 .thread14:                                        ; preds = %13, %18, %133, %129, %116, %.thread17, %34
-  %134 = phi i32 [ 0, %.thread17 ], [ 0, %34 ], [ %117, %116 ], [ %117, %129 ], [ %117, %133 ], [ 4, %18 ], [ 4, %13 ]
+  %134 = phi i32 [ 4, %13 ], [ 0, %.thread17 ], [ 0, %34 ], [ %117, %116 ], [ %117, %129 ], [ %117, %133 ], [ 4, %18 ]
   ret i32 %134
 }
 
@@ -1144,7 +1144,7 @@ acpi_tb_delete_namespace_by_owner.exit.thread.sink.split: ; preds = %1, %44, %49
   br label %acpi_tb_delete_namespace_by_owner.exit.thread
 
 acpi_tb_delete_namespace_by_owner.exit.thread:    ; preds = %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split, %30, %24, %6
-  %55 = phi i32 [ 6, %6 ], [ %35, %30 ], [ %25, %24 ], [ %.ph, %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split ]
+  %55 = phi i32 [ 6, %6 ], [ %25, %24 ], [ %35, %30 ], [ %.ph, %acpi_tb_delete_namespace_by_owner.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %55
 }

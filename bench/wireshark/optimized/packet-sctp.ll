@@ -1267,8 +1267,8 @@ define internal noundef zeroext i1 @sctp_chunk_type_update_cb(ptr noundef readon
   br label %21
 
 21:                                               ; preds = %16, %18, %14, %6
-  %.sink = phi ptr [ %20, %18 ], [ %15, %14 ], [ %7, %6 ], [ null, %16 ]
-  %.0 = phi i1 [ false, %18 ], [ false, %14 ], [ false, %6 ], [ true, %16 ]
+  %.sink = phi ptr [ %7, %6 ], [ %20, %18 ], [ %15, %14 ], [ null, %16 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %14 ], [ true, %16 ]
   store ptr %.sink, ptr %1, align 8
   ret i1 %.0
 }
@@ -1962,7 +1962,7 @@ addresses_equal.exit43:                           ; preds = %140, %132, %126, %1
   br label %addresses_equal.exit36.thread
 
 addresses_equal.exit36.thread:                    ; preds = %sctp_vtag_match.exit49.thread, %138, %140, %sctp_vtag_match.exit.thread, %63, %65, %sctp_vtag_match.exit52, %sctp_vtag_match.exit40, %addresses_equal.exit43
-  %.0 = phi i32 [ 0, %addresses_equal.exit43 ], [ 1, %sctp_vtag_match.exit40 ], [ 1, %sctp_vtag_match.exit52 ], [ 1, %65 ], [ 1, %63 ], [ 1, %sctp_vtag_match.exit.thread ], [ 1, %140 ], [ 1, %138 ], [ 1, %sctp_vtag_match.exit49.thread ]
+  %.0 = phi i32 [ 1, %138 ], [ 1, %sctp_vtag_match.exit40 ], [ 0, %addresses_equal.exit43 ], [ 1, %sctp_vtag_match.exit.thread ], [ 1, %sctp_vtag_match.exit52 ], [ 1, %63 ], [ 1, %65 ], [ 1, %140 ], [ 1, %sctp_vtag_match.exit49.thread ]
   ret i32 %.0
 }
 
@@ -2276,7 +2276,7 @@ define internal fastcc void @dissect_sctp_packet(ptr noundef %0, ptr noundef %1,
   br label %get_half_assoc.exit
 
 get_half_assoc.exit:                              ; preds = %60, %69, %89, %115, %116, %120
-  %.044.i = phi ptr [ null, %69 ], [ null, %60 ], [ %88, %89 ], [ %.0.i, %115 ], [ %.0.i, %116 ], [ %.0.i, %120 ]
+  %.044.i = phi ptr [ %88, %89 ], [ null, %60 ], [ null, %69 ], [ %.0.i, %115 ], [ %.0.i, %116 ], [ %.0.i, %120 ]
   %.not115 = icmp eq ptr %2, null
   br i1 %.not115, label %proto_item_set_hidden.exit119, label %127
 
@@ -3443,7 +3443,7 @@ define internal fastcc zeroext i1 @dissect_sctp_chunk(ptr noundef %0, ptr nounde
   br label %83
 
 83:                                               ; preds = %53, %53, %82, %81, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %56, %54
-  %.1.shrunk = phi i1 [ false, %82 ], [ %55, %54 ], [ %57, %56 ], [ false, %58 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %63 ], [ false, %64 ], [ false, %65 ], [ false, %66 ], [ false, %67 ], [ false, %68 ], [ false, %69 ], [ false, %70 ], [ false, %71 ], [ false, %72 ], [ false, %73 ], [ false, %74 ], [ false, %75 ], [ false, %76 ], [ false, %77 ], [ false, %81 ], [ false, %53 ], [ false, %53 ]
+  %.1.shrunk = phi i1 [ false, %82 ], [ %55, %54 ], [ %57, %56 ], [ false, %58 ], [ false, %59 ], [ false, %60 ], [ false, %61 ], [ false, %62 ], [ false, %63 ], [ false, %64 ], [ false, %81 ], [ false, %65 ], [ false, %66 ], [ false, %53 ], [ false, %67 ], [ false, %68 ], [ false, %69 ], [ false, %70 ], [ false, %71 ], [ false, %72 ], [ false, %73 ], [ false, %74 ], [ false, %75 ], [ false, %76 ], [ false, %77 ], [ false, %53 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %.not184 = icmp eq i16 %8, %12
   br i1 %.not184, label %88, label %84
@@ -3667,8 +3667,8 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   br label %94
 
 94:                                               ; preds = %86, %91
-  %hf_data_chunk_payload_proto_id.sink = phi ptr [ @hf_data_chunk_payload_proto_id, %91 ], [ %hf_idata_chunk_fsn.hf_data_chunk_payload_proto_id, %86 ]
-  %.sink423 = phi i32 [ 12, %91 ], [ 16, %86 ]
+  %hf_data_chunk_payload_proto_id.sink = phi ptr [ %hf_idata_chunk_fsn.hf_data_chunk_payload_proto_id, %86 ], [ @hf_data_chunk_payload_proto_id, %91 ]
+  %.sink423 = phi i32 [ 16, %86 ], [ 12, %91 ]
   %95 = load i32, ptr %hf_data_chunk_payload_proto_id.sink, align 4
   %96 = call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %95, ptr noundef %0, i32 noundef %.sink423, i32 noundef 4, i32 noundef 0)
   %.not210 = icmp eq i8 %54, 0
@@ -3676,8 +3676,8 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.484, ptr noundef nonnull %97)
   %.not211 = icmp eq i8 %53, 0
   %.not212 = icmp eq i8 %52, 0
-  %.str.488..str.487 = select i1 %.not212, ptr @.str.488, ptr @.str.487
   %.str.490..str.489 = select i1 %.not212, ptr @.str.490, ptr @.str.489
+  %.str.488..str.487 = select i1 %.not212, ptr @.str.488, ptr @.str.487
   %.str.489.sink = select i1 %.not211, ptr %.str.490..str.489, ptr %.str.488..str.487
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull %.str.489.sink)
   %98 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8)
@@ -4089,26 +4089,26 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   %306 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %., i32 noundef %299, i32 noundef %305)
   %307 = and i8 %51, 3
   %or.cond8 = icmp eq i8 %307, 3
-  br i1 %or.cond8, label %308, label %309
+  br i1 %or.cond8, label %314, label %308
 
 308:                                              ; preds = %304
-  br i1 %.050.i, label %.critedge238, label %315
+  %309 = getelementptr inbounds nuw i8, ptr %2, i64 272
+  store i8 1, ptr %309, align 8
+  %310 = load i8, ptr @use_reassembly, align 1, !range !9, !noundef !10
+  %311 = trunc nuw i8 %310 to i1
+  br i1 %311, label %.critedge, label %312
 
-309:                                              ; preds = %304
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  store i8 1, ptr %310, align 8
-  %311 = load i8, ptr @use_reassembly, align 1, !range !9, !noundef !10
-  %312 = trunc nuw i8 %311 to i1
-  br i1 %312, label %.critedge, label %313
-
-313:                                              ; preds = %309
+312:                                              ; preds = %308
   %.not214 = icmp eq i8 %53, 0
-  br i1 %.not214, label %dissect_fragmented_payload.exit, label %314
+  br i1 %.not214, label %dissect_fragmented_payload.exit, label %313
 
-314:                                              ; preds = %313
+313:                                              ; preds = %312
   br i1 %.050.i, label %.critedge238, label %315
 
-315:                                              ; preds = %308, %314
+314:                                              ; preds = %304
+  br i1 %.050.i, label %.critedge238, label %315
+
+315:                                              ; preds = %313, %314
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store volatile i8 0, ptr %20, align 1
   %316 = getelementptr inbounds nuw i8, ptr %2, i64 360
@@ -4240,10 +4240,10 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %dissect_fragmented_payload.exit
 
-.critedge:                                        ; preds = %309
+.critedge:                                        ; preds = %308
   br i1 %.050.i, label %.critedge238, label %367
 
-.critedge238:                                     ; preds = %308, %314, %.critedge
+.critedge238:                                     ; preds = %313, %314, %.critedge
   %366 = load ptr, ptr %68, align 8
   call void @col_append_str(ptr noundef %366, i32 noundef 25, ptr noundef nonnull @.str.495)
   br label %dissect_fragmented_payload.exit
@@ -4272,8 +4272,8 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   br label %377
 
 377:                                              ; preds = %373, %369, %374, %371
-  %.0199 = phi i32 [ %370, %371 ], [ %376, %374 ], [ %370, %369 ], [ 0, %373 ]
-  %.1 = phi i32 [ %372, %371 ], [ %.0195, %374 ], [ 0, %369 ], [ %.0195, %373 ]
+  %.0199 = phi i32 [ %376, %374 ], [ %370, %371 ], [ %370, %369 ], [ 0, %373 ]
+  %.1 = phi i32 [ %.0195, %374 ], [ %372, %371 ], [ 0, %369 ], [ %.0195, %373 ]
   %.0..0..0..0.83 = load volatile i32, ptr %19, align 4
   %378 = call i32 @tvb_reported_length(ptr noundef %306)
   %379 = call i32 @tvb_captured_length(ptr noundef %306)
@@ -4909,7 +4909,7 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br i1 %.not424.i.i, label %.critedge8.i44.i, label %666, !llvm.loop !28
 
 .critedge8.i44.i:                                 ; preds = %671, %666
-  %.1375.i.i = phi ptr [ %.0374533.i.i, %671 ], [ %.0374535.i.i, %666 ]
+  %.1375.i.i = phi ptr [ %.0374535.i.i, %666 ], [ %.0374533.i.i, %671 ]
   %.not690.i.i = icmp eq ptr %.1377.i.i, null
   br i1 %.not690.i.i, label %.critedge8.thread.i.i, label %673
 
@@ -4989,8 +4989,8 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br label %.critedge11.loopexit.i.i, !llvm.loop !29
 
 .critedge11.loopexit.i.i:                         ; preds = %.lr.ph550.i.i, %..critedge11.loopexit.i_crit_edge.i, %.lr.ph550.i.preheader.i
-  %.0379.lcssa.ph.i.i = phi ptr [ %.3386549.i87.i, %..critedge11.loopexit.i_crit_edge.i ], [ %677, %.lr.ph550.i.preheader.i ], [ %.3386549.i87.i, %.lr.ph550.i.i ]
-  %.0368.lcssa.ph.i.i = phi i32 [ %703, %..critedge11.loopexit.i_crit_edge.i ], [ %691, %.lr.ph550.i.preheader.i ], [ %703, %.lr.ph550.i.i ]
+  %.0379.lcssa.ph.i.i = phi ptr [ %677, %.lr.ph550.i.preheader.i ], [ %.3386549.i87.i, %..critedge11.loopexit.i_crit_edge.i ], [ %.3386549.i87.i, %.lr.ph550.i.i ]
+  %.0368.lcssa.ph.i.i = phi i32 [ %691, %.lr.ph550.i.preheader.i ], [ %703, %..critedge11.loopexit.i_crit_edge.i ], [ %703, %.lr.ph550.i.i ]
   %.phi.trans.insert622.i.i = getelementptr inbounds nuw i8, ptr %.0379.lcssa.ph.i.i, i64 4
   %.pre623.i.i = load i32, ptr %.phi.trans.insert622.i.i, align 4
   br label %.critedge11.i.i
@@ -5069,9 +5069,9 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br i1 %.not427.i.i, label %.critedge13.i.i, label %.lr.ph543.i.i, !llvm.loop !31
 
 .loopexit.i45.i:                                  ; preds = %726, %.lr.ph543.i.i, %714, %.lr.ph563.i.i
-  %.5388.ph.i.i = phi ptr [ %.4387561.i.i, %.lr.ph563.i.i ], [ %.4387561.i.i, %714 ], [ %.6389542.i.i, %.lr.ph543.i.i ], [ %.6389542.i.i, %726 ]
-  %.2381.ph.i.i = phi ptr [ %.1380559.i.i, %.lr.ph563.i.i ], [ %.1380559.i.i, %714 ], [ %.3382540.i.i, %.lr.ph543.i.i ], [ %.3382540.i.i, %726 ]
-  %.2370.ph.i.i = phi i32 [ %.1369560.i.i, %.lr.ph563.i.i ], [ %.1369560.i.i, %714 ], [ %.3371541.i.i, %.lr.ph543.i.i ], [ %.3371541.i.i, %726 ]
+  %.5388.ph.i.i = phi ptr [ %.4387561.i.i, %714 ], [ %.4387561.i.i, %.lr.ph563.i.i ], [ %.6389542.i.i, %.lr.ph543.i.i ], [ %.6389542.i.i, %726 ]
+  %.2381.ph.i.i = phi ptr [ %.1380559.i.i, %714 ], [ %.1380559.i.i, %.lr.ph563.i.i ], [ %.3382540.i.i, %.lr.ph543.i.i ], [ %.3382540.i.i, %726 ]
+  %.2370.ph.i.i = phi i32 [ %.1369560.i.i, %714 ], [ %.1369560.i.i, %.lr.ph563.i.i ], [ %.3371541.i.i, %.lr.ph543.i.i ], [ %.3371541.i.i, %726 ]
   %.not432.i.i = icmp eq ptr %.5388.ph.i.i, %680
   br i1 %.not432.i.i, label %735, label %.critedge13.i.i
 
@@ -5261,7 +5261,7 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br i1 %.not434.i.i, label %.critedge17.i.i, label %.lr.ph567.i.i, !llvm.loop !34
 
 .critedge17.i.i:                                  ; preds = %824, %.lr.ph567.i.i, %802, %.lr.ph580.i.i, %.preheader490.i.i, %.preheader492.i.i
-  %.5.i.i = phi i32 [ %.3.lcssa.i.i, %.preheader490.i.i ], [ 0, %.preheader492.i.i ], [ %804, %802 ], [ %.4578.i.i, %.lr.ph580.i.i ], [ %826, %824 ], [ %.6566.i.i, %.lr.ph567.i.i ]
+  %.5.i.i = phi i32 [ 0, %.preheader492.i.i ], [ %.3.lcssa.i.i, %.preheader490.i.i ], [ %.4578.i.i, %.lr.ph580.i.i ], [ %804, %802 ], [ %826, %824 ], [ %.6566.i.i, %.lr.ph567.i.i ]
   %831 = load ptr, ptr %532, align 8
   %.not441.i.i = icmp eq ptr %831, null
   br i1 %.not441.i.i, label %832, label %.preheader489.i.i
@@ -5462,11 +5462,11 @@ add_fragment.exit.thread49.i:                     ; preds = %add_fragment.exit.i
   br i1 %.not447.i.i, label %.critedge25.i.i, label %911, !llvm.loop !40
 
 .critedge25.i.i:                                  ; preds = %915, %911, %896, %892, %909, %.preheader.i46.i
-  store i8 0, ptr %310, align 8
+  store i8 0, ptr %309, align 8
   br label %fragment_reassembly.exit.i
 
 fragment_reassembly.exit.i:                       ; preds = %630, %637, %633, %601, %597, %.critedge25.i.i, %625, %614, %._crit_edge.i.i230
-  %.032.i = phi ptr [ %861, %.critedge25.i.i ], [ %549, %._crit_edge.i.i230 ], [ %549, %614 ], [ %549, %625 ], [ %549, %597 ], [ %549, %601 ], [ %549, %633 ], [ %549, %637 ], [ %549, %630 ]
+  %.032.i = phi ptr [ %861, %.critedge25.i.i ], [ %549, %._crit_edge.i.i230 ], [ %549, %614 ], [ %549, %625 ], [ %549, %637 ], [ %549, %601 ], [ %549, %597 ], [ %549, %633 ], [ %549, %630 ]
   %.not34.i = icmp eq ptr %.032.i, null
   br i1 %.not34.i, label %dissect_fragmented_payload.exit, label %929
 
@@ -5479,8 +5479,8 @@ fragment_reassembly.exit.i:                       ; preds = %630, %637, %633, %6
   call fastcc void @export_sctp_data_chunk(ptr noundef %2, ptr noundef nonnull %.032.i, i32 noundef %.0..0..0..0.83, ptr noundef %933)
   br label %dissect_fragmented_payload.exit
 
-dissect_fragmented_payload.exit:                  ; preds = %929, %fragment_reassembly.exit.i, %.critedge13.i.i, %705, %.critedge8.thread.i.i, %651, %add_fragment.exit.thread49.i, %add_fragment.exit.i, %.loopexit.i.i, %442, %381, %377, %313, %.critedge238, %360, %31, %27
-  %.0 = phi i1 [ true, %27 ], [ %365, %360 ], [ false, %.critedge238 ], [ true, %31 ], [ false, %313 ], [ true, %377 ], [ true, %381 ], [ true, %442 ], [ true, %.loopexit.i.i ], [ true, %add_fragment.exit.i ], [ true, %add_fragment.exit.thread49.i ], [ true, %651 ], [ true, %.critedge8.thread.i.i ], [ true, %705 ], [ true, %.critedge13.i.i ], [ true, %fragment_reassembly.exit.i ], [ true, %929 ]
+dissect_fragmented_payload.exit:                  ; preds = %929, %fragment_reassembly.exit.i, %.critedge13.i.i, %705, %.critedge8.thread.i.i, %651, %add_fragment.exit.thread49.i, %add_fragment.exit.i, %.loopexit.i.i, %442, %381, %377, %312, %.critedge238, %360, %31, %27
+  %.0 = phi i1 [ true, %27 ], [ %365, %360 ], [ false, %.critedge238 ], [ false, %312 ], [ true, %31 ], [ true, %377 ], [ true, %381 ], [ true, %442 ], [ true, %.loopexit.i.i ], [ true, %add_fragment.exit.i ], [ true, %add_fragment.exit.thread49.i ], [ true, %651 ], [ true, %.critedge8.thread.i.i ], [ true, %705 ], [ true, %.critedge13.i.i ], [ true, %fragment_reassembly.exit.i ], [ true, %929 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i1 %.0
 }
@@ -6362,8 +6362,8 @@ proto_item_set_generated.exit175:                 ; preds = %76, %79, %82
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %proto_item_set_generated.exit175, %87, %._crit_edge
-  %.shrunk = phi i16 [ %24, %proto_item_set_generated.exit175 ], [ %24, %87 ], [ %24, %._crit_edge ], [ 0, %6 ]
-  %.0163.lcssa231 = phi i32 [ %63, %proto_item_set_generated.exit175 ], [ %63, %87 ], [ %63, %._crit_edge ], [ 20, %6 ]
+  %.shrunk = phi i16 [ %24, %._crit_edge ], [ %24, %proto_item_set_generated.exit175 ], [ %24, %87 ], [ 0, %6 ]
+  %.0163.lcssa231 = phi i32 [ %63, %._crit_edge ], [ %63, %proto_item_set_generated.exit175 ], [ %63, %87 ], [ 20, %6 ]
   %89 = zext i16 %.shrunk to i32
   %90 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 14)
   %.not206 = icmp eq i16 %90, 0
@@ -6485,7 +6485,7 @@ proto_item_set_generated.exit184:                 ; preds = %139, %142, %145
   br label %._crit_edge198.thread
 
 ._crit_edge198.thread:                            ; preds = %._crit_edge.thread, %proto_item_set_generated.exit184, %150, %._crit_edge198
-  %.shrunk236 = phi i16 [ %90, %proto_item_set_generated.exit184 ], [ %90, %150 ], [ %90, %._crit_edge198 ], [ 0, %._crit_edge.thread ]
+  %.shrunk236 = phi i16 [ %90, %._crit_edge198 ], [ %90, %proto_item_set_generated.exit184 ], [ %90, %150 ], [ 0, %._crit_edge.thread ]
   %152 = zext i16 %.shrunk236 to i32
   %153 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 16)
   %.not207 = icmp eq i16 %153, 0
@@ -8972,7 +8972,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.553, %4 ], [ %switch.select19, %12 ], [ @.str.553, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select19, %12 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ]
   ret ptr %.0
 }
 
@@ -9030,7 +9030,7 @@ switch.lookup:                                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.553, %4 ], [ %switch.select19, %12 ], [ @.str.553, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.553, %5 ], [ %switch.select19, %12 ], [ @.str.553, %4 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ]
   ret ptr %.0
 }
 

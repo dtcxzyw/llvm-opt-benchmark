@@ -408,7 +408,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i:       ; preds = %41
   br label %_ZN16ciBytecodeStream4nextEv.exit
 
 _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i, %57
-  %.0.i = phi i32 [ %47, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ], [ %58, %57 ]
+  %.0.i = phi i32 [ %58, %57 ], [ %47, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i ]
   %.not = icmp eq i32 %.0.i, -1
   br i1 %.not, label %_ZN16ciBytecodeStream4nextEv.exit.thread, label %_ZN16ciBytecodeStream4nextEv.exit._ZN16ciBytecodeStream4nextEv.exit.thread77_crit_edge
 
@@ -857,7 +857,7 @@ _ZNK16ciBytecodeStream12get_far_destEv.exit71:    ; preds = %295, %299
   br i1 %320, label %.sink.split, label %322
 
 .sink.split:                                      ; preds = %312, %._crit_edge, %._crit_edge83, %_ZNK16ciBytecodeStream8get_destEv.exit, %_ZNK16ciBytecodeStream8get_destEv.exit58, %_ZNK16ciBytecodeStream8get_destEv.exit61, %_ZNK16ciBytecodeStream12get_far_destEv.exit, %_ZNK16ciBytecodeStream12get_far_destEv.exit71
-  %.sink = phi i32 [ %307, %_ZNK16ciBytecodeStream12get_far_destEv.exit71 ], [ %283, %_ZNK16ciBytecodeStream12get_far_destEv.exit ], [ %150, %_ZNK16ciBytecodeStream8get_destEv.exit61 ], [ %125, %_ZNK16ciBytecodeStream8get_destEv.exit58 ], [ %100, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ %205, %._crit_edge83 ], [ %258, %._crit_edge ], [ %319, %312 ]
+  %.sink = phi i32 [ %258, %._crit_edge ], [ %205, %._crit_edge83 ], [ %100, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ %307, %_ZNK16ciBytecodeStream12get_far_destEv.exit71 ], [ %283, %_ZNK16ciBytecodeStream12get_far_destEv.exit ], [ %150, %_ZNK16ciBytecodeStream8get_destEv.exit61 ], [ %125, %_ZNK16ciBytecodeStream8get_destEv.exit58 ], [ %319, %312 ]
   %321 = call noundef ptr @_ZN14ciMethodBlocks13make_block_atEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.sink)
   br label %322
 

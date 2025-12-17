@@ -3807,7 +3807,7 @@ define hidden void @_ZNK4ncnn3Mat16to_pixels_resizeEPhiii(ptr noundef nonnull re
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %9, %15
-  %.sink = phi i32 [ %16, %15 ], [ %10, %9 ], [ %3, %11 ]
+  %.sink = phi i32 [ %10, %9 ], [ %16, %15 ], [ %3, %11 ]
   tail call void @_ZNK4ncnn3Mat16to_pixels_resizeEPhiiii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.sink)
   br label %17
 
@@ -3855,7 +3855,7 @@ define hidden void @_ZNK4ncnn3Mat16to_pixels_resizeEPhiiii(ptr noundef nonnull r
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %22, %26, %20
-  %.sink.i = phi i32 [ %27, %26 ], [ %21, %20 ], [ %3, %22 ]
+  %.sink.i = phi i32 [ %21, %20 ], [ %27, %26 ], [ %3, %22 ]
   tail call void @_ZNK4ncnn3Mat9to_pixelsEPhii(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, i32 noundef %.sink.i)
   br label %_ZNK4ncnn3Mat9to_pixelsEPhi.exit
 

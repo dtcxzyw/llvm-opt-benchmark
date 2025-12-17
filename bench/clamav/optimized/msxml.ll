@@ -287,7 +287,7 @@ switch.early.test:                                ; preds = %71
   br i1 %.not85, label %.thread101, label %._crit_edge
 
 .thread101.sink.split:                            ; preds = %69, %66, %63, %60
-  %.sink = phi i32 [ 1, %60 ], [ %., %63 ], [ 3, %66 ], [ %.176, %69 ]
+  %.sink = phi i32 [ 3, %66 ], [ 1, %60 ], [ %., %63 ], [ %.176, %69 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !21
   br label %.thread101
 
@@ -324,8 +324,8 @@ switch.early.test:                                ; preds = %71
   store i64 %95, ptr %31, align 8, !tbaa !13
   br label %.thread105
 
-.thread105:                                       ; preds = %25, %20, %7, %msxml_read_cb_new_window.exit94, %.thread, %._crit_edge138
-  %.0 = phi i32 [ %.067.lcssa, %._crit_edge138 ], [ -1, %msxml_read_cb_new_window.exit94 ], [ %53, %.thread ], [ 0, %7 ], [ 0, %20 ], [ -1, %25 ]
+.thread105:                                       ; preds = %20, %25, %7, %.thread, %msxml_read_cb_new_window.exit94, %._crit_edge138
+  %.0 = phi i32 [ -1, %msxml_read_cb_new_window.exit94 ], [ %.067.lcssa, %._crit_edge138 ], [ %53, %.thread ], [ 0, %20 ], [ 0, %7 ], [ -1, %25 ]
   ret i32 %.0
 }
 

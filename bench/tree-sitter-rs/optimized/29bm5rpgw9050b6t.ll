@@ -879,7 +879,7 @@ define void @_ZN18tree_sitter_config6Config4load17h169fc78c4177fae2E(ptr noalias
   br i1 %or.cond5, label %124, label %123
 
 31:                                               ; preds = %103, %100, %21
-  %.165 = phi i8 [ 1, %21 ], [ %.064, %100 ], [ %.064, %103 ]
+  %.165 = phi i8 [ %.064, %103 ], [ %.064, %100 ], [ 1, %21 ]
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -918,7 +918,7 @@ define void @_ZN18tree_sitter_config6Config4load17h169fc78c4177fae2E(ptr noalias
   invoke void @_ZN18tree_sitter_config6Config7initial17hc63bf940bd9c2f90E(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hf0da24fd352688dbE.exit" unwind label %113
 
-.thread101:                                       ; preds = %22, %49, %79, %83
+.thread101:                                       ; preds = %83, %49, %22, %79
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread98
@@ -1161,7 +1161,7 @@ _ZN3std2fs14read_to_string17h9448c279a23251f3E.exit: ; preds = %22
   br i1 %or.cond3, label %115, label %91
 
 .thread98:                                        ; preds = %.body74, %51, %.thread101
-  %.pn97 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread101 ], [ %52, %51 ], [ %eh.lpad-body75, %.body74 ]
+  %.pn97 = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm, %.thread101 ], [ %eh.lpad-body75, %.body74 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #13
           to label %27 unwind label %108
 
@@ -2229,7 +2229,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h170b4bfb4774fc91E.exit.i.i.i: ; p
   br label %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit
 
 .thread24.i:                                      ; preds = %312, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i
-  %.0.i.i.ph.i = phi ptr [ %210, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i ], [ %.0.i.ph.i.i.i, %312 ]
+  %.0.i.i.ph.i = phi ptr [ %.0.i.ph.i.i.i, %312 ], [ %210, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !394
   br label %315
 
@@ -2266,7 +2266,7 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit.thread: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %372, %349, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.thr_comm, %372 ], [ %350, %349 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %350, %349 ], [ %lpad.thr_comm, %372 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.i, %313
@@ -2376,7 +2376,7 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
   br label %.thread74
 
 .thread74:                                        ; preds = %361, %331, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit", %363
-  %.1 = phi ptr [ %333, %331 ], [ %360, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit" ], [ %364, %363 ], [ null, %361 ]
+  %.1 = phi ptr [ %364, %363 ], [ %333, %331 ], [ %360, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit" ], [ null, %361 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.1
 
@@ -2399,7 +2399,7 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !723
   br label %.thread74
 
-372:                                              ; preds = %336, %359, %325, %337
+372:                                              ; preds = %336, %359, %337, %325
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #13

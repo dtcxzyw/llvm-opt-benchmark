@@ -541,7 +541,7 @@ define dso_local ptr @get_partition_qual_relid(i32 noundef %0) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %3, %10, %12
-  %.1 = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %3 ]
+  %.1 = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %3 ]
   tail call void @relation_close(ptr noundef %4, i32 noundef 0) #5
   br label %16
 

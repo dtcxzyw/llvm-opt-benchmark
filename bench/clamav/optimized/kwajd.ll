@@ -358,8 +358,8 @@ kwajd_read_headers.exit:                          ; preds = %126, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %171
 
-151:                                              ; preds = %78, %84, %.split.loop.exit139.i, %96, %106, %.split.loop.exit143.i, %119, %143, %132, %129, %69, %66, %60, %51, %24, %19
-  %.085.i.ph = phi i32 [ 6, %78 ], [ 3, %84 ], [ 8, %.split.loop.exit139.i ], [ 5, %96 ], [ 3, %106 ], [ 8, %.split.loop.exit143.i ], [ 5, %119 ], [ 3, %143 ], [ 6, %132 ], [ 3, %129 ], [ 5, %69 ], [ 3, %66 ], [ 3, %60 ], [ 3, %51 ], [ 7, %24 ], [ 3, %19 ]
+151:                                              ; preds = %84, %.split.loop.exit139.i, %96, %106, %.split.loop.exit143.i, %119, %78, %129, %143, %132, %69, %66, %60, %51, %24, %19
+  %.085.i.ph = phi i32 [ 3, %84 ], [ 8, %.split.loop.exit139.i ], [ 5, %96 ], [ 3, %106 ], [ 8, %.split.loop.exit143.i ], [ 5, %119 ], [ 6, %78 ], [ 3, %129 ], [ 3, %143 ], [ 6, %132 ], [ 5, %69 ], [ 3, %66 ], [ 3, %60 ], [ 3, %51 ], [ 7, %24 ], [ 3, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %152 = load ptr, ptr %5, align 8, !tbaa !17
   %.not14.i = icmp eq ptr %152, null
@@ -394,7 +394,7 @@ kwajd_close.exit:                                 ; preds = %151, %153
   br label %171
 
 171:                                              ; preds = %kwajd_read_headers.exit, %2, %kwajd_close.exit, %15, %9
-  %.0 = phi ptr [ null, %kwajd_close.exit ], [ null, %15 ], [ null, %9 ], [ null, %2 ], [ %14, %kwajd_read_headers.exit ]
+  %.0 = phi ptr [ null, %kwajd_close.exit ], [ null, %2 ], [ null, %15 ], [ null, %9 ], [ %14, %kwajd_read_headers.exit ]
   ret ptr %.0
 }
 
@@ -1114,11 +1114,11 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   br i1 %or.cond462, label %lzh_read_input.exit, label %182
 
 182:                                              ; preds = %.loopexit489, %.loopexit494
-  %.6375 = phi ptr [ %.4373.lcssa, %.loopexit494 ], [ %.7376.lcssa, %.loopexit489 ]
-  %.6363 = phi ptr [ %.4361.lcssa, %.loopexit494 ], [ %.7364.lcssa, %.loopexit489 ]
-  %.4349 = phi i32 [ %141, %.loopexit494 ], [ %178, %.loopexit489 ]
-  %.4339 = phi i32 [ %142, %.loopexit494 ], [ %179, %.loopexit489 ]
-  %.0320.in = phi i16 [ %.0326, %.loopexit494 ], [ %.2328, %.loopexit489 ]
+  %.6375 = phi ptr [ %.7376.lcssa, %.loopexit489 ], [ %.4373.lcssa, %.loopexit494 ]
+  %.6363 = phi ptr [ %.7364.lcssa, %.loopexit489 ], [ %.4361.lcssa, %.loopexit494 ]
+  %.4349 = phi i32 [ %178, %.loopexit489 ], [ %141, %.loopexit494 ]
+  %.4339 = phi i32 [ %179, %.loopexit489 ], [ %142, %.loopexit494 ]
+  %.0320.in = phi i16 [ %.2328, %.loopexit489 ], [ %.0326, %.loopexit494 ]
   %.not433 = icmp eq i16 %.0320.in, 0
   br i1 %.not433, label %.preheader478, label %184
 
@@ -1493,7 +1493,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   br i1 %.not424, label %106, label %lzh_read_input.exit
 
 lzh_read_input.exit:                              ; preds = %._crit_edge, %17, %.loopexit494, %.loopexit489, %.loopexit485, %._crit_edge613, %.loopexit477, %.loopexit473, %108, %.preheader492, %145, %.preheader487, %186, %.preheader483, %227, %248, %266, %.preheader475, %346, %.loopexit, %309, %.preheader, %.preheader497, %97, %92, %85, %80, %73, %68, %61, %56, %49, %45
-  %.0388 = phi i32 [ %48, %45 ], [ 8, %49 ], [ %60, %56 ], [ 8, %61 ], [ %72, %68 ], [ 8, %73 ], [ %84, %80 ], [ 8, %85 ], [ %96, %92 ], [ 8, %97 ], [ 0, %.preheader497 ], [ 8, %.preheader ], [ %310, %309 ], [ 4, %346 ], [ 0, %.loopexit ], [ 8, %.preheader475 ], [ %267, %266 ], [ 4, %248 ], [ %228, %227 ], [ 8, %.preheader483 ], [ %187, %186 ], [ 8, %.preheader487 ], [ %146, %145 ], [ 8, %.preheader492 ], [ %109, %108 ], [ 0, %.loopexit473 ], [ 0, %.loopexit477 ], [ 0, %._crit_edge613 ], [ 0, %.loopexit485 ], [ 0, %.loopexit489 ], [ 0, %.loopexit494 ], [ 3, %17 ], [ 0, %._crit_edge ]
+  %.0388 = phi i32 [ %48, %45 ], [ 8, %49 ], [ %60, %56 ], [ 8, %61 ], [ %72, %68 ], [ 8, %73 ], [ %84, %80 ], [ 8, %85 ], [ %96, %92 ], [ 8, %97 ], [ 0, %.preheader497 ], [ 3, %17 ], [ 8, %.preheader ], [ %310, %309 ], [ 4, %346 ], [ 8, %.preheader475 ], [ %267, %266 ], [ 4, %248 ], [ %228, %227 ], [ 8, %.preheader483 ], [ %187, %186 ], [ 8, %.preheader487 ], [ %146, %145 ], [ 8, %.preheader492 ], [ %109, %108 ], [ 0, %.loopexit494 ], [ 0, %.loopexit ], [ 0, %.loopexit473 ], [ 0, %.loopexit477 ], [ 0, %._crit_edge613 ], [ 0, %.loopexit485 ], [ 0, %.loopexit489 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0388
 }
@@ -1937,11 +1937,11 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef nonnull %0
   br label %155
 
 155:                                              ; preds = %93, %152, %125
-  %.0569.sink = phi i32 [ %154, %152 ], [ %126, %125 ], [ %.0569, %93 ]
-  %.9238 = phi ptr [ %.7236.lcssa, %152 ], [ %.5234.lcssa, %125 ], [ %.3232.lcssa, %93 ]
-  %.9224 = phi ptr [ %.7222.lcssa, %152 ], [ %.5220.lcssa, %125 ], [ %.3218.lcssa, %93 ]
-  %.5206 = phi i32 [ %153, %152 ], [ %119, %125 ], [ %90, %93 ]
-  %.5 = phi i32 [ %150, %152 ], [ %120, %125 ], [ %91, %93 ]
+  %.0569.sink = phi i32 [ %126, %125 ], [ %154, %152 ], [ %.0569, %93 ]
+  %.9238 = phi ptr [ %.5234.lcssa, %125 ], [ %.7236.lcssa, %152 ], [ %.3232.lcssa, %93 ]
+  %.9224 = phi ptr [ %.5220.lcssa, %125 ], [ %.7222.lcssa, %152 ], [ %.3218.lcssa, %93 ]
+  %.5206 = phi i32 [ %119, %125 ], [ %153, %152 ], [ %90, %93 ]
+  %.5 = phi i32 [ %120, %125 ], [ %150, %152 ], [ %91, %93 ]
   %156 = trunc i32 %.0569.sink to i8
   %157 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv610
   store i8 %156, ptr %157, align 1, !tbaa !31
@@ -2199,11 +2199,11 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef nonnull %0
   br label %261
 
 261:                                              ; preds = %._crit_edge473, %258
-  %.17246 = phi ptr [ %.15244.lcssa, %._crit_edge473 ], [ %.13242.lcssa, %258 ]
-  %.17 = phi ptr [ %.15.lcssa, %._crit_edge473 ], [ %.13228.lcssa, %258 ]
-  %.10211 = phi i32 [ %255, %._crit_edge473 ], [ %221, %258 ]
-  %.10 = phi i32 [ %256, %._crit_edge473 ], [ %222, %258 ]
-  %.3 = phi i32 [ %254, %._crit_edge473 ], [ %260, %258 ]
+  %.17246 = phi ptr [ %.13242.lcssa, %258 ], [ %.15244.lcssa, %._crit_edge473 ]
+  %.17 = phi ptr [ %.13228.lcssa, %258 ], [ %.15.lcssa, %._crit_edge473 ]
+  %.10211 = phi i32 [ %221, %258 ], [ %255, %._crit_edge473 ]
+  %.10 = phi i32 [ %222, %258 ], [ %256, %._crit_edge473 ]
+  %.3 = phi i32 [ %260, %258 ], [ %254, %._crit_edge473 ]
   %262 = trunc i32 %.3 to i8
   %263 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv605
   store i8 %262, ptr %263, align 1, !tbaa !31
@@ -2300,10 +2300,10 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef nonnull %0
   br i1 %exitcond.not, label %.loopexit, label %.preheader363
 
 .loopexit:                                        ; preds = %293, %261, %155, %.loopexit.loopexit, %4
-  %.21250 = phi ptr [ %6, %4 ], [ %6, %.loopexit.loopexit ], [ %.9238, %155 ], [ %.17246, %261 ], [ %.19248.lcssa, %293 ]
-  %.21 = phi ptr [ %8, %4 ], [ %8, %.loopexit.loopexit ], [ %.9224, %155 ], [ %.17, %261 ], [ %.19.lcssa, %293 ]
-  %.13214 = phi i32 [ %10, %4 ], [ %10, %.loopexit.loopexit ], [ %.5206, %155 ], [ %.10211, %261 ], [ %294, %293 ]
-  %.13 = phi i32 [ %12, %4 ], [ %12, %.loopexit.loopexit ], [ %.5, %155 ], [ %.10, %261 ], [ %290, %293 ]
+  %.21250 = phi ptr [ %6, %4 ], [ %6, %.loopexit.loopexit ], [ %.17246, %261 ], [ %.9238, %155 ], [ %.19248.lcssa, %293 ]
+  %.21 = phi ptr [ %8, %4 ], [ %8, %.loopexit.loopexit ], [ %.17, %261 ], [ %.9224, %155 ], [ %.19.lcssa, %293 ]
+  %.13214 = phi i32 [ %10, %4 ], [ %10, %.loopexit.loopexit ], [ %.10211, %261 ], [ %.5206, %155 ], [ %294, %293 ]
+  %.13 = phi i32 [ %12, %4 ], [ %12, %.loopexit.loopexit ], [ %.10, %261 ], [ %.5, %155 ], [ %290, %293 ]
   store ptr %.21250, ptr %5, align 8, !tbaa !44
   store ptr %.21, ptr %7, align 8, !tbaa !45
   store i32 %.13214, ptr %9, align 8, !tbaa !46
@@ -2311,7 +2311,7 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef nonnull %0
   br label %lzh_read_input.exit
 
 lzh_read_input.exit:                              ; preds = %._crit_edge, %269, %163, %._crit_edge473, %._crit_edge463, %199, %232, %37, %._crit_edge559, %117, %89, %72, %99, %130, %._crit_edge453, %._crit_edge489, %.loopexit
-  %.0251 = phi i32 [ 0, %.loopexit ], [ 0, %._crit_edge489 ], [ 0, %._crit_edge453 ], [ 3, %99 ], [ 3, %72 ], [ 0, %89 ], [ 0, %117 ], [ 0, %._crit_edge559 ], [ 3, %130 ], [ 3, %37 ], [ 3, %232 ], [ 3, %199 ], [ 0, %._crit_edge463 ], [ 0, %._crit_edge473 ], [ 3, %163 ], [ 3, %269 ], [ 0, %._crit_edge ]
+  %.0251 = phi i32 [ 0, %.loopexit ], [ 0, %._crit_edge489 ], [ 0, %._crit_edge453 ], [ 3, %269 ], [ 3, %130 ], [ 3, %37 ], [ 3, %232 ], [ 3, %199 ], [ 0, %._crit_edge473 ], [ 3, %163 ], [ 3, %72 ], [ 0, %._crit_edge559 ], [ 0, %89 ], [ 0, %117 ], [ 3, %99 ], [ 0, %._crit_edge463 ], [ 0, %._crit_edge ]
   ret i32 %.0251
 }
 

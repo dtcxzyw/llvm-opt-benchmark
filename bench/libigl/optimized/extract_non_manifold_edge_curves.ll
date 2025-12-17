@@ -522,7 +522,7 @@ _ZNSt7__cxx1110_List_baseImSaImEED2Ev.exit:       ; preds = %.lr.ph.i.i, %._crit
   br i1 %.not, label %._crit_edge141.thread192, label %139
 
 210:                                              ; preds = %193, %195
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
+  %.pn = phi { ptr, i32 } [ %194, %193 ], [ %196, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre = load ptr, ptr %14, align 8, !tbaa !70
@@ -829,7 +829,7 @@ _ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_ran
   %.not34 = icmp eq ptr %134, %.sroa.03.0.i.i
   br i1 %.not34, label %.loopexit, label %84, !llvm.loop !91
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i18, %52, %.critedge15, %..loopexit_crit_edge21.i.i.i.i.i22, %57, %_ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_rangeERS5_.exit, %133
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i18, %52, %.critedge15, %57, %..loopexit_crit_edge21.i.i.i.i.i22, %_ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_rangeERS5_.exit, %133
   br label %9, !llvm.loop !92
 
 .critedge:                                        ; preds = %_ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i, %21, %_ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit, %.lr.ph.i.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i.i
@@ -1089,7 +1089,7 @@ _ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_ran
   %.not34 = icmp eq ptr %133, %.sroa.03.0.i.i
   br i1 %.not34, label %.loopexit, label %83, !llvm.loop !97
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i18, %51, %.critedge15, %..loopexit_crit_edge21.i.i.i.i.i22, %56, %_ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_rangeERS5_.exit, %132
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i18, %51, %.critedge15, %56, %..loopexit_crit_edge21.i.i.i.i.i22, %_ZNSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE11equal_rangeERS5_.exit, %132
   br label %8, !llvm.loop !98
 
 .critedge:                                        ; preds = %_ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i, %20, %_ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit, %.lr.ph.i.i.i.i.i, %15, %..loopexit_crit_edge21.i.i.i.i.i
@@ -1354,7 +1354,7 @@ common.resume:                                    ; preds = %27, %_ZNSt10_Hashta
   br i1 %41, label %.loopexit.i.i, label %.preheader, !llvm.loop !106
 
 .loopexit.i.i:                                    ; preds = %38, %.preheader, %34
-  %.sroa.020.2.i.i.i = phi ptr [ null, %34 ], [ null, %.preheader ], [ %.sroa.0.0.i.i.i, %38 ]
+  %.sroa.020.2.i.i.i = phi ptr [ null, %34 ], [ %.sroa.0.0.i.i.i, %38 ], [ null, %.preheader ]
   %42 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS4_10_Hash_nodeIS2_Lb0EEEmSI_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.020.2.i.i.i, i64 noundef %.pre39.i.i.i, ptr noundef nonnull %35)
           to label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE9_M_insertIRKS2_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb0EEEEEEEENS4_14_Node_iteratorIS2_Lb0ELb0EEEOT_RKT0_St17integral_constantIbLb0EE.exit unwind label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit11.i.i
 

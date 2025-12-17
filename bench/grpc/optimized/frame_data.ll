@@ -544,7 +544,7 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit58:      ; preds = %._ZN4absl12lts_2024
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit60:         ; preds = %71, %_ZN4absl12lts_202407226StatusaSEOS1_.exit58, %80
-  %85 = phi i64 [ %77, %_ZN4absl12lts_202407226StatusaSEOS1_.exit58 ], [ %77, %80 ], [ %70, %71 ]
+  %85 = phi i64 [ %77, %80 ], [ %77, %_ZN4absl12lts_202407226StatusaSEOS1_.exit58 ], [ %70, %71 ]
   %86 = load i64, ptr %14, align 8, !tbaa !142
   %87 = and i64 %86, 1
   %.not.i.i61 = icmp eq i64 %87, 0
@@ -698,7 +698,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit67:         ; preds = %135, %141
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit69
 
 146:                                              ; preds = %131, %142, %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %27
-  %.pn51 = phi { ptr, i32 } [ %28, %27 ], [ %104, %103 ], [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %132, %131 ], [ %143, %142 ]
+  %.pn51 = phi { ptr, i32 } [ %28, %27 ], [ %104, %103 ], [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ %143, %142 ], [ %132, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

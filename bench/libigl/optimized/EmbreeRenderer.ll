@@ -2195,7 +2195,7 @@ thread-pre-split.i.i.i.i.i.i.i10:                 ; preds = %31
   br label %_ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEaSINS_12CwiseUnaryOpINS_8internal14scalar_cast_opIdfEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEaSINS_12CwiseUnaryOpINS_8internal14scalar_cast_opIdfEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %44, %21, %50, %39, %16, %52
-  %.sink = phi i8 [ 1, %52 ], [ 0, %16 ], [ 0, %39 ], [ 1, %50 ], [ 0, %21 ], [ 0, %44 ]
+  %.sink = phi i8 [ 0, %16 ], [ 0, %39 ], [ 1, %52 ], [ 1, %50 ], [ 0, %21 ], [ 0, %44 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 %.sink, ptr %66, align 1, !tbaa !159
   ret void

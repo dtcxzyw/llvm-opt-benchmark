@@ -144,7 +144,7 @@ define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonl
   br label %32
 
 32:                                               ; preds = %27, %18, %12, %7, %29
-  %.025 = phi i32 [ %31, %29 ], [ 1, %7 ], [ 2, %12 ], [ 5, %18 ], [ 1, %27 ]
+  %.025 = phi i32 [ %31, %29 ], [ 5, %18 ], [ 1, %7 ], [ 2, %12 ], [ 1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }
@@ -253,13 +253,13 @@ define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %0, i32 noundef
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15, %12
-  %.sink = phi i8 [ %14, %12 ], [ -2, %15 ], [ -64, %17 ], [ -16, %19 ], [ %., %21 ]
+  %.sink = phi i8 [ %14, %12 ], [ -64, %17 ], [ -16, %19 ], [ %., %21 ], [ -2, %15 ]
   store i8 %.sink, ptr %3, align 1, !tbaa !9
   store i64 %11, ptr %2, align 8, !tbaa !10
   br label %24
 
 24:                                               ; preds = %7, %4, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %23 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -645,10 +645,10 @@ zipStorePrevEntryLengthLarge.exit:                ; preds = %87
   br i1 %.not, label %zipStorePrevEntryLength.exit, label %.lr.ph, !llvm.loop !25
 
 zipStorePrevEntryLength.exit:                     ; preds = %102, %81, %zipStorePrevEntryLengthLarge.exit.i, %92, %zipStorePrevEntryLengthLarge.exit
-  %.pn.in140 = phi ptr [ %.pn.in149, %zipStorePrevEntryLengthLarge.exit.i ], [ %.pn.in149, %92 ], [ %.pn.in149, %zipStorePrevEntryLengthLarge.exit ], [ %.080154, %102 ], [ %.pn.in149, %81 ]
-  %.083130 = phi i64 [ %.083152, %zipStorePrevEntryLengthLarge.exit.i ], [ %.083152, %92 ], [ %.083152, %zipStorePrevEntryLengthLarge.exit ], [ %112, %102 ], [ %.083152, %81 ]
-  %.081126 = phi i64 [ %.081153, %zipStorePrevEntryLengthLarge.exit.i ], [ %.081153, %92 ], [ %.081153, %zipStorePrevEntryLengthLarge.exit ], [ %113, %102 ], [ %.081153, %81 ]
-  %.080122 = phi ptr [ %.080154, %zipStorePrevEntryLengthLarge.exit.i ], [ %.080154, %92 ], [ %.080154, %zipStorePrevEntryLengthLarge.exit ], [ %111, %102 ], [ %.080154, %81 ]
+  %.pn.in140 = phi ptr [ %.pn.in149, %zipStorePrevEntryLengthLarge.exit ], [ %.pn.in149, %zipStorePrevEntryLengthLarge.exit.i ], [ %.pn.in149, %92 ], [ %.pn.in149, %81 ], [ %.080154, %102 ]
+  %.083130 = phi i64 [ %.083152, %zipStorePrevEntryLengthLarge.exit ], [ %.083152, %zipStorePrevEntryLengthLarge.exit.i ], [ %.083152, %92 ], [ %.083152, %81 ], [ %112, %102 ]
+  %.081126 = phi i64 [ %.081153, %zipStorePrevEntryLengthLarge.exit ], [ %.081153, %zipStorePrevEntryLengthLarge.exit.i ], [ %.081153, %92 ], [ %.081153, %81 ], [ %113, %102 ]
+  %.080122 = phi ptr [ %.080154, %zipStorePrevEntryLengthLarge.exit ], [ %.080154, %zipStorePrevEntryLengthLarge.exit.i ], [ %.080154, %92 ], [ %.080154, %81 ], [ %111, %102 ]
   %.pn.le.pn = ptrtoint ptr %.pn.in140 to i64
   %.086118 = sub i64 %.pn.le.pn, %75
   %115 = icmp eq i64 %.083130, 0
@@ -867,7 +867,7 @@ zipStorePrevEntryLength.exit108:                  ; preds = %zipStorePrevEntryLe
   br i1 %.not94, label %zipStorePrevEntryLength.exit.thread, label %143, !llvm.loop !27
 
 zipStorePrevEntryLength.exit.thread:              ; preds = %zipStorePrevEntryLength.exit108, %ziplistResize.exit, %zipEntry.exit, %zipStorePrevEntryLength.exit, %2
-  %.0 = phi ptr [ %0, %2 ], [ %0, %zipStorePrevEntryLength.exit ], [ %0, %zipEntry.exit ], [ %134, %ziplistResize.exit ], [ %134, %zipStorePrevEntryLength.exit108 ]
+  %.0 = phi ptr [ %0, %zipStorePrevEntryLength.exit ], [ %0, %2 ], [ %0, %zipEntry.exit ], [ %134, %ziplistResize.exit ], [ %134, %zipStorePrevEntryLength.exit108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1017,8 +1017,8 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   br label %221
 
 .sink.split:                                      ; preds = %67, %37, %46, %33, %69, %71, %72, %70
-  %.sink = phi i32 [ 3, %70 ], [ 8, %72 ], [ 4, %71 ], [ 2, %69 ], [ %36, %33 ], [ %64, %46 ], [ %45, %37 ], [ 1, %67 ]
-  %.ph233.ph = phi i32 [ 1, %70 ], [ 1, %72 ], [ 1, %71 ], [ 1, %69 ], [ 1, %33 ], [ 5, %46 ], [ 2, %37 ], [ 1, %67 ]
+  %.sink = phi i32 [ %45, %37 ], [ 3, %70 ], [ 8, %72 ], [ 4, %71 ], [ 2, %69 ], [ %36, %33 ], [ %64, %46 ], [ 1, %67 ]
+  %.ph233.ph = phi i32 [ 2, %37 ], [ 1, %70 ], [ 1, %72 ], [ 1, %71 ], [ 1, %69 ], [ 1, %33 ], [ 5, %46 ], [ 1, %67 ]
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.sink, ptr %80, align 4, !tbaa !21
   %81 = zext i32 %.sink to i64
@@ -1112,8 +1112,8 @@ zipEncodingLenSize.exit:                          ; preds = %118
   store i32 255, ptr %121, align 8, !tbaa !29
   br label %221
 
-122:                                              ; preds = %119, %120, %111, %111, %111, %111, %111, %116, %118
-  %.0.i.ph = phi i32 [ 1, %118 ], [ 1, %116 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 5, %120 ], [ 2, %119 ]
+122:                                              ; preds = %111, %111, %111, %111, %111, %116, %119, %120, %118
+  %.0.i.ph = phi i32 [ 1, %118 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 1, %111 ], [ 5, %120 ], [ 2, %119 ], [ 1, %116 ], [ 1, %111 ]
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i.ph, ptr %123, align 8, !tbaa !29
   %124 = zext nneg i32 %.0.i.ph to i64
@@ -1265,8 +1265,8 @@ zipEncodingLenSize.exit:                          ; preds = %118
   br label %201
 
 201:                                              ; preds = %197, %187, %191, %195, %200, %193, %189, %143, %162, %184, %150
-  %202 = phi i32 [ 1, %187 ], [ 3, %191 ], [ 8, %195 ], [ 0, %200 ], [ 4, %193 ], [ 2, %189 ], [ %148, %143 ], [ %182, %162 ], [ 0, %184 ], [ %160, %150 ], [ 0, %197 ]
-  %203 = phi i32 [ 1, %187 ], [ 1, %191 ], [ 1, %195 ], [ 0, %200 ], [ 1, %193 ], [ 1, %189 ], [ 1, %143 ], [ 5, %162 ], [ 0, %184 ], [ 2, %150 ], [ 1, %197 ]
+  %202 = phi i32 [ 1, %187 ], [ 3, %191 ], [ 8, %195 ], [ 0, %200 ], [ %160, %150 ], [ 4, %193 ], [ 2, %189 ], [ %148, %143 ], [ %182, %162 ], [ 0, %184 ], [ 0, %197 ]
+  %203 = phi i32 [ 1, %187 ], [ 1, %191 ], [ 1, %195 ], [ 0, %200 ], [ 2, %150 ], [ 1, %193 ], [ 1, %189 ], [ 1, %143 ], [ 5, %162 ], [ 0, %184 ], [ 1, %197 ]
   %204 = add nuw nsw i32 %203, %.221
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %204, ptr %205, align 8, !tbaa !22
@@ -1298,7 +1298,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   br label %221
 
 221:                                              ; preds = %77, %zipEncodingLenSize.exit, %213, %201, %122, %103, %99, %92, %82, %219, %98
-  %.0 = phi i32 [ 1, %98 ], [ 1, %219 ], [ 0, %77 ], [ 0, %82 ], [ 0, %92 ], [ 0, %99 ], [ 0, %103 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %122 ], [ 0, %201 ], [ 0, %213 ]
+  %.0 = phi i32 [ 1, %219 ], [ 0, %77 ], [ 0, %82 ], [ 1, %98 ], [ 0, %92 ], [ 0, %99 ], [ 0, %103 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %122 ], [ 0, %201 ], [ 0, %213 ]
   ret i32 %.0
 }
 
@@ -1687,9 +1687,9 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   %spec.select180 = select i1 %60, i64 2, i64 5
   br label %zipStoreEntryEncoding.exit
 
-61:                                               ; preds = %47, %50, %.thread, %.thread141, %.thread144
-  %.0130136.ph = phi i8 [ -16, %.thread144 ], [ -64, %.thread141 ], [ -2, %.thread ], [ %52, %50 ], [ %., %47 ]
-  %.093.in.ph = phi i64 [ 3, %.thread144 ], [ 2, %.thread141 ], [ 1, %.thread ], [ 0, %50 ], [ %49, %47 ]
+61:                                               ; preds = %47, %.thread, %50, %.thread141, %.thread144
+  %.0130136.ph = phi i8 [ -2, %.thread ], [ %., %47 ], [ %52, %50 ], [ -16, %.thread144 ], [ -64, %.thread141 ]
+  %.093.in.ph = phi i64 [ 1, %.thread ], [ %49, %47 ], [ 0, %50 ], [ 3, %.thread144 ], [ 2, %.thread141 ]
   %62 = icmp ult i32 %.090, 254
   %63 = select i1 %62, i32 1, i32 5
   %64 = zext nneg i32 %63 to i64
@@ -1697,13 +1697,13 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br label %zipStoreEntryEncoding.exit
 
 zipStoreEntryEncoding.exit:                       ; preds = %59, %53, %.thread164, %61
-  %.not.i113162 = phi i1 [ true, %61 ], [ false, %.thread164 ], [ false, %53 ], [ false, %59 ]
-  %66 = phi i64 [ %65, %61 ], [ %38, %.thread164 ], [ %57, %53 ], [ %57, %59 ]
-  %67 = phi i32 [ %63, %61 ], [ %37, %.thread164 ], [ %55, %53 ], [ %55, %59 ]
-  %68 = phi i1 [ %62, %61 ], [ %36, %.thread164 ], [ %54, %53 ], [ %54, %59 ]
-  %.0130136160 = phi i8 [ %.0130136.ph, %61 ], [ 0, %.thread164 ], [ 0, %53 ], [ 0, %59 ]
-  %.0138158 = phi i64 [ %40, %61 ], [ 123456789, %.thread164 ], [ 123456789, %53 ], [ 123456789, %59 ]
-  %.025.i = phi i64 [ 1, %61 ], [ 1, %.thread164 ], [ 1, %53 ], [ %spec.select180, %59 ]
+  %.not.i113162 = phi i1 [ true, %61 ], [ false, %59 ], [ false, %53 ], [ false, %.thread164 ]
+  %66 = phi i64 [ %65, %61 ], [ %57, %59 ], [ %57, %53 ], [ %38, %.thread164 ]
+  %67 = phi i32 [ %63, %61 ], [ %55, %59 ], [ %55, %53 ], [ %37, %.thread164 ]
+  %68 = phi i1 [ %62, %61 ], [ %54, %59 ], [ %54, %53 ], [ %36, %.thread164 ]
+  %.0130136160 = phi i8 [ %.0130136.ph, %61 ], [ 0, %59 ], [ 0, %53 ], [ 0, %.thread164 ]
+  %.0138158 = phi i64 [ %40, %61 ], [ 123456789, %59 ], [ 123456789, %53 ], [ 123456789, %.thread164 ]
+  %.025.i = phi i64 [ 1, %61 ], [ %spec.select180, %59 ], [ 1, %53 ], [ 1, %.thread164 ]
   %69 = add nuw nsw i64 %.025.i, %66
   %70 = load i8, ptr %1, align 1, !tbaa !9
   %.not99 = icmp eq i8 %70, -1
@@ -1849,9 +1849,9 @@ zipStorePrevEntryLengthLarge.exit.i117:           ; preds = %.thread171
   br label %zipStorePrevEntryLength.exit119
 
 zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStorePrevEntryLengthLarge.exit.i117
-  %.088176 = phi ptr [ %.088177, %136 ], [ %.088177, %zipStorePrevEntryLengthLarge.exit.i117 ], [ null, %131 ]
-  %.092174 = phi ptr [ %.092175, %136 ], [ %.092175, %zipStorePrevEntryLengthLarge.exit.i117 ], [ null, %131 ]
-  %.0.i118 = phi i32 [ 1, %136 ], [ 5, %zipStorePrevEntryLengthLarge.exit.i117 ], [ %67, %131 ]
+  %.088176 = phi ptr [ %.088177, %zipStorePrevEntryLengthLarge.exit.i117 ], [ %.088177, %136 ], [ null, %131 ]
+  %.092174 = phi ptr [ %.092175, %zipStorePrevEntryLengthLarge.exit.i117 ], [ %.092175, %136 ], [ null, %131 ]
+  %.0.i118 = phi i32 [ 5, %zipStorePrevEntryLengthLarge.exit.i117 ], [ 1, %136 ], [ %67, %131 ]
   %139 = zext nneg i32 %.0.i118 to i64
   %140 = getelementptr inbounds nuw i8, ptr %.092174, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2059,7 +2059,7 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   br label %53
 
 53:                                               ; preds = %.sink.split, %2, %4, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ null, %2 ], [ %51, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %4 ], [ %51, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2639,7 +2639,7 @@ zipLoadInteger.exit:                              ; preds = %69, %72, %74, %76, 
   br label %86
 
 86:                                               ; preds = %62, %61, %zipLoadInteger.exit, %65, %4, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 1, %65 ], [ 1, %zipLoadInteger.exit ], [ 1, %61 ], [ 1, %62 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %65 ], [ 1, %zipLoadInteger.exit ], [ 1, %61 ], [ 1, %62 ]
   ret i32 %.0
 }
 
@@ -2842,12 +2842,12 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   %spec.select = select i1 %73, i32 2, i32 5
   br label %zipStoreEntryEncoding.exit
 
-zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51, %.thread48, %.thread, %67, %70, %.thread72
-  %.not.i2070 = phi i1 [ false, %.thread72 ], [ false, %70 ], [ true, %67 ], [ true, %.thread ], [ true, %.thread48 ], [ true, %.thread51 ], [ true, %65 ], [ false, %72 ]
-  %.068 = phi i32 [ %3, %.thread72 ], [ %3, %70 ], [ 0, %67 ], [ 1, %.thread ], [ 2, %.thread48 ], [ 3, %.thread51 ], [ %., %65 ], [ %3, %72 ]
-  %.0364266 = phi i8 [ 0, %.thread72 ], [ 0, %70 ], [ %69, %67 ], [ -2, %.thread ], [ -64, %.thread48 ], [ -16, %.thread51 ], [ %.79, %65 ], [ 0, %72 ]
-  %.0354564 = phi i64 [ 123456789, %.thread72 ], [ 123456789, %70 ], [ %58, %67 ], [ %58, %.thread ], [ %58, %.thread48 ], [ %58, %.thread51 ], [ %58, %65 ], [ 123456789, %72 ]
-  %.025.i = phi i32 [ 1, %.thread72 ], [ 1, %70 ], [ 1, %67 ], [ 1, %.thread ], [ 1, %.thread48 ], [ 1, %.thread51 ], [ 1, %65 ], [ %spec.select, %72 ]
+zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51, %.thread48, %67, %.thread, %70, %.thread72
+  %.not.i2070 = phi i1 [ false, %72 ], [ true, %67 ], [ false, %70 ], [ false, %.thread72 ], [ true, %.thread48 ], [ true, %.thread51 ], [ true, %.thread ], [ true, %65 ]
+  %.068 = phi i32 [ %3, %72 ], [ 0, %67 ], [ %3, %70 ], [ %3, %.thread72 ], [ 2, %.thread48 ], [ 3, %.thread51 ], [ 1, %.thread ], [ %., %65 ]
+  %.0364266 = phi i8 [ 0, %72 ], [ %69, %67 ], [ 0, %70 ], [ 0, %.thread72 ], [ -64, %.thread48 ], [ -16, %.thread51 ], [ -2, %.thread ], [ %.79, %65 ]
+  %.0354564 = phi i64 [ 123456789, %72 ], [ %58, %67 ], [ 123456789, %70 ], [ 123456789, %.thread72 ], [ %58, %.thread48 ], [ %58, %.thread51 ], [ %58, %.thread ], [ %58, %65 ]
+  %.025.i = phi i32 [ %spec.select, %72 ], [ 1, %67 ], [ 1, %70 ], [ 1, %.thread72 ], [ 1, %.thread48 ], [ 1, %.thread51 ], [ 1, %.thread ], [ 1, %65 ]
   %74 = add i32 %.025.i, %.068
   %75 = add i32 %.sroa.12.0, %.sroa.5.1
   %76 = icmp eq i32 %74, %75
@@ -3160,7 +3160,7 @@ zipLoadInteger.exit:                              ; preds = %71, %74, %76, %78, 
   br label %89
 
 89:                                               ; preds = %zipTryEncoding.exit, %55, %3, %zipLoadInteger.exit, %57
-  %.0.shrunk = phi i1 [ %61, %57 ], [ %88, %zipLoadInteger.exit ], [ false, %3 ], [ false, %55 ], [ false, %zipTryEncoding.exit ]
+  %.0.shrunk = phi i1 [ false, %55 ], [ %61, %57 ], [ false, %3 ], [ %88, %zipLoadInteger.exit ], [ false, %zipTryEncoding.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3271,7 +3271,7 @@ define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address)
   br label %.thread59
 
 .thread59:                                        ; preds = %40, %43, %45, %47, %49
-  %.550.ph = phi i8 [ %..i, %49 ], [ -16, %47 ], [ -64, %45 ], [ -2, %43 ], [ %42, %40 ]
+  %.550.ph = phi i8 [ -2, %43 ], [ %..i, %49 ], [ -16, %47 ], [ -64, %45 ], [ %42, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
@@ -3344,9 +3344,9 @@ zipLoadInteger.exit:                              ; preds = %52, %55, %57, %59, 
   br label %.loopexit
 
 71:                                               ; preds = %34, %69, %zipLoadInteger.exit, %29, %32, %.thread
-  %.449 = phi i8 [ %.24763, %zipLoadInteger.exit ], [ %.04576, %32 ], [ %.04576, %29 ], [ %.04576, %69 ], [ -1, %.thread ], [ %.04576, %34 ]
-  %.3 = phi i64 [ %.264, %zipLoadInteger.exit ], [ %.04277, %32 ], [ %.04277, %29 ], [ %.04277, %69 ], [ %.04277, %.thread ], [ %.04277, %34 ]
-  %.229 = phi i32 [ %4, %zipLoadInteger.exit ], [ %4, %32 ], [ %4, %29 ], [ %70, %69 ], [ %4, %.thread ], [ %4, %34 ]
+  %.449 = phi i8 [ %.04576, %34 ], [ %.24763, %zipLoadInteger.exit ], [ %.04576, %32 ], [ %.04576, %29 ], [ %.04576, %69 ], [ -1, %.thread ]
+  %.3 = phi i64 [ %.04277, %34 ], [ %.264, %zipLoadInteger.exit ], [ %.04277, %32 ], [ %.04277, %29 ], [ %.04277, %69 ], [ %.04277, %.thread ]
+  %.229 = phi i32 [ %4, %34 ], [ %4, %zipLoadInteger.exit ], [ %4, %32 ], [ %4, %29 ], [ %70, %69 ], [ %4, %.thread ]
   %72 = load i32, ptr %13, align 4, !tbaa !21
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 %73
@@ -3731,7 +3731,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br i1 %.not53, label %.thread, label %60
 
 .thread:                                          ; preds = %._crit_edge.thread, %56
-  %.041.lcssa8691 = phi i32 [ %.041.lcssa, %56 ], [ 0, %._crit_edge.thread ]
+  %.041.lcssa8691 = phi i32 [ 0, %._crit_edge.thread ], [ %.041.lcssa, %56 ]
   %.not54 = icmp eq i16 %23, -1
   %.not55 = icmp eq i32 %.041.lcssa8691, %24
   %or.cond = select i1 %.not54, i1 true, i1 %.not55
@@ -3743,7 +3743,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br label %60
 
 60:                                               ; preds = %._crit_edge.thread, %.thread, %8, %11, %15, %20, %56, %._crit_edge, %.critedge, %5
-  %.039 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 0, %.critedge ], [ 0, %._crit_edge ], [ 0, %56 ], [ %spec.select, %.thread ], [ 0, %._crit_edge.thread ]
+  %.039 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %8 ], [ 0, %11 ], [ 1, %20 ], [ 0, %.critedge ], [ %spec.select, %.thread ], [ 0, %._crit_edge ], [ 0, %56 ], [ 0, %._crit_edge.thread ]
   ret i32 %.039
 }
 

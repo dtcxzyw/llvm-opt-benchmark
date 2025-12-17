@@ -5116,7 +5116,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %147
 
 .body:                                            ; preds = %.loopexit68, %.loopexit.split-lp69.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit, %244, %459, %347, %.loopexit.split-lp
-  %.pn214 = phi { ptr, i32 } [ %460, %459 ], [ %348, %347 ], [ %.pn, %.loopexit.split-lp ], [ %245, %244 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit74, %.loopexit.split-lp69.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp69.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn214 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %460, %459 ], [ %245, %244 ], [ %348, %347 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit74, %.loopexit.split-lp69.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp69.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73) #16
           to label %516 unwind label %306
 
@@ -5216,7 +5216,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br i1 %106, label %318, label %.lr.ph100
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.body278, %.body275
-  %.pn = phi { ptr, i32 } [ %279, %.body278 ], [ %eh.lpad-body276, %.body275 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body276, %.body275 ], [ %279, %.body278 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Wasi$GT$$GT$17h813552cdf37fdc15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #16
           to label %.body unwind label %306
 
@@ -5341,7 +5341,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   store i64 %135, ptr %35, align 8, !alias.scope !917
   br label %148
 
-.thread28:                                        ; preds = %125, %128
+.thread28:                                        ; preds = %128, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !917
   br label %.thread25
 
@@ -5430,7 +5430,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %157 = sub i64 %.pre5.i.i.i, %.pre.i.i.i
   br label %164
 
-.thread32:                                        ; preds = %150, %153
+.thread32:                                        ; preds = %153, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !938
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3102dd4ba18bac1e532fac417d15316a.70) #15
           to label %82 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -5508,8 +5508,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %182, %._crit_edge.i.i.i259, %177, %174
-  %.sroa.4.1.i.i257 = phi i64 [ %187, %182 ], [ %181, %._crit_edge.i.i.i259 ], [ undef, %174 ], [ undef, %177 ]
-  %.sroa.0.1.i.i258 = phi ptr [ %186, %182 ], [ %180, %._crit_edge.i.i.i259 ], [ null, %174 ], [ null, %177 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %187, %182 ], [ %181, %._crit_edge.i.i.i259 ], [ undef, %177 ], [ undef, %174 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %186, %182 ], [ %180, %._crit_edge.i.i.i259 ], [ null, %177 ], [ null, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !948
   br label %.lr.ph.i
 
@@ -5535,8 +5535,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %164, %168, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %188, %191, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %164 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %168 ], [ %195, %._crit_edge.i.i247 ], [ undef, %188 ], [ undef, %191 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %164 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %168 ], [ %194, %._crit_edge.i.i247 ], [ null, %188 ], [ null, %191 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %164 ], [ undef, %168 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %195, %._crit_edge.i.i247 ], [ undef, %191 ], [ undef, %188 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %164 ], [ null, %168 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %194, %._crit_edge.i.i247 ], [ null, %191 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !955)
@@ -5646,10 +5646,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i": ; preds = %.noexc269, %207
-  %.sroa.13.2.i = phi i64 [ %217, %.noexc269 ], [ %.sroa.13.1.i, %207 ]
-  %.sroa.12.2.i = phi ptr [ %221, %.noexc269 ], [ %.sroa.12.1.i, %207 ]
-  %.sroa.6.1.i = phi i64 [ %220, %.noexc269 ], [ %.sroa.6.0.i, %207 ]
-  %.sroa.0.2.i = phi ptr [ %.ptr, %.noexc269 ], [ %.sroa.0.1.i265, %207 ]
+  %.sroa.13.2.i = phi i64 [ %.sroa.13.1.i, %207 ], [ %217, %.noexc269 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.1.i, %207 ], [ %221, %.noexc269 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %207 ], [ %220, %.noexc269 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i265, %207 ], [ %.ptr, %.noexc269 ]
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i", label %223
 
@@ -5658,9 +5658,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.loopexit60
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasi$GT$$C$alloc..string..String$RP$$GT$$GT$17h1b05a06e092f6a39E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %203
-  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %203 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %203 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %203 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.0.0.i264, %203 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.12.0.i, %203 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf1531294eeb2b151E.exit.i" ], [ %.sroa.13.0.i, %203 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
   %224 = icmp eq i64 %.add, 960
   br i1 %224, label %.loopexit60, label %196
 
@@ -6771,7 +6771,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %146
 
 .loopexit.split-lp69:                             ; preds = %.loopexit68, %.loopexit.split-lp69.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp69.loopexit, %444, %332, %.loopexit.split-lp
-  %.pn214 = phi { ptr, i32 } [ %445, %444 ], [ %333, %332 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit74, %.loopexit.split-lp69.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp69.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn214 = phi { ptr, i32 } [ %333, %332 ], [ %445, %444 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit74, %.loopexit.split-lp69.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp69.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #16
           to label %501 unwind label %291
 
@@ -6871,7 +6871,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br i1 %105, label %303, label %.lr.ph100
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.body274, %.body
-  %.pn = phi { ptr, i32 } [ %264, %.body274 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %264, %.body274 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Codegen$GT$$GT$17h2acf254668b6d7b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #16
           to label %.loopexit.split-lp69 unwind label %291
 
@@ -6996,7 +6996,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   store i64 %134, ptr %34, align 8, !alias.scope !1188
   br label %147
 
-.thread28:                                        ; preds = %124, %127
+.thread28:                                        ; preds = %127, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1188
   br label %.thread25
 
@@ -7085,7 +7085,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %156 = sub i64 %.pre5.i.i.i, %.pre.i.i.i
   br label %163
 
-.thread32:                                        ; preds = %149, %152
+.thread32:                                        ; preds = %152, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1209
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3102dd4ba18bac1e532fac417d15316a.70) #15
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7163,8 +7163,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %181, %._crit_edge.i.i.i259, %176, %173
-  %.sroa.4.1.i.i257 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i259 ], [ undef, %173 ], [ undef, %176 ]
-  %.sroa.0.1.i.i258 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i259 ], [ null, %173 ], [ null, %176 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i259 ], [ undef, %176 ], [ undef, %173 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i259 ], [ null, %176 ], [ null, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1219
   br label %.lr.ph.i
 
@@ -7190,8 +7190,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %167, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %187, %190, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %167 ], [ %194, %._crit_edge.i.i247 ], [ undef, %187 ], [ undef, %190 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %167 ], [ %193, %._crit_edge.i.i247 ], [ null, %187 ], [ null, %190 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ undef, %167 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %194, %._crit_edge.i.i247 ], [ undef, %190 ], [ undef, %187 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ null, %167 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %193, %._crit_edge.i.i247 ], [ null, %190 ], [ null, %187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1226)
@@ -7301,10 +7301,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i": ; preds = %.noexc269, %206
-  %.sroa.13.2.i = phi i64 [ %216, %.noexc269 ], [ %.sroa.13.1.i, %206 ]
-  %.sroa.12.2.i = phi ptr [ %220, %.noexc269 ], [ %.sroa.12.1.i, %206 ]
-  %.sroa.6.1.i = phi i64 [ %219, %.noexc269 ], [ %.sroa.6.0.i, %206 ]
-  %.sroa.0.2.i = phi ptr [ %.ptr, %.noexc269 ], [ %.sroa.0.1.i265, %206 ]
+  %.sroa.13.2.i = phi i64 [ %.sroa.13.1.i, %206 ], [ %216, %.noexc269 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.1.i, %206 ], [ %220, %.noexc269 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %206 ], [ %219, %.noexc269 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i265, %206 ], [ %.ptr, %.noexc269 ]
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i", label %222
 
@@ -7313,9 +7313,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.loopexit60
 
 "_ZN4core3ptr155drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Codegen$GT$$C$alloc..string..String$RP$$GT$$GT$17h3b9341f245144649E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %202
-  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %202 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.0.0.i264, %202 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hceb4fe79058b6c4bE.exit.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
   %223 = icmp eq i64 %.add, 448
   br i1 %223, label %.loopexit60, label %195
 
@@ -8388,7 +8388,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %147
 
 .loopexit.split-lp67:                             ; preds = %.loopexit66, %.loopexit.split-lp67.loopexit.split-lp.loopexit, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp67.loopexit, %452, %340, %.loopexit.split-lp
-  %.pn215 = phi { ptr, i32 } [ %453, %452 ], [ %341, %340 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit72, %.loopexit.split-lp67.loopexit ], [ %lpad.loopexit75, %.loopexit.split-lp67.loopexit.split-lp.loopexit ], [ %lpad.loopexit78, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit81, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn215 = phi { ptr, i32 } [ %341, %340 ], [ %453, %452 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit72, %.loopexit.split-lp67.loopexit ], [ %lpad.loopexit75, %.loopexit.split-lp67.loopexit.split-lp.loopexit ], [ %lpad.loopexit78, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit81, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %.loopexit.split-lp67.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #16
           to label %509 unwind label %299
 
@@ -8488,7 +8488,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br i1 %105, label %311, label %.lr.ph98
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %282, %.body
-  %.pn = phi { ptr, i32 } [ %283, %282 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %283, %282 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Wasm$GT$$GT$17hac4d6bdc423124b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #16
           to label %.loopexit.split-lp67 unwind label %299
 
@@ -8611,7 +8611,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   store i64 %135, ptr %34, align 8, !alias.scope !1448
   br label %148
 
-.thread29:                                        ; preds = %125, %128
+.thread29:                                        ; preds = %128, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1448
   br label %.thread26
 
@@ -8700,7 +8700,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %157 = sub i64 %.pre5.i.i.i, %.pre.i.i.i
   br label %164
 
-.thread33:                                        ; preds = %150, %153
+.thread33:                                        ; preds = %153, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1469
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3102dd4ba18bac1e532fac417d15316a.70) #15
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -8778,8 +8778,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257": ; preds = %182, %._crit_edge.i.i.i260, %177, %174
-  %.sroa.4.1.i.i258 = phi i64 [ %187, %182 ], [ %181, %._crit_edge.i.i.i260 ], [ undef, %174 ], [ undef, %177 ]
-  %.sroa.0.1.i.i259 = phi ptr [ %186, %182 ], [ %180, %._crit_edge.i.i.i260 ], [ null, %174 ], [ null, %177 ]
+  %.sroa.4.1.i.i258 = phi i64 [ %187, %182 ], [ %181, %._crit_edge.i.i.i260 ], [ undef, %177 ], [ undef, %174 ]
+  %.sroa.0.1.i.i259 = phi ptr [ %186, %182 ], [ %180, %._crit_edge.i.i.i260 ], [ null, %177 ], [ null, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1479
   br label %.lr.ph.i
 
@@ -8805,8 +8805,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %164, %168, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257", %188, %191, %._crit_edge.i.i248
-  %.sroa.4.0.i246 = phi i64 [ undef, %164 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %168 ], [ %195, %._crit_edge.i.i248 ], [ undef, %188 ], [ undef, %191 ]
-  %.sroa.0.0.i247 = phi ptr [ null, %164 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %168 ], [ %194, %._crit_edge.i.i248 ], [ null, %188 ], [ null, %191 ]
+  %.sroa.4.0.i246 = phi i64 [ undef, %164 ], [ undef, %168 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ %195, %._crit_edge.i.i248 ], [ undef, %191 ], [ undef, %188 ]
+  %.sroa.0.0.i247 = phi ptr [ null, %164 ], [ null, %168 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ %194, %._crit_edge.i.i248 ], [ null, %191 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1486)
@@ -8916,10 +8916,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i": ; preds = %.noexc270, %207
-  %.sroa.13.2.i = phi i64 [ %217, %.noexc270 ], [ %.sroa.13.1.i, %207 ]
-  %.sroa.12.2.i = phi ptr [ %221, %.noexc270 ], [ %.sroa.12.1.i, %207 ]
-  %.sroa.6.1.i = phi i64 [ %220, %.noexc270 ], [ %.sroa.6.0.i, %207 ]
-  %.sroa.0.2.i = phi ptr [ %.ptr, %.noexc270 ], [ %.sroa.0.1.i266, %207 ]
+  %.sroa.13.2.i = phi i64 [ %.sroa.13.1.i, %207 ], [ %217, %.noexc270 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.1.i, %207 ], [ %221, %.noexc270 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %207 ], [ %220, %.noexc270 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i266, %207 ], [ %.ptr, %.noexc270 ]
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i", label %223
 
@@ -8928,9 +8928,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.loopexit58
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Wasm$GT$$C$alloc..string..String$RP$$GT$$GT$17h303622bea68d14d4E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %203
-  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i265, %203 ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %203 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %203 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.0.0.i265, %203 ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.12.0.i, %203 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h73dd48349a5ffe83E.exit.i" ], [ %.sroa.13.0.i, %203 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
   %224 = icmp eq i64 %.add, 1856
   br i1 %224, label %.loopexit58, label %196
 
@@ -10015,7 +10015,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %146
 
 .loopexit.split-lp66:                             ; preds = %.loopexit65, %.loopexit.split-lp66.loopexit.split-lp.loopexit, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp66.loopexit, %445, %333, %.loopexit.split-lp
-  %.pn215 = phi { ptr, i32 } [ %446, %445 ], [ %334, %333 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit71, %.loopexit.split-lp66.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp66.loopexit.split-lp.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn215 = phi { ptr, i32 } [ %334, %333 ], [ %446, %445 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit67, %.loopexit65 ], [ %lpad.loopexit71, %.loopexit.split-lp66.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp66.loopexit.split-lp.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp66.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #16
           to label %502 unwind label %292
 
@@ -10115,7 +10115,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br i1 %105, label %304, label %.lr.ph97
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.body275, %.body
-  %.pn = phi { ptr, i32 } [ %264, %.body275 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %264, %.body275 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Debug$GT$$GT$17h23be52d2557d54e4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #16
           to label %.loopexit.split-lp66 unwind label %292
 
@@ -10240,7 +10240,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   store i64 %134, ptr %34, align 8, !alias.scope !1716
   br label %147
 
-.thread28:                                        ; preds = %124, %127
+.thread28:                                        ; preds = %127, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1716
   br label %.thread25
 
@@ -10329,7 +10329,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %156 = sub i64 %.pre5.i.i.i, %.pre.i.i.i
   br label %163
 
-.thread32:                                        ; preds = %149, %152
+.thread32:                                        ; preds = %152, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1737
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3102dd4ba18bac1e532fac417d15316a.70) #15
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -10407,8 +10407,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257": ; preds = %181, %._crit_edge.i.i.i260, %176, %173
-  %.sroa.4.1.i.i258 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i260 ], [ undef, %173 ], [ undef, %176 ]
-  %.sroa.0.1.i.i259 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i260 ], [ null, %173 ], [ null, %176 ]
+  %.sroa.4.1.i.i258 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i260 ], [ undef, %176 ], [ undef, %173 ]
+  %.sroa.0.1.i.i259 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i260 ], [ null, %176 ], [ null, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1747
   br label %.lr.ph.i
 
@@ -10434,8 +10434,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %167, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257", %187, %190, %._crit_edge.i.i248
-  %.sroa.4.0.i246 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %167 ], [ %194, %._crit_edge.i.i248 ], [ undef, %187 ], [ undef, %190 ]
-  %.sroa.0.0.i247 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %167 ], [ %193, %._crit_edge.i.i248 ], [ null, %187 ], [ null, %190 ]
+  %.sroa.4.0.i246 = phi i64 [ undef, %163 ], [ undef, %167 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ %194, %._crit_edge.i.i248 ], [ undef, %190 ], [ undef, %187 ]
+  %.sroa.0.0.i247 = phi ptr [ null, %163 ], [ null, %167 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ %193, %._crit_edge.i.i248 ], [ null, %190 ], [ null, %187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1754)
@@ -10545,10 +10545,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i": ; preds = %.noexc270, %206
-  %.sroa.13.2.i = phi i64 [ %216, %.noexc270 ], [ %.sroa.13.1.i, %206 ]
-  %.sroa.12.2.i = phi ptr [ %220, %.noexc270 ], [ %.sroa.12.1.i, %206 ]
-  %.sroa.6.1.i = phi i64 [ %219, %.noexc270 ], [ %.sroa.6.0.i, %206 ]
-  %.sroa.0.2.i = phi ptr [ %.ptr, %.noexc270 ], [ %.sroa.0.1.i266, %206 ]
+  %.sroa.13.2.i = phi i64 [ %.sroa.13.1.i, %206 ], [ %216, %.noexc270 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.1.i, %206 ], [ %220, %.noexc270 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %206 ], [ %219, %.noexc270 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i266, %206 ], [ %.ptr, %.noexc270 ]
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i", label %222
 
@@ -10557,9 +10557,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.loopexit57
 
 "_ZN4core3ptr153drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Debug$GT$$C$alloc..string..String$RP$$GT$$GT$17hea9262273ae7e436E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %202
-  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i265, %202 ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.0.0.i265, %202 ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i265, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hc5d5616bc536a9a3E.exit.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
   %223 = icmp eq i64 %.add, 320
   br i1 %223, label %.loopexit57, label %195
 
@@ -11635,7 +11635,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %146
 
 .loopexit.split-lp70:                             ; preds = %.loopexit69, %.loopexit.split-lp70.loopexit.split-lp.loopexit, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp70.loopexit, %451, %339, %.loopexit.split-lp
-  %.pn214 = phi { ptr, i32 } [ %452, %451 ], [ %340, %339 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit71, %.loopexit69 ], [ %lpad.loopexit75, %.loopexit.split-lp70.loopexit ], [ %lpad.loopexit78, %.loopexit.split-lp70.loopexit.split-lp.loopexit ], [ %lpad.loopexit81, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn214 = phi { ptr, i32 } [ %340, %339 ], [ %452, %451 ], [ %.pn, %.loopexit.split-lp ], [ %lpad.loopexit71, %.loopexit69 ], [ %lpad.loopexit75, %.loopexit.split-lp70.loopexit ], [ %lpad.loopexit78, %.loopexit.split-lp70.loopexit.split-lp.loopexit ], [ %lpad.loopexit81, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp70.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h00e94ad8ac8df120E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #16
           to label %508 unwind label %298
 
@@ -11735,7 +11735,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br i1 %105, label %310, label %.lr.ph101
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %281, %.body
-  %.pn = phi { ptr, i32 } [ %282, %281 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %282, %281 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit62, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..Optimize$GT$$GT$17h67c9a2b523aad3edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #16
           to label %.loopexit.split-lp70 unwind label %298
 
@@ -11858,7 +11858,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   store i64 %134, ptr %34, align 8, !alias.scope !1977
   br label %147
 
-.thread29:                                        ; preds = %124, %127
+.thread29:                                        ; preds = %127, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1977
   br label %.thread26
 
@@ -11947,7 +11947,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %156 = sub i64 %.pre5.i.i.i, %.pre.i.i.i
   br label %163
 
-.thread33:                                        ; preds = %149, %152
+.thread33:                                        ; preds = %152, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1998
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3102dd4ba18bac1e532fac417d15316a.70) #15
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -12025,8 +12025,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %181, %._crit_edge.i.i.i259, %176, %173
-  %.sroa.4.1.i.i257 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i259 ], [ undef, %173 ], [ undef, %176 ]
-  %.sroa.0.1.i.i258 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i259 ], [ null, %173 ], [ null, %176 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %186, %181 ], [ %180, %._crit_edge.i.i.i259 ], [ undef, %176 ], [ undef, %173 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %185, %181 ], [ %179, %._crit_edge.i.i.i259 ], [ null, %176 ], [ null, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2008
   br label %.lr.ph.i
 
@@ -12052,8 +12052,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %167, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %187, %190, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %167 ], [ %194, %._crit_edge.i.i247 ], [ undef, %187 ], [ undef, %190 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %167 ], [ %193, %._crit_edge.i.i247 ], [ null, %187 ], [ null, %190 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ undef, %167 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %194, %._crit_edge.i.i247 ], [ undef, %190 ], [ undef, %187 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ null, %167 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ %193, %._crit_edge.i.i247 ], [ null, %190 ], [ null, %187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !2015)
@@ -12163,10 +12163,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i": ; preds = %.noexc269, %206
-  %.sroa.13.2.i = phi i64 [ %216, %.noexc269 ], [ %.sroa.13.1.i, %206 ]
-  %.sroa.12.2.i = phi ptr [ %220, %.noexc269 ], [ %.sroa.12.1.i, %206 ]
-  %.sroa.6.1.i = phi i64 [ %219, %.noexc269 ], [ %.sroa.6.0.i, %206 ]
-  %.sroa.0.2.i = phi ptr [ %.ptr, %.noexc269 ], [ %.sroa.0.1.i265, %206 ]
+  %.sroa.13.2.i = phi i64 [ %.sroa.13.1.i, %206 ], [ %216, %.noexc269 ]
+  %.sroa.12.2.i = phi ptr [ %.sroa.12.1.i, %206 ], [ %220, %.noexc269 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %206 ], [ %219, %.noexc269 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1.i265, %206 ], [ %.ptr, %.noexc269 ]
   %.not3.i = icmp eq i64 %.sroa.6.1.i, -9223372036854775808
   br i1 %.not3.i, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i", label %222
 
@@ -12175,9 +12175,9 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.loopexit61
 
 "_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$$LP$$RF$wasmtime_cli_flags..opt..OptionDesc$LT$wasmtime_cli_flags..Optimize$GT$$C$alloc..string..String$RP$$GT$$GT$17hfa78a2764a065bc8E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i", %202
-  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %202 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
-  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.0.220.i = phi ptr [ %.sroa.0.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.0.0.i264, %202 ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.0.0.i264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.12.219.i = phi ptr [ %.sroa.12.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.12.0.i, %202 ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.12.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
+  %.sroa.13.218.i = phi i64 [ %.sroa.13.2.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hbceb929f053d1d8fE.exit.i" ], [ %.sroa.13.0.i, %202 ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i.i.i.i" ], [ %.sroa.13.0.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd4119792eb85e0E.exit.i28.i.i.i" ]
   %223 = icmp eq i64 %.add, 1088
   br i1 %223, label %.loopexit61, label %195
 

@@ -1038,7 +1038,7 @@ switch.lookup:                                    ; preds = %457
   br label %467
 
 467:                                              ; preds = %switch.lookup, %457
-  %.0404 = phi i32 [ -2133009188, %457 ], [ %switch.load, %switch.lookup ]
+  %.0404 = phi i32 [ %switch.load, %switch.lookup ], [ -2133009188, %457 ]
   %468 = load float, ptr %462, align 4
   %469 = fsub float %468, %461
   %470 = getelementptr inbounds nuw i8, ptr %454, i64 420
@@ -1275,7 +1275,7 @@ switch.lookup538:                                 ; preds = %631
   br label %643
 
 643:                                              ; preds = %switch.lookup538, %631
-  %.0 = phi i32 [ -1059267364, %631 ], [ %switch.load540, %switch.lookup538 ]
+  %.0 = phi i32 [ %switch.load540, %switch.lookup538 ], [ -1059267364, %631 ]
   %644 = load float, ptr %636, align 4
   %645 = getelementptr inbounds nuw i8, ptr %628, i64 420
   %646 = load float, ptr %645, align 4
@@ -2344,8 +2344,8 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %91
   br label %97
 
 97:                                               ; preds = %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit, %96, %26
-  %.117 = phi i32 [ %.01433, %96 ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01631, %26 ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
-  %.1 = phi float [ %.226, %96 ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01532, %26 ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
+  %.117 = phi i32 [ %.01433, %96 ], [ %.01631, %26 ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01631, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
+  %.1 = phi float [ %.226, %96 ], [ %.01532, %26 ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit ], [ %.01532, %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread ]
   %98 = add nuw nsw i32 %.01433, 1
   %99 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %13)
   %100 = icmp slt i32 %98, %99

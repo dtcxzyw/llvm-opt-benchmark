@@ -1081,7 +1081,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void @dma_fence_release(ptr noundef nonnull %411) #17
   br label %.thread57
 
-.thread57.thread:                                 ; preds = %319, %313, %307
+.thread57.thread:                                 ; preds = %319, %307, %313
   %418 = load ptr, ptr %308, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %419) #17
@@ -1214,9 +1214,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br label %500
 
 500:                                              ; preds = %485, %.thread62, %498
-  %501 = phi i8 [ 1, %498 ], [ %441, %.thread62 ], [ %spec.select, %485 ]
-  %502 = phi ptr [ %442, %498 ], [ %439, %.thread62 ], [ %spec.select70, %485 ]
-  %503 = phi ptr [ %499, %498 ], [ %438, %.thread62 ], [ %438, %485 ]
+  %501 = phi i8 [ %spec.select, %485 ], [ 1, %498 ], [ %441, %.thread62 ]
+  %502 = phi ptr [ %spec.select70, %485 ], [ %442, %498 ], [ %439, %.thread62 ]
+  %503 = phi ptr [ %438, %485 ], [ %499, %498 ], [ %438, %.thread62 ]
   %504 = icmp eq ptr %443, %435
   br i1 %504, label %._crit_edge, label %.lr.ph119, !llvm.loop !23
 
@@ -2354,22 +2354,22 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
 
 54:                                               ; preds = %36
   %55 = icmp ugt i8 %40, 11
-  br i1 %55, label %56, label %62
+  br i1 %55, label %58, label %56
 
 56:                                               ; preds = %54
-  %57 = and i64 %37, 288089638663356416
-  %58 = icmp eq i64 %57, 288089638663356416
-  %59 = and i64 %37, 1
-  %60 = icmp ne i64 %59, 0
-  %61 = or i1 %58, %60
-  br i1 %61, label %64, label %106
-
-62:                                               ; preds = %54
-  %63 = and i64 %37, 3
-  %.not = icmp eq i64 %63, 0
+  %57 = and i64 %37, 3
+  %.not = icmp eq i64 %57, 0
   br i1 %.not, label %106, label %64
 
-64:                                               ; preds = %56, %48, %62
+58:                                               ; preds = %54
+  %59 = and i64 %37, 288089638663356416
+  %60 = icmp eq i64 %59, 288089638663356416
+  %61 = and i64 %37, 1
+  %62 = icmp ne i64 %61, 0
+  %63 = or i1 %60, %62
+  br i1 %63, label %64, label %106
+
+64:                                               ; preds = %56, %48, %58
   %65 = load ptr, ptr %18, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread.sink.split, label %67
@@ -2439,7 +2439,7 @@ define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret
   store volatile ptr null, ptr %18, align 8
   br label %114
 
-106:                                              ; preds = %56, %48, %62
+106:                                              ; preds = %56, %48, %58
   %107 = load ptr, ptr %16, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null

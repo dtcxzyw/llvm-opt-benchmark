@@ -189,7 +189,7 @@ define noundef range(i64 -3, 5) i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr nou
   br label %83
 
 83:                                               ; preds = %.sink.split, %67, %65, %52, %54, %57, %61, %40, %37, %29, %31, %34, %16, %17, %11, %3
-  %.0 = phi i64 [ 0, %3 ], [ -3, %11 ], [ -3, %17 ], [ -3, %16 ], [ -3, %34 ], [ -3, %31 ], [ -3, %29 ], [ -3, %37 ], [ -3, %40 ], [ -3, %61 ], [ -3, %57 ], [ -3, %54 ], [ -3, %52 ], [ -3, %65 ], [ -3, %67 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ -3, %61 ], [ 0, %3 ], [ -3, %11 ], [ -3, %57 ], [ -3, %16 ], [ -3, %29 ], [ -3, %37 ], [ -3, %54 ], [ -3, %40 ], [ -3, %52 ], [ -3, %67 ], [ -3, %65 ], [ -3, %17 ], [ -3, %34 ], [ -3, %31 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 }
 
@@ -283,7 +283,7 @@ define noundef range(i64 0, 5) i64 @_ZN6duckdb20utf8proc_encode_charEiPh(i32 nou
   br label %53
 
 53:                                               ; preds = %33, %2, %35, %20, %10, %6
-  %.0 = phi i64 [ 1, %6 ], [ 2, %10 ], [ 3, %20 ], [ 4, %35 ], [ 0, %2 ], [ 0, %33 ]
+  %.0 = phi i64 [ 0, %2 ], [ 1, %6 ], [ 2, %10 ], [ 3, %20 ], [ 4, %35 ], [ 0, %33 ]
   ret i64 %.0
 }
 
@@ -459,8 +459,8 @@ _ZN6duckdbL21grapheme_break_simpleEii.exit.thread64: ; preds = %17, %6, %_ZN6duc
   %.not46 = or i1 %41, %40
   br label %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread
 
-_ZN6duckdbL21grapheme_break_simpleEii.exit.thread: ; preds = %35, %.thread.i, %28, %26, %22, %14, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread64, %_ZN6duckdbL21grapheme_break_simpleEii.exit
-  %42 = phi i1 [ false, %_ZN6duckdbL21grapheme_break_simpleEii.exit ], [ %.not46, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread64 ], [ false, %14 ], [ false, %22 ], [ false, %26 ], [ false, %28 ], [ false, %.thread.i ], [ false, %35 ]
+_ZN6duckdbL21grapheme_break_simpleEii.exit.thread: ; preds = %.thread.i, %28, %26, %22, %35, %14, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread64, %_ZN6duckdbL21grapheme_break_simpleEii.exit
+  %42 = phi i1 [ false, %_ZN6duckdbL21grapheme_break_simpleEii.exit ], [ %.not46, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread64 ], [ false, %14 ], [ false, %35 ], [ false, %22 ], [ false, %26 ], [ false, %28 ], [ false, %.thread.i ]
   %43 = icmp eq i32 %3, 2
   %44 = and i32 %.037, -2
   %45 = icmp eq i32 %44, 2
@@ -477,7 +477,7 @@ _ZN6duckdbL21grapheme_break_simpleEii.exit.thread: ; preds = %35, %.thread.i, %2
   br label %51
 
 51:                                               ; preds = %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread, %46, %48
-  %.1 = phi i32 [ %50, %48 ], [ %.037, %46 ], [ %3, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread ]
+  %.1 = phi i32 [ %.037, %46 ], [ %50, %48 ], [ %3, %_ZN6duckdbL21grapheme_break_simpleEii.exit.thread ]
   %52 = icmp eq i32 %1, 11
   %53 = icmp eq i32 %.038, 11
   %or.cond5 = and i1 %52, %53
@@ -500,7 +500,7 @@ _ZN6duckdbL21grapheme_break_simpleEii.exit.thread: ; preds = %35, %.thread.i, %2
   br label %59
 
 59:                                               ; preds = %54, %56, %51, %57, %58
-  %.139 = phi i32 [ 20, %57 ], [ %1, %58 ], [ 1, %51 ], [ 19, %56 ], [ %1, %54 ]
+  %.139 = phi i32 [ 19, %56 ], [ 1, %51 ], [ 20, %57 ], [ %1, %58 ], [ %1, %54 ]
   %60 = shl nsw i32 %.1, 8
   %61 = or disjoint i32 %.139, %60
   store i32 %61, ptr %4, align 4, !tbaa !3
@@ -575,7 +575,7 @@ _ZN6duckdbL21grapheme_break_simpleEii.exit.thread: ; preds = %35, %.thread.i, %2
   br label %_ZN6duckdbL21grapheme_break_simpleEii.exit62
 
 _ZN6duckdbL21grapheme_break_simpleEii.exit62:     ; preds = %88, %85, %.thread.i55, %78, %76, %72, %67, %64, %62, %59
-  %.0 = phi i1 [ %42, %59 ], [ true, %62 ], [ false, %64 ], [ true, %67 ], [ false, %72 ], [ false, %76 ], [ false, %78 ], [ false, %.thread.i55 ], [ %.not56.i59, %88 ], [ false, %85 ]
+  %.0 = phi i1 [ %42, %59 ], [ true, %62 ], [ false, %64 ], [ true, %67 ], [ false, %85 ], [ false, %72 ], [ false, %76 ], [ false, %78 ], [ false, %.thread.i55 ], [ %.not56.i59, %88 ]
   ret i1 %.0
 }
 
@@ -698,7 +698,7 @@ _ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi.exit: ; preds = %_ZN6duckdb21u
   br label %_ZN6duckdbL23grapheme_break_extendedEiiiiPi.exit
 
 _ZN6duckdbL23grapheme_break_extendedEiiiiPi.exit: ; preds = %_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi.exit, %41, %44, %49, %53, %55, %.thread.i55.i, %62, %65
-  %.0.i = phi i1 [ true, %_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi.exit ], [ false, %41 ], [ true, %44 ], [ false, %49 ], [ false, %53 ], [ false, %55 ], [ false, %.thread.i55.i ], [ %.not56.i59.i, %65 ], [ false, %62 ]
+  %.0.i = phi i1 [ %.not56.i59.i, %65 ], [ true, %_ZN6duckdb32utf8proc_grapheme_break_statefulEiiPi.exit ], [ false, %41 ], [ true, %44 ], [ false, %62 ], [ false, %49 ], [ false, %53 ], [ false, %55 ], [ false, %.thread.i55.i ]
   ret i1 %.0.i
 }
 
@@ -929,7 +929,7 @@ _ZN6duckdb21utf8proc_get_propertyEi.exit:         ; preds = %1, %2
   br label %26
 
 26:                                               ; preds = %22, %_ZN6duckdb21utf8proc_get_propertyEi.exit
-  %27 = phi i32 [ 0, %_ZN6duckdb21utf8proc_get_propertyEi.exit ], [ %25, %22 ]
+  %27 = phi i32 [ %25, %22 ], [ 0, %_ZN6duckdb21utf8proc_get_propertyEi.exit ]
   ret i32 %27
 }
 
@@ -1134,7 +1134,7 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
   br i1 %52, label %tailrecurse.backedge, label %53
 
 tailrecurse.backedge:                             ; preds = %71, %68, %65, %63, %switch.early.test209, %switch.early.test209, %58, %58, %55, %53, %switch.early.test, %switch.early.test, %51, %59, %60, %61, %62, %69, %70
-  %.tr.be = phi i32 [ 58, %59 ], [ 60, %60 ], [ 62, %61 ], [ 92, %62 ], [ 124, %69 ], [ 126, %70 ], [ 32, %51 ], [ 39, %switch.early.test ], [ 39, %switch.early.test ], [ 39, %53 ], [ 45, %55 ], [ 47, %58 ], [ 47, %58 ], [ 94, %switch.early.test209 ], [ 94, %switch.early.test209 ], [ 94, %63 ], [ 95, %65 ], [ 96, %68 ], [ 10, %71 ]
+  %.tr.be = phi i32 [ 96, %68 ], [ 32, %51 ], [ 39, %53 ], [ 45, %55 ], [ 58, %59 ], [ 60, %60 ], [ 62, %61 ], [ 92, %62 ], [ 47, %58 ], [ 94, %63 ], [ 95, %65 ], [ 124, %69 ], [ 126, %70 ], [ 39, %switch.early.test ], [ 39, %switch.early.test ], [ 47, %58 ], [ 94, %switch.early.test209 ], [ 94, %switch.early.test209 ], [ 10, %71 ]
   br label %34
 
 53:                                               ; preds = %51
@@ -1302,7 +1302,7 @@ switch.early.test209:                             ; preds = %63
   br label %.thread216
 
 .thread216:                                       ; preds = %34, %42, %46, %5, %.thread, %105, %108, %107, %.critedge, %111, %74, %._crit_edge, %31, %29, %92, %82
-  %.0 = phi i64 [ %83, %82 ], [ %93, %92 ], [ 2, %._crit_edge ], [ 3, %31 ], [ 3, %29 ], [ 0, %74 ], [ 1, %111 ], [ 1, %.critedge ], [ 2, %107 ], [ 2, %108 ], [ 2, %105 ], [ %spec.select, %.thread ], [ -4, %5 ], [ 0, %46 ], [ 0, %42 ], [ -4, %34 ]
+  %.0 = phi i64 [ 3, %29 ], [ 0, %74 ], [ %93, %92 ], [ 2, %107 ], [ 2, %108 ], [ %spec.select, %.thread ], [ 1, %.critedge ], [ 1, %111 ], [ 3, %31 ], [ 2, %._crit_edge ], [ %83, %82 ], [ 2, %105 ], [ -4, %5 ], [ 0, %46 ], [ -4, %34 ], [ 0, %42 ]
   ret i64 %.0
 }
 
@@ -1406,7 +1406,7 @@ _ZN6duckdbL21seqindex_decode_entryEPPKt.exit:     ; preds = %.split, %44
   br i1 %63, label %.split, label %.split30.us, !llvm.loop !18
 
 .split30.us:                                      ; preds = %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit, %60, %36, %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit.us
-  %.us-phi = phi i64 [ -2, %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit.us ], [ %34, %36 ], [ -2, %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit ], [ %58, %60 ]
+  %.us-phi = phi i64 [ %34, %36 ], [ -2, %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit.us ], [ -2, %_ZN6duckdbL21seqindex_decode_entryEPPKt.exit ], [ %58, %60 ]
   ret i64 %.us-phi
 }
 
@@ -1547,14 +1547,14 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
   %76 = icmp sgt i64 %75, 1152921504606846975
   br i1 %76, label %.thread, label %.split.split, !llvm.loop !20
 
-.thread:                                          ; preds = %.split.split, %61, %65, %74, %53, %45, %41, %.split.split.us, %14, %24, %33
-  %.us-phi = phi i64 [ -2, %33 ], [ %31, %24 ], [ -3, %14 ], [ -2, %53 ], [ %51, %45 ], [ -2, %41 ], [ -3, %.split.split.us ], [ -2, %74 ], [ %72, %65 ], [ -2, %61 ], [ -3, %.split.split ]
+.thread:                                          ; preds = %61, %.split.split, %74, %65, %53, %45, %41, %.split.split.us, %14, %24, %33
+  %.us-phi = phi i64 [ -3, %.split.split.us ], [ -2, %33 ], [ %31, %24 ], [ -3, %14 ], [ %51, %45 ], [ -2, %41 ], [ -2, %53 ], [ -2, %61 ], [ -2, %74 ], [ -3, %.split.split ], [ %72, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .split94.us:                                      ; preds = %63, %43, %.split.us
-  %.us-phi95 = phi i64 [ %.061.us, %.split.us ], [ %.061.us98, %43 ], [ %.061, %63 ]
+  %.us-phi95 = phi i64 [ %.061.us98, %43 ], [ %.061.us, %.split.us ], [ %.061, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not83 = icmp eq i32 %10, 0
@@ -1717,8 +1717,8 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %38
 
 38:                                               ; preds = %37, %36, %26, %24, %21
-  %.1124175.us = phi i64 [ %.1124176.us, %36 ], [ %.1124176.us, %37 ], [ %.0123198.us, %26 ], [ %.0123198.us, %24 ], [ %.0123198.us, %21 ]
-  %.1128.us = phi i64 [ %34, %36 ], [ %34, %37 ], [ %27, %26 ], [ %.0127197.us, %24 ], [ %22, %21 ]
+  %.1124175.us = phi i64 [ %.0123198.us, %21 ], [ %.0123198.us, %24 ], [ %.1124176.us, %36 ], [ %.1124176.us, %37 ], [ %.0123198.us, %26 ]
+  %.1128.us = phi i64 [ %22, %21 ], [ %.0127197.us, %24 ], [ %34, %36 ], [ %34, %37 ], [ %27, %26 ]
   %39 = add nsw i64 %.1124175.us, 1
   %40 = icmp slt i64 %39, %1
   br i1 %40, label %.lr.ph.split.us, label %.loopexit196, !llvm.loop !23
@@ -1794,8 +1794,8 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %68
 
 68:                                               ; preds = %67, %66, %56, %54, %51
-  %.1124175.us209 = phi i64 [ %.1124176.us208, %66 ], [ %.1124176.us208, %67 ], [ %.0123198.us199, %56 ], [ %.0123198.us199, %54 ], [ %.0123198.us199, %51 ]
-  %.1128.us210 = phi i64 [ %64, %66 ], [ %64, %67 ], [ %57, %56 ], [ %.0127197.us200, %54 ], [ %52, %51 ]
+  %.1124175.us209 = phi i64 [ %.1124176.us208, %66 ], [ %.1124176.us208, %67 ], [ %.0123198.us199, %54 ], [ %.0123198.us199, %51 ], [ %.0123198.us199, %56 ]
+  %.1128.us210 = phi i64 [ %64, %66 ], [ %64, %67 ], [ %.0127197.us200, %54 ], [ %52, %51 ], [ %57, %56 ]
   %69 = add nsw i64 %.1124175.us209, 1
   %70 = icmp slt i64 %69, %1
   br i1 %70, label %.lr.ph.split.split.us, label %.loopexit196, !llvm.loop !23
@@ -1880,7 +1880,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %98, label %.lr.ph.split.split.split, label %.loopexit196, !llvm.loop !23
 
 .loopexit196:                                     ; preds = %95, %81, %68, %38, %3
-  %.0 = phi i64 [ %1, %3 ], [ %.1128.us, %38 ], [ %.1128.us210, %68 ], [ %.1128.us220, %81 ], [ %.1128, %95 ]
+  %.0 = phi i64 [ %1, %3 ], [ %.1128.us220, %81 ], [ %.1128.us, %38 ], [ %.1128.us210, %68 ], [ %.1128, %95 ]
   %99 = and i32 %2, 8
   %.not154 = icmp eq i32 %99, 0
   br i1 %.not154, label %.loopexit, label %.preheader
@@ -2059,8 +2059,8 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   store i32 %.0136, ptr %.0129227, align 4, !tbaa !3
   br label %203
 
-.thread190:                                       ; preds = %102, %156, %162, %184, %181, %148, %152
-  %.1133 = phi ptr [ %.7, %152 ], [ %.7, %148 ], [ %.7, %181 ], [ %.7, %184 ], [ %.7, %162 ], [ %.7, %156 ], [ %.0132226, %102 ]
+.thread190:                                       ; preds = %102, %156, %162, %184, %181, %152, %148
+  %.1133 = phi ptr [ %.7, %156 ], [ %.0132226, %102 ], [ %.7, %148 ], [ %.7, %152 ], [ %.7, %181 ], [ %.7, %184 ], [ %.7, %162 ]
   %201 = getelementptr inbounds i32, ptr %0, i64 %.0137225
   store i32 %104, ptr %201, align 4, !tbaa !3
   %.not163 = icmp eq i16 %.pre, 0
@@ -2196,7 +2196,7 @@ define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr
   br label %_ZN6duckdbL21charbound_encode_charEiPh.exit
 
 _ZN6duckdbL21charbound_encode_charEiPh.exit:      ; preds = %12, %14, %17, %21, %31, %44, %46
-  %.0.i = phi i64 [ 1, %14 ], [ 1, %17 ], [ 2, %21 ], [ 3, %31 ], [ 4, %46 ], [ 0, %12 ], [ 0, %44 ]
+  %.0.i = phi i64 [ 1, %14 ], [ 0, %12 ], [ 1, %17 ], [ 2, %21 ], [ 3, %31 ], [ 4, %46 ], [ 0, %44 ]
   %64 = add nuw nsw i64 %.0.i, %.036
   %65 = add nuw nsw i64 %.02735, 1
   %exitcond.not = icmp eq i64 %65, %4
@@ -2287,7 +2287,7 @@ _ZN6duckdbL21charbound_encode_charEiPh.exit:      ; preds = %12, %14, %17, %21, 
   br label %_ZN6duckdb20utf8proc_encode_charEiPh.exit
 
 _ZN6duckdb20utf8proc_encode_charEiPh.exit:        ; preds = %.lr.ph39, %72, %76, %86, %99, %101
-  %.0.i32 = phi i64 [ 1, %72 ], [ 2, %76 ], [ 3, %86 ], [ 4, %101 ], [ 0, %.lr.ph39 ], [ 0, %99 ]
+  %.0.i32 = phi i64 [ 0, %.lr.ph39 ], [ 1, %72 ], [ 2, %76 ], [ 3, %86 ], [ 4, %101 ], [ 0, %99 ]
   %119 = add nuw nsw i64 %.0.i32, %.238
   %120 = add nuw nsw i64 %.12837, 1
   %exitcond45.not = icmp eq i64 %120, %4
@@ -2351,7 +2351,7 @@ define noundef i64 @_ZN6duckdb19utf8proc_map_customEPKhlPPhNS_17utf8proc_option_
   br label %24
 
 24:                                               ; preds = %9, %6, %21, %20, %16
-  %.0 = phi i64 [ %14, %16 ], [ %18, %20 ], [ %18, %21 ], [ %7, %6 ], [ -1, %9 ]
+  %.0 = phi i64 [ %7, %6 ], [ %14, %16 ], [ %18, %20 ], [ %18, %21 ], [ -1, %9 ]
   ret i64 %.0
 }
 

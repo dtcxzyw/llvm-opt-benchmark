@@ -1570,12 +1570,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split: ; preds = %150, %151
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split, %138, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %142, %21
-  %.012 = phi i1 [ true, %138 ], [ false, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ false, %142 ], [ false, %21 ], [ %.012.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split ]
+  %.012 = phi i1 [ true, %138 ], [ false, %142 ], [ false, %21 ], [ false, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %.012.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split ]
   %157 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #22
   ret i1 %.012
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit53:          ; preds = %45, %100, %156, %56, %51, %80, %79, %129, %124
-  %.pn46 = phi { ptr, i32 } [ %46, %45 ], [ %.pn35, %100 ], [ %.pn28, %156 ], [ %.pn43, %56 ], [ %.pn41, %51 ], [ %81, %80 ], [ %.pn37, %79 ], [ %.pn32, %129 ], [ %.pn30, %124 ]
+  %.pn46 = phi { ptr, i32 } [ %46, %45 ], [ %.pn28, %156 ], [ %.pn41, %51 ], [ %.pn35, %100 ], [ %.pn37, %79 ], [ %.pn43, %56 ], [ %81, %80 ], [ %.pn32, %129 ], [ %.pn30, %124 ]
   %158 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #22
   resume { ptr, i32 } %.pn46
 }

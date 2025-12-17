@@ -77,43 +77,43 @@ define dso_local range(i16 0, 259) i16 @_ZN5clang34getComparisonCategoryForBuilt
   %11 = icmp ne i8 %10, 13
   %.not.not19.i = icmp eq ptr %8, null
   %.not.not.i = or i1 %.not.not19.i, %11
-  br i1 %.not.not.i, label %12, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  br i1 %.not.not.i, label %17, label %12
 
 12:                                               ; preds = %1
-  %13 = icmp ne i8 %10, 46
-  %.not12.not.i = or i1 %.not.not19.i, %13
-  br i1 %.not12.not.i, label %22, label %14
+  %13 = load i32, ptr %9, align 16
+  %14 = lshr i32 %13, 19
+  %15 = and i32 %14, 511
+  %16 = add nsw i32 %15, -435
+  %spec.select.i = icmp ult i32 %16, 20
+  br i1 %spec.select.i, label %55, label %28
 
-14:                                               ; preds = %12
-  %15 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %8) #13
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 74
-  %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %20, align 8
+17:                                               ; preds = %1
+  %18 = icmp ne i8 %10, 46
+  %.not12.not.i = or i1 %.not.not19.i, %18
+  br i1 %.not12.not.i, label %19, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+
+19:                                               ; preds = %17
+  %20 = icmp eq i8 %10, 10
+  br i1 %20, label %55, label %28
+
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %17
+  %21 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %8) #13
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %23 = load i8, ptr %22, align 2
+  %24 = and i8 %23, 1
+  %25 = icmp ne i8 %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %26, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %21 = select i1 %19, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %21, label %55, label %._crit_edge
+  %27 = select i1 %25, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %27, label %55, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge
 
-._crit_edge:                                      ; preds = %14
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge: ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.pre = load ptr, ptr %3, align 16, !tbaa !3
   br label %28
 
-22:                                               ; preds = %12
-  %23 = icmp eq i8 %10, 10
-  br i1 %23, label %55, label %28
-
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %1
-  %24 = load i32, ptr %9, align 16
-  %25 = lshr i32 %24, 19
-  %26 = and i32 %25, 511
-  %27 = add nsw i32 %26, -435
-  %spec.select.i = icmp ult i32 %27, 20
-  br i1 %spec.select.i, label %55, label %28
-
-28:                                               ; preds = %._crit_edge, %22, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %29 = phi ptr [ %.pre, %._crit_edge ], [ %4, %22 ], [ %4, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
+28:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge, %12, %19
+  %29 = phi ptr [ %.pre, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %4, %12 ], [ %4, %19 ]
   %30 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %29) #13
   br i1 %30, label %55, label %31
 
@@ -161,8 +161,8 @@ _ZNK5clang4Type19isObjectPointerTypeEv.exit:      ; preds = %31, %_ZNK5clang4Typ
 _ZNK5clang4Type19isObjectPointerTypeEv.exit.thread: ; preds = %35, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type19isObjectPointerTypeEv.exit
   br label %55
 
-55:                                               ; preds = %_ZNK5clang4Type19isObjectPointerTypeEv.exit, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %22, %14, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread
-  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 258, %14 ], [ 258, %22 ], [ 258, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 258, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
+55:                                               ; preds = %_ZNK5clang4Type19isObjectPointerTypeEv.exit, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %19, %12, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread
+  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 258, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 258, %12 ], [ 258, %19 ], [ 258, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
   ret i16 %.sroa.4.0
 }
 
@@ -274,7 +274,7 @@ _ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %6, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit, %55, %47, %40, %1
-  %.0 = phi i1 [ false, %1 ], [ %56, %55 ], [ %54, %47 ], [ %spec.select.i, %40 ], [ false, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit ], [ false, %6 ]
+  %.0 = phi i1 [ false, %1 ], [ %spec.select.i, %40 ], [ %56, %55 ], [ %54, %47 ], [ false, %_ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt15iterator_traitsIT_E15difference_typeES6_S6_.exit ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -431,7 +431,7 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
   br label %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit": ; preds = %11, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit36", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit38", %27, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i, %35
-  %.028.i.i.i.i = phi ptr [ %8, %35 ], [ %.029.lcssa.i.i.i.i, %27 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %36, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit36" ], [ %38, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit38" ], [ %.02950.i.i.i.i, %11 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %8, %35 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %27 ], [ %38, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit38" ], [ %36, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit36" ], [ %.02950.i.i.i.i, %11 ]
   %39 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %.val, i64 %7
   %.not = icmp eq ptr %.028.i.i.i.i, %39
   br i1 %.not, label %switch.lookup, label %.critedge

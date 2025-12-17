@@ -124,7 +124,7 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr noundef readonly captures(none) %0,
   br label %38
 
 38:                                               ; preds = %20, %.thread2, %.thread, %19
-  %39 = phi ptr [ null, %19 ], [ null, %.thread ], [ null, %.thread2 ], [ %23, %20 ]
+  %39 = phi ptr [ null, %.thread2 ], [ null, %19 ], [ null, %.thread ], [ %23, %20 ]
   ret ptr %39
 }
 

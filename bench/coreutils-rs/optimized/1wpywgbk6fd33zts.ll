@@ -187,7 +187,7 @@ define internal fastcc void @"_ZN140_$LT$clap_builder..builder..value_parser..Ra
   br label %128
 
 common.resume:                                    ; preds = %469, %201, %163, %191, %91, %127, %65, %74
-  %common.resume.op = phi { ptr, i32 } [ %66, %74 ], [ %66, %65 ], [ %92, %91 ], [ %.pn.ph.i.i, %127 ], [ %164, %163 ], [ %192, %191 ], [ %202, %201 ], [ %.pn.pn.ph, %469 ]
+  %common.resume.op = phi { ptr, i32 } [ %202, %201 ], [ %66, %65 ], [ %.pn.ph.i.i, %127 ], [ %192, %191 ], [ %66, %74 ], [ %92, %91 ], [ %164, %163 ], [ %.pn.pn.ph, %469 ]
   resume { ptr, i32 } %common.resume.op
 
 74:                                               ; preds = %65
@@ -885,7 +885,7 @@ _ZN4core3ops5range11RangeBounds8contains17h129d008c50568e70E.exit.thread100: ; p
   br label %288
 
 .body.i:                                          ; preds = %423, %395, %365, %346, %327, %313, %286
-  %.pn.i = phi { ptr, i32 } [ %366, %365 ], [ %396, %395 ], [ %424, %423 ], [ %287, %286 ], [ %314, %313 ], [ %328, %327 ], [ %347, %346 ]
+  %.pn.i = phi { ptr, i32 } [ %424, %423 ], [ %366, %365 ], [ %396, %395 ], [ %328, %327 ], [ %314, %313 ], [ %287, %286 ], [ %347, %346 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d68788db37ecd1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #19
           to label %.thread121 unwind label %380, !noalias !132
 
@@ -1390,7 +1390,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %440
   unreachable
 
 .thread121:                                       ; preds = %239, %256, %270, %.body.i, %438, %451, %458
-  %.pn120 = phi { ptr, i32 } [ %459, %458 ], [ %439, %438 ], [ %452, %451 ], [ %.pn.i, %.body.i ], [ %271, %270 ], [ %257, %256 ], [ %240, %239 ]
+  %.pn120 = phi { ptr, i32 } [ %459, %458 ], [ %452, %451 ], [ %439, %438 ], [ %.pn.i, %.body.i ], [ %257, %256 ], [ %240, %239 ], [ %271, %270 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d68788db37ecd1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #19
           to label %469 unwind label %467
 
@@ -2456,7 +2456,7 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   br label %78
 
 common.resume:                                    ; preds = %50, %77, %23, %32
-  %common.resume.op = phi { ptr, i32 } [ %24, %32 ], [ %24, %23 ], [ %51, %50 ], [ %.pn.ph.i.i, %77 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %32 ], [ %51, %50 ], [ %.pn.ph.i.i, %77 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %23

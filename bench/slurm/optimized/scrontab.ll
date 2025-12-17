@@ -699,8 +699,8 @@ _entry_to_job.exit.i:                             ; preds = %223, %220
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %155, %155, %_entry_to_job.exit.i, %.thread.i, %168, %166
-  %.2106.i = phi i1 [ true, %_entry_to_job.exit.i ], [ false, %166 ], [ false, %.thread.i ], [ false, %168 ], [ false, %155 ], [ false, %155 ]
-  %.1101.i = phi i32 [ -1, %_entry_to_job.exit.i ], [ %spec.select.i, %166 ], [ %.0100185.i, %.thread.i ], [ %.0100185.i, %168 ], [ %.0100185.i, %155 ], [ %.0100185.i, %155 ]
+  %.2106.i = phi i1 [ false, %166 ], [ true, %_entry_to_job.exit.i ], [ false, %.thread.i ], [ false, %168 ], [ false, %155 ], [ false, %155 ]
+  %.1101.i = phi i32 [ %spec.select.i, %166 ], [ -1, %_entry_to_job.exit.i ], [ %.0100185.i, %.thread.i ], [ %.0100185.i, %168 ], [ %.0100185.i, %155 ], [ %.0100185.i, %155 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = load ptr, ptr %5, align 8
   %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.next.i
@@ -1358,7 +1358,7 @@ _load_script_from_fd.exit:                        ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-90:                                               ; preds = %31, %.split63.us
+90:                                               ; preds = %.split63.us, %31
   %91 = tail call ptr @__errno_location() #21
   %92 = load i32, ptr %91, align 4
   %93 = call i32 @close(i32 noundef %14) #16

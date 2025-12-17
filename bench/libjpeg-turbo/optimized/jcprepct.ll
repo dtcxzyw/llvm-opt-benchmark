@@ -427,7 +427,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   br label %.thread
 
 .thread:                                          ; preds = %.preheader80, %._crit_edge.loopexit
-  %86 = phi i32 [ %.pre97, %._crit_edge.loopexit ], [ %69, %.preheader80 ]
+  %86 = phi i32 [ %69, %.preheader80 ], [ %.pre97, %._crit_edge.loopexit ]
   store i32 %86, ptr %16, align 4, !tbaa !62
   %.pre101114 = load i32, ptr %5, align 4, !tbaa !65
   br label %91
@@ -579,7 +579,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %._crit_edge.loopexit
-  %62 = phi i32 [ %.pre88, %._crit_edge.loopexit ], [ %.pre89, %.preheader ]
+  %62 = phi i32 [ %.pre89, %.preheader ], [ %.pre88, %._crit_edge.loopexit ]
   store i32 %62, ptr %17, align 4, !tbaa !62
   br label %65
 

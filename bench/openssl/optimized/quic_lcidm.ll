@@ -249,7 +249,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef readonly cap
   br label %31
 
 31:                                               ; preds = %20, %16, %12, %9, %3, %6, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %6 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %16 ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %23 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %16 ], [ 0, %6 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -356,7 +356,7 @@ define internal fastcc ptr @lcidm_conn_new_lcid(ptr noundef readonly captures(no
   br label %29
 
 29:                                               ; preds = %3, %28, %25
-  %.0 = phi ptr [ null, %28 ], [ %7, %25 ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %25 ], [ null, %28 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -443,7 +443,7 @@ define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %19, %26, %13, %14, %5, %38
-  %.021 = phi i32 [ 1, %38 ], [ 0, %5 ], [ 0, %14 ], [ 0, %13 ], [ 0, %26 ], [ 0, %19 ], [ 0, %21 ]
+  %.021 = phi i32 [ 0, %5 ], [ 0, %13 ], [ 1, %38 ], [ 0, %14 ], [ 0, %26 ], [ 0, %19 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.021
 }
@@ -473,7 +473,7 @@ lcidm_get0_lcid.exit.i:                           ; preds = %6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %ossl_quic_lcidm_lookup.exit
 
-13:                                               ; preds = %3, %lcidm_get0_lcid.exit.i, %lcidm_get0_lcid.exit.thread.i
+13:                                               ; preds = %lcidm_get0_lcid.exit.i, %3, %lcidm_get0_lcid.exit.thread.i
   %14 = call fastcc ptr @lcidm_upsert_conn(ptr noundef %0, ptr noundef %1)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %ossl_quic_lcidm_lookup.exit, label %16
@@ -513,7 +513,7 @@ lcidm_get0_lcid.exit.i:                           ; preds = %6
   br label %ossl_quic_lcidm_lookup.exit
 
 ossl_quic_lcidm_lookup.exit:                      ; preds = %lcidm_get0_lcid.exit.i, %13, %27, %19
-  %.0 = phi i32 [ 0, %19 ], [ 1, %27 ], [ 0, %13 ], [ 0, %lcidm_get0_lcid.exit.i ]
+  %.0 = phi i32 [ 1, %27 ], [ 0, %13 ], [ 0, %19 ], [ 0, %lcidm_get0_lcid.exit.i ]
   ret i32 %.0
 }
 
@@ -565,7 +565,7 @@ lcidm_get0_lcid.exit:                             ; preds = %7
   br label %24
 
 24:                                               ; preds = %lcidm_get0_lcid.exit.thread, %18, %19, %lcidm_get0_lcid.exit, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %lcidm_get0_lcid.exit ], [ 1, %19 ], [ 1, %18 ], [ 0, %lcidm_get0_lcid.exit.thread ]
+  %.0 = phi i32 [ 0, %lcidm_get0_lcid.exit ], [ 0, %4 ], [ 1, %19 ], [ 1, %18 ], [ 0, %lcidm_get0_lcid.exit.thread ]
   ret i32 %.0
 }
 
@@ -843,7 +843,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_add(ptr noundef readonly captu
   br label %26
 
 26:                                               ; preds = %17, %13, %10, %4, %7, %20
-  %.0 = phi i32 [ 1, %20 ], [ 0, %7 ], [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %20 ], [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %7 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

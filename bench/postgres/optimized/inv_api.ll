@@ -389,7 +389,7 @@ inv_getsize.exit:                                 ; preds = %open_lo_relation.ex
   unreachable
 
 75:                                               ; preds = %3, %inv_getsize.exit, %5
-  %.0 = phi i64 [ %8, %5 ], [ %70, %inv_getsize.exit ], [ %1, %3 ]
+  %.0 = phi i64 [ %70, %inv_getsize.exit ], [ %8, %5 ], [ %1, %3 ]
   %or.cond = icmp ugt i64 %.0, 4398046509056
   br i1 %or.cond, label %76, label %80
 

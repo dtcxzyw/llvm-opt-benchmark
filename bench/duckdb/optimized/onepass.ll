@@ -280,7 +280,7 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit:   ; preds = %110, %103, %._crit_
   br i1 %or.cond125, label %111, label %.preheader
 
 111:                                              ; preds = %91, %99, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit, %89
-  %.1110 = phi i1 [ %.0109174, %89 ], [ true, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit ], [ %.0109174, %99 ], [ %.0109174, %91 ]
+  %.1110 = phi i1 [ %.0109174, %89 ], [ %.0109174, %91 ], [ %.0109174, %99 ], [ true, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit ]
   %112 = icmp eq ptr %.1115, null
   br i1 %112, label %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142, label %113
 
@@ -377,7 +377,7 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit151: ; preds = %140, %132
   br label %.preheader
 
 _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142: ; preds = %111, %._crit_edge178, %128
-  %.3 = phi i1 [ %.0109.lcssa, %128 ], [ %.0109.lcssa, %._crit_edge178 ], [ %.1110, %111 ]
+  %.3 = phi i1 [ %.0109.lcssa, %._crit_edge178 ], [ %.0109.lcssa, %128 ], [ %.1110, %111 ]
   br i1 %.3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit, %._crit_edge183, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142
@@ -407,7 +407,7 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142: ; preds = %111, %._crit_edge1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph185, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph185, %38, %.preheader, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142, %45
-  %.1 = phi i1 [ false, %45 ], [ false, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142 ], [ true, %.preheader ], [ false, %38 ], [ true, %.lr.ph185 ]
+  %.1 = phi i1 [ false, %45 ], [ false, %38 ], [ false, %_ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit142 ], [ true, %.preheader ], [ true, %.lr.ph185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -712,10 +712,10 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i: ; preds = %_ZN10du
   store i32 0, ptr %87, align 4, !tbaa !102
   br label %125
 
-.loopexit:                                        ; preds = %356, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261, %.thread369, %_ZN10LogMessageD2Ev.exit
-  %.3204.ph = phi i8 [ %.1202, %_ZN10LogMessageD2Ev.exit ], [ 1, %356 ], [ %.1202, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.1202, %.thread369 ]
-  %.3184.ph = phi ptr [ %.1182, %_ZN10LogMessageD2Ev.exit ], [ %.1182, %356 ], [ %.1182, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.4185, %.thread369 ]
-  %.5174.ph = phi i32 [ %.3172, %_ZN10LogMessageD2Ev.exit ], [ %.3172, %356 ], [ %.3172, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.6175, %.thread369 ]
+.loopexit:                                        ; preds = %.thread369, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261, %356, %_ZN10LogMessageD2Ev.exit
+  %.3204.ph = phi i8 [ %.1202, %_ZN10LogMessageD2Ev.exit ], [ %.1202, %.thread369 ], [ %.1202, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ 1, %356 ]
+  %.3184.ph = phi ptr [ %.1182, %_ZN10LogMessageD2Ev.exit ], [ %.4185, %.thread369 ], [ %.1182, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.1182, %356 ]
+  %.5174.ph = phi i32 [ %.3172, %_ZN10LogMessageD2Ev.exit ], [ %.6175, %.thread369 ], [ %.3172, %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261 ], [ %.3172, %356 ]
   %124 = icmp sgt i32 %.1198, 0
   br i1 %124, label %125, label %377
 
@@ -1181,7 +1181,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i285: ; preds = %_ZNK
   br label %.thread390
 
 .thread390:                                       ; preds = %322, %325, %329, %332
-  %.3192 = phi i32 [ %335, %332 ], [ %.0189, %325 ], [ %331, %329 ], [ %.0189, %322 ]
+  %.3192 = phi i32 [ %335, %332 ], [ %.0189, %322 ], [ %.0189, %325 ], [ %331, %329 ]
   %336 = lshr i32 %323, 4
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261.backedge, label %338
@@ -1219,12 +1219,12 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293: ; preds = %_ZNK
   br label %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261.backedge
 
 _ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261.backedge: ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293, %338, %.thread390, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277, %281, %278, %358, %361, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301, %152, %155, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258
-  %.1202.be = phi i8 [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1202, %155 ], [ %.1202, %152 ], [ 1, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ 1, %361 ], [ 1, %358 ], [ %.1202, %278 ], [ %.1202, %281 ], [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.1202, %.thread390 ], [ %.1202, %338 ], [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
-  %.1198.be = phi i32 [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1198, %155 ], [ %.1198, %152 ], [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.1198, %361 ], [ %.1198, %358 ], [ %.1198, %278 ], [ %.1198, %281 ], [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.3200, %.thread390 ], [ %.3200, %338 ], [ %.3200, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
-  %.0193.be = phi i32 [ %153, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %153, %155 ], [ 0, %152 ], [ %359, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %359, %361 ], [ 0, %358 ], [ 0, %278 ], [ %279, %281 ], [ %279, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ 0, %.thread390 ], [ %336, %338 ], [ %.pre494, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
-  %.0189.be = phi i32 [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.0189, %155 ], [ %.0189, %152 ], [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.0189, %361 ], [ %.0189, %358 ], [ %.0189, %278 ], [ %.0189, %281 ], [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.3192, %.thread390 ], [ %.3192, %338 ], [ %.3192, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
-  %.1182.be = phi ptr [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1182, %155 ], [ %.1182, %152 ], [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.1182, %361 ], [ %.1182, %358 ], [ %.4185, %278 ], [ %.4185, %281 ], [ %.4185, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.1182, %.thread390 ], [ %.1182, %338 ], [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
-  %.3172.be = phi i32 [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.3172, %155 ], [ %.3172, %152 ], [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.3172, %361 ], [ %.3172, %358 ], [ %.6175, %278 ], [ %.6175, %281 ], [ %.6175, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.3172, %.thread390 ], [ %.3172, %338 ], [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ]
+  %.1202.be = phi i8 [ %.1202, %281 ], [ 1, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.1202, %.thread390 ], [ 1, %361 ], [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.1202, %152 ], [ 1, %358 ], [ %.1202, %338 ], [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %.1202, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1202, %155 ], [ %.1202, %278 ]
+  %.1198.be = phi i32 [ %.1198, %281 ], [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.3200, %.thread390 ], [ %.1198, %361 ], [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.1198, %152 ], [ %.1198, %358 ], [ %.3200, %338 ], [ %.3200, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %.1198, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1198, %155 ], [ %.1198, %278 ]
+  %.0193.be = phi i32 [ %279, %281 ], [ %359, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ 0, %.thread390 ], [ %359, %361 ], [ %279, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ 0, %152 ], [ 0, %358 ], [ %336, %338 ], [ %.pre494, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %153, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %153, %155 ], [ 0, %278 ]
+  %.0189.be = phi i32 [ %.0189, %281 ], [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.3192, %.thread390 ], [ %.0189, %361 ], [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.0189, %152 ], [ %.0189, %358 ], [ %.3192, %338 ], [ %.3192, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %.0189, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.0189, %155 ], [ %.0189, %278 ]
+  %.1182.be = phi ptr [ %.4185, %281 ], [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.1182, %.thread390 ], [ %.1182, %361 ], [ %.4185, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.1182, %152 ], [ %.1182, %358 ], [ %.1182, %338 ], [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %.1182, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.1182, %155 ], [ %.4185, %278 ]
+  %.3172.be = phi i32 [ %.6175, %281 ], [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301 ], [ %.3172, %.thread390 ], [ %.3172, %361 ], [ %.6175, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277 ], [ %.3172, %152 ], [ %.3172, %358 ], [ %.3172, %338 ], [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i293 ], [ %.3172, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i258 ], [ %.3172, %155 ], [ %.6175, %278 ]
   br label %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261
 
 354:                                              ; preds = %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261
@@ -1330,8 +1330,8 @@ _ZN10duckdb_re28PODArrayIhED2Ev.exit:             ; preds = %392, %_ZN10duckdb_r
           cleanup
   br label %399
 
-_ZN10duckdb_re210SparseSetTIvED2Ev.exit313:       ; preds = %176, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i278, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i302, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i294, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i286, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i259, %354, %236, %273, %_ZN10duckdb_re28PODArrayIhED2Ev.exit
-  %.not445 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIhED2Ev.exit ], [ false, %273 ], [ false, %236 ], [ false, %354 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i259 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i286 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i294 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i302 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i278 ], [ false, %176 ]
+_ZN10duckdb_re210SparseSetTIvED2Ev.exit313:       ; preds = %176, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i278, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i302, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i259, %354, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i294, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i286, %236, %273, %_ZN10duckdb_re28PODArrayIhED2Ev.exit
+  %.not445 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIhED2Ev.exit ], [ false, %236 ], [ false, %273 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i286 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i294 ], [ false, %354 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i259 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i302 ], [ false, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i278 ], [ false, %176 ]
   call void @_ZdlPv(ptr noundef nonnull %71) #12
   call void @_ZdlPv(ptr noundef nonnull %68) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1353,7 +1353,7 @@ _ZN10duckdb_re28PODArrayINS_8InstCondEED2Ev.exit: ; preds = %_ZN10duckdb_re210Sp
   br label %401
 
 399:                                              ; preds = %105, %395, %205, %151
-  %.pn224.pn = phi { ptr, i32 } [ %396, %395 ], [ %106, %105 ], [ %.pn217, %151 ], [ %206, %205 ]
+  %.pn224.pn = phi { ptr, i32 } [ %206, %205 ], [ %396, %395 ], [ %106, %105 ], [ %.pn217, %151 ]
   call void @_ZN10duckdb_re210SparseSetTIvED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   br label %.body
 

@@ -856,7 +856,7 @@ tipc_v1_set_col_msgtype.exit:                     ; preds = %37, %37, %37, %37
   br label %198
 
 tipc_v1_set_col_msgtype.exit.thread.critedge:     ; preds = %37, %42, %43, %44, %45, %46
-  %tipc_sm_msg_type_values.sink.i.ph = phi ptr [ @tipc_cm_msg_type_values, %42 ], [ @tipc_routing_mgr_msg_type_values, %43 ], [ @tipc_link_prot_msg_type_values, %44 ], [ @tipc_cng_prot_msg_type_values, %45 ], [ @tipc_sm_msg_type_values, %46 ], [ @tipc_name_dist_msg_type_values, %37 ]
+  %tipc_sm_msg_type_values.sink.i.ph = phi ptr [ @tipc_sm_msg_type_values, %46 ], [ @tipc_cm_msg_type_values, %42 ], [ @tipc_routing_mgr_msg_type_values, %43 ], [ @tipc_link_prot_msg_type_values, %44 ], [ @tipc_cng_prot_msg_type_values, %45 ], [ @tipc_name_dist_msg_type_values, %37 ]
   %68 = load ptr, ptr %9, align 8
   %69 = zext nneg i8 %39 to i32
   %70 = tail call ptr @val_to_str_const(i32 noundef %69, ptr noundef nonnull %tipc_sm_msg_type_values.sink.i.ph, ptr noundef nonnull @.str.438)
@@ -1398,16 +1398,16 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
   br label %.thread313.sink.split.sink.split
 
 .thread313.sink.split.sink.split:                 ; preds = %364, %352, %.thread311, %.thread312, %378
-  %hf_tipc_msg_cnt.sink = phi ptr [ @hf_tipc_remote_addr, %378 ], [ @hf_tipc_link_selector2, %.thread312 ], [ @hf_tipc_link_selector2, %.thread311 ], [ @hf_tipc_msg_cnt, %352 ], [ @hf_tipc_link_selector2, %364 ]
-  %.sink317 = phi i32 [ 16, %378 ], [ 12, %.thread312 ], [ 12, %.thread311 ], [ 12, %352 ], [ 12, %364 ]
-  %hf_tipc_unknown_msg_type.sink.ph = phi ptr [ @hf_tipc_rm_msg_type, %378 ], [ @hf_tipc_cng_prot_msg_type, %.thread312 ], [ @hf_tipc_sm_msg_type, %.thread311 ], [ @hf_tipc_unknown_msg_type, %352 ], [ @hf_tipc_nd_msg_type, %364 ]
+  %hf_tipc_msg_cnt.sink = phi ptr [ @hf_tipc_link_selector2, %.thread311 ], [ @hf_tipc_remote_addr, %378 ], [ @hf_tipc_msg_cnt, %352 ], [ @hf_tipc_link_selector2, %.thread312 ], [ @hf_tipc_link_selector2, %364 ]
+  %.sink317 = phi i32 [ 12, %.thread311 ], [ 16, %378 ], [ 12, %352 ], [ 12, %.thread312 ], [ 12, %364 ]
+  %hf_tipc_unknown_msg_type.sink.ph = phi ptr [ @hf_tipc_sm_msg_type, %.thread311 ], [ @hf_tipc_rm_msg_type, %378 ], [ @hf_tipc_unknown_msg_type, %352 ], [ @hf_tipc_cng_prot_msg_type, %.thread312 ], [ @hf_tipc_nd_msg_type, %364 ]
   %379 = load i32, ptr %hf_tipc_msg_cnt.sink, align 4
   %380 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %379, ptr noundef %.0262, i32 noundef %.sink317, i32 noundef 4, i32 noundef 0)
   br label %.thread313.sink.split321
 
 .thread313.sink.split321:                         ; preds = %.thread278, %364, %352, %.thread313.sink.split.sink.split
-  %hf_tipc_unknown_msg_type.sink.sink = phi ptr [ @hf_tipc_unknown_msg_type, %364 ], [ @hf_tipc_unknown_msg_type, %352 ], [ %hf_tipc_unknown_msg_type.sink.ph, %.thread313.sink.split.sink.split ], [ @hf_tipc_seq_gap, %.thread278 ]
-  %.shrunk.ph = phi i8 [ %355, %364 ], [ %355, %352 ], [ %355, %.thread313.sink.split.sink.split ], [ 0, %.thread278 ]
+  %hf_tipc_unknown_msg_type.sink.sink = phi ptr [ %hf_tipc_unknown_msg_type.sink.ph, %.thread313.sink.split.sink.split ], [ @hf_tipc_unknown_msg_type, %352 ], [ @hf_tipc_unknown_msg_type, %364 ], [ @hf_tipc_seq_gap, %.thread278 ]
+  %.shrunk.ph = phi i8 [ %355, %.thread313.sink.split.sink.split ], [ %355, %352 ], [ %355, %364 ], [ 0, %.thread278 ]
   %381 = load i32, ptr %hf_tipc_unknown_msg_type.sink.sink, align 4
   %382 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %381, ptr noundef %.0262, i32 noundef 20, i32 noundef 4, i32 noundef 0)
   br label %.thread313
@@ -2014,7 +2014,7 @@ define internal fastcc void @call_tipc_v2_data_subdissectors(ptr noundef %0, ptr
   %32 = call zeroext i1 @dissector_try_heuristic(ptr noundef %30, ptr noundef %0, ptr noundef %1, ptr noundef %31, ptr noundef nonnull %5, ptr noundef null)
   br i1 %32, label %.thread, label %33
 
-.thread:                                          ; preds = %11, %15, %21, %29
+.thread:                                          ; preds = %21, %11, %15, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 

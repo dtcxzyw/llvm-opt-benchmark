@@ -130,7 +130,7 @@ _ZN5uv_fs8cachedir7add_tag17hc83d987dc3742f32E.exit.thread: ; preds = %_ZN3std2f
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit", %21, %34, %38
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %35, %34 ], [ %39, %38 ], [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %22, %21 ], [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6fs_err12open_options11OpenOptions4open17h3082e65eff945e03E.exit.i: ; preds = %_ZN3std2fs11OpenOptions4open17h45986f433b522de2E.exit.i.i
@@ -261,7 +261,7 @@ default.unreachable:                              ; preds = %46
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h17b756b62f8e92f4E.exit"
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit: ; preds = %60, %57, %53
-  %.sroa.0.0.i10 = phi i8 [ %spec.select.i.i.i, %53 ], [ %59, %57 ], [ %62, %60 ]
+  %.sroa.0.0.i10 = phi i8 [ %62, %60 ], [ %spec.select.i.i.i, %53 ], [ %59, %57 ]
   switch i8 %.sroa.0.0.i10, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread [
     i8 1, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread23
     i8 12, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread25

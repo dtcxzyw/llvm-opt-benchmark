@@ -377,14 +377,14 @@ define hidden noundef zeroext i1 @_RINvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapte
   %.not52.i.not.i.not = icmp ne ptr %34, %7
   br i1 %.not52.i.not.i.not, label %28, label %_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split
 
-_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split: ; preds = %28, %.backedge.i.i, %17, %.backedge.us.i.i, %.lr.ph.split.us.i.i, %.lr.ph.split.i.i
-  %.us-phi23.sink.i.i.sink = phi ptr [ %9, %.lr.ph.split.us.i.i ], [ %9, %.lr.ph.split.i.i ], [ %23, %.backedge.us.i.i ], [ %18, %17 ], [ %34, %.backedge.i.i ], [ %29, %28 ]
-  %.sroa.0.0.ph = phi i1 [ true, %.lr.ph.split.us.i.i ], [ true, %.lr.ph.split.i.i ], [ %.not56.i.not.i.not, %.backedge.us.i.i ], [ %.not56.i.not.i.not, %17 ], [ %.not52.i.not.i.not, %.backedge.i.i ], [ %.not52.i.not.i.not, %28 ]
+_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split: ; preds = %28, %.backedge.i.i, %17, %.backedge.us.i.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.i
+  %.us-phi23.sink.i.i.sink = phi ptr [ %9, %.lr.ph.split.us.i.i ], [ %23, %.backedge.us.i.i ], [ %9, %.lr.ph.split.i.i ], [ %18, %17 ], [ %34, %.backedge.i.i ], [ %29, %28 ]
+  %.sroa.0.0.ph = phi i1 [ true, %.lr.ph.split.us.i.i ], [ %.not56.i.not.i.not, %17 ], [ true, %.lr.ph.split.i.i ], [ %.not56.i.not.i.not, %.backedge.us.i.i ], [ %.not52.i.not.i.not, %.backedge.i.i ], [ %.not52.i.not.i.not, %28 ]
   store ptr %.us-phi23.sink.i.i.sink, ptr %0, align 8, !alias.scope !68, !noalias !71
   br label %_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread
 
 _RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread: ; preds = %_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split, %5, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %5 ], [ %.sroa.0.0.ph, %_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split ]
+  %.sroa.0.0 = phi i1 [ false, %5 ], [ false, %2 ], [ %.sroa.0.0.ph, %_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token9ArchetypeENvYRB1n_INtNtB1p_8variance12UnitVarianceNtB2b_13InvariantSizeE13unit_varianceENtNtNtBa_6traits8iterator8Iterator8try_folduNCINvNvB3g_3all5checkINtB2b_8VarianceB2E_ENCNvYBX_INtB2b_19DisjunctiveVarianceB2E_E20disjunctive_variances_0E0INtNtNtBc_3ops12control_flow11ControlFlowuEEB1r_.exit.thread.sink.split ]
   ret i1 %.sroa.0.0
 }
 
@@ -1204,7 +1204,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
   br label %_RNvYNvYRINtNtCseG2FYMysgNb_3wax5token5TokenuENtNtB9_8variance9UnitDepth10unit_depthINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTB5_EE8call_mutBb_.llvm.5393772610634076635.exit
 
 _RNvYNvYRINtNtCseG2FYMysgNb_3wax5token5TokenuENtNtB9_8variance9UnitDepth10unit_depthINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTB5_EE8call_mutBb_.llvm.5393772610634076635.exit: ; preds = %2, %2, %2, %10, %21, %23
-  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %20, %10 ], [ %22, %21 ], [ %26, %23 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %20, %10 ], [ %26, %23 ], [ false, %2 ], [ %22, %21 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i.i
 }
 
@@ -1262,7 +1262,7 @@ define hidden noundef zeroext i1 @_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters
   br label %_RNvYNvYRNtNtCseG2FYMysgNb_3wax5token5TokenNtNtB8_8variance9UnitDepth10unit_depthINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTB5_EE8call_mutBa_.llvm.5393772610634076635.exit
 
 _RNvYNvYRNtNtCseG2FYMysgNb_3wax5token5TokenNtNtB8_8variance9UnitDepth10unit_depthINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTB5_EE8call_mutBa_.llvm.5393772610634076635.exit: ; preds = %2, %2, %2, %10, %21, %23
-  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %20, %10 ], [ %22, %21 ], [ %26, %23 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %20, %10 ], [ %26, %23 ], [ false, %2 ], [ %22, %21 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i.i
 }
 
@@ -2423,7 +2423,7 @@ define hidden noundef zeroext i1 @_RNvYNvYRINtNtCseG2FYMysgNb_3wax5token5TokenuE
   br label %_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRINtB5_5TokenuENtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXs8_NtCseG2FYMysgNb_3wax5tokenRINtB5_5TokenuENtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %2, %2, %2, %10, %21, %23
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %20, %10 ], [ %22, %21 ], [ %26, %23 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %20, %10 ], [ %26, %23 ], [ false, %2 ], [ %22, %21 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i
 }
 
@@ -2492,7 +2492,7 @@ define hidden noundef zeroext i1 @_RNvYNvYRNtNtCseG2FYMysgNb_3wax5token5TokenNtN
   br label %_RNvXs8_NtCseG2FYMysgNb_3wax5tokenRNtB5_5TokenNtNtB5_8variance9UnitDepth10unit_depthB7_.exit
 
 _RNvXs8_NtCseG2FYMysgNb_3wax5tokenRNtB5_5TokenNtNtB5_8variance9UnitDepth10unit_depthB7_.exit: ; preds = %2, %2, %2, %10, %21, %23
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %20, %10 ], [ %22, %21 ], [ %26, %23 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %20, %10 ], [ %26, %23 ], [ false, %2 ], [ %22, %21 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.sroa.0.0.shrunk.i.i
 }
 
@@ -3209,7 +3209,7 @@ define hidden void @_RNvNCNvNtCseG2FYMysgNb_3wax6encode6encodes_023encode_class_
   unreachable
 
 common.resume:                                    ; preds = %92, %65, %25, %49, %73, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %26, %25 ], [ %74, %73 ], [ %50, %49 ], [ %66, %65 ], [ %93, %92 ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %42, %41 ], [ %50, %49 ], [ %26, %25 ], [ %74, %73 ], [ %93, %92 ]
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECseG2FYMysgNb_3wax.exit: ; preds = %35
@@ -3585,7 +3585,7 @@ _RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtB7_3map3MapI
   %.not52.i.not.i.i = icmp eq ptr %30, %2
   br i1 %.not52.i.not.i.i, label %.loopexit, label %24
 
-.loopexit25:                                      ; preds = %24, %16, %.lr.ph.split.us.i.i.i, %.lr.ph.split.i.i.i
+.loopexit25:                                      ; preds = %24, %16, %.lr.ph.split.i.i.i, %.lr.ph.split.us.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %31, align 1
   store i8 1, ptr %0, align 8
@@ -4414,7 +4414,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCseG2FYMysgNb_3wax5token8vari
   br i1 %.not, label %common.resume, label %42
 
 common.resume:                                    ; preds = %47, %.body, %42
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %42 ], [ %eh.lpad-body, %.body ], [ %48, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %42 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %.body
@@ -5283,7 +5283,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCseG2FYMysgNb_3wax5token8var
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %_RINvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB6_4TakeINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB6_8SpecTake9spec_foldjNCINvNtB8_3map8map_foldRB1p_jjNCNvMs_B1r_NtB1r_9Tokenized9partition0NCINvXsK_NtNtBa_6traits5accumjNtB3D_3Sum3sumINtB2t_3MapBO_B2S_EE0E0EB1t_.exit, %64, %100, %108, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECseG2FYMysgNb_3wax.exit.i
-  %.sroa.019.1.ph = phi i1 [ false, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECseG2FYMysgNb_3wax.exit.i ], [ true, %108 ], [ true, %100 ], [ true, %64 ], [ true, %_RINvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB6_4TakeINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB6_8SpecTake9spec_foldjNCINvNtB8_3map8map_foldRB1p_jjNCNvMs_B1r_NtB1r_9Tokenized9partition0NCINvXsK_NtNtBa_6traits5accumjNtB3D_3Sum3sumINtB2t_3MapBO_B2S_EE0E0EB1t_.exit ]
+  %.sroa.019.1.ph = phi i1 [ true, %100 ], [ true, %_RINvXs8_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB6_4TakeINtNtNtBc_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtB6_8SpecTake9spec_foldjNCINvNtB8_3map8map_foldRB1p_jjNCNvMs_B1r_NtB1r_9Tokenized9partition0NCINvXsK_NtNtBa_6traits5accumjNtB3D_3Sum3sumINtB2t_3MapBO_B2S_EE0E0EB1t_.exit ], [ true, %64 ], [ false, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECseG2FYMysgNb_3wax.exit.i ], [ true, %108 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7120,7 +7120,7 @@ _RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6str
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexEECseG2FYMysgNb_3wax.exit
 
 common.resume:                                    ; preds = %22, %112, %116
-  %common.resume.op = phi { ptr, i32 } [ %113, %116 ], [ %113, %112 ], [ %.pn, %22 ]
+  %common.resume.op = phi { ptr, i32 } [ %113, %112 ], [ %113, %116 ], [ %.pn, %22 ]
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexEECseG2FYMysgNb_3wax.exit: ; preds = %120, %_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtNtCsaz5AFKTGGYY_5regex5regex6string5RegexENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCseG2FYMysgNb_3wax.exit.i, %_RNCINvNtCseG2FYMysgNb_3wax5token10componentsTjjERSNtB4_5TokenE0B6_.llvm.5393772610634076635.exit.thread

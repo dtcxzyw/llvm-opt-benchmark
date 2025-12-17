@@ -549,8 +549,8 @@ if.then.i.i47:                                    ; preds = %nrvo.unused
   br label %if.end3.1
 
 for.end:                                          ; preds = %nrvo.unused.3, %nrvo.unused.us.3, %if.then.i.i47.3, %if.then.i.i47.us.3
-  %_M_string_length.i.i.i.i.i.i1639 = phi ptr [ %_M_string_length.i.i.i.i.i.i1638, %if.then.i.i47.3 ], [ %_M_string_length.i.i.i.i.i.i16, %if.then.i.i47.us.3 ], [ %_M_string_length.i.i.i.i.i.i16, %nrvo.unused.us.3 ], [ %_M_string_length.i.i.i.i.i.i1638, %nrvo.unused.3 ]
-  %38 = phi ptr [ %32, %if.then.i.i47.3 ], [ %1, %if.then.i.i47.us.3 ], [ %1, %nrvo.unused.us.3 ], [ %32, %nrvo.unused.3 ]
+  %_M_string_length.i.i.i.i.i.i1639 = phi ptr [ %_M_string_length.i.i.i.i.i.i16, %nrvo.unused.us.3 ], [ %_M_string_length.i.i.i.i.i.i1638, %if.then.i.i47.3 ], [ %_M_string_length.i.i.i.i.i.i16, %if.then.i.i47.us.3 ], [ %_M_string_length.i.i.i.i.i.i1638, %nrvo.unused.3 ]
+  %38 = phi ptr [ %1, %nrvo.unused.us.3 ], [ %32, %if.then.i.i47.3 ], [ %1, %if.then.i.i47.us.3 ], [ %32, %nrvo.unused.3 ]
   store ptr %38, ptr %agg.result, align 8, !tbaa !15
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i1639, align 8, !tbaa !21
   store i8 0, ptr %38, align 8, !tbaa !20
@@ -948,7 +948,7 @@ if.then.i.i157:                                   ; preds = %lpad19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad19, %if.then.i.i157, %lpad16.loopexit.split-lp, %lpad16.loopexit
-  %.pn = phi { ptr, i32 } [ %46, %if.then.i.i157 ], [ %lpad.loopexit509, %lpad16.loopexit ], [ %lpad.loopexit.split-lp510, %lpad16.loopexit.split-lp ], [ %46, %lpad19 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp510, %lpad16.loopexit.split-lp ], [ %46, %if.then.i.i157 ], [ %lpad.loopexit509, %lpad16.loopexit ], [ %46, %lpad19 ]
   %48 = load ptr, ptr %ref.tmp13, align 8, !tbaa !18
   %cmp.i.i.i162 = icmp eq ptr %48, %9
   br i1 %cmp.i.i.i162, label %ehcleanup22, label %if.then.i.i163

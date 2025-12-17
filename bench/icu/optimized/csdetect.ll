@@ -1711,7 +1711,7 @@ define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noun
   br i1 %68, label %.preheader, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %43, %.preheader34, %64, %.preheader, %12, %3
-  %.0 = phi ptr [ %20, %12 ], [ null, %3 ], [ %.5, %64 ], [ null, %.preheader ], [ %.2, %43 ], [ null, %.preheader34 ]
+  %.0 = phi ptr [ %20, %12 ], [ null, %3 ], [ null, %.preheader ], [ %.5, %64 ], [ %.2, %43 ], [ null, %.preheader34 ]
   %.not33 = icmp eq ptr %1, null
   br i1 %.not33, label %76, label %69
 

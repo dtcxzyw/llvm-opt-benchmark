@@ -726,7 +726,7 @@ try_get_quic_varint.exit10.i:                     ; preds = %22
   br label %get_http3_frame_size.exit
 
 get_http3_frame_size.exit:                        ; preds = %3, %7, %try_get_quic_varint.exit.i, %16, %try_get_quic_varint.exit10.i
-  %.0.i = phi i32 [ %.1.i, %try_get_quic_varint.exit10.i ], [ 0, %3 ], [ 0, %7 ], [ 0, %try_get_quic_varint.exit.i ], [ 0, %16 ]
+  %.0.i = phi i32 [ %.1.i, %try_get_quic_varint.exit10.i ], [ 0, %7 ], [ 0, %3 ], [ 0, %try_get_quic_varint.exit.i ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2)
   %.not = icmp ne i32 %.0.i, 0
@@ -1229,8 +1229,8 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   br label %read_qpack_prefixed_integer.exit
 
 read_qpack_prefixed_integer.exit:                 ; preds = %39, %.lr.ph.i, %47, %37, %29, %54
-  %.022 = phi i64 [ %52, %54 ], [ %36, %29 ], [ 63, %37 ], [ %52, %39 ], [ 0, %47 ], [ 0, %.lr.ph.i ]
-  %.054.i = phi i32 [ %59, %54 ], [ 1, %29 ], [ 1, %37 ], [ %31, %39 ], [ -1, %47 ], [ -1, %.lr.ph.i ]
+  %.022 = phi i64 [ %36, %29 ], [ %52, %54 ], [ 63, %37 ], [ %52, %39 ], [ 0, %47 ], [ 0, %.lr.ph.i ]
+  %.054.i = phi i32 [ 1, %29 ], [ %59, %54 ], [ 1, %37 ], [ %31, %39 ], [ -1, %47 ], [ -1, %.lr.ph.i ]
   %60 = add i32 %.054.i, %.045
   %61 = add i32 %60, %3
   %62 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %61, i32 noundef -1)
@@ -1291,8 +1291,8 @@ read_qpack_prefixed_integer.exit:                 ; preds = %39, %.lr.ph.i, %47,
   br label %read_qpack_prefixed_integer.exit197
 
 read_qpack_prefixed_integer.exit197:              ; preds = %71, %.lr.ph.i188, %79, %69, %read_qpack_prefixed_integer.exit, %86
-  %.021 = phi i64 [ %84, %86 ], [ %68, %read_qpack_prefixed_integer.exit ], [ 127, %69 ], [ %84, %71 ], [ 0, %79 ], [ 0, %.lr.ph.i188 ]
-  %.054.i185 = phi i32 [ %91, %86 ], [ 1, %read_qpack_prefixed_integer.exit ], [ 1, %69 ], [ %63, %71 ], [ -1, %79 ], [ -1, %.lr.ph.i188 ]
+  %.021 = phi i64 [ %68, %read_qpack_prefixed_integer.exit ], [ %84, %86 ], [ 127, %69 ], [ %84, %71 ], [ 0, %79 ], [ 0, %.lr.ph.i188 ]
+  %.054.i185 = phi i32 [ 1, %read_qpack_prefixed_integer.exit ], [ %91, %86 ], [ 1, %69 ], [ %63, %71 ], [ -1, %79 ], [ -1, %.lr.ph.i188 ]
   %92 = add i32 %.054.i185, %60
   %93 = add i32 %92, %3
   %94 = trunc i64 %.021 to i32
@@ -1394,8 +1394,8 @@ read_qpack_prefixed_integer.exit197:              ; preds = %71, %.lr.ph.i188, %
   br label %read_qpack_prefixed_integer.exit211
 
 read_qpack_prefixed_integer.exit211:              ; preds = %128, %.lr.ph.i202, %136, %126, %118, %143
-  %.020 = phi i64 [ %141, %143 ], [ %125, %118 ], [ 31, %126 ], [ %141, %128 ], [ 0, %136 ], [ 0, %.lr.ph.i202 ]
-  %.054.i199 = phi i32 [ %148, %143 ], [ 1, %118 ], [ 1, %126 ], [ %120, %128 ], [ -1, %136 ], [ -1, %.lr.ph.i202 ]
+  %.020 = phi i64 [ %125, %118 ], [ %141, %143 ], [ 31, %126 ], [ %141, %128 ], [ 0, %136 ], [ 0, %.lr.ph.i202 ]
+  %.054.i199 = phi i32 [ 1, %118 ], [ %148, %143 ], [ 1, %126 ], [ %120, %128 ], [ -1, %136 ], [ -1, %.lr.ph.i202 ]
   %149 = add i32 %.054.i199, %.045
   %150 = add i32 %149, %3
   %151 = trunc i64 %.020 to i32
@@ -1460,8 +1460,8 @@ read_qpack_prefixed_integer.exit211:              ; preds = %128, %.lr.ph.i202, 
   br label %read_qpack_prefixed_integer.exit225
 
 read_qpack_prefixed_integer.exit225:              ; preds = %164, %.lr.ph.i216, %172, %162, %read_qpack_prefixed_integer.exit211, %179
-  %.019 = phi i64 [ %177, %179 ], [ %161, %read_qpack_prefixed_integer.exit211 ], [ 127, %162 ], [ %177, %164 ], [ 0, %172 ], [ 0, %.lr.ph.i216 ]
-  %.054.i213 = phi i32 [ %184, %179 ], [ 1, %read_qpack_prefixed_integer.exit211 ], [ 1, %162 ], [ %156, %164 ], [ -1, %172 ], [ -1, %.lr.ph.i216 ]
+  %.019 = phi i64 [ %161, %read_qpack_prefixed_integer.exit211 ], [ %177, %179 ], [ 127, %162 ], [ %177, %164 ], [ 0, %172 ], [ 0, %.lr.ph.i216 ]
+  %.054.i213 = phi i32 [ 1, %read_qpack_prefixed_integer.exit211 ], [ %184, %179 ], [ 1, %162 ], [ %156, %164 ], [ -1, %172 ], [ -1, %.lr.ph.i216 ]
   %185 = add i32 %.054.i213, %153
   %186 = add i32 %185, %3
   %187 = trunc i64 %.019 to i32
@@ -1585,8 +1585,8 @@ read_qpack_prefixed_integer.exit225:              ; preds = %164, %.lr.ph.i216, 
   br label %read_qpack_prefixed_integer.exit239
 
 read_qpack_prefixed_integer.exit239:              ; preds = %232, %.lr.ph.i230, %240, %230, %228, %247
-  %.018 = phi i64 [ %245, %247 ], [ %229, %228 ], [ 31, %230 ], [ %245, %232 ], [ 0, %240 ], [ 0, %.lr.ph.i230 ]
-  %.054.i227 = phi i32 [ %252, %247 ], [ 1, %228 ], [ 1, %230 ], [ %223, %232 ], [ -1, %240 ], [ -1, %.lr.ph.i230 ]
+  %.018 = phi i64 [ %229, %228 ], [ %245, %247 ], [ 31, %230 ], [ %245, %232 ], [ 0, %240 ], [ 0, %.lr.ph.i230 ]
+  %.054.i227 = phi i32 [ 1, %228 ], [ %252, %247 ], [ 1, %230 ], [ %223, %232 ], [ -1, %240 ], [ -1, %.lr.ph.i230 ]
   %253 = add i32 %.054.i227, %.045
   %254 = load i32, ptr @hf_http3_qpack_encoder_opcode_dtable_cap, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %254, ptr noundef %0, i32 noundef %17, i32 noundef %.054.i227, i32 noundef 0)
@@ -1651,7 +1651,7 @@ read_qpack_prefixed_integer.exit253:              ; preds = %262, %277
   %283 = icmp sgt i32 %.054.i241, 0
   br i1 %283, label %read_qpack_prefixed_integer.exit253.thread, label %read_qpack_prefixed_integer.exit253.thread26
 
-read_qpack_prefixed_integer.exit253.thread26:     ; preds = %read_qpack_prefixed_integer.exit253, %271, %.lr.ph.i244
+read_qpack_prefixed_integer.exit253.thread26:     ; preds = %read_qpack_prefixed_integer.exit253, %.lr.ph.i244, %271
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.132, i32 noundef 1790, ptr noundef nonnull @.str.153) #15
   unreachable
 
@@ -1671,7 +1671,7 @@ read_qpack_prefixed_integer.exit253.thread:       ; preds = %260, %read_qpack_pr
   br label %289
 
 289:                                              ; preds = %116, %read_qpack_prefixed_integer.exit239, %286, %220, %25, %22
-  %.1 = phi i32 [ %95, %116 ], [ %189, %220 ], [ %253, %read_qpack_prefixed_integer.exit239 ], [ %284, %286 ], [ %.045, %25 ], [ %.045, %22 ]
+  %.1 = phi i32 [ %95, %116 ], [ %189, %220 ], [ %253, %read_qpack_prefixed_integer.exit239 ], [ %284, %286 ], [ %.045, %22 ], [ %.045, %25 ]
   %.0..0..0..0.25 = load volatile i32, ptr %7, align 4
   %290 = icmp eq i32 %.0..0..0..0.25, 0
   br i1 %290, label %291, label %298
@@ -1696,7 +1696,7 @@ read_qpack_prefixed_integer.exit253.thread:       ; preds = %260, %read_qpack_pr
   br label %298
 
 298:                                              ; preds = %296, %292, %291, %289
-  %.2 = phi i32 [ %.045, %296 ], [ %.1, %292 ], [ %.1, %291 ], [ %.1, %289 ]
+  %.2 = phi i32 [ %.045, %296 ], [ %.1, %289 ], [ %.1, %292 ], [ %.1, %291 ]
   %.0..0..0..0.27 = load volatile i32, ptr %7, align 4
   %299 = and i32 %.0..0..0..0.27, 1
   %.not182 = icmp eq i32 %299, 0

@@ -1187,7 +1187,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   unreachable
 
 .thread31:                                        ; preds = %31, %28, %.thread41
-  %.pn34 = phi { ptr, i32 } [ %35, %.thread41 ], [ %29, %28 ], [ %32, %31 ]
+  %.pn34 = phi { ptr, i32 } [ %29, %28 ], [ %35, %.thread41 ], [ %32, %31 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h4fbf934b5652eaaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #19
           to label %85 unwind label %83
 
@@ -2158,7 +2158,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i: 
   unreachable
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h020b6e1a25ec396aE.exit123": ; preds = %219, %223, %242, %86, %.body
-  %.pn102 = phi { ptr, i32 } [ %243, %242 ], [ %.pn100, %86 ], [ %47, %.body ], [ %220, %223 ], [ %220, %219 ]
+  %.pn102 = phi { ptr, i32 } [ %243, %242 ], [ %47, %.body ], [ %.pn100, %86 ], [ %220, %223 ], [ %220, %219 ]
   resume { ptr, i32 } %.pn102
 
 246:                                              ; preds = %169

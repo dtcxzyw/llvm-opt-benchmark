@@ -499,7 +499,7 @@ objects_lookup.exit:                              ; preds = %4
   br label %.thread
 
 .thread:                                          ; preds = %objects_lookup.exit, %41, %43, %50, %49
-  %51 = phi i32 [ -2, %objects_lookup.exit ], [ %38, %49 ], [ %38, %50 ], [ %38, %43 ], [ %38, %41 ]
+  %51 = phi i32 [ -2, %objects_lookup.exit ], [ %38, %50 ], [ %38, %49 ], [ %38, %43 ], [ %38, %41 ]
   ret i32 %51
 }
 
@@ -1305,7 +1305,7 @@ define dso_local noundef range(i32 -14, 1) i32 @drm_gem_objects_lookup(ptr nound
   br i1 %47, label %objects_lookup.exit, label %28, !llvm.loop !14
 
 objects_lookup.exit:                              ; preds = %28, %44
-  %48 = phi i32 [ -2, %28 ], [ 0, %44 ]
+  %48 = phi i32 [ 0, %44 ], [ -2, %28 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %25) #11
   br label %49
 
@@ -1393,7 +1393,7 @@ define dso_local range(i64 -9223372036854775808, 1) i64 @drm_gem_dma_resv_wait(p
   br label %.thread
 
 .thread:                                          ; preds = %29, %31, %38, %37, %18
-  %39 = phi i64 [ -22, %18 ], [ %26, %37 ], [ %26, %38 ], [ %26, %31 ], [ %26, %29 ]
+  %39 = phi i64 [ -22, %18 ], [ %26, %38 ], [ %26, %37 ], [ %26, %31 ], [ %26, %29 ]
   ret i64 %39
 }
 
@@ -1531,7 +1531,7 @@ objects_lookup.exit:                              ; preds = %13
   br label %.thread
 
 .thread:                                          ; preds = %objects_lookup.exit, %49, %51, %58, %57, %3
-  %59 = phi i32 [ -95, %3 ], [ -2, %objects_lookup.exit ], [ %46, %57 ], [ %46, %58 ], [ %46, %51 ], [ %46, %49 ]
+  %59 = phi i32 [ -95, %3 ], [ -2, %objects_lookup.exit ], [ %46, %58 ], [ %46, %57 ], [ %46, %51 ], [ %46, %49 ]
   ret i32 %59
 }
 
@@ -1628,7 +1628,7 @@ define dso_local i32 @drm_gem_open_ioctl(ptr noundef %0, ptr noundef captures(no
   br label %.thread
 
 .thread:                                          ; preds = %43, %45, %52, %51, %33, %3
-  %53 = phi i32 [ -2, %33 ], [ -95, %3 ], [ %31, %51 ], [ %31, %52 ], [ %31, %45 ], [ %31, %43 ]
+  %53 = phi i32 [ -2, %33 ], [ -95, %3 ], [ %31, %52 ], [ %31, %51 ], [ %31, %45 ], [ %31, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %53
 }
@@ -2013,7 +2013,7 @@ define dso_local i32 @drm_gem_mmap_obj(ptr noundef %0, i64 noundef %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %65, %67, %73, %72, %59, %52, %37, %32, %3
-  %74 = phi i32 [ -22, %3 ], [ 0, %32 ], [ 0, %37 ], [ 0, %52 ], [ %60, %59 ], [ %60, %72 ], [ %60, %73 ], [ %60, %67 ], [ %60, %65 ]
+  %74 = phi i32 [ -22, %3 ], [ 0, %32 ], [ 0, %37 ], [ 0, %52 ], [ %60, %59 ], [ %60, %73 ], [ %60, %72 ], [ %60, %67 ], [ %60, %65 ]
   ret i32 %74
 }
 
@@ -2184,7 +2184,7 @@ define dso_local i32 @drm_gem_mmap(ptr noundef readonly captures(none) %0, ptr n
   br label %.thread14
 
 .thread14:                                        ; preds = %74, %76, %57, %59, %.thread12, %84, %83, %82, %66, %65, %49
-  %85 = phi i32 [ -22, %49 ], [ -13, %65 ], [ -13, %66 ], [ %71, %82 ], [ %71, %83 ], [ -19, %84 ], [ -22, %.thread12 ], [ -13, %59 ], [ -13, %57 ], [ %71, %76 ], [ %71, %74 ]
+  %85 = phi i32 [ -22, %49 ], [ -22, %.thread12 ], [ -13, %65 ], [ -13, %66 ], [ -13, %57 ], [ %71, %82 ], [ %71, %83 ], [ -19, %84 ], [ -13, %59 ], [ %71, %76 ], [ %71, %74 ]
   ret i32 %85
 }
 
@@ -2486,7 +2486,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
   br i1 %61, label %.loopexit5, label %27, !llvm.loop !67
 
 .loopexit5:                                       ; preds = %57, %18, %59, %3
-  %62 = phi i32 [ 0, %3 ], [ 0, %59 ], [ %24, %18 ], [ %35, %57 ]
+  %62 = phi i32 [ 0, %3 ], [ 0, %59 ], [ %35, %57 ], [ %24, %18 ]
   ret i32 %62
 }
 

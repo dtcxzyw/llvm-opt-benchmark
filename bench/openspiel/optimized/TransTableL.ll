@@ -2097,7 +2097,7 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
   br label %60
 
 60:                                               ; preds = %55, %._crit_edge.thread
-  %61 = phi i32 [ %.pre, %._crit_edge.thread ], [ %spec.select, %55 ]
+  %61 = phi i32 [ %spec.select, %55 ], [ %.pre, %._crit_edge.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %63 = add nsw i32 %61, 1
   store i32 %63, ptr %62, align 4
@@ -2462,7 +2462,7 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   br label %243
 
 243:                                              ; preds = %._crit_edge.thread.i, %238
-  %244 = phi i32 [ %.pre.i, %._crit_edge.thread.i ], [ %spec.select.i, %238 ]
+  %244 = phi i32 [ %spec.select.i, %238 ], [ %.pre.i, %._crit_edge.thread.i ]
   %245 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %246 = add nsw i32 %244, 1
   store i32 %246, ptr %245, align 4
@@ -3252,7 +3252,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -3769,7 +3769,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -5309,8 +5309,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit39: ; p
   ret void
 
 84:                                               ; preds = %.body, %77, %.body37, %.loopexit.split-lp, %.loopexit, %66, %72
-  %.sink = phi ptr [ %7, %72 ], [ %7, %66 ], [ %5, %.loopexit ], [ %5, %.loopexit.split-lp ], [ %5, %.body37 ], [ %5, %77 ], [ %5, %.body ]
-  %.pn28.pn = phi { ptr, i32 } [ %.pn, %72 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn26, %.body37 ], [ %78, %77 ], [ %.pn24, %.body ]
+  %.sink = phi ptr [ %7, %66 ], [ %7, %72 ], [ %5, %.loopexit ], [ %5, %.loopexit.split-lp ], [ %5, %.body37 ], [ %5, %77 ], [ %5, %.body ]
+  %.pn28.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn, %72 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn26, %.body37 ], [ %78, %77 ], [ %.pn24, %.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #34
   resume { ptr, i32 } %.pn28.pn
 }
@@ -5964,7 +5964,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
   br i1 %43, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !36
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %40, %38, %34, %30, %28
-  %.0.i.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %39, %38 ], [ 1, %28 ], [ %42, %40 ]
+  %.0.i.i = phi i32 [ %39, %38 ], [ %31, %30 ], [ %35, %34 ], [ 1, %28 ], [ %42, %40 ]
   %44 = zext i32 %.0.i.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34, !noalias !83
   %45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -6221,8 +6221,8 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit.i: ; preds = %98
   ret void
 
 137:                                              ; preds = %.body, %.loopexit.split-lp, %.loopexit, %122, %128
-  %.sink = phi ptr [ %9, %128 ], [ %9, %122 ], [ %6, %.loopexit ], [ %6, %.loopexit.split-lp ], [ %6, %.body ]
-  %.pn25.pn = phi { ptr, i32 } [ %.pn, %128 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn23, %.body ]
+  %.sink = phi ptr [ %9, %122 ], [ %9, %128 ], [ %6, %.loopexit ], [ %6, %.loopexit.split-lp ], [ %6, %.body ]
+  %.pn25.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn23, %.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #34
   resume { ptr, i32 } %.pn25.pn
 }

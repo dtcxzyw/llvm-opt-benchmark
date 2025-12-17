@@ -99,7 +99,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverNintendoClassic_IsSupportedDevi
   br label %20
 
 20:                                               ; preds = %12, %12, %12, %13, %16, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %16 ], [ true, %13 ], [ true, %12 ], [ true, %12 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %19 ], [ true, %13 ], [ true, %12 ], [ true, %12 ], [ true, %16 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -195,7 +195,7 @@ GetMaxWriteAttempts.exit:                         ; preds = %1
   br label %CalculateControllerType.exit.i
 
 CalculateControllerType.exit.i:                   ; preds = %46, %42, %.thread.i.i, %34
-  %.1.i.i = phi i32 [ 0, %42 ], [ %..i.i, %46 ], [ %spec.select.i.i, %.thread.i.i ], [ %38, %34 ]
+  %.1.i.i = phi i32 [ %..i.i, %46 ], [ %38, %34 ], [ 0, %42 ], [ %spec.select.i.i, %.thread.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.1.i.i, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 38
@@ -238,7 +238,7 @@ CalculateControllerType.exit.i:                   ; preds = %46, %42, %.thread.i
   br label %CalculateControllerType.exit22.i
 
 CalculateControllerType.exit22.i:                 ; preds = %66, %62, %.thread.i20.i, %55
-  %.1.i18.i = phi i32 [ 0, %62 ], [ %..i19.i, %66 ], [ %spec.select.i21.i, %.thread.i20.i ], [ %58, %55 ]
+  %.1.i18.i = phi i32 [ %..i19.i, %66 ], [ %58, %55 ], [ 0, %62 ], [ %spec.select.i21.i, %.thread.i20.i ]
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.1.i18.i, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -363,7 +363,7 @@ BReadDeviceInfo.exit:                             ; preds = %73, %32, %Calculate
   br label %.sink.split.i
 
 .critedge.i:                                      ; preds = %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %90
-  %.sink.i = phi i32 [ 1, %102 ], [ 1, %101 ], [ 1, %100 ], [ 1, %99 ], [ 1, %98 ], [ 1, %97 ], [ 1, %96 ], [ 7, %95 ], [ 9, %94 ], [ 8, %93 ], [ 1, %90 ]
+  %.sink.i = phi i32 [ 8, %93 ], [ 1, %102 ], [ 1, %101 ], [ 1, %100 ], [ 1, %99 ], [ 1, %98 ], [ 1, %97 ], [ 1, %96 ], [ 7, %95 ], [ 9, %94 ], [ 1, %90 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.sink.i, ptr %110, align 4
   %111 = load i32, ptr %91, align 8
@@ -428,7 +428,7 @@ UpdateDeviceIdentity.exit:                        ; preds = %84, %88, %.critedge
   br label %145
 
 145:                                              ; preds = %140, %1, %143
-  %.0 = phi i1 [ %144, %143 ], [ false, %1 ], [ true, %140 ]
+  %.0 = phi i1 [ false, %1 ], [ %144, %143 ], [ true, %140 ]
   ret i1 %.0
 }
 
@@ -3595,8 +3595,8 @@ HandleFullControllerState.exit:                   ; preds = %1015, %1255, %1442,
   br i1 %1656, label %ReadInput.exit, label %.lr.ph.split, !llvm.loop !7
 
 ReadInput.exit:                                   ; preds = %.backedge, %.lr.ph.split, %.backedge.us, %.lr.ph.split.us
-  %.058.lcssa = phi i32 [ %.05888.us, %.lr.ph.split.us ], [ %173, %.backedge.us ], [ %.05888, %.lr.ph.split ], [ %1652, %.backedge ]
-  %.0.i = phi i32 [ %163, %.lr.ph.split.us ], [ 0, %.backedge.us ], [ %181, %.lr.ph.split ], [ 0, %.backedge ]
+  %.058.lcssa = phi i32 [ %.05888.us, %.lr.ph.split.us ], [ %173, %.backedge.us ], [ %1652, %.backedge ], [ %.05888, %.lr.ph.split ]
+  %.0.i = phi i32 [ %163, %.lr.ph.split.us ], [ 0, %.backedge.us ], [ 0, %.backedge ], [ %181, %.lr.ph.split ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %HIDAPI_DriverSwitch_SendPendingRumble.exit, label %1657
 
@@ -3770,8 +3770,8 @@ WriteRumble.exit:                                 ; preds = %1738, %1742, %1744
   br label %HIDAPI_DriverSwitch_SendPendingRumble.exit
 
 HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %ReadInput.exit.thread, %1710, %1706, %1699, %1690, %WriteRumble.exit, %1716, %1712, %ReadInput.exit
-  %.058.lcssa210 = phi i32 [ %.058.lcssa209216, %WriteRumble.exit ], [ %.058.lcssa209216, %1716 ], [ %.058.lcssa209216, %1712 ], [ %.058.lcssa, %ReadInput.exit ], [ %.058.lcssa209216, %1690 ], [ %.058.lcssa209216, %1699 ], [ %.058.lcssa209216, %1706 ], [ %.058.lcssa209216, %1710 ], [ 0, %ReadInput.exit.thread ]
-  %.057 = phi i32 [ %.1, %WriteRumble.exit ], [ %.1, %1716 ], [ %.1, %1712 ], [ %.0.i, %ReadInput.exit ], [ %.1, %1690 ], [ %.1, %1699 ], [ %.1, %1706 ], [ %.1, %1710 ], [ 0, %ReadInput.exit.thread ]
+  %.058.lcssa210 = phi i32 [ %.058.lcssa, %ReadInput.exit ], [ %.058.lcssa209216, %WriteRumble.exit ], [ %.058.lcssa209216, %1716 ], [ %.058.lcssa209216, %1712 ], [ %.058.lcssa209216, %1690 ], [ %.058.lcssa209216, %1699 ], [ %.058.lcssa209216, %1706 ], [ %.058.lcssa209216, %1710 ], [ 0, %ReadInput.exit.thread ]
+  %.057 = phi i32 [ %.0.i, %ReadInput.exit ], [ %.1, %WriteRumble.exit ], [ %.1, %1716 ], [ %.1, %1712 ], [ %.1, %1690 ], [ %.1, %1699 ], [ %.1, %1706 ], [ %.1, %1710 ], [ 0, %ReadInput.exit.thread ]
   %1748 = load i32, ptr %25, align 4
   %1749 = icmp eq i32 %1748, 0
   br i1 %1749, label %1750, label %1764
@@ -4731,8 +4731,8 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_RumbleJoystick(ptr noundef reado
   br label %19
 
 19:                                               ; preds = %15, %.fold.split, %18, %12
-  %.025 = phi i16 [ %3, %18 ], [ %3, %12 ], [ 0, %15 ], [ %3, %.fold.split ]
-  %.024 = phi i16 [ 0, %18 ], [ %2, %12 ], [ %2, %15 ], [ %2, %.fold.split ]
+  %.025 = phi i16 [ %3, %12 ], [ %3, %18 ], [ 0, %15 ], [ %3, %.fold.split ]
+  %.024 = phi i16 [ %2, %12 ], [ 0, %18 ], [ %2, %15 ], [ %2, %.fold.split ]
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %21 = load i8, ptr %20, align 8, !range !3, !noundef !4
   %22 = trunc nuw i8 %21 to i1
@@ -4816,7 +4816,7 @@ HIDAPI_DriverSwitch_SendPendingRumble.exit.thread: ; preds = %39, %23, %32, %HID
   br label %66
 
 66:                                               ; preds = %32, %60, %62, %HIDAPI_DriverSwitch_SendPendingRumble.exit, %64, %10
-  %.0 = phi i1 [ %11, %10 ], [ %65, %64 ], [ false, %HIDAPI_DriverSwitch_SendPendingRumble.exit ], [ true, %62 ], [ true, %60 ], [ false, %32 ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %HIDAPI_DriverSwitch_SendPendingRumble.exit ], [ %65, %64 ], [ true, %62 ], [ true, %60 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -4843,7 +4843,7 @@ define internal range(i32 0, 24) i32 @HIDAPI_DriverSwitch_GetJoystickCapabilitie
   br label %12
 
 12:                                               ; preds = %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ %spec.select, %8 ], [ 0, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 3
@@ -5032,7 +5032,7 @@ HasHomeLED.exit:                                  ; preds = %75
   br label %HasHomeLED.exit.thread
 
 HasHomeLED.exit.thread:                           ; preds = %75, %75, %72, %64, %.split, %.split24, %WriteRumble.exit.thread, %56, %HasHomeLED.exit, %11, %48, %WriteRumble.exit, %84
-  %.1 = phi i1 [ %85, %84 ], [ %12, %11 ], [ true, %48 ], [ false, %WriteRumble.exit ], [ true, %56 ], [ true, %HasHomeLED.exit ], [ false, %WriteRumble.exit.thread ], [ %63, %.split ], [ %83, %.split24 ], [ true, %64 ], [ true, %72 ], [ true, %75 ], [ true, %75 ]
+  %.1 = phi i1 [ %85, %84 ], [ false, %WriteRumble.exit ], [ %12, %11 ], [ true, %48 ], [ true, %HasHomeLED.exit ], [ %83, %.split24 ], [ true, %56 ], [ false, %WriteRumble.exit.thread ], [ %63, %.split ], [ true, %64 ], [ true, %72 ], [ true, %75 ], [ true, %75 ]
   ret i1 %.1
 }
 
@@ -5149,7 +5149,7 @@ UpdateEnhancedModeOnApplicationUsage.exit:        ; preds = %3, %12
   br label %GetSensorInputMode.exit.i
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %47, %41, %32, %31, %31
-  %.0.i = phi i8 [ %.val.i, %32 ], [ 48, %31 ], [ 48, %31 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %41 ], [ 48, %47 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
+  %.0.i = phi i8 [ 48, %31 ], [ %.val.i, %32 ], [ 48, %31 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %41 ], [ 48, %47 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i, ptr %5, align 1
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 37
@@ -5342,7 +5342,7 @@ GetMaxWriteAttempts.exit.i:                       ; preds = %30, %26
   br label %CalculateControllerType.exit.i
 
 CalculateControllerType.exit.i:                   ; preds = %49, %45, %.thread.i.i, %37, %35
-  %.2.i = phi i32 [ 0, %35 ], [ 0, %45 ], [ %..i.i, %49 ], [ %spec.select.i.i, %.thread.i.i ], [ %41, %37 ]
+  %.2.i = phi i32 [ 0, %35 ], [ %..i.i, %49 ], [ %41, %37 ], [ 0, %45 ], [ %spec.select.i.i, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ReadJoyConControllerType.exit
 
@@ -5385,7 +5385,7 @@ ReadJoyConControllerType.exit.thread:             ; preds = %53, %62
   br label %.thread
 
 ReadJoyConControllerType.exit:                    ; preds = %CalculateControllerType.exit.i, %55, %.thread.i23.i, %66
-  %.3.i = phi i32 [ %.2.i, %CalculateControllerType.exit.i ], [ %..i22.i, %66 ], [ %spec.select.i24.i, %.thread.i23.i ], [ %58, %55 ]
+  %.3.i = phi i32 [ %.2.i, %CalculateControllerType.exit.i ], [ %..i22.i, %66 ], [ %58, %55 ], [ %spec.select.i24.i, %.thread.i23.i ]
   call void @SDL_free_REAL(ptr noundef nonnull %20) #9
   %70 = add nsw i32 %.3.i, -3
   %or.cond3 = icmp ult i32 %70, -2
@@ -5406,7 +5406,7 @@ switch.lookup:                                    ; preds = %71
   br label %73
 
 73:                                               ; preds = %switch.lookup, %ReadJoyConControllerType.exit, %.thread
-  %.1 = phi i1 [ false, %.thread ], [ true, %ReadJoyConControllerType.exit ], [ %switch.masked, %switch.lookup ]
+  %.1 = phi i1 [ true, %ReadJoyConControllerType.exit ], [ false, %.thread ], [ %switch.masked, %switch.lookup ]
   ret i1 %.1
 }
 
@@ -5464,8 +5464,8 @@ HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit: ; preds = %19, %15, %13
   %spec.select = and i1 %23, %not.
   br label %HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit.thread
 
-HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit.thread: ; preds = %15, %15, %15, %16, %19, %HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit, %10
-  %.0 = phi i1 [ false, %10 ], [ %spec.select, %HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit ], [ false, %19 ], [ false, %16 ], [ false, %15 ], [ false, %15 ], [ false, %15 ]
+HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit.thread: ; preds = %19, %15, %15, %15, %16, %HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit, %10
+  %.0 = phi i1 [ %spec.select, %HIDAPI_DriverNintendoClassic_IsSupportedDevice.exit ], [ false, %10 ], [ false, %16 ], [ false, %15 ], [ false, %15 ], [ false, %15 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -6045,7 +6045,7 @@ default.unreachable7:                             ; preds = %2
   br label %GetSensorInputMode.exit.i
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %31, %25, %16, %15, %15
-  %.0.i = phi i8 [ %.val.i, %16 ], [ 48, %15 ], [ 48, %15 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %25 ], [ 48, %31 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
+  %.0.i = phi i8 [ 48, %15 ], [ %.val.i, %16 ], [ 48, %15 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %25 ], [ 48, %31 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 37
@@ -6218,10 +6218,10 @@ EncodeRumbleLowAmplitude.exit:                    ; preds = %14, %18
   br label %EncodeRumble.exit28
 
 EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmplitude.exit, %27, %24
-  %.sink60 = phi i8 [ 116, %27 ], [ 0, %24 ], [ 0, %EncodeRumbleLowAmplitude.exit ]
-  %.sink58 = phi i8 [ %.06.i, %27 ], [ 1, %24 ], [ 1, %EncodeRumbleLowAmplitude.exit ]
-  %.sink56 = phi i8 [ %31, %27 ], [ 64, %24 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
-  %.sink54 = phi i8 [ %32, %27 ], [ 64, %24 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
+  %.sink60 = phi i8 [ 0, %24 ], [ 116, %27 ], [ 0, %EncodeRumbleLowAmplitude.exit ]
+  %.sink58 = phi i8 [ 1, %24 ], [ %.06.i, %27 ], [ 1, %EncodeRumbleLowAmplitude.exit ]
+  %.sink56 = phi i8 [ 64, %24 ], [ %31, %27 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
+  %.sink54 = phi i8 [ 64, %24 ], [ %32, %27 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
   store i8 %.sink60, ptr %23, align 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 %.sink58, ptr %33, align 1
@@ -6359,7 +6359,7 @@ define internal void @SDL_EnhancedReportsChanged(ptr noundef initializes((48, 52
   br label %GetSensorInputMode.exit.i.i
 
 GetSensorInputMode.exit.i.i:                      ; preds = %.thread15.i.i.i, %21, %20, %20
-  %.0.i.i = phi i8 [ %.val.i.i, %21 ], [ 48, %20 ], [ 48, %20 ], [ %spec.select.i.i.i, %.thread15.i.i.i ]
+  %.0.i.i = phi i8 [ 48, %20 ], [ %.val.i.i, %21 ], [ 48, %20 ], [ %spec.select.i.i.i, %.thread15.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i.i, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 37

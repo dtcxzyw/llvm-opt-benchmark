@@ -339,7 +339,7 @@ check_flag.exit98:                                ; preds = %145
   br label %156
 
 156:                                              ; preds = %check_flag.exit88, %check_flag.exit86, %.thread, %check_flag.exit80, %155
-  %.5 = phi i32 [ %.7, %155 ], [ 1, %check_flag.exit80 ], [ 1, %check_flag.exit86 ], [ 1, %check_flag.exit88 ], [ 1, %.thread ]
+  %.5 = phi i32 [ 1, %check_flag.exit80 ], [ 1, %check_flag.exit86 ], [ %.7, %155 ], [ 1, %.thread ], [ 1, %check_flag.exit88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %157

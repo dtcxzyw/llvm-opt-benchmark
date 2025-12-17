@@ -233,7 +233,7 @@ dtls1_max_record_size.exit81:                     ; preds = %.thread
   br label %113
 
 113:                                              ; preds = %.thread89, %.thread86, %36, %2, %112
-  %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %34, %36 ], [ -1, %.thread86 ], [ %.5.ph, %.thread89 ]
+  %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %.5.ph, %.thread89 ], [ %34, %36 ], [ -1, %.thread86 ]
   call void @CBB_cleanup(ptr noundef nonnull %3) #14
   call void @free(ptr noundef %10) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -593,7 +593,7 @@ dtls1_hm_fragment_free.exit.i:                    ; preds = %152
   %172 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 47) #14
   br label %dtls1_get_buffered_message.exit.thread
 
-dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_fragment_free.exit.i, %171
+dtls1_get_buffered_message.exit.thread:           ; preds = %149, %171, %dtls1_hm_fragment_free.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread125
 
@@ -627,7 +627,7 @@ dtls1_get_buffered_message.exit.thread:           ; preds = %149, %dtls1_hm_frag
   call fastcc void @dtls1_hm_fragment_mark(ptr noundef %.021.i, i64 noundef %110, i64 noundef %115)
   br label %188
 
-.thread125:                                       ; preds = %177, %dtls1_get_buffered_message.exit.thread, %143, %184, %125
+.thread125:                                       ; preds = %177, %143, %dtls1_get_buffered_message.exit.thread, %184, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 0, ptr %6, align 4, !tbaa !75
   br label %287
@@ -830,7 +830,7 @@ dtls1_hm_fragment_free.exit:                      ; preds = %279, %282
   br label %287
 
 287:                                              ; preds = %.loopexit, %.thread125, %dtls1_hm_fragment_free.exit, %275, %38
-  %.0 = phi i64 [ -1, %dtls1_hm_fragment_free.exit ], [ %49, %38 ], [ %278, %275 ], [ %.0.i87.ph, %.loopexit ], [ -1, %.thread125 ]
+  %.0 = phi i64 [ -1, %dtls1_hm_fragment_free.exit ], [ %49, %38 ], [ %.0.i87.ph, %.loopexit ], [ %278, %275 ], [ -1, %.thread125 ]
   ret i64 %.0
 }
 
@@ -869,7 +869,7 @@ define hidden i32 @dtls1_read_failed(ptr noundef %0, i32 noundef %1) local_unnam
   br label %12
 
 12:                                               ; preds = %4, %2, %10, %8
-  %.0 = phi i32 [ %11, %10 ], [ %1, %8 ], [ 1, %2 ], [ %1, %4 ]
+  %.0 = phi i32 [ 1, %2 ], [ %11, %10 ], [ %1, %8 ], [ %1, %4 ]
   ret i32 %.0
 }
 
@@ -1124,7 +1124,7 @@ dtls1_hm_fragment_free.exit:                      ; preds = %20, %14, %10
   br label %.thread
 
 .thread:                                          ; preds = %15, %5, %11, %dtls1_hm_fragment_free.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %dtls1_hm_fragment_free.exit ], [ %calloc29, %11 ], [ %calloc29, %5 ], [ %calloc29, %15 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %dtls1_hm_fragment_free.exit ], [ %calloc29, %5 ], [ %calloc29, %11 ], [ %calloc29, %15 ]
   ret ptr %.0
 }
 

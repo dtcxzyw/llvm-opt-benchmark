@@ -2668,7 +2668,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %20, %.lr.ph
-  %.1 = phi i64 [ %18, %.lr.ph ], [ %spec.select, %20 ]
+  %.1 = phi i64 [ %spec.select, %20 ], [ %18, %.lr.ph ]
   %25 = add nuw nsw i64 %.01539, 1
   %exitcond.not = icmp eq i64 %.01539, %14
   br i1 %exitcond.not, label %._crit_edge, label %26
@@ -2696,8 +2696,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29: ; pre
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %12, %26, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29, %.lr.ph._crit_edge, %30, %9, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
-  %.116 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ 0, %9 ], [ %25, %30 ], [ %25, %26 ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ %smax, %.lr.ph._crit_edge ], [ 0, %12 ]
-  %.114 = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %9 ], [ %.1, %30 ], [ %.1, %.lr.ph._crit_edge ], [ %.1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ %.1, %26 ], [ -1, %12 ]
+  %.116 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ 0, %9 ], [ %smax, %.lr.ph._crit_edge ], [ %25, %30 ], [ %25, %26 ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ 0, %12 ]
+  %.114 = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %9 ], [ %.1, %26 ], [ %.1, %30 ], [ %.1, %.lr.ph._crit_edge ], [ %.1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit29 ], [ -1, %12 ]
   store i64 %.114, ptr %7, align 8, !tbaa !24
   store i64 %.116, ptr %8, align 8, !tbaa !24
   store ptr null, ptr %0, align 8, !tbaa !42, !alias.scope !187

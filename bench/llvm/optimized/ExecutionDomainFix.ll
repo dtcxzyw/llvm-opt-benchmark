@@ -1632,7 +1632,7 @@ _ZN4llvm18ExecutionDomainFix4killEi.exit:         ; preds = %.lr.ph.i.i, %_ZN4ll
   br label %101
 
 101:                                              ; preds = %59, %_ZN4llvm18ExecutionDomainFix4killEi.exit, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %.lr.ph
-  %.4 = phi i32 [ %.3202, %.lr.ph ], [ %.3202, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.3202, %_ZN4llvm18ExecutionDomainFix4killEi.exit ], [ %spec.select, %59 ]
+  %.4 = phi i32 [ %.3202, %.lr.ph ], [ %.3202, %_ZN4llvm18ExecutionDomainFix4killEi.exit ], [ %spec.select, %59 ], [ %.3202, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
   %102 = getelementptr inbounds nuw i8, ptr %.087201, i64 4
   %.not96 = icmp eq ptr %102, %46
   br i1 %.not96, label %.loopexit197, label %.lr.ph

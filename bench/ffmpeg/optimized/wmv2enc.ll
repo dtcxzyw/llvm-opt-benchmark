@@ -102,7 +102,7 @@ encode_ext_header.exit:                           ; preds = %43
   br label %50
 
 50:                                               ; preds = %10, %1, %encode_ext_header.exit
-  %.0 = phi i32 [ 0, %encode_ext_header.exit ], [ %8, %1 ], [ -12, %10 ]
+  %.0 = phi i32 [ %8, %1 ], [ 0, %encode_ext_header.exit ], [ -12, %10 ]
   ret i32 %.0
 }
 

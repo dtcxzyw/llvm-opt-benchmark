@@ -592,7 +592,7 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 28:                                               ; preds = %11, %2, %22, %16
-  %.sink = phi i64 [ 1, %22 ], [ 1, %16 ], [ 0, %2 ], [ 0, %11 ]
+  %.sink = phi i64 [ 1, %22 ], [ 0, %2 ], [ 1, %16 ], [ 0, %11 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -762,7 +762,7 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 28:                                               ; preds = %11, %2, %22, %16
-  %.sink = phi i64 [ 1, %22 ], [ 1, %16 ], [ 0, %2 ], [ 0, %11 ]
+  %.sink = phi i64 [ 1, %22 ], [ 0, %2 ], [ 1, %16 ], [ 0, %11 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -935,8 +935,8 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   br label %28
 
 28:                                               ; preds = %25, %19
-  %.sroa.09.0 = phi i64 [ %27, %25 ], [ %.sroa.09.0.copyload, %19 ]
-  %.sroa.510.0 = phi i32 [ 3, %25 ], [ %21, %19 ]
+  %.sroa.09.0 = phi i64 [ %.sroa.09.0.copyload, %19 ], [ %27, %25 ]
+  %.sroa.510.0 = phi i32 [ %21, %19 ], [ 3, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = icmp eq i32 %.sroa.510.0, 3
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit", label %30

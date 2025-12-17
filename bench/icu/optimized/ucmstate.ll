@@ -253,8 +253,8 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
   br label %102
 
 102:                                              ; preds = %100, %96, %92, %88, %84, %77
-  %.384.i = phi ptr [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %99, %96 ], [ %82, %100 ], [ %.4.i, %77 ]
-  %.0.i = phi i32 [ %85, %84 ], [ %.2.i, %88 ], [ %93, %92 ], [ %97, %96 ], [ %101, %100 ], [ %.1.i, %77 ]
+  %.384.i = phi ptr [ %.4.i, %77 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %99, %96 ], [ %82, %100 ]
+  %.0.i = phi i32 [ %.1.i, %77 ], [ %85, %84 ], [ %.2.i, %88 ], [ %93, %92 ], [ %97, %96 ], [ %101, %100 ]
   %103 = and i32 %.0.i, 15728640
   %104 = icmp eq i32 %103, 4194304
   br i1 %104, label %.thread.i, label %112
@@ -312,8 +312,8 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
   %or.cond.i = select i1 %125, i1 true, i1 %126
   br i1 %or.cond.i, label %_ZL10parseStatePKcPiPj.exit, label %.lr.ph.i, !llvm.loop !18
 
-_ZL10parseStatePKcPiPj.exit.thread:               ; preds = %117, %21, %32
-  %.080.i.ph = phi ptr [ %34, %32 ], [ %23, %21 ], [ %.384104.i, %117 ]
+_ZL10parseStatePKcPiPj.exit.thread:               ; preds = %117, %32, %21
+  %.080.i.ph = phi ptr [ %23, %21 ], [ %34, %32 ], [ %.384104.i, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %127
 
@@ -322,7 +322,7 @@ _ZL10parseStatePKcPiPj.exit.thread14:             ; preds = %117, %37
   br label %130
 
 _ZL10parseStatePKcPiPj.exit:                      ; preds = %52, %59, %72, %119, %40
-  %.080.i = phi ptr [ %41, %40 ], [ %68, %72 ], [ %54, %52 ], [ %54, %59 ], [ %121, %119 ]
+  %.080.i = phi ptr [ %41, %40 ], [ %121, %119 ], [ %54, %52 ], [ %68, %72 ], [ %54, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.080.i, null
   br i1 %.not, label %130, label %127
@@ -639,7 +639,7 @@ define signext range(i8 0, 2) i8 @ucm_parseHeaderLine(ptr noundef %0, ptr nounde
   br label %141
 
 141:                                              ; preds = %128, %54, %64, %69, %59, %18, %.critedge, %138, %126, %103, %85
-  %.087 = phi i8 [ 1, %85 ], [ 1, %103 ], [ 1, %126 ], [ 1, %138 ], [ 1, %.critedge ], [ 0, %18 ], [ 1, %59 ], [ 1, %69 ], [ 1, %64 ], [ 1, %54 ], [ 0, %128 ]
+  %.087 = phi i8 [ 1, %54 ], [ 1, %.critedge ], [ 0, %18 ], [ 1, %85 ], [ 1, %103 ], [ 1, %126 ], [ 1, %138 ], [ 1, %59 ], [ 1, %69 ], [ 1, %64 ], [ 0, %128 ]
   ret i8 %.087
 }
 
@@ -845,7 +845,7 @@ define void @ucm_processStates(ptr noundef captures(none) %0, i8 noundef signext
   br label %.thread
 
 .thread:                                          ; preds = %74, %74, %78, %69
-  %81 = phi i32 [ %.pre, %78 ], [ %53, %69 ], [ %53, %74 ], [ %53, %74 ]
+  %81 = phi i32 [ %53, %69 ], [ %.pre, %78 ], [ %53, %74 ], [ %53, %74 ]
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %.preheader.lr.ph, label %._crit_edge120.thread
 
@@ -2211,9 +2211,9 @@ define internal fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUF
   br label %ucm_findFallback.exit
 
 ucm_findFallback.exit:                            ; preds = %.lr.ph.i, %.loopexit, %46, %34, %17, %25, %26, %31, %30
-  %.144 = phi i32 [ %.04356, %26 ], [ %.04356, %25 ], [ %.04356, %30 ], [ %.04356, %31 ], [ %.04356, %17 ], [ %.04356, %34 ], [ %spec.select53, %46 ], [ %45, %.loopexit ], [ %.04356, %.lr.ph.i ]
-  %.142 = phi i32 [ %29, %26 ], [ %.04157, %25 ], [ %.04157, %30 ], [ %.04157, %31 ], [ %.04157, %17 ], [ %.04157, %34 ], [ %.04157, %46 ], [ %.04157, %.loopexit ], [ %.04157, %.lr.ph.i ]
-  %.1 = phi i8 [ %.058, %26 ], [ %.058, %25 ], [ 1, %30 ], [ 0, %31 ], [ 1, %17 ], [ 1, %34 ], [ %spec.select54, %46 ], [ 0, %.loopexit ], [ 1, %.lr.ph.i ]
+  %.144 = phi i32 [ %.04356, %34 ], [ %.04356, %26 ], [ %.04356, %25 ], [ %.04356, %30 ], [ %.04356, %31 ], [ %spec.select53, %46 ], [ %.04356, %17 ], [ %45, %.loopexit ], [ %.04356, %.lr.ph.i ]
+  %.142 = phi i32 [ %.04157, %34 ], [ %29, %26 ], [ %.04157, %25 ], [ %.04157, %30 ], [ %.04157, %31 ], [ %.04157, %46 ], [ %.04157, %17 ], [ %.04157, %.loopexit ], [ %.04157, %.lr.ph.i ]
+  %.1 = phi i8 [ 1, %34 ], [ %.058, %26 ], [ %.058, %25 ], [ 1, %30 ], [ 0, %31 ], [ %spec.select54, %46 ], [ 1, %17 ], [ 0, %.loopexit ], [ 1, %.lr.ph.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %54, label %13, !llvm.loop !64

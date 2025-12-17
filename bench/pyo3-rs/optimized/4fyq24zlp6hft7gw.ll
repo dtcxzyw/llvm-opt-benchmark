@@ -2499,13 +2499,13 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   unreachable
 
 .body:                                            ; preds = %974, %867, %250, %728, %987
-  %.sroa.067.5 = phi i1 [ false, %987 ], [ true, %250 ], [ %.sroa.067.4, %728 ], [ false, %867 ], [ false, %974 ]
-  %.pn152 = phi { ptr, i32 } [ %.pn149.pn, %987 ], [ %.pn99.i, %250 ], [ %729, %728 ], [ %.pn27.i, %867 ], [ %.pn25.i, %974 ]
+  %.sroa.067.5 = phi i1 [ false, %987 ], [ true, %250 ], [ false, %867 ], [ %.sroa.067.4, %728 ], [ false, %974 ]
+  %.pn152 = phi { ptr, i32 } [ %.pn149.pn, %987 ], [ %.pn99.i, %250 ], [ %.pn27.i, %867 ], [ %729, %728 ], [ %.pn25.i, %974 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %137) #8
           to label %.thread188 unwind label %1052
 
 728:                                              ; preds = %977, %870, %723, %1042
-  %.sroa.067.4 = phi i1 [ false, %1042 ], [ true, %723 ], [ false, %870 ], [ false, %977 ]
+  %.sroa.067.4 = phi i1 [ false, %1042 ], [ false, %870 ], [ false, %977 ], [ true, %723 ]
   %729 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3576,7 +3576,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
           to label %998 unwind label %.loopexit
 
 997:                                              ; preds = %.loopexit, %.loopexit.split-lp, %1036, %1017, %1005
-  %.pn149 = phi { ptr, i32 } [ %1037, %1036 ], [ %.pn147, %1017 ], [ %.pn145, %1005 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn149 = phi { ptr, i32 } [ %.pn145, %1005 ], [ %1037, %1036 ], [ %.pn147, %1017 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %130) #8
           to label %987 unwind label %1052
 
@@ -4371,7 +4371,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
   br label %1223
 
 .invoke:                                          ; preds = %.invoke528, %.critedge, %1153
-  %1226 = phi ptr [ %162, %1153 ], [ %162, %.critedge ], [ %193, %.invoke528 ]
+  %1226 = phi ptr [ %162, %.critedge ], [ %162, %1153 ], [ %193, %.invoke528 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %1226)
           to label %.backedge.backedge unwind label %.thread193.loopexit
 
@@ -4665,12 +4665,12 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182:
           to label %1051 unwind label %1049
 
 .thread:                                          ; preds = %.thread193.loopexit, %.thread193.loopexit.split-lp, %.critedge165, %1223, %.thread196
-  %.pn154187 = phi { ptr, i32 } [ %.pn, %.critedge165 ], [ %.pn124, %1223 ], [ %.pn143, %.thread196 ], [ %lpad.loopexit244, %.thread193.loopexit ], [ %lpad.loopexit.split-lp245, %.thread193.loopexit.split-lp ]
+  %.pn154187 = phi { ptr, i32 } [ %.pn143, %.thread196 ], [ %.pn, %.critedge165 ], [ %.pn124, %1223 ], [ %lpad.loopexit244, %.thread193.loopexit ], [ %lpad.loopexit.split-lp245, %.thread193.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$GT$$GT$17h470cb21fb05da35fE"(ptr nonnull align 8 %195) #8
           to label %.thread188 unwind label %1052
 
 1308:                                             ; preds = %.thread440, %1045
-  %.pn157439 = phi { ptr, i32 } [ %.pn154.pn, %1045 ], [ %1300, %.thread440 ]
+  %.pn157439 = phi { ptr, i32 } [ %1300, %.thread440 ], [ %.pn154.pn, %1045 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %197) #8
           to label %1309 unwind label %1052
 

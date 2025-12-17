@@ -738,7 +738,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 .body165:                                         ; preds = %99
   br i1 %.2108, label %.body165.thread, label %274
 
-.thread:                                          ; preds = %95, %126
+.thread:                                          ; preds = %126, %95
   %lpad.thr_comm259 = landingpad { ptr, i32 }
           cleanup
   br label %.body165.thread
@@ -879,7 +879,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 .body170:                                         ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit184"
   br i1 %.2100, label %.body170.thread, label %99
 
-.thread267:                                       ; preds = %114, %164
+.thread267:                                       ; preds = %164, %114
   %lpad.thr_comm265 = landingpad { ptr, i32 }
           cleanup
   br label %.body170.thread
@@ -1250,7 +1250,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %.thread223 unwind label %195
 
 .thread223:                                       ; preds = %168, %.thread206, %206, %201, %.thread226
-  %.pn133222 = phi { ptr, i32 } [ %212, %.thread226 ], [ %202, %201 ], [ %202, %206 ], [ %lpad.thr_comm.split-lp, %168 ], [ %.pn209, %.thread206 ]
+  %.pn133222 = phi { ptr, i32 } [ %202, %206 ], [ %212, %.thread226 ], [ %202, %201 ], [ %lpad.thr_comm.split-lp, %168 ], [ %.pn209, %.thread206 ]
   %236 = load i64, ptr %13, align 8, !range !4, !alias.scope !273, !noundef !5
   %237 = icmp eq i64 %236, -9223372036854775808
   br i1 %237, label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17hbb7dfb5b74d8ba47E.exit184", label %238
@@ -1377,7 +1377,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   resume { ptr, i32 } %.pn145193
 
 275:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %.body165.thread, %56, %52, %72, %68, %85, %81, %.body189
-  %.pn145.ph = phi { ptr, i32 } [ %.pn143237, %.body165.thread ], [ %eh.lpad-body, %.body ], [ %53, %56 ], [ %53, %52 ], [ %69, %72 ], [ %69, %68 ], [ %82, %85 ], [ %82, %81 ], [ %259, %.body189 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn145.ph = phi { ptr, i32 } [ %.pn143237, %.body165.thread ], [ %eh.lpad-body, %.body ], [ %82, %81 ], [ %53, %52 ], [ %69, %68 ], [ %259, %.body189 ], [ %53, %56 ], [ %69, %72 ], [ %82, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hdb4b828aebcd6f9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #10
           to label %274 unwind label %195
 }
@@ -1459,7 +1459,7 @@ define void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..pa
   unreachable
 
 common.resume:                                    ; preds = %44, %31, %36, %16, %21
-  %common.resume.op = phi { ptr, i32 } [ %17, %21 ], [ %17, %16 ], [ %32, %36 ], [ %32, %31 ], [ %45, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %17, %16 ], [ %17, %21 ], [ %32, %36 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h43ff86d15b39428cE.exit19": ; preds = %26, %22, %.thread23, %37, %41

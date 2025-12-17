@@ -268,9 +268,9 @@ default.unreachable6:                             ; preds = %14
   unreachable
 
 69:                                               ; preds = %57, %42, %41, %31, %29, %15
-  %70 = phi ptr [ null, %57 ], [ null, %42 ], [ null, %31 ], [ null, %29 ], [ %27, %15 ], [ null, %41 ]
-  %71 = phi i64 [ 6, %57 ], [ 5, %42 ], [ 5, %31 ], [ 5, %29 ], [ 5, %15 ], [ 5, %41 ]
-  %72 = phi ptr [ %5, %57 ], [ @text_gen_insn.insn, %42 ], [ @text_gen_insn.insn, %31 ], [ %30, %29 ], [ %28, %15 ], [ @retinsn, %41 ]
+  %70 = phi ptr [ null, %41 ], [ null, %57 ], [ null, %42 ], [ null, %31 ], [ null, %29 ], [ %27, %15 ]
+  %71 = phi i64 [ 5, %41 ], [ 6, %57 ], [ 5, %42 ], [ 5, %31 ], [ 5, %29 ], [ 5, %15 ]
+  %72 = phi ptr [ @retinsn, %41 ], [ %5, %57 ], [ @text_gen_insn.insn, %42 ], [ @text_gen_insn.insn, %31 ], [ %30, %29 ], [ %28, %15 ]
   %73 = call i32 @bcmp(ptr noundef %0, ptr noundef %72, i64 %71)
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %81, label %75
@@ -358,7 +358,7 @@ define dso_local noundef zeroext i1 @__static_call_fixup(ptr noundef %0, i8 noun
   br label %35
 
 35:                                               ; preds = %33, %.thread2.i
-  %36 = phi ptr [ %34, %33 ], [ @__static_call_return, %.thread2.i ]
+  %36 = phi ptr [ @__static_call_return, %.thread2.i ], [ %34, %33 ]
   store i8 15, ptr %4, align 1
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %38 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %37) #8, !srcloc !10

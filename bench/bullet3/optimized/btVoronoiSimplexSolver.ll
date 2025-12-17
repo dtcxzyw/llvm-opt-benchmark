@@ -321,8 +321,8 @@ _ZN25btSubSimplexClosestResult7isValidEv.exit:    ; preds = %7
   br label %.thread.i
 
 .thread.i:                                        ; preds = %39, %62, %67
-  %.sink398 = phi i8 [ 3, %67 ], [ 2, %62 ], [ 1, %39 ]
-  %69 = phi float [ %68, %67 ], [ 1.000000e+00, %62 ], [ 0.000000e+00, %39 ]
+  %.sink398 = phi i8 [ 2, %62 ], [ 3, %67 ], [ 1, %39 ]
+  %69 = phi float [ 1.000000e+00, %62 ], [ %68, %67 ], [ 0.000000e+00, %39 ]
   %70 = or disjoint i8 %12, %.sink398
   store i8 %70, ptr %10, align 4
   %71 = fsub float 1.000000e+00, %69
@@ -406,7 +406,7 @@ _ZN25btSubSimplexClosestResult7isValidEv.exit:    ; preds = %7
   br label %thread-pre-split8.thread.i
 
 thread-pre-split8.thread.i:                       ; preds = %123, %.thread.i
-  %124 = phi i32 [ 0, %123 ], [ 1, %.thread.i ]
+  %124 = phi i32 [ 1, %.thread.i ], [ 0, %123 ]
   %125 = load i8, ptr %10, align 4
   %126 = and i8 %125, 1
   %.not7.i = icmp eq i8 %126, 0

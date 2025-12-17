@@ -1019,13 +1019,13 @@ list_length.exit263:                              ; preds = %.lr.ph315, %97
   br i1 %103, label %.lr.ph315, label %.critedge291
 
 .critedge291:                                     ; preds = %list_length.exit263, %.critedge.thread, %list_length.exit263.lr.ph
-  %.0215448 = phi i32 [ %.0215, %list_length.exit263.lr.ph ], [ 0, %.critedge.thread ], [ %.0215, %list_length.exit263 ]
-  %104 = phi i1 [ %58, %list_length.exit263.lr.ph ], [ false, %.critedge.thread ], [ %58, %list_length.exit263 ]
-  %.0223.lcssa447 = phi i32 [ %.0223303.lcssa, %list_length.exit263.lr.ph ], [ 0, %.critedge.thread ], [ %.0223303.lcssa, %list_length.exit263 ]
-  %105 = phi ptr [ %41, %list_length.exit263.lr.ph ], [ %34, %.critedge.thread ], [ %41, %list_length.exit263 ]
-  %106 = phi ptr [ %45, %list_length.exit263.lr.ph ], [ %35, %.critedge.thread ], [ %45, %list_length.exit263 ]
-  %107 = phi ptr [ %46, %list_length.exit263.lr.ph ], [ %36, %.critedge.thread ], [ %46, %list_length.exit263 ]
-  %.0193.lcssa = phi ptr [ null, %list_length.exit263.lr.ph ], [ null, %.critedge.thread ], [ %.1194, %list_length.exit263 ]
+  %.0215448 = phi i32 [ 0, %.critedge.thread ], [ %.0215, %list_length.exit263.lr.ph ], [ %.0215, %list_length.exit263 ]
+  %104 = phi i1 [ false, %.critedge.thread ], [ %58, %list_length.exit263.lr.ph ], [ %58, %list_length.exit263 ]
+  %.0223.lcssa447 = phi i32 [ 0, %.critedge.thread ], [ %.0223303.lcssa, %list_length.exit263.lr.ph ], [ %.0223303.lcssa, %list_length.exit263 ]
+  %105 = phi ptr [ %34, %.critedge.thread ], [ %41, %list_length.exit263.lr.ph ], [ %41, %list_length.exit263 ]
+  %106 = phi ptr [ %35, %.critedge.thread ], [ %45, %list_length.exit263.lr.ph ], [ %45, %list_length.exit263 ]
+  %107 = phi ptr [ %36, %.critedge.thread ], [ %46, %list_length.exit263.lr.ph ], [ %46, %list_length.exit263 ]
+  %.0193.lcssa = phi ptr [ null, %.critedge.thread ], [ null, %list_length.exit263.lr.ph ], [ %.1194, %list_length.exit263 ]
   %108 = tail call i32 @bms_membership(ptr noundef %.0193.lcssa) #7
   %.not240 = icmp eq i32 %108, 2
   br i1 %.not240, label %110, label %109
@@ -1318,7 +1318,7 @@ select.unfold:                                    ; preds = %227
   br label %.thread278.thread
 
 .thread278.thread:                                ; preds = %.lr.ph343.split, %227, %217, %210, %209, %238
-  %.1204 = phi i32 [ %239, %238 ], [ %.0203348, %209 ], [ %.0203348, %210 ], [ %.0203348, %217 ], [ %.0203348, %227 ], [ %.0203348, %.lr.ph343.split ]
+  %.1204 = phi i32 [ %239, %238 ], [ %.0203348, %217 ], [ %.0203348, %209 ], [ %.0203348, %210 ], [ %.0203348, %227 ], [ %.0203348, %.lr.ph343.split ]
   %240 = add nuw i32 %.3213347, 1
   %241 = load i32, ptr %184, align 8
   %242 = icmp ult i32 %240, %241
@@ -1345,8 +1345,8 @@ select.unfold:                                    ; preds = %227
   br label %252
 
 252:                                              ; preds = %243, %245, %._crit_edge, %134, %.lr.ph483
-  %.1206 = phi i32 [ %.0205355482, %.lr.ph483 ], [ %.0205355482, %134 ], [ %.0205355482, %._crit_edge ], [ %250, %245 ], [ %.0205355482, %243 ]
-  %.1198 = phi i32 [ %.0197356481, %.lr.ph483 ], [ %.0197356481, %134 ], [ %.0197356481, %._crit_edge ], [ %251, %245 ], [ %.0197356481, %243 ]
+  %.1206 = phi i32 [ %.0205355482, %._crit_edge ], [ %.0205355482, %.lr.ph483 ], [ %.0205355482, %134 ], [ %250, %245 ], [ %.0205355482, %243 ]
+  %.1198 = phi i32 [ %.0197356481, %._crit_edge ], [ %.0197356481, %.lr.ph483 ], [ %.0197356481, %134 ], [ %251, %245 ], [ %.0197356481, %243 ]
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411480, 1
   %253 = load i32, ptr %120, align 4
   %254 = sext i32 %253 to i64
@@ -1448,8 +1448,8 @@ dependency_is_fully_matched.exit.loopexit.i:      ; preds = %291, %288
   br label %dependency_is_fully_matched.exit.i
 
 dependency_is_fully_matched.exit.i:               ; preds = %dependency_is_fully_matched.exit.loopexit.i, %285, %281, %275, %.lr.ph.i
-  %296 = phi ptr [ %265, %.lr.ph.i ], [ %265, %275 ], [ %265, %281 ], [ %265, %285 ], [ %.pre.i, %dependency_is_fully_matched.exit.loopexit.i ]
-  %.2.i = phi ptr [ %.128.i, %.lr.ph.i ], [ %.128.i, %275 ], [ %.128.i, %281 ], [ %269, %285 ], [ %.2.ph.i, %dependency_is_fully_matched.exit.loopexit.i ]
+  %296 = phi ptr [ %265, %281 ], [ %265, %.lr.ph.i ], [ %265, %275 ], [ %265, %285 ], [ %.pre.i, %dependency_is_fully_matched.exit.loopexit.i ]
+  %.2.i = phi ptr [ %.128.i, %281 ], [ %.128.i, %.lr.ph.i ], [ %.128.i, %275 ], [ %269, %285 ], [ %.2.ph.i, %dependency_is_fully_matched.exit.loopexit.i ]
   %297 = add nuw i32 %.02329.i, 1
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %299 = load i32, ptr %298, align 8
@@ -1699,7 +1699,7 @@ find_strongest_dependency.exit.thread:            ; preds = %find_strongest_depe
   br label %clauselist_apply_dependencies.exit
 
 clauselist_apply_dependencies.exit:               ; preds = %.preheader.i267, %._crit_edge139.i, %413, %415
-  %.294.i = phi double [ 1.000000e+00, %415 ], [ %411, %413 ], [ 0.000000e+00, %._crit_edge139.i ], [ 1.000000e+00, %.preheader.i267 ]
+  %.294.i = phi double [ %411, %413 ], [ 1.000000e+00, %415 ], [ 0.000000e+00, %._crit_edge139.i ], [ 1.000000e+00, %.preheader.i267 ]
   tail call void @pfree(ptr noundef %334) #7
   tail call void @bms_free(ptr noundef %.0.lcssa.i) #7
   br label %.lr.ph371.preheader
@@ -1828,7 +1828,7 @@ list_length.exit:                                 ; preds = %19
   br i1 %.not74, label %thread-pre-split, label %.critedge
 
 is_opclause.exit.thread.thread:                   ; preds = %is_opclause.exit, %15
-  %.055100102133 = phi ptr [ null, %15 ], [ %.05599, %is_opclause.exit ]
+  %.055100102133 = phi ptr [ %.05599, %is_opclause.exit ], [ null, %15 ]
   %42 = getelementptr inbounds nuw i8, ptr %.055100102133, i64 20
   %43 = load i8, ptr %42, align 4, !range !14, !noundef !15
   %44 = trunc nuw i8 %43 to i1
@@ -1932,7 +1932,7 @@ is_orclause.exit:                                 ; preds = %is_opclause.exit
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %is_orclause.exit, %38, %83, %55
-  %.260.ph = phi ptr [ %.055.val.val.val, %83 ], [ %58, %55 ], [ %.159, %38 ], [ %.05599, %is_orclause.exit ]
+  %.260.ph = phi ptr [ %.05599, %is_orclause.exit ], [ %.055.val.val.val, %83 ], [ %58, %55 ], [ %.159, %38 ]
   %.pr109 = load i32, ptr %.260.ph, align 4
   br label %is_notclause.exit.thread
 
@@ -1976,8 +1976,8 @@ is_notclause.exit.thread:                         ; preds = %is_opclause.exit, %
   store i16 %102, ptr %2, align 2
   br label %.critedge
 
-.critedge:                                        ; preds = %82, %71, %64, %.lr.ph, %45, %19, %.critedge84, %is_opclause.exit.thread.thread, %list_length.exit94, %50, %list_length.exit, %31, %7, %11, %100, %97, %94, %91, %38, %55, %104
-  %.2 = phi i1 [ true, %104 ], [ false, %38 ], [ false, %55 ], [ false, %91 ], [ false, %94 ], [ false, %97 ], [ false, %100 ], [ false, %11 ], [ false, %7 ], [ false, %31 ], [ false, %list_length.exit ], [ false, %50 ], [ false, %list_length.exit94 ], [ false, %is_opclause.exit.thread.thread ], [ false, %.critedge84 ], [ false, %19 ], [ false, %45 ], [ true, %64 ], [ true, %.lr.ph ], [ false, %82 ], [ true, %71 ]
+.critedge:                                        ; preds = %82, %71, %64, %.lr.ph, %45, %19, %.critedge84, %is_opclause.exit.thread.thread, %50, %list_length.exit94, %list_length.exit, %31, %7, %11, %100, %97, %94, %91, %38, %55, %104
+  %.2 = phi i1 [ false, %91 ], [ false, %94 ], [ true, %104 ], [ false, %97 ], [ false, %is_opclause.exit.thread.thread ], [ false, %38 ], [ false, %55 ], [ false, %list_length.exit ], [ false, %100 ], [ false, %7 ], [ false, %50 ], [ false, %19 ], [ false, %11 ], [ false, %31 ], [ false, %list_length.exit94 ], [ false, %.critedge84 ], [ false, %45 ], [ true, %64 ], [ true, %.lr.ph ], [ false, %82 ], [ true, %71 ]
   ret i1 %.2
 }
 
@@ -2065,7 +2065,7 @@ list_length.exit:                                 ; preds = %19
   br i1 %.not104, label %thread-pre-split, label %.critedge
 
 is_opclause.exit.thread.thread:                   ; preds = %is_opclause.exit, %15
-  %.078135137207 = phi ptr [ null, %15 ], [ %.078134, %is_opclause.exit ]
+  %.078135137207 = phi ptr [ %.078134, %is_opclause.exit ], [ null, %15 ]
   %42 = getelementptr inbounds nuw i8, ptr %.078135137207, i64 20
   %43 = load i8, ptr %42, align 4, !range !14, !noundef !15
   %44 = trunc nuw i8 %43 to i1
@@ -2170,7 +2170,7 @@ is_orclause.exit:                                 ; preds = %is_opclause.exit
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %is_orclause.exit, %38, %86, %55
-  %.285.ph = phi ptr [ %.078.val.val.val, %86 ], [ %58, %55 ], [ %.184, %38 ], [ %.078134, %is_orclause.exit ]
+  %.285.ph = phi ptr [ %.078134, %is_orclause.exit ], [ %.078.val.val.val, %86 ], [ %58, %55 ], [ %.184, %38 ]
   %.pr144 = load i32, ptr %.285.ph, align 4
   br label %is_notclause.exit.thread
 
@@ -2251,8 +2251,8 @@ is_notclause.exit.thread:                         ; preds = %is_opclause.exit, %
   store ptr %118, ptr %2, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %83, %71, %.loopexit, %64, %.lr.ph, %94, %.lr.ph176, %45, %19, %.split, %.critedge117, %is_opclause.exit.thread.thread, %list_length.exit129, %50, %list_length.exit, %31, %7, %11, %38, %55
-  %.2 = phi i1 [ false, %38 ], [ false, %55 ], [ false, %11 ], [ false, %7 ], [ false, %31 ], [ false, %list_length.exit ], [ false, %50 ], [ false, %list_length.exit129 ], [ false, %is_opclause.exit.thread.thread ], [ false, %.critedge117 ], [ true, %.split ], [ false, %19 ], [ false, %45 ], [ false, %.lr.ph176 ], [ false, %94 ], [ true, %64 ], [ true, %.lr.ph ], [ false, %.loopexit ], [ %85, %71 ], [ %85, %83 ]
+.critedge:                                        ; preds = %83, %71, %.loopexit, %64, %.lr.ph, %94, %.lr.ph176, %45, %19, %.split, %.critedge117, %is_opclause.exit.thread.thread, %50, %list_length.exit129, %list_length.exit, %31, %7, %11, %38, %55
+  %.2 = phi i1 [ false, %is_opclause.exit.thread.thread ], [ false, %45 ], [ false, %38 ], [ false, %55 ], [ false, %list_length.exit ], [ false, %19 ], [ false, %7 ], [ false, %50 ], [ false, %94 ], [ false, %11 ], [ false, %31 ], [ false, %list_length.exit129 ], [ false, %.critedge117 ], [ true, %.split ], [ false, %.lr.ph176 ], [ true, %.lr.ph ], [ true, %64 ], [ false, %.loopexit ], [ %85, %71 ], [ %85, %83 ]
   ret i1 %.2
 }
 

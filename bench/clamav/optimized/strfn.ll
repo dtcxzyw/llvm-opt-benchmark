@@ -412,8 +412,8 @@ define void @_Z8BinToHexPKhmPcPwm(ptr noundef readonly captures(none) %0, i64 no
   br i1 %57, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %93, %54, %29, %5
-  %.041.lcssa = phi i32 [ 0, %5 ], [ %.142.us, %29 ], [ 0, %54 ], [ %.142, %93 ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %29 ], [ %.1.us64, %54 ], [ %.1, %93 ]
+  %.041.lcssa = phi i32 [ 0, %5 ], [ 0, %54 ], [ %.142.us, %29 ], [ %.142, %93 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us64, %54 ], [ 0, %29 ], [ %.1, %93 ]
   %58 = icmp ne ptr %2, null
   %59 = icmp ne i64 %4, 0
   %or.cond = and i1 %58, %59
@@ -1006,8 +1006,8 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
   br label %14
 
 14:                                               ; preds = %10, %8, %.critedge2.us.us
-  %.233.us.us = phi ptr [ %.13247.us.us, %.critedge2.us.us ], [ %.13247.us.us, %8 ], [ %spec.select, %10 ]
-  %.1.us.us = phi i1 [ true, %.critedge2.us.us ], [ false, %8 ], [ %spec.select89, %10 ]
+  %.233.us.us = phi ptr [ %.13247.us.us, %8 ], [ %spec.select, %10 ], [ %.13247.us.us, %.critedge2.us.us ]
+  %.1.us.us = phi i1 [ false, %8 ], [ %spec.select89, %10 ], [ true, %.critedge2.us.us ]
   %15 = getelementptr inbounds nuw i8, ptr %.233.us.us, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !8
   %.not.us.us = icmp eq i32 %16, 0
@@ -1066,17 +1066,17 @@ define noundef ptr @_Z11GetCmdParamPKwPwm(ptr noundef readonly captures(ret: add
   br label %38
 
 38:                                               ; preds = %26, %28, %33, %35, %31
-  %.233 = phi ptr [ %.13247, %31 ], [ %.13247, %35 ], [ %.13247, %33 ], [ %23, %28 ], [ %23, %26 ]
-  %.2 = phi i64 [ %.02848, %31 ], [ %36, %35 ], [ %.02848, %33 ], [ %29, %28 ], [ %.02848, %26 ]
-  %.1 = phi i1 [ %32, %31 ], [ %.049, %35 ], [ %.049, %33 ], [ %.049, %28 ], [ %.049, %26 ]
+  %.233 = phi ptr [ %.13247, %33 ], [ %.13247, %31 ], [ %.13247, %35 ], [ %23, %26 ], [ %23, %28 ]
+  %.2 = phi i64 [ %.02848, %33 ], [ %.02848, %31 ], [ %36, %35 ], [ %.02848, %26 ], [ %29, %28 ]
+  %.1 = phi i1 [ %.049, %33 ], [ %32, %31 ], [ %.049, %35 ], [ %.049, %26 ], [ %.049, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %.233, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !30
 
 .critedge:                                        ; preds = %38, %20, %20, %14, %8, %8
-  %.132.lcssa = phi ptr [ %.13247.us.us, %8 ], [ %.13247.us.us, %8 ], [ %15, %14 ], [ %.13247, %20 ], [ %.13247, %20 ], [ %39, %38 ]
-  %.028.lcssa = phi i64 [ 0, %8 ], [ 0, %8 ], [ 0, %14 ], [ %.02848, %20 ], [ %.02848, %20 ], [ %.2, %38 ]
+  %.132.lcssa = phi ptr [ %.13247.us.us, %8 ], [ %15, %14 ], [ %.13247.us.us, %8 ], [ %.13247, %20 ], [ %.13247, %20 ], [ %39, %38 ]
+  %.028.lcssa = phi i64 [ 0, %14 ], [ 0, %8 ], [ 0, %8 ], [ %.02848, %20 ], [ %.02848, %20 ], [ %.2, %38 ]
   %.not39 = icmp eq ptr %1, null
   br i1 %.not39, label %.loopexit, label %41
 

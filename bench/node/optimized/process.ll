@@ -440,7 +440,7 @@ if.else38.i:                                      ; preds = %land.rhs.i, %do.bod
   call void @abort() #14
   unreachable
 
-uv__spawn_and_init_child.exit.thread104:          ; preds = %do.body29.i, %land.rhs33.i
+uv__spawn_and_init_child.exit.thread104:          ; preds = %land.rhs33.i, %do.body29.i
   %21 = load i32, ptr %signal_pipe.i, align 8
   %call44.i106 = call i32 @uv__close_nocheckstdio(i32 noundef %21) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %signal_pipe.i)
@@ -639,7 +639,7 @@ return.sink.split:                                ; preds = %for.end130, %for.en
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end6, %for.end130, %for.end80
-  %retval.0 = phi i32 [ %retval.0.i74103, %for.end80 ], [ %err.0, %for.end130 ], [ -12, %if.end6 ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ %retval.0.i74103, %for.end80 ], [ -12, %if.end6 ], [ %err.0, %for.end130 ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1011,8 +1011,8 @@ if.then65:                                        ; preds = %if.end62
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end47, %if.then65, %if.end62
-  %close_fd.0140158 = phi i32 [ -1, %if.then65 ], [ %close_fd.0140, %if.end62 ], [ %fd.1174, %if.end47 ]
-  %fd.3151157 = phi i32 [ %fd.3151, %if.then65 ], [ %fd.3151, %if.end62 ], [ %fd.1174, %if.end47 ]
+  %close_fd.0140158 = phi i32 [ %close_fd.0140, %if.end62 ], [ -1, %if.then65 ], [ %fd.1174, %if.end47 ]
+  %fd.3151157 = phi i32 [ %fd.3151, %if.end62 ], [ %fd.3151, %if.then65 ], [ %fd.1174, %if.end47 ]
   %cmp68.not = icmp slt i32 %close_fd.0140158, %stdio_count
   br i1 %cmp68.not, label %for.inc72, label %if.then69
 

@@ -147,7 +147,7 @@ define internal range(i32 -2147483648, 1) i32 @flashsv2_encode_init(ptr noundef 
   br label %71
 
 71:                                               ; preds = %25, %22, %67, %66, %21, %17, %8
-  %.0 = phi i32 [ -22, %8 ], [ -22, %17 ], [ -22, %21 ], [ %70, %67 ], [ -12, %66 ], [ %23, %22 ], [ %28, %25 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %17 ], [ -22, %21 ], [ -12, %66 ], [ %23, %22 ], [ %70, %67 ], [ %28, %25 ]
   ret i32 %.0
 }
 
@@ -312,8 +312,8 @@ reconfigure_at_keyframe.exit:                     ; preds = %39
   %.not42.i.not = icmp eq i8 %43, 1
   br i1 %.not42.i.not, label %.thread65, label %reconfigure_at_keyframe.exit.thread69
 
-.thread65:                                        ; preds = %25, %20, %34, %44, %generate_default_palette.exit.i, %reconfigure_at_keyframe.exit
-  %.not415863 = phi i1 [ false, %reconfigure_at_keyframe.exit ], [ false, %generate_default_palette.exit.i ], [ false, %44 ], [ false, %34 ], [ true, %20 ], [ true, %25 ]
+.thread65:                                        ; preds = %25, %20, %44, %generate_default_palette.exit.i, %34, %reconfigure_at_keyframe.exit
+  %.not415863 = phi i1 [ false, %reconfigure_at_keyframe.exit ], [ false, %44 ], [ false, %generate_default_palette.exit.i ], [ false, %34 ], [ true, %20 ], [ true, %25 ]
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %88 = load i32, ptr %87, align 8, !tbaa !55
   %.not45 = icmp eq i32 %88, 0
@@ -718,9 +718,9 @@ encode_15_7_sl.exit.i.i.i.i:                      ; preds = %encode_15_7_sl.exit
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit129.i.i.i.i, %.lr.ph.split.us.i.i.i.i, %247
-  %331 = phi i8 [ %221, %.lr.ph.split.us.i.i.i.i ], [ %326, %._crit_edge.loopexit129.i.i.i.i ], [ 0, %247 ]
-  %.042.lcssa.i.i.i.i = phi i32 [ %250, %.lr.ph.split.us.i.i.i.i ], [ %330, %._crit_edge.loopexit129.i.i.i.i ], [ 0, %247 ]
-  %.0.lcssa.i.i.i.i = phi ptr [ %245, %.lr.ph.split.us.i.i.i.i ], [ %327, %._crit_edge.loopexit129.i.i.i.i ], [ %245, %247 ]
+  %331 = phi i8 [ %326, %._crit_edge.loopexit129.i.i.i.i ], [ %221, %.lr.ph.split.us.i.i.i.i ], [ 0, %247 ]
+  %.042.lcssa.i.i.i.i = phi i32 [ %330, %._crit_edge.loopexit129.i.i.i.i ], [ %250, %.lr.ph.split.us.i.i.i.i ], [ 0, %247 ]
+  %.0.lcssa.i.i.i.i = phi ptr [ %327, %._crit_edge.loopexit129.i.i.i.i ], [ %245, %.lr.ph.split.us.i.i.i.i ], [ %245, %247 ]
   %332 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr %.0.lcssa.i.i.i.i, ptr %332, align 8, !tbaa !87
   %333 = getelementptr inbounds nuw i8, ptr %193, i64 49
@@ -1475,7 +1475,7 @@ write_all_blocks.exit.i:                          ; preds = %._crit_edge.i41.i
   br i1 %.not415863, label %write_bitstream.exit.thread, label %762
 
 write_bitstream.exit:                             ; preds = %591, %597, %encode_zlibprime.exit.i.i.i, %.lr.ph.i51.i.i.i, %write_block.exit.i.i, %encode_all_blocks.exit.i, %put_bits.exit26.i.i, %write_header.exit.i, %.preheader.lr.ph.i39.i
-  %.0.i47 = phi i32 [ -1, %encode_all_blocks.exit.i ], [ -1, %put_bits.exit26.i.i ], [ 5, %write_header.exit.i ], [ 5, %.preheader.lr.ph.i39.i ], [ %746, %write_block.exit.i.i ], [ -1, %.lr.ph.i51.i.i.i ], [ -542398533, %597 ], [ -542398533, %591 ], [ -1, %encode_zlibprime.exit.i.i.i ]
+  %.0.i47 = phi i32 [ 5, %.preheader.lr.ph.i39.i ], [ -1, %encode_all_blocks.exit.i ], [ -1, %put_bits.exit26.i.i ], [ 5, %write_header.exit.i ], [ %746, %write_block.exit.i.i ], [ -1, %.lr.ph.i51.i.i.i ], [ -542398533, %597 ], [ -1, %encode_zlibprime.exit.i.i.i ], [ -542398533, %591 ]
   br i1 %.not415863, label %write_bitstream.exit.thread, label %762
 
 762:                                              ; preds = %write_all_blocks.exit.i, %write_block.exit.thread.i.i, %write_bitstream.exit
@@ -1543,7 +1543,7 @@ new_key_frame.exit:                               ; preds = %789, %762
   br label %write_bitstream.exit.thread
 
 write_bitstream.exit.thread:                      ; preds = %614, %write_all_blocks.exit.i, %write_block.exit.thread.i.i, %new_key_frame.exit, %write_bitstream.exit
-  %.0.i4774 = phi i32 [ %.0.i4775, %new_key_frame.exit ], [ %.0.i47, %write_bitstream.exit ], [ -1, %write_block.exit.thread.i.i ], [ %spec.select.i48, %write_all_blocks.exit.i ], [ -542398533, %614 ]
+  %.0.i4774 = phi i32 [ %spec.select.i48, %write_all_blocks.exit.i ], [ %.0.i4775, %new_key_frame.exit ], [ %.0.i47, %write_bitstream.exit ], [ -1, %write_block.exit.thread.i.i ], [ -542398533, %614 ]
   store i32 %.0.i4774, ptr %97, align 8, !tbaa !67
   store i32 1, ptr %3, align 4, !tbaa !56
   br label %reconfigure_at_keyframe.exit.thread69

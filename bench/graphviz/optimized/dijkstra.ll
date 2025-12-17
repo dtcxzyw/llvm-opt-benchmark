@@ -638,7 +638,7 @@ define internal range(i32 -1, 2) i32 @cmpf(ptr noundef readonly captures(address
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %12 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %12 ]
   ret i32 %.0
 }
 

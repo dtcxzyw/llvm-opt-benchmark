@@ -59,7 +59,7 @@ define range(i32 -2, 2) i32 @X509_issuer_and_serial_cmp(ptr noundef %0, ptr noun
   br label %21
 
 21:                                               ; preds = %7, %15, %13, %4
-  %.0 = phi i32 [ %6, %4 ], [ %14, %13 ], [ %20, %15 ], [ -1, %7 ]
+  %.0 = phi i32 [ %6, %4 ], [ %20, %15 ], [ %14, %13 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -335,7 +335,7 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
-  %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %18, %16 ], [ 0, %9 ]
   call void @EVP_MD_free(ptr noundef %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
@@ -501,7 +501,7 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
-  %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %18, %16 ], [ 0, %9 ]
   call void @EVP_MD_free(ptr noundef %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
@@ -582,7 +582,7 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
   br label %42
 
 42:                                               ; preds = %.thread, %25, %37, %35, %29, %2, %20
-  %.021 = phi i32 [ %21, %20 ], [ 0, %2 ], [ -1, %29 ], [ 1, %35 ], [ 0, %.thread ], [ 0, %25 ], [ %41, %37 ]
+  %.021 = phi i32 [ -1, %29 ], [ %21, %20 ], [ 1, %35 ], [ 0, %2 ], [ 0, %.thread ], [ 0, %25 ], [ %41, %37 ]
   ret i32 %.021
 }
 
@@ -698,7 +698,7 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %29, %31, %6, %28, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %28 ], [ %23, %20 ], [ 0, %6 ], [ 1, %31 ], [ 1, %29 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %29 ], [ 0, %6 ], [ 0, %28 ], [ %23, %20 ], [ 1, %31 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -802,7 +802,7 @@ ossl_x509_add_cert_new.exit:                      ; preds = %.lr.ph.split, %25
   br i1 %.not.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %ossl_x509_add_cert_new.exit, %18, %ossl_x509_add_cert_new.exit.us, %11, %3, %ossl_x509_add_cert_new.exit.thread
-  %.2 = phi i32 [ 0, %ossl_x509_add_cert_new.exit.thread ], [ 1, %3 ], [ 0, %ossl_x509_add_cert_new.exit.us ], [ 1, %11 ], [ 0, %ossl_x509_add_cert_new.exit ], [ 1, %18 ]
+  %.2 = phi i32 [ 0, %ossl_x509_add_cert_new.exit.thread ], [ 0, %ossl_x509_add_cert_new.exit.us ], [ 1, %3 ], [ 1, %11 ], [ 0, %ossl_x509_add_cert_new.exit ], [ 1, %18 ]
   ret i32 %.2
 }
 
@@ -992,7 +992,7 @@ define range(i32 0, 2) i32 @ossl_x509_check_private_key(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %5, %10, %8, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %8 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %8 ], [ 0, %7 ], [ %6, %5 ]
   ret i32 %.0
 }
 
@@ -1076,7 +1076,7 @@ X509_get0_pubkey.exit.thread:                     ; preds = %16
   br label %check_suite_b.exit
 
 check_suite_b.exit:                               ; preds = %.thread102, %24, %26, %28, %30, %32, %34, %36
-  %.0.i57 = phi i32 [ 0, %36 ], [ 57, %26 ], [ 57, %24 ], [ 58, %28 ], [ 60, %32 ], [ 60, %34 ], [ 58, %30 ], [ 57, %.thread102 ]
+  %.0.i57 = phi i32 [ 57, %24 ], [ 58, %28 ], [ 0, %36 ], [ 57, %26 ], [ 60, %32 ], [ 58, %30 ], [ 60, %34 ], [ 57, %.thread102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %103
@@ -1133,8 +1133,8 @@ check_suite_b.exit:                               ; preds = %.thread102, %24, %2
   %.not18.i60 = icmp eq i64 %53, 0
   br i1 %.not18.i60, label %check_suite_b.exit63.thread, label %check_suite_b.exit63
 
-check_suite_b.exit63.thread:                      ; preds = %42, %40, %44, %48, %52, %46, %.thread112
-  %.0.i61.ph = phi i32 [ 57, %.thread112 ], [ 58, %46 ], [ 60, %52 ], [ 60, %48 ], [ 58, %44 ], [ 57, %40 ], [ 57, %42 ]
+check_suite_b.exit63.thread:                      ; preds = %40, %44, %.thread112, %42, %48, %46, %52
+  %.0.i61.ph = phi i32 [ 60, %52 ], [ 58, %46 ], [ 60, %48 ], [ 57, %42 ], [ 57, %.thread112 ], [ 58, %44 ], [ 57, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread131
@@ -1218,8 +1218,8 @@ X509_get0_pubkey.exit65:                          ; preds = %59
   %.not18.i68 = icmp eq i64 %78, 0
   br i1 %.not18.i68, label %check_suite_b.exit71.thread, label %79
 
-check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubkey.exit65, %67, %71, %72, %76, %77, %69, %X509_get0_pubkey.exit65.thread
-  %.0.i69.ph = phi i32 [ 57, %X509_get0_pubkey.exit65.thread ], [ 57, %65 ], [ 57, %X509_get0_pubkey.exit65 ], [ 58, %67 ], [ 59, %71 ], [ 60, %72 ], [ 59, %76 ], [ 60, %77 ], [ 58, %69 ]
+check_suite_b.exit71.thread:                      ; preds = %X509_get0_pubkey.exit65, %67, %71, %72, %76, %77, %65, %69, %X509_get0_pubkey.exit65.thread
+  %.0.i69.ph = phi i32 [ 57, %X509_get0_pubkey.exit65.thread ], [ 57, %X509_get0_pubkey.exit65 ], [ 58, %67 ], [ 59, %71 ], [ 60, %72 ], [ 59, %76 ], [ 60, %77 ], [ 57, %65 ], [ 58, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread131
@@ -1279,8 +1279,8 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   %.not18.i74 = icmp eq i64 %94, 0
   br i1 %.not18.i74, label %.thread140, label %95
 
-.thread140:                                       ; preds = %._crit_edge, %85, %89, %90, %92, %93, %87
-  %.0.i75.ph = phi i32 [ 58, %87 ], [ 60, %93 ], [ 59, %92 ], [ 60, %90 ], [ 59, %89 ], [ 58, %85 ], [ 57, %._crit_edge ]
+.thread140:                                       ; preds = %87, %85, %._crit_edge, %89, %90, %92, %93
+  %.0.i75.ph = phi i32 [ 60, %93 ], [ 59, %92 ], [ 60, %90 ], [ 59, %89 ], [ 57, %._crit_edge ], [ 58, %85 ], [ 58, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread131
@@ -1291,9 +1291,9 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   br label %103
 
 .thread131:                                       ; preds = %check_suite_b.exit71.thread, %check_suite_b.exit63.thread, %.thread140
-  %.1138 = phi i32 [ %.2.lcssa, %.thread140 ], [ %.2161, %check_suite_b.exit71.thread ], [ 0, %check_suite_b.exit63.thread ]
-  %.039137 = phi i32 [ %.0.i75.ph, %.thread140 ], [ %.0.i69.ph, %check_suite_b.exit71.thread ], [ %.0.i61.ph, %check_suite_b.exit63.thread ]
-  %.086136 = phi i64 [ %.187.lcssa, %.thread140 ], [ %.187159, %check_suite_b.exit71.thread ], [ %3, %check_suite_b.exit63.thread ]
+  %.1138 = phi i32 [ %.2.lcssa, %.thread140 ], [ 0, %check_suite_b.exit63.thread ], [ %.2161, %check_suite_b.exit71.thread ]
+  %.039137 = phi i32 [ %.0.i75.ph, %.thread140 ], [ %.0.i61.ph, %check_suite_b.exit63.thread ], [ %.0.i69.ph, %check_suite_b.exit71.thread ]
+  %.086136 = phi i64 [ %.187.lcssa, %.thread140 ], [ %3, %check_suite_b.exit63.thread ], [ %.187159, %check_suite_b.exit71.thread ]
   %96 = icmp eq i32 %.039137, 60
   %.not54 = icmp eq i64 %3, %.086136
   %spec.select56 = select i1 %.not54, i32 60, i32 61
@@ -1303,9 +1303,9 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   br label %.thread131.thread
 
 .thread131.thread:                                ; preds = %.lr.ph, %.thread131, %37, %.thread104
-  %.039137193 = phi i1 [ false, %.thread104 ], [ false, %37 ], [ %98, %.thread131 ], [ false, %.lr.ph ]
-  %.1138192 = phi i32 [ 0, %.thread104 ], [ 0, %37 ], [ %.1138, %.thread131 ], [ %.2161, %.lr.ph ]
-  %99 = phi i32 [ 56, %.thread104 ], [ 56, %37 ], [ %spec.select209, %.thread131 ], [ 56, %.lr.ph ]
+  %.039137193 = phi i1 [ %98, %.thread131 ], [ false, %.thread104 ], [ false, %37 ], [ false, %.lr.ph ]
+  %.1138192 = phi i32 [ %.1138, %.thread131 ], [ 0, %.thread104 ], [ 0, %37 ], [ %.2161, %.lr.ph ]
+  %99 = phi i32 [ %spec.select209, %.thread131 ], [ 56, %.thread104 ], [ 56, %37 ], [ 56, %.lr.ph ]
   %.not55 = icmp eq ptr %0, null
   br i1 %.not55, label %103, label %100
 
@@ -1386,7 +1386,7 @@ define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures
   br label %check_suite_b.exit
 
 check_suite_b.exit:                               ; preds = %7, %12, %14, %16, %18, %19, %21, %22, %24
-  %.0.i = phi i32 [ 0, %24 ], [ 57, %12 ], [ 57, %7 ], [ 58, %14 ], [ 59, %18 ], [ 60, %19 ], [ 59, %21 ], [ 60, %22 ], [ 58, %16 ]
+  %.0.i = phi i32 [ 57, %7 ], [ 58, %14 ], [ 0, %24 ], [ 59, %18 ], [ 60, %19 ], [ 59, %21 ], [ 60, %22 ], [ 57, %12 ], [ 58, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
@@ -1439,7 +1439,7 @@ define ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader17, %1, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %1 ], [ %2, %.preheader17 ], [ %2, %8 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %._crit_edge ], [ %2, %.preheader17 ], [ %2, %8 ]
   ret ptr %.0
 }
 

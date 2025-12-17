@@ -96,7 +96,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_start_frame(ptr noundef
   br i1 %38, label %.thread.thread.i, label %41
 
 .thread.thread.i:                                 ; preds = %..thread_crit_edge.i, %33, %30
-  %39 = phi i8 [ 0, %30 ], [ 2, %33 ], [ 0, %..thread_crit_edge.i ]
+  %39 = phi i8 [ 2, %33 ], [ 0, %30 ], [ 0, %..thread_crit_edge.i ]
   br label %41
 
 vaapi_av1_get_bit_depth_idx.exit:                 ; preds = %36
@@ -1331,7 +1331,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
   br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !209
 
 .loopexit:                                        ; preds = %46, %39, %60, %.thread, %15
-  %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ %42, %39 ], [ 0, %46 ]
+  %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ 0, %46 ], [ %42, %39 ]
   ret i32 %.031
 }
 

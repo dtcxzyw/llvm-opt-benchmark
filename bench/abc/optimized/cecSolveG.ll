@@ -2293,7 +2293,7 @@ Abc_Clock.exit69:                                 ; preds = %150, %153
   br label %174
 
 174:                                              ; preds = %27, %Abc_Clock.exit, %Abc_Clock.exit69, %Abc_Clock.exit67, %Abc_Clock.exit65
-  %.0 = phi i32 [ 1, %Abc_Clock.exit65 ], [ 0, %Abc_Clock.exit67 ], [ -1, %Abc_Clock.exit69 ], [ 1, %Abc_Clock.exit ], [ 0, %27 ]
+  %.0 = phi i32 [ -1, %Abc_Clock.exit69 ], [ 1, %Abc_Clock.exit ], [ 1, %Abc_Clock.exit65 ], [ 0, %Abc_Clock.exit67 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

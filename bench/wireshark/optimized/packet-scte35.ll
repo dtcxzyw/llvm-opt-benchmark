@@ -465,7 +465,7 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
   br label %25
 
 25:                                               ; preds = %10, %22, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 5, %22 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 5, %22 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -699,7 +699,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br label %93
 
 93:                                               ; preds = %89, %76
-  %.034.i.ph.us = phi i32 [ 2, %76 ], [ 6, %89 ]
+  %.034.i.ph.us = phi i32 [ 6, %89 ], [ 2, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = add i32 %.034.i.ph.us, %.4148.us
   %95 = add nuw nsw i32 %.0127147.us, 1
@@ -729,7 +729,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !6
 
 dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
-  %.us-phi = phi i32 [ %.4148.us, %74 ], [ %.4148.us, %.lr.ph.split.us ], [ %.4148, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %.4148.us, %.lr.ph.split.us ], [ %.4148.us, %74 ], [ %.4148, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %128
 
@@ -768,7 +768,7 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
   br label %128
 
 128:                                              ; preds = %dissect_component.exit, %14, %118, %107, %58, %57, %49, %37, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3126, %107 ], [ 5, %14 ], [ %127, %118 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.3126, %107 ], [ %.us-phi, %dissect_component.exit ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ 0, %12 ], [ 6, %37 ], [ 5, %14 ], [ %127, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -975,7 +975,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br i1 %exitcond183.not, label %.loopexit165, label %.lr.ph171, !llvm.loop !9
 
 .loopexit165:                                     ; preds = %53, %56, %69, %89, %100, %13, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2150, %89 ], [ %109, %100 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 1, %13 ], [ %.2150, %89 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %109, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

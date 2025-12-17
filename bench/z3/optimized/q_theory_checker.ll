@@ -466,7 +466,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %90
-  %eh.lpad-body = phi { ptr, i32 } [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %91, %90 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %91, %90 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   resume { ptr, i32 } %eh.lpad-body
 
@@ -595,7 +595,7 @@ _Z9is_forallPK3ast.exit:                          ; preds = %52
   br i1 %61, label %65, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread: ; preds = %52, %37, %26, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %48, %_Z9is_forallPK3ast.exit
-  %.048 = phi ptr [ %54, %_Z9is_forallPK3ast.exit ], [ null, %48 ], [ null, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ null, %26 ], [ null, %37 ], [ %54, %52 ]
+  %.048 = phi ptr [ null, %37 ], [ %54, %_Z9is_forallPK3ast.exit ], [ null, %48 ], [ null, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ null, %26 ], [ %54, %52 ]
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @.str.1)
           to label %62 unwind label %63
 

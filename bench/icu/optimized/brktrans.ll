@@ -168,7 +168,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1076,7 +1076,7 @@ _ZN6icu_7712LocalPointerINS_9UVector32EEaSEOS2_.exit70: ; preds = %150
   br label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit: ; preds = %19, %156, %.thread141
-  %.sroa.089.3140 = phi ptr [ %.sroa.089.4, %156 ], [ %.sroa.089.3145, %.thread141 ], [ %.sroa.089.1, %19 ]
+  %.sroa.089.3140 = phi ptr [ %.sroa.089.3145, %.thread141 ], [ %.sroa.089.4, %156 ], [ %.sroa.089.1, %19 ]
   %161 = icmp eq ptr %.sroa.089.3140, null
   br i1 %161, label %_ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit, label %162
 
@@ -1092,7 +1092,7 @@ _ZN6icu_7712LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %_ZN6icu_7712L
   ret void
 
 .body:                                            ; preds = %66, %138, %148, %78, %80, %.loopexit.split-lp, %.loopexit122, %32
-  %.pn58.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %67, %66 ], [ %81, %80 ], [ %79, %78 ], [ %139, %138 ], [ %149, %148 ], [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn58.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %67, %66 ], [ %149, %148 ], [ %79, %78 ], [ %81, %80 ], [ %139, %138 ], [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %166

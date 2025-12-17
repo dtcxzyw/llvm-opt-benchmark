@@ -326,7 +326,7 @@ oidread.exit:                                     ; preds = %57, %.split.loop.ex
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 3
   br i1 %exitcond94.not, label %.loopexit, label %42, !llvm.loop !50
 
-.loopexit68:                                      ; preds = %12, %32, %26, %34, %45
+.loopexit68:                                      ; preds = %12, %26, %34, %32, %45
   tail call void @string_list_clear(ptr noundef %7, i32 noundef 1) #8
   %64 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #8
   br label %.loopexit70

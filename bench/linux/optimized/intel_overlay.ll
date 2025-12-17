@@ -592,7 +592,7 @@ define dso_local i32 @intel_overlay_put_image_ioctl(ptr noundef %0, ptr noundef 
   br label %.thread25
 
 .thread20:                                        ; preds = %152, %143, %80, %76, %161, %140, %134, %128, %103, %73, %65, %63
-  %165 = phi i32 [ -22, %63 ], [ %67, %65 ], [ %74, %73 ], [ %105, %103 ], [ %141, %140 ], [ %162, %161 ], [ -22, %134 ], [ -22, %128 ], [ -22, %76 ], [ -22, %80 ], [ -22, %143 ], [ -22, %152 ]
+  %165 = phi i32 [ -22, %63 ], [ %67, %65 ], [ %74, %73 ], [ -22, %128 ], [ %105, %103 ], [ %141, %140 ], [ -22, %80 ], [ %162, %161 ], [ -22, %134 ], [ -22, %76 ], [ -22, %143 ], [ -22, %152 ]
   tail call void @drm_modeset_unlock_all(ptr noundef %0) #12
   %166 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 -1, ptr nonnull elementtype(i32) %33) #12, !srcloc !24
   %167 = icmp eq i32 %166, 1
@@ -612,7 +612,7 @@ define dso_local i32 @intel_overlay_put_image_ioctl(ptr noundef %0, ptr noundef 
   br label %.thread25
 
 .thread25:                                        ; preds = %168, %170, %.thread17, %171, %164, %20, %18, %12
-  %172 = phi i32 [ 0, %164 ], [ %19, %18 ], [ -19, %12 ], [ -2, %20 ], [ %165, %171 ], [ -2, %.thread17 ], [ %165, %170 ], [ %165, %168 ]
+  %172 = phi i32 [ 0, %164 ], [ %19, %18 ], [ -19, %12 ], [ -2, %20 ], [ %165, %168 ], [ -2, %.thread17 ], [ %165, %171 ], [ %165, %170 ]
   ret i32 %172
 }
 
@@ -914,7 +914,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   br label %126
 
 126:                                              ; preds = %125, %119, %111, %101, %97, %87, %81, %72, %66, %60, %50, %46, %45, %37, %35, %33, %30, %25, %23, %19, %17
-  %127 = phi i32 [ 0, %125 ], [ -22, %19 ], [ -22, %17 ], [ -22, %25 ], [ -22, %23 ], [ -22, %30 ], [ -22, %35 ], [ -22, %37 ], [ -22, %45 ], [ -22, %33 ], [ -22, %46 ], [ -22, %60 ], [ -22, %50 ], [ -22, %66 ], [ -22, %72 ], [ -22, %81 ], [ -22, %87 ], [ -22, %97 ], [ -22, %101 ], [ -22, %119 ], [ -22, %111 ]
+  %127 = phi i32 [ 0, %125 ], [ -22, %19 ], [ -22, %17 ], [ -22, %25 ], [ -22, %23 ], [ -22, %30 ], [ -22, %111 ], [ -22, %35 ], [ -22, %119 ], [ -22, %37 ], [ -22, %45 ], [ -22, %33 ], [ -22, %46 ], [ -22, %60 ], [ -22, %50 ], [ -22, %66 ], [ -22, %72 ], [ -22, %81 ], [ -22, %87 ], [ -22, %97 ], [ -22, %101 ]
   ret i32 %127
 }
 
@@ -1088,7 +1088,7 @@ select.unfold:                                    ; preds = %74, %62
   br label %92
 
 92:                                               ; preds = %88, %.thread30, %.thread32
-  %93 = phi ptr [ %87, %.thread32 ], [ %75, %.thread30 ], [ %spec.select, %88 ]
+  %93 = phi ptr [ %87, %.thread32 ], [ %spec.select, %88 ], [ %75, %.thread30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = icmp ugt ptr %93, inttoptr (i64 -4096 to ptr)
   br i1 %94, label %95, label %98
@@ -2365,7 +2365,7 @@ define dso_local void @intel_overlay_setup(ptr noundef %0) local_unnamed_addr #1
   br label %.thread9
 
 .thread9:                                         ; preds = %47, %81, %83, %84
-  %.in.in = phi ptr [ %78, %84 ], [ %78, %83 ], [ %78, %81 ], [ %48, %47 ]
+  %.in.in = phi ptr [ %78, %81 ], [ %78, %84 ], [ %78, %83 ], [ %48, %47 ]
   %.in = ptrtoint ptr %.in.in to i64
   %85 = and i64 %.in, 4294967295
   %86 = icmp eq i64 %85, 0

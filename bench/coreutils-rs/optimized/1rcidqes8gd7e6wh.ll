@@ -98,7 +98,7 @@ define void @_ZN6uu_yes6uu_app17h4147fdc685093426E(ptr noalias noundef writeonly
   unreachable
 
 common.resume:                                    ; preds = %63, %66, %38, %56, %15
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %15 ], [ %eh.lpad-body23.ph, %63 ], [ %67, %66 ], [ %39, %38 ], [ %57, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %15 ], [ %eh.lpad-body23.ph, %63 ], [ %39, %38 ], [ %67, %66 ], [ %57, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12clap_builder7builder7command7Command5about17h20ca6565659670dfE.exit: ; preds = %21, %25
@@ -389,7 +389,7 @@ define noundef ptr @_ZN6uu_yes4exec17hab79ba36dc20148eE(ptr noalias noundef nonn
   br i1 %26, label %.preheader, label %.loopexit22
 
 .loopexit22:                                      ; preds = %25, %21, %18, %13
-  %.0 = phi ptr [ %17, %13 ], [ null, %18 ], [ %22, %21 ], [ %24, %25 ]
+  %.0 = phi ptr [ %17, %13 ], [ %22, %21 ], [ null, %18 ], [ %24, %25 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)

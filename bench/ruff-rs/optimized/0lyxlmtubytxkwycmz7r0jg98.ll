@@ -1502,7 +1502,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h306691d5952dd84eE.exit: ; preds 
           to label %223 unwind label %53
 
 .invoke:                                          ; preds = %167, %199, %78
-  %222 = phi ptr [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.120, %78 ], [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.123, %199 ], [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.123, %167 ]
+  %222 = phi ptr [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.123, %199 ], [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.120, %78 ], [ @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.123, %167 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.0aaf4eb1f6dd6fdb6683476e991ecc99.102, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %222) #11
           to label %.cont unwind label %53
 

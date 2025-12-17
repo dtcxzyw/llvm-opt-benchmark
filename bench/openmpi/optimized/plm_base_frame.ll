@@ -164,7 +164,7 @@ define internal noundef i32 @local_spawn(ptr noundef %0) #0 {
   br label %53
 
 53:                                               ; preds = %31, %48, %42, %32, %9, %26, %20, %10
-  %.sink = phi i32 [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 5, %9 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
+  %.sink = phi i32 [ 5, %9 ], [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8, !tbaa !39
   tail call void %54(ptr noundef nonnull %0, i32 noundef %.sink) #9
   ret i32 0

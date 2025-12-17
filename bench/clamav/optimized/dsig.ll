@@ -649,8 +649,8 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 71:                                               ; preds = %26, %22, %4, %20, %18
-  %.038 = phi ptr [ null, %20 ], [ null, %18 ], [ null, %4 ], [ null, %22 ], [ %25, %26 ]
-  %.0 = phi i32 [ 6, %20 ], [ 6, %18 ], [ 20, %4 ], [ 6, %22 ], [ 6, %26 ]
+  %.038 = phi ptr [ null, %22 ], [ null, %4 ], [ null, %20 ], [ null, %18 ], [ %25, %26 ]
+  %.0 = phi i32 [ 6, %22 ], [ 20, %4 ], [ 6, %20 ], [ 6, %18 ], [ 6, %26 ]
   call void @free(ptr noundef %.038) #15
   %72 = load ptr, ptr %12, align 8, !tbaa !17
   call void @BN_free(ptr noundef %72) #15
@@ -659,7 +659,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %29, %63, %57, %53, %71, %67
-  %.036 = phi i32 [ %.0, %71 ], [ %70, %67 ], [ 6, %53 ], [ 6, %57 ], [ 20, %63 ], [ 20, %29 ], [ 20, %44 ]
+  %.036 = phi i32 [ %.0, %71 ], [ 6, %53 ], [ %70, %67 ], [ 6, %57 ], [ 20, %63 ], [ 20, %29 ], [ 20, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

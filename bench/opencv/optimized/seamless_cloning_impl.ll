@@ -1438,7 +1438,7 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
   br label %94
 
 94:                                               ; preds = %90, %.lr.ph83, %92
-  %.sink = phi i8 [ %93, %92 ], [ 0, %.lr.ph83 ], [ -1, %90 ]
+  %.sink = phi i8 [ 0, %.lr.ph83 ], [ %93, %92 ], [ -1, %90 ]
   %95 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv103
   store i8 %.sink, ptr %95, align 1, !tbaa !28
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -4288,7 +4288,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !82
   br label %40
 

@@ -87,7 +87,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %28, %25
   br label %36
 
 36:                                               ; preds = %34, %32, %32, %32, %32
-  %.1.i.i = phi ptr [ %35, %34 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ]
+  %.1.i.i = phi ptr [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %35, %34 ]
   %37 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
   br label %32, !llvm.loop !34
 
@@ -180,7 +180,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
   br label %73
 
 73:                                               ; preds = %71, %.preheader, %.preheader, %.preheader, %.preheader
-  %.1.i74.i = phi ptr [ %72, %71 ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ]
+  %.1.i74.i = phi ptr [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %72, %71 ]
   %74 = getelementptr inbounds nuw i8, ptr %.010.i72.i, i64 1
   br label %.preheader, !llvm.loop !34
 

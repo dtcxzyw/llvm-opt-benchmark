@@ -367,8 +367,8 @@ v4l2_probe_driver.exit:                           ; preds = %28, %48
   br i1 %.not57.i, label %v4l2_configure_contexts.exit, label %.sink.split.i30
 
 .sink.split.i30:                                  ; preds = %93, %85, %83, %69
-  %.str.26.sink.i = phi ptr [ @.str.23, %69 ], [ @.str.24, %83 ], [ @.str.25, %85 ], [ @.str.26, %93 ]
-  %.044.ph.i = phi i32 [ %82, %69 ], [ %84, %83 ], [ %86, %85 ], [ %94, %93 ]
+  %.str.26.sink.i = phi ptr [ @.str.25, %85 ], [ @.str.24, %83 ], [ @.str.23, %69 ], [ @.str.26, %93 ]
+  %.044.ph.i = phi i32 [ %86, %85 ], [ %84, %83 ], [ %82, %69 ], [ %94, %93 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %58, i32 noundef 16, ptr noundef nonnull %.str.26.sink.i) #9
   br label %95
 
@@ -460,7 +460,7 @@ define range(i32 -12, 1) i32 @ff_v4l2_m2m_create_context(ptr noundef %0, ptr nou
   br label %20
 
 20:                                               ; preds = %4, %2, %19
-  %.0 = phi i32 [ -12, %19 ], [ -12, %2 ], [ 0, %4 ]
+  %.0 = phi i32 [ -12, %2 ], [ -12, %19 ], [ 0, %4 ]
   ret i32 %.0
 }
 

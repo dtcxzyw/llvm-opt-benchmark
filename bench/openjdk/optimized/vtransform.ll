@@ -205,8 +205,8 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit.i: ; preds = %.loopexit.i
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i25, !llvm.loop !8
 
 _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %.loopexit.i, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.19.6 = phi i32 [ %.0.i.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i.i, %.preheader16.i ], [ %.sroa.19.5, %.loopexit.i ]
-  %.sroa.30.6 = phi ptr [ %43, %.lr.ph19.preheader.i ], [ %43, %.preheader16.i ], [ %.sroa.30.5, %.loopexit.i ]
+  %.sroa.19.6 = phi i32 [ %.0.i.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.19.5, %.loopexit.i ]
+  %.sroa.30.6 = phi ptr [ %43, %.preheader16.i ], [ %43, %.lr.ph19.preheader.i ], [ %.sroa.30.5, %.loopexit.i ]
   %57 = sext i32 %.sroa.0.4 to i64
   %58 = getelementptr inbounds ptr, ptr %.sroa.30.6, i64 %57
   store ptr %25, ptr %58, align 8
@@ -1337,7 +1337,7 @@ _ZN4NodenwEm.exit:                                ; preds = %84, %86
   br label %124
 
 124:                                              ; preds = %_ZN4NodenwEm.exit, %89, %96, %112, %122, %120, %108
-  %.0 = phi ptr [ %105, %96 ], [ %109, %108 ], [ %114, %112 ], [ %121, %120 ], [ %123, %122 ], [ %.0.i.i.i, %89 ], [ null, %_ZN4NodenwEm.exit ]
+  %.0 = phi ptr [ %123, %122 ], [ %105, %96 ], [ %109, %108 ], [ %114, %112 ], [ %121, %120 ], [ %.0.i.i.i, %89 ], [ null, %_ZN4NodenwEm.exit ]
   %125 = load ptr, ptr %1, align 8
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %5, align 8

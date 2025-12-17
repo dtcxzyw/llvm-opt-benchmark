@@ -871,7 +871,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br i1 %trunc1, label %9, label %8
 
 8:                                                ; preds = %7, %5, %9
-  %.sroa.0.0 = phi i1 [ %14, %9 ], [ %6, %5 ], [ false, %7 ]
+  %.sroa.0.0 = phi i1 [ %6, %5 ], [ %14, %9 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %7
@@ -1296,7 +1296,7 @@ define noundef double @_ZN6statrs8function3erf7erf_inv17h20b9dc5998f95140E(doubl
   br label %16
 
 16:                                               ; preds = %5, %3, %1, %9, %12
-  %.sroa.0.0 = phi double [ %15, %12 ], [ %11, %9 ], [ 0.000000e+00, %1 ], [ 0x7FF0000000000000, %3 ], [ 0xFFF0000000000000, %5 ]
+  %.sroa.0.0 = phi double [ %11, %9 ], [ 0.000000e+00, %1 ], [ 0x7FF0000000000000, %3 ], [ %15, %12 ], [ 0xFFF0000000000000, %5 ]
   ret double %.sroa.0.0
 }
 
@@ -1347,7 +1347,7 @@ define noundef double @_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE(doub
   br label %14
 
 14:                                               ; preds = %3, %1, %10, %7
-  %.sroa.0.0 = phi double [ %13, %10 ], [ %9, %7 ], [ 0x7FF0000000000000, %1 ], [ 0xFFF0000000000000, %3 ]
+  %.sroa.0.0 = phi double [ %9, %7 ], [ 0x7FF0000000000000, %1 ], [ %13, %10 ], [ 0xFFF0000000000000, %3 ]
   ret double %.sroa.0.0
 }
 
@@ -1844,7 +1844,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit113: ; preds = 
   br label %common.ret276
 
 common.ret276:                                    ; preds = %233, %232, %234, %246, %243, %236
-  %common.ret276.op = phi double [ %239, %236 ], [ %245, %243 ], [ %248, %246 ], [ %.sroa.0.0, %233 ], [ %235, %234 ], [ %.sroa.0.0, %232 ]
+  %common.ret276.op = phi double [ %248, %246 ], [ %239, %236 ], [ %245, %243 ], [ %.sroa.0.0, %233 ], [ %.sroa.0.0, %232 ], [ %235, %234 ]
   ret double %common.ret276.op
 
 236:                                              ; preds = %6

@@ -734,7 +734,7 @@ define void @_ZN8uu_sleep6uu_app17h55191970cdb48af3E(ptr noalias noundef writeon
   ret void
 
 .body:                                            ; preds = %85, %36, %93, %90
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body19.ph, %90 ], [ %94, %93 ], [ %37, %36 ], [ %86, %85 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body19.ph, %90 ], [ %37, %36 ], [ %94, %93 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn
 
 90:                                               ; preds = %43, %46, %69
@@ -1287,7 +1287,7 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
   br i1 %145, label %.thread.i.i.i, label %common.resume
 
 146:                                              ; preds = %187, %185, %177, %163, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i, %142, %140, %138, %136
-  %.034.i.i.i = phi i8 [ 0, %177 ], [ 1, %140 ], [ 1, %142 ], [ 1, %136 ], [ 1, %138 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ 1, %163 ], [ %.2.i.i.i, %185 ], [ %.2.i.i.i, %187 ]
+  %.034.i.i.i = phi i8 [ %.2.i.i.i, %187 ], [ 0, %177 ], [ 1, %140 ], [ 1, %142 ], [ 1, %163 ], [ 1, %136 ], [ 1, %138 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ %.2.i.i.i, %185 ]
   %147 = landingpad { ptr, i32 }
           cleanup
   br label %144
@@ -1493,7 +1493,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %160
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread"
 
 common.resume:                                    ; preds = %239, %144, %.body.i.i.i, %.thread.i.i.i, %.thread.i.i.i, %196
-  %common.resume.op = phi { ptr, i32 } [ %.pn64.i.i.i, %196 ], [ %.pn64.i.i.i, %.thread.i.i.i ], [ %.pn64.i.i.i, %.thread.i.i.i ], [ %.pn.i.i.i, %144 ], [ %lpad.phi.i, %.body.i.i.i ], [ %240, %239 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.body.i.i.i ], [ %.pn64.i.i.i, %196 ], [ %.pn64.i.i.i, %.thread.i.i.i ], [ %.pn64.i.i.i, %.thread.i.i.i ], [ %.pn.i.i.i, %144 ], [ %240, %239 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i.i.i:                                    ; preds = %158, %144

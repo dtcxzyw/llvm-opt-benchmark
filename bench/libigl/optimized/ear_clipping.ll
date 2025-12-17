@@ -389,9 +389,9 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader190:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc265, %66 ]
-  %.sroa.0128.2177263 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
+  %.sroa.0142.2162168176264 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc265, %66 ]
+  %.sroa.0128.2177263 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc, %66 ]
+  %48 = phi i1 [ false, %.thread ], [ false, %._crit_edge.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
   %51 = sdiv i64 %10, 4
@@ -410,8 +410,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br label %73
 
 62:                                               ; preds = %228, %46, %43
-  %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177263, %228 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176264, %228 ], [ %calloc265, %46 ], [ null, %43 ]
+  %.sroa.0128.0 = phi ptr [ null, %46 ], [ %.sroa.0128.2177263, %228 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %calloc265, %46 ], [ %.sroa.0142.2162168176264, %228 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %243
@@ -988,9 +988,9 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   unreachable
 
 .preheader190:                                    ; preds = %66, %.thread, %._crit_edge.thread
-  %.sroa.0142.2162168176264 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc265, %66 ]
-  %.sroa.0128.2177263 = phi ptr [ null, %._crit_edge.thread ], [ null, %.thread ], [ %calloc, %66 ]
-  %48 = phi i1 [ false, %._crit_edge.thread ], [ false, %.thread ], [ true, %66 ]
+  %.sroa.0142.2162168176264 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc265, %66 ]
+  %.sroa.0128.2177263 = phi ptr [ null, %.thread ], [ null, %._crit_edge.thread ], [ %calloc, %66 ]
+  %48 = phi i1 [ false, %.thread ], [ false, %._crit_edge.thread ], [ true, %66 ]
   %49 = sdiv i64 %10, 8
   %50 = shl nsw i64 %49, 3
   %51 = sdiv i64 %10, 4
@@ -1009,8 +1009,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i86: ; preds = %_ZN
   br label %73
 
 62:                                               ; preds = %228, %46, %43
-  %.sroa.0128.0 = phi ptr [ %.sroa.0128.2177263, %228 ], [ null, %46 ], [ null, %43 ]
-  %.sroa.0142.0 = phi ptr [ %.sroa.0142.2162168176264, %228 ], [ %calloc265, %46 ], [ null, %43 ]
+  %.sroa.0128.0 = phi ptr [ null, %46 ], [ %.sroa.0128.2177263, %228 ], [ null, %43 ]
+  %.sroa.0142.0 = phi ptr [ %calloc265, %46 ], [ %.sroa.0142.2162168176264, %228 ], [ null, %43 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %243

@@ -75,7 +75,7 @@ define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %14, %18, %19
-  %23 = phi i1 [ false, %18 ], [ %22, %19 ], [ %17, %14 ]
+  %23 = phi i1 [ %17, %14 ], [ false, %18 ], [ %22, %19 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !19
@@ -150,7 +150,7 @@ define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, pt
   br label %60
 
 60:                                               ; preds = %31, %8, %5, %3, %.loopexit
-  %.049 = phi i32 [ %59, %.loopexit ], [ 33, %3 ], [ 6, %5 ], [ 0, %8 ], [ 0, %31 ]
+  %.049 = phi i32 [ 6, %5 ], [ %59, %.loopexit ], [ 0, %8 ], [ 33, %3 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.049
 }
@@ -739,7 +739,7 @@ thread-pre-split:                                 ; preds = %121, %110, %96, %91
   br label %285
 
 285:                                              ; preds = %ft_bitmap_assure_buffer.exit, %23, %.critedge, %22, %14, %11, %7, %8, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 33, %4 ], [ 6, %8 ], [ 6, %7 ], [ 6, %11 ], [ 0, %14 ], [ 6, %22 ], [ %27, %.critedge ], [ 0, %23 ], [ %.0.i133, %ft_bitmap_assure_buffer.exit ]
+  %.0 = phi i32 [ 6, %7 ], [ 6, %11 ], [ 0, %14 ], [ 0, %23 ], [ 0, %._crit_edge ], [ %.0.i133, %ft_bitmap_assure_buffer.exit ], [ %27, %.critedge ], [ 33, %4 ], [ 6, %8 ], [ 6, %22 ]
   ret i32 %.0
 }
 
@@ -1248,7 +1248,7 @@ ft_gray_for_premultiplied_srgb_bgra.exit:         ; preds = %.lr.ph, %217
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %6, %4, %.loopexit238
-  %.0177 = phi i32 [ %244, %.loopexit238 ], [ 33, %4 ], [ 6, %6 ], [ %45, %41 ]
+  %.0177 = phi i32 [ %244, %.loopexit238 ], [ %45, %41 ], [ 33, %4 ], [ 6, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0177
 }
@@ -1336,7 +1336,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   br i1 %33, label %.thread284, label %.thread283
 
 .thread283:                                       ; preds = %.thread, %28
-  %34 = phi ptr [ %22, %28 ], [ %25, %.thread ]
+  %34 = phi ptr [ %25, %.thread ], [ %22, %28 ]
   %35 = load i32, ptr %.0212.sroa.gep243, align 4, !tbaa !29
   %.not265 = icmp eq i32 %35, 0
   br i1 %.not265, label %.thread284, label %36
@@ -1726,7 +1726,7 @@ FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit
   br label %.thread284
 
 .thread284:                                       ; preds = %115, %.thread, %106, %98, %77, %67, %62, %50, %38, %.thread283, %36, %28, %21, %18, %14, %7, %.thread293
-  %.0 = phi i32 [ %258, %.thread293 ], [ 6, %7 ], [ 6, %14 ], [ 6, %18 ], [ 0, %21 ], [ 6, %28 ], [ 0, %36 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 6, %67 ], [ 0, %77 ], [ 6, %98 ], [ %111, %106 ], [ 0, %.thread ], [ 6, %115 ]
+  %.0 = phi i32 [ 6, %18 ], [ 0, %21 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 0, %77 ], [ 6, %98 ], [ %258, %.thread293 ], [ 0, %.thread ], [ 6, %67 ], [ 6, %28 ], [ 6, %7 ], [ 6, %14 ], [ 0, %36 ], [ %111, %106 ], [ 6, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -1779,7 +1779,7 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
   br label %21
 
 21:                                               ; preds = %.sink.split, %1, %3, %7
-  %.1 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %1 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 0, %7 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
 

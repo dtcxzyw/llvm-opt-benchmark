@@ -132,7 +132,7 @@ _ZN4llvm18get_physical_coresEv.exit:              ; preds = %13, %16, %18
   br label %30
 
 30:                                               ; preds = %25, %21, %29
-  %.0 = phi i32 [ %.sroa.speculated, %29 ], [ %spec.store.select, %21 ], [ %23, %25 ]
+  %.0 = phi i32 [ %spec.store.select, %21 ], [ %.sroa.speculated, %29 ], [ %23, %25 ]
   ret i32 %.0
 }
 
@@ -822,10 +822,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit69.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit59, %_ZN4llvmeqENS_9StringRefES0_.exit49, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef5splitEc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread, %166, %162, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread, %_ZN4llvmeqENS_9StringRefES0_.exit69, %153, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.1107 = phi i32 [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.2108, %153 ], [ %.2108, %166 ], [ %.2108, %162 ], [ %.2108, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0106130, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
-  %.1104 = phi i32 [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.2105, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.0103132, %153 ], [ %.0103132, %166 ], [ %.0103132, %162 ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0103132, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
-  %.1101 = phi i32 [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.2102, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.0100133, %153 ], [ %.0100133, %166 ], [ %.0100133, %162 ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0100133, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
-  %.1 = phi i32 [ %.299, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.098134, %153 ], [ %.098134, %166 ], [ %.098134, %162 ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.098134, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
+  %.1107 = phi i32 [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.2108, %153 ], [ %.2108, %166 ], [ %.2108, %162 ], [ %.2108, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0106130, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0106130, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
+  %.1104 = phi i32 [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.2105, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.0103132, %153 ], [ %.0103132, %166 ], [ %.0103132, %162 ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0103132, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0103132, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
+  %.1101 = phi i32 [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.2102, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.0100133, %153 ], [ %.0100133, %166 ], [ %.0100133, %162 ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.0100133, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.0100133, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
+  %.1 = phi i32 [ %.299, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit49.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit59.thread ], [ %.098134, %153 ], [ %.098134, %166 ], [ %.098134, %162 ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit69.thread ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit69 ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.098134, %_ZNK4llvm9StringRef5splitEc.exit ], [ %.098134, %_ZN4llvmeqENS_9StringRefES0_.exit59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %174 = getelementptr inbounds nuw i8, ptr %.025135, i64 16
@@ -899,8 +899,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %3
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %10, %3, %9, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sroa.016.0 = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ undef, %9 ], [ %2, %3 ], [ %spec.select, %10 ]
-  %.sroa.517.0 = phi i8 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %9 ], [ 1, %3 ], [ 1, %10 ]
+  %.sroa.016.0 = phi i64 [ %2, %3 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %spec.select, %10 ], [ undef, %9 ]
+  %.sroa.517.0 = phi i8 [ 1, %3 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 1, %10 ], [ 0, %9 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.016.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.517.0, 1
   ret { i64, i8 } %.fca.1.insert

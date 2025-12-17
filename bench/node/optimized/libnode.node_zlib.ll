@@ -4207,7 +4207,7 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
+  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.end.i.i ], [ null, %entry ]
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 88
   %10 = load ptr, ptr %isolate_.i.i, align 8
   %call6.i = tail call ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef %10, ptr noundef nonnull @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr null, i32 noundef 1, i32 noundef 0, ptr noundef null) #22
@@ -4347,7 +4347,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i37 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i37, align 8
   %cmp2.i38 = icmp slt i32 %12, 1
@@ -6301,9 +6301,9 @@ if.end24.i.i17.i:                                 ; preds = %if.then10.i
   br label %if.then59
 
 if.then59:                                        ; preds = %if.then10.i, %if.then5.i.i15.i, %if.then8.i.i14.i, %if.then11.i.i13.i, %if.then14.i.i12.i, %if.then17.i.i11.i, %if.then23.i.i6.i, %if.end24.i.i17.i, %if.then.i19, %if.then5.i.i.i, %if.then8.i.i.i, %if.then11.i.i.i, %if.then14.i.i.i, %if.then17.i.i.i, %if.then20.i.i.i, %if.then23.i.i.i, %if.end24.i.i.i
-  %spec.select.i.i.sink = phi ptr [ %spec.select.i.i, %if.end24.i.i.i ], [ %spec.select.i.i, %if.then23.i.i.i ], [ %spec.select.i.i, %if.then20.i.i.i ], [ %spec.select.i.i, %if.then17.i.i.i ], [ %spec.select.i.i, %if.then14.i.i.i ], [ %spec.select.i.i, %if.then11.i.i.i ], [ %spec.select.i.i, %if.then8.i.i.i ], [ %spec.select.i.i, %if.then5.i.i.i ], [ %spec.select.i.i, %if.then.i19 ], [ %spec.select.i5.i, %if.end24.i.i17.i ], [ %spec.select.i5.i, %if.then23.i.i6.i ], [ %spec.select.i5.i, %if.then17.i.i11.i ], [ %spec.select.i5.i, %if.then14.i.i12.i ], [ %spec.select.i5.i, %if.then11.i.i13.i ], [ %spec.select.i5.i, %if.then8.i.i14.i ], [ %spec.select.i5.i, %if.then5.i.i15.i ], [ %spec.select.i5.i, %if.then10.i ]
-  %retval.0.i.i.i.sink = phi ptr [ @.str.174, %if.end24.i.i.i ], [ @.str.14, %if.then23.i.i.i ], [ @.str.13, %if.then20.i.i.i ], [ @.str.12, %if.then17.i.i.i ], [ @.str.11, %if.then14.i.i.i ], [ @.str.10, %if.then11.i.i.i ], [ @.str.9, %if.then8.i.i.i ], [ @.str.8, %if.then5.i.i.i ], [ @.str.7, %if.then.i19 ], [ @.str.174, %if.end24.i.i17.i ], [ @.str.14, %if.then23.i.i6.i ], [ @.str.12, %if.then17.i.i11.i ], [ @.str.11, %if.then14.i.i12.i ], [ @.str.10, %if.then11.i.i13.i ], [ @.str.9, %if.then8.i.i14.i ], [ @.str.8, %if.then5.i.i15.i ], [ @.str.7, %if.then10.i ]
-  %.sink = phi i32 [ %26, %if.end24.i.i.i ], [ %26, %if.then23.i.i.i ], [ %26, %if.then20.i.i.i ], [ %26, %if.then17.i.i.i ], [ %26, %if.then14.i.i.i ], [ %26, %if.then11.i.i.i ], [ %26, %if.then8.i.i.i ], [ %26, %if.then5.i.i.i ], [ %26, %if.then.i19 ], [ %call3.i, %if.end24.i.i17.i ], [ %call3.i, %if.then23.i.i6.i ], [ %call3.i, %if.then17.i.i11.i ], [ %call3.i, %if.then14.i.i12.i ], [ %call3.i, %if.then11.i.i13.i ], [ %call3.i, %if.then8.i.i14.i ], [ %call3.i, %if.then5.i.i15.i ], [ %call3.i, %if.then10.i ]
+  %spec.select.i.i.sink = phi ptr [ %spec.select.i.i, %if.then.i19 ], [ %spec.select.i.i, %if.end24.i.i.i ], [ %spec.select.i.i, %if.then23.i.i.i ], [ %spec.select.i.i, %if.then20.i.i.i ], [ %spec.select.i.i, %if.then17.i.i.i ], [ %spec.select.i.i, %if.then14.i.i.i ], [ %spec.select.i.i, %if.then11.i.i.i ], [ %spec.select.i.i, %if.then8.i.i.i ], [ %spec.select.i.i, %if.then5.i.i.i ], [ %spec.select.i5.i, %if.end24.i.i17.i ], [ %spec.select.i5.i, %if.then23.i.i6.i ], [ %spec.select.i5.i, %if.then17.i.i11.i ], [ %spec.select.i5.i, %if.then14.i.i12.i ], [ %spec.select.i5.i, %if.then11.i.i13.i ], [ %spec.select.i5.i, %if.then8.i.i14.i ], [ %spec.select.i5.i, %if.then5.i.i15.i ], [ %spec.select.i5.i, %if.then10.i ]
+  %retval.0.i.i.i.sink = phi ptr [ @.str.7, %if.then.i19 ], [ @.str.174, %if.end24.i.i.i ], [ @.str.14, %if.then23.i.i.i ], [ @.str.13, %if.then20.i.i.i ], [ @.str.12, %if.then17.i.i.i ], [ @.str.11, %if.then14.i.i.i ], [ @.str.10, %if.then11.i.i.i ], [ @.str.9, %if.then8.i.i.i ], [ @.str.8, %if.then5.i.i.i ], [ @.str.174, %if.end24.i.i17.i ], [ @.str.14, %if.then23.i.i6.i ], [ @.str.12, %if.then17.i.i11.i ], [ @.str.11, %if.then14.i.i12.i ], [ @.str.10, %if.then11.i.i13.i ], [ @.str.9, %if.then8.i.i14.i ], [ @.str.8, %if.then5.i.i15.i ], [ @.str.7, %if.then10.i ]
+  %.sink = phi i32 [ %26, %if.then.i19 ], [ %26, %if.end24.i.i.i ], [ %26, %if.then23.i.i.i ], [ %26, %if.then20.i.i.i ], [ %26, %if.then17.i.i.i ], [ %26, %if.then14.i.i.i ], [ %26, %if.then11.i.i.i ], [ %26, %if.then8.i.i.i ], [ %26, %if.then5.i.i.i ], [ %call3.i, %if.end24.i.i17.i ], [ %call3.i, %if.then23.i.i6.i ], [ %call3.i, %if.then17.i.i11.i ], [ %call3.i, %if.then14.i.i12.i ], [ %call3.i, %if.then11.i.i13.i ], [ %call3.i, %if.then8.i.i14.i ], [ %call3.i, %if.then5.i.i15.i ], [ %call3.i, %if.then10.i ]
   store ptr %spec.select.i.i.sink, ptr %err, align 8, !alias.scope !6
   %code3.i.i.i = getelementptr inbounds nuw i8, ptr %err, i64 8
   store ptr %retval.0.i.i.i.sink, ptr %code3.i.i.i, align 8, !alias.scope !6
@@ -7819,7 +7819,7 @@ _ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8129,7 +8129,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23, ptr noundef %24, ptr noundef %edge_name) #22
   br label %cleanup
 
-if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
+if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
@@ -8319,7 +8319,7 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
   %11 = load ptr, ptr %second, align 8
   br label %return
 
-if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
+if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
   %call9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   tail call void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryTrackerEPKNS_14MemoryRetainerE(ptr noundef nonnull align 8 dereferenceable(49) %call9, ptr noundef nonnull %this, ptr noundef %retainer)
   %graph_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8804,8 +8804,8 @@ sw.bb8.i:                                         ; preds = %if.end.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i
-  %10 = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
-  store i32 %10, ptr %err_7, align 4, !noalias !48
+  %storemerge.i = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
+  store i32 %storemerge.i, ptr %err_7, align 4, !noalias !48
   br label %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit
 
 _ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit: ; preds = %sw.epilog.i, %if.end.i, %if.end10
@@ -8882,42 +8882,42 @@ sw.bb5:                                           ; preds = %if.end, %if.end, %i
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb5, %sw.bb
-  %5 = phi i32 [ %call7, %sw.bb5 ], [ %call3, %sw.bb ]
-  store i32 %5, ptr %err_, align 4
-  %cmp10.not = icmp eq i32 %5, 0
+  %storemerge = phi i32 [ %call7, %sw.bb5 ], [ %call3, %sw.bb ]
+  store i32 %storemerge, ptr %err_, align 4
+  %cmp10.not = icmp eq i32 %storemerge, 0
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %sw.epilog
-  %6 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %this.val3 = load ptr, ptr %6, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %this.val3 = load ptr, ptr %5, align 8
   %cmp.not.i4 = icmp eq ptr %this.val3, null
   %spec.select.i5 = select i1 %cmp.not.i4, ptr @.str.179, ptr %this.val3
-  %switch.tableidx25 = add i32 %5, 6
-  %7 = icmp ult i32 %switch.tableidx25, 9
-  br i1 %7, label %switch.lookup26, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
+  %switch.tableidx23 = add i32 %storemerge, 6
+  %6 = icmp ult i32 %switch.tableidx23, 9
+  br i1 %6, label %switch.lookup24, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-switch.lookup26:                                  ; preds = %if.then11
-  %8 = zext nneg i32 %switch.tableidx25 to i64
-  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %8
-  %switch.load28 = load ptr, ptr %switch.gep27, align 8
+switch.lookup24:                                  ; preds = %if.then11
+  %7 = zext nneg i32 %switch.tableidx23 to i64
+  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %7
+  %switch.load26 = load ptr, ptr %switch.gep25, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup26
-  %retval.0.i.i7 = phi ptr [ %switch.load28, %switch.lookup26 ], [ @.str.174, %if.then11 ]
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup24
+  %retval.0.i.i7 = phi ptr [ %switch.load26, %switch.lookup24 ], [ @.str.174, %if.then11 ]
   store ptr %spec.select.i5, ptr %agg.result, align 8, !alias.scope !54
   %code3.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i.i7, ptr %code3.i.i8, align 8, !alias.scope !54
   %err4.i.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i32 %5, ptr %err4.i.i9, align 8, !alias.scope !54
+  store i32 %storemerge, ptr %err4.i.i9, align 8, !alias.scope !54
   br label %return
 
 if.end12:                                         ; preds = %if.end, %sw.epilog
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %dictionary_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %9 = load ptr, ptr %dictionary_.i, align 8, !noalias !57
+  %8 = load ptr, ptr %dictionary_.i, align 8, !noalias !57
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !57
-  %cmp.i.i.i = icmp eq ptr %9, %10
+  %9 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !57
+  %cmp.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end12
@@ -8926,8 +8926,8 @@ if.then.i:                                        ; preds = %if.end12
 
 if.end.i:                                         ; preds = %if.end12
   store i32 0, ptr %err_, align 4, !noalias !57
-  %11 = load i32, ptr %mode_, align 4, !noalias !57
-  switch i32 %11, label %if.end19.i [
+  %10 = load i32, ptr %mode_, align 4, !noalias !57
+  switch i32 %10, label %if.end19.i [
     i32 1, label %sw.bb.i
     i32 5, label %sw.bb.i
     i32 6, label %sw.bb8.i
@@ -8935,50 +8935,50 @@ if.end.i:                                         ; preds = %if.end12
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
   %strm_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %call6.i = tail call i32 @deflateSetDictionary(ptr noundef nonnull %strm_.i, ptr noundef %9, i32 noundef %conv.i) #22, !noalias !57
+  %call6.i = tail call i32 @deflateSetDictionary(ptr noundef nonnull %strm_.i, ptr noundef %8, i32 noundef %conv.i) #22, !noalias !57
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.end.i
   %strm_9.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %9 to i64
+  %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i4.i
   %conv14.i = trunc i64 %sub.ptr.sub.i5.i to i32
-  %call15.i = tail call i32 @inflateSetDictionary(ptr noundef nonnull %strm_9.i, ptr noundef %9, i32 noundef %conv14.i) #22, !noalias !57
+  %call15.i = tail call i32 @inflateSetDictionary(ptr noundef nonnull %strm_9.i, ptr noundef %8, i32 noundef %conv14.i) #22, !noalias !57
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i
-  %12 = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
-  store i32 %12, ptr %err_, align 4, !noalias !57
-  %cmp.not.i19 = icmp eq i32 %12, 0
+  %storemerge.i = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
+  store i32 %storemerge.i, ptr %err_, align 4, !noalias !57
+  %cmp.not.i19 = icmp eq i32 %storemerge.i, 0
   br i1 %cmp.not.i19, label %if.end19.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %sw.epilog.i
-  %13 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %this.val1.i = load ptr, ptr %13, align 8, !noalias !57
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %this.val1.i = load ptr, ptr %11, align 8, !noalias !57
   %cmp.not.i.i = icmp eq ptr %this.val1.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.173, ptr %this.val1.i
-  %switch.tableidx29 = add i32 %12, 6
-  %14 = icmp ult i32 %switch.tableidx29, 9
-  br i1 %14, label %switch.lookup30, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+  %switch.tableidx27 = add i32 %storemerge.i, 6
+  %12 = icmp ult i32 %switch.tableidx27, 9
+  br i1 %12, label %switch.lookup28, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
-switch.lookup30:                                  ; preds = %if.then18.i
-  %15 = zext nneg i32 %switch.tableidx29 to i64
-  %switch.gep31 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %15
-  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+switch.lookup28:                                  ; preds = %if.then18.i
+  %13 = zext nneg i32 %switch.tableidx27 to i64
+  %switch.gep29 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 %13
+  %switch.load30 = load ptr, ptr %switch.gep29, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup30
-  %retval.0.i.i.i = phi ptr [ %switch.load32, %switch.lookup30 ], [ @.str.174, %if.then18.i ]
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup28
+  %retval.0.i.i.i = phi ptr [ %switch.load30, %switch.lookup28 ], [ @.str.174, %if.then18.i ]
   store ptr %spec.select.i.i, ptr %agg.result, align 8, !alias.scope !60
   %code3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !60
   %err4.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i32 %12, ptr %err4.i.i.i, align 8, !alias.scope !60
+  store i32 %storemerge.i, ptr %err4.i.i.i, align 8, !alias.scope !60
   br label %return
 
 if.end19.i:                                       ; preds = %sw.epilog.i, %if.end.i
@@ -9824,7 +9824,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i37 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i37, align 8
   %cmp2.i38 = icmp slt i32 %12, 1
@@ -12460,7 +12460,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
   %length_.i37 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i37, align 8
   %cmp2.i38 = icmp slt i32 %12, 1

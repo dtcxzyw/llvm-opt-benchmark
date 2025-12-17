@@ -449,7 +449,7 @@ _ZN2cv13colored_kinfu6ParamsD2Ev.exit:            ; preds = %_ZNSt16allocator_tr
   br label %_ZN2cv13colored_kinfu6ParamsD2Ev.exit23
 
 _ZN2cv13colored_kinfu6ParamsD2Ev.exit23:          ; preds = %.body, %54
-  %.pn16.pn54 = phi { ptr, i32 } [ %53, %.body ], [ %.pn16.pn58, %54 ]
+  %.pn16.pn54 = phi { ptr, i32 } [ %.pn16.pn58, %54 ], [ %53, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn16.pn54
 }
@@ -2457,7 +2457,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %292
   br label %393
 
 393:                                              ; preds = %248, %355, %391, %389, %353
-  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %354, %353 ], [ %356, %355 ], [ %392, %391 ], [ %390, %389 ]
+  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %390, %389 ], [ %249, %248 ], [ %392, %391 ], [ %354, %353 ], [ %356, %355 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %422
 
@@ -3858,7 +3858,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %292
   br label %393
 
 393:                                              ; preds = %248, %355, %391, %389, %353
-  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %249, %248 ], [ %354, %353 ], [ %356, %355 ], [ %392, %391 ], [ %390, %389 ]
+  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %390, %389 ], [ %249, %248 ], [ %392, %391 ], [ %354, %353 ], [ %356, %355 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %422
 
@@ -4781,9 +4781,9 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %139
 
 139:                                              ; preds = %95, %124, %132
-  %.052 = phi double [ %129, %124 ], [ %136, %132 ], [ 0.000000e+00, %95 ]
-  %.051 = phi double [ %130, %124 ], [ %137, %132 ], [ 0.000000e+00, %95 ]
-  %.150 = phi double [ %131, %124 ], [ %138, %132 ], [ 0.000000e+00, %95 ]
+  %.052 = phi double [ %136, %132 ], [ %129, %124 ], [ 0.000000e+00, %95 ]
+  %.051 = phi double [ %137, %132 ], [ %130, %124 ], [ 0.000000e+00, %95 ]
+  %.150 = phi double [ %138, %132 ], [ %131, %124 ], [ 0.000000e+00, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double %.052, ptr %13, align 8, !tbaa !231
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 8

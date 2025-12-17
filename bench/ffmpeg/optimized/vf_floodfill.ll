@@ -383,9 +383,9 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %15, %17, %16, %20, %19
-  %set_pixel1_16.sink = phi ptr [ @set_pixel3_16, %19 ], [ @set_pixel4_16, %20 ], [ @set_pixel3, %16 ], [ @set_pixel4, %17 ], [ @set_pixel1, %15 ], [ @set_pixel1_16, %18 ]
-  %is_same1_16.sink = phi ptr [ @is_same3_16, %19 ], [ @is_same4_16, %20 ], [ @is_same3, %16 ], [ @is_same4, %17 ], [ @is_same1, %15 ], [ @is_same1_16, %18 ]
-  %pick_pixel1_16.sink = phi ptr [ @pick_pixel3_16, %19 ], [ @pick_pixel4_16, %20 ], [ @pick_pixel3, %16 ], [ @pick_pixel4, %17 ], [ @pick_pixel1, %15 ], [ @pick_pixel1_16, %18 ]
+  %set_pixel1_16.sink = phi ptr [ @set_pixel1, %15 ], [ @set_pixel3_16, %19 ], [ @set_pixel4_16, %20 ], [ @set_pixel4, %17 ], [ @set_pixel3, %16 ], [ @set_pixel1_16, %18 ]
+  %is_same1_16.sink = phi ptr [ @is_same1, %15 ], [ @is_same3_16, %19 ], [ @is_same4_16, %20 ], [ @is_same4, %17 ], [ @is_same3, %16 ], [ @is_same1_16, %18 ]
+  %pick_pixel1_16.sink = phi ptr [ @pick_pixel1, %15 ], [ @pick_pixel3_16, %19 ], [ @pick_pixel4_16, %20 ], [ @pick_pixel4, %17 ], [ @pick_pixel3, %16 ], [ @pick_pixel1_16, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %set_pixel1_16.sink, ptr %21, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 88

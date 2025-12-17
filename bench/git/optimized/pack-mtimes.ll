@@ -213,7 +213,7 @@ _.exit68.i:                                       ; preds = %79, %77
   br label %85
 
 85:                                               ; preds = %84, %82, %_.exit50.i, %_.exit.i
-  %.075.ph.i = phi i32 [ -1, %_.exit50.i ], [ -1, %_.exit.i ], [ 0, %84 ], [ -1, %82 ]
+  %.075.ph.i = phi i32 [ -1, %_.exit50.i ], [ -1, %_.exit.i ], [ -1, %82 ], [ 0, %84 ]
   %86 = tail call i32 @close(i32 noundef %24) #9
   br label %load_pack_mtimes_file.exit
 
@@ -229,7 +229,7 @@ load_pack_mtimes_file.exit:                       ; preds = %pack_mtimes_filenam
   br label %88
 
 88:                                               ; preds = %5, %1, %87
-  %.014 = phi i32 [ %.0, %87 ], [ 0, %1 ], [ 0, %5 ]
+  %.014 = phi i32 [ 0, %1 ], [ %.0, %87 ], [ 0, %5 ]
   ret i32 %.014
 }
 

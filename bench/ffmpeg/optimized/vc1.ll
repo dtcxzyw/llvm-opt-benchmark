@@ -1244,7 +1244,7 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
   br label %decode_sequence_header_adv.exit
 
 decode_sequence_header_adv.exit:                  ; preds = %813, %785, %..loopexit_crit_edge.i, %480, %464, %214, %79, %834, %682, %645, %631, %533
-  %.0109 = phi i32 [ -1, %533 ], [ -1, %682 ], [ 0, %834 ], [ -1, %645 ], [ -1, %631 ], [ -1, %79 ], [ -1, %214 ], [ 0, %464 ], [ 0, %..loopexit_crit_edge.i ], [ 0, %480 ], [ -1, %813 ], [ %783, %785 ]
+  %.0109 = phi i32 [ -1, %631 ], [ -1, %533 ], [ -1, %682 ], [ 0, %834 ], [ 0, %480 ], [ -1, %645 ], [ -1, %79 ], [ -1, %214 ], [ 0, %464 ], [ 0, %..loopexit_crit_edge.i ], [ -1, %813 ], [ %783, %785 ]
   ret i32 %.0109
 }
 
@@ -1909,10 +1909,10 @@ thread-pre-split:                                 ; preds = %91, %94
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %133, %thread-pre-split.thread361, %146
-  %153 = phi ptr [ %147, %146 ], [ %90, %thread-pre-split.thread361 ], [ %108, %133 ]
-  %154 = phi ptr [ %148, %146 ], [ %89, %thread-pre-split.thread361 ], [ %107, %133 ]
-  %.val = phi i32 [ %152, %146 ], [ %spec.select.i304, %thread-pre-split.thread361 ], [ %134, %133 ]
-  %155 = phi i32 [ %150, %146 ], [ 2, %thread-pre-split.thread361 ], [ 3, %133 ]
+  %153 = phi ptr [ %90, %thread-pre-split.thread361 ], [ %147, %146 ], [ %108, %133 ]
+  %154 = phi ptr [ %89, %thread-pre-split.thread361 ], [ %148, %146 ], [ %107, %133 ]
+  %.val = phi i32 [ %spec.select.i304, %thread-pre-split.thread361 ], [ %152, %146 ], [ %134, %133 ]
+  %155 = phi i32 [ 2, %thread-pre-split.thread361 ], [ %150, %146 ], [ 3, %133 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 10648
   %157 = load i32, ptr %156, align 8, !tbaa !130
   %.not275 = icmp eq i32 %157, 0
@@ -2361,8 +2361,8 @@ get_unary.exit317:                                ; preds = %343, %354
   br label %403
 
 403:                                              ; preds = %399, %397
-  %.0254 = phi i32 [ %spec.select, %397 ], [ %spec.select371, %399 ]
-  %.0252 = phi i32 [ -64, %397 ], [ %400, %399 ]
+  %.0254 = phi i32 [ %spec.select371, %399 ], [ %spec.select, %397 ]
+  %.0252 = phi i32 [ %400, %399 ], [ -64, %397 ]
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 7008
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 7520
   %406 = add nsw i32 %.0254, 32
@@ -2417,8 +2417,8 @@ get_unary.exit317:                                ; preds = %343, %354
   br label %435
 
 435:                                              ; preds = %431, %429
-  %.0251 = phi i32 [ -64, %429 ], [ %432, %431 ]
-  %.0250 = phi i32 [ %spec.select293, %429 ], [ %spec.select372, %431 ]
+  %.0251 = phi i32 [ %432, %431 ], [ -64, %429 ]
+  %.0250 = phi i32 [ %spec.select372, %431 ], [ %spec.select293, %429 ]
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 7264
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 7776
   %438 = add nsw i32 %.0250, 32
@@ -2794,7 +2794,7 @@ thread-pre-split323:                              ; preds = %439
   br label %.sink.split
 
 .sink.split:                                      ; preds = %657, %544, %561, %575, %674, %688
-  %.sink369 = phi i32 [ 0, %688 ], [ %687, %674 ], [ 0, %575 ], [ %574, %561 ], [ 0, %544 ], [ 0, %657 ]
+  %.sink369 = phi i32 [ 0, %688 ], [ 0, %544 ], [ %687, %674 ], [ 0, %575 ], [ %574, %561 ], [ 0, %657 ]
   %690 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   store i32 %.sink369, ptr %690, align 8, !tbaa !172
   br label %691
@@ -2853,7 +2853,7 @@ thread-pre-split323:                              ; preds = %439
   br label %721
 
 721:                                              ; preds = %read_bfraction.exit.thread, %717, %720, %608, %577, %502, %496, %477, %170, %166, %thread-pre-split.thread
-  %.0 = phi i32 [ 0, %thread-pre-split.thread ], [ -1094995529, %166 ], [ -1, %170 ], [ -1, %477 ], [ -1, %496 ], [ -1094995529, %502 ], [ -1, %577 ], [ -1, %608 ], [ 0, %720 ], [ 0, %717 ], [ -1094995529, %read_bfraction.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %166 ], [ -1094995529, %read_bfraction.exit.thread ], [ 0, %thread-pre-split.thread ], [ -1, %608 ], [ -1, %170 ], [ -1, %477 ], [ -1, %496 ], [ -1094995529, %502 ], [ -1, %577 ], [ 0, %720 ], [ 0, %717 ]
   ret i32 %.0
 }
 
@@ -3191,9 +3191,9 @@ define internal fastcc i32 @bitplane_decoding(ptr noundef captures(none) %0, ptr
   br label %get_vlc2.exit.us
 
 get_vlc2.exit.us:                                 ; preds = %141, %121
-  %.064.i.us = phi i32 [ %143, %141 ], [ %122, %121 ]
-  %.062.i.us = phi i32 [ %157, %141 ], [ %136, %121 ]
-  %.0.i.us = phi i32 [ %160, %141 ], [ %139, %121 ]
+  %.064.i.us = phi i32 [ %122, %121 ], [ %143, %141 ]
+  %.062.i.us = phi i32 [ %136, %121 ], [ %157, %141 ]
+  %.0.i.us = phi i32 [ %139, %121 ], [ %160, %141 ]
   %161 = add i32 %.0.i.us, %.064.i.us
   %162 = tail call i32 @llvm.umin.i32(i32 %123, i32 %161)
   store i32 %162, ptr %14, align 8, !tbaa !12
@@ -3325,9 +3325,9 @@ get_vlc2.exit.us:                                 ; preds = %141, %121
   br label %get_vlc2.exit231.us
 
 get_vlc2.exit231.us:                              ; preds = %220, %200
-  %.064.i228.us = phi i32 [ %222, %220 ], [ %201, %200 ]
-  %.062.i229.us = phi i32 [ %236, %220 ], [ %215, %200 ]
-  %.0.i230.us = phi i32 [ %239, %220 ], [ %218, %200 ]
+  %.064.i228.us = phi i32 [ %201, %200 ], [ %222, %220 ]
+  %.062.i229.us = phi i32 [ %215, %200 ], [ %236, %220 ]
+  %.0.i230.us = phi i32 [ %218, %200 ], [ %239, %220 ]
   %240 = add i32 %.0.i230.us, %.064.i228.us
   %241 = tail call i32 @llvm.umin.i32(i32 %202, i32 %240)
   store i32 %241, ptr %14, align 8, !tbaa !12
@@ -4964,8 +4964,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %641
 
 641:                                              ; preds = %637, %635
-  %.0726 = phi i32 [ %spec.select864, %635 ], [ %spec.select1042, %637 ]
-  %.0722 = phi i32 [ -64, %635 ], [ %638, %637 ]
+  %.0726 = phi i32 [ %spec.select1042, %637 ], [ %spec.select864, %635 ]
+  %.0722 = phi i32 [ %638, %637 ], [ -64, %635 ]
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 7008
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 7520
   %644 = add nsw i32 %.0726, 32
@@ -5020,8 +5020,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %673
 
 673:                                              ; preds = %669, %667
-  %.0732 = phi i32 [ %spec.select865, %667 ], [ %spec.select1043, %669 ]
-  %.0731 = phi i32 [ -64, %667 ], [ %670, %669 ]
+  %.0732 = phi i32 [ %spec.select1043, %669 ], [ %spec.select865, %667 ]
+  %.0731 = phi i32 [ %670, %669 ], [ -64, %667 ]
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 7264
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 7776
   %676 = add nsw i32 %.0732, 32
@@ -5376,8 +5376,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %917
 
 917:                                              ; preds = %910, %906
-  %.0739 = phi i32 [ %spec.select866, %906 ], [ %spec.select1044, %910 ]
-  %.0737 = phi i32 [ -64, %906 ], [ %912, %910 ]
+  %.0739 = phi i32 [ %spec.select1044, %910 ], [ %spec.select866, %906 ]
+  %.0737 = phi i32 [ %912, %910 ], [ -64, %906 ]
   %918 = add nsw i32 %.0739, 32
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 10080
   %920 = getelementptr inbounds nuw i8, ptr %0, i64 10088
@@ -5448,8 +5448,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %964
 
 964:                                              ; preds = %956, %951
-  %.0735 = phi i32 [ -64, %951 ], [ %958, %956 ]
-  %.0734 = phi i32 [ %spec.select867, %951 ], [ %spec.select1045, %956 ]
+  %.0735 = phi i32 [ %958, %956 ], [ -64, %951 ]
+  %.0734 = phi i32 [ %spec.select1045, %956 ], [ %spec.select867, %951 ]
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 7008
   %966 = getelementptr inbounds nuw i8, ptr %0, i64 7520
   %967 = add nsw i32 %.0734, 32
@@ -5517,8 +5517,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %1008
 
 1008:                                             ; preds = %1001, %997
-  %.0730 = phi i32 [ -64, %997 ], [ %1003, %1001 ]
-  %.0729 = phi i32 [ %spec.select868, %997 ], [ %spec.select1046, %1001 ]
+  %.0730 = phi i32 [ %1003, %1001 ], [ -64, %997 ]
+  %.0729 = phi i32 [ %spec.select1046, %1001 ], [ %spec.select868, %997 ]
   %1009 = add nsw i32 %.0729, 32
   %1010 = getelementptr inbounds nuw i8, ptr %0, i64 10080
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 10088
@@ -5589,8 +5589,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %1055
 
 1055:                                             ; preds = %1047, %1042
-  %.0725 = phi i32 [ -64, %1042 ], [ %1049, %1047 ]
-  %.0724 = phi i32 [ %spec.select869, %1042 ], [ %spec.select1047, %1047 ]
+  %.0725 = phi i32 [ %1049, %1047 ], [ -64, %1042 ]
+  %.0724 = phi i32 [ %spec.select1047, %1047 ], [ %spec.select869, %1042 ]
   %1056 = getelementptr inbounds nuw i8, ptr %0, i64 7008
   %1057 = getelementptr inbounds nuw i8, ptr %0, i64 7520
   %1058 = add nsw i32 %.0724, 32
@@ -5666,8 +5666,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %1102
 
 1102:                                             ; preds = %1095, %1091
-  %.0720 = phi i32 [ -64, %1091 ], [ %1097, %1095 ]
-  %.0719 = phi i32 [ %spec.select870, %1091 ], [ %spec.select1048, %1095 ]
+  %.0720 = phi i32 [ %1097, %1095 ], [ -64, %1091 ]
+  %.0719 = phi i32 [ %spec.select1048, %1095 ], [ %spec.select870, %1091 ]
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 7008
   %1104 = getelementptr inbounds nuw i8, ptr %0, i64 7520
   %1105 = add nsw i32 %.0719, 32
@@ -5730,8 +5730,8 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   br label %1141
 
 1141:                                             ; preds = %1133, %1128
-  %.0715 = phi i32 [ -64, %1128 ], [ %1135, %1133 ]
-  %.0714 = phi i32 [ %spec.select871, %1128 ], [ %spec.select1049, %1133 ]
+  %.0715 = phi i32 [ %1135, %1133 ], [ -64, %1128 ]
+  %.0714 = phi i32 [ %spec.select1049, %1133 ], [ %spec.select871, %1128 ]
   %1142 = getelementptr inbounds nuw i8, ptr %0, i64 7264
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 7776
   %1144 = add nsw i32 %.0714, 32
@@ -6756,7 +6756,7 @@ decode012.exit922:                                ; preds = %1756, %1771
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread943, %read_bfraction.exit.thread, %1422, %1827, %1831, %1667, %1643, %1551, %1540, %1381, %1378, %1209, %1189, %699, %515, %494, %481, %429, %355, %337, %261, %203, %64, %9, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %9 ], [ -1094995529, %64 ], [ 0, %203 ], [ -1094995529, %261 ], [ -1094995529, %337 ], [ -1, %355 ], [ 0, %429 ], [ -1, %481 ], [ -1, %494 ], [ -1, %515 ], [ -1, %699 ], [ -1, %1189 ], [ -1, %1209 ], [ -1094995529, %1378 ], [ -1, %1381 ], [ -1, %1540 ], [ -1, %1551 ], [ -1, %1643 ], [ -1, %1667 ], [ 0, %1831 ], [ 0, %1827 ], [ -1, %1422 ], [ -1094995529, %read_bfraction.exit.thread ], [ 0, %.thread943 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1094995529, %64 ], [ 0, %203 ], [ -1094995529, %261 ], [ -1, %355 ], [ -1, %1667 ], [ 0, %429 ], [ -1, %481 ], [ -1, %494 ], [ -1, %515 ], [ -1, %699 ], [ -1, %1189 ], [ -1, %1209 ], [ -1094995529, %1378 ], [ -1, %1422 ], [ 0, %1827 ], [ -1, %1540 ], [ -1, %1551 ], [ -1, %1643 ], [ -1094995529, %337 ], [ -1094995529, %read_bfraction.exit.thread ], [ -1, %12 ], [ -1, %1381 ], [ 0, %1831 ], [ 0, %.thread943 ]
   ret i32 %.0
 }
 

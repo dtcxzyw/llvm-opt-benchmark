@@ -385,8 +385,8 @@ OCSP_RESPID_set_by_name.exit:                     ; preds = %29
   br i1 %.not33, label %OCSP_RESPID_set_by_name.exit.thread, label %45
 
 OCSP_RESPID_set_by_name.exit.thread.sink.split:   ; preds = %10, %14, %5, %7
-  %.sink38 = phi i32 [ 175, %7 ], [ 175, %5 ], [ 181, %14 ], [ 181, %10 ]
-  %.sink = phi i32 [ 130, %7 ], [ 130, %5 ], [ 110, %14 ], [ 110, %10 ]
+  %.sink38 = phi i32 [ 175, %5 ], [ 175, %7 ], [ 181, %14 ], [ 181, %10 ]
+  %.sink = phi i32 [ 130, %5 ], [ 130, %7 ], [ 110, %14 ], [ 110, %10 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.OCSP_basic_sign_ctx) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #6
@@ -630,7 +630,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_match_ex(ptr noundef readonly captures(n
   br label %25
 
 25:                                               ; preds = %16, %20, %14, %10, %7
-  %.016 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %14 ], [ 0, %16 ], [ %24, %20 ]
+  %.016 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %14 ], [ 0, %16 ], [ %24, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -648,13 +648,13 @@ define range(i32 0, 2) i32 @OCSP_RESPID_match_ex(ptr noundef readonly captures(n
   br label %36
 
 35:                                               ; preds = %4, %25
-  %.017 = phi ptr [ %8, %25 ], [ null, %4 ]
-  %.1 = phi i32 [ %.016, %25 ], [ 0, %4 ]
+  %.017 = phi ptr [ null, %4 ], [ %8, %25 ]
+  %.1 = phi i32 [ 0, %4 ], [ %.016, %25 ]
   call void @EVP_MD_free(ptr noundef %.017) #6
   br label %36
 
 36:                                               ; preds = %26, %35, %30
-  %.018 = phi i32 [ %.1, %35 ], [ %34, %30 ], [ 0, %26 ]
+  %.018 = phi i32 [ %34, %30 ], [ %.1, %35 ], [ 0, %26 ]
   ret i32 %.018
 }
 

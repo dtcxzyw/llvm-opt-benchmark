@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly capt
   br i1 %45, label %39, label %CheckNonOpaque.exit, !llvm.loop !21
 
 CheckNonOpaque.exit:                              ; preds = %22, %19, %42, %39, %36, %26, %8, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %8 ], [ 0, %26 ], [ 0, %36 ], [ 0, %42 ], [ 1, %39 ], [ 0, %22 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %1 ], [ 0, %8 ], [ 1, %39 ], [ 0, %36 ], [ 0, %42 ], [ 1, %19 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -148,7 +148,7 @@ define i32 @WebPPictureARGBToYUVADithered(ptr noundef %0, i32 noundef %1, float 
   br label %PictureARGBToYUVA.exit
 
 PictureARGBToYUVA.exit:                           ; preds = %3, %9, %13, %15
-  %.0.i = phi i32 [ %10, %9 ], [ %14, %13 ], [ %23, %15 ], [ 0, %3 ]
+  %.0.i = phi i32 [ %23, %15 ], [ %10, %9 ], [ %14, %13 ], [ 0, %3 ]
   ret i32 %.0.i
 }
 
@@ -189,7 +189,7 @@ define i32 @WebPPictureARGBToYUVA(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %PictureARGBToYUVA.exit
 
 PictureARGBToYUVA.exit:                           ; preds = %2, %8, %12, %14
-  %.0.i = phi i32 [ %9, %8 ], [ %13, %12 ], [ %22, %14 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %22, %14 ], [ %9, %8 ], [ %13, %12 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -221,7 +221,7 @@ define i32 @WebPPictureSharpARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br label %PictureARGBToYUVA.exit
 
 PictureARGBToYUVA.exit:                           ; preds = %1, %7, %9
-  %.0.i = phi i32 [ %8, %7 ], [ %17, %9 ], [ 0, %1 ]
+  %.0.i = phi i32 [ %17, %9 ], [ %8, %7 ], [ 0, %1 ]
   ret i32 %.0.i
 }
 
@@ -253,7 +253,7 @@ define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br label %WebPPictureSharpARGBToYUVA.exit
 
 WebPPictureSharpARGBToYUVA.exit:                  ; preds = %1, %7, %9
-  %.0.i.i = phi i32 [ %8, %7 ], [ %17, %9 ], [ 0, %1 ]
+  %.0.i.i = phi i32 [ %17, %9 ], [ %8, %7 ], [ 0, %1 ]
   ret i32 %.0.i.i
 }
 
@@ -427,12 +427,12 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph107.us, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %23, %19, %3, %7, %11
-  %.sink = phi i32 [ 3, %11 ], [ 3, %7 ], [ 3, %3 ], [ 3, %19 ], [ 4, %23 ]
+  %.sink = phi i32 [ 3, %19 ], [ 3, %3 ], [ 3, %11 ], [ 3, %7 ], [ 4, %23 ]
   %98 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge108.us, %.loopexit.sink.split, %.lr.ph110, %71, %25, %1
-  %.085 = phi i32 [ 0, %1 ], [ 0, %25 ], [ 1, %71 ], [ 1, %.lr.ph110 ], [ %98, %.loopexit.sink.split ], [ 1, %._crit_edge108.us ]
+  %.085 = phi i32 [ 0, %1 ], [ 1, %71 ], [ 1, %.lr.ph110 ], [ 0, %25 ], [ %98, %.loopexit.sink.split ], [ 1, %._crit_edge108.us ]
   ret i32 %.085
 }
 
@@ -507,7 +507,7 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %exitcond94.not.i, label %Import.exit, label %28, !llvm.loop !33
 
 Import.exit:                                      ; preds = %28, %22, %20, %18, %6, %3
-  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %6 ], [ 0, %20 ], [ 1, %22 ], [ 1, %28 ]
+  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %20 ], [ 0, %6 ], [ 1, %22 ], [ 1, %28 ]
   ret i32 %37
 }
 
@@ -573,7 +573,7 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %exitcond.not.i, label %Import.exit, label %30, !llvm.loop !34
 
 Import.exit:                                      ; preds = %30, %23, %21, %18, %6, %3
-  %36 = phi i32 [ 0, %3 ], [ %20, %18 ], [ 0, %6 ], [ 0, %21 ], [ 1, %23 ], [ 1, %30 ]
+  %36 = phi i32 [ 0, %3 ], [ %20, %18 ], [ 0, %21 ], [ 0, %6 ], [ 1, %23 ], [ 1, %30 ]
   ret i32 %36
 }
 
@@ -642,7 +642,7 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %exitcond94.not.i, label %Import.exit, label %28, !llvm.loop !33
 
 Import.exit:                                      ; preds = %28, %22, %20, %18, %6, %3
-  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %6 ], [ 0, %20 ], [ 1, %22 ], [ 1, %28 ]
+  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %20 ], [ 0, %6 ], [ 1, %22 ], [ 1, %28 ]
   ret i32 %37
 }
 
@@ -711,7 +711,7 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %exitcond94.not.i, label %Import.exit, label %28, !llvm.loop !33
 
 Import.exit:                                      ; preds = %28, %22, %20, %18, %6, %3
-  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %6 ], [ 0, %20 ], [ 1, %22 ], [ 1, %28 ]
+  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %20 ], [ 0, %6 ], [ 1, %22 ], [ 1, %28 ]
   ret i32 %37
 }
 
@@ -777,7 +777,7 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %exitcond93.not.i, label %Import.exit, label %29, !llvm.loop !35
 
 Import.exit:                                      ; preds = %29, %23, %21, %18, %6, %3
-  %36 = phi i32 [ 0, %3 ], [ %20, %18 ], [ 0, %6 ], [ 0, %21 ], [ 1, %23 ], [ 1, %29 ]
+  %36 = phi i32 [ 0, %3 ], [ %20, %18 ], [ 0, %21 ], [ 0, %6 ], [ 1, %23 ], [ 1, %29 ]
   ret i32 %36
 }
 
@@ -846,7 +846,7 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %exitcond94.not.i, label %Import.exit, label %28, !llvm.loop !33
 
 Import.exit:                                      ; preds = %28, %22, %20, %18, %6, %3
-  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %6 ], [ 0, %20 ], [ 1, %22 ], [ 1, %28 ]
+  %37 = phi i32 [ 0, %3 ], [ %19, %18 ], [ 0, %20 ], [ 0, %6 ], [ 1, %22 ], [ 1, %28 ]
   ret i32 %37
 }
 
@@ -888,9 +888,9 @@ define internal fastcc i32 @ImportYUVAFromRGBA(ptr noundef nonnull %0, ptr nound
   %25 = icmp sgt i32 %.in.i, 1
   br i1 %25, label %19, label %CheckNonOpaque.exit, !llvm.loop !17
 
-CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
-  %.not342 = phi i1 [ true, %9 ], [ true, %16 ], [ %.not.i, %19 ], [ %.not.i, %22 ]
-  %26 = phi i32 [ 0, %9 ], [ 0, %16 ], [ 0, %22 ], [ 4, %19 ]
+CheckNonOpaque.exit:                              ; preds = %22, %19, %9, %16
+  %.not342 = phi i1 [ true, %16 ], [ true, %9 ], [ %.not.i, %19 ], [ %.not.i, %22 ]
+  %26 = phi i32 [ 0, %16 ], [ 0, %9 ], [ 0, %22 ], [ 4, %19 ]
   %27 = icmp ult ptr %0, %2
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %26, ptr %28, align 4, !tbaa !22
@@ -1665,7 +1665,7 @@ ConvertRowToY.exit254:                            ; preds = %RGBToY.exit.i240, %
   br label %491
 
 491:                                              ; preds = %PreprocessARGB.exit, %50, %PreprocessARGB.exit.thread, %.loopexit, %.thread303, %CheckNonOpaque.exit
-  %.0185 = phi i32 [ 0, %CheckNonOpaque.exit ], [ %.mux, %PreprocessARGB.exit ], [ %108, %.thread303 ], [ 1, %.loopexit ], [ 1, %PreprocessARGB.exit.thread ], [ 1, %50 ]
+  %.0185 = phi i32 [ %.mux, %PreprocessARGB.exit ], [ 0, %CheckNonOpaque.exit ], [ %108, %.thread303 ], [ 1, %.loopexit ], [ 1, %PreprocessARGB.exit.thread ], [ 1, %50 ]
   ret i32 %.0185
 }
 

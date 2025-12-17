@@ -746,7 +746,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   br i1 %73, label %.lr.ph55.i.i.i, label %._crit_edge56.i.i.i, !llvm.loop !62
 
 ._crit_edge62.i.i.i:                              ; preds = %79, %._crit_edge56.i.i.i, %36
-  %74 = phi i32 [ 0, %._crit_edge56.i.i.i ], [ 0, %36 ], [ %71, %79 ]
+  %74 = phi i32 [ 0, %36 ], [ 0, %._crit_edge56.i.i.i ], [ %71, %79 ]
   %75 = add i64 %.04063.i.i.i, 1
   %76 = load i32, ptr %15, align 4, !tbaa !28
   %77 = sext i32 %76 to i64

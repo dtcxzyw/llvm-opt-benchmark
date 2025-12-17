@@ -657,7 +657,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit50:           ; preds = %236, %240, %246
   br label %.body
 
 .body:                                            ; preds = %184, %175, %251, %253, %255, %97, %95
-  %.pn35.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %256, %255 ], [ %254, %253 ], [ %185, %184 ], [ %252, %251 ], [ %176, %175 ]
+  %.pn35.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %256, %255 ], [ %254, %253 ], [ %185, %184 ], [ %252, %251 ], [ %176, %175 ]
   call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   br label %257
 

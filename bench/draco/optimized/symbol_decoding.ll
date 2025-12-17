@@ -450,7 +450,7 @@ _ZN5draco13DecoderBuffer10BitDecoder6GetBitEv.exit.i.i: ; preds = %79, %73
   br label %120
 
 .loopexit62.split:                                ; preds = %.lr.ph, %14, %.critedge, %13, %8
-  %.025 = phi i1 [ false, %8 ], [ false, %13 ], [ true, %.critedge ], [ false, %14 ], [ false, %.lr.ph ]
+  %.025 = phi i1 [ false, %13 ], [ false, %14 ], [ false, %8 ], [ true, %.critedge ], [ false, %.lr.ph ]
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %99 = load ptr, ptr %98, align 8, !tbaa !46
   %.not.i.i.i.i.i = icmp eq ptr %99, null
@@ -613,7 +613,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco16DecodeRawSymbolsINS_17RAnsSym
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %3, %9, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13
-  %.0 = phi i1 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ false, %9 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %9 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -906,7 +906,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -1055,7 +1055,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -1205,7 +1205,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !53
   br label %41
 
@@ -4554,7 +4554,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -4701,7 +4701,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -5044,7 +5044,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5191,7 +5191,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -5534,7 +5534,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5681,7 +5681,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6024,7 +6024,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6171,7 +6171,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -6514,7 +6514,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6661,7 +6661,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -7004,7 +7004,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7151,7 +7151,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -7494,7 +7494,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7641,7 +7641,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -7984,7 +7984,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8131,7 +8131,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -8474,7 +8474,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8621,7 +8621,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -8964,7 +8964,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9111,7 +9111,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -9454,7 +9454,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9601,7 +9601,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -9944,7 +9944,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10091,7 +10091,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -10434,7 +10434,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10581,7 +10581,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -10924,7 +10924,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11071,7 +11071,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -11414,7 +11414,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11561,7 +11561,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -11904,7 +11904,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -12051,7 +12051,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -12394,7 +12394,7 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ %135, %._crit_edge41.loopexit.i ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ false, %.lr.ph ], [ false, %123 ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -12541,7 +12541,7 @@ default.unreachable:                              ; preds = %31
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %79, %56, %43, %24, %7, %18, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %18 ], [ false, %7 ], [ false, %24 ], [ false, %43 ], [ false, %56 ], [ %83, %79 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %7 ], [ false, %18 ], [ false, %43 ], [ %83, %79 ], [ false, %56 ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

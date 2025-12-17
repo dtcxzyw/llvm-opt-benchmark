@@ -2591,7 +2591,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %1015, %1013
   br label %1032
 
 1032:                                             ; preds = %1030, %1028, %1026, %1024, %1022, %980
-  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %981, %980 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1031, %1030 ], [ %1029, %1028 ]
+  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %981, %980 ], [ %1029, %1028 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1031, %1030 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1033
 
@@ -2664,7 +2664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1047, %1049
   br label %1065
 
 .body:                                            ; preds = %.loopexit425, %.loopexit.split-lp, %1043, %1039, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i, %315, %397, %387, %556, %622, %681, %745, %257, %274, %252
-  %.pn205.pn.pn = phi { ptr, i32 } [ %.pn173, %252 ], [ %.pn205, %257 ], [ %275, %274 ], [ %.pn189.pn.pn, %745 ], [ %.pn185.pn.pn, %681 ], [ %.pn181.pn.pn, %622 ], [ %.pn176.pn.pn, %556 ], [ %316, %315 ], [ %388, %387 ], [ %398, %397 ], [ %1044, %1043 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1039 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn205.pn.pn = phi { ptr, i32 } [ %.pn173, %252 ], [ %275, %274 ], [ %.pn176.pn.pn, %556 ], [ %.pn205, %257 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i ], [ %398, %397 ], [ %.pn189.pn.pn, %745 ], [ %.pn185.pn.pn, %681 ], [ %.pn181.pn.pn, %622 ], [ %316, %315 ], [ %388, %387 ], [ %1044, %1043 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1039 ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1055

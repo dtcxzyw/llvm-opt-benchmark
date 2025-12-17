@@ -1282,7 +1282,7 @@ imdct_output.exit:                                ; preds = %._crit_edge.i58, %7
   br label %767
 
 767:                                              ; preds = %763, %39, %21, %761, %38
-  %.0 = phi i32 [ -22, %38 ], [ %13, %761 ], [ %29, %21 ], [ %42, %39 ], [ %., %763 ]
+  %.0 = phi i32 [ %42, %39 ], [ -22, %38 ], [ %29, %21 ], [ %13, %761 ], [ %., %763 ]
   ret i32 %.0
 }
 
@@ -1604,7 +1604,7 @@ define internal fastcc i32 @init_mdct_win(ptr noundef %0) unnamed_addr #2 {
   br label %.thread
 
 .thread:                                          ; preds = %23, %55, %39, %44, %48, %51, %87
-  %.2 = phi i32 [ 0, %87 ], [ -12, %51 ], [ -12, %48 ], [ -12, %44 ], [ -12, %39 ], [ -12, %55 ], [ %38, %23 ]
+  %.2 = phi i32 [ -12, %39 ], [ 0, %87 ], [ -12, %51 ], [ -12, %48 ], [ -12, %44 ], [ -12, %55 ], [ %38, %23 ]
   ret i32 %.2
 }
 
@@ -2368,7 +2368,7 @@ define internal fastcc void @permutate_in_line(ptr noundef writeonly captures(no
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %22, %.thread.us, %17, %16, %.lr.ph43.split.us
-  %.0.us = phi i64 [ 0, %16 ], [ 0, %.thread.us ], [ 0, %17 ], [ 0, %.lr.ph43.split.us ], [ %spec.select.us, %22 ]
+  %.0.us = phi i64 [ %spec.select.us, %22 ], [ 0, %.lr.ph43.split.us ], [ 0, %16 ], [ 0, %.thread.us ], [ 0, %17 ]
   %24 = mul nuw nsw i64 %indvars.iv59, %14
   %25 = trunc nuw i64 %24 to i32
   br label %26

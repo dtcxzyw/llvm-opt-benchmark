@@ -59,7 +59,7 @@ define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
   br label %28
 
 28:                                               ; preds = %2, %19, %25
-  %.0 = phi i32 [ 0, %19 ], [ %27, %25 ], [ 18, %2 ]
+  %.0 = phi i32 [ %27, %25 ], [ 0, %19 ], [ 18, %2 ]
   ret i32 %.0
 }
 
@@ -143,7 +143,7 @@ define internal i32 @ft_outline_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
   br label %17
 
 17:                                               ; preds = %2, %7, %15
-  %.0 = phi i32 [ %14, %7 ], [ 0, %15 ], [ 18, %2 ]
+  %.0 = phi i32 [ 0, %15 ], [ %14, %7 ], [ 18, %2 ]
   ret i32 %.0
 }
 
@@ -290,7 +290,7 @@ define internal i32 @ft_svg_glyph_init(ptr noundef captures(none) %0, ptr nounde
   br label %41
 
 41:                                               ; preds = %12, %8, %2, %16, %20
-  %42 = phi i32 [ %19, %16 ], [ %.pre, %20 ], [ 18, %2 ], [ 37, %8 ], [ 37, %12 ]
+  %42 = phi i32 [ %19, %16 ], [ %.pre, %20 ], [ 37, %8 ], [ 18, %2 ], [ 37, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %42
 }
@@ -614,7 +614,7 @@ FT_Done_Glyph.exit:                               ; preds = %28, %34
   br label %35
 
 35:                                               ; preds = %ft_new_glyph.exit, %2, %6, %FT_Done_Glyph.exit, %.thread
-  %.0 = phi i32 [ %14, %ft_new_glyph.exit ], [ %27, %FT_Done_Glyph.exit ], [ 0, %.thread ], [ 6, %6 ], [ 6, %2 ]
+  %.0 = phi i32 [ %14, %ft_new_glyph.exit ], [ %27, %FT_Done_Glyph.exit ], [ 0, %.thread ], [ 6, %2 ], [ 6, %6 ]
   ret i32 %.0
 }
 
@@ -675,8 +675,8 @@ define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly c
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br i1 %.not, label %23, label %13
 
-13:                                               ; preds = %8, %9, %10, %7
-  %.014.ph = phi ptr [ @ft_bitmap_glyph_class, %7 ], [ %12, %10 ], [ @ft_svg_glyph_class, %9 ], [ @ft_outline_glyph_class, %8 ]
+13:                                               ; preds = %10, %8, %9, %7
+  %.014.ph = phi ptr [ @ft_bitmap_glyph_class, %7 ], [ @ft_svg_glyph_class, %9 ], [ @ft_outline_glyph_class, %8 ], [ %12, %10 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %2, align 8, !tbaa !96
@@ -745,7 +745,7 @@ define i32 @FT_Get_Glyph(ptr noundef %0, ptr noundef writeonly captures(address_
   br i1 %.not.i, label %FT_New_Glyph.exit.thread, label %15
 
 15:                                               ; preds = %12, %11, %10, %9
-  %16 = phi ptr [ @ft_bitmap_glyph_class, %9 ], [ %14, %12 ], [ @ft_svg_glyph_class, %11 ], [ @ft_outline_glyph_class, %10 ]
+  %16 = phi ptr [ @ft_bitmap_glyph_class, %9 ], [ @ft_svg_glyph_class, %11 ], [ @ft_outline_glyph_class, %10 ], [ %14, %12 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i64, ptr %16, align 8, !tbaa !98
@@ -822,7 +822,7 @@ FT_Done_Glyph.exit:                               ; preds = %.thread, %46
   br label %FT_New_Glyph.exit.thread
 
 FT_New_Glyph.exit.thread:                         ; preds = %12, %5, %FT_New_Glyph.exit, %47, %FT_Done_Glyph.exit, %4, %2
-  %.016 = phi i32 [ 37, %2 ], [ 6, %4 ], [ %20, %FT_New_Glyph.exit ], [ %.140, %FT_Done_Glyph.exit ], [ 0, %47 ], [ 18, %12 ], [ 6, %5 ]
+  %.016 = phi i32 [ 6, %4 ], [ 37, %2 ], [ %20, %FT_New_Glyph.exit ], [ %.140, %FT_Done_Glyph.exit ], [ 0, %47 ], [ 18, %12 ], [ 6, %5 ]
   ret i32 %.016
 }
 
@@ -854,7 +854,7 @@ define range(i32 0, 19) i32 @FT_Glyph_Transform(ptr noundef %0, ptr noundef %1, 
   br label %13
 
 13:                                               ; preds = %11, %10, %7, %3, %4
-  %.0 = phi i32 [ 6, %4 ], [ 6, %3 ], [ 0, %11 ], [ 0, %10 ], [ 18, %7 ]
+  %.0 = phi i32 [ 6, %3 ], [ 6, %4 ], [ 0, %11 ], [ 0, %10 ], [ 18, %7 ]
   ret i32 %.0
 }
 
@@ -1113,7 +1113,7 @@ FT_Done_Glyph.exit:                               ; preds = %74, %80
   br label %.thread
 
 .thread:                                          ; preds = %4, %9, %11, %19, %ft_new_glyph.exit, %73, %17, %FT_Done_Glyph.exit
-  %.077 = phi i32 [ %.0, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %73 ], [ %30, %ft_new_glyph.exit ], [ 0, %17 ]
+  %.077 = phi i32 [ 0, %17 ], [ %.0, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %73 ], [ %30, %ft_new_glyph.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.077

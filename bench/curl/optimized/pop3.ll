@@ -283,7 +283,7 @@ pop3_perform.exit.i:                              ; preds = %.critedge.i.i.i, %8
   br label %pop3_regular_transfer.exit
 
 pop3_regular_transfer.exit:                       ; preds = %pop3_perform.exit.i, %46, %pop3_parse_custom_request.exit, %2
-  %.0 = phi i32 [ %8, %2 ], [ %14, %pop3_parse_custom_request.exit ], [ %.021.i.i.i, %46 ], [ %.1.i15.i.i, %pop3_perform.exit.i ]
+  %.0 = phi i32 [ %14, %pop3_parse_custom_request.exit ], [ %8, %2 ], [ %.1.i15.i.i, %pop3_perform.exit.i ], [ %.021.i.i.i, %46 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %.lr.ph
 
 24:                                               ; preds = %9, %22, %19, %13
-  %.sink = phi i64 [ 1, %13 ], [ 0, %19 ], [ 0, %22 ], [ 0, %9 ]
+  %.sink = phi i64 [ 0, %19 ], [ 1, %13 ], [ 0, %22 ], [ 0, %9 ]
   store i64 %.sink, ptr %7, align 8, !tbaa !118
   %.not94 = icmp eq i64 %10, 0
   br i1 %.not94, label %.thread111, label %.lr.ph
@@ -730,13 +730,13 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not99, label %.thread111, label %.loopexit
 
 .thread111.sink.split:                            ; preds = %22, %13, %20
-  %.sink151 = phi i64 [ %21, %20 ], [ 4, %13 ], [ 3, %22 ]
+  %.sink151 = phi i64 [ 4, %13 ], [ %21, %20 ], [ 3, %22 ]
   store i64 %.sink151, ptr %7, align 8, !tbaa !118
   br label %.thread111
 
 .thread111:                                       ; preds = %27, %.thread111.sink.split, %.critedge102, %30, %14, %15, %24
-  %.170.ph = phi i1 [ %.069134, %24 ], [ %.069134, %15 ], [ %.069134, %14 ], [ false, %30 ], [ false, %.critedge102 ], [ %.069134, %.thread111.sink.split ], [ %.271108, %27 ]
-  %.1.ph = phi i64 [ %.068135, %24 ], [ %.067136, %15 ], [ %.068135, %14 ], [ %.067136, %30 ], [ %.067136, %.critedge102 ], [ %.068135, %.thread111.sink.split ], [ %.068135, %27 ]
+  %.170.ph = phi i1 [ %.069134, %14 ], [ %.069134, %24 ], [ %.069134, %.thread111.sink.split ], [ %.069134, %15 ], [ false, %30 ], [ false, %.critedge102 ], [ %.271108, %27 ]
+  %.1.ph = phi i64 [ %.068135, %14 ], [ %.068135, %24 ], [ %.068135, %.thread111.sink.split ], [ %.067136, %15 ], [ %.067136, %30 ], [ %.067136, %.critedge102 ], [ %.068135, %27 ]
   %33 = add nuw i64 %.067136, 1
   %exitcond.not = icmp eq i64 %33, %2
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !121
@@ -770,7 +770,7 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.critedge102, %41, %42, %._crit_edge, %36
-  %.275 = phi i32 [ %37, %36 ], [ 0, %._crit_edge ], [ %45, %42 ], [ 0, %41 ], [ %32, %.critedge102 ], [ %18, %15 ]
+  %.275 = phi i32 [ 0, %41 ], [ %37, %36 ], [ 0, %._crit_edge ], [ %45, %42 ], [ %32, %.critedge102 ], [ %18, %15 ]
   ret i32 %.275
 }
 
@@ -1330,11 +1330,11 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
   br label %pop3_state_servergreet_resp.exit.thread
 
 pop3_state_servergreet_resp.exit:                 ; preds = %.sink.split.i, %145, %143, %132, %116, %pop3_state_auth_resp.exit
-  %.1 = phi i32 [ %.0.i, %pop3_state_auth_resp.exit ], [ %117, %116 ], [ %133, %132 ], [ %144, %143 ], [ %146, %145 ], [ %.0.ph.i, %.sink.split.i ]
+  %.1 = phi i32 [ %.0.i, %pop3_state_auth_resp.exit ], [ %146, %145 ], [ %117, %116 ], [ %133, %132 ], [ %144, %143 ], [ %.0.ph.i, %.sink.split.i ]
   %.not44 = icmp eq i32 %.1, 0
   br i1 %.not44, label %pop3_state_servergreet_resp.exit.thread, label %.critedge
 
-pop3_state_servergreet_resp.exit.thread:          ; preds = %191, %187, %178, %74, %127, %.critedge90.thread.i, %77, %82, %.critedge89.i, %86, %65, %37, %219, %221, %pop3_state_servergreet_resp.exit
+pop3_state_servergreet_resp.exit.thread:          ; preds = %187, %127, %77, %82, %.critedge89.i, %.critedge90.thread.i, %86, %37, %191, %178, %74, %65, %219, %221, %pop3_state_servergreet_resp.exit
   %223 = load i32, ptr %8, align 8, !tbaa !86
   %.not45 = icmp eq i32 %223, 0
   br i1 %.not45, label %.critedge, label %224
@@ -1343,8 +1343,8 @@ pop3_state_servergreet_resp.exit.thread:          ; preds = %191, %187, %178, %7
   %225 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #6
   br i1 %225, label %23, label %.critedge, !llvm.loop !136
 
-.critedge:                                        ; preds = %210, %181, %135, %124, %.critedge.i, %51, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %142, %134, %36, %21, %11
-  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 27, %51 ], [ %64, %.critedge.i ], [ %126, %124 ], [ 8, %135 ], [ %186, %181 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
+.critedge:                                        ; preds = %210, %135, %124, %.critedge.i, %51, %181, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %142, %134, %36, %21, %11
+  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %190 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ %186, %181 ], [ 27, %51 ], [ %64, %.critedge.i ], [ %126, %124 ], [ 8, %135 ], [ %213, %210 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1397,7 +1397,7 @@ define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %
   br i1 %22, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %.thread, %19, %16, %13, %7
-  %.sink = phi i32 [ 45, %7 ], [ 42, %16 ], [ 43, %13 ], [ 43, %19 ], [ 42, %.thread ]
+  %.sink = phi i32 [ 43, %19 ], [ 43, %13 ], [ 45, %7 ], [ 42, %16 ], [ 42, %.thread ]
   store i32 %.sink, ptr %4, align 4, !tbaa !125
   br label %23
 
@@ -1480,7 +1480,7 @@ define internal fastcc i32 @pop3_perform_upgrade_tls(ptr noundef %0, ptr noundef
   br label %pop3_perform_capa.exit
 
 pop3_perform_capa.exit:                           ; preds = %33, %23, %7, %20, %5
-  %.0 = phi i32 [ %8, %7 ], [ 0, %20 ], [ %6, %5 ], [ %32, %23 ], [ 0, %33 ]
+  %.0 = phi i32 [ %8, %7 ], [ %6, %5 ], [ 0, %20 ], [ %32, %23 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1548,8 +1548,8 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
   br label %pop3_perform_user.exit
 
 23:                                               ; preds = %16, %9
-  %24 = phi i32 [ %19, %16 ], [ 0, %9 ]
-  %.029 = phi i32 [ %17, %16 ], [ 0, %9 ]
+  %24 = phi i32 [ 0, %9 ], [ %19, %16 ]
+  %.029 = phi i32 [ 0, %9 ], [ %17, %16 ]
   %25 = icmp eq i32 %.029, 0
   %26 = icmp eq i32 %24, 0
   %or.cond = select i1 %25, i1 %26, i1 false
@@ -1625,7 +1625,7 @@ define internal fastcc i32 @pop3_perform_authentication(ptr noundef %0, ptr noun
   br label %pop3_perform_user.exit
 
 pop3_perform_user.exit:                           ; preds = %.thread, %.sink.split.i, %40, %23, %33, %59, %55, %48, %47, %6
-  %.0 = phi i32 [ 0, %6 ], [ %34, %33 ], [ %.029, %23 ], [ 67, %59 ], [ 67, %55 ], [ 67, %48 ], [ 67, %47 ], [ %44, %40 ], [ 0, %.sink.split.i ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %6 ], [ %34, %33 ], [ 67, %47 ], [ %.029, %23 ], [ 67, %59 ], [ 67, %55 ], [ 67, %48 ], [ %44, %40 ], [ 0, %.sink.split.i ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

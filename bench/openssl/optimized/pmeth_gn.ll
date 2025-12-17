@@ -131,8 +131,8 @@ define internal fastcc i32 @gen_init(ptr noundef %0, i32 noundef range(i32 2, 5)
   store i32 0, ptr %0, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %27, %19, %41, %36, %49, %46
-  %.037 = phi i32 [ %.0, %49 ], [ %.0, %46 ], [ 1, %36 ], [ 1, %41 ], [ 1, %19 ], [ 1, %27 ]
+.thread:                                          ; preds = %19, %41, %36, %27, %49, %46
+  %.037 = phi i32 [ %.0, %46 ], [ %.0, %49 ], [ 1, %27 ], [ 1, %36 ], [ 1, %41 ], [ 1, %19 ]
   ret i32 %.037
 
 50:                                               ; preds = %23, %28, %32, %2
@@ -295,7 +295,7 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   br label %75
 
 75:                                               ; preds = %63, %69, %50
-  %.246 = phi i32 [ %68, %63 ], [ %74, %69 ], [ %51, %50 ]
+  %.246 = phi i32 [ %74, %69 ], [ %51, %50 ], [ %68, %63 ]
   %76 = icmp slt i32 %.246, 1
   br i1 %76, label %.thread64, label %81
 
@@ -335,7 +335,7 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   br label %.thread64
 
 81:                                               ; preds = %75, %78, %2, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ %.2466773, %78 ], [ %.246, %75 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %18 ], [ %.2466773, %78 ], [ %.246, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -400,7 +400,7 @@ define internal i32 @ossl_callback_to_pkey_gencb(ptr noundef %0, ptr noundef %1)
   br label %26
 
 26:                                               ; preds = %13, %16, %8, %11, %2, %18
-  %.0 = phi i32 [ %25, %18 ], [ 1, %2 ], [ 0, %11 ], [ 0, %8 ], [ 0, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ %25, %18 ], [ 1, %2 ], [ 0, %8 ], [ 0, %11 ], [ 0, %16 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -667,7 +667,7 @@ define range(i32 -2, 2) i32 @EVP_PKEY_fromdata(ptr noundef readonly captures(add
   br label %27
 
 27:                                               ; preds = %.thread, %25, %26, %11, %19, %10
-  %.014 = phi i32 [ -2, %10 ], [ -1, %19 ], [ -1, %11 ], [ 0, %26 ], [ 0, %25 ], [ 1, %.thread ]
+  %.014 = phi i32 [ -2, %10 ], [ 0, %25 ], [ -1, %19 ], [ -1, %11 ], [ 0, %26 ], [ 1, %.thread ]
   ret i32 %.014
 }
 

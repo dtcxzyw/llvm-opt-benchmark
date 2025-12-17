@@ -193,9 +193,9 @@ define internal fastcc noalias noundef nonnull ptr @_ZnwmRKN12_GLOBAL__N_116Name
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %8, %11, %13, %15, %20, %24
-  %27 = phi ptr [ %25, %24 ], [ %3, %15 ], [ %3, %20 ], [ %3, %11 ], [ %3, %13 ], [ %3, %8 ]
-  %.sroa.3.0.i = phi i64 [ %26, %24 ], [ %19, %15 ], [ %23, %20 ], [ 0, %11 ], [ %14, %13 ], [ 0, %8 ]
-  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %17, %15 ], [ %21, %20 ], [ null, %11 ], [ %12, %13 ], [ null, %8 ]
+  %27 = phi ptr [ %25, %24 ], [ %3, %20 ], [ %3, %8 ], [ %3, %15 ], [ %3, %11 ], [ %3, %13 ]
+  %.sroa.3.0.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ 0, %8 ], [ %19, %15 ], [ 0, %11 ], [ %14, %13 ]
+  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %21, %20 ], [ null, %8 ], [ %17, %15 ], [ null, %11 ], [ %12, %13 ]
   %28 = add nuw nsw i64 %0, 9
   %29 = add i64 %28, %.sroa.3.0.i
   %30 = call noalias ptr @malloc(i64 noundef %29) #25
@@ -346,8 +346,8 @@ define dso_local void @_ZN4llvm12MemoryBuffer14getFileOrSTDINERKNS_5TwineEbbSt8o
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %19, %21, %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %25, %21 ], [ %29, %26 ], [ %20, %19 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %23, %21 ], [ %27, %26 ], [ %18, %19 ]
+  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ %29, %26 ], [ %25, %21 ], [ %20, %19 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ], [ %18, %19 ]
   %.not.i = icmp eq i64 %.sroa.3.0.i, 1
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread7
 
@@ -398,7 +398,7 @@ _ZN4llvm12MemoryBuffer8getSTDINEv.exit:           ; preds = %_ZN4llvm7ErrorOrISt
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !38
   br label %47
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread7:        ; preds = %14, %17, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread7:        ; preds = %17, %14, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   call fastcc void @_ZL10getFileAuxIN4llvm12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineEmmbbbSt8optionalINS0_5AlignEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef -1, i64 noundef 0, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext false, i16 %4)
   br label %47
 
@@ -958,9 +958,9 @@ define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRK
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %12, %15, %17, %19, %24, %28
-  %31 = phi ptr [ %29, %28 ], [ %7, %19 ], [ %7, %24 ], [ %7, %15 ], [ %7, %17 ], [ %7, %12 ]
-  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %23, %19 ], [ %27, %24 ], [ 0, %15 ], [ %18, %17 ], [ 0, %12 ]
-  %.sroa.0.0.i20 = phi ptr [ %29, %28 ], [ %21, %19 ], [ %25, %24 ], [ null, %15 ], [ %16, %17 ], [ null, %12 ]
+  %31 = phi ptr [ %29, %28 ], [ %7, %24 ], [ %7, %12 ], [ %7, %19 ], [ %7, %15 ], [ %7, %17 ]
+  %.sroa.3.0.i = phi i64 [ %30, %28 ], [ %27, %24 ], [ 0, %12 ], [ %23, %19 ], [ 0, %15 ], [ %18, %17 ]
+  %.sroa.0.0.i20 = phi ptr [ %29, %28 ], [ %25, %24 ], [ null, %12 ], [ %21, %19 ], [ null, %15 ], [ %16, %17 ]
   %32 = add i64 %.sroa.3.0.i, 33
   %33 = and i16 %3, 255
   %narrow = select i1 %.not29, i16 4, i16 %33
@@ -1421,7 +1421,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   br label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 69:                                               ; preds = %.thread.i, %59
-  %.017.i = phi i64 [ %.0, %59 ], [ %67, %.thread.i ]
+  %.017.i = phi i64 [ %67, %.thread.i ], [ %.0, %59 ]
   %70 = add i64 %.037, %5
   %.not.i = icmp eq i64 %70, %.017.i
   br i1 %.not.i, label %71, label %_ZL13shouldUseMmapimmlbib.exit.thread
@@ -1493,7 +1493,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %158
 
-_ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %53, %68, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %71, %_ZL13shouldUseMmapimmlbib.exit
+_ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %69, %68, %53, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %71, %_ZL13shouldUseMmapimmlbib.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.3") align 8 %14, i64 noundef %.037, ptr noundef nonnull align 8 dereferenceable(34) %2, i16 %8)
   %104 = load ptr, ptr %14, align 8, !tbaa !45

@@ -146,8 +146,8 @@ define dso_local i64 @move_page_tables(ptr noundef %0, i64 noundef %1, ptr nound
   br label %63
 
 63:                                               ; preds = %56, %52, %49, %41, %36, %28, %24
-  %64 = phi i64 [ %1, %24 ], [ %1, %28 ], [ %1, %49 ], [ %1, %41 ], [ %1, %36 ], [ %34, %52 ], [ %spec.select, %56 ]
-  %65 = phi i64 [ %3, %24 ], [ %3, %28 ], [ %3, %49 ], [ %3, %41 ], [ %3, %36 ], [ %53, %52 ], [ %spec.select33, %56 ]
+  %64 = phi i64 [ %1, %24 ], [ %1, %28 ], [ %1, %36 ], [ %spec.select, %56 ], [ %1, %49 ], [ %1, %41 ], [ %34, %52 ]
+  %65 = phi i64 [ %3, %24 ], [ %3, %28 ], [ %3, %36 ], [ %spec.select33, %56 ], [ %3, %49 ], [ %3, %41 ], [ %53, %52 ]
   store i64 0, ptr %13, align 8, !annotation !5
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
@@ -240,7 +240,7 @@ define dso_local i64 @move_page_tables(ptr noundef %0, i64 noundef %1, ptr nound
   br label %127
 
 127:                                              ; preds = %115, %114
-  %128 = phi ptr [ %126, %115 ], [ %107, %114 ]
+  %128 = phi ptr [ %107, %114 ], [ %126, %115 ]
   %129 = icmp eq ptr %128, null
   br i1 %129, label %alloc_new_pud.exit.thread, label %130
 
@@ -353,7 +353,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   br label %205
 
 205:                                              ; preds = %193, %192
-  %206 = phi ptr [ %204, %193 ], [ %185, %192 ]
+  %206 = phi ptr [ %185, %192 ], [ %204, %193 ]
   %207 = icmp eq ptr %206, null
   br i1 %207, label %alloc_new_pud.exit.thread, label %208
 
@@ -617,14 +617,14 @@ alloc_new_pud.exit29:                             ; preds = %208, %._crit_edge.i
   br i1 %338, label %246, label %.thread30
 
 .thread30:                                        ; preds = %352, %249, %247, %161, %150, %148, %84
-  %353 = phi i64 [ 1073741824, %148 ], [ %94, %84 ], [ %156, %150 ], [ %156, %161 ], [ %156, %352 ], [ %156, %249 ], [ 2097152, %247 ]
+  %353 = phi i64 [ 1073741824, %148 ], [ %156, %161 ], [ %94, %84 ], [ %156, %150 ], [ %156, %352 ], [ %156, %249 ], [ 2097152, %247 ]
   %354 = add i64 %353, %86
   %355 = add i64 %353, %85
   %356 = icmp ult i64 %354, %16
   br i1 %356, label %84, label %alloc_new_pud.exit.thread, !llvm.loop !12
 
 alloc_new_pud.exit.thread:                        ; preds = %189, %212, %205, %226, %alloc_new_pud.exit29, %111, %134, %127, %.thread30, %229, %alloc_new_pud.exit, %257, %78
-  %357 = phi i64 [ %64, %78 ], [ %86, %257 ], [ %86, %189 ], [ %86, %212 ], [ %86, %205 ], [ %86, %226 ], [ %86, %alloc_new_pud.exit29 ], [ %86, %111 ], [ %86, %134 ], [ %86, %127 ], [ %354, %.thread30 ], [ %86, %alloc_new_pud.exit ], [ %86, %229 ]
+  %357 = phi i64 [ %64, %78 ], [ %86, %257 ], [ %86, %189 ], [ %86, %212 ], [ %86, %205 ], [ %86, %226 ], [ %86, %alloc_new_pud.exit29 ], [ %86, %134 ], [ %86, %127 ], [ %86, %111 ], [ %354, %.thread30 ], [ %86, %alloc_new_pud.exit ], [ %86, %229 ]
   %358 = load i32, ptr %71, align 8
   %359 = and i32 %358, 1
   %360 = icmp eq i32 %359, 0

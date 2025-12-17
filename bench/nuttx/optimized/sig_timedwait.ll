@@ -165,7 +165,7 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %75, %73, %48, %46, %21, %16
-  %.0 = phi i32 [ %19, %16 ], [ %19, %21 ], [ -11, %46 ], [ -11, %48 ], [ %.1, %73 ], [ %.1, %75 ]
+  %.0 = phi i32 [ %19, %21 ], [ -11, %48 ], [ %19, %16 ], [ -11, %46 ], [ %.1, %73 ], [ %.1, %75 ]
   ret i32 %.0
 }
 

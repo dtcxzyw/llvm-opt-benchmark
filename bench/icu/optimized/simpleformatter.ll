@@ -72,7 +72,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7715SimpleFormatter27applyPatt
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %12 ]
+  %.0.i = phi ptr [ %22, %20 ], [ %19, %18 ], [ null, %12 ]
   %23 = icmp slt i16 %14, 0
   %24 = ashr i16 %14, 5
   %25 = sext i16 %24 to i32
@@ -308,7 +308,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   br label %.thread137.thread
 
 .thread137.thread:                                ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %127, %.thread137
-  %.0103.lcssa170 = phi i32 [ %.2105, %127 ], [ %.2105, %.thread137 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0103.lcssa170 = phi i32 [ %.2105, %.thread137 ], [ %.2105, %127 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %139 = add nsw i32 %.0103.lcssa170, 1
   %140 = icmp sge i32 %139, %2
   %.not126 = icmp sgt i32 %3, %.0103.lcssa170
@@ -359,7 +359,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %15, %13, %7
-  %.0.i.i.i = phi ptr [ %14, %13 ], [ %17, %15 ], [ null, %7 ]
+  %.0.i.i.i = phi ptr [ %17, %15 ], [ %14, %13 ], [ null, %7 ]
   %18 = icmp slt i16 %9, 0
   %19 = ashr i16 %9, 5
   %20 = sext i16 %19 to i32
@@ -392,7 +392,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br label %.preheader78.i
 
 .preheader78.i:                                   ; preds = %.critedge.i, %29, %31
-  %.0.i.i = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %.critedge.i ]
+  %.0.i.i = phi ptr [ %33, %31 ], [ %30, %29 ], [ null, %.critedge.i ]
   %34 = icmp sgt i32 %23, 1
   br i1 %34, label %.lr.ph81.split.i.preheader, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
@@ -500,7 +500,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %26, %24, %18
-  %.0.i.i = phi ptr [ %25, %24 ], [ %28, %26 ], [ null, %18 ]
+  %.0.i.i = phi ptr [ %28, %26 ], [ %25, %24 ], [ null, %18 ]
   %29 = icmp slt i16 %20, 0
   %30 = ashr i16 %20, 5
   %31 = sext i16 %30 to i32
@@ -538,7 +538,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit: ; preds = %_ZNK6icu_7713U
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %.critedge, %42, %44
-  %.0.i = phi ptr [ %43, %42 ], [ %46, %44 ], [ null, %.critedge ]
+  %.0.i = phi ptr [ %46, %44 ], [ %43, %42 ], [ null, %.critedge ]
   %47 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7715SimpleFormatter6formatEPKDsiPKPKNS_13UnicodeStringERS3_S5_aPiiR10UErrorCode(ptr noundef %.0.i, i32 noundef %34, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef null, i8 noundef signext 1, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %48
 
@@ -579,7 +579,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %18, %16, %10
-  %.0.i.i.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %10 ]
+  %.0.i.i.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %10 ]
   %21 = icmp slt i16 %12, 0
   %22 = ashr i16 %12, 5
   %23 = sext i16 %22 to i32
@@ -612,7 +612,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br label %.preheader78.i
 
 .preheader78.i:                                   ; preds = %.critedge.i, %32, %34
-  %.0.i.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %.critedge.i ]
+  %.0.i.i = phi ptr [ %36, %34 ], [ %33, %32 ], [ null, %.critedge.i ]
   %37 = icmp sgt i32 %26, 1
   br i1 %37, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
@@ -714,7 +714,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %20, %18, %12
-  %.0.i.i.i = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %12 ]
+  %.0.i.i.i = phi ptr [ %22, %20 ], [ %19, %18 ], [ null, %12 ]
   %23 = icmp slt i16 %14, 0
   %24 = ashr i16 %14, 5
   %25 = sext i16 %24 to i32
@@ -747,7 +747,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br label %.preheader78.i
 
 .preheader78.i:                                   ; preds = %.critedge.i, %34, %36
-  %.0.i.i = phi ptr [ %35, %34 ], [ %38, %36 ], [ null, %.critedge.i ]
+  %.0.i.i = phi ptr [ %38, %36 ], [ %35, %34 ], [ null, %.critedge.i ]
   %39 = icmp sgt i32 %28, 1
   br i1 %39, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
@@ -1080,7 +1080,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %26, %28
-  %.0.i = phi ptr [ %27, %26 ], [ %30, %28 ], [ null, %20 ]
+  %.0.i = phi ptr [ %30, %28 ], [ %27, %26 ], [ null, %20 ]
   %31 = icmp slt i16 %22, 0
   %32 = ashr i16 %22, 5
   %33 = sext i16 %32 to i32
@@ -1175,8 +1175,8 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7
   br label %75
 
 75:                                               ; preds = %61, %56, %63, %68, %72
-  %.2 = phi i32 [ %.14669, %68 ], [ %.14669, %63 ], [ %.14669, %56 ], [ %.14669, %72 ], [ %54, %61 ]
-  %.142 = phi i32 [ %50, %68 ], [ %50, %63 ], [ %50, %56 ], [ %74, %72 ], [ 2, %61 ]
+  %.2 = phi i32 [ %.14669, %72 ], [ %54, %61 ], [ %.14669, %68 ], [ %.14669, %63 ], [ %.14669, %56 ]
+  %.142 = phi i32 [ %74, %72 ], [ 2, %61 ], [ %50, %68 ], [ %50, %63 ], [ %50, %56 ]
   %76 = icmp slt i32 %.142, %36
   br i1 %76, label %49, label %._crit_edge, !llvm.loop !22
 

@@ -171,7 +171,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h4417a1ef682b
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf29130c134084590E.exit": ; preds = %2, %21, %7
-  %.0 = phi ptr [ %18, %21 ], [ %0, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ %0, %7 ], [ %18, %21 ], [ null, %2 ]
   ret ptr %.0
 }
 

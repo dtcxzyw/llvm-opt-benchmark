@@ -691,7 +691,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   br label %.thread115.sink.split127.sink.split
 
 .critedge.critedge:                               ; preds = %114, %88, %86, %82
-  %.086 = phi ptr [ null, %82 ], [ %87, %88 ], [ %87, %114 ], [ null, %86 ]
+  %.086 = phi ptr [ null, %82 ], [ %87, %88 ], [ null, %86 ], [ %87, %114 ]
   %130 = call i32 @g_unlink(ptr noundef nonnull %5) #19
   br label %.thread115.sink.split127.sink.split
 
@@ -2174,7 +2174,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %97
 
 97:                                               ; preds = %66, %96
-  %.093 = phi i32 [ %.4, %96 ], [ %.1, %66 ]
+  %.093 = phi i32 [ %.1, %66 ], [ %.4, %96 ]
   %.not110 = icmp eq i32 %.093, 0
   br i1 %.not110, label %.critedge121, label %dt_mipmap_cache_release_with_caller.exit.preheader
 
@@ -2479,7 +2479,7 @@ sub_110:                                          ; preds = %sub_0
   br label %.tail8
 
 .tail8:                                           ; preds = %.tail8.sink.split, %sub_0, %sub_1, %sub_110, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 11, %sub_110 ], [ 11, %sub_1 ], [ 11, %sub_0 ], [ %spec.select, %.tail8.sink.split ]
+  %.0 = phi i32 [ 11, %sub_1 ], [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 11, %sub_0 ], [ 11, %sub_110 ], [ %spec.select, %.tail8.sink.split ]
   ret i32 %.0
 }
 

@@ -947,7 +947,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %117, label %183, label %.split.us.i.invoke, !prof !15
 
 118:                                              ; preds = %109, %.split25.us.i
-  %.sroa.410.0.ph.i = phi i64 [ %115, %109 ], [ %.us-phi26.i, %.split25.us.i ]
+  %.sroa.410.0.ph.i = phi i64 [ %.us-phi26.i, %.split25.us.i ], [ %115, %109 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %120 = load i64, ptr %119, align 8, !alias.scope !238, !noalias !241, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !304)
@@ -1040,7 +1040,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h5b27f107628fae14E.exit.i"
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h5b27f107628fae14E.exit.i": ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h3fabfb65bb5f3d57E.exit.i.i"
-  %157 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i19, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h3fabfb65bb5f3d57E.exit.i.i" ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %157 = phi i64 [ %.pre.i19, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h3fabfb65bb5f3d57E.exit.i.i" ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.pre12.i = load i64, ptr %10, align 8, !alias.scope !326, !noalias !329
   br label %158
 
@@ -1113,7 +1113,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %180
 
 .body:                                            ; preds = %185, %169, %164
-  %eh.lpad-body23 = phi { ptr, i32 } [ %165, %164 ], [ %170, %169 ], [ %lpad.phi, %185 ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %170, %169 ], [ %165, %164 ], [ %lpad.phi, %185 ]
   resume { ptr, i32 } %eh.lpad-body23
 
 .loopexit37:                                      ; preds = %.noexc16, %.noexc15, %.noexc14, %82
@@ -1308,8 +1308,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   br label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h647c61194bafdf81E.llvm.16399167019466869338.exit"
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h647c61194bafdf81E.llvm.16399167019466869338.exit": ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %47, %.split13.us.loopexit21
-  %.sroa.3.0 = phi i64 [ %.pre, %.split13.us.loopexit21 ], [ %.val.i.i.i.us.us, %47 ], [ undef, %._crit_edge.split.us.us ], [ undef, %._crit_edge.split ]
-  %.sroa.0.0 = phi i64 [ 1, %.split13.us.loopexit21 ], [ 1, %47 ], [ 0, %._crit_edge.split.us.us ], [ 0, %._crit_edge.split ]
+  %.sroa.3.0 = phi i64 [ %.pre, %.split13.us.loopexit21 ], [ undef, %._crit_edge.split.us.us ], [ %.val.i.i.i.us.us, %47 ], [ undef, %._crit_edge.split ]
+  %.sroa.0.0 = phi i64 [ 1, %.split13.us.loopexit21 ], [ 0, %._crit_edge.split.us.us ], [ 1, %47 ], [ 0, %._crit_edge.split ]
   %82 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %83 = insertvalue { i64, i64 } %82, i64 %.sroa.3.0, 1
   ret { i64, i64 } %83

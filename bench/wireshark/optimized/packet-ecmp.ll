@@ -1520,7 +1520,7 @@ define internal fastcc noundef i32 @add_option_codes(i32 noundef %0, ptr noundef
   br label %25
 
 25:                                               ; preds = %20, %14, %9
-  %.125 = phi i32 [ %13, %20 ], [ %13, %9 ], [ %19, %14 ]
+  %.125 = phi i32 [ %13, %20 ], [ %19, %14 ], [ %13, %9 ]
   %26 = add i16 %.02627, 1
   br label %9, !llvm.loop !6
 
@@ -1695,7 +1695,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   br label %89
 
 89:                                               ; preds = %56, %._crit_edge, %81, %54
-  %.2 = phi i32 [ %88, %81 ], [ %55, %54 ], [ %80, %._crit_edge ], [ %61, %56 ]
+  %.2 = phi i32 [ %61, %56 ], [ %88, %81 ], [ %55, %54 ], [ %80, %._crit_edge ]
   %90 = add nuw i8 %.0103111, 1
   %.0 = add i32 %.2, 1
   %exitcond.not = icmp eq i8 %90, %10
@@ -1848,7 +1848,7 @@ define internal fastcc void @get_parameter_definitions(ptr noundef %0, i32 nound
   br label %37
 
 37:                                               ; preds = %18, %36, %26, %25
-  %.0 = phi i32 [ 0, %36 ], [ 5, %25 ], [ %35, %26 ], [ 4, %18 ]
+  %.0 = phi i32 [ 0, %36 ], [ %35, %26 ], [ 5, %25 ], [ 4, %18 ]
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2932,8 +2932,8 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %102, %60
-  %.1121 = phi i8 [ %.0120138, %102 ], [ 1, %60 ], [ 1, %.preheader ]
-  %.5 = phi i32 [ %.4, %102 ], [ %55, %60 ], [ %.3, %.preheader ]
+  %.1121 = phi i8 [ 1, %60 ], [ %.0120138, %102 ], [ 1, %.preheader ]
+  %.5 = phi i32 [ %55, %60 ], [ %.4, %102 ], [ %.3, %.preheader ]
   %exitcond.not = icmp eq i32 %59, %20
   br i1 %exitcond.not, label %.loopexit135, label %.preheader134.split.split, !llvm.loop !21
 
@@ -3643,8 +3643,8 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %45, %31, %58
-  %.058.lcssa = phi i16 [ %.159, %58 ], [ %.159.us, %31 ], [ %.159.us79, %45 ]
-  %.1.lcssa = phi i32 [ %51, %58 ], [ %24, %31 ], [ %38, %45 ]
+  %.058.lcssa = phi i16 [ %.159.us, %31 ], [ %.159, %58 ], [ %.159.us79, %45 ]
+  %.1.lcssa = phi i32 [ %24, %31 ], [ %51, %58 ], [ %38, %45 ]
   %.not = icmp eq i16 %.058.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %60
 

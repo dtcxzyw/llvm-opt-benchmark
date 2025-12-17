@@ -140,7 +140,7 @@ switch.lookup:                                    ; preds = %31
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %22, %11, %54, %3
-  %.081 = phi i32 [ 0, %3 ], [ 1, %54 ], [ 0, %11 ], [ 1, %22 ], [ 1, %35 ], [ 1, %.lr.ph ]
+  %.081 = phi i32 [ 1, %54 ], [ 0, %3 ], [ 0, %11 ], [ 1, %35 ], [ 1, %22 ], [ 1, %.lr.ph ]
   ret i32 %.081
 }
 

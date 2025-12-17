@@ -418,7 +418,7 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   br label %glfwDestroyWindow.exit
 
 glfwDestroyWindow.exit:                           ; preds = %76, %66, %21, %15, %14, %10
-  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %15 ], [ %22, %21 ], [ null, %66 ], [ null, %76 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %15 ], [ %22, %21 ], [ null, %10 ], [ null, %66 ], [ null, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

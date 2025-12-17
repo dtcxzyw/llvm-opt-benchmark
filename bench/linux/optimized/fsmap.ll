@@ -728,7 +728,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr noundef captures(
   br i1 %218, label %.loopexit40, label %.preheader39, !llvm.loop !11
 
 .thread:                                          ; preds = %172, %160, %155, %139, %117, %100, %.preheader43
-  %219 = phi i32 [ -117, %.preheader43 ], [ -12, %100 ], [ -12, %117 ], [ -12, %139 ], [ -12, %155 ], [ -12, %160 ], [ -12, %172 ]
+  %219 = phi i32 [ -117, %.preheader43 ], [ -12, %139 ], [ -12, %155 ], [ -12, %160 ], [ -12, %117 ], [ -12, %100 ], [ -12, %172 ]
   %220 = load ptr, ptr %57, align 8
   %221 = icmp eq ptr %220, %57
   br i1 %221, label %.loopexit37, label %.preheader41

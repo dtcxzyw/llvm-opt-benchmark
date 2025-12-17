@@ -615,7 +615,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
           to label %10 unwind label %8
 
 8:                                                ; preds = %10, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %2 ]
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1891,7 +1891,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i8 %.sroa.5.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h2a1c382edaf61649E, i64 69), align 1
   br label %23
 
-.thread23:                                        ; preds = %8, %.critedge.i.i.i, %23
+.thread23:                                        ; preds = %23, %.critedge.i.i.i, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -2117,7 +2117,7 @@ select.unfold:                                    ; preds = %56
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !262
   unreachable
 
-.thread47:                                        ; preds = %58, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i"
+.thread47:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i", %58
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !258
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E.exit"
@@ -2184,7 +2184,7 @@ select.unfold:                                    ; preds = %56
   %80 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.7.0..sroa_idx)
           to label %81 unwind label %124
 
-.thread55:                                        ; preds = %81, %82
+.thread55:                                        ; preds = %82, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
@@ -2366,7 +2366,7 @@ select.unfold:                                    ; preds = %56
           to label %.thread42 unwind label %122
 
 .thread42:                                        ; preds = %124, %.thread55, %70, %54, %32
-  %.pn.pn45 = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
+  %.pn.pn45 = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %33, %32 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %133 unwind label %122
 
@@ -2527,7 +2527,7 @@ select.unfold:                                    ; preds = %56
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !357
   unreachable
 
-.thread47:                                        ; preds = %58, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i"
+.thread47:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i", %58
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !353
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E.exit"
@@ -2594,7 +2594,7 @@ select.unfold:                                    ; preds = %56
   %80 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.7.0..sroa_idx)
           to label %81 unwind label %124
 
-.thread55:                                        ; preds = %81, %82
+.thread55:                                        ; preds = %82, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
@@ -2776,7 +2776,7 @@ select.unfold:                                    ; preds = %56
           to label %.thread42 unwind label %122
 
 .thread42:                                        ; preds = %124, %.thread55, %70, %54, %32
-  %.pn.pn45 = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
+  %.pn.pn45 = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %33, %32 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %133 unwind label %122
 
@@ -2937,7 +2937,7 @@ select.unfold:                                    ; preds = %56
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !451
   unreachable
 
-.thread47:                                        ; preds = %58, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i"
+.thread47:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i", %58
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !447
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E.exit"
@@ -3004,7 +3004,7 @@ select.unfold:                                    ; preds = %56
   %80 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.7.0..sroa_idx)
           to label %81 unwind label %124
 
-.thread55:                                        ; preds = %81, %82
+.thread55:                                        ; preds = %82, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
@@ -3186,7 +3186,7 @@ select.unfold:                                    ; preds = %56
           to label %.thread42 unwind label %122
 
 .thread42:                                        ; preds = %124, %.thread55, %70, %54, %32
-  %.pn.pn45 = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
+  %.pn.pn45 = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %33, %32 ], [ %lpad.thr_comm.split-lp, %124 ], [ %lpad.thr_comm, %.thread55 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %133 unwind label %122
 

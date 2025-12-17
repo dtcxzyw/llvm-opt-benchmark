@@ -193,8 +193,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   br i1 %.0.in.i.i.i51.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i", label %_ZN9itertools11kmerge_impl9sift_down17h0a6e11010284ff73E.exit
 
 .invoke:                                          ; preds = %59, %46, %.lr.ph.i, %32, %30
-  %71 = phi i64 [ %.031.lcssa.i, %30 ], [ %.0.lcssa.i, %32 ], [ %.03169.i, %.lr.ph.i ], [ %57, %46 ], [ %.070.i, %59 ]
-  %72 = phi ptr [ @anon.559764f2e33620411e92921fcd62b3a8.14, %30 ], [ @anon.559764f2e33620411e92921fcd62b3a8.15, %32 ], [ @anon.559764f2e33620411e92921fcd62b3a8.18, %.lr.ph.i ], [ @anon.559764f2e33620411e92921fcd62b3a8.19, %46 ], [ @anon.559764f2e33620411e92921fcd62b3a8.20, %59 ]
+  %71 = phi i64 [ %.0.lcssa.i, %32 ], [ %.031.lcssa.i, %30 ], [ %57, %46 ], [ %.03169.i, %.lr.ph.i ], [ %.070.i, %59 ]
+  %72 = phi ptr [ @anon.559764f2e33620411e92921fcd62b3a8.15, %32 ], [ @anon.559764f2e33620411e92921fcd62b3a8.14, %30 ], [ @anon.559764f2e33620411e92921fcd62b3a8.19, %46 ], [ @anon.559764f2e33620411e92921fcd62b3a8.18, %.lr.ph.i ], [ @anon.559764f2e33620411e92921fcd62b3a8.20, %59 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %71, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) %72) #12
           to label %.cont unwind label %86
 
@@ -1189,8 +1189,8 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
   br i1 %.0.in.i.i.i.i51.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2d1da1a5ab428cd0E.exit53.i.i", label %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i
 
 .invoke:                                          ; preds = %26, %24, %53, %40, %.lr.ph.i.i
-  %65 = phi i64 [ %.03172.i.i, %.lr.ph.i.i ], [ %51, %40 ], [ %.071.i.i, %53 ], [ %.031.lcssa.i.i, %24 ], [ %.0.lcssa.i.i, %26 ]
-  %66 = phi ptr [ @anon.559764f2e33620411e92921fcd62b3a8.18, %.lr.ph.i.i ], [ @anon.559764f2e33620411e92921fcd62b3a8.19, %40 ], [ @anon.559764f2e33620411e92921fcd62b3a8.20, %53 ], [ @anon.559764f2e33620411e92921fcd62b3a8.14, %24 ], [ @anon.559764f2e33620411e92921fcd62b3a8.15, %26 ]
+  %65 = phi i64 [ %51, %40 ], [ %.03172.i.i, %.lr.ph.i.i ], [ %.071.i.i, %53 ], [ %.031.lcssa.i.i, %24 ], [ %.0.lcssa.i.i, %26 ]
+  %66 = phi ptr [ @anon.559764f2e33620411e92921fcd62b3a8.19, %40 ], [ @anon.559764f2e33620411e92921fcd62b3a8.18, %.lr.ph.i.i ], [ @anon.559764f2e33620411e92921fcd62b3a8.20, %53 ], [ @anon.559764f2e33620411e92921fcd62b3a8.14, %24 ], [ @anon.559764f2e33620411e92921fcd62b3a8.15, %26 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %65, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) %66) #12
           to label %.cont unwind label %15
 

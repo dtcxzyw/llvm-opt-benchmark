@@ -323,7 +323,7 @@ define dso_local noalias noundef ptr @_process_jobs(ptr readnone captures(none) 
   br label %79
 
 79:                                               ; preds = %.sink.split.i, %75, %74, %71, %68
-  %.014.i = phi i32 [ %56, %75 ], [ %56, %74 ], [ -1, %71 ], [ -1, %68 ], [ %.014.ph.i, %.sink.split.i ]
+  %.014.i = phi i32 [ %56, %74 ], [ -1, %68 ], [ %56, %75 ], [ -1, %71 ], [ %.014.ph.i, %.sink.split.i ]
   call void @slurm_xfree(ptr noundef nonnull %3) #7
   %80 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @location_mutex) #7
   %.not23.i = icmp eq i32 %80, 0
@@ -335,7 +335,7 @@ define dso_local noalias noundef ptr @_process_jobs(ptr readnone captures(none) 
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._index_job) #9
   unreachable
 
-_index_job.exit.thread:                           ; preds = %41, %49
+_index_job.exit.thread:                           ; preds = %49, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %87

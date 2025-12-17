@@ -5572,8 +5572,8 @@ define hidden void @cfl_store_tx(ptr noundef initializes((47780, 47784)) %0, i32
   br label %sub8x8_adjust_offset.exit
 
 sub8x8_adjust_offset.exit:                        ; preds = %25, %5, %23
-  %.018 = phi i32 [ %.119, %23 ], [ %1, %5 ], [ %.119, %25 ]
-  %.0 = phi i32 [ %2, %23 ], [ %2, %5 ], [ %spec.select20, %25 ]
+  %.018 = phi i32 [ %1, %5 ], [ %.119, %23 ], [ %.119, %25 ]
+  %.0 = phi i32 [ %2, %5 ], [ %2, %23 ], [ %spec.select20, %25 ]
   %29 = mul nsw i32 %10, %1
   %30 = add nsw i32 %29, %2
   %31 = shl i32 %30, 2
@@ -5696,8 +5696,8 @@ define hidden void @cfl_store_block(ptr noundef initializes((47780, 47784)) %0, 
   br label %sub8x8_adjust_offset.exit
 
 sub8x8_adjust_offset.exit:                        ; preds = %18, %3, %16
-  %.027 = phi i32 [ %.128, %16 ], [ 0, %3 ], [ %.128, %18 ]
-  %.0 = phi i32 [ 0, %16 ], [ 0, %3 ], [ %spec.select29, %18 ]
+  %.027 = phi i32 [ 0, %3 ], [ %.128, %16 ], [ %.128, %18 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ %spec.select29, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %5
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
@@ -5845,7 +5845,7 @@ switch.lookup41:                                  ; preds = %.split.i.i
   br label %get_tx_size.exit
 
 get_tx_size.exit:                                 ; preds = %59, %.split.i.i, %switch.lookup41, %switch.lookup35, %switch.lookup, %74, %75, %76, %85, %86, %87, %88
-  %.0.i.shrunk = phi i32 [ 0, %88 ], [ 15, %75 ], [ 17, %76 ], [ 16, %86 ], [ 18, %87 ], [ 13, %74 ], [ 14, %85 ], [ %narrow39, %switch.lookup ], [ %narrow, %switch.lookup35 ], [ %switch.load, %switch.lookup41 ], [ 0, %.split.i.i ], [ 0, %59 ]
+  %.0.i.shrunk = phi i32 [ 14, %85 ], [ 0, %88 ], [ 18, %87 ], [ %switch.load, %switch.lookup41 ], [ 16, %86 ], [ %narrow, %switch.lookup35 ], [ %narrow39, %switch.lookup ], [ 15, %75 ], [ 17, %76 ], [ 13, %74 ], [ 0, %.split.i.i ], [ 0, %59 ]
   %.0.i = zext i32 %.0.i.shrunk to i64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %93 = load ptr, ptr %92, align 8

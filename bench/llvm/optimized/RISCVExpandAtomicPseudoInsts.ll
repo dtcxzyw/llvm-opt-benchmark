@@ -408,7 +408,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   br label %_ZN12_GLOBAL__N_123RISCVExpandAtomicPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.exit.i
 
 _ZN12_GLOBAL__N_123RISCVExpandAtomicPseudo8expandMIERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERS6_.exit.i: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i
-  %.0.i.i = phi i1 [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ false, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ]
+  %.0.i.i = phi i1 [ true, %42 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ false, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ]
   %43 = or i1 %.010.i, %.0.i.i
   %44 = load i64, ptr %3, align 8
   %45 = inttoptr i64 %44 to ptr
@@ -714,7 +714,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZN4llvm1
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i: ; preds = %158, %154, %150, %147, %147, %146, %142, %138, %136, %136
-  %.0.i.neg.i = phi i64 [ -12679, %146 ], [ -12677, %136 ], [ -12677, %136 ], [ %..i.i.neg.i, %138 ], [ %.3.i.i.neg.i, %142 ], [ -12675, %158 ], [ -12673, %147 ], [ -12673, %147 ], [ %..i9.i.neg.i, %150 ], [ %.3.i8.i.neg.i, %154 ]
+  %.0.i.neg.i = phi i64 [ %.3.i.i.neg.i, %142 ], [ -12679, %146 ], [ %..i.i.neg.i, %138 ], [ -12677, %136 ], [ -12677, %136 ], [ -12675, %158 ], [ %..i9.i.neg.i, %150 ], [ -12673, %147 ], [ -12673, %147 ], [ %.3.i8.i.neg.i, %154 ]
   %159 = load ptr, ptr %134, align 8, !tbaa !345
   %160 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %159, i64 %.0.i.neg.i
   %161 = getelementptr inbounds nuw i8, ptr %73, i64 48
@@ -974,7 +974,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit63.i: ; preds = %_ZN4llv
   br label %_ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit.i: ; preds = %238, %234, %230, %227, %227, %226, %222, %218, %216, %216
-  %.0.i64.neg.i = phi i64 [ -12866, %226 ], [ -12863, %216 ], [ -12863, %216 ], [ %..i.i68.neg.i, %218 ], [ %.3.i.i67.neg.i, %222 ], [ -12862, %238 ], [ -12859, %227 ], [ -12859, %227 ], [ %..i9.i66.neg.i, %230 ], [ %.3.i8.i65.neg.i, %234 ]
+  %.0.i64.neg.i = phi i64 [ %.3.i.i67.neg.i, %222 ], [ -12866, %226 ], [ -12863, %216 ], [ %..i.i68.neg.i, %218 ], [ -12863, %216 ], [ -12862, %238 ], [ -12859, %227 ], [ %..i9.i66.neg.i, %230 ], [ -12859, %227 ], [ %.3.i8.i65.neg.i, %234 ]
   %239 = load ptr, ptr %134, align 8, !tbaa !345
   %240 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %239, i64 %.0.i64.neg.i
   %241 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %73, ptr nonnull %161, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(32) %240, i32 %122)
@@ -1200,7 +1200,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66: ; preds = %_ZN4llv
   br label %_ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i: ; preds = %312, %308, %304, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66
-  %.0.i.neg.i67 = phi i64 [ -12679, %312 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ %..i.neg.i, %304 ], [ %.3.i.neg.i, %308 ]
+  %.0.i.neg.i67 = phi i64 [ -12679, %312 ], [ %..i.neg.i, %304 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i66 ], [ %.3.i.neg.i, %308 ]
   %313 = load ptr, ptr %302, align 8, !tbaa !345
   %314 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %313, i64 %.0.i.neg.i67
   %315 = getelementptr inbounds nuw i8, ptr %73, i64 48
@@ -1672,7 +1672,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i: ; preds = %_ZN4ll
   br label %_ZN12_GLOBAL__N_113getSCForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i
 
 _ZN12_GLOBAL__N_113getSCForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit.i: ; preds = %448, %444, %440, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i
-  %.0.i126.neg.i = phi i64 [ -12866, %448 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i ], [ %..i128.neg.i, %440 ], [ %.3.i127.neg.i, %444 ]
+  %.0.i126.neg.i = phi i64 [ -12866, %448 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i ], [ %..i128.neg.i, %440 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit125.i ], [ %.3.i127.neg.i, %444 ]
   %449 = load ptr, ptr %302, align 8, !tbaa !345
   %450 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %449, i64 %.0.i126.neg.i
   %451 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %73, ptr nonnull %315, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(32) %450, i32 %288)
@@ -2099,7 +2099,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   br label %_ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_113getLRForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, %138, %142, %146
-  %.0.i.neg = phi i64 [ -12679, %146 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ %..i.neg, %138 ], [ %.3.i.neg, %142 ]
+  %.0.i.neg = phi i64 [ -12679, %146 ], [ %..i.neg, %138 ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ -12677, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit ], [ %.3.i.neg, %142 ]
   %147 = load ptr, ptr %134, align 8, !tbaa !345
   %148 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %147, i64 %.0.i.neg
   %149 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -2738,7 +2738,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223: ; preds = %_ZN4llvm
   br label %_ZN12_GLOBAL__N_113getSCForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_113getSCForRMW32EN4llvm14AtomicOrderingEPKNS0_14RISCVSubtargetE.exit: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223, %336, %340, %344
-  %.0.i224.neg = phi i64 [ -12866, %344 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223 ], [ %..i226.neg, %336 ], [ %.3.i225.neg, %340 ]
+  %.0.i224.neg = phi i64 [ -12866, %344 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223 ], [ %..i226.neg, %336 ], [ -12863, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit223 ], [ %.3.i225.neg, %340 ]
   %345 = load ptr, ptr %333, align 8, !tbaa !345
   %346 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %345, i64 %.0.i224.neg
   %347 = getelementptr inbounds nuw i8, ptr %63, i64 48
@@ -3083,7 +3083,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i: ; pre
   br i1 %.not.i.i, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit.i, label %.lr.ph.i.i, !llvm.loop !519
 
 _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i, %.lr.ph.i.i
-  %.sroa.03.0.lcssa.i.i = phi ptr [ %.sroa.03.08.i.i, %.lr.ph.i.i ], [ %106, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i ]
+  %.sroa.03.0.lcssa.i.i = phi ptr [ %106, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i ], [ %.sroa.03.08.i.i, %.lr.ph.i.i ]
   %.not127.i = icmp eq i32 %.sroa.0280.0, 0
   br i1 %.not127.i, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit45.i, label %107
 
@@ -3557,7 +3557,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit: ; preds = %277, %277, %279, %283, %287, %288, %288, %291, %295, %299
-  %.0.i.neg = phi i64 [ -12679, %287 ], [ -12677, %277 ], [ -12677, %277 ], [ %..i.i.neg, %279 ], [ %.3.i.i.neg, %283 ], [ -12675, %299 ], [ -12673, %288 ], [ -12673, %288 ], [ %..i9.i.neg, %291 ], [ %.3.i8.i.neg, %295 ]
+  %.0.i.neg = phi i64 [ %.3.i.i.neg, %283 ], [ -12679, %287 ], [ %..i.i.neg, %279 ], [ -12677, %277 ], [ -12677, %277 ], [ -12675, %299 ], [ %..i9.i.neg, %291 ], [ -12673, %288 ], [ -12673, %288 ], [ %.3.i8.i.neg, %295 ]
   %300 = load ptr, ptr %273, align 8, !tbaa !345
   %301 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %300, i64 %.0.i.neg
   %302 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -3763,7 +3763,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit160: ; preds = %_ZN4llvm
   br label %_ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit
 
 _ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit: ; preds = %345, %345, %347, %351, %355, %356, %356, %359, %363, %367
-  %.0.i161.neg = phi i64 [ -12866, %355 ], [ -12863, %345 ], [ -12863, %345 ], [ %..i.i165.neg, %347 ], [ %.3.i.i164.neg, %351 ], [ -12862, %367 ], [ -12859, %356 ], [ -12859, %356 ], [ %..i9.i163.neg, %359 ], [ %.3.i8.i162.neg, %363 ]
+  %.0.i161.neg = phi i64 [ %.3.i.i164.neg, %351 ], [ -12866, %355 ], [ -12863, %345 ], [ %..i.i165.neg, %347 ], [ -12863, %345 ], [ -12862, %367 ], [ -12859, %356 ], [ %..i9.i163.neg, %359 ], [ -12859, %356 ], [ %.3.i8.i162.neg, %363 ]
   %368 = load ptr, ptr %343, align 8, !tbaa !345
   %369 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %368, i64 %.0.i161.neg
   %370 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -3987,7 +3987,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit181: ; preds = %_ZN4llvm
   br label %_ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit187
 
 _ZN12_GLOBAL__N_111getLRForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit187: ; preds = %422, %422, %424, %428, %432, %433, %433, %436, %440, %444
-  %.0.i182.neg = phi i64 [ -12679, %432 ], [ -12677, %422 ], [ -12677, %422 ], [ %..i.i186.neg, %424 ], [ %.3.i.i185.neg, %428 ], [ -12675, %444 ], [ -12673, %433 ], [ -12673, %433 ], [ %..i9.i184.neg, %436 ], [ %.3.i8.i183.neg, %440 ]
+  %.0.i182.neg = phi i64 [ %.3.i.i185.neg, %428 ], [ -12679, %432 ], [ %..i.i186.neg, %424 ], [ -12677, %422 ], [ -12677, %422 ], [ -12675, %444 ], [ %..i9.i184.neg, %436 ], [ -12673, %433 ], [ -12673, %433 ], [ %.3.i8.i183.neg, %440 ]
   %445 = load ptr, ptr %418, align 8, !tbaa !345
   %446 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %445, i64 %.0.i182.neg
   %447 = getelementptr inbounds nuw i8, ptr %57, i64 48
@@ -4285,7 +4285,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit215: ; preds = %_ZN4llvm
   br label %_ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit221
 
 _ZN12_GLOBAL__N_111getSCForRMWEN4llvm14AtomicOrderingEiPKNS0_14RISCVSubtargetE.exit221: ; preds = %518, %518, %520, %524, %528, %529, %529, %532, %536, %540
-  %.0.i216.neg = phi i64 [ -12866, %528 ], [ -12863, %518 ], [ -12863, %518 ], [ %..i.i220.neg, %520 ], [ %.3.i.i219.neg, %524 ], [ -12862, %540 ], [ -12859, %529 ], [ -12859, %529 ], [ %..i9.i218.neg, %532 ], [ %.3.i8.i217.neg, %536 ]
+  %.0.i216.neg = phi i64 [ %.3.i.i219.neg, %524 ], [ -12866, %528 ], [ -12863, %518 ], [ %..i.i220.neg, %520 ], [ -12863, %518 ], [ -12862, %540 ], [ -12859, %529 ], [ %..i9.i218.neg, %532 ], [ -12859, %529 ], [ %.3.i8.i217.neg, %536 ]
   %541 = load ptr, ptr %516, align 8, !tbaa !345
   %542 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %541, i64 %.0.i216.neg
   %543 = getelementptr inbounds nuw i8, ptr %59, i64 48

@@ -83,7 +83,7 @@ define i32 @u_vsnprintf_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   br label %u_vsnprintf_u_77.exit
 
 u_vsnprintf_u_77.exit:                            ; preds = %17, %32
-  %.0.i = phi i32 [ 0, %17 ], [ %spec.select.i, %32 ]
+  %.0.i = phi i32 [ %spec.select.i, %32 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.014, %7
@@ -144,7 +144,7 @@ define i32 @u_sprintf_u_77(ptr noundef %0, ptr noundef %1, ...) local_unnamed_ad
   br label %u_vsnprintf_u_77.exit
 
 u_vsnprintf_u_77.exit:                            ; preds = %2, %20
-  %.0.i = phi i32 [ 0, %2 ], [ %spec.select.i, %20 ]
+  %.0.i = phi i32 [ %spec.select.i, %20 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -192,7 +192,7 @@ define i32 @u_vsnprintf_u_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %24
 
 24:                                               ; preds = %21, %4
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ %spec.select, %21 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -258,7 +258,7 @@ define i32 @u_snprintf_u_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...)
   br label %u_vsnprintf_u_77.exit
 
 u_vsnprintf_u_77.exit:                            ; preds = %3, %21
-  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %21 ]
+  %.0.i = phi i32 [ %spec.select.i, %21 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -315,7 +315,7 @@ define i32 @u_vsprintf_u_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   br label %u_vsnprintf_u_77.exit
 
 u_vsnprintf_u_77.exit:                            ; preds = %3, %20
-  %.0.i = phi i32 [ 0, %3 ], [ %spec.select.i, %20 ]
+  %.0.i = phi i32 [ %spec.select.i, %20 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
@@ -480,7 +480,7 @@ _ZL15u_sprintf_writePvPKDsi.exit74:               ; preds = %11, %61, %_ZL15u_sp
   br label %72
 
 72:                                               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit74, %9
-  %.0 = phi i32 [ %8, %9 ], [ %spec.select, %_ZL15u_sprintf_writePvPKDsi.exit74 ]
+  %.0 = phi i32 [ %spec.select, %_ZL15u_sprintf_writePvPKDsi.exit74 ], [ %8, %9 ]
   ret i32 %.0
 }
 

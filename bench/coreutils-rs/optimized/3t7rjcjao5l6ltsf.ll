@@ -178,7 +178,7 @@ switch.lookup.i.i.i:                              ; preds = %33
   br label %.body.i
 
 .body.i:                                          ; preds = %54, %50, %40, %31
-  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %41, %40 ], [ %32, %31 ], [ %51, %50 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %32, %31 ], [ %41, %40 ], [ %51, %50 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #14
           to label %66 unwind label %64, !noalias !24
 
@@ -442,7 +442,7 @@ default.unreachable:                              ; preds = %63
   br label %71
 
 71:                                               ; preds = %70, %68, %66, %63, %59
-  %.0.i20 = phi i8 [ 0, %70 ], [ %65, %63 ], [ 1, %59 ], [ 2, %68 ], [ 2, %66 ]
+  %.0.i20 = phi i8 [ 0, %70 ], [ 1, %59 ], [ %65, %63 ], [ 2, %68 ], [ 2, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !95
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
@@ -661,7 +661,7 @@ default.unreachable:                              ; preds = %63
   br i1 %exitcond.not, label %37, label %39
 
 common.resume:                                    ; preds = %138, %135, %124, %.body.i.i, %.body.thread36.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.ph, %135 ], [ %lpad.thr_comm.split-lp, %124 ], [ %.pn40.i.i, %.body.thread36.i.i ], [ %.pn.i.i, %.body.i.i ], [ %139, %138 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %.body.i.i ], [ %.pn.ph, %135 ], [ %lpad.thr_comm.split-lp, %124 ], [ %139, %138 ], [ %.pn40.i.i, %.body.thread36.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 135:                                              ; preds = %132, %35, %51
@@ -977,7 +977,7 @@ default.unreachable9:                             ; preds = %12
   br label %20
 
 20:                                               ; preds = %15, %17, %3, %12, %19
-  %.0 = phi i8 [ 0, %19 ], [ %14, %12 ], [ 1, %3 ], [ 2, %17 ], [ 2, %15 ]
+  %.0 = phi i8 [ 0, %19 ], [ 1, %3 ], [ %14, %12 ], [ 2, %17 ], [ 2, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
@@ -2142,7 +2142,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN63_$LT$num_bigi
   invoke void @_ZN10bigdecimal10BigDecimal14take_and_scale17hb3760ec5ae970a79E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, i64 }) align 8 captures(none) dereferenceable(40) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %16, i64 noundef %24)
           to label %100 unwind label %.body.thread15
 
-.body.thread15:                                   ; preds = %96, %86, %89
+.body.thread15:                                   ; preds = %89, %96, %86
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2187,7 +2187,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN63_$LT$num_bigi
   unreachable
 
 .thread:                                          ; preds = %.body.thread, %103
-  %eh.lpad-body1321 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp23, %103 ], [ %eh.lpad-body14, %.body.thread ]
+  %eh.lpad-body1321 = phi { ptr, i32 } [ %eh.lpad-body14, %.body.thread ], [ %lpad.thr_comm.split-lp23, %103 ]
   resume { ptr, i32 } %eh.lpad-body1321
 
 103:                                              ; preds = %27
@@ -2222,7 +2222,7 @@ define internal fastcc void @"_ZN64_$LT$bigdecimal..BigDecimal$u20$as$u20$core..
     i8 1, label %31
   ]
 
-.thread24:                                        ; preds = %21, %24
+.thread24:                                        ; preds = %24, %21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread17
@@ -2327,7 +2327,7 @@ default.unreachable:                              ; preds = %3
           to label %.thread.thread unwind label %38
 
 .thread.thread:                                   ; preds = %36, %.thread17, %40
-  %.pn1532 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp35, %40 ], [ %37, %36 ], [ %eh.lpad-body22, %.thread17 ]
+  %.pn1532 = phi { ptr, i32 } [ %eh.lpad-body22, %.thread17 ], [ %lpad.thr_comm.split-lp35, %40 ], [ %37, %36 ]
   resume { ptr, i32 } %.pn1532
 
 40:                                               ; preds = %17
@@ -2409,7 +2409,7 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 .thread:                                          ; preds = %19, %23
-  %.pn10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %23 ], [ %20, %19 ]
+  %.pn10 = phi { ptr, i32 } [ %20, %19 ], [ %lpad.thr_comm.split-lp, %23 ]
   resume { ptr, i32 } %.pn10
 
 23:                                               ; preds = %14
@@ -2640,7 +2640,7 @@ define noundef zeroext i1 @"_ZN85_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   ret i1 %.0.in
 
 .thread:                                          ; preds = %37, %44, %68
-  %.pn17 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %68 ], [ %45, %44 ], [ %38, %37 ]
+  %.pn17 = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm.split-lp, %68 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn17
 
 68:                                               ; preds = %42
@@ -2685,7 +2685,7 @@ define noundef zeroext i1 @"_ZN95_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   br label %11
 
 11:                                               ; preds = %1, %10, %6
-  %.0 = phi i1 [ %9, %6 ], [ true, %10 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %10 ], [ %9, %6 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -2765,7 +2765,7 @@ switch.lookup36:                                  ; preds = %3
   br label %31
 
 31:                                               ; preds = %switch.lookup36, %switch.lookup, %15, %3, %30, %28
-  %.sink = phi i64 [ -9223372036854775805, %30 ], [ -9223372036854775807, %28 ], [ -9223372036854775805, %3 ], [ -9223372036854775808, %15 ], [ %switch.load, %switch.lookup ], [ %switch.load38, %switch.lookup36 ]
+  %.sink = phi i64 [ -9223372036854775805, %3 ], [ %switch.load38, %switch.lookup36 ], [ -9223372036854775805, %30 ], [ -9223372036854775807, %28 ], [ %switch.load, %switch.lookup ], [ -9223372036854775808, %15 ]
   store i64 %.sink, ptr %0, align 8
   %32 = icmp sgt i64 %10, -9223372036854775805
   br i1 %32, label %34, label %.thread21
@@ -2895,7 +2895,7 @@ define noundef zeroext i1 @"_ZN87_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   br label %22
 
 22:                                               ; preds = %8, %2, %17, %14, %11, %20
-  %.0 = phi i1 [ %21, %20 ], [ %13, %11 ], [ %16, %14 ], [ %19, %17 ], [ false, %2 ], [ false, %8 ]
+  %.0 = phi i1 [ %21, %20 ], [ false, %2 ], [ false, %8 ], [ %16, %14 ], [ %13, %11 ], [ %19, %17 ]
   ret i1 %.0
 }
 
@@ -2993,7 +2993,7 @@ switch.lookup19:                                  ; preds = %2
   br label %37
 
 37:                                               ; preds = %switch.lookup19, %switch.lookup, %25, %12, %2, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16", %55, %54, %53, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit", %36, %32, %30
-  %.0 = phi i8 [ %31, %30 ], [ 1, %32 ], [ %35, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 2, %36 ], [ %52, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16" ], [ 1, %53 ], [ 0, %54 ], [ 2, %55 ], [ 2, %2 ], [ -1, %12 ], [ -1, %25 ], [ %switch.masked, %switch.lookup ], [ %switch.masked23, %switch.lookup19 ]
+  %.0 = phi i8 [ %31, %30 ], [ 2, %2 ], [ 1, %32 ], [ %35, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 2, %36 ], [ -1, %12 ], [ 1, %53 ], [ %switch.masked, %switch.lookup ], [ -1, %25 ], [ %52, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit16" ], [ 2, %55 ], [ %switch.masked23, %switch.lookup19 ], [ 0, %54 ]
   ret i8 %.0
 
 38:                                               ; preds = %33

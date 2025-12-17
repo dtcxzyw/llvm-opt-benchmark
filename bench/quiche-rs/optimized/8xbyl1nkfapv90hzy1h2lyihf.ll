@@ -143,7 +143,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14"
 
 "_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14": ; preds = %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr278drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..failed_handshakes$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h278a691ae840052aE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -284,7 +284,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14"
 
 "_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14": ; preds = %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr266drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..handshake_time_seconds$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h1743a569537e93d9E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -425,7 +425,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14"
 
 "_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14": ; preds = %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr291drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h938d54fe419a460fE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -566,7 +566,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14"
 
 "_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_accepted_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfb67816a2ede5a2dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -707,7 +707,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14"
 
 "_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14": ; preds = %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..write_errors$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h7505eb974420baa0E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -848,7 +848,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14"
 
 "_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14": ; preds = %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr282drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_schedule_delay_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17h2ce6bef5e04ae0b0E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -989,7 +989,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14"
 
 "_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14": ; preds = %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr300drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..expensive_rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hde4f497c3cb9fb7dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1130,7 +1130,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14"
 
 "_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14": ; preds = %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr297drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_total_poll_time_micros$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h800bc9215a8d6f72E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1271,7 +1271,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14"
 
 "_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14": ; preds = %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr294drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h4da3ef3af0173c2dE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1412,7 +1412,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14"
 
 "_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14": ; preds = %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr285drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..invalid_cid_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h76a954579742b236E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1553,7 +1553,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14"
 
 "_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14": ; preds = %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr290drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..rejected_initial_packet_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h02718694dbe1a68bE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1694,7 +1694,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14"
 
 "_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14": ; preds = %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr293drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..peer_quic_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17h8c69db780aa1b493E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1835,7 +1835,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14"
 
 "_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14": ; preds = %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr281drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..tokio..runtime_task_poll_duration_histogram$GT$$C$prometools..histogram..TimeHistogram$GT$$GT$$GT$17hac25a6dfc0c925f1E.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -1976,7 +1976,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   br label %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14"
 
 "_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14": ; preds = %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split", %57, %52
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %51, %57 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split" ]
+  %.sroa.0.0 = phi ptr [ %51, %57 ], [ null, %52 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr292drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$prometools..serde..Bridge$LT$tokio_quiche..metrics..quic..local_h3_conn_close_error_count$GT$$C$prometools..nonstandard..NonstandardUnsuffixedCounter$GT$$GT$$GT$17hfc01f3719e78520aE.exit14.sink.split" ]
   ret ptr %.sroa.0.0
 
 56:                                               ; preds = %48
@@ -2120,7 +2120,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %109, %113, %119, %116, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %50 ], [ %lpad.phi.i14, %109 ], [ %lpad.phi.i14, %113 ], [ %lpad.thr_comm, %119 ], [ %lpad.thr_comm, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %116 ], [ %lpad.phi.i14, %113 ], [ %lpad.phi.i14, %109 ], [ %lpad.thr_comm, %119 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -2301,7 +2301,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-116:                                              ; preds = %64, %68, %.noexc
+116:                                              ; preds = %68, %.noexc, %64
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %117 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
@@ -2436,7 +2436,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %105, %109, %115, %112, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %105 ], [ %lpad.phi.i15, %109 ], [ %lpad.thr_comm, %115 ], [ %lpad.thr_comm, %112 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %112 ], [ %lpad.phi.i15, %109 ], [ %lpad.phi.i15, %105 ], [ %lpad.thr_comm, %115 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -2600,7 +2600,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-112:                                              ; preds = %62, %66, %.noexc
+112:                                              ; preds = %66, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %113 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -2735,7 +2735,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %113, %117, %123, %120, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %113 ], [ %lpad.phi.i15, %117 ], [ %lpad.thr_comm, %123 ], [ %lpad.thr_comm, %120 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %120 ], [ %lpad.phi.i15, %117 ], [ %lpad.phi.i15, %113 ], [ %lpad.thr_comm, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -2796,7 +2796,7 @@ common.resume:                                    ; preds = %113, %117, %123, %1
   br label %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
 
 "_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit": ; preds = %70, %69, %68, %67, %62
-  %.sroa.0.0.i.i.i = phi i8 [ 7, %67 ], [ %.val5, %68 ], [ 9, %69 ], [ 10, %70 ], [ 6, %62 ]
+  %.sroa.0.0.i.i.i = phi i8 [ 10, %70 ], [ 7, %67 ], [ %.val5, %68 ], [ 9, %69 ], [ 6, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hfd1b48571f5e0afcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %15, i8 noundef %.sroa.0.0.i.i.i)
           to label %71 unwind label %120
@@ -2929,7 +2929,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-120:                                              ; preds = %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit", %74, %.noexc
+120:                                              ; preds = %74, %.noexc, %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h330694510465029fE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %121 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -3066,7 +3066,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %118, %122, %127, %.body.thread, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %50 ], [ %lpad.phi.i14, %118 ], [ %lpad.phi.i14, %122 ], [ %eh.lpad-body58, %127 ], [ %eh.lpad-body58, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i14, %122 ], [ %eh.lpad-body58, %.body.thread ], [ %lpad.phi.i14, %118 ], [ %eh.lpad-body58, %127 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit76:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -3411,7 +3411,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %104 ], [ %lpad.phi.i15, %108 ], [ %lpad.thr_comm, %114 ], [ %lpad.thr_comm, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i15, %108 ], [ %lpad.phi.i15, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -3573,7 +3573,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-111:                                              ; preds = %62, %65, %.noexc
+111:                                              ; preds = %65, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -3710,7 +3710,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %118, %122, %127, %.body.thread, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %50 ], [ %lpad.phi.i15, %118 ], [ %lpad.phi.i15, %122 ], [ %eh.lpad-body59, %127 ], [ %eh.lpad-body59, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i15, %122 ], [ %eh.lpad-body59, %.body.thread ], [ %lpad.phi.i15, %118 ], [ %eh.lpad-body59, %127 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit78:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -4056,7 +4056,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %104 ], [ %lpad.phi.i15, %108 ], [ %lpad.thr_comm, %114 ], [ %lpad.thr_comm, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i15, %108 ], [ %lpad.phi.i15, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -4218,7 +4218,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-111:                                              ; preds = %62, %65, %.noexc
+111:                                              ; preds = %65, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -4353,7 +4353,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %104 ], [ %lpad.phi.i15, %108 ], [ %lpad.thr_comm, %114 ], [ %lpad.thr_comm, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i15, %108 ], [ %lpad.phi.i15, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -4515,7 +4515,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-111:                                              ; preds = %62, %65, %.noexc
+111:                                              ; preds = %65, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -4653,7 +4653,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %115, %119, %124, %.body.thread, %51, %55
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %55 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i13, %115 ], [ %lpad.phi.i13, %119 ], [ %eh.lpad-body61, %124 ], [ %eh.lpad-body61, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %lpad.phi.i13, %119 ], [ %eh.lpad-body61, %.body.thread ], [ %lpad.phi.i13, %115 ], [ %eh.lpad-body61, %124 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit79:                                      ; preds = %._crit_edge.i.i.i.i, %17
@@ -4688,7 +4688,7 @@ common.resume:                                    ; preds = %115, %119, %124, %.
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h264d14c2948c37e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h033afb6d3a59e4ffE.exit" unwind label %.body.thread65
 
-.body.thread65:                                   ; preds = %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h033afb6d3a59e4ffE.exit", %65, %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$13get_or_create28_$u7b$$u7b$closure$u7d$$u7d$17h741a1499e6412de1E.exit.i"
+.body.thread65:                                   ; preds = %65, %"_ZN17prometheus_client7metrics6family23Family$LT$S$C$M$C$C$GT$13get_or_create28_$u7b$$u7b$closure$u7d$$u7d$17h741a1499e6412de1E.exit.i", %"_ZN73_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h033afb6d3a59e4ffE.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -4997,7 +4997,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %105, %109, %115, %112, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i14, %105 ], [ %lpad.phi.i14, %109 ], [ %lpad.thr_comm, %115 ], [ %lpad.thr_comm, %112 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %112 ], [ %lpad.phi.i14, %109 ], [ %lpad.phi.i14, %105 ], [ %lpad.thr_comm, %115 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit62:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -5160,7 +5160,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-112:                                              ; preds = %62, %66, %.noexc
+112:                                              ; preds = %66, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %113 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -5298,7 +5298,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %120, %124, %130, %127, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %50 ], [ %lpad.phi.i14, %120 ], [ %lpad.phi.i14, %124 ], [ %lpad.thr_comm, %130 ], [ %lpad.thr_comm, %127 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.thr_comm, %127 ], [ %lpad.phi.i14, %124 ], [ %lpad.phi.i14, %120 ], [ %lpad.thr_comm, %130 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -5364,7 +5364,7 @@ common.resume:                                    ; preds = %120, %124, %130, %1
   br label %75
 
 75:                                               ; preds = %74, %73, %72, %71, %64
-  %.sroa.0.0.i.i = phi i8 [ 7, %71 ], [ %66, %72 ], [ 9, %73 ], [ 10, %74 ], [ 6, %64 ]
+  %.sroa.0.0.i.i = phi i8 [ 10, %74 ], [ 7, %71 ], [ %66, %72 ], [ 9, %73 ], [ 6, %64 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %5, ptr noundef nonnull readonly align 1 dereferenceable(18) %1, i64 17, i1 false), !alias.scope !572
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !562, !noalias !565
@@ -5515,7 +5515,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-127:                                              ; preds = %75, %79, %.noexc
+127:                                              ; preds = %79, %.noexc, %75
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %128 = cmpxchg ptr %7, i64 8, i64 0 release monotonic, align 8
@@ -5650,7 +5650,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %107, %111, %117, %114, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %107 ], [ %lpad.phi.i15, %111 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %114 ], [ %lpad.phi.i15, %111 ], [ %lpad.phi.i15, %107 ], [ %lpad.thr_comm, %117 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit64:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -5816,7 +5816,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-114:                                              ; preds = %62, %67, %.noexc
+114:                                              ; preds = %67, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %115 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -5953,7 +5953,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %118, %122, %127, %.body.thread, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %50 ], [ %lpad.phi.i14, %118 ], [ %lpad.phi.i14, %122 ], [ %eh.lpad-body58, %127 ], [ %eh.lpad-body58, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %50 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i14, %122 ], [ %eh.lpad-body58, %.body.thread ], [ %lpad.phi.i14, %118 ], [ %eh.lpad-body58, %127 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit76:                                      ; preds = %._crit_edge.i.i.i.i, %16
@@ -6298,7 +6298,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
   unreachable
 
 common.resume:                                    ; preds = %104, %108, %114, %111, %48, %52
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %52 ], [ %lpad.phi.i, %48 ], [ %lpad.phi.i15, %104 ], [ %lpad.phi.i15, %108 ], [ %lpad.thr_comm, %114 ], [ %lpad.thr_comm, %111 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %lpad.phi.i, %52 ], [ %lpad.thr_comm, %111 ], [ %lpad.phi.i15, %108 ], [ %lpad.phi.i15, %104 ], [ %lpad.thr_comm, %114 ]
   resume { ptr, i32 } %common.resume.op
 
 .loopexit63:                                      ; preds = %._crit_edge.i.i.i.i, %14
@@ -6460,7 +6460,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-111:                                              ; preds = %62, %65, %.noexc
+111:                                              ; preds = %65, %.noexc, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %112 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8

@@ -134,7 +134,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %82, label %.thread925
 
 .thread925.sink.split:                            ; preds = %74, %76, %68, %64, %66, %58, %55, %52, %49, %15
-  %.sink = phi i32 [ -1, %15 ], [ -2, %49 ], [ -3, %52 ], [ -4, %55 ], [ -5, %58 ], [ -9, %66 ], [ -9, %64 ], [ -11, %68 ], [ -13, %76 ], [ -13, %74 ]
+  %.sink = phi i32 [ -1, %15 ], [ -2, %49 ], [ -4, %55 ], [ -9, %64 ], [ -11, %68 ], [ -5, %58 ], [ -3, %52 ], [ -9, %66 ], [ -13, %76 ], [ -13, %74 ]
   store i32 %.sink, ptr %14, align 4, !tbaa !3
   br label %.thread925
 
@@ -169,7 +169,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %88
-  %89 = phi i32 [ %50, %83 ], [ %.pre, %88 ]
+  %89 = phi i32 [ %.pre, %88 ], [ %50, %83 ]
   %90 = add nsw i32 %89, -1
   %91 = shl nsw i32 %90, 1
   %92 = mul nsw i32 %90, 3
@@ -299,7 +299,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1372.not, label %._crit_edge1093, label %.lr.ph1092, !llvm.loop !12
 
 ._crit_edge1093:                                  ; preds = %.lr.ph1092, %.thread, %142
-  %.1859.lcssa = phi double [ %141, %142 ], [ 0.000000e+00, %.thread ], [ %150, %.lr.ph1092 ]
+  %.1859.lcssa = phi double [ 0.000000e+00, %.thread ], [ %141, %142 ], [ %150, %.lr.ph1092 ]
   %151 = fcmp oge double %131, 0.000000e+00
   br i1 %151, label %152, label %181
 
@@ -629,7 +629,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %313, %329, %355, %368
-  %.08431193.be = phi i32 [ 1, %313 ], [ 1, %329 ], [ %.1844933, %355 ], [ %.1844933, %368 ]
+  %.08431193.be = phi i32 [ 1, %329 ], [ %.1844933, %368 ], [ %.1844933, %355 ], [ 1, %313 ]
   br label %.backedge
 
 314:                                              ; preds = %.thread927

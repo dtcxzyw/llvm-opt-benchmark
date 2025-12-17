@@ -507,7 +507,7 @@ define dso_local i32 @ipc_addid(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %.thread
 
 .thread:                                          ; preds = %65, %228
-  %231 = phi i32 [ %32, %65 ], [ %226, %228 ]
+  %231 = phi i32 [ %226, %228 ], [ %32, %65 ]
   store i8 1, ptr %23, align 4
   call void @_raw_spin_unlock(ptr noundef %1) #15
   call void @__rcu_read_unlock() #15

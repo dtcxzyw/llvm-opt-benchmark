@@ -1192,9 +1192,9 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %20, %29
   br i1 %89, label %58, label %_ZN6Gluco210SimpSolver11extendModelEv.exit, !llvm.loop !102
 
 _ZN6Gluco210SimpSolver11extendModelEv.exit:       ; preds = %.loopexit.i, %43, %47, %51, %48
-  %.sroa.027.169 = phi i8 [ 0, %51 ], [ %49, %48 ], [ 1, %47 ], [ 1, %43 ], [ %49, %.loopexit.i ]
-  %.sroa.9.03368 = phi i32 [ %.sroa.9.034, %51 ], [ %.sroa.9.034, %48 ], [ %.sroa.9.1.lcssa, %47 ], [ %.sroa.9.1.lcssa, %43 ], [ %.sroa.9.034, %.loopexit.i ]
-  %.sroa.020.03567 = phi ptr [ %.sroa.020.036, %51 ], [ %.sroa.020.036, %48 ], [ %.sroa.020.1.lcssa, %47 ], [ %.sroa.020.1.lcssa, %43 ], [ %.sroa.020.036, %.loopexit.i ]
+  %.sroa.027.169 = phi i8 [ %49, %48 ], [ 0, %51 ], [ 1, %47 ], [ 1, %43 ], [ %49, %.loopexit.i ]
+  %.sroa.9.03368 = phi i32 [ %.sroa.9.034, %48 ], [ %.sroa.9.034, %51 ], [ %.sroa.9.1.lcssa, %47 ], [ %.sroa.9.1.lcssa, %43 ], [ %.sroa.9.034, %.loopexit.i ]
+  %.sroa.020.03567 = phi ptr [ %.sroa.020.036, %48 ], [ %.sroa.020.036, %51 ], [ %.sroa.020.1.lcssa, %47 ], [ %.sroa.020.1.lcssa, %43 ], [ %.sroa.020.036, %.loopexit.i ]
   %90 = icmp sgt i32 %.sroa.9.03368, 0
   %or.cond = select i1 %.not.not, i1 %90, i1 false
   br i1 %or.cond, label %.lr.ph51, label %.loopexit
@@ -1530,13 +1530,13 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %._ZNK6Gluco210Si
   tail call void %134(ptr noundef nonnull align 8 dereferenceable(1416) %0) #23
   br label %135
 
-135:                                              ; preds = %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread, %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit, %.critedge6, %131
+135:                                              ; preds = %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit, %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread, %.critedge6, %131
   %136 = add nuw nsw i32 %.02563, 1
   %137 = load i32, ptr %15, align 8, !tbaa !84
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %.critedge32.backedge, label %.lr.ph, !llvm.loop !113
 
-.critedge:                                        ; preds = %34, %107, %122, %.preheader.i.i, %._crit_edge.i, %31, %53
+.critedge:                                        ; preds = %34, %122, %107, %.preheader.i.i, %._crit_edge.i, %31, %53
   br i1 %1, label %139, label %167
 
 139:                                              ; preds = %.critedge
@@ -1668,7 +1668,7 @@ _ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %_ZN6Gluco26Solver12
   br label %198
 
 198:                                              ; preds = %194, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %4 ], [ %197, %194 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %2 ], [ %197, %194 ]
   ret i1 %.0
 }
 
@@ -2073,7 +2073,7 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %_ZN6G
   br i1 %199, label %72, label %.loopexit, !llvm.loop !117
 
 .loopexit:                                        ; preds = %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread, %47, %39, %43, %11, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %43 ], [ true, %39 ], [ true, %47 ], [ true, %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread ]
+  %.0 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %39 ], [ true, %43 ], [ true, %47 ], [ true, %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread ]
   ret i1 %.0
 }
 
@@ -2929,7 +2929,7 @@ _ZN6Gluco26Solver7enqueueENS_3LitEj.exit:         ; preds = %200
   br label %215
 
 215:                                              ; preds = %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit, %_ZN6Gluco26Solver7enqueueENS_3LitEj.exit, %212
-  %216 = phi i1 [ false, %_ZN6Gluco26Solver7enqueueENS_3LitEj.exit ], [ %214, %212 ], [ true, %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit ]
+  %216 = phi i1 [ %214, %212 ], [ false, %_ZN6Gluco26Solver7enqueueENS_3LitEj.exit ], [ true, %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit ]
   ret i1 %216
 }
 
@@ -4027,10 +4027,10 @@ _ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98:  ; preds = %_ZNK6Gluco26Clause8
   %spec.select = add nsw i32 %.070127, %199
   br label %.thread101
 
-.thread101:                                       ; preds = %184, %185, %_ZNK6Gluco26Clause8subsumesERKS0_.exit, %162, %171, %168, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, %195, %153
-  %.373 = phi i32 [ %.070127, %153 ], [ %spec.select, %195 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.070127, %168 ], [ %.070127, %171 ], [ %.070127, %162 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.070127, %185 ], [ %.070127, %184 ]
-  %.666 = phi i32 [ %.262128, %153 ], [ %196, %195 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.262128, %168 ], [ %.262128, %171 ], [ %.262128, %162 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.262128, %185 ], [ %.262128, %184 ]
-  %.659 = phi i32 [ %.255129, %153 ], [ %.255129, %195 ], [ %191, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.255129, %168 ], [ %.255129, %171 ], [ %.255129, %162 ], [ %.255129, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.255129, %185 ], [ %.255129, %184 ]
+.thread101:                                       ; preds = %184, %185, %_ZNK6Gluco26Clause8subsumesERKS0_.exit, %162, %168, %171, %195, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98, %153
+  %.373 = phi i32 [ %.070127, %153 ], [ %.070127, %168 ], [ %.070127, %162 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %spec.select, %195 ], [ %.070127, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.070127, %171 ], [ %.070127, %185 ], [ %.070127, %184 ]
+  %.666 = phi i32 [ %.262128, %153 ], [ %.262128, %168 ], [ %.262128, %162 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %196, %195 ], [ %.262128, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.262128, %171 ], [ %.262128, %185 ], [ %.262128, %184 ]
+  %.659 = phi i32 [ %.255129, %153 ], [ %.255129, %168 ], [ %.255129, %162 ], [ %191, %_ZNK6Gluco26Clause8subsumesERKS0_.exit.thread98 ], [ %.255129, %195 ], [ %.255129, %_ZNK6Gluco26Clause8subsumesERKS0_.exit ], [ %.255129, %171 ], [ %.255129, %185 ], [ %.255129, %184 ]
   %200 = add nsw i32 %.373, 1
   %201 = load i32, ptr %139, align 8, !tbaa !72
   %202 = icmp slt i32 %200, %201
@@ -4262,7 +4262,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   br label %71
 
 71:                                               ; preds = %70, %65, %3, %10
-  %.0 = phi i1 [ true, %10 ], [ true, %3 ], [ true, %70 ], [ false, %65 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %10 ], [ true, %70 ], [ false, %65 ]
   ret i1 %.0
 }
 
@@ -4378,7 +4378,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit, %45, %.critedge11
-  %.09 = phi i1 [ %56, %.critedge11 ], [ true, %45 ], [ true, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ false, %.lr.ph ]
+  %.09 = phi i1 [ true, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %56, %.critedge11 ], [ true, %45 ], [ false, %.lr.ph ]
   ret i1 %.09
 }
 
